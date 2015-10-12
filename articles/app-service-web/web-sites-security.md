@@ -1,7 +1,7 @@
 <properties
 	pageTitle="保護 Azure App Service 中的 Web 應用程式"
 	description="了解如何保護 Azure Web 應用程式的安全。"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
@@ -88,4 +88,4 @@ Azure 針對 Web 應用程式的檔案系統，提供透過 **FTPS** 的安全 F
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

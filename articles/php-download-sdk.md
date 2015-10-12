@@ -105,7 +105,9 @@ Azure PowerShell 是一組 PowerShell Cmdlet，可用於部署和管理 Azure �
 
 Azure CLI 是一組命令，可用於部署和管理 Azure 服務，例如 Azure 網站和 Azure 虛擬機器。如需安裝 Azure CLI 的相關資訊，請參閱[安裝 Azure CLI](xplat-cli-install.md)。
 
+## 後續步驟
 
+如需詳細資訊，請參閱 [PHP 開發人員中心](/develop/php/)。
 
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -128,4 +130,4 @@ Azure CLI 是一組命令，可用於部署和管理 Azure 服務，例如 Azure
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

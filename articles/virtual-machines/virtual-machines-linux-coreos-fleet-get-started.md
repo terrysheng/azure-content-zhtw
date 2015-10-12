@@ -159,7 +159,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 * 如需在 Azure 中的 Linux VM 使用開放原始碼環境的詳細資訊，請參閱 [Azure 上的 Linux 和開放原始碼運算]。
 
 <!--Link references-->
-[Azure Command-Line Interface (Azure)]: ../xplat-cli.md
+[Azure Command-Line Interface (Azure)]: ../xplat-cli-install.md
 [ CoreOS]: https://coreos.com/
 [CoreOS 概觀]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -175,4 +175,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [CoreOS Apache Docker 中樞映像]: https://registry.hub.docker.com/u/coreos/apache/
 [Azure 上的 Linux 和開放原始碼運算]: virtual-machines-linux-opensource.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

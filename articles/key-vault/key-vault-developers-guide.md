@@ -33,7 +33,7 @@
 
 ## 金鑰保存庫的程式設計
 
-程式設計人員的金鑰保存庫管理系統由幾個介面組成，並以 REST 做為基礎。
+程式設計人員的金鑰保存庫管理系統由幾個介面組成，並以 REST 做為基礎。REST 參考中的文章[有關金鑰和密碼](https://msdn.microsoft.com/library/azure/dn903623.aspx)提供核心概念
 
 ### REST
 
@@ -47,19 +47,24 @@ REST API 是以程式設計方式和金鑰保存庫互動的基礎。
 
 ### Node.js
 
-Node.js API 是一組包裝函式，可透過 JavaScript 程式設計模型實作，而不需要直接與 REST 端點互動。您可以在這裡找到 [Microsoft Azure SDK for Node.js - 金鑰保存庫管理](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)。
+Node.js API 是一組包裝函式，可透過 node.js 程式設計模型實作，而不需要直接與 REST 端點互動。您可以在這裡找到 [Microsoft Azure SDK for Node.js - 金鑰保存庫管理](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)。
 
-## 使用 PowerShell 和 CLI 管理金鑰保存庫
+## 管理金鑰保存庫
 
-Azure 金鑰保存庫金鑰和密碼也可以使用 PowerShell 和 CLI 管理，如下列文章中所述：
+Azure 金鑰保存庫容器 (保存庫) 可以使用 PowerShell 或 CLI 管理，如下列文章中所述：
 
 - [使用 PowerShell 建立和管理金鑰保存庫](key-vault-get-started.md)
 - [使用 CLI 建立和管理金鑰保存庫](key-vault-manage-with-cli.md)
+
+
+## 作法
+
+下列文章提供工作的特定指引：
+
 - [如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰](key-vault-hsm-protected-keys.md)
-- [關於金鑰和密碼](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
-## 另請參閱
+## 範例
 
-- [Azure 金鑰保存庫程式碼範例](http://www.microsoft.com/download/details.aspx?id=45343)
+- 這個下載包含範例應用程式 HelloKeyVault 和 Azure Web 服務範例。[Azure 金鑰保存庫程式碼範例](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

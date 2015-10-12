@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用機器學習分析客戶流失 | Microsoft Azure" 
-	description="開發整合式模型以分析及評分客戶流失的案例研究" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jeannt" 
-	manager="paulettm" 
+<properties
+	pageTitle="使用機器學習分析客戶流失 | Microsoft Azure"
+	description="開發整合式模型以分析及評分客戶流失的案例研究"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jeannt"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/28/2015" 
 	ms.author="jeannt"/>
 
 # 使用 Azure Machine Learning 分析客戶流失
@@ -54,17 +54,17 @@
 這個預視方法是應付流失最好的方法，但是會伴隨複雜性：我們必須開發多模型原型，並且追蹤模型之間的相依性。模型之間的互動可封裝起來，如下圖所示：
 
 ![][2]
- 
+
 *圖 4：多模型整合原型*
 
 如果要對客戶維繫提出一套全面性解決辦法，則不同模型之間的互動是關鍵。每個模型必然隨著時間而退化；因此，架構是一種隱性的環路 (類似於以 CRISP-DM 資料採礦標準所設定的原型，[***3***])。
- 
+
 風險-決策-行場區隔/分解的整個循環仍然是一般化結構，適用於解決許多商業問題。客戶流失分析只是這群問題的一種很明顯的典型例子，因為它指出複雜商業問題的所有特徵，而這種問題無法以簡單的預測方案來解決。方法中並未特別指出現代處理客戶流失辦法中的社會層面，社會層面封裝在模型原型中，就像在任何模型中一樣。
 
 此處增添的一項重要部分是巨量資料分析。現今，電信業和零售業都竭盡所能地收集客戶的資料，可明顯預期銜接多重模型的需求將成為共同的趨勢，浮現的趨勢例如物聯網和普及化裝置，讓公司能夠將智慧型解決方案運用在許多層面上。
 
  
-##在 Machine Learning Studio 中實作模型原型 
+##在 Machine Learning Studio 中實作模型原型
 根據剛才說明的問題，我們如何實作一套整合的模型化和評分方法？ 在本節中，我們將示範如何利用 Azure Machine Learning Studio 來達成這項目的。
 
 針對客戶流失來設計整體原型時，多重模型方法不可或缺。即使是作法中的評分 (預測) 部分也應該為多重模型。
@@ -72,7 +72,7 @@
 下圖顯示我們已建立的原型，在 Machine Learning Studio 中採用四種評分演算法來預測客戶流失。使用多重模型方法的理由不只是為了建立集成分類器來提高準確性，也是為了避免過度訓練，同時改善制式的特徵選擇。
 
 ![][3]
- 
+
 *圖 5：客戶流失模型建構方法的原型*
 
 以下幾節提供我們使用 Machine Learning Studio 實作的原型評分模型的詳細資料。
@@ -91,23 +91,23 @@
 下圖顯示使用的資料。
 
 ![][4]
- 
+
 *圖 6：資料來源摘錄 (經過模糊處理)*
 
 ![][5]
 
- 
+
 *圖 7：從資料來源擷取的特徵*
-> 請注意，這項資料為私人所有，因此不能分享模型和資料。如需使用公開可用資料的類似模型，請參閱此[模型庫](http://gallery.azureml.net/)的範例實驗：[電信公司客戶流失](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383)。
-> 
+> 請注意，這項資料為私人所有，因此不能分享模型和資料。如需使用公開可用資料的類似模型，請參閱此 [Cortana 分析資源庫](http://gallery.azureml.net/)的實驗範例：[電信公司客戶流失](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383)。
+>
 
 ###原型中使用的演算法
 
 我們採用下列四種機器學習演算法來建立原型 (沒有自訂)：
 
 1.	邏輯式迴歸 (LR)
-2.	推進式決策樹 (BT) 
-3.	平均感知器 (AP) 
+2.	推進式決策樹 (BT)
+3.	平均感知器 (AP)
 4.	支援向量機器 (SVM)  
 
 
@@ -115,7 +115,7 @@
 
 ![][6]
 
- 
+
 *圖 8：在 Machine Learning Studio 中建立模型*
 
 ###評分方法
@@ -123,7 +123,7 @@
 
 我們也提交評分資料集給使用 SAS Enterprise Miner 12 桌上型版本建立的比較模型。我們測量 SAS 模型和所有四個 Machine Learning Studio 模型的正確性。
 
-##結果 
+##結果
 在本節中，我們根據評分資料集，提出關於模型正確性的調查結果。
 
 ###評分的正確性和準確度
@@ -133,7 +133,7 @@
 
 ![][7]
 
- 
+
 *圖 9：Passau 原型曲線下面積*
 
 ###使用 AUC 來比較結果
@@ -154,7 +154,7 @@ AUC 通常用來判斷不同演算法 (或不同系統) 是否有用處，因為
 下圖取自於維基百科，以生動、簡單明瞭的圖形來描述其中的關聯性：
 
 ![][8]
- 
+
 *圖 10：正確性和準確度之間的取捨*
 
 ###推進式決策樹模型的正確性與準確度結果  
@@ -165,7 +165,7 @@ AUC 通常用來判斷不同演算法 (或不同系統) 是否有用處，因為
 
 *圖 11：推進式決策樹模型的特性*
 
-##表現比較 
+##表現比較
 我們使用 Machine Learning Studio 模型和一個以 SAS Enterprise Miner 12.1 桌上型版本建立的比較模型，比較資料評分的速度。
 
 下表總結演算法的表現：
@@ -184,16 +184,16 @@ AUC 通常用來判斷不同演算法 (或不同系統) 是否有用處，因為
 -	導出四個基本類別的度量：
 	-	**實體 (例如訂閱)**。提供訂閱及/或客戶 (客源流失主題的對象) 的基本資訊。
 	-	**活動**。取得與實體相關的所有可能使用資訊，例如登入數目。
-	-	**客戶支援**。從客戶支援記錄中取得資訊，指出訂閱是否有問題或曾經與客戶支援的互動。 
+	-	**客戶支援**。從客戶支援記錄中取得資訊，指出訂閱是否有問題或曾經與客戶支援的互動。
 	-	**競爭性和商務資料**.取得與客戶有關的任何可能資訊 (例如可能無法取得或難以追蹤)。
 -	使用重要性來引導特徵選擇。這意味著推進式決策樹模型一定是可行的方法。  
 
 使用上述四個類別製造出一種假象，讓人誤以為簡單的「確定性」分析方法 (根據在每個類別的合理因素上形成的跡象) 就足以發現有流失風險的客戶。可惜，雖然這種想法看似可行，但卻是一種誤解。原因在於客戶流失是一種短暫效應，而造成客戶流失的因素通常是暫時狀態。今天導致客戶想要離開的原因，到了明天可能就不一樣，且六個月之後一定不同。因此，有必要使用「機率」模型。
- 
+
 公司經常忽略這項重要的觀察，通常寧可選擇商業智慧導向的方法而不做分析，主要是因為前者較吸引人，直接了當就自動完成。
 
 然而，採用 Machine Learning Studio 進行自助式分析的價值在於，這四種資訊 (依部門分類) 將成為在客戶流失方面進行機器學習時的寶貴資料來源。
- 
+
 Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加入既有預先定義之模組的儲存機制中。這項功能基本上讓人有機會針對垂直市場選取程式庫和建立範本。這是 Azure Machine Learning 在市場中脫穎而出的一項重要利器。
 
 我們希望未來繼續探討這個主題，特別是關於巨量分析。
@@ -204,7 +204,7 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 
 本文對您有幫助嗎？ 請提供意見給我們。請以 1 (非常差) 到 5 (非常好) 來評分，告訴我們您對本文有何評價，以及為何這樣評分？ 例如：
 
--	您給予較高評價是因為範例良好、螢幕擷取畫面精美、文章論述清楚，還是別有原因？ 
+-	您給予較高評價是因為範例良好、螢幕擷取畫面精美、文章論述清楚，還是別有原因？
 -	您給予較低評價是因為範例不當、螢幕擷取畫面模糊，還是文章論述含糊不清？  
 
 這些意見將有助於改善我們所發表的白皮書品質。
@@ -214,7 +214,7 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 [1] Predictive Analytics: Beyond the Predictions (預測性分析：超出預測)，W. McKnight，資訊管理，2011 年 7 月/8 月，第 18-20 頁。
 
 [2] 維基百科上的 [正確性和準確度] (http://en.wikipedia.org/wiki/Accuracy_and_precision)
- 
+
 [3] [CRISP-DM 1.0：資料採礦逐步指南] (http://www.the-modeling-agency.com/crisp-dm.pdf)
 
 [4] 巨量資料行銷
@@ -223,9 +223,9 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 ##附錄
 
 ![][10]
- 
+
 *圖 12：客戶流失原型的簡報擷取畫面*
-  
+
 
 [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
@@ -237,6 +237,5 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

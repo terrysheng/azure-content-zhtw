@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：應用程式類型
@@ -124,8 +124,8 @@ Azure AD B2C 預覽目前不支援這些類型的應用程式，但計劃於正�
 Azure AD B2C 目前不支援此流程，也就是說，只有在進行互動式使用者流程之後，應用程式才能取得權杖。近期內即會加入用戶端認證流程。
 
 ### Web API 鏈結 (代理者)
-許多架構中都有一個 Web API 需要呼叫另一個下游 Web API，而兩者都受 Azure AD 保護。此情況常見於有 Web API 後端的原生用戶端，而後端會再呼叫 Azure AD 圖形 API 等 Microsoft 線上服務。
+許多架構中都有一個 Web API 需要呼叫另一個下游 Web API，而兩者都受 Azure AD B2C 保護。此情況常見於有 Web API 後端的原生用戶端，而後端會再呼叫 Azure AD 圖形 API 等 Microsoft 線上服務。
 
 使用 OAuth 2.0 Jwt 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為「代理者流程」。不過，Azure AD B2C 預覽目前未實作代理者流程。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

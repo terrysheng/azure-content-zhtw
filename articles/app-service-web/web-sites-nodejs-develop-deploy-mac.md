@@ -162,7 +162,7 @@
 
 ##後續步驟
 
-雖然本文中的步驟使用 Azure 入口網站來建立 Web 應用程式，但是您也可以使用 [Azure 命令列介面](../xplat-cli.md)來執行相同的操作。
+雖然本文中的步驟使用 Azure 入口網站來建立 Web 應用程式，但是您也可以使用 [Azure 命令列介面](../xplat-cli-install.md)來執行相同的操作。
 
 Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。若要了解 Web 應用程式如何與模組搭配使用，請參閱[搭配 Azure 應用程式使用 Node.js 模組](../nodejs-use-node-modules-azure-apps.md)。
 
@@ -174,7 +174,7 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 ##其他資源
 
 * [Azure PowerShell](../install-configure-powershell.md)
-* [Azure 命令列介面](../xplat-cli.md)
+* [Azure 命令列介面](../xplat-cli-install.md)
 * [Node.js 開發人員中心](/develop/nodejs/)
 
 ## 變更的項目
@@ -205,4 +205,4 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

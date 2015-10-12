@@ -327,4 +327,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

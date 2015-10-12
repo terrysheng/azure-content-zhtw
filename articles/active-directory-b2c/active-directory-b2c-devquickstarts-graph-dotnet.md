@@ -40,6 +40,8 @@ Azure AD B2C 目錄通常會很龐大，這表示許多常見的目錄管理工�
 
 既然您已經有 B2C 目錄，您需要使用 Azure AD Powershell Cmdlet 建立服務應用程式。首先，下載並安裝 [Microsoft Online Services 登入小幫手](http://go.microsoft.com/fwlink/?LinkID=286152)。接著可以下載並安裝[適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](http://go.microsoft.com/fwlink/p/?linkid=236297)。
 
+> [AZURE.NOTE]若要使用圖形 API 搭配 B2C 目錄，您必須使用 powershell 註冊專用的應用程式，並遵循下列指示。您不能重複使用已經在 Azure 入口網站中註冊的現有 B2C 應用程式。這是 Azure AD B2C 預覽的一項限制，將在不久的將來移除，屆時我們將會更新本文章。
+
 安裝的 Powershell 模組後，開啟 Powershell 並連線到 B2C 目錄。執行 `Get-Credential` 之後，將提示您輸入使用者名稱和密碼，請輸入您 B2C 目錄系統管理員帳戶的使用者名稱和密碼。
 
 ```
@@ -77,7 +79,7 @@ EndDate               : 9/2/2016 1:33:09 AM
 Usage                 : Verify
 ```
 
-如果成功建立應用程式，應該會印出應用程式的某些屬性，如上所示。您將需要 `ObjectId` 和 `AppPrincipalId`，因此也請複製這些值。
+如果成功建立應用程式，應該會印出應用程式的某些屬性，如上所示。您將需要 `ObjectId` 和 `AppPrincipalId`，因此也請抄下這些值。
 
 既然您已經在 B2C 目錄中建立應用程式，您需要將執行使用者 CRUD 作業所需的權限指派給它。您需要將三個不同的角色指派給應用程式：目錄讀取者 (用於讀取使用者)、目錄寫入者 (用於建立及更新使用者)，以及使用者帳戶管理員 (用於刪除使用者)。這些角色具有已知的識別碼，所以您可以執行下列命令，使用上述的 `ObjectId` 取代 `-RoleMemberObjectId` 參數。若要查看所有目錄角色的清單，請嘗試執行 `Get-MsolRole`。
 
@@ -91,7 +93,7 @@ Usage                 : Verify
 
 ## 下載、設定和建置範例程式碼
 
-首先，下載範例程式碼並開始執行。然後，我們可以看看幕後運作情形。您可以[下載 .zip 格式的範例程式碼](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip)，或複製到您所選擇的目錄：
+首先，下載範例程式碼並開始執行。然後，我們可以看看幕後運作情形。您可以[下載 .zip 格式的範例程式碼](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip)，或將它複製到您所選擇的目錄：
 
 ```
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
@@ -106,6 +108,8 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
     <add key="b2c:ClientSecret" value="{The client secret you generated above}" />
 </appSettings>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 現在，以滑鼠右鍵按一下 `B2CGraphClient` 方案並重建範例。如果成功，您現在應該有一個可執行檔 `B2C.exe` 位於 `B2CGraphClient\bin\Debug`。
 
@@ -145,7 +149,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 }
 ```
 
-讓我們以 `B2C Get-User` 命令為例。叫用 `Get-User` 而沒有任何其他輸入時，CLI 呼叫會叫用 `B2CGraphClient.GetAllUsers(...)` 方法。這個方法會呼叫 `B2CGraphClient.SendGraphGetRequest(...)`，後者會送出 HTTP GET 要求給圖形 API。在傳送 GET 要求之前，它會先使用 ADAL 取得存取權杖：
+讓我們以 `B2C Get-User` 命令為例。叫用 `Get-User` 而沒有任何其他輸入時，CLI 會呼叫 `B2CGraphClient.GetAllUsers(...)` 方法。這個方法會呼叫 `B2CGraphClient.SendGraphGetRequest(...)`，後者會送出 HTTP GET 要求給圖形 API。在傳送 GET 要求之前，它會先使用 ADAL 取得存取權杖：
 
 ```C#
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -158,7 +162,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ```
 
-如您所見，您可以呼叫 ADAL 的 `AuthenticationContext.AcquireToken(...)` 方法取得圖形 API 的存取權杖。ADAL 會傳回代表應用程式身分識別的 access\_token。
+如您所見，您可以呼叫 ADAL 的 `AuthenticationContext.AcquireToken(...)` 方法，取得圖形 API 的存取權杖。ADAL 會傳回代表應用程式身分識別的 access\_token。
 
 ### 讀取使用者
 
@@ -177,7 +181,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
  
 這裡有兩個重點值得注意：
 
-- 透過 ADAL 取得的存取權杖已利用 `Bearer` 配置加入至 `Authorization` 標頭。
+- 透過 ADAL 取得的存取權杖已利用 `Bearer` 配置加入 `Authorization` 標頭。
 - 對於 B2C 目錄，您必須使用查詢參數 `api-version=beta`。
 
 
@@ -232,7 +236,8 @@ Content-Length: 338
 	"passwordProfile": {
 		"password": "P@ssword!",
 		"forceChangePasswordNextLogin": false   // always set to false
-	}
+	},
+	"passwordPolicies": "DisablePasswordExpiration"
 }
 ```
 
@@ -247,7 +252,7 @@ Content-Length: 338
 
 `Create-User` 命令接受 `.json` 檔案作為輸入參數，其中包含使用者物件的 JSON 表示法。範例程式碼包含兩個範例 `.json` 檔案 - `usertemplate-email.json` 和 `usertemplate-username.json` - 可修改成符合您的需求。除了上述必要欄位，這些檔案中還有一些您可以使用的選擇性欄位。[Azure AD 圖形 API 實體參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity)提供這些其他欄位的詳細資訊。
 
-您可以在 `B2CGraphClient.SendGraphPostRequest(...)`中看到如何建構此 POST 要求，其中：
+您可以在 `B2CGraphClient.SendGraphPostRequest(...)`中看到如何建構此 POST 要求，它會：
 
 - 將存取權杖附加至要求的 `Authorization` 標頭。
 - 設定 `api-version=beta`。
@@ -343,4 +348,4 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 對於您想要使用圖形 API 在 B2C 目錄上執行的動作，如果您有任何問題或要求，我們洗耳恭聽！ 請在文章上留言，或在程式碼範例 GitHub 儲存機制中提出問題。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

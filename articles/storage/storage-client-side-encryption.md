@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Microsoft Azure 儲存體的用戶端加密 | Microsoft Azure"
-	description="Azure Storage Client Library for .NET 支援用戶端加密以及與 Azure 金鑰保存庫的整合，為您的 Azure 儲存體應用程式提供最大的安全性。"
-	services="storage"
-	documentationCenter=".net"
-	authors="tamram"
-	manager="carolz"
+	pageTitle="Microsoft Azure 儲存體的用戶端 .NET 加密 | Microsoft Azure" 
+	description="Azure Storage Client Library for .NET 支援用戶端加密以及與 Azure 金鑰保存庫的整合，為您的 Azure 儲存體應用程式提供最大的安全性。" 
+	services="storage" 
+	documentationCenter=".net" 
+	authors="tamram" 
+	manager="carolz" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="tamram"/>
 
 
@@ -22,6 +22,8 @@
 ## 概觀
 
 [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage) 支援在上傳至 Azure 儲存體之前將用戶端應用程式內的資料加密，並在下載至用戶端時解密資料。程式庫也支援與 [Azure 金鑰保存庫](http://azure.microsoft.com/services/key-vault/)整合，以進行儲存體帳戶金鑰管理。
+
+如需使用 Java 加密用戶端，請參閱 [Microsoft Azure 儲存體的用戶端 Java 加密](storage-client-side-encryption-java.md)。
 
 ## 透過信封技術進行加密和解密
 
@@ -60,7 +62,7 @@
 
 > [AZURE.WARNING]如果您要為 blob 編輯或上傳您自己的中繼資料，則必須確定保留此中繼資料。如果您上傳新的中繼資料，但缺少此中繼資料，包裝的 CEK、IV 和其他中繼資料將會遺失，而且永遠無法再擷取 blob 內容。
 
-下載已加密的 blob 牽涉到使用 **DownloadTo***/**BlobReadStream** 便利方法擷取整個 blob 的內容。包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
+下載已加密的 Blob 牽涉到使用 **DownloadTo***/**BlobReadStream** 便利方法擷取整個 Blob 的內容。包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
 
 在加密的 Blob 中下載任意範圍 (**DownloadRange*** 方法)，包含調整使用者所提供的範圍，藉此取得少量額外的資料以便用來成功解密所要求的範圍。
 
@@ -240,6 +242,6 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
 ## 後續步驟
 
-下載 [Azure Storage Client Library for.NET NuGet 封裝](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)。從 GitHub 下載 [Azure Storage Client Library for .NET 原始程式碼](https://github.com/Azure/azure-storage-net)。下載 Azure 金鑰保存庫 NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 封裝。造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)。
+下載 [Azure Storage Client Library for.NET NuGet 封裝](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)。從 GitHub 下載 [Azure Storage Client Library for .NET 原始程式碼](https://github.com/Azure/azure-storage-net)。下載 Azure 金鑰保存庫 NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 套件。造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

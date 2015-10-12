@@ -48,7 +48,7 @@ Linux 診斷延伸模組可利用下列功能協助使用者監視在 Microsoft 
 
 ## 必要條件
 - Microsoft Azure Linux Agent 2.0.6 版或更新版本。請注意，大部分的 Azure VM Linux 資源庫映像包含版本 2.0.6 或更新版本。您可以執行 **WAAgent -version** 以確認 VM 中安裝的版本。如果執行 VM 的版本早於 2.0.6，您可以遵循這些[指示](https://github.com/Azure/WALinuxAgent "指示")來更新它。
-- [Azure CLI](./xplat-cli.md)。遵循[本指引](./xplat-cli-install.md)在電腦上設定 Azure CLI 環境。安裝好 Azure CLI 之後，您就能從命令列介面 (Bash、終端機、命令提示字元) 中使用 **azure** 命令存取 Azure CLI 命令。例如，執行 **azure vm extension set --help** 取得詳細的使用方式、執行 **azure login** 登入 Azure、執行 **azure vm list** 列出您在 Azure 上的所有虛擬機器。
+- [Azure CLI](./xplat-cli-install.md)。遵循[本指引](./xplat-cli-install.md)在電腦上設定 Azure CLI 環境。安裝好 Azure CLI 之後，您就能從命令列介面 (Bash、終端機、命令提示字元) 中使用 **azure** 命令存取 Azure CLI 命令。例如，執行 **azure vm extension set --help** 取得詳細的使用方式、執行 **azure login** 登入 Azure、執行 **azure vm list** 列出您在 Azure 上的所有虛擬機器。
 - 儲存資料的儲存體帳戶。您需要先前建立的儲存體帳戶名稱和存取金鑰才能將資料上傳至您的儲存體。
 
 
@@ -143,4 +143,4 @@ Linux 診斷延伸模組可利用下列功能協助使用者監視在 Microsoft 
 - 若為 2.0 版，只能透過指令碼存取 Rsyslog 資訊和客戶指定記錄檔。
 - 若為 2.0 版，如果您已經先透過指令碼啟用 Linux 診斷延伸模組，您就無法從 Azure 入口網站檢視資料。如果您先從入口網站啟用延伸模組，指令碼就會持續運作。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

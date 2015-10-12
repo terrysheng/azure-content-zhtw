@@ -194,7 +194,7 @@ TelemetryClient 具備執行緒安全。
     telemetry.trackEvent("WinGame", properties, metrics);
 
 
-> [AZURE.NOTE] 切勿在屬性中記錄個人識別資訊。
+> [AZURE.NOTE]切勿在屬性中記錄個人識別資訊。
 
 **如果您使用度量**，請開啟 [計量瀏覽器]，然後從自訂群組中選取度量：
 
@@ -439,7 +439,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
             }
 ```
 
-請記住， 伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
+請記住，伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
 
 若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
 
@@ -461,7 +461,18 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     }
 ```
 
-這不需要用到使用者的實際登入名稱。只需是使用者的唯一識別碼。其中不能包含空格或任何字元 `,;=|`。
+在 ASP.NET Web MVC 應用程式，例如：
+
+*Razor*
+
+        @if (Request.IsAuthenticated)
+        {
+            <script>
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+            </script>
+        }
+
+這不需要用到使用者的實際登入名稱。只需是使用者的唯一識別碼。其中不能包含空格或任何 `,;=|` 字元。
 
 使用者識別碼也會設定於工作階段 Cookie 中，並傳送到伺服器。如果安裝了伺服器 SDK，則會傳送經過驗證的使用者識別碼以做為用戶端和伺服器遙測的內容屬性一部分，讓您能夠對它進行篩選和搜尋。
 
@@ -470,7 +481,9 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-在[計量瀏覽器](app-insights-metrics-explorer.md)中，您可以建立**已驗證的使用者**和**帳戶**圖表。
+在[計量瀏覽器](app-insights-metrics-explorer.md)中，您可以建立計算**已驗證的使用者**和**使用者帳戶**的圖表。
+
+您也可以[搜尋][diagnostic]含有特定使用者名稱和帳戶的用戶端資料點。
 
 
 ## <a name="defaults"></a>設定已選取自訂遙測的預設值
@@ -510,7 +523,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     
 個別遙測呼叫可以覆寫其屬性字典中的預設值。
 
-**針對 JavaScript Web 用戶端**，[使用 JavaScript 遙測初始設定式](#js-initializer)。
+**針對 JavaScript Web 用戶端**，[請使用 JavaScript 遙測初始設定式](#js-initializer)。
 
 
 ## <a name="ikey"></a>設定已選取自訂遙測的檢測金鑰
@@ -699,7 +712,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-請注意此函式是非同步的。
+請注意記憶體中的通道函式是非同步的，但如果您選擇使用[永續性通道](app-insights-windows-desktop.md#persistence-channel)則是同步的。
 
 
 
@@ -903,4 +916,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

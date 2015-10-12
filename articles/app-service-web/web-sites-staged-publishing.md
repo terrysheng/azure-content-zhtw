@@ -1,7 +1,7 @@
 <properties
 	pageTitle="針對 Azure App Service 中的 Web 應用程式設定預備環境"
 	description="了解如何針對 Azure App Service 中的 Web 應用程式使用預備發行。"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="cephalin"/>
 
 # 針對 Azure App Service 中的 Web 應用程式設定預備環境
@@ -127,6 +127,11 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 
 3. 執行程式碼推送至該部署位置。自動交換不久之後就會發生，而更新將反映於目標位置的 URL 上。
 
+<a name="Multi-Phase"></a>
+## 針對 Web 應用程式使用多階段交換 ##
+
+多階段交換可簡化組態項目內容的驗證，其中組態項目設計為可插入某位置，例如連接字串。在這些情況下，從交換目標將這類組態項目套用至交換來源，以及在交換實際生效之前驗證，都是很實用的做法。一旦交換目標組態項目套用至交換來源，可用的動作就會是完成交換，或還原成交換來源原始的組態，而還原也有取消交換的作用。Azure PowerShell Cmdlet 可供多階段交換的範例，包含在部署位置區段的 Azure PowerShell Cmdlet 內。
+
 <a name="Rollback"></a>
 ## 交換之後回復生產應用程式 ##
 若交換位置後，在生產位置中識別出錯誤，可以立即交換相同的兩個位置，將位置還原成交換前的狀態。
@@ -147,49 +152,43 @@ Azure PowerShell 模組提供透過 Windows PowerShell 來管理 Azure 的 Cmdle
 
 - 如需安裝與設定 Azure PowerShell，以及使用您的 Azure 訂用帳戶驗證 Azure PowerShell 的詳細資訊，請參閱[如何安裝和設定 Microsoft Azure PowerShell](../install-configure-powershell.md) (英文)。  
 
-- 若要列出 PowerShell 中可供 Azure App Service 使用的 Cmdlet，請呼叫 `help AzureWebsite`。
+- 若要使用適用於 PowerShell Cmdlet 之新的 Azure 資源管理員模式，開頭需如下所示：`Switch-AzureMode -Name AzureResourceManager`。
 
 ----------
 
-### Get-AzureWebsite
-**Get-AzureWebsite** Cmdlet 會針對現有訂用帳戶呈現 Azure Web 應用程式相關資訊，如以下範例所示。
+### 建立 Web 應用程式
 
-`Get-AzureWebsite webappslotstest`
-
-----------
-
-### New-AzureWebsite
-您可以使用 **New-AzureWebsite** Cmdlet 並指定 Web 應用程式和位置的名稱，來建立部署位置。此外，您還可以指定相同區域做為部署位置建立作業所需的 Web 應用程式，如以下範例所示。
-
-`New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Publish-AzureWebsiteProject
-您可以在部署內容時使用 **Publish-AzureWebsiteProject** Cmdlet，如以下範例所示。
+### 建立 Web 應用程式的部署位置
 
-`Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip`
-
-----------
-
-### Show-AzureWebsite
-當內容與組態更新都套用到新的位置後，您就可以使用 **Show-AzureWebsite** Cmdlet 瀏覽至該位置以驗證更新，如以下範例所示。
-
-`Show-AzureWebsite -Name webappslotstest -Slot staging`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Switch-AzureWebsiteSlot
-**Switch-AzureWebsiteSlot** Cmdlet 可執行交換操作，將更新的部署位置轉變為生產網站，如以下範例所示。生產應用程式不會發生任何停機事件，也不會進行冷啟動。
+### 起始多階段交換和將目標位置組態套用至來源位置
 
-`Switch-AzureWebsiteSlot -Name webappslotstest`
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
 
 ----------
 
-### Remove-AzureWebsite
-如果不再需要某個部署位置，可以使用 **Remove-AzureWebsite** Cmdlet 將其刪除，如以下範例所示。
+### 還原多階段交換的第一個階段和還原來源位置組態
 
-`Remove-AzureWebsite -Name webappslotstest -Slot staging`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+
+----------
+
+### 交換部署位置
+
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+
+----------
+
+### 刪除部署位置
+
+`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
 
 ----------
 
@@ -200,7 +199,7 @@ Azure PowerShell 模組提供透過 Windows PowerShell 來管理 Azure 的 Cmdle
 
 Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應用程式部署位置。
 
-- 如需安裝與設定 Azure CLI 的相關說明，包括如何將 Azure CLI 連線至 Azure 訂用帳戶的資訊，請參閱[安裝與設定 Azure CLI](../xplat-cli.md)。
+- 如需安裝與設定 Azure CLI 的相關說明，包括如何將 Azure CLI 連線至 Azure 訂用帳戶的資訊，請參閱[安裝與設定 Azure CLI](../xplat-cli-install.md)。
 
 -  若要在 Azure CLI 中列出 Azure App Service 可用的命令，請呼叫 `azure site -h`。
 
@@ -261,4 +260,4 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

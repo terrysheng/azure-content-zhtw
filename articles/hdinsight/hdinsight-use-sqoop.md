@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
 #在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用 (Windows)
@@ -80,12 +80,12 @@
 	> [AZURE.NOTE]SQL Server 也必須允許驗證。您必須使用 SQL Server 登入來完成本文中的步驟。
 
 	<table border="1">
-	<tr><th>SQL Server Database 屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
-	<tr><td>SQL Server 名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出或匯入的 SQL Server。</td></tr>
-	<tr><td>SQL Server 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Server 的登入名稱。</td></tr>
-	<tr><td>SQL Server 登入密碼</td><td>$sqlDatabasePassword</td><td></td><td>SQL Server 的登入密碼。</td></tr>
-	<tr><td>SQL Server Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出或匯入的 SQL Server Database。</td></tr>
-	</table>
+<tr><th>SQL Server Database 屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
+<tr><td>SQL Server 名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出或匯入的 SQL Server。</td></tr>
+<tr><td>SQL Server 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Server 的登入名稱。</td></tr>
+<tr><td>SQL Server 登入密碼</td><td>$sqlDatabasePassword</td><td></td><td>SQL Server 的登入密碼。</td></tr>
+<tr><td>SQL Server Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出或匯入的 SQL Server Database。</td></tr>
+</table>
 
 
 > [AZURE.NOTE]在先前資料表中填入值。這將有助於本教學課程的執行。
@@ -103,19 +103,19 @@ HDInsight 叢集附有一些範例資料。您將用到以下兩個範例：
 - 參考位於 */hive/warehouse/hivesampletable* 之資料檔案的 Hive 資料表 *hivesampletable*。此資料表包含某些行動裝置資料。此 Hive 資料表的結構描述為：
 
 	<table border="1">
-	<tr><th>欄位</th><th>資料類型</th></tr>
-	<tr><td>clientid</td><td>字串</td></tr>
-	<tr><td>querytime</td><td>字串</td></tr>
-	<tr><td>market</td><td>字串</td></tr>
-	<tr><td>deviceplatform</td><td>字串</td></tr>
-	<tr><td>devicemake</td><td>字串</td></tr>
-	<tr><td>devicemodel</td><td>字串</td></tr>
-	<tr><td>state</td><td>字串</td></tr>
-	<tr><td>country</td><td>字串</td></tr>
-	<tr><td>querydwelltime</td><td>double</td></tr>
-	<tr><td>sessionid</td><td>bigint</td></tr>
-	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-	</table>
+<tr><th>欄位</th><th>資料類型</th></tr>
+<tr><td>clientid</td><td>字串</td></tr>
+<tr><td>querytime</td><td>字串</td></tr>
+<tr><td>market</td><td>字串</td></tr>
+<tr><td>deviceplatform</td><td>字串</td></tr>
+<tr><td>devicemake</td><td>字串</td></tr>
+<tr><td>devicemodel</td><td>字串</td></tr>
+<tr><td>state</td><td>字串</td></tr>
+<tr><td>country</td><td>字串</td></tr>
+<tr><td>querydwelltime</td><td>double</td></tr>
+<tr><td>sessionid</td><td>bigint</td></tr>
+<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+</table>
 
 您必須先將 *sample.log* 和 *hivesampletable* 匯出至 Azure SQL Database 或 SQL Server，再使用下列路徑，將包含行動裝置資料的資料表匯回 HDInsight：
 
@@ -347,7 +347,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		$destBlob.UploadFromStream($memStream)
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
-6. 若要檢查已修改的資料檔案，可以使用 Azure 入口網站、Azure 儲存體總管工具或 Azure PowerShell。[開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
+6. 若要檢查已修改的資料檔案，您可以使用預覽入口網站、Azure 儲存體總管工具或 Azure PowerShell。[開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
 
 
 ##使用 PowerShell 執行 Sqoop 匯出
@@ -395,7 +395,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 	如需變數的詳細說明，請參閱本教學課程中的[必要條件](#prerequisites)一節。
 
-	請注意，$exportDir_log4j 並未指定 sample.log 檔案的檔案名稱。Sqoop 會從該資料夾下的所有檔案中匯出資料。
+	請注意，$exportDir\_log4j 並未指定 sample.log 檔案的檔案名稱。Sqoop 會從該資料夾下的所有檔案中匯出資料。
 
 4. 將下列指令碼附加至指令碼窗格中：
 
@@ -409,10 +409,10 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	請注意，欄位分隔符號為 **\0x20**，即空格。此分隔符號定義於 sample.log 檔案的 Azure PowerShell 指令碼中。如需 **-m 1** 的相關資訊，請參閱 [Sqoop 使用者指南][sqoop-user-guide-1.4.4]。
+	請注意，欄位分隔符號為 **\\0x20**，即空格。此分隔符號定義於 sample.log 檔案的 Azure PowerShell 指令碼中。如需 **-m 1** 的相關資訊，請參閱 [Sqoop 使用者指南][sqoop-user-guide-1.4.4]。
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
-6. 使用 [Azure 入口網站][azure-management-portal]檢查匯出的資料。
+6. 使用[預覽入口網站][azure-management-portal]檢查匯出的資料。
 
 **匯出 hivesampletable Hive 資料表**
 
@@ -463,7 +463,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
-6. 使用 [Azure 入口網站][azure-management-portal]檢查匯出的資料。
+6. 使用[預覽入口網站][azure-management-portal]檢查匯出的資料。
 
 
 
@@ -522,14 +522,14 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 
-	            // Submit the Hive job
+	            // Submit the Sqoop job
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
 	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
 
 	            // Wait for the job to complete
 	            WaitForJobCompletion(jobResults, jobClient);
 
-	            // Print the Hive job output
+	            // Print the Sqoop job output
 	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
 
 	            StreamReader reader = new StreamReader(stream);
@@ -615,7 +615,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
-6. 若要檢查已修改的資料檔案，可以使用 Azure 入口網站、Azure 儲存體總管工具或 Azure PowerShell。[開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
+6. 若要檢查已修改的資料檔案，您可以使用預覽入口網站、Azure 儲存體總管工具或 Azure PowerShell。[開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
 
 ##後續步驟
 
@@ -648,4 +648,4 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

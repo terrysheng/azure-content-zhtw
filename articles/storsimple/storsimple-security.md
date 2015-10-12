@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/10/2015"
+   ms.date="09/25/2015"
    ms.author="v-sharos"/>
 
 # StorSimple 安全性和資料保護
@@ -52,7 +52,7 @@ StorSimple 裝置是包含固態硬碟 (SSD) 和硬碟 (HDD) 的內部部署混�
 
 若要授權裝置，您必須提供服務註冊金鑰才能向 StorSimple Manager 服務註冊該裝置。服務註冊金鑰是入口網站中所產生的 128 位元隨機金鑰。若要了解如何取得服務註冊金鑰，請移至[步驟 2：取得服務註冊金鑰](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key)。
 
-> [AZURE.NOTE]服務註冊金鑰是包含 100 個以上字元的長金鑰。建議您複製金鑰並將它以文字檔方式儲存在安全的位置中，如有必要，您可以使用此金鑰來授權其他裝置。
+> [AZURE.NOTE]服務註冊金鑰是包含 100 個以上字元的長金鑰。您可以複製金鑰並將它以文字檔方式儲存在安全的位置中，如有必要，您可以使用此金鑰來授權其他裝置。
 > 
 > * 如果您在註冊完第一個裝置之後遺失服務註冊金鑰，您可以透過 StorSimple Manager 服務產生新的金鑰。這不會對現有裝置的作業有任何影響。 
 > * 裝置註冊完後，它會使用權杖與 Microsoft Azure 通訊。裝置註冊後便不會用到服務註冊金鑰。
@@ -69,7 +69,7 @@ StorSimple 裝置是包含固態硬碟 (SSD) 和硬碟 (HDD) 的內部部署混�
 
 ### Windows PowerShell for StorSimple 和 StorSimple 裝置系統管理員密碼
 
-Windows PowerShell for StorSimple 是一個可讓您管理 StorSimple 裝置的命令列介面。Windows PowerShell for StorSimple 的功能包括：可讓您註冊您的裝置、在您的裝置上設定網路介面、安裝特定類型的更新，以及透過存取支援工作階段及變更裝置狀態來疑難排解您的裝置。藉由連接至序列主控台或使用 Windows PowerShell 遠端處理，您可以存取 Windows PowerShell for StorSimple。
+Windows PowerShell for StorSimple 是一個可讓您管理 StorSimple 裝置的命令列介面。Windows PowerShell for StorSimple 的功能包括：可讓您註冊您的裝置、在您的裝置上設定網路介面、安裝特定類型的更新，以及透過存取支援工作階段及變更裝置狀態來疑難排解您的裝置。藉由連線至裝置上的序列主控台或使用 Windows PowerShell 遠端處理，您可以存取 Windows PowerShell for StorSimple。
 
 您可以透過 HTTPS 或 HTTP 執行 PowerShell 遠端處理。如果已啟用透過 HTTPS 進行遠端管理，則您必須從裝置下載遠端管理憑證，並將它安裝在遠端用戶端。
 
@@ -129,7 +129,7 @@ StorSimple Snapshot Manager 是一個 Microsoft Management Console (MMC) 嵌入�
 StorSimple Manager 服務的主要目的是管理和設定 StorSimple 裝置。StorSimple Manager 服務可在 Microsoft Azure 中執行。您可以使用 Azure 管理入口網站來輸入裝置設定資料，接著 Microsoft Azure 會使用 StorSimple Manager 服務將資料傳送到裝置。StorSimple Manager 服務會使用一個非對稱金鑰組的系統，以協助您確保 Azure 服務遭到入侵並不會導致儲存資訊的洩漏。非對稱金鑰系統可協助保護流經服務的資料，如下所示：
 
 1. 使用非對稱公開和私用金鑰組的資料加密憑證會在裝置上產生，並用來保護資料的安全。註冊第一個裝置時即會產生金鑰。 
-2. 資料加密憑證金鑰會匯出成為受服務資料加密金鑰 (也就是強式 128 位元金鑰，會在註冊期間由裝置隨機產生) 保護的個人資訊交換 (.pfx) 檔案。
+2. 資料加密憑證金鑰會匯出成為受服務資料加密金鑰 (也就是強式 128 位元金鑰，會在註冊期間由第一部裝置隨機產生) 保護的個人資訊交換 (.pfx) 檔案。
 3. 憑證的公開金鑰會以安全的方式提供給 StorSimple Manager 服務，而私密金鑰仍屬裝置所有。
 4. 輸入服務的資料會使用公開金鑰進行加密，並使用儲存在裝置上的私密金鑰進行解密，以確保 Azure 服務無法對流向裝置的資料進行解密。
 
@@ -144,7 +144,7 @@ StorSimple Manager 服務的主要目的是管理和設定 StorSimple 裝置。S
 
 ## 保護靜態資料的安全
 
-StorSimple 裝置會根據使用頻率，將資料儲存在本機階層和雲端中加以管理。連線到裝置的所有主機電腦會將資料都傳送到裝置，然後裝置會視需要將資料移至雲端。透過 iSCSI 通訊協定，將資料從裝置傳送至雲端。每個裝置都會有一個可瀏覽其上所有共用磁碟區的 iSCSI 目標。所有資料在傳送至雲端儲存體之前都會進行加密。為了協助確保移至雲端資料的安全性和完整性，Azure StorSimple 可讓您定義雲端儲存體加密金鑰，如下所示：
+StorSimple 裝置會根據使用頻率，將資料儲存在本機階層和雲端中加以管理。連線到裝置的所有主機電腦會將資料都傳送到裝置，然後裝置會視需要將資料移至雲端。透過網際網路，將資料從裝置安全傳送至雲端。每個裝置都會有一個可瀏覽其上所有共用磁碟區的 iSCSI 目標。所有資料在傳送至雲端儲存體之前都會進行加密。為了協助確保移至雲端資料的安全性和完整性，Azure StorSimple 可讓您定義雲端儲存體加密金鑰，如下所示：
 
 - 建立磁碟區容器時，您可以指定雲端儲存體加密金鑰。您無法修改或稍後新增金鑰。 
 - 磁碟區容器中的所有磁碟區會共用相同的加密金鑰。如果您要對特定磁碟區使用不同加密形式，建議您建立新的磁碟區容器來裝載該磁碟區。
@@ -203,7 +203,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **問：**我的服務資料加密金鑰不見了。該怎麼辦？
 
-**答：**請連絡 Microsoft 支援服務。他們可以登入您裝置上的支援工作階段，協助您擷取金鑰。您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。如需相關指示，請移至：
+**答：**請連絡 Microsoft 支援服務。他們可以登入您裝置上的支援工作階段，協助您擷取金鑰 (假設至少一部裝置在線)。您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。如需相關指示，請移至：
 
 - [變更服務資料加密金鑰](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
@@ -253,4 +253,4 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 [部署您的 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

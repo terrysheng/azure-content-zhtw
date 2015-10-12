@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/16/2015"
+	ms.date="09/29/2015"
 	ms.author="heidist"/>
 
 #Azure 搜尋：教學課程、影片示範和範例
@@ -31,6 +31,7 @@
 
 連結|說明
 ----|-----------
+[適用於 Azure 搜尋的 AzureCon 2015 最佳做法](https://azure.microsoft.com/zh-TW/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|在建置 Web 或行動裝置 App 時，如何成功調整、達成最佳效能及有效率編碼的實務建議。 
 [Microsoft Virtual Academy：將 Azure 搜尋加入您的網站和應用程式中](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|共 7 部分的系列教學將說明如何將 Azure 搜尋加入應用程式中，主講者為 Liam Cavanagh、Janusz Lembicz 與 Bernardita Torres Garayar。
 [Build 2015：現代資料](http://channel9.msdn.com/Events/Build/2015/2-663)|在 29 分鐘的時間裡，深入了解 Azure 搜尋如何與現代資料革命相合，主講者為 Shawn Bice 和 Pablo Castro。
 [Build 2015：使用 Azure 搜尋在行動和 Web 應用程式中建置絕佳的搜尋體驗](http://channel9.msdn.com/Events/Build/2015/2-745)|由 Pablo Castro 於 Microsoft Build 2015 主講。
@@ -90,4 +91,4 @@
 - [**SQL Server 與 Azure 搜尋的同步處理範例**](http://sqlserver2azuresearch.codeplex.com/)是從內嵌的本機資料庫載入 SQL Server 資料列集的 Windows 主控台應用程式。
 - [**評分設定檔示範**](https://azuresearchscoringprofiles.codeplex.com/)是定義、執行和更新評分設定檔，以微調搜尋結果的 Windows 主控台應用程式。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

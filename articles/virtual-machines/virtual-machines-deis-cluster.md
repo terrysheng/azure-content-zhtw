@@ -253,8 +253,8 @@
 
 [Azure 資源管理員概觀][resource-group-overview] [如何使用 Azure CLI][azure-command-line-tools] [搭配 Azure 資源管理員使用 Azure PowerShell][powershell-azure-resource-manager]
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

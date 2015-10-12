@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="SQL Server 預存程序活動"
-	description="深入了解如何使用 SQL Server 預存程序活動，以從 Data Factory 管線叫用 Azure SQL Database 中的預存程序。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="SQL Server 預存程序活動" 
+	description="深入了解如何使用 SQL Server 預存程序活動，以從 Data Factory 管線叫用 Azure SQL Database 或 Azure SQL 資料倉儲中的預存程序。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="spelluru"/>
 
 # SQL Server 預存程序活動
 
-您可以在 Data Factory [管線](data-factory-create-pipelines.md)中使用 SQL Server 預存程序活動，以叫用 **Azure SQL** Database 中的預存程序。這篇文章是根據[資料轉換活動](data-factory-data-transformation-activities.md)文章，它呈現資料轉換和支援的轉換活動的一般概觀。
+您可以在 Data Factory [管線](data-factory-create-pipelines.md)中使用 SQL Server 預存程序活動，以叫用 **Azure SQL Database** 或 **Azure SQL 資料倉儲**中的預存程序。本文是根據[資料轉換活動](data-factory-data-transformation-activities.md)一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 ## 語法
 	{
@@ -46,8 +46,8 @@
 說明 | 說明活動用途的文字 | 否
 類型 | SqlServerStoredProcedure | 是
 輸入 | 輸入資料集必須可供使用 (「就緒」狀態)，才能執行預存程序活動。將預存程序活動與其他活動鏈結時，此活動的輸入僅用於相依性管理。在預存程序中輸入資料集無法做為參數取用 | 否
-輸出 | 預存程序活動產生的輸出資料集。請確定輸出資料表會使用連結的服務，該服務連結 Azure SQL Database 與 Data Factory。預存程序活動中的輸出，可以做為傳遞預存程序活動結果的方式，以進行後續的處理，及/或在此活動與其他活動鏈結時，用於相依性管理 | 是
-storedProcedureName | 指定 Azure SQL Database 中預存程序的名稱，由輸出資料表使用的連結的服務代表。 | 是
+輸出 | 預存程序活動產生的輸出資料集。請確定輸出資料表會使用連結的服務，該服務將 Azure SQL Database 或 Azure SQL 資料倉儲連結至 Data Factory。預存程序活動中的輸出，可以做為傳遞預存程序活動結果的方式，以進行後續的處理，及/或在此活動與其他活動鏈結時，用於相依性管理 | 是
+storedProcedureName | 指定 Azure SQL Database 或 Azure SQL 資料倉儲中預存程序的名稱，由輸出資料表使用的連結的服務代表。 | 是
 storedProcedureParameters | 指定預存程序參數的值 | 否
 
 ## 範例
@@ -132,4 +132,4 @@ Datetime | 產生對應的識別碼的日期和時間
 		}
 	}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

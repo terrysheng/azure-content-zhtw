@@ -32,7 +32,7 @@
 
     ![在 Azure 入口網站中，依序選擇 [新增]、[資料]、[儲存體]](./media/app-insights-export-telemetry/030.png)
 
-2. 建立容器
+2. 建立容器。
 
     ![在新的儲存體中，選取 [容器]，按一下容器磚，然後按一下 [新增]](./media/app-insights-export-telemetry/040.png)
 
@@ -217,4 +217,4 @@
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

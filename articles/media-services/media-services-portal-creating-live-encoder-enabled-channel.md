@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/30/2015" 
 	ms.author="juliako"/>
 
 
-#使用管理入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼 (預覽)
+#使用管理入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼 
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -140,7 +140,7 @@
 
 ![standard4][standard4]
 
->[AZURE.NOTE]目前，在預覽中，通道啟動可能需要最多 30 分鐘。重設通道可能需要最多 5 分鐘。
+>[AZURE.NOTE]目前，通道啟動可能需要最多 30 分鐘。重設通道可能需要最多 5 分鐘。
 
 建立通道之後，可以選取 [**編碼器**] 索引標籤，您可以在其中檢視您的通道組態。您也可以管理廣告和平板電腦。
 
@@ -266,4 +266,4 @@
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

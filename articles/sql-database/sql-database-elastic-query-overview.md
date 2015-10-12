@@ -1,8 +1,6 @@
 <properties
-    title="Azure SQL Database elastic database query overview"
     pageTitle="Azure SQL Database 彈性資料庫查詢概觀"
-    description="彈性查詢功能的概觀"
-    metaKeywords="azure sql database elastic database queries"
+    description="彈性查詢功能的概觀"    
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -15,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="07/09/2015"
-    ms.author="sidneyh" />
+    ms.author="sidneyh;torsteng" />
 
 # Azure SQL Database 彈性資料庫查詢 (預覽) 概觀
 
@@ -81,7 +79,7 @@
 彈性資料庫查詢功能依賴這四個 DDL 陳述式。一般而言，這些 DDL 陳述式只在應用程式的結構描述變更時使用一次或很少使用。
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-*    [CREATE CREDENTIAL](https://msdn.microsoft.com/library/ms189522.aspx)
+*    [建立資料庫範圍認證](https://msdn.microsoft.com/library/mt270260.aspx)
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -100,7 +98,7 @@
 
 您可以使用下列語法卸除主要金鑰和認證：
 
-    DROP CREDENTIAL <credential_name> ON DATABASE;
+    DROP DATABASE SCOPED CREDENTIAL <credential_name>;
     DROP MASTER KEY;  
 
 ### 外部資料來源
@@ -267,4 +265,4 @@ SP\_EXECUTE\_FANOUT 預存程序可存取分區對應所代表的資料庫。此
 
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

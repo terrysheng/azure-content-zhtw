@@ -1,20 +1,20 @@
 <properties
  pageTitle="在 HPC Pack 叢集中使用 Linux 運算 VM | Microsoft Azure"
-	description="了解如何撰寫指令碼，以在包含一個執行 Windows Server 的前端節點與多個 Linux 運算節點的 Azure 中部署 HPC Pack 叢集。"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+ description="了解如何撰寫指令碼，以在包含一個執行 Windows Server 的前端節點與多個 Linux 運算節點的 Azure 中部署 HPC Pack 叢集。"
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="big-compute"
-	ms.date="09/01/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="big-compute"
+ ms.date="09/01/2015"
+ ms.author="danlep"/>
 
 # 開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點
 
@@ -43,7 +43,7 @@
 * **核心配額** - 您可能需要增加核心的配額，特別是如果您選擇部署多核心 VM 大小的數個叢集節點。對於本文中的範例，您需要至少 24 個核心。若要增加配額，請[開啟線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)，不另外加收費用。
 
 ### 建立組態檔
-HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC 叢集的基礎結構。若要部署由一個前端節點和 2 個 Linux 運算節點所組成的小型叢集，請將環境的值取代為下列範例組態檔。如需組態檔的詳細資訊，請參閱指令碼資料夾中的 Manual.rtf 檔案或[指令碼文件](https://msdn.microsoft.com/library/azure/dn864734.aspx)。
+HPC Pack IaaS 部署指令碼會使用 XML 組態檔做為輸入，可描述 HPC 叢集的基礎結構。若要部署由一個前端節點和 2 個 Linux 運算節點所組成的小型叢集，請將環境的值取代為下列範例組態檔。如需組態檔的詳細資訊，請參閱指令碼資料夾中的 Manual.rtf 檔案和[使用 HPC Pack IaaS 部署指令碼建立 HPC 叢集](virtual-machines-hpcpack-cluster-powershell-script.md)。
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -310,4 +310,4 @@ HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

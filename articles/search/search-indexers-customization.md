@@ -13,18 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Azure 搜尋服務索引子自訂#
+#Azure 搜尋服務索引子自訂
 
-在本文中，您將深入了解使用 Azure 搜尋服務索引子來實作這些案例：
-
-- 重新命名資料來源與目標索引之間的欄位 
-- 從資料庫資料表將字串轉換成字串集合
-- 切換資料來源的變更偵測原則 
-- URL 編碼的文件金鑰，包含不安全 URL 字元 
-- 容許失敗以編製一些文件的索引 
+設定 Azure 搜尋中的索引子，讓您將資料來源與目標索引之間的欄位重新命名、將從資料庫資料表的字串轉換成字串集合、在資料來源上切換變更偵測原則、URL 編碼包含不安全 URL 字元的文件索引鍵，並容許失敗以編製一些文件的索引。
 
 如果您不熟悉 Azure 搜尋服務索引子，您可能想要先查看下列文章：
 
@@ -123,4 +117,4 @@ Azure 搜尋服務會將文件索引鍵欄位內的字元限制為 URL 安全字
 目前是如此。如果您有任何未來內容的想法和建議，請使用 #AzureSearch 雜湊標記推文給我們，或者在我們的 [UserVoice 頁面](http://feedback.azure.com/forums/263029-azure-search)上提出您的想法。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/28/2015"
    ms.author="kempb" />
 
 # 如何將專案升級為目前版本的 Azure Tools for Visual Studio
@@ -51,8 +51,4 @@
 
 1. 建置專案，然後解決因為 API 變更而造成的任何錯誤。如需如何針對新版本來修改程式碼的相關資訊，請參閱特定 API 的文件。
 
-## 資源
-
-[Azure Tools 版本歷程記錄](http://go.microsoft.com/fwlink/p/?LinkId=623548)
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

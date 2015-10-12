@@ -152,7 +152,7 @@ Windows MT 已經隨附於 vContinuum 安裝程式中。當您安裝 vContinuum 
 
 注意：請先確定系統具有網際網路連線，然後再下載並安裝其他封裝。
 
-\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 上述命令將從 CentOS 6.6 儲存機制下載如下所述的 15 個封裝並進行安裝。
 
@@ -188,17 +188,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 注意：如果來源機器會針對根目錄或開機裝置使用 Reiser 或 XFS 檔案系統，則下列封裝應該下載並安裝於 Linux 主要目標上，才能提供保護。
 
-\# cd /usr/local
+# cd /usr/local
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### 套用自訂組態變更
 
@@ -214,7 +214,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 3. 執行下列命令來授與權限。
 
-\# **chmod 755 ./ApplyCustomChanges.sh**
+# **chmod 755 ./ApplyCustomChanges.sh**
 
 4. 執行下列命令來執行指令碼。
 
@@ -275,6 +275,8 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 您可以瀏覽 Azure Site Recovery 保存庫中 [組態伺服器] 頁面下方的 [伺服器詳細資料] 頁面，來驗證主要目標伺服器已成功向組態伺服器註冊
 
+附註：在註冊 MT 之後，您可能會發現 MT 有組態錯誤，其可能原因為 - 虛擬機器可能已從 Azure 刪除，或端點未正確設定。這是因為在將 MT 部署到 Azure 時，Azure 端點偵測到 MT 組態。不過這對於內部部署 MT 並不成立，而且可以忽略這個錯誤。也因為如此，容錯回復並不會有任何問題。
+
 
 ## 開始保護回復為內部部署的虛擬機器
 
@@ -288,9 +290,9 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 若要這樣做，
 
-1.  開啟 電腦管理 (透過控制台系統管理工具，或者使用滑鼠右鍵按一下總管視窗中的 [這部電腦]，然後選取 [管理])。
+1.  開啟 [電腦管理] (透過控制台系統管理工具，或者使用滑鼠右鍵按一下總管視窗中的 [這部電腦]，然後選取 [管理])。
 
-2.  選取 儲存管理，即會列出磁碟已上線且已連接到機器。
+2.  選取 [儲存管理]，即會列出磁碟已上線且已連接到機器。
 
 3.  選取連接到機器的暫存磁碟，並選擇使其離線。
 
@@ -329,7 +331,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
 6.  若要選取正確的 VM，您可以參考其 IP 位址。IP 位址範圍內部部署將會在內部部署 VM 上。
-7.  按一下 [**移除**] 以刪除項目。
+7.  按一下 [移除] 刪除項目。
 
 ![](./media/site-recovery-failback-azure-to-vmware/image23.png)
 
@@ -348,7 +350,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 ![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
-14.  若要這樣做，您需要選取復原端 [**資料存放區**] - 這是要將 VM 還原到其中的資料存放區
+14.  若要這樣做，您需要選取復原端 [資料存放區] - 這是要將 VM 還原到其中的資料存放區
 
 您必須針對每個 VM 提供不同選項，如下
 
@@ -367,7 +369,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 **屬性** | **如何設定**
 ---|---
-網路組態|針對每個偵測到的 NIC，設定虛擬機器的容錯回復 IP 位址。選取 NIC，然後按一下 [**變更**] 來指定 IP 位址詳細資料。
+網路組態|針對每個偵測到的 NIC，設定虛擬機器的容錯回復 IP 位址。選取 NIC，然後按一下 [變更] 來指定 IP 位址詳細資料。
 硬體組態|您可以指定 VM 的 CPU 和記憶體值。此設定可套用到您嘗試保護的所有 VM。
 顯示名稱|若要識別 CPU 和記憶體的正確值，您可以參考 IAAS VM 角色大小，並查看核心數及指派的記憶體。
 顯示名稱|容錯移轉回到內部部署之後，您可以選擇重新命名虛擬機器，如同它在 vCenter 詳細目錄中所示。請注意，此處所示的預設值是虛擬機器的電腦主機名稱。若要識別 VM 名稱，您可以參考保護群組中的 VM 清單。
@@ -552,4 +554,4 @@ NAT 組態|以下將詳細討論
 
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -28,7 +28,7 @@
 
 本文將說明如何使用 PowerShell 變更您的 SQL Database 的服務層級和效能等級。
 
-使用[將 SQL Database Web/Business 資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)和 [Azure SQL Database 服務層和效能等級](https://msdn.microsoft.com/library/azure/dn741336.aspx)中的資訊，來判斷適合您 Azure SQL Database 的服務層和效能等級。
+使用[將 SQL Database Web/Business 資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)和 [Azure SQL Database 服務層和效能等級](sql-database-service-tiers.md)中的資訊，來判斷適合您 Azure SQL Database 的服務層和效能等級。
 
 > [AZURE.IMPORTANT]變更 SQL Database 的服務層級和效能等級是線上作業。這表示您的資料庫在整個作業過程中，將維持在線上可供使用的狀態而不需停機。
 
@@ -134,4 +134,4 @@
 - [業務續航力概觀](sql-database-business-continuity.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

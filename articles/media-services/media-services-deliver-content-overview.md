@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/27/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,8 @@
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
+
+
 **Apple HTTP Live Streaming (HLS) V4 格式**
 
 {串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=m3u8-aapl)
@@ -96,6 +98,11 @@
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
+**Apple HTTP Live Streaming (HLS) 格式搭配僅限音訊的篩選條件**
+
+根據預設，僅限音訊的曲目只包含在 HLS 資訊清單。這是用於行動電話通訊網路的 Apple 存放區認證所需要的。在此情況下，如果用戶端沒有足夠的頻寬，或透過 2G 網路連線，它會切換成僅限音訊的播放。這可在沒有緩衝的情況下讓串流進行，但缺點是沒有視訊。不過，在某些案例中，播放程式緩衝處理可能比僅限音訊更好。如果您想要移除僅限音訊的曲目，您可以加入 (audio-only=false) 到此 URL 並將其移除。
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 **Smooth Streaming 格式**
 
@@ -179,4 +186,4 @@
 [啟動儲存體金鑰之後更新媒體服務定位器](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

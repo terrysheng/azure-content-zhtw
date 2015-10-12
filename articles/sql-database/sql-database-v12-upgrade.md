@@ -3,7 +3,7 @@
 	description="說明如何從較早版本的 Azure SQL Database 升級為 Azure SQL Database V12。" 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sonalmm" 
+	authors="stevestein" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,85 +13,76 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="05/15/2015" 
-	ms.author="sonalm"/>
+	ms.date="09/30/2015" 
+	ms.author="sstein"/>
 
 
-# 就地升級至 SQL Database V12
+# 升級至 SQL Database V12
 
 
-[註冊](https://portal.azure.com) SQL Database V12，在 Microsoft Azure 上充分運用新一代的 SQL Database。首先，您需要 Microsoft Azure 訂用帳戶。註冊 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial)並檢閱[定價](http://azure.microsoft.com/pricing/details/sql-database)資訊。
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-v12-upgrade.md)
+- [PowerShell](sql-database-upgrade-server.md)
 
 
-## 升級至 SQL Database V12 的步驟
+SQL Database V12 是 SQL Database 的最新版本，具有[舊版 V2 所欠缺的許多優點](sql-database-v12-whats-new.md)。本文說明如何使用 Azure 預覽入口網站，將 V2 伺服器升級為 V12 版本。
+
+在升級至 SQL Database V12 的過程中，您也必須[將所有 Web 和 Business 資料庫一併更新至新的服務層](sql-database-upgrade-new-service-tiers.md)。下列指示包括更新 Web 和 Business 資料庫的步驟，並根據您資料庫的使用歷史記錄，為您提供定價層建議。
 
 
-| 升級步驟 | 螢幕擷取畫面 |
-| :--- | :--- |
-| 1\.登入 [http://portal.azure.com/](http://portal.azure.com/)。 | ![新的 Azure 入口網站][1] |
-| 2\.按一下 [瀏覽]。 | ![瀏覽服務][2] |
-| 3\.按一下 [SQL Server]。隨即顯示 SQL Server 名稱清單。 | ![選取 SQL Server 服務][3] |
-| 4\.選取您想複製到啟用 SQL Database Update 之新伺服器的伺服器。 | ![顯示 SQL Server 的清單][4] |
-| 5\.按一下 [設定] 或 [伺服器版本]，將您的伺服器升級到 V12。 | ![最新的預覽功能][5] |
-| 6\.按一下 [升級此伺服器]。 | ![將 SQL Server 升級至預覽][6] |
-| 7\.一旦按一下 [**升級此伺服器**]，升級程序就會開始。在 [**伺服器版本**] 下，通知會從 [**V2**] 變更為 [**升級排程的...**]。如果您按一下 [**升級排程的...**] 通知，則會開啟刀鋒視窗，頂端有 [**取消升級**] 按鈕。如果您因為任何原因而決定不要升級伺服器，請按一下 [**取消升級**]。請**注意**，取消作業不會結束升級程序，升級仍會完成。|![取消升級][9] 
+
+1. 在 [Azure 預覽入口網站](http://portal.azure.com/)中，瀏覽至您想要升級的伺服器，方法是選取 [瀏覽全部] > [SQL Server]，並選取所需的伺服器。
+2. 選取 [最新的 SQL Database 更新]，然後選取 [升級此伺服器]。
+
+      ![升級伺服器][1]
+
+## 升級 Web 和 Business 資料庫
+
+2. 升級所有 Web 和 Business 資料庫。如果您的伺服器內有任何 Web 或 Business 資料庫，就必須將這些資料庫升級。為了協助您完成升級，SQL Database 服務建議為每個資料庫選擇適當的服務層和效能層級 (定價層)。SQL Database 服務會透過分析每個資料庫的使用歷史記錄，建議最適合用於執行您現有資料庫工作負載的層。 
+    
+    逐一選取各資料庫，檢閱建議升級的定價層並加以選取。您隨時都可以瀏覽各種可用的定價層，並選取最符合您環境的選項。
+
+     ![資料庫][2]
 
 
-> [AZURE.NOTE]一旦您選取升級選項，您的伺服器和該伺服器內的資料庫將會啟用 SQL Database V12 功能，並且無法回復。若要將伺服器升級至 SQL Database V12，您需要「基本」、「標準」或「高階」服務層。如需服務層的詳細資訊，請參閱[將 SQL Database Web/商務資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)。
+
+7. 按一下建議的層之後，您會看到 [選擇定價層] 刀鋒視窗，您可以在此按一下任一層，然後按一下 [選取] 按鈕變更為該層。為每個 Web 或 Business 資料庫選取新的層
+
+    ![Mahout][6]
 
 
-> [AZURE.IMPORTANT]SQL Database V12 (預覽) 不支援異地複寫。如需詳細資訊，請參閱[規劃和準備升級至 Azure SQL Database V12 預覽](sql-database-v12-plan-prepare-upgrade.md)。
+伺服器的所有資料庫都符合資格之後，您就可以準備開始升級
+
+## 開始升級
+
+3. 伺服器的所有資料庫都符合升級條件後，您必須**輸入伺服器名稱**，以確認您要執行升級，然後按一下 [確定]。 
+
+    ![確認升級][3]
 
 
-按一下 [升級此伺服器] 選項後，開啟的刀鋒視窗會顯示有關驗證程序的訊息。
+4. 升級隨即開始，過程中也會顯示進度通知。升級程序即會啟動。視特定資料庫的詳細資料而定，升級至 V12 可能需要一些時間。在這段期間，伺服器上的所有資料庫將維持線上狀態，但伺服器和資料庫的管理動作將受到限制。
 
+    ![升級進行中][4]
 
-- 驗證程序會檢查您資料庫的服務層，並檢查是否已啟用異地複寫。驗證完成後，刀鋒視窗會顯示結果。 
-- 驗證程序完成後，您會看到一份需要您採取動作以符合升級至 SQL Database V12 之需求的資料庫名稱清單。
- - **您必須個別為那些資料庫完成動作，才能升級至 SQL Database V12**。
-- 當您按一下每個資料庫名稱時，新的刀鋒視窗會根據您目前的使用量提供服務定價層建議。您也可以瀏覽各種定價層，選取最符合您環境的選項。所有已設定異地複寫的資料庫都必須重新設定才能停止複寫。 
-- 請注意，若找不到足夠資料，將不會顯示定價層建議。 
+    在實際轉換到新的效能層級時，資料庫連線可能會暫時中斷一小段時間 (通常以秒計算)。若應用程式對於連線終止出現暫時性的錯誤處理 (重試邏輯)，在升級結束時連線將不會中斷。
 
+5. 升級作業完成後，會隨即啟用 SQL Database V12 伺服器功能。
 
-| 動作 | 螢幕擷取畫面 |
-| :--- | :--- |
-| 7\.在您完成伺服器升級的準備動作後，請輸入要升級的伺服器名稱，然後按一下 [確定]。 | ![確認要升級的伺服器名稱][7] |
-| 8\.升級程序即會啟動。升級最久可能需要 24 小時。此伺服器上的所有資料庫在這段期間將維持線上狀態，但伺服器和資料庫管理動作將受到限制。一旦程序完成，伺服器刀鋒視窗上會顯示 [已啟用] 狀態。 | ![確認已啟用預覽功能][8] |
-
-
-## PowerShell Cmdlet
-
-
-PowerShell Cmdlet 可用來啟動、停止或監視從 V11 或任何其他 V12 以前版本升級至 Azure SQL Database V12。
-
-
-如需這些 PowerShell Cmdlet 的參考文件，請參閱：
-
-
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
-
-
-Stop- Cmdlet 表示取消，不是暫停。升級一旦停止就沒有任何方法可以繼續，只能再次從頭開始。Stop- Cmdlet 會清除並釋放所有適當的資源。
+    ![已啟用 V12][5]
 
 
 ## 相關連結
 
--  [SQL Database V12 新功能](sql-database-v12-whats-new.md) 
+- [SQL Database V12 新功能](sql-database-v12-whats-new.md)
 - [規劃和準備升級至 SQL Database V12](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
-[1]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[2]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[3]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[4]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[5]: ./media/sql-database-v12-upgrade/latestprview.png
-[6]: ./media/sql-database-v12-upgrade/upgrade.png
-[7]: ./media/sql-database-v12-upgrade/typeservername.png
-[8]: ./media/sql-database-v12-upgrade/enabled.png
-[9]: ./media/sql-database-v12-upgrade/cancel.PNG
- 
+[1]: ./media/sql-database-v12-upgrade/latest-sql-database-update.png
+[2]: ./media/sql-database-v12-upgrade/upgrade-server2.png
+[3]: ./media/sql-database-v12-upgrade/upgrade-server3.png
+[4]: ./media/sql-database-v12-upgrade/online-during-upgrade.png
+[5]: ./media/sql-database-v12-upgrade/enabled.png
+[6]: ./media/sql-database-v12-upgrade/recommendations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

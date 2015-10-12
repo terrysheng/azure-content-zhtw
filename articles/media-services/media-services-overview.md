@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
 #Azure 媒體服務概觀和常見案例
@@ -22,12 +22,9 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 
 您可以建置完全採用媒體服務的端對端工作流程。您也可以選擇在工作流程的某些部分採用協力廠商元件。例如，使用第三方編碼器來進行編碼；然後使用媒體服務上傳、保護、封裝、傳遞。
 
-
-下列海報說明從媒體建立到耗用量的 Azure 媒體服務工作流程。您可以從這裡下載海報：[Azure 媒體服務海報](http://www.microsoft.com/download/details.aspx?id=38195)。
-
-![概觀][overview]
-
 您可以選擇即時串流您的內容或隨選傳遞內容。本主題說明[即時](media-services-overview.md#live_scenarios)傳遞內容或 [隨選](media-services-overview.md#vod_scenarios)傳遞內容的常見案例。本主題也會連結到其他相關主題。
+
+## SDK 及工具 
 
 若要建置媒體服務解決方案，您可以使用：
 
@@ -43,6 +40,10 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##海報
+
+
+[這裡](http://azure.microsoft.com/documentation/infographics/media-services/)您可以檢視說明 AMS 工作流程的 Azure 媒體服務海報，說明從媒體建立到取用的步驟。
 
 ##必要條件
 
@@ -52,15 +53,15 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 2. Azure 媒體服務帳戶。使用 Azure 管理入口網站、.NET 或 REST API 建立 Azure 媒體服務帳戶。如需詳細資訊，請參閱[建立帳戶](media-services-create-account.md)。
 3. (選擇性) 設定開發環境。針對開發環境選擇 .NET 或 REST API。如需詳細資訊，請參閱[設定環境](media-services-dotnet-how-to-use.md)。 
 
-	此外，請了解如何以程式設計方式[連接](media-services-dotnet-connect_programmatically.md)。
-4. (建議) 配置一或多個縮放單位。建議您為生產環境中的應用程式配置一個或多個縮放單位。如需詳細資訊，請參閱[管理資料流端點](media-services-manage-origins.md)。
+	此外，請了解如何以程式設計方式[連線](media-services-dotnet-connect_programmatically.md)。
+4. (建議) 配置一或多個縮放單位。建議您為生產環境中的應用程式配置一個或多個縮放單位。如需詳細資訊，請參閱[管理串流端點](media-services-manage-origins.md)。
 
 ##概念
 
 如需詳細資訊，請參閱[概念](media-services-concepts.md)。
 
 
-##<a id="vod_scenarios"></a>利用 Azure 媒體服務傳遞點播媒體：常見案例和工作。
+##<a id="vod_scenarios"></a>使用 Azure 媒體服務傳遞點播媒體：常見案例和工作
 
 本節描述常見的案例並提供相關主題的連結。下圖顯示在傳遞隨選內容中牽涉到的媒體服務平台的主要部分。
 
@@ -132,7 +133,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 - [如何保護發佈](media-services-manage-content.md#publish)
 - [如何調整編碼](media-services-portal-encoding-units.md)
 
-##<a id="live_scenarios"></a>利用 Azure 媒體服務傳遞即時資料流事件
+##<a id="live_scenarios"></a>使用 Azure 媒體服務傳遞即時串流事件
 
 使用即時資料流時通常涉及下列元件：
 
@@ -148,19 +149,19 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 	- 透過一般串流通訊協定 (例如，MPEG DASH、Smooth、HLS、HDS) 直接將內容傳遞給客戶，或傳遞至內容傳遞網路 (CDN) 供進一步的發佈。 
 	
 		
-**Microsoft Azure 媒體服務** (AMS) 具備擷取、編碼、預覽、儲存和傳遞即時資料流內容的能力。
+**Microsoft Azure 媒體服務** (AMS) 提供擷取、編碼、預覽、儲存和傳遞即時串流內容的能力。
 
-當您將內容傳遞給客戶時，您的目標是在不同的網路條件下將高品質的視訊傳遞到各種裝置。請注意品質和網路狀況，使用即時編碼器將您的串流編碼成多位元速率 (調適性位元速率) 視訊串流。若要處理不同裝置上的資料流，請使用媒體服務[動態封裝](media-services-dynamic-packaging-overview.md)，將資料流動態地重新封裝至不同的通訊協定。媒體服務支援傳遞下列可調位元速率資料流技術：HTTP 即時資料流 (HLS)、Smooth Streaming、MPEG DASH 和 HDS (僅適用於 Adobe PrimeTime/Access licensees)。
+當您將內容傳遞給客戶時，您的目標是在不同的網路條件下將高品質的視訊傳遞到各種裝置。請注意品質和網路狀況，使用即時編碼器將您的串流編碼成多位元速率 (調適性位元速率) 視訊串流。請注意不同裝置上的串流，使用媒體服務[動態封裝](media-services-dynamic-packaging-overview.md)將串流動態地重新封裝至不同的通訊協定。媒體服務支援傳遞下列可調位元速率資料流技術：HTTP 即時資料流 (HLS)、Smooth Streaming、MPEG DASH 和 HDS (僅適用於 Adobe PrimeTime/Access licensees)。
 
-在 Azure 媒體服務中，**通道**、**程式**及**資料流端點**會處理所有的即時資料流功能，包括內嵌、格式化、DVR、安全性、延展性和備援能力。
+在 Azure 媒體服務中，**通道**、**程式**及 **StreamingEndpoints** 會處理所有的即時串流功能，包括內嵌、格式化、DVR、安全性、延展性和備援能力。
 
-**通道**代表處理即時資料流內容的管線。目前，通道可以接收即時輸入串流的方式如下：
+在 Azure 媒體服務中，**通道**代表處理即時串流內容的管線。目前，通道可以接收即時輸入串流的方式如下：
 
 
 - 內部部署即時編碼器會傳送單一位元速率串流至通道，可以使用下列格式之一，以媒體服務執行即時編碼：RTP (MPEG-TS)、RTMP 或 Smooth Streaming (分散的 MP4) 。通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。接到要求時，媒體服務會傳遞串流給客戶。
 
-	利用媒體服務編碼即時資料流目前為**預覽**功能。
-- 內部部署即時編碼器會傳送多位元速率 **RTMP** 或 **Smooth Streaming** (分散的 MP4) 到通道。您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：Elemental、Envivio、Cisco。下列即時編碼器會輸出 RTMP：Adobe Flash Live、Telestream Wirecast 和 Tricaster 轉錄器。內嵌的串流會通過**通道**，而不需任何進一步處理。您的即時編碼器也會傳送單一位元速率串流至無法用於即時編碼的通道，但是不建議。接到要求時，媒體服務會傳遞串流給客戶。
+	利用媒體服務編碼即時串流處於**預覽**狀態。
+- 內部部署即時編碼器會傳送多位元速率 **RTMP** 或 **Smooth Streaming** (分散式 MP4) 到通道。您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：Elemental、Envivio、Cisco。下列即時編碼器會輸出 RTMP：Adobe Flash Live、Telestream Wirecast 和 Tricaster 轉錄器。內嵌的串流會通過**通道**，而不需任何進一步處理。您的即時編碼器也會傳送單一位元速率串流至無法用於即時編碼的通道，但是不建議。接到要求時，媒體服務會傳遞串流給客戶。
 
 
 ###使用啟用的通道來以 Azure 媒體服務執行即時編碼
@@ -170,7 +171,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 
 ![即時工作流程][live-overview1]
 
-如需詳細資訊，請參閱[使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+如需詳細資訊，請參閱[使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 
 ###使用通道，從內部部署編碼器接收多位元速率即時串流
@@ -180,7 +181,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 
 ![即時工作流程][live-overview2]
 
-如需詳細資訊，請參閱[使用通道，從內部部署編碼器接收多位元速率即時資料流](media-services-manage-channels-overview.md)。
+如需詳細資訊，請參閱[使用通道，從內部部署編碼器接收多位元速率即時串流](media-services-manage-channels-overview.md)。
 
 ##使用內容
 
@@ -226,4 +227,4 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

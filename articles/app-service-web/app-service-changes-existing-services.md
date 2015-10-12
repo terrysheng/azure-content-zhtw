@@ -5,12 +5,12 @@
 	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=""/>
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -93,4 +93,4 @@ App Service 會將下列現有 Azure 服務 - [網站](http://azure.microsoft.co
 若要深入了解，請瀏覽 [App Service 文件](http://azure.microsoft.com/documentation/services/app-service/)。
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

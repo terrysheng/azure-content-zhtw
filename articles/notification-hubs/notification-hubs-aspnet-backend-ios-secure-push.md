@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 #Azure 通知中心安全推播
@@ -158,4 +158,4 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

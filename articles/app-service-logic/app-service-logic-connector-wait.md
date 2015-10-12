@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="在 Logic Apps 中使用 Wait 連接器 | Microsoft Azure App Service"
-	description="如何建立並設定 Wait 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="在 Logic Apps 中使用 Wait 連接器 | Microsoft Azure App Service" 
+   description="如何建立並設定 Wait 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 # 開始使用 Wait 連接器並將它加入您的邏輯應用程式
 Wait 連接器可讓應用程式將其執行延遲一段指定的持續時間，或到出現指定的時間為止。您可以將 Wait 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。在邏輯應用程式中使用時，它可用來延遲執行。
@@ -42,6 +42,8 @@ Wait 連接器可用作動作。它並沒有任何觸發程序。
 ## 進一步運用您的連接器
 現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視 API 應用程式和連接器](../app-service-api/app-service-api-manage-in-portal.md)。
@@ -51,4 +53,4 @@ Wait 連接器可用作動作。它並沒有任何觸發程序。
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -82,11 +82,13 @@
 	post.jar 公用程式使用 **solr.xml** 和 **monitor.xml** 這兩個範例文件對 Solr 編製索引。您可以在 Solr 安裝內取得 post.jar 公用程式和範例文件。
 
 3. **使用 Solr 儀表板在已編製索引的文件內執行搜尋**。在連往 HDInsight 叢集的 RDP 工作階段內，開啟 Internet Explorer，然後在 ****http://headnodehost:8983/solr/#/** 啟動 Solr 儀表板。在左窗格的 [**核心選取器**] 下拉式清單中，選取 [**collection1**]，然後在其中按一下 [**查詢**]。舉例來說，若要選取並傳回 Solr 中的所有文件，請提供下列值：
-	1. 在 [**q**] 文字方塊中輸入 ***:***。如此便會傳回已在 Solr 中編製索引的所有文件。如果您想要搜尋文件內的特定字串，您可以在此輸入該字串。
-	2. 在 [**wt**] 文字方塊中，選取輸出格式。預設值是 [**json**]。按一下 [**執行查詢**]。
 
-		![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "在 Solr 儀表板上執行查詢")
+	* 在 [**q**] 文字方塊中輸入 ***:***。如此便會傳回已在 Solr 中編製索引的所有文件。如果您想要搜尋文件內的特定字串，您可以在此輸入該字串。
+	
+	* 在 [**wt**] 文字方塊中，選取輸出格式。預設值是 [**json**]。按一下 [**執行查詢**]。
 
+	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "在 Solr 儀表板上執行查詢")
+	
 	輸出中會傳回兩個我們之前用於對 Solr 編製索引的文件。輸出結果類似下面：
 
 			"response": {
@@ -168,11 +170,11 @@
 		此命令會將快照複製到與叢集相關聯之預設儲存體帳戶內的容器下的 /example/data/。
 
 
-## 另請參閱##
+## 另請參閱
+
 - [在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Spark。Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。
 - [在 HDInsight 叢集上安裝 R][hdinsight-install-r]。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 R。R 是一個用於統計計算的開放原始碼語言和環境。它提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。它也提供廣泛的圖形功能。
 - [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
-
 
 
 [powershell-install-configure]: ../install-configure-powershell.md
@@ -181,4 +183,4 @@
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

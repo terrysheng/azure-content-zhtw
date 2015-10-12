@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 上使用 Hadoop 分析航班延誤資料
 
-了解如何在以 Linux 為基礎的 HDInsight (預覽) 上使用 Hive 分析航班延誤資料，然後使用 Sqoop 將資料匯出到 Azure SQL Database。
+了解如何在以 Linux 為基礎的 HDInsight 上使用 Hive 分析航班延誤資料，然後使用 Sqoop 將資料匯出到 Azure SQL Database。
 
 > [AZURE.NOTE]本文章中的個別部分適用於以 Windows 為基礎的 HDInsight 叢集 (例如 Python 與 Hive)，許多步驟則針對以 Linux 為基礎的叢集。如需適用於以 Windows 為基礎的叢集的步驟，請參閱[在 HDInsight 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)
 
@@ -33,7 +33,7 @@
 
 - __Azure SQL Database__。您會使用 Azure SQL Database 做為目的地資料存放區。如果您還沒有 SQL Database，請參閱[如何建立與設定 Azure SQL Database](../sql-database/sql-database-create-configure.md) 以建立一個。
 
-- __Azure CLI__。如果您尚未安裝 Azure CLI，請參閱[安裝與設定 Azure CLI](../xplat-cli.md) 的詳細步驟。
+- __Azure CLI__。如果您尚未安裝 Azure CLI，請參閱[安裝與設定 Azure CLI](../xplat-cli-install.md) 的詳細步驟。
 
 
 ##下載航班資料
@@ -305,4 +305,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

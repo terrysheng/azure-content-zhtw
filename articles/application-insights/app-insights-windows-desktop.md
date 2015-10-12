@@ -118,7 +118,7 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 * 在切換表單、頁面或索引標籤上的 `TrackPageView(pageName)`
 * 其他使用者動作的 `TrackEvent(eventName)`
 * 背景工作中的 `TrackMetric(name, value)`，可傳送未附加到特定事件之度量的一般報告。
-* [診斷記錄][diagnostic] 的 `TrackTrace(logEvent)`
+* [診斷記錄][][diagnostic] 的 `TrackTrace(logEvent)`
 * catch 子句中的 `TrackException(exception)`
 * `Flush()` 確定所有遙測在關閉應用程式之前都已傳送。只有當您只使用核心 API (Microsoft.ApplicationInsights) 時才可以使用此選項。Web 和裝置 SDK 會自動實作此行為。(如果您的應用程式會在不一定有網際網路的內容中執行，請參閱[持續性通道](#persistence-channel)。)
 
@@ -169,7 +169,7 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 如果您預期有更多資料，請在幾秒之後按一下 [重新整理]。
 
-如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟 [計量瀏覽器][metrics]，並開啟 [篩選器] 刀鋒視窗。您應該會看到您的度量，但是它們有時可能需要一些時間才能通過管線，所以您可能必須關閉篩選器刀鋒視窗、稍待片刻，然後重新整理。
+如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟 [計量瀏覽器][][metrics]，並開啟 [篩選器] 刀鋒視窗。您應該會看到您的度量，但是它們有時可能需要一些時間才能通過管線，所以您可能必須關閉篩選器刀鋒視窗、稍待片刻，然後重新整理。
 
 
 
@@ -200,6 +200,8 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
     ``` 
 3. 在您的應用程式關閉之前使用 `telemetryClient.Flush()`，以確定資料已傳送至入口網站或儲存至檔案。
 
+    請注意，flush () 對於持續性通道而言是同步的，但對其他通道而言是非同步的。
+
  
 持續性通道最適合裝置的案例，其中應用程式所產生的事件數目相對較少，而連線通常不可靠。這個通道會先將磁碟的事件寫入到可靠的儲存空間，然後嘗試傳送它。
 
@@ -226,7 +228,7 @@ private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionE
 
 ``` 
 
-當應用程式關閉時，您會看到 `%LocalAppData%\Microsoft\ApplicationInsights` 中的檔案，包含壓縮的事件。
+當應用程式關閉時，您會看到 `%LocalAppData%\Microsoft\ApplicationInsights` 中的檔案，其中包含壓縮的事件。
  
 下次您啟動此應用程式時，通道將盡可能找出此檔案並傳送遙測至 Application Insights。
 
@@ -297,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

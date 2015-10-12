@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/22/2015"
+	ms.date="09/29/2015"
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 建置您的第一個管線
@@ -154,7 +154,7 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]上述命令會在您的 Azure Blob 儲存體建立名為 **script** 的容器，並複製 **partitionweblogs.hql** 檔案到該容器。
+		> [AZURE.NOTE]上述命令會在您的 Azure Blob 儲存體建立名為 **script** 的容器，並從您的本機磁碟複製 **partitionweblogs.hql** 檔案到該 Blob 容器。
 	>
 	5. 檔案成功上傳之後，您會看見下列來自 AzCopy 的輸出。
 	
@@ -176,4 +176,4 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)提交您的意見反應。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

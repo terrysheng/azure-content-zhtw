@@ -71,8 +71,8 @@ Azure SQL Database 的每個邏輯伺服器目前有 2,000 個 DTU 的 DTU 配�
 
 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)
 
-[Azure SQL Database 服務層和效能層級](https://msdn.microsoft.com/library/azure/dn741336.aspx)
+[Azure SQL Database 服務層和效能層級](sql-database-service-tiers.md)
 
 [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -40,7 +40,7 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 |5c.[新增伺服器] 刀鋒視窗可讓您選擇使用 V12 更新建立新的伺服器。若要深入了解 V12 伺服器的功能，請檢閱 [SQL Database V12 新功能](sql-database-v12-whats-new.md)。| ![選取 V12 伺服器][6]|
 |5d.在 [新增伺服器] 刀鋒視窗上進行選取，然後按一下 [確定]。您將會回到 [SQL Database] 刀鋒視窗，以完成建立資料庫的其餘動作。 | ![完成 [新增伺服器] 刀鋒視窗動作][8]|
 |6\.按一下 [選取來源]。建立資料庫時，您可以選取的各種來源類型： 空白資料庫、範例資料庫或從資料庫的備份。| ![選取資料庫的來源][10]|
-|7\.接著，在 [SQL Database] 刀鋒視窗中，按一下 [定價層]。您可以選取其中一個建議的定價層，或選取 [全部檢視] 以檢視所有可用的定價層。進行選擇之後，按一下 [選取]。<p> 如需定價層的詳細資訊，請參閱[將 SQL Database Web/Business 資料庫升級至新的服務層](./sql-database-upgrade-new-service-tiers/)和 [Azure SQL Database 服務層和效能層級](http://msdn.microsoft.com/library/azure/dn741336.aspx)。 |![選取定價層][7]
+|7\.接著，在 [SQL Database] 刀鋒視窗中，按一下 [定價層]。您可以選取其中一個建議的定價層，或選取 [全部檢視] 以檢視所有可用的定價層。進行選擇之後，按一下 [選取]。<p> 如需定價層的詳細資訊，請參閱[將 SQL Database Web/Business 資料庫升級至新的服務層](./sql-database-upgrade-new-service-tiers/)和 [Azure SQL Database 服務層和效能層級](sql-database-service-tiers.md)。 |![選取定價層][7]
 | 8\.接下來，在 [SQL Database] 刀鋒視窗中，按一下 [選擇性組態]，進行選擇並按一下 [確定]。 
 | 9\.當您選取現有的伺服器時，系統已為您選擇 [資源群組] 和 [訂用帳戶]。在 [SQL Database] 刀鋒視窗中，[資源群組] 和 [訂用帳戶] 旁會顯示鎖定圖示。如果您建立新的伺服器，則可以選取或建立資源群組。如需詳細資訊，請檢閱[使用資源群組管理您的 Azure 資源](resource-group-overview.md)。|![指定資源群組][11]
 | 10\.按一下 [建立]。即會建立含有 SQL Database V12 功能的新資料庫。 |![建立新的資料庫][12]
@@ -66,4 +66,4 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

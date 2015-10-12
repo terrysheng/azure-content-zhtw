@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="將 Web 應用程式與 Azure 虛擬網路整合" 
 	description="示範如何將 Azure App Service 中的 Azure Web 應用程式連接到新的或現有的 Azure 虛擬網路" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -109,4 +109,4 @@ Web Apps 另外提供一項稱為「混合式連線」的功能，此功能在�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="08/12/2015"
 	ms.author="jgao"/>
 
 #在 HDInsight 上使用 Hadoop 分析航班延誤資料
 
 Hive 可透過一種稱為 *[HiveQL][hadoop-hiveql]* 的 SQL 式指令碼語言來執行 Hadoop MapReduce 工作，可用來彙總、查詢和分析大量資料。
+
+> [AZURE.NOTE]此文件中的步驟需要以 Windows 為基礎的 HDInsight 叢集。如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
 
 Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。HDInsight 會使用 Azure Blob 儲存體來儲存資料。一般的 MapReduce 程序可分成 3 部分：
 
@@ -41,7 +43,7 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。H
 
 在附錄中，您可以找到上傳航班延誤資料、建立/上傳 Hive 查詢字串和針對 Sqoop 工作準備 Azure SQL Database 的指示。
 
-> [AZURE.NOTE]此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。如需與 Linux 型叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
+> [AZURE.NOTE]此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
 
 ###必要條件
 
@@ -846,7 +848,7 @@ HiveQL 指令碼將執行下列作業：
 * [搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]
 * [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 * [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
-* [開發 HDInsight 的 C#Hadoop 串流程式][hdinsight-develop-streaming]
+* [開發 HDInsight 的 C# Hadoop 串流程式][hdinsight-develop-streaming]
 
 
 
@@ -879,4 +881,4 @@ HiveQL 指令碼將執行下列作業：
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

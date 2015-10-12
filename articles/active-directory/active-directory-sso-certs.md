@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/29/2015"
 	ms.author="liviodlc"/>
 
 #在 Azure Active Directory 中管理同盟單一登入的憑證
@@ -26,7 +26,7 @@
 
 ##如何自訂同盟憑證的到期日期
 
-根據預設，憑證會設定為兩年之後到期。您可以依照下列步驟，為您的憑證選擇不同的到期日期。包含的螢幕擷取畫面使用 ServiceNow 做為範例，但是這些步驟可以套用在任何同盟的 SaaS 應用程式。
+根據預設，憑證會設定為兩年之後到期。您可以依照下列步驟，為您的憑證選擇不同的到期日期。包含的螢幕擷取畫面使用 Salesforce 做為範例，但是這些步驟可以套用在任何同盟的 SaaS 應用程式。
 
 1. 在 Azure Active Directory 中，在您應用程式的 [快速入門] 頁面上按一下 [設定單一登入]。
 
@@ -76,8 +76,6 @@
 
 	![下載，然後上傳憑證](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-##另請參閱
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-[在 Azure AD 中的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

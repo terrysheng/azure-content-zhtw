@@ -71,4 +71,4 @@ Azure 串流分析是複雜、完全受管理的基礎結構，可處理和取�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

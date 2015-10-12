@@ -1,6 +1,7 @@
 <properties
 	pageTitle="在虛擬網路上佈建 HBase 叢集 | Microsoft Azure"
 	description="開始在 Azure HDInsight 中使用 HBase。了解如何在 Azure 虛擬網路上建立 HDInsight HBase 叢集。"
+	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -9,14 +10,14 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/12/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/12/2015"
+   ms.author="jgao"/>
 
-# 在 Azure 虛擬網路上佈建 HBase 叢集
+# 在 Azure 虛擬網路上佈建 HBase 叢集 
 
 了解如何在 [Azure 虛擬網路][1]上建立 Azure HDInsight HBase 叢集。
 
@@ -77,7 +78,9 @@ Azure 資源管理員可讓您將應用程式中的資源做為群組使用。�
 2. 依序按一下 [新增]、[網路] 和 [虛擬網路]。
 3. 在 [選取部署模型] 選取 [傳統]，然後按一下 [建立]。
 
-	>[AZURE.NOTE]以 Windows 為主的 HDInsight 叢集只能部署到傳統的虛擬網路。
+	> [AZURE.NOTE]您不能在 HDInsight 使用 v1 (傳統) Azure 虛擬網路。虛擬網路必須是 v2 (Azure 資源管理員)，使其在 Azure Preview 入口網站中的 HDInsight 叢集建立程序期間列出做為選項，或從 Azure CLI 或 Azure PowerShell 建立叢集時可供使用。
+> 
+> 如果您擁有 v1 網路上的資源，而您想要讓 HDInsight 透過虛擬網路直接存取這些資源，請參閱[將傳統 VNet 連線到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)，以取得如何將 v2 虛擬網路連線到 v1 虛擬網路的相關資訊。一旦建立此連線之後，您便可以在 v2 虛擬網路中建立 HDInsight 叢集。
 
 4. 輸入或選取下列值：
 
@@ -379,4 +382,6 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "佈建新 HBase 叢集的詳細資料"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用指令碼動作以自訂 HBase 叢集"
 
-<!---HONumber=August15_HO9-->
+[azure-preview-portal]: https://portal.azure.com
+
+<!---HONumber=Oct15_HO1-->

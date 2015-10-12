@@ -128,11 +128,7 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 
 ###Ambari
 
-> [AZURE.NOTE]因為個別服務的網站不會在網際網路上公開，所以透過 Ambari 存取記錄檔需要 SSH 通道。如需使用 SSH 通道的相關資訊，請參閱下列其中一項：
->
-> * [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
->
-> * [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+> [AZURE.NOTE]因為個別服務的網站不會在網際網路上公開，所以透過 Ambari 存取記錄檔需要 SSH 通道。如需使用 SSH 通道的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
 從 Ambari Web UI 中，選取您想要檢視記錄檔的服務 (例如 YARN)，然後使用 [快速連結] 選取要檢視哪一個前端節點的記錄檔。
 
@@ -140,11 +136,11 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 
 ## 如何設定前端節點的大小 ##
 
-只能在叢集建立期間選取前端節點的大小。前端節點的預設大小是 **A3**，提供 4 個核心，7 GB 記憶體和 285 GB 的本機儲存體。您可以在 [HDInsight 定價頁面](http://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單，包括個別的核心、記憶體和本機儲存體。
+只能在叢集建立期間選取前端節點的大小。前端節點的預設大小是 **A3**，提供 4 個核心、7 GB 記憶體和 285 GB 的本機儲存體。您可以在 [HDInsight 定價頁面](http://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單，包括個別的核心、記憶體和本機儲存體。
 
 建立新的叢集時，您可以指定該節點的大小。下列提供如何使用 [Azure Preview 入口網站][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小的相關資訊：
 
-* **Azure 預覽入口網站**：建立新叢集時，會提供您設定該叢集前端和資料 (背景工作角色) 節點大小的選項 (定價層)：
+* **Azure Preview 入口網站**：建立新叢集時，會提供您設定該叢集前端和資料 (背景工作角色) 節點大小的選項 (定價層)：
 
 	![可選取節點大小的 [叢集映像建立精靈]](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -158,7 +154,7 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 
 - [Ambari REST 參考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [安裝和設定 Azure CLI](../xplat-cli.md)
+- [安裝和設定 Azure CLI](../xplat-cli-install.md)
 
 - [安裝並設定 Azure PowerShell](../powershell-install-configure.md)
 
@@ -168,6 +164,6 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
-[azure-cli]: ../xplat-cli.md
+[azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -54,7 +54,7 @@
 
 補救方法：
 
-+ 請檢查您為正確的 Azure 帳戶提供登入認證。在部分舊版工具中，Microsoft Azure 認證 (在 [新增專案] 對話方塊中) 與 Visual Studio Online 認證 (在 Visual Studio 右上方) 可能不同。
++ 請檢查您為正確的 Azure 帳戶提供登入認證。在部分舊版工具中，Microsoft Azure 認證 (在 [新增專案] 對話方塊中) 與 Visual Studio 右上方的認證可能不同。
 + 在瀏覽器中，檢查您是否可以存取 [Azure 入口網站](https://portal.azure.com)。開啟 [設定] 並查看是否有任何限制。
 + [將 Application Insights 加入至您現有的專案][start]：在 [方案總管] 中以滑鼠右鍵按一下您的專案並選擇 [加入 Application Insights]。
 + 如果仍然無法運作，請依照下列[手動程序](app-insights-start-monitoring-app-health-usage.md)，在入口網站中加入資源，然後將 SDK 加入至您的專案。 
@@ -189,11 +189,6 @@
 不會！ 它是顯示 Azure 服務的狀態。若要查看 Web 測試結果，請選擇 [瀏覽] > [Application Insights] > (您的應用程式)，然後查看 Web 測試結果。
 
 
-#### <a name="q07"></a>當我使用 [將 Application Insights 加入至我的應用程式] 並開啟 Application Insights 入口網站時，實際畫面與螢幕擷取畫面完全不同。
-
-您可能是使用[舊版的 Application Insights SDK](http://msdn.microsoft.com/library/dn793604.aspx)，這會連結至 Visual Studio Online 版本。
-
-您所查看的說明頁面是關於[Application Insights for Microsoft Azure Preview][start]，這在 Visual Studio 2013 Update 3 中已開啟。
 
 #### <a name="data"></a>資料會保留在入口網站多久？ 是否安全？
 
@@ -248,4 +243,4 @@
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="使用 Azure 自動化啟動和停止虛擬機器 - PowerShell 工作流程 | Microsoft Azure"
-   description="Azure 自動化解決方案的圖形化版本，包含可啟動和停止傳統虛擬機器的 Runbook。"
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="使用 Azure 自動化啟動和停止虛擬機器 - PowerShell 工作流程 | Microsoft Azure"
+	description="Azure 自動化解決方案的圖形化版本，包含可啟動和停止傳統虛擬機器的 Runbook。"
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
 # Azure 自動化解決方案 - 啟動和停止虛擬機器
 
@@ -53,7 +53,7 @@ Runbook 包含註解說明文字，其中含有描述和所需的資產。您也
 Runbook 需要下列資產，您必須建立這些資產並填入適當的值。
 
 | 資產類型 | 資產名稱 | 說明 |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | 認證 | AzureCredential | 包含帳戶的認證，此帳戶有權啟動和停止 Azure 訂用帳戶中的虛擬機器。或者，您也可以在 **Add-AzureAccount** 活動的 **Credential** 參數中指定其他認證資產。 |
 | 變數 | AzureSubscriptionId | 包含 Azure 訂用帳戶的訂用帳戶識別碼。 |
 
@@ -64,7 +64,7 @@ Runbook 需要下列資產，您必須建立這些資產並填入適當的值。
 每個 Runbook 都有下列參數。您必須提供任何必要參數的值，另外可根據您的需求，選擇性地提供其他參數的值。
 
 | 參數 | 類型 | 強制 | 說明 |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | 字串 | 否 | 如果提供一個值，則會啟動或停止具有該服務名稱的所有虛擬機器。如果不提供任何值，則會啟動或停止 Azure 訂用帳戶中的所有傳統虛擬機器。 |
 | AzureSubscriptionIdAssetName | 字串 | 否 | 包含[變數資產](#installing-the-solution)的名稱，此資產含有 Azure 訂用帳戶的訂用帳戶識別碼。如果不指定任何值，則會使用 *AzureSubscriptionId*。 |
 | AzureCredentialAssetName | 字串 | 否 | 包含[認證資產](#installing-the-solution)的名稱，此資產含有要使用的 Runbook 認證。如果不指定任何值，則會使用 *AzureCredential*。 |
@@ -193,4 +193,4 @@ Runbook 將為每部虛擬機器[輸出訊息](automation-runbook-output-and-mes
 - [Azure 自動化中的子 Runbook](automation-child-runbooks.md) 
 - [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Microsoft Azure 入口網站中的角色型存取控制"
 	description="說明角色型存取控制的運作和設定方式"
-	services=""
+	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="active-directory"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
@@ -1275,7 +1275,7 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 以下是可協助您使用角色型存取控制的其他資源：
 
 + [使用 Windows PowerShell 管理角色型存取控制](role-based-access-control-powershell.md)
-+ [使用 Azure CLI 管理角色型存取控制](role-based-access-control-xplat-cli.md)
++ [使用 Azure CLI 管理角色型存取控制](role-based-access-control-xplat-cli-install.md)
 + [為角色型存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
 + [Azure Active Directory Premium 與 Basic](active-directory-editions.md)
 + [Azure 訂用帳戶如何與 Azure AD 產生關聯](active-directory-how-subscriptions-associated-directory.md)
@@ -1293,4 +1293,4 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

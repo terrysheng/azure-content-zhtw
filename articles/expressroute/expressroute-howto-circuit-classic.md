@@ -324,4 +324,4 @@
 - [設定 ExpressRoute 路由 (管理線路對等)](expressroute-howto-routing-classic.md)
 - [將虛擬網路連結到 ExpressRoute 線路](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

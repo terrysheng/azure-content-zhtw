@@ -34,13 +34,15 @@
 + [Mobile Engagement iOS SDK]
 + 推播通知憑證 (.p12)，您可以在 Apple Dev Center 取得
 
+> [AZURE.NOTE]本教學課程使用 Swift 2.0 版。
+
 完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件。
 
 > [AZURE.IMPORTANT]完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件，若要完成此課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ##<a id="setup-azme"></a>為您的 iOS App 設定 Mobile Engagement
 
-[AZURE.INCLUDE [在入口網站中建立 Mobile Engagement App](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [在入口網站中建立 Mobile Engagement 應用程式](../../includes/mobile-engagement-create-app-in-portal.md)]
 
 ##<a id="connecting-app"></a>將您的應用程式連線至 Mobile Engagement 後端
 
@@ -74,11 +76,10 @@
 
 	![][4]
 
-8. 編輯橋接標頭檔案來將 AzME Objective-C 程式碼公開至 Swift 程式碼，請新增以下匯入：
+8. 編輯橋接標頭檔案來將 Mobile Engagement Objective-C 程式碼公開至 Swift 程式碼，並新增以下匯入：
 
 		/* Mobile Engagement Agent */
 		#import "AEModule.h"
-		#import "AEPushDelegate.h"
 		#import "AEPushMessage.h"
 		#import "AEStorage.h"
 		#import "EngagementAgent.h"
@@ -87,6 +88,8 @@
 		#import "AEIdfaProvider.h"
 
 9. 在 [Build Settings]，請確定在 [Swift Compiler - Code Generation] 下的 [Objective-C Bridging Header] 組件設定有指向此標頭的路徑。路徑的範例：**$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (依路徑而定)**
+
+	![][6]
 
 10. 回到 Azure 入口網站中您應用程式的 [連線資訊] 頁面，並複製 [連線字串]。
 
@@ -105,15 +108,11 @@
 
 若要開始傳送資料並確定使用者正在使用，您必須至少傳送一個畫面 (活動) 到 Mobile Engagement 後端。
 
-1. 開啟 **ViewController.h** 檔案，並匯入 **EngagementViewController.h**：
+1. 開啟 **ViewController.swift** 檔案，取代 **ViewController** 的基底類別為 **EngagementViewController**：
 
-    `# import "EngagementViewController.h"`
+	`class ViewController : EngagementViewController {`
 
-2. 現在以 **EngagementViewController** 取代 **ViewController** 介面的超級類別：
-
-	`@interface ViewController : EngagementViewController`
-
-##<a id="monitor"></a>將應用程式與即時監視連接
+##<a id="monitor"></a> App 與即時監視
 
 [AZURE.INCLUDE [將應用程式與即時監視連接](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
@@ -132,10 +131,9 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 3. 瀏覽至您解壓縮 SDK 所在的資料夾
 4. 選取 `EngagementReach` 資料夾
 5. 按一下 [新增]
-6. 編輯橋接標頭檔案來將 AzME Objective-C 程式碼公開至觸達標頭，請新增以下匯入：
+6. 編輯橋接標頭檔案來將 Mobile Engagement Objective-C 觸達標頭公開，並新增以下匯入：
 
 		/* Mobile Engagement Reach */
-		#import "AE_TBXML.h"
 		#import "AEAnnouncementViewController.h"
 		#import "AEAutorotateView.h"
 		#import "AEContentViewController.h"
@@ -154,6 +152,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 		#import "AEReachModule.h"
 		#import "AEReachNotifAnnouncement.h"
 		#import "AEReachPoll.h"
+		#import "AEReachPollQuestion.h"
 		#import "AEViewControllerUtil.h"
 		#import "AEWebAnnouncementJsBridge.h"
 
@@ -171,16 +170,16 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 ###讓您的應用程式能接收 APNS 推播通知
 1. 將下行新增至 `didFinishLaunchingWithOptions` 方法：
 
-		if application.respondsToSelector("registerUserNotificationSettings:")
+		/* Ask user to receive push notifications */
+		if #available(iOS 8.0, *)
 		{
-			application.registerUserNotificationSettings(UIUserNotificationSettings(
-			forTypes: (UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound),
-			categories: nil))
-			application.registerForRemoteNotifications()
+		   let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
+		   application.registerUserNotificationSettings(settings)
+		   application.registerForRemoteNotifications()
 		}
 		else
 		{
-			application.registerForRemoteNotificationTypes(UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound)
+		   application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
 		}
 
 2. 新增 `didRegisterForRemoteNotificationsWithDeviceToken` 方法，如下所示：
@@ -209,5 +208,6 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-swift-get-started/add-header-file.png
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
+[6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

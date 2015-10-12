@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/24/2015"
 	ms.author="glenga"/>
 
 
@@ -35,7 +35,7 @@
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的 Mobile Apps，即使在試用期結束之後仍可繼續使用。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 * [Visual Studio Community 2013] 或更新版本。
 
@@ -65,13 +65,11 @@
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
 
-	這會安裝後端所需的 CORS 支援。
-
-2. 開啟 App\_Start/WebApiConfig.cs 專案檔案，然後新增下列 using 陳述式：
+2. 開啟 App\_Start/Startup.MobileApp.cs 專案檔案，然後新增下列 using 陳述式：
 
 		using System.Web.Http.Cors;
 
-3. 接下來，在建立 **HttpConfiguration** 之後，將下列程式碼加入至 **WebApiConfig.Register** 方法︰
+3. 接下來，在建立 **HttpConfiguration** (*config*) 之後，將下列程式碼加入 **Startup.ConfigureMobileApp** 方法︰
 
         // Enable CORS support for localhost port 8000, all headers and methods.
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
@@ -121,4 +119,4 @@
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

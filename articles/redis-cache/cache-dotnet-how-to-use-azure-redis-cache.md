@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/25/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Redis 快取
@@ -25,10 +25,11 @@
 
 Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取。它可讓您存取由 Microsoft 管理的安全、專用 Redis 快取。使用 Azure Redis 快取建立的快取，可透過 Microsoft Azure 內的任何應用程式加以存取。
 
-Microsoft Azure Redis 快取有兩個階層：
+Microsoft Azure Redis 快取有下列階層：
 
 -	**基本** - 單一節點。多種大小，最高為 53 GB。
 -	**標準** – 兩個節點 (主要/從屬)。多種大小，最高為 53 GB。99.9% SLA。
+-	**Premium** – 目前只能預覽。兩個節點的主要/從屬，具有最多 10 個分區。從 6 GB 到 530 GB 的多種大小 (如需詳細資訊，請與我們連絡)。所有標準層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md) 和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。在預覽期間沒有 SLA。
 
 每一個階層都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料][]。
 
@@ -57,7 +58,7 @@ Microsoft Azure Redis 快取有兩個階層：
 
 在 [DNS 名稱] 中，輸入要用於快取端點的子網域名稱。端點必須是介於 6 到 20 個字元之間的字串、僅包含小寫數字和字母，而且必須以字母開頭。
 
-使用 [價格層] 來選取需要的快取大小和功能。「基本」快取的單一節點具有多種大小，最大為 53 GB。「標準」快取的兩個節點 (主要/從屬) 組態具有 99.9% SLA 和多種大小，最大為 53 GB。
+使用 [價格層] 來選取需要的快取大小和功能。
 
 在 [資源群組] 中，選取或建立快取的資源群組。
 
@@ -367,4 +368,4 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

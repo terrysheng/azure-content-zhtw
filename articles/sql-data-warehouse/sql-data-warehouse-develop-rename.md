@@ -75,9 +75,9 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[KILL]: https://msdn.microsoft.com/ZH-TW/library/ms173730.aspx
+[KILL]: https://msdn.microsoft.com/zh-TW/library/ms173730.aspx
 
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

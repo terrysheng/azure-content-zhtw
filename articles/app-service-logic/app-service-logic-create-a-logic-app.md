@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="integration"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -102,7 +102,7 @@
 
 	![週期性](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-3.  選擇週期性 [**頻率**] 和 **間隔** (例如每小時一次)，然後按一下綠色核取符號。
+3.  選擇週期性 [**頻率**] 和 [**間隔**] (例如每小時一次)，然後按一下綠色核取符號。
 
 現在，您將把動作加入流程。
 
@@ -184,4 +184,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

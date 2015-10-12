@@ -159,6 +159,8 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 
 1. 若要取得您的**封裝安全性識別碼 (SID)** 和**秘密金鑰** (用戶端密碼)，必須將您的 App 與 Windows 市集 App 建立關聯。您可以從 [Windows 市集開發人員中心]建立一個 App，然後確定會從 Visual Studio 使用**將 App 與市集建立關聯**。
 
+	![][7]
+
 2. 瀏覽到 Mobile Engagement 入口網站的 [設定]，然後按一下左側的 [原生推送] 區段。
 
 3. 按一下 [編輯] 按鈕來輸入您的**封裝安全性識別碼 (SID)** 和**秘密金鑰**，如下所示：
@@ -178,10 +180,11 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 [Windows 通用 app - 重疊整合]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/UniversalAppCreation.png
+[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
 [2]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-store-dotnet-get-started/add-connection-info.png
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
+[7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

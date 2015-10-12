@@ -108,7 +108,7 @@ OR  y.[is_user_defined] = 1
 - **geography**，使用 varbinary 類型
 - **hierarchyid**，不支援這個 CLR 類型
 - **image**、**text**、**ntext**，使用 varchar/nvarchar (越小越好)
-- **nvarchar(max)**，使用 varchar(4000) 或更小，效能更好
+- **nvarchar(max)**，使用 nvarchar(4000) 或更小，效能更好
 - **numeric**，使用 decimal
 - **sql\_variant**，將資料行分割成數個強型別資料行
 - **sysname**，使用 nvarchar(128)
@@ -145,4 +145,4 @@ OR  y.[is_user_defined] = 1
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -24,6 +24,7 @@
   1. 已啟用 HDInsight 叢集上的泛型應用程式歷程記錄伺服器。它是 YARN Timeline Server 內的一個元件，負責儲存和抓取已完成之應用程式的相關泛型資訊。
   2. Azure HDInsight .Net SDK 中的 API 可讓您以程式設計方式列舉已在您叢集上執行的應用程式，並下載相關應用程式特定或容器特定的記錄檔 (純文字)，以協助對發生的任何應用程式問題進行偵錯。
 
+> [AZURE.NOTE]本文件中的資訊僅適用於以 Windows 為基礎的 HDInsight 叢集。如需存取 Linux 之 HDInsight 叢集上 YARN 記錄檔的相關資訊，請參閱 [在 HDInsight 中的 Linux 之 Hadoop 上存取 YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## 必要條件
 
@@ -173,4 +174,4 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -35,7 +35,7 @@
 
 或
 
-* [適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli.md)。
+* [適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli-install.md)。
 
 ##什麼是 SSH？
 
@@ -242,4 +242,4 @@ SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsi
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

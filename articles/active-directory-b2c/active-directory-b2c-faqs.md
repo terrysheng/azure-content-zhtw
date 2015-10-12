@@ -75,7 +75,7 @@ Azure AD B2C 無法與 Office 365 一起使用。一般而言，它不能用來�
 
 ### Azure AD B2C 可以搭配 SharePoint On-Premises 2016 或更舊的版本一起使用嗎？
 
-目前不支援。Azure AD B2C 不支援 SAML 1.1 權杖。
+目前不支援。Azure AD B2C 不支援入口網站 / 電子商務應用程式建置在 SP 內部部署需要的 SAML 1.1 權杖。請注意，Azure AD B2C 不適用於 Sharepoint 外部夥伴共用的案例。請改成參閱 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)。
 
 ### Azure AD B2C 提供哪些報告和稽核功能？ 與 Azure AD Premium 的功能相同嗎？
 
@@ -105,4 +105,4 @@ Azure AD B2C 無法與 Office 365 一起使用。一般而言，它不能用來�
 
 您也可能想要檢閱目前的[預覽限制和條件約束](active-directory-b2c-limitations.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

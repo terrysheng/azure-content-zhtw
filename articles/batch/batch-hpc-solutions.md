@@ -1,5 +1,5 @@
 <properties
-   pageTitle="雲端中的批次和 HPC 解決方案 |Microsoft Azure"
+   pageTitle="雲端中的 Batch 和 HPC 解決方案 | Microsoft Azure"
    description="介紹批次和高效能運算 (大量運算) 案例，以及在 Azure 中的解決方案選項"
    services="batch, virtual-machines, cloud-services"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/01/2015"
+   ms.date="09/29/2015"
    ms.author="danlep"/>
 
 # 批次和 HPC 解決方案
@@ -94,7 +94,7 @@ Windows 與 Linux 叢集的叢集和作業排程工具，或獨立開發的工�
 
 Azure 有某個範圍的計算、資料、網路和相關服務，您可將其使用於大量運算解決方案和工作流程。如需每一個服務的詳細指引，請參閱 Azure 服務文件。如需包含批次和 HPC 應用程式的一些常見方法，請參閱[解決方案案例](#solution-scenarios)。
 
->[AZURE.NOTE]新服務會定期導入 Azure 平台，且可能適用於您的案例。建議僅將預覽服務運用於測試或證明概念部署，而非生產工作負載。如果您有疑問，請連絡 [Azure 合作夥伴](https://pinpoint.microsoft.com/zh-tw/search?keyword=azure)或寄電子郵件到 **bigcompute@microsoft.com*。
+>[AZURE.NOTE]新服務會定期導入 Azure 平台，且可能適用於您的案例。建議僅將預覽服務運用於測試或證明概念部署，而非生產工作負載。如果您有疑問，請連絡 [Azure 合作夥伴](https://pinpoint.microsoft.com/zh-TW/search?keyword=azure)或寄電子郵件到 **bigcompute@microsoft.com*。
 
 ### 計算服務
 
@@ -164,11 +164,11 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 
 >[AZURE.NOTE]請洽詢您的內部部署叢集解決方案和應用程式廠商，了解在提供基礎結構即服務 (IaaS) 的公用雲端中執行時的其他需求和最佳作法。
 
-例如，您可以在 Azure 基礎結構服務虛擬機器 (IaaS) 中，使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 建立 Windows Server 架構 HPC 叢集來執行工作負載，如以下簡圖所示。叢集使用者可透過用戶端電腦上執行的標準 HPC Pack 作業提交工具，將作業安全地提交至雲端叢集。如需詳細資料和部署選項，請參閱〈[ Azure VM 中的 Microsoft HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)〉。
+例如，您可以在 Azure 基礎結構服務虛擬機器 (IaaS) 中，使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 建立 HPC 叢集來執行 Windows 或 Linux 工作負載，如以下簡圖所示。叢集使用者可透過用戶端電腦上執行的標準 HPC Pack 作業提交工具，將作業安全地提交至雲端叢集。請參閱[在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)。
 
 ![IaaS 中的叢集][iaas_cluster]
 
-**自動化部署** - 若要部署大量 Windows Server 或 Linux VM，您可以使用標準或自訂 VM 映像和 Azure 自動化工具，例如 [Azure 命令列介面](../xplat-cli.md)或 [Azure PowerShell](../powershell-install-configure.md)。範例包括：
+**自動化部署** - 若要部署大量 Windows Server 或 Linux VM，您可以使用標準或自訂 VM 映像和 Azure 自動化工具，例如 [Azure 命令列介面](../xplat-cli-install.md)或 [Azure PowerShell](../powershell-install-configure.md)。範例包括：
 
 * 若要在 Azure 基礎結構服務中部署 HPC Pack 叢集，您可以從用戶端電腦執行彈性的 [Azure PowerShell 指令碼](https://msdn.microsoft.com/library/azure/dn864734.aspx)；此指令碼使用預先安裝了 HPC Pack 的 Windows Server VM 映像。您也可以使用 Azure [快速啟動範本](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)搭配 Azure PowerShell 或 Azure CLI 來部署 HPC Pack 叢集。
 
@@ -222,4 +222,4 @@ Azure 中的計算服務是大運算解決方案的核心。下表是經常使�
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中設定警示
@@ -50,6 +50,10 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 每個警示目前的狀態都顯示在警示規則刀鋒視窗中。
 
+警示下拉式清單中有最近活動的摘要：
+
+![](./media/app-insights-alerts/010-alert-drop.png)
+
 狀態變更的歷程記錄位於作業事件記錄檔中：
 
 ![在 [概觀] 分頁靠近底部的位置，按一下 [過去一週的事件]](./media/app-insights-alerts/09-alerts.png)
@@ -57,6 +61,27 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 *這些「事件」是否與遙測事件或自訂事件相關？*
 
 * 否。這些作業事件只是於此應用程式資源發生之事件的記錄。 
+
+
+## 警示的運作方式
+
+* 警示有兩種狀態：「警示」和「良好」。 
+
+* 警示狀態變更時，系統會傳送電子郵件。
+
+* 每次度量抵達時都會評估警示，除此之外則無。
+
+* 評估會彙總前一個期間的度量，然後將其與臨界值進行比較，以決定新的狀態。
+
+* 您選擇的期間會指定彙總度量的間隔。它並不會影響評估警示的頻率：這會根據度量抵達的頻率而定。
+
+* 如果經過一段時間後沒有特定度量的資料到達，此間距會在警示評估上，以及在度量總管的圖表上有不同的效果。在度量總管中，如果沒看到資料的時間超過圖表的取樣間隔時間，則圖表會顯示 0 值。但是以相同度量為基礎的警示將不會重新接受評估，而且警示的狀態會維持不變。
+
+    當資料終於抵達時，圖表會跳回非零的值。警示的評估作業會依您指定的期間，並根據可用的資料來進行。如果新的資料點是期間內唯一可用的資料點，彙總將會據此進行。
+
+* 即使您設定的期間較長，警示也可能會在警示和良好狀態之間經常變動。如果度量值徘徊在臨界值附近，就會發生這種情形。臨界值中沒有任何磁滯：轉換為警示時的值會與轉換為良好時的值相同。
+
+
 
 ## 可用性警示
 
@@ -69,8 +94,9 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 熱門的警示包括：
 
 * 如果您的應用程式是會顯示在公開的網際網路上的網站或 Web 服務，則 [Web 測試][availability]很重要。它們會告訴您您的網站是否當機，或者回應緩慢 - 即使這是電信業者的問題，而不是您的應用程式的問題。但是它們是綜合測試，因此不會測量使用者的實際經驗。
-* [瀏覽器度量][client]，尤其是瀏覽器頁面載入時間，則適合用於 Web 應用程式。如果您的網頁有很多指令碼，您要留意瀏覽器例外狀況。若要取得這些度量和警示，您必須設定[網頁監視][client]。
-* Web 應用程式伺服器端的伺服器回應時間和失敗要求。以及設定警示，注意這些度量，以查看高要求率時的差異是否不成比例：可能表示您的應用程式資源不足。
+* [瀏覽器度量][client]，適合用於 Web 應用程式，尤其是瀏覽器**頁面載入時間**。如果您的網頁有很多指令碼，就必須留意**瀏覽器例外狀況**。若要取得這些度量和警示，您必須設定[網頁監視][client]。
+* Web 應用程式伺服器端的**伺服器回應時間**和**失敗要求**。以及設定警示，注意這些度量，以查看高要求率時的差異是否不成比例：可能表示您的應用程式資源不足。
+* **伺服器例外狀況** - 若要查看它們，您只需要進行一些[額外設定](app-insights-asp-net-exceptions.md)。
 
 ## 使用 PowerShell 設定警示
 
@@ -83,7 +109,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 1. 在您要執行指令碼的電腦上，安裝 Azure Powershell 模組。 
  * 安裝 [Microsoft Web Platform Installer (v5 或更高版本)](http://www.microsoft.com/web/downloads/platform.aspx)。
  * 使用該程式安裝 Microsoft Azure PowerShell
-2. 啟動 Azure PowerShell 並[連線至您的訂用帳戶](powershell-install-configure.md)：
+2. 啟動 Azure PowerShell 並[連接至您的訂用帳戶](powershell-install-configure.md)：
 
     ```
     Add-AzureAccount
@@ -129,7 +155,7 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 
 #### 範例 2
 
-我已安裝應用程式，並在其中使用 [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) 報告名為 "salesPerHour" 的度量。 若 salesPerHour 超過 24 小時皆低於平均值 100，則傳送電子郵件給我的同事。
+我已有應用程式，並在其中使用 [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) 來報告名為 "salesPerHour" 的度量。 若 salesPerHour 超過 24 小時皆低於平均值 100，則傳送電子郵件給我的同事。
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -175,10 +201,10 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 
 度量群組 | 收集器模組
 ---|---
-basicExceptionBrowser、<br/>clientPerformance、<br/>檢視 | [瀏覽器 JavaScript](app-insights-javascript.md)
+basicExceptionBrowser、<br/>clientPerformance、<br/>view | [瀏覽器 JavaScript](app-insights-javascript.md)
 performanceCounter | [效能](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
 remoteDependencyFailed| [相依性](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
-要求，<br/>requestFailed|[伺服器要求](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
+request、<br/>requestFailed|[伺服器要求](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
 <!--Link references-->
@@ -191,4 +217,4 @@ remoteDependencyFailed| [相依性](app-insights-configuration-with-applicationi
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

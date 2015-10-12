@@ -4,7 +4,7 @@
    services="application-insights"
    documentationCenter=""
    authors="soubhagyadash"
-   manager="victormu"
+   manager="douge"
    editor="alancameronwills"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="06/17/2015"
+   ms.date="09/30/2015"
    ms.author="sdash"/>
 
 # Azure 雲端服務的 Application Insights
@@ -65,20 +65,32 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 
 3. 設定 SDK 以將資料傳送給 Application Insights 資源。
 
-    開啟 `ApplicationInsights.config` 並插入下面這行：
+    在 `ServiceConfiguration.Cloud.cscfg` 檔案中將檢測金鑰設定為組態設定。([範例程式碼](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg))。
+ 
+    ```XML
+     
+    <Role name="WorkerRoleA"> 
+      <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
+    </Role>
+    ```
+ 
+    在適合的啟動函式中，從組態設定設定檢測金鑰：
 
-    `<InstrumentationKey>` *您複製的檢測金鑰* `</InstrumentationKey>`
+    ```C#
 
-    使用您從 Application Insights 資源複製的檢測金鑰。
+     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey");
+    ```
 
-4. 將 ApplicationInsights.config 設定為一律複製到輸出目錄。僅背景工作角色需要這個設定。
+    對於應用程式中的每個角色執行這項操作。請參閱範例：
+ 
+ * [Web 角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
+ * [背景工作角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
+ * [針對網頁](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
 
+4. 將 ApplicationInsights.config 設定為一律複製到輸出目錄。 
 
-您也可以在程式碼中設定檢測金鑰 (iKey) 來代替。這非常有用，例如，若您想使用 Azure 服務組態 (CSCFG) 的設定來管理對應環境的檢測金鑰。[範例應用程式](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)將示範如何設定 iKey：
+    (在 .config 檔案中，您會看到訊息詢問您將檢測金鑰放至該處。不過，針對雲端應用程式，最好是從 .cscfg 檔案中設定。這可確保角色會在入口網站中正確識別。)
 
-* [Web 角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
-* [背景工作角色](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
-* [針對網頁](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)
 
 ## 使用 SDK 報告遙測
 ### 報告要求
@@ -196,4 +208,4 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

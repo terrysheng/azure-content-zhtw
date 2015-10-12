@@ -222,7 +222,7 @@
 | 對已新增至目錄的自訂商務應用程式進行的登入 | 否 (敬請期待) |
 | 登入已加入目錄的 Azure AD 應用程式 Proxy 應用程式 | 否 (敬請期待) |
 
-> 注意：為了減少此報告中的雜訊量，不會顯示經由 [Microsoft Online Services 登入小幫手](http://community.office365.com/zh-TW/w/sso/534.aspx)對 [Lync/Skype for Business](http://products.office.com/zh-TW/skype-for-business/online-meetings) 原生應用程式進行的登入。
+> 注意：為了減少此報告中的雜訊量，不會顯示經由 [Microsoft Online Services 登入小幫手](http://community.office365.com/zh-TW/w/sso/534.aspx)進行的登入。
 
 
 
@@ -263,11 +263,11 @@
 
 ## 自動電子郵件通知
 
-如需 Azure AD 的報告通知的詳細資訊，請參閱 [Azure Active Directory 報告通知](active-directory-reporting-notifications.md)。
+如需有關 Azure AD 的報告通知的詳細資訊，請參閱 [Azure Active Directory 報告通知](active-directory-reporting-notifications.md)。
 
 ## 後續步驟
 
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

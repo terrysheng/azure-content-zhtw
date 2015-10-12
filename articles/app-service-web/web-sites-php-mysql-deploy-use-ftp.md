@@ -272,6 +272,9 @@
 
 同時將 `index.php` 與 `createtable.php` 上傳完畢後，瀏覽至 **http://[site 名稱].azurewebsites.net/createtable.php** 為應用程式建立 MySQL 資料表，然後瀏覽至 **http://[site 名稱].azurewebsites.net/index.php** 開始使用該應用程式。
  
+## 後續步驟
+
+如需詳細資訊，請參閱 [PHP 開發人員中心](/develop/php/)。
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
@@ -297,4 +300,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

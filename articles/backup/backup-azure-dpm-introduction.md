@@ -7,9 +7,9 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/16/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="sammehta"; "jimpark"/>
 
-# Azure DPM 備份簡介
+# 準備使用 DPM 將工作負載備份到 Azure
 
 本文簡介如何使用 Microsoft Azure 備份來保護 System Center Data Protection Manager (DPM) 伺服器和工作負載。閱讀本文您將可了解：
 
@@ -60,7 +60,7 @@ System Center DPM 會備份檔案和應用程式資料。備份到 DPM 的資料
 - 使用 [複製到磁帶] 選項無法復原 Azure 備份中儲存的資料。
 - 您需要已啟用 Azure 備份功能的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。請閱讀 [Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。
 - 要使用 Azure 備份，就必須在您想要備份的伺服器上安裝 Azure 備份代理程式。每個伺服器至少必須有 2.5 GB 的本機可用儲存體可供快取位置使用，但建議準備 15 GB 的可用本機儲存體空間供快取位置使用。
-- 資料會儲存在 Azure 保存庫儲存體中。可以備份至 Azure 備份保存庫的資料數量沒有限制，但是資料來源 (例如虛擬機器或資料庫) 的大小不應超過 1.65 TB。
+- 資料會儲存在 Azure 保存庫儲存體中。可以備份至 Azure 備份保存庫的資料數量沒有限制，但是資料來源 (例如虛擬機器或資料庫) 的大小不應超過 54400 GB。
 
 下列檔案類型可支援備份至 Azure：
 
@@ -81,4 +81,4 @@ System Center DPM 會備份檔案和應用程式資料。備份到 DPM 的資料
 
 >[AZURE.NOTE]從 System Center 2012 DPM SP1 開始，您可以使用 Microsoft Azure 備份將受到 DPM 保護的工作負載備份至 Azure。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

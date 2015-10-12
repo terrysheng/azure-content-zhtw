@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
@@ -135,14 +135,14 @@ Mobile Apps 與行動服務之間最大的差異之一在於，在 Mobile Apps �
 [預覽 Azure Preview 入口網站]: https://portal.azure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [什麼是行動應用程式？]: app-service-mobile-value-prop-preview.md
-[我已經使用網站和行動服務 – 應用程式服務對我有何幫助？]: /zh-tw/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
+[我已經使用網站和行動服務 – 應用程式服務對我有何幫助？]: /zh-TW/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
 [行動應用程式伺服器 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [建立行動應用程式]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 [將推播通知新增至行動應用程式]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [將驗證新增至行動應用程式]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
-[Azure 排程器]: /zh-tw/documentation/services/scheduler/
+[Azure 排程器]: /zh-TW/documentation/services/scheduler/
 [Web 工作]: ../app-service-web/websites-webjobs-resources.md
 [傳送跨平台推播通知]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [如何使用 .NET 伺服器 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

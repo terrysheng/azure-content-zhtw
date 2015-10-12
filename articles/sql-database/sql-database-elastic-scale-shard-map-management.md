@@ -106,12 +106,13 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
         // for privileges on both the GSM and the shards themselves.
     } 
  
+或者，您也可以使用 Powershell 建立新的分區對應管理員。範例請見[這裡](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)。
 
 ### 分區對應系統管理認證
 
 一般而言，負責管理和操作分區對應的應用程式，不同於使用分區對應來安排連線的分區對應。
 
-對於管理分區對應 (新增或變更分區、分區對應、分區對應等等) 的應用程式，您必須使用**在 GSM 資料庫和每一個做為分區的資料庫上擁有讀取/寫入權限的認證**，以具現化 **ShardMapManager**。這些認證必須允許在輸入或變更分區對應資訊時，能夠在 GSM 和 LSM 中寫入資料表，也必須允許在新的分區上建立 LSM 資料表。
+對於管理分區對應 (加入或變更分區、分區對應、分區對應等等) 的應用程式，您必須使用**在 GSM 資料庫和每一個做為分區的資料庫上擁有讀取/寫入權限的認證**，以具現化 **ShardMapManager**。這些認證必須允許在輸入或變更分區對應資訊時，能夠在 GSM 和 LSM 中寫入資料表，也必須允許在新的分區上建立 LSM 資料表。
 
 ### 只影響中繼資料 
 
@@ -199,7 +200,7 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
             } 
         } 
  
-或者，您也可以使用 PowerShell 指令碼來達成相同的結果。
+或者，您也可以使用 PowerShell 指令碼來達成相同的結果。部分 PowerShell 範例請見[這裡](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)。
 
 一旦已填入分區對應，就可建立或調整資料存取應用程式來使用對應。除非**對應配置**需要變更，否則就不必再次填入或操作對應。
 
@@ -252,4 +253,4 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -102,7 +102,7 @@ OR  y.[is_user_defined] = 1
 - **geography**，使用 varbinary 類型
 - **hierarchyid**，CLR 類型不是原生的
 - **image**、**text**、**ntext** (以文字為主時)，使用 varchar/nvarchar (越小越好)
-- **nvarchar(max)**，使用 varchar(4000) 或更小，效能更好
+- **nvarchar(max)**，使用 nvarchar(4000) 或更小，效能更好
 - **numeric**，使用 decimal
 - **sql\_variant**，將資料行分割成數個強型別資料行
 - **sysname**，使用 nvarchar(128)
@@ -306,4 +306,4 @@ SQL 資料倉儲不使用或支援下列功能：
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

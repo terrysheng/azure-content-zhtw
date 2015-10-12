@@ -100,11 +100,11 @@
 這個程式碼範例示範如何使用交易，您將：
 
 
-\-開始交易
+-開始交易
 
-\-插入一列資料
+-插入一列資料
 
-\-回復您的交易以復原插入
+-回復您的交易以復原插入
 
 
 	import pymssql
@@ -114,6 +114,8 @@
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
- 
+## 後續步驟
 
-<!---HONumber=August15_HO6-->
+如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
+
+<!---HONumber=Oct15_HO1-->

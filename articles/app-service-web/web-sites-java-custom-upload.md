@@ -134,6 +134,22 @@ App Service Web Apps 不支援 Direct3d 呼叫。若要將其停用，請新增�
 
 Jetty 組態必須在 start.ini 中進行變更，進而設定 `java.net.preferIPv4Stack=true`。
 
+### Springboot
+若要執行 Springboot 應用程式，您必須上傳 JAR 或 WAR 檔案，並加入下列 web.config 檔案。Web.config 檔案會移至 wwwroot 資料夾中。在 web.config 中調整引數以指向您的 JAR 檔案，在下列範例的 JAR 檔案也位於 wwwroot 資料夾中。
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar ";%HOME%\site\wwwroot\my-web-project.jar";">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
+
 ### Hudson
 
 我們的測試使用了 Hudson 3.1.2 war 和預設 Tomcat 7.0.50 執行個體，但沒有使用 UI 進行選項設定。因為 Hudson 是個軟體建置工具，建議您將它安裝在專屬執行個體上，您可以在專屬執行個體中設定 Web 應用程式的 **AlwaysOn** 旗標。
@@ -241,4 +257,4 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

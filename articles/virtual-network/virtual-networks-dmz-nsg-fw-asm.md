@@ -566,4 +566,4 @@ Web 伺服器、IIS01 和防火牆都在相同的雲端服務中，因此共用�
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

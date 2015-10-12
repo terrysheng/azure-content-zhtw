@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/28/2015" 
 	ms.author="lbosq"/>
 
 
@@ -230,4 +230,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

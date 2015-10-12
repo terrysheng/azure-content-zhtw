@@ -1,6 +1,6 @@
 <properties 
    pageTitle="在 StorSimple 裝置上安裝 Update 1.2 | Microsoft Azure"
-   description="說明如何在您的裝置上安裝 StorSimple 8000 Series Update 1.2。"
+   description="說明如何在您的 StorSimple 8000 系列裝置上安裝 StorSimple 8000 系列更新 1.2。"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # 在 StorSimple 裝置上安裝 Update 1.2
@@ -153,4 +153,4 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
 
 深入了解 [Update 1.2 版](storsimple-update1-release-notes.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

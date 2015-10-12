@@ -93,9 +93,9 @@ Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否�
 
 如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
 
-[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: xplat-cli.md
-[Azure 命令列工具]: xplat-cli.md
+[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: xplat-cli-install.md
+[Azure 命令列工具]: xplat-cli-install.md
 [使用模組]: nodejs-use-node-modules-azure-apps.md
 [建置並部署 Node.js 網站]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

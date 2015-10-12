@@ -61,7 +61,7 @@
 
 大部分雲端級別的資料庫應用程式都採用這些兩種策略的組合。比方說，軟體即服務應用程式可能使用水平擴充來供應終端客戶，使用垂直縮放來允許每個終端客戶的資料庫隨工作負載所需而擴大或縮減資源。
 
-* 水平縮放是透過[彈性資料庫用戶端程式庫](sql-database-elastic-client-overview.md)來管理。
+* 水平縮放是透過[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)來管理。
 
 * 垂直縮放是透過 Azure PowerShell Cmdlet 變更服務層，或將資料庫放入彈性資料庫集區中來達成。
 
@@ -85,13 +85,13 @@
 其他案例將多個租用戶一起放入資料庫中，而不是將它們隔離至個別的資料庫。這就是一般的**多租用戶分區化模式** – 可能是因為應用程式管理大量非常小的租用戶。在多租用戶分區化中，資料庫資料表中的資料列都設計成具有索引鍵 (識別租用戶識別碼) 或分區化索引鍵。同樣地，應用程式層負責將租用戶的要求遞送至適當的資料庫，而彈性資料庫用戶端程式庫支援此功能。此外，資料列層級安全性可用於篩選每個租用戶可以存取的資料列 – 如需詳細資訊，請參閱[使用彈性資料庫工具和資料列層級安全性的多租用戶應用程式](sql-database-elastic-tools-multi-tenant-row-level-security.md)。多租用戶分區化模式可能需要在資料庫之間重新分配資料，而彈性資料庫分割合併工具可協助達成此工作。
 
 ### 將資料從多租用戶資料庫移到單一租用戶資料庫
-當建立 SaaS 應用程式時，通常會提供試用版軟體給潛在客戶。在此情況下，使用多租用戶資料庫來處理資料較符合成本效益。不過，當潛在客戶變成真正客戶時，單一租用戶資料庫就比較好，因為提供更好的效能。如果客戶已在試用期間建立資料，請使用[分割合併工具](sql-database-elastic-scale-overview-split-and-merge)，將資料從多租用戶資料庫移到新的單一租用戶資料庫。
+當建立 SaaS 應用程式時，通常會提供試用版軟體給潛在客戶。在此情況下，使用多租用戶資料庫來處理資料較符合成本效益。不過，當潛在客戶變成真正客戶時，單一租用戶資料庫就比較好，因為提供更好的效能。如果客戶已在試用期間建立資料，請使用[分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)，將資料從多租用戶資料庫移到新的單一租用戶資料庫。
 
 ## 後續步驟
 
 如需示範用戶端程式庫的範例應用程式，請參閱[開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
 
-若要使用分割合併工具，您必須[設定安全性](sql-database-elastic-scale-split-merge-security-configuration,md)。
+若要使用分割合併工具，您必須[設定安全性](sql-database-elastic-scale-split-merge-security-configuration.md)。
 
 若要查看彈性資料庫集區的細節，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)，或透過[教學課程](sql-database-elastic-pool-portal.md)建立新的集區。
 
@@ -108,4 +108,4 @@
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

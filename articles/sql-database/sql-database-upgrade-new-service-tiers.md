@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="將 SQL Database Web 或 Business 資料庫升級至新的服務層"
-	description="將 Azure SQL Database Web 或 Business 資料庫升級到新的 Azure SQL Database「基本」、「標準」，與「高階」服務層和效能層級。"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	pageTitle="將 SQL Database Web 或 Business 資料庫升級至新的服務層" 
+	description="將 Azure SQL Database Web 或 Business 資料庫升級到新的 Azure SQL Database「基本」、「標準」，與「高階」服務層和效能層級。" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
+	ms.date="06/18/2015" 
+	ms.author="sstein" 
+	ms.workload="data-management" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -29,7 +29,7 @@ Azure SQL Web 和 Business 資料庫即將在 [2015 年 9 月淘汰](http://msdn
 
 <p>Azure Web 與 Business SQL 資料庫是在一個共用的多租用戶環境中執行，資料庫沒有任何保留的資源容量。此共用資源環境中其他資料庫的活動會影響您的效能。任何指定時間點的資源可用性主要取決於系統中執行的其他並行工作負載。這會導致有極大差異且無法預期的資料庫應用程式效能。客戶反應這樣無法預期的效能在管理上有困難，他們偏好更能預期的效能。
 
-為了因應這項反應，Azure SQL Database 服務導入新的資料庫服務層 [(基本、標準和高階)](http://msdn.microsoft.com/library/dn741340.aspx)，以提供更能預期的效能及豐富的商務持續性和安全性新功能。這些新服務層可為某個資料庫工作負載提供指定層級的資源，不論該環境中執行的其他客戶工作負載為何。如此一來，便能有效地預期效能行為。
+為了因應這項反應，Azure SQL Database 服務導入新的資料庫服務層 [(基本、標準和高階)](sql-database-service-tiers.md)，以提供更能預期的效能及豐富的商務持續性和安全性新功能。這些新服務層可為某個資料庫工作負載提供指定層級的資源，不論該環境中執行的其他客戶工作負載為何。如此一來，便能有效地預期效能行為。
 
 客戶對這些變更會產生疑問，不知道應如何評估和決定最適合目前的 Web 和Business (W/B) 資料庫的新服務層，以及實際升級程序是如何。
 
@@ -73,10 +73,8 @@ Azure SQL Web 和 Business 資料庫即將在 [2015 年 9 月淘汰](http://msdn
 
 | 文章 | 說明 |
 |:--|:--|
-|[Azure SQL Database 服務層 (版本)](http://msdn.microsoft.com/library/azure/dn741340.aspx)| 基本、標準和高階服務層的概觀。|
-|[Azure SQL Database 服務層和效能層級](http://msdn.microsoft.com/library/dn741336.aspx)| 各服務層的度量和功能 (以及如何在管理入口網站中使用 DMV 監視資料庫使用量)。 |
-|[服務層有什麼不同？](http://msdn.microsoft.com/library/dn369873.aspx#Different)| 不同服務層的詳細資訊，包括您為何一層一層選取的原因。 |
-|[Azure SQL Database 商務持續性](http://msdn.microsoft.com/library/azure/hh852669.aspx)|不同服務層可用的商務持續性及災害復原功能 (時間點還原、異地還原、異地複寫) 的詳細資料。|
+|[Azure SQL Database 服務層和效能層級](sql-database-service-tiers.md)| 各服務層的概觀、度量和功能 (以及如何在管理入口網站中使用 DMV 監視資料庫使用量)。 |
+|[Azure SQL Database 商務持續性](sql-database-business-continuity.md)|不同服務層可用的商務持續性及災害復原功能 (時間點還原、異地還原、異地複寫) 的詳細資料。|
 |[SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)|不同服務層和效能層級的詳細定價資訊。|
 
 <br>
@@ -156,7 +154,7 @@ Azure SQL Database 服務會在管理入口網站和 [系統檢視] 中公開資
 
 以 S2 資料庫層級為依據的 DTU 耗用量資訊可將您的 Web 和 Business 資料庫目前的耗用量以新服務層資料庫的方式標準化，進而找出較合適的服務層。例如，如果您的平均 DTU 百分比耗用量顯示值為 80%，表示資料庫耗用 DTU 的速率是 S2 效能層級之資料庫限制的 80%。如果您在 **sys.resource\_stats** 檢視中看到大於 100% 的值，就表示您需要大於 S2 的效能層。舉例來說，假設您看到值為 300% 的尖峰 DTU 百分比值。這說明您使用的資源比 S2 中可用的資源多三倍。若要判斷合理的起始大小，請比較 S2 中可用的 DTU (50 DTU) 與下一個較高的大小 (S3/P1 = 100 DTU 或 S2 的 200 %，P2 = 200 DTU 或 S2 的 400 %)。因為您的速率是 S2 的 300%，您可以從 P2 開始再重新測試。
 
-根據 DTU 使用量百分比和符合您工作負載所需的最大版本，您可以判斷哪個服務層和效能層級最適合您的資料庫工作負載 (如同透過 DTU 百分比和各種[效能層級](http://msdn.microsoft.com/library/azure/dn741336.aspx)相對的 DTU 功率所示)。下表提供 Web/商務資源耗用量百分比和對等之新服務層效能層級的對應：
+根據 DTU 使用量百分比和符合您工作負載所需的最大版本，您可以判斷哪個服務層和效能層級最適合您的資料庫工作負載 (如同透過 DTU 百分比和各種[效能層級](sql-database-service-tiers.md)相對的 DTU 功率所示)。下表提供 Web/商務資源耗用量百分比和對等之新服務層效能層級的對應：
 
 ![資源耗用量][4]
 
@@ -307,4 +305,4 @@ Azure SQL Database 服務提供遙測資料和工具，可用於評估您的 Web
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

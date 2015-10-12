@@ -1,15 +1,15 @@
 <properties
 	pageTitle="在 Azure App Service 中部署 Web 應用程式"
 	description="了解可用來將內容部署到 Web 應用程式的方法。"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -20,60 +20,37 @@
 
 ## 概觀
 
-您可以透過多種選項，將自己的內容部署至 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。本主題將概略說明每一種選項，並提供相關資訊的連結。
-
-
-###<a name="cloud"></a>從雲端代管的原始檔控制系統部署
+本主題提供將自己的內容部署至 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 之選項的簡要概觀。
 
 部署 Web 應用程式的最佳方式是設定已與您的[原始檔控制系統](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)整合的[連續傳遞工作流程](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)。自動化不但可以讓開發程序更有效率，也可以使您的備份和還原程序更容易管理且可靠。
 
-如果您尚未設定原始檔控制，最簡單的入門方式莫過於使用雲端代管的原始盪控制系統。
+如需雲端託管原始檔控制系統的部署相關資訊，請參閱本文稍後的下列章節。
 
 * [Visual Studio Online](#vso)
 * [使用 Git 的儲存機制網站](#git)
 * [使用 Mercurial 的儲存機制網站](#mercurial)
 * [Dropbox](#dropbox)
 
-###<a name="ide"></a>從 IDE 部署
-
-[Visual Studio](http://www.visualstudio.com/) 和 [WebMatrix](http://www.microsoft.com/web/webmatrix/) 是可供您用於 Web 開發的 Microsoft IDE (整合式開發環境)。這兩者都提供有助於部署 Web 應用程式的內建功能。兩者都可使用 [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy)將其他與部署有關的工作自動化，例如資料庫部署和連接字串變更。這兩者也都可使用 [FTP 或 FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 進行部署。
-
-WebMatrix 可快速安裝且易於了解，但 Visual Studio 可用來處理 Web Apps 的功能則多出許多。在 Visual Studio IDE 中，您可以建立、停止、啟動及刪除 Web 應用程式，此外，還可以檢視即時建立的記錄，以及進行遠端偵錯，功能眾多。Visual Studio 也可與 [Visual Studio Online](#vso)、[Team Foundation Server](#tfs) 和 [Git 儲存機制](#git)等原始檔控制系統相整合。
-
-* [Visual Studio](#vs)
-* [WebMatrix](#webmatrix)
-
-###<a name="ftp"></a>使用 FTP 公用程式部署
-
-無論您使用何種 IDE，也可以使用 [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 複製檔案，將內容部署至您的應用程式。您可以輕鬆地為 Web 應用程式建立 FTP 認證，並將其用於任何可與 FTP 搭配使用的應用程式中，包括 Internet Explorer 之類的瀏覽器，以及功能完備的免費公用程式 (例如 [FileZilla](https://filezilla-project.org/))。Web Apps 也支援更安全的 FTPS 通訊協定。
-
-雖然使用 FTP 公用程式可讓您輕鬆地將 Web 應用程式的檔案複製到 Azure，但這些公用程式並不會自動處理或協調相關的部署工作，例如，部署資料庫或變更連接字串。此外，有許多 FTP 工具並不會比較來源與目的地檔案，以略過沒有差異的檔案而不加以複製。就大型應用程式而言，若一律複製所有檔案，就會導致部署時間拉長，即便是微幅更新也是如此，因為一律要複製所有檔案。
-
-###<a name="onpremises"></a>從內部部署原始檔控制系統部署
-
-如果您在內部部署 (而非雲端代管) 儲存機制中使用 TFS、Git 或 Mercurial，就可直接從儲存機制部署至 Web 應用程式。
+如需內部部署原始檔控制系統的部署相關資訊，請參閱本文稍後的下列章節。
 
 * [Team Foundation Server (TFS)](#tfs)
 * [內部部署 Git 或 Mercurial 儲存機制](#onpremises)
 
-###<a name="commandline"></a>使用命令列工具和 Azure REST 管理 API
+您也可以使用命令列工具來自動化部署。如需使用命令列工具進行部署的相關資訊，請參閱本文稍後的下列章節。
 
-將開發工作流程自動化一向是我們的首選，但若無法直接從原始檔控制系統進行自動化，您可以使用命令列工具手動加以設定。這通常涉及到多個工具或架構的使用，因為在部署時常須執行網站管理功能和複製內容。
-
-Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，以簡化您可能必須為部署執行的網站管理工作。
-
-* [FTP](#ftp)
 * [MSBuild](#msbuild)
-* [FTP 指令碼](#ftp2)
+* [FTP 工具和指令碼](#ftp)
 * [Windows PowerShell](#powershell)
 * [.NET 管理 API](#api)
 * [Azure 命令列介面 (Azure CLI)](#cli)
 * [Web Deploy 命令列](#webdeploy)
  
-###<a name="octopus"></a>Octopus Deploy
+有時候從您的整合式開發環境 (IDE) 中部署會比較方便。如需從 IDE 進行部署的相關資訊，請參閱本文稍後的下列章節。
 
-[Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy)可以搭配 App Service Web Apps 使用。如需詳細資訊，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)。
+* [Visual Studio](#vs)
+* [WebMatrix](#webmatrix)
 
+另一個部署選項是使用雲端式服務，例如 [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy)。如需詳細資訊，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)。
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -154,7 +131,6 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * [Git、Mercurial 和 Dropbox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)。
 * [從一個 Git 儲存機制將兩個網站部署至 Azure](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx)。取自 Scott Hanselman 的部落格文章。
 
-
 ##<a name="msbuild"></a>MSBuild
 
 如果您使用 [Visual Studio IDE](#vs) 進行開發，您將可使用 [MSBuild](http://msbuildbook.com/) 將任何您可在 IDE 中執行的工作自動化。您可以設定 MSBuild，以使用 [Web Deploy](#webdeploy) 或 [FTP/FTPS](#ftp) 來複製檔案。Web Deploy 也可自動化其他多種部署相關工作，例如部署資料庫。
@@ -164,9 +140,11 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * [使用 Visual Studio 的 ASP.NET Web 部署：命令列部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment)。這是系列中的第十個教學課程，討論如何使用 Visual Studio 部署至 Azure。此課程說明在 Visual Studio 中設定發佈設定檔後，如何使用命令列進行部署。
 * [深入瞭解 Microsoft Build Engine： 使用 MSBuild 和 Team Foundation Build](http://msbuildbook.com/)。這是實體書籍，其中有幾章會說明如何使用 MSBuild 進行部署。
 
-##<a name="ftp2"></a>FTP 指令碼
+##<a name="ftp"></a>FTP 工具和指令碼
 
-您可以輕鬆建立 Web 應用程式的 [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 認證，然後將這些認證與 FTP 批次指令碼搭配使用。
+您可以使用 [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 複製檔案，將內容部署至您的 App。您可以輕鬆地為 Web 應用程式建立 FTP 認證，並將其用於指令碼或可與 FTP 搭配使用的應用程式中，例如 Internet Explorer 之類的瀏覽器，以及功能完備的免費公用程式 (例如 [FileZilla](https://filezilla-project.org/))。Web Apps 也支援更安全的 FTPS 通訊協定。
+
+雖然使用 FTP 公用程式可讓您輕鬆地將 Web 應用程式的檔案複製到 Azure，但這些公用程式並不會自動處理或協調相關的部署工作，例如，部署資料庫或變更連接字串。此外，有許多 FTP 工具並不會比較來源與目的地檔案，以略過沒有差異的檔案而不加以複製。就大型應用程式而言，若一律複製所有檔案，就會導致部署時間拉長，即便是微幅更新也是如此，因為一律要複製所有檔案。
 
 如需詳細資訊，請參閱下列資源：
 
@@ -227,4 +205,4 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

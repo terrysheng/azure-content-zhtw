@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="執行 Python 機器學習服務指令碼 | Microsoft Azure"
-	description="概述 Azure Machine Learning 中對於 Python 指令碼目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。"
+	pageTitle="執行 Python 機器學習服務指令碼 | Microsoft Azure" 
+	description="概述 Azure Machine Learning 中對於 Python 指令碼目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。" 
+	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
-	ms.author="bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2015" 
+	ms.author="bradsev" />
 
 
 # 在 Azure Machine Learning Studio 中執行 Python 機器學習服務指令碼
@@ -164,10 +165,13 @@ Python 函數，用於根據以下顯示的功能計算重要性分數及排序�
 
 在未來幾個月，我們期望為[執行 Python 指令碼][execute-python-script]模組提供其他功能，例如在 Python 中訓練和運作模型的功能，以及為在 Azure Machine Learning Studio 中的開發和偵錯程式碼新增更好的支援。
 
+## 後續步驟
+
+如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

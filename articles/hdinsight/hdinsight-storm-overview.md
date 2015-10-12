@@ -34,6 +34,8 @@ Apache Storm on HDInsight 是已和 Azure 環境整合的受管理叢集。它�
 * 使用您選擇的語言：提供以 **Java**、**C#** 和 **Python** 撰寫的 Storm 元件支援
 
 	* 支援混合使用程式設計語言：使用 Java 讀取資料，然後使用 C# 處理資料
+	
+		> [AZURE.NOTE]只有以 Windows 為基礎的 HDInsight 叢集支援 C# 拓撲。
 
 	* 使用 **Trident** Java 介面建立 Storm 拓撲，藉此支援「只一次性」處理訊息、「交易式」資料存放區持續性和一組常用的串流分析作業
 
@@ -51,13 +53,17 @@ Apache Storm on HDInsight 是已和 Azure 環境整合的受管理叢集。它�
 
 只要花數分鐘即可佈建新的 Storm on HDInsight 叢集。指定叢集名稱、大小、管理員帳戶和儲存體帳戶。Azure 即會建立叢集，包括範例拓撲和 Web 管理儀表板。
 
-> [AZURE.NOTE]您也可以使用 [Azure CLI](../xplat-cli.md) 或 [Azure PowerShell](../powershell-install-configure.md) 佈建 Storm 叢集。
+> [AZURE.NOTE]您也可以使用 [Azure CLI](../xplat-cli-install.md) 或 [Azure PowerShell](../powershell-install-configure.md) 佈建 Storm 叢集。
 
 提交要求後，15 分鐘內您就會有一個新的執行中 Storm 叢集，並準備好讓您進行第一次即時分析管線。
 
 ###容易使用
 
-如果使用 Visual Studio，則 HDInsight Tools for Visual Studio 可讓您建立 C# 和混合式 C#/Java 拓撲，然後將這些拓撲提交至 Storm on HDInsight 叢集。
+__針對 HDInsight 叢集上 Linux 的 Storm__，您可以使用 SSH 連接到該叢集，然後使用 `storm` 命令來啟動和管理拓撲。此外，您可以使用 Ambari 來監視 Storm 服務和 Storm UI，監視和管理執行的拓撲。
+
+如需使用 Linux 之 Storm 叢集的詳細資訊，請參閱[開始在 Linux 的 HDInsight 上使用 Apache Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)。
+
+__針對 HDInsight 叢集上以 Windows 為基礎的 Storm__，HDInsight Tools for Visual Studio 可讓您建立 C# 和混合式 C#/Java 拓撲，然後將這些拓撲提交至 Storm on HDInsight 叢集。
 
 ![建立 Storm 專案](./media/hdinsight-storm-overview/createproject.png)
 
@@ -75,7 +81,11 @@ HDInsight Tools for Visual Studio 也提供了介面，讓您可以監視和管�
 
 如需關於使用 Storm 儀表板的詳細資訊，請參閱[部署和管理 HDInsight 上的 Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology.md)。
 
-Storm on HDInsight 也提供透過 **Event Hub Spout** 與 Azure 事件中樞輕鬆整合的功能。您可以在每個 Storm 叢集的 **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 位置中使用這項功能。如需在 Storm 拓撲中使用此 Spout 的範例，請參閱[開始使用事件中樞](service-bus-event-hubs-c-storm-getstarted.MD)和[使用 Storm 和 HBase 分析感應器資料](hdinsight-storm-sensor-data-analysis.MD)。
+Storm on HDInsight 也提供透過 **Event Hub Spout** 與 Azure 事件中樞輕鬆整合的功能。您可以在每個 Storm 叢集的 **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 位置中使用這項功能。如需在 Storm 拓撲中使用此 Spout 的範例，請參閱下列文件：
+
+* [開發使用 Azure 事件中樞的 C# 拓樸](hdinsight-storm-develop-csharp-event-hub-topology.md)
+
+* [開發使用 Azure 事件中樞的 Java 拓樸](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ###可靠性
 
@@ -154,7 +164,9 @@ HDInsight Tools for Visual Studio 可讓 .NET 開發人員以 C# 設計和實作
 
 如需關於 Trident 的詳細資訊，請參閱 apache.org 上的 [Trident 教學課程](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) (英文)。
 
-如需原始 Java 與 Trident 拓撲的範例，請移至 HDInsight Storm 叢集的 **%storm\_home%\\contrib\\storm-starter** 目錄。
+如需 Java 與 Trident 拓撲的範例，請參閱[範例 Storm 拓撲清單](hdinsight-storm-example-topology.md)或 HDInsight 叢集上的 Storm-Starter 範例。
+
+Storm-Starter 範例位於 Linux 叢集上的 \_\_ /usr/hdp/current/storm-client/contrib/storm-starter\_\_ 目錄和 Windows 叢集上的 **%storm\_home%\\contrib\\storm-starter** 目錄。
 
 ##有哪些常見的開發模式？
 
@@ -205,6 +217,6 @@ Storm 可以提供不同程度的訊息處理保證。例如，基本的 Storm �
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
-[gettingstarted]: ../hdinsight-storm-getting-started.md
+[gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

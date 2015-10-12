@@ -139,7 +139,7 @@
 		OperationId          : 42773656-85e1-a6b6-8705-35473f1e6f6a
 		OperationStatus      : Succeeded
 
-7. 建立本機的站台 VPN 閘道實體。此命令不會設定內部部署 VPN 閘道。相反地，它可讓您提供本機閘道器設定 (例如公用 IP 與內部部署位址空間)，使 Azure VPN 閘道能夠與其連線。
+7. 建立本機的站台 VPN 閘道實體。此命令不會設定內部部署 VPN 閘道。相反地，它可讓您提供本機閘道器設定 (例如公用 IP 與內部位址空間)，使 Azure VPN 閘道能夠與其連線。
 
 	> [AZURE.IMPORTANT]未在 Netcfg 中定義站對站 VPN 的本機站台。您必須改為使用此 Cmdlet 來指定本機站台參數。您無法使用管理入口網站或 Netcfg 檔來定義參數。
 
@@ -210,4 +210,4 @@
 
 如需 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

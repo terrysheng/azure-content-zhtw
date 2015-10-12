@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # 監視 Azure Web 應用程式效能
@@ -21,7 +21,7 @@
 
 Azure 運用*擴充功能*支援「應用程式」效能監視功能 (或 *APM*)。這些擴充功能已安裝在應用程式中，可收集資料並回報給監視服務。
 
-Application Insights 和 New Relic 是兩個可用的效能監視延伸模組。若要使用 New Relic，您需要在執行階段安裝代理程式。若要使用 Application Insights，您需要使用 SDK 重新建置程式碼。您也可以安裝提供其他資料之存取能力的延伸模組。SDK 可讓您撰寫程式碼來監視應用程式的詳細使用狀況和效能。
+Application Insights 和 New Relic 是兩個可用的效能監視延伸模組。若要使用這些模組，您需要在執行階段安裝代理程式。藉由 Application Insights，還有可用 SDK 建置程式碼的選項。SDK 可讓您撰寫程式碼來監視應用程式的詳細使用狀況和效能。
 
 ## 啟用擴充功能
 
@@ -37,9 +37,9 @@ Application Insights 和 New Relic 是兩個可用的效能監視延伸模組。
 
 ![按一下 [分析] 磚。](./media/insights-perf-analytics/10-vm1.png)
 
-### 如果是 Application insights：請使用 SDK 重建
+### Application Insights 的選項：請使用 SDK 重建
 
-Application Insights 能藉由將 SDK 安裝在應用程式中發揮作用。
+Application Insights 可以提供更詳細的遙測，方法是將 SDK 安裝至您的 App。
 
 在 Visual Studio 中，將 Application Insights SDK 加入專案。
 
@@ -83,4 +83,4 @@ SDK 會提供 API 供您[撰寫自訂遙測](../app-insights-api-custom-events-m
 * 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

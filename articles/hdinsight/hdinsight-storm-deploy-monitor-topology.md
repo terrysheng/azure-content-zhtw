@@ -17,11 +17,13 @@
    ms.date="09/23/2015"
    ms.author="larryfr"/>
 
-#部署和管理 HDInsight 上的 Apache Storm 拓撲
+#部署和管理以 Windows 為基礎的 HDInsight 上的 Apache Storm 拓撲
 
 Storm Dashboard 可讓您使用網頁瀏覽器輕鬆地部署和執行 Apache Storm 拓撲至 HDInsight 叢集。您也可以使用儀表板來監視和管理執行中拓撲。如果您使用 Visual Studio，則 HDInsight Tools for Visual Studio 會提供 Visual Studio 中的類似功能。
 
 HDInsight Tools 的 Storm Dashboard 和 Storm 功能依賴 Storm REST API，此 API 可用來建立您專屬的監視和管理方案。
+
+> [AZURE.IMPORTANT]本文件中的步驟需要 HDInsight 叢集上以 Windows 為基礎的 Storm。如需使用 Linux 叢集的相關資訊，請參閱[部署和管理以 Linux 為基礎之 HDInsight 上的 Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ##必要條件
 
@@ -177,4 +179,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

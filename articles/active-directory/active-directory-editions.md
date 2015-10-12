@@ -3,8 +3,8 @@
 	description="說明 Azure Active Directory 免費和付費版本選擇的主題。"
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
-	manager="msStevenPo"
+	authors="markusvi"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
-	ms.author="curtand"/>
+	ms.date="09/28/2015"
+	ms.author="markvi"/>
 
 # Azure Active Directory 版本
 
@@ -36,9 +36,9 @@ Active Directory Basic Edition 是一個 Azure Active Directory 的付費產品�
 
 - **公司商標** - 若要讓使用者體驗更美好，您可以在組織的 [登入] 和 [存取面板] 頁面加上公司標誌和色彩配置。在加上標誌之後，您也可以選擇是否加入標誌的當地語系化版本，以取得不同的語言和地區設定。如需詳細資訊，請參閱[在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)。
 - **以群組為基礎的應用程式存取** - 使用群組來佈建使用者，並將使用者存取大量指派給數千個 SaaS 應用程式。您可以只在雲端中建立這些群組，或者您可以利用內部部署 Active Directory 中已同步處理的現有群組來建立這些群組。如需詳細資訊，請參閱[在 Azure AD 中將群組存取權指派給 SaaS 應用程式](active-directory-accessmanagement-group-saasapps.md)。
-- **自助式密碼重設** - Azure 一律允許目錄系統管理員重設密碼。有了 Azure Active Directory Basic，您現在可以減少在您的使用者忘了密碼功能時撥打服務台電話的次數，方法是使用 Office 365 中的相同登入體驗，對您目錄下的所有使用者提供重設其密碼的功能。如需詳細資訊，請參閱 [Azure AD 中的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)。
+- **自助式密碼重設** - Azure 一律允許目錄系統管理員重設密碼。有了 Azure Active Directory Basic，您現在可以減少在您的使用者忘了密碼功能時撥打服務台電話的次數，方法是使用 Office 365 中的相同登入體驗，對您目錄下的所有使用者提供重設其密碼的功能。如需詳細資訊，請參閱[從任何地方管理您的密碼](active-directory-passwords.md)。
 - **99.9% 的企業 SLA** - 我們保證至少 99.9%的 Azure Active Directory Basic 服務可用性。
-- [**Azure Active Directory 應用程式 Proxy**](https://msdn.microsoft.com/library/azure/dn768214.aspx) - 提供員工使用 Azure Active Directory，從雲端安全存取內部部署應用程式 (如 SharePoint 和 Exchange/OWA) 的權限。
+- [**如何為內部部署應用程式提供安全的遠端存取**](active-directory-application-proxy-get-started.md) - 提供員工使用 Azure Active Directory，從雲端安全地存取內部部署應用程式 (如 SharePoint 和 Exchange/OWA) 的權限。
 
 ## Azure Active Directory Premium 的功能
 
@@ -52,9 +52,9 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 
     如需詳細資訊，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
-- **Multi-Factor Authentication** - Premium 現在包含 Multi-Factor Authentication，可協助您保護存取內部部署應用程式 (VPN、RADIUS 等)、Azure、Microsoft 線上服務 (如 Office 365 和 Dynamics CRM Online)，以及數千個與 Azure Active Directory 預先整合的非 MS 雲端服務。只要啟用 Azure Active Directory 身分識別的 Multi-Factor Authentication，下次使用者登入時，系統便會提示使用者設定其他驗證。
+- **Multi-Factor Authentication** - 高階版現在包含 Multi-Factor Authentication，可協助您安全地存取內部部署應用程式 (VPN、RADIUS 等)、Azure、Microsoft 線上服務 (如 Office 365 和 Dynamics CRM Online)，以及數千個與 Azure Active Directory 預先整合的非 MS 雲端服務。只要啟用 Azure Active Directory 身分識別的 Multi-Factor Authentication，下次使用者登入時，系統便會提示使用者設定其他驗證。
 
-    如需詳細資訊，請參閱 [在 Azure Active Directory 中新增 Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249466.aspx)。
+    如需詳細資訊，請參閱[什麼是 Azure Multi-Factor Authentication？](multi-factor-authentication.md)
 
 - **Microsoft 身分識別管理員 (MIM)** - Premium 包含有權選擇是否授予在內部網路中使用 MIM 伺服器 (和 CAL)，以支援任何混合式身分識別解決方案組合的權限。如果您有要與 Azure Active Directory 直接進行同步處理的不同內部部署目錄和資料庫，則這會是個不錯的選擇。可以使用的 FIM 伺服器數目沒有限制，不過，系統會根據 Azure Active Directory Premium 使用者授權的配置授與 MIM CAL。
 
@@ -66,40 +66,368 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 
 - **具有寫回功能的密碼重設** - 自助式密碼重設可以寫回至內部部署目錄。
 
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx)：監控內部部署 Active Directory 基礎結構的健康情況，並取得使用情況分析。
+- [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)：監控內部部署 Active Directory 基礎結構的健康情況，並取得使用情況分析。
 
 
 
-## 版本比較：所有版本通用的功能
+## 免費、基本和進階版本比較
 
-- 目錄即服務。免費版本有 50 萬個物件數目限制。但是 50 萬個物件數目限制並不適用於採用 Azure Active Directory 目錄服務的 Office 365、Office Microsoft Intune 或任何其他 Microsoft 線上服務。基本和進階版本沒有物件數目限制。
-- 使用 UI 或 Windows PowerShell Cmdlet 的使用者和群組管理
-- 裝置註冊
-- 適合單一登入 (SSO) 型使用者存取 SaaS 和自訂應用程式使用的存取面板入口網站。在 Azure Active Directory Free 和 Azure Active Directory Basic 中，有權存取每個 SaaS 應用程式的使用者在他們的存取面板中最多可以看到 10 個應用程式，並取得他們的單一登入存取權限 (假設系統管理員已使用 SSO 對它們進行設定)。在免費版本中，系統管理員可以設定 SSO，並將使用者存取權指派給任意數目的 SaaS 應用程式，但使用者在存取面板中一次只會看到 10 個應用程式。Azure Active Directory Premium 沒有任何應用程式數目限制。
-- 以使用者為基礎的應用程式存取管理和佈建
-- 雲端使用者的自助式密碼變更
-- 目錄同步處理工具：適用於內部部署 Active Directory 與 Azure Active Directory 之間的同步處理
-- 標準安全性報告
+<br>適用版本：![檢查清單](./media/active-directory-editions/ic195031.png)
 
-## 比較版本：Premium 和 Basic 的功能
 
-- 高可用性 SLA 運作時間 (99.9%)
-- 以群組為基礎的應用程式存取管理和佈建
-- 在 [登入] 和 [存取面板] 頁面上自訂公司標誌和色彩
-- 雲端使用者的自助式密碼重設
-- 應用程式 Proxy：內部部署 Web 應用程式的安全遠端存取和單一登入
+<table>
+	<tr>
+		<th>&#160;</th>
+		<th>特性 </th>
+		<th>免費版 </th>
+		<th>基本版 </th>
+		<th>高階版 </th>
+	</tr>
+	<tr>
+		<td rowspan="8">
+		<p>常用功能</p>
+		</td>
+		<td>
+		<p>目錄即服務</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /><br />
+		最多 50 萬個物件 [1]</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /><br />
+		沒有物件數目限制</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /><br />
+		沒有物件數目限制</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>使用 UI 或 Windows PowerShell Cmdlet 的使用者和群組管理</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>裝置註冊</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>存取面板入口網站，讓以 SSO 為基礎的使用者存取 SaaS 和自訂應用程式</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /><br />
+		每位使用者最多 10 個應用程式 [2]</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /><br />
+		每位使用者最多 10 個應用程式 [2]</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /><br />
+		沒有應用程式數目限制</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>以使用者為基礎的應用程式存取管理和佈建</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>雲端使用者的自助式密碼變更</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Azure AD Connect – 用於內部部署目錄與 Azure Active Directory 之間的同步處理</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>標準安全性報告</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="5">
+		<p>高階和基本功能</p>
+		</td>
+		<td>
+		<p>高可用性 SLA 運作時間 (99.9%)</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>以群組為基礎的應用程式存取管理和佈建</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>在 [登入] 和 [存取面板] 頁面上自訂公司標誌和色彩</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>雲端使用者的自助式密碼重設</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>應用程式 Proxy：內部部署 Web 應用程式的安全遠端存取和 SSO</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="9">
+		<p>僅限進階版使用的功能</p>
+		</td>
+		<td>
+		<p>進階應用程式使用情況報告</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>雲端使用者的自助式群組管理</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>包含內部部署寫回功能的自助式密碼重設</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Microsoft Identity Manager (MIM) 使用者授權 – 用於內部部署身分識別與存取管理</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /> [3]</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>進階異常安全性報告 (Machine Learning 型)</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>
+		<a href="http://channel9.msdn.com/Series/EMS/Azure-Cloud-App-Discovery">雲端應用程式探索</a> </p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>適用於雲端使用者的 Multi-Factor Authentication 服務</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>適用於內部部署使用者的 Multi-Factor Authentication 服務</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>
+		<a href="https://msdn.microsoft.com/zh-TW/library/azure/dn906722.aspx">Azure Active Directory Connect Health</a>：監控內部部署 Active Directory 基礎結構的健康情況，並取得使用情況分析。</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="檢查清單" src="./media/active-directory-editions/ic195031.png" title="檢查清單" xmlns="" /></p>
+		</td>
+	</tr>
+</table>
 
-## 版本比較：僅限 Premium 的功能
 
-- 雲端使用者的自助式群組管理
-- 包含內部部署寫回功能的自助式密碼重設
-- Microsoft Identity Manager (MIM) 伺服器授權 – 適用於內部部署資料庫及/或目錄與 Azure Active Directory 之間的同步處理
-- 進階異常安全性報告 (Machine Learning 型)
-- [雲端應用程式探索](http://channel9.msdn.com/Series/EMS/Azure-Cloud-App-Discovery)
-- 進階應用程式使用情況報告
-- 適用於雲端使用者的 Multi-Factor Authentication 服務
-- 適用於內部部署使用者的 Multi-Factor Authentication 服務
-- Azure Active Directory Connect Health
+[1] 50 萬個物件數目限制並不適用於採用 Azure Active Directory 目錄服務的 Office 365、Office Microsoft Intune 或任何其他 Microsoft 線上服務。
+
+[2] 在 Azure Active Directory Free 和 Azure Active Directory Basic 中，有權存取每個 SaaS 應用程式的使用者在他們的存取面板中最多可以看到 10 個應用程式，並取得他們的 SSO 存取權限 (假設系統管理員已先以 SSO 為他們進行設定)。在免費版本中，系統管理員可以設定 SSO，並將使用者存取權指派給任意數目的 SaaS 應用程式，不過，使用者在存取面板中一次只會看到 10 個應用程式。
+
+[3] Microsoft Identity Manager Server 伺服器軟體的權限會連同 Windows Server 授權 (任何版本) 一起授與。因為 Microsoft Identity Manager 會在 Windows Server 作業系統上執行，因此只要伺服器執行有效且經過授權的 Windows Server 複本，就可以在該伺服器上安裝並使用 Microsoft Identity Manager。Microsoft Identity Manager Server 不需要其他個別授權。
+
+
+
+<br> <br>
+
+
+
+
+
+
+
+
 
 ## 目前處於公開預覽狀態的功能
 
@@ -114,7 +442,7 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 - 特殊權限身分識別管理：特殊權限身分識別管理提供改進的監督，有助於符合服務等級的合約和法規遵循需求。
 - 自助服務應用程式的要求：系統管理員可以提供一份 SaaS 應用程式清單給使用者，讓使用者選擇他們想要使用的項目，應用程式將立即或於核准之後可供使用。
 - Azure 報告 API：其他的監控或 SIEM 將可取得所有 Azure Active Directory 的安全性報告。
-- [Azure Active Directory B2C](http://azure.microsoft.com/services/active-directory-b2c/)：雲端式取用者目錄和身分識別及存取管理的全方位高階新服務，對於想直接與取用者連接的企業，該設計可滿足此種日亦漸增的需求。
+
 
 ## 接下來
 
@@ -122,4 +450,4 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 - [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

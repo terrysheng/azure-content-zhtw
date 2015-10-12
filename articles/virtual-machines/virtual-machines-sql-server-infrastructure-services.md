@@ -32,6 +32,8 @@
 
 在註冊訂用帳戶之後，若要在 Azure 中部署 SQL Server 虛擬機器，最簡單的方式就是[在 Azure 管理入口網站中佈建 SQL Server 機器資源庫映像](virtual-machines-provision-sql-server.md)。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。
 
+>[AZURE.NOTE]使用[新的入口網站](https://manage.windowsazure.com)來佈建及管理 SQL Server 虛擬機器。預設使用進階儲存體，並提供自動化修補、自動化備份及 AlwaysOn 組態。
+
 下表提供虛擬機器資源庫中的可用 SQL Server 映像比較。
 
 |SQL Server 版本|作業系統|SQL Server 版本|
@@ -44,13 +46,14 @@
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise、Standard 和 Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|評估|
 
->[AZURE.NOTE]用於資料倉儲和交易式工作負載的虛擬機器資源庫映像 (非上方所示)，已被取代且即將從資源庫移除。請使用上表中的標準映像，並依照 [Azure 虛擬機器中 SQL Server 的效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)中的建議，將特定工作負載的效能最佳化。
+>[AZURE.NOTE]用於資料倉儲和交易式工作負載的虛擬機器資源庫映像 (非上方所示)，已被取代且即將從資源庫移除。請使用上表中的標準映像並最佳化特定工作負載的效能。
 
-除了這些預先設定的映像之外，您也可以[建立 Azure 虛擬機器](virtual-machines-windows-tutorial.md)，而不需要預先安裝的 SQL Server。您可以安裝任何您擁有授權的 SQL Server 執行個體。將您的授權移轉至 Azure，以使用 [Azure 上透過軟體保證的授權流動性](http://azure.microsoft.com/pricing/license-mobility/)，在 Azure 虛擬機器中執行 SQL Server。在此案例中，您只需支付與虛擬機器相關聯的 Azure 運算和儲存體[成本](http://azure.microsoft.com/pricing/details/virtual-machines)。
+除了這些預先設定的映像之外，您也可以[建立 Azure 虛擬機器](virtual-machines-windows-tutorial.md)，不必預先安裝 SQL Server。您可以安裝任何您擁有授權的 SQL Server 執行個體。將您的授權移轉至 Azure，以使用 [Azure 上透過軟體保證的授權流動性](http://azure.microsoft.com/pricing/license-mobility/)，在 Azure 虛擬機器中執行 SQL Server。在此案例中，您只需支付與虛擬機器相關聯的 Azure 運算和儲存體[成本](http://azure.microsoft.com/pricing/details/virtual-machines)。
 
-在這些佈建及設定的早期階段，常見工作包括：
+為判斷 SQL Server 映像的最佳虛擬機器組態設定，請檢閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)。針對生產環境的工作負載建議，SQL Server Enterprise Edition 的虛擬機器大小至少為 **DS3**，Standard Edition 的虛擬機器大小至少為 **DS2**。
 
-- [檢閱 Azure VM 中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)
+除了檢閱效能最佳作法、 其他初始工作還包括：
+
 - [檢閱 Azure VM 中的 SQL Server 安全性最佳作法](virtual-machines-sql-server-security-considerations.md)
 - [設定連線](virtual-machines-sql-server-connectivity.md)
 
@@ -147,4 +150,4 @@
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure 虛擬機器](virtual-machines-about.md) 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/21/2015"
+   ms.date="09/24/2015"
    ms.author="alkohli"/>
 
 # StorSimple 軟體、高可用性和網路需求
@@ -152,7 +152,7 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 |TCP 443 (HTTPS)<sup>3</sup>| 外 | WAN | 是 |<ul><li>輸出連接埠可用於存取雲端中的資料。</li><li>輸出 web proxy 可由使用者設定。</li><li>若要允許系統更新，此連接埠也必須為控制器固定 IP 開啟。</li></ul>|
 |UDP 53 (DNS) | 外 | WAN | 在某些情況下，請參閱附註。 |只有當您使用網際網路 DNS 伺服器時，才需要此連接埠。 |
 | UDP 123 (NTP) | 外 | WAN | 在某些情況下，請參閱附註。 |只有當您使用網際網路 NTP 伺服器時，才需要此連接埠。 |
-| TCP 9354 | 外 | WAN | 在某些情況下，請參閱附註。 |StorSimple Manager 服務使用輸出連接埠與裝置通訊。如果您目前的網路不支援使用 HTTP 1.1 來連線到網際網路，則需要此連接埠；例如，如果您使用以 HTTP 1.0 為基礎的 proxy 伺服器時。<br> 如果透過 proxy 伺服器連接，請參閱[服務匯流排需求](https://msdn.microsoft.com/library/azure/ee706729.aspx)以取得詳細資訊。 |
+| TCP 9354 | 外 | WAN | 在某些情況下，請參閱附註。 |StorSimple 裝置使用輸出連接埠與 StorSimple Manager 服務通訊。如果您目前的網路不支援使用 HTTP 1.1 來連線到網際網路，則需要此連接埠；例如，如果您使用以 HTTP 1.0 為基礎的 proxy 伺服器時。<br> 如果透過 proxy 伺服器連接，請參閱[服務匯流排需求](https://msdn.microsoft.com/library/azure/ee706729.aspx)以取得詳細資訊。 |
 | 3260 (iSCSI) | 在 | LAN | 否 | 此連接埠用來透過 iSCSI 存取資料。|
 | 5985 | 在 | LAN | 否 | StorSimple Snapshot Manager 會使用輸入連接埠與 StorSimple 裝置通訊。<br>當您從遠端透過 HTTP 連線到 Windows PowerShell for StorSimple，也會使用此連接埠。 |
 | 5986 | 在 | LAN | 否 | 當您透過 HTTPS 從遠端連線到 Windows PowerShell for StorSimple，便會使用此連接埠。 |
@@ -187,6 +187,8 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 
 - 藉由在裝置上擁有專用的網路介面以存取 iSCSI 和雲端，可以隔離 iSCSI 和雲端流量。如需詳細資訊，請參閱如何在您的 StorSimple 裝置上[修改網路介面](storsimple-modify-device-config.md#modify-network-interfaces)。
 
+- 網路介面請勿使用連結彙總通訊協定 (LACP) 組態。這個組態不受支援。
+
 ## 後續步驟
 
 - [了解 StorSimple 系統限制](storsimple-limits.md)。
@@ -195,4 +197,4 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

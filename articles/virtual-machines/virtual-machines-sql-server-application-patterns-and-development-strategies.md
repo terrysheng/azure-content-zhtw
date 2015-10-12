@@ -56,7 +56,7 @@
 
 - 您想要利用 Azure 環境的功能，但 Azure SQL Database 不支援您應用程式需要的所有功能。這可能包括下列部分：
 
-	- **資料庫大小**：本文更新時，SQL Database 支援的資料庫最多可有 500 GB 的資料。如果應用程式需要超過 500 GB 的資料，且您不想要實作自訂分區化解決方案，則建議使用 Azure 虛擬機器中的 SQL Server。如需最新資訊，請參閱[向外延展 Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx) 和 [Azure SQL Database 服務層和效能層級](https://msdn.microsoft.com/library/azure/dn741336.aspx)。
+	- **資料庫大小**：本文更新時，SQL Database 支援的資料庫最多可有 500 GB 的資料。如果應用程式需要超過 500 GB 的資料，且您不想要實作自訂分區化解決方案，則建議使用 Azure 虛擬機器中的 SQL Server。如需最新資訊，請參閱[向外延展 Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx) 和 [Azure SQL Database 服務層和效能層級](../sql-database/sql-database-service-tiers.md)。
 	- **HIPAA 法規遵循**：醫療保健產業的客戶和獨立軟體廠商 (ISV) 可以選擇使用 [Azure 虛擬機器中 SQL Server](virtual-machines-sql-server-infrastructure-services.md) 而不是 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)，因為 HIPAA 業務合作協議 (BAA) 已涵蓋 Azure 虛擬機器中的 SQL Server。如需法規遵循的資訊，請參閱 [Microsoft Azure 信任中心：法規遵循](http://azure.microsoft.com/support/trust-center/compliance/)。
 	- **執行個體層級功能**：目前 SQL Database 不支援存在於資料庫外的功能 (例如連結的伺服器、代理程式作業、FileStream、Service Broker 等等)。如需詳細資訊，請參閱 [Azure SQL Database 方針和限制](https://msdn.microsoft.com/library/azure/ff394102.aspx)。
 
@@ -277,13 +277,13 @@
 1. Azure 平台中需要規劃資源和組態，例如儲存體帳戶和虛擬機器。
 
 1. 設定公司網路內部部署和 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)之間的網路連線。若要設定公司網路內部部署與 Azure 虛擬機器之間的連線，請使用下列兩種方法之一：
-									
+
 	1. 透過 Azure 虛擬機器上的公用端點，建立內部部署與 Azure 之間的連線。此方法提供簡單的設定，並可讓您在虛擬機器中使用 SQL Server 驗證。此外，請在公用連接埠上設定網路存取控制清單 (ACL)，以允許存取特定 IP 位址。如需詳細資訊，請參閱[在端點上管理 ACL](virtual-machines-set-up-endpoints.md/#manage-the-acl-on-an-endpoint)。
-	
+
 	1. 透過 Azure 虛擬私人網路 (VPN) 通道，在內部部署與 Azure 之間建立連線。此方法可讓您將網域原則延伸至 Azure 中的虛擬機器。此外，您可以設定防火牆規則，並在虛擬機器中使用 Windows 驗證。Azure 目前支援安全的網站間 VPN 和點對站 VPN 連線：
-	
+
 		- 您可以透過安全的網站間連線，在內部部署網路與 Azure 虛擬網路之間建立網路連線。建議您將內部部署資料中心環境連接到 Azure。
-		
+
 		- 您可以透過安全的點對站連線，在 Azure 虛擬網路與在任何一處執行的電腦之間，建立網路連線。此方法多半建議用於開發和測試。
 
 	如需如何連接至 Azure 中 SQL Server 的資訊，請參閱[連接 Azure 上的 SQL Server 虛擬機器](virtual-machines-sql-server-connectivity.md)。
@@ -293,9 +293,9 @@
 1. 您可以依據應用程式的需求，實作下列三種常見案例之一：
 
 	1. 您可以在 Azure 中保留 Web 伺服器、應用程式伺服器及資料庫伺服器內的非機密資料，然後將機密資料保留在內部部署。
-	
+
 	1. 您可以將 Web 伺服器和應用程式伺服器保留在內部部署，而在 Azure 虛擬機器中保留資料庫伺服器。
-	
+
 	1. 您可以將資料庫伺服器、Web 伺服器和應用程式伺服器保留在內部部署，而在 Azure 虛擬機器中保留資料庫複本。此設定可讓內部部署 Web 伺服器或報告應用程式存取 Azure 中的資料庫複本。因此，您可以在內部部署資料庫中達到較低的工作負載。我們建議您針對讀取密集的工作負載和開發用途，實作此案例。如需在 Azure 中建立資料庫複本的資訊，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和嚴重損壞修復](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)中的「AlwaysOn 可用性群組」。
 
 ## 比較 Azure 中的 Web 開發策略
@@ -323,4 +323,4 @@
 
 如需在 Azure 虛擬機器中執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

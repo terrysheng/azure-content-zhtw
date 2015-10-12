@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="在 Azure App Service 中將 Web 應用程式連接至 API 應用程式" 
 	description="本教學課程示範如何透過 Azure App Service 中裝載的 ASP.NET Web 應用程式使用 API 應用程式。" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="syntaxc4" 
 	manager="yochayk" 
@@ -12,7 +12,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.date="09/15/2015"
 	ms.author="cfowler"/>
 
@@ -96,4 +96,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -184,4 +184,4 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 [載入範例資料]: ./sql-data-warehouse-get-started-load-samples.md
 [開發程式碼]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

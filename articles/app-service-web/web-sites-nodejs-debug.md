@@ -120,11 +120,11 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
 [在 Azure 應用程式中使用 Node.js 模組]: ../nodejs-use-node-modules-azure-apps.md
 [在 Azure 應用程式中指定 Node.js 版本]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

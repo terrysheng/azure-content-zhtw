@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # 將行動服務新增至現有的應用程式
@@ -87,4 +87,4 @@
 [快速入門]: mobile-services-dotnet-backend-ios-get-started.md
 [GetStartedWithData iOS 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -5,12 +5,12 @@
 	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""/>
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -182,4 +182,4 @@ Web 應用程式擴充功能的程式碼位於 %HOME%\\SiteExtensions[your-exten
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

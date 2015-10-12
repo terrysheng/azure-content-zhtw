@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="09/23/2015"
     ms.author="tamram"/>
 
 
@@ -127,7 +127,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 
 #### 連接至 VM 執行個體的資料磁碟 VHD
 
-如果您在雲端儲存體中有要移轉的資料磁碟，必須確定使用這些資料磁碟的 VM 必須關閉。對於內部部署的資料磁碟，建立一致的 VHD。
+如果您在雲端儲存體中有要移轉的資料磁碟，必須確定使用這些資料磁碟的 VM 必須關閉。內部部署的資料磁碟請建立一致的 VHD。
 
 ## 將 VHD 複製到 Azure 儲存體
 
@@ -315,4 +315,4 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

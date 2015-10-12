@@ -95,7 +95,10 @@ Metastore 包含 Hive 資料表、資料分割、結構描述和資料行等相�
 > 強烈建議您一個叢集只指定一個子網路。
 >
 > 目前 (8/25/2015) 您只能在 Azure 虛擬網路中佈建一個以 Linux 為基礎的叢集。
-
+>
+> 您不能在 Linux 的 HDInsight 使用 v1 (傳統) Azure 虛擬網路。虛擬網路必須是 v2 (Azure 資源管理員)，才能在 Azure Preview 入口網站中的 HDInsight 叢集建立程序期間列出來做為選項，或者在以 Azure CLI 或 Azure PowerShell 建立叢集時使用。
+>
+> 如果您在 v1 網路上擁有資源，而您想要讓 HDInsight 透過虛擬網路直接存取這些資源，請參閱[將傳統 VNet 連線到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)，了解如何將 v2 虛擬網路連線到 v1 虛擬網路的相關資訊。一旦建立此連線之後，您便可以在 v2 虛擬網路中建立 HDInsight 叢集。
 
 ## <a id="options"></a>佈建 HDInsight Linux 叢集的選項
 
@@ -109,7 +112,7 @@ Windows | 按一下[這裡](#portal) | 按一下[這裡](#cli) | 按一下[這�
 
 ### <a id="portal"></a>使用 Azure 入口網站
 
-HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心內必須要有 Azure 儲存體帳戶，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。如需建立 Azure 儲存帳戶的詳細資訊，請參閱[如何建立儲存帳戶](../storage-create-storage-account.md)。
+HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心內必須要有 Azure 儲存體帳戶，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。如需建立 Azure 儲存帳號的詳細資訊，請參閱[如何建立儲存帳號](../storage-create-storage-account.md)。
 
 
 > [AZURE.NOTE]目前只有**東南亞**、**北歐**、**美國東部**和**美國中南部**等地區可代管 HDInsight Linux 叢集。
@@ -117,25 +120,25 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 **建立 HDInsight 叢集**
 
 1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
-2. 請按一下 [新增]、[資料分析]，然後按一下 [HDInsight]。
+2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
 
     ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
 
 3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Ubuntu]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
 
-	> [AZURE.NOTE]若要佈建 HBase 或 Storm 叢集，請選取 [叢集類型] 下拉式清單的適當值。
+	> [AZURE.NOTE]若要佈建 HBase 或 Storm 叢集，請在 [叢集類型] 下拉式清單選取適當值。
 
 
 	![輸入叢集名稱和類型](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.2.png "輸入叢集名稱和類型")
 
 4. 如果您有多個訂用帳戶，請按一下 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
 
-5. 按一下 [資源群組] 來查看現有資源群組清單，然後選取要在其中建立叢集的資源群組。或者，您可以按一下 [建立新的]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
+5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
 	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
-6. 按一下 [認證]，然後輸入系統管理員使用者的密碼。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。建議使用公開金鑰的方法。在底部按一下 [選取] 以儲存認證組態。
+6. 按一下 [認證]，然後輸入 admin 使用者的密碼。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。建議使用公開金鑰的方法。在底部按一下 [選取] 以儲存認證組態。
 
 	![提供叢集認證](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.3.png "提供叢集認證")
 
@@ -145,19 +148,19 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-7. 按一下 [資料來源] 選擇該叢集的現有資料來源，或建立一個新的資料來源。
+7. 按一下 [資料來源] 為叢集選擇現有的資料來源，或建立一個新的資料來源。
 
 	![資料來源刀鋒視窗](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.4.png "提供資料來源組態")
 
-	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。請使用下列步驟來了解 [資料來源] 刀鋒視窗上的項目。
+	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。請使用下列資訊來了解 [資料來源] 刀鋒視窗上的項目。
 
 	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
 
-	- **選取儲存體帳戶 / 建立新的**：請按一下 [選取儲存體帳戶] 來瀏覽並選取您要與叢集關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+	- **選取儲存體帳戶 / 建立新項目**：按一下 [選取儲存體帳戶] 瀏覽並選取您要與叢集相關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
 
 	- **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
 
-	- **位置**：儲存體帳戶所在或將建立帳戶的地理區域。
+	- **位置**：儲存體帳戶所在地或將建立的地理區域。
 
 		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
 
@@ -167,14 +170,14 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 	![節點定價層刀鋒視窗](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.5.png "指定叢集節點的數目")
 
-	按一下 [選取] 以儲存此節點價格組態。
+	按一下 [選取] 以儲存此節點定價組態。
 
-9. 請按一下 [選用設定] 以選取叢集的版本，以及設定其他選擇性設定，例如聯結 [虛擬網路]、設定 [外部中繼存放區] 來保存 Hive 和 Oozie 的資料、使用 [指令碼動作] 來自訂要安裝自訂元件的叢集，或使用具有該叢集的其他儲存體帳戶。
+9. 按一下 [選擇性組態] 以選取叢集的版本，以及設定其他選擇性設定，例如加入 [虛擬網路]、設定 [外部中繼存放區] 來保存 Hive 和 Oozie 的資料、使用 [指令碼動作] 來自訂要安裝自訂元件的叢集，或對叢集使用其他儲存體帳戶。
 
-	* 按一下 [HDInsight 版本] 下拉式清單，然後選取您想要用於該叢集的版本。如需詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
+	* 按一下 [HDInsight 版本] 下拉式清單，選取您想要用於該叢集的版本。如需詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
 
 
-	* **虛擬網路**：如果您想要將叢集放置到虛擬網路，請選擇 Azure 虛擬網路和子網路。
+	* **虛擬網路**：如果您想要將叢集放入虛擬網路，請選取 Azure 虛擬網路和子網路。
 
 		![虛擬網路刀鋒視窗](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.6.png "指定虛擬網路詳細資料")
 
@@ -185,12 +188,12 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 		![自訂中繼存放區刀鋒視窗](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.7.png "指定外部中繼存放區")
 
-		在 [使用 Hive 現有的 SQL DB] 中繼資料按一下 [是]，選取 SQL 資料庫，然後提供該資料庫的使用者名稱/密碼。如果您要**使用 Oozie 中繼資料現有的 SQL DB**，請重複這些步驟。按一下 [選取]，直到您回到 [選用設定] 刀鋒視窗。
+		在 [為 Hive 使用現有的 SQL DB] 中繼資料按一下 [是]，選取 SQL 資料庫，然後提供該資料庫的使用者名稱/密碼。如果您想要**為 Oozie 中繼資料使用現有的 SQL DB**，請重複這些步驟。按一下 [選取]，直到您回到 [選擇性組態] 刀鋒視窗。
 
 		>[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
 
 
-	* **指令碼動作** 如果您想要在該叢集正在建立使用自訂指令碼來自訂叢集。如需指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。請在 [指令碼動作] 刀鋒視窗上提供如螢幕擷取畫面所示的詳細資料。
+	* **指令碼動作** 如果您想要在該叢集建立時使用自訂指令碼來自訂叢集。如需指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。請在 [指令碼動作] 刀鋒視窗上提供如螢幕擷取畫面所示的詳細資料。
 
 		![指令碼動作刀鋒視窗](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.8.png "指定指令碼動作")
 
@@ -201,25 +204,25 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 		按一下 [選取]，直到您回到 [新的 HDInsight 叢集] 刀鋒視窗。
 
-10. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到開始面板]，然後按一下 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
+10. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到「開始面板」]，然後按一下 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
 
 	| 佈建期間 | 佈建完成 |
 	| ------------------ | --------------------- |
 	| ![「開始面板」上的佈建指示器](./media/hdinsight-hadoop-provision-linux-clusters/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-hadoop-provision-linux-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的磚或頁面左邊的 [通知] 項目，檢查佈建處理序。
+	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的磚或頁面左邊的 [通知] 項目，檢查佈建程序。
 
 11. 佈建完成後，在「開始面板」按一下該叢集磚，以啟動叢集刀鋒視窗。此叢集刀鋒視窗提供該叢集的基本資訊，如名稱、其所屬的資源群組、位置、作業系統、叢集儀表板 URL 等。
 
 	![叢集刀鋒視窗](./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.Blade.png "叢集屬性")
 
-	使用下列步驟，以了解在刀鋒視窗頂端和 [基本功能] 區段中的圖示：
+	使用下列資訊，了解此刀鋒視窗頂端和 [基本功能] 區段中的圖示：
 
 	* **設定**和**所有設定**：顯示該叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
 
-	* **儀表板**、**叢集儀表板**和 **URL**：這些是存取叢集儀表板 (也就是可在叢集上執行作業之 Web 入口網站) 的所有方法。
+	* **儀表板**、**叢集儀表板**和 **URL**：這些是存取叢集儀表板 (可在叢集上執行工作的 Web 入口網站) 的所有方法。
 
-	* **安全殼層**：存取使用 SSH 之叢集所需的資訊。
+	* **安全殼層**：使用 SSH 存取叢集所需的資訊。
 
 	* **刪除**：刪除 HDInsight 叢集。
 
@@ -229,17 +232,17 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 		> [AZURE.IMPORTANT]這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將工作提交至其上的使用者則沒有作用。
 
-	* **標記** (![標記圖示](./media/hdinsight-hadoop-provision-linux-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可能會建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯的所有服務之通用值。
+	* **標記** (![標記圖示](./media/hdinsight-hadoop-provision-linux-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可能會建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
-### <a id="cli"></a> 使用 Azure CLI
+### <a id="cli"></a>使用 Azure CLI
 
 Azure CLI 是可讓您管理 Azure 服務的跨平台命令列公用工具。它可搭配 Azure 資源管理範本用來佈建 HDInsight 叢集，以及相關聯的儲存體帳戶和其他服務。
 
-Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 HDInsight) 的 JSON 文件 這個以範本為基礎的方法可讓您定義一個範本中 HDInsight 所需的所有資源，並透過可將變更套用至群組的__部署__整體管理群組的變更。
+Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 HDInsight) 的 JSON 文件。 這個以範本為基礎的方法可讓您定義一個範本中 HDInsight 所需的所有資源，並透過可將變更套用至群組的__部署__整體管理群組的變更。
 
 下列步驟將逐步完成使用 Azure CLI 和範本建立新 HDInsight 叢集的程序︰
 
-1. 如果尚未安裝，請依照[安裝及設定 Azure CLI](../xplat-cli.md) 文件中的步驟執行。
+1. 如果尚未安裝，請依照[安裝和設定 Azure CLI](../xplat-cli-install.md) 文件中的步驟執行。
 
 2. 從命令列、終端機或殼層，使用下列命令來驗證您的 Azure 訂用帳戶：
 
@@ -262,10 +265,10 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 5. 在編輯器中開啟 __azuredeploy.parameters.json__ 檔案，並在 `parameters` 區段中提供項目的值：
 
-    * __位置__︰將在其中建立資源的資料中心。您可以檢視 __azuredeploy.json__ 檔案中的 `location` 區段，以取得允許的位置清單。
+    * __location__︰將在其中建立資源的資料中心。您可以檢視 __azuredeploy.json__ 檔案中的 `location` 區段，以取得允許的位置清單。
     * __clusterName__︰HDInsight 叢集的名稱。這個名稱必須是唯一的，否則部署將會失敗。
     * __clusterStorageAccountName__︰將會針對 HDInsight 叢集建立的 Azure 儲存體帳戶名稱。這個名稱必須是唯一的，否則部署將會失敗。
-    * __clusterLoginPassword__︰叢集系統管理員使用者的密碼。這應該是安全的密碼，因為它是用來存取網站和叢集上的 REST 服務。
+    * __clusterLoginPassword__︰叢集 admin 使用者的密碼。這應該是安全的密碼，因為它是用來存取網站和叢集上的 REST 服務。
     * __sshUserName__︰要為此叢集建立的第一個 SSH 使用者名稱。SSH 將利用此帳戶用來從遠端存取此叢集。此名稱必須是唯一的，不能是叢集上使用中的帳戶名稱。無效的名稱，包含 root, storm 以及 hbase。
     * __sshPublicKey__︰如果您使用的範本需要 SSH 公開金鑰，您就必須在下面這行上新增您的公開金鑰。如需產生和使用公開金鑰的詳細資訊，請參閱下列文章：
 
@@ -386,20 +389,14 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 **建立 Visual Studio 主控台應用程式**
 
 1. 開啟 Visual Studio 2013 或 2015。
-
-2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
-
-3. 在 [**新增專案**] 中，輸入或選取下列值：
+2. 使用下列設定建立新的 Visual Studio 專案
 
 	|屬性|值|
 	|--------|-----|
 	|範本|Templates/Visual C#/Windows/Console Application|
 	|名稱|CreateHDICluster|
 
-4. 按一下 [確定] 以建立專案。
-
 5. 在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
-
 6. 在主控台中執行下列命令，以安裝套件：
 
 		Install-Package Microsoft.Azure.Common.Authentication -pre
@@ -574,4 +571,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

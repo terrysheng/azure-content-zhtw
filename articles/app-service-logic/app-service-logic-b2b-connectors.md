@@ -191,18 +191,19 @@ Microsoft Azure App Service 會公開可使用這些 B2B API Apps 的不同應�
 
 4. 選取 [**確定**] 以儲存變更。
 
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 ## 其他 B2B 資源
 
-[建立 B2B 程序](app-service-logic-create-a-b2b-process.md)<br/> [建立交易夥伴協議](app-service-logic-create-a-trading-partner-agreement.md)<br/> [什麼是連接器和 BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
+[建立 B2B 程序](app-service-logic-create-a-b2b-process.md)<br/> [建立交易夥伴協議](app-service-logic-create-a-trading-partner-agreement.md)<br/> [什麼是連接器和 BizTalk API 應用程式](app-service-logic-what-are-biztalk-api-apps.md)
 
 
 ## 閱讀關於 Logic Apps 和 Web 應用程式的資訊
-[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)<br/> [Azure App Service 中的網站和 Web 應用程式](../app-service-web/app-service-web-overview.md)
+[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)<br/> [Azure 應用程式服務中的網站和 Web 應用程式](../app-service-web/app-service-web-overview.md)
 
 
 ## 其他連接器
 
 [連接器和 API Apps 清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

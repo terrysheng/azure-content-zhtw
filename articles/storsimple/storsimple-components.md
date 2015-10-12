@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="StorSimple 元件有哪些？ | Microsoft Azure"
-	description="描述 StorSimple 裝置、虛擬裝置、服務與管理技術，並定義方案中使用的重要詞彙。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="AdinaH"
-	editor=""/>
+   pageTitle="StorSimple 元件有哪些？ | Microsoft Azure" 
+   description="描述 StorSimple 裝置、虛擬裝置、服務與管理技術，並定義方案中使用的重要詞彙。" 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="AdinaH" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="08/26/2015"
+   ms.author="v-sharos"/>
 
 
 # StorSimple 元件及其運作方式為何？ 
@@ -53,9 +53,9 @@ StorSimple 虛擬裝置 (也稱為 StorSimple 虛擬應用裝置) 會在 Azure �
 - 虛擬裝置只有一個介面，而實體裝置則會有六個網路介面。 
 - 您會在裝置設定期間 (而不是以個別工作的方式) 註冊虛擬裝置。
 - 您無法在虛擬裝置中重新產生服務資料加密金鑰。金鑰變換期間，您會在實體裝置上重新產生金鑰，然後以新的金鑰更新虛擬裝置。
-- 如果需要將更新套用到虛擬裝置，您將會遇到出現停機時間的問題。實體 StorSimple 裝置不會發生這個問題。
+- 目前停用將更新套用至虛擬裝置。如需最新版本的虛擬裝置，您可以新建一個，並將磁碟區容器容錯移轉至新的虛擬裝置。
 
-建議您在實體裝置無法使用的災害復原案例中使用 StorSimple 虛擬裝置，例如雲端開發測試案例。
+建議您在實體裝置無法使用的災害復原案例中使用 StorSimple 虛擬裝置，例如雲端開發和測試案例。
 
 如需詳細資訊，請參閱 [StorSimple 虛擬裝置](storsimple-virtual-device.md)。
 
@@ -226,4 +226,4 @@ Microsoft Azure StorSimple 包括 StorSimple Adapter for SharePoint，其為可�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

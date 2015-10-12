@@ -27,11 +27,11 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 
 ## 安裝 Azure CLI
 
-遵循指示來[安裝 Azure CLI](../xplat-cli.md#install)。
+遵循指示來[安裝 Azure CLI](../xplat-cli-install.md#install)。
 
 ## 使用 Azure CLI 連接到 Azure
 
-您可以使用個人 Azure 帳戶，或是使用工作或學校的 Azure 帳戶，連接 Azure CLI 安裝。若要了解差異並選擇，請參閱[如何連線到您的 Azure 訂用帳戶](../xplat-cli.md#configure)。
+您可以使用個人 Azure 帳戶，或是使用工作或學校的 Azure 帳戶，連接 Azure CLI 安裝。若要了解差異並選擇，請參閱[如何連線到您的 Azure 訂用帳戶](../xplat-cli-install.md#configure)。
 
 ## 建立和連接到 Azure 中的 VM
 
@@ -78,4 +78,4 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

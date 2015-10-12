@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/28/2015"
 	ms.author="jgao"/>
 
 
@@ -62,7 +62,7 @@ Microsoft 提供下列公用程式來使用 Azure Blob 儲存體：
 
 Azure CLI 是可讓您管理 Azure 服務的跨平台工具。使用以下步驟將資料上傳至 Azure Blob 儲存體：
 
-1. [安裝和設定適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli.md)。
+1. [安裝和設定適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli-install.md)。
 
 2. 開啟命令提示字元、Bash 或其他殼層，然後使用以下命令驗證您的 Azure 訂用帳戶。
 
@@ -178,7 +178,7 @@ Hadoop 命令列僅適用於當資料已存在於叢集前端節點時，將資�
 
 | 用戶端 | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/) | | | ✔ |
+| [Azure 儲存體總管](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
@@ -187,29 +187,27 @@ Hadoop 命令列僅適用於當資料已存在於叢集前端節點時，將資�
 
 ###<a id="storageexplorer"></a>Azure 儲存體總管
 
-*Azure 儲存體總管*是一種可在 Azure 儲存體中檢查和變更資料的實用工具。這是免費工具，可從 CodePlex 下載：[Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/ "Azure 儲存體總管")。
+*Azure 儲存體總管*是一種可在 Blob 中檢查和變更資料的實用工具。它是免費開放原始碼工具，可從 [http://storageexplorer.com/](http://storageexplorer.com/) 下載。原始碼亦可從此連結取得。
 
 使用此工具之前，必須先知道您的 Azure 儲存體帳戶名稱和帳戶金鑰。如需關於取得此資訊的指示，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storage-account]的＜如何：檢視、複製及重新產生儲存體存取金鑰＞一節。
 
-1. 執行 Azure 儲存體總管。
+1. 執行 Azure 儲存體總管。如果這是您第一次執行 [儲存體總管]，將會提示您輸入___儲存體帳戶名稱__和__儲存體帳戶金鑰__。如果您之前曾執行過，請使用 [新增] 按鈕加入新的儲存體帳戶名稱和金鑰。
+
+    輸入 HDinsight 叢集所使用儲存體帳戶的名稱和金鑰，然後選取 [儲存並開啟]。
 
 	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 
-2. 按一下 [加入帳戶]。將帳戶加入至 Azure 儲存體總管之後，就不必再重複執行此步驟。
+5. 在此介面左邊的 [容器] 清單中，按一下與 HDInsight 叢集相關聯的容器名稱。根據預設，這是 HDInsight 叢集的名稱，但如果您在建立叢集時輸入了特定名稱，則有可能不同。
 
-	![HDI.ASEAddAccount][image-ase-addaccount]
+6. 從工具列選取上傳圖示。
 
-3. 輸入 [儲存體帳戶名稱] 和 [儲存體帳戶金鑰]，然後按一下 [加入儲存體帳戶]。您可以加入多個儲存體帳戶，各帳戶會顯示在個別的索引標籤上。
+    ![工具列和反白顯示的上傳圖示](./media/hdinsight-upload-data/toolbar.png)
 
-4. 在 [儲存體類型] 下，按一下 [Blob]。
+7. 指定要上傳的檔案，然後按一下 [開啟]。出現提示時，請選取 [上傳] 將檔案上傳至儲存體容器的根目錄。如果您想要將檔案上傳到特定路徑，請在 [目的地] 欄位中輸入路徑，然後選取 [上傳]。
 
-	![HDI.ASEBlob][image-ase-blob]
-
-5. 在 [容器] 中，按一下與 HDInsight 叢集相關聯的容器名稱。建立 HDInsight 叢集時，必須指定容器。否則，叢集建立程序會為您建立容器。
-
-6. 在 [Blob] 下，按一下 [上傳]。
-
-7. 指定要上傳的檔案，然後按一下 [開啟]。
+    ![檔案上傳對話方塊](./media/hdinsight-upload-data/fileupload.png)
+    
+    完成上傳檔案之後，您可以從 HDInsight 叢集上的作業加以使用。
 
 ##將 Azure Blob 儲存體掛接為本機磁碟機
 
@@ -280,11 +278,11 @@ Azure Blob 儲存體也可以使用 Azure SDK，透過下列程式設計語言�
 
 [Powershell-install-configure]: ../powershell-install-configure.md
 
-[azurecli]: ../xplat-cli.md
+[azurecli]: ../xplat-cli-install.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

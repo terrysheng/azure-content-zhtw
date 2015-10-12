@@ -171,7 +171,7 @@ PTVS 可以和您現有的 Visual Studio 2013 或 2015 安裝一同運作。如�
 * [IPython - 先進的 Python REPL/Notebook][]
 * [Azure 上的 IPython Notebook][]
 * [GitHub 上的 Python Tools for Visual Studio][]
-
+* [Python 開發人員中心](/develop/python/)
 
 [Continuum Analytics Python 發佈]: http://continuum.io
 [Enthought Python 發佈]: http://www.enthought.com
@@ -204,4 +204,4 @@ PTVS 可以和您現有的 Visual Studio 2013 或 2015 安裝一同運作。如�
 [佇列儲存體]: storage-python-how-to-use-queue-storage.md
 [Blob 儲存體]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

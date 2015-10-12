@@ -45,9 +45,11 @@ Microsoft 長期以來都非常重視隱私權的問題，這是我們的產品�
 
 ###後續步驟：
 
+[建立 Mobile Engagement 的最佳做法和程序](mobile-engagement-getting-started-best-practices.md)
+
 [開始使用 (行銷人員)](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [開始使用 (開發人員)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

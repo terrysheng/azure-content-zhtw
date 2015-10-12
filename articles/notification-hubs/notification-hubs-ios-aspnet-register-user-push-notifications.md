@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知
 
 > [AZURE.SELECTOR]
@@ -237,4 +238,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [開始使用通知中心]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

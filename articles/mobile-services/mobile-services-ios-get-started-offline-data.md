@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # 開始使用行動服務中的離線資料同步
@@ -155,7 +155,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
     #### TodoItem
 
-    | 屬性 | 類型 | 注意 | 
+    | 屬性 | 類型 | 注意 |
     |-------------- |  ------ | -------------------------------------------------------|
     | 識別碼 (必要) | String | 遠端存放區中的主要金鑰 |
     | 完成 | Boolean | todo 項目欄位 |
@@ -271,4 +271,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 [行動服務快速入門教學課程]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

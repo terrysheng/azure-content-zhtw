@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure 中使用 Flask 建立 Web 應用程式"
-	description="介紹在 Azure 上執行 Python Web 應用程式的教學課程。"
-	services="app-service\web"
+	pageTitle="在 Azure 中使用 Flask 建立 Web 應用程式" 
+	description="介紹在 Azure 上執行 Python Web 應用程式的教學課程。" 
+	services="app-service\web" 
 	documentationCenter="python"
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -377,6 +377,8 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 - [Azure 上使用 Python Tools for Visual Studio 的 Flask 和 MongoDB]
 - [Azure 上使用 Python Tools for Visual Studio 的 Flask 和 Azure 資料表儲存體]
 
+如需詳細資訊，另請參閱 [Python 開發人員中心](/develop/python/)。
+
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -400,4 +402,4 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 [Flask 說明文件]: http://flask.pocoo.org/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

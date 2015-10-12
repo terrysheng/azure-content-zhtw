@@ -141,4 +141,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

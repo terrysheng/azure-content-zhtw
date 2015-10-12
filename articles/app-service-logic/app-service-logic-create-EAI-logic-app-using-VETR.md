@@ -1,20 +1,20 @@
 <properties
    pageTitle="使用 VETR 建立 EAI 邏輯應用程式 | Microsoft Azure"
-	description="本主題涵蓋 BizTalk XML 服務的驗證、編碼和轉換功能。"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   description="BizTalk XML 服務的驗證、編碼和轉換功能"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="rajeshramabathiran"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="06/24/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/29/2015"
+   ms.author="rajram"/>
 
 
 # 使用 VETR 建立 EAI 邏輯應用程式
@@ -26,7 +26,7 @@
 - 將資料從一種格式轉換到另一種格式 (例如，從 CRM 系統的資料格式轉換成 ERP 系統的資料格式)
 - 將資料路由到所需的應用程式或系統
 
-本文將說明常見的整合模式：「單向訊息中繼」，即 VETR (驗證、擴充、轉換、路由)。VETR 模式會調解來源實體與目的地實體之間的資料。通常來源和目的地為資料來源。
+本文將說明常見的整合模式：「單向訊息中繼」，即 VETR (驗證、擴充、轉換、路由)。VETR 模式會在來源實體與目的地實體之間傳達資料。通常來源和目的地為資料來源。
 
 想像一個接受訂單的網站。使用者會使用 HTTP 將訂單張貼至系統。系統會在幕後驗證內送資料的正確性、將其正規化，並將它保存在服務匯流排佇列中以進行後續處理。系統會將訂單從佇列中移除，預期它會採用特定的格式。因此：端對端流程會是：
 
@@ -53,9 +53,9 @@
 ## 新增 HTTP 觸發程序
 
 1. 從組件庫中選取 [**HTTP 接聽程式**] 以建立新的接聽程式。稱它為 **HTTP1**。
-2. 將 [**是否自動傳送回應？**] 設定保留為 false。透過將 _HTTP 方法_設定為 _POST_，並將_相對 URL_ 設定為 _/OneWayPipeline_，來設定觸發程序動作。
+2. 將 [**是否自動傳送回應？**] 設定保留為 false。透過將 _HTTP 方法_設定為 _POST_，並將_相對 URL_ 設定為 _/OneWayPipeline_，來設定觸發程序動作：  
 
-![HTTP 觸發程序][2]
+	![HTTP 觸發程序][2]
 
 
 ## 加入驗證動作
@@ -65,27 +65,27 @@
 1. 從組件庫中新增 **BizTalk XML 驗證器**，並將它命名為 _(Validate1)_ 以建立執行個體。
 2. 設定 XSD 結構描述來驗證內送的 XML 訊息。選取 _Validate_ 動作，然後選取 _triggers(‘httplistener’).outputs.Content_ 做為 _inputXml_ 參數的值。
 
-目前，驗證動作是 HTTP 接聽程式之後的第一個動作。讓我們以類似的方式加入其餘動作。
+目前，驗證動作是 HTTP 接聽程式之後的第一個動作：
 
 ![BizTalk XML 驗證器][3]
 
+讓我們以類似的方式加入其餘動作。
 
 ## 新增轉換動作
 我們將設定可標準化內送資料的轉換。
 
 1. 從組件庫新增**轉換**。
-2. 若要設定轉換以轉換內送 XML 訊息，請選取 [轉換] 動作做為呼叫這個 API 時要執行的動作，然後選取 ```triggers(‘httplistener’).outputs.Content``` 做為 _inputXml_ 的值。因為內送資料符合所有已設定的轉換，因此對應會是選擇性參數，而且僅適用於符合結構描述的對應。
-3. 最後，只有當驗證成功時才會執行轉換。若要設定這種情況，請按一下右上方的齒輪圖示，然後選取 [新增要符合的條件]。將條件設為 ```equals(actions('xmlvalidator').status,'Succeeded')```
-
+2. 若要設定轉換以轉換內送 XML 訊息，請選取 [轉換] 動作做為呼叫這個 API 時要執行的動作，然後選取 ```triggers(‘httplistener’).outputs.Content``` 做為 _inputXml_ 的值。因為內送資料符合所有已設定的轉換，因此*對應*會是選擇性參數，而且僅適用於符合結構描述的對應。
+3. 最後，只有當驗證成功時才會執行轉換。若要設定這種情況，請按一下右上方的齒輪圖示，然後選取 [新增要符合的條件]。將條件設為 ```equals(actions('xmlvalidator').status,'Succeeded')```：  
 
 ![BizTalk 轉換][4]
 
 
 ## 新增服務匯流排連接器
-接下來新增目的地，即服務匯流排佇列，藉此將資料寫入。
+接下來，我們將新增可寫入資料的目的地 (服務匯流排佇列)。
 
-1. 從組件庫新增 [**服務匯流排連接器**]。將 [名稱] 設為 _Servicebus1_、將 **連接字串* 設為服務匯流排執行個體的連接字串、將 [實體名稱] 設為佇列，然後略過 [訂用帳戶名稱]。
-2. 選取 [**傳送訊息**] 動作，並將動作的 **Message** 欄位設為 _actions('transformservice').outputs.OutputXml_
+1. 從組件庫新增 [**服務匯流排連接器**]。將 **Name** 設為 _Servicebus1_、將 **Connection String** 設為服務匯流排執行個體的連接字串、將 **Entity Name** 設為 _Queue_，然後略過 **Subscription name**。
+2. 選取 [傳送訊息] 動作，並將動作的 [訊息] 欄位設為 _actions('transformservice').outputs.OutputXml_。
 
 ![服務匯流排][5]
 
@@ -94,14 +94,18 @@
 完成管線處理後，以下列步驟傳回成功和失敗的 HTTP 回應：
 
 1. 從組件庫新增 [**HTTP 接聽程式**]，然後選取 [**傳送 HTTP 回應**] 動作。
-2. 將 [回應內容] 設為已完成管線處理、將 [回應狀態碼] 設為 *200* 以表示 HTTP 200 確定，然後將 [條件] 設為 ```@equals(actions('servicebusconnector').status,'Succeeded')``` 運算式。
+2. 將 [回應內容] 設為 [已完成管線處理]、將 [回應狀態碼] 設為 *200* 以表示 HTTP 200 確定，然後將 [條件] 設為下列運算式：```@equals(actions('servicebusconnector').status,'Succeeded')``` <br/>
 
-您也可以重複上述步驟來傳送失敗的 HTTP 回應。變更 [條件] 為 ```@not(equals(actions('servicebusconnector').status,'Succeeded')).```。
+
+您也可以重複上述步驟來傳送失敗的 HTTP 回應。變更 [條件] 為下列運算式：```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## 完成
-每次有人傳送訊息至 HTTP 端點時，它會觸發應用程式並執行您剛建立的動作。若要管理任何您所建立的此類邏輯應用程式，請在 Azure 管理入口網站中按一下 [**瀏覽**]，再按一下 [**邏輯應用程式**]。按一下您的應用程式，以查看更多資訊。
+每次有人傳送訊息至 HTTP 端點時，它會觸發應用程式並執行您剛建立的動作。若要管理任何您所建立的此類邏輯應用程式，請在 Azure 入口網站中按一下 [瀏覽] 並選取 [Logic Apps]。選取您的 App，以查看詳細資訊。
 
+一些有用的主題：
+
+[管理和監視 API Apps 和連接器](app-service-logic-monitor-your-connectors.md) <br/> [監視 Logic Apps](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
 [1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
@@ -110,4 +114,4 @@
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

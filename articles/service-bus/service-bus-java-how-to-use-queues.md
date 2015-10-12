@@ -192,4 +192,4 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

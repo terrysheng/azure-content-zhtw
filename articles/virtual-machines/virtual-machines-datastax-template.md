@@ -20,7 +20,7 @@
 
 DataStax 是知名的業界領導者，他們根據 Apache Cassandra 來開發和提供各種解決方案，這是一種可提供商業支援且符合企業需求的 NoSQL 分散式資料庫技術，此技術廣受市場認可、敏捷、永不停擺，並可依照未來的各種公司規模需求進行調整。DataStax 提供 Enterprise (DSE) 和 Community (DSC) 等版本。它也提供記憶體內部運算、企業級安全性、快速且功能強大的整合式分析與企業搜尋之類的功能。
 
-除了提供 Azure Marketplace 中已可供使用的功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli.md) 部署的資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 DataStax 叢集。
+除了提供 Azure Marketplace 中已可供使用的功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli-install.md) 部署的資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 DataStax 叢集。
 
 根據這個範本部署的新叢集會採用下圖中所述的拓撲，不過，您可以自訂本文中所述的範本，輕鬆實現其他拓撲：
 
@@ -477,4 +477,4 @@ vm-disk-utils-0.1.sh 檔案是 azure-quickstart-tempates GitHub 儲存機制中 
 
 如需詳細資訊，請參閱 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

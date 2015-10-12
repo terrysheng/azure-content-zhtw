@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：針對具有 Google+ 帳戶的取用者提供註冊和登入
@@ -41,19 +41,19 @@
     ![G+ - OAuth 同意畫面](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)
 
 6. 在 [應用程式類型] 下方，選取 [Web 應用程式]。
-7. 提供您應用程式的**名稱**，在 [授權的重新導向 URI] 欄位中輸入 [https://login.microsoftonline.com](https://login.microsoftonline.com)，並在 [授權的重新導向 URI] 欄位中輸入 [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp)，其中 **{directory}** 會取代為您目錄的名稱 (例如 contosob2c.onmicrosoft.com)。按一下 [建立]。
+7. 提供您應用程式的**名稱**，在 [授權的重新導向 URI] 欄位中輸入 [https://login.microsoftonline.com](https://login.microsoftonline.com)，並在 [授權的重新導向 URI] 欄位中輸入 [https://login.microsoftonline.com/te/{tenant}/oauth2/authresp](https://login.microsoftonline.com/te/{tenant}/oauth2/authresp)，其中 **{tenant}** 要取代為您租用戶的名稱 (例如 contosob2c.onmicrosoft.com)。按一下 [建立]。
 
-    > [AZURE.NOTE]**{directory}** 值區分大小寫。
+    > [AZURE.NOTE]**{tenant}** 值會區分大小寫。
 
     ![G+ - 建立用戶端識別碼](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-8. 複製 [用戶端識別碼] 和 [用戶端密碼] 的值。您必須使用這兩個值，將 Google+ 設為目錄中的身分識別提供者。
+8. 複製 [用戶端識別碼] 和 [用戶端密碼] 的值。您必須使用這兩個值，將 Google+ 設為租用戶中的身分識別提供者。
 
     > [AZURE.NOTE]**用戶端密碼**是重要的安全性認證。
 
     ![G+ - 用戶端密碼](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
-## 將 Google+ 設為您目錄中的身分識別提供者
+## 將 Google+ 設為您租用戶中的身分識別提供者
 
 1. [瀏覽至 Azure Preview 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
 2. 在 B2C 功能刀鋒視窗中，按一下 [社交身分識別提供者]。
@@ -63,4 +63,4 @@
 6. 按一下 [設定此身分識別提供者]，然後輸入您先前建立之 Google+ 應用程式的 [用戶端識別碼] 與 [用戶端密碼]。
 7. 依序按一下 [確定]、[建立]，以儲存您的 Google+ 組態。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

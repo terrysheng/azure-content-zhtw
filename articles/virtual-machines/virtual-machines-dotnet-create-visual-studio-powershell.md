@@ -22,7 +22,7 @@
 
 若要在建立網站時建立虛擬機器，請依照下列步驟進行：
 
-1. 在 Visual Studio 中，按一下 [檔案] > [新增] > [專案] > [Web]，然後選擇 ASP.NET Web 應用程式 (在 [Visual C#] 或 [Visual Basic] 節點底下)。
+1. 在 Visual Studio 中，按一下 [檔案] > [新增] > [專案] > [Web]，然後選擇 [ASP.NET Web 應用程式] (在 [Visual C#] 或 [Visual Basic] 節點底下)。
 2. 在 [New ASP.NET Project] 對話方塊中，選取您要的 Web 應用程式類型，然後在對話方塊的 Azure 區段 (位於右下角) 中，確定已勾選 [Host in the cloud] 核取方塊 (在某些安裝中，此核取方塊會標示為 [Create remote resources])。
 
 	![][0]
@@ -68,4 +68,4 @@
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

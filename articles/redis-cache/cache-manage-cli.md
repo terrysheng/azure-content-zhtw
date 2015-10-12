@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取
@@ -25,9 +25,9 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。本文
 若要使用 Azure CLI 建立並管理 Azure Redis 快取執行個體，您必須完成下列步驟：
 
 -	您必須具有 Azure 帳號。如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
--	[安裝 Azure CLI](../xplat-cli.md#install)。
--	使用個人 Azure 帳戶，或是使用工作或學校的 Azure 帳戶連接 Azure CLI 安裝，並使用 `azure login` 命令從 Azure CLI 登入。若要了解差異並選擇，請參閱[如何連線到您的 Azure 訂用帳戶](../xplat-cli.md#configure)。
--	在執行以下任何命令之前，執行下列命令將 Azure CLI 切換至資源管理員模式。`azure config mode arm`如需詳細資訊，請參閱[設定 Azure 資源管理員模式](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode)。
+-	[安裝 Azure CLI](../xplat-cli-install.md)。
+-	使用個人 Azure 帳戶，或是使用工作或學校的 Azure 帳戶連接 Azure CLI 安裝，並使用 `azure login` 命令從 Azure CLI 登入。若要了解其中的差異和選擇，請參閱[從 Azure 命令列介面 (Azure CLI) 連線到 Azure 訂用帳戶](../xplat-cli-connect.md)。
+-	在執行以下任何命令之前，執行 `azure config mode arm` 命令將 Azure CLI 切換至資源管理員模式。如需詳細資訊，請參閱[設定 Azure 資源管理員模式](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode)。
 
 ## Redis 快取屬性
 
@@ -254,4 +254,4 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。本文
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

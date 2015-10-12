@@ -28,7 +28,7 @@ Azure 提供您建立在虛擬機器上的絕佳雲端解決方案，虛擬機�
 
 **但這已經是眾所周知的舊聞了。** 「真正的」新聞是，Azure 甚至還提供您更多的 Docker 優點：
 
-- [建立 Docker 主機](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)有[許多](virtual-machines-docker-with-xplat-cli.md)[不同](virtual-machines-docker-with-portal.md)的[方式](virtual-machines-docker-ubuntu-quickstart.md)，讓容器能符合您的情況
+- [建立 Docker 主機](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)有[許多](virtual-machines-docker-with-xplat-cli-install.md)[不同](virtual-machines-docker-with-portal.md)的[方式](virtual-machines-docker-ubuntu-quickstart.md)，讓容器能符合您的情況
 - 有 [Azure 資源管理員](resource-group-overview.md)和[資源群組範本](resource-group-authoring-templates.md)可簡化部署和更新複雜的分散式應用程式
 - 能與大量專屬和開放原始碼組態管理工具進行整合
 
@@ -120,7 +120,7 @@ Azure 提供您建立在虛擬機器上的絕佳雲端解決方案，虛擬機�
 
 到目前為止，任何架構師、開發人員或 IT 作業專家可能會想：「我如果可以自動化所有這些事物，這就真的是「資料中心即服務！」。
 
-您說得沒錯，它的確可以，而且有任意數目的系統，您可能已經使用其中一些系統。您可以使用指令碼 (通常使用 [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) 或 [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)) 管理 Azure VM 的群組並插入自訂程式碼。您可以&mdash;而且可能已經&mdash;使用 PowerShell 或 Azure CLI 指令碼自動化您的 Azure 部署，[像是這樣](virtual-machines-create-multi-vm-deployment-xplat-cli.md)。
+您說得沒錯，它的確可以，而且有任意數目的系統，您可能已經使用其中一些系統。您可以使用指令碼 (通常使用 [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) 或 [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)) 管理 Azure VM 的群組並插入自訂程式碼。您可以&mdash;而且可能已經&mdash;使用 PowerShell 或 Azure CLI 指令碼自動化您的 Azure 部署，[像是這樣](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)。
 
 您通常還會移轉到如 [Puppet](https://puppetlabs.com/) 和 [Chef](https://www.chef.io/) 等工具，大量自動化建立和設定 VM。([這裡](#tools-for-working-with-containers)有許多搭配 Azure 使用這些工具的連結)。
 
@@ -185,7 +185,7 @@ Microsoft Azure 上的 Docker：
 
 - [Azure 上 Linux 的 Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)
 - [Azure Docker VM 延伸模組使用者指南](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-- [透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli.md)
+- [透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli-install.md)
 - [從 Azure Preview 入口網站使用 Docker VM 延伸模組](virtual-machines-docker-with-portal.md)
 - [在 Azure Marketplace 中快速開始使用 Docker](virtual-machines-docker-ubuntu-quickstart.md)
 - [如何在 Azure 上使用 docker-machine](virtual-machines-docker-machine.md)
@@ -239,4 +239,4 @@ Linux 散發套件和 Azure 範例：
 [微服務]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

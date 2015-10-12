@@ -1,6 +1,7 @@
 <properties
 	pageTitle="調整串流分析工作以增加輸送量 | Microsoft Azure"
 	description="了解如何透過設定輸入資料分割、微調查詢定義，及設定工作串流處理單元來調整串流分析工作。"
+	keywords="analytics jobs,data stream,data streaming"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/04/2015"
+	ms.date="09/29/2015"
 	ms.author="jeffstok"/>
 
 # 調整 Azure 串流分析工作，以增加輸送量 #
@@ -153,6 +154,9 @@ Azure 串流分析工作定義包含輸入、查詢及輸出。輸入是工作�
 
 ![Azure 串流分析的串流處理單元調整][img.stream.analytics.streaming.units.scale]
 
+在 Azure Preview 入口網站的 [設定] 下可以調整設定：
+
+![Azure Preview 入口網站的串流分析工作組態][img.stream.analytics.preview.portal.settings.scale]
 
 ## 監視工作效能 ##
 
@@ -228,7 +232,7 @@ Azure 串流分析工作定義包含輸入、查詢及輸出。輸入是工作�
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## 取得說明 ##
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟 ##
@@ -246,6 +250,7 @@ Azure 串流分析工作定義包含輸入、查詢及輸出。輸入是工作�
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
 <!--Link references-->
 
@@ -260,4 +265,4 @@ Azure 串流分析工作定義包含輸入、查詢及輸出。輸入是工作�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

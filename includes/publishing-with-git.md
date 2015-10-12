@@ -276,7 +276,7 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 [Git website]: http://git-scm.com
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [如何使用適用於 Azure 的 PowerShell]: ../articles/install-configure-powershell.md
-[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: ../articles/xplat-cli.md
+[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: ../articles/xplat-cli-install.md
 [Git 文件]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -298,4 +298,4 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 [使用 Dropbox 分享 Git 儲存機制]: https://gist.github.com/trey/2722927
 [使用 Visual Studio Online 持續傳遞至 Azure]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

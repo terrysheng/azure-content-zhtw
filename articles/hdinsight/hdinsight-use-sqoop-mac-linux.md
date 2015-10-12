@@ -40,13 +40,13 @@
 
 - **工作站**：具有 SSH 用戶端的電腦。
 
-- **Azure CLI**：如需詳細資訊，請參閱[安裝和設定 Azure CLI](../xplat-cli.md)
+- **Azure CLI**：如需詳細資訊，請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)
 
 - **Linux 架構的 HDInsight 叢集**：如需叢集佈建的指示，請參閱[開始使用 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) 或[佈建 HDInsight 叢集][hdinsight-provision]。
 
 - **Azure SQL Database**：本文件提供有關建立 SQL 資料庫範例的指示。如需 SQL Database 的詳細資訊，請參閱[開始使用 SQL Database ][sqldatabase-get-started]。
 
-* **SQL Server**：本文件中的步驟也可使用於 SQL Server (需做一些修改)。如需有關將這份文件使用於 SQL Server 的特定需求詳細資訊，請參閱[使用 SQL Server](#using-sql-server) 一節。
+* **SQL Server**：本文件中的步驟也可使用於 SQL Server (需做一些修改)；不過 HDInsight 叢集和 SQL Server 必須位於相同的 Azure 虛擬網路上。如需有關將這份文件使用於 SQL Server 的特定需求詳細資訊，請參閱[使用 SQL Server](#using-sql-server) 一節。
 
 ##了解案例
 
@@ -263,4 +263,4 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

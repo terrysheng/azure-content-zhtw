@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/27/2015"
+	ms.date="09/24/2015"
 	ms.author="davidmu;v-marsma"/>
 
 # 有效率的 Batch 清單查詢
@@ -37,6 +37,8 @@ Azure Batch 是大型運算，在實際執行環境中，工作、作業和運�
 - 有越多和/或越大的項目需要處理時，呼叫 Batch 的應用程式將耗用更多的記憶體。
 - 越多和/或越大的項目將導致網路流量增加。這將花費更多時間傳送，並依據應用程式架構，資料傳送到 Batch 帳戶區域外將可能導致網路費用增加。
 
+> [AZURE.IMPORTANT]強烈建議您一律為清單 API 呼叫使用篩選和 Select 子句，以確保您的應用程式有最高的效率和效能。這些子句和其使用方式如下所述。
+
 下列規則適用於所有 Batch API：
 
 - 每個屬性名稱是一個字串，並對應至物件的屬性
@@ -50,7 +52,7 @@ Azure Batch 是大型運算，在實際執行環境中，工作、作業和運�
 
 ## 在 Batch .NET 中有效率地查詢
 
-Batch .NET API 能夠透過指定查詢的 [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx)，以同時減少傳回清單項目的數目，以及減少每個項目傳回資訊量。DetailLevel 是一個抽象的基底類別，而 [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) 物件實際上需要建立並傳給適當的方法做為參數。
+Batch .NET API 能夠透過指定查詢的 [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx)，以同時減少傳回清單項目的數目，以及減少每個項目傳回資訊量。DetailLevel 是一個抽象的基底類別，而 [ODATADetailLevel][odata] 物件實際上需要建立並傳給適當的方法做為參數。
 
 ODataDetailLevel 物件有三個公用字串屬性，可以在建構函式中指定或是直接設定：
 
@@ -124,7 +126,23 @@ Expand 子句可以降低 API 呼叫的數目。使用單一 API 呼叫就可以
 	// detail level we configured above
 	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
 
-> [AZURE.TIP]建議您*一律*為清單 API 呼叫使用篩選和 Select 子句，以確保您的應用程式有最高效率和最佳效能。
+## 範例專案
+
+請查閱 GitHub 上的 [EfficientListQueries][efficient_query_sample] 範例專案，以了解清單查詢可如何有效影響應用程式中的效能。此 C# 主控台應用程式會建立大量的工作，並將其加入作業，然後使用不同的 [ODATADetailLevel][odata] 規格查詢 Batch 服務，顯示類似下面的輸出：
+
+		Adding 5000 tasks to job jobEffQuery...
+		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+
+		4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
+		0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
+		59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
+		5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
+
+		Sample complete, hit ENTER to continue...
+
+如同經過時間的資訊中所顯示的，限制傳回的屬性和項目數目可以大幅降低查詢回應時間。您可以在 GitHub 上的 [azure-batch-samples][github_samples] 儲存機制，找到本範例和其他範例專案。
 
 ## 後續步驟
 
@@ -133,4 +151,8 @@ Expand 子句可以降低 API 呼叫的數目。使用單一 API 呼叫就可以
     - [Batch .NET](https://msdn.microsoft.com/library/azure/dn865466.aspx)
 2. 擷取 GitHub 上的 [Azure Batch 範例](https://github.com/Azure/azure-batch-samples)並深入細查程式碼
 
-<!---HONumber=September15_HO1-->
+[efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
+
+<!---HONumber=Oct15_HO1-->

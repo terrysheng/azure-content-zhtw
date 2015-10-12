@@ -1,7 +1,7 @@
 <properties
 	pageTitle="在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。"
 	description="了解如何啟用診斷記錄，並在您的應用程式中加入診斷工具，以及如何存取 Azure 所記錄的資訊。"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -116,7 +116,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 此舉會將名為 'webappname' 的 Web 應用程式記錄儲存至目前目錄中名為 **diagnostics.zip** 的檔案。
 
-> [AZURE.NOTE]如果您尚未安裝 Azure 命令列介面 (Azure CLI)，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure CLI](../xplat-cli.md)。
+> [AZURE.NOTE]如果您尚未安裝 Azure 命令列介面 (Azure CLI)，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure CLI](../xplat-cli-install.md)。
 
 ## 作法：在 Application Insights 中檢視記錄
 
@@ -175,7 +175,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]如果您尚未安裝 Azure 命令列介面，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure 命令列介面](../xplat-cli.md)。
+> [AZURE.NOTE]如果您尚未安裝 Azure 命令列介面，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure 命令列介面](../xplat-cli-install.md)。
 
 ##<a name="understandlogs"></a> 作法：了解診斷記錄
 
@@ -265,4 +265,4 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

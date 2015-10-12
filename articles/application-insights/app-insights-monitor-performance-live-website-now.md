@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在執行中的網站上診斷效能問題 | Microsoft Azure"
+	pageTitle="在執行中的 IIS 網站上診斷效能問題 | Microsoft Azure"
 	description="監視網站的效能而不重新部署網站。使用獨立或帶有 Application Insights 的 SDK，取得相依性遙測資料。"
 	services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/10/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
@@ -20,15 +20,18 @@
 
 *Application Insights 目前僅供預覽。*
 
-Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺服器的 Web 應用程式中診斷例外狀況與效能問題。只要將它安裝在您的 IIS Web 伺服器上，它就會檢測在伺服器中找到的 ASP.NET Web 應用程式，並將資料傳送至 Application Insights 入口網站，供您搜尋和分析。您可以將它安裝在您具有系統管理員存取權的任何實體或虛擬伺服器上。
+Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應用程式中的例外狀況與效能問題。
 
 ![範例圖表](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+
+> [AZURE.TIP]我們提供有關檢測 [live J2EE Web 應用程式](app-insights-java-live.md)和 [Azure 雲端服務](app-insights-cloudservices.md)的個別文章。
+
 
 下列三種方法均可讓您將 Application Insights 套用至 IIS Web 應用程式：
 
 * **建置階段：**[加入 Application Insights SDK][greenbrown] 至您的 Web 應用程式程式碼。這會提供您：
  * 標準診斷和使用狀況遙測的範圍。
- * 如果您想要自行撰寫遙測來追蹤使用狀況或診斷問題，可以使用 [Application Insights API][api]。
+ * [Application Insights API][api] 可讓您自行撰寫遙測，以追蹤詳細的使用狀況或診斷問題。
 * **執行階段：**使用狀態監視器檢測伺服器上的 Web 應用程式。
  * 監視執行中的 Web 應用程式：不需要重建或重新發佈。
  * 標準診斷和使用狀況遙測的範圍。
@@ -37,34 +40,31 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 * **兩者：**將 SDK 編譯至 Web 應用程式程式碼，並在您的 Web 伺服器上執行狀態監視器。集合兩者之優點：
  * 標準診斷和使用狀況遙測。
  * 相依性診斷。
- * 使用 API 撰寫自訂遙測。
+ * 此 API 可讓您撰寫自訂遙測。
  * 對任何 SDK 和遙測問題進行疑難排解。
 
 
+## 安裝 Application Insights 狀態監視器
 
-> [AZURE.TIP]您的應用程式是 [Azure App Service Web 應用程式](../app-service-web/websites-learning-map.md)嗎？ 從 Microsoft Azure 的 App 控制台中[加入 Application Insights SDK][greenbrown]，然後[加入 Application Insights 延伸模組](../insights-perf-analytics.md)。
+您需要 [Microsoft Azure](http://azure.com) 訂用帳戶。
 
-
-## 在 IIS Web 伺服器上安裝 Application Insights 狀態監視器
-
-1. 您需要 [Microsoft Azure](http://azure.com) 訂用帳戶。
+### 如果您的應用程式是在您的 IIS 伺服器上執行
 
 1. 在 IIS Web 伺服器中，以系統管理員認證登入。
 2. 下載並執行[狀態監視器安裝程式](http://go.microsoft.com/fwlink/?LinkId=506648)。
-
 4. 在安裝精靈中，登入 Microsoft Azure。
 
     ![使用 Microsoft 帳戶認證登入 Azure](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
 
-    *連線錯誤？ 請參閱[疑難排解](#troubleshooting)。*
+    *連接錯誤？ 請參閱[疑難排解](#troubleshooting)。*
 
 5. 挑選您想要監視的已安裝 Web 應用程式或網站，然後設定您在 Application Insights 入口網站中查看結果時想要使用的資源。
 
     ![選擇應用程式和資源。](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    一般來說，您要選擇設定新的資源和[資源群組][roles]。
+    一般來說，您可以選擇設定新的資源和[資源群組][roles]。
 
-    否則，如果您已經為網站設定 [Web 測試][availability]或 [Web 用戶端監視][client]，請使用現有的資源。
+    否則，如果您已經為網站設定 [Web 測試][availability]，或設定 [Web 用戶端監視][client]，請使用現有的資源。
 
 6. 重新啟動 IIS。
 
@@ -78,11 +78,24 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 
    web.config 也有一些變動。
 
-### 稍後再 (重新) 設定嗎？
+#### 稍後再 (重新) 設定嗎？
 
 完成精靈之後，您隨時都可以重新設定代理程式。如果已安裝代理程式，但初始設定有一些問題，則您也可以這樣做。
 
 ![按一下工作列上的 [Application Insights] 圖示](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+
+
+### 如果您的應用程式是以 Azure Web 應用程式執行
+
+在您的 Azure Web 應用程式的控制台中，加入 Application Insights 延伸模組。
+
+![在您的 Web 應用程式中，依序按一下 [設定]、[延伸模組]、[加入]、[Application Insights]](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+
+### 如果是 Azure 雲端服務專案
+
+[將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md)
+
 
 ## 檢視效能遙測資料
 
@@ -90,24 +103,30 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 
 ![依序選擇 [瀏覽]、[Application Insights]，然後選取您的應用程式](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
-開啟 [效能] 刀鋒視窗，即可查看相依性和其他資料。
+開啟 [效能] 刀鋒視窗，即可查看要求、回應時間、相依性和其他資料。
 
 ![效能](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-逐一點選任一圖表以查看更詳細的資料。
+按一下以調整視窗所顯示的詳細資料，或加入新圖表。
 
 
 ![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
 
-#### 相依項目
+## 相依項目
 
-標示為 HTTP、SQL、AZUREBLOB 的圖表會顯示回應時間和相依性呼叫計數：也就是您應用程式使用的外部服務。
+相依性工期圖表會顯示呼叫從應用程式到外部元件 (例如資料庫、REST API 或 Azure Blob 儲存體) 所經過的時間。
 
+若要藉由呼叫不同的相依性來分隔圖表，請選取圖表，開啟 [群組]，然後選擇 [相依性]、[相依性類型] 或 [相依性效能]。
 
+您也可以篩選圖表，以查看特定的相依性、類型或效能值區。按一下 [篩選器]。
 
 #### 效能計數器
 
-按一下任一效能計數器圖表以變更其顯示內容。或者，您可以加入新的圖表。
+(不適用於 Azure Web 應用程式。) 在 [概觀] 刀鋒視窗中按一下 [伺服器]，以查看伺服器效能計數器的圖表，例如 CPU 佔用和記憶體使用量。
+
+加入新的圖表，或按一下任意圖表以變更它的顯示內容。
+
+您也可以[變更由 SDK 報告的效能計數器設定](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)。
 
 #### 例外狀況
 
@@ -153,7 +172,7 @@ Visual Studio Application Insights 的狀態監視器可讓您在任何 IIS 伺�
 
   * 請確定伺服器防火牆允許上列連接埠的連出流量。
   * 如果您在伺服器上看到有關「權限不足」的訊息，請嘗試下列操作：
-    * 在 IIS 管理員中，選取應用程式集區，開啟 [進階設定]，並記下 [處理序模型] 節點下的身分識別。
+    * 在 IIS 管理員中，選取應用程式集區，開啟 [進階設定]，並記下 [處理序模型] 下的身分識別。
     * 在電腦的管理控制台中，將此身分識別加入至效能監試器使用者群組。
   * 請參閱[疑難排解][qna]。
 
@@ -196,4 +215,4 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!------HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

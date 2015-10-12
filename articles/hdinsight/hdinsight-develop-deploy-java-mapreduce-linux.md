@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [Pig 選取器](../../includes/hdinsight-maven-mapreduce-selector.md)]
 
-本文件會逐步指示您使用 Apache Maven 建立 MapReduce 應用程式，然後在以 Linux 為基礎的 HDInsight 中 Hadoop 叢集上部署並執行該應用程式。
+本文件會逐步指示您使用 Apache Maven 建立 MapReduce 應用程式，然後在以 Linux 為基礎的 HDInsight 中 Hadoop 叢集上部署並執行該應用程式。如需在 HDInsight 叢集上使用以 Windows 為基礎之 Hadoop 的相關資訊，請參閱[在 HDInsight (Windows) 上開發 Hadoop 的 Java MapReduce 程式](hdinsight-develop-deploy-java-mapreduce.md)
 
 ##<a name="prerequisites"></a>必要條件
 
@@ -33,7 +33,7 @@
 
 - **Azure 訂用帳戶**：請參閱[取得 Azure 免費試用](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md)。
 
-- **Azure CLI**：如需詳細資訊，請參閱[安裝和設定 Azure CLI](../xplat-cli.md)。
+- **Azure CLI**：如需詳細資訊，請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)。
 
 ##設定環境變數
 
@@ -300,4 +300,4 @@
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

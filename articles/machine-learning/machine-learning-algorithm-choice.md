@@ -14,12 +14,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/10/2015"
+	ms.date="09/28/2015"
 	ms.author="brohrer;garye" />
 
 # 如何選擇 Microsoft Azure Machine Learning 的演算法
 
-「我該使用何種機器學習演算法？」的答案永遠都是「視情況。」 這可視資料的大小、品質和本質而定。也可取決於您想要的答案。或是取決於演算法的數學運算如何針對您正在使用的電腦轉譯成指令。而這又需視您有多少時間。即使經驗最豐富的資料科學家，在沒有嘗試之前，也無法確認哪一個演算法效果會最好。
+「我該使用何種機器學習演算法？」的答案永遠都是「視情況。」 這可視資料的大小、品質和本質而定。也可取決於您想用這個答案來做些什麼。或是取決於演算法的數學運算如何針對您正在使用的電腦轉譯成指令。而這又需視您有多少時間。即使經驗最豐富的資料科學家，在沒有嘗試之前，也無法確認哪一個演算法效果會最好。
 
 ## 機器學習演算法小祕技
 
@@ -35,25 +35,25 @@
 
 請將圖表上的路徑和演算法標籤解讀為「如果需要 *&lt;路徑標籤&gt;* 則使用 *&lt;演算法&gt;*。」 例如「如果需要 *speed* (速度) 則使用 *two class logistic regression* (二元羅吉斯迴歸)。」 有時候會適用多個分支。有時候則全部都不適用。這些建議通常是來自經驗法則，因此不必擔心是否準確。我和一些資料科學家討論過，他們都認為唯有全部試用一次，才能找出最佳的演算法。
 
-以下是 [Azure 機器學習庫](http://gallery.azureml.net/) 中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92)。
+以下是 [Cortana 分析資源庫](http://gallery.azureml.net/)中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92)。
 
 ## 機器學習的類型
 
-### 經指導式
+### 監督式
 
-經指導的學習演算法會根據一組範例做出預測。例如，利用歷史股價來大膽猜測未來的價格。在這個股價的案例中，每個用於定型的範例都會標上感興趣的值。經指導的學習演算法會在這些值標籤中尋找模式。它可以使用任何可能相關的資訊：星期幾、季節、公司的財務資料、產業類型、是否有破壞性的地緣政治事件等，然後每個演算法就會尋找不同類型的模式。當演算法找到最佳模式之後，它會使用這種模式為沒有標示的測試資料 (也就是未來的股價) 做出預測。
+監督式學習演算法會根據一組範例做出預測。例如，利用歷史股價來大膽猜測未來的價格。用於定型的各個範例都會標上需要關注的值，在這裡指的就是股價。監督式學習演算法會在這些值標籤中尋找模式。它可以使用任何可能相關的資訊：星期幾、季節、公司的財務資料、產業類型、是否有破壞性的地緣政治事件等，然後每個演算法就會尋找不同類型的模式。當演算法找到最佳模式之後，它會使用這種模式為沒有標示的測試資料 (也就是未來的股價) 做出預測。
 
-這是常見且實用的機器學習服務類型。除了一個例外之外，Azure 機器學習中的所有模組都是經指導的學習演算法。Azure 機器學習中有幾個代表性的特定經指導學習類型：分類、迴歸和異常偵測。
+這是常見且實用的機器學習服務類型。除了一個例外之外，Azure 機器學習中的所有模組都是監督式學習演算法。Azure 機器學習中有幾個代表性的特定監督式學習類型：分類、迴歸和異常偵測。
 
-* **分類**：當資料用來預測類別時，這種經指導的學習也稱為分類。將影像指定為 'cat' 或 'dog' 的圖片便屬這種情況。如果只有兩個選擇，則稱作**雙類別**或**二項式分類**。如果有多個類別，例如預測 NCAA 季後賽的優勝隊伍，則這個問題就稱為**多類別分類**。
+* **分類**：當資料用來預測類別時，這種監督式學習也稱為分類。將影像指定為 'cat' 或 'dog' 的圖片便屬這種情況。如果只有兩個選擇，則稱作**雙類別**或**二項式分類**。如果有多個類別，例如預測 NCAA 季後賽的優勝隊伍，則這個問題就稱為**多類別分類**。
 
-* **迴歸**：如果要預測值，例如股價，這種經指導的學習稱為迴歸。
+* **迴歸**：如果要預測值，例如股價，這種監督式學習稱為迴歸。
 
 * **異常偵測**：有時候它的目的只是要找出異常的資料點。例如在偵測詐騙時，只要是極不尋常的信用卡消費模式都有嫌疑。由於詐騙可能產生的變化過多，而定型的範例過少，因此難以學習何謂詐騙活動。異常偵測採用的方法，只能使用非詐騙交易的歷史記錄來了解何謂正常活動，並找出與正常活動明顯不同的情況。
 
-### 未經指導式
+### 未監督式
 
-在未經指導的學習中，資料點沒有與其相關聯的標籤。然而，未經指導的學習演算法的目標在於以某種方式組織資料或描述其結構。這種方式可能是將資料劃分為叢集，或尋找各種查看複雜資料的方式，讓資料變得更簡單或更整齊。
+在未監督的學習中，資料點沒有與其相關聯的標籤。然而，未經指導的學習演算法的目標在於以某種方式組織資料或描述其結構。這種方式可能是將資料劃分為叢集，或尋找各種查看複雜資料的方式，讓資料變得更簡單或更整齊。
 
 ### 增強式學習
 
@@ -71,7 +71,7 @@
 
 ### 線性
 
-許多機器學習演算法都會使用線性。線性分類演算法會假設可以直線 (或較高維度類比) 分隔類別。這些演算法包括羅吉斯迴歸和支援向量機器 (如同 Azure 機器學習中所實作)。線性迴歸演算法會假設資料趨勢是依循一條直線。這類假設對某些問題而言還不錯，但在其他問題上會降低精確度。
+許多機器學習演算法都會使用線性。線性分類演算法會假設可以直線 (或較高維度類比) 分隔類別。這些演算法包括羅吉斯迴歸和支援向量機器 (如同 Azure 機器學習中所實作)。線性迴歸演算法會假設資料趨勢依循著一條直線。這類假設對某些問題而言還不錯，但在其他問題上會降低精確度。
 
 ![非線性類別界限][1]
 
@@ -81,11 +81,11 @@
 
 ***具有非線性趨勢的資料****：使用線性迴歸方法會產生較大且不必要的誤差*
 
-儘管有風險，線性演算法仍是一種非常熱門的首次出擊方式。它們的算法定型通常較簡單且快速。
+儘管有風險，線性演算法對於首次攻擊而言仍是一種非常熱門的方式。這種演算法定型起來通常又快又簡單。
 
 ### 參數數目
 
-參數是資料科學家在設定演算法時必須去轉動的把手。參數就是會影響演算法行為的數值，例如容錯或反覆運算次數，或是演算法運作方式的變化選項。定型時間和演算法的精確度有時候很容易因為設定是否正確而受到影響。一般而言，具有大量參數的演算法需要最多次的反覆試驗，才能找出好的組合。
+參數是資料科學家在設定演算法時的必經之路。參數就是會影響演算法行為的數值，例如容錯或反覆運算次數，或是演算法運作方式的變化選項。定型時間和演算法的精確度有時候很容易因為設定是否正確而受到影響。一般而言，具有大量參數的演算法需要最多次的反覆試驗，才能找出好的組合。
 
 或者，Azure 機器學習中有[參數掃掠](machine-learning-algorithm-parameters-optimize.md)模組區塊，會依照您選擇的細微性，自動嘗試所有參數組合。雖然這是確認是否定義出參數空間的好方法，但定型模型時所需的時間，仍會以指數方式隨著參數數目而增加。
 
@@ -105,18 +105,18 @@
 |[羅吉斯迴歸](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |●|●|5| |
 |[決策樹系](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
 |[決策叢林](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|低記憶體使用量|
-|[推進式決策樹](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|高記憶體使用量|
+|[促進式決策樹](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|高記憶體使用量|
 |[類神經網路](https://msdn.microsoft.com/library/azure/dn905947.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)|
 |[平均感知器](https://msdn.microsoft.com/library/azure/dn906036.aspx)|○|○|●|4| |
 |[支援向量機器](https://msdn.microsoft.com/library/azure/dn905835.aspx)| |○|●|5|適用於大型特徵集|
 |[本機深度支援向量機器](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|適用於大型特徵集|
 |[貝氏點機器](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**多類別分類**| | | | | |
-|[羅吉斯迴歸](https://msdn.microsoft.com/zh-tw/library/azure/dn905853.aspx)| |●|●|5| |
+|[羅吉斯迴歸](https://msdn.microsoft.com/zh-TW/library/azure/dn905853.aspx)| |●|●|5| |
 |[決策樹系](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[決策叢林](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|低記憶體使用量|
 |[類神經網路](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[一對多](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|請參閱選定之雙類別的屬性| |**迴歸**| | | | | | |[線性](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |●|●|4| | |[貝氏線性](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[決策樹系](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[推進式決策樹](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|高記憶體使用量| |[快速樹系分量](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|分佈而非點預測| |[類神經網路](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|技術上的對數線性，用於預測計數| |[序數](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|用於預測排名順序| |**異常偵測**| | | | | | |[支援向量機器](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|特別適用於大型特徵集| |[以 PCA 為基礎的異常偵測](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|叢集演算法|
+|[一對多](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|請參閱選定之雙類別的屬性| |**迴歸**| | | | | | |[線性](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |●|●|4| | |[貝氏線性](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[決策樹系](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[促進式決策樹](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|高記憶體使用量| |[快速樹系分量](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|分佈而非點預測| |[類神經網路](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|技術上的對數線性，用於預測計數| |[序數](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|用於預測排名順序| |**異常偵測**| | | | | | |[支援向量機器](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|特別適用於大型特徵集| |[以 PCA 為基礎的異常偵測](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|叢集演算法|
 
 
 **演算法屬性：**
@@ -145,7 +145,7 @@
 
 ### 樹、樹系和叢林
 
-決策樹系 ([迴歸](https://msdn.microsoft.com/library/azure/dn905862.aspx)、[雙類別](https://msdn.microsoft.com/library/azure/dn906008.aspx)和[多類別](https://msdn.microsoft.com/library/azure/dn906015.aspx))、決策叢林 ([雙類別](https://msdn.microsoft.com/library/azure/dn905976.aspx)和[多類別](https://msdn.microsoft.com/library/azure/dn905963.aspx)) 以及推進式決策樹 ([迴歸](https://msdn.microsoft.com/library/azure/dn905801.aspx)和[雙類別](https://msdn.microsoft.com/library/azure/dn906025.aspx))，都是以基本的機器學習概念「決策樹」做為基礎。決策樹有許多變化，但是用途都相同：將特徵空間細分成區域，這些區域大多具有相同的標記。根據您是執行分類或迴歸而定，這些區域可能會有一致的類別或常數值。
+決策樹系 ([迴歸](https://msdn.microsoft.com/library/azure/dn905862.aspx)、[雙類別](https://msdn.microsoft.com/library/azure/dn906008.aspx)和[多類別](https://msdn.microsoft.com/library/azure/dn906015.aspx))、決策叢林 ([雙類別](https://msdn.microsoft.com/library/azure/dn905976.aspx)和[多類別](https://msdn.microsoft.com/library/azure/dn905963.aspx)) 以及促進式決策樹 ([迴歸](https://msdn.microsoft.com/library/azure/dn905801.aspx)和[雙類別](https://msdn.microsoft.com/library/azure/dn906025.aspx))，都是以基本的機器學習概念「決策樹」做為基礎。決策樹有許多變化，但是用途都相同：將特徵空間細分成區域，這些區域大多具有相同的標記。根據您是執行分類或迴歸而定，這些區域可能會有一致的類別或常數值。
 
 ![細分特徵空間的決策樹][5]
 
@@ -153,7 +153,7 @@
 
 由於特徵空間可以任意細分成較小的區域，因此會很容易推斷出每個區域都能細分成只有一個資料點，而這就是過度學習的極端範例。若要避免這個問題，建構一大組樹需要採取特殊的數學計算方式，也就是讓樹與樹之間沒有相互關聯。這種「決策樹系」的平均就是可避免過度學習的樹。決策樹系會使用大量記憶體。決策叢林則是使用較少記憶體的變體，但代價是定型時間較長。
 
-推進式決策樹可藉由限制細分的次數，以及每個區域中允許的最少資料點，來避免過度學習。此演算法會建構一連串的樹，其中每個樹都會學習彌補前一個樹所留下來的錯誤。這種學習方式雖然非常精確，但通常會使用大量記憶體。如需完整的技術說明，請參閱[Friedman 的原始文件](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf)。
+促進式決策樹可藉由限制細分的次數，以及每個區域中允許的最少資料點，來避免過度學習。此演算法會建構一連串的樹，其中每個樹都會學習彌補前一個樹所留下來的錯誤。這種學習方式雖然非常精確，但通常會使用大量記憶體。如需完整的技術說明，請參閱[Friedman 的原始文件](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf)。
 
 [快速樹系分量迴歸](https://msdn.microsoft.com/library/azure/dn913093.aspx)是決策樹的變化之一，適用的特殊案例是，您不只想要知道區域內資料的一般 (中位數) 值，還想知道資料在分量形式中的分佈。
 
@@ -222,4 +222,4 @@ Azure 機器學習中也可存取 [Vowpal Wabbit](https://msdn.microsoft.com/lib
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -343,6 +343,9 @@
 
 若要將其他功能加入您的 Web 應用程式，請檢閱 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb) 中提供的 API。
 
+如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
+
+
   [按一下這裡可存取 Flask 教學課程]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [這裡]: http://aka.ms/ptvs
@@ -352,4 +355,4 @@
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -114,7 +114,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 
 ## 基本概念
 
-1. [基本概念：Azure 命令列介面 (Azure CLI)](../xplat-cli.md)
+1. [基本概念：Azure 命令列介面 (Azure CLI)](../xplat-cli-install.md)
 4. [基本概念：憑證的使用和管理](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [基本概念：選取 Linux 使用者名稱](virtual-machines-linux-usernames.md)
 6. [基本概念：使用 Azure 入口網站登入 Linux VM](virtual-machines-linux-how-to-log-on.md)
@@ -131,7 +131,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 17. [基本概念：將自訂資料插入 VM 中以搭配 Cloud-init 使用](virtual-machines-how-to-inject-custom-data.md)
 18. [基本概念部落格：以 12 個步驟在 Azure 上建置高可用性的 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [基本概念部落格：透過 Azure CLI、node.js、jhawk 在 Azure 上自動佈建 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+19. [使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 20. [基本概念：Azure Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)
 23. [Azure 服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 參考
 24. [Azure 上的 GlusterFS](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
@@ -181,7 +181,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 
 瀏覽本節，即能快速了解。如果您有任何建議，請傳送 PR 給我們，或在註解中留下建議，如下。
 
-1. [使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+1. [使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 2. [Patrick Chanezon 的 Azure Linux Github 儲存機制](https://github.com/chanezon/azure-linux)
 3. [影片：如何使用 **usbip** 將 Linux 上的內部部署 USB 資料移到 Azure](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [影片：在瀏覽器中使用 fernapp 存取 Azure 上的 Linux GUI](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -258,7 +258,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 
 1. Docker
 	- [Azure 上 Linux 的 Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)
-	- [透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組](virtual-machines-docker-with-../xplat-cli.md)
+	- [透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組](virtual-machines-docker-with-../xplat-cli-install.md)
 	- [從 Azure Preview 入口網站使用 Docker VM 延伸模組](virtual-machines-docker-with-portal.md)
 	- [在 Azure Marketplace 中快速開始使用 Docker](virtual-machines-docker-ubuntu-quickstart.md)
 	- [如何在 Azure 上使用 docker-machine](virtual-machines-docker-machine.md)
@@ -307,4 +307,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

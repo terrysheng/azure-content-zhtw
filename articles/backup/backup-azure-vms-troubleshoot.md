@@ -7,10 +7,10 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
-# 錯誤疑難排解
+# Azure 虛擬機器備份的疑難排解
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
 
 ## 探索
@@ -89,7 +89,7 @@
 
 如為 Linux VM：
 
-- 請從 GitHub 安裝最新的 [Linux 代理程式](https://github.com/Azure/WALinuxAgent)。 
+- 請從 GitHub 安裝最新的 [Linux 代理程式](https://github.com/Azure/WALinuxAgent)。
 - [更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)，表示已安裝代理程式。
 
 
@@ -100,7 +100,7 @@
 
 如為 Linux VM：
 
-- 請遵循[更新 Linux VM 代理程式](../virtual-machines-linux-update-agent.md)上的指示。 
+- 請遵循[更新 Linux VM 代理程式](../virtual-machines-linux-update-agent.md)上的指示。
 
 
 ### 驗證 VM 代理程式安裝
@@ -123,4 +123,4 @@
 1. 取得要列入允許清單的 [Azure 資料中心 IP](https://msdn.microsoft.com/library/azure/dn175718.aspx)。
 2. 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) Cmdlet 解除封鎖 IP。在 Azure VM 中提升權限的 PowerShell 視窗中執行這個 Cmdlet (以系統管理員身分執行)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

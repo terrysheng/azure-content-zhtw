@@ -57,7 +57,7 @@
 
 #### 設定選項
 
-如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure Preview。(該帳戶與 Visual Studio Online 帳戶彼此獨立)。
+如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure。
 
 如果此應用程式是更大應用程式的一部分，您可以使用 [**組態設定**]，將它放在與其他元件相同的資源群組中。
 
@@ -248,4 +248,4 @@
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

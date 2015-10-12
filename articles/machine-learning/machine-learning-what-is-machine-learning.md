@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/09/2015"
+    ms.date="09/28/2015"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -38,7 +38,7 @@ Azure 機器學習不僅提供可建立預測性分析模型的工具，也提�
 
 預測分析使用各種統計技術 (在本例中為機器學習服務)，來分析收集到的資料或目前資料中的模式或趨勢，以便預測未來的事件。
 
-Azure Machine Learning 是特別強大的預測分析方式：您可以使用現成的演算法程式庫；在連線到網際網路的電腦上建立模型，而不需要購買額外的設備或基礎結構；以及快速地部署預測解決方案。您也可以在 [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) 或 [Machine Learning Gallery](http://gallery.azureml.net/) 中，找到現成的範例和解決方案。
+Azure Machine Learning 是特別強大的預測分析方式：您可以使用現成的演算法程式庫；在連線到網際網路的電腦上建立模型，而不需要購買額外的設備或基礎結構；以及快速地部署預測解決方案。您也可以在 [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) 或 [Cortana 分析資源庫](http://gallery.azureml.net/)中，找到現成的範例和解決方案。
 
 ## 在雲端上建置完整的機器學習服務解決方案
 
@@ -51,9 +51,9 @@ Azure Machine Learning 具備在雲端上建立預測分析解決方案所需的
 ![什麼是預測分析：Azure Machine Learning Studio 中的預測分析實驗範例](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * 使用 Machine Learning Studio 中之[機器學習服務演算法和模組](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7)的大型程式庫，開始建立您的預測模型。從範例實驗、R 和 Python 封裝的程式庫，以及 Xbox 和 Bing 等 Microsoft 公司的一流演算法中進行選擇。使用您自訂的 [R](machine-learning-r-quickstart.md) 和 [Python](machine-learning-execute-python-scripts.md) 指令碼來擴充 Studio 模組。
-* 在 [Machine Learning Gallery 社群](machine-learning-gallery-how-to-use-contribute-publish.md)中，您可以開始使用 Azure Machine Learning，並向社群的其他人學習。您可以嘗試其他人所撰寫的實驗、針對實驗提出問題或張貼意見，或者發佈您自己的實驗。您也可以透過 LinkedIn 和 Twitter 等社交網路分享實驗的連結。  
+* 在 [Cortana 分析資源庫](machine-learning-gallery-how-to-use-contribute-publish.md)中，您可以開始使用 Azure 機器學習服務，並向社群的其他人學習。您可以嘗試其他人所撰寫的實驗、針對實驗提出問題或張貼意見，或者發佈您自己的實驗。您也可以透過 LinkedIn 和 Twitter 等社交網路分享實驗的連結。  
 
-	![在 Azure 機器學習展示庫中試做預測分析範本或提供您自己的範本](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
+	![在 Azure Cortana 分析資源庫中試做預測實驗範本或提供您自己的範本](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
 
 ### 操作預測分析解決方案：購買 Web 服務或發佈您自己的服務
 
@@ -116,4 +116,4 @@ Azure Machine Learning 具備在雲端上建立預測分析解決方案所需的
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

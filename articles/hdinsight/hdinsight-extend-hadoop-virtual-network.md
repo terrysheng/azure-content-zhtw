@@ -22,6 +22,8 @@
 Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源，例如 SQL Server，或在雲端資源間建立安全的私人網路。
 
 > [AZURE.NOTE]HDInsight 不支援同質型 Azure 虛擬網路。在使用 HDInsight 時，您必須使用位置型虛擬網路。
+>
+> 目前 (8/25/2015) 您只能在 Azure 虛擬網路佈建一個以 Linux 為基礎的 HDInsight 叢集。
 
 ##<a id="whatis"></a>什麼是 Azure 虛擬網路？
 
@@ -62,6 +64,10 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
 > Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
 >
 > 強烈建議您每個叢集只指定一個子網路。
+>
+> 您不能在 Linux 的 HDInsight 使用 v1 (傳統) Azure 虛擬網路。虛擬網路必須是 v2 (Azure 資源管理員)，使其在 Azure Preview 入口網站中的 HDInsight 叢集建立程序期間列出做為選項，或從 Azure CLI 或 Azure PowerShell 建立叢集時可供使用。
+>
+> 如果您擁有 v1 網路上的資源，而您想要讓 HDInsight 透過虛擬網路直接存取這些資源，請參閱[將傳統 VNet 連線到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)，以取得如何將 v2 虛擬網路連線到 v1 虛擬網路的相關資訊。一旦建立此連線之後，您便可以在 v2 虛擬網路中建立 HDInsight 叢集。
 
 如需如何在虛擬網路佈建 HDInsight 叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](hdinsight-provision-clusters.md)。
 
@@ -165,12 +171,10 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 * [使用 HDInsight 中的 Storm 和 HBase 分析感應器資料](hdinsight-storm-sensor-data-analysis.md) - 示範如何在虛擬網路中設定 Storm 和 HBase 叢集，以及如何從 Storm 將資料遠端寫入至 HBase。
 
-* [在 Azure 虛擬網路佈建 HBase 叢集](hdinsight-hbase-provision-vnet.md) - 提供有關在 Azure 虛擬網路佈建 HBase 叢集的資訊。
+* [在 HDInsight 佈建 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md) - 提供有關佈建 Hadoop 叢集的資訊，包括有關使用 Azure 虛擬網路的資訊。
 
-* [在 HDInsight 佈建 Hadoop 叢集](hdinsight-provision-clusters.md) - 提供有關佈建 Hadoop 叢集的資訊，包括有關使用 Azure 虛擬網路的資訊。
-
-* [在 HDInsight 中搭配使用 Sqoop 和 Hadoop](hdinsight-use-sqoop.md) - 提供搭配使用 Sqoop 與 SQL Server 透過虛擬網路傳輸資料的相關資訊。
+* [在 HDInsight 中搭配使用 Sqoop 和 Hadoop](hdinsight-use-sqoop-mac-linux.md) - 提供搭配使用 Sqoop 與 SQL Server 透過虛擬網路傳輸資料的相關資訊。
 
 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

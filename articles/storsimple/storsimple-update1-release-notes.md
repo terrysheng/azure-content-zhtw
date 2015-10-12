@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="StorSimple 8000 系列 Update 1.2 版本資訊 | Microsoft Azure"
-    description="說明 StorSimple 8000 系列 Update 1.2 的新功能、問題及因應措施。"
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="carolz"
-    editor="" />
+   pageTitle="StorSimple 8000 系列 Update 1.2 版本資訊 | Microsoft Azure"
+   description="說明 StorSimple 8000 系列 Update 1.2 的新功能、問題及因應措施。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="09/09/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="alkohli" />
 
 # StorSimple 8000 系列 Update 1.2 版本資訊  
 
@@ -124,4 +124,4 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
 - [在您的裝置上安裝 Update 1.2](storsimple-install-update-1.md)。
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

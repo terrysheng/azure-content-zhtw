@@ -1,7 +1,7 @@
 <properties
 	pageTitle="在 Azure App Service 中設定自訂網域名稱 (GoDaddy)"
 	description="了解如何搭配使用來自 GoDaddy 的網域名稱與 Azure Web Apps"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -87,4 +87,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

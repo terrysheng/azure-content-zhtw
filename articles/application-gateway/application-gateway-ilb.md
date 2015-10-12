@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/30/2015"
+   ms.date="09/29/2015"
    ms.author="joaoma"/>
 
 # 搭配內部負載平衡器 (ILB) 的應用程式閘道
@@ -55,7 +55,7 @@
 
 **若要驗證**已建立閘道器，您可以使用 `Get-AzureApplicationGateway` Cmdlet。
 
-在範例中，*Description*、*InstanceCount*、*GatewaySize* 是選擇性參數。*InstanceCount* 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。Small 和 Large 也是可用的值。因為尚未啟動閘道器，所以 *Vip* 和 *DnsName* 會顯示為空白。一旦閘道處於執行狀態，就會建立這些項目。
+在範例中，*Description*、*InstanceCount*、*GatewaySize* 是選擇性參數。*InstanceCount* 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。Small 和 Large 也是可用的值。因為尚未啟動閘道，所以 *Vip* 和 *DnsName* 會顯示為空白。一旦閘道處於執行狀態，就會建立這些項目。
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 
@@ -212,4 +212,4 @@
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

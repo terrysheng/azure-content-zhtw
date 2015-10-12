@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # 如何取得 Azure Active Directory 租用戶
@@ -65,4 +65,4 @@
 
 註冊 Azure 的過程中，您將需要提供信用卡的詳細資料。您可以放心繼續執行，您將不會被收取在 Azure AD 中發佈應用程式或建立新租用戶的費用。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

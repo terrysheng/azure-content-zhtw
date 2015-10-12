@@ -14,8 +14,9 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
+
 
 # 設定警示
 
@@ -29,9 +30,9 @@
 
 ## 透過 Azure 入口網站設定警示
 
-有兩種方式可以設定警示：
+在 Azure 管理入口網站中設定警示的方式有兩種：
 
-1.	您串流分析工作的 [監視] 索引標籤  
+1.	串流分析工作的 [監視] 索引標籤  
 2.	管理服務中的作業記錄檔  
 
 ## 透過入口網站中工作的 [監視器] 索引標籤的警示
@@ -59,6 +60,20 @@
 
     ![定義警示](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)
 
+## 在 Azure Preview 入口網站中設定警示 ##
+
+在 Azure Preview 入口網站中，瀏覽至您有興趣設定警示的串流分析工作，然後按一下 [監視] 區段。在開啟的 [度量] 刀鋒視窗中，按一下 [加入警示] 命令。
+
+  ![Azure Preview 入口網站設定](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
+
+您可以為您的警示規則命名，並選擇將會顯示在電子郵件通知的描述。
+
+當您選取 [計量] 時，您將會為計量選擇條件和閾值標準。
+
+  ![Azure Preview 入口網站選取度量](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
+
+如需在 Azure Preview 入口網站中設定警示的詳細資訊，請參閱[接收警示通知](./azure-portal/insights-receive-alert-notifications.md)。
+
 ## 取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
@@ -70,4 +85,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

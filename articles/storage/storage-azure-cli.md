@@ -1,19 +1,19 @@
 <properties
     pageTitle="使用 Azure CLI 搭配 Azure 儲存體 | Microsoft Azure"
-	description="了解如何搭配 Azure 儲存體使用 Azure 命令列介面 (Azure CLI) 來建立和管理儲存體帳戶，以及使用 Azure Blob 和檔案。"
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="jdial"/>
+    description="了解如何搭配 Azure 儲存體使用 Azure 命令列介面 (Azure CLI) 來建立和管理儲存體帳戶，以及使用 Azure Blob 和檔案。"
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
+    manager="jdial"/>
 
 <tags
     ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="09/28/2015"
+    ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # 使用 Azure CLI 搭配 Azure 儲存體
 
@@ -21,7 +21,7 @@
 
 Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。它提供許多與 Azure 管理入口網站相同的功能，以及豐富的資料存取功能。
 
-在本指南中，我們將探討如何使用 [Azure 命令列介面 (Azure CLI)](../xplat-cli.md) 搭配 Azure 儲存體執行各種開發和管理工作。建議您在使用本指南之前，先下載並安裝或升級至最新的 Azure CLI。
+在本指南中，我們將探討如何使用 [Azure 命令列介面 (Azure CLI)](../xplat-cli-install.md) 搭配 Azure 儲存體執行各種開發和管理工作。建議您在使用本指南之前，先下載並安裝或升級至最新的 Azure CLI。
 
 本指南假設您已了解 Azure 儲存體的基本概念。本指南提供許多指令碼示範如何使用 Azure CLI 搭配 Azure 儲存體。在執行每個指令碼之前，請務必先根據您的組態更新指令碼變數。
 
@@ -94,7 +94,7 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
 
 ### 連線到您的 Azure 訂用帳戶
 
-雖然大部分的儲存體命令在沒有 Azure 訂用帳戶的狀況下仍然能夠運作，但是我們建議您從 Azure CLI 連線到您的訂用帳戶。若要設定 Azure CLI 以使用您的訂用帳戶，請依照[如何連線至您的 Azure 訂用帳戶](../xplat-cli.md#how-to-connect-to-your-azure-subscription)中的步驟。
+雖然大部分的儲存體命令在沒有 Azure 訂用帳戶的狀況下仍然能夠運作，但是我們建議您從 Azure CLI 連線到您的訂用帳戶。若要設定 Azure CLI 以使用您的訂用帳戶，請依照[如何連線至您的 Azure 訂用帳戶](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription)中的步驟。
 
 ### 建立新的儲存體帳戶
 
@@ -169,13 +169,11 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。如需詳細資訊，請�
 
 ## 建立和管理檔案共用
 
-Azure 檔案儲存體為使用標準 SMB 2.1 通訊協定的應用程式提供共用儲存體。Microsoft Azure 虛擬機器和雲端服務可以透過掛接共用，在不同應用程式元件之間共用檔案資料。您可以透過 Azure CLI 管理檔案共用和檔案資料。如需 Azure 檔案儲存體的詳細資訊，請參閱[如何使用 PowerShell 和 .NET 使用 Azure 檔案儲存體](storage-dotnet-how-to-use-files)。
-
-> [AZURE.NOTE]Azure 檔案儲存體目前為預覽版。若要要求預覽版的存取權，請瀏覽至 [Microsoft Azure 預覽版頁面](/services/preview/)，然後要求 **Azure 檔案**的存取權。要求一經核准，您就會收到您可以存取檔案儲存體預覽版的通知。接著，您可以建立儲存體帳戶以存取檔案儲存體。
+Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用儲存體。Microsoft Azure 虛擬機器和雲端服務，以及內部部署應用程式，可以透過掛接共用，共用檔案資料。您可以透過 Azure CLI 管理檔案共用和檔案資料。如需 Azure 檔案儲存體的詳細資訊，請參閱 [Azure 檔案儲存體如何搭配 Windows](storage-dotnet-how-to-use-files) 或 [Azure 檔案儲存體如何搭配 Linux](storage-how-to-use-files-linux.md)。
 
 ### 建立檔案共用
 
-Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔案都必須在檔案共用中建立。帳戶可包含無限制數目的共用，而共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。下列範例會建立名為 **myshare** 的檔案共用。
+Azure 檔案共用是 Azure 中的 SMB 檔案共用。所有目錄和檔案都必須在檔案共用中建立。帳戶可包含無限制數目的共用，而共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。下列範例會建立名為 **myshare** 的檔案共用。
 
         azure storage share create myshare
 
@@ -224,4 +222,4 @@ Azure 檔案共用是在 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔�
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

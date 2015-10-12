@@ -191,7 +191,7 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。您可以�
 
 [生產版本]: http://aka.ms/downloadazcopy/
 [預覽版本]: http://aka.ms/downloadazcopypr/
-[ADO.NET 目的地配接器]: https://msdn.microsoft.com/ZH-TW/library/bb934041.aspx
-[SSIS 文件]: https://msdn.microsoft.com/ZH-TW/library/ms141026.aspx
+[ADO.NET 目的地配接器]: https://msdn.microsoft.com/zh-TW/library/bb934041.aspx
+[SSIS 文件]: https://msdn.microsoft.com/zh-TW/library/ms141026.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

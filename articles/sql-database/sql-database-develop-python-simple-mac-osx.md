@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-本主題提供以 Python 撰寫的程式碼範例。這個範例會在 Mac 電腦上執行。這個範例使用 **pymssql** 驅動程式連接到 Azure SQL Database。
+本主題提供以 Python 撰寫的程式碼範例。這個範例會在 Mac 電腦上執行。這個範例使用 **pymssql** 驅動程式連接到 Azure SQL Database。此外，請使用[開始在 Mac 上使用 Python](https://www.youtube.com/watch?v=OMpugPTwnTI) 視訊以補充本文件。
 
 
 ## 需求
@@ -43,7 +43,7 @@
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-**2) FreeTDS**：從您的終端機執行下列命令。這會在您的電腦上下載 FreeTDS。pymmsql 需要 FreeTDS 才能工作。
+**2) FreeTDS：**從您的終端機執行下列命令。這會在您的電腦上下載 FreeTDS。pymmsql 需要 FreeTDS 才能工作。
 
     brew install FreeTDS
   
@@ -83,7 +83,7 @@
 
 ## 插入資料列、傳遞參數及擷取產生的主索引鍵
 
-在 SQL Database 中，[IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) 屬性和 [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) 物件可用來自動產生[主索引鍵](https://msdn.microsoft.com/library/ms179610.aspx)值。
+在 SQL Database 中，[IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) 屬性和 [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) 物件可用來自動產生[主索引鍵](https://msdn.microsoft.com/library/ms179610.aspx)值。
 
 
 	import pymssql
@@ -102,11 +102,11 @@
 這個程式碼範例示範如何使用交易，您將：
 
 
-\-開始交易
+-開始交易
 
-\-插入一列資料
+-插入一列資料
 
-\-回復您的交易以復原插入
+-回復您的交易以復原插入
 
 
 	import pymssql
@@ -118,4 +118,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

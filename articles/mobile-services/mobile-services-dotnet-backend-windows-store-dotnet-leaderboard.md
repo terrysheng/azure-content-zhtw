@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 .NET 後端建立 Windows 市集排行榜應用程式 | Microsoft Azure" 
+	pageTitle="使用 .NET 後端建立 Windows 市集排行榜應用程式 | Azure 行動服務" 
 	description="了解如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集排行榜應用程式。" 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/24/2015" 
 	ms.author="glenga"/>
 
 # 使用 Azure 行動服務 .NET 後端建立排行榜應用程式
@@ -332,7 +332,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 
 	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
 
-\-Project 參數會指定要將封裝安裝到哪個專案。
+-Project 參數會指定要將封裝安裝到哪個專案。
 
 ## 新增模型類別
 
@@ -762,4 +762,4 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

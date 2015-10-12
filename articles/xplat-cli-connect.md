@@ -128,7 +128,7 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 
 如果您要 Azure CLI 使用非預設的訂用帳戶，但又不想變更目前的預設值，可以使用適用於該命令的 `--subscription` 選項，並提供希望該作業使用的訂用帳戶名稱。
 
-一旦您連接到 Azure 訂用帳戶之後，就可以開始使用 Azure CLI 命令。如需詳細資訊，請參閱[如何使用 Azure CLI](xplat-cli.md)。
+一旦您連接到 Azure 訂用帳戶之後，就可以開始使用 Azure CLI 命令。如需詳細資訊，請參閱[如何使用 Azure CLI](xplat-cli-install.md)。
 
 ## CLI 設定的儲存位置
 
@@ -159,4 +159,4 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

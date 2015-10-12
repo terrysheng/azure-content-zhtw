@@ -45,7 +45,7 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 
 開啟您想要匯出 .bacpac 檔案當做資料庫的 SQL Database 刀鋒視窗：
 
-1.	移至 [Azure Preview 入口網站](https//:portal.azure.com)。
+1.	移至 [Azure Preview 入口網站](https://portal.azure.com)。
 2.	按一下 [全部瀏覽]。
 3.	按一下 [SQL 資料庫]。
 2.	按一下您想要匯出為 BACPAC 的資料庫。
@@ -101,4 +101,4 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

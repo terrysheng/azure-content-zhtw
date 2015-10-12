@@ -41,6 +41,7 @@
                             (new Range<long>(300, 400), shard2, MappingStatus.Online)); 
 
 
+或者，您也可以使用 Powershell 建立新的分區對應管理員。範例請見[這裡](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)。
 ## 為現有範圍的空白部分加入分區  
 
 在某些情況下，您可能已將某個範圍對應至分區，並在其某些部分填入資料，但現在您想讓後續的資料導向至不同的分區。例如，假設您依日期範圍分區，並且已配置 50 天給某個分區，但在第 24 天，您想要將後續資料分配到不同的分區。彈性資料庫[分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)可以執行這項作業，但如果不需要移動資料 (例如，尚不存在日期範圍 [25, 50) 的資料，亦即第 25 天 (含) 到第 50 天 (不含)，您可以直接使用分區對應管理 API 完全執行此作業。
@@ -78,4 +79,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -12,16 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/13/2015"
+   ms.date="09/22/2015"
    ms.author="telmos" />
 
 # 什麼是網路安全性群組 (NSG)？
 
-您可以在虛擬網路中，使用 NSG 控制傳輸至一個或多個虛擬機器 (VM) 執行個體的流量。NSG 包含存取控制規則，可根據流量方向、通訊協定、來源位址和連接埠與目的地位址和連接埠，允許或拒絕流量。NSG 的規則可以隨時變更，而變更時會套用至所有相關聯的執行個體。若要使用 NSG，您必須有區域 VNet。
+您可以在虛擬網路中，使用 NSG 控制傳輸至一個或多個虛擬機器 (VM) 執行個體的流量。NSG 包含存取控制規則，可根據流量方向、通訊協定、來源位址和連接埠與目的地位址和連接埠，允許或拒絕流量。NSG 的規則可以隨時變更，而變更時會套用至所有相關聯的執行個體。
 
->[AZURE.WARNING]NSG 不相容於與同質群組相關聯的 VNet。如果您沒有區域 VNet，而且您想要控制傳輸至端點的流量，請參閱＜[什麼是網路存取控制清單 (ACL)？](./virtual-networks-acl.md)＞。您也可以[將 VNet 移轉至區域 VNet](./virtual-networks-migrate-to-regional-vnet.md)。
+>[AZURE.WARNING]NSG 只能用於區域 Vnet。如果您試著不用 VNet 保護部署中的端點，或使用與同質群組相關聯的 VNet，請參閱[什麼是端點存取控制清單 (ACL)？](./virtual-networks-acl.md)您也可以[將 VNet 移轉至區域 VNet](./virtual-networks-migrate-to-regional-vnet.md)。
 
-您可以將 NSG 與 VM 建立關聯，或在 VNet 中與子網路建立關聯。與 VM 建立關聯時，NSG 會套用至由 VM 執行個體傳送和接收的所有流量。套用至 VNet 中的子網路時，NSG 會套用至子網路中所有 VM 執行個體傳送和接收的所有流量。VM 或子網路可以僅與 1 個 NSG 建立關聯，且每個 NSG 可以包含最多 200 個規則。每個訂用帳戶您可以擁有 100 個 NSG。
+![NSG](./media/virtual-network-nsg-overview/figure1.png)
+
+上圖顯示具有兩個子網路的虛擬網路，且有與每個子網路相關聯的 NSG，以用於流量控制。
 
 >[AZURE.NOTE]端點式 ACL 和網路安全性群組，不支援用於相同的 VM 執行個體。如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。如需有關執行這項作業的資訊，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](virtual-networks-acl-powershell.md)＞。
 
@@ -77,14 +79,6 @@ NSG 包含預設規則。預設規則無法刪除，但因為其會指派為最�
 | 允許網際網路輸出 | 65001 | * | * | 網際網路 | * | * | 允許 |
 | 拒絕所有輸出 | 65500 | * | * | * | * | * | 拒絕 |
 
-### 特殊的基礎架構規則
-
-NSG 規則是明確的。不允許所有流量，或拒絕超出 NSG 規則中所指定的流量。不過，一律允許兩種類型的流量，無論網路安全性群組規格為何。這些佈建用於支援基礎結構。
-
-- **節點的虛擬 IP：**基本的基礎結構服務，例如 DHCP、DNS 和健康狀態監控是透過虛擬化主機 IP 位址 168.63.129.16 所提供。這個公用 IP 位址屬於 Microsoft，且是針對此目的唯一用於所有區域的虛擬 IP。此 IP 位址對應至伺服器電腦的實體 IP 位址 (主機節點)，該伺服器用來主控虛擬機器。主機節點的作用如同 DHCP 轉送、DNS 遞迴解析程式，以及負載平衡器健康狀態探查和電腦健康狀態探查的探查來源。此 IP 位址的通訊不應視為一種攻擊。
-
-- **授權 (金鑰管理服務)：**應該授權在虛擬機器中執行的 Windows 映像。若要這樣做，授權要求會傳送至處理此類查詢的金鑰管理服務主機伺服器。這會一律位於輸出連接埠 1688。
-
 ### 預設標籤
 
 預設標籤是系統提供的識別項，用來解決 IP 位址的類別。客戶定義的規則中，可以指定預設標籤。預設標籤如下所示：
@@ -95,42 +89,38 @@ NSG 規則是明確的。不允許所有流量，或拒絕超出 NSG 規則中�
 
 - **INTERNET -** 這個預設標籤代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。此範圍也包括 Azure 擁有的公用 IP 空間。
 
-### 連接埠和連接埠範圍
-
-網路安全性群組規則可以指定於單一來源/目的地連接埠上，或指定一個連接埠範圍。當您要開啟各種不同的應用程式連接埠，例如 FTP 時，則在此案例中特別實用。範圍僅能循序排列，且不能混合使用個別的連接埠規格。
-
-若要指定的連接埠範圍，請使用 '-' 符號，如下方在 *DestinationPortRange* 參數中所示：
-
-	Get-AzureNetworkSecurityGroup -Name ApptierSG `
-	| Set-AzureNetworkSecurityRule -Name FTP -Type Inbound -Priority 600 -Action Allow `
-		-SourceAddressPrefix INTERNET -SourcePortRange * `
-		-DestinationAddressPrefix * -DestinationPortRange 100-500 -Protocol *
-
 ### ICMP 流量
 
-目前的 NSG 規則僅允許用於通訊協定 'TCP' 或 'UDP'。'ICMP' 沒有特定的標籤。不過，系統依預設會透過輸入 VNet 規則來允許虛擬網路內的 ICMP 流量，該規則會允許 VNet 內任何連接埠的輸入/輸出流量以及通訊協定 '*'。
+目前的 NSG 規則僅可用於通訊協定 *TCP* 或 *UDP*。*ICMP* 沒有特定的標記。不過，系統依預設會透過輸入 VNet 規則來允許虛擬網路內的 ICMP 流量，該規則會允許 VNet 內任何連接埠的輸入/輸出流量以及通訊協定。
 
 ## 建立 NSG 關聯
 
-建立 NSG 至 VM 的關聯 - 當 NSG 與 VM 直接相關聯時，NSG 中的網路存取規則會直接套用至目的地為 VM 的所有流量。每當 NSG 更新規則變更時，該變更會反映在幾分鐘內處理的流量。當 NSG 與 VM 不相關聯時，狀態就會回到 NSG 之前的狀態，例如在介紹是否要使用 NSG 之前的系統預設值。
+您可以將 NSG 與 VM、NIC 和子網路建立關聯。
 
-建立 NSG 至子網路的關聯 - 當 NSG 與子網路相關聯時，NSG 中的網路存取規則會套用至子網路中的所有 VM。每當 NSG 中的存取規則更新時，變更會在數分鐘內套用至子網路中的所有虛擬機器。
+- **將 NSG 與 VM 建立關聯。** 當您將 NSG 與 VM 建立關聯時，NSG 中的網路存取規則會套用到預定要進入和離開 VM 的所有流量。 
 
-建立 NSG 至子網路和 VM 的關聯 - 您可能可以建立 NSG 至 VM 的關聯，並將不同的 NSG 與 VM 所在的子網路建立關聯。系統支援此作業，且在此案例中 VM 會取得兩個階層的保護。輸入流量時，封包會通過子網路中所指定的存取規則，然後再通過 VM 中的規則，而在輸出的案例中，封包會在通過子網路中所指定的規則之前，先通過 VM 中指定的規則，如下圖所示。
+- **將 NSG 與 NIC 建立關聯。** 當您將 NSG 與 NIC 建立關聯時，NSG 中的網路存取規則只會套用到該 NIC。這表示多 NIC 的 VM 中，如果 NSG 已套用到單一 NIC，則它不會影響繫結至其他 NIC 的流量。
 
-![NSG ACL](./media/virtual-networks-nsg/figure1.png)
+- **將 NSG 與子網路建立關聯。**當您將 NSG 與子網路建立關聯時，NSG 中的網路存取規則會套用到子網路中的所有 VM。
 
-當 NSG 與 VM 或子網路相關聯時，網路存取控制規則會變得非常明確。平台不會插入任何隱含規則來允許特定連接埠的流量。在此案例中，如果您在 VM 中建立端點，則您也必須建立規則以允許來自網際網路的流量。如果您不這麼做，VIP：<Port>將無法從外部存取。
+您可以將不同 NSG 與 VM、VM 所使用的 NIC，以及 NIC 所繫結的子網路建立關連。當發生這種情況時，所有網路存取規則都會以下列順序套用到流量：
 
-例如：您建立新的 VM，同時也建立新的 NSG。您建立 NSG 至 VM 的關聯。虛擬網路中，VM 可以透過「允許 VNet 輸入規則」與其他 VM 進行通訊。VM 也可以使用「允許網際網路輸出」規則，進行網際網路的輸出連接。稍後，您可以在連接埠 80 上建立端點來接收您在 VM 中所執行網站的流量。VIP (公用虛擬 IP 位址) 上來自網際網路且目的地為連接埠 80 的封包不會到達 VM，直到您將類似下列 (下方) 的規則新增至 NSG。
+- **輸入流量**
+	1. 子網路 NSG。
+	2. NIC NSG。
+	3. VM NSG。
+- **輸出流量**
+	1. VM NSG。
+	2. NIC NSG。
+	3. 子網路 NSG。
 
-| 名稱 | 優先順序 | 來源 IP | 來源連接埠 | 目的地 IP | 目的地連接埠 | 通訊協定 | 存取 |
-|------|----------|-----------|-------------|----------------|------------------|----------|--------|
-| WEB | 100 | 網際網路 | * | * | 80 | TCP | 允許 |
+![NSG ACL](./media/virtual-network-nsg-overview/figure2.png)
+
+>[AZURE.NOTE]雖然您只能將單一 NSG 與子網路、VM 或 NIC 建立關聯，但您可以盡量將同一個 NSG 與許多您想要的資源建立關聯。
 
 ## 設計考量
 
-當設計您的 NSG 時，您必須了解 VM 與基礎結構服務以及由 Azure 託管之 PaaS 服務通訊的方式。大部分 Azure PaaS 服務 (例如 SQL 資料庫與儲存體) 只能透過公用的對外網際網路位址存取。這也適用於負載平衡探查。
+當設計您的 NSG 時，您必須了解 VM 與基礎結構服務通訊的方式，以及在 Azure 中託管的 PaaS 服務。大部分 Azure PaaS 服務 (例如 SQL 資料庫與儲存體) 只能透過公用的對外網際網路位址存取。這也適用於負載平衡探查。
 
 Azure 中常見的案例就是根據 VM 和 PaaS 角色是否需要存取網際網路，來分隔它們。在類似案例中，您可能具備一個子網路包含需要存取 Azure Paas 服務 (例如 SQL 資料庫與儲存體) 的 VM 或角色執行個體，但不需要公用網際網路的任何輸入或輸出通訊。
 
@@ -151,102 +141,27 @@ Azure 中常見的案例就是根據 VM 和 PaaS 角色是否需要存取網際�
 
 >[AZURE.WARNING]Azure 會使用稱為**閘道**子網路的特殊子網路，以處理其他 VNet 和內部部署網路的 VPN 閘道。將 NSG 關聯至此子網路將會導致您的 VPN 閘道如預期般停止運作。「請勿」將 NSG 關聯至閘道子網路！
 
-## 規劃 - 網路安全性群組工作流程
+您也必須將下面所列的特殊規則列入考量。請確定您不會封鎖這些規則允許的流量，否則您的基礎結構將無法與基本的 Azure 服務進行通訊。
 
-以下是使用網路安全性群組時的基本工作流程步驟。
+- **節點的虛擬 IP：**基本的基礎結構服務，例如 DHCP、DNS 和健康狀態監控是透過虛擬化主機 IP 位址 168.63.129.16 所提供。這個公用 IP 位址屬於 Microsoft，且是針對此目的唯一用於所有區域的虛擬 IP。此 IP 位址對應至伺服器電腦的實體 IP 位址 (主機節點)，該伺服器用來主控虛擬機器。主機節點的作用如同 DHCP 轉送、DNS 遞迴解析程式，以及負載平衡器健康狀態探查和電腦健康狀態探查的探查來源。此 IP 位址的通訊不應視為一種攻擊。
 
-### 工作流程 – 建立和關聯 NSG
+- **授權 (金鑰管理服務)：**應該授權在虛擬機器中執行的 Windows 映像。若要這樣做，授權要求會傳送至處理此類查詢的金鑰管理服務主機伺服器。這會一律位於輸出連接埠 1688。
 
-1. 建立網路安全性群組 (NSG)。
+## 限制
 
-1. 新增網路安全性規則，除非預設規則已足夠。
+您需要在設計 NSG 時考量下列限制。
 
-1. 建立 NSG 至 VM 的關聯。
+|**說明**|**限制**|
+|---|---|
+|您可以與子網路、VM 或 NIC 建立關聯的 NSG 數目|1|
+|每個訂用帳戶每個區域的 NSG 數目|100|
+|每一 NSG 的 NSG 規則|200|
 
-1. 更新 VM。
+請確定您在設計方案之前，已檢視所有[在 Azure 中與網路服務相關的限制](../azure-subscription-service-limits/#networking-limits)。
 
-1. 更新之後，NSG 規則會立即生效。
+## 後續步驟
 
-### 工作流程 – 更新現有的 NSG
+- [在傳統部署模型中部署 NSG](virtual-networks-create-nsg-classic-ps.md)。
+- [在資源管理員中部署 NSG](virtual-networks-create-nsg-arm-pportal.md)。
 
-1. 新增、刪除或更新現有 NSG 中的規則。
-
-1. 與 NSG 相關聯的所有 VM 都會在數分鐘內取得更新。當 NSG 規則已與 VM 相關聯時，則不需要 VM 更新。
-
-### 工作流程 – 變更 NSG 關聯
-
-1. 建立新 NSG 至 VM 的關聯，其中 VM 已與另一個 NSG 建立關聯。
-
-1. 更新 VM。
-
-1. 來自新 NSG 的規則會在數分鐘內生效。
-
-## 如何建立、設定和管理您的網路安全性群組
-
-此時，您可以僅使用 PowerShell Cmdlet 和 REST API 來設定和修改 NSG。您無法使用管理入口網站來設定 NSG。下列 PowerShell Cmdlet 將協助您建立、設定和管理您的 NSG。
-
-**建立網路安全性群組**
-
-	New-AzureNetworkSecurityGroup -Name "MyVNetSG" -Location uswest `
-		-Label "Security group for my Vnet in West US"
-
-**新增或更新規則**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
-	| Set-AzureNetworkSecurityRule -Name WEB -Type Inbound -Priority 100 `
-		-Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' `
-		-DestinationAddressPrefix '*' -DestinationPortRange '*' -Protocol TCP
-
-
-**從 NSG 刪除規則**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
-	| Remove-AzureNetworkSecurityRule -Name WEB
-
-**建立 NSG 至 VM 的關聯**
-
-	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
-	| Set-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
-	| Update-AzureVM
-
-**檢視與 VM 相關聯的 NSG**
-
-	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
-	| Get-AzureNetworkSecurityGroupAssociation
-
-**從 VM 移除 NSG**
-
-	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
-	| Remove-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
-	| Update-AzureVM
-
-**建立 NSG 至子網路的關聯**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
-	| Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'VNetUSWest' `
-		-SubnetName 'FrontEndSubnet'
-
-**檢視與子網路相關聯的 NSG**
-
-	Get-AzureNetworkSecurityGroupForSubnet -SubnetName 'FrontEndSubnet' `
-		-VirtualNetworkName 'VNetUSWest' 
-
-**從子網路移除 NSG**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
-	| Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'VNetUSWest' `
-		-SubnetName 'FrontEndSubnet'
-
-**刪除 NSG**
-
-	Remove-AzureNetworkSecurityGroup -Name "MyVNetSG"
-
-**取得 NSG 以及規則的詳細資料**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" -Detailed
- 
-**檢視與 NSG 相關聯的所有 Azure PowerShell Cmdlet**
-
-	Get-Command *azurenetworksecuritygroup*
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

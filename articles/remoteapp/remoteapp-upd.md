@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Azure RemoteApp 中的使用者設定檔資料"
+    pageTitle="Azure RemoteApp 中的使用者設定檔資料 | Microsoft Azure"
 	description="了解如何在 Azure RemoteApp 中儲存和存取使用者資料"
 	services="remoteapp"
 	documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="09/29/2015" 
     ms.author="elizapo" />
 
 
@@ -35,7 +35,7 @@ Azure RemoteApp 跨越裝置和工作階段儲存使用者身分識別和自訂�
 
 ## 已備份資料嗎？
 
-是，我們依據每個地理位置儲存使用者資料的備份。如果主要資料中心已關閉，則資料是唯讀的並可用與存取一般資料相同的方式存取 (連絡 Azure RemoteApp 以取得)。
+是，我們依據每個地理位置儲存使用者資料的備份。如果主要資料中心已關閉，則資料是唯讀的並可用與存取一般資料相同的方式存取 (連絡 Azure RemoteApp 以取得)。資料會即時複製到備份位置，而且我們不需要保留不同版本的複本。因此，在資料損毀的情況下，我們不能將它還原到上次已知正確的版本，但如果主要資料中心不能使用時，您將能夠從其他位置取得使用者資料。
 
 ## 使用者如何在伺服器端查看 UPD？
 
@@ -54,7 +54,7 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 您可以設定 Azure RemoteApp，讓使用者藉由設定[重新導向](remoteapp-redirection.md)來存取本機裝置。然後本機裝置即可存取 UPD 上的資料。
 
 ## 我可以使用 UPD 做為網路共用嗎？
-不行，因為 UPD 並不持續。UPD 僅適用於使用者主動連線到 Azure RemoteApp 時。
+不行，UPD 不能做為網路共用。UPD 僅適用於使用者主動連線到 Azure RemoteApp 時。
 
 ## 如果我從集合中刪除使用者，其 UPD 是否也會刪除?
 
@@ -70,6 +70,9 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 除了上述 10 小時的存取時段以外，我們現在並不提供 UPD 的離線存取。這表示我們目前沒辦法讓您長時間存取以完成更複雜的工作，像是在 UPD 上執行防毒軟體或存取資料進行稽核。
 
+## 登錄機碼設定可以保存嗎？
+可以，寫入 HKEY\_Current\_User 的任何項目都是 UPD 的一部分。
+
 ## 我可以停用 集合的 UPD 嗎？
 
 可以，您可以要求 Azure RemoteApp 停用訂用帳戶的 UPD，但無法自己執行該作業。這表示將會針對訂用帳戶中的所有集合停用 UPD。
@@ -79,7 +82,7 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 可以，但您必須在建立集合之前，在範本映像中加以設定。使用下列步驟來封鎖系統磁碟機的存取：
 
 1. 在範本映像上執行 **gpedit.msc**。
-2. 瀏覽至 **使用者設定 > 系統管理範本] > Windows 元件 > Explorer**。
+2. 瀏覽至 [使用者設定] > [系統管理範本] > [Windows 元件] > [Explorer]。
 3. 選取下列選項：
 	- **隱藏 [我的電腦] 中這些指定的磁碟機**
 	- **防止從 [我的電腦] 存取磁碟機**
@@ -123,4 +126,4 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 不行，Azure RemoteApp 不支援。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

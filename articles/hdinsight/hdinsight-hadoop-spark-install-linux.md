@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Spark | Microsoft Azure"
-	description="了解如何使用 Spark 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Spark。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
+	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Spark | Microsoft Azure" 
+	description="了解如何使用 Spark 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Spark。" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="Blackmist" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/01/2015" 
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Spark
@@ -33,17 +33,17 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 
 ## <a name="whatis"></a>可以安裝哪個版本的 Spark？
 
-在本主題中，我們使用指令碼動作自訂指令碼在 HDInsight 叢集上安裝 Spark。此指令碼會安裝 Spark 1.3.1。
+在本主題中，我們使用指令碼動作自訂指令碼在 HDInsight 叢集上安裝 Spark。此指令碼會安裝 Spark 1.5.0。
 
 您可以修改此指令碼或建立自有指令碼，以安裝其他版本的 Spark。
 
 ## 指令碼會執行哪些作業
 
-此指令碼會將 Spark 1.3.1 版安裝於 `/usr/hdp/current/spark`。
+此指令碼會將 Spark 1.5.0 版安裝於 `/usr/hdp/current/spark`。
 
 ## <a name="install"></a>使用指令碼動作安裝 Spark
 
-您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh)。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用範例指令碼的指示。
+您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh)。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用範例指令碼的指示。
 
 > [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
@@ -52,7 +52,7 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
 
 	* __名稱__：輸入指令碼動作的易記名稱。
-	* __指令碼 URI__：https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh
+	* __指令碼 URI__：https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__：勾選此選項
 	* __WORKER__：勾選此選項
 	* __ZOOKEEPER__：勾選此選項以在 Zookeeper 節點上安裝。
@@ -235,4 +235,4 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

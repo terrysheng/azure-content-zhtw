@@ -51,7 +51,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 **安裝 Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。請參閱[在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。
 **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。
 
-##從 Azure Preview 入口網站使用指令碼動作
+## 從 Azure Preview 入口網站使用指令碼動作
 
 1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，開始佈建叢集。
 
@@ -70,7 +70,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 3. 按一下 [選取] 儲存指令碼動作組態，並繼續佈建叢集。
 
-##從 Azure 資源管理員範本使用指令碼動作
+## 從 Azure 資源管理員範本使用指令碼動作
 
 在本節中，我們使用 Azure 資源管理員 (ARM) 範本來佈建 HDInsight 叢集，並且也使用指令碼動作在叢集上安裝自訂元件 (在此範例中為 R)。本節提供範例 ARM 範本以使用指令碼動作佈建叢集。
 
@@ -165,7 +165,6 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		                "osType": "Linux",
 		                "clusterDefinition": {
 		                    "kind": "hadoop",
-
 		                    "configurations": {
 		                        "gateway": {
 		                            "restAuthCredential.isEnabled": true,
@@ -239,8 +238,6 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		    }
 		}
 
-
-
 2. 啟動 Azure PowerShell 並且登入您的 Azure 帳戶。提供您的認證之後，命令會傳回您的帳戶的相關資訊。
 
 		Add-AzureAccount
@@ -297,9 +294,9 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed -DetailedOutput
 
-##從 Azure PowerShell 使用指令碼動作
+## 從 Azure PowerShell 使用指令碼動作
 
-本節中，我們使用 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet，使用指令碼動作叫用指令碼以自訂叢集。在繼續之前，請確認您已安裝和設定 Azure PowerShell。如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
+本節中，我們使用 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet，使用指令碼動作叫用指令碼以自訂叢集。在繼續之前，請確認您已安裝和設定 Azure PowerShell。如需設定工作站以執行 HDInsight PowerShell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
 
 執行下列步驟：
 
@@ -346,15 +343,14 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 出現提示時，請輸入叢集的認證。建立叢集可能需要幾分鐘的時間。
 
-##從 HDInsight .NET SDK 使用指令碼動作
+## 從 HDInsight .NET SDK 使用指令碼動作
 
 HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程式使用 HDInsight。下列步驟示範如何使用指令碼從 HDInsight .NET SDK 自訂叢集。
-
 
 > [AZURE.IMPORTANT]您必須先建立自我簽署憑證，將它安裝到工作站，然後上傳至 Azure 訂用帳戶。如需指示，請參閱[建立自我簽署憑證](http://go.microsoft.com/fwlink/?LinkId=511138)。
 
 
-###建立 Visual Studio 專案
+### 建立 Visual Studio 專案
 
 1. 開啟 Visual Studio 2013 或 2015。
 
@@ -441,7 +437,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 11. 儲存對應用程式所做的變更，然後建置方案。
 
-###執行應用程式
+### 執行應用程式
 
 開啟 Azure PowerShell 主控台、瀏覽至您儲存專案的位置、瀏覽至專案內的 \\bin\\debug 目錄，然後執行下列命令：
 
@@ -471,7 +467,7 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 3. 範例 - 對於熱門自訂元件，Microsoft 和其他提供者可能會提供如何在 HDInsight 叢集上使用這些元件的範例。提供這些範例，但是沒有支援。
 
-##疑難排解
+## 疑難排解
 
 您可以使用 Ambari Web UI 來檢視在叢集佈建期間指令碼記錄的資訊。
 
@@ -503,4 +499,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集佈建期間的階段"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

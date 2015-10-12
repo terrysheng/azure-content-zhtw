@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/12/2015"
 	ms.author="larryfr"/>
 
 # 在 HDInsight 中使用 Hive 分析 Twitter 資料
 
-在本文件中，您將會使用 Twitter 串流 API 取得推文，然後在以 Linux 為基礎的 HDInsight (預覽) 叢集上使用 Apache Hive 處理 JSON 格式化的資料。結果會是傳送最多包含特定文字推文的 Twitter 使用者清單。
+在本文件中，您將會使用 Twitter 串流 API 取得推文，然後在以 Linux 為基礎的 HDInsight 叢集上使用 Apache Hive 處理 JSON 格式化的資料。結果會是傳送最多包含特定文字推文的 Twitter 使用者清單。
 
 > [AZURE.NOTE]本文章中的個別部分適用於以 Windows 為基礎的 HDInsight 叢集 (例如 Python 與 Hive)，許多步驟則適用於以 Linux 為基礎的 HDInsight 叢集。如需 Windows 為基礎的叢集的特定步驟，請參閱[在 HDInsight 中使用 Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data.md)。
 
@@ -37,7 +37,7 @@
 
 - __Python__ 與 [pip](https://pypi.python.org/pypi/pip) (英文)
 
-- __Azure CLI__。如需詳細資訊，請參閱[安裝和設定 Azure CLI](../xplat-cli.md)
+- __Azure CLI__。如需詳細資訊，請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)
 
 ##取得 Twitter 摘要
 
@@ -319,4 +319,4 @@ Twitter 可讓您透過 REST API 抓取[每則推文資料](https://dev.twitter.
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

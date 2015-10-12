@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="如何控制 App Service 環境的輸入流量" 
 	description="了解如何設定網路安全性規則，以控制 App Service 環境的輸入流量。" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -134,4 +134,4 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

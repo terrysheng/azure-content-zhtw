@@ -20,6 +20,8 @@
 
 了解如何使用 Apache Storm on HDInsight 處理 Azure 事件中樞的感應器資料，並使用 D3.js 將其視覺化呈現。本文件也將說明如何透過 Azure 虛擬網路，將 Storm on HDInsight 與 HBase on HDInsight 連線，並將拓撲的資料儲存至 HBase。
 
+> [AZURE.NOTE]本文件中的資訊以在 HDInsight 叢集上使用以 Windows 為基礎的 Storm 為基礎。如需從 HDInsight 上以 Linux 為基礎的 Storm 使用 Azure 事件中樞的相關資訊，請參閱[使用 HDInsight 上的 Storm 處理 Azure 事件中樞的事件](hdinsight-storm-develop-java-event-hub-topology.md)
+
 ## 必要條件
 
 * Azure 訂閱。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
@@ -420,4 +422,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

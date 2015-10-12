@@ -64,10 +64,6 @@
 
     ![Xamarin 行動應用程式的檢視](./media/app-service-mobile-dotnet-backend-web-and-mobile/xamarin-ios-quickstart-device.png)
 
-## 後續步驟
-
-在此範例中，我們示範了如何為同時擁有網站和行動用戶端的應用程式使用相同的基礎資料庫。在這裡，我們在後端並沒有我們想要在兩個用戶端上重複使用的任何商務邏輯，因此已足以只共用相同的資料庫。在之後的教學課程中，您將了解如何將商務邏輯加入至 Web API，並在您的行動應用程式後端程式碼中重複使用該邏輯。
-
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -77,4 +73,4 @@
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [建立行動應用程式]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

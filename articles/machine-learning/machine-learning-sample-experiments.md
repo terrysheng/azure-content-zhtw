@@ -12,16 +12,16 @@
     ms.workload="data-services"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article" 
-    ms.date="06/29/2015"
+    ms.topic="get-started-article"
+    ms.date="09/28/2015"
     ms.author="chhavib;olgali"/>
 
 # 使用範例實驗來建立新的實驗
-當您想要建立實驗時，請尋找機器學習服務團隊範例實驗中的實驗，以及由機器學習服務社群分享的實驗。您也可以在[資源庫](http://gallery.azureml.net/)提出有關實驗的問題或張貼意見。
+當您想要建立實驗時，請尋找機器學習服務團隊範例實驗中的實驗，以及由機器學習服務社群分享的實驗。您也可以在 [Cortana 分析資源庫](http://gallery.azureml.net/)提出有關實驗的問題或張貼意見。
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
-## 瀏覽資源庫
+## 瀏覽 Cortana 分析資源庫
 1. 前往[資源庫](http://gallery.azureml.net/)
 2. 前往 [實驗趨勢] 或 [Microsoft 範例] 即可瀏覽。
 3. 使用搜尋與篩選器縮小找出的結果：![](./media/machine-learning-sample-experiments/image1.png) 
@@ -38,6 +38,5 @@
 - [檢閱範例 R 實驗](machine-learning-r-csharp-web-service-examples.md)
 - [建立 Web 服務 API](machine-learning-publish-a-machine-learning-web-service.md)
 - [瀏覽立即可用的應用程式](https://datamarket.azure.com/browse?query=machine+learning)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

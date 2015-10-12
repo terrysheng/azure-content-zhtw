@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/02/2015"
+ ms.date="09/29/2015"
  ms.author="danlep"/>
 
 # 關於 A8、A9、A10 和 A11 密集運算執行個體
@@ -84,7 +84,7 @@ A10 和 A11 執行個體具有可連線至 Azure 服務和網際網路的單一 
 
 將 A8、A9、A10 和 A11 執行個體與 Windows Server 搭配使用時，並不需要 HPC Pack，但它是在 Azure 中建立 Windows HPC Server 叢集的建議工具。如果是 A8 和 A9 執行個體，HPC Pack 會是執行可存取 Azure 中 RDMA 網路之 Windows MPI 應用程式最有效的方式。HPC Pack 包含 Windows 訊息傳遞介面之 Microsoft 實作的執行階段環境。
 
-如需在 Windows Server 上具備 HPC Pack 的 IaaS 和 PaaS 案例中部署及使用運算密集型執行個體的詳細資訊和檢查清單，請參閱 [A8 和 A9 運算密集型執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)。
+如需在 Windows 伺服器上使用大量運算執行個體和 HPC Pack 的詳細資訊和檢查清單，請參閱[使用 HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式](virtual-machines-windows-hpcpack-cluster-rdma.md)。
 
 ## 存取 RDMA 網路
 
@@ -105,7 +105,7 @@ MPI | Intel MPI Library 5
 
 在單一雲端服務或可用性集合中，A8 和 A9 執行個體可為了執行 MPI 應用程式 (使用 Microsoft Network Direct 介面在執行個體之間進行通訊)，存取 Azure 中的 RDMA 網路。A10 和 A11 執行個體不包含 RDMA 網路的存取權。
 
-請參閱下表取得 MPI 應用程式的必要條件，以存取虛擬機器 (IaaS) 中的 RDMA 網路和 A8 或 A9 執行個體的雲端服務 (PaaS) 部署。如需典型的部署案例，請參閱 [A8 和 A9 運算密集型執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)。
+請參閱下表取得 MPI 應用程式的必要條件，以存取虛擬機器 (IaaS) 中的 RDMA 網路和 A8 或 A9 執行個體的雲端服務 (PaaS) 部署。如需一般的部署案例，請參閱[使用 HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式](virtual-machines-windows-hpcpack-cluster-rdma.md)。
 
 
 必要條件 | 虛擬機器 (IaaS) | 雲端服務 (PaaS)
@@ -131,6 +131,6 @@ MPI | MS-MPI 2012 R2 或更新版本為獨立安裝或透過 HPC Pack 2012 R2 �
 
 * 如需有關 A8、A9、A10 和 A11 執行個體的可用性和價格等詳細資料，請參閱[虛擬機器價格](http://azure.microsoft.com/pricing/details/virtual-machines/)和[雲端服務價格](http://azure.microsoft.com/pricing/details/cloud-services/)。
 * 若要使用 A8 和 A9 執行個體來部署和設定 Linux 叢集以存取 Azure RDMA 網路，請參閱[設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)。
-* 若要在 Windows 上開始部署和使用具備 HPC Pack 的 A8 和 A9 執行個體，請參閱 [A8 和 A9 密集運算執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)和[在 A8 和 A9 執行個體上執行 MPI 應用程式](https://msdn.microsoft.com/library/azure/dn592104.aspx)。
+* 若要開始在 Windows 上部署和使用 A8 和 A9 執行個體及 HPC Pack，請參閱[使用 HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式](virtual-machines-windows-hpcpack-cluster-rdma.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

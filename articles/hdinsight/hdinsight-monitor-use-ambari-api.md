@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/25/2015"
 	ms.author="jgao"/>
 
 # 使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集
@@ -23,7 +23,7 @@
 
 > [AZURE.NOTE]本文中的資訊主要適用於 Windows 架構的 HDInsight 叢集，該叢集提供 Ambari REST API 的唯讀版本。對於 Linux 架構的叢集，請參閱[使用 Ambari 管理 Hadoop 叢集](hdinsight-hadoop-manage-ambari.md)。
 
-## <a id="whatisambari"></a> 什麼是 Ambari？
+## 什麼是 Ambari？
 
 [Apache Ambari][ambari-home] 可用來佈建、管理及監視 Apache Hadoop 叢集。其中包含一組直接易懂的操作員工具和健全的 API 集，可消除 Hadoop 的複雜性，並簡化叢集作業。如需關於 API 的詳細資訊，請參閱 [Ambari API 參考資料][ambari-api-reference]。
 
@@ -31,7 +31,7 @@
 HDInsight 目前僅支援 Ambari 監視功能。HDInsight 3.0 及 2.1 版叢集可支援 Ambari API 1.0。本文涵蓋於 HDInsight 3.1 和 2.1 版叢集上存取 Ambari API。兩者的主要差別在於某些元件已隨著新功能引進而變更 (例如工作歷程伺服器)。
 
 
-##<a id="prerequisites"></a>必要條件
+**必要條件**
 
 開始進行本教學課程之前，您必須具備下列條件：
 
@@ -54,7 +54,7 @@ HDInsight 叢集名稱|$clusterName||您的 HDInsight 叢集名稱。
 
 
 
-##<a id="jumpstart"></a>搶先使用
+## 快速啟動
 
 您可以透過數種方式使用 Ambari 監視 HDInsight 叢集。
 
@@ -123,7 +123,7 @@ HDInsight 叢集名稱|$clusterName||您的 HDInsight 叢集名稱。
 
 使用 Ambari 端點 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}" 時，*host\_name* 欄位會傳回節點的完整網域名稱 (FQDN)，而不是主機名稱。在 2014/10/8 版本之前，此範例只會傳回 "**headnode0**"。在 2014/10/8 版本之後，您會得到 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"，如先前範例所示。需要此變更，以便將多種叢集類型 (例如 HBase 和 Hadoop) 部屬至一個虛擬網路 (VNET) 中。例如，使用 HBase 做為 Hadoop 的後端平台時就是這種情形。
 
-##<a id="monitor"></a>Ambari 監視 API
+## Ambari 監視 API
 
 下表列出部分最常用的 Ambari 監視 API 呼叫。如需 API 的詳細資訊，請參閱 [Ambari API 參考資料][ambari-api-reference]。
 
@@ -143,7 +143,7 @@ HDInsight 叢集名稱|$clusterName||您的 HDInsight 叢集名稱。
 取得組態資訊|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|組態類型：core-site、hdfs-site、mapred-site、hive-site
 
 
-##<a id="nextsteps"></a>後續步驟
+##後續步驟
 
 現在，您已了解如何使用 Ambari 監視 API。若要深入了解，請參閱：
 
@@ -175,4 +175,4 @@ HDInsight 叢集名稱|$clusterName||您的 HDInsight 叢集名稱。
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

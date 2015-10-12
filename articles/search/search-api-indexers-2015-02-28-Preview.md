@@ -12,14 +12,14 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/21/2015" 
+ms.date="09/29/2015" 
 ms.author="heidist" />
 
-#索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)
+#索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)#
 
-> [AZURE.NOTE]本文說明 [2015-02-28-Preview](search-api-2015-02-28-preview.md) 的索引子。目前， [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) 上記載的 `2015-02-28` 版本與此處所述的 `2015-02-28-Preview` 版本唯一差異是預覽版可提供 *fieldMappings* (如[建立索引子](#CreateIndexer)當中所述)。
+> [AZURE.NOTE]本文說明 [2015-02-28-Preview](./search-api-2015-02-28-preview) 的索引子。目前 [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) 上記載的 `2015-02-28` 版本與此處說明的 `2015-02-28-Preview` 版本並無差異。即便此 API 正好未經變更，本文主要目的是提供 `2015-02-28-Preview` 的完整文件。
 
-## 概觀
+## 概觀 ##
 
 Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不需要撰寫程式碼來編製資料的索引。若要進行此項設定，您可呼叫 Azure 搜尋服務 API 以建立並管理**索引子**和**資料來源**。
 
@@ -42,7 +42,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 如需索引子和資料來源資源相關的最大限制，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
-## 一般使用流程
+## 一般使用流程 ##
 
 您可針對特定的 `data source` 或 `indexer`，使用簡單的 HTTP 要求 (POST、GET、PUT、DELETE) 以建立與管理索引子和資料來源。
 
@@ -63,9 +63,9 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 <!-- MSDN has 2 art files plus a API topic link list -->
 
 
-## 建立資料來源
+## 建立資料來源 ##
 
-您可以使用 HTTP POST 要求，在 Azure 搜尋服務中建立新的資料來源。
+在 Azure 搜尋中，資料來源會搭配索引子使用，提供目標索引臨機操作或排程資料重新整理的連線資訊。您可以使用 HTTP POST 要求，在 Azure 搜尋服務中建立新的資料來源。
 	
     POST https://[service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
@@ -75,7 +75,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
-**注意**：允許的資料來源數目上限依定價層而有所不同。免費服務允許最多 3 個資料來源。標準服務允許 50 個資料來源。如需詳細資訊，請參閱[限制條件](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
+**注意**：允許的資料來源數目上限依定價層而有所不同。免費服務允許最多 3 個資料來源。標準服務允許 50 個資料來源。如需詳細資訊，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
 **要求**
 
@@ -125,7 +125,8 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 		
 - `container`：
 	- 必要的 `name` 屬性可指定要編製索引的資料表、檢視表 (若為 Azure SQL 資料來源) 或集合 (若為 DocumentDB 資料來源)。 
-	- DocumentDB 資料來源亦支援選用的 `query` 屬性，以讓您指定查詢，將任意 JSON 文件版面配置壓平合併為 Azure 搜尋服務可編製索引的一般結構描述。   
+	- 對於 SQL 資料來源，請省略結構描述前置詞，例如 dbo.，使容器只包含資料表或檢視表名稱。
+	- DocumentDB 資料來源支援選用的 `query` 屬性，以讓您指定查詢，將任意 JSON 文件版面配置壓平合併為 Azure 搜尋服務可編製索引的一般結構描述。   
 - 以下說明選用的 `dataChangeDetectionPolicy` 與 `dataDeletionDetectionPolicy`。
 
 <a name="DataChangeDetectionPolicies"></a> **資料變更偵測原則**
@@ -211,7 +212,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 要求成功：「201 已建立」。
 
 <a name="UpdateDataSource"></a>
-## 更新資料來源
+## 更新資料來源 ##
 
 您可以使用 HTTP PUT 要求來更新現有的資料來源。您可在要求 URI 上指定要更新的資料來源名稱：
 
@@ -230,7 +231,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 **注意：**現有的資料來源上有些屬性無法更新。例如，您無法變更現有資料來源的類型。
 
 <a name="ListDataSource"></a>
-## 列出資料來源
+## 列出資料來源 ##
 
 **列出資料來源**作業可傳回 Azure 搜尋服務中的資料來源清單。
 
@@ -269,7 +270,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 如果您的搜尋服務中有很多資料來源，此方法可以節省頻寬。
 
 <a name="GetDataSource"></a>
-## 取得資料來源
+## 取得資料來源 ##
 
 **取得資料來源**作業可讓您透過 Azure搜尋服務取得資料來源定義。
 
@@ -304,7 +305,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 **注意**：呼叫此 API 時，請不要將 `Accept` 要求標頭設為 `application/json;odata.metadata=none`，以免導致回應的 `@odata.type` 屬性被省略，而無法區分不同類型的資料變更與資料刪除偵測原則。
 
 <a name="DeleteDataSource"></a>
-## 刪除資料來源
+## 刪除資料來源 ##
 
 **刪除資料來源**作業可將資料來源從 Azure 搜尋服務中移除。
 
@@ -322,7 +323,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 狀態碼：回應成功時會傳回「204 沒有內容」。
 
 <a name="CreateIndexer"></a>
-## 建立索引子
+## 建立索引子 ##
 
 您可以使用簡單的 HTTP POST 要求，在 Azure 搜尋服務中建立新的索引子。
 	
@@ -334,7 +335,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
-**注意**：允許的索引子數目上限依定價層而有所不同。免費服務允許最多 3 個索引子。標準服務允許 50 個索引子。如需詳細資訊，請參閱[限制條件](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
+**注意**：允許的索引子數目上限依定價層而有所不同。免費服務允許最多 3 個索引子。標準服務允許 50 個索引子。如需詳細資訊，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
 `api-version` 為必要項目。目前版本為 `2015-02-28`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
@@ -355,14 +356,15 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
         "targetIndexName" : "Required. The name of an existing index",
         "schedule" : { Optional. See Indexing Schedule below. },
         "parameters" : { Optional. See Indexing Parameters below. },
-        "fieldMappings" : { Optional. See Field Mappings below. }
+        "fieldMappings" : { Optional. See Field Mappings below. },
+        "disabled" : Optional boolean value indicating whether the indexer is disabled. False by default.  
 	}
 
 **索引子排程**
 
 索引子可以選擇性地指定排程。如有排程，索引子將會依照排程定期執行。排程具有下列屬性：
 
-- `interval`：必要。可用以指定索引子執行間隔或期間的持續時間值。允許的最小間隔為 5 分鐘；最長間隔為一天。其必須格式化為 XSD "dayTimeDuration" 值 ([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集)。間隔的模式為：`P(nD)(T(nH)(nM))`。範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 小時。 
+- `interval`：必要。可用以指定索引子執行間隔或期間的持續時間值。允許的最小間隔為 5 分鐘；最長間隔為一天。其必須格式化為 XSD "dayTimeDuration" 值 ([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集)。間隔的模式為：`P[nD][T[nH][nM]]`。範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 小時。 
 
 - `startTime`：必要。索引子應該開始執行的 UTC 日期時間。
 
@@ -401,7 +403,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 例如，若來源欄位中包含 `["red", "white", "blue"]` 字串，則 `Collection(Edm.String)` 類型的目標欄位會填入下列三個值：`"red"`、`"white"` 與 `"blue"`。
 
-注意：`targetFieldName` 屬性為選用；如果省略，則會使用 `sourceFieldName` 值。
+請注意，`targetFieldName` 屬性為選用；如果省略，則會使用 `sourceFieldName` 值。
 
 <a name="CreateIndexerRequestExamples"></a> **要求本文範例**
 
@@ -422,7 +424,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 
 <a name="UpdateIndexer"></a>
-## 更新索引子
+## 更新索引子 ##
 
 您可以使用 HTTP PUT 要求來更新現有的索引子。您可在要求 URI 上指定要更新的索引子名稱：
 
@@ -444,7 +446,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 
 <a name="ListIndexers"></a>
-## 列出索引子
+## 列出索引子 ##
 
 **列出索引子**作業可傳回 Azure 搜尋服務中的索引子清單。
 
@@ -487,7 +489,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 
 <a name="GetIndexer"></a>
-## 取得索引子
+## 取得索引子 ##
 
 **取得索引子**作業可取得 Azure 搜尋服務的索引子定義。
 
@@ -515,7 +517,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 
 <a name="DeleteIndexer"></a>
-## 刪除索引子
+## 刪除索引子 ##
 
 **刪除索引子**作業可移除 Azure 搜尋服務中的索引子。
 
@@ -533,7 +535,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 狀態碼：回應成功時會傳回「204 沒有內容」。
 
 <a name="RunIndexer"></a>
-## 執行索引子
+## 執行索引子 ##
 
 除了依照排程定期執行以外，您也可以透過**執行索引子**作業，視需要叫用索引子：
 
@@ -549,7 +551,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 狀態碼：回應成功時會傳回「202 已接受」。
 
 <a name="GetIndexerStatus"></a>
-## 取得索引子狀態
+## 取得索引子狀態 ##
 
 **取得索引子狀態**作業可擷取索引子目前的狀態與執行記錄：
 
@@ -617,7 +619,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 - `endTime`：這項執行結束的 UTC 時間。如果執行仍在進行中，則不會設定此值。
 
-- `errors`：項目層級的錯誤清單 (如果有)。
+- `errors`：項目層級的錯誤清單 (如果有)。每個項目皆包含文件金鑰 (`key` 屬性) 和錯誤訊息 (`errorMessage` 屬性)。
 
 - `itemsProcessed`：在這項執行期間，索引子嘗試編製索引的資料來源項目數 (例如資料表的資料列)。
 
@@ -635,15 +637,14 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 - `inProgress` 表示正在進行索引子的執行。
 
-- `transientFailure` 表示正在進行索引子的執行。如需詳細資料，請參閱 `errorMessage`。有些失敗可能需要使用者介入，有些則否 - 例如，修正
-- 資料來源與目標索引之間的結構描述不相容性，就需要使用者介入；暫時性的資料來源停止運作則不需要。索引子引動將繼續按照排程進行 (若有排程的話)。 
+- `transientFailure` 表示正在進行索引子的執行。如需詳細資料，請參閱 `errorMessage`。有些失敗可能需要使用者介入，有些則否 - 例如，修正資料來源與目標索引之間的結構描述不相容性，就需要使用者介入；暫時性的資料來源停止運作則不需要。索引子引動將繼續按照排程進行 (若有排程的話)。
 
 - `persistentFailure` 表示索引子失敗，需要使用者介入。排程的索引子執行會停止。解決問題之後，您可使用重設索引子 API 來重新啟動排程的執行。
 
 - `reset` 表示索引子已被重設索引子 API 呼叫重設 (請參閱下方)。
 
 <a name="ResetIndexer"></a>
-## 重設索引子
+## 重設索引子 ##
 
 **重設索引子**作業可重設與索引子相關聯的變更追蹤狀態。這可讓您觸發從頭開始重新編製索引 (例如，當您的資料來源結構描述已變更時)，或變更與索引子相關聯之資料來源的資料變更偵測原則。
 
@@ -658,7 +659,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 狀態碼：回應成功時會傳回「204 沒有內容」。
 
-## SQL 資料類型與 Azure 搜尋服務資料類型之間的對應
+## SQL 資料類型與 Azure 搜尋服務資料類型之間的對應 ##
 
 <table style="font-size:12">
 <tr>
@@ -725,7 +726,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 </tr>
 </table>
 
-## JSON 資料類型與 Azure 搜尋服務資料類型之間的對應
+## JSON 資料類型與 Azure 搜尋服務資料類型之間的對應 ##
 
 <table style="font-size:12">
 <tr>
@@ -775,4 +776,4 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 </tr>
 </table>
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

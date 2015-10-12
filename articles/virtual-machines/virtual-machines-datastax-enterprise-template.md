@@ -20,7 +20,7 @@ DataStax 是知名的業界領導者，他們根據 Apache Cassandra™ 來開�
 
 >[AZURE.NOTE]與 Community 版本不同，若要部署 DataStax Enterprise，您必須具備有效的 DataStax 帳戶 (使用者名稱和密碼)，以便在範本部署期間當成參數來傳入。如果您還沒有帳戶，請造訪 [Datastax](http://www.datastax.com) 網站來設定您的帳戶。
 
-除了提供 Azure Marketplace 中已可供使用的功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli.md) 部署的資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 Datastax Enterprise 叢集。
+除了提供 Azure Marketplace 中已可供使用的功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli-install.md) 部署的資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 Datastax Enterprise 叢集。
 
 根據這個範本部署的新叢集會採用下圖中所述的拓撲，不過，您可以自訂本文中所述的範本，輕鬆實現其他拓撲。
 
@@ -498,4 +498,4 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 shared
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

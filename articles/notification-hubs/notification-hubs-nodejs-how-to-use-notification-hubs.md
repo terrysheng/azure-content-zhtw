@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 # 如何從 Node.js 使用通知中樞
@@ -41,7 +41,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure**，這應該會導致下列輸出：
 
@@ -79,7 +79,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 
 3. 從 [quick glance] 區段中選取 [檢視連接字串]，然後複製連接字串值。
 
-> [AZURE.NOTE] 您也可以使用 Azure PowerShell 所提供的 **Get-AzureSbNamespace** Cmdlet，或透過 Azure 命令列介面 (Azure CLI) 使用 **Azure Sb Namespace Show** 命令，來擷取連接字串。
+> [AZURE.NOTE]您也可以使用 Azure PowerShell 所提供的 **Get-AzureSbNamespace** Cmdlet，或透過 Azure 命令列介面 (Azure CLI) 使用 **Azure Sb Namespace Show** 命令，來擷取連接字串。
 
 </div>
 
@@ -217,4 +217,4 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

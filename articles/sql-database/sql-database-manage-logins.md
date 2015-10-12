@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/08/2015"
+   ms.date="09/25/2015"
    ms.author="rickbyh"/>
 
 # 管理 Azure SQL Database 的資料庫和登入
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE]建立登入時必須使用強式密碼。如需詳細資訊，請參閱[增強式密碼](https://msdn.microsoft.com/library/ms161962.aspx)。
 
-下一個範例示範如何在對應至登入 **login1** 的 **database1** 資料庫中，建立名為 **login1User** 的資料庫使用者：
+下一個範例示範如何在對應至登入 **login1** 的 **database1** 資料庫中，建立名為 **login1User** 的資料庫使用者。若要執行下列範例，您必須先建立對 database1 的新連線，使用有該資料庫**改變任何使用者**的權限登入。任何以 **db\_owner** 角色成員身分連線的使用者，都會有該權限，例如建立資料庫的登入。
 
 ```
 -- Establish a new connection to the database1 database
@@ -167,6 +167,6 @@ SELECT * FROM sys.databases;
 
 ## 另請參閱
 
-[Azure SQL Database 安全性方針和限制](sql-database-security-guidelines.md) [利用 Azure Active Directory 驗證連接到 SQL Database](sql-database-aad-authentication.md)
+[Azure SQL Database 安全性方針和限制](sql-database-security-guidelines.md) [利用 Azure Active Directory 驗證連線到 SQL Database](sql-database-aad-authentication.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

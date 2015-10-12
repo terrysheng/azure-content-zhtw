@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # 作法：從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure 雲端服務
 
 若要利用 Azure 的主機服務和延展性，您可以將 Web 應用程式移轉並發佈至 Azure 雲端服務。只要對現有應用程式做少許變更，即可在 Azure 中執行 Web 應用程式。
 
->[AZURE.NOTE]本主題是關於部署到雲端服務，而不是網站。如需部署至網站的相關資訊，請參閱＜如何部署 Azure 網站＞。
+>[AZURE.NOTE]本主題是關於部署到雲端服務，而不是網站。如需部署至網站的相關資訊，請參閱[在 Azure App Service 中部署 Web 應用程式](web-sites-deploy.md)。
 
 如需 Visual C# 和 Visual Basic 所支援的特定範本清單，請參閱本主題後面的＜支援的專案範本＞一節。
 
@@ -27,27 +27,29 @@
 
 ![將 Web 應用程式發佈至 Microsft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
->[AZURE.NOTE]方案中的 Web 專案才會顯示 [轉換]、[轉換成 Azure 雲端服務專案] 命令。例如，方案中的 Silverlight 專案就不會顯示此命令。當您建立服務封裝或將應用程式發佈至 Azure 時，可能會出現警告或錯誤。這些警告和錯誤可以幫助您在部署至 Azure 之前先修正問題。例如，您可能會收到遺失組件的警告。如需如何將警告視為錯誤的詳細資訊，請參閱[如何使用 Visual Studio 設定 Azure 雲端服務專案](vs-azure-tools-cloud-service-how-to-configure-project-with-visual-studio.md)。在建置應用程式、使用計算模擬器在本機執行應用程式，或將應用程式發佈至 Azure 時，您可能會在 [錯誤清單] 視窗中看到下列錯誤：「指定的路徑和 (或) 檔案名稱太長」。如果完整的 Azure 專案名稱長度太長，就會發生此錯誤。包括完整路徑在內的專案名稱長度不能超過 146 個字元。例如，以下是包括針對 Silverlight 應用程式所建立之 Azure 專案的檔案路徑在內的完整專案名稱：`c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`。您可能必須將方案移到其他具有較短路徑的目錄，以縮減完整專案名稱的長度。
+>[AZURE.NOTE]方案中的 Web 專案才會顯示 [轉換]、[轉換成 Azure 雲端服務專案] 命令。例如，方案中的 Silverlight 專案就不會顯示此命令。當您建立服務封裝或將應用程式發佈至 Azure 時，可能會出現警告或錯誤。這些警告和錯誤可以幫助您在部署至 Azure 之前先修正問題。例如，您可能會收到遺失組件的警告。如需如何將警告視為錯誤的詳細資訊，請參閱[使用 Visual Studio 設定 Azure 雲端服務專案](vs-azure-tools-configuring-an-azure-project.md)。在建置應用程式、使用計算模擬器在本機執行應用程式，或將應用程式發佈至 Azure 時，您可能會在 [錯誤清單] 視窗中看到下列錯誤：「指定的路徑和 (或) 檔案名稱太長」。如果完整的 Azure 專案名稱長度太長，就會發生此錯誤。包括完整路徑在內的專案名稱長度不能超過 146 個字元。例如，以下是包括針對 Silverlight 應用程式所建立之 Azure 專案的檔案路徑在內的完整專案名稱：`c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`。您可能必須將方案移到其他具有較短路徑的目錄，以縮減完整專案名稱的長度。
 
-若要從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure，您必須遵循下列步驟。
+若要從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure，請遵循下列步驟。
 
 ## 啟用 Web 應用程式以部署至 Azure
 
 ### 啟用 Web 應用程式以部署至 Azure
 
-1. 若要啟用 Web 應用程式以部署至 Azure，請在方案中開啟 Web 專案的捷徑功能表，然後選擇 [新增 Azure 部署專案]。此時會發生下列動作：
+1. 若要啟用 Web 應用程式以部署至 Azure，請在方案中開啟 Web 專案的捷徑功能表，然後選擇 [新增 Azure 部署專案]。
 
-- 方案中新增了應用程式的 Azure 專案，名稱為 `<name of the web project>.Azure`。
+    此時會發生下列動作：
 
-- 此 Azure 專案中已新增 Web 專案的 Web 角色。
+    - 方案中新增了應用程式的 Azure 專案，名稱為 `<name of the web project>.Azure`。
 
-- MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件皆已將 [複製到本機] 屬性設定為 true。此設定會將這些組件新增到用於部署的服務封裝中。
+    - 此 Azure 專案中已新增 Web 專案的 Web 角色。
+
+    - MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件皆已將 [複製到本機] 屬性設定為 true。此設定會將這些組件新增到用於部署的服務封裝中。
 
   >[AZURE.IMPORTANT]如果此 Web 應用程式有其他必要組件或檔案，您必須手動設定這些檔案的屬性。如需如何設定這些屬性的相關資訊，請參閱本文後面的＜將檔案包含在服務封裝內＞一節。
 
   >[AZURE.NOTE]如果方案中的 Azure 專案已有特定 Web 專案的 Web 角色，此 Web 專案的捷徑功能表上就不會顯示 [轉換]、[轉換成 Azure 雲端服務專案]。
 
-如果您的 Web 應用程式中有多個 Web 專案，而您想要為每個 Web 專案建立 Web 角色，則必須為每個 Web 專案執行此程序中的步驟。這麼做會為每個 Web 角色建立個別的 Azure 專案。您就可以個別發佈每一個 Web 專案。或者，您可以手動對 Web 應用程式中的現有 Azure 專案新增其他 Web 角色。若要這麼做，請開啟 Azure 專案中 [角色] 資料夾的捷徑功能表，然後依序選擇 [新增]、[方案中的 Web 角色專案] 和要新增做為 Web 角色的專案，然後選擇 [確定] 按鈕。
+  如果您的 Web 應用程式中有多個 Web 專案，而您想要為每個 Web 專案建立 Web 角色，則必須為每個 Web 專案執行此程序中的步驟。這麼做會為每個 Web 角色建立個別的 Azure 專案。您就可以個別發佈每一個 Web 專案。或者，您可以手動對 Web 應用程式中的現有 Azure 專案新增其他 Web 角色。若要這麼做，請開啟 Azure 專案中 [角色] 資料夾的捷徑功能表，然後依序選擇 [新增]、[方案中的 Web 角色專案] 和要新增做為 Web 角色的專案，然後選擇 [確定] 按鈕。
 
 ## 將 Azure SQL Database 用於應用程式
 
@@ -57,7 +59,7 @@
 
 ### 對連接字串使用 Web 角色中的 SQL Database 執行個體
 
-1. 若要在 Azure 管理主控台中建立 SQL Database 的執行個體，請遵循下列文章中的步驟：[建立 SQL Database 伺服器](http://go.microsoft.com/fwlink/?LinkId=225109)。
+1. 若要在 Azure 管理入口網站中建立 SQL Database 的執行個體，請遵循下列文章中的步驟：[建立 SQL Database 伺服器](http://go.microsoft.com/fwlink/?LinkId=225109)。
 
     >[AZURE.NOTE]在設定 SQL Database 執行個體的防火牆規則時，您必須選取 [允許其他 Azure 服務存取此伺服器] 核取方塊。
 
@@ -75,7 +77,7 @@
 
   1. 若要顯示連接字串，請選擇 [檢視] 旁的省略符號 (...) 按鈕。
 
-      [連接字串] 對話方塊隨即會出現。
+    [連接字串] 對話方塊隨即會出現。
 
   1. 若要複製 ADO.NET 連接字串，請醒目提示文字，然後選擇 Ctrl + C 鍵。
 
@@ -97,7 +99,7 @@
 
 1. 儲存修改過的檔案，然後重新發佈應用程式。
 
-### 透過管理入口網站使用 SQL Database 執行個體
+### 透過 Azure 管理入口網站使用 SQL Database 執行個體
 
 1. 在 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)中，選擇 [SQL Databases] 節點。
 
@@ -119,11 +121,11 @@
 
     [啟動 Azure 偵錯環境] 對話方塊隨即開啟，並且會在瀏覽器中啟動應用程式。如需關於如何在計算模擬器中啟動每一種 Web 應用程式的特定詳細資訊，請參閱本節資料表。
 
-1. 若要設定您的應用程式要發佈至 Azure 的服務，您必須擁有 Microsoft 帳戶和 Azure 訂用帳戶。使用下列主題中的步驟設定服務：[設定從 Visual Studio 發佈雲端服務所需的服務](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md)。
+1. 若要設定您的應用程式要發佈至 Azure 的服務，您必須擁有 Microsoft 帳戶和 Azure 訂用帳戶。使用下列主題中的步驟設定服務：[準備從 Visual Studio 發佈或部署 Azure 應用程式](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)。
 
 1. 若要將 Web 應用程式發佈至 Azure，請開啟 Web 專案的捷徑功能表，然後選擇 [發佈至 Azure]。
 
-    [發佈 Azure 應用程式] 對話方塊隨即開啟，且 Visual Studio 會開始部署程序。如需如何發佈應用程式的詳細資訊，請參閱[使用 Azure Tools 發佈雲端服務](vs-azure-tools-publishing-a-cloud-service-using-the-azure-tools.md)中的＜從 Visual Studio 發佈 Azure 應用程式＞。
+    [發佈 Azure 應用程式] 對話方塊隨即開啟，且 Visual Studio 會開始部署程序。如需如何發佈應用程式的詳細資訊，請參閱[使用 Azure Tools 發佈雲端服務](vs-azure-tools-publishing-a-cloud-service.md)中的＜從 Visual Studio 發佈 Azure 應用程式＞。
 
     >[AZURE.NOTE]您也可以從 Azure 專案發佈 Web 應用程式。若要這麼做，請開啟 Azure 專案的捷徑功能表，然後選擇 [發佈]。
 
@@ -135,9 +137,9 @@
 
     >[AZURE.NOTE]若要在部署此部署環境後將其移除，您必須使用 Azure 管理入口網站。
 
-1. (選用) 角色執行個體啟動後，Visual Studio 會自動在 [伺服器總管] 的 [Azure 計算] 節點中顯示部署環境。您可以從這裡檢視個別角色執行個體的狀態。如需伺服器總管中的 [Azure 計算] 節點的詳細資訊，請參閱[使用伺服器總管檢視雲端服務的狀態](vs-azure-tools-viewing-the-state-of-a-cloud-service-using-server-explorer.md)。
+1. (選用) 角色執行個體啟動後，Visual Studio 會自動在 [雲端總管] 或 [伺服器總管] 的 [Azure 計算] 節點中顯示部署環境。您可以從這裡檢視個別角色執行個體的狀態。
 
-    下圖顯示仍處於初始化狀態的角色執行個體：
+    下圖顯示 [伺服器總管] 中仍處於初始化狀態的角色執行個體：
 
     ![VST\_DeployComputeNode](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744134.png)
 
@@ -204,6 +206,6 @@
 |工作流程|WCF 工作流程服務應用程式|
 
 ## 後續步驟
-如需關於發佈的詳細資訊，請參閱[設定從 Visual Studio 發佈雲端服務所需的服務](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md)。另請參閱[設定具名的驗證認證](vs-azure-tools-setting-up-named-authentication-credentials.md)。
+如需有關發佈的詳細資訊，請參閱 [準備從 Visual Studio 發佈或部署 Azure 應用程式](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)。另請參閱[設定具名的驗證認證](vs-azure-tools-setting-up-named-authentication-credentials.md)。
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

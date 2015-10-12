@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="06/23/2015"
+	ms.date="09/25/2015"
 	ms.author="yuaxu"/>
 
 # 傳送跨平台通知給特定使用者
@@ -103,7 +103,7 @@
 <!-- URLs. -->
 [開始使用驗證]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [開始使用推播通知]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
-[範本]: https://msdn.microsoft.com/zh-tw/library/dn530748.aspx
+[範本]: https://msdn.microsoft.com/zh-TW/library/dn530748.aspx
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

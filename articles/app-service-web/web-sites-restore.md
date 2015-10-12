@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="在 Azure App Service 中還原 Web 應用程式" 
 	description="了解如何從備份還原您的 Web 應用程式。" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -98,4 +98,4 @@ Web 應用程式還原功能可在 [Azure 預覽入口網站](http://portal.azur
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

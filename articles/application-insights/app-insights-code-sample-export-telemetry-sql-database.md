@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="程式碼範例：使用背景工作角色從 Application Insignts 匯出至 SQL" 
+	pageTitle="程式碼範例：剖析從 Application Insights 匯出的資料" 
 	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。" 
 	services="application-insights" 
     documentationCenter=""
@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
-# 程式碼範例：使用背景工作角色從 Application Insignts 匯出至 SQL
+# 程式碼範例：剖析從 Application Insights 匯出的資料
 
-本文將說明如何使用[連續匯出][export]和少量程式碼，將您的遙測資料從 [Visual Studio Application Insights][start] 移入 Azure SQL Database。
+本文說明如何處理從 Application Insights 匯出的 JSON 資料。做為範例，我們將撰寫程式碼，使用[連續匯出][export]，將您的遙測資料從 [Visual Studio Application Insights][start] 移入 Azure SQL Database。(您也可以[使用串流分析](app-insights-code-sample-export-sql-stream-analytics.md)達到這目的，但我們在這裡的目標是要展示一些程式碼。)
 
 連續匯出會將您的遙測資料以 JSON 格式移入 Azure 儲存體，因此我們要撰寫一些程式碼來剖析 JSON 物件，並在資料庫資料表中建立資料列。
 
-(一般來說，「連續匯出」是對應用程式傳送至 Application Insights 的遙測資料自行進行分析的方式。您可以調整這個程式碼範例，以使用匯出的遙測資料執行其他作業。)
+一般來說，「連續匯出」是對應用程式傳送至 Application Insights 的遙測資料自行進行分析的方式。您可以調整這個程式碼範例，以使用匯出的遙測資料執行其他作業。
 
 我們先假設您已經有想要監視的應用程式。
 
@@ -50,6 +50,8 @@
 
 
 ## 在 Azure 中建立儲存體
+
+來自 Application Insights 的資料一律會以 JSON 格式匯出到 Azure 儲存體帳戶。您的程式碼會讀取這個儲存體中的資料。
 
 1. 在 [Azure 入口網站][portal]的訂用帳戶中建立「傳統」儲存體帳戶。
 
@@ -83,7 +85,7 @@
 
     此外，資料會匯出至您的儲存體。
 
-4. 檢查匯出的資料。在 Visual Studio 中選擇 [檢視] / [Cloud Explorer]，然後開啟 [Azure] / [儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
+4. 檢查匯出的資料。在 Visual Studio 中，依序選擇 [檢視]、[Cloud Explorer]，然後依序開啟 [Azure]、[儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
 
     ![在 Visual Studio 中，依序開啟 [Server Browser]、[Azure]、[儲存體]](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
 
@@ -92,6 +94,8 @@
 事件會以 JSON 格式寫入至 Blob 檔案。每個檔案可能會包含一或多個事件。因此我們想要讀取事件資料，並篩選出需要的欄位。我們可以利用資料執行各種作業，但我們現在打算撰寫一些程式碼，將資料移至 SQL Database。這麼做可讓您輕鬆執行許多有趣的查詢工作。
 
 ## 建立 Azure SQL Database
+
+針對此範例，我們將撰寫程式碼以將資料推送至資料庫。
 
 再次從 [Azure 入口網站][portal]中的訂用帳戶開始，建立要在其中寫入資料的資料庫 (以及新的伺服器，若已經有新伺服器則不必建立)。
 
@@ -106,7 +110,7 @@
 
 ## 建立背景工作角色 
 
-現在我們可以撰寫[一些程式碼](https://sesitai.codeplex.com/)來剖析匯出之 Blob 的 JSON，並在資料庫中建立記錄。因為匯出存放區和資料庫都在 Azure 中，所以我們將在 Azure 背景工作角色中執行程式碼。
+現在，我們終於可以撰寫[一些程式碼](https://sesitai.codeplex.com/)來剖析匯出之 Blob 的 JSON，並在資料庫中建立記錄。因為匯出存放區和資料庫都在 Azure 中，所以我們將在 Azure 背景工作角色中執行程式碼。
 
 此程式碼會自動擷取 JSON 中出現的任何屬性。如需屬性的描述，請參閱[匯出資料模型](app-insights-export-data-model.md)。
 
@@ -539,4 +543,4 @@
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

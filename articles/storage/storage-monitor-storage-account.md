@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/27/2015"
 	ms.author="tamram"/>
 
 # 在 Azure 入口網站中監視儲存體帳戶
@@ -24,14 +24,14 @@
 
 > [AZURE.NOTE]在 Azure 入口網站中查看監視資料會有額外的成本。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">儲存體分析及計費</a>。<br />
 
-> Azure 檔案服務目前不支援儲存體分析。
+> Azure 檔案儲存體目前支援儲存體分析度量，但還不支援記錄。您可以透過 [Azure Preview 入口網站](https://ms.portal.azure.com)啟用 Azure 檔案儲存體度量。
 
 > 如需使用儲存體分析和其他工具來識別、診斷及疑難排解 Azure 儲存體相關問題的深入指南，請參閱[監視、診斷及疑難排解 Microsoft Azure 儲存體](../storage-monitoring-diagnosing-troubleshooting/)。
 
 
 ## 如何：設定儲存體帳戶的監視
 
-1. 在 [Azure 入口網站](https://manage.windowsazure.com/)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1. 在 [Azure 管理入口網站](https://manage.windowsazure.com/)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2. 按一下 [設定]，然後向下捲動到 Blob、資料表及佇列服務的 [監視] 設定。
 
@@ -41,7 +41,7 @@
 
 	-  若要設定監視等級，請選取下列其中一項：
 
-      「最小」 - 可收集針對 Blob、資料表和佇列服務彙總的度量 (例如入口流量/出口流量、可用性、延遲和成功百分比)。
+      **最小** - 可收集針對 Blob、資料表和佇列服務彙總的度量 (例如入口流量/出口流量、可用性、延遲和成功百分比)。
 
       「詳細資訊」 - 除了最小度量之外，在 Azure 儲存體服務 API 中也針對每個儲存體作業收集相同的度量集合。詳細資訊度量可供進一步分析在應用程式運作期間發生的問題。
 
@@ -122,7 +122,7 @@
 
 6. 選取所有服務的度量後，按一下 [確定] \(核取記號) 更新監視組態。選取的度量隨即新增到度量表。
 
-7. 若要從度量表刪除度量，請按一下度量加以選取，然後按一下 [刪除度量]。
+7. 若要從資料表刪除度量，請按一下度量加以選取，然後按一下 [刪除度量]。
 
 	![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
@@ -157,4 +157,4 @@
 
 診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/library/azure/hh343262.aspx)。
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

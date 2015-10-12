@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="09/27/2015"
 	ms.author="selcint"/>
 
 # 搭配使用 Azure PowerShell 與 Azure 儲存體
@@ -595,9 +595,9 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
     $Queue.CloudQueue.DeleteMessage($QueueMessage)
 
 ## 如何管理 Azure 檔案共用和檔案
-Azure 檔案儲存體為使用標準 SMB 2.1 通訊協定的應用程式提供共用儲存體。Microsoft Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API 或 Azure PowerShell，存取共用中的檔案資料。
+Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用儲存體。Microsoft Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API 或 Azure PowerShell，存取共用中的檔案資料。
 
-如需 Azure 檔案儲存體的詳細資訊，請參閱[如何使用 Azure 檔案儲存體](storage-dotnet-how-to-use-files.md)和[檔案服務 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)。
+如需 Azure 檔案儲存體的詳細資訊，請參閱 [Azure 檔案儲存體如何搭配 Windows](storage-dotnet-how-to-use-files.md) 和[檔案服務 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)。
 
 ## 如何設定及查詢儲存體分析
 您可以使用 [Azure 儲存體分析](storage-analytics.md)收集 Azure 儲存體帳戶的計量，以及關於傳送至儲存體帳戶之要求的記錄資料。也可以使用儲存體計量監視儲存體帳戶的健康狀態，並使用儲存體記錄診斷和疑難排解儲存體帳戶的問題。根據預設，不會針對您的儲存體服務啟用儲存體計量功能。您可以使用 Azure 管理入口網站、Windows PowerShell，或以程式設計方式透過儲存體 API，來啟用監視。系統會在伺服器端執行儲存體記錄，這可讓您在儲存體帳戶中記錄成功和失敗要求的詳細資料。這些記錄檔可讓您查看資料表、佇列和 Blob 的讀取、寫入和刪除作業詳細資料，以及失敗要求的原因。
@@ -736,4 +736,4 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 [Next Steps]: #next
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

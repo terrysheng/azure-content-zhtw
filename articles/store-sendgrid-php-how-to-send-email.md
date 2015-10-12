@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) | Microsoft Azure"
-	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 PHP 撰寫。"
-	documentationCenter="php"
-	services=""
-	manager="sendgrid"
-	editor="mollybos"
+	pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) | Microsoft Azure" 
+	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 PHP 撰寫。" 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="10/30/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 # 如何透過 PHP 使用 SendGrid 電子郵件服務
 
@@ -390,6 +390,9 @@ SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可
 -   SendGrid PHP 程式庫：<https://github.com/sendgrid/sendgrid-php>
 -   Azure 客戶的 SendGrid 特別優惠：<https://sendgrid.com/windowsazure.html>
 
+如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
+
+
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -401,4 +404,4 @@ SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可
   [sendgrid-php 程式庫]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

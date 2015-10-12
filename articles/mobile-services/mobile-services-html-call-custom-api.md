@@ -3,17 +3,17 @@
 	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 HTML 應用程式呼叫它。"
 	services="mobile-services"
 	documentationCenter=""
-	authors="ggailey777"
+	authors="ggailey777"  
 	manager="dwrede"
 	editor=""/>
 
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-html"
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # 從 HTML 應用程式呼叫自訂 API
@@ -92,4 +92,4 @@
 [新增行動服務至現有應用程式]: mobile-services-html-get-started-data.md
 [在來源控制中儲存伺服器指令碼]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

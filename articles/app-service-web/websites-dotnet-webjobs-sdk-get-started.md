@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -827,4 +827,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 * 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)。
 * 如需 Azure 入口網站變更為 Azure Preview 入口網站的指南，請參閱[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

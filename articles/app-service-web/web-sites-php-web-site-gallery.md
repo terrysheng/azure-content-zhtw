@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
@@ -26,8 +26,10 @@
 - [建立 PHP-MySQL Azure Web 應用程式並使用 Git 部署](/zh-TW/develop/php/tutorials/website-w-mysql-and-git/)
 - [使用 PHP 和 Azure 建立其他類型的應用程式](/zh-TW/develop/php/tutorials/)
 
-## 變更的項目
-* 如需從網站變更為應用程式服務的指南，請參閱 [Azure 應用程式服務及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714) (英文)。
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715) (英文)。
+如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
 
-<!---HONumber=Sept15_HO2-->
+## 變更的項目
+* 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)。
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱[瀏覽 Preview 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
+
+<!---HONumber=Oct15_HO1-->

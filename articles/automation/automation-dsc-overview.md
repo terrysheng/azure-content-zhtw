@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/16/2015"
+   ms.date="09/24/2015"
    ms.author="coreyp"/>
 
 # Azure 自動化 DSC 概觀 #
@@ -137,11 +137,11 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 - 使用 `Register-AzureAutomationDscNode`、`Set-AzureVMExtension` 或 Azure Preview 入口網站中的 Azure 自動化 DSC VM 延伸模組，將 Azure VM 上架以使用 Azure 自動化 DSC 加以管理時，這最多可能需要一個小時，VM 才會在 Azure 自動化中顯示為 DSC 節點。這是因為 VM 上憑藉著 Azure VM DSC 延伸模組的 Windows Management Framework 5.0 安裝，需要它才能將 VM 上架到 Azure 自動化 DSC。
 
-- 註冊節點所包含的節點會自動交涉要針對該特定節點向 Azure 自動化 DSC 進行驗證時所使用的憑證 (事後註冊)。此憑證會在建立後的一年到期，PS DSC 提取通訊協定目前沒有方法可在該憑證接近到期時發出新的憑證。基於這個理由，節點必須在一年之後重新向 Azure 自動化 DSC 註冊，直到可在 WMF 的未來版本中實作此通訊協定為止 (希望可在從現在起的一年內實現)。
+- 在註冊之後，每個節點會自動交涉唯一的驗證憑證，該憑證於一年之後到期。此時，當憑證即將過期時，PowerShell DSC 註冊通訊協定便無法自動更新憑證，因此您必須在一年之後重新註冊這些節點。在重新登錄之前，請確定每個節點都正在執行 Windows Management Framework 5.0 RTM。如果節點的驗證憑證過期，而且該節點尚未註冊，則該節點將無法與 Azure 自動化通訊，並將標示為「未回應」。 註冊執行方式與您一開始註冊節點時相同。與憑證到期時間相距 90 天或更短時間內執行的註冊，或是憑證到期時間之後任何時間點執行的註冊，將會產生新的憑證並予以使用。
 
 ##相關文章##
 
 - [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 自動化 DSC 價格](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

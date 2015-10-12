@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/16/2015"
+	ms.date="09/23/2015"
 	ms.author="tamram"/>
 
 
@@ -25,8 +25,8 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 儲存體帳戶分為兩種類型：
 
-- Standard 儲存體帳戶包括 Blob、資料表和佇列儲存體。檔案儲存體可透過在 [Azure 預覽頁面](http://azure.microsoft.com/services/preview/)上提出要求而取得。
-- 進階儲存體帳戶目前僅支援 Azure 虛擬機器磁碟。如需進階儲存體的深入概觀，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+- 標準儲存體帳戶包含 Blob、資料表、佇列和檔案儲存體。 
+- 進階儲存體帳戶目前僅支援 Azure 虛擬機器磁碟。如需進階儲存體的深入概觀，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
 
 ## 儲存體帳戶計費
 
@@ -63,6 +63,11 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 	請注意，您必須在儲存體帳戶建立時選取同質群組。您無法將現有的帳戶移至同質群組。如需同質群組的詳細資訊，請參閱下方的[使用同質群組讓服務位於相同位置](#service-co-location-with-an-affinity-group)。
 
+	>[AZURE.IMPORTANT]若要判斷訂用帳戶可使用的位置，您可以呼叫[清單提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。針對 PowerShell 的清單提供者，請呼叫 [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx)。從 .NET，使用 ProviderOperationsExtensions 類別的 [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) 方法。
+	>
+	>此外，如需各區域可用服務的詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/zh-TW/regions/#services)。
+
+
 5. 如果您有一個以上的 Azure 訂用帳戶，則會顯示 [訂用帳戶] 欄位。在 [訂用帳戶] 中，輸入您要使用儲存體帳戶的 Azure 訂用帳戶。
 
 6. 在 [複寫] 中，為您的儲存體帳戶選取適當的複寫層級。建議的複寫選項是 [地理備援] 複寫，這可為您的資料提供最大的耐用性。如需 Azure 儲存體複寫選項的詳細資訊，請參閱下方的 [Azure 儲存體複寫](storage-redundancy.md)。
@@ -98,7 +103,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 「同質群組」是將您的 Azure 服務和 VM 與 Azure 儲存體帳戶依地理位置而形成的群組。同質群組會將電腦工作負載置於相同的資料中心內或目標使用者對象附近，因而能改善服務效能。此外，當您儲存體帳戶中的資料是由同一同質群組中的服務存取時，出口流量並不會產生任何費用。
 
-> [AZURE.NOTE]若要建立同質群組，請開啟 Azure 入口網站的 [設定]<b></b> 區域、按一下 [同質群組]<b></b>，然後按一下 [加入同質群組]<b></b> 或 [新增]<b></b> 按鈕。您也可以使用 Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">同質群組的相關作業</a>。
+> [AZURE.NOTE]若要建立同質群組，請開啟 Azure 入口網站的 [設定]<b></b> 區域，按一下 [同質群組]<b></b>，再按一下 [加入同質群組]<b></b> 或 [加入]<b></b> 按鈕。您也可以使用 Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">同質群組的相關作業</a>。
 
 ## 檢視、複製和重新產生儲存體存取金鑰
 
@@ -166,4 +171,4 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

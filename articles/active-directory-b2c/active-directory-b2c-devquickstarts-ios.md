@@ -34,36 +34,36 @@
 - 為您的應用程式建立**應用程式密碼**，並複製下來。稍後您將會用到此資訊。
 - 複製指派給應用程式的**應用程式識別碼**。稍後您也會用到此資訊。
 
-    > [AZURE.IMPORTANT]您無法為此使用已在 [Azure 入口網站](https://manage.windowsazure.com/)上的 [應用程式] 索引標籤中使用已註冊的應用程式。
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\.建立您的原則
 
-> [AZURE.NOTE]針對 B2C 預覽，您可以在用戶端與伺服器設定之間使用相同的原則。如果您已完成逐步演練並建立這些原則，就不需要再做一次。如果您先前在入口網站中建立的原則符合應用程式的需求，您可以重複使用這些原則。
-
-在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)定義的。此應用程式包含三種身分識別體驗 - 註冊、登入，以及使用 Facebook 登入。您必須為每個類型建立一個原則，如[原則參考文件](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)所定義。此應用程式包含三種身分識別體驗 - 註冊、登入，以及使用 Facebook 登入。您必須為每個類型建立一個原則，如[原則參考文章](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
 
 - 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
 - 在每個原則中選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。您也可以選擇其他宣告。
 - 建立每個原則後，請複製原則的 [名稱]。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+
 當您成功建立三個原則後，就可以開始建置您的應用程式。
 
-請注意，本文不會說明如何使用您剛才建立的原則。若您想要了解 Azure AD B2C 中的原則如何運作，您應該從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
+請注意，本文不會說明如何使用您剛才建立的原則。如果您想要了解 Azure AD B2C 中的原則如何運作，應該從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
 
 ## 4\.下載程式碼
 
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS) 上。若要遵循指示建立範例，您可以[下載 .zip 格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip)或複製基本架構：
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS) 上。若要遵循指示建立範例，您可以[下載 .zip 格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip)，或複製基本架構：
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
 ```
 
-> [AZURE.NOTE]**若要完成此教學課程，必須下載基本架構。** 由於在 iOS 上實作完整運作的應用程式有其複雜性，因此「基本架構」所包含的 UX 程式碼將於您完成下方教學課程之後執行。如此將能節省開發人員的時間。UX 程式碼與加入 B2C 至 iOS 應用程式的主題無關。
+> [AZURE.NOTE]**若要完成此教學課程，必須下載基本架構。** 由於在 iOS 上實作完整運作的應用程式有其複雜性，因此**基本架構**所包含的 UX 程式碼將於您完成下方教學課程之後執行。如此將能節省開發人員的時間。UX 程式碼與加入 B2C 至 iOS 應用程式的主題無關。
 
-完整的 App 也[提供 .zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip)，或放在相同儲存機制的 `complete` 分支。
+完整的應用程式也提供 [.zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip)；您也可以在相同儲存機制的 `complete` 分支取得。
 
 
-現在使用 Cocoapods 載入該 Podfile。這會建立您將載入的新 XCode Workspace。如果您沒有 Cocoapods，請瀏覽[網站安裝 cocoapods](https://cocoapods.org)。
+現在使用 Cocoapods 載入該 Podfile。這會建立您將載入的新 XCode Workspace。如果您沒有 Cocoapods，請瀏覽[網站安裝 Cocoapods](https://cocoapods.org)。
 
 ```
 $ pod install
@@ -107,6 +107,8 @@ $ open Microsoft Tasks for Consumers.xcworkspace
 </plist>
 ```
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
 ## 6\.取得存取權杖和呼叫工作 API
 
 本節將示範如何在 Web 應用程式中使用 Microsoft 的程式庫和架構完成 OAuth 2.0 權杖交換。如果您不熟悉**授權碼**和**存取權杖**，建議您瀏覽 [OAuth 2.0 通訊協定參考](active-directory-b2c-reference-protocols.md)。
@@ -115,7 +117,7 @@ $ open Microsoft Tasks for Consumers.xcworkspace
 
 我們將需要這些方法來取得權杖與我們選取的原則，然後呼叫我們工作伺服器。現在就讓我們進行這些設定。
 
-在 XCode 專案中的 /Microsoft 工作下，建立名為 `samplesWebAPIConnector.h` 的檔案
+在 XCode 專案中的 /Microsoft Tasks 下，建立名為 `samplesWebAPIConnector.h` 的檔案
 
 加入下列程式碼來定義我們需要做的事：
 
@@ -166,7 +168,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 @end
 ```
 
-讓我們再建立 `samplesPolicyData.h` 檔案來保存原則資料：
+接著再建立 `samplesPolicyData.h` 檔案來保存原則資料：
 
 ```
 #import <Foundation/Foundation.h>
@@ -215,7 +217,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 #### 撰寫設定程式碼來呼叫 ADAL for iOS
 
-UI 方面用來儲存物件的快速程式碼已完成。現在需要使用我們放入 `settings.plist` 檔案中的參數，撰寫程式碼來存取適用於 iOS 的 ADAL，以取得存取權杖來提供給工作伺服器。過程可能很冗長，請保持注意力。
+UI 方面用來儲存物件的快速程式碼已完成。現在需要使用我們放入 `settings.plist` 檔案中的參數，撰寫程式碼來存取 ADAL for iOS，以取得存取權杖來提供給工作伺服器。過程可能很冗長，請保持注意力。
 
 我們所有的工作都將在 `samplesWebAPIConnector.m` 中完成。
 
@@ -260,7 +262,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 4. 最後，有一個很大型的 `getClaimsWithPolicyClearingCache` 方法。這就是我們真正需要撰寫來呼叫 ADAL for iOS 的方法。我們稍後會這樣做。
 
 
-接下來，將在剛寫好的程式碼下方撰寫 `convertPolicyToDictionary` 方法：
+接下來，我們要在剛剛寫好的程式碼下方撰寫 `convertPolicyToDictionary` 方法：
 
 ```
 // Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
@@ -289,7 +291,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 }
 
 ```
-這行相當簡單的程式碼只是將 p 附加到原則，所以查詢看起來應該是 ?p=<policy>。
+這行相當簡單的程式碼只是將 p 附加到原則，所以查詢看起來應該像 ?p=<policy>。
 
 現在來撰寫大型方法 `getClaimsWithPolicyClearingCache`。這大到足以自成一個段落
 
@@ -347,7 +349,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 ```
 
-第一個部分看起來應該很熟悉。我們載入 `Settings.plist` 中提供的設定，並指派給 `data`。接著設定 `ADAuthenticationError`，以接收任何來自適用於 iOS 之 ADAL 的錯誤。我們也會建立 `authContext` 來設定對 ADAL 的呼叫。一切從將 *authority* 傳遞給它開始。我們也提供父控制器的參考給 `authContext`，以便能夠返回它。此外，還會將 `settings.plist` 中的字串 `redirectURI` 轉換成 ADAL 所需的 NSURL 類型。最後是設定 `correlationId`，這只是一個 UUID，可追蹤往返於用戶端和伺服器之間的呼叫。這有助於偵錯。
+第一個部分看起來應該很熟悉。我們載入 `Settings.plist` 中提供的設定，並指派給 `data`。接著設定 `ADAuthenticationError`，以接收任何來自 ADAL for iOS 的錯誤。我們也會建立 `authContext` 來設定對 ADAL 的呼叫。一切從傳遞 *authority* 給它開始。我們也提供父控制器的參考給 `authContext`，以便能夠返回它。此外，還會將 `settings.plist` 中的字串 `redirectURI` 轉換成 ADAL 所需的 NSURL 類型。最後是設定 `correlationId`，這只是一個 UUID，可追蹤往返於用戶端和伺服器之間的呼叫。這有助於偵錯。
 
 現在，我們要實際呼叫 ADAL，在此，呼叫將迴異於您先前使用 ADAL for iOS 時所看見的情況：
 
@@ -366,7 +368,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 您在這裡可以看到呼叫相當簡單。
 
-**scopes** - 是我們傳給伺服器的範圍，而在使用者登入時，我們想要向伺服器要求此範圍。在 B2C 預覽中，我們傳遞 client\_id。不過，這在未來將寫成 scopes。屆時即會更新本文件。**addtionalScopes** - 這些是您可能想要用於應用程式的其他範圍。這將在未來使用。**clientId** - 你從入口網站取得的應用程式識別碼。**redirectURI** - 我們預期會回傳權杖的重新導向。**identifier** - 這是識別使用者的方式，可讓我們判斷快取中是否有可用的權杖，還是一律要向伺服器要求另一個權杖。您會看到這包含在稱為 `ADUserIdentifier` 的類型中，我們可以指定要用來做為識別碼的項目。您應該使用使用者名稱。**promptBehavior** - 這已被取代，現在應該是 AD\_PROMPT\_ALWAYS。**extraQueryParameters** - 您想要以 URL 編碼格式傳遞給伺服器的任何參數。**policy** - 您叫用的原則。本逐步解說的後續重要部分。
+**scopes** - 是我們傳給伺服器的範圍，而在使用者登入時，我們想要向伺服器要求此範圍。在 B2C 預覽中，我們傳遞 client\_id。不過，這在未來將寫成 scopes。屆時會更新本文件。**addtionalScopes** - 這些是您可能想要用於應用程式的其他範圍。這將在之後使用。**clientId** - 您從入口網站取得的應用程式識別碼。**redirectURI** - 我們預期會回傳權杖的重新導向。**identifier** - 這是識別使用者的方式，可讓我們判斷快取中是否有可用的權杖，還是一律要向伺服器要求另一個權杖。您會看到這包含在名為 `ADUserIdentifier` 的類型中，我們可以指定要用來做為識別碼的項目。您應該使用使用者名稱。**promptBehavior** - 這已被取代，現在應該是 AD\_PROMPT\_ALWAYS。**extraQueryParameters** - 您想要以 URL 編碼格式傳遞給伺服器的任何額外參數。**policy** - 您叫用的原則。本逐步解說的後續重要部分。
 
 您可以在 completionBlock 中看到我們傳遞 `ADAuthenticationResult`，其中包含我們的權杖和設定檔資訊 (如果呼叫成功)
 
@@ -455,7 +457,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 
 ```
 
-討論「工作」程式碼已超出本逐步解說的範圍，但您可能注意到一個有趣的項目：一個取用工作 URL 的 `craftRequest` 方法。我們利用這個方法，以我們收到的存取權杖，對伺服器建立要求。現在我們就來撰寫：
+討論「工作」程式碼已超出本逐步解說的範圍，但您可能注意到一個有趣的地方：一個取用工作 URL 的 `craftRequest` 方法。我們利用這個方法，以我們收到的存取權杖，對伺服器建立要求。現在我們就來撰寫：
 
 讓我們將下列程式碼加入至 'samplesWebAPIConnector.m' 檔案：
 
@@ -543,7 +545,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 }
 ```
 
-這會遵循相同模式，但引進另一個 (也是最後一個！) 需要實作的方法：`convertTaskToDictionary`，此方法會取得我們的陣列並轉換成字典物件，這樣就能更容易地隨著需要傳給伺服器的查詢參數而變化。此程式碼非常簡單：
+這會遵循相同模式，但引進另一個 (也是最後一個！) 需要實作的方法：`convertTaskToDictionary`，此方法會取用我們的陣列並轉換成字典物件，這樣就能更容易地隨著需要傳給伺服器的查詢參數而變化。此程式碼非常簡單：
 
 ```
 // Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
@@ -650,4 +652,4 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 [自訂 B2C 應用程式的 UX >>]()
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

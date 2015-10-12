@@ -1,0 +1,131 @@
+<properties
+	pageTitle="Azure IoT 作業系統平台與硬體相容性 | Microsoft Azure"
+	description="作業系統平台與硬體相容性"
+	services="iot-hub"
+	documentationCenter="na"
+	authors="hegate"
+	manager="jamesosb"
+	editor=""/>
+
+<tags
+     ms.service="iot-hub"
+     ms.devlang="na"
+     ms.topic="article"
+     ms.tgt_pltfrm="na"
+     ms.workload="tbd"
+     ms.date="09/29/2015"
+     ms.author="hegate"/>
+
+# 作業系統平台與硬體相容性
+
+本文件說明 SDK 與不同作業系統平台的相容性，以及 [IoT 程式的 Microsoft Azure 認證](#certified)中包含的特定裝置組態。如果您已經有一個裝置，請查看程式中包含裝置的清單，以尋找裝置的相容性特定資訊。如果您不確定要使用哪一種裝置，請查看[作業系統平台和程式庫](#platforms)相容性區段。
+
+
+## 作業系統平台
+
+Azure IoT 程式庫已在下列作業系統平台上測試：
+
+
+|Linux/Unix 作業系統平台 | 版本|
+|:---------------|:------------:|
+|Debian Linux| 7\.5|
+|Fedora Linux|20|
+|Raspbian Linux| 3\.18 |
+|Ubuntu Linux| 14\.04 |
+|Yocto Linux|2\.1 |
+
+|Windows 作業系統平台 | 版本|
+|:---------------|:------------:|
+|Windows 桌面| 7、8、10 |
+|Windows IoT 核心版| 10 |
+|Windows Server| 2012 R2|
+
+|其他平台 | 版本|
+|:---------------|:------------:|
+|mbed OS| 2\.0 |
+|TI-RTOS | 2\.x |
+
+
+
+## C 程式庫
+
+[適用於 C 的 Microsoft Azure IoT 裝置 SDK](c/device/readme.md) 已在下列組態上測試：
+
+|作業系統平台| 版本|通訊協定|
+|:---------|:----------:|:----------:|
+|Debian Linux| 7\.5 | HTTPS、AMQP、MQTT |
+|Fedora Linux| 20 | HTTPS、AMQP、MQTT |
+|mbed OS| 2\.0 | HTTPS、AMQP |
+|TI-RTOS| 2\.x | HTTPS |
+|Ubuntu Linux| 14\.04 | HTTPS、AMQP、MQTT |
+|Windows 桌面| 7、8、10 | HTTPS、AMPQ、MQTT |
+|Yocto Linux|2\.1 | HTTPS、AMQP|
+
+
+
+## Node.js 程式庫
+[適用於 Node.js 的 Microsoft Azure IoT 裝置 SDK](node/device/readme.md) 已在下列組態上測試：
+
+
+|執行階段| 版本|通訊協定|
+|:---------|:----------:|:----:|
+|Node.js| 4\.1.0 | HTTPS|
+
+
+
+## Java 程式庫
+[適用於 Java 的 Microsoft Azure IoT 裝置 SDK](java/device/readme.md) 已在下列組態上測試：
+
+|執行階段| 版本|通訊協定|
+|:---------|:----------:|----|
+|Java SE (Windows)| 1\.7 | HTTPS、AMQP |
+|Java SE (Linux)| 1\.8 | HTTPS、AMQP|
+
+[適用於 Java 的 Microsoft Azure IoT 服務 SDK](java/service/readme.md) 已在下列組態上測試：
+
+|執行階段| 版本|通訊協定|
+|:---------|:----------:|:-----|
+|Java SE| 1\.8 | HTTPS、AMQP |
+
+
+## CSharp
+[適用於 .NET 的 Microsoft Azure IoT 裝置 SDK](csharp/readme.md) 已在下列組態上測試：
+
+|作業系統平台| 版本|通訊協定|
+|:---------|:----------:|:----------:|
+|Windows 桌面| 7、8、10 | HTTPS、AMPQ|
+|Windows IoT 核心版|10 | HTTPS|
+
+受管理的代理程式程式碼需要 Microsoft .NET Framework 4.5
+
+
+## IoT 的 Microsoft Azure 認證
+
+「IoT 的 Microsoft Azure 認證」是連接廣泛的 IoT 生態系統與 Microsoft Azure 的協力廠商程式，讓開發人員和架構設計人員能夠了解相容性案例。具體來說，它提供 OS/裝置組合的一份信任清單，以協助您快速開始使用 IoT 專案 – 無論您是在概念驗證或試驗階段。使用認證的裝置及作業系統組合就可以快速開始使用 IoT 專案，只需要較少的工作與自訂就可以確定裝置與 Azure IoT 套件和 Azure IoT 中心的相容性。
+
+
+## IoT 裝置的認證
+
+IoT 裝置的認證已通過與 Azure IoT SDK 的相容性測試，並且已可在您的 IoT 應用程式中使用。具體而言，我們會根據作業系統平台和程式碼語言來識別相容性。
+
+#### 裝置清單
+
+ 每個裝置都已經過認證，能在裝置製造商所選擇的作業系統和語言中，與我們的 SDK 搭配使用。例如，BeagleBone Black 能在使用我們的 C、Javascript 和 Java 語言的 Debian 上運作。這表示開發人員將能夠在特定裝置上，以這些語言與作業系統的任何組合來建置應用程式。
+
+## 後續步驟
+
+在[這裡](http://azure.com/iotdev)深入了解使用適用於 IoT 裝置的認證開發解決方案的相關資訊。
+
+|裝置| 已測試的作業系統 |語言|
+|:---------|:----------|:----------|
+|Raspberry Pi 2| Raspbian | C、Javascript、Java |
+|Raspberry Pi 2| Windows 10 IoT 核心版| C、Javascript、C#|
+|BeagleBone Black| Debian |C、Javascript、Java|
+|BeagleBone Green|Debian |C、Javascript、Java|
+|TI CC3200 | TI-RTOS 2.x|C|
+|Intel Edison |Yocto |C、Javascript|
+|Minnowboard Max |Windows 7、8、10 |C#|
+|Arrow Dragonboard |Windows 10 IoT 核心版 | C#|
+|Freescale FRDM K64 |mbed OS | C|
+
+<!---HONumber=Oct15_HO1-->

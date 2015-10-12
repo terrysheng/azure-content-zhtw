@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # 使用一致性層級以最大化 DocumentDB 中的可用性和效能
@@ -56,15 +56,13 @@
 
 ### 變更資料庫一致性層級
 
-1.  在 [Azure Preview 入口網站](https://portal.azure.com/)中，按一下 [**全部瀏覽**]。
+1.  在 [Azure Preview 入口網站](https://portal.azure.com/)的動態工具列，按一下 [DocumentDB 帳戶]。
 
-2.  在 [**全部瀏覽**] 刀鋒視窗中，按一下 [**DocumentDB 帳戶**]。
+2. 在 [DocumentDB 帳戶] 刀鋒視窗中，選取要修改的資料庫帳戶。
 
-3. 在 [**DocumentDB 帳戶**] 刀鋒視窗中，選取要修改的資料庫帳戶。
+3. 在帳戶刀鋒視窗的 [組態] 透鏡中，按一下 [預設一致性] 磚。
 
-4. 在帳戶刀鋒視窗的 [**組態**] 透鏡中，按一下 [**預設一致性**] 磚。
-
-5. 選取新的一致性層級，然後按一下 [**儲存**]。
+4. 在 [預設一致性] 刀鋒視窗中，選取新的一致性層級，然後按一下 [儲存]。
 
 	![螢幕擷取畫面會反白顯示預設一致性磚、一致性設定和 [儲存] 按鈕](./media/documentdb-consistency-levels/database-consistency-level.png)
 
@@ -90,4 +88,4 @@
 -	Werner Vogels。再論最終一致。[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -198,7 +198,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 
 <!--Link references-->
-[Azure 命令列介面 (Azure CLI)]: ../xplat-cli.md
+[Azure 命令列介面 (Azure CLI)]: ../xplat-cli-install.md
 [CoreOS]: https://coreos.com/
 [CoreOS 概觀]: https://coreos.com/using-coreos/
 [在 Azure 上的 CoreOS]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -208,4 +208,4 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [YAML]: http://yaml.org/
 [開始在 Azure 上的 CoreOS 使用 Fleet]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

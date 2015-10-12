@@ -374,7 +374,7 @@ Mahout 工作不會清除在處理期間所建立的暫存檔。此外，工作�
 HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝之 Mahout 的版本號碼。本教學課程中的 Windows PowerShell 範例指令碼使用在 2014 年 7 月時有效的路徑，但版本號碼將隨著未來 HDInsight 更新而有所變更。若要判斷您叢集的 Mahout JAR 檔案的目前路徑，請使用下列 Windows PowerShell 命令，然後將指令碼修改為參考傳回的檔案路徑：
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>不適用於 Windows PowerShell 的類別
 
@@ -422,4 +422,4 @@ HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

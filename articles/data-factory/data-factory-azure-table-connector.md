@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="從 Azure 資料表來回移動資料 | Azure Data Factory"
-	description="了解如何使用 Azure Data Factory 從 Azure 資料表儲存體來回移動資料。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="從 Azure 資料表來回移動資料 | Azure Data Factory" 
+	description="了解如何使用 Azure Data Factory 從 Azure 資料表儲存體來回移動資料。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure 資料表來回移動資料
@@ -370,8 +370,7 @@
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | 使用自訂查詢來讀取資料。 | Azure 資料表查詢字串。範例：**ColumnA eq ValueA** | 否
-azureTableSourceIgnoreTableNotFound | 指出是否忍受資料表不存在的例外狀況。 | TRUE<br/>FALSE | 否 |
+azureTableSourceQuery | 使用自訂查詢來讀取資料。 | <p>Azure 資料表查詢字串。</p>**範例：****<br/> "azureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | No azureTableSourceIgnoreTableNotFound | 指出是否忍受資料表不存在的例外狀況。 | TRUE<br/>FALSE | No |
 
 **AzureTableSink** 在 typeProperties 區段中支援下列屬性：
 
@@ -381,7 +380,7 @@ azureTableSourceIgnoreTableNotFound | 指出是否忍受資料表不存在的例
 azureTableDefaultPartitionKeyValue | 可供接收器使用的預設資料分割索引鍵值。 | 字串值。 | 否 
 azureTablePartitionKeyName | 使用者指定的資料行名稱，其資料行值會做為資料分割索引鍵。如果未指定，則會使用 AzureTableDefaultPartitionKeyValue 做為資料分割索引鍵。 | 資料行名稱。 | 否 |
 azureTableRowKeyName | 使用者指定的資料行名稱，其資料行值會做為資料列索引鍵。如果未指定，則會針對每個資料列使用 GUID。 | 資料行名稱。 | 否  
-azureTableInsertType | 將資料插入 Azure 資料表的模式。 | merge<br/>replace | 否 
+azureTableInsertType | 將資料插入 Azure 資料表的模式。 | 合併<br/>取代 | 否 
 writeBatchSize | 在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。 | 1 與 100 之間的整數 (單位 = 資料列計數) | 否 (預設值 = 100) 
 writeBatchTimeout | 在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中 | (單位 = 時間範圍) 範例：“00:20:00” (20 分鐘) | 否 (預設為儲存體用戶端預設逾時值 90 秒)
 
@@ -394,7 +393,7 @@ writeBatchTimeout | 在達到 WriteBatchSize 或 writeBatchTimeout 時將資料�
 1. 從原生來源類型轉換成 .NET 類型
 2. 從 .NET 類型轉換成原生接收類型
 
-從 Azure 資料表來回移動資料時，將使用 [Azure 資料表服務所定義的對應](https://msdn.microsoft.com/library/azure/dd179338.aspx)：從 Azure 資料表 OData 類型到 .NET 類型，反之亦然。
+從 Azure 資料表來回移動資料時，將使用 [Azure 表格服務所定義的對應](https://msdn.microsoft.com/library/azure/dd179338.aspx)：從 Azure 資料表 OData 類型到 .NET 類型，反之亦然。
 
 | OData 資料類型 | .NET 類型 | 詳細資料 |
 | --------------- | --------- | ------- |
@@ -485,4 +484,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

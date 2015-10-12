@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="09/25/2015"
 	ms.author="jgao"/>
 
 
@@ -49,11 +49,13 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
 
 2. 建立新的空白活頁簿。
 
-3. 依序按一下 [Power Query] 功能表、[From Other Sources]、[From Azure HDInsight]。
+3. 依序按一下 [Power Query] 功能表、[從其他來源]、[從 Microsoft Azure HDInsight]。
 
 	![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
 
-	附註：如果 [**Power Query**] 功能表未顯示，請移至 [**檔案**] > [**選項**] > [**增益集**]，然後從頁面底部的下拉式 [**管理**] 方塊中，選取 [**COM 增益集**]。選取 [**移至...**] 按鈕，並驗證 Power Query for Excel 增益集的方塊已勾選。
+	**附註：**如果 [Power Query] 功能表未顯示，請移至 [檔案] > [選項] > [增益集]，然後從頁面底部的下拉式 [管理] 方塊中，選取 [COM 增益集]。選取 [**移至...**] 按鈕，並驗證 Power Query for Excel 增益集的方塊已勾選。
+
+	**附註：** Power Query 也可讓您從 HDFS 匯入資料，方法是按一下 [從其他來源]。
 
 3. 對於 [**帳戶名稱**]，輸入叢集相關 Azure Blob 儲存體帳戶的名稱，然後按一下 [**確定**]。
 
@@ -86,4 +88,4 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

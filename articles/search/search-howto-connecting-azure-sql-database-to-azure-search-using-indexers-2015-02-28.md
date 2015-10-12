@@ -13,20 +13,22 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務。#
+#使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務。
 
-Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先在 Azure 搜尋服務索引中填入您的資料，您才能夠搜尋。如果 Azure SQL Database 中有您的資料，您可以在 Azure 搜尋服務中，使用全新 **適用於 Azure SQL Database 的 Azure 搜尋服務索引子** (或簡稱 **Azure SQL 索引子**) 功能，自動化編製索引的程序。這表示您可以減少編寫程式碼的工作，並且減少需要維護的基礎結構。
+Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先在 Azure 搜尋服務索引中填入您的資料，您才能夠搜尋。如果 Azure SQL Database 中有您的資料，您可以在 Azure 搜尋服務中，使用全新**適用於 Azure SQL Database 的 Azure 搜尋服務索引子** (或簡稱 **Azure SQL 索引子**)，自動化編製索引的程序。這表示您可以減少編寫程式碼的工作，並且減少需要處理的基礎結構。
 
-目前索引子僅適用於 Azure SQL Database、Azure VM 上的 SQL Server，以及 Azure DocumentDB。在本文中，我們將重點放在如何針對 Azure SQL Database 使用索引子。如果您想參閱其他資料來源的支援，請您在 [Azure 搜尋服務意見反應論壇](http://feedback.azure.com/forums/263029-azure-search)上提供寶貴意見。
+目前索引子僅適用於 Azure SQL Database、Azure VM 上的 SQL Server，以及 [Azure DocumentDB](../documentdb/documentdb-search-indexer.md)。在本文中，我們將重點放在如何針對 Azure SQL Database 使用索引子。如果您想參閱其他資料來源的支援，請您在 [Azure 搜尋意見反應論壇](http://feedback.azure.com/forums/263029-azure-search)上提供寶貴意見。
 
 本文將介紹使用索引子的機制，但我們也會深入了解僅在 SQL 資料庫上出現的功能與行為 (例如，整合變更追蹤)。
 
 ## 索引子與資料來源 ##
 
-若要設定 Azure SQL 索引子，您可以呼叫 [Azure 搜尋服務 REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173) 以建立和管理**索引子**及**資料來源**。此功能日後也能在 Azure 管理入口網站和 Azure 搜尋服務 .NET SDK 中使用。
+若要設定 Azure SQL 索引子，您可以呼叫 [Azure 搜尋服務 REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173) 以建立和管理**索引子**及**資料來源**。
+
+您也可以使用 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 的 [索引子類別](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx)，或 [Azure 入口網站](https://portal.azure.com) 的 [匯入資料精靈]，建立並排程索引子。
 
 **資料來源**能指定哪項資料要編製索引、存取資料需要哪些認證，以及哪些政策能讓 Azure 搜尋服務有效識別資料變更 (新增、修改或刪除的資料列)。資料來源會被定義為獨立的資源，因此可供多個索引子使用。
 
@@ -77,7 +79,7 @@ Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先�
 | bigint | Edm.Int64、Edm.String | |
 | real、float |Edm.Double、Edm.String | |
 | smallmoney、money 十進位數值 | Edm.String| Azure 搜尋服務不支援將十進位類型轉換為 Edm.Double，因為這麼做會降低準確度。 |
-| char、nchar、varchar、nvarchar | Edm.String<br/>Collection(Edm.String)|將字串資料行轉換成 Collection(Edm.String) 需要使用預覽 API 2015-02-28-Preview 版本。如需詳細資訊，請參閱[這篇文章](search-api-indexers-2015-02-28-Preview.md#create-indexer)| 
+| char、nchar、varchar、nvarchar | Edm.String<br/>Collection(Edm.String)|將字串資料行轉換成 Collection(Edm.String) 需要使用預覽 API 2015-02-28-Preview 版本。如需詳細資訊，請參閱[本文](search-api-indexers-2015-02-28-Preview.md#create-indexer)| 
 |smalldatetime、datetime、datetime2、date、datetimeoffset |Edm.DateTimeOffset、Edm.String| |
 |uniqueidentifer | Edm.String | |
 |geography | Edm.GeographyPoint | 僅支援使用 SRID 4326 (預設) 之 POINT 類型的 geography 執行個體。 | | 
@@ -249,7 +251,7 @@ Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先�
 
 ## 自訂 Azure SQL 索引子 ##
  
-您可以自訂某些方面的索引子行為 (例如，批次處理大小、在索引子執行失敗前跳過多少文件等)。如需詳細資訊，請參閱 [索引子 API 文件說明](http://go.microsoft.com/fwlink/p/?LinkId=528173)。
+您可以自訂某些方面的索引子行為 (例如，批次大小、在索引子執行失敗前跳過多少文件等)。如需詳細資訊，請參閱 [Azure 搜尋服務索引子自訂](search-indexers-customization.md)。
 
 ## 常見問題集 ##
 
@@ -277,4 +279,4 @@ Azure 搜尋服務可以輕鬆地提供強大的搜尋體驗，但您必須先�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

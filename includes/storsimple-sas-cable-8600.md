@@ -46,4 +46,4 @@
     |5、6|主要機箱上的 SAS 連接埠 (標示為 EBOD)|
     |7、8|EBOD 機箱上的 SAS 連接埠 (連接埠 A)|
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

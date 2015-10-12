@@ -37,7 +37,7 @@
 
 安裝命令假設的是 Ubuntu，但是您可以對任何支援的 Linux distro 採用此安裝。
 
-script-vm VM 需要安裝 Azure CLI，並且與 Azure 之間具有正常運作的連線。如需此動作的說明，請參閱[安裝與設定 Azure 命令列介面](../xplat-cli.md)。
+script-vm VM 需要安裝 Azure CLI，並且與 Azure 之間具有正常運作的連線。如需此動作的說明，請參閱[安裝與設定 Azure 命令列介面](../xplat-cli-install.md)。
 
 ## 上傳指令碼
 
@@ -109,4 +109,4 @@ script-vm VM 需要安裝 Azure CLI，並且與 Azure 之間具有正常運作�
 
 [Azure 上的 Linux 和開放原始碼運算](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

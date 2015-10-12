@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="啟動和停止虛擬機器 - Graph | Microsoft Azure"
-   description="Azure 自動化解決方案的 PowerShell 工作流程版本，包含可啟動和停止傳統虛擬機器的 Runbook。"
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="啟動和停止虛擬機器 - Graph | Microsoft Azure"
+	description="Azure 自動化解決方案的 PowerShell 工作流程版本，包含可啟動和停止傳統虛擬機器的 Runbook。"
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
 # Azure 自動化解決方案 - 啟動和停止虛擬機器
 
@@ -54,7 +54,7 @@ Runbook 包含一個稱為**讀我檔案**的活動，其中含有描述和所�
 Runbook 需要下列資產，您必須建立這些資產並填入適當的值。名稱是預設值。您可以用不同的名稱來使用這些資產，但必須於啟動 Runbook 時，先在[輸入參數](#using-the-solution)中指定這些名稱。
 
 | 資產類型 | 預設名稱 | 說明 |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | [認證](automation-credentials.md) | AzureCredential | 包含帳戶的認證，此帳戶有權啟動和停止 Azure 訂用帳戶中的虛擬機器。 |
 | [變數](automation-variables.md) | AzureSubscriptionId | 包含 Azure 訂用帳戶的訂用帳戶識別碼。 |
 
@@ -65,7 +65,7 @@ Runbook 需要下列資產，您必須建立這些資產並填入適當的值。
 每個 Runbook 都有下列[輸入參數](automation-starting-a-runbook#runbook-parameters)。您必須提供任何必要參數的值，另外可根據您的需求，選擇性地提供其他參數的值。
 
 | 參數 | 類型 | 強制 | 說明 |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | 字串 | 否 | 如果提供一個值，則會啟動或停止具有該服務名稱的所有虛擬機器。如果不提供任何值，則會啟動或停止 Azure 訂用帳戶中的所有傳統虛擬機器。 |
 | AzureSubscriptionIdAssetName | 字串 | 否 | 包含[變數資產](#installing-the-solution)的名稱，此資產含有 Azure 訂用帳戶的訂用帳戶識別碼。如果不指定任何值，則會使用 *AzureSubscriptionId*。 |
 | AzureCredentialAssetName | 字串 | 否 | 包含[認證資產](#installing-the-solution)的名稱，此資產含有要使用的 Runbook 認證。如果不指定任何值，則會使用 *AzureCredential*。 |
@@ -153,4 +153,4 @@ Runbook 的最後一個步驟是傳送輸出，而不論是否成功提交每個
 - [Azure 自動化中的子 Runbook](automation-child-runbooks.md) 
 - [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

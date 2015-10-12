@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="使用 ExpressRoute 的網路組態詳細資料" 
 	description="在連接至 ExpressRoute 循環之虛擬網路中執行 App Service 環境的網路組態詳細資料。" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -126,4 +126,4 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

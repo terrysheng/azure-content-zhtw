@@ -58,7 +58,7 @@
 
 ## WebDeployPackage
 
-要發佈至網站的 Web 部署封裝路徑。您可以使用 Visual Studio 的 [發佈 Web] 精靈來建立此封裝。請參閱[如何：在 Visual Studio 中建立 Web 部署封裝](http://go.microsoft.com/fwlink/p/?LinkID=623089)。
+要發佈至網站的 Web 部署封裝路徑。您可以使用 Visual Studio 的 [發佈 Web] 精靈來建立此封裝。如需詳細資訊，請參閱[開始使用 Azure 雲端服務和 ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089)。
 
 |參數|預設值|
 |---|---|
@@ -97,7 +97,7 @@
 
 ## 備註
 
-如需如何使用指令碼來建立開發和測試環境的完整說明，請參閱[使用 Windows PowerShell 指令碼來發佈至開發和測試環境](https://msdn.microsoft.com/library/azure/dn642480.aspx)。
+如需如何使用指令碼來建立開發和測試環境的完整說明，請參閱[使用 Windows PowerShell 指令碼來發佈至開發和測試環境](vs-azure-tools-publishing-using-powershell-scripts.md)。
 
 JSON 組態檔會指定待部署項目的詳細資料。它會包含您在建立專案時所指定的資訊，例如網站的名稱和使用者名稱。它還包含要佈建的資料庫 (如果有的話)。下列程式碼片段將顯示一個 JSON 組態檔範例：
 
@@ -127,6 +127,6 @@ JSON 組態檔會指定待部署項目的詳細資料。它會包含您在建立
 
 ## 後續步驟
 
-[Publish-WebApplicationVM (Windows PowerShell 指令碼)](https://msdn.microsoft.com/library/azure/dn689112.aspx)
+如需詳細資訊，請參閱 [Publish-WebApplicationVM (Windows PowerShell 指令碼)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -23,12 +23,13 @@
 
 | 說明 | 示範 | 語言/架構 |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
-| [事件中樞 Spout 和 Bolt](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | 事件中樞 Spout 和 Bolt 的來源 | Java |
+| [事件中樞 Spout 和 Bolt 來源](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | 事件中樞 Spout 和 Bolt 的來源 | Java |
 | [開發 Apache Storm on HDInsight 的 Java 型拓撲][5797064f] | Maven | Java |
 | [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲][16fce2d1] | HDInsight Tools for Visual Studio | C#，Java |
 | [在 C# Storm 拓樸中建立多個資料流][ec5a4064] | 多個資料流 | C# |
 | [決定含 Apache Storm on HDInsight 的 Twitter 趨勢主題][3c86c7c8] | Trident | Java，Trident |
-| [利用 Storm on HDInsight 處理 Azure 事件中心的事件][844d1d81] | 事件中心 | C# 和 Java |
+| [利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)][844d1d81] | 事件中心 | C# 和 Java |
+| [使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](hdinsight-storm-develop-java-event-hub-topology.md) | 事件中心 | Java |
 | [使用 Power Bi (預覽) 來視覺化 Storm 拓撲的資料][94d15238] | Power BI | C# |
 | [在 HDInsight 中使用 Storm 和 HBase 分析感應器資料][ab894747] | 事件中心、HBase、Socket.IO、Web 儀表板 | C#、Java、JavaScript、HTML |
 | [使用 Storm on HDInsight 處理事件中心的車輛感應器資料][246ee964] | 事件中心、DocumentDb、Azure 儲存體 Blob (WASB) | C#，Java |
@@ -58,4 +59,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "此專案包含 spout、bolt 和拓撲的範本，藉此和各種 Azure 服務進行互動，例如事件中心、DocumentDB 和 SQL Database。"
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

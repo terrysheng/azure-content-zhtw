@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
-   ms.author="bwren" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # 在 Azure 自動化中啟動 Runbook
 
@@ -49,7 +49,6 @@
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">Azure 自動化 API</a></td>
   <td>
    <ul>
@@ -62,7 +61,6 @@
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
   <td>
    <ul>
@@ -74,6 +72,16 @@
   </td>
  </tr>
  <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">回應 Azure 警示</a></td>
+  <td>
+   <ul>
+    <li>啟動 Runbook 以回應 Azure 警示。</li>
+    <li>設定 Runbook 的 Webhook 以及警示的連結。</li>
+    <li>在 URL 中使用安全性權杖進行驗證。</li>
+    <li>目前僅支援度量的警示。</li>
+   </ul>
+  </td>
+ </tr>
  <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">排程</a></td>
   <td>
@@ -232,4 +240,4 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 - [從另一個 Runbook 啟動 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -14,6 +14,6 @@
  
 現在，已設定您的應用程式和行動服務使用您的驗證提供者。您可以選擇性對想要支援的每個額外身分識別提供者重複所有步驟。
 
-    > [AZURE.IMPORTANT] Verify that you've set the correct redirect URI on your identity provider's developer site. As described in the linked instructions for each provider above, the redirect URI may be different for a .NET backend service vs. for a JavaScript backend service. An incorrectly configured redirect URI may result in the login screen not being displayed properly and the app malfunctioning in unexpected ways.
+> [AZURE.IMPORTANT]確認您已在身分識別提供者開發人員網站上設定正確的重新導向 URI。如上方每個提供者的連結指示所述，.NET 後端服務與 JavaScript 後端服務的重新導向 URI 可能會有所不同。設定錯誤的重新導向 URI 可能會導致無法正確顯示登入畫面，以及應用程式可能會以非預期的方式失去作用。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

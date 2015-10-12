@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # 使用通知中心將當地語系化的即時新聞傳送至 iOS 裝置
 
 > [AZURE.SELECTOR]
@@ -220,4 +221,4 @@
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS 的通知中心作法]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

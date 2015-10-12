@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple 系統限制 | Microsoft Azure"
-   description="描述 StorSimple 元件和連接的系統限制和建議大小。"
+   description="描述 StorSimple 8000 系列元件和連線的系統限制和建議大小。"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # StorSimple 系統限制
@@ -27,4 +27,4 @@ StorSimple 提供您的資料中心的擴充性和彈性儲存體。不過，當
 
 請檢閱 [StorSimple 系統需求](storsimple-system-requirements.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -37,6 +37,8 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 * [完成在另一部電腦上使用 SQL Server Management Studio 連接到虛擬機器的組態步驟](#SSMS)
 * [後續步驟](#Optional)
 
+>[AZURE.NOTE]本文說明如何使用現有的 Azure 管理入口網站佈建 SQL Server VM。不過，也可以在[新的入口網站](https://manage.windowsazure.com)建立及管理 SQL Server VM。新的入口網站有一些優點，例如預設使用進階儲存體，以及其他選項，例如自動修補、自動備份及 AlwaysOn 組態。後續內容會提供逐步指示。
+
 ##<a id="Provision">從資源庫佈建 SQL Server 虛擬機器</a>
 
 1. 使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
@@ -66,13 +68,8 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 	>[AZURE.NOTE]虛擬機器的大小可在佈建期間指定：
  	>
-	> - 我們建議生產工作負載採用 A2 大小。 
-    > - 使用 SQL Server Enterprise Edition 時，虛擬機器的最小建議大小為 A3。
-    > - 當您使用 SQL Server Enterprise Edition 時，請選取 A3 或以上的大小。
-   	> - 使用已針對交易式工作負載映像最佳化的 SQL Server 2012 或 2014 Enterprise 時，請選取 A4 以上的大小。  
-   	> - 使用已針對資料倉儲工作負載映像最佳化的 SQL Server 2012 或 2014 Enterprise 時，請選取 A7 以上的大小。 
-   	> - 為了達到最佳效能，請使用具有進階儲存體的 DS2 或 DS3。如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)。
-   	> - 選取的大小會限制可設定的資料磁碟數目。如需可用之虛擬機器大小和可連接至虛擬機器之資料磁碟數目的最新資訊，請參閱[虛擬機器](virtual-machines-size-specs.md)。
+	> - 生產環境工作負載使用的進階儲存體，建議至少為下列大小：SQL Server Enterprise Edition 為 **DS3**，SQL Server Standard Edition 為 **DS2**。如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)。
+	> - 所選大小會限制可設定的資料磁碟數目。如需可用之虛擬機器大小和可連接至虛擬機器之資料磁碟數目的最新資訊，請參閱[虛擬機器](virtual-machines-size-specs.md)。
 
 5. 輸入 VM 組態的詳細資料後，請按一下右下角的下一步箭頭以繼續。
 
@@ -80,7 +77,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	- 在 [雲端服務] 方塊中，選擇 [Create a new cloud service]。
 	- 在 [Cloud Service DNS Name] 方塊中，提供選擇之 DNS 名稱的第一個部分，使其形成 **TESTNAME.cloudapp.net** 格式的名稱 
 	- 如果您有多個訂用帳戶可供選擇，請選取 [訂用帳戶]。此選擇會決定可使用哪些 **儲存體帳戶**。
-	- 在 [REGION/AFFINITY GROUP/VIRTUAL NETWORK] 方塊中，選取代管這個虛擬映像的所在區域。
+- 在 [REGION/AFFINITY GROUP/VIRTUAL NETWORK] 方塊中，選取代管這個虛擬映像的所在區域。
 	- 在 [儲存體帳戶] 中，可以自動產生帳戶，或從清單中選取一個帳戶。變更 [訂用帳戶] 以查看更多帳戶。 
 	- 在 [可用性設定組] 方塊中，選取 [(無)]。
 	- 閱讀及接受法律條款。
@@ -118,11 +115,11 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 使用 Windows 遠端桌面連接到虛擬機器之後，虛擬機器的運作方式與任何其他電腦很像。請依照正常方法使用 SQL Server Management Studio (於虛擬機器上運作) 連接 SQL Server 的預設執行個體。
 
-##<a id="SSMS">透過另一部電腦上的 SSMS 連接到 SQL Server VM 執行個體</a>
+##<a id="SSMS">透過另一部電腦上的 SSMS 連線到 SQL Server VM 執行個體</a>
 
 [AZURE.INCLUDE [連接至 VM 中的 SQL Server](../../includes/virtual-machines-sql-server-connection-steps.md)]
 
-## <a id="cdea">從應用程式連接到資料庫引擎</a>
+## <a id="cdea">從應用程式連線到資料庫引擎</a>
 
 如果您可以使用 Management Studio 連接於 Azure 虛擬機器上運作的 SQL Server 執行個體，應該能使用與下文相似的連線字串進行連接。
 
@@ -158,4 +155,4 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

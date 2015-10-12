@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/29/2015"
 	ms.author="juliako"/>
 
 
-#使用.NET SDK 建立通道，以執行從單一位元速率到多位元速率串流的即時編碼 (預覽)
+#使用 .NET SDK 建立通道，以執行從單一位元速率到多位元速率串流的即時編碼
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -37,32 +37,27 @@
 下列步驟說明建立常見即時串流應用程式所包含的工作。
 
 1. 將攝影機連接到電腦。啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
-	
-	此步驟也可以在您建立通道之後執行。
+
+此步驟也可以在您建立通道之後執行。
 
 1. 建立並啟動通道。
 
 1. 擷取通道內嵌 URL。
 
-	內嵌 URL 可供即時編碼器用來傳送串流到通道。
-1. 擷取通道預覽 URL。 
+內嵌 URL 可供即時編碼器用來傳送串流到通道。1.擷取通道預覽 URL。
 
-	使用此 URL 來確認您的通道會正確接收即時串流。
+使用此 URL 來確認您的通道會正確接收即時串流。
 
 2. 建立資產。
-3. 如果您想要在播放期間動態加密資產，請執行下列動作： 	
-	
-	1. 	建立內容金鑰。 
-	1. 	設定內容金鑰的授權原則。
+3. 如果您想要在播放期間動態加密資產，請執行下列動作：
+
+1. 	建立內容金鑰。
+1. 	設定內容金鑰的授權原則。
 1. 設定資產傳遞原則 (供動態封裝和動態加密使用)。
 3. 建立程式，並指定使用您所建立的資產。
-1. 藉由建立 OnDemand 定位器，發行與程式相關聯的資產。  
+1. 藉由建立 OnDemand 定位器，發行與程式相關聯的資產。
 
-	請確定在您想串流內容的串流端點上至少有一個串流保留的單元。
-1. 當您準備好開始串流和封存時，請啟動程式。
-2. 即時編碼器會收到啟動公告的信號 (選擇性)。公告會插入輸出串流中。
-1. 每當您想要停止串流處理和封存事件時，請停止程式。
-1. 刪除程式 (並選擇性地刪除資產)。   
+請確定在您想串流內容的串流端點上至少有一個串流保留單元。1.當您準備好開始串流和封存時，請啟動程式。2.即時編碼器會收到啟動公告的信號 (選擇性)。公告會插入輸出串流中。1.每當您想要停止串流處理和封存事件時，請停止程式。1.刪除程式 (並選擇性地刪除資產)。
 
 ##本主題內容
 
@@ -72,15 +67,15 @@
 
 1. 建立並啟動通道。使用長時間執行的 API。
 1. 取得通道內嵌 (輸入) 端點。此端點應該提供給可以傳送單一位元速率即時串流的編碼器。
-1. 取得預覽端點。此端點可用來預覽您的串流。 
+1. 取得預覽端點。此端點可用來預覽您的串流。
 1. 建立將用來儲存內容的資產。資產傳遞原則也應該另外設定，如此範例中所示。
 1. 建立程式，並指定使用稍早建立的資產。啟動程式。使用長時間執行的 API。
 1. 建立資產的定位器，讓內容發行，並且可以串流至用戶端。
 1. 顯示和隱藏 slate。啟動和停止公告。使用長時間執行的 API。
 1. 清除您的通道和所有相關聯的資源。
 
->[AZURE.NOTE]雖然這項功能只是預覽而已，但是即時事件的最大建議持續時間是 8 小時。
->
+>[AZURE.NOTE]即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
+
 ##必要條件
 需要有下列項目，才能完成教學課程。
 
@@ -90,7 +85,7 @@
 - 網路攝影機和可以傳送單一位元速率即時串流的編碼器。
 
 ##設定使用媒體服務 SDK for.NET 的開發
- 
+
 1. 使用 Visual Studio 建立主控台應用程式。
 1. 使用媒體服務 NuGet 封裝，將媒體服務 SDK for.NET 新增至您的主控台應用程式。
 
@@ -98,17 +93,11 @@
 您的最佳做法是使用 app.config 檔案來儲存媒體服務名稱和帳戶金鑰。
 
 >[AZURE.NOTE]若要尋找名稱和金鑰值，請移至 Azure 入口網站，並選取您的媒體服務帳戶，然後按一下入口網站視窗底部的「管理金鑰」圖示。按一下每個文字方塊旁邊的圖示，會將值複製到系統剪貼簿。
- 
+
 將 [appSettings] 區段新增至 app.config 檔案，並設定媒體服務帳戶名稱和帳戶金鑰的值。
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 
@@ -508,4 +497,4 @@
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

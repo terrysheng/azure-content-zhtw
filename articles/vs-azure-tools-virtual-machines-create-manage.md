@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # 在 Visual Studio 中建立和管理 Azure 虛擬機器
@@ -61,19 +61,19 @@
 
     您將透過遠端桌面使用新名稱和密碼來登入電腦，所以最好能記新名稱和密碼，以免忘記。在 Visual Studio 中建立 Azure 虛擬機器之後，您可以在 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)中變更其大小和其他設定。
 
-   >[AZURE.NOTE]如果您選擇較大的虛擬機器，可能會酌收額外的費用。如需詳細資訊，請參閱[虛擬機器定價詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)。
+        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
-1. 在 Visual Studio 中建立的虛擬機器需要雲端服務。在 [雲端服務設定] 頁面上，選取虛擬機器的雲端服務，如果您還沒有雲端服務或想使用新的雲端服務，請按一下下拉式清單中的 <建立新的...>。儲存體帳戶也是必要的，所以請在 [儲存體帳戶] 下拉式清單方塊中選擇儲存體帳戶 (或建立新的儲存體帳戶)。如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](./storage/storage-introduction/)。
+1. 在 Visual Studio 中建立的虛擬機器需要雲端服務。在 [雲端服務設定] 頁面上，選取虛擬機器的雲端服務，如果您還沒有雲端服務或想使用新的雲端服務，請按一下下拉式清單中的 [<建立新的...>]。儲存體帳戶也是必要的，所以請在 [儲存體帳戶] 下拉式清單方塊中選擇儲存體帳戶 (或建立新的儲存體帳戶)。如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](./storage/storage-introduction/)。
 
 1. 如果您想要指定虛擬網路 (這是選擇性的)，請在 [虛擬網路] 和 [子網路] 下拉式清單方塊中進行選取。
 
     屬於可用性集合的虛擬機器會部署到不同的容錯網域。如需詳細資訊，請參閱 [Azure 虛擬網路](http://www.windowsazure.com/services/virtual-network/)。
 
-1. 如果您希望虛擬機器屬於可用性集合 (也是選擇性的)，請選取 [指定可用性集合] 核取方塊，然後選擇 下拉式清單方塊中的可用性集合。完成時，選擇 [下一步] 按鈕。
+1. 如果您希望虛擬機器屬於可用性集合 (也是選擇性的)，請選取 [指定可用性集合] 核取方塊，然後選擇下拉式清單方塊中的可用性集合。完成時，選擇 [下一步] 按鈕。
 
     將虛擬機器新增至可用性集合，有助於讓應用程式在網路故障、本機磁碟硬體故障和任何規劃停機期間仍可使用。您必須使用 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)來建立虛擬網路、子網路和可用性集合。如需詳細資訊，請參閱[管理虛擬機器的可用性](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/)。
 
-1. 在 [端點] 頁面上，指定您要提供給您的虛擬機器使用者使用的公用端點。例如，除了預設啟用的遠端桌面和 PowerShell 端點以外，您可以選擇啟用 HTTP (連接埠 80)。若要新增端點，請選擇在 [連接埠名稱] 下拉式清單方塊中選擇一個端點，然後選擇 [新增] 按鈕。若要移除端點，請選擇端點清單中名稱旁邊的紅色 **X**。
+1. 在 [端點] 頁面上，指定您要提供給您的虛擬機器使用者使用的公用端點。例如，除了預設啟用的遠端桌面和 PowerShell 端點以外，您可以選擇啟用 HTTP (連接埠 80)。若要新增端點，請選擇在 [連接埠名稱] 下拉式清單方塊中選擇一個端點，然後選擇 [加入] 按鈕。若要移除端點，請選擇端點清單中名稱旁邊的紅色 **X**。
 
     ![虛擬機器精靈中的 [端點] 頁面。](./media/vs-azure-tools-virtual-machines-create-manage/IC718351.png)
 
@@ -149,7 +149,7 @@
 
     ![擷取虛擬機器檢查點](./media/vs-azure-tools-virtual-machines-create-manage/IC744144.png)
 
-    當檢查點作業完成時，您會在 [Azure 活動記錄檔]中看到它。
+    當檢查點作業完成時，您會在 [Azure 活動記錄檔] 中看到它。
 
     ![已完成檢查點作業](./media/vs-azure-tools-virtual-machines-create-manage/IC744145.png)
 
@@ -163,7 +163,7 @@
 
 1. 移至 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)。
 
-1. 在 [虛擬機器組態] 頁面，選擇頁面頂端 [映像] 索引標籤。
+1. 在 [虛擬機器組態] 頁面，選擇頁面頂端的 [映像] 索引標籤。
 
 1. 選取您要刪除的檢查點，然後選擇頁面底部的 [刪除] 按鈕。
 
@@ -177,4 +177,4 @@
 
 若要了解建立虛擬機器的詳細資訊，請參閱[建立執行 Linux 的虛擬機器](virtual-machines-linux-tutorial.md)和[在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

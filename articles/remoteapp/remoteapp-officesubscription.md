@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/09/2015" 
+    ms.date="09/24/2015" 
     ms.author="elizapo" />
 
 
@@ -26,11 +26,14 @@
 
 可以！ 事實上，使用 Office 365 訂閱是將您的 Office 應用程式帶入 Azure RemoteApp 的唯一方式。
 
+(請注意：如果您的 Azure RemoteApp 部署由託管合作夥伴傳遞，它們可能會根據[服務提供者授權協定](http://www.microsoft.com/zh-TW/Licensing/licensing-programs/spla-program.aspx)為您提供 Office 授權)
+
+
 Office 365 訂閱最棒的一點是，它可讓您在許多不同平台和環境 (包括 Azure 雲端) 中使用相同的使用者授權。當您在 Azure RemoteApp 中使用 Office 應用程式時，無須以任何特別方式購買其他授權或設定現有的授權。您只需要包含 [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx) 的 Office 365 訂閱。
 
 Office 365 ProPlus 會提供[共用電腦啟用](https://technet.microsoft.com/library/Dn782860.aspx)，這項功能可在虛擬和雲端環境 (例如，Azure RemoteApp 和遠端桌面服務) 中，提供適用於 Office 的暫時使用者型啟用方式。
 
-哪些 Office 365 方案包含 Office 365 ProPlus？ 請查看[各方案中可用的服務](https://technet.microsoft.com/library/office-365-plan-options.aspx)表格。請注意，並非所有的方案都包含 Office 365 ProPlus (例如 Office 365 商務方案)。如果您的方案不包含 Office 365 ProPlus，請考慮升級為包含該產品的方案 (例如 Office 365 教育版 E3)。
+哪些 Office 365 方案包含 Office 365 ProPlus？ 請查看[各方案中可用的服務](https://technet.microsoft.com/library/office-365-plan-options.aspx)資料表。請注意，並非所有的方案都包含 Office 365 ProPlus (例如 Office 365 商務方案)。如果您的方案不包含 Office 365 ProPlus，請考慮升級為包含該產品的方案 (例如 Office 365 教育版 E3)。
 
 ## 那麼，如何搭配 Azure RemoteApp 使用我的 Office 365 ProPlus 授權呢？
 
@@ -84,8 +87,8 @@ RemoteApp 訂用帳戶中的 Office 365 ProPlus 映像包含 Visio Pro 和 Proje
 現在您的組態檔應該會包含這幾行：
 	
 		<Display Level="NONE" AcceptEULA="TRUE" />
-		<Propery Name="SharedComputerLicensing" Value="1" />
-		<Updated Enabled="FALSE" />
+		<Property Name="SharedComputerLicensing" Value="1" />
+		<Updates Enabled="FALSE" />
 
 ## 那麼，要如何使用 Office 365 ProPlus 更新映像呢？
 
@@ -117,4 +120,4 @@ RemoteApp 訂用帳戶中的 Office 365 ProPlus 映像包含 Visio Pro 和 Proje
 - [使用 Office 部署工具部署和更新 Office 365 ProPlus](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (影片)
 - [設定 Office 365 ProPlus 的更新設定](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

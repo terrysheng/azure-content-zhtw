@@ -34,11 +34,11 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a 
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **Azure CLI** - 請參閱 [安裝及設定 Azure CLI](../xplat-cli.md) 以取得安裝和設定資訊。
+- **Azure CLI** - 請參閱 [安裝及設定 Azure CLI](../xplat-cli-install.md) 以取得安裝和設定資訊。
 
 ##安裝
 
-如果您尚未這麼做，請使用[安裝及設定 Azure CLI](../xplat-cli.md)文件來安裝及設定 Azure CLI。
+如果您尚未這麼做，請使用[安裝及設定 Azure CLI](../xplat-cli-install.md)文件來安裝及設定 Azure CLI。
 
 ##佈建 HDInsight 叢集
 
@@ -132,8 +132,11 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 	azure hdinsight cluster delete <ClusterName>
 
+##<a name="scaling"></a>調整叢集
 
+若要使用 Azure PowerShell 變更 Hadoop 叢集大小，請從用戶端電腦執行下列命令：
 
+	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>
 
 ##後續步驟
 本文中，您學到如何執行不同的 HDInsight 叢集管理工作。若要深入了解，請參閱下列文章：
@@ -144,7 +147,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 * [如何使用 Azure CLI][azure-command-line-tools]
 
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -160,4 +163,4 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "列出和顯示叢集"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="在 HDInsight 中搭配使用 Hadoop Hive 與 Curl | Microsoft Azure"
-	description="了解如何使用 Curl 從遠端提交 Pig 工作到 HDInsight。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="了解如何使用 Curl 從遠端提交 Pig 工作到 HDInsight。"
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #使用 Curl 在 HDInsight 中以 Hadoop 執行 Hive 查詢
 
@@ -116,7 +116,7 @@
 
 4. 工作狀態變更為 [**成功**] 之後，即可從 Azure Blob 儲存體擷取工作結果。隨查詢一起傳送的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 ****wasb:///example/curl**。此位址會將工作輸出儲存至 HDInsight 叢集所使用之預設儲存體容器的 **example/curl** 目錄中。
 
-    您可以使用[適用於 Mac、Linux 和 Windows 的 Azure CLI](xplat-cli.md) 來列出並下載這些檔案。例如，若要列出 **example/curl** 中的檔案，請使用下列命令：
+    您可以使用[適用於 Mac、Linux 和 Windows 的 Azure CLI](xplat-cli-install.md) 來列出並下載這些檔案。例如，若要列出 **example/curl** 中的檔案，請使用下列命令：
 
 		azure storage blob list <container-name> example/curl
 
@@ -194,4 +194,4 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

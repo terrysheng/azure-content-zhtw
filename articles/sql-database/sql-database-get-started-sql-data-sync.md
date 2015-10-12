@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="JennieHubbard"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="spelluru"/>
+	ms.date="09/24/2015"
+	ms.author="jhubbard"/>
 
 
 #開始使用 Azure SQL 資料同步 (預覽)
@@ -40,7 +40,7 @@
 
 
 ## 步驟 2：新增用戶端代理程式
-只有在您要將內部部署 SQL Server 資料庫納入同步群組時，才需要執行這個步驟。如果同步群組只有 SQL Database 執行個體，可以略過步驟 4：建立同步群組。
+只有在您要將內部部署 SQL Server 資料庫納入同步群組時，才需要執行這個步驟。如果同步群組只有 SQL Database 執行個體，請跳到步驟 4。
 
 <a id="InstallRequiredSoftware"></a>
 ### 步驟 2a：安裝必要的軟體
@@ -202,4 +202,4 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 
  
 
-<!-----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

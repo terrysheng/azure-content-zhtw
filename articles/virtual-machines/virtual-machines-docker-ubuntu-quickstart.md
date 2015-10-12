@@ -24,7 +24,7 @@
 
 您可以立即使用 SSH 連接到 VM，並直接開始使用 Docker 執行工作，無須執行其他動作。
 
-> [AZURE.NOTE]Azure Marketplace 範本所建立的 VM 並未裝載遠端 Docker 用戶端管理所需的 Docker 遠端 API。若要啟用從遠端在此 VM 上控制 Docker 主機的功能，請參閱[使用 HTTPS 執行 Docker](https://docs.docker.com/articles/https/)，或依照[從 Azure 入口網站使用 Docker VM 延伸模組](virtual-machines-docker-with-portal.md)或[從 Azure CLI 使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli.md)中的步驟進行操作。如果您想要與眾不同，您可以從 Github 建置 [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet) 並加以試用 (或僅從 [nuget](https://www.nuget.org/packages/Docker.DotNet/) 加以擷取)。
+> [AZURE.NOTE]Azure Marketplace 範本所建立的 VM 並未裝載遠端 Docker 用戶端管理所需的 Docker 遠端 API。若要啟用從遠端在此 VM 上控制 Docker 主機的功能，請參閱[使用 HTTPS 執行 Docker](https://docs.docker.com/articles/https/)，或依照[從 Azure 入口網站使用 Docker VM 延伸模組](virtual-machines-docker-with-portal.md)或[從 Azure CLI 使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli-install.md)中的步驟進行操作。如果您想要與眾不同，您可以從 Github 建置 [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet) 並加以試用 (或僅從 [nuget](https://www.nuget.org/packages/Docker.DotNet/) 加以擷取)。
 
 ## 登入入口網站
 
@@ -77,4 +77,4 @@
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

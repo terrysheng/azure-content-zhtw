@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="如何設定 Web 應用程式的 TLS 相互驗證" 
 	description="了解如何設定 Web 應用程式在 TLS 上使用用戶端憑證驗證。" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -179,4 +179,4 @@ Azure Web 應用程式平台不會對傳送給應用程式的用戶端憑證進�
         }
     }
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

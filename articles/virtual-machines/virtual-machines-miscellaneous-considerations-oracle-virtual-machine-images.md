@@ -105,4 +105,4 @@ Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data 
 ##其他資源
 [Azure 的 Oracle 虛擬機器影像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

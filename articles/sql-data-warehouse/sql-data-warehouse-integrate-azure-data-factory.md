@@ -29,26 +29,26 @@ Azure Data Factory 可讓資料在內部部署來源與不同的 Azure 服務之
 + 內部部署 SQL Server
 + IaaS 上的 SQL Server
 
-如需有關如何設定資料複製活動的資訊，請參閱[使用 Azure Data Factory 複製資料][]。
+如需有關如何設定資料複製活動的資訊，請參閱[使用 Azure Data Factory 複製資料](../data-factory/data-factory-data-movement-activities.md)。
 
 ## 預存程序
  如同可用來排程資料傳輸，Azure Data Factory 也可以用來協調預存程序的執行。這允許建立更多複雜的管線並擴充 Azure Data Factory 的功能，以利用 SQL 資料倉儲的運算能力。
 
 ## 後續步驟
-如需整合概觀，請參閱 [SQL 資料倉儲整合概觀][]。如需更多開發秘訣，請參閱 [SQL 資料倉儲開發概觀][]。
+如需整合概觀，請參閱 [SQL 資料倉儲整合概觀](sql-data-warehouse-overview-integrate.md)。如需更多開發秘訣，請參閱 [SQL 資料倉儲開發概觀](sql-data-warehouse-overview-develop.md)。
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
-[SQL 資料倉儲開發概觀]: ./sql-data-warehouse-overview-develop/
-[SQL 資料倉儲整合概觀]: ./sql-data-warehouse-overview-integration/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/zh-TW/documentation/articles/data-factory-azure-sql-connector/
+[SQL Data Warehouse development overview]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-integrate/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Azure Data Factory 文件]: https://azure.microsoft.com/documentation/services/data-factory/
-[使用 Azure Data Factory 複製資料]: https://azure.microsoft.com/ZH-TW/documentation/articles/data-factory-data-movement-activities/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/zh-TW/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

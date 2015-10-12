@@ -239,4 +239,4 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 [開始建立記錄集和記錄](dns-getstarted-create-recordset-cli.md)<BR> [在 DNS 區域上執行作業](dns-operations-dnszones-cli.md)<BR> [使用 .NET SDK 將作業自動化](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

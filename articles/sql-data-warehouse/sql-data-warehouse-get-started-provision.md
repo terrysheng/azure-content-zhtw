@@ -1,177 +1,97 @@
 <properties
-   pageTitle="快速入門：佈建 SQL 資料倉儲 | Microsoft Azure"
-   description="遵循這些步驟和指導方針來佈建 SQL 資料倉儲。"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
-
+	pageTitle="在 Azure Preview 入口網站中建立 SQL 資料倉儲資料庫 | Microsoft Azure"
+	description="了解如何在 Azure Preview 入口網站中建立 Azure SQL 資料倉儲"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="lodipalm"
+	manager="barbkess"
+	editor=""
+	tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="09/29/2015"
+   ms.author="lodipalm;barbkess"/>
 
-# 快速入門：佈建 SQL 資料倉儲 #
+# 在 Azure Preview 入口網站中建立 SQL 資料倉儲#
 
-本文可協助您在 Azure 中佈建 SQL 資料倉儲。依照本指南，您將執行下列工作：
+本教學課程示範在 Azure Preview 入口網站中建立 Azure SQL 資料倉儲有多麼容易，只需數分鐘。
 
-1. 建立新的 SQL 資料倉儲資料庫。
-2. 設定新的邏輯伺服器。
-3. 設定 Azure 防火牆規則以啟用外部用戶端存取。
+在本逐步解說中，您將：
 
-## Azure 免費試用 ##
-您必須擁有 Azure 訂用帳戶和 SQL Data Warehouse Preview 的核准以完成下列工作。如果您還沒有 Azure 訂用帳戶的存取權，其實解決此問題就是您的第一步！
+- 建立新的 SQL 資料倉儲資料庫。
+- 為您的資料庫建立伺服器。
+- 將 AdventureWorksDW 載入新的資料庫。
 
-您可以取得[免費試用][]，讓您嘗試任何 Azure 服務，包括 SQL 資料倉儲。
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 
-## 登入 Azure 入口網站 ##
+## 登入並尋找 SQL 資料倉儲
 
-擁有訂用帳戶後，您即可登入 [Azure 入口網站][]。繼續進行並立即登入。
+1. 登入 [Preview 入口網站](https://portal.azure.com)。
 
-在後續一系列的步驟中，我們將快速啟動全新的邏輯伺服器，並建立新的 SQL 資料倉儲資料庫。
+2. 在 [中樞] 功能表上，按一下 [新增] > [資料 + 儲存體] > [SQL 資料倉儲]。
 
-## 找出 SQL 資料倉儲服務
+	![建立資料倉儲](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
 
-我們必須做的第一件事就是在 Azure 入口網站中找出 SQL 資料倉儲服務。
+## 設定效能和其他基本設定
 
-Azure 入口網站的左上角有一個 [新增] 按鈕。[新增] 按鈕是在 Azure 中建立任何新服務的起點。
+在 [SQL 資料倉儲] 窗格中，填入下列欄位。「伺服器」和「來源」會在下一節設定。
 
-- 現在按一下 [新增] 按鈕。
+1. **資料庫名稱**：輸入您的 SQL 資料倉儲資料庫的名稱。
 
-### 資料 + 儲存體
+2. **效能**：當您在佈建時，可以調整您的執行個體開始時的效能。建議您從 400 DWU 開始，因為它可讓您看到 SQL 資料倉儲提供的更多 MPP 優勢。
+     
+    ![名稱和 DWU](./media/sql-data-warehouse-get-started-provision/name-and-dwu.png)
 
-按一下 [新增] 按鈕會開啟所有的 Azure 服務類別。SQL 資料倉儲居位於 [資料 + 儲存體] 類別中。
+    > [AZURE.NOTE]我們是以資料倉儲單位 (DWU) 測量效能。當您增加 DWU 時，SQL 資料倉儲會為您的資料倉儲資料庫作業增加可用的運算資源。
 
-- 按一下 [資料 + 儲存體] 向內切入，並查看 Azure 為此類別提供的服務。
+	> [AZURE.NOTE]在資料庫建立後，您可以快速、輕鬆地變更效能等級。例如，如果您目前未使用資料庫，向左移動滑桿可降低成本。或是在需要更多資源時提高效能。這是 SQL 資料倉儲的可擴充功能。
+	
 
-### SQL 資料倉儲
+2. **資源群組**。保留預設值。資源群組是一種容器，主要是為協助您管理 Azure 資源集合所設計。深入了解[資源群組](../azure-portal/resource-group-portal.md)。
+3. **訂用帳戶**。選取為此資料庫付費的訂用帳戶。
 
-您可以看到 Azure 提供了很多資料和儲存體引擎。不過，本入門指南適用於 SQL 資料倉儲。
 
-- 請繼續進行並選取 **SQL 資料倉儲**。 
+## 設定邏輯伺服器
 
-##使用預覽版的許可
-在您可以開始安裝程序前，您必須經過認可加入預覽計畫。按一下 [註冊預覽計畫] 並提交。當提交獲得核准時，會使用電子郵件通知您。
+3. 按一下 [伺服器] > [建立新伺服器]。這會建立將與您的資料庫相關聯的邏輯伺服器。如果您已經有想要使用的 V12 伺服器，請選擇現有的伺服器，然後移至下一節。
 
-一旦您收到核准，就可以繼續接下來的步驟。請注意：核准可能需要數天來處理。
+    ![建立新伺服器](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
 
-## 設定 SQL 資料倉儲
+    >[AZURE.NOTE]在 SQL 資料倉儲和 SQL Database 中，伺服器在設定雲端式資料庫方面提供一致的方式。在 Azure 中，即使某部伺服器繫結至單一資料中心，它仍不算是實體硬體 (但對 SQL Server 內部部署的執行個體而言，則算是實體硬體)；它是服務軟體的一部分。這就是為什麼我們將它稱為邏輯伺服器。請注意，有別於真實世界，同一部伺服器上執行資料庫和資料倉儲的工作負載，將不會影響彼此效能。
 
-若要完成佈建程序，只需設定 SQL 資料倉儲。
+1. 在 [新伺服器] 視窗中，填入要求的資訊。
 
+    請務必將伺服器名稱、系統管理員名稱及密碼儲存於他處。您需要此資訊才能登入伺服器。- **伺服器名稱**。輸入邏輯伺服器的名稱。- **伺服器系統管理員名稱**。輸入伺服器系統管理員帳戶的使用者名稱。- **密碼**。輸入伺服器系統管理員密碼。- **位置**。選擇靠近您或其他 Azure 資源的地理位置。這會減少網路延遲，因為屬於邏輯伺服器的所有資料庫和資源實際上會在同一區域。
 
-### 資料庫名稱
+    ![設定新的伺服器](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
 
-第一項組態是命名資料庫。
+1. 按一下 [確定] 以儲存伺服器組態設定。
 
+## 載入範例資料庫
 
+1. 選擇 [來源] > [範例] 以使用範例資料庫 AdventureWorksDW 來初始化新資料庫。 
 
-- 在此快速入門中，將資料庫命名為 "MySQLDW"。
+    ![建立資料倉儲](./media/sql-data-warehouse-get-started-provision/create-data-warehouse.png)
 
+## 完成資料庫的建立
 
-> [AZURE.NOTE]當您建立自己的資料庫時，您當然可以如您所願進行命名。不過，需要符合 Azure 的基本命名需求。
+1. 按一下 [建立] 來建立您的 SQL 資料倉儲資料庫。 
 
-### 效能
+1. 現在只需要等待幾分鐘的時間。完成時，您會在首頁上看到範例資料庫。
 
-[效能] 選項是*重要*選項。SQL 資料倉儲會透過此滑桿提供可調整的功效。您可以隨時提升或降低您的效能 - 不限於設定資料倉儲時。您滑動到愈右邊，您可支配的資源就愈多。如果不再需要這些資源，您可以立即將滑桿移回；節省成本。SQL 資料倉儲可讓您依照需求變更您的效能設定檔，而不必重新建立資料倉儲或移動資料。
-
-- 立即使用滑桿，查看資料倉儲單位 (DWU) 如何隨著您向右滑動而增加，以及隨著您移回左邊而減少。
-
-- 離開此步驟之前，請確定您已將滑桿移回左邊。新資料倉儲只是小型資料倉儲，所以我們不需要太多資源；節省資源以供其餘試用使用！
-
-### 選取來源
-
-此選項可讓您選擇從空的資料庫著手。選擇新資料庫做為起點。
-
-> [AZURE.NOTE]還有第二個選項可用。也可允許從預先存在的還原點建立資料庫；還原選項。
-
-### 邏輯伺服器
-
-新的 SQL 資料倉儲資料庫位於邏輯伺服器上。邏輯伺服器可為許多資料庫提供組態一致性，並可找出 Azure 資料中心的服務。
-
-需要設定的選項：1.伺服器名稱。2.伺服器管理員名稱。3.密碼。4.資料中心位置。5.允許 Azure 服務存取伺服器
-
-依需要設定這些值。伺服器名稱必須是唯一的。最好挑選一個鄰近的資料中心，以減少網路延遲。SQL 資料倉儲也包含可運用其他 Azure 服務的強大功能。因此讓 Azure 服務存取的核取方塊保持啟用是不錯的點子。
-
-> [AZURE.NOTE]SQL 資料倉儲必須使用 V12 伺服器。確定此選項已設為 [是]。Azure SQL Database 和 SQL 資料倉儲資料庫也可以共用邏輯伺服器。不過，必須是 V12 伺服器。
-
-> [AZURE.NOTE]將伺服器名稱、伺服器管理員名稱和密碼記在安全的地方。您需要此資訊才能連接到 SQL 資料倉儲資料庫。
-
-### 資源群組
-資源群組是一種容器；主要為了協助您管理 Azure 資源集合。
-
-在此快速入門中，可以讓 [資源群組] 保留其預設值。
-
-深入了解[資源群組](../azure-portal/resource-group-portal.md)。
-
-### 訂閱
-單一使用者可能有一或多個 Azure 訂用帳戶。如果您有多個與您的登入相關聯的訂用帳戶，您可以選擇要使用哪一個訂用帳戶。
-
-不過，就本指南的目的而言，預設值應該就可以了。
-
-我們現在就建立 SQL 資料倉儲！
-
-## 建立您的資料倉儲 ##
-建立您的資料倉儲時，您只需按一下 [建立] 按鈕。
-
-恭喜！ 您已建立您的第一個 SQL 資料倉儲資料庫。
-
-您現在應該回到 [Azure 入口網站][]。請注意，您的 SQL 資料倉儲資料庫已加入此頁。
-
-
-此時，沒有人可以存取 SQL 資料倉儲資料庫。預設為了讓一切安全無虞，此資料庫尚未進行設定以供用戶端存取。
-
-因此，佈建程序的最後一個步驟就是設定此服務以供外部存取。
-
-## 設定 Azure 防火牆 ##
-
-若是初次設定 Azure 防火牆，請採取下列步驟：
-
-1. 按一下左邊導覽刀鋒視窗中的 [瀏覽]。
-
-2. 選擇 [SQL 伺服器]。
-
-3. 選取您的邏輯 SQL Server。
-
-4. 選擇設定。
-
-5. 按一下 [防火牆]。
-
-6. 設定您的防火牆規則。
-
-    請在此執行幾個動作。它們是：- 替您的防火牆規則命名 - 提供一個 IP 範圍 (如果您沒有靜態 IP 位址)
-
-    > [AZURE.NOTE]您必須包含的用戶端 IP 位址範圍是您的外部或對外公開的 IP 位址。若要尋找外部 IP 位址，您可以利用數個網站，例如 <a href="http://www.whatismyip.com" target="\_blank">www.whatismyip.com</a>
-
-7. 儲存您的防火牆規則。
-
-
-您現已設定防火牆，您就能夠從桌面連接到您剛才建立的 Azure SQL 資料倉儲。
+    ![SQL 資料倉儲入口網站檢視](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
 ## 後續步驟
 
-現已成功佈建 SQL 資料倉儲服務，我們可以繼續了解其使用方式。後續步驟：
+現在您已經為 SQL 資料倉儲建立範例資料庫，請在本篇的後續逐步解說中了解如何使用 SQL 資料倉儲。
 
-1. [連接和查詢][]資料倉儲。
-2. 載入[範例資料]。
+- [連接和查詢](./sql-data-warehouse-get-started-connect-query.md)。
 
 	> [AZURE.NOTE]我們想要改善這份文件。如果對於「這篇文章很有幫助嗎？」的問題，您選擇回答「否」，則請填寫有關遺漏的內容或如何改善本文的簡短建議。非常感謝！
 
-<!--Image references-->
-
-
-<!-- Articles -->
-[連接和查詢]: sql-data-warehouse-get-started-connect-query.md
-[範例資料]: ./sql-data-warehouse-get-started-load-samples.md
-
-<!--External links-->
-[免費試用]: https://azure.microsoft.com/zh-TW/pricing/free-trial/
-[Azure 入口網站]: https://portal.azure.com/
-
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

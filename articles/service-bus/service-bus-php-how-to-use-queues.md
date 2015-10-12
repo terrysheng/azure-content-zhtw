@@ -200,6 +200,8 @@
 
 現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][]主題，以取得詳細資訊。
 
+如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
+
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
@@ -213,4 +215,4 @@
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

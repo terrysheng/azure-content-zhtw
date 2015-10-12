@@ -34,7 +34,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 - **Azure 訂用帳戶**：請參閱[取得 Azure 免費試用](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md)。
 
-- **Azure CLI**：請參閱[安裝和設定 Azure CLI](xplat-cli.md)
+- **Azure CLI**：請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)
 
 - **HDInsight 叢集**：請參閱[開始使用 Linux 上的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -48,9 +48,9 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 1. Hive 動作會執行 HiveQL 指令碼，以從 HDInsight 隨附的 **hivesampletable** 擷取記錄。每個資料列均代表來自特定行動裝置的瀏覽。顯示的記錄格式類似如下：
 
-		8       18:54:20        ZH-TW   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        ZH-TW   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        ZH-TW   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        zh-TW   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        zh-TW   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        zh-TW   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	本文件中使用的 Hive 指令碼會計算每個平台 (例如 Android 或 iPhone) 的總瀏覽次數，並將計數儲存到新的 Hive 資料表。
 
@@ -201,7 +201,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
 下列步驟會建立要接收匯出資料的 Azure SQL Database。
 
-> [AZURE.IMPORTANT]您必須先[安裝和設定 Azure CLI](xplat-cli.md)，才能執行這些步驟。您可以在 HDInsight 叢集，或在本機工作站中，執行 CLI 安裝作業並依照下列步驟建立資料庫。
+> [AZURE.IMPORTANT]您必須先[安裝和設定 Azure CLI](xplat-cli-install.md)，才能執行這些步驟。您可以在 HDInsight 叢集，或在本機工作站中，執行 CLI 安裝作業並依照下列步驟建立資料庫。
 
 1. 使用以下命令建立新的 Azure SQL Database 伺服器：
 
@@ -284,7 +284,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	儲存 **wasb://mycontainer@mystorageaccount.blob.core.windows.net** 值，後續的步驟中會使用該值。
+	儲存 ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** 值，後續的步驟中會使用該值。
 
 2. 使用以下命令取得叢集前端節點的 FQDN。該項目將用於叢集的 JobTracker 位址。這稍後會在組態檔中用到：
 
@@ -361,9 +361,9 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 		  </property>
 		</configuration>
 
-	* 將 **wasb://mycontainer@mystorageaccount.blob.core.windows.net** 的所有執行個體替換為您之前收到的值。
+	* 將 ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** 的所有執行個體替換為您之前收到的值。
 
-	> [AZURE.WARNING] 您必須使用完整的 WASB 路徑，其中包含容器和儲存體帳戶做為路徑的一部分。使用簡短格式 (wasb:///) 會在工作開始時導致 RunHiveScript 動作失敗。
+	> [AZURE.WARNING]您必須使用完整的 WASB 路徑，其中包含容器和儲存體帳戶做為路徑的一部分。使用簡短格式 (wasb:///) 會在工作開始時導致 RunHiveScript 動作失敗。
 
 	* 將 **JOBTRACKERADDRESS** 替換為您之前收到的 JobTracker/ResourceManager 位址。
 
@@ -392,7 +392,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 		<name>oozie.base.url</name>
 		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
 
-	**http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** 部分是要搭配 Oozie 命令使用的 URL。
+	****http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** 部分是要搭配 Oozie 命令使用的 URL。
 
 2. 使用以下命令建立 URL 的環境變數，讓您不必為每個命令輸入該 URL：
 
@@ -477,19 +477,15 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 若要存取 Oozie Web UI，請依照下列步驟進行：
 
-1. 建立 HDInsight 叢集的 SSH 通道。如需執行這項作業的說明，請參閱下列其中一項：
+1. 建立 HDInsight 叢集的 SSH 通道。如需執行這些動作的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
-	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
+2. 建立通道後，請在網頁瀏覽器中開啟 Ambari Web UI。Ambari 網站的 URI 是 ****https://CLUSTERNAME.azurehdinsight.net**。請將 **CLUSTERNAME** 替換為您以 Linux 為基礎的 HDInsight 叢集名稱。
 
-	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
-
-2. 建立通道後，請在網頁瀏覽器中開啟 Ambari Web UI。Ambari 網站的 URI 是 **https://CLUSTERNAME.azurehdinsight.net**。請將 **CLUSTERNAME** 替換為您以 Linux 為基礎的 HDInsight 叢集名稱。
-
-3. 在頁面左邊選取 [Oozie]，然後依序選取 [Quick Links] \(快速連結\) 和 [Oozie Web UI]。
+3. 在頁面左邊選取 [Oozie]，然後依序選取 [快速連結] 和 [Oozie Web UI]。
 
 	![功能表的圖](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
-4. Oozie Web UI 預設會顯示執行中的工作流程工作。若要查看所有的工作流程工作，請選取 [All Jobs] \(所有工作)。
+4. Oozie Web UI 預設會顯示執行中的工作流程工作。若要查看所有的工作流程工作，請選取 [所有工作]。
 
 	![顯示的所有工作](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
 
@@ -497,9 +493,9 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 	![工作資訊](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
-6. 您可以在 [Job Info] \(工作資訊) 索引標籤中看到基本的工作資訊，以及工作內的個別動作。使用上方的索引標籤，即可檢視 Job Definition (工作定義)、Job Configuration (工作組態)，以及存取 Job Log (工作記錄)，或檢視工作的定向非循環圖 (DAG)。
+6. 您可以在 [Job Info] (工作資訊) 索引標籤中看到基本的工作資訊，以及工作內的個別動作。使用上方的索引標籤，即可檢視 Job Definition (工作定義)、Job Configuration (工作組態)，以及存取 Job Log (工作記錄)，或檢視工作的定向非循環圖 (DAG)。
 
-	* **Job Log (工作記錄)**：選取 [GetLogs] 按鈕，以取得工作的所有記錄，或使用 [Enter Search Filter] \(輸入搜尋篩選條件) 欄位來篩選記錄。
+	* **工作記錄**：選取 [取得記錄] 按鈕，以取得工作的所有記錄，或使用 [輸入搜尋篩選條件] 欄位來篩選記錄
 
 		![工作記錄](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
@@ -507,11 +503,11 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 		![工作 DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
-7. 在 [Job Info] \(工作資訊) 索引標籤中選取其中一個動作，便會出現此動作的資訊。例如，選取 **RunHiveScript** 動作。
+7. 在 [工作資訊] 索引標籤中選取其中一個動作，便會出現此動作的資訊。例如，選取 **RunHiveScript** 動作。
 
 	![動作資訊](./media/hdinsight-use-oozie-linux-mac/action.png)
 
-8. 您可以查看動作的詳細資料，包括 **Console URL (主控台 URL)** 的連結，此連結可用來檢視工作的 JobTracker 資訊。
+8. 您可以查看動作的詳細資料，包括**主控台 URL** 的連結，此連結可用來檢視工作的 JobTracker 資訊。
 
 ##排程工作
 
@@ -596,17 +592,17 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 	這麼做會提交並啟動工作。
 
-7. 如果您造訪 Oozie Web UI，並選取 [Coordinator Jobs] \(協調器工作) 索引標籤，您應會看到類似以下的資訊：
+7. 如果您造訪 Oozie Web UI，並選取 [協調器工作] 索引標籤，您應會看到類似以下的資訊：
 
 	![協調器工作索引標籤](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
-	請注意 **Next Materialization (下一次具體化)** 項目，這是下次執行工作的時間。
+	請注意 [下一次具體化] 項目，這是下次執行工作的時間。
 
 8. 與先前的工作流程工作類似，在 Web UI 中選取工作項目會顯示工作的資訊：
 
 	![協調器工作資訊](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
-	請注意，這只會顯示工作的成功執行項目，而不是排程工作流程內的個別動作。若要查看這些動作，請選取其中一個 **Action (動作)** 項目。這麼做會顯示類似先前針對工作流程工作所擷取的資訊。
+	請注意，這只會顯示工作的成功執行項目，而不是排程工作流程內的個別動作。若要查看這些動作，請選取其中一個 [動作] 項目。這麼做會顯示類似先前針對工作流程工作所擷取的資訊。
 
 	![動作資訊](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
@@ -616,7 +612,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 1. 在 Oozie Web UI 中檢視工作。
 
-2. 如果發生錯誤或特定動作失敗，請選取該動作，以查看 [Error Message] \(錯誤訊息) 欄位是否有提供失敗的詳細資訊。
+2. 如果發生錯誤或特定動作失敗，請選取該動作，以查看 [錯誤訊息] 欄位是否有提供失敗的詳細資訊。
 
 3. 如果有提供，請使用動作的 URL 以檢視動作的更多詳細資料 (例如 JobTracker 記錄)。
 
@@ -715,7 +711,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/ZH-TW/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/zh-TW/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -725,4 +721,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

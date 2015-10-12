@@ -90,4 +90,4 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 	- [設定路由 (線路對等)](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

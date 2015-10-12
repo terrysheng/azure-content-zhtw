@@ -49,7 +49,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## 原則
 
-Azure AD B2C **原則**可視為服務的最重要服務。Azure AD B2C 可引進原則，允許 Azure AD B2C 來執行簡易驗證與授權以外的更多操作，藉以延伸標準 OAuth 2.0 和 OpenID Connect 通訊協定。原則可完整描述取用者身分識別經驗，例如註冊、登入或設定檔編輯。您可在管理 UI 中定義原則，以及在 HTTP 驗證要求中使用特殊查詢參數來執行原則。原則並非 OAuth 2.0 和 OpenID Connect 的標準功能，因此您應該花點時間瞭解它們。如需詳細資訊，請參閱《[Azure AD B2C 原則參考指南](active-directory-b2c-reference-policies)》。
+Azure AD B2C **原則**可視為服務的最重要服務。Azure AD B2C 可引進原則，允許 Azure AD B2C 來執行簡易驗證與授權以外的更多操作，藉以延伸標準 OAuth 2.0 和 OpenID Connect 通訊協定。原則可完整描述取用者身分識別經驗，例如註冊、登入或設定檔編輯。您可在管理 UI 中定義原則，以及在 HTTP 驗證要求中使用特殊查詢參數來執行原則。原則並非 OAuth 2.0 和 OpenID Connect 的標準功能，因此您應該花點時間瞭解它們。如需詳細資訊，請參閱 [Azure AD B2C 原則參考指南](active-directory-b2c-reference-policies.md)。
 
 
 ## 權杖
@@ -59,7 +59,7 @@ Azure AD B2C 的 OAuth 2.0 和 OpenID Connect 實作廣泛運用持有人權杖�
 
 ## 通訊協定
 
-若您準備好查看部分範例要求，請開始使用以下的其中一個教學課程。每個教學課程皆對應至特定的驗證案例。若您在判斷適用權限流程時需要協助，請查閱[您可以使用 Azure AD B2C 建置的應用程式類型](active-directory-b2c-apps)。
+若您準備好查看部分範例要求，請開始使用以下的其中一個教學課程。每個教學課程皆對應至特定的驗證案例。若您在判斷正確流程時需要協助，請參閱[您可以使用 Azure AD B2C 建置的應用程式類型](active-directory-b2c-apps.md)。
 
 - [使用 OAuth 2.0 建置行動與原生應用程式](active-directory-b2c-reference-oauth-code.md)
 - [使用 OpenID Connect 建置 Web 應用程式](active-directory-b2c-reference-oidc.md)
@@ -70,4 +70,4 @@ Azure AD B2C 的 OAuth 2.0 和 OpenID Connect 實作廣泛運用持有人權杖�
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

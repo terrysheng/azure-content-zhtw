@@ -1,7 +1,7 @@
 <properties
 	pageTitle="監視 Azure 應用程式服務中的 Web 應用程式"
 	description="了解如何使用管理入口網站來監視 Azure App Service 中的 Web 應用程式。"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -279,4 +279,4 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -79,4 +79,4 @@ Polybase 讓查詢 Azure blob 儲存體或 Hadoop 檔案系統 (HDFS) 中的非�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

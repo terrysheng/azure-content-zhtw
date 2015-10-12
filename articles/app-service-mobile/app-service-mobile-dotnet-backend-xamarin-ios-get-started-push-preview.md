@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="使用 Azure App Service 將推播通知新增至 Xamarin.iOS 應用程式"
-	description="了解如何使用 Azure App Service 將推播通知傳送至 Xamarin.iOS 應用程式。"
-	services="app-service\mobile"
-	documentationCenter="xamarin"
+	pageTitle="使用 Azure App Service 將推播通知新增至 Xamarin.iOS 應用程式" 
+	description="了解如何使用 Azure App Service 將推播通知傳送至 Xamarin.iOS 應用程式。" 
+	services="app-service\mobile" 
+	documentationCenter="xamarin" 
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
+	ms.service="app-service-mobile" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="08/22/2015"
-	ms.author="yuaxu"/>
+	ms.date="08/22/2015" 
+	ms.author="wesmc"/>
 
 # 將推播通知新增至 Xamarin.iOS 應用程式
 
@@ -209,4 +209,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -35,7 +35,7 @@
 
 或
 
-* [適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli.md)。
+* [適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli-install.md)。
 
 ##什麼是 SSH？
 
@@ -109,7 +109,7 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 ###適用於 Mac、Linux 和 Windows 的 Azure 命令列介面
 
-您可以使用[適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli.md)，使用 `azure hdinsight cluster create` 來建立新叢集。
+您可以使用[適用於 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli-install.md)，使用 `azure hdinsight cluster create` 來建立新叢集。
 
 如需使用這個命令的詳細資訊，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop Linux 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
@@ -233,4 +233,4 @@ SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsi
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

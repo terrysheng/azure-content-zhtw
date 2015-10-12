@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -78,7 +78,7 @@ Azure 入口網站提供一種方法來快速建立 Azure 媒體服務帳戶。�
 
 - [開始使用提供使用.NET SDK 的點播視訊 (VoD) 內容](media-services-dotnet-get-started.md)
 
-- [使用 .NET SDK 建立通道，執行從單一位元速率到多位元速率串流的即時編碼 (預覽)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [使用 .NET SDK 建立通道，以執行從單一位元速率到多位元速率串流的即時編碼](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
@@ -92,4 +92,4 @@ Azure 入口網站提供一種方法來快速建立 Azure 媒體服務帳戶。�
 
   [Azure 入口網站]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

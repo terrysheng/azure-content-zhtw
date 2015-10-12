@@ -4,8 +4,8 @@
 	services="app-service\web"
 	documentationCenter="python"
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
-	ms.topic="hero-article"
+	ms.topic="hero-article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -488,6 +488,9 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 - [Azure 上使用 Python Tools for Visual Studio 的 Django 和 MySQL]
 - [Azure 上使用 Python Tools for Visual Studio 的 Django 和 SQL Database]
 
+如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
+
+
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -512,4 +515,4 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 [Python Tools for Visual Studio 說明文件]: http://aka.ms/ptvsdocs
 [Django 說明文件]: https://www.djangoproject.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -155,4 +155,4 @@
 - 如需部署資源時使用 Azure CLI 的簡介，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](./xplat-cli-azure-resource-manager.md)。
 - 如需使用預覽入口網站的簡介，請參閱[使用 Azure 預覽入口網站來管理您的 Azure 資源](./resource-group-portal.md)  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

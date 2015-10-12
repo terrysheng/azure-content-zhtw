@@ -37,9 +37,9 @@
 
 不同於其他只能透過 API 取得選項的服務，Azure AD B2C 使用新式 (且簡化的) 方法進行頁面 UI 自訂。以下是其運作方式：Azure AD B2C 會在取用者的瀏覽器中執行程式碼並使用稱為[跨原始資源共用 (CORS)](http://www.w3.org/TR/cors/) 的新式方法，從您在原則中指定的 URL 載入內容。您可以對不同的頁面指定不同的 URL。程式碼會合併 Azure AD B2C 的內容 (稱為 UI 元素) 與從您的 URL 載入的內容，並對取用者顯示此頁面。您只需要建立格式正確的 HTML5 內容，其中的 `<div id="api"></div>` 元素位於 `<body>` 中的某處 - 這就是 Azure AD B2C 的內容併入的位置。而且將此內容裝載於 HTTPS 端點 (允許 CORS)。您還可以完全設定 Azure AD B2C 的 UI 的元素樣式。
 
-## 將協助您使用我們的範例內容測試頁面 UI 自訂功能的協助程式工具
+## 試試 UI 自訂功能
 
-使用我們的協助程式工具 (即將推出)，利用我們的範例內容試用頁面 UI 自訂功能。
+如果您想要嘗試使用裝載於 Azure Blob 儲存體的範例 HTML 和 CSS 內容來自訂 UX，我們提供[簡單的協助工具](active-directory-b2c-reference-ui-customization-helper-tool.md)以上傳與設定您的靜態內容。
 
 ## 每種頁面中的核心 UI 元素
 
@@ -276,4 +276,4 @@
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

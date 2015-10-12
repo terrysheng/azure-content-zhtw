@@ -41,7 +41,7 @@
 
 [使用 Azure 命令列介面 (Azure CLI) 建立 VM](virtual-machines-xplat-getting-started.md)
 
-[使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+[使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## 規劃
 
@@ -95,7 +95,7 @@
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
-[Docker](virtual-machines-docker-with-xplat-cli.md)
+[Docker](virtual-machines-docker-with-xplat-cli-install.md)
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
@@ -151,4 +151,4 @@
 
 [使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

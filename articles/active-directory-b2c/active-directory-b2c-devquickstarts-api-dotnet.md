@@ -36,16 +36,18 @@
 - 對於 Web 應用程式，請使用**重新導向 Uri** `https://localhost:44316/` -它是此程式碼範例的 Web 應用程式用戶端的預設位置。
 - 複製指派給應用程式的**應用程式識別碼**。稍後您將會用到此資訊。
 
-     >[AZURE.IMPORTANT]您無法為此使用已在 [Azure 入口網站](https://manage.windowsazure.com/)上的 [應用程式] 索引標籤中登錄的應用程式。
+ [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\.建立您的原則
 
-在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)所定義。此程式碼範例中的用戶端包含三個身分識別使用體驗 - 註冊、登入和編輯設定檔。您必須為每個類型建立一個原則，如[原則參考文章](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)所定義。此程式碼範例中的用戶端包含三個身分識別使用體驗 - 註冊、登入和編輯設定檔。您必須為每個類型建立一個原則，如[原則參考](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)一文中所述。建立您的三個原則時，請務必：
 
 - 在身分識別提供者刀鋒視窗中，選擇 [使用者識別碼註冊] 或 [電子郵件註冊]。
 - 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
 - 在每個原則中選擇 [顯示名稱] 和 [物件識別碼]宣告做為應用程式宣告。您也可以選擇其他宣告。
-- 建立每個原則後，複製原則的 [名稱]。前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
+- 建立每個原則後，請抄下原則的 [名稱]。稍後您將需要這些原則名稱。 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 當您成功建立三個原則後，就可以開始建置您的應用程式。
 
@@ -57,9 +59,9 @@
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
 ```
 
-完整的應用程式也提供 [.zip 格式](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip)；您也可以在相同儲存機制的 `complete` 分支取得。
+完整的 App 也[提供 .zip 格式](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip)，或放在相同儲存機制的 `complete` 分支。
 
-下載範例程式碼後，請開啟 Visual Studio `.sln` 檔案開始進行。您會看到方案中有兩個專案：`TaskWebApp` 專案和 `TaskService` 專案。`TaskWebApp` 是與使用者互動的 MVC Web 應用程式。`TaskService` 是應用程式的後端 Web API，可儲存每個使用者的待辦事項清單。
+下載範例程式碼後，請開啟 Visual Studio `.sln` 檔案開始進行。您會看到方案中有兩個專案：`TaskWebApp` 專案和 `TaskService` 專案。`TaskWebApp` 是與使用者互動的 MVC Web 應用程式。`TaskService` 是應用程式的後端 Web API，儲存每個使用者的待辦事項清單。
 
 ## 5\.設定工作 Web 應用程式
 
@@ -82,6 +84,8 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
 </appSettings>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 另外有兩個 `[PolicyAuthorize]` 裝飾項目，需要在其中提供您的登入原則名稱。當使用者嘗試存取應用程式中需要驗證的頁面時，`[PolicyAuthorize]` 屬性會用來叫用特定原則。
 
@@ -133,7 +137,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
 #### 新增 OWIN 啟動類別
-將 OWIN 啟動類別加入至名為 `Startup.cs` 的 `TaskService` 專案。以滑鼠右鍵按一下專案 --> [**新增**] -->[ **新增項目**] --> 搜尋 "OWIN"。
+將 OWIN 啟動類別加入名為 `Startup.cs` 的 `TaskService` 專案。以滑鼠右鍵按一下專案 --> [**新增**] -->[ **新增項目**] --> 搜尋 "OWIN"。
   
 
 ```C#
@@ -151,7 +155,7 @@ public partial class Startup
 ```
 
 #### 設定 OAuth 2.0 驗證
-開啟檔案 `App_Start\Startup.Auth.cs` 並實作 `ConfigureAuth(...)` 方法。
+開啟檔案 `App_Start\Startup.Auth.cs` 並實作 `ConfigureAuth(...)` 方法：
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -183,7 +187,7 @@ public partial class Startup
 ```
 
 #### 保護工作控制器
-既然應用程式已設定為使用 OAuth 2.0 驗證，再來只需要將 `[Authorize]` 標記加入至工作控制器，就可保護您的 Web API。所有待辦事項清單操作都在此控制器中進行，因此我們將在類別層級保護整個控制器。您也可以將 `[Authorize]` 標記加入至個別的動作，以進行更細微的控制。
+既然應用程式已設定為使用 OAuth 2.0 驗證，再來只需要將 `[Authorize]` 標記加入至工作控制器，就可保護您的 Web API。所有待辦事項清單操作都在此控制器中進行，因此我們將在類別層級保護整個控制器。您也可以將 `[Authorize]` 標記加入個別的動作，以進行更細微的控制。
 
 ```C#
 // Controllers\TasksController.cs
@@ -232,4 +236,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：限制
@@ -24,7 +24,7 @@ Azure Active Directory (AD) B2C 有幾項功能在預覽期間還不支援。在
 
 ## 建立 Azure AD B2C 目錄期間的問題
 
-您在[建立 Azure AD B2C 目錄期間](active-directory-b2c-get-started)可能會遇到一些已知問題。請參閱這篇[文章](active-directory-b2c-support-create-directory.md)，取得指導方針。
+您在[建立 Azure AD B2C 租用戶期間](active-directory-b2c-get-started)可能會遇到一些已知問題。請參閱這篇[文章](active-directory-b2c-support-create-directory.md)，取得指導方針。
 
 ## 驗證電子郵件和自助式密碼重設頁面上的商標問題
 
@@ -50,6 +50,12 @@ Azure AD B2C 預覽目前不支援下列類型的應用程式。如需受支援�
 
 在 Azure AD B2C 預覽中，您能夠[建置使用 OAuth 2.0 權杖保護的 Web API](active-directory-b2c-apps.md#web-apis)。不過，該 Web API 只能從共用相同應用程式識別碼的用戶端接收權杖。不支援建置從數個不同用戶端存取的 Web API。
 
+### Web API 鏈結 (代理者)
+
+許多架構中都有一個 Web API 需要呼叫另一個下游 Web API，而兩者都受 Azure AD B2C 保護。此情況常見於有 Web API 後端的原生用戶端，而後端會再呼叫 Azure AD 圖形 API 等 Microsoft 線上服務。
+
+使用 OAuth 2.0 Jwt 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為「代理者流程」。不過，Azure AD B2C 預覽目前未實作代理者流程。
+
 ## 程式庫與 SDK 的限制
 
 並非所有語言和平台都具有支援 Azure AD B2C 預覽的程式庫。驗證程式庫集合目前僅適用於 .NET、iOS、Android 和 NodeJS。[使用者入門](active-directory-b2c-overview.md#getting-started)一節提供各平台對應的快速入門教學課程。
@@ -66,7 +72,7 @@ Azure AD B2C 預覽支援 OpenID Connect 和 OAuth 2.0。不過，並非每個�
 
 ## Azure 入口網站上的使用者管理問題
 
-在 Azure Preview 入口網站上可存取 B2C 功能。不過，您可以使用 Azure 入口網站來存取其他的目錄功能，包括使用者管理。目前，Azure 預覽入口網站上的使用者管理 ([使用者] 索引標籤) 有幾個已知問題。
+在 Azure Preview 入口網站上可存取 B2C 功能。不過，您可以使用 Azure 入口網站來存取其他的租用戶功能，包括使用者管理。目前，Azure 入口網站上的使用者管理 ([使用者] 索引標籤) 有幾個已知問題。
 
 - 以本機帳戶使用者而言 (亦即，以電子郵件地址和密碼或使用者名稱和密碼來註冊的取用者)，[使用者名稱] 欄位未對應至註冊期間使用的登入識別項 (電子郵件地址或使用者名稱)。這是因為 Azure 入口網站上顯示的欄位，實際上是使用者主體名稱 (UPN)，而這在 B2C 案例中沒有用到。若要檢視本機帳戶的登入識別項，請在 [Graph Explorer](https://graphexplorer.cloudapp.net/) 中尋找使用者物件。您將會遇到與社交帳戶使用者 (亦即，以 Facebook、Google+ 等註冊的取用者) 同樣的問題，但在此情況下，沒所謂的登入識別項。
 
@@ -74,8 +80,12 @@ Azure AD B2C 預覽支援 OpenID Connect 和 OAuth 2.0。不過，並非每個�
 
 - 以本機帳戶使用者而言，您將無法在 [設定檔] 索引標籤中編輯任何欄位和儲存變更。我們將儘快修正此問題。
 
+## 在 Azure 入口網站上的系統管理員起始密碼重設問題
+
+如果您針對本機帳戶取用者，在 Azure 入口網站上重設其密碼 ([使用者] 索引標籤上的 [重設密碼] 命令)，該取用者下次登入時將無法變更密碼，且會被鎖定不得使用您的應用程式。我們正在努力修正這個問題。解決方法是使用 [Azure AD 圖形 API](active-directory-b2c-devquickstarts-graph-dotnet.md) 重設取用者的密碼。
+
 ## 刪除 Azure AD B2C 目錄時的限制
 
-您無法在 Azure 入口網站中刪除 Azure AD B2C 目錄。
+您無法在 Azure 入口網站中刪除 Azure AD B2C 租用戶。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

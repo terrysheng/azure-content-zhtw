@@ -136,7 +136,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 ## 追蹤應用程式版本
 
-確定 `buildinfo.config` 是由您的建置程序所產生。在您的.csproj 檔案中加入：
+確定 `buildinfo.config` 是由您的建置程序所產生。在您的 .csproj 檔案中加入：
 
 ```XML
 
@@ -148,9 +148,11 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 當它有組建資訊時，Application Insights Web 模組會自動加入**應用程式版本**做為遙測的每個項目的屬性。如此可讓您在執行[診斷搜尋][diagnostic]或[探索度量][metrics]時，依據版本來篩選。
 
 
-## 5\.加入相依性追蹤和效能計數器
+## 5\.加入相依性追蹤 (和 IIS 效能計數器)
 
 SDK 需要一些協助，才能取得某些資料的存取權。特別是，您需要這個額外步驟才能自動測量您的應用程式對資料庫、REST API 和其他外部元件的呼叫。這些相依性度量對於協助您診斷效能問題的價值難以衡量。
+
+如果您在自己的 IIS 伺服器上執行，這個步驟也可讓系統效能計數器顯示於[計量瀏覽器](app-insights-metrics-explorer.md)。
 
 #### 如果您的應用程式是在您的 IIS 伺服器中執行
 
@@ -166,11 +168,10 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 ![在您的 Web 應用程式中，依序按一下 [設定]、[延伸模組]、[加入]、[Application Insights]](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(延伸模組只能協助使用 SDK 建置並發佈至 Azure 的應用程式。與狀態監視器不同，它無法檢測現有的應用程式。)
 
 #### 如果是 Azure 雲端服務專案
 
-[將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md)
+[將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md)。
 
 
 
@@ -188,11 +189,11 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 請注意，此程式碼包含可識別您的應用程式資源的檢測金鑰。
 
-[進一步了解網頁追蹤。](app-insights-web-track-usage.md)
+[深入了解網頁追蹤。](app-insights-web-track-usage.md)
 
 #### 如果您的用戶端是裝置 app
 
-如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入至您的裝置應用程式。
+如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入您的裝置 app。
 
 如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
 
@@ -224,7 +225,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 #### ... 對於現有專案
 
-在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。
+在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [Add Application Insights]。
 
 ![Choose Add Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -234,7 +235,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 #### 設定選項
 
-如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure Preview。(該帳戶與 Visual Studio Online 帳戶彼此獨立)。
+如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure Preview。
 
 如果此應用程式是更大應用程式的一部分，您可以使用 [**組態設定**]，將它放在與其他元件相同的資源群組中。
 
@@ -272,4 +273,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

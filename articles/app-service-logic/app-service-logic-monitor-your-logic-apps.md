@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="監視邏輯應用程式" 
+	pageTitle="監視 Logic Apps | Microsoft Azure" 
 	description="若要查看邏輯應用程式的完成項目。" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/29/2015"
 	ms.author="stepsic"/>
 
 #監視邏輯應用程式
@@ -56,4 +56,4 @@
 還有另一項功能目前無法在 UI 中使用 (即將推出)，但可透過 [REST API](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409) 使用。更新邏輯應用程式的定義時，會儲存舊版的定義。這是因為如果您已經有進行中的執行，則該執行將會參考執行啟動時已存在的邏輯應用程式版本。執行正在進行時，您無法變更執行的定義。版本記錄 REST API 可讓您存取這項資訊。
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

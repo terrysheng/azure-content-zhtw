@@ -6,7 +6,7 @@
    authors="rashimg"
    manager="mwinkle"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -22,7 +22,9 @@
 
 根據預設，Hadoop 叢集不會為了效能進行最佳化。本文涵蓋幾個最常見 Hive 效能最佳化方法，您可將這些方法套用於我們的查詢。
 
+
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
 
 * [在 HDInsight 中最佳化 Hadoop 的 Hive 查詢](hdinsight-hadoop-optimize-hive-query-v1.md)。
 
@@ -59,7 +61,7 @@ Tez 比較迅速，因為：
 
 	set hive.execution.engine=tez;
 
-在佈建階段必須啟用 Tez。以下的 Azure PowerShell 指令碼範例可供佈建已啟用 Tez 的 Hadoop 叢集：
+對於以 Windows 為基礎的 HDInsight 叢集，Tez 必須在佈建階段啟用。以下的 Azure PowerShell 指令碼範例可供佈建已啟用 Tez 的 Hadoop 叢集：
 
 
 	$clusterName = "[HDInsightClusterName]"
@@ -83,6 +85,10 @@ Tez 比較迅速，因為：
 	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
 	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+
+    
+> [AZURE.NOTE]Linux 的 HDInsight 叢集預設會啟用 Tez。
+    
 
 ## Hive 分割
 
@@ -220,4 +226,4 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

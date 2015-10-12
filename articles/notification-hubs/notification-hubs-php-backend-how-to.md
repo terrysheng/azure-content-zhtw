@@ -254,9 +254,10 @@
 * 繼續了解 [即時新聞教學課程] 中的通知中心標記功能
 * 了解 [通知使用者教學課程] 中的推播通知給個人使用者
 
+如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
 
 [PHP REST 包裝函式範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [開始使用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

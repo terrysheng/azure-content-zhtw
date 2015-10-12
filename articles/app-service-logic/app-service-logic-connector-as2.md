@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="在 Logic Apps 中使用 AS2 連接器 | Microsoft Azure App Service"
-	description="如何建立並設定 AS2 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="在 Logic Apps 中使用 AS2 連接器 | Microsoft Azure App Service" 
+   description="如何建立並設定 AS2 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 # 開始使用 AS2 連接器並將它加入您的邏輯應用程式
 使用 AS2 連接器可在企業對企業通訊中，透過 AS2 (Applicability Statement 2) 傳輸通訊協定接收和傳送訊息。資料是透過網際網路安全、可靠地傳輸。並使用數位憑證和加密來達成安全性。
@@ -63,7 +63,7 @@ TPM 執行個體名稱 | 輸入您先前建立的 **BizTalk 交易夥伴管理**
 
 ## 使用連接器做為觸發程序
 
-1. 建立或編輯邏輯應用程式時，請從右窗格中選取您建立的 AS2 連接器：  
+1. 建立或編輯邏輯應用程式時，請從右窗格中選取您建立的 AS2 連接器：
 	![觸發程序設定][3]
 
 2. 按一下向右箭號 →：  
@@ -77,7 +77,7 @@ TPM 執行個體名稱 | 輸入您先前建立的 **BizTalk 交易夥伴管理**
 
 連接器會傳回 AS2 承載以及 AS2 特定的中繼資料，做為輸出的一部分。
 
-當 AS2 Payload 成為 POST 張貼到 https://{Host URL}/decode 時，就會引發觸發程序。您可以在 API 應用程式設定中找到主機 URL。您也可能需要在應用程式設定中變更 API 應用程式的 [存取層級] 為 公用 (已驗證或匿名)。
+當 AS2 承載發佈至 https://{Host URL}/decode 時會引發觸發程序。您可以在 API 應用程式設定中找到主機 URL。您也可能需要在應用程式設定中變更 API 應用程式的 [存取層級] 為 [公用] (已驗證或匿名)。
 
 ## 使用連接器做為動作
 1. 在觸發程序 (或選擇 [手動執行此邏輯]) 之後，請從右窗格中加入您建立的 AS2 連接器：  
@@ -107,9 +107,11 @@ AS2 目標 | 字串 | AS2 訊息接收者的 AS2 識別。這個參數是用來�
 ## 進一步運用您的連接器
 如需 Logic Apps 的詳細資訊，請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API 應用程式和連接器](app-service-logic-monitor-your-connectors.md)。
 
 <!--References -->
 [1]: app-service-logic-connector-tpm.md
@@ -123,4 +125,4 @@ AS2 目標 | 字串 | AS2 訊息接收者的 AS2 識別。這個參數是用來�
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

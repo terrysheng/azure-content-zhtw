@@ -1,20 +1,20 @@
 <properties
    pageTitle="開發 Service Fabric 服務"
-	description="概念資訊和教學課程可協助您了解如何開發使用可靠動作項目或可靠服務程式設計模型的 Service Fabric 服務。"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="rwike77"
-	manager="timlt"
-	editor=""/>
+   description="概念資訊和教學課程可協助您了解如何開發使用可靠動作項目或可靠服務程式設計模型的 Service Fabric 服務。"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/20/2015"
-	ms.author="ryanwi"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/25/2015"
+   ms.author="ryanwi"/>
 
 # 開發 Service Fabric 服務
 此頁面包含概觀、概念文章和教學課程的連結，可協助您了解如何開發 Service Fabric 服務。Service Fabric 提供兩個高階程式設計模型，可用來建置以下服務：可靠動作項目 API 和可靠服務 API。雖然兩者都建置於相同的 Service Fabric 核心，但會在並行處理、資料分割以及通訊方面的簡易性和彈性之間進行不同的權衡。了解這兩個模型相當實用，以便您可以在應用程式中選擇特定服務的適當架構。
@@ -30,10 +30,11 @@
 - [動作項目生命週期和記憶體回收](service-fabric-reliable-actors-lifecycle.md)
 - [Fabric Actor 如何使用 Service Fabric 平台](service-fabric-reliable-actors-platform.md)
 - [Azure Service Fabric Actor 類型序列化的注意事項](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+- [Node.js 和可靠的動作項目](service-fabric-node-and-reliable-actors-an-winning-combination.md)
 
 與動作項目通訊的說明如下所述：
 
-- [Service Fabric Actor 模型簡介](service-fabric-reliable-actors-introduction.md#actor-communication)。
+- [Service Fabric 動作項目模型簡介](service-fabric-reliable-actors-introduction.md#actor-communication)
 - [與服務進行通訊](service-fabric-connect-and-communicate-with-services.md)
 
 這些文章將討論實用的設計模式和案例：
@@ -69,7 +70,6 @@
 可靠服務提供您簡易、功能強大、最高階的程式設計模型，以協助您針對應用程式的重要項目進行表達。若要深入了解，請閱讀：
 
 - [開始使用可靠服務](service-fabric-reliable-services-quick-start.md)
-- [程式設計模型概觀](../service-fabric-reliable-services-service-overview.md)  
 - [架構](service-fabric-reliable-services-platform-architecture.md)
 - [可靠集合](service-fabric-reliable-services-reliable-collections.md)
 - [設定可設定狀態可靠服務](../Service-Fabric/service-fabric-reliable-services-configuration.md)
@@ -87,4 +87,4 @@
 
 - [可設定狀態可靠服務診斷](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

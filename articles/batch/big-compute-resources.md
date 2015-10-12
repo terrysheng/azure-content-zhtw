@@ -1,20 +1,20 @@
 <properties
    pageTitle="大量運算：批次和高效能運算 (HPC) 的技術資源 | Microsoft Azure"
-	description="列出技術資源，用以協助您在 Azure 中執行您的大規模平行、批次和 HPC 工作負載。"
-	services="batch, cloud-services, virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+   description="列出技術資源，用以協助您在 Azure 中執行您的大規模平行、批次和 HPC 工作負載。"
+   services="batch, cloud-services, virtual-machines"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="big-compute"
-	ms.date="09/02/2015"
-	ms.author="danlep"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="big-compute"
+   ms.date="09/29/2015"
+   ms.author="danlep"/>
 
 # Azure 中的大量運算：批次和高效能運算 (HPC) 的技術資源
 這是技術資源的指南，將幫助您在 Azure 中執行您的大規模平行、批次和 HPC 工作負載。使用各種 Azure 服務擴充您現有的批次或 HPC 工作負載至 Azure 雲端，或在 Azure 中建置新的大量計算解決方案。
@@ -48,43 +48,16 @@
 
 ### Microsoft HPC Pack
 
-HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 免費 HPC 解決方案。
+HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 免費 HPC 解決方案，可執行 Windows 和 Linux HPC 工作負載。
 
 * [下載 HPC Pack 2012 R2 Update 2](https://www.microsoft.com/zh-TW/download/details.aspx?id=47755)
 
 * [說明文件](https://technet.microsoft.com/library/jj899572.aspx)
 
-* **Azure VM 映像**
 
-    * [Windows Server 2012 R2 上的 HPC Pack](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+* [在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 
-    * [Windows Server 2012 R2 上的 HPC Pack 運算節點](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
-
-    * [Windows Server 2012 R2 上含 Excel 的 HPC Pack 運算節點](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
-
-* **Azure 快速入門範本和指令碼**
-
-    * [建立 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
-
-    * [使用自訂的運算節點映像建立 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
-
-    * [建立 Linux 計算節點的 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-    * [部署 HPC Pack IaaS 的 PowerShell 指令碼](https://www.microsoft.com/download/details.aspx?id=44949)
-
-* **Azure 教學課程**
-
-    * [教學課程：開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
-
-    * [教學課程：在 Azure 中的 Linux 計算節點以 Microsoft HPC Pack 執行 NAMD](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
-
-    * [教學課程：開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
-
-    * [教學課程：在 Azure 中使用 HPC Pack 設定混合式叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
-
-    * [Azure VM 中的 HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)
-
-    * [使用 HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)
+* [使用 HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)
 
 
 * [Windows HPC 論壇](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -115,9 +88,7 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 
 * [設定 Linux RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [A8 和 A9 執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)
-
-* [在 A8 和 A9 執行個體上執行 MPI 應用程式](https://msdn.microsoft.com/library/azure/dn592104.aspx)
+* [使用 Microsoft HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
 
 ## 架構藍圖
 
@@ -150,4 +121,4 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](http://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](http://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](http://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

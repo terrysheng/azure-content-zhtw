@@ -57,4 +57,4 @@ Azure 會使用映像透過作業系統提供新的虛擬機器。一個映像�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

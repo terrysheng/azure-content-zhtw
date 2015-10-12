@@ -161,7 +161,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 8. 按 [下一步]，完成此程序。註冊後，Azure Site Recovery 即可從 VMM 伺服器擷取中繼資料。此伺服器會顯示在保存庫中 [伺服器] 頁面的 [VMM 伺服器] 索引標籤上。
 
->[AZURE.NOTE]Azure Site Recovery 提供者也可以使用下列命令列來安裝。這個方法可以用來安裝一個適用於 Windows Server 2012 R2 之伺服器核心的提供者
+>[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來將提供者安裝在適用於 Windows Server 2012 R2 的伺服器核心上
 >
 >1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
 >2. 停止 System Center Virtual Machine Manager 服務
@@ -172,7 +172,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 >4. 執行下列命令來安裝提供者
 >
 		C:\ASR> setupdr.exe /i
->5. 執行下列命令來註冊提供者
+>5. 執行下列命令來登錄提供者
 >
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
     	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
@@ -344,11 +344,11 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 	- 按一下 [記事] 記錄並儲存關於測試容錯移轉的任何觀察。
 
 ## <a id="runtest" name="runtest" href="#runtest"></a> 監視活動
-<p>您可以使用**工作**索引標籤和**儀表板**檢視及監視 Azure Site Recovery 保存庫執行的主要工作，包括設定雲端的保護、啟用和停用虛擬機器的保護、執行容錯移轉 (計劃性、非計劃性或測試)，以及認可非計劃性容錯移轉。</p>
+<p>您可以使用*工作*索引標籤和*儀表板*檢視及監視 Azure Site Recovery 保存庫執行的主要工作，包括設定雲端的保護、啟用和停用虛擬機器的保護、執行容錯移轉 (計劃性、非計劃性或測試)，以及認可非計劃性容錯移轉。</p>
 
-<p>您可以從**工作**索引標籤檢視工作、向下鑽研工作詳細資料和錯誤、執行工作查詢以擷取符合特定條件的工作、將工作匯出至 Excel，以及重新啟動失敗的工作。</p>
+<p>您可以從*工作*索引標籤檢視工作、向下鑽研工作詳細資料和錯誤、執行工作查詢以擷取符合特定條件的工作、將工作匯出至 Excel，以及重新啟動失敗的工作。</p>
 
-<p>您可以從**儀表板**下載最新版的提供者和代理程式安裝檔案、取得保存庫的組態資訊、查看由保存庫管理其保護的虛擬機器數目、查看最近的工作、管理保存庫憑證，以及重新同步虛擬機器。</p>
+<p>您可以從*儀表板*下載最新版的提供者和代理程式安裝檔案、取得保存庫的組態資訊、查看由保存庫管理其保護的虛擬機器數目、查看最近的工作、管理保存庫憑證，以及重新同步虛擬機器。</p>
 
 <p>如需與工作和儀表板互動的詳細資訊，請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=398534">作業和監視指南</a>。</p>
 
@@ -360,4 +360,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a>。</LI> </UL>
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

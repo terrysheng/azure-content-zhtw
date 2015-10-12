@@ -1,27 +1,29 @@
 <properties
  pageTitle="使用 HDInsight 上的 Storm 和 HBase 讓事件隨著時間而相互關聯"
-	description="了解如何使用 HDInsight 上的 Storm 和 HBase 讓在不同的時間抵達的事件相互關聯。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+ description="了解如何使用 HDInsight 上的 Storm 和 HBase 讓在不同的時間抵達的事件相互關聯。"
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="09/02/2015"
+ ms.author="larryfr"/>
 
 # 使用 HDInsight 上的 Storm 和 HBase 讓事件隨著時間而相互關聯
 
 搭配 Apache Store 使用永續性資料存放區，可以讓在不同時間抵達的資料項目相互關聯。例如，連結使用者工作階段的登入和登出事件，可計算工作階段的持續時間長度。
 
 在本文件中，您將學習如何建立基本的 C# Storm 拓撲，以便追蹤使用者工作階段的登入和登出事件，並計算工作階段的持續時間。此拓撲會使用 HBase 做為永續性資料存放區。HBase 也可讓您對歷程記錄資料執行批次查詢來產生額外的見解，例如在特定時間週期內已開始或結束多少個使用者工作階段。
+
+[AZURE.INCLUDE [僅限 Windows](../../includes/hdinsight-windows-only.md)]
 
 ## 必要條件
 
@@ -198,4 +200,4 @@
 如需更多 Storm 範例，請參閱 [Storm on HDInsight 上的範例拓撲](hdinsight-storm-example-topology.md)。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

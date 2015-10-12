@@ -614,7 +614,7 @@
 [Git 遠端]: http://git-scm.com/docs/git-remote
 
 [使用 MongoDB 的 Node.js Web 應用程式]: web-sites-nodejs-store-data-mongodb.md
-[Azure CLI]: ../xplat-cli.md
+[Azure CLI]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -641,4 +641,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

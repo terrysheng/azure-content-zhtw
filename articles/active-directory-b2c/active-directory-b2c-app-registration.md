@@ -24,8 +24,7 @@
 
 若要建置可接受取用者註冊與登入的應用程式，您必須先使用 Azure Active Directory B2C 目錄註冊該應用程式。參閱[這裡](active-directory-b2c-get-started.md)所述的步驟，取得您的專屬目錄。若您遵循該文章中述及的所有步驟，則 B2C 功能刀鋒視窗應會釘選至「開始面板」。
 
-    > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 瀏覽至 B2C 功能刀鋒視窗
 
@@ -33,9 +32,9 @@
 
 ### 1\.直接在 Azure Preview 入口網站中瀏覽
 
-若您已將 B2C 功能刀鋒視窗釘選至「開始面板」，則在您以 B2C 目錄的「全域管理員」身分登入 [Azure 預覽入口網站](https://portal.azure.com/)時，即會看見該視窗。
+若您已將 B2C 功能刀鋒視窗釘選至「開始面板」，則在您以 B2C 目錄的「全域管理員」身分登入 [Azure Preview 入口網站](https://portal.azure.com/)時，即會看見該視窗。
 
-您亦可瀏覽至 [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft\_AAD\_B2CAdmin=true#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) (其中 **{directory}** 會由目錄建立時間所用的名稱取代，例如 contosob2c)，並以 B2C 目錄的「全域管理員」身分登入，以直接存取 B2C 功能刀鋒視窗。您可將此連結加入書籤供日後參考。
+您亦可瀏覽至 [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft\_AAD\_B2CAdmin=true#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) (其中 **{directory}** 要取代為目錄建立時間所用的名稱，例如 contosob2c)，並以 B2C 目錄的「全域管理員」身分登入，以直接存取 B2C 功能刀鋒視窗。您可將此連結加入書籤供日後參考。
 
 ### 2\.透過 Azure 入口網站存取
 
@@ -45,7 +44,7 @@
 
 ## 註冊應用程式
 
-1. 在 Azure 預覽入口網站的 B2C 功能刀鋒視窗中，按一下 [應用程式]。
+1. 在 Azure Preview 入口網站的 B2C 功能刀鋒視窗中，按一下 [應用程式]。
 2. 按一下刀鋒視窗頂端的 [+新增]。
 3. 應用程式的**名稱**會對取用者說明您的應用程式。例如，輸入「Contoso B2C app」。
 4. 如果您正在撰寫 Web 應用程式，請將 [包含 Web 應用程式/Web API] 切換為 [是]。**回覆 URL** 是 Azure AD B2C 傳回您應用程式要求之任何權杖的所在端點。例如，輸入 `https://localhost:44321/`。若您的應用程式包含需要保護的伺服器端元件 (API)，則您亦可按一下 [產生金鑰] 按鈕，以建立 (和複製) **應用程式密碼**。
@@ -62,4 +61,4 @@
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,5 +1,5 @@
 <properties   
-	pageTitle="BizTalk Server EDI 解決方案移轉至 BizTalk 服務：技術指南"
+	pageTitle="BizTalk Server EDI 解決方案移轉至 BizTalk 服務技術指南 | Microsoft Azure"
 	description="將 EDI 移轉到 MABS；Microsoft Azure BizTalk 服務"
 	services="biztalk-services"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/24/2015"
 	ms.author="mandia"/>
 
 
@@ -142,4 +142,4 @@ Microsoft Azure BizTalk 服務會定期更新以新增更多特性和功能。�
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

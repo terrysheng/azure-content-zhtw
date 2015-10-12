@@ -33,11 +33,7 @@
 
 > [AZURE.NOTE]雖然您可直接透過網際網路存取叢集適用的 Ambari，但 Ambari Web UI 中的一些連結 (例如 JobTracker 的連結) 並不會在網際網路上公開。所以除非您使用安全殼層 (SSH) 通道來代理通往叢集前端節點的 Web 流量，否則會在嘗試存取這些功能時看見「找不到伺服器」錯誤。
 
-使用下列文章從本機電腦上的連接埠建立連往叢集的 SSH 通道：
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 `ssh` 命令建立 SSH 通道的步驟。
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 PuTTY 建立 SSH 通道的步驟。
+如需建立 SSH 通道來使用 Ambari 的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ##Ambari Web UI
 
@@ -141,11 +137,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 > [AZURE.NOTE]選取任何服務的 [**快速連結**] 連結將會導致「找不到伺服器」的錯誤，除非您是使用安全通訊端層 (SSL) 通道以 Proxy 將 Web 流量傳送到叢集。這是因為用來顯示這項資訊的 Web 應用程式不會在網際網路上公開。
 >
-> 如需搭配 HDInsight 使用 SSL 通道的資訊，請參閱下列其中一項：
->
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 `ssh` 命令建立 SSH 通道的步驟。
->
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 PuTTY 建立 SSH 通道的步驟。
+> 如需使用 SSL 通道搭配 HDInsight 的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ##管理
 
@@ -195,7 +187,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 ![服務動作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]雖然 [新增服務] 會列在此功能表中，但它不應用來將服務加入至 HDInsight 叢集。您應該在叢集佈建期間，使用指令碼動作加入新服務。如需使用指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> [AZURE.WARNING]雖然 [新增服務] 會列在此功能表中，但它不應用來將服務加入 HDInsight 叢集。您應該在叢集佈建期間，使用指令碼動作加入新服務。如需使用指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 
 雖然 [**動作**] 按鈕可以重新啟動所有服務，但您想要啟動、停止或重新啟動的往往是特定服務。使用下列步驟可對個別服務執行動作：
@@ -236,4 +228,4 @@ Ambari Web 依賴基礎 REST API，供您運用於建立自己的管理和監視
 
 如需 REST API 的完整參考，請參閱 [Ambari API 參考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

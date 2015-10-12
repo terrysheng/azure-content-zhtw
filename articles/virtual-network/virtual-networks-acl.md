@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="09/22/2015"
    ms.author="telmos" />
 
-# 什麼是網路存取控制清單 (ACL)？
+# 什麼是端點存取控制清單 (ACL)？
 
-網路存取控制清單 (ACL) 是適用於您 Azure 部署的安全性增強功能。ACL 提供針對虛擬機器端點選擇性允許或拒絕流量的功能。此封包篩選功能提供了一層額外的安全性。您可以僅針對端點指定網路 ACL。您無法針對虛擬網路或是包含在虛擬網路中的特定子網路指定 ACL。
+端點存取控制清單 (ACL) 是適用於您 Azure 部署的安全性增強功能。ACL 提供針對虛擬機器端點選擇性允許或拒絕流量的功能。此封包篩選功能提供了一層額外的安全性。您可以僅針對端點指定網路 ACL。您無法針對虛擬網路或是包含在虛擬網路中的特定子網路指定 ACL。
 
 > [AZURE.IMPORTANT]建議在網路安全性群組 (NSG) 可用時，用其取代 ACL 的使用。若要深入了解 NSG，請參閱＜[什麼是網路安全性群組？](../virtual-networks-nsg)＞。
 
@@ -27,7 +27,7 @@
 
 - 根據遠端子網路與虛擬機器輸入端點的 IPv4 位址範圍，選擇性允許或拒絕傳入流量。
 
-- 將 IP 位址加入封鎖清單
+- 將 IP 位址加入黑名單
 
 - 為每個虛擬機器端點建立多個規則
 
@@ -99,4 +99,4 @@ ACL 是包含規則清單的物件。當您建立 ACL 並將它套用到虛擬�
 
 [如何使用 PowerShell 管理存取控制清單 (ACL) 端點](../virtual-networks-acl-powershell)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

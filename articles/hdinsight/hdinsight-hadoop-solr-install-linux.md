@@ -19,7 +19,6 @@
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Solr
 
-
 在本主題中，您將學習如何使用指令碼動作在 Azure HDInsight 上安裝 Solr。Solr 是強大的搜尋平台，可對 Hadoop 管理的資料執行企業級搜尋功能。在 HDInsight 叢集上安裝 Solr 之後，您也將學習如何使用 Solr 搜尋資料。
 
 > [AZURE.NOTE]此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。如需搭配以 Windows 為基礎的叢集使用 Solr 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Solr (Windows)](hdinsight-hadoop-solr-install.md)。
@@ -62,7 +61,7 @@
 
 ## <a name="usesolr"></a>如何在 HDInsight 中使用 Solr？
 
-###索引資料
+### 索引資料
 
 您必須從以某些資料檔案編製 Solr 的索引來開始。然後，您可以使用 Solr 來對已編製索引的資料執行搜尋查詢。使用下列步驟以將某些範例資料新增至 Solr，然後查詢它：
 
@@ -153,7 +152,7 @@
 			    ]
 			  }
 
-###使用 Solr 儀表板
+### 使用 Solr 儀表板
 
 Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀表板不會直接從您的 HDInsight 叢集公開至網際網路上，必須使用 SSH 通道來存取。如需使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
@@ -229,7 +228,7 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 			    ]
 			  }
 
-###啟動和停止 Solr
+### 啟動和停止 Solr
 
 如果您需要手動停止或啟動 Solar，請使用下列命令：
 
@@ -237,8 +236,7 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 
 	sudo start solr
 
-
-##備份已編製索引的資料
+## 備份已編製索引的資料
 
 您最好從 Solr 叢集節點將已編製索引的資料備份到 Azure Blob 儲存體。請執行下列步驟來進行此作業：
 
@@ -276,7 +274,7 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 如需有關使用 Solr 備份和還原的詳細資訊，請參閱[製作和還原 SolrCores 的備份](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores)。
 
 
-## 另請參閱##
+## 另請參閱
 
 - [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。色調是 Web UI，可讓您更輕鬆地建立、執行及儲存 Pig 和 Hive 工作，以及瀏覽您的 HDInsight 叢集的預設儲存體。
 
@@ -291,11 +289,9 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 
 
 
-
-
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -1,15 +1,15 @@
 <properties 
 	pageTitle="App Service 環境的網路架構概觀" 
 	description="App Service 環境網路拓撲的架構概觀。" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -79,4 +79,4 @@ App Service 環境進行輸出呼叫時，IP 位址一律會與輸出呼叫相�
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 入口網站的 HDInsight 文章索引 | Microsoft Azure"
-	description="提供 Azure 入口網站上的 HDInsight 相關文章連結之索引頁。Microsoft 向您推薦適用於 HDInsight 上新的 Hadoop 叢集之 Azure Preview 入口網站。"
-	services="hdinsight"
-	documentationCenter="na"
-	authors="cjgronlund"
-	manager="pablissima"
-	editor=""/>
+   description="提供 Azure 入口網站上的 HDInsight 相關文章連結之索引頁。Microsoft 向您推薦適用於 HDInsight 上新的 Hadoop 叢集之 Azure Preview 入口網站。"
+   services="hdinsight"
+   documentationCenter="na"
+   authors="cjgronlund"
+   manager="pablissima"
+   editor=""/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="cjgronlund"/>
+   ms.devlang="na"
+   ms.topic="index-page"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/17/2015"
+   ms.author="cjgronlund"/>
 
 # Azure 入口網站的 HDInsight 文章索引
 
@@ -102,6 +102,7 @@
 * [搭配 Hadoop 使用 Apache Mahout 產生電影推薦](hdinsight-mahout.md)
 * [學習路徑：建置進階分析方案](machine-learning-data-science-how-to-create-machine-learning-service.md)
 * [學習路徑：進階資料處理](machine-learning-data-science-advanced-data-processing.md)
+* [使用 HDInsight 和機器學習服務預測計程車小費](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## 擴充性
 
@@ -132,4 +133,4 @@
 * [解譯錯誤訊息](hdinsight-debug-jobs.md)
 * [在論壇上取得協助](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

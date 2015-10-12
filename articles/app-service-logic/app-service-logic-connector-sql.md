@@ -1,20 +1,20 @@
 <properties
    pageTitle="在 Logic Apps 中使用 SQL 連接器 | Microsoft Azure App Service"
-	description="如何建立並設定 SQL 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="如何建立並設定 SQL 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # 開始使用 Microsoft SQL 連接器並將它加入您的邏輯應用程式
@@ -127,6 +127,8 @@ Where 子句 | <ul><li>運算子：AND、OR、=、<>、<、<=、>、>= 以及 LI
 
 App Service 使用混合式組態管理員來安全地連線到內部部署系統。如果您的連接器使用內部部署 SQL Server，則需要混合式連線管理員。
 
+> [AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+
 請參閱[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
 
@@ -149,4 +151,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

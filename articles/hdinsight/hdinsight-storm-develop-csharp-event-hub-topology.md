@@ -1,20 +1,20 @@
 <properties
    pageTitle="在事件中樞內使用 Storm on HDInsight 來處理事件 | Microsoft Azure"
-	description="了解如何利用在 Visual Studio 中使用 HDInsight Tools for Visual Studio 所建立之 C# Storm 拓撲來處理事件中樞資料。"
-	services="hdinsight,notification hubs"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="了解如何利用在 Visual Studio 中使用 HDInsight Tools for Visual Studio 所建立之 C# Storm 拓撲來處理事件中樞資料。"
+   services="hdinsight,notification hubs"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/02/2015"
+   ms.author="larryfr"/>
 
 # 利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
 
@@ -25,6 +25,8 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 * **EventHubWriter**：隨機產生資料並將資料寫入事件中樞
 
 * **EventHubReader**：從事件中樞讀取資料，並將資料儲存在 Azure 資料表儲存體
+
+[AZURE.NOTE]本文件的步驟只適用於以 Windows 為基礎的 HDInsight 叢集。Java 版本的這個專案將會使用 Linux 或 Windows 叢集，請參閱[使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](hdinsight-storm-develop-java-event-hub-topology.md)。
 
 ## 必要條件
 
@@ -420,7 +422,7 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 ### 修改 Bolt
 
-1. 在 [方案總管] 中，展開 **EventHubReaderEventHubReader** 專案，然後開啟 **Bolt.cs** 檔案。在檔案開頭處新增下列程式碼：
+1. 在 [方案總管] 中，展開 **EventHubReader** 專案，然後開啟 **Bolt.cs** 檔案。在檔案開頭處新增下列程式碼：
 
 		using Newtonsoft.Json.Linq;
 		using Microsoft.WindowsAzure.Storage;
@@ -555,4 +557,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

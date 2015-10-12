@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="在 HDInsight Linux 叢集上使用色調與 Hadoop | Microsoft Azure" 
-	description="了解如何在 HDInsight Linux 上安裝及使用色調和 Hadoop 叢集。" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="在 HDInsight Linux 叢集上使用色調與 Hadoop | Microsoft Azure"
+	description="了解如何在 HDInsight Linux 上安裝及使用色調和 Hadoop 叢集。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
@@ -60,16 +60,11 @@
 
 執行色調之後，SSH 通道是在叢集上存取色調的唯一方式。透過 SSH 的通道允許直接至在其中執行色調之叢集的前端節點的流量。叢集完成佈建之後，請使用下列步驟，在 HDInsight Linux 叢集上使用色調。
 
-> [AZURE.NOTE]下列指示假設您已有 Firefox 網頁瀏覽器且已安裝 [FoxyProxy](https://addons.mozilla.org/zh-TW/firefox/addon/foxyproxy-standard/) 延伸模組。
+1. 請使用[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)中的資訊，建立用戶端系統至 HDInsight 叢集的 SSH 通道，然後設定 Web 瀏覽器將 SSH 通道當做 Proxy 使用。
 
-1. 從您的桌上型電腦啟用 SSH 通道，並且設定您的 Firefox 網頁瀏覽器以使用 SSH 通道。設定通道時，使用連接埠 8888 以外的連接埠。
+2. 一旦您建立了 SSH 通道，並設定您的瀏覽器將流量以 Proxy 通過它來傳送，即可使用此瀏覽器來開啟色調入口網站，網址為 http://headnode0:8888。
 
-	* 如需從 Linux 電腦啟用 SSH 通道的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-linux-ambari-ssh-tunnel.md#usessh)。
-	* 如需從 Windows 電腦啟用 SSH 通道的指示，請參閱[從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-linux-ambari-ssh-tunnel.md#useputty)。
-
-	保持執行 PuTTY 工作階段。
- 
-2. 從您的電腦使用已設定 FoxyProxy 的 Firefox 網頁瀏覽器，以在 http://headnode0:8888 啟動色調入口網站。當您第一次登入時，系統會提示您建立帳戶來登入色調入口網站。您在此處指定的認證會限制為入口網站，並且與佈建叢集時您指定的系統管理員或 SSH 使用者認證不相關。
+    > [AZURE.NOTE]當您第一次登入時，系統會提示您建立帳戶來登入色調入口網站。您在此處指定的認證會限制為入口網站，並且與佈建叢集時您指定的系統管理員或 SSH 使用者認證不相關。
 
 	![登入色調入口網站](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "指定色調入口網站的認證")
 
@@ -96,7 +91,6 @@
 3. 以滑鼠右鍵按一下檔案或資料夾，以查看可用的作業。使用右邊的 [上傳] 按鈕，將檔案上傳至目前的目錄。使用 [新增] 按鈕以建立新的檔案或目錄。
 
 > [AZURE.NOTE]色調檔案瀏覽器只會顯示與 HDInsight 叢集相關聯的預設容器的內容。已與叢集相關聯的任何額外儲存體帳戶/容器將無法使用檔案瀏覽器存取。不過，與叢集相關聯的其他容器一律可供 Hive 工作存取。例如，如果您在 Hive 編輯器中輸入命令 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net`，您也可以看到其他容器的內容。在這個命令中，**newcontainer** 不是與叢集相關聯的預設容器。
-
 
 ## 重要考量︰
 
@@ -131,6 +125,5 @@
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

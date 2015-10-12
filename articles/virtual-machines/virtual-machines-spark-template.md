@@ -24,7 +24,7 @@ Apache Spark 是進行大規模資料處理的快速引擎。Spark 有支援循�
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型部署資源。您無法以傳統部署模型部署此資源。
 
 
-除了在 Mesos 或 YARN 叢集管理員上執行，Spark 也提供簡單的獨立部署模式。本教學課程將逐步引導您使用範例 Azure 資源管理員範本，以透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli.md) 在 Ubuntu VM 上部署 Spark 叢集。
+除了在 Mesos 或 YARN 叢集管理員上執行，Spark 也提供簡單的獨立部署模式。本教學課程將逐步引導您使用範例 Azure 資源管理員範本，以透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli-install.md) 在 Ubuntu VM 上部署 Spark 叢集。
 
 這個範本會在 Ubuntu 虛擬機器上部署 Spark 叢集。這個範本也會佈建安裝所需的儲存體帳戶、虛擬網路、可用性設定組、公用 IP 位址和網路介面。Spark 叢集是建立在子網路後面，因此，不會有公用 IP 可存取叢集。您可以在部署期間，選擇部署「跳躍箱」。這個「跳躍箱」也是部署於子網路中的 Ubuntu VM，但是它*會*使用您可以連節的公開 SSH 連接埠來公開公用 IP 位址。接著，從「跳躍箱」，您可以 SSH 到子網路中的所有 Spark VM。
 
@@ -847,4 +847,4 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 
 [疑難排解範本部署](resource-group-deploy-debug.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

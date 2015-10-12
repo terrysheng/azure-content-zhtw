@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="09/25/2015"
 	ms.author="donnam"/>
 
 # 在行動服務中使用離線資料同步
@@ -159,7 +159,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 
 <!-- URLs. -->
-[處理行動服務的離線支援衝突]: ../mobile-services-xamarin-android-handling-conflicts-offline-data.md
+[處理行動服務的離線支援衝突]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
 [Get started with data]: mobile-services-android-get-started-data.md
 [開始使用行動服務]: mobile-services-android-get-started.md
 [如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端]: partner-xamarin-mobile-services-how-to-use-client-library.md
@@ -172,4 +172,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

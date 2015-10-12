@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="在 Azure App Service 中部署 ASP.NET MVC 5 行動 Web 應用程式" 
 	description="指導您如何使用 ASP.NET MVC 5 Web 應用程式的行動功能，將 Web 應用程式部署到 Azure App Service 的教學課程。" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -617,4 +617,4 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

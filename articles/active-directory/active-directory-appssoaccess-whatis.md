@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/28/2015"
 	ms.author="asmalser-msft"/>
 
 #什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
@@ -80,11 +80,11 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 若是密碼 SSO，則使用者的瀏覽器可以是：
 
-- Internet Explorer 8、9 和 10 - 在 Windows 7 或更新版本上
+- Internet Explorer 8、9 和 10 -- Windows 7 或更新版本 (請參閱 [IE 擴充功能部署指南](active-directory-saas-ie-group-policy.md))
 - Chrome - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上
 - Firefox 26.0 或更新版本 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上
 
-**注意：**當瀏覽器延伸模組可以支援 Edge 時，密碼 SSO 擴充功能將可提供 Windows 10 中的 Edge 使用。
+**注意：**當瀏覽器擴充功能可以支援 Edge 時，密碼 SSO 擴充功能將可提供 Windows 10 中的 Edge 使用。
 
 ###現有單一登入
 
@@ -122,7 +122,7 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 如果 Azure AD 應用程式庫中找不到您的應用程式，您可以選擇：
 
-*	**新增您正在使用但未列出的應用程式** - 使用 Azure 管理入口網站內應用程式資源庫中的自訂類別目錄，連接您的組織正在使用但未列出的應用程式。您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。如需詳細資訊，請參閱〈[加入自己的應用程式](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)〉這篇文章。
+*	**新增您正在使用但未列出的應用程式** - 使用 Azure 管理入口網站內應用程式資源庫中的自訂類別目錄，連線您的組織正在使用但未列出的應用程式。您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。如需詳細資訊，請參閱[加入自己的應用程式](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)一文。
 
 
 *	**新增您正在開發的專屬應用程式** - 如果您自己開發了應用程式，請依照 Azure AD 開發人員文件中的指導方針來實作同盟單一登入或使用 Azure AD 圖形 API 的佈建。如需詳細資訊，請參閱這些資源：
@@ -182,7 +182,7 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 
 ![][4]
 
-如需有關 Office 365 應用程式啟動程式的詳細資訊，請參閱〈[讓您的應用程式出現在 Office 365 應用程式啟動程式中](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)〉。
+如需有關 Office 365 應用程式啟動程式的詳細資訊，請參閱[讓您的應用程式出現在 Office 365 應用程式啟動程式中](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)。
 
 ###直接登入同盟應用程式
 
@@ -220,4 +220,4 @@ Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

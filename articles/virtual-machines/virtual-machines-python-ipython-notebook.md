@@ -47,7 +47,7 @@
 
 此步驟適用於 Linux 和 Windows VM 兩者。稍後，我們將設定 IPython 在連接埠 9999 上運作其 Notebook 伺服器。若要對外提供此連接埠，我們必須在 Azure 管理入口網站中建立端點。此端點會在 Azure 防火牆中開啟連接埠，並將公用連接埠 (HTTPS，443) 對應到 VM 上的私人連接埠 (9999)。
 
-若要建立端點，請移至 VM 儀表板，依序按一下 [**端點**] 和 [**加入端點**]，然後建立新的端點 (在此範例中稱為 `ipython_nb`)。選擇 **TCP** 通訊協定，為公用連接埠選擇 **443**，並為私人連接埠選擇 **9999**。
+若要建立端點，請移至 VM 儀表板，依序按一下 [端點] 和 [加入端點]，然後建立新的端點 (在此範例中稱為 `ipython_nb`)。選擇 **TCP** 通訊協定，為公用連接埠選擇 **443**，並為私人連接埠選擇 **9999**。
 
 ![螢幕擷取畫面](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
 
@@ -89,7 +89,7 @@
 
 若要在 Windows VM 上安裝 IPython 及其相依性，請使用遠端桌面連線至 VM。然後進行以下步驟，使用 Windows PowerShell 執行所有命令行動作。
 
-**注意**：為了使用 Internet Explorer 下載任何項目，您必須變更部分安全性設定。從 [**伺服器管理員**]，按一下 [**本機伺服器**]，然後在 [**IE 增強式安全性設定**] 中為管理員將它關閉。您可以在安裝 IPython 後再次啟用它。
+**注意**：為了使用 Internet Explorer 下載任何項目，您必須變更部分安全性設定。從 [伺服器管理員]，按一下 [本機伺服器]，然後在 [IE 增強式安全性設定] 中為管理員將它關閉。您可以在安裝 IPython 後再次啟用它。
 
 1.  下載並安裝最新 32 位元版本的 [Python 2.7][]。您需要將 `C:\Python27` 和 `C:\Python27\Scripts` 加入 `PATH` 環境變數。
 
@@ -122,17 +122,17 @@
 
 1.  開啟 Windows 防火牆中的連接埠。在 Windows Server 2012 上，防火牆預設會阻擋傳入的連線。若要開啟連接埠 9999，請依照下列步驟執行：
 
-    - 從 [**開始**] 畫面啟動 [**具備進階安全性的 Windows 防火牆**]。
+    - 從 [開始] 畫面啟動 [具備進階安全性的 Windows 防火牆]。
 
-    - 在左側窗格中，按一下 [**輸入規則**]。
+    - 在左側窗格中，按一下 [輸入規則]。
 
-	- 在 [動作] 窗格中，按一下 [**新增規則**]。
+	- 在 [動作] 窗格中，按一下 [新增規則]。
 
 	- 在 [新內送規則精靈] 中，選取 [連接埠]。
 
 	- 在下一個畫面中，選取 [TCP]，並且在 [指定本機連接埠] 中輸入 **9999**。
 
-	- 接受預設值，並且為規則命名，然後按一下 [**完成**]。
+	- 接受預設值，並且為規則命名，然後按一下 [完成]。
 
 ### 設定 IPython Notebook
 
@@ -207,7 +207,7 @@
 
 ![螢幕擷取畫面](./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png)
 
-如果按一下 [**新增 Notebook**] 按鈕，您將看到以下開啟頁面。
+如果按一下 [新增 Notebook] 按鈕，您將看到以下開啟頁面。
 
 ![螢幕擷取畫面](./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png)
 
@@ -258,8 +258,9 @@ IPython Notebook 為交互存取 Azure 上 Python 生態系統的功能提供強
 
 例外，也可以透過 [Python Tools for Visual Studio][] (PTVS) 在 Visual Studio 中使用 IPython 的核心功能。PTVS 是 Microsoft 提供的免費開放原始碼外掛程式，可以將 Visual Studio 轉變為進階 Python 開發環境，其中包括具有 IntelliSense、偵錯、剖析和平行運算整合功能的進階編輯器。
 
+## 後續步驟
 
-
+如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
 
 [Tornado]: http://www.tornadoweb.org/ "Tornado"
 [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
@@ -272,4 +273,4 @@ IPython Notebook 為交互存取 Azure 上 Python 生態系統的功能提供強
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -37,7 +37,7 @@
 您將需要下列項目：
 
 - Microsoft Azure Linux Agent 2.0.5 版或更新版本。虛擬機器映像庫中的大多數 Linux 映像均包含 2.0.5 版。若要找出所安裝的版本，請執行 **waagent -version**。若要更新代理程式，請依照 [Azure Linux 代理程式使用者指南]的指示進行。
-- Azure 命令列介面 (CLI)。如需設定 Azure CLI 的詳細資訊，請參閱[安裝和設定 Azure 命令列介面](../xplat-cli.md)。
+- Azure 命令列介面 (CLI)。如需設定 Azure CLI 的詳細資訊，請參閱[安裝和設定 Azure 命令列介面](../xplat-cli-install.md)。
 - Azure PowerShell。您將使用 Set-AzureVMExtension Cmdlet 中的命令，自動載入和設定 VMAccessForLinux 延伸模組。如需設定 Azure PowerShell 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell]。
 - 新的密碼或一組 SSH 金鑰 (如果要重設其中一項)。如果您想要重設 SSH 組態，則不需要這些。
 
@@ -263,4 +263,4 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 [Azure VM 延伸模組與功能]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="瀏覽 Azure 入口網站的參考"
 	description="了解管理入口網站與 Azure 入口網站間之應用程式服務 Web 的不同使用者體驗"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -88,4 +88,4 @@ Azure 網站現在稱為[應用程式服務 Web 應用程式](http://go.microsof
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽新入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

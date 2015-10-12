@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="了解 Azure SQL Database 和 Azure VM 中的 SQL Server"
-	description="了解 Azure 虛擬機器中的 Azure SQL Database 和 SQL Server檢閱常見的商業動因，以判斷哪一種 SQL 技術最符合應用程式需求。"
-	services="sql-database, virtual-machines"
-	documentationCenter=""
-	authors="Selcin"
-	manager="jeffreyg"
+	pageTitle="了解 Azure SQL Database 和 Azure VM 中的 SQL Server" 
+	description="了解 Azure 虛擬機器中的 Azure SQL Database 和 SQL Server檢閱常見的商業動因，以判斷哪一種 SQL 技術最符合應用程式需求。" 
+	services="sql-database, virtual-machines" 
+	documentationCenter="" 
+	authors="Selcin" 
+	manager="jeffreyg" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="vm-windows-sql-server" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="selcint"/>
 
 # 了解 Azure SQL Database 和 Azure VM 中的 SQL Server
@@ -138,7 +138,7 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 [**Azure SQL Database**] 會以服務 (不含授權) 的形式銷售給客戶，而 Azure VM 中的 SQL Server 則需要傳統的 SQL Server 授權。
 
-目前，您可以在數個服務層中使用 [**Azure SQL Database**]。若是基本、標準和高階服務層，我們會根據您所選擇的服務層和效能層級，以固定費率向您收取每小時的費用。基本、標準和高階服務層的設計目的在於提供多個效能層級的可預測效能，以滿足應用程式的尖峰需求。您可以在服務層和效能層級之間進行變更，以滿足應用程式的不同輸送量需求。如需目前支援的服務層最新資訊，請參閱 [Azure SQL Database 服務層 (版本)](http://msdn.microsoft.com/library/azure/dn741340.aspx)。
+目前，您可以在數個服務層中使用 [**Azure SQL Database**]。若是基本、標準和高階服務層，我們會根據您所選擇的服務層和效能層級，以固定費率向您收取每小時的費用。基本、標準和高階服務層的設計目的在於提供多個效能層級的可預測效能，以滿足應用程式的尖峰需求。您可以在服務層和效能層級之間進行變更，以滿足應用程式的不同輸送量需求。如需目前支援的服務層最新資訊，請參閱 [Azure SQL Database 服務層 (版本)](sql-database-service-tiers.md)。
 
 有了 [**Azure SQL Database**]，世界各地資料中心內的 Microsoft Azure 便會自動設定、修補和升級資料庫軟體。因此，您就能降低管理成本。此外，它[內建的備份](http://msdn.microsoft.com/library/azure/jj650016.aspx)功能可協助您達到有效節省成本，尤其是當您擁有為數眾多的資料庫時效果更為顯著。使用 Azure SQL Database 時，您不必支付針對 Azure SQL Database 執行的個別查詢或傳入網際網路流量費用。您需要支付[網際網路傳出流量](http://azure.microsoft.com/pricing/details/data-transfers/)。如果您的資料庫具有高交易量，且必須支援許多並行使用者，建議您使用高階 (而不是基本或標準) 服務層。
 
@@ -158,7 +158,7 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 *應用程式的總成本 = 降到最低的軟體開發/修改成本 + 系統管理成本 + SQL Server 與 Windows Server 授權成本 + Azure 儲存體成本*
 
-**重要事項：**目前，Azure SQL Database 不支援 SQL Server 的所有功能。如需詳細的比較資訊，請參閱 [Azure SQL Database 方針和限制](http://msdn.microsoft.com/library/azure/ff394102.aspx)。當您要將現有的資料庫移至 Azure SQL Database 時請留意這個資訊，因為在資料庫重新設計上您可能需要一些額外預算。Azure SQL Database 是 Microsoft 平台即服務產品。當您將現有的內部部署 SQL Server 應用程式移轉至 Azure SQL Database 時，建議您更新應用程式以充分利用平台即服務產品的所有好處。例如，開始在應用程式層上使用 [Azure 網站](http://azure.microsoft.com/documentation/services/websites/)或 [Azure 雲端服務](http://azure.microsoft.com/services/cloud-services/)，以增加成本利益。此外，請針對不同的 Azure SQL Database 服務層驗證您的應用程式，並檢查哪一個最符合您的應用程式需求。此程序可協助您達到更佳的效能結果並將成本降到最低。如需詳細資訊，請參閱 [Azure SQL Database 服務層和效能層級](http://msdn.microsoft.com/library/azure/dn741336.aspx)。
+**重要事項：**目前，Azure SQL Database 不支援 SQL Server 的所有功能。如需詳細的比較資訊，請參閱 [Azure SQL Database 方針和限制](http://msdn.microsoft.com/library/azure/ff394102.aspx)。當您要將現有的資料庫移至 Azure SQL Database 時請留意這個資訊，因為在資料庫重新設計上您可能需要一些額外預算。Azure SQL Database 是 Microsoft 平台即服務產品。當您將現有的內部部署 SQL Server 應用程式移轉至 Azure SQL Database 時，建議您更新應用程式以充分利用平台即服務產品的所有好處。例如，開始在應用程式層上使用 [Azure 網站](http://azure.microsoft.com/documentation/services/websites/)或 [Azure 雲端服務](http://azure.microsoft.com/services/cloud-services/)，以增加成本利益。此外，請針對不同的 Azure SQL Database 服務層驗證您的應用程式，並檢查哪一個最符合您的應用程式需求。此程序可協助您達到更佳的效能結果並將成本降到最低。如需詳細資訊，請參閱 [Azure SQL Database 服務層和效能層級](sql-database-service-tiers.md)。
 
 如需詳細的成本估計，請使用 [Azure 價格計算程式](http://azure.microsoft.com/pricing/calculator/)。
 
@@ -173,13 +173,13 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 如果您手上已經有許多工作，或許您並不期望採用伺服器和資料庫系統管理。對許多企業來說，決定使用雲端服務的關鍵在於降低系統管理複雜度的能力。有了 [**Azure SQL Database**]，Microsoft 可以管理實體硬體 (例如硬碟、伺服器和儲存體)、自動複製所有資料以提供高可用性、設定及升級資料庫軟體、管理負載平衡，並在伺服器故障時進行透明容錯移轉。您可以繼續管理您的 Azure SQL Database 執行個體，但無需控制基礎 SQL Server 執行個體和 Azure 平台的實體資源。例如，您可以管理資料庫和登入、執行索引微調，以及最佳化查詢，但無法管理系統資料表和檔案群組管理。如需詳細資訊，請參閱 [Azure SQL Database 方針和限制](http://msdn.microsoft.com/library/ff394102.aspx)。
 
-相反地，您可能有內部專業人員，並想保持只由機器本身控制資料庫位置。有了 [**Azure VM 中執行的 SQL Server**]，您可以完全掌控作業系統和 SQL Server 執行個體組態。有了 VM，您可以決定何時更新/升級作業系統與資料庫軟體，以及何時安裝任何其他軟體 (例如防毒和備份工具)。此外，您還可以控制 VM 的大小、磁碟的數目及其儲存體組態。例如，Azure 可讓您視需要變更正在執行的 VM 大小。如需相關資料，請參閱 [Azure 的虛擬機器和雲端服務大小](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs)。
+相反地，您可能有內部專業人員，並想保持只由機器本身控制資料庫位置。有了 [**Azure VM 中執行的 SQL Server**]，您可以完全掌控作業系統和 SQL Server 執行個體組態。有了 VM，您可以決定何時更新/升級作業系統與資料庫軟體，以及何時安裝任何其他軟體 (例如防毒和備份工具)。此外，您還可以控制 VM 的大小、磁碟的數目及其儲存體組態。例如，Azure 可讓您視需要變更正在執行的 VM 大小。如需相關資料，請參閱 [Azure 的虛擬機器和雲端服務大小](../virtual-machines/virtual-machines-size-specs.md)。
 
 ###<a name="sla"></a>服務等級協定 (SLA)：
 
 對於某些人而言，達到服務等級協定 (SLA) 的正常運作時間義務是首要任務。在本節中，我們將瞭解 SLA 對每個資料庫主控選項所代表的意義。
 
-在 [**Azure SQL Database**] 中，若是基本、標準和高階服務層，Microsoft 提供 99.99% 的可用性 SLA。請注意，可用性 SLA 提供連接到資料庫的能力。換句話說，它是個資料庫層級 SLA。如需 SLA 的最新資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。如需 Azure SQL Database 服務層 (版本) 和支援的業務持續性計劃最新資訊，請參閱 [Azure SQL Database 服務層](http://msdn.microsoft.com/library/dn741340.aspx)。
+在 [**Azure SQL Database**] 中，若是基本、標準和高階服務層，Microsoft 提供 99.99% 的可用性 SLA。請注意，可用性 SLA 提供連接到資料庫的能力。換句話說，它是個資料庫層級 SLA。如需 SLA 的最新資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。如需 Azure SQL Database 服務層 (版本) 和支援的業務持續性計劃最新資訊，請參閱 [Azure SQL Database 服務層](sql-database-service-tiers)。
 
 在 [**Azure 託管的虛擬機器**] 中，Microsoft 提供 99.95% 的可用性 SLA，這個可用性適用於 VM，不適用於 VM 內部執行的程序 (例如 SQL Server)。[VM SLA](http://www.microsoft.com/download/details.aspx?id=38427) 要求您在可用性集合中至少主控兩個 VM。有了此類組態，Azure 會保證至少其中一個 VM 將會 99.95%的時間可用。如需 VM 內的資料庫高可用性 (HA)，您應在 SQL Server 中設定其中一個支援的高可用性選項，例如 AlwaysOn 可用性群組。請注意，在 Azure 中設定 AlwaysOn 需要一些手動設定和管理，而且您需要額外支付所操作的每個次要資料庫。
 
@@ -188,7 +188,7 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 
 當開發人員生產力和快速產品上市時間為關鍵所在時，[**Azure SQL Database**] 是雲端式設計應用程式的理想解決方案。有了程式設計 DBA 類似功能，此選項非常適合雲端架構設計人員和開發人員，因為它會降低管理基礎作業系統和資料庫的需求。它可協助開發人員了解與設定資料庫相關工作。例如，您可以使用 [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) 和 [PowerShell Cmdlet](http://msdn.microsoft.com/library/azure/dn546726.aspx) 來自動化及管理數千個資料庫的管理作業。透過在雲端的[彈性調整](sql-database-elastic-pool.md)，您可以輕易地將重點放在應用程式層，並更快速地將應用程式上市。
 
-如果現有和新的應用程式需要存取與控制 SQL Server 執行個體的所有功能，並想要依現狀將現有的內部部署應用程式和資料庫移轉至雲端，**Azure VM 中執行的 SQL Server** 會是理想選項。由於您無需變更簡報、應用程式和資料層，您會在重新架構現有解決方案時節省時間和預算。相反地，您可以將重點放在將您的所有方案套件移轉至 VM，並進行 Azure 平台所需的某些效能最佳化作業。如需相關資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices)。
+如果現有和新的應用程式需要存取與控制 SQL Server 執行個體的所有功能，並想要依現狀將現有的內部部署應用程式和資料庫移轉至雲端，**Azure VM 中執行的 SQL Server** 會是理想選項。由於您無需變更簡報、應用程式和資料層，您會在重新架構現有解決方案時節省時間和預算。相反地，您可以將重點放在將您的所有方案套件移轉至 VM，並進行 Azure 平台所需的某些效能最佳化作業。如需相關資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](../virtual-machines/virtual-machines-sql-server-performance-best-practices.md)。
 
 ##<a name="summary"></a>摘要
 
@@ -253,4 +253,4 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

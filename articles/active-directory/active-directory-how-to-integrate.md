@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="mbaldwin"/>
 
 # 與 Azure Active Directory 整合
@@ -76,7 +76,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 ### 容易開發
 
-**業界標準通訊協定。** Microsoft 致力於支援業界標準。Azure AD 支援 SAML 2.0、OpenID Connect 1.0、OAuth 2.0 和 WS 同盟 1.2 驗證通訊協定。Graph API 屬於 OData 4.0 標準。如果您的應用程式已經支援 SAML 2.0 或 OpenID Connect 1.0 通訊協定的同盟登入，那新增 Azure AD 支援便相當直接。深入了解 [Azure AD 支援的驗證通訊協定](../authentication-protocols.md)。
+**業界標準通訊協定。** Microsoft 致力於支援業界標準。Azure AD 支援 SAML 2.0、OpenID Connect 1.0、OAuth 2.0 和 WS 同盟 1.2 驗證通訊協定。Graph API 屬於 OData 4.0 標準。如果您的應用程式已經支援 SAML 2.0 或 OpenID Connect 1.0 通訊協定的同盟登入，那新增 Azure AD 支援便相當直接。深入了解 [Azure AD 支援的驗證通訊協定](active-directory-authentication-protocols.md)。
 
 **開放原始碼程式庫。** Microsoft 針對常用的語言和平台提供完整支援的開放原始碼程式庫，進而加快開發速度。原始碼採用 Apache 2.0 授權，您可以任何分岔以及貢獻回饋給專案。深入了解 [Azure AD 驗證程式庫](active-directory-authentication-libraries.md)。
 
@@ -90,4 +90,4 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 [使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

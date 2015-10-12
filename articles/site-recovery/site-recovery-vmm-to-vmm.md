@@ -155,7 +155,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 8. 按 [下一步]，完成此程序。註冊後，Azure Site Recovery 即可從 VMM 伺服器擷取中繼資料。此伺服器會顯示在保存庫中 [伺服器] 頁面的 [VMM 伺服器] 索引標籤上。
 
->[AZURE.NOTE]Azure Site Recovery 提供者也可以使用下列命令列來安裝。這個方法可以用來安裝一個適用於 Windows Server 2012 R2 之伺服器核心的提供者
+>[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來將提供者安裝在適用於 Windows Server 2012 R2 的伺服器核心上
 >
 >1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
 >2. 停止 System Center Virtual Machine Manager 服務
@@ -166,7 +166,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 >4. 執行下列命令來安裝提供者
 >
 		C:\ASR> setupdr.exe /i
->5. 執行下列命令來註冊提供者
+>5. 執行下列命令來登錄提供者
 >
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
     	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
@@ -388,4 +388,4 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,46 +1,47 @@
 <properties 
-	pageTitle="使用驗證和 SQL DB 建立 ASP.NET MVC 應用程式並部署至 Azure 應用程式服務"
-	description="了解如何開發具有 SQL Database 後端的 ASP.NET MVC 5 應用程式、加入驗證和授權，並將它部署至 Azure。"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Rick-Anderson"
-	manager="wpickett"
+	pageTitle="使用驗證和 SQL DB 建立 ASP.NET MVC 應用程式並部署至 Azure 應用程式服務" 
+	description="了解如何開發具有 SQL Database 後端的 ASP.NET MVC 5 應用程式、加入驗證和授權，並將它部署至 Azure。" 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="riande"/>
-
-
 
 # 使用驗證和 SQL DB 建立 ASP.NET MVC 應用程式並部署至 Azure 應用程式服務
 
-本教學課程將示範如何建立可讓使用者以 Facebook 或 Google 認證登入的安全 ASP.NET MVC 5 Web 應用程式。您也會將應用程式部署至 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。
+本教學課程將示範如何建立可讓使用者以 Facebook 或 Google 認證登入的安全 ASP.NET MVC 5 Web 應用程式。此應用程式是簡單的連絡人清單，會針對資料庫存取使用 ADO.NET Entity Framework。您會將應用程式部署到 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
-您可以免費申請 Azure 帳戶，而且如果您還沒有 Visual Studio 2013，SDK 會自動安裝 Visual Studio 2013 for Web Express。您可以開始免費進行 Azure 相關開發。
-
-本教學課程假設您先前沒有使用 Azure 的經驗。完成此教學課程後，您將有個安全的資料驅動 Web 應用程式已在雲端中啟動並執行、並已在使用雲端資料庫。
-
-您將了解：
-
-* 如何建立安全的 ASP.NET MVC 5 專案，並將它發行至 Azure App Service 中的 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。
-* 如何使用 [OAuth](http://oauth.net/ "http://oauth.net/") 與 ASP.NET 成員資格資料庫來確保您的應用程式安全。
-* 如何使用 SQL 資料庫在 Azure 中儲存資料。
-
-您將建立一個簡單的連絡人清單 Web 應用程式，該應用程式建立於 ASP.NET MVC 5 之上，並使用 ADO.NET Entity Framework 進行資料庫存取。下圖顯示完成之應用程式的登入頁面：
+完成此教學課程後，您將有個安全的資料驅動 Web 應用程式在雲端中上線運作，並已在使用雲端資料庫。下圖顯示完成之應用程式的登入頁面：
 
 ![登入頁面][rxb]
 
->[AZURE.NOTE]若要在上方的螢幕擷取畫面中建立美觀的社交登入按鈕，請檢視標題為[美觀的 ASP.NET MVC 5 社交登入按鈕](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)部落格文章。
+您將了解：
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](../zh-TW/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或是[申請免費試用](../zh-TW/pricing/free-trial/?WT.mc_id=A261C142F)。
+* 如何在 Visual Studio 中建立安全的 ASP.NET MVC 5 Web 專案。
+* 如何驗證和授權使用 Google 或 Facebook 帳戶認證登入的使用者 (使用 [OAuth 2.0](http://oauth.net/2 "http://oauth.net/2") 的社交提供者驗證)。
+* 如何驗證及授權使用者，這些使用者會在應用程式管理的資料庫中登錄 (使用 [ASP.NET 身分識別](http://asp.net/identity/)的本機驗證)。
+* 如何使用 ADO.NET Entity Framework 6 Code First 在 SQL Database 中讀取和寫入資料。
+* 如何使用 Entity Framework Code First 移轉來部署資料庫。
+* 如何使用 Azure SQL Database 在雲端中儲存關聯式資料。
+* 如何部署 Web 專案，以便將資料庫用於 Azure App Service 中的 [Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
->如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]這個教學課程時間很長。如果您想快速認識 Azure App Service 和 Visual Studio Web 專案，請參閱[在 Azure App Service 中建立 ASP.NET Web 應用程式](web-sites-dotnet-get-started.md)。
+>
+>或者，如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。
+
+## 必要條件
+
+若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](../zh-TW/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或是[申請免費試用](../zh-TW/pricing/free-trial/?WT.mc_id=A261C142F)。
 
 若要設定開發環境，您必須安裝 [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) 或更高版本，以及最新版本的 [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)。本文專為 Visual Studio Update 4 和 SDK 2.5.1 所撰寫。
 
@@ -361,6 +362,8 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 依照 [**建立 Google app for OAuth 2 以設定 Google app for OAuth2**] 下 [[使用 Facebook、Twitter、LinkedIn 和 Google OAuth2 登入的 MVC 5 App](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog)] 的教學課程指示進行。執行與測試應用程式，以確認您可以使用 Google 驗證登入。
 
+如果您想要建立具有特定提供者圖示的社交登入按鈕，請參閱[美觀的 ASP.NET MVC 5 社交登入按鈕](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)
+
 ## 使用成員資格 API
 在本節中，您會將本機使用者和 *canEdit* 角色新增至成員資格資料庫。只有 *canEdit* 角色中的使用者才能編輯資料。最佳做法是依角色可執行的動作來命名角色，因此將角色命名為 *canEdit* 會較命名為 *admin* 更好。隨著應用程式發展，您可以新增如 *canDeleteMembers* 等新角色，而非新增較欠缺描述性的 *superAdmin*。
 
@@ -475,7 +478,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		
 	上述程式碼中套用的 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 篩選器將防止匿名使用者存取應用程式中的任何方法。您將使用 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性來選擇略過一些方法中的授權需求，讓匿名使用者可登入及檢視首頁。使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 時，所有對 Web 應用程式的存取都必須透過 HTTPS 進行。
 
-1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到允許清單。
+1. 將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至首頁控制器的 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到白名單。
 
 		public class HomeController : Controller
 		{
@@ -530,13 +533,13 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		
 1. 如果您在前個工作階段仍保持登入狀態，請點擊 [登出] 連結。
 1. 按一下 [關於] 或 [連絡人] 連結。因為匿名使用者無法檢視那些頁面，所以系統會將您重新導向至登入頁面。 
-1. 按一下 [註冊為新使用者] 連結並使用電子郵件 **joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
+1. 按一下 [註冊為新使用者] 連結，並使用電子郵件 **joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
 
 	![登入](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. 按一下 [CM Demo] 連結並確認看到資料。
 1. 按一下頁面上的編輯連結，系統會將您重新導向至登入頁面 (因為未將新的本機使用者新增至 *canEdit* 角色)。
-1. 使用 **user1@contoso.com* 的身分和密碼 "P\_assw0rd1" (「word」中的「0」是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。<br/> 如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 **AspNetUsers** 資料表的 **UserName** 資料行以確認已新增 **user1@contoso.com*。
+1. 使用 **user1@contoso.com* 的身分和密碼 "P\_assw0rd1" ("word" 中的 "0" 是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。<br/> 如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 **AspNetUsers** 資料表的 **UserName** 欄，確認已新增 **user1@contoso.com*。
 
 1. 確認您可進行資料變更。
 
@@ -717,4 +720,4 @@ Tom Dykstra 見解精闢的[開始使用 EF 和 MVC](http://www.asp.net/mvc/tuto
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

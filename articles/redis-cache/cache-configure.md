@@ -12,16 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/22/2015"
+   ms.date="09/30/2015"
    ms.author="sdanie" />
 
 # 如何設定 Azure Redis 快取
 
 本主題描述如何檢視並更新您的 Azure Redis 快取執行個體的組態，並涵蓋 Azure Redis 快取執行個體的預設 Redis 伺服器組態。
 
+>[AZURE.NOTE]Azure Redis Cache 高階層目前只能預覽。在預覽期間，只能在建立快取的過程中設定高階功能。如需使用高階快取功能的詳細資訊，請參閱[如何設定高階 Azure Redis Cache 的永續性](cache-how-to-premium-persistence.md)、[如何設定高階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)，以及[如何設定高階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)。
+
 ## 設定 Redis 快取設定
 
-可在 [Azure Preview 入口網站](https://portal.azure.com)使用 [瀏覽] 刀鋒視窗來存取快取。
+您可在 [Azure 預覽入口網站](https://portal.azure.com)中使用 [瀏覽] 刀鋒視窗來存取快取。
 
 ![Azure Redis 快取瀏覽刀鋒視窗](./media/cache-configure/IC796920.png)
 
@@ -33,45 +35,45 @@
 
 ![Redis 快取所有設定](./media/cache-configure/IC808312.png)
 
-按一下 [**設定**] 或 [**所有設定**] 來檢視並設定您的快取。
+按一下 [設定] 或 [所有設定] 以檢視並設定您的快取。
 
 ![Redis 快取設定](./media/cache-configure/IC808313.png)
 
 ## 屬性
 
-按一下 [**屬性**]，來檢視您的快取的相關資訊,，包括快取端點和連接埠。
+按一下 [屬性] 以檢視快取的相關資訊，包括快取端點和連接埠。
 
 ![Redis 快取屬性](./media/cache-configure/IC808314.png)
 
 ## 存取金鑰
 
-按一下 [**存取金鑰**] 來檢視或重新產生您的快取的存取金鑰。用戶端會使用這些金鑰與來自 [**屬性**] 刀鋒視窗的主機名稱和連接埠搭配，以連接到您的快取。
+按一下 [存取金鑰] 以檢視或重新產生快取的存取金鑰。連接到快取的用戶端會使用這些金鑰以及 [屬性] 刀鋒視窗中的主機名稱和連接埠。
 
 ![Redis 快取存取金鑰](./media/cache-configure/IC808315.png)
 
 ## 存取連接埠
 
-根據預設，新的快取會停用非 SSL 存取。若要啟用非 SSL 連接埠，請按一下 [**存取連接埠**] 刀鋒視窗，然後按一下 [**否**]。
+根據預設，新的快取會停用非 SSL 存取。若要啟用非 SSL 連接埠，請按一下 [存取連接埠] 刀鋒視窗，然後按一下 [否]。
 
 ![Redis 快取存取連接埠](./media/cache-configure/IC808316.png)
 
 ## 定價層
 
-按一下 [定價層] 來檢視或變更快取的定價層。如需調整的詳細資訊，請參閱[如何調整 Azure Redis 快取](cache-how-to-scale.md)。
+按一下 [定價層] 以檢視或變更快取的定價層。如需調整的詳細資訊，請參閱[如何調整 Azure Redis Cache](cache-how-to-scale.md)。
 
 ![Redis 快取定價層](./media/cache-configure/pricing-tier.png)
 
 ## 診斷
 
-按一下 [診斷] 來設定用來儲存快取診斷的儲存體帳戶。
+按一下 [診斷] 以設定用來儲存快取診斷的儲存體帳戶。
 
 ![Redis 快取診斷](./media/cache-configure/IC808317.png)
 
-如需詳細資訊，請參閱[如何監視 Azure Redis 快取](cache-how-to-monitor.md)。
+如需詳細資訊，請參閱[如何監視 Azure Redis Cache](cache-how-to-monitor.md)。
 
 ## Maxmemory-policy 和 maxmemory-reserved
 
-按一下 [Maxmemory 原則] 來設定快取的記憶體原則。**maxmemory-policy** 設定會設定快取的收回原則，而 **maxmemory-reserved** 設定則會設定保留給非快取程序的記憶體。
+按一下 [Maxmemory 原則] 以設定快取的記憶體原則。**maxmemory-policy** 設定會設定快取的收回原則，而 **maxmemory-reserved** 設定則會設定保留給非快取程序的記憶體。
 
 ![Redis 快取 Maxmemory 原則](./media/cache-configure/IC808318.png)
 
@@ -84,39 +86,39 @@
 -	volatile-ttl
 -	noeviction
 
-如需 maxmemory 原則的詳細資訊，請參閱[收回原則](http://redis.io/topics/lru-cache#eviction-policies)。
+如需 Maxmemory 原則的詳細資訊，請參閱[收回原則](http://redis.io/topics/lru-cache#eviction-policies)。
 
-**maxmemory-reserved** 設定會設定保留給非快取作業的記憶體數量 (MB)，例如容錯移轉期間的複寫。當具有高片段比率時，也可使用它。設定此值可讓您在負載變動時具有更一致的 Redis 伺服器體驗。對於頻繁寫入的工作負載，此值應該設定為更高的值。當記憶體保留給這類作業時，無法用於儲存快取的資料。
+**maxmemory-reserved** 設定會設定保留給非快取作業 (例如容錯移轉期間的複寫) 的記憶體量 (MB)。當具有高片段比率時，也可使用它。設定此值可讓您在負載變動時具有更一致的 Redis 伺服器體驗。對於頻繁寫入的工作負載，此值應該設定為更高的值。當記憶體保留給這類作業時，無法用於儲存快取的資料。
 
->[AZURE.IMPORTANT]**maxmemory-reserved** 設定只適用於標準快取。
+>[AZURE.IMPORTANT]**maxmemory-reserved** 設定只適用於標準和高階快取。
 
 ## Keyspace 通知 (進階設定)
 
-按一下 [進階設定] 來設定 Redis Keyspace 通知。Keyspace 通知可讓用戶端在特定事件發生時收到通知。
+按一下 [進階設定] 以設定 Redis Keyspace 通知。Keyspace 通知可讓用戶端在特定事件發生時收到通知。
 
 ![Redis 快取進階設定](./media/cache-configure/IC808319.png)
 
->[AZURE.IMPORTANT]Keyspace 通知和 **notify-keyspace-events** 設定只適用於標準快取。
+>[AZURE.IMPORTANT]Keyspace 通知和 **notify-keyspace-events** 設定只適用於標準和高階快取。
 
-如需詳細資訊，請參閱 [Redis Keyspace 通知](http://redis.io/topics/notifications)。如需範例程式碼，請參閱 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例中的 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 檔案。
+如需詳細資訊，請參閱 [Redis Keyspace 通知](http://redis.io/topics/notifications) (英文)。如需範例程式碼，請參閱 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例中的 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 檔案。
 
 ## 使用者和標記
 
 ![Redis 快取使用者和標記](./media/cache-configure/IC808320.png)
 
-[使用者] 區段會在 Preview 入口網站中提供角色型存取控制 (RBAC) 的支援，以協助組織輕鬆又準確地滿足其存取管理需求。如需詳細資訊，請參閱 [Azure Preview 入口網站中的角色型存取控制](http://go.microsoft.com/fwlink/?LinkId=512803)。
+[使用者] 區段會在預覽入口網站中提供角色型存取控制 (RBAC) 的支援，以協助組織輕鬆又準確地滿足其存取管理需求。如需詳細資訊，請參閱 [Azure 預覽入口網站中的角色型存取控制](http://go.microsoft.com/fwlink/?LinkId=512803)。
 
-[標記] 區段可協助您組織您的資源。如需詳細資訊，請參閱[使用標記來組織您的 Azure 資源](../resource-group-using-tags.md)。
+[標記] 區段可協助您組織資源。如需詳細資訊，請參閱[使用標記來組織您的 Azure 資源](../resource-group-using-tags.md)。
 
 ## 預設 Redis 伺服器組態
 
 新的 Azure Redis 快取執行個體是以下列的預設 Redis 組態值設定。
 
->[AZURE.NOTE]無法使用 `StackExchange.Redis.IServer.ConfigSet` 方法變更本區段中的設定。如果在本區段中利用其中一個命令呼叫此方法，則會擲回如下的例外狀況：
+>[AZURE.NOTE]您無法使用 `StackExchange.Redis.IServer.ConfigSet` 方法變更本區段中的設定。如果在本區段中利用其中一個命令呼叫此方法，則會擲回如下的例外狀況：
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->任何可設定的值 (例如 **max-memory-policy**) 可以透過 Preview 入口網站設定。
+>任何可設定的值 (例如 **max-memory-policy**) 均可透過預覽入口網站設定。
 
 |設定|預設值|說明|
 |---|---|---|
@@ -128,15 +130,21 @@
 |lua-event-limit|500|這是指令碼事件佇列的最大大小。|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|用戶端輸出緩衝區限制可用來強制中斷基於某些原因而無法足夠快地從伺服器讀取資料之用戶端的連線 (常見的原因是 Pub/Sub 用戶端使用訊息的速度無法與發佈者產生這些訊息的速度一樣快)。如需詳細資訊，請參閱 [http://redis.io/topics/clients](http://redis.io/topics/clients)。|
 
-每個 Azure Redis 快取定價層的 <sup>1</sup>`maxclients` 都不同。
+每個 Azure Redis Cache 定價層的 <sup>1</sup>`maxclients` 都不同。
 
--	C0 (250 MB) 快取 - 最多 256 個連接
--	C1 (1 GB) 快取 - 最多 1,000 個連接
--	C2 (2.5GB) 快取 - 最多 2,000 個連接
--	C3 (6 GB) 快取 - 最多 5,000 個連接
--	C4 (13 GB) 快取 - 最多 10,000 個連接
--	C5 (26 GB) 快取 - 最多 15,000 個連接
--	C6 (53 GB) 快取 - 最多 20,000 個連接
+-	基本和標準的快取
+	-	C0 (250 MB) 快取 - 最多 256 個連接
+	-	C1 (1 GB) 快取 - 最多 1,000 個連接
+	-	C2 (2.5GB) 快取 - 最多 2,000 個連接
+	-	C3 (6 GB) 快取 - 最多 5,000 個連接
+	-	C4 (13 GB) 快取 - 最多 10,000 個連接
+	-	C5 (26 GB) 快取 - 最多 15,000 個連接
+	-	C6 (53 GB) 快取 - 最多 20,000 個連接
+-	高階快取
+	-	P1 (6 GB - 60 GB) - 最多 7,500 個連接
+	-	P2 (13 GB - 130 GB) - 最多 15,000 個連接
+	-	P3 (26 GB - 260 GB) - 最多 30,000 個連接
+	-	P4 (53 GB - 530 GB) - 最多 40,000 個連接
 
 ## Azure Redis 快取中不支援的 Redis 命令
 
@@ -155,19 +163,19 @@
 
 ## Redis 主控台
 
-您可以使用 [Redis 主控台] \(可供標準快取使用) 安全地發出命令至您的 Azure Redis 快取執行個體。若要存取 Redis 主控台，請從 [Redis 快取] 刀鋒視窗按一下 [主控台]。
+您可以使用 [Redis 主控台] (可供標準和高階快取使用) 安全地發出命令給您的 Azure Redis Cache 執行個體。若要存取 Redis 主控台，請從 [Redis 快取] 刀鋒視窗按一下 [主控台]。
 
 ![Redis 主控台](./media/cache-configure/redis-console-menu.png)
 
->[AZURE.IMPORTANT]「Redis 主控台」只能供標準快取使用。
+>[AZURE.IMPORTANT]「Redis 主控台」只能供標準和高階快取使用。
 
 只需在主控台中輸入想要的命令，即可對您的快取執行個體發出命令。
 
 ![Redis 主控台](./media/cache-configure/redis-console.png)
 
-如需針對 Azure Redis 快取停用之 Redis 命令的清單，請參閱之前的 [Azure Redis 快取中不支援的 Redis 命令](#redis-commands-not-supported-in-azure-redis-cache)一節。如需 Redis 命令的詳細資訊，請參閱 [http://redis.io/commands](http://redis.io/commands)。
+如需針對 Azure Redis Cache 停用之 Redis 命令的清單，請參閱先前的 [Azure Redis Cache 中不支援的 Redis 命令](#redis-commands-not-supported-in-azure-redis-cache)一節。如需 Redis 命令的詳細資訊，請參閱 [http://redis.io/commands](http://redis.io/commands)。
 
 ## 後續步驟
--	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)。
+-	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

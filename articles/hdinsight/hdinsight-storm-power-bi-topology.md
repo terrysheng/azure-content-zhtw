@@ -55,9 +55,9 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 ## 註冊 Power BI 應用程式
 
-1. 請遵循 [Power BI 快速入門](https://msdn.microsoft.com/ZH-TW/library/dn931989.aspx)中的步驟註冊 Power BI。
+1. 請遵循 [Power BI 快速入門](https://msdn.microsoft.com/zh-TW/library/dn931989.aspx)中的步驟註冊 Power BI。
 
-2. 請遵循[註冊應用程式](https://msdn.microsoft.com/ZH-TW/library/dn877542.aspx)中的步驟來建立應用程式註冊。這會在存取 Power BI REST API 時使用。
+2. 請遵循[註冊應用程式](https://msdn.microsoft.com/zh-TW/library/dn877542.aspx)中的步驟來建立應用程式註冊。這會在存取 Power BI REST API 時使用。
 
     > [AZURE.IMPORTANT]儲存 **用戶端識別碼** 以進行應用程式註冊。
 
@@ -139,4 +139,4 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

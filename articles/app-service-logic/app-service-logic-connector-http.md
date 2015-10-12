@@ -1,20 +1,20 @@
 <properties
    pageTitle="在 Logic Apps 中使用 HTTP 接聽程式和連接器 | Microsoft Azure App Service"
-	description="如何建立並設定 HTTP 接聽程式和 HTTP 動作連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="如何建立並設定 HTTP 接聽程式和 HTTP 動作連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="prkumar"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="prkumar"/>
 
 
 # 開始使用 HTTP 接聽程式和 HTTP 動作，並將它加入您的邏輯應用程式
@@ -72,6 +72,8 @@ HTTP 動作的輸出會是標頭和主體，可進一步在流程的下游中使
 
 您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
 
+> [AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
 [2]: ./media/app-service-logic-connector-http/2.png
@@ -84,4 +86,4 @@ HTTP 動作的輸出會是標頭和主體，可進一步在流程的下游中使
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

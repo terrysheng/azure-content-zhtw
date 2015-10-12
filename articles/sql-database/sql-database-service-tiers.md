@@ -16,7 +16,7 @@
    ms.date="09/11/2015"
    ms.author="shkurhek"/>
 
-# 服務層
+# SQL Database 服務層
 
 ## 概觀
 [Azure SQL Database](sql-database-technical-overview.md) 提供多個服務層來處理不同類型的工作負載。您可以選擇建立具有已定義特性和定價的單一資料庫。或者，您可以在彈性資料庫集區中建立多個資料庫。在這兩種情況下，服務層包含**基本**、**標準**和**高階**。然而這些服務層的特性，會因為您建立的是個別資料庫，或是在彈性資料庫集區中建立的資料庫，而有所不同。本文會提供這兩種內容之服務層的概觀。
@@ -90,4 +90,4 @@
 如果您認識了 SQL Database 各個層，可以[免費試用](http://azure.microsoft.com/pricing/free-trial/)親身體驗，然後了解[如何建立您的第一個 SQL Database](sql-database-get-started.md)！
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

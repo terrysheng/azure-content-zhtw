@@ -1,20 +1,20 @@
 <properties
    pageTitle="在 Logic Apps 中使用 Azure 服務匯流排連接器 | Microsoft Azure App Service"
-	description="如何建立並設定 Azure 服務匯流排連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="如何建立並設定 Azure 服務匯流排連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="andalmia"/>
 
 
 # 開始使用 Azure 服務匯流排連接器並將它加入您的邏輯應用程式 
@@ -37,7 +37,7 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
 2. 搜尋「Azure 服務匯流排連接器」，將其選取，然後選取 [**建立**]。
 3. 輸入名稱、App Service 方案和其他屬性：
-<br/>
+
 ![][1]
 
 4. 輸入下列封裝設定：
@@ -54,37 +54,37 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 建立連接器之後，即可使用 Azure 服務匯流排連接器做為邏輯應用程式的觸發程序或動作。作法：
 
 1.	建立新的邏輯應用程式，並選擇具有 Azure 服務匯流排連接器的相同資源群組：
-<br/>
+
 ![][2]
 
-2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的工作流程：
-<br/>
+2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的工作流程：
+
 ![][3]
 
-3. Azure 服務匯流排連接器會出現在右側資源庫中的 [此資源群組中的 API 應用程式] 區段：
-<br/>
-![][4]
+3. Azure 服務匯流排連接器會出現在右側資源庫中的 [此資源群組中的 API Apps] 區段：![][4]
 
 4. 您可以按一下 [Azure 服務匯流排連接器]，將 Azure 服務匯流排連接器置入編輯器。
 
 5.	您現在可以在工作流程中使用 Azure 服務匯流排連接器。您可以在流程的其他動作中使用從 Azure 服務匯流排觸發程序 ([可用訊息]) 擷取的訊息：
-<br/>
+
 ![][5]
-<br/>
-![][6]
+
+	![][6]
 
 您也可以使用 Azure 服務匯流排 [傳送訊息] 動作：
-<br/>
+
 ![][7]
-<br/>
+
 ![][8]
 
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 
 <!--Image references-->
@@ -97,4 +97,4 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

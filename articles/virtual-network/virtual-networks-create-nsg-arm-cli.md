@@ -105,7 +105,7 @@
 	- **-n (或 --name)**。新規則的名稱。在本文案例中為 *rdp-rule*。
 	- **-c (或 --access)**。規則 (拒絕或允許) 的存取層級。
 	- **-p (或 --protocol)**。規則的通訊協定 (TCP、UDP 或 *)。
-- **-r (或 --direction)**。連線 (輸入或輸出) 的方向。
+	- **-r (或 --direction)**。連線 (輸入或輸出) 的方向。
 	- **-y (或 --priority)**。規則的優先順序。
 	- **-f (或 --source-address-prefix)**。CIDR 中的來源位址首碼或使用預設標記。
 	- **-o (或 --source-port-range)**。來源連接埠，或連接埠範圍。
@@ -269,4 +269,4 @@
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

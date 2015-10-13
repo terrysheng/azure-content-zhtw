@@ -51,7 +51,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Ope
 
 您現在需要在 B2C 目錄中建立應用程式，以提供一些必要資訊給 Azure AD，讓它與應用程式安全地通訊。在此案例中，因為用戶端應用程式和 Web API 會組成一個邏輯應用程式，所以將由單一**應用程式識別碼**代表。若要建立應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。請務必
 
-
+- 在應用程式中加入 **Web 應用程式/Web API**
 - 輸入 `http://localhost/TodoListService` 作為**回覆 URL** -它是此程式碼範例的預設 URL。
 - 為您的應用程式建立**應用程式密碼**，並複製下來。稍後您將會用到此資訊。
 - 複製指派給應用程式的**應用程式識別碼**。稍後您也會用到此資訊。
@@ -61,11 +61,11 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Ope
 
 ## 3\.建立您的原則
 
-在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)定義的。此應用程式包含三種身分識別體驗 - 註冊、登入，以及使用 Facebook 登入。您必須為每個類型建立一個原則，如[原則參考文件](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)所定義。此應用程式包含三種身分識別體驗 - 註冊、登入，以及使用 Facebook 登入。您必須為每個類型建立一個原則，如[原則參考](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)一文中所述。建立您的三個原則時，請務必：
 
 - 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
 - 在每個原則中選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。您也可以選擇其他宣告。
-- 建立每個原則後，請複製原則的 [名稱]。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
+- 建立每個原則後，請抄下原則的 [名稱]。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -328,7 +328,7 @@ function ensureAuthenticated(req, res, next) {
 
 ```
 
-- 最後，在 `app.js` 中實際建立伺服器本體：
+- 最後，在 `app.js` 中實際建立伺服器本身：
 
 ```JavaScript
 
@@ -339,7 +339,7 @@ app.listen(3000);
 
 ## 5\.建立快速檢視和路由以呼叫原則
 
-我們已完成 `app.js`。現在僅須新增路由和檢視即可，其可讓我們呼叫登入與註冊原則，並處理已建立的 `/logout` 和 `/login` 路由。
+我們已完成 `app.js`。現在僅須新增路由和檢視即可，這兩者可讓我們呼叫登入與註冊原則，並處理已建立的 `/logout` 和 `/login` 路由。
 
 - 在根目錄下方建立 `/routes/index.js` 路由。
 
@@ -369,7 +369,7 @@ exports.list = function(req, res){
 
 這些簡單路由只會將要求傳遞到我們的檢視，包括使用者 (如果有的話)。
 
-- 在根目錄下方建立 `/views/index.ejs` 檢視。此簡單網頁會呼叫我們的登入和登出原則，並可讓我們擷取帳戶資訊。請注意，若透過要求傳遞的使用者已證實我們擁有已登入的使用者，就能使用條件式 `if (!user)`。
+- 在根目錄下方建立 `/views/index.ejs` 檢視。此簡單網頁會呼叫我們的登入和登出原則，並可讓我們擷取帳戶資訊。請注意，我們可以使用條件式 `if (!user)`，因為在要求中傳遞使用者就證實我們擁有已登入的使用者。
 
 ```JavaScript
 <% if (!user) { %>
@@ -435,4 +435,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

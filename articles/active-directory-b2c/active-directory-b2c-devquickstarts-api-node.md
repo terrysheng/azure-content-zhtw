@@ -53,7 +53,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nod
 
 ## 2\.建立應用程式
 
-您現在需要在 B2C 目錄中建立應用程式，以提供一些必要資訊給 Azure AD，讓它與應用程式安全地通訊。在此案例中，因為用戶端應用程式和 Web API 會組成一個邏輯應用程式，所以將由單一**應用程式識別碼**代表。若要建立應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。
+您現在需要在 B2C 目錄中建立應用程式，以提供一些必要資訊給 Azure AD，讓它與應用程式安全地通訊。在此案例中，因為用戶端應用程式和 Web API 會組成一個邏輯應用程式，所以將由單一**應用程式識別碼**代表。若要建立應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。請務必
 
 
 - 在應用程式中加入 **Web 應用程式/Web API**
@@ -77,7 +77,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nod
 
 當您成功建立三個原則後，就可以開始建置您的應用程式。
 
-請注意，本文不會說明如何使用您剛才建立的原則。若您想要了解 Azure AD B2C 中的原則如何運作，您應該從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
+請注意，本文不會說明如何使用您剛才建立的原則。若您想要了解 Azure AD B2C 中的原則如何運作，您應該從 [.NET Web APP 使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
 
 ## 4：下載適用於您平台的 node.js
 若要成功使用此範例，您必須具備已成功安裝的 Node.js。
@@ -354,7 +354,7 @@ name: 'Microsoft Azure Active Directory Sample'
 
 在此逐步解說中，我們將使用 MongoDB 來儲存工作，如***步驟 4*** 中所述。
 
-若您還記得在步驟 11 中建立的 config.js 檔案，應會了解我們呼叫了資料庫 *tasklist*，因為那是我們放在 mogoose\_auth\_local 連線 URL 結尾處的內容。您不需要在 MongoDB 中事先建立此資料庫，它會在您第一次執行伺服器應用程式時為您建立 (假設此資料庫不存在)。
+若您還記得在步驟 11 中建立的 config.js 檔案，應該會了解我們呼叫了資料庫 *tasklist*，因為那是們放在 mogoose\_auth\_local 連線 URL 結尾處的內容。您不需要在 MongoDB 中事先建立此資料庫，它會在您第一次執行伺服器應用程式時為您建立 (假設此資料庫不存在)。
 
 既然我們已經告訴伺服器想要使用哪個 MongoDB 資料庫，我們必須撰寫一些額外程式碼，以建立伺服器工作的模型和結構描述。
 
@@ -883,7 +883,7 @@ Transfer-Encoding: chunked
 
 如果您只需有關如何使用 Restify 和 OAuth2 實作 REST API 的相關資訊，則您已經有足夠的程式碼可以繼續開發服務，並學習如何以此範例為基礎進行建置。
 
-如需參考，[此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip)完整範例 (不含您的組態值)，您也可以從 GitHub 予以複製：
+如需參考，[此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip)完整範例 (不含您的組態值)，或者，您也可以從 GitHub 將其複製：
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
@@ -896,4 +896,4 @@ git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nod
 
 [使用 iOS 搭配 B2C 連線至 Web-API >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

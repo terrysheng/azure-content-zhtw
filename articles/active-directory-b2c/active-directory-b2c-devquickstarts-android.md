@@ -891,7 +891,16 @@ ADAL for Android 以 **UserIdentifier** 物件的形式來代表使用者。這�
  
  在名為 `ToDoActivity.java` 的**同一個檔案中**
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+ ```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
@@ -952,7 +961,7 @@ Android 需要我們處理某些回呼來操作應用程式。這些回呼是 `c
     
 ```
 
-就這麼簡單！ 您應該已經有一個可編譯的 `ToDoActivity.java` 檔案了。整個專案現在也應該可以成功編譯。
+就這麼簡單！ 您應該有一個可編譯的 `ToDoActivity.java` 檔案。整個專案現在也應該可以成功編譯。
     
 
 
@@ -964,21 +973,26 @@ Android 需要我們處理某些回呼來操作應用程式。這些回呼是 `c
 
 為了方便參考，您可以[在此處取得 .zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip)的完整範例，或者從 GitHub 中複製：
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
-
-
-### Important Information
-
-
-#### Encryption
-
-ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced AndroidKeyStore for 4.3(API18) secure storage of private keys. ADAL uses that for API18 and above. If you want to use ADAL for lower SDK versions, you need to provide secret key at AuthenticationSettings.INSTANCE.setSecretKey
-
-#### Session cookies in Webview
-
-Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 ```
-CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync(); ``` 深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
+
+
+### 重要資訊
+
+
+#### 加密
+
+根據預設，ADAL 會加密權杖並儲存在 SharedPreferences 中。您可以在 StorageHelper 類別查看詳細資料。Android 引進 AndroidKeyStore 4.3(API18) 安全儲存體來存放私密金鑰。ADAL 對 API18 的和更新版本使用此機制。如果您想要使用較低 SDK 版本的 ADAL，您需要在 AuthenticationSettings.INSTANCE.setSecretKey 提供秘密金鑰
+
+#### Web 檢視中的工作階段 Cookie
+
+在應用程式關閉後，Android Web 檢視不會清除工作階段 Cookie。您可以使用以下範例程式碼來處理這部分：```
+CookieSyncManager.createInstance(getApplicationContext());
+CookieManager cookieManager = CookieManager.getInstance();
+cookieManager.removeSessionCookie();
+CookieSyncManager.getInstance().sync();
+``` 深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

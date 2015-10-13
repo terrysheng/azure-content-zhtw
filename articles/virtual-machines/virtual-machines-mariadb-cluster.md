@@ -35,7 +35,7 @@
 
 ![架構](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [AZURE.NOTE] 本主題使用 [Azure CLI] 工具，請務必下載這些工具，並且根據指示將它們連線至您的 Azure 訂用帳戶。如果您需要 Azure CLI 中可用命令的參考，請查看這個 [Azure CLI 命令參考]連結。您也必須[建立驗證的 SSH 金鑰]，並且記下 **.pem 檔案位置**。
+> [AZURE.NOTE]  本主題使用 [Azure CLI] 工具，請務必下載這些工具，並且根據指示將它們連線至您的 Azure 訂用帳戶。如果您需要 Azure CLI 中可用命令的參考，請查看這個 [Azure CLI 命令參考]連結。您也必須[建立驗證的 SSH 金鑰]，並且記下 **.pem 檔案位置**。
 
 
 ## 建立範本
@@ -228,7 +228,9 @@
 11. 透過入口網站擷取 VM。(目前，[Azure CLI 工具中的問題 #1268] 描述 Azure CLI 工具所擷取的映像沒有擷取到連接的資料磁碟。)
 
 	- 透過入口網站將這部電腦關機
-    - 按一下 [擷取]，將映像名稱指定為 **mariadb-galera-image** 並提供描述，然後核取 [我已經執行 waagent]。![擷取虛擬機器](./media/virtual-machines-mariadb-cluster/Capture.png) ![擷取虛擬機器](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
+    - 按一下 [擷取]，將映像名稱指定為 **mariadb-galera-image** 並提供描述，然後核取 [我已經執行 waagent]。
+	![擷取虛擬機器](./media/virtual-machines-mariadb-cluster/Capture.png)
+	![擷取虛擬機器](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
 
 ## 建立叢集
 
@@ -300,7 +302,8 @@
 
 現在您可以使用 Azure 負載平衡器來平衡我們 3 個節點之間的要求。
 
-在使用 Azure CLI 的電腦上執行下列命令。命令參數結構如下：`azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+在使用 Azure CLI 的電腦上執行下列命令。
+命令參數結構如下：`azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
 	azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
@@ -373,4 +376,4 @@
 [Azure CLI 工具中的問題 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [在 Linux 上叢集 MySQL 的另一種方法]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!-----HONumber=Sept15_HO4-->
+<!------HONumber=Sept15_HO4-->

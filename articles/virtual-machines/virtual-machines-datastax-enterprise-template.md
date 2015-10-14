@@ -5,7 +5,9 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
+	editor="tysonn"/>
+<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+<tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
@@ -498,4 +500,4 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 shared
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

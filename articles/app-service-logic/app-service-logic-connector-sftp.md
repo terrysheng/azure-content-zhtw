@@ -64,7 +64,7 @@
 
 5.	您現在便可以在流程中使用 SFTP 連接器。您可以在流程的其他動作中使用從 SFTP 觸發程序 ("TriggerOnFileAvailable") 所擷取的「檔案」。
 
-	> [AZURE.IMPORTANT]SFTP 觸發程序 "TriggerOnFileAvailable" 會在處理檔案之後刪除擷取的檔案。
+	> [AZURE.IMPORTANT] SFTP 觸發程序 "TriggerOnFileAvailable" 會在處理檔案之後刪除擷取的檔案。
 
 6.	設定 SFTP 觸發程序的輸入屬性，如下所示：
 
@@ -83,8 +83,8 @@
 	- **內容轉移編碼** - 指定 [無] 或 [base64]
 	- **檔案路徑** - 指定要上傳之檔案的檔案路徑
 	- **覆寫** - 指定 "true" 在檔案已存在時將其覆寫
-	- ****存在時附加** - 指定 "true" 或 "false"。設定為 "true" 時，若檔案存在則資料會附加至檔案。設定為 [false] 時，若檔案存在則會覆寫檔案。
-- **暫存資料夾** - 若提供，則配接器會將檔案上傳至「暫存資料夾路徑」，上傳完成後會將檔案移至「資料夾路徑」。「暫存資料夾路徑」應和「資料夾路徑」位在相同的實體磁碟上，以確保移動作業自動進行。只在啟用 [存在時附加] 屬性，才能使用暫存資料夾。
+	- **存在時附加** - 指定 "true" 或 "false"。設定為 "true" 時，若檔案存在則資料會附加至檔案。設定為 [false] 時，若檔案存在則會覆寫檔案。
+	- **暫存資料夾** - 若提供，則配接器會將檔案上傳至「暫存資料夾路徑」，上傳完成後會將檔案移至「資料夾路徑」。「暫存資料夾路徑」應和「資料夾路徑」位在相同的實體磁碟上，以確保移動作業自動進行。只在啟用 [存在時附加] 屬性，才能使用暫存資料夾。
 
 	![][11]  
 	![][12]
@@ -92,7 +92,7 @@
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -113,4 +113,4 @@
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

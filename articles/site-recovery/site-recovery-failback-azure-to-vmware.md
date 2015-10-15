@@ -152,7 +152,7 @@ Windows MT 已經隨附於 vContinuum 安裝程式中。當您安裝 vContinuum 
 
 注意：請先確定系統具有網際網路連線，然後再下載並安裝其他封裝。
 
-# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 上述命令將從 CentOS 6.6 儲存機制下載如下所述的 15 個封裝並進行安裝。
 
@@ -188,17 +188,21 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 注意：如果來源機器會針對根目錄或開機裝置使用 Reiser 或 XFS 檔案系統，則下列封裝應該下載並安裝於 Linux 主要目標上，才能提供保護。
 
-# cd /usr/local
+\# cd /usr/local
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
+reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget
+<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### 套用自訂組態變更
 
@@ -214,7 +218,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 3. 執行下列命令來授與權限。
 
-# **chmod 755 ./ApplyCustomChanges.sh**
+\# **chmod 755 ./ApplyCustomChanges.sh**
 
 4. 執行下列命令來執行指令碼。
 
@@ -290,7 +294,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 若要這樣做，
 
-1.  開啟 [電腦管理] (透過控制台系統管理工具，或者使用滑鼠右鍵按一下總管視窗中的 [這部電腦]，然後選取 [管理])。
+1.  開啟 [電腦管理] \(透過控制台系統管理工具，或者使用滑鼠右鍵按一下總管視窗中的 [這部電腦]，然後選取 [管理])。
 
 2.  選取 [儲存管理]，即會列出磁碟已上線且已連接到機器。
 
@@ -554,4 +558,4 @@ NAT 組態|以下將詳細討論
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

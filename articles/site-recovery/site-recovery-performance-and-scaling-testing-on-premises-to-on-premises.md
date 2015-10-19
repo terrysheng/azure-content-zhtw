@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="lauraa"/>
 
 # 效能和調整測試：內部部署至內部部署
@@ -104,7 +104,7 @@ Hyper-V 複本會使用復原伺服器上的少量記憶體來最佳化儲存作
 
 ### 結論
 
-結果會清楚地顯示搭配 Hyper-V 複本的 Azure Site Recovery 透過最小的負荷，就可以為大型叢集妥善調整。Azure Site Recovery 提供簡單的部署、複寫、管理和監視功能。Hyper-V 複本提供成功調整複寫所需的基礎結構。為規劃最佳的部署，建議您下載 [Hyper-V Replica Capacity Planner](https://www.microsoft.com/zh-tw/download/details.aspx?id=39057)。
+結果會清楚地顯示搭配 Hyper-V 複本的 Azure Site Recovery 透過最小的負荷，就可以為大型叢集妥善調整。Azure Site Recovery 提供簡單的部署、複寫、管理和監視功能。Hyper-V 複本提供成功調整複寫所需的基礎結構。為規劃最佳的部署，建議您下載 [Hyper-V Replica Capacity Planner](https://www.microsoft.com/zh-TW/download/details.aspx?id=39057)。
 
 ## 測試部署環境
 
@@ -194,7 +194,7 @@ Hyper-V 複本會使用復原伺服器上的少量記憶體來最佳化儲存作
 
 |度量|計數器|
 |---|---|
-|CPU|\\Processor(\_Total)\\% 處理器時間| |可用的記憶體|\\記憶體\\可用的 MB| |IOPS|\\PhysicalDisk(\_Total)\\每秒的磁碟傳輸數| |每秒的 VM 讀取 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置 (<VHD>)\\每秒的讀取作業數| |每秒的 VM 寫入 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |VM 讀取輸送量|\\\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |VM 讀取輸送量|\\\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
+|CPU|\\Processor(\_Total)\\% 處理器時間| |可用的記憶體|\\記憶體\\可用的 MB| |IOPS|\\PhysicalDisk(\_Total)\\每秒的磁碟傳輸數| |每秒的 VM 讀取 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置 (<VHD>)\\每秒的讀取作業數| |每秒的 VM 寫入 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |VM 讀取輸送量|\\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |VM 讀取輸送量|\\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
 
 
 ## 後續步驟
@@ -208,4 +208,4 @@ Hyper-V 複本會使用復原伺服器上的少量記憶體來最佳化儲存作
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

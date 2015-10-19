@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/29/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
@@ -487,14 +487,17 @@
 	
 
 
+##後續步驟
 
-##媒體服務學習路徑
+###媒體服務學習路徑
 
 您可以在此檢視 AMS 學習路徑：
 
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
+### 尋找其他內容嗎？
 
-<!---HONumber=Oct15_HO1-->
+如果本主題未包含您預期的內容、缺少部分內容，或者提供了一些其他不符合您需求的方式，請在下方提供您使用 Disqus 執行緒的意見反應給我們。
+
+<!---HONumber=Oct15_HO2-->

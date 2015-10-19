@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始使用提供使用.NET SDK 的點播視訊 (VoD) 內容"
-	description="本教學課程會逐步完成使用 .NET　實作含 Azure 媒體服務的點播視訊 (VoD) 內容傳遞應用程式。"
+	pageTitle="使用 .NET SDK 傳遞點播內容入門"
+	description="本教學課程會逐步完成使用 .NET 實作含 Azure 媒體服務的點播內容傳遞應用程式。"
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,17 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# 開始使用提供使用.NET SDK 的點播視訊 (VoD) 內容
+# 使用 .NET SDK 傳遞點播內容入門
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
 
 本教學課程會逐步完成使用 Azure Media Services (AMS) SDK for .NET 實作點播視訊 (VoD) 內容傳遞應用程式。
 
@@ -35,7 +34,7 @@
 
 - 作業系統：Windows 8 或更新版本、Windows 2008 R2、Windows 7。
 - .NET Framework 4.5 或 .NET Framework 4.0
-- Visual Studio 2013、Visual Studio 2012、Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express)。
+- Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express) 或更新版本。
 
 
 本快速入門會顯示下列工作。
@@ -119,14 +118,9 @@
 
 4. 開啟 App.config 檔案 (如果尚未新增，則預設會將檔案新增至您的專案)，並將 *appSettings* 區段新增至此檔案。設定 Azure 媒體服務帳戶名稱和帳戶金鑰的值 (如下列範例所示)。若要取得帳戶名稱和金鑰資訊，請開啟 Azure 入口網站，並選取媒體服務帳戶，然後按一下 [管理金鑰] 按鈕。
 
-	 <pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>ion&gt; </code></pre>
 
 5. 在 Program.cs 檔案的開頭，使用下列程式碼來覆寫現有的 **using** 陳述式。
 
@@ -419,13 +413,18 @@ MPEG DASH
 若要測試漸進式下載，請將 URL 貼入瀏覽器 (例如，Internet Explorer、Chrome 或 Safari)。
 
 
+##後續步驟
 
-##媒體服務學習路徑
+###媒體服務學習路徑
 
 您可以在此檢視 AMS 學習路徑：
 
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### 尋找其他內容嗎？
+
+如果本主題未包含您預期的內容、缺少部分內容，或者提供了一些其他不符合您需求的方式，請在下方提供您使用 Disqus 執行緒的意見反應給我們。
 
 
 <!-- Anchors. -->
@@ -435,4 +434,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

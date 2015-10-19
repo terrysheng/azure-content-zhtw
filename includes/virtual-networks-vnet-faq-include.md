@@ -58,7 +58,7 @@ VNet 可以搭配各種不同的 Azure 服務使用，例如雲端服務 (PaaS)�
 
 ### 在這些子網路內使用 IP 位址是否有任何限制？
 
-Azure 會在每個子網路中保留一些 IP 位址。子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外兩個位址。
+Azure 會在每個子網路中保留一些 IP 位址。子網路的第一個和最後一個 IP 位址會保留給相容的通訊協定，以及用於 Azure 服務的額外 3 個位址。
 
 ### VNet 和子網路的大小限制為何？
 
@@ -221,7 +221,8 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。Azure
 
 否。Azure Web 應用程式無法部署在 VNet 中。不過，如果您已針對 VNet 設定點對站台，則 Web Apps 可以安全地連線並存取 Azure VNet 中的資源。如需詳細資訊，請參閱下列主題：
 
-- [Web Apps 虛擬網路整合](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Web Apps 虛擬網路整合](http://azure.microsoft.com/blog/
+- 014/09/15/azure-websites-virtual-network-integration/)
 
 - [使用 VNet 整合和混合式連接搭配 Web Apps](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
@@ -264,4 +265,4 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 
 是。您可以針對各種平台使用 PowerShell 和命令列工具。如需詳細資訊，請參閱[這裡](http://go.microsoft.com/fwlink/?LinkId=317721)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

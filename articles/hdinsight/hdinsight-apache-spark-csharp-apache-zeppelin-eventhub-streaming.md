@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -24,7 +24,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 在本教學課程中，您將學習如何建立 Azure 事件中樞、使用以 C# 撰寫的主控台應用程式將訊息擷取到事件中樞，以及使用針對 HDInsight 中 Apache Spark 設定的 Zeppelin Notebook 平行擷取它們。
 
-> [AZURE.NOTE]若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
+> [AZURE.NOTE]若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
 
 **必要條件：**
 
@@ -90,9 +90,13 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 ### 使用 Zeppelin 建立串流處理應用程式
 
-1. 在 [Azure Preview 入口網站](https://ms.portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
-2. 啟動 Zeppelin Notebook。在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。遵循頁面顯示的指示以啟動 Notebook。
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
+
+	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您叢集的 Zeppelin Notebook。將 __CLUSTERNAME__ 取代為您叢集的名稱：
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
 2. 建立新的 Notebook。在標頭窗格中按一下 [Notebook]，然後在下拉式清單中按一下 [建立新記事]。
 
@@ -135,13 +139,13 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 ##<a name="runapps"></a>執行應用程式
 
-1. 從 Zeppelin Notebook 執行含有程式碼片段的段落。按下 **SHIFT + ENTER** 或右上角的 [開始] 按鈕。
+1. 從 Zeppelin Notebook 執行含有程式碼片段的段落。按下 **SHIFT + ENTER** 或右上角的 [播放] 按鈕。
 
 	段落右上角的狀態應該會從「準備就緒」逐一轉變成「擱置」、「執行中」及「已完成」。輸出會顯示在同一個段落的底部。螢幕擷取畫面如下所示：
 
 	![程式碼片段的輸出](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Code.Output.png "程式碼片段的輸出")
 
-2. 執行**傳送者**專案，並在主控台視窗中按 **Enter**，開始將訊息傳送到事件中樞。
+2. 執行「傳送者」專案，並在主控台視窗中按 **Enter**，開始將訊息傳送到事件中樞。
 
 3. 在 Zeppelin Notebook 的新段落中，輸入以下程式碼片段以讀取在 Spark 中接收到的訊息。
 
@@ -188,4 +192,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

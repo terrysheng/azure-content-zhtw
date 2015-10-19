@@ -3,7 +3,7 @@
    description="本教學課程將引導您使用 Service Fabric 可靠動作項目，以建立、偵錯及部署標準的 HelloWorld 服務的步驟。"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # 可靠動作項目：標準的 HelloWorld 逐步解說案例
 本文說明 Service Fabric 可靠動作項目的基本概念，並將逐步引導您在 Visual Studio 中建立、偵錯及部署簡單的 HelloWorld 應用程式。
@@ -158,4 +158,4 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

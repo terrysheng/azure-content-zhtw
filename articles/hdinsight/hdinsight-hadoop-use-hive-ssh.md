@@ -1,21 +1,21 @@
 <properties
    pageTitle="在 HDInsight 中使用 Hadoop Hive 與 SSH | Microsoft Azure"
-	description="學習如何使用 SSH 連線至 HDInsight 中的 Hadoop 叢集，然後使用 Hive 命令列介面以互動方式提交 Hive 查詢。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="學習如何使用 SSH 連線至 HDInsight 中的 Hadoop 叢集，然後使用 Hive 命令列介面以互動方式提交 Hive 查詢。"
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #利用 SSH 搭配使用 Hive 與 HDInsight 中的 Hadoop
 
@@ -23,7 +23,7 @@
 
 在本文中，您將學習如何使用安全殼層 (SSH) 連線至 Azure HDInsight 叢集上的 Hadoop，然後使用 Hive 命令列介面 (CLI) 以互動方式提交 Hive 查詢。
 
-> [AZURE.NOTE]如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[在以 Linux 為基礎的 HDInsight 上安裝 Hadoop 的須知事項](hdinsight-hadoop-linux-information.md)。
+> [AZURE.IMPORTANT]當以 Linux 為基礎的 HDInsight 叢集上有提供 Hive 命令時，您應考慮使用 Beeline。Beeline 是可搭配 Hive 使用的較新用戶端，隨附於您的 HDInsight 叢集中。如需有關如何使用它的詳細資訊，請參閱[使用 Beeline 搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-hadoop-use-hive-beeline.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -147,4 +147,4 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

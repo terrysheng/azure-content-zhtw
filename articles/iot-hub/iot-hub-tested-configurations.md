@@ -42,7 +42,7 @@ Azure IoT 程式庫已在下列作業系統平台上測試：
 
 |其他平台 | 版本|
 |:---------------|:------------:|
-|mbed OS| 2\.0 |
+|mbed | 2\.0 |
 |TI-RTOS | 2\.x |
 
 
@@ -125,7 +125,7 @@ IoT 裝置的認證已通過與 Azure IoT SDK 的相容性測試，並且已可�
 |TI CC3200 | TI-RTOS 2.x|C|
 |Intel Edison |Yocto |C、Javascript|
 |Minnowboard Max |Windows 7、8、10 |C#|
-|Arrow Dragonboard |Windows 10 IoT 核心版 | C#|
-|Freescale FRDM K64 |mbed OS | C|
+|Arrow DragonBoard 410c |Windows 10 IoT 核心版 | C#|
+|Freescale FRDM K64 |mbed 2.0 | C|
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

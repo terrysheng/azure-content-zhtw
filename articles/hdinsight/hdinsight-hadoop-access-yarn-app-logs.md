@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/02/2015"
 	ms.author="jgao"/>
 
 # 在 HDInsight 中的 Hadoop 上，以程式設計方式存取 YARN 應用程式記錄檔
@@ -174,4 +174,4 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

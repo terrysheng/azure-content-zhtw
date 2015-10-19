@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="10/01/2015" 
 	ms.author="nitinme"/>
 
 
@@ -46,7 +46,7 @@
 
 >[AZURE.NOTE]請務必在支援叢集的位置建立您的儲存體帳戶。
 
-從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 **主要存取金鑰** (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
+從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
 	
 ##<a name="provision"></a>佈建 HDInsight Spark 叢集
 
@@ -70,7 +70,13 @@
 
 >[AZURE.NOTE]叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Zeppelin 後，您可以根據 **Zeppelin HVAC tutorial** 名稱來找到本 Notebook。
 
-1. 啟動 Zeppelin Notebook。在 Azure 入口網站選取新建立的 Spark 叢集，接著在底部的入口網站工作列按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。遵循頁面顯示的指示以啟動 Notebook。
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
+
+	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Zeppelin Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
 2. 建立新的 Notebook。在標頭窗格中按一下 [Notebook]，然後按一下 [建立新 Note]。
 
@@ -150,8 +156,15 @@
 
 >[AZURE.NOTE]叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Jupyter 後，您可以根據 **HVACTutorial.ipynb** 名稱來找到本 Notebook。
 
-1. 啟動 Jupyter Notebook。在 Azure 入口網站選取 Spark 叢集，接著在底部的入口網站工作列按一下 [Jupyter Notebook]。出現提示時，輸入 Spark 叢集的系統管理員認證。
-2. 建立新的 Notebook。按一下 [新增]，再按 [Python2]。
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
+
+	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. 建立新的 Notebook。按一下 [新增]，然後按一下 [Python2]。
 
 	![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.Spark.Note.Jupyter.CreateNotebook.png "建立新的 Jupyter Notebook")
 
@@ -247,4 +260,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

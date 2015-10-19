@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="10/04/2015"
 	ms.author="awills"/>
 
 
@@ -54,7 +54,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 應用程式類型的選擇會設定[計量瀏覽器][metrics]中可見的資源刀鋒視窗和屬性的預設內容。
 
-#### 檢測金鑰的副本
+#### 複製檢測金鑰
 
 該金鑰識別資源，您很快就會將它安裝在 SDK 中，以將資源導向資料。
 
@@ -66,7 +66,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 安裝和設定 Application Insights SDK 會視您正在使用的平台而有所不同。對於 ASP.NET 應用程式而言，這非常輕鬆。
 
-1. 在 Visual Studio 中，編輯桌面應用程式專案的 NuGet 封裝。
+1. 在 Visual Studio 中，編輯 Web 應用程式專案的 NuGet 封裝。
 
     ![以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 封裝]](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
 
@@ -110,8 +110,8 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 #### 沒有資料？
 
-* 開啟 [[搜尋][diagnostic]] 磚來查看個別事件。
 * 使用應用程式、開啟不同頁面，以產生一些遙測。
+* 開啟 [[搜尋][diagnostic]] 磚來查看個別事件。有時候，事件通過計量管線所需的時間較長。
 * 請稍等片刻，然後按一下 [重新整理]。圖表會定期自行重新整理，但是如果您在等待一些要顯示的資料，您可以手動重新整理。
 * 請參閱[疑難排解][qna]。
 
@@ -119,7 +119,9 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 現在請將應用程式部署至 IIS 或 Azure，並觀看資料累積情形。
 
-以偵錯模式執行時，系統會透過管線迅速傳送遙測資料，因此您應該可以在幾秒內看見資料。在部署應用程式時，資料累積會較為緩慢。
+![使用 Visual Studio 來發佈您的應用程式](./media/app-insights-start-monitoring-app-health-usage/15-publish.png)
+
+以偵錯模式執行時，系統會透過管線迅速傳送遙測資料，因此您應該可以在幾秒內看見資料。以發行組態部署應用程式時，資料累積會較為緩慢。
 
 #### 發佈資料到伺服器之後，卻沒有資料？
 
@@ -133,19 +135,6 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 請參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
 
-
-## 追蹤應用程式版本
-
-確定 `buildinfo.config` 是由您的建置程序所產生。在您的 .csproj 檔案中加入：
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
-```
-
-當它有組建資訊時，Application Insights Web 模組會自動加入**應用程式版本**做為遙測的每個項目的屬性。如此可讓您在執行[診斷搜尋][diagnostic]或[探索度量][metrics]時，依據版本來篩選。
 
 
 ## 5\.加入相依性追蹤 (和 IIS 效能計數器)
@@ -171,19 +160,16 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 #### 如果是 Azure 雲端服務專案
 
-[將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md)。
+[將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md)
 
 
 
 ## 6\.加入用戶端監視
 
-您已安裝會從應用程式的伺服器 (後端) 傳送遙測資料的 SDK。現在您可以加入用戶端監視。這可提供有關在用戶端中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。
+您已安裝會從應用程式的伺服器 (後端) 傳送遙測資料的 SDK。現在您可以加入用戶端監視。這可提供有關在瀏覽器中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。您也可以撰寫自己的程式碼，來追蹤您的使用者如何使用您的應用程式，徹底得知詳細的點按和按鍵層級。
 
-您也可以撰寫自己的程式碼，來追蹤您的使用者使用您的應用程式，徹底得知詳細的點按和按鍵層級。
 
-#### 如果您的用戶端是網頁瀏覽器
-
-如果您的 app 顯示網頁，請在每一頁加入 JavaScript 程式碼片段。從您的 Application Insights 資源取得程式碼：
+將 JavaScript 程式碼片段加入每一頁。從您的 Application Insights 資源取得程式碼：
 
 ![在您的 Web 應用程式中，開啟 [快速啟動]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
@@ -191,12 +177,21 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 [深入了解網頁追蹤。](app-insights-web-track-usage.md)
 
-#### 如果您的用戶端是裝置 app
 
-如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入您的裝置 app。
+## 追蹤應用程式版本
 
-如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
+請確定 `buildinfo.config` 是由您的 MS 建置程序所產生。在您的 .csproj 檔案中加入：
 
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+當它有組建資訊時，Application Insights Web 模組會自動加入**應用程式版本**做為遙測的每個項目的屬性。如此可讓您在執行[診斷搜尋][diagnostic]或[探索計量][metrics]時，依據版本來篩選。
+
+但請注意，組建版本號碼只能由 MS 組建產生，不是 Visual Studio 中的開發人員組建產生。
 
 ## 7\.完成安裝
 
@@ -225,7 +220,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 #### ... 對於現有專案
 
-在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [Add Application Insights]。
+在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。
 
 ![Choose Add Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -273,4 +268,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

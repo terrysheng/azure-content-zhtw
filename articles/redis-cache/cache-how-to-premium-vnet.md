@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的虛擬網路支援
@@ -72,15 +72,17 @@ Azure Redis 快取 VNET 整合是在 [虛擬網路] 刀鋒視窗中設定。您�
 -	阻止 Redis 角色執行個體 VM 在子網路內彼此通訊。Redis 角色執行個體應該允許在使用的任何連接埠上使用 TCP 彼此通訊，但是可能會有變更，至少可以假設為 Redis CSDEF 檔案中使用的所有連接埠。
 -	阻止 Azure 負載平衡器在 TCP/HTTP 連接埠 16001 連接到 Redis VM。Azure Redis 快取取決於預設 Azure 負載平衡器探查來判斷哪些角色執行個體正在執行。預設負載平衡器探查是藉由在連接埠 16001 上 ping Azure 客體代理程式來運作。只有回應 ping 的角色執行個體會置於替換以接收 ILB 轉送的流量。因為連接埠遭到封鎖導致 ping 失敗而使沒有任何執行個體在替換中時，ILB 不會接受任何傳入 TCP 連線。
 -	封鎖用於 SSL 公用金鑰驗證的用戶端應用程式的 Web 流量。Redis (在虛擬網路內) 的用戶端必須能夠進行公用網際網路的 HTTP 流量，才能下載 CA 憑證和憑證撤銷清單，以在它們使用連接埠 6380 連接到 Redis 並且進行 SSL 伺服器驗證時，進行 SSL 憑證驗證。
--	阻止 Azure 負載平衡器透過連接埠 1300x (13000、13001 等等) 或 1500x (15000、15001 等等) 上的 TCP 連接到叢集中的 Redis VM。已在 csdef 檔案中以負載平衡器探查設定 VNet，以開啟這些連接埠。Azure 負載平衡器需要 NSG 的允許，預設 NSG 會使用標記 AZURE\_LOADBALANCER 來執行這項操作。Azure 負載平衡器有 168.63.126.16 的單一靜態 IP 位址。如需詳細資訊，請參閱[什麼是網路安全性群組 (NSG)？](..\virtual-network\virtual-networks-nsg.md)。
+-	阻止 Azure 負載平衡器透過連接埠 1300x (13000、13001 等等) 或 1500x (15000、15001 等等) 上的 TCP 連接到叢集中的 Redis VM。已在 csdef 檔案中以負載平衡器探查設定 VNet，以開啟這些連接埠。Azure 負載平衡器需要 NSG 的允許，預設 NSG 會使用標記 AZURE\_LOADBALANCER 來執行這項操作。Azure 負載平衡器有 168.63.126.16 的單一靜態 IP 位址。如需詳細資訊，請參閱[什麼是網路安全性群組 (NSG)？](../virtual-network/virtual-networks-nsg.md)
 
 ## 可以搭配標準或基本快取使用 VNET 嗎？
 
 VNET 僅適用於高階快取。
 
 ## 後續步驟
+了解如何使用更多高階快取功能。
 
-了解如何使用其他高階快取功能。請參閱[如何設定高階 Azure Redis 快取的永續性](cache-how-to-premium-persistence.md)和[如何設定高階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md)。
+-	[如何設定高階 Azure Redis Cache 的永續性](cache-how-to-premium-persistence.md)
+-	[如何設定高階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)
 
 
 
@@ -101,4 +103,4 @@ VNET 僅適用於高階快取。
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

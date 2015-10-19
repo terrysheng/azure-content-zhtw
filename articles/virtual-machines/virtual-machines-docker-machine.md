@@ -1,11 +1,12 @@
 <properties
-   pageTitle="如何搭配使用 docker-machine 和 Azure"
-   description="示範如何使用 Ubuntu 上的 Docker Machine，在 Azure 上啟動並執行。"
+   pageTitle="搭配使用 docker-machine 和 Azure | Microsoft Azure"
+   description="示範如何使用傳統部署模型，透過 Ubuntu 上的 Docker Machine，在 Azure 上啟動並執行。"
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -60,7 +61,7 @@
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-2. 將憑證的 .cer 檔案上傳至 Azure。在 [Azure 入口網站](https://manage.windowsazure.com)中，按一下服務區域左下方的 設定 (如下所示)
+2. 將憑證的 .cer 檔案上傳至 Azure。在 [Azure 入口網站](https://manage.windowsazure.com)中，按一下服務區域左下方的 [設定] (如下所示)
 
 	![][portalsettingsitem]
 
@@ -68,7 +69,7 @@
 
 	![][managementcertificatesitem]
 
-	接著按一下 上傳 (位於頁面下方) ![][uploaditem]，以上傳您在上一個步驟中建立的 **mycert.cer** 檔案。
+	接著按一下 [上傳] (位於頁面下方) ![][uploaditem]，以上傳您在上一個步驟中建立的 **mycert.cer** 檔案。
 
 3. 在入口網站的同一個 [設定] 窗格中，按一下 [訂戶帳戶]，以擷取要在您建立 VM 時使用的訂用帳戶識別碼，因為您將在下一個步驟中用到它 (您也可以在命令列上，使用 Azure CLI 命令 `azure account list` 來尋找訂用帳戶識別碼，其會顯示該帳戶中您所擁有之每個訂用帳戶的訂用帳戶識別碼)。
 
@@ -211,6 +212,5 @@
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
- 
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

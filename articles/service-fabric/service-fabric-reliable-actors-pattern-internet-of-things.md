@@ -4,7 +4,7 @@
    description="Service Fabric Reliable Actor 是系統中的主要建置組塊 (作為中介層)，結合了支援多個傳輸 (例如 HTTPS、MQTT 或 AMQP) 的傳訊系統前端，然後與代表個別裝置的動作項目通訊。"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Reliable Actor 設計模式：物聯網
 隨著科技進步 IoT 已成為裝置與雲端服務的新趨勢，因此開發人員開始尋找夠用來開發系統的主要建置組塊。下圖說明使用 Service Fabric Reliable Actor 可達成的重要案例：
@@ -217,4 +217,4 @@ Azure Service Fabric Actor 也負責動作項目的生命週期。不妨如此�
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

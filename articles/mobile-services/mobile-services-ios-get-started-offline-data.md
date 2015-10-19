@@ -261,7 +261,6 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [處理行動服務的離線支援衝突]: mobile-services-ios-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 []: mobile-services-using-soft-delete.md
@@ -271,4 +270,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 [行動服務快速入門教學課程]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

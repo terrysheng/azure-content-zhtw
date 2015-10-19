@@ -3,7 +3,7 @@
 	description="使用 SQL Server 2016 Management Studio 中的精靈，將 SQL Server 資料庫部署到 Azure SQL Database。" 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sidneyh" 
+	authors="CarlRabeler" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
-	ms.author="sidneyh"/>
+	ms.date="10/08/2015" 
+	ms.author="carlrab"/>
 
 
 # 如何將 SQL Database 部署到 Azure SQL Database
@@ -593,4 +593,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.date="09/30/2015"
 	ms.author="nitinme"/>
 
 
@@ -93,7 +93,7 @@
 	| ------------------ | --------------------- |
 	| ![「開始面板」上的佈建指示器](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioned.png) |
 
-	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的圖格或頁面左邊的 [通知] 項目，檢查佈建處理序。
+	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的磚或頁面左邊的 [通知] 項目，檢查佈建處理序。
 
 10. 佈建完成後，在開始面板上按一下 Spark 叢集的磚，以啟動叢集刀鋒視窗。
 
@@ -104,42 +104,48 @@
 
 >[AZURE.NOTE]叢集上預設也會提供遵循以下指示所建立的 Notebook。啟動 Zeppelin 後，您可以根據 **Zeppelin HVAC tutorial** 名稱來找到本 Notebook。
 
-1. 啟動 Zeppelin Notebook。在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。遵循頁面顯示的指示以啟動 Notebook。
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
-2. 建立新的 Notebook。在標頭窗格中按一下 [**Notebook**]，然後按一下 [**建立新 Note**]。
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
+
+	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Zeppelin Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
+
+2. 建立新的 Notebook。在標頭窗格中按一下 [Notebook]，然後按一下 [建立新 Note]。
 
 	![建立新的 Zeppelin Notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.CreateNewNote.png "建立新的 Zeppelin Notebook")
 
-	在同一個頁面的 [**Notebook**] 標題下方，您應該會看到名稱開頭為 **Note XXXXXXXXX** 的新 Notebook。按一下新的 Notebook。
+	在同一個頁面的 [Notebook] 標題下方，您應該會看到名稱開頭為 **Note XXXXXXXXX** 的新 Notebook。按一下新的 Notebook。
 
 3. 在新 Notebook 的網頁上按一下標題，並視需要變更 Notebook 的名稱。按下 ENTER 以儲存名稱變更。此外，請確定 Notebook 標頭在右上角顯示 [已連接] 狀態。
 
 	![Zeppelin Notebook 狀態](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 狀態")
 
-4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\HdiSamples\SensorSampleData\hvac**。
+4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。
 
 	將以下程式碼貼入新 Notebook 中預設建立的空白段落：
 
 		// Create an RDD using the default Spark context, sc
 		val hvacText = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
-		
+
 		// Define a schema
 		case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
-		
+
 		// Map the values in the .csv file to the schema
 		val hvac = hvacText.map(s => s.split(",")).filter(s => s(0) != "Date").map(
-    		s => Hvac(s(0), 
+    		s => Hvac(s(0),
             		s(1),
             		s(2).toInt,
             		s(3).toInt,
             		s(6)
         	)
 		).toDF()
-		
+
 		// Register as a temporary table called "hvac"
 		hvac.registerTempTable("hvac")
-		
-	針對該段落，按下鍵盤上的 **SHIFT + ENTER** 鍵，或按一下 [開始] 按鈕，來執行程式碼。段落右上角的狀態應該會從「準備就緒」逐一轉變成「擱置」、「執行中」及「已完成」。輸出會出現在同一個段落的底部。螢幕擷取畫面如下所示：
+
+	針對該段落，按下鍵盤上的 **SHIFT + ENTER**，或按一下 [播放] 按鈕，來執行程式碼。段落右上角的狀態應該會從「準備就緒」逐一轉變成「擱置」、「執行中」及「已完成」。輸出會出現在同一個段落的底部。螢幕擷取畫面如下所示：
 
 	![從原始資料建立暫存資料表](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.LoadDataIntoTable.png "從原始資料建立暫存資料表")
 
@@ -148,9 +154,9 @@
 5. 您現在可以針對 **hvac** 資料表執行 Spark SQL 陳述式。將以下查詢貼入新段落。此查詢會擷取建築物識別碼，以及在指定日期當天每棟建築物之目標溫度與實際溫度間的差異。按下 **SHIFT + ENTER**。
 
 		%sql
-		select buildingID, (targettemp - actualtemp) as temp_diff, date 
+		select buildingID, (targettemp - actualtemp) as temp_diff, date
 		from hvac
-		where date = "6/1/13" 
+		where date = "6/1/13"
 
 	開頭的 **%Sql** 陳述式會告訴 Notebook 使用 Spark SQL 解譯器。您可以在 Notebook 標頭中的 [解譯器] 索引標籤查看已定義的解譯器。
 
@@ -167,7 +173,7 @@
 		from hvac
 		where targettemp > "${Temp = 65,65|75|85}"
 
-	將此程式碼範例貼入新段落，然後按下 **SHIFT + ENTER** 鍵。以下螢幕擷取畫面顯示輸出。
+	將此程式碼範例貼入新段落，然後按下 **SHIFT + ENTER**。以下螢幕擷取畫面顯示輸出。
 
 	![使用 Notebook 執行 Spark SQL 陳述式](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery2.png "使用 Notebook 執行 Spark SQL 陳述式")
 
@@ -183,9 +189,15 @@
 
 >[AZURE.NOTE]叢集上預設也會提供遵循以下指示所建立的 Notebook。啟動 Jupyter 後，您可以根據 **HVACTutorial.ipynb** 名稱來找到本 Notebook。
 
-1. 啟動 Jupyter Notebook。在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入 Spark 叢集的系統管理員認證。
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
-2. 建立新的 Notebook。按一下 [新增]，再按 [Python2]。
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
+
+	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. 建立新的 Notebook。按一下 [新增]，然後按一下 [Python2]。
 
 	![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.CreateNotebook.png "建立新的 Jupyter Notebook")
 
@@ -209,23 +221,23 @@
 
 4. 將範例資料載入暫存資料表。當您在 HDInsight 中佈建 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。
 
-	在空白儲存格中，貼上以下程式碼範例，然後按下 **SHIFT + ENTER** 鍵。此程式碼範例會將資料註冊到名為 **hvac** 的暫存資料表。
+	在空白儲存格中，貼上以下程式碼範例，然後按下 **SHIFT + ENTER**。此程式碼範例會將資料註冊到名為 **hvac** 的暫存資料表。
 
 		# Load the data
 		hvacText = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
-		
+
 		# Create the schema
 		hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-		
+
 		# Parse the data in hvacText
 		hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-		
+
 		# Create a data frame
 		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-		
+
 		# Register the data fram as a table to run queries against
 		hvacdf.registerAsTable("hvac")
-		
+
 		# Run queries against the table and display the data
 		data = sqlContext.sql("select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13"")
 		data.show()
@@ -280,4 +292,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

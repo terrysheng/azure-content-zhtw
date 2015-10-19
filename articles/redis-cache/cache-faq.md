@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -34,14 +34,18 @@
 -	**Redis 叢集**：如果您想建立大於 53 GB 的快取或想跨多個 Redis 節點共用資料，可以使用高階層中的 Redis 叢集。每個節點均包含一個主要/複本快取組以提供高可用性。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md)。
 -	**增強的安全性和網路隔離**：Azure 虛擬網路 (VNET) 部署可為您的 Azure Redis 快取、子網路、存取控制原則和其他功能提供增強的安全性和隔離模式。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)。
 -	**設定 Redis**：在標準層和高階層中，您可以設定 Redis 以接收 Keyspace 通知。
--	**用戶端連線的最大數目**：高階層提供可連線至 Redis 的最大用戶端數目，針對較大型的快取有更高的連線數目。如需詳細資訊，請參閱[定價](TODO)頁面。
+-	**用戶端連線的最大數目**：高階層提供可連線至 Redis 的最大用戶端數目，針對較大型的快取有更高的連線數目。如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/cache/)頁面。
 -	**Redis 伺服器使用專用核心**：在高階層中，所有快取大小均有 Redis 專用核心。在基本/標準層中，C1 以上的大小有 Redis 伺服器專用核心。
 -	**Redis 為單一執行緒**，因此兩個以上核心所提供的優點與只有兩個核心相同，但較大 VM 大小的頻寬通常會多於較小大小。如果快取伺服器或用戶端達到頻寬限制，則您會在用戶端上收到逾時。
 -	**效能改良**：高階層中的快取是部署在處理器較快的硬體上，因此效能優於基本或標準層。高階層快取的輸送量較高，延遲性較低。
 
 下表顯示從 Iaas VM 使用 `redis-benchmark.exe` 對 Azure Redis 快取端點測試各種標準和高階快取大小時觀察到的最大頻寬值。請注意，這些值並非保證值，亦無關於這些數字的 SLA，但應該是一般情況。您應該載入測試自己的應用程式，以判斷應用程式的正確快取大小。
 
-從這個表格可以得出以下結論 - 快取大小相同時，高階層的輸送量高於標準層。例如，如果是 6 GB 的快取，相較於 C3 的 49K RPS，P1 的輸送量是 140K。- 使用 Redis 叢集時，當您在叢集中增加分區 (節點) 數目時，輸送量會呈線性增加。例如，如果您建立一個含有 10 個分區的 P4 叢集，則可用的輸送量為 250 K *10 = 250 萬 RPS - 金鑰大小更大時，高階層中的輸送量高於標準層。
+我們可以從此表格中獲得下列結論。
+
+-	相較於標準層，高階層中相同大小的快取，其輸送量較高。例如：針對 6 GB 快取，相較於 C3 的 49K，P1 的輸送量是 140K 個 RPS。
+-	使用 Redis 叢集，當您增加叢集中的分區 (節點) 數目時，輸送量會呈線性增加。例如：如果您建立具有 10 個分區的 P4 叢集，則可用的輸送量為 250K *10 = 250 萬個 RPS
+-	相較於標準層，高階層中的金鑰大小越大，輸送量就越高。
 
 | 定價層 | 大小 | 可用的頻寬 (Mbps) | 1 KB 金鑰大小 |
 |----------------------|--------|----------------------------|--------------------------------|
@@ -163,9 +167,9 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 <a name="cache-commands"></a>
 ## 如何執行 Redis 命令？
 
-您可以使用在 [Redis 命令](http://redis.io/commands#) 中列出的任何的命令，但不包含 [Azure Redis 快取中不支援的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)中列出的命令。您有幾種方式可以執行 Redis 命令。
+您可以使用 [Redis 命令](http://redis.io/commands#)中列出的任何命令，但不包含 [Azure Redis 快取中不支援的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)中列出的命令。您有幾種方式可以執行 Redis 命令。
 
--	如果您有標準或高階快取，您可以使用 [Redis 主控台](cache-configure.md#redis-console)執行 Redis 命令。這可提供在 Preview 入口網站中執行 Redis 命令的安全方式。
+-	如果您有標準或高階快取，就可以使用 [Redis 主控台](cache-configure.md#redis-console)來執行 Redis 命令。這可提供在 Preview 入口網站中執行 Redis 命令的安全方式。
 -	您也可以使用 Redis 命令列工具。若要使用那些工具，請執行下列步驟。
 	-	下載 [Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)。
 	-	使用 `redis-cli.exe` 連線至快取。使用-h 參數傳入快取端點，以及使用 -a 傳入索引鍵 (如下列範例所示)。
@@ -187,4 +191,4 @@ Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取，
 
 因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，Azure.com 上還會有數個教學課程，可顯示如何使用 [[Redis 快取文件](http://azure.microsoft.com/documentatgion/services/redis-cache/)] 頁面上的不同語言和快取用戶端來開始使用 Azure Redis 快取。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -42,11 +42,11 @@
 
 ## <a name="install"></a>使用指令碼動作安裝 Giraph
 
-您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Giraph 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh)。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用範例指令碼的指示。
+您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Giraph 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh)。本節提供有關如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
 
 > [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-1. 使用[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不完成佈建。
+1. 使用[建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始建立叢集，但是不完成建立。
 
 2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
 
@@ -59,11 +59,11 @@
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 
-4. 繼續如[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中所述佈建叢集。
+4. 繼續如[建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中所述建立叢集。
 
 ## <a name="usegiraph"></a>如何在 HDInsight 中使用 Giraph？
 
-一旦叢集完成佈建之後，請使用下列步驟以執行 Giraph 隨附的 SimpleShortestPathsComputation 範例。這會實作基本 <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> 實作，用於尋找圖表中物件之間最短的路徑。
+一旦完成建立叢集之後，請使用下列步驟以執行 Giraph 隨附的 SimpleShortestPathsComputation 範例。這會實作基本 <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> 實作，用於尋找圖表中物件之間最短的路徑。
 
 1. 使用 SSH 連線到 HDInsight 叢集
 
@@ -148,4 +148,4 @@
 
 - [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install-linux.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。Solr 可讓您在儲存的資料上執行功能強大的搜尋作業。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # 在 ASP.NET 應用程式中使用 Application Insights 的診斷失敗和例外狀況  
@@ -418,11 +418,10 @@ VB
 
     namespace WcfService4
     {
-        [ServiceContract]
         [AiLogException]
-        public interface IService1
-        {
-     ...
+        public class Service1 : IService1 
+        { 
+         ...
 
 [範例](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
@@ -449,4 +448,4 @@ VB
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

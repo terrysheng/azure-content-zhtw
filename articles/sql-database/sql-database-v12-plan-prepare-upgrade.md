@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/01/2015"
 	ms.author="genemi"/>
 
 
@@ -33,8 +33,7 @@
 | 標題和連結 | 內容的描述 |
 | :--- | :--- |
 | [SQL Database V12 新功能](sql-database-v12-whats-new.md) | 描述 V12 如何提升 Azure SQL Database 以與 Microsoft SQL Server 並駕齊驅的詳細資料。 |
-| [逐步解說：註冊最新的 SQL Database Update V12](sql-database-v12-sign-up.md) | 描述若要將 Azure SQL Database 升級至 V12 所必須執行的步驟。 |
-| [在 SQL Database Update V12 中建立資料庫](sql-database-create.md) | 描述如何建立全新 V12 版本的 Azure SQL Database。內容描述各種選項，而非只是空的資料庫。 |
+| [在 SQL Database V12 中建立資料庫](sql-database-get-started.md) | 描述如何建立全新 V12 版本的 Azure SQL Database。內容描述各種選項，而非只是空的資料庫。 |
 
 
 ## 事先規劃
@@ -60,15 +59,15 @@
 
 如需「基本」、「標準」和「高階」服務層的詳細資訊，請參閱：
 
-
+- [SQL Database 服務層](sql-database-service-tiers.md)
 - [將 SQL Database Web/商務資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)
-- [Azure SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)
+
 
 
 ### 檢閱異地複寫設定
 
 
-如果您的 Azure SQL Database 已設定異地複寫，您應先記錄其目前的設定、停止異地複寫，然後再開始升級準備動作。在升級完成後，您必須重新設定資料庫的異地複寫。
+如果您的 Azure SQL Database 已設定為異地複寫，您應先記錄其目前的設定、停止異地複寫，然後再開始升級準備動作。在升級完成後，您必須重新設定資料庫的異地複寫。
 
 
 對策是保留來源，並在資料庫複本上測試。
@@ -169,7 +168,7 @@ V12 不支援 Web 和商務服務定價層級。
 | :--- | :--- |
 | 升級期間 | 升級期間取決於大小、版本和伺服器中的資料庫數目而定。伺服器的升級程序可能會執行數小時至數天，尤其對於具有下列資料庫的伺服器：<br/><br/>* 大於 50 GB，或 <br/>* 在非高階服務層<br/><br/>升級期間在伺服器上建立新資料庫，也會增加升級的時間。 |
 | 沒有異地複寫 | 目前正在進行從 V11 升級的 V12 伺服器不支援異地複寫。 |
-| 資料庫在升級至 V12 的最終階段會短暫地無法使用 | 屬於 V11 伺服器的資料庫在升級過程中仍可以使用。不過，當從 V11 開始切換成就緒的 V12 時，伺服器和資料庫的連線在最終階段會短暫地無法使用。<br/><br/>切換期間的時間長度可從 40 秒到 5 分鐘不等。大多數伺服器的切換作業預期會在 90 秒內完成。如果有大量資料庫，或是當資料庫具有大量寫入工作負載時，則伺服器的切換時間會增加。 |
+| 資料庫在升級至 V12 的最終階段會短暫地無法使用 | 屬於 V11 伺服器的資料庫在升級過程中仍可以使用。不過，在從 V11 開始切換成就緒的 V12 時，伺服器和資料庫的連線在最終階段會短暫地無法使用。<br/><br/>切換期間的時間長度可從 40 秒到 5 分鐘不等。大多數伺服器的切換作業預期會在 90 秒內完成。如果有大量資料庫，或是當資料庫具有大量寫入工作負載時，則伺服器的切換時間會增加。 |
 
 
 ### 升級至 V12 *之後*的限制
@@ -254,4 +253,4 @@ Stop- Cmdlet 表示取消，不是暫停。升級一旦停止就沒有任何方�
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

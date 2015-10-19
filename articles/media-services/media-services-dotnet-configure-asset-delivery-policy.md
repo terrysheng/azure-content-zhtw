@@ -127,7 +127,7 @@ Azure 媒體服務也可讓您加入 Widevine 加密。下列範例會示範 Pla
 	
 	}
 
->[AZURE.NOTE]以 Widevine 加密時，就只能使用 DASH 來傳遞。請務必在資產傳遞通訊協定中指定 DASH (2)。
+>[AZURE.NOTE]以 Widevine 加密時，就只能使用 DASH 來傳遞。請務必在資產傳遞通訊協定中指定 DASH。
 
 
 ##DynamicEnvelopeEncryption 資產傳遞原則 
@@ -328,4 +328,4 @@ Azure 媒體服務也可讓您加入 Widevine 加密。下列範例會示範 Pla
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

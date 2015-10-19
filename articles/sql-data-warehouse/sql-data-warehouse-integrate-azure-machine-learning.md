@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="sahajs"/>
 
 # 搭配使用 Azure 機器學習服務與 SQL 資料倉儲
 
 Azure 機器學習服務是一項完全受管理的預測性分析服務，您可用來在 SQL 資料倉儲中針對您的資料建立預測模型，並將這些模型發佈為可供取用 Web 服務。閱讀[Azure 上的機器學習服務簡介][]，即可了解預測性分析和機器學習的基本概念。然後，您可以使用[建立實驗教學課程][]，了解如何建立、定型、評分和測試機器學習模型。
 
-在本文中，您將學習如何使用 [Azure Machine Learning Studio][] 執行下列作業：從您的資料庫讀取資料，以建立、定型和評分預測模型 - 將資料寫入至您的資料庫
+在本文中，您將了解如何使用 [Azure Machine Learning Studio][] 來執行下列動作：
+
+- 從您的資料庫讀取資料來建立、定型和評分預測模型
+- 將資料寫入您的資料庫 
 
 
 ## 從 SQL 資料倉儲讀取資料
@@ -72,8 +75,13 @@ FROM dbo.DimProduct;
 
 ## 建立、定型和評分模型
 
-您現在可以使用此資料集：- 建立模型：處理資料和定義功能 - 定型模型：選擇並套用學習演算法 - 評分和測試模型：預測新的單車價格
-	
+現在您可以使用此資料集：
+
+- 建立模型：處理資料並定義功能
+- 定型模型：選擇並套用學習演算法
+- 對模型評分和測試：預測新的自行車價格
+ 
+
 ![][model]
 
 若要深入了解如何建立、定型、評分和測試機器學習模型，請使用[建立實驗教學課程][]。
@@ -130,8 +138,8 @@ FROM dbo.DimProduct;
 
 [SQL 資料倉儲開發概觀]: ./sql-data-warehouse-overview-develop/
 [SQL 資料倉儲整合概觀]: ./sql-data-warehouse-overview-integration/
-[建立實驗教學課程]: ./machine-learning-create-experiment/
-[Azure 上的機器學習服務簡介]: ./machine-learning-what-is-machine-learning/
+[建立實驗教學課程]: https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-create-experiment/
+[Azure 上的機器學習服務簡介]: https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
 [Azure 入口網站]: https://portal.azure.com/
 
@@ -141,4 +149,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

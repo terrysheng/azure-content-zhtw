@@ -172,7 +172,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlDWSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -192,6 +192,12 @@
 	     ]
 	   }
 	}
+
+> [AZURE.NOTE]在上述範例中，已為 SqlDWSource 指定 **sqlReaderQuery**。複製活動會針對 Azure SQL 資料倉儲來源執行這項查詢以取得資料。
+>  
+> 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
+>  
+> 如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 Azure SQL 資料倉儲執行 (從 mytable 選取 column1、column2)。如果資料集定義沒有結構，則會從資料表中選取所有資料行。
 
 ## 範例：將資料從 Azure Blob 複製到 Azure SQL 資料倉儲
 
@@ -395,13 +401,20 @@
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
 ### SqlDWSource
+
 在複製活動的案例中，如果來源類型為 **SqlDWSource**，則 **typeProperties** 區段可使用下列屬性：
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。如果未指定，便會執行 SQL 陳述式：從 MyTable 選取 **JSON 資料表結構區段中定義的資料行**。 | 否 |
+| sqlReaderQuery | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 否 |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 | 預存程序的名稱。 | 否 |
-| sqlReaderStoredProcedureParameters | 預存程序的參數。 | 名稱/值組。參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
+| storedProcedureParameters | 預存程序的參數。 | 名稱/值組。參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
+
+如果已為 SqlDWSource 指定 **sqlReaderQuery**，複製活動會針對 Azure SQL 資料倉儲來源執行這項查詢以取得資料。
+
+或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
+
+如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 Azure SQL 資料倉儲執行 (從 mytable 選取 column1、column2)。如果資料集定義沒有結構，則會從資料表中選取所有資料行。
 
 #### SqlDWSource 範例
 
@@ -465,7 +478,7 @@
 
 從 Azure SQL、SQL Server、Sybase 來回移動資料時，將使用下列從 SQL 類型到 .NET 類型的對應，反之亦然。
 
-此對應與 [ADO.NET 的 SQL Server 資料類型對應](https://msdn.microsoft.com/library/cc716729.aspx)相同。
+此對應與 [ADO.NET 的 SQL Server 資料類型對應相同](https://msdn.microsoft.com/library/cc716729.aspx)。
 
 | SQL Server Database Engine 類型 | .NET Framework 類型 |
 | ------------------------------- | ------------------- |
@@ -508,4 +521,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

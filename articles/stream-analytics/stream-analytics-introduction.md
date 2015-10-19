@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -53,4 +53,4 @@ Azure 串流分析 (ASA) 是完全受管理、符合成本效益的即時事件�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

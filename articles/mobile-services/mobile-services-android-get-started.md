@@ -12,19 +12,23 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
-	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.topic="hero-article"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # 開始使用適用於 Android 的行動服務 (JavaScript 後端)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
 本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Android 應用程式。在本教學課程中，您將建立新的行動服務和簡單的**待辦事項清單**應用程式，後者會在前者儲存應用程式資料。
 
-> [AZURE.VIDEO android-support-in-windows-azure-mobile-services]
+> [AZURE.VIDEO mobile-get-started-android]
 
-以下是完成的應用程式螢幕擷取畫面：![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+以下是完成 App 的螢幕擷取畫面：![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## 必要條件
 
@@ -87,7 +91,7 @@
 * [開始使用推播通知] <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
 
-
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -117,4 +121,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

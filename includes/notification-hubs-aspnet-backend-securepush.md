@@ -61,7 +61,7 @@
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
 
             // windows
-            var rawNotificationToBeSent = new Microsoft.ServiceBus.Notifications.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
+            var rawNotificationToBeSent = new Microsoft.Azure.NotificationHubs.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
                             new Dictionary<string, string> {
                                 {"X-WNS-Type", "wns/raw"}
                             });
@@ -84,4 +84,4 @@
 
 24. 選取 Azure 網站作為您的發行目標。使用您的 Azure 帳戶登入，並選取現有或新的網站，記下 [連線] 索引標籤中的 [目的地 URL] 屬性。。我們後續將在本教學課程中參考此 URL 作為您的 *backend endpoint*。按一下 [發行]。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

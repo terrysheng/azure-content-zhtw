@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/30/2015"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Windows 市集應用程式的通知中樞
@@ -25,6 +25,9 @@
 本教學課程將示範如何使用 Azure 通知中樞，以將推播通知傳送到 Windows 市集或 Windows Phone 8.1 (非 Silverlight) 應用程式。如果您的目標是 Windows Phone 8.1 Silverlight，請參閱 [Windows Phone](notification-hubs-windows-phone-get-started.md) 版本。在本教學課程中，您將使用 Windows 推播通知服務 (WNS)，建立可接收推播通知的空白 Windows 市集應用程式。完成時，您便能夠使用通知中樞，將推播通知廣播到所有執行您 app 的裝置。
 
 本教學課程將示範使用通知中樞的簡單廣播案例。請確定依照下一個教學課程的步驟進行，以了解如何使用通知中心來處理特定使用者和裝置群組。
+
+您可以在[此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal)的 GitHub 上找到適用於此教學課程的完整程式碼。
+
 
 
 ##必要條件
@@ -46,7 +49,7 @@
 1. 如果您尚未註冊您的 App，請瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Windows 開發人員中心</a>，使用 Microsoft 帳戶登入，然後按一下 [建立新的應用程式]。
 
 
-2. 輸入您的 App 名稱，然後按一下 [保留應用程式名稱]。
+2. 輸入您的應用程式名稱，然後按一下 [保留應用程式名稱]。
 
    	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
 
@@ -153,7 +156,7 @@
 
     此程式碼會從 WNS 中擷取應用程式的通道 URI，然後向您的通知中樞註冊該通道 URI。
 
-    >[AZURE.NOTE]請一定要使用出現在入口網站 [**通知中心**] 索引標籤上的通知中心名稱，來取代 "hub name" 預留位置 (例如，上一個範例中的 **mynotificationhub2**)：另請使用在上一節中取得的 **DefaultListenSharedAccessSignature** 連線字串，來取代連線字串預留位置。
+    >[AZURE.NOTE]請一定要使用出現在入口網站 [**通知中心**] 索引標籤上的通知中心名稱，來取代 "hub name" 預留位置 (例如，上一個範例中的 **mynotificationhub2**)：另請使用在上一節中取得的 **DefaultListenSharedAccessSignature** 連接字串，來取代連線字串預留位置。
 
 5. 在 App.xaml.cs 中的 **OnLaunched** 事件處理常式頂端，將下列呼叫新增至新 **InitNotificationsAsync** 方法：
 
@@ -173,13 +176,37 @@
 
    	![][19]
 
-9. (選用) 重複上一個步驟以執行其他專案。
+9. (選擇性) 重複上一個步驟來執行 Windows Phone 專案，以在 Windows Phone 裝置上註冊應用程式。
+
+
 
 您的應用程式現在已能夠接收快顯通知。
 
-##從後端傳送通知
+##傳送通知 
 
-您可以透過 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>，使用通知中樞從任何後端傳送通知。在本教學課程中，您將使用 .NET 主控台應用程式來傳送通知。如需從整合通知中樞之 Azure 行動服務後端傳送通知的範例，請參閱＜開始在行動服務中使用推播通知＞([.NET 後端](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [JavaScript 後端](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md))。如需使用 REST API 傳送通知的範例，請參閱＜如何從 Java/PHP 使用通知中樞＞([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))。
+在 Azure 入口網站中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在 app 中測試通知的接收。
+
+![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
+
+推播通知通常會以後端服務傳送，例如行動服務或使用相容程式庫的 ASP.NET。如果程式庫不適用於您的後端，也可以直接使用 REST API 來傳送通知訊息。
+
+在本教學課程中，為了簡單起見，我們只會在主控台應用程式 (而非後端服務) 中使用適用於通知中樞的 .NET SDK 傳送通知，示範如何測試您的用戶端應用程式。我們建議以[使用通知中樞將通知推播給使用者]教學課程做為下一個步驟，以便從 ASP.NET 後端傳送通知。不過，下列方法可用來傳送通知：
+
+* **REST 介面**：您可以在使用 [REST 介面](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)的任何後端平台上支援通知。
+
+* **Microsoft Azure 通知中樞 .NET SDK**︰在適用於 Visual Studio 的 Nuget 封裝管理員中，執行 [Install-package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
+
+* **Node.js** : [如何從 Node.js 使用通知中樞](notification-hubs-nodejs-how-to-use-notification-hubs.md)。
+
+* **Azure Mobile Services**︰如需從整合通知中樞之 Azure 行動服務後端傳送通知的範例，請參閱＜開始在行動服務中使用推播通知＞([.NET 後端](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [JavaScript 後端](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md))。
+
+* **Java / PHP**︰如需使用 REST API 傳送通知的範例，請參閱＜如何從 Java/PHP 使用通知中樞＞([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))。
+
+
+### 從主控台應用程式傳送通知
+
+
+若要使用 .NET 主控台應用程式來傳送通知，請遵循下列步驟。
 
 1. 以滑鼠右鍵按一下方案，選取 [加入] 和 [新增專案...]，然後按一下 [Visual C#] 下方的 [Windows] 和 [主控台應用程式]，再按一下 [確定]。
 
@@ -214,7 +241,7 @@
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	請務必使用出現在入口網站 [通知中心] 索引標籤上的通知中心名稱，來取代 "hub name" 預留位置。此外，請將連接字串預留位置取代為您在＜設定通知中樞＞一節中取得，且名為 **DefaultFullSharedAccessSignature** 的連接字串。
+   	請務必使用出現在入口網站 [通知中心] 索引標籤上的通知中心名稱，來取代 "hub name" 預留位置。此外，請將連接字串預留位置取代為您在＜設定通知中樞＞一節中取得且名為 **DefaultFullSharedAccessSignature** 的連接字串。
 
 	>[AZURE.NOTE]請確定您使用的連接字串具有 [完整] 存取權，而非 [接聽] 存取權。接聽存取權的字串沒有傳送通知的權限。
 
@@ -233,7 +260,12 @@
 
 ##後續步驟
 
-在此簡單範例中，您將傳送廣播通知到您的所有 Windows 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者]。如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞]。若要深入了解如何使用通知中心，請參閱[通知中心指引]。
+在此簡單範例中，您會使用入口網站或主控台應用程式，將廣播通知傳送到您的所有 Windows 裝置。我們建議以[使用通知中樞將通知推播給使用者]教學課程做為下一個步驟。它會顯示如何從以特定使用者為目標的 ASP.NET 後端傳送通知。
+
+如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞]。若要深入了解通知中樞的一般資訊，請參閱[通知中心指引]。
+
+
+
 
 
 
@@ -260,11 +292,11 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 
-[使用通知中心來推播通知給使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
 [快顯目錄]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [磚目錄]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [徽章概觀]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

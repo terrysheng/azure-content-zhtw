@@ -1,11 +1,12 @@
 <properties
-	pageTitle="在 Azure 上使用 Linux 的 Docker VM 擴充程式"
-	description="說明 Docker 和 Azure 虛擬機器延伸模組，並示範如何以程式設計方式使用 Azure CLI，從命令列在 Azure 上建立 Docker 主機的虛擬機器。"
+	pageTitle="使用適用於 Linux 的 Docker VM 延伸模組 | Microsoft Azure"
+	description="說明 Docker 和 Azure 虛擬機器延伸模組，並示範如何在傳統部署模型中使用 Azure CLI，來建立 Docker 主機的 Azure 虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,9 +20,9 @@
 
 # 搭配使用 Docker VM 擴充程式與 Azure 入口網站
 
-[Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。您可以使用 [Azure Linux 代理程式]所管理的 Docker VM 延伸模組，如此可在 Azure 上建立 Docker VM 來託管任何數量的應用程式容器。
-
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
+[Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。您可以使用 [Azure Linux 代理程式]所管理的 Docker VM 延伸模組，如此可在 Azure 上建立 Docker VM 來託管任何數量的應用程式容器。
 
 > [AZURE.NOTE]本主題說明如何從 Azure 入口網站建立 Docker VM。若要查看如何在命令列建立 Docker VM，請參閱[如何從 Azure 命令列介面 (Azure CLI) 使用 Docker VM 擴充程式]。若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard) (英文)。
 
@@ -145,6 +146,5 @@ WARNING: No swap limit support
 
 [使用 https 執行 Docker]: http://docs.docker.com/articles/https/
 [Docker 使用者指南]: https://docs.docker.com/userguide/
- 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

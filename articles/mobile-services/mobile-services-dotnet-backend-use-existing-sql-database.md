@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="08/01/2015"
 	ms.author="glenga"/>
 
 
@@ -613,6 +613,6 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
 
     }
 
-您可在此時建置用來存取服務的用戶端應用程式，以執行下一個步驟。如需詳細資訊，請參閱[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service)。
+您可在此時建置用來存取服務的用戶端應用程式，以執行下一個步驟。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

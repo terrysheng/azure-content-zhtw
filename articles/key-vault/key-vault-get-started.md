@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="cabailey"/>
 
 # 開始使用 Azure 金鑰保存庫 #
@@ -35,7 +35,7 @@
 若要完成本教學課程，您必須具備下列項目：
 
 - Microsoft Azure 訂用帳戶。如果您沒有訂用帳戶，您可以註冊[免費試用](../../../../pricing/free-trial)。
-- Azure PowerShell 0.9.1 版或更新版本。若要安裝最新版本，並將它與 Azure 訂用帳戶建立關聯，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+- Azure PowerShell 0.9.1 到 0.9.8 版。若要安裝 Azure PowerShell，並將它與 Azure 訂用帳戶建立關聯，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 - 可設定使用您在本教學課程中所建立之金鑰或密碼的應用程式。您可以在 [Microsoft 下載中心](http://www.microsoft.com/zh-TW/download/details.aspx?id=45343)找到範例應用程式。如需相關指示，請參閱隨附的讀我檔案。
 
 
@@ -164,7 +164,7 @@
 
 3. 按一下 [**應用程式**]。如果您的目錄中尚未新增任何應用程式，則此頁面僅會顯示 [新增應用程式] 連結。按一下此連結，或者您可以按一下命令列上的 [新增]。
 4.	在 [**新增應用程式**] 精靈的 [**您想做什麼？**] 頁面上，按一下 [**新增我的組織正在開發的應用程式**]。
-5.	在 [告訴我們您的應用程式] 頁面上，指定您的應用程式名稱，然後選取 WEB 應用程式和/或 WEB API (預設值)。按 [下一步] 圖示。
+5.	在 [告訴我們您的應用程式] 頁面上，指定您的應用程式名稱，然後選取 [WEB 應用程式和/或 WEB API] (預設值)。按 [下一步] 圖示。
 6.	在 [**應用程式屬性**] 頁面上，為您的 Web 應用程式指定 [**登入 URL**] 和 [**應用程式識別碼 URI**]。如果您的應用程式沒有這些值，您可以在此步驟中虛構這些值 (例如，您可以在這兩個方塊中指定 http://test1.contoso.com)。這些網站是否存在並沒有影響；重要的是目錄中每個應用程式的應用程式識別碼 URI 都會有所不同。目錄會使用此字串來識別您的應用程式。
 7.	按一下 [完成] 圖示在精靈中儲存變更。
 8.	在 [快速入門] 頁面上，按一下 [設定]。
@@ -244,4 +244,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

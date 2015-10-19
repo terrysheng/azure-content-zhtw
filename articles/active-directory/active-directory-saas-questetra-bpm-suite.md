@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/02/2015"
 	ms.author="markusvi"/>
 
 
@@ -75,9 +75,9 @@
  
 若要使用 Questetra BPM Suite 設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
-1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)** - 讓使用者能夠使用此功能。
+1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Questetra BPM Suite 測試使用者](#creating-a-halogen-software-test-user)** - 使 Questetra BPM Suite 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
+4. **[建立 Questetra BPM Suite 測試使用者](#creating-a-questetra-bpm-suite-test-user)** - 使 Questetra BPM Suite 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
 5. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#testing-single-sign-on)** - 驗證設定是否能運作。
 
@@ -103,9 +103,9 @@
  
     a.在 **Questetra BPM Suite** 公司網站的 [SP 資訊] 區段中，複製 [ACS URL]，然後將它貼入 [登入 URL] 文字方塊中。
 
-    b.在 **Questetra BPM Suite** 公司網站的 [SP 資訊] 區段中，複製 [實體識別碼]，然後將它貼入 [簽發者 URL] 文字方塊和 [回覆 URL] 文字方塊中。
+    b.在 **Questetra BPM Suite** 公司網站的 [SP 資訊] 區段中，複製 [實體識別碼]，然後將它貼入 [簽發者 URL] 文字方塊中。
 
-    c.在 **Questetra BPM Suite** 公司網站的 [SP 資訊] 區段中，複製 [實體識別碼]，然後將它貼入 [回覆 URL] 文字方塊和 [回覆 URL] 文字方塊中。
+    c.在 **Questetra BPM Suite** 公司網站的 [SP 資訊] 區段中，複製 [ACS URL]，然後將它貼入 [回覆 URL] 文字方塊中。
 
     d.按 [下一步]。
 
@@ -152,33 +152,33 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要顯示使用者清單，可在頂端功能表中按一下 [使用者]。<br><br>![建立 Azure AD 測試使用者][101]
+3. 若要顯示使用者清單，請按一下功能表頂端的 [使用者]。<br><br>![建立 Azure AD 測試使用者][101]
 
-4. 若要開啟 [新增使用者] 對話方塊，可按一下底部工具列上的 [新增使用者]。<br><br>![建立 Azure AD 測試使用者][102]
+4. 若要開啟 [加入使用者] 對話方塊，請按一下底部工具列上的 [加入使用者]。<br><br>![建立 Azure AD 測試使用者][102]
 
 5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者][103]
  
     a.針對 [使用者類型]，選取 [您組織中的新使用者]。
   
-    b.在 [使用者名稱] 文字方塊中，輸入 **Britta Simon**。
+    b.在 [使用者名稱] 文字方塊中輸入 **BrittaSimon**。
 
     c.按 [下一步]。
 6.  在 [使用者設定檔] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者][104] 
   
-    a.在 [名字] 文字方塊中，輸入 **Britta**。
+    a.在 [名字] 文字方塊中輸入 **Britta**。
  
     b.在 [姓氏] 文字方塊中輸入 **Simon**。
 
-    c.在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
+    c.在 [顯示名稱] 文字方塊中輸入 **Britta Simon**。
 
-    d.在 [角色] 清單中選取 [使用者]。
+    d.在 [角色] 清單中，選取 [使用者]。
 
     e.按 [下一步]。
 
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。<br><br>![建立 Azure AD 測試使用者][105]
 
-8. 在 [取得暫時密碼] 對話方塊頁面上，執行下列步驟： <br><br>![建立 Azure AD 測試使用者][106]
-  1. 請記下 [新密碼] 的值。
+8. 在 [取得暫時密碼] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者][106]
+  1. 記下 [新密碼] 的值。
   2. 按一下 [完成]。   
   
  
@@ -190,7 +190,7 @@
 
 1.	以系統管理員身分登入您的 Questetra BPM Suite 公司網站。
 2.	移至 [系統設定] > [使用者清單] > [新增使用者]。 
-3.	在 [新增使用者] 對話方塊上，執行下列步驟： <br><br>![建立測試使用者][300] 
+3.	在 [新增使用者] 對話方塊上，執行下列步驟：<br><br>![建立測試使用者][300] 
 
     a.在 [名稱] 文字方塊中，輸入 Azure AD 中 Britta 的使用者名稱。
 
@@ -212,13 +212,13 @@
 2. 在應用程式清單中，選取 [Questetra BPM Suite]。<br><br>![何謂 Azure AD Connect][205]
 1. 在頂端的功能表中，按一下 [使用者]。<br><br>![何謂 Azure AD Connect][202]
 1. 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![何謂 Azure AD Connect][203]
-2. 在底部工具列中，按一下 [指派]。<br><br>![何謂 Azure AD Connect][204]
+2. 在底部的工具列中，按一下 [指派]。<br><br>![何謂 Azure AD Connect][204]
 
 
 
 ### 測試單一登入
 
-本節目標是使用存取面板來測試您的 Azure AD 單一登入設定。<br> 當您在 [存取面板] 中按一下 [Questetra BPM Suite] 磚時，您應該會自動登入您的 Questetra BPM Suite 應用程式。
+本節目標是使用存取面板來測試您的 Azure AD 單一登入組態。<br> 當您在 [存取面板] 中按一下 [Questetra BPM Suite] 磚時，您應該會自動登入您的 Questetra BPM Suite 應用程式。
 
 
 ## 其他資源
@@ -265,4 +265,4 @@
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

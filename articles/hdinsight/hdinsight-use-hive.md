@@ -1,6 +1,7 @@
 <properties
 	pageTitle="了解什麼是 Hive 以及如何使用 HiveQL |Microsoft Azure"
 	description="了解 Apache Hive 以及如何搭配 HDInsight 中的 Hadoop 使用它。選擇如何執行 Hive 工作，並使用 HiveQL 分析範例 Apache Log4j 檔案。"
+	keywords="hiveql,what is hive"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/28/2015"
+	ms.date="10/05/2015"
 	ms.author="larryfr"/>
 
 # 搭配 HDInsight 中的 Hadoop 使用 Hive 和 HiveQL 來分析範例 Apache Log4j 檔案
@@ -97,15 +98,13 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 
 ##<a id="usetez"></a>使用 Apache Tez 以提升效能
 
-[Apache Tez](http://tez.apache.org) 是可讓資料高用量應用程式 (例如 Hive)，以大規模而更有效率方式執行作業的架構。在最新版的 HDInsight 中，Hive 已支援在 Tez 上執行。
+[Apache Tez](http://tez.apache.org) 是可讓資料高用量應用程式 (例如 Hive)，以大規模而更有效率方式執行作業的架構。在最新版的 HDInsight 中，Hive 已支援在 Tez 上執行。對於以 Linux 為基礎的 HDInsight 叢集，Tez 預設為開啟。
 
-對於 Windows 型的 HDInsight 叢集，Tez 目前預設為關閉，因而必須啟用。若要充分發揮 Tez 的效益，您必須設定 Hive 查詢的下列值：
-
-	set hive.execution.engine=tez;
-
-此值可就個別查詢逐一提交，只要將值放在查詢開頭處即可。您也可以在建立叢集時設定組態值，在叢集上將此值預設為開啟。您可以在[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)中找到詳細資訊。
-
-對於以 Linux 為基礎的 HDInsight 叢集，Tez 預設為開啟。
+> [AZURE.NOTE]對於 Windows 型的 HDInsight 叢集，Tez 目前預設為關閉，因而必須啟用。若要充分發揮 Tez 的效益，您必須設定 Hive 查詢的下列值：
+>
+> ```set hive.execution.engine=tez;```
+>
+>此值可就個別查詢逐一提交，只要將值放在查詢開頭處即可。您也可以在建立叢集時設定組態值，在叢集上將此值預設為開啟。您可以在[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)中找到詳細資訊。
 
 [Tez 上的 Hive 設計文件](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)包含實作選擇和調整組態的一些詳細資料。
 
@@ -116,7 +115,8 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 
 | 如果您想要...，請**使用此方法** | ...一個**互動式**殼層 | ...**批次**處理 | ...搭配此**叢集作業系統** | ...從此**用戶端作業系統** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
-| [SSH](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux、Unix、Mac OS X 或 Windows |
+| [Beeline 命令 (從 SSH 工作階段)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux、Unix、Mac OS X 或 Windows |
+| [Hive 命令 (從 SSH 工作階段)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux、Unix、Mac OS X 或 Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux 或 Windows | Linux、Unix、Mac OS X 或 Windows |
 | [查詢主控台](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | 瀏覽器型 |
 | [HDInsight Tools for Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux 或 Windows | Windows |
@@ -183,4 +183,4 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

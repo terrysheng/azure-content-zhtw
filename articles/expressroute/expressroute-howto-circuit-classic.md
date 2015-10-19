@@ -13,14 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # 建立和修改 ExpressRoute 線路
 
 本文將逐步引導您使用 PowerShell Cmdlet 和傳統部署模型建立 ExpressRoute 線路。下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路。
 
->[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的相關資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+>[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
 
 ## 組態必要條件
 
@@ -153,21 +153,21 @@
 
 	當您建立新的 ExpressRoute 線路時，線路會是下列狀態：
 	
-		**ServiceProviderProvisioningState :** NotProvisioned
+		ServiceProviderProvisioningState : NotProvisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
-	ServiceProviderProvisioningState 提供目前在服務提供者端的佈建狀態，Status 提供 Microsoft 端的狀態。ExpressRoute 線路必須處於下列狀態，才可供您使用。
+	*ServiceProviderProvisioningState* 提供目前在服務提供者端的佈建狀態，Status 提供 Microsoft 端的狀態。ExpressRoute 線路必須處於下列狀態，才可供您使用。
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 	當連線提供者正在為您啟用線路時，線路會處於下列狀態。
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 
 
@@ -188,7 +188,7 @@
 
 6. **建立路由設定。**
 	
-	請參閱 [ExpressRoute 線路路由設定 (建立和修改線路對等)](expressroute-howto-routing-classic.md)頁面，取得逐步指示。
+	請參閱 [ExpressRoute 線路路由設定 (建立和修改線路對等)](expressroute-howto-routing-classic.md) 頁面，取得逐步指示。
 
 7. **將 VNet 連結到 ExpressRoute 線路。**
 
@@ -276,8 +276,8 @@
 		ServiceKey                       : *********************************
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Premium
-		Status                           : Standard
+		Sku                              : Standard
+		Status                           : Enabled
 
 您的線路現在已經停用進階附加元件。
 
@@ -317,11 +317,11 @@
 
 如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成*正在停用*。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
 
-如果服務提供者在您執行上述指令程式之前已取消佈建線路 (服務提供者佈建狀態設定為*未佈建*)，我們將會取消佈建線路並停止向您收費。
+如果服務提供者在您執行上述 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為「未佈建」)，我們將會取消佈建線路並停止向您收費。
 
 ## 後續步驟
 
-- [設定 ExpressRoute 路由 (管理線路對等)](expressroute-howto-routing-classic.md)
-- [將虛擬網路連結到 ExpressRoute 線路](expresssroute-howto-linkvnet-classic.md) 
+- [設定路由](expressroute-howto-routing-classic.md)
+- [將 VNet 連結到 ExpressRoute 線路](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

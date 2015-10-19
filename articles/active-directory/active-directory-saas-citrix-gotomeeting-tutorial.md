@@ -1,5 +1,19 @@
-<properties pageTitle="教學課程：Azure Active Directory 與 Citrix GoToMeeting 整合 | Microsoft Azure" description="了解如何使用 Citrix GoToMeeting 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="教學課程：Azure Active Directory 與 Citrix GoToMeeting 整合 | Microsoft Azure" 
+    description="了解如何使用 Citrix GoToMeeting 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/01/2015" 
+    ms.author="markvi" />
+
 #教學課程：Azure Active Directory 與 Citrix GoToMeeting 整合  
 適用對象：Azure
 
@@ -63,29 +77,40 @@
 
     ![設定單一登入](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "設定單一登入")
 
-3.  於 [在 Citrix GoToMeeting 設定單一登入] 頁面上，按 [下載憑證]，然後將憑證檔案儲存在您的電腦中。
+
+3. 在 [設定應用程式設定] 頁面上，按 [下一步]。<br><br>![啟用單一登入](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "啟用單一登入")
+
+4.  於 [在 Citrix GoToMeeting 設定單一登入] 頁面上，按 [下載憑證]，然後將憑證檔案儲存在您的電腦中。
 
     ![設定單一登入](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "設定單一登入")
 
-4.  在不同的瀏覽器視窗中，以系統管理員身分登入您的 Citrix GoToMeeting 租用戶。
+5.  在另一個瀏覽器視窗中，登入您的 Citrix 組織中心 ([https://account.citrixonline.com/organization/administration/](https://account.citrixonline.com/organization/administration/))。
 
-5.  開啟 [設定 SAML 2.0 單一登入 (SSO) 組態][](https://login.citrixonline.com/saml/settings.html) 頁面，然後執行下列步驟：
+6. 按一下 [識別提供者] 索引標籤，執行下列步驟：<br><br> ![SAML 設定](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "SAML 設定")
 
-    ![SAML 設定](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC689232.png "SAML 設定")
+     6\.1.選取 [手動]
 
-    1.  選取 [手動設定]。
-    2.  在 Azure 入口網站的 [在 Citrix GoToMeeting 設定單一登入] 對話頁面上，複製**登出頁面 URL** 值，然後將它貼至 [登出 URL] 文字方塊中。
-    3.  在 Azure 入口網站的 [在 Citrix GoToMeeting 設定單一登入] 對話頁面上，複製**登入頁面 URL** 值，然後將它貼至 [登入 URL] 文字方塊中。
-    4.  從您下載的憑證建立 **Base-64 編碼**檔案。  
+     6\.2.在 Azure 入口網站的 [在 Citrix GoToMeeting 設定單一登入] 對話頁面上，複製「登入頁面 URL」值，然後將它貼至 [登入 URL] 文字方塊中。
 
-        >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
+     6\.3.在 Azure 入口網站的 [在 Citrix GoToMeeting 設定單一登入] 對話頁面上，複製「登出頁面 URL」值，然後將它貼至 [登出 URL] 文字方塊中。
 
-    5.  按一下 [取代憑證]，然後上傳您的 **base-64 編碼的憑證檔案**。
-    6.  按一下 [儲存]。
+     6\.4.在 Azure 入口網站的 [設定在 Citrix GoToMeeting 單一登入] 對話頁面上，複製 [實體 ID] 值，然後將它貼至 [識別提供者實體 ID] 文字方塊中。
 
-6.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
+     6\.5.如果要上傳您下載的憑證，請按一下 [上傳憑證]。
+
+     6\.6.按一下 [儲存]。
+
+6.  在 Azure AD 入口網站上，選取單一登入設定確認，然後按 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "設定單一登入")
+
+
+7. 在 [單一登入確認] 頁面上，按一下 [完成]。<br><br>![SAML 設定](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "SAML 設定")
+
+
+
+
+
 ##設定使用者佈建
 
 本節的目的是要說明如何對 Citrix GoToMeeting 啟用 Active Directory 使用者帳戶的佈建。
@@ -96,9 +121,15 @@
 
     ![設定使用者佈建](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "設定使用者佈建")
 
-2.  在 [Citrix GotoMeeting 管理員使用者名稱] 頁面上，輸入具有您 Citrix GoToMeeting 租用戶管理權限的 Citrix GoToMeeting 帳戶名稱，然後按 [下一步]。
+2.  在 [設定及管理員認證] 頁面上，執行以下步驟：
 
     ![設定使用者佈建](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "設定使用者佈建")
+
+     2\.1.在 [Citrix GoToMeeting 管理員使用者名稱] 文字方塊中，輸入管理員的使用者名稱。
+
+     2\.2.在 [Citrix GoToMeeting 管理員密碼] 文字方塊中，輸入管理員的密碼。
+
+     2\.3.按 [下一步]。
 
 3.  在 [確認] 頁面上，按一下核取記號以儲存您的組態。
 
@@ -131,6 +162,6 @@
 
 如果要測試您的單一登入設定，請開啟存取面板。
 
-如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
+如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

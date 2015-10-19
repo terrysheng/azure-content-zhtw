@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,9 +18,11 @@
 
 # 在 Ubuntu 上使用 Resource Manager 範本的 DataStax
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立資源。
+
 DataStax 是知名的業界領導者，他們根據 Apache Cassandra 來開發和提供各種解決方案，這是一種可提供商業支援且符合企業需求的 NoSQL 分散式資料庫技術，此技術廣受市場認可、敏捷、永不停擺，並可依照未來的各種公司規模需求進行調整。DataStax 提供 Enterprise (DSE) 和 Community (DSC) 等版本。它也提供記憶體內部運算、企業級安全性、快速且功能強大的整合式分析與企業搜尋之類的功能。
 
-除了提供 Azure Marketplace 中已可供使用的功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli-install.md) 部署的資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 DataStax 叢集。
+除了 Azure Marketplace 中已可供使用的功能之外，現在您也可以使用透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli-install.md) 部署的資源管理員範本，在 Ubuntu VM 上輕鬆部署新的 DataStax 叢集。
 
 根據這個範本部署的新叢集會採用下圖中所述的拓撲，不過，您可以自訂本文中所述的範本，輕鬆實現其他拓撲：
 
@@ -28,9 +30,9 @@ DataStax 是知名的業界領導者，他們根據 Apache Cassandra 來開發�
 
 使用參數，您可以定義將在新 Apache Cassandra 叢集上部署的節點數目。系統也會在同一個虛擬網路中獨立的 VM 上部署 Datastax 作業中心服務的執行個體，讓您能夠監視叢集和所有個別節點的狀態、新增/移除節點，以及執行所有與該叢集相關的管理工作。
 
-部署完成之後，您可以使用設定的 DNS 位址，來存取 Datastax 作業中心 VM 執行個體。OpsCenter VM 會啟用 SSH 連接埠 22 以及針對HTTPS 啟用連接埠 8443。適用於作業中心的 DNS 位址將包括輸入來做為參數的 *dnsName* 和 *region*，產生的格式為 `{dnsName}.{region}.cloudapp.azure.com`。如果您在建立部署時，在 "West US” 區域中，將 *dnsName* 參數設為 "datastax"，就可以存取 `https://datastax.westus.cloudapp.azure.com:8443` 上部署的 DataStax 作業中心 VM。
+部署完成之後，您可以使用設定的 DNS 位址，來存取 Datastax 作業中心 VM 執行個體。OpsCenter VM 會啟用 SSH 連接埠 22 以及針對HTTPS 啟用連接埠 8443。適用於作業中心的 DNS 位址將包括輸入來做為參數的 *dnsName* 和 *region*，產生的格式為 `{dnsName}.{region}.cloudapp.azure.com`。如果您在建立部署時，在 "West US” 區域中將 *dnsName* 參數設為 "datastax"，就可以存取 `https://datastax.westus.cloudapp.azure.com:8443` 上部署的 DataStax 作業中心 VM。
 
-> [AZURE.NOTE]部署時使用的憑證是一種自我簽署的憑證，會造成瀏覽器發出警告。您可以按照 [DataStax](http://www.datastax.com/) 網站的程序，將這個憑證換成自己的 SSL 憑證。
+> [AZURE.NOTE]部署時使用的憑證是一種自我簽署的憑證，會造成瀏覽器發出警告。您可以按照 [DataStax](http://www.datastax.com/) 網站上的程序，將這個憑證換成自己的 SSL 憑證。
 
 在深入了解與 Azure 資源管理員和將針對此次部署使用之範本的詳細資訊之前，請確定您已正確設定 Azure PowerShell 或 Azure CLI。
 
@@ -233,7 +235,7 @@ DataStax 是知名的業界領導者，他們根據 Apache Cassandra 來開發�
 
 - 按一下左側導覽列上的 [瀏覽]，然後向下捲動並按一下 [資源群組]。  
 - 按一下剛建立的資源群組，以顯示 [資源群組] 刀鋒視窗。  
-- 在 [資源群組] 刀鋒視窗的 [監視] 部分中，按一下 [事件] 長條圖，就能看見部署的事件。
+- 在 [資源群組] 刀鋒視窗的 [監視] 部分中，按一下 [事件] 長條圖，您就能看見部署的事件。
 - 按一下個別事件，您可以進一步查看代表範本所做的每個作業之詳細資料。
 
 測試之後，如果需要移除這個資源群組及其所有資源 (儲存體帳戶、虛擬機器和虛擬網路)，請使用這個單一命令：
@@ -361,14 +363,14 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 
 特別是，下列連結的範本將用於此部署：
 
--	**shared-resource.json**：包含所有要在整個部署中共用的資源定義。例如，用來儲存 VM 的作業系統磁碟和虛擬網路的儲存體帳戶。
+-	**shared-resource.json**：包含要在整個部署中共用的所有資源定義。例如，用來儲存 VM 的作業系統磁碟和虛擬網路的儲存體帳戶。
 -	**opscenter-resources.json**：部署 OpsCenter VM 和所有相關資源，包括網路介面和公用 IP 位址。
 -	**opscenter-install-resources.json**：部署 OpsCenter VM 延伸模組 (適用於 Linux 的自訂指令碼)，可叫用特定的 bash 指令碼檔案 (opscenter.sh)，當您在該 VM 內設定 OpsCenter 服務時需要使用此檔案。
 -	**ephemeral-nodes-resources.json**：部署所有叢集節點 VM 和連接的資源 (網路卡、私人 IP 等)。此範本也會部署 VM 擴充功能 (適用於 Linux 的自訂指令碼)，並叫用 bash 指令碼 (dsenode.sh)，在每一個節點上安裝 Apache Cassandra 程式碼。
 
 讓我們深入了解最後一個範本的使用方式，因為從範本開發角度來看，這是最有趣的範本之一。在此要強調一個重要的概念，那就是一個範本檔案可以重複部署某一種資源類型，而且每一個執行個體都可以為必要的設定指定唯一的值。這個概念稱為**資源迴圈**。
 
-從主要的 azuredeploy.json 檔案中叫用 ephemeral-nodes-resources.json 時，會提供名為 *nodeCount* 的參數來做為參數清單的一部分。在子範本中，將會在每一個需要部署於多個複本中的資源的 **copy** 元素內使用 *nodeCount* (要在叢集中部署的節點數目)，如下列片段中所強調的。對於您需要為不同的部署資源執行個體提供唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。在下列片段中，您可以在為 DataStax 叢集節點建立的多個 VM 上看見這個概念的運用：
+從主要的 azuredeploy.json 檔案中叫用 ephemeral-nodes-resources.json 時，會提供名為 *nodeCount* 的參數來做為參數清單的一部分。在子範本中，將會在每一個需要部署於多個複本中的資源的 **copy** 元素內使用 *nodeCount* (要在叢集中部署的節點數目)，如下列片段中所強調。對於您需要為不同的部署資源執行個體提供唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。在下列片段中，您可以在為 DataStax 叢集節點建立的多個 VM 上看見這個概念的運用：
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -477,4 +479,4 @@ vm-disk-utils-0.1.sh 檔案是 azure-quickstart-tempates GitHub 儲存機制中 
 
 如需詳細資訊，請參閱 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

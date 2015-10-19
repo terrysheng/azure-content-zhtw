@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/24/2015"
 	ms.author="cephalin"/>
 
 
@@ -281,4 +281,4 @@
 -	[在 Azure AD 中建立或編輯使用者](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[專案 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

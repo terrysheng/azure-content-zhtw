@@ -24,7 +24,7 @@
 
 本主題將示範如何使用 Azure 行動服務所提供的原始檔控制來儲存您的 .NET 後端服務專案。您可直接從本機 Git 儲存機制上傳專案至生產行動服務以發佈專案。
 
-若要完成本教學課程，您必須已建立行動服務，方法是完成[開始使用行動服務]或[將行動服務新增至現有的應用程式]教學課程。
+若要完成本教學課程，您必須已經建立行動服務，方法是完成[開始使用行動服務]教學課程。
 
 ##<a name="enable-source-control"></a>在行動服務中啟用原始檔控制
 
@@ -96,9 +96,7 @@
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [開始使用行動服務]: mobile-services-dotnet-backend-ios-get-started.md
-[將行動服務新增至現有的應用程式]: mobile-services-dotnet-backend-ios-get-started-data.md
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
+[Azure Management Portal]: https://manage.windowsazure.com/
 [如何對 .NET 後端行動服務進行資料模型變更]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

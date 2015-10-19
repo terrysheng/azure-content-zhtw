@@ -1,25 +1,25 @@
 <properties 
    pageTitle="事件中樞 API 概觀"
-	description="一些主要事件中樞 .NET 用戶端 API 的摘要。"
-	services="event-hubs"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+   description="一些主要事件中樞 .NET 用戶端 API 的摘要。"
+   services="event-hubs"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="" />
 <tags 
    ms.service="event-hubs"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="07/10/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="07/10/2015"
+   ms.author="sethm" />
 
 # 事件中樞 API 概觀
 
 本文將摘要列出一些主要事件中樞 .NET 用戶端 API。有兩種類別：管理和執行階段 API。執行階段 API 是由傳送和接收訊息所需的所有作業組成。管理作業可讓您管理事件中樞實體狀態，方法是建立、更新和刪除實體。
 
-監視案例跨越管理和執行階段。如需 .NET API 的詳細參考文件，請參閱 [.NET 類別庫](https://msdn.microsoft.com/library/jj933431.aspx)和[EventProcessorHost API](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.aspx) 參考。
+監視案例跨越管理和執行階段。如需 .NET API 的詳細參考文件，請參閱 [.NET 類別庫](https://msdn.microsoft.com/library/azure/jj933431.aspx)和 [EventProcessorHost API](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx) 參考。
 
 ## 管理 API
 
@@ -50,7 +50,7 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ### 刪除
 
 ```
-namespaceManager.DeleteEventHubAsync("event hub name").Wait();
+namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
 ## 執行階段 API
@@ -59,7 +59,7 @@ namespaceManager.DeleteEventHubAsync("event hub name").Wait();
 
 ```
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-EventHubClient eventHubClient = EventHubClient.Create("event hub name");
+EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### 發佈訊息
@@ -131,7 +131,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-[IEventProcessor](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.ieventprocessor.aspx) 介面定義如下：
+[IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) 介面定義如下：
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -184,7 +184,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 .NET API 參考如下：
 
-- [服務匯流排和事件中樞 .NET API 參考](https://msdn.microsoft.com/library/jj933424.aspx)
-- [事件處理器主機 API 參考](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [服務匯流排和事件中樞 .NET API 參考](https://msdn.microsoft.com/library/azure/jj933424.aspx)
+- [事件處理器主機 API 參考](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

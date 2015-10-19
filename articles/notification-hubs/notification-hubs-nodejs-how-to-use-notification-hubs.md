@@ -17,11 +17,7 @@
 	ms.author="wesmc"/>
 
 # 如何從 Node.js 使用通知中樞
-
-> [AZURE.SELECTOR]
-- [Java](notification-hubs-java-backend-how-to.md)
-- [PHP](notification-hubs-php-backend-how-to.md)
-- [Python](notification-hubs-python-backend-how-to)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ##概觀
 
@@ -217,4 +213,4 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

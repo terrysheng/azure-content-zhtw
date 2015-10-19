@@ -20,7 +20,7 @@
 #使用工作流程設計工具建立進階編碼工作流程
 
 ##概觀
-**工作流程設計工具**是獨立的工具，用來建立工作流程/圖形，以便用於 **Media Encoder Premium Workflow** 進行編碼。
+「工作流程設計工具」是 Windows 傳統型工具，用來設計和建立自訂工作流程，以便用於「媒體編碼器高階工作流程」進行編碼。
 
 這項工具也可用來修改[現有的工作流程](media-services-workflow-designer.md#existing_workflows)。
 
@@ -79,4 +79,4 @@
 
 [Azure Premium 編碼器工作流程設計工具訓練影片](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

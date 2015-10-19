@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # 如何監視 Azure Redis 快取
@@ -64,6 +64,8 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 快取度量是使用數個報告間隔所報告，包括 [過去一小時]、[今天]、[過去一週] 和 [自訂]。每個度量圖的 [度量] 分頁都會顯示圖表中每個度量的平均值、最小值和最大值，而有些度量會顯示報告間隔的總計。
 
+每個度量都包含兩個版本。有一個度量會測量整個快取的效能，以及使用[叢集](cache-how-to-premium-clustering.md)之快取的效能，名稱中包含 `(Shard 0-9)` 的第二個度量版本則會測量快取中單一分區的效能。例如，如果快取有 4 個分區，`Cache Hits` 就是整個快取的點擊總數，而 `Cache Hits (Shard 3)` 就只是該快取分區的點擊數。
+
 >[AZURE.NOTE]即使快取閒置而沒有連線的作用中用戶端應用程式，您可能還是會看到某個快取活動 (例如連線的用戶端、記憶體使用量，以及正在執行的作業)。在 Azure Redis 快取執行個體的作業期間，此活動正常。
 
 | 度量 | 說明 |
@@ -77,7 +79,8 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 | Redis 伺服器負載 | Redis 伺服器忙著處理訊息且非訊息等候閒置之循環的百分比。如果這個計數器達到 100，表示 Redis 伺服器已經達到效能上限，而且 CPU 處理工作的速度不能再更快。如果您看到高「Redis 伺服器負載 (Redis Server Load)」，則會看到用戶端中的逾時例外狀況。在此情況下，您應該考慮向上延展，或將資料分割成多個快取。 |
 | 設定 | 所指定報告間隔期間的快取 set 作業數目。這個值是 Redis INFO all 命令的下列值總和：`cmdstat_set`、`cmdstat_hset``cmdstat_hmset`、`cmdstat_hsetnx`、`cmdstat_lset`、`cmdstat_mset`、`cmdstat_msetnx`、`cmdstat_setbit`、`cmdstat_setex`、`cmdstat_setrange` 和 `cmdstat_setnx` |
 | 總作業數 | 所指定報告間隔期間，快取伺服器所處理命令的總數。這個值會對應至 Redis INFO `total_commands_processed` 命令。請注意，Azure Redis 快取純粹用於發佈/訂閱時，則沒有 `Cache Hits`、`Cache Misses`、`Gets` 或 `Sets` 的度量但是會有 `Total Operations` 度量可反映發佈/訂閱作業的快取使用量。 |
-| 已使用的記憶體 | 所指定報告間隔期間的已使用快取記憶體數量 (MB)。這個值會對應至 Redis INFO `used_memory` 命令。 |
+| 已使用的記憶體 | 在指定的報告間隔期間，針對快取中金鑰/值組使用的快取記憶體數量 (MB)。這個值會對應至 Redis INFO `used_memory` 命令。這不包括中繼資料或片段。 |
+| 已用的記憶體 RSS | 在指定的報告間隔期間使用的快取記憶體數量 (MB)，包括片段和中繼資料。這個值會對應至 Redis INFO `used_memory_rss` 命令。 |
 | CPU | 所指定報告間隔期間的 Azure Redis 快取伺服器 CPU 使用率 (百分比)。這個值會對應至作業系統 `\Processor(_Total)\% Processor Time` 效能計數器。 |
 | 快取讀取 | 所指定報告間隔期間，從快取讀取的資料量 (KB/s)。這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 |
 | 快取寫入 | 所指定報告間隔期間，寫入至快取的資料量 (KB/s)。這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 |
@@ -219,4 +222,4 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

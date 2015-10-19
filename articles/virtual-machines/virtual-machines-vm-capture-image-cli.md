@@ -1,11 +1,12 @@
 <properties
-	pageTitle="使用 CLI 擷取執行 Linux 之虛擬機器的映像"
+	pageTitle="使用 CLI 擷取執行 Linux 之虛擬機器的映像 | Microsoft Azure"
 	description="了解如何對執行 Linux 的 Azure 虛擬機器 (VM) 擷取映像。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="madhana"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,7 +22,7 @@
 
 # 如何使用 CLI 擷取 Linux 虛擬機器以做為範本##
 
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
 
 本文說明如何擷取執行 Linux 的 Azure 虛擬機器，以便用它做為範本建立其他虛擬機器。此範本包括 OS 磁碟和任何連接虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立使用該範本的其他虛擬機器時加以設定。
 
@@ -162,4 +163,4 @@ Azure 會將此範本視為映像，並將其儲存在您的映像清單中。�
 [如何將資料磁碟連接至虛擬機器]: storage-windows-attach-disk.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

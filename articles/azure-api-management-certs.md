@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015"
+	ms.date="10/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -50,6 +50,6 @@
 
 ## 後續步驟
 
-既然您已經有與訂用帳戶相關聯的管理憑證，您可以 (在將相符的憑證安裝到本機上之後) 以程式設計方式連線到[服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)，並將也與該訂用帳戶相關聯的各種 Azure 資源自動化。
+既然您已經擁有與訂用帳戶相關聯的管理憑證，您就能 (在本機安裝相符的憑證之後) 以程式設計方式連線到[服務管理 REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx)，並將同樣與該訂用帳戶相關聯的各種 Azure 資源自動化。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

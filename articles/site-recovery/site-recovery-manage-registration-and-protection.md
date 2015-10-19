@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 # 管理註冊與保護
@@ -212,4 +212,4 @@
 	- **停用保護**—如果您啟用並儲存此選項，機器將不再受到 Site Recovery 的保護。系統將會自動清除機器的保護設定。
 	- **從保存庫移除**—如果您選擇此選項，機器將只會從 Site Recovery 保存庫中移除。機器的內部部署保護設定不受影響。若要移除機器上的設定，並從 Azure 訂用帳戶移除虛擬機器，而且您將需要解除安裝行動服務來清除設定。![移除選項](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

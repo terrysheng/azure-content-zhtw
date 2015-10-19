@@ -3,7 +3,7 @@
    description="如何使用 Service Fabric Actor 將應用程式模型製作成分散式網路與圖形的設計模式"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Reliable Actor 設計模式：分散式網路和圖形
 Service Fabric Reliable Actor 適用於為涉及關係的複雜解決方案製作模型，以及將這些關係的模型製作成物件。
@@ -224,4 +224,4 @@ public Task PublishMessageAsync(long participantId, string message)
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

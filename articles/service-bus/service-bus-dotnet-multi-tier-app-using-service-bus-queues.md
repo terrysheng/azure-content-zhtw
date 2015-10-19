@@ -1,6 +1,6 @@
 <properties
 	pageTitle=".NET 多層應用程式 | Microsoft Azure"
-	description="協助您在 Azure 中開發多層式應用程式，以使用服務匯流排佇列在各層之間進行通訊的教學課程。.NET 的範例。"
+	description="協助您在 Azure 中開發多層式應用程式，以使用服務匯流排佇列在各層之間進行通訊的 .NET 教學課程。"
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # 使用 Azure 服務匯流排佇列的 .NET 多層應用程式
 
 ## 簡介
 
-使用 Visual Studio 2013 和免費 Azure SDK for .NET 開發 Microsoft Azure 很容易。如果您還沒有 Visual Studio 2013，則 SDK 將自動安裝完全免費的 Visual Studio Express，供您開始進行 Azure 相關開發。這篇文章假設您從未使用過 Azure。完成本教學課程後，您將有個使用多個 Azure 資源的應用程式，這些資源在您本機環境中執行，且會示範多層應用程式如何運作。
+使用 Visual Studio 和免費 Azure SDK for .NET 開發 Microsoft Azure 很容易。如果您還沒有 Visual Studio，則 SDK 將自動安裝完全免費的 Visual Studio Express，供您開始進行 Azure 相關開發。這篇文章假設您從未使用過 Azure。完成本教學課程後，您將有個使用多個 Azure 資源的應用程式，這些資源在您本機環境中執行，且會示範多層應用程式如何運作。
 
 您將了解：
 
@@ -41,7 +41,7 @@
 
 ## 案例概觀：內部角色通訊
 
-為了提交訂單進行處理，Web 角色中執行的前端 UI 元件需要與背景工作角色中執行的中間層互動。此範例使用由服務匯流排代理的傳訊，在各層之間進行通訊。
+為了提交訂單進行處理，Web 角色中執行的前端 UI 元件必須與背景工作角色中執行的中間層互動。此範例使用由服務匯流排代理的傳訊，在各層之間進行通訊。
 
 在 Web 層與中間層之間使用代理的通訊，可使這兩個元件彼此脫鉤。相較於直接傳訊 (亦即，TCP 或 HTTP)，Web 層不會直接連線至中間層，而是透過訊息的形式，將工作單位推播至服務匯流排，而後者會可靠地保管工作單位，直到中間層準備好取用並處理這些工作單位為止。
 
@@ -55,7 +55,7 @@
 
 -   **負載調節。** 在許多應用程式中，系統負載會隨時間改變，而處理每個工作單位所需的時間卻通常固定不變。有佇列作為訊息生產者與取用者之間的中間者後，就只需佈建取用方應用程式 (背景工作) 來容納平均負載而非尖峰負載。佇列的深度會隨著連入負載的改變而增加和縮短。就處理應用程式負載所需的基礎結構數量而言，如此可直接節省金錢。
 
--   **負載平衡。** 當負載增加時，可以新增更多的背景工作程序來讀取佇列中的訊息。每個訊息僅由其中一個背景工作程序處理。此外，這個提取型負載平衡機制可讓背景工作電腦獲得最佳利用率，即使背景工作電腦的處理能力有所不同也一樣，因為背景工作電腦將以自己的最大速率提取訊息。此模式通常稱為競爭取用者 (英文)模式。
+-   **負載平衡。** 當負載增加時，可以新增更多的背景工作程序來讀取佇列中的訊息。每個訊息僅由其中一個背景工作程序處理。此外，這個提取型負載平衡機制可讓背景工作電腦獲得最佳利用，即使背景工作電腦的處理能力有所不同也一樣，因為背景工作電腦將以自己的最大速率提取訊息。此模式通常稱為「競爭取用者」模式。
 
     ![][2]
 
@@ -85,9 +85,7 @@
 
 ## 設定服務匯流排命名空間
 
-下一步是建立服務命名空間，並取得共用存取簽章 (SAS) 金鑰。服務命名空間會為每個透過服務匯流排公開的應用程式提供應用程式界限。建立服務命名空間時，系統會產生 SAS 金鑰。服務命名空間與 SAS 金鑰的結合提供了認證，供服務匯流排驗證對應用程式的存取權。
-
-> [AZURE.NOTE]您也可以使用 Visual Studio 伺服器總管來管理命名空間和服務匯流排傳訊實體，但是只能從 Azure 入口網站內建立新的命名空間。
+下一步是建立服務命名空間，並取得共用存取簽章 (SAS) 金鑰。命名空間會為每個透過服務匯流排公開的應用程式提供應用程式界限。建立服務命名空間時，系統會產生 SAS 金鑰。命名空間與 SAS 金鑰的結合提供一個認證，供服務匯流排驗證對應用程式的存取權。
 
 ### 使用 Azure 入口網站設定命名空間
 
@@ -107,7 +105,7 @@
 
     > [AZURE.IMPORTANT]請挑選您想選擇用來部署應用程式的**相同區域**。這樣可以獲得最佳效能。
 
-6.  按一下核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
+6.  按一下 [確定] 核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
 	![][27]
 
@@ -127,11 +125,11 @@
 
 ## 建立 Web 角色
 
-在本節中，您將建置應用程式的前端。首先您將建立應用程式顯示的各個頁面。之後，您將新增程式碼，以提交項目給服務匯流排佇列，並顯示佇列的狀態資訊。
+在本節中，您會建置應用程式的前端。首先，您會建立應用程式顯示的各個頁面。之後，您會新增程式碼，以提交項目給服務匯流排佇列，並顯示佇列的狀態資訊。
 
 ### 建立專案
 
-1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或 Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，請在 Microsoft Visual Studio 2013 (或 [Microsoft Visual Studio Express]) 上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。這篇文章稍後討論的 Azure 計算模擬器需要 Visual Studio 以系統管理員權限啟動。
+1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或 Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，請在 [Microsoft Visual Studio 2013] (或 [Microsoft Visual Studio Express]) 上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。這篇文章稍後討論的 Azure 計算模擬器需要 Visual Studio 以系統管理員權限啟動。
 
     在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
 
@@ -155,7 +153,7 @@
 
 6.  在 [方案總管] 中，於 [參考] 上按一下滑鼠右鍵，然後按一下 [管理 NuGet 封裝] 或 [加入程式庫套件參考]。
 
-7.  選取對話方塊左邊的 [線上]。搜尋「**服務匯流排**」並選取 [Microsoft Azure 服務匯流排] 項目。然後完成安裝並關閉此對話方塊。
+7.  選取對話方塊左邊的 [線上]。搜尋「服務匯流排」並選取 [Microsoft Azure 服務匯流排] 項目。然後完成安裝並關閉此對話方塊。
 
     ![][13]
 
@@ -237,7 +235,7 @@
 
 4.  從 [建置] 功能表中，按一下 [建置方案] 來測試您的工作到目前為止是否正確無誤。
 
-5.  現在，您將為先前建立的 **Submit()** 方法建立檢視。在 **Submit()** 方法內按一下滑鼠右鍵，然後選擇 [加入檢視]。
+5.  現在，為先前建立的 **Submit()** 方法建立檢視。在 **Submit()** 方法內按一下滑鼠右鍵，然後選擇 [加入檢視]。
 
     ![][14]
 
@@ -247,7 +245,7 @@
 
 7.  按一下 [新增]。
 
-8.  現在，變更您的應用程式的顯示名稱。在 [方案總管] 中，按兩下 **Views\\Shared\\\_Layout.cshtml** 檔案以在 Visual Studio 編輯器中加以開啟。
+8.  現在，變更您的應用程式的顯示名稱。在 [方案總管] 中，按兩下 **Views\\Shared\\_Layout.cshtml** 檔案以在 Visual Studio 編輯器中加以開啟。
 
 9.  將所有出現的 **My ASP.NET Application** 取代為 **LITWARE'S Products**。
 
@@ -265,13 +263,13 @@
 
 ### 撰寫增程式碼以提交項目給服務匯流排佇列
 
-現在，您將新增程式碼以提交項目給佇列。首先，您將建立一個類別，並使其包含服務匯流排佇列連接資訊。Then, you will initialize your connection from Global.aspx.cs.最後，您將更新稍早在 HomeController.cs 建立的提交程式碼，以將項目實際提交給服務匯流排佇列。
+現在，將新增程式碼以提交項目給佇列。首先，您會建立一個類別，並使其包含服務匯流排佇列連接資訊。接著，從 Global.aspx.cs 初始化您的連線。最後，更新稍早在 HomeController.cs 建立的提交程式碼，以將項目實際提交給服務匯流排佇列。
 
 1.  在 [方案總管] 中，於 [FrontendWebRole] 上按一下滑鼠右鍵 (在專案而非角色上按一下滑鼠右鍵)。按一下 [加入]，然後按一下 [類別]。
 
 2.  將類別命名為 QueueConnector.cs。按一下 [加入] 以建立類別。
 
-3.  您現在要加入可封裝連線資訊、並初始化與服務匯流排佇列連線的程式碼。在 QueueConnector.cs 中，加入下列程式碼，並在 命名空間 (您的服務命名空間) 和 [yourKey]，也就是您稍早從 [Azure 管理入口網站][Azure portal]中取得的 SAS 金鑰中輸入值。
+3.  現在，加入可封裝連線資訊、並初始化與服務匯流排佇列連線的程式碼。在 QueueConnector.cs 中，加入下列程式碼，並在 [命名空間] (您的服務命名空間) 和 [yourKey]，也就是您稍早從 [Azure 入口網站][Azure portal]中取得的 SAS 金鑰中輸入值。
 
         using System;
         using System.Collections.Generic;
@@ -331,9 +329,9 @@
             }
         }
 
-    請注意，稍後在本教學課程中，您將學會如何將您的 [命名空間] 名稱和您的 SAS 金鑰值儲存在組態檔中。
+    稍後在本教學課程中，您將學會如何將您的**命名空間**名稱和您的 SAS 金鑰值儲存在組態檔中。
 
-4.  現在，請確定您的 **Initialize** 方法會受到呼叫。在 [方案總管] 中，按兩下 [Global.asax\\Global.asax.cs]。
+4.  現在，請確定會呼叫您的 **Initialize** 方法。在 [方案總管] 中，按兩下 [Global.asax\\Global.asax.cs]。
 
 5.  將下列一行新增至 **Application\_Start** 方法底部。
 
@@ -381,13 +379,13 @@
 
 ## 雲端組態管理員
 
-**Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** 類別中的 **GetSettings** 方法可讓您從平台的組態存放區中讀取組態設定。例如，如果您的程式碼是在 Web 或背景工作角色中執行，則 **GetSettings** 方法會讀取 ServiceConfiguration.cscfg 檔案，如果您的程式碼是在標準的主控台應用程式中執行，則 **GetSettings** 方法會讀取 app.config 檔案。
+[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] 類別中的 [GetSettings][] 方法可讓您從平台的組態存放區中讀取組態設定。例如，如果您的程式碼是在 Web 或背景工作角色中執行，則 [GetSettings][] 方法會讀取 ServiceConfiguration.cscfg 檔案，如果您的程式碼是在標準的主控台應用程式中執行，則 [GetSettings][] 方法會讀取 app.config 檔案。
 
-如果您將服務匯流排命名空間的連接字串儲存在組態檔中，則您可以使用 **GetSettings** 方法來讀取可用來具現化 **NamespaceMananger** 物件的連接字串。您可以使用 **NamespaceMananger** 執行個體，以程式設計的方式來設定服務匯流排命名空間。您可以使用相同的連接字串來具現化可用來執行執行階段作業 (例如傳送和接收訊息) 的用戶端物件 (例如 **QueueClient**、**TopicClient**，和 **EventHubClient** 物件)。
+如果您將服務匯流排命名空間的連接字串儲存在組態檔中，則您可以使用 [GetSettings][] 方法來讀取可用來具現化 [NamespaceMananger][] 物件的連接字串。您可以使用 [NamespaceMananger][] 執行個體，以程式設計的方式來設定服務匯流排命名空間。您可以使用相同的連接字串來具現化可用來執行執行階段作業 (例如傳送和接收訊息) 的用戶端物件 (例如 [QueueClient][]、[TopicClient][]，和 [EventHubClient][] 物件)。
 
 ### Connection string
 
-若要具現化用戶端 (例如，服務匯流排 **QueueClient**)，您可以以連接字串代表組態資訊。在用戶端中，`CreateFromConnectionString()` 方法可以使用該連接字串來具現化該用戶端類型。例如，假設有下列組態區段
+若要具現化用戶端 (例如，服務匯流排 [QueueClient][])，您可以以連接字串代表組態資訊。在用戶端中，`CreateFromConnectionString()` 方法可以使用該連接字串來具現化該用戶端類型。例如，假設有下列組態區段
 
 	<ConfigurationSettings>
     ...
@@ -412,7 +410,7 @@
 	// Initialize the connection to Service Bus queue.
 	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
 
-下節中的程式碼會使用 **CloudConfigurationManager** 類別。
+下節中的程式碼會使用 [CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager] 類別。
 
 ## 建立背景工作角色
 
@@ -446,7 +444,7 @@
 
 10. 瀏覽至 **FrontendWebRole\\Models** 的子資料夾，並按兩下 [OnlineOrder.cs]，以將其新增至此專案。
 
-11. 在 WorkerRole.cs 中，將 **WorkerRole.cs** 中的 **QueueName** 變數值從 `"ProcessingQueue"` 取代為 `"OrdersQueue"`，如下列程式碼所示。
+11. 在 **WorkerRole.cs** 中，將 **WorkerRole.cs** 中的 **QueueName** 變數值從 `"ProcessingQueue"` 取代為 `"OrdersQueue"`，如下列程式碼所示。
 
 		// The name of your queue.
 		const string QueueName = "OrdersQueue";
@@ -491,7 +489,7 @@
 
 3. 您可以個別測試前端與後端，也可以同時在不同 Visual Studio 執行個體中執行這兩者。
 
-若要了解如何將前端部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://azure.microsoft.com/develop/net/tutorials/get-started/)。若要了解如何將後端部署至 Azure 雲端服務，請參閱[使用儲存體資料表、佇列與 Blob 的 .NET 多層應用程式][mutitierstorage]。
+若要了解如何將前端部署至 Azure 網站，請參閱[在 Azure App Service 中建立 ASP.NET Web 應用程式](../app-service-web/web-sites-dotnet-get-started.md)。若要了解如何將後端部署至 Azure 雲端服務，請參閱[使用儲存體資料表、佇列與 Blob 的 .NET 多層應用程式][mutitierstorage]。
 
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
@@ -502,6 +500,15 @@
   [3]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
+  [GetSettings]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
+  [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
+  [NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+
+  [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
+
+  [TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
+
+  [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
   [Azure portal]: http://manage.windowsazure.com
   [Azure 入口網站]: http://manage.windowsazure.com
@@ -530,7 +537,7 @@
   [30]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
   [31]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
   [32]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
-  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
+  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-42-webpi.png
   [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
@@ -538,4 +545,4 @@
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

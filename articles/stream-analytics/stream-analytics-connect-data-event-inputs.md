@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/13/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 # 建立串流分析輸入
@@ -141,7 +141,7 @@ Blob 儲存體可以用於定義串流分析工作的參考資料。這是靜態
 
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -151,4 +151,4 @@ Blob 儲存體可以用於定義串流分析工作的參考資料。這是靜態
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

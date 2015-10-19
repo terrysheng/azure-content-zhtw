@@ -15,7 +15,7 @@
 
 > [AZURE.NOTE]確定您已安裝 Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/) 以供網站部署。
 
-1. 啟動 Visual Studio 或 Visual Studio Express。
+1. 啟動 Visual Studio 或 Visual Studio Express。按一下 [伺服器總管] 並登入您的 Azure 帳戶。Visual Studio 將需要您登入，才能在您的帳戶上建立網站資源。
 2. 在 Visual Studio 中，依序按一下 [**檔案**]、[**新增**]、[**專案**]，展開 [**範本**]、[**Visual C#**]，再按一下 [**Web**] 和 [**ASP.NET Web 應用程式**]，輸入名稱 **AppBackend**，然後按一下 [**確定**]。 
 	
 	![][B1]
@@ -24,7 +24,7 @@
 
 	![][B2]
 
-4. 在 [Configure Azure Site] 對話方塊中，選擇要用於此專案的訂用帳戶、區域和資料庫。輸入帳戶的密碼，然後按一下 [**確定**] 以建立專案。
+4. 在 [設定 Microsoft Azure Web App] 對話方塊中，選擇訂用帳戶和您建立的 **App Service 計劃**。您也可以選擇 [建立新的應用程式服務計劃]，並從對話方塊建立一個。在此教學課程中您不需要資料庫。一旦您選取您的應用程式服務計劃，按一下 [確定] 來建立專案。
 
 	![][B5]
 
@@ -36,7 +36,7 @@
 
 
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 **AppBackend** 專案，然後依序按一下 [**新增**] 和 [**類別**]。將新類別命名為 **AuthenticationTestHandler.cs**，然後按一下 [**新增**] 以產生類別。此類別將用來驗證使用者，方法是使用*基本驗證*。請注意，您的應用程式可以使用任何驗證結構描述。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 **AppBackend** 專案，然後依序按一下 [**新增**] 和 [**類別**]。將新類別命名為 **AuthenticationTestHandler.cs**，然後按一下 [**新增**] 以產生類別。為了簡單起見，將使用此類別透過*基本驗證*驗證使用者。請注意，您的應用程式可以使用任何驗證結構描述。
 
 2. 在 AuthenticationTestHandler.cs 中，加入下列 `using` 陳述式：
 
@@ -48,9 +48,11 @@
 
 3. 在 AuthenticationTestHandler.cs 中，以下列程式碼取代 `AuthenticationTestHandler` 類別定義。
 
-	此處理常式將會處理包含 *Authorization* 標頭在內的所有要求。如果要求使用*基本*驗證，且使用者名稱字串符合密碼字串，則會由後端自動授權。否則，將會拒絕此要求。這不是真正的驗證和授權方法。這只是本教學課程中一個非常簡單的範例。
+	當下列三個條件都成立時，此處理常式將授權要求：* 要求包含*授權*標頭。* 要求會使用 *基本* 驗證。* 使用者名稱字串和密碼字串都是相同的字串。
 
-	如果要求訊息已經由 `AuthenticationTestHandler` 驗證及授權，則基本驗證使用者會附加至 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的目前要求。另一個控制器 (RegisterController) 會使用 HttpContext 中的使用者資訊，將[標記](https://msdn.microsoft.com/library/azure/dn530749.aspx)新增至通知註冊要求。
+	否則，將會拒絕此要求。這不是真正的驗證和授權方法。這只是本教學課程中一個非常簡單的範例。
+
+	如果要求訊息已經由 `AuthenticationTestHandler` 驗證及授權，則基本驗證使用者會附加至 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的目前要求。之後另一個控制器 (RegisterController) 會使用 HttpContext 中的使用者資訊，將[標記](https://msdn.microsoft.com/library/azure/dn530749.aspx)新增至通知註冊要求。
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -118,9 +120,9 @@
 
 2. 在左側按一下 [線上]，並在 [搜尋] 方塊中搜尋 **Microsoft.Azure.NotificationHubs**。
 
-3. 在搜尋結果清單中按一下 [Microsoft Azure 通知中樞服務管理程式庫]，然後按一下 [安裝]。請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
+3. 按一下結果清單中的 [Microsoft Azure 通知中樞]，然後按一下 [安裝]。請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
 
-	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入 Azure 通知中樞 SDK 的參考。
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入對 Azure 通知中樞 SDK 的參考。
 
 4. 我們現在會建立新的類別檔案，表示即將傳送的不同安全通知。在完整的實作中，通知會儲存在資料庫中。為了簡單起見，本教學課程會將它們儲存在記憶體中。在 [方案總管] 中，於 **Models** 資料夾上按一下滑鼠右鍵，按一下 [**新增**]，然後按一下 [**類別**]。將新類別命名為 **Notifications.cs**，然後按一下 [**新增**] 以產生類別。
 
@@ -139,13 +141,14 @@
             public NotificationHubClient Hub { get; set; }
 
             private Notifications() {
-                Hub = NotificationHubClient.CreateClientFromConnectionString("<conn string with full access>", "<hub name>");
+                Hub = NotificationHubClient.CreateClientFromConnectionString("<your hub's DefaultFullSharedAccessSignature>", 
+																			 "<hub name>");
             }
         }
 
 
 
-7. 接下來，我們要建立新的控制器 **RegisterController**。在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，然後按一下 [新增]，再按一下 [控制器]。按一下 **Web API 2 Controller -- Empty** 項目，然後按一下 [新增]。將新類別命名為 **RegisterController**，然後再次按一下 [新增] 以產生控制器。
+7. 接下來我們將建立名為 **RegisterController** 的新控制器。在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，然後按一下 [新增]，再按一下 [控制器]。按一下 **Web API 2 Controller -- Empty** 項目，然後按一下 [新增]。將新類別命名為 **RegisterController**，然後再次按一下 [新增] 以產生控制器。
 
 	![][B7]
 
@@ -153,10 +156,10 @@
 
 8. 在 RegisterController.cs 中，加入下列 `using` 陳述式：
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
+		using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
-        using Microsoft.ServiceBus.Messaging;
         using System.Web;
 
 9. 在 `RegisterController` 類別定義中加入下列程式碼。請注意，在此程式碼中，我們會為已附加至 HttpContext 的使用者新增使用者標記。我們新增的訊息篩選器 `AuthenticationTestHandler` 會驗證此使用者並附加至 HttpContext。您也可以新增選擇性檢查，以驗證使用者是否有權註冊所要求的標籤。
@@ -291,7 +294,7 @@
             userTag[0] = "username:" + to_tag;
             userTag[1] = "from:" + user;
 
-            Microsoft.ServiceBus.Notifications.NotificationOutcome outcome = null;
+            Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
             HttpStatusCode ret = HttpStatusCode.InternalServerError;
 
             switch (pns.ToLower())
@@ -316,8 +319,8 @@
 
             if (outcome != null)
             {
-                if (!((outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Abandoned) ||
-                    (outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Unknown)))
+                if (!((outcome.State == Microsoft.Azure.NotificationHubs.NotificationOutcomeState.Abandoned) ||
+                    (outcome.State == Microsoft.Azure.NotificationHubs.NotificationOutcomeState.Unknown)))
                 {
                     ret = HttpStatusCode.OK;
                 }
@@ -333,11 +336,11 @@
 
 1. 為了可以從所有裝置存取此應用程式，我們現在可以將它部署到 Azure 網站。以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]。
 
-2. 選取 Azure 網站作為您的發佈目標。
+2. 選取 [Microsoft Azure Web Apps] 做為發佈目標。
 
     ![][B15]
 
-3. 使用您的 Azure 帳戶登入，並選取現有或新的網站。
+3. 使用您的 Azure 帳戶登入，並選取現有或新的 Web 應用程式。
 
     ![][B16]
 
@@ -359,4 +362,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

@@ -22,7 +22,6 @@
 
 > [AZURE.NOTE]HDInsight 也提供 Spark，做為叢集類型，這表示您現在可以直接佈建 Spark 叢集而不必修改 Hadoop 叢集。不過，目前僅限於以 Windows 為基礎的叢集。使用 Spark 叢集類型時，您會取得具備 Spark 1.3.1 版且以 Windows 為基礎的 HDInsight 3.2 版叢集。如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)。
 
-
 ## <a name="whatis"></a>什麼是 Spark？
 
 <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。Spark 的記憶體內計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇 。
@@ -33,21 +32,21 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 
 ## <a name="whatis"></a>可以安裝哪個版本的 Spark？
 
-在本主題中，我們使用指令碼動作自訂指令碼在 HDInsight 叢集上安裝 Spark。此指令碼會安裝 Spark 1.5.0。
+在本主題中，我們使用指令碼動作自訂指令碼在 HDInsight 叢集上安裝 Spark。此指令碼會安裝 Spark 1.5.1。
 
 您可以修改此指令碼或建立自有指令碼，以安裝其他版本的 Spark。
 
 ## 指令碼會執行哪些作業
 
-此指令碼會將 Spark 1.5.0 版安裝於 `/usr/hdp/current/spark`。
+此指令碼會將 Spark 1.5.1 版安裝於 `/usr/hdp/current/spark`。
 
 ## <a name="install"></a>使用指令碼動作安裝 Spark
 
-您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh)。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用範例指令碼的指示。
+您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh)。本節提供有關如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
 
 > [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-1. 使用[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不完成佈建。
+1. 使用[建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始建立叢集，但是不完成建立。
 
 2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
 
@@ -60,11 +59,11 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 
-4. 繼續如[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中所述佈建叢集。
+4. 繼續如[建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中所述佈建叢集。
 
 ## <a name="usespark"></a>如何在 HDInsight 中使用 Spark？
 
-Spark 提供以 Scala、Python 及 Java 撰寫的 API。您也可以使用互動式 Spark 殼層來執行 Spark 查詢。您的叢集完成佈建之後，請使用下列項目連接到您的 HDInsight 叢集：
+Spark 提供以 Scala、Python 及 Java 撰寫的 API。您也可以使用互動式 Spark 殼層來執行 Spark 查詢。您的叢集完成建立之後，請使用下列項目連接到您的 HDInsight 叢集：
 
 	ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 	
@@ -109,7 +108,7 @@ Spark 提供以 Scala、Python 及 Java 撰寫的 API。您也可以使用互動
 
 ###<a name="sparksql"></a>使用 Spark 殼層來執行 Spark SQL 查詢
 
-Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL 或 Scala 表示的關聯式查詢。在本節中，我們要來看看如何使用 Spark 對範例 Hive 資料表執行 Hive 查詢。本節所用的 Hive 資料表 (稱為 **hivesampletable**) 依預設可在佈建叢集時取得。
+Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL 或 Scala 表示的關聯式查詢。在本節中，我們要來看看如何使用 Spark 對範例 Hive 資料表執行 Hive 查詢。本節所用的 Hive 資料表 (稱為 **hivesampletable**) 依預設可在建立叢集時取得。
 
 1. 執行下列命令以啟動 Spark 殼層：
 
@@ -235,4 +234,4 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

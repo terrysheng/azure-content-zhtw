@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -40,9 +40,13 @@
 
 一旦將資料儲存成 Hive 資料表之後，下一節我們將使用 Power BI 和 Tableau 等 BI 工具連接 Hive 資料表。
 
-1. 在 [Azure 預覽入口網站](https://ms.portal.azure.com/)的「開始面板」，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板的話)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 瀏覽至您的叢集。 
- 
-2. 啟動 [Jupyter](https://jupyter.org) Notebook。在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入 Spark 叢集的系統管理員認證。
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
+
+	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 2. 建立新的 Notebook。按一下 [新增]，然後按一下 [Python 2]。
 
@@ -94,7 +98,7 @@
 		hivesampletable false      
 		hvac            false
 
-	只有 **isTemporary** 資料行為 false 的資料表，代表將儲存在中繼存放區、而且可以從 BI 工具存取的 hive 資料表。在此教學課程中，我們將連接到剛剛建立的 **hvac** 資料表。
+	只有 **isTemporary** 資料行為 false 的資料表，代表將儲存在中繼存放區、而且可以從 BI 工具存取的 Hive 資料表。在此教學課程中，我們將連接到剛剛建立的 **hvac** 資料表。
 
 6. 請確認資料表包含預期的資料。將以下程式碼片段貼入 Notebook 中的空白儲存格，然後按下 **SHIFT + ENTER**。
 
@@ -114,7 +118,7 @@
 
 	![將資料送入 Power BI](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Get.Data.png "將資料送入 Power BI")
 
-3. 在下一個畫面中按一下 [Spark]，然後按一下 [連接]。
+3. 在下一個畫面中按一下 **Spark**，然後按一下 [連接]。
 
 4. 在 Azure HDInsight 頁面的 Spark 中，提供連接到 Spark 叢集的值，然後按一下 [連接]。
 
@@ -208,4 +212,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

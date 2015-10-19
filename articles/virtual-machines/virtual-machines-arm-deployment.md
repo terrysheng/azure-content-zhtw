@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Compute、Network 和 Storage .NET Library 部署 Azure 資源"
-	description="了解如何使用 Compute、Storage 和 Network .NET Library 中的一些可用用戶端建立和刪除 Microsoft Azure 中的資源"
+	pageTitle="使用 .NET 程式庫部署資源 | Microsoft Azure"
+	description="了解如何使用 Compute、Storage 和 Network .NET 程式庫，利用資源管理員來建立和刪除 Microsoft Azure 中的資源。"
 	services="virtual-machines,virtual-network,storage"
 	documentationCenter=""
 	authors="davidmu1"
@@ -189,7 +189,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
-###建立虛擬網路
+###建立網路組態
 
 將虛擬機器加入至虛擬網路之後，虛擬機器最具生產力。
 
@@ -390,4 +390,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-        pageTitle="使用 Azure Active Directory 單一登入驗證您的 iOS 應用程式使用者"
+        pageTitle="使用 Azure Active Directory 登入驗證您的 iOS 應用程式使用者"
         description="了解如何使用 Active Directory Authentication Library 讓使用者登入您的 iOS 應用程式"
         documentationCenter="Mobile"
         authors="mattchenderson"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.date="09/14/2015"
 ms.author="mahender" />
 
-# 將 Azure Active Directory 單一登入新增至您的 iOS 應用程式
+# 將 Azure Active Directory 登入新增至您的 iOS 應用程式
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
@@ -123,4 +123,4 @@ ms.author="mahender" />
  [開始使用行動應用程式]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [將驗證新增至您的應用程式]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

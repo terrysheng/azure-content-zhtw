@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="ricksal"/>
 
 # 在 Android 行動服務應用程式中加入離線資料同步
@@ -33,7 +33,6 @@
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-
 ## 更新應用程式以支援離線同步
 
 利用離線同步讀取和寫入*同步資料表* (使用 *IMobileServiceSyncTable* 介面)，這是您裝置上 **SQL Light** 資料庫的一部分。
@@ -48,14 +47,14 @@
 2. 將下列 **import** 陳述式加入至 *ToDoActivity.java*：
 
 		import java.util.Map;
-		
+
 		import android.widget.Toast;
-		
-		import com.microsoft.windowsazure.mobileservices.table.query.Query; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore; 
+
+		import com.microsoft.windowsazure.mobileservices.table.query.Query;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 
 3. 在 `ToDoActivity` 類別頂端附近，將 `mToDoTable` 變數的宣告從 `MobileServiceTable<ToDoItem>` 類別變更為 `MobileServiceSyncTable<ToDoItem>` 類別。
 
@@ -109,7 +108,7 @@
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
 				new AsyncTask<Void, Void, Void>() {
-	
+
 					@Override
 					protected Void doInBackground(Void... params) {
 						try {
@@ -136,7 +135,7 @@
 	這會使裝置在啟動時與 Azure 資料表同步處理。否則，您會顯示本機存放區的上次離線內容。
 
 
- 
+
 9. 在 `refreshItemsFromTable` 方法中更新程式碼以使用此查詢 (`try` 區塊內的第一行程式碼)：
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
@@ -162,8 +161,8 @@
 
 讓我們測試下列案例。
 
-1. 在您的裝置上增加一些新項目； 
-2. 確認項目不會顯示在入口網站中； 
+1. 在您的裝置上增加一些新項目；
+2. 確認項目不會顯示在入口網站中；
 3. 接下來按 [**重新整理**] 並確認這些項目接著顯示。
 4. 在入口網站中變更或新增項目，然後按 [**重新整理**] 並確認變更顯示在您的裝置上。
 
@@ -196,7 +195,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 * [雲端報導：Azure 行動服務中的離線同步處理]
 
-* [Azure Friday：Azure 行動服務中的離線應用程式] \(附註︰示範適用於 Windows，但功能討論適用於所有平台\)
+* [Azure Friday：Azure 行動服務中的離線應用程式] (附註︰示範適用於 Windows，但功能討論適用於所有平台)
 
 
 <!-- URLs. -->
@@ -212,7 +211,6 @@ One thing which is important to point out: if there are pending changes in the l
 
 
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]: mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
@@ -221,4 +219,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [行動服務快速入門教學課程]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

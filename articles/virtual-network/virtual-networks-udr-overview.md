@@ -87,7 +87,7 @@
 
 ## 後續步驟
 
-- 了解如何[建立路由](../virtual-networks-udr-how-to#How-to-manage-routes)並將其關聯至子網路。
-- 了解如何針對做為虛擬設備執行之 VM [啟用 IP 轉送](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding)。 
+- 了解如何[在資源管理員部署模型中建立路由](../virtual-network-create-udr-arm-template)並將其關聯至子網路。 
+- 了解如何[在傳統部署模型中建立路由](../virtual-network-create-udr-classic-ps)並將其關聯至子網路。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

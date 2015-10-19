@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Azure App Service Web 應用程式上的作業系統功能 #
@@ -111,4 +111,4 @@ Web 應用程式可以繁衍和執行任意程式碼。允許 Web 應用程式�
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

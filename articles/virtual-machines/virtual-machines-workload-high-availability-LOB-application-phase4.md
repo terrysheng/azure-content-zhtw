@@ -29,6 +29,8 @@
 
 Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用程式或可透過 Windows Server 2012 R2 中 Internet Information Services (IIS) 8 裝載舊版應用程式。
 
+> [AZURE.NOTE]本文包含適用於 Azure PowerShell 版本的命令，適用版本可高達*但不限於*版本 1.0.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。本文中的 Azure PowerShell 命令區塊正處於支援 Azure PowerShell 版本 1.0.0 和更新版本中新 Cmdlet 的測試和更新過程中。感謝您耐心配合。
+
 首先，您將設定內部負載平衡，讓 Azure 在兩部 Web 伺服器之間將用戶端流量平均分散到企業營運應用程式。這需要您指定內部負載平衡執行個體，其中包含名稱和從子網路位址空間 (指派至 Azure 虛擬網路) 所指派的專屬 IP 位址。若要確定您為內部負載平衡器所選的 IP 位址是否可用，請使用 Azure PowerShell 提示中的這些命令。指定變數的值並移除 < and > 字元。
 
 	Switch-AzureMode AzureServiceManagement
@@ -36,7 +38,7 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
-若 Test-AzureStaticVNetIP 命令中的 [IsAvailable] 欄位顯示為 **True**，您便可使用此 IP 位址。
+若 Test-AzureStaticVNetIP 命令中的 [IsAvailable] 欄位顯示為 [True]，您就能使用此 IP 位址。
 
 使用此命令切換回 PowerShell 的資源管理員模式。
 
@@ -68,7 +70,7 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 - 資料表 ST，適用於儲存體帳戶
 - 資料表 A，適用於可用性設定組
 
-回想您在[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)中所定義的資料表 M，以及在[第 1 階段](virtual-machines-workload-high-availability-LOB-application-phase1.md)中所定義的資料表 V、S、ST 和 A。
+回想您在[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)中定義的資料表 M，以及在[第 1 階段](virtual-machines-workload-high-availability-LOB-application-phase1.md)中定義的資料表 V、S、ST 和 A。
 
 當您提供所有適當值後，在 Azure PowerShell 提示中執行結果區塊。
 
@@ -118,7 +120,7 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure Preview 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連線] 按鈕將無法使用。
+> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure Preview 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連接] 按鈕將無法使用。
 
 使用您選擇的遠端桌面用戶端，並建立每個 Web 伺服器虛擬機器的遠端桌面連接。使用其內部網路 DNS 或電腦名稱，以及本機系統管理員帳戶的認證。
 
@@ -135,7 +137,7 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 接下來，為每個 Web 伺服器安裝並設定 IIS。
 
 1. 執行伺服器管理員，然後按一下 [新增角色及功能]。
-2. 在 [開始之前] 頁面中按 [下一步]。
+2. 在 [開始之前] 頁面上，按 [下一步]。
 3. 在 [選取安裝類型] 頁面上，按 [下一步]。
 4. 在 [選取目的地伺服器] 頁面上，按 [下一步]。
 5. 在 [伺服器角色] 頁面上，按一下 [角色] 清單中的 [網頁伺服器 (IIS)]。
@@ -172,4 +174,4 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

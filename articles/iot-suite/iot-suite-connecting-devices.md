@@ -28,7 +28,7 @@
 
 ### 佈建您的 IoT 套件
 
-如果您尚未佈建您的遠端監視預先設定方案，您可以在[這裡](www.internetofyourthings.com)進行佈建。
+如果您尚未佈建您的遠端監視預先設定方案，您可以在[這裡](http://www.microsoft.com/zh-TW/server-cloud/internet-of-things/getting-started.aspx)進行佈建。
 
 
 ### 在遠端監視方案中佈建您的裝置
@@ -112,9 +112,9 @@ Note: if you have already provisioned a device on your solution, you can skip th
     ```
 3. 以您的裝置資料取代 [Device Id] 和 [Device Key]。
 
-4. 您可以使用 IoT 中樞主機名稱裝置資料來填寫 IoTHub 名稱和 IoTHub 後置詞。若要這樣做，您需要以此方式分割它：
+4. 您可以使用 IoT 中心主機名稱裝置資料來填寫 IoTHub 名稱和 IoTHub 後置詞。若要這樣做，您需要以此方式分割它：
 
-    若您的 IoT 中樞主機名稱是 Contoso.azure-devices.net，Contoso 會 是您的 IoTHub 名稱，而它之後的所有項目會是後置詞。它看起來應該如下所示：
+    若您的 IoT 中心主機名稱是 Contoso.azure-devices.net，Contoso 會 是您的 IoTHub 名稱，而它之後的所有項目會是後置詞。它看起來應該如下所示：
 
     ```
     static const char* deviceId = "mydevice";
@@ -149,7 +149,7 @@ Note: if you have already provisioned a device on your solution, you can skip th
 
 - 使用乙太網路纜線將機板連接到您的網路。這個步驟為必要項目，因為範例仰賴於網際網路存取。
 
-- 使用 micro-USB 纜線將裝置插入電腦。請務必將纜線連接至裝置上正確的 USB 連接埠，如「快速入門」一節中[這裡](https://developer.mbed.org/platforms/IBMEthernetKit/)的圖片所示。
+- 使用 micro-USB 纜線將裝置插入電腦。請務必將纜線連接至裝置上正確的 USB 連接埠，如「快速入門」一節中[這裡](https://developer.mbed.org/platforms/frdm-k64f/)的圖片所示。
 
 - 請遵循 [mbed 手冊上的指示](https://developer.mbed.org/handbook/SerialPC)從開發電腦設定與您的裝置的序列連線。如果您在 Windows 上，請安裝[這裡](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port)的 Windows 序列埠驅動程式。
 
@@ -197,9 +197,8 @@ Note: if you have already provisioned a device on your solution, you can skip th
 
 - 如果建置成功，會產生具有您的專案名稱的 .bin 檔案。將 .bin 檔案複製到裝置。將 .bin 檔案儲存到裝置會導致重設對裝置的目前終端機工作階段。重新連接時，請再次手動重設終端機，或啟動新的終端機。這可讓 mbed 裝置重設並開始執行程式。
 
-- 使用 SSH 用戶端應用程式 (例如 PuTTY) 連接至裝置。您可以判斷您的裝置會使用的序列埠，藉由檢查 Windows 裝置管理員：
+- 使用 SSH 用戶端應用程式 (例如 PuTTY) 連接至裝置。您可以判斷您的裝置會使用的序列埠，藉由檢查 Windows 裝置管理員。
 
-	![][10]
 
 - 在 PuTTY 中，按一下 [序列] 連接類型。裝置最有可能以 115200 速度連接，因此請在 [速度] 方塊中輸入該值。然後按一下 [開啟]：
 
@@ -211,7 +210,7 @@ Note: if you have already provisioned a device on your solution, you can skip th
 
 8. 按一下儀表板以查看傳入的資料。此範例會設定為傳送 50 個單位的內部溫度、55 個單位的外部溫度和濕度 50。請注意，儀表板預設只會顯示溫度和溼度。
 
-8. 現在，前往命令與控制[區段](#command)，以了解如何從遠端監視方案變更您的裝置上的溫度。
+8. 現在，前往命令與控制[區段](#command)，以了解如何從遠端監視方案變更您裝置上的溫度。
 
 
 
@@ -293,7 +292,8 @@ node .
 - 選取您想要執行的命令：在此案例中，我們選擇「設定溫度」，因為我們想要變更裝置設定的溫度。選取該命令並選擇溫度值。按一下 [傳送命令]，而新的溫度將推送到裝置。注意：您會在命令歷程記錄中看到命令的結果是「擱置中」。這是因為，為了簡單起見，此範例尚未在裝置中實作任何邏輯以回應 IoT 中心。您可以延伸方案來達成此目的。
 
 	![][14]
-- 返回儀表板，並確定更新的資料正在傳入。您應該會看到遙測歷程記錄中顯示溫度的更新統計資料以及新資料。![][15]
+- 返回儀表板，並確定更新的資料正在傳入。您應該會看到遙測歷程記錄中顯示溫度的更新統計資料以及新資料。
+
 
 
 
@@ -305,8 +305,8 @@ node .
 [18]: ./media/iot-suite-connecting-devices/suite10.png
 
 
-## 延伸您的方案
+## 後續步驟
 
-有多種方式可以延伸此範例的功能：連接真正的感應器到您的裝置來傳送實際日期、實作命令與控制功能等。請使用我們有關如何延伸遠端監視方案的指南來進一步了解。
+有多種方式可以延伸此範例的功能：連接真正的感應器到您的裝置來傳送實際日期、實作命令與控制功能等。請使用我們有關如何延伸遠端監視方案的[指南](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md)來進一步了解。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

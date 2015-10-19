@@ -8,7 +8,7 @@
  editor=""
  tags="azure-service-management"/>
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
@@ -19,6 +19,9 @@ ms.service="virtual-machines"
 # 在 Azure 中的 Linux 運算節點以 Microsoft HPC Pack 執行 NAMD
 
 本文說明如何在 Azure 上部署 Microsoft HPC Pack 叢集，以及在虛擬叢集網路中的多個 Linux 運算節點上執行 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 工作與 **charmrun**，以計算和視覺化大型生物分子系統的結構。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋使用傳統部署模型建立的資源。
+
 
 NAMD (適用於奈米分子動力程式) 是專為高效能模擬大型生物分子系統而設計的平行分子動力套件，包含多達數百萬個原子，例如病毒、細胞結構和大蛋白。NAMD 會針對典型模擬縮放到數百個核心，以及針對最大型的模擬縮放至超過 500,000 個核心。
 
@@ -262,7 +265,7 @@ host CENTOS66LN-03 ++cpus 2
 
 2.  在 [節點管理] 中，確定 Linux 運算節點處於 [線上] 狀態。如果不是，請選取它們然後按一下 [上線]。
 
-2.  在 [工作管理] 中，按一下 [新工作]。
+2.  在 [工作管理] 中，按一下 [新增工作]。
 
 3.	輸入工作的名稱，例如 *hpccharmrun*。
 
@@ -404,4 +407,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

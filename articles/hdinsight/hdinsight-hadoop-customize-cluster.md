@@ -14,27 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.date="10/02/2015"
 	ms.author="nitinme"/>
 
-# 使用指令碼動作來自訂 HDInsight 叢集
+# 使用指令碼動作來自訂 HDInsight 叢集 (Windows)
+
+HDInsight 提供一個稱為「**指令碼動作**」的組態選項，此指令碼動作可叫用自訂指令碼，以定義建立程序期間要在叢集上執行的自訂。這些指令碼可用來在叢集上安裝額外的軟體或變更叢集上的應用程式組態。
 
 [AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
 * [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-v1.md)
 
-HDInsight 提供一個稱為 [指令碼動作] 的組態選項，可叫用自訂指令碼，以定義佈建處理期間要在叢集上執行的自訂。這些指令碼可用來在叢集上安裝額外的軟體或變更叢集上的應用程式組態。
-
-
 > [AZURE.NOTE]本文的資訊是針對以 Windows 為基礎的 HDInsight 叢集。如需本文中以 Linux 為基礎的叢集的特定版本，請參閱[使用指令碼動作自訂 HDInsight 叢集 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
-您也可以使用多種其他方法來自訂 HDInsight 叢集，例如包括額外的 Azure 儲存體帳戶、變更 Hadoop 組態檔 (core-site.xml、hive-site.xml 等)，或是將共用程式庫 (例如 Hive、Oozie) 加入至叢集中的共同位置。這些自訂可以透過 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 入口網站來完成。如需詳細資訊，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop 叢集][hdinsight-provision-cluster]。
+您也可以使用多種其他方法來自訂 HDInsight 叢集，例如包括額外的 Azure 儲存體帳戶、變更 Hadoop 組態檔 (core-site.xml、hive-site.xml 等)，或是將共用程式庫 (例如 Hive、Oozie) 加入至叢集中的共同位置。這些自訂可以透過 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 入口網站來完成。如需詳細資訊，請參閱[在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision-cluster]。
 
-## 叢集佈建程序中的指令碼動作
+## 叢集建立程序中的指令碼動作
 
-只有正在建立叢集時，才會使用指令碼動作。下圖說明在佈建程序期間執行指令碼動作的時間：
+只有正在建立叢集時，才會使用指令碼動作。下圖說明在建立程序期間執行指令碼動作的時間：
 
-![HDInsight 叢集自訂和叢集佈建期間的階段][img-hdi-cluster-states]
+![HDInsight 叢集自訂和叢集建立期間的階段][img-hdi-cluster-states]
 
 當指令碼執行時，叢集會進入 **ClusterCustomization** 階段。在此階段，指令碼會在系統管理員帳戶下，以平行方式在叢集中所有指定的節點上執行，而在節點上提供完整的系統管理員權限。
 
@@ -42,12 +41,7 @@ HDInsight 提供一個稱為 [指令碼動作] 的組態選項，可叫用自訂
 
 指令碼的輸出和錯誤記錄檔會儲存在您為叢集指定的預設儲存體帳戶中。記錄檔是以 **u<\\cluster-name-fragment><\\time-stamp>setuplog** 的名稱儲存在資料表中。這些是從叢集中所有節點上 (前端節點和背景工作節點) 執行之指令碼彙總的記錄檔。
 
-
 每個叢集可接受多個指令碼動作，這些指令碼會依其指定順序被叫用。指令碼可在前端節點、背景工作節點或同時在兩者執行。
-
-## 呼叫指令碼動作指令碼
-
-從 Azure Preview 入口網站、Azure PowerShell 或 HDInsight.NET SDK，可以使用指令碼動作指令碼。本文說明如何從入口網站使用指令碼動作。若要了解如何使用 PowerShell 和.NET SDK 以使用指令碼動作，請查看下表所列的範例。
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
@@ -56,14 +50,16 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 **安裝 Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]。
 **安裝 R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。請參閱[在 HDInsight 叢集上安裝及使用 R][hdinsight-install-r]。
 **安裝 Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
-- **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
+**安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
 
 
+
+## 使用 Azure Preview 入口網站呼叫指令碼
 
 **在 Azure Preview 入口網站**
 
-1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，開始佈建叢集。
-2. 在 [選擇性組態] 的 [指令碼動作] 刀鋒視窗中，按一下 [加入指令碼動作] 以提供有關指令碼動作的詳細資料，如下所示：
+1. 依[在 HDInsight 建立 Hadoop 叢集](hdinsight-provision-clusters.md#portal)中的描述開始建立叢集。
+2. 在 [選擇性組態] 的 [指令碼動作] 刀鋒視窗上，按一下 [加入指令碼動作] 以提供有關指令碼動作的詳細資料，如下所示：
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "使用指令碼動作以自訂叢集")
 
@@ -79,7 +75,180 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		<td>如果指令碼要求，請指定參數。</td></tr>
 </table>請按 ENTER 加入一個以上的指令碼動作，以在叢集上安裝多個元件。
 
-3. 按一下 [選取] 儲存指令碼動作組態，並繼續佈建叢集。
+3. 按一下 [選取] 儲存指令碼動作組態，並繼續建立叢集。
+
+## 使用 Azure PowerShell 呼叫指令碼
+
+接下來的這個 PowerShell 指令碼示範如何在以 Windows 為基礎的 HDInsight 叢集上安裝 Spark。若要安裝其他軟體，您必須取代指令碼中的指令碼檔案：
+
+本節中，我們使用 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet，使用指令碼動作叫用指令碼以自訂叢集。在繼續之前，請確認您已安裝和設定 Azure PowerShell。如需設定工作站以執行適用於 HDInsight 的 Azure Powershell Cmdlet 的相關資訊，請參閱[安裝和設定 Azure PowerShell][powershell-install-configure]。
+
+執行下列步驟：
+
+1. 開啟 Azure PowerShell 視窗，並宣告下列變數：
+
+		# Provide values for these variables
+		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription
+		$clusterName = "<HDInsightClusterName>"			# HDInsight cluster name
+		$storageAccountName = "<StorageAccountName>"	# Azure Storage account that hosts the default container
+		$storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
+		$containerName = $clusterName
+		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the Storage account.
+		$clusterNodes = <ClusterSizeInNumbers>			# Number of nodes in the HDInsight cluster
+		$version = "<HDInsightClusterVersion>"          # For example, "3.2"
+
+2. 指定設定值，例如要使用的叢集中節點和預設儲存體。
+
+		# Specify the configuration options
+		Select-AzureSubscription $subscriptionName
+		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
+		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
+		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
+		$config.DefaultStorageAccount.StorageContainerName=$containerName
+
+3. 使用 **Add-AzureHDInsightScriptAction** Cmdlet 將指令碼動作加入叢集組態。稍後在建立叢集時，將會執行指令碼動作。
+
+		# Add a script action to the cluster configuration
+		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
+
+	**Add-AzureHDInsightScriptAction** Cmdlet 可接受下列參數：
+
+	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
+<tr>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">參數</th>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">定義</th></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">設定</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">要在其中新增指令碼動作資訊的設定物件。</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指令碼動作的名稱。</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指定執行自訂指定碼的節點。有效值為 HeadNode (在前端節點上安裝) 或 DataNode (在所有資料節點上安裝)。您可以使用其中一個或兩個值。</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指定所執行之指令碼的 URI。</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">參數</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指令碼所需的參數。本主題中使用的範例指令碼不需要任何參數，因此您在上述程式碼片段中看不到此參數。
+</td></tr>
+</table>
+
+4. 最後，開始建立已安裝 Spark 的自訂叢集。
+
+		# Start creating a cluster with Spark installed
+		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+
+出現提示時，請輸入叢集的認證。建立叢集可能需要幾分鐘的時間。
+
+## 使用 .NET SDK 呼叫指令碼 
+
+下列範例示範如何在以 Windows 為基礎的 HDInsight 叢集上安裝 Spark。若要安裝其他軟體，您必須取代程式碼中的指令碼檔案。
+
+**使用 Spark 建立 HDInsight 叢集**
+
+1. 在 Visual Studio 建立 C# 主控台應用程式。
+2. 從 NuGet Package Manager Console 執行下列命令：
+
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Common.Authentication -Pre
+
+2. 在 Program.cs 檔案中使用下列 using 陳述式：
+
+		using System;
+		using System.Security;
+		using Microsoft.Azure.Management.HDInsight;
+		using Microsoft.Azure.Management.HDInsight.Models;
+		
+		using Microsoft.Azure;
+		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Factories;
+		using Microsoft.Azure.Common.Authentication.Models;
+
+3. 使用下列命令將程式碼放置在類別中：
+
+        private static HDInsightManagementClient _hdiManagementClient;
+
+        private static Guid SubscriptionId = new Guid("<YourAzureSubscriptionID>");
+        private const string ResourceGroupName = "<ExistingAzureResourceGroupName>";
+        private const string NewClusterName = "<NewAzureHDInsightClusterName>";
+        private const int NewClusterNumNodes = <NumberOfClusterNodes>;
+        private const string NewClusterLocation = "East US";
+        private const string NewClusterVersion = "3.2";
+        private const string ExistingStorageName = "<ExistingAzureStorageAccountName>";
+        private const string ExistingStorageKey = "<ExistingAzureStorageAccountKey>";
+        private const string ExistingContainer = "<ExistingAzureBlobStorageContainer>";
+        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+        private const OSType NewClusterOSType = OSType.Windows;
+        private const string NewClusterUsername = "<HttpUserName>";
+        private const string NewClusterPassword = "<HttpUserPassword>";
+
+        static void Main(string[] args)
+        {
+            System.Console.WriteLine("Running");
+
+            var tokenCreds = GetTokenCloudCredentials();
+            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+
+            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+
+            CreateCluster();
+
+        }
+
+        private static void CreateCluster()
+        {
+            var parameters = new ClusterCreateParameters
+            {
+                ClusterSizeInNodes = NewClusterNumNodes,
+                Location = NewClusterLocation,
+                ClusterType = NewClusterType,
+                OSType = NewClusterOSType,
+                Version = NewClusterVersion,
+
+                DefaultStorageAccountName = ExistingStorageName,
+                DefaultStorageAccountKey = ExistingStorageKey,
+                DefaultStorageContainer = ExistingContainer,
+
+                UserName = NewClusterUsername,
+                Password = NewClusterPassword,
+            };
+
+            ScriptAction sparkScriptAction = new ScriptAction("Install Spark",
+                new Uri("https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1"), "");
+
+            parameters.ScriptActions.Add(ClusterNodeType.HeadNode, new System.Collections.Generic.List<ScriptAction> { sparkScriptAction });
+            parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { sparkScriptAction });
+
+            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+        }
+
+
+        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+        {
+            var authFactory = new AuthenticationFactory();
+
+            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+
+            if (username != null && password != null)
+                account.Id = username;
+
+            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+
+            var accessToken =
+                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+                    .AccessToken;
+
+            return new TokenCloudCredentials(accessToken);
+        }
+
+        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
+        {
+            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
+        }
+
+4. 按 **F5** 鍵執行應用程式。
 
 
 ## 支援在 HDInsight 叢集上使用開放原始碼軟體
@@ -109,7 +278,7 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 ## 另請參閱
 
-- [使用自訂選項在 HDInsight 中佈建 Hadoop 叢集][hdinsight-provision-cluster]說明如何使用其他自訂選項來佈建 HDInsight 叢集。
+- [在 HDInsight 建立 Hadoop 叢集][hdinsight-provision-cluster]說明如何使用其他自訂選項來建立 HDInsight 叢集。
 - [開發 HDInsight 的指令碼動作指令碼][hdinsight-write-script]
 - [在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]
 - [在 HDInsight 叢集上安裝及使用 R][hdinsight-install-r]
@@ -123,6 +292,6 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 [powershell-install-configure]: ../install-configure-powershell.md
 
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "叢集佈建期間的階段"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "叢集建立期間的階段"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

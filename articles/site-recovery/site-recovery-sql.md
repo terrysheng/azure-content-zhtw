@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -51,10 +51,12 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 
 
 
+
+
 下表摘要說明我們將 SQL Server BCDR 技術整合到 Site Recovery 部署的建議。
 
 **版本** |**版本** | **部署** | **內部部署到內部部置** | **內部部署到 Azure** 
----|---|---|---|
+---|---|---|---|---
 SQL Server 2014 或 2012 | Enterprise | 容錯移轉叢集執行個體 | AlwaysOn 可用性群組 | AlwaysOn 可用性群組
  | Enterprise | 高可用性的 AlwaysOn 可用性群組 | AlwaysOn 可用性群組 | AlwaysOn 可用性群組
  | 標準 | 容錯移轉叢集執行個體 | 包含本機鏡像的 Site Recovery 複寫 | 包含本機鏡像的 Site Recovery 複寫
@@ -362,4 +364,4 @@ SQL Server 2008 R2 | Enterprise 或 Standard | 獨立 | 包含本機鏡像的 Si
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

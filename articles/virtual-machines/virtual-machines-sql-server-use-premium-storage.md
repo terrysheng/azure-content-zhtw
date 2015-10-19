@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/02/2015"
+	ms.date="10/02/2015"
 	ms.author="jroth"/>
 
 # 在虛擬機器上搭配使用 Azure 高階儲存體和 SQL Server
@@ -88,7 +88,7 @@
 
 您需要建立新的儲存體帳戶，此帳戶是針對高階儲存體所設定。請注意，高階儲存體的用法是設定於儲存體帳戶上，而非個別的 VHD 上，但在使用 DS* 系列 VM 時，您可以從高階和標準儲存體帳戶連結 VHD 的儲存體帳戶。如果您不想將作業系統 VHD 放置於高階儲存體帳戶上，可考慮使用此項。
 
-以下含有 "Premium_LRS" **類型**的 **New-AzureStorageAccountPowerShell** 命令會建立高階儲存體帳戶：
+以下含有 "Premium\_LRS" **類型**的 **New-AzureStorageAccountPowerShell** 命令會建立高階儲存體帳戶：
 
     $newstorageaccountname = "danpremstor" 
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
@@ -150,7 +150,7 @@
 
 提高 IOPS 可透過更大的磁碟大小來達成。當您考量移轉路徑時，應將這點納入考慮。如需詳細資訊，請參閱[適用於 IOPS 和磁碟類型的表格](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
 
-最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。例如，Standard_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
+最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。例如，Standard\_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
 
 ## 新的部署
 
@@ -379,7 +379,7 @@
 1. **在現有的 AlwaysOn 叢集中新增更多次要複本**
 1. **移轉到新的 AlwaysOn 叢集**
 
-#### 1.在現有的 AlwaysOn 叢集中新增更多次要複本
+#### 1\.在現有的 AlwaysOn 叢集中新增更多次要複本
 
 有一個策略是在 AlwaysOn 可用性群組中新增更多次要項目。您需要將這些項目新增到新的雲端服務，然後使用新的負載平衡器 IP 來更新接聽程式。
 
@@ -426,7 +426,7 @@
 - 在設定次要項目時，可能需要較長的 SQL 資料傳輸時間。
 - 當您平行執行新機器時，會在移轉期間產生額外成本。
 
-#### 2.移轉到新的 AlwaysOn 叢集
+#### 2\.移轉到新的 AlwaysOn 叢集
 
 另一種策略是在新的雲端服務中，使用全新的節點來建立全新的 AlwaysOn 叢集，然後重新導向用戶端來使用該節點。
 
@@ -458,7 +458,7 @@
 1. **利用現有的次要項目：單一站台**
 1. **利用現有的次要項目：多站台**
 
-#### 1.利用現有的次要項目：單一站台
+#### 1\.利用現有的次要項目：單一站台
 
 將停機時間降至最低的其中一種策略是取得現有的雲端次要項目，並從目前的雲端服務中移除它。然後將 VHD 複製到新的高階儲存體帳戶，並在新的雲端服務中建立 VM。接著在叢集設定和容錯移轉中更新接聽程式。
 
@@ -504,7 +504,7 @@
 - 如果使用步驟 5ii，則新增 SQL1 做為新增 IP 位址資源的 [可能的擁有者]
 - 測試容錯移轉。
 
-#### 2.利用現有的次要項目：多站台
+#### 2\.利用現有的次要項目：多站台
 
 如果您的節點分佈於一個以上的 Azure 資料中心 (DC)，或者您擁有混合式環境，則您可在這個環境中使用 AlwaysOn 設定來將停機時間降至最低。
 
@@ -1149,4 +1149,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

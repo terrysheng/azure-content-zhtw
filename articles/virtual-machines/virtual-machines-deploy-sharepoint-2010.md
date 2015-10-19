@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -58,7 +58,7 @@ Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執�
 
 ## 佈建程序
 
-Azure 中的映像庫會提供預先配置的可用虛擬機器清單。使用者可將 SharePoint Server、SQL Server、Windows Server 和其他 ISO/VHD 發佈至映像庫。為簡化虛擬機器的建立作業，系統會建立基礎映像，並將其發佈至映像庫。授權使用者可使用這些映像產生所需的虛擬機器。如需詳細資訊，請移至[在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。圖 1 顯示使用 Azure 入口網站建立虛擬機器的基本步驟。
+Azure 中的映像庫會提供預先配置的可用虛擬機器清單。使用者可將 SharePoint Server、SQL Server、Windows Server 和其他 ISO/VHD 發佈至映像庫。為簡化虛擬機器的建立作業，系統會建立基礎映像，並將其發佈至映像庫。授權使用者可使用這些映像產生所需的虛擬機器。如需詳細資訊，請移至[在 Azure 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial-classic-portal.md)。圖 1 顯示使用 Azure 入口網站建立虛擬機器的基本步驟。
 
 ![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
 
@@ -222,7 +222,7 @@ Azure 基礎結構中的虛擬機器經驗證可有效與其他 Microsoft 產品
 若要在 Azure 上擴充 BI 環境，請執行下列步驟：
 
 1. 佈建：
-	- 使用 Azure 虛擬網路，佈建內部部署與 Azure 之間的 VPN 連線。如需詳細資訊，請移至[虛擬網路概觀](http://msdn.microsoft.com/library/jj156007.aspx)。
+	- 使用 Azure 虛擬網路，佈建內部部署與 Azure 之間的 VPN 連線。如需詳細資訊，請移至[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 	- 使用 Azure 入口網站透過映像庫中儲存的映像佈建新的虛擬機器。您可以將 SharePoint Server 或 SQL Server BI 工作負載映像上傳至映像庫，且任何授權使用者皆可選用這些 BI 元件虛擬機器來建置擴充的環境。
 2. 安裝： 
 	- 如果您的組織沒有預先建置的 SharePoint Server 或 SQL Server BI 元件映像，請使用遠端桌面連線在虛擬機器上安裝 SharePoint Server 和 SQL Server。
@@ -261,7 +261,7 @@ Azure 基礎結構中的虛擬機器經驗證可有效與其他 Microsoft 產品
 	- 在虛擬機器上設定 SQL Server。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/library/ee210664.aspx)。
 	- 將虛擬機器加入新建立的 Active Directory 網域中。
 3. 部署多伺服器 SharePoint 伺服器陣列：
-	- 建立虛擬網路。如需詳細資訊，請移至[虛擬網路概觀](http://msdn.microsoft.com/library/jj156007.aspx)。
+	- 建立虛擬網路。如需詳細資訊，請移至[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 	- 在部署 SharePoint 虛擬機器時，您必須為 SharePoint Server 提供子網路，如此，本機 Active Directory 方塊中的 DNS 位址在佈建期間才可供使用。
 	- 使用 Azure 入口網站來建立虛擬機器。
 	- 在此虛擬機器上安裝 SharePoint Server，並產生可重複使用的映像。如需有關安裝 SharePoint Server 的詳細資訊，請移至[使用 Windows PowerShell 安裝及設定 SharePoint Server 2010](http://technet.microsoft.com/library/cc262839.aspx) 或 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/) (英文)。
@@ -287,4 +287,4 @@ Azure 虛擬機器可用來執行完整而連續的 SharePoint 部署。Azure �
 
 [在 Azure 中測試 SharePoint Server 2016 IT 預覽版](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

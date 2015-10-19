@@ -3,7 +3,7 @@
    description="說明定義可用於定義 Service Fabric Reliable Actor 狀態與介面其可序列化類別的基本需求"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Service Fabric Reliable Actor 類型序列化的注意事項
 
@@ -82,4 +82,4 @@ public class VoicemailBox
 
 ```
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

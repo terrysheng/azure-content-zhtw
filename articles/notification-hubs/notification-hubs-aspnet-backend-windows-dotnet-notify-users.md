@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 #Azure 通知中心通知使用者
@@ -26,6 +26,10 @@
 Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端是用來驗證用戶端。使用驗證的用戶端使用者，後端就會自動將標記新增通知註冊。後端會傳送此標記，以產生特定使用者的通知。如需使用應用程式後端註冊通知的詳細資訊，請參閱指引主題[從應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)。本教學課程會以您在[開始使用通知中樞]教學課程中所建立的通知中樞和專案為基礎。
 
 本教學課程還是[安全推播]教學課程的必要條件。完成本教學課程中的步驟後，您可以繼續進行[安全推播]教學課程，該教學課程說明如何修改本教學課程中的程式碼，以安全的方式傳送推播通知。
+
+
+您可以在[此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)的 GitHub 上找到本教學課程的完整程式碼。
+
 
 
 ##必要條件
@@ -111,7 +115,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
                     <TextBox Name="ToUserTagTextBox" Grid.Row="7" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
                     <TextBlock Grid.Row="8" Grid.ColumnSpan="3" Text="Enter Notification Message" FontSize="24" Margin="20,0,20,0"/>
                     <TextBox Name="NotificationMessageTextBox" Grid.Row="9" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
-                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" />
+                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" Name="SendPushButton" />
                 </Grid>
             </StackPanel>
         </Grid>
@@ -254,7 +258,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
         public RegisterClient(string backendEndpoint)
         {
-            PostURL = backendEndpoint + "/api/register";
+            POST_URL = backendEndpoint + "/api/register";
         }
 
         public async Task RegisterAsync(string handle, IEnumerable<string> tags)
@@ -373,4 +377,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [使用通知中心傳送即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

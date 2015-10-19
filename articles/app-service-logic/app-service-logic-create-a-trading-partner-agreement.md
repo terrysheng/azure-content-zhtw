@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 
@@ -66,7 +66,7 @@
 2. 視協議的需要上傳結構描述和憑證。您可透過瀏覽已建立的 TPM 執行個體，並逐步執行 [結構描述] 和/或 [憑證] 部分，來完成上述動作
 3. 瀏覽至已建立的 TPM 執行個體，並逐步執行 [**夥伴**] 部分
 4. 視需要建立夥伴。並適當地編輯設定檔，以及新增必要的身分識別
-5. 現在使用 [**協議**] 部分來建立協議。在協議建立期間，其中一個初始步驟是選擇通訊協定。根據選擇的通訊協定，才能進行其他的協議設定。
+5. 現在使用 [**協議**] 部分來建立協議。當您建立協議時，必須選取將會使用的通訊協定。其餘的設定選項取決於您選取的通訊協定。
 
 ![][2]
 
@@ -78,4 +78,4 @@
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -386,7 +386,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 ###<a id="sdk"></a>使用 HDInsight .NET SDK
 HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NET Framework 應用程式使用 HDInsight。請遵循下列指示建立 Visual Studio 主控台應用程式，並貼上建立叢集的程式碼。
 
-**建立 Visual Studio 主控台應用程式**
+**建立 C# Visual Studio 主控台應用程式**
 
 1. 開啟 Visual Studio 2013 或 2015。
 2. 使用下列設定建立新的 Visual Studio 專案
@@ -406,6 +406,8 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 6. 在 [方案總管] 中按兩下 **Program.cs** 予以開啟，貼上下列程式碼，並提供變數的值：
 
+		using System;
+		using System.Security;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
@@ -512,7 +514,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 
 
-##<a id="nextsteps"></a>後續步驟
+## 後續步驟
 在本文中，您已學到幾種方式可以在 Linux 上佈建 HDInsight Hadoop 叢集。若要深入了解，請參閱下列文章：
 
 - [在 Linux 上使用 HDInsight](hdinsight-hadoop-linux-information.md)：了解在 Linux 上使用 HDInsight 叢集的細微差異。
@@ -571,4 +573,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

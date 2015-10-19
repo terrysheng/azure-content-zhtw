@@ -21,10 +21,7 @@
 
 本主題示範如何使用 Media Services .NET SDK 編碼資產，並使用 Media Encoder Standard 產生縮圖。本主題定義 XML 和 JSON 縮圖預設，可讓您用來建立工作，以同時執行編碼及產生縮圖。[這份文件](https://msdn.microsoft.com/library/mt269962.aspx)包含這些預設所使用的項目說明。
 
-您必須考量下列事項：
-
-- 為 Start/Step/Range 使用明確的時間戳記會假設輸入來源至少為 1 分鐘的長度。
-
+請務必閱讀[考量](media-services-dotnet-generate-thumbnail-with-mes.md#considerations)一節。
 
 ##範例
 
@@ -355,6 +352,25 @@
 	  </Outputs>
 	</Preset>
 
+##考量
+
+您必須考量下列事項：
+
+- 為 Start/Step/Range 使用明確的時間戳記會假設輸入來源至少為 1 分鐘的長度。
+- 具有 Start、Step 和 Range 字串屬性的 Jpg/Png/BmpVideo 項目 – 這些可以解譯為：
+
+	- 畫面格數目 (如果是非負整數)，例如："Start"："120"，
+	- 相對於持續時間 (如果以 % 尾碼表示)，例如："Start"："15%" 或
+	- 時間戳記 (如果以 HH:MM:SS... 格式表示)。例如"Start"："00:01:00"
+
+	您可以隨意混合使用標記法。
+	
+	此外， Start 也支援特殊的巨集 (即 {Best})，它會嘗試判斷第一個「 有趣 」的內容畫面。附註：(Start 設為 {Best} 時，會忽略 Step 與 Range)
+	
+	- 預設值：Start:{Best}
+- 必須明確地提供每個影像格式的輸出格式：Jpg/Png/BmpFormat。提供時，AMS 會比對 JpgVideo 與 JpgFormat，依此類推。OutputFormat 引進了新的影像轉碼器特定巨集 (即 {Index})，必須針對影像輸出格式提供一次 (只需一次)。
+
+
 ##媒體服務學習路徑
 
 您可以在此檢視 AMS 學習路徑：
@@ -366,4 +382,4 @@
 
 [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -104,6 +104,9 @@
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
+如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)。
+
+
 **Smooth Streaming 格式**
 
 {串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest
@@ -186,4 +189,4 @@
 [啟動儲存體金鑰之後更新媒體服務定位器](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

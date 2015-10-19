@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="使用 Azure 流量管理員來控制 Azure Web 應用程式的流量"
-	description="本文提供與 Azure Web 應用程式相關之 Azure 流量管理員的摘要資訊。"
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="使用 Azure 流量管理員來控制 Azure Web 應用程式的流量" 
+	description="本文提供與 Azure Web 應用程式相關之 Azure 流量管理員的摘要資訊。";" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # 使用 Azure 流量管理員來控制 Azure Web 應用程式的流量
@@ -62,4 +63,4 @@ Azure 流量管理員使用三種不同的負載平衡方法。下列清單說�
 如需將流量管理員與 Web Apps 搭配使用的詳細資訊，請參閱[將 Azure 流量管理員與 Azure 網站搭配使用](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx)和 [Azure 流量管理員現在可以與 Azure 網站整合](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)部落格文章。
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

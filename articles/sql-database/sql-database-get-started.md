@@ -46,19 +46,19 @@
 ## 步驟 2：選擇伺服器設定
 Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝載多個資料庫。設定資料庫時，您也可以建立並設定將裝載該資料庫的伺服器，或者可以使用先前建立的伺服器。我們將設定新的伺服器。
 
-1. 請輸入資料庫的 [名稱] \(我們使用 **AdventureWorks**)。我們稍後再回頭討論其他資料庫設定。
+1. 請輸入資料庫的 [名稱] (我們使用 **AdventureWorks**)。我們稍後再回頭討論其他資料庫設定。
 2. 在 [伺服器] 下方，按一下 [設定必要的設定]，然後按一下 [建立新的伺服器]。
 
 	![為您的資料庫命名](./media/sql-database-get-started/name-and-newserver.png)
 
 3. 在 [新伺服器] 刀鋒視窗中，輸入整個 Azure 中唯一且容易記住的 [伺服器名稱]。稍後當您連接並使用資料庫時，將需要此名稱。
-4. 輸入容易記住的 [伺服器管理員登入] \(我們使用 **AdventureAdmin**)。接著輸入安全的 [密碼]，並在 [確認密碼] 欄位中再次輸入。
+4. 輸入容易記住的 [伺服器管理員登入] (我們使用 **AdventureAdmin**)。接著輸入安全的 [密碼]，並在 [確認密碼] 欄位中再次輸入。
 
 	![新的資料庫伺服器設定](./media/sql-database-get-started/get-started-serversettings.png)
 
 	 讓 [建立 V12 伺服器 (最新更新)] 保持 [是] 的設定，以使用最新的功能。[位置] 會決定您建立伺服器的資料中心區域。
 
-	>[AZURE.TIP] 在接近應用程式的位置建立資料庫伺服器，其中應用程式將會使用該資料庫。如果您想要變更位置，只需按一下 [位置]，挑選其他位置，然後按一下 [確定] 即可。
+	>[AZURE.TIP]在接近應用程式的位置建立資料庫伺服器，其中應用程式將會使用該資料庫。如果您想要變更位置，只需按一下 [位置]，挑選其他位置，然後按一下 [確定] 即可。
 
 5. 按一下 [確定] 回到 [SQL Database] 刀鋒視窗。
 
@@ -73,7 +73,7 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 	![建立範例資料庫](./media/sql-database-get-started/adworks_create.png)
 
-	>[AZURE.NOTE] 由於這些步驟為快速操作，因此我們並未變更 [定價層]、[定序] 和 [資源群組] 的設定。您可以隨時變更資料庫定價層，並向上調升和向下減少，無須停機。如需深入了解，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)和 [SQL Database 定價層](sql-database-service-tiers.md)。完成資料庫定序設定後，您將無法進行變更。如需關於定序的詳細資料，請參閱[定序與 Unicode 支援](https://msdn.microsoft.com/library/ms143726.aspx)。如需關於 Azure 資源群組的詳細資料，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+	>[AZURE.NOTE]由於這些步驟為快速操作，因此我們並未變更 [定價層]、[定序] 和 [資源群組] 的設定。您可以隨時變更資料庫定價層，並向上調升和向下減少，無須停機。如需深入了解，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)和 [SQL Database 定價層](sql-database-service-tiers.md)。完成資料庫定序設定後，您將無法進行變更。如需關於定序的詳細資料，請參閱[定序與 Unicode 支援](https://msdn.microsoft.com/library/ms143726.aspx)。如需關於 Azure 資源群組的詳細資料，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
 
 您會跳回「Azure 開始面板」，其中磚會顯示進度，直到資料庫建立完畢且已上線為止。您也可以按一下 [全部瀏覽]，然後按一下 [SQL Database] 確認資料庫是否已上線。
 	
@@ -101,7 +101,7 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 	![新增 IP 位址](./media/sql-database-get-started/firewall_config_new_rule.png)
 
-	>[AZURE.IMPORTANT]您的 IP 位址可能會不時變動，且在您建立新的防火牆規則前，將可能無法存取伺服器。您可以使用 [Bing](http://www.bing.com/search?q=my%20ip%20address) 檢查 IP 位址，然後新增單一 IP 位址或某個範圍的 IP 位址。如需詳細資訊，請參閱[如何設定防火牆設定](sql-database-configure-firewall-settings.md)。
+	>[AZURE.IMPORTANT]您的用戶端 IP 位址可能會不時變動，且在您建立新的防火牆規則前，將可能無法存取伺服器。您可以使用 [Bing](http://www.bing.com/search?q=my%20ip%20address) 檢查 IP 位址，然後新增單一 IP 位址或某個範圍的 IP 位址。如需詳細資訊，請參閱[如何設定防火牆設定](sql-database-configure-firewall-settings.md)。
 
 ## 後續步驟
 現在您的資料庫中已有些範例資料，可以準備開始使用慣用的工具進行探索。
@@ -114,4 +114,4 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 - 如果您想要進一步了解如何將內部部署的 SQL Server 資料庫移動至 Azure，請參閱[將資料庫移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

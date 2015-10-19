@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
+	ms.date="09/28/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -19,11 +19,29 @@
 
 # 將 SQL Database Web 或 Business 資料庫升級至新的服務層
 
-Azure SQL Web 和 Business 資料庫即將在 [2015 年 9 月淘汰](http://msdn.microsoft.com/library/azure/dn741330.aspx)，所以現在是開始規劃將現有的 Web 或 Business 資料庫升級到基本、標準或高階服務層的時候。
+Azure SQL [Web 和 Business 資料庫即將淘汰](sql-database-web-business-sunset-faq.md)，因此現在正是升級現有的 Web 或 Business 資料庫為 [Basic、Standard、Premium 或 Elastic 服務層](sql-database-service-tiers.md)的時候。
 
-下載 [Web and Business Database Migration Guidance Cookbook](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf) (Web 和 Business 資料庫移轉指引操作手冊)。
 
-> [AZURE.NOTE] [Pricing tier recommendations](sql-database-service-tier-advisor.md) 的 Web 和 Business 資料庫現在已可使用。
+> [AZURE.IMPORTANT]將 Web 或 Business 資料庫升級到新的服務層，並不會讓資料庫離線。資料庫會維持在線上而且可在整個升級作業可供使用。
+
+
+為了協助您完成升級，SQL Database 服務建議為每個資料庫選擇適當的服務層和效能層級 (定價層)。SQL Database 服務會透過分析每個資料庫的使用歷史記錄，建議最適合用於執行您現有資料庫工作負載的層。
+
+變更 Web 或 Business 服務層時，或升級至 SQL Database V12 時，會提供每個資料庫建議的定價層。
+
+根據您的特定環境，此服務可能會建議您升級部分或所有資料庫到[彈性資料庫集區](sql-database-elastic-pool.md)。
+
+若要查看已停用資料庫的建議的服務層，您可以使用 [Azure Preview 入口網站](https://portal.azure.com) 或 PowerShell。如需逐步指示，請參閱：
+
+- [升級至 SQL Database V12 (Azure Preview 入口網站)](sql-database-v12-upgrade.md)
+- [升級至 SQL Database V12 (PowerShell)](sql-database-upgrade-server.md)
+
+
+請特別注意，SQL Database 不會鎖定至任何特定的服務層或效能層級，所以當您的資料庫需求變更時，您就可以輕易變更可用的服務層和效能層級。事實上，基本、標準和高階 SQL Database 是以小時計費，您可以在 24 小時內向上或向下調整每個資料庫 4 次。這表示您可以調整服務層和效能層級，根據您的應用程式需求和各種工作負載，充分發揮資料庫的效能需求、功能集和成本。這也表示，評估及變更資料庫的服務層和效能層級 (向上和向下調整) 是持續不斷的過程，應該是您排定的維護與效能微調例行工作的一部分。
+ 
+如需有關 Web/Business 和新的服務層之間的差異以及其他移轉詳細資料，請下載 [Web 和 Business 資料庫移轉指引操作手冊](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf)。
+
+
 
 ## 概觀
 
@@ -36,8 +54,6 @@ Azure SQL Web 和 Business 資料庫即將在 [2015 年 9 月淘汰](http://msdn
 最終，最好的選擇就是可提供功能、效能和成本間最佳平衡，但又完全符合商務需求和應用程式需求的服務層和效能層級組合。
 
 本白皮書會引導您將 Web 或 Business 資料庫升級至其中一個新服務層/效能層級。
-
-請特別注意，Azure SQL Database 不會鎖定至任何特定的服務層或效能層級，所以當您的資料庫需求變更時，您就可以輕易變更可用的服務層和效能層級。事實上，基本、標準和高階 SQL Database 是以小時計費，您可以在 24 小時內向上或向下調整每個資料庫 4 次 (使用 [Azure 入口網站或以程式設計方式](http://msdn.microsoft.com/library/azure/ff394116.aspx))。這表示您可以調整服務層和效能層級，根據您的應用程式需求和各種工作負載，充分發揮資料庫的效能需求、功能集和成本。這也表示，評估及變更資料庫的服務層和效能層級 (向上和向下調整) 是持續不斷的過程，應該是您排定的維護與效能微調例行工作的一部分。
 
 
 ## 升級 Web 和 Business 資料庫
@@ -61,7 +77,7 @@ Azure SQL Web 和 Business 資料庫即將在 [2015 年 9 月淘汰](http://msdn
 
 基本、標準和高階服務層提供不同的功能集，所以選取適當層的第一個步驟就是判斷可提供您的應用程式和業務所需最低功能層級的服務層。
 
-例如，請考慮備份需要保留多久，或是否需要[標準或作用中異地複寫](http://msdn.microsoft.com/library/azure/dn783447.aspx)功能，或所需的整體最大資料庫大小等等。這些需求會決定您最低的服務層選擇。
+例如，請考慮備份需要保留多久，或是否需要[標準或作用中異地複寫](sql-database-business-continuity.md)功能，或所需的整體最大資料庫大小等等。這些需求會決定您最低的服務層選擇。
 
 「基本」層主要用於極小型、活動少的資料庫。因此，您通常應依據所需功能的最低層級，優先選擇升級至「標準」或「高階」層。
 
@@ -90,16 +106,16 @@ Azure SQL Database 服務會在管理入口網站和 [系統檢視] 中公開資
 由於 Web 和 Business 資料庫沒有關聯之任何保證的 DTU/資源限制，我們是以 S2 效能層級資料庫可用的資源數量將百分比值標準化。任何特定間隔的資料庫平均 DTU 百分比耗用量，均可計算為該間隔內最高的 CPU、IO 和記錄檔使用量百分比值。
 
 
-使用管理入口網站，取得高階的 DTU 百分比使用量概觀，然後使用系統檢視向下切入至詳細資料。
+使用 Azure Preview 入口網站，取得高階的 DTU 百分比使用量概觀，然後使用系統檢視向下切入至詳細資料。
 
-當您將伺服器升級至 Azure SQL Database V12 ([某些地區為預覽版](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)) 時，您也可以使用新的 Azure 管理入口網站來檢視針對您的 Web 或 Business 資料庫所建議的服務層。
+當您將伺服器升級至 Azure SQL Database V12 時，您也可以使用 Azure Preview 入口網站來檢視針對您的 Web 或 Business 資料庫所建議的服務層。
 
-### 如何在新的 Azure 管理入口網站中檢視建議的服務層
-管理入口網站會在將伺服器升級至 Azure SQL Database V12 的程序中，針對您的 Web 或 Business 資料庫建議適當的服務層。此建議是以資料庫資源耗用量之歷程記錄分析為依據。
+### 如何在 Azure Preview 入口網站中檢視建議的服務層
+Azure 入口網站會在將伺服器升級至 SQL Database V12 的程序中，針對您的 Web 或 Business 資料庫建議適當的服務層。此建議是以資料庫資源耗用量之歷程記錄分析為依據。
 
 **新的管理入口網站**
 
-1. 登入[新的管理入口網站](https://portal.azure.com)並瀏覽至包含 Web 或 Business 資料庫的伺服器。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)，並瀏覽至包含 Web 或 Business 資料庫的伺服器。
 2. 按一下伺服器刀鋒視窗中的 [最新更新] 部分。
 3. 按一下 [升級此伺服器]。
 
@@ -242,7 +258,7 @@ Web 和 Business 資料庫沒有針對任何個別資料庫保留特定數量的
 | [服務管理 REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) | 使用[更新資料庫](http://msdn.microsoft.com/library/dn505718.aspx)命令。|
 | [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | 使用 [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx) 陳述式。 |
 
-如需詳細資訊，請參閱[變更資料庫服務層和效能層級](http://msdn.microsoft.com/library/dn369872.aspx)
+如需詳細資訊，請參閱[變更資料庫服務層和效能層級](sql-database-scale-up.md)
 
 
 ## 6\.監視新服務層/效能層級的升級
@@ -257,10 +273,6 @@ Azure SQL Database 在您目前資料庫所在邏輯伺服器的 master 資料�
     ORDER BY o.last_modify_time DESC;
 
 如果您是使用管理入口網站升級，入口網站中也會有關於作業的通知。
-
-### 當資料庫工作負載在升級後達到資源限制時會發生什麼事？
-效能層級會受校正和管理，以提供所需資源來將您的資料庫工作負載執行到您所選服務層/效能層級允許的上限 (亦即資源耗用量是 100%)。如果您的工作負載達到 CPU/資料 IO/記錄檔 IO 限制的其中一項限制，您仍然可繼續接收允許之最大層級的資源，但您可能會經歷較長的查詢延遲。達到這些限制的其中一項並不會導致任何錯誤 (除非是速度慢到使查詢開始逾時)，否則僅會使您的工作負載速度變慢。如果您到達最大允許並行使用者工作階段/要求 (背景工作執行緒) 的限制，您會看到 [錯誤 10928 或 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx)。
-
 
 ## 7\.在升級後監視資料庫
 將 Web/Business 資料庫升級至新服務層後，建議您主動監視資料庫，以確保應用程式達到所需的執行效能，並且視需要最佳化使用方式。建議您使用下列的額外步驟來監視資料庫。
@@ -283,17 +295,17 @@ Azure SQL Database 在您目前資料庫所在邏輯伺服器的 master 資料�
 
 - **警示：**在 Azure 管理入口網站設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。在 Azure 管理入口網站中，可以為各種效能度量 (如 DTU、CPU、IO 和記錄檔) 設定資料庫警示。 
 
-	例如，您可以設定若過去 5 分鐘的平均 DTU 百分比值超出 75% 則發出「 DTU 百分比 」電子郵件警示。請參閱[作法：在 Azure 中接收警示通知和管理警示規則](http://msdn.microsoft.com/library/azure/dn306638.aspx)，以了解如何設定警示通知的詳細資訊。
+	例如，您可以設定若過去 5 分鐘的平均 DTU 百分比值超出 75% 則發出「 DTU 百分比 」電子郵件警示。若要深入了解如何設定警示通知，請參閱[接收警示通知](insights-receive-alert-notifications.md)。
 
 
-- **排定的效能層級升級/降級：**如果應用程式有特殊情況，只有在某天/週的特定時間需要更多效能，您可以使用 [Azure 自動化](http://msdn.microsoft.com/library/azure/dn643629.aspx)，以計劃的作業方式將資料庫升級或降級為較高/較低的效能層級。
+- **排定的效能層級升級/降級：**如果應用程式有特殊情況，只有在某天/週的特定時間需要更多效能，您可以使用 [Azure 自動化](https://azure.microsoft.com/documentation/services/automation/)，以計劃的作業方式將資料庫升級或降級為較高/較低的效能層級。
 
 	例如，每週的批次/維護工作期間將資料庫升級至較高的效能層級，然後在工作完成後將它降級。這種排程也適用於任何大型的資源密集作業，像是資料載入和索引重建等。請注意，Azure SQL Database 計費模型基礎是每小時的服務層/效能層級使用量。這種彈性可讓您以更符合成本效益的方式規劃排程或計劃的升級。
 
 
 
 ## 摘要
-Azure SQL Database 服務提供遙測資料和工具，可用於評估您的 Web/Business 資料庫工作負載，並判斷適合升級的最佳服務層。升級程序相當簡單，不需將資料庫離線即可完成，而且不會遺失資料。升級之資料庫的好處是效能將可預期，還有新服務層所提供的額外功能。
+Azure SQL Database 服務提供遙測資料和工具，可用於評估您的 Web/Business 資料庫工作負載，並判斷要升級的最佳服務層。升級程序相當簡單，不需將資料庫離線即可完成，而且不會遺失資料。升級之資料庫的好處是效能將可預期，還有新服務層所提供的額外功能。
 
 
 
@@ -305,4 +317,4 @@ Azure SQL Database 服務提供遙測資料和工具，可用於評估您的 Web
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

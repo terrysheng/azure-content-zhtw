@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="sstein"/>
 
 # SQL Database 定價層建議
@@ -27,12 +27,16 @@
 
 - [變更 SQL Database 的服務層級和效能等級 (定價層)](sql-database-scale-up.md)
 - [將 Azure SQL Server 升級至 V12](sql-database-v12-upgrade.md)
+- 瀏覽至您的 V12 伺服器 - 如果您的資料庫可以[在彈性資料庫集區中受益](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)，伺服器刀鋒視窗將會顯示一則訊息來指出建議的集區。按一下訊息來建立建議的集區。
 - [建立彈性資料庫集區](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+
+
+
 
 
 ## 概觀
 
-SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目前的效能和功能需求。此外，還會根據資料庫的大小決定至少可接受的服務層，並且啟用[商務持續性](https://msdn.microsoft.com/library/azure/hh852669.aspx)功能。
+SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，藉此分析目前的效能和功能需求。此外，還會根據資料庫的大小決定至少可接受的服務層，並且啟用[商務持續性](sql-database-business-continuity.md)功能。
 
 然後 Azure 會分析這項資訊，並且建議最適合的服務層和效能等級，以用於執行資料庫典型工作負載和維護其目前功能集。
 
@@ -55,9 +59,8 @@ SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，�
 選取現有的 Web 或商務資料庫，然後按一下 [定價層] 磚，可取得定價層建議。(當您[將 Azure SQL Server 升級至 V12](sql-database-v12-upgrade.md) 時也會獲得定價層建議。)
 
 1. 登入 [Azure 預覽入口網站](https://portal.azure.com/)。
-2. 按一下左側功能表中的 [瀏覽]。
-3. 按一下 [瀏覽] 刀鋒視窗中的 [SQL Database]。
-4. 在 [SQL Database] 刀鋒視窗中，按一下您想讓服務分析的資料庫。
+2. 按一下 [瀏覽] > [SQL 資料庫]。
+4. 在 [SQL 資料庫] 刀鋒視窗中，按一下您想要查看建議的資料庫：
 
     ![選取資料庫][1]
 
@@ -97,4 +100,4 @@ SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，�
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

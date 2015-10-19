@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 入門：連接到 Azure SQL 資料倉儲
@@ -179,9 +179,9 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 	若要執行查詢，請按一下綠色箭頭，或使用下列快速鍵：`CTRL`+`SHIFT`+`F5`。
 
 ## 後續步驟 ##
-您現在已經能夠進行連接和查詢，請嘗試[載入範例資料][]或[開發程式碼][]。
+您現在已經能夠進行連接和查詢，請嘗試[載入範例資料][]。
 
 [載入範例資料]: ./sql-data-warehouse-get-started-load-samples.md
-[開發程式碼]: ./articles/sql-data-warehouse-overview-develop/
+[developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

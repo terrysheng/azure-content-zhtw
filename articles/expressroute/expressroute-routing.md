@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 
@@ -20,9 +20,9 @@
 
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。有些連線提供者會以受管理的服務形式提供路由的設定和管理。請洽詢您的連線服務提供者，以查看他們是否提供這類服務。如果沒有，您必須遵守以下所述的需求。
 
-如需必須設定才能進行連線的路由工作階段的說明，請參閱[循環和路由網域](expressroute-circuit-peerings.md)一文。
+如需必須設定才能進行連線的路由工作階段的說明，請參閱[線路和路由網域](expressroute-circuit-peerings.md)一文。
 
-**注意：**Microsoft 不支援任何高可用性組態的路由器備援通訊協定 (HSRP、VRRP 等等)。我們依賴每個對等互連的一組備援 BGP 工作階段來取得高可用性。
+**注意：**Microsoft 不支援任何高可用性組態的路由器備援通訊協定 (如 HSRP、VRRP)。我們依賴每個對等互連的一組備援 BGP 工作階段來取得高可用性。
 
 ## 對等互連的 IP 位址
 
@@ -36,9 +36,9 @@
  - 用於路由的子網路可以是私人 IP 位址或公用 IP 位址。
  - 子網路不得與客戶保留以便用於 Microsoft Cloud 的範圍衝突。
  - 如果使用 /29 子網路，它就會分割成兩個 /30 子網路。 
- - 第一個 /30 子網路將用於主要連結，而第二個 /30 子網路將用於次要連結。
- - 針對每個 /30 子網路，您必須在您的路由器上使用 /30 子網路的第一個 IP 位址。Microsoft 會使用 /30 子網路的第二個 IP 位址來設定 BGP 工作階段。
- - 您必須設定兩個 BGP 工作階段，我們的[可用性 SLA](http://azure.microsoft.com/support/legal/sla/) 才會有效。  
+	 - 第一個 /30 子網路將用於主要連結，而第二個 /30 子網路將用於次要連結。
+	 - 針對每個 /30 子網路，您必須在您的路由器上使用 /30 子網路的第一個 IP 位址。Microsoft 會使用 /30 子網路的第二個 IP 位址來設定 BGP 工作階段。
+	 - 您必須設定兩個 BGP 工作階段，我們的[可用性 SLA](http://azure.microsoft.com/support/legal/sla/) 才會有效。  
 
 #### 私人對等互連範例
 
@@ -46,7 +46,7 @@
 
 a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下傳遞至 Microsoft。您將使用 a.b.c.d+1 作為主要 PE 的 VRF IP，而 Microsoft 將使用 a.b.c.d+2 作為主要 MSEE 的 VRF IP。您將使用 a.b.c.d+5 作為次要 PE 的 VRF IP，而 Microsoft 將使用 a.b.c.d+6 作為次要 MSEE 的 VRF IP。
 
-請考慮您選取 192.168.100.128/29 來設定私人互連的情況。192.168.100.128/29 包含從 192.168.100.128 至 192.168.100.133 的位址，其中︰
+請考慮您選取 192.168.100.128/29 來設定私人互連的情況。192.168.100.128/29 包含從 192.168.100.128 至 192.168.100.135 的位址，其中︰
 
 - 192\.168.100.128/30 將會指派給 link1 (提供者使用 192.168.100.129，而 Microsoft 使用 192.168.100.130)。
 - 192\.168.100.132/30 將會指派給 link2 (提供者使用 192.168.100.133，而 Microsoft 使用 192.168.100.134)。
@@ -70,12 +70,12 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](rr.Level3.net)
+- [LEVEL3](http://rr.Level3.net/)
 
 
 ## 動態路由交換
 
-路由交換將會透過 eBGP 通訊協定。MSEEs 與您的路由器之間會建立 EBGP 工作階段。不一定需要驗證 BGP 工作階段。如有必要，也可以設定 MD5 雜湊。查看路由組態工作流程中有關設定 BGP 工作階段的資訊。
+路由交換將會透過 eBGP 通訊協定。MSEEs 與您的路由器之間會建立 EBGP 工作階段。不一定需要驗證 BGP 工作階段。如有必要，也可以設定 MD5 雜湊。如需設定 BGP 工作階段的資訊，請參閱[設定路由](expressroute-howto-routing-classic.md)和[線路佈建工作流程和線路狀態](expressroute-workflows.md)。
 
 ## 自發系統號碼
 
@@ -91,7 +91,7 @@ Microsoft 將使用 AS 12076 進行 Azure 公用、Azure 私人和 Microsoft 對
 
 ## 傳輸路由和跨區域路由
 
-ExpressRoute 不能設定為傳輸路由器。您必須依賴連線提供者的傳輸巡迴服務。
+ExpressRoute 不能設定為傳輸路由器。您必須依賴連線提供者的傳輸路由服務。
 
 ## 公告預設路由
 
@@ -114,7 +114,7 @@ ExpressRoute 不能設定為傳輸路由器。您必須依賴連線提供者的�
 
 如需地理政治地區、相關聯的 Azure 區域和對應的 ExpressRoute 對等互連位置的詳細清單，請參閱 [ExpressRoute 合作夥伴和對等互連位置](expressroute-locations.md)網頁。
 
-您可以針對每個地理政治區域購買多個 ExpressRoute 循環。如果擁有多個連線，您即可因為異地備援而有明顯的高可用性優勢。具有多個 ExpressRoute 循環的情況下，您會從 Microsoft 收到同一組有關公用對等互連和 Microsoft 對等互連路徑的前置詞。這表示您將會有多個路徑可從其網路連到 Microsoft。這可能會導致在您的網路中做出次佳的路由決策。因此，您可能會遇到次佳的不同服務連線體驗。
+您可以針對每個地理政治區域購買多個 ExpressRoute 循環。如果擁有多個連線，您即可因為異地備援而有明顯的高可用性優勢。具有多個 ExpressRoute 循環的情況下，您會從 Microsoft 收到同一組有關公用對等互連和 Microsoft 對等互連路徑的前置詞。這表示您將會有多個路徑可從您的網路連到 Microsoft。這可能會導致在您的網路中做出次佳的路由決策。因此，您可能會遇到次佳的不同服務連線體驗。
 
 Microsoft 會以適當的 BGP 社群值標記透過公用對等互連和 Microsoft 對等互連公告的前置詞，表示前置詞裝載於的區域。您可以依賴社群值來做出適當的路由決策，以提供最佳路由給客戶。
 
@@ -156,13 +156,14 @@ Microsoft 會以適當的 BGP 社群值標記透過公用對等互連和 Microso
 
 ### 管理路由偏好設定
 
-Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對等互連設定一組 BGP 工作階段，以確保符合[可用性 SLA](http://azure.microsoft.com/support/legal/sla/) 的需求。不過，您可以依賴標準的 BGP 路由操作技術，將您的網路設定成偏好某一個連結。您可以將不同的 BGP 本機喜好設定套用至每個連結，偏好某一個從您的網路至 Microsoft 的路徑。您可以在路由公告前面加上 as-path，以影響從 Microsoft 到您的網路的流量流程。
+Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對等互連設定一組 BGP 工作階段，以確保符合[可用性 SLA](http://azure.microsoft.com/support/legal/sla/) 的需求。不過，您可以依賴標準的 BGP 路由操作技術，將您的網路設定成偏好某一個連結。您可以將不同的 BGP 本機喜好設定套用至每個連結，偏好某一個從您的網路至 Microsoft 的路徑。您可以在路由公告前面加上 AS-PATH，以影響從 Microsoft 到您的網路的流量流程。
 
 ## 後續步驟
 
 - 設定 ExpressRoute 連線。
+
 	- [建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

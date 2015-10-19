@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何使用服務匯流排佇列 (Java) | Microsoft Azure"
+	pageTitle="如何搭配使用服務匯流排佇列與 Java | Microsoft Azure"
 	description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例以 Java 撰寫。"
 	services="service-bus"
 	documentationCenter="java"
@@ -13,29 +13,34 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # 如何使用服務匯流排佇列
 
-本指南將說明如何使用服務匯流排佇列。相關範例是以 Java 撰寫並使用 [Azure SDK for Java][]。本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
+本文說明如何使用服務匯流排佇列。相關範例是以 Java 撰寫並使用 [Azure SDK for Java][]。本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
 ## 設定應用程式以使用服務匯流排
-先確定已安裝 [Azure SDK for Java][] 再建置此範例。如果使用 Eclipse，您可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][]。然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-在 Java 檔案頂端新增下列 import 陳述式：
+先確定已安裝 [Azure SDK for Java][] 再建置此範例。如果您正在使用 Eclipse，就可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][]。然後可將 **Microsoft Azure Libraries for Java** 新增至您的專案：
 
-	// Include the following imports to use Service Bus APIs
-	import com.microsoft.windowsazure.services.servicebus.*;
-	import com.microsoft.windowsazure.services.servicebus.models.*;
-	import com.microsoft.windowsazure.core.*;
-	import javax.xml.datatype.*;
+![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-## 如何建立佇列
+在 Java 檔案頂端新增下列 `import` 陳述式：
 
-可以透過 **ServiceBusContract** 類別，來執行服務匯流排佇列的管理作業。**ServiceBusContract** 物件可使用封裝 SAS 權限權加以管理的適當組態來建構，而對於 Azure，**ServiceBusContract** 類別是唯一的通訊點。
+```
+// Include the following imports to use Service Bus APIs
+import com.microsoft.windowsazure.services.servicebus.*;
+import com.microsoft.windowsazure.services.servicebus.models.*;
+import com.microsoft.windowsazure.core.*;
+import javax.xml.datatype.*;
+```
+
+## 建立佇列
+
+可以透過 **ServiceBusContract** 類別，來執行服務匯流排佇列的管理作業。**ServiceBusContract** 物件是利用使用權限來封裝 SAS 權杖加以管理的適當組態來建構，而 **ServiceBusContract** 類別是唯一可與 Azure 通訊的點。
 
 **ServiceBusService** 類別提供建立、列舉及刪除佇列的方法。以下範例顯示如何使用 **ServiceBusService** 物件建立名稱為「TestQueue」的佇列及名稱為「HowToSample」的命名空間：
 
@@ -60,7 +65,7 @@
         System.exit(-1);
     }
 
-QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在傳送至佇列的訊息所套用的 [存留時間] 設定預設值)。下列範例將示範如何使用大小上限為 5 GB 的設定，來建立名為 "TestQueue" 的佇列：
+**QueueInfo** 有相關方法可讓您調整佇列的屬性 (例如，針對要在傳送至佇列的訊息所套用的存留時間 (TTL) 設定預設值)。下列範例示範如何使用大小上限為 5 GB 的設定，來建立名為 `TestQueue` 的佇列：
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -69,9 +74,9 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
 
 請注意，您可以在 **ServiceBusContract** 物件上使用 **listQueues** 方法，來檢查服務命名空間內是否已有指定名稱的佇列存在。
 
-## 如何傳送訊息至佇列
+## 傳送訊息至佇列
 
-若要傳送訊息至服務匯流排佇列，應用程式將取得 **ServiceBusContract** 物件。以下的程式碼將示範如何在 "HowToSample" 服務命名空間內對於以上建立的 "TestQueue" 佇列傳送訊息：
+若要將訊息傳送至服務匯流排佇列，應用程式會取得 **ServiceBusContract** 物件。下列程式碼示範如何針對先前在 `HowToSample` 命名空間中建立的 `TestQueue` 佇列傳送訊息：
 
     try
     {
@@ -85,9 +90,9 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
         System.exit(-1);
     }
 
-傳送至 (和擷取自) 服務匯流排佇列的訊息是 **BrokeredMessage** 類別的執行個體。**BrokeredMessage** 物件具有一組標準方法 (例如 **getLabel**、**getTimeToLive**、**setLabel** 和 **setTimeToLive**)、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 **BrokeredMessage** 的建構函式，接著系統便會使用適當的序列化程式來序列化物件。也可以提供 **java.IO.InputStream**。
+傳送至和擷取自服務匯流排佇列的訊息是 [BrokeredMessage][] 類別的執行個體。[BrokeredMessage][] 物件具有一組標準屬性 (例如 [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 和 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx))、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 [BrokeredMessage][] 的建構函式，接著系統便會使用適當的序列化程式來序列化物件。此外，您也可以提供 **java.IO.InputStream** 物件。
 
-下列範例將示範如何傳送五則測試訊息至上述程式碼片段中所取得的 "TestQueue" **MessageSender**：
+下列範例示範如何將五則測試訊息傳送至上述程式碼片段中所取得的 `TestQueue` **MessageSender**：
 
     for (int i=0; i<5; i++)
     {
@@ -101,7 +106,7 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
 
 服務匯流排佇列最多可支援 256 KB 的訊息大小 (包含標準和自訂應用程式屬性的標頭可以容納 64 KB 的大小上限)。佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。此佇列大小會在建立時定義，上限是 5 GB。
 
-## 如何從佇列接收訊息
+## 從佇列接收訊息
 
 自佇列接收訊息的主要方式是使用 **ServiceBusContract** 物件。接收的訊息可在兩種不同的模式下運作：**ReceiveAndDelete** 和 **PeekLock**。
 
@@ -109,7 +114,7 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
 
 在 **PeekLock** 模式中，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它會在已接收的訊息上呼叫 **Delete**，以完成接收程序的第二個階段。當服務匯流排看到 **Delete** 呼叫時，它會將訊息標示為已取用，並將它從佇列中移除。
 
-下列範例將說明如何使用 **PeekLock** 模式 (這不是預設模式) 來接收與處理訊息。下列範例會建立一個無限迴圈，並在訊息抵達 "TestQueue" 時處理訊息：
+以下範例示範如何使用 **PeekLock** 模式 (非預設模式) 來接收與處理訊息。下列範例會建立一個無限迴圈，並在訊息抵達 "TestQueue" 時處理訊息：
 
     	try
 	{
@@ -174,22 +179,13 @@ QueueInfo 有相關方法可讓您調整佇列的屬性 (例如，針對要在�
 
 現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][]，以取得詳細資訊。
 
-如需詳細資訊，也請參閱 [Java 開發人員中心](/develop/java/)。
+如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-TW/library/azure/hh694271.aspx
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigApp
-  [How to: Create a Security Token Provider]: #bkmk_HowToCreateQueue
-  [How to: Send Messages to a Queue]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Queue]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
-  [Next Steps]: #bkmk_NextSteps
+  [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
- 
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

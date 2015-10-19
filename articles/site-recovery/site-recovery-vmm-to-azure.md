@@ -131,16 +131,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 5. 在 [網際網路連線] 中，指定 VMM 伺服器上執行的提供者連接到網際網路的方式。選取 [Use default system proxy settings]，以使用在伺服器上設定的預設網際網路連線設定。
 
-	![網際網路設定](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png)
-	- 如果您想要使用自訂 Proxy，您應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。
-	- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您將必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。
-	- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取。
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的允許清單 IP 範圍。
+	![網際網路設定](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - 如果您想要使用自訂 Proxy，您應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您就必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取 - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 	- 如果您使用的是自訂 proxy，則會使用指定的 proxy 認證自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。設定 proxy 伺服器，讓此帳戶可以成功進行驗證。在 VMM 主控台中，可以修改 VMM RunAs 帳戶設定。若要這樣做，請開啟 [設定] 工作區、展開 [安全性]、按一下 [執行身分帳戶]，然後修改 DRAProxyAccount 的密碼。您必須重新啟動 VMM 服務，這項設定才會生效。
 
@@ -161,11 +152,11 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 8. 按 [下一步]，完成此程序。註冊後，Azure Site Recovery 即可從 VMM 伺服器擷取中繼資料。此伺服器會顯示在保存庫中 [伺服器] 頁面的 [VMM 伺服器] 索引標籤上。
 
->[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來將提供者安裝在適用於 Windows Server 2012 R2 的伺服器核心上
+>[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來在適用於 Windows Server 2012 R2 的伺服器核心上安裝提供者
 >
 >1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
 >2. 停止 System Center Virtual Machine Manager 服務
->3. 從命令提示字元使用**管理員**權限執行下列命令，來解壓縮提供者安裝程式 
+>3. 從命令提示字元使用**管理員**權限執行下列命令，來解壓縮提供者安裝程式
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -184,9 +175,9 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
  - **/proxyAddress**：指定 Proxy 伺服器位址的選用參數。
  - **/proxyport**：指定 Proxy 伺服器連接埠的選用參數。
  - **/proxyUsername**：指定 Proxy 使用者名稱 (如果 Proxy 需要驗證) 的選用參數。
- - **/proxyPassword**：指定用以驗證 Proxy 伺服器之密碼 (如果 Proxy 需要驗證) 的選用參數。 
+ - **/proxyPassword**：指定用以驗證 Proxy 伺服器之密碼 (如果 Proxy 需要驗證) 的選用參數。
 
-  
+
 ## 步驟 4：建立 Azure 儲存體帳戶
 
 如果您沒有 Azure 儲存體帳戶，可按一下 [新增 Azure 儲存體帳戶]。此帳戶應啟用異地複寫。此帳戶應與 Azure 站台復原服務位於相同的區或，且與相同的訂閱相關聯。
@@ -358,6 +349,5 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a>。</LI> </UL>
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

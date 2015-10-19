@@ -24,7 +24,7 @@
 
 本主題說明如何使用 Azure 行動服務所提供的原始檔控制來儲存您的伺服器指令碼。指令碼和其他 JavaScript 程式碼後端檔案可以從本機 Git 儲存機制升級到生產行動服務。它還說明如何定義多個指令碼所需的共用程式碼，以及如何使用 package.json 檔案將 Node.js 模組新增至您的行動服務。
 
-若要完成本教學課程，您必須已建立行動服務，方法是完成[開始使用行動服務]或[將行動服務新增至現有的應用程式]教學課程。
+若要完成本教學課程，您必須已經建立行動服務，方法是完成[開始使用行動服務]教學課程。
 
 ##<a name="enable-source-control"></a>在行動服務中啟用原始檔控制
 
@@ -36,8 +36,7 @@
 
 	安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git]。
 
-	> [AZURE.NOTE]
-	> 在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
+	> [AZURE.NOTE]在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
 
 2. 開啟命令列，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 **[終端機]** 應用程式來存取命令列。
 
@@ -62,7 +61,7 @@
 
 7. 開啟 .\\service\\table 子資料夾並注意其中包含 TodoItem.json 檔案，這是 TodoItem 資料表上操作權限的 JSON 表示。
 
-	當在此資料表上定義伺服器指令碼時，您也會有一或多個名為 <code>TodoItem._&lt;operation&gt;_.js</code> 的檔案，檔案中包含了指定資料表作業的指令碼。排程器和自訂 API 指令碼會在名為排程器和自訂 API 指令碼的個別資料夾中分別進行維護。如需詳細資訊，請參閱[原始檔控制]。
+	當您已在此資料表上定義伺服器指令碼時，也會有一或多個名為 <code>TodoItem._&lt;operation&gt;_.js</code> 的檔案，其中包含指定資料表作業的指令碼。排程器和自訂 API 指令碼會在名為排程器和自訂 API 指令碼的個別資料夾中分別進行維護。如需詳細資訊，請參閱[原始檔控制]。
 
 現在您已建立本機儲存機制，您可以對伺服器指令碼進行變更，並將變更推送回行動服務。
 
@@ -94,9 +93,7 @@
 
 	您應會看到一連串命令，指出已將認可部署到行動服務。
 
-6. 回到管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表、[**指令碼**]，再選取 [**插入**] 作業。
-7. 
-	請注意，顯示的插入作業指令碼會與您剛才上傳至儲存機制的 JavaScript 程式碼相同。
+6. 回到管理入口網站，依序按一下 [資料] 索引標籤、[TodoItem] 資料表及 [指令碼]，然後選取 [插入] 作業。請注意，顯示的插入作業指令碼會與您剛才上傳至儲存機制的 JavaScript 程式碼相同。
 
 ##<a name="use-npm"></a>在伺服器指令碼中運用共用程式碼和 Node.js 模組
 
@@ -104,7 +101,7 @@
 
 建議的方法是藉由將參考新增至服務的 package.json 檔案，以將 Node.js 模組新增至您的行動服務。接著，您必須更新 package.json 檔案，以將 [node-uuid] Node.js 模組新增至您的行動服務。當更新發行至 Azure 時，將會重新啟動行動服務，並安裝模組。接著便可使用此模組，來為插入項目上的 **uuid** 屬性產生新的 GUID 值。
 
-2. 瀏覽至本機 Git 儲存機制的 `.\service` 資料夾，並在文字編輯器中開啟 package.json 檔案，然後將下列欄位加入 **dependencies** 物件：
+2. 瀏覽至本機 Git 儲存機制的 `.\service` 資料夾、在文字編輯器中開啟 package.json 檔案，然後將下列欄位加入 **dependencies** 物件：
 
 		"node-uuid": "~1.4.3"
 
@@ -133,11 +130,7 @@
 
 現在，您已完成本教學課程，您知道如何在原始檔控制中儲存指令碼。請考慮了解更多有關使用伺服器指令碼和自訂 API 的詳細資料：
 
-+ [在行動服務中使用伺服器指令碼]
-	<br/>說明如何使用伺服器指令碼、工作排程器和自訂 API。
-
-+ [從用戶端呼叫自訂 API] 
-	<br/>說明如何建立可從用戶端呼叫的自訂 API。
++ [在行動服務中使用伺服器指令碼] <br/>說明如何使用伺服器指令碼、工作排程器和自訂 API。
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -155,11 +148,9 @@
 [原始檔控制]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [開始使用行動服務]: mobile-services-ios-get-started.md
-[將行動服務新增至現有的應用程式]: mobile-services-ios-get-started-data.md
 [在行動服務中使用伺服器指令碼]: mobile-services-how-to-use-server-scripts.md
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[從用戶端呼叫自訂 API]: mobile-services-ios-call-custom-api.md
+[Azure Management Portal]: https://manage.windowsazure.com/
 [模組]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

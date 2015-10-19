@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用 Xamarin.Android 的行動服務" 
+	pageTitle="開始使用 Xamarin.Android 的行動服務 | Microsoft Azure" 
 	writer="craigd" 
 	description="了解如何透過 Xamarin.Android 應用程式使用 Azure 行動服務。" 
 	documentationCenter="xamarin" 
@@ -13,21 +13,25 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.topic="hero-article" 
+	ms.date="10/05/2015" 
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>開始使用行動服務
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>本教學課程將示範如何使用 Azure 行動服務，以將雲端後端服務新增至 Xamarin.Android 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單<em>待辦事項</em>應用程式。</p>
-<p>以下是完成應用程式的螢幕擷取畫面：</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">10:05</span></div>
-</div>
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+本教學課程將示範如何使用 Azure 行動服務，以將雲端後端服務新增至 Xamarin.Android 應用程式。在本教學課程中，您將建立新的行動服務和簡單的*待辦事項清單*應用程式，後者會在前者儲存應用程式資料。
+
+如果您想要看影片，下方片段播放的步驟與本教學課程相同。
+
+影片：「開始使用 Xamarin 和 Azure 行動服務」(Getting Started with Xamarin and Azure Mobile Services)，示範者為 Xamarin 推廣開發人員 Craig Dunn (片長：10 分 05 秒)
+
+> [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
+
+以下是完成應用程式的螢幕擷取畫面：
 
 ![][0]
 
@@ -35,7 +39,7 @@
 
 下載的快速入門專案包含 Xamarin.Android 的 Azure 行動服務元件。雖然這個專案的目標是 Android 4.2 或以上的版本，不過行動服務 SDK 只需要 Android 2.2 或以上的版本。
 
-> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank)。
+> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5)。
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
@@ -71,10 +75,6 @@
 
 2. 在 Xamarin Studio 或 Visual Studio 中，依序按一下 [檔案]、[開啟]，瀏覽至未壓縮的範例檔案，並選取 **XamarinTodoQuickStart.Android.sln** 以將其開啟。
 
- 	![][8]
-
-	![][9]
-
 3. 按 [執行] 按鈕，以建立專案並啟動應用程式。系統將要求您選取模擬器或連接的 USB 裝置。
 
 	> [AZURE.NOTE]若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。請使用 AVD 管理員來建立和管理這些裝置。
@@ -98,11 +98,15 @@
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [開始使用離線資料同步] <br/>了解快速入門如何使用離線資料同步，讓應用程式更穩健及具備回應力。
+* [開始使用離線資料同步] 了解快速入門如何使用離線資料同步，讓 App 更穩健及具備回應力。
 
-* [開始使用驗證] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [開始使用驗證] 了解如何向身分識別提供者驗證 App 的使用者。
 
-* [開始使用推播通知] <br/>了解如何將極為基本的推播通知傳送到應用程式。
+* [開始使用推播通知] 了解如何將極為基本的推播通知傳送到 App。
+
+* [如如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端](partner-xamarin-mobile-services-how-to-use-client-library.md) 了解如何查詢行動服務、處理資料，以及存取自訂 API。
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -137,4 +141,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

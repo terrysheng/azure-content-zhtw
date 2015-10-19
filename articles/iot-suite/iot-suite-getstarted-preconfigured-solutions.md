@@ -13,16 +13,16 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
-     ms.date="09/08/2015"
+     ms.date="09/29/2015"
      ms.author="araguila"/>
 
 # IoT 預先設定解決方案入門
 
 ## 簡介
 
-Azure IoT Suite 預先設定解決方案將數個 Azure IoT 服務連接在一起，以示範滿足商業物聯網案例的端對端解決方案。
+Azure IoT Suite 預先設定解決方案將數個 Azure IoT 服務連接在一起，以示範滿足商業物聯網 (IoT) 案例的端對端解決方案。
 
-本教學課程示範如何佈建預先設定解決方案 (遠端監視)。其中也說明如何檢視遠端監視預先設定解決方案的基本功能。
+本教學課程示範如何佈建預先設定解決方案**遠端監視**。其中也說明如何檢視遠端監視預先設定解決方案的基本功能。
 
 若要完成本教學課程，您需要下列項目：
 
@@ -32,7 +32,7 @@ Azure IoT Suite 預先設定解決方案將數個 Azure IoT 服務連接在一�
 
 ## 佈建遠端監視預先設定解決方案
 
-1.  登入 <https://azureiotsuite.com>，然後按一下 [+] 建立新的解決方案。
+1.  登入 https://www.azureiotsuite.com，然後按一下 [+] 建立新的解決方案。
 
 2.  選取 [遠端監視] 為解決方案類型。
 
@@ -60,7 +60,7 @@ Azure IoT Suite 預先設定解決方案將數個 Azure IoT 服務連接在一�
 
 1.  按一下所選模擬裝置之裝置詳細資料窗格中的 [傳送命令]。
 
-2.  選取命令下拉式清單中的 [PingDevice]。
+2.  選取命令清單中的 [PingDevice]。
 
 3.  按一下 [傳送命令]。
 
@@ -106,10 +106,13 @@ Azure IoT Suite 預先設定解決方案將數個 Azure IoT 服務連接在一�
 
 您已經建置一個可運作的預先設定解決方案，接下來可以進行下列案例：
 
--   自訂預先設定解決方案指南
+-   [自訂預先設定解決方案指南][]
 
--   IoT Suite 概觀
+-   [IoT Suite 概觀][]
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
 
-<!---HONumber=Oct15_HO1-->
+[自訂預先設定解決方案指南]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
+[IoT Suite 概觀]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
+
+<!---HONumber=Oct15_HO2-->

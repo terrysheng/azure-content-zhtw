@@ -382,6 +382,7 @@
 [將驗證新增至您的應用程式]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 管理入口網站]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [註冊使用 Azure Active Directory 登入]: mobile-services-how-to-register-active-directory-authentication.md

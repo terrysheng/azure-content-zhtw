@@ -274,11 +274,11 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	- 如果您使用自訂 Proxy，或者您的預設 Proxy 需要驗證，您必須輸入 Proxy 詳細資料，包含位址、連接埠和認證。
 	- 下列 URL 應可透過 Proxy 存取：
 		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
-- 如果您有以 IP 位址為基礎的防火牆規則，請確保規則均設定為允許組態伺服器可與 [Azure 資料中心 IP 範圍](https://msdn.microsoft.com/zh-TW/library/azure/dn175718.aspx)和 HTTPS (443) 通訊協定中所述的 IP 位址通訊。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+		- **.accesscontrol.windows.net
+		- **.backup.windowsazure.com
+		- **.blob.core.windows.net
+		- **.store.core.windows.net
+	- 如果您有以 IP 位址為基礎的防火牆規則，請確保規則均設定為允許組態伺服器可與 [Azure 資料中心 IP 範圍](https://msdn.microsoft.com/zh-tw/library/azure/dn175718.aspx)和 HTTPS (443) 通訊協定中所述的 IP 位址通訊。您必須具有打算使用以及美國西部之 Azure 區域的核准清單 IP 範圍。
 
 	![Proxy 註冊](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -379,9 +379,9 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	![Windows 主要目標伺服器](./media/site-recovery-vmware-to-azure/ASRVMWare_TSRegister.png)
 
 8. 如果您在執行 Linux：
-	1. 確定您已安裝最新的 Linux Integration Services (LIS)，之後才安裝主要目標伺服器軟體。您可以在[這裡](https://www.microsoft.com/zh-TW/download/details.aspx?id=46842)找到最新版本的 LIS 以及安裝指示。LIS 安裝之後重新啟動電腦。
+	1. 確定您已安裝最新的 Linux Integration Services (LIS)，之後才安裝主要目標伺服器軟體。您可以在[這裡](https://www.microsoft.com/zh-tw/download/details.aspx?id=46842)找到最新版本的 LIS 以及安裝指示。LIS 安裝之後重新啟動電腦。
 	2. 在 [準備目標 (Azure) 資源] 中，按一下 [下載並安裝其他軟體 (僅適用 Linux 主要目標伺服器)] 以下載 Linux 主要目標伺服器封裝。將下載的 tar 檔案複製到使用 sftp 用戶端的虛擬機器。或者您可以登入已部署的 Linux 主要目標伺服器並使用 *wgethttp://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* 下載檔案。
-2. 使用安全殼層用戶端登入伺服器。請注意，如果您已透過 VPN 連線到 Azure 網路，請使用內部 IP 位址。否則請使用外部 IP 位址與 SSH 公用端點。
+	2. 使用安全殼層用戶端登入伺服器。請注意，如果您已透過 VPN 連線到 Azure 網路，請使用內部 IP 位址。否則請使用外部 IP 位址與 SSH 公用端點。
 	3. 將檔案從 Gzip 安裝程式解壓縮，方法是執行：**tar – xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***![Linux 主要目標伺服器](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. 請確認您在解壓縮 tar 檔案內容的目錄中。
 	5. 使用命令 **echo *`<passphrase>`* >passphrase.txt** 將組態伺服器的複雜密碼複製到本機檔案
@@ -405,12 +405,12 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 2.  將下載的 zip 檔案複製到您要安裝處理序伺服器的伺服器。zip 檔案包含兩個安裝檔案：
 
-	- Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows*
-	- Microsoft-ASR\_CX\_8.4.0.0\_Windows*
+	- Microsoft-ASR_CX_TP_8.4.0.0_Windows*
+	- Microsoft-ASR_CX_8.4.0.0_Windows*
 
 3. 解壓縮封存，並將安裝檔案複製到伺服器上的位置。
-4. 執行 **Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows*** 安裝檔案並遵循指示。這樣可以安裝部署所需第三方廠商元件。
-5. 然後執行 **Microsoft-ASR\_CX\_8.4.0.0\_Windows***。
+4. 執行 **Microsoft-ASR_CX_TP_8.4.0.0_Windows*** 安裝檔案並遵循指示。這樣可以安裝部署所需第三方廠商元件。
+5. 然後執行 **Microsoft-ASR_CX_8.4.0.0_Windows***。
 6. 在 [伺服器模式] 頁面上，選取 [處理序伺服器]。
 
 	![伺服器選取模式](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -754,8 +754,10 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 1. 移至 [伺服器] 下的 [組態伺服器] 頁面
 2. 按一下組態伺服器的名稱並移至 [伺服器詳細資料]。
-3. 在 [處理序伺服器] 清單中，按一下您要修改的伺服器旁的 [變更處理序伺服器]。![變更處理序伺服器 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
-4. 在 [變更處理序伺服器] 對話方塊中，於 [目標處理序伺服器] 中選取新伺服器，然後選取您想要複寫到新伺服器的虛擬機器。按一下伺服器名稱旁的資訊圖示，以取得其相關資訊，包括可用空間、使用的記憶體。隨即顯示將每個選取的虛擬機器複寫到新的處理序伺服器所需的平均空間，協助您進行負載的判斷。![變更處理序伺服器 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+3. 在 [處理序伺服器] 清單中，按一下您要修改的伺服器旁的 [變更處理序伺服器]。
+	![變更處理序伺服器 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
+4. 在 [變更處理序伺服器] 對話方塊中，於 [目標處理序伺服器] 中選取新伺服器，然後選取您想要複寫到新伺服器的虛擬機器。按一下伺服器名稱旁的資訊圖示，以取得其相關資訊，包括可用空間、使用的記憶體。隨即顯示將每個選取的虛擬機器複寫到新的處理序伺服器所需的平均空間，協助您進行負載的判斷。
+	![變更處理序伺服器 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
 5. 按一下核取記號以開始複寫到新處理序伺服器。如果從某個重要的處理序伺服器中移除所有虛擬機器，儀表板中應該不會再顯示重大警告。
 
 

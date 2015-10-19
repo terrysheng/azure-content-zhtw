@@ -109,7 +109,8 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 * 如需建置和部署多容器 App 的其他範例，請參閱 [Compose CLI 參考](http://docs.docker.com/compose/cli/)和[使用者指南](http://docs.docker.com/compose/)。
 * 使用 Azure 資源管理員範本 (您自己的範本或[社群](http://azure.microsoft.com/documentation/templates/)提供的範本) 部署包含 Docker 的 Azure VM，以及使用 Compose 設定的應用程式。例如，[以 Docker 部署 WordPress 部落格](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/)範本使用 Docker 和 Compose，藉由 Ubuntu VM 上的 MySQL 後端快速部署 WordPress。
-* 嘗試整合 Docker Compose 與 [Docker Swarm](virtual-machines-docker-swarm.md) 叢集。如需案例，請參閱 [Docker Compose/Swarm 整合](https://github.com/docker/compose/blob/master/SWARM.md)。
+* 嘗試整合 Docker Compose 與 [Docker Swarm](virtual-machines-docker-swarm.md) 叢集。如需案例，請參閱
+[Docker Compose/Swarm 整合](https://github.com/docker/compose/blob/master/SWARM.md)。
 
 <!--Image references-->
 

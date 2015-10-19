@@ -33,7 +33,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure**，這應該會導致下列輸出：
 
@@ -150,7 +150,9 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 您可以使用 **ServiceBusService** 物件的 **createRule** 方法將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
 
-> [AZURE.NOTE]由於預設篩選器會自動套用至所有新的訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 將會覆寫您指定的其他任何篩選器。您可以使用 **ServiceBusService** 物件的 **deleteRule** 方法移除預設規則。
+> [AZURE.NOTE]
+
+> 由於預設篩選器會自動套用至所有新訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 會覆寫您指定的其他任何篩選器。您可以使用 **ServiceBusService** 物件的 **deleteRule** 方法移除預設規則。
 
 以下範例將建立名為 `HighMessages` 的訂用帳戶，而且所含的 **SqlFilter** 只會選取自訂 **messagenumber** 屬性大於 3 的訊息：
 

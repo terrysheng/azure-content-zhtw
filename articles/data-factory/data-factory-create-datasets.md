@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="建立資料庫"
-	description="了解 Azure Data Factory 資料集並學習如何建立它們。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="建立資料庫" 
+	description="了解 Azure Data Factory 資料集並學習如何建立它們。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/05/2015" 
 	ms.author="spelluru"/>
 
 # 資料集
@@ -49,11 +49,11 @@
 | 屬性 | 說明 | 必要 | 預設值 |
 | -------- | ----------- | -------- | ------- |
 | 名稱 | 資料集的名稱 | 是 | NA |
-| Structure | <p>資料集的結構描述</p><p>請參閱[資料集結構](#Structure)一節，以取得詳細資訊</p> | 編號 | NA |
+| structure | <p>資料集的結構描述</p><p>請參閱[資料集結構](#Structure)一節，以取得詳細資訊</p> | 編號 | NA |
 | 類型 | 資料集的類型 | 是 | NA |
 | typeProperties | <p>對應至所選類型的屬性</p><p>請參閱[資料集類型](#Type)一節，以取得支援的類型及其屬性的詳細資訊。</p> | 是 | NA |
 | external | 用來指定資料集是否由 Data Factory 管線明確產生的布林值旗標 | 否 | false | 
-| Availability | <p>定義處理時間範圍或資料集生產的切割模型。</p><p>請參閱[資料集可用性](#Availability)主題，以取得詳細資訊</p><p>請參閱[排程和執行](data-factory-scheduling-and-execution.md)一文，以取得資料集切割模型的詳細資訊</p> | 是 | NA
+| availability | <p>定義處理時間範圍或資料集生產的切割模型。</p><p>請參閱[資料集可用性](#Availability)主題，以取得詳細資訊</p><p>請參閱[排程和執行](data-factory-scheduling-and-execution.md)一文，以取得資料集切割模型的詳細資訊</p> | 是 | NA
 | 原則 | 定義資料集配量必須符合的準則或條件。<p>請參閱[資料集原則](#Policy)主題，以取得詳細資訊</p> | 否 | NA |
 
 ### 範例
@@ -109,8 +109,8 @@
 | -------- | ----------- | -------- | ------- |
 | frequency | 指定資料集配量生產的時間單位。<p>**支援的頻率**：分鐘、小時、日、週、月</p> | 是 | NA |
 | interval | 指定頻率的倍數<p>「頻率 x 間隔」可決定產生配量的頻率。</p><p>如果您需要每小時切割資料集，請將 [**頻率**] 設為 [**小時**]，將 [**間隔**] 設為 **1**。</p><p>**注意：** 如果您將 [頻率] 指定為 [分鐘]，建議您將間隔設為不小於 15</p> | 是 | NA |
-| style | 指定是否應該在間隔開始/結束時產生配量。<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>如果 [頻率] 設為 [月] 且 style 設為 EndOfInterval，則會在月份的最後一天產生配量。如果 style 設為 StartOfInterval，則會在月份的第一天產生配量。<.p><p>如果 [頻率] 設為 [天] 且 style 設為 EndOfInterval，則會在一天的最後一個小時產生配量。</p>如果 [頻率] 設為 [小時] 且 style 設為 EndOfInterval，則會在一小時結束時產生配量。例如，若為下午 1 – 2 點期間的配量，此配量會在下午 2 點產生。</p> | 否 | EndOfInterval |
-| anchorDateTime | 定義排程器用來運算資料集配量界限的時間絕對位置。<p>**注意：** 如果 AnchorDateTime 有比頻率更細微的日期部分，則會忽略更細微的部分。例如，如果 [**間隔**] 為 [**每小時**] \(頻率：小時，間隔：1) 而且 **AnchorDateTime** 包含**分鐘和秒鐘**，則會忽略 AnchorDateTime 的**分鐘和秒鐘**部分。</p>| 否 | 01/01/0001 |
+| style | 指定是否應該在間隔開始/結束時產生配量。<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>如果 [頻率] 設為 [月] 且 style 設為 EndOfInterval，則會在月份的最後一天產生配量。如果 style 設為 StartOfInterval，則會在月份的第一天產生配量。</p><p>如果 [頻率] 設為 [天] 且 style 設為 EndOfInterval，則會在一天的最後一個小時產生配量。</p>如果 [頻率] 設為 [小時] 且 style 設為 EndOfInterval，則會在一小時結束時產生配量。例如，若為下午 1 – 2 點期間的配量，此配量會在下午 2 點產生。</p> | 否 | EndOfInterval |
+| anchorDateTime | 定義排程器用來運算資料集配量界限的時間絕對位置。<p>**注意：** 如果 AnchorDateTime 有比頻率更細微的日期部分，則會忽略更細微的部分。例如，如果 [**間隔**] 為 [**每小時**] (頻率：小時，間隔：1) 而且 **AnchorDateTime** 包含**分鐘和秒鐘**，則會忽略 AnchorDateTime 的**分鐘和秒鐘**部分。</p>| 否 | 01/01/0001 |
 | Offset | 所有資料集配量的開始和結束移位所依據的時間範圍。<p>**附註：** 如果已指定 anchorDateTime 和 offset，結果會是合併的移位。</p> | 否 | NA |
 
 ### anchorDateTime 範例
@@ -142,7 +142,7 @@
 
 
 
-## <a name="Policy"></a> 資料集原則
+## <a name="Policy"></a>資料集原則
 
 資料集中的 Policy 區段定義資料集配量必須符合的準則或條件。
 
@@ -217,4 +217,4 @@
 
   
 
-<!------HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

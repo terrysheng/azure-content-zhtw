@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="稽核和動態資料遮罩的 SQL Database 舊版用戶端支援 | Microsoft Azure" 
-	description="稽核和動態資料遮罩的 SQL Database 舊版用戶端支援" 
+	pageTitle="SQL Database 下層用戶端對稽核和動態資料遮罩的支援 | Microsoft Azure" 
+	description="了解 SQL Database 下層用戶端對稽核和動態資料遮罩的支援。" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="09/01/2015" 
 	ms.author="nadavhelfman"/>
  
-# SQL Database - 稽核和動態資料遮罩的舊版用戶端支援 
+# SQL Database - 下層用戶端對稽核和動態資料遮罩的支援 
 
 
 [稽核](sql-database-auditing-get-started.md)和[動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)與支援 TDS 重新導向的 SQL 用戶端搭配使用。
@@ -33,11 +33,11 @@
 
 - .NET 4.0 和以下版本，
 - ODBC 10.0 和以下版本。
-- JDBC 4.0 和以下版本 (雖然 JDBC 4.0 支援 TDS 7.4，但是未完整支援 TDS 重新導向功能)
+- JDBC (雖然 JDBC 支援 TDS 7.4，但並未完整支援 TDS 重新導向功能)
 - Tedious (適用於 Node.JS)
 
 **備註：**上述伺服器 FDQN 修改可能會對於套用 SQL Server 層級稽核原則有所助益，不需要每個資料庫中的組態步驟 (暫存緩和)。
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

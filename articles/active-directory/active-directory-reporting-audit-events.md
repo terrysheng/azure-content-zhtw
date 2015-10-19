@@ -44,8 +44,8 @@ Azure AD 稽核報告中的事件會保留 180 天。如需保留報告的詳細
 設定授權屬性 | 設定目錄中使用者的授權屬性。
 重設使用者密碼 | 重設目錄中使用者的密碼。
 變更使用者密碼 | 變更目錄中使用者的密碼。
-變更使用者授權 | 變更指派給目錄中使用者的授權。
-更新使用者 | 更新目錄中的使用者。
+變更使用者授權 | 變更指派給目錄中使用者的授權。若要查看哪些授權已更新，請查看此事件之前或之後的「更新使用者」事件。
+更新使用者 | 更新目錄中的使用者。如需可更新的屬性，[請參閱下方](#quotupdate-userquot-attributes)。
 設定強制變更使用者密碼 | 設定可強制使用者在登入時變更其密碼的屬性。
 **群組事件** |
 建立群組 | 在目錄中建立群組。
@@ -58,9 +58,9 @@ Azure AD 稽核報告中的事件會保留 180 天。如需保留報告的詳細
 移除服務主體 | 移除目錄中的服務主體
 新增服務主體認證 | 將認證新增至服務主體。
 移除服務主體認證 | 移除服務主體的認證。
-新增委派項目 | 將委派項目新增至目錄。
-設定委派項目 | 更新目錄中的委派項目。
-移除委派項目 | 移除目錄中的委派項目。
+新增委派項目 | 已在目錄中建立 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)。
+設定委派項目 | 已在目錄中更新 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)。
+移除委派項目 | 已在目錄中刪除 [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity)。
 **角色事件** |
 將角色成員新增至角色 | 將使用者新增至目錄角色。
 移除角色的角色成員 | 從目錄角色移除使用者。
@@ -89,7 +89,7 @@ Promote tenant to partner
 
 --->
 
-### 更新使用者稽核事件中包含的使用者屬性
+## 「更新使用者」屬性
 「更新使用者」稽核事件包含有關哪些使用者屬性已更新的其他資訊。每個屬性的舊值和新值都包含在內。
 
 屬性 | 說明
@@ -108,4 +108,4 @@ TelephoneNumber | 使用者的電話號碼。
 
 稽核記錄是許多標準規定的必要控制項。對於使用 Azure Active Directory 稽核報告以符合其標準規定的客戶，建議客戶提交一份本說明主題的副本 (連同客戶匯出的稽核報告副本)，協助說明報告的詳細資料。如果稽核人員想要了解 Azure 目前符合的法規，請將稽核人員導向至 Microsoft Azure 信任中心的[規範](http://azure.microsoft.com/support/trust-center/compliance/)頁面。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="10/02/2015" 
 	ms.author="omark"/>
 
 # 什麼是 Azure 應用程式服務？
@@ -43,20 +43,20 @@ Azure 應用程式著重於 Web 和行動應用程式的快速開發以及商務
 
 - [**Web 應用程式**](../app-service-web-overview) - 快速建立和部署與您的企業同步調整的關鍵 Web 應用程式。
 - [**行動應用程式**](../app-service-mobile-value-prop-preview) - 隨時透過任何裝置與員工、合作夥伴和客戶聯繫。
-- [**API 應用程式**](../app-service-api-apps-why-best-platform) - 輕鬆建置及取用雲端 API 並利用 API 的經濟效益。
+- [**API Apps**](../app-service-api-apps-why-best-platform) - 輕鬆建置和取用雲端 API。
 - [**邏輯應用程式**](../app-service-logic-what-are-logic-apps) - 將跨雲端的資料存取和使用自動化，而不需要撰寫程式碼。
 
 做為單一的整合式服務，應用程式服務可讓您輕鬆地將上述應用程式類型撰寫成單一方案，進而建置以使用相同後端的 Web 和行動用戶端為目標的應用程式，同時與內部部署系統和常用服務 (例如 Office 365 和 salesforce.com) 整合。
 
 ### App Service 方案
-應用程式服務計劃代表一組您可以在應用程式之間共用的特性和功能。應用程式服務計劃支援一些價格層 (例如，免費、共用、基本及標準)，每一層都有它自己的功能。您可以快速變更要由哪個應用程式服務計劃主控某個應用程式，不需要停止運作。[深入了解應用程式服務計劃](../web-sites-web-hosting-plan-overview.md)。
+應用程式服務計劃代表一組您可以在應用程式之間共用的特性和功能。應用程式服務計劃支援一些價格層 (例如，免費、共用、基本、標準及進階)，每一層都有它自己的功能。您可以快速變更要由哪個應用程式服務計劃主控某個應用程式，不需要停止運作。[深入了解應用程式服務計劃](../web-sites-web-hosting-plan-overview.md)。
 
 ##開始使用應用程式服務
 想體驗一下嗎？ 短短幾秒即可開始。
 
 使用 Azure 應用程式服務，只要選取語言就行了！
 
-立即免費[建立新的 Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=523751)。不需要信用卡，無需承諾和繁複程序。
+立即免費[建立新的應用程式](http://go.microsoft.com/fwlink/?LinkId=523751)。不需要信用卡，無需承諾和繁複程序。
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

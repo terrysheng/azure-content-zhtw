@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="08/05/2015"
+   ms.date="10/07/2015"
    ms.author="ruturajd@microsoft.com"/>
 
 # 從 Azure 到 VMware 的容錯回復步驟
@@ -558,4 +558,4 @@ NAT 組態|以下將詳細討論
 
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

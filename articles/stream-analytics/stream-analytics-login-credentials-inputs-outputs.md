@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 #替換輸入/輸出認證
@@ -137,7 +137,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 	Command(s) completed successfully.
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -193,4 +193,4 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

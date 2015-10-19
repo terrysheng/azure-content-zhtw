@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Data Factory SDK 來建立、監視及管理 Azure Data Factory"
-	description="了解如何使用 Data Factory .NET SDK，以程式設計方式建立、監視和管理 Azure Data Factory。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="使用 Data Factory SDK 來建立、監視及管理 Azure Data Factory" 
+	description="了解如何使用 Data Factory .NET SDK，以程式設計方式建立、監視和管理 Azure Data Factory。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
@@ -56,8 +56,8 @@
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="<subscription ID>" />
-    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
+		    <add key="SubscriptionId" value="your subscription ID" />
+    		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
 6. 將下列 **using** 陳述式加入專案的原始程式檔 (Program.cs) 中。
 
@@ -71,7 +71,7 @@
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. 將下列會建立 **DataPipelineManagementClient** 類別執行個體的程式碼加入 **Main** 方法中。您將使用此物件來建立 Data Factory、連結的服務、輸入和輸出資料表，以及管線。您也將使用此物件來監視執行階段的資料表配量。    
+6. 將下列會建立 **DataPipelineManagementClient** 類別執行個體的程式碼加入 **Main** 方法中。您將使用此物件來建立 Data Factory、連結的服務、輸入和輸出資料集，以及管線。您也將使用此物件來監視執行階段的資料集配量。    
 
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
@@ -123,25 +123,25 @@
                 }
             }
         );
-9. 將下列會建立**輸入和輸出資料表**的程式碼加入 **Main** 方法中。 
+9. 將下列會建立**輸入和輸出資料集**的程式碼加入 **Main** 方法中。 
 
 	請注意，輸入 Blob 的 **FolderPath** 設定為 **adftutorial/**，其中 **adftutorial** 是 Blob 儲存體中的容器名稱。如果 Azure Blob 儲存體中沒有此容器，請以下列名稱建立容器：**adftutorial**，並將文字檔上傳至容器。
 	
 	請注意，輸出 Blob 的 FolderPath 設為：**adftutorial/apifactoryoutput/{Slice}**，其中 **Slice** 是根據 **SliceStart** (每個配量的開始日期時間) 的值自動計算而得。
 
  
-        // create input and output tables
-        Console.WriteLine("Creating input and output tables");
-        string Table_Source = "TableBlobSource";
-        string Table_Destination = "TableBlobDestination";
+        // create input and output datasets
+        Console.WriteLine("Creating input and output datasets");
+        string Dataset_Source = "DatasetBlobSource";
+        string Dataset_Destination = "DatasetBlobDestination";
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Source,
-                    Properties = new TableProperties()
+                    Name = Dataset_Source,
+                    Properties = new DatasetProperties()
                     {
                         LinkedServiceName = "LinkedService-AzureStorage",
                         TypeProperties = new AzureBlobDataset()
@@ -167,13 +167,13 @@
                 }
             });
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Destination,
-                    Properties = new TableProperties()
+                    Name = Dataset_Destination,
+                    Properties = new DatasetProperties()
                     {
 
                         LinkedServiceName = "LinkedService-AzureStorage",
@@ -233,14 +233,14 @@
                                 Inputs = new List<ActivityInput>()
                                 {
                                     new ActivityInput() {
-                                        Name = Table_Source
+                                        Name = Dataset_Source
                                     }
                                 },
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination
+                                        Name = Dataset_Destination
                                     }
                                 },
                                 TypeProperties = new CopyActivity()
@@ -297,7 +297,7 @@
             throw new InvalidOperationException("Failed to acquire token");
         }  
  
-13. 將下列程式碼加入 **Main** 方法中，以取得輸出資料表的資料配量狀態。在此範例中只預期有配量。
+13. 將下列程式碼加入 **Main** 方法中，以取得輸出資料集的資料配量狀態。在此範例中只預期有配量。
  
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
@@ -309,7 +309,7 @@
             // wait before the next status check
             Thread.Sleep(1000 * 12);
 
-            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Table_Destination,
+            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
                 new DataSliceListParameters()
                 {
                     DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
@@ -342,7 +342,7 @@
         var datasliceRunListResponse = client.DataSliceRuns.List(
                 resourceGroupName,
                 dataFactoryName,
-                Table_Destination,
+                Dataset_Destination,
                 new DataSliceRunListParameters()
                 {
                     DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
@@ -363,16 +363,17 @@
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. 建置主控台應用程式。按一下功能表上的 [建置]，再按一下 [建置方案]。如果您取得 **ConfigurationManager** 類別的相關錯誤，請將參考加入 **System.Configuration** 組件並嘗試再次建置。
+15. 在 [方案總管] 中展開專案 (**DataFactoryAPITestApp**)，以滑鼠右鍵按一下 [參考]，然後按一下 [加入參考]。選取 **System.Configuration** 組件的核取方塊，然後按一下 [確定]。
+16. 建置主控台應用程式。按一下功能表上的 [建置]，再按一下 [建置方案]。 
 16. 確認您 Azure Blob 儲存體之 adftutorial 容器中至少有一個檔案。如果沒有，請在「記事本」中以下列內容建立 Emp.txt 檔案，然後將它上傳至 adftutorial 容器。
 
         John, Doe
 		Jane, Doe
 	 
-17. 按一下功能表上的 [偵錯] -> [開始偵錯]，執行範例。當您看到**取得資料配量的執行詳細資料**，請等待數分鐘再按 **ENTER**。
+17. 按一下功能表上的 [偵錯] -> [開始偵錯]，執行範例。當您看到 [取得資料配量的執行詳細資料]，請等待數分鐘再按 **ENTER**。
 18. 使用 Azure Preview 入口網站確認 Data Factory：**APITutorialFactory** 是使用下列成品所建立： 
 	- 連結服務：**LinkedService\_AzureStorage** 
-	- 資料表：**TableBlobSource** 和 **TableBlobDestination**。
+	- 資料集：**DatasetBlobSource** 和 **DatasetBlobDestination**。
 	- 管線：**PipelineBlobSample** 
 18. 確認輸出檔案已建立在 **adftutorial** 容器的 **apifactoryoutput** 資料夾中。
 
@@ -394,4 +395,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

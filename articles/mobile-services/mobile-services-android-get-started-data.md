@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # 將行動服務新增至現有的 Android 應用程式(JavaScript 後端)
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ## 摘要
 
@@ -49,7 +47,7 @@
 
 ## 範例程式碼
 
-若要檢視已完成的原始程式碼，請前往<a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">這裡</a>。
+若要檢視完整的原始程式碼，請前往<a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">這裡</a>。
 
 ## 下載 GetStartedWithData 專案
 
@@ -155,4 +153,4 @@ Android 的**開始使用資料**教學課程到此結束。
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

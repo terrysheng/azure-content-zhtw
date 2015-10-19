@@ -36,7 +36,7 @@
 本教學課程需要下列各項：
 
 * XCode 4.5 和 iOS 6.0 (或更新版本)
-* 完成[開始使用行動服務]或[開始使用資料]教學課程。
+* 完成[開始使用行動服務]教學課程。
 * Microsoft Azure 行動服務 SDK
 * [Active Directory Authentication Library for iOS]
 
@@ -114,10 +114,9 @@
 
 
 <!-- URLs. -->
-[開始使用資料]: mobile-services-ios-get-started-data.md
 [開始使用行動服務]: mobile-services-dotnet-backend-ios-get-started.md
 [如何向 Azure Active Directory 註冊]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

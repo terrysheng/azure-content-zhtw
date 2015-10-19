@@ -93,17 +93,17 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 6. 您會返回 Azure Preview 入口網站的 [自訂部署] 窗格。指定您要在 [新的或現有的自動化帳戶] 中安裝模組，以及指定 [自動化帳戶名稱]。如果您使用現有帳戶，則會略過 [自動化帳戶位置]。 
 7. 選取 [資源群組]，為模組指定現有資源群組或建立新群組。
 6. 您必須選取 [法律條款]，然後按一下 [購買]。請注意，雖然這個按鈕的名稱為購買，但是實際上不會因為安裝模組而向您收費。
-7. 按一下 [建立] 以匯入模組。  
+7. 按一下 [建立] 以匯入模組。因為必須解壓縮每個活動，此步驟可能需要幾分鐘的時間。  
 8. 您會在模組已部署以及模組完成時收到通知。 
 
 
 ## 要求 Runbook 或模組
 
-您可以將要求傳送至 [使用者心聲] (http://feedback.azure.com/[forum](http://social.msdn.microsoft.com/Forums/windowsazure/zh-TW/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)s/246290-azure-automation)。如果您需要協助撰寫 Runbook 或有關於 PowerShell 的問題，請將問題張貼至我們的[論壇](http://social.msdn.microsoft.com/Forums/windowsazure/zh-TW/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)。
+您可以將要求傳送至[使用者心聲](http://feedback.azure.com/forums/246290-azure-automation)。如果您需要協助撰寫 Runbook 或有關於 PowerShell 的問題，請將問題張貼至我們的[論壇](http://social.msdn.microsoft.com/Forums/windowsazure/zh-TW/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)。
 
 ## 相關文章
 
 - [在 Azure 自動化中建立或匯入 Runbook](automation-creating-importing-runbook.md)
 - [了解 PowerShell 工作流程](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

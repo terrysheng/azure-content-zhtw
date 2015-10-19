@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="事件中樞可用性和支援常見問題集"
-   description="事件中樞定價和常見問題集。"
+   pageTitle="事件中樞可用性和支援 | Microsoft Azure"
+   description="事件中樞可用性和支援常見問題集。"
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="sethm" />
 
 # 事件中樞可用性和支援常見問題集
 
 事件中樞提供大規模攝取量、持續性，以及從高輸送量資料來源和/或數百萬台裝置處理資料事件的能力。與服務匯流排佇列和主題配對後，事件中樞可在物聯網案例中實現持續的命令和控制部署。
 
-本節涵蓋可用性資訊，並提供一些常見問題的解答。
+本文討論可用性資訊，並提供一些常見問題的解答。
 
 ## 定價資訊
 
-如需事件中樞定價的相關資訊，請參閱[事件中樞定價詳細資料](http://azure.microsoft.com/pricing/details/event-hubs/)。
+如需事件中樞定價的完整資訊，請參閱[事件中樞定價詳細資料](http://azure.microsoft.com/pricing/details/event-hubs/)。
 
 ## 事件中樞輸入事件的計算方式為何？
 
@@ -100,15 +100,14 @@
 
 ## 後續步驟
 
-若要深入了解事件中樞，請造訪下列主題：
+若要深入了解事件中樞，請參閱下列文章：
 
-- [事件中樞概觀]
+- [事件中樞概觀]。
 - [使用事件中樞的完整範例應用程式]。
 - 使用服務匯流排佇列的[佇列訊息解決方案]。
 
 [事件中樞概觀]: event-hubs-overview.md
-[使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[佇列訊息解決方案]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
- 
+[使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
+   ms.date="09/28/2015"
    ms.author="cherylmc"/>
 
 #  透過 Exchange 提供者設定 ExpressRoute 連線
@@ -231,4 +231,4 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

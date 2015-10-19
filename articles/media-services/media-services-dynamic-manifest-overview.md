@@ -192,6 +192,9 @@
 
 您可以結合最多 3 個篩選條件。
 
+如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)。
+
+
 ##已知問題與限制
 
 - 動態資訊清單會在 GOP 界限 (主要畫面格) 中運作，因此修剪後能夠有精確的 GOP。 
@@ -230,4 +233,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

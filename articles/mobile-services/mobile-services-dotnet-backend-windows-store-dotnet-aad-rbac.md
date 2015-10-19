@@ -44,8 +44,6 @@
 
 在進行[將驗證新增至您的應用程式]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
 
-如果您已瀏覽[存取 Azure Active Directory Graph 資訊]教學課程，代表您已經完成此步驟，並可略過本節。
-
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
@@ -390,7 +388,6 @@
 [註冊使用 Azure Active Directory 登入]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-[存取 Azure Active Directory Graph 資訊]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [適用於 .NET 的 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

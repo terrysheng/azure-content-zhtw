@@ -1,15 +1,33 @@
-<properties pageTitle="在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器" description="逐步完成在 Microsoft Azure 中建立執行 Windows Server 2012 之 Oracle WebLogic Server 12c 虛擬機器的範例。" services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="建立 Oracle WebLogic Server 12c VM | Microsoft Azure"
+	description="在 Microsoft Azure 中使用資源管理員部署模型建立執行 Windows Server 2012 的 Oracle WebLogic Server 12c 虛擬機器。"
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
 #在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器
 以下範例會向您說明如何在 Azure 中以由 Microsoft 所提供並在 Windows Server 2012 上執行的 Oracle WebLogic Server 12c 映像為基礎，建立虛擬機器。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何使用資源管理員部署模型來建立 Oracle WebLogic Server。
+
 
 ##在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器
 
 1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
 
-2. 按一下 [Marketplace]，按一下 [計算]，然後在搜尋方塊中輸入「Oracle」。
+2. 按一下 [Marketplace]，按一下 [計算]，然後在搜尋方塊中輸入 Oracle。
 
-3.	選取 [Windows Server 2012 上的 Oracle WebLogic Server 12c Standard Edition] 或 [Windows Server 2012 上的 Oracle WebLogic Server 12c Enterprise Edition] 映像。檢閱與此映像有關的資訊 (例如建議的大小)，然後按一下 [下一步]。
+3.	選取 [Windows Server 2012 上的 Oracle WebLogic Server 12c Standard Edition] 或 [Windows Server 2012 上的 Oracle WebLogic Server 12c Enterprise Edition] 映像。檢閱與此映像有關的資訊 (例如建議的大小)，然後按 [下一步]。
 
 4.	指定 VM 的 [主機名稱]。
 
@@ -17,16 +35,16 @@
 
 6.	指定並確認 VM 的密碼，或提供 SSH 公用金鑰。
 
-7.	選擇一個 [定價層]。請注意，預設會顯示建議的定價層，以查看所有設定選項，請按一下右上方的 [檢視全部]。
+7.	選擇 [定價層]。請注意，預設會顯示建議的定價層，以查看所有設定選項，請按一下右上方的 [檢視全部]。
 
 8.	考量下列因素，並依照需要設定選用設定：
-	1. 維持 [儲存體帳戶] 不變，以使用 VM 名稱建立新的儲存體帳戶。
+	1. 讓 [儲存體帳戶] 保持不變，以使用 VM 名稱建立新的儲存體帳戶。
 	2. 維持 [可用性集合] 為 [未設定]。
-	3. 此時請勿加入任何「端點」。
+	3. 此時請勿新增任何 [端點]。
 
 9.	選擇或建立[資源群組](resource-group-portal.md)
 
-10. 選擇 [訂用帳戶]
+10. 選擇 [訂用帳戶]。
 
 11. 選擇 [位置]
 
@@ -43,43 +61,43 @@
 
 5.	視需要回應提示以連接虛擬機器。當要求提供系統管理員名稱和密碼的提示出現時，請使用在建立虛擬機器時提供的值。
 
-6.	在 [WebLogic Platform QuickStart] 對話方塊中，按一下 [Getting Started with WebLogic Server] (開始使用 WebLogic Server)。(若尚未開啟 [WebLogic Platform QuickStart] 對話方塊，請按一下 [Windows 開始]，輸入 **Start Admin Server for WebLogic Server Domain**，然後按一下 [Start Admin Server for WebLogic Server Domain] 圖示。)
+6.	在 [WebLogic 平台快速入門] 對話方塊中，按一下 [開始使用 WebLogic Server]。(若尚未開啟 [WebLogic 平台快速入門] 對話方塊，請按一下 [Windows 開始]，輸入**啟動 WebLogic Server 網域的管理伺服器**，然後按一下 [啟動 WebLogic Server 網域的管理伺服器] 圖示。)
 
-7.	在 [Welcome] (歡迎) 對話方塊中，選取 [Create a new WebLogic domain] (建立新的 WebLogic 網域)，然後按一下 [Next] (下一步)。
+7.	在 [歡迎] 對話方塊中，選取 [建立新的 WebLogic 網域]，然後按 [下一步]。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image10.png)
 
-8.	在 [Select Domain Source] (選取網域來源) 對話方塊中，接受預設值然後按一下 [Next] (下一步)。
+8.	在 [選取網域來源] 對話方塊中，接受預設值，然後按 [下一步]。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image11.png)
 
-9.	在 [Specify Domain Name and Location] (指定網域名稱與位置) 對話方塊中，接受預設值然後按一下 [Next] (下一步)。
+9.	在 [指定網域名稱與位置] 對話方塊中，接受預設值，然後按 [下一步]。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image12.png)
 
-10.	在 [Configure Administrator User Name and Password] (設定系統管理員使用者名稱與密碼) 對話方塊中：
+10.	在 [設定系統管理員使用者名稱與密碼] 對話方塊中：
 
 	1.	將使用者名稱從 **weblogic** 變更為您選擇的值 (選擇性)。
 
 	2.	指定並確認 WebLogic Server 系統管理員密碼。
 
-	3.	按 [Next] (下一步)。
+	3.	按 [下一步]。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image13.png)
 
-11.	在 [Configure Server Start Mode and JDK] (設定伺服器開始模式與 JDK) 對話方塊中，選取 [Production Mode] (生產模式)，選取可用的 JDK (或瀏覽至想要的 JDK)，然後按一下 [Next] (下一步)。
+11.	在 [設定伺服器開始模式與 JDK] 對話方塊中，選取 [生產模式]，選取可用的 JDK (或瀏覽至想要的 JDK)，然後按 [下一步]。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image14.png)
 
-12.	在 [Select Optional Configuration] (選取選用設定) 對話方塊中，不要選取任何選項，然後按一下 [Next] (下一步)。
+12.	在 [選取選用設定] 對話方塊中，不要選取任何選項，然後按 [下一步]。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image15.png)
 
-13.	在 [Configuration Summary] (設定摘要) 對話方塊中，按一下 [Create] (建立)。
+13.	在 [設定摘要] 對話方塊中，按一下 [建立]。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image16.png)
 
-14.	在 [Creating Domain] (建立網域) 對話方塊中，選取 [Start Admin Server] (啟動管理伺服器)，然後按一下 [Done] (完成)。
+14.	在 [建立網域] 對話方塊中，勾選 [啟動管理伺服器]，然後按一下 [完成]。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image17.png)
 
@@ -88,23 +106,23 @@
 ##在 Azure 中於 Oracle WebLogic Server 12c 虛擬機器上安裝應用程式
 1.	仍然登入您的虛擬機器，複製在 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 本機可用的 shoppingcart.war 範例。例如，建立名為 **c:\\mywar** 的資料夾，然後將位於 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 的 WAR 儲存至 **c:\\mywar**。
 
-2.	開啟 [WebLogic Server Administration Console] (http://localhost:7001/console)。出現提示時，請提供您的 WebLogic 使用者名稱與密碼。
+2.	開啟 [WebLogic Server 管理主控台] (http://localhost:7001/console)。出現提示時，請提供您的 WebLogic 使用者名稱與密碼。
 
-3.	在 [WebLogic Server Administration Console] 中，依序按一下 [Lock & Edit] (鎖定與編輯)、[Deployments] (部署) 及 [Install] (安裝)。
+3.	在 [WebLogic Server 管理主控台] 中，依序按一下 [鎖定與編輯]、[部署] 及 [安裝]。
 
-4.	對於 [Path] (路徑)，請輸入 **c:\\mywar\\shoppingcart.war**。
+4.	對於 [路徑]，請輸入 **c:\\mywar\\shoppingcart.war**。
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
 
-	按一下 [Next] (下一步)。
+	按 [下一步]。
 
-5.	選取 [Install this deployment as an application] (將此部署安裝為應用程式)，然後按一下 [下一步]。
+5.	選取 [將此部署安裝為應用程式]，然後按 [下一步]。
 
-6.	按一下 [Finish] (完成)。
+6.	按一下 [完成]。
 
-7.	在 [WebLogic Server Administration Console] 中，按一下 [儲存] (Save)，然後按一下 [啟用變更] (Activate Changes)。
+7.	在 [WebLogic Server 管理主控台] 中，按一下 [儲存]，然後按一下 [啟用變更]。
 
-8.	按一下 [Deployments] (部署)，選取 [shoppingcart] (購物車)，然後依序按一下 [Start] (開始) 和 [Service All Requests] (服務所有要求)。在系統提示您確認時，按一下 [Yes] (是)。
+8.	按一下 [部署]，選取 [購物車]，然後依序按一下 [開始] 和 [服務所有要求]。在系統提示您確認時，按一下 [是]。
 
 9.	若要查看在本機執行的購物車應用程式，請開啟瀏覽器並瀏覽 <http://localhost:7001/shoppingcart>
 
@@ -126,11 +144,11 @@
 
 	8.	指定端點的名稱
 
-		1. 使用 [TCP] 做為通訊協定
+		1. 使用 **TCP** 做為通訊協定
 
-		2. 使用 [80] 做為公用連接埠
+		2. 使用 **80** 做為公用連接埠
 
-		3. 使用 [7001] 做為私人連接埠。
+		3. 使用 **7001** 做為私人連接埠。
 
 	9.	維持其餘選項不變
 
@@ -144,13 +162,13 @@
 
 	3.	在防火牆管理主控台中，按一下左邊窗格內的 [輸入規則] (如果您沒有看到 [輸入規則]，請展開左邊窗格內的最上層節點)，然後按一下右邊窗格內的 [新增規則]。
 
-	4.	對於 [規則類型]，請選取 [連接埠]，然後按一下 [下一步]。
+	4.	對於 [規則類型]，請選取 [連接埠]，然後按 [下一步]。
 
-	5.	對於 [通訊協定與連接埠]，請選取 [TCP]，選取 [特定本機連接埠]，輸入 **7001** 做為連接埠，然後按一下 [下一步]。
+	5.	對於 [通訊協定與連接埠]，請選取 [TCP]，選取 [特定本機連接埠]，輸入 **7001** 做為連接埠，然後按 [下一步]。
 
 	6.	選取 [允許連線] 並按一下 [下一步]。
 
-	7.	接受套用規則之設定檔的預設值，然後按一下 [下一步]。
+	7.	接受套用規則之設定檔的預設值，然後按 [下一步]。
 
 	8.	指定規則的名稱並選擇性指定描述，然後按一下 [完成]。
 
@@ -168,4 +186,4 @@
 
 -	[適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

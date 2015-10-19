@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/10/2015"
+   ms.date="10/07/2015"
    ms.author="seanmck"/>
 
 # 設定 Service Fabric 開發環境
@@ -66,7 +66,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```powershell
     cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
     ```
-    
+
 3. 執行
 
     ```powershell
@@ -81,7 +81,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 您可以使用 SDK 隨附的 Service Fabric 總管工具，檢查您的叢集是否已成功建立。
 
-1. 啟動 Service Fabric 總管，方法是執行 
+1. 啟動 Service Fabric 總管，方法是執行
 
     ```powershell
     . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
@@ -106,4 +106,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

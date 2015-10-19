@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="開始為 Android 應用程式使用 Azure 行動服務" 
-	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Android 開發。" 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="開始為 Android 應用程式使用 Azure 行動服務"
+	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Android 開發。"
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="get-started-article"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
@@ -26,7 +26,7 @@
 
 以下是完成應用程式的螢幕擷取畫面：
 
-![][0]
+![](./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png)
 
 完成本教學課程需要 [Android Developer Tools][Android Studio]，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。需要 Android 4.2 或以上的版本。
 
@@ -71,7 +71,7 @@
 1. 在[管理入口網站]中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
 
 2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Android]，並展開 [Create a new Android app]。
- 
+
 	![][2]
 
 3. 如果您尚未這麼做，請在您的本機電腦或虛擬機器下載並安裝 [Android Developer Tools][Android SDK]。
@@ -87,9 +87,9 @@
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [開始使用驗證] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [將推播通知新增至您的應用程式] <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
-* [開始使用推播通知] <br/>了解如何將非常基本的推播通知傳送到應用程式。
+* [在您的 App 中新增驗證] <br/>了解如何將後端資料的存取權限制為已註冊 App 的特定使用者。
 
 * [行動服務 .NET 後端疑難排解]<br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
@@ -118,15 +118,13 @@
 
 <!-- URLs. -->
 [開始使用 (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
-[開始使用驗證]: mobile-services-dotnet-backend-android-get-started-users.md
-[開始使用推播通知]: mobile-services-dotnet-backend-android-get-started-push.md
+[將推播通知新增至您的應用程式]: mobile-services-dotnet-backend-android-get-started-push.md
+[在您的 App 中新增驗證]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [管理入口網站]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

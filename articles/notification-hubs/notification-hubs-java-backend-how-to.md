@@ -17,15 +17,11 @@
 	ms.author="yuaxu"/>
 
 # 如何從 Java 使用通知中樞
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
-本主題說明最新完整支援的官方 Azure 通知中樞 Java SDK 有哪些主要功能。這是開放原始碼專案，您可以在 [Java SDK] 檢視完整的 SDK 程式碼。
+本主題說明最新完整支援的官方 Azure 通知中樞 Java SDK 有哪些主要功能。這是開放原始碼專案，您可以在 [Java SDK] 中檢視完整的 SDK 程式碼。
 
-一般而言，您可以使用通知中心 REST 介面，存取 Java/PHP/Python/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。
+一般而言，您可以使用通知中樞 REST 介面，來存取 Java/PHP/Python/Ruby 後端的所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。
 
 SDK 目前支援：
 
@@ -225,7 +221,7 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 
 	List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**具備 SAS 簽章的 URI：**這是某個 Blob 檔案或 Blob 容器的 URL，加上參數集 (如權限和到期時間)，再加上所有使用帳戶 SAS 金鑰之項目的簽章。Azure Storage Java SDK 具有豐富的功能，包括建立此類的 URI。此外您可以參考 ImportExportE2E 測試類別 (從 github 位置) 的簡單替代方法，它可實作非常基本而精簡的簽署演算法。
+**具備 SAS 簽章的 URI：**這是某個 Blob 檔案或 Blob 容器的 URL，加上參數集 (例如權限和到期時間)，再加上所有使用帳戶 SAS 金鑰之項目的簽章。Azure Storage Java SDK 具有豐富的功能，包括建立此類的 URI。此外您可以參考 ImportExportE2E 測試類別 (從 github 位置) 的簡單替代方法，它可實作非常基本而精簡的簽署演算法。
 
 ###傳送通知
 通知物件是附有標頭的本文，某些公用程式方法有助於建立原生和範本通知物件。
@@ -289,7 +285,7 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 ##<a name="next-steps"></a>後續步驟
 在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
 
-* 下載完整 [Java SDK]，其中包含完整的 SDK 程式碼。 
+* 下載完整的 [Java SDK]，其中包含完整的 SDK 程式碼。 
 * 試用範例：
 	- [開始使用通知中樞]
 	- [傳送即時新聞]
@@ -307,4 +303,4 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

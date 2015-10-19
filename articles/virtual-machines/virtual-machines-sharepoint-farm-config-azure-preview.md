@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -113,7 +113,7 @@ SharePoint Server 伺服器陣列是 Azure Preview 入口網站的一項功能�
 -	資料庫伺服器：
 	-	虛擬機器映像：Windows Server 2012 R2 上的 SQL Server 2014 RTM Enterprise。
 	-	主機名稱首碼：在初始組態期間指定的。
-	-	大小：A5 (預設) 適用於資料庫伺服器，A0 (預設) 適用於檔案共用見證。
+	-	大小：A5 (預設) 適用於資料庫伺服器，A0 (預設) 適用於檔案共用見證 (SQL0)。
 	-	資料庫存取帳戶名稱：在初始組態期間指定的。
 	-	資料庫存取帳戶密碼：在初始組態期間指定的。
 	-	SQL Server 服務帳戶名稱：sqlservice (預設)。
@@ -137,8 +137,8 @@ Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能會在服�
 
 [SharePoint Server 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[Azure 虛擬機器上的 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
 
 [在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

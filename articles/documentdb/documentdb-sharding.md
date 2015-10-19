@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="10/05/2015" 
 	ms.author="arramac"/>
 
 # 如何在 DocumentDB 中使用 .NET SDK 分割資料
@@ -167,4 +167,4 @@ DocumentDB 支援用戶端資料分割的幾個原因如下：
 * [有關效能秘訣的 DocumentDB 部落格](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

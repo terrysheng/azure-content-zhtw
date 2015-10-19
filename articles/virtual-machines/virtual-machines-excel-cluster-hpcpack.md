@@ -1,13 +1,15 @@
 <properties
- pageTitle="開始使用 HPC Pack 叢集以執行 Excel 和 SOA 工作負載 | Microsoft Azure"
- description="。"
+ pageTitle="Excel 和 SOA 適用的 HPC Pack 叢集 | Microsoft Azure"
+ description="使用資源管理員部署模型，開始使用 HPC Pack 叢集以執行 Excel 和 SOA 工作負載。"
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager"/>
+
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
@@ -18,6 +20,8 @@ ms.service="virtual-machines"
 # 開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載
 
 本文將說明如何在 Azure 基礎結構服務 (IaaS) 上使用 Azure 快速入門範本或 Azure PowerShell 部署指令碼部署 HPC Pack 叢集。您將使用 Azure Marketplace VM 映像，其設計目的為使用 HPC Pack 執行 Microsoft Excel 或服務導向架構 (SOA) 工作負載。您可以從內部部署用戶端電腦使用叢集來執行簡單的 Excel HPC 和 SOA 服務。Excel HPC 服務包括 Excel 活頁簿卸載和 Excel 使用者定義函數或 UDF。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋使用資源管理員部署模型建立的資源。
 
 在較高層級上，下圖顯示您將建立的 HPC Pack 叢集。
 
@@ -52,7 +56,7 @@ ms.service="virtual-machines"
 
     ![儲存範本][template]
 
-    b.在 [**參數**] 頁面上，輸入範本參數的值。(按一下說明資訊的每個設定旁邊的圖示。) 下列畫面顯示範例值。此範例會在 *hpc.local* 網域中建立名為 *hpc01* 的新 HPC Pack 叢集，由一個前端節點和 2 個運算節點組成。運算節點將會從 HPC Pack VM 映像建立，包括 Microsoft Excel。
+    b.在 [參數] 頁面上，輸入範本參數的值。(按一下說明資訊的每個設定旁邊的圖示。) 下列畫面顯示範例值。此範例會在 *hpc.local* 網域中建立名為 *hpc01* 的新 HPC Pack 叢集，由一個前端節點和 2 個運算節點組成。運算節點將會從 HPC Pack VM 映像建立，包括 Microsoft Excel。
 
     ![輸入參數][parameters]
 
@@ -384,4 +388,4 @@ SOA 用戶端應用程式不需要變更，除了將標頭名稱改變為 IaaS �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

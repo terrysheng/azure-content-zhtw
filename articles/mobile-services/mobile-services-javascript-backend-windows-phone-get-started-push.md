@@ -140,8 +140,6 @@
 
 本教學課程示範如何啟用 Windows 市集應用程式以便使用行動服務與通知中心來傳送推播通知的基礎。接著，請考慮完成下列其中一個教學課程：
 
-+ [將推播通知傳送給驗證的使用者](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md) <br/>了解如何利用標記，從行動服務將推播通知只傳送給已驗證的使用者。
-
 + [將廣播通知傳送給訂閱者](../notification-hubs-windows-phone-send-breaking-news.md) <br/>了解使用者如何註冊及接收其所需之類別的推播通知。
 
 + [將跨平台通知傳送給訂閱者](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>了解如何使用範本從您的行動服務傳送推播通知，但不必在後端製作平台特定的裝載。
@@ -180,4 +178,4 @@
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

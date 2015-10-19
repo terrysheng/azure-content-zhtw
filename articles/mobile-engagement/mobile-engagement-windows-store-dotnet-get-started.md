@@ -103,23 +103,23 @@
 
 若要開始傳送資料並確定使用者正在使用，您必須至少傳送一個畫面 (活動) 到 Mobile Engagement 後端。
 
-1. 	在 **MainPage.xaml.cs** 中，加入 `using` 陳述式：
+1. 	在 **MainPage.xaml.cs** 中，加入下列 `using` 陳述式：
 
-		using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement.Overlay;
 
-2. 將 **MainPage** 的基底類別從 **Page** 取代為 **EngagementPage**：
+2. 將 **MainPage** 的基底類別從 **Page** 取代為 **EngagementPageOverlay**：
 
-		class MainPage : EngagementPage
+		class MainPage : EngagementPageOverlay
 
 3. 在 `MainPage.xaml` 檔案中：
 
 	a.新增至命名空間宣告：
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-	b.使用 **engagement:EngagementPage** 來取代 XML 標記名稱中的 **Page**。
+	b.使用 **engagement:EngagementPageOverlay** 來取代 XML 標記名稱中的 **Page**。
 	
-> [AZURE.IMPORTANT]如果您的頁面會覆寫 `OnNavigatedTo` 方法，請務必呼叫 `base.OnNavigatedTo(e)`。否則不會報告活動 (`EngagementPage` 會在其 `OnNavigatedTo` 方法內呼叫 `StartActivity`)。這在預設範本含有 `OnNavigatedTo` 方法的 Windows Phone 專案中特別重要。
+> [AZURE.IMPORTANT]如果您的頁面會覆寫 `OnNavigatedTo` 方法，請確定會呼叫 `base.OnNavigatedTo(e)`。否則不會報告活動 (`EngagementPage` 會在其 `OnNavigatedTo` 方法內呼叫 `StartActivity`)。這在預設範本含有 `OnNavigatedTo` 方法的 Windows Phone 專案中特別重要。
 
 ##<a id="monitor"></a>將 App 與即時監視連接
 
@@ -171,13 +171,15 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 
 [AZURE.INCLUDE [建立 Windows 推播活動](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-您現在應該會在裝置上看到一則活動的快顯通知，應用程式應為關閉狀態才能看見此快顯通知。如果您曾執行過 app，請確定已在幾分鐘前將它關閉，您才能啟動活動以接收快顯通知。如果您想要整合應用程式內通知，讓通知能在應用程式開啟時顯示，請參閱 [Windows 通用 app - 重疊整合]。
+如果 App 正在執行，則您將會看到 App 內的通知，否則會看到快顯通知 (如果 App 已關閉)。如果您看見的是 App 內的通知而不是快顯通知，而且您正在 Visual Studio 中的偵錯模式下執行 App，則應嘗試執行工具列中的 [週期事件] -> [暫止]，以確保 App 會實際暫止。如果您在 Visual Studio 中偵錯應用程式時只按了 [首頁] 按鈕，則它永遠不會暫止，而您將會看見 App 內的通知，它不會顯示為快顯通知。
+
+![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
 [Windows 市集開發人員中心]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
-[Windows 通用 app - 重疊整合]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
+[Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
@@ -186,5 +188,6 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
+[8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

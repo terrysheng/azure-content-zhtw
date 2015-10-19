@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="07/28/2015"
+	ms.date="10/05/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
@@ -24,7 +24,7 @@
 
 在本教學課程中，您將建立新的行動服務和簡單的_待辦事項清單_應用程式，後者會在前者儲存應用程式資料。您將建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。若要以 .NET 中伺服器端商務邏輯建立行動服務，請參閱本主題中的 [.NET 後端版本]。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](http://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="\_blank")。
+> [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](http://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20)。
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
@@ -36,7 +36,7 @@
 
 1. 在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
 
-2. 在 [快速入門] 索引標籤中，按一下 [**選擇平台**] 下的 [**iOS**]，然後展開 [**建立新的 iOS 應用程式**]。這會顯示步驟，用來建立與您行動服務連線的 iOS 應用程式。
+2. 在 [快速入門] 索引標籤中，按一下 [選擇平台] 下方的 [iOS]，然後展開 [建立新的 iOS App]。這會顯示步驟，用來建立與您行動服務連線的 iOS 應用程式。
 
 3. 按一下 [Create TodoItem table] 以建立儲存應用程式資料的資料表。
 
@@ -46,18 +46,16 @@
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"><li><p>回到管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。如此可讓您瀏覽由應用程式插入資料表中的資料。<p></li></ol></p>
+<ol start="4"><li><p>回到管理入口網站，依序按一下 [資料] 索引標籤和 [TodoItem] 資料表。如此可讓您瀏覽 App 插入資料表的資料。<p></li></ol></p>
 
 ## <a name="next-steps"> </a>後續步驟
 了解如何在行動服務中執行其他重要工作：
 
-* [將行動服務新增至現有的應用程式] <br/>深入了解使用行動服務來儲存與查詢資料。
+* [開始使用離線資料同步] <br/>了解如何使用離線資料同步，讓您的 App 更穩健及具備回應力。
 
-* [開始使用離線資料同步] <br/>了解如何使用離線資料同步，讓您的應用程式更穩健及具備回應力。
+* [將驗證新增至現有 App] <br/>了解如何向身分識別提供者驗證 App 的使用者。
 
-* [將驗證新增至現有應用程式] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
-
-* [將推播通知新增至現有應用程式] <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至現有 App] <br/>了解如何將非常基本的推播通知傳送至 App。
 
 
 <!-- Anchors. -->
@@ -77,10 +75,9 @@
 
 
 <!-- URLs. -->
-[將行動服務新增至現有的應用程式]: mobile-services-dotnet-backend-ios-get-started-data.md
 [開始使用離線資料同步]: mobile-services-ios-get-started-offline-data.md
-[將驗證新增至現有應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
-[將推播通知新增至現有應用程式]: mobile-services-dotnet-backend-ios-get-started-push.md
+[將驗證新增至現有 App]: mobile-services-dotnet-backend-ios-get-started-users.md
+[將推播通知新增至現有 App]: mobile-services-dotnet-backend-ios-get-started-push.md
 
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -88,4 +85,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 後端版本]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

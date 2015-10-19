@@ -22,7 +22,7 @@
 
 ##概觀
 
-本指南將示範如何在 Windows 市集應用程式和 Windows Phone 應用程式中，使用適用於 Azure 行動服務的 .NET 用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成[行動服務快速入門](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md)教學課程或[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md)教學課程。
+本指南將示範如何在 Windows 市集應用程式和 Windows Phone 應用程式中，使用適用於 Azure 行動服務的 .NET 用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮先完成[行動服務快速入門](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md)教學課程。
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -276,7 +276,7 @@
 
 ##<a name="#custom-api"></a>作法：呼叫自訂 API
 
-自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[作法：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
+自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[做法：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
 
 若要呼叫自訂 API，您可以呼叫用戶端上的其中一個 [InvokeApiAsync] 方法多載。例如，下列程式碼字行會傳送 POST 要求至行動服務上的 **completeAll** API：
 
@@ -514,7 +514,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
 ####使用含有 Live SDK 的 Microsoft 帳戶單一登入
 
-若要能夠驗證使用者，您必須在 Microsoft 帳戶開發人員中心註冊您的應用程式。然後您必須將此註冊連接到您的行動服務。請完成[註冊您的 app 來使用 Microsoft 帳戶登入](mobile-services-how-to-register-microsoft-authentication.md)中的步驟以建立 Microsoft 帳戶註冊，並將註冊連接到您的行動服務。如果您的 app 同時有 Windows 市集與 Windows Phone 版本，請先註冊 Windows 市集版本。
+若要能夠驗證使用者，您必須在 Microsoft 帳戶開發人員中心註冊您的應用程式。然後您必須將此註冊連接到您的行動服務。請完成[註冊您的 app 來使用 Microsoft 帳戶登入](mobile-services-how-to-register-microsoft-authentication.md)中的步驟以建立 Microsoft 帳戶註冊，並將其連接到您的行動服務。如果您的 app 同時有 Windows 市集與 Windows Phone 版本，請先註冊 Windows 市集版本。
 
 以下程式碼會使用 Live SDK 驗證，並使用傳回的權杖登入您的行動服務。
 
@@ -744,7 +744,6 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [Azure 行動服務用戶端 SDK 中的自訂 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

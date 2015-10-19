@@ -1,6 +1,7 @@
 <properties
 	pageTitle="使用串流分析執行即時 Twitter 情感分析 | Microsoft Azure"
 	description="了解如何使用串流分析來執行即時 Twitter 情感分析。從事件產生到即時儀表板資料的逐步指導。"
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/04/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok"/>
 
 
@@ -224,7 +225,7 @@
 ![社交媒體分析：Power BI 儀表板中的串流分析情感分析 (意見挖掘) 輸出。](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## 取得支援
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟
@@ -236,4 +237,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="10/05/2015" 
 	ms.author="wesmc"/>
 
 # 處理資料庫寫入衝突
@@ -366,4 +366,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [系統屬性]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

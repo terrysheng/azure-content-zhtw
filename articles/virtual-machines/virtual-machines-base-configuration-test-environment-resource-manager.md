@@ -58,12 +58,14 @@
 
 首先，按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的指示，在本機電腦安裝 Azure PowerShell。開啟 Azure PowerShell 提示字元。
 
+> [AZURE.NOTE]本文包含適用於 Azure PowerShell 版本的命令，適用版本可高達*但不限於*版本 1.0.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。本文中的 Azure PowerShell 命令區塊正處於支援 Azure PowerShell 版本 1.0.0 和更新版本中新 Cmdlet 的測試和更新過程中。感謝您耐心配合。
+
 接下來，利用以下命令選取正確的 Azure 訂用帳戶。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
 	$subscr="<Subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 
-您可以從 **Get-AzureSubscription** 命令顯示的 SubscriptionName 屬性，取得正確的訂用帳戶名稱。
+您可以從 **Get-AzureSubscription** 命令顯示的 SubscriptionName 屬性，取得訂用帳戶名稱。
 
 接下來，將 Azure PowerShell 切換至資源管理員模式。
 
@@ -141,8 +143,8 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 
 接著，連接到 DC1 虛擬機器。
 
-1.	在 Azure Preview 入口網站的左窗格中，按一下 [瀏覽全部]，按一下 [瀏覽] 清單中的 [虛擬機器]，然後按一下 [DC1] 虛擬機器。  
-2.	在 [DC1] 窗格中按一下 [連線]。
+1.	在 Azure Preview 入口網站的左窗格中，依序按一下 [瀏覽全部]、[瀏覽] 清單中的 [虛擬機器] 及 [DC1] 虛擬機器。  
+2.	在 [DC1] 窗格中，按一下 [連接]。
 3.	出現提示時，開啟下載的 DC1.rdp 檔案。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用下列：
@@ -333,4 +335,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

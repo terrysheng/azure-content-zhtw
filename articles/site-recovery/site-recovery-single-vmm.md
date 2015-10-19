@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 #  利用單一 VMM 伺服器設定保護
@@ -100,4 +100,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

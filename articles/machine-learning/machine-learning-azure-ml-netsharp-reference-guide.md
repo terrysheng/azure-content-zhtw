@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeannt"/>
 
 
@@ -159,6 +159,11 @@ Net# 支援多種不同的連線套組，可讓您自訂輸入對應至隱藏層
 
 加權值會依目的地節點索引分組。也就是說，如果第一個目的地節點連接到 K 個來源節點，則**加權** Tuple 的前 _K_ 個項目將會是第一個目的地節點的加權 (依來源索引順序)。其餘目的地節點也適用相同的原則。
 
+可以直接指定加權當做常數值。比方說，如果您先前已了解比重，您可以使用此語法將它們指定為常數：
+
+	const Weights_1 = [0.0188045055, 0.130500451, ...]
+
+
 ## 迴旋套組
 當訓練資料具有同質結構時，迴旋連線通常會用來學習資料的高階特性。例如，在影像、音訊或視訊資料中，空間或暫時維度可能會相當一致。
 
@@ -218,7 +223,7 @@ Net# 支援多種不同的連線套組，可讓您自訂輸入對應至隱藏層
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ## 回應正規化套組
-**回應正規化**是一種本端正規化配置，最早是由 Geoffrey Hinton 等人發表於《[ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf)》報告中。回應正規化可用來輔助類神經網路中的一般化。當一個神經元在非常高的啟動層級上引發時，本端回應正規化層將會抑制周遭神經元的啟動層級。此動作會使用三個參數 (***α***、***β*** 和 ***k***) 與迴旋結構 (或鄰區分布型態) 來完成。目的地層中的每個神經元 ***y***，會分別對應至來源層中的一個神經元 ***x***。***y*** 的啟用層級來自於下列公式，其中，***f*** 是神經元的啟用層級，***Nx*** 是核心 (或是包含 ***x*** 的鄰區中各神經元的集合)，如下列迴旋結構所定義：
+**回應正規化**是一種本端正規化配置，最早是由 Geoffrey Hinton 等人發表於 [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 報告中。回應正規化可用來輔助類神經網路中的一般化。當一個神經元在非常高的啟動層級上引發時，本端回應正規化層將會抑制周遭神經元的啟動層級。此動作會使用三個參數 (***α***、***β*** 和 ***k***) 與迴旋結構 (或鄰區分布型態) 來完成。目的地層中的每個神經元 ***y***，會分別對應至來源層中的一個神經元 ***x***。***y*** 的啟用層級來自於下列公式，其中，***f*** 是神經元的啟用層級，***Nx*** 是核心 (或是包含 ***x*** 的鄰區中各神經元的集合)，如下列迴旋結構所定義：
 
 ![][1]
 
@@ -392,12 +397,12 @@ Net# 可選擇性地支援以共用加權定義多個套組的作業。任何兩
 -	網路具有第三個隱藏層 _Hid3_，與第二個隱藏層 _Conv2_ 完全相連。
 -	輸出層 _Digit_ 僅連接到第三個隱藏層 _Hid3_。關鍵字 **all** 指出輸出層與 _Hid3_ 完全相連。
 -	迴旋的 Arity 為三 (Tuple **InputShape**、**KernelShape**、**Stride** 和 **Sharing** 的長度)。 
--	每個核心的加權數目為 _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26。或是 26 * 50 = 1300_。
+-	每個核心的加權數目為 _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26。或是 26 * 50 = 1300_。
 -	您可以用下列方式計算每個隱藏層中的節點數：
-	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5。
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5。 
--	節點總數可使用該層的宣告維度 [50, 5, 5] 來計算，如下所示：_**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
+	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5。
+	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5。 
+-	節點總數可使用該層的宣告維度 [50, 5, 5] 來計算，如下所示：_**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
 -	由於只有 _d == 0_ 時，**Sharing**[d] 才會是 False，因此核心數為 _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_。 
 
 
@@ -409,4 +414,4 @@ Net# 可選擇性地支援以共用加權定義多個套組的作業。任何兩
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

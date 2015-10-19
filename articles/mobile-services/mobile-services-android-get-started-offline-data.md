@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="ricksal"/>
 
 # 在 Android 行動服務應用程式中加入離線資料同步
@@ -32,7 +32,6 @@
 ## 若要開始，您需要：
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
-
 
 ## 更新應用程式以支援離線同步
 
@@ -212,7 +211,6 @@ One thing which is important to point out: if there are pending changes in the l
 
 
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]: mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
@@ -221,4 +219,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [行動服務快速入門教學課程]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

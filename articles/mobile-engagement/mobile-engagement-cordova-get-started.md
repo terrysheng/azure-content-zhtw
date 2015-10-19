@@ -86,9 +86,13 @@
 	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
 	        --variable AZME_ENABLE_LOG=true|false
 
+*Android 觸達圖示*：必須是不含任何副檔名的資源名稱，也不含可繪製的前置詞 (例如：mynotificationicon)，而且必須將圖示檔複製到您的 android 專案 (platforms/android/res/drawable)
+
+*iOS 觸達圖示*：必須是具有副檔名的資源名稱 (例如：mynotificationicon.png)，而且必須將圖示檔新增到含有 XCode 的 iOS 專案 (使用 [新增檔案] 功能表)
+
 ##<a id="monitor"></a>啟用即時監視
 
-1. 在 Cordova 專案中 - 編輯 **www/js/index.js** 將呼叫加入至 Mobile Engagement，以便在收到 *deviceReady* 事件之後宣告新的活動。
+1. 在 Cordova 專案中，編輯 **www/js/index.js**，將呼叫加入至 Mobile Engagement，以便在收到 *deviceReady* 事件之後宣告新活動。
 
 		 onDeviceReady: function() {
 		        app.receivedEvent('deviceready');
@@ -99,13 +103,13 @@
 		
 	- **對於 iOS**
 	
-		藉由執行下列動作，在 `Terminal` 視窗中，於新的模擬器執行個體中啟動您的 App：
+		藉由執行下列動作，在 `Terminal` 視窗的新模擬器執行個體中啟動您的 App：
 
 			cordova run ios
 
 	- **對於 Android**
 		
-		藉由執行下列動作，在 `Terminal` 視窗中，於新的模擬器執行個體中啟動您的 App：
+		藉由執行下列動作，在 `Terminal` 視窗的新模擬器執行個體中啟動您的 App：
 
 			cordova run android
 
@@ -120,7 +124,7 @@
 
 ##<a id="monitor"></a>將 App 與即時監視連接
 
-[AZURE.INCLUDE [將 App 與即時監視連接](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+[AZURE.INCLUDE [將應用程式與即時監視連接](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ##<a id="integrate-push"></a>啟用推播通知與應用程式內傳訊
 
@@ -154,7 +158,7 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 
 ###在 Cordova 應用程式中啟用推播通知
 
-編輯 **www/js/index.js** 將呼叫加入至 Mobile Engagement 以要求推播通知，並宣告處理常式：
+編輯 **www/js/index.js**，將呼叫加入至 Mobile Engagement 以要求推播通知，並宣告處理常式：
 
 	 onDeviceReady: function() {
 	        app.receivedEvent('deviceready');
@@ -167,9 +171,9 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 
 **[iOS]**
 
-1. 我們將使用 XCode 在裝置上建置及部署應用程式，以測試推播通知，因為 iOS 只允許推播通知到實際裝置。請移至您建立 Cordova 專案的位置，並瀏覽至 **...\\platforms\\ios** 位置。在 XCode 中開啟原生 .xcodeproj 檔案。 
+1. 我們將使用 XCode 在裝置上建置及部署應用程式，以測試推播通知，因為 iOS 只允許推播通知到實際裝置。移至您建立 Cordova 專案的位置，然後瀏覽至 **...\\platforms\\ios** 位置。在 XCode 中開啟原生 .xcodeproj 檔案。 
 	
-2. 建置 Cordova 應用程式並部署至 iOS 裝置，方法是使用具有佈建設定檔的帳戶，該設定檔包含憑證 (您剛剛上傳至 Mobile Engagement 入口網站) 和應用程式識別碼 (符合您在建立 Cordova 應用程式時提供的識別碼)。您可以在 XCode 的 **Resources*-info.plist** 檔案中檢查 [套件組合識別碼] 來進行配對。
+2. 建置 Cordova 應用程式並部署至 iOS 裝置，方法是使用具有佈建設定檔的帳戶，該設定檔包含憑證 (您剛剛上傳至 Mobile Engagement 入口網站) 和應用程式識別碼 (符合您在建立 Cordova 應用程式時提供的識別碼)。您可以在 XCode 的 **Resources*-info.plist** 檔案中檢查「套件組合識別碼」來進行配對。
 
 3. 您會在您的裝置上看到標準 iOS 快顯視窗，上面顯示應用程式要求傳送通知的權限。授與權限。
 
@@ -185,38 +189,38 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 
 1. 瀏覽至您的 Mobile Engagement 入口網站中的 [觸達] 索引標籤
 
-2. 按一下 [新增宣告] 來建立您的推播活動
+2. 按一下 [新增宣告] 來建立您的推播行銷活動
 
 	![][6]
 
-3. 提供輸入來建立您的活動 **[Android]**
+3. 提供輸入來建立您的行銷活動 **[Android]**
 	
-	- 提供活動的**名稱**。 
-	- 將 [傳遞類型] 選取為 [系統通知] - [簡易]
-	- 將 [傳遞時間] 選取為 [任何時間]
+	- 為您的行銷活動提供**名稱**。 
+	- 針對 [傳遞類型] 選取 [系統通知] - [簡易]
+	- 針對 [傳遞時間] 選取 [任何時間]
 	- 提供通知的**標題**，這將是推播中的第一行。
 	- 提供通知的**訊息**，這將做為訊息內文。 
 
 	![][11]
 
-4. 提供輸入來建立您的活動 **[iOS]**
+4. 提供輸入來建立您的行銷活動 **[iOS]**
 
-	- 提供活動的**名稱**。 
-	- 將 [傳遞時間] 選取為 [僅限應用程式外]
+	- 為您的行銷活動提供**名稱**。 
+	- 針對 [傳遞時間] 選取 [僅限 App 外]
 	- 提供通知的**標題**，這將是推播中的第一行。
 	- 提供通知的**訊息**，這將做為訊息內文。 
  
 	![][12]
 
-5. 向下捲動，在內容區段中選取 [僅限通知]
+5. 向下捲動，在 [內容] 區段中選取 [僅限通知]。
 
 	![][8]
 
 6. [選用] 您也可以提供動作 URL。請確定它會使用在設定外掛程式的 **AZME 重新導向 URL** 變數 (例如 **myapp://test*) 時提供的 URL 配置。
 
-7. 您已完成能做的最基本活動設定。現在再次向下捲動，然後按一下 [建立] 按鈕來儲存活動。
+7. 您已完成能做的最基本活動設定。現在再次向下捲動，並按一下 [建立] 按鈕來儲存行銷活動。
 
-8. 最後**啟用**您的活動
+8. 最後**啟用**您的行銷活動
 	
 	![][10]
 
@@ -241,4 +245,4 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

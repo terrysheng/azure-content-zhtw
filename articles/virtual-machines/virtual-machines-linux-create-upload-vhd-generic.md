@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="10/05/2015"
 	ms.author="szarkos"/>
 
 # <a id="nonendorsed"> </a>非背書散發套件的資訊 #
@@ -191,4 +191,4 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 - 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

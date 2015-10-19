@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="10/01/2015" 
 	ms.author="stefsch"/>
 
 # App Service 環境的網路架構概觀
@@ -40,7 +40,9 @@ App Service 環境也會與管理和操作 App Service 環境所需的 SQL 資�
 ## 輸出網路位址 ##
 App Service 環境進行輸出呼叫時，IP 位址一律會與輸出呼叫相關聯。使用的特定 IP 位址取決於所呼叫的端點位於虛擬網路拓撲內部還是外部。
 
-如果所呼叫的端點是在虛擬網路拓撲**外部**，則使用的輸出位址 (也稱為輸出 NAT 位址) 是 App Service 環境的公用 VIP。您可以在 App Service 環境的入口網站使用者介面中找到此位址 (請注意：UX 暫止中)。
+如果所呼叫的端點是在虛擬網路拓撲**外部**，則使用的輸出位址 (也稱為輸出 NAT 位址) 是 App Service 環境的公用 VIP。您可以在 App Service 環境的入口網站的使用者介面中找到此位址 ([屬性] 刀鋒視窗)。
+ 
+![輸出 IP 位址][OutboundIPAddress]
 
 在 App Service 環境中建立應用程式，然後對應用程式位址執行 *nslookup*，也可以決定此位址。產生的 IP 位址是公用 VIP，也是 App Service 環境的輸出 NAT 位址。
 
@@ -60,9 +62,13 @@ App Service 環境進行輸出呼叫時，IP 位址一律會與輸出呼叫相�
 ## App Service 環境之間的呼叫 ##
 如果您在相同的虛擬網路中部署多個 App Service 環境，並從一個 App Service 環境傳出呼叫至另一個 App Service 環境，則可能產生更複雜的案例。這些跨 App Service 環境的呼叫也會被視為「網際網路」呼叫。
 
-使用上述的 App Service 環境 (輸出 IP 位址為 192.23.1.2) 做為範例：如果 App Service 環境上執行的應用程式，對位於相同虛擬網路中第二個 App Service 環境上執行的應用程式進行輸出呼叫，到達第二個 App Service 環境之輸出呼叫的來源會顯示為 192.23.1.2 (也就是說，非第一個 App Service 環境的子網路位址範圍)。
+下圖顯示分層架構範例，其中應用程式在一個 App Service 環境上 (例如「前端」Web 應用程式) 呼叫第二個 App Service 環境上的應用程式 (例如：內部後端 API 應用程式不需要可從網際網路存取)。
 
-即使不同 App Service 環境之間的呼叫會視為「網際網路」呼叫，當兩個 App Service 環境同時位於相同的 Azure 區域時，網路流量會維持在 Azure 區域網路上，而不會實際在公用網際網路流動。因此，您可以使用第二個 App Service 環境的子網路上的網路安全性群組，僅允許來自 192.23.1.2 的傳入呼叫，因而確保 App Service 環境之間的通訊安全。
+![App Service 環境之間的呼叫][CallsBetweenAppServiceEnvironments]
+
+在上述範例中，App Service 環境 "ASE One" 有一個輸出 IP 位址 192.23.1.2。如果 App Service 環境上執行的應用程式，對位於相同虛擬網路中第二個 App Service 環境 ("ASE Two") 上執行的應用程式進行輸出呼叫，會將輸出呼叫視為「網際網路」呼叫。因此，到達第二個 App Service 環境的網路流量會將來源顯示為來自 192.23.1.2 (亦即，不是第一個 App Service 環境的子網路位址範圍)。
+
+即使不同 App Service 環境之間的呼叫會視為「網際網路」呼叫，當兩個 App Service 環境同時位於相同的 Azure 區域時，網路流量會維持在 Azure 區域網路上，而不會實際在公用網際網路流動。因此，您可以使用第二個 App Service 環境的子網路上的網路安全性群組，僅允許來自第一個 App Service (其傳入 IP 位址為 192.23.1.2) 的傳入呼叫，因而確保 App Service 環境之間的通訊安全。
 
 ## 其他連結和資訊 ##
 如需 App Service 環境所使用輸入連接埠以及使用網路安全性群組來控制輸入流量的詳細資料，請參閱[這裡][controllinginboundtraffic]。
@@ -77,6 +83,8 @@ App Service 環境進行輸出呼叫時，IP 位址一律會與輸出呼叫相�
 
 <!-- IMAGES -->
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
+[OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
+[CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

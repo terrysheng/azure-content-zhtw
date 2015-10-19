@@ -1,5 +1,5 @@
 <properties
-	pageTitle="服務匯流排轉送傳訊"
+	pageTitle="服務匯流排轉送傳訊概觀 | Microsoft Azure"
 	description="服務匯流排轉送概觀。"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/04/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 
@@ -33,10 +33,10 @@
 
 如需服務匯流排轉送的詳細資訊，請參閱下列主題。
 
-- [Azure 服務匯流排架構概觀](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 服務匯流排架構概觀](service-bus-fundamentals-hybrid-solutions.md)
 
 - [如何使用服務匯流排轉送服務](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

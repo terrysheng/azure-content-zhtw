@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 PowerShell 管理服務匯流排"
+	pageTitle="使用 PowerShell 管理服務匯流排 | Microsoft Azure"
 	description="使用 PowerShell 指令碼 (而非 .NET) 管理服務匯流排"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # 使用 PowerShell 管理服務匯流排
@@ -45,8 +45,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您在 Azure 中用�
 
 以下是如何使用 PowerShell 指令碼實作這些步驟的方式：
 
-```powershell
-
+```
 try
 {
     # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
@@ -63,12 +62,11 @@ catch [System.Exception]
 {
     Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
-
 ```
 
 ## 佈建服務匯流排命名空間
 
-兩個 PowerShell Cmdlet 支援服務匯流排命名空間作業。不需要使用 .NET SDK API，您可以使用 [Get-AzureSBNamespace] 和 [New-AzureSBNamespace]。
+兩個 PowerShell Cmdlet 支援服務匯流排命名空間作業。不需要使用 .NET SDK API，您可以使用 [Get-AzureSBNamespace][] 和 [New-AzureSBNamespace][]。
 
 這個範例會在指令碼中建立幾個區域變數：`$Namespace` 和 `$Location`。
 
@@ -84,8 +82,7 @@ catch [System.Exception]
 2. 如果找到命名空間，它會回報找到的項目。
 3. 如果找不到命名空間，它會建立命名空間，然後擷取新建立的命名空間。
 
-	``` powershell
-	
+	```
 	$Namespace = "MyServiceBusNS"
 	$Location = "West US"
 	
@@ -105,10 +102,9 @@ catch [System.Exception]
 	    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
-
 	```
 
-若要佈建其他服務匯流排實體，請從 SDK 建立 `NamespaceManager` 類別的執行個體。您可以使用 [Get-AzureSBAuthorizationRule] Cmdlet 來擷取用來提供連接字串的授權規則。我們將會在 `$NamespaceManager` 變數中儲存對 `NamespaceManager` 執行個體的參照。我們稍後將會在指令碼中使用 `$NamespaceManager` 來佈建其他實體。
+若要佈建其他服務匯流排實體，請從 SDK 建立 [NamespaceManager][] 類別的執行個體。您可以使用 [Get-AzureSBAuthorizationRule][] Cmdlet 來擷取用來提供連接字串的授權規則。我們將會在 `$NamespaceManager` 變數中儲存對 `NamespaceManager` 執行個體的參照。我們稍後將在指令碼中使用 `$NamespaceManager` 來佈建其他實體。
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -120,7 +116,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ## 佈建其他服務匯流排實體
 
-為了佈建其他實體 (例如佇列、主題和事件中樞)，請使用[服務匯流排的 .NET API]。本文僅著重於事件中樞，但其他實體的步驟很類似。此外，在此文章的結尾處會參照更多詳細範例 (包括其他實體)。
+為了佈建其他實體 (例如，佇列、主題和事件中樞)，請使用[服務匯流排的 .NET API][]。本文僅著重於事件中樞，但其他實體的步驟很類似。此外，在此文章的結尾處會參照更多詳細範例 (包括其他實體)。
 
 這部分的指令碼會再建立四個區域變數。這些變數可用來具現化 `EventHubDescription` 物件。指令碼會執行下列作業：
 
@@ -128,8 +124,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 2. 如果事件中樞不存在，請建立 `EventHubDescription` 並傳遞給 `NamespaceManager` 類別的 `CreateEventHubIfNotExists` 方法。
 3. 判斷事件中樞可用之後，請使用 `ConsumerGroupDescription` 和 `NamespaceManager` 建立取用者群組。
 
-	``` powershell
-		
+	```
 	$Path  = "MyEventHub"
 	$PartitionCount = 12
 	$MessageRetentionInDays = 7
@@ -170,7 +165,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 - [如何使用 PowerShell 指令碼來建立服務匯流排佇列、主題及訂閱](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [如何使用 PowerShell 指令碼來建立服務匯流排命名空間與事件中樞](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-也有一些現成的指令碼可供下載：- [服務匯流排 PowerShell 指令碼](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+也有一些現成的指令碼可供下載：- [服務匯流排 PowerShell 指令碼](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
 [購買選項]: http://azure.microsoft.com/pricing/purchase-options/
@@ -181,7 +176,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[服務匯流排的 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
- 
+[服務匯流排的 .NET API]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
+[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-本指南說明如何使用適用於 Azure 行動服務 [iOS SDK] 執行一般案例。如果您不熟悉行動服務，請先完成[行動服務快速入門]或[將行動服務新增至現有的應用程式]來設定您的帳戶、建立資料表，以及建立行動服務。
+本指南說明如何使用適用於 Azure 行動服務 [iOS SDK] 執行一般案例。如果您不熟悉行動服務，請先完成[行動服務快速入門]來設定您的帳戶、建立資料表，以及建立行動服務。
 
 > [AZURE.NOTE]本指南使用最新的 [iOS 行動服務 SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)。如果您的專案使用舊版的 SDK，請先升級 Xcode 中的架構。
 
@@ -28,7 +28,7 @@
 
 ##<a name="Setup"></a>設定和必要條件
 
-本指南假設您已建立包含資料表的行動服務。如需詳細資訊，請參閱[建立資料表]，或重複使用在[行動服務快速入門]或[將行動服務新增至現有的應用程式]中建立的 `TodoItem` 資料表。本指南假設資料表的結構描述與這些教學課程中的資料表相同。本指南也假設您的 Xcode 參考 `WindowsAzureMobileServices.framework` 並匯入 `WindowsAzureMobileServices/WindowsAzureMobileServices.h`。
+本指南假設您已建立包含資料表的行動服務。如需詳細資訊，請參閱[建立資料表]，或重複使用[行動服務快速入門]中建立的 `TodoItem` 資料表。本指南假設資料表的結構描述與這些教學課程中的資料表相同。本指南也假設您的 Xcode 參考 `WindowsAzureMobileServices.framework` 並匯入 `WindowsAzureMobileServices/WindowsAzureMobileServices.h`。
 
 ##<a name="create-client"></a>作法：建立行動服務用戶端
 
@@ -235,7 +235,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ##<a name="#custom-api"></a>作法：呼叫自訂 API
 
-自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[如何：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
+自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[做法：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
 
 [AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
 
@@ -311,10 +311,8 @@ Azure 行動服務支援兩個驗證工作流程：
 <!-- Images. -->
 
 <!-- URLs. -->
-[將行動服務新增至現有的應用程式]: /develop/mobile/tutorials/get-started-data
-[行動服務快速入門]: /develop/mobile/tutorials/get-started-ios
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[行動服務快速入門]: mobile-services-ios-get-started.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [驗證]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
@@ -323,13 +321,11 @@ Azure 行動服務支援兩個驗證工作流程：
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [權限]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [伺服器端授權]: mobile-services-javascript-backend-service-side-authorization.md
-[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [動態結構描述]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [建立資料表]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [衝突處理常式]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

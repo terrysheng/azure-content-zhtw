@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 
@@ -135,4 +135,4 @@ VMNetwork1-Chicago 的網路對應已變更。 | VM-1 現在會連線到對應�
 
 既然您已經更了解網路對應，請開始閱讀[最佳作法](site-recovery-best-practices.md)以準備部署。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

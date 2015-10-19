@@ -1,5 +1,5 @@
 <properties
- pageTitle="虛擬機器大小"
+ pageTitle="虛擬機器大小 | Microsoft Azure"
  description="列出虛擬機器的不同大小及其容量。"
  services="virtual-machines"
  documentationCenter=""
@@ -85,7 +85,7 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 |大小 – Azure 入口網站\\Cmdlet 和 API|CPU 核心|記憶體|最大的磁碟大小 - 虛擬機器|最大的資料磁碟 (每個 1023 GB)|最大IOPS (每個磁碟 500)|
 |---|---|---|---|---|---|
-|A0\\ 超小型|1|768 MB|<p>作業系統 = 1023 GB</p><p>暫存 = 20 GB</p>|1|1x500|
+|A0\\超小型|1|768 MB|<p>作業系統 = 1023 GB</p><p>暫存 = 20 GB</p>|1|1x500|
 |A1\\小型|1|1\.75 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 70 GB</p>|2|2x500|
 |A2\\中型|2|3\.5 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 135 GB</p>|4|4x500|
 |A3\\大型|4|7 GB|<p>作業系統 = 1023 GB</p><p>暫存 = 285 GB</p>|8|8x500|
@@ -167,4 +167,4 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 [關於 A8、A9、A10 和 A11 運算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

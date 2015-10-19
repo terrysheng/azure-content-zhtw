@@ -3,7 +3,7 @@
    description="Service Fabric Reliable Actor 程式設計模型簡介"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Service Fabric Reliable Actor 簡介
 Reliable Actors API 是 [Service Fabric](service-fabric-technical-overview.md) 所提供的其中一個高階架構，而另一個是 [Reliable Services API](service-fabric-reliable-services-introduction.md)。
@@ -198,4 +198,4 @@ public interface IVoicemailBoxActor : IActor
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

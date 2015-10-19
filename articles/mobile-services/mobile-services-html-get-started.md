@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始為 HTML 5 應用程式使用 Azure 行動服務"
+	pageTitle="開始使用適用於 HTML/JavaScript App 的 Azure 行動服務 | Microsoft Azure"
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 HTML 開發。"
 	services="mobile-services"
 	documentationCenter=""
@@ -12,18 +12,20 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
-	ms.topic="article" 
-	ms.date="07/25/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##概觀 
 
-本教學課程說明如何使用 Azure行動服務在 HTML 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您可以於下方檢視本教學課程的影片版本。
+本教學課程說明如何使用 Azure行動服務在 HTML 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務和簡單的*待辦事項清單*應用程式，後者會在前者儲存應用程式資料。您可以於下方檢視本教學課程的影片版本。
 
 > [AZURE.VIDEO mobile-get-started-html]
  
@@ -31,7 +33,7 @@
 
 ![][0]
 
-此教學課程是 HTML 應用程式其他所有行動服務教學課程的先修課程。若為 PhoneGap/Cordova 應用程式，請參閱本教學課程的 [PhoneGap/Cordova 版本](mobile-services-javascript-backend-phonegap-get-started.md)。
+此教學課程是 HTML 應用程式其他所有行動服務教學課程的先修課程。若為 PhoneGap/Cordova App，請參閱本教學課程的 [PhoneGap/Cordova 版本](mobile-services-javascript-backend-phonegap-get-started.md)。
 
 ##必要條件
 
@@ -46,7 +48,7 @@
 	您可以使用任何網頁伺服器來裝載應用程式，但是這些網頁伺服器需受所下載的指令碼支援。
 
 + 支援 HTML5 的網頁瀏覽器。
-+ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)。 
++ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)。 
 
 
 ## <a name="create-new-service"> </a>建立新的行動服務
@@ -117,13 +119,12 @@
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* **[開始使用資料]** <br/>深入了解使用行動服務來儲存及查詢資料。
+* **[將驗證新增至 App]**了解如何向身分識別提供者驗證 App 的使用者。
 
-* **[從 HTML 應用程式呼叫自訂 API]** <br/>將您的 HTML 應用程式與行動服務代管的自訂 API 連接。
+* **[行動服務 HTML/JavaScript 作法概念參考]**深入了解如何搭配使用行動服務與 HTML/JavaScript
 
-* **[開始使用驗證]** <br/>了解如何以身分識別提供者驗證您的應用程式使用者。
 
-* **[行動服務 HTML/JavaScript 作法概念參考]** <br/>深入了解如何搭配使用行動服務與 HTML/JavaScript
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -144,9 +145,7 @@
 
 
 <!-- URLs. -->
-[開始使用資料]: mobile-services-html-get-started-data.md
-[開始使用驗證]: mobile-services-html-get-started-users.md
-[從 HTML 應用程式呼叫自訂 API]: mobile-services-html-call-custom-api.md
+[將驗證新增至 App]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/p/?LinkId=286333
@@ -155,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

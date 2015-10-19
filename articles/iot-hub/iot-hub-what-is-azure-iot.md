@@ -13,12 +13,13 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.date="09/29/2015"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## 本文件的範圍
+
 這些 Azure 和 IoT 文章著重於兩個資源集合，可協助您根據 Microsoft IoT 平台，實作自己的 IoT 解決方案。
 
 - Azure IoT 中心
@@ -27,14 +28,17 @@
 您也可能會對 [Azure IoT 套件][lnk-iot-suite]有興趣，這是一套預先設定的解決方案，可讓您快速入門和調整 IoT 專案，以因應常見的 IoT 案例，例如遠端監視、資產管理和預測性維護。
 
 ### Azure IoT 中心
+
 IoT 中心是一項 Azure 服務，可讓您從裝置大規模接收裝置到雲端的資料，並將該資料路由傳送至資料流事件處理器。IoT 中心也可以使用裝置的特定佇列，將雲端到裝置的命令傳送到特定裝置。
 
 此外，IoT 中心服務包含裝置識別登錄，可協助您佈建裝置，以及管理哪些裝置可連接到 IoT 中心。
 
 ### Azure IoT 裝置 SDK
+
 Microsoft 提供 IoT 裝置 SDK，可讓您實作用戶端應用程式，以便在各式各樣的裝置硬體平台和作業系統上執行。IoT 裝置 SDK 包含程式庫，可協助將裝置到雲端的遙測資料傳送至 IoT 中心，並從 IoT 中心接收雲端到裝置的命令。這些 IoT 裝置 SDK 可讓您從數個不同的網路通訊協定中挑選，以和 Azure IoT 中心通訊。
 
 ## 後續步驟
+
 若要開始在 Azure 上使用 IoT，請探索以下資源：
 
 - [開始使用 IoT 中心][lnk-getstarted]。
@@ -46,4 +50,4 @@ Microsoft 提供 IoT 裝置 SDK，可讓您實作用戶端應用程式，以便�
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

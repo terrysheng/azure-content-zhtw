@@ -24,11 +24,11 @@
 
 下列範例顯示：
 
-1. [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 類型的連結服務。
+1. [AzureSqlDatabase](#azure-sql-linked-service-properties) 類型的連結服務。
 2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 類型的連結服務。 
-3. [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。 
+3. [AzureSqlTable](#azure-sql-dataset-type-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。 
 4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
-4. 具有使用 [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
+4. 具有使用 [SqlSource](#azure-sql-copy-activity-type-properties) 和 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
 
 此範例會每小時將屬於時間序列的資料從 Azure SQL Database 中的資料表複製到 Blob。範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
@@ -44,6 +44,8 @@
 	  }
 	}
 
+如需這個連結的服務所支援屬性的清單，請參閱 [Azure SQL 連結的服務](#azure-sql-linked-service-properties)一文。
+
 **Azure Blob 儲存體連結服務**
 
 	{
@@ -55,6 +57,8 @@
 	    }
 	  }
 	}
+
+如需這個連結的服務所支援屬性的清單，請參閱 [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 一文。
 
 **Azure SQL 輸入資料集**
 
@@ -84,6 +88,8 @@
 	    }
 	  }
 	}
+
+如需這個資料集類型所支援屬性的清單，請參閱 [Azure SQL 資料集型別屬性](#azure-sql-dataset-type-properties)小節。
 
 **Azure Blob 輸出資料集**
 
@@ -143,6 +149,8 @@
 	  }
 	}
 
+如需這個資料集類型所支援屬性的清單，請參閱 [Azure Blob 資料集型別屬性](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties)小節。
+
 **具有複製活動的管線**
 
 此管線包含複製活動，該活動已設定為使用上述輸入和輸出資料集並排定為每小時執行。在管線 JSON 定義中，**source** 類型設為 **SqlSource**，而 **sink** 類型設為 **BlobSink**。針對 **SqlReaderQuery** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
@@ -192,6 +200,16 @@
 	   }
 	}
 
+> [AZURE.NOTE]在上述範例中，已為 SqlSource 指定 **sqlReaderQuery**。複製活動會針對 Azure SQL Database 來源執行這項查詢以取得資料。
+>  
+> 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
+>  
+> 如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 Azure SQL Database 執行 (從 mytable 選取 column1、column2)。如果資料集定義沒有結構，則會從資料表中選取所有資料行。
+
+
+如需 SqlSource 和 BlobSink 所支援屬性的清單，請參閱 [SQL 來源](#sqlsource)小節和 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)。
+
+
 ## 範例：從 Azure Blob 複製資料到 Azure SQL
 
 下列範例顯示：
@@ -217,6 +235,8 @@
 	  }
 	}
 
+如需這個連結的服務所支援屬性的清單，請參閱 [Azure SQL 連結的服務](#azure-sql-linked-service-properties)一文。
+
 **Azure Blob 儲存體連結服務**
 
 	{
@@ -228,6 +248,8 @@
 	    }
 	  }
 	}
+
+如需這個連結的服務所支援屬性的清單，請參閱 [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 一文。
 
 **Azure Blob 輸入資料集**
 
@@ -296,6 +318,8 @@
 	  }
 	}
 
+如需這個資料集類型所支援屬性的清單，請參閱 [Azure Blob 資料集型別屬性](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties)小節。
+
 **Azure SQL 輸出資料集**
 
 此範例會將資料複製到 Azure SQL 中名為 "MyTable" 的資料表。您應該在Azure SQL 中建立此資料表，其資料行的數目如您預期 Blob CSV 檔案要包含的數目。此資料表會每小時加入新的資料列。
@@ -314,6 +338,8 @@
 	    }
 	  }
 	}
+
+如需這個資料集類型所支援屬性的清單，請參閱 [Azure SQL 資料集型別屬性](#azure-sql-dataset-type-properties)小節。
 
 **具有複製活動的管線**
 
@@ -364,6 +390,9 @@
 	   }
 	}
 
+如需 SqlSink 和 BlobSource 所支援屬性的清單，請參閱 [SQL 接收器](#sqlsink)小節和 [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)。
+
+
 ## Azure SQL 連結服務屬性
 
 下表提供 Azure SQL 連結服務專屬 JSON 元素的描述。
@@ -373,7 +402,7 @@
 | 類型 | type 屬性必須設為：AzureSqlDatabase | 是 |
 | connectionString | 針對 connectionString 屬性指定連接到 Azure SQL Database 執行個體所需的資訊。 | 是 |
 
-**注意**：您需要設定 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。您需要設定資料庫伺服器，才能[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。此外，如果您要從 Azure 外部 (包括從具有 Fata Factory 閘道器的內部部署資料來源) 將資料複製到 Azure SQL，則必須為傳送資料到 Azure SQL 的機器設定適當的 IP 位址範圍。
+**注意：**您需要設定 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。您需要設定資料庫伺服器，才能[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。此外，如果您要從 Azure 外部 (包括從具有 Fata Factory 閘道器的內部部署資料來源) 將資料複製到 Azure SQL，則必須為傳送資料到 Azure SQL 的機器設定適當的 IP 位址範圍。
 
 ## Azure SQL 資料集類型屬性
 
@@ -401,7 +430,13 @@
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。如果未指定，執行的 SQL 陳述式：select from MyTable。 | 否 |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 | 預存程序的名稱。 | 否 |
-| storedProcedureParameters | 預存程序的參數。 | 名稱/值組。參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 | 
+| storedProcedureParameters | 預存程序的參數。 | 名稱/值組。參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
+
+如果已為 SqlSource 指定 **sqlReaderQuery**，複製活動會針對 Azure SQL Database 來源執行這項查詢以取得資料。
+
+或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
+
+如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 Azure SQL Database 執行 (從 mytable 選取 column1、column2)。如果資料集定義沒有結構，則會從資料表中選取所有資料行。
 
 ### SqlSource 範例
 
@@ -527,4 +562,4 @@
 
 	 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

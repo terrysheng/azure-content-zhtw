@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="開始使用驗證 (Android) | Microsoft Azure" 
-	description="了解如何使用行動服務透過眾多識別提供者驗證 Windows 市集應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="開始使用驗證 (Android) | Microsoft Azure"
+	description="了解如何使用行動服務透過眾多識別提供者驗證 Windows 市集應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="10/05/2015" 
 	ms.author="ricksal"/>
 
 # 將驗證加入至行動服務 Android 應用程式
@@ -41,7 +41,7 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-3. 開啟您完成教學課程[開始使用行動服務]時建立的專案。 
+3. 開啟您完成教學課程[開始使用行動服務]時建立的專案。
 
 4. 在 [執行] 功能表中，按一下 [執行應用程式] 來啟動應用程式。確認應用程式啟動後是否會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
@@ -76,7 +76,6 @@
 
 <!-- URLs. -->
 [開始使用行動服務]: mobile-services-dotnet-backend-android-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
@@ -84,6 +83,5 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用資源管理員和 PowerShell 管理 Azure VM |Microsoft Azure"
+	pageTitle="管理 Azure 資源管理員 VM | Microsoft Azure"
 	description="使用 Azure 資源管理員、範本和 PowerShell 管理虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -379,4 +379,4 @@
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

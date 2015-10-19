@@ -17,11 +17,7 @@
 	ms.author="yuaxu"/>
 
 # 如何透過 Python 使用通知中樞
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 您可以透過 Java/PHP/Python/Ruby 後端使用通知中樞 REST 介面來存取所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 所述。
 
@@ -352,4 +348,4 @@
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

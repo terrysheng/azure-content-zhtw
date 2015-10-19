@@ -7,7 +7,14 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/05/2015"
+	ms.author="jimpark; aashishr; giridham"/>
 
 
 # 管理 Azure 備份保存庫與伺服器
@@ -37,11 +44,14 @@
 
 ![已刪除的伺服器](./media/backup-azure-manage-windows-server/RS_deletedserver.png)
 
-您可以在其中執行下列工作：[允許重新註冊] - 為伺服器選取此選項時，您可以使用代理程式中的「註冊精靈」 再次向備份保存庫註冊伺服器。如果憑證中有錯誤，或必須重建伺服器，您可能需要重新註冊。每個伺服器名稱只允許重新註冊一次。[刪除] - 從備份保存庫刪除伺服器。所有與該伺服器相關聯的已儲存資料都將立即刪除。
+您可以在其中執行下列工作：
+
+- **允許重新註冊** - 為伺服器選取此選項時，您可以使用代理程式中的「註冊精靈」，再次向備份保存庫註冊伺服器。如果憑證中有錯誤，或必須重建伺服器，您可能需要重新註冊。
+- **刪除** - 從備份保存庫中刪除伺服器。所有與該伺服器相關聯的已儲存資料都將立即刪除。
 
 ## 後續步驟
 - [從 Azure 還原 Windows Server 或 Windows 用戶端](backup-azure-restore-windows-server.md)
 - 若要深入了解 Azure 備份，請參閱 [Azure 備份概觀](backup-introduction-to-azure-backup.md)
-- 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+- 瀏覽 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

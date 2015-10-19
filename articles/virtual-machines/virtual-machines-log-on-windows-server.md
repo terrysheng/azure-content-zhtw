@@ -14,31 +14,38 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/05/2015"
 	ms.author="cynthn"/>
 
 
-# 登入以傳統部署模型建立的 Windows 虛擬機器
+# 使用 Azure 入口網站登入 Windows 虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
 
-您會使用 Azure Preview 入口網站中的 [連接] 按鈕啟動「遠端桌面」工作階段。首先您要連線至虛擬機器，然後登入。
+
+在 Azure 入口網站中，使用 [連接] 按鈕來啟動遠端桌面工作階段，並登入 Windows VM。
 
 您想要連線至 Linux VM 嗎？ 請參閱[如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)。
 
-## 連線至虛擬機器。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
 
-以下是本教學課程的逐步解說。
+## 影片逐步解說
+
+以下是本教學課程的逐步解說影片。它還包括可用來連接到 Azure 中 Windows VM 的端點及公用和私人連接埠。
 
 [AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
 
-1. 如果您尚未登入 [Azure 入口網站](http://manage.windowsazure.com)，請先登入。
 
-2. 按一下 [虛擬機器]，然後選取適當的虛擬機器。
+## 連線至虛擬機器。
 
-3. 按一下命令列上的 [連接]。
+1. 登入 [Azure 入口網站](http://manage.windowsazure.com)。
+
+2. 按一下 [虛擬機器]，然後選取虛擬機器。
+
+3. 在頁面底部的命令列中，按一下 [連接]。
 
 	![登入虛擬機器](./media/virtual-machines-log-on-windows-server/connectwindows.png)
+	
+> [AZURE.TIP]如果 [連接] 按鈕無法使用，請參閱本文結尾處的疑難排解提示。
 
 ## 登入虛擬機器
 
@@ -46,11 +53,11 @@
 
 ## 疑難排解秘訣
 
-以下是入口網站中一些可以快速嘗試的方法：
+以下是一些可嘗試的方法：
 
--	如果是遠端桌面連線的問題，請嘗試重設組態。從虛擬機器儀表板的**快速概覽**底下，按一下 [重設遠端組態]。
+-	如果 [連接] 按鈕無法使用，或者有遠端桌面連線的其他問題，請嘗試重設組態。從虛擬機器儀表板的**快速概覽**底下，按一下 [重設遠端組態]。
 -	如果是您的密碼有問題，請嘗試重設密碼。從虛擬機器儀表板的**快速概覽**底下，按一下 [重設密碼]。
 
 如果這些秘訣沒效，或者不是您所需要的，請參閱[疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)。本文會逐步帶領您診斷及解決常見的問題。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

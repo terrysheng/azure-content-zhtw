@@ -58,15 +58,13 @@
 
 了解如何在行動服務中執行其他重要工作：
 
-* [將行動服務新增至現有的應用程式] <br/>深入了解使用行動服務來儲存與查詢資料。
+* [開始使用離線資料同步] <br/>了解如何使用離線資料同步，讓您的 App 更穩健及具備回應力。
 
-* [開始使用離線資料同步] <br/>了解如何使用離線資料同步，讓您的應用程式更穩健及具備回應力。
+* [將驗證新增至現有 App] <br/>了解如何向身分識別提供者驗證 App 的使用者。
 
-* [將驗證新增至現有應用程式] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [將推播通知新增至現有 App] <br/>了解如何將非常基本的推播通知傳送至 App。
 
-* [將推播通知新增至現有應用程式] <br/>了解如何將非常基本的推播通知傳送至應用程式。
-
-* [行動服務 .NET 後端疑難排解]<br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
+* [行動服務 .NET 後端疑難排解] <br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -88,10 +86,9 @@
 
 
 <!-- URLs. -->
-[將行動服務新增至現有的應用程式]: mobile-services-dotnet-backend-ios-get-started-data.md
 [開始使用離線資料同步]: mobile-services-ios-get-started-offline-data.md
-[將驗證新增至現有應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
-[將推播通知新增至現有應用程式]: mobile-services-dotnet-backend-ios-get-started-push.md
+[將驗證新增至現有 App]: mobile-services-dotnet-backend-ios-get-started-users.md
+[將推播通知新增至現有 App]: mobile-services-dotnet-backend-ios-get-started-push.md
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -100,4 +97,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 後端版本]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

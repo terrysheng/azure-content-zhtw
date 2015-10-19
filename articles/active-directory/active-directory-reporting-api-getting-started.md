@@ -1,20 +1,20 @@
 <properties
    pageTitle="開始使用 Azure AD 報告 API"
-	description="如何開始使用 Azure Active Directory 報告 API"
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
-	editor=""/>
+   description="如何開始使用 Azure Active Directory 報告 API"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/17/2015"
-	ms.author="kenhoff;yossib"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # 開始使用 Azure AD 報告 API
@@ -157,10 +157,15 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 
 指令碼會列出所有可用的報告，並在 PowerShell 視窗中從 AccountProvisioningEvents 報告傳回 JSON 格式的輸出。它也會建立具有相同輸出的檔案 (JSON、文字和 XML 格式)。您可透過修改指令碼以從其他報告傳回資料來註解實驗，以及註解排除您不需要的輸出格式。
 
+## 注意事項
+
+- Azure AD Reporting API (使用 OData 分頁) 傳回的事件數目沒有任何限制。
+	- 如需報告資料的保留限制，請參閱[報告保留原則](active-directory-reporting-retention.md)。
+
 
 ## 後續步驟
 - 想知道有哪些安全性、稽核及活動報告可用嗎？ 請查看 [Azure AD 安全性、稽核及活動報告](active-directory-view-access-usage-reports.md)
 - 如需稽核報告的詳細資訊，請參閱 [Azure AD 稽核報告事件](active-directory-reporting-audit-events.md)
 - 如需圖形 API REST 服務的詳細資訊，請參閱 [Azure AD 報告和事件 (預覽)](https://msdn.microsoft.com/library/azure/mt126081.aspx)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

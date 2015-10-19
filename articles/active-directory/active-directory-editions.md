@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/01/2015"
 	ms.author="markvi"/>
 
 # Azure Active Directory 版本
@@ -56,9 +56,9 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 
     如需詳細資訊，請參閱[什麼是 Azure Multi-Factor Authentication？](multi-factor-authentication.md)
 
-- **Microsoft 身分識別管理員 (MIM)** - Premium 包含有權選擇是否授予在內部網路中使用 MIM 伺服器 (和 CAL)，以支援任何混合式身分識別解決方案組合的權限。如果您有要與 Azure Active Directory 直接進行同步處理的不同內部部署目錄和資料庫，則這會是個不錯的選擇。可以使用的 FIM 伺服器數目沒有限制，不過，系統會根據 Azure Active Directory Premium 使用者授權的配置授與 MIM CAL。
+- **Microsoft Identity Manager** - 高階版包含有權選擇是否授予在內部網路中使用 MIM 伺服器 (和 CAL)，以支援任何混合式身分識別解決方案組合的權限。如果您有要與 Azure Active Directory 直接進行同步處理的不同內部部署目錄和資料庫，則這會是個不錯的選擇。可以使用的 MIM 伺服器數目沒有限制，不過，系統會根據 Azure Active Directory Premium 使用者授權的配置授與 MIM CAL。
 
-    如需詳細資訊，請參閱[部署 MIM 2010 R2](https://www.microsoft.com/server-cloud/products/forefront-identity-manager/features.aspx)。
+    如需詳細資訊，請參閱 [Microsoft Identity Manager](http://www.microsoft.com/zh-TW/server-cloud/products/microsoft-identity-manager/default.aspx)。
 
 - **99.9% 的企業 SLA** - 我們保證至少 99.9%的 Azure Active Directory Premium 服務可用性。
 
@@ -450,4 +450,4 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 - [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

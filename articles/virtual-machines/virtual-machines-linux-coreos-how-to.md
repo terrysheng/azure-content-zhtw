@@ -1,6 +1,6 @@
 <properties
 	pageTitle="如何使用 CoreOS |Microsoft Azure"
-	description="說明 CoreOS、如何在 Azure 上建立 CoreOS 虛擬機器叢集，以及其基本使用方法。"
+	description="說明 CoreOS、如何在 Azure 上於傳統部署模型中建立 CoreOS 虛擬機器叢集在和其基本使用方法。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -21,7 +21,8 @@
 
 本主題說明 [CoreOS]，以及如何在 Azure 上建立三部 CoreOS 虛擬機器的叢集，作為了解此作業系統的快速入門。它會使用 CoreOS 部署的每個基本元素，和來自 [在 Azure 上的 CoreOS] (英文)、[Tim Park 的 CoreOS 教學課程] (英文) 和 [Patrick Chanezon 的 CoreOS 教學課程] (英文) 的範例，來說明了解 CoreOS 部署之基本結構和順利執行三部虛擬機器之叢集兩者的絕對最低需求。
 
->[AZURE.NOTE]本文將說明如何使用 Azure 命令列介面與服務管理命令建立 CoreOS VM。若要開始在 Azure 資源管理員中使用 CoreOS，請試用此[快速入門範本](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋使用 Azure CLI 利用傳統部署模型建立 CoreOS VM 的內容。您也可以在[資源管理員部署模型](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/)使用範本建立 CoreOS VM。
+
 
 ## <a id='intro'>CoreOS、叢集和 Linux 容器</a>
 
@@ -181,7 +182,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 ## 後續步驟
 
-在 Azure 上，您現在應該會有執行三節點 CoreOS 叢集。此後，您可以探索如何建立更複雜的叢集，並使用 Docker 建立更有趣的應用程式。若要操作幾個快速的範例，請參閱＜[開始在 Azure 上的 CoreOS 使用 Fleet]＞。
+在 Azure 上，您現在應該會有執行三節點 CoreOS 叢集。此後，您可以探索如何建立更複雜的叢集，並使用 Docker 建立更有趣的應用程式。若要嘗試幾個簡短的範例，請參閱[開始在 Azure 上的 CoreOS 使用 Fleet]。
 
 <!--Anchors-->
 [CoreOS, Clusters, and Linux Containers]: #intro
@@ -208,4 +209,4 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [YAML]: http://yaml.org/
 [開始在 Azure 上的 CoreOS 使用 Fleet]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

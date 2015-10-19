@@ -1,6 +1,7 @@
 <properties
 	pageTitle="機器學習適用之 R 語言的快速入門教學課程 | Microsoft Azure"
 	description="請透過此 R 程式設計教學課程快速開始搭配 Azure Machine Learning Studio 使用 R 語言來建立預測解決方案。"
+	keywords="quickstart,r language,r programming language,r programming tutorial"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/08/2015"
 	ms.author="larryfr"/>
 
 # Azure Machine Learning 之 R 程式設計語言的快速入門教學課程
@@ -112,15 +113,13 @@ R 程式碼的執行及在 Azure Machine Learning 平台上的執行所產生的
 看來我們必須查看 output.log 來找出 R 錯誤訊息。按一下[執行 R 指令碼][execute-r-script]，然後按一下右邊 [**屬性**] 窗格上的 [**檢視 output.log**] 項目。新的瀏覽器視窗隨即開啟，我看到下列訊息。
 
 
-	[ModuleOutput] [1] 14000
-	[ModuleOutput]
-	[ModuleOutput] Loading objects:
-	[ModuleOutput]
-	[ModuleOutput]   port1
-	[ModuleOutput]
-	[ModuleOutput] [1] "Loading variable port1..."
-	[ModuleOutput]
-	[ModuleOutput] Error in eval(expr, envir, enclos) : object 'y' not found
+    [Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
+    ---------- Start of error message from R ----------
+    object 'y' not found
+    
+    
+    object 'y' not found
+    ----------- End of error message from R -----------
 
 此錯誤訊息沒有任何出人意料的內容，並且清楚地指出問題所在。
 
@@ -161,7 +160,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 - 啟動 Azure Machine Learning Studio 環境。
 
-- 按一下您畫面左下方的 +，然後選取 [**資料集**]。
+- 按一下您畫面左下方的 [+ 新增]，然後選取 [資料集]。
 
 - 選取 [從本機檔案]，然後按一下 [瀏覽] 以選取檔案。
 
@@ -175,7 +174,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 既然我們在 Machine Learning Studio 中已經有一些資料，我們需要建立一個實驗來執行分析。
 
-- 按一下左下方的 + 號並選取 [實驗]，然後選取 [空白實驗]。
+- 按一下左下方的 [+ 新增] 並選取 [實驗]，然後選取 [空白實驗]。
 
 - 您可以選取和修改頁面頂端的**實驗建立目的**標題，為您的實驗命名。例如，將它變更為「加州乳製品分析」。
 
@@ -187,7 +186,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 - 將[執行 R 指令碼][execute-r-script]模組拖放到您的選盤上。
 
-- 將 [**csdairydata.csv 資料集**] 的輸出 連接到[執行 R 指令碼][execute-r-script]最左邊的輸入 (**資料集1**)。
+- 將 [csdairydata.csv 資料集] 的輸出連接到[執行 R 指令碼][execute-r-script]最左邊的輸入 (**資料集1**)。
 
 - **別忘了按一下 [儲存]！**
 
@@ -205,7 +204,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 *圖 4：cadairydata.csv 資料集的摘要。*
 
-在這個檢視中，我們會看到許多有用的資訊。[**功能類型**] 資料列顯示 Azure Machine Learning Studio 指派給資料集內各資料行的資料類型。我們也會看到該資料集的前幾列。擁有一個類似這樣的快速檢視，對於開始執行任何正式工作來說，是相當好的執行前例行性檢查。
+在這個檢視中，我們會看到許多有用的資訊。我們可以看到該資料集的前幾列。如果我們選取資料行，[統計資料] 區段會顯示有關資料行的詳細資訊。例如，[功能類型] 資料列顯示 Azure Machine Learning Studio 指派給各資料行的資料類型。擁有一個類似這樣的快速檢視，對於開始執行任何正式工作來說，是相當好的執行前例行性檢查。
 
 ###	第一個 R 指令碼
 
@@ -270,6 +269,17 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 	cadairydata <- maml.mapInputPort(1)
 
 請按一下 [**執行**] 按鈕來執行您的實驗。執行完成時，請按一下[執行 R 指令碼][execute-r-script]模組，然後按一下 [屬性] 窗格上的 [**檢視輸出記錄檔**]。您的瀏覽器中應該會出現一個新頁面，當中顯示 output.log 檔案的內容。當您向下捲動時，您應該會看到類似下列的內容。
+
+    [ModuleOutput] InputDataStructure
+    [ModuleOutput]
+    [ModuleOutput] {
+    [ModuleOutput]  "InputName":Dataset1
+    [ModuleOutput]  "Rows":228
+    [ModuleOutput]  "Cols":9
+    [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
+    [ModuleOutput] }
+
+在頁面上按兩次會載入額外的資料，看起來如下所示。
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -377,22 +387,70 @@ R 是動態指定類型的語言，這表示會視需要強制將資料類型從
 	## Azure Machine Learning Studio
 	maml.mapOutputPort('cadairydata')
 
-讓我們執行這個程式碼並查看輸出。圖 9 顯示來自 [R 裝置] 功能表上 [**視覺化**] 的輸出。
+讓我們執行這個程式碼並查看 R 指令碼的輸出記錄檔。圖 9 顯示來自記錄檔的相關資料。
 
-![含有因素變數之資料框架的摘要][10]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 14 levels "Apr","April",..: 6 5 9 1 11 8 7 3 14 13 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *圖 9.含有因素變數之資料框架的摘要。*
 
-Month 的類型現在應該會表示為 '**Factor w/ 14 levels**'。這會發生問題，因為一年只有 12 個月。您也可以檢查看看 [結果資料集] 連接埠之 [**視覺化**] 中的類型是否為 '**Categorical**'。
+Month 的類型現在應該會表示為 '**Factor w/ 14 levels**'。這會發生問題，因為一年只有 12 個月。您也可以檢查看看 [結果資料集] 連接埠之 [視覺化] 中的類型是否為 '**Categorical**'。
 
 問題在於 'Month' 資料行的程式碼並非以有系統的方式撰寫。在某些情況下，某個月份稱為 April ，在其他情況下則會縮寫成 Apr。我們可以將字串修剪成 3 個字元來解決這個問題。這行程式碼現在看起來如下：
 
 	## Ensure the coding is consistent and convert column to a factor
 	cadairydata$Month <- as.factor(substr(cadairydata$Month, 1, 3))
 
-請重新執行實驗，然後將 [R 裝置] 連接埠的輸出 [**視覺化**]，結果會如圖 10 所示。
+重新執行實驗和檢視輸出記錄檔。圖 10 顯示預期的結果。
 
-![因素層級數目正確之資料框架的摘要][11]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *圖 10.因素層級數目正確之資料框架的摘要。*
 
@@ -411,9 +469,29 @@ R 資料框架支援強大的篩選功能。藉由在資料列或資料行使用
 	# Remove two columns we do not need
 	cadairydata <- cadairydata[, c(-1, -2)]
 
-請在您的實驗中執行此程式碼，然後使用 [R 裝置] 連接埠上的 [**視覺化**] 來檢查結果。這些結果如圖 11 所示。
+在您的實驗中執行此程式碼，並檢查輸出記錄檔的結果。這些結果如圖 11 所示。
 
-![已移除兩個資料行之資料框架的摘要][12]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  7 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *圖 11.已移除兩個資料行之資料框架的摘要。*
 
@@ -439,9 +517,31 @@ R 資料框架支援強大的篩選功能。藉由在資料列或資料行使用
 	## Compute the new column for the dataframe
 	cadairydata$Month.Count <- num.month(cadairydata$Year, cadairydata$Month.Number)
 
-現在，請執行更新過的實驗，然後使用 [R 裝置] 連接埠上的 [**視覺化**] 來檢視結果。這些結果如圖 12 所示。
+現在，執行更新的實驗並使用輸出記錄檔來檢視結果。這些結果如圖 12 所示。
 
-![含有其他資料行之資料框架的摘要][13]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  8 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *圖 12.含有其他資料行之資料框架的摘要。*
 
@@ -502,9 +602,31 @@ R 資料框架支援強大的篩選功能。藉由在資料列或資料行使用
 
 4. 對數計算被包裝在 `tryCatch()` 中，如此例外狀況就不會導致處理突然停止。如果沒有 `tryCatch()`，R 函式所引發的大多數錯誤都會導致產生停止訊號，而此訊號所執行的就是停止。
 
-請在您的實驗中執行此 R 程式碼，然後看看 output.log 檔案中的列印輸出。使用 [R 裝置] 功能表中的 [**視覺化**]，您現在便可看到四個資料行的已轉換值，如圖 13 所示。
+請在您的實驗中執行此 R 程式碼，然後看看 output.log 檔案中的列印輸出。您現在會在記錄中看到四個資料行的已轉換值，如圖 13 所示。
 
-![資料框架中已轉換之值的摘要][14]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  8 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *圖 13.資料框架中已轉換之值的摘要。*
 
@@ -522,8 +644,7 @@ R 資料框架支援強大的篩選功能。藉由在資料列或資料行使用
 
 如已經提過的，時間序列是一系列依時間編制索引的資料值。R 時間序列物件可用來建立和管理時間索引。使用時間序列物件有數個優點。時間序列物件可讓您不必理會管理封裝在物件中之時間序列索引值的許多細節。此外，時間序列物件還可讓您使用許多時間序列方法來繪製、列印、建立模型等。
 
-POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類別是從 1970 年 1 月 1 日開始計量時間。在此範例中，我們將使用 POSIXct 時間序列物件。其他廣泛使用的 R 時間序列物件類別包括 zoo 和 xts (可延伸時間序列)。
-<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類別是從 1970 年 1 月 1 日開始計量時間。在此範例中，我們將使用 POSIXct 時間序列物件。其他廣泛使用的 R 時間序列物件類別包括 zoo 和 xts (可延伸時間序列)。<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	時間序列物件範例
 
@@ -539,9 +660,27 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 	cadairydata <- maml.mapInputPort(1)
 	str(cadairydata) # Check the results
 
-現在，請執行實驗。您在 [R 裝置] 連接埠看到的輸出應該看起來像圖 14。
+現在，請執行實驗。新的執行 R 指令碼圖形的記錄檔看起來應該像圖 14。
 
-![[執行 R 指令碼] 模組中資料框架的摘要][15]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  8 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
 
 * 14.[執行 R 指令碼] 模組中資料框架的摘要。*
 
@@ -560,9 +699,29 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 
 	str(cadairydata) # Check the results
 
-現在，請檢查 [R 裝置] 輸出。這應該會看起來像圖 15。
+現在，請檢查記錄檔。這應該會看起來像圖 15。
 
-![含有時間序列物件之資料框架的摘要][16]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 
 * 15.含有時間序列物件之資料框架的摘要。*
 
@@ -663,9 +822,59 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 
 	cadairycorrelations
 
-執行此程式碼會產生如圖 18 所示的輸出。
+執行此程式碼會產生如圖 18 所示的記錄。
 
-![來自成對相互關聯分析的 ccf 物件清單][19]
+    [ModuleOutput] Loading objects:
+    [ModuleOutput]   port1
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] [[1]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]    -1     0     1 
+    [ModuleOutput] 0.148 0.358 0.317 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[2]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]     -1      0      1 
+    [ModuleOutput] -0.395 -0.186 -0.238 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[3]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]     -1      0      1 
+    [ModuleOutput] -0.059 -0.089 -0.127 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[4]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]    -1     0     1 
+    [ModuleOutput] 0.140 0.294 0.293 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[5]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]     -1      0      1 
+    [ModuleOutput] -0.002 -0.074 -0.124 
 
 *圖 18.來自成對相互關聯分析的 ccf 物件清單。*
 
@@ -701,7 +910,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 
 第一行程式碼是需要一點技巧，一些說明可以幫助您了解它。由內而外可分為下列項目：
 
-1.  含有引數 '**1**' 的 '**[[**' 運算子會從 ccf 物件清單的第一個元素選取各段延隔時間的相互關聯向量。
+1.  含有引數 '**[[**' 的 '**1**' 運算子會從 ccf 物件清單的第一個元素選取各段延隔時間的相互關聯向量。
 
 2.  `do.call()` 函式會在 `lapply()` 所傳回之清單的項目上套用 `rbind()` 函式。
 
@@ -742,9 +951,29 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 
 	str(cadairydata)
 
-請執行此程式碼，然後查看 [R 裝置] 輸出連接埠。結果應該會看起來像圖 21。
+執行此程式碼並查看記錄檔。結果應該會看起來像圖 21。
 
-![資料框架的摘要][22]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 
 *圖 21.資料框架的摘要。*
 
@@ -1117,4 +1346,4 @@ Paul Cowpertwait 與 Andrew Metcalfe 所著的 《Introductory Time Series with 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

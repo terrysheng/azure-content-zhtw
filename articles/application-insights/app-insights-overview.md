@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
  
 # 什麼是 Application Insights？
@@ -115,7 +115,7 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
 * 疑難排解與問題：
  * [疑難排解][qna]
- * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-cn/home?forum=ApplicationInsights)
+ * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-TW/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 錯誤：
  * [連線](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -152,4 +152,4 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

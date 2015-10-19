@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Azure 串流分析查詢模式 | Microsoft Azure"
 	description="常見的 Azure 串流分析查詢模式"
+	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/19/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok"/>
 
 
@@ -454,4 +455,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

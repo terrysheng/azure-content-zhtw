@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/02/2015" 
 	ms.author="tomfitz"/>
 
 # 使用範本建立 Redis 快取
@@ -26,13 +26,15 @@
 
 如需完整範本，請參閱 [Redis 快取範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json)。
 
+>[AZURE.NOTE]即將推出適用於新[高階層](cache-premium-tier-intro.md)的 ARM 範本。若要檢查最新的範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/) 並搜尋 `Redis Cache`。
+
 ## 部署內容
 
 在此範本中，您將部署使用現有儲存體帳戶的 Azure Redis 快取來診斷資料。
 
 若要自動執行部署，請按一下下列按鈕：
 
-[![部署至 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![部署至 Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## 參數
 
@@ -129,4 +131,4 @@ Redics 快取的位置。針對最佳效能，使用要與快取搭配使用之�
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

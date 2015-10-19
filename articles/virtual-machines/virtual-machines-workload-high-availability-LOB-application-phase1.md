@@ -44,7 +44,7 @@
 5\. | VNet 位址空間 | 適用於虛擬網路的位址空間 (定義於單一私人位址首碼中)。與您的 IT 部門合作來決定這個位址空間。 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 6\. | 虛擬網路的第一個 DNS 伺服器 | 第四個適用於虛擬網路之第二個子網路位址空間的可能 IP 位址 (請參閱資料表 S)。與您的 IT 部門合作來決定這個位址。 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | 虛擬網路的第二個 DNS 伺服器 | 第五個適用於虛擬網路之第二個子網路位址空間的可能 IP 位址 (請參閱資料表 S)。與您的 IT 部門合作來決定這個位址。 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-8\. | IPsec 共用金鑰 | 為 128 個字元的隨機英數字元字串，將用來驗證站對站 VPN 連接的兩端。與您的 IT 或安全性部門合作來決定此金鑰值。 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+8\. | IPsec 共用金鑰 | 32 個字元的隨機英數字元字串，將用來驗證網站間 VPN 連接的兩端。與您的 IT 或安全性部門合作來決定此金鑰值。或者，請參閱[建立適用於 IPsec 預先共用金鑰的隨機字串](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx)。| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 
 **表格 V：跨單位虛擬網路設定**
@@ -86,11 +86,9 @@
 
 **表格 L：適用於區域網路的位址首碼**
 
-接下來，您需要 Azure PowerShell 0.9.5 版或更新版本。若要檢查您的 Azure PowerShell 版本，請執行這個命令。
+> [AZURE.NOTE]本文包含適用於 Azure PowerShell 版本的命令，適用版本可從 0.9.5 開始且高達*但不限於*版本 1.0.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。本文中的 Azure PowerShell 命令區塊正處於支援 Azure PowerShell 版本 1.0.0 和更新版本中新 Cmdlet 的測試和更新過程中。感謝您耐心配合。
 
-	Get-Module azure | format-table version
-
-如果您需要安裝最新版的 Azure PowerShell，請使用 [控制台] -> [程式和功能] 來移除目前的版本。然後，按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的指示，在本機電腦安裝 Azure PowerShell。開啟 Azure PowerShell 提示字元。
+開啟 Azure PowerShell 提示字元。
 
 首先，利用以下命令選取正確的 Azure 訂用帳戶。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
@@ -203,7 +201,7 @@
 
 若要設定內部部署 VPN 裝置，您將需要下列項目：
 
-- 適用於虛擬網路之 Azure VPN 閘道器的公用 IPv4 位址 (從 **Get-AzurePublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 命令所顯示)
+- 適用於虛擬網路之 Azure VPN 閘道的公用 IPv4 位址 (從 **Get-AzurePublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 命令顯示)
 - 適用於站對站 VPN 連接的 IPsec 預先共用金鑰 (資料表 V- 項目 8 – 值資料行)
 
 接著，確定可從您的內部部署網路連線到虛擬網路的位址空間。這通常是藉由將對應到虛擬網路位址空間的路由新增到您的 VPN 裝置，然後將該路由公告至組織網路中路由基礎結構的剩餘部分。與您的 IT 部門合作來決定如何執行這個動作。
@@ -251,4 +249,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

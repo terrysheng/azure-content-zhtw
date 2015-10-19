@@ -1,21 +1,21 @@
 
 <properties 
-   pageTitle="Azure SDK for .NET 2.7 和 .NET 2.7.1 版本資訊"
-	description="Azure SDK for .NET 2.7 和 .NET 2.7.1 版本資訊"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Juliako"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Azure SDK for .NET 2.7 和 .NET 2.7.1 版本資訊" 
+   description="Azure SDK for .NET 2.7 和 .NET 2.7.1 版本資訊" 
+   services="app-service\web" 
+   documentationCenter=".net" 
+   authors="Juliako" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/26/2015"
-	ms.author="juliako"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/26/2015"
+   ms.author="juliako"/>
 
 
 # Azure SDK for .NET 2.7 和 .NET 2.7.1 版本資訊
@@ -150,6 +150,7 @@ Azure 資源管理員工具已更新為使用角色型存取控制 (RBAC) 和新
 
 在非英文版的作業系統上安裝適用於 Visual Studio Community 2013 的 Azure SDK 2.6 或 2.7.1，將顯示警告來表示 Visual Studio 的英文版和非英文版資源可能不相符。您可以安全地關閉此警告。這只會發生在電腦未包含預先安裝的 Visual Studio Community 2013 且您正在非英文版的作業系統上安裝 SDK 時。警告會在語言套件將 RTM 資源套用到 Visual Studio 之後，但在其套用 Update 4 之前顯示。關閉警告將允許語言套件繼續執行並完成套用語言套件內容的 Update 4 版本。
 
+LightSwitch 專案與這個版本不相容。這個問題將在下個 SDK 版本中解決。
 
 ##另請參閱
 [Azure SDK 2.7.1 公告文章](http://go.microsoft.com/fwlink/?LinkId=623850)
@@ -158,4 +159,4 @@ Azure 資源管理員工具已更新為使用角色型存取控制 (RBAC) 和新
 
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="傳送推播通知給已驗證的使用者 (Universal Windows 8.1) | Microsoft Azure" 
+	pageTitle="傳送推播通知給已驗證的使用者 (Universal Windows 8.1) | Azure Mobile Services" 
 	description="了解如何使用 Azure 行動服務，將推播通知傳送給執行 Universal Windows 8.1 應用程式並已驗證的特定使用者。" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="10/05/2015" 
 	ms.author="glenga"/>
 
 # 傳送推播通知給已驗證的使用者
@@ -30,9 +30,9 @@
 
 在開始本教學課程之前，您必須已完成下列行動服務教學課程：
 
-+ [開始使用驗證]<br/>將登入需求新增至 TodoList 範例應用程式。
++ [開始使用驗證] 將登入需求新增至 TodoList 範例 App。
 
-+ [開始使用推播通知]<br/>使用通知中心，設定推播通知的 TodoList 範例應用程式。
++ [開始使用推播通知] 使用通知中樞，來設定推播通知的 TodoList 範例 App。
 
 在您完成這兩個教學課程後，您即可防止未經授權的使用者從您的行動服務註冊推播通知。
 
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

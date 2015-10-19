@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # 在 Azure 虛擬機器上託管的 Oracle 軟體
@@ -43,24 +43,16 @@
 
 [在 Azure 中建立 Oracle WebLogic Server 12c 與 Oracle Database 12c](virtual-machines-creating-oracle-weblogic-server-12c-oracle-database-12c-virtual-machine.md) 帶您逐步完成建立和設定虛擬機器與資料庫。
 
-## Oracle WebLogic Server 12c 叢集
-
-[在 Azure 中建立 Oracle WebLogic Server 12c 叢集](virtual-machines-creating-oracle-weblogic-server-12c-cluster.md)帶您逐步完成建立叢集與應用程式部署。
-
-## Oracle WebLogic Server 11g
-
-[在 Azure 中建立 Oracle WebLogic Server 11g 虛擬機器](virtual-machines-creating-oracle-weblogic-server-11g-virtual-machine.md)帶您逐步完成虛擬機器建立、設定以及應用程式安裝。
-
 ## 準備 Oracle Linux 虛擬機器
 
-[準備 Azure 的 Oracle Linux 虛擬機器](virtual-machines-prepare-oracle-linux-virtual-machine.md)帶您逐步完成必要條件和建立 Oracle Linux 6.4 + 與 Oracle Linux 7.0 + 的虛擬機器。
+[準備適用於 Azure 的 Oracle Linux 虛擬機器](virtual-machines-prepare-oracle-linux-virtual-machine.md)將帶領您逐步完成必要條件和建立 Oracle Linux 6.4 + 與 Oracle Linux 7.0 + 的虛擬機器。
 
 ## Oracle 資料保護
 
-[設定 Azure 的 Oracle 資料保護](virtual-machines-configuring-oracle-data-guard.md)帶您逐步完成待命環境與接聽程式的設定。
+[設定適用於 Azure 的 Oracle 資料保護](virtual-machines-configuring-oracle-data-guard.md)將帶領您逐步完成待命環境與接聽程式的設定。
 
 ## Oracle GoldenGate
 
-[設定 Azure 的 Oracle GoldenGate](virtual-machines-configuring-oracle-goldengate.md) 帶您逐步完成資料庫與複寫設定。
+[設定適用於 Azure 的 Oracle GoldenGate](virtual-machines-configuring-oracle-goldengate.md) 將帶領您逐步完成資料庫與複寫設定。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

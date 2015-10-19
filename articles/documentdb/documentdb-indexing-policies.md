@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/03/2015" 
+    ms.date="10/05/2015" 
     ms.author="mimig"/>
 
 
@@ -541,7 +541,7 @@ DocumentDB 也支援每個路徑的空間索引類型 (可針對點資料類型�
 
 根據預設，如果沒有 (任何精確度的) 範圍索引，以發出可能需要掃描才能進行查詢的訊號，則所有查詢都會傳回錯誤。只要在 REST API 中使用 x-ms-documentdb-enable-scans 標頭，或使用 .NET SDK 利用 EnableScanInQuery 要求選項，仍然可以在沒有範圍索引的情況下執行範圍查詢。如果在查詢中有 DocumentDB 可以使用索引據以篩選的其他任何篩選，則將不會傳回任何錯誤。
 
-相同的規則適用於空間查詢。根據預設，如果空間查詢中沒有任何空間索引，則會傳回錯誤。您可以使用 x-ms-documentdb-enable-scan/EnableScanInQuery 將它們執行為掃描。
+相同的規則適用於空間查詢。根據預設，如果沒有空間索引，而且沒有可從索引提供服務的其他篩選，則會針對空間查詢傳回錯誤。您可以使用 x-ms-documentdb-enable-scan/EnableScanInQuery 將它們執行為掃描。
 
 #### 索引精確度
 
@@ -664,6 +664,8 @@ DocumentDB 可讓您即時對集合的索引編製原則進行變更。DocumentD
 - 調整索引編製精確度，以改善查詢效能或減少耗用的儲存空間
 
 >[AZURE.NOTE]若要使用 ReplaceDocumentCollectionAsync 修改索引編製原則，您需要 .NET SDK 1.3.0 版或更新版本
+>
+> 為使索引轉換順利完成，您必須確定集合上有足夠的可用儲存空間。如果集合已達到其儲存配額，將會暫停索引轉換。一旦有可用的儲存空間 (例如您刪除某些文件)，索引轉換會自動繼續。
 
 ## 效能微調
 
@@ -767,4 +769,4 @@ DocumentDB API 會提供效能度量 (像是已使用的索引儲存體)，以�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

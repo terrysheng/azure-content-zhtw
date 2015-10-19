@@ -35,7 +35,7 @@
 本教學課程需要下列各項：
 
 * 執行於 Windows 8.1 的 Visual Studio 2013。
-* 完成[開始使用行動服務]或[開始使用資料]教學課程。
+* 完成[開始使用行動服務]教學課程。
 * Microsoft Azure 行動服務 SDK NuGet 封裝
 * Active Directory Authentication Library NuGet 封裝
 
@@ -213,8 +213,7 @@
 [如何向 Azure Active Directory 註冊]: mobile-services-how-to-register-active-directory-authentication.md
 [Active Directory]: https://manage.windowsazure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[開始使用資料]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 開發人員中心儀表板]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

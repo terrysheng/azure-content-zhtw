@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/05/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 # 建立串流分析輸出
@@ -254,7 +254,7 @@ Azure 的串流分析提供儲存和檢視工作輸出的七種不同方法。SQ
 
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-tw/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -306,4 +306,4 @@ Azure 的串流分析提供儲存和檢視工作輸出的七種不同方法。SQ
 [graphic37]: ./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png
 [graphic38]: ./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

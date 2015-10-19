@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="09/29/2015"
+	ms.date="10/06/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # 使用原則來管理資源和控制存取
@@ -26,13 +26,13 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
 
 ## 常見案例
 
-一個常見的案例是為退款用途要求部門標記。組織可能只想要在有相關聯的成本中心時允許作業。否則它們會拒絕要求。這會幫助它們向適當的成本中心對所執行之作業收費。
+一個常見的案例是為退款用途要求部門標記。組織可能只想在有相關聯的適當成本中心時允許作業，否則將拒絕要求。這會幫助它們向適當的成本中心對所執行之作業收費。
 
 另一個常見案例是組織可能會想要控制建立資源的位置。或者它們可能會想要透過僅允許佈建特定類型的資源，來控制對資源的存取。
 
 同樣地，組織可以控制服務類別或為資源強制執行所需的命名慣例。
 
-使用原則可以輕易地達成這些案例，如下所述。
+使用原則可輕易地達成這些案例，如下所述。
 
 ## 原則定義結構
 
@@ -42,7 +42,7 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
 
 **條件/邏輯運算子：**它包含一組可透過一組邏輯運算子操作的條件。
 
-**效果：**這說明當滿足條件時會發生的效果 – 拒絕或稽核。稽核效果會發出警告事件服務記錄檔。例如，系統管理員可以建立原則，指出稽核是否有任何人建立大型 VM。然後他可以稍後檢閱這些記錄檔。
+**效果：**這說明當滿足條件時會發生的效果 – 拒絕或稽核。稽核效果會發出警告事件服務記錄檔。例如，系統管理員可以建立原則，如果有任何人建立大型 VM，然後稍後檢閱記錄檔，則此原則會引發稽核。
 
     {
       "if" : {
@@ -88,7 +88,7 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
 
 ## 原則定義範例
 
-現在看一下我們如何定義原則以達到以上所列的案例。
+現在讓我們看一下如何定義原則，以達成以上所列的案例。
 
 ### 退款：要求部門標記
 
@@ -177,17 +177,17 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
 
 ## 建立原則
 
-本節提供如何使用 REST API 和 PowerShell 建立原則的詳細資料。
+本節提供如何使用 REST API 建立原則的詳細資料。
 
 ### 使用 REST API 建立原則定義
 
-您可以使用原則適用的 REST API 來建立原則。REST API 可讓您建立、刪除原則及取得現有原則的相關資訊。
+您可以使用[適用於原則定義的 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx) 來建立原則。REST API 可讓您建立和刪除原則定義，以及取得現有定義的相關資訊。
 
 若要建立新原則，請執行：
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-以下是要求本文外觀的範例 –
+使用如下的要求內文：
 
     {
       "properties":{
@@ -211,21 +211,21 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
     }
 
 
-原則定義可以定義為如上所示的其中一個範例。針對 api-version，請使用 *2015-10-01-preview*。如需範例與詳細資料，請參閱「原則適用的 REST API」。
+原則定義可以定義為如上所示的其中一個範例。針對 api-version，使用 *2015-10-01-preview*。如需範例與更多詳細資料，請參閱[適用於原則定義的 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)。
 
 ## 套用原則
 
 ### 使用 REST API 的原則指派
 
-您可以透過原則適用的 REST API 指派在想要的範圍套用原則定義。REST API 可讓您建立、刪除指派並取得現有指派的相關資訊。
+您可以透過[適用於原則指派的 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)，在所需範圍內套用原則定義。REST API 可讓您建立和刪除原則指派，以及取得現有指派的相關資訊。
 
 若要建立新的原則指派，請執行：
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} 是原則指派的名稱。針對 api-version，請使用 *2015-10-01-preview*。如需範例與詳細資料，請參閱「原則適用的 REST API 指派」。
+{policy-assignment} 是原則指派的名稱。針對 api-version，使用 *2015-10-01-preview*。
 
-以下是要求本文外觀的範例 –
+使用如下的要求內文：
 
     {
       "properties":{
@@ -238,4 +238,6 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
       "name":"VMPolicyAssignment"
     }
 
-<!---HONumber=Oct15_HO1-->
+如需範例與更多詳細資料，請參閱[適用於原則指派的 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)。
+
+<!---HONumber=Oct15_HO2-->

@@ -203,6 +203,10 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 ## 儲存體模擬器版本資訊
 
+### 4\.2 版
+
+- 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上 2015-04-05 版的儲存體服務。
+
 ### 4\.1 版
 
 - 除了新的附加 Blob 功能，儲存體模擬器現在支援 Blob、佇列和表格服務端點上的 2015-02-21 版儲存體服務。 
@@ -213,7 +217,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 ### 4\.0 版
 
-- 儲存體模擬器可執行檔已重新命名為 *AzureStorageEmulator.exe*。
+- 儲存體模擬器的可執行檔已重新命名為 *AzureStorageEmulator.exe*。
 
 ### 3\.2 版
 - 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上的 2014-02-14 版儲存體服務。請注意，儲存體模擬器目前不支援檔案服務端點。如需有關 2014-02-14 版本的詳細資訊，請參閱 [為 Windows Azure 中的 Blob、佇列和表格服務進行版本設定](https://msdn.microsoft.com/library/azure/dd894041.aspx)。
@@ -228,4 +232,4 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 - 現在完全支援 2013-08-15 版的 Azure 儲存體服務。(先前只有儲存體模擬器 2.2.1 版預覽才支援此版本)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

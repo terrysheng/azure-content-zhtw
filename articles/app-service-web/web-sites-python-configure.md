@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="09/29/2015" 
 	ms.author="huguesv"/>
 
 
@@ -137,8 +137,8 @@ Python 2.7 的 `web.config` 範例：
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -157,6 +157,7 @@ Python 2.7 的 `web.config` 範例：
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite"
                       url="handler.fcgi/{R:1}"
@@ -186,8 +187,8 @@ Python 3.4 的 `web.config` 範例：
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -206,6 +207,7 @@ Python 3.4 的 `web.config` 範例：
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite" url="handler.fcgi/{R:1}" appendQueryString="true" />
             </rule>
@@ -218,13 +220,6 @@ Python 3.4 的 `web.config` 範例：
 靜態檔案交由 Web 伺服器直接處理，而不會通過 Python 程式碼，以改善效能。
 
 在上述範例中，磁碟上靜態檔案的位置應該符合在 URL 中的位置。這表示 `http://pythonapp.azurewebsites.net/static/site.css` 要求將於 `\static\site.css` 提供磁碟上的檔案。
-
-有可能將規則 `Static Files` 設定為從不同於 URL 位置的磁碟位置上提供檔案。在下列規則定義中，`http://pythonapp.azurewebsites.net/static/site.css` 將於 `\FlaskWebProject\static\site.css` 提供磁碟上的檔案，而不是 `\static\site.css`。
-
-    <rule name="Static Files" stopProcessing="true">
-      <match url="^/static/.*" ignoreCase="true" />
-      <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
-    </rule>
 
 `WSGI_ALT_VIRTUALENV_HANDLER` 是您指定 WSGI 處理常式的地方。在上述範例中，為 `app.wsgi_app` 因為處理常式是根資料夾中 `app.py` 內名為 `wsgi_app` 的函式。
 
@@ -254,6 +249,7 @@ Python 3.4 的 `web.config` 範例：
     import datetime
     import os
     import sys
+    import traceback
 
     if sys.version_info[0] == 3:
         def to_str(value):
@@ -294,20 +290,22 @@ Python 3.4 的 `web.config` 範例：
 
     def get_wsgi_handler(handler_name):
         if not handler_name:
-            raise Exception('WSGI_HANDLER env var must be set')
-        
+            raise Exception('WSGI_ALT_VIRTUALENV_HANDLER env var must be set')
+    
         if not isinstance(handler_name, str):
             handler_name = to_str(handler_name)
-
+    
         module_name, _, callable_name = handler_name.rpartition('.')
         should_call = callable_name.endswith('()')
         callable_name = callable_name[:-2] if should_call else callable_name
         name_list = [(callable_name, should_call)]
         handler = None
+        last_tb = ''
 
         while module_name:
             try:
                 handler = __import__(module_name, fromlist=[name_list[0][0]])
+                last_tb = ''
                 for name, should_call in name_list:
                     handler = getattr(handler, name)
                     if should_call:
@@ -319,10 +317,11 @@ Python 3.4 的 `web.config` 範例：
                 callable_name = callable_name[:-2] if should_call else callable_name
                 name_list.insert(0, (callable_name, should_call))
                 handler = None
-
+                last_tb = ': ' + traceback.format_exc()
+    
         if handler is None:
-            raise ValueError('"%s" could not be imported' % handler_name)
-
+            raise ValueError('"%s" could not be imported%s' % (handler_name, last_tb))
+    
         return handler
 
     activate_this = os.getenv('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS')
@@ -343,9 +342,9 @@ Python 3.4 的 `web.config` 範例：
         import site
         sys.executable = activate_this
         old_sys_path, sys.path = sys.path, []
-        
+    
         site.main()
-        
+    
         sys.path.insert(0, '')
         for item in old_sys_path:
             if item not in sys.path:
@@ -387,4 +386,4 @@ Python 3.4 的 `web.config` 範例：
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

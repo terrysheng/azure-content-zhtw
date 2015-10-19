@@ -97,7 +97,7 @@
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverase navbar-fixed-top">
+		    <div class="navbar navbar-inverse navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -212,7 +212,7 @@
 
 	![[加入新項目] 對話方塊][adddb002]
 
-3. 以下列程式碼取代 Contacts.cs 檔案的內容。
+3. 以下列程式碼取代 Contact.cs 檔案的內容。
 
         using System.ComponentModel.DataAnnotations;
         using System.Globalization;
@@ -230,7 +230,7 @@
                 public string Email { get; set; }
             }
         }
-**Contacts** 類別定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 *ContactID*。
+**Contact** 類別定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 *ContactID*。
 
 ### 建立可讓應用程式使用者使用連絡人的網頁
 
@@ -720,4 +720,4 @@ Tom Dykstra 見解精闢的[開始使用 EF 和 MVC](http://www.asp.net/mvc/tuto
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

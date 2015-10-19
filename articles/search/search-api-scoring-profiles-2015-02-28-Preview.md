@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="07/24/2015" />
+	ms.date="10/01/2015" />
 
 # 評分設定檔 (Azure 搜尋服務 REST API 2015-02-28-Preview 版)
 
@@ -300,7 +300,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 </tr><tr>
 <td>magnitude | constantBoostBeyondRange</td>	<td>有效值為 true 或 false (預設值)。設為 true 時，完整提升仍會繼續套用至目標欄位的值高於範圍上限的文件。如果為 false，則此函數的提升將不會套用至目標欄位的值超出範圍的文件。</td>
 </tr><tr>
-<td>freshness</td>	<td>有效性計分函數可用來根據 DateTimeOffset 欄位中的值改變項目的排名分數。例如，日期較近的項目可排在較舊項目之前。在目前的服務版本中，範圍的其中一端會固定為目前的時間。從最大與最小範圍變更的提升比率，取決於套用至評分設定檔的插補 (請參閱下圖)。若要反轉套用的提升係數，請選擇小於 1 的提升係數。</td>
+<td>freshness</td>	<td>有效性計分函數可用來根據 DateTimeOffset 欄位中的值改變項目的排名分數。例如，日期較近的項目可排在較舊項目之前。(請注意，也可能會對像是具有未來日期的行事曆事件的項目進行排名，因此，越接近目前日期的項目排名會高於未來日期較遠的項目。) 在目前的服務版本中，範圍的其中一端會固定為目前的時間。另一端則是以 'boostingDuration' 為依據的過去時間。若要提升未來的某個時間範圍，請使用負數的 'boostingDuration'。從最大與最小範圍變更的提升比率，取決於套用至評分設定檔的插補 (請參閱下圖)。若要反轉套用的提升係數，請選擇小於 1 的提升係數。</td>
 </tr><tr>
 <td>freshness | boostingDuration</td>	<td>設定要開始停止對特定文件進行提升的到期時間。如需語法和範例，請參閱下一節中的 [設定 boostingDuration](#bkmk_boostdur)。</td>
 </tr><tr>
@@ -338,7 +338,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 <a name="bkmk_boostdur"></a>
 ##設定 boostingDuration
 
-`boostingDuration` 是 freshness 函數的屬性。您可以用它來設定要開始停止對特定文件進行提升的到期時間。例如，若要在為期 10 天的促銷期間提升某個產品系列或品牌，您可以為這些文件指定 10 天的期間 "P10D"。
+`boostingDuration` 是 freshness 函數的屬性。您可以用它來設定要開始停止對特定文件進行提升的到期時間。例如，若要在為期 10 天的促銷期間提升某個產品系列或品牌，您可以為這些文件指定 10 天的期間 "P10D"。或者，若要提升下一週即將發生的事件，請指定 "-P7D"。
 
 `boostingDuration` 必須格式化為 XSD "dayTimeDuration" 值 (ISO 8601 持續時間值的限定子集)。其模式為："P[nD][T[nH][nM][nS]]"。
 
@@ -370,4 +370,4 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

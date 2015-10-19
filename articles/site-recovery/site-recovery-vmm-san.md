@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="利用 SAN 設定內部部署 VMM 站台之間的保護" 
-	description="Azure Site Recovery 可使用 SAN 複寫，以協調內部部署站台之間的 Hyper-V 虛擬機器複寫、容錯移轉及復原作業。" 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+<properties
+	pageTitle="利用 SAN 設定內部部署 VMM 站台之間的保護"
+	description="Azure Site Recovery 可使用 SAN 複寫，以協調內部部署站台之間的 Hyper-V 虛擬機器複寫、容錯移轉及復原作業。"
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="raynew"/>
 
 # 利用 SAN 設定內部部署 VMM 站台之間的保護
@@ -26,7 +26,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 - 提供 Site Recovery 自動化的企業可擴充式複寫解決方案。
 - 利用企業儲存體合作夥伴在光纖通道及 iSCSI 存放裝置之間提供的 SAN 複寫功能。請參閱我們 [SAN 儲存體合作夥伴](http://go.microsoft.com/fwlink/?LinkId=518669)。
-- 運用現有的 SAN 基礎結構保護在 Hyper-V 叢集中部署的關鍵任務應用程式。 
+- 運用現有的 SAN 基礎結構保護在 Hyper-V 叢集中部署的關鍵任務應用程式。
 - 為客體叢集提供支援。
 - 藉由低 RTO 與 RPO 的同步複寫，以及高彈性的非同步複寫 (視存放裝置陣列功能而定) 確保不同層應用程式的複寫一致性。  
 - 與 VMM 整合時，可在 VMM 主控台中提供 SAN 管理功能，且 VMM 中的 SMI-S 會探索現有的存放裝置。  
@@ -64,7 +64,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	- 一或多個 VMM 主機群組
 	- 每個主機群組中的一或多個 Hyper-V 叢集。
 	- 位於雲端中來源 Hyper-V 伺服器上的一或多部虛擬機器。
-		
+
 ### Hyper-V 需求
 
 - 您將需要一個部署在主要和次要站台中的 Hyper-V 主機叢集，且其應至少執行含有最新更新的 Windows Server 2012。
@@ -139,10 +139,10 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 1. 將 SAN 存放裝置整合到 VMM 之後，您將建立 (佈建) 邏輯單元 (LUN)：
 
-- [如何選取在 VMM 中建立邏輯單元的方法](http://go.microsoft.com/fwlink/?LinkId=518490)
-- [如何在 VMM 中佈建存放裝置邏輯單元](http://go.microsoft.com/fwlink/?LinkId=518491)
+	- [如何選取在 VMM 中建立邏輯單元的方法](http://go.microsoft.com/fwlink/?LinkId=518490)
+	- [如何在 VMM 中佈建存放裝置邏輯單元](http://go.microsoft.com/fwlink/?LinkId=518491)
 
-2. 接著，配置儲存容量給 Hyper-V 主機叢集，讓 VMM 可以將虛擬機器資料部署到已佈建的存放裝置上： 
+2. 接著，配置儲存容量給 Hyper-V 主機叢集，讓 VMM 可以將虛擬機器資料部署到已佈建的存放裝置上：
 
 	- 將存放裝置配置給叢集之前，您必須先將其配置給叢集所在的 VMM 主機群組。請參閱[如何將存放裝置邏輯單元配置到主機群組](http://go.microsoft.com/fwlink/?LinkId=518493)及[如何將存放集區配置到主機群組](http://go.microsoft.com/fwlink/?LinkId=518492)。</a>
 	- 接著，依照[如何在 VMM 中設定 Hyper-V 主機叢集上的存放裝置](http://go.microsoft.com/fwlink/?LinkId=513017)中所述，將儲存容量配置到叢集。</a>。
@@ -162,7 +162,7 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 1. 深入了解[網路對應](https://msdn.microsoft.com/library/azure/dn801052.aspx)。
 2. 在 VMM 中準備 VM 網路：
- 
+
 	- 深入了解[設定邏輯網路](http://go.microsoft.com/fwlink/?LinkId=386307)。設定邏輯網路 — 閱讀 VMM 概觀中的「設定邏輯網路」。
 	- [設定 VM 網路](http://go.microsoft.com/fwlink/?LinkId=386308)。
 
@@ -176,10 +176,10 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 
 3. 按一下 [新建] > [快速建立]。
-	
+
 4. 在 [名稱] 中，輸入保存庫的易記識別名稱。
 
-5. 在 [區域] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](href="http://go.microsoft.com/fwlink/?LinkId=389880) (英文) 中的＜各區域上市情況＞。
+5. 在 [地區] 中，選取保存庫的地理區域。若要查看支援的地區，請參閱 [Azure Site Recovery 定價詳細資料](href="http://go.microsoft.com/fwlink/?LinkId=389880) (英文) 中的＜各地區上市情況＞。
 
 6. 按一下 [建立保存庫]。
 
@@ -214,11 +214,11 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 
 
-1. 安裝提供者之後，請按一下 [登錄] 按鈕，以在保存庫中登錄伺服器。![InstallComplete](./media/site-recovery-vmm-san/VMMASRInstallComplete.png)
+1. 安裝提供者之後，請按一下 [註冊] 按鈕，在保存庫中註冊伺服器。![InstallComplete](./media/site-recovery-vmm-san/VMMASRInstallComplete.png)
 
 5. 在 [網際網路連線] 中，指定 VMM 伺服器上執行的提供者連接到網際網路的方式。選取 [Use default system proxy settings]，以使用在伺服器上設定的預設網際網路連線設定。
 
-	![網際網路設定](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png) - 如果您想要使用自訂 Proxy，您應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取 - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+	![網際網路設定](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png) - 如果您想要使用自訂的 Proxy，就應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您將必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取 - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 	- 如果您使用的是自訂 proxy，則會使用指定的 proxy 認證自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。設定 proxy 伺服器，讓此帳戶可以成功進行驗證。在 VMM 主控台中，可以修改 VMM RunAs 帳戶設定。若要這樣做，請開啟 [設定] 工作區、展開 [安全性]、按一下 [執行身分帳戶]，然後修改 DRAProxyAccount 的密碼。您必須重新啟動 VMM 服務，這項設定才會生效。
 
@@ -234,16 +234,16 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 8. 在 [伺服器名稱] 中，指定保存庫中 VMM 伺服器的易記識別名稱。在叢集設定中，指定 VMM 叢集角色名稱。
 
-8. 在 [初始雲端中繼資料同步] 中，選取您是否要將 VMM 伺服器上所有雲端的中繼資料與保存庫同步。這個動作只需要在每個伺服器上進行一次。如果不要同步所有雲端，您可以取消勾選這項設定，再於 VMM 主控台的雲端屬性中個別同步每個雲端。![伺服器註冊](./media/site-recovery-vmm-san/VMMASRRegisterFriendlyName.png)
+8. 在 [初始雲端中繼資料同步] 中，選取您是否要將 VMM 伺服器上所有雲端的中繼資料與保存庫同步。這個動作只需要在每個伺服器上進行一次。如果不要同步所有雲端，您可以取消勾選此設定，然後在 VMM 主控台的雲端屬性中個別同步每個雲端。![伺服器註冊](./media/site-recovery-vmm-san/VMMASRRegisterFriendlyName.png)
 
 
-8. 按 [下一步]，完成此程序。註冊後，Azure Site Recovery 即可從 VMM 伺服器擷取中繼資料。此伺服器會顯示在保存庫中 [伺服器] 頁面的 [VMM 伺服器] 索引標籤上。
+8. 按 [下一步]，完成此程序。註冊後，Azure Site Recovery 即可從 VMM 伺服器擷取中繼資料。此伺服器會顯示於保存庫中 [伺服器] 頁面的 [VMM 伺服器] 索引標籤上。
 
->[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來將提供者安裝在適用於 Windows Server 2012 R2 的伺服器核心上
+>[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來在適用於 Windows Server 2012 R2 的伺服器核心上安裝提供者
 >
 >1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
 >2. 停止 System Center Virtual Machine Manager 服務
->3. 從命令提示字元使用**系統管理員**權限執行下列命令，以解壓縮提供者安裝程式 
+>3. 從命令提示字元，使用**系統管理員**權限執行下列命令，來解壓縮提供者安裝程式
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -256,13 +256,13 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
     	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
  ####命令列安裝參數清單####
 >
- - **/Credentials**：必要參數，用來指定登錄機碼檔案所在的位置。  
+ - **/Credentials**：必要參數，用來指定註冊金鑰檔案所在的位置  
  - **/FriendlyName**：對於 Hyper-V 主機伺服器名稱的必要參數，該伺服器會出現在 Azure Site Recovery 入口網站中。
  - **/EncryptionEnabled**：如果您需要在 Azure 中以靜止的方式為虛擬機器加密，則必須只能在 VMM 到 Azure 案例中使用這個選用參數。請確定您提供的檔案名稱具有 **.pfx** 副檔名。
  - **/proxyAddress**：指定 Proxy 伺服器位址的選用參數。
  - **/proxyport**：指定 Proxy 伺服器連接埠的選用參數。
  - **/proxyUsername**：指定 Proxy 使用者名稱 (如果 Proxy 需要驗證) 的選用參數。
- - **/proxyPassword**：指定用以驗證 Proxy 伺服器之密碼 (如果 Proxy 需要驗證) 的選用參數。 
+ - **/proxyPassword**：指定用以驗證 Proxy 伺服器之密碼 (如果 Proxy 需要驗證) 的選用參數。
 
 
 ## 步驟 4：對應存放裝置陣列和集區
@@ -329,7 +329,7 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 
 	![啟用保護。](./media/site-recovery-vmm-san/SRSAN_EnableProtection.png)
-	
+
 
 <P>為虛擬機器啟用保護之後，它們就會出現在 Azure Site Recovery 主控台中。您可以檢視虛擬機器內容、追蹤狀態，以及讓包含多個虛擬機器的複寫群組進行容錯移轉。請注意，在 SAN 複寫中，與複寫群組關聯的所有虛擬機器必須都一起進行容錯移轉。這是因為容錯移轉會先發生在儲存層。請務必正確地為您的複寫群組分組，並只將相關聯的虛擬機器放在一起。</P>
 
@@ -344,8 +344,8 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 4. 在 [選取虛擬機器] 中，選取複寫群組。所有與複寫群組關聯的虛擬機器，將會被選取並新增至復原方案。這些虛擬機器會新增到復原方案預設群組 (群組 1)。您可以視需要新增更多群組。請注意，複寫之後，虛擬機器將會根據復原方案群組的順序來啟動。
 
-	![新增虛擬機器](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)	
-5. 建立復原計畫之後，它會出現在 [復原計畫] 索引標籤上的清單中。 
+	![新增虛擬機器](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
+5. 建立復原計畫之後，它會出現在 [復原計畫] 索引標籤上的清單中。
 6. 在 [復原計畫] 索引標籤上，選取計畫，然後按一下 [測試容錯移轉]。
 7. 在 [確認測試容錯移轉] 頁面上，選取 [無]。請注意，啟用此選項時，容錯移轉複本虛擬機器將不會連線到任何網路。這將會測試虛擬機器是否依照預期執行容錯移轉，但是不會測試您的複寫網路環境。如果您想要執行更完整的測試容錯移轉，請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=522291">測試 MSDN 上的內部部署</a>。
 
@@ -381,7 +381,5 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 您可以從 [儀表板] 下載最新版的提供者和代理程式安裝檔案、取得保存庫的組態資訊、查看由保存庫管理其保護的虛擬機器數目、查看最近的工作、管理保存庫憑證，以及重新同步虛擬機器。
 
 如需有關與工作和儀表板互動的詳細資訊，請參閱[作業和監視](http://go.microsoft.com/fwlink/?LinkId=398534)。
-	
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

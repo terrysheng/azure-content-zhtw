@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何使用服務匯流排主題 (Java) | Microsoft Azure"
+	pageTitle="如何搭配使用服務匯流排主題與 Java | Microsoft Azure"
 	description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 Java 應用程式撰寫。"
 	services="service-bus"
 	documentationCenter="java"
@@ -13,17 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
-# 如何使用服務匯流排主題/訂用帳戶
+# 如何使用服務匯流排主題和訂用帳戶
 
 本指南說明如何使用服務匯流排主題和訂用帳戶。相關範例是以 Java 撰寫並使用 [Azure SDK for Java][]。所涵蓋的案例包括**建立主題和訂用帳戶**、**建立訂用帳戶篩選器**、**傳送訊息至主題**、**接收訂用帳戶的訊息**，及**刪除主題和訂用帳戶**。
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
 
 ## 設定應用程式以使用服務匯流排
-先確定已安裝 [Azure SDK for Java][] 再建置此範例。如果使用 Eclipse，您可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][]。然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+
+先確定已安裝 [Azure SDK for Java][] 再建置此範例。如果使用 Eclipse，您可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][]。然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
+
+![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
 在 Java 檔案頂端新增下列 import 陳述式：
 
@@ -35,11 +38,11 @@
 
 將 Azure Libraries for Java 新增至您的建置路徑，並將其納入專案部署組件中。
 
-## 如何建立主題
+## 建立主題
 
 服務匯流排主題的管理作業可透過 **ServiceBusContract** 類別來執行。**ServiceBusContract** 物件可使用封裝 SAS 權限權加以管理的適當組態來建構，而對於 Azure，**ServiceBusContract** 類別是唯一的通訊點。
 
-**ServiceBusService** 類別會提供建立、列舉及刪除主題的方法。下列範例將說明如何使用 **ServiceBusService** 物件建立名為 "TestTopic"、且命名空間的名稱為 "HowToSample" 的主題：
+**ServiceBusService** 類別會提供建立、列舉及刪除主題的方法。下列範例顯示如何使用 **ServiceBusService** 物件來建立名為 `TestTopic` 且命名空間為 `HowToSample` 的主題：
 
     Configuration config =
     	ServiceBusConfiguration.configureWithSASAuthentication(
@@ -61,7 +64,7 @@
 		System.exit(-1);
 	}
 
-**TopicInfo** 有相關方法可讓您調整主題的屬性 (例如，針對要在傳送至主題的訊息所套用的 [存留時間] 設定預設值)。下列範例將說明如何建立名為 "TestTopic"、且大小上限為 5GB 的主題：
+**TopicInfo** 有相關方法可讓您調整主題的屬性 (例如，針對要在傳送至主題的訊息所套用的存留時間 (TTL) 設定預設值)。下列範例將示範如何使用大小上限為 5 GB 的設定，來建立名為 `TestTopic` 的主題：
 
     long maxSizeInMegabytes = 5120;  
 	TopicInfo topicInfo = new TopicInfo("TestTopic");  
@@ -70,13 +73,13 @@
 
 請留意到，您可以在 **ServiceBusContract** 物件上使用 **listTopics** 方法，來檢查服務命名空間內是否已有指定名稱的主題存在。
 
-## 如何建立訂用帳戶
+## 建立訂用帳戶
 
-**ServiceBusService** 類別也能用來建立主題訂用帳戶。為訂用帳戶命名，且能包含選擇性篩選器，以用來限制傳遞至訂用帳戶的虛擬佇列的訊息集合。
+**ServiceBusService** 類別也能用來建立主題的訂用帳戶。為訂用帳戶命名，且能包含選擇性篩選器，以用來限制傳遞至訂用帳戶的虛擬佇列的訊息集合。
 
-### 使用預設 (MatchAll) 篩選器建立訂閱
+### 使用預設 (MatchAll) 篩選器建立訂用帳戶
 
-**MatchAll** 篩選器是預設篩選器，如果在建立新的訂用帳戶時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。下列範例將建立名為 "AllMessages" 的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
+**MatchAll** 篩選器是預設篩選器，如果在建立新的訂用帳戶閱時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。下列範例將建立名為 "AllMessages" 的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
 
     SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
     CreateSubscriptionResult result =
@@ -86,9 +89,9 @@
 
 您也可以設定篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。
 
-訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用之運算式的詳細資訊，請檢閱 SqlFilter.SqlExpression 語法。
+訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 [SqlFilter][]。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][] 語法。
 
-以下範例將建立名為 "HighMessages" 並帶有只選取自訂 **MessageNumber** 屬性大於 3 的訊息之 **SqlFilter** 的訂用帳戶：
+以下範例將建立名為 `HighMessages` 的訂用帳戶，其帶有只選取自訂 **MessageNumber** 屬性大於 3 之訊息的 [SqlFilter][] 物件：
 
     // Create a "HighMessages" filtered subscription  
 	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
@@ -101,7 +104,7 @@
     // Delete the default rule, otherwise the new rule won't be invoked.
     service.deleteRule("TestTopic", "HighMessages", "$Default");
 
-同樣地，下列範例將建立名為 "LowMessages"、且其 SqlFilter 只選取 MessageNumber 屬性小於或等於 3 之訊息的訂用帳戶：
+同樣地，下列範例將建立名為 `LowMessages` 並帶有只選取 **MessageNumber** 屬性小於或等於 3 的訊息之 [SqlFilter][] 物件的訂用帳戶：
 
     // Create a "LowMessages" filtered subscription
 	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
@@ -115,18 +118,18 @@
     service.deleteRule("TestTopic", "LowMessages", "$Default");
 
 
-現在，當訊息傳送到 "TestTopic" 時，一律會將該訊息傳遞到已訂閱 "AllMessages" 主題訂用帳戶的接收者，並選擇性地將它傳遞到已訂閱 "HighMessages" 和 "LowMessages" 主題訂用帳戶的接收者 (視訊息內容而定)。
+現在，當訊息傳送至 `TestTopic` 時，一律會將該訊息傳遞至已訂閱 `AllMessages` 訂用帳戶的接收者，並選擇性地傳遞至已訂閱 `HighMessages` 和 `LowMessages` 訂用帳戶的接收者 (視訊息內容而定)。
 
-## 如何傳送訊息至主題
+## 傳送訊息至主題
 
-若要傳送訊息至服務匯流排主題，應用程式會取得 **ServiceBusContract** 物件。下列程式碼將說明如何針對我們先前在 "HowToSample" 服務命名空間內建立的 "TestTopic" 主題傳送訊息：
+若要傳送訊息至服務匯流排主題，應用程式會取得 **ServiceBusContract** 物件。下列程式碼示範如何針對先前在 `HowToSample` 命名空間內建立的 `TestTopic` 主題傳送訊息：
 
     BrokeredMessage message = new BrokeredMessage("MyMessage");
     service.sendTopicMessage("TestTopic", message);
 
-傳送至服務匯流排主題的訊息是 **BrokeredMessage** 類別的執行個體。**BrokeredMessage** 物件具有一組標準方法 (例如 **setLabel** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的目錄，以及一組任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 **BrokeredMessage** 的建構函式，接著系統便會使用適當的 **DataContractSerializer** 來序列化物件。或者，也可以提供 **java.io.InputStream**。
+傳送至服務匯流排主題的訊息是 [BrokeredMessage][] 類別的執行個體。[BrokeredMessage][]* 物件具有一組標準方法 (例如 **setLabel** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的目錄，以及一組任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 [BrokeredMessage][] 的建構函式，接著系統便會使用適當的 **DataContractSerializer** 來序列化物件。或者，也可以提供 **java.io.InputStream**。
 
-下列範例將說明如何傳送五則測試訊息至我們在上述程式碼片段中取得的 "TestTopic" **MessageSender**。請注意迴圈反覆運算上每個訊息的 **MessageNumber** 屬性值的變化 (這可判斷接收訊息的訂用帳戶為何)：
+下列範例將示範如何傳送五則測試訊息至上述程式碼片段中所取得的 `TestTopic` **MessageSender**。請注意迴圈反覆運算上每個訊息的 **MessageNumber** 屬性值的變化 (這可判斷接收訊息的訂用帳戶為何)：
 
     for (int i=0; i<5; i++)  {
        	// Create message, passing a string message for the body
@@ -208,7 +211,7 @@
 
 如果應用程式在處理訊息之後，尚未發出 **deleteMessage** 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 **getMessageId** 方法來達到此目的，該方法將在各個傳遞嘗試中保持不變。
 
-## 如何刪除主題和訂用帳戶
+## 刪除主題和訂用帳戶
 
 刪除主題和訂用帳戶的主要方式，是使用 **ServiceBusContract** 物件。刪除主題也將會刪除對主題註冊的任何訂用帳戶。您也可以個別刪除訂用帳戶。
 
@@ -226,25 +229,10 @@
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-TW/library/azure/hh694271.aspx
-  [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigYourApp
-  [How to: Create a Topic]: #bkmk_HowToCreateTopic
-  [How to: Create Subscriptions]: #bkmk_HowToCreateSubscrip
-  [How to: Send Messages to a Topic]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Subscription]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrash
-  [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
-  [Next Steps]: #bkmk_NextSteps
-  [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-  [Azure Management Portal]: http://manage.windowsazure.com/
-  [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [Create a New Namespace ]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  [Azure portal]: http://manage.windowsazure.com/
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
- 
+  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

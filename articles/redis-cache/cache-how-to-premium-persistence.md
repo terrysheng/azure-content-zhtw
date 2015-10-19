@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的資料永續性
@@ -81,8 +81,10 @@ Azure Redis 快取提供 Redis 永續性，其中的資料是儲存在 Azure 儲
 除了最新的備份外，所有備份都會自動刪除。這項刪除作業可能不會立即發生，但較舊的備份不會無限期保存。
 
 ## 後續步驟
+了解如何使用更多高階快取功能。
 
-了解如何使用其他高階快取功能。- [如何設定高階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md) - [如何設定高階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)
+-	[如何設定高階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)
+-	[如何設定高階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)
   
 <!-- IMAGES -->
 
@@ -94,4 +96,4 @@ Azure Redis 快取提供 Redis 永續性，其中的資料是儲存在 Azure 儲
 
 [redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

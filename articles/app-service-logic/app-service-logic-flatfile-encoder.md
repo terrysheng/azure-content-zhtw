@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 # BizTalk 一般檔案編碼器
 
-BizTalk 一般檔案編碼解碼連接器可協助您的應用程式在一般檔案資料 (例如 excel、csv) 與 XML 資料之間交互操作。它可以將指定的一般檔案執行個體轉換成 XML，反之亦然。
+使用 BizTalk 一般檔案編碼連接器可在一般檔案資料 (例如 excel、csv) 與 XML 資料之間交互操作。它可以將指定的一般檔案執行個體轉換成 XML，反之亦然。
 
 ##使用 BizTalk 一般檔案編碼器
-1. 若要使用 BizTalk 一般檔案編碼器，您必須先建立 BizTalk 一般檔案編碼器 API 應用程式的執行個體。在建立邏輯應用程式時進行內嵌，或從 Azure Marketplace 選取 BizTalk 一般檔案編碼器 API 應用程式，即可完成此作業。
+若要使用 BizTalk 一般檔案編碼器，您必須先建立 BizTalk 一般檔案編碼器 API 應用程式的執行個體。在建立邏輯應用程式時進行內嵌，或從 Azure Marketplace 選取 BizTalk 一般檔案編碼器 API 應用程式，即可完成此作業。
 
 ###設定 BizTalk 一般檔案編碼器
 BizTalk 一般檔案編碼器會將結構描述視為其組態的一部分。直接從 Azure 入口網站啟動 API 應用程式，或按兩下設計工具介面上的 API 應用程式，使用者即可啟動 API 應用程式組態刀鋒視窗。
@@ -74,4 +74,4 @@ BizTalk 一般檔案編碼器會將結構描述視為其組態的一部分。直
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

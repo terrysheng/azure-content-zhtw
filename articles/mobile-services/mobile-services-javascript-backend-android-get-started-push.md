@@ -5,6 +5,7 @@
 	services="mobile-services, notification-hubs"
 	documentationCenter="android"
 	authors="RickSaling"
+	writer="ricksal"
 	manager="dwrede"
 	editor=""/>
 
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="10/06/2015"
 	ms.author="ricksal"/>
 
 
@@ -30,15 +31,18 @@
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-##<a id="register"></a>啟用 Google Cloud Messaging
+## 範例程式碼
+若要檢視完整的原始程式碼，請前往[這裡](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPush)。
+
+## 啟用 Google 雲端通訊
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##<a id="configure"></a>設定行動服務以傳送推播要求
+## 設定行動服務傳送推播要求
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-##<a id="add-push"></a>將推播通知新增至應用程式
+## 將推播通知新增至應用程式
 
 
 
@@ -55,12 +59,12 @@
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
 
-##<a id="update-scripts"></a>在管理入口網站中更新已註冊的插入指令碼
+## 在管理入口網站中更新已註冊的插入指令碼
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
 
-##<a id="test"></a>在應用程式中測試推播通知
+## 在應用程式中測試推播通知
 
 您可以使用 USB 纜線直接連接 Android 手機，或使用模擬器中的虛擬裝置，對應用程式進行測試。
 
@@ -97,23 +101,9 @@
 
 [AZURE.INCLUDE [確認 SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
-
-## 舊版程式碼
-
-如果您想要查看本教學課程的 Eclipse 版本，請移至：[開始使用推播通知 (Eclipse)]。
-
-
-<!--
-To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
--->
-
-
-## <a name="next-steps"> </a>後續步驟
+## 後續步驟
 
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
-
-+ [Send push notifications to authenticated users]
-	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
@@ -123,8 +113,6 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 -->
 
 在下列主題中深入了解行動服務和通知中心：
-
-* [開始使用資料]<br/>深入了解如何使用行動服務來儲存與查詢資料。
 
 * [開始使用驗證] <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
@@ -149,11 +137,9 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 
 
 <!-- URLs. -->
-[開始使用推播通知 (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[開始使用資料]: mobile-services-android-get-started-data.md
 [開始使用驗證]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
@@ -166,11 +152,8 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
-
-[Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
-
 [什麼是通知中心？]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

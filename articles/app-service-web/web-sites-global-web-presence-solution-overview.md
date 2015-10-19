@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 
@@ -139,4 +139,4 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

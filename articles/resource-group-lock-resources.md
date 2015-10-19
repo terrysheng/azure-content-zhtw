@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Azure 資源管理員來鎖定資源" 
-	description="鎖定資源以防止使用者更新或刪除特定資源。" 
+	pageTitle="使用資源管理員鎖定資源 | Microsoft Azure" 
+	description="透過套用限制到所有使用者和角色，防止使用者更新或刪除特定資源。" 
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,22 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="10/01/2015" 
 	ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員來鎖定資源
 
-身為系統管理員，您會想在某些情況下鎖定資源或資源群組，以防止組織中其他使用者寫入，或不小心刪除重要資源。
+身為系統管理員，您會想在某些情況下鎖定訂用帳戶、資源群組或資源，以防止組織中其他使用者寫入，或不小心刪除重要資源。
 
-「Azure 資源管理員」透過資源管理鎖，提供限制在資源上執行作業的能力。資源鎖定是會在特定領域強制執行鎖定層級的原則。鎖定層級會識別原則的強制類型，目前有兩種值 – **CanNotDelete** 與 **ReadOnly**。領域以 URI 表示，而且可以是資源或資源群組。
+「Azure 資源管理員」透過資源管理鎖，提供限制在資源上執行作業的能力。鎖定是會在特定領域強制執行鎖定層級的原則。範圍可以是訂用帳戶、資源群組或資源。鎖定層級會識別原則的強制類型，目前有兩種值 – **CanNotDelete** 與 **ReadOnly**。**CanNotDelete** 表示經過授權的使用者仍然可以讀取和修改資源，但它們不能刪除任何受限制的資源。**ReadOnly** 表示經過授權的使用者只能從資源讀取，但無法修改或刪除任何受限制的資源。
 
-鎖不同於對執行特定動作指派使用者權限。若要深入了解為使用者與角色設定權限，請參閱[預覽入口網站中的角色型存取控制](role-based-access-control-configure.md)與[管理及稽核對資源的存取](resource-group-rbac.md)。
+鎖定不同於使用以角色為基礎的存取控制來指派使用者權限以執行特定動作。若要深入了解為使用者與角色設定權限，請參閱[預覽入口網站中的角色型存取控制](role-based-access-control-configure.md)與[管理及稽核對資源的存取](resource-group-rbac.md)。不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制，而您一般僅在有限間套用限制鎖定。
 
 ## 常見案例
 
 常見案例之一是，您有一個資源群組包含某些以頻繁開關模式運作的資源。VM 資源會定期開啟，以在給定的時間間隔內處理資料，然後便關閉。在此案例中，您會想要讓 VM 關機，但絕不會刪除儲存體帳戶。在此案例中，您會在儲存體帳戶上使用鎖定層級為 **CanNotDelete** 的資源鎖定。
 
 在另一個案例中，您的企業可能有一段時間是不希望更新進入實際執行環境。**ReadOnly** 鎖定層級會防止建立或更新。如果您是零售公司，您可能不想在假期購物期間允許更新。如果您是金融服務公司，您要在開市的特定時段部署可能會有相關限制。資源鎖定能提供可適當鎖定資源的原則。這可以只套用到特定資源或到整個資源群組。
+
+## 誰可以建立或刪除您的組織中的鎖定
+
+若要建立或刪除管理鎖定，您必須可存取 **Microsoft.Authorization/*** 或 **Microsoft.Authorization/locks/*** 動作。內建角色中，只有**擁有者**和**使用者存取系統管理員**被授與這些動作。如需有關指派存取控制的詳細資訊，請參閱[管理資源的存取權](resource-group-rbac.md)。
+
+## 鎖定繼承
+
+當您在父範圍套用鎖定時，所有子系資源都會都繼承相同的鎖定。
+
+如果您將多個鎖定套用至資源，最嚴格的鎖定優先順序較高。例如，如果您在父層級 (例如資源群組) 套用 **ReadOnly** 和在該群組內的資源上套用 **CanNotDelete**，將優先套用來自父層級更具限制性的鎖定 (唯讀)。
 
 ## 在範本中建立鎖定
 
@@ -66,7 +76,7 @@
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-範圍可以是訂用帳戶、資源群組或資源。lock-name 是您想要命名鎖定的任何名稱。針對 api-version，請使用 **2015-01-01**。
+範圍可以是訂用帳戶、資源群組或資源。lock-name 是您想要命名鎖定的任何名稱。針對 api-version，使用 **2015-01-01**。
 
 在要求中，包含指定鎖定屬性的 JSON 物件。
 
@@ -83,7 +93,7 @@
 
 ## 使用 Azure PowerShell 建立鎖定
 
-您可以在 Azure PowerShell 使用 **New-AzureResourceLock** 鎖定已部署的資源，如下所示。透過，您只能將 **LockLevel** 設定為 **CanNotDelete**。
+您可以在 Azure PowerShell 使用 **New-AzureResourceLock** 鎖定已部署的資源，如下所示。透過 PowerShell，您只能將 **LockLevel** 設定為 **CanNotDelete**。
 
     PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
@@ -95,4 +105,4 @@ PowerShell 針對使用中的鎖定提供其他命令，例如 **Set-AzureResour
 - 若要了解如何以邏輯方式組織資源，請參閱[使用標記來組織您的資源](resource-group-using-tags.md)。
 - 若要變更資源所在的資源群組，請參閱[將資源移至新的資源群組](resource-group-move-resources.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

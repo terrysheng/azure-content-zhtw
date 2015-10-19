@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 # 概觀：Azure HDInsight 上的 Apache Spark 
@@ -41,12 +41,12 @@ Azure HDInsight 提供完全受管理的 Spark 服務。在 HDInsight 上使用 
 | 功能 | 說明 |
 |-------------------------------------|-------------------|
 | 輕鬆佈建 | 您可以使用 Azure 管理入口網站、Azure PowerShell 或 HDInsight .NET SDK，在幾分鐘之內於 HDInsight 上佈建新的 Spark 叢集。請參閱[在 HDInsight 中佈建 Spark 叢集](hdinsight-apache-spark-provision-clusters.md) |
-| 容易使用 | HDInsight 叢集中的 Spark 包含預先設定的 Zeppelin 和 Jupyter Notebook。您可以使用它們來進行互動式的資料處理和視覺化。您可以從叢集儀表板啟動這些 Notebook，並直接伴隨著 Spark 叢集運作。|
+| 容易使用 | HDInsight 叢集中的 Spark 包含預先設定的 Zeppelin 和 Jupyter Notebook。您可以使用它們來進行互動式的資料處理和視覺化。這些 Notebook 的 URL 是 https://CLUSTERNAME.azurehdinsight.net/zeppelin 和 https://CLUSTERNAME.azurehdinsight.net/jupyter。將 __CLUSTERNAME__ 取代為 HDInsight 叢集的名稱。|
 | REST API | HDInsight 中的 Spark 包含 Spark 作業伺服器，它是讓使用者從遠端提交及監視執行中工作的 REST API 伺服器。 |
 | 並行查詢 | HDInsight 中的 Spark 支援並行查詢。它能讓一位使用者執行多個查詢，或讓不同的使用者執行多個查詢，以及讓應用程式共用相同的叢集資源。 |
 | SSD 快取 | 您可以選擇將資料快取在記憶體中，或快取在連接叢集節點的 SSD 中。記憶體快取能提供最高的查詢效能，但可能所費不疵。SSD 快取是改善查詢效能的絕佳選項，而且您不需要根據記憶體中的整個資料集建立滿足其需求的叢集規模。|
-| Azure 服務整合 | HDInsight 上的 Spark 附有連接 Azure 事件中樞的連接器。除了 Spark 提供的 [Kafka](http://kafka.apache.org/) 之外，客戶還可以使用事件中樞來建置串流應用程式。 |
-| BI 工具整合 | HDInsight 的 Spark 提供連接常用 BI 工具 (如[Power BI](http://www.powerbi.com/) 和[Tableau](http://www.tableau.com/products/desktop)) 以進行資料分析的連接器。|
+| Azure 服務整合 | HDInsight 上的 Spark 附有連接 Azure 事件中樞的連接器。除了 Spark 已經提供的 [Kafka](http://kafka.apache.org/) 之外，客戶還可以使用事件中樞來建置串流應用程式。 |
+| BI 工具整合 | HDInsight 的 Spark 提供常用 BI 工具 (例如[Power BI](http://www.powerbi.com/) 和 [Tableau](http://www.tableau.com/products/desktop)) 以進行資料分析的連接器。|
 | 預先載入的 Anaconda 程式庫 | HDInsight 上的 Spark 叢集附有預先安裝的 Anaconda 程式庫。[Anaconda](http://docs.continuum.io/anaconda/) 提供將近 200 個用於機器學習、資料分析、視覺化等的程式庫。|
 | 延展性 | 雖然您可以在建立時指定叢集的節點數，但您可以擴大或縮小叢集以配合工作負載。所有 HDInsight 叢集都允許您變更叢集中的節點數目。此外，由於所有資料都儲存在 Azure Blob 儲存體內，因此您可以在不遺失資料的情況下卸除 Spark 叢集。 |
 | 全天候支援 | HDInsight 上的 Spark 附有企業級的全天候支援和保證正常運作時間達 99.9% 的 SLA。|
@@ -100,4 +100,4 @@ HDInsight 中的 Spark 另提供 [ODBC 驅動程式](http://go.microsoft.com/fwl
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

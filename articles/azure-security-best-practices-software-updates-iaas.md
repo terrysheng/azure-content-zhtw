@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
-   editor=""/>
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="azure-security"
@@ -17,7 +18,6 @@
    ms.author="yurid"/>
 
 #Microsoft Azure IaaS 上軟體更新的最佳作法
-
 
 在探究 Azure IaaS 環境的任何最佳作法討論之前，請務必了解可讓您管理軟體更新的案例。下圖應有所幫助：
 
@@ -71,7 +71,7 @@
 
 在您執行企業中所用軟體的初始稽核之後，您應該針對每個軟體產品和版本決定用於接收新軟體更新通知的最佳方法。視軟體產品而定，最佳的通知方法可能是電子郵件通知、網站或電腦發佈。
 
-例如，Microsoft 安全性回應中心 (MSRC) 會回應 Microsoft 產品的所有安全性相關疑慮，並提供 Microsoft 安全性公告服務、新發現弱點的免費電子郵件通知，以及為了解決這些弱點所發行的軟體更新。您可以在 <http://www.microsoft.com/technet/security/bulletin/notify.mspx> 訂閱此服務
+例如，Microsoft 安全性回應中心 (MSRC) 會回應 Microsoft 產品的所有安全性相關疑慮，並提供 Microsoft 安全性公告服務、新發現弱點的免費電子郵件通知，以及為了解決這些弱點所發行的軟體更新。您可以在 http://www.microsoft.com/technet/security/bulletin/notify.mspx 訂閱此服務。
 
 ## 軟體更新考量
 
@@ -99,7 +99,7 @@ Azure IaaS 的某些備份選項包括：
 
 -   [使用 Data Protection Manager 的 Azure IaaS 工作負載保護](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [備份 Azure 虛擬機器](https://azure.microsoft.com/zh-TW/documentation/articles/backup-azure-vms/)
+-   [備份 Azure 虛擬機器](../backup/backup-azure-vms.md)
 
 ### 監控
 
@@ -119,4 +119,4 @@ Azure IaaS 的某些備份選項包括：
 
 使用本文所述的指導方針，可協助您判斷適用於 Azure IaaS 中虛擬機器軟體更新的最佳選項。傳統資料中心與 Azure IaaS 之間的軟體更新最佳作法有許多相似之處，因此建議您評估目前的軟體更新原則，以包含 Azure VM 並將本文中的相關最佳作法章納入整體軟體更新程序中。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

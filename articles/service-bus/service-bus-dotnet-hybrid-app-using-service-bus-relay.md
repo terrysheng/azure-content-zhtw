@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="06/02/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # 使用 Azure 服務匯流排轉送的 .NET 內部部署/雲端混合式應用程式
@@ -551,8 +551,7 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
 
 若要深入了解服務匯流排，請參閱下列資源：
 
-* [Azure 服務匯流排][sbmsdn]  
-* [服務匯流排作法][sbwacom]  
+* [Azure 服務匯流排][sbwacom]  
 * [如何使用服務匯流排佇列][sbwacomqhowto]  
 
 
@@ -561,7 +560,7 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
   [取得工具和 SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   [2]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
-  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
+  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
   [Azure 入口網站]: http://manage.windowsazure.com
@@ -607,9 +606,8 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
-  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

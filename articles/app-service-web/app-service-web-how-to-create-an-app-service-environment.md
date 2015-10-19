@@ -18,7 +18,7 @@
 
 # 如何建立 App Service 環境 #
 
-App Service 環境 (ASE) 是目前預覽狀態下 Azure App Service 的 Premium 服務選項。它提供的增強設定功能並不適用於多租用戶戳記。若要更深入了解 App Service 環境所提供的功能，請閱讀[什麼是 App Service 環境][WhatisASE]文件。
+App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供多租用戶戳記中不提供的增強式設定功能。若要更深入了解 App Service 環境所提供的功能，請閱讀[什麼是 App Service 環境][WhatisASE]文件。
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -145,4 +145,4 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

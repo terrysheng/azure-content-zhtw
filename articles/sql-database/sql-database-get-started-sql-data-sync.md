@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/01/2015"
 	ms.author="jhubbard"/>
 
 
@@ -195,11 +195,11 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 ## 後續步驟
 如需 SQL Database 與 SQL 資料同步的其他資訊，請參閱：
 
-* [MSDN Library 上的 SQL 資料同步內容](https://msdn.microsoft.com/library/azure/hh456371.aspx)
+* [下載 SQL 資料同步技術文件](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [SQL Database 概觀](sql-database-technical-overview.md)
 * [資料庫生命週期管理](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

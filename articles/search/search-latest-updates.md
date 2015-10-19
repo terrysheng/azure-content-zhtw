@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="10/01/2015" 
 	ms.author="heidist"/>
 
 #Azure 搜尋服務的最新更新事項#
 
-Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 組態提供 99.9% 可用性的服務等級協定 (SLA)。
+Azure 搜尋服務已正式推出，並為支援的 [2015-02-28 版本 API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 組態提供 99.9% 可用性的服務等級協定 (SLA)。
 
 ##各版本的主要功能以及發行日期
 
@@ -27,7 +27,15 @@ Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API
 .NET 程式庫和 REST API 都有多種版本。如果我們推出新的功能，舊的 API 仍會保持正常運作。若要瞭解版本政策的詳細資訊，請造訪[搜尋服務版本](https://msdn.microsoft.com/library/azure/dn864560.aspx)。
 
 
+##Api 版本 2015-02-28 預覽
+**發行日期：2015 年 9 月 11 日**
+
+此版本加入新的 [Lucene 查詢語法支援](https://msdn.microsoft.com/library/azure/mt589323.aspx)，可針對 [Azure 搜尋服務 REST API 的預覽版本](search-api-2015-02-28-preview.md)加以使用。若要使用新語法，您必須在搜尋文件作業中指定 `queryType`。
+
+此外，下列這兩個功能是從預覽版本中轉換出來的，而現在是 MSDN 上官方 API 的一部分：- 自然語言處理器 - 張貼於搜尋、建議和查閱查詢中
+
 ##.NET SDK 0.10.0 預覽版本
+**發行日期：2015 年 8 月**
 
 這是第二個重複推出的 .NET 用戶端程式庫，Microsoft.Azure.Search.dll。此版本新增透過 .NET 類別建立、管理和使用索引子的支援。此外，Azure SQL 索引子開始支援索引地理位置點。
 
@@ -117,4 +125,4 @@ Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

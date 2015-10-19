@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="如何使用 HTML 用戶端 |Microsoft Azure" 
-	description="了解如何使用適用於 Azure 行動服務的 HTML 用戶端。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="如何使用 HTML 用戶端 |Microsoft Azure"
+	description="了解如何使用適用於 Azure 行動服務的 HTML 用戶端。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="09/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="09/24/2015"
 	ms.author="glenga"/>
 
 # 如何使用 Azure 行動服務的 HTML/JavaScript 用戶端
@@ -43,7 +43,7 @@
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-您必須將預留位置 `AppUrl` 取代成行動服務的應用程式 URL，將 `AppKey` 取代成應用程式金鑰。若要了解如何取得行動服務的應用程式 URL 和應用程式金鑰，請參考[在現有的應用程式中新增行動服務](mobile-services-html-get-started-data.md)教學課程。
+您必須使用行動服務的應用程式 URL 來取代預留位置 `AppUrl`，並使用應用程式金鑰來取代 `AppKey`，您可以從 [Azure 入口網站](http://manage.windowsazure.com/)取得此金鑰。
 
 >[AZURE.IMPORTANT]應用程式金鑰是用來針對行動服務篩選出隨機要求，它會隨應用程式一起發送。因為此金鑰並未加密，所以並不安全。若要真正保護行動服務資料的安全，您必須改在允許存取之前驗證使用者。如需詳細資訊，請參閱[作法：驗證使用者](#authentication)。
 
@@ -364,7 +364,7 @@
 
 在 Windows 市集應用程式中，查詢結果可用來建立 [WinJS.Binding.List] 物件，而此物件可繫結為 [ListView] 物件的資料來源。如需詳細資訊，請參閱[資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)]。
 
-##<a name="#custom-api"></a>作法：呼叫自訂 API
+##<a name="custom-api"></a>作法：呼叫自訂 API
 
 自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[如何：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
 
@@ -381,7 +381,7 @@
         alert(error.message);
     });
 
- 
+
 如需 **invokeApi** 更實際的範例，以及更完整的討論，請參閱 [Azure 行動服務用戶端 SDK 中的自訂 API](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx)。
 
 ##<a name="authentication"></a>作法：驗證使用者
@@ -465,7 +465,7 @@
 					mobileClient.login(result.session.authentication_token)
 				]).done(function (results) {
 					// Build the welcome message from the Microsoft account info.
-					var profile = results[0];                            
+					var profile = results[0];
 					var title = "Welcome " + profile.first_name + "!";
 					var message = "You are now logged in as: "
 						+ mobileClient.currentUser.userId;
@@ -474,7 +474,7 @@
 						// Reload items from the mobile service.
 						refreshTodoItems();
 					}).done(complete);
-					
+
 				}, function (error) {
 
 				});
@@ -662,10 +662,7 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
 [資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
 [login]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L301
-[Authenticate your app with single sign-in]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[Call a custom API from the client]: mobile-services-html-call-custom-api.md
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

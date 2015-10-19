@@ -19,9 +19,11 @@
 
 # 使用 Azure PowerShell 管理您的虛擬機器
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
 可以使用 Azure PowerShell Cmdlet 自動執行許多 VM 的日常管理工作。這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
 
->[AZURE.NOTE]如果您尚未安裝和設定 Azure PowerShell，可以參考「[如何安裝及設定 Azure PowerShell](../install-configure-powershell.md)」文章中的指示。
+>[AZURE.NOTE]如果您尚未安裝和設定 Azure PowerShell，可以在[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 文章中取得相關指示。
 
 ## 如何使用範例命令
 命令中的某些文字必須換成適合您環境的文字。 < and > 符號表示您需要取代的文字。當您取代文字時，請移除符號，但將引號保留在原處。
@@ -29,7 +31,7 @@
 ## 取得 VM
 這是您會經常使用的基本工作。使用它來取得 VM 的相關資訊、在 VM 上執行工作，或取得輸出以儲存至變數中。
 
-若要取得 VM 的相關資訊，請執行此命令並取代引號中的所有內容 (包括 < and > 字元)：
+若要取得 VM 的相關資訊，請執行此命令，並取代引號中的所有內容 (包括 < and > 字元)：
 
      Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
@@ -64,7 +66,7 @@
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## 連接資料磁碟
-這項工作需要幾個步驟。首先，請使用 ****Add-AzureDataDisk**** Cmdlet 將磁碟新增至 $vm 物件。然後使用 **Update-AzureVM** Cmdlet 更新 VM 的組態。
+這項工作需要幾個步驟。首先，請使用 ****Add-AzureDataDisk**** Cmdlet 將磁碟新增至 $vm 物件。然後使用 **Update-AzureVM** Cmdlet 來更新 VM 的組態。
 
 您也需要決定是否要附加新的磁碟或附加已經包含資料的磁碟。如果是新的磁碟，此命令會建立 .vhd 檔案，並附加該檔案。
 
@@ -94,4 +96,4 @@
 - 成為現有負載平衡集的成員。
 - 具有靜態 IP 位址。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

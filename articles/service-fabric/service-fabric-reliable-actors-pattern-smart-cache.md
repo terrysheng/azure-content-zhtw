@@ -3,7 +3,7 @@
    description="如何在以 Web 為基礎應用程式上，使用 Reliable Actor 作為快取基礎結構的設計模式"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Reliable Actor 設計模式：智慧型快取
 Web 層、快取層、儲存層和 (偶爾) 背景工作層的組合差不多是現今應用程式的標準部分。快取層效能通常很重要，而且事實上本身可能就包含多個階層。許多快取是簡單的機碼值組配對，而其他作為快取的系統如 [Redis](http://redis.io)，則提供更豐富的語意。不過，任何特殊的快取層將會在語意受到限制，更重要的，那是另一個需要管理的層。如果取而代之，物件只是在本機變數保存狀態，而這些物件可自動快照或保留至永久性存放區呢？ 此外，豐富的集合如清單、已排序的集、佇列和任何其他這方面的自訂類型，皆模組化為成員變數和方法。
@@ -302,4 +302,4 @@ public Task RefreshRates()
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

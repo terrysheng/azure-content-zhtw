@@ -390,7 +390,7 @@
 
 	如果您在「帳戶」資料表中保留了使用者登入資訊，則您只需要呼叫 **CustomRegistration** 端點一次，即可建立指定使用者的帳戶。如需如何在各種支援的用戶端平台上呼叫自訂 API 的範例，請參閱 [Azure 行動服務中的自訂 API – 用戶端 SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx) 文章 (英文)。
 	 
-	> [AZURE.IMPORTANT]由於這個佈建使用者的步驟只會發生一次，因此您可以考慮以某種頻外方式建立使用者帳戶。若是公用註冊端點，您應該也要考慮實作以簡訊或電子郵件為基礎的驗證程序，或是其他保護措施，以避免產生詐騙帳戶。您可以使用 Twilio 透過行動服務傳送手機簡訊。如需詳細資訊，請參閱[如何傳送手機簡訊](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms)。您也可以使用 SendGrid 透過行動服務傳送電子郵件。如需詳細資訊，請參閱[使用 SendGrid 透過行動服務傳送電子郵件](store-sendgrid-mobile-services-send-email-scripts.md)。
+	> [AZURE.IMPORTANT]由於這個佈建使用者的步驟只會發生一次，因此您可以考慮以某種頻外方式建立使用者帳戶。若是公用註冊端點，您應該也要考慮實作以簡訊或電子郵件為基礎的驗證程序，或是其他保護措施，以避免產生詐騙帳戶。您可以使用 Twilio 透過行動服務傳送手機簡訊。您也可以使用 SendGrid 透過行動服務傳送電子郵件。如需使用 SendGrid 的詳細資訊，請參閱[使用 SendGrid 透過行動服務傳送電子郵件](store-sendgrid-mobile-services-send-email-scripts.md)。
 	
 3. 再次使用適當的 **invokeApi** 方法，但這次改為呼叫 **CustomLogin** 端點，藉此在訊息本文中傳遞於執行階段提供的使用者名稱和密碼。
 
@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

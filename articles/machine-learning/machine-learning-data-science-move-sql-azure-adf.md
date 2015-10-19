@@ -1,20 +1,22 @@
-<properties 
+<properties
 	pageTitle="使用 Azure Data Factory 從內部部署 SQL Server 移動資料至 SQL Azure | Azure"
 	description="請設定 ADF 管線來編寫兩個資料移轉活動，這兩個活動會每天在內部部署及雲端中的資料庫之間一同移動資料。"
 	services="machine-learning"
 	documentationCenter=""
 	authors="fashah"
 	manager="jacob.spoelstra"
-	editor=""/>
+	editor=""
+	videoId=""
+	scriptId="" />
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="fashah;bradsev"/>
+	ms.date="10/06/2015"
+	ms.author="fashah;bradsev" />
 
 
 # 使用 Azure Data Factory 從內部部署的 SQL Server 移動資料至 SQL Azure
@@ -33,7 +35,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 
 我們會設定 ADF 管線，用於編寫兩個資料移轉活動，這兩個活動會每天在內部部署的 SQL Database 及雲端中的 Azure SQL Database 之間一同移動資料。這兩個活動為：
 
-* 將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體帳戶 
+* 將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體帳戶
 * 將資料從 Azure Blob 儲存體帳戶複製至 Azure SQL Database
 
 **參考**：這裡顯示的步驟，已在 ADF 團隊提供之更詳細的教學課程[啟用管線以使用內部部署資料](data-factory-use-onpremises-datasources.md)中修改，該主題相關章節的參考資料也會在必要時提供。
@@ -49,10 +51,10 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 
 > [AZURE.NOTE]此程序會使用 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
 
-##<a name="upload-data"></a>將資料上傳至您的內部部署 SQL Server 
+##<a name="upload-data"></a>將資料上傳至您的內部部署 SQL Server
 
 我們會使用 [NYC 計程車資料集](http://chriswhong.com/open-data/foil_nyc_taxi/)示範移轉程序。NYC 計程車資料集可在 Azure Blob 儲存體 ([這裡](http://www.andresmh.com/nyctaxitrips/)) 中取得 (已在該文章中註明)。該資料有兩個檔案：包含路線詳細資料的 trip\_data.csv 檔案，以及包含每次車程支付車資之詳細資料的 trip\_far.csv 檔案。這些檔案的範例和說明都會在 [NYC 計程車車程資料集說明](machine-learning-data-science-process-sql-walkthrough.md#dataset)中提供。
- 
+
 
 您可以將這裡提供的程序調整為自己的資料集，或者遵循上述步驟使用 NYC 計程車資料集。若要將 NYC 計程車資料集上傳至您的內部部署 SQL Server 資料庫，請遵循[大量匯入資料到 SQL Server 資料庫](machine-learning-data-science-process-sql-walkthrough.md#dbload)中概述的程序進行。這些指示適用於 Azure 虛擬機器上的 SQL Server，但將資料上傳至內部部署 SQL Server 的程序是相同的。
 
@@ -67,7 +69,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 如需關於資料管理閘道的設定指示及詳細資料，請參閱[啟用管線以使用內部部署資料](data-factory-use-onpremises-datasources.md)
 
 
-## <a name="adflinkedservices"></a>建立連結服務以連接至資料資源 
+## <a name="adflinkedservices"></a>建立連結服務以連接至資料資源
 
 連結服務定義會定義 Azure Data Factory 所需的資訊，以便連接到資料資源。用於建立連結服務的逐步程序，已在[建立連結服務](data-factory-use-onpremises-datasources.md#step-2-create-linked-services)中提供。
 
@@ -92,12 +94,12 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 
 使用下列指令碼型程序，建立指定資料集結構、位置及可用性的資料表。JSON 檔案可用來定義資料表。如需這些檔案結構的詳細資訊，請參閱[資料集](data-factory-create-datasets.md)。
 
-> [AZURE.NOTE]您應該先執行 `Switch-AzureMode -Name AzureResourceManager` 和 `Add-AzureAccount` Cmdlet，再執行 [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) Cmdlet，以確認 Azure Powershell Cmdlet 可用，且已選取正確的 Azure 訂用帳戶來執行命令。如需這些 Cmdlet 的文件，請參閱 [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) 和[Add-AzureAccoun](https://msdn.microsoft.com/library/azure/dn790372.aspx)。
- 
+> [AZURE.NOTE]您應該先執行 `Add-AzureAccount` Cmdlet，再執行 [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) Cmdlet，以確認已選取正確的 Azure 訂用帳戶來執行命令。如需此 Cmdlet 的文件，請參閱 [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx)。
+
 資料表中的 JSON 型定義使用下列名稱：
 
-* 內部部署 SQL Server 中的**資料表名稱**為 *nyctaxi\_data*
-* Azure Blob 儲存體帳戶中的**容器名稱**為 *containername*  
+* 內部部署的 SQL Server 中的「資料表名稱」為 *nyctaxi\_data*
+* Azure Blob 儲存體帳戶中的「容器名稱」為 *containername*  
 
 此 ADF 管線所需的三個資料表定義為：
 
@@ -121,7 +123,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 		    	"tableName": "nyctaxi_data",
 		    	"linkedServiceName": "adfonpremsql"
 		    	},
-		    	"availability": 
+		    	"availability":
 		    	{
 		    	"frequency": "Day",
 		    	"interval": 1,   
@@ -131,7 +133,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 		    	"retryTimeout": "00:10:00",
 		    	"maximumRetry": 3
 		    	}
-		    	
+
 		    	}
 	    	}
     	}
@@ -149,7 +151,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 		    "name": "OutputBlobTable",
 		    "properties":
 		    {
-			    "location": 
+			    "location":
 			    {
 			    "type": "AzureBlobLocation",
 			    "folderPath": "containername",
@@ -160,14 +162,14 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 			    },
 			    "linkedServiceName": "adfds"
 			    },
-			    "availability": 
+			    "availability":
 			    {
 			    "frequency": "Day",
 			    "interval": 1
 			    }
 		    }
 	    }
- 
+
 將資料表的 JSON 定義複製到名為 *bloboutputtabledef.json* 的檔案，並將其儲存至已知位置 (此處假設為 *C:\\temp\\bloboutputtabledef.json*)。使用下列 Azure PowerShell Cmdlet，在 ADF 中建立資料表。
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
@@ -190,14 +192,14 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 	            "tableName": "your_db_name",
 	            "linkedServiceName": "adfdssqlazure_linked_servicename"
 	        },
-	        "availability": 
+	        "availability":
 	        {
 	            "frequency": "Day",
 	            "interval": 1            
 	        }
 	    }
 	}
-  
+
 將資料表的 JSON 定義複製到名為 *AzureSqlTable.json* 的檔案，並將其儲存至已知位置 (此處假設為 *C:\\temp\\AzureSqlTable.json*)。使用下列 Azure PowerShell Cmdlet，在 ADF 中建立資料表。
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
@@ -212,7 +214,7 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 > [AZURE.NOTE]下列程序會使用 Azure PowerShell 來定義和建立 ADF 管線。但是，此工作也可以透過 Azure Preview 入口網站來完成。如需詳細資料，請參閱[建立和執行管線](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)。
 
 使用上面提供的資料表定義，將 ADF 的管線定義指定為：
-    
+
 		{
 		    "name": "AMLDSProcessPipeline",
 		    "properties":
@@ -246,7 +248,7 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 		                    "retry": 0,
 		                    "timeout": "01:00:00"
 		                }       
-		
+
 		             },
 
 					{
@@ -254,7 +256,7 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 						"description": "Push data to Sql Azure",		
 						"type": "CopyActivity",
 						"inputs": [ {"name": "OutputBlobTable"} ],
-						"outputs": [ {"name": "OutputSQLAzureTable"} ],	
+						"outputs": [ {"name": "OutputSQLAzureTable"} ],
 						"transformation":
 						{
 							"source":
@@ -282,16 +284,16 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 
 將該管線的 JSON 定義複製到名為 *pipelinedef.json* 的檔案，並將其儲存至已知位置 (此處假設為 *C:\\temp\\pipelinedef.json*)。使用下列 Azure PowerShell Cmdlet，在 ADF 中建立管線。
 
-	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json 
+	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
 確認您可以在 Azure 入口網站的 ADF 上看見管線，如下所示 (當您按一下圖表時)
 
-![](http://i.imgur.com/DJP1kji.png)
+![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
 ##<a name="adf-pipeline-start"></a>啟動管線
 現在可使用下列命令來執行管線：
 
-	Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline 
+	Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
 
 *startdate* 和 *enddate* 參數值必須替換為您想要執行管線的實際日期。
 
@@ -299,4 +301,4 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 
 請注意，我們尚未運用 ADF 提供的功能，以遞增方式輸送資料。如需關於如何執行此功能和 ADF 提供之其他功能的詳細資料，請參閱 [ADF 文件](http://azure.microsoft.com/services/data-factory/)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

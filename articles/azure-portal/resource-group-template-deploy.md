@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/02/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
@@ -212,7 +212,7 @@
 
 ![新增](./media/resource-group-template-deploy/new.png)
 
-如需關於搭配 Azure 資源管理員使用入口網站的詳細資訊，請參閱[使用 Azure 預覽入口網站來管理您的 Azure 資源](resource-group-portal.md)。
+如需關於搭配 Azure 資源管理員使用入口網站的詳細資訊，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](resource-group-portal.md)。
 
 
 ## 參數檔案
@@ -240,9 +240,10 @@
 ## 後續步驟
 - 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](../arm-template-deployment.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- 如需將您的方案部署到不同的環境的指導，請參閱[在 Microsoft Azure 中開發和測試環境](../solution-dev-test-environments-preview-portal.md)。
 - 若要了解 Azure 資源管理員範本的區段，請參閱[撰寫範本](../resource-group-authoring-templates.md)
 - 如需可以在 Azure 資源管理員範本中使用的函式清單，請參閱[範本函式](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

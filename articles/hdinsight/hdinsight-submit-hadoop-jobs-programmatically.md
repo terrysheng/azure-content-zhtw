@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/02/2015"
 	ms.author="jgao"/>
 
 # 在 HDInsight 上提交 Hadoop 工作
@@ -31,7 +31,7 @@
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-* **Azure HDInsight 叢集**。相關指示請參閱[開始使用 HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集][hdinsight-provision]。
+* **Azure HDInsight 叢集**。相關指示請參閱[開始使用 HDInsight][hdinsight-get-started] 或[在 HDInsight 建立 Hadoop 叢集][hdinsight-provision]。
 - **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 
@@ -94,7 +94,7 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
-	儲存體帳戶名稱是您在 HDInsight 叢集佈建期間指定的 Azure 儲存體帳戶。儲存體帳戶會用來代管當做預設 HDInsight 叢集檔案系統的 Blob 容器。除非您在佈建叢集時指定不同的名稱，否則容器名稱通常與 HDInsight 叢集同名。
+	儲存體帳戶名稱是您在 HDInsight 叢集建立期間指定的 Azure 儲存體帳戶。儲存體帳戶會用來代管當做預設 HDInsight 叢集檔案系統的 Blob 容器。除非您在建立叢集時指定不同的名稱，否則容器名稱通常與 HDInsight 叢集同名。
 
 3. 執行以下命令來建立 Azure Blob 儲存體內容物件：
 
@@ -303,154 +303,73 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 ##使用 HDInsight .NET SDK 提交 MapReduce 工作
 HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使用 HDInsight 叢集。HDInsight 叢集隨附一個 JAR 檔案 (位於 *\\example\\jars\\hadoop-mapreduce-examples.jar*)，內含數個 MapReduce 範例。其中一個範例是計算來源檔案中的文字出現率。在這堂課，您將了解如何建立 .NET 應用程式來執行字數統計範例。如需關於開發和執行 MapReduce 工作的詳細資訊，請參閱[搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]。
 
+**提交 WordCount MapReduce 工作**
 
-使用 SDK 佈建 HDInsight 叢集需要執行以下程序：
+1. 在 Visual Studio 建立 C# 主控台應用程式。
+2. 從 NuGet Package Manager Console 執行下列命令：
 
-- 安裝 HDInsight .NET SDK
-- 建立主控台應用程式
-- 執行應用程式
+		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
+2. 在 Program.cs 檔案中使用下列 using 陳述式：
 
-**安裝 HDInsight .NET SDK** 您可以從 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 下載最新發佈的 SDK 版本。下一個程序會顯示相關指示。
+		using System;
+		using System.Collections.Generic;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Hyak.Common;
 
-**建立 Visual Studio 主控台應用程式**
+3. 在 Main() 函式中加入下列程式碼：
 
-1. 開啟 Visual Studio。
+		var ExistingClusterName = "<HDInsightClusterName>";
+		var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
+		var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
+	    HDInsightJobManagementClient _hdiJobManagementClient;
 
-2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
+	    List<string> arguments = new List<string> { { "wasb:///example/data/gutenberg/davinci.txt" }, { "wasb:///example/data/WordCountOutput" } };
+	
+	    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+	    _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+	
+	    var parameters = new MapReduceJobSubmissionParameters
+	    {
+	        UserName = ExistingClusterUsername,
+	        JarFile = "wasb:///example/jars/hadoop-mapreduce-examples.jar",
+	        JarClass = "wordcount",
+	        Arguments = ConvertArgsToString(arguments)
+	    };
+	
+	    System.Console.WriteLine("Submitting the MapReduce job to the cluster...");
+	    var response = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(parameters);
+	    System.Console.WriteLine("Validating that the response is as expected...");
+	    System.Console.WriteLine("Response status code is " + response.StatusCode);
+	    System.Console.WriteLine("Validating the response object...");
+	    System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+	    Console.WriteLine("Press ENTER to continue ...");
+	    Console.ReadLine();
 
-3. 在 [**新增專案**] 中，輸入或選取下列值：
+4. 將下列 helper 函式加入類別。
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">值</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">類別</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">範本/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">範本</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">主控台應用程式</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitMapReduceJob</td></tr>
-</table>
-
-4. 按一下 [確定] 以建立專案。
-
-
-5. 在 [工具] 功能表中，依序按一下 [Library Package Manager] 及 [Package Manager Console]。
-
-6. 在主控台中執行下列命令，以安裝封裝。
-
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-
-	此命令會將 .NET 程式庫及其參考加入至目前的 Visual Studio 專案。版本應為 0.11.0.1 或更新版本。
-
-7. 在 [方案總管] 中，按兩下 **Program.cs** 加以開啟。
-
-8. 在檔案頂端新增下列 using 陳述式：
-
-		using System.IO;
-		using System.Threading;
-		using System.Security.Cryptography.X509Certificates;
-
-		using Microsoft.WindowsAzure.Storage;
-		using Microsoft.WindowsAzure.Storage.Blob;
-
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.Hadoop.Client;
-
-9. 將下列函數定義加入至類別。此函數用來等待 Hadoop 工作完成。
-
-        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
+        private static string ConvertArgsToString(List<string> args)
         {
-            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
+            if (args.Count == 0)
             {
-                jobInProgress = client.GetJob(jobInProgress.JobId);
-                Thread.Sleep(TimeSpan.FromSeconds(10));
+                return null;
             }
+
+            return string.Join("&arg=", args.ToArray());
         }
 
-10. 在 **Main()** 函數中，貼上以下程式碼：
-
-		// Set the variables
-		string subscriptionID = "<Azure subscription ID>";
-		string certFriendlyName = "<certificate friendly name>";
-
-		string clusterName = "<HDInsight cluster name>";
-
-		string storageAccountName = "<Azure storage account name>";
-		string storageAccountKey = "<Azure storage account key>";
-		string containerName = "<Blob container name>";
+5. 按 **F5** 鍵執行應用程式。
 
 
-	以上就是程式需要設定的所有變數。您可以從 [Azure 預覽入口網站][azure-management-portal]取得 Azure 訂用帳戶名稱。
-
-	如需憑證的相關資訊，請參閱[建立和上傳 Azure 的管理憑證][azure-certificate]。有一種設定憑證的簡單方法，就是執行 **Get-AzurePublishSettingsFile** 和 **Import-AzurePublishSettingsFile** 的 Azure PowerShell Cmdlet。它們會自動建立和上傳管理憑證。執行這些 Cmdlet 之後，可以從工作站開啟 **certmgr.msc**，然後展開 [個人] > [憑證] 來尋找憑證。Azure PowerShell Cmdlet 所建立的憑證在 [核發給] 和 [核發者] 欄位中都有 Azure Tools。
-
-	Azure 儲存體帳戶名稱是您佈建 HDInsight 叢集時指定的帳戶。預設容器名稱與 HDInsight 叢集名稱相同。
-
-11. 在 **Main()** 函數中，附加以下程式碼來定義 MapReduce 工作：
 
 
-        // Define the MapReduce job
-        MapReduceJobCreateParameters mrJobDefinition = new MapReduceJobCreateParameters()
-        {
-            JarFile = "wasb:///example/jars/hadoop-mapreduce-examples.jar",
-            ClassName = "wordcount"
-        };
 
-        mrJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt");
-        mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
-	有兩個引數。第一個是來源檔案名稱，第二個是輸出檔案路徑。如需關於 wasb:// 首碼的詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
-12. 在 **Main()** 函數中，附加以下程式碼來建立 JobSubmissionCertificateCredential 物件：
 
-        // Get the certificate object from certificate store using the friendly name to identify it
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-        JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 
-13. 在 **Main()** 函數中，附加以下程式碼來執行工作，然後等待工作完成：
-
-        // Create a hadoop client to connect to HDInsight
-        var jobClient = JobSubmissionClientFactory.Connect(creds);
-
-        // Run the MapReduce job
-        JobCreationResults mrJobResults = jobClient.CreateMapReduceJob(mrJobDefinition);
-
-        // Wait for the job to complete
-        WaitForJobCompletion(mrJobResults, jobClient);
-
-14. 在 **Main()** 函數中，附加以下程式碼來列印 MapReduce 工作輸出：
-
-		// Print the MapReduce job output
-		Stream stream = new MemoryStream();
-
-		CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + storageAccountName + ";AccountKey=" + storageAccountKey);
-		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-		CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
-		CloudBlockBlob blockBlob = blobContainer.GetBlockBlobReference("example/data/WordCountOutput/part-r-00000");
-
-		blockBlob.DownloadToStream(stream);
-		stream.Position = 0;
-
-		StreamReader reader = new StreamReader(stream);
-		Console.WriteLine(reader.ReadToEnd());
-
-        Console.WriteLine("Press ENTER to continue.");
-		Console.ReadLine();
-
-	輸出資料夾是您定義 MapReduce 工作時指定的資料夾。預設檔案名稱是 **part-r-00000**。
-
-**執行應用程式**
-
-在 Visual Studio 中開啟應用程式後，按 **F5** 以執行應用程式。主控台視窗會開啟並顯示應用程式的狀態及應用程式輸出。
 
 ##使用 HDInsight .NET SDK 提交 Hadoop 串流工作
 HDInsight 叢集會隨附一個以 C# 開發的字數統計 Hadoop 資料流程式。對應器程式為 */example/apps/cat.exe*，而歸納器程式為 */example/apps/wc.exe*。在這堂課中，您將了解如何建立 .NET 應用程式來執行字數統計範例。
@@ -459,106 +378,72 @@ HDInsight 叢集會隨附一個以 C# 開發的字數統計 Hadoop 資料流程�
 
 如需關於開發與部署 Hadoop 資料流工作的詳細資訊，請參閱[開發 HDInsight 的 C# Hadoop 資料流程式][hdinsight-develop-streaming-jobs]。
 
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
+下列程序只適用於 Windows 上的 HDInsight 叢集。Linux 叢集尚不支援 C# 串流處理。不過，您可以使用 .NET 程式來提交以 Linux 叢集支援的其他程式設計語言撰寫的串流工作。例如 Python。如需 Python 串流處理範例，請參閱[開發適用於 HDInsight 的 Python 串流處理程式](hdinsight-hadoop-streaming-python.md)。
 
-	using System.IO;
-	using System.Threading;
-	using System.Security.Cryptography.X509Certificates;
+**提交 WordCount MapReduce 工作**
 
-	using Microsoft.WindowsAzure.Management.HDInsight;
-	using Microsoft.Hadoop.Client;
+1. 從 Visual Studio Package Manager Console 執行下列 Nuget 命令以匯入套件。
 
-	namespace SubmitStreamingJob
-	{
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
+		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
-				// Set the variables
-				string subscriptionID = "<Azure subscription ID>";
-				string certFriendlyName = "<certificate friendly name>";
+2. 在 Program.cs 檔案中使用下列 using 陳述式：
 
-				string clusterName = "<HDInsight cluster name>";
-				string statusFolderName = @"/tutorials/wordcountstreaming/status";
+		using System;
+		using System.Collections.Generic;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Hyak.Common;
 
-	            // Define the Hadoop streaming MapReduce job
-	            StreamingMapReduceJobCreateParameters myJobDefinition = new StreamingMapReduceJobCreateParameters()
-	            {
-	                JobName = "my word counting job",
-	                StatusFolder = statusFolderName,
-	                Input = "/example/data/gutenberg/davinci.txt",
-	                Output = "/tutorials/wordcountstreaming/output",
-	                Reducer = "wc.exe",
-	                Mapper = "cat.exe"
-	            };
+3. 在 Main() 函式中加入下列程式碼：
 
-	            myJobDefinition.Files.Add("/example/apps/wc.exe");
-	            myJobDefinition.Files.Add("/example/apps/cat.exe");
+		var ExistingClusterName = "<HDInsightClusterName>";
+		var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
+		var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
 
-	            // Get the certificate object from certificate store using the friendly name to identify it
-	            X509Store store = new X509Store();
-	            store.Open(OpenFlags.ReadOnly);
-	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
+        List<string> arguments = new List<string> { { "/example/apps/cat.exe" }, { "/example/apps/wc.exe" } };
 
-	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+        HDInsightJobManagementClient _hdiJobManagementClient;
+        var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+        _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
 
-	            // Create a hadoop client to connect to HDInsight
-	            var jobClient = JobSubmissionClientFactory.Connect(creds);
+        var parameters = new MapReduceStreamingJobSubmissionParameters
+        {
+            UserName = ExistingClusterUsername,
+            File = ConvertArgsToString(arguments),
+            Mapper = "cat.exe",
+            Reducer = "wc.exe",
+            Input = "/example/data/gutenberg/davinci.txt",
+            Output = "/tutorials/wordcountstreaming/output"
+        };
 
-	            // Run the MapReduce job
-	            Console.WriteLine("----- Submit the Hadoop streaming job ...");
-	            JobCreationResults mrJobResults = jobClient.CreateStreamingJob(myJobDefinition);
+        System.Console.WriteLine("Submitting the MapReduce job to the cluster...");
+        var response = _hdiJobManagementClient.JobManagement.SubmitMapReduceStreamingJob(parameters);
+        System.Console.WriteLine("Validating that the response is as expected...");
+        System.Console.WriteLine("Response status code is " + response.StatusCode);
+        System.Console.WriteLine("Validating the response object...");
+        System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+        Console.WriteLine("Press ENTER to continue ...");
+        Console.ReadLine();
 
-	            // Wait for the job to complete
-	            Console.WriteLine("----- Wait for the Hadoop streaming job to complete ...");
-	            WaitForJobCompletion(mrJobResults, jobClient);
+4. 將 help 函式加入類別。
 
-	            // Display the error log
-	            Console.WriteLine("----- The hadoop streaming job error log.");
-	            using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
-	            {
-	                var reader = new StreamReader(stream);
-	                Console.WriteLine(reader.ReadToEnd());
-	            }
+        private static string ConvertArgsToString(List<string> args)
+        {
+            if (args.Count == 0)
+            {
+                return null;
+            }
 
-	            // Display the output log
-	            Console.WriteLine("----- The hadoop streaming job output log.");
-	            using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
-	            {
-	                var reader = new StreamReader(stream);
-	                Console.WriteLine(reader.ReadToEnd());
-	            }
+            return string.Join("&arg=", args.ToArray());
+        }
 
-	            Console.WriteLine("----- Press ENTER to continue.");
-	            Console.ReadLine();
-	        }
-
-	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
-	        {
-	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-	            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
-	            {
-	                jobInProgress = client.GetJob(jobInProgress.JobId);
-	                Thread.Sleep(TimeSpan.FromSeconds(10));
-	            }
-	        }
-	    }
-	}
-
-
-
-
-
+5. 按 **F5** 鍵執行應用程式。
 
 ##使用 HDInsight .NET SDK 提交 Hive 工作
 HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。在這堂課中，您將建立 .NET 應用程式來執行 Hive 工作，以列出在 HDInsight 叢集中建立的 Hive 資料表。如需關於使用 Hive 的詳細資訊，請參閱[搭配 HDInsight 使用 Hive][hdinsight-use-hive]。
 
-使用 SDK 佈建 HDInsight 叢集需要執行以下程序：
+使用 SDK 建立 HDInsight 叢集需要執行以下程序：
 
 - 安裝 HDInsight .NET SDK
 - 建立主控台應用程式
@@ -667,10 +552,10 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 
 
 ##後續步驟
-在本文中，您學到幾種佈建 HDInsight 叢集的方法。若要深入了解，請參閱下列文章：
+在本文中，您學到幾種建立 HDInsight 叢集的方法。若要深入了解，請參閱下列文章：
 
 * [開始使用 Azure HDInsight][hdinsight-get-started]
-* [佈建 HDInsight 叢集][hdinsight-provision]
+* [在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision]
 * [使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]
 * [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
@@ -700,4 +585,4 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

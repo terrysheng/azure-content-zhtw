@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="服務匯流排 AMQP 概觀 | Microsoft Azure"
-	description="了解如何在 Azure 中使用 Advanced Message Queuing Protocol (AMQP)。"
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
+	pageTitle="服務匯流排 AMQP 概觀 | Microsoft Azure" 
+	description="了解如何在 Azure 中使用 Advanced Message Queuing Protocol (AMQP)。" 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/05/2015" 
 	ms.author="sethm"/>
 
 
@@ -81,21 +81,28 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 
 **圖 2：AMQP 1.0 用戶端程式庫的資料表**
 
-如需有關如何取得及使用這些程式庫與服務匯流排的詳細資訊，請參閱[服務匯流排 AMQP 開發人員指南][]。請參閱下面的「參考」一節，以取得進一步資訊。
-
 ## 摘要
 
 *    AMQP 1.0 是一個既開放又可靠的訊息通訊協定，可以用來建置跨平台的混合應用程式。AMQP 1.0 是一項 OASIS 標準。
 *    Azure 服務匯流排和 Service Bus for Windows Server (Service Bus 1.1) 中現可支援 AMQP 1.0。價格與現有的通訊協定一樣。
 
-## 參考
+## 後續步驟
 
-*    [如何透過服務匯流排 .NET API 使用 AMQP 1.0](http://aka.ms/lym3vk)
-*    [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0](http://aka.ms/ll1fm3)
-*    [服務匯流排 AMQP 開發人員指南](http://msdn.microsoft.com/library/jj841071.aspx)
-*    [OASIS 進階訊息佇列通訊協定 (AMQP) 版本 1.0 規格](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
+準備好進行深入了解嗎？ 請造訪下列連結：
 
-[0]: ./media/service-bus-amqp-overview/Example1.png
-[服務匯流排 AMQP 開發人員指南]: http://msdn.microsoft.com/library/jj841071.aspx
+- [搭配使用 .NET 的服務匯流排與 AMQP]
+- [搭配使用 Java 的服務匯流排與 AMQP]
+- [搭配使用 Python 的服務匯流排與 AMQP]
+- [搭配使用 PHP 的服務匯流排與 AMQP]
+- [在 Azure Linux VM 上安裝 Apache Qpid Proton-C]
+- [Windows Server 服務匯流排中的 AMQP]
 
-<!---HONumber=August15_HO9-->
+[0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
+[搭配使用 .NET 的服務匯流排與 AMQP]: service-bus-amqp-dotnet.md
+[搭配使用 Java 的服務匯流排與 AMQP]: service-bus-amqp-java.md
+[搭配使用 Python 的服務匯流排與 AMQP]: service-bus-amqp-python.md
+[搭配使用 PHP 的服務匯流排與 AMQP]: service-bus-amqp-php.md
+[在 Azure Linux VM 上安裝 Apache Qpid Proton-C]: service-bus-amqp-apache.md
+[Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
+
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="擷取 Linux VM 的映像 | Microsoft Azure"
-	description="了解如何對以傳統部署模型所建立且執行 Linux 的 Azure 虛擬機器 (VM) 擷取映像。"
+	description="了解如何對以傳統部署模型建立的 Linux Azure 虛擬機器 (VM) 擷取映像。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -99,4 +99,4 @@ Azure 會將此範本視為映像，並將其儲存在 [映像] 下。這也是�
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [如何建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

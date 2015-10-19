@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -43,9 +43,13 @@
 
 ##<a name="app"></a>使用 Spark MLlib 撰寫機器學習應用程式
 
-1. 從 [Azure Preview 入口網站](https://ms.portal.azure.com/)的開始面板，按一下 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以在 [瀏覽全部] > [HDInsight 叢集] 下巡覽至您的叢集。 
- 
-2. 啟動 [Jupyter](https://jupyter.org) 筆記本。在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter 筆記本]。出現提示時，輸入 Spark 叢集的系統管理員認證。
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以在 [瀏覽全部] > [HDInsight 叢集] 下巡覽至您的叢集。   
+
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
+
+	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。將 __CLUSTERNAME__ 取代為您叢集的名稱：
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 2. 建立新的 Notebook。按一下 [新增]，然後按一下 [Python 2]。
 
@@ -86,7 +90,7 @@
 		sc = SparkContext(conf=conf)
 		sqlContext = SQLContext(sc)
 
-	每當您在 Jupyter 中執行工作時，網頁瀏覽器視窗標題會顯示筆記本標題和 **(忙碌)** 狀態。您也會在右上角的 **Python 2** 文字旁看到實心圓。工作完成後，實心圓將會變成空心圓。
+	每當您在 Jupyter 中執行工作時，網頁瀏覽器視窗標題會顯示 Notebook 標題和 **(忙碌)** 狀態。您也會在右上角的 **Python 2** 文字旁看到實心圓。工作完成後，實心圓將會變成空心圓。
 
 	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Job.Status.png "Jupyter Notebook 工作的狀態")
  
@@ -243,4 +247,4 @@ HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure 資料表來回移動資料
@@ -384,6 +384,26 @@ azureTableInsertType | 將資料插入 Azure 資料表的模式。 | 合併<br/>
 writeBatchSize | 在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。 | 1 與 100 之間的整數 (單位 = 資料列計數) | 否 (預設值 = 100) 
 writeBatchTimeout | 在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中 | (單位 = 時間範圍) 範例：“00:20:00” (20 分鐘) | 否 (預設為儲存體用戶端預設逾時值 90 秒)
 
+### azureTablePartitionKeyName
+您必須使用轉譯器 JSON 屬性將來源資料行對應至目的地資料行，才能使用目的地資料行做為 azureTablePartitionKeyName。
+
+在下列範例中，來源資料行 DivisionID 會對應至目的地資料行：DivisionID。
+
+	"translator": {
+		"type": "TabularTranslator",
+		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
+	} 
+
+EmpID 是指定為資料分割索引鍵。
+
+	"sink": {
+		"type": "AzureTableSink",
+		"azureTablePartitionKeyName": "DivisionID",
+		"writeBatchSize": 100,
+		"writeBatchTimeout": "01:00:00"
+	}
+
+
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Azure 資料表的類型對應
@@ -393,7 +413,7 @@ writeBatchTimeout | 在達到 WriteBatchSize 或 writeBatchTimeout 時將資料�
 1. 從原生來源類型轉換成 .NET 類型
 2. 從 .NET 類型轉換成原生接收類型
 
-從 Azure 資料表來回移動資料時，將使用 [Azure 表格服務所定義的對應](https://msdn.microsoft.com/library/azure/dd179338.aspx)：從 Azure 資料表 OData 類型到 .NET 類型，反之亦然。
+在 Azure 資料表來回移動資料時，將使用下列 [Azure 資料表服務定義的對應](https://msdn.microsoft.com/library/azure/dd179338.aspx)：從 Azure 資料表 OData 類型到 .NET 類型，反之亦然。
 
 | OData 資料類型 | .NET 類型 | 詳細資料 |
 | --------------- | --------- | ------- |
@@ -484,4 +504,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

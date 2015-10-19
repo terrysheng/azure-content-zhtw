@@ -30,7 +30,7 @@ Nick Harris 也在下列這段影片中示範了本教學課程：
 
 本教學課程會以行動服務快速入門為基礎。您還必須先完成[將行動服務新增至現有的應用程式]教學課程。
 
->[AZURE.NOTE]本教學課程示範行動服務如何管理不同的身分識別提供者的驗證流程。此方法設定起來很簡單，而且可支援多個提供者。若要改用可於用戶端管理驗證的 Live Connect，並在您的 Windows Phone 應用程式中提供單一登入體驗，請參閱[使用 Live Connect 在 Windows Phone 應用程式提供單一登入功能]主題。藉由使用用戶端管理的驗證，您的應用程式即可存取身分識別提供者保留的其他使用者資料。您可藉由呼叫伺服器指令碼中的 **user.getIdentities()** 函數，在行動服務中取得相同的使用者資料。如需詳細資訊，請參閱 [這篇文章](http://go.microsoft.com/fwlink/p/?LinkId=506605)。
+>[AZURE.NOTE]本教學課程示範行動服務如何管理不同的身分識別提供者的驗證流程。此方法設定起來很簡單，而且可支援多個提供者。藉由使用用戶端管理的驗證，您的應用程式即可存取身分識別提供者保留的其他使用者資料。您可藉由呼叫伺服器指令碼中的 **user.getIdentities()** 函數，在行動服務中取得相同的使用者資料。如需詳細資訊，請參閱 [這篇文章](http://go.microsoft.com/fwlink/p/?LinkId=506605)。
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
@@ -41,7 +41,7 @@ Nick Harris 也在下列這段影片中示範了本教學課程：
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-&nbsp;&nbsp;3.在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[將行動服務新增至現有應用程式](mobile-services-windows-phone-get-started-data.md)教學課程時所建立的專案。
+&nbsp;&nbsp;3.在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[將行動服務新增至現有 App](mobile-services-windows-phone-get-started-data.md) 教學課程時所建立的專案。
 
 &nbsp;&nbsp;4.按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 *TodoItem* 資料表現在需要驗證。
 
@@ -77,7 +77,6 @@ Nick Harris 也在下列這段影片中示範了本教學課程：
 [將行動服務新增至現有的應用程式]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[使用 Live Connect 在 Windows Phone 應用程式提供單一登入功能]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

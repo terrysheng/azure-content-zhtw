@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="07/08/2015"
+   ms.date="10/06/2015"
    ms.author="brjohnst"/>
 
 # 如何從 .NET 應用程式使用 Azure 搜尋服務 #
@@ -31,7 +31,7 @@ SDK 包含用戶端程式庫 `Microsoft.Azure.Search`。該程式庫可讓您管
 
 目前的 Azure 搜尋服務 .NET SDK 版本是發行前版本。如果您想提供意見反應給我們，讓我們可以將您的意見併入第一個穩定版本中，請瀏覽我們[意見回應頁面](http://feedback.azure.com/forums/263029-azure-search)。
 
-.NET SDK 支援 `2015-02-28` 版 Azure 搜尋服務 REST API，該項目已記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)。新功能*不*在此版本中，例如支援 Microsoft 的自然語言處理器或 `moreLikeThis` 搜尋參數，都在[預覽版](search-api-2015-02-28-preview.md)中，SDK 還沒有提供這些功能。您可以查看[搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)或 [Azure 搜尋服務的最新更新](search-latest-updates.md)，了解任一功能的狀態更新。
+.NET SDK 支援 `2015-02-28` 版 Azure 搜尋服務 REST API，該項目已記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)。此版本現在包含對 Microsoft 語言分析的支援。*不*在此版本中的新功能 (例如支援 `moreLikeThis` 搜尋參數) 都在[預覽版](search-api-2015-02-28-preview.md)中，而 SDK 尚未提供這些功能。您可以查看[搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)或 [Azure 搜尋服務的最新更新](search-latest-updates.md)，了解任一功能的狀態更新。
 
 此 SDK 中其他不支援的功能包括：
 
@@ -335,7 +335,9 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
 
 首先要注意的是，每個 `Hotel` 的公用屬性會對應索引定義中的欄位，但這之中有一項關鍵的差異：每個欄位的名稱會以小寫字母 (「駝峰式命名法」) 為開頭，而每個 `Hotel` 的公用屬性名稱會以大小字母 (「巴斯卡命名法」) 為開頭。這在執行資料繫結、而目標結構描述在應用程式開發人員控制範圍之外的 .NET 應用程式中很常見。與其違反 .NET 命名方針，使屬性名稱為駝峰式命名法，您可以改用 `[SerializePropertyNamesAsCamelCase]` 屬性，告訴 SDK 自動將屬性名稱對應至駝峰式命名法。
 
-第二個要注意的是，`Hotel` 類別為公用屬性的資料類型。這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。`bool?` 與 `Edm.Boolean`、`DateTimeOffset?` 與 `Edm.DateTimeOffset` 等，它們之間也有類似的類型對應。類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)。請注意，如 `bool` 和 `int` 之類的實值類型，在 `Hotel` 類別中均為 Null，因為所有基本欄位類型在 Azure 搜尋服務中均為 Null。
+第二個要注意的是，`Hotel` 類別為公用屬性的資料類型。這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。`bool?` 與 `Edm.Boolean`、`DateTimeOffset?` 與 `Edm.DateTimeOffset` 等，它們之間也有類似的類型對應。類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)。
+ 
+> [AZURE.NOTE]當您設計自己的模型類別以對應至 Azure 搜尋索引時，請確定會將像是 `bool` 和 `int` 的值類型屬性宣告為 Null (例如：`bool?`，而不是 `bool`)。這是必要的，因為 Azure 搜尋中所有的基本欄位類型可以是 Null。如果您使用不可為 Null 的類型，在針對像是 `0` 和 `false` 的預設值編制索引時，就可能會得到未預期的結果。
 
 這讓使用您的類別做為文件可雙向有效；您也可以擷取搜尋結果，然後讓 SDK 將結果自動還原序列化為您選擇的類型，我們會在下一節中看到這部分。
 
@@ -625,4 +627,4 @@ Hotel.cs：
     }
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

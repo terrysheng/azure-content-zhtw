@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="10/05/2015" 
 	ms.author="glenga"/>
 
 # 在您的行動服務應用程式中新增驗證 
@@ -26,7 +26,7 @@
 
 本教學課程會以行動服務快速入門為基礎。您還必須先完成[開始使用行動服務]或[將行動服務新增至現有應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md)教學課程。
 
->[AZURE.NOTE]本教學課程說明如何在 Windows 市集與 Windows Phone 市集 8.1 應用程式中使用伺服器導向的使用者驗證。有關 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式，請檢視此版本的[開始使用行動服務中的驗證](mobile-services-dotnet-backend-windows-phone-get-started-users.md)。如需用戶端導向的驗證相關資訊，請參閱[使用 Google、Microsoft 和 Facebook SDK 登入 Azure 行動服務](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/)。
+>[AZURE.NOTE]本教學課程說明如何在 Windows 市集與 Windows Phone 市集 8.1 應用程式中使用伺服器導向的使用者驗證。如需用戶端導向的驗證相關資訊，請參閱[使用 Google、Microsoft 和 Facebook SDK 登入 Azure 行動服務](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/)。
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
@@ -46,7 +46,7 @@
 
 &nbsp;&nbsp;8.按 F5 鍵執行 Windows 市集應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。
    
-&nbsp;&nbsp;這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 *TodoItem* 資料表現在需要驗證。
+&nbsp;&nbsp;發生此情況是因為 App 嘗試以未驗證的使用者身分來存取行動服務，但 *TodoItem* 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
@@ -67,7 +67,7 @@
 
 ##另請參閱
 
-+ [增強型使用者功能](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> 您可藉由呼叫 .NET 後端中的 **ServiceUser.GetIdentitiesAsync()** 方法，取得由行動服務中的識別提供者維護的其他使用者資料。 
++ [增強型使用者功能](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> 您可藉由呼叫 .NET 後端中的 **ServiceUser.GetIdentitiesAsync()** 方法，來取得由行動服務中的身分識別提供者所維護的其他使用者資料。 
 
 + [行動服務 .NET 作法概念參考資料]<br/>深入了解如何搭配 .NET 用戶端使用行動服務。
 
@@ -84,7 +84,6 @@
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: mobile-services-windows-store-dotnet-single-sign-on.md
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Get started with authentication]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
@@ -97,4 +96,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

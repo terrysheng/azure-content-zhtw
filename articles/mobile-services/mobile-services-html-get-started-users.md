@@ -131,11 +131,10 @@
 
 <!-- URLs. -->
 [開始使用行動服務]: mobile-services-html-get-started.md
-[Get started with data]: mobile-services-html-get-started-data.md
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [行動服務 HTML/JavaScript 作法概念性參考]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

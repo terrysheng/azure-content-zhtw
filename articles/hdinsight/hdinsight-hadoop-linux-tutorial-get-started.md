@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="08/21/2015"
+   	ms.date="10/05/2015"
    	ms.author="nitinme"/>
 
 # Hadoop 教學課程：在 Linux 上開始在 HDInsight 中搭配使用 Hadoop 與 Hive
@@ -37,7 +37,7 @@
 
     > [AZURE.NOTE]由於所有用戶端作業系統都能使用 SSH，因此本文件中的步驟會使用 SSH 來連線到 HDInsight 叢集。如需連線到 HDInsight 叢集的其他方法，例如使用適用於 Visual Studio 的 HDInsight 工具或使用 REST API，請參考本文件[後續步驟](#nextsteps)一節中的 Hive、Pig 及 MapReduce 連結。
     
-- **安全殼層 (SSH) 金鑰** (選擇性)：您可以使用密碼或公開金鑰，保護用來連線到叢集的 SSH 帳戶。建議使用金鑰的方式，因為比較安全，但是需要額外的設定。如需如何建立和使用 SSH 金鑰搭配 HDInsight 的相關指示，請參閱下列文章：
+- **安全殼層 (SSH) 金鑰 (選擇性)**：您可以使用密碼或公開金鑰，保護用來連線到叢集的 SSH 帳戶。使用密碼可以快速開始，如果您想快速佈建叢集並執行一些測試工作，您應該使用這個選項。使用金鑰比較安全，但是需要額外的設定。佈建實際執行叢集時，您可能會想使用此方法。在本文中，我們使用密碼方法。如需如何建立和使用 SSH 金鑰搭配 HDInsight 的相關指示，請參閱下列文章：
 
 	-  從 Linux 電腦 - [從 Linux、Unix 或 OS X 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
     
@@ -66,11 +66,11 @@
 
 	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
-6. 按一下 [認證]，然後輸入 admin 使用者的密碼。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。建議使用公開金鑰的方法。在底部按一下 [選取] 以儲存認證組態。
+6. 按一下 [認證]，然後輸入 admin 使用者的密碼。您也必須輸入 [SSH 使用者名稱]。針對 [SSH 驗證類型], ，按一下 [密碼] 並指定 SSH 使用者的密碼。在底部按一下 [選取] 以儲存認證組態。
 
 	![提供叢集認證](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "提供叢集認證")
 
-    > [AZURE.NOTE]SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼或公開金鑰將會在透過 SSH 連接到叢集時使用。此外，SSH 使用者名稱必須是唯一的，因為該名稱會在所有 HDInsight 叢集節點上建立使用者帳戶。以下是一些保留給叢集上的服務使用的帳戶名稱，不能做為 SSH 使用者名稱︰
+    > [AZURE.NOTE]SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼會在透過 SSH 連接到叢集時使用。此外，SSH 使用者名稱必須是唯一的，因為該名稱會在所有 HDInsight 叢集節點上建立使用者帳戶。以下是一些保留給叢集上的服務使用的帳戶名稱，不能做為 SSH 使用者名稱︰
     >
     > root、hdiuser、storm、hbase、ubuntu、zookeeper、hdfs、yarn、mapred、hbase、hive、oozie、falcon、sqoop、admin、tez、hcat、hdinsight-zookeeper。
 
@@ -282,4 +282,4 @@
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

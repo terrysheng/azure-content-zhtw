@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的 Redis 叢集
@@ -56,11 +56,30 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 ![叢集][redis-cache-clustering-selected]
 
-建立快取後，您可以連接並使用它，就像非叢集化快取一樣，而且 Redis 將會在整個快取分區散發資料。
+建立快取後，您可以連接並使用它，就像非叢集化快取一樣，而且 Redis 將會在整個快取分區散發資料。如果[已啟用](cache-how-to-monitor.md#enable-cache-diagnostics)診斷，則會針對每個分區個別擷取度量，而且可以在 [Redis 快取] 刀鋒視窗中[檢視](cache-how-to-monitor.md)。
 
 ## 叢集常見問題集
 
 下列清單包含 Azure Redis 快取叢集常見問題的解答。
+
+## 我需要對我的用戶端應用程式進行任何變更才能使用叢集嗎？
+
+-	啟用叢集時，只可以使用資料庫 0。如果用戶端應用程式使用多個資料庫，並嘗試讀取或寫入至 0 以外的資料庫，就會擲回下列例外狀況。 `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+-	如果您使用 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)，則必須使用 1.0.481 或更新版本。您可以使用與連接到未啟用叢集的快取時所用的相同[端點、連接埠和金鑰](cache-configure.md#properties)來連接到快取。唯一的差別在於必須在資料庫 0 上完成所有的讀取和寫入。
+	-	其他用戶端可能有不同的需求。請參閱[所有 Redis 用戶端都支援叢集嗎？](#do-all-redis-clients-support-clustering)。
+-	如果您的應用程式使用分成單一命令的多個索引鍵作業，則所有索引鍵都必須位於相同的分區。若要完成此動作，請參閱[如何在叢集中散發索引鍵？](#how-are-keys-distributed-in-a-cluster)。
+-	如果您使用 Redis ASP.NET 工作階段狀態提供者，則必須使用 2.0.0 或更高版本。請參閱[我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)。
+
+## 如何在叢集中散發索引鍵？
+
+依據 Redis [索引鍵散發模型](http://redis.io/topics/cluster-spec#keys-distribution-model)文件︰索引鍵空間會分割成 16384 個位置。每個索引鍵都會雜湊並指派給上述的其中一個位置，而這些位置散發於叢集的各個節點。您可以設定哪個部分的索引鍵會雜湊，以確保多個索引鍵位於使用雜湊標記的相同分區中。
+
+-	具有雜湊標記的索引鍵 - 如果索引鍵的任何部分括在 `{` 和 `}` 中，則只有該部分的索引鍵會為了判斷索引鍵的雜湊位置而進行雜湊。例如，下列 3 個索引鍵會位於相同的分區︰`{key}1`、`{key}2` 和 `{key}3`，因為只會雜湊名稱的 `key` 部分。如需索引鍵雜湊標記規格的完整清單，請參閱[索引鍵雜湊標記](http://redis.io/topics/cluster-spec#keys-hash-tags)。
+-	沒有雜湊標記的索引鍵 - 整個索引鍵名稱都用於雜湊。這會導致以統計方式平均散發於快取的各個分區。
+
+如需最佳的效能和輸送量，我們建議平均散發索引鍵。如果您使用具有雜湊標記的索引鍵，則應用程式必須負責確保平均散發索引鍵。
+
+如需詳細資訊，請參閱[索引鍵散發模型](http://redis.io/topics/cluster-spec#keys-distribution-model)、[Redis 叢集資料分區化](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding)和[索引鍵雜湊標記](http://redis.io/topics/cluster-spec#keys-hash-tags)。
 
 ## 我可以建立的最大快取大小為何？
 
@@ -70,7 +89,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 現階段，並非所有用戶端都支援 Redis 叢集。StackExchange.Redis 就是不支援的其中一例。如需其他用戶端的詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)的[搭配使用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)一節。
 
->[AZURE.NOTE]如果您使用 StackExchange.Redis 做為您的用戶端，請確定您使用的是最新版的 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) (1.0.481) 或更新版，叢集才能正常運作。
+>[AZURE.NOTE]如果您使用 StackExchange.Redis 做為您的用戶端，請確定您使用的是最新版的 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) (1.0.481) 或更新版本，叢集才能正常運作。
 
 ## 啟用叢集後，要如何連接到我的快取？
 
@@ -98,9 +117,16 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 叢集僅適用於高階快取。
 
-## 後續步驟
+## 我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？
 
-了解如何使用其他高階快取功能。- [如何設定高階 Azure Redis 快取的永續性](cache-how-to-premium-persistence.md) - [如何設定高階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)
+-	**Redis 輸出快取提供者** - 不需要變更。
+-	**Redis 工作階段狀態提供者** - 若要使用叢集，您必須使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 或更高版本，否則會擲回例外狀況。這是一項重大變更。如需詳細資訊，請參閱 [v2.0.0 重大變更詳細資料](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)。
+
+## 後續步驟
+了解如何使用更多高階快取功能。
+
+-	[如何設定高階 Azure Redis Cache 的永續性](cache-how-to-premium-persistence.md)
+-	[如何設定高階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)
   
 <!-- IMAGES -->
 
@@ -120,4 +146,4 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 #  Application Insights：程式碼範例和逐步解說
@@ -35,7 +35,7 @@
 若要使用自己的工具分析遙測資料，請[將遙測資料匯出](app-insights-export-telemetry.md)至儲存體，並在其中進行剖析和處理。
 
 * [匯出至 Power BI](app-insights-export-power-bi.md) 
-* [使用背景工作角色匯出至 SQL](app-insights-code-sample-export-telemetry-sql-database.md)
+* [使用背景工作角色剖析匯出的資料](app-insights-code-sample-export-telemetry-sql-database.md)
 * [使用串流分析匯出至 SQL](app-insights-code-sample-export-sql-stream-analytics.md)
 * [針對 Microsoft CRM 啟用遙測](app-insights-sample-mscrm.md)
 
@@ -53,4 +53,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

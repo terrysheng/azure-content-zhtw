@@ -37,13 +37,13 @@ Microsoft Azure IoT 裝置 SDK 包含有助於建置裝置和應用程式的程�
 
 ## IoT 中心服務 SDK
 
-Microsoft Azure IoT 服務 SDK 包含有助於建置應用程式的程式碼，並使該應用程式直接與 IoT 中心互動，以便管理裝置和安全性。
+Microsoft Azure IoT 服務 SDK 包含有助於建置應用程式的程式碼，並使該應用程式直接與 IoT 中樞互動，以便管理裝置和安全性。
 
 您可從 GitHub 下載下列 IoT 服務 SDK：
 
 - [Azure IoT 服務 SDK for Node.js][]
 
-## API 參考文件
+## 線上 API 參考文件
 
 以下是 Azure IoT 裝置程式庫的線上 API 參考文件連結清單：
 
@@ -73,4 +73,4 @@ Microsoft Azure IoT 服務 SDK 包含有助於建置應用程式的程式碼，�
 [Microsoft Azure IoT 裝置 SDK for Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [IoT 中心 REST]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

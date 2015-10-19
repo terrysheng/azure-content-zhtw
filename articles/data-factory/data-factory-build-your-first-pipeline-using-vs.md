@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/18/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # 使用 Visual Studio 建置您的第一個 Azure Data Factory 管線。
@@ -33,11 +33,13 @@
 
 本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文。
 
+> [AZURE.IMPORTANT]請檢閱[教學課程概觀](data-factory-build-your-first-pipeline.md)文章，並在執行本教學課程之前完成必要的步驟。
+
 ## 逐步解說：使用 Visual Studio 建立及部署 Data Factory 實體 
 
 ### 必要條件
 
-您必須在電腦上安裝下列項目：- Visual Studio 2013 - 下載 Azure SDK for Visual Studio 2013。瀏覽至 [Azure 下載頁面](http://azure.microsoft.com/downloads/)並按一下 **.NET** 區段中的 [VS 2013 安裝]。
+您必須在電腦上安裝下列項目：- Visual Studio 2013 - 下載 Azure SDK for Visual Studio 2013。瀏覽至 [Azure 下載頁面](http://azure.microsoft.com/downloads/)並按一下 **.NET** 區段中的 [VS 2013 安裝]。- 將 "Visual Studio Tools For Azure Data Factory" 更新為最新版，方法是前往 [Visual Studio 2013] --> [工具] --> [更新] --> [Visual Studio 組件庫]，然後在該位置的 "Visual Studio Tools for Azure Data Factory" 外掛程式上按一下 [更新]。
 
 
 ### 建立 Visual Studio 專案 
@@ -134,7 +136,7 @@
 
 1. 以滑鼠右鍵按一下 [方案總管] 中的 [管線]，指向 [加入]，然後按一下 [新增項目]。 
 2. 從清單中選取 [Hive 轉換管線]，然後按一下 [加入]。 
-3. 使用下列程式碼片段來取代 **JSON**：
+3. 使用下列程式碼片段來取代 **JSON**。
 
 	> [AZURE.IMPORTANT]使用您的儲存體帳戶名稱取代 **storageaccountname**。
 
@@ -190,7 +192,7 @@
 
 ### 發佈/部署 Data Factory 實體
 
-18. 在 [方案總管] 中，以滑鼠右鍵按一下專案，再按一下 [發佈]。 
+18. 門快速入在 [方案總管] 中，以滑鼠右鍵按一下專案，再按一下 [發佈]。 
 19. 如果您看到 [登入您的 Microsoft 帳戶] 對話方塊，請輸入具有 Azure 訂用帳戶的帳戶認證，然後按一下 [登入]。
 20. 您應該會看到下列對話方塊：
 
@@ -211,7 +213,7 @@
 ## 使用 [伺服器總管] 檢視 Data Factory 實體
 
 1. 在 **Visual Studio** 中，按一下功能表上的 [檢視]，然後按一下 [伺服器總管]。
-2. 在 [伺服器總管] 視窗中，依序展開 **Azure** 和 **Data Factory**。如果您看到 [登入 Visual Studio]，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [繼續]。輸入**密碼**，然後按一下 [登入]。Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。您會在 [Data Factory 工作清單] 視窗中看到這項作業的狀態。
+2. 在 [伺服器總管] 視窗中，依序展開 [Azure] 和 [Data Factory]。如果您看到 [登入 Visual Studio]，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [繼續]。輸入**密碼**，然後按一下 [登入]。Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。您會在 [Data Factory 工作清單] 視窗中看到這項作業的狀態。
 
 	![Server Explorer](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
 3. 您可以在 Data Factory 上按一下滑鼠右鍵，並選取 [將 Data Factory 匯出至新的專案]，以便根據現有的 Data Factory 建立 Visual Studio 專案。
@@ -235,4 +237,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md)提交您的意見反應。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

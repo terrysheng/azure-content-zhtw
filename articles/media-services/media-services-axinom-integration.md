@@ -1,0 +1,201 @@
+<properties 
+	pageTitle="使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務" 
+	description="本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS 使用 PlayReady 與 Widevine DRM 動態加密的資料流。PlayReady 授權來自媒體服務 PlayReady 授權伺服器，Widevine 授權由 Axinom 授權伺服器傳遞。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/07/2015"  
+	ms.author="juliako"/>
+
+#使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務  
+
+> [AZURE.SELECTOR]
+- [castLabs](media-services-castlabs-integration.md)
+- [Axinom](media-services-axinom-integration.md)
+
+##概觀
+
+Azure 媒體服務 (AMS) 已新增 Google Widevine 動態保護 (如需詳細資訊，請參閱 [Mingfei 的部落格](https://azure.microsoft.com/zh-TW/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/))。此外，Azure 媒體播放器 (AMP) 也已新增 Widevine 支援 (如需詳細資訊，請參閱 [AMP 文件](http://amp.azure.net/libs/amp/latest/docs/))。談到在配備 MSE 和 EME 的現代瀏覽器上串流處理受到 CENC 與多重原生 DRM (PlayReady 和 Widevine) 保護的 DASH 內容時，這可說是一大成就。
+
+>[AZURE.NOTE]目前，媒體服務不提供 Widevine 授權伺服器。您可以使用下列 AMS 合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
+
+本文說明如何整合和測試受 Axinom 管理的 Widevine 授權伺服器。具體而言，其內容包括：
+
+- 使用多重 DRM (PlayReady 和 Widevine) 與對應的授權取得 URL，設定動態一般加密；
+- 產生 JWT 權杖以符合授權伺服器需求；
+- 開發可使用 JWT 權杖驗證處理授權取得作業的 Azure 媒體播放器應用程式；
+
+完整的系統和內容金鑰、金鑰識別碼、金鑰種子、JTW 權杖及其宣告，皆可透過下圖詳盡說明。
+
+![DASH 和 CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
+
+##內容保護
+
+若要設定動態保護和金鑰傳遞原則，請參閱 Mingfei 的部落格：[如何使用 Azure 媒體服務設定 Widevine 封裝](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)。
+
+您可以使用多重 DRM 為同時具有下列二者的 DASH 串流設定動態 CENC 保護：
+
+1. MS Edge 和 IE11 的 PlayReady 保護，可能有權杖授權限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖，例如 Azure Active Directory；
+1. Chrome 的 Widevine 保護，它可能需要對其他 STS 所發行的權杖進行權杖驗證。 
+
+請參閱 [JWT 權杖產生](media-services-axinom-integration.md#jwt-token-generation)一節，了解 Azure Active Directory 為何無法做為 Axinom Widevine 授權伺服器的 STS。
+
+###考量
+
+1. 您必須使用 Axinom 指定的金鑰種子 (8888000000000000000000000000000000000000) 和您產生或選取的金鑰識別碼，產生用以設定金鑰傳遞服務的內容金鑰。Axinom 授權伺服器會根據相同的金鑰種子 (同時適用於測試和生產環境)，發行包含內容金鑰的所有授權。
+1. 測試用的 Widevine 授權取得 URL：[https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense)。HTTP 與 HTTS 皆可使用。
+
+##準備 Azure 媒體播放器
+
+AMP 1.4.0 版支援同時使用 PlayReady 和 Widevine DRM 動態封裝的 AMS 內容進行播放。如果 Widevine 授權伺服器不需要權杖驗證，則不需要執行任何其他動作即可測試受到 Widevine 保護的 DASH 內容。如需範例，您可以參考 AMP 團隊提供的簡單範例 [http://amp.azure.net/libs/amp/latest/samples/dynamic\_multiDRM\_PlayReadyWidevine\_notoken.html](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html)，在此您可以看到在 Edge 和 IE11 中使用 PlayReady 的運作，和 Chrome 使用 Widevine 的運作。Axinom 提供的 Widevine 授權伺服器需要 JWT 權杖驗證。JWT 權杖必須使用透過 HTTP 標頭 “X-AxDRM-Message” 發出的授權要求來提交。為此，您必須在設定來源之前，在裝載 AMP 的網頁中新增下列 Javascript：
+
+	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
+
+AMP 程式碼的其餘部分標準 AMP API，如[這裡](http://amp.azure.net/libs/amp/latest/docs/)的 AMP 文件所說明。
+
+請注意，上述用來設定自訂授權標頭的 Javascript 是在 AMP 中正式發行長期方法之前所使用的短期方法。
+
+##JWT 權杖產生
+
+測試用的 Axinom Widevine 授權伺服器需要 JWT 權杖驗證。此外，JWT 權杖中的其中一個宣告屬於複雜物件類型，而非基本資料類型。
+
+可惜的是，Azure AD 只能發行具有基本類型的 JWT 權杖。同樣地，.NET Framework API (System.IdentityModel.Tokens.SecurityTokenHandler 和 JwtPayload) 也只能讓您輸入複雜物件類型做為宣告。不過，這些宣告仍會序列化為字串。因此，這兩者都無法用來產生 Widevine 授權要求的 JWT 權杖。
+
+
+John Sheehan 的 [JWT Nuget 套件](https://www.nuget.org/packages/JWT)符合這些需求，因此我們將使用此 Nuget 套件。
+
+下列程式碼會產生 JWT 權杖，且具有 Axinom Widevine 授權伺服器進行測試時所需的必要宣告：
+
+	
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Web;
+	using System.IdentityModel.Tokens;
+	using System.IdentityModel.Protocols.WSTrust;
+	using System.Security.Claims;
+	
+	namespace OpenIdConnectWeb.Utils
+	{
+	    public class JwtUtils
+	    {
+	        //using John Sheehan's NuGet JWT library: https://www.nuget.org/packages/JWT/
+	        public static string CreateJwtSheehan(string symmetricKeyHex, string key_id)
+	        {
+	            byte[] symmetricKey = ConvertHexStringToByteArray(symmetricKeyHex);  //hex string to byte[] Note: Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding.
+	
+	            var payload = new Dictionary<string, object>()
+	                         {
+	                             { "version", 1 },
+	                             { "com_key_id", System.Configuration.ConfigurationManager.AppSettings["ax:com_key_id"] },
+	                             { "message", new { type = "entitlement_message", key_ids = new string[] { key_id } }  }
+	                         };
+	
+	            string token = JWT.JsonWebToken.Encode(payload, symmetricKey, JWT.JwtHashAlgorithm.HS256);
+	
+	            return token;
+	        }
+	
+	        //convert hex string to byte[]
+	        public static byte[] ConvertHexStringToByteArray(string hexString)
+	        {
+	            if (hexString.Length % 2 != 0)
+	            {
+	                throw new ArgumentException(String.Format(System.Globalization.CultureInfo.InvariantCulture, "The binary key cannot have an odd number of digits: {0}", hexString));
+	            }
+	
+	            byte[] HexAsBytes = new byte[hexString.Length / 2];
+	            for (int index = 0; index < HexAsBytes.Length; index++)
+	            {
+	                string byteValue = hexString.Substring(index * 2, 2);
+	                HexAsBytes[index] = byte.Parse(byteValue, System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture);
+	            }
+	
+	            return HexAsBytes;
+	        }
+	
+	    }  
+	
+	}  
+
+Axinom Widevine 授權伺服器
+
+	<add key="ax:laurl" value="http://drm-widevine-licensing.axtest.net/AcquireLicense" />
+	<add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
+	<add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
+	<add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
+
+###考量
+
+1.	即使 AMS PlayReady 授權傳遞服務會要求驗證權杖之前必須有 “Bearer=”，Axinom Widevine 授權伺服器並不會加以使用。
+2.	Axinom 通訊金鑰會做為簽署金鑰。請注意，此金鑰是十六進位字串，但在編碼時必須將其視為一系列的位元組，而不是字串。這可藉由 ConvertHexStringToByteArray 方法來達成。
+
+##擷取金鑰識別碼
+
+您可能已注意到，在產生 JWT 權杖的程式碼中，金鑰識別碼是必要項目。由於 JWT 權杖必須在載入 AMP 播放程式之前備妥，因此必須要擷取金鑰識別碼，才能產生 JWT 權杖。
+
+當然，有多種方式可用來取得金鑰識別碼。比方說，有人可能會將金鑰識別碼與內容中繼資料一起儲存在資料庫中。或者，您可以從 DASH MPD (媒體顯示說明) 檔案擷取金鑰識別碼。以下程式碼適用於後者。
+
+	//get key_id from DASH MPD
+	public static string GetKeyID(string dashUrl)
+	{
+	    if (!dashUrl.EndsWith("(format=mpd-time-csf)"))
+	    {
+	        dashUrl += "(format=mpd-time-csf)";
+	    }
+	
+	    XPathDocument objXPathDocument = new XPathDocument(dashUrl);
+	    XPathNavigator objXPathNavigator = objXPathDocument.CreateNavigator();
+	    XmlNamespaceManager objXmlNamespaceManager = new XmlNamespaceManager(objXPathNavigator.NameTable);
+	    objXmlNamespaceManager.AddNamespace("",     "urn:mpeg:dash:schema:mpd:2011");
+	    objXmlNamespaceManager.AddNamespace("ns1",  "urn:mpeg:dash:schema:mpd:2011");
+	    objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
+	    objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
+	    objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
+	    objXmlNamespaceManager.AddNamespace("xsi",  "http://www.w3.org/2001/XMLSchema-instance");
+	    objXmlNamespaceManager.PushScope();
+	
+	    XPathNodeIterator objXPathNodeIterator;
+	    objXPathNodeIterator = objXPathNavigator.Select("//ns1:MPD/ns1:Period/ns1:AdaptationSet/ns1:ContentProtection[@value='cenc']", objXmlNamespaceManager);
+	
+	    string key_id = string.Empty;
+	    if (objXPathNodeIterator.MoveNext())
+	    {
+	        key_id = objXPathNodeIterator.Current.GetAttribute("default_KID", "urn:mpeg:cenc:2013");
+	    }
+	
+	    return key_id;
+	}
+
+##摘要
+
+透過 Azure 媒體服務內容保護和 Azure 媒體播放器中最新版的 Widevine 支援，我們得以同時使用 AMS 中的 PlayReady 授權服務和 Axinom 的 Widevine 授權伺服器，為下列現代瀏覽器實作 DASH + 多重原生 DRM (PlayReady + Widevine) 的串流：
+
+- Chrome
+- Windows 10 上的 Microsoft Edge
+- Windows 8.1 和 Windows 10 上的 IE 11
+- Firefox (桌面) 和 Mac (非 iOS) 上的 Safari 也都可透過 Silverlight 和與 Azure 媒體播放器相同的 URL 受到支援
+
+以下是運用 Axinom Widevine 授權伺服器的迷你解決方案所需的參數。除了金鑰識別碼以外，Axinom 會根據 Widevine 伺服器安裝來提供其餘參數。
+
+
+![參數](./media/media-services-axinom-integration/media-services-axinom2.png)
+
+
+##媒體服務學習路徑
+
+您可以在此檢視 AMS 學習路徑：
+
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Oct15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 
@@ -64,7 +64,7 @@
 
 ####<a name="land"></a>「加入 Application Insights」執行了哪些動作？
 
-命令執行了下列步驟 (如果想要的話，可以改為手動執行)：
+命令執行了下列步驟 (如果想要的話，可以改為[手動執行](app-insights-start-monitoring-app-health-usage.md))：
 
 * 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的「檢測金鑰」。
 * 將 Application Insights Web SDK NuGet 封裝加入您的專案。若要在 Visual Studio 中看到它，請以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
@@ -99,8 +99,9 @@
 
 #### 沒有資料？
 
-* 開啟 [[搜尋][diagnostic]] 磚來查看個別事件。
+* 請確定您查看的是正確的項目。登入 [Azure 入口網站](https://portal.azure.com)，按一下 [瀏覽] > [Application Insights]，然後選取您的應用程式。
 * 使用應用程式、開啟不同頁面，以產生一些遙測。
+* 開啟 [[搜尋][diagnostic]] 刀鋒視窗以查看個別事件。有時候，事件通過計量管線所需的時間較長。
 * 請稍等片刻，然後按一下 [重新整理]。
 * 請參閱[疑難排解][qna]。
 
@@ -111,15 +112,13 @@
 
 ## 加入瀏覽器監視
 
-瀏覽器或用戶端監視可提供有關在瀏覽器中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。
+瀏覽器可提供有關在瀏覽器中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。
 
 ![選擇 [新增]、[開發人員服務]、[Application Insights]。](./media/app-insights-asp-net/16-page-views.png)
 
 您也可以撰寫自己的程式碼，來追蹤您的使用者如何使用您的應用程式，徹底得知詳細的點按和按鍵層級。
 
-#### 如果您的用戶端是網頁瀏覽器
-
-如果您的 app 顯示網頁，請在每一頁加入 JavaScript 程式碼片段。從您的 Application Insights 資源取得程式碼：
+將 JavaScript 程式碼片段加入每一頁。從您的 Application Insights 資源取得程式碼：
 
 ![在您的 Web 應用程式中，開啟 [快速入門]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-asp-net/02-monitor-web-page.png)
 
@@ -127,11 +126,6 @@
 
 [深入了解網頁追蹤。](app-insights-web-track-usage.md)
 
-#### 如果您的用戶端是裝置 app
-
-如果您的應用程式為用戶端 (例如電話或其他裝置) 提供服務，請將[適當的 SDK](app-insights-platforms.md) 加入您的裝置 app。
-
-如果您使用與伺服器 SDK 相同的檢測金鑰來設定用戶端 SDK，將整合兩個資料流，讓您同時看到。
 
 ## 使用情況追蹤
 
@@ -196,7 +190,7 @@
 
 ![在您的 Web 應用程式中，依序按一下 [設定]、[延伸模組]、[加入]、[Application Insights]](./media/app-insights-asp-net/05-extend.png)
 
-(延伸模組只能協助使用 SDK 建置的 app。與狀態監視器不同，它無法檢測現有的應用程式。)
+(您也可以將延伸模組新增到已是即時狀態的應用程式，即使您未在其中安裝 SDK 也一樣。)
 
 #### 監視 Azure 雲端服務角色
 
@@ -248,4 +242,4 @@
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

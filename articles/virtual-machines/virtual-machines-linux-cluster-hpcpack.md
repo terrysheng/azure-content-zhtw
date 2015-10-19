@@ -1,6 +1,6 @@
 <properties
- pageTitle="在 HPC Pack 叢集中使用 Linux 運算 VM | Microsoft Azure"
- description="了解如何撰寫指令碼，以在包含一個執行 Windows Server 的前端節點與多個 Linux 運算節點的 Azure 中部署 HPC Pack 叢集。"
+ pageTitle="HPC Pack 叢集中的 Linux 運算 VM | Microsoft Azure"
+ description="如何撰寫指令碼，以在包含一個執行 Windows Server 的前端節點與多個 Linux 運算節點的 Azure 中部署 HPC Pack 叢集。"
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -20,13 +20,15 @@
 
 本文將說明如何使用 Azure PowerShell 指令碼在 Azure 中設定 Microsoft HPC Pack 叢集，其中包含執行 Windows Server 的前端節點和執行 CentOS Linux 散發的數個計算節點。我們來說明了數種可將資料檔案移至 Linux 運算節點的方法。您可以使用這個叢集在 Azure 中執行 Linux HPC 工作負載。
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋使用傳統部署模型建立的資源。
+
 在較高層級上，下圖顯示您將建立的 HPC Pack 叢集。
 
 ![具有 Linux 節點的 HPC 叢集][scenario]
 
 ## 部署具有 Linux 運算節點的 HPC Pack 叢集
 
-您將使用 Microsoft HPC Pack IaaS 部署指令碼 (**New-HpcIaaSCluster.ps1**)，在 Azure 基礎結構服務 (IaaS) 中自動進行叢集部署。此 Azure PowerShell 指令碼使用 Azure Marketplace 中的 HPC Pack VM 映像進行快速部署，並提供一組完整的組態參數，讓部署變得簡單且有彈性。此指令碼可部署 Azure 虛擬網路、儲存體帳戶、雲端服務、網域控制站、不同的選用 SQL Server 資料庫伺服器、叢集前端節點、運算節點、代理程式節點、Azure PaaS (“高載”) 節點和 Linux 運算節點 ([HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx) 中引入的 Linux 支援)。
+您將使用 Microsoft HPC Pack IaaS 部署指令碼 (**New-HpcIaaSCluster.ps1**)，在 Azure 基礎結構服務 (IaaS) 中自動進行叢集部署。此 Azure PowerShell 指令碼使用 Azure Marketplace 中的 HPC Pack VM 映像進行快速部署，並提供一組完整的組態參數，讓部署變得簡單且有彈性。此指令碼可部署 Azure 虛擬網路、儲存體帳戶、雲端服務、網域控制站、不同的選用 SQL Server 資料庫伺服器、叢集前端節點、運算節點、訊息代理程式節點、Azure PaaS (「高載」) 節點和 Linux 運算節點 ([HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx) 中引入的 Linux 支援)。
 
 如需 HPC Pack 叢集部署選項的概觀，請參閱 [HPC Pack 2012 R2 和 HPC Pack 2012 的入門指南](https://technet.microsoft.com/library/jj884144.aspx)。
 
@@ -310,4 +312,4 @@ HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
+   ms.date="10/01/2015"
    ms.author="bwren" />
 
 # Azure 自動化管理
@@ -60,4 +60,4 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 您無法從 Azure 自動化匯出憑證。您必須確定 Azure 外部有任何憑證可供使用。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

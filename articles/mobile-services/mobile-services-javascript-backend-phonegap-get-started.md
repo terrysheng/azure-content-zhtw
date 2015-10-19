@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始為 PhoneGap/cordova 應用程式使用 Azure 行動服務"
+	pageTitle="開始使用 PhoneGap/cordova App 的 Azure 行動服務 | Microsoft Azure"
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 iOS、Android 和 Windows Phone 的 PhoneGap 開發。"
 	services="mobile-services"
 	documentationCenter=""
@@ -12,13 +12,15 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="07/21/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="ggailey777"/>
 
 # 開始使用行動服務
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 本教學課程說明如何使用 Azure 行動服務，將雲端型後端服務新增至應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單_待辦事項_應用程式。
 
@@ -151,9 +153,13 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [將驗證新增至應用程式] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* **[將驗證新增至 App]**了解如何向身分識別提供者驗證 App 的使用者。  
 
-* [將推播通知新增至應用程式](https://msdn.microsoft.com/magazine/dn879353.aspx) <br/>了解如何註冊及傳送推播通知至應用程式。
+* **[將推播通知新增至 App](https://msdn.microsoft.com/magazine/dn879353.aspx)**了解如何註冊及傳送推播通知至 App。
+
+* **[行動服務 HTML/JavaScript 作法概念參考](mobile-services-html-how-to-use-client-library.md)** 深入了解如何使用 JavaScript 用戶端程式庫，來存取資料、呼叫自訂 API，以及執行驗證。
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Images. -->
 [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
@@ -163,12 +169,11 @@
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: mobile-services-html-get-started-data.md
-[將驗證新增至應用程式]: mobile-services-html-get-started-users.md
+[將驗證新增至 App]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

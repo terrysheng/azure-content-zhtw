@@ -47,7 +47,7 @@
 我們支援傳送通知到 Apple iOS、Android、Windows Universal 與 Windows Phone、Kindle、Android China (由 Baidu 開發)、Xamarin (iOS 與 Android)、Chrome Apps 平台。如需有關這些平台的逐步入門教學課程，請參閱 [NH - 入門教學課程]
 
 ###3\.是否支援簡訊/電子郵件/Web 通知？
-「通知中樞」主要設計來傳送通知給使用上述平台的行動裝置應用程式。我們不提供傳送電子郵件或簡訊的功能，但是您可以將提供這些功能的協力廠商平台與「通知中樞」整合，以使用「Azure 行動服務」來傳送原生推播通知。例如，下列教學課程示範如何使用「Azure 行動服務」傳送簡訊通知：[使用行動服務傳送簡訊]。我們也不提供現成可用的瀏覽器中推播通知。客戶可以選擇使用 SignalR 來實作此功能。我們也提供教學課程，說明如何將推播通知傳送到可在 Google Chrome 瀏覽器上運作的 Chrome 應用程式。請參閱 [Chrome 應用程式教學課程]
+「通知中樞」主要設計來傳送通知給使用上述平台的行動裝置應用程式。我們不提供傳送電子郵件或簡訊的功能，但是您可以將提供這些功能的協力廠商平台與「通知中樞」整合，以使用「Azure 行動服務」來傳送原生推播通知。我們也不提供現成可用的瀏覽器中推播通知。客戶可以選擇使用 SignalR 來實作此功能。我們也提供教學課程，說明如何將推播通知傳送到可在 Google Chrome 瀏覽器上運作的 Chrome 應用程式。請參閱 [Chrome App 教學課程]
 
 ###4\.「Azure 行動服務」與「Azure 通知中樞」之間的關係為何以及何時使用？
 如果您有現有的行動裝置應用程式後端，而且您只想要新增傳送推播通知的功能，則您必須使用「Azure 通知中樞」。如果您想要從頭開始設定您的行動裝置應用程式後端，則應該考慮使用「Azure 行動服務」。「Azure 行動服務」會自動為您佈建「通知中樞」，讓您能夠輕鬆地從行動裝置應用程式後端傳送推播通知。「Azure 行動服務」的定價包括「通知中樞」的基本費率，因此您只需要在超過包含的推播數時才需要付費。如需詳細資訊，請參閱[行動服務定價]
@@ -65,11 +65,11 @@
 因為推播通知是由外部平台特定「推播通知服務」所傳送的這個本質，我們不提供延遲保證。一般而言，大部分的通知會在數分鐘內傳送到目標裝置。
 
 ###9\.設計具有命名空間與「通知中樞」的解決方案時，必須考量哪些事項？
-*行動應用程式/環境：*每個環境的每個行動應用程式都應該有一個「通知中樞」。在多組織用戶共享情節中，每個租用戶都應該有特別的中樞。您永遠不應該在測試與生產環境之間共用相同的「通知中樞」，因為這可能導致傳送通知時發生問題，例如 Apple 提供「沙箱」與「實際執行推播」端點，而這兩者有個別的認證。如果一開始使用 Apple 沙箱憑證設定中樞，接著重新設定為使用 Apple 實際執行憑證，則舊的裝置權杖會成為無效且無法搭配新的憑證使用，並導致推播失敗。建議您最好將實際執行與測試環境分開，並針對不同的環境使用不同的中樞。
+*行動 App/環境：*每個環境中的每個行動 App 都應該有一個「通知中樞」。在多組織用戶共享情節中，每個租用戶都應該有特別的中樞。您永遠不應該在測試與生產環境之間共用相同的「通知中樞」，因為這可能導致傳送通知時發生問題，例如 Apple 提供「沙箱」與「實際執行推播」端點，而這兩者有個別的認證。如果一開始使用 Apple 沙箱憑證設定中樞，接著重新設定為使用 Apple 實際執行憑證，則舊的裝置權杖會成為無效且無法搭配新的憑證使用，並導致推播失敗。建議您最好將實際執行與測試環境分開，並針對不同的環境使用不同的中樞。
 
-*PNS 認證：*當行動應用程式向平台的開發人員入口網站 (例如 Apple 或 Google 等) 註冊時，您會取得應用程式識別碼與安全性權杖，應用程式後端必須將其提供給平台的「推播通知」服務，才能傳送推播通知給裝置。您必須在「通知中樞」中設定這些安全性權杖，其形式可以是憑證 (例如，對於 Apple iOS 或 Windows Phone) 或安全性金鑰 (Google Android、Windows) 等。此動作通常是在通知中樞層級完成，但在多組織用戶共享情節中，這也可以在命名空間層級完成。
+*PNS 認證：*當行動 App 向平台的開發人員入口網站 (例如 Apple 或 Google 等) 註冊時，您會取得 App 識別碼與安全性權杖，App 後端必須將其提供給平台的推播通知服務，才能將推播通知傳送給裝置。您必須在「通知中樞」中設定這些安全性權杖，其形式可以是憑證 (例如，對於 Apple iOS 或 Windows Phone) 或安全性金鑰 (Google Android、Windows) 等。此動作通常是在通知中樞層級完成，但在多組織用戶共享情節中，這也可以在命名空間層級完成。
 
-*命名空間：*命名空間也可以用於部署分組。在多組織用戶共享情節中，它也可以用來代表相同應用程式之所有租用戶的所有通知中樞。
+*命名空間：*命名空間也可用於部署分組。在多組織用戶共享情節中，它也可以用來代表相同應用程式之所有租用戶的所有通知中樞。
 
 *地理分散：*在推播通知案例中，地理分散並不一定是關鍵。請注意，最終會將推播通知傳送到裝置的各種推播通知服務 (例如 APNS 與 GCM 等) 也不會平均分散。不過，如果您的應用程式是提供給全球各地的使用者使用，則您可以在不同的命名空間中建立數個中樞，以利用全球不同 Azure 區域中「通知中樞」可用性的優點。請注意，這樣會增加管理成本 (特別是有關註冊方面)，因此建議您只有在確實需要時才這樣做。
 
@@ -96,7 +96,7 @@
 
 - 定期從主要中樞傾印註冊做為備份，然後執行大量插入作業以將資料插入到次要 NH。
 
-(「標準」層次中可用的註冊匯出/匯入功能如下所述：[註冊匯出/匯入])
+(標準層中可用的註冊匯出/匯入功能如下所述：[註冊匯出/匯入])
 
 若您沒有後端，則當應用程式在裝置上啟動時，它們將會在次要 NH 中執行新註冊，而最後次要 NH 將會有所有已註冊的使用中裝置，但缺點是裝置上的應用程式未開啟期間將不會收到通知。
 
@@ -119,8 +119,7 @@
 [個案研究 - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [NH - REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [NH - 入門教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[使用行動服務傳送簡訊]: http://azure.microsoft.com/documentation/articles/partner-twilio-mobile-services-how-to-use-voice-sms/
-[Chrome 應用程式教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Chrome App 教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [行動服務定價]: http://azure.microsoft.com/pricing/details/mobile-services/
 [後端註冊指導方針]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [後端註冊指導方針 - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
@@ -131,4 +130,4 @@
 [NH - 度量範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [註冊匯出/匯入]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

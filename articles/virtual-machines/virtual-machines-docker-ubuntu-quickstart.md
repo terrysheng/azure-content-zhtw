@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="05/20/2015"
+	ms.date="10/04/2015"
 	ms.author="rasquill"/>
 
 # 如何快速地開始使用 Azure Marketplace 中的 Docker
@@ -24,7 +24,7 @@
 
 您可以立即使用 SSH 連接到 VM，並直接開始使用 Docker 執行工作，無須執行其他動作。
 
-> [AZURE.NOTE]Azure Marketplace 範本所建立的 VM 並未裝載遠端 Docker 用戶端管理所需的 Docker 遠端 API。若要啟用從遠端在此 VM 上控制 Docker 主機的功能，請參閱[使用 HTTPS 執行 Docker](https://docs.docker.com/articles/https/)，或依照[從 Azure 入口網站使用 Docker VM 延伸模組](virtual-machines-docker-with-portal.md)或[從 Azure CLI 使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli-install.md)中的步驟進行操作。如果您想要與眾不同，您可以從 Github 建置 [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet) 並加以試用 (或僅從 [nuget](https://www.nuget.org/packages/Docker.DotNet/) 加以擷取)。
+> [AZURE.NOTE]Azure Marketplace 範本所建立的 VM 並未裝載遠端 Docker 用戶端管理所需的 Docker 遠端 API。若要啟用從遠端在此 VM 上控制 Docker 主機的功能，請參閱[使用 HTTPS 執行 Docker](https://docs.docker.com/articles/https/)，或依照[從 Azure 入口網站使用 Docker VM 延伸模組](virtual-machines-docker-with-portal.md)或[從 Azure CLI 使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli-install.md)中的步驟進行操作。<!-- --> 如果您想要從 Windows 自動執行 Azure Docker VM，您可以[安裝 Docker Toolbox](https://docs.docker.com/installation/windows/) 或[從 Chocolatey](https://chocolatey.org/packages/docker) 取得 Docker.exe。
 
 ## 登入入口網站
 
@@ -40,7 +40,7 @@
 
 > ![在映像庫中尋找映像](./media/virtual-machines-docker-ubuntu-quickstart/DockerOnUbuntuServerMSOpenTech.png)
 
-3. 提供執行個體的使用者名稱和密碼或 **.pem** 檔案，以使用憑證啟用 SSH。(下圖顯示指定使用者名稱和密碼的組合。) 然後，按位於底部的 [建立]。
+3. 提供執行個體的使用者名稱和密碼，或者 **.pub** 檔案的內容，以使用憑證來啟用 SSH。(下圖顯示指定使用者名稱和密碼的組合。) 然後，按位於底部的 [建立]。
 
 > ![設定 VM 執行個體](./media/virtual-machines-docker-ubuntu-quickstart/CreateVMDockerUbuntuPwd.png)
 
@@ -77,4 +77,4 @@
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

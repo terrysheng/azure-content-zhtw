@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="tomfitz"/>
 
 # 在 Azure App Service 中建立 WordPress Web 應用程式
@@ -32,4 +32,4 @@
 * 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)。
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱[瀏覽 Preview 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

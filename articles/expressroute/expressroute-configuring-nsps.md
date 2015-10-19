@@ -1,20 +1,20 @@
 <properties 
    pageTitle="透過 NSP 設定 Expressroute"
-	description="本教學課程帶領您透過 NSP 設定 ExpressRoute。"
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="adinah"
-	editor="tysonn"/>
+   description="本教學課程帶領您透過 NSP 設定 ExpressRoute。"
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="adinah"
+   editor="tysonn"/>
 
 <tags 
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/29/2015"
+   ms.author="cherylmc"/>
 
 #  透過網路服務提供者設定 ExpressRoute 連線
 
@@ -150,4 +150,4 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 		
 		Provisioned 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

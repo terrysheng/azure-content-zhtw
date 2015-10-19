@@ -12,17 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.topic="get-started-article"
+	ms.date="10/09/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>開始使用行動服務和 Sencha Touch
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##概觀
 
-本教學課程展示如何將 Azure 行動服務運用在 Sencha Touch 應用程式中。您將會使用 Sencha Touch 建立簡易的待辦事項應用程式，該應用程式乃使用透過管理入口網站定義的行動服務。本教學課程的目標觀眾為瞭解 JavaScript 及熟悉 Sencha Touch 架構的中級到進階 Web 應用程式開發人員。
+本教學課程展示如何將 Azure 行動服務運用在 Sencha Touch 應用程式中。您將使用 Sencha Touch 來建立簡易的「待辦事項」App，該 App 會使用您透過管理入口網站定義的行動服務。本教學課程的目標觀眾為瞭解 JavaScript 及熟悉 Sencha Touch 架構的中級到進階 Web 應用程式開發人員。
 
 如果您想要觀看影片，此片段播放的步驟與本教學課程相同。在影片中，Arthur Kay 會說明如何組建使用 Azure 行動服務後端的 Sencha Touch 應用程式。
 
@@ -708,7 +710,10 @@ Sencha Touch Extension for Azure 套件備有此處簡述的範例，其位於 B
 
 如需開始使用 Sencha Touch 的詳細資訊，請造訪完整的[指南](http://docs.sencha.com/touch/#!/guide) (英文) 集合。
 
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

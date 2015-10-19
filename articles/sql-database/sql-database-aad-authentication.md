@@ -101,7 +101,7 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 
 如果您的資料庫並非裝載於 SQL Database V12，請參閱[規劃和準備升級至 SQL Database V12](sql-database-v12-plan-prepare-upgrade.md)，然後造訪 Azure 入口網站將資料庫移轉至 SQL Database V12。
 
-或者，遵循以下[在 SQL Database Update 中建立資料庫](sql-database-create.md)中所列的步驟，在 SQL Database V12 中建立新的資料庫。**秘訣**：選取新資料庫的訂用帳戶之前參閱下一個步驟。
+或者，遵循[建立您的第一個 Azure SQL Database](sql-database-get-started.md) 中所列的步驟，在 SQL Database V12 中建立新的資料庫。**秘訣**：選取新資料庫的訂用帳戶之前參閱下一個步驟。
 
 ## 3\.選用：和目前與您的 Azure 訂用帳戶相關聯的 active directory 產生關聯並加以變更
 
@@ -257,7 +257,7 @@ Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure_AD_principal_name* 可以是 Azure AD 使用者的使用者主體名稱或 Azure AD 群組的顯示名稱。
+*Azure\_AD\_principal\_name* 可以是 Azure AD 使用者的使用者主體名稱或 Azure AD 群組的顯示名稱。
 
 **範例：**建立代表 Azure AD 同盟或受管理網域使用者的自主資料庫使用者：
 
@@ -327,4 +327,4 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

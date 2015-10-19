@@ -1,5 +1,5 @@
 <properties
-	pageTitle="從 Azure 重設 CLI Linux VM 密碼"
+	pageTitle="從 Azure CLI 重設 Linux VM 密碼 | Microsoft Azure"
 	description="如何使用VMAccess 延伸模組從 Azure 入口網站或 CLI 來重設 Linux VM 密碼和 SSH 金鑰、SSH 組態並刪除使用者帳戶。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,7 +19,9 @@
 
 # 如何為 Linux 虛擬機器重設密碼或 SSH #
 
-如果您因為忘記密碼、安全殼層 (SSH) 金鑰不正確或 SSH 設定有問題而無法連線到 Linux 虛擬機器，請使用 Azure Preview 入口網站或 VMAccessForLinux 延伸模組，來重設密碼或 SSH 金鑰或修正 SSH 組態。請注意，本文適用於使用**傳統**部署模型所建立的虛擬機器。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
+如果您因為忘記密碼、安全殼層 (SSH) 金鑰不正確或 SSH 設定有問題而無法連線到 Linux 虛擬機器，請使用 Azure Preview 入口網站或 VMAccessForLinux 延伸模組，來重設密碼或 SSH 金鑰或修正 SSH 組態。請注意，本文適用於使用**傳統**部署模型建立的虛擬機器。
 
 ## Azure Preview 入口網站
 
@@ -263,4 +265,4 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 [Azure VM 延伸模組與功能]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -3,7 +3,7 @@
 	description="使用資源管理員範本和 Azure 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署一個包含 3 部或 9 部伺服器的 SharePoint 伺服器陣列。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/29/2015"
-	ms.author="davidmu"/>
+	ms.date="10/05/2015"
+	ms.author="josephd"/>
 
 # 使用 Azure 資源管理員範本部署 SharePoint 伺服器陣列
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立資源。您無法以傳統部署模型建立此資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。您無法以傳統部署模型建立此資源。
 
 按照本文中的指示，使用資源管理員範本部署一個新的、包含三部伺服器或九部伺服器的 SharePoint Server 2013 伺服器陣列。
 
@@ -37,21 +37,22 @@
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	在 [範本] 窗格中，按一下 [儲存]。
-2.	按一下 [參數]。在 [參數] 窗格中輸入新值、從允許的值中選取，或者接受預設值，然後按一下 [確定]。
-3.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
-4.	按一下 [資源群組]，然後選取現有的資源群組。或者按一下 [或建立新的]，為此工作負載建立新的資源群組。
-5.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
-6.	如有需要，按一下 [法律條款]，檢閱使用範本的條款和合約。
+1.	按一下 [參數]。在 [參數] 窗格中輸入新值、從允許的值選取，或接受預設值，然後按一下 [確定]。
+2.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
+3.	按一下 [資源群組]，然後選取現有的資源群組。或者，按一下 [或建立新的] 為此工作負載建立一個新的資源群組。
+4.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
+6.	按一下 [法律條款]，檢閱使用範本的條款和合約。
 7.	按一下 [建立]。
 
 視不同範本而定，可能需要一些時間讓 Azure 建置工作負載。完成時，您在現有或新的資源群組中就會有一個新的、包含三部伺服器的 SharePoint 伺服器陣列。
 
 ### Azure PowerShell
 
+> [AZURE.NOTE]本文包含適用於 Azure PowerShell 版本的命令，適用版本可高達*但不限於*版本 1.0.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。本文中的 Azure PowerShell 命令區塊正處於支援 Azure PowerShell 版本 1.0.0 和更新版本中新 Cmdlet 的測試和更新過程中。感謝您耐心配合。
+
 在開始之前，請確定您已安裝正確版本的 Azure PowerShell、已登入，而且您已切換至新的資源管理員模式。如需詳細資訊，請按一下[這裡](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates)。
 
-在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有項目，包括 < and > 字元。
+在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有內容，包括 < and > 字元。
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -104,17 +105,16 @@
 
 ### Azure Preview 入口網站
 
-若要使用資源管理員範本和 Azure 預覽入口網站部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json)。
+若要使用資源管理員範本和 Azure Preview 入口網站部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json)。
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	在 [範本] 窗格中，按一下 [儲存]。
-2.	按一下 [參數]。在 [參數] 窗格中輸入新值、從允許的值中選取，或者接受預設值，然後按一下 [確定]。
-3.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
-4.	按一下 [資源群組]，然後選取現有的資源群組。或者按一下 [或建立新的]，為此工作負載建立新的資源群組。
-5.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
-6.	如有需要，按一下 [法律條款]，檢閱使用範本的條款和合約。
-7.	按一下 [建立]。
+1.	按一下 [參數]。在 [參數] 窗格中，輸入新值、從允許的值中選取或接受預設值，然後按一下 [確定]。
+2.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
+3.	按一下 [資源群組]，然後選取現有的資源群組。或者按一下 [或建立新的]，為此工作負載建立新的資源群組。
+4.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
+5.	按一下 [法律條款]，檢閱使用範本的條款和合約。
+6.	按一下 [建立]。
 
 視不同範本而定，可能需要一些時間讓 Azure 建置工作負載。完成時，您在現有或新的資源群組中就會有一個新的、包含九部伺服器的 SharePoint 伺服器陣列。
 
@@ -122,7 +122,7 @@
 
 在開始之前，請確定您已安裝正確版本的 Azure PowerShell、已登入，而且您已切換至新的資源管理員模式。如需詳細資訊，請按一下[這裡](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates)。
 
-在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有項目，包括 < and > 字元。
+在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有內容，包括 < and > 字元。
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -170,6 +170,8 @@
 
 ## 其他資源
 
+[在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
+
 [使用 Azure 資源管理員範本和 Azure PowerShell 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
@@ -182,4 +184,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

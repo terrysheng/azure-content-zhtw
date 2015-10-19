@@ -256,6 +256,7 @@
 	- Azure 管理入口網站最多會顯示 1000 個事件。
 5. 如果適用的話，按一下 [**下載**] 可將報告下載為逗號分隔值 (CSV) 格式的壓縮檔，以供離線檢視或封存。
 	- 最多 75,000 個事件會包含在下載的檔案中。
+	- 如需更多資料，請參閱 [Azure AD 報告 API](active-directory-reporting-api-getting-started.md)。
 
 ## 忽略事件
 
@@ -270,4 +271,4 @@
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

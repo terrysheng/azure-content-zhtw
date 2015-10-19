@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute NAT 需求
@@ -59,9 +59,11 @@ Microsoft 對等路徑可讓您連接到不支援透過 Azure 公用對等路徑
 ## 後續步驟
 
 - 請參閱[路由](expressroute-routing.md)和 [QoS](expressroute-qos.md) 的需求。
+- 如需工作流程資訊，請參閱 [ExpressRoute 線路佈建工作流程和線路狀態](expressroute-workflows.md)。
 - 設定 ExpressRoute 連線。
+
 	- [建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,0 +1,51 @@
+<properties
+	pageTitle="誰在使用 Azure 搜尋︰個案研究和客戶案例"
+	description="Azure 搜尋個案研究和客戶案例。"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""
+    tags="azure-portal"/>
+
+<tags
+	ms.service="search"
+	ms.devlang="NA"
+	ms.workload="search"
+	ms.topic="article" 
+	ms.tgt_pltfrm="na"
+	ms.date="10/05/2015"
+	ms.author="heidist"/>
+
+# 誰在使用 Azure 搜尋︰個案研究和客戶案例
+
+了解 Azure 搜尋如何藉由將豐富的搜尋經驗整合到其線上應用程式中，幫助下列組織推動其業務。
+
+[![][1]](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18596) autoTRADER.ca 正著手建立以 Microsoft Azure 的平台即服務 (PaaS) 功能為基礎的 IT 基礎結構。該公司已開始使用 Azure 來裝載和提供數百萬個影像。現在正要將其應用程式搜尋功能移到 Azure，並準備將其所有 Web 內容移轉至 Azure。如此一來，該公司更能夠改善服務和建立新的產品項目，同時免除管理自己的基礎結構的需求。
+
+
+[![][2]](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18633) 阿爾巴尼亞演講者的小型搜尋引擎如何成為現今的搜尋巨人？ 藉由了解當地語言，建立目標使用者體驗，並依賴 Microsoft 雲端搜尋技術。
+
+
+[![][3]](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18662) JLL (先前稱為 Jones Lang LaSalle) 想要利用雲端來變更其應用程式的設計和裝載方式。使用 Microsoft Azure，JLL 可以更靈活且可調整的方式來妥善服務其全球的員工和客戶，而且可以將焦點放在解決方案而非基礎結構。
+
+[![][6]](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667) 這是典型的技術創業案例：有想法的開發人員看見市場並想要躍進。市場？ 零售業務開發。想法？ Web 和行動應用程式開發的後端服務，可重振日漸衰退的店內零售經驗。XOMNI 使用了 Microsoft Azure 快速實作 NoSQL 資料庫和全文檢索搜尋服務，所以客戶現在才有可調整的平台可供開發用戶端軟體應用程式、與社交網路整合以及分析資料，以升級豐富的互動式消費者體驗。
+
+
+[![][4]](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19540) Medihoo 是一家新公司，對於其醫療保健搜尋網站有重大計劃，亟需不用大筆投資新基礎結構的快速、強大搜尋功能。該公司選擇在 Microsoft Azure 雲端平台上建置其站台，並使用 Azure 搜尋解決方案，提供快速的效能、完整的功能以及地理空間和多種語言支援。他們現在可以幫助世界各地的人 (尤其是移居國外者和旅行者) 尋找高品質的醫療保健服務。
+
+
+[![][5]](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252) 獨立房地產經紀人發現最佳的移動位置是雲端。Weichert Realtors 正移向雲端，這會導致該公司完全改變其業務的進行方式。移轉至 Microsoft Azure 已讓該公司在捨棄昂貴的內部部署硬體和軟體之後，降低了 60% 的營運成本，透過強大的搜尋功能完全改造其 CRM 解決方案，以及提供對未來業務極為重要的各種新資料服務。
+
+##[Whattopedia.com](search-dev-case-study-whattopedia.md)
+了解一家新的瑞典公司是如何建置資訊媒體入口網站，以透過高相關、範圍內搜尋的體驗連結購物者與零售商，就像遊客在未知的領域時，旅遊入口網站幫忙匹配飯店、餐廳和娛樂項目一樣。
+
+<!--Image References-->
+[1]: ./media/search-case-studies/autotrader_m.png
+[2]: ./media/search-case-studies/gjirafa_m.png
+[3]: ./media/search-case-studies/JLL_m.png
+[4]: ./media/search-case-studies/medihoo_m.png
+[5]: ./media/search-case-studies/weichert_m.png
+[6]: ./media/search-case-studies/xomni_m.png
+
+<!---HONumber=Oct15_HO2-->

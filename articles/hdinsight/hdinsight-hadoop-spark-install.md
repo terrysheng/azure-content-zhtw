@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Spark | Microsoft Azure"
-	description="了解如何使用 Spark 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Spark。"
+	description="了解如何使用指令碼動作來以 Spark 自訂 HDInsight 叢集。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2015"
+	ms.date="10/02/2015"
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Spark
 
-您可以使用**指令碼動作**叢集自訂，在 Azure HDInsight 上 Hadoop 中的任何一種叢集上安裝 Spark。指令碼動作可讓您執行指令碼來自訂叢集，但只能在建立叢集時進行。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
 
-在本主題中，您將學習如何使用指令碼動作來安裝 Spark。安裝 Spark 之後，您也將學習如何在 HDInsight 叢集上執行 Spark 查詢。
+了解如何使用指令碼動作在以 Windows 為基礎的 HDInsight 上安裝 Spark，以及如何在 HDInsight 叢集上執行 Spark 查詢。
 
-> [AZURE.IMPORTANT]HDInsight 現在為以 Windows 為基礎的叢集，提供 Spark 做為第一級叢集類型，這表示您現在可以直接佈建 Spark 叢集而不必修改 Hadoop 叢集。使用 Spark 叢集類型時，您會取得具備 Spark 1.3.1 版的 HDInsight 3.2 版叢集。如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)。
->
-> 如需透過叢集自訂搭配以 Linux 為基礎的叢集使用 Spark 的詳細資訊，請參閱[在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark](hdinsight-hadoop-spark-install-linux.md)。
+HDInsight 為以 Windows 為基礎的叢集，提供 Spark 做為第一級叢集類型，這表示您現在可以直接建立 Spark 叢集而不必修改 Hadoop 叢集。使用 Spark 叢集類型時，您會取得具備 Spark 1.3.1 版的 HDInsight 3.2 版叢集。若要安裝不同版本的 Spark，您可以使用指令碼動作。HDInsight 提供指令碼動作指令碼的範例。
 
-## <a name="whatis"></a>什麼是 Spark？
+**相關文章** - [在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark](hdinsight-hadoop-spark-install-linux.md)。- [在 HDInsight 叢集中建立 Hadoop](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。- [開始在 HDInsight 上使用 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)：在 Windows 作業系統上建立 Spark 類型叢集。- [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集的一般資訊。- [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)。
+
+## 什麼是 Spark？
 
 <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。Spark 的記憶體內計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇 。
 
@@ -34,26 +33,21 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 
 本主題說明如何自訂 HDInsight 叢集以安裝 Spark。
 
-## <a name="whatis"></a>可以安裝哪個版本的 Spark？
+## 使用 Azure Preview 入口網站安裝 Spark
 
-在本主題中，我們使用指令碼動作自訂指令碼在 HDInsight 叢集上安裝 Spark。根據您佈建的 HDInsight 叢集版本，此指令碼可安裝 Spark 1.2.0 或 Spark 1.0.2。
+您可以從唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1)。根據您建立的 HDInsight 叢集版本，此指令碼可安裝 Spark 1.2.0 或 Spark 1.0.2。
 
-- 如果您在佈建 **HDInsight 3.2** 叢集時使用此指令碼，它會安裝 **Spark 1.2.0**。
-- 如果您在佈建 **HDInsight 3.1** 叢集時使用此指令碼，它會安裝 **Spark 1.0.2**。
+- 如果您在建立 **HDInsight 3.2** 叢集時使用此指令碼，它會安裝 **Spark 1.2.0**。
+- 如果您在建立 **HDInsight 3.1** 叢集時使用此指令碼，它會安裝 **Spark 1.0.2**。
 
 您可以修改此指令碼或建立自有指令碼，以安裝其他版本的 Spark。
 
-
-## <a name="install"></a>如何安裝 Spark？
-
-您可以從唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1)。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用範例指令碼的指示。
-
 > [AZURE.NOTE]範例指令碼只能與 HDInsight 3.1 和 3.2 叢集搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
 
-1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，使用**自訂建立**選項開始佈建叢集。根據下列原則挑選叢集版本：
+1. 使用 [自訂建立] 選項，依[在 HDInsight 中建立 Hadoop 叢集](hdinsight-provision-clusters.md#portal)中的描述開始建立叢集。根據下列原則挑選叢集版本：
 
-	- 如果您想要安裝 **Spark 1.2.0**，請佈建 HDInsight 3.2 叢集。
-	- 如果您想要安裝 **Spark 1.0.2**，請佈建 HDInsight 3.1 叢集。
+	- 如果您想要安裝 **Spark 1.2.0**，請建立 HDInsight 3.2 叢集。
+	- 如果您想要安裝 **Spark 1.0.2**，請建立 HDInsight 3.1 叢集。
 
 
 2. 在精靈的 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**] 以提供有關指令碼動作的詳細資料，如下所示：
@@ -65,16 +59,16 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 	<tr><td>名稱</td>
 		<td>指定指令碼動作的名稱。例如，<b>安裝 Spark</b>。</td></tr>
 	<tr><td>指令碼 URI</td>
-		<td>指定為了自訂叢集所叫用之指令碼的統一資源識別項 (URI)。例如，<i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i></td></tr>
+		<td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。例如，<i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i></td></tr>
 	<tr><td>節點類型</td>
 		<td>指定執行自訂指令碼的節點。您可以選擇 [<b>所有節點</b>]、[<b>僅限前端節點</b>] 或 [<b>僅限背景工作節點</b>]。
 	<tr><td>參數</td>
 		<td>如果指令碼要求，請指定參數。用來安裝 Spark 的指令碼不需要任何參數，因此可以讓此處空白。</td></tr>
-</table>您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始佈建叢集。
+</table>您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始建立叢集。
 
 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，在 HDInsight 上使用指令碼安裝 Spark。本主題稍後會提供這些程序的指示。
 
-## <a name="usespark"></a>如何在 HDInsight 中使用 Spark？
+## 在 HDInsight 中使用 Spark
 Spark 提供以 Scala、Python 及 Java 撰寫的 API。您也可以使用互動式 Spark 殼層來執行 Spark 查詢。本節說明如何透過不同方法來使用 Spark：
 
 - [使用 Spark 殼層來執行互動式查詢](#sparkshell)
@@ -114,9 +108,9 @@ Spark 提供以 Scala、Python 及 Java 撰寫的 API。您也可以使用互動
 
 ###<a name="sparksql"></a>使用 Spark 殼層來執行 Spark SQL 查詢
 
-Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL 或 Scala 表示的關聯式查詢。在本節中，我們要來看看如何使用 Spark 對範例 Hive 資料表執行 Hive 查詢。本節所用的 Hive 資料表 (稱為 **hivesampletable**) 依預設可在佈建叢集時取得。
+Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL 或 Scala 表示的關聯式查詢。在本節中，我們要來看看如何使用 Spark 對範例 Hive 資料表執行 Hive 查詢。本節所用的 Hive 資料表 (稱為 **hivesampletable**) 依預設可在建立叢集時取得。
 
->[AZURE.NOTE]下面的範例是針對 **Spark 1.2.0** 所建立，若您在佈建 HDInsight 3.2 叢集時執行指令碼動作，便會安裝 Spark 1.2.0。
+>[AZURE.NOTE]下面的範例是針對 **Spark 1.2.0** 所建立，若您在建立 HDInsight 3.2 叢集時執行指令碼動作，便會安裝 Spark 1.2.0。
 
 1. 從 Azure 入口網站，針對您所建立且已安裝 Spark 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
 
@@ -227,7 +221,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 
 		Lines with a: 21374, Lines with b: 11430
 
-## <a name="usingPS"></a>使用 Azure PowerShell 在 HDInsight Hadoop 叢集上安裝 Spark
+## 使用 Azure PowerShell 安裝 Spark
 
 本節中，我們使用 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet，使用指令碼動作叫用指令碼以自訂叢集。在繼續之前，請確認您已安裝和設定 Azure PowerShell。如需設定工作站以執行適用於 HDInsight 的 Azure Powershell Cmdlet 的相關資訊，請參閱[安裝和設定 Azure PowerShell][powershell-install-configure]。
 
@@ -283,150 +277,36 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 </td></tr>
 </table>
 
-4. 最後，開始佈建已安裝 Spark 的自訂叢集。
+4. 最後，開始建立已安裝 Spark 的自訂叢集。
 
-		# Start provisioning a cluster with Spark installed
+		# Start creating a cluster with Spark installed
 		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
 出現提示時，請輸入叢集的認證。建立叢集可能需要幾分鐘的時間。
 
+## 使用 PowerShell 安裝 Spark
 
-## <a name="usingSDK"></a>使用 .NET SDK 在 HDInsight Hadoop 叢集上安裝 Spark
+請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell)。
 
-HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NET Framework 應用程式使用 HDInsight。本節說明如何使用來自 SDK 的「指令碼動作」來佈建已安裝 Spark 的叢集。必須執行下列程序：
+## 使用 .NET SDK 安裝 Spark
 
-- 安裝 HDInsight .NET SDK
-- 建立自我簽署憑證
-- 建立主控台應用程式
-- 執行應用程式
+請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell)。
 
 
-**安裝 HDInsight .NET SDK**
+## 另請參閱
 
-您可以從 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 安裝最新發佈的 SDK 組建。下一個程序會顯示相關指示。
-
-**建立自我簽署憑證**
-
-建立自我簽署憑證，將它安裝到工作站，然後上傳至 Azure 訂用帳戶。如需指示，請參閱[建立自我簽署憑證](http://go.microsoft.com/fwlink/?LinkId=511138)。
-
-
-**建立 Visual Studio 應用程式**
-
-1. 開啟 Visual Studio 2013。
-
-2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
-
-3. 在 [**新增專案**] 中，輸入或選取下列值：
-
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">值</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">類別</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">範本/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">範本</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">主控台應用程式</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateSparkCluster</td></tr>
-</table>
-
-4. 按一下 [確定] 以建立專案。
-
-5. 在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
-
-6. 在主控台中執行下列命令，以安裝套件：
-
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-	此命令會從目前的 Visual Studio 專案新增 .NET 程式庫及其參考。
-
-7. 在 [方案總管] 中，按兩下 **Program.cs** 加以開啟。
-
-8. 在檔案頂端新增下列 using 陳述式：
-
-		using System.Security.Cryptography.X509Certificates;
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
-		using Microsoft.WindowsAzure.Management.HDInsight.Framework.Logging;
-
-9. 在 Main() 函數中，複製及貼上下列程式碼，並提供變數的值：
-
-        var clusterName = args[0];
-
-        // Provide values for the variables
-        string thumbprint = "<CertificateThumbprint>";  
-        string subscriptionId = "<AzureSubscriptionID>";
-        string location = "<MicrosoftDataCenterLocation>";
-        string storageaccountname = "<AzureStorageAccountName>.blob.core.windows.net";
-        string storageaccountkey = "<AzureStorageAccountKey>";
-        string username = "<HDInsightUsername>";
-        string password = "<HDInsightUserPassword>";
-        int clustersize = <NumberOfNodesInTheCluster>;
-
-        // Provide the certificate thumbprint to retrieve the certificate from the certificate store
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
-
-        // Create an HDInsight client object
-        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
-        var client = HDInsightClient.Connect(creds);
-		client.IgnoreSslErrors = true;
-
-        // Provide the cluster information
-		var clusterInfo = new ClusterCreateParameters()
-        {
-            Name = clusterName,
-            Location = location,
-            DefaultStorageAccountName = storageaccountname,
-            DefaultStorageAccountKey = storageaccountkey,
-            DefaultStorageContainer = clusterName,
-            UserName = username,
-            Password = password,
-            ClusterSizeInNodes = clustersize,
-            Version = "3.2"
-        };
-
-10. 將下列程式碼附加至 Main() 函數中，以使用 [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 類別叫用用來安裝 Spark 的自訂指令碼。
-
-		// Add the script action to install Spark
-        clusterInfo.ConfigActions.Add(new ScriptAction(
-          "Install Spark", // Name of the config action
-          new ClusterNodeType[] { ClusterNodeType.HeadNode }, // List of nodes to install Spark on
-          new Uri("https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1"), // Location of the script to install Spark.
-		  null //Because the script used does not require any parameters
-        ));
-
-11. 最後，建立叢集。
-
-		client.CreateCluster(clusterInfo);
-
-11. 儲存對應用程式所做的變更，然後建置方案。
-
-**執行應用程式**
-
-開啟 Azure PowerShell 主控台、瀏覽至您儲存 Visual Studio 專案的位置、瀏覽至專案內的 \\bin\\debug 目錄，然後執行下列命令：
-
-	.\CreateSparkCluster <cluster-name>
-
-請提供叢集名稱，然後按 ENTER 以佈建已安裝 Spark 的叢集。
-
-
-## 另請參閱##
+- [在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark](hdinsight-hadoop-spark-install-linux.md)：在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark。
+- [在 HDInsight 中建立 Hadoop 叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集。
+- [開始在 HDInsight 上使用 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)：開始在 HDInsight 上使用 Spark。
+- [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集。
+- [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)：開發指令碼動作指令碼。
 - [在 HDInsight 叢集上安裝 R][hdinsight-install-r] 說明如何使用叢集自訂，以在 HDinsight Hadoop 叢集上安裝和使用 R。R 是一個用於統計計算的開放原始碼語言和環境。它提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。它也提供廣泛的圖形功能。
 - [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
 - [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。Solr 可讓您對儲存的資料執行功能強大的搜尋作業。
-
-
-
-
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

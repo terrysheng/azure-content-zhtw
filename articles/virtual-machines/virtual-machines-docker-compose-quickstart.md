@@ -1,11 +1,12 @@
 <properties
-   pageTitle="開始使用 Azure 虛擬機器上的 Docker 和 Compose"
-   description="在 Azure 上使用 Compose 和 Docker 的快速簡介"
+   pageTitle="虛擬機器上的 Docker 和 Compose | Microsoft Azure"
+   description="在 Azure 虛擬機器上使用 Compose 和 Docker 的快速簡介"
    services="virtual-machines"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -20,11 +21,13 @@
 
 本文說明如何開始使用 Docker 和 [Compose](http://github.com/docker/compose)，在 Azure 中的 Linux 虛擬機器上定義並執行複雜的應用程式。藉由 Compose (*Fig* 的後續版本)，您可使用簡單的文字檔，定義多個 Docker 容器所組成的應用程式。然後您可以透過可進行所有操作以便在 VM 上執行的單一命令，啟動您的應用程式。例如，本文將說明如何藉由後端 MariaDB SQL 資料庫快速設定 WordPress 部落格，但您也可以使用 Compose 來設定更複雜的應用程式。
 
-如果您是初次使用 Docker 和容器，請參閱 [Docker 高層級白板](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文適用於使用資源管理員和傳統部署模型建立的虛擬機器。
+
+如果您是初次使用 Docker 和容器，請參閱 [Docker 高階白板](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/)。
 
 ## 步驟 1：設定 Linux VM 做為 Docker 主機
 
-您可以使用 Azure Markeplace 中的各種 Azure 程序和可用的映像建立 Linux VM，並將其設定為 Docker 主機。例如，如需建立包含 Docker VM 延伸模組之 Ubuntu VM 的快速程序，請參閱[透過 Azure 命令列介面使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli-install.md)。當您使用 Docker VM 延伸模組時，您的 VM 會自動設為 Docker 主機。該文中的範例會示範如何使用服務管理模式中的[Mac、Linux 和 Windows 適用的 Azure 命令列介面](../xplat-cli-install.md) (Azure CLI) 來建立 VM。
+您可以使用 Azure Markeplace 中的各種 Azure 程序和可用的映像建立 Linux VM，並將其設定為 Docker 主機。例如，如需建立包含 Docker VM 延伸模組之 Ubuntu VM 的快速程序，請參閱[透過 Azure 命令列介面使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli-install.md)。當您使用 Docker VM 延伸模組時，您的 VM 會自動設為 Docker 主機。該文章中的範例會示範如何使用服務管理模式中[適用於 Mac、Linux 和 Windows 的 Azure 命令列介面](../xplat-cli-install.md) (Azure CLI) 來建立 VM。
 
 ## 步驟 2：安裝 Compose
 
@@ -52,22 +55,13 @@ docker-compose 1.3.2
 
 ## 步驟 3：建立 docker-compose.yml 組態檔
 
-接下來您要建立 `docker-compose.yml` 檔案，這只是一個文字組態檔，用來定義要在此 VM 上執行的 Docker 容器。此檔案會指定要在每個容器上執行的映像 (或可能是來自 Dockerfile 的組建)、所需的環境變數和相依性、連接埠，容器之間的連結等等。如需有關 yml 檔案語法的詳細資訊，請參閱 [docker compose.yml 參考](http://docs.docker.com/compose/yml/)。
+接下來，您要建立 `docker-compose.yml` 檔案，這只是一個文字組態檔，用來定義要在此 VM 上執行的 Docker 容器。此檔案會指定要在每個容器上執行的映像 (或可能是來自 Dockerfile 的組建)、所需的環境變數和相依性、連接埠，容器之間的連結等等。如需有關 yml 檔案語法的詳細資訊，請參閱 [docker compose.yml 參考](http://docs.docker.com/compose/yml/)。
 
-在 VM 上建立工作目錄，並使用您慣用的文字編輯器建立 `docker-compose.yml`。若要嘗試簡單的範例，請將下列文字複製到檔案。此設定會使用來自 [DockerHub 登錄](https://registry.hub.docker.com/_/wordpress/)的映像，安裝 WordPress (開放原始碼部落格和內容管理系統) 和連結的後端 MariaDB SQL 資料庫。
+在 VM 上建立工作目錄，並使用您慣用的文字編輯器建立 `docker-compose.yml`。若要嘗試簡單的範例，請將下列文字複製到檔案。此組態會使用來自 [DockerHub 登錄](https://registry.hub.docker.com/_/wordpress/)的映像，安裝 WordPress (開放原始碼部落格和內容管理系統) 和連結的後端 MariaDB SQL 資料庫。
 
- ```
- wordpress:
-  image: wordpress
-  links:
-    - db:mysql
-  ports:
-    - 8080:80
+ ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
 
-db:
-  image: mariadb
-  environment:
-    MYSQL_ROOT_PASSWORD: <your password>
+db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
 
 ```
 
@@ -113,7 +107,7 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 ## 後續步驟
 
-* 如需建置和部署多容器應用程式的其他範例，請參閱 [Compose CLI 參考](http://docs.docker.com/compose/cli/)和[使用者指南](http://docs.docker.com/compose/)。
+* 如需建置和部署多容器 App 的其他範例，請參閱 [Compose CLI 參考](http://docs.docker.com/compose/cli/)和[使用者指南](http://docs.docker.com/compose/)。
 * 使用 Azure 資源管理員範本 (您自己的範本或[社群](http://azure.microsoft.com/documentation/templates/)提供的範本) 部署包含 Docker 的 Azure VM，以及使用 Compose 設定的應用程式。例如，[以 Docker 部署 WordPress 部落格](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/)範本使用 Docker 和 Compose，藉由 Ubuntu VM 上的 MySQL 後端快速部署 WordPress。
 * 嘗試整合 Docker Compose 與 [Docker Swarm](virtual-machines-docker-swarm.md) 叢集。如需案例，請參閱
 [Docker Compose/Swarm 整合](https://github.com/docker/compose/blob/master/SWARM.md)。
@@ -122,4 +116,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Xamarin iOS 應用程式的行動服務"
+	pageTitle="開始使用 Xamarin iOS 應用程式的行動服務 | Microsoft Azure"
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin iOS 開發。"
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -12,23 +12,23 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="hero-article"
+	ms.date="10/06/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-本教學課程將示範如何使用 Azure 行動服務，以將雲端後端服務新增至 Xamarin.iOS 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單<em>待辦事項清單</em>應用程式。
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+本教學課程將示範如何使用 Azure 行動服務，以將雲端後端服務新增至 Xamarin.iOS 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。
 
 如果您想要看影片，下方片段播放的步驟與本教學課程相同。
 
 影片：「開始使用 Xamarin 和 Azure 行動服務」(Getting Started with Xamarin and Azure Mobile Services)，示範者為 Xamarin 推廣開發人員 Craig Dunn (片長：10 分 05 秒)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
-
-
 
 以下是完成應用程式的螢幕擷取畫面：
 
@@ -98,13 +98,16 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [開始使用資料] <br/>了解如何將新的資料表新增至行動服務，然後讀取和寫入該資料表。
+* [開始使用離線資料同步] 了解快速入門如何使用離線資料同步，讓 App 更穩健及具備回應力。
 
-* [開始使用離線資料同步] <br/>了解快速入門如何使用離線資料同步，讓應用程式更穩健及具備回應力。
+* [開始使用驗證] 了解如何向身分識別提供者驗證 App 的使用者。
 
-* [開始使用驗證] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [開始使用推播通知] 了解如何將極為基本的推播通知傳送到 App。
 
-* [開始使用推播通知] <br/>了解如何將極為基本的推播通知傳送到應用程式。
+* [如如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端](partner-xamarin-mobile-services-how-to-use-client-library.md) 了解如何查詢行動服務、處理資料，以及存取自訂 API。
+  
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -124,7 +127,6 @@
 
 
 <!-- URLs. -->
-[開始使用資料]: partner-xamarin-mobile-services-ios-get-started-data.md
 [開始使用離線資料同步]: mobile-services-xamarin-ios-get-started-offline-data.md
 [開始使用驗證]: partner-xamarin-mobile-services-ios-get-started-users.md
 [開始使用推播通知]: partner-xamarin-mobile-services-ios-get-started-push.md
@@ -134,4 +136,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -1,12 +1,13 @@
 <properties
-	pageTitle="在 Ubuntu 上使用資源管理員範本的 DataStax Enterprise"
+	pageTitle="在 Ubuntu 上使用資源管理員範本的 DataStax Enterprise | Microsoft Azure"
 	description="了解如何使用 Azure PowerShell 或 Azure CLI 搭配資源管理員範本，在 Ubuntu VM 上 輕鬆部署新的 DataStax Enterprise 叢集"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -17,6 +18,8 @@
 	ms.author="scoriani"/>
 
 # 在 Ubuntu 上使用資源管理員範本的 DataStax Enterprise
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立資源。
 
 DataStax 是知名的業界領導者，他們根據 Apache Cassandra™ 來開發和提供各種解決方案，這是一種可提供商業支援且符合企業需求的 NoSQL 分散式資料庫技術，此技術廣受市場認可、敏捷、永不停擺，並可依照未來的各種公司規模需求進行調整。DataStax 提供 Enterprise (DSE) 和 Community (DSC) 等版本。除了 Community 版本所提供的功能之外，Datastax Enterprise 是經過生產認證的 Cassandra，具備在記憶體中計算、企業級安全性、快速且功能強大的整合分析，以及企業管理等功能。
 
@@ -354,7 +357,7 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 
 ### "resources" 區段
 
-絕大多數的動作就是在 "resources" 區段進行的。觀察這個區段內部，您會立即找出兩個不同的案例：第一個是被定義為 `Microsoft.Resources/deployments` 類型的元素，基本上表示叫用第一個主要檔案裡面的巢狀部署。透過 "templateLink" 元素 (和相關的版本屬性)，就能指定連結的範本檔案，並在叫用此檔案時傳遞一組參數當做輸入，如同下一個範例中所示。
+絕大多數的動作就是在 "resources" 區段進行的。仔細觀察這個區段，您會立即找出兩個不同的案例：第一個是定義為 `Microsoft.Resources/deployments` 類型的元素，基本上它會叫用主要檔案內部的巢狀部署。透過 "templateLink" 元素 (和相關的版本屬性)，就能指定連結的範本檔案，並在叫用此檔案時傳遞一組參數當做輸入，如同下一個範例中所示。
 
 	{
 	      "name": "shared",
@@ -391,7 +394,7 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 
 讓我們深入了解最後一個範本的使用方式，因為從範本開發角度來看，這是最有趣的範本之一。在此要強調一個重要的概念，那就是一個範本檔案可以重複部署某一種資源類型，而且每一個執行個體都可以為必要的設定指定唯一的值。這個概念稱為資源迴圈。
 
-從主要的 azuredeploy.json 檔案中叫用 ephemeral-nodes-resources.json 時，會提供名為 nodeCount 的參數來做為參數清單的一部分。在子範本中，將會在每一個需要部署於多個複本中的資源的 **"copy”** 元素內使用 nodeCount (要在叢集中部署的節點數目)，如下列片段中所強調的。對於您需要為不同的部署資源執行個體提供唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。在下一個範例中，您可以在為 Datastax Enterprise 叢集節點建立的多個 VM 上看見這個概念的運用。
+從主要的 azuredeploy.json 檔案中叫用 ephemeral-nodes-resources.json 時，會提供名為 nodeCount 的參數來做為參數清單的一部分。在子範本中，將會在每一個需要部署於多個複本中的資源的 **"copy”** 元素內使用 nodeCount (要在叢集中部署的節點數目)，如下列範例中所強調。對於您需要為不同的部署資源執行個體提供唯一值的所有設定，可使用 **copyindex()** 函式來取得數值，以指出目前用來建立這個特定資源迴圈的索引。在下一個範例中，您可以在為 Datastax Enterprise 叢集節點建立的多個 VM 上看見這個概念的運用。
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -500,4 +503,4 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 shared
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -20,7 +20,7 @@
 
 ## 概觀 ##
 
-App Service 環境是目前以預覽狀態提供的新 Premium 層次功能。它還提供新的調整和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 (ASE) 功能，請閱讀此處的文件：[What is an App Service Environment]/app-service-app-service-environment-intro.md)。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
+App Service 環境是 Azure App Service 中的新高階層功能，可提供新的延展性和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 (ASE) 功能，請閱讀文件：[什麼是 App Service 環境](app-service-app-service-environment-intro.md)。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
 
 App Service 環境是由數個主要元件所組成：
 
@@ -133,4 +133,4 @@ App Service 環境是由數個主要元件所組成：
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

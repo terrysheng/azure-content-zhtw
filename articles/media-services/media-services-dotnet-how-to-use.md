@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 #使用 .NET 進行媒體服務開發 
@@ -28,9 +28,9 @@
 ##必要條件
 
 -   新的或現有 Azure 訂閱中的媒體服務帳戶。請參閱主題＜[如何建立媒體服務帳戶](media-services-create-account.md)＞ (英文)。
--   作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
+-   作業系統：Windows 10、Windows 7、Windows 2008 R2 或 Windows 8。
 -   .NET Framework 4.5。
--   Visual Studio 2013、Visual Studio 2012 或 Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express)。 
+-    Visual Studio 2015、Visual Studio 2013、Visual Studio 2012 或 Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express)。 
   
 
 ##建立和設定 Visual Studio 專案 
@@ -75,15 +75,9 @@
 	若要取得**帳戶名稱**和**帳戶金鑰**資訊，請開啟 **Azure 管理入口網站**，並選取媒體服務帳戶，然後按一下 [**管理金鑰**] 按鈕。
 
 
-	<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
-
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>
 
 5. 在 Program.cs 檔案的開頭，使用下列程式碼來覆寫現有的 using 陳述式。
 
@@ -108,4 +102,4 @@
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

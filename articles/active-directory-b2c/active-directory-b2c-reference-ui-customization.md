@@ -33,7 +33,7 @@
 
 ## 頁面使用者介面 (UI) 自訂功能
 
-頁面 UI 自訂功能可讓您自訂取用者註冊、登入及設定檔編輯頁面的外觀和操作方式 (藉由設定[原則](active-directory-b2c-references.policies.md))。取用者在您的應用程式與 Azure AD B2C 所提供的頁面間瀏覽時，將會有一致的體驗。
+頁面 UI 自訂功能可讓您自訂取用者註冊、登入及設定檔編輯頁面的外觀和操作方式 (藉由設定[原則](active-directory-b2c-reference-policies.md))。取用者在您的應用程式與 Azure AD B2C 所提供的頁面間瀏覽時，將會有一致的體驗。
 
 不同於其他只能透過 API 取得選項的服務，Azure AD B2C 使用新式 (且簡化的) 方法進行頁面 UI 自訂。以下是其運作方式：Azure AD B2C 會在取用者的瀏覽器中執行程式碼並使用稱為[跨原始資源共用 (CORS)](http://www.w3.org/TR/cors/) 的新式方法，從您在原則中指定的 URL 載入內容。您可以對不同的頁面指定不同的 URL。程式碼會合併 Azure AD B2C 的內容 (稱為 UI 元素) 與從您的 URL 載入的內容，並對取用者顯示此頁面。您只需要建立格式正確的 HTML5 內容，其中的 `<div id="api"></div>` 元素位於 `<body>` 中的某處 - 這就是 Azure AD B2C 的內容併入的位置。而且將此內容裝載於 HTTPS 端點 (允許 CORS)。您還可以完全設定 Azure AD B2C 的 UI 的元素樣式。
 
@@ -276,4 +276,4 @@
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

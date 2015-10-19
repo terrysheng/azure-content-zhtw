@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 搜尋服務 REST API 版本 2015-02-28-Preview | Microsoft Azure"
-   description="Azure 搜尋服務 REST API Version 2015-02-28-Preview 包含自然語言分析器和 moreLikeThis 搜尋等實驗性功能。"
+   description="Azure 搜尋服務 REST API Version 2015-02-28-Preview 包含 Lucene 搜尋語法和 moreLikeThis 搜尋等實驗性功能。"
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,20 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="heidist"/>
 
 # Azure 搜尋服務 REST API：版本 2015-02-28-Preview
 
 本文是 `api-version=2015-02-28-Preview` 的參考文件。這個預覽版本可藉由提供下列實驗性功能，來擴充公開上市版本 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)：
 
+- [Lucene 查詢語法](https://msdn.microsoft.com/library/azure/mt589323.aspx)是 [Lucene 查詢剖析器](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)的實作，而您可以指定在[搜尋作業](#SearchDocs)中使用 queryType 參數。
 - `moreLikeThis` 是[搜尋操作](#SearchDocs)中所使用的查詢參數，可尋找與另一份特定文件相關的其他文件。
+
+我們將個別說明 `2015-02-28-Preview` 中的一些其他功能。其中包含：
+
+- [評分設定檔](search-api-scoring-profiles-2015-02-28-preview.md)
+- [索引子](search-api-indexers-2015-02-28-preview.md)
 
 Azure 搜尋服務可以在多個版本中使用。如需詳細資訊，請參閱[搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。
 
 ##本文件中的 API
 
-Azure 搜尋服務 API 支援兩種實體查閱的語法：[簡單](https://msdn.microsoft.com/library/dn798920.aspx)和替代的 OData 語法 (如需詳細資訊，請參閱[支援 OData (Azure 搜尋 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx))。下列清單顯示簡單語法。
+Azure 搜尋服務 API 對 API 作業支援兩種 URL 語法：簡單和 OData (如需詳細資訊，請參閱 [OData 支援 (Azure 搜尋 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx))。下列清單顯示簡單語法。
 
 [建立索引](#CreateIndex)
 
@@ -129,7 +135,7 @@ ________________________________________
 
 建立索引會決定要在搜尋操作中儲存和使用的文件結構。填入索引是一個獨立的操作。針對此步驟，您可以使用[索引子](https://msdn.microsoft.com/library/azure/mt183328.aspx) (適用於支援的資料類型) 或是[新增、更新或刪除文件](https://msdn.microsoft.com/library/azure/dn798930.aspx)操作。張貼文件時，即會產生反向索引。
 
-**注意**：允許的索引數目上限會依定價層而有所不同。免費服務允許最多 3 個索引。標準服務允許每個服務有 50 個索引。如需詳細資訊，請參閱[服務限制](search-limits-quota-capacity.md)。
+**注意**：允許的索引數目上限會依定價層而有所不同。免費服務允許最多 3 個索引。標準服務允許每個服務有 50 個索引。如需詳細資訊，請參閱[限制條件](http://msdn.microsoft.com/library/azure/dn798934.aspx)。
 
 **要求**
 
@@ -697,7 +703,7 @@ Azure 搜尋中的建議功能是自動完成或自動完成查詢的功能，�
 		  ]
 		}
 
-> [AZURE.NOTE]如果您使用了公開預覽版本的 Azure 搜尋服務，`suggesters` 會取代較舊的布林值屬性 (`"suggestions": false`)，因為該屬性僅支援適用於簡短字串 (3-25 個字元) 的前置建議。它的替代項目 `suggesters` 支援中置比對，可在欄位內容的開頭或中間尋找相符的項目，而且對搜尋字串內的錯誤有更好的容錯能力。從公開上市版本開始，這現在是建議 API 的唯一實作。在 `api-version=2014-07-31-Preview` 中引進的較舊 `suggestions` 屬性仍會在該版本中繼續運作，但無法在 `2015-02-28` 或更新版本的 Azure 搜尋中運作。
+> [AZURE.NOTE]如果您使用了公開預覽版本的 Azure 搜尋服務，`suggesters` 會取代較舊的布林值屬性 (`"suggestions": false`)，因為該屬性僅支援適用於簡短字串 (3-25 個字元) 的前置建議。它的替代項目 `suggesters` 支援中置比對，可在欄位內容的開頭或中間尋找相符的項目，而且對搜尋字串內的錯誤有更好的容錯能力。從公開上市版本開始，這現在是建議 API 的唯一實作。在 `api-version=2014-07-31-Preview` 中引進的較舊 `suggestions` 屬性仍會在該版本中繼續運作，但無法在 `2015-02-28` 或更新版本的 Azure 搜尋服務中運作。
 
 <a name="UpdateIndex"></a>
 ## 更新索引
@@ -984,7 +990,7 @@ ________________________________________
 
 在 Azure 搜尋中，索引是儲存在雲端並使用您上傳到服務的 JSON 文件來填入。您上傳的所有文件會包含您搜尋資料的主體。文件會包含欄位，其中一些欄位會在它們上傳時語彙基元化為搜尋字詞。Azure 搜尋服務 API 中的 `/docs` URL 區段表示索引中的文件集合。在集合中執行的所有操作 (例如，上傳、合併、刪除或查詢文件) 都會在單一索引的內容中執行，因此，這些操作的 URL 一律會以 `/indexes/[index name]/docs` 為開頭來做為指定的索引名稱。
 
-應用程式的程式碼必須產生 JSON 文件，才能上傳至 Azure 搜尋，或者，如果資料來源是 Azure SQL Database 或 DocumentDB，則可使用[索引子](https://msdn.microsoft.com/library/dn946891.aspx)來載入文件。通常，索引是從您提供的單一資料集填入。
+應用程式碼必須產生 JSON 文件，才能上傳至 Azure 搜尋，或如果資料來源是 Azure SQL Database 或 DocumentDB，則可以使用[索引子](https://msdn.microsoft.com/library/dn946891.aspx)來載入文件。通常，索引是從您提供的單一資料集填入。
 
 您應該規劃針對每個想要搜尋的項目擁有一份文件。電影出租應用程式可能是每部電影有一份文件、店面應用程式可能是每個 SKU 有一份文件、線上課程應用程式可能是每個課程有一份文件、研究公司可能會在他們的存放庫中針對每份學術報告有一份文件，依此類推。
 
@@ -1124,7 +1130,7 @@ ________________________________________
 <a name="SearchDocs"></a>
 ## 搜尋文件
 
-**搜尋**作業是當成 GET 或 POST 要求來發出，並指定參數，在選取相符文件時提供準則。
+**搜尋**操作是當成 GET 或 POST 要求來發出，並指定參數，在選取相符文件時提供準則。
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
     api-key: [admin or query key]
@@ -1167,6 +1173,10 @@ ________________________________________
 `searchMode=any|all` (選用，預設為 `any`) - 任何或所有的搜尋字詞是否都必須相符，才能將文件當成相符項目來進行計數。
 
 `searchFields=[string]` (選用) - 逗號分隔的欄位名稱清單，可針對特定文字進行搜尋。目標欄位必須標記為 `searchable`。
+
+`queryType=simple|full` (選擇性，預設值為 `simple`) - 若設定為"simple"，則會使用允許符號 (如 +、* 和 "") 的簡單查詢語言來解譯搜尋文字。預設會跨越每份文件中的所有可搜尋欄位 (或以 `searchFields` 表示的欄位) 評估查詢。若查詢類型設定為 `full`，則會使用允許欄位特定搜尋和加權搜尋的 Lucene 查詢語言來解譯搜尋文字。如需搜尋語法的詳細資訊，請參閱[簡單的查詢語法](https://msdn.microsoft.com/library/dn798920.aspx)和 [Lucene 查詢語法](https://msdn.microsoft.com/library/azure/mt589323.aspx)。
+ 
+> [AZURE.NOTE]不支援 Lucene 查詢語言的搜尋範圍不支援可提供類似功能的 $filter。
 
 `moreLikeThis=[key]` (選用) **重要：** 此功能僅適用於 `2015-02-28-Preview`。此選項無法在包含文字搜尋參數 `search=[string]` 的查詢中使用。`moreLikeThis` 參數所尋找的文件類似文件索引鍵所指定的文件。使用 `moreLikeThis` 提出搜尋要求時，即會根據來源文件中字詞的出現頻率和稀有程度來產生搜尋字詞清單。這些字詞接著可用來提出要求。除非使用 `searchFields` 來限制要搜尋的欄位，否則所有 `searchable` 欄位的內容預設都會納入考慮。
 
@@ -1476,6 +1486,16 @@ ________________________________________
 
 請注意上述 `searchMode=all` 的用法。包括此參數會覆寫 `searchMode=any` 的預設值，以確保 `-motel` 代表 "AND NOT"，而非 "OR NOT"。如果沒有 `searchMode=all`，您就會得到 "OR NOT"，其會擴充而不是限制搜尋結果，而這對於某些使用者來說是簡單易懂的計數器。
 
+15) 使用 [Lucene 查詢語法](http://lucene.apache.org/core/4_10_4/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview)，在索引中尋找文件。此查詢會傳回類別欄位包含「預算」一詞以及所有可搜尋欄位包含「最近翻新」詞組的旅館。包含「最近翻新」詞組的文件會因為詞彙提升值 (3) 而排在比較前面
+
+    GET /indexes/hotels/docs?search=category:budget AND "recently renovated"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "category:budget AND "recently renovated"^3",
+      "queryType": "full",
+      "searchMode": "all"
+    }
 
 <a name="LookupAPI"></a>
 ##查閱文件
@@ -1722,4 +1742,4 @@ ________________________________________
       "suggesterName": "sg"
     }
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

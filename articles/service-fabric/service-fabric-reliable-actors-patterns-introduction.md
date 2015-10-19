@@ -3,7 +3,7 @@
    description="適用於 Service Fabric Actor 的設計模式"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Reliable Actor 設計模式簡介
 Service Fabric 的 Reliable Actor 程式設計模型是一種依動作項目模型建立，以在雲端規模解決實際問題的平台。Azure Service Fabric 是一種平台，可為雲端與內部部署建置高可靠性、可調整性且可輕鬆開發與管理的應用程式。這篇文章是實際問題相關的實用文章。在通過閱讀各種模式後，您應該能夠了解如何使用 Service Fabric Actor 模型來建置解決方案的「企業」或「雲端」的解決方案。
@@ -70,4 +70,4 @@ Azure 網狀架構動作項目的主要優點是：1) **開發人員生產力**�
 
 * *明確的非同步。* Azure 網狀架構動作項目程式設計模型，使非同步性質的分散式應用程式更明確，並輔助程式設計人員撰寫非封鎖的非同步程式碼。這可啟用大規模的分散式平行處理原則及整體輸送量，而不需明確地使用多執行緒。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

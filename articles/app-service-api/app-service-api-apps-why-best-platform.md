@@ -70,10 +70,10 @@ API 應用程式另外包含 [App Service Web Apps 的功能](../app-service-web
 
 若要開始使用 API 應用程式，請遵循[建立 API 應用程式教學課程](app-service-dotnet-create-api-app.md)。
 
-若要查看 API 應用程式已知問題的清單，請參閱[這篇 MSDN 論壇文章](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)。
+若要查看 API 應用程式已知問題的清單，請參閱[這篇 MSDN 論壇文章](https://social.msdn.microsoft.com/Forums/zh-TW/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)。
 
 如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

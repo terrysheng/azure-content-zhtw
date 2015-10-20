@@ -46,4 +46,4 @@
 - [備份 Windows 伺服器](backup-azure-backup-windows-server.md)
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

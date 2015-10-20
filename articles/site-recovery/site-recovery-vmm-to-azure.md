@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/23/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 #  設定內部部署 VMM 網站和 Azure 之間的保護
@@ -131,16 +131,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 5. 在 [網際網路連線] 中，指定 VMM 伺服器上執行的提供者連接到網際網路的方式。選取 [Use default system proxy settings]，以使用在伺服器上設定的預設網際網路連線設定。
 
-	![網際網路設定](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png)
-	- 如果您想要使用自訂 Proxy，您應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。
-	- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您將必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。
-	- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取。
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的允許清單 IP 範圍。
+	![網際網路設定](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - 如果您想要使用自訂 Proxy，您應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您就必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取 - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 	- 如果您使用的是自訂 proxy，則會使用指定的 proxy 認證自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。設定 proxy 伺服器，讓此帳戶可以成功進行驗證。在 VMM 主控台中，可以修改 VMM RunAs 帳戶設定。若要這樣做，請開啟 [設定] 工作區、展開 [安全性]、按一下 [執行身分帳戶]，然後修改 DRAProxyAccount 的密碼。您必須重新啟動 VMM 服務，這項設定才會生效。
 
@@ -315,13 +306,10 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 - 在沒有 Azure 網路的情況下測試容錯移轉—這種測試容錯移轉可以檢查虛擬機器是否正確地出現在 Azure 中。在容錯移轉之後，虛擬機器不會連線到任何 Azure 網路。
 - 利用 Azure 網路測試容錯移轉—這種測試容錯移轉可以檢查整個復寫環境是否如預期般出現並進行容錯移轉，虛擬機器會連線到只訂的目標 Azure 網路。針對子網路處理的測試容錯移轉，可根據複本虛擬機器的子網路得知測試虛擬機器的子網路。這和一般的複寫不同，一般複寫的複本虛擬機器子網路是根據來源虛擬機器的子網路得知。
 
-如果您想要針對啟用保護的虛擬機器執行測試容錯轉移至 Azure ，卻不想指定 Azure 目標網路，您不需要作任何準備。若要利用目標 Azure 網路執行測試容錯移轉，您必須建立新的 Azure 網路，該網路會與您的 Azure 生產網路隔離 (您在 Azure 中建立新網路的預設行為)，您也必須設定基礎結構，讓複寫的虛擬機器如預期般運作。例如，具有網域控制站和 DNS 的虛擬機器可以使用 Azure Site Recovery 複寫到 Azure，而且可以使用測試容錯移轉，在測試網路中加以建立。若要執行測試容錯移轉，請依照下列步驟執行：
+如果您想要針對啟用保護的虛擬機器執行測試容錯轉移至 Azure ，卻不想指定 Azure 目標網路，您不需要作任何準備。若要以目標 Azure 網路執行測試容錯移轉，您必須建立與您的 Azure 正式作業網路 (當您在 Azure 中建立新網路時的預設行為) 分隔的新的 Azure 網路。如需詳細資訊，請參閱[執行測試容錯移轉](site-recovery-failover.md#run-a-test-failover)。
 
-1. 在將用於內部部署虛擬機器之實際測試容錯移轉的相同網路中，執行具有網域控制站和 DNS 之虛擬機器的測試容錯移轉。
-2. 將配置給已容錯移轉之 DNS 虛擬機器的 IP 位址記下來。
-3. 在將用於容錯移轉的 Azure 虛擬網路中，新增 IP 位址做為 DNS 伺服器的位址。
-4. 指定 Azure 測試網路，執行來源內部部署虛擬機器的測試容錯移轉。
-5. 在驗證測試容錯移轉可如預期般運作之後，請將復原方案的測試容錯移轉標示為完成，然後將網域控制站和 DNS 虛擬機器的測試容錯移轉標示為完成。
+
+您也必須針對複寫虛擬機器設定基礎結構，以如預期般運作。例如，具有網域控制站和 DNS 的虛擬機器可以使用 Azure Site Recovery 複寫到 Azure，而且可以使用測試容錯移轉，在測試網路中加以建立。如需詳細資訊，請參閱 [Active Directory 測試容錯移轉考量](site-recovery-active-directory.md#considerations-for-test-failover)一節。
 
 如果要執行測試容錯移轉，請執行下列動作：
 
@@ -343,7 +331,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 	- 按一下 [測試容錯移轉完成]。清除測試環境，以自動關閉電源及刪除測試虛擬機器。
 	- 按一下 [記事] 記錄並儲存關於測試容錯移轉的任何觀察。
 
-## <a id="runtest" name="runtest" href="#runtest"></a> 監視活動
+## <a id="runtest" name="runtest" href="#runtest"></a>監視活動
 <p>您可以使用*工作*索引標籤和*儀表板*檢視及監視 Azure Site Recovery 保存庫執行的主要工作，包括設定雲端的保護、啟用和停用虛擬機器的保護、執行容錯移轉 (計劃性、非計劃性或測試)，以及認可非計劃性容錯移轉。</p>
 
 <p>您可以從*工作*索引標籤檢視工作、向下鑽研工作詳細資料和錯誤、執行工作查詢以擷取符合特定條件的工作、將工作匯出至 Excel，以及重新啟動失敗的工作。</p>
@@ -357,6 +345,6 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 <LI>若要在完整生產環境中規劃及部署 Azure Site Recovery，請參閱 <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Azure Site Recovery 的規劃指南</a>及 <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Azure Site Recovery 的部署指南</a>。</LI>
 
 
-<LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a>。</LI> </UL>
+<LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI> </UL>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

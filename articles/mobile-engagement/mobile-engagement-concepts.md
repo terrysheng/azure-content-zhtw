@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.author="piyushjo" />
 
 # Azure Mobile Engagement 概念
 
@@ -85,4 +85,4 @@ Mobile Engagement 藉由為每台裝置產生唯一識別碼來識別使用者�
 - [Azure Mobile Engagement iOS SDK](mobile-engagement-ios-sdk-overview.md)
 - [適用於 Azure Mobile Engagement 的 Android SDK](mobile-engagement-android-sdk-overview.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

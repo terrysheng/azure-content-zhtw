@@ -1,31 +1,31 @@
 本教學課程的最後階段是建立並執行新的應用程式。
 
+### 將專案載入 Android Studio 並同步 Gradle
+
 1. 瀏覽至您儲存此壓縮專案檔案的位置，並將檔案展開到您電腦上的 Android Studio 專案目錄。
 
 2. 開啟 Android Studio。如果您正在使用專案，而它出現的話，請關閉專案 ([檔案] => [關閉專案])。
 
-3. 選取 [開啟現有的 Android Studio 專案]，瀏覽至專案位置，然後按一下 [確定]。
+3. 選取 [開啟現有的 Android Studio 專案]，瀏覽至專案位置，然後按一下 [確定]。 這會載入專案並開始與 Gradle 同步。
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. 在左側 [專案總管] 視窗中，確定已選取 [專案] 索引標籤，然後依序開啟 [app]、[src]、[java]，並連按兩下 [ToDoactivity]。
+4. 等候 Gradle 同步活動完成。您如果看到 "failed to find target" 錯誤訊息，這是因為 Android Studio 中使用的版本與範例的不相符。修正此問題最簡單的方法是按一下錯誤訊息中的 [Install missing platform(s) and sync project] 連結。您可能會收到其他的版本錯誤訊息，只要重複此程序直到沒有錯誤訊息出現即可。
+    - 如果您想要執行「最新最強」的 Android 版本，則有另一個方法可以修正此問題。您可以將 [app] 目錄內 *build.gradle* 檔案中的 **targetSdkVersion** 更新為符合您電腦上已安裝的版本，您可以按一下 [SDK Manager] 圖示來查看列出的版本。然後按一下 [Sync Project with Gradle Files]。您可能會收到 Build Tools 的版本錯誤訊息，請用相同的方法來修復。
 
-   	![](./media/mobile-services-android-get-started/Android-Studio-quickstart.png)
+### 執行應用程式
 
+您可以使用模擬器或實際裝置來執行 App。
 
-5. 如果下載的 SDK 是 2.0 版，則需要以您行動服務的 Url 和索引鍵來更新程式碼：
-	- 	在 **TodoActivity.java** 中找出 **OnCreate** 方法，然後找出具現化行動服務用戶端的程式碼。在前一個影像中可看到此程式碼。
-	- 	以您行動服務的實際 Url 取代 "MobileServiceUrl"。
-	- 	以您行動服務的金鑰取代 "AppKey"。
-	- 	如需詳細資訊，請參閱教學課程[將行動服務新增至現有的應用程式](../articles/mobile-services/mobile-services-android-get-started-data.md)。 
+1. 若要在裝置執行，使用 USB 纜線將裝置連接到電腦。您必須[將裝置設定成開發用](https://developer.android.com/training/basics/firstapp/running-app.html)。如果您在 Windows 電腦上開發，則必須也下載並安裝 USB 驅動程式。
 
-6. 從 [執行] 功能表中，按一下 [執行] 在 Android 模擬器中啟動專案。
+2. 若要使用 Android 模擬器執行，您至少必須定義一個 Android 虛擬裝置 (AVD)。按一下 [AVD Manager] 圖示來建立和管理這些裝置。
 
-	> [AZURE.IMPORTANT]若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。請使用 AVD 管理員來建立和管理這些裝置。
+3. 在 [Run] 功能表中，按一下 [Run] 啟動專案，並從出現的對話方塊選擇裝置或模擬器。
 
-7. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下 [新增]。
+4. 應用程式出現時，輸入有意義的文字 (例如「完成教學課程」)，然後按一下 [新增]。
 
-   	![][10]
+   	![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
    	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
@@ -39,26 +39,4 @@
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-
-<!-- Images. -->
-[0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
-[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
-[8]: ./media/mobile-services-android-get-started/Android-Studio-quickstart.png
-[10]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
-[11]: ./media/mobile-services-android-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-android-get-started/mobile-data-browse.png
-[14]: ./media/mobile-services-android-get-started/android-studio-import-project.png
-[15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
-
-<!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Android Studio]: https://developer.android.com/sdk/index.html
-[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-
-[Management Portal]: https://manage.windowsazure.com/
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -116,7 +116,7 @@ Site Recovery 元件會隨保護案例稍微改變。
 	-  **.blob.core.windows.net
 -  **.store.core.windows.net
 
-- 如果防火牆上有 IP 位址架構規則，請確定它們允許設定伺服器至 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) (英文) 所述的 IP 位址通訊，並適用於HTTPS (443)。您必須列名於計劃使用的 Azure 區域和美國西部的核准清單 IP 位址範圍。
+- 如果防火牆上有 IP 位址架構規則，請確定它們允許設定伺服器至 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) (英文) 所述的 IP 位址通訊，並適用於HTTPS (443)。您必須列名於計劃使用的 Azure 區域和美國西部的白名單 IP 位址範圍。
 - 如果您要部署含 VMM 的 Site Recovery，且您使用自訂 Proxy，則會使用您在 Site Recovery 入口網站的自訂 Proxy 設定中指定的 Proxy 認證，自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。您必須設定 Proxy 伺服器，才能成功驗證此帳戶。
 - 如果您使用 Proxy，則必須透過 HTTP 傳送 Hyper-V 主機伺服器上安裝的提供者，至 Proxy 的流量。
 
@@ -178,4 +178,4 @@ Site Recovery 元件會隨保護案例稍微改變。
 
 開始設定您的部署案例的元件。[深入了解](site-recovery-overview.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

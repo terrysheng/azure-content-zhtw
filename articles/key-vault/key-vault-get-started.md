@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="10/14/2015"
 	ms.author="cabailey"/>
 
 # 開始使用 Azure 金鑰保存庫 #
 大部分地區均提供 Azure 金鑰保存庫。如需詳細資訊，請參閱[金鑰保存庫價格頁面](../../../../pricing/details/key-vault/)。
 
 ## 簡介  
-使用本教學課程可協助您開始使用 Azure 金鑰保存庫，進而在 Azure 中建立強化的容器 (保存庫)，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。本教學課程將逐步引導您完成使用 Windows PowerShell 建立包含金鑰或密碼 (稍後可用於 Azure 應用程式) 的保存庫程序。接著，它會說明應用程式可以如何使用該金鑰或密碼。
+使用本教學課程可協助您開始使用 Azure 金鑰保存庫，進而在 Azure 中建立強化的容器 (保存庫)，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。本教學課程將逐步引導您完成使用 Azure PowerShell 建立包含金鑰或密碼 (稍後可用於 Azure 應用程式) 之保存庫的程序。接著，它會說明應用程式可以如何使用該金鑰或密碼。
 
 *預估完成時間：** 20 分鐘
 
@@ -39,7 +39,7 @@
 - 可設定使用您在本教學課程中所建立之金鑰或密碼的應用程式。您可以在 [Microsoft 下載中心](http://www.microsoft.com/zh-TW/download/details.aspx?id=45343)找到範例應用程式。如需相關指示，請參閱隨附的讀我檔案。
 
 
-本教學課程是專為 Windows PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)。
+本教學課程是專為 Azure PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需詳細資訊，請參閱[開始使用 Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)。
 
 若要取得您在本教學課程中任何所見 Cmdlet 的詳細說明，請使用 **Get-Help** Cmdlet。
 
@@ -49,10 +49,10 @@
 
 	Get-Help Add-AzureAccount -Detailed
 
-您也可以閱讀下列教學課程，以熟悉 Windows PowerShell 中的 Azure 資源管理員：
+您也可以閱讀下列教學課程，以熟悉 Azure PowerShell 中的 Azure 資源管理員：
 
 - [如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)
-- [將 Windows PowerShell 與資源管理員搭配使用](../powershell-azure-resource-manager.md)
+- [Azure PowerShell 搭配資源管理員使用](../powershell-azure-resource-manager.md)
 
 
 ## <a id="connect"></a>連線到您的訂用帳戶 ##
@@ -61,7 +61,7 @@
 
     Add-AzureAccount
 
-在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。Windows PowerShell 會取得與此帳戶相關聯的所有訂用帳戶，並依預設使用第一個訂用帳戶。
+在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。Azure PowerShell 會取得與此帳戶相關聯的所有訂用帳戶，並依預設使用第一個訂用帳戶。
 
 如果您有多個訂用帳戶，並想要指定其中一個訂用帳戶供 Azure 金鑰保存庫使用，請輸入下列內容以查看您帳戶的訂用帳戶：
 
@@ -75,7 +75,7 @@
 
 ## <a id="switch"></a>切換成使用 Azure 資源管理員 ##
 
-金鑰保存庫 Cmdlet 需有 Azure 資源管理員，因此請輸入下列內容以切換至 Azure 資源管理員模式：
+此教學課程中的 Azure 金鑰保存庫 Cmdlet 版本需要有 Azure 資源管理員，因此請輸入下列內容以切換 Azure 資源管理員模式：
 
 	Switch-AzureMode AzureResourceManager
 
@@ -90,7 +90,7 @@
 
 ## <a id="vault"></a>建立金鑰保存庫 ##
 
-使用 [New-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903602.aspx) Cmdlet 來建立金鑰保存庫。這個 Cmdlet 包含三個必要參數：**資源群組名稱**、**金鑰保存庫名稱**和**地理位置**。
+使用 [New-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903602(v=azure.98).aspx) Cmdlet 來建立金鑰保存庫。這個 Cmdlet 包含三個必要參數：**資源群組名稱**、**金鑰保存庫名稱**和**地理位置**。
 
 例如，如果使用保存庫名稱為 **ContosoKeyVault**、資源群組名稱為 **ContosoResourceGroup** 及位置為**東亞**，請輸入：
 
@@ -105,7 +105,7 @@
 
 ## <a id="add"></a>新增金鑰或密碼至金鑰保存庫 ##
 
-如果您要 Azure 金鑰保存庫為您建立一個軟體防護金鑰，請使用 [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) Cmdlet，並輸入下列內容：
+如果您要 Azure 金鑰保存庫為您建立一個軟體防護金鑰，請使用 [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048(v=azure.98).aspx) Cmdlet，並輸入下列內容：
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -164,7 +164,7 @@
 
 3. 按一下 [**應用程式**]。如果您的目錄中尚未新增任何應用程式，則此頁面僅會顯示 [新增應用程式] 連結。按一下此連結，或者您可以按一下命令列上的 [新增]。
 4.	在 [**新增應用程式**] 精靈的 [**您想做什麼？**] 頁面上，按一下 [**新增我的組織正在開發的應用程式**]。
-5.	在 [告訴我們您的應用程式] 頁面上，指定您的應用程式名稱，然後選取 [WEB 應用程式和/或 WEB API] \(預設值)。按 [下一步] 圖示。
+5.	在 [告訴我們您的應用程式] 頁面上，指定您的應用程式名稱，然後選取 [WEB 應用程式和/或 WEB API] (預設值)。按 [下一步] 圖示。
 6.	在 [**應用程式屬性**] 頁面上，為您的 Web 應用程式指定 [**登入 URL**] 和 [**應用程式識別碼 URI**]。如果您的應用程式沒有這些值，您可以在此步驟中虛構這些值 (例如，您可以在這兩個方塊中指定 http://test1.contoso.com)。這些網站是否存在並沒有影響；重要的是目錄中每個應用程式的應用程式識別碼 URI 都會有所不同。目錄會使用此字串來識別您的應用程式。
 7.	按一下 [完成] 圖示在精靈中儲存變更。
 8.	在 [快速入門] 頁面上，按一下 [設定]。
@@ -173,7 +173,7 @@
 
 ## <a id="authorize"></a>授權應用程式使用金鑰或密碼 ##
 
-若要授權應用程式存取保存庫中的金鑰或密碼，請使用 [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607.aspx) Cmdlet。
+若要授權應用程式存取保存庫中的金鑰或密碼，請使用 [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607(v=azure.98).aspx) Cmdlet。
 
 例如，如果您的保存庫名稱是 **ContosoKeyVault**，且您要授權的應用程式具有 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed 的用戶端識別碼，您想要授權應用程式使用保存庫中的金鑰來進行解密並簽署，則請執行下列作業：
 
@@ -216,7 +216,7 @@
 
 ## <a id="delete"></a>刪除金鑰保存庫及相關聯的金鑰和密碼 ##
 
-如果您不再需要金鑰保存庫及其所包含的金鑰或密碼，您可以使用 [Remove-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903603.aspx) Cmdlet 來將金鑰保存庫刪除：
+如果您不再需要金鑰保存庫及其所包含的金鑰或密碼，您可以使用 [Remove-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903603(v=azure.98).aspx) Cmdlet 來將金鑰保存庫刪除：
 
 	Remove-AzureKeyVault -VaultName 'ContosoKeyVault'
 
@@ -240,8 +240,16 @@
 
 如需在 Web 應用程式中使用 Azure 金鑰保存庫的後續教學課程，請參閱[從 Web 應用程式使用 Azure 金鑰保存庫](key-vault-use-from-web-application.md)。
 
-如需 Azure 金鑰保存庫的 Windows PowerShell Cmdlet 清單，請參閱 [Azure 金鑰保存庫 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)。
+如需 Azure 金鑰保存庫的 Azure PowerShell Cmdlet 清單，請參閱 [Azure 金鑰保存庫 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx)。
+
+如果您想嘗試目前為預覽版之新版本的 Azure PowerShell (版本 1.0)，您不需要再執行 `Switch-AzureMode AzureResourceManager`，且部分的金鑰保存庫 Cmdlet 會重新命名。如需有關此預覽版本的詳細資訊，請參閱 Microsoft Azure 部落格上的文章 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/zh-TW/blog/azps-1-0-pre/)。如需此版本的 Azure PowerShell 金鑰保存庫 Cmdlet 清單，請參閱 [Azure 金鑰保存庫 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)。如果安裝了新版的 Azure PowerShell，您可以使用此教學課程中的指示搭配下列變更：
+
+* 請勿執行 **Switch-AzureMode AzureResourceManager**
+* 執行 `New-AzureRMKeyVault` 而非 **New-AzureKeyVault**
+* 執行 `Get-AzureRMKeyVault` 而非 **Get-AzureKeyVault**
+* 執行 `Remove-AzureRMKeyVault` 而非 **Remove-AzureKeyVault**
+* 執行 `Set-AzureRMKeyVaultAccessPolicy` 而非 **Set-AzureKeyVaultAccessPolicy**   
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

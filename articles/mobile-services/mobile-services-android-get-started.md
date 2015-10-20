@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/08/2015"
 	ms.author="ricksal"/>
 
 # 開始使用適用於 Android 的行動服務 (JavaScript 後端)
@@ -32,7 +32,7 @@
 
 ## 必要條件
 
-完成本教學課程需要 [Android Developer Tools][Android Studio]，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。需要 Android 4.2 或以上的版本。
+完成本教學課程需要 [Android Developer Tools](https://developer.android.com/sdk/index.html)，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。需要 Android 4.2 或以上的版本。
 
 下載的快速入門專案包含 Azure Mobile Services SDK for Android。
 
@@ -59,27 +59,17 @@
 
   	![](./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png)
 
-3. 如果您尚未這麼做，請在您的本機電腦或虛擬機器下載並安裝 [Android Developer Tools][Android SDK]。
+3. 如果您尚未這麼做，請在您的本機電腦或虛擬機器下載並安裝 [Android Developer Tools](https://go.microsoft.com/fwLink/p/?LinkID=280125)。
 
 4. 按一下 [Create TodoItem table] 以建立儲存應用程式資料的資料表。
 
 
-5. 立即下載您的應用程式：
-	- 最新的應用程式版本使用行動服務 Android SDK 2.0。您可以從<a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">這裡</a>下載該版本。按一下 [**下載 Zip**]，將它解壓縮，專案會出現在 Android 資料夾下的 GettingStarted 中。
-
-	- 較早的版本會使用先前版本的 SDK。若要使用它，請在 [**下載及執行您的應用程式**] 下方，按一下 [**下載**]。這將會下載與行動服務連接的範例_待辦事項_應用程式專案。專案檔案已壓縮，請瀏覽到其位置，並將檔案解壓縮到您的電腦上。
-
+5. 按下 [下載] 按鈕，立即下載您的 App。
 
 ## 執行您的 Android 應用程式
 
 [AZURE.INCLUDE [mobile-services-run-your-app](../../includes/mobile-services-android-get-started.md)]
 
-### 看看程式碼 (選擇性)
-
-如果您想要查看已完成的應用程式的原始程式碼，請到[這裡](https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStarted/AndroidStudio)。
-
-
-如果您想要查看本教學課程的 Eclipse 版本，請移至：[開始使用 (Eclipse)](mobile-services-android-get-started-ec.md)。
 
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
@@ -93,32 +83,14 @@
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
-<!-- Anchors. -->
-[Getting started with Mobile Services]: #getting-started
-[Create a new mobile service]: #create-new-service
-[Define the mobile service instance]: #define-mobile-service-instance
-[Next Steps]: #next-steps
-
-<!-- Images. -->
-[0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
-[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png
-[8]: ./media/mobile-services-android-get-started/mobile-eclipse-quickstart.png
-[10]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
-[11]: ./media/mobile-services-android-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-android-get-started/mobile-data-browse.png
-[14]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png
-[15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
 [Get started (Eclipse)]: mobile-services-android-get-started-ec.md
 [開始使用資料]: mobile-services-android-get-started-data.md
 [開始使用驗證]: mobile-services-android-get-started-users.md
 [開始使用推播通知]: mobile-services-javascript-backend-android-get-started-push.md
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

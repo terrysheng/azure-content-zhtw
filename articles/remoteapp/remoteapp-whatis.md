@@ -77,4 +77,4 @@ Windows 和 Windows RT 的 RemoteApp 用戶端應用程式以及 Mac、iOS 和 A
 - [Azure RemoteApp 常見問題集](remoteapp-faq.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -29,4 +29,4 @@
 
 若要觀看影片示範如何建立 StorSimple 備份，請按一下[這裡](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

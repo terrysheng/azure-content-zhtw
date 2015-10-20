@@ -10,4 +10,4 @@
 
 3. 儲存這個字串。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

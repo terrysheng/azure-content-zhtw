@@ -69,4 +69,4 @@ Blob 服務是以一般儲存體配置為根據。您可以透過在 Blob 名稱
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

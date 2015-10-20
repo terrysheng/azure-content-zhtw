@@ -104,4 +104,4 @@
 [Azure App Service 及現有的 Azure 服務]: http://go.microsoft.com/fwlink/?LinkId=529714
 [瀏覽 Azure 入口網站的參考]: http://go.microsoft.com/fwlink/?LinkId=529715
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

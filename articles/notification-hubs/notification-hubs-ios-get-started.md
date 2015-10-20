@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 iOS app 的通知中樞
@@ -26,12 +26,19 @@
 
 本教學課程示範使用通知中樞的簡單廣播案例。
 
-##先決條件
+
+## 開始之前
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+您可以在[此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted)的 GitHub 上找到本教學課程的完整程式碼。
+
+##必要條件
 
 本教學課程需要下列各項：
 
 + [行動服務 iOS SDK]
-+ [XCode 6][Install Xcode]
++ [Xcode 7][Install Xcode]
 + 支援 iOS 8 (或更新版本) 的裝置
 + iOS Developer Program 成員資格
 
@@ -66,7 +73,7 @@
 
    	![][3]
 
-5. 按一下您剛才建立的命名空間 (通常為 ***notification hub name*-ns**)，以開啟其儀表板。
+5. 按一下您剛才建立的命名空間 (通常為 **通知中樞名稱-ns**)，以開啟其儀表板。
 
    	![][4]
 
@@ -74,11 +81,13 @@
 
    	![][5]
 
-7. 按一下頂端的 [**設定**] 索引標籤，然後按一下 Apple 通知設定中的 [**上傳**] 按鈕，以上傳憑證指紋。接著選取稍早匯出的 **.p12** 憑證以及憑證的密碼。務必選擇要使用「生產」(如要傳送推播通知給在市集購買您 app 的使用者) 還是「沙箱」(開發期間) 推播服務。
+7. 按一下頂端的 [設定] 索引標籤，然後按一下 Apple 通知設定中的 [上傳] 按鈕，以上傳憑證指紋。接著選取稍早匯出的 **.p12** 憑證以及憑證的密碼。
+ 
+	因為這是用於開發，請務必選取 [沙箱] 模式。只有在您想傳送推播通知給從市集購買 App 的使用者時，才使用 [生產] 模式。
 
-   	![][6]
+   	![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
 
-8. 按一下頂端的 [**儀表板**] 索引標籤，然後按一下 [**檢視連接字串**]。記下這兩個連接字串。
+8. 按一下頂端的 [儀表板] 索引標籤，然後按一下 [檢視連接字串]。記下這兩個連接字串。您將使用下方程式碼區段中的連接字串。
 
    	![][7]
 
@@ -86,7 +95,7 @@
 
 ##將您的 app 連接到通知中樞
 
-1. 在 XCode 中建立新的 iOS 專案，並選取 [Single View Application] 範本。
+1. 在 Xcode 中建立新的 iOS 專案，並選取 [Single View Application] 範本。
 
    	![][8]
 
@@ -100,7 +109,7 @@
 
    	![][9]
 
-4. 下載 1.2.4 版的[行動服務 iOS SDK]，然後將檔案解壓縮。在 XCode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾加入至 XCode 專案。選取 [必要時複製項目]，然後按一下 [新增]。
+4. 下載 1.2.4 版的[行動服務 iOS SDK]，然後將檔案解壓縮。在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾加入至 Xcode 專案。選取 [必要時複製項目]，然後按一下 [新增]。
 
    	![][10]
 
@@ -147,7 +156,7 @@
 		}
 
 
-8. 如果 app 在作用中時收到通知，您可以在相同檔案中新增下列方法以顯示 **UIAlert**：
+8. 如果 App 在作用中時收到通知，您可以在相同檔案中新增下列方法以顯示 **UIAlert**：
 
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -160,11 +169,17 @@
 ## 傳送通知
 
 
-在 Azure 入口網站中透過通知中樞上的偵錯索引標籤 (如下方螢幕畫面所示) 來傳送通知，即可在 app 中測試通知的接收作業。![][30]
+在 Azure 入口網站中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在 app 中測試通知的接收。
+
+![][30]
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-![][31]
+
+
+## (選擇性) 從 App 傳送通知
+
+如果您想在 App 內傳送通知。本節提供使用 REST 介面執行此操作的範例。
 
 1. 在 XCode 中，開啟 Main.storyboard 並從物件程式庫加入下列 UI 元件，以允許使用者在 app 中傳送推播通知。
 
@@ -177,7 +192,7 @@
 	![][32]
 
 
-2. 開啟 ViewController.h 檔案並加入下列 `#import` 和 `#define` 陳述式。使用實際的 *DefaultFullSharedAccessSignature* 連接字串和中樞名稱，取代預留位置字串常值。
+2. 開啟 ViewController.h 檔案並加入下列 `#import` 和 `#define` 陳述式。使用實際的 *DefaultFullSharedAccessSignature* 連接字串和*中樞名稱*，取代預留位置字串常值。
 
 
 		#import <CommonCrypto/CommonHMAC.h>
@@ -445,11 +460,11 @@
 
 若要在 iOS 上測試推播通知，您必須將 app 部署至裝置。您無法利用 iOS 模擬器傳送 Apple 推播通知。
 
-1. 執行 app 並確認註冊成功，然後按下 [確定]。
+1. 執行 App 並確認註冊成功，然後按下 [確定]。
 
 	![][33]
 
-2. 在文字欄位中觸控以輸入通知訊息。接著，按下鍵盤上的 [傳送] 按鈕或檢視中的 [傳送通知] 按鈕，以傳送通知訊息。
+2. 您可以從 Azure 入口網站傳送測試通知。如果您已在 App 中加入傳送通知的程式碼，在文字欄位中觸控以輸入通知訊息。接著，按下鍵盤上的 [傳送] 按鈕或檢視中的 [傳送通知] 按鈕，以傳送通知訊息。
 
 	![][34]
 
@@ -462,7 +477,11 @@
 
 ##後續步驟
 
-在此簡單範例中，您廣播通知到您的所有 iOS 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者]。如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞]。在[通知中心指引]中深入了解如何使用通知中心。
+在此簡單範例中，您廣播通知到您的所有 iOS 裝置。我們建議您繼續進行[使用通知中樞將通知推播給使用者]教學課程作為學習的下一步。該教學課程將逐步引導您使用標記，建立後端以傳送通知。
+
+如果您想要按興趣群組分隔使用者，您可以額外移至[使用通知中樞傳送即時新聞]。
+
+如需深入了解通知中樞的一般資訊，請參閱[通知中樞指引]。
 
 
 
@@ -498,14 +517,14 @@
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [Azure 入口網站]: https://manage.windowsazure.com/
-[通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
+[通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[使用通知中心來推播通知給使用者]: notification-hubs-aspnet-backend-ios-notify-users.md
-[使用通知中心傳送即時新聞]: notification-hubs-ios-send-breaking-news.md
+[使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-ios-notify-users.md
+[使用通知中樞傳送即時新聞]: notification-hubs-ios-send-breaking-news.md
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

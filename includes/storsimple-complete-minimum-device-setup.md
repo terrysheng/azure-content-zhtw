@@ -38,4 +38,4 @@
 
 若要觀看影片示範如何完成最小量裝置設定，請按一下[這裡](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

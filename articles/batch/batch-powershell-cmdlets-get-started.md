@@ -1,20 +1,20 @@
 <properties
    pageTitle="開始使用 Azure Batch PowerShell Cmdlet | Microsoft Azure"
-	description="介紹用來管理 Azure Batch 服務的 Azure PowerShell Cmdlet"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+   description="介紹用來管理 Azure Batch 服務的 Azure PowerShell Cmdlet"
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="08/07/2015"
-	ms.author="danlep"/>
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="08/07/2015"
+   ms.author="danlep"/>
 
 # 開始使用 Azure Batch PowerShell Cmdlet
 本文是 Azure PowerShell Cmdlet 的簡介，可用來管理 Batch 帳戶並取得 Batch 作業、工作及其他詳細資訊的相關資訊。
@@ -162,4 +162,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [有效率的清單查詢](batch-efficient-list-queries.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

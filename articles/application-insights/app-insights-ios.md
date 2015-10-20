@@ -1,19 +1,19 @@
 <properties
     pageTitle="iOS App 適用的 Application Insights | Microsoft Azure"
-	description="使用 Application Insights 分析您 iOS 應用程式的使用情況和效能。"
-	services="application-insights"
-	documentationCenter="ios"
-	authors="alancameronwills"
-	manager="ronmart"/>
+    description="使用 Application Insights 分析您 iOS 應用程式的使用情況和效能。"
+    services="application-insights"
+    documentationCenter="ios"
+    authors="alancameronwills"
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="04/27/2015"
-	ms.author="awills"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="04/27/2015"
+    ms.author="awills"/>
 
 # iOS 應用程式的 Application Insights
 
@@ -107,7 +107,7 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 返回 http://portal.azure.com 並且瀏覽至您的 Application Insights 資源。
 
-按一下 [搜尋] 以開啟 [診斷搜尋][diagnostic] - 這是前幾個事件顯示的位置。如果您看不到任何資料，請稍做等待後再按一下 [重新整理]。
+按一下 [搜尋] 以開啟 [診斷搜尋][][diagnostic] - 這是前幾個事件顯示的位置。如果您看不到任何資料，請稍做等待後再按一下 [重新整理]。
 
 ![按一下 [診斷搜尋]](./media/app-insights-ios/21-search.png)
 
@@ -137,4 +137,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

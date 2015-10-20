@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/09/2015"
 	ms.author="genemi"/>
 
 
 # 使用 C&#x23; 連接及查詢您的 SQL Database
 
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
 您想要撰寫在雲端中使用 ADO.NET 連接到 Azure SQL Database 資料庫的 C# 程式。
 
@@ -35,13 +39,13 @@
 
 
 - Azure SQL Database 服務上的 **AdventureWorksLT** 示範資料庫。
- - 在短時間內[建立示範資料庫](sql-database-get-started.md)。
+ - 在數分鐘內[建立示範資料庫](sql-database-get-started.md)。
 
 
 - Visual Studio 2013 Update 4 (或更新版本)。Microsoft 現在*免費*提供 Visual Studio Community。
  - [Visual Studio Community，下載](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [免費 Visual Studio 的更多選項](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - 或是讓本主題稍後的[步驟](#InstallVSForFree)描述 [Azure Preview 入口網站](http://portal.azure.com/)如何引導您安裝 Visual Studio。
+ - 或是讓本主題中稍後的[步驟](#InstallVSForFree)描述 [Azure Preview 入口網站](http://portal.azure.com/)如何引導您安裝 Visual Studio。
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -60,7 +64,7 @@
 ### 透過 Azure Preview 入口網站的 Visual Studio
 
 
-1. 透過 [Azure Preview 入口網站](http://portal.azure.com/)登入，http://portal.azure.com/。
+1. 透過 [Azure Preview 入口網站](http://portal.azure.com/)登入，其位於 http://portal.azure.com/。
 
 2. 按一下 [全部瀏覽] > [SQL Database]。刀鋒視窗會開啟該資料庫的搜尋。
 
@@ -74,14 +78,14 @@
  
 	![[在 Visual Studio 中開啟] 按鈕][20-OpenInVisualStudioButton]
 
-7. 按一下 [Community (免費)] 連結或類似的連結。新的網頁會隨即新增。
+7. 按一下 [社群 (免費)] 連結或類似的連結。新的網頁會隨即新增。
 
 8. 使用新網頁上的連結安裝 Visual Studio。
 
 9. 安裝 Visual Studio 之後，於**在 Visual Studio 中開啟**刀鋒視窗上按一下 [在 Visual Studio 中開啟] 按鈕。Visual Studio 隨即開啟。
 
-10. 以其 [SQL Server 物件總管] 窗格的優點而言，Visual Studio 會在對話方塊中要求您填寫連接字串欄位。
- - 選擇 [SQL Database 驗證]，而非 [Windows 驗證]。
+10. 以其 [SQL Server 物件總管] 窗格的優點而言，Visual Studio 會要求您填寫對話方塊中的連接字串欄位。
+ - 選擇 [SQL Server 驗證]，而非 [Windows 驗證]。
  - 請記得要指定您的 **AdventureWorksLT** 資料庫 (對話方塊中的 [選項] > [連接屬性])。
 
 11. 在 [SQL Server 物件總管] 中，展開資料庫的節點。
@@ -99,13 +103,13 @@
 
 	![[新增專案] 對話方塊][30-VSNewProject]
 
-2. 針對**名稱**，請輸入 **ConnectAndQuery\_Example**。按一下 [確定]。
+2. 針對 [名稱] 輸入 **ConnectAndQuery\_Example**。按一下 [確定]。
 
 
 ## 步驟 3：為 config 處理新增組件參考
 
 
-我們的 C# 範例會使用 .NET Framework 組件 **System.Configuration.dll**，因此讓我們新增它的參考。
+我們的 C# 範例會使用 .NET Framework 組件 **System.Configuration.dll**，因此讓我們新增對它的參考。
 
 
 1. 在 [方案總管] 窗格中，以滑鼠右鍵按一下 [參考] > [新增參考]。[參考管理員] 視窗隨即出現。
@@ -280,7 +284,7 @@ namespace ConnectAndQuery_Example
 ### 編譯您的程式
 
 
-1. 在 Visual Studio 中，依序按一下功能表 [建置] > [建置方案] 以編譯您的程式。
+1. 在 Visual Studio 中，依序按一下功能表 [建置] > [建置方案] 來編譯您的程式。
 
 
 ### 範例程式中的動作摘要
@@ -319,7 +323,7 @@ namespace ConnectAndQuery_Example
 
 
 
-如需詳細資訊，請參閱：<br/> [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
+如需詳細資訊，請參閱：<br/> [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
 
 
 
@@ -339,7 +343,7 @@ namespace ConnectAndQuery_Example
 
 - [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-- 如果您的用戶端程式執行於 Azure VM，請於下文深入了解 1433 以外的 TCP 連接埠：<br/>[供 ADO.NET 4.5 和 SQL Database V12 使用之 1433 以上的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
+- 如果您的用戶端程式是在 Azure VM 上執行，請於下文深入了解 1433 以外的 TCP 連接埠：<br/>[供 ADO.NET 4.5 和 SQL Database V12 使用之 1433 以上的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
 
@@ -353,4 +357,4 @@ namespace ConnectAndQuery_Example
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -65,4 +65,4 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

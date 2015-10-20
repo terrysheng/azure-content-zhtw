@@ -462,4 +462,4 @@ JSON 序列化的程式碼位於數個範例中，這些範例在名為 **AzureS
 - [Azure 搜尋開發人員案例研究](search-dev-case-study-whattopedia.md)
 - [Azure 搜尋開發的一般工作流程](search-workflow.md) 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

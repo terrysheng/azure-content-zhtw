@@ -145,12 +145,12 @@
 
 	使用下列範例，將該值替換為您自己的值。
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
 
-	**附註：**如果您的區域網路有多個路由，您可以將它們全部放在陣列中傳遞。$MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+	> [AZURE.NOTE]如果您的區域網路有多個路由，您可以將它們全部放在陣列中傳遞。$MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
 
-	若要擷取虛擬網路閘道設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。請參閱下列範例。
+	若要抓取虛擬網路閘道器設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。請參閱下列範例。
 
 		Get-AzureLocalNetworkGateway
 
@@ -163,11 +163,11 @@
 		OperationStatus      : Succeeded
 
 
-8. 設定本機 VPN 裝置以連線到新的閘道器。當您設定 VPN 裝置時，請使用於步驟 6 所抓取的資訊。如需 VPN 裝置組態的詳細資訊，請參閱 [VPN 裝置組態](http://go.microsoft.com/fwlink/p/?linkid=615099)。
+8. 設定本機 VPN 裝置以連線到新的閘道器。當您設定 VPN 裝置時，請使用於步驟 6 所抓取的資訊。如需關於 VPN 裝置組態的詳細資訊，請參閱 [VPN 裝置組態](http://go.microsoft.com/fwlink/p/?linkid=615099)。
 
 9. 將 Azure 上的站對站 VPN 閘道連結至本機閘道器。
 
-	在此範例中，connectedEntityId 是本機閘道器識別碼，您可以執行 `Get-AzureLocalNetworkGateway` 找到此識別碼。您可以使用 `Get-AzureVirtualNetworkGateway` Cmdlet 找到 virtualNetworkGatewayId。完成這個步驟之後，區域網路和 Azure 之間的連線 (透過站對站 VPN 連線) 便會建立。
+	在此範例中，connectedEntityId 是本機的閘道器識別碼，您可以透過執行 `Get-AzureLocalNetworkGateway` 找到此識別碼。您可以使用 `Get-AzureVirtualNetworkGateway` Cmdlet 尋找 virtualNetworkGatewayId。完成這個步驟之後，區域網路和 Azure 之間的連線 (透過站對站 VPN 連線) 便會建立。
 
 
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
@@ -178,7 +178,7 @@
 
 **開始設定之前：**請確認您的虛擬網路中有足夠的 IP 位址，才能夠增加閘道器子網路的大小。
 
-1. 下載最新版的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 一節下載並安裝最新版本的 PowerShell Cmdlet。
+1. 下載最新版的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
 
 2. 刪除現有的站對站 VPN 閘道。使用下列 Cmdlet，將該值替換為您自己的值。
 
@@ -208,6 +208,6 @@
 
 ## 後續步驟
 
-如需 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
+如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

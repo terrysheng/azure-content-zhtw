@@ -243,4 +243,4 @@ API 區段有一些索引標籤。[摘要] 索引標籤會顯示 API 的基本�
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Microsoft Azure IoT Suite 預先設定解決方案入門教學課程 | Microsoft Azure"
+	pageTitle="開始使用預先設定解決方案 | Microsoft Azure"
 	description="遵循此教學課程學習如何部署 Azure IoT Suite 預先設定解決方案。"
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,11 +12,11 @@
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="araguila"/>
 
-# IoT 預先設定解決方案入門
+# 教學課程：IoT 預先設定解決方案入門
 
 ## 簡介
 
@@ -115,4 +115,4 @@ Azure IoT Suite 預先設定解決方案將數個 Azure IoT 服務連接在一�
 [自訂預先設定解決方案指南]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
 [IoT Suite 概觀]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

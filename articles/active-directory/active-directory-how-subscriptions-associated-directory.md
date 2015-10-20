@@ -124,4 +124,4 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

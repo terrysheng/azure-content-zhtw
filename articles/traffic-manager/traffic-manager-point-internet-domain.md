@@ -1,19 +1,19 @@
 <properties
    pageTitle="將公司網際網路網域指向流量管理員網域 | Microsoft Azure"
-	description="本文將協助您將公司網域名稱指向流量管理員網域名稱。"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="本文將協助您將公司網域名稱指向流量管理員網域名稱。"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 將公司網際網路網域指向 Azure 流量管理員網域
 
@@ -37,4 +37,4 @@
 
 [什麼是流量管理員？](traffic-manager-overview.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

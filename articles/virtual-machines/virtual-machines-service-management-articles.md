@@ -14,12 +14,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="10/01/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # 服務管理中針對虛擬機器的文章
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]這是使用傳統部署模型建立和管理資源的相關文件清單。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 ## 開始使用
 
@@ -87,15 +88,13 @@
 
 [如何設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)
 
-[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 管理虛擬機器](virtual-machines-manage-vms-azure-cli.md)
-
 ## 建立工作負載
 
 [Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
 
 <!-- [BizTalk Server](https://msdn.microsoft.com/library/azure/jj248689) -->
 
-[Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
+[assandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
 [Docker](virtual-machines-docker-with-xplat-cli-install.md)
 
@@ -141,7 +140,7 @@
 
 ## 疑難排解
 
-[疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)
+[疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
 [疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)
 
@@ -153,4 +152,4 @@
 
 [服務管理 REST API 參考](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -22,4 +22,4 @@
 
 若要觀看影片示範如何取得服務註冊金鑰，請按一下[這裡](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

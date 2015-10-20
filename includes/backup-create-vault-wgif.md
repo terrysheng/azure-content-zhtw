@@ -43,4 +43,4 @@ GRS 可維護六個資料複本。有了 GRS，您的資料會在主要區域內
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,29 +1,29 @@
 <properties
-   pageTitle="服務匯流排 REST 教學課程 | Microsoft Azure"
-	description="建置簡單的服務匯流排主機應用程式來公開 REST 架構介面。"
-	services="service-bus"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+   pageTitle="使用轉送訊息的服務匯流排 REST 教學課程 |Microsoft Azure"
+   description="建置簡單的服務匯流排轉送主機應用程式來公開 REST 架構介面。"
+   services="service-bus"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="" />
 <tags
    ms.service="service-bus"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="07/07/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="10/14/2015"
+   ms.author="sethm" />
 
 # 服務匯流排 REST 教學課程
 
-本教學課程描述如何建置簡單的服務匯流排主機應用程式來公開 REST 架構介面。REST 可讓 Web 用戶端 (例如 web 瀏覽器) 透過 HTTP 要求存取服務匯流排 API。
+本教學課程描述如何建置簡單的服務匯流排主機應用程式來公開 REST 架構介面。REST 可讓 Web 用戶端 (例如 Web 瀏覽器) 透過 HTTP 要求存取服務匯流排 API。
 
 本教學課程會使用 Windows Communication Foundation (WCF) REST 程式設計模型，在服務匯流排上建構 REST 服務。如需詳細資訊，請參閱 WCF 文件中的 [WCF REST 程式設計模型](https://msdn.microsoft.com/library/bb412169.aspx)和[設計與實作服務](https://msdn.microsoft.com/library/ms729746.aspx)。
 
 ## 步驟 1：註冊 Azure 帳戶
 
-第一步是建立服務命名空間，並取得共用存取簽章 (SAS) 金鑰。服務命名空間會為每個透過服務匯流排公開的應用程式提供應用程式界限。建立服務命名空間時，系統會自動產生 SAS 金鑰。服務命名空間與 SAS 金鑰的結合提供一個認證，供服務匯流排驗證對應用程式的存取權。
+第一步是建立服務命名空間，並取得共用存取簽章 (SAS) 金鑰。命名空間會為每個透過服務匯流排公開的應用程式提供應用程式界限。建立服務命名空間時，系統會自動產生 SAS 金鑰。服務命名空間與 SAS 金鑰的結合提供一個認證，供服務匯流排驗證對應用程式的存取權。
 
 ### 建立服務命名空間並取得 SAS 金鑰
 
@@ -66,19 +66,19 @@
   	using System.IO;
 	```
 
-	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是可讓您以程式設計方式存取 WCF 基本功能的命名空間。服務匯流排會使用 WCF 的許多物件和屬性來定義服務合約。您將在大部分服務匯流排轉送應用程式中使用此命名空間。同樣地，[System.ServiceModel.Channels](https://msdn.microsoft.com/zh-TW/library/system.servicemodel.channels.aspx) 可協助定義通道，您可透過此物件與服務匯流排和用戶端 Web 瀏覽器通訊。最後，[System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) 包含可讓您建立 Web 架構應用程式的類型。
+	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是可讓您以程式設計方式存取 WCF 基本功能的命名空間。服務匯流排會使用 WCF 的許多物件和屬性來定義服務合約。您將在大部分服務匯流排轉送應用程式中使用此命名空間。同樣地，[System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) 可協助定義通道，您可透過此物件與服務匯流排和用戶端 Web 瀏覽器通訊。最後，[System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) 包含可讓您建立 Web 架構應用程式的類型。
 
 7. 將程式的命名空間從 Visual Studio 預設值重新命名為 **Microsoft.ServiceBus.Samples**。
 
- 	```c
+ 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
 		...
 	```
 
-8. 緊接著命名空間宣告後面定義名為 **IImageContract** 的新介面，並將 **ServiceContractAttribute** 屬性套用至包含 `http://samples.microsoft.com/ServiceModel/Relay/` 值的介面。命名空間值與您的整個程式碼範圍中使用的命名空間不同。命名空間值作為此合約的唯一識別碼，且應該具有版本資訊。如需詳細資訊，請參閱[服務版本控制](http://go.microsoft.com/fwlink/?LinkID=180498)。明確指定命名空間可避免將預設命名空間值新增至合約名稱。
+8. 緊接著命名空間宣告後面定義名為 **IImageContract** 的新介面，並將 **ServiceContractAttribute** 屬性套用至包含 `http://samples.microsoft.com/ServiceModel/Relay/`值的介面。命名空間值與您的整個程式碼範圍中使用的命名空間不同。命名空間值作為此合約的唯一識別碼，且應該具有版本資訊。如需詳細資訊，請參閱[服務版本控制](http://go.microsoft.com/fwlink/?LinkID=180498)。明確指定命名空間可避免將預設命名空間值新增至合約名稱。
 
-	```c
+	```
 	[ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
 	public interface IImageContract
 	{
@@ -87,7 +87,7 @@
 
 9. 在 `IImageContract` 介面中，針對 `IImageContract` 合約在介面中公開的單一作業宣告方法，並將 `OperationContractAttribute` 屬性套用至您想要公開為公用服務匯流排合約一部分的方法。
 
-	```c
+	```
 	public interface IImageContract
 	{
 		[OperationContract]
@@ -97,7 +97,7 @@
 
 10. 在 **OperationContract** 屬性旁，套用 **WebGet** 屬性。
 
-	```c
+	```
 	public interface IImageContract
 	{
 		[OperationContract, WebGet]
@@ -109,7 +109,7 @@
 
 11. 緊接著 `IImageContract` 定義後面，宣告從 `IImageContract` 和 `IClientChannel` 介面繼承的通道。
 
-	```c
+	```
 	[ServiceContract(Name = "IImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
 	public interface IImageContract
 	{
@@ -126,9 +126,9 @@
 
 ### 範例
 
-下列程式碼範例示範定義了服務匯流排合約的基本介面。
+下列程式碼示範定義了服務匯流排合約的基本介面。
 
-```c
+```
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -169,7 +169,7 @@ namespace Microsoft.ServiceBus.Samples
 
 1. 在緊接著 **IImageContract** 介面定義的正後方，建立名為 **ImageService** 的新類別。**ImageService** 類別會實作 **IImageContract** 介面。
 
-	```c
+	```
 	class ImageService : IImageContract
 	{
 	}
@@ -178,7 +178,7 @@ namespace Microsoft.ServiceBus.Samples
 
 2. 將 [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 屬性套用至 **IImageService** 類別，以表示此類別為 WCF 合約的實作。
 
-	```c
+	```
 	[ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
 	class ImageService : IImageContract
 	{
@@ -197,7 +197,7 @@ namespace Microsoft.ServiceBus.Samples
 
 5. 將 **System.Drawing.dll**、**System.Runtime.Serialization.dll** 和 **Microsoft.ServiceBus.dll** 組件的參考加入專案，另外加入下列關聯的 `using` 陳述式。
 
-	```c
+	```
 	using System.Drawing;
 	using System.Drawing.Imaging;
 	using Microsoft.ServiceBus;
@@ -206,7 +206,7 @@ namespace Microsoft.ServiceBus.Samples
 
 6. 在 **ImageService** 類別中，加入下列建構函式，以便載入點陣圖並準備將它傳送給用戶端瀏覽器。
 
-	```c
+	```
 	class ImageService : IImageContract
 	{
 		const string imageFileName = "image.jpg";
@@ -222,7 +222,7 @@ namespace Microsoft.ServiceBus.Samples
 
 7. 緊接先前的程式碼後方，在 **ImageService** 類別中加入下列 **GetImage** 方法，以傳回包含該影像的 HTTP 訊息。
 
-	```c
+	```
 	public Stream GetImage()
 	{
 		MemoryStream stream = new MemoryStream();
@@ -245,18 +245,18 @@ namespace Microsoft.ServiceBus.Samples
 
 2. 在 [方案總管] 中，按兩下目前包含下列 XML 元素的 **App.config**。
 
-	```xml
+	```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
 	</configuration>
 	```
 
-	組態檔類似於 WCF 組態檔，並包含服務名稱、端點 (也就是公開的位置服務匯流排，讓用戶端與主機彼此通訊) 和繫結 (用於通訊的通訊協定類型)。此處的主要差異是設定的服務端點會參考 [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) 繫結，這不是.NET Framework 的一部分。如需有關如何設定服務匯流排應用程式的詳細資訊，請參閱[設定要向服務匯流排登錄的 WCF 服務](https://msdn.microsoft.com/library/ee173579.aspx)。
+	組態檔類似於 WCF 組態檔，並包含服務名稱、端點 (也就是公開的位置服務匯流排，讓用戶端與主機彼此通訊) 和繫結 (用於通訊的通訊協定類型)。此處的主要差異是設定的服務端點會參考 [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) 繫結，這不是 .NET Framework 的一部分。如需有關如何設定服務匯流排應用程式的詳細資訊，請參閱[設定要向服務匯流排登錄的 WCF 服務](https://msdn.microsoft.com/library/ee173579.aspx)。
 
 
-3. 新增 `<system.serviceModel>` XML 元素至 App.config 檔案。這是定義一或多個服務的 WCF 元素。在這裡，它用來定義服務名稱和端點。
+3. 將 `<system.serviceModel>` XML 元素新增至 App.config 檔案。這是定義一或多個服務的 WCF 元素。在這裡，它用來定義服務名稱和端點。
 
-	```xml
+	```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
 		<system.serviceModel>
@@ -268,7 +268,7 @@ namespace Microsoft.ServiceBus.Samples
 
 4. 在 `system.serviceModel` 元素中，加入有以下內容的 `<bindings>` 元素。這會定義應用程式中使用的繫結。您可以定義多個繫結，但在本教學課程中您只會定義一個。
 
-	```xml
+	```
 	<bindings>
 		<!-- Application Binding -->
 		<webHttpRelayBinding>
@@ -283,7 +283,7 @@ namespace Microsoft.ServiceBus.Samples
 
 5. 在 `<bindings>` 元素後方加入 `<services>` 元素。類似於繫結，您可以在單一組態檔中定義多個服務。不過，您在本教學課程中只會定義一個。
 
-	```xml
+	```
 	<services>
 		<!-- Application Service -->
 		<service name="Microsoft.ServiceBus.Samples.ImageService"
@@ -298,11 +298,11 @@ namespace Microsoft.ServiceBus.Samples
 	</services>
 	```
 
-	這個步驟會設定服務，其使用先前定義的預設 **webHttpRelayBinding**。它也會使用預設 **sbTokenProvider**，定義在下一個步驟。
+	這個步驟會設定服務，該服務會使用先前定義的預設 **webHttpRelayBinding**。它也會使用在下一個步驟中定義的預設 **sbTokenProvider**。
 
 6. 在 `<services>` 元素後，建立具有下列內容的 `<behaviors>` 元素，以步驟 1 中的 Azure 入口網站所取得的*共用存取簽章* (SAS) 金鑰來取代 "SAS\_KEY"。
 
-	```xml
+	```
 	<behaviors>
 		<endpointBehaviors>
 			<behavior name="sbTokenProvider">
@@ -321,13 +321,13 @@ namespace Microsoft.ServiceBus.Samples
 	</behaviors>
 	```
 
-7. 從 [**建置**] 功能表中，按一下 [**建置方案**] 以建置整個方案。
+7. 從 [建置] 功能表中，按一下 [建置方案] 以建置整個方案。
 
 ### 範例
 
-下列程式碼會顯示使用 **WebHttpRelayBinding** 繫結，正在服務匯流排上執行的 REST 架構服務的合約和服務實作。
+下列程式碼會顯示使用 **WebHttpRelayBinding** 繫結，正在服務匯流排上執行之 REST 架構服務的合約和服務實作。
 
-```c
+```
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -389,7 +389,7 @@ namespace Microsoft.ServiceBus.Samples
 
 下列範例會顯示與服務相關聯的 App.config 檔案。
 
-```xml
+```
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <system.serviceModel>
@@ -445,14 +445,14 @@ namespace Microsoft.ServiceBus.Samples
 
 1. 在 `Main()` 函數宣告中，建立變數來儲存服務匯流排專案的命名空間。
 
-	```c
+	```
 	string serviceNamespace = "InsertServiceNamespaceHere";
 	```
 	服務匯流排會使用您的命名空間名稱來建立唯一 URI。
 
-2. 為根據命名空間之服務的基底位址，建立 `Uri` 執行個體。
+2. 為根據命名空間之服務的基底位址建立 `Uri` 執行個體。
 
-	```c
+	```
 	Uri address = ServiceBusEnvironment.CreateServiceUri("https", serviceNamespace, "Image");
 	```
 
@@ -460,7 +460,7 @@ namespace Microsoft.ServiceBus.Samples
 
 - 建立 Web 服務主機，使用本節稍早建立的 URI 位址。
 
-	```c
+	```
 	WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
 	```
 	服務主機是具現化主機應用程式的 WCF 物件。此範例會將您要建立的主機類型 (**ImageService**)，及要公開主機應用程式的位址傳給它。
@@ -469,14 +469,14 @@ namespace Microsoft.ServiceBus.Samples
 
 1. 開啟服務。
 
-	```c
+	```
 	host.Open();
 	```
 	服務現在正在執行。
 
 2. 顯示訊息，指出服務正在執行，以及如何停止服務。
 
-	```c
+	```
 	Console.WriteLine("Copy the following address into a browser to see the image: ");
 	Console.WriteLine(address + "GetImage");
 	Console.WriteLine();
@@ -494,7 +494,7 @@ namespace Microsoft.ServiceBus.Samples
 
 下列範例包括教學課程先前步驟的服務合約和實作，以及在主控台應用程式中主控服務。將下列程式碼編譯為名為 ImageListener.exe 的可執行檔。
 
-```c
+```
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -578,8 +578,8 @@ namespace Microsoft.ServiceBus.Samples
 
 既然您已經建立使用服務匯流排轉送服務的應用程式，請參閱下列文章以進一步了解轉送傳訊：
 
-- [Azure 服務匯流排架構概觀](fundamentals-service-bus-hybrid-solutions.md#relays)
+- [Azure 服務匯流排架構概觀](service-bus-fundamentals-hybrid-solutions.md#relays)
 
 - [如何使用服務匯流排轉送服務](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

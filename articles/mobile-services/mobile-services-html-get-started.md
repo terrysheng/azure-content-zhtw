@@ -33,7 +33,7 @@
 
 ![][0]
 
-此教學課程是 HTML 應用程式其他所有行動服務教學課程的先修課程。若為 PhoneGap/Cordova App，請參閱本教學課程的 [PhoneGap/Cordova 版本](mobile-services-javascript-backend-phonegap-get-started.md)。
+此教學課程是 HTML 應用程式其他所有行動服務教學課程的先修課程。若為 PhoneGap/Cordova 應用程式，請參閱本教學課程的 [PhoneGap/Cordova 版本](mobile-services-javascript-backend-phonegap-get-started.md)。
 
 ##必要條件
 
@@ -154,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

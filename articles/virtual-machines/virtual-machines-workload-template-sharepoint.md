@@ -19,7 +19,7 @@
 
 # 使用 Azure 資源管理員範本部署 SharePoint 伺服器陣列
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。您無法以傳統部署模型建立此資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。您無法以傳統部署模型建立此資源。
 
 按照本文中的指示，使用資源管理員範本部署一個新的、包含三部伺服器或九部伺服器的 SharePoint Server 2013 伺服器陣列。
 
@@ -184,4 +184,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

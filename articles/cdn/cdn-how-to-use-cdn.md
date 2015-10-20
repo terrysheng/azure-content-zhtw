@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 CDN |Microsoft Azure"
-	description="了解如何使用 Azure 內容傳遞網路 (CDN) 來快取 Blob 和靜態內容，以傳遞高頻寬內容。"
-	services="cdn"
-	documentationCenter=".net"
-	authors="zhangmanling"
-	manager="dwrede"
+	pageTitle="如何使用 CDN |Microsoft Azure" 
+	description="了解如何使用 Azure 內容傳遞網路 (CDN) 來快取 Blob 和靜態內容，以傳遞高頻寬內容。" 
+	services="cdn" 
+	documentationCenter=".net" 
+	authors="zhangmanling" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="09/01/2015" 
 	ms.author="mazha"/>
 
 
@@ -54,4 +54,4 @@ CDN 原點是 CDN 從中提取內容並快取於邊緣 POP 的位置。整合 Az
 [Azure 內容傳遞網路 (CDN) 概觀](cdn-overview.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

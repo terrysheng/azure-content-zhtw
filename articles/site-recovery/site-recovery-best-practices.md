@@ -82,7 +82,7 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 - [使用 System Center 2012 R2 VMM 的私人雲端新功能](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=)
 - [VMM 2012 和雲端](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html)。
 - [設定 VMM 雲端網狀架構](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-- [在 VMM 中建立私人雲端](https://technet.microsoft.com/zh-tw/library/jj860425.aspx)
+- [在 VMM 中建立私人雲端](https://technet.microsoft.com/zh-TW/library/jj860425.aspx)
 - [逐步解說：使用 System Center 2012 SP1 VMM 建立私人雲端](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)。
 
 
@@ -194,4 +194,4 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

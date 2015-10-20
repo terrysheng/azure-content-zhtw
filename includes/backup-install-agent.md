@@ -48,4 +48,4 @@
 
     ![設定 Azure 備份](./media/backup-install-agent/configure.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

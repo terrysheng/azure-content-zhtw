@@ -2,7 +2,7 @@
 	pageTitle="JavaScript Web App 適用的 Application Insights | Microsoft Azure"
 	description="取得頁面檢視和工作階段計數、Web 用戶端資料，並追蹤使用量模式。Detect exceptions and performance issues in JavaScript web pages."
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -184,4 +184,4 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

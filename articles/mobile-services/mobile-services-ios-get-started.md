@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/07/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
 
 本教學課程說明如何使用 Azure 行動服務在 iOS 應用程式中新增雲端型後端服務。
 
@@ -36,7 +39,7 @@
 
 1. 在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
 
-2. 在 [快速入門] 索引標籤中，按一下 [選擇平台] 下方的 [iOS]，然後展開 [建立新的 iOS App]。這會顯示步驟，用來建立與您行動服務連線的 iOS 應用程式。
+2. 在 [快速入門] 索引標籤中，按一下 [選擇平台] 下方的 [iOS]，然後展開 [建立新的 iOS 應用程式]。這會顯示步驟，用來建立與您行動服務連線的 iOS 應用程式。
 
 3. 按一下 [Create TodoItem table] 以建立儲存應用程式資料的資料表。
 
@@ -46,7 +49,7 @@
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"><li><p>回到管理入口網站，依序按一下 [資料] 索引標籤和 [TodoItem] 資料表。如此可讓您瀏覽 App 插入資料表的資料。<p></li></ol></p>
+<ol start="4"> <li><p>回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。如此可讓您瀏覽由 App 插入資料表中的資料。<p></li></ol></p>
 
 ## <a name="next-steps"> </a>後續步驟
 了解如何在行動服務中執行其他重要工作：
@@ -56,6 +59,8 @@
 * [將驗證新增至現有 App] <br/>了解如何向身分識別提供者驗證 App 的使用者。
 
 * [將推播通知新增至現有 App] <br/>了解如何將非常基本的推播通知傳送至 App。
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 
 <!-- Anchors. -->
@@ -85,4 +90,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 後端版本]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

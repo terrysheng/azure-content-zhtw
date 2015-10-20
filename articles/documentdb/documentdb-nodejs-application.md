@@ -19,6 +19,12 @@
 
 # <a name="_Toc395783175"></a>使用 DocumentDB 建置 Node.js Web 應用程式
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 本 Node.js 教學課程說明如何使用 Azure DocumentDB 服務，從 Azure 網站上託管的 Node.js Express 應用程式儲存和存取資料。
 
 我們建議使用者從觀看下列影片開始，內容示範如何佈建 Azure DocumentDB 資料庫帳戶，以及如何將 JSON 文件儲存於 Node.js 應用程式。
@@ -563,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

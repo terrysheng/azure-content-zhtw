@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Android 應用程式的通知中樞
@@ -26,7 +26,14 @@
 本教學課程示範使用通知中樞的簡單廣播案例。請確定依照下一個教學課程的步驟進行，以查看如何使用通知中樞來處理特定使用者和裝置群組。
 
 
-##先決條件
+## 開始之前
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+您可以在[此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted)的 GitHub 上找到本教學課程的完整程式碼。
+
+
+##必要條件
 
 本教學課程需要下列各項：
 
@@ -46,7 +53,7 @@
 
 [AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
 
-##<a id="connecting-app"></a>將您的 app 連接到通知中樞
+##<a id="connecting-app"></a>將您的 App 連接到通知中樞
 
 ###建立新的 Android 專案
 
@@ -54,7 +61,7 @@
 
    	![][13]
 
-2. 選擇 [Phone and Tablet] 板型規格和您要支援的 [Minimum SDK]。然後按 [下一步]。
+2. 選擇 [Phone and Tablet] 版型規格和您要支援的 [Minimum SDK]。然後按 [下一步]。
 
    	![][14]
 
@@ -62,17 +69,11 @@
 
 ###新增 Google Play 服務至專案
 
-[AZURE.INCLUDE [新增 Play 服務](../../includes/mobile-services-add-google-play-services.md)]
+[AZURE.INCLUDE [新增 Play 服務](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
 ###新增程式碼
 
-1. 下載<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">通知中樞 Android SDK</a>。解壓縮 .zip 檔案，並將 **notificationhubs\\notification-hubs-0.4.jar** 和 **notifications\\notifications-1.0.1.jar** 複製到專案的 **app\\libs**。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 **libs** 資料夾。
-
-
-
-	這兩個封裝的參考文件位於下列連結：
-	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
-	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+1. 下載<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">通知中樞 Android SDK</a>。解壓縮 .zip 檔案，並將 **notificationhubs\\notification-hubs-0.3.jar** 和 **notifications\\notifications-1.0.1.jar** 複製到專案的 **app\\libs** 目錄。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 **libs** 資料夾。
 
 
     > [AZURE.NOTE]檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
@@ -116,7 +117,7 @@
 
 
 
-5. 在 **MainActivity** 類別的 **OnCreate** 方法中，加入下列程式碼以便在建立活動時執行註冊。
+5. 在 **MainActivity** 類別的 **OnCreate** 方法中，加入下列程式碼以便在活動建立時向通知中樞註冊。
 
         MyHandler.mainActivity = this;
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
@@ -145,7 +146,7 @@
     	}
 
 
-7. 將 **DialogNotify** 方法加入活動，以便在應用程式執行且可見時顯示通知。同時覆寫 **onStart** 和 **onStop**，判斷是否可看見活動以顯示對話方塊。
+7. 將 **DialogNotify** 方法加入活動，以便在 App 執行且可見時顯示通知。同時覆寫 **onStart** 和 **onStop**，判斷是否可看見活動以顯示對話方塊。
 
 	    @Override
 	    protected void onStart() {
@@ -211,7 +212,7 @@
 
 	![][6]
 
-10. 在新類別的 [名稱] 欄位中輸入 **MyHandler**，然後按一下 [確定]。
+10. 在新類別的 [Name] 欄位中輸入「MyHandler」，然後按一下 [OK]。
 
 
 11. 在 **MyHandler.java** 的頂端新增下列 import 陳述式：
@@ -269,7 +270,7 @@
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-14. 在 Android Studio 的功能表列上，按一下 [建置] > [重新建置專案]，確保不會偵測到任何錯誤。
+14. 在 Android Studio 的功能表列上，按一下 [建置] > [重新建置專案]，確保沒有偵測到任何錯誤。
 
 ##傳送通知
 
@@ -281,7 +282,9 @@
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-![][31]
+
+## (選擇性) 從 App 傳送通知
+
 
 1. 在 Android Studio 的 [專案檢視] 中展開 [App] > [src] > [main] > [res] > [layout]。開啟 **activity\_main.xml** 配置檔案，然後按一下 [**文字**] 索引標籤以更新檔案的文字內容。以下列程式碼進行更新，加入新的 `Button` 和 `EditText` 控制項，以便將通知訊息傳送至通知中樞。在底部將此程式碼加在 `</RelativeLayout>` 之前。
 
@@ -328,7 +331,7 @@
 
 3. 在 **MainActivity.java** 檔案中，將下列成員加在 `MainActivity` 類別的最上方。
 
-	在 `HubName` 為您的中樞輸入名稱，不是命名空間。例如，輸入 "myhub"。此外，輸入 **DefaultFullSharedAccessSignature** 連接字串。按一下您通知中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可從 [Azure 入口網站]複製此連接字串。
+	使用中樞的 **DefaultFullSharedAccessSignature** 連接字串更新 `HubFullAccess`。按一下您通知中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可從 [Azure 入口網站]複製此連接字串。
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
@@ -493,7 +496,13 @@
 
 ##後續步驟
 
-在此簡單範例中，您廣播通知到您的所有 Android 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者]。如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞]。在[通知中心指引]中深入了解如何使用通知中心。
+在此簡單範例中，您會使用入口網站或主控台應用程式，將廣播通知傳送到您的所有 Windows 裝置。我們建議以[使用通知中樞將通知推播給使用者]教學課程做為下一個步驟。它會示範如何使用標記以特定使用者為目標，從 ASP.NET 後端傳送通知。
+
+如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞]。
+
+若要深入了解通知中樞的一般資訊，請參閱[通知中樞指引]。
+
+
 
 
 <!-- Images. -->
@@ -527,12 +536,12 @@
 
 
 <!-- URLs. -->
-[開始在行動服務中使用推播通知]: ../mobile-services-javascript-backend-android-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure 入口網站]: https://manage.windowsazure.com/
-[通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
+[通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

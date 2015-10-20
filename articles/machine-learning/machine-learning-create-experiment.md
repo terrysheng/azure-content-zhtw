@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
-#機器學習教學課程：在 Azure Machine Learning Studio 中建立您的第一個實驗
+# 機器學習教學課程：在 Azure Machine Learning Studio 中建立您的第一個實驗
 
 在第一個機器學習教學課程中，我們將建立一個線性迴歸模型，該模型會根據使用製造和技術規格等不同變數，來預測汽車的價格。為了這樣做，我們將使用 Azure Machine Learning Studio 來開發及檢測簡易的預測性分析實驗。
 
@@ -27,10 +27,12 @@ Machine Learning Studio 實驗包含將元件拖曳到畫布，以及連接元�
 
 進入 Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net))，然後按一下 [開始使用] 按鈕。您可以選擇以來賓身分存取或登入 Microsoft 帳戶。
 
-而如需一般 Machine Learning Studio 的詳細資訊，請參閱[什麼是 Machine Learning Studio？](machine-learning-what-is-ml-studio.md)。
+如需 Machine Learning Studio 的一般資訊，請參閱[什麼是 Machine Learning Studio？](machine-learning-what-is-ml-studio.md)。
+
+>[AZURE.TIP]若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](machine-learning-studio-overview-diagram.md)。
 
 
-##建立實驗的五個步驟
+## 建立實驗的五個步驟
 
 在這個機器學習教學課程中，您可以遵循下列五個基本步驟，在 Machine Learning Studio 中建置實驗，來建立、訓練及評分您的模型：
 
@@ -78,9 +80,9 @@ Machine Learning Studio 隨附多個範例資料集供您選擇，而且您可�
 
 首先我們會移除**自負虧損**資料行，接著我們會移除任何含有遺漏資料的資料列。
 
-1. 在模型調色盤頂端的 [搜尋] 方塊中中輸入**專案資料行**以尋找 [專案資料行][][project-columns] 模組，然後將其拖曳到實驗畫布，並連接至**汽車價格資料 (原始)** 資料集的輸出連接埠。此模組可讓我們選取要將哪些資料行包含在模型中，或是從模型中排除。
+1. 在模型調色盤頂端的 [搜尋] 方塊中輸入**專案資料行**以尋找 [專案資料行][][project-columns] 模組，然後將其拖曳到實驗畫布，並連接至**汽車價格資料 (原始)** 資料集的輸出連接埠。此模組可讓我們選取要將哪些資料行包含在模型中，或是從模型中排除。
 
-2. 選取 [[專案資料行]][project-columns] 模組，然後按一下 [屬性] 窗格中的 [啟動資料行選取器]。
+2. 選取 [專案資料行][][project-columns] 模組，然後按一下 [屬性] 窗格中的 [啟動資料行選取器]。
 
 	- 確定已在 [**開始於**] 篩選下拉式清單中選取 [**所有資料行**]。這會引導 [[專案資料行][project-columns]] 通過所有資料行 (但即將排除的資料行除外)。
 	- 在下一個資料列中，選取 [排除] 和 [資料行名稱]，然後按一下文字方塊內部。資料行清單隨即顯示。選取 [自負虧損]，該資料行就會新增到文字方塊中。
@@ -148,9 +150,9 @@ Machine Learning Studio 隨附多個範例資料集供您選擇，而且您可�
 
 	在此實驗中，請選取 [**迴歸**] 類別下的 [[線性迴歸][linear-regression]] 模組 (您也可以在調色盤搜尋方塊中輸入「線性迴歸」以尋找模組)，然後將其拖曳到實驗畫布。
 
-4. 找出 [[訓練模型]][train-model] 模組，並將其拖曳到實驗畫布。將左側的輸入連接埠連接到 [[線性迴歸][linear-regression]] 模組的輸出。將右側的輸入連接埠連接到 [[分割][split]] 模組的訓練資料輸出 (左側連接埠)。
+4. 找出 [訓練模型][][train-model] 模組，並將其拖曳到實驗畫布。將左側的輸入連接埠連接到 [[線性迴歸][linear-regression]] 模組的輸出。將右側的輸入連接埠連接到 [[分割][split]] 模組的訓練資料輸出 (左側連接埠)。
 
-5. 選取 [[訓練模型]][train-model] 模組，按一下 [屬性] 窗格中的 [啟動資料行選取器]，然後選取 [價格] 資料行。這是我們的模型所將預測的值。
+5. 選取 [訓練模型][][train-model] 模組，按一下 [屬性] 窗格中的 [啟動資料行選取器]，然後選取 [價格] 資料行。這是我們的模型所將預測的值。
 
 	![選取「價格」資料行][screen7]
 
@@ -168,13 +170,13 @@ Machine Learning Studio 隨附多個範例資料集供您選擇，而且您可�
 
 	![Score Model module][screen8a]
 
-2. 若要執行實驗，並檢視 [[評分模型]][score-model] 模組的輸出，按一下輸出連接埠，然後選取 [視覺化]。輸出會顯示價格的預測值，以及來自測試資料的已知值。
+2. 若要執行實驗，並檢視 [評分模型][][score-model] 模組的輸出，按一下輸出連接埠，然後選取 [視覺化]。輸出會顯示價格的預測值，以及來自測試資料的已知值。
 
 3. 最後，若要測試結果的品質，選取 [[評估模型][evaluate-model]] 模組，並將其拖曳至實驗畫布，然後將左側的輸入連接埠連接到 [[評分模型][score-model]] 模組的輸出。(輸入連接埠有兩個是因為 [[評估模型][evaluate-model]] 模組可以用來比較兩個模型)。
 
 4. 執行實驗。
 
-若要檢視 [[評估模型]][evaluate-model] 模組的輸出 (按兩下輸出連接埠，然後選取 [視覺化])。我們的模型會顯示下列統計資料：
+若要檢視 [評估模型][][evaluate-model] 模組的輸出 (按一下輸出連接埠，然後選取 [視覺化])。我們的模型會顯示下列統計資料：
 
 - **平均絕對誤差** (MAE)：絕對誤差的平均值 (*誤差*是指預測值與實際值之間的差異)。
 - **均方根誤差** (RMSE)：對測試資料集所做之預測的平方誤差的評分根平均值。
@@ -202,7 +204,7 @@ Machine Learning Studio 隨附多個範例資料集供您選擇，而且您可�
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-如需適用於建立、訓練、評分及部署模型之預測性模型化技術的更廣泛且更詳細的逐步解說，請參閱[使用 Azure 機器學習開發預測性解決方案][walkthrough]。
+如需適用於建立、訓練、評分及部署模型之預測性模型化技術的更廣泛且更詳細的逐步解說，請參閱[使用 Azure 機器學習服務開發預測性解決方案][walkthrough]。
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -232,4 +234,4 @@ Machine Learning Studio 隨附多個範例資料集供您選擇，而且您可�
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

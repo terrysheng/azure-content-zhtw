@@ -13,38 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2015"
+	ms.date="10/09/2015"
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中建立 .NET WebJob
 
+本教學指導顯示如何為簡單的多層次 ASP.NET MVC 5 應用程式撰寫程式碼，以使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 來處理 [Azure 佇列](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)和 [Azure blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)。本教學課程顯示如何將應用程式部署至 [AAzure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 和 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279)。
 
-
-本教學課程示範如何在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 的 Web 應用程式功能中搭配 [Azure 佇列](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)和 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)，使用 WebJobs SDK 建立多層式 ASP.NET MVC 應用程式。此應用程式也會使用 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279)。
-
-此範例應用程式是廣告看板。使用者透過輸入文字和上傳影像來建立廣告。他們可以看到含有縮圖影像的廣告清單，也可以在選取廣告來查看詳細資料時查看完整大小的影像。以下為螢幕擷取畫面：
+此範例應用程式是廣告看板。使用者可以上傳廣告的影像，然後後端程序會將影像轉換成縮圖。廣告清單頁面會顯示縮圖，而廣告詳細資料頁面則會顯示完整大小的影像。以下為螢幕擷取畫面：
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
-您可以從 MSDN Code Gallery [下載 Visual Studio 專案][download]。
-
-[download]: http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb
-
 ## <a id="prerequisites"></a>必要條件
 
-本教學課程假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
+本教學課程假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 專案。
 
-本教學課程指示適用以下兩個產品：
+本教學課程是針對 Visual Studio 2013 所撰寫。如果您尚未有 Visual Studio，則在安裝 Azure SDK for .NET 時，將自動為您安裝它。
 
-* Visual Studio 2013
-* Visual Studio 2013 Community
-* Visual Studio 2013 Express for Web
+本教學課程可以搭配 Visual Studio 2015 使用，但在本機執行應用程式之前，您必須將 Web.config 和 App.config 檔案中 SQL Server LocalDB 連接字串的 `Data Source` 部分，從 `Data Source=(localdb)\v11.0` 變更為 `Data Source=(LocalDb)\MSSQLLocalDB`。
 
-如果您尚未安裝任一個產品，安裝 Azure SDK 時，將為您自動安裝 Visual Studio 2013 Express for Web。
-
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
-
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
 
 ## <a id="learn"></a>您將學到什麼
 
@@ -65,24 +53,13 @@
 
 ![Ad table](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
-當使用者上傳影像時，Web 應用程式的前端會將影像儲存在 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)，並將廣告資訊 (內含指向該 Blob 的 URL) 儲存在資料庫。同時會將訊息寫入 Azure 佇列。以 Azure WebJob 形式執行的後端處理會使用 WebJobs SDK 來輪詢佇列以尋找新訊息。出現新訊息時，WebJob 便會建立該影像的縮圖，並更新該廣告的縮圖 URL 資料庫欄位。以下圖表顯示應用程式的這些部分的互動情況：
+當使用者上傳影像時，Web 應用程式會將影像儲存在 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)，並將廣告資訊 (內含指向該 Blob 的 URL) 儲存在資料庫。同時會將訊息寫入 Azure 佇列。在以 Azure WebJob 形式執行的後端處理中，WebJobs SDK 會輪詢佇列以尋找新訊息。出現新訊息時，WebJob 便會建立該影像的縮圖，並更新該廣告的縮圖 URL 資料庫欄位。以下圖表顯示應用程式的這些部分的互動情況：
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
-### 替代架構
+[AZURE.INCLUDE [安裝 SDK](../../includes/install-sdk-2015-2013.md)]
 
-WebJob 會在 Web 應用程式的內容中執行，且無法單獨調整。例如，如果您擁有一個標準的 Web 應用程式執行個體，則您的背景程序只有一個執行中的執行個體，而且它會使用亦可用來提供 Web 內容的部分伺服器資源 (CPU、記憶體等)。
-
-如果流量會因為一天中的某個時段或一週中的某天而有所不同，而且如果必須執行的後端處理可以暫緩的話，您可以排程 WebJobs 在低流量時段中執行。如果負載對該解決方案而言仍然太高的話，您可以考慮為您的後端程式選擇替代環境，範例如下：
-
-* 在只適用此用途的個別 Web 應用程式中，以 WebJob 的形式執行程式。接著您可以擴充後端 Web 應用程式，而不會影響到前端 Web 應用程式。
-* 在 Azure 雲端服務背景工作角色中執行程式。如果選擇此選項，則您能夠在雲端服務 Web 角色或 Web 應用程式中執行前端。
-
-本教學課程示範如何在 Web 應用程式中執行前端，並在相同 Web 應用程式中以 WebJob 的形式執行後端。如需如何選擇最符合您案例的最佳環境相關資訊，請參閱 [Azure Web 應用程式、雲端服務與虛擬機器之比較](../choose-web-site-cloud-service-vm/)。
-
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
-
-本教學課程的指示適用於 Azure SDK for.NET 2.5.1 或更新版本。在您從頭開始建立 WebJob 專案的小節中，WebJobs SDK 封裝會自動包含於專案中。若您使用舊版的 SDK，就必須手動安裝這類封裝。
+本教學課程的指示適用於 Azure SDK for.NET 2.7.1 或更新版本。
 
 ## <a id="storage"></a>建立 Azure 儲存體帳戶
 
@@ -92,12 +69,11 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 1. 在 Visual Studio 中開啟 [伺服器總管] 視窗。
 
-2. 以滑鼠右鍵按一下 **Azure** 節點，然後按一下 [連線到 Microsoft Azure]。
-![連接到 Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. 以滑鼠右鍵按一下 **Azure** 節點，然後按一下 [連線到 Microsoft Azure]。![連接到 Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. 使用您的 Azure 認證登入。
-5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。
-![建立儲存體帳戶](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+
+5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。![建立儲存體帳戶](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. 在 [建立儲存體帳戶] 對話方塊中，輸入儲存體帳戶的名稱。
 
@@ -119,7 +95,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 ## <a id="download"></a>下載應用程式
 
-1. 下載並解壓縮[已完成的方案][download] (英文)。
+1. 下載並解壓縮[已完成的方案](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb) (英文)。
 
 2. 啟動 Visual Studio。
 
@@ -183,7 +159,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 ## <a id="run"></a>在本機執行應用程式
 
-1. 若要啟動應用程式的 Web 前端，請按 CTRL + F5。
+1. 若要啟動應用程式的 Web 前端，請按 CTRL+F5。
 
 	預設瀏覽器便會開啟到首頁。(系統即會執行 Web 專案，這是因為您已將它設定為啟始專案。)
 
@@ -221,12 +197,12 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 您將執行下列步驟，在雲端中執行應用程式：
 
-* 部署至 Web 應用程式。Visual Studio 會在 App Service 和 SQL Database 執行個體中自動建立新的 Web 應用程式。
+* 部署至 Web Apps。Visual Studio 會在 App Service 和 SQL 資料庫執行個體中自動建立新的 Web 應用程式。
 * 設定 Web 應用程式來使用您的 Azure SQL Database 和儲存體帳戶。
 
 在建立一些廣告並在雲端中執行後，您將檢視 WebJobs SDK 儀表板，以查看儀表板所提供的豐富監視功能。
 
-### 部署至 Web 應用程式
+### 部署至 Web Apps
 
 1. 關閉瀏覽器和主控台應用程式視窗。
 
@@ -236,9 +212,11 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	![選取 Azure 網站發佈目標](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)
 
-4. 在 [選取現有的 Web 應用程式] 方塊中，按一下 [登入] 並輸入您的認證 (如果尚未登入)。
+4. 如果您仍未登入 Azure，請登入。
 
-5. 登入後，請按一下 [新增]。
+5. 按一下 [新增]。
+
+	對話方塊看起來可能會稍有不同，視您已安裝的 Azure SDK for.NET 版本而定。
 
 	![Click New](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
 
@@ -246,9 +224,9 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	完整 URL 將包含您在此處輸入的內容，並加上 .azurewebsites.net (如 [Web 應用程式名稱] 文字方塊旁邊所示)。例如，如果 Web 應用程式名稱是 ContosoAds，則 URL 會是 ContosoAds.azurewebsites.net。
 
-7. 在[應用程式服務方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)下拉式清單中，選擇 [應用程式服務方案]。輸入 App Service 方案名稱 (例如 ContosoAdsPlan)。
+7. 在 [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)下拉式清單中，選擇 [建立新的 App Service 方案]。輸入 App Service 方案名稱 (例如 ContosoAdsPlan)。
 
-8. 在 [資源群組](../resource-group-overview.md) 下拉式清單中，選擇 [建立新的資源群組]。
+8. 在[資源群組](../resource-group-overview.md)下拉式清單中，選擇 [建立新的資源群組]。
 
 9. 輸入資源群組名稱 (例如 ContosoAdsGroup)。
 
@@ -258,7 +236,9 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 11. 在 [資料庫伺服器] 下拉式清單中，選擇 [Create new server]。
 
-12. 輸入資料庫伺服器名稱 (例如 ContosoAdsServer)。
+12. 輸入資料庫伺服器的名稱 (例如 contosoadsserver + 數字) 或您的名稱，使伺服器名稱成為唯一的名稱。
+
+	伺服器名稱必須是唯一的。它可以包含小寫字母、數字和連字號。不能包含結尾連字號。
 
 	或者，如果您的訂閱已有伺服器，您可以從下拉式清單選取該伺服器。
 
@@ -312,7 +292,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 在本節中，您會使用 [伺服器總管] 在 Azure 中設定連接字串值。
 
-7. 在 [伺服器總管] 中，在 [Web Apps] 節點下的 Web 應用程式上按一下滑鼠右鍵，然後按一下 [檢視設定]。
+7. 在 [伺服器總管] 中，於 [Azure] > [{您的資源群組}] 下的 Web 應用程式上按一下滑鼠右鍵，然後按一下 [檢視設定]。
 
 	隨即會在 [設定] 索引標籤中開啟 [Azure Web 應用程式] 視窗。
 
@@ -328,9 +308,9 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	![Azure 入口網站中的連接字串](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
-10. 在 [伺服器總管] 中，在 Web 應用程式上按一下滑鼠右鍵，然後按一下 [停止 Web 應用程式]。
+10. 在 [伺服器總管] 中，於 Web 應用程式上按一下滑鼠右鍵，然後按一下 [停止]。
 
-12. 當 Web 應用程式停止之後，再次以滑鼠右鍵按一下該 Web 應用程式，然後按一下 [啟動 Web 應用程式]。
+12. 當 Web 應用程式停止之後，再次以滑鼠右鍵按一下該 Web 應用程式，然後按一下 [啟動]。
 
 	發行時，WebJob 便會自動啟動，但在您進行組態變更時便會停止。若要重新啟動它，您可以重新啟動 Web 應用程式，或在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中重新啟動 WebJob。通常建議您在進行設定變更之後重新啟動 Web 應用程式。
 
@@ -344,8 +324,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 11.	在幾秒後重新整理頁面，縮圖便會隨即出現。
 
-	如果縮圖沒有出現，則 WebJob 有可能尚未自動啟動。在此情況下，請移至 WebJobs 索引標籤，位於
-
+	如果未出現縮圖，您可能必須等候一分鐘左右，讓 WebJob 重新啟動。如果在一段時間後當您重新整理頁面時仍未看到縮圖，WebJob 可能未自動啟動。在此情況下，移至 [Azure 入口網站](https://manage.windowsazure.com)頁面中 Web 應用程式的 [WebJobs] 索引標籤，然後按一下 [啟動]。
 
 ### 檢視 WebJobs SDK 儀表板
 
@@ -368,10 +347,6 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 	此頁面上的 [轉送函數] 按鈕會造成 WebJobs SDK 架構再次呼叫此函數，這可提供您一個機會來變更首先傳送至函數的資料。
 
 >[AZURE.NOTE]當您完成測試時，請刪除 Web 應用程式和 SQL Database 執行個體。Web 應用程式是免費提供的，但 SQL Database 執行個體和儲存體帳戶則會累算費用 (由於是小規模，因此將收取基本費用)。另外，如果您持續執行 Web 應用程式，那麼，找到您 URL 的任何人都可以建立和檢視廣告。在 Azure 入口網站中，移至 Web 應用程式的 [儀表板] 索引標籤，然後按一下頁面底端的 [刪除] 按鈕。您可以接著勾選核取方塊，以同時刪除 SQL Database 執行個體。如果您只想暫時避免他人存取 Web 應用程式，請改為按一下 [停止]。在此情況下，將會繼續累算 SQL Database 和儲存體帳戶的費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
-
-### 對長時間執行的程序啟用 AlwaysOn
-
-若要確保您的 WebJobs 持續不斷地在 Web 應用程式的所有執行個體上執行，您必須啟用 [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx) 功能。
 
 ## <a id="create"></a>從頭開始建立應用程式
 
@@ -489,7 +464,7 @@ Web 和 WebJob 專案都將使用 SQL Database，因此兩者都會需要 Contos
 	- 在 *Controllers* 資料夾中，新增檔案︰*AdController.cs*
 	- *Views\\Shared* 資料夾中的 *\_Layout.cshtml* 檔案
 - *Views\\Home* 資料夾中的 *Index.cshtml*
-	- *Views\\Ad* 資料夾 (請先建立此資料夾) 的五個 *.cshtml* 檔案<br/><br/>
+	- *Views\\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案<br/><br/>
 
 3. 在 ContosoAdsWebJob 專案中，從所下載的專案加入下列檔案。
 
@@ -503,7 +478,7 @@ Web 和 WebJob 專案都將使用 SQL Database，因此兩者都會需要 Contos
 
 以下小節將說明 WebJobs SDK、Azure 儲存體 Blob 和佇列相關的程式碼。
 
-> [AZURE.NOTE]如需 WebJobs SDK 特定的程式碼，請參閱 [Program.cs 和 Functions.cs](#programcs)。
+> [AZURE.NOTE]如需 WebJobs SDK 特定的程式碼，請移至 [Program.cs 和 Functions.cs](#programcs) 區段。
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -803,11 +778,25 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 >
 > * 為求簡化，`ConvertImageToThumbnailJPG` 方法 (未顯示) 中的程式碼會使用 `System.Drawing` 命名空間中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。如需影像處理選項的詳細資訊，請參閱[動態影像產生](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入調整影像大小](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
 
-### WebJobs SDK 與雲端服務背景工作角色 (沒有 WebJobs SDK) 的比較
+## 後續步驟
 
-如果您將本範例應用程式中 `GenerateThumbnails` 方法的程式碼數量，與[應用程式的雲端服務版本](../cloud-services-dotnet-get-started.md)中的背景工作角色程式碼做比較，您可以看出 WebJobs SDK 為您做了多少工作。這個好處大於您所看到的，因為雲端服務範例應用程式程式碼無法執行您在生產應用程式中可執行的所有項目 (例如有害訊息處理)，而這些 WebJobs SDK 都可以為您做得到。
+在本教學課程中，您看到使用 WebJobs SDK 進行後端處理的簡單多層次應用程式。本節提供進一步了解 ASP.NET 多層式應用程式和 WebJobs 的一些建議。
 
-在應用程式的雲端服務版本中，佇列訊息中的唯一資訊是記錄識別碼，而背景處理會從資料庫中取得影像 URL。在應用程式的 WebJobs SDK 版本中，佇列訊息包括影像 URL，因此可提供給 `Blob` 屬性。如果佇列訊息沒有 Blob URL，您可以[在方法主體中 (而不是在方法簽章中) 使用 Blob 屬性](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#blobbody)。
+### 遺漏的功能
+
+此應用程式設計得很簡單，以做為入門的教學課程。在真實世界中，您將實作[相依性插入](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection)和[存放庫和工作單位模式](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo)的應用程式會使用[介面來記錄](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log)、使用 [EF Code First 移轉](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application)來管理資料模型變更，以及使用 [EF 連線復原](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)來管理暫時性網路錯誤。
+
+### 調整 WebJob 的規模
+
+WebJob 會在 Web 應用程式的內容中執行，且無法單獨調整。例如，如果您擁有一個標準的 Web 應用程式執行個體，則您的背景程序只有一個執行中的執行個體，而且它會使用亦可用來提供 Web 內容的部分伺服器資源 (CPU、記憶體等)。
+
+如果流量會因為一天中的某個時段或一週中的某天而有所不同，而且如果必須執行的後端處理可以暫緩的話，您可以排程 WebJobs 在低流量時段中執行。如果該解決方案的負載仍然太高，您可以在針對該用途專用的 Web 應用程式中以 WebJob 形式執行後端。接著您可以擴充後端 Web 應用程式，而不會影響到前端 Web 應用程式。
+
+如需詳細資訊，請參閱[調整 WebJob](websites-webjobs-resources.md#scale)。
+
+### 避免關機時 Web 應用程式逾時
+
+若要確保您的 WebJobs 持續不斷地在 Web 應用程式的所有執行個體上執行，您必須啟用 [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx) 功能。
 
 ### 在 WebJobs 外部使用 WebJobs SDK
 
@@ -817,14 +806,8 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 如需詳細資訊，請參閱[使用 WebJobs SDK 來取得本機開發的儀表板](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx) (英文)，但請注意，它會顯示舊的連接字串名稱。
 
-## 後續步驟
+### 其他 WebJobs 文件
 
-在本教學課程中，您看到使用 WebJobs SDK 進行後端處理的簡單多層次應用程式。此應用程式設計得很簡單，以做為入門的教學課程。例如，它不會實作[相依性插入](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection)或[存放庫和工作單位模式](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo)、不會[使用介面來記錄](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log)、不會使用 [EF Code First 移轉](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application)來管理資料模型變更或 [EF 連線復原](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)來管理暫時性網路錯誤等等。
+如需詳細資訊，請參閱 [Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?LinkId=390226)。
 
-如需詳細資訊，請參閱 [Azure Web 工作建議使用的資源](http://go.microsoft.com/fwlink/?LinkId=390226)。
-
-## 變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)。
-* 如需 Azure 入口網站變更為 Azure Preview 入口網站的指南，請參閱[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

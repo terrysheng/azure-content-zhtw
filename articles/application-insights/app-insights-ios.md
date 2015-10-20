@@ -1,19 +1,19 @@
 <properties
     pageTitle="iOS App 適用的 Application Insights | Microsoft Azure"
-	description="使用 Application Insights 分析您 iOS 應用程式的使用情況和效能。"
-	services="application-insights"
-	documentationCenter="ios"
-	authors="alancameronwills"
-	manager="ronmart"/>
+    description="使用 Application Insights 分析您 iOS 應用程式的使用情況和效能。"
+    services="application-insights"
+    documentationCenter="ios"
+    authors="alancameronwills"
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="04/27/2015"
-	ms.author="awills"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="04/27/2015"
+    ms.author="awills"/>
 
 # iOS 應用程式的 Application Insights
 
@@ -137,4 +137,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

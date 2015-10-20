@@ -515,4 +515,4 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 [Python Tools for Visual Studio 說明文件]: http://aka.ms/ptvsdocs
 [Django 說明文件]: https://www.djangoproject.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

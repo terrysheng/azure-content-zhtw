@@ -99,4 +99,4 @@
 
 如果您想要使用 Azure 資源管理員模式，設定在傳統虛擬網路與所建立的虛擬網路之間的連線，請參閱[將傳統 VNet 連線至 Azure 資源管理員 VNet](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -162,4 +162,4 @@
 
 您可以將虛擬機器加入您的虛擬網路。請參閱〈[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)〉。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

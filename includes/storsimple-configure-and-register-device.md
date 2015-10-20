@@ -76,4 +76,4 @@
 
 若要觀看影片示範如何使用 Windows PowerShell for StorSimple 設定和註冊裝置，請按一下[這裡](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

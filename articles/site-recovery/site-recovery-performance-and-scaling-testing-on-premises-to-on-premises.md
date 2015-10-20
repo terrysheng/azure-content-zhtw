@@ -208,4 +208,4 @@ Hyper-V 複本會使用復原伺服器上的少量記憶體來最佳化儲存作
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

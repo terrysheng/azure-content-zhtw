@@ -479,4 +479,4 @@ Apple 推播通知服務使用憑證來驗證您的行動服務。請依照這�
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -19,6 +19,10 @@
 
 #開始使用 DocumentDB .NET SDK  
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-get-started.md)
+- [Node.js](documentdb-nodejs-get-started.md)
+
 歡迎開始使用 DocumentDB .NET SDK！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 DocumentDB 資源。
 
 本文將討論：
@@ -31,7 +35,7 @@
 - 查詢集合
 - 刪除資料庫
 
-沒有時間嗎？ 別擔心！ 您可以在 [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 上找到完整的方案。請參閱[取得完整的解決方案](#GetSolution)，以取得簡要指示。
+沒有時間嗎？ 別擔心！ 您可以在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) 上找到完整的方案。請參閱[取得完整的解決方案](#GetSolution)，以取得簡要指示。
 
 之後，請使用此頁面頂端或底部的投票按鈕，將意見反應提供給我們。如果想要我們直接與您連絡，歡迎在留言中留下電子郵件地址。
 
@@ -102,7 +106,7 @@
 		}
 	}
 
-> [AZURE.WARNING]請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，原始程式碼中會顯示認證。如需如何在實際執行環境中儲存認證的相關資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式 (英文)](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。查看我們在 [GitHub](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs) 上的範例應用程式，以取得在原始程式碼外儲存認證的相關範例。
+> [AZURE.WARNING]請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，原始程式碼中會顯示認證。如需如何在實際執行環境中儲存認證的相關資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式 (英文)](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。查看我們在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) 上的範例應用程式，以取得在原始程式碼外儲存認證的相關範例。
 
 現在，您已經知道如何連接到 DocumentDB 帳戶和建立 **DocumentClient** 類別的執行個體，接下來說明使用 DocumentDB 資源。
 
@@ -130,7 +134,7 @@
 
 ##<a id="CreateColl"></a>步驟 5：建立集合  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
+> [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有價格含意的新 S1 集合。如需詳細資訊，請造訪[價格頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
 
 您可以使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。在 **GetStartedDemo** 方法中建立資料庫之後，建立名為 **FamilyCollection** 的新集合。
 
@@ -456,7 +460,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 若要建置包含本文中所有範例的 GetStarted 方案，您將需要下列項目：
 
 -   [DocumentDB 帳戶][documentdb-create-account]。
--   您可以在 GitHub 上找到 [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 方案。
+-   您可以在 GitHub 上找到 [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) 方案。
 
 若要在 Visual Studio 中還原 DocumentDB .NET SDK 的參考，請在 [方案總管] 的 **GetStarted** 方案上按一下滑鼠右鍵，然後按一下 [啟用 NuGet 封裝還原]。接下來，在 App.config 檔案中更新 EndpointUrl 和 AuthorizationKey 值，如[連接至 DocumentDB 帳戶](#Connect)中所述。
 
@@ -474,4 +478,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="09/30/2015" 
+	ms.date="10/13/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Redis 快取
@@ -368,4 +368,4 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -92,4 +92,4 @@ Azure 入口網站提供一種方法來快速建立 Azure 媒體服務帳戶。�
 
   [Azure 入口網站]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

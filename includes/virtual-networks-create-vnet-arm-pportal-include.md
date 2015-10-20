@@ -35,4 +35,4 @@
 
 	![VNet 中的子網路清單](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

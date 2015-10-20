@@ -20,10 +20,8 @@
 	    <array>
 	    <string>remote-notification</string>
 	    </array>
-	    ...
-    
-7. 如果您使用 **Xcode 7** 和 **iOS 9**，您就必須執行下列額外步驟：
-	- 在 [目標] > [建置設定]，將 [啟用 Bitcode] 設定為 [否]。請務必從頂端列選取 [全部]。 
+
+7. 如果您使用 **Xcode 7 +** 和 **iOS 9 +**：
 	- 在 [目標] > [目標名稱] > [功能]，啟用 [推播通知]。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

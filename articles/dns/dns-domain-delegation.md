@@ -129,15 +129,15 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
 
 因為使用註冊機構進行委派時，可透過查閱子區域的 SOA 記錄來確認一切都已正確設定。
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-	
+
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-	
+
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com
@@ -159,4 +159,4 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

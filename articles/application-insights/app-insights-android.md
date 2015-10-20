@@ -1,19 +1,19 @@
 <properties
     pageTitle="Android App 適用的 Application Insights | Microsoft Azure"
-	description="使用 Application Insights 分析您的 Android 應用程式的使用量和效能。"
-	services="application-insights"
-	documentationCenter="android"
-	authors="alancameronwills"
-	manager="ronmart"/>
+    description="使用 Application Insights 分析您的 Android 應用程式的使用量和效能。"
+    services="application-insights"
+    documentationCenter="android"
+    authors="alancameronwills"
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="na"
-	ms.topic="get-started-article"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="na"
+    ms.topic="get-started-article"
 	ms.date="04/28/2015"
-	ms.author="awills"/>
+    ms.author="awills"/>
 
 # Android 應用程式適用的 Application Insights
 
@@ -197,4 +197,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

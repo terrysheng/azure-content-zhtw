@@ -68,7 +68,8 @@
 
 現在您已擁有註冊 Windows Phone 8 應用程式和傳送通知所需的連接字串。
 
-> [AZURE.NOTE]本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中樞可讓您上傳憑證，以支援 [MPNS 驗證模式](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)。
+> [AZURE.NOTE]本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中樞支援 [MPNS 驗證模式](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx)。
+<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
 ##將您的應用程式連接到通知中樞
 

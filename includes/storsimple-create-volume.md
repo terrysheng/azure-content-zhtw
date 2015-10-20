@@ -14,7 +14,7 @@
 
 3. 在 [其他設定] 對話方塊中，加入新的存取控制記錄 (ACR)：
    1. 提供 ACR 的 [名稱]。
-   2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN][](#get-the-iqn-of-a-windows-server-host)。
+   2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN](#get-the-iqn-of-a-windows-server-host)。
    3. 在 [此磁碟區的預設備份嗎？] 下方，選取 [啟用] 核取方塊。預設備份將會建立原則，在每天的 22:30 (裝置時間) 執行，並建立此磁碟區的雲端快照。
 
      >[AZURE.NOTE]在此處啟用備份之後，就無法加以還原。您必須編輯磁碟區，才能修改此設定。

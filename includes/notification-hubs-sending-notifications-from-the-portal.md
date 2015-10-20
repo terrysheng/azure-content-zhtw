@@ -4,8 +4,8 @@
 
 以下是可供您在傳送通知時檢閱的其他教學課程清單：
 
-- Azure 行動服務：如需如何從已與通知中樞整合的 Azure 行動服務後端傳送通知的範例，請參閱 [開始在行動服務中使用推播通知]。  
-- ASP.NET：[使用通知中樞將通知推播給使用者]。
+- Azure 行動服務：如需如何從已與通知中樞整合的 Azure 行動服務後端傳送通知的範例，請參閱 [開始在行動服務中使用推播通知](../mobile-services-javascript-backend-ios-get-started-push.md)。  
+- ASP.NET：[使用通知中樞將通知推播給使用者](notification-hubs-aspnet-backend-ios-notify-users.md)。
 - Azure 通知中樞 Java SDK：請參閱[如何從 Java 使用通知中樞](../articles/notification-hubs/notification-hubs-java-backend-how-to.md)，以便從 Java 傳送通知。這已在 Eclipse for Android Development 中測試。
 - PHP：[如何從 PHP 使用通知中樞](../articles/notification-hubs/notification-hubs-php-backend-how-to.md)。
 

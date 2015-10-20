@@ -17,6 +17,6 @@
 
 4. 在應用程式的 [Insert a TodoItem] 中輸入有意義的文字，例如**完成教學課程**，然後按一下 [儲存]。
 
-	這會將 POST 要求傳送至本機行動服務。Data from the request is inserted into the TodoItem table.行動服務會傳回資料表中儲存的項目，而該資料會顯示在應用程式的第二欄。
+	這會將 POST 要求傳送至本機行動服務。要求中的資料會插入 TodoItem 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在應用程式的第二欄。
 
 <!---HONumber=Oct15_HO3-->

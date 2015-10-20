@@ -4,4 +4,4 @@
 
 如需使用 Azure Preview 入口網站的文件版本，請參閱下列連結：
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

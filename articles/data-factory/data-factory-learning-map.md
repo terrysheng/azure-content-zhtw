@@ -23,4 +23,4 @@ Data Factory 是雲端架構資料整合服務，用來協調以及自動移動�
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/adf-learning-map.svg" width="100%" height="100%"> </object>
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

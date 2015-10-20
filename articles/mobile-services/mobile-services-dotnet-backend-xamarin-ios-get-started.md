@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+>[AZURE.TIP]如果您是使用 Microsoft Azure 進行行動開發的新手，請參閱[開始使用 Azure 行動裝置應用程式](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)而非 Azure 行動服務；這可讓您有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
 
 本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Xamarin iOS 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單_待辦事項_應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本]。
 
@@ -138,4 +138,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

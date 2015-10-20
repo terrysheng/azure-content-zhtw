@@ -213,7 +213,7 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 ##參考
 [1] Predictive Analytics: Beyond the Predictions (預測性分析：超出預測)，W. McKnight，資訊管理，2011 年 7 月/8 月，第 18-20 頁。
 
-[2] 維基百科上的 [正確性和準確度] (http://en.wikipedia.org/wiki/Accuracy_and_precision)
+\[2] 維基百科上的 [正確性和準確度] (http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0：資料採礦逐步指南] (http://www.the-modeling-agency.com/crisp-dm.pdf)
 
@@ -238,4 +238,4 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

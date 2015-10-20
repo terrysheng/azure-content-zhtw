@@ -1,6 +1,7 @@
 <properties
    pageTitle="Hadoop 教學課程：開始在 Windows 上使用 Hadoop |Microsoft Azure"
    description="開始使用 HDInsight 中的 Hadoop。了解如何在 Windows 上佈建 Hadoop 叢集、在資料上執行 Hive 查詢和在 Excel 中輸出分析。"
+   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -83,7 +84,7 @@
 
 佈建叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 計算資源。在本節中，您將佈建採用 Hadoop 2.4 版的 HDInsight 3.1 版叢集。您也可以使用 Azure 入口網站、HDInsight PowerShell Cmdlet 或 HDInsight .NET SDK 來建立其他版本的 Hadoop 叢集。如需相關指示，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。
 
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE 〈[provisioningnote](../../includes/hdinsight-provisioning.md)〉]
 
 
 **佈建 Hadoop 叢集**
@@ -219,7 +220,7 @@
 - 〈[搭配 HDInsight 使用 Hivet][hdinsight-use-hive]〉
 - 〈[搭配 HDInsight 使用 Pig][hdinsight-use-pig]〉
 - 〈[在 HDInsight 上使用 Oozie][hdinsight-use-oozie]〉
-- 〈[開發 HDInsight 的 C#Hadoop 串流程式][hdinsight-develop-streaming]〉
+- 〈[開發 HDInsight 的 C# Hadoop 串流程式][hdinsight-develop-streaming]〉
 - 〈[開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]〉
 
 
@@ -279,4 +280,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

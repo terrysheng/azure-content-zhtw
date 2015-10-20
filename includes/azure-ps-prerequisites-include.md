@@ -3,4 +3,4 @@
 
 > [AZURE.NOTE]如果您沒有 Azure 帳戶，就需要申請一個。請[在此處註冊免費試用](sign-up-organization.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

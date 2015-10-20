@@ -33,14 +33,14 @@
 
 Linux VM 和 Docker 執行之後，請使用 SSH 從用戶端電腦連線到此 VM。如有需要，請執行下列兩個命令來安裝 [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md)。
 
->[AZURE.TIP]如果您使用了 Docker VM 延伸模組建立 VM，則 Compose 早已為您安裝好了。請略過這些命令，並移至步驟 3。只有在 VM 上自行安裝 Docker 時才需要安裝 Compose。
+>[AZURE.TIP] 如果您使用了 Docker VM 延伸模組建立 VM，則 Compose 早已為您安裝好了。請略過這些命令，並移至步驟 3。只有在 VM 上自行安裝 Docker 時才需要安裝 Compose。
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 
 $ chmod +x /usr/local/bin/docker-compose
 ```
->[AZURE.NOTE]如果出現「使用權限被拒」錯誤，表示此 VM 的 /usr/local/bin 目錄可能無法寫入，因此您必須以超級使用者的身分安裝 Compose。依序執行 `sudo -i`、以上兩個命令，然後再執行 `exit`。
+>[AZURE.NOTE] 如果出現「使用權限被拒」錯誤，表示此 VM 的 /usr/local/bin 目錄可能無法寫入，因此您必須以超級使用者的身分安裝 Compose。依序執行 `sudo -i`、以上兩個命令，然後再執行 `exit`。
 
 若要測試 Compose 的安裝，請執行下列命令。
 
@@ -48,9 +48,10 @@ $ chmod +x /usr/local/bin/docker-compose
 $ docker-compose --version
 ```
 
-您將看到類似 ```
+您將看到類似的輸出 
+```
 docker-compose 1.3.2
-``` 的輸出
+``` 
 
 
 ## 步驟 3：建立 docker-compose.yml 組態檔
@@ -59,25 +60,36 @@ docker-compose 1.3.2
 
 在 VM 上建立工作目錄，並使用您慣用的文字編輯器建立 `docker-compose.yml`。若要嘗試簡單的範例，請將下列文字複製到檔案。此組態會使用來自 [DockerHub 登錄](https://registry.hub.docker.com/_/wordpress/)的映像，安裝 WordPress (開放原始碼部落格和內容管理系統) 和連結的後端 MariaDB SQL 資料庫。
 
- ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
+ ```
+ wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
 
-db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: <your password>
 
 ```
 
-## Step 4: Start the containers with Compose
+## 步驟 4： 以 Compose 啟動容器
 
-In the working directory on your VM, simply run the following command.
+在您 VM 的工作目錄中，執行以下命令。
 
 ```
 $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
+如此會啟動 `docker-compose.yml` 中指定的 Docker 容器。 您會看到類似以下的輸出：
 
 ```
-Creating wordpress\_db\_1...Creating wordpress\_wordpress\_1... ```
+Creating wordpress\_db\_1...
+Creating wordpress\_wordpress\_1...
+```
 
 >[AZURE.NOTE]請務必在啟動時使用 **-d** 選項，讓容器在背景持續執行。
 
@@ -116,4 +128,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO2-->
+<!----HONumber=Oct15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@
 
 開啟 Machine Learning Studio：[https://studio.azureml.net/Home](https://studio.azureml.net/Home)。如需開始使用 Machine Learning Studio 的詳細資訊，請參閱 [Microsoft Azure Machine Learning Studio 首頁](https://studio.azureml.net/)。
 
+>[AZURE.TIP]若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](machine-learning-studio-overview-diagram.md)。
+
 我們將依照以下步驟建立信用風險評估解決方案：
 
 1.	[建立機器學習服務工作區](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -41,4 +43,4 @@
 
 此逐步解說以隨附於 Machine Learning Studio 的簡化版[信用風險預測範例實驗](../machine-learning-sample-credit-risk-prediction.md)為基礎。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties
  pageTitle="在 Azure 入口網站中開始使用 Azure 排程器 | Microsoft Azure"
-	description=""
-	services="scheduler"
-	documentationCenter=".NET"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
+ editor=""/>
 <tags
  ms.service="scheduler"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="08/18/2015"
-	ms.author="krisragh"/>
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="hero-article"
+ ms.date="08/18/2015"
+ ms.author="krisragh"/>
 
 # 在 Azure 入口網站使用 Azure 排程器以開始使用
 
@@ -261,4 +261,4 @@ Azure 排程器會實作以數個條件為基礎的配額。本節列出配額�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

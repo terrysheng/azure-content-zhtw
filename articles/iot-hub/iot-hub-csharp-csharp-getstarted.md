@@ -1,22 +1,22 @@
 <properties
-	pageTitle="IoT 中心入門 | Microsoft Azure"
+	pageTitle="開始使用 Azure IoT 中樞 | Microsoft Azure"
 	description="請遵循此教學課程以開始搭配 C# 使用 Azure IoT 中心。"
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
-     ms.topic="article"
+     ms.devlang="dotnet"
+     ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# IoT 中心入門
+# 教學課程：開始使用 IoT 中樞
 
 ## 簡介
 
@@ -24,13 +24,13 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 本教學課程示範如何使用 Azure 入口網站來建立 IoT 中心。它也示範如何在 IoT 中心中建立裝置身分識別、建立傳送裝置到雲端訊息的模擬裝置，並接收這些來自您雲端後端的訊息。
 
-在本教學課程結尾處，您將建立三個 Windows 主控台應用程式：
+在本教學課程結尾處，您將會有三個 Windows 主控台應用程式：
 
 * **CreateDeviceIdentity**，這會建立裝置身分識別和相關聯的安全性金鑰，來連線您的模擬裝置。
 * **ReadDeviceToCloudMessages**，這會讀取裝置到雲端訊息並顯示其內容，以及
 * **SimulatedDevice**，這會使用先前建立的裝置身分識別連接到您的 IoT 中心，並每秒傳送裝置到雲端訊息。
 
-> [AZURE.NOTE]IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中心) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。適用於 Java 和 Node 的 Azure IoT 服務 SDK 即將推出。
+> [AZURE.NOTE]IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 開發人員中心][]。適用於 Java 和 Node 的 Azure IoT 服務 SDK 即將推出。
 
 若要完成本教學課程，您需要下列項目：
 
@@ -92,17 +92,17 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 在本教學課程中，您可以設定新的 IoT 中心、在中心的身分識別登錄中建立裝置身分識別，並使用該身分識別進行傳送裝置到雲端訊息之模擬裝置的程式設計。您可以利用下列教學課程繼續探索 IoT 中心功能和案例：
 
-- [使用 IoT 中心傳送雲端到裝置訊息]，示範如何將訊息傳送到裝置，並處理 IoT 中心所產生的傳送意見反應。
-- [處理裝置到雲端訊息]，示範如何可靠地處理來自裝置的遙測和互動式訊息。
-- [從裝置上傳檔案]說明使用雲端到裝置訊息來幫助從裝置上傳檔案的模式。
+- [使用 IoT 中樞傳送雲端到裝置訊息][]，示範如何將訊息傳送到裝置，並處理 IoT 中樞所產生的傳送意見反應。
+- [處理裝置到雲端訊息][]，示範如何可靠地處理來自裝置的遙測和互動式訊息。
+- [從裝置上傳檔案][]，說明使用雲端到裝置訊息來幫助從裝置上傳檔案的模式。
 
 有關 IoT 中心的其他資訊：
 
-* [IoT 中心概觀]
-* [IoT 中心開發人員指南]
-* [IoT 中心指引]
+* [IoT 中樞概觀][]
+* [IoT 中樞開發人員指南][]
+* [IoT 中樞指引][]
 * [支援的裝置平台和語言][Supported devices]
-* [Azure IoT 開發人員中心]
+* [Azure IoT 開發人員中心][]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
@@ -117,20 +117,16 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 <!-- Links -->
 [Azure Preview 入口網站]: https://portal.azure.com/
 
-[使用 IoT 中心傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
+[使用 IoT 中樞傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
 [處理裝置到雲端訊息]: iot-hub-csharp-csharp-process-d2c.md
 [從裝置上傳檔案]: iot-hub-csharp-csharp-file-upload.md
 
-[IoT 中心概觀]: iot-hub-what-is-iot-hub.md
-[IoT 中心指引]: iot-hub-guidance.md
-[IoT 中心開發人員指南]: iot-hub-devguide.md
+[IoT 中樞概觀]: iot-hub-what-is-iot-hub.md
+[IoT 中樞指引]: iot-hub-guidance.md
+[IoT 中樞開發人員指南]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Azure IoT 開發人員中心]: http://www.azure.com/iotdev
+[Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

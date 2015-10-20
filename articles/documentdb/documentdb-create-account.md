@@ -41,9 +41,9 @@
 
 若要深入了解 DocumentDB，請探索以下資源：
 
--	[DocumentDB 的學習導覽圖](documentdb-learning-map.md)
+-	[DocumentDB 的學習途徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB 資源模型和概念](documentdb-resources.md)
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

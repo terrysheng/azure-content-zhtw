@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="開始在雲端中使用 Azure Multi-Factor Authentication"
-	description="這是說明如何開始在雲端中使用 Azure MFA 的 Azure Multi-Factor Authentication 頁面。"
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="開始在雲端中使用 Azure Multi-Factor Authentication" 
+	description="這是說明如何開始在雲端中使用 Azure MFA 的 Azure Multi-Factor Authentication 頁面。" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # 開始在雲端中使用 Azure Multi-Factor Authentication
@@ -156,4 +156,4 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 ## 後續步驟
 既然您已在雲端設定 Multi-Factor Authentication，接下來可以前往[設定 Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md) 來繼續進行後續步驟。 您將會瞭解有關報告、詐騙警示、自訂語音訊息，以及 Azure Multi-Factor Authentication 提供之所有功能的相關資訊。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

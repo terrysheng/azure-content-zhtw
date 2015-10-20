@@ -176,4 +176,4 @@
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!----HONumber=Sept15_HO1-->
+<!----HONumber=Oct15_HO3-->

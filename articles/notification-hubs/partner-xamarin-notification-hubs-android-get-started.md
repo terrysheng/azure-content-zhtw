@@ -497,4 +497,4 @@ Microsoft 提供 Azure 服務匯流排 SDK，以在 .NET 平台上傳送通知�
 [Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
 [Azure 訊息元件]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

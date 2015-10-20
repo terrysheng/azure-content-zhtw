@@ -39,4 +39,4 @@
 - [建立 Web 服務 API](machine-learning-publish-a-machine-learning-web-service.md)
 - [瀏覽立即可用的應用程式](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -194,4 +194,4 @@ RunExternalMergeProcess 的實作非常類似於 RunExternalTaskProcess，除了
 ###提交作業給批次應用程式
 作業描述要執行的工作負載，而且必須包含工作負載的所有資訊 (檔案內容除外)。例如，作業包含從用戶端流向作業分割器，再流向工作的組態設定。MSDN 上提供的範例示範如何提交工作，並提供多個用戶端，包括 Web 入口網站和命令列用戶端。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -4,4 +4,4 @@
   > 
   > + 您可以[啟用 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)：您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

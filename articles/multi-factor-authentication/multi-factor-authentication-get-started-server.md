@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="開始使用 Azure Multi-Factor Authentication Server"
-	description="這是說明如何開始使用 Azure MFA Server 的 Azure Multi-Factor Authentication 頁面。"
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="開始使用 Azure Multi-Factor Authentication Server" 
+	description="這是說明如何開始使用 Azure MFA Server 的 Azure Multi-Factor Authentication 頁面。" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # 開始使用 Azure Multi-Factor Authentication Server
@@ -165,4 +165,4 @@ Azure Multi-Factor Authentication Server 提供各種方式來設定您的使用
 [與 Windows Server Active Directory 同步處理](multi-factor-authentication-get-started-server-dirint.md)|有關設定 Active Directory 與 Azure MFA Server 之間同步處理的資訊。
 [部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

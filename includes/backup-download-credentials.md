@@ -29,4 +29,4 @@
 - 保存庫認證檔會在 48 小時後過期，並且可以從入口網站下載。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份的[常見問題集](backup-azure-backup-faq.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

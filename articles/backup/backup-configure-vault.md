@@ -34,4 +34,4 @@
 - [Azure 備份常見問題集](backup-azure-backup-faq.md)
 - [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

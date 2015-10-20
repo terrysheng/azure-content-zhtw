@@ -46,7 +46,7 @@
 4. 選取 [封裝設定]--在此您需要輸入 Twitter 應用程式的資訊。您可以使用下列步驟設定免費的應用程式：
 	1. 移至 [Twitter 應用程式註冊頁面](http://apps.twitter.com)。
 	2. 建立新的應用程式。
-	3. 提供名稱和描述。您可以輸入網站的任何 URL 並將回呼 URL 留白。
+	3. 提供名稱和描述。您可以輸入網站的任何 URL，以及回呼 URL 的任何 URL (不要留白)。
 	4. 註冊之後，從 Twitter 將 [取用者金鑰] 複製到 Azure 中的 [clientId] 欄位中，以及從 Twitter 將 [取用者密碼] 複製到 [clientSecret] 中。
 	5. 按一下 Azure 窗格中的 [確定] 以返回其他 API 設定。
 
@@ -184,4 +184,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

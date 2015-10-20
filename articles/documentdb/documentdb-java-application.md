@@ -19,6 +19,12 @@
 
 # 使用 DocumentDB 來建置 Java Web 應用程式
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 本 Java Web 應用程式教學課程示範如何使用 [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) 服務，從 Azure 網站上託管的 Java 應用程式儲存和存取資料。在本教學課程中，您將了解：
 
 - 如何在 Eclipse 中建置基本的 JSP 應用程式。
@@ -89,7 +95,7 @@
 4. 在 [**選取相依性**] 視窗中，執行下列動作：
  - 在 [**GroupId**] 方塊中，輸入 com.microsoft.azure。
  - 在 [**成品 ID**] 方塊中，輸入 azure documentdb。
- - 在 [**版本**] 方塊中，輸入 1.1.0。
+ - 在 [版本] 方塊中，輸入 1.1.0。
 
 	![安裝 DocumentDB Java 應用程式 SDK](./media/documentdb-java-application/image13.png)
 
@@ -119,7 +125,7 @@
 
 	在此專案中，我們會使用 [Project Lombok](http://projectlombok.org/) 來產生建構函式、getter、setter 及產生器。或者，您也可以手動撰寫此程式碼，或讓 IDE 產生它。
 
-2. 若要叫用 DocumentDB 服務，您必須將新的 **DocumentClient** 具現化。一般而言，最好是重複使用 **DocumentClient**，而不要針對每個後續要求建構新的用戶端。我們可以將用戶端包裝在 **DocumentClientFactory** 中以重複使用用戶端。您也可以在此貼上您在[步驟 1](#CreateDB) 中儲存到剪貼簿的 URI 和主要金鑰值。將 [YOUR\_ENDPOINT\_HERE] 以您的 URI 取代，並將 [YOUR\_KEY\_HERE] 以您的主要金鑰取代。
+2. 若要叫用 DocumentDB 服務，您必須將新的 **DocumentClient** 具現化。一般而言，最好是重複使用 **DocumentClient**，而不要針對每個後續要求建構新的用戶端。我們可以將用戶端包裝在 **DocumentClientFactory** 中以重複使用用戶端。您也可以在此貼上您在 [步驟 1](#CreateDB) 中儲存到剪貼簿的 URI 和主要金鑰值。將 [YOUR\_ENDPOINT\_HERE] 以您的 URI 取代，並將 [YOUR\_KEY\_HERE] 以您的主要金鑰取代。
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -733,7 +739,7 @@
 
 5. 好極了！ 現在只剩下測試應用程式。在本機執行應用程式，並填入項目名稱和類別，然後按一下 [**新增工作**] 來新增一些待辦事項。
 
-6. 當項目出現時，您可以切換勾選核取方塊，然後按一下 [**更新工作**]，來更新其完成狀態。
+6. 當項目出現時，您可以切換勾選核取方塊，然後按一下 [更新工作]，來更新其完成狀態。
 
 ##<a id="Deploy"></a>步驟 6：將 Java 應用程式部署至 Azure 網站
 
@@ -780,4 +786,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

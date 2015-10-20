@@ -20,6 +20,12 @@
 
 #<a name="_Toc395809351"></a>開發以 ASP.NET MVC 使用 DocumentDB 的 Web 應用程式
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md) 
+
 為了特別說明您可以如何有效率地利用 Azure DocumentDB 來儲存和查詢 JSON 文件，本文提供如何使用 Azure DocumentDB 建置待辦事項清單 Web 應用程式的完整逐步解說。在 Azure DocumentDB 中，這些工作將會儲存為 JSON 文件。
 
 ![本教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/documentdb-dotnet-application/image1.png)
@@ -28,7 +34,7 @@
 
 > [AZURE.TIP]本教學課程假設您先前有過使用 ASP.NET MVC 和 Azure 網站的經驗。如果您不熟悉 ASP.NET 或[必備工具](#_Toc395637760)，我們建議您從 [GitHub][] 下載完整的範例專案，並依照此範例的指示進行。建置完成後，您可以檢閱此文章，以加深對專案內容中程式碼的了解。
 
-## <a name="_Toc395637760"></a> 此資料庫教學課程的必要條件
+## <a name="_Toc395637760"></a>此資料庫教學課程的必要條件
 
 在依照本文中的指示進行之前，您應先確定備妥下列項目：
 
@@ -476,7 +482,7 @@
 			return View(); 
    		}
 
-	現在此控制器需要更多程式碼，以接受 [建立] 檢視所提交的資料。
+	現在此控制器需要更多程式碼，以接受 [**建立**] 檢視所提交的資料。
 
 2. 將下一個程式碼區塊新增至 ItemController.cs 類別，以告訴 ASP.NET MVC 如何使用表單 POST 來執行此控制器的作業。
 	
@@ -493,7 +499,7 @@
 		}
 	這段程式碼會呼叫 DocumentDBRepository，並且使用 CreateItemAsync 方法將新的待辦事項項目保存到資料庫。
  
-	**安全性注意事項**：此處所使用的 **ValidateAntiForgeryToken** 屬性可協助應用程式防止跨網站偽造要求攻擊。這不光只是新增此屬性，您的檢視也必須使用這個防偽權杖。如需此主題的詳細資訊以及如何正確實作此作業的範例，請參閱[防止跨網站偽造要求][] (英文)。[GitHub][] 上提供的原始程式碼已有完整實作。
+	**安全性注意事項**：此處所使用的 **ValidateAntiForgeryToken** 屬性可協助應用程式防止跨網站偽造要求攻擊。這不光只是新增此屬性，您的檢視也必須使用這個防偽權杖。如需此主題的詳細資訊以及如何正確實作此作業的範例，請參閱[防止跨網站偽造要求][]。[GitHub][] 上提供的原始程式碼已有完整實作。
 
 	**安全性注意事項**：我們也會在方法參數上使用 **Bind** 屬性，以協助防範 over-posting 攻擊。如需詳細資訊，請參閱 [ASP.NET MVC 中的基本 CRUD 作業][]。
 
@@ -565,9 +571,9 @@
 		}
 		
 	
-	第一個方法會處理當使用者按一下 [索引] 檢視中的 [編輯] 連結時所發生的 Http GET。此方法會從 DocumentDB 中提取 [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，並將它傳遞給 [編輯] 檢視。
+	第一個方法會處理當使用者按一下 [**索引**] 檢視中的 [**編輯**] 連結時所發生的 Http GET。此方法會從 DocumentDB 中提取 [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，並將它傳遞給 [**編輯**] 檢視。
 
-	[編輯] 檢視會接著對 **IndexController** 執行 Http POST。
+	[**編輯**] 檢視會接著對 **IndexController** 執行 Http POST。
 	
 	新增的第二個方法會處理此作業，將更新物件傳遞至 DocumentDB 並保留在資料庫中。
 
@@ -627,4 +633,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

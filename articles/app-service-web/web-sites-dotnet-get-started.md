@@ -37,11 +37,11 @@
 您將了解：
 
 * 如何安裝 [Azure SDK for .NET](../dotnet-sdk/) 好讓電腦準備好用於 Azure 開發。
-* 如何設定 Visual Studio 在建立 Web 專案時建立新的 App Service Web 應用程式。
+* 如何設定 Visual Studio 在建立 ASP.NET MVC 5 Web 專案時建立新的 App Service Web 應用程式。
 * 如何使用 Visual Studio 將 Web 專案部署到 App Service Web 應用程式。
 * 如何使用 [Azure 入口網站](/overview/preview-portal/)來監控及管理您的 Web 應用程式。
 
-本教學課程不會教您如何撰寫程式碼自訂 Web 應用程式。如需更進階的教學課程了解如何使用資料庫和驗證使用者，請參閱[將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC App 部署至 Azure Web 應用程式](/develop/net/tutorials/web-site-with-sql-database/)。
+這是快速而簡單的教學課程，不會顯示如何以自訂您建立的 Web 專案。如需 ASP.NET MVC 5 Web 應用程式開發的簡介，請參閱 [ASP.NET](http://asp.net/) 站台上的[開始使用 ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)。如需連結至其他更深入探討 Azure App Service 中 Web 應用程式的文章，請參閱 [後續步驟](#next-steps)一節。
 
 ##<a name="video"></a>註冊 Microsoft Azure
 
@@ -74,7 +74,7 @@
 
 3. 在 [新增專案] 對話方塊中，按一下 [C#] > [Web] > [ASP.NET Web 應用程式]。如有需要，您可以選擇 [Visual Basic]。
 
-3. 確定已選取 [.NET Framework 4.5.2] 做為目標架構。
+3. 確定已選取 [.NET Framework 4.5.2] 作為目標架構。
 
 4.  [Azure Application Insights](app-insights-overview.md) 會監視 Web App 的可用性、效能和使用情形。如果您不想要試用，請清除 [將 Application Insights 加入專案] 核取方塊。
 
@@ -96,7 +96,7 @@
 
 	![不需要驗證](./media/web-sites-dotnet-get-started/GS13noauth.png)
 
-	您正在建立的範例應用程式無法讓使用者登入。[後續步驟](#next-steps)一節會提供實作驗證和授權的教學課程連結。
+	您正在建立的範例應用程式無法讓使用者登入。[後續步驟](#next-steps)一節會連結到實作驗證和授權的教學課程。
 
 5. 在 [新增 ASP.NET 專案] 對話方塊中，讓 [Microsoft Azure] 下的設定保持不變，然後按一下 [確定]。
 
@@ -110,7 +110,7 @@
 
 	![已登入 Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. 在 [設定 Microsoft Azure Web 應用程式設定] 對話方塊中，輸入在 *azurewebsites.net* 網域中唯一的 **Web 應用程式名稱**。例如，您可以將它命名為 MyExample 並於右邊加上數字，使其成為唯一的名稱，例如 MyExample810。如果預設的 Web 名稱針對您所建立，則它將是唯一的，且您可以使用該名稱。
+3. 在 [設定 Microsoft Azure Web 應用程式設定] 對話方塊方塊中，輸入 **Web 應用程式名稱**，且該名稱於 *azurewebsites.net* 網域中需為唯一名稱。例如，您可以將它命名為 MyExample 並於右邊加上數字，使其成為唯一的名稱，例如 MyExample810。如果預設的 Web 名稱針對您所建立，則它將是唯一的，且您可以使用該名稱。
 
 	如果有其他人使用了您輸入的名稱，您就會在右邊看到紅色驚嘆號，而不是綠色勾號，這代表您需要輸入不同的名稱。
 
@@ -134,7 +134,7 @@
 
 5. 保留資料庫欄位不變。
 
-	在本教學課程中，您不會使用資料庫。[後續步驟](#next-steps)一節會提供示範如何使用資料庫的教學課程連結。
+	在本教學課程中，您不會使用資料庫。[後續步驟](#next-steps)小節會提供教學課程連結，以示範資料庫的使用方法。
 
 6. 按一下 [確定]。
 
@@ -164,7 +164,7 @@
 
 	![選擇發佈](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	[發佈 Web] 精靈會在數秒後出現。此精靈會開啟進入 [發佈設定檔]，其中包含將 Web 專案部署到新 Web 應用程式的設定。如果您想要部署到不同的 Web 應用程式，可以按一下 [設定檔] 索引標籤來建立不同的設定檔。在本教學課程中，您將會接受部署到您稍早建立的 Web 應用程式的設定。
+	幾秒後，[發佈 Web] 精靈隨即出現。此精靈會開啟進入 [發佈設定檔]，其中包含將 Web 專案部署到新 Web 應用程式的設定。如果您想要部署到不同的 Web 應用程式，可以按一下 [設定檔] 索引標籤來建立不同的設定檔。在本教學課程中，您將會接受部署到您稍早建立的 Web 應用程式的設定。
 
 8. 在 [發佈 Web] 精靈的 [連接] 索引標籤中，按 [下一步]。
 
@@ -174,7 +174,7 @@
 
 	您可以接受 [組態] 和 [檔案發行選項] 的預設值。
 
-	您可以使用 [組態] 下拉式清單，部署用於遠端偵錯的偵錯組建。[後續步驟](#next-steps)一節會提供說明如何從遠端以偵錯模式執行 Visual Studio 的教學課程連結。
+	您可以使用 [組態] 下拉式清單，部署用於遠端偵錯的偵錯組建。[後續步驟](#next-steps)小節會連結至說明如何從遠端以偵錯模式執行 Visual Studio 的教學課程。
 
 	![[設定] 索引標籤](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
@@ -196,7 +196,7 @@
 
 13. 關閉瀏覽器。
 
-**提示：**您可以啟用 [Web 單鍵發行] 工具列，以加快部署速度。按一下 [檢視] > [工具列]，然後選取 [Web 單鍵發行]。您可以使用工具列來選取設定檔、按一下按鈕來發佈，或按一下按鈕來開啟 [發佈 Web] 精靈。
+**提示：**您可以啟用 [Web 單鍵發佈] 工具列，以加快部署速度。按一下 [檢視] > [工具列]，然後選取 [Web 單鍵發佈]。您可以使用工具列來選取設定檔、按一下按鈕來發佈，或按一下按鈕來開啟 [發佈 Web] 精靈。
 
 ![Web 單鍵發行工具列](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
@@ -236,7 +236,7 @@
 
 * 如何新增資料庫與授權功能
 
-	如需觀看教學課程來了解如何存取資料庫以及將某些應用程式功能限定給授權使用者，請參閱[將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式部署至 Azure Web 應用程式](/develop/net/tutorials/web-site-with-sql-database/)。
+	如需觀看教學課程來了解如何存取資料庫以及將某些應用程式功能限定給授權使用者，請參閱[將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式部署至 Azure Web 應用程式](/develop/net/tutorials/web-site-with-sql-database/)。該教學課程會採用 MVC 5 的一些知識；如果您是初次使用 MVC 5，請參閱[開始使用 ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)。
 
 * 部署 Web 專案的其他方式
 
@@ -268,7 +268,7 @@
 * [如何選擇或建立資源群組](../azure-preview-portal-using-resource-groups.md)
 
 ## 變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 和現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
+* 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
 * 如需從 Azure 入口網站變更為 Preview 入口網站的指南，請參閱[瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

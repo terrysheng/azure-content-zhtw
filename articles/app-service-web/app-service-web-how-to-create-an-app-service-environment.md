@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+	ms.date="10/13/2015" 
 	ms.author="ccompy"/>
 
 # 如何建立 App Service 環境 #
@@ -39,12 +39,12 @@ ASE 功能基本上會將 Azure App Service 部署到客戶的 VNET 中。若要
 存取 ASE 建立 UI 的方法有兩種。在 Azure Marketplace 中搜尋 ***App Service 環境***或經由 [新增] -> [Web + 行動]，即可找到。
 
 ### 快速建立 ###
-輸入建立 UI 之後，只要輸入部署的名稱，即可快速建立 ASE。接著會建立具有 512 個位址的 VNET、在該 VNET 中具有 256 個位址的子網路，以及在背景工作集區 1 中有 2 個前端和 2 個背景工作的 ASE 環境。請務必選取您要設置系統的位置，以及您要系統所屬的訂用帳戶。唯一可使用 ASE 來裝載內容的帳戶必須屬於用來建立帳戶的訂用帳戶。
+輸入建立 UI 之後，只要輸入部署的名稱，即可快速建立 ASE。接著會建立具有 512 個位址的 VNET、在該 VNET 中具有 256 個位址的子網路，以及在背景工作集區 1 中有 2 個前端和 2 個背景工作的 ASE 環境。務必建立新的 *應用程式服務計劃*，或選取現有的應用程式服務計劃，以及和您想要它位於其中的訂用帳戶。唯一可使用 ASE 來裝載內容的帳戶必須屬於用來建立帳戶的訂用帳戶。
 
 針對 ASE 指定的名稱將用於在 ASE 中建立的 Web 應用程式。如果 ASE 的名稱是 appsvcenvdemo，則網域名稱會是 .*appsvcenvdemo.p.azurewebsites.net*。如果您因此建立名為 mytestapp 的 Web 應用程式，則可定址於 *mytestapp.appsvcenvdemo.p.azurewebsites.net*。您無法在名稱中使用空白字元。如果您在名稱中使用大寫字元，則網域名稱會是該名稱的全小寫版本。
 
 
-![][1]
+![][1] ![][4]
 
 ### 計算資源集區 ###
 
@@ -67,7 +67,7 @@ ASE 功能基本上會將 Azure App Service 部署到客戶的 VNET 中。若要
 - 如果 X 介於 21 到 40，您可用於工作負載的可用計算資源數量為 X-2
 - 如果 X 介於 41 到 53，您可用於工作負載的可用計算資源數量為 X-3
 
-除了能夠管理您可指派給指定集區的計算資源數量以外，您也可以控制大小。在 App Service 環境中，您可以選擇 4 個標示為 P1 至 P4 的不同大小。如需大小及其定價的詳細資訊，請參閱 [App Service 定價][AppServicePricing]。P1 至 P3 計算資源大小與多租用戶環境中可用的大小相同。P4 計算資源提供 14 GB RAM 的八核心， 而且只適用於 App Service 環境。
+除了能夠管理您可指派給指定集區的計算資源數量以外，您也可以控制大小。在 App Service 環境中，您可以選擇 4 個標示為 P1 至 P4 的不同大小。如需大小及其價格的詳細資訊，請參閱 [App Service 價格][AppServicePricing]。P1 至 P3 計算資源大小與多租用戶環境中可用的大小相同。P4 計算資源提供 14 GB RAM 的八核心， 而且只適用於 App Service 環境。
 
 App Service 環境的定價是根據指派的計算資源。無論是否裝載工作負載，您都需支付配置給您的 App Service 環境的計算資源。
 
@@ -138,6 +138,7 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseappserviceplan.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -145,4 +146,4 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

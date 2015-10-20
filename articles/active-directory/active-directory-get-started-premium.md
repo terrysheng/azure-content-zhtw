@@ -4,6 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
+	writer="markvi"
 	manager="stevenpo" 
 	editor="LisaToft"/>
 
@@ -18,17 +19,17 @@
 
 # 開始使用 Azure Active Directory Premium
 
-Azure Active Directory 有三種版本：免費、基本和進階。免費版本隨附於 Azure 或 Office 365 訂用帳戶。基本和進階版本可透過 [Microsoft Enterprise 合約](https://www.microsoft.com/zh-tw/licensing/licensing-programs/enterprise.aspx)或[開啟大量授權](https://www.microsoft.com/zh-tw/licensing/licensing-programs/open-license.aspx) 程式取得。Azure 和 Office 365 訂閱者也可以線上購買 Active Directory Premium。[在此登入](https://portal.office.com/Commerce/Catalog.aspx)購買。
+Azure Active Directory 有三種版本：免費、基本和進階。免費版本隨附於 Azure 或 Office 365 訂用帳戶。基本和進階版本可透過 [Microsoft Enterprise 合約](https://www.microsoft.com/zh-TW/licensing/licensing-programs/enterprise.aspx)或[開啟大量授權](https://www.microsoft.com/zh-TW/licensing/licensing-programs/open-license.aspx) 程式取得。Azure 和 Office 365 訂閱者也可以線上購買 Active Directory Premium。[在此登入](https://portal.office.com/Commerce/Catalog.aspx)購買。
 
 > [AZURE.NOTE]Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。如需詳細資訊，請透過 [Azure Active Directory 論壇](http://feedback.azure.com/forums/169401-azure-active-directory)與我們連絡。
 
-Azure Active Directory Premium 也包含在 **Enterprise Mobility Suite** 中。Enterprise Mobility Suite 是一個符合成本效益的方式，可供組織根據單一授權方案來搭配使用 Microsoft Intune、Azure 版權管理和 Active Directory Premium 服務。如需詳細資訊，請參閱 [Enterprise Mobility Suite](https://www.microsoft.com/zh-tw/server-cloud/enterprise-mobility/overview.aspx) 網站。
+Azure Active Directory Premium 也包含在 **Enterprise Mobility Suite** 中。Enterprise Mobility Suite 是一個符合成本效益的方式，可供組織根據單一授權方案來搭配使用 Microsoft Intune、Azure 版權管理和 Active Directory Premium 服務。如需詳細資訊，請參閱 [Enterprise Mobility Suite](https://www.microsoft.com/zh-TW/server-cloud/enterprise-mobility/overview.aspx) 網站。
 
 若要立即開始使用 Azure Active Directory Premium 功能，請遵照下列步驟進行。相同的步驟適用於 Azure Active Directory Basic 版本。
 
 ## 步驟 1：註冊 Active Directory Premium
 
-若要註冊，請參閱[大量授權](http://www.microsoft.com/zh-tw/licensing/how-to-buy/how-to-buy.aspx)網站。
+若要註冊，請參閱[大量授權](http://www.microsoft.com/zh-TW/licensing/how-to-buy/how-to-buy.aspx)網站。
 
 ## 步驟 2：啟用您的授權方案
 
@@ -121,4 +122,4 @@ Microsoft 雲端服務的服務和功能可用性會依國家或地區而有所�
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

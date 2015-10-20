@@ -380,8 +380,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 	- *client* 是我們用來發出 HTTP POST 要求的 *XMLHttpRequest* 執行個體。請注意，我們會使用 sasToken 更新 *Authorization* 標頭。成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
 
 
-您應該會在結尾處看見下列資料夾檢視：
-   	![][21]
+您應該會在結尾處看見下列資料夾檢視：![][21]
 
 ###設定和測試 Chrome 應用程式
 
@@ -494,4 +493,4 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 [Azure 通知中樞通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 通知中樞即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

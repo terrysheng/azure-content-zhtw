@@ -105,4 +105,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/A | 沒有對應，因此會使用 H
 
 既然您已經更了解儲存體對應，請開始閱讀[最佳作法](site-recovery-best-practices.md)以準備部署。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -171,7 +171,7 @@
 
 在本節中，您會建立本機 Git 儲存機制並從該儲存機制發送至 Azure，以便將範例應用程式部署至在 Azure App Service 中執行的 API 應用程式。
 
-1. 如果未安裝 Git，請從 [Git 下載頁面](http://git-scm.com/download%20target="_blank")進行安裝。
+1. 如果未安裝 Git，請從 [Git 下載頁面](http://git-scm.com/download)進行安裝。
 
 1. 從命令列中，將目錄變更至範例應用程式目錄，然後輸入下列命令以初始化本機 Git 儲存機制。
 
@@ -249,4 +249,4 @@
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

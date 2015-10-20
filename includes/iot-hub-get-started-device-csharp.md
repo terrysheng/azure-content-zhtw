@@ -8,7 +8,7 @@
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [**管理方案的 NuGet 封裝...**]。
 
-	這會顯示 [管理 NuGet 封裝] 視窗。
+	此時會顯示 [管理 NuGet 封裝] 視窗。
 
 3. 搜尋 `Microsoft Azure Devices Client`，然後按一下 [**安裝**] 並接受使用條款。
 
@@ -72,4 +72,4 @@
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

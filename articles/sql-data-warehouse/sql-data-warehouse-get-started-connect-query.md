@@ -3,8 +3,8 @@
    description="開始連線到 SQL 資料倉儲並執行一些查詢。"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
+   authors="twounder"
+   manager=""
    editor=""/>
 
 <tags
@@ -13,153 +13,51 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/01/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="10/07/2015"
+   ms.author="twounder"/>
 
-# 入門：連接到 Azure SQL 資料倉儲
-本快速入門文章將介紹如何使用兩個不同的工具，連接到並查詢已佈建的 SQL 資料倉儲執行個體：
+# 使用 Visual Studio 連接及查詢
 
-- **Visual Studio** - Visual Studio 的整合式程式碼編輯器和偵錯工具 SQL Server Data Tools (SSDT) 可與 SQL 資料倉儲完全相容，讓您能夠輕鬆地連接、查詢及管理 SQL 資料倉儲。  
+> [AZURE.SELECTOR]
+- [Visual Studio](sql-data-warehouse-get-started-connect-query.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-query-sqlcmd.md)
 
-> [AZURE.NOTE]SQL 資料倉儲至少需要 SSDT 預覽版本 12.0.50623 或更新版本。
+本逐步解說將示範使用 Visual Studio 在短時間內連接和查詢 Azure SQL 資料倉儲資料庫的方式。在本逐步解說中，您將：
 
-- **sqlcmd** - sqlcmd 是一種命令列工具，可提供簡單的連線和查詢功能。  
++ 安裝必要軟體
++ 連接到包含 AdventureWorksDW 範例資料庫的資料庫
++ 針對範例資料庫執行查詢  
 
-完成本文後，您將會：
+## 必要條件
 
-1. 安裝和更新 Visual Studio 2013。
-2. 在 SSDT 中建立 SQL 資料倉儲的連線。
-3. 對 SQL 資料倉儲資料庫執行查詢。
++ Visual Studio 2013/2015 - 若要下載並安裝 Visual Studio 2015 及/或 SSDT，請參閱[安裝 Visual Studio 與 SSDT](sql-data-warehouse-install-visual-studio.md)
 
->[AZURE.NOTE]假設您已完成佈建指南，或有可用的 SQL 資料倉儲。如果您尚未佈建 SQL 資料倉儲，則請參閱前面的[佈建快速入門](sql-data-warehouse-get-started-provision.md)。
+## 取得您的完整 Azure SQL 伺服器名稱
 
-## 設定 Visual Studio 進行開發##
-若要進行開發，SQL 資料倉儲團隊建議使用 Visual Studio 2013 或更新版本搭配 SQL Server Data Tools。以下內容將概述如果您尚未安裝可行的 Visual Studio 版本，要如何下載和更新 Visual Studio 2013。
+若要連接至您的資料庫，需要包含您想連接之資料庫的伺服器完整名稱 (****servername**.database.windows.net*)。
 
-如果您在尋找詳細資訊，可以利用[完整 SSDT 文件](https://msdn.microsoft.com/library/azure/hh272686.aspx)來解決一般 SSDT 問題。
+1. 移至 [Azure Preview 入口網站](https://portal.azure.com)。
+2. 瀏覽至您想連接的資料庫。
+3. 找出完整的伺服器名稱 (我們將在下列步驟中使用此名稱)：
 
-### 取得 Visual Studio 2013 ###
-前往 Visual Studio 2013 網站，下載並安裝一份 Visual Studio。請記住，對於 SQL 資料倉儲，任何免費版本就綽綽有餘。隨意挑選一個符合您需求的版本。
+![][1]
 
-<a href="https://www.visualstudio.com/downloads/download-visual-studio-vs#DownloadFamilies_5" target="blank">取得 Visual Studio 2013</a>
-
-### 更新 Visual Studio 2013 ###
-是否已安裝 Visual Studio 2013？ 太棒了 ！ 若要確定它是否為最新狀態，只需執行下列步驟。您可以移到下一個步驟。
-
-1. 開啟 Visual Studio 2013。
-2. 選擇 [工具] 功能表，然後選取 [擴充功能和更新]。
-3. 在樹狀目錄控制項中瀏覽到 [更新] 和 [產品更新]。
-4. 如果沒有更新可供使用，則您可以安全地關閉 [擴充功能和更新] 視窗，然後繼續進行本快速入門中的下一個工作。
-
-不過，如果有適用於 Visual Studio 的更新存在，請按一下 [更新] 按鈕。這會開始下載 Visual Studio 2013 的最新更新。
-
-關閉 [擴充功能和更新] 視窗，同時也需關閉 Visual Studio 2013，才能繼續。
-
-5. 按一下 [執行] 按鈕，將最新更新安裝到 Visual Studio 2013。
-
-6. 同意授權條款，然後按一下 [安裝] 按鈕，接受所有的使用者帳戶控制 (UAC) 提示。
-
-7. 按一下 [啟動] 按鈕，即可完成安裝作業。
-
-這樣就完成 Visual Studio 2013 的更新。
-
-### 更新 SSDT
-> [AZURE.IMPORTANT]SQL 資料倉儲至少需要 SSDT 預覽版本 12.0.50623 或更新版本。
-
-SSDT 工程師經常會利用新功能來更新其外掛程式，所以您將會發現必須隨時更新。再次提醒，這是非常簡單的程序。若要檢查是否需要更新 SSDT，請執行下列步驟：
-
-1. 開啟 Visual Studio 2013。  
-2. 選擇 [工具] 功能表，然後選取 [擴充功能和更新]。
-3. 在樹狀目錄控制項中瀏覽到 [更新] 和 [產品更新]。
-4. 如果沒有更新可供使用，則您可以安全地關閉 [擴充功能和更新] 視窗，然後繼續進行本快速入門中的下一個工作。
-
-不過，如果有名為「資料庫工具適用的 Microsoft SQL Server 更新」的更新存在，請按一下 [更新] 按鈕。這會開始下載最新的 SSDT 版本。
-
-5. 按一下 [執行] 按鈕，安裝最新的 SSDT 版本。
-
-6. 同意授權條款，然後按一下 [安裝] 按鈕
-
-7. 按一下 [關閉] 按鈕，即可完成 SSDT 更新。
-
-8. 關閉 [擴充功能和更新] 視窗。
-
-您的桌面上現在具有最新版的 Visual Studio 2013 以及最新的 SSDT 擴充功能。
-
-> [AZURE.NOTE]目前建議使用 [Visual Studio 2013 版本 12.0.50623 或更新版本的 SSDT 預覽](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409)。
-
-## 透過 Visual Studio 2013 連線
-如果您目前正在執行所需的 Visual Studio 版本，您將能夠利用兩個不同的方式來連接到 SQL 資料倉儲執行個體。
-
-### 從 Visual Studio 連接
-若要進行連線，只需開啟 [SQL Server 物件總管] 並傳入連線資訊。
+## 連接到您的 SQL Database
 
 1. 開啟 Visual Studio。
-2. 選擇 [檢視] 功能表，然後從下拉式清單中選取 [SQL Server 物件總管]。
+2. 從 [檢視] 功能表開啟 **SQL Server 物件總管**
+ 
+![][2]
 
-> [AZURE.NOTE]確定您選擇的是 SQL Server 物件總管，而「不是」伺服器總管。這兩個名稱聽起來很類似，但是非常不同的控制項。兩者的位置相鄰，所以請格外小心，並確定您已選取正確的項目。
+3. 按一下 [新增 SQL Server] 按鈕
 
-您現在可以看到 [SQL Server 物件總管]：
+![][3]
 
+4. 輸入我們在上方擷取的*伺服器名稱*
+5. 在 [驗證] 清單中，選取 [SQL Server 驗證]。
+6. 輸入您建立 SQL Database 伺服器時指定的「登入」和「密碼」，然後按一下 [連接]。
 
-3. 按一下 [SQL Server 物件總管] 的 [新增伺服器] 按鈕。
-
-4. 在 [連接到伺服器] 對話方塊中，填入建立邏輯伺服器時所選擇的值。此外，在連接之前，請按一下 [選項] 按鈕並指定您要連接到 (您的 SQL Data Warehouse 執行個體) 的資料庫。
-
-您可以視需要自由選取 [記住密碼] 方塊。它是一個不錯的省時裝置，但記住，這讓任何人都能實際存取您的設定檔，進而使用此帳戶來執行查詢。
-
-> [AZURE.NOTE]請記住，伺服器名稱必須是完整名稱。因此，您的伺服器名稱值應遵循以下慣例：*ServerName*.database.windows.net，其中的 *ServerName* 是您提供給邏輯伺服器的名稱。
-
-填妥認證後，按一下 [連接]。
-
-您現已完成連線，並已在 [SQL Server 物件總管] 中註冊您的 SQL 資料倉儲邏輯伺服器。
-
-### 從 Azure 入口網站連接
-直接從 Azure 入口網站取得 Visual Studio。
-
-1. 登入 [Azure 入口網站](http://manage.windowsazure.com/)。
-2. 在 [瀏覽] 刀鋒視窗中，選取您所需的 SQL 資料倉儲執行個體。
-3. 在 SQL 資料倉儲刀鋒視窗頂端，選取 [在 Visual 中開啟]。
-4. 如果您尚未使用用戶端電腦的 IP 來設定防火牆，請選取 [設定您的防火牆]。
-
-	a.輸入 [規則名稱]：[開始 IP] 和 [結束 IP]。
-
-	b.按一下刀鋒視窗頂端的 [儲存]。
-5. 按一下 [在 Visual Studio 中開啟]。
-6. Visual Studio 將會開啟，而系統會提示您輸入認證。
-7. 輸入您的認證並連線之後，您的伺服器和資料倉儲執行個體將會出現在 [SQL Server 物件總管] 面板中。  
-
-## 使用 sqlcmd 連接到 SQL 資料倉儲
-
-您也可以使用 SQL Server 隨附的 [sqlcmd](https://msdn.microsoft.com/library/azure/ms162773.aspx) 命令提示字元公用程式或 [Microsoft Command Line Utilities 11 for SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501) 來連接到 SQL 資料倉儲。sqlcmd 公用程式可讓您在命令提示字元輸入 Transact-SQL 陳述式、系統程序和指令碼檔案。
-
-若要在使用 sqlcmd 時連接到 SQL 資料倉儲的特定執行個體，您必須開啟命令提示字元並輸入 **sqlcmd**，後面接著 SQL 資料倉儲資料庫的連接字串。連接字串必須包含下列參數：
-
-+ **使用者 (-U)：**採用 `<`User`>`@`<`Server Name`>`.database.windows.net 格式的伺服器使用者。
-+ **密碼 (-P)：**與使用者相關聯的密碼。
-+ **伺服器 (-S)：** 採用 `<`Server Name`>`.database.windows.net 格式的伺服器。
-+ **資料庫 (-D)：**資料庫名稱。
-+ **啟用引號識別碼 (-I)：**必須啟用引號識別碼，才能連接到 SQL 資料倉儲執行個體。
-
-因此，若要連接到 SQL 資料倉儲執行個體，您需輸入下列資訊：
-
-```
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
-```
-
-連線之後，您可以對執行個體發出任何支援的 Transact-SQL 陳述式。例如，下列陳述式會利用 [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) 陳述式來建立新的資料表。
-
-```
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
-1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
-2> GO
-3> QUIT
-```
-
-如需 sqlcmd 的其他資訊，請參閱 [sqlcmd 文件](https://msdn.microsoft.com/library/azure/ms162773.aspx)。
-
-<!--NOTE: SQL DB does not support the -z/-Z parameters for changing users password with SQLCMD.  Do we support this? -->
-
-## 執行範例查詢 ##
+## 執行範例查詢
 
 我們現已註冊我們的伺服器，接著繼續撰寫查詢。
 
@@ -167,21 +65,30 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 2. 按一下 [新增查詢] 按鈕。新的視窗隨即開啟。
 
-3. 撰寫查詢。將下列內程式碼輸入查詢視窗中：
+![][4]
+
+3. 將下列內程式碼輸入查詢視窗中：
 
 	```
-	SELECT  COUNT(*)
-	FROM    sys.tables;
+	SELECT COUNT(*) FROM dbo.FactInternetSales;
 	```
 
 4. 執行查詢。
 
-	若要執行查詢，請按一下綠色箭頭，或使用下列快速鍵：`CTRL`+`SHIFT`+`F5`。
+	若要執行查詢，請按一下綠色箭頭，或使用下列快速鍵：`CTRL`+`SHIFT`+`E`。
 
-## 後續步驟 ##
-您現在已經能夠進行連接和查詢，請嘗試[載入範例資料][]。
+## 後續步驟
 
-[載入範例資料]: ./sql-data-warehouse-get-started-load-samples.md
-[developing code]: ./articles/sql-data-warehouse-overview-develop/
+您現在可以連接並查詢，請嘗試[使用 PowerBI 連接][]。
 
-<!---HONumber=Oct15_HO2-->
+[使用 PowerBI 連接]: ./sql-data-warehouse-integrate-power-bi.md
+
+
+<!--Image references-->
+
+[1]: ./media/sql-data-warehouse-get-started-connect-query/get-server-name.png
+[2]: ./media/sql-data-warehouse-get-started-connect-query/open-ssdt.png
+[3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
+[4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
+
+<!---HONumber=Oct15_HO3-->

@@ -10,6 +10,6 @@
 - PHP：[如何從 PHP 使用通知中樞](../articles/notification-hubs/notification-hubs-php-backend-how-to.md)。
 
 
-在本教學課程的下一節中，您將學習如何使用[通知中樞 REST 介面](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)直接在您的應用程式中傳送通知訊息。所有已註冊的裝置都會收到任何裝置所傳送的通知。
+在教學課程的下一節中，您將學習如何使用[通知中樞 REST 介面](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)直接在您的 App 中傳送通知訊息。所有已註冊的裝置都會收到任何裝置所傳送的通知。
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

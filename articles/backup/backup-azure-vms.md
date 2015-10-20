@@ -207,4 +207,4 @@ Azure 備份服務會初始備份作業建立備份工作。按一下 [工作] �
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [管理虛擬機器](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -239,4 +239,4 @@ c.叢集中的任何節點
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

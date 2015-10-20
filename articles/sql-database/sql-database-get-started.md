@@ -3,7 +3,7 @@
 	description="使用 Azure 入口網站和 AdventureWorks 範例資料庫，透過 Azure SQL Database (雲端中的 Microsoft 關聯式資料庫管理服務 (RDBMS)) 在幾分鐘之內建立您的第一個的雲端資料庫。"
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
+	authors="jeffgoll"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
-	ms.author="genemi"/>
+	ms.date="10/09/2015"
+	ms.author="jeffreyg"/>
 
 # 建立您的第一個 Azure SQL Database
 
@@ -26,15 +26,17 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-本文將說明如何在幾分鐘內使用 Azure 入口網站建立範例 SQL Database。您將學習如何：
+本文將說明如何在幾分鐘內使用 Azure Preview 入口網站建立範例 SQL Database。您將學習如何：
 
 - 建立伺服器以裝載您建立的資料庫，然後為其設定防火牆規則
 - 從 AdventureWorks 範例中建立資料庫，其中包含您可以處理的資料
 
 在開始之前，您需要有 Azure 帳戶和訂用帳戶。如果您沒有帳戶，請註冊[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
+> [AZURE.NOTE]本操作說明涵蓋如何使用雲端、Azure SQL Database 中的 Microsoft 相關資料庫服務設定資料庫。另一個選項是在 Azure 虛擬機器上執行 SQL Server。請參閱[了解 Azure SQL Database 和 Azure VM 中的 SQL Server](data-management-azure-sql-database-and-sql-server-iaas.md) 以進行快速比較，或者您可以參閱[佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)以開始使用虛擬機器。
+
 ## 步驟 1：登入並開始設定 SQL Database
-1. 登入 [Azure 入口網站](http://portal.azure.com/)。
+1. 登入 [Azure Preview 入口網站](http://portal.azure.com/)。
 2. 按一下 [新增] > [資料 + 儲存體] > [SQL Database]。
 
 	![建立新的 SQL Database](./media/sql-database-get-started/create-db.png)
@@ -56,7 +58,7 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 	![新的資料庫伺服器設定](./media/sql-database-get-started/get-started-serversettings.png)
 
-	 讓 [建立 V12 伺服器 (最新更新)] 保持 [是] 的設定，以使用最新的功能。[位置] 會決定您建立伺服器的資料中心區域。
+	 讓 [建立 V12 伺服器 (最新更新)] 維持設定為 [是]，以使用最新的功能。[位置] 會決定您建立伺服器的資料中心區域。
 
 	>[AZURE.TIP]在接近應用程式的位置建立資料庫伺服器，其中應用程式將會使用該資料庫。如果您想要變更位置，只需按一下 [位置]，挑選其他位置，然後按一下 [確定] 即可。
 
@@ -64,7 +66,7 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 資料庫與伺服器尚未建立。此狀況將會在下一個步驟 (您會選擇從 AdventureWorks 範例中建立資料庫，然後確認設定) 完成後發生。
 
-## 步驟 4：設定並建立資料庫
+## 步驟 3：設定並建立資料庫
 1. 在 [SQL Database] 刀鋒視窗中，按一下 [選取來源]，然後按一下 [範例]。 
 
 	![從範例建立資料庫](./media/sql-database-get-started/new-sample-db.png)
@@ -73,13 +75,13 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 	![建立範例資料庫](./media/sql-database-get-started/adworks_create.png)
 
-	>[AZURE.NOTE]由於這些步驟為快速操作，因此我們並未變更 [定價層]、[定序] 和 [資源群組] 的設定。您可以隨時變更資料庫定價層，並向上調升和向下減少，無須停機。如需深入了解，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)和 [SQL Database 定價層](sql-database-service-tiers.md)。完成資料庫定序設定後，您將無法進行變更。如需關於定序的詳細資料，請參閱[定序與 Unicode 支援](https://msdn.microsoft.com/library/ms143726.aspx)。如需關於 Azure 資源群組的詳細資料，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+	>[AZURE.NOTE]由於這些步驟為快速操作，因此我們並未變更 [定價層]、[定序] 和 [資源群組] 的設定。您可以隨時變更資料庫定價層，並向上調升和向下減少，無須停機。如需深入了解，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/) 和 [SQL Database 定價層](sql-database-service-tiers.md)。完成資料庫定序設定後，您將無法進行變更。如需關於定序的詳細資料，請參閱[定序與 Unicode 支援](https://msdn.microsoft.com/library/ms143726.aspx)。如需關於 Azure 資源群組的詳細資料，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
 
 您會跳回「Azure 開始面板」，其中磚會顯示進度，直到資料庫建立完畢且已上線為止。您也可以按一下 [全部瀏覽]，然後按一下 [SQL Database] 確認資料庫是否已上線。
 	
 恭喜！ 您的雲端中目前已有執行的資料庫。您即將完成設定。最後還剩下一個重要步驟。您必須在資料庫中設定規則，以便連接至資料庫。
 
-## 步驟 5：設定防火牆
+## 步驟 4：設定防火牆
 
 您必須在伺服器中設定防火牆規則，允許從用戶端電腦 IP 位置進行連接，以便使用資料庫。如此不僅可確保能與資料庫連接，還是個可以查看區域的好方式，您可以在其中取得有關 Azure 中 SQL 伺服器的其他詳細資料。
 
@@ -97,7 +99,7 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 	![目前的 IP 位址](./media/sql-database-get-started/firewall_config_client_ip.png)
 
-4. 按一下 [新增用戶端 IP]，讓 Azure 建立該 IP 位址的規則，然按一下 [儲存]。
+4. 按一下 [新增用戶端 IP]，讓 Azure 建立該 IP 位址的規則，然後按一下 [儲存]。
 
 	![新增 IP 位址](./media/sql-database-get-started/firewall_config_new_rule.png)
 
@@ -106,7 +108,7 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 ## 後續步驟
 現在您的資料庫中已有些範例資料，可以準備開始使用慣用的工具進行探索。
 
-- 如果您熟悉 TRANSACT-SQL 和 SQL Server Management Studio，請了解如何[使用 SSMS連接和查詢 SQL Database](sql-database-connect-query-ssms.md)。
+- 如果您熟悉 TRANSACT-SQL 和 SQL Server Management Studio，請了解如何[使用 SSMS 連接和查詢 SQL Database](sql-database-connect-query-ssms.md)。
 
 - 如果您熟悉 Excel，請了解如何[使用 Excel 連接至 SQL Database](sql-database-connect-excel.md)。
 
@@ -114,4 +116,4 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 - 如果您想要進一步了解如何將內部部署的 SQL Server 資料庫移動至 Azure，請參閱[將資料庫移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

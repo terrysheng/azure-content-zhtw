@@ -188,4 +188,4 @@
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

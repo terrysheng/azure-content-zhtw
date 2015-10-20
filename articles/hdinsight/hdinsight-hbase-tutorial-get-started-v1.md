@@ -1,6 +1,7 @@
 <properties
 	pageTitle="HBase 教學課程：開始在 Hadoop 中使用 HBase |Microsoft Azure"
 	description="遵循本 HBase 教學課程，開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase。使用 Hive 從 HBase Shell 建立資料表並加以查詢。"
+	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -246,7 +247,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 
 您必須從 GitHub 下載適用於 .NET 的 HBase REST API 用戶端程式庫並建置專案，才能使用 HBase .NET SDK。下列程序包括此工作的指示。
 
-1. 建立新的 C#Visual Studio Windows 桌面主控台應用程式。
+1. 建立新的 C# Visual Studio Windows 桌面主控台應用程式。
 2. 按一下 [工具] 功能表 > [NuGet 套件管理器] > [套件管理器主控台]，以開啟 NuGet 套件管理器主控台。
 3. 在主控台中，執行下列 NuGet 命令：
 
@@ -328,7 +329,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 
 
 ## 後續步驟
-在 HDInsight 的本 HBase 教學課程中，您已了解如何佈建 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C#REST API 建立 HBase 資料表，並擷取其資料表中的資料。
+在 HDInsight 的本 HBase 教學課程中，您已了解如何佈建 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
 
 若要深入了解，請參閱：
 
@@ -364,4 +365,4 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -385,4 +385,4 @@ C# 介面如下所示：
 
 [Azure 批次概觀]: batch-technical-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

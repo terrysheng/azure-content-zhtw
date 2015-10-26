@@ -101,4 +101,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 [建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 [建立自訂虛擬機器]: virtual-machines-create-custom.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

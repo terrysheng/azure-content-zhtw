@@ -2,7 +2,7 @@
  pageTitle="適用於 IT 專業人員的 Azure IoT 中心資訊 | Microsoft Azure"
  description="有助於 IT 專業人員使用 Azure IoT 中心的資訊，例如連接埠需求和安全性背景。"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,8 +12,8 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="09/28/2015"
  ms.author="dobett"/>
 
 # 設定和管理 IoT 中心的存取權
@@ -49,4 +49,4 @@ IoT 中心內對其他管理端點的存取權，也是透過一組權限來控�
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

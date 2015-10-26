@@ -61,4 +61,4 @@ RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當 Remot
 
 感謝您持續關注我們 - 下個月還會有其他更新。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -155,4 +155,4 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 | 重新整理權杖 | 最多 14 天 | 單一重新整理權杖的有效期最多 14 天。不過，重新整理權杖可能會因為任何原因而隨時失效，所以您的應用程式應該繼續嘗試並使用重新整理權杖直到失敗，或直到您的應用程式以新的重新整理權杖取代它為止。如果使用者輸入其認證已 90 天，則重新整理權杖也會失效。 |
 | 授權碼 | 5 分鐘 | 授權碼的存留期特意較短，且應在收到時立即兌換 access\_token、 id\_token 和 refresh\_token。 |
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

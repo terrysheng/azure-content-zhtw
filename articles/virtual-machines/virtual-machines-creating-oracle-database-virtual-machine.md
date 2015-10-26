@@ -17,7 +17,8 @@
 	
 #在 Azure 中建立 Oracle 資料庫虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 以下範例說明如何在 Azure 中，根據 Microsoft 提供且在 Windows Server 2012 上執行的 Oracle 資料庫映像來建立虛擬機器 (VM)。有兩個步驟。首先，建立 VM，然後在 VM 內建立 Oracle 資料庫。顯示的範例是 Oracle 資料庫版本 12c，但步驟幾乎與版本 11g 相同。
 
@@ -199,4 +200,4 @@
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

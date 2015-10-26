@@ -21,7 +21,8 @@
 
 本主題說明如何搭配 [machine](https://github.com/docker/machine) 和 [Azure CLI](https://github.com/Azure/azure-xplat-cli) 使用 [Docker](https://www.docker.com/)，建立 Azure 虛擬機器，從執行 Ubuntu 的電腦上簡單快速地管理 Linux 容器。基於示範緣故，本教學課程將示範如何同時部署 [busybox Docker 中樞映像](https://registry.hub.docker.com/_/busybox/)和 [nginx Docker 中樞映像](https://registry.hub.docker.com/_/nginx/)，並設定容器以將 Web 路由要求傳送到 nginx 容器 (Docker **machine** 文件說明如何針對其他平台修改這些指示)。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
 
 您必須具備一些先決條件，才能完成本教學課程。您將需要安裝下列項目：
@@ -61,7 +62,7 @@
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-2. 將憑證的 .cer 檔案上傳至 Azure。在 [Azure 入口網站](https://manage.windowsazure.com)中，按一下服務區域左下方的 [設定] (如下所示)
+2. 將憑證的 .cer 檔案上傳至 Azure。在 [Azure 入口網站](https://manage.windowsazure.com)中，按一下服務區域左下方的 設定 (如下所示)
 
 	![][portalsettingsitem]
 
@@ -69,7 +70,7 @@
 
 	![][managementcertificatesitem]
 
-	接著按一下 [上傳] (位於頁面下方) ![][uploaditem]，以上傳您在上一個步驟中建立的 **mycert.cer** 檔案。
+	接著按一下 上傳 (位於頁面下方) ![][uploaditem]，以上傳您在上一個步驟中建立的 **mycert.cer** 檔案。
 
 3. 在入口網站的同一個 [設定] 窗格中，按一下 [訂戶帳戶]，以擷取要在您建立 VM 時使用的訂用帳戶識別碼，因為您將在下一個步驟中用到它 (您也可以在命令列上，使用 Azure CLI 命令 `azure account list` 來尋找訂用帳戶識別碼，其會顯示該帳戶中您所擁有之每個訂用帳戶的訂用帳戶識別碼)。
 
@@ -213,4 +214,4 @@
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

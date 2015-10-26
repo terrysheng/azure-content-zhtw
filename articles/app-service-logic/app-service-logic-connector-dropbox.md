@@ -89,4 +89,4 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -164,4 +164,4 @@ Azure 中常見的案例就是根據 VM 和 PaaS 角色是否需要存取網際�
 - [在傳統部署模型中部署 NSG](virtual-networks-create-nsg-classic-ps.md)。
 - [在資源管理員中部署 NSG](virtual-networks-create-nsg-arm-pportal.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

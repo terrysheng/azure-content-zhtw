@@ -668,4 +668,4 @@ Azure VM 大小規格詳列在[虛擬機器的大小](https://azure.microsoft.co
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

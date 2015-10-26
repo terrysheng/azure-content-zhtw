@@ -33,6 +33,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
+
 ## 更新應用程式以支援離線同步
 
 利用離線同步讀取和寫入*同步資料表* (使用 *IMobileServiceSyncTable* 介面)，這是您裝置上 **SQL Light** 資料庫的一部分。
@@ -219,4 +220,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [行動服務快速入門教學課程]: mobile-services-android-get-started.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

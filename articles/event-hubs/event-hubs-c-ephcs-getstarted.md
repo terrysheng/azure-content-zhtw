@@ -117,4 +117,4 @@
 [使用「事件中樞」相應放大事件處理]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

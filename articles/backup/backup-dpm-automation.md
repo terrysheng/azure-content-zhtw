@@ -7,14 +7,14 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
-# 使用 Azure PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
-本文說明如何使用 Azure PowerShell 來設定 DPM 伺服器上的 Azure 備份以及管理備份和復原。
+# 使用 PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
+本文說明如何使用 PowerShell 來設定 DPM 伺服器上的 Azure 備份以及管理備份和復原。
 
-## 設定 Azure PowerShell 環境
-在可以使用 Azure PowerShell 來管理 Data Protection Manager 的 Azure 備份之前，您必須在 Azure PowerShell 中具備適當的環境。在 Azure PowerShell 工作階段開始時，請確定您執行下列命令來匯入正確的模組並可讓您正確地參考 DPM Cmdlet：
+## 設定 PowerShell 環境
+在可以使用 PowerShell 來管理 Data Protection Manager 的 Azure 備份之前，您必須在 PowerShell 中具備適當的環境。在 PowerShell 工作階段開始時，請確定您執行下列命令來匯入正確的模組並可讓您正確地參考 DPM Cmdlet：
 
 ```
 PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
@@ -30,16 +30,35 @@ Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## 設定和註冊
+開始：
 
-### 建立備份保存庫
-您可以使用 **New-AzureBackupVault** commandlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
+1. [下載最新的 PowerShell](https://github.com/Azure/azure-powershell/releases) (所需最低版本為：1.0.0)
+2. 使用 **Switch-AzureMode** Cmdlet 切換至 *AzureResourceManager* 模式，以啟用 Azure 備份 Cmdlet：
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
+PowerShell 可以自動化下列設定和註冊工作：
+
+- 建立備份保存庫
+- 安裝 Azure 備份代理程式
+- 向 Azure 備份服務進行註冊
+- 網路設定
+- 加密設定
+
+### 建立備份保存庫
+
+> [AZURE.WARNING]對於第一次使用 Azure 備份的客戶，您需要註冊 Azure 備份提供者以搭配您的訂用帳戶使用。這可以透過執行下列命令來完成：Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+您可以使用 **New-AzureRMBackupVault** Cmdlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
-您可以使用 **Get-AzureBackupVault** commandlet 取得特定訂用帳戶中所有備份保存庫的清單。
+您可以使用 **Get-AzureRMBackupVault** Cmdlet 取得特定訂用帳戶中所有備份保存庫的清單。
 
 
 ### 在 DPM 伺服器上安裝 Azure 備份代理程式
@@ -112,7 +131,7 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-所有修改都會對此本機 Azure PowerShell 物件 ```$setting``` 進行，然後使用 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 將完整物件認可到 DPM 和 Azure 備份以加以儲存。您必須使用 ```–Commit``` 旗標，以確保會保存所做的變更。除非已認可，否則 Azure 備份將不會套用並使用設定。
+所有修改都會對此本機 PowerShell 物件 ```$setting``` 進行，然後使用 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 將完整物件認可到 DPM 和 Azure 備份以加以儲存。您必須使用 ```–Commit``` 旗標，以確保會保存所做的變更。除非已認可，否則 Azure 備份將不會套用並使用設定。
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -138,7 +157,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-在上述範例中，臨時區域將在 Azure PowerShell 物件 ```$setting``` 中設定為 *C:\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
+在上述範例中，臨時區域將在 PowerShell 物件 ```$setting``` 中設定為 *C:\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
 
 
 ### 加密設定
@@ -182,7 +201,7 @@ PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
 ### 將群組成員加入至保護群組
-每個 DPM 代理程式會知道它安裝所在伺服器上資料來源的清單。若要將資料來源加入至保護群組，DPM 代理程式必須先將資料來源清單傳回到 DPM 伺服器。然後會選取一或多個資料來源，並加入至保護群組。達成此動作所需的 Azure PowerShell 步驟包括：
+每個 DPM 代理程式會知道它安裝所在伺服器上資料來源的清單。若要將資料來源加入至保護群組，DPM 代理程式必須先將資料來源清單傳回到 DPM 伺服器。然後會選取一或多個資料來源，並加入至保護群組。達成此動作所需的 PowerShell 步驟包括：
 
 1. 擷取透過 DPM 代理程式由 DPM 管理的所有伺服器清單。
 2. 選擇特定伺服器。
@@ -300,6 +319,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 命令可以很容易地針對任何資料來源類型擴充。
 
 ## 後續步驟
-如需 DPM 的 Azure 備份詳細資訊，請參閱 [Azure DPM 備份簡介](backup-azure-dpm-introduction.md)
+如需 DPM 的 Azure 備份詳細資訊，請參閱 [DPM 備份簡介](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

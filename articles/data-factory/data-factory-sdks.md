@@ -30,4 +30,4 @@ REST API | 使用 Data Factory REST API 來建立、監視和管理 Azure Data F
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

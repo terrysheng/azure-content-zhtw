@@ -57,4 +57,4 @@ V2.0 應用程式模型為預覽狀態。在預覽期間，歡迎您提供使用
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

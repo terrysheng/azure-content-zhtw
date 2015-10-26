@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="了解 Azure 上的 NoSQL 技術 | Microsoft Azure"
-	description="了解 HDInsight 上的 NoSQL 技術如何協助您管理不適用於關聯式資料庫的資料，例如巨量資料集和 JSON 文件或圖形。"
-	editor="cgronlun"
-	manager="jhubbard"
-	services="documentdb, storage, hdinsight"
-	documentationCenter=""
+	pageTitle="了解 Azure 上的 NoSQL 技術 | Microsoft Azure" 
+	description="了解 HDInsight 上的 NoSQL 技術如何協助您管理不適用於關聯式資料庫的資料，例如巨量資料集和 JSON 文件或圖形。" 
+	editor="cgronlun" 
+	manager="jhubbard" 
+	services="documentdb, storage, hdinsight" 
+	documentationCenter="" 
 	authors="mimig1"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/21/2015" 
 	ms.author="mimig"/>
 
 # 了解 Microsoft Azure 上的 NoSQL
@@ -31,4 +31,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

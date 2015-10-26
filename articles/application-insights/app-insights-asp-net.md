@@ -12,21 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/13/2015" 
 	ms.author="awills"/>
 
 
-# ASP.NET 的 Application Insights
+# 設定 ASP.NET 的 Application Insights
 
 *Application Insights 目前僅供預覽。*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+<a name="selector1"></a>
+
+[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) 監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時[探索應用程式的使用情況][knowUsers]。其藉由將 SDK 安裝在應用程式中發揮作用。SDK 會將應用程式的遙測傳送至 Application Insights 服務，您可以在 Application Insights 中分析和視覺化應用程式的行為。
 
 
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) 會監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時 [探索應用程式的使用情況][knowUsers]。它可以搭配各種不同的應用程式類型。這適用於裝載在專屬內部部署 IIS 伺服器或 Azure VM 上的應用程式，以及 Azure Web 應用程式。([也涵蓋裝置應用程式和 Java 伺服器][start]。)
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
+在 Visual Studio 中，將 SDK 加入應用程式，即可取得伺服器要求、 回應時間和失敗次數的圖表。
 
 ![範例效能監視圖表](./media/app-insights-asp-net/10-perf.png)
 
+您也可以使用 API 來監視使用量的詳細資料。
 
 #### 開始之前
 
@@ -66,7 +71,7 @@
 
 命令執行了下列步驟 (如果想要的話，可以改為[手動執行](app-insights-start-monitoring-app-health-usage.md))：
 
-* 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的「檢測金鑰」。
+* 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的*檢測金鑰*。
 * 將 Application Insights Web SDK NuGet 封裝加入您的專案。若要在 Visual Studio 中看到它，請以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
 * 將檢測金鑰放在 `ApplicationInsights.config` 中。
 
@@ -85,6 +90,7 @@
 
 ![Right-click your project and open the Azure portal](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
+### 度量：彙總資料
 
 在 [概觀] 圖表中尋找資料。剛開始的時候，您只會看見一或兩個資料點。例如：
 
@@ -92,117 +98,43 @@
 
 按一下任何圖表以查看詳細度量。[深入了解度量。][perf]
 
-現在部署應用程式並觀看資料累積情形。
+* *沒有使用者或頁面資料嗎？* - [新增使用者和頁面資料](../article/application-insights/app-insights-asp-net-client.md)
 
+### 搜尋：個別事件
 
-以偵錯模式執行時，系統會透過管線迅速傳送遙測資料，因此您應該可以在幾秒內看見資料。在部署應用程式時，資料累積會較為緩慢。
+開啟 [搜尋] 來調查個別要求和其相關聯的事件。
 
-#### 沒有資料？
+![](./media/app-insights-asp-net/21-search.png)
+
+[深入了解搜尋](app-insights-diagnostic-search.md)
+
+* *沒有相關聯的事件嗎？* 設定[伺服器例外狀況](../article/application-insights/app-insights-asp-net-exception-mvc.md)和[相依性](../article/application-insights/app-insights-asp-net-dependencies.md)。
+
+### 沒有資料？
 
 * 請確定您查看的是正確的項目。登入 [Azure 入口網站](https://portal.azure.com)，按一下 [瀏覽] > [Application Insights]，然後選取您的應用程式。
 * 使用應用程式、開啟不同頁面，以產生一些遙測。
-* 開啟 [[搜尋][diagnostic]] 刀鋒視窗以查看個別事件。有時候，事件通過計量管線所需的時間較長。
+* 開啟 [[搜尋][diagnostic]] 刀鋒視窗，查看個別事件。有時候，事件通過計量管線所需的時間較長。
 * 請稍等片刻，然後按一下 [重新整理]。
 * 請參閱[疑難排解][qna]。
 
-#### 組建伺服器發生問題？
-
-請參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
-
-
-## 加入瀏覽器監視
-
-瀏覽器可提供有關在瀏覽器中發生的使用者、工作階段、頁面檢視和任何例外狀況或損毀的相關資料。
-
-![選擇 [新增]、[開發人員服務]、[Application Insights]。](./media/app-insights-asp-net/16-page-views.png)
-
-您也可以撰寫自己的程式碼，來追蹤您的使用者如何使用您的應用程式，徹底得知詳細的點按和按鍵層級。
-
-將 JavaScript 程式碼片段加入每一頁。從您的 Application Insights 資源取得程式碼：
-
-![在您的 Web 應用程式中，開啟 [快速入門]，然後按一下 [取得程式碼來監視我的網頁]](./media/app-insights-asp-net/02-monitor-web-page.png)
-
-請注意，此程式碼包含可識別您的應用程式資源的檢測金鑰。
-
-[深入了解網頁追蹤。](app-insights-web-track-usage.md)
-
-
-## 使用情況追蹤
-
-送出新的使用者劇本後，您想知道有多少客戶正在使用它，以及他們是否達成其目標或遇到困難。透過同時在用戶端和伺服器程式碼中插入 TrackEvent() 及其他呼叫，取得使用者活動的詳細狀況。
-
-[使用 API 來追蹤使用量][api]
-
-
-## 診斷記錄
-
-從您喜好的記錄架構[擷取記錄追蹤][netlogs]，以協助您診斷任何問題。您的記錄項目會隨著 Application Insights 遙測事件出現在[診斷搜尋][diagnostic]中。
 
 ## 發佈您的應用程式
 
-如果您尚未發佈您的 app (因為您加入了 Application Insights)，請立即發佈您的 app。隨著人們使用您的 app，您會在圖表中看到資料成長。
+現在部署應用程式並觀看資料累積情形。
 
+以偵錯模式執行時，系統會透過管線迅速傳送遙測資料，因此您應該可以在幾秒內看見資料。在部署應用程式時，資料累積會較為緩慢。
 
-#### 發佈資料到伺服器之後，卻沒有資料？
+#### 組建伺服器發生問題？
 
-請在您的伺服器防火牆中，開啟這些連出流量的連接埠：
+參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
 
-+ `dc.services.visualstudio.com:443`
-+ `f5.services.visualstudio.com:443`
+## 後續步驟
 
-
-## 開發、測試和發行
-
-針對主要應用程式，建議您從不同戳章 (偵錯、測試和生產組建) 傳送遙測資料到[不同資源](app-insights-separate-resources.md)。
-
-## 追蹤應用程式版本
-
-請確定 `buildinfo.config` 是由您的建置程序所產生。在您的 .csproj 檔案中加入：
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
-```
-
-當它有組建資訊時，Application Insights Web 模組會自動加入**應用程式版本**做為遙測的每個項目的屬性。如此可讓您在執行[診斷搜尋][diagnostic]或[探索度量][metrics]時，依據版本來篩選。
-
-
-
-## 加入相依性追蹤和系統效能計數器
-
-[相依性度量](app-insights-dependencies.md)對於協助您診斷效能問題非常有價值。它們會測量您的 app 對資料庫、REST API 和其他外部元件的呼叫。
-
-![](./media/app-insights-asp-net/04-dependencies.png)
-
-此步驟也可啟用[效能計數器報告](app-insights-web-monitor-performance.md#system-performance-counters)，例如 CPU、記憶體、網路佔用。
-
-#### 如果您的應用程式是在您的 IIS 伺服器中執行
-
-使用系統管理員權限登入您的伺服器，並安裝 [Application Insights 狀態監視器](http://go.microsoft.com/fwlink/?LinkId=506648)。
-
-您必須確定某些 [額外的連接埠在您的伺服器防火牆中開啟](app-insights-monitor-performance-live-website-now.md#troubleshooting)。
-
-#### 如果您的 app 是 Azure Web 應用程式
-
-在您的 Azure Web 應用程式的控制台中，加入 Application Insights 延伸模組。
-
-![在您的 Web 應用程式中，依序按一下 [設定]、[延伸模組]、[加入]、[Application Insights]](./media/app-insights-asp-net/05-extend.png)
-
-(您也可以將延伸模組新增到已是即時狀態的應用程式，即使您未在其中安裝 SDK 也一樣。)
-
-#### 監視 Azure 雲端服務角色
-
-我們提供[手動新增狀態監視器的程序](app-insights-cloudservices.md)。
-
-## 可用性 Web 測試
-
-[設定 Web 測試][availability]以從外部測試您的應用程式已上線且反應靈敏。
-
-
-![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
-
+- [使用者和頁面資料](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [例外狀況](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [相依項目](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -238,8 +170,8 @@
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

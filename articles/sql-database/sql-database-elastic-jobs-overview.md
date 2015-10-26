@@ -1,6 +1,8 @@
 <properties 
+	title="Elastic database jobs overview" 
 	pageTitle="彈性資料庫工作概觀" 
 	description="說明彈性資料庫工作服務" 
+	metaKeywords="azure sql database elastic databases" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
@@ -85,4 +87,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

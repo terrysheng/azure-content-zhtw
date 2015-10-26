@@ -171,4 +171,4 @@ Azure Active Directory 應用程式已更新為包含*讀取目錄資料*權限�
 
 [深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

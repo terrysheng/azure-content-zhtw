@@ -499,4 +499,4 @@ UDR 隨附 IP 轉送功能。這是虛擬應用裝置的一項設定，以允許
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

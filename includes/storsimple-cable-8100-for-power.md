@@ -24,4 +24,4 @@
 
 4. 將兩個 PCM 的電源開關切換到 ON (開啟) 位置，以開啟系統。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

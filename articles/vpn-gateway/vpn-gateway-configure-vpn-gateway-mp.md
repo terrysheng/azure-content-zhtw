@@ -1,19 +1,19 @@
 <properties 
    pageTitle="設定 Azure 入口網站中的 VPN 閘道 | Microsoft Azure"
-	description="此文章將逐步引導您設定虛擬網路 VPN 閘道，以及將 VPN 閘道路由類型從靜態變更為動態或從動態變更為靜態。"
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="此文章將逐步引導您設定虛擬網路 VPN 閘道，以及將 VPN 閘道路由類型從靜態變更為動態或從動態變更為靜態。"
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="cherylmc" />
 
 # 設定 Azure 入口網站中的 VPN 閘道
 
@@ -151,4 +151,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 內容傳遞網路 (CDN) 的 POP 位置"
-	description="本主題列出 Azure 內容傳遞網路 (CDN) 的 POP 位置。"
-	services="cdn"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Azure 內容傳遞網路 (CDN) 的 POP 位置" 
+	description="本主題列出 Azure 內容傳遞網路 (CDN) 的 POP 位置。" 
+	services="cdn" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 
@@ -71,4 +71,4 @@
 - 墨爾本
 - 雪梨 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

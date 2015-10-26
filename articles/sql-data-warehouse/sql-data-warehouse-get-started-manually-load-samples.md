@@ -83,4 +83,4 @@
 <!--Other Web references-->
 [範例資料指令碼]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

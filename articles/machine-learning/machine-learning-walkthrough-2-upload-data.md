@@ -79,4 +79,4 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # 企業營運應用程式工作負載第 4 階段：設定 Web 伺服器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+ 
 
 在 Azure 基礎結構服務部署高可用性企業營運應用程式的這個階段中，您將建置 Web 伺服器，並在其中載入企業營運應用程式。
 
@@ -174,4 +175,4 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

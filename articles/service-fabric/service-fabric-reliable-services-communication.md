@@ -1,20 +1,20 @@
 <properties
    pageTitle="服務通訊模型概觀"
-	description="本文說明受可靠服務 API 支援通訊模型的基本概念。"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="vipulm"
-	editor=""/>
+   description="本文說明受可靠服務 API 支援通訊模型的基本概念。"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="vipulm"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # 服務通訊模型
 
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * ＜[撰寫使用 WebAPI 通訊堆疊的可靠服務 API 服務](service-fabric-reliable-services-communication-webapi.md)＞
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

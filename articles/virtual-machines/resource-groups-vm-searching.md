@@ -20,7 +20,8 @@
 
 # 使用 Windows PowerShell 和 Azure CLI 巡覽和選取 Azure 虛擬機器映像
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何在資源管理員部署模型中搜尋虛擬機器映像。您也可以在[傳統部署模型](https://msdn.microsoft.com/library/azure/dn499770.aspx)中搜尋映像。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 本文說明如何使用最近安裝的 Azure CLI 或 Azure PowerShell，來瀏覽並選取虛擬機器映像。有一個必要條件是您必須變更為資源管理員模式。搭配 Azure CLI 時，請輸入 `azure config mode arm` 來進入該模式。搭配 PowerShell 時，則請輸入 `Switch-AzureMode AzureResourceManager`。請參閱[搭配使用 Azure CLI 與資源管理員](xplat-cli-azure-resource-manager.md)和[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)，以取得更多完整的更新與組態詳細資料。
 
@@ -70,7 +71,7 @@
 
 **Urn** 資料行將是您傳遞給 `azure vm quick-create` 的表單。
 
-不過，您通常還不知道什麼可用。在這種情況下，您可以巡覽映像，方法是先使用 `azure vm image list-publishers` 來探索發行者，並以您預期用於資源群組的資料中心位置來回應位置提示字元。例如，下列清單是美國西部位置的所有映像發佈者 (將位置設為小寫並移除標準位置中的空格，來傳遞 location 引數)。
+不過，您通常還不知道什麼可用。在這種情況下，您可以巡覽映像，方法是先使用 `azure vm image list-publishers` 探索發行者，並以您預期用於資源群組的資料中心位置來回應位置提示字元。例如，下列清單是美國西部位置的所有映像發佈者 (將位置設為小寫並移除標準位置中的空格，來傳遞 location 引數)。
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -137,7 +138,7 @@
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-現在，您可以精確地選擇想要使用的映像。若要使用您剛找到的 URN 資訊快速建立虛擬機器，或使用具有該 URN 資訊的範本，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員](xplat-cli-azure-resource-manager.md)。
+現在，您可以精確地選擇想要使用的映像。若要使用您剛找到的 URN 資訊快速地建立虛擬機器，或使用具有該 URN 資訊的範本，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員](xplat-cli-azure-resource-manager.md)。
 
 ### 影片逐步解說
 
@@ -243,4 +244,4 @@
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

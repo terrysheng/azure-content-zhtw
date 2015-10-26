@@ -174,4 +174,4 @@ Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

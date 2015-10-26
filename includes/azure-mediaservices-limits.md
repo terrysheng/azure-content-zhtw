@@ -25,4 +25,4 @@
 
 <sup>5</sup> 儲存體帳戶必須來自相同的 Azure 訂用帳戶。
 
-<!---HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

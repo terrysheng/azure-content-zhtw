@@ -74,4 +74,4 @@ Azure 復原服務代理程式</p><p>用來透過 HTTPS 連線至 Site Recovery|
 完成此概觀之後，請[讀取最佳作法](site-recovery-best-practices.md)以協助您開始進行部署規劃。
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

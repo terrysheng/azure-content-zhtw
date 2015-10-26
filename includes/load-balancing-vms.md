@@ -1,3 +1,7 @@
+<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Azure 基礎結構服務的負載平衡" description="說明透過流量管理員和負載平衡器執行負載平衡的機制。" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
+
 #Azure 基礎結構服務的負載平衡#
 
 Azure 基礎結構服務提供兩種負載平衡層級︰
@@ -58,4 +62,4 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

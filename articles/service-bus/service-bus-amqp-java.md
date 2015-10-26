@@ -401,10 +401,6 @@ JMS over AMQP 1.0 和服務匯流排一起使用時有下列限制：
 準備好進行深入了解嗎？ 請造訪下列連結：
 
 - [服務匯流排 AMQP 概觀]
-- [搭配使用 .NET 的服務匯流排與 AMQP]
-- [搭配使用 Python 的服務匯流排與 AMQP]
-- [搭配使用 PHP 的服務匯流排與 AMQP]
-- [在 Azure Linux VM 上安裝 Apache Qpid Proton-C]
 - [Windows Server 服務匯流排中的 AMQP]
 
 [Service Bus for Windows Server 中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
@@ -412,9 +408,5 @@ JMS over AMQP 1.0 和服務匯流排一起使用時有下列限制：
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
-[搭配使用 .NET 的服務匯流排與 AMQP]: service-bus-amqp-dotnet.md
-[搭配使用 Python 的服務匯流排與 AMQP]: service-bus-amqp-python.md
-[搭配使用 PHP 的服務匯流排與 AMQP]: service-bus-amqp-php.md
-[在 Azure Linux VM 上安裝 Apache Qpid Proton-C]: service-bus-amqp-apache.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,9 @@
 
 # Azure 資源管理員架構
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
+
 
 本文提供服務管理與資源管理員架構的概觀，可用來建立以基礎結構為基礎的應用程式和工作負載。
 
@@ -81,4 +83,4 @@
 
 [Azure 資源管理員概觀](resource-group-overview.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="事件中樞 API 概觀"
+   pageTitle="Azure 事件中樞 API 概觀 | Microsoft Azure"
    description="一些主要事件中樞 .NET 用戶端 API 的摘要。"
    services="event-hubs"
    documentationCenter="na"
@@ -8,18 +8,18 @@
    editor="" />
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
+   ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
+   ms.workload="na"
+   ms.date="10/14/2015"
    ms.author="sethm" />
 
 # 事件中樞 API 概觀
 
 本文將摘要列出一些主要事件中樞 .NET 用戶端 API。有兩種類別：管理和執行階段 API。執行階段 API 是由傳送和接收訊息所需的所有作業組成。管理作業可讓您管理事件中樞實體狀態，方法是建立、更新和刪除實體。
 
-監視案例跨越管理和執行階段。如需 .NET API 的詳細參考文件，請參閱 [.NET 類別庫](https://msdn.microsoft.com/library/azure/jj933431.aspx)和 [EventProcessorHost API](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx) 參考。
+監視案例跨越管理和執行階段。如需 .NET API 的詳細參考文件，請參閱 [.NET 類別庫](https://msdn.microsoft.com/library/azure/mt419900.aspx)和 [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) 參考。
 
 ## 管理 API
 
@@ -115,7 +115,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 
 ## 事件處理器主機 API
 
-這些 API 提供恢復功能給可能變成無法使用的背景工作處理序，但是會在可用的背景工作之間散佈分區。
+這些 API 會透過在可用的背景工作之間散佈分區，提供恢復功能給可能會變成無法使用的背景工作角色處理序。
 
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -178,13 +178,14 @@ public class SimpleEventProcessor : IEventProcessor
 
 若要深入了解事件中樞案例，請造訪下列連結：
 
-- [事件中樞程式設計指南](event-hubs-programming-guide.md)
+- [Azure 事件中樞是什麼？](event-hubs-what-is-event-hubs.md)
 - [事件中心概觀](event-hubs-overview.md)
-- [Event Hubs Code Samples](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
+- [事件中樞程式設計指南](event-hubs-programming-guide.md)
+- [Event Hubs code samples](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
 
 .NET API 參考如下：
 
-- [服務匯流排和事件中樞 .NET API 參考](https://msdn.microsoft.com/library/azure/jj933424.aspx)
-- [事件處理器主機 API 參考](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [服務匯流排和事件中樞 .NET API 參考](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [事件處理器主機 API 參考](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

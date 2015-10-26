@@ -50,7 +50,7 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。這些每月
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-	若要進行電子郵件傳遞能力設定，請按一下 [管理] 按鈕。此動作將會開啟 Sendgrid.com 網頁介面，您可在此登入並開啟您的 SendGrid 控制台。
+	若要進行電子郵件傳遞能力設定，請按一下 [管理] 按鈕。此將重新導向至您的 SendGrid 控制台。
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
@@ -76,4 +76,4 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。這些每月
 [SendGrid 佈建程序]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [所有 API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

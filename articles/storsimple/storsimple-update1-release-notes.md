@@ -124,4 +124,4 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
 - [在您的裝置上安裝 Update 1.2](storsimple-install-update-1.md)。
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

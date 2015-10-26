@@ -34,7 +34,13 @@ Azure Service Fabric 可用來部署對健康情況監視和應用程式生命�
 
   這是應用程式資訊清單的範例：
 
-  ```xml <?xml version="1.0" encoding="utf-8"?> <ApplicationManifest ApplicationTypeName="actor2Application" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationManifest ApplicationTypeName="actor2Application"
+                       ApplicationTypeVersion="1.0.0.0"
+                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
@@ -49,7 +55,8 @@ Azure Service Fabric 可用來部署對健康情況監視和應用程式生命�
       </Service>
     </DefaultServices>
 
-  </ApplicationManifest> ```
+  </ApplicationManifest>
+  ```
 
 * **服務資訊清單**
 
@@ -57,7 +64,16 @@ Azure Service Fabric 可用來部署對健康情況監視和應用程式生命�
 
   這是服務資訊清單的範例
 
-  ```xml <?xml version="1.0" encoding="utf-8"?> <ServiceManifest Name="actor2Pkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ServiceTypes> <StatelessServiceType ServiceTypeName="actor2Type" /> </ServiceTypes>
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ServiceManifest Name="actor2Pkg"
+                   Version="1.0.0.0"
+                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="actor2Type" />
+    </ServiceTypes>
 
     <CodePackage Name="Code" Version="1.0.0.0">
       <EntryPoint>
@@ -74,7 +90,8 @@ Azure Service Fabric 可用來部署對健康情況監視和應用程式生命�
         <Endpoint Name="ServiceEndpoint" />
       </Endpoints>
     </Resources>
-  </ServiceManifest> ```
+  </ServiceManifest>
+  ```
 
 ## 應用程式套件
 為了使用 powershell Cmdlet (例如) 來部署應用程式，應用程式必須遵循預先定義的目錄結構。
@@ -115,7 +132,7 @@ Azure Service Fabric 可用來部署對健康情況監視和應用程式生命�
 ### 新增應用程式的程式碼和組態檔
 建立目錄結構之後，您可以在 Code 和 Config 目錄之下加入應用程式的程式碼和組態檔。您也可以在 Code 和 Config 目錄之下建立其他目錄或子目錄。Service Fabric 會進行應用程式根目錄內容的 xcopy，所以除了建立兩個最上層目錄 Code 和 Settings 以外，沒有預先定義的結構可使用 (但您可以選擇不同的名稱，下一節中有更多詳細資訊)。
 
->[AZURE.NOTE]請確定您包含應用程式需要的所有檔案/相依項目。Service Fabric 將會複製叢集中所有節點上的應用程式套件內容，而該叢集即將部署複製應用程式的服務。套件應包含執行應用程式需要的所有程式碼。不建議假設已經安裝相依項目。
+>[AZURE.NOTE]: 請確定您包含應用程式需要的所有檔案/相依項目。Service Fabric 將會複製叢集中所有節點上的應用程式套件內容，而該叢集即將部署複製應用程式的服務。套件應包含執行應用程式需要的所有程式碼。不建議假設已經安裝相依項目。
 
 ### 編輯服務資訊清單檔
 下一步就是編輯服務資訊清單檔以包含下列資訊：
@@ -336,4 +353,4 @@ Service Fabric 服務可以各種「組態」部署，例如它可部署為單�
 [5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
 [6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

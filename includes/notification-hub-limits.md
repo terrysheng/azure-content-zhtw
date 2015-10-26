@@ -8,4 +8,4 @@
 
 如需這些限制的其他詳細資料和價格的相關資訊，請參閱[通知中樞價格](http://azure.microsoft.com/pricing/details/notification-hubs/)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -143,4 +143,4 @@ Logic Apps 的某些功能只能在程式碼檢視中使用。例如，參數就
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -1,8 +1,8 @@
 <properties
- pageTitle="IoT 裝置管理 |Microsoft Azure"
- description="Azure IoT 中心裝置管理概觀"
+ pageTitle="IoT 裝置管理 | Microsoft Azure"
+ description="使用 IoT 中樞和 IoT 套件管理 IoT 裝置概觀"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="juanjperez"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="juanpere"/>
 
@@ -118,4 +118,4 @@ Azure IoT Suite 預先設定的解決方案提供了一個 Azure 網站，可讓
 
 完成韌體更新後，裝置必須能夠驗證及識別良好的狀態。如果裝置無法成功進入該良好的狀態，裝置上的軟體應開始回復至已知的良好狀態。已知的良好狀態可能是最後已知的良好狀態，或是儲存體分割中儲存的裝置韌體映像 (所謂的「黃金狀態」)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

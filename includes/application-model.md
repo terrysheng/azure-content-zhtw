@@ -168,7 +168,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-\~5 Mbps
+~5 Mbps
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-\~100 Mbps
+~100 Mbps
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-\~200 Mbps
+~200 Mbps
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-\~400 Mbps
+~400 Mbps
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 </td>
 <td>
-\~800 Mbps
+~800 Mbps
 
 </td>
 </tr>
@@ -346,4 +346,4 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
   [將應用程式移轉到 Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [設定 Azure 應用程式]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

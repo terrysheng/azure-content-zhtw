@@ -16,7 +16,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型管理資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 此文描述如何搭配使用 Mac、Linux 和 Windows 適用的 Azure CLI 與 Azure 資源管理員模式，建立、管理以及刪除 Azure 資源與 VM。
 
@@ -341,4 +342,4 @@ Azure CLI 將使用預設的 VM 大小建立虛擬機器。它也會建立儲存
 [clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

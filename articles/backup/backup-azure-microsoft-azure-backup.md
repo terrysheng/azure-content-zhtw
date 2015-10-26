@@ -29,12 +29,14 @@
 
 而且，您可以從單一內部部署使用者介面來管理各種受保護實體 (伺服器和用戶端) 的保護。
 
+>[AZURE.NOTE]Microsoft Azure 備份伺服器會繼承 Data Protection Manager (DPM) 的工作負載備份功能。您將發現其中某些功能指向 DPM 文件的指標。不過，Microsoft Azure 備份伺服器不會保護磁帶，也不會與 System Center 整合。
+
 Microsoft Azure 備份伺服器可以部署為：
 
 - 實體的獨立伺服器。
-- Hyper-V 虛擬機器 - 您可以將 DPM 當作裝載於內部部署Hyper-V 主機伺服器上的虛擬機器執行，以備份內部部署資料。如需此環境的考量事項清單，請參閱[在內部部署 Hyper-V 伺服器上將 DPM 安裝為虛擬機器](https://technet.microsoft.com/library/dn440941.aspx)。
-- VMWare 中的 Windows 虛擬機器 - 您可以部署 DPM 來保護 VMWare 中的 Windows 虛擬機器上執行的 Microsoft 工作負載。在這個案例中，DPM 可以部署為實體的獨立伺服器、Hyper-V 虛擬機器，或 VMWare 中的 Windows 虛擬機器。
-- Azure 虛擬機器 - 您可以將 DPM 當做 Azure 中的虛擬機器執行，以備份當成 Azure 虛擬機器執行的雲端工作負載。如需此部署的相關資訊，請參閱[將 DPM 安裝為 Azure 虛擬機器](https://technet.microsoft.com/library/hh758176.aspx)。
+- Hyper-V 虛擬機器 - 您可以將 Microsoft Azure 備份伺服器當作裝載於內部部署Hyper-V 主機伺服器上的虛擬機器執行，以備份內部部署資料。如需此環境的考量事項清單，請參閱[在內部部署 Hyper-V 伺服器上將 DPM 安裝為虛擬機器](https://technet.microsoft.com/library/dn440941.aspx)。
+- VMWare 中的 Windows 虛擬機器 - 您可以部署 Microsoft Azure 備份伺服器來保護 VMWare 中的 Windows 虛擬機器上執行的 Microsoft 工作負載。在這個案例中，Microsoft Azure 備份伺服器可以部署為實體的獨立伺服器、Hyper-V 虛擬機器，或 VMWare 中的 Windows 虛擬機器。
+- Azure 虛擬機器 - 您可以將 Microsoft Azure 備份伺服器當做 Azure 中的虛擬機器執行，以備份當成 Azure 虛擬機器執行的雲端工作負載。如需此部署的相關資訊，請參閱[將 DPM 安裝為 Azure 虛擬機器](https://technet.microsoft.com/library/hh758176.aspx)。
 
 此外，
 
@@ -42,7 +44,7 @@ Microsoft Azure 備份伺服器可以部署為：
 - Microsoft Azure 備份伺服器無法安裝在已安裝 SCDPM 或 SCDPM RA 代理程式的電腦上。
 - Microsoft Azure 備份伺服器無法安裝在已安裝且向 Azure 備份保存庫註冊 Microsoft Azure 備份代理程式的電腦上。
 
->[AZURE.NOTE]Microsoft Azure 備份伺服器繼承 Data Protection Manager (DPM) 的工作負載備份功能，但不提供磁帶的保護，也不與 System Center 整合。
+
 
 選取要安裝 Microsoft Azure 備份的伺服器後，您需要：
 
@@ -64,7 +66,7 @@ Microsoft Azure 備份伺服器可以部署為：
 - Microsoft Azure 備份伺服器必須加入網域。
 - Microsoft Azure 備份伺服器必須安裝 .Net 3.5、.Net 4.0、.Net 3.5 SP1 功能。如需詳細資訊，請參閱[關於如何啟用 .Net Framework 的詳細資訊](https://technet.microsoft.com/library/dn482071.aspx)。
 - Microsoft Azure 備份伺服器應該安裝 Windows Management Framework 4.0。您可以從[這裡](http://www.microsoft.com/download/details.aspx?id=40855)下載。
-- 對於作為 DPM 資料儲存體專用空間的磁碟，建議的存放集區大小是受保護資料的 1.5 倍。如需詳細資訊，請參閱 [本主題] (https://technet.microsoft.com/library/hh758176.aspx#DPM 伺服器) 的「磁碟與儲存體」一節。
+- 對於作為 Microsoft Azure 備份伺服器資料儲存體專用空間的磁碟，建議的存放集區大小是受保護資料的 1.5 倍。如需詳細資訊，請參閱 [本主題] (https://technet.microsoft.com/library/hh758176.aspx#DPM 伺服器) 的「磁碟與儲存體」一節。
 
 準備 Microsoft Azure 備份伺服器來備份資料，作法如下：
 
@@ -286,4 +288,4 @@ FALSE - Not connected to Azure service
 - [SharePoint 伺服器備份](backup-azure-backup-sharepoint.md)
 - [替代伺服器備份](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

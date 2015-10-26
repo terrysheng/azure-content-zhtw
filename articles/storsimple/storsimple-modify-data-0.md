@@ -1,19 +1,19 @@
 <properties 
    pageTitle="修改 StorSimple 裝置上的 DATA 0 設定 | Microsoft Azure"
-	description="了解如何使用 Windows PowerShell for StorSimple 重新設定 StorSimple 裝置上的 DATA 0 網路介面。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="了解如何使用 Windows PowerShell for StorSimple 重新設定 StorSimple 裝置上的 DATA 0 網路介面。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/02/2015"
+   ms.author="alkohli" />
 
 # 修改 StorSimple 裝置上的 DATA 0 網路介面設定
 
@@ -71,4 +71,4 @@ Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5�
 
 若要設定 DATA 0 以外的網路介面，您可以使用[管理入口網站中的設定頁面](storsimple-modify-device-config.md)。如果您在設定您的網路介面時遇到任何問題，請參閱[疑難排解部署問題](storsimple-troubleshoot-deployment.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -24,4 +24,4 @@ Azure 行動服務可讓您在 Visual Studio 中使用其中一個支援的 .NET
 
 [AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

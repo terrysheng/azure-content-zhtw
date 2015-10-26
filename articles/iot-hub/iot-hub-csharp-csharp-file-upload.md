@@ -4,19 +4,19 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# 使用 IoT 中心從裝置將檔案上傳至雲端
+# 教學課程：如何使用 IoT 中樞將檔案從裝置上傳到雲端
 
 ## 簡介
 
@@ -33,7 +33,7 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 * **SimulatedDevice**，[使用 IoT 中心傳送雲端到裝置訊息]中建立之 App 的修改版本，可連接到您的 IoT 中心、接收包含 Azure Blob URI 的雲端到裝置訊息。針對每個接收到的雲端到裝置訊息，它會觸發將檔案上傳至指定的 Blob URI。
 * **SendCloudToDevice**，這會建置 Azure Blob URI (如[使用 Blob 服務建立與使用 SAS](../storage/storage-dotnet-shared-access-signature-part-2.md) 中所說明)，在雲端到裝置訊息中透過 IoT 中心將 Azure Blob URI 傳送到模擬裝置，然後接收其傳遞通知。
 
-> [AZURE.NOTE]IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中心) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。適用於 Java 和 Node 的 Azure IoT 服務 SDK 即將推出。
+> [AZURE.NOTE]IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。適用於 Java 和 Node 的 Azure IoT 服務 SDK 即將推出。
 
 若要完成本教學課程，您需要下列項目：
 
@@ -96,10 +96,6 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [IoT 中心入門]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Azure IoT 開發人員中心]: http://www.azure.com/iotdev
+[Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

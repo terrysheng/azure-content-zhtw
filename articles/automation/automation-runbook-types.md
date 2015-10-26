@@ -109,4 +109,4 @@ PowerShell Runbook 以 Windows PowerShell 為基礎。您可以直接使用 Azur
 - [了解 Windows PowerShell 工作流程](automation-powershell-workflow.md)
 - [建立或匯入 Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

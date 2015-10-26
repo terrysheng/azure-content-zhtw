@@ -85,4 +85,4 @@ v2.0 應用程式模型支援 Open ID Connect 和 OAuth 2.0。不過，並非每
 
 若要進一步了解 v2.0 應用程式模型支援的通訊協定功能範圍，請參閱 [OpenID Connect 與 OAuth 2.0 通訊協定參照](active-directory-v2-protocols.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

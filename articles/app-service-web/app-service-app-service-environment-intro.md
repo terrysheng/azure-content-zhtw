@@ -101,4 +101,4 @@ App Service 環境可以建立於預先存在的區域傳統 "v1" 虛擬網路�
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

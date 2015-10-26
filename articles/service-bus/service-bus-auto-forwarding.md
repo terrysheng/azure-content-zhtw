@@ -69,4 +69,4 @@ namespaceManager.CreateSubscription(srcSubscription));
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
   [分割傳訊實體]: service-bus-partitioning.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -221,4 +221,4 @@
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS 的通知中心作法]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

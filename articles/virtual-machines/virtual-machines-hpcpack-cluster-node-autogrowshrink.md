@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # 在 HPC Pack 叢集中根據叢集工作負載自動向上和向下調整 Azure 運算資源
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文適用於管理以傳統部署模型建立的資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 如果在您的 HPC Pack 叢集部署 Azure「高載」節點，或您在 Azure VM 中建立 HPC Pack 叢集，您可能需要能根據叢集上目前的工作和任務的工作負載自動增加和縮減 Azure 運算資源的方式。這可讓您更有效率地使用您的 Azure 資源及控制其成本。若要這樣做，請使用隨著 HPC Pack 安裝的 **AzureAutoGrowShrink.ps1** HPC PowerShell 指令碼。
 
@@ -101,4 +102,4 @@ AzureAutoGrowShrink.ps1
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

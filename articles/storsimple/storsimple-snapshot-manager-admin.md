@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple Snapshot Manager 管理 | Microsoft Azure"
-	description="提供有關 StorSimple Snapshot Manager 解決方案系統管理工作和工作流程的概觀與詳細資訊連結。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="提供有關 StorSimple Snapshot Manager 解決方案系統管理工作和工作流程的概觀與詳細資訊連結。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/28/2015"
+   ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案
 
@@ -60,4 +60,4 @@ StorSimple Snapshot Manager 中央管理主控台可讓您建立一致、 時間
 
 [下載 StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

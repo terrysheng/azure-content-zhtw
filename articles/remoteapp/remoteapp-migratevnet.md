@@ -1,19 +1,19 @@
 <properties 
     pageTitle="如何從 RemoteApp VNET 移轉至 Azure VNET"
-	description="了解如何從 RemoteApp VNET 移轉至 Azure VNET"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="了解如何從 RemoteApp VNET 移轉至 Azure VNET" 
+    services="remoteapp" 
+	documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -50,4 +50,4 @@
 如果您有任何疑問或需要特殊協助，請將電子郵件寄到 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help)。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

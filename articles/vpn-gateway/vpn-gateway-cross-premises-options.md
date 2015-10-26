@@ -91,4 +91,4 @@ Azure ExpressRoute 可讓您在 Azure 資料中心和內部部署或共置環境
 
 如需詳細資訊，請參閱〈[ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)〉和〈[VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)〉。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

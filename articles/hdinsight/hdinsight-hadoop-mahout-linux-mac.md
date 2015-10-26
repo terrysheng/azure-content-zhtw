@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Mahout 和 Hadoop 來產生推薦 | Microsoft Azure"
+	pageTitle="使用 Mahout 與以 Linux 為基礎的 HDInsight 產生推薦 | Microsoft Azure"
 	description="了解如何搭配 Linux 架構的 HDInsight (Hadoop) 使用 Apache Mahout 機器學習庫來產生電影推薦。"
 	services="hdinsight"
 	documentationCenter=""
@@ -264,4 +264,4 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -36,7 +36,7 @@ _完整_名稱包含區域名稱，而_相對_名稱不含區域名稱。比方�
 
 記錄根據所包含的資料而有各種類型。最常見的類型為 'A' 記錄，可將名稱對應到 IPv4 位址。另一個類型為 'MX' 記錄，可將名稱對應到郵件伺服器。
 
-Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、SOA、SRV 和 TXT。
+Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、SOA、SRV 和 TXT。(請注意，[應該使用 TXT 記錄類型建立 SPF 記錄](http://tools.ietf.org/html/rfc7208#section-3.1)。)
 
 有時候，您需要以指定的名稱和類型建立多筆 DNS 記錄。例如，假設 www.contoso.com 網站裝載於兩個不同的 IP 位址。這需要兩筆不同的 A 記錄，每個 IP 位址各一筆：
 
@@ -124,4 +124,4 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

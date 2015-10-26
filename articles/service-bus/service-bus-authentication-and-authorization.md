@@ -73,4 +73,4 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 
 您可以在[作法：透過 OAuth 包裝通訊協定向 ACS 要求權杖](https://msdn.microsoft.com/library/hh674475.aspx)中找到 ACS 權杖的詳細資訊。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

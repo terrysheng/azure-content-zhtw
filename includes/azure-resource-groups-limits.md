@@ -5,6 +5,4 @@
 每個部署的資源|800|800
 管理鎖定 (每個唯一的範圍)|20|20
 
-<!---HONumber=August15_HO7-->
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

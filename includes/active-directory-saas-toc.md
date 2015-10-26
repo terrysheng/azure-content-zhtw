@@ -18,7 +18,7 @@
 	- [如何整合 Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [如何整合 ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
 	- [如何整合 Dropbox for Business](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [如何整合 Workday](https://msdn.microsoft.com/library/azure/dn510972.aspx) 
+	- [如何整合 Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
 	- [更多 SaaS 應用程式教學課程...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

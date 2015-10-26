@@ -19,7 +19,6 @@
 
 # 準備執行 Azure 的 SLES 或 openSUSE 虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [準備執行 Azure 的 SLES 11 SP3 虛擬機器](#sles11)
 - [準備執行 Azure 的 openSUSE 13.1+ 虛擬機器](#osuse)
@@ -179,4 +178,4 @@
 
 13. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

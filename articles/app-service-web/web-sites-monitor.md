@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="cephalin"/>
+	ms.date="10/14/2015"
+	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>監視 Azure App Service 中的 Web 應用程式
 
@@ -22,9 +22,17 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
+##度量保留原則
+
+>[AZURE.NOTE]應用程式度量的保留原則因資料粒度而異。
+
+- **分鐘**資料粒度度量會保留 **24 小時**
+- **小時**資料粒度度量會保留 **7 天**
+- **天**資料粒度度量會保留 **30 天**
+
 ##<a name="websitemetrics"></a>作法：新增 Web 應用程式度量
 
-1. 在 [Azure 入口網站](https://manage.windowsazure.com)的 Web 應用程式頁面中，按一下 [監視] 索引標籤以顯示 [監視] 管理頁面。依預設，[監視] 頁面之圖表顯示的度量與 [儀表板] 頁面的圖表相同。
+1. 在 [Azure 入口網站](https://manage.windowsazure.com)的 Web 應用程式頁面中，按一下 [**監視**] 索引標籤以顯示 [**監視**] 管理頁面。依預設，[監視] 頁面之圖表顯示的度量與 [儀表板] 頁面的圖表相同。
 
 2. 若要檢視 Web 應用程式的其他度量，可按一下頁面底部的 [新增度量]，以顯示 [選擇度量] 對話方塊。
 
@@ -35,6 +43,8 @@
 5. 在將度量新增至 [監視] 頁面後，請按一下以啟用 (停用) 每個度量旁的選項方塊，將度量新增至頁面頂端的圖表 (或將度量移除)。
 
 6. 若要將 [監視] 頁面中的度量移除，請選取要移除的度量，然後按一下頁面底部的 [Delete Metric] 圖示。
+
+
 
 ##<a name="howtoreceivealerts"></a>作法：接收來自 Web 應用程式度量的警示
 
@@ -279,4 +289,4 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

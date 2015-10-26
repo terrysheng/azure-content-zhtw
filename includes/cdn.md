@@ -111,4 +111,4 @@ Azure 管理入口網站目前不支援立即清除內容的功能。如果您�
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

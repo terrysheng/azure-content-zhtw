@@ -56,4 +56,4 @@ Azure 服務匯流排訊息就類似於傳遞信件的郵遞服務，可在傳�
 - [如何使用服務匯流排主題](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

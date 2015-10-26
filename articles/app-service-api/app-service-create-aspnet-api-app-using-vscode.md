@@ -33,7 +33,7 @@
 ## 必要條件  
 
 * 安裝和設定 [Visual Studio 程式碼](http://code.visualstudio.com/Docs/setup)。
-* 安裝 [Node.js](http://nodejs.org/download/)。<br\>
+* 安裝 [Node.js](http://nodejs.org/download/)。<br>
 	[Node.js](http://nodejs.org/) 是一種平台，可使用 JavaScript 建置快速和可擴充的伺服器應用程式。節點是執行階段 (節點)，而 [npm](http://www.npmjs.com/) 是節點模組的封裝管理員。您將使用 npm，在本教學課程中建立 ASP.NET 5 API 應用程式的結構。
 
 ## 安裝 ASP.NET 5 和 DNX
@@ -408,8 +408,7 @@ Git 是一個您可用來部署 Azure 網站的分散式版本控制系統。您
 
 	![初始化 Git](./media/app-service-create-aspnet-api-app-using-vscode/19-initgit.png)
 
-5. 
-6. 加入認可訊息，然後選取 [**全部認可**] 核取方塊。
+5. 加入認可訊息，然後選取 [**全部認可**] 核取方塊。
 
 	![Git 全部認可](./media/app-service-create-aspnet-api-app-using-vscode/20-git-commit.png)
 
@@ -420,13 +419,13 @@ Git 是一個您可用來部署 Azure 網站的分散式版本控制系統。您
 cd c:\VSCodeProjects\ContactsList
 </pre>
 
-7. 使用您稍早複製的 Git URL (結尾為 ".git")，建立遠端參考，以便將更新發送至之前建立的 Web 應用程式 (API 應用程式主機)：
+8. 使用您稍早複製的 Git URL (結尾為 ".git")，建立遠端參考，以便將更新發送至之前建立的 Web 應用程式 (API 應用程式主機)：
 
 	<pre class="prettyprint">
 git remote add azure [URL for remote repository]
 </pre>
 
-8. 輸入下列命令，將您的變更發送至 Azure：
+9. 輸入下列命令，將您的變更發送至 Azure：
 
 	<pre class="prettyprint">
 git push azure master
@@ -460,4 +459,4 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

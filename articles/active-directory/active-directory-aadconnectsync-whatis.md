@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -49,4 +49,4 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 
 <!--Image references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

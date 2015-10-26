@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # 了解串流分析輸入
@@ -94,15 +94,15 @@ IoT 中心是具高延展性的發佈-訂閱事件擷取器，最適用於 IoT �
 
 | 屬性 | 描述 |
 |------|------|
-| System.Input.EventProcessedUtcTime | 處理事件的日期與時間。 |
-| System.Input.EventEnqueuedUtcTime | IoT 中心收到事件的日期與時間。 |
-| System.Input.PartitionId | 輸入配接器以零起始的資料分割識別碼。 |
-| System.Input.MessageId | 用來關聯 IoT 中心內的雙向通訊。 |
-| System.Input.CorrelationId | 用於 IoT 中心內的訊息回應和意見反應。 |
-| System.Input.ConnectionDeviceId | 用來傳送此訊息的已驗證識別碼，IoT 中心傳送給服務的訊息都會加上戳記。 |
-| System.Input.ConnectionDeviceGenerationId | 用來傳送此訊息的已驗證裝置 generationId，IoT 中心傳送給服務的訊息都會加上戳記。 |
-| System.Input.EnqueuedTime | IoT 中心收到訊息的時間。 |
-| System.Input.StreamId | 傳送裝置所加入的自訂事件屬性。 |
+| EventProcessedUtcTime | 處理事件的日期與時間。 |
+| EventEnqueuedUtcTime | IoT 中心收到事件的日期與時間。 |
+| PartitionId | 輸入配接器以零起始的資料分割識別碼。 |
+| IoTHub.MessageId | 用來關聯 IoT 中心內的雙向通訊。 |
+| IoTHub.CorrelationId | 用於 IoT 中心內的訊息回應和意見反應。 |
+| IoTHub.ConnectionDeviceId | 用來傳送此訊息的已驗證識別碼，IoT 中心傳送給服務的訊息都會加上戳記。 |
+| IoTHub.ConnectionDeviceGenerationId | 用來傳送此訊息的已驗證裝置 generationId，IoT 中心傳送給服務的訊息都會加上戳記。 |
+| IoTHub.EnqueuedTime | IoT 中樞收到訊息的時間。 |
+| IoTHub.StreamId | 傳送裝置所加入的自訂事件屬性。 |
 
 ## 建立 Blob 儲存體的資料流輸入 ##
 
@@ -201,4 +201,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

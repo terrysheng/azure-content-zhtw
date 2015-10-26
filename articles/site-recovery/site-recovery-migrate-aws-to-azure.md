@@ -71,4 +71,4 @@ Azure Site Recovery 可在許多部署中協調虛擬機器的複寫、容錯移
 
 在 [Site Recovery 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼任何意見或問題
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -40,7 +40,7 @@
 
 ## WebAPI 專案
 
-1. 在 Visual Studio 中，開啟您在 [AppBackend] 教學課程中所建立的 [通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md) 專案。
+1. 在 Visual Studio 中，開啟您在 [通知使用者] 教學課程中所建立的 [AppBackend](notification-hubs-aspnet-backend-ios-notify-users.md) 專案。
 2. 取得您想要用來通知使用者的影像，並將它放在專案目錄的 **img** 資料夾中。
 3. 按一下 [方案總管] 中的 [顯示所有檔案]，然後以滑鼠右鍵按一下資料夾以 [加入至專案]。
 4. 選取影像後，在 [屬性] 視窗中將其 [建置動作] 變更為 [內嵌資源]。
@@ -142,7 +142,7 @@
 
     ![][IOS3]
 
-3. 移至 **Main.storyboard**，並確定您有[通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md)教學課程中的 [檢視控制器] (在本教學課程中稱為 [首頁檢視控制器])。
+3. 移至 **Main.storyboard**，並確定您有[通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md)教學課程中的 [檢視控制器] \(在本教學課程中稱為 [首頁檢視控制器])。
 
 4. 將 [導覽控制器] 加入至您的腳本，並按住 Control 再拖曳到 [首頁檢視控制器]，使其成為導覽的**根目錄檢視**。請確定只針對 [導覽控制器] 選取 [屬性檢查程式] 中的 [是初始檢視控制器]。
 
@@ -381,4 +381,4 @@
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

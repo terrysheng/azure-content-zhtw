@@ -21,7 +21,8 @@
 
 本文說明如何安裝 Azure 命令列介面 (Azure CLI)。Azure CLI 提供一組開放原始碼的命令介面式命令，用於建立和管理 Microsoft Azure 中的資源。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立和管理資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
+
 
 Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.org)。它是使用 [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node) 實作，並在 Apache 2.0 授權下發佈。專案儲存機制位於 [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli)。
 
@@ -155,4 +156,4 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -87,4 +87,4 @@ Reliable Service 會發出事件和效能計數器，可用來診斷和監視您
 
 - [可設定狀態 Reliable Service 診斷](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

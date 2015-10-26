@@ -89,4 +89,4 @@ API 會對您的時間序列資料執行這些偵測器，然後傳回每個時�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

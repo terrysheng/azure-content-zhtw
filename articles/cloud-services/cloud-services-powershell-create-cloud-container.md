@@ -41,4 +41,4 @@ Get-help New-AzureService
     - 若要將雲端服務專案發佈至 Azure，請參閱「[在Azure 中持續提供雲端服務](cloud-services-dotnet-continuous-delivery.md)」中的 **PublishCloudService.ps1** 程式碼範例
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -38,4 +38,4 @@ Service Fabric 導入了健康狀態模型，可提供豐富、彈性且可延�
 - [使用系統健康狀態報告進行疑難排解](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [新增自訂 Service Fabric 健康狀態報告](service-fabric-report-health.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

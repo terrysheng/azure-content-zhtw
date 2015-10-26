@@ -36,4 +36,4 @@
 
 > [AZURE.NOTE]您可使用 [公司商標功能](active-directory-add-company-branding.md) 自訂自助式密碼重設頁面。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

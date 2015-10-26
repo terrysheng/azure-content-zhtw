@@ -65,4 +65,4 @@ Service Fabric 中保留及複寫的資料來自您的 C# 類別。對於使用[
 
 [進階主題](service-fabric-application-upgrade-advanced.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

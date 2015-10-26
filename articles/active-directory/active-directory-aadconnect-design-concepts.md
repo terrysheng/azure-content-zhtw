@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure AD Connect 設計概念 |Microsoft Azure"
-	description="本主題詳細說明特定的實作設計領域"
-	services="active-directory"
-	documentationCenter=""
-	authors="AndKjell"
-	manager="stevenpo"
-	editor=""/>
+   description="本主題詳細說明特定的實作設計領域"
+   services="active-directory"
+   documentationCenter=""
+   authors="AndKjell"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="Identity"
-	ms.date="09/03/2015"
-	ms.author="andkjell"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="Identity"
+   ms.date="10/13/2015"
+   ms.author="andkjell"/>
 
 # Azure AD Connect 的設計概念
 本主題旨在說明在 Azure AD Connect 實作設計期間必須思考的領域。這是特定領域的深入探討，而在其他主題忠也會簡短描述這些概念。
@@ -66,4 +66,7 @@ sourceAnchor 屬性會區分大小寫。"JohnDoe" 與 "johndoe" 是不同的值�
 - 如果您安裝其他 Azure AD Connect 伺服器，您必須選取如先前所用的相同 sourceAnchor 屬性。如果您稍早已使用 DirSync 並移至 Azure AD Connect，則必須使用 **objectGUID**，因為這是 DirSync 所用的屬性。
 - 如果 sourceAnchor 值在物件匯出至 Azure AD 之後變更，則 Azure AD Connect Sync 將會擲回錯誤，並不允許在修正問題且 sourceAnchor 於來源目錄中變回之前，對此物件進行任何其他變更。
 
-<!---HONumber=September15_HO1-->
+## 後續步驟
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
+
+<!---HONumber=Oct15_HO3-->

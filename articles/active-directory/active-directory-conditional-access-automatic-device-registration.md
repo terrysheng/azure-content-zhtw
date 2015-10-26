@@ -85,4 +85,4 @@ Internet Explorer 設定
 
 您可以在[這裡](https://technet.microsoft.com/zh-TW/library/dn486831.aspx)進一步了解使用 AD FS 部署裝置註冊。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

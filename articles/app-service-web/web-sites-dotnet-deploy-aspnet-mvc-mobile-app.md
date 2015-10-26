@@ -617,4 +617,4 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

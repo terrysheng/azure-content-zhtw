@@ -103,4 +103,4 @@ Azure Machine Learning 有兩種類型的服務：
 2. 使用來自 Web 服務的金鑰指派 apikey。請了解如何取得 Azure ML 授權金鑰。
 3. 使用要求 URI 指派 serviceUri。請了解如何取得要求 URI。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

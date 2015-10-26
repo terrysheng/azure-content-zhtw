@@ -20,7 +20,8 @@
 
 #變更隨傳統部署模型建立的虛擬機器上的 Windows 暫存磁碟的磁碟機代號
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 如果您需要使用 D 磁碟機來儲存資料，請遵循下列指示，使用不同的磁碟機作為暫存磁碟。切勿使用暫存磁碟儲存需要保留的資料。
 
@@ -74,4 +75,4 @@
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

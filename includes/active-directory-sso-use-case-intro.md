@@ -1,22 +1,24 @@
-Organizations are using more Software as a Service (SaaS) applications for productivity because cloud technology and tools are becoming more readily available. As the number of SaaS apps grows, it becomes challenging for the administrators to manage accounts and access rights, and for the users to remember their different passwords. Managing these applications individually creates extra work and is less secure.
+組織使用更多的軟體即服務 (SaaS) 應用程式來提高產能，因為雲端技術和工具變得更容易使用。當 SaaS App 的數目增加時，會提高系統管理員對於管理帳戶和存取權限的挑戰性，而對於使用者的挑戰則是記住其不同的密碼。個別管理這些應用程式會建立額外的工作且安全性變低。
 
-- Employees who have to keep track of many passwords tend to use less-secure methods to remember them, either writing down passwords or using the same passwords across many accounts.
+- 必須持續追蹤許多密碼的員工傾向使用較不安全的方法來記憶它們，可能是寫下密碼，或者在許多帳戶間使用相同的密碼。
 
-- When a new employee arrives or one leaves, all their accounts must be individually provisioned or de-provisioned.
+- 當新員工報到或舊員工離職時，他們的所有帳戶都必須個別佈建或取消佈建。
 
-- Additionally, employees may start using SaaS apps for their work without going through IT, which means they are creating their own accounts on systems that the IT administrators haven't approved and aren't monitoring.  
+- 此外，員工可能在未經 IT 同意的情況下開始使用 SaaS App 來工作，這表示表示他們在 IT 系統管理員尚未核准且無法監視的系統上建立自己的帳戶。
 
-A solution for all of these challenges is single sign-on (SSO). It's the simplest way to manage multiple apps and provide users with a consistent sign-on experience. Azure Active Directory (Azure AD) provides a robust SSO solution and has many available pre-integrated applications, with tutorials for admins to quickly set up a new app and start provisioning users.
+所有這些挑戰的解決方案就是單一登入 (SSO)。這是管理多個 App 以及為使用者提供一致性單一登入體驗的最簡單方式。Azure Active Directory (Azure AD) 提供穩固的 SSO 解決方案，且具有許多可用且預先整合的應用程式，以及系統管理員能夠快速設定新的 App 並開始佈建使用者的教學課程。
 
 
-## How does Azure Active Directory integrate apps?  
+## Azure Active Directory 如何整合 App？  
 
-Azure AD allows you to integrate your apps and provisioned accounts. This can be done through either of two approaches.
+Azure AD 可讓您整合 App 和佈建的帳戶。這可透過下列兩種方法之一來完成。
 
-- If the app is pre-integrated in the app Gallery, you can go through that portal to set up apps and configure the settings to allow SSO. For any Gallery app, you can get started by follow the simple step-by-step instructions presented in the app gallery and in the Azure portal to enable single sign-on.
+- 如果 App 已預先整合於 App 程式庫中，您可以瀏覽至該入口網站來安裝 App 並進行設定，以允許使用 SSO。針對任何程式庫 App，您一開始可以遵循 App 程式庫和 Azure 入口網站中顯示的簡單逐步指示來啟用單一登入。
 
-- If the app is not in the Gallery, you can still set up most apps in Azure AD as a custom app. This requires a bit more technical expertise to configure. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app.
+- 如果 App 不在持程式庫中，您仍然可以將 Azure AD 中大部分的 App 設定為自訂 App。這需要設定更技術性的專業知識。您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。
 
-In the case where users have created their own accounts for SaaS apps that aren't managed by IT, the [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) tool provides a solution. This tool monitors the web traffic to identify which apps are being used throughout the organization, and the number of people using each of them. IT can use this information to learn what apps the users prefer and decide which to integrate into Azure AD for SSO.  
+如果使用者已針對未受到 IT 管理的 SaaS App 建立自己的帳戶，則 [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) 工具可提供解決方案。此工具會監視網路流量，來識別整個組織中正在使用哪些 App，以及使用每個 App 的人數。IT 可以使用此資訊來了解使用者偏好使用哪些 App，並決定要整合到 Azure AD 以使用 SSO 的 App。
 
-When you integrate an app into Azure AD, you can map the users' established application identities to their respective Azure AD identities.  
+當您將 App 整合到 Azure AD 時，可以將使用者已建立的應用程式身分識別對應至其各自的 Azure AD 身分識別。
+
+<!---HONumber=Oct15_HO3-->

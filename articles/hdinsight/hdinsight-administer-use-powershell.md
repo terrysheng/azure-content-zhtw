@@ -64,7 +64,7 @@ HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob �
 
 	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
 
-	For a full list of the storage account types, see [https://msdn.microsoft.com/zh-tw/library/azure/hh264518.aspx](https://msdn.microsoft.com/zh-tw/library/azure/hh264518.aspx).
+	For a full list of the storage account types, see [https://msdn.microsoft.com/zh-TW/library/azure/hh264518.aspx](https://msdn.microsoft.com/zh-TW/library/azure/hh264518.aspx).
 
 
 如需使用 Azure 預覽入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)。
@@ -343,4 +343,4 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

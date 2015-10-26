@@ -21,7 +21,7 @@
 
 Azure Resource Manager 包含的運算、網路與存放功能，可以大幅簡化各種 IaaS 複雜應用程式的部署和管理。很多應用程式需要各種的資源組合，其中包括虛擬網路、儲存體帳戶、虛擬機器以及網路介面。Azure Resource Manager 可以建構 JSON 範本，然後做為單一應用程式部署所有這些資源，並集中管理。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ## Azure Resource Manager 提供整合運算、網路和存放功能等優點
@@ -118,4 +118,4 @@ Azure 命令列介面 (Azure CLI) 有兩種部署模式 - **AzureServiceManageme
 
 一組完整的入門範本可在 [Azure 資源管理員快速入門範本](http://azure.microsoft.com/documentation/templates/)中找到。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

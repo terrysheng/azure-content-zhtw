@@ -1,6 +1,6 @@
 <properties
-   pageTitle="部署和管理 HDInsight 上的 Apache Storm 拓撲 | Microsoft Azure"
-   description="使用 Storm Dashboard on HDInsight，了解如何部署、監視和管理 Apache Storm 拓撲。使用適用於 Visual Studio 的 Hadoop 工具。"
+   pageTitle="在以 Linux 為基礎的 HDInsight 上部署與管理 Apache Storm 拓撲 | Microsoft Azure"
+   description="了解如何使用以 Linux 為基礎 HDInsight 上的 Storm Dashboard 部署、監視和管理 Apache Storm 拓撲。使用適用於 Visual Studio 的 Hadoop 工具。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/14/2015"
+   ms.date="10/04/2015"
    ms.author="larryfr"/>
 
 # 部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲
@@ -161,4 +161,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 
 若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

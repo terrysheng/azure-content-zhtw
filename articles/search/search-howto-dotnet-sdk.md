@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/06/2015"
+   ms.date="10/07/2015"
    ms.author="brjohnst"/>
 
 # 如何從 .NET 應用程式使用 Azure 搜尋服務 #
@@ -337,7 +337,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
 
 第二個要注意的是，`Hotel` 類別為公用屬性的資料類型。這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。`bool?` 與 `Edm.Boolean`、`DateTimeOffset?` 與 `Edm.DateTimeOffset` 等，它們之間也有類似的類型對應。類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)。
  
-> [AZURE.NOTE]當您設計自己的模型類別以對應至 Azure 搜尋索引時，請確定會將像是 `bool` 和 `int` 的值類型屬性宣告為 Null (例如：`bool?`，而不是 `bool`)。這是必要的，因為 Azure 搜尋中所有的基本欄位類型可以是 Null。如果您使用不可為 Null 的類型，在針對像是 `0` 和 `false` 的預設值編制索引時，就可能會得到未預期的結果。
+> [AZURE.NOTE]當您設計自己的模型類別以對應至 Azure 搜尋索引時，請確定會將像是 `bool` 和 `int` 的值類型屬性宣告為可為 Null (例如：`bool?`，而不是 `bool`)。這是必要的，因為 Azure 搜尋中所有的基本欄位類型可以是 Null。如果您使用不可為 Null 的類型，在針對像是 `0` 和 `false` 的預設值編制索引時，您將得到未預期的結果。具體而言，這類預設值將會在索引期間轉換成 Null。在未來的 SDK 版本中，使用不可為 Null 的類型將反而導致例外狀況。
 
 這讓使用您的類別做為文件可雙向有效；您也可以擷取搜尋結果，然後讓 SDK 將結果自動還原序列化為您選擇的類型，我們會在下一節中看到這部分。
 
@@ -627,4 +627,4 @@ Hotel.cs：
     }
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

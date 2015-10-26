@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # 使用 Azure 資源管理員範本在 Ubuntu 上部署 WordPress 伺服器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立資源。您無法以傳統部署模型建立此資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。您無法以傳統部署模型建立此資源。
 
 按照本文中的指示，使用資源管理員範本部署在 Ubuntu 上執行的 WordPress 伺服器。這個範本會在新的虛擬網路中建立單一虛擬機器。
 
@@ -53,8 +53,8 @@
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/wordpress-single-vm-ubuntu/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 範例如下。
 
@@ -62,12 +62,12 @@
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/wordpress-single-vm-ubuntu/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 接下來，在 Azure PowerShell 提示字元中執行命令區塊。
 
-執行 **New-AzureResourceGroupDeployment** 命令時，系統會提示您提供一系列參數的值。在您指定所有參數值之後，**New-AzureResourceGroupDeployment** 便會建立和設定虛擬機器。
+執行 **New-AzureRmResourceGroupDeployment** 命令時，系統會提示您提供一系列參數的值。在您指定所有參數值之後，**New-AzureRmResourceGroupDeployment** 便會建立和設定虛擬機器。
 
 範本執行完成時，您在新的資源群組中的 Ubuntu 上就會有 WordPress 伺服器。
 
@@ -106,4 +106,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -253,4 +253,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

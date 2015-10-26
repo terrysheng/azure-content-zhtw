@@ -33,7 +33,7 @@ Azure RemoteApp 可讓使用者存取集中管理的 Windows 應用程式，這�
 1.	如果您的 RemoteApp 集合已加入網域，您可以強制執行任何[群組原則](https://technet.microsoft.com/library/cc725828.aspx) ([這裡](../azure-subscription-service-limits.md)所述的閒置和中斷連線逾時原則除外)。
 2.	除了群組原則 (如果您的集合未加入網域，或您在 AD 中沒有正確的權限)，您也可以在範本映像中設定[本機原則](https://technet.microsoft.com/library/cc775702.aspx)。請注意，當群組原則與本機原則發生衝突時，以群組原則為準。
 3.	某些 OS/應用程式設定無法透過原則設定，但可以在設定範本映像時，使用 [RegEdit 工具](./remoteapp-hybridtrouble.md)透過登錄機碼來設定。
-4.	您可以使用 [Windows 防火牆](http://windows.microsoft.com/en-US/windows-8/Windows-Firewall-from-start-to-finish)來控制從網路進出執行應用程式的電腦。只要確定沒有封鎖這裡所定義的 URL 和連接埠即可。
+4.	您可以使用 [Windows 防火牆](http://windows.microsoft.com/zh-TW/windows-8/Windows-Firewall-from-start-to-finish)來控制從網路進出執行應用程式的電腦。只要確定沒有封鎖這裡所定義的 URL 和連接埠即可。
 5.	您可以使用 [AppLocker](https://technet.microsoft.com/library/hh831440.aspx)來控制使用者可以執行的應用程式和檔案。比方說，聰明的使用者可能在您用來建立集合的映像中，想出方法來執行您未發佈的應用程式 - AppLocker 可以排除這種情況。
  
 ## 詳細資訊
@@ -47,4 +47,4 @@ Azure RemoteApp 可讓使用者存取集中管理的 Windows 應用程式，這�
 - [Office 2013 原則](https://technet.microsoft.com/library/cc178969.aspx) (包括[如何自訂 Office 工具列](https://technet.microsoft.com/library/cc179143.aspx))。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

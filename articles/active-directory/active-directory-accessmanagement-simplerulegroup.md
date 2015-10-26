@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 
@@ -28,12 +28,10 @@
 
 3. 接著，選取一個條件 (Not Equals、Equals、Not Starts With、Starts With、Not Contains、Contains、Not Match，Match)，最後指定所選使用者屬性的值。例如，如果某個群組指派給 SaaS 應用程式，而且您透過設定一個規則，藉以將 [新增使用者位置] 設定為 Equals(-eq)Sales Rep 的 jobTitle，以啟用此群組的動態成員資格，則在您的 Azure AD 目錄中，其職稱設定為 Sales Rep 的所有使用者將可以存取此 SaaS 應用程式。
 
-以下是將提供一些 Azure Active Directory 的其他相關資訊的部分主題
+以下是一些可提供有關 Azure Active Directory 額外資訊的主題：
 
 * [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
-
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
-
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

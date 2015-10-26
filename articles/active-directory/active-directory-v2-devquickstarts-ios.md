@@ -22,4 +22,4 @@ iOS 的快速入門教學課程尚未就緒…盡快返回查看並從 Twitter �
 
 > [AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽。如需有關如何整合公開上市 Azure AD 服務的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

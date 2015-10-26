@@ -644,7 +644,8 @@ R 資料框架支援強大的篩選功能。藉由在資料列或資料行使用
 
 如已經提過的，時間序列是一系列依時間編制索引的資料值。R 時間序列物件可用來建立和管理時間索引。使用時間序列物件有數個優點。時間序列物件可讓您不必理會管理封裝在物件中之時間序列索引值的許多細節。此外，時間序列物件還可讓您使用許多時間序列方法來繪製、列印、建立模型等。
 
-POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類別是從 1970 年 1 月 1 日開始計量時間。在此範例中，我們將使用 POSIXct 時間序列物件。其他廣泛使用的 R 時間序列物件類別包括 zoo 和 xts (可延伸時間序列)。<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類別是從 1970 年 1 月 1 日開始計量時間。在此範例中，我們將使用 POSIXct 時間序列物件。其他廣泛使用的 R 時間序列物件類別包括 zoo 和 xts (可延伸時間序列)。
+<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	時間序列物件範例
 
@@ -910,7 +911,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 
 第一行程式碼是需要一點技巧，一些說明可以幫助您了解它。由內而外可分為下列項目：
 
-1.  含有引數 '**[[**' 的 '**1**' 運算子會從 ccf 物件清單的第一個元素選取各段延隔時間的相互關聯向量。
+1.  含有引數 '**1**' 的 '**[[**' 運算子會從 ccf 物件清單的第一個元素選取各段延隔時間的相互關聯向量。
 
 2.  `do.call()` 函式會在 `lapply()` 所傳回之清單的項目上套用 `rbind()` 函式。
 
@@ -1346,4 +1347,4 @@ Paul Cowpertwait 與 Andrew Metcalfe 所著的 《Introductory Time Series with 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

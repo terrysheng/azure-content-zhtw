@@ -1,10 +1,10 @@
 <properties
- pageTitle="何謂 Azure IoT 中心？ | Microsoft Azure"
- description="Azure IoT 中心服務概觀，包括裝置連線性、通訊模式和服務輔助通訊模式"
+ pageTitle="Azure IoT 中樞概觀 | Microsoft Azure"
+ description="Azure IoT 中樞服務概觀，包括裝置連線性、通訊模式和服務輔助通訊模式"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
 # 何謂 Azure IoT 中心？
 
- Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝置和一個應用程式後端進行可靠且安全的雙向通訊。Azure IoT 中心提供了可靠的裝置到雲端和雲端到裝置超規模傳訊，使用各裝置安全性認證與存取控制啟用安全通訊，並包含最受歡迎的語言和平台的裝置程式庫。
+Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝置和一個應用程式後端進行可靠且安全的雙向通訊。Azure IoT 中心提供了可靠的裝置到雲端和雲端到裝置超規模傳訊，使用各裝置安全性認證與存取控制啟用安全通訊，並包含最受歡迎的語言和平台的裝置程式庫。
 
 ![IoT 中心做為雲端閘道器？][img-architecture]
 
@@ -92,11 +92,11 @@ Azure IoT 中心會在實作[服務輔助通訊][lnk-service-assisted-pattern]�
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [開始使用 IoT 中心]: iot-hub-csharp-csharp-getstarted.md
 [支援的裝置平台和語言]: iot-hub-sdks-summary.md#os-platforms-and-hardware-compatibility
-[Azure IoT 開發人員中心]: http://www.azure.com/iotdev
+[Azure IoT 開發人員中心]: https://azure.microsoft.com/develop/iot/
 
 [img-why-use]: media/iot-hub-what-is-iot-hub/image1.png
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "服務輔助通訊，由 Clemens Vasters 撰寫的部落格文章"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

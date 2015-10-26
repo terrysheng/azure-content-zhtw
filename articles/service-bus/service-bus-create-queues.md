@@ -160,4 +160,4 @@ catch (Exception e)
 
 既然您了解佇列的基本概念，請參閱[建立使用服務匯流排主題和訂用帳戶的應用程式](service-bus-create-topics-subscriptions.md)，透過服務匯流排代理傳訊的發佈/訂閱功能，繼續進行本文的討論。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

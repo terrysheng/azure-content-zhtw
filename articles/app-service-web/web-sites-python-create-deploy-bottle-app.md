@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure 中使用 Bottle 建立 Python Web 應用程式"
-	description="介紹在 Azure App Service Web Apps 中執行 Python Web 應用程式的教學課程。"
-	services="app-service\web"
-	documentationCenter="python"
+	pageTitle="在 Azure 中使用 Bottle 建立 Python Web 應用程式" 
+	description="介紹在 Azure App Service Web Apps 中執行 Python Web 應用程式的教學課程。" 
+	services="app-service\web" 
+	documentationCenter="python" 
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -398,4 +398,4 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 [Bottle 說明文件]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

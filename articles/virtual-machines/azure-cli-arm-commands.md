@@ -1,12 +1,12 @@
 <properties
 	pageTitle="使用 Azure CLI 搭配資源管理員 | Microsoft Azure"
-	description="了解如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI，藉由資源管理員部署模式來管理 Azure 資源。"
-	services="virtual-machines"
+	description="了解如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI，在 Azure 資源管理員模式中使用 CLI 管理 Azure 資源。"
+	services="virtual-machines,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-mangaer"/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="multiple"
@@ -14,31 +14,34 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # 搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。您也可以使用[傳統部署模型](virtual-machines-command-line-tools.md)建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
+本文說明如何在 Azure 資源管理員模式下使用 Azure 命令列介面 (CLI)，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫、透過 Azure PowerShell，以及使用 Azure Preview 入口網站來執行其中許多相同的工作。
 
-本主題描述如何使用 **arm** 模式中的 Azure 命令列介面 (Azure CLI)，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫、透過 PowerShell，以及使用 Azure 入口網站來執行相同的工作。
+Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站、資料庫等，並作為單一部署單位。然後，您可以透過單一、協調的工作來部署、更新或刪除應用程式的所有資源。您會在 JSON 範本中描述部署的群組資源，然後可以將該範本用於不同的環境，例如測試、預備和生產環境。
 
-Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、資料庫等，並作為單一部署單位。然後，您可以透過單一、協調的工作來部署、更新或刪除應用程式的所有資源。您會在 JSON 範本中描述部署的群組資源，然後可以將該範本用於不同的環境，例如測試、預備和生產環境。
+## 文章的範圍
+
+本文提供資源管理員部署模型的常用 Azure CLI 命令的語法和選項。它不是完整的參考，您的 CLI 版本可能會顯示一些不同的命令或參數。如需在資源管理員模式中命令列目前的命令語法和選項，請輸入 `azure help`，或顯示特定命令的說明 `azure help [command]`。您也可以在文件中找到建立和管理特定的 Azure 服務的 CLI 範例。
+
+選用參數會以方括號括住 (例如，[parameter])。其他所有參數皆為必要參數。
+
+除了本文所述的命令特定選用參數，還有三個選用參數可用來顯示詳細輸出，例如要求選項和狀態碼。-v 參數提供詳細資訊輸出，而 -vv 參數提供更詳細的詳細資訊輸出。--json 選項將以原始 json 格式輸出結果。使用 --json 參數的使用方式相當常見，同時對於取得和了解傳回資源資訊、狀態和記錄檔的 Azure CLI 工作結果，以及使用範本也是重要的部分。您可能想要安裝 JSON 剖析器工具，例如 **jq** 或 **jsawk**，或使用您偏好的語言程式庫。
 
 ## 命令式和宣告式方法
 
-如同 [服務管理模式 (**asm**)](../virtual-machines-command-line-tools.md)，Azure CLI 的 **arm** 模式提供的命令可讓您在命令列以命令方式建立資源。例如，若您輸入 `azure group create <groupname> <location>` 表示要求 Azure 建立資源群組，若輸入 `azure group deployment create <resourcegroup> <deploymentname>` 表示指示 Azure 建立任意數目的項目部署，並將其放在群組中。因為每一種資源類型皆具有命令式指令，您可以將他們鏈結在一起以建立相當複雜的部署。
+如同 [Azure 服務管理模式](../virtual-machines-command-line-tools.md)，Azure CLI 的 資源管理員模式提供的命令可讓您在命令列以命令方式建立資源。例如，若您輸入 `azure group create <groupname> <location>` 表示要求 Azure 建立資源群組，若輸入 `azure group deployment create <resourcegroup> <deploymentname>` 表示指示 Azure 建立任意數目的項目部署，並將其放在群組中。因為每一種資源類型皆具有命令式指令，您可以將他們鏈結在一起以建立相當複雜的部署。
 
 不過，使用說明資源群組是以更強大宣告式方法所建立的資源群組_範本_時，可讓您基於 (幾乎) 任何用途自動進行 (幾乎) 任意資源數目的複雜部署。使用範本時，唯一的命令式指令是進行部署。如需範本、資源及資源群組的一般概觀，請參閱＜[Azure 資源群組概觀](resource-groups-overview)＞。
 
-> [AZURE.NOTE]除了下述和命令列上的命令特定選項，還有三個選項可用來檢視詳細輸出，例如要求選項和狀態碼。-v 參數提供詳細資訊輸出，而 -vv 參數提供更詳細的詳細資訊輸出。--json 選項將會以原始 JSON 格式輸出結果，這對於指令碼案例相當實用。
->
-> 使用 --json 參數的使用方式相當常見，同時對於取得和了解傳回資源資訊、狀態和記錄檔的 Azure CLI 工作結果，以及使用範本也是重要的部分。您可能想要安裝 JSON 剖析器工具，例如 **jq** 或 **jsawk**，或使用您偏好的語言程式庫。
-
 ##使用需求
 
-透過 Azure CLI 使用 **arm** 模式的設定需求為：
+透過 Azure CLI 使用資源管理員模式的設定需求為：
 
 - 一個 Azure 帳戶 ([在此取得免費試用](http://azure.microsoft.com/pricing/free-trial/))
 - [安裝 Azure CLI](../xplat-cli-install.md)
@@ -46,10 +49,9 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 
 一旦您擁有帳戶並已安裝 Azure CLI，您必須
 
-- 輸入 `azure config mode arm` 以切換至 **arm** 模式。
+- 輸入 `azure config mode arm` 切換至資源管理員模式。
 - 輸入 `azure login` 來登入您的 Azure 帳戶，並依照提示使用您工作或學校的身分識別
 
-現在請輸入 `azure` 以查看下列各節中所述的最上層命令清單。
 
 ## azure account：用來管理帳戶資訊及發佈設定
 此工具會使用您的 Azure 訂閱資訊來連線至您的帳戶。您可以從 Azure 入口網站取得這些資訊 (在發佈設定檔中，本文將有說明)。您可以匯入發佈設定檔，作為這個工具後續作業所使用的持續性本機組態設定。您的發佈設定只需匯入一次即可。
@@ -1454,7 +1456,7 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 	network traffic-manager profile endpoint set [options] <resource-group> <profile-name> <name>
 	network traffic-manager profile endpoint delete [options] <resource-group> <profile-name> <name>
 
-**用來管理虛擬網路閘道的命令**
+**用來管理虛擬網路閘道器的命令**
 
 	network gateway list [options] <resource-group>
 
@@ -1740,4 +1742,4 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

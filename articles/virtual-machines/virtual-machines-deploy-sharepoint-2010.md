@@ -20,7 +20,8 @@
 
 # 在 Azure 虛擬機器上部署 SharePoint 2010
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋之內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 Microsoft SharePoint Server 2010 提供充足的部署彈性，可協助組織依據其商業需求和目標，擬定出適當的部署方式。Azure 虛擬機器產品在 Microsoft Azure 中受到代管與管理，能夠提供完整、可靠而適用的基礎結構來支援不同的隨需應用程式和資料庫工作負載，例如 Microsoft SQL Server 和 SharePoint 部署。
 
@@ -287,4 +288,4 @@ Azure 虛擬機器可用來執行完整而連續的 SharePoint 部署。Azure �
 
 [在 Azure 中測試 SharePoint Server 2016 IT 預覽版](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

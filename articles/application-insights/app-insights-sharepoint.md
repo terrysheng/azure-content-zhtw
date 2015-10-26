@@ -102,10 +102,10 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 * 可監視網站可用性的 [Web 測試](app-insights-monitor-web-app-availability.md)。
 
-* 其他應用程式類型的 [Application Insights](app-insights-get-started.md)。
+* 其他應用程式類型的 [Application Insights](app-insights-overview.md)。
 
 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

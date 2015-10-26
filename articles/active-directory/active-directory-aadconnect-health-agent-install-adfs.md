@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Azure AD Connect Health AD FS 代理程式安裝 | Microsoft Azure"
 	description="這是說明 Active Directory Federation Services (AD FS) 代理程式安裝的 Azure AD Connect Health 頁面。"
 	services="active-directory"
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 
@@ -53,7 +53,7 @@
 - Azure AD Connect Health AD FS 診斷服務
 - Azure AD Connect Health AD FS Insights 服務
 - Azure AD Connect Health AD FS 監視服務
- 
+
 ![驗證 Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
 
@@ -70,6 +70,99 @@
  - 在伺服器上安裝 Internet Explorer 10 或更新版本。這是 Health 服務所必需，才能使用 Azure 系統管理員認證進行驗證。
 1. 如需有關在 Windows Server 2008 R2 上安裝 Windows PowerShell 4.0 的其他資訊，請參閱[這裡](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)的 Wiki 文章。
 
+
+## 啟用 AD FS 的稽核
+
+若要讓使用情況分析功能收集並分析資料，Azure AD Connect Health 代理程式需要 AD FS 稽核記錄檔中的資訊。預設不會啟用這些記錄檔。這只適用於 AD FS 同盟伺服器。您不需要在 AD FS Proxy 伺服器或 Web 應用程式 Proxy 伺服器上啟用稽核。使用下列程序啟用 AD FS 稽核，並找出 AD FS 稽核記錄檔。
+
+#### 啟用 AD FS 2.0 的稽核
+
+1. 按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [本機安全性原則]。
+2. 瀏覽至 **Security Settings\\Local Policies\\User Rights Management** 資料夾，然後按兩下 [產生安全性稽核]。
+3. 在 [本機安全性設定] 索引標籤上，確認已列出 AD FS 2.0 服務帳戶。如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
+4. 使用提高的權限開啟命令提示字元，然後執行下列命令以啟用稽核：<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+5. 關閉 [本機安全性原則]，然後開啟 [管理嵌入式管理單元]。若要開啟 [管理嵌入式管理單元]，按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [AD FS 2.0 管理]。
+6. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性]。
+7. 在 [同盟服務屬性] 對話方塊中，按一下 [事件] 索引標籤。
+8. 選取 [成功稽核] 和 [失敗稽核] 核取方塊。
+9. 按一下 [確定]。
+
+#### 在 Windows Server 2012 R2 上啟用 AD FS 的稽核
+
+1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
+2. 瀏覽至 **Security Settings\\Local Policies\\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
+3. 在 [本機安全性設定] 索引標籤上，確認已列出 AD FS 服務帳戶。如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
+4. 使用提高的權限開啟命令提示字元，然後執行下列命令以啟用稽核：<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+5. 關閉 [本機安全性原則]，然後開啟 [AD FS 管理] 嵌入式管理單元 (在 [伺服器管理員] 中，按一下 [工具]，然後選取 [AD FS 管理])。
+6. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性]。
+7. 在 [同盟服務屬性] 對話方塊中，按一下 [事件] 索引標籤。
+8. 選取 [成功稽核] 和 [失敗稽核] 核取方塊，然後按一下 [確定]。
+
+
+
+
+
+
+#### 找出 AD FS 稽核記錄檔
+
+
+1. 開啟 [事件檢視器]。
+2. 移至 [Windows 記錄]，然後選取 [安全性]。
+3. 按一下右側的 [篩選目前的記錄檔]。
+4. 在 [事件來源] 下，選取 [AD FS 稽核]。
+
+![AD FS 稽核記錄](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
+
+> [AZURE.WARNING]如果您有即將停用 AD FS 稽核的群組原則，則 Azure AD Connect Health 代理程式將無法收集資訊。請確定您沒有可能即將停用稽核的群組原則。
+
+[//]: # "Start of Agent Proxy Configuration Section"
+
+## 設定 Azure AD Connect Health 代理程式使用 HTTP Proxy
+您可以設定 Azure AD Connect Health 代理程式使用 HTTP Proxy。
+
+>[AZURE.NOTE]- 使用 “Netsh WinHttp set ProxyServerAddress” 將無作用，因為代理程式使用 System.Net (而非 Microsoft Windows HTTP 服務) 產生 Web 要求。- 已設定的 Http Proxy 位址將用於傳遞已加密的 Https 訊息。- 不支援已驗證的 Proxy (使用 HTTPBasic)。
+
+### 變更健康情況代理程式 Proxy 組態
+您有下列選項來設定 Azure AD Connect Health 代理程式使用 HTTP Proxy。
+
+>[AZURE.NOTE]您必須重新啟動所有 Azure AD Connect Health 代理程式服務，Proxy 設定才會更新。執行下列命令：<br> Restart-Service AdHealth*
+
+#### 匯入現有的 Proxy 設定
+##### 從 Internet Explorer 匯入
+您可以匯入您的 Internet Explorer HTTP Proxy 設定，並將它們用於 Azure AD Connect Health 代理程式，方法是在執行健康情況代理程式的每部伺服器上執行下列 PowerShell 命令。
+
+	Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+
+##### 從 WinHTTP 匯入
+您可以在執行健康情況代理程式的每部伺服器上執行下列 PowerShell 命令，以匯入您的 WinHTTP Proxy 設定。
+
+	Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+
+#### 以手動方式指定 Proxy 位址
+您可以在執行健康情況代理程式的每部伺服器上執行下列 PowerShell 命令，以手動指定 Proxy 伺服器。
+
+	Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+
+範例：*Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver:443*
+
+- 「位址」可以是可解析的 DNS 伺服器名稱或 IPv4 位址
+- 「連接埠」可以省略。如果省略，則會選擇 443 做為預設連接埠。
+
+#### 清除現有的 Proxy 設定
+您可以執行下列命令來清除現有的 Proxy 設定。
+
+	Set-AzureAdConnectHealthProxySettings -NoProxy
+
+
+### 讀取目前的 Proxy 設定
+您可以使用下列命令來讀取的目前設定的 Proxy 設定。
+
+	Get-AzureAdConnectHealthProxySettings
+
+
+[//]: # "End of Agent Proxy Configuration Section"
+
+
 ## 相關連結
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -77,4 +170,4 @@
 * [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

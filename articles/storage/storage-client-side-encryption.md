@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tamram"/>
 
 
 # Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault 金鑰保存庫
+
+[AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## 概觀
 
@@ -150,7 +152,7 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
 ### RequireEncryption 模式
 
-使用者可以針對所有上傳和下載都必須加密的作業模式，從中選擇啟用。在此模式中，在用戶端上嘗試上傳沒有加密原則的資料或下載未在服務上加密的資料將會失敗。要求選項物件的 **RequireEncryption** 屬性會控制此行為。如果您的應用程式會將所有儲存在 Azure 儲存體中的物件加密，則您可以在服務用戶端服務的預設要求選項上，設定 **RequireEncryption** 屬性。例如，將 **CloudBlobClient.DefaultRequestOptions.RequireEncryption** 設為 [true]，要求加密透過該用戶端物件所執行的所有 Blob 作業。
+使用者可以針對所有上傳和下載都必須加密的作業模式，從中選擇啟用。在此模式中，在用戶端上嘗試上傳沒有加密原則的資料或下載未在服務上加密的資料將會失敗。要求選項物件的 **RequireEncryption** 屬性會控制此行為。如果您的應用程式會將所有儲存在 Azure 儲存體中的物件加密，則您可以在服務用戶端服務的預設要求選項上，設定 **RequireEncryption** 屬性。例如，將 **CloudBlobClient.DefaultRequestOptions.RequireEncryption** 設為 **true**，要求加密透過該用戶端物件所執行的所有 Blob 作業。
 
 ### Blob 服務加密
 
@@ -242,6 +244,6 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
 ## 後續步驟
 
-下載 [Azure Storage Client Library for.NET NuGet 封裝](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)。從 GitHub 下載 [Azure Storage Client Library for .NET 原始程式碼](https://github.com/Azure/azure-storage-net)。下載 Azure 金鑰保存庫 NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 套件。造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)。
+下載[適用於 .NET NuGet 的 Azure 儲存體用戶端程式庫封裝](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) 從 GitHub 下載[適用於 .NET 原始程式碼的 Azure 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-net) 下載 Azure 金鑰保存庫 NuGet [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[用戶端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [擴充功能](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)封裝 造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

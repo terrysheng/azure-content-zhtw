@@ -337,4 +337,4 @@ Azure 使用路由表決定如何根據每個封包的目的地轉送 IP 流量�
 - 若要了解如何設定路由與 IP 轉送，請參閱[如何在 Azure 中建立路由與啟用 IP 轉送](virtual-network/virtual-networks-udr-how-to.md) 
 - 如需角色型存取控制的概觀，請參閱 [Microsoft Azure 入口網站中的角色型存取控制](role-based-access-control-configure.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

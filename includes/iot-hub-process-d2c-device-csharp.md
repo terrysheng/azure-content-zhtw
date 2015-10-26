@@ -28,7 +28,7 @@
 
         SendDeviceToCloudInteractiveMessagesAsync();
 
-> [AZURE.NOTE]為求簡單，本教學課程不會實作任何重試原則。在實際程式碼中，建議如 MSDN 文章＜暫時性錯誤處理＞所建議，實作重試原則 (例如指數型輪詢)。
+> [AZURE.NOTE]為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，建議如 MSDN 文章 [暫時性錯誤處理] 所建議，實作重試原則 (例如指數型輪詢)。
 
 <!-- Links -->
 [IoT 中心入門]: iot-hub-csharp-csharp-getstarted.md
@@ -42,4 +42,4 @@
 [21]: ./media/iot-hub-getstarted-cloud-csharp/create-storage2.png
 [22]: ./media/iot-hub-getstarted-cloud-csharp/create-storage3.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

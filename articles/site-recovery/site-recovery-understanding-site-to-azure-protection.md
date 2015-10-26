@@ -1,19 +1,19 @@
 <properties
-	pageTitle="了解 Azure 保護的網站"
-	description="使用本文來了解一些技術概念，協助您順利安裝、設定和管理 Azure Site Recovery。"
-	services="site-recovery"
-	documentationCenter=""
-	authors="anbacker"
-	manager="mkjain"
+	pageTitle="了解 Azure 保護的網站" 
+	description="使用本文來了解一些技術概念，協助您順利安裝、設定和管理 Azure Site Recovery。" 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="anbacker" 
+	manager="mkjain" 
 	editor=""/>
 
 <tags 
-	ms.service="site-recovery"
+	ms.service="site-recovery" 
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="09/01/2015"
+	ms.workload="storage-backup-recovery" 
+	ms.date="09/01/2015" 
 	ms.author="anbacker"/>
 
 
@@ -79,4 +79,4 @@ Hyper-V 複本複寫追蹤器是 Hyper-V 複本複寫引擎的一部分，會追
 - [連絡 Microsoft 支援](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [常見的 ASR 錯誤及其解決方案](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

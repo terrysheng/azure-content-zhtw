@@ -1,20 +1,20 @@
 <properties
  pageTitle="使用 Azure PowerShell 管理 Azure Redis 快取 | Microsoft Azure"
-	description="了解如何使用 Azure PowerShell 執行 Azure Redis 快取的管理工作。"
-	services="redis-cache"
-	documentationCenter=""
-	authors="Rick-Anderson"
-	manager="wpickett"
-	editor="v-lincan"/>
+ description="了解如何使用 Azure PowerShell 執行 Azure Redis 快取的管理工作。"
+ services="redis-cache"
+   documentationCenter=""
+   authors="Rick-Anderson"
+   manager="wpickett"
+   editor="v-lincan"/>
 
 <tags
    ms.service="cache"
-	ms.devlang="all"
-	ms.topic="article"
-	ms.tgt_pltfrm="cache-redis"
-	ms.workload="multiple"
-	ms.date="08/26/2015"
-	ms.author="riande"/>
+   ms.devlang="all"
+   ms.topic="article"
+   ms.tgt_pltfrm="cache-redis"
+   ms.workload="multiple"
+   ms.date="08/26/2015"
+   ms.author="riande"/>
 
 # 使用 Azure PowerShell 管理 Azure Redis 快取
 
@@ -95,4 +95,4 @@
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - ["Hey, Scripting Guy!" 部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

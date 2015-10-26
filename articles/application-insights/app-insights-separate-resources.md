@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="開發、測試和生產環境適用的不同 Application Insights 資源"
-	description="監視應用程式在不同開發階段的效能和使用量"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="開發、測試和生產環境適用的不同 Application Insights 資源" 
+	description="監視應用程式在不同開發階段的效能和使用量" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
 	ms.author="awills"/>
 
 # 開發、測試和生產環境適用的不同 Application Insights 資源
@@ -94,8 +94,8 @@ iKey 也會用在您的應用程式網頁中，在[您從快速啟動刀鋒視�
 [api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="變更預設組態的最佳作法 | Microsoft Azure"
+	pageTitle="變更預設組態的最佳作法 | Microsoft Azure | Microsoft Azure"
 	description="提供變更 Azure AD Connect 同步處理預設組態的最佳作法。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -55,11 +55,11 @@ Azure AD Connect 同步處理已設定為每 3 小時同步處理身分識別資
 
 
 
-## 其他資源
+## 後續步驟
+深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)組態。
 
-* [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
-* [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -31,4 +31,4 @@
 **PDF 下載：** [DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

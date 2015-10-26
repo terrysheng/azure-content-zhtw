@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="目錄整合工具比較"
+<properties
+	pageTitle="目錄整合工具比較 | Microsoft Azure"
 	description="本頁面將會為您提供比較各種目錄整合工具的完整資料表。"
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 # 目錄整合工具比較
@@ -82,10 +82,13 @@
 功能 | Azure Active Directory Connect | Azure Active Directory 同步處理服務 | Azure Active Directory 同步處理工具 (DirSync) | Forefront Identity Manager 2010 R2 (FIM)  
 :-------- |:--------:|:--------:|:--------:|:--------:|
 針對網域及組織單位篩選 | ● | ● | ● | ●  
-針對物件的屬性值篩選 | ● | ● | ● | ● 
-允許同步處理一組最基本的屬性 (MinSync) | ● | ● | |   
-允許針對屬性流程套用不同的服務範本 |● | ● | |   
+針對物件的屬性值篩選 | ● | ● | ● | ●
+允許同步處理一組最基本的屬性 (MinSync) | ● | ● | |
+允許針對屬性流程套用不同的服務範本 |● | ● | |
 允許移除從 AD 流向 Azure AD 的屬性 | ● | ● | |  
 允許屬性流程的進階自訂 | ● | ● | | ●  
 
-<!---HONumber=August15_HO9-->
+## 後續步驟
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
+
+<!---HONumber=Oct15_HO3-->

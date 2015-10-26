@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/13/2015"
 	ms.author="vittorib"/>
 
 # 整合 Azure AD 與 Apache Cordova 應用程式
@@ -109,7 +109,8 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
 
     cd .\DirSearchClient
 
-加入叫用 Graph API 所需的白名單外掛程式。
+加入叫用 Graph API 所需的允許清單外掛程式。  
+
 
      cordova plugin add https://github.com/apache/cordova-plugin-whitelist.git
 
@@ -256,4 +257,4 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

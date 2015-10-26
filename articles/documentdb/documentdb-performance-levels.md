@@ -122,4 +122,4 @@ Azure Preview 入口網站是您在管理集合的效能層級的其中一個選
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

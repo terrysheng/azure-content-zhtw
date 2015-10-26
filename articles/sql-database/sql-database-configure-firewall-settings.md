@@ -141,4 +141,4 @@ Microsoft Azure SQL Database 使用防火牆規則以允許連接到您的伺服
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

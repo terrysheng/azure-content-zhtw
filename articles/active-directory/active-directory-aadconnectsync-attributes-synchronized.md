@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -71,7 +71,7 @@
 | facsimiletelephonenumber| X| X| | |
 | givenName| X| X| | |
 | homePhone| X| X| | |
-| info| X| X| X| |
+| info| X| X| X| 群組目前未使用這個屬性。|
 | Initials| X| X| | |
 | l| X| X| | |
 | legacyExchangeDN| X| X| X| |
@@ -97,11 +97,11 @@
 | msExchELCExpirySuspensionStart| X| | | |
 | msExchELCMailboxFlags| X| | | |
 | msExchEnableModeration| X| | X| |
-| msExchExtensionCustomAttribute1| X| X| X| |
-| msExchExtensionCustomAttribute2| X| X| X| |
-| msExchExtensionCustomAttribute3| X| X| X| |
-| msExchExtensionCustomAttribute4| X| X| X| |
-| msExchExtensionCustomAttribute5| X| X| X| |
+| msExchExtensionCustomAttribute1| X| X| X| Exchange Online 目前未使用這個屬性。 |
+| msExchExtensionCustomAttribute2| X| X| X| Exchange Online 目前未使用這個屬性。 |
+| msExchExtensionCustomAttribute3| X| X| X| Exchange Online 目前未使用這個屬性。 |
+| msExchExtensionCustomAttribute4| X| X| X| Exchange Online 目前未使用這個屬性。 |
+| msExchExtensionCustomAttribute5| X| X| X| Exchange Online 目前未使用這個屬性。 |
 | msExchHideFromAddressLists| X| X| X| |
 | msExchImmutableID| X| | | |
 | msExchLitigationHoldDate| X| X| X| |
@@ -409,11 +409,9 @@
 - 使用替代 ID 時，內部部署屬性 userPrincipalName 將會與 Azure AD 屬性 onPremisesUserPrincipalName 進行同步處理。替代 ID 屬性 (例如 mail) 將會與 Azure AD 屬性 userPrincipalName 進行同步處理。
 
 
-## 其他資源
+## 後續步驟
+深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)組態。
 
-* [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
-* [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!--Image references-->
-
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

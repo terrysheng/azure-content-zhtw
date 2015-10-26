@@ -359,4 +359,4 @@ namespace WorkerRole1
 ## 後續步驟
 深入了解雲端服務[模型](cloud-services-model-and-package.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

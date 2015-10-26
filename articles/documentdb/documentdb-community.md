@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/07/2015"
+  ms.date="10/12/2015"
   ms.author="andrl"/>
 
 # 社群入口網站
@@ -35,6 +35,7 @@
 
 在 [Github](https://github.com/lmaccherone/documentdb-lumenize) 和 [npm](https://www.npmjs.com/package/lumenize) 上了解相關資訊。
 
+
 ### DocumentDB Studio
 
 *由 Ming Liu 撰寫*
@@ -42,6 +43,7 @@
 Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 
 在 [Github](https://github.com/mingaliu/DocumentDBStudio) 上了解相關資訊。
+
 
 <br/><br/>
 
@@ -86,27 +88,55 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 ### 最新和近期活動
 
 | 活動名稱 | 位置 | 日期 | Hashtag |
-| --------------------------------------------------------------- | ------------- | ------------------- | ------- |
+| ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | 美國俄亥俄州哥倫布 | 2015 年 10 月 23 日 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | 美國華盛頓州西雅圖 | 2015 年 10 月 27-30 日 | [#Summit15](https://twitter.com/hashtag/Summit15) |
-| [Integration User Group](http://www.integrationusergroup.com/) | 虛擬活動 | 2015 年 11 月 9 日 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
+| [Integration User Group](http://www.integrationusergroup.com/) | Webinar | 2015 年 11 月 9 日 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
+| [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | 加拿大魁北克省蒙特婁 | 2015 年 12 月 1 日 | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
+
+*您有舉辦活動嗎？ [告訴我們](mailto:askdocdb@microsoft.com)如何提供協助！*
 
 ### 先前的活動和記錄
 
 | 活動名稱 | 位置 | 日期 | 記錄 |
-| ---------- | -------- | ---- | ------- |
-| [Integration User Group](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk&event_date=2015-10-05) | 虛擬活動 | 2015 年 10 月 5 日 | [適用於醫療保健整合的 Azure DocumentDB](http://fast.wistia.net/embed/iframe/ee3b1nfe3o) |
-| [AzureCon](https://azure.microsoft.com/azurecon/) | 虛擬活動 | 2015 年 9 月 29 日 | [在 DocumentDB 中使用 NoSQL 資料](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | 保加利亞索菲亞 | 2015 年 10 月 10 日 | n/a |
+| [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | 葡萄牙奧波圖 | 2015 年 10 月 3 日 | n/a |
+| [AzureCon](https://azure.microsoft.com/azurecon/) | 虛擬活動 | 2015 年 9 月 29 日 | [Azure 資料和分析平台](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[在 DocumentDB 中中使用 NoSQL 資料](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | 荷蘭烏特勒支 | 2015 年 9 月 26 日 | n/a |
+| [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/) | 美國加州舊金山 | 2015 年 9 月 15 日 | n/a |
+| [NoSQL Now!](http://nosql2015.dataversity.net/) | 美國加州聖荷西 | 2015 年 8 月 18-20 日 | n/a |
 | [@Scale Seattle](http://www.atscaleconference.com/) | 美國華盛頓州西雅圖 | 2015 年 6 月 17 日 | [使用 Azure DocumentDB 編製與結構描述無關的索引](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
-| [In-Memory Technologies PASS Virtual Chapter](http://imvc.sqlpass.org/) | 虛擬活動 | 2015 年 5 月 25 日 | [歡迎使用 DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | 葡萄牙里斯本 | 2015 年 6 月 15 日 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [Database Month](http://www.databasemonth.com/database/azure-documentdb) | 美國紐約 | 2015 年 5 月 19 日 | [Azure DocumentDB︰大規模可調整、多租用戶文件資料庫服務](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
+| [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | 倫敦英國 | 2015 年 5 月 19 日 | n/a |
 | [Ignite](http://ignite.microsoft.com/) | 美國伊利諾州芝加哥 | 2015 年 5 月 4-8 日 | [最新精選 DocumentDB 影片](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB 和 Azure HDInsight︰最好在一起影片](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | 美國加州舊金山 | 2015 年 4 月 29 日至 5 月 1 日 | [使用 Azure 的 NoSQL 服務成就下一件大事︰DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
-| [#DevHangout - devacademy.la](https://www.youtube.com/user/devacademyla) | 虛擬活動 | 2015 年 3 月 11 日 | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
-| [Data Architecture Virtual Chapter PASS](https://dataarch.sqlpass.org/) | 虛擬活動 | 2015 年 2 月 25 日 | [DocumentDB 簡介](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+| [Global Azure Bootcamp 2015 - Spain](http://azurebootcamp.es/) | 馬德里西班牙 | 2015 年 4 月 25 日 | [在 Azure 上執行的 #DEAN DocumentDB + Express + AngularJS + NodeJS](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
+| [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | 美國北卡羅來納州夏洛特 | 2015 年 4 月 8 日 | n/a |
+| [Meetup: Azure Usergroup Denmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | 丹麥哥本哈根 | 2015 年 5 月 19 日 | n/a |
+| [Meetup: Seattle Web App Developers Group](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | 美國華盛頓州西雅圖 | 2015 年 5 月 14 日 | n/a |
+| [Meetup: Istanbul Azure Meetup](http://www.meetup.com/istanbul-azure-meetup/events/220325538/) | 土耳其伊斯坦堡 | 2015 年 3 月 7 日 | n/a |
+| [Meetup: Great Lakes Area .Net User Group](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) | 美國密西根州南菲爾德 | 2015 年 2 月 18 日 | n/a |
 | [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) | 瑞典斯德哥爾摩 | 2015 年 1 月 28-29 日 | [Azure 中的 DocumentDB - 適用於雲端的新 NoSQL 選項](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
 
-*您有舉辦活動嗎？ [告訴我們](mailto:askdocdb@microsoft.com)如何提供協助！*
+### 影片和播客
+
+| 顯示 | 日期 | 劇集 |
+| ------------------------------------------- | ------------------ | ------- |
+| Integration User Group | 2015 年 10 月 5 日 | [適用於醫療保健整合的 Azure DocumentDB](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
+| DX Italy - #TecHeroes | 2015 年 10 月 2 日 | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
+| .NET Rocks! 播客 | 2015 年 9 月 29 日 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
+| Data Exposed | 2015 年 9 月 28 日 | [公開上市後的 Azure DocumentDB 新功能](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
+| Azure 播客 | 2015 年 9 月 17 日 | [第 94 集：azpodcast.com re-architecture](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
+| 雲端報導 | 2015 年 9 月 4 日 | [第 185 集：DocumentDB Updates with Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
+| CodeChat 033 | 2015 年 7 月 28 日 | [Greg Doerr on Azure DocumentDB](https://channel9.msdn.com/Shows/codechat/033) |
+| In-Memory Technologies PASS Virtual Chapter | 2015 年 5 月 25 日 | [歡迎使用 DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| Data Exposed | 2015 年 4 月 8 日 | [DocumentDB 公開上市版及新功能！](https://channel9.msdn.com/Shows/Data-Exposed/DocumentDB-General-Availability-and-Whats-New) |
+| Data Exposed | 2015 年 3 月 17 日 | [Java SDK for DocumentDB](https://channel9.msdn.com/Shows/Data-Exposed/Java-SDK-for-DocumentDB) |
+| #DevHangout | 2015 年 3 月 11 日 | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
+| Data Architecture Virtual Chapter PASS | 2015 年 2 月 25 日 | [DocumentDB 簡介](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+
 
 ### 線上課程
 
@@ -152,13 +182,10 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 
 ## 連絡小組
 
-<hr/>
+| | |
+| -------------------------------------------------------- | --- |
+|![小組](./media/documentdb-community/documentdb-team.png) | 您需要技術協助嗎？ 有任何疑問嗎？ 想知道 NoSQL 是否適合您嗎？<br/><br/>您可以[安排直接與 DocumentDB 工程小組進行 1 對 1 交談](http://www.askdocdb.com/)。<br/><br/>您也可以傳送[電子郵件](mailto:askdocdb@microsoft.com)給我們或在 [@DocumentDB](https://twitter.com/DocumentDB) 推文給我們。 |
 
-您需要技術協助嗎？ 有任何疑問嗎？ 想知道 NoSQL 是否適合您嗎？
-
-您可以[安排直接與 DocumentDB 工程小組進行 1 對 1 交談](http://www.askdocdb.com/)。
-
-您也可以傳送[電子郵件](mailto:askdocdb@microsoft.com)給我們或在 [@DocumentDB](https://twitter.com/DocumentDB) 推文給我們。
 
 <br/><br/>
 
@@ -186,4 +213,4 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 | Hadoop 連接器 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 資料移轉工具 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 下載中心](http://www.microsoft.com/zh-TW/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

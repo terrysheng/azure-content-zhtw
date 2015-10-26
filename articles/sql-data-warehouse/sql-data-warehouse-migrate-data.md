@@ -194,4 +194,4 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。您可以�
 [ADO.NET 目的地配接器]: https://msdn.microsoft.com/zh-TW/library/bb934041.aspx
 [SSIS 文件]: https://msdn.microsoft.com/zh-TW/library/ms141026.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

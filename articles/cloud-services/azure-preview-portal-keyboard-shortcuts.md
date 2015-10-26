@@ -50,4 +50,4 @@
 
 進一步了解 Azure 入口網站：http://azure.microsoft.com。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

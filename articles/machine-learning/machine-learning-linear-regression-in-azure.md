@@ -1,7 +1,9 @@
 <properties 
 	pageTitle="在 Machine Learning 中使用線性迴歸 | Microsoft Azure" 
 	description="在 Excel 和 Azure Machine Learning Studio 中的線性迴歸模型的比較" 
+	metaKeywords="" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -85,7 +87,7 @@
 |調整的 R 平方|0.96|不適用||
 |決定係數|不適用|0.78|0.952049|
 |平均絕對誤差 |$9.5M|$ 19.4M|$9.5M|
-|平均絕對誤差 (%)|<span style="background-color: 00FF00;"> 6.03%</span>|12.2%|<span style="background-color: 00FF00;"> 6.03%</span>|
+|平均絕對誤差 (%)| <span style="background-color: 00FF00;">6.03%</span>|12.2%| <span style="background-color: 00FF00;">6.03%</span>|
 
 此外，Excel 係數相較與 Azure 訓練模型中的功能加權不相上下：
 
@@ -156,4 +158,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

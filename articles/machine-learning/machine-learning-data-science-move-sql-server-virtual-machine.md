@@ -1,52 +1,39 @@
 <properties 
-	pageTitle="移動資料至 Azure 虛擬機器上的 SQL Server | Azure"
-	description="從一般檔案或內部部署的 SQL Server 移動資料至 Azure VM 上的 SQL Server"
-	services="machine-learning"
-	documentationCenter=""
-	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun"/>
+	pageTitle="移動資料至 Azure 虛擬機器上的 SQL Server | Azure" 
+	description="從一般檔案或內部部署的 SQL Server 移動資料至 Azure VM 上的 SQL Server" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="fashah;mohabib;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
+	ms.author="fashah;mohabib;bradsev" />
 
 # 移動資料至 Azure 虛擬機器上的 SQL Server
 
-本文將概述從一般檔案 (CSV 或 TSV 格式) 或是內部部署的 SQL Server，將資料移動至 Azure 虛擬機器上之 SQL Server 的選項。這些移動資料至雲端的工作是 Azure 機器學習所提供之進階分析程序和技術 (ADAPT) 的一部分。
+此**功能表**所連結的主題說明如何將資料擷取至目標環境，以在 Cortana 分析程序 (CAPS) 期間儲存和處理該資料。
 
-如需概述移動資料至機器學習的 Azure SQL Database 之選項的主題，請參閱[移動資料至 Azure 機器學習的 Azure SQL Database](machine-learning-data-science-move-sql-azure.md)。
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-下表摘要說明移動資料至 Azure 虛擬機器上之 SQL Server 的選項。<table>
 
-<tr>
-<td><b>來源</b></td>
-<td colspan="2" align="center"><b>目的地：Azure VM 上的 SQL Server</b></td>
-</tr>
+## 簡介
+**本文**將概述從一般檔案 (CSV 或 TSV 格式) 或是內部部署的 SQL Server，將資料移動至 Azure 虛擬機器上之 SQL Server 的選項。這些用於將資料移至雲端的工作是 Azure 所提供 Cortana 分析程序的一部分。
 
-<tr>
-  <td><b>一般檔案</b></td>  
-  <td>
-    1.<a href="#insert-tables-bcp">命令列大量複製公用程式 (BCP)</a><br>
-    2.<a href="#insert-tables-bulkquery">大量插入 SQL 查詢</a><br>
-    3.<a href="#sql-builtin-utilities">SQL Server 中的圖形化內建公用程式</a>
-  </td>
-</tr>
-<tr>
-  <td><b>內部部署 SQL Server</b></td>
-  <td>
-    1.<a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">將 SQL Server Database 部署到 Microsoft Azure VM 精靈</a><br>
-    2.<a href="#export-flat-file">匯出至一般檔案</a><br>
-    3.<a href="#sql-migration">SQL Database 移轉精靈</a> <br>    
-    4.<a href="#sql-backup">資料庫備份和還原</a> <br>
-  </td>
-</tr>
-</table>
+如需概述移動資料至機器學習的 Azure SQL Database 之選項的主題，請參閱[移動資料至 Azure Machine Learning 的 Azure SQL Database](machine-learning-data-science-move-sql-azure.md)。
+
+下表摘要說明移動資料至 Azure 虛擬機器上之 SQL Server 的選項。
+
+<b>來源</b> |<b>目的地：Azure VM 上的 SQL Server</b> |
+------------------ |-------------------- |
+<b>一般檔案</b> |1\.<a href="#insert-tables-bcp">命令列大量複製公用程式 (BCP) </a><br> 2.<a href="#insert-tables-bulkquery">大量插入 SQL 查詢 </a><br> 3.<a href="#sql-builtin-utilities">SQL Server 中的圖形化內建公用程式</a>
+<b>內部部署的 SQL Server</b> | 1\.<a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">將 SQL Server 資料庫部署至 Microsoft Azure VM 精靈</a><br> 2.<a href="#export-flat-file">匯出到一般檔案 </a><br> 3.<a href="#sql-migration">SQL Database 移轉精靈 </a> <br> 4.<a href="#sql-backup">資料庫備份和還原 </a><br>
 
 請注意，本文件假設 SQL 命令是從 SQL Server Management Studio 或 Visual Studio 資料庫總管中執行。
 
@@ -56,8 +43,8 @@
 ## <a name="prereqs"></a>必要條件
 本教學課程假設您有：
 
-* 一個 **Azure 訂用帳戶**。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* 一個 **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+* **Azure 訂用帳戶**。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 * 已佈建 **Azure VM 上的 SQL Server**。如需指示，請參閱[將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用](machine-learning-data-science-setup-sql-server-virtual-machine.md)。
 * 已在本機上安裝和設定 **Azure PowerShell**。如需指示，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
@@ -185,7 +172,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 ### 將 SQL Server Database 部署到 Microsoft Azure VM 精靈
 
-[將 SQL Server Database 部署到 Microsoft Azure VM 精靈] 是簡單且建議的方式，可用於將資料從內部部署 SQL Server 執行個體移至 Azure VM 上的 SQL Server。如需詳細的步驟以及其他替代方案的討論，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-migrate-onpremises-database.md)。
+**將 SQL Server Database 部署到 Microsoft Azure VM 精靈**是簡單且建議的方式，可用於將資料從內部部署 SQL Server 執行個體移至 Azure VM 上的 SQL Server。如需詳細的步驟以及其他替代方案的討論，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-migrate-onpremises-database.md)。
 
 ### <a name="export-flat-file"></a>匯出至一般檔案
 
@@ -236,4 +223,4 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

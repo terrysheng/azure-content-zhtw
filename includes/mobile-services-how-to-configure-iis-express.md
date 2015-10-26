@@ -39,4 +39,4 @@
 <!-- URLs. -->
 [如何新增 Windows 防火牆連接埠規則]: http://go.microsoft.com/fwlink/?LinkId=392240
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # 在 Azure 虛擬機器上託管的 Oracle 軟體
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+ 
 
 在 Azure 基礎結構服務中，設定在虛擬機器中執行的第一個或下一個開發/測試或實際執行的 Oracle 資料庫。利用簡化設定的優點以及快速擴展 Oracle 資料庫工作負載的功能，來使其增加新的容量。
 
@@ -55,4 +56,4 @@
 
 [設定適用於 Azure 的 Oracle GoldenGate](virtual-machines-configuring-oracle-goldengate.md) 將帶領您逐步完成資料庫與複寫設定。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

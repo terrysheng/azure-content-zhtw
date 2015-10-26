@@ -104,4 +104,4 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 請參閱 [Azure SQL Database 的作業](https://msdn.microsoft.com/library/dn505719.aspx)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

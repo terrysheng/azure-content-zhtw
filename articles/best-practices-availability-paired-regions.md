@@ -84,4 +84,4 @@ Azure 能在世界各地多個地理位置運作。Azure 地理位置是包含�
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **資料常駐地** - 區域會駐留在相同的地理位置之內形成配對 (巴西南部除外)，以符合資料常駐地之稅務和執法管轄區的要求。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -67,4 +67,4 @@ DocumentDB 的索引編製功能是針對儲存效率而設計，並可處理多
 - 在[這裡](documentdb-indexing-policies.md)了解如何自訂 DocumentDB 索引
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

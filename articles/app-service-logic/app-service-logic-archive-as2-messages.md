@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="封存 AS2 連接器訊息 | Microsoft Azure App Service"
-	description="如何在 Azure App Service 中封存或儲存 AS2 連接器訊息"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajram"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="封存 AS2 連接器訊息 | Microsoft Azure App Service" 
+   description="如何在 Azure App Service 中封存或儲存 AS2 連接器訊息" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajram" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 
 # AS2 連接器訊息的封存概觀
@@ -39,4 +39,4 @@
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

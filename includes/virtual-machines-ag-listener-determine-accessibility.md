@@ -9,4 +9,4 @@
 
 ILB 只可以在具有區域範圍的虛擬網路上設定。已針對同質群組設定的現有虛擬網路無法使用 ILB。如需詳細資訊，請參閱[內部負載平衡器](../articles/load-balancer/load-balancer-internal-overview.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

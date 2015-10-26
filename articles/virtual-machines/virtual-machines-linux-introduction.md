@@ -19,8 +19,6 @@
 
 #Azure 上的 Linux 簡介
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
-
 本主題摘要說明在 Azure 雲端中使用 Linux 虛擬機器的相關資訊。使用組件庫中現存的映像來部署 Linux 虛擬機器會很簡單。
 
 ## 驗證：使用者名稱、密碼和 SSH 金鑰
@@ -99,4 +97,4 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 
  - **另請參閱：** [在 Linux 上設定軟體 RAID](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

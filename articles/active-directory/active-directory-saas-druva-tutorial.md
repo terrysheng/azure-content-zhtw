@@ -168,4 +168,4 @@ Druva 應用程式需要特定格式的 SAML 判斷提示，您需要將自訂�
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

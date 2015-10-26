@@ -1,20 +1,20 @@
 <properties
    pageTitle="使用 SSMS 移轉至 SQL Database "
-	description="Microsoft Azure SQL Database, 移轉 SQL Database, 使用 SSMS 移轉"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="Microsoft Azure SQL Database, 移轉 SQL Database, 使用 SSMS 移轉"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #使用 SSMS 移轉相容資料庫
 
@@ -76,4 +76,4 @@
 ##替代項目
 您也可以使用命令列公用程式 sqlpackage.exe 部署資料庫或匯出和匯入 BACPAC。Sqlpackage.exe 和 SSMS 同樣使用 DAC 技術，因此結果會是一樣的。如需詳細資訊，請參閱 [MSDN 上的 SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

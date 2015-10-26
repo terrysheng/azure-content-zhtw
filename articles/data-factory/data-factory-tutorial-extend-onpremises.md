@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="請將輸出資料複製到內部部署 SQL Server 資料庫 (Azure 入口網站)。"
+	pageTitle="請將輸出資料複製到內部部署 SQL Server 資料庫 (Azure 入口網站)。" 
 	description="本逐步解說使用 Azure 入口網站中的 Data Factory 編輯器擴充教學課程，如此可讓管線將輸出資料複製到 SQL Server Database。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -169,4 +169,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

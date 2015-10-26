@@ -167,4 +167,4 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。此服務是�
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

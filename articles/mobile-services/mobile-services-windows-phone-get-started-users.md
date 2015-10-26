@@ -79,4 +79,4 @@ Nick Harris 也在下列這段影片中示範了本教學課程：
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

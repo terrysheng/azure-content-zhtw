@@ -51,4 +51,4 @@ Azure Data Factory 可讓資料在內部部署來源與不同的 Azure 服務之
 [Azure Data Factory 文件]: https://azure.microsoft.com/documentation/services/data-factory/
 [Copy data with Azure Data Factory]: https://azure.microsoft.com/zh-TW/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

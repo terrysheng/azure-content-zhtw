@@ -38,7 +38,7 @@
 
 **3) TinyTDS：**從您的終端機執行下列命令。這會在您的電腦上安裝 TinyTDS。
 
-    sudo ARCHFLAGS="-arch x86_64" gem install tiny_tds
+    gem install tiny_tds
 
 ## 建立資料庫，擷取您的連接字串
 
@@ -104,4 +104,4 @@ Ruby 範例依賴 AdventureWorks 範例資料庫。如果您還沒有 AdventureW
     puts row
     end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -33,4 +33,4 @@ IoT 解決方案可以包含自動意見反應迴圈。例如，機器學習服�
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT 套件]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -94,4 +94,4 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 - [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
 - [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

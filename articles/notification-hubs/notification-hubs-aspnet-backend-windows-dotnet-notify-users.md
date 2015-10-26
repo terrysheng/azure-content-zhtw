@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 #Azure 通知中心通知使用者
@@ -27,6 +27,13 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 本教學課程還是[安全推播]教學課程的必要條件。完成本教學課程中的步驟後，您可以繼續進行[安全推播]教學課程，該教學課程說明如何修改本教學課程中的程式碼，以安全的方式傳送推播通知。
 
+
+
+
+
+## 開始之前
+
+我們非常重視您的意見反應。如果您對於完成此主題有任何困難，或者有改進此內容的建議，非常歡迎您在本頁底部提供意見反應。
 
 您可以在[此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)的 GitHub 上找到本教學課程的完整程式碼。
 
@@ -337,7 +344,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 1. 在 Windows 8.1 和 Windows Phone 8.1 上啟動應用程式。對於 Windows Phone 8.1，您可以在模擬器或實際裝置中執行執行個體。
 
-2. 在應用程式的 Windows 8.1 執行個體中，輸入 [使用者名稱] 和 [密碼] (如下列畫面所示)。它應該與您在 Windows Phone 上輸入的使用者名稱和密碼不同。
+2. 在應用程式的 Windows 8.1 執行個體中，輸入 [使用者名稱] 和 [密碼] \(如下列畫面所示)。它應該與您在 Windows Phone 上輸入的使用者名稱和密碼不同。
 
 
 3. 按一下 [登入並註冊]，並確認顯示您已登入的對話方塊。這也會啟用 [傳送推播] 按鈕。
@@ -377,4 +384,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [使用通知中心傳送即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

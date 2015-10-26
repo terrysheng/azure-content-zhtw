@@ -226,4 +226,4 @@ Microsoft Azure StorSimple 包括 StorSimple Adapter for SharePoint，其為可�
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

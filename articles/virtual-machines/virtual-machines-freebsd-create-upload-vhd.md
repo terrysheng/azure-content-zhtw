@@ -21,7 +21,8 @@
 
 本文說明如何建立及上傳包含 FreeBSD 作業系統的虛擬硬碟 (VHD)，以便使用它做為您自己的映像，在 Azure 中建立虛擬機器 (VM)。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 ##必要條件##
 本文假設您具有下列項目：
@@ -208,4 +209,4 @@
 
 	![azure 中的 freebsd 映像](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

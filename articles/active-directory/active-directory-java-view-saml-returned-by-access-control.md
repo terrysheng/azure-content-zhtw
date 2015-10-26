@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="09/22/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # 如何檢視 Azure 存取控制服務傳回的 SAML
@@ -24,7 +24,7 @@
 
 如需 ACS 的詳細資訊，請參閱[後續步驟](#next_steps)一節。
 
-> [AZURE.NOTE]Azure Access Services Control Filter (由 Microsoft Open Technologies 提供) 是社群技術預覽。作為發行前軟體，它尚未得到 Microsoft Open Technologies, Inc. 及 Microsoft 的正式支援。
+> [AZURE.NOTE]Azure Access Services Control Filter 是社群技術預覽。由於是發行前軟體，Microsoft 尚未提供正式支援。
 
 ## 必要條件
 
@@ -195,4 +195,4 @@
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

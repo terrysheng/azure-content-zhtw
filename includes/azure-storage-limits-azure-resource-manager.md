@@ -5,6 +5,4 @@
 儲存體帳戶的管理作業 (讀取)|每 5 分鐘 800
 儲存體帳戶管理作業 (寫入)|每小時 200
 
-<!---HONumber=August15_HO7-->
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

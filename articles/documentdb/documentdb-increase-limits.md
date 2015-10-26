@@ -91,4 +91,4 @@
 - 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 
 # 使用 Azure 資源管理員範本部署高可用性的 Active Directory 網域服務網域
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。您無法以傳統部署模型建立此資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。您無法以傳統部署模型建立此資源。
 
 按照本文中的指示，使用資源管理員範本部署高可用性的 Active Directory 網域。此範本會在新的虛擬網路中同一個子網路上建立兩部虛擬機器。
 
@@ -37,9 +37,9 @@
 1.	在 [範本] 窗格中，按一下 [儲存]。
 2.	按一下 [參數]。在 [參數] 窗格中輸入新值、從允許的值選取，或接受預設值，然後按一下 [確定]。
 3.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
-4.	按一下 [資源群組]，然後選取現有的資源群組。或者，按一下 [或建立新的] 為此工作負載建立一個新的資源群組。
+4.	按一下 [資源群組]，然後選取現有的資源群組。或者按一下 [或建立新的]，為此工作負載建立新的資源群組。
 5.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
-6.	如有需要，按一下 [法律條款] 檢閱使用範本的條款和合約。
+6.	如有需要，按一下 [法律條款]，檢閱使用範本的條款和合約。
 7.	按一下 [建立]。
 
 視不同範本而定，可能需要一些時間讓 Azure 建置工作負載。範本執行完成時，您在現有或新的資源群組中就會有一個新的、包含兩部伺服器的 Active Directory 網域。
@@ -54,8 +54,8 @@
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/active-directory-new-domain-ha-2-dc/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 範例如下。
 
@@ -63,12 +63,12 @@
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/active-directory-new-domain-ha-2-dc/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 接下來，在 Azure PowerShell 提示字元中執行命令區塊。
 
-當您執行 **New-AzureResourceGroupDeployment** 命令時，會提示您提供一系列參數的值。當您指定了所有參數值之後，**New-AzureResourceGroupDeployment** 會建立和設定虛擬機器。
+執行 **New-AzureRmResourceGroupDeployment** 命令時，系統會提示您提供一系列參數的值。在您指定所有參數值之後，**New-AzureRmResourceGroupDeployment** 便會建立和設定虛擬機器。
 
 範本執行完成時，您在新的資源群組中就會有一個新的、包含兩部伺服器的 Active Directory 網域組態。
 
@@ -89,7 +89,7 @@
 	azure group create adtestbed eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/active-directory-new-domain-ha-2-dc/azuredeploy.json adtestbed wldevtest
 
-當您執行 **azure group deployment create** 命令時，會提示您提供一系列參數的值。當您指定了所有參數值之後，Azure 會建立和設定虛擬機器。
+執行 **azure group deployment create** 命令時，系統會提示您提供一系列參數的值。當您指定了所有參數值之後，Azure 會建立和設定虛擬機器。
 
 範本執行完成時，您在新的資源群組中就會有一個新的、包含兩部伺服器的 Active Directory 網域服務網域組態。
 
@@ -108,4 +108,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

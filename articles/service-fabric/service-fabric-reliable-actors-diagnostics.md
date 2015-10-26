@@ -155,4 +155,4 @@ Reliable Actor 執行階段會發出下列與[動作項目啟動與停用](servi
 |ActorActivated|5|資訊|0x1|動作項目已啟動。|
 |ActorDeactivated|6|資訊|0x1|動作項目已停用。|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

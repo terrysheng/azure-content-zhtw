@@ -234,4 +234,4 @@ CDN 較沒有用的案例括：
 + [整合雲端服務與 Azure CDN](cdn-cloud-service-with-cdn.md)
 + [Azure 內容傳遞網路的最佳作法](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/) (英文)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

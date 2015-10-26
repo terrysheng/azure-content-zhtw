@@ -142,4 +142,4 @@ Microsoft Azure StorSimple 裝置由主要和/或 EBOD 機箱的數個外掛程�
 
 請先閱讀所有[安全資訊](storsimple-safety.md)，再嘗試更換 StorSimple 硬體元件。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

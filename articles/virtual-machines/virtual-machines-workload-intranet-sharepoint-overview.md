@@ -19,7 +19,8 @@
 
 # 在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本主題包含的逐步指示連結，可供您使用 SQL Server AlwaysOn 可用性群組，透過傳統部署模型，部署僅限內部網路的 SharePoint 2013 伺服器陣列。此伺服器陣列包含下列電腦：
 
@@ -76,4 +77,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

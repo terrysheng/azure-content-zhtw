@@ -45,8 +45,8 @@ GRANT VIEW DATABASE STATE TO database_user;
 
 ```
 -- 計算資料庫的大小。 
-SELECT SUM(reserved\_page\_count)*8.0/1024
-FROM sys.dm\_db\_partition\_stats; 
+SELECT SUM(reserved_page_count)*8.0/1024
+FROM sys.dm_db_partition_stats; 
 GO
 ```
 
@@ -64,7 +64,7 @@ GO
 
 ## 監視連線
 
-您可以使用 [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) 檢視，擷取與特定 Azure SQL Database 伺服器建立之連線和每個連線之詳細資料的相關資訊。此外，[sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) 檢視有助於擷取所有作用中使用者的連接資訊和內部工作。下列查詢可擷取目前的連接資訊：
+您可以使用 [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) 檢視，擷取與特定 Azure SQL Database 伺服器建立之連接和每個連接之詳細資料的相關資訊。此外，[sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) 檢視有助於擷取所有作用中使用者的連接資訊和內部工作。下列查詢可擷取目前的連接資訊：
 
 ```
 SELECT 
@@ -138,4 +138,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL Database 簡介](sql-database-technical-overview.md)
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

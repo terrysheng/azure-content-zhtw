@@ -19,7 +19,8 @@
 
 # Azure 虛擬機器中的 SQL Server 備份和還原
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 ## 概觀
 
@@ -92,4 +93,4 @@ SQL Server 2014 包含下列增強功能：
 
 請檢閱其他[在 Azure 虛擬機器中執行 SQL Server 的資源](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

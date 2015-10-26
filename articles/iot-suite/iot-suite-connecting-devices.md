@@ -1,18 +1,18 @@
 <properties
-   pageTitle="將您的裝置連接至預先設定了遠端監視方案的 Azure IoT Suite | Microsoft Azure"
-   description="使用涉及溫度和溼度的範例，描述如何將您的裝置連接至預先設定遠端監視方案的 Azure IoT Suite。"
-   services="iot-hub"
+   pageTitle="將裝置連接到預先定義的解決方案 | Microsoft Azure"
+   description="使用採用溫度和溼度資料的範例，描述如何將裝置連接至 Azure IoT Suite 預先設定遠端監視方案。"
+   services=""
    documentationCenter="na"
    authors="hegate"
-   manager="jamesosb"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="iot-hub"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.workload="nana"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -309,4 +309,4 @@ node .
 
 有多種方式可以延伸此範例的功能：連接真正的感應器到您的裝置來傳送實際日期、實作命令與控制功能等。請使用我們有關如何延伸遠端監視方案的[指南](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md)來進一步了解。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

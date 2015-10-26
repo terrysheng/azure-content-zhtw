@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="逐步解說：使用 Application Insights 監視 Microsoft Dynamics CRM"
-	description="使用 Application Insights 取得 Microsoft Dynamics CRM Online 遙測。設定、取得資料、視覺化與匯出的逐步解說。"
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="逐步解說：使用 Application Insights 監視 Microsoft Dynamics CRM" 
+	description="使用 Application Insights 取得 Microsoft Dynamics CRM Online 遙測。設定、取得資料、視覺化與匯出的逐步解說。" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # 逐步解說：使用 Application Insights 啟用Microsoft Dynamics CRM Online 遙測
@@ -60,7 +60,7 @@
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. 從 Application Insights 複製程式碼。
+4. 從 Application Insights 複製程式碼。在複製時請務必略過 <script> 標記。請參閱以下螢幕擷取畫面：
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

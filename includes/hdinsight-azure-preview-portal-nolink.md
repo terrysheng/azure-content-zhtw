@@ -4,4 +4,4 @@
 > 
 > 您無法在 Azure 入口網站中看到 Azure Preview 入口網站中建立的服務和資源，因為這些服務和資源使用新的資源模型。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

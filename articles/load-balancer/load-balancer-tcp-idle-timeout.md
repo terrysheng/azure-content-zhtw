@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/12/2015"
    ms.author="joaoma" />
 
 # 如何變更負載平衡器的 TCP 閒置逾時設定
@@ -166,4 +166,4 @@ IdleTimeoutInMinutes 是選擇性的。若未設定，則預設的逾時為 4 �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

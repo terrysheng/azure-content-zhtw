@@ -14,19 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/12/2015"
 	ms.author="garye;bradsev" />
 
 
 # 從各種資料來源將訓練資料匯入 Azure Machine Learning Studio
 
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+此**功能表**所連結的主題說明如何將資料擷取至目標環境，以在 Cortana 分析程序 (CAPS) 期間儲存和處理該資料。
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+
+## 簡介
 
 若要在 Machine Learning Studio 中使用您自己的資料來開發和訓練預測性分析方案，您可以：
 
 - 事先從硬碟從**本機檔案**上傳資料，在工作區中建立資料集模組。  
-- 透過**讀取器**模組，在實驗進行時存取數個[線上資料來源][reader]中的其中一個來源的資料。 
-- 使用來自另一個 Azure 機器學習實驗並儲存為 **dataset** 的資料。 
+- 透過[讀取器][reader]模組，在實驗進行時存取數個**線上資料來源**中的其中一個來源的資料。 
+- 使用來自另一個 Azure Machine Learning 實驗並儲存為 **dataset** 的資料。 
+
+[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 每個選項都在上方選單的其中一個主題裡說明。這些主題會示範如何從各種資料來源匯入資料以用於 Machine Learning Studio。
 
@@ -89,4 +96,4 @@ Machine Learning Studio 使用名為***資料表格***的內部資料類型以�
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -272,4 +272,4 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 - [建立應用程式](active-directory-b2c-app-registration.md)來取得應用程式識別碼和 redirect\_uri。您可以在應用程式中加入**原生用戶端**。
 - [建立您的原則](active-directory-b2c-reference-policies.md)來取得原則名稱。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

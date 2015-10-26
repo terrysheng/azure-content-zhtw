@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - 詳細資訊"
-	description="這是提供 Azure Multi-Factor Authentication 額外內容之連結的 Azure Multi-Factor Authentication 頁面。您可以從這裡了解其他有關 Multi-Factor Authentication 的主題。"
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication - 詳細資訊" 
+	description="這是提供 Azure Multi-Factor Authentication 額外內容之連結的 Azure Multi-Factor Authentication 頁面。您可以從這裡了解其他有關 Multi-Factor Authentication 的主題。" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # 深入了解 Azure Multi-Factor Authentication
@@ -38,4 +38,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

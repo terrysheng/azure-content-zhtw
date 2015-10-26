@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/12/2015" 
 	ms.author="genemi"/>
 
 # 如何使用採用 Java 的 Azure SQL Database
@@ -37,7 +37,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
 * Java Developer Kit (JDK) 1.6 版或更新版本。
 * Azure 訂閱，可從 <http://www.microsoft.com/windowsazure/offers/> 取得。
-* 如果使用 Eclipse，您將需要 Eclipse IDE for Java EE Developers (Indigo 或更新版本)。這可透過 <http://www.eclipse.org/downloads/> 下載。您還需要 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)。在此外掛程式安裝期間，請確定其中包括 Microsoft JDBC Driver 4.0 for SQL Server。如需詳細資訊，請參閱[安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx) (英文)。
+* 如果使用 Eclipse，您將需要 Eclipse IDE for Java EE Developers (Indigo 或更新版本)。這可透過 <http://www.eclipse.org/downloads/> 下載。您也將需要適用於 Eclipse 的 Azure 工具組。在此外掛程式安裝期間，請確定其中包括 Microsoft JDBC Driver 4.0 for SQL Server。如需詳細資訊，請參閱[安裝適用於 Eclipse 的 Azure 工具組](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx)。
 * 如果不是使用 Eclipse，您將需要 Microsoft JDBC Driver 4.0 for SQL Server，這可從 <http://www.microsoft.com/download/details.aspx?id=11774> 下載。
 
 ## 建立 Azure SQL Database
@@ -688,7 +688,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 3. 在 [New Assembly Directive] 對話方塊中，按一下 [Java Build Path Entries]，再按 [下一步]。
 4. 選取 [Microsoft JDBC Driver 4.0 SQL Server]，然後按一下 [完成]。
 5. 按一下 [確定] 以關閉 [內容] 對話方塊。
-6. 將專案的 WAR 檔案匯出至您的 approot 資料夾，並根據[使用 Azure Plugin for Eclipse with Java 建立 Hello World 應用程式 (由 Microsoft Open Technologies 提供)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) (英文) 中所記載的步驟重建 Azure 專案。該主題也說明如何在運算模擬器和 Azure 中執行應用程式。
+6. 將專案的 WAR 檔案匯出至您的 approot 資料夾，並根據[使用適用於 Eclipse 的 Azure 工具組建立 Hello World 應用程式](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)中所記載的步驟重建您的 Azure 專案。該主題也說明如何在運算模擬器和 Azure 中執行應用程式。
 
 **如果不是使用 Eclipse，請將 Microsoft JDBC Driver 4.0 SQL Server 加入套件**
 
@@ -728,4 +728,4 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

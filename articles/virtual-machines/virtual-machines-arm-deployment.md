@@ -19,7 +19,8 @@
 
 # 使用 Compute、Network 和 Storage .NET Library 部署 Azure 資源
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型管理資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 本教學課程會為您示範如何使用 Compute、Storage 和 Network .NET Library 中的一些可用用戶端建立和刪除 Microsoft Azure 中的資源。它也會為您示範如何使用 Azure Active Directory 驗證對 Azure 資源管理員的要求。
 
@@ -38,31 +39,23 @@
 
 若要使用 Azure AD 驗證對 Azure 資源管理員的要求，必須將應用程式新增至預設目錄中。執行下列操作來新增應用程式：
 
-1. 開啟 Azure PowerShell 提示字元，然後執行此命令：
+1. 開啟 Azure PowerShell 提示，然後執行此命令，並在出現提示時，輸入您的訂用帳戶認證：
 
-        Switch-AzureMode –Name AzureResourceManager
+	    Login-AzureRmAccount
 
-2. 設定您想要用於本教學課程的 Azure 帳戶。執行此命令，並在出現提示時，輸入您的訂用帳戶的認證：
+2. 將下列命令中的 {password} 取代成您想要使用的密碼，然後執行該命令以建立應用程式：
 
-	    Add-AzureAccount
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-3. 將下列命令中的 {password} 取代成您想要使用的密碼，然後執行該命令以建立應用程式：
+	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以在入口網站「Active Directory」區段中應用程式的 [用戶端識別碼] 欄位內尋找應用程式識別碼。
 
-	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+3. 將 {application-id} 取代成您剛才記錄的識別碼，然後建立應用程式的服務主體：
 
-4. 記錄上一個步驟中回應的 ApplicationId 值。稍後在本教學課程中將會需要這項資訊：
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
-	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/azureapplicationid.png)
+4. 設定使用應用程式的權限：
 
-	>[AZURE.NOTE]您也可以在「管理入口網站」中應用程式的 [用戶端識別碼] 欄位內尋找應用程式識別碼。
-
-5. 將 {application-id} 取代成您剛才記錄的識別碼，然後建立應用程式的服務主體：
-
-        New-AzureADServicePrincipal -ApplicationId {application-id}
-
-6. 設定使用應用程式的權限：
-
-	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## 步驟 2：建立 Visual Studio 專案，並安裝程式庫
 
@@ -390,4 +383,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

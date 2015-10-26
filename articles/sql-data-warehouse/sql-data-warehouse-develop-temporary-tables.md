@@ -52,7 +52,6 @@ CREATE TABLE #stats_ddl
 WITH    (   DISTRIBUTION = HASH([seq_nmbr])
         ,   LOCATION     = USER_DB
         )
-WITH t1
 AS
 (
 SELECT
@@ -147,4 +146,4 @@ SQL 資料倉儲在實作暫存資料表時的確有一些限制。
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

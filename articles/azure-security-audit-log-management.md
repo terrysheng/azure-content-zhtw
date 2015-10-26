@@ -614,4 +614,4 @@ Azure Active Directory (Azure AD) 包含一組安全性、使用方式與稽核�
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

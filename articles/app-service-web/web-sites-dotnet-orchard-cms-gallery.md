@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="從 Azure Marketplace 建立 Orchard CMS Web 應用程式"
-	description="指導如何在 Azure 上建立新 Web 應用程式的教學課程。另外也學習如何從 Azure 入口網站啟動和管理您的 Web 應用程式。"
+	pageTitle="從 Azure Marketplace 建立 Orchard CMS Web 應用程式" 
+	description="指導如何在 Azure 上建立新 Web 應用程式的教學課程。另外也學習如何從 Azure 入口網站啟動和管理您的 Web 應用程式。" 
 	tags="azure-portal"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="tfitzmac"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # 從 Azure Marketplace 建立 Orchard CMS Web 應用程式
@@ -91,4 +91,4 @@ Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟體計�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

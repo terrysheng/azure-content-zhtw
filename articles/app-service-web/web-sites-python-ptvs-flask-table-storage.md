@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 上使用 Python Tools 2.2 for Visual Studio 的 Flask 和 Azure 資料表儲存體"
-	description="了解如何使用 Python Tools for Visual Studio 建立 Flask Web 應用程式，藉此將資料儲存在 Azure 資料表儲存體中，並部署到 Azure App Service Web Apps。"
+	pageTitle="Azure 上使用 Python Tools 2.2 for Visual Studio 的 Flask 和 Azure 資料表儲存體" 
+	description="了解如何使用 Python Tools for Visual Studio 建立 Flask Web 應用程式，藉此將資料儲存在 Azure 資料表儲存體中，並部署到 Azure App Service Web Apps。" 
 	services="app-service\web"
 	tags="python"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -210,4 +210,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

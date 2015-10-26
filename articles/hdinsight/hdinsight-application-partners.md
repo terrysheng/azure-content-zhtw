@@ -41,4 +41,4 @@ RedPoint 在針對速度、符合品質及易用性的使用者調查中已經�
 
 ![](media/hdinsight-application-partners/kyvos8.png) Kyvos 致力於使用其獨特的 “OLAP on Hadoop” 技術，釋放巨量資料分析的威力。這可讓您在 Hadoop 上就地建置具有線性延展性的 Cube，排除傳統 OLAP 解決方案的限制，並且在您的巨量資料上啟用互動式多維度分析。使用者可以在 Hadoop 上以互動方式視覺化、探索和分析其資料，不需要任何程式設計。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

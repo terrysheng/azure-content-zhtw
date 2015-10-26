@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/13/2015"
    ms.author="cherylmc"/>
 
 # 建立和修改 ExpressRoute 線路
@@ -322,6 +322,6 @@
 ## 後續步驟
 
 - [設定路由](expressroute-howto-routing-classic.md)
-- [將 VNet 連結到 ExpressRoute 線路](expresssroute-howto-linkvnet-classic.md) 
+- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

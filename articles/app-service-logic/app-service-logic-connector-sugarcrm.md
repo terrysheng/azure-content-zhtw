@@ -90,7 +90,7 @@ SugarCRM 連接器可讓您建立和修改不同的實體，例如帳戶、潛�
 
 7.	從資源庫的 [最近使用的] 區段中選取[ SugarCRM 連接器]，即會新增新的 SugarCRM 動作。
 
-8.	從動作清單中選取 更新帳戶 (在進階動作 [...] 之下)，就會顯示 [更新帳戶] 動作的輸入參數：  
+8.	從動作清單中選取 [更新帳戶] (在進階動作 [...] 之下)，就會顯示 [更新帳戶] 動作的輸入參數：
 	![][6]
 
 9.	按一下 [記錄識別碼] 旁邊的 [...]，並從 [建立帳戶] 動作的輸出中挑選 [識別碼] 值：  
@@ -125,4 +125,4 @@ SugarCRM 連接器可讓您建立和修改不同的實體，例如帳戶、潛�
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

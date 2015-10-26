@@ -93,4 +93,4 @@ App Service 會將下列現有 Azure 服務 - [網站](http://azure.microsoft.co
 若要深入了解，請瀏覽 [App Service 文件](http://azure.microsoft.com/documentation/services/app-service/)。
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

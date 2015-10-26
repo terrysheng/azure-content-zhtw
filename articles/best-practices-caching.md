@@ -430,7 +430,7 @@ Microsoft 網站上的[開發 Azure Redis 快取 (預覽)](http://msdn.microsoft
 
 Redis 支援在字串值上進行一系列不可部分完成的取得和設定作業。這些作業會移除使用個別 `GET` 和 `SET` 命令時可能會發生的競爭危險。可用的作業包含：
 
-- `INCR`、`INCRBY`、`DECR` 和 `DECRBY`，用來在整數數字資料值上執行不可部分完成的遞增和遞減作業。StackExchange 程式庫會提供
+- `INCR`、`INCRBY`、`DECR` 和 `DECRBY`，用來在整數數字資料值上執行不可部分完成的遞增和遞減作業。StackExchange 程式庫會提供 
   `IDatabase.StringIncrementAsync` 和 `IDatabase.StringDecrementAsync` 方法的多載版本，用來執行這些作業，並傳回儲存在快取中的產生值。下列程式碼片段說明如何使用這些方法：
 
   ```csharp
@@ -810,4 +810,4 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - StackExchange.Redis 儲存機制上的 [Redis 中的交易 (英文)](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) 頁面。
 - Microsoft 網站上的[資料分割指南 (英文)](http://msdn.microsoft.com/library/dn589795.aspx)。
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

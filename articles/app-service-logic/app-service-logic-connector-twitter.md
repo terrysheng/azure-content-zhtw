@@ -41,15 +41,15 @@ Twitter 連接器提供下列觸發程序和動作：
 
 ## 建立 Twitter 連接器
 
-> [AZURE.IMPORTANT]目前需要向 Twitter 註冊 API 應用程式，才可建立 Twitter 連接器。您可以在 [http://apps.twitter.com](http://apps.twitter.com) 免費註冊應用程式。您必須建立 Twitter API 金鑰和密碼，才能建立連接器。
+> [AZURE.IMPORTANT]建立 Twitter 連接器時，您可以選擇向 Twitter 註冊您的專屬應用程式，並使用應用程式金鑰與 Twitter 連接器搭配。您可以在 [http://apps.twitter.com](http://apps.twitter.com) 免費註冊應用程式。註冊時，請確定您提供一些回呼 URL。一旦建立了您的 Twitter 連接器，稍後您就可以變更回呼 URL。您必須建立 Twitter API 金鑰和密碼，才能建立連接器。
 
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
-1. 在 [http://apps.twitter.com](http://apps.twitter.com) 建立 Twitter 的免費應用程式。
-    * 註冊應用程式時，您可以輸入網站的任何 URL 並將回呼 URL 留白。
-2. 在 Azure 開始面板中，選取 [Marketplace]。
-3. 搜尋「Twitter 連接器」，將其選取，然後選取 [建立]。
-4. 按一下 [封裝設定] 並從 Twitter 應用程式將 [取用者金鑰] 複製到 [clientId] 欄位中。從 Twitter 應用程式將 [取用者密碼] 複製到 [clientSecret] 欄位中：![][10]
+1. [選用] 在 [http://apps.twitter.com](http://apps.twitter.com) 建立 Twitter 的免費應用程式。
+    * 註冊應用程式時，您可以放入網站的任何 URL。指定任何回呼 URL (不要保留為空白)，您稍後可以更新它。
+2. 在 Azure 開始面板中，選取 [**Marketplace**]。
+3. 搜尋「Twitter 連接器」、選取它，然後選取 [建立]。
+4. [選用] 按一下 [封裝設定]，並從 Twitter 應用程式將 [取用者金鑰] 複製到 [clientId] 欄位中。從 Twitter 應用程式將 [取用者密碼] 複製到 [clientSecret] 欄位中：![][10]
 5. 輸入有關連接器名稱、App Service 和 資源群組的其他必要設定。
 6.	按一下 [建立]。
 
@@ -77,7 +77,7 @@ Twitter 連接器提供下列觸發程序和動作：
 	![][8]
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
@@ -97,4 +97,4 @@ Twitter 連接器提供下列觸發程序和動作：
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

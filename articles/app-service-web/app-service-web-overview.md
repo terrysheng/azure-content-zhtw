@@ -65,4 +65,4 @@ Azure 應用程式服務 Web 應用程式是完全受管理的平台，可讓您
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

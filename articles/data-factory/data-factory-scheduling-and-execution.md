@@ -676,4 +676,4 @@ Data Factory 中資料配量的各種狀態涵蓋於[監視和管理管線](data
 
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="從 Sybase 移動資料 | Azure Data Factory"
-	description="了解如何使用 Azure Data Factory 從 Sybase 資料庫移動資料。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="從 Sybase 移動資料 | Azure Data Factory" 
+	description="了解如何使用 Azure Data Factory 從 Sybase 資料庫移動資料。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Sybase 移動資料 
@@ -264,4 +264,4 @@ Sybase 支援 T-SQL 和 T-SQL 類型。如需從 sql 類型到.NET 類型的對�
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

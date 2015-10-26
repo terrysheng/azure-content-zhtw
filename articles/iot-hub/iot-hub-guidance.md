@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT 中心指引 | Microsoft Azure"
- description="使用 Azure IoT 中心之解決方案的指引主題集合。"
+ pageTitle="使用 Azure IoT 中樞指引主題 | Microsoft Azure"
+ description="使用 Azure IoT 中樞開發解決方案的指引主題集合。"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -88,4 +88,4 @@ IoT 中樞可讓您透過使用[裝置身分識別登錄][IoT Hub Developer Guid
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [何謂 Azure IoT 中心？]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

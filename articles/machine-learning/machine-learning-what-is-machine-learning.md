@@ -116,4 +116,4 @@ Azure Machine Learning 具備在雲端上建立預測分析解決方案所需的
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

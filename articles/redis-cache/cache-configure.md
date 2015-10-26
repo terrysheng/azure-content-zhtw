@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="10/09/2015"
    ms.author="sdanie" />
 
 # 如何設定 Azure Redis 快取
@@ -163,11 +163,16 @@
 
 ## Redis 主控台
 
-您可以使用 [Redis 主控台] (可供標準和高階快取使用) 安全地發出命令給您的 Azure Redis Cache 執行個體。若要存取 Redis 主控台，請從 [Redis 快取] 刀鋒視窗按一下 [主控台]。
+您可以使用 [Redis 主控台] \(可供標準和高階快取使用) 安全地發出命令給您的 Azure Redis Cache 執行個體。
+
+>[AZURE.IMPORTANT]Redis 主控台無法使用 VNET 或叢集。
+>
+>-	[VNET](cache-how-to-premium-vnet.md) -如果您的快取是 VNET 的一部分，只有在 VNET 中的用戶端可以存取快取。Redis 主控台使用的 redis cli.exe 用戶端裝載於不屬於您 VNET 的 VM 上，因此主控台無法連接到您的快取。
+>-	[叢集](cache-how-to-premium-clustering.md) -Redis 主控台使用目前不支援叢集的 redis cli.exe 用戶端。在 GitHub 中，使用 `-c` 切換啟用 Redis 存放庫[不穩定](http://redis.io/download)分支內的 redis-cli 公用程式時，公用程式會實作基礎支援。如需詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) ([http://redis.io](http://redis.io))。
+
+若要存取 Redis 主控台，請從 **[Redis 快取]** 刀鋒視窗按一下 **[主控台]**。
 
 ![Redis 主控台](./media/cache-configure/redis-console-menu.png)
-
->[AZURE.IMPORTANT]「Redis 主控台」只能供標準和高階快取使用。
 
 只需在主控台中輸入想要的命令，即可對您的快取執行個體發出命令。
 
@@ -178,4 +183,4 @@
 ## 後續步驟
 -	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

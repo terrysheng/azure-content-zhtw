@@ -19,7 +19,6 @@
 
 # 準備執行 Azure 的 Oracle Linux 虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [準備執行 Azure 的 Oracle Linux 6.4+ 虛擬機器](#oracle6)
 - [準備執行 Azure 的 Oracle Linux 7.0+ 虛擬機器](#oracle7)
@@ -230,4 +229,4 @@
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

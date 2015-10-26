@@ -1,6 +1,8 @@
 <properties 
+	title="How to add a users to an elastic database pool" 
 	pageTitle="如何將使用者加入彈性資料庫集區" 
 	description="您必須將具有權限的使用者加入集區中的每個資料庫" 
+	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
@@ -43,4 +45,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -21,18 +21,18 @@
 
 |Cmdlet|Cmdlet 說明|
 |---|---|
-|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/zh-tw/library/azure/dn722516.aspx)**|取得排程器工作或特定排程器工作的清單。|
-|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/zh-tw/library/azure/dn722471.aspx)**|取得排程器工作集合。|
-|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/zh-tw/library/azure/dn722514.aspx)**|取得排程器工作歷程記錄。|
-|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/zh-tw/library/azure/dn722505.aspx)**|取得可用的排程器位置。|
-|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/zh-tw/library/azure/dn722492.aspx)**|建立具有 HTTP 動作的排程器工作。|
-|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/zh-tw/library/azure/dn759640.aspx)**|建立排程器工作集合。|
-|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/zh-tw/library/azure/dn722518.aspx)**|建立具有儲存動作的排程器工作。|
-|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/zh-tw/library/azure/dn722477.aspx)**|刪除排程器工作。|
-|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/zh-tw/library/azure/dn722530.aspx)**|刪除排程器工作集合。|
-|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/zh-tw/library/azure/dn722474.aspx)**|更新具有 HTTP 動作的排程器工作。|
-|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/zh-tw/library/azure/dn759626.aspx)**|更新排程器工作集合。|
-|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/zh-tw/library/azure/dn722476.aspx)**|更新具有儲存動作的排程器工作。|
+|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/zh-TW/library/azure/dn722516.aspx)**|取得排程器工作或特定排程器工作的清單。|
+|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/zh-TW/library/azure/dn722471.aspx)**|取得排程器工作集合。|
+|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/zh-TW/library/azure/dn722514.aspx)**|取得排程器工作歷程記錄。|
+|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/zh-TW/library/azure/dn722505.aspx)**|取得可用的排程器位置。|
+|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/zh-TW/library/azure/dn722492.aspx)**|建立具有 HTTP 動作的排程器工作。|
+|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/zh-TW/library/azure/dn759640.aspx)**|建立排程器工作集合。|
+|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/zh-TW/library/azure/dn722518.aspx)**|建立具有儲存動作的排程器工作。|
+|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/zh-TW/library/azure/dn722477.aspx)**|刪除排程器工作。|
+|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/zh-TW/library/azure/dn722530.aspx)**|刪除排程器工作集合。|
+|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/zh-TW/library/azure/dn722474.aspx)**|更新具有 HTTP 動作的排程器工作。|
+|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/zh-TW/library/azure/dn759626.aspx)**|更新排程器工作集合。|
+|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/zh-TW/library/azure/dn722476.aspx)**|更新具有儲存動作的排程器工作。|
 
 
 ## 另請參閱
@@ -55,4 +55,4 @@
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

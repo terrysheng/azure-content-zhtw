@@ -73,4 +73,4 @@
 
 [Azure SQL Database 備份和還原](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

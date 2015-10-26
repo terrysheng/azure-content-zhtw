@@ -142,4 +142,4 @@ Concur 顧問或用戶端系統管理員必須建立不同的 Web 服務系統�
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

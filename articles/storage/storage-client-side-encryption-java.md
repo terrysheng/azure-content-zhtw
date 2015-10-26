@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tamram"/>
 
 
 # Microsoft Azure 儲存體的用戶端 Java 加密   
+
+[AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## 概觀  
 [Azure Storage Client Library for Java](https://www.nuget.org/packages/WindowsAzure.Storage) 支援在上傳至 Azure 儲存體之前將用戶端應用程式內的資料加密，並在下載至用戶端時解密資料。程式庫也支援與 [Azure 金鑰保存庫](http://azure.microsoft.com/services/key-vault/)整合，以進行儲存體帳戶金鑰管理。
@@ -98,7 +100,7 @@
 若要執行查詢作業，您必須指定一個能夠解析結果集中的所有金鑰的金鑰解析程式。如果查詢結果中包含的實體無法解析成提供者，用戶端程式庫會擲回錯誤。針對執行伺服器端投影的任何查詢，用戶端程式庫會依預設將特殊加密中繼資料屬性 (\_ClientEncryptionMetadata1 和 \_ClientEncryptionMetadata2) 加入選取的資料行。
 
 ## Azure 金鑰保存庫  
-Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。使用 Azure 金鑰保存庫時，使用者可以使用受硬體安全模組 (HSM) 保護的金鑰來加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)。如需詳細資訊，請參閱[什麼是 Azure 金鑰保存庫？](https://azure.microsoft.com/zh-TW/documentation/articles/key-vault-whatis/)。
+Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。使用 Azure 金鑰保存庫時，使用者可以使用受硬體安全模組 (HSM) 保護的金鑰來加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)。如需詳細資訊，請參閱[什麼是 Azure 金鑰保存庫？](../articles/key-vault-whatis.md)。
 
 儲存體用戶端程式庫會使用金鑰保存庫核心程式庫，以提供整個 Azure 的通用架構來管理金鑰。使用者也享有使用金鑰保存庫延伸模組程式庫的額外好處。延伸模組程式庫提供實用的功能，包括簡單又完善的對稱/RSA 本機和雲端金鑰提供者，以及彙總和快取。
 
@@ -230,6 +232,6 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 請注意，加密您的儲存體資料會造成額外的效能負擔。必須產生內容金鑰和 IV，內容本身必須經過加密，而且其他中繼資料必須格式化並上傳。這個額外負荷會因所加密的資料數量而有所不同。我們建議客戶一定要在開發期間測試其應用程式的效能。
 
 ## 後續步驟  
-下載 [Azure Storage Client Library for Java Maven 封裝](<fix URL>) 從 GitHub 下載 [Azure Storage Client Library for Java 原始程式碼](https://github.com/Azure/azure-storage-java) 下載 Azure 金鑰保存庫 Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 套件 <fix URL> 造訪 [Azure 金鑰保存庫文件](https://azure.microsoft.com/zh-TW/documentation/articles/key-vault-whatis/)
+下載 [適用於 Java Maven 的 Azure 儲存體用戶端程式庫封裝](<fix URL>)從 GitHub 下載[適用於 Java 原始程式碼的 Azure 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-java)下載 Azure 金鑰保存庫 Maven [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[用戶端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/)和[擴充功能](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)封裝 造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

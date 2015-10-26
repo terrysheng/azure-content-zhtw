@@ -19,7 +19,6 @@
 
 # 準備執行 Azure 的 CentOS 型虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [準備 Azure 的 CentOS 6.x 虛擬機器](#centos6)
 - [準備 Azure 的 CentOS 7.0+ 虛擬機器](#centos7)
@@ -364,4 +363,4 @@
 
 16. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

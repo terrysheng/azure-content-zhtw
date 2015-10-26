@@ -195,4 +195,4 @@
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

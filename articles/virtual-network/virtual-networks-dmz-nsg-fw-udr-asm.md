@@ -941,4 +941,4 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

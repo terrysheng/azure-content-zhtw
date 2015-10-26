@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="10/08/2015" 
 	ms.author="stefsch"/>
 
 # App Service 環境的異地分散調整
@@ -43,6 +43,7 @@ App Service 環境是水平相應放大的理想平台。在選取可支援已�
 - **調整應用程式使用量的策略：**應用程式使用量是否會分散到單一區域中的多個 App Service 環境？ 多個區域嗎？ 兩種方法混合搭配使用嗎？ 決策依據應來自於客戶流量的來源位置，以及其餘應用程式的支援後端基礎結構的可調整性。例如，對於 100% 無狀態的應用程式，可以使用每一 Azure 區域多個 App Service 環境的組合，乘以跨多個 Azure 區域部署的 App Service 環境數，來大幅調整應用程式。由於有 15 個以上的公用 Azure 區域可供選擇，客戶將可真正建置全球性超高延展性的應用程式使用量。在本文所使用的範例應用程式中，有三個 App Service 環境建立在單一 Azure 區域 (美國中南部) 中。
 - **App Service 環境的命名慣例：**每個 App Service 環境都需要唯一名稱。有兩個或更多 App Service 環境時，命名慣例將有助於識別每個 App Service 環境。範例應用程式中使用簡單的命名慣例。三個 App Service 環境的名稱分別是 *fe1ase*、*fe2ase* 和 *fe3ase*。
 - **應用程式的命名慣例：**由於將會部署多個應用程式執行個體，每個部署的應用程式執行個體都要有名稱。有一項鮮為人知、但非常方便的 App Service 環境功能，是多個 App Service 環境可以使用相同的應用程式名稱。由於每個 App Service 環境都有唯一的網域尾碼，開發人員可以選擇在每個環境中重複使用相同的應用程式名稱。例如，開發人員可以將應用程式命名如下：*myapp.foo1.p.azurewebsites.net*、*myapp.foo2.p.azurewebsites.net*、*myapp.foo3.p.azurewebsites.net*，依此類推。但範例應用程式的每個應用程式執行個體也都有唯一名稱。所使用的應用程式執行個體名稱是 *webfrontend1*、*webfrontend2* 和 *webfrontend3*。
+
 
 ## 設定流量管理員設定檔 ##
 將應用程式的多個執行個體部署在多個 App Service 環境上之後，可以使用流量管理員來註冊個別的應用程式執行個體。就範例應用程式而言，*scalable-ase-demo.trafficmanager.net* 必須要有流量管理員設定檔，以將客戶路由傳送至任何下列已部署的應用程式執行個體：
@@ -124,4 +125,4 @@ App Service 環境是水平相應放大的理想平台。在選取可支援已�
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

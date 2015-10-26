@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/14/2015" 
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中使用 Visual Studio 2015 建立 ASP.NET API 應用程式
@@ -25,7 +25,7 @@
 
 ## 概觀
 
-在本教學課程中，您將使用 [Visual Studio 2015 RC](https://www.visualstudio.com/zh-tw/downloads/visual-studio-2015-downloads-vs.aspx) 建立 ASP.NET Web API 2 專案，並設定它以部署到雲端，做為 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中的 [API 應用程式](app-service-api-apps-why-best-platform.md)。您也會將專案部署至 Azure。在本教學課程的結尾，您將會在 Azure 雲端中執行 API 應用程式。
+在本教學課程中，您將使用 [Visual Studio 2015 RC](https://www.visualstudio.com/zh-TW/downloads/visual-studio-2015-downloads-vs.aspx) 建立 ASP.NET Web API 2 專案，並設定它以部署到雲端，做為 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中的 [API 應用程式](app-service-api-apps-why-best-platform.md)。您也會將專案部署至 Azure。在本教學課程的結尾，您將會在 Azure 雲端中執行 API 應用程式。
 
 本教學課程假設您知道如何在 Visual Studio 的 [**總管**] 中使用檔案和資料夾。
 
@@ -297,4 +297,4 @@ API 應用程式基本上是 Azure 提供其他功能作為 Web 服務功能的 
 您現已使用 Visual Studio 2015 RC 建立及部署 API 應用程式。如需 API 應用程式的相關文件，請參閱顯示於頁面左邊 (適用於寬瀏覽器視窗) 或頁面頂端 (適用於窄瀏覽器視窗) 的瀏覽窗格中的項目。大部分 API 應用程式文件目前顯示 Visual Studio 2013，但其中許多內容適用於 VS 2015，因為 UI 類似，您所撰寫的程式碼相同，而且入口網站 UI 也相同。
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

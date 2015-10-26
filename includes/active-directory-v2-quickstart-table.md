@@ -7,4 +7,4 @@
 | [從應用程式呼叫 Office 365 Rest API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | [保護 NodeJS Web API](active-directory-v2-devquickstarts-node-api.md) | 伺服器端精靈 (即將推出) |
 | | [從 Web 呼叫 Office 365 REST API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

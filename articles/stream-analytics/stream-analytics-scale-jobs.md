@@ -265,4 +265,4 @@ Azure 串流分析工作定義包含輸入、查詢及輸出。輸入是工作�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

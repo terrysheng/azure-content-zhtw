@@ -156,4 +156,4 @@
 
 若要設定站對站 VPN，請參閱〈[建立虛擬網路與站對站 VPN 連線](vpn-gateway-site-to-site-create.md)〉。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

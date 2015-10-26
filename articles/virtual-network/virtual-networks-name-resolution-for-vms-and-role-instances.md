@@ -177,4 +177,4 @@ resolv.conf 檔案通常是自動產生的，且不可編輯。新增 [選項] �
 
 [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

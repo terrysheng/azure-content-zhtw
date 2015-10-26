@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL Database 的業務續航力設計"
-	description="選擇指引：本節提供如何選擇應使用之 BCDR 功能及何時使用的指引。其中包括使用 SQL DB 會自動取得之功能的說明。"
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="SQL Database 的業務續航力設計" 
+   description="選擇指引：本節提供如何選擇應使用之 BCDR 功能及何時使用的指引。其中包括使用 SQL DB 會自動取得之功能的說明。"
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 #業務續航力的設計
 
@@ -102,4 +102,4 @@ SQL Database 預設提供每個資料庫的內建基本保護功能。其作法�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

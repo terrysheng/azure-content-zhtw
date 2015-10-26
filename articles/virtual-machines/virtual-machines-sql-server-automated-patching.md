@@ -18,7 +18,8 @@
 
 # Azure 虛擬機器中的 SQL Server 自動修補
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 自動修補會針對執行 SQL Server 2012 或 2014 的 Azure 虛擬機器建立維護時間範圍。自動更新只能在此維護時間範圍內安裝。對於 SQL Server，這可以確保系統更新和任何相關聯的重新啟動會在對資料庫最好的時間發生。這取決於 SQL Server IaaS 代理程式。
 
@@ -91,4 +92,4 @@ Azure 中的 SQL Server VM 相關功能為 [Azure 虛擬機器中的 SQL Server 
 
 請檢閱其他[在 Azure 虛擬機器中執行 SQL Server 的資源](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

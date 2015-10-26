@@ -45,4 +45,4 @@
 [事件中樞教學課程]: service-bus-event-hubs-csharp-ephcs-getstarted.md
 [使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

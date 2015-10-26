@@ -34,4 +34,4 @@
 	- 刪除剛建立的租用戶並再試一次。
 - 若上述解決方法無效，請連絡「支援服務」。參閱[本文](active-directory-b2c-support.md)以了解如何提出 Azure AD B2C 支援要求。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

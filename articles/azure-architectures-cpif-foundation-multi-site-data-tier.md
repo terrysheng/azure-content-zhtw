@@ -56,4 +56,4 @@ SQL Server 2012 引進的 AlwaysOn 可用性群組是 Azure 基礎結構服務�
 
 [批次處理層](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

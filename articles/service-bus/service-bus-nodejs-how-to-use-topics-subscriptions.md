@@ -152,7 +152,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 > [AZURE.NOTE]
 
-> 由於預設篩選器會自動套用至所有新訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 會覆寫您指定的其他任何篩選器。您可以使用 **ServiceBusService** 物件的 **deleteRule** 方法移除預設規則。
+> 由於預設篩選器會自動套用至所有新的訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 將會覆寫您指定的其他任何篩選器。您可以使用 **ServiceBusService** 物件的 **deleteRule** 方法移除預設規則。
 
 以下範例將建立名為 `HighMessages` 的訂用帳戶，而且所含的 **SqlFilter** 只會選取自訂 **messagenumber** 屬性大於 3 的訊息：
 
@@ -314,7 +314,7 @@ for (i = 0;i < 5;i++) {
 
 -   請參閱[佇列、主題和訂用帳戶][]。
 -   [SqlFilter][] 的 API 參考資料。
--   造訪 GitHub 上的 [Azure SDK for Node][] (英文) 儲存機制。
+-   造訪 GitHub 上的 [Azure SDK for Node] (英文) 儲存機制。
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure portal]: http://manage.windowsazure.com
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [使用儲存體的 Node.js Web 應用程式]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

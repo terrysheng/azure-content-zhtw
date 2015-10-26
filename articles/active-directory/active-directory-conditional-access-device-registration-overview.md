@@ -79,4 +79,4 @@ Windows 7 和 Windows 8.1 裝置會藉由結合使用者帳戶名稱與知名裝
 
 您可以向 Azure AD 裝置註冊註冊 Windows 7 和 Windows 8.1 加入網域的裝置。下列主題提供有關在 Windows 7 和 Windows 8.1 裝置上設定裝置註冊所需之先決條件和步驟的詳細資訊。自動向 Azure Active Directory 註冊加入網域的 Windows 裝置
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

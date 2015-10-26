@@ -128,8 +128,8 @@
 
 ##設定使用者佈建
   
-若要讓 Azure AD 使用者可以登入 TimeOffManager，則必須將他們佈建到 TimeOffManager。  
-TimeOffManager 支援即時使用者佈建。沒有您適用的動作項目。  
+若要讓 Azure AD 使用者可以登入 TimeOffManager，則必須將他們佈建到 TimeOffManager。
+TimeOffManager 支援即時使用者佈建。沒有您適用的動作項目。
 在第一次登入時使用單一登入，便會自動加入使用者。
 
 >[AZURE.NOTE]您可以使用任何其他的 TimeOffManager 使用者帳戶建立工具或 TimeOffManager 提供的 API 來佈建 AAD 使用者帳戶。
@@ -146,10 +146,10 @@ TimeOffManager 支援即時使用者佈建。沒有您適用的動作項目。
 
     ![指派使用者](./media/active-directory-saas-timeoffmanager-tutorial/IC795922.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
 
     ![是](./media/active-directory-saas-timeoffmanager-tutorial/IC767830.png "是")
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 HDInsight 中使用 R 來自訂叢集| Microsoft Azure"
-	description="了解如何安裝和使用 R 來自訂 Hadoop 叢集。"
+	pageTitle="在以 Linux 為基礎的 HDInsight 上安裝 R | Microsoft Azure"
+	description="了解如何安裝和使用 R 來自訂以 Linux 為基礎的 Hadoop 叢集。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 R
@@ -48,7 +48,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 | [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | R 與 C++ 整合。 |
 | [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | R 物件序列化/還原序列化為 JSON |
 | [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | 整數向量的位元運算函數。 |
-| [摘要] (建立 R 物件的密碼編譯雜湊摘要) | 建立 R 物件的密碼編譯雜湊摘要。 |
+| [摘要](建立 R 物件的密碼編譯雜湊摘要) | 建立 R 物件的密碼編譯雜湊摘要。 |
 | [函數](https://cran.r-project.org/web/packages/functional/index.html) | Curry、撰寫和其他較高順序函數 |
 | [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | 有彈性地重新建構及彙總資料。 |
 | [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | 一般字串作業的簡單、一致包裝函式。 |
@@ -148,4 +148,4 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
-    pageTitle="使用 HDInsight 開發指令碼動作| Microsoft Azure"
-	description="了解如何使用指令碼動作來自訂 Hadoop 叢集。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="使用以 Linux 為基礎的 HDInsight 開發指令碼動作| Microsoft Azure"
+    description="深入了解使用指令碼動作來自訂以 Linux 為基礎的 HDInsight 叢集。"
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
     ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="larryfr"/>
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/09/2015"
+    ms.author="larryfr"/>
 
 # 使用 HDInsight 開發指令碼動作
 
@@ -213,4 +213,4 @@ _解決方式_：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。您也�
 
 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

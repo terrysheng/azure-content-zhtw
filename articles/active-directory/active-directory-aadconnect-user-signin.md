@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect - 使用者登入"
+<properties
+	pageTitle="Azure AD Connect - 使用者登入 | Microsoft Azure"
 	description="Azure AD Connect 使用者登入 (用於自訂設定)。"
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -62,6 +62,5 @@ Azure AD Connect 可讓使用者使用同一組密碼登入雲端和內部部署
 	- 使用協力廠商提供者或智慧卡的內部部署多因素驗證 (了解 Windows Server 2012 R2 中適用於 AD FS 的協力廠商 MFA 提供者)
 	- Active Directory 整合功能，例如軟帳戶鎖定或 AD 密碼及工作時數原則
 	- 使用裝置註冊、Azure AD 聯結或 Intune MDM 原則有條件存取內部部署和雲端資源
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

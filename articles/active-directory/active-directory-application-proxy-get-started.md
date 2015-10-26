@@ -61,4 +61,4 @@ Azure AD 應用程式 Proxy 為使用 IWA 的應用程式或宣告感知應用�
 * [以組織方式註冊 Azure](../sign-up-organization.md)
 * [Azure 身分識別](../fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

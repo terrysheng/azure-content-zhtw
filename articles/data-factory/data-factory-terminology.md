@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory - 術語"
-	description="本文介紹使用 Azure Data Factory 服務建立 Data Factory 時所使用的術語"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure Data Factory - 術語" 
+	description="本文介紹使用 Azure Data Factory 服務建立 Data Factory 時所使用的術語" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 #Azure Data Factory - 術語
@@ -110,4 +110,4 @@ Microsoft **資料管理閘道**是將內部部署資料來源連接至雲端服
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

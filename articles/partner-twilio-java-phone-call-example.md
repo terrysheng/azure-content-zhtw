@@ -30,7 +30,7 @@
 4. 如果您使用 Eclipse 建立此 Java 應用程式，請使用 Eclipse 的部署組件功能在應用程式部署檔案 (WAR) 中加入 Twilio JAR。如果您並非使用 Eclipse 建立此 Java 應用程式，請確定 Twilio JAR 與您的 Java 應用程式包含在相同的 Azure 角色內，且已新增至應用程式的類別路徑。
 5. 確定您的 cacerts 金鑰存放區包含 Equifax Secure Certificate Authority 憑證，且具有 MD5 指模 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (序號為 35:DE:F4:CF，SHA1 指模為 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A)。這是 [https://api.twilio.com][twilio_api_service] 服務的憑證授權單位 (CA) 憑證，會在您使用 Twilio API 時受到呼叫。如需將此 CA 憑證新增至 JDK cacert 存放區的相關資訊，請參閱[新增憑證至 Java CA 憑證存放區][add_ca_cert]。
 
-此外，強烈建議您熟悉[使用 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供) 建立 Hello World 應用程式][azure_java_eclipse_hello_world] 上的資訊，或熟悉其他在 Azure 中代管 Java 應用程式的技術 (如果您未使用 Eclipse)。
+此外，請熟悉[使用 Azure Toolkit for Eclipse 建立 Hello World 應用程式][azure_java_eclipse_hello_world] 中的資訊，如果您未使用 Eclipse，則強烈建議您熟悉其他在 Azure 中代管 Java 應用程式的技術。
 
 ## 建立用以撥打電話的 Web 表單
 
@@ -163,7 +163,7 @@
 ![Azure Call Response Using Twilio and Java][twilio_java_response]
 
 ## 執行應用程式
-以下是執行應用程式的高階步驟；如需這些步驟的詳細資訊，請參閱[使用 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供) 建立 Hello World 應用程式][azure_java_eclipse_hello_world]。
+以下是執行應用程式的高階步驟；如需這些步驟的詳細資訊，請參閱[使用 Azure Toolkit for Eclipse 建立 Hello World 應用程式][azure_java_eclipse_hello_world]。
 
 1. 將您的 TwilioCloud WAR 匯出至 Azure **approot** 資料夾。 
 2. 修改 **startup.cmd**，以將 TwilioCloud WAR 解壓縮。
@@ -209,4 +209,4 @@
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

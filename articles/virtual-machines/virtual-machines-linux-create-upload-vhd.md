@@ -19,7 +19,8 @@
 
 # 建立及上傳包含 Linux 作業系統的虛擬硬碟
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋使用傳統部署模型的 VHD 上傳。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本文說明如何建立及上傳虛擬硬碟 (VHD)，以便用它做為您自己的映像，在 Azure 中建立虛擬機器。您將了解如何準備作業系統，以便用它根據該映像建立多台虛擬機器。請注意，這篇文章指的是使用傳統的部署模型所建立的虛擬機器。
 
@@ -161,4 +162,4 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

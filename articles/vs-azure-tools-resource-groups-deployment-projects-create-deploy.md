@@ -195,4 +195,4 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
 若要了解如何將資源新增至 Visual Studio 中的 Azure 資源群組，請參閱[將資源新增至 Azure 資源群組](vs-azure-tools-resource-group-adding-resources.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

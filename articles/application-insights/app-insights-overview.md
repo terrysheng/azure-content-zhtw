@@ -12,16 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/13/2015" 
 	ms.author="awills"/>
  
 # 什麼是 Application Insights？
 
-Application Insights 是一項可延伸的分析服務，可幫助您了解即時應用程式的效能和使用情形。它是針對開發人員設計，以協助您持續改善應用程式的效能和可用性。
+Application Insights 是一項可延伸分析服務，會監視您的即時應用程式。該服務可以協助您偵測並診斷效能問題，並了解實際上使用者如何運用您的應用程式。它是針對開發人員設計，以協助您持續改善應用程式的效能和可用性。
+
+![製作使用者活動統計資料的圖表，或深入特定事件。](./media/app-insights-overview/00-sample.png)
 
 它可在各種不同的平台上搭配 Web 和獨立式應用程式使用：裝載在內部部署或雲端的 .NET 或 J2EE；在 Windows、iOS、Android、OSX 和其他平台上的裝置應用程式。
 
-它是以開發團隊為目標。使用它，您可以：
+Application Insights 是以開發團隊為目標。使用它，您可以：
 
 * [分析使用量模式][knowUsers]以更了解您的使用者，並不斷改善您的應用程式。 
  * 頁面檢視計數、新的和返回的使用者、地理位置、平台以及其他核心使用量分析
@@ -37,7 +39,7 @@ Application Insights 是一項可延伸的分析服務，可幫助您了解即�
 
 從您的應用程式收集而來的遙測資料會儲存並在 Azure 入口網站中分析，其中有直覺式的檢視，以及用於快速診斷和分析的功能強大的工具。
 
-![製作使用者活動統計資料的圖表，或深入特定事件。](./media/app-insights-overview/00-sample.png)
+
 
 想要進一步分析嗎？ 將您的資料[匯出](app-insights-export-telemetry.md)到 [SQL](app-insights-code-sample-export-telemetry-sql-database.md)、[Power BI](app-insights-export-power-bi.md)，或是您自己的工具。
 
@@ -135,13 +137,13 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
 <!--Link references-->
 
-[android]: app-insights-android.md
+[android]: https://github.com/Microsoft/ApplicationInsights-Android
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[ios]: app-insights-ios.md
+[ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
 [platforms]: app-insights-platforms.md
@@ -152,4 +154,4 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

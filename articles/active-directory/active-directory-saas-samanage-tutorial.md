@@ -121,7 +121,7 @@
 
 4.  按一下 [新增使用者]。
 
-    ![新增使用者](./media/active-directory-saas-samanage-tutorial/IC771726.png "新增使用者")
+    ![新使用者](./media/active-directory-saas-samanage-tutorial/IC771726.png "新增使用者")
 
 5.  輸入您想要佈建之 Azure AD 帳戶的**電子郵件地址**與**名稱**並按一下 [建立使用者]。
 
@@ -143,10 +143,10 @@
 
     ![指派使用者](./media/active-directory-saas-samanage-tutorial/IC771728.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 來確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
 
     ![是](./media/active-directory-saas-samanage-tutorial/IC767830.png "是")
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!-------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

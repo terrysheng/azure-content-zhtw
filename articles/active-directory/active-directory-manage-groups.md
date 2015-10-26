@@ -94,4 +94,4 @@ Azure Active Directory 的存取管理解決方案的重點是安全性群組。
 
 * [群組的圖形 API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

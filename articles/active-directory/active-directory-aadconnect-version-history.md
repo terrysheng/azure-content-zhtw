@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure AD Connect︰版本發行歷程記錄 | Microsoft Azure"
-	description="本主題列出 Azure AD Connect 和 Azure AD Sync 的所有版本"
-	services="active-directory"
-	documentationCenter=""
-	authors="AndKjell"
-	manager="stevenpo"
-	editor=""/>
+   description="本主題列出 Azure AD Connect 和 Azure AD Sync 的所有版本"
+   services="active-directory"
+   documentationCenter=""
+   authors="AndKjell"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="andkjell"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="10/13/2015"
+   ms.author="andkjell"/>
 
 # Azure AD Connect︰版本發行歷程記錄
 
@@ -137,9 +137,7 @@ AD 帳戶必須獲得其他權限，才能讀取來自 AD 的密碼雜湊。要�
 
 **Azure AD Sync 的最初發行版本。**
 
-## 其他資源
-[Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
+## 後續步驟
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

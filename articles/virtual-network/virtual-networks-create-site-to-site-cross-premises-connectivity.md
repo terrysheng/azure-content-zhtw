@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="教學課程：建立站對站連線的跨單位虛擬網路"
-	description="了解如何在此教學課程中使用跨單位連線建立 Azure 虛擬網路。"
-	services="virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
+	pageTitle="教學課程：建立站對站連線的跨單位虛擬網路" 
+	description="了解如何在此教學課程中使用跨單位連線建立 Azure 虛擬網路。" 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 
@@ -272,4 +272,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

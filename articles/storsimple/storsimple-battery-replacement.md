@@ -1,19 +1,19 @@
 <properties 
    pageTitle="更換 StorSimple 裝置上的電池 | Microsoft Azure"
-	description="描述如何取下、更換和維護 StorSimple 裝置上的備份電池模組。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="描述如何取下、更換和維護 StorSimple 裝置上的備份電池模組。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # 更換 StorSimple 裝置上的備份電池模組
 
@@ -115,4 +115,4 @@ Microsoft Azure StorSimple 裝置的備份電池模組是現場可置換裝置�
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

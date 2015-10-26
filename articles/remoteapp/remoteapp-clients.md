@@ -208,4 +208,4 @@ Azure RemoteApp 的優點之一，就是您可以從任何裝置存取應用程�
 	![Azure RemoteApp 的示範摘要](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

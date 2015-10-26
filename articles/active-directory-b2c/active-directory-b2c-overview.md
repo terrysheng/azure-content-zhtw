@@ -62,4 +62,4 @@ Azure Active Directory B2C 處於預覽版狀態。我們冀望在此期間能�
 - [Azure Active Directory B2C 常見問題集](active-directory-b2c-faqs.md)
 - [針對 Azure Active Directory B2C 的檔案支援要求](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

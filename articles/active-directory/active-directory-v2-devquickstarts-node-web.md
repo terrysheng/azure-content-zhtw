@@ -44,11 +44,11 @@
 本教學課程最後也會提供完整的應用程式。
 
 ## 1. 註冊應用程式
-在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。  請確定：
+在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。請確定：
 
-- 請複製指派給應用程式的**應用程式 ID**，您很快就會需要它。
-- 為應用程式加入 **Web** 平台。
-- 請輸入正確的**重新導向 URI**。 重新導向 URI 會向 Azure AD 表示驗證回應應導向的位置，本教學課程的預設為 `http://localhost:3000/auth/openid/return`.
+- 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
+- 為您的應用程式新增 **Web** 平台。
+- 輸入正確的**重新導向 URI**。重新導向 URI 會向 Azure AD 指出驗證回應應導向的位置，本教學課程的預設為 `http://localhost:3000/auth/openid/return`。
 
 ## 2. 在目錄中新增必要條件
 
@@ -78,9 +78,9 @@
 我們將在此設定 Express 中介軟體，以使用 OpenID Connect 驗證通訊協定。 Express 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
 
 -	若要開始，請開啟專案根目錄中的 `config.js` 檔案，並在 `exports.creds` 區段中輸入應用程式的組態值。
-    -	`clientID:` 是在註冊入口網站中指派給應用程式的**應用程式 ID**。
+    -	`clientID:` 是在註冊入口網站中指派給應用程式的**應用程式識別碼**。
     -	`returnURL` 是您在入口網站中輸入的**重新導向 URI**。
-    - `clientSecret` 是您在入口網站中輸入的密碼
+    - `clientSecret` 是您在入口網站中輸入的密碼。
 
 - 接下來開啟專案根中的  `app.js` 檔案，並新增下列呼叫以叫用與 `passport-azure-ad` 一併使用的 `OIDCStrategy` 策略
 
@@ -200,7 +200,7 @@ app.configure(function() {
 
 ```
 
-- 最後，加入 POST 路由，這會將實際的登入要求遞交到 `passport-azure-ad` 引擎：
+- 最後，加入 POST 路由，這會將實際的登入要求遞交至 `passport-azure-ad` 引擎：
 
 ```JavaScript
 
@@ -248,7 +248,7 @@ app.post('/auth/openid/return',
 
 ## 4\.使用 Passport，向 Azure AD 發出登入和登出要求
 
-您的 App 現在已正確設定，將使用 OpenID Connect 驗證通訊協定來與 v2.0 端點進行通訊。`passport-azure-ad` 已經處理製作驗證訊息、驗證 Azure AD 的權杖和維護使用者工作階段的一切瑣碎細節。所有剩餘的部分就是為使用者提供一種方式來登入、登出，以及收集關於已登入使用者的其他資訊。
+您的應用程式現已正確設定，將使用 OpenID Connect 驗證通訊協定來與 2.0 版端點進行通訊。`passport-azure-ad` 已處理包括製作驗證訊息、驗證 Azure AD 權杖和維護使用者工作階段的一切繁瑣細節。所有剩餘的部分就是為使用者提供一種方式來登入、登出，以及收集關於已登入使用者的其他資訊。
 
 - 首先，將預設、登入、帳戶及登出方法加入 `app.js` 檔案：
 
@@ -279,10 +279,10 @@ app.get('/logout', function(req, res){
 ```
 
 -	讓我們詳細檢閱這些方法：
-    -	`/` 路由將重新導向到 index.ejs 檢視，其會在要求中傳遞使用者 (如果有的話)
-    - `/account` 路由將先***確保我們已通過驗證*** (我們將在下面實作)，然後在要求中傳遞使用者，讓我們能夠取得關於該使用者的其他資訊。
-    - `/login` 路由將從 `passport-azuread` 呼叫 azuread-openidconnect 驗證器，如果失敗，即會再次將使用者重新導向到 /login
-    - `/logout` 會直接呼叫 logout.ejs (以及路由)，其會清除 Cookie，然後讓使用者返回 index.ejs
+    -	`/` 路由將重新導向至 index.ejs 檢視，其會在要求中傳遞使用者 (若有的話)
+    - `/account` 路由會先***確保我們已通過驗證*** (我們將在下面實作)，然後在要求中傳遞使用者，以讓我們能夠取得關於該使用者的其他資訊。
+    - `/login` 路由將從 `passport-azuread` 呼叫 azuread-openidconnect 驗證器，如果失敗，則會再次將使用者重新導向至 /login
+    - `/logout` 會直接呼叫 logout.ejs (以及路由)，其會清除 Cookie，然後讓使用者返回至 index.ejs
 
 
 - 針對 `app.js` 的最後一個部分，加入可在上述 `/account` 中使用的 EnsureAuthenticated 方法。
@@ -315,7 +315,7 @@ app.listen(3000);
 
 我們已完成 `app.js`。現在只需新增路由和檢視即可，這兩者將會向使用者顯示我們取得的資訊，以及控制我們建立的 `/logout` 和 `/login` 路由。
 
-- 在根目錄底下建立 `/routes/index.js` 路由。
+- 在根目錄下方建立 `/routes/index.js` 路由。
 
 ```JavaScript
 
@@ -328,7 +328,7 @@ exports.index = function(req, res){
 };
 ```
 
-- 在根目錄底下建立 `/routes/user.js` 路由
+- 在根目錄下方建立 `/routes/user.js` 路由
 
 ```JavaScript
 
@@ -343,7 +343,7 @@ exports.list = function(req, res){
 
 這些簡單路由只會將要求傳遞到我們的檢視，包括使用者 (如果有的話)。
 
-- 在根目錄底下建立 `/views/index.ejs` 檢視。這是簡單網頁，將呼叫我們的登入和登出方法，且讓我們能夠抓取帳戶資訊。請注意，若透過要求傳遞的使用者已證實我們擁有已登入的使用者，就能使用條件式 `if (!user)`。
+- 在根目錄底下建立 `/views/index.ejs` 檢視。這是簡單網頁，將呼叫我們的登入和登出方法，且讓我們能夠抓取帳戶資訊。請注意，我們可以使用條件式 `if (!user)`，因為在要求中傳遞使用者就證實我們擁有已登入的使用者。
 
 ```JavaScript
 <% if (!user) { %>
@@ -356,7 +356,7 @@ exports.list = function(req, res){
 <% } %>
 ```
 
-- 在根目錄底下建立 `/views/account.ejs` 檢視，如此一來，就能檢視 `passport-azuread` 放置於使用者要求中的其他資訊。
+- 在根目錄下方建立 `/views/account.ejs` 檢視，如此即可檢視 `passport-azuread` 放置於使用者要求的其他資訊。
 
 ```Javascript
 <% if (!user) { %>
@@ -404,14 +404,14 @@ exports.list = function(req, res){
 
 最後，建置並執行您的應用程式！
 
-執行 `node app.js` 並巡覽至 `http://localhost:3000`
+執行 `node app.js` 並瀏覽至 `http://localhost:3000`
 
 
 使用個人的 Microsoft 帳戶或工作或學校帳戶登入，並注意 /account 清單中使用者身分識別的反映狀態。您的 Web 應用程式現在使用業界標準的通訊協定保護，可以使用個人與工作/學校帳戶來驗證使用者。
 
 ##後續步驟
 
-如需參考，[此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip)完整範例 (不含您的組態值)，或者，您也可以從 GitHub 予以複製：
+如需參考，[此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip)完整範例 (不含您的組態值)，您也可以從 GitHub 予以複製：
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
@@ -419,6 +419,6 @@ exports.list = function(req, res){
 
 [在 node.js 中使用 v2.0 應用程式模型保護 Web API >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
 
-如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+如需其他資源，請查看：- [應用程式模型 2.0 版預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

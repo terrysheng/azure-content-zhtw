@@ -220,7 +220,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 2. 在 [發佈 Web] 對話方塊的 [設定檔] 索引標籤上，按一下 [Azure Web 應用程式]。
 	  
 3. 如果您尚未登入，請按一下 [**選取現有 Web 應用程式**] 對話方塊中的 [**登入**] 按鈕。完成登入後，請選取您在本教學課程第一個部分中所建立的 Web 應用程式。按一下 [確定] 以繼續。  
-	![選取 [現有網站] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png)  
+![選取 [現有網站] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png)
 Visual Studio 將會下載您的發佈設定。
 4. 在 [發行 Web] 對話方塊中，按一下 [發行]。  
 	![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms08.png)  
@@ -285,8 +285,8 @@ Visual Studio 將會下載您的發佈設定。
 	使用樣板機制前必須先建置專案。  
 6. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [*專案*]，然後依序選取 **[新增**] -> [**新增建構項目**]。  
 	[**新增 Scaffold**] 對話方塊隨即出現。
-7. 從左窗格中選取 [Web Forms]，並從中央窗格中選取 [Web Forms Pages using Entity Framework]。然後按一下 [新增]。  
-	![[新增 Scaffold] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png)  
+7. 從左窗格中選取 [Web Forms]，並從中央窗格中選取 [Web Forms Pages using Entity Framework]。然後按一下 [新增]。
+	![[新增 Scaffold] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png)
 	[**新增 Web Forms 頁面**] 對話方塊隨即出現。  
 
 8. 在 [**新增 Web Forms 頁面**] 對話方塊中，將 [**模型類別**] 設為 `Contacts (ContactManager.Models)`。將 [**資料內容類別**] 設為 `ApplicationDbContext (ContactManager.Models)`。然後按一下 [**新增**]。 
@@ -472,16 +472,16 @@ ASP.NET Web Forms 提供成員資格和驗證的增強功能選項。這些增�
 		{
 		    public partial class Startup {
 		
-	        // 如需設定驗證的詳細資訊，請瀏覽 http://go.microsoft.com/fwlink/?LinkId=301883
+		        // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
 		        public void ConfigureAuth(IAppBuilder app)
 		        {
-	            // 設定資料庫內容和使用者管理員，以針對各要求使用單一執行個體
+		            // Configure the db context and user manager to use a single instance per request
 		            app.CreatePerOwinContext(ApplicationDbContext.Create);
 		            app.CreatePerOwinContext(ApplicationUserManager.Create);
 		
-	            // 讓應用程式使用 Cookie 儲存已登入使用者的資訊
-	            // 並使用 Cookie 暫時儲存以協力廠商登入提供者登入之使用者的相關資訊
-	            // 設定登入 Cookie
+		            // Enable the application to use a cookie to store information for the signed in user
+		            // and to use a cookie to temporarily store information about a user logging in with a third party login provider
+		            // Configure the sign in cookie
 		            app.UseCookieAuthentication(new CookieAuthenticationOptions
 		            {
 		                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
@@ -493,10 +493,10 @@ ASP.NET Web Forms 提供成員資格和驗證的增強功能選項。這些增�
 		                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
 		                }
 		            });
-	            // 使用 Cookie 暫時儲存以協力廠商登入提供者登入之使用者的相關資訊
+		            // Use a cookie to temporarily store information about a user logging in with a third party login provider
 		            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 		
-	            // 取消下列幾行註解，以啟用使用協力廠商登入提供者登入
+		            // Uncomment the following lines to enable logging in with third party login providers
 		            //app.UseMicrosoftAccountAuthentication(
 		            //    clientId: "",
 		            //    clientSecret: "");
@@ -709,9 +709,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 7. 將 [組態] 下拉式方塊設為 [偵錯]。
 8. 按一下 [ApplicationDbContext] 旁邊的 [向下箭頭] 圖示，並將它設為 [ContactDB]。
 9. 勾選 [Execute Code First Migrations] 核取方塊。  
-
-	>[AZURE.NOTE]  
-	在本範例中，您應只在首次發佈應用程式時選取此核取方塊。如此一來，將只呼叫一次 *Configuration.cs* 檔案中的 *Seed* 方法。
+	在本範例中，您應只在首次發佈應用程式時選取此核取方塊。如此一來，將只呼叫一次 *Configuration.cs* 檔案中的 *Seed* 方法。  
 
 10. 然後按一下 [**發佈**]。  
 	您的應用程式便會發佈到 Azure。
@@ -791,4 +789,4 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

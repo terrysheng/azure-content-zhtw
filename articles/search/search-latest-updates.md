@@ -125,4 +125,4 @@ Azure 搜尋服務已正式推出，並為支援的 [2015-02-28 版本 API](http
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

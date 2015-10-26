@@ -19,7 +19,8 @@
 
 # 在 Azure Preview 入口網站中建立完整格式的網域名稱
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立 FQDN。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 使用**資源管理員**部署模型在 [Azure 預覽入口網站](https://portal.azure.com)中建立虛擬機器時，入口網站會為虛擬機器建立公用 IP 資源。您可以使用此 IP 位址從遠端存取虛擬機器。不過，入口網站並不會預設建立[完整格式的網域名稱](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (或 FQDN)。因為使用 FQDN 而非 IP 位址較容易記得，這篇文章會示範加入一個 FQDN 至您的虛擬機器。
 
@@ -53,4 +54,4 @@
 
     您可以立即使用這個 DNS 名稱從遠端連線到虛擬機器。例如，連接到具有完整網域名稱 `testdnslabel.eastus.cloudapp.azure.com` 和使用者名稱 `adminuser` 的 Linux 虛擬機器時使用 `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

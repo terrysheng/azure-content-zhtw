@@ -115,4 +115,4 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
     > [AZURE.NOTE]建立和更新原則後，需要經過一分鐘才會生效。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

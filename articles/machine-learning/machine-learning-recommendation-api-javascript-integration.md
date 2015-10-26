@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
-##1\.一般概觀
+##1.一般概觀
 利用 2 階段所包含的 Azure ML Recommendations 來整合您的網站：
 
 1.	將事件傳送到 Azure ML Recommendations。這樣做將能建立建議模型。
@@ -47,7 +47,7 @@
 
 ![繪圖 3][3]
 
-##2\.必要條件
+##2.必要條件
 
 1. 使用 API 建立新的模型。如需如何執行此操作，請參閱快速入門指南。
 2. 使用 base64 將 &lt;dataMarketUser&gt;:&lt;dataMarketKey&gt; 編碼。(這將會用於基本驗證，讓 JS 程式碼能夠呼叫 API)。
@@ -228,4 +228,4 @@ Azure ML Recommendations 事件程式庫會建立並使用 Cookie，以識別來
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->

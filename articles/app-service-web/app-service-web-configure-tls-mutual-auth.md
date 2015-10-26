@@ -179,4 +179,4 @@ Azure Web 應用程式平台不會對傳送給應用程式的用戶端憑證進�
         }
     }
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

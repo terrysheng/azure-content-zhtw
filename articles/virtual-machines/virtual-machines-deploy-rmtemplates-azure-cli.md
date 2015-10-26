@@ -21,7 +21,7 @@
 
 本文會為您示範如何使用 Azure 資源管理員範本和 Azure CLI，執行下列部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋使用資源管理員部署模型中的範本來部署和管理 VM。您無法在傳統的部署模型中使用範本。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。您無法在傳統的部署模型中使用範本。
 
 
 - [在 Azure 中快速建立虛擬機器](#quick-create-a-vm-in-azure)
@@ -1306,4 +1306,4 @@
 
 如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

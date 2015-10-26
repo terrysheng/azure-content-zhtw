@@ -137,4 +137,4 @@
 [行動服務 HTML/JavaScript 作法概念性參考]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

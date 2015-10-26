@@ -55,7 +55,7 @@
 	<tr><td>名稱</td>
 		<td>指定指令碼動作的名稱。例如，<b>安裝 Giraph</b>。</td></tr>
 	<tr><td>指令碼 URI</td>
-		<td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。例如，<i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
+		<td>指定統一資源識別元 (URI) 給為了自訂叢集所叫用的指令碼。例如，<i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
 	<tr><td>節點類型</td>
 		<td>指定執行自訂指令碼的節點。您可以選擇 [<b>所有節點</b>]、[<b>僅限前端節點</b>] 或 [<b>僅限背景工作節點</b>]。
 	<tr><td>參數</td>
@@ -190,4 +190,4 @@
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

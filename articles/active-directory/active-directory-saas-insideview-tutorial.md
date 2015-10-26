@@ -38,9 +38,9 @@
 
     ![新增應用程式](./media/active-directory-saas-insideview-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [您要如何處理] 對話方塊中，按一下 [從組件庫中新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從組件庫新增應用程式]。
 
-    ![從組件庫中新增應用程式](./media/active-directory-saas-insideview-tutorial/IC749322.png "從組件庫中新增應用程式")
+    ![從組件庫新增應用程式](./media/active-directory-saas-insideview-tutorial/IC749322.png "從組件庫新增應用程式")
 
 6.  在搜尋方塊中，輸入 **InsideView**。
 
@@ -94,7 +94,7 @@
 8.  在 [Crm 姓氏對應] 文字方塊中，輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**。
 9.  按一下 [儲存]。
 
-8.  在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
+8.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-insideview-tutorial/IC794137.png "設定單一登入")
 ##設定使用者佈建
@@ -117,10 +117,10 @@
 
     ![指派使用者](./media/active-directory-saas-insideview-tutorial/IC794138.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
 
     ![是](./media/active-directory-saas-insideview-tutorial/IC767830.png "是")
   
-如果您想要測試您的單一登入設定，請開啟 [存取面板]。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
+如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

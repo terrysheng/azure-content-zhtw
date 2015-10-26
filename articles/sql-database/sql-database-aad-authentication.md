@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/28/2015"
+   ms.date="10/08/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # 使用 Azure Active Directory 驗證連接到 SQL Database 
@@ -65,11 +65,7 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 
 ## Azure AD 功能和限制 
 
-下列 Azure Active Directory 的成員可在 Azure SQL Server 中佈建：
-- 原生成員：在受管理的網域或客戶網域的 Azure AD 中建立的成員。如需詳細資訊，請參閱[將您自己的網域名稱新增至 Azure AD](active-directory-add-domain.md)。
-- 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。如需詳細資訊，請參閱 [Windows Azure 現在支援 Windows Server Active Directory 的同盟](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
-- 從其他 Azure Active Directory 匯入的成員，他們是原生或同盟網域成員。
-- 建立 Active Directory 群組做為安全性群組。
+下列 Azure Active Directory 的成員可在 Azure SQL Server 中佈建： - 原生成員：在受管理的網域或客戶網域的 Azure AD 中建立的成員。如需詳細資訊，請參閱[將您自己的網域名稱新增至 Azure AD](active-directory-add-domain.md)。 - 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。如需詳細資訊，請參閱 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。 從其他 Azure Active Directory 匯入的成員，他們是原生或同盟網域成員。 建立 Active Directory 群組做為安全性群組。
 
 不支援 Microsoft 帳戶 (例如 outlook.com、hotmail.com、live.com) 或其他來賓帳戶 (例如 gmail.com、yahoo.com)。如果您可以使用的帳戶和密碼登入 [https://login.live.com](https://login.live.com)，您就能使用 Azure SQL Database 的 Azure AD 驗證不支援的 Microsoft 帳戶。
 
@@ -146,9 +142,8 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 3. 在 [設定] 刀鋒視窗中，按一下 [Active Directory 管理 (預覽)]，並接受預覽子句。
 4. 在 [Active Directory 管理 (預覽)] 刀鋒視窗中，按一下以檢閱，然後按一下 [確定] 接受預覽條款。
 5. 在 [Active Directory 管理 (預覽)] 刀鋒視窗中，按一下 [Active Directory 管理]，然後在頂端按一下 [設定管理員]。
-6. 在 [新增系統管理員] 刀鋒視窗中，搜尋使用者，選取使用者或群組成為系統管理員，然後按一下 [選取]。(Active Directory 管理刀鋒視窗會顯示您的 Active Directory 的所有成員與群組。呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。(請參閱以上 **Azure AD 功能和限制**中支援的系統管理員清單。)
-7. 在 [Active Directory 管理] 刀鋒視窗頂端，按一下 [儲存]。
-	![選擇系統管理員][10]
+6. 在 [新增系統管理員] 刀鋒視窗中，搜尋使用者，選取使用者或群組成為系統管理員，然後按一下 [選取]。(Active Directory 管理刀鋒視窗會顯示您的 Active Directory 的所有成員與群組。呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。(請參閱以上 **Azure AD 功能和限制**中支援的系統管理員清單。) 以角色為基礎的存取控制 (RBAC) 只會套用至入口網站，並且不會傳播至 SQL Server。
+7. 在 [Active Directory 管理] 刀鋒視窗頂端，按一下 [儲存]。![選擇系統管理員][10]
 
 	變更系統管理員的程序可能需要幾分鐘的時間。然後新的系統管理員會出現在 [Active Directory 管理] 方塊中。
 
@@ -156,52 +151,55 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 
 ### 使用 PowerShell 佈建 Azure SQL Server 的 Azure AD 系統管理員 
 
-若要繼續，您必須安裝並設定 0.9.8 以上的 Azure PowerShell 版本。如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell](powershell-install-configure.md#Install)。
+> [AZURE.IMPORTANT]自 Azure PowerShell 1.0 Preview 起，不再需要 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。本文中的範例使用新的 PowerShell 1.0 Preview 命名慣例。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) (英文)。
+
+
+若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行，且由於 Switch-AzureMode 已移除，因此您應該執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 下載並安裝最新的 Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 若要佈建 Azure AD 系統管理員，您必須執行下列 Azure PowerShell 命令：
 
 - Add-AzureAccount
 - Select-AzureSubscription
-- Switch-AzureMode -Name AzureResourceManager
+
 
 用來佈建和管理 Azure AD 系統管理員的 Cmdlet：
 
 | Cmdlet 名稱 | 說明 |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| Set-AzureSqlServerActiveDirectoryAdministrator | 佈建 Azure SQL Server 的 Azure Active Directory 系統管理員。(必須來自目前的訂用帳戶。) |
-| Remove-AzureSqlServerActiveDirectoryAdministrator | 移除 Azure SQL Server 的 Azure Active Directory 系統管理員。 |
-| Get-AzureSqlServerActiveDirectoryAdministrator | 傳回目前為 Azure SQL Server 設定的 Azure Active Directory 系統管理員的相關資訊。 |
+| [Set-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | 佈建 Azure SQL Server 的 Azure Active Directory 系統管理員。(必須來自目前的訂用帳戶。) |
+| [Remove-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | 移除 Azure SQL Server 的 Azure Active Directory 系統管理員。 |
+| [Get-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | 傳回目前為 Azure SQL Server 設定的 Azure Active Directory 系統管理員的相關資訊。 |
 
-使用 PowerShell 命令 get-help 查看每個命令的詳細資料，例如 ``get-help Set-AzureSqlServerActiveDirectoryAdministrator``。
+使用 PowerShell 命令 get-help 查看每個命令的詳細資料，例如 ``get-help Set-AzureRMSqlServerActiveDirectoryAdministrator``。
 
 下列指令碼會在名為 **Group-23** 的資源群組中為 **demo\_server** 伺服器佈建名為 **DBA\_Group** (物件識別碼 `40b79501-b343-44ed-9ce7-da4c8cc7353f`) 的 Azure AD 系統管理員群組：
 
 ```
-Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
 **DisplayName** 輸入參數可接受 Azure AD 顯示名稱或使用者主體名稱。例如，``DisplayName="John Smith"`` 或 ``DisplayName="johns@contoso.com"``。Azure AD 群組只支援 Azure AD 顯示名稱。
 
-> [AZURE.NOTE]Azure PowerShell 命令 ```Set-AzureSqlServerActiveDirectoryAdministrator``` 不會阻止您為不支援的使用者佈建 Azure AD 系統管理員。不支援的使用者可以佈建，但是不能連接到資料庫。(請參閱以上 **Azure AD 功能和限制**中支援的系統管理員清單。)
+> [AZURE.NOTE]Azure PowerShell 命令 ```Set-AzureRMSqlServerActiveDirectoryAdministrator``` 不會阻止您為不支援的使用者佈建 Azure AD 系統管理員。不支援的使用者可以佈建，但是不能連接到資料庫。(請參閱之前的 **Azure AD 功能和限制**一節中的支援的系統管理員清單。)
 
 下列範例使用選用的 **ObjectID**：
 
 ```
-Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
-> [AZURE.NOTE]當 **DisplayName** 不是唯一時，就需要 Azure AD **ObjectID**。若要擷取 **ObjectID** 和 **DisplayName** 值，請使用 Azure 入口網站的 Active Directory 區段以及檢視使用者或群組的屬性。
+> [AZURE.NOTE]當 **DisplayName** 不是唯一時，就需要 Azure AD **ObjectID**。若要擷取 **ObjectID** 和 **DisplayName** 的值，請使用 Azure 入口網站的 Active Directory 區段，檢視使用者或群組的屬性。
 
 下列範例會傳回 Azure SQL Server 的目前 Azure AD 系統管理員的相關資訊：
 
 ```
-Get-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
+Get-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
 下列範例會移除 Azure AD 系統管理員：```
-Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
+Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
 ## 5\.設定用戶端電腦
@@ -209,13 +207,13 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 在您的應用程式或使用者使用 Azure AD 身分識別連接到 Azure SQL Database 的所有用戶端電腦上，您必須安裝下列軟體：
 
 - 從 [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) 安裝 .NET Framework 4.6 或更新版本。
-- 在 [Microsoft Active Directory Authentication Library for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742)，Azure Active Directory Authentication Library for SQL Server (**ADALSQL.DLL**) 可以來自下載中心的多種語言 (x 86 和 amd64) 使用。
+- 在下載中心的 [Microsoft Active Directory Authentication Library for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742)，可以下載多種語言 (x 86 和 amd64) 的 Azure Active Directory Authentication Library for SQL Server (**ADALSQL.DLL**)。
 
 ### 工具
 
-- 安裝 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 或 [SQL Server Data Tools for Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) 符合.NET Framework 4.6 需求。 
-- SSMS 安裝 x86 版 **ADALSQL.DLL**。(目前 SSMS 無法在安裝後提示您需要重新開機。在未來的 CTP 中將修正此問題。)
-- SSDT 安裝 amd64 版 **ADALSQL.DLL**。SSDT 僅部分支援 Azure AD 驗證。
+- 安裝符合 .NET Framework 4.6 需求的 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 或 [SQL Server Data Tools for Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx)。 
+- SSMS 會安裝 x86 版的 **ADALSQL.DLL**。(目前 SSMS 無法在安裝後提示您需要重新開機。在未來的 CTP 中將修正此問題。)
+- SSDT 會安裝 amd64 版的 **ADALSQL.DLL**。SSDT 僅部分支援 Azure AD 驗證。
 - 來自 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)的最新 Visual Studio 符合.NET Framework 4.6 需求，但不會安裝必要的 amd64 版 **ADALSQL.DLL**。
 
 ## 6\.在對應至 Azure AD 身分識別的資料庫中建立自主資料庫使用者 
@@ -228,7 +226,7 @@ Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫
  
 若要確認 Azure AD 系統管理員已正確設定，請使用 Azure AD 系統管理員帳戶連接到 **master** 資料庫。若要佈建以 Azure AD 為基礎的自主資料庫使用者 (而非擁有資料庫的伺服器系統管理員)，請連接到具有資料庫存取權之 Azure AD 身分識別的資料庫。
 
-> [AZURE.IMPORTANT]Azure Active Directory 驗證可支援 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
+> [AZURE.IMPORTANT][SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 支援 Azure Active Directory 驗證。
 
 #### 使用 Active Directory 整合式驗證進行連接 
 
@@ -271,7 +269,7 @@ Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫
 
 如需根據 Azure Active Directory 身分識別建立自主資料庫使用者的詳細資訊，請參閱 [CREATE USER (TRANSACT-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)。
 
-當您建立資料庫使用者時，該使用者會收到 **CONNECT** 權限並可以 **PUBLIC** 角色的成員身分連接至該資料庫。一開始提供給使用者的唯一權限為授與 **PUBLIC** 角色的任何權限，或授與其所隸屬之任何 Windows 群組的任何權限。一旦您佈建以 Azure AD 為基礎的自主資料庫使用者，您可以使用您授與權限給任何其他類型使用者的相同方式，授與該使用者額外的權限。通常會授與權限給資料庫角色並新增使用者至角色。如需詳細資訊，請參閱[資料庫引擎權限基本概念](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx)。如需特殊 SQL Database 角色的詳細資訊，請參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)。匯入至管理網域的同盟網域使用者必須使用受管理的網域身分識別。
+當您建立資料庫使用者時，該使用者會收到 **CONNECT** 權限，並可以 **PUBLIC** 角色的成員身分連接至該資料庫。一開始提供給使用者的唯一權限，是授與 **PUBLIC** 角色的任何權限，或授與其所隸屬之任何 Windows 群組的任何權限。一旦您佈建以 Azure AD 為基礎的自主資料庫使用者，您可以使用您授與權限給任何其他類型使用者的相同方式，授與該使用者額外的權限。通常會授與權限給資料庫角色並新增使用者至角色。如需詳細資訊，請參閱[資料庫引擎權限基本概念](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx)。如需特殊 SQL Database 角色的詳細資訊，請參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)。匯入至管理網域的同盟網域使用者必須使用受管理的網域身分識別。
 
 > [AZURE.NOTE]Azure AD 使用者會在資料庫中繼資料中標示為類型 E (EXTERNAL\_USER)，而群組則標示為類型 X (EXTERNAL\_GROUPS)。如需詳細資訊，請參閱 [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx)。
 
@@ -294,7 +292,7 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-請注意，連接到 Azure SQL Database 不支援連接字串關鍵字 ``Integrated Security=True``。
+請注意，連接字串關鍵字 ``Integrated Security=True`` 不支援連接到 Azure SQL Database。
 
 ### 7\.2.使用 Azure AD 主體名稱與密碼進行連接 
 若要使用整合式驗證以及 Azure AD 身分識別連接至資料庫，驗證密碼必須設定為 Active Directory 密碼，且連接字串必須包含使用者識別碼/UID 及密碼/PWD 關鍵字和值。下列 C# 程式碼範例會使用 ADO.NET。
@@ -304,7 +302,7 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-如需與 Azure AD 驗證相關的特定程式碼範例，請參閱 MSDN 上的 [SQL Server 安全性部落格](http://blogs.msdn.com/b/sqlsecurity/)。
+如需特定程式碼範例以及與 Azure AD 驗證相關的範例，請參閱 MSDN 上的 [SQL Server 安全性部落格](http://blogs.msdn.com/b/sqlsecurity/)。
 
 ## 另請參閱
 
@@ -327,4 +325,4 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

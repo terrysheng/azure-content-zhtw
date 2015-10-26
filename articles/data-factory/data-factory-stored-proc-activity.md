@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # SQL Server 預存程序活動
@@ -50,63 +50,129 @@
 storedProcedureName | 指定 Azure SQL Database 或 Azure SQL 資料倉儲中預存程序的名稱，由輸出資料表使用的連結的服務代表。 | 是
 storedProcedureParameters | 指定預存程序參數的值 | 否
 
-## 範例
+## 範例逐步解說
 
-我們來看一下您要在具有兩個資料行的 Azure SQL Database 中建立資料表的範例：
+### 範例資料表與預存程序
+1. 在您的 Azure SQL Database 中，使用 SQL Server Management Studio 或任何其他您很熟悉的工具，來建立下列**資料表**。Datetimestamp 資料行是產生對應識別碼的日期和時間。 
 
-欄 | 類型
------- | ----
-ID | uniqueidentifier
-Datetime | 產生對應的識別碼的日期和時間
+		CREATE TABLE dbo.sampletable
+		(
+			Id uniqueidentifier,
+			datetimestamp nvarchar(127)
+		)
+		GO
 
-![範例資料](./media/data-factory-stored-proc-activity/sample-data.png)
+		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
+		GO
 
-	CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
-	AS
+	Id 是可唯一識別的，而 datetimestamp 資料行是產生對應識別碼的日期和時間。![範例資料](./media/data-factory-stored-proc-activity/sample-data.png)
+
+2. 建立下列**預存程序**，將資料插入 **sampletable**。
+
+		CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+		AS
+		
+		BEGIN
+		    INSERT INTO [sampletable]
+		    VALUES (newid(), @DateTime)
+		END
+
+	> [AZURE.IMPORTANT]參數 (在此範例中是 DateTime) 的**名稱**和**大小寫**必須與下列管線/活動 JSON 中指定的參數相符。在預存程序定義中，請務必使用 **@** 做為參數前置詞。
 	
-	BEGIN
-	    INSERT INTO [sampletable]
-	    VALUES (newid(), @DateTime)
-	END
+### 建立 Data Factory  
+4. 登入 [Azure Preview 入口網站](http://portal.azure.com/)之後，執行下列動作：
+	1.	按一下左側功能表的 [新增]。 
+	2.	按一下 [建立] 刀鋒視窗中的 [資料分析]。
+	3.	按一下 [資料分析] 刀鋒視窗上的 [Data Factory]。
+4.	在 [新增 Data Factory] 刀鋒視窗中，輸入 **LogProcessingFactory** 做為 [名稱]。Azure Data Factory 名稱必須是全域唯一的。您必須在 Data Factory 的名稱前面加上您的名稱，才能成功建立 Factory。 
+3.	如果您尚未建立任何資源群組，您必須建立資源群組。作法：
+	1.	按一下 [資源群組名稱]。
+	2.	在 [資源群組] 刀鋒視窗中，選取 [建立新的資源群組]。
+	3.	在 [建立資源群組] 刀鋒視窗中，輸入 **ADFTutorialResourceGroup** 做為 [名稱]。
+	4.	按一下 [確定]。
+4.	選取資源群組之後，請確認您使用的是要在其中建立 Data Factory 的正確訂用帳戶。
+5.	按一下 [新增 Data Factory] 刀鋒視窗上的 [建立]。
+6.	您將會看到 Data Factory 建立於 Azure Preview 入口網站的 [開始面板] 中。在 Data Factory 成功建立後，您會看到 Data Factory 頁面，顯示 Data Factory 的內容。
 
-> [AZURE.NOTE]參數 (在此範例中是 DateTime) 的**名稱**和**大小寫**必須符合下列活動 JSON 中指定的參數。在預存程序定義中，請務必使用 **@** 做為參數前置詞。
+### 建立 Azure SQL 連結服務  
+建立 Data Factory 之後，您可以建立 Azure SQL 連結的服務，將 Azure SQL Database 連結到 Data Factory。這是包含 sampletable 資料表和 sp\_sample 預存程序的資料庫。
 
-若要在 Data Factory 管線中執行此預存程序，您需要執行下列動作：
+7.	在適用於 **SProcDF** 的 [DATA FACTORY] 刀鋒視窗中，按一下 [製作和部署]。這會啟動 Data Factory 編輯器。 
+2.	在命令列上按一下 [新增資料儲存區]，然後選擇 [Azure SQL]。您應該會在編輯器中看到用來建立 Azure SQL 連結服務的 JSON 指令碼。 
+4. 使用您的 Azure SQL Database 伺服器名稱來取代 **servername**、使用您在其中建立資料表和預存程序的資料庫來取代 **databasename**、使用有權存取資料庫的使用者帳戶來取代 ****username@servername**，以及使用該使用者帳戶的密碼來取代 **password**。
+5. 按一下命令列的 [部署]，部署連結服務。
 
-1.	建立[連結服務](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties)以註冊 Azure SQL Database 的連接字串，這是應該執行預存程序的位置。
-2.	建立指向 Azure SQL Database 中輸出資料表的[資料集](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties)。現在我們要呼叫此資料集 sprocsampleout。此資料集應該參考步驟 1 中的連結服務。 
-3.	在 Azure SQL Database 中建立預存程序。
-4.	使用 SqlServerStoredProcedure 活動建立以下[管線](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties)，以叫用 Azure SQL Database 中的預存程序。
+### 建立輸出資料表
+6. 在命令列上按一下 [新資料集]，然後選取 [Azure SQL]。
+7. 將下列 JSON 指令碼複製/貼到 JSON 編輯器。
+
+		{			    
+			"name": "sprocsampleout",
+			"properties": {
+				"type": "AzureSqlTable",
+				"linkedServiceName": "AzureSqlLinkedService",
+				"typeProperties": {
+					"tableName": "sampletable"
+				},
+				"availability": {
+					"frequency": "Hour",
+					"interval": 1
+				}
+			}
+		}
+7. 按一下命令列上的 [部署] 來部署資料集。 
+
+### 使用 SqlServerStoredProcedure 活動建立管線
+現在，讓我們使用 SqlServerStoredProcedure 活動來建立管線。
+ 
+9. 按一下命令列上的 **...(省略符號)**，然後按一下 [新管線]。 
+9. 複製/貼上下列 JSON 程式碼片段。將 **StoredProcedureName** 設定為 **sp\_sample**。**DateTime** 參數的名稱和大小寫必須符合預存程序定義中參數的名稱和大小寫。  
 
 		{
 		    "name": "SprocActivitySamplePipeline",
-		    "properties":
-		    {
-		        "activities":
-		        [
+		    "properties": {
+		        "activities": [
 		            {
-		            	"name": "SprocActivitySample",
-		             	"type": " SqlServerStoredProcedure",
-		             	"outputs": [ {"name": "sprocsampleout"} ],
-		             	"typeProperties":
-		              	{
-		                	"storedProcedureName": "sp_sample",
-			        		"storedProcedureParameters": 
-		        			{
-		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        			}
-						}
-	            	}
-		        ]
-		     }
+		                "type": "SqlServerStoredProcedure",
+		                "typeProperties": {
+		                    "storedProcedureName": "sp_sample",
+		                    "storedProcedureParameters": {
+		                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		                    }
+		                },
+		                "outputs": [
+		                    {
+		                        "name": "sprocsampleout"
+		                    }
+		                ],
+		                "scheduler": {
+		                    "frequency": "Hour",
+		                    "interval": 1
+		                },
+		                "name": "SprocActivitySample"
+		            }
+		        ],
+		        "start": "2015-01-02T00:00:00Z",
+		        "end": "2015-01-03T00:00:00Z",
+		        "isPaused": false
+		    }
 		}
-5.	部署[管線](data-factory-create-pipelines.md)。
-6.	使用 Data Factory 的監視和管理檢視來[監視管線](data-factory-monitor-manage-pipelines.md)。
+9. 按一下工具列上的 [部署] 來部署管線。  
+
+### 監視管線
+
+6. 按一下 **X** 以關閉 [Data Factory 編輯器] 刀鋒視窗、瀏覽回到 [Data Factory] 刀鋒視窗，然後按一下 [圖表]。
+7. 在 [圖表檢視] 中，您會看到管線的概觀，以及在本教學課程中使用的資料集。 
+8. 在 [圖表檢視] 中，按兩下 **sprocsampleout** 資料集。您將會看到就緒狀態的配量。由於配量是針對 2015/01/02 和 2015/01/03 之間的每一個小時所產生，因此，應該會有 24 個配量。 
+10. 當配量處於**就緒**狀態時，請根據 Azure SQL Database 執行 **select * from sampledata** 查詢，以驗證預存程序已將資料插入資料表。
+
+	![輸出資料](./media/data-factory-stored-proc-activity/output.png)
+
+	如需監視 Azure Data Factory 管線的詳細資訊，請參閱[監視管線](data-factory-monitor-manage-pipelines.md) 。
 
 > [AZURE.NOTE]在上述範例中，SprocActivitySample 沒有輸入。如果您想要鏈結此活動與活動上游 (例如預先處理)，可以使用上游活動的輸出做為此活動的輸入。在此情況下，上游活動完成且能使用上游活動的輸出 (處於就緒狀態) 之前，此活動不會執行。輸入無法直接做為預存程序活動的參數使用。
-> 
-> JSON 檔案中預存程序參數的名稱和大小寫 (大寫/小寫) 必須符合目標資料庫中預存程序參數的名稱。
 
+## 傳遞靜態值 
 現在我們來考量在包含稱為「文件範例」的靜態值的資料表中，新增另一個名為「案例」的資料行。
 
 ![範例資料 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
@@ -132,4 +198,4 @@ Datetime | 產生對應的識別碼的日期和時間
 		}
 	}
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

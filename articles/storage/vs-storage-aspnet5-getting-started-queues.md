@@ -185,4 +185,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

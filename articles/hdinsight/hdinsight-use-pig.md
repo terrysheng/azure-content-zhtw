@@ -1,21 +1,21 @@
 <properties
    pageTitle="在 HDInsight 中使用 Hadoop Pig | Microsoft Azure"
-	description="了解如何在 HDInsight 上搭配 Hadoop 使用 Pig。"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="了解如何在 HDInsight 上搭配 Hadoop 使用 Pig。"
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/21/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="10/09/2015"
+   ms.author="larryfr"/>
 
 # 搭配使用 Pig 與 HDInsight 上的 Hadoop
 
@@ -144,4 +144,4 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。請使用下表決�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="以 C# 建立 Azure SQL Database"
-	description="本文將說明如何使用 Azure SQL Database Library for .NET 以 C# 建立 Azure SQL Database。"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="以 C# 建立 Azure SQL Database" 
+   description="本文將說明如何使用 Azure SQL Database Library for .NET 以 C# 建立 Azure SQL Database。" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="09/01/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/01/2015"
+   ms.author="sstein"/>
 
 # 以 C& 建立 SQL Database#x23;
 
@@ -37,7 +37,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 <br>
 
-> [AZURE.NOTE] SQL Database Library for .NET 目前為預覽狀態。
+> [AZURE.NOTE]SQL Database Library for .NET 目前為預覽狀態。
 
 <br>
 
@@ -92,7 +92,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
     ![新增應用程式][8]
 
-7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] \(您在程式碼中需要用戶端識別碼)。
+7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] (您在程式碼中需要用戶端識別碼)。
 
     ![取得用戶端識別碼][9]
 
@@ -150,7 +150,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 
 
-> [AZURE.NOTE] 這篇文章中的範例使用每個 API 要求的同步表單，並且封鎖直到基礎服務上的 REST 呼叫完成。有可用的非同步方法。
+> [AZURE.NOTE]這篇文章中的範例使用每個 API 要求的同步表單，並且封鎖直到基礎服務上的 REST 呼叫完成。有可用的非同步方法。
 
 
 
@@ -434,4 +434,4 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

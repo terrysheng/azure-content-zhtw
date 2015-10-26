@@ -3,7 +3,7 @@
 	description="本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS 使用 PlayReady 與 Widevine DRM 動態加密的資料流。PlayReady 授權來自媒體服務 PlayReady 授權伺服器，Widevine 授權由 Axinom 授權伺服器傳遞。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+	ms.date="10/14/2015"  
 	ms.author="juliako"/>
 
 #使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務  
@@ -56,7 +56,7 @@ Azure 媒體服務 (AMS) 已新增 Google Widevine 動態保護 (如需詳細資
 
 ##準備 Azure 媒體播放器
 
-AMP 1.4.0 版支援同時使用 PlayReady 和 Widevine DRM 動態封裝的 AMS 內容進行播放。如果 Widevine 授權伺服器不需要權杖驗證，則不需要執行任何其他動作即可測試受到 Widevine 保護的 DASH 內容。如需範例，您可以參考 AMP 團隊提供的簡單範例 [http://amp.azure.net/libs/amp/latest/samples/dynamic\_multiDRM\_PlayReadyWidevine\_notoken.html](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html)，在此您可以看到在 Edge 和 IE11 中使用 PlayReady 的運作，和 Chrome 使用 Widevine 的運作。Axinom 提供的 Widevine 授權伺服器需要 JWT 權杖驗證。JWT 權杖必須使用透過 HTTP 標頭 “X-AxDRM-Message” 發出的授權要求來提交。為此，您必須在設定來源之前，在裝載 AMP 的網頁中新增下列 Javascript：
+AMP 1.4.0 版支援同時使用 PlayReady 和 Widevine DRM 動態封裝的 AMS 內容進行播放。如果 Widevine 授權伺服器不需要權杖驗證，則不需要執行任何其他動作即可測試受到 Widevine 保護的 DASH 內容。例如，AMP 團隊提供簡單的[範例](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html)，在此您可以看到在 Edge 和 IE11 中搭配 PlayReady 以及在 Chrome 中搭配 Widevine 皆順利運作。Axinom 提供的 Widevine 授權伺服器需要 JWT 權杖驗證。JWT 權杖必須使用透過 HTTP 標頭 “X-AxDRM-Message” 發出的授權要求來提交。為此，您必須在設定來源之前，在裝載 AMP 的網頁中新增下列 Javascript：
 
 	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
@@ -188,7 +188,15 @@ Axinom Widevine 授權伺服器
 以下是運用 Axinom Widevine 授權伺服器的迷你解決方案所需的參數。除了金鑰識別碼以外，Axinom 會根據 Widevine 伺服器安裝來提供其餘參數。
 
 
-![參數](./media/media-services-axinom-integration/media-services-axinom2.png)
+參數|使用方式
+---|---
+通訊金鑰識別碼|必須包含在 JWT 權杖中作為宣告 "com\_key\_id" 的值 (請參閱[本節](media-services-axinom-integration.md#jwt-token-generation))。
+通訊金鑰|必須做為 JWT 權杖的簽署金鑰 (請參閱[本節](media-services-axinom-integration.md#jwt-token-generation))。
+金鑰種子|必須用來使用任何指定的內容金鑰識別碼來產生內容金鑰 (請參閱[本節](media-services-axinom-integration.md#content-protection))。
+Widevine 授權取得 URL|必須用於設定 DASH 串流資產傳遞原則 (請參閱[本節](media-services-axinom-integration.md#content-protection))。
+內容金鑰識別碼|必須包含其中作為 JWT 權杖之權利訊息宣告值的一部分 (請參閱[本節](media-services-axinom-integration.md#jwt-token-generation))。 
+
+
 
 
 ##媒體服務學習路徑
@@ -198,4 +206,4 @@ Axinom Widevine 授權伺服器
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

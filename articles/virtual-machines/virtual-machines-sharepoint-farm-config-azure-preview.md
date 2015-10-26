@@ -19,7 +19,8 @@
 
 # SharePoint Server 伺服器陣列組態詳細資料
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+ 
 
 SharePoint Server 伺服器陣列是 Azure Preview 入口網站的一項功能，可自動為您建立預先設定的 SharePoint Server 2013 伺服器陣列。伺服器陣列組態有兩種：
 
@@ -141,4 +142,4 @@ Azure Preview 入口網站的 SharePoint Server 伺服器陣列功能會在服�
 
 [在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

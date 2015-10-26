@@ -82,8 +82,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 <tr><td>SQL Database 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>Azure SQL Database 登入名稱。</td></tr>
 <tr><td>SQL Database 登入密碼</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Azure SQL Database 登入密碼。</td></tr>
 <tr><td>SQL Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出至其中的 Azure SQL Database。</td></tr>
-	</table>
-	> [AZURE.NOTE]根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure 入口網站中加以啟用。如需關於建立 SQL Database 和設定防火牆規則的指示，請參閱[如何建立及設定 Azure SQL Database][sqldatabase-create-configue]。
+</table>> [AZURE.NOTE]根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure 預覽入口網站中加以啟用。如需關於建立 SQL Database 和設定防火牆規則的指示，請參閱[如何建立及設定 Azure SQL Database][sqldatabase-create-configue]。
 
 
 > [AZURE.NOTE]將值填入資料表中。這將有助於本教學課程的執行。
@@ -185,27 +184,21 @@ Hive 路徑有已知問題。當您提交 Oozie 工作時會遇到此問題。�
 	RunHiveScript 有數個變數。當您使用 Windows PowerShell 從工作站提交 Oozie 工作時，要傳入這些值。
 
 	<table border = "1">
-	<tr><th>工作流程變數</th><th>說明</th></tr>
-	<tr><td>${jobTracker}</td><td>指定 Hadoop 工作追蹤器的 URL。在 HDInsight 3.0 和 2.1 版中使用 <strong>jobtrackerhost:9010</strong>。</td></tr>
-	<tr><td>${nameNode}</td><td>指定 Hadoop 名稱節點的 URL。使用預設檔案系統位址，例如 <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>。</td></tr>
-	<tr><td>${queueName}</td><td>指定要將工作提交過去的佇列名稱。使用<strong>預設值</strong>。</td></tr>
-	</table>
-
-	<table border = "1">
-	<tr><th>Hive 動作變數</th><th>說明</th></tr>
-	<tr><td>${hiveDataFolder}</td><td>指定 Hive Create Table 命令的來源目錄。</td></tr>
-	<tr><td>${hiveOutputFolder}</td><td>指定 INSERT OVERWRITE 陳述式的輸出資料夾。</td></tr>
-	<tr><td>${hiveTableName}</td><td>指定參考 log4j 資料檔案的 Hive 資料表名稱。</td></tr>
-	</table>
-
-	<table border = "1">
-	<tr><th>Sqoop 動作變數</th><th>說明</th></tr>
-	<tr><td>${sqlDatabaseConnectionString}</td><td>指定 Azure SQL Database 連接字串。</td></tr>
-	<tr><td>${sqlDatabaseTableName}</td><td>指定要將資料匯出至其中的 Azure SQL Database 資料表。</td></tr>
-	<tr><td>${hiveOutputFolder}</td><td>指定 Hive INSERT OVERWRITE 陳述式的輸出資料夾。這和 Sqoop 匯出 (export-dir) 使用同一個資料夾。</td></tr>
-	</table>
-
-	如需關於 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][apache-oozie-400] (英文，適用於 HDInsight 3.0 版) 或 [Apache Oozie 3.3.2 文件][apache-oozie-332] (英文，適用於 HDInsight 2.1 版)。
+<tr><th>工作流程變數</th><th>說明</th></tr>
+<tr><td>${jobTracker}</td><td>指定 Hadoop 工作追蹤器的 URL。在 HDInsight 3.0 和 2.1 版中使用 <strong>jobtrackerhost:9010</strong>。</td></tr>
+<tr><td>${nameNode}</td><td>指定 Hadoop 名稱節點的 URL。使用預設檔案系統位址，例如 <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>。</td></tr>
+<tr><td>${queueName}</td><td>指定要將工作提交過去的佇列名稱。使用<strong>預設值</strong>。</td></tr>
+</table><table border = "1">
+<tr><th>Hive 動作變數</th><th>說明</th></tr>
+<tr><td>${hiveDataFolder}</td><td>指定 Hive Create Table 命令的來源目錄。</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>指定 INSERT OVERWRITE 陳述式的輸出資料夾。</td></tr>
+<tr><td>${hiveTableName}</td><td>指定參考 log4j 資料檔案的 Hive 資料表名稱。</td></tr>
+</table><table border = "1">
+<tr><th>Sqoop 動作變數</th><th>說明</th></tr>
+<tr><td>${sqlDatabaseConnectionString}</td><td>指定 Azure SQL Database 連接字串。</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>指定要將資料匯出至其中的 Azure SQL Database 資料表。</td></tr>
+<tr><td>${hiveOutputFolder}</td><td>指定 Hive INSERT OVERWRITE 陳述式的輸出資料夾。這和 Sqoop 匯出 (export-dir) 使用同一個資料夾。</td></tr>
+</table>如需關於 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][apache-oozie-400] (英文，適用於 HDInsight 3.0 版) 或 [Apache Oozie 3.3.2 文件][apache-oozie-332] (英文，適用於 HDInsight 2.1 版)。
 
 2. 使用 ANSI (ASCII) 編碼將檔案另存為 **C:\\Tutorials\\UseOozie\\workflow.xml**(如果您的文字編輯器沒有此選項，請使用「記事本」)。
 
@@ -569,7 +562,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 - [在 HDInsight 上搭配 Hadoop 使用 Sqoop][hdinsight-use-sqoop]
 - [在 HDInsight 上搭配 Hadoop 使用 Hive][hdinsight-use-hive]
 - [在 HDInsight 上搭配 Hadoop 使用 Pig][hdinsight-use-pig]
-- [開發 HDInsight 的 C#Hadoop 資料流工作][hdinsight-develop-streaming-jobs]
+- [開發 HDInsight 的 C# Hadoop 資料流工作][hdinsight-develop-streaming-jobs]
 - [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
 
@@ -612,7 +605,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: ../powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/zh-tw/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/zh-TW/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -622,4 +615,4 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

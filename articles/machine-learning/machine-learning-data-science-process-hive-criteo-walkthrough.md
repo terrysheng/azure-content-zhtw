@@ -1,7 +1,9 @@
 <properties 
 	pageTitle="進階分析程序和技術實務 - 在 1 TB Criteo 資料集上使用 HDInsight Hadoop 叢集 | Microsoft Azure" 
 	description="對採用 HDInsight Hadoop 叢集來建置和部署使用大型 (1 TB) 公開可用資料集模型的端對端案例使用進階分析程序和技術 (ADAPT) 使用" 
+	metaKeywords="" 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -25,7 +27,7 @@
 
 ## <a name="dataset"></a>Criteo 資料集說明
 
-Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 檔案 (\~1.3 TB 未壓縮)，包含超過 43 億筆記錄。它取自 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 提供的 24 天點選資料。為了方便資料科學家，我們已將可供試驗的資料解壓縮。
+Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 檔案 (~1.3 TB 未壓縮)，包含超過 43 億筆記錄。它取自 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 提供的 24 天點選資料。為了方便資料科學家，我們已將可供試驗的資料解壓縮。
 
 在此資料集中的每一筆記錄包含 40 個資料行：
 
@@ -125,7 +127,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 因為其中一天是假日，而且我們想要判斷模型是否可以偵測到假日與非假日之間點選率的差異，我們將我們的測試資料集分割成兩個不同資料表。
 
-下面顯示指令碼 [sample&\#95;hive&\#95;create&\#95;criteo&\#95;database&\#95;and&\#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)，以方便使用：
+下面顯示指令碼 [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)，以方便使用：
 
 	CREATE DATABASE IF NOT EXISTS criteo;
 	DROP TABLE IF EXISTS criteo.criteo_count;
@@ -167,7 +169,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
  	現在，在 REPL 命令列，剪下和貼上查詢即可執行。
 
-2. **將查詢儲存到檔案，並執行命令**：第二個是要將查詢儲存為 .hql 檔案 ([sample&\#95;hive&\#95;create&\#95;criteo&\#95;database&\#95;and&\#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) 然後發出下列命令以執行查詢：
+2. **將查詢儲存到檔案，並執行命令**：第二個是要將查詢儲存為 .hql 檔案 ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) 然後發出下列命令以執行查詢：
 
 		hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -204,7 +206,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 ### 訓練範例的數目
 
-[sample&\#95;hive&\#95;count&\#95;train&\#95;table&\#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) 的內容如下所示：
+[sample&#95;hive&#95;count&#95;train&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) 的內容如下所示：
 
 		SELECT COUNT(*) FROM criteo.criteo_train;
 
@@ -219,7 +221,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 ### 兩個測試資料集中測試範例的數目
 
-我們現在會計算兩個測試資料集中的範例數目。[sample&\#95;hive&\#95;count&\#95;criteo&\#95;test&\#95;day&\#95;22&\#95;table&\#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) 的內容如下所示：
+我們現在會計算兩個測試資料集中的範例數目。[sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;22&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) 的內容如下所示：
 
 		SELECT COUNT(*) FROM criteo.criteo_test_day_22;
 
@@ -234,7 +236,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 最後，我們將檢查以 day\_23 為基礎的測試資料集內的測試範例的數目。
 
-要執行此動作的命令類似於上述程式碼 (請參閱 [sample&\#95;hive&\#95;count&\#95;criteo&\#95;test&\#95;day&\#95;23&\#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql))：
+要執行此動作的命令類似於上述程式碼 (請參閱 [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql))：
 
 		SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
@@ -245,7 +247,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 ### 訓練資料集中的標籤分佈
 
-訓練資料集中的標籤分佈值得一提。為了看到此結果，我們顯示 [sample&\#95;hive&\#95;criteo&\#95;label&\#95;distribution&\#95;train&\#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql) 的內容：
+訓練資料集中的標籤分佈值得一提。為了看到此結果，我們顯示 [sample&#95;hive&#95;criteo&#95;label&#95;distribution&#95;train&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql) 的內容：
 
 		SELECT Col1, COUNT(*) AS CT FROM criteo.criteo_train GROUP BY Col1;
 
@@ -259,7 +261,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 		
 ### 訓練資料集中一些數值變數的長條圖分佈
 
-我們可以使用 Hive 的原生 "histogram\_numeric" 函式，來了解數值變數分佈的外觀。[sample&\#95;hive&\#95;criteo&\#95;histogram&\#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) 的內容如下所示：
+我們可以使用 Hive 的原生 "histogram\_numeric" 函式，來了解數值變數分佈的外觀。[sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) 的內容如下所示：
 
 		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM 
 			(SELECT
@@ -297,7 +299,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 ### 訓練資料集中一些數值變數的近似百分比
 
-數值變數是近似百分比的計算也值得一提。Hive 的原生 "percentile\_approx" 會為我們執行此動作。[sample&\#95;hive&\#95;criteo&\#95;approximate&\#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) 的內容為：
+數值變數是近似百分比的計算也值得一提。Hive 的原生 "percentile\_approx" 會為我們執行此動作。[sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) 的內容為：
 
 		SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -310,7 +312,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 ### 尋找訓練資料集中的某些類別資料行的唯一值數目
 
-繼續進行資料瀏覽，我們現在發現，對於某些類別資料行，他們所採取的唯一值數目。為了執行此動作，我們顯示 [sample&\#95;hive&\#95;criteo&\#95;unique&\#95;values&\#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql) 的內容：
+繼續進行資料瀏覽，我們現在發現，對於某些類別資料行，他們所採取的唯一值數目。為了執行此動作，我們顯示 [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql) 的內容：
 
 		SELECT COUNT(DISTINCT(Col15)) AS num_uniques FROM criteo.criteo_train;
 
@@ -321,7 +323,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 我們注意到 Col15 有 1900 萬個唯一值！ 使用貝氏方法，像是「一個有效編碼」來編碼這類高維度類別變數不可行。特別是，我們將說明並示範稱為[以計數學習](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)功能強大又穩健的技術，以有效率地解決此問題。
 
-我們在這個子節的最後來看一下一些其他類別資料行的唯一值數目。[sample&\#95;hive&\#95;criteo&\#95;unique&\#95;values&\#95;multiple&\#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) 的內容為：
+我們在這個子節的最後來看一下一些其他類別資料行的唯一值數目。[sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) 的內容為：
 
 		SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)), 
 		COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
@@ -336,7 +338,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 ### 訓練資料集中成對類別變數的共生計數
 
-訓練資料集中成對類別變數的共生計數也很有趣。這可以使用 [sample&\#95;hive&\#95;criteo&\#95;paired&\#95;categorical&\#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql) 中的程式碼來判斷：
+訓練資料集中成對類別變數的共生計數也很有趣。這可以使用 [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql) 中的程式碼來判斷：
 
 		SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
 
@@ -363,7 +365,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 探索資料集並示範了我們如何可對任何變數 (包括組合) 的這類探索進行的動作之後，我們現在要對資料集縮減取樣，讓我們可以在 Azure Machine Learning 中建置模型。回顧一下我們著重的問題在於：提供一組範例屬性 (從 Col2 到 Col40 的功能值)，我們預測 Col1 是否為 0 (未按一下) 或 1 (按一下)。
 
-為了對我們的訓練和測試資料集縮減取樣至原始大小的 1%，我們使用 Hive 的原生 RAND() 函式。下一個指令碼，[sample&\#95;hive&\#95;criteo&\#95;downsample&\#95;train&\#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) 會為訓練資料集執行此動作：
+為了對我們的訓練和測試資料集縮減取樣至原始大小的 1%，我們使用 Hive 的原生 RAND() 函式。下一個指令碼，[sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) 會為訓練資料集執行此動作：
 
 		CREATE TABLE criteo.criteo_train_downsample_1perc (
 		col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
@@ -380,7 +382,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 		Time taken: 12.22 seconds
 		Time taken: 298.98 seconds
 
-指令碼 [sample&\#95;hive&\#95;criteo&\#95;downsample&\#95;test&\#95;day&\#95;22&\#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) 會為測試資料 day\_22 執行此動作：
+指令碼 [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) 會為測試資料 day\_22 執行此動作：
 
 		--- Now for test data (day_22)
 
@@ -398,7 +400,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 		Time taken: 317.66 seconds
 
 
-最後，指令碼 [sample&\#95;hive&\#95;criteo&\#95;downsample&\#95;test&\#95;day&\#95;23&\#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) 會為測試資料 day\_23 執行此動作：
+最後，指令碼 [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) 會為測試資料 day\_23 執行此動作：
 
 		--- Finally test data day_23
 		CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -656,4 +658,4 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 這包含我們的端對端逐步解說，示範如何使用 Azure Machine Learning 處理大型資料集。我們開始使用 1 TB 的資料、建構預測模型，並將其部署為雲端中的 Web 服務。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

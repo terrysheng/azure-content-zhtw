@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # 資料集
@@ -103,7 +103,7 @@
 
 ## <a name="Availability"></a> 資料集可用性
 
-資料集中的 Availability 區段定義處理時間範圍或資料集生產的切割模型。如需資料集切割和相依性模型的詳細資訊，請參閱「資料集配量」主題。
+資料集中的 Availability 區段定義處理時間範圍或資料集生產的切割模型。如需資料集切割和相依性模型的詳細資訊，請參閱[排程和執行](data-factory-scheduling-and-execution.md)。
 
 | 屬性 | 說明 | 必要 | 預設值 |
 | -------- | ----------- | -------- | ------- |
@@ -121,7 +121,7 @@
 	{	
 		"frequency": "Hour",		
 		"interval": "23",	
-		"anchorDataTime":"2007-04-19T08:00:00"	
+		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
 
@@ -217,4 +217,4 @@
 
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

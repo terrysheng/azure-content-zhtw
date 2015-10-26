@@ -355,4 +355,4 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 - 深入了解 [DocumentDB 查詢](documentdb-sql-query.md)
 - 深入了解 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

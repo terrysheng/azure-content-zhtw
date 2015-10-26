@@ -64,4 +64,4 @@ Azure 管理入口網站內的功能可讓使用 Microsoft 帳戶登入的 SA，
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

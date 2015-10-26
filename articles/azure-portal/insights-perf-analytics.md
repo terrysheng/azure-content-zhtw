@@ -83,4 +83,4 @@ SDK 會提供 API 供您[撰寫自訂遙測](../app-insights-api-custom-events-m
 * 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

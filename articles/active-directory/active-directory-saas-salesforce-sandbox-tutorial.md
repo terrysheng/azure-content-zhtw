@@ -1,5 +1,5 @@
 <properties pageTitle="教學課程：Azure Active Directory 與 Salesforce 沙箱整合 | Microsoft Azure" description="了解如何使用 Salesforce 沙箱搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="10/07/2015" ms.author="markvi" />
 #教學課程：Azure Active Directory 與 Salesforce 沙箱整合
 >[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=521878)。
   
@@ -39,7 +39,7 @@
 
 4.  若要開啟 [應用程式庫]，請按一下 [新增應用程式]，然後按一下 [新增應用程式讓我的組織使用]。
 
-    ![您想要執行什麼動作？](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "您想要執行什麼動作？")
+    ![欲執行動作](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "欲執行動作")
 
 5.  在 [搜尋方塊] 中，輸入 **Salesforce 沙箱**。
 
@@ -58,13 +58,15 @@
 
     ![設定單一登入](./media/active-directory-saas-salesforce-sandbox-tutorial/IC749323.png "設定單一登入")
 
-2.  在 [要如何讓使用者登入 Salesforce 沙箱] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按一下 [下一步]。
+2.  在 [要如何讓使用者登入 Salesforce 沙箱] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
 
     ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
 
-3.  在 [設定應用程式 URL] 頁面的 [Salesforce 沙箱登入 URL] 文字方塊中，使用下列模式輸入您的 URL："http://company.my.salesforce.com"，然後按一下 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*`http://company.my.salesforce.com`，然後按 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "設定應用程式 URL")
+
+4. 如果您已對目錄中的另一個 Salesforce 沙箱執行個體設定單一登入，則也須將**簽發者 URL** 設定為具有與 **登入 URL** 相同的值。您也可以在對話方塊的 [設定應用程式 URL] 頁面上核取 [顯示進階設定] 核取方塊，來尋找 [簽發者 URL] 欄位。
 
 4.  在 [設定在 Salesforce 沙箱單一登入] 頁面上，按一下 [下載憑證]，然後將憑證檔案儲存在您的電腦上。
 
@@ -91,20 +93,21 @@
 
     ![SAML 單一登入設定](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "SAML 單一登入設定")
 
-    1.  在 [名稱] 文字方塊中輸入組態的名稱 (例如：*SPSSOWAAD\_Test*)。
+    1.  在 [名稱] 文字方塊中，輸入組態的名稱 (例如：*SPSSOWAAD\_Test*)。
     2.  在 Azure 入口網站中的 [設定在 Salesforce 沙箱單一登入] 對話頁面上，複製 [簽發者 URL] 值，然後將其貼至 [簽發者] 文字方塊中。
-    3.  在 [實體 ID] 文字方塊中，輸入 ****https://test.salesforce.com**。
-4.  請按一下 [瀏覽] 來上傳已下載的憑證。
-    5.  針對 [SAML 識別類型]，選取 [判斷提示包含來自使用者物件的同盟識別碼]。
-    6.  針對 [SAML 身分識別位置]，選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]
-    7.  在 Azure 入口網站中的 [設定在 Salesforce 沙箱單一登入] 對話頁面上，複製 [遠端登入 URL] 值，然後將其貼至 [識別提供者登入 URL] 文字方塊中。
-    8.  在 Azure 入口網站中的 [設定在 Salesforce 沙箱單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將其貼至 [識別提供者登出 URL] 文字方塊中。
-    9.  針對 [服務提供者起始的要求繫結]，選取 [HTTP POST]。
+    3.  如果這是您要新增至目錄的第一個 Salesforce 沙箱執行個體，請在 [實體識別碼] 文字方塊中，輸入 * ***https://test.salesforce.com**。如果您已新增 Salesforce 沙箱的執行個體，請對 [實體識別碼] 輸入 **登入 URL**，其格式如下：`http://company.my.salesforce.com`
+4.  按一下 [瀏覽] 來上傳已下載的憑證。
+    5.  對於 [SAML 身分識別類型]，選取 [判斷提示包含來自使用者物件的同盟識別碼]。
+    6.  對於 [SAML 身分識別位置]，選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]
+    7.  在 Azure 入口網站中的 [設定在 Salesforce 沙箱單一登入] 對話頁面上，複製 [遠端登入 URL] 值，然後將其貼至 [身分識別提供者登入 URL] 文字方塊中。
+    8.  在 Azure 入口網站中的 [設定在 Salesforce 沙箱單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將其貼至 [身分識別提供者登出 URL] 文字方塊中。
+    9.  對於 [服務提供者起始的要求繫結]，選取 [HTTP POST]。
     10. 按一下 [儲存]。
 
-10. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+10. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "設定單一登入")
+
 ##啟用您的網域
   
 本節假設您已經建立了一個網域。如需詳細資訊，請參閱[定義您的網域名稱](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US)。
@@ -117,7 +120,7 @@
 
     >[AZURE.NOTE]請確定您的網域已正確設定。
 
-2.  在 [登入頁面設定] 區段中，按一下 [編輯]，然後針對 [驗證服務]，選取來自前一區段 SAML 單一登入設定的名稱，最後按一下 [儲存]。
+2.  在 [登入頁面設定] 區段中，按一下 [編輯]，然後對於 [驗證服務]，選取來自前一區段 SAML 單一登入設定的名稱，最後按一下 [儲存]。
 
     ![我的網域](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781030.png "我的網域")
   
@@ -132,7 +135,7 @@
 
     ![我的設定](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698773.png "我的設定")
 
-2.  從使用者功能表中，選取 [我的設定] 來開啟您的 [我的設定] 頁面。
+2.  從使用者功能表中，選取 [我的設定] 來開啟 [我的設定] 頁面。
 
 3.  在左方導覽窗格中，按一下 [個人] 來展開 [個人] 區段，然後按一下 [重設我的安全性權杖]：
 
@@ -158,11 +161,11 @@
 
     2.  在 [Salesforce 沙箱管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
 
-    3.  在 [使用者安全性權杖] 文字方塊中貼上安全性權杖值。
+    3.  在 [使用者安全性權杖] 文字方塊中，貼上安全性權杖值。
 
     4.  按一下 [驗證] 來驗證您的組態。
 
-    5.  按一下 [下一步] 按鈕來開啟 [確認] 頁面。
+    5.  按 [下一步] 按鈕以開啟 [確認] 頁面。
 
 9.  在 [確認] 頁面上，按一下 [完成] 來儲存您的組態。
 ##指派使用者
@@ -177,12 +180,12 @@
 
     ![指派使用者](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 來確認指派。
+3.  選取測試使用者、按一下 [指派]，然後按一下 [是] 以確認指派。
 
     ![是](./media/active-directory-saas-salesforce-sandbox-tutorial/IC767830.png "是")
   
 請等候 10 分鐘並確認帳戶已同步至 Salesforce 沙箱。
   
-如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
+如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

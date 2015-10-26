@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # 使用資源管理員來稽核作業
@@ -26,13 +26,15 @@
 
 ## PowerShell
 
-若要擷取記錄項目，請執行 **Get AzureRmLog** 命令 (或者如果 PowerShell 版本早於 1.0 Preview，則為 **Get-azureresourcegrouplog** )。您可提供額外的參數來篩選項目清單。
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
+若要擷取記錄項目，請執行 **Get AzureRmLog** 命令 (或者如果 PowerShell 版本早於 1.0 Preview，則為 **Get-AzureResourceGroupLog**)。您可提供額外的參數來篩選項目清單。
 
 下列範例示範如何使用稽核記錄檔來研究在方案存留期間所採取的動作。您可以看到此動作的發生時間以及提出要求者。
 
     PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
 
-視您指定的開始時間而定，先前的命令可以傳回該資源群組的一長串動作。您可以提供搜尋準則，以篩選您所尋找的結果。例如，如果您試著研究 Web App 的停止方式，您可以執行下列命令並查看由 someone@example.com 執行的停止動作。
+視您指定的開始時間而定，先前的命令可以傳回該資源群組的一長串動作。您可以提供搜尋準則，以篩選您所尋找的結果。例如，如果您試著研究 Web 應用程式的停止方式，您可以執行下列命令並查看由 someone@example.com 執行的停止動作。
 
     PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
@@ -151,4 +153,4 @@
 - 若要了解如何授與服務主體的存取權，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)。
 - 若要了解如何對所有使用者的資源採取動作，請參閱[使用 Azure 資源管理員鎖定資源](resource-group-lock-resources.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

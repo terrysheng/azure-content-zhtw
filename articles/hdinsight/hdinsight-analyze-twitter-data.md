@@ -111,7 +111,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 8. 按一下位於頁面右上角的 [**測試 OAuth**]。
 9. 記下**消費者金鑰**、**消費者密碼**、**存取權杖**和**存取權杖密碼**。稍後在教學課程中會用到這些值。
 
-在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。如需 .NET C#範例，請參閱[使用 HDInsight 中的 HBase 分析即時的 Twitter 情緒][hdinsight-hbase-twitter-sentiment]。另一項常用來發出 Web 服務呼叫的工具，是 [*Curl*][curl]。Curl 可從[這裡][curl-download]下載取得。
+在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。如需 .NET C# 範例，請參閱[使用 HDInsight 中的 HBase 分析即時的 Twitter 情緒][hdinsight-hbase-twitter-sentiment]。另一項常用來發出 Web 服務呼叫的工具，是 [*Curl*][curl]。Curl 可從[這裡][curl-download]下載取得。
 
 >[AZURE.NOTE]在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
 
@@ -250,10 +250,10 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 變數|說明
 ---|---
 $clusterName|這是您要執行應用程式的 HDInsight 叢集名稱。
-$oauth_consumer_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式**消費者金鑰**。
-$oauth_consumer_secret|這是您先前記下的 Twitter 應用程式**消費者密碼**。
-$oauth_token|這是您先前記下的 Twitter 應用程式**存取權杖**。
-$oauth_token_secret|這是您先前記下的 Twitter 應用程式**存取權杖密碼**。
+$oauth\_consumer\_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式**消費者金鑰**。
+$oauth\_consumer\_secret|這是您先前記下的 Twitter 應用程式**消費者密碼**。
+$oauth\_token|這是您先前記下的 Twitter 應用程式**存取權杖**。
+$oauth\_token\_secret|這是您先前記下的 Twitter 應用程式**存取權杖密碼**。
 $destBlobName|這是輸出 Blob 名稱。預設值為 **tutorials/twitter/data/tweets.txt**。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。
 $trackString|Web 服務會傳回這些關鍵字的相關推文。預設值為 **Azure, Cloud, HDInsight**。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。
 $lineMax|此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。
@@ -448,7 +448,7 @@ HiveQL 指令碼將執行下列作業：
 
 變數|說明
 ---|---
-$clusterName|#提供您要在其中執行 Hive 工作的 HDInsight 叢集名稱
+$clusterName|# 提供您要在其中執行 Hive 工作的 HDInsight 叢集名稱
 $sourceDataPath|Hive 查詢將從中讀取資料的 Azure Blob 儲存體位置。您無須變更此變數。
 $outputPath|Hive 查詢將輸出結果的 Azure Blob 儲存體位置。您無須變更此變數。
 $hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更此變數。
@@ -561,4 +561,4 @@ $hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更�
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

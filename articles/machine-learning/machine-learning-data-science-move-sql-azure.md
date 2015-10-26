@@ -5,7 +5,9 @@
 	documentationCenter="" 
 	authors="fashah" 
 	manager="jacob.spoelstra" 
-	editor="" />
+	editor="" 
+	videoId="" 
+	scriptId="" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,50 +15,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="10/12/2015" 
 	ms.author="fashah;bradsev" />
 
 # 移動資料至 Azure 機器學習的 Azure SQL Database
 
+此**功能表**所連結的主題說明如何將資料擷取至目標環境，以在 Cortana 分析程序 (CAPS) 期間儲存和處理該資料。
 
-在本主題中，我們將概述從一般檔案 (CSV 或 TSV 格式) 或儲存在內部部署 SQL Server 中的資料，將資料移動至 Azure SQL Database 的選項。這些移動資料至雲端的工作是 Azure 機器學習所提供之進階分析程序和技術 (ADAPT) 的一部分。
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+## 簡介
+**在本主題中**，我們將概述從一般檔案 (CSV 或 TSV 格式) 或儲存在內部部署 SQL Server 中的資料，將資料移動至 Azure SQL Database 的選項。這些用於將資料移至雲端的工作是 Azure 所提供之 Cortana 分析程序的一部分。
 
 如需概述移動資料至機器學習的內部部署 SQL Server 之選項的主題，請參閱[移動資料至 Azure 虛擬機器上的 SQL Server](machine-learning-data-science-move-sql-server-virtual-machine.md)。
 
-下表摘要說明移動資料至 Azure SQL Database 的選項。<table>
+下表摘要說明移動資料至 Azure SQL Database 的選項。
 
-<tr>
-<td><b>來源</b></td>
-<td colspan="2"><b>目的地：Azure SQL Database</b></td>
-</tr>
-
-<tr>
-  <td><b>一般檔案 (CSV 或 TSV 格式)</b></td>  
-
-  <td>
-    1.<a href="#bulk-insert-sql-query">大量插入 SQL 查詢
-  </td>
-</tr>
-
-<tr>
-  <td><b>內部部署的 SQL Server</b></td>
-
-  <td>
-    1.<a href="#export-flat-file">匯出至一般檔案<br>
-    2.<a href="#insert-tables-bcp">SQL Database 移轉精靈<br>
-    3.<a href="#db-migration">資料庫備份和還原<br>
-    4.<a href="#adf">Azure Data Factory
-  </td>
-</tr>
-
-</table>
+<b>來源</b> |<b>目的地：Azure SQL Database</b> |
+-------------- |--------------------------------|
+<b>一般檔案 (CSV 或 TSV 格式)</b> |<a href="#bulk-insert-sql-query">大量插入 SQL 查詢 |
+<b>內部部署的 SQL Server</b> | 1\.<a href="#export-flat-file">匯出至一般檔案<br> 2.<a href="#insert-tables-bcp">SQL Database 移轉精靈<br> 3.<a href="#db-migration">資料庫備份和還原<br> 4.<a href="#adf">Azure Data Factory |
 
 
 ## <a name="prereqs"></a>必要條件
 此處概述的程序要求您須擁有：
 
-* 一個 **Azure 訂用帳戶**。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* 一個 **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+* **Azure 訂用帳戶**。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 * 存取 **Azure SQL Database**。如果您必須設定 Azure SQL Database，[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md) 一文中提供如何佈建 Azure SQL Database 之新執行個體的相關資訊。
 * 已在本機上安裝和設定 **Azure PowerShell**。如需指示，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
@@ -81,7 +66,7 @@
 3. [資料庫備份和還原](#db-migration)
 4. [Azure Data Factory](#adf)
 
-前三個步驟與[移動資料至 Azure 虛擬機器上的 SQL Server ](machine-learning-data-science-move-sql-server-virtual-machine.md)各節所說明的程序非常類似。下面將提供該主題的適當章節連結。
+前三個步驟與[移動資料至 Azure 虛擬機器上的 SQL Server](machine-learning-data-science-move-sql-server-virtual-machine.md) 各節所說明的程序非常類似。下面將提供該主題的適當章節連結。
 
 ###<a name="export-flat-file"></a>匯出至一般檔案
 
@@ -89,7 +74,7 @@
 
 ###<a name="insert-tables-bcp"></a>SQL Database 移轉精靈
 
-使用 SQL Database 移轉精靈的步驟與[SQL Database 移轉精靈](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration)所說明的步驟類似。
+使用 SQL Database 移轉精靈的步驟與 [SQL Database 移轉精靈](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration)所說明的步驟類似。
 
 ###<a name="db-migration"></a>資料庫備份和還原
 
@@ -101,4 +86,4 @@
 
 若資料需要持續在同時存取內部部署和雲端資源的混合式案例中移轉，或是資料有交易、需要修改，或者在移轉過程中新增了商務邏輯，請考慮使用 ADF。ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排程和監視的工作。ADF 也有其他功能，例如支援複雜作業。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

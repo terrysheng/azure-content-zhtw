@@ -85,9 +85,48 @@
 
 ##步驟 3：更新定位器 
 
-30 分鐘後，您可以更新現有的定位器，這樣它們就會對新的次要儲存體金鑰產生相依性。
+30 分鐘後，您可以重新建立 OnDemand 定位器，這樣定位器就會對新的次要儲存體金鑰產生相依性，並會維護現有的 URL。
 
-若要更新定位器的到期日，請使用 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 或 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API。請注意，當您更新 SAS 定位器的到期日，URL 也會隨之變更。
+請注意，當您更新 (或重新建立) SAS 定位器時，URL 一律隨之變更。
+
+>[AZURE.NOTE]若要確定能保留 OnDemand 定位器現有的 URL，您必須刪除現有的定位器並建立一個具有相同識別碼的新定位器。
+ 
+下列 .NET 範例示範如何重新建立一個識別碼相同的定位器。
+	
+	private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+	{
+	    // Save properties of existing locator.
+	    var asset = locator.Asset;
+	    var accessPolicy = locator.AccessPolicy;
+	    var locatorId = locator.Id;
+	    var startDate = locator.StartTime;
+	    var locatorType = locator.Type;
+	    var locatorName = locator.Name;
+	
+	    // Delete old locator.
+	    locator.Delete();
+	
+	    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+	    {
+	        throw new Exception(String.Format(
+	            "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+	            locator.Id));
+	    }
+	
+	    // Create new locator using saved properties.
+	    var newLocator = context.Locators.CreateLocator(
+	        locatorId,
+	        locatorType,
+	        asset,
+	        accessPolicy,
+	        startDate,
+	        locatorName);
+	
+	
+	
+	    return newLocator;
+	}
+
 
 ##步驟 5：重新產生主要儲存體存取金鑰
 
@@ -101,9 +140,9 @@
 
 ##步驟 7：更新定位器  
 
-30 分鐘後，您可以更新現有的定位器，這樣它們就會對新的主要儲存體金鑰產生相依性。
+30 分鐘後，您可以重新建立 OnDemand 定位器，這樣定位器就會對新的主要儲存體金鑰產生相依性，並會維護現有的 URL。
 
-若要更新定位器的到期日，請使用 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 或 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API。請注意，當您更新 SAS 定位器的到期日，URL 也會隨之變更。
+使用[步驟 3](media-services-roll-storage-access-keys.md#step-3-update-locators) 中所述的相同程序。
 
  
 ##媒體服務學習路徑
@@ -113,4 +152,4 @@
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

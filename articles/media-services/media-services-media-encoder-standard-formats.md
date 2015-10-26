@@ -58,6 +58,7 @@ Media Encoder Standard 支援在輸入容器中帶有下列音訊格式：
 AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra |8 位元 4:2:0 和 4:2:2 
 Avid DNxHD (使用 MXF) |是 
 DVCPro/DVCProHD (使用 MXF) |是 
+數位視訊 (DV) (使用 AVI 檔案) |是
 JPEG 2000 |是 
 MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)|最高 422 設定檔 
 MPEG-1 |是 
@@ -109,7 +110,7 @@ MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2
 
 您可以在此檢視 AMS 學習路徑：
 
-- [AMS 即時串流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##另請參閱
@@ -118,4 +119,4 @@ MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2
 
 [如何使用 Media Encoder Standard 進行編碼](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

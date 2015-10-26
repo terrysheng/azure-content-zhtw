@@ -16,4 +16,4 @@
 
 <sup>3</sup>Azure 資源群組和 Azure 資源管理員已不再需要這些功能。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

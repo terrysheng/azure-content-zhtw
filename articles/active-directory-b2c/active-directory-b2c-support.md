@@ -50,4 +50,4 @@
 
 ![支援 - 無訂用帳戶](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

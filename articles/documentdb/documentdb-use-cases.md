@@ -64,11 +64,11 @@ Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量�
 
 如需使用 DocumentDB、EventHubs 和 Storm 的 IoT 解決方案範例，請參閱 [GitHub 上的 hdinsight-storm-examples 儲存機制](https://github.com/hdinsight/hdinsight-storm-examples/)。
 
-如需有關適用於 IoT 的 Azure 產品詳細資訊，請參閱[建立您的物聯網](http://www.microsoft.com/zh-tw/server-cloud/internet-of-things.aspx)。
+如需有關適用於 IoT 的 Azure 產品詳細資訊，請參閱[建立您的物聯網](http://www.microsoft.com/zh-TW/server-cloud/internet-of-things.aspx)。
 
 ## 後續步驟
  
-若要開始使用 DocumentDB，您可以建立[帳戶](http://azure.microsoft.com/pricing/free-trial/)，然後依照我們的[學習指南](documentdb-learning-map.md)執行，以了解 DocumentDB 並找到所需的資訊。
+若要開始使用 DocumentDB，您可以建立[帳戶](http://azure.microsoft.com/pricing/free-trial/)，然後依照我們的[學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)執行，以了解 DocumentDB 並找到所需的資訊。
 
 或者，如果您想要閱讀更多有關使用 DocumentDB 的客戶，您也可以使用下列客戶案例：
 
@@ -79,4 +79,4 @@ Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量�
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)。未來存放區的運作基礎會是快速搜尋和簡單資料流程。
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

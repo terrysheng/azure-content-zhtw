@@ -1,24 +1,28 @@
 <properties 
-	pageTitle="針對進階分析程序和技術自訂 Hadoop 叢集 | Microsoft Azure"
+	pageTitle="針對進階分析程序和技術自訂 Hadoop 叢集 | Microsoft Azure" 
 	description="自訂 Azure HDInsight Hadoop 叢集中提供熱門 Python 模組。"
-	services="machine-learning"
-	documentationCenter=""
-	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="hangzh-msft" 
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/13/2015" 
+	ms.author="hangzh;bradsev" />
 
 # 針對進階分析程序和技術自訂 Azure HDInsight Hadoop 叢集
 
-本文將說明若將 HDInsight Hadoop 叢集佈建於 HDInsight 服務中，如何藉由在每個節點上安裝 64 位元的 Anaconda (Python 2.7) 來自訂該叢集。這項自訂會準備要搭配 Azure Machine Learning 中所用之進階分析程序和技術 (ADAPT) 使用的叢集。它也會示範如何存取前端節點，以將自訂工作提交至叢集。
+此功能表會連結至說明如何設定 Cortana 分析程序 (CAP) 所用的各種資料科學環境的主題。
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+
+本文將說明若將 HDInsight Hadoop 叢集佈建於 HDInsight 服務中，如何藉由在每個節點上安裝 64 位元的 Anaconda (Python 2.7) 來自訂該叢集。這項自訂會準備要搭配 Cortana 分析程序使用的叢集。它也會示範如何存取前端節點，以將自訂工作提交至叢集。
 
 這項自訂讓許多熱門的 Python 模組 (隨附於 Anaconda) 非常方便地在使用者定義函式 (UDF) 中使用，這類函式是設計來處理叢集中的 Hive 記錄。如需這個案例中所使用程序的相關指示，請參閱[在進階分析程序中將 Hive 查詢提交至 HDInsight Hadoop 叢集](machine-learning-data-science-hive-queries.md)。
 
@@ -64,11 +68,11 @@
 
 使用者必須先在 Azure 中啟用 Hadoop 叢集的遠端存取，才能透過 RDP 存取 Hadoop 叢集的前端節點。
 
-1. 登入 [**Azure 管理入口網站**](https://manage.windowsazure.com/)，選取左側的 [**HDInsight**]，從叢集清單中選取您的 Hadoop 叢集，按一下 [**設定**] 索引標籤，然後按一下頁面底部的**啟用遠端**圖示。
+1. 登入 [**Azure 管理入口網站**](https://manage.windowsazure.com/)，選取左側的 [HDInsight]，從叢集清單中選取您的 Hadoop 叢集，按一下 [設定] 索引標籤，然後按一下頁面底部的 [啟用遠端] 圖示。
 	
 	![建立工作區][7]
 
-2. 在 [**設定遠端桌面**] 視窗中，輸入 [使用者名稱] 和 [密碼] 欄位，然後選取遠端存取的到期日。接著，按一下勾號，啟用對 Hadoop 叢集前端節點的遠端存取。
+2. 在 [設定遠端桌面] 視窗中，輸入 [使用者名稱] 和 [密碼] 欄位，然後選取遠端存取的到期日。接著，按一下勾號，啟用對 Hadoop 叢集前端節點的遠端存取。
 	
 	>[AZURE.NOTE]
 	>
@@ -78,7 +82,7 @@
 
 	![建立工作區][8]
 
-3. 啟用遠端存取之後，按一下頁面底部的 [**連接**]，遠端連至前端節點。您登入 Hadoop 叢集前端節點的方式是針對稍早指定的遠端存取使用者輸入認證。
+3. 啟用遠端存取之後，按一下頁面底部的 [連接]，遠端連至前端節點。您登入 Hadoop 叢集前端節點的方式是針對稍早指定的遠端存取使用者輸入認證。
 
 	 ![建立工作區][9]
 
@@ -98,4 +102,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

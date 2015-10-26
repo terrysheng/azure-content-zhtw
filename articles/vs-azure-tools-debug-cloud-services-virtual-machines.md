@@ -190,4 +190,4 @@ Visual Studio ASP.NET 專案提供選項，讓您建立可用於測試應用程�
 - 使用 **Intellitrace** 從發行伺服器收集呼叫和事件的記錄檔。請參閱[使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務](http://go.microsoft.com/fwlink/?LinkID=623016)。
 - 不論角色是在開發環境中或在 Azure 中執行，請使用 **Azure 診斷**來記錄在角色內執行的程式碼的詳細資訊。請參閱[使用 Azure 診斷收集記錄資料](http://go.microsoft.com/fwlink/p/?LinkId=400450)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

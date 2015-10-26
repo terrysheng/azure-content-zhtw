@@ -173,4 +173,4 @@
 
 若要深入了解如何從 Visual Studio 發佈至 Azure，請參閱[發佈 Azure 應用程式精靈](vs-azure-tools-publish-azure-application-wizard.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

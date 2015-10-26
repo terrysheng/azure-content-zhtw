@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure CDN 概觀"
-	description="了解何謂 Azure 內容傳遞網路 (CDN)，以及如何使用它透過快取 Blob 和靜態內容來傳遞高頻寬內容。"
-	services="cdn"
-	documentationCenter=".NET"
-	authors="zhangmanling"
-	manager="dwrede"
+	pageTitle="Azure CDN 概觀" 
+	description="了解何謂 Azure 內容傳遞網路 (CDN)，以及如何使用它透過快取 Blob 和靜態內容來傳遞高頻寬內容。" 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="zhangmanling" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mazha"/>
 
 #Azure 內容傳遞網路 (CDN) 概觀
@@ -114,4 +114,4 @@ Azure 可讓您使用 HTTPS 呼叫從 CDN 擷取內容。這可讓您將 CDN 中
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 SendGrid 電子郵件服務 (Node.js) | Microsoft Azure"
-	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 Node.js API 撰寫。"
-	services=""
-	documentationCenter="nodejs"
-	authors="erikre"
-	manager="wpickett"
+	pageTitle="如何使用 SendGrid 電子郵件服務 (Node.js) | Microsoft Azure" 
+	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 Node.js API 撰寫。" 
+	services="" 
+	documentationCenter="nodejs" 
+	authors="erikre" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="erikre"/>
 # 如何使用 SendGrid 透過 Node.js 傳送電子郵件
 
@@ -21,7 +21,7 @@
 
 ## 什麼是 SendGrid 電子郵件服務？
 
-SendGrid 是 [雲端架構電子郵件服務](https://sendgrid.com/email-solutions)，能提供可靠的 [交易式電子郵件傳遞](https://sendgrid.com/transactional-email)、擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
+SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電子郵件傳遞]、擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
 
 -   自動傳送回條給客戶
 -   管理通訊群組清單，以便將每月電子傳單和特別優惠傳送給客戶
@@ -65,7 +65,7 @@ SendGrid 模組會匯出 **SendGrid** 和 **Email** 函數。**SendGrid** 負責
 
 同時設定 text 和 html 屬性可以為無法支援 HTML 訊息的用戶端提供正常的文字內容遞補。
 
-如需有關 Email 函數所支援之所有屬性的詳細資訊，請參閱 [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)。
+如需有關 Email 函數所支援之所有屬性的詳細資訊，請參閱 [sendgrid-nodejs][]。
 
 ## 如何：傳送電子郵件
 
@@ -114,7 +114,7 @@ sendgrid.send({
 
 ## 如何：使用篩選器來啟用頁尾和追蹤
 
-SendGrid 提供了運用篩選器的其他電子郵件功能。這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。如需完整的篩選器清單，請參閱 [篩選器設定](https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)。
+SendGrid 提供了運用篩選器的其他電子郵件功能。這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。如需完整的篩選器清單，請參閱 [篩選器設定][]。
 
 您可以使用 **filters** 屬性在訊息套用篩選器。每個篩選器都是由包含篩選器特定設定的雜湊來指定。下列範例示範頁尾和點選追蹤篩選器：
 
@@ -168,24 +168,18 @@ SendGrid 提供了運用篩選器的其他電子郵件功能。這些設定可�
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-如需詳細資訊，請參閱 [sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)。
+如需詳細資訊，請參閱 [sendgrid-nodejs][]。
 
 ## 如何：使用其他 SendGrid 服務
 
-SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGrid 功能。如需完整詳細資料，請參閱 [SendGrid API 文件](https://sendgrid.com/docs)。
+SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGrid 功能。如需完整詳細資料，請參閱 [SendGrid API 文件][]。
 
 ## 後續步驟
 
 了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結以取得更多資訊。
 
--   SendGrid Node.js 模組存放庫：[sendgrid-nodejs](https://github.com/sendgrid/sendgrid-nodejs)
+-   SendGrid Node.js 模組存放庫：[sendgrid-nodejs][]
 -   SendGrid API 文件：<https://sendgrid.com/docs>
--   Azure 客戶的 SendGrid 特別優惠：[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
-  [特別優惠]: https://sendgrid.com/windowsazure.html
-  [sendgrid nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [篩選器設定]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [SendGrid API 文件]: https://sendgrid.com/docs
-  [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
-  [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
+-   Azure 客戶的 SendGrid 特別優惠：[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) [特別優惠]：https://sendgrid.com/windowsazure.html [sendgrid nodejs]：https://github.com/sendgrid/sendgrid-nodejs [篩選器設定]：https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html [SendGrid API 文件]：https://sendgrid.com/docs [雲端架構電子郵件服務]：https://sendgrid.com/email-solutions [交易式電子郵件傳遞]：https://sendgrid.com/transactional-email
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

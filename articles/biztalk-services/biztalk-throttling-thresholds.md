@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="了解 BizTalk 服務中的節流 | Microsoft Azure"
-	description="了解 BizTalk 服務的節流閾值和產生的執行階段行為。節流是以記憶體使用量和訊息數為依據。MABS，WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="了解 BizTalk 服務中的節流 | Microsoft Azure" 
+	description="了解 BizTalk 服務的節流閾值和產生的執行階段行為。節流是以記憶體使用量和訊息數為依據。MABS，WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -28,10 +28,7 @@ Azure BizTalk 服務根據兩個條件實作服務節流：記憶體使用量和
 
 下表列出節流來源和閾值：
 
-||說明|低閾值|高閾值|
-|---|---|---|---|
-|記憶體|可用系統記憶體/PageFileBytes 總計的 %。<p><p>可用 PageFileBytes 總計大約是系統 RAM 的 2 倍。|60%|70%|
-|訊息處理|同時處理的訊息數目|40 * 個核心數目|100 * 個核心數目|
+||說明|低閾值|高閾值| |---|---|---|---| |記憶體|可用系統記憶體/PageFileBytes 總計的 %。<p><p>可用 PageFileBytes 總計大約是系統 RAM 的 2 倍。|60%|70%| |訊息處理|同時處理的訊息數目|40 * 個核心數目|100 * 個核心數目|
 
 達到高閾值時，Azure BizTalk 服務就會開始節流。達到低閾值時會停止節流。例如，服務使用 65% 系統記憶體。在此情況下，服務不會節流。服務開始使用 70% 系統記憶體。在此情況下，服務會節流，並持續節流直到服務使用 60% (低閾值) 系統記憶體為止。
 
@@ -42,8 +39,7 @@ Azure BizTalk 服務會追蹤節流狀態 (正常狀態與節流狀態) 和節�
 
 Azure BizTalk 服務進入節流狀態時會發生下列情況：
 
-- 依每一角色執行個體來節流。例如：<br/> RoleInstanceA 正在節流。RoleInstanceB 未節流。在此情況下，RoleInstanceB 中的訊息如預期般地處理。RoleInstanceA 中的訊息會被捨棄且失敗，並出現下列錯誤訊息：<br/><br/>
-**伺服器忙碌中。請再試一次。**<br/><br/>
+- 依每一角色執行個體來節流。例如：<br/> RoleInstanceA 正在節流。RoleInstanceB 未節流。在此情況下，RoleInstanceB 中的訊息如預期般地處理。RoleInstanceA 中的訊息會被捨棄且失敗，並出現下列錯誤訊息：<br/><br/> **伺服器忙碌中。請再試一次。**<br/><br/>
 - 所有提取來源不會輪詢或下載訊息。例如：<br/>管線會從外部 FTP 來源提取訊息。進行提取的角色執行個體會進入節流狀態。在此情況下，在角色執行個體停止節流之前，管線會停止下載其他訊息。
 - 回應會傳送給用戶端，讓用戶端可以重新提交訊息。
 - 您必須等待節流情況解決為止。尤其，您必須等待到達到低閾值為止。
@@ -70,4 +66,4 @@ Azure BizTalk 服務進入節流狀態時會發生下列情況：
 - [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

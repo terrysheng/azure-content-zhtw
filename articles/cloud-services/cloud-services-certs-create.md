@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 雲端服務 - 所有您想要知道有關憑證的內容" 
+	pageTitle="雲端服務和管理憑證 | Microsoft Azure" 
 	description="了解如何建立憑證並搭配 Microsoft Azure 使用" 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015"
+	ms.date="10/09/2015"
 	ms.author="adegeo"/>
 
 # Azure 雲端服務的憑證概觀
@@ -69,6 +69,9 @@ Azure 所使用的憑證可以包含私密或公開金鑰。憑證具有指紋�
 ### Java
 您可以使用 Java [建立憑證](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate)。
 
+### Linux
+[本文](..\virtual-machines\virtual-machines-linux-use-ssh-key.md)說明如何使用 SSH 建立憑證。
+
 ## 後續步驟
 
 [將服務憑證上傳至 Azure 入口網站](cloud-services-configure-ssl-certificate.md) (或 [Preview 入口網站](cloud-services-configure-ssl-certificate-portal.md))，並針對雲端服務[進行設定](cloud-services-xml-certs.md)。
@@ -77,4 +80,4 @@ Azure 所使用的憑證可以包含私密或公開金鑰。憑證具有指紋�
 
 >[AZURE.NOTE]Azure Preview 入口網站不會使用管理憑證存取 API，但是會使用使用者帳戶。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

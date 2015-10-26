@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="07/28/2015"
    ms.author="jgao"/>
 
 # 設定兩個 Azure 虛擬網路之間的 DNS
@@ -220,4 +220,4 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 入口網站中�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

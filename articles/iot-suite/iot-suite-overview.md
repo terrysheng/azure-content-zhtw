@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Microsoft Azure IoT Suite 概觀 | Microsoft Azure"
-	description="這將提供 Azure IoT 套件的概觀。"
+	description="這提供 Azure IoT 套件概觀，包括封裝和預先設定解決方案。"
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,7 +12,7 @@
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="10/06/2015"
      ms.author="araguila"/>
 
@@ -38,4 +38,4 @@ Azure IoT 套件中包含的預先設定解決方案可讓客戶能夠快速地�
 
 可用的第一個預先設定解決方案是[遠端監視](iot-suite-what-are-preconfigured-solutions.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

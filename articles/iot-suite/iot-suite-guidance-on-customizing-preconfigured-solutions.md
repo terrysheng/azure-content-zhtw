@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Microsoft Azure IoT Suite 自訂預先設定解決方案指南 | Microsoft Azure"
-	description="提供自訂 Azure IoT Suite 預先設定解決方案的指南。"
+	pageTitle="自訂預先設定解決方案 | Microsoft Azure"
+	description="提供如何自訂 Azure IoT 套件預先設定解決方案的指引。"
 	services=""
 	documentationCenter=".net"
 	authors="stevehob"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="na"
-     ms.devlang="na"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="stevehob"/>
 
@@ -69,4 +69,4 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

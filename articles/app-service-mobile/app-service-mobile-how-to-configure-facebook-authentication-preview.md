@@ -77,8 +77,8 @@
 <!-- URLs. -->
 [Facebook 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Get started with authentication]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /zh-TW/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure 管理入口網站]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

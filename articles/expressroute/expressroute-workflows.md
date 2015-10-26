@@ -12,10 +12,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc"/>
 
-# ExpressRoute 線路佈建工作流程和線路狀態
+# ExpressRoute 工作流程線路佈建和線路狀態
 這個頁面以高階觀點引導您完成服務佈建和路由設定的工作流程。
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
@@ -121,4 +121,4 @@ BGP 佈建狀態可讓您知道 Microsoft 邊緣是否已啟用 BGP 工作階段
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

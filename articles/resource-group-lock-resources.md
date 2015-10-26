@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員來鎖定資源
@@ -93,11 +93,13 @@
 
 ## 使用 Azure PowerShell 建立鎖定
 
-您可以在 Azure PowerShell 使用 **New-AzureResourceLock** 鎖定已部署的資源，如下所示。透過 PowerShell，您只能將 **LockLevel** 設定為 **CanNotDelete**。
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+您可以使用 **New-AzureRmResourceLock** 鎖定以 Azure PowerShell 部署的資源，如下所示。透過 PowerShell，您只能將 **LockLevel** 設定為 **CanNotDelete**。
 
-PowerShell 針對使用中的鎖定提供其他命令，例如 **Set-AzureResourceLock** 可以更新鎖定，而 **Remove-AzureResourceLock** 可以刪除鎖定。
+    PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
+
+Azure PowerShell 針對使用中的鎖定提供其他命令，例如 **Set-AzureRmResourceLock** 可以更新鎖定，而 **Remove-AzureRmResourceLock** 可以刪除鎖定。
 
 ## 後續步驟
 
@@ -105,4 +107,4 @@ PowerShell 針對使用中的鎖定提供其他命令，例如 **Set-AzureResour
 - 若要了解如何以邏輯方式組織資源，請參閱[使用標記來組織您的資源](resource-group-using-tags.md)。
 - 若要變更資源所在的資源群組，請參閱[將資源移至新的資源群組](resource-group-move-resources.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

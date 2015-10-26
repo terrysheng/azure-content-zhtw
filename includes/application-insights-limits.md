@@ -21,4 +21,4 @@
  
 [關於 Application Insights 中的定價和配額](app-insights-pricing.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -28,8 +28,7 @@
 
 打開裝置包裝之前，請檢閱下列資訊。
 
->[AZURE.WARNING]
-> ![重量圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
+>[AZURE.WARNING]![重量圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
 >
 > 1. 如果您手動處理它，請確定您有兩名人員可以應付裝置的重量。完全設定的裝置可以重達 32 公斤 (70 磅)。
 >
@@ -91,8 +90,7 @@
 
 3. 請確定您要掛接機箱的機架上有一個 4U (2 X 2U) 插槽可用。
 
->[AZURE.WARNING]
-> ![重量圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
+>[AZURE.WARNING]![重量圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
 > 
 > 如果您手動處理裝置安裝，請確定您有兩名人員可以應付裝置的重量。完全設定的機箱可以重達 32 公斤 (70 磅)。
 
@@ -112,7 +110,7 @@
 
 1. 使用工作介面上的機箱，鬆開蓋子以移除左右前端輪緣蓋。輪緣蓋只是卡在輪緣上。
 
-2. 通常，這些滑軌會在工廠安裝。如果沒有的話，則在機箱底座側邊安裝左邊和右邊滑軌。他們是在每一邊使用六個公制螺絲來連接。為了協助辨識方向，滑軌標示為 [**LH – Front**] \(左邊 – 前) 和 [**RH – Front**] \(右邊 – 前)，接至機箱後端的尾端有錐型結尾。
+2. 通常，這些滑軌會在工廠安裝。如果沒有的話，則在機箱底座側邊安裝左邊和右邊滑軌。他們是在每一邊使用六個公制螺絲來連接。為了協助辨識方向，滑軌標示為 [**LH – Front**] (左邊 – 前) 和 [**RH – Front**] (右邊 – 前)，接至機箱後端的尾端有錐型結尾。
 
     ![將滑軌連接至機箱底座](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
@@ -123,7 +121,7 @@
     1 | M 3x4 圓頭螺釘
     2 | 底座滑軌
  
-3. 將左邊滑軌和右邊滑軌組件連接至機櫃垂直面。托架會標示 [**LH**] \(左邊)，[**RH**] \(右邊) 和 [**This side up**] \(此面向上)，引導您正確的方向。
+3. 將左邊滑軌和右邊滑軌組件連接至機櫃垂直面。托架會標示 [**LH**] (左邊)，[**RH**] (右邊) 和 [**This side up**] (此面向上)，引導您正確的方向。
 
 4. 找出滑軌組件前後方的滑軌插梢。延伸滑軌以適合機架柱，並且將插梢插入前後端機架柱垂直面的孔洞。請確定滑軌組件是水平的。
 
@@ -291,4 +289,4 @@ H,I | 主機 (例如，檔案伺服器)
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

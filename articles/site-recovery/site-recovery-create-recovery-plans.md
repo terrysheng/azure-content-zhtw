@@ -124,4 +124,4 @@ Site Recovery 服務提供健全的商務持續性和災害復原 (BCDR) 解決�
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="在事件中樞內使用 Storm on HDInsight 來處理事件 | Azure"
+   pageTitle="使用 Java 在事件中樞內透過 Storm on HDInsight 處理事件 | Azure"
    description="了解如何使用 Maven 建立的 Java Storm 拓撲處理事件中樞資料。"
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 # 使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)
@@ -341,7 +341,7 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]如果您針對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
+    > [AZURE.NOTE]如果您對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
     >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
@@ -476,4 +476,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

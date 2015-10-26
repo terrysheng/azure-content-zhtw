@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure 上的 SQL Server 取樣資料 | Microsoft Azure"
-	description="在 Azure 上 SQL Server 中進行資料取樣"
-	services="machine-learning"
-	documentationCenter=""
-	authors="fashah"
-	manager="paulettm"
-	editor="cgronlun"/>
+	pageTitle="Azure 上的 SQL Server 取樣資料 | Microsoft Azure" 
+	description="在 Azure 上 SQL Server 中進行資料取樣" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="fashah;garye;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure 上的 SQL Server 取樣資料
 
@@ -113,4 +113,4 @@ Python 中的 [Pandas](http://pandas.pydata.org/) 程式庫提供一組豐富的
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

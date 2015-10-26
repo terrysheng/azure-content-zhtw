@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL Database 嚴重損壞修復"
-	description="了解如何使用 Azure SQL Database 的異地複寫和異地還原功能，從區域資料中心中斷或失敗情況復原資料庫。"
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="SQL Database 嚴重損壞修復" 
+   description="了解如何使用 Azure SQL Database 的異地複寫和異地還原功能，從區域資料中心中斷或失敗情況復原資料庫。" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 # 從中斷情況復原 Azure SQL Database
 
@@ -103,4 +103,4 @@ Azure SQL Database 提供幾項中斷復原功能：
 復原資料庫之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定資料庫以供使用。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

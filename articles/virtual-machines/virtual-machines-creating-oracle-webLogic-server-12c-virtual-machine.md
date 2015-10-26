@@ -18,7 +18,8 @@
 #在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器
 以下範例會向您說明如何在 Azure 中以由 Microsoft 所提供並在 Windows Server 2012 上執行的 Oracle WebLogic Server 12c 映像為基礎，建立虛擬機器。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何使用資源管理員部署模型來建立 Oracle WebLogic Server。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 
 ##在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器
@@ -186,4 +187,4 @@
 
 -	[適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

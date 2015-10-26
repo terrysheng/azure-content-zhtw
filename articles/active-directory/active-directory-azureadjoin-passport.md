@@ -18,7 +18,7 @@
 
 # 透過 Microsoft Passport 不需要密碼就能驗證身分識別
 
-目前單獨驗證密碼的方法不足以保障使用者的安全。使用者會重複使用和忘記密碼。密碼是可破壞、可進行網路釣魚、易於破解且可猜測的。密碼也很難記住，而且易於遭受攻擊，例如「傳送雜湊」。
+目前單獨驗證密碼的方法不足以保障使用者的安全。使用者會重複使用和忘記密碼。密碼是可破壞、可進行網路釣魚、易於破解且可猜測的。密碼也很難記住，而且易於遭受攻擊，例如「傳送雜湊」。傳送雜湊是一種駭客入侵的技巧，讓攻擊者能夠利用使用者密碼的基礎 NTLM 和/或 LanMan 雜湊，驗證遠端伺服器/服務，而非採用一般相關聯的純文字密碼進行驗證。如需有關傳遞雜湊的詳細資訊，請參閱[傳遞雜湊](https://technet.microsoft.com/zh-TW/dn785092.aspx)。
 
 ## 什麼是 Microsoft Passport
 對於組織和消費者來說，Microsoft Passport 是超越密碼的新型私密金鑰/公開金鑰或憑證式驗證方法。這種形式的驗證依賴這些金鑰組認證，這類認證可以取代密碼且能抵禦漏洞、竊取及網路釣魚。Microsoft Passport 讓使用者能夠向 Microsoft 帳戶、Active Directory 帳戶、Microsoft Azure Active Directory (AD) 帳戶，或是支援線上快速識別碼 (FIDO) 驗證的非 Microsoft 服務進行驗證。在 Microsoft Passport 註冊期間進行最初的兩步驟驗證之後，就會在使用者的裝置上設定 Microsoft Passport，而該使用者需設定一個手勢，可能是 Windows Hello 或 PIN。使用者提供該手勢來驗證身分識別。Windows 接著會使用 Microsoft Passport 來驗證使用者，並協助他們存取受保護的資源和服務。
@@ -38,7 +38,7 @@
 ## 它的運作方式
 1. 金鑰是在硬體上產生的。許多機器都會內建信賴平台模組 (TPM) 晶片，藉由將密碼編譯金鑰整合到裝置來保護硬體。TPM 1.2 或 TPM 2.0 可用來產生金鑰或憑證，將會在產生的金鑰範圍之外建立金鑰。
 
-2. 這些硬體繫結的金鑰會通過 TPM 的證明，而企業可以
+2. 這些硬體繫結的金鑰會通過 TPM 的證明。
 
 3. 單一解除鎖定手勢將解除裝置鎖定，而且如果裝置已加入網域或已加入 Azure AD，就允許這個手勢取得多個資源的存取權。
 
@@ -68,5 +68,6 @@ Microsoft Passport 驗證週期![](./media/active-directory-azureadjoin/active-d
 
 * [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
+* [使用 Microsoft Passport 管理身分識別驗證](https://technet.microsoft.com/library/mt219735(v=vs.85).aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

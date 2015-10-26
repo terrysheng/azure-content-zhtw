@@ -19,7 +19,8 @@
 
 # 開始在 Azure 上的 CoreOS 使用 Fleet
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本文提供您兩個快速的範例，有關使用 [Fleet](https://github.com/coreos/fleet) 和 [Docker](https://www.docker.com/) 在 [ CoreOS] 虛擬機器的叢集上執行應用程式。
 
@@ -175,4 +176,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [CoreOS Apache Docker 中樞映像]: https://registry.hub.docker.com/u/coreos/apache/
 [Azure 上的 Linux 和開放原始碼運算]: virtual-machines-linux-opensource.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

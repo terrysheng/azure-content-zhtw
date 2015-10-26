@@ -21,8 +21,7 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
 
 本快速入門將逐步引導您使用 REST API 完成利用 Azure 媒體服務 (AMS) 來實作點播視訊 (VoD) 內容傳遞應用程式。
 
@@ -82,8 +81,7 @@
 1. 取得存取權杖。 
 2. 連接至媒體服務 URI。 
 	
-	>[AZURE.NOTE]
-	成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須送到新的 URI。
+	>[AZURE.NOTE]成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須送到新的 URI。
 	> 
 	> 您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
 3. 將後續的 API 呼叫張貼到新的 URL。 
@@ -114,9 +112,9 @@
 	
 **主體**：
 
-您需要在這個要求的主體中提供 client_id 與 client_secret 值；client_id 與 client_secret 分別對應到 AccountName 與 AccountKey 值。當您設定帳戶時，媒體服務會提供這些值給您。
+您需要在這個要求的主體中提供 client\_id 與 client\_secret 值；client\_id 與 client\_secret 分別對應到 AccountName 與 AccountKey 值。當您設定帳戶時，媒體服務會提供這些值給您。
 
-請注意，您的媒體服務帳戶的 AccountKey 在使用它做為存取權杖要求中 client_secret 值時必須已編碼 URL。
+請注意，您的媒體服務帳戶的 AccountKey 在使用它做為存取權杖要求中 client\_secret 值時必須已編碼 URL。
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -147,8 +145,7 @@
 	}
 	
 
->[AZURE.NOTE]
-建議您將 "access_token" 和 "expires_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
+>[AZURE.NOTE]建議您將 "access\_token" 和 "expires\_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
 
 請務必監控存取權杖的 "expires\_in" 值，並視需要以新權杖更新您的 REST API 呼叫。
 
@@ -499,8 +496,7 @@ SAS URL 具有下列格式：
 
 **HTTP 回應**
 
-如果成功，會傳回下列訊息：
-	HTTP/1.1 204 沒有內容
+如果成功，會傳回下列訊息：HTTP/1.1 204 沒有內容
 
 ## 刪除 Locator 和 AccessPolicy 
 
@@ -1012,8 +1008,7 @@ MPEG DASH 的串流 URL 具有下列格式：
 
 如果成功，會傳回 201 成功碼，描述您所建立的 AccessPolicy 實體。然後，您將使用 AccessPolicy 識別碼以及資產的資產識別碼，其中此資產包含您要傳遞 (例如做為輸出資產) 以建立 Locator 實體的檔案。
 
->[AZURE.NOTE]
-這個基本工作流程在擷取資產 時 (如本主題前面所討論) 與上傳檔案相同。此外，就像上傳檔案，如果您 (或您的用戶端) 需要立即存取檔案，請將 StartTime 值設定為目前時間之前五分鐘。需要進行此動作是因為用戶端電腦與媒體服務之間可能有時間差。StartTime 值必須是以下日期時間格式：YYYY-MM-DDTHH:mm:ssZ (例如，"2014-05-23T17:53:50Z")。
+>[AZURE.NOTE]這個基本工作流程在擷取資產 時 (如本主題前面所討論) 與上傳檔案相同。此外，就像上傳檔案，如果您 (或您的用戶端) 需要立即存取檔案，請將 StartTime 值設定為目前時間之前五分鐘。需要進行此動作是因為用戶端電腦與媒體服務之間可能有時間差。StartTime 值必須是以下日期時間格式：YYYY-MM-DDTHH:mm:ssZ (例如，"2014-05-23T17:53:50Z")。
 
 
 ###建立下載內容用的 SAS URL 
@@ -1079,8 +1074,7 @@ MPEG DASH 的串流 URL 具有下列格式：
 
 傳回的 **Path** 屬性包含 SAS URL。
 
->[AZURE.NOTE]
-如果您下載儲存體加密內容，則必須手動將其解密才能呈現，或是在處理工作中使用儲存體解密 MediaProcessor，以純文字將處理的檔案輸出到 OutputAsset，然後從該資產下載。如需有關處理的詳細資訊，請參閱＜使用媒體服務 REST API 建立編碼工作＞。此外，已建立 SAS URL 定位器之後，無法更新它們。例如，您無法以更新的 StartTime 值重複使用相同的定位器。這是因為建立 SAS URL 的方式。如果您想要在定位器過期之後存取資產以便下載，您必須用新的 StartTime 建立一個新的定位器。
+>[AZURE.NOTE]如果您下載儲存體加密內容，則必須手動將其解密才能呈現，或是在處理工作中使用儲存體解密 MediaProcessor，以純文字將處理的檔案輸出到 OutputAsset，然後從該資產下載。如需有關處理的詳細資訊，請參閱＜使用媒體服務 REST API 建立編碼工作＞。此外，已建立 SAS URL 定位器之後，無法更新它們。例如，您無法以更新的 StartTime 值重複使用相同的定位器。這是因為建立 SAS URL 的方式。如果您想要在定位器過期之後存取資產以便下載，您必須用新的 StartTime 建立一個新的定位器。
 
 ###下載檔案
 
@@ -1214,4 +1208,4 @@ MPEG DASH 的串流 URL 具有下列格式：
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

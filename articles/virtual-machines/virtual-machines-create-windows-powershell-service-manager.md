@@ -21,7 +21,7 @@
 
 本文說明如何使用 Azure PowerShell 建立和管理 Windows 虛擬機器。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立 Windows VM。您也可以使用[資源管理員部署模型](virtual-machines-deploy-rmtemplates-powershell.md)建立 Windows VM。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-deploy-rmtemplates-powershell.md)。
 
 
 
@@ -43,7 +43,7 @@
 
 	Get-AzureSubscription | sort SubscriptionName | Select SubscriptionName
 
-現在，將引號中的所有內容 (包括 < and > 字元) 取代為正確的訂用帳戶名稱，然後執行以下命令：
+現在，將引號中的所有內容 (包括 < and > 字元) 以正確的訂用帳戶名稱取代，並執行以下命令：
 
 	$subscrName="<subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscrName –Current
@@ -74,7 +74,7 @@
 
 接下來，您需要雲端服務。如果您沒有雲端服務，必須建立一個。選取的名稱不可以和其他名稱重複，而且只能使用小寫字母、數字和連字號。欄位中的第一個和最後一個字元，必須是字母或數字。
 
-例如，您可以將它命名為 TestCS-*UniqueSequence*，其中 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 TestCS-Tailspin。
+例如，您可以將它命名為 TestCS-*UniqueSequence*，其中 *UniqueSequence* 是貴組織的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 TestCS-Tailspin。
 
 您可以使用這個 Azure PowerShell 命令測試名稱的唯一性：
 
@@ -180,7 +180,7 @@
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## 連接資料磁碟
-這項工作需要幾個步驟。首先，您使用 **Add-AzureDataDisk** Cmdlet 將磁碟新增至 $vm 物件。然後您使用 Update-AzureVM Cmdlet 來更新 VM 的組態。
+這項工作需要幾個步驟。首先，請使用 **Add-AzureDataDisk** Cmdlet 將磁碟新增至 $vm 物件。然後您使用 Update-AzureVM Cmdlet 來更新 VM 的組態。
 
 您也需要決定是否要附加新的磁碟或附加已經包含資料的磁碟。如果是新的磁碟，這個命令會建立 .vhd 檔案，然後將它附加在同一個命令中。
 
@@ -209,4 +209,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

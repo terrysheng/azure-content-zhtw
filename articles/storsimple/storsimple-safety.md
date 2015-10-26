@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 裝置的安全性 | Microsoft Azure"
-	description="描述安全性慣例、方針和考量，並說明如何安全地安裝和操作您的 StorSimple 裝置。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="描述安全性慣例、方針和考量，並說明如何安全地安裝和操作您的 StorSimple 裝置。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/26/2015"
+   ms.author="alkohli" />
 
 # 安全地安裝和操作您的 StorSimple 裝置
 
@@ -179,4 +179,4 @@
 
 - 針對 8600 裝置，請至[安裝您的 StorSimple 8600 裝置](storsimple-8600-hardware-installation.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

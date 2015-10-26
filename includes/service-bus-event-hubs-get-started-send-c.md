@@ -107,4 +107,4 @@
 
 > [AZURE.NOTE]在上面的程式碼中，我們使用輸出視窗 1 盡快強制輸出訊息。應用程式一般應該會嘗試批次處理訊息，以增加輸送量。如需如何在此環境和其他環境中以及從提供繫結的平台 (目前是 Perl、PHP、Python 和 Ruby) 中使用 Qpid Proton 程式庫的詳細資訊，請參閱 [Qpid AMQP Messenger 頁面](http://qpid.apache.org/components/messenger/index.html)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

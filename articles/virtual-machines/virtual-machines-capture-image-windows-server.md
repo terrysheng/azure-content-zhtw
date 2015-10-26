@@ -19,7 +19,8 @@
 
 #擷取以傳統部署模型所建立的 Windows 虛擬機器映像。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本文說明如何擷取執行 Windows 的 Azure 虛擬機器，以便用它作為映像來建立其他虛擬機器。此映像包括作業系統磁碟和任何連結至虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立其他使用該範本的虛擬機器時加以設定。
 
@@ -86,4 +87,4 @@ Azure 會將映像儲存在 [我的映像] 之下。這個位置與您已上傳�
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

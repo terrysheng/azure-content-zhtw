@@ -10,4 +10,4 @@
 
 如果磁碟區容器有相關聯的磁碟區，您必須先讓那些磁碟區依照[讓磁碟區離線](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline)中的步驟離線。磁碟機離線後，才可以刪除它們。當磁碟區容器沒有相關聯的磁碟區時，則依照前面所述刪除磁碟區容器。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

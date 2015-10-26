@@ -128,4 +128,4 @@ Azure AD B2C 目前不支援此流程，也就是說，只有在進行互動式�
 
 使用 OAuth 2.0 Jwt 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為「代理者流程」。不過，Azure AD B2C 預覽目前未實作代理者流程。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

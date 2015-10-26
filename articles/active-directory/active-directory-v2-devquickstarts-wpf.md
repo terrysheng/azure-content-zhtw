@@ -40,30 +40,30 @@
 
 本教學課程最後也會提供完整的應用程式。
 
-## 1. 註冊應用程式
-在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或依照這些[詳細步驟](active-directory-v2-app-registration.md) 進行。請務必：
+## 1\.註冊應用程式
+在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。請確定：
 
 - 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
-- 為應用程式新增**行動**平台。
+- 為您的應用程式新增**行動**平台。
 - 從入口網站複製完整的**重新導向 URI**。您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
 
-## 2. 安裝和設定 ADAL
+## 2\.安裝和設定 ADAL
 您現在有了已向 Microsoft 註冊的應用程式，可以安裝 ADAL 並撰寫與您身分識別相關的程式碼。為了讓 ADAL 能與 v2.0 端點通訊，您需要提供一些應用程式註冊的相關資訊。
 
--    首先，使用 Package Manager Console 將 ADAL 新增到 TodoListClient 專案中。
+-	首先，使用 Package Manager Console 將 ADAL 新增到 TodoListClient 專案中。
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
 ```
 
 -	在 TodoListClient 專案中，開啟 `app.config`。取代 `<appSettings>` 區段中的元素值，以反映您在應用程式註冊入口網站中輸入的值。每當使用 ADAL 時，您的程式碼便會參考這些值。
     -	`ida:ClientId` 是您從入口網站複製的應用程式的**應用程式 ID**。
     -	`ida:RedirectUri` 是來自入口網站的**重新導向 URI**。
 - 在 TodoList-Service 專案中，開啟專案根目錄中的 `web.config`。  
-    - 以來自入口網站的相同**應用程式 ID** 取代 `ida:Audience` 值。
+    - 以來自入口網站的相同**應用程式識別碼**取代 `ida:Audience` 值。
 
 ## 3\.使用 ADAL 取得權杖
-ADAL 的基本原則是，每當您的應用程式需要存取權杖時，只需呼叫 `authContext.AcquireToken(...)`，ADAL 就會執行其餘工作。
+ADAL 的基本原則是，每當應用程式需要存取權杖時，您只需呼叫 `authContext.AcquireToken(...)`，ADAL 就會執行其餘工作。
 
 -	在 `TodoListClient` 專案中，開啟 `MainWindow.xaml.cs` 並找出 `OnInitialized(...)` 方法。第一步是初始化應用程式的 `AuthenticationContext` - ADAL 的主要類別。您在這裡將 ADAL 與 Azure AD 通訊所需的座標傳給 ADAL，並告訴它如何快取權杖。
 
@@ -231,11 +231,11 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null) { /
 		...
 ```
 
-恭喜！您現在擁有一個運作正常的 .NET WPF 應用程式，可使用 OAuth 2.0 驗證使用者並安全地呼叫 Web API。執行您的兩個專案，並以個人的 Microsoft 或工作/學校的帳戶登入。將工作新增到使用者的待辦事項清單。登出並以其他使用者再次登入，查看其他使用者的待辦事項清單。關閉應用程式，再重新執行。注意使用者的工作階段是否維持不變，這是因為應用程式會快取本機檔案中的權杖。
+恭喜！ 您現在擁有一個運作正常的 .NET WPF 應用程式，可使用 OAuth 2.0 驗證使用者並安全地呼叫 Web API。執行您的兩個專案，並以個人的 Microsoft 或工作/學校的帳戶登入。將工作新增到使用者的待辦事項清單。登出並以其他使用者再次登入，查看其他使用者的待辦事項清單。關閉並重新執行應用程式。注意使用者的工作階段是否維持不變，這是因為應用程式會快取本機檔案中的權杖。
 
-ADAL 可使用個人和工作帳戶，輕鬆地將通用的身分識別功能納入您的應用程式，並為您處理所有繁瑣的工作，例如快取管理、OAuth 通訊協定支援、以登入識別碼顯示使用者、重新整理過期的權杖等等。您只需知道 `authContext.AcquireTokenAsync(...)` 這個 API 呼叫。
+ADAL 可使用個人和工作帳戶，輕鬆地將通用的身分識別功能納入您的應用程式。它會為您處理一切麻煩的事，包括快取管理、OAuth 通訊協定支援、向使用者顯示登入 UI、重新整理過期權杖等等。您唯一需要知道的就是單一 API 呼叫，`authContext.AcquireTokenAsync(...)`。
 
-您可以[在這裡找到完整的 .zip 檔參考資料](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip) (不包含您的設定值)，或從 GitHub 複製：
+如需參考，[此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip)完整範例 (不含您的組態值)，您也可以從 GitHub 予以複製：
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
@@ -247,4 +247,4 @@ ADAL 可使用個人和工作帳戶，輕鬆地將通用的身分識別功能納
 
 如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

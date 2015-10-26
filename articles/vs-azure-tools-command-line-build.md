@@ -62,4 +62,4 @@
 
 建立封裝之後，您可以將它部署至 Azure。如需示範該程序的教學課程，請參閱 Azure 網站。如需如何自動化該程序的相關資訊，請參閱 [Azure 中雲端服務的連續傳遞](../cloud-services/cloud-services-dotnet-continuous-delivery)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

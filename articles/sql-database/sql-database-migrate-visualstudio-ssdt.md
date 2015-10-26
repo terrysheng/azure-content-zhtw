@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="使用 Visual Studio 和 SSDT 移轉"
-	description="Microsoft Azure SQL Database, 資料庫移轉, 匯入資料庫, 匯出資料庫, 移轉精靈"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="使用 Visual Studio 和 SSDT 移轉" 
+   description="Microsoft Azure SQL Database, 資料庫移轉, 匯入資料庫, 匯出資料庫, 移轉精靈" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="carlrabeler" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #就地更新資料庫，接著部署至 Azure SQL Database
 
@@ -82,4 +82,4 @@
 
 14.	使用 SSMS 將 Azure SQL V12 相容資料庫的結構描述和資料部署到 Azure SQL Database。請參閱[使用 SSMS 移轉相容資料庫](sql-database-migrate-ssms.md)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

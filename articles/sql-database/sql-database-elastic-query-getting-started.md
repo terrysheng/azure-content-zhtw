@@ -1,6 +1,8 @@
 <properties
+	title="Getting started with elastic database query"
 	pageTitle="開始使用彈性資料庫查詢"
 	description="如何使用彈性資料庫查詢"
+	metaKeywords="azure sql database elastic queries"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -142,4 +144,4 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

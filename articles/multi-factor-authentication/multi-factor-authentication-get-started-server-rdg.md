@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server"
-	description="此 Azure Multi-Factor Authentication 頁面協助您部署使用 RADIUS 的遠端桌面 (RD) 閘道器和 Azure Multi-Factor Authentication Server。"
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server" 
+	description="此 Azure Multi-Factor Authentication 頁面協助您部署使用 RADIUS 的遠端桌面 (RD) 閘道器和 Azure Multi-Factor Authentication Server。" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # 使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server
@@ -59,4 +59,4 @@ Azure Multi-Factor Authentication Server 設定為 RD 閘道器和 NPS 之間的
 
 ![Radius 驗證](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

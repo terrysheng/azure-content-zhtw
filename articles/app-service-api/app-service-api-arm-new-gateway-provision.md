@@ -24,7 +24,7 @@
 
 如需有關部署應用程式的詳細資訊，請參閱[透過可預測方式在 Azure 中部署複雜應用程式](../app-service-web/app-service-deploy-complex-application-predictably.md)。
 
-如需完整的範本，請參閱 [API 應用程式與新閘道的範本](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json)\(英文)。
+如需完整的範本，請參閱 [API 應用程式與新閘道的範本](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json) (英文)。
 
 ## 部署內容
 
@@ -134,7 +134,7 @@ App Service 方案的名稱。
             },
             {
               "name": "EmaStorage",
-              "value": "D:\home\data\apiapps"
+              "value": "D:\\home\\data\\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -308,4 +308,4 @@ App Service 方案的名稱。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

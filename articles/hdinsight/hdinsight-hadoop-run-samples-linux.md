@@ -1,12 +1,12 @@
 <properties
-	pageTitle="在 HDInsight 上執行 Hadoop 範例 | Microsoft Azure"
+	pageTitle="在以 Linux 為基礎的 HDInsight 上執行 Hadoop 範例| Microsoft Azure"
 	description="開始搭配以 Linux 為基礎的 HDInsight 使用 MapReduce 範例。使用 SSH 連接到叢集，然後使用 Hadoop 命令執行範例工作。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
 	editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 
@@ -243,4 +243,4 @@ GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

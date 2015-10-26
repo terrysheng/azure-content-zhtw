@@ -19,7 +19,8 @@
 
 # 使用資源管理員範本的 Redis 叢集
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立 Redis 叢集。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 Redis 是開放原始碼的索引鍵值快取和存放區，其中的索引鍵可以包含類似字串、雜湊、清單、集合和排序的集合等資料結構。Redis 針對這些資料類型支援一組不可部分完成的操作。隨著 Redis 版本 3.0 的發行，Redis 叢集現在可以在穩定的最新 Redis 版本中使用。Redis 叢集是 Redis 的分散式實作，其中的資料會自動分區到多個 Redis 節點，能夠在節點子集發生故障時繼續運作。
 
@@ -669,4 +670,4 @@ $webclient.DownloadFile($url,$filePath)
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

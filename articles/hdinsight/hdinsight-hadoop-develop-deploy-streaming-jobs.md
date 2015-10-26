@@ -555,4 +555,4 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce 字數統計應用程式流程"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

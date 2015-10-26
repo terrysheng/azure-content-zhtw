@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/13/2015"
 	ms.author="brandwe"/>
 
 # 將 Azure AD 整合至 Android 應用程式
@@ -270,8 +270,7 @@ dependencies {
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker**：
-  Microsoft Intune 公司入口網站應用程式將提供 Broker 元件。如果有一個使用者帳戶在這個驗證器上建立，且開發人員選擇不要略過它，Adal 會使用 Broker 帳戶。開發人員可以使用下列方法來略過 Broker 使用者：
+11. **Broker**：Microsoft Intune 公司入口網站應用程式將提供 Broker 元件。如果有一個使用者帳戶在這個驗證器上建立，且開發人員選擇不要略過它，Adal 會使用 Broker 帳戶。開發人員可以使用下列方法來略過 Broker 使用者：
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -283,14 +282,13 @@ dependencies {
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` 
-如果帳戶有效，則會傳回 Broker 使用者。
+ ``` 如果帳戶有效，則會傳回 Broker 使用者。
 
  您的應用程式資訊清單應該有使用 AccountManager 帳戶的權限：http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 經過這個逐步解說，您應該已擁有成功與 Azure Active Directory 整合所需的項目。如需此工作的更多範例，請瀏覽 GitHub 上的AzureADSamples / 儲存機制。
@@ -313,12 +311,9 @@ ADFS 不視為正式的 STS，因此您需要開啟執行個體探索，並在 A
 
 ### 查詢快取項目
 
-ADAL 在 SharedPrefrecens 中提供預設快取與一些簡單的快取查詢函式。您可以使用 
-```Java
+ADAL 在 SharedPrefrecens 中提供預設快取與一些簡單的快取查詢函式。您可以使用 ```Java
  ITokenCacheStore cache = mContext.getCache();
-``` 
-從 AuthenticationContext 取得目前的快取。如果想要自訂，您也可以提供您的快取實作。
-```Java
+``` 從 AuthenticationContext 取得目前的快取。如果想要自訂，您也可以提供您的快取實作。```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -364,8 +359,7 @@ ADAL 提供選項來指定提示行為。如果重新整理權杖無效，而且
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` 
-訊息可以寫入自訂記錄檔，如下所示。不幸的是，從裝置取得記錄檔沒有標準方法。有一些服務可協助您處理這部份。您可以也自創方法，例如將檔案傳送到伺服器。
+ ``` 訊息可以寫入自訂記錄檔，如下所示。不幸的是，從裝置取得記錄檔沒有標準方法。有一些服務可協助您處理這部份。您可以也自創方法，例如將檔案傳送到伺服器。
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -386,8 +380,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info(參考)
 + Verbose(詳細資料)
 
-設定記錄層級的方法如下：
-```Java
+設定記錄層級的方法如下：```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
@@ -395,8 +388,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` 
-adb 命令的其他範例：https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ``` adb 命令的其他範例：https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### 網路追蹤
 
@@ -417,18 +409,16 @@ Fiddler 是最簡單的 HTTP 追蹤工具。請使用下列連結來設定它，
 
 ### Oauth2 持有者挑戰
 
-AuthenticationParameters 類別提供從 Oauth2 持有者挑戰取得 authorization_uri 的功能。
+AuthenticationParameters 類別提供從 Oauth2 持有者挑戰取得 authorization\_uri 的功能。
 
 ### Web 檢視中的工作階段 Cookie
 
-在應用程式關閉後，Android Web 檢視不會清除工作階段 Cookie。您可以使用以下範例程式碼來處理這部分：
-```java
+在應用程式關閉後，Android Web 檢視不會清除工作階段 Cookie。您可以使用以下範例程式碼來處理這部分：```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` 
-深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+``` 深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### 資源覆寫
 
@@ -454,4 +444,4 @@ Adal 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -56,7 +56,7 @@
 
 + 請檢查您為正確的 Azure 帳戶提供登入認證。在部分舊版工具中，Microsoft Azure 認證 (在 [新增專案] 對話方塊中) 與 Visual Studio 右上方的認證可能不同。
 + 在瀏覽器中，檢查您是否可以存取 [Azure 入口網站](https://portal.azure.com)。開啟 [設定] 並查看是否有任何限制。
-+ [將 Application Insights 加入至您現有的專案][start]：在 [方案總管] 中以滑鼠右鍵按一下您的專案並選擇 [加入 Application Insights]。
++ [將 Application Insights 加入至您現有的專案][start]：在 [方案總管] 中以滑鼠右鍵按一下您的專案，並選擇 [加入 Application Insights]。
 + 如果仍然無法運作，請依照下列[手動程序](app-insights-start-monitoring-app-health-usage.md)，在入口網站中加入資源，然後將 SDK 加入至您的專案。 
 
 #### <a name="emptykey"></a>我收到「檢測金鑰不能是空白」的錯誤
@@ -238,9 +238,9 @@
 [azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

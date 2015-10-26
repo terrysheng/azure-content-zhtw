@@ -139,4 +139,4 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

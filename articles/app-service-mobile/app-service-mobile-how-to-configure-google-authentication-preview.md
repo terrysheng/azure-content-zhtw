@@ -1,9 +1,9 @@
 <properties
 	pageTitle="如何為您的應用程式服務應用程式設定 Google 驗證"
 	description="了解如何為您的應用程式服務應用程式設定 Google 驗證。"
-	services="app-service\mobile"
+    services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
 
@@ -67,4 +67,4 @@
 [Azure 管理入口網站]: https://portal.azure.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,12 +1,12 @@
 <properties
-   pageTitle="使用 Azure CLI 管理 Azure VM | Microsoft Azure"
-   description="描述如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI 管理 Azure VM。"
+   pageTitle="使用 CLI 管理虛擬機器 | Microsoft Azure"
+   description="使用 Azure 命令列介面 (CLI) 以自動化管理您的 Azure 資源管理員 VM。"
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 
    <tags
    ms.service="virtual-machines"
@@ -14,16 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="danlep"/>
 
-# 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 管理虛擬機器
+# 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 來管理您的資源管理員虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括管理以傳統部署模型建立的資源。您也可以管理以[資源管理員部署模型](virtual-machines-how-to-automate-azure-resource-manager.md)建立的資源。
 
-當您進行 VM 的日常管理時，使用 Azure CLI 可以自動完成很多工作。這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-how-to-automate-azure-resource-manager.md)。
 
->[AZURE.NOTE]如果您尚未安裝和設定 Azure CLI，請按一下[這裡](../xplat-cli-install.md)以取得操作方法。如果您想要 PowerShell 中相同工作的快速入門，請參閱[使用 Azure PowerShell 管理 VM](virtual-machines-manage-vms-powershell.md)。
+當您進行 VM 的日常管理時，使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI) 可以自動完成很多工作。這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
+
+>[AZURE.NOTE]如果您尚未安裝 Azure CLI，您可以從[這裡](../xplat-cli-install.md)取得指示，並從[這裡](../xplat-cli-connect.md)瞭解如何連線至您的訂用帳戶。您同時需要於 Azure 資源管理員 (ARM) 模式下設定 CLI。
 
 ## 如何使用範例命令
 命令中的某些文字必須換成適合您環境的文字。 < and > 符號表示您需要取代的文字。當您取代文字時，請移除符號，但將引號保留在原處。
@@ -81,6 +82,8 @@
 
 ## 後續步驟
 
-如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI](../xplat-cli-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
+* 如需更多 Azure CLI 搭配 Azure 資源管理員模式的使用範例, 請參閱[搭配 Azure 資源管理使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI](xplat-cli-azure-resource-manager.md)。
 
-<!---HONumber=Oct15_HO1-->
+* 若要深入了解 Azure 資源和概念，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
+
+<!---HONumber=Oct15_HO3-->

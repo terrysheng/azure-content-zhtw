@@ -103,7 +103,11 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -113,6 +117,10 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 | 類型 | 是 | 參數值類型。請參閱下列允許類型清單。
 | defaultValue | 否 | 如果未提供參數值，則會使用參數的預設值。
 | allowedValues | 否 | 參數的允許值陣列，確保提供正確的值。
+| minValue | 否 | int 類型參數的最小值，含此值。
+| maxValue | 否 | int 類型參數的最大值，含此值。
+| minLength | 否 | 字串、secureString 及陣列類型參數長度的最小值，含此值。
+| maxLength | 否 | 字串、secureString 及陣列類型參數長度的最大值，含此值。
 
 允許的類型和值為：
 
@@ -130,10 +138,13 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -148,6 +159,14 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
@@ -232,7 +251,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 如果資源名稱不是唯一，您可以使用 **resourceId** Helper 函式 (如下所述) 來取得任何資源的唯一識別碼。
 
-[屬性] 項目的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是完全一樣的。如需您想要部署之資源的 REST API 作業，請參閱 [Azure 參考](https://msdn.microsoft.com/library/azure/mt420159.aspx)。
+**properties** 元素的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是完全一樣的。如需您想要部署之資源的 REST API 作業，請參閱 [Azure 參考](https://msdn.microsoft.com/library/azure/mt420159.aspx)。
 
 下列範例顯示 **Microsoft.Web/serverfarms** 資源，以及含巢狀 **Extensions** 資源的 **Microsoft.Web/sites** 資源：
 
@@ -410,4 +429,4 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

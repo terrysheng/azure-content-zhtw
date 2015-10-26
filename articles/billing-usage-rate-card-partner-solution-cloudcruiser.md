@@ -234,4 +234,4 @@ Cloud Cruiser 活頁簿提供自動化的方式收集和處理來自 Usage API �
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "圖 13 - 建立新的標記資訊欄位"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "圖 14 - 利用來自查閱的資訊填入帳戶結構中"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

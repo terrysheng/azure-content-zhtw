@@ -44,4 +44,4 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 映像來主控您要與使用�
  
 如需建立 Azure RemoteApp 映像的詳細資訊，請參閱[建立 Azure RemoteApp 映像](remoteapp-imageoptions.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

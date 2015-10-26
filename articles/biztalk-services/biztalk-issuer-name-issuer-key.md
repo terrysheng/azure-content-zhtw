@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="BizTalk 服務中的簽發者名稱和簽發者金鑰 | Microsoft Azure"
-	description="了解如何在 BizTalk 服務中擷取服務匯流排或存取控制 (ACS) 的簽發者名稱和簽發者金鑰。MABS，WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="BizTalk 服務中的簽發者名稱和簽發者金鑰 | Microsoft Azure" 
+	description="了解如何在 BizTalk 服務中擷取服務匯流排或存取控制 (ACS) 的簽發者名稱和簽發者金鑰。MABS，WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -71,9 +71,7 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 2. 在左導覽窗格中，選取 [**服務匯流排**]。
 3. 選取您的命名空間。在工作列中，選取 [**連線資訊**]。這會顯示 [**預設簽發者**] (簽發者名稱) 和 [**預設金鑰**] (簽發者金鑰)。您可以複製這些值。  
 
-總結：  
-簽發者名稱 = 預設簽發者  
-簽發者金鑰 = 預設金鑰
+總結：簽發者名稱 = 預設簽發者 簽發者金鑰 = 預設金鑰
 
 ## 下一步
 其他 Azure BizTalk 服務主題：
@@ -94,4 +92,4 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 - [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

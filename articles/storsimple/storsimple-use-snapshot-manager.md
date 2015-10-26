@@ -541,4 +541,4 @@ StorSimple Snapshot Manager 可啟用 Windows 作業系統和 Microsoft Manageme
 - 了解如何[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 - 了解如何[使用 StorSimple Snapshot Manager 來連接和管理裝置](storsimple-snapshot-manager-manage-devices.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

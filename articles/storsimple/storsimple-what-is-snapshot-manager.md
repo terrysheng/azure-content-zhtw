@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="v-sharos" />
 
 # 什麼是 StorSimple Snapshot Manager？
@@ -23,7 +23,7 @@ StorSimple Snapshot Manager 是 Microsoft Management Console (MMC) 嵌入式管�
 
 本概觀簡介 StorSimple Snapshot Manager、描述其功能，並說明其在 Microsoft Azure StorSimple 的角色。
 
-如需整個 Microsoft Azure StorSimple 系統的概觀，包括 StorSimple 裝置、StorSimple Manager 服務、 StorSimple Snapshot Manager、StorSimple Adapter for SharePoint，請參閱《[什麼是 StorSimple？](storsimple-overview.md)》和《[什麼是 StorSimple 元件？](storsimple-components.md)》。
+如需整個 Microsoft Azure StorSimple 系統的概觀，包括 StorSimple 裝置、StorSimple Manager 服務、StorSimple Snapshot Manager、StorSimple Adapter for SharePoint，請參閱 [StorSimple 8000 系列：混合式雲端儲存解決方案](storsimple-overview.md)。
  
 ## StorSimple Snapshot Manager 用途和架構
 
@@ -52,7 +52,7 @@ StorSimple Snapshot Manager 備份採用增量快照的形式，即僅擷取自�
 
 - **動態磁碟區** – 動態磁碟區是動態磁碟上建立的磁碟區。動態磁碟會使用資料庫，來追蹤在電腦中動態磁碟的磁碟區相關資訊。
 
-- **含鏡像的動態磁碟區** – 含鏡像的動態磁碟區是根據 RAID 1 架構來建置。使用 RAID 1 時，相同的資料會寫入兩個或多個磁碟，因而產生鏡像集。然後，任何包含所要求資料的磁碟都可以處理讀取要求。
+- **含鏡像的動態磁碟區** – 含鏡像的動態磁碟區是根據 RAID 1 架構建置的磁碟區。使用 RAID 1 時，相同的資料會寫入兩個或多個磁碟，因而產生鏡像集。然後，任何包含所要求資料的磁碟都可以處理讀取要求。
 
 - **叢集共用磁碟區** – 使用叢集共用磁碟區 (CSV) 時，容錯移轉叢集中的多個節點可以同時讀取或寫入至相同磁碟。可以快速地從一個節點容錯移轉到另一個節點，而不需要變更磁碟機擁有權，或掛接、卸載和移除磁碟區。
 
@@ -63,7 +63,7 @@ StorSimple Snapshot Manager 備份採用增量快照的形式，即僅擷取自�
 - [磁碟區和磁碟區群組](#volumes-and-volume-groups) 
 - [備份類型和備份原則](#backup-types-and-backup-policies) 
 
-如需 StorSimple Snapshot Manager 功能和如何使用的詳細資訊，請參閱《[StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)》。
+如需 StorSimple Snapshot Manager 的功能和使用方式的詳細資訊，請參閱 [StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md)。
 
 ## 磁碟區和磁碟區群組
 
@@ -71,7 +71,9 @@ StorSimple Snapshot Manager 備份採用增量快照的形式，即僅擷取自�
 
 StorSimple Snapshot Manager 會使用磁碟區群組，來建立應用程式一致的備份副本。當所有相關的檔案和資料庫已同步處理，並代表應用程式在特定時間點的真實狀態時，即存在應用程式一致性。磁碟區群組 (也稱為*一致性群組*) 為構成備份或還原作業的基礎。
 
->[AZURE.NOTE]磁碟區群組與磁碟區容器不同。磁碟區容器包含一個或多個共用雲端儲存體帳戶和其他屬性 (例如加密和頻寬耗用量) 的磁碟區。單一磁碟區容器可以包含最多 256 個精簡佈建型 StorSimple 磁碟區。如需磁碟區容器的詳細資訊，請移至《[管理磁碟區容器](storsimple-manage-volume-containers.md)》。磁碟區群組是您為了協助備份作業而設定的磁碟區集合。如果您選取兩個屬於不同磁碟區容器的磁碟區，並置於單一磁碟區群組中，然後建立該磁碟區群組的備份原則，則系統會使用適當的儲存體帳戶，將每個磁碟區備份在適當的磁碟區容器中。
+磁碟區群組與磁碟區容器不同。磁碟區容器包含一個或多個共用雲端儲存體帳戶和其他屬性 (例如加密和頻寬耗用量) 的磁碟區。單一磁碟區容器可以包含最多 256 個精簡佈建型 StorSimple 磁碟區。如需磁碟區容器的詳細資訊，請移至[管理磁碟區容器](storsimple-manage-volume-containers.md)。磁碟區群組是您為了協助備份作業而設定的磁碟區集合。如果您選取兩個屬於不同磁碟區容器的磁碟區，並置於單一磁碟區群組中，然後建立該磁碟區群組的備份原則，則系統會使用適當的儲存體帳戶，將每個磁碟區備份在適當的磁碟區容器中。
+
+>[AZURE.NOTE]磁碟區群組中的所有磁碟區必須來自單一雲端服務提供者。
 
 ## 與 Windows 磁碟區陰影複製服務整合
 
@@ -125,21 +127,21 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 - **名稱** – 所選備份原則的唯一名稱。
 
-- **類型** – 備份原則的類型：本機快照或雲端快照。
+- **類型** – 備份原則的類型，可以是本機快照或雲端快照。
 
-- **磁碟區群組** – 所選備份原則獲已指派的磁碟區群組。
+- **磁碟區群組** – 所選備份原則被指派到的磁碟區群組。
 
-- **保留** – 要保留的備份複本數目。如果核取 [**全部**] 方塊，則會保留所有的備份副本，直到超出每個磁碟區的備份複本數目上限，此時原則將失敗，並產生錯誤訊息。或者，您可以指定要保留的備份數 (介於 1 到 64 之間)。
+- **保留** – 要保留的備份副本數目。如果核取 [全部] 方塊，則會保留所有的備份副本，直到超出每個磁碟區的備份副本數目上限，此時原則將失敗，並產生錯誤訊息。或者，您可以指定要保留的備份數 (介於 1 到 64 之間)。
 
 - **日期** – 備份原則的建立日期。
 
-如需設定備份原則的相關資訊，請移至《[使用 StorSimple Snapshot Manager 來建立和管理備份原則](storsimple-snapshot-manager-manage-backup-policies.md)》。
+如需設定備份原則的相關資訊，請移至[使用 StorSimple Snapshot Manager 來建立和管理備份原則](storsimple-snapshot-manager-manage-backup-policies.md)。
 
 ### 監視和管理備份工作
 
 您可以使用 StorSimple Snapshot Manager，監視和管理即將開始、已排程和已完成的備份作業。此外，StorSimple Snapshot Manager 也會提供一個目錄，最多可有 64 個已完成的備份。您可以使用目錄，尋找並還原磁碟區或個別檔案。
 
-如需監視備份作業的相關資訊，請移至《[使用 StorSimple Snapshot Manager 來檢視和管理備份作業](storsimple-snapshot-manager-manage-backup-jobs.md)》。
+如需監視備份作業的相關資訊，請移至[使用 StorSimple Snapshot Manager 來檢視和管理備份作業](storsimple-snapshot-manager-manage-backup-jobs.md)。
 
 
 ## 後續步驟
@@ -148,4 +150,4 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 - 下載 [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

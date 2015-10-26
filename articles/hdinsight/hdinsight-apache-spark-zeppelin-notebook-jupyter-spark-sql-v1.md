@@ -46,7 +46,7 @@
 
 >[AZURE.NOTE]請務必在支援叢集的位置建立您的儲存體帳戶。
 
-從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 **主要存取金鑰** (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
+從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
 	
 ##<a name="provision"></a>佈建 HDInsight Spark 叢集
 
@@ -74,7 +74,7 @@
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
-	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Zeppelin Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
+	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您叢集的 Zeppelin Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
@@ -260,4 +260,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

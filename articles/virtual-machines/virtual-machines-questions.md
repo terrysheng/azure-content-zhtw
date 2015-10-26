@@ -19,7 +19,8 @@
 
 # 關於以傳統部署模型建立之 Azure 虛擬機器的常見問題集
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文旨在回答以傳統部署模型建立的資源的相關問題。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本文可解決使用者提出之有關以傳統部署模型建立之 Azure 虛擬機器的一些常見問題，這些問題來自 Azure VM 支援小組以及論壇、新聞群組和其他文章中的留言。如需基本資訊，請先從[關於虛擬機器](virtual-machines-about.md)開始。
 
@@ -150,4 +151,4 @@ Azure 可依據 VM 的大小和作業系統，以每小時價格方式收費。�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

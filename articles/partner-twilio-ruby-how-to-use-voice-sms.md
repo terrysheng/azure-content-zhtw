@@ -195,4 +195,4 @@ Twilio 動詞是指示 Twilio 應執行哪些**動作**的 XML 標籤。例如�
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

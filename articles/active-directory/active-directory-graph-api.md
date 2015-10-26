@@ -66,4 +66,4 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -166,4 +166,4 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

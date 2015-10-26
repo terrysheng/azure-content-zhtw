@@ -8,7 +8,7 @@
 
    	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
 
-3. 在行動服務中，按一下 [設定] 索引標籤，向下捲動至 應用程式設定，並輸入您從儲存體帳戶取得之下列各項的 [名稱] 和 [值] 組，然後按一下 [儲存]。
+3. 在行動服務中，按一下 [設定] 索引標籤，向下捲動至 [應用程式設定]，並輸入您從儲存體帳戶取得之下列各項的 [名稱] 和 [值] 組，然後按一下 [儲存]。
 
 	+ `STORAGE_ACCOUNT_NAME`
 	+ `STORAGE_ACCOUNT_ACCESS_KEY`
@@ -91,4 +91,4 @@
 <!-- URLs. -->
 [應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

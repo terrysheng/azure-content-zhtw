@@ -1,19 +1,19 @@
 <properties
  pageTitle="Azure IoT 中心 SDK 的清單 | Microsoft Azure"
- description="各種 IoT 中心裝置和服務 SDK 的相關資訊和連結"
+ description="各種 Azure IoT 中樞裝置和服務 SDK 的相關資訊和連結。"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="10/01/2015"
  ms.author="dobett"/>
 
 # IoT 中心 SDK
@@ -73,4 +73,4 @@ Microsoft Azure IoT 服務 SDK 包含有助於建置應用程式的程式碼，�
 [Microsoft Azure IoT 裝置 SDK for Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [IoT 中心 REST]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT 中樞高可用性和災害復原 | Microsoft Azure"
- description="描述可協助建立災害復原 (DR) 功能解決方案的功能。"
+ pageTitle="IoT 中樞 HA 和 DR | Microsoft Azure"
+ description="描述可使用災害復原功能協助建立高可用性災解決方案的功能。"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -48,4 +48,4 @@ IoT 解決方案中部署拓撲的完整處理已超出本節的範圍，但是�
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [何謂 Azure IoT 中心？]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

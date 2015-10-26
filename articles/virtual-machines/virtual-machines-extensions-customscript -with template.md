@@ -23,7 +23,7 @@
 
 如需自訂指令碼擴充功能的概觀，請參閱[這篇](virtual-machines-extensions-customscript.md)文章。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立資源。您也可以使用[傳統部署模型](virtual-machines-extensions-customscript.md)建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-extensions-customscript.md)。
 
 自從自訂指令碼擴充功能可供使用後，已廣泛用來在 Windows 和 Linux VM 上設定工作負載。隨著 Azure 資源管理員範本的引入，使用者現在可以建立單一的範本，不只可用於佈建 VM，也可在 VM 上設定工作負載。
 
@@ -98,6 +98,6 @@ Azure 資源管理員範本可讓您藉由定義資源之間的相依性，以�
 
 如需在 VM 上使用自訂指令碼擴充功能來設定應用程式的完整範例，請參閱以下範例。
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM 上的自訂指令碼擴充功能</a>。</br><a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows VM 上的自訂指令碼擴充功能</a>。
+<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM 上的自訂指令碼延伸模組</a>。</br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows VM 上的自訂指令碼延伸模組</a>。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

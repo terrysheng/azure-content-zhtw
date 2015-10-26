@@ -127,7 +127,7 @@
 
 4.  在 [新增使用者] 對話方塊上，執行下列步驟：
 
-    ![新增使用者](./media/active-directory-saas-sumologic-tutorial/IC778563.png "新增使用者")
+    ![新使用者](./media/active-directory-saas-sumologic-tutorial/IC778563.png "新增使用者")
 
     1.  在 [名字]、[姓氏] 和 [電子郵件] 文字方塊中，輸入您想要佈建之 Azure AD 帳戶的相關資訊。
     2.  選取角色。
@@ -154,4 +154,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

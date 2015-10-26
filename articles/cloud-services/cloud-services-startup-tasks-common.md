@@ -1,19 +1,19 @@
 <properties 
-pageTitle="雲端服務的常見啟動工作 | Microsoft Azure"
-	description="提供一些常見的啟動工作範例，做為您在雲端服務 Web 角色或背景工作角色中執行的參考。"
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+pageTitle="雲端服務的常見啟動工作 | Microsoft Azure" 
+description="提供一些常見的啟動工作範例，做為您在雲端服務 Web 角色或背景工作角色中執行的參考。" 
+services="cloud-services" 
+documentationCenter="" 
+authors="Thraka" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
-	ms.author="adegeo"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="08/24/2015" 
+ms.author="adegeo"/>
 
 # 常見的雲端服務啟動工作
 
@@ -503,4 +503,4 @@ Startup2.cmd：
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

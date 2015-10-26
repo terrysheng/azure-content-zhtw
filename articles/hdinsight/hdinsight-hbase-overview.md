@@ -94,4 +94,4 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

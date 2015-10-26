@@ -238,4 +238,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

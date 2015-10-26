@@ -158,4 +158,4 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 - [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub 上的 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 存放庫
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

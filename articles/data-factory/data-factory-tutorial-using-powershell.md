@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Azure Data Factory 移動和處理記錄檔 (Azure PowerShell)"
-	description="此進階教學課程說明接近現實情況的案例，並使用 Azure Data Factory 服務和 Azure PowerShell 來實作案例。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="使用 Azure Data Factory 移動和處理記錄檔 (Azure PowerShell)" 
+	description="此進階教學課程說明接近現實情況的案例，並使用 Azure Data Factory 服務和 Azure PowerShell 來實作案例。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Data Factory 移動及處理記錄檔 [PowerShell]
@@ -297,26 +297,26 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 ### 建立資料表
 
 1.	在 Azure PowerShell 中，從解壓縮範例的位置，瀏覽至 **Tables** 資料夾 (**C:\\ADFWalkthrough\\Tables**)。
-2.	使用 Cmdlet **New-AzureDataFactoryTable**，針對 **RawGameEventsTable.json** 建立資料表，如下所示	
+2.	使用 Cmdlet **New-AzureDataFactoryDataset**，針對 **RawGameEventsTable**.json 建立資料集，如下所示	
 
 
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
 
 	如果您對 ResourceGroupName 和 DataFactoryName 使用不同的名稱，請在上述 Cmdlet 加以參考。另外，只在 Cmdlet 找不到檔案時，才提供資料表 JSON 檔案的完整檔案路徑。
 
 3. 重複上述步驟來建立下列資料表：
 		
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
 		
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
 
 
 
@@ -326,7 +326,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 	您也可以從 Azure PowerShell 使用下列命令：
 			
-		Get-AzureDataFactoryTable –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
 
 	
 
@@ -558,4 +558,4 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

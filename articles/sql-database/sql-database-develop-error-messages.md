@@ -242,4 +242,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 一般方針和限制](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [資源管理](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

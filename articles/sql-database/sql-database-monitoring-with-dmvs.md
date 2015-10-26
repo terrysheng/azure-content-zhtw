@@ -33,28 +33,25 @@ SQL Database 部分支援動態管理檢視的三個類別目錄：
 
 在 SQL Database 中，查詢動態管理檢視需要 **VIEW DATABASE STATE** 權限。**VIEW DATABASE STATE** 權限會傳回目前資料庫中所有物件的相關資訊。若要授與 **VIEW DATABASE STATE** 權限給特定的資料庫使用者，請執行下列查詢：
 
-```
-GRANT VIEW DATABASE STATE TO database_user;
-```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
-在內部部署 SQL Server 的執行個體中，動態管理檢視會傳回伺服器狀態資訊。 在 SQL Database 中，僅會傳回與您目前的邏輯資料庫相關的資訊。
+在內部部署 SQL Server 的執行個體中，動態管理檢視會傳回伺服器狀態資訊。在 SQL Database 中，僅會傳回與您目前的邏輯資料庫相關的資訊。
 
 ## 正在計算資料庫大小
 
 下列查詢會傳回資料庫的大小 (以 MB 為單位)：
 
 ```
--- 計算資料庫的大小。 
-SELECT SUM(reserved\_page\_count)*8.0/1024
-FROM sys.dm\_db\_partition\_stats; 
+-- Calculates the size of the database. 
+SELECT SUM(reserved_page_count)*8.0/1024
+FROM sys.dm_db_partition_stats; 
 GO
 ```
 
 下列查詢會傳回您資料庫中個別物件的大小 (以 MB 為單位)：
 
 ```
--- Calculates the size of individual database objects.
-
+-- Calculates the size of individual database objects. 
 SELECT sys.objects.name, SUM(reserved_page_count) * 8.0 / 1024
 FROM sys.dm_db_partition_stats, sys.objects 
 WHERE sys.dm_db_partition_stats.object_id = sys.objects.object_id 
@@ -64,7 +61,7 @@ GO
 
 ## 監視連線
 
-您可以使用 [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) 檢視，擷取與特定 Azure SQL Database 伺服器建立之連線和每個連線之詳細資料的相關資訊。此外，[sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) 檢視有助於擷取所有作用中使用者的連接資訊和內部工作。下列查詢可擷取目前的連接資訊：
+您可以使用 [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) 檢視，擷取與特定 Azure SQL Database 伺服器建立之連接和每個連接之詳細資料的相關資訊。此外，[sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) 檢視有助於擷取所有作用中使用者的連接資訊和內部工作。下列查詢可擷取目前的連接資訊：
 
 ```
 SELECT 
@@ -138,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL Database 簡介](sql-database-technical-overview.md)
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

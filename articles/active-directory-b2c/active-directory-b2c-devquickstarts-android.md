@@ -891,16 +891,7 @@ ADAL for Android 以 **UserIdentifier** 物件的形式來代表使用者。這�
  
  在名為 `ToDoActivity.java` 的**同一個檔案中**
  
- ```
-    private URL getEndpointUrl() {
-        URL endpoint = null;
-        try {
-            endpoint = new URL(Constants.SERVICE_URL);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return endpoint;
-    }
+ ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
 
  ```
 
@@ -961,7 +952,7 @@ Android 需要我們處理某些回呼來操作應用程式。這些回呼是 `c
     
 ```
 
-就這麼簡單！ 您應該有一個可編譯的 `ToDoActivity.java` 檔案。整個專案現在也應該可以成功編譯。
+就這麼簡單！ 您應該已經有一個可編譯的 `ToDoActivity.java` 檔案了。整個專案現在也應該可以成功編譯。
     
 
 
@@ -973,9 +964,7 @@ Android 需要我們處理某些回呼來操作應用程式。這些回呼是 `c
 
 為了方便參考，您可以[在此處取得 .zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip)的完整範例，或者從 GitHub 中複製：
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
 
 
 ### 重要資訊
@@ -995,4 +984,4 @@ CookieSyncManager.getInstance().sync();
 ``` 深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

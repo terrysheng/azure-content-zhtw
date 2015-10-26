@@ -19,7 +19,8 @@
 
 # 在 Azure 上部署您自己的私用 Docker Registry
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文適用於以資源管理員部署模型，或以傳統部署模型建立的 VM。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 本文件描述何謂 Docker 私用登錄，並顯示如何使用 Azure Blob 儲存體將 Docker Registry 2.0 容器映像部署至 Microsoft Azure 上的 Docker 私用登錄。
@@ -95,4 +96,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

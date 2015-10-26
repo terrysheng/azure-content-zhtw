@@ -21,7 +21,9 @@
 
 Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 平台上。本文說明如何從 Azure CLI 連接到您的 Azure 訂用帳戶，以使用所有 CLI 命令。如果您尚未安裝 CLI，請參閱[安裝 Azure CLI](xplat-cli-install.md)。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立和管理資源。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
+
 
 有兩種方法可從 Azure CLI 連接到您的訂用帳戶：
 
@@ -159,4 +161,4 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

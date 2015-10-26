@@ -291,4 +291,4 @@ namespaceManager.CreateQueue(qd);
   [分割訊息實體]: service-bus-partitioning.md
   
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

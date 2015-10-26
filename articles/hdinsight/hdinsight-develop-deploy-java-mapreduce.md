@@ -610,4 +610,4 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

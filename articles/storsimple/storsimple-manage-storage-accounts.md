@@ -151,4 +151,4 @@ Microsoft Azure 系統管理員可以直接存取儲存體帳戶 (透過 Microso
 - 深入了解 [StorSimple 安全性](storsimple-security.md)。
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

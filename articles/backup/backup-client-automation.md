@@ -7,16 +7,25 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
 
 
-# 使用 Azure PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
-本文說明如何使用 Azure PowerShell 設定 Windows Server 或 Windows 用戶端上的 Azure 備份，以及管理備份和還原。
+# 使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
+本文說明如何使用 PowerShell 設定 Windows Server 或 Windows 用戶端上的 Azure 備份，以及管理備份和還原。
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## 設定和註冊
-Azure PowerShell 可以自動化下列設定和註冊工作：
+開始：
+
+1. [下載最新的 PowerShell](https://github.com/Azure/azure-powershell/releases) (所需最低版本為：1.0.0)
+2. 使用 **Switch-AzureMode** Cmdlet 切換至 *AzureResourceManager* 模式，以啟用 Azure 備份 Cmdlet：
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
+PowerShell 可以自動化下列設定和註冊工作：
 
 - 建立備份保存庫
 - 安裝 Azure 備份代理程式
@@ -25,14 +34,17 @@ Azure PowerShell 可以自動化下列設定和註冊工作：
 - 加密設定
 
 ### 建立備份保存庫
-您可以使用 **New-AzureBackupVault** commandlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
+
+> [AZURE.WARNING]對於第一次使用 Azure 備份的客戶，您需要註冊 Azure 備份提供者以搭配您的訂用帳戶使用。這可以透過執行下列命令來完成：Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+您可以使用 **New-AzureRMBackupVault** Cmdlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-您可以使用 **Get-AzureBackupVault** commandlet 取得特定訂用帳戶中所有備份保存庫的清單。
+您可以使用 **Get-AzureRMBackupVault** Cmdlet 取得特定訂用帳戶中所有備份保存庫的清單。
 
 
 ### 安裝 Azure 備份代理程式
@@ -62,16 +74,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 選項 | 詳細資料 | 預設值 |
 | ---- | ----- | ----- |
-| /q | 無訊息安裝 | - |
-| /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | 選擇加入 Microsoft Update | - |
-| /nu | 安裝完成後不要檢查更新 | - |
-| /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - |
-| /ph | Proxy 主機位址 | - |
-| /po | Proxy 主機連接埠號碼 | - |
-| /pu | Proxy 主機使用者名稱 | - |
-| /pw | Proxy 密碼 | - |
+| /q | 無訊息安裝 | - | | /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | 選擇加入 Microsoft Update | - | | /nu | 安裝完成後不要檢查更新 | - | | /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - | | /ph | Proxy 主機位址 | - | | /po | Proxy 主機連接埠號碼 | - | | /pu | Proxy 主機使用者名稱 | - | | /pw | Proxy 密碼 | - |
 
 
 ### 向 Azure 備份服務進行註冊
@@ -80,7 +83,7 @@ PS C:\> MARSAgentInstaller.exe /?
 - 具備有效的 Azure 訂用帳戶
 - 具備備份保存庫
 
-若要下載保存庫認證，請在 Azure PowerShell 主控台中執行**Get-AzureBackupVaultCredentials**，並將其儲存在方便的位置，例如 *C:\\Downloads*。
+若要下載保存庫認證，請在 Azure PowerShell 主控台中執行**Get-AzureRMBackupVaultCredentials**，並將其儲存在方便的位置，例如 *C:\\Downloads*。
 
 ```
 PS C:\> $credspath = "C:"
@@ -103,7 +106,7 @@ Region              : West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] 請勿使用相對路徑來指定保存庫認證檔。您必須提供絕對路徑做為 Cmdlet 的輸入。
+> [AZURE.IMPORTANT]請勿使用相對路徑來指定保存庫認證檔。您必須提供絕對路徑做為 Cmdlet 的輸入。
 
 ### 網路設定
 若 Windows 電腦是透過 Proxy 伺服器連線到網際網路，您也可以提供 Proxy 設定給代理程式。本範例未使用 Proxy 伺服器，因此會明確地清除任何 Proxy 相關資訊。
@@ -568,8 +571,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 現在可以遠端管理電腦 - 從代理程式的安裝開始。例如，下列指令碼會將代理程式複製到遠端電腦並進行安裝。
 
 ```
-PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -580,7 +583,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## 後續步驟
 如需 Windows Server/用戶端的 Azure 備份詳細資訊，請參閱
 
-- [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
+- [Azure 備份的簡介](backup-configure-vault.md)
 - [備份 Windows 伺服器](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

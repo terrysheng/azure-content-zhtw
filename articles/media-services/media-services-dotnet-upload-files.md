@@ -314,4 +314,4 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 [如何取得媒體處理器]: media-services-get-media-processor.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

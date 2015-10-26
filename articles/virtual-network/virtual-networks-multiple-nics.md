@@ -1,19 +1,19 @@
 <properties 
    pageTitle="建立具有多個 NIC 的 VM"
-	description="深入了解如何建立與設定具有多個 NIC 的 VM"
-	services="virtual-network, virtual-machines"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="深入了解如何建立與設定具有多個 NIC 的 VM"
+   services="virtual-network, virtual-machines"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/10/2015"
+   ms.author="telmos" />
 
 # 建立具有多個 NIC 的 VM
 
@@ -249,4 +249,4 @@ VM 上的任何 NIC 可能會關聯至網路安全性群組 (NSG)，包括已啟
 
 若是 Linux VM，因為預設行為是使用弱式主機路由，建議您將次要 NIC 的流量限制在相同的子網路中。不過，如果某些情況要求子網路外部的連線，使用者應該根據路由啟用原則，以確保輸入和輸出流量都使用相同的 NIC。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

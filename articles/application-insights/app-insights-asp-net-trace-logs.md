@@ -120,8 +120,8 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。例如，
 [exceptions]: app-insights-web-failures-exceptions.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

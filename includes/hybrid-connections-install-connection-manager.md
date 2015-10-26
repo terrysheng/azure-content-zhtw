@@ -15,4 +15,4 @@
 
 混合式連線設定現在已完成。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

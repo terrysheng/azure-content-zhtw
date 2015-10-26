@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Azure Machine Learning 批次執行活動建立預測管線 | Microsoft Azure"
-	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="使用 Azure Machine Learning 批次執行活動建立預測管線 | Microsoft Azure" 
+	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Machine Learning 批次執行活動建立預測管線   
@@ -261,7 +261,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
 	"typeProperties": {
     	"globalParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -348,7 +348,9 @@ AzureMLBatchExecution 活動不需要輸入 (如果不需要輸入相依性的�
 **答：**可以。如需詳細資料，請參閱**使用讀取器模組讀取 Azure Blob 中多個檔案的資料**一節。
 
 
+## 另請參閱
 
+- [Azure 部落格文章：開始使用 Azure Data Factory 和 Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 
 
@@ -361,4 +363,4 @@ AzureMLBatchExecution 活動不需要輸入 (如果不需要輸入相依性的�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

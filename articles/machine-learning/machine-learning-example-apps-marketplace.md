@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Marketplace 中的機器學習服務範例應用程式 | Microsoft Azure"
-	description="Azure Machine Learning Marketplace 應用程式範例示範如何將 Machine Learning 服務發行到 Azure Marketplace 對於在自己的應用程式中使用的訂閱者進行支付。"
-	services="machine-learning"
-	documentationCenter=""
-	authors="LuisCabrer"
-	manager="paulettm"
+	pageTitle="Azure Marketplace 中的機器學習服務範例應用程式 | Microsoft Azure" 
+	description="Azure Machine Learning Marketplace 應用程式範例示範如何將 Machine Learning 服務發行到 Azure Marketplace 對於在自己的應用程式中使用的訂閱者進行支付。" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 # Azure Marketplace 中的 Machine Learning 應用程式
@@ -63,4 +63,4 @@ Azure Machine Learning 為資料科學家提供一個管道，可像智慧型手
 
 [說明文件](https://churn.cloudapp.net/documentation)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

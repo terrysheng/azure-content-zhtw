@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Redis 快取範例"
-	description="了解如何使用 Azure Redis 快取"
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Azure Redis 快取範例" 
+	description="了解如何使用 Azure Redis 快取" 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取範例 
@@ -75,4 +75,4 @@
 
 [頻寬監視器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor)範例可讓您監視用戶端上使用的頻寬。若要測量頻寬，請在快取用戶端電腦上執行這個範例、呼叫快取，並觀察頻寬監視器範例所報告的頻寬。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -189,9 +189,9 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

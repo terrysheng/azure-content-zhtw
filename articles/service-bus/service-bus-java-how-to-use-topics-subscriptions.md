@@ -77,7 +77,7 @@
 
 **ServiceBusService** 類別也能用來建立主題的訂用帳戶。為訂用帳戶命名，且能包含選擇性篩選器，以用來限制傳遞至訂用帳戶的虛擬佇列的訊息集合。
 
-### 使用預設 (MatchAll) 篩選器建立訂用帳戶
+### 使用預設 (MatchAll) 篩選器建立訂閱
 
 **MatchAll** 篩選器是預設篩選器，如果在建立新的訂用帳戶閱時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。下列範例將建立名為 "AllMessages" 的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
 
@@ -235,4 +235,4 @@
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

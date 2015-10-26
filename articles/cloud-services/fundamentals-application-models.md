@@ -40,12 +40,9 @@ Azure 對於執行的應用程式提供不同的裝載模型。每個模型都�
 
 Azure 也針對更特殊的用途提供其他計算裝載模型，如下所示：
 
-* [行動服務](/services/mobile-services/)  
-  適用於行動裝置上執行之應用程式的雲端後端最佳化模型。
-* [批次](/services/batch/)  
-  適用於處理大量的類似工作的最佳化模型，特別適用於將本身調撥在多台電腦以平行工作執行的工作負載。
-* [HDInsight (Hadoop)](/services/hdinsight/)  
-  適用於在 Hadoop 叢集上執行 [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) 工作的最佳化模型。 
+* [行動服務](/services/mobile-services/)適用於行動裝置上執行之應用程式的雲端後端最佳化模型。
+* [批次](/services/batch/)適用於處理大量的類似工作的最佳化模型，特別適用於將本身調撥在多台電腦以平行工作執行的工作負載。
+* [HDInsight (Hadoop)](/services/hdinsight/)適用於在 Hadoop 叢集上執行 [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) 工作的最佳化模型。 
 
 ## 該用哪個模型？ 思考和選擇
 
@@ -81,4 +78,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * 深入了解[雲端服務](services/cloud-services/)
 * 深入了解[虛擬機器](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

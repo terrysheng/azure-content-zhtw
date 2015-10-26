@@ -18,7 +18,9 @@
 
 # 透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
+
 
 本主題說明如何透過 Azure CLI 中的服務管理 (asm) 模式，在任何平台上建立包含 Docker VM 延伸模組的 VM。[Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。您可以將 Docker VM 擴充程式應用在 [Azure Linux 代理程式](virtual-machines-linux-agent-user-guide.md)上，如此可在 Azure 上建立 Docker VM 來託管任何數量的應用程式容器。若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard) (英文)。
 
@@ -65,10 +67,10 @@
 
 `azure vm image list | grep Ubuntu-14_04`
 
-並選取其中一個映像名稱 (例如 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ZH-TW-30GB`)，然後使用下列命令建立使用該映像的新 VM。
+並選取其中一個映像名稱 (例如 `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-zh-TW-30GB`)，然後使用下列命令建立使用該映像的新 VM。
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ZH-TW-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-zh-TW-30GB" <username> <password>
 ```
 
 其中：
@@ -85,18 +87,59 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 ![](./media/virtual-machines-docker-with-xplat-cli/dockercreateresults.png)
 
-> [AZURE.NOTE]建立虛擬機器需要幾分鐘的時間，但當其佈建完成後，Docker 精靈 (Docker 服務) 便會啟動，您即可與 Docker 容器主機連線。
+> [AZURE.NOTE]建立虛擬機器需要幾分鐘的時間，但當其佈建完成後 (狀態值為 `ReadyRole`)，Docker 精靈 (Docker 服務) 便會啟動，您即可連線至 Docker 容器主機。
 
 若要測試您已在 Azure 中建立的 Docker VM，請輸入
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
-其中 *<vm-name-you-used>* 是虛擬機器的名稱，您會將其用在呼叫 `azure vm docker create`。您應該可看到如下所示的內容，這代表您的 Docker 主機 VM 已在 Azure 中啟用和執行，並且正等待您的命令。
+其中 *&lt;vm-name-you-used&gt;* 是虛擬機器的名稱，您會將其用在呼叫 `azure vm docker create`。您應該可看到如下所示的內容，這代表您的 Docker 主機 VM 已在 Azure 中啟用和執行，並且正等待您的命令。
 
-![](./media/virtual-machines-docker-with-xplat-cli/connectingtodockerhost.png)
+現在您可以嘗試用您的 Docker 用戶端取得資訊以連線 (在某些 Docker 用戶端設定中，例如 Mac 的設定，您可能需要使用 `sudo`)：
+
+	sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
+	Password:
+	Containers: 0
+	Images: 0
+	Storage Driver: devicemapper
+	Pool Name: docker-8:1-131781-pool
+	Pool Blocksize: 65.54 kB
+	Backing Filesystem: extfs
+	Data file: /dev/loop0
+	Metadata file: /dev/loop1
+	Data Space Used: 1.821 GB
+	Data Space Total: 107.4 GB
+	Data Space Available: 28 GB
+	Metadata Space Used: 1.479 MB
+	Metadata Space Total: 2.147 GB
+	Metadata Space Available: 2.146 GB
+	Udev Sync Supported: true
+	Deferred Removal Enabled: false
+	Data loop file: /var/lib/docker/devicemapper/devicemapper/data
+	Metadata loop file: /var/lib/docker/devicemapper/devicemapper/metadata
+	Library Version: 1.02.77 (2012-10-15)
+	Execution Driver: native-0.2
+	Logging Driver: json-file
+	Kernel Version: 3.19.0-28-generic
+	Operating System: Ubuntu 14.04.3 LTS
+	CPUs: 1
+	Total Memory: 1.637 GiB
+	Name: testsshasm
+	WARNING: No swap limit support
+
+要確定一切運作正常，您可以檢查 Docker 延伸模組的 VM：
+
+	azure vm extension get testsshasm
+	info: Executing command vm extension get
+	+ Getting virtual machines
+	data: Publisher Extension name ReferenceName Version State
+	data: -------------------- --------------- ------------------------- ------- ------
+	data: Microsoft.Azure.E... DockerExtension DockerExtension 1.* Enable
+	info: vm extension get command OK
 
 ### Docker 主機 VM 驗證
-除了建立 Docker VM 之外，`azure vm docker create` 命令也會自動建立所需的憑證，以允許您的 Docker 用戶端電腦使用 HTTPS 與 Azure 容器主機連線，而且憑證會適當地儲存在用戶端和主機機器中。在後續執行上，現有的認證會被重新使用並且與新的主機共用。
+
+除了建立 Docker VM 之外，`azure vm docker create` 命令也會自動建立所需的憑證，以允許您的 Docker 用戶端電腦使用 HTTPS 與 Azure 容器主機連線，而且憑證會適當地儲存在用戶端和主機機器中。在後續的嘗試上，現有憑證會重複使用並與新的主機共用。
 
 依預設，憑證會放在 `~/.docker`，而 Docker 將設定為在連接埠 **2376** 上執行。如果您要使用不同的連接埠或目錄，則可以使用下列其中一個 `azure vm docker create` 命令列選項來設定您的 Docker 容器主機 VM，藉此使用不同連接埠或不同憑證來連接用戶端：
 
@@ -108,9 +151,6 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 主機上的 Docker 精靈會設定為使用由 `azure vm docker create` 命令產生的憑證接聽，並驗證指定之連接埠上的用戶端連線。用戶端機器必須使用這些認證來取得 Docker 主機的存取權。
 
 > [AZURE.NOTE]在沒有這些憑證下運作的網路主機，將很容易受到任何可連線到此機器的使用者攻擊。在您修改預設設定之前，請確保您已了解存在您電腦和應用程式中的風險。
-
-
-
 
 ## 後續步驟
 
@@ -141,4 +181,4 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [Docker 使用者指南]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

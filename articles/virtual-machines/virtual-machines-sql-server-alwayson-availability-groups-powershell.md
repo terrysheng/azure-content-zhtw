@@ -24,7 +24,8 @@
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高可用性 SQL Server 系統。本教學課程將示範如何使用 Azure 環境中的 SQL Server AlwaysOn 端對端實作可用性群組。在本教學課程結束時，您 Azure 中的 SQL Server AlwaysOn 解決方案將包含下列項目：
 
@@ -630,4 +631,4 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高�
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

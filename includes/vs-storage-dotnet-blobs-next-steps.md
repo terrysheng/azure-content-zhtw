@@ -9,4 +9,4 @@
   - 使用[佇列儲存體](./storage-dotnet-how-to-use-queues.md)儲存非結構化資料。
   - 使用 [SQL Database](../sql-database/sql-database-dotnet-how-to-use.md) 儲存關聯式資料。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

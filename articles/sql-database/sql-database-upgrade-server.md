@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein"/>
 
 # 使用 PowerShell 升級至 SQL Database V12
@@ -33,16 +33,9 @@
 
 若要使用 PowerShell 將伺服器升級至 V12，您必須安裝 Azure PowerShell 並加以執行，然後視您可能需要的版本將其切換為資源管理員模式，才能存取 Azure 資源管理員 PowerShell Cmdlet。
 
-您可以執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 來下載和安裝 Azure PowerShell 模組。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+> [AZURE.IMPORTANT]從 Azure PowerShell 1.0 Preview 起，不再提供 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。本文中的範例使用新的 PowerShell 1.0 Preview 命名慣例。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) (英文)。
 
-建立和管理 Azure SQL Database 時所需的 Cmdlet，都位於 Azure 資源管理員模組中。當您開始使用 Azure PowerShell 時，系統會依預設匯入 Azure 模組中的 Cmdlet。若要切換至 Azure 資源管理員模組，請使用 **Switch-AzureMode** Cmdlet。
-
-	Switch-AzureMode -Name AzureResourceManager
-
-如果您收到警告，說明「Switch-AzureMode cmdlet 已經過時，未來版本將移除」。 您可以略過它並移至下一節。
-
-如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](../powershell-azure-resource-manager.md)。
-
+若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行，且由於 Switch-AzureMode 已移除，因此您應該執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 下載並安裝最新的Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 
 ## 設定您的認證並選取您的訂用帳戶
@@ -65,7 +58,7 @@
 
 若要取得伺服器升級建議，請執行下列 Cmdlet：
 
-    $hint = Get-AzureSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
+    $hint = Get-AzureRMSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
 
 如需詳細資訊，請參閱 [Azure SQL Database 彈性資料庫集區建議](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)和 [Azure SQL Database 定價層建議](sql-database-service-tier-advisor.md)。
 
@@ -75,7 +68,7 @@
 
 若要開始升級伺服器，請執行下列 Cmdlet：
 
-    Start-AzureSqlServerUpgrade -ResourceGroupName “resourcegroup1” -ServerName “server1” -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureRMSqlServerUpgrade -ResourceGroupName “resourcegroup1” -ServerName “server1” -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 當您執行此命令時，升級程序將會開始。您可以自訂建議的輸出，並提供此 Cmdlet 的已編輯建議。
@@ -88,10 +81,6 @@
     #
     Add-AzureAccount
     
-    # Switch mode
-    #
-    Switch-AzureMode -Name AzureResourceManager
-
     # Setting the variables
     #
     $SubscriptionName = 'YOUR_SUBSCRIPTION' 
@@ -100,15 +89,15 @@
     
     # Selecting the right subscription 
     # 
-    Select-AzureSubscription $SubscriptionName 
+    Select-AzureSubscription -SubscriptionName $SubscriptionName 
     
     # Getting the upgrade recommendations 
     #
-    $hint = Get-AzureSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+    $hint = Get-AzureRMSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
     
     # Starting the upgrade process 
     #
-    Start-AzureSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureRMSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 ## 自訂升級對應
@@ -142,23 +131,17 @@ ElasticPoolCollection 和 DatabaseCollection 參數都是選擇性項目：
      
     # Starting the upgrade
     #
-    Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
+    Start-AzureRMSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
+
     
 
 
 
 
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
-
-
-
 ## 相關資訊
 
-- [Azure SQL Database 資源管理員 Cmdlet](https://msdn.microsoft.com/library/mt163521.aspx)
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

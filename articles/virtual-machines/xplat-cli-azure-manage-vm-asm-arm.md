@@ -21,7 +21,8 @@
 # 在使用適用於 Mac、Linux 及 Windows 的 Azure CLI 的 VM 工作中的對等資源管理員和服務管理命令
 本文將說明在 Azure 服務管理和 Azure 資源管理員中建立和管理 Azure VM 的對等 Microsoft Azure 命令列介面 (Azure CLI) 命令。將本文當成便利指南，來將指令碼從某一個命令模式移轉至另一個命令模式。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明使用資源管理員部署模型和傳統 (例如服務管理) 部署模型建立的資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 * 如果您尚未安裝 Azure CLI 及連線至您的訂用帳戶，請參閱[安裝 Azure CLI](../xplat-cli-install.md) 和[從 Azure CLI 連線至 Azure 訂用帳戶](../xplat-cli-connect.md)。當您想要使用資源管理員模式命令時，請務必使用登入方法連線。
@@ -70,4 +71,4 @@
 * 如需如何以 Azure CLI 來使用資源管理員資源的詳細資訊，請參閱[搭配使用 Azure 命令列介面與資源管理員](xplat-cli-azure-resource-manager.md)和[使用 Azure 命令列介面管理角色型存取控制](../role-based-access-control-xplat-cli-install.md)。
 * 如需 CLI 命令的其他範例，請參閱[搭配使用 Azure 命令列介面與 Azure 服務管理](../virtual-machines-command-line-tools.md)和[搭配使用 Azure CLI 與 Azure 資源管理員](azure-cli-arm-commands.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

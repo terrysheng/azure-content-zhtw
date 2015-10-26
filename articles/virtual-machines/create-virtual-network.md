@@ -20,7 +20,7 @@
 # 教學課程：在 Azure 中建立純雲端虛擬網路
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
 
 本教學課程將逐步引導您在 Azure 管理入口網站中，建立包含兩個子網路的純雲端 Azure 虛擬網路範例。產生的虛擬網路看起來如下：
@@ -123,4 +123,4 @@
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

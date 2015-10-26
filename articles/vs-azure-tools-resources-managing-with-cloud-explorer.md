@@ -1,19 +1,19 @@
 <properties 
    pageTitle="使用雲端總管管理 Azure 資源"
-	description="了解如何在 Visual Studio 內使用 [雲端總管] 瀏覽和管理 Azure 資源。"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="了解如何在 Visual Studio 內使用 [雲端總管] 瀏覽和管理 Azure 資源。"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # 使用雲端總管管理 Azure 資源
 
@@ -95,4 +95,4 @@
 
 當您在 [搜尋] 方塊中輸入字元時，只有符合這些字元的資源才會出現在資源樹狀目錄中。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

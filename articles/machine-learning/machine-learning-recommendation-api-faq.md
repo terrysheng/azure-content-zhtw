@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="設定和使用 Machine Learning Recommendations API | Microsoft Azure"
-	description="以 Azure Machine Learning 建置之 Microsoft RECOMMENDATIONS API 的常見問題集"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="設定和使用 Machine Learning Recommendations API | Microsoft Azure" 
+	description="以 Azure Machine Learning 建置之 Microsoft RECOMMENDATIONS API 的常見問題集" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 #設定和使用 Machine Learning Recommendations API 的常見問題集
@@ -130,4 +130,4 @@ API 文件是 [Azure Machine Learning Recommendations - 快速入門指南](mach
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

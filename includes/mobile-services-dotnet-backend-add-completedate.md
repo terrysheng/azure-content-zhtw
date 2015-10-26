@@ -40,4 +40,4 @@
 
 接下來，您將更新用戶端應用程式以顯示新 **CompleteDate** 資料。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

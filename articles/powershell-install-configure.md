@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="10/13/2015"
 	ms.author="coreyp"/>
 
 # 如何安裝和設定 Azure PowerShell#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure CLI</a></div>
+
+> [AZURE.NOTE]**Azure PowerShell 1.0 Preview** 現已於 [PowerShell 資源庫](http://www.powershellgallery.com/)中提供。這個預覽中有許多變更，且我們想要使用此預覽來收集意見，我們將會在 Azure PowerShell 1.0 中納入這些意見。**這個預覽不適用於關鍵任務應用程式**。如果您執行的是此類應用程式，請繼續使用 Azure PowerShell 0.9.8。如果您想要使用 1.0 Preview，您可以隨時將它解除安裝並返回 0.9.8。如需完整的安裝指示，請參閱此[部落格文章](https://azure.microsoft.com/zh-TW/blog/azps-1-0-pre/)。
 
 您可以使用 Windows PowerShell (不論是透過在命令提示字元中互動輸入，還是透過指令碼自動執行) 在 Azure 中執行各種工作。Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows PowerShell 管理 Azure。您可以使用 Cmdlet 來建立、測試、部署和管理透過 Azure 平台傳遞的解決方案和服務。您可透過 Azure 管理入口網站執行的工作，大多也可使用 Cmdlet 來執行。例如，您可以建立和設定雲端服務、虛擬機器、虛擬網路和 Web 應用程式。
 
@@ -260,4 +262,4 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

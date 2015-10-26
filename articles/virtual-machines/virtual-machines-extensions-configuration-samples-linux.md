@@ -21,7 +21,8 @@
 
 本文提供範例組態，可用來設定 Linux VM 的 Azure VM 延伸模組。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 若要深入了解這些延伸模組，請按一下這裡：[Azure VM 延伸模組概觀](https://msdn.microsoft.com/library/azure/dn606311.aspx)。
 
@@ -189,4 +190,4 @@
 
 [Linux VM 上的自訂指令碼延伸模組](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

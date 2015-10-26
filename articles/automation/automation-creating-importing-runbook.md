@@ -131,4 +131,4 @@
 - [在 Azure 自動化中編輯文字式 Runbook](automation-edit-textual-runbook.md)
 - [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

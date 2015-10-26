@@ -18,7 +18,8 @@
 
 # 如何快速地開始使用 Azure Marketplace 中的 Docker
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+ 
 
 要開始使用 [Docker]，最快速的方式是前往 Azure Marketplace，並搭配使用 [Canonical] 所建立的 **Docker on Ubuntu Server** 映像範本和 [MSOpenTech] 建立 VM。這會建立 Ubuntu Server VM，並自動安裝 [Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)，且在 Azure 上預先安裝並執行**最新的** Docker 引擎。
 
@@ -77,4 +78,4 @@
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

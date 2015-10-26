@@ -129,4 +129,4 @@ Ping 訊息是空的 [BrokeredMessage][]，其 [ContentType][] 屬性設定為 a
   [TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
   [非同步傳訊模式和高可用性]: service-bus-async-messaging.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

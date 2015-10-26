@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="trinadhk";"aashishr" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr";"trinadhk" />
 
 
 # 使用 PowerShell 部署和管理 Azure VM 的備份
@@ -26,7 +26,7 @@
 ## 設定和註冊
 開始：
 
-1. [下載最新的 PowerShell](https://github.com/Azure/azure-powershell/releases) (所需最低版本為：0.9.8)
+1. [下載最新的 PowerShell](https://github.com/Azure/azure-powershell/releases) (所需最低版本為：1.0.0)
 
 2. 使用 **Switch-AzureMode** Cmdlet 切換至 *AzureResourceManager* 模式，以啟用 Azure 備份 Cmdlet：
 
@@ -77,6 +77,8 @@ Name                      Type               ScheduleType       BackupTime
 DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:00 AM
 ```
 
+> [AZURE.NOTE]PowerShell 中 BackupTime 欄位的時區是 UTC。不過，當備份時間顯示在 Azure 入口網站中時，時區會對應您的本機系統與 UTC 時差。
+
 備份原則至少與一個保留原則相關聯。保留原則定義復原點在 Azure 備份中保留的時間長度。**New-AzureRMBackupRetentionPolicy** Cmdlet 會建立可儲存保留原則資訊的 PowerShell 物件。這些保留原則物件做為 *New-AzureRMBackupProtectionPolicy* Cmdlet 的輸入，或直接與 *Enable-AzureRMBackupProtection* Cmdlet 搭配使用。
 
 備份原則定義項目備份的時間和頻率。**New-AzureRMBackupProtectionPolicy** Cmdlet 會建立可儲存備份原則資訊的 PowerShell 物件。備份原則用來做為 *Enable-AzureRMBackupProtection* Cmdlet 的輸入。
@@ -109,6 +111,8 @@ WorkloadName    Operation       Status          StartTime              EndTime
 ------------    ---------       ------          ---------              -------
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
+
+> [AZURE.NOTE]在 PowerShell 中顯示的 StartTime 和 EndTime 欄位的時間為 UTC。不過，當類似資訊顯示在 Azure 入口網站中時，時區會對應您的本機系統時鐘。
 
 ### 監視備份工作
 Azure 備份中長時間執行的大部分作業都模擬成工作。如此就很容易追蹤進度，而不需要一直開啟 Azure 入口網站。
@@ -156,6 +160,8 @@ RecoveryPointId    RecoveryPointType  RecoveryPointTime      ContainerName
 15273496567119     AppConsistent      01-Sep-15 12:27:38 PM  iaasvmcontainer;testvm;testv...
 ```
 
+變數 ```$rp``` 是所選取之備份項目的復原點陣列，以時間的相反順序儲存 - 最新的復原點位於索引 0。使用標準 PowerShell 陣列索引來挑選復原點。例如：```$rp[0]``` 將會選取最新的復原點。
+
 ### 還原磁碟
 
 透過 Azure 入口網站或透過 Azure PowerShell 執行還原作業，兩者之間有一項重要差異。如果使用 PowerShell，從復原點還原磁碟及組態資訊時，還原作業會停止。不會建立虛擬機器。
@@ -163,7 +169,7 @@ RecoveryPointId    RecoveryPointType  RecoveryPointTime      ContainerName
 > [AZURE.WARNING]Restore-AzureRMBackupItem 不會建立 VM。只會將磁碟還原到指定的儲存體帳戶。這與 Azure 入口網站中的行為不同。
 
 ```
-PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp
+PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
 PS C:\> $restorejob
 
 WorkloadName    Operation       Status          StartTime              EndTime
@@ -231,4 +237,67 @@ New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-<!---HONumber=Sept15_HO4-->
+## 程式碼範例
+
+### 1\.取得作業子工作的完成狀態
+
+若要追蹤個別子工作的完成狀態，您可以使用 **Get AzureRMBackupJobDetails** Cmdlet：
+
+```
+PS C:\> $details = Get-AzureRMBackupJobDetails -JobId $backupjob.InstanceId -Vault $backupvault
+PS C:\> $details.SubTasks
+
+Name                                                        Status
+----                                                        ------
+Take Snapshot                                               Completed
+Transfer data to Backup vault                               InProgress
+```
+
+### 2\.建立備份作業的每日/每週報表
+
+系統管理員通常想要知道備份作業在過去 24 小時的執行情況，以及那些備份作業的狀態。此外，傳輸的資料量提供系統管理員一種預估其每月資料使用量的方式。下面指令碼會從 Azure 備份服務提取原始資料，並將資訊顯示在 PowerShell 主控台上。
+
+```
+param(  [Parameter(Mandatory=$True,Position=1)]
+        [string]$backupvaultname,
+
+        [Parameter(Mandatory=$False,Position=2)]
+        [int]$numberofdays = 7)
+
+
+#Initialize variables
+$DAILYBACKUPSTATS = @()
+$backupvault = Get-AzureRMBackupVault -Name $backupvaultname
+$enddate = ([datetime]::Today).AddDays(1)
+$startdate = ([datetime]::Today)
+
+for( $i = 1; $i -le $numberofdays; $i++ )
+{
+    # We query one day at a time because pulling 7 days of data might be too much
+    $dailyjoblist = Get-AzureRMBackupJob -Vault $backupvault -From $startdate -To $enddate -Type AzureVM -Operation Backup
+    Write-Progress -Activity "Getting job information for the last $numberofdays days" -Status "Day -$i" -PercentComplete ([int]([decimal]$i*100/$numberofdays))
+
+    foreach( $job in $dailyjoblist )
+    {
+        #Extract the information for the reports
+        $newstatsobj = New-Object System.Object
+        $newstatsobj | Add-Member -type NoteProperty -name Date -value $startdate
+        $newstatsobj | Add-Member -type NoteProperty -name VMName -value $job.WorkloadName
+        $newstatsobj | Add-Member -type NoteProperty -name Duration -value $job.Duration
+        $newstatsobj | Add-Member -type NoteProperty -name Status -value $job.Status
+
+        $details = Get-AzureRMBackupJobDetails -Job $job
+        $newstatsobj | Add-Member -type NoteProperty -name BackupSize -value $details.Properties["Backup Size"]
+        $DAILYBACKUPSTATS += $newstatsobj
+    }
+
+    $enddate = $enddate.AddDays(-1)
+    $startdate = $startdate.AddDays(-1)
+}
+
+$DAILYBACKUPSTATS | Out-GridView
+```
+
+如果您想要將製作圖表功能加入至這個報表輸出，請在 TechNet 部落格上了解[使用 PowerShell 製作圖表](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
+
+<!---HONumber=Oct15_HO3-->

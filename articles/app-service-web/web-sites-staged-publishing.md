@@ -260,4 +260,4 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

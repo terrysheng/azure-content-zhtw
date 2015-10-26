@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # 資料移動活動
 資料處理站有[供全域使用服務](#global)以跨下方所列之不同資料存放區使用[複製活動](#copyactivity)支援資料移動。資料處理站也有[安全地在內部部署位置與雲端之間移動資料](#moveonpremtocloud)的內建支援，使用資料管理閘道器。
+
+如需使用複製活動的快速教學課程，請參閱[教學課程：在 Azure Data Factory 管線中使用複製活動](data-factory-get-started.md)。在教學課程中，您會使用複製活動將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。下列區段列出複製活動支援的所有來源與接收。
+
 
 ## 複製活動支援的資料存放區
 複製活動會將資料從**來源**資料存放區複製到**接收**資料存放區。資料處理站支援下列資料存放區和來源接收組合。按一下資料存放區以了解如何從該存放區複製資料以及將資料複製到該存放區。
@@ -42,7 +45,7 @@
 ## <a name="copyactivity"></a>複製活動
 複製活動採用輸入資料集 (**來源**) 並將每個活動組態的資料複製到輸出資料集 (**接收**)。資料複製是根據活動上指定的排程以批次方式完成。
 
-> [AZURE.NOTE]若要了解高層級的整體活動定義，例如各種 JSON 區段和所有活動都可用的屬性，請參閱[了解管線 & 活動](data-factory-create-pipelines.md)一文。
+> [AZURE.NOTE]若要了解一般在高層級定義活動的方法，例如各種 JSON 區段和所有活動都可用的屬性，請參閱[了解管線和活動](data-factory-create-pipelines.md)一文。
 
 複製活動提供下列功能：
 
@@ -98,4 +101,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,21 @@
-<properties
-	pageTitle="Azure 儲存體複寫 | Microsoft Azure"
-	description="系統會 複製Microsoft Azure 儲存體帳戶中的資料，以維持持久性和高可用性。複寫選項包括本機備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。"
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
-	editor=""/>
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+<properties 
+  pageTitle="Azure 儲存體複寫 | Microsoft Azure" 
+  description="系統會 複製Microsoft Azure 儲存體帳戶中的資料，以維持持久性和高可用性。複寫選項包括本機備援儲存體 (LRS)、區域備援儲存體 (ZRS)、異地備援儲存體 (GRS) 和讀取權限異地備援儲存體 (RA-GRS)。" 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
+
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="10/07/2015" 
+  ms.author="tamram"/>
 
 # Azure 儲存體複寫
 
@@ -55,7 +56,7 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 區域備援儲存體 (ZRS) 會在單一區域，或兩個區域內的二或三個設備中複寫資料，以提供比 LRS 更高的持久性。如果您的儲存體帳戶已啟用 ZRS，則即使其中一個設備發生故障，您的資料仍會是永久性。
 
 
->[AZURE.NOTE]ZRS 目前僅適用於區塊 Blob。請注意，建立儲存體帳戶並選取區域備援複寫後，您無法轉換為採用任何其他類型的複寫，反之亦然。
+>[AZURE.NOTE]ZRS 目前僅適用於區塊 Blob，且僅為 2014年 2 月 14 日版和以上版本支援。請注意，建立儲存體帳戶並選取區域備援複寫後，您無法轉換為採用任何其他類型的複寫，反之亦然。
 
 
 ## 異地備援儲存體
@@ -103,4 +104,4 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 - [使用 RA-GRS 的 Microsoft Azure 儲存體模擬器 3.1](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Azure 儲存體 SOSP 文件](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

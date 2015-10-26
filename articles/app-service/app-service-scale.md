@@ -131,4 +131,4 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

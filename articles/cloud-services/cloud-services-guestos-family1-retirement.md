@@ -81,4 +81,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## 後續步驟
 檢閱最新的[客體作業系統版本](cloud-services-guestos-update-matrix.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

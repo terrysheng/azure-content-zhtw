@@ -19,7 +19,8 @@
 
 # 針對 Azure VM 延伸模組的失敗進行疑難排解。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋內容包括如何使用資源管理員部署模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 ## Azure 資源管理員範本概觀。
 
@@ -84,4 +85,4 @@ Azure Powershell：
 
 一旦移除了延伸模組，範本就可以重新執行並在 VM 上執行指令碼。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

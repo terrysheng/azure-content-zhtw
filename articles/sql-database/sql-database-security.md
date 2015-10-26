@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="SQL Database 安全性概觀" 
-   description="了解 Azure SQL Database 和 SQL Server 安全性，包括雲端和 SQL Server 內部部署之間在驗證、授權、連線安全性、加密和法規遵循等各方面的差異。" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="tmullaney" 
-   manager="jeffreyg" 
+<properties
+   pageTitle="SQL Database 安全性概觀"
+   description="了解 Azure SQL Database 和 SQL Server 安全性，包括雲端和 SQL Server 內部部署之間在驗證、授權、連線安全性、加密和法規遵循等各方面的差異。"
+   services="sql-database"
+   documentationCenter=""
+   authors="tmullaney"
+   manager="jeffreyg"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services" 
-   ms.date="09/22/2015"
+   ms.workload="data-services"
+   ms.date="10/13/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -21,9 +21,9 @@
 
 ## 概觀
 
-本篇文章逐步說明使用 Azure SQL Database 保護應用程式資料層的基本概念。本文尤其將協助您開始利用資源，在[開始使用 SQL Database 教學課程](sql-database-get-started.md)所建立的資料庫上限制存取、保護資料，以及監視活動。如需各種 SQL 上可用的完整安全性功能概觀，請參閱 [SQL Server Database Engine 和 Azure SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)。
+本篇文章逐步說明使用 Azure SQL Database 保護應用程式資料層的基本概念。本文尤其將協助您開始利用資源，在[開始使用 SQL Database 教學課程](sql-database-get-started.md)中所建立的資料庫上限制存取、保護資料，以及監視活動。如需各種 SQL 上可用的完整安全性功能概觀，請參閱 [SQL Server Database Engine 和 Azure SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)。同時您也可於[安全性和 Azure SQL Database 技術白皮書](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF) 中取得其他資訊。
 
-## 連線安全性
+## 連接安全性
 
 「連線安全性」是指如何使用防火牆規則和連線加密，限制和保護資料庫的連線。
 
@@ -36,10 +36,10 @@ Azure SQL Database 的所有連線，也就是任何時候只要資料需要「�
 
 「驗證」是指連線到資料庫時如何證明身分識別。SQL Database 支援兩種驗證類型：
 
- - **SQL 驗證**，它會使用使用者名稱和密碼
+ - **SQL 驗證**，其需要使用者名稱和密碼
  - **Azure Active Directory 驗證**，它會使用由 Azure Active Directory 管理的身分識別，並支援受管理和整合的網域
 
-當您為資料庫建立邏輯伺服器時，採取使用者名稱和密碼指定了「伺服器管理員」登入。使用這些認證，您就可以使用資料庫擁有者或 "dbo" 的身分驗證該伺服器上的任何資料庫。 如果您想要使用 Azure Active Directory 驗證，就必須建立另一個名為「Azure AD 管理員」的伺服器管理員，其能夠管理 Azure AD 使用者和群組。此管理員也可以執行一般伺服器管理員可執行的所有作業。如需如何建立 Azure AD 管理員以啟用 Azure Active Directory 驗證的逐步解說，請參閱[使用 Azure Active Directory 驗證連接到 SQL Database](sql-database-aad-authentication.md) 。
+當您為資料庫建立邏輯伺服器時，採取使用者名稱和密碼指定了「伺服器管理員」登入。使用這些認證，您就可以使用資料庫擁有者或 "dbo" 的身分驗證該伺服器上的任何資料庫。 如果您想要使用 Azure Active Directory 驗證，就必須建立另一個名為「Azure AD 管理員」的伺服器管理員，其能夠管理 Azure AD 使用者和群組。此管理員也可以執行一般伺服器管理員可執行的所有作業。如需如何建立 Azure AD 管理員以啟用 Azure Active Directory 驗證的逐步解說，請參閱[使用 Azure Active Directory 驗證連線到 SQL Database](sql-database-aad-authentication.md)。
 
 最好的做法是，您的應用程式應該使用不同的帳戶來驗證，因為萬一應用程式的程式碼容易受到 SQL 插入式攻擊，您就可以限制授與應用程式的權限，並降低惡意活動的風險。建議的方法是建立[自主資料庫使用者](https://msdn.microsoft.com/library/ff929188)，讓您的 App 直接與單一資料庫進行驗證。您可以藉由執行下列 T-SQL 命令，在以伺服器管理員身分登入連線到您的使用者資料庫時，建立使用 SQL 驗證的自主資料庫使用者：
 
@@ -73,7 +73,7 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 * 除了 db\_datareader 和 db\_datawriter 以外的[資料庫角色](https://msdn.microsoft.com/library/ms189121)可以用來建立權力較大的應用程式使用者帳戶或權力較小的管理帳戶。
 * 細微的[權限](https://msdn.microsoft.com/library/ms191291)可讓您控制您可以對資料庫中個別資料行、資料表、檢視、程序和其他物件執行哪些作業。
 * [模擬](https://msdn.microsoft.com/library/vstudio/bb669087)和[模組簽署](https://msdn.microsoft.com/library/bb669102)可用來安全地暫時提升權限。
-* [資料列層級安全性](https://msdn.microsoft.com/library/dn765131)可讓您篩選使用者可以看到的資料列。
+* [資料列層級安全性](https://msdn.microsoft.com/library/dn765131)可用於使用者可存取資料列的限制。
 * [資料遮罩](sql-database-dynamic-data-masking-get-started.md)可用來限制公開機密資料。
 * [預存程序](https://msdn.microsoft.com/library/ms190782)可用來限制對資料庫可採取的動作。
 
@@ -85,10 +85,10 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 Azure SQL Database 可以使用[透明資料加密](http://go.microsoft.com/fwlink/?LinkId=526242)，透過資料在「靜止」時或儲存在資料庫檔案和備份中時加密資料，來協助保護您的資料。若要加密您的資料庫，請以資料庫擁有者的身分連線，然後執行：
 
 ```
-CREATE DATABASE ENCRYPTION KEY 
-   WITH ALGORITHM = AES_256 
+CREATE DATABASE ENCRYPTION KEY
+   WITH ALGORITHM = AES_256
    ENCRYPTION BY SERVER CERTIFICATE ##MS_TdeCertificate##;
-   
+
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -105,6 +105,5 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ## 法規遵循
 
 除了上述可協助您的應用程式符合各種安全法規需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。如需詳細資訊，請參閱 [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](http://azure.microsoft.com/support/trust-center/services/)的最新清單。
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

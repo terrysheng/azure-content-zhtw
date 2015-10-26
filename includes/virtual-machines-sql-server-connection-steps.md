@@ -18,7 +18,7 @@
 
 若要從網際網路存取 SQL Server，虛擬機器必須具有端點才能接聽傳入 TCP 通訊。此 Azure 組態步驟能將傳入 TCP 連接埠流量導向虛擬機器可存取的 TCP 連接埠。
 
->[AZURE.NOTE]如果您在相同的雲端服務或虛擬網路內連接，則不需要建立可公開存取的端點在此情況下，您可以繼續進行下一個步驟。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 連接性考量](https://msdn.microsoft.com/library/azure/dn133152.aspx)。
+>[AZURE.NOTE]如果您在相同的雲端服務或虛擬網路內連接，則不需要建立可公開存取的端點在此情況下，您可以繼續進行下一個步驟。如需詳細資訊，請參閱[連接案例](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios)。
 
 1. 在 Azure 管理入口網站中按一下 [虛擬機器]。
 	
@@ -79,11 +79,11 @@
 
 2. 在 SQL Server 組態管理員的主控台窗格中，展開 [SQL Server 網路組態]。
 
-3. 在主控台窗格中，按一下 [MSSQLSERVER 的通訊協定] \(預設的執行個體名稱)。 在詳細資料窗格中以滑鼠右鍵按一下 [TCP]。依預設，組件庫映像的 TCP 應該是 [已啟用]。對於自訂映像，請按一下 [啟用] \(如果它的狀態是 [已停用])。
+3. 在主控台窗格中，按一下 [MSSQLSERVER 的通訊協定] (預設的執行個體名稱)。 在詳細資料窗格中以滑鼠右鍵按一下 [TCP]。依預設，組件庫映像的 TCP 應該是 [已啟用]。對於自訂映像，請按一下 [啟用] (如果它的狀態是 [已停用])。
 
 	![啟用 TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
 
-5. 在主控台窗格中，按一下 [SQL Server 服務]。在詳細資料窗格中，以滑鼠右鍵按一下 **SQL Server (_執行個體名稱_)** (預設執行個體是 **SQL Server (MSSQLSERVER)**)，然後按一下 [重新啟動] 以停止及重新啟動 SQL Server 執行個體。
+5. 在主控台窗格中，按一下 [SQL Server 服務]。在詳細資料窗格中，以滑鼠右鍵按一下 [SQL Server (**執行個體名稱**)] (預設執行個體是 **SQL Server (MSSQLSERVER)**)，然後按一下 [重新啟動] 以停止及重新啟動 SQL Server 執行個體。
 
 	![重新啟動 Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 
@@ -139,11 +139,11 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 5. 在 [密碼] 方塊中，輸入新使用者的密碼。在 [確認密碼] 方塊中再次輸入密碼。
 
-6. 若要強制執行複雜性和強制性密碼原則選項，請選取 強制執行密碼原則 (建議)。此為選取 SQL Server 驗證時的預設選項。
+6. 若要強制執行複雜性和強制性密碼原則選項，請選取 [強制執行密碼原則] (建議)。此為選取 SQL Server 驗證時的預設選項。
 
-7. 若要強制執行逾期密碼原則選項，請選取 強制執行密碼逾期 (建議)。您必須選取強制執行密碼原則才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
+7. 若要強制執行逾期密碼原則選項，請選取 [強制執行密碼逾期] (建議)。您必須選取強制執行密碼原則才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
 
-8. 若要強制使用者在首次登入後建立新密碼，請選取 使用者必須在下次登入時變更密碼 (如果此登入是供其他使用者使用，建議您選取此選項。如果此登入是供您自己使用，請勿選取此選項。) 您必須選取強制執行密碼逾期才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
+8. 若要強制使用者在首次登入後建立新密碼，請選取 [使用者必須在下次登入時變更密碼] (如果此登入是供其他使用者使用，建議您選取此選項。如果此登入是供您自己使用，請勿選取此選項。) 您必須選取強制執行密碼逾期才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
 
 9. 在 [預設資料庫] 清單中，選取登入的預設資料庫。**master** 是此選項的預設值。如果您尚未建立使用者資料庫，請保留 [master] 的設定。
 
@@ -175,7 +175,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 ### 從另一部電腦連接 Database Engine
  
 1. 在連接網際網路的電腦上開啟 SQL Server Management Studio。
-2. 在 [連接到伺服器] 或 [連接到 Database Engine] 對話方塊的 [伺服器名稱] 方塊中，輸入虛擬機器的 DNS 名稱 (於上一個工作中決定) 和 *DNSName,portnumber* 格式的公用端點連接埠名稱 (例如 **tutorialtestVM.cloudapp.net,57500**)。若要取得連接埠號碼，請登入 Azure 管理入口網站並尋找虛擬機器。在儀表板上，按一下 [端點]，然後使用指派給 [MSSQL] 的 [公用連接埠]。![公用連接埠](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+2. 在 [連接到伺服器] 或 [連接到 Database Engine] 對話方塊的 [伺服器名稱]**** 方塊中，輸入虛擬機器的 DNS 名稱 (於上一個工作中決定) 和 *DNSName,portnumber* 格式的公用端點連接埠名稱 (例如 **tutorialtestVM.cloudapp.net,57500**)。若要取得連接埠號碼，請登入 Azure 管理入口網站並尋找虛擬機器。在儀表板上，按一下 [端點]，然後使用指派給 [MSSQL] 的 [公用連接埠]。![公用連接埠](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
 3. 在 [驗證] 方塊中，選取 [SQL Server 驗證]。
 5. 在 [登入] 方塊中，輸入於先前工作中建立之登入的名稱。
 6. 在 [密碼] 方塊中，輸入於先前工作中建立之登入的密碼。
@@ -183,4 +183,4 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 	![使用 SSMS 進行連線](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

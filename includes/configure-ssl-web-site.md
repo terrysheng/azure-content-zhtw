@@ -3,15 +3,15 @@
 
 > [AZURE.NOTE]快速完成啟用 -- 使用全新的 Azure [引導式逐步解說](http://support.microsoft.com/kb/2990804)！ 在彈指之間完成自訂網域名稱的關聯，以及與 Azure 雲端服務或 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 之間的通訊 (SSL) 保護。
 
-##<a name="bkmk_azurewebsites"></a>適用於 \*.azurewebsites.net 網域的 HTTPS
+##<a name="bkmk_azurewebsites"></a>適用於 *.azurewebsites.net 網域的 HTTPS
 
 如果您不打算使用自訂網域名稱，而是打算使用 Azure 指派至您 Web 應用程式的 *.azurewebsites.net 網域 (例如，contoso.azurewebsites.net)，則系統已利用 Microsoft 提供的憑證在您的網站上啟用 HTTPS。您可以使用 ****https://mywebsite.azurewebsites.net** 來存取您的 App。不過，*.azurewebsites.net 是萬用字元網域。如同[所有萬用字元網域](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)，這並不像使用自訂網域搭配自己的憑證那麼安全。
 
-本文件的其餘內容提供關於為自訂網域 (如 **contoso.com**、**www.contoso.com** 或 **\*.contoso.com**) 啟用 HTTPS 的詳細資料。
+本文件的其餘內容提供關於為自訂網域 (如 **contoso.com**、**www.contoso.com** 或 ***.contoso.com**) 啟用 HTTPS 的詳細資料。
 
 ##<a name="bkmk_domainname"></a>為自訂網域啟用 SSL
 
-若要為自訂網域 (如 **contoso.com**) 啟用 HTTPS，您必須先向網域名稱註冊機構註冊自訂網域名稱。如需如何設定 Web 應用程式之網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](/zh-tw/develop/net/common-tasks/custom-dns-web-site/)。在註冊自訂網域名稱並設定您的 Web 應用程式來回應該自訂名稱之後，您必須要求網域的 SSL 憑證。
+若要為自訂網域 (如 **contoso.com**) 啟用 HTTPS，您必須先向網域名稱註冊機構註冊自訂網域名稱。如需如何設定 Web 應用程式之網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](/zh-TW/develop/net/common-tasks/custom-dns-web-site/)。在註冊自訂網域名稱並設定您的 Web 應用程式來回應該自訂名稱之後，您必須要求網域的 SSL 憑證。
 
 > [AZURE.NOTE]若要為自訂網域名稱啟用 HTTPS，您必須設定 Web 應用程式為使用 [**標準**] 模式。如果您目前正使用免費或共用模式，則換成使用標準模式可能會帶來額外成本。如需共用與 [**標準**] 定價的詳細資訊，請參閱[定價詳細資料][pricing]。
 
@@ -37,7 +37,7 @@
 - [使用 OpenSSL 取得 SubjectAltName 憑證](#bkmk_subjectaltname)
 - [產生自我簽署的憑證 (僅供測試)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE]遵循步驟時，系統會提示您輸入 [**一般名稱**]，例如 `www.contoso.com`。對於萬用字元憑證，這個值應該是 \*.domainname (例如，\*.contoso.com)。如果您需要同時支援萬用字元名稱 (如 \*.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元 subjectAltName 憑證。
+> [AZURE.NOTE]遵循步驟時，系統會提示您輸入 [**一般名稱**]，例如 `www.contoso.com`。對於萬用字元憑證，這個值應該是 *.domainname (例如，*.contoso.com)。如果您需要同時支援萬用字元名稱 (如 *.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元 subjectAltName 憑證。
 >
 > Azure App Service 支援橢圓曲線密碼編譯 (ECC) 憑證；不過，它們相對而言比較新，您應該在具體步驟中使用 CA 來建立 CSR。
 
@@ -392,10 +392,8 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 3.	按一下 [**Web Apps**] 刀鋒視窗。
 4.	按一下您的 Web 應用程式的名稱。
 5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。
-6.	按一下 [**調整**]。
-	![調整索引標籤][scale]
-7.	在 [**調整**] 區段中，按一下 [**選取**]，設定 App Service 的方案模式。
-	![The Pricing tier][sslreserved]
+6.	按一下 [**調整**]。![調整索引標籤][scale]
+7.	在 [**調整**] 區段中，按一下 [**選取**]，設定 App Service 的方案模式。![The Pricing tier][sslreserved]
 
 	> [AZURE.NOTE]如果發生「設定 Web 應用程式 '&lt;應用程式名稱&gt;' 的規模失敗」錯誤，您可以利用詳細資料按鈕來取得詳細資訊。您可能會收到 [可用標準執行個體伺服器不足，無法滿足此要求] 錯誤。如果您收到此錯誤，請連絡 [Azure 支援](/support/options/)。
 
@@ -409,11 +407,9 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 3.	按一下 [**Web Apps**] 刀鋒視窗。
 4.	按一下您的 Web 應用程式的名稱。
 5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。	
-6.	按一下 [**自訂網域和 SSL**]。
-	![The config tab][sslconfig]
+6.	按一下 [**自訂網域和 SSL**]。![The config tab][sslconfig]
 7.	在 [**憑證**] 區段中，按一下 [**上傳**]。
-8.	使用 [上傳憑證] 對話方塊，選取之前以 IIS 管理員或 OpenSSL 建立的 .pfx 憑證檔案。指定當初用來保護 .pfx 檔案的密碼 (如果有的話)。最後，按一下 [**儲存**]，以上傳憑證。
-	![ssl upload][ssluploadcert]
+8.	使用 [上傳憑證] 對話方塊，選取之前以 IIS 管理員或 OpenSSL 建立的 .pfx 憑證檔案。指定當初用來保護 .pfx 檔案的密碼 (如果有的話)。最後，按一下 [**儲存**]，以上傳憑證。![ssl upload][ssluploadcert]
 9. 在 [**SSL 設定**] 索引標籤的 [**SSL 繫結**] 區段中，使用下拉式清單選取要以 SSL 保護的網域名稱，以及要使用的憑證。您也可以選擇使用[伺服器名稱指示][sni] (SNI) 還是 IP SSL。
 
 	![SSL 繫結][sslbindings]
@@ -447,7 +443,7 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 
 您可以在儲存於應用程式根目錄的 **web.config** 檔案中定義 URL Rewrite 規則。下列範例包含可強制所有連入流量使用 HTTPS 的基本 URL Rewrite 規則。
 
-<a name="example"></a>\*\*URL Rewrite 範例 Web.Config\*\*
+<a name="example"></a>**URL Rewrite 範例 Web.Config**
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -543,4 +539,4 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

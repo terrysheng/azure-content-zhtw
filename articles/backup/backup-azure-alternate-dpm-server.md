@@ -17,7 +17,7 @@
 ## 從另一部 DPM 伺服器復原資料
 從另一部 DPM 伺服器復原資料：
 
-1. 在 DPM 管理主控台的 [復原] 索引標籤中，按一下 [新增外部 DPM] \(在畫面左上方)。
+1. 在 DPM 管理主控台的 [復原] 索引標籤中，按一下 [新增外部 DPM] (在畫面左上方)。
 
     ![新增外部 DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 
@@ -96,4 +96,4 @@
 ## 後續步驟：
 • [Azure 備份常見問題集](backup-azure-backup-faq.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -102,7 +102,7 @@
 
 1.	您的應用程式具有最多 200 個唯一度量名稱和 200 個唯一屬性名稱。計量包括透過 TrackMetric 傳送的資料，以及其他資料類型上的度量 (例如事件)。每個檢測金鑰的[計量和屬性名稱][api]是全域的，不只限於資料類型。
 2.	只有在每個屬性具有少於 100 個唯一值時，[屬性][apiproperties]才能用於篩選和分組依據。唯一值超過 100 之後，屬性仍可用於搜尋與篩選，但無法用於篩選器。
-3.	標準屬性 (例如 [要求名稱] 和 [網頁 URL]) 限制為每週 1000 個唯一值。超過 1000 個唯一值之後，額外值都會標示為「其他值」。原始值仍然可以用於全文檢索搜尋和篩選。
+3.	標準屬性，例如要求名稱和網頁 URL 會限制為每週 1000 個唯一值。超過 1000 個唯一值之後，額外值都會標示為「其他值」。 原始值仍然可以用於全文檢索搜尋和篩選。
 
 ## 資料保留
 
@@ -130,9 +130,9 @@ Application Insights 費用會加到您的 Azure 帳單中。您可以在 Azure 
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

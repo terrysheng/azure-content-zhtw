@@ -64,4 +64,4 @@ HTTP 第 7 層負載平衡可用於：
 
 設定 SSL 卸載。請參閱[使用應用程式閘道設定 SSL 卸載](application-gateway-ssl.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

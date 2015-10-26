@@ -10,4 +10,4 @@
 |封存|N/A|可用|N/A|N/A|可用|
 |高可用性 |N/A|N/A|可用|可用|可用|
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

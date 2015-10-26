@@ -76,4 +76,4 @@
 
 > [AZURE.IMPORTANT]您可以執行 `Disable-HcsSupportAccess` 來停用支援存取。在起始工作階段之後 8 小時，StorSimple 裝置也會嘗試停用支援存取。最好在起始支援工作階段之後變更 StorSimple 裝置認證。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

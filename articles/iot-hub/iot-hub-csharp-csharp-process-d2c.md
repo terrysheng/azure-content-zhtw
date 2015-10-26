@@ -4,7 +4,7 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# 處理 IoT 中心裝置到雲端訊息
+# 教學課程：如何處理 IoT 中樞裝置到雲端訊息
 
 ## 簡介
 
@@ -41,7 +41,7 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 * **ProcessDeviceToCloudMessages**，會使用 [EventProcessorHost] 將*資料點*訊息可靠地儲存在 Azure Blob 中並將*互動式*訊息轉寄到服務匯流排佇列，以及
 * **ProcessD2cInteractiveMessages**，可將訊息從佇列清除。
 
-> [AZURE.NOTE]IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中心) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。
+> [AZURE.NOTE]IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。
 
 > [AZURE.NOTE]本教學課程的內容可直接適用於使用事件中樞相容訊息的其他方式，例如像是 Storm 的 [Hadoop] 專案。如需詳細資訊，請參閱 [IoT 中心指引 - 事件中樞相容性]。
 
@@ -73,7 +73,7 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 ## 後續步驟
 
-在本教學課程中，您學到如何使用 [EventProcessorHost] 可靠地處理*資料點*與*互動式*裝置到雲端訊息。可以用來實作的類比訊息處理邏輯
+在本教學課程中，您學到如何使用 [EventProcessorHost] 可靠地處理*資料點*與*互動式*裝置到雲端訊息。可以用來實作的類比訊息處理邏輯：
 
 - [從裝置上傳檔案]說明使用雲端到裝置訊息來幫助從裝置上傳檔案的模式。
 
@@ -117,10 +117,6 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [IoT 中心入門]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Azure IoT 開發人員中心]: http://www.azure.com/iotdev
+[Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

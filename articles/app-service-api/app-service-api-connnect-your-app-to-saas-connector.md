@@ -24,7 +24,7 @@
 
 例如，如果您想要編碼 HTTP 要求，以您的 Dropbox 帳戶讀取和寫入檔案，則直接使用 Dropbox 的驗證程序很複雜。Dropbox 連接器會處理驗證的複雜性，以便您可以專注於撰寫商業特有程式碼。
 
-> [AZURE.NOTE]如果您想要在邏輯應用程式中使用 SaaS 連接器，就不需要遵循這裡的指示。如需關於如何在邏輯應用程式內使用 SaaS 連接器的資訊，請參閱[建立新的邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)以及[使用連接器中的 OAUTH 應用程式](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1)。
+> [AZURE.NOTE]如果您想要在邏輯應用程式中使用 SaaS 連接器，就不需要遵循這裡的指示。如需關於如何在邏輯應用程式內使用 SaaS 連接器的資訊，請參閱[建立新的邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)以及[使用連接器中的 OAUTH 應用程式](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1)。
  
 本教學課程使用 DropBox 連接器作為範例，並逐步引導您完成下列步驟：
 
@@ -236,4 +236,4 @@ Azure 現在正為您管理三個驗證權杖：
 [Azure 入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -28,6 +28,9 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 > 
 > 請注意，AzCopy 4.x 未來版本中的命令列選項及其功能有可能會有更動。
 
+
+我們也會推出以核心資料移動架構為基礎可運用 AzCopy 的開放原始碼程式庫，請至[ Azure 儲存體資料移動文件庫預覽簡介](https://azure.microsoft.com/zh-TW/blog/introducing-azure-storage-data-movement-library-preview-2/)閱讀詳細資訊。
+
 ## 下載並安裝 AzCopy
 
 1. 下載[最新版本的 AzCopy](http://aka.ms/downloadazcopy) 或[最新預覽版本](http://aka.ms/downloadazcopypr)。
@@ -232,14 +235,14 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
   </tr>
   <tr>
     <td><b>/XN</b></td>
-    <td>排除較新的來源資源。如果來源比目的地還要新，則不會複製資源。</td>
+    <td>排除較新的來源資源。如果最後修改時間比目的地還要新或同時間，則不會複製資源。</td>
     <td>Y</td>
     <td>Y<br /> (僅限預覽)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XO</b></td>
-    <td>排除較舊的來源資源。如果來源資源比目的地還要舊，則不會複製資源。</td>
+    <td>排除較舊的來源資源。如果最後修改時間比目的地還要舊或同時間，則不會複製資源。</td>
     <td>Y</td>
     <td>Y<br /> (僅限預覽)</td>
     <td>N</td>
@@ -455,15 +458,15 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
  
-### 從次要區域複製 Blob 
+### 從次要地區複製 Blob 
 
-如果您的儲存體帳戶已啟用讀取存取地理區域備援儲存體，則您可以複製次要區域的資料。
+如果您的儲存體帳戶已啟用讀取存取地理區域備援儲存體，則您可以複製次要地區的資料。
 
 **將 blob 從次要帳戶複製到主要帳戶：**
 
 	AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 
-**將次要區域中的 blob 下載到檔案系統中的某個檔案：**
+**將次要地區中的 blob 下載到檔案系統中的某個檔案：**
 
 	AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
@@ -479,7 +482,7 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
-請注意，如果指定的虛擬目錄不存在，則 AzCopy 將上傳檔案並在其名稱中加上此虛擬目錄 (例如，上述範例中的 `vd/abc.txt`)。
+請注意，如果指定的虛擬目錄不存在，則 AzCopy 將上傳檔案並在其名稱中加上此虛擬目錄 (*例如*，上述範例中的 `vd/abc.txt`)。
 
 ### 將 Blob 下載到新的資料夾
 
@@ -737,11 +740,11 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 指定 `/MT` 選項可比較來源 blob 和目的地檔案的上次修改時間。
 
-**將比目的地檔案還要新的 blob 排除**
+**排除上次修改的時間比目的地檔案還要新或相同的 blob**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 
-**將比目的地檔案還要舊的 blob 排除**
+**排除上次修改的時間比目的地檔案還要舊或相同的 blob**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 
@@ -822,7 +825,7 @@ Azure 檔案儲存體支援伺服器端非同步複製。
 
 ### 以同步方式複製 Azure 檔案儲存體中的檔案
 
-除了非同步複製，使用者也可以指定 `/SyncCopy` 選項，以同步方式從檔案儲存體複製資料到檔案儲存體、從檔案儲存體複製資料到 Blob 儲存體、和從 Blob 儲存體複製資料到檔案儲存體，AzCopy 會將來源資料下載至本機記憶體，並重新上載到目的地，來執行此項作業。
+除了非同步複製，使用者也可以指定 `/SyncCopy` 選項，以同步方式從檔案儲存體複製資料到檔案儲存體、從檔案儲存體複製資料到 Blob 儲存體、和從 blob 儲存體複製資料到檔案儲存體，AzCopy 會將來源資料下載至本機記憶體，並重新上傳到目的地，來執行此項作業。
 
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
@@ -830,7 +833,7 @@ Azure 檔案儲存體支援伺服器端非同步複製。
 	
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
-從檔案儲存體複製到 Blob 儲存體時，預設的 Blob 類型是區塊 Blob，使用者可以指定 `/BlobType:page` 選項來變更目的地 Blob 類型。
+從檔案儲存體複製到 Blob 儲存體時，預設的 blob 類型是區塊 blob，使用者可以指定 `/BlobType:page` 選項來變更目的地 blob 類型。
 
 請注意，相較於非同步複製，`/SyncCopy` 可能會產生額外的輸出成本，建議的方法是在與來源儲存體帳戶位於同一區域的 Azure VM 中使用這個選項，以避免產生輸出成本。
 
@@ -854,11 +857,11 @@ AzCopy 會將資訊清單檔寫入至指定的目的地資料夾或 Blob 容器�
 
 ### JSON 和 CSV 資料檔案格式匯出實體
 
-預設的 AzCopy 會將資料表實體匯出到 JSON 檔案，使用者可以指定 `/PayloadFormat:JSON|CSV` 選項，決定匯出的資料檔案類型。
+依預設 AzCopy 會將資料表實體匯出到 JSON 檔案，使用者可以指定 `/PayloadFormat:JSON|CSV` 選項來決定匯出的資料檔案類型。
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
 
-在指定 CSV 裝載格式的時候，除了副檔名為 `.csv` 的資料檔案會在 `/Dest` 參數所指定的位置中找到之外，AzCopy 還會針對每個資料檔案產生副檔名為 `.schema.csv` 的配置檔案。請注意 AzCopy 不包含「匯入」CSV 資料檔的支援，您可以使用 JSON 格式來匯出和匯入資料表資料。
+若有指定 CSV 裝載格式，除了會在 `/Dest` 參數所指定的位置中找到副檔名為 `.csv` 的資料檔案之外，AzCopy 還會針對每個資料檔案產生副檔名為 `.schema.csv` 的配置檔案。請注意 AzCopy 不包含「匯入」CSV 資料檔的支援，您可以使用 JSON 格式來匯出和匯入資料表資料。
 
 ### 將實體匯出至 Azure Blob
 
@@ -931,23 +934,25 @@ AzCopy 設計為充分利用電腦資源來加速資料傳輸，建議您在一�
 
 ## AzCopy 版本
 
-| 版本 | 新功能 |
-|---------|-----------------------------------------------------------------------------------------------------------------|
-| **4.2.0 版** | **目前的預覽版本。包含從 3.2.0 版開始的所有功能。也支援檔案儲存體共用 SAS、檔案儲存體非同步複製、匯出資料表實體至 CSV 和在匯出資料表實體時指定資訊清單的名稱**
-| **3.2.0 版** | **目前版本。支援附加 Blob 與 FIPS 相容的 MD5 設定**
-| 4\.1.0 版 | 包含從 3.1.0 版開始的所有功能。支援以同步方式複製 Blob 和檔案，以及指定目的地 Blob 和檔案的內容類型。
-| 3\.1.0 版 | 支援以同步方式複製 Blob，以及指定目的地 Blob 的內容類型。
-| V4.0.0 | 包含 V3.0.0 中的所有功能。也支援對 Azure 檔案儲存體的出入檔案複製，以及對 Azure 資料表儲存體的出入實體複製。
-| V3.0.0 | 修改 AzCopy 命令列語法以要求參數名稱，並重新設計命令列說明。此版本僅支援對 Azure Blob 儲存體的出入複製。	
-| V2.5.1 | 最佳化使用選項 /xo 和 /xn 時的效能。修正與來源檔案名稱中的特殊字元有關的錯誤，以及在使用者輸入錯誤命令列語法後發生的日誌檔案損毀。	
-| V2.5.0 | 針對大規模複製案例最佳化效能，並介紹數個重要的可用性改良。
-| V2.4.1 | 支援在安裝精靈中指定目的地資料夾。                     			
-| V2.4.0 | 支援上傳與下載 Azure 檔案儲存體的檔案。
-| V2.3.0 | 支援讀取存取地理區域備援儲存體帳戶。|
-| V2.2.2 | 已升級並使用 Azure 儲存體用戶端程式庫 3.0.3 版。
-| V2.2.1 | 已修正在相同儲存體帳戶中複製大量檔案時的效能問題。
-| V2.2 | 支援設定 Blob 名稱的虛擬目錄分隔符號。支援指定日誌檔案路徑。|
-| V2.1 | 提供超過 20 個選項，以有效的方式支援 Blob 上傳、下載及複製作業。|
+> [AZURE.NOTE]我們建議您安裝最新版的 AzCopy 以取得新功能和更好的效能。
+
+| 版本 | 新功能 | 參考 .NET 用戶端程式庫版本 | 目標儲存體 REST API 版本 |
+|---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
+| [**V4.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-4-2-0-preview/MicrosoftAzureStorageTools.msi) | **目前的預覽版本。包含從 3.2.0 版開始的所有功能。也支援檔案儲存體共用 SAS、檔案儲存體非同步複製、匯出資料表實體至 CSV 和在匯出資料表實體時指定資訊清單的名稱** | **V5.0.0** | **2015 年 2 月21 日**
+| [**V3.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-3-2-0/MicrosoftAzureStorageTools.msi) | **目前版本。支援附加 Blob 與 FIPS 相容的 MD5 設定** | **V5.0.0** | **2015 年 2 月21 日**
+| [4\.1.0 版](http://xdmrelease.blob.core.windows.net/azcopy-4-1-0-preview/MicrosoftAzureStorageTools.msi) | 包含從 3.1.0 版開始的所有功能。支援以同步方式複製 Blob 和檔案，以及指定目的地 Blob 和檔案的內容類型。 | V4.3.0 | 2014 年 2 月 14 日
+| [3\.1.0 版](http://xdmrelease.blob.core.windows.net/azcopy-3-1-0/MicrosoftAzureStorageTools.msi) | 支援以同步方式複製 Blob，以及指定目的地 Blob 的內容類型。| V4.3.0 | 2014 年 2 月 14 日
+| [V4.0.0](http://xdmrelease.blob.core.windows.net/azcopy-4-0-0-preview/MicrosoftAzureStorageTools.msi) | 包含 V3.0.0 中的所有功能。也支援對 Azure 檔案儲存體的出入檔案複製，以及對 Azure 資料表儲存體的出入實體複製。| V4.2.1 | 2014 年 2 月 14 日
+| [V3.0.0](http://xdmrelease.blob.core.windows.net/azcopy-3-0-0/MicrosoftAzureStorageTools.msi) | 修改 AzCopy 命令列語法以要求參數名稱，並重新設計命令列說明。此版本僅支援對 Azure Blob 儲存體的出入複製。| V4.2.1 | 2014 年 2 月 14 日
+| V2.5.1 | 最佳化使用選項 /xo 和 /xn 時的效能。修正與來源檔案名稱中的特殊字元有關的錯誤，以及在使用者輸入錯誤命令列語法後發生的日誌檔案損毀。| 4\.1.0 版 | 2014 年 2 月 14 日
+| V2.5.0 | 針對大規模複製案例最佳化效能，並介紹數個重要的可用性改良。| 4\.1.0 版 | 2014 年 2 月 14 日
+| V2.4.1 | 支援在安裝精靈中指定目的地資料夾。| V4.0.0 | 2014 年 2 月 14 日
+| V2.4.0 | 支援上傳與下載 Azure 檔案儲存體的檔案。| V4.0.0 | 2014 年 2 月 14 日
+| V2.3.0 | 支援讀取存取地理區域備援儲存體帳戶。| V3.0.3 | 2013 年 8 月 15 日
+| V2.2.2 | 已升級並使用 Azure 儲存體用戶端程式庫 3.0.3 版。| V3.0.3 | 2013 年 8 月 15 日
+| V2.2.1 | 已修正在相同儲存體帳戶中複製大量檔案時的效能問題。| V2.1.0 |
+| V2.2 | 支援設定 Blob 名稱的虛擬目錄分隔符號。支援指定日誌檔案路徑。| V2.1.0 |
+| V2.1 | 提供超過 20 個選項，以有效的方式支援 Blob 上傳、下載及複製作業。| V2.0.5 |
 
 
 ## 後續步驟
@@ -961,6 +966,7 @@ AzCopy 設計為充分利用電腦資源來加速資料傳輸，建議您在一�
 - [使用檔案儲存體在 Azure 中建立 SMB 檔案共用](storage-dotnet-how-to-use-files.md)
 
 ### Azure 儲存體部落格文章：
+- [DML：Azure 儲存體資料移動文件庫預覽簡介](https://azure.microsoft.com/zh-TW/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy：簡介同步複製和自訂內容類型](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: 宣布正式發行 AzCopy 3.0 和具有資料表和檔案支援的 AzCopy 4.0 預覽版本](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 - [AzCopy: 針對大規模複製案例最佳化](http://go.microsoft.com/fwlink/?LinkId=507682)
@@ -970,6 +976,4 @@ AzCopy 設計為充分利用電腦資源來加速資料傳輸，建議您在一�
 - [AzCopy: 使用跨帳戶複製 Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: 上傳/下載 Azure Blob 的檔案](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

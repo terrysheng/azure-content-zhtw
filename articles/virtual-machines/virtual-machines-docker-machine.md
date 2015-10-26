@@ -21,7 +21,8 @@
 
 本主題說明如何搭配 [machine](https://github.com/docker/machine) 和 [Azure CLI](https://github.com/Azure/azure-xplat-cli) 使用 [Docker](https://www.docker.com/)，建立 Azure 虛擬機器，從執行 Ubuntu 的電腦上簡單快速地管理 Linux 容器。基於示範緣故，本教學課程將示範如何同時部署 [busybox Docker 中樞映像](https://registry.hub.docker.com/_/busybox/)和 [nginx Docker 中樞映像](https://registry.hub.docker.com/_/nginx/)，並設定容器以將 Web 路由要求傳送到 nginx 容器 (Docker **machine** 文件說明如何針對其他平台修改這些指示)。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
 
 您必須具備一些先決條件，才能完成本教學課程。您將需要安裝下列項目：
@@ -213,4 +214,4 @@
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

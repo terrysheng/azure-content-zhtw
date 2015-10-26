@@ -193,4 +193,4 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

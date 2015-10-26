@@ -19,7 +19,8 @@
 
 # 企業營運應用程式工作負載第 5 階段：建立可用性群組並新增應用程式資料庫
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 在 Azure 基礎結構服務部署高可用性企業營運應用程式的最終階段中，您將建立 AlwaysOn 可用性群組並新增應用程式的資料庫。
 
@@ -127,4 +128,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

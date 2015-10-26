@@ -153,7 +153,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 **Azure SQL Database**
 
-1. 開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面中輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start])。
+1. 開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面中輸入 **PowerShell\_ISE**，然後按一下 [Windows PowerShell ISE]。請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start])。
 
 2. 將下列指令碼複製到指令碼窗格中，然後設定前四個變數：
 
@@ -394,7 +394,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 	如需變數的詳細說明，請參閱本教學課程中的[必要條件](#prerequisites)一節。
 
-	請注意，$exportDir_log4j 並未指定 sample.log 檔案的檔案名稱。Sqoop 會從該資料夾下的所有檔案中匯出資料。
+	請注意，$exportDir\_log4j 並未指定 sample.log 檔案的檔案名稱。Sqoop 會從該資料夾下的所有檔案中匯出資料。
 
 4. 將下列指令碼附加至指令碼窗格中：
 
@@ -408,7 +408,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	請注意，欄位分隔符號為 **\0x20**，即空格。此分隔符號定義於 sample.log 檔案的 Azure PowerShell 指令碼中。如需 **-m 1** 的相關資訊，請參閱 [Sqoop 使用者指南][sqoop-user-guide-1.4.4]。
+	請注意，欄位分隔符號為 **\\0x20**，即空格。此分隔符號定義於 sample.log 檔案的 Azure PowerShell 指令碼中。如需 **-m 1** 的相關資訊，請參閱 [Sqoop 使用者指南][sqoop-user-guide-1.4.4]。
 
 5. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。
 6. 使用[預覽入口網站][azure-management-portal]檢查匯出的資料。
@@ -609,4 +609,4 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，�
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

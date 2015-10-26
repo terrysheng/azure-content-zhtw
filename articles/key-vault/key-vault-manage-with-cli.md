@@ -256,4 +256,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

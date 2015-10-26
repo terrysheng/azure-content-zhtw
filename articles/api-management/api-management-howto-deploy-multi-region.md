@@ -75,4 +75,4 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 [單位]: http://azure.microsoft.com/pricing/details/api-management/
 [進階]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

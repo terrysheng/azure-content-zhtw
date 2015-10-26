@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用服務匯流排佇列 (PHP) | Microsoft Azure" 
+	pageTitle="如何將服務匯流排佇列搭配 PHP 使用 | Microsoft Azure" 
 	description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例以 PHP 撰寫。" 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="10/14/2015" 
 	ms.author="sethm"/>
 
 # 如何使用服務匯流排佇列
@@ -198,21 +198,13 @@
 
 ## 後續步驟
 
-現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][]主題，以取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][]，以取得詳細資訊。
 
-如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
+如需詳細資訊，請參閱 [PHP 開發人員中心](/develop/php/)。
 
-[Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-[Azure Management Portal]: http://manage.windowsazure.com/
-[Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
-[Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-[Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
-[Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
-[Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
 [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

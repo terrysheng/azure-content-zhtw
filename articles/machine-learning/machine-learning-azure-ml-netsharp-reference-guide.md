@@ -414,4 +414,4 @@ Net# 可選擇性地支援以共用加權定義多個套組的作業。任何兩
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

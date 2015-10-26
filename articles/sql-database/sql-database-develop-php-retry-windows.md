@@ -130,11 +130,10 @@
 		}
 	?>
 	
-## 進階閱讀
-
+## 後續步驟
 
 如需 PHP 安裝和使用方式的詳細資訊，請參閱[使用 PHP 存取 SQL Server Database](http://technet.microsoft.com/library/cc793139.aspx)。
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

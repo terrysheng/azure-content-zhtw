@@ -50,13 +50,13 @@
 - 升級至 Azure AD Premium 或 Basic。如需詳細資訊，請參閱 [Azure Active Directory 版本](http://azure.microsoft.com/pricing/details/active-directory/)。
 
   >[AZURE.NOTE]若要啟用自助式密碼重設，您必須升級至 Azure AD Premium 或 Azure AD Basic。如需詳細資訊，請參閱「Azure Active Directory 版本」。這項資訊包括如何註冊 Azure AD Premium 或 Basic、如何啟動您的授權方案並啟動您的 Azure AD 存取權，以及如何將存取權指派給系統管理員和使用者帳戶的詳細指示。
-  
+
 - 在 AAD 目錄中建立至少一個系統管理員帳戶和一個使用者帳戶。
 - 將 AAD Premium 或 Basic 授權指派給您所建立的系統管理員和使用者帳戶。
 
 ### 步驟 1：設定密碼重設原則
 若要設定使用者密碼重設原則，請完成下列步驟：
- 
+
 1.	開啟您選擇的瀏覽器並瀏覽至 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2.	在 [Azure 管理入口網站](https://manage.windowsazure.com)中，於左側導覽列上找到 [**Active Directory 延伸模組**]。
 
@@ -179,22 +179,22 @@
 - 您必須擁有至少一個系統管理員帳戶和一個測試使用者帳戶，且具有 Azure AD Premium 授權，可讓您用來測試這項功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
   >[AZURE.NOTE]請確定您用來啟用密碼回寫的系統管理員帳戶是雲端系統管理員帳戶 (在 Azure AD 中建立)，不是同盟帳戶 (在內部部署 AD 中建立並同步處理至 Azure AD)。
-  
+
 - 您擁有單一或多樹系 AD 內部部署執行 Windows Server 2008、Windows Server 2008 R2、Windows Server 2012 或 Windows Server 2012 R2，且安裝最新的 Service Pack。
 
   >[AZURE.NOTE]如果您執行舊版 Windows Server 2008 或 2008 R2，您仍然可以使用此功能，但是需要先[下載及安裝 KB 2386717](https://support.microsoft.com/kb/2386717)，才能在雲端中強制執行您的本機 AD 密碼原則。
-  
+
 - 您已安裝 Azure AD Connect 工具，且已備妥 AD 環境進行同步處理至雲端。如需詳細資訊，請參閱[在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
 - 如果您使用 DirSync，您必須確定您組織的防火牆設定為封鎖輸出連線和解除封鎖 **TCP 連接埠 828 或 818**，才能啟用及使用密碼回寫。如果您使用 Azure AD Sync 或 Azure AD Connect，此步驟並非必要，因為只有 **TCP 443** 輸出 (在某些情況下 **TCP 9350-9354**) 必須開啟。
 
   >[AZURE.NOTE]我們強烈建議使用 Azure AD Sync 或 DirSync 工具的任何人升級至最新版的 Azure AD Connect，以確保擁有最佳使用經驗和發行的新功能。
-  
+
 
 ### 步驟 1：下載最新版本的 Azure AD Connect
 密碼回寫可以在 Azure AD Connect 版本或具有版本號碼 **1.0.0419.0911** 或更高版本的 Azure AD Sync 工具中使用。具有自動帳戶解除鎖定的密碼回寫可以在 Azure AD Connect 版本或具有版本號碼 **1.0.0485.0222** 或更高版本的 Azure AD Sync 工具中使用。如果您執行較舊的版本，請至少升級至此版本，再繼續作業。[按一下這裡以下載最新版本的 Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect)。
 
 #### 檢查 Azure AD Sync 的版本
-1.	瀏覽至 **%ProgramFiles%\Azure Active Directory Sync**。
+1.	瀏覽至 **%ProgramFiles%\\Azure Active Directory Sync**。
 2.	尋找 **ConfigWizard.exe** 可執行檔。
 3.	以滑鼠右鍵按一下可執行檔，然後從內容功能表選取 [**屬性**] 選項。
 4.	按一下 [**詳細資料**] 索引標籤。
@@ -242,7 +242,7 @@
 
 1.	一旦安裝完成之後，如果您在環境中封鎖不明的輸出連線，您也必須將下列規則加入至您的防火牆。請確定重新啟動 AAD Connect 電腦，再進行這些變更：
    - 允許透過連接埠 443 TCP 的輸出連線
-   - 允許對 https://ssprsbprodncu-sb.accesscontrol.windows.net/的輸出連線 
+   - 允許對 https://ssprsbprodncu-sb.accesscontrol.windows.net/的輸出連線
    - 當使用 proxy 或有一般連線問題時，允許透過連接埠 9350-9534 TCP 的輸出連線
 
 ### 步驟 4：設定適當的 Active Directory 權限
@@ -270,15 +270,13 @@
 8.	在最上層的下拉式清單中選取 [**下階使用者物件**]。
 9.	在顯示的 [**權限項目**] 對話方塊中，勾選 [**重設密碼**]、[**變更密碼**]、[`lockoutTime` 的**寫入權限**] 和 [`pwdLastSet` 的**寫入權限**] 的方塊。
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	然後在所有開啟的對話方塊中按一下 [**套用/確定**]。
 
 ### 步驟 5：以使用者的身分重設您的 AD 密碼
 現在已啟用密碼回寫，您可以測試它是否正常運作，方法是對已同步處理至您的雲端租用戶的使用者帳戶重設密碼。
- 
+
 #### 確認密碼回寫是否正常運作
 1.	瀏覽至 [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com)，或前往任何組織識別碼登入畫面，然後按一下 [**無法存取您的帳戶？**] 連結。
 
@@ -343,4 +341,4 @@
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

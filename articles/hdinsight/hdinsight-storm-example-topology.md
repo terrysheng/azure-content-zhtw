@@ -37,6 +37,7 @@
 | [使用 Storm on HDInsight 之 Azure 服務的範本 C# Storm 拓樸專案][ce0c02a2] | 事件中心、DocumentDb、SQL Database、HBase、SignalR | C#，Java |
 | [使用 Storm on HDInsight 從 Azure 事件中心讀取的延展性效能評比][d6c540e3] | 訊息輸送量、事件中心、SQL Database | C#，Java |
 | [在 HDInsight 上使用 Storm 和 HBase 讓事件相互關聯](hdinsight-storm-correlation-topology.md) | HBase | C# |
+| [搭配 Storm on HDInsight 使用 Python](hdinsight-storm-develop-python-topology.md) | Python 元件及以 Java 和 Clojure 為基礎的 Storm 拓撲 | Python |
 
 ## 後續步驟
 
@@ -59,4 +60,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "此專案包含 spout、bolt 和拓撲的範本，藉此和各種 Azure 服務進行互動，例如事件中心、DocumentDB 和 SQL Database。"
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

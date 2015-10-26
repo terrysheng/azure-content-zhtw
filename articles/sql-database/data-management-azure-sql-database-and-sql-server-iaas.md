@@ -253,4 +253,4 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[**Azure SQL Databa
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

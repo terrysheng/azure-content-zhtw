@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Azure 虛擬機器備份
 
@@ -87,7 +87,7 @@
 
 5. 按一下 [**建立保存庫**]。要等備份保存庫建立好，可能需要一些時間。監視位於入口網站底部的狀態通知。![建立保存庫快顯通知](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. 將有一則訊息確認保存庫已成功建立，並且該保存庫會在「復原服務」頁面中列為 [使用中] 狀態。請確定建立保存庫之後，立即選擇適當的儲存體備援選項。進一步了解[在備份保存庫中設定儲存體備援選項](../backup-azure-backup-create-vault.md#storage-redundancy-options)。![備份保存庫的清單](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. 將有一則訊息確認保存庫已成功建立，並且該保存庫會在「復原服務」頁面中列為 [使用中] 狀態。請確定建立保存庫之後，立即選擇適當的儲存體備援選項。進一步了解[在備份保存庫中設定儲存體備援選項](backup-configure-vault.md#azure-backup---storage-redundancy-options)。![備份保存庫的清單](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. 按一下 [備份保存庫] 前往 [**快速入門**] 頁面，上面將會顯示備份 Azure 虛擬機器的指示。![虛擬機器的備分指示在 [儀表板] 頁面上](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
@@ -104,7 +104,8 @@
 - 不支援使用進階儲存體的虛擬機器備份。
 - 不支援具有多個保留的 IP 的虛擬機器備份。
 - 不支援具有保留的 IP 及未定義端點的虛擬機器備份。
-- 不支援使用多重 NIC 或正在負載平衡組態的虛擬機器備份。
+- 不支援使用多重 NIC 的虛擬機器備份。
+- 不支援正處於負載平衡組態 (內部和網際網路面向) 的虛擬機器備份。
 - 不支援在還原期間取代現有的虛擬機器。先刪除現有的虛擬機器及任何相關聯的磁碟，然後從備份還原資料。
 - 不支援跨區域備份和還原。
 - Azure 的所有公用區域皆支援使用 Azure 備份服務的虛擬機器備份。以下是支援區域的[檢查清單](http://azure.microsoft.com/regions/#services)。如果您尋找的區域目前不受支援，就不會於建立保存庫期間出現在下拉式清單中。
@@ -122,4 +123,4 @@
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [管理虛擬機器備份](backup-azure-manage-vms.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

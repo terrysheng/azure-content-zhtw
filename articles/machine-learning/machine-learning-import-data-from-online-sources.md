@@ -58,4 +58,4 @@ Azure Blob 儲存體 | 讀取 Azure 儲存體中的 Blob 服務所儲存的資�
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

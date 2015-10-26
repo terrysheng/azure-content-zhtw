@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="使用 Service Fabric 的應用程式案例和設計"
-	description="應用程式的類別。使用無狀態和可設定狀態的服務的應用程式設計"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor=""/>
+   pageTitle="使用 Service Fabric 的應用程式案例和設計" 
+   description="應用程式的類別。使用無狀態和可設定狀態的服務的應用程式設計" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/21/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/21/2015"
+   ms.author="mfussell"/>
 
 # Service Fabric 應用程式案例
 
@@ -68,4 +68,4 @@ Azure 中的 Service Fabric 平台適用於下列應用程式和服務的類別�
  
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

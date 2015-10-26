@@ -120,7 +120,7 @@
 	![ExpandCollapse](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
 
 
-6. 選取所有服務的度量後，按一下 [確定] \(核取記號) 更新監視組態。選取的度量隨即新增到度量表。
+6. 選取所有服務的度量後，按一下 [確定] (核取記號) 更新監視組態。選取的度量隨即新增到度量表。
 
 7. 若要從資料表刪除度量，請按一下度量加以選取，然後按一下 [刪除度量]。
 
@@ -157,4 +157,4 @@
 
 診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/library/azure/hh343262.aspx)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

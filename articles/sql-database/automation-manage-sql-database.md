@@ -53,4 +53,4 @@ Azure 自動化也可直接與 SQL 伺服器通訊，只要使用 PowerShell 發
  * 閱讀 [Azure 自動化：您在雲端的 SQL 代理程式](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)部落格文章 (英文)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

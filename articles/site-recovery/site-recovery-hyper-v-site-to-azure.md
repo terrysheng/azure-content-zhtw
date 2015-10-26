@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="09/29/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 
@@ -53,7 +53,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 ### 虛擬機器先決條件
 
-您想要保護的虛擬機器必須符合[虛擬機器必要條件](site-recovery-best-practices.md/#virtual-machines)。
+您想要保護的虛擬機器必須符合[虛擬機器必要條件](site-recovery-best-practices.md#virtual-machines)。
 
 ### 提供者和代理程式的必要條件
 
@@ -270,14 +270,10 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 - 在沒有 Azure 網路的情況下測試容錯移轉—這種測試容錯移轉可以檢查虛擬機器是否正確地出現在 Azure 中。在容錯移轉之後，虛擬機器不會連線到任何 Azure 網路。
 - 利用 Azure 網路測試容錯移轉—這種測試容錯移轉可以檢查整個復寫環境是否如預期般出現並進行容錯移轉，虛擬機器會連線到只訂的目標 Azure 網路。針對子網路處理的測試容錯移轉，可根據複本虛擬機器的子網路得知測試虛擬機器的子網路。這和一般的複寫不同，一般複寫的複本虛擬機器子網路是根據來源虛擬機器的子網路得知。
 
-如果您想要針對啟用保護的虛擬機器執行測試容錯轉移至 Azure ，卻不想指定 Azure 目標網路，您不需要作任何準備。若要利用目標 Azure 網路執行測試容錯移轉，您必須建立新的 Azure 網路，該網路會與您的 Azure 生產網路隔離 (您在 Azure 中建立新網路的預設行為)，您也必須設定基礎結構，讓複寫的虛擬機器如預期般運作。例如，具有網域控制站和 DNS 的虛擬機器可以使用 Azure Site Recovery 複寫到 Azure，而且可以使用測試容錯移轉，在測試網路中加以建立。若要執行測試容錯移轉，請依照下列步驟執行：
+如果您想要針對啟用保護的虛擬機器執行測試容錯轉移至 Azure ，卻不想指定 Azure 目標網路，您不需要作任何準備。若要以目標 Azure 網路執行測試容錯移轉，您必須建立與您的 Azure 正式作業網路 (當您在 Azure 中建立新網路時的預設行為) 分隔的新的 Azure 網路。如需詳細資訊，請參閱[執行測試容錯移轉](site-recovery-failover.md#run-a-test-failover)。
 
 
-1. 在將用於內部部署虛擬機器之實際測試容錯移轉的相同網路中，執行具有網域控制站和 DNS 之虛擬機器的測試容錯移轉。
-2. 將配置給已容錯移轉之 DNS 虛擬機器的 IP 位址記下來。
-3. 在將用於容錯移轉的 Azure 虛擬網路中，新增 IP 位址做為 DNS 伺服器的位址。
-4. 指定 Azure 測試網路，執行來源內部部署虛擬機器的測試容錯移轉。
-5. 在驗證測試容錯移轉可如預期般運作之後，請將復原方案的測試容錯移轉標示為完成，然後將網域控制站和 DNS 虛擬機器的測試容錯移轉標示為完成。
+您也必須針對複寫虛擬機器設定基礎結構，以如預期般運作。例如，具有網域控制站和 DNS 的虛擬機器可以使用 Azure Site Recovery 複寫到 Azure，而且可以使用測試容錯移轉，在測試網路中加以建立。如需詳細資訊，請參閱 [Active Directory 測試容錯移轉考量](site-recovery-active-directory.md#considerations-for-test-failover)一節。
 
 若要執行測試容錯移轉，請執行下列動作：
 
@@ -309,4 +305,4 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -118,4 +118,4 @@
 
 如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

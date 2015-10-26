@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure App Service 中管理 Web 應用程式"
-	description="適用於在 Azure App Service 中管理 Web 應用程式之資源的連結。"
-	services="app-service\web"
-	documentationCenter=""
-	authors="erikre"
-	manager="wpickett"
+	pageTitle="在 Azure App Service 中管理 Web 應用程式" 
+	description="適用於在 Azure App Service 中管理 Web 應用程式之資源的連結。" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="erikre" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/31/2015" 
 	ms.author="erikre"/>
 
 # 在 Azure App Service 中管理 Web 應用程式
@@ -103,4 +103,4 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
   
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

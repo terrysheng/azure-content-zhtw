@@ -99,7 +99,6 @@
 
 > [AZURE.WARNING]客體作業系統系列 1 從 2013 年 6 月 1 日開始淘汰，預計很快完成。請勿使用此客體作業系統系列建立新的安裝和升級舊的安裝。如需詳細資訊，請參閱 [Azure 客體作業系統系列 1 淘汰資訊][fam1retire]
 
-客體作業系統包含的組態不同於 Windows Server 的預設值。如需詳細資訊，請參閱 [Azure 客體作業系統與預設 Windows Server 之間的差異][server and gos]。
 
 ### 客體作業系統系列、版本和版次說明
 客體作業系統系列以 Microsoft Windows Server 的發行版本為基礎。客體作業系統是指執行 Azure 雲端服務的基礎作業系統。每一個客體作業系統都有系列、版本和版次號碼。
@@ -232,7 +231,7 @@
 
 Microsoft Azure 正持續發行更新。客體作業系統只是這過程中的一項更新。影響版次的因素太多，無法在這裡完整列出。此外，Azure 實際上是在成千上萬個電腦上執行。這表示不可能指出您的角色重新啟動的確切日期和時間。我們會在[客體作業系統更新 RSS 摘要][rss]中隨時提供最新資訊，但請視為大約的時間。我們知道這對客戶造成困擾，所以正計劃對重新啟動設限或訂定時間。
 
-新版次的客體作業系統發行時，需要一段時間才會完全傳播到整個 Azure。當服務更新到新的客體作業系統時，它們會重新啟動，讓更新網域生效。設為「自動」更新的服務會最先取得一個版次。更新之後，您在 Azure 管理入口網站中會看到您的服務列出新的客體作業系統版本。此期間可能再度發行版次。某些版本的部署期間可能很長，而且在官方發行日期之後，可能經過許多個星期都還不會進行自動升級重新啟動。當客體作業系統推出時，您可以從入口網站或組態檔中明確地選擇該版本。如需詳細資訊，請參閱[從管理入口網站更新 Azure 客體 OS][update guest os portal] 和[修改服務組態檔以更新 Azure 客體作業系統][update guest os svc]。
+新版次的客體作業系統發行時，需要一段時間才會完全傳播到整個 Azure。當服務更新到新的客體作業系統時，它們會重新啟動，讓更新網域生效。設為「自動」更新的服務會最先取得一個版次。更新之後，您在 Azure 管理入口網站中會看到您的服務列出新的客體作業系統版本。此期間可能再度發行版次。某些版本的部署期間可能很長，而且在官方發行日期之後，可能經過許多個星期都還不會進行自動升級重新啟動。當客體作業系統推出時，您可以從入口網站或組態檔中明確地選擇該版本。
 
 關於重新啟動的大量實用資訊，以及客體和主機作業系統更新的更多技術細節的線索，請參閱 MSDN 部落格文章＜[角色執行個體由於作業系統升級而重新啟動][restarts]＞。
 
@@ -324,7 +323,7 @@ Microsoft Azure 正持續發行更新。客體作業系統只是這過程中的�
 | 2\.19 rel1 | WA-GUEST-OS-2.19\_201309-01 | 2013 年 9 月 23 日 | N/A | 2014 年 5 月 14 日 |
 
 
-[Azure 客體作業系統更新設定]: https://msdn.microsoft.com/library/azure/ff729420.aspx
+[Azure 客體作業系統更新設定]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft 資訊安全摘要報告 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -344,4 +343,4 @@ Microsoft Azure 正持續發行更新。客體作業系統只是這過程中的�
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

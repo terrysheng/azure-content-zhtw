@@ -106,7 +106,7 @@
 
 4.  按一下 [新增使用者]。
 
-    ![新增使用者](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "新增使用者")
+    ![新使用者](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "新增使用者")
 
 5.  在 [新增使用者] 對話頁面上，執行下列步驟：
 
@@ -130,10 +130,10 @@
 
     ![指派使用者](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785164.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
 
     ![是](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC767830.png "是")
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

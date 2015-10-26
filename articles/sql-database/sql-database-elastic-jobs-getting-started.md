@@ -50,7 +50,7 @@ Azure SQL database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 	New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 	$ResourceGroupName = "ddove_samples"
 	$ServerName = "samples"
-	$dbsinserver = Get-AzureSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+	$dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
 	$dbsinserver | %{
     $currentdb = $_.DatabaseName 
     $ErrorActionPreference = "Stop"
@@ -447,4 +447,4 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。如果
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

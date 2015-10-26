@@ -1,19 +1,19 @@
 <properties
     pageTitle="如何搭配使用 Azure 從屬外掛程式與 Hudson 連續整合"
-	description="說明如何搭配使用 Azure 從屬外掛程式與 Hudson 連續整合。"
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="jimbe"/>
+    description="說明如何搭配使用 Azure 從屬外掛程式與 Hudson 連續整合。"
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe" />
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="v-dedomi"/>
 
 #如何搭配使用 Azure 從屬外掛程式與 Hudson 連續整合
@@ -167,7 +167,7 @@
 3. 針對工作類型選取 [**建置自由樣式的軟體作業**]。
 4. 按一下 [**確定**]。
 5. 在工作組態頁面中，選取 [**限制可以執行這個專案的位置**]。
-6. 選取 [**節點和標籤功能表**]，然後選取 **linux** (上一節在建立虛擬機器範本時，我們指定了這個標籤)。 
+6. 選取 [**節點和標籤功能表**]，然後選取 [**linux**] (上一節在建立虛擬機器範本時，我們指定了這個標籤)。 
 
 7. 在 [**組件**] 區段中，按一下 [**新增組件步驟**]，然後選取 [**執行殼層**]。
 8. 編輯下列指令碼，將 **(github 帳戶名稱)**、**(專案名稱)** 和 **(專案目錄)** 取代為適當值，並在出現的文字區域中貼上編輯過的指令碼。
@@ -213,4 +213,4 @@ Hudson 就會使用上一節建立的範本建立從屬節點，並執行您針�
 
   
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

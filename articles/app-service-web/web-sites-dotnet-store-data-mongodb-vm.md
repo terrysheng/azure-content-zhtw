@@ -326,7 +326,7 @@ MongoDB C# 驅動程式現已安裝。 **MongoDB.Bson**、**MongoDB.Driver** 和
 	}
 
 ## 設定樣式 ##
-若要變更頁面最上方的標題，請在 [方案總管] 中開啟 *Views\\Shared\\\_Layout.cshtml* 檔案，並以 "My Task List Application" 取代導覽列標題中的 "Application name"，使其看起來如下：
+若要變更頁面最上方的標題，請在 [方案總管] 中開啟 *Views\\Shared\\_Layout.cshtml* 檔案，並以 "My Task List Application" 取代導覽列標題中的 "Application name"，使其看起來如下：
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -367,7 +367,7 @@ MongoDB C# 驅動程式現已安裝。 **MongoDB.Bson**、**MongoDB.Driver** 和
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-若要新增建立新工作的功能，請在 *Views\\Home* 資料夾上按一下滑鼠右鍵，然後 [新增] 一個 [檢視]。將檢視命名為 *Create*。使用下列程式碼來取代此程式碼：
+若要新增建立新工作的功能，請在 *Views\\Home\* 資料夾上按一下滑鼠右鍵，然後 [新增] 一個 [檢視]。將檢視命名為 *Create*。使用下列程式碼來取代此程式碼：
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -499,4 +499,4 @@ MongoDB C# 驅動程式現已安裝。 **MongoDB.Bson**、**MongoDB.Driver** 和
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

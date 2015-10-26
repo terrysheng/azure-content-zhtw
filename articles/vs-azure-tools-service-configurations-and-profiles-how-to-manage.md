@@ -131,4 +131,4 @@
 
 若要了解如何從 Visual Studio 設定 Azure 專案的其他部分，請參閱[設定 Azure 專案](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

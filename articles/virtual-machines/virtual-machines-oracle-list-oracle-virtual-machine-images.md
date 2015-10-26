@@ -11,7 +11,8 @@ ms.author="bbenz" />
 
 #Oracle 虛擬機器映像清單
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 若要建立以 Oracle 映像為基礎的虛擬機器，請登入 [Azure 入口網站](https://ms.portal.azure.com/)，按一下 [**Marketplace**]，按一下 [**運算**]，然後在 [搜尋] 方塊中輸入 **Oracle**。選取映像並遵循指示在 Microsoft Azure 上設定映像。請注意，在 [Azure 入口網站](https://ms.portal.azure.com/)上由 Microsoft 提供的 Oracle 映像在 Windows 上執行，而由 Oracle 提供的 Oracle 映像則在 Oracle Linux 上執行。
 
@@ -62,4 +63,4 @@ ms.author="bbenz" />
 
 [Oracle 虛擬機器映像 - 其他考量](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

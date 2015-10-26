@@ -130,4 +130,4 @@ Azure CLI 是一組命令，可用於部署和管理 Azure 服務，例如 Azure
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

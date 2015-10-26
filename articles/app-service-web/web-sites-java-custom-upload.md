@@ -257,4 +257,4 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

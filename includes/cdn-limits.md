@@ -6,4 +6,4 @@
 
 您可以開啟支援票證來要求更新軟性限制。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

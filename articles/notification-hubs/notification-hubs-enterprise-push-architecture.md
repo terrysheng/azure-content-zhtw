@@ -270,4 +270,4 @@
 [Azure WebJob]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [通知中樞 - Windows Universal 教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

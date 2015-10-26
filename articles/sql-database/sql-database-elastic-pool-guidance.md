@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -216,8 +216,8 @@ STA 是在加入彈性資料庫集區至現有的伺服器時，於預覽入口�
 
 指令碼完成時，它會輸出要包含目標伺服器中所有候選資料庫，彈性集區所需的 eDTU 的估計數目。此估計的 eDTU 可以用於建立及設定彈性資料庫集區，以保存這些資料庫。一旦建立集區並將資料庫移到集區，應該對它密切監控數日，並且視需要對集區 eDTU 設定進行任何調整。
 
+> [AZURE.IMPORTANT]此指令碼包含適用於 Azure PowerShell 版本的命令，適用版本最新至*但不包括*版本 1.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) (英文)。
 
-若要選取整個指令碼以進行複製，請在指令碼中的任何文字 3 次 (按三下)。
 
     
     param (
@@ -435,4 +435,4 @@ STA 是在加入彈性資料庫集區至現有的伺服器時，於預覽入口�
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

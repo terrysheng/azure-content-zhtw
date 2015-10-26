@@ -19,7 +19,8 @@
 
 # 如何從 Linux 虛擬機器卸離磁碟
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以傳統部署模型移除磁碟。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -29,4 +30,4 @@
 
 [搭配服務管理 API 使用 Azure CLI](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

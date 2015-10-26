@@ -40,4 +40,4 @@ Tomcat Web 應用程式注意事項：將 WAR 檔案上傳至 **webapps** 資料
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 10 GbE 介面的硬體 | Microsoft Azure"
-	description="說明 StorSimple 裝置上的 10 GbE 網路介面所支援的小型可插拔 (SFP) 收發器、纜線及交換器。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="說明 StorSimple 裝置上的 10 GbE 網路介面所支援的小型可插拔 (SFP) 收發器、纜線及交換器。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/27/2015"
+   ms.author="alkohli" />
 
 # 10 GbE 網路介面在 StorSimple 裝置上支援的硬體
 
@@ -112,4 +112,4 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 
 [深入了解 StorSimple 硬體元件與狀態](storsimple-monitor-hardware-status.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

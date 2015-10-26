@@ -45,4 +45,4 @@
 
 當您建立 RemoteApp 集合時，您會需要這兩個物件，因此請務必先執行這些步驟。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

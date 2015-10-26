@@ -90,4 +90,4 @@ RateCard API 需要數個輸入參數 -- 例如區域資訊、貨幣及區域設
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

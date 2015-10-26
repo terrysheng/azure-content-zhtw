@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="10/14/2015"
 	ms.author="tomfitz"/>
 
 
@@ -48,15 +48,11 @@
 
 ## 使用 PowerShell 來標記
 
-如果您之前未曾搭配使用Azure PowerShell 與資源管理員，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](../powershell-azure-resource-manager.md)。基於本文的目的，我們假設您已經加入帳戶，並選取含有您想要標記之資源的訂閱。
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-標記只適用於[資源管理員](http://msdn.microsoft.com/library/azure/dn790568.aspx)所提供的資源和資源群組，因此，接下來我們需要切換到使用資源管理員。
+標記直接存在於資源與資源群組上，若要查看已經套用哪些標記，只要使用 **Get-AzureRmResource** 或 **Get-AzureRmResourceGroup**，就能取得資源或資源群組。我們從資源群組開始。
 
-    Switch-AzureMode AzureResourceManager
-
-標記直接存在於資源與資源群組上，若要查看已經套用哪些標記，只要分別使用 `Get-AzureResource` 或 `Get-AzureResourceGroup`，就能取得資源或資源群組。我們從資源群組開始。
-
-    PS C:\> Get-AzureResourceGroup tag-demo
+    PS C:\> Get-AzureRmResourceGroup tag-demo
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -80,9 +76,9 @@
                     tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
 
-此 Cmdlet 會傳回資源群組上的幾個位元的中繼資料，包括已套用哪些標記 (若有的話)。若要標記資源群組，只需使用 `Set-AzureResourceGroup` 命令，並指定標記名稱和值。
+此 Cmdlet 會傳回資源群組上的幾個位元的中繼資料，包括已套用哪些標記 (若有的話)。若要標記資源群組，只需使用 **Set-AzureRmResourceGroup** 命令，並指定標記名稱和值。
 
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -95,9 +91,9 @@
 
 標記是整體更新，因此，如果您要將一個標記加入至已標記的資源，則必須使用陣列與您想要保留的所有標記。若要這樣做，首先您可以選取現有的標記，然後新增一個。
 
-    PS C:\> $tags = (Get-AzureResourceGroup -Name tag-demo).Tags
+    PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag $tags
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -112,7 +108,15 @@
 
 若要移除一個或多個標記，只需儲存不含您要移除之標記的陣列。
 
-對於資源，處理方式相同，差別在於使用 `Get-AzureResource` 和 `Set-AzureResource` Cmdlet。若要取得含有特定標記的資源或資源群組，請使用 `Get-AzureResource` 或 `Get-AzureResourceGroup` Cmdlet 並指定 `-Tag` 參數。
+對於資源，也是同樣程序，但您將會使用 **Get-AzureRmResource** 和 **Set-AzureRmResource** Cmdlet。
+
+若要取得含有特定標記的資源群組，請使用 **Find-AzureRmResourceGroup** Cmdlet 與 **-Tag** 參數搭配。
+
+    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
+    rbacdemo-group
+    tag-demo
+
+若是 1.0 Preview 之前的 Azure PowerShell 版本，請使用下列命令來取得含有特定標記的資源。
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -120,11 +124,11 @@
     PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
     rbacdemo-web
     rbacdemo-docdb
-    ...
+    ...    
 
-若要使用 PowerShell 取得訂閱內所有標記的清單，請使用 `Get-AzureTag` Cmdlet。
+若要使用 PowerShell 取得訂用帳戶內所有標記的清單，請使用 **Get-AzureRmTag** Cmdlet。
 
-    PS C:/> Get-AzureTag
+    PS C:/> Get-AzureRmTag
     Name                      Count
     ----                      ------
     env                       8
@@ -132,7 +136,7 @@
 
 您可能會看到開頭為 "hidden-" 和 "link:" 的標記。這些是內部標記，應該略過且避免變更。
 
-使用 `New-AzureTag` Cmdlet 將新的標記加入分類法。這些標記會加入到自動完成中，即使它們尚未套用至任何資源或資源群組也一樣。若要移除標記名稱/值，請先從任何可能用到這個標記的資源中移除標記，再使用 `Remove-AzureTag` Cmdlet 從分類法中移除它。
+使用 **New-AzureRmTag** Cmdlet 將新的標記加入分類法。這些標記會加入到自動完成中，即使它們尚未套用至任何資源或資源群組也一樣。若要移除標記名稱/值，請先從任何可能用到這個標記的資源中移除標記，再使用 **Remove-AzureRmTag** Cmdlet 從分類法中移除它。
 
 ## 使用 REST API 加上標記
 
@@ -151,8 +155,8 @@
 
 ## 後續步驟
 
-- 如需部署資源時使用 Azure PowerShell 的簡介，請參閱 [搭配使用 Azure PowerShell 與 Azure 資源管理員](./powershell-azure-resource-manager.md)。
+- 如需部署資源時使用 Azure PowerShell 的簡介，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](./powershell-azure-resource-manager.md)。
 - 如需部署資源時使用 Azure CLI 的簡介，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](./xplat-cli-azure-resource-manager.md)。
-- 如需使用預覽入口網站的簡介，請參閱[使用 Azure 預覽入口網站來管理您的 Azure 資源](./resource-group-portal.md)  
+- 如需使用預覽入口網站的簡介，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](./resource-group-portal.md)  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

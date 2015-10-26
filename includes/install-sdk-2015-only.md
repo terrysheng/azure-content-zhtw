@@ -6,4 +6,4 @@
 
 >[AZURE.NOTE]視您的電腦上有多少 SDK 相依性而定，安裝 SDK 可能需要很長的時間 (從數分鐘到半小時以上不等)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

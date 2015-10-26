@@ -166,4 +166,4 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

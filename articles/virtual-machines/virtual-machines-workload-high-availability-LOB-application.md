@@ -19,7 +19,8 @@
 
 # Azure 基礎結構服務工作負載：高可用性企業營運應用程式
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 在 Microsoft Azure 中設定第一個或下一個以網路為基礎的內部網路專用企業營運應用程式，這樣您就可以利用簡化組態的優點，還能夠快速擴大應用程式，使其增加新的容量。
  
@@ -105,4 +106,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

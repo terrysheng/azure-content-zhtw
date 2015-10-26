@@ -96,10 +96,10 @@
 
     ![指派使用者](./media/active-directory-saas-rightanswers-tutorial/IC802932.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 來確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
 
     ![是](./media/active-directory-saas-rightanswers-tutorial/IC767830.png "是")
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

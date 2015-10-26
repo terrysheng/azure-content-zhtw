@@ -23,6 +23,6 @@
 
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
-   	請注意，儲存的文字是儲存在記憶體中集合，並顯示在下列清單中。
+   	請注意，已儲存的文字會存放在 記憶體內部集合，並顯示在以下列表中。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -59,33 +59,25 @@ None | 傳送電子郵件
 ## 在邏輯應用程式中使用 SMTP 連接器
 建立連接器之後，即可使用 SMTP 連接器做為邏輯應用程式的動作。作法：
 
-1.	建立新的邏輯應用程式：
-
-	![][2]
-2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的工作流程：
-
-	![][3]
-3.	SMTP 連接器會列在右側資源庫中的 [此資源群組中的 API 應用程式] 區段。請選取它：
-
-	![][4]
+1.	建立新的邏輯應用程式：![][2]
+2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的工作流程：![][3]
+3.	SMTP 連接器會列在右側資源庫中的 [此資源群組中的 API 應用程式] 區段。請選取它：![][4]
 4.	選取 [SMTP 連接器]，自動將它加入工作流程設計工具。
 
 您現在可以設定要在工作流程中使用的 SMTP 連接器。選取 [傳送電子郵件] 動作，並設定輸入屬性：
 
-	屬性 | 說明
+	Property | Description
 	--- | ---
-	收件人 | 輸入收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入： recipient1@domain.com;recipient2@domain.com。
-	副本 | 輸入副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
-	主旨 | 輸入電子郵件主旨。
-	內文 | 輸入電子郵件內文。
-	HTML | 當此屬性設為 true 時，內文內容會以 HTML 傳送。
-	密件副本 | 輸入密件副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
-	重要性 | 輸入電子郵件的重要性。選項為一般、低重要性和高重要性。
-	附件 | 附件會連同電子郵件一併寄出。包含的欄位如下： <ul><li>內容 (字串)</li><li>內容轉移編碼 (列舉) (“無”|”base64”)</li><li>內容類型 (字串)</li><li>內容識別碼 (字串)</li><li> 檔案名稱 (字串)</li></ul>
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-
-![][5]
-![][6]
+![][5] ![][6]
 
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
@@ -104,4 +96,4 @@ None | 傳送電子郵件
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

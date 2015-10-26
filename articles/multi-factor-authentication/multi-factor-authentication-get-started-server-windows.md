@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Windows 驗證與 Azure Multi-Factor Authentication Server"
-	description="此 Azure Multi-Factor Authentication 頁面協助您部署 Windows 驗證與 Azure Multi-Factor Authentication Server。"
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Windows 驗證與 Azure Multi-Factor Authentication Server" 
+	description="此 Azure Multi-Factor Authentication 頁面協助您部署 Windows 驗證與 Azure Multi-Factor Authentication Server。" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Windows 驗證與 Azure Multi-Factor Authentication Server
@@ -49,4 +49,4 @@
 10. 如果您想要使用子網路標記法指定 IP 範圍，請選取 [子網路]。輸入子網路的起始 IP，並從下拉式清單中挑選適當的網路遮罩。 
 11. 按一下 [確定] 按鈕。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -115,4 +115,4 @@
 * [補償交易模式](http://msdn.microsoft.com/library/dn589804.aspx)
 * [等冪性模式](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

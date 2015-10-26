@@ -547,4 +547,4 @@
 [建立 API 管理服務執行個體]: api-management-get-started.md#create-service-instance
 [管理您的第一個 API]: api-management-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

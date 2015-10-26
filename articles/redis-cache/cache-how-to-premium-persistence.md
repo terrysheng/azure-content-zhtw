@@ -96,4 +96,4 @@ Azure Redis 快取提供 Redis 永續性，其中的資料是儲存在 Azure 儲
 
 [redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

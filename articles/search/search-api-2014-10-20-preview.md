@@ -1,6 +1,6 @@
-<properties pageTitle="Azure 搜尋服務 REST API 版本 2014-10-20-Preview" description="Azure 搜尋服務 REST API 版本 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="Azure 搜尋服務 REST API 版本 2014-10-20-Preview" description="Azure 搜尋服務 REST API 版本 2014-10-20-Preview" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist" />
 
 #Azure 搜尋服務 REST API：版本 2014-10-20-Preview
 
@@ -322,7 +322,7 @@ Azure 搜尋服務允許以各種語言來編製欄位的索引。這些語言�
 		</td>
 	</tr>
     <tr>
-		<td>葡萄牙文(巴西)</td>
+		<td>巴西文</td>
 		<td>pt-Br.lucene</td>
 		<td>
 		<ul>
@@ -1455,4 +1455,4 @@ ________________________________________
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

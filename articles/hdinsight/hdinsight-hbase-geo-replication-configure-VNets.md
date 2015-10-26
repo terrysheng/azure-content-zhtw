@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="設定兩個虛擬網路之間的 VPN 連線 | Microsoft Azure"
-	description="了解如何設定兩個 Azure 虛擬網路之間的 VPN 連線和網域名稱解析，以及如何設定 HBase 異地複寫。"
-	services="hdinsight,virtual-network"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+   pageTitle="設定兩個虛擬網路之間的 VPN 連線 | Microsoft Azure" 
+   description="了解如何設定兩個 Azure 虛擬網路之間的 VPN 連線和網域名稱解析，以及如何設定 HBase 異地複寫。" 
+   services="hdinsight,virtual-network" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/08/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="07/08/2015"
+   ms.author="jgao"/>
 
 # 設定兩個 Azure 虛擬網路之間的 VPN 連線  
 
@@ -270,4 +270,4 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

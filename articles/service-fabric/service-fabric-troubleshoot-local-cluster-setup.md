@@ -1,10 +1,10 @@
 <properties
-   pageTitle="疑難排解本機叢集設定"
+   pageTitle="疑難排解您的本機 Service Fabric 叢集設定 | Microsoft Azure"
    description="本文涵蓋了一組疑難排解本機開發叢集的建議"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # 疑難排解本機開發叢集設定
@@ -86,4 +86,4 @@
 - [透過系統健康情況報告了解及疑難排解您的叢集](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

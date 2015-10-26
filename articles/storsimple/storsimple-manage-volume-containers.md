@@ -66,4 +66,4 @@ Microsoft Azure StorSimple 裝置中的磁碟區容器包含一個或多個可�
 - 深入了解[管理 StorSimple 磁碟區](storsimple-manage-volumes.md)。 
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

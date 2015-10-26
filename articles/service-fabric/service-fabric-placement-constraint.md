@@ -39,4 +39,4 @@ NodeProperty - 使用者或系統所定義從字串對值的對應，會隨著�
 如需詳細資訊，請參閱：＜[應用程式案例](../service-fabric-application-scenarios)＞。
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -47,4 +47,4 @@
 如需詳細資訊，請參閱：[資源平衡器架構](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

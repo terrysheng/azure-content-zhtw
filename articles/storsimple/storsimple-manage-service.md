@@ -115,4 +115,4 @@ StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

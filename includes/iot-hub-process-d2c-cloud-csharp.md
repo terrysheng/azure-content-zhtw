@@ -53,7 +53,7 @@
 
 5. 以滑鼠右鍵按一下 **ProcessDeviceToCloudMessages** 專案、按一下 [新增]，然後按一下 [類別]。將新類別命名為 **StoreEventProcessor**，然後按一下 [確定] 以建立該類別。
 
-6. 在 SimpleEventProcessor.cs 檔案開頭處新增下列陳述式：
+6. 在 StoreEventProcessor.cs 檔案開頭處新增下列陳述式：
 
         using System.IO;
         using System.Diagnostics;
@@ -96,7 +96,7 @@
 
             Task IEventProcessor.OpenAsync(PartitionContext context)
             {
-                Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+                Console.WriteLine("StoreEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
 
                 if (!long.TryParse(context.Lease.Offset, out currentBlockInitOffset))
                 {
@@ -126,7 +126,7 @@
                         WriteHighlightedMessage(string.Format("Received interactive message: {0}", messageId));
                         continue;
                     }
-                    
+
                     if (toAppend.Length + data.Length > MAX_BLOCK_SIZE || stopwatch.Elapsed > MAX_CHECKPOINT_TIME)
                     {
                         await AppendAndCheckpoint(context);
@@ -229,13 +229,13 @@
 > [AZURE.NOTE]為求簡單，本教學課程使用單一 [EventProcessorHost] 執行個體。請參閱[事件中樞程式設計指南]和 [處理裝置到雲端訊息] 教學課程以取得處理裝置到雲端訊息的詳細資訊。
 
 ## 接收互動式訊息
-在本節中，您將撰寫 Windows 主控台應用程式，它會接收來自服務匯流排佇列的互動式訊息。如需有關如何使用服務匯流排架構解決方案的詳細資訊，請參考 [使用服務匯流排建置多層式應用程式]。
+在本節中，您將撰寫 Windows 主控台應用程式，它會接收來自服務匯流排佇列的互動式訊息。如需有關如何使用服務匯流排架構解決方案的詳細資訊，請參考[使用服務匯流排建置多層式應用程式][]。
 
 1. 在目前的 Visual Studio 解決方案中，使用 [主控台應用程式] 專案範本建立新的 Visual C# 桌面應用程式專案。將專案命名為 **ProcessD2cInteractiveMessages**。
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [**管理方案的 NuGet 封裝...**]。
 
-    這樣會顯示 [管理 NuGet 封裝] 視窗。
+    此時會顯示 [管理 NuGet 封裝] 視窗。
 
 3. 搜尋 `WindowsAzure.Service Bus`，然後按一下 [**安裝**] 並接受使用條款。
 
@@ -309,9 +309,11 @@
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
+[使用服務匯流排建置多層式應用程式]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+
 
 <!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
+[10]: ./media/iot-hub-process-d2c-cloud-csharp/create-identity-csharp1.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
 [20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
@@ -322,4 +324,4 @@
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

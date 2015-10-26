@@ -1,19 +1,19 @@
 <properties
    pageTitle="使用 Visual Studio 疑難排解 Windows 上的 Docker 用戶端錯誤 | Microsoft Azure"
-	description="疑難排解使用 Visual Studio 在 Windows 上建立及部署 Web 應用程式到 Docker 時您會遇到的問題。"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="疑難排解使用 Visual Studio 在 Windows 上建立及部署 Web 應用程式到 Docker 時您會遇到的問題。"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # 疑難排解 Docker 錯誤
 
@@ -100,4 +100,4 @@
 
 另一個選項是下載 OpenSSL for Windows 並產生需要的憑證和金鑰，然後上傳 CA、伺服器憑證和金鑰到 Linux 機器。如需有關建立 Docker 的安全連接的詳細資訊，請參閱[使用 HTTPS 保護 Docker 精靈通訊端](https://docs.docker.com/articles/https/)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

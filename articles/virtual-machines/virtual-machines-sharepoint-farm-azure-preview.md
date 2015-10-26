@@ -19,7 +19,8 @@
 
 # SharePoint Server 伺服器陣列
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+ 
 
 使用 SharePoint Server 伺服器陣列時，Microsoft Azure 預覽入口網站會自動為您建立預先設定的 SharePoint Server 2013 伺服器陣列。當您在開發和測試環境中需要基本或高可用性 SharePoint 伺服器陣列時，或是您要評估將 SharePoint Server 2013 做為組織的共同作業方案時，這將可為您省下許多時間。
 
@@ -97,4 +98,4 @@ Azure 預覽入口網站的 SharePoint Server 伺服器陣列功能會以傳統�
 
 [在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,7 @@
 
 Apache Spark 是進行大規模資料處理的快速引擎。Spark 有支援循環資料流程和記憶體內部計算的進階 DAG 執行引擎，而且它可以存取不同的資料來源，包括 HDFS、Spark、HBase 和 S3。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型部署資源。您無法以傳統部署模型部署此資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。您無法以傳統部署模型部署此資源。
 
 
 除了在 Mesos 或 YARN 叢集管理員上執行，Spark 也提供簡單的獨立部署模式。本教學課程將逐步引導您使用範例 Azure 資源管理員範本，以透過 [Azure PowerShell](../powershell-install-configure.md) 或 [Azure CLI](../xplat-cli-install.md) 在 Ubuntu VM 上部署 Spark 叢集。
@@ -847,4 +847,4 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 
 [疑難排解範本部署](resource-group-deploy-debug.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

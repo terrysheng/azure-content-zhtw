@@ -55,4 +55,4 @@
 
 現在所有新的 Azure RemoteApp 集合都支援[強制通道](vpn-gateway-about-forced-tunneling.md)。我們目前不支援現有集合的移轉，而支援強制通道。您必須使用您要連結至 Azure RemoteApp 的 VNET 來刪除所有現有的集合，並建立新的集合以在集合上啟用強制通道。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

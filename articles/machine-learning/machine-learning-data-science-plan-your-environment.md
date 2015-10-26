@@ -2,6 +2,7 @@
 	pageTitle="規劃機器學習服務進階分析環境 | Microsoft Azure" 
 	description="考慮重要問題來規劃進階分析環境。" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -79,4 +80,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

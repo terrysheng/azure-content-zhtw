@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # 設定 Linux RDMA 叢集以執行 MPI 應用程式
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型設定資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本文說明如何在 Azure 中使用[ A8 和 A9 大小的虛擬機器](virtual-machines-a8-a9-a10-a11-specs.md)設定 Linux RDMA 叢集，以便執行平行訊息傳遞介面 (MPI) 應用程式。當您設定 A8 和 A9 大小的 Linux VM 以執行支援的 MPI 實作時，MPI 應用程式可透過低延遲、高輸送量網路，在運用遠端直接記憶體存取 (RDMA) 技術的 Azure 中進行有效率的通訊。
 
@@ -369,4 +370,4 @@ cluster12
 
 * 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-TW/articles/intel-mpi-library-documentation/)＞。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

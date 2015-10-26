@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure App Service 中的 .NET Web 應用程式使用 New Relic 應用程式效能管理"
-	description="了解如何在 Azure App Service 上執行的 ASP.NET 應用程式使用 New Relic 的效能監視。"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="在 Azure App Service 中的 .NET Web 應用程式使用 New Relic 應用程式效能管理" 
+	description="了解如何在 Azure App Service 上執行的 ASP.NET 應用程式使用 New Relic 的效能監視。" 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -38,8 +38,7 @@ New Relic Standard 供 Azure 使用者免費使用。根據您所使用的網站
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱 2 週。
 
-使用 Azure Marketplace 註冊 New Relic
---
+使用 Azure Marketplace 註冊 New Relic --
 
 New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密整合。
 
@@ -179,4 +178,4 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -22,7 +22,7 @@
 
 #如何登入執行 Linux 的虛擬機器 #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何使用透過傳統部署模型建立的虛擬機器。您可以遵循使用[資源管理員部署模型](virtual-machines-linux-tutorial-portal-rm.md)建立虛擬機器的類似步驟。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md)。
 
 對於執行 Linux 作業系統的虛擬機器，您可以使用安全殼層 (SSH) 用戶端來登入。
 
@@ -56,4 +56,4 @@
 <!-- LINKS -->
 [如何為 Linux 虛擬機器重設密碼或 SSH]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

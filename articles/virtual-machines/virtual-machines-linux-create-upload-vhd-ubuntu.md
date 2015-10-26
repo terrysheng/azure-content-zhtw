@@ -19,7 +19,6 @@
 
 # 準備執行 Azure 的 Ubuntu 虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ##必要條件##
 
@@ -59,7 +58,7 @@
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. Ubuntu 的 Azure 映像現在遵循「硬體啟用」(HWE) 核心。執行下列命令，將作業系統更新為最新的核心：
+4. Ubuntu 的 Azure 映像現在遵循*硬體啟用* (HWE) 核心。執行下列命令，將作業系統更新為最新的核心：
 
 	Ubuntu 12.04：
 
@@ -119,4 +118,4 @@ Ubuntu 硬體啟用 (HWE) 核心
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

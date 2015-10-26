@@ -21,7 +21,8 @@
 
 AlwaysOn 可用性群組可透過新增次要複本，為資料庫群組提供高可用性。如果發生故障，這些複本便可容錯移轉資料庫。此外，它們還可用來卸載讀取工作負載或備份工作。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+ 
 
 您可使用 SQL Server 佈建一或多個 Azure VM，並將它們以複本形式新增至內部部署可用性群組，藉此將內部部署可用性群組延伸至 Microsoft Azure。
 
@@ -103,4 +104,4 @@ AlwaysOn 可用性群組可透過新增次要複本，為資料庫群組提供�
 
 如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

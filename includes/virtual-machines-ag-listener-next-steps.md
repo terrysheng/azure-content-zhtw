@@ -2,4 +2,4 @@
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

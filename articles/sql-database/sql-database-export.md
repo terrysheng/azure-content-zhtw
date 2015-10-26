@@ -1,6 +1,6 @@
 <properties
 	pageTitle="建立和匯出 Azure SQL Database 的 BACPAC"
-	description="建立 Azure SQL Database 的 BACPAC 並將其匯出至 Azure 儲存體"
+	description="建立和匯出 Azure SQL Database 的 BACPAC"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="10/13/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# 建立和匯出 SQL Database 的 BACPAC
+# 建立和匯出 Azure SQL Database 的 BACPAC
 
 **單一資料庫**
 
@@ -25,7 +25,7 @@
 - [Azure Preview Portal](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
-本文說明如何使用 [Azure Preview 入口網站](https://portal.azure.com)，手動匯出您的 SQL Database BACPAC。
+本文提供使用 [Azure 預覽入口網站](https://portal.azure.com)匯出您 Azure SQL Database 的 BACPAC 的說明。
 
 BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需詳細資訊，請參閱[資料層應用程式](https://msdn.microsoft.com/library/ee210546.aspx)中的備份封裝 (.bacpac)。
 
@@ -101,4 +101,4 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

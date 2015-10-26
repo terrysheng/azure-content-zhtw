@@ -19,7 +19,8 @@
 
 # 疑難排解存取在 Azure 虛擬機器上執行的應用程式
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何在以傳統部署模型，或以資源管理員部署模型建立的虛擬機器上疑難排解應用程式存取。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 如果您無法存取在 Azure 虛擬機器上執行的應用程式，本文將說明以井然有序的方式，釐清問題的來源並更正。
 
@@ -112,4 +113,4 @@
 
 [疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # 在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋之內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+ 
 
 本主題將逐步引導您建立混合式雲端環境測試 Microsoft Azure 代管的內部網路 SharePoint 伺服器陣列。以下是產生的組態。
 
@@ -104,7 +105,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] \([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -213,4 +214,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 [Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

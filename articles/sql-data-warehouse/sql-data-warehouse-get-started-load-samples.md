@@ -30,7 +30,7 @@
 2. 一旦啟動程序之後，請務必按一下 [選取來源] 選項並將它設定為「範例」。如果您正在建立的並非新的伺服器，系統也會要求您針對正用來建立的伺服器提供登入。
 
 
-> [AZURE.NOTE] 若要將範例資料載入您的執行個體，您必須啟用 Azure 服務來存取伺服器 (在建立新的伺服器時，應該預設會啟用此項)。若未執行此動作，則載入將會失敗，但您仍能[手動載入範例資料][]。
+> [AZURE.NOTE]若要將範例資料載入您的執行個體，您必須啟用 Azure 服務來存取伺服器 (在建立新的伺服器時，應該預設會啟用此項)。若未執行此動作，則載入將會失敗，但您仍能[手動載入範例資料][]。
 
 
 ##使用 Power BI 分析 Adventureworks
@@ -41,7 +41,7 @@
 
 2. 現在，如果您想要建立銷售橫條圖，只要按一下 [SalesAmount] 資料行，Power BI 將會為您自動建立。您可藉由將 [CustomerIncome] 圖表拖曳到 [AggregateSales] 左邊的 [軸] 欄位來增加額外的深度，以便依客戶營收等級顯示銷售業績。
 
-3. 最後，如果您想要建立銷售時間軸，只需按一下[SalesAmount]、[OrderDate]和 [折線圖] \([視覺效果]下第二行中的第一個圖示) 即可。
+3. 最後，如果您想要建立銷售時間軸，只需按一下 [SalesAmount]、[OrderDate] 和 [折線圖] ([視覺效果] 下第二行中的第一個圖示) 即可。
 
 您隨時都可以按一下左下角的 [儲存] 按鈕並將您的視覺效果儲存為報告，藉以儲存您的進度。
 
@@ -94,4 +94,4 @@
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

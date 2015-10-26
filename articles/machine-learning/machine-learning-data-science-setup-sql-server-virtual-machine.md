@@ -3,9 +3,9 @@
 	description="使用 SQL Server 和 IPython Server 來設定資料科學虛擬機器。"
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev" 
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mohabib;xibingao;bradsev"/>
+	ms.date="10/13/2015"
+	ms.author="mohabib;xibingao;bradsev" />
 
 # 將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用
 
@@ -277,7 +277,7 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 
 ## 您的 Azure SQL Server VM 已準備好可供使用：下一步是什麼？
 
-您的虛擬機器已經準備好在資料科學練習中使用。虛擬機器也已經準備好做為 IPython Notebook 伺服器使用，以供進行資料探索和處理，以及其他需透過 Azure Machine Learning 與「進階分析程序和技術」的完成工作使用。
+您的虛擬機器已經準備好在資料科學練習中使用。虛擬機器也已經準備好用來做為 IPython Notebook 伺服器，以用於進行資料探索和處理，以及其他可與 Azure Machine Learning 和 Cortana 分析程序 (CAP) 一起使用的工作。
 
 「[學習指南：Azure 中的進階資料處理](machine-learning-data-science-advanced-data-processing.md)」中說明了資料科學程序的後續步驟，其中可能包含將資料移至 HDInsight，並在其中處理資料與取樣，做為透過 Azure Machine Learning 從資料學習的準備。
 
@@ -298,4 +298,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -130,4 +130,4 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 - 深入了解 [ARM 的網路資源提供者 (NRP)](../resource-groups-networking.md)。
 - 建立[使用 S2S VPN 將傳統 VNet 連接到 ARM VNet 的端對端解決方案](../virtual-networks-arm-asm-s2s.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

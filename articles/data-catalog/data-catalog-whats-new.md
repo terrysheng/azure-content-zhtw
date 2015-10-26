@@ -13,12 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/09/2015"
    ms.author="maroche"/>
 
 # Azure 資料目錄的新功能
 
 **Azure 資料目錄**的更新會定期發行。並非所有發行版本都會包含供使用者使用的新功能，某些版本著重在後端服務功能。本頁將特別強調已加入 **Azure 資料目錄**服務的新使用者功能。
+
+## 2015 年 10 月 9 日當週發行的新功能
+
+自 2015 年 10 月 9 日當週起，**Azure Data Catalog** 已加入下列功能：
+
+- 支援 Azure Data Catalog 入口網站中已註冊之資料資產和容器的 RTF 文件。對於標籤和描述不足的案例，使用者現在可以提供資料資產的文件，例如資料表、檢視和報告，以及提供容器的文件，例如資料庫和模型。 
 
 ## 2015 年 10 月 2 日當週發行的新功能
 
@@ -43,7 +49,7 @@
 
 - 在 **Azure Data Catalog** 入口網站中新的「入門」資料來源探索體驗。當使用者進入 **Azure Data Catalog** 入口網站的「探索」頁面而未輸入搜尋詞彙時，它們將會使用目錄內容的概觀來呈現，包括最常使用的標記，以及專家、資料來源類型及物件類型。
 - 支援註冊與探索 Azure SQL 資料倉儲物件和資料庫。如需 Azure SQL 資料倉儲的詳細資訊，請參閱 [SQL 資料倉儲](http://azure.microsoft.com/services/sql-data-warehouse/)。
-- 支援將 SQL Server Analysis Services 模型和 SQL Server Reporting Services 伺服器做為容器來進行註冊與探索。註冊 SSAS 和 SSRS 物件時，**Azure Data Catalog** 將針對 SSAS 模型和 SSRS 伺服器以及報表和其他物件建立項目。您可以使用 **Azure Data Catalog** 入口網站來探索容器，並為其加上註解。除了搜尋和篩選目錄的內容之外，使用者也可以搜尋和篩選模型或伺服器的內容。
+- 支援將 SQL Server Analysis Services 模型和 SQL Server Reporting Services 伺服器做為容器來進行註冊與探索。註冊 SSAS 和 SSRS 物件時，**Azure Data Catalog** 將針對 SSAS 模型和 SSRS 伺服器以及報告和其他物件建立項目。您可以使用 **Azure Data Catalog** 入口網站來探索容器，並為其加上註解。除了搜尋和篩選目錄的內容之外，使用者也可以搜尋和篩選模型或伺服器的內容。
 
 > [AZURE.NOTE]針對已在 9 月 18 日前註冊的 SSAS 和 SSRS 物件，必須在模型或伺服器項目加入目錄之前，使用資料來源註冊工具重新加以註冊。重新註冊資料來源並不會影響使用者在 **Azure Data Catalog** 入口網站所加入的任何註解。
 
@@ -84,4 +90,4 @@
 - 僅限標準版：在將擁有者新增至資料資產時，**Azure Data Catalog** 現在可同時支援將使用者帳戶和安全性群組做為擁有者。若要將安全性群組加入並使其成為所選資料資產的擁有者，您可以輸入群組的顯示名稱或群組的 UPN 電子郵件地址 (如果有的話)。
 - 支援 Azure Blob 儲存體的資料來源。使用者現在可以註冊並探索 Azure 儲存體 Blob 和目錄。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

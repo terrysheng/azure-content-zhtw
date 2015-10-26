@@ -67,7 +67,7 @@
 
 在此步驟中，我們會針對全球各地的不同自行車商店，使用 Bing 地圖 DataFlow API 來建立一些地理編碼地址。
 
-此項資料來自名為 store_locations.csv (位於您剛下載的來源) 的 CSV 檔案。如果您在文字編輯器或是 Excel 中開啟此檔案，會看到每一間商店、商店名稱及其地址都會有對應的 ID 欄位。
+此項資料來自名為 store\_locations.csv (位於您剛下載的來源) 的 CSV 檔案。如果您在文字編輯器或是 Excel 中開啟此檔案，會看到每一間商店、商店名稱及其地址都會有對應的 ID 欄位。
 
 讓我們逐一檢視這些代碼，了解其運作原理。
 
@@ -75,13 +75,13 @@
 
 2. 前往 [主要] 函數，請注意它會呼叫 **ApplyStoreData**。移至此函數，並詳細了解此程式碼。
 
-3. **ApplyStoreData** 會將名為 "store_locations.csv" 裡的 CSV 檔案資料載入 System.Data.DataTable。
+3. **ApplyStoreData** 會將名為 "store\_locations.csv" 裡的 CSV 檔案資料載入 System.Data.DataTable。
 
     此檔案內含所有商店，包括我們想要載入 Azure 搜尋服務的地址。在此檔案的每一列重複此動作，就能建立一組 **indexOperations** 以便稍後插入 Azure 搜尋服務索引 (先前透過 **CreateStoresIndex()** 函數來建立)。
 
     如果您之後仔細查看該索引，會發現用來包含每一間商店之縱向與橫向座標的 **GeoPt** 欄位都是空的。這時我們會進入 [主要] 函數的下一個步驟。
 
-5. 移至函數 **ExtractAddressInfoToXML()**。此函數會從 store_locations.csv 檔案擷取地址資訊，並使用以 Bing 地圖可以接受並進行地理編碼的格式來載入 XML 檔案。檔案建立完畢後，就會呼叫函數 **GeoCoding.CreateJob**，傳送出去供 Bing 地圖 DataFlow 進行處理。
+5. 移至函數 **ExtractAddressInfoToXML()**。此函數會從 store\_locations.csv 檔案擷取地址資訊，並使用以 Bing 地圖可以接受並進行地理編碼的格式來載入 XML 檔案。檔案建立完畢後，就會呼叫函數 **GeoCoding.CreateJob**，傳送出去供 Bing 地圖 DataFlow 進行處理。
 
 6. 由於地理編碼程序需要一點時間，每 10 秒鐘會產生一個呼叫 **GeoCoding.CheckStatus** 的迴圈來查看該工作是否已經完成。一旦完成，便可將 **GeoCoding.DownloadResults** 呼叫至地址類別來下載結果。
 
@@ -127,7 +127,8 @@
 
 +	**Search** 函數會擷取商店位置，然後 Bing 地圖會接收此位置並將之新增為 PushPins。
 
-4.	開啟 [控制器] 下方的 HomeController.cs，然後查看 **Search** 函數。請注意，此函數如何呼叫 _storeSearch.Search(lat, lon, 10000)。此舉會導致執行查詢，以尋找距離指定的橫向 (lat) 與縱向 (lon) 座標 10,000 公里以內的所有商店。查詢的結果會進行處理，然後傳回「索引」檢視以便處理為 PushPins 並顯示在 Bing 地圖上。
+4.	開啟 [控制器] 下方的 HomeController.cs，然後查看 **Search** 函數。請注意此函數如何呼叫 \_storeSearch.Search(lat, lon, 10000)。此舉會導致執行查詢，以尋找距離指定的橫向 (lat) 與縱向 (lon) 座標 10,000 公里以內的所有商店。查詢的結果會進行處理，然後傳回「索引」檢視以便處理為 PushPins 並顯示在 Bing 地圖上。
+
 示範就到此為止。現在您已經逐一檢視過所有需要知道的主要作業流程，可以開始依據 ASP.NET MVC4 應用程式並搭配 Azure 搜尋服務來打造出自己的地圖。
 
 
@@ -166,4 +167,4 @@
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -46,4 +46,4 @@
 1. 在 Azure AD 中啟用應用程式 Proxy，然後安裝及註冊連接器。如需詳細的指示，請參閱[啟用 Azure AD 應用程式 Proxy](active-directory-application-proxy-enable/#step-1-enable-application-proxy-in-azure-ad.md)。
 2. 使用 Azure AD 應用程式 Proxy 發佈應用程式 - 如需詳細的指示，請參閱[透過 Azure AD 應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

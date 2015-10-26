@@ -190,4 +190,4 @@ FROM    <External Table Name>
 [Azure 儲存體文件]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-create-storage-account/
 [ExpressRoute 文件]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

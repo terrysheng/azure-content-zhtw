@@ -1,20 +1,20 @@
 <properties
    pageTitle="部署資源的多個執行個體 | Microsoft Azure"
-	description="使用「Azure 資源管理員」範本中的複製作業和陣列，並在部署資源時多次逐一執行。"
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="使用「Azure 資源管理員」範本中的複製作業和陣列，並在部署資源時多次逐一執行。"
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/27/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/27/2015"
+   ms.author="tomfitz"/>
 
 # 在 Azure 資源管理員中建立資源的多個執行個體
 
@@ -119,4 +119,4 @@
 - 如需可以在範本中使用的函式清單，請參閱 [Azure 資源管理員範本函式](./resource-group-template-functions.md)。
 - 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -111,4 +111,4 @@ GO
 
 [管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

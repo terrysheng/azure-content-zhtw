@@ -1,13 +1,20 @@
 <properties 
-	pageTitle="建立管線"
-	description="了解 Azure Data Factory 管線並學習如何建立管理來移動和轉換資料，以產生可用來獲取深入見解的資訊"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="建立管線" 
+	description="了解 Azure Data Factory 管線並學習如何建立管理來移動和轉換資料，以產生可用來獲取深入見解的資訊" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" y" ms.date="07/28/2015" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" y
+	ms.date="07/28/2015" 
+	ms.author="spelluru"/>
 
 # 了解管線和活動
 本文將協助您了解 Azure Data Factory 中的管線和活動，以及如何運用這些來為您的案例或業務建構端對端的資料導向工作流程。本文假設您已經完成在此之前的[概觀](data-factory-introduction.md)和[建立資料集](data-factory-create-datasets.md)文章。
@@ -18,7 +25,7 @@
 ### 什麼是活動？
 活動會定義在您資料上執行的動作。每個活動會取得零或多個[資料集](data-factory-create-datasets.md)做為輸入，並產生一或多個資料集做為輸出。**活動代表 Azure Data Factory 中的協調流程單位。**
 
-例如，您可能會使用複製活動來協調從一個資料集複製資料到另一個資料集的流程。同樣地，您可能會使用在 Azure HDInsight 叢集上執行 Hive 查詢的 Hive 活動，來轉換或分析您的資料。Azure Data Factory 提供大量的[資料轉換、分析](data-factory-data-transformation-activities.md)和[資料移動活動](data-factory-data-movement-activities.md)。您也可以選擇建立自訂 .NET 活動來執行自己的程式碼。
+例如，您可能會使用複製活動來協調從一個資料集複製資料到另一個資料集的流程。同樣地，您可能會使用在 Azure HDInsight 叢集上執行 Hive 查詢的 Hive 活動，來轉換或分析您的資料。Azure Data Factory 提供各種[資料轉換、分析](data-factory-data-transformation-activities.md)和[資料移動活動](data-factory-data-movement-activities.md)。您也可以選擇建立自訂 .NET 活動來執行自己的程式碼。
 
 請考慮下列 2 個資料集：
 
@@ -192,7 +199,7 @@
 	    }
 	}
 
-[活動] 區段內可以有一或多個已定義的活動。每個活動都有下列最上層結構：
+[**活動**] 區段內可以有一或多個已定義的活動。每個活動都有下列最上層結構：
 
 	{
 	    "name": "ActivityName",
@@ -217,18 +224,7 @@
 
 標記 | 說明 | 必要
 --- | ----------- | --------
-名稱 | 活動或管線的名稱。指定一個名稱，以表示活動或管線設定要進行的動作<br/><ul><li>字元數上限：260</li><li>必須以字母、數字或底線 (\_) 開頭</li><li>不允許下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> | 是
-description | 描述活動或管線用途的文字 | 是
-type | 指定活動的類型。如需不同類型的活動，請參閱[資料移動活動](data-factory-data-movement-activities.md)和[資料轉換活動](data-factory-data-transformation-activities.md)文章。 | 是
-inputs | 活動所使用的輸入資料表<p>// 一個輸入資料表<br/>"inputs": [ { "name": "inputtable1" } ],</p><p>// 兩個輸入資料表<br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p>|是
-outputs | 活動所使用的輸出資料表。<p>// 一個輸出資料表<br/>"outputs": [ { "name": “outputtable1” } ],</p><p>// 兩個輸出資料表<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | 是
-linkedServiceName | 活動所使用的連結服務名稱。<p>活動可能會要求您指定可連結至所需運算環境的連結服務。</p> | 是：適用於 HDInsight 活動和 Azure Machine Learning Batch 評分活動 <p>否：所有其他活動</p>
-typeProperties | TypeProperties 區段中的屬性會視活動的類型而定。若要深入了解，請參閱各個活動的相關文章 |否
-policy | 會影響活動之執行階段行為的原則。如果未指定，則會使用預設原則。向下捲動以取得詳細資訊 |否
-start | 管線的開始日期時間。必須使用 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。管線的 start 和 end 屬性共同指定管線的作用中期間。輸出配量只會在此作用中期間內產生。 | 否<p>使用 Set-AzureDataFactoryPipelineActivePeriod Cmdlet 也可以設定管線的作用中期間</p>
-End | 管線的結束日期時間。如果已指定，則必須使用 ISO 格式。例如：2014-10-14T17:32:41Z <p>如果未指定，則會計算為 "start + 48 小時"。若要無限期執行管線，請指定 9999-09-09 做為 end 屬性的值。</p>| 否
-isPaused | 如果設為 true，將不會執行管線。預設值 = false。您可以使用此屬性來啟用或停用。|否
-scheduler | “scheduler” 屬性用來定義所要的活動排程。其子屬性與[資料集中的可用性屬性](data-factory-create-datasets.md#Availability)相同。| 否 |   
+名稱 | 活動或管線的名稱。指定一個名稱，以表示活動或管線設定要進行的動作<br/><ul><li>字元數上限：260</li><li>必須以字母、數字或底線 (\_) 開頭</li><li>不允許下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> | 是 description | 描述活動或管線用途的文字 | 是 type | 指定活動的類型。如需不同類型的活動，請參閱[資料移動活動](data-factory-data-movement-activities.md)和[資料轉換活動](data-factory-data-transformation-activities.md)文章。 | 是 inputs | 活動所使用的輸入資料表<p>// 一個輸入資料表<br/>"inputs": [ { "name": "inputtable1" } ],</p><p>// 兩個輸入資料表<br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p>|是 outputs | 活動所使用的輸出資料表。<p>// 一個輸出資料表<br/>"outputs": [ { "name": “outputtable1” } ],</p><p>// 兩個輸出資料表<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | 是 linkedServiceName | 活動所使用的連結服務名稱。<p>活動可能會要求您指定可連結至所需運算環境的連結服務。</p> | 是：適用於 HDInsight 活動和 Azure Machine Learning Batch 評分活動 <p>否：所有其他活動</p> typeProperties | TypeProperties 區段中的屬性會視活動的類型而定。若要深入了解，請參閱各個活動的相關文章 |否 policy | 會影響活動之執行階段行為的原則。如果未指定，則會使用預設原則。向下捲動以取得詳細資訊 |否 start | 管線的開始日期時間。必須使用 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。管線的 start 和 end 屬性共同指定管線的作用中期間。輸出配量只會在此作用中期間內產生。 | 否<p>使用 Set-AzureDataFactoryPipelineActivePeriod Cmdlet 也可以設定管線的作用中期間</p> End | 管線的結束日期時間。如果已指定，則必須使用 ISO 格式。例如：2014-10-14T17:32:41Z <p>如果未指定，則會計算為 "start + 48 小時"。若要無限期執行管線，請指定 9999-09-09 做為 end 屬性的值。</p>| 否 isPaused | 如果設為 true，將不會執行管線。預設值 = false。您可以使用此屬性來啟用或停用。|否 scheduler | “scheduler” 屬性用來定義所要的活動排程。其子屬性與[資料集中的可用性屬性](data-factory-create-datasets.md#Availability)相同。| 否 | 
 
 ### 活動類型
 Azure Data Factory 提供各種[資料移動](data-factory-data-movement-activities.md)和[資料轉換](data-factory-data-transformation-activities.md)活動。
@@ -253,7 +249,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
 1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
 2. 瀏覽至您想在其中建立管線的 Azure Data Factory 執行個體
-3. 按一下 [摘要] 透鏡中的 [製作和部署] 磚。 
+3. 按一下 [**摘要**] 透鏡中的 [**製作和部署**] 磚。 
  
 	![[製作和部署] 磚](./media/data-factory-create-pipelines/author-deploy-tile.png)
 
@@ -265,7 +261,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
 	![管線編輯器](./media/data-factory-create-pipelines/pipeline-in-editor.png)
 
-6. 在您完成管線製作之後，接著按一下命令列上的 [部署] 來部署管線。
+6. 在您完成管線製作之後，接著按一下命令列上的 [**部署**] 來部署管線。
 
 	**注意：**在部署期間，Azure Data Factory 服務會執行一些驗證檢查，協助修正一些常見問題。萬一發生錯誤，將顯示對應的資訊。採取更正動作並重新部署所製作的管線。您可以使用編輯器來更新及刪除管線。
 
@@ -304,7 +300,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 - [建置和部署第一個管線](data-factory-build-your-first-pipeline.md)。 
 
 ## 傳送意見
-非常感謝您對此文章的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md)提交您的意見反應。
+非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md)提交您的意見反應。
  
 
    
@@ -329,4 +325,4 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

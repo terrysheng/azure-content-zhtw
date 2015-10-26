@@ -152,9 +152,9 @@
 
 	在上述範例中，您要建立名為 **AzureBlobOutput** 的資料集，並指定將由 Hive 指令碼產生的資料結構。此外，指定結果儲存在名為 **data** 的 Blob 容器及名為 **partitioneddata** 的資料夾中。**availability** 區段指定每個月產生一次輸出資料集。
 
-2. 在 Azure PowerShell 中執行以下命令來建立 Data Factory 資料表。
+2. 在 Azure PowerShell 中執行以下命令來建立 Data Factory 資料集。
 
-		New-AzureDataFactoryTable $df -File .\OutputTable.json
+		New-AzureDataFactoryDataset $df -File .\OutputTable.json
 
 ## 步驟 3：建立您的第一個管線
 在此步驟中，您將建立您的第一個管線。
@@ -268,4 +268,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

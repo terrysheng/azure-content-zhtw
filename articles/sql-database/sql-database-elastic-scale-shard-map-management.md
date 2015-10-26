@@ -253,4 +253,4 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

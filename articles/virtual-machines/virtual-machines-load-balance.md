@@ -1,5 +1,5 @@
 <properties
-	pageTitle="負載平衡的基礎結構服務 | Microsoft Azure"
+	pageTitle="基礎結構服務的負載平衡 | Microsoft Azure"
 	description="說明 Azure 支援的兩個不同負載平衡類型：適用於雲端服務的負載平衡器，以及適用於用戶端流量的 Azure 流量管理員。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -84,4 +84,4 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 <!-- LINKS -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

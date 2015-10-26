@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="使用 Application Insights 進行 Web 應用程式的使用量分析"
-	description="使用 Application Insights 進行使用量分析的概觀"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="使用 Application Insights 進行 Web 應用程式的使用量分析" 
+	description="使用 Application Insights 進行使用量分析的概觀" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="awills"/>
  
 # 使用 Application Insights 進行 Web 應用程式的使用量分析
@@ -135,7 +135,7 @@ Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程
 使用者及帳戶識別碼不得包含空格或字元 `,;=|`
 
 
-在 [計量瀏覽器](app-insights-metrics-explorer.md) 中，您可以建立 [經過驗證的使用者] 和 [帳戶] 的圖表。
+在 [計量瀏覽器][](app-insights-metrics-explorer.md) 中，您可以建立 [經過驗證的使用者] 和 [帳戶] 的圖表。
 
 ## 綜合流量
 
@@ -391,4 +391,4 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

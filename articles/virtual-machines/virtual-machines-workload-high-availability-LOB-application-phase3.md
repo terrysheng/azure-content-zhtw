@@ -19,7 +19,8 @@
 
 # 企業營運應用程式工作負載第 3 階段：設定 SQL Server 基礎結構
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 在 Azure 基礎結構服務部署高可用性企業營運系統應用程式的這個階段中，您將設定兩部執行 SQL Server 的電腦和叢集多數節點電腦，然後再將他們併入 Windows Server 叢集。
 
@@ -274,4 +275,4 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

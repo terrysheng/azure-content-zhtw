@@ -96,4 +96,4 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

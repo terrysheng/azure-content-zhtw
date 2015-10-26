@@ -11,6 +11,4 @@ Object|限制
 資料來源數目上限|每個搜尋服務 10 個
 可以在單一索引子引動過程中編製索引的文件數目上限|無限
 
-<!---HONumber=August15_HO7-->
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

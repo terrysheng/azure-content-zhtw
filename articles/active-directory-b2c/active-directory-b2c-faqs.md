@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：常見問題集
@@ -22,9 +22,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-### 在我現有以員工為主的 Azure AD 目錄中可以使用 Azure AD B2C 嗎？
+### 可以在現有以員工為主的 Azure AD 租用戶中使用 Azure AD B2C 嗎？
 
-目前您無法在您現有的 Azure AD 目錄中開啟 Azure AD B2C 功能。建議您建立另一個目錄來使用 Azure AD B2C 功能，亦即管理您的取用者。
+目前您無法在現有的 Azure AD 租用戶中開啟 Azure AD B2C 功能。建議您建立另一個租用戶來使用 Azure AD B2C 功能，亦即管理您的取用者。
 
 ### 我可以使用 Azure AD B2C 提供 Office 365 的社交登入 (Facebook 及 Google+) 嗎？
 
@@ -32,9 +32,9 @@ Azure AD B2C 無法與 Office 365 一起使用。一般而言，它不能用來�
 
 ### Azure AD B2C 中的「本機帳戶」是什麼？ 與 Azure AD 中的「公司帳戶或學校帳戶」有何不同？
 
-在 Azure AD 目錄中，目錄中的每個使用者 (不包括目前有 Microsoft 帳戶的使用者) 以 `<xyz>@<directory domain>` 格式的電子郵件地址登入，其中 `<directory domain>` 是目錄中已驗證的其中一個網域，或初始 `<...>.onmicrosoft.com` 網域。這種類型的帳戶是「公司帳戶或學校帳戶」，也稱為「組織帳戶」。
+在 Azure AD 租用戶中，租用戶的每個使用者 (不包括目前有 Microsoft 帳戶的使用者) 都是以 `<xyz>@<tenant domain>` 格式的電子郵件地址登入，當中的 `<tenant domain>` 是租用戶已驗證的其中一個網域，或初始 `<...>.onmicrosoft.com` 網域。這種類型的帳戶是「公司帳戶或學校帳戶」，也稱為「組織帳戶」。
 
-在 Azure AD B2C 目錄中，大部分應用程式希望使用者以任何任意的電子郵件地址登入 (例如 joe@comcast.net、bob@gmail.com、sarah@contoso.com 或 jim@live.com))。這種類型的帳戶就是「本機帳戶」。現在，我們也支援任意使用者名稱 (僅單純字串) 作為本機帳戶 (例如、joe、bob、sarah 或 jim)。您在 Azure AD B2C 服務中有這兩個本機帳戶「類型」可選擇。
+在 Azure AD B2C 租用戶中，大部分應用程式希望使用者以任意的電子郵件地址登入 (例如 joe@comcast.net、bob@gmail.com、sarah@contoso.com 或 jim@live.com))。這種類型的帳戶就是「本機帳戶」。現在，我們也支援任意使用者名稱 (僅單純字串) 作為本機帳戶 (例如、joe、bob、sarah 或 jim)。您在 Azure AD B2C 服務中有這兩個本機帳戶「類型」可選擇。
 
 ### 你們現在支援哪些社交共享身分識別提供者？ 你們打算在未來支援哪些？
 
@@ -55,7 +55,7 @@ Azure AD B2C 無法與 Office 365 一起使用。一般而言，它不能用來�
 
 ### 我有多個 Azure AD B2C 目錄。如何在 Azure Preview 入口網站上管理它們？
 
-在 Azure Preview 入口網站上，每一個 Azure AD B2C 目錄都有自己的 B2C 功能刀鋒視窗。請參閱[此處](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)，以了解您如何在 Azure Preview 入口網站瀏覽到特定目錄的 B2C 功能刀鋒視窗。在大部分瀏覽器中，當您在 Azure Preview 入口網站的 Azure AD B2C 目錄之間切換時，B2C 功能刀鋒視窗不會維持開啟。
+在 Azure Preview 入口網站上，每一個 Azure AD B2C 租用戶都有自己的 B2C 功能刀鋒視窗。請參閱[此處](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)，了解如何在 Azure Preview 入口網站上瀏覽至特定租用戶的 B2C 功能刀鋒視窗。在大部分瀏覽器中，當您在 Azure Preview 入口網站的 Azure AD B2C 目錄之間切換時，B2C 功能刀鋒視窗不會維持開啟。
 
 ### 如何自訂 Azure AD B2C 傳送的驗證電子郵件 (內容和寄件者欄位，亦即「寄件者:」欄位)？
 
@@ -87,7 +87,7 @@ Azure AD B2C 無法與 Office 365 一起使用。一般而言，它不能用來�
 
 ### 我可以在 Azure AD B2C 提供的註冊與登入頁面上使用我自己的 URL 嗎? 比方說，將 URL 從 login.microsoftonline.com 變更為 login.contoso.com？
 
-目前不支援。但這項功能已在我們的規劃中。
+目前不支援。但這項功能已在我們的規劃中。此外也請注意，「驗證」Azure 入口網站上的租用戶 **[網域]** 索引標籤內之網域並不會執行此動作。
 
 ### 我可以從 Enterprise Mobility Suite (EMS) 中取得 Azure AD B2C 嗎？
 
@@ -105,4 +105,4 @@ Azure AD B2C 無法與 Office 365 一起使用。一般而言，它不能用來�
 
 您也可能想要檢閱目前的[預覽限制和條件約束](active-directory-b2c-limitations.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

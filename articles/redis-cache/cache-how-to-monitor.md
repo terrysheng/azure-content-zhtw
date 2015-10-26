@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/09/2015" 
 	ms.author="sdanie"/>
 
 # 如何監視 Azure Redis 快取
@@ -143,6 +143,33 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 ![檢視圖表詳細資料][redis-cache-view-chart-details]
 
+## 如何監視含叢集的進階快取
+
+已啟用[叢集](cache-how-to-premium-clustering.md)的進階快取可以具有最多 10 個分區。每個分區都有它自己的度量，而且這些度量會彙總提供整個度量供快取。每個度量都包含兩個版本。有一個度量會測量整個快取的效能，名稱中包含 `(Shard 0-9)` 的第二個度量版本則會測量快取中單一分區的效能。例如，如果快取有 3 個分區，`Cache Hits` 就是整個快取的點擊總數，而 `Cache Hits (Shard 2)` 就只是該快取分區的點擊數。
+
+每張監視圖表會顯示每個快取的最上層度量以及每個快取分區的度量。
+
+![監視][redis-cache-premium-monitor]
+
+將滑鼠停留在資料點上會顯示該時間點的詳細資料。
+
+![監視][redis-cache-premium-point-summary]
+
+較大的值通常是快取的彙總值，而較小的值是分區的個別度量。請注意，在此範例中有三個分區，快取點擊平均分散至分區。
+
+![監視][redis-cache-premium-point-shard]
+
+若要查看更詳細的資訊，可按一下圖表在 [度量] 刀鋒視窗上檢視展開的檢視。
+
+![監視][redis-cache-premium-chart-detail]
+
+依預設，每個圖表會包含最上層的快取效能計數器以及個別分區的效能計數器。您也可以在 [編輯圖表] 刀鋒視窗上自訂這些。
+
+![監視][redis-cache-premium-edit]
+
+如需有關可用的效能計數器的詳細資訊，請參閱[可用的度量和報告間隔](#available-metrics-and-reporting-intervals)。
+
+
 ## 作業和警示
 
 [作業] 區段有 [事件] 和 [警示規則] 區段。
@@ -222,4 +249,14 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=Oct15_HO2-->
+[redis-cache-premium-monitor]: ./media/cache-how-to-monitor/redis-cache-premium-monitor.png
+
+[redis-cache-premium-edit]: ./media/cache-how-to-monitor/redis-cache-premium-edit.png
+
+[redis-cache-premium-chart-detail]: ./media/cache-how-to-monitor/redis-cache-premium-chart-detail.png
+
+[redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
+
+[redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
+<!---HONumber=Oct15_HO3-->

@@ -27,4 +27,4 @@
 
 如需詳細資訊，請參閱 [PHP 開發人員中心](/develop/php/)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

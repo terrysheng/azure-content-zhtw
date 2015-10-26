@@ -14,18 +14,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # 使用 Azure 資源管理員和 PowerShell 部署以及管理虛擬機器
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-windows-tutorial.md)
-- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Preview Portal](virtual-machines-windows-tutorial.md)
+- [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 管理 Microsoft Azure 中的資源時，使用 Azure PowerShell 與資源管理員範本可提供您許多功能和彈性。您可以使用本文中的工作來建立及管理虛擬機器資源。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型管理資源。您也可以使用[傳統部署模型](virtual-machines-windows-tutorial-classic-portal.md)管理這些資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-tutorial-classic-portal.md)。
 
 這些工作會使用資源管理員範本和 PowerShell：
 
@@ -66,7 +67,7 @@
 
 在下列命令中，將*資源群組名稱*取代為新資源群組的名稱，將 *Azure 位置*取代為您要找到資源的 Azure 資料中心位置，並執行命令：
 
-	New-AzureResourceGroup -Name "resource group name" -Location "Azure location"
+	New-AzureRmResourceGroup -Name "resource group name" -Location "Azure location"
 
 ## <a id="windowsvm"></a>工作：建立虛擬機器
 
@@ -76,15 +77,15 @@
 
 在下列命令中，將*部署名稱*取代為您想要用於部署的名稱，將*資源群組名稱*取代為現有資源群組的名稱，並執行命令：
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
 以下是範例：
 
-	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
 系統會提示您輸入 JSON 檔案的 **parameters** 區段中的參數值：
 
-	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: saacct
@@ -133,15 +134,15 @@
 
 在下列命令中，將*部署名稱*取代為您想要用於部署的名稱，將*資源群組名稱*取代為現有資源群組的名稱，並執行命令：
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
 以下是範例：
 
-	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
 系統會提示您輸入 JSON 檔案的 **parameters** 區段中的參數值：
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	osDiskVhdUri: http://saacct.blob.core.windows.net/vhds/osdiskforwindows.vhd
@@ -164,11 +165,11 @@
 
 在下列命令中，將*部署名稱*取代為您想要用於部署的名稱，將*資源群組名稱*取代為現有資源群組的名稱，並執行命令：
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
 系統會提示您輸入 JSON 檔案的 **parameters** 區段中的參數值：
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: saTest
@@ -187,7 +188,7 @@
 
 在下列命令中，將*資源群組名稱*取代為您想要移除的資員群組名稱，並執行命令：
 
-	Remove-AzureResourceGroup  -Name "resource group name"
+	Remove-AzureRmResourceGroup  -Name "resource group name"
 
 > [AZURE.NOTE]您可以使用 **– Force** 參數，略過確認提示。
 
@@ -205,7 +206,7 @@
 
 在下列命令中，將*資源群組名稱*取代為包含虛擬機器的資源群組名稱，將 *VM 名稱*取代為電腦的名稱，並執行命令：
 
-	Get-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Get-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 它會傳回類似下列畫面：
 
@@ -276,7 +277,7 @@
 
 在下列命令中，將*資源群組名稱*取代為包含虛擬機器的資源群組名稱，將 *VM 名稱*取代為電腦的名稱，並執行命令：
 
-	Start-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Start-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 它會傳回類似下列畫面：
 
@@ -297,7 +298,7 @@
 
 在下列命令中，將*資源群組名稱*取代為包含虛擬機器的資源群組名稱，將 *VM 名稱*取代為電腦的名稱，並執行命令：
 
-	Stop-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Stop-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 系統會要您確認：
 
@@ -324,7 +325,7 @@
 
 在下列命令中，將*資源群組名稱*取代為包含虛擬機器的資源群組名稱，將 *VM 名稱*取代為電腦的名稱，並執行命令：
 
-	Restart-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Restart-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 它會傳回類似下列畫面：
 
@@ -345,7 +346,7 @@
 
 在下列命令中，將*資源群組名稱*取代為包含虛擬機器的資源群組名稱，將 *VM 名稱*取代為電腦的名稱，並執行命令：
 
-	Remove-AzureVM -ResourceGroupName "resource group name" –Name "VM name"
+	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
 > [AZURE.NOTE]您可以使用 **– Force** 參數，略過確認提示。
 
@@ -379,4 +380,4 @@
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

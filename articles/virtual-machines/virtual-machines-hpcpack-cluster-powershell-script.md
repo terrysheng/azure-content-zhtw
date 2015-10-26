@@ -18,7 +18,8 @@
 
 # 使用 HPC Pack IaaS 部署指令碼在 Azure VM 中建立高效能運算 (HPC) 叢集
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 
 在用戶端電腦上執行 HPC Pack IaaS 部署 PowerShell 指令碼，以在 Azure 基礎結構服務 (IaaS) 中部署完整的 HPC Pack 叢集。此指令碼提供數種部署選項，並且可新增執行支援的 Linux 散發套件或 Windows Server 作業系統的叢集運算節點。
@@ -389,4 +390,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
 
 * 嘗試以 HPC Pack 的工具啟動、停止、新增和移除您所建立之叢集中的運算節點。請參閱[在 Azure 中管理 HPC Pack 叢集的運算節點](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

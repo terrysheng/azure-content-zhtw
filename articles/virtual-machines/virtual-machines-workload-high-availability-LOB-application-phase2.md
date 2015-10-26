@@ -19,7 +19,8 @@
 
 # 企業營運應用程式工作負載第 2 階段：設定網域控制站
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+ 
 
 在 Azure 基礎結構服務部署高可用性企業營運應用程式的這個階段中，您需要在 Azure 虛擬網路中設定兩個複本網域控制站，才能在 Azure 虛擬網路中本機驗證 Web 資源的用戶端 Web 要求，而不需跨越連接將驗證流量傳送至您的內部部署網路。
 
@@ -212,4 +213,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

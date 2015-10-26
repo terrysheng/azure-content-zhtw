@@ -65,4 +65,4 @@
 [MSDN 上的 Azure SDK 版本資訊](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

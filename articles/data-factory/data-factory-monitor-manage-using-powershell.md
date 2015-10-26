@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="教學課程：使用 Azure PowerShell 建立具有複製活動的管線"
-	description="在本教學課程中，您將使用 Azure PowerShell，建立具有複製活動的 Azure Data Factory 管線。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="教學課程：使用 Azure PowerShell 建立具有複製活動的管線" 
+	description="在本教學課程中，您將使用 Azure PowerShell，建立具有複製活動的 Azure Data Factory 管線。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Azure PowerShell 建立和監視 Data Factory
@@ -229,9 +229,9 @@
 
 	如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](http://go.microsoft.com/fwlink/?LinkId=516971)。
 
-2.	執行以下命令建立 Data Factory 資料表。
+2.	執行以下命令建立 Data Factory 資料集。
 
-		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### 建立輸出資料表
 在這部分的步驟中，您將在 **AzureSqlLinkedService** 連結服務所代表的 Azure SQL Database中，建立指向 SQL 資料表 (**emp**) 的輸出資料表 **EmpSQLTable**。管線會將輸入 Blob 中的資料複製到 **emp** 資料表。
@@ -271,9 +271,9 @@
 	* 資料庫的 emp 資料表中有三個資料行 (**ID**、**FirstName** 和 **LastName**)，但 ID 是身分識別資料行，所以您在此處只需要指定 **FirstName** 和 **LastName**。
 	* **availability** 設定為**每小時**，且 (**frequency** 設定為**小時**，**interval** 設定為 **1**)。Data Factory 服務會每隔一小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。
 
-2.	執行以下命令建立 Data Factory 資料表。
+2.	執行以下命令建立 Data Factory 資料集。
 	
-		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>步驟 4：建立和執行管線
@@ -432,4 +432,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

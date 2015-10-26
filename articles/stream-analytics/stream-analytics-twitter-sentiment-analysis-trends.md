@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/09/2015"
 	ms.author="jeffstok"/>
 
 
@@ -56,7 +56,7 @@
 
 請遵循下列步驟來設定應用程式：
 
-1.	[下載 TwitterClient 解決方案](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
+1.	[下載 TwitterClient 解決方案](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
 2.	開啟 App.config，然後將 oauth\_consumer\_key、oauth\_consumer\_secret、oauth\_token、oauth\_token\_secret 換成您的 Twitter 權杖。  
 
 	[產生 OAuth 存取權杖的步驟](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
@@ -237,4 +237,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

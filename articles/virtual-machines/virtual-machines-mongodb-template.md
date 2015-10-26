@@ -19,7 +19,8 @@
 
 # 在 Ubuntu 上使用 Azure 資源管理員範本建立 MongoDB 叢集
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 MongoDB 是開放原始碼的文件資料庫，可提供高效能、高可用性，以及自動調整範圍。MongoDB 可安裝作為獨立資料庫或安裝於叢集中，以運用內建的複寫功能。在某些情況下，您可以使用複寫來提高讀取產能。用戶端能夠將讀取和寫入操作傳送到其他伺服器。您也可以在不同的資料中心保留複本，以針對分散式應用程式增加資料的位置和可用性。使用 MongoDB，複寫也可提供備援並提高資料可用性。在不同的資料庫伺服器上使用多個資料複本，複寫可以保護資料庫免於遺失單一伺服器。複寫也能讓您從硬體故障和服務中斷復原。使用其他資料複本，您可以將其中一個專門用於災害復原、報告或備份。
 
@@ -693,4 +694,4 @@ vm-disk-utils-0.1.sh 是 shared\_scripts\\ubuntu 資料夾的一部分 (位於 a
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

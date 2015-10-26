@@ -1,19 +1,19 @@
 <properties 
    pageTitle="使用 Visual Studio 的加入已連接服務加入 Azure 儲存體 | Microsoft Azure"
-	description="使用 Visual Studio 的加入已連接服務對話方塊加入 Azure 儲存體"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="使用 Visual Studio 的加入已連接服務對話方塊加入 Azure 儲存體"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="mobile"
-	ms.date="08/12/2015"
-	ms.author="patshea"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="mobile"
+   ms.date="08/12/2015"
+   ms.author="patshea" />
 
 # 使用 Visual Studio 的已連接服務加入 Azure 儲存體
 
@@ -94,4 +94,4 @@
 
      - [azure.microsoft.com 上的儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

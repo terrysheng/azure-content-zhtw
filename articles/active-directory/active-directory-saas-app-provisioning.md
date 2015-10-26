@@ -100,7 +100,7 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
 - [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
 - [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
 - [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-- [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx) (輸入佈建)
+- [Workday](http://go.microsoft.com/fwlink/?LinkId=690250) (輸入佈建)
 
 為了讓應用程式支援自動化使用者佈建，它必須先提供必要的端點，讓外部程式自動化建立、維護及移除使用者。因此，並非所有 SaaS 應用程式都與此功能相容。針對支援此功能的應用程式，Azure AD 工程小組則是能夠建置與這些應用程式的佈建連接器，這項工作是以目前和潛在客戶的需求來排定優先順序。
 
@@ -108,4 +108,4 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="建立和預先設定 VM | Microsoft Azure"
-	description="以傳統部署模型和 PowerShell 建立和預先設定 Windows 虛擬機器。"
+	pageTitle="使用 Powershell | Microsoft Azure 來建立 Windows VM"
+	description="使用 Azure PowerShell 和傳統部署模型來建立 Windows 虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,17 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="10/13/2015"
 	ms.author="cynthn"/>
 
-# 以傳統部署模型和 PowerShell 建立和預先設定 Windows 虛擬機器
+# 以 Powershell 和傳統部署模型建立 Windows 虛擬機器 
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。您也可以使用[資源管理員部署模型](virtual-machines-deploy-rmtemplates-powershell.md)建立資源。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)。
+
 
 下列步驟將示範如何使用建置組塊自訂一組 Azure PowerShell 命令，建立和預先設定以 Windows 為基礎的 Azure 虛擬機器。您可以使用此程序，對於以 Windows 為基礎的新虛擬機器建立命令集合，並擴充現有部署，或建立快速建置自訂開發/測試或 IT 專業環境的多個命令集。
 
@@ -32,9 +36,6 @@
 
 如需設定以 Linux 為基礎的虛擬機器系列主題，請參閱[使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-linux-vms.md)。
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 ## 步驟 1：安裝 Azure PowerShell
 
@@ -49,15 +50,11 @@
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-您可以從 **Get-AzureSubscription** 命令輸出的 SubscriptionName 屬性，取得正確的訂用帳戶名稱。執行 **Select-AzureSubscription** 命令後，就能從 **Get-AzureStorageAccount** 命令輸出的 Label 屬性取得正確的儲存體帳戶名稱。
+您可以從 **Get-AzureSubscription** 命令輸出的 SubscriptionName 屬性，取得正確的訂用帳戶名稱。執行 **Select-AzureSubscription** 命令後，您就能從 **Get-AzureStorageAccount** 命令輸出的標籤屬性取得正確的儲存體帳戶名稱。
 
 ## 步驟 3：決定 ImageFamily
 
-接著，您必須對於與要建立的 Azure 虛擬機器相對應的特定映像決定 ImageFamily 或 Label 值。以下是 Azure 管理入口網站中組件庫的一些範例。
-
-![](./media/virtual-machines-ps-create-preconfigure-windows-vms/PSPreconfigWindowsVMs_1.png)
-
-您可以使用這個命令取得可用 ImageFamily 值的清單。
+接著，您必須對於與要建立的 Azure 虛擬機器相對應的特定映像決定 ImageFamily 或 Label 值。您可以使用這個命令取得可用 ImageFamily 值的清單。
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
@@ -177,7 +174,7 @@
 如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以：
 
 - 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)。
-- 在 Azure 管理入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
+- 在 Azure 管理入口網站的 [**自動化**] 區段中，將此命令集儲存為 Azure 自動化 Runbook。
 
 ## <a id="examples"></a>範例
 
@@ -268,8 +265,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-[使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-linux-vms.md)
-
-[利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

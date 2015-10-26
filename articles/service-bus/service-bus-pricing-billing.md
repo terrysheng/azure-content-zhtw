@@ -147,4 +147,4 @@
 
 [服務匯流排定價常見問題集](service-bus-pricing-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

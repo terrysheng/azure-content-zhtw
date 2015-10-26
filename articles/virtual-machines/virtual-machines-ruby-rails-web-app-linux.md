@@ -27,7 +27,8 @@
 
 此教學課程使用 Ubuntu Server 14.04 LTS 通過驗證。若使用不同的 Linux 發行版本，您可能需要修改這些步驟以安裝 Rails。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 ## 建立 Azure VM
 
@@ -174,4 +175,4 @@
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -106,4 +106,4 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 - [在 Azure 自動化中建立或匯入 Runbook](automation-creating-importing-runbook.md)
 - [了解 PowerShell 工作流程](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -66,4 +66,4 @@ Microsoft 也會變更 Premium 資料庫的資料庫複製體驗。先前由於 
 
 [將 SQL Database Web/Business 資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

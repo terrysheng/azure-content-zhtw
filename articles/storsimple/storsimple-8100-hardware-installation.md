@@ -31,8 +31,7 @@
 
 打開裝置包裝之前，請檢閱下列資訊。
 
->[AZURE.WARNING]
-> ![重量圖示](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
+>[AZURE.WARNING]![重量圖示](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
 >
 > 1. 如果您手動處理它，請確定您有兩名人員可以應付裝置的重量。完全設定的裝置可以重達 32 公斤 (70 磅)。
 >
@@ -92,8 +91,7 @@
 
 3. 請確定您要掛接裝置的機架上有一個 2U 插槽可用。
 
->[AZURE.WARNING]
-> ![重量圖示](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
+>[AZURE.WARNING]![重量圖示](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
 > 
 > 如果您手動處理裝置安裝，請確定您有兩名人員可以應付裝置的重量。完全設定的機箱可以重達 32 公斤 (70 磅)。
 
@@ -277,4 +275,4 @@
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

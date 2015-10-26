@@ -311,4 +311,4 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

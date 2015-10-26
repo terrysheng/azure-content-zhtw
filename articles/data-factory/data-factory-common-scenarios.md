@@ -76,4 +76,4 @@ Azure Data Factory 支援下列可讓產生的資料易於取用的功能：
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,11 +1,11 @@
 <properties
    pageTitle="Azure 備份 - 離線備份或使用 Azure 匯入/匯出服務進行初始植入 | Microsoft Azure"
-	description="了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料"
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
-	editor=""/>
+   description="了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料"
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="shreeshd"
+   editor=""/>
 <tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
 
 # 在 Azure 備份中離線備份工作流程
@@ -108,4 +108,4 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 - 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](../storage-import-export-service.md)。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份[常見問題集](backup-azure-backup-faq.md)的＜離線備份＞章節
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

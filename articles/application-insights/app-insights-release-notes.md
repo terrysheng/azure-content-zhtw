@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights 的版本資訊"
-	description="最新的更新。"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Application Insights 的版本資訊" 
+	description="最新的更新。" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/11/2015" 
 	ms.author="awills"/>
  
 # SDK 版本資訊 - Application Insights
@@ -33,4 +33,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

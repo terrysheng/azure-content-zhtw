@@ -289,7 +289,7 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
 <!--Link references-->
 
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

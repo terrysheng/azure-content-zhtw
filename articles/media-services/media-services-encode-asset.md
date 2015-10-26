@@ -256,4 +256,4 @@ Windows Media 音訊|否|是|是
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

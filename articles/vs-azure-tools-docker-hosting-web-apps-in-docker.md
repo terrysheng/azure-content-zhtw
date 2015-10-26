@@ -1,19 +1,19 @@
 <properties
    pageTitle="在 Docker 中裝載 Web Apps | Microsoft Azure"
-	description="了解如何使用 Visual Studio 在 Docker 容器中裝載 Web 應用程式。"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="了解如何使用 Visual Studio 在 Docker 容器中裝載 Web 應用程式。"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # 在 Docker 中裝載 Web Apps
 
@@ -80,7 +80,7 @@
     |映像|選擇要在 Docker 主機中使用的 OS 映像 (如果有)。對於此範例，選擇 Ubuntu Server 映像。(請注意，Windows Server 映像現在於可用映像的清單中提供。)|
     |使用者名稱|輸入虛擬機器的獨特使用者名稱。|
     |密碼|輸入使用者的密碼並加以確認。|
-    |憑證目錄 |這會指定儲存 Docker 憑證的資料夾。雖然您可以建立新資料夾或指向現有的資料夾，建議您使用預設的憑證資料夾 (C:\\Users\[*username*]\\.docker)。否則，如果您在另一個專案或系統上重複使用相同的主機，將無法自動擷取 [驗證] 選項。|
+    |憑證目錄 |這會指定儲存 Docker 憑證的資料夾。雖然您可以建立新資料夾或指向現有的資料夾，建議您使用預設的憑證資料夾 (C:\\Users\\[*username*]\\.docker)。否則，如果您在另一個專案或系統上重複使用相同的主機，將無法自動擷取 [驗證] 選項。|
 
 1. 選擇 [憑證目錄] 項目旁的省略符號 (...) 按鈕，然後為 Docker 憑證建立新資料夾，或瀏覽至現有的 Docker 憑證資料夾。
 
@@ -177,4 +177,4 @@
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

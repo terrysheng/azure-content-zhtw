@@ -102,4 +102,4 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Azure IoT 裝置 SDK (適用於 C) 簡介"
-	description="深入了解並開始使用 Azure IoT 裝置 SDK (適用於 C) 中的範例程式碼"
+	pageTitle="使用適用於 C 的 Azure IoT 裝置 SDK | Microsoft Azure"
+	description="深入了解並開始使用 Azure IoT 裝置 SDK (適用於 C) 中的範例程式碼。"
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/30/2015"
      ms.author="michelb"/>
 
@@ -455,4 +455,4 @@ serializer_deinit();
 
 本文涵蓋使用 **Azure IoT 裝置 SDK (適用於 C)** 中的程式庫的基本概念。這應可提供足夠的資訊，讓您了解 SDK 中包含什麼、其架構，以及如何開始使用 Windows 範例。下一篇文章藉由說明 [IoTHubClient 程式庫的相關資訊](iot-hub-device-sdk-c-iothubclient.md)來繼續說明 SDK。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

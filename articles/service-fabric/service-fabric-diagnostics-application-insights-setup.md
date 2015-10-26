@@ -89,4 +89,4 @@
 - [了解如何建立您自己的自訂事件和計量](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

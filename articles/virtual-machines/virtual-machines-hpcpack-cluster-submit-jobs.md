@@ -18,7 +18,7 @@ ms.service="virtual-machines"
 
 # 將 HPC 工作從內部部署電腦提交至 Azure 中的 HPC Pack 叢集
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文探討如何管理以資源管理員部署模型或傳統部署模型建立的資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 本文將說明如何設定執行 Windows 的內部部署用戶端電腦，使其執行 HPC Pack 工作提交工具，透過 HTTPS 與 Azure 中的 HPC Pack 叢集進行通訊。這可讓各種叢集使用者以直接而有彈性的方式將工作提交至雲端架構 HPC Pack 叢集，而無需直接連接到前端節點 VM 執行工作提交工具。
 
@@ -183,4 +183,4 @@ net start hpcscheduler
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

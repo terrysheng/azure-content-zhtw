@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect 同步處理：了解宣告式佈建運算式"
+	pageTitle="Azure AD Connect 同步：了解宣告式佈建運算式 | Microsoft Azure"
 	description="說明宣告式佈建運算式。"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -66,9 +66,9 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 
 Active Directory 連接器對於輸入同步處理規則提供下列參數：
 
- 
+
 | Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
- 
+
 
 系統提供下列參數：
 
@@ -132,7 +132,7 @@ Active Directory 中的某些屬性在結構描述中是多重值，但是在 [A
 
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

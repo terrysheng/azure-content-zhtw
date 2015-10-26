@@ -57,4 +57,4 @@
 - [Azure 服務匯流排架構概觀](fundamentals-service-bus-hybrid-solutions.md)
 - [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

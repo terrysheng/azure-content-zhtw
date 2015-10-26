@@ -256,4 +256,4 @@ NetApp、EMC 和 HP 已啟用 Azure Site Recovery SAN 複寫支援 (包含其 SM
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

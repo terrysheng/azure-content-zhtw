@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 #使用啟用的通道來以 Azure 媒體服務執行即時編碼
@@ -47,7 +47,9 @@
 
 ##<a id="scenario"></a>常見即時串流案例
 
-下列是建立常見即時串流應用程式所包含的一般步驟。
+下列是建立常見即時串流應用程式所含的一般步驟。
+
+>[AZURE.NOTE]目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
 
 1. 將攝影機連接到電腦。啟動和設定可使用下列其中一種通訊協定輸出**單一**位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 	
@@ -260,6 +262,8 @@
 
 指定由此通道內之即時編碼器所使用的預設內容。目前，唯一允許的值是 **Default720p** (預設值)。
 
+請注意如果您需要自訂的預設設定，您應該在 Microsoft.com 上連絡 amslived。
+
 **Default720p** 會將視訊編碼成下列 7 個層。
 
 
@@ -267,13 +271,13 @@
 
 位元速率|寬度|高度|MaxFPS|設定檔|輸出串流名稱
 ---|---|---|---|---|---
-3500|1280|720|30|高|Video\_1280x720\_30fps\_3500kbps
-2200|960|540|30|主要區段|Video\_960x540\_30fps\_2200kbps
-1350|704|396|30|主要區段|Video\_704x396\_30fps\_1350kbps
-850|512|288|30|主要區段|Video\_512x288\_30fps\_850kbps
-550|384|216|30|主要區段|Video\_384x216\_30fps\_550kbps
-350|340|192|30|基準|Video\_340x192\_30fps\_350kbps
-200|340|192|30|基準|Video\_340x192\_30fps\_200kbps
+3500|1280|720|30|高|Video\_1280x720\_3500kbps
+2200|960|540|30|主要區段|Video\_960x540\_2200kbps
+1350|704|396|30|主要區段|Video\_704x396\_1350kbps
+850|512|288|30|主要區段|Video\_512x288\_850kbps
+550|384|216|30|主要區段|Video\_384x216\_550kbps
+350|340|192|30|基準|Video\_340x192\_350kbps
+200|340|192|30|基準|Video\_340x192\_200kbps
 
 
 ####輸出音訊串流
@@ -301,7 +305,7 @@
 
 ###顯示 slate
 
-選用。在廣告插播期間發送信號給即時編碼器以切換至[預設 slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) 映像，並隱藏連入的視訊摘要。在 slate 期間也要使音訊靜音。預設值為 **false**。
+選用。在廣告插播期間發送信號給即時編碼器以切換至[預設靜態圖像](media-services-manage-live-encoder-enabled-channels.md#default_slate)映像，並隱藏連入的視訊摘要。在 slate 期間也要使音訊靜音。預設值為 **false**。
  
 在建立通道時會透過預設 slate 資產識別碼屬性指定要使用的映像。slate 將會延伸到符合顯示映像大小。
 
@@ -391,6 +395,8 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 - 根據預設，您只能加入最多 5 個通道到媒體服務帳戶。這是所有新帳戶的彈性配額。如需詳細資訊，請參閱[配額和限制](media-services-quotas-and-limitations.md)。
 - 通道或其相關聯程式正在執行時，您無法變更輸入通訊協定。如果您需要不同的通訊協定，則應該為每個輸入通訊協定建立個別的通道。
 - 只有當您的通道處於**執行中**狀態時，才會向您計費。若需詳細資訊，請參閱[這個](media-services-manage-live-encoder-enabled-channels.md#states)章節。
+- 目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
+- 請確定在您想串流內容的串流端點上至少有一個串流保留單元。
 
 ##已知問題
 
@@ -426,4 +432,4 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

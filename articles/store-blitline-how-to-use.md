@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Blitline 進行影像處理 - Azure 功能指南"
-	description="了解如何使用 Blitline 服務處理 Azure 應用程式內的影像。"
-	services=""
-	documentationCenter=".net"
-	authors="blitline-dev"
-	manager="jason@blitline.com"
+	pageTitle="如何使用 Blitline 進行影像處理 - Azure 功能指南" 
+	description="了解如何使用 Blitline 服務處理 Azure 應用程式內的影像。" 
+	services="" 
+	documentationCenter=".net" 
+	authors="blitline-dev" 
+	manager="jason@blitline.com" 
 	editor="jason@blitline.com"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
 	ms.author="support@blitline.com"/>
 # 如何使用搭配 Azure 和 Azure 儲存體的 Blitline
 
@@ -132,4 +132,4 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
 * Blitline API 範例 <http://www.blitline.com/docs/examples>
 * 協力廠商 Nuget 程式庫 <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

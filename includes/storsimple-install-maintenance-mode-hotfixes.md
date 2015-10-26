@@ -18,4 +18,4 @@
 
 6. 套用 Hotfix 之後，結束維護模式。如需相關指示，請參閱[步驟 4：結束維護模式](storsimple-update-device.md#step4)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

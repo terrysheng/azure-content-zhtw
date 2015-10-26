@@ -7,4 +7,4 @@
 
 * 最後，[重新整理 Xcode 快速入門專案中的佈建設定檔](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW10)，並[確認佈建設定檔已建立或重新產生，以便啟用推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW12)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

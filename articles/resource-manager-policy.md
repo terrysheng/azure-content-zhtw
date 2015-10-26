@@ -115,7 +115,7 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
       "if" : {
         "not" : {
           "field" : "location",
-          "in" : ["north europe" , "west europe"]
+          "in" : ["northeurope" , "westeurope"]
         }
       },
       "then" : {
@@ -213,6 +213,26 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
 
 原則定義可以定義為如上所示的其中一個範例。針對 api-version，使用 *2015-10-01-preview*。如需範例與更多詳細資料，請參閱[適用於原則定義的 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)。
 
+### 使用 PowerShell 建立原則定義
+
+您可以使用 New-AzureRmPolicyDefinition Cmdlet 建立新的原則定義，如下所示。下面範例會建立一個原則，只允許北歐和西歐中的資源。
+
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
+    	    			    "not" : {
+    	      			    	"field" : "location",
+    	      			    		"in" : ["northeurope" , "westeurope"]
+    	    			    	}
+    	    		          },
+    	      		    		"then" : {
+    	    			    		"effect" : "deny"
+    	      			    		}
+    	    		    	}'    		
+
+執行的輸出會儲存 $policy 物件中，以便稍後可在指派原則期間使用它。針對原則參數，也可以提供包含原則之.json 檔案的路徑，而不是指定內嵌原則，如下所示。
+
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
+
+
 ## 套用原則
 
 ### 使用 REST API 的原則指派
@@ -238,6 +258,22 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
       "name":"VMPolicyAssignment"
     }
 
-如需範例與更多詳細資料，請參閱[適用於原則指派的 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)。
+如需範例與其他詳細資料，請參閱[適用於原則指派的 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)。
 
-<!---HONumber=Oct15_HO2-->
+### 使用 PowerShell 指派原則
+
+您可以使用 New-AzureRmPolicyAssignment Cmdlet 將上面透過 PowerShell 建立的原則套用至所需的範圍，如下所示：
+
+    New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+以下 $policy 是由於執行 New-AzureRmPolicyDefinition Cmdlet 而傳回的原則物件，如下所示。此處的範圍是您指定之資源群組的名稱。
+
+如果想要移除上述原則指派，您可以執行如下動作：
+
+    Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+您可以分別透過 Get-AzureRmPolicyDefinition、Set-AzureRmPolicyDefinition 和 Remove-AzureRmPolicyDefinition Cmdlet 取得、變更或移除原則定義。
+
+同樣地，您可以分別透過 Get-AzureRmPolicyAssignment、Set-AzureRmPolicyAssignment 和 Remove-AzureRmPolicyAssignment 取得、變更或移除原則指派。
+
+<!---HONumber=Oct15_HO3-->

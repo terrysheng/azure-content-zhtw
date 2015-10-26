@@ -154,4 +154,4 @@ ACS 支援以多種方法來建立服務身分識別、信賴憑證者及規則�
 [佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

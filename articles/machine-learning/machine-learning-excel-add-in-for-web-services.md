@@ -6,16 +6,16 @@
 	authors="tedway"
 	manager="paulettm"
 	editor="cgronlun"
-	tags=""/>
+    tags=""/>
 
 <tags
 	ms.service="machine-learning"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="08/25/2015"
-	ms.author="tedway;garye"/>
+	ms.author="tedway;garye" />
 
 # 適用於 Azure Machine Learning Web 服務的 Excel 增益集
 
@@ -73,4 +73,4 @@ Excel 可以讓您直接輕鬆呼叫 Web 服務，而不需要撰寫任何程式
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

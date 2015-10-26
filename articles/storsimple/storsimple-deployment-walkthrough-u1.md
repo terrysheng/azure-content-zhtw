@@ -238,8 +238,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 掃描並套用更新
 
-更新裝置可能需要數小時的時間。在裝置上執行下列步驟來掃描並套用更新。
-<!-- > can take 1-4 hours-->
+更新裝置可能需要數小時的時間。在裝置上執行下列步驟來掃描並套用更新。<!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -287,4 +286,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

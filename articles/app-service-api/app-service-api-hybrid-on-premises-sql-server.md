@@ -32,9 +32,9 @@
 
 - **Visual Studio** - 若要下載 Visual Studio 2013 或 Visual Studio 2015 的免費試用版，請參閱 [Visual Studio 下載](http://www.visualstudio.com/downloads/download-visual-studio-vs)。在繼續之前安裝其中一種。(本教學課程中是使用 Visual Studio 2013 的螢幕擷取畫面)
 
-- **SQL Server 2014 Express with Tools** - 請在 [Microsoft Web Platform Database 頁面](https://www.microsoft.com/zh-tw/download/details.aspx?id=42299)下載免費的 Microsoft SQL Server Express。在本教學課程稍後，您會看到如何[安裝 SQL Server](#InstallSQLDB) 以確保正確設定。
+- **SQL Server 2014 Express with Tools** - 請在 [Microsoft Web Platform Database 頁面](https://www.microsoft.com/zh-TW/download/details.aspx?id=42299)下載免費的 Microsoft SQL Server Express。在本教學課程稍後，您會看到如何[安裝 SQL Server](#InstallSQLDB) 以確保正確設定。
 
-- **SQL Server Management Studio Express** - 此項目隨附於前述的 SQL Server 2014 Express with Tools 下載中，但您必須個別加以安裝，您可以從 [SQL Server Express 下載頁面](https://www.microsoft.com/zh-tw/download/details.aspx?id=42299)加以下載並安裝。
+- **SQL Server Management Studio Express** - 此項目隨附於前述的 SQL Server 2014 Express with Tools 下載中，但您必須個別加以安裝，您可以從 [SQL Server Express 下載頁面](https://www.microsoft.com/zh-TW/download/details.aspx?id=42299)加以下載並安裝。
 
 本教學課程假設您具有 Azure 訂閱、您已安裝 Visual Studio 2013，並且已安裝或啟用 .NET Framework 3.5。本教學課程將說明如何在可與 Azure 混合式連線功能妥善搭配運作的組態中安裝 SQL Server 2014 Express (使用靜態 TCP 連接埠的預設執行個體)。在開始本教學課程之前，如果您尚未安裝 SQL Server，請先從前述位置下載 (但不要安裝) SQL Server 2014 Express with Tools。
 
@@ -430,4 +430,4 @@
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

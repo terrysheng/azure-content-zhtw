@@ -1,30 +1,28 @@
 <properties 
-	pageTitle="使用 Azure 儲存體搭配 Jenkins 連續整合解決方案 | Microsoft Azure"
-	description="本教學課程說明如何使用 Azure Blob 服務作為 Jenkins 連續整合解決方案所建立之組建成品的存放庫。"
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="使用 Azure 儲存體搭配 Jenkins 連續整合解決方案 | Microsoft Azure" 
+	description="本教學課程說明如何使用 Azure Blob 服務作為 Jenkins 連續整合解決方案所建立之組建成品的存放庫。" 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 # 使用 Azure 儲存體搭配 Jenkins 連續整合解決方案
-
-*作者：[Microsoft Open Technologies Inc.][ms-open-tech] (英文)*
 
 ## 概觀
 
 下列資訊說明如何使用 Azure Blob 服務，作為 Jenkins 連續整合 (CI) 解決方案所建立的組建成品儲存機制，或作為在組建程序中要使用之可下載檔案的來源。您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
 
-在本教學課程中，您將使用由 Microsoft Open Technologies, Inc. 提供的適用於 Jenkins CI 的 Azure 儲存體外掛程式。
+在本教學課程中，您將使用由 Microsoft 所提供適用於 Jenkins CI 的 Azure 儲存體外掛程式。
 
 ## Jenkins 概觀 ##
 
@@ -113,7 +111,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
     在您為 [Execute Windows batch command] 輸入指令碼的 [Command] 區段底下有一個 Jenkins 所辨識環境變數的連結。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD\_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 
 8. 在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章](http://go.microsoft.com/fwlink/?LinkId=279889)。)
-9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] \(若不想清除容器的內容，請維持不核取)。
+9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] (若不想清除容器的內容，請維持不核取)。
 10. 在 [List of Artifacts to upload]，輸入 **text/*.txt**。
 11. 在 [Common virtual path for uploaded artifacts] 中，基於本教學課程的目的，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
 12. 按一下 [Save] 儲存您的設定。
@@ -125,7 +123,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
     4. 按一下 [容器]。
     5. 按一下名為 **myjob** 的容器，這是您建立 Jenkins 工作時所指派之工作名稱的小寫版本。在 Azure 儲存體中，容器名稱和 Blob 名稱皆為小寫 (並且區分大小寫)。在名為 **myjob** 之容器的 Blob 清單中，您應該會看到 **hello.txt** 和 **date.txt**。請複製這些項目中任何一項的 URL，然後在瀏覽器中開啟它。您會看到文字檔已上傳作為組建成品。
 
-每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [List of Artifacts to upload] 內，使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。例如，若 Jenkins 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [List of Artifacts to upload] 中使用下列值：**build/\*.jar;build/\*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [List of Artifacts to upload] 中使用下列值：**build/\*.jar::binaries;build/\*.txt::notices**。
+每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [List of Artifacts to upload] 內，使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。例如，若 Jenkins 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [List of Artifacts to upload] 中使用下列值：**build/*.jar;build/*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [List of Artifacts to upload] 中使用下列值：**build/*.jar::binaries;build/*.txt::notices**。
 
 ## 如何建立從 Azure Blob 儲存體下載的組建步驟 ##
 
@@ -134,7 +132,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 1. 在工作組態的 [Build] 區段中，按一下 [Add build step]，並選擇 [Download from Azure Blob storage]。
 2. 在 [儲存體帳戶名稱] 中，選取要使用的儲存體帳戶。
 3. 在 [容器名稱] 中，指定您要下載的 Blob 所在之容器的名稱。您可以使用環境變數。
-4. 在 [Blob 名稱] 中，指定 Blob 名稱。您可以使用環境變數。另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。例如，**project\*** 指定名稱開頭為 **project** 的所有 Blob。
+4. 在 [Blob 名稱] 中，指定 Blob 名稱。您可以使用環境變數。另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。例如，**project*** 指定名稱開頭為 **project** 的所有 Blob。
 5. [選擇性] 在 [下載路徑] 中，指定在 Jenkins 機器上您要從 Azure Blob 儲存體下載檔案的路徑。也可以使用環境變數(如果您未提供 [下載路徑] 的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區)。
 
 如果您還有其他項目要從 Azure Blob 儲存體下載，您可以建立其他組建步驟。
@@ -162,7 +160,6 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 
   [如何建立儲存體帳戶]: http://go.microsoft.com/fwlink/?LinkId=279823
   [認識 Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
-  [ms-open-tech]: http://msopentech.com
  
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

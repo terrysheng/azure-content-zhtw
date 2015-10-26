@@ -100,4 +100,4 @@ SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，�
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

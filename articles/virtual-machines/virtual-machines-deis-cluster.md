@@ -21,7 +21,8 @@
 
 本文將指導您逐步完成在 Azure 上佈建 [Deis](http://deis.io/) 叢集。它涵蓋建立必要的憑證，以及在新佈建的叢集上部署及調整 **Go** 應用程式範例的所有步驟。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 下圖顯示已部署的系統之架構。系統管理員會使用 Deis 工具 (如 **deis** 和 **deisctl**) 來管理叢集。連線是透過會將連線轉送到叢集上其中一個節點的 Azure 負載平衡器而建立。用戶端也是透過負載平衡器存取部署的應用程式。在此情況下，負載平衡器將流量轉送到 Deis 路由器網狀結構，進一步將流量路由至裝載於叢集上且相對應的 Docker 容器。
 
@@ -257,4 +258,4 @@
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

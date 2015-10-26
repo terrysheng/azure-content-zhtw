@@ -211,4 +211,4 @@ EndpointStatus、Weight 和 Priority 是選擇性的參數。如果省略，Powe
 [Azure Cmdlet 使用者入門](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

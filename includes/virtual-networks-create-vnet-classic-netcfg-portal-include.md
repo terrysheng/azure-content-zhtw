@@ -49,4 +49,4 @@ Azure 使用 xml 檔案定義訂用帳戶可用的所有 VNet。您可以下載�
 
 	![新的虛擬網路](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

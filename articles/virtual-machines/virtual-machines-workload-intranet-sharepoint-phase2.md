@@ -19,7 +19,8 @@
 
 # SharePoint 內部網路伺服器陣列工作負載第 2 階段：設定網域控制站
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要在服務管理的 Azure 虛擬網路中設定兩個網域控制站。然後，SharePoint 伺服器陣列資源的用戶端 Web 要求可以在 Azure 虛擬網路中進行驗證，而不是透過內部部署網路的 VPN 或 Azure ExpressRoute 連線傳送該驗證流量。
 
@@ -31,15 +32,15 @@
 
 項目 | 虛擬機器名稱 | 資源庫映像 | 最小大小
 --- | --- | --- | ---
-1. | ______________ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | A2 (中型)
-2. | ______________ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | A2 (中型)
-3. | ______________ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4. | ______________ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5. | ______________ (叢集多數節點見證，範例 MN1) | Windows Server 2012 R2 Datacenter | A1 (小型)
-6. | ______________ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-7. | ______________ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-8. | ______________ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-9. | ______________ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | A2 (中型)
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | A2 (中型)
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (叢集多數節點見證，範例 MN1) | Windows Server 2012 R2 Datacenter | A1 (小型)
+6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
 
 **資料表 M – SharePoint 2013 內部網路伺服器陣列在 Azure 中的虛擬機器**
 
@@ -115,7 +116,9 @@
 5.	瀏覽器對話方塊隨即出現，並詢問「您想開啟或儲存來自 manage.windowsazure.com 的 ComputerName.rdp 嗎？」。 按一下 [開啟]。
 6.	在 [**遠端桌面連線**] 對話方塊中按一下 [**連線**]。
 7.	在 [**Windows 安全性**] 對話方塊中按一下 [**使用其他帳戶**]。
-8.	在 [**使用者名稱**] 中，輸入虛擬機器名稱以及使用該虛擬機器建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。使用下列格式：*ComputerName*\*LocalAdministratorAccountName*
+8.	在 [**使用者名稱**] 中，輸入虛擬機器名稱以及使用該虛擬機器建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。  
+  
+使用下列格式：*ComputerName*\*LocalAdministratorAccountName*
 9.	在 [**密碼**] 中輸入本機系統管理員帳戶的密碼。
 10.	按一下 [確定]。
 11.	在 [**遠端桌面連線**] 對話方塊中按一下 [**是**]。新機器的桌面會顯示在遠端桌面工作階段視窗中。
@@ -125,15 +128,15 @@
 ### <a id="datadisk"></a>初始化空磁碟
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 磁碟 **2** (**磁碟分割** 設為 **未知**)。
+2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 [磁碟 **2**] ([**磁碟分割**] 設為 [**未知**])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
-4.	在新增磁碟區精靈的 [**開始之前**] 頁面上，按一下 [**下一步**]。
-5.	在 [**選取伺服器和磁碟**] 頁面上，按一下 [**磁碟 2**]，然後按一下 [**下一步**]。出現提示時，按一下 **[確定]**。
-6.	在 [**指定磁碟區大小**] 頁面上，按一下 [**下一步**]。
-7.	在 [**指派成磁碟機代號或資料夾**] 頁面上，按一下 [**下一步**]。
-8.	在 [**選取檔案系統設定**] 頁面上，按一下 [**下一步**]。
-9.	在 [**確認選取項目**] 頁面上，按一下 [**建立**]。
-10.	初始化完成後，按一下 [**關閉**]。
+4.	在 [新增磁碟區精靈] 的 [開始之前] 頁面上，按 [下一步]。
+5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
+6.	在 [指定磁碟區大小] 頁面上，按 [下一步]。
+7.	在 [指派成磁碟機代號或資料夾] 頁面上，按 [下一步]。
+8.	在 [選取檔案系統設定] 頁面上，按 [下一步]。
+9.	在 [確認選取項目] 頁面上，按一下 [建立]。
+10.	初始化完成後，按一下 [關閉]。
 
 接下來，測試第一個網域控制站對組織網路中各個位置的連線能力。
 
@@ -172,9 +175,9 @@
 
 SharePoint 伺服器陣列需要下列使用者帳戶：
 
-- sp_farm：管理 SharePoint 伺服器陣列的使用者帳戶。
-- sp_farm_db：對 SQL Server 執行個體具有 sysadmin 權限的使用者帳戶。
-- sp_install：具有安裝角色和功能所需之網域管理權限的使用者帳戶。
+- sp\_farm：管理 SharePoint 伺服器陣列的使用者帳戶。
+- sp\_farm\_db：對 SQL Server 執行個體具有 sysadmin 權限的使用者帳戶。
+- sp\_install：具有安裝角色和功能所需之網域管理權限的使用者帳戶。
 - sqlservice：可據以執行 SQL Server 執行個體的使用者帳戶。
 
 接下來，使用網域控制台為所屬成員之網域的網域系統管理員帳戶登入任一台電腦，開啟系統管理員層級 Windows PowerShell 命令提示字元，*一次一個*執行下列命令：
@@ -193,33 +196,33 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 1.	在 [開始] 畫面中輸入 **Active Directory Users**，然後按一下 [**Active Directory 使用者和電腦**]。
 2.	在樹狀目錄窗格中開啟您的網域，然後按一下 [**使用者**]。
-3.	在 [內容] 窗格中，以滑鼠右鍵按一下 [**sp_install**]，然後按一下 [**新增至群組**]。
+3.	在 [內容] 窗格中，以滑鼠右鍵按一下 [**sp\_install**]，然後按一下 [**新增至群組**]。
 4.	在 [**選取群組**] 對話方塊中輸入 **domain admins**，然後按兩次 [**確定**]。
 5.	在對話方塊中按一下 **[檢視]，再按一下 [進階功能]**。這個選項可讓您在 [屬性] 視窗中看到 Active Directory 物件所有隱藏的容器以及隱藏的索引標籤。
 6.	以滑鼠右鍵按一下您的網域名稱，然後按一下 [**屬性**]。
 7.	在 [**屬性**] 對話方塊中按一下 [**安全性**] 索引標籤，然後按一下 [**進階**] 按鈕。
 8.	在 [**<YourDomain> 的進階安全性設定**] 視窗中按一下 [ **新增**]。
-9.	在 [**<YourDomain> 的權限項目**] 視窗中按一下 [**選取一個主體**]。
-10.	在文字方塊中輸入 **<YourDomain>\sp_install** ，然後按一下 [**確定**]。
+9.	在 [<YourDomain> 的權限項目] 視窗中按一下 [選取一個主體]。
+10.	在文字方塊中輸入 **<YourDomain>\\sp\_install** ，然後按一下 [**確定**]。
 11.	在 [**建立電腦物件**] 中選取 [**允取**]，然後按三次 [**確定**]。
 
 接下來，為您的虛擬網路更新 DNS 伺服器，讓 Azure 將兩個新網域控制站的 IP 位址指派給虛擬機器，做為他們的 DNS 伺服器。請注意，此程序使用資料表 V 的值 (用於您虛擬網路的設定)。
 
-1.	在 Azure 入口網站的左窗格中按一下 [**網路**]，然後按一下您虛擬網路的名稱 (資料表 V – 項目 1 – 值資料行)。
+1.	在 Azure 入口網站的左窗格中按一下 [網路]，然後按一下您虛擬網路的名稱 (資料表 V – 項目 1 – 值資料行)。
 2.	按一下 [設定]。
 3.	在 **[DNS 伺服器**] 中，移除與位於內部部署網路中與 DNS 伺服器對應的項目。
 4.	在 **[DNS 伺服器**] 中，新增兩個具有易記名稱以及下列兩個資料表項目之 IP 位址的項目。
  - 資料表 V – 項目 6 – 值資料行
  - 資料表 V – 項目 7 – 值資料行
 5.	在底部的命令列中按一下 [**儲存**]。
-6.	在 Azure 入口網站的左窗格中按一下 [**虛擬機器**]，然後按一下第一個網域控制站名稱旁的 [**狀態**] 欄。
+6.	在 Azure 入口網站的左窗格中按一下 [虛擬機器]，然後按一下第一個網域控制站名稱旁的 [狀態] 欄。
 7.	在命令列中按一下 [**重新啟動**]。
 8.	當第一個網域控制站啟動時，按一下第二個網域控制站名稱旁邊的 [**狀態**] 資料行。
 9.	在命令列中按一下 [**重新啟動**]。等待第二個網域控制站啟動。
 
 請注意，重新啟動兩個網域控制站後，他們才不會由內部部署 DNS 伺服器設定做為 DNS 伺服器。由於他們本身都是 DNS 伺服器，因此當升級為網域控制站時，它們會自動由內部部署 DNS 伺服器設定做為 DNS 轉寄站。
 
-接下來，您需要建立 Active Directory 複寫站台，以確保 Azure 虛擬網路中的伺服器使用本機網域控制站。使用 sp_install 帳戶登入主要網域控制站，自系統管理員層級 Windows PowerShell 命令提示字元執行下列命令：
+接下來，您需要建立 Active Directory 複寫站台，以確保 Azure 虛擬網路中的伺服器使用本機網域控制站。使用 sp\_install 帳戶登入主要網域控制站，自系統管理員層級 Windows PowerShell 命令提示字元執行下列命令：
 
 	$vnet="<Table V – Item 1 – Value column>"
 	$vnetSpace="<Table V – Item 5 – Value column>"
@@ -248,4 +251,4 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

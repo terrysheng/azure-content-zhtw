@@ -7,7 +7,7 @@
 |**virtualMachine**|與 NIC 相關聯的 VM。|/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1|
 |**macAddress**|適用於 NIC 的 MAC 位址|介於 4 到 30 之間的任意值|
 |**networkSecurityGroup**|關聯到 NIC 的 NSG|/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1|
-|**dnsSettings**|適用於 NIC 的 DNS 設定。|請參閱 [PIP](#Public-IP-address)。|
+|**dnsSettings**|適用於 NIC 的 DNS 設定|請參閱 [PIP](#Public-IP-address)|
 
 網路介面卡或 NIC 代表可以關聯到虛擬機器 (VM) 的網路介面。一個 VM 可以有一或多個 NIC。
 
@@ -31,49 +31,50 @@ JSON 格式的範例公用 IP 位址：
 
 	{
 	    "name": "lb-nic1-be",
-	    "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be",
-	    "etag": "W/"0027f1a2-3ac8-49de-b5d5-fd46550500b1"",
+	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be",
+	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
 	    "type": "Microsoft.Network/networkInterfaces",
 	    "location": "eastus",
 	    "properties": {
 	        "provisioningState": "Succeeded",
-	        "resourceGuid": "e80fdad0-f0da-44ab-816a-828c9ac3c20e",
+	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 	        "ipConfigurations": [
 	            {
 	                "name": "NIC-config",
-	                "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/NIC-config",
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/NIC-config",
 	                "etag": "W/"0027f1a2-3ac8-49de-b5d5-fd46550500b1"",
 	                "properties": {
 	                    "provisioningState": "Succeeded",
 	                    "privateIPAddress": "10.0.0.4",
 	                    "privateIPAllocationMethod": "Dynamic",
 	                    "subnet": {
-	                        "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet"
+	                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet"
 	                    },
 	                    "loadBalancerBackendAddressPools": [
 	                        {
-	                            "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool"
+	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool"
 	                        }
 	                    ],
 	                    "loadBalancerInboundNatRules": [
 	                        {
-	                            "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1"
+	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1"
 	                        }
 	                    ]
 	                }
 	            }
 	        ],
-	        "dnsSettings": {
-	            "dnsServers": [],
-	            "appliedDnsServers": []
-	        },
+	        "dnsSettings": { ... },
 	        "macAddress": "00-0D-3A-10-F1-29",
 	        "enableIPForwarding": false,
 	        "primary": true,
 	        "virtualMachine": {
-	            "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/nrprg/providers/Microsoft.Compute/virtualMachines/web1"
+	            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Compute/virtualMachines/web1"
 	        }
 	    }
 	}
 
-<!---HONumber=Oct15_HO2-->
+### 其他資源
+
+- 讀取適用於 NIC 的 [REST API 參考文件](https://msdn.microsoft.com/library/azure/mt163579.aspx)。
+
+<!---HONumber=Oct15_HO3-->

@@ -81,4 +81,4 @@ Microsoft 提供[整合套件](http://technet.microsoft.com/library/hh295851.asp
 - [Orchestrator 標準活動](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

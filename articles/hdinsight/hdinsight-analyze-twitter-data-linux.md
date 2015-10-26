@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # 在 HDInsight 中使用 Hive 分析 Twitter 資料
@@ -319,4 +319,4 @@ Twitter 可讓您透過 REST API 抓取[每則推文資料](https://dev.twitter.
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

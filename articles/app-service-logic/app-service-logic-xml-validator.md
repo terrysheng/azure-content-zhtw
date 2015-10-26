@@ -62,4 +62,4 @@ BizTalk XML 驗證器會將結構描述納入其組態中。直接從 Azure 入�
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

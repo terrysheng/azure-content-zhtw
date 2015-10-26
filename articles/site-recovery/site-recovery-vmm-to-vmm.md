@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # 設定內部部署 VMM 站台之間的保護
@@ -74,11 +74,10 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 深入了解網路對應：
 
 - [在 VMM 中設定邏輯網路](http://go.microsoft.com/fwlink/?LinkId=386307)
-- [在 VMM 中設定 VM 網路和閘道](http://go.microsoft.com/fwlink/?LinkId=386308)
+- [在 VMM 中設定 VM 網路和閘道器](http://go.microsoft.com/fwlink/?LinkId=386308)
 
 ### 儲存體對應的必要條件
-根據預設，當您將來源 Hyper-V 主機伺服器上的虛擬機器複寫至目標 Hyper-V 主機伺服器時，複寫的資料會儲存在為 Hyper-V 管理員中之目標 Hyper-V 主機所指定的預設位置。如果要進一步控制複寫資料的儲存位置，您可以設定儲存體對應。若要這樣做，您必須在開始部署之前，在來源與目標 VMM 伺服器設定儲存體分類。
-如需指示，請參閱[如何在 VMM 中建立儲存體分類](http://go.microsoft.com/fwlink/?LinkId=400937)。
+根據預設，當您將來源 Hyper-V 主機伺服器上的虛擬機器複寫至目標 Hyper-V 主機伺服器時，複寫的資料會儲存在為 Hyper-V 管理員中之目標 Hyper-V 主機所指定的預設位置。如果要進一步控制複寫資料的儲存位置，您可以設定儲存體對應。若要這樣做，您必須在開始部署之前，在來源與目標 VMM 伺服器設定儲存體分類。如需指示，請參閱[如何在 VMM 中建立儲存體分類](http://go.microsoft.com/fwlink/?LinkId=400937)。
 
 
 ## 步驟 1：建立 Site Recovery 保存庫
@@ -135,16 +134,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 5. 在 [網際網路連線] 中，指定 VMM 伺服器上執行的提供者連接到網際網路的方式。選取 [Use default system proxy settings]，以使用在伺服器上設定的預設網際網路連線設定。
 
-	![網際網路設定](./media/site-recovery-vmm-to-vmm/VMMASRRegisterProxyDetailsScreen.png)
-	- 如果您想要使用自訂 Proxy，您應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。
-	- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您將必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。
-	- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+	![網際網路設定](./media/site-recovery-vmm-to-vmm/VMMASRRegisterProxyDetailsScreen.png) - 如果您想要使用自訂 Proxy，您應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您將必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取 - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 	- 如果您使用的是自訂 proxy，則會使用指定的 proxy 認證自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。設定 proxy 伺服器，讓此帳戶可以成功進行驗證。在 VMM 主控台中，可以修改 VMM RunAs 帳戶設定。若要這樣做，請開啟 [設定] 工作區、展開 [安全性]、按一下 [執行身分帳戶]，然後修改 DRAProxyAccount 的密碼。您必須重新啟動 VMM 服務，這項設定才會生效。
 
@@ -160,8 +150,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 8. 在 [伺服器名稱] 中，指定保存庫中 VMM 伺服器的易記識別名稱。在叢集設定中，指定 VMM 叢集角色名稱。
 
-8. 在 [初始雲端中繼資料同步] 中，選取您是否要將 VMM 伺服器上所有雲端的中繼資料與保存庫同步。這個動作只需要在每個伺服器上進行一次。如果不要同步所有雲端，您可以取消核取這項設定，再於 VMM 主控台的雲端屬性中個別同步每個雲端。
-	![伺服器註冊](./media/site-recovery-vmm-to-vmm/VMMASRRegisterFriendlyName.png)
+8. 在 [初始雲端中繼資料同步] 中，選取您是否要將 VMM 伺服器上所有雲端的中繼資料與保存庫同步。這個動作只需要在每個伺服器上進行一次。如果不要同步所有雲端，您可以取消核取這項設定，再於 VMM 主控台的雲端屬性中個別同步每個雲端。![伺服器註冊](./media/site-recovery-vmm-to-vmm/VMMASRRegisterFriendlyName.png)
 
 
 8. 按 [下一步]，完成此程序。註冊後，Azure Site Recovery 即可從 VMM 伺服器擷取中繼資料。此伺服器會顯示在保存庫中 [伺服器] 頁面的 [VMM 伺服器] 索引標籤上。
@@ -216,8 +205,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 12. 在 [複寫方法] 中，指定在正常複寫開始前，初次將資料從來源複寫到目標位置時的處理方式。
 	- **透過網路**：透過網路複製資料可能既費時又耗資源。如果雲端中的虛擬機器使用相當小的虛擬硬碟，而且主要網站透過寬頻連線來連接次要網站，則建議您使用這個選項。您可以指定立即開始複製，或是選取開始複製的時間。如果您使用網路複寫，建議您排在離峰時段進行。
 	- **離線**：這個方法指定要使用外部媒體執行初次複寫。如果您想要避免影響網路效能，或者複寫目的地位於很遙遠的地方，就適合使用這個方法。若要使用這個方法，您需指定來源雲端上的匯出位置，以及目標雲端上的匯入位置。對虛擬機器啟用保護時，虛擬硬碟會複製到指定的匯出位置。您需將它送到目標站台，再將它複製到匯入位置。系統會將匯入的資訊複製到複本虛擬機器。如需離線複寫先決條件的完整清單，請參閱《部署指南》中的<a href="http://go.microsoft.com/fwlink/?LinkId=323469">步驟 3：設定 VMM 雲端的保護設定</a>。
-13. 選取 [刪除複本虛擬機器] 指定在選取雲端屬性之 [虛擬機器] 索引標籤上的 [刪除虛擬機器的保護] 選項，以停止保護虛擬機器時，應該刪除複本虛擬機器。如果啟用這項設定，當您停用保護時，便會從 Azure Site Recovery 中移除虛擬機器、在 VMM 主控台中移除虛擬機器的 Site Recovery 設定，並刪除複本。
-	![進行保護設定](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudSettingsRep.png)
+13. 選取 [刪除複本虛擬機器] 指定在選取雲端屬性之 [虛擬機器] 索引標籤上的 [刪除虛擬機器的保護] 選項，以停止保護虛擬機器時，應該刪除複本虛擬機器。如果啟用這項設定，當您停用保護時，便會從 Azure Site Recovery 中移除虛擬機器、在 VMM 主控台中移除虛擬機器的 Site Recovery 設定，並刪除複本。![進行保護設定](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudSettingsRep.png)
 
 <p>儲存設定之後，會建立一個工作，並可在 [**工作**] 索引標籤上進行監視。VMM 來源雲端中的所有 Hyper-V 主機伺服器會設定進行複寫。在 [**設定**] 索引標籤上可修改雲端設定。如果您要修改目標位置或目標雲端，則必須移除雲端組態，然後重新設定雲端。</p>
 
@@ -282,9 +270,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 ![虛擬機器保護工作](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_VMJobs.png)
 
 ### 建立現有的虛擬機器
-如果您在使用 Hyper-V 複本複寫的 VMM 中具有現有的虛擬機器，您必須以下列方式為 Azure Site Recovery 保護建立虛擬機器：
-1.請確認您有主要和次要雲端。請確認裝載現有虛擬機器的 Hyper-V 伺服器位於主要雲端中，且裝載複本虛擬機器的 Hyper-V 伺服器位於次要雲端中。請確認您已為雲端進行保護設定。這些設定應符合目前為 Hyper-V 複本所做的設定。否則虛擬機器複寫可能無法如預期般運作。
-2.然後啟用主要虛擬機器的保護。Azure Site Recovery 和 VMM 可確保偵測到相同的複本主機和虛擬機器，且 Azure Site Recovery 會在雲端設定期間使用這些設定，重複使用及重新建立複寫作業。
+如果您在使用 Hyper-V 複本複寫的 VMM 中具有現有的虛擬機器，您必須以下列方式為 Azure Site Recovery 保護建立虛擬機器：1.請確認您有主要和次要雲端。請確認裝載現有虛擬機器的 Hyper-V 伺服器位於主要雲端中，且裝載複本虛擬機器的 Hyper-V 伺服器位於次要雲端中。請確認您已為雲端進行保護設定。這些設定應符合目前為 Hyper-V 複本所做的設定。否則虛擬機器複寫可能無法如預期般運作。2.然後啟用主要虛擬機器的保護。Azure Site Recovery 和 VMM 可確保偵測到相同的複本主機和虛擬機器，且 Azure Site Recovery 會在雲端設定期間使用這些設定，重複使用及重新建立複寫作業。
 
 
 ## 測試您的部署
@@ -307,10 +293,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 ###執行測試容錯移轉
 
 1. 在 [復原計畫] 索引標籤上，選取計畫，然後按一下 [測試容錯移轉]。
-2. 在 [確認測試容錯移轉] 頁面上，選取 [無]。請注意，啟用此選項時，容錯移轉複本虛擬機器將不會連線到任何網路。這將會測試虛擬機器是否依照預期執行容錯移轉，但是不會測試您的複寫網路環境。如果您想要執行更完整的測試容錯移轉，請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=522291">測試 MSDN 上的內部部署</a>。
-
-	![選取測試網路](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_TestFailover1.png)
-
+2. 在 [確認測試容錯移轉] 頁面上，選取 [無]。請注意，啟用此選項時，容錯移轉複本虛擬機器將不會連線到任何網路。這將會測試虛擬機器是否依照預期執行容錯移轉，但是不會測試您的複寫網路環境。請參閱[執行測試容錯移轉](site-recovery-failover.md#run-a-test-failover)中有關如何使用不同網路選項的詳細資訊。
 
 7. 測試虛擬機器將建立在複本虛擬機器所在的相同主機上。它會新增至複本虛擬機器所在的相同雲端。
 
@@ -392,7 +375,7 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
 
 - **收集的資訊**：服務會使用上述資訊，在您的服務入口網站上填入容錯移轉動作的狀態。
 
-- **資訊的用途**：服務使用上述資訊的用途如下所示：
+- **資訊的用途**：服務將上述資訊用於如下用途：
 
 	- 管理憑證—用來協助識別及驗證已註冊的 VMM 伺服器，以便存取服務。服務會使用憑證的公開金鑰部分來保護 token，只有已註冊的 VMM 伺服器可以獲得其存取權。伺服器必須使用此 token 獲得服務功能的存取權。
 	- VMM 伺服器的名稱—要識別雲端所在之適當 VMM 伺服器並與其通訊時，VMM 伺服器名稱是必要項目。
@@ -400,4 +383,4 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
 
 - **選擇**：這是服務不可或缺的一部分，而且無法關閉。如果您不想將此資訊傳送給服務，請勿使用此服務。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

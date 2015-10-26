@@ -62,7 +62,7 @@
  
     與選取的磁碟區或備份原則相關聯的備份應該會出現在備份組清單中。
 
-3. 展開備份組以檢視相關聯的磁碟區。您必須先在主機和裝置上將這些磁碟區離線，才能還原它們。存取 [磁碟區容器] 頁面上的磁碟區，然後依照 [讓磁碟區離線](storsimple-manage-volumes.md#take-a-volume-offline) 中的指示來讓它們離線。
+3. 展開備份組以檢視相關聯的磁碟區。您必須先在主機和裝置上將這些磁碟區離線，才能還原它們。存取 [磁碟區容器] 頁面上的磁碟區，然後依照 [讓磁碟區離線][](storsimple-manage-volumes.md#take-a-volume-offline) 中的指示來讓它們離線。
 
     >  [AZURE.IMPORTANT]確定您已先讓主機上的磁碟區離線，然後再讓裝置上的磁碟區離線。如果您並未讓主機上的磁碟區離線，可能會導致資料損毀。
 
@@ -88,4 +88,4 @@
 
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

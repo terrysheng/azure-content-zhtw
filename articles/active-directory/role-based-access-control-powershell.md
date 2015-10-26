@@ -164,4 +164,4 @@
 - [使用 Azure CLI 設定角色存取控制](role-based-access-control-xplat-cli-install.md)
 - [為角色存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

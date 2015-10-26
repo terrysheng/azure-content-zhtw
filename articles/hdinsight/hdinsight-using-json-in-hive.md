@@ -261,4 +261,4 @@ SerDe 是用來剖析巢狀 JSON 文件的最佳選擇，它可讓您定義 JSON
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Java 的檔案儲存體 | Microsoft Azure"
-	description="了解如何使用 Azure 檔案服務來上傳、下載、列出及刪除檔案。範例以 Java 撰寫。"
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="jimbe"/>
+	pageTitle="如何使用 Java 的檔案儲存體 | Microsoft Azure" 
+	description="了解如何使用 Azure 檔案服務來上傳、下載、列出及刪除檔案。範例以 Java 撰寫。" 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe" />
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="v-dedomi"/>
 
 # 如何使用 Java 的檔案儲存體
@@ -222,4 +222,4 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

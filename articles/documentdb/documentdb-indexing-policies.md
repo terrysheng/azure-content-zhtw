@@ -769,4 +769,4 @@ DocumentDB API 會提供效能度量 (像是已使用的索引儲存體)，以�
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

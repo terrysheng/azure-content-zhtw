@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Apache Storm 和 Azure 串流分析的比較 #
@@ -578,7 +578,7 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    是，在建立 ASA 工作期間，將 Azure Machine Learning 模型設定為函數。
+                    在 ASA 建立工作期間 <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(私人預覽)</a>，透過將已發佈的 Azure 機器學習服務模型設定為函式。
                 </p>
             </td>
             <td width="246" valign="top">
@@ -590,4 +590,4 @@
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

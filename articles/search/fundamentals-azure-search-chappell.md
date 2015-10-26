@@ -42,4 +42,4 @@
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Azure 搜尋服務簡介」(PDF 檔案)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Azure 搜尋服務簡介」(Microsoft Word 檔案)</a> 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

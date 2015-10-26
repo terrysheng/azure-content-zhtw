@@ -54,4 +54,4 @@
 
 3. 依照網頁上提供的指示完成範例。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

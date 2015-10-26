@@ -1,19 +1,19 @@
 <properties 
    pageTitle="指定虛擬網路組態檔中的 DNS 設定 | Microsoft Azure"
-	description="如何使用虛擬網路組態檔變更 DNS 伺服器設定"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="如何使用虛擬網路組態檔變更 DNS 伺服器設定"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="joaoma" />
 
 # 指定虛擬網路組態檔中的 DNS 設定
 
@@ -53,4 +53,4 @@
 
 [Azure 服務組態結構描述](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

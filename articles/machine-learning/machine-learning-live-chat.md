@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
-    ms.author="luisca"/>
+    ms.date="10/14/2015" 
+    ms.author="olgali"/>
 #取得來自機器學習即時聊天支援的說明
 
 [Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) 提供用於建立機器學習模型的直覺式介面。有[資源庫](machine-learning-gallery-how-to-use-contribute-publish.md)和[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)可以一路指引您。
@@ -31,4 +31,4 @@
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

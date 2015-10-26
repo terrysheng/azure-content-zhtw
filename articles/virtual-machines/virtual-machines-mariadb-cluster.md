@@ -19,7 +19,8 @@
 
 # MariaDB (MySQL) 叢集 - Azure 教學課程
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立 MariaDB 叢集。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 我們要建立 [MariaDB](https://mariadb.org/en/about/) 的多重主機 [Galera](http://galeracluster.com/products/) 叢集，它穩固、可擴充且非常可靠，可在某些時刻取代 MySQL，在 Azure 虛擬機器上的高可用環境中運作。
 
@@ -35,7 +36,7 @@
 
 ![架構](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [AZURE.NOTE]  本主題使用 [Azure CLI] 工具，請務必下載這些工具，並且根據指示將它們連線至您的 Azure 訂用帳戶。如果您需要 Azure CLI 中可用命令的參考，請查看這個 [Azure CLI 命令參考]連結。您也必須[建立驗證的 SSH 金鑰]，並且記下 **.pem 檔案位置**。
+> [AZURE.NOTE]本主題使用 [Azure CLI] 工具，請務必下載這些工具，並且根據指示將它們連線至您的 Azure 訂用帳戶。如果您需要 Azure CLI 中可用命令的參考，請查看這個 [Azure CLI 命令參考]連結。您也必須[建立驗證的 SSH 金鑰]，並且記下 **.pem 檔案位置**。
 
 
 ## 建立範本
@@ -209,7 +210,7 @@
 
 	- 編輯 **[mariadb]** 區段，並且附加下列內容
 
-	> [AZURE.NOTE] 建議 **innodb\_buffer\_pool\_size** 是您的 VM 記憶體的 70%。這裡為 3.5 GB RAM 的中型 Azure VM 設定為 2.45 GB。
+	> [AZURE.NOTE]建議 **innodb\_buffer\_pool\_size** 是您的 VM 記憶體的 70%。這裡為 3.5 GB RAM 的中型 Azure VM 設定為 2.45 GB。
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -228,9 +229,7 @@
 11. 透過入口網站擷取 VM。(目前，[Azure CLI 工具中的問題 #1268] 描述 Azure CLI 工具所擷取的映像沒有擷取到連接的資料磁碟。)
 
 	- 透過入口網站將這部電腦關機
-    - 按一下 [擷取]，將映像名稱指定為 **mariadb-galera-image** 並提供描述，然後核取 [我已經執行 waagent]。
-	![擷取虛擬機器](./media/virtual-machines-mariadb-cluster/Capture.png)
-	![擷取虛擬機器](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
+    - 按一下 [擷取]，將映像名稱指定為 **mariadb-galera-image** 並提供描述，然後核取 [我已經執行 waagent]。![擷取虛擬機器](./media/virtual-machines-mariadb-cluster/Capture.png) ![擷取虛擬機器](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
 
 ## 建立叢集
 
@@ -238,7 +237,7 @@
 
 1. 從您建立的 **mariadb-galera-image** 映像建立第一個 CentOS 7 VM，提供虛擬網路名稱 **mariadbvnet** 和子網路 **mariadb**、機器大小為 **Medium**、傳入雲端服務名稱為 **mariadbha** (或您想要透過 mariadbha.cloudapp.net 存取的任何名稱)、設定此機器的名稱為 **mariadb1** 和使用者名稱為 **azureuser**，以及啟用 SSH 存取和傳遞 SSH 憑證 .pem 檔案，並使用您儲存所產生的 .pem SSH 金鑰的路徑取代 **/path/to/key.pem**。
 
-	> [AZURE.NOTE] 下列命令為清楚起見會分成多行，但是您應該以一行輸入每個命令。
+	> [AZURE.NOTE]下列命令為清楚起見會分成多行，但是您應該以一行輸入每個命令。
 
 		azure vm create
         --virtual-network-name mariadbvnet
@@ -284,8 +283,7 @@
 
 		sudo vi /etc/my.cnf.d/server.cnf
 
-	移除開頭的 **#** 取消註解 **`wsrep_cluster_name`** 和 **`wsrep_cluster_address`**，並且驗證它們是您所想要的結果。
-    此外，分別使用 VM 的 IP 位址和名稱取代 **`wsrep_node_address`** 中的 **`<ServerIP>`** 和 **`wsrep_node_name`** 中的 **`<NodeName>`**，並一併取消這幾行的註解。
+	移除開頭的 **#** 取消註解 **`wsrep_cluster_name`** 和 **`wsrep_cluster_address`**，並且驗證它們是您所想要的結果。此外，分別使用 VM 的 IP 位址和名稱取代 **`wsrep_node_address`** 中的 **`<ServerIP>`** 和 **`wsrep_node_name`** 中的 **`<NodeName>`**，並一併取消這幾行的註解。
 
 5. 啟動 MariaDB1 上的叢集，並讓它在啟動時執行
 
@@ -302,8 +300,7 @@
 
 現在您可以使用 Azure 負載平衡器來平衡我們 3 個節點之間的要求。
 
-在使用 Azure CLI 的電腦上執行下列命令。
-命令參數結構如下：`azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+在使用 Azure CLI 的電腦上執行下列命令。命令參數結構如下：`azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
 	azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
@@ -376,4 +373,4 @@
 [Azure CLI 工具中的問題 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [在 Linux 上叢集 MySQL 的另一種方法]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!------HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/07/2015"
 	ms.author="rkarlin"/>
 
 # 使用 Azure AD 應用程式 Proxy 中的自訂網域
@@ -35,9 +35,22 @@
 
 
 
+## 另請參閱
+應用程式 Proxy 還有其他更多用途：
+
+- [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
+- [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
+- [啟用條件式存取](active-directory-application-proxy-conditional-access.md)
+- [使用宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)- [使用應用程式 Proxy 疑難排解您遇到的問題](active-directory-application-proxy-troubleshoot.md)
+
+## 深入了解應用程式 Proxy
+- [看看我們在這裡的線上說明](active-directory-application-proxy-enable.md)
+- [查閱應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
+- [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+
 ## 其他資源
 
 * [以組織身分註冊 Azure](..sign-up-organization.md)
 * [Azure 身分識別](..fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

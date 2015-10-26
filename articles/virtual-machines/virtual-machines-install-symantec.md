@@ -19,7 +19,8 @@
 
 # 如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明在使用傳統部署模型所建立的虛擬機器上安裝應用程式。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本文說明如何在執行 Windows Server 的新或現有虛擬機器 (VM) 上，安裝和設定 Symantec Endpoint Protection 用戶端。這是包括服務 (例如病毒和間諜軟體防護、防火牆及入侵防禦) 的完整用戶端。
 
@@ -97,4 +98,4 @@
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

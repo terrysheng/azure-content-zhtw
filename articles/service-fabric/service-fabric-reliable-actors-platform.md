@@ -70,7 +70,7 @@
     │   │   │   VoiceMailBox.exe.config
     │   │   │   VoiceMailBox.Interfaces.dll
     │   │   │
-    │   │   └───zh-tw
+    │   │   └───zh-TW
     │   │           System.Fabric.Common.Internal.Strings.resources.dll
     │   │
     │   └───Config
@@ -91,7 +91,7 @@
             │   VoicemailBoxWebService.exe
             │   VoicemailBoxWebService.exe.config
             │
-            └───zh-tw
+            └───zh-TW
                     System.Fabric.Common.Internal.Strings.resources.dll
 
 上述清單中顯示實作 VoicemailBox 動作項目的組件，將包含在應用程式封裝的服務封裝中程式碼封裝內。
@@ -242,4 +242,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

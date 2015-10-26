@@ -90,4 +90,4 @@ Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不�
 ## 後續步驟
 檢閱最新的[客體作業系統版本](cloud-services-guestos-update-matrix.md)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

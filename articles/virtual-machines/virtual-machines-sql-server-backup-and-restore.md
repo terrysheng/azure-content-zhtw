@@ -19,7 +19,8 @@
 
 # Azure 虛擬機器中的 SQL Server 備份和還原
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 ## 概觀
 
@@ -27,7 +28,7 @@
 
 針對在 Azure VM 中執行的 SQL Server，您可以藉助備份檔案目的地的連接磁碟，使用原生備份和還原技術。不過，根據該[虛擬機器的大小](virtual-machines-size-specs.md)而定，您可以連接到 Azure 虛擬機器的磁碟數有所限制。磁碟管理的負擔也需要加以考量。
 
-從 SQL Server 2014 開始，您可以備份和還原至 Microsoft Azure Blob 儲存體。SQL Server 2016 也提供這個選項的增強功能。此外，針對儲存在 Microsoft Azure Blob 儲存體的資料庫檔案，SQL Server 2016 提供的選項，可使用 Azure 的快照集，用於幾乎即時的備份和快速的還原作業。這篇文章提供這些選項的概觀，而其他資訊可在 [以 Microsoft Azure Blob 儲存體服務備份及還原 SQL Server](https://msdn.microsoft.com/library/jj919148(v=sql.130).aspx) 中找到。
+從 SQL Server 2014 開始，您可以備份和還原至 Microsoft Azure Blob 儲存體。SQL Server 2016 也提供這個選項的增強功能。此外，針對儲存在 Microsoft Azure Blob 儲存體的資料庫檔案，SQL Server 2016 提供的選項，可使用 Azure 的快照集，用於幾乎即時的備份和快速的還原作業。這篇文章提供這些選項的概觀，而其他資訊可在 [以 Microsoft Azure Blob 儲存體服務備份及還原 SQL Server] 中找到 (https://msdn.microsoft.com/library/jj919148(v=sql.130).aspx)。
 
 >[AZURE.NOTE]如需備份超大型資料庫選項的討論，請參閱[適用於 Azure 虛擬機器的多 TB 級 SQL Server 資料庫備份策略](http://blogs.msdn.com/b/igorpag/archive/2015/07/28/multi-terabyte-sql-server-database-backup-strategies-for-azure-virtual-machines.aspx)。
 
@@ -92,4 +93,4 @@ SQL Server 2014 包含下列增強功能：
 
 請檢閱其他[在 Azure 虛擬機器中執行 SQL Server 的資源](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

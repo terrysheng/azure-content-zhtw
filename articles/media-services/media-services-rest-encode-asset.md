@@ -274,4 +274,4 @@
 
 [取得媒體處理器](media-services-rest-get-media-processor.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

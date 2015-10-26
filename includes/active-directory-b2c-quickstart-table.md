@@ -7,4 +7,4 @@
 | | [保護 NodeJS Web API](active-directory-b2c-devquickstarts-api-node.md) | 伺服器端精靈 (即將推出) |
 | | [從 .NET Web App 呼叫 Web API](active-directory-b2c-devquickstarts-web-api-dotnet.md) | 伺服器端精靈 (即將推出) |
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

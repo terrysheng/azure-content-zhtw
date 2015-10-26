@@ -517,4 +517,4 @@ Azure 媒體服務編碼器可讓您重疊影像 (jpg、bmp、gif、tif)、影�
 
 [Azure Media Encoder XML 結構描述](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

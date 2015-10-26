@@ -42,4 +42,4 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 * 請參閱[使用 PowerShell 管理服務匯流排](service-bus-powershell-how-to-provision.md)的相關文章
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

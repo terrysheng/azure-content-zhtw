@@ -450,4 +450,4 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 - [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

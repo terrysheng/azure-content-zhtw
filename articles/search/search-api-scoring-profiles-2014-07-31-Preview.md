@@ -130,38 +130,7 @@
 
 評分設定檔的主體是從加權欄位和函數建構的。
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>項目</td><td>描述</td></tr></thead>
-<tbody 
-<tr> <td><b>權數</b></td> 
-<td>
-指定將相對權數指派給欄位的名稱值組。在[範例](#bkmk_ex) 中，albumTitle、內容類型和 artistName 欄位分別會提升 1、5 和 null。為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex` 中的 ’genre')，則相對加權可能需要較大的變異數。例如，在 `musicstoreindex` 中，'rock' 不僅以類型的形式出現，也出現在相同措詞的類型說明中。如果您要讓類型的權數高於類型說明，則類型欄位需要更高的相對權數。
-</td>
-</tr>
-<tr>
-<td><b>函數</b></td><td>在特定內容需要額外計算時使用。有效值包括`freshness`、`magnitude` 或 `distance`。每個函數都有其獨特的參數。
-<br>
-- `freshness` 應使用於當您想要依項目的新舊程度進行提升時。此函數僅適用於 datetime 欄位 (edm.DataTimeOffset)。請注意，`boostingDuration` 屬性僅適用於 freshness 函數。
-<br>
-- `magnitude` 應使用於當您想要依數值的高低程度進行提升時。呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。此函數僅適用於雙精確度浮點數和整數欄位。
-<br>
-- `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。此函數僅適用於 `geo.distance` 欄位。
-<br>
-<b>使用函數的規則</b>
-<br>函數類型 (freshness、magnitude、distance) 必須是小寫。
-<br>
-函數不可包含 null 或空值。明確而言，如果您包含欄位名稱，則必須加以設定。
-<br>
-函數只能套用至可篩選的欄位。請參閱[建立索引 (Azure 搜尋服務 API)]() 以了解更多有關可篩選欄位的相關資訊。
-<br>
-函數只能套用至索引的欄位集合中定義的欄位。
-<td> 
-</tr> 
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>項目</td><td>描述</td></tr></thead> <tbody <tr> <td><b>權數</b></td> <td>指定將相對權數指派給欄位的名稱值組。在[範例](#bkmk_ex) 中，albumTitle、內容類型和 artistName 欄位分別會提升 1、5 和 null。為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex` 中的 ’genre')，則相對加權可能需要較大的變異數。例如，在 `musicstoreindex` 中，'rock' 不僅以類型的形式出現，也出現在相同措詞的類型說明中。如果您要讓類型的權數高於類型說明，則類型欄位需要更高的相對權數。</td> </tr> <tr> <td><b>函數</b></td><td>在特定內容需要額外計算時使用。有效值包括`freshness`、`magnitude` 或 `distance`。每個函數都有其獨特的參數。<br> - `freshness` 應使用於當您想要依項目的新舊程度進行提升時。此函數僅適用於 datetime 欄位 (edm.DataTimeOffset)。請注意，`boostingDuration` 屬性僅適用於 freshness 函數。<br> - `magnitude` 應使用於當您想要依數值的高低程度進行提升時。呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。此函數僅適用於雙精確度浮點數和整數欄位。<br> - `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。此函數僅適用於 `geo.distance` 欄位。<br> <b>使用函數的規則</b> <br>函數類型 (freshness、magnitude、distance) 必須是小寫。<br> 函數不可包含 null 或空值。明確而言，如果您包含欄位名稱，則必須加以設定。<br> 函數只能套用至可篩選的欄位。請參閱[建立索引 (Azure 搜尋服務 API)]() 以了解更多有關可篩選欄位的相關資訊。<br> 函數只能套用至索引的欄位集合中定義的欄位。<td> </tr> </tbody> </table> </font>
 
 索引定義之後，請上傳索引結構描述 (接著上傳文件)，以建置索引。如需這些操作的指示，請參閱[建立索引 (Azure 搜尋服務 API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) 和[新增或更新文件 (Azure 搜尋服務 API)](https://msdn.microsoft.com/library/azure/dn798930.aspx)。索引建置後，您應會有可運作的評分設定檔可處理您的搜尋資料。
 
@@ -214,8 +183,7 @@
 
 ##索引屬性参考
 
-**附註**
-計分函數只能套用至可篩選的欄位。
+**附註**計分函數只能套用至可篩選的欄位。
 
 <table style="font-size:12">
 <thead>
@@ -317,10 +285,8 @@
 
 **另請參閱**
 
-Azure 搜尋服務 REST API
-建立索引 (Azure 搜尋 API)
-________________________________________
+Azure 搜尋服務 REST API 建立索引 (Azure 搜尋 API) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

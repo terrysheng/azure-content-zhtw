@@ -99,4 +99,4 @@ WCF Data Services 以[開放式資料通訊協定](http://go.microsoft.com/fwlin
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

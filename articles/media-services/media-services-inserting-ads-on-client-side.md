@@ -810,4 +810,4 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

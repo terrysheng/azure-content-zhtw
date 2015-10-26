@@ -1,6 +1,6 @@
 <properties
- pageTitle="Azure IoT 中樞開發人員指南 | Microsoft Azure"
- description="Azure IoT 中樞開發人員指南涵蓋 IoT 中樞端點、安全性、裝置身分識別登錄和傳訊"
+ pageTitle="IoT 中樞開發人員指南主題 | Microsoft Azure"
+ description="Azure IoT 中樞開發人員指南包含 IoT 中樞端點、安全性、裝置身分識別登錄和傳訊"
  services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
@@ -9,10 +9,10 @@
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -488,6 +488,7 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 
 - [開始使用 IoT 中樞 (教學課程)][lnk-get-started]
 - [作業系統平台與硬體相容性][lnk-compatibility]
+- [Azure IoT 開發人員中心][lnk-iotdev]
 - [規劃 IoT 實作][lnk-guidance]
 
 [事件中樞 - 事件處理器主機]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
@@ -531,5 +532,6 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -266,4 +266,4 @@ EngagementReach 物件提供兩種方法來管理加入/退出、`EnableNativePu
 [適用於特定應用程式類型的額外需求]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

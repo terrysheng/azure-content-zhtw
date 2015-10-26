@@ -500,8 +500,7 @@
 
 	此命令會啟動瀏覽器並瀏覽至下載頁面。若出現提示，請使用與您的 Azure 訂用帳戶相關聯的帳戶登入。
 
-	<!-- ![The download page][download-publishing-settings] -->
-	檔案下載會自動開始；如果沒有，您可以按一下頁面頂端的連結，以手動下載檔案。儲存檔案，並記下檔案路徑。
+	<!-- ![The download page][download-publishing-settings] -->檔案下載會自動開始；如果沒有，您可以按一下頁面頂端的連結，以手動下載檔案。儲存檔案，並記下檔案路徑。
 
 2. 輸入下列命令以匯入設定：
 
@@ -641,4 +640,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

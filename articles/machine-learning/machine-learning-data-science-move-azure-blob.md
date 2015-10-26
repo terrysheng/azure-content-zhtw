@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/12/2015" 
 	ms.author="bradsev;sunliangms;sachouks;mohabib" />
 
 # 從 Azure Blob 儲存體來回移動資料
 
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## 簡介
 
-本主題描述三種方法，用於從 Azure Blob 儲存體來回移動資料：
+本主題描述如何使用三種技術從 Azure Blob 儲存體來回移動資料：
 
-- 使用 Azure 儲存體總管
-- 使用 AzCopy 命令列公用程式
-- 使用 Python 中的 Azure SDK
+[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 哪一種方法最適合，將取決於您的案例。 [Azure Machine Learning 中進階分析程序和技術 (ADAPT) 的案例](../machine-learning-data-science-plan-sample-scenarios.md)文章可協助您判斷進階分析程序中各種資料科學工作流程所需的資源。
 
@@ -46,4 +44,4 @@
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

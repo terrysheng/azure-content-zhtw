@@ -574,7 +574,7 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 | copyBehavior | 當來源為 BlobSource 或 FileSystem 時，定義複製行為。 | <p>有三種可能的 copyBehavior 屬性值。</p><ul><li>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</li><li>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案都會有自動產生的名稱。</li><li>**MergeFiles：**會將來源資料夾的所有檔案合併到一個檔案。如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。</li></ul> | 否 |
 
 ### 遞迴和 copyBehavior 範例
-本節描述遞迴和 copyBehavior 值之不同組合的複製作業所產生的行為。
+本節說明遞迴和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。
 
 遞迴 | copyBehavior | 產生的行為
 --------- | ------------ | --------
@@ -599,4 +599,4 @@ false | mergeFiles | <p>針對具有下列結構的來源資料夾 Folder1：</p
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

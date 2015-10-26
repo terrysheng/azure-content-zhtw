@@ -1,20 +1,20 @@
 <properties
    pageTitle="Service Fabric 提供的預設通訊堆疊"
-	description="本文將說明讓服務和用戶端可以通訊的可靠服務架構，所提供的預設通訊堆疊。"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="timlt"
-	editor=""/>
+   description="本文將說明讓服務和用戶端可以通訊的可靠服務架構，所提供的預設通訊堆疊。"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # 可靠服務架構所提供的預設通訊堆疊
 若為不受限於特定實作通訊堆疊 (WebAPI、WCF 等) 的服務作者，此架構將提供用戶端和服務端通訊項目，可以用來設定服務端與用戶端之間的通訊。
@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]通訊架構會負責處理服務在用戶端擲回的傳播例外狀況。因此在用戶端使用 ServiceProxy 的例外狀況處理邏輯，可以直接處理服務可能擲回的例外狀況。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

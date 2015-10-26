@@ -7,7 +7,7 @@
 | -------- | ----------- | -------- |
 | 名稱 | 資料行的名稱。 | 是 |
 | 類型 | 資料行的資料類型。有關何時應指定類型資訊的詳細資訊，請參閱下文類型轉換的部份 | 否 |
-| culture | 當有指定 type (類型) 時要使用的 .NET 型文化特性，且是 .NET 類型的 Datetime 或 Datetimeoffset。預設值為 “zh-tw”。 | 否 |
+| culture | 當有指定 type (類型) 時要使用的 .NET 型文化特性，且是 .NET 類型的 Datetime 或 Datetimeoffset。預設值為 “zh-TW”。 | 否 |
 | format | 當有指定 type (類型) 時要使用的格式字串，且是 .NET 類型的 Datetime 或 Datetimeoffset。 | 否 |
 
 下列範例顯示具有 userid、name、lastlogindate 三個資料行的資料表的結構區段 JSON。
@@ -47,4 +47,4 @@
 
 針對 Datetime 和 Datetimeoffset，您可以選擇性地指定 “culture” 和 “format” 字串以幫助剖析您的自訂 Datetime 字串。請參閱下方的類型轉換範例。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

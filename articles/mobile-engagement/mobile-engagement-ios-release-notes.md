@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,9 +14,16 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #版本資訊
+
+##3\.2.0 (10/08/2015)
+
+-   啟用 SDK 中的 Bitcode以便使用 **Xcode 7**。
+-   已修正與應用程式內通知相關的錯誤。
+-   讓應用程式內通知在發生電池電力不足與其他這類案例時更可靠。
+-   移除第三方程式庫所產生的額外主控台記錄檔。
 
 ##3\.1.0 (2015/08/26)
 
@@ -47,4 +54,4 @@
 -   增強安全性。
 -   已移除 SmartAd 追蹤。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -384,4 +384,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

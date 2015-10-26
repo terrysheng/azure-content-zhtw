@@ -1,19 +1,19 @@
 <properties 
    pageTitle="更換 StorSimple EBOD 控制器 | Microsoft Azure"
-	description="說明如何取下並更換 StorSimple 8600 裝置上的一個或兩個 EBOD 控制器。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="說明如何取下並更換 StorSimple 8600 裝置上的一個或兩個 EBOD 控制器。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/12/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/12/2015"
+   ms.author="alkohli" />
 
 # 更換 StorSimple 裝置上的 EBOD 控制器
 
@@ -107,4 +107,4 @@
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD B2C 預覽 | Microsoft Azure"
-	description="如何對 B2C 目錄呼叫圖形 API 並使用應用程式身分識別將過程自動化。"
+	description="如何對 B2C 租用戶呼叫圖形 API 並使用應用程式身分識別將過程自動化。"
 	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -13,36 +13,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="dastrock"/>
-
 
 # Azure AD B2C 預覽：使用圖形 API
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-graph-switcher](../../includes/active-directory-b2c-devquickstarts-graph-switcher.md)]-->
 
-Azure AD B2C 目錄通常會很龐大，這表示許多常見的目錄管理工作需要以程式設計方式執行。一個主要的例子是使用者管理 - 您可能需要將現有的使用者存放區移轉到 B2C 目錄，也可能想要在自己的網頁上主控使用者註冊，在幕後於 Azure AD 中建立使用者帳戶。這類工作需要能夠建立、讀取、更新和刪除使用者帳戶 - 這些都能透過 Azure AD 圖形 API 達成。
+Azure AD B2C 租用戶通常會很龐大，這表示許多常見的租用戶管理工作需要以程式設計方式執行。一個主要的例子是使用者管理 - 您可能需要將現有的使用者存放區移轉到 B2C 租用戶，也可能想要在自己的網頁上主控使用者註冊，在幕後於 Azure AD 中建立使用者帳戶。這類工作需要能夠建立、讀取、更新和刪除使用者帳戶 - 這些都能透過 Azure AD 圖形 API 達成。
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
-對於 B2C 目錄，與圖形 API 通訊主要有兩種模式。
+對於 B2C 租用戶，與圖形 API 通訊主要有兩種模式。
 
-- 對於互動式、執行一次的工作，您可能想要以 B2C 目錄中的系統管理員帳戶來執行管理工作。此模式需要系統管理員先以認證登入，才能對圖形 API進行任何呼叫。
+- 對於互動式、執行一次的工作，您可能想要以 B2C 租用戶中的系統管理員帳戶來執行管理工作。此模式需要系統管理員先以認證登入，才能對圖形 API進行任何呼叫。
 - 對於自動化、持續的工作，您可以使用您授與必要權限的某種服務帳戶來執行管理工作。在 Azure AD 中，作法上您可以使用 [OAuth 2.0 用戶端認證授與](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)，註冊應用程式並利用「應用程式身分識別」向 Azure AD 驗證。在此情況下，應用程式會親自呼叫圖形 API，而不以任何特定的使用者身分。  
 
 在本文中，我們將示範如何執行後者的自動化使用案例。為了示範，我們會建置 .NET 4.5 "B2CGraphClient" 來執行使用者 CRUD 作業。為了方便試驗，用戶端會有 Windows 命令列介面讓您叫用各種方法。不過，程式碼會撰寫成以非互動、自動化的方式運作。現在就開始吧。
 
-## 取得支援 B2C 的目錄
+## 取得 Azure AD B2C 租用戶
 
-您需要一個支援 B2C 的目錄和該目錄中的系統管理員帳戶，才可建立應用程式、使用者，或與 Azure AD 進行任何互動。如果您還沒有此目錄，請依照[開始使用 Azure AD B2C](active-directory-b2c-get-started.md) 指南進行。
+您需要一個 Azure AD B2C 租用戶和該租用戶中的全域系統管理員帳戶，才可建立應用程式、使用者，或與 Azure AD 進行任何互動。如果您還沒有此目錄，請依照[開始使用 Azure AD B2C](active-directory-b2c-get-started.md) 指南進行。
 
-## 在目錄中註冊服務應用程式
+## 在租用戶中註冊服務應用程式
 
-既然您已經有 B2C 目錄，您需要使用 Azure AD Powershell Cmdlet 建立服務應用程式。首先，下載並安裝 [Microsoft Online Services 登入小幫手](http://go.microsoft.com/fwlink/?LinkID=286152)。接著可以下載並安裝[適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](http://go.microsoft.com/fwlink/p/?linkid=236297)。
+既然您已經有 B2C 租用戶，您需要使用 Azure AD Powershell Cmdlet 建立服務應用程式。首先，下載並安裝 [Microsoft Online Services 登入小幫手](http://go.microsoft.com/fwlink/?LinkID=286152)。接著可以下載並安裝[適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](http://go.microsoft.com/fwlink/p/?linkid=236297)。
 
-> [AZURE.NOTE]若要使用圖形 API 搭配 B2C 目錄，您必須使用 powershell 註冊專用的應用程式，並遵循下列指示。您不能重複使用已經在 Azure 入口網站中註冊的現有 B2C 應用程式。這是 Azure AD B2C 預覽的一項限制，將在不久的將來移除，屆時我們將會更新本文章。
+> [AZURE.NOTE]若要使用圖形 API 搭配 B2C 租用戶，您必須使用 Powershell 註冊專用的應用程式，並遵循下列指示。您不能重複使用已經在 Azure 入口網站中註冊的現有 B2C 應用程式。這是 Azure AD B2C 預覽的一項限制，將在不久的將來移除，屆時我們將會更新本文章。
 
-安裝的 Powershell 模組後，開啟 Powershell 並連線到 B2C 目錄。執行 `Get-Credential` 之後，將提示您輸入使用者名稱和密碼，請輸入您 B2C 目錄系統管理員帳戶的使用者名稱和密碼。
+安裝 Powershell 模組後，開啟 Powershell 並連線到 B2C 租用戶。執行 `Get-Credential` 之後，將提示您輸入使用者名稱和密碼，請輸入您 B2C 租用戶系統管理員帳戶的使用者名稱和密碼。
 
 ```
 > $msolcred = Get-Credential
@@ -81,7 +80,7 @@ Usage                 : Verify
 
 如果成功建立應用程式，應該會印出應用程式的某些屬性，如上所示。您將需要 `ObjectId` 和 `AppPrincipalId`，因此也請抄下這些值。
 
-既然您已經在 B2C 目錄中建立應用程式，您需要將執行使用者 CRUD 作業所需的權限指派給它。您需要將三個不同的角色指派給應用程式：目錄讀取者 (用於讀取使用者)、目錄寫入者 (用於建立及更新使用者)，以及使用者帳戶管理員 (用於刪除使用者)。這些角色具有已知的識別碼，所以您可以執行下列命令，使用上述的 `ObjectId` 取代 `-RoleMemberObjectId` 參數。若要查看所有目錄角色的清單，請嘗試執行 `Get-MsolRole`。
+既然您已經在 B2C 租用戶中建立應用程式，您需要將執行使用者 CRUD 作業所需的權限指派給它。您需要將三個不同的角色指派給應用程式：目錄讀取者 (用於讀取使用者)、目錄寫入者 (用於建立及更新使用者)，以及使用者帳戶管理員 (用於刪除使用者)。這些角色具有已知的識別碼，所以您可以執行下列命令，使用上述的 `ObjectId` 取代 `-RoleMemberObjectId` 參數。若要查看所有目錄角色的清單，請嘗試執行 `Get-MsolRole`。
 
 ```
 > Add-MsolRoleMember -RoleObjectId 88d8e3e3-8f55-4a1e-953a-9b9898b8876b -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
@@ -89,7 +88,7 @@ Usage                 : Verify
 > Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
 ```  
 
-您現在的應用程式有權從 B2C 目錄建立、讀取、更新和刪除使用者，我們就撰寫一些程式碼來使用它。
+您現在的應用程式有權從 B2C 租用戶建立、讀取、更新和刪除使用者，我們就撰寫一些程式碼來使用它。
 
 ## 下載、設定和建置範例程式碼
 
@@ -140,7 +139,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 	this.clientSecret = clientSecret;
 	this.tenant = tenant;
 
-	// The AuthenticationContext is ADAL's primary class, in which you indicate the directory to use.
+	// The AuthenticationContext is ADAL's primary class, in which you indicate the tenant to use.
 	this.authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
 
 	// The ClientCredential is where you pass in your client_id and client_secret, which are 
@@ -166,7 +165,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ### 讀取使用者
 
-當您想要從圖形 API 取得使用者清單或取得特定的使用者時，您可以傳送 HTTP GET 要求給 `/users` 端點。要求取得目錄中所有使用者時，情況如下：
+當您想要從圖形 API 取得使用者清單或取得特定的使用者時，您可以傳送 HTTP GET 要求給 `/users` 端點。要求取得租用戶中所有使用者時，情況如下：
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
@@ -182,7 +181,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 這裡有兩個重點值得注意：
 
 - 透過 ADAL 取得的存取權杖已利用 `Bearer` 配置加入 `Authorization` 標頭。
-- 對於 B2C 目錄，您必須使用查詢參數 `api-version=beta`。
+- 對於 B2C 租用戶，您必須使用查詢參數 `api-version=beta`。
 
 
 > [AZURE.NOTE]Azure AD 圖形 API 的 Beta 版提供預覽功能。如需 Beta 版的詳細資訊，請參閱[這篇圖形 API 小組部落格文章](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)。
@@ -212,7 +211,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 		
 ### 建立取用者的使用者帳戶 
 
-在 B2C 目錄中建立使用者帳戶時，您可以傳送 HTTP POST 要求給 `/users` 端點：
+在 B2C 租用戶中建立使用者帳戶時，您可以傳送 HTTP POST 要求給 `/users` 端點：
 
 ```
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
@@ -304,11 +303,11 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 ## 使用自訂屬性
 
-幾乎每個消費者應用程式都需要儲存某種自訂使用者設定檔資訊。作法之一是在 B2C 目錄中定義自訂屬性，讓您將該屬性視同使用者物件的任何其他內容一樣。該屬性就像登入權杖中的宣告，您可以更新、刪除、查詢、傳送該屬性。
+幾乎每個消費者應用程式都需要儲存某種自訂使用者設定檔資訊。作法之一是在 B2C 租用戶中定義自訂屬性，讓您將該屬性視同使用者物件的任何其他內容一樣。該屬性就像登入權杖中的宣告，您可以更新、刪除、查詢、傳送該屬性。
 
-若要在 B2C 目錄中定義自訂屬性，請參閱 [B2C 預覽自訂屬性參考](active-directory-b2c-reference-custom-attr.md)。
+若要在 B2C 租用戶中定義自訂屬性，請參閱 [B2C 預覽自訂屬性參考](active-directory-b2c-reference-custom-attr.md)。
 
-您可以使用 B2CGraphClient B2C 來檢視目錄中定義的自訂屬性：
+您可以使用 B2CGraphClient 來檢視 B2C 租用戶中定義的自訂屬性：
 
 ```
 > B2C Get-B2C-Application
@@ -339,13 +338,15 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-就這麼簡單！ 透過 B2CGraphClient，您現在有一個服務應用程式可以用程式設計方式管理 B2C 目錄使用者。它使用自己的應用程式身分識別向 Azure AD 圖形 API 驗證，並使用 client\_secret 取得權杖。將這項功能納入您自己的應用程式時，請記住 B2C 應用程式的幾個重點：
+就這麼簡單！ 透過 B2CGraphClient，您現在有一個服務應用程式可以用程式設計方式管理 B2C 租用戶使用者。它使用自己的應用程式身分識別向 Azure AD 圖形 API 驗證，並使用 client\_secret 取得權杖。將這項功能納入您自己的應用程式時，請記住 B2C 應用程式的幾個重點：
 
-- 您需要將目錄中的適當權限授與應用程式
+- 您需要將租用戶中的適當權限授與應用程式
 - 現在，您需要使用 ADAL v2 取得存取權杖 (也可以直接傳送通訊協定訊息，而不使用程式庫)
 - 呼叫圖形 API 時，請使用 [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)。
 - 當建立和更新取用者使用者，有幾個必要的屬性，如上所述。
 
-對於您想要使用圖形 API 在 B2C 目錄上執行的動作，如果您有任何問題或要求，我們洗耳恭聽！ 請在文章上留言，或在程式碼範例 GitHub 儲存機制中提出問題。
+> [AZURE.IMPORTANT]在 B2C 應用程式中使用 Azure AD 圖形 API 時，您需要考慮目錄服務基礎 Azure AD B2C 的複寫特性 (閱讀[本文](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx)以深入了解)。取用者使用**註冊**原則註冊您的 B2C 應用程式後，如果您反過來立即嘗試讀取在您的應用程式中使用 Azure AD 圖形 API 的使用者物件，它可能會無法使用。您必須等候數秒鐘讓複寫程序完成。在正式發行的版本中，我們將發行關於 Azure AD 圖形 API 和目錄服務提供的「讀寫一致性保證 」的更具體指引。
 
-<!---HONumber=Oct15_HO1-->
+對於您想要使用圖形 API 在 B2C 租用戶上執行的動作，如果您有任何問題或要求，我們洗耳恭聽！ 請在文章上留言，或在程式碼範例 GitHub 儲存機制中提出問題。
+
+<!---HONumber=Oct15_HO3-->

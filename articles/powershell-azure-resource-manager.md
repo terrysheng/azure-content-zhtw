@@ -377,4 +377,4 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 - 若要了解如何部署範本，請參閱〈[使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)〉。
 - 如需部署專案的詳細範例，請參閱〈[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)〉。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

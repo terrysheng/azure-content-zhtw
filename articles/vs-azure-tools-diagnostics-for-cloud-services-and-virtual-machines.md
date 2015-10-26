@@ -357,4 +357,4 @@ RoleEntryPoint 的方法是在 WAIISHost.exe 的內容中呼叫，而不是 IIS�
 
 若要深入了解 Azure 中的診斷記錄，請參閱[在 Azure 雲端服務和虛擬機器中啟用診斷](cloud-services-dotnet-diagnostics.md)和[在 Azure App Service 中啟用 web 應用程式的診斷記錄](web-sites-enable-diagnostic-log.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

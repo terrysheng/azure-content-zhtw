@@ -49,4 +49,4 @@
 
 ![新增端點 - 設定 [信任的 URL] 值 - 螢幕擷取畫面](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

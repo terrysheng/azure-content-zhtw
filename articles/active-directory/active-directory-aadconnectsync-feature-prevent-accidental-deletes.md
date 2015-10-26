@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="msStevenPo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/09/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # 防止意外刪除
@@ -44,7 +44,8 @@
 3. 若要重新啟用此保護功能，請執行 PowerShell Cmdlet：`Enable-ADSyncExportDeletionThreshold`。
 
 ## 後續步驟
+深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)組態。
 
-若要深入了解 Azure AD Connect 同步處理的組態，請參閱 [Azure AD Connect 同步處理](active-directory-aadconnectsync-whatis.md)。
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

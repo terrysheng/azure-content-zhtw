@@ -19,7 +19,8 @@
 
 # 使用 Azure PowerShell 管理您的虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 可以使用 Azure PowerShell Cmdlet 自動執行許多 VM 的日常管理工作。這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
 
@@ -96,4 +97,4 @@
 - 成為現有負載平衡集的成員。
 - 具有靜態 IP 位址。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

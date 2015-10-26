@@ -1,19 +1,19 @@
 <properties 
    pageTitle="使用 Visual Studio 的已連接服務加入行動服務 | Microsoft Azure"
-	description="使用 Visual Studio 的加入已連接服務對話方塊加入行動服務"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="使用 Visual Studio 的加入已連接服務對話方塊加入行動服務"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="mobile"
-	ms.date="08/12/2015"
-	ms.author="patshea"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="mobile"
+   ms.date="08/12/2015"
+   ms.author="patshea" />
 
 # 使用 Visual Studio 已連接服務加入行動服務
 
@@ -89,4 +89,4 @@ Visual Studio 修改您的專案的方式視專案類型而定。若為 C# 用�
 
  - [azure.microsoft.com 上的 Azure 行動服務文件](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

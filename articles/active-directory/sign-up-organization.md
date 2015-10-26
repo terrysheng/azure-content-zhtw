@@ -35,4 +35,4 @@
 * [什麼是 Azure AD？](active-directory-whatis.md)
 * [在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -7,4 +7,4 @@
 
 <sup>2</sup> 輸入端點即可從虛擬機器的雲端服務外部與某個虛擬機器進行通訊。在相同雲端服務或虛擬網路中的虛擬機器可自動彼此通訊。請參閱[如何設定虛擬機器的端點](../articles/virtual-machines/virtual-machines-set-up-endpoints.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

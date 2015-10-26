@@ -96,9 +96,9 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "設定應用程式 URL")
 
-    1.  在 [TOPdesk - Public 登入 URL] 文字方塊中，輸入您的使用者用來登入 TOPdesk - Public 應用程式的 URL (例如："**https://qssolutions.topdesk.net*"))。
-2.  在 [TOPdesk - Public 回覆 URL] 文字方塊中，貼上 **TOPdesk - Public AssertionConsumerService URL** (例如："**https://qssolutions.topdesk.net/tas/public/login/saml*")。
-3.  按 [下一步]。
+    1.  在 [TOPdesk - Public 登入 URL] 文字方塊中，輸入您的使用者用來登入 TOPdesk - Public 應用程式的 URL (例如："*https://qssolutions.topdesk.net*"))。
+    2.  在 [TOPdesk - Public 回覆 URL] 文字方塊中，貼上 **TOPdesk - Public AssertionConsumerService URL** (例如："*https://qssolutions.topdesk.net/tas/public/login/saml*")。
+    3.  按 [下一步]。
 
 10. 於 [在 TOPdesk - Public 設定單一登入] 頁面上，按 [下載中繼資料] 下載您的中繼資料，然後將檔案儲存在您的本機電腦中。
 

@@ -114,7 +114,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 9. 在 [設定檔] 畫面上，確定已選取 [網域]、[私人] 和 [公用]，然後按 [下一步]。![新增輸入規則設定檔][NewRuleProfile]
 10. 在 [名稱] 畫面上，指定規則的名稱，例如 **HttpIn** (不過規則名稱不一定要與端點名稱相符)，然後按一下 [完成]。![新增輸入規則名稱][NewRuleName]
 
-此時，您應該可以透過 ****http://*your\_DNS\_name*.cloudapp.net** 格式的 URL (其中的 ***your\_DNS\_name*** 代表您在建立虛擬機器時指定的 DNS 名稱)，從外部瀏覽器檢視 Tomcat 網站。
+此時，您應該可以透過 **http://*your\_DNS\_name*.cloudapp.net** 格式的 URL (其中的 ***your\_DNS\_name*** 代表您在建立虛擬機器時指定的 DNS 名稱)，從外部瀏覽器檢視 Tomcat 網站。
 
 ## 應用程式生命週期考量
 * 您可以自行建立 Web 應用程式封存檔 (WAR)，然後再將其新增至 **webapps** 資料夾。例如，建立基本 Java Service Page (JSP) 動態 Web 專案並以 WAR 檔案形式將其匯入，將 WAR 複製到虛擬機器上的 Apache Tomcat **webapps** 資料夾，然後在瀏覽器中予以執行。

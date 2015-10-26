@@ -89,7 +89,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
 
 本文不會介紹保護 `TaskService` 的詳細資料。如果您想要了解 Web API 如何安全地使用 Azure AD B2C 驗證要求，請查看 [Web API 使用者入門](active-directory-b2c-devquickstarts-api-dotnet.md)文章。
 
-## 6\.設定工作 Web 應用程式
+## 6.設定工作 Web 應用程式
 
 為了讓 `TaskWebApp` 與 Azure AD B2C 通訊，您必須提供一些通用參數。在 `TaskWebApp` 專案中，開啟專案根目錄中的 `web.config` 檔案，取代 `<appSettings>` 區段中的值：這些值將用於整個 Web 應用程式。
 

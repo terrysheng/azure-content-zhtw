@@ -18,7 +18,8 @@
 
 # 應用程式模型 v2.0 預覽：從 .NET Web 應用程式呼叫 Web API
 
-> [AZURE.NOTE]此資訊適用於 v2.0 端點公開預覽版本。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+> [AZURE.NOTE]
+	此資訊適用於 v2.0 端點公開預覽版本。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
 有了 v2.0 應用程式模型，您就可以快速地將驗證加入 Web 應用程式和 Web API，同時支援個人 Microsoft 帳戶以及工作或學校帳戶。我們將在此建置可執行下列作業的 MVC Web 應用程式：
 
@@ -54,7 +55,7 @@
 - 輸入正確的**重新導向 URI**。重新導向 URI 會向 Azure AD 指出驗證回應應導向的位置，本教學課程的預設為 `https://localhost:44326/`。
 
 
-## 2\.使用 OpenID Connect 登入使用者
+## 2.使用 OpenID Connect 登入使用者
 在這裡，我們將設定 OWIN 中介軟體使用 [OpenID Connect 驗證通訊協定](active-directory-v2-protocols.md#openid-connect-sign-in-flow)。OWIN 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
 
 -	若要開始，請開啟 `TodoList-WebApp` 專案根目錄中的 `web.config` 檔案，並在 `<appSettings>` 區段中輸入應用程式的組態值。
@@ -113,12 +114,14 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\.使用 ADAL 於使用者登入時取得存取權杖
+## 3.使用 ADAL 於使用者登入時取得存取權杖
 在 `AuthorizationCodeReceived` 通知中，我們想要使用[與 OpenID Connect 串聯的 OAuth 2.0](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow)，以兌換待辦事項清單服務之存取權杖的 authorization\_code。ADAL 可為您簡化這個程序：
 
 - 首先，安裝 ADAL 預覽版本：
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - 將另一個 `using` 陳述式新增至 ADAL 的 `App_Start\Startup.Auth.cs`。- 現在加入新的方法 (`OnAuthorizationCodeReceived` 事件處理常式)。此處理常式會使用 ADAL 取得待辦事項清單 API 的存取權杖，並將 ADAL 權杖中的權杖儲存起來以供日後使用：
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+- 將另一個 `using` 陳述式新增至 ADAL 的 `App_Start\Startup.Auth.cs`。
+- 現在加入新的方法 (`OnAuthorizationCodeReceived` 事件處理常式)。此處理常式會使用 ADAL 取得待辦事項清單 API 的存取權杖，並將 ADAL 權杖中的權杖儲存起來以供日後使用：
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -140,7 +143,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4\.呼叫待辦事項清單 Web API
+## 4.呼叫待辦事項清單 Web API
 現在可以實際使用您在步驟 3 中取得的 access\_token。開啟 Web 應用程式的 `Controllers\TodoListController.cs` 檔案，此檔案可向待辦事項清單 API 提出所有 CRUD 請求。
 
 - 這裡可再次使用 ADAL，從 ADAL 快取擷取 access\_tokens。首先，將 ADAL 的 `using` 陳述式加入這個檔案。
@@ -200,6 +203,8 @@ catch (AdalException ee)
 
 ## 後續步驟
 
-如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
+如需其他資源，請查看：
+- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
 
 <!---HONumber=Oct15_HO3-->

@@ -21,7 +21,7 @@
 
 [備份類別目錄] 頁面會顯示在進行手動或自動備份時建立的所有備份組。您可以使用此頁面來列出備份原則或磁碟區的所有備份、選取或刪除備份，或是使用備份來還原或複製磁碟區。
 
-![備份類別目錄頁面](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+  ![備份類別目錄頁面](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 本教學課程說明如何使用備份組來複製個別磁碟區。它也會說明「暫時性」與「永久」複製之間的差異。
 

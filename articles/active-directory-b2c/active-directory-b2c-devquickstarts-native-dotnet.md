@@ -45,7 +45,7 @@
 - 在身分識別提供者刀鋒視窗中，選擇 [使用者識別碼註冊] 或 [電子郵件註冊]。
 - 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
 - 在每個原則中選擇 [顯示名稱] 和 [物件識別碼] 宣告做為應用程式宣告。您也可以選擇其他宣告。
-- 建立每個原則後，請複製原則的**名稱**。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。
+- 建立每個原則後，請複製原則的 [名稱]。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -84,7 +84,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 如果您想要了解 Web API 如何安全地使用 Azure AD B2C 驗證要求，請查看 [Web API 使用者入門文章](active-directory-b2c-devquickstarts-api-dotnet.md)。
 
-## 6\.執行原則
+## 6.執行原則
 既然 `TaskService` 已準備好驗證要求，我們便可以實作 `TaskClient`。您的應用程式與 Azure AD B2C 通訊時會傳送 HTTP 驗證要求，並指定它想要在要求中執行的原則。對於 .NET 桌面應用程式，您可以使用 **Active Directory Authentication Library (ADAL)** 來傳送 OAuth 2.0 驗證訊息、執行原則，並取得呼叫 Web API 的權杖。
 
 #### 安裝 ADAL

@@ -3,7 +3,8 @@
 #教學課程：Azure Active Directory 與 ServiceNow 整合
 >[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=521880)。
   
-本教學課程的目的是要示範 Azure 與 ServiceNow 的整合。本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程的目的是要示範 Azure 與 ServiceNow 的整合。  
+本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   ServiceNow 中的租用戶
@@ -78,48 +79,48 @@
 
 6. 在 [SAML 2.0 單一登入屬性] 頁面上，執行下列步驟：
 
-     6\.1.針對 [啟用外部驗證]，選取 [是]。
+     6.1. 針對 [啟用外部驗證]，選取 [是]。
 
 
-     6\.2.在 [將發出具有使用者資訊之 SAML2 安全性權杖的身分識別提供者 URL] 文字方塊中，輸入 **https://sts.windows.net/<您的租用戶的 GUID>/**。
+     6.2. 在 [將發出具有使用者資訊之 SAML2 安全性權杖的身分識別提供者 URL] 文字方塊中，輸入 **https://sts.windows.net/<您的租用戶的 GUID>/**。
 
 
-     6\.3.在 [身分識別提供者的 AuthnRequest 服務的基礎 URL] 文字方塊中，輸入 **https://login.windows.net/<您的租用戶的 GUID>/saml2**。
+     6.3. 在 [身分識別提供者的 AuthnRequest 服務的基礎 URL] 文字方塊中，輸入 **https://login.windows.net/<您的租用戶的 GUID>/saml2**。
 
 
-     6\.4.在 [身分識別提供者的 SingleLogoutRequest 服務的基礎 URL] 文字方塊中，輸入 **https://login.windows.net/<您的租用戶的 GUID>/saml2**。
+     6.4. 在 [身分識別提供者的 SingleLogoutRequest 服務的基礎 URL] 文字方塊中，輸入 **https://login.windows.net/<您的租用戶的 GUID>/saml2**。
 
 
-     6\.5.在 [身分識別提供者的 SingleLogoutRequest 服務的通訊協定繫結] 文字方塊中，輸入 **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**。
+     6.5. 在 [身分識別提供者的 SingleLogoutRequest 服務的通訊協定繫結] 文字方塊中，輸入 **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**。
 
-     6\.6.針對 [簽署 LogoutRequest]，選取 [是]。
+     6.6. 針對 [簽署 LogoutRequest]，選取 [是]。
 
-     6\.7.在 [當 SAML 2.0 單一登入因為工作階段未經驗證而失敗，或這是第一次登入，則重新導向至此 URL] 文字方塊中，輸入 **https://login.windows.net/<您的租用戶的 GUID>/saml2**。
+     6.7. 在 [當 SAML 2.0 單一登入因為工作階段未經驗證而失敗，或這是第一次登入，則重新導向至此 URL] 文字方塊中，輸入 **https://login.windows.net/<您的租用戶的 GUID>/saml2**。
 
   
 
 7. 在 [服務提供者 (Service-Now) 屬性] 區段中，執行下列步驟：
 
-     7\.1.在 [Service-now 執行個體首頁的 URL] 文字方塊中，輸入您的 ServiceNow 執行個體首頁的 URL。ServiceNow 執行個體首頁的 URL 是您的 **ServiceNow 租用戶 URL** 和 **/navpage.do** 的串連：**https://<InstanceName>.service-now.com/navpage.do** <br><br> ![Service-now 執行個體首頁](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Service-now 執行個體首頁")
+     7.1. 在 [Service-now 執行個體首頁的 URL] 文字方塊中，輸入您的 ServiceNow 執行個體首頁的 URL。ServiceNow 執行個體首頁的 URL 是您的 **ServiceNow 租用戶 URL** 和 **/navpage.do** 的串連：**https://<InstanceName>.service-now.com/navpage.do** <br><br> ![Service-now 執行個體首頁](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Service-now 執行個體首頁")
 
 
-     7\.2.在 [實體識別碼或簽發者] 文字方塊中，輸入您的租用戶 URL。
+     7.2. 在 [實體識別碼或簽發者] 文字方塊中，輸入您的租用戶 URL。
 
-     7\.3.在 [接受 SAML2 權杖的對象 URI] 文字方塊中，輸入您的租用戶 URL。
+     7.3. 在 [接受 SAML2 權杖的對象 URI] 文字方塊中，輸入您的租用戶 URL。
 
-     7\.4.在 [要與 SAMLResponse 中主體的 NameID 元素比對的使用者表格欄位] 文字方塊中，輸入 **email**。
+     7.4. 在 [要與 SAMLResponse 中主體的 NameID 元素比對的使用者表格欄位] 文字方塊中，輸入 **email**。
 
-     7\.5.在 [要用於傳回 SAMLResponse 中主體的 NameID 的 NameID 原則] 文字方塊中，輸入 **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**。
+     7.5. 在 [要用於傳回 SAMLResponse 中主體的 NameID 的 NameID 原則] 文字方塊中，輸入 **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**。
 
-     7\.6 將 [在 AuthnRequest 陳述式中建立 AuthnContextClass 要求] 保留未選取。
+     7.6. 將 [在 AuthnRequest 陳述式中建立 AuthnContextClass 要求] 保留未選取。
 
-     7\.7 在 [將在我們向身分識別提供者的 SAML 2.0 AuthnRequest 中包含的 AuthnContextClassRef 方法] 文字方塊中，輸入 ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**。
+     7.7 在 [將在我們向身分識別提供者的 SAML 2.0 AuthnRequest 中包含的 AuthnContextClassRef 方法] 文字方塊中，輸入 **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**。
 
 
 
 8. 在 [進階設定] 區段中，執行下列步驟：
 
-     8\.1.在 ["notBefore" 限制之前或 "notOnOrAfter" 限制之後仍視為有效的秒數] 文字方塊中，輸入 **60**。
+     8.1. 在 ["notBefore" 限制之前或 "notOnOrAfter" 限制之後仍視為有效的秒數] 文字方塊中，輸入 **60**。
 
 
 9. 若要儲存組態時，按一下 [儲存]。
@@ -130,21 +131,21 @@
 
 11. 若要上傳您的憑證，請在 [憑證] 頁面上執行下列步驟：
 
-     11\.1.按一下 [新增]。
+     11.1. 按一下 [新增]。
 
-     11\.2.在 [名稱] 文字方塊中，輸入 **SAML 2.0**。
+     11.2. 在 [名稱] 文字方塊中，輸入 **SAML 2.0**。
 
-     11\.3.選取 [使用中]。
+     11.3. 選取 [使用中]。
 
-     11\.4.針對 [格式]，選取 [PEM]。
+     11.4. 針對 [格式]，選取 [PEM]。
 
-     11\.5.從您下載的憑證建立 Base-64 編碼檔案。[AZURE.NOTE]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+     11.5. 從您下載的憑證建立 Base-64 編碼檔案。  > [AZURE.NOTE]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
-     11\.6.在**記事本**中，開啟您的 Base-64 編碼檔案，然後將這個檔案的內容複製到剪貼簿。
+     11.6. 在**記事本**中，開啟您的 Base-64 編碼檔案，然後將這個檔案的內容複製到剪貼簿。
 
-     11\.7.將剪貼簿的內容貼到 [PEM 憑證] 文字方塊中。
+     11.7. 將剪貼簿的內容貼到 [PEM 憑證] 文字方塊中。
 
-     11\.8.按一下 [提交]。
+     11.8. 按一下 [提交]。
 
 
 
@@ -165,19 +166,19 @@
 
 2. 在 [輸入您的 ServiceNow 沙箱認證來啟用自動使用者佈建] 頁面上，提供以下組態設定：設定使用者佈建
 
-     2\.1.在 [ServiceNow 執行個體名稱] 文字方塊中，輸入 ServiceNow 執行個體名稱。
+     2.1. 在 [ServiceNow 執行個體名稱] 文字方塊中，輸入 ServiceNow 執行個體名稱。
 
-     2\.2.在 [ServiceNow 管理使用者名稱] 文字方塊中，輸入 ServiceNow 管理員帳戶的名稱。
+     2.2. 在 [ServiceNow 管理使用者名稱] 文字方塊中，輸入 ServiceNow 管理員帳戶的名稱。
 
-     2\.3.在 [ServiceNow 管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
+     2.3. 在 [ServiceNow 管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
 
-     2\.4.按一下 [驗證] 來驗證您的組態。
+     2.4. 按一下 [驗證] 來驗證您的組態。
 
-     2\.5.按 [下一步] 按鈕以開啟 [後續步驟] 頁面。
+     2.5. 按 [下一步] 按鈕以開啟 [後續步驟] 頁面。
 
-     2\.6.如果您想要將所有使用者佈建到此應用程式，請選取 [自動將此目錄中的所有使用者帳戶佈建到此應用程式]。<br><br> ![後續步驟](./media/active-directory-saas-servicenow-tutorial/IC698804.png "後續步驟")
+     2.6. 如果您想要將所有使用者佈建到此應用程式，請選取 [自動將此目錄中的所有使用者帳戶佈建到此應用程式]。<br><br> ![後續步驟](./media/active-directory-saas-servicenow-tutorial/IC698804.png "後續步驟")
 
-     2\.7.在 [後續步驟] 頁面上，按一下 [完成] 來儲存您的組態。
+     2.7. 在 [後續步驟] 頁面上，按一下 [完成] 來儲存您的組態。
 
 
 

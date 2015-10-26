@@ -3,7 +3,8 @@
 #教學課程：Azure Active Directory 與 Bamboo HR 整合
 >[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=529837)。
 
-本教學課程的目的是要示範 Azure 與 BambooHR 的整合。本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程的目的是要示範 Azure 與 BambooHR 的整合。  
+本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   啟用 BambooHR 單一登入的訂用帳戶
@@ -51,7 +52,9 @@
     ![BambooHR](./media/active-directory-saas-bamboo-hr-tutorial/IC796687.png "BambooHR")
 ##設定單一登入
 
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證至 BambooHR。在此程序中，您必須建立 base-64 編碼的憑證檔案。如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證至 BambooHR。  
+在此程序中，您必須建立 base-64 編碼的憑證檔案。  
+如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
 ###若要設定單一登入，請執行下列步驟：
 
@@ -86,7 +89,7 @@
     ![SAML 單一登入](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "SAML 單一登入")
 
     1.  在 Azure 入口網站的 [在 BambooHR 設定單一登入] 對話頁面上，複製 [單一登入服務 URL] 值，然後將它貼至 [SSO 登入 URL] 文字方塊中。
-2.  從您下載的憑證建立 **base-64 編碼**檔案。  
+    2.  從您下載的憑證建立 **base-64 編碼**檔案。  
 
         >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
@@ -98,7 +101,8 @@
     ![設定單一登入](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "設定單一登入")
 ##設定使用者佈建
 
-若要讓 Azure AD 使用者可以登入 BambooHR，必須將他們佈建到 BambooHR。BambooHR 需以手動方式佈建。
+若要讓 Azure AD 使用者可以登入 BambooHR，必須將他們佈建到 BambooHR。  
+BambooHR 需以手動方式佈建。
 
 ###若要佈建使用者帳戶，請執行下列步驟：
 

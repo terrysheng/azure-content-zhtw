@@ -4,8 +4,8 @@
 
 
 <!-- URLs. 
-[Get started with Mobile Services]: ../articles/mobile-services-android-get-started.md
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
+[開始使用行動服務]: ../articles/mobile-services-android-get-started.md
+[將行動服務新增至現有的應用程式]: ../articles/mobile-services-android-get-started-data.md
 -->
 
 <!---HONumber=Oct15_HO3-->

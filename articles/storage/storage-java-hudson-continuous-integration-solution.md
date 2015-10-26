@@ -73,7 +73,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 ## 如何安裝 Azure 儲存體外掛程式 ##
 
 1. 在 Hudson 儀表板中，按一下 [Manage Hudson]。
-2. 在**管理 Hudson** 頁面中，按一下 [**管理外掛程式**]。
+2. 在 [管理 Hudson] 頁面中，按一下 [管理外掛程式]。
 3. 按一下 [Available] 索引標籤。
 4. 按一下 [其他]。
 5. 在 [**構件上傳程式**] 區段中，選取 [**Microsoft Azure 儲存體外掛程式**]。
@@ -83,7 +83,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 ## 如何設定 Azure 儲存體外掛程式來使用您的儲存體帳戶 ##
 
 1. 在 Hudson 儀表板中，按一下 [Manage Hudson]。
-2. 在 [**管理 Hudson**] 頁面中，按一下 [**設定系統**]。
+2. 在 [管理 Hudson] 頁面中，按一下 [設定系統]。
 3. 在 [Microsoft Azure Storage Account Configuration] 區段中：
 
     a.輸入您的儲存體帳戶名稱，您可從 [Azure 入口網站](https://manage.windowsazure.com)取得此名稱。
@@ -94,7 +94,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
     d.按一下 [Validate storage credentials] 以驗證您的儲存體帳戶。
 
-    e. [選用] 如果您有其他可提供 Hudson CI 使用的儲存體帳戶，請按一下 [**新增更多儲存體帳戶**]。
+    e. [選用] 如果您有其他可提供 Hudson CI 使用的儲存體帳戶，請按一下 [新增更多儲存體帳戶]。
 
     f.按一下 [Save] 儲存您的設定。
 
@@ -122,7 +122,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
     在您為 [Execute Windows batch command] 輸入指令碼的 [命令] 區段下方是個連結，可連結到 Hudson 認可的環境變數。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD\_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 
 8. 在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本文的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章](http://go.microsoft.com/fwlink/?LinkId=279889)。)
-9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] (若不想清除容器的內容，請維持不核取)。
+9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] \(若不想清除容器的內容，請維持不核取)。
 10. 在 [List of Artifacts to upload]，輸入 **text/*.txt**。
 11. 在 [Common virtual path for uploaded artifacts]，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
 12. 按一下 [Save] 儲存您的設定。

@@ -145,7 +145,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure02.png)
 
-7. 按一下 [**建立閘道**] (如下列圖 3 所示) 來建立 vnet01 的 VPN 閘道。
+7. 按一下 **建立閘道** (如下列圖 3 所示) 來建立 vnet01 的 VPN 閘道。
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure03.png)
 
@@ -312,7 +312,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
 
-3. 開啟 Azure 入口網站 (網址是 https://manage.windowsazure.com)，並在需要時輸入您的認證。
+3. 開啟 Azure 入口網站(網址是 https://manage.windowsazure.com )，並在需要時輸入您的認證。
 4. 在 [**所有項目**] 下，向下捲動並依序按一下 [**網路**]、[**vnet01**] 和 [**儀表板**]。請注意，現在已建立 **vnet01** 與 **vnet02** 之間的連線，如下所見。
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)

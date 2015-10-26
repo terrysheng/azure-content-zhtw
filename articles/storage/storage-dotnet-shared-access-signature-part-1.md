@@ -69,8 +69,8 @@
 
 ### 帳戶 SAS 和服務 SAS 權杖的通用參數
 
-- **API 版本**選擇性參數，指定要用來執行要求的儲存體服務版本。 
-- **服務版本**必要參數，指定要用於驗證要求的儲存體服務版本。
+- **API 版本** 選擇性參數，指定要用來執行要求的儲存體服務版本。 
+- **服務版本** 必要參數，指定要用於驗證要求的儲存體服務版本。
 - **開始時間。** 這是指 SAS 生效的時間。共用存取簽章的開始時間是選擇性選項，如果略過，則 SAS 會立即生效。 
 - **到期時間。** 這是指 SAS 何時失效的時間。最佳做法建議您為 SAS 指定過期時間，或將它與預存存取原則建立關聯 (請參閱以下詳細資訊)。
 - **權限。** 在 SAS 上指定的權限表示用戶端可以使用 SAS 來對儲存體資源執行哪些作業。帳戶 SAS 和服務 SAS 的可用權限不同。
@@ -317,7 +317,9 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 - [如何搭配 Azure 檔案儲存體使用 Windows](storage-dotnet-how-to-use-files.md)
 - [管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)
 - [使用共用存取簽章來委派存取權](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [資料表和佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [資料表和佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  

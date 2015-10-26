@@ -163,7 +163,7 @@
 
 ## Redis 主控台
 
-您可以使用 [Redis 主控台] (可供標準和高階快取使用) 安全地發出命令給您的 Azure Redis Cache 執行個體。
+您可以使用 [Redis 主控台] \(可供標準和高階快取使用) 安全地發出命令給您的 Azure Redis Cache 執行個體。
 
 >[AZURE.IMPORTANT]Redis 主控台無法使用 VNET 或叢集。
 >

@@ -27,7 +27,7 @@
 
 	![在 Azure 入口網站中管理 MySQL 資料庫](./media/create-mysql-db/manage-mysql-add-on.png)
 
-7. 按一下頁面底部的 [連接資訊] (如下所示)，即可取得資料庫連接資訊。
+7. 按一下頁面底部的 [連接資訊] \(如下所示)，即可取得資料庫連接資訊。
 
 	![MySql 連接資訊](./media/create-mysql-db/mysql-conn-info.png)
 
@@ -45,7 +45,7 @@
 
 	![提供網站詳細資料](./media/create-mysql-db/provide-website-details.png)
 
-4. 提供資料庫 [名稱]、選取資料庫的 [區域] (這應該與網站的區域相同)、同意 ClearDB 的法律條款，然後按一下框架底部的勾選記號。
+4. 提供資料庫 [名稱]、選取資料庫的 [區域] \(這應該與網站的區域相同)、同意 ClearDB 的法律條款，然後按一下框架底部的勾選記號。
 
 	![提供 MySQL 詳細資料](./media/create-mysql-db/provide-mysql-details.png)
 

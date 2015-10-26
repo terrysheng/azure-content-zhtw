@@ -891,9 +891,18 @@ ADAL for Android 以 **UserIdentifier** 物件的形式來代表使用者。這�
  
  在名為 `ToDoActivity.java` 的**同一個檔案中**
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
- ```
+```
 
 
 請注意，在下列程式碼中，我們將存取權杖加入至要求：

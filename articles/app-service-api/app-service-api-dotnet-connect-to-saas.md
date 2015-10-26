@@ -115,9 +115,9 @@
 
 1. 在 SimpleDropbox 專案中，安裝 [DropboxRestAPI](https://www.nuget.org/packages/DropboxRestAPI) NuGet 套件。
 
-	* 在 [工具] 功能表中按一下 [Nuget 套件管理員] > [Package Manager Console]。
+	* 在 [工具] 功能表中按一下 [Nuget 套件管理員] > [封裝管理員主控台]。
 
-	* 在 [Package Manager Console] 視窗中，輸入這個命令：
+	* 在 [封裝管理員主控台] 視窗中，輸入這個命令：
 	 
 			install-package DropboxRestAPI  
 
@@ -376,7 +376,12 @@
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	以下是用於其他提供者的值：* "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
+	以下是用於其他提供者的值：
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+<br/><br/>
 
 * `GetConsentLinkAsync()` 方法的第二個參數是回呼 URL，而同意伺服器會在使用者登入 Dropbox 並同意存取使用者帳戶之後，重新導向至該回呼 URL。
 
@@ -420,17 +425,17 @@
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-收到錯誤 405「不允許方法」，因為用戶端嘗試進行非 SSL HTTP POST 要求。閘道器會重新導向至 **https://*，而重新導向將導致 GET 要求。擷取同意連結的 URL 只接受 POST 要求。
+收到錯誤 405「不允許方法」，因為用戶端嘗試進行非 SSL HTTP POST 要求。閘道器會重新導向至 *https://*，而重新導向將導致 GET 要求。擷取同意連結的 URL 只接受 POST 要求。
 
 ### <a id="400"></a>HTTP 錯誤 400 而非 Dropbox 登入頁面
 
-請確定您在 API 應用程式的 [**驗證**] 刀鋒視窗中有正確的 [**用戶端識別碼**]，並確定沒有任何開頭或結尾空格。
+請確定您在 API 應用程式的 [驗證] 刀鋒視窗中有正確的 [用戶端識別碼]，並確定沒有任何開頭或結尾空格。
 
 ### <a id="403"></a> 呼叫 API 應用程式時的 HTTP 錯誤 403
 
-* 請確定 API 應用程式的 [**存取層級**] 設為 [**公用 (已驗證)**]，而非 [**內部**]。
+* 請確定 API 應用程式的 [存取層級] 設為 [公用 (已驗證)]，而非 [內部]。
 
-* 請確定您在 API 應用程式的 [**驗證**] 刀鋒視窗中有正確的 [**用戶端機密**]，並確定沒有任何開頭或結尾空格。
+* 請確定您在 API 應用程式的 [驗證] 刀鋒視窗中有正確的 [用戶端機密]，並確定沒有任何開頭或結尾空格。
 
 Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 
@@ -442,9 +447,9 @@ Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 
 ## 後續步驟
 
-您已了解如何為連接至 SaaS 平台的 API 應用程式編寫程式碼及進行設定。如需如何處理 API 應用程式中驗證之其他教學課程的連結，請參閱〈[API 應用程式和行動應用程式的驗證 - 後續步驟](../app-service/app-service-authentication-overview.md#next-steps)〉。
+您已了解如何為連接至 SaaS 平台的 API 應用程式編寫程式碼及進行設定。如需如何處理 API 應用程式中驗證之其他教學課程的連結，請參閱 [API 應用程式和行動應用程式的驗證 - 後續步驟](../app-service/app-service-authentication-overview.md#next-steps)。
 
-[Azure preview portal]: https://portal.azure.com/
-[Azure portal]: https://manage.windowsazure.com/
+[Azure 預覽入口網站]: https://portal.azure.com/
+[Azure 入口網站]: https://manage.windowsazure.com/
 
 <!---HONumber=Oct15_HO3-->

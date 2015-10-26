@@ -30,7 +30,7 @@
 
 ## 在新的虛擬機器上安裝 Symantec Endpoint Protection
 
-當您使用 [From Gallery][][Portal] 選項來建立虛擬機器時，**Azure 管理入口網站**可讓您安裝 VM 代理程式和 Symantec 安全性延伸模組。如果您打算建立單一虛擬機器，使用此方法可輕易地新增 Symantec 的防護。
+當您使用 **From Gallery** 選項來建立虛擬機器時，[Azure 管理入口網站][Portal] 可讓您安裝 VM 代理程式和 Symantec 安全性延伸模組。如果您打算建立單一虛擬機器，使用此方法可輕易地新增 Symantec 的防護。
 
 此 [From Gallery] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Symantec 安全性延伸模組。
 

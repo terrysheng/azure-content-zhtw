@@ -154,9 +154,11 @@
      
      12\.5 選取 [不要壓縮 SP 啟始的驗證要求]。
 
-     12\.6.選取 [SHA256] 做為 [驗證要求簽章方法]。<br><br> ![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/IC782932.png "驗證要求簽章方法") <br><br>
+     12\.6.選取 [SHA256] 做為 [驗證要求簽章方法]。<br><br> 
+        ![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/IC782932.png "驗證要求簽章方法") <br><br>
  
-     12\.7 按一下 [確定]。<br><br> ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+     12\.7 按一下 [確定]。<br><br> 
+        ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 12. 在 Azure AD 入口網站的 [在 Workday 設定單一登入] 頁面上，按 [下一步]。<br><br>
 

@@ -58,13 +58,13 @@
 
 2. 執行 HPC Pack 安裝檔中的 Setup.exe 來啟動 HPC Pack 安裝精靈。
 
-3. 在 [HPC Pack 2012 R2 Setup] 畫面上，按一下 [New installation or add new features to an existing installation]。
+3. 在 [HPC Pack 2012 R2 Setup] 畫面上，按一下 [新安裝或在現有安裝中新增功能]。
 
 	![HPC Pack 2012 Setup][install_hpc1]
 
-4. 在 [Microsoft Software User Agreement] 頁面上，按 [下一步]。
+4. 在 [Microsoft 軟體使用者合約頁面] 頁面上，按 [下一步]。
 
-5. 在 [選取安裝類型] 頁面上，按一下 [Create a new HPC cluster by creating a head node]，然後按 [下一步]。
+5. 在 [選取安裝類型] 頁面上，按一下 [建立前端節點以建立新 HPC 叢集]，然後按 [下一步]。
 
 	![Select Installation Type][install_hpc2]
 
@@ -80,7 +80,7 @@
 
 	![安裝][install_hpc6]
 
-9. 安裝完成之後，請取消核取 [Start HPC Cluster Manager]，然後按一下 [完成]。(您將在稍後的步驟中啟動 HPC 叢集管理員，以完成前端節點的設定。)
+9. 安裝完成之後，請取消核取 [啟動 HPC 叢集管理員]，然後按一下 [完成]。(您將在稍後的步驟中啟動 HPC 叢集管理員，以完成前端節點的設定。)
 
 	![完成][install_hpc7]
 
@@ -106,7 +106,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Certificate Settings][upload_cert1]
 
-4. 瀏覽前端節點以找出 C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer 檔案。然後按一下 [**檢查**] 按鈕。
+4. 瀏覽前端節點以找出 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 檔案。然後按一下 [**檢查**] 按鈕。
 
 	![Upload Certificate][install_hpc10]
 
@@ -152,7 +152,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 4. 按 [下一步] 以接受精靈剩餘頁面上的預設值。然後，在 [檢閱] 索引標籤上，按一下 [設定] 以完成網路設定。
 
-5. 在 [Deployment To-do List] 中，按一下 [Provide installation credentials]。
+5. 在 [Deployment To-do List] 中，按一下 [提供安裝認證]。
 
 6. 在 [Installation Credentials] 對話方塊中，輸入您用來安裝 HPC Pack 之網域帳戶的認證。然後按一下 [確定]。
 
@@ -168,7 +168,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	>[AZURE.NOTE]命名序列只會為加入網域的運算節點產生名稱。Azure 節點的名稱是自動產生的。
 
-9. 在 [Deployment To-do List] 中，按一下 [Create a node template]。您將使用節點範本將 Azure 節點新增至叢集。
+9. 在 [Deployment To-do List] 中，按一下 [提供安裝認證]。您將使用節點範本將 Azure 節點新增至叢集。
 
 10. 在 [Create Node Template Wizard] 中，執行下列動作：
 

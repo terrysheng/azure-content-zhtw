@@ -98,7 +98,7 @@
 		hivesampletable false      
 		hvac            false
 
-	只有 **isTemporary** 資料行為 false 的資料表，代表將儲存在中繼存放區、而且可以從 BI 工具存取的 Hive 資料表。在此教學課程中，我們將連接到剛剛建立的 **hvac** 資料表。
+	只有 **isTemporary** 資料行為 false 的資料表，代表將儲存在中繼存放區、而且可以從 BI 工具存取的 hive 資料表。在此教學課程中，我們將連接到剛剛建立的 **hvac** 資料表。
 
 6. 請確認資料表包含預期的資料。將以下程式碼片段貼入 Notebook 中的空白儲存格，然後按下 **SHIFT + ENTER**。
 
@@ -118,7 +118,7 @@
 
 	![將資料送入 Power BI](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Get.Data.png "將資料送入 Power BI")
 
-3. 在下一個畫面中按一下 **Spark**，然後按一下 [連接]。
+3. 在下一個畫面中按一下 [Spark]，然後按一下 [連接]。
 
 4. 在 Azure HDInsight 頁面的 Spark 中，提供連接到 Spark 叢集的值，然後按一下 [連接]。
 

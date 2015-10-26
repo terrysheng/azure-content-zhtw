@@ -35,7 +35,7 @@
 	  		
  - 如果您選取 **Openstack** 做為您的雲端服務提供者，請提供 [**主機名稱**]、[**存取金鑰**] 及 [**秘密金鑰**]。
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] 除了 Azure 以外所有的雲端服務提供者，可使用易記的名稱。 您可以使用易記的名稱，並以相同的認證建立多個儲存體帳戶。
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 

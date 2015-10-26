@@ -34,7 +34,7 @@
 
     ![LinkedIn - 註冊應用程式](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-5. 複製 [用戶端識別碼] 與 [用戶端密碼] (可在 [驗證金鑰] 區段下方找到) 的值。您必須使用這兩個值，將 LinkedIn 設為目錄中的身分識別提供者。
+5. 複製 [用戶端識別碼] 與 \[用戶端密碼] (可在 [驗證金鑰] 區段下方找到) 的值。您必須使用這兩個值，將 LinkedIn 設為目錄中的身分識別提供者。
 
     > [AZURE.NOTE]**用戶端密碼**是重要的安全性認證。
 

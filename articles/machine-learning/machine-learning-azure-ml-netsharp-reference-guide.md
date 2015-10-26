@@ -397,12 +397,12 @@ Net# 可選擇性地支援以共用加權定義多個套組的作業。任何兩
 -	網路具有第三個隱藏層 _Hid3_，與第二個隱藏層 _Conv2_ 完全相連。
 -	輸出層 _Digit_ 僅連接到第三個隱藏層 _Hid3_。關鍵字 **all** 指出輸出層與 _Hid3_ 完全相連。
 -	迴旋的 Arity 為三 (Tuple **InputShape**、**KernelShape**、**Stride** 和 **Sharing** 的長度)。 
--	每個核心的加權數目為 _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26。或是 26 * 50 = 1300_。
+-	每個核心的加權數目為 _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26。或是 26 * 50 = 1300_。
 -	您可以用下列方式計算每個隱藏層中的節點數：
-	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5。
-	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5。 
--	節點總數可使用該層的宣告維度 [50, 5, 5] 來計算，如下所示：_**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
+	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5。
+	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5。 
+-	節點總數可使用該層的宣告維度 [50, 5, 5] 來計算，如下所示：_**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
 -	由於只有 _d == 0_ 時，**Sharing**[d] 才會是 False，因此核心數為 _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_。 
 
 

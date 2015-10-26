@@ -567,7 +567,9 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 1. 在 Visual Studio 的 [Azure Web 應用程式] 視窗中，按一下 [記錄] 索引標籤，然後按一下 [設定管理入口網站中的記錄]。
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![設定記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+
+	![設定記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	這會在 Azure 入口網站中開啟您 Web 應用程式的 [設定] 索引標籤。
 

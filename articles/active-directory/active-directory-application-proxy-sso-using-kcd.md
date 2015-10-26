@@ -49,9 +49,9 @@
 
 ### 先決條件
 
-1. 請確定您的應用程式 (例如 SharePoint Web 應用程式) 已設為使用「整合式 Windows 驗證」。如需詳細資訊，請參閱[啟用支援 Kerberos 驗證](https://technet.microsoft.com/library/dd759186.aspx)，或者若是使用 SharePoint，請參閱[規劃 SharePoint 2013 中的 Kerberos 驗證](https://technet.microsoft.com/library/ee806870.aspx)。
+1. 請確定您的應用程式 (例如 SharePoint Web 應用程式) 已設為使用「整合式 Windows 驗證」。如需詳細資訊，請參閱「[啟用支援 Kerberos 驗證](https://technet.microsoft.com/library/dd759186.aspx)」，或者若是使用 SharePoint，請參閱「[規劃 SharePoint 2013 中的 Kerberos 驗證](https://technet.microsoft.com/library/ee806870.aspx)」。
 2. 建立應用程式的「服務主體名稱」。
-3. 請確定執行「連接器」的伺服器與執行您所發佈之應用程式的伺服器，皆已加入網域且屬於相同的網域。如需有關加入網域的詳細資訊，請參閱[將電腦加入網域](https://technet.microsoft.com/library/dd807102.aspx)。
+3. 請確定執行「連接器」的伺服器與執行您所發佈之應用程式的伺服器，皆已加入網域且屬於相同的網域。如需有關加入網域的詳細資訊，請參閱「[將電腦加入網域](https://technet.microsoft.com/library/dd807102.aspx)」。
 
 
 ### Active Directory 組態
@@ -99,7 +99,7 @@
 
 | | |
 | --- | --- |
-| 內部驗證方法 | 若您使用 Azure AD 進行預先驗證，則可設定內部驗證方法，讓使用者享有此應用程式的單一登入 (SSO) 功能優勢。<br><br> 若您的應用程式使用 IWA，則選取 [整合式 Windows 驗證] (IWA)，且您可設定「Kerberos 限制委派」(KCD) 以啟用此應用程式的 SSO。使用 IWA 的應用程式必須設為使用 KCD，否則「應用程式 Proxy」將無法發佈這些應用程式。<br><br> 若您的應用程式不使用 IWA，請選取 [無]。 |
+| 內部驗證方法 | 若您使用 Azure AD 進行預先驗證，則可設定內部驗證方法，讓使用者享有此應用程式的單一登入 (SSO) 功能優勢。<br><br>若您的應用程式使用 IWA，則選取 \[整合式 Windows 驗證] (IWA)，且您可設定「Kerberos 限制委派」(KCD) 以啟用此應用程式的 SSO。使用 IWA 的應用程式必須設為使用 KCD，否則「應用程式 Proxy」將無法發佈這些應用程式。<br><br>若您的應用程式不使用 IWA，請選取 [無]。 |
 | 內部應用程式 SPN | 這是在內部部署 Azure AD 中所設定的內部應用程式「服務主體名稱」(SPN)。「應用程式 Proxy 連接器」會使用 SPN，以針對使用 KCD 的應用程式擷取 Kerberos 權杖。 |
 
 <!--Image references-->

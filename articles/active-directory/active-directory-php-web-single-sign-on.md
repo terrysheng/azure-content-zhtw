@@ -125,13 +125,13 @@
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE]**audienceuris** 和 **realm** 值的前面必須加上 "spn:"。
+> [AZURE.NOTE]**audienceuris** 和 **realm** 值的前面必須加上 "spn:"。
 
 4. 在 Eclipse 中，於 **phpSample** 專案上按一下滑鼠右鍵，按一下 [新增]，然後按一下 [PHP File]。
 
 5. 在 [New PHP File] 對話方塊上，將檔案命名為 **secureResource.php**，然後按一下 [完成]。
 
-6. 在新的 **secureResource.php** 檔案中，輸入下列程式碼，將 **c:\\phpLibraries** 路徑取代為您下載範例程式碼的根位置。根位置應該包括 **simpleSAML.php** 檔案和 **federation** 資料夾：
+6. 在新的 **secureResource.php** 檔案中，輸入下列程式碼，將 **c:\phpLibraries** 路徑取代為您下載範例程式碼的根位置。根位置應該包括 **simpleSAML.php** 檔案和 **federation** 資料夾：
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -181,7 +181,7 @@
 		</body>
 		</html> 
 
-8. 從 [執行] 功能表中，按一下 [執行]。您應該被自動重新導向至 Office 365 身分識別提供者頁面，在此頁面中您可以使用目錄租用戶認證進行登入。例如，**john.doe@fabrikam.onmicrosoft.com*。
+8. 從 [執行] 功能表中，按一下 [執行]。您應該被自動重新導向至 Office 365 身分識別提供者頁面，在此頁面中您可以使用目錄租用戶認證進行登入。例如，*john.doe@fabrikam.onmicrosoft.com*
 
 ## 摘要
 本教學課程已顯示如何建立和設定單一租用戶 PHP 應用程式，來使用 Azure Active Directory 的單一登入功能。

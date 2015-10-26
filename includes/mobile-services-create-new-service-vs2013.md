@@ -22,7 +22,7 @@
   	![create new mobile service in VS 2013](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013-2.png)
 
 
-	> [AZURE.NOTE]作為本教學課程的一部分，您需要建立新的 SQL Database 執行個體和伺服器。You can reuse this new database and administer it as you would any other SQL Database instance.您只能有一個免費的資料庫執行個體。如果新行動服務的區域已經有資料庫存在，您可以改選現有的資料庫。當您選擇現有的資料庫時，請確保您提供的是正確的登入認證。如果您提供不正確的登入認證，則行動服務會建立在不健全的狀態下。
+	> [AZURE.NOTE]作為本教學課程的一部分，您需要建立新的 SQL Database 執行個體和伺服器。您可以如同任何其他 SQL Database 執行個體般重新使用這個新資料庫，並加以管理.您只能有一個免費的資料庫執行個體。如果新行動服務的區域已經有資料庫存在，您可以改選現有的資料庫。當您選擇現有的資料庫時，請確保您提供的是正確的登入認證。如果您提供不正確的登入認證，則行動服務會建立在不健全的狀態下。
 
 7. 建立行動服務後，請從 [服務管理員] 中的清單選取新建立的行動服務，然後按一下 [確定]。
 

@@ -3,7 +3,7 @@
 
 雲端服務是平台即服務 (PaaS) 的一個範例。這項技術如同[應用程式服務](app-service-web-overview.md)，是專為支援可調整、穩定且操作成本低的應用程式而設計。雲端服務也如同[應用程式服務](app-service-web-overview.md)在 VM 上託管，不過，雲端服務更易於透過 VM 控制。您可以在雲端服務 VM 上安裝您自己的軟體，並且可從遠端加以操控。
 
-![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
+![cs_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
 更充分的控制也意味著較低的易用性；除非您需要額外控制選項，否則與雲端服務相較之下，在應用程式服務的 Web 應用程式中通常可更快、更輕易地讓 Web 應用程式上線運作。
 
@@ -11,8 +11,10 @@
 
 雲端服務提供這兩個僅有些許差異的 VM 裝載選項的任意搭配組合：
 
-* **Web 角色**執行 Windows Server，且您的 Web 應用程式會自動部署至 IIS。
-* **背景工作角色**執行不含 IIS 的 Windows Server。
+* **Web 角色**  
+  執行 Windows Server，且您的 Web 應用程式會自動部署至 IIS。
+* **背景工作角色**  
+  執行不含 IIS 的 Windows Server。
 
 例如，簡單的應用程式可以只使用 Web 角色，而較複雜的應用程式可以使用 Web 角色處理使用者的連入要求，然後將這些要求產生的工作傳送給背景工作角色進行處理。(此通訊會使用[服務匯流排](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md)或 [Azure 佇列](../articles/storage/storage-introduction.md))。
 

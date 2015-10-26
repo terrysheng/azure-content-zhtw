@@ -32,15 +32,15 @@
 
 項目 | 虛擬機器名稱 | 資源庫映像 | 最小大小
 --- | --- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | A2 (中型)
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | A2 (中型)
-3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (叢集多數節點見證，範例 MN1) | Windows Server 2012 R2 Datacenter | A1 (小型)
-6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+1. | ______________ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | A2 (中型)
+2. | ______________ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | A2 (中型)
+3. | ______________ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+4. | ______________ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+5. | ______________ (叢集多數節點見證，範例 MN1) | Windows Server 2012 R2 Datacenter | A1 (小型)
+6. | ______________ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+7. | ______________ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+8. | ______________ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+9. | ______________ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
 
 **資料表 M – SharePoint 2013 內部網路伺服器陣列在 Azure 中的虛擬機器**
 
@@ -128,7 +128,7 @@
 ### <a id="datadisk"></a>初始化空磁碟
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 [磁碟 **2**] ([**磁碟分割**] 設為 [**未知**])。
+2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 磁碟 **2** (**磁碟分割** 設為 **未知**)。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [開始之前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -175,9 +175,9 @@
 
 SharePoint 伺服器陣列需要下列使用者帳戶：
 
-- sp\_farm：管理 SharePoint 伺服器陣列的使用者帳戶。
-- sp\_farm\_db：對 SQL Server 執行個體具有 sysadmin 權限的使用者帳戶。
-- sp\_install：具有安裝角色和功能所需之網域管理權限的使用者帳戶。
+- sp_farm：管理 SharePoint 伺服器陣列的使用者帳戶。
+- sp_farm_db：對 SQL Server 執行個體具有 sysadmin 權限的使用者帳戶。
+- sp_install：具有安裝角色和功能所需之網域管理權限的使用者帳戶。
 - sqlservice：可據以執行 SQL Server 執行個體的使用者帳戶。
 
 接下來，使用網域控制台為所屬成員之網域的網域系統管理員帳戶登入任一台電腦，開啟系統管理員層級 Windows PowerShell 命令提示字元，*一次一個*執行下列命令：
@@ -196,7 +196,7 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 1.	在 [開始] 畫面中輸入 **Active Directory Users**，然後按一下 [**Active Directory 使用者和電腦**]。
 2.	在樹狀目錄窗格中開啟您的網域，然後按一下 [**使用者**]。
-3.	在 [內容] 窗格中，以滑鼠右鍵按一下 [**sp\_install**]，然後按一下 [**新增至群組**]。
+3.	在 [內容] 窗格中，以滑鼠右鍵按一下 [**sp_install**]，然後按一下 [**新增至群組**]。
 4.	在 [**選取群組**] 對話方塊中輸入 **domain admins**，然後按兩次 [**確定**]。
 5.	在對話方塊中按一下 **[檢視]，再按一下 [進階功能]**。這個選項可讓您在 [屬性] 視窗中看到 Active Directory 物件所有隱藏的容器以及隱藏的索引標籤。
 6.	以滑鼠右鍵按一下您的網域名稱，然後按一下 [**屬性**]。
@@ -222,7 +222,7 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 請注意，重新啟動兩個網域控制站後，他們才不會由內部部署 DNS 伺服器設定做為 DNS 伺服器。由於他們本身都是 DNS 伺服器，因此當升級為網域控制站時，它們會自動由內部部署 DNS 伺服器設定做為 DNS 轉寄站。
 
-接下來，您需要建立 Active Directory 複寫站台，以確保 Azure 虛擬網路中的伺服器使用本機網域控制站。使用 sp\_install 帳戶登入主要網域控制站，自系統管理員層級 Windows PowerShell 命令提示字元執行下列命令：
+接下來，您需要建立 Active Directory 複寫站台，以確保 Azure 虛擬網路中的伺服器使用本機網域控制站。使用 sp_install 帳戶登入主要網域控制站，自系統管理員層級 Windows PowerShell 命令提示字元執行下列命令：
 
 	$vnet="<Table V – Item 1 – Value column>"
 	$vnetSpace="<Table V – Item 5 – Value column>"

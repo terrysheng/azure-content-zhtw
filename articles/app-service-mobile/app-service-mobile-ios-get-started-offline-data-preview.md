@@ -18,7 +18,9 @@
 
 # 啟用 iOS 行動應用程式的離線同步處理
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## 概觀
 
@@ -158,7 +160,9 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
     | id | 字串 (標示為必要) | 遠端存放區中的主索引鍵 |
     | 完成 | Boolean | todo 項目欄位 |
     | 文字 | String | todo 項目欄位 |
-    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | | ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | | ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
+    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | 
+	| ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | 
+	| ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
 
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
@@ -222,14 +226,14 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
     如果您想選擇不要增量同步處理，則傳遞 `nil` 做為查詢識別碼。在此情況下，每次呼叫 `pullWithQuery` 時都會擷取所有的記錄，這可能會沒有效率。
 
-<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+<!-- * 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用 [虛刪除]。 Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->
 
 ## 其他資源
 
 * [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
+* [雲端報導︰Azure 行動服務中的離線同步處理] \(注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
 
 <!-- URLs. -->
 

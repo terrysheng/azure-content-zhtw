@@ -43,14 +43,14 @@
 
 本教學課程最後也會提供完整的應用程式。
 
-## 1\.註冊應用程式
+## 1. 註冊應用程式
 在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。請確定：
 
 - 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
 - 為您的應用程式新增 **Web** 平台。
 - 輸入正確的**重新導向 URI**。重新導向 URI 會向 Azure AD 指出驗證回應應導向的位置，本教學課程的預設為 `http://localhost:3000/auth/openid/return`。
 
-## 2\.在目錄中新增必要條件
+## 2. 在目錄中新增必要條件
 
 從命令列中，將目錄位置變更至根資料夾 (若目錄位置原本不在該處)，然後執行下列命令：
 
@@ -74,24 +74,24 @@
 
 如此會安裝 passport-azure-ad 做為依據的程式庫。
 
-## 3\.設定您的 App 以使用 passport-node-js 策略。
-我們將在此設定 Express 中介軟體，以使用 OpenID Connect 驗證通訊協定。Express 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
+## 3. 設定您的 App 以使用 passport-node-js 策略。
+我們將在此設定 Express 中介軟體，以使用 OpenID Connect 驗證通訊協定。 Express 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
 
 -	若要開始，請開啟專案根目錄中的 `config.js` 檔案，並在 `exports.creds` 區段中輸入應用程式的組態值。
     -	`clientID:` 是在註冊入口網站中指派給應用程式的**應用程式識別碼**。
     -	`returnURL` 是您在入口網站中輸入的**重新導向 URI**。
     - `clientSecret` 是您在入口網站中輸入的密碼。
 
-- 接下來開啟專案根中的 `app.js` 檔案，並新增下列呼叫以叫用與 `passport-azure-ad` 一併使用的 `OIDCStrategy` 策略
+- 接下來開啟專案根中的  `app.js` 檔案，並新增下列呼叫以叫用與 `passport-azure-ad` 一併使用的 `OIDCStrategy` 策略
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Add some logging
-var log = bunyan.createLogger({
-    name: 'Microsoft OIDC Example Web Application'
-});
+// Add some logging 
+var log = bunyan.createLogger({ 
+	name: 'Microsoft OIDC Example Web Application' 
+}); 
 ```
 
 - 之後，請使用我們僅供參考的策略來處理登入要求

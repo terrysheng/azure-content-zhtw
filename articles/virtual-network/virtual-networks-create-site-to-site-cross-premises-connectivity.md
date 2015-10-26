@@ -64,7 +64,8 @@
 
 -  具有公用 IPv4 位址的 VPN 裝置。您需要 IP 位址才能完成精靈。VPN 裝置不能位於網路位址轉譯器 (NAT) 後方，且必須符合最低裝置標準。如需詳細資訊，請參閱[關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/p/?LinkID=248098)。
 
-	注意：您可以使用 Windows Server 中的路由及遠端存取服務 (RRAS) 做為 VPN 解決方案的一部分。不過本教學課程不會逐步引導您進行 RRAS 的組態步驟。如需 RRAS 組態資訊，請參閱[路由及遠端存取服務範本](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx)。
+	注意：您可以使用 Windows Server 中的路由及遠端存取服務 (RRAS) 做為 VPN 解決方案的一部分。不過本教學課程不會逐步引導您進行 RRAS 的組態步驟。
+	如需 RRAS 組態資訊，請參閱[路由及遠端存取服務範本](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx)。
 
 -  具備針對 IPsec 通道模式連線設定路由器的經驗，或可協助您完成此步驟的助手。
 
@@ -107,7 +108,7 @@
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png)
 
-5.	在 [Site-To-Site Connectivity] 頁面中輸入以下資訊，然後按一下頁面右下角的核取記號。如需本頁面中之設定的詳細資訊，請參閱**關於在管理入口網站中設定虛擬網路**的[站對站連線能力](http://go.microsoft.com/fwlink/p/?LinkID=248092)頁面一節。 
+5.	在 **Site-To-Site Connectivity** 頁面中輸入以下資訊，然後按一下頁面右下角的核取記號。如需本頁面中之設定的詳細資訊，請參閱**關於在管理入口網站中設定虛擬網路**的[站對站連線能力](http://go.microsoft.com/fwlink/p/?LinkID=248092)頁面一節。 
 
 	-  **名稱：**在本教學課程範例中，輸入 **YourCorpHQ**。
 
@@ -118,7 +119,7 @@
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_04_SitetoSite.png)
 
-6.  在 [Virtual Network Address Spaces] 頁面中輸入以下資訊，然後按一下右下角的核取記號以設定網路。
+6.  在 **Virtual Network Address Spaces** 頁面中輸入以下資訊，然後按一下右下角的核取記號以設定網路。
 
 	位址空間必須是以 CIDR 標記法指定的私人位址範圍 10.0.0.0/8、172.16.0.0/12 或 192.168.0.0/16 等位址空間 (如 RFC 1918 所指定)。如需此頁面中之設定的詳細資訊，請參閱**關於在管理入口網站中設定虛擬網路**的[虛擬網路位址空間頁面](http://go.microsoft.com/fwlink/?LinkID=248092)一節。
 
@@ -215,30 +216,30 @@
 3.	執行以下任一命令以測試連線：
 
 	<table border="1">
-<tr>
-<th>-</th>
-<th>Cisco ASA</th>
-<th>Cisco ISR/ASR</th>
-<th>Juniper SSG/ISG</th>
-<th>Juniper SRX/J</th>
-</tr>
+	<tr>
+	<th>-</th>
+	<th>Cisco ASA</th>
+	<th>Cisco ISR/ASR</th>
+	<th>Juniper SSG/ISG</th>
+	<th>Juniper SRX/J</th>
+	</tr>
+	
+	<tr>
+	<td><b>檢查主要模式 SA</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+	</tr>
 
-<tr>
-<td><b>檢查主要模式 SA</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-</tr>
-
-<tr>
-<td><b>檢查快速模式 SA</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-</tr>
-</table>
+	<tr>
+	<td><b>檢查快速模式 SA</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+	</tr>
+	</table>
 
 
 ##  後續步驟

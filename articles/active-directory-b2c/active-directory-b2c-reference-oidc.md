@@ -133,7 +133,8 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點，可讓應用程式在執
 
 若要判斷哪個原則用來簽署 id\_token (以及何處可擷取中繼資料)，您有兩個選項。首先，原則名稱包含在 id\_token 的 `acr` 宣告中。如需有關如何剖析 id\_token 中的宣告的相關資訊，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。另一個選項是當您發出要求時，在 `state` 參數的值中將原則編碼，然後將它解碼來判斷已使用的原則。任一種方法都絕對有效。
 
-當您從 OpenID Connect 中繼資料端點取得中繼資料文件後，您可以使用位於此端點的 RSA256 公用金鑰驗證 id\_token 的簽章。此端點可能隨時會列出多個金鑰，每個金鑰由 `kid` 識別。Id\_token 的標頭也包含 `kid` 宣告，指出用來簽署 id\_token 的金鑰。如需詳細資訊，包括[驗證權杖](active-directory-b2c-reference-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-b2c-reference-tokens.md#validating-tokens)，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。<!--TODO: Improve the information on this-->
+當您從 OpenID Connect 中繼資料端點取得中繼資料文件後，您可以使用位於此端點的 RSA256 公用金鑰驗證 id\_token 的簽章。此端點可能隨時會列出多個金鑰，每個金鑰由 `kid` 識別。Id\_token 的標頭也包含 `kid` 宣告，指出用來簽署 id\_token 的金鑰。如需詳細資訊，包括[驗證權杖](active-directory-b2c-reference-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-b2c-reference-tokens.md#validating-tokens)，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。
+<!--TODO: Improve the information on this-->
 
 一旦驗證了 id\_token 的簽章，就會有數項宣告需要驗證：
 

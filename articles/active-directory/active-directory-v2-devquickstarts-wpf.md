@@ -40,20 +40,20 @@
 
 本教學課程最後也會提供完整的應用程式。
 
-## 1\.註冊應用程式
+## 1. 註冊應用程式
 在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。請確定：
 
 - 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
 - 為您的應用程式新增**行動**平台。
 - 從入口網站複製完整的**重新導向 URI**。您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
 
-## 2\.安裝和設定 ADAL
+## 2. 安裝和設定 ADAL
 您現在有了已向 Microsoft 註冊的應用程式，可以安裝 ADAL 並撰寫與您身分識別相關的程式碼。為了讓 ADAL 能與 v2.0 端點通訊，您需要提供一些應用程式註冊的相關資訊。
 
--	首先，使用 Package Manager Console 將 ADAL 新增到 TodoListClient 專案中。
+-    首先，使用 Package Manager Console 將 ADAL 新增到 TodoListClient 專案中。
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
 ```
 
 -	在 TodoListClient 專案中，開啟 `app.config`。取代 `<appSettings>` 區段中的元素值，以反映您在應用程式註冊入口網站中輸入的值。每當使用 ADAL 時，您的程式碼便會參考這些值。

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中部署 API 應用程式 
 
 ## 概觀
 
-在本教學課程中，您會將[前一個教學課程](app-service-dotnet-create-api-app.md)中建立的 Web API 專案部署到新的 [API 應用程式](app-service-api-apps-why-best-platform.md)。您將使用 Visual Studio，在 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中建立 API 應用程式資源，並將您的 Web API 程式碼部署到 Azure API 應用程式。
+在本教學課程中，您會將[前一個教學課程](app-service-dotnet-create-api-app.md)中建立的 Web API 專案部署到新的 [API 應用程式](app-service-api-apps-why-best-platform.md)。您會使用 Visual Studio，在 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中建立 API 應用程式資源，並將您的 Web API 程式碼部署到 Azure API 應用程式。
 
 ### 其他部署選項
 
@@ -121,7 +121,10 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 
 ## 後續步驟
 
-您已了解 Visual Studio 中的直接部署功能如何讓您輕鬆逐一查看和快速部署您的 API，以及測試其是否運作正常。在[下一個教學課程](../app-service-dotnet-remotely-debug-api-app.md)中，您會了解如何在 API 應用程式於 Azure 中執行時進行偵錯。
- 
+您已了解 Visual Studio 中的直接部署功能如何讓您輕鬆測試您的 API 是否運作正常。在[下一個教學課程](../app-service-dotnet-remotely-debug-api-app.md)中，您會了解如何在 API 應用程式於 Azure 中執行時進行偵錯。
 
-<!---HONumber=Oct15_HO2-->
+API 應用程式為 Web 應用程式，具有裝載 API 之額外功能，這表示您可以使用任何適用於 Web 應用程式的部署方法。如需 Web 應用程式之部署選項的詳細資訊，請參閱[在 Azure App Service 中部署 Web 應用程式](../app-service-web/web-sites-deploy.md)。
+
+如需 API Apps 功能的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
+
+<!---HONumber=Oct15_HO3-->

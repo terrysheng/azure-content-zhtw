@@ -91,4 +91,4 @@
 - [**SQL Server 與 Azure 搜尋的同步處理範例**](http://sqlserver2azuresearch.codeplex.com/)是從內嵌的本機資料庫載入 SQL Server 資料列集的 Windows 主控台應用程式。
 - [**評分設定檔示範**](https://azuresearchscoringprofiles.codeplex.com/)是定義、執行和更新評分設定檔，以微調搜尋結果的 Windows 主控台應用程式。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

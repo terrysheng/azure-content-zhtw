@@ -21,7 +21,8 @@
 
 Apache Tomcat (或直接稱為 Tomcat，以往也稱為 Jakarta Tomcat) 是 Apache Software Foundation (ASF) 開發的開放原始碼 Web 伺服器和 Servlet 容器。Tomcat 實作 Sun Microsystems 的 Java Servlet 和 JavaServer 頁面 (JSP) 規格，並提供執行 Java 程式碼的純 Java HTTP 網頁伺服器環境。在最簡單的組態中，Tomcat 會在單一作業系統處理序中執行。此程序會執行 Java 虛擬機器 (JVM)。從瀏覽器到 Tomcat 的每個 HTTP 要求都會以 Tomcat 程序中個別的執行緒形式予以處理。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 在本指南中，您將在 Linux 映像上安裝 tomcat7，並將它部署於 Microsoft Azure。
 
@@ -305,4 +306,4 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

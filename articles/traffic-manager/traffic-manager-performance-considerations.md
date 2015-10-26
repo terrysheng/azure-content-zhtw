@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 流量管理員的效能考量 | Microsoft Azure"
-	description="了解流量管理員的效能，以及如何在使用流量管理員時測試您的網站效能"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="kwill-MSFT"
-	manager="adinah"
-	editor="joaoma"/>
+   description="了解流量管理員的效能，以及如何在使用流量管理員時測試您的網站效能"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="kwill-MSFT"
+   manager="adinah"
+   editor="joaoma" />
 
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 
 # 流量管理員的效能考量
@@ -98,4 +98,4 @@ http://www.digwebinterface.com – 與 watchmouse 站台類似，但此站台會
 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

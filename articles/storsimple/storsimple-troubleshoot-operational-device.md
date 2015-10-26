@@ -1,19 +1,19 @@
 <properties 
    pageTitle="疑難排解已部署的 StorSimple 裝置 | Microsoft Azure"
-	description="描述如何診斷和修正在已部署且可運作的 StorSimple 裝置上所發生的錯誤。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="描述如何診斷和修正在已部署且可運作的 StorSimple 裝置上所發生的錯誤。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="v-sharos" />
 
 # 可運作的 StorSimple 裝置疑難排解
 
@@ -67,4 +67,4 @@
 [1]: https://technet.microsoft.com/zh-TW/%5Clibrary/Dn688135(v=WPS.630).aspx
 [2]: https://technet.microsoft.com/zh-TW/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

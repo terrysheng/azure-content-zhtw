@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="brandwe"/>
 
 # 使用 Azure AD 進行 Web 應用程式登入與登出
@@ -42,9 +42,9 @@
 
 ## 1. 註冊應用程式
 - 登入 Azure 管理入口網站。
-- 在左側導覽中按一下 **Active Directory**.
+- 在左側導覽中按一下 **Active Directory**。
 - 選取您要註冊應用程式的租用戶。
-- 按一下 [**應用程式**] 索引標籤，然後按一下最下面抽屜的 [**新增**]。
+- 按一下 [**應用程式**] 索引標籤，然後按一下最下面抽屜的 [新增]。
 - 遵照提示進行，並建立新的 **Web 應用程式和/或 WebAPI**。
     - 應用程式的 [**名稱**] 將對使用者說明您的應用程式
     -	[**登入 URL**] 是指應用程式的基底 URL。  基本架構的預設值是 `http://localhost:3000/auth/openid/return`。
@@ -73,10 +73,10 @@
 ## 3. 設定您的 App 以使用 passport-node-js 策略。
 我們將在此設定 Express 中介軟體，以使用 OpenID Connect 驗證通訊協定。  Express 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
 
--	首先，在專案的根中開啟 `web.config` 檔案，並在 `<appSettings>` 區段中輸入您應用程式的設定值。
-    -	`clientID`: 是在註冊入口網站中指派給應用程式的**應用程式 ID**。
+-	若要開始，請開啟專案根目錄中的 `config.js` 檔案，並在 `exports.creds` 區段中輸入應用程式的組態值。
+    -	`clientID:` 是在註冊入口網站中指派給應用程式的**應用程式識別碼**。
     -	`returnURL` 是您在入口網站中輸入的**重新導向 URI**。
-    - `clientSecret` 是您在入口網站中輸入的密碼。
+    - `clientSecret` 是您在入口網站中輸入的密碼
 
 - 接下來開啟專案根中的 `app.js`  檔案，並新增下列呼叫以叫用與 `passport-azure-ad` 一併使用的 `OIDCStrategy` 策略
 
@@ -86,7 +86,10 @@ var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // 新增記錄器
 
-var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); ```
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
+```
 
 - 之後，請使用我們僅供參考的策略來處理登入要求
 
@@ -195,7 +198,7 @@ app.configure(function() {
 
 ```
 
-- 最後，加入此路由，這會將實際的登入要求遞交到 `passport-azure-ad` 引擎：
+- 最後，加入此路由，這會將實際的登入要求遞交給 `passport-azure-ad` 引擎：
 
 ```JavaScript
 
@@ -239,11 +242,11 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
+## 4. 使用 Passport，向 Azure AD 發出登入和登出要求
 
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
+您的應用程式現在已正確設定，將使用 OpenID Connect 驗證通訊協定與 v2.0 端點通訊。  `passport-azure-ad`  已經處理所有製作驗證訊息、驗證 Azure AD 的權杖和維護使用者工作階段的瑣碎詳細資料。  所有剩餘的部分就是為使用者提供一種方式來登入、登出，以及收集關於已登入使用者的其他資訊。
 
-- First, lets add the default, login, account, and logout methods to our `app.js` file:
+- 首先，將預設、登入、帳戶及登出方法加入 `app.js`  檔案：
 
 ```JavaScript
 
@@ -259,14 +262,14 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	讓我們詳細檢閱這些方法：
+    -	`/`  路由將重新導向到 index.ejs 檢視，其會在要求中傳遞使用者 (如果有的話)
+    - `/account`  路由將先***確保我們已通過驗證*** (我們將在下面實作)，然後在要求中傳遞使用者，讓我們能夠取得關於該使用者的其他資訊。
+    - `/login`  路由將從 `passport-azuread`  呼叫 azuread-openidconnect 驗證器，如果失敗，即會再次將使用者重新導向到 /login
+    - `/logout`  會直接呼叫 logout.ejs (以及路由)，其會清除 Cookie，然後讓使用者返回 index.ejs
 
 
-- For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
+- 針對 `app.js`  的最後一個部分，加入可在上述 `/account`  中使用的 EnsureAuthenticated 方法。
 
 ```JavaScript
 
@@ -285,9 +288,9 @@ app.listen(3000);
 
 ## 5\.在 Express 中建立檢視與路由以在網站中顯示使用者
 
-我們已完成 `app.js`。現在只需新增路由和檢視即可，這兩者將會向使用者顯示我們取得的資訊，以及控制我們建立的 `/logout` 和 `/login` 路由。
+我們已完成 `app.js`。現在只需新增路由和檢視即可，這兩者會向使用者顯示我們取得的資訊，以及處理我們建立的 `/logout` 和 `/login` 路由。
 
-- 在根目錄底下建立 `/routes/index.js` 路由。
+- 在根目錄下方建立 `/routes/index.js` 路由。
 
 ```JavaScript
 /*
@@ -299,7 +302,7 @@ exports.index = function(req, res){
 };
 ```
 
-- 在根目錄底下建立 `/routes/user.js` 路由
+- 在根目錄下方建立 `/routes/user.js` 路由
 
 ```JavaScript
 /*
@@ -313,7 +316,7 @@ exports.list = function(req, res){
 
 這些簡單路由只會將要求傳遞到我們的檢視，包括使用者 (如果有的話)。
 
-- 在根目錄底下建立 `/views/index.ejs` 檢視。這是簡單網頁，將呼叫我們的登入和登出方法，且讓我們能夠抓取帳戶資訊。請注意，若透過要求傳遞的使用者已證實我們擁有已登入的使用者，就能使用條件式 `if (!user)`。
+- 在根目錄底下建立 `/views/index.ejs` 檢視。這是簡單的網頁，可以呼叫我們的登入和登出方法，並讓我們能夠取得帳戶資訊。請注意，我們可以使用條件式 `if (!user)`，因為在要求中傳遞使用者就證實我們擁有已登入的使用者。
 
 ```JavaScript
 <% if (!user) { %>
@@ -327,7 +330,7 @@ exports.list = function(req, res){
 
 ```
 
-- 在根目錄底下建立 `/views/account.ejs` 檢視，如此一來，就能檢視 `passport-azuread` 放置於使用者要求中的其他資訊。
+- 在根目錄下方建立 `/views/account.ejs` 檢視，便可檢視 `passport-azuread` 放置於使用者要求中的其他資訊。
 
 ```Javascript
 <% if (!user) { %>
@@ -373,14 +376,14 @@ exports.list = function(req, res){
 	</body>
 </html>```
 
-Finally, build and run your app! 
+最後，建置並執行您的應用程式！
 
-Run `node app.js` and navigate to `http://localhost:3000`
+執行 `node app.js` 並瀏覽至 `http://localhost:3000`
 
 
-Sign in with either a personal Microsoft Account or a work or school account, and notice how the user's identity is reflected in the /account list.  You now have a web app secured using industry standard protocols that can authenticate users with both their personal and work/school accounts.
+使用個人的 Microsoft 帳戶或工作或學校帳戶登入，並注意 /account 清單中使用者身分識別的反映狀態。您的 Web 應用程式現在使用業界標準的通訊協定保護，可以使用個人與工作/學校帳戶來驗證使用者。
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip), or you can clone it from GitHub:
+如需參考，[此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip)完整範例 (不含您的組態值)，您也可以從 GitHub 予以複製：
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -391,4 +394,4 @@ For reference, the completed sample (without your configuration values) [is prov
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

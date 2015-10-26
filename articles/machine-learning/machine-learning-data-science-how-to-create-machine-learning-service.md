@@ -2,8 +2,11 @@
 	pageTitle="在 Azure 中建置進階分析方案 | Microsoft Azure" 
 	description="使用本指南來了解針對雲端中的資料科學和機器學習服務使用 Azure 的步驟。" 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
+	videoId="" 
+	scriptId="" 
 	manager="paulettm" />
 
 <tags 
@@ -26,4 +29,4 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -104,4 +104,4 @@ Azure 受管理程式庫會提供一些類別，用於從角色執行個體中�
 
 - ＜[設定 Azure 的雲端服務](https://msdn.microsoft.com/library/azure/hh124108.aspx)＞
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

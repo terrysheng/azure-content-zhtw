@@ -19,7 +19,8 @@
 
 # 使用 VM 延伸模組編寫 Azure 資源管理員範本。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋內容包括如何使用資源管理員部署模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+ 
 
 ## Azure 資源管理員範本概觀。
 
@@ -88,4 +89,4 @@ Azure VM 延伸模組是由 Microsoft 和受信任的第 3 方發行者所發佈
 
 編寫範本之後，您可以使用 Azure CLI 或 Azure Powershell 部署它們。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

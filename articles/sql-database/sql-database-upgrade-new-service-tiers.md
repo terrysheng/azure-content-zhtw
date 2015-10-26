@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/28/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -254,9 +254,9 @@ Web 和 Business 資料庫沒有針對任何個別資料庫保留特定數量的
 | 管理工具 | 變更資料庫的服務層和效能層級|
 | :---| :---|
 | [Azure 管理入口網站](https://manage.windowsazure.com) | 按一下資料庫 [儀表板] 頁面上的 [調整] 索引標籤。 |
-| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | 使用 [Set-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546732.aspx) Cmdlet。 |
-| [服務管理 REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) | 使用[更新資料庫](http://msdn.microsoft.com/library/dn505718.aspx)命令。|
-| [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | 使用 [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx) 陳述式。 |
+| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | 使用 [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) Cmdlet。 |
+| [REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) | 使用 [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) 命令。|
+| [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | 使用 [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx) 陳述式。 |
 
 如需詳細資訊，請參閱[變更資料庫服務層和效能層級](sql-database-scale-up.md)
 
@@ -317,4 +317,4 @@ Azure SQL Database 服務提供遙測資料和工具，可用於評估您的 Web
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

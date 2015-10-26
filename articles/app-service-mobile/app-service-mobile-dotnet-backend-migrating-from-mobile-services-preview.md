@@ -145,4 +145,4 @@ Mobile Apps 與行動服務之間最大的差異之一在於，在 Mobile Apps �
 [傳送跨平台推播通知]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [如何使用 .NET 伺服器 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

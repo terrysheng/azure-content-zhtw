@@ -125,7 +125,7 @@
 	|:---------------|:----------------|
 	| firstname | User.givenname |
 	| lastname | User.surname |
-	| 電子郵件 | 使用者電子郵件 |
+	| 電子郵件 | User.mail |
 
     1.  針對上表中的每個資料列，按一下 [加入使用者屬性]。
     
@@ -163,4 +163,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

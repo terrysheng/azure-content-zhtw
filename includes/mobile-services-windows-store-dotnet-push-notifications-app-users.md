@@ -69,4 +69,4 @@
 	
 	這樣可確保在嘗試推送註冊之前先進行驗證。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

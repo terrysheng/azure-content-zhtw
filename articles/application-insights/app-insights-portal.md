@@ -17,7 +17,7 @@
 
 # 使用 Application Insights 入口網站
 
-[在您的專案上設定 Application Insights](app-insights-get-started.md) 之後，有關應用程式效能和使用情況的遙測資料會出現在 [Azure 入口網站](https://portal.azure.com)之專案的 Application Insights 資源中。
+[在您的專案上設定 Application Insights](app-insights-overview.md) 之後，有關應用程式效能和使用情況的遙測資料會出現在 [Azure 入口網站](https://portal.azure.com)之專案的 Application Insights 資源中。
 
 ## 在 Azure 中尋找您的遙測
 
@@ -139,4 +139,4 @@
 
 如果儲存時使用「相對」時間範圍，重新開啟的分頁會具有最新資料。如果儲存時使用「絕對」時間範圍，則會每次都看到相同資料。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

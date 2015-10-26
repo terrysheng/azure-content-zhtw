@@ -45,4 +45,4 @@
 - **ZRS**：區域備援儲存體。僅適用於區塊 Blob。 
 - **LRS**：本地備援儲存體。 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

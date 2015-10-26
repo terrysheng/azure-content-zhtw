@@ -159,4 +159,4 @@ LightSwitch 專案與這個版本不相容。這個問題將在下個 SDK 版本
 
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

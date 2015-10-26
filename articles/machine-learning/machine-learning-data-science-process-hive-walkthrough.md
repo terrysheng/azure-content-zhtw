@@ -63,7 +63,7 @@
 		Class 1 : tip_amount > $0
 
 2. **多元分類**：預測針對該趟車程支付的小費金額範圍。我們將 *tip\_amount* 分成五個分類收納組或類別：
-
+	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
 		Class 2 : tip_amount > $5 and tip_amount <= $10
@@ -75,7 +75,7 @@
 
 ## <a name="setup"></a>設定進階分析的 HDInsight Hadoop 叢集
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 您可以採取三個步驟，為利用 HDInsight 叢集的進階分析設定 Azure 環境：
 
@@ -84,14 +84,14 @@
 2. [針對進階分析程序和技術自訂 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.md)。這個步驟會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 Azure HDInsight Hadoop 叢集。自訂 HDInsight 叢集時應注意兩個重要的步驟。
 
 	* 建立 HDInsight 叢集時，請務必將步驟 1 中建立的儲存體帳戶與您的 HDInsight 叢集連結。這個儲存體帳戶是用來存取在叢集內處理的資料。
-
+	
 	* 建立叢集之後，請對叢集的前端節點啟用遠端存取。巡覽至 [組態] 索引標籤，然後按一下 [啟用遠端]。這個步驟可指定使用於遠端登入的使用者認證。
 
 3. [建立 Azure Machine Learning 工作區](machine-learning-create-workspace.md)：這個 Azure Machine Learning 工作區可用來建置機器學習服務模型。使用 HDInsight 叢集完成初始資料探索和縮小取樣之後，會處理這項工作。
 
 ## <a name="getdata"></a>從公用來源取得資料
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 若要從 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集的公用位置取得該資料集，您可以使用[從 Azure Blob 儲存體來回移動資料](machine-learning-data-science-move-azure-blob.md)中所述的任何一種方法，將資料複製到您的電腦。
 
@@ -99,7 +99,7 @@
 
 1. 從命令提示字元視窗中發出下列 AzCopy 命令，以所需的目的地取代 *<path_to_data_folder>*：
 
-
+		
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
 2. 複製完成時，總共 24 個壓縮檔會位於選擇的資料夾中。將下載的檔案解壓縮到您本機電腦上的相同目錄。記下未壓縮檔案所在的資料夾。接下來會將這個資料夾稱為 *<path\_to\_unzipped\_data\_files>*。
@@ -107,7 +107,7 @@
 
 ## <a name="upload"></a>將資料上傳至 Azure HDInsight Hadoop 叢集的預設容器
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 在下列 AzCopy 命令中，以建立 Hadoop 叢集和解壓縮資料檔案時指定的實際值取代下列參數。
 
@@ -130,7 +130,7 @@
 
 ## <a name="#download-hql-files"></a>登入 Hadoop 叢集的前端節點，並準備進行探索資料分析
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 若要存取叢集的前端節點以進行資料的探索資料分析和縮小取樣，請遵循[存取 Hadoop 叢集的前端節點](machine-learning-data-science-customize-hadoop-cluster.md#headnode)中所述的程序進行。
 
@@ -146,16 +146,16 @@
 
 ## <a name="#hive-db-tables"></a>建立依月份分割的 Hive 資料庫和資料表
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 我們現在已準備好為我們的 NYC 計程車資料集建立 Hive 資料表。在 Hadoop 叢集的前端節點中，於前端節點的桌面上開啟 ***Hadoop 命令列***，然後輸入命令以進入 Hive 目錄
 
     cd %hive_home%\bin
 
->[AZURE.NOTE]**請從上述的 Hive bin/ 目錄提示字元執行本逐步解說中的所有 Hive 命令。如此可自動處理路徑相關問題。我們將在本逐步解說中交替使用詞彙「Hive 目錄提示字元」、「Hive bin/ 目錄提示字元」和「Hadoop 命令列」。**
+>[AZURE.NOTE] **請從上述的 Hive bin/ 目錄提示字元執行本逐步解說中的所有 Hive 命令。如此可自動處理路徑相關問題。我們將在本逐步解說中交替使用詞彙「Hive 目錄提示字元」、「Hive bin/ 目錄提示字元」和「Hadoop 命令列」。**
 
 從 Hive 目錄提示字元，於前端節點的 Hadoop 命令列中輸入下列命令，以提交 Hive 查詢來建立 Hive 資料庫和資料表：
-
+	
 	hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
 以下是 ***C:\\temp\\sample\_hive\_create\_db\_and\_tables.hql*** 檔案的內容，其會建立 Hive 資料庫 ***nyctaxidb*** 及資料表 ***trip*** 和 ***fare***。
@@ -163,52 +163,52 @@
 	create database if not exists nyctaxidb;
 
 	create external table if not exists nyctaxidb.trip
-	(
-	    medallion string,
+	( 
+	    medallion string, 
 	    hack_license string,
-	    vendor_id string,
-	    rate_code string,
-	    store_and_fwd_flag string,
-	    pickup_datetime string,
-	    dropoff_datetime string,
-	    passenger_count int,
-	    trip_time_in_secs double,
-	    trip_distance double,
-	    pickup_longitude double,
-	    pickup_latitude double,
-	    dropoff_longitude double,
+	    vendor_id string, 
+	    rate_code string, 
+	    store_and_fwd_flag string, 
+	    pickup_datetime string, 
+	    dropoff_datetime string, 
+	    passenger_count int, 
+	    trip_time_in_secs double, 
+	    trip_distance double, 
+	    pickup_longitude double, 
+	    pickup_latitude double, 
+	    dropoff_longitude double, 
 	    dropoff_latitude double)  
-	PARTITIONED BY (month int)
+	PARTITIONED BY (month int) 
 	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
 	STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
 
-	create external table if not exists nyctaxidb.fare
-	(
-	    medallion string,
-	    hack_license string,
-	    vendor_id string,
-	    pickup_datetime string,
-	    payment_type string,
-	    fare_amount double,
+	create external table if not exists nyctaxidb.fare 
+	( 
+	    medallion string, 
+	    hack_license string, 
+	    vendor_id string, 
+	    pickup_datetime string, 
+	    payment_type string, 
+	    fare_amount double, 
 	    surcharge double,
 	    mta_tax double,
 	    tip_amount double,
 	    tolls_amount double,
 	    total_amount double)
-	PARTITIONED BY (month int)
+	PARTITIONED BY (month int) 
 	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
 	STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
 
 這個 Hive 指令碼會建立兩個資料表：
 
-* "trip" 資料表包含每趟車程的詳細資料 (駕駛詳細資料、上車時間、車程距離和時間)
+* "trip" 資料表包含每趟車程的詳細資料 (駕駛詳細資料、上車時間、車程距離和時間) 
 * "fare" 資料表包含費用詳細資料 (費用金額、小費金額、通行費及附加費)。
 
 如果您需要這些程序的任何額外協助，或想要調查替代程序，請參閱[從 Hadoop 命令列直接提交 Hive 查詢](machine-learning-data-science-process-hive-tables.md#submit)一節。
 
 ## <a name="#load-data"></a>依資料分割將資料載入 Hive 資料表
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處理和查詢時間。下列 PowerShell 命令 (使用 **Hadoop 命令列**從 Hive 目錄發出) 會將資料載入至依月份分割的 "trip" 和 "fare" Hive 資料表。
 
@@ -227,10 +227,10 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
 	hive -e "show databases;"
 
-### <a name="#show-tables"></a>顯示 nyctaxidb 資料庫中的 Hive 資料表
-
+### <a name="#show-tables"></a>顯示 nyctaxidb 資料庫中的 Hive 資料表 
+	
 若要顯示 nyctaxidb 資料庫中的資料表，可在 Hadoop 命令列中執行下列命令：
-
+	
 	hive -e "show tables in nyctaxidb;"
 
 我們可發出下列命令來確認資料表已分割：
@@ -252,7 +252,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 	month=8
 	month=9
 	Time taken: 2.075 seconds, Fetched: 12 row(s)
-
+	
 同樣地，我們可以發出下列命令來確保 fare 資料表已分割：
 
 	hive -e "show partitions nyctaxidb.fare;"
@@ -272,10 +272,10 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 	month=8
 	month=9
 	Time taken: 1.887 seconds, Fetched: 12 row(s)
-
+   
 ## <a name="#explore-hive"></a>Hive 中的資料探索和特徵工程
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 適用於已載入 Hive 資料表之資料的資料探索和功能工程工作可以使用 Hive 查詢來完成。以下是我們將在本節中逐步引導您執行的這類工作範例：
 
@@ -287,16 +287,16 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
 ### 探索：檢視 trip 資料表中的前 10 筆記錄
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 為了查看資料的外觀，我們檢查每個資料表的 10 筆記錄。從 Hadoop 命令列主控台的 Hive 目錄提示字元，個別執行下列兩個查詢來檢查記錄。
 
 若要從 "trip" 資料表取得第一個月的前 10 筆記錄：
 
 	hive -e "select * from nyctaxidb.trip where month=1 limit 10;"
-
+    
 若要從 "fare" 資料表取得第一個月的前 10 筆記錄：
-
+	
 	hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
 通常是用於儲存記錄到檔案，以方便檢視。對上述查詢進行微幅變更以完成這項作業：
@@ -305,10 +305,10 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
 ### 探索：檢視 12 個資料分割中每一個資料分割的記錄數目。
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 令人感興趣的是車程數目在日曆年度的變化。依月份分組可讓我們查看這個車程的大約分佈情況。
-
+	
 	hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
 這會提供輸出：
@@ -373,7 +373,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
 ### 探索：依據 medallion 的車程分佈
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 此範例會識別在特定期間內超過 100 趟車程的圓形徽章 (計程車數目)。由於這個查詢受到資料分割變數 **month** 的條件約束，因此使用資料分割資料表會很有幫助。查詢結果會寫入前端節點上 `C:\temp` 中的本機檔案 queryoutput.tsv。
 
@@ -385,7 +385,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 	FROM nyctaxidb.fare
 	WHERE month<=3
 	GROUP BY medallion
-	HAVING med_count > 100
+	HAVING med_count > 100 
 	ORDER BY med_count desc;
 
 NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可以詢問哪些計程車在特定時段超過特定的車程數目，以識別哪些計程車「忙碌中」。下列範例會識別在前三個月中超過幾百趟車程的計程車，並將查詢結果儲存至本機檔案 C:\\temp\\queryoutput.tsv。
@@ -396,7 +396,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 	FROM nyctaxidb.fare
 	WHERE month<=3
 	GROUP BY medallion
-	HAVING med_count > 100
+	HAVING med_count > 100 
 	ORDER BY med_count desc;
 
 從 Hive 目錄提示字元發出下列命令：
@@ -405,12 +405,12 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
 ### 探索：依據 medallion 和 hack\_license 的車程分佈
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 當探索資料集時，我們通常會想要檢查共同出現的值群組數目。本節提供如何為計程車和駕駛執行這項作業的範例。
 
 *Sample\_hive\_trip\_count\_by\_medallion\_license.hql* 檔案會將費用資料集分組成 "medallion" 和 "hack\_license"，並傳回每個組合的計數。以下是其內容。
-
+	
     SELECT medallion, hack_license, COUNT(*) as trip_count
 	FROM nyctaxidb.fare
 	WHERE month=1
@@ -428,7 +428,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
 ### 探索：藉由檢查無效的經度/緯度記錄來評估資料品質
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 常見的探索資料分析目標是去掉無效或不正確的記錄。本節的範例會判斷經度或緯度欄位是否包含遠離 NYC 區域的值。由於這類記錄可能具有錯誤的經度-緯度值，因此我們想要從用來建立模型的任何資料中排除這些錯誤值。
 
@@ -455,12 +455,12 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 對於[預測工作的範例](machine-learning-data-science-process-hive-walkthrough.md#mltasks)一節中所述的二元分類問題而言，了解是否已指定小費會很有幫助。小費是二元分佈：
 
 * 指定小費 (類別 1，tip\_amount > 美金 $0 元)  
-* 沒有小費 (類別 0、 tip\_amount = 美金 $0 元)。
+* 沒有小費 (類別 0、 tip\_amount = 美金 $0 元)。 
 
 以下顯示的 *Sample\_hive\_tipped\_frequencies.hql* 檔案會執行這項作業。
 
-    SELECT tipped, COUNT(*) AS tip_freq
-    FROM
+    SELECT tipped, COUNT(*) AS tip_freq 
+    FROM 
     (
         SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
         FROM nyctaxidb.fare
@@ -478,12 +478,12 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
 對於[預測工作的範例](machine-learning-data-science-process-hive-walkthrough.md#mltasks)一節中所述的多元分類問題，這個資料集也可用於自然分類，在這種情況下我們可能會想要預測指定的小費金額。我們可以使用二元分類來定義查詢中的小費範圍。為了取得各種小費範圍的類別分佈，我們使用 *sample\_hive\_tip\_range\_frequencies.hql* 檔案。以下是其內容。
 
-	SELECT tip_class, COUNT(*) AS tip_freq
-    FROM
+	SELECT tip_class, COUNT(*) AS tip_freq 
+    FROM 
     (
-        SELECT if(tip_amount=0, 0,
-            if(tip_amount>0 and tip_amount<=5, 1,
-            if(tip_amount>5 and tip_amount<=10, 2,
+        SELECT if(tip_amount=0, 0, 
+            if(tip_amount>0 and tip_amount<=5, 1, 
+            if(tip_amount>5 and tip_amount<=10, 2, 
             if(tip_amount>10 and tip_amount<=20, 3, 4)))) as tip_class, tip_amount
         FROM nyctaxidb.fare
     )tc
@@ -503,7 +503,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
     set R=3959;
     set pi=radians(180);
-
+	
 	insert overwrite directory 'wasb:///queryoutputdir'
 
     select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
@@ -512,9 +512,9 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
      *cos(dropoff_latitude*${hiveconf:pi}/180)*pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2)))
      /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*${hiveconf:pi}/180/2),2)
      +cos(pickup_latitude*${hiveconf:pi}/180)*cos(dropoff_latitude*${hiveconf:pi}/180)*
-     pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2))) as direct_distance
-    from nyctaxidb.trip
-    where month=1
+     pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2))) as direct_distance 
+    from nyctaxidb.trip 
+    where month=1 
     and pickup_longitude between -90 and -30
     and pickup_latitude between 30 and 90
     and dropoff_longitude between -90 and -30
@@ -563,7 +563,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 查詢會接著縮小取樣資料，以將查詢結果填入 Azure Machine Learning Studio。只有約 1% 的原始資料集會匯入 Studio。
 
 以下是 *sample\_hive\_prepare\_for\_aml\_full.hql* 檔案的內容，該檔案會準備在 Azure Machine Learning 中建置模型所要使用的資料。
-
+		
 		set R = 3959;
 	    set pi=radians(180);
 
@@ -604,8 +604,8 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 		--- now insert contents of the join into the above internal table
 
     	insert overwrite table nyctaxidb.nyctaxi_downsampled_dataset
-    	select
-        t.medallion,
+    	select 
+        t.medallion, 
         t.hack_license,
         t.vendor_id,
         t.rate_code,
@@ -623,12 +623,12 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
         t.dropoff_longitude,
         t.dropoff_latitude,
 		t.direct_distance,
-        f.payment_type,
-        f.fare_amount,
-        f.surcharge,
-        f.mta_tax,
-        f.tip_amount,
-        f.tolls_amount,
+        f.payment_type, 
+        f.fare_amount, 
+        f.surcharge, 
+        f.mta_tax, 
+        f.tip_amount, 
+        f.tolls_amount, 
         f.total_amount,
         if(tip_amount>0,1,0) as tipped,
         if(tip_amount=0,0,
@@ -638,8 +638,8 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
     	from
     	(
-        select
-		medallion,
+        select 
+		medallion, 
         hack_license,
         vendor_id,
         rate_code,
@@ -668,19 +668,19 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
         )t
         join
         (
-        select
-        medallion,
-        hack_license,
-        vendor_id,
-        pickup_datetime,
-        payment_type,
-        fare_amount,
-        surcharge,
-        mta_tax,
-        tip_amount,
-        tolls_amount,
+        select 
+        medallion, 
+        hack_license, 
+        vendor_id, 
+        pickup_datetime, 
+        payment_type, 
+        fare_amount, 
+        surcharge, 
+        mta_tax, 
+        tip_amount, 
+        tolls_amount, 
         total_amount
-        from nyctaxidb.fare
+        from nyctaxidb.fare 
         )f
         on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
         where t.sample_key<=0.01
@@ -810,4 +810,4 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

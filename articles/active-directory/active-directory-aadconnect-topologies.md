@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect 的拓撲
@@ -159,7 +159,12 @@ Azure AD 目錄在設計上是隔離的。它不支援將 Azure AD Connect 同�
 
 它支援使用 FIM2010/MIM2016 內部部署至兩個 Exchange 組織之間的 GALsync 使用者。一個組織中的使用者將會顯示為其他組織中的外部使用者/連絡人。這些不同的內部部署 AD 可同步處理至它們自己的 Azure AD 目錄。
 
-## 後續步驟
-若要了解如何安裝這些案例的 Azure AD Connect，請參閱[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。若要深入了解 Azure AD Connect 同步處理的組態，請參閱 [Azure AD Connect 同步處理](active-directory-aadconnectsync-whatis.md)。
 
-<!---HONumber=Sept15_HO4-->
+## 後續步驟
+若要了解如何安裝這些案例的 Azure AD Connect，請參閱[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。
+
+深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)組態。
+
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
+
+<!---HONumber=Oct15_HO3-->

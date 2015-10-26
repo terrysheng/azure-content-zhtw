@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 負載平衡器概觀 | Microsoft Azure"
-	description="Azure 負載平衡器功能、架構和實作的概觀。有助於了解負載平衡器的運作方式，並將其用於雲端"
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Azure 負載平衡器功能、架構和實作的概觀。有助於了解負載平衡器的運作方式，並將其用於雲端"
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/10/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="07/10/2015"
+   ms.author="joaoma" />
 
 
 # 負載平衡器概觀 
@@ -99,4 +99,4 @@ Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 
 [開始使用 - 網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Maven 建置 HBase 應用程式 | Microsoft Azure"
-	description="了解如何使用 Apache Maven 建置 Java 型 Apache HBase 應用程式，然後部署至 Azure HDInsight。"
+	pageTitle="使用 Maven 建置 HBase 應用程式，並部署到以 Windows 為基礎的 HDInsight | Microsoft Azure"
+	description="了解如何使用 Apache Maven 建置以 Java 為基礎的 Apache HBase 應用程式，然後部署至以 Windows 為基礎的 Azure HDInsight 叢集。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)
@@ -592,4 +592,4 @@
 
 請使用 `-showErr` 參數，以檢視執行工作時所產生的標準錯誤 (STDERR)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

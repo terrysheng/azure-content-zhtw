@@ -8,9 +8,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="trinadhk"; "jimpark"/>
 
-# 還原虛擬機器
+# 還原 Azure 虛擬機器。
 您可以使用還原動作，利用儲存在 Azure 備份保存庫的備份，將虛擬機器還原至新的 VM。
 
 ## 還原工作流程
@@ -51,7 +51,7 @@
 
         「無論雲端服務名稱為何，都必須是全域唯一的名稱。一般來說，雲端服務名稱會與形式為 [cloudservice].cloudapp.net 的公用 URL 相關聯。如果該名稱已有他人使用，Azure 不允許您建立新的雲端服務。如果您選擇建立新的雲端名稱，則該名稱會與虛擬機器相同，在這種情況下，所選擇的 VM 名稱應該是唯一的，以便套用至所有相關的雲端服務。」
 
-        「我們只會顯示與還原執行個體詳細資料中的任何同質群組不關聯的雲端服務和虛擬網路」[深入瞭解](https://msdn.microsoft.com/zh-tw/library/azure/jj156085.aspx)。」
+        「我們只會顯示與還原執行個體詳細資料中的任何同質群組不關聯的雲端服務和虛擬網路」[深入瞭解](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. 選取 VM 的儲存體帳戶：這是建立 VM 的必要步驟。您可以選取與 Azure 備份保存庫位於相同區域的現有儲存體帳戶。我們不支援區域備援或進階儲存體類型的儲存體帳戶。
 
@@ -105,4 +105,4 @@ VM 可以從 Azure 入口網站或使用 PowerShell 還原 (就像任何其他 V
 - [錯誤疑難排解](backup-azure-vms-troubleshoot.md#restore)
 - [管理虛擬機器](backup-azure-manage-vms.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

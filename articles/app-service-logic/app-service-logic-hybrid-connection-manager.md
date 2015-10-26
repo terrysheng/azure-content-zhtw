@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用混合式連線管理員 | Microsoft Azure App Service"
-	description="在 Azure App Service 中安裝和設定混合式連線管理員，並連線至內部部署連接器"
-	services="app-service\logic"
+	pageTitle="使用混合式連線管理員 | Microsoft Azure App Service" 
+	description="在 Azure App Service 中安裝和設定混合式連線管理員，並連線至內部部署連接器" 
+	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger"
-	manager="dwrede"
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/23/2015" 
 	ms.author="mandia"/>
 
 # 使用混合式連線管理員連線至 Azure App Service 中的內部部署連接器
@@ -133,4 +133,4 @@ TCP 連接埠 | 理由
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

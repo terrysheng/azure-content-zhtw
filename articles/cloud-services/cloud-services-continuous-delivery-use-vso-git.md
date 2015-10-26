@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Azure 中使用 Git 和 Visual Studio Online 來連續傳遞"
+	pageTitle="在 Azure 中使用 Git 和 Visual Studio Online 來連續傳遞" 
 	description="了解如何設定 Visual Studio Online Team 專案，以使用 Git 自動建置和部署至 Azure App Service 或雲端服務中的 Web 應用程式功能。"
 	services="cloud-services"
 	documentationCenter=".net"
@@ -273,4 +273,4 @@
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

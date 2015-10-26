@@ -156,4 +156,4 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 * [管理您的雲端服務](cloud-services-how-to-manage.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

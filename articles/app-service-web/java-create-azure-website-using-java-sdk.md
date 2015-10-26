@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="使用 Azure SDK for Java 在 Azure App Service 中建立 Web 應用程式"
-	description="了解如何使用 Azure SDK for Java 在 Azure App Service 中以程式設計方式建立 Web 應用程式。"
+	pageTitle="使用 Azure SDK for Java 在 Azure App Service 中建立 Web 應用程式" 
+	description="了解如何使用 Azure SDK for Java 在 Azure App Service 中以程式設計方式建立 Web 應用程式。" 
 	tags="azure-classic-portal"
-	services="app-service\web"
-	documentationCenter="Java"
-	authors="donntrenton"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter="Java" 
+	authors="donntrenton" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -24,7 +24,7 @@
 
 ## 概觀
 
-本逐步解說說明如何建立 Azure SDK for Java 應用程式，以便在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中建立 Web 應用程式，並將應用程式部署到其上。 其中包括兩個部分：
+本逐步解說說明如何建立 Azure SDK for Java 應用程式，以便在 [Azure App Service][] 中建立 Web 應用程式，並將應用程式部署到其上。 其中包括兩個部分：
 
 - 第 1 部分示範如何建立 Java 應用程式，以便建立 Web 應用程式。
 - 第 2 部分示範如何建立簡單 JSP "Hello World" 應用程式，然後使用 FTP 用戶端將程式碼部署至 App Service。
@@ -34,7 +34,7 @@
 
 ### 軟體安裝
 
-本文中的 AzureWebDemo 應用程式程式碼是使用 Azure Java SDK 0.7.0 撰寫，您可使用 [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838) 進行安裝。此外，務必使用最新版的 [Azure Toolkit for Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx)。安裝 SDK 之後，在 **Maven 儲存機制**中執行**更新索引**以在 Eclipse 專案中更新相依性，然後在 [**相依性**] 視窗中重新新增各封裝的最新版本。按一下 **[說明] > [安裝詳細資料]**，可以驗證 Eclipse 中安裝的軟體版本；您至少要有下列版本：
+本文中的 AzureWebDemo 應用程式程式碼是使用 Azure Java SDK 0.7.0 撰寫，您可使用 [Web Platform Installer (WebPI)][] 進行安裝。此外，務必使用最新版的 [Azure Toolkit for Eclipse][]。安裝 SDK 之後，在 **Maven 儲存機制**中執行**更新索引**以在 Eclipse 專案中更新相依性，然後在 [**相依性**] 視窗中重新新增各封裝的最新版本。按一下 **[說明] > [安裝詳細資料]**，可以驗證 Eclipse 中安裝的軟體版本；您至少要有下列版本：
 
 - Package for Microsoft Azure Libraries for Java 0.7.0.20150309
 - Eclipse IDE for Java EE Developers 4.4.2.20150219
@@ -47,7 +47,7 @@
 
 ### 在 Azure 中建立 Active Directory (AD)
 
-如果您的 Azure 訂用帳戶上還沒有 Active Directory (AD)，請使用您的 Microsoft 帳戶登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。如果您有多個訂用帳戶，請按一下 [**訂用帳戶**] 並針對您要用於此專案的訂用帳戶選取預設目錄。接著按一下 [**套用**] 切換至該訂用帳戶檢視。
+如果您的 Azure 訂用帳戶上還沒有 Active Directory (AD)，請使用您的 Microsoft 帳戶登入 [Azure 傳統入口網站][]。如果您有多個訂用帳戶，請按一下 [**訂用帳戶**] 並針對您要用於此專案的訂用帳戶選取預設目錄。接著按一下 [**套用**] 切換至該訂用帳戶檢視。
 
 1. 從左側功能表中選取 [**Active Directory**]。按一下 **[新增] > [目錄] > [自訂建立]**。
 
@@ -59,14 +59,14 @@
 
 5. 在 [**國家或地區**] 中，選取您的地區設定。
 
-如需 AD 詳細資訊，請參閱[什麼是 Azure Active Directory](http://technet.microsoft.com/library/jj573650.aspx)？
+如需 AD 詳細資訊，請參閱[什麼是 Azure Active Directory][]？
 
 
 ### 建立 Azure 的管理憑證
 
 Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這些是用來驗證下列用戶端應用程式的 X.509 v3 憑證：利用服務管理 API 代表訂用帳戶擁有者管理訂用資源的用戶端應用程式。
 
-此程序中的程式碼使用自我簽署的憑證來向 Azure 進行驗證。在此程序中，您需要事先建立憑證並將其上傳至 [Azure 傳統入口網站](https://manage.windowsazure.com)。請執行下列步驟：
+此程序中的程式碼使用自我簽署的憑證來向 Azure 進行驗證。在此程序中，您需要事先建立憑證並將其上傳至 [Azure 傳統入口網站][]。請執行下列步驟：
 
 - 產生代表您的用戶端憑證的 PFX 檔案，並將其儲存於本機。
 - 從 PFX 檔案產生管理憑證 (CER 檔案)。
@@ -74,14 +74,14 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 - 將 PFX 檔案轉換為 JKS，因為 Java 使用該格式來驗證憑證的使用。
 - 撰寫應用程式的驗證碼，以便參照本機 JKS 檔案。
 
-當您完成這個程序時，CER 憑證會位於 Azure 訂用帳戶，而 JKS 憑證會位於本機磁碟機。如需管理憑證的詳細資訊，請參閱[建立和上傳 Azure 的管理憑證](http://msdn.microsoft.com/library/azure/gg551722.aspx)。
+當您完成這個程序時，CER 憑證會位於 Azure 訂用帳戶，而 JKS 憑證會位於本機磁碟機。如需管理憑證的詳細資訊，請參閱[建立和上傳 Azure 的管理憑證][]。
 
 
 #### 建立憑證
 
 若要建立自己的自我簽署憑證，請開啟作業系統上的命令主控台並執行下列命令。
 
-> **注意：**您用來執行此命令的電腦必須已安裝 JDK。此外，keytool 的路徑取決於您安裝 JDK 的位置。如需詳細資訊，請參閱 Java 線上文件中的[金鑰和憑證管理工具 (keytool)](http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html)。
+> **注意：**您用來執行此命令的電腦必須已安裝 JDK。此外，keytool 的路徑取決於您安裝 JDK 的位置。如需詳細資訊，請參閱 Java 線上文件中的[金鑰和憑證管理工具 (keytool)][]。
 
 若要建立 .pfx 檔案：
 
@@ -105,7 +105,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 - `<password>` 是您選擇用來保護憑證的密碼；長度必須至少 6 個字元。您可以不輸入密碼，但不建議這麼做。
 - `<dname>` 是要與別名相關聯的 X.500 辨別名稱，並作為自我簽署憑證中的簽發者和主旨欄位。
 
-如需詳細資訊，請參閱[建立和上傳 Azure 的管理憑證](http://msdn.microsoft.com/library/azure/gg551722.aspx)。
+如需詳細資訊，請參閱[建立和上傳 Azure 的管理憑證][]。
 
 
 #### 上傳憑證
@@ -237,7 +237,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 - `<certificate-password>` 是在建立 JKS 憑證時指定的密碼。
 - `webAppName` 可以您選擇的任何名稱；此程序使用 `WebDemoWebApp` 這個名稱。完整網域名稱為附加 `domainName` 的 `webAppName`，所以此例中的完整網域為 `webdemowebapp.azurewebsites.net`
 - `domainName` 應如上所述加以指定。
-- `webSpaceName` 應是在 [WebSpaceNames](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html) 類別中指定的其中一個值。
+- `webSpaceName` 應是在 [WebSpaceNames][] 類別中指定的其中一個值。
 - `appServicePlanName` 應如上所述加以指定。
 
 > **注意：**每次執行此應用程式時，您必須先變更 `webAppName` 和 `appServicePlanName` 的值 (或在 Azure 入口網站上刪除 Web 應用程式)，才能再次執行此應用程式。否則，執行作業會因為 Azure 上已存在相同資源而失敗。
@@ -245,7 +245,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 #### 定義 Web 建立方法
 
-接著，定義用以建立 Web 應用程式的方法。此方法 (`createWebApp`) 會指定 Web 應用程式和網路空間的參數。也會建立及設定 App Service Web Apps 管理用戶端，而該管理用戶端是由 [WebSiteManagementClient](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html) 物件定義。此管理用戶端是建立 Web Apps 的關鍵。它可提供符合 REST 限制的 Web 服務，以便應用程式藉由呼叫服務管理 API 來管理 Web 應用程式 (執行作業，例如建立、更新和刪除)。
+接著，定義用以建立 Web 應用程式的方法。此方法 (`createWebApp`) 會指定 Web 應用程式和網路空間的參數。也會建立及設定 App Service Web Apps 管理用戶端，而該管理用戶端是由 [WebSiteManagementClient][] 物件定義。此管理用戶端是建立 Web Apps 的關鍵。它可提供符合 REST 限制的 Web 服務，以便應用程式藉由呼叫服務管理 API 來管理 Web 應用程式 (執行作業，例如建立、更新和刪除)。
 
     private static void createWebApp() throws Exception {
 
@@ -432,7 +432,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 選取協力廠商 FTP 用戶端，以發佈應用程式。此程序說明兩個選項：Azure 內建的 Kudu 主控台；以及 FileZilla (具有便利圖形 UI 的熱門工具)。
 
-> **注意：** Azure Plugin for Eclipse with Java 2.4 支援部署至儲存體帳戶和雲端服務，但目前不支援部署至 Web 應用程式。如[在 Eclipse 中建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/library/azure/hh690944.aspx)所述，您可以使用 Azure 部署專案部署至儲存體帳戶和雲端服務，但不能部署至 Web 應用程式。使用 FTP 或 GitHub 等方法將檔案移轉至您的 Web 應用程式。
+> **注意：**Azure Toolkit for Eclipse 支援部署至儲存體帳戶和雲端服務，但目前不支援部署至 Web 應用程式。如[在 Eclipse 中建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/library/azure/hh690944.aspx)所述，您可以使用 Azure 部署專案部署至儲存體帳戶和雲端服務，但不能部署至 Web 應用程式。使用 FTP 或 GitHub 等方法將檔案移轉至您的 Web 應用程式。
 
 > **注意：**不建議從 Windows 命令提示字元 (Windows 隨附的命令列 FTP.EXE 公用程式) 使用 FTP。採用使用中 FTP (例如 FTP.EXE) 的 FTP 用戶端通常無法透過防火牆作業。使用中 FTP 可指定 FTP 伺服器將可能無法連線的內部 LAN 位址。
 
@@ -456,7 +456,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 若要使用 FTP 將應用程式檔案部署至新建立的 Web 應用程式，您需要取得連線資訊。取得連線資訊的方法有兩種。造訪 Web 應用程式的 [**儀表板**] 頁面是一種方法；另一種方法則是下載 Web 應用程式的發行設定檔。發行設定檔是可提供下列資訊的 XML 檔案：Azure App Service 中 Web 應用程式的 FTP 主機名稱和登入認證。 您可以使用此使用者名稱和密碼來部署至與 Azure 帳戶相關聯的所有訂用帳戶中的任何 Web 應用程式 (不限於這一個)。
 
-若要從 [Azure 入口網站](https://portal.azure.com)中 Web 應用程式的刀鋒視窗取得 FTP 連線資訊：
+若要從 [Azure 入口網站][]中 Web 應用程式的刀鋒視窗取得 FTP 連線資訊：
 
 1. 在 [**基本功能**] 之下，尋找並複製 [**FTP 主機名稱**]。這是類似於 `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net` 的 URI。
 
@@ -607,4 +607,4 @@ FileZilla 是另一項可用來發佈應用程式的工具 ，這是具有便利
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Azure 入口網站]: https://portal.azure.com
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

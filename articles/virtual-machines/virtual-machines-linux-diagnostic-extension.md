@@ -35,7 +35,8 @@ Linux 診斷延伸模組可利用下列功能協助使用者監視在 Microsoft 
 - 在此[文件](https://scx.codeplex.com/wikipage?title=xplatproviders")指定的所有系統資料。
 - 使用者指定記錄檔。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型管理資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 ## 如何啟用延伸模組
 透過 [Azure 入口網站](https://ms.portal.azure.com/#)、Azure PowerShell 或 Azure CLI 指令碼，可以啟用擴充功能。
@@ -143,4 +144,4 @@ Linux 診斷延伸模組可利用下列功能協助使用者監視在 Microsoft 
 - 若為 2.0 版，只能透過指令碼存取 Rsyslog 資訊和客戶指定記錄檔。
 - 若為 2.0 版，如果您已經先透過指令碼啟用 Linux 診斷延伸模組，您就無法從 Azure 入口網站檢視資料。如果您先從入口網站啟用延伸模組，指令碼就會持續運作。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

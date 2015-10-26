@@ -78,4 +78,4 @@ Azure 網站不支援所有的原生模組，而且在編譯具有非常特定�
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [使用 Kudu 自訂網站部署指令碼]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

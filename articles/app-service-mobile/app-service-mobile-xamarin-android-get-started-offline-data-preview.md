@@ -1,20 +1,20 @@
 <properties
     pageTitle="啟用 Azure 行動應用程式 (Xamarin Android) 的離線同步處理"
-	description="了解如何在 Xamarin Android 應用程式中使用應用程式服務行動應用程式快取和同步處理離線資料"
-	documentationCenter="xamarin"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="app-service\mobile"/>
+    description="了解如何在 Xamarin Android 應用程式中使用應用程式服務行動應用程式快取和同步處理離線資料"
+    documentationCenter="xamarin"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""
+    services="app-service\mobile"/>
 
 <tags
     ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="article"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="article"
 	ms.date="08/22/2015"
-	ms.author="wesmc"/>
+    ms.author="wesmc"/>
 
 # 啟用您 Xamarin.Android 行動應用程式的離線同步處理
 
@@ -176,4 +176,4 @@
 
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -2,6 +2,7 @@
 	pageTitle="學習指南：Azure 中的進階資料處理 | Microsoft Azure" 
 	description="準備要在適用於 Azure Machine Learning 之進階分析程序和技術 (ADAPT) 中使用的資料。" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev"  
 	manager="paulettm" />
@@ -24,4 +25,4 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-prepare-data-for-ml.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

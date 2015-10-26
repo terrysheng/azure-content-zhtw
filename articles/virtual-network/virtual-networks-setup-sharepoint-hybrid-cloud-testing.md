@@ -19,7 +19,8 @@
 
 # 在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋之內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+ 
 
 本主題將逐步引導您建立混合式雲端環境測試 Microsoft Azure 代管的內部網路 SharePoint 伺服器陣列。以下是產生的組態。
 
@@ -213,4 +214,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 [Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

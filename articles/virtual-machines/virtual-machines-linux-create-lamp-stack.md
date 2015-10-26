@@ -21,7 +21,8 @@
 
 "LAMP" 堆疊是一組開放原始碼軟體，通常會安裝在一起讓伺服器裝載動態網站與 Web 應用程式。這個詞彙其實是一個縮寫，指的是使用 Apache Web 伺服器的 Linux 作業系統。網站資料儲存在 MySQL 資料庫中，動態內容則由 PHP 處理。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 在本指南中，我們會將 LAMP 堆疊安裝在 Linux 映像上，並將它部署在 Microsoft Azure。
 
@@ -113,7 +114,7 @@ TCP 連接埠 80 是 Apache 接聽的預設連接埠號碼。在 Azure 端點開
 
 ![][9]
 
-在左窗格中，按一下 [**連接] -> [SSH] -> [驗證**]，然後按一下 [**瀏覽**] 來指定 **privateKey.ppk** 檔案的位置，其中包含 puttygen 在＜第 1 階段：建立映像＞中產生的私密金鑰。下列是一個範例：
+在左窗格中，按一下 [連線] -> [SSH] -> [驗證]，然後按一下 [瀏覽] 來指定 **privateKey.ppk** 檔案的位置，其中包含 puttygen 在＜第 1 階段：建立映像＞中產生的私密金鑰。下列是一個範例：
 
 ![][10]
 
@@ -455,4 +456,4 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

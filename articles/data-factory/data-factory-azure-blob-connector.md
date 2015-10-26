@@ -510,4 +510,4 @@ false | mergeFiles | <p>針對具有下列結構的來源資料夾 Folder1：</p
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間，透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

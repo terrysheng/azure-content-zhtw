@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT 預先設定解決方案的描述。| Microsoft Azure"
+ pageTitle="Azure IoT 預先設定解決方案 | Microsoft Azure"
  description="說明 Azure IoT 預先設定解決方案及其架構，且包含其他資源的連結。"
  services=""
- documentationCenter=".net"
+ documentationCenter=""
  authors="aguilaaj"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="araguila"/>
 
@@ -91,4 +91,4 @@ IoT 中心會透過取用者群組端點公開收到的遙測資料。
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Azure 串流分析]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-pageTitle="啟用 Azure 雲端服務中角色的遠端桌面連線"
-	description="如何設定的 Azure 雲端服務應用程式以允許遠端桌面連線"
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="啟用 Azure 雲端服務中角色的遠端桌面連線" 
+description="如何設定的 Azure 雲端服務應用程式以允許遠端桌面連線" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="10/14/2015" 
+ms.author="saurabh"/>
 
 # 啟用 Azure 雲端服務中角色的遠端桌面連線
 
@@ -147,4 +147,4 @@ ms.service="cloud-services"
 
 [如何設定雲端服務](cloud-services-how-to-configure.md)
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

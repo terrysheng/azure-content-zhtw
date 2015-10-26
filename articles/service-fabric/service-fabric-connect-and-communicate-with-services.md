@@ -1,20 +1,20 @@
 <properties
    pageTitle="Microsoft Azure Service Fabric 如何與服務通訊"
-	description="本文章將說明您如何連接至 Service Fabric 應用程式中的服務並與其進行通訊。"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="kunaldsingh"
-	manager="timlt"
-	editor=""/>
+   description="本文章將說明您如何連接至 Service Fabric 應用程式中的服務並與其進行通訊。"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="kunaldsingh"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/21/2015"
-	ms.author="kunalds"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/21/2015"
+   ms.author="kunalds"/>
 
 
 # 與服務進行通訊
@@ -57,4 +57,4 @@ Service Fabric 通訊 API 代表用戶端-服務類型的互動，甚至包含�
 * [開始使用 Microsoft Azure Service Fabric Web API 服務搭配 OWIN 自我裝載](service-fabric-reliable-services-communication-webapi.md)
 * [適用於可靠服務的 WCF 式通訊堆疊](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

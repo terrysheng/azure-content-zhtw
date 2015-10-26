@@ -9,6 +9,4 @@
 作用中的推送活動|每個應用程式 50 個
 總推送活動 (包括作用中和已完成)|每個應用程式 1000 個
 
-<!---HONumber=August15_HO7-->
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

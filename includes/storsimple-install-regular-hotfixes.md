@@ -19,4 +19,4 @@
 
 5. 系統將提示您進行確認。輸入 **Y** 繼續安裝 Hotfix。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

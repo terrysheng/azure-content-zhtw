@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Azure 備份的簡介
 本文提供 Microsoft 的雲端整合式備份解決方案的高階概觀，可讓客戶備份內部部署或 Azure 中的資料。
@@ -43,22 +43,31 @@ Azure 備份是一個多租用戶的 Azure 服務，可讓您備份您任何位�
 7. **在雲端中備份**：Azure 備份能對執行的 Azure IaaS 虛擬機器提供 VSS 型應用程式一致備份，而不需要關閉虛擬機器。它也可以使用檔案系統一致性備份 Azure 中的 Linux 虛擬機器。
 
 
+## 部署案例
+| 元件 | 可以在 Azure 中部署嗎？ | 可以在內部部署嗎？ | 支援的目標儲存體|
+| --- | --- | --- | --- |
+| Azure 備份代理程式 | **是** <br><br>您可以在 Azure 中執行的任何 Windows Server VM 上部署Azure 備份代理程式。 | **是** <br><br>您可以在 Windows Server VM 或實體機器上部署Azure 備份代理程式。 | Azure 備份保存庫 |
+| System Center Data Protection Manager (SCDPM) | **是** <br><br>深入了解[使用 SCDPM 保護 Azure 中的工作負載](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx) (英文)。 | **是** <br><br>深入了解[保護工作負載和資料中心內的 VM](https://technet.microsoft.com/zh-TW/library/hh758173.aspx) (英文)。 | 本機連接的磁碟、<br>Azure 備份保存庫、<br>磁帶 (僅限內部部署) |
+| Azure 備份 (VM 延伸模組) | **是** <br><br>適用於 [Azure IaaS 虛擬機器備份](backup-azure-vms-introduction.md)的特殊元件。 | **否** <br><br>請使用 SCDPM 備份資料中心內的虛擬機器。 | Azure 備份保存庫 |
+
+
 ## 應用程式和工作負載
 
 | 工作負載 | 來源機器 | Azure 備份方案 |
 | --- | --- |---|
-| 檔案及資料夾 | Windows Server、Windows 用戶端 | Azure 備份代理程式 |
-| 檔案及資料夾 | Windows Server、Windows 用戶端 | System Center DPM |
+| 檔案與資料夾 | Windows Server | [Azure 備份代理程式](backup-configure-vault.md)、<br> [System Center DPM](backup-azure-dpm-introduction.md) |
+| 檔案與資料夾 | Windows 用戶端 | [Azure 備份代理程式](backup-configure-vault.md)、<br> [System Center DPM](backup-azure-dpm-introduction.md) |
 | Hyper-V 虛擬機器 (Windows) | Windows Server | System Center DPM |
 | Hyper-V 虛擬機器 (Linux) | Windows Server | System Center DPM |
-| Microsoft SQL Server | Windows Server | System Center DPM |
-| Microsoft SharePoint | Windows Server | System Center DPM |
+| Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
+| Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Azure IaaS VM (Windows)| - | Azure 備份 | | Azure IaaS VM (Linux) | - | Azure 備份 |
+| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) | | Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
+
 
 ## 後續步驟
 - [試用 Azure 備份](backup-try-azure-backup-in-10-mins.md)
 - Azure 備份服務的常見問題集在[這裡](backup-azure-backup-faq.md)列出。
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

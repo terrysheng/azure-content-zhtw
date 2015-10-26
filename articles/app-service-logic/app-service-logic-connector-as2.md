@@ -63,7 +63,7 @@ TPM 執行個體名稱 | 輸入您先前建立的 **BizTalk 交易夥伴管理**
 
 ## 使用連接器做為觸發程序
 
-1. 建立或編輯邏輯應用程式時，請從右窗格中選取您建立的 AS2 連接器：
+1. 建立或編輯邏輯應用程式時，請從右窗格中選取您建立的 AS2 連接器：  
 	![觸發程序設定][3]
 
 2. 按一下向右箭號 →：  
@@ -125,4 +125,4 @@ AS2 目標 | 字串 | AS2 訊息接收者的 AS2 識別。這個參數是用來�
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

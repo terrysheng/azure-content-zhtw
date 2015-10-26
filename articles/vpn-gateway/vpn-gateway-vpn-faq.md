@@ -1,19 +1,19 @@
 <properties 
    pageTitle="虛擬網路 VPN 閘道常見問題集 |Microsoft Azure"
-	description="VPN 閘道常見問題集。Microsoft Azure 虛擬網路跨單位連線、混合式組態連線和 VPN 閘道的常見問題集"
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="VPN 閘道常見問題集。Microsoft Azure 虛擬網路跨單位連線、混合式組態連線和 VPN 閘道的常見問題集"
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc" />
 
 # VPN 閘道常見問題集
 
@@ -252,4 +252,4 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

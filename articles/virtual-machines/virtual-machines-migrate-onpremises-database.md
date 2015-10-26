@@ -19,7 +19,8 @@
 
 # 將資料庫移轉至 Azure VM 上的 SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 有多個方法可將內部部署 SQL Server 使用者資料庫移轉至 Azure VM 中 SQL Server。這篇文章將簡短討論各種方法、建議各種案例的最佳方法，且包含的[教學課程](#azure-vm-deployment-wizard-tutorial)可引導您使用「將 SQL Server Database 部署到 Microsoft Azure VM」精靈。
 
@@ -167,4 +168,4 @@
 
 如需在 Azure 虛擬機器上執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

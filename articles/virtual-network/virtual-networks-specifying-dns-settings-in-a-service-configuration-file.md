@@ -1,19 +1,19 @@
 <properties 
    pageTitle="指定服務組態檔中的 DNS 設定 | Microsoft Azure"
-	description="使用虛擬網路的服務組態檔指定自訂的 DNS 設定"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="使用虛擬網路的服務組態檔指定自訂的 DNS 設定"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="joaoma" />
 
 # 指定服務組態檔中的 DNS 設定
 
@@ -41,4 +41,4 @@
 
 [關於管理入口網站中的虛擬網路設定](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

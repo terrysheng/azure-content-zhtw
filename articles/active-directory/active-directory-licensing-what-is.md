@@ -131,4 +131,4 @@ Azure Active Directory (AD) 是 Microsoft 的「身分識別即服務 (IDaaS)」
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [直接購買 Azure AD Premium 授權](http://aka.ms/buyaadp)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

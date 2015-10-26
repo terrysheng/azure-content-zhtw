@@ -21,7 +21,8 @@
 
 請使用這個範本，快速設計出色的作品。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文內容涵蓋以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 | 範本 | 說明 | 檢視範本 | 立即部署 |
 |:---|:---|:---:|:---:|
@@ -52,4 +53,4 @@
 
 深入了解 [Azure 資源管理員](../resource-group-template-deploy.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

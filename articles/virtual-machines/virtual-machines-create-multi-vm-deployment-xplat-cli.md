@@ -19,7 +19,8 @@
 
 # 使用 Azure CLI 建立多個 VM 的部署
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+ 
 
 下列指令碼將示範如何在 VNET 中，使用 Azure 命令列介面 (Azure CLI) 設定多個 VM 的多雲端服務部署。
 
@@ -70,4 +71,4 @@
 * [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

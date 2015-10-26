@@ -376,4 +376,4 @@ Azure 雲端服務可以有一或多個背景工作角色或 web 角色。您必
 ## 後續步驟
 藉由參閱[設定 Azure 專案](vs-azure-tools-configuring-an-azure-project.md)深入了解 Visual Studio 中的 Azure 專案。藉由參閱[結構描述參考](https://msdn.microsoft.com/library/azure/dd179398)深入了解雲端服務結構描述。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

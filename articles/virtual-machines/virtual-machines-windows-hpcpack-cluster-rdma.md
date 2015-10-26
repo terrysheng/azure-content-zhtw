@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # 使用 HPC Pack 和 A8 與 A9 執行個體設定 Windows RDMA 叢集，以執行 MPI 應用程式
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本文將說明如何使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 和[大小為 A8 和 A9 的大量運算執行個體](virtual-machines-a8-a9-a10-a11-specs.md)在 Azure 中設定 Windows RDMA 叢集，以執行平行的訊息傳遞介面 (MPI) 應用程式。當您設定 A8 和 A9 大小的 Windows Server 執行個體以執行支援的 MPI 實作時，MPI 應用程式可透過低延遲、高輸送量網路，在運用遠端直接記憶體存取 (RDMA) 技術的 Azure 中進行有效率的通訊。
 
@@ -245,4 +246,4 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

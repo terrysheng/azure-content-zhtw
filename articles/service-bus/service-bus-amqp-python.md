@@ -166,19 +166,11 @@ if message.properties != None:
 準備好進行深入了解嗎？ 請造訪下列連結：
 
 - [服務匯流排 AMQP 概觀]
-- [搭配使用 .NET 的服務匯流排與 AMQP]
-- [搭配使用 Java 的服務匯流排與 AMQP]
-- [搭配使用 PHP 的服務匯流排與 AMQP]
-- [在 Azure Linux VM 上安裝 Apache Qpid Proton-C]
 - [Windows Server 服務匯流排中的 AMQP]
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 [Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
-[搭配使用 .NET 的服務匯流排與 AMQP]: service-bus-amqp-dotnet.md
-[搭配使用 Java 的服務匯流排與 AMQP]: service-bus-amqp-java.md
-[搭配使用 PHP 的服務匯流排與 AMQP]: service-bus-amqp-php.md
-[在 Azure Linux VM 上安裝 Apache Qpid Proton-C]: service-bus-amqp-apache.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

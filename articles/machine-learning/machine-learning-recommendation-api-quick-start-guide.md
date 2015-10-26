@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="快速入門指南：Machine Learning 建議 API | Microsoft Azure"
-	description="Azure Machine Learning Recommendations - 快速入門手冊"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="快速入門指南：Machine Learning 建議 API | Microsoft Azure" 
+	description="Azure Machine Learning Recommendations - 快速入門手冊" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 # Machine Learning Recommendations API 的快速入門指南
@@ -673,4 +673,4 @@ OData XML
 這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實的人、事、物。本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。© 2014 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

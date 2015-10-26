@@ -19,8 +19,6 @@
 
 #如何對 Azure 上的 Linux 使用 SSH
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
-
 目前版本的 Azure 管理入口網站僅接受封裝於 X509 憑證中的 SSH 公開金鑰。請遵循下列步驟，產生 SSH 金鑰並用於 Azure。
 
 ## 在 Linux 中產生 Azure 的相容金鑰 ##
@@ -179,4 +177,4 @@
 5.	按一下 [開啟] 以連線到虛擬機器。
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

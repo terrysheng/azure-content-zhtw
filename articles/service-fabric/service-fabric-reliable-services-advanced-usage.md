@@ -59,4 +59,4 @@ StatefulServiceBase 也會提供與 StatelessServiceBase 相同的四個生命�
 
 - [放置條件約束概觀](service-fabric-placement-constraint.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

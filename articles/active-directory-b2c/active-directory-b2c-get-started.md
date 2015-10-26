@@ -70,4 +70,4 @@
 
 移至[使用 Azure AD B2C 註冊應用程式並建置快速啟動應用程式](active-directory-b2c-app-registration.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

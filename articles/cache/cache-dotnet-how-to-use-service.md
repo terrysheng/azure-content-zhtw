@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/18/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure 受管理快取服務
@@ -486,4 +486,4 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

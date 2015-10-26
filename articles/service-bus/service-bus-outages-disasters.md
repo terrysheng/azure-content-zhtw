@@ -109,4 +109,4 @@
   [Azure SQL Database 商務持續性]: https://msdn.microsoft.com/library/azure/hh852669.aspx
   [Azure 業務持續性技術指引]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

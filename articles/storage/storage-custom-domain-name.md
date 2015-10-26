@@ -117,4 +117,4 @@ asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前�
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">如何將 CDN 內容對應至自訂網域</a>
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -35,4 +35,4 @@
 * [深入了解使用方式情節和 Azure AD Join 的部署考量](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

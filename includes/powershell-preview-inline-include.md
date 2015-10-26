@@ -1,6 +1,7 @@
-This topic includes PowerShell cmdlets from Azure PowerShell 1.0 Preview. If you do not wish to install this preview release right now, you can continue using Azure PowerShell 0.9.8. In most cases, the only difference between the two versions is that the 1.0 Preview cmdlet name follows the pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 name does not include **Rm** (for example, New-AzureRmResourceGroup instead of New-AzureResourceGroup). When the difference between the versions is more significant, this topic shows examples for both versions.
+本主題包含 Azure PowerShell 1.0 Preview 版本的 PowerShell Cmdlet。如果您不想要立即安裝此預覽版本，可以繼續使用 Azure PowerShell 0.9.8。在大部分情況下，這兩個版本的唯一差異在於 1.0 Preview 的 Cmdlet 命名遵循 {動詞}-AzureRm{名詞} 的格式，而 0.9.8 的命名則不包含 **Rm** (例如，New-AzureRmResourceGroup，而非 New-AzureResourceGroup)。當版本間有更大差異時，此主題會針對不同版本顯示範例。
 
-When using Azure PowerShell 0.9.8, you must first enable the Resource Manager mode by running the **Switch-AzureMode AzureResourceManager** command. This command is not necessary in 1.0 Preview.
+在使用 Azure PowerShell 0.9.8 時，您必須先執行 **Switch-AzureMode AzureResourceManager** 命令啟用資源管理員模式。1.0 Preview 不需要執行此命令。
 
-For information about the 1.0 Preview release, including notes about recommended use, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/). For information about installing Azure PowerShell 1.0 Preview, see [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx). For information about significant changes in Resource Manager commands, see [Changes to Azure Resource Manager management PowerShell cmdlets](../articles/powershell-preview-resource-manager-changes.md).
+如需 1.0 Preview 的詳細資訊，包括建議用法的說明，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。如需有關安裝和使用 Azure PowerShell 1.0 Preview 的詳細資訊，請參閱 [Azure 資源管理員 Cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)。如需資源管理員命令中重大變更的相關資訊，請參閱 [Azure 資源管理員管理 PowerShell Cmdlet 的變更](../articles/powershell-preview-resource-manager-changes.md)。
 
+<!---HONumber=Oct15_HO3-->

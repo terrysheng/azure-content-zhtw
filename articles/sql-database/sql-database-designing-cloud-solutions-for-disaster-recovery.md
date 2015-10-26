@@ -3,7 +3,7 @@
    description="了解如何選擇正確的容錯移轉模式來設計災害復原的雲端解決方案。"
    services="sql-database"
    documentationCenter="" 
-   authors="sashan" 
+   authors="anosov1960" 
    manager="jeffreyg" 
    editor="monicar"/>
 
@@ -85,8 +85,7 @@
 如果主要區域中偵測到資料庫運作中斷，您應該開始將主要資料庫容錯移轉到其中一個次要地區，而這會變更主要資料庫的位置。流量管理員會自動從路由表中排除離線端點，但會繼續將使用者流量路由傳送至剩餘的線上執行個體。因為主要資料庫現在位於不同的區域，所有線上執行個體必須變更其讀寫 SQL 連接字串，以連接到新的主要資料庫。您必須在起始資料庫容錯移轉之前進行這項變更。唯讀 SQL 連接字串應該保持不變，因為它們永遠指向相同區域中的資料庫。容錯移轉步驟如下：
 
 1. 變更讀寫 SQL 連接字串來指向新的主要資料庫
-2. 呼叫指定的次要資料庫以 [起始資料庫容錯移轉](https://msdn.microsoft.com/
-3. /library/azure/dn509573.aspx) 
+2. 呼叫指定的次要資料庫以[起始資料庫容錯移轉](https://msdn.microsoft.com/library/azure/dn509573.aspx) 
 
 下圖說明容錯移轉之後的新組態。![圖 5](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
@@ -148,4 +147,4 @@
 | 應用程式負載平衡的主動-主動部署 | 讀寫存取 < 5 秒 | 失敗偵測時間 + 容錯移轉 API 呼叫 + SQL 連接字串變更 + 應用程式驗證測試
 | 資料保留的主動-被動部署 | 唯讀存取 < 5 秒，讀寫存取 = 0 | 唯讀存取 = 連線失敗偵測時間 + 應用程式驗證測試 <br>讀寫存取 = 運作中斷趨緩的時間 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

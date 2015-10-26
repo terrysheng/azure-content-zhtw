@@ -56,4 +56,4 @@ Baltimore 憑證可能已經安裝於您的 cacerts 存放區，因此請記得�
 
 如需 Java 的詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

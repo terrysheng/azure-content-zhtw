@@ -52,4 +52,4 @@
 
 既然您已經擁有與訂用帳戶相關聯的管理憑證，您就能 (在本機安裝相符的憑證之後) 以程式設計方式連線到[服務管理 REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx)，並將同樣與該訂用帳戶相關聯的各種 Azure 資源自動化。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

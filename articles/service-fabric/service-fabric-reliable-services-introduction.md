@@ -1,20 +1,20 @@
 <properties
    pageTitle="Service Fabric 可靠的服務程式設計模型概觀"
-	description="深入了解 Service Fabric 可靠的服務的程式設計模型，並開始撰寫自己的服務。"
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="masnider"
-	manager="timlt"
-	editor="jessebenson; mani-ramaswamy"/>
+   description="深入了解 Service Fabric 可靠的服務的程式設計模型，並開始撰寫自己的服務。"
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="masnider"
+   manager="timlt"
+   editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="masnider;jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="masnider;jesseb"/>
 
 # 可靠的服務概觀
 Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服務。這份文件會討論：
@@ -130,4 +130,4 @@ Service Fabric 中常見的無狀態服務使用範例是做為前端，其公�
 + [閱讀可靠執行者程式設計模型](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -17,7 +17,7 @@
 	ms.date="08/11/2015"
 	ms.author="jgao"/>
 
-# 使用 Azure 預覽入口網站管理 HDInsight 上的 Hadoop 叢集
+# 使用 Azure Preview 入口網站管理 HDInsight 上的 Hadoop 叢集
 
 [AZURE.INCLUDE [選取器](../../includes/hdinsight-portal-management-selector.md)]
 
@@ -256,4 +256,4 @@ HDInsight 叢集可以有兩個使用者帳戶。HDInsight 叢集使用者帳戶
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop 命令列"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

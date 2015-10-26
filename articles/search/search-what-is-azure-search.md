@@ -131,4 +131,4 @@ REST API 由 HTTP 要求和回應組成，其內容以 JSON 格式表示。有�
 
 [如何在 .NET 中使用 Azure 搜尋](search-howto-dotnet-sdk.md) [開始使用 Azure 搜尋 .NET](search-get-started-dotnet.md) [Azure 搜尋：教學課程、影片示範和範例](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

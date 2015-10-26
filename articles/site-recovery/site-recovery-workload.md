@@ -120,4 +120,4 @@ SAP 是全世界許多組織所使用首屈一指的企業資源規劃 (ERP) 軟
 
 參考連結的文件以了解[為 SAP 部署 Azure Site Recovery](http://aka.ms/asr-sap) 的詳細指引
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

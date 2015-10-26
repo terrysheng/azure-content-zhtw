@@ -253,4 +253,4 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 [部署您的 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

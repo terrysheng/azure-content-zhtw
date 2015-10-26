@@ -19,7 +19,8 @@
 
 # 如何在 Azure 中標記虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何標記以資源管理員部署模型建立的虛擬機器。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 本文說明在 Azure 中透過 Azure 資源管理員標記虛擬機器的不同方式。標記是使用者定義的索引鍵/值組，可直接置於資源或資源群組。Azure 目前對每一個資源和資源群組最多支援 15 個標記。標記可在建立或加入至現有資源時置於資源上。請注意，標籤只支援透過 Azure 資源管理員建立的資源。
 
@@ -189,4 +190,4 @@
 [了解 Azure 帳單]: ../billing-understand-your-bill.md
 [深入瞭解 Microsoft Azure 資源耗用量]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

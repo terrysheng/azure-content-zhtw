@@ -45,4 +45,4 @@ B2B 通訊牽涉到交易夥伴之間的訊息處理。關聯性定義為兩個�
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

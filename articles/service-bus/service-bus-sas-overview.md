@@ -255,4 +255,4 @@ AMQP 訊息因為具有眾多屬性而有點複雜，且含有比簡單訊息更
 
 您可以在[此部落格文章](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)中找到更多 C# 和 Java Script 的 SAS 範例。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

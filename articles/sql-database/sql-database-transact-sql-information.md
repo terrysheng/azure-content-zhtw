@@ -94,4 +94,4 @@ Transact-SQL 參考包含 SQL Server 2008、SQL Server 2008 R2、SQL Server 2012
 
 在某些情況下，主題的一般主旨可以用於產品，但並不支援所有引數。例如，自主資料庫使用者是在 SQL Server 2012 中導入。**CREATE USER** 陳述式可以用於任何 SQL Server 產品，不過 **WITH PASSWORD** 語法不能用於較舊版本。在此案例中，其他「**適用於**」區段會插入到主題的主體中適當的引數描述。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

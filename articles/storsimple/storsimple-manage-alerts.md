@@ -234,4 +234,4 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 - 深入了解 [StorSimple 錯誤](storsimple-troubleshoot-operational-device.md)。
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

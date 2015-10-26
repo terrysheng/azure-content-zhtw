@@ -274,4 +274,4 @@ catch [System.Exception]
 [服務匯流排的 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 [安裝並設定 Azure PowerShell]: ../install-configure-powershell.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

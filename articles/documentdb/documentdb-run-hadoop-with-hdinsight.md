@@ -84,7 +84,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 
 2. 按一下左下角的 [**+ 新增**]，並指向 [**資料服務**]，接著指向 [**儲存體**]，然後按一下 [**快速建立**]。
 	![Azure 入口網站，您可以在此入口網站中使用「快速建立」設定新的儲存體帳戶。][image-storageaccount-quickcreate]
-	
+
 3. 輸入 [**URL**]，並依序選取 [**位置**] 和 [**複寫**] 值，然後按一下 [**建立儲存體帳戶**]。不支援同質群組。
 	
 	您將在儲存體清單中看見新的儲存體帳戶。
@@ -489,4 +489,4 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

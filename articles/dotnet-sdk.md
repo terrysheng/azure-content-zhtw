@@ -186,4 +186,4 @@ Azure PowerShell 可讓您[將 Azure 環境的建立及部署自動化](http://w
 
 如需 Azure 用戶端程式庫的參考文件，請參閱 [Azure .NET 參考](/documentation/api/) (英文)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

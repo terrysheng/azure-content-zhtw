@@ -148,4 +148,4 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 [如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶]: api-management-howto-create-groups.md
 [如何在 Azure API 管理中建立和設定進階產品設定]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

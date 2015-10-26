@@ -23,4 +23,4 @@
 
 1. 在同一個 [IP 位址屬性] 視窗中，變更 [IP 位址名稱]。此 IP 位址名稱將用於 PowerShell 指令碼的 **$IPResourceName** 變數。如果您的方案跨越多個 Azure VNet，請針對每個 IP 資源重複此步驟。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

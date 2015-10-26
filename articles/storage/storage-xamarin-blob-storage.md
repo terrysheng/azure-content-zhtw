@@ -179,4 +179,4 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

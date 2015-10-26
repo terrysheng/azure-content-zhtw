@@ -1,20 +1,20 @@
 
 <properties 
     pageTitle="Azure RemoteApp 的應用程式需求"
-	description="了解您想要用於 Azure RemoteApp 的應用程式需求"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="了解您想要用於 Azure RemoteApp 的應用程式需求" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -56,4 +56,4 @@ Azure RemoteApp 支援來自 Windows Server 2012 R2 映像的資料流 32 位元
 - 若要最佳化效能，讓應用程式[偵測](https://msdn.microsoft.com/library/aa380798.aspx)它們是否正在用戶端工作階段中執行是個好方法。 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

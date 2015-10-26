@@ -73,4 +73,4 @@ API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他�
 
  [排程器輸出驗證](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

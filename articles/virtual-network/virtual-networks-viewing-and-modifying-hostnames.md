@@ -1,19 +1,19 @@
 <properties 
    pageTitle="檢視與修改主機名稱 | Microsoft Azure"
-	description="如何檢視和變更 Azure 虛擬機器的主機名稱、Web 和背景工作角色以進行名稱解析"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="如何檢視和變更 Azure 虛擬機器的主機名稱、Web 和背景工作角色以進行名稱解析"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="joaoma" />
 
 # 檢視與修改主機名稱
 
@@ -71,4 +71,4 @@
 
 [使用網路組態檔指定 DNS 設定](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

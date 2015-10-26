@@ -24,4 +24,4 @@
 
 	![在通知中心檢視通知](./media/mobile-services-android-push-notifications-test/notification-area-received.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 HDInsight 上使用 Hadoop Oozie | Microsoft Azure"
-	description="在 HDInsight 上使用 Hadoop Oozie：一項巨量資料服務。了解如何定義 Oozie 工作流程，以及提交 Oozie 工作。"
+	pageTitle="在以 Linux 為基礎的 HDInsight 上使用 Hadoop Oozie 工作流程 | Microsoft Azure"
+	description="在以 Linux 為基礎的 HDInsight 上使用 Hadoop Oozie。了解如何定義 Oozie 工作流程，以及提交 Oozie 工作。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 
@@ -721,4 +721,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

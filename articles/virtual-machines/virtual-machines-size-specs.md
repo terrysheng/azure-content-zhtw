@@ -33,7 +33,10 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 *   D 系列 VM 是為了執行要求更高計算能力和暫存磁碟效能的應用程式所設計。D 系列 VM 提供更快的處理器、較高的記憶體與核心比率，以及適用於暫存磁碟的固態硬碟 (SSD)。如需詳細資訊，請參閱 Azure 部落格的公告，[新 D 系列的虛擬機器大小](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)。
 
-*   Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。Dv2 系列 CPU 比 D 系列 CPU 快約 35%。它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.2 GHz。Dv2 系列的記憶體和磁碟組態和 D 系列一樣。如需詳細資訊，請參閱 Azure 部落格公告：[新 Dv2 系列的虛擬機器大小](http://azure.microsoft.com/blog/2015/10/01/new-dv2-series-virtual-machine-sizes/)。
+*   Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。Dv2 系列 CPU 比 D 系列 CPU 快約 35%。它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.2 GHz。Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
+
+    Dv2 系列的區域可用性將以此排程為基礎：2015 年 10 月：美國東部 2、美國中部、美國中北部、美國西部 2015 年 11 月：美國東部、歐洲北部、歐洲西部 2016 年 1 月：美國中南部、亞太地區東部、亞太地區東南部、日本東部、日本西部、澳洲東部、澳洲東南部、巴西南部
+
 
 *   G 系列 VM 提供最大的大小和最佳效能，並且可在具有 Intel Xeon E5 V3 系列處理器的主機上執行。
 
@@ -167,4 +170,4 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 [關於 A8、A9、A10 和 A11 運算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

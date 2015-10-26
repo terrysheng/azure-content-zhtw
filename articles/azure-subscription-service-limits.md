@@ -34,6 +34,9 @@
 <!-- -->
 因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。請參閱[移難排解部署問題](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)，以取得探索您特定區域目前的配額的其他說明。
 
+
+## 特定服務的限制
+
 - [Active Directory](#active-directory-limits)
 - [API 管理](#api-management-limits)
 - [App Service](#app-service-limits)
@@ -257,4 +260,4 @@
 
 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

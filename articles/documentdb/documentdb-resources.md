@@ -35,7 +35,7 @@ DocumentDB 管理的資料庫實體稱為**資源**。每個資源可透過邏�
 
 >[AZURE.NOTE] DocumentDB 提供高效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 [.NET 用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 取得。
 
-![][1] **資料庫帳戶的階層式資源模型**
+![DocumentDB 階層式資源模型][1] **資料庫帳戶的階層式資源模型**
 
 若要開始使用資源，您必須使用 Azure 訂用帳戶[建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)。資料庫帳戶可以是由一組**資料庫**所組成，每個資料庫都包含多個**集合**，而每個集合又依序包括**預存程序、觸發程序、UDF、文件**及相關**附件** (預覽功能)。資料庫也有相關聯的**使用者**，每位使用者都有一組可存取集合、預存程序、觸發程序、UDF、文件或附件的**權限**。雖然資料庫、使用者、權限和集合都是具有已知結構描述的系統定義資源，但是文件和附件包含任意使用者定義 JSON 內容。
 
@@ -110,7 +110,7 @@ MediaStorageUsageInMB (READ)|資料庫帳戶的目前媒體儲存體使用情形
 ##資料庫
 DocumentDB 資料庫是一個或多個集合和使用者的邏輯容器，如下圖所示。您可以在 DocumentDB 資料庫帳戶下，根據供應項目限制建立任意數目的資料庫。
 
-![][2]
+![資料庫帳戶和集合階層式模型][2]
 
 **資料庫是使用者和集合的邏輯容器**
 
@@ -225,8 +225,8 @@ DocumentDB 查詢模型嘗試打破功能、效率和簡易性之間的平衡。
 預存程序和觸發程序會透過定義良好的物件模型 (可公開目前集合內容)，以與集合以及集合內的文件互動。
 
 使用 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或任何[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，即可輕鬆地建立、刪除、讀取或列舉 DocumentDB 中的集合。DocumentDB 一律提供讀取或查詢集合之中繼資料的強式一致性。刪除集合會自動確定您無法存取其內所含的任何文件、附件、預存程序、觸發程序和 UDF。
-##預存程序、觸發程序和 UDF
-如上一節所述，您可以撰寫直接在資料庫引擎的交易內執行的應用程式邏輯。應用程式邏輯可以完全以 JavaScript 撰寫，也可以建模為預存程序、觸發程序或 UDF。預存程序或觸發程序內的 JavaScript 程式碼可以在集合內插入、取代、刪除、讀取或查詢文件。另一方面，UDF 內的 JavaScript 只能透過列舉查詢結果集的文件來執行無副作用的運算，並產生另一個結果集。若是多重租用，DocumentDB 會強制執行嚴謹的保留型資源控管。每個預存程序、觸發程序或 UDF 都會取得固定配量的作業系統資源來執行工作。甚至，預存程序、觸發程序或 UDF 無法連結外部 JavaScript 程式庫，因此，如果它們超出配置的資源預算，則會將它們列入黑名單中。您可以使用 REST API 向集合註冊、取消註冊預存程序、觸發程序或 UDF。註冊時，預存程序、觸發程序或 UDF 會預先編譯並儲存為位元組程式碼，以在稍後執行。下節說明如何使用 DocumentDB JavaScript SDK 來註冊、執行和取消註冊預存程序、觸發程序和 UDF。JavaScript SDK 是一個透過 [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 的簡單包裝函式。
+##預存程序、觸發程序和使用者定義函數 (UDF)
+如上一節所述，您可以撰寫直接在資料庫引擎的交易內執行的應用程式邏輯。應用程式邏輯可以完全以 JavaScript 撰寫，也可以建模為預存程序、觸發程序或 UDF。預存程序或觸發程序內的 JavaScript 程式碼可以在集合內插入、取代、刪除、讀取或查詢文件。另一方面，UDF 內的 JavaScript 只能透過列舉查詢結果集的文件來執行無副作用的運算，並產生另一個結果集。若是多重租用，DocumentDB 會強制執行嚴謹的保留型資源控管。每個預存程序、觸發程序或 UDF 都會取得固定配量的作業系統資源來執行工作。甚至，預存程序、觸發程序或 UDF 無法連結外部 JavaScript 程式庫，因此，如果它們超出配置的資源預算，則會將它們列入封鎖清單中。您可以使用 REST API 向集合註冊、取消註冊預存程序、觸發程序或 UDF。註冊時，預存程序、觸發程序或 UDF 會預先編譯並儲存為位元組程式碼，以在稍後執行。下節說明如何使用 DocumentDB JavaScript SDK 來註冊、執行和取消註冊預存程序、觸發程序和 UDF。JavaScript SDK 是一個透過 [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 的簡單包裝函式。
 
 ###註冊預存程序
 透過 HTTP POST 在集合上建立新的預存程序資源，即可註冊預存程序。
@@ -393,7 +393,7 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 
 不論您選擇的特定分區化策略為何，您可以將實際使用者建模為 DocumentDB 資料庫中的使用者，並將微調權限關聯至每個使用者。
 
-![][3]
+![使用者集合][3]
 
 **分區化策略和模型化使用者**
 
@@ -415,4 +415,4 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

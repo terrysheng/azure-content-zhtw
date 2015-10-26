@@ -169,4 +169,4 @@
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

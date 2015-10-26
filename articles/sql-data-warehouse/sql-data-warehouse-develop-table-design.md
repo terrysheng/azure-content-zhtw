@@ -306,4 +306,4 @@ SQL 資料倉儲不使用或支援下列功能：
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

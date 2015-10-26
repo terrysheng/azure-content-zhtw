@@ -174,4 +174,4 @@ YARN 藉由將資源管理從應用程式排程/監視分離，支援多種程�
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

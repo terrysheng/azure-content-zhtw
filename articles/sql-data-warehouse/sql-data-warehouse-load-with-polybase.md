@@ -36,6 +36,9 @@ PolyBase 技術可讓您查詢和聯結多個來源的資料，且完全使用 T
 
 首先，您將建立當 PolyBase 連接到 Azure blob 儲存體和查詢資料時所需要的物件。
 
+> [AZURE.IMPORTANT]PolyBase 所支援的 Azure 儲存體帳戶類型有：+ 標準本地備援儲存體 (標準-LRS) + 標準異地備援儲存體 (標準-GRS) + 標準讀取權限異地備援儲存體 (標準-RAGRS)，PolyBase 並「不」支援標準區域備援儲存體 (標準-ZRS) 和進階本地備援儲存體 (進階-LRS) 帳戶類型。如果您要建立新的 Azure 儲存體帳戶，請確定您從定價層選取 PolyBase 支援的儲存體帳戶類型。
+
+
 ## 建立資料庫主要金鑰
 連接到伺服器上的使用者資料庫來建立資料庫主要金鑰。這個金鑰在下一步用來加密認證密碼。
 
@@ -176,7 +179,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 
 參考主題：[卸除外部資料表 (Transact-SQL)][]。
 
-另外值得注意的是，外部資料表會同時顯示在 `sys.tables` 以及更明顯的 `sys.external_tables` 目錄檢視中。
+另外值得注意的是，外部資料表會同時顯示在 `sys.tables` 以及更明確的 `sys.external_tables` 目錄檢視中。
 
 ## 替換儲存體金鑰
 
@@ -208,7 +211,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]外部資料表上的查詢可能會失敗，並顯示「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」錯誤。這表示您的外部資料包含「錯誤」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
+> [AZURE.NOTE]外部資料表上的查詢可能會失敗，並顯示*「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」*錯誤。這表示您的外部資料包含*錯誤*記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
 
 
 ## 從 Azure blob 儲存體載入資料
@@ -325,4 +328,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

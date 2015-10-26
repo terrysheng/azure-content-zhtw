@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -149,17 +149,17 @@ Azure SQL Database V12 伺服器位於資源群組中。
 
 有幾個 PowerShell Cmdlet 和 REST API 命令可用來建立及管理彈性集區。如需詳細資訊和程式碼範例，請參閱[使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-powershell.md)和[使用 C# 建立和管理 SQL Database](sql-database-client-library.md)。
 
-
+> [AZURE.IMPORTANT]從 Azure PowerShell 1.0 Preview 起，不再提供 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) (英文)。
 
 | [PowerShell Cmdlet](https://msdn.microsoft.com/library/mt163521.aspx) | [REST API 命令](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| [New-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125987.aspx) | [建立彈性資料庫集區](https://msdn.microsoft.com/library/mt163596.aspx) |
-| [Set-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125994.aspx) | [設定彈性資料庫集區的效能設定](https://msdn.microsoft.com/library/mt163641.aspx) |
-| [Remove-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125830.aspx) | [刪除彈性資料庫集區](https://msdn.microsoft.com/library/mt163672.aspx) |
-| [Get-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [取得彈性資料庫集區及其屬性值](https://msdn.microsoft.com/zh-TW/library/mt163646.aspx) |
-| [Get-AzureSqlElasticPoolActivity](https://msdn.microsoft.com/library/mt125837.aspx) | [取得彈性資料庫集區作業的狀態](https://msdn.microsoft.com/library/mt163669.aspx) |
-| [Get-AzureSqlElasticPoolDatabase](https://msdn.microsoft.com/library/mt125960.aspx) | [取得彈性資料庫集區中的資料庫](https://msdn.microsoft.com/library/mt163646.aspx) |
-| [Get-AzureSqlElasticPoolDatabaseActivity](https://msdn.microsoft.com/library/mt125973.aspx) | [取得將資料庫移入和移出集區的狀態](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [New-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [建立彈性資料庫集區](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) | [設定彈性資料庫集區的效能設定](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619355.aspx) | [刪除彈性資料庫集區](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [取得彈性資料庫集區及其屬性值](https://msdn.microsoft.com/zh-TW/library/mt163646.aspx) |
+| [Get-AzureRMSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [取得彈性資料庫集區作業的狀態](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureRMSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [取得彈性資料庫集區中的資料庫](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureRMSqlElasticPoolDatabaseActivity]() | [取得將資料庫移入和移出集區的狀態](https://msdn.microsoft.com/library/mt163669.aspx) |
 
 ## Transact-SQL
 
@@ -199,4 +199,4 @@ Azure SQL Database V12 伺服器位於資源群組中。
 | 40860 | EX_USER | 彈性集區 '%ls' 和服務目標 '%ls' 的組合無效。 | 彈性集區名稱、服務層級目標名稱 | 如果服務目標指定為 'ElasticPool'，才能同時指定彈性集區和服務目標。 | 請指定正確的彈性集區和服務目標組合。 |
 | 40861 | EX_USER | 資料庫版本 '%.*ls' 不能不同於彈性集區服務層版本 '%.*ls'。| 資料庫版本、彈性集區服務層 | 資料庫版本不同於彈性集區服務層。| 請不要指定不同於彈性集區服務層的資料庫版本。請注意，不需要指定資料庫版本。| | 40862 | EX\_USER | 如果已指定彈性集區服務目標，則必須指定彈性集區名稱。| 無 | 彈性集區服務目標未唯一識別彈性集區。| 如果使用彈性集區服務目標，請指定彈性集區名稱。| | 40864 | EX\_USER | 彈性集區的 DTU 對於服務層 '%.*ls' 必須至少是 (%d) DTU。| 彈性集區的 DTU；彈性集區服務層。| 嘗試設定低於最小限制的彈性集區的 DTU。| 請以至少最小限制重試設定彈性集區的 DTU。| | 40865 | EX\_USER | 彈性集區的 DTU 對於服務層 '%.*ls' 不能超過 (%d) DTU。| 彈性集區的 DTU；彈性集區服務層。| 嘗試設定高於最大限制的彈性集區的 DTU。| 請重設彈性集區的 DTU 不大於最大限制。| | 40867 | EX\_USER | 每個資料庫最大 DTU 對於服務層 '%.*ls' 必須至少是 (%d)。| 每個資料庫最大 DTU；彈性集區服務層 | 嘗試設定低於支援限制的每個資料庫最大 DTU。| 請考慮使用支援想要的設定的彈性集區服務層。| | 40868 | EX\_USER | 每個資料庫最大 DTU 對於服務層 '%.*ls' 不能超過 (%d)。| 每個資料庫最大 DTU；彈性集區服務層。| 嘗試設定高於支援限制的每個資料庫最大 DTU。| 請考慮使用支援想要的設定的彈性集區服務層。| | 40870 | EX\_USER | 每個資料庫最小 DTU 對於服務層 '%.*ls' 不能超過 (%d)。| 每個資料庫最小 DTU；彈性集區服務層。| 嘗試設定高於支援限制的每個資料庫最小 DTU。| 請考慮使用支援想要的設定的彈性集區服務層。| | 40873 | EX\_USER | 資料庫數目 (%d) 和每個資料庫最小 DTU (%d) 不能超過彈性集區 (%d) 的 DTU。| 彈性集區中的資料庫數；每個資料庫最小 DTU；彈性集區的 DTU。| 嘗試在彈性集區中指定超過彈性集區 DTU 的資料庫最小 DTU。| 請考慮增加彈性集區的 DTU，或減少每個資料庫最小 DTU，或減少彈性集區中的資料庫數目。| | 40877 | EX\_USER | 無法刪除彈性集區，除非它未包含任何資料庫。| 無 | 彈性集區包含一或多個資料庫，因此無法刪除。| 請從彈性集區中移除資料庫以便刪除彈性集區。| | 40881 | EX\_USER | 彈性集區 '%.*ls' 已達到其資料庫計數限制。對於具有 (%d) DTU 的彈性集區，彈性集區的資料庫計數限制不能超過 (%d)。| 彈性集區的名稱；彈性集區的資料庫計數限制；資源集區的 eDTU。| 當到達彈性集區的資料庫計數限制時，嘗試建立或新增資料庫到彈性集區。| 可行的話，請考慮增加彈性集區的 DTU，以增加其資料庫限制，或從彈性集區中移除資料庫。| | 40889 | EX\_USER | 彈性集區 '%.*ls' 的 DTU 或儲存空間限制不能減少，因為這樣無法為其資料庫提供足夠的儲存空間。| 彈性集區的名稱。| 嘗試減少低於其儲存空間使用量的彈性集區儲存空間限制。| 請考慮減少彈性集區中個別資料庫的儲存空間使用量，或從集區中移除資料庫，以減少其 DTU 或儲存空間限制。| | 40891 | EX\_USER | 每個資料庫最小 DTU (%d) 不能超過每個資料庫最大 DTU (%d)。| 每個資料庫最小 DTU；每個資料庫最大 DTU。| 嘗試設定高於每個資料庫最大 DTU 的每個資料庫最小 DTU。| 請確定每個資料庫最小 DTU 不會超過每個資料庫最大 DTU。| | TBD | EX\_USER | 彈性集區中個別資料庫的儲存空間大小不能超過 '%.*ls' 服務層彈性集區允許的最大大小。| 彈性集區服務層 | 資料庫的最大大小超過彈性集區服務層允許的最大大小。| 請設定彈性集區服務層允許之最大大小限制內的資料庫最大大小。|
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

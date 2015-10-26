@@ -73,4 +73,4 @@
 
 [備份與還原最佳作法 (Azure Blob 儲存體服務)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

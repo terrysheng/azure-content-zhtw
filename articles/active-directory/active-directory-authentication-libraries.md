@@ -63,4 +63,4 @@ ADAL 可用於各種平台上。
 
 [Azure Active Directory 程式碼範例](active-directory-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

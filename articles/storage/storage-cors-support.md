@@ -196,4 +196,4 @@ CORS 規則的評估，如下所示：
 [W3C 跨原始資源共用規格](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

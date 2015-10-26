@@ -123,4 +123,4 @@ ms.author="mahender" />
  [開始使用行動應用程式]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [將驗證新增至您的應用程式]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

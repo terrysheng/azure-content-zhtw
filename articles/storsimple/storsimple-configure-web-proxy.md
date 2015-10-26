@@ -151,4 +151,4 @@ Web Proxy 設定已透過 Windows PowerShell 介面設定，無法從管理入�
 
 - 若要了解如何使用 StorSimple Manager，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

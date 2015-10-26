@@ -40,7 +40,7 @@
 
 4.  若要開啟 [應用程式庫]，按一下 [新增應用程式]，然後按一下 [加入應用程式讓我的組織使用]。
 
-	![您要如何處理？](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "您要如何處理？")
+	![欲執行動作](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "您要如何處理？")
 
 5.  在搜尋方塊中，輸入 **Workday**。
 
@@ -171,4 +171,4 @@
 
 您現在可以移至 [使用者] 區段，並檢查是否已匯入您的 Workday 使用者。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

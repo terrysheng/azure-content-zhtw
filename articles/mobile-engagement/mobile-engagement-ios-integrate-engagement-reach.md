@@ -283,7 +283,7 @@
 	AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 	[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE]每次使用者按一下通知以取得 "my\\\_category" 類別的宣告時，會將您已經註冊的檢視控制器 (在此情況下為 `MyCustomAnnouncementViewController`) 透過呼叫 `initWithAnnouncement:` 方法來初始化，而且會將檢視加入到目前的應用程式視窗。
+> [AZURE.NOTE]每次使用者按一下通知以取得 "my\\_category" 類別的宣告時，會將您已經註冊的檢視控制器 (在此情況下為 `MyCustomAnnouncementViewController`) 透過呼叫 `initWithAnnouncement:` 方法來初始化，而且會將檢視加入到目前的應用程式視窗。
 
 在 `AEAnnouncementViewController` 類別的實作中，您必須讀取 `announcement` 屬性來初始化您的子檢視。請考量以下範例，其中的兩個標籤會使用屬於 `AEReachAnnouncement` 類別的 `title` 和 `body` 屬性來初始化：
 
@@ -416,4 +416,4 @@
 
 	@end
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

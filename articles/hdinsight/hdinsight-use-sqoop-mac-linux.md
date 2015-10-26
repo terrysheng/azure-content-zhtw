@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 HDInsight 上使用 Hadoop Sqoop | Microsoft Azure"
+	pageTitle="在以 Linux 為基礎的 HDInsight 上使用 Hadoop Sqoop | Microsoft Azure"
 	description="了解如何在 HDInsight 叢集上 Linux 架構的 Hadoop 與 Azure SQL Database 之間執行 Sqoop 匯入和匯出。"
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用 (SSH)
@@ -263,4 +263,4 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

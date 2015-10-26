@@ -1,20 +1,20 @@
 
 <properties 
     pageTitle="Azure RemoteApp 中 VNET 的大小調整資訊"
-	description="深入了解使用 VNET 執行之 Azure RemoteApp 的 IP 位址需求"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="深入了解使用 VNET 執行之 Azure RemoteApp 的 IP 位址需求" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -31,4 +31,4 @@
   
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -256,4 +256,4 @@ sendClient.Send(helloMessage);
 
 如需有關服務匯流排驗證的詳細背景資訊，請參閱[服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

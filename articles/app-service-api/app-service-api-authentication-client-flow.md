@@ -227,4 +227,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure Preview 入口網站]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

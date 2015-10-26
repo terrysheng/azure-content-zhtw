@@ -1,20 +1,20 @@
 <properties
    pageTitle="設定 VNet 對 VNet 連接 | Microsoft Azure"
-	description="如何在相同或不同的訂用帳戶或區域中，將 Azure 虛擬網路連接在一起。"
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="如何在相同或不同的訂用帳戶或區域中，將 Azure 虛擬網路連接在一起。"
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""/>
 
 <tags
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc"/>
 
 
 # 在 Azure 入口網站中設定 VNet 對 VNet 連接
@@ -232,4 +232,4 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="從 DocumentDB 來回移動資料 | Azure Data Factory"
-	description="了解如何使用 Azure Data Factory 從 Azure DocumentDB 集合來回移動資料。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="從 DocumentDB 來回移動資料 | Azure Data Factory" 
+	description="了解如何使用 Azure Data Factory 從 Azure DocumentDB 集合來回移動資料。" 
+	services="data-factory, documentdb" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="multiple" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 DocumentDB 來回移動資料
@@ -399,6 +399,21 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 | writeBatchSize | 為了建立文件而傳送到 DocumentDB 服務的平行要求數目。<p>使用這個屬性從 DocumentDB 來回複製資料時，可以微調效能。增加 writeBatchSize 時，您可預期有更好的效能，因為對 DocumentDB 傳送了更多的平行要求。不過，您必須避免可能擲回錯誤訊息的節流：「要求速率很高」。</p><p>節流是由許多因素所決定，包括文件大小、文件中的詞彙數目、目標集合的檢索原則等。對於複製作業，您可以使用更好的集合 (例如 S3) 以取得最多可用輸送量 (2,500 要求單位/秒)。</p> | 整數值 | 否 |
 | writeBatchTimeout | 在逾時前等待作業完成的時間。 | (單位 = 時間範圍) 範例：“00:30:00” (30 分鐘)。 | 否 |
  
- 
+## 附錄
+1. **問：**複製活動支援現有記錄的更新嗎？
 
-<!---HONumber=August15_HO9-->
+	**答：**否。
+
+2. **問：**重試複製 DocumentDB 時，系統如何處理已經複製的記錄？
+
+	**回：**如果記錄有 [識別碼] 欄位，而複製作業嘗試插入具有相同識別碼的記錄，則複製作業會擲回錯誤。
+ 
+3. **問：**資料處理站支援[範圍或雜湊式資料分割](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)嗎？
+
+	**答：**否。 
+4. **問：**我可以為單一資料表指定多個 DocumentDB 集合嗎？
+	
+	**回：**否。目前只能指定一個集合。
+     
+
+<!---HONumber=Oct15_HO3-->

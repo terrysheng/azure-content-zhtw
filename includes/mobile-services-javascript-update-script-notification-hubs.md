@@ -31,4 +31,4 @@
 
 	這個 insert 指令碼會在插入成功後，傳送推播通知 (含所插入項目的文字) 給 Windows 市集應用程式註冊。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="在 Azure 中，什麼是雲端服務模型和封裝？"
+    pageTitle="什麼是雲端服務模型和封裝 | Microsoft Azure"
     description="說明 Azure 中的雲端服務模型 (.csdef、.cscfg) 和封裝 (.cspkg)"
     services="cloud-services"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
 # 什麼是雲端服務模型？如何封裝？
@@ -251,11 +251,7 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 
 我打算建立雲端服務封裝，而且我想要...
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
--->
-
+* [設定本機儲存體資源](cloud-services-configure-local-storage-resources.md)
 * [設定雲端服務執行個體的遠端桌面][remotedesktop]
 * [部署雲端服務專案][deploy]
 
@@ -269,9 +265,9 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/zh-TW/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/zh-TW/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/zh-TW/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

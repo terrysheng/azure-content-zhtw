@@ -109,4 +109,4 @@
 - [備份 Azure 虛擬機器](backup-azure-vms-introduction.md)
 - [備份 Microsoft 工作負載](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

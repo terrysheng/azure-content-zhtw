@@ -115,4 +115,4 @@
 [Python Azure 儲存體封裝]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

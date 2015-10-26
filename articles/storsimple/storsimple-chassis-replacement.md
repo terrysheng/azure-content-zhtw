@@ -1,19 +1,19 @@
 <properties 
    pageTitle="更換 StorSimple 裝置上的底座 | Microsoft Azure"
-	description="描述如何取下並更換 StorSimple 主要裝置或 EBOD 機箱上的底座。"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="描述如何取下並更換 StorSimple 主要裝置或 EBOD 機箱上的底座。"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # 更換 StorSimple 裝置上的底座
 
@@ -63,4 +63,4 @@
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

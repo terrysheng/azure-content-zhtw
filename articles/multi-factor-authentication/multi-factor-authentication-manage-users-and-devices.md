@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 報告"
-	description="說明如何變更使用者設定，如強迫使用者重複 proof-up 程序。"
-	documentationCenter=""
-	services="multi-factor-authentication"
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication 報告" 
+	description="說明如何變更使用者設定，如強迫使用者重複 proof-up 程序。" 
+	documentationCenter="" 
+	services="multi-factor-authentication" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # 管理雲端中 Azure Multi-Factor Authentication 的使用者設定
@@ -80,4 +80,4 @@
 <li>在頂端按一下 [使用者]。</li>
 <li>在頁面底部，按一下 [管理 Multi-Factor Auth]。這會開啟 Multi-Factor Authentication 頁面。<li>尋找要管理的使用者，並在名稱旁的方塊中打勾。您可能需要在頂端變更檢視。</li> <li>這會在右側顯示 [**管理使用者設定**] 連結。按一下此按鈕。</li> <li>勾選 [還原所有暫停之裝置上的 Multi-Factor Authentication]。</li> ![刪除應用程式密碼](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>按一下 [儲存]。</li> <li>按一下 [關閉]。</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

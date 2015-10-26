@@ -121,4 +121,4 @@ V2.0 端點所簽發的權杖中的宣告與公開上市 Azure AD 端點所簽�
 ## Preview 限制
 在公開預覽期間建置具有 v2.0 應用程式模型的應用程式時，有一些限制要注意。請參閱 [v2.0 應用程式模型限制文件](active-directory-v2-limitations.md)，以了解是否有任何限制適用於您特定的案例。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -204,4 +204,4 @@ PTVS 可以和您現有的 Visual Studio 2013 或 2015 安裝一同運作。如�
 [佇列儲存體]: storage-python-how-to-use-queue-storage.md
 [Blob 儲存體]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

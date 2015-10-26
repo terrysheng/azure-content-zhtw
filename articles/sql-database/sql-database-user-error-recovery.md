@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL Database 使用者錯誤復原"
-	description="了解如何使用 Azure SQL Database 的時間點還原 (PITR) 功能，從使用者錯誤、意外的資料損毀或已刪除的資料庫復原。"
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="SQL Database 使用者錯誤復原" 
+   description="了解如何使用 Azure SQL Database 的時間點還原 (PITR) 功能，從使用者錯誤、意外的資料損毀或已刪除的資料庫復原。" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/23/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="10/08/2015"
+   ms.author="elfish"/>
 
 # 從使用者錯誤復原 Azure SQL Database
 
@@ -44,6 +44,8 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 還原完成後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
 ###PowerShell
 使用 PowerShell 可以程式設計方式執行資料庫還原。
+
+> [AZURE.IMPORTANT]本文包含適用於 Azure PowerShell 版本的命令，適用版本最新至*但不包括*版本 1.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。
 
 若要使用時間點還原來還原資料庫，請使用 [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) Cmdlet。如需詳細的逐步執行，請參閱我們的[作法視訊](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/)。
 
@@ -113,4 +115,4 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 還原完成後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

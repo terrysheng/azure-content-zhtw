@@ -1,20 +1,20 @@
 <properties
    pageTitle="Service Fabric 服務的可用性"
-	description="描述錯誤偵測、容錯移轉、服務復原"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="appi101"
-	manager="timlt"
-	editor=""/>
+   description="描述錯誤偵測、容錯移轉、服務復原"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="appi101"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="aprameyr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="aprameyr"/>
 
 # Service Fabric 服務的可用性
 Service Fabric 服務可能是可設定狀態或無狀態。本文章概述 Service Fabric 如何維護服務失敗時的可用性。
@@ -51,4 +51,4 @@ Service Fabric 服務可能是可設定狀態或無狀態。本文章概述 Serv
 - [定義和管理狀態](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

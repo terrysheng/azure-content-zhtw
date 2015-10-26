@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc" />
 
 # 關於 VPN 閘道
@@ -79,4 +79,4 @@ VPN 閘道的 SKU 有 3 種類型；基本、標準以及高效能。下方資�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

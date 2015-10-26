@@ -53,4 +53,4 @@
 
 若要深入了解 Visual Studio 中的 Azure 角色使用方式，請參閱[搭配使用遠端桌面與 Azure 角色](vs-azure-tools-remote-desktop-roles.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

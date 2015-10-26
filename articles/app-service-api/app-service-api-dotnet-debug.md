@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # 偵錯 Azure App Service 中的 API 應用程式
 
 ## 概觀
 
-在本教學課程中，您將學習如何對 ASP.NET Web API 程式碼進行偵錯，而此程式碼已設定為在 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中的 [API 應用程式](app-service-api-apps-why-best-platform.md)內執行。您會在本機和遠端進行偵錯 (同時程式碼會在 Azure 中執行)。
+在本教學課程中，您會對 ASP.NET Web API 程式碼進行偵錯，而此程式碼已設定為在 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 的 [API 應用程式](app-service-api-apps-why-best-platform.md)內執行。您會在本機執行和在 Azure 中遠端執行程式碼時，對程式碼進行偵錯。
 
 本教學課程會使用您已在此系列的先前教學課程中[建立](app-service-dotnet-create-api-app.md)和[部署](app-service-dotnet-deploy-api-app.md)的 API 應用程式。
 
@@ -132,8 +132,8 @@
 
 ## 後續步驟
 
-在本教學課程中，您已了解如何偵錯 API Apps。如需疑難排解詳細資訊，請參閱[使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)。因為 API 應用程式是具有額外功能 (用於裝載 Web 服務) 的 Web 應用程式，所以您可對 API 應用程式使用您對 Web 應用程式使用的相同偵錯和疑難排解工具。
+在本教學課程中，您已了解如何偵錯 API Apps。
 
- 
+如需疑難排解詳細資訊，請參閱[使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)。因為 API 應用程式是具有額外功能 (用於裝載 Web 服務) 的 Web 應用程式，所以您可對 API 應用程式使用您對 Web 應用程式使用的相同偵錯和疑難排解工具。
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

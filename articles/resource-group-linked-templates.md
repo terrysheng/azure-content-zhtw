@@ -110,4 +110,4 @@
 - [撰寫範本](./resource-group-authoring-templates.md)
 - [部署範本](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -184,4 +184,4 @@ SDK 中的這些窮盡列表 API 不存在於 C#、Java 或 JavaScript Node.js �
 -	[Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

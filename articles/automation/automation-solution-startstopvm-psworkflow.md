@@ -193,4 +193,4 @@ Runbook 將為每部虛擬機器[輸出訊息](automation-runbook-output-and-mes
 - [Azure 自動化中的子 Runbook](automation-child-runbooks.md) 
 - [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

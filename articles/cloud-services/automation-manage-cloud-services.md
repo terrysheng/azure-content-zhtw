@@ -43,4 +43,4 @@ Azure 雲端服務可透過 [Azure PowerShell 工具](https://msdn.microsoft.com
 請參閱 Azure 自動化[入門指南](../automation/automation-create-runbook-from-samples.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

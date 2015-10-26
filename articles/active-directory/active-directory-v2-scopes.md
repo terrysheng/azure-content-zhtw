@@ -116,4 +116,4 @@ Content-Type: application/json
 
 如需有關如何取得及使用重新整理權杖的詳細資訊，請參閱[應用程式模型 v2.0 通訊協定參考](active-directory-v2-protocols.md)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

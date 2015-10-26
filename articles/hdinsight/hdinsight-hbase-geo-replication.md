@@ -311,4 +311,4 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

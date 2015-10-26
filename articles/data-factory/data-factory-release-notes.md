@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/09/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 版本資訊
+請參閱 [Data Factory - .NET API 變更記錄檔](data-factory-api-change-log.md)一文，了解 Data Factory .NET SDK 在特定版本中的變更。
 
 ## Data Factory 07/17/2015 版本的注意事項
 將下列 JSON 變更導入 2015 年 7 月版的 Azure PowerShell。
@@ -81,8 +82,8 @@ Dataset | RelationTableLocation | RelationalTable
 
 請注意：
 
-- **類型**屬性向上移動一個層級，並且設定為 **AzureStorage** (從 **AzureStorageLinkedService** 變更至 **AzureStorage**) 
-- 新 **typeProperties** 元素包含Azure 儲存體連結服務支援的屬性 (在此範例中為 **connectionString**)。  
+- **type** 屬性向上移動一個層級，並且設定為 **AzureStorage** (從 **AzureStorageLinkedService** 變更至 **AzureStorage**) 
+- 新 **typeProperties** 元素包含 Azure 儲存體連結服務支援的屬性 (在此範例中為 **connectionString**)。  
 
 ### 舊資料集 JSON
 	{
@@ -123,7 +124,7 @@ Dataset | RelationTableLocation | RelationalTable
 請注意：
 
 - **type** 屬性向上移動一個層級，且類型名稱 **AzureTableLocation** 已變更為 **AzureTable**。
-- **LinkedServiceName** 向上移動一個層級。 
+- **linkedServiceName** 向上移動一個層級。 
 - **location** 元素目前已移除，且先前在 [**位置**] 區段中指定的類型特定屬性 (例如 **tableName**) 會在新的 [**typeProperties**] 區段中指定。  
 
 ### 舊活動 JSON
@@ -175,7 +176,7 @@ Dataset | RelationTableLocation | RelationalTable
 - 請注意，**transformation** 元素已由新的 **typeProperties** 元素取代。
 
 ## waitOnExternal 元素已移除
-**WaitOnExternal** 元素已由新的 **external** 和 **externalData** 屬性取代。
+**waitOnExternal** 元素已由新的 **external** 和 **externalData** 屬性取代。
 
 ### 舊 JSON
 	{
@@ -237,26 +238,26 @@ Dataset | RelationTableLocation | RelationalTable
 
 請注意：
 
-- **WaitOnExternal** 屬性已從 [**可用性**] 區段移除 
+- **waitOnExternal** 屬性已從 [**可用性**] 區段移除 
 - 新的 **external** 屬性向上移動一個層級，而且對外部資料表設為 **true**。 
-- **waitOnExternal** 元素的屬性 (例如 **retryInterval**) 會加入至 **Policy** 元素中新的 [**externalData**] 區段。
-- **ExternalData** 元素是選擇性元素。 
+- **waitOnExternal** 元素的屬性 (例如 **retryInterval**) 會加入至**Policy** 元素中新的 [**externalData**] 區段。
+- **externalData** 元素是選擇性元素。 
 - 當您使用 **externalData** 元素時，您必須具有設為 **true** 的 **external** 屬性。 
  
 
 ## BlobSink 的新 copyBehavior 屬性
 **BlobSink** 支援的新屬性名為：**copyBehavior**。當來源為 **BlobSource** 或 **FileSystem** 時，這個屬性會定義複製行為。**copyBehavior** 屬性有三種可能值。
 
-**PreserveHierarchy**:: 保留目標資料夾中的檔案階層，亦即，來源資料夾與來源檔案相對路徑以及目標資料夾與目標檔案相對路徑相同。
+**PreserveHierarchy**:: 保留目標資料夾中的檔案階層，亦即，來源檔案到來源資料夾的相對路徑與目標檔案到目標資料夾的相對路徑相同。
 
 
-**FlattenHierarchy**:: 來源資料夾的所有檔案都會在第一層的目標資料夾。目標檔案會有自動產生的名稱。
+**FlattenHierarchy**:: 來源資料夾的所有檔案都會在第一層的目標資料夾中。目標檔案會有自動產生的名稱。
 
 
 **MergeFiles**：將來源資料夾的所有檔案合併為一個檔案。如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。
  
 ## 所有 HDInsight 活動的新 getDebugInfo 屬性
-HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：**getDebugInfo** 屬性。**GetDebugInfo** 屬性是選擇性的元素。當其設定為**失敗**時，只能在執行失敗時下載記錄檔。當其設定為**所有**時，無論執行狀態為何，一律下載記錄檔。當其設定為**無**時，不會下載任何記錄檔。
+HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：**getDebugInfo** 屬性。**getDebugInfo** 屬性是選擇性的元素。該屬性設定為**失敗**時，只能在執行失敗時下載記錄檔。當其設定為**所有**時，無論執行狀態為何，一律下載記錄檔。如果設定為**無**，則不會下載任何記錄檔。
 
   
      
@@ -353,4 +354,4 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

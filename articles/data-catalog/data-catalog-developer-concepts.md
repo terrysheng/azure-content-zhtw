@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 資料目錄開發人員概念"
-	description="Azure 資料目錄概念模型的重要概念簡介，以透過目錄 REST API 的形式公開。"
-	services="data-catalog"
-	documentationCenter=""
-	authors="dvana"
-	manager="mblythe"
-	editor=""
-	tags=""/>
+   description="Azure 資料目錄概念模型的重要概念簡介，以透過目錄 REST API 的形式公開。"
+   services="data-catalog"
+   documentationCenter=""
+   authors="dvana"
+   manager="mblythe"
+   editor=""
+   tags=""/>
 <tags 
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="07/13/2015"
+   ms.author="derrickv"/>
 
 # Azure 資料目錄開發人員概念
 
@@ -258,4 +258,4 @@ Azure 資料目錄使用兩種授權機制：
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

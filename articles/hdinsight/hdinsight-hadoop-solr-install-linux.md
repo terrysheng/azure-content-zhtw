@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Solr | Microsoft Azure"
-	description="了解如何使用 Solr 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Solr。"
+	pageTitle="使用指令碼動作在以 Linux 為基礎的 HDInsight 上安裝 Solr | Microsoft Azure"
+	description="在本主題中，您將學習如何使用指令碼動作在以 Linux 為基礎的 HDInsight Hadoop 叢集上安裝 Solr。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Solr
@@ -294,4 +294,4 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -241,4 +241,4 @@ StorSimple 8600 型同時具有主要機箱和 EBOD 機箱。這需要使用纜�
 
 如果您在開啟或關閉 StorSimple 裝置時發生問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

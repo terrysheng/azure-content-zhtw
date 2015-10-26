@@ -54,4 +54,4 @@ Azure Redis Cache 是一種分散式受管理快取，可提供超快速的資�
 -	[如何設定高階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

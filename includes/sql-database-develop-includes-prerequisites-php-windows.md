@@ -8,7 +8,7 @@
 - [Microsoft Drivers for PHP for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098)
  - `SQLSRV32.EXE` 包含最新版本。
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Microsoft ODBC 驅動程式](https://www.microsoft.com/zh-tw/download/details.aspx?id=36434)
+- [Microsoft ODBC 驅動程式](https://www.microsoft.com/zh-TW/download/details.aspx?id=36434)
 - IIS Express
 - [PHP 5.6 for IIS Express](http://www.microsoft.com/web/downloads/platform.aspx)
  - 使用平台安裝程式下載。
@@ -29,4 +29,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

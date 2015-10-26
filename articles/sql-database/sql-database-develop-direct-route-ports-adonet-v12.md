@@ -120,4 +120,4 @@ SQL Database V11 和 V12 之間的用戶端連線差異是本主題中的重點�
 
 - [如何：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

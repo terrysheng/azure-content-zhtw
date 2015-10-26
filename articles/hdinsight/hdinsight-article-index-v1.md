@@ -133,4 +133,4 @@
 * [解譯錯誤訊息](hdinsight-debug-jobs.md)
 * [在論壇上取得協助](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Service Fabric 服務資訊清單資源"
-	description="如何描述服務資訊清單中的資源"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="如何描述服務資訊清單中的資源"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # 服務資訊清單資源
 
@@ -69,4 +69,4 @@ Service-Fabric 會自動將 HTTP 端點處理為 ACL。
 ```
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

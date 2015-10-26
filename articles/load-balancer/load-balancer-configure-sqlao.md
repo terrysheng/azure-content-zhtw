@@ -67,4 +67,4 @@ SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。可用性�
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

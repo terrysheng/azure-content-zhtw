@@ -673,4 +673,4 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。如果
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # 在 Azure 中部署高可用性的企業營運應用程式
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 本文包含在 Azure 基礎結構服務中，部署包含 SQL Server AlwaysOn 可用性群組之高可用性、內部網路專屬 Web 型企業營運應用程式的逐步指示連結。應用程式會裝載於這些電腦上：
 
@@ -68,4 +69,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

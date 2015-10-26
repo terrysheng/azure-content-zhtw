@@ -14,4 +14,4 @@ Premium 儲存體磁碟類型 | P10 | P20 | P30
 每一磁碟的 IOPS | 500 | 2300 | 5000
 每一磁碟的輸送量 | 每秒 100 MB | 每秒 150 MB | 每秒 200 MB
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

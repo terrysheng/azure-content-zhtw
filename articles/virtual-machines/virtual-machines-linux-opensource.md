@@ -23,7 +23,8 @@
 
 本文件嘗試在一個地方列出 Microsoft 及其合作夥伴針對在 Microsoft Azure 上執行 Linux 虛擬機器及其他開放原始碼運算環境和應用程式而撰寫的所有相關主題。由於 Azure 和開放原始碼運算的世界變動非常迅速，「儘管」在事實上我們應該盡全力持續加入較新的主題並移除過期的主題，但是幾乎可以肯定本文件已過時。如果我們遺漏了什麼，請在註解中讓我們知道，或將提取要求提交至我們的 [Github 儲存機制](https://github.com/Azure/azure-content/)。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文列出與部署模型無關的主題。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## 一般注意事項
 本頁右側的章節均可向下細分。(有些連結可能會出現在多個章節中，因為有些主題可能與一個以上的概念、散發版本或技術相關。) 此外，有幾個描述各種 Linux 選項、映像儲存機制、案例研究的主題，以及如何上傳您自己的自訂映像的主題：
@@ -310,4 +311,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

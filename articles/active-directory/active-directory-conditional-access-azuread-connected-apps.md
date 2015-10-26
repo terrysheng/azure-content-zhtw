@@ -86,4 +86,4 @@ SaaS 應用程式的 Azure 條件式存取已可公開預覽。預覽版本可�
 
 除了設定這個旗標，同盟租用戶 AD FS 執行個體必須設為執行多因素驗證。依照指示在內部部署 Microsoft Azure Multi-Factor Authentication。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

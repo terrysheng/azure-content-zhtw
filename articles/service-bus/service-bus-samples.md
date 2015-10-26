@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="服務匯流排範例"
+   pageTitle="服務匯流排範例概觀 | Microsoft Azure"
    description="分類及描述服務匯流排範例與每個範例的連結。"
    services="service-bus"
    documentationCenter="na"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/08/2015"
    ms.author="sethm" />
 
 # 服務匯流排範例
 
 服務匯流排範例會示範服務匯流排 (雲端服務) 和 Service Bus for Windows Server 中的重要功能。本主題分類及描述可用的範例與每個範例的連結。
 
->[AZURE.NOTE]服務匯流排範例不會與 SDK 一起安裝。若要取得範例，請造訪 [Azure SDK 範例頁面](https://code.msdn.microsoft.com/windowsazure)。
+>[AZURE.NOTE]服務匯流排範例不會與 SDK 一起安裝。若要取得範例，請造訪 [Azure SDK 範例頁面](https://code.msdn.microsoft.com)。
 
 ## 服務匯流排代理傳訊
 
@@ -57,7 +57,7 @@
 |---|---|---|---|
 |[開始使用：使用佇列傳訊](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3)|示範如何使用 Microsoft Azure 服務匯流排傳送和接收來自佇列的訊息。|1\.8|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
 |[開始使用：使用主題傳訊](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5)|示範如何使用 Microsoft Azure 服務匯流排傳送和接收來自包含多個訂用帳戶之主題的訊息。|1\.8|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
-|[開始使用事件中樞](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097)|示範事件中樞的基本功能，例如建立事件中樞、傳送事件到事件中樞、使用事件處理器取用事件。|2\.4|Microsoft Azure 服務匯流排|
+|[開始使用事件中樞](http://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)|示範事件中樞的基本功能，例如建立事件中樞、傳送事件到事件中樞、使用事件處理器取用事件。|2\.4|Microsoft Azure 服務匯流排|
 
 ### 探索功能
 
@@ -65,9 +65,9 @@
 
 |範例名稱|說明|最低需求 SDK 版本|Availability|
 |---|---|---|---|
-|[HTTP 權杖提供者](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-Token-38f2cfc5)|示範利用服務匯流排驗證 HTTP/REST 用戶端的不同方式。|2\.1|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
-|[服務匯流排 HTTP 用戶端](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-client-fe7da74a)|示範如何透過 HTTP/REST 與服務匯流排傳之間送及及接收訊息。|2\.3|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
-|[服務匯流排自動轉送](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Autoforwarding-b9df470b)|示範如何將訊息從佇列、訂用帳戶或無效信件佇列自動轉送到另一個佇列或主題。它也會示範如何透過傳輸佇列將訊息傳送到佇列或主題。|2\.3|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
+|[HTTP 權杖提供者](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5)|示範利用服務匯流排驗證 HTTP/REST 用戶端的不同方式。|2\.1|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
+|[服務匯流排 HTTP 用戶端](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a)|示範如何透過 HTTP/REST 與服務匯流排傳之間送及及接收訊息。|2\.3|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
+|[服務匯流排自動轉送](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b)|示範如何將訊息從佇列、訂用帳戶或無效信件佇列自動轉送到另一個佇列或主題。它也會示範如何透過傳輸佇列將訊息傳送到佇列或主題。|2\.3|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
 |[代理傳訊：WCF 通道工作階段範例](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451)|示範如何透過 Windows Communication Foundation (WCF) 通道使用 Microsoft Azure 服務匯流排。此範例會顯示如何使用 WCF 通道來透過服務匯流排佇列傳送和接收訊息。此範例會顯示透過服務匯流排的工作階段和非工作階段通訊。|1\.8|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
 |[代理傳訊：交易](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e)|示範如何使用交易範圍內的 Microsoft Azure 服務匯流排傳訊功能，確保批次傳訊作業以不可部分完成的方式認可。|1\.8|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
 |[代理傳訊：使用 REST 的管理作業](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88)|示範如何使用 REST 在服務匯流排上執行管理作業。|1\.8|Microsoft Azure 服務匯流排；Service Bus for Windows Server|
@@ -132,4 +132,4 @@
 - [服務匯流排架構](service-bus-architecture.md)
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

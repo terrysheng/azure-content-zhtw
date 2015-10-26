@@ -665,4 +665,4 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

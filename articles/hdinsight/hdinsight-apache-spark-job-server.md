@@ -82,4 +82,4 @@ Azure HDInight 上的 Apache Spark 叢集能封裝 Spark 作業伺服器，使�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

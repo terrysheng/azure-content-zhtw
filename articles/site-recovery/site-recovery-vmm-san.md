@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # 利用 SAN 設定內部部署 VMM 站台之間的保護
@@ -347,7 +347,8 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 	![新增虛擬機器](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
 5. 建立復原計畫之後，它會出現在 [復原計畫] 索引標籤上的清單中。
 6. 在 [復原計畫] 索引標籤上，選取計畫，然後按一下 [測試容錯移轉]。
-7. 在 [確認測試容錯移轉] 頁面上，選取 [無]。請注意，啟用此選項時，容錯移轉複本虛擬機器將不會連線到任何網路。這將會測試虛擬機器是否依照預期執行容錯移轉，但是不會測試您的複寫網路環境。如果您想要執行更完整的測試容錯移轉，請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=522291">測試 MSDN 上的內部部署</a>。
+7. 在 [確認測試容錯移轉] 頁面上，選取 [無]。請注意，啟用此選項時，容錯移轉複本虛擬機器將不會連線到任何網路。這將會測試虛擬機器是否依照預期執行容錯移轉，但是不會測試您的複寫網路環境。請參閱[執行測試容錯移轉](site-recovery-failover.md#run-a-test-failover)中有關如何使用不同網路選項的詳細資訊。
+
 
 	![選取測試網路](./media/site-recovery-vmm-san/SRSAN_TestFailover1.png)
 
@@ -382,4 +383,4 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 如需有關與工作和儀表板互動的詳細資訊，請參閱[作業和監視](http://go.microsoft.com/fwlink/?LinkId=398534)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -136,4 +136,4 @@ Cortana 分析資源庫可讓您只要按一個按鍵，就可以輕鬆地將預
 
 **[帶領我到資源庫 >>](http://gallery.cortanaanalytics.com)**
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

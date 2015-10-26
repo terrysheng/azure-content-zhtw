@@ -27,7 +27,8 @@
 
 這篇文章提供如何使用 PowerShell Cmdlet 在 Azure 中建立 SQL Server 虛擬機器的步驟。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。如果您想用 PowerShell 中的資源管理員來建立 SQL Server 虛擬機器，請參閱下列主題中資源管理員 VM 的一般指示：[使用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 ## 安裝並設定 PowerShell
 
@@ -35,7 +36,7 @@
  
 2. [安裝最新版的 Azure PowerShell Cmdlet](../powershell-install-configure.md/#how-to-install-azure-powershell)。
 
-3. [連接 PowerShell 與您的 Azure 訂用帳戶](../powershell-install-configure.md/#how-to-connect-to-your-subscription)。
+3. [將 PowerShell 與您的 Azure 訂用帳戶連線](../powershell-install-configure.md/#how-to-connect-to-your-subscription)。
 
 ## 決定您的目標 Azure 區域
 
@@ -46,7 +47,7 @@
 		Get-AzureLocation
 		(Get-AzureLocation).Name
 
-2.  找到喜愛的位置後，請設定一個名為 **$dcLocation** 的變數至該區域。
+2.  找到您偏好的位置後，請設定一個名為 **$dcLocation** 的變數至該區域。
 
 		$dcLocation = "<region name>"
 
@@ -65,7 +66,7 @@
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE]如果您需要新的儲存體帳戶，請先使用 AzureStorageAccount 命令建立全部小寫的儲存體帳戶名稱，如下列範例所示：**New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**。
+	>[AZURE.NOTE]如果您需要新的儲存體帳戶，請先使用 AzureStorageAccount 命令建立全部小寫的儲存體帳戶名稱，如下列範例所示：**New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
 
 1. 將目標儲存體帳戶名稱指派至 **$staccount**。接著，使用 **Set-AzureSubscription** 設定訂用帳戶和目前的儲存體帳戶。
 
@@ -78,7 +79,7 @@
 
 		Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
 
-1. 當您找到虛擬機器映像系列時，此系列中可能有多個已發行的映像。使用下列指令碼尋找您所選映像系列中最新發行的虛擬機器映像名稱 (例如 **SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2**)：
+1. 當您找到虛擬機器映像系列時，此系列中可能有多個已發行的映像。使用下列指令碼尋找您所選映像系列中最新發佈的虛擬機器映像名稱 (例如 **SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2**)：
 
 		$family="<ImageFamily value>"
 		$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -173,4 +174,4 @@
 
 除了上述資源，我們也建議您檢閱[在 Azure 虛擬機器中執行 SQL Server 的其他相關主題](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

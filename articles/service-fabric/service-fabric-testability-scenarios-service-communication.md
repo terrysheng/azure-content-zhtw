@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Service Fabric Testability 案例：服務通訊"
-	description="服務之間的通訊是整合 Service Fabric 應用程式的重要環節。本文討論設計考量及測試技巧。"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="vturecek"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Service Fabric Testability 案例：服務通訊" 
+   description="服務之間的通訊是整合 Service Fabric 應用程式的重要環節。本文討論設計考量及測試技巧。" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="vturecek" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="vturecek"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/25/2015"
+   ms.author="vturecek"/>
 
 # Service Fabric Testability 案例：服務通訊
 
@@ -101,4 +101,4 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 [深入了解 Testability 案例](service-fabric-testability-scenarios.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

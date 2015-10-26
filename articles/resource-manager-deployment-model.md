@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/07/2015"
    ms.author="tomfitz"/>
 
 # 了解資源管理員部署和傳統部署
@@ -50,12 +50,16 @@
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - PowerShell 命令會使用 **AzureResourceManager** 模式執行。
+  - 對於早於 1.0 Preview 的 Azure PowerShell 版本，這些命令會堑 **AzureResourceManager** 模式中執行。
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - REST 作業的 [Azure 資源管理員 REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)。
-  - Azure CLI 命令會使用 **arm** 模式執行。
+  - 對於 Azure PowerShell 1.0 Preview，請使用資源管理員版本的命令。這些命令的格式為 *verb-AzureRm*，如下所示。
+
+            PS C:\> Get-AzureRmResourceGroupDeployment
+
+  - 適用於 REST 作業的 [Azure 資源管理員 REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)。
+  - Azure CLI 命令會在 **arm** 模式中執行。
 
             azure config mode arm
 
@@ -77,12 +81,16 @@
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - PowerShell 命令會使用 **AzureServiceManagement** 模式執行 (這是預設模式，因此，如果未特意切換至 AzureResourceManager，您就會執行 AzureServiceManagement 模式)。
+  - 對於早於 1.0 Preview 的 Azure PowerShell 版本，命令會在 **AzureServiceManagement** 模式中執行 (這是預設模式，因此如果未特意切換至 AzureResourceManager，您就會在 AzureServiceManagement 模式中執行)。
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
+  - 對於 Azure PowerShell 1.0 Preview，請使用服務管理版本的命令。這些命令名稱的格式**不是** *verb-AzureRm*，如下所示。
+
+            PS C:\> Get-AzureDeployment
+
   - REST 作業的[服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)。
-  - Azure CLI 命令會使用 **asm** 或預設模式執行。
+  - Azure CLI 命令會在 **asm** 或預設模式中執行。
 - 資源類型的名稱中包括 **(傳統)**。下圖顯示的類型為**儲存體帳戶 (傳統)**。
 
     ![傳統類型](./media/resource-manager-deployment-model/classic-type.png)
@@ -117,7 +125,7 @@
 
 在傳統部署模型中所建立的資源不支援資源管理員作業。在某些情況下，資源管理員命令可以擷取透過傳統部署建立之資源的相關資訊，或可以執行系統管理工作 (例如將傳統資源移至另一個資源群組)，但這些情況下，不應讓您認為該類型支援資源管理員作業。例如，假設您有資源群組，其中包含使用資源管理員和傳統所建立的虛擬機器。如果您執行下列 PowerShell 命令，您會看到所有虛擬機器的：
 
-    PS C:\> Get-AzureResourceGroup -Name ExampleGroup
+    PS C:\> Get-AzureRmResourceGroup -Name ExampleGroup
     ...
     Resources :
      Name                 Type                                          Location
@@ -155,7 +163,7 @@
 
 ## 後續步驟
 
-- 若要了解如何建立宣告式部署，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
+- 若要了解如何建立宣告式部署範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要查看部署範本的命令，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

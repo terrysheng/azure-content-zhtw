@@ -38,9 +38,9 @@
 
     ![新增應用程式](./media/active-directory-saas-overdrive-books-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [您要如何處理] 對話方塊中，按一下 [從組件庫中新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從組件庫新增應用程式]。
 
-    ![從組件庫中新增應用程式](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "從組件庫中新增應用程式")
+    ![從組件庫新增應用程式](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "從組件庫新增應用程式")
 
 6.  在**搜尋方塊**中輸入 **OverDrive**。
 
@@ -94,10 +94,10 @@
 
     ![指派使用者](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
 
     ![是](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "是")
   
-如果您想要測試您的單一登入設定，請開啟 [存取面板]。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
+如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

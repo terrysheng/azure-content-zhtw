@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="使用 .net SDK 自動化 DNS 和記錄集作業 | Microsoft Azure"
-	description="使用 .NET SDK 自動化 Azure DNS 的所有 DNS 作業。"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="使用 .net SDK 自動化 DNS 和記錄集作業 | Microsoft Azure" 
+   description="使用 .NET SDK 自動化 Azure DNS 的所有 DNS 作業。" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/20/2015"
+   ms.author="joaoma"/>
 # 使用 .NET SDK 建立 DNS 區域和記錄集
 您可以使用 DNS SDK 搭配 .NET DNS 管理程式庫，以自動化作業來建立、刪除或更新 DNS 區域、記錄集和記錄。[這裡](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)提供完整的 Visual Studio 專案。
 
@@ -108,4 +108,4 @@ Zones 和 RecordSets 集合分別能夠取得區域和記錄集。RecordSets 依
 
 [Visual Studio SDK 範例專案](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

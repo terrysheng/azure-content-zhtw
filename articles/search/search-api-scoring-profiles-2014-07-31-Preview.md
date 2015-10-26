@@ -134,8 +134,8 @@
 <table style="font-size:12">
 <thead>
 <tr><td>項目</td><td>描述</td></tr></thead>
-<tbody 
-<tr> <td><b>權數</b></td> 
+<tbody
+<tr> <td><b>權數</b></td>
 <td>
 指定將相對權數指派給欄位的名稱值組。在[範例](#bkmk_ex) 中，albumTitle、內容類型和 artistName 欄位分別會提升 1、5 和 null。為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex` 中的 ’genre')，則相對加權可能需要較大的變異數。例如，在 `musicstoreindex` 中，'rock' 不僅以類型的形式出現，也出現在相同措詞的類型說明中。如果您要讓類型的權數高於類型說明，則類型欄位需要更高的相對權數。
 </td>
@@ -323,4 +323,4 @@ ________________________________________
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

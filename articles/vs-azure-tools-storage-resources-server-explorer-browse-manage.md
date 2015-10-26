@@ -316,4 +316,4 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
 
 若要了解如何使用 Azure 儲存體服務的詳細資訊，請參閱[存取 Azure 儲存體服務](https://msdn.microsoft.com/library/azure/ee405490.aspx)。
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

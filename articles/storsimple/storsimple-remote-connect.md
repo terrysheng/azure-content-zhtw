@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # 遠端連接至 StorSimple 裝置
@@ -25,7 +25,7 @@
 
 本教學課程說明如何設定您的裝置以進行遠端管理，以及如何連線到 Windows PowerShell for StorSimple。您可以透過 Windows PowerShell 遠端使用 HTTP 或 HTTPS 進行連線。不過，當您決定如何連線到 Windows PowerShell for StorSimple 時，請考慮下列事項：
 
-- 直接連線至裝置序列主控台是安全的，但透過網路交換器連線至序列主控台則不是。透過網路交換器連線至裝置序列主控台時，請務必注意安全性風險。 
+- 直接連線至裝置序列主控台是安全的，但透過網路交換器連線至序列主控台則否。透過網路交換器連線至裝置序列主控台時，請務必注意安全性風險。 
 
 - 透過 HTTP 工作階段連線的安全性，比在網路上透過序列主控台連線更高。雖然這不是最安全的方法，但在受信任的網路上是可接受的做法。
 
@@ -234,7 +234,7 @@
 
 從您要建立遠端 Windows PowerShell 連線的電腦上執行下列程序。
 
-### 使用 Windows PowerShell 和 SSL進入 SSAdmin 工作階段
+#### 使用 Windows PowerShell 和 SSL進入 SSAdmin 工作階段
 
 1. 以系統管理員的身分開啟 Windows PowerShell工作階段。
 
@@ -256,7 +256,7 @@
 
      `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
-    Cmdlet 中的 CN 名稱請提供 *<serial number of target device>*。此序號已對應至您的遠端主機上主機檔案中 DATA 0 的 IP 位址，例如下圖所示的 **SHX0991003G44MT**。
+    請為 Cmdlet 中的 CN 名稱提供 <*目標裝置的序號*>。此序號已對應至您的遠端主機上主機檔案中 DATA 0 的 IP 位址，如下圖所示的 **SHX0991003G44MT**。
 
 5. 輸入：
 
@@ -268,8 +268,8 @@
 
 ## 後續步驟
 
-- 深入了解[如何使用 Windows PowerShell 管理 StorSimple 裝置](storsimple-windows-powershell-administration.md)。
+- 深入了解[使用 Windows PowerShell 來管理您的 StorSimple 裝置](storsimple-windows-powershell-administration.md)。
 
-- 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+- 深入了解[使用 StorSimple Manager 服務來管理您的 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

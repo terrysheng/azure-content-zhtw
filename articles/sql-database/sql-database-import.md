@@ -1,6 +1,6 @@
 <properties
-	pageTitle="將 BACPAC 匯入 Azure SQL Database"
-	description="將 BACPAC 匯入 Azure SQL Database"
+	pageTitle="匯入 BACPAC 檔案以建立新的 Azure SQL Database"
+	description="匯入現有的 BACPAC 檔案以建立新的 Azure SQL Database。"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,14 +10,15 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="10/13/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# 將 BACPAC 匯入 SQL Database
+# 匯入 BACPAC 檔案以建立新的 Azure SQL Database
+
 
 **單一資料庫**
 
@@ -25,11 +26,11 @@
 - [Azure Preview Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-本文說明如何使用 [Azure Preview 入口網站](https://portal.azure.com)，以匯入 BACPAC 的方式來建立 SQL Database。
+本文提供使用 [Azure Preview 入口網站](https://portal.azure.com) 自 BACPAC 檔案建立新的 Azure SQL Database 的說明。
 
 BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需詳細資訊，請參閱[資料層應用程式](https://msdn.microsoft.com/library/ee210546.aspx)中的備份封裝 (.bacpac)。
 
-資料庫是透過由 Azure 儲存體 Blob 容器匯入的 BACPAC 來建立。如果您的 Azure 儲存體沒有 .bacpac 檔案，可依照[建立和匯出 Azure SQL Database 的 BACPAC](sql-database-backup.md) 中的步驟，加以建立。
+資料庫是透過由 Azure 儲存體 Blob 容器匯入的 BACPAC 來建立。如果您的 Azure 儲存體沒有 .bacpac 檔案，可依照[建立和匯出 Azure SQL Database 的 BACPAC](sql-database-export.md) 中的步驟，加以建立。
 
 
 > [AZURE.NOTE]Azure SQL Database 會自動為每個使用者資料庫建立並維護可供還原的備份。如需詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
@@ -109,4 +110,4 @@ BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需�
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

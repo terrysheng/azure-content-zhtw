@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Azure DNS 概觀 | Microsoft Azure"
-	description="Microsoft Azure 上的 Azure DNS 主機服務和開始將網域裝載於 Microsoft Azure 的概觀"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="Azure DNS 概觀 | Microsoft Azure" 
+   description="Microsoft Azure 上的 Azure DNS 主機服務和開始將網域裝載於 Microsoft Azure 的概觀" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/12/2015"
+   ms.author="joaoma"/>
 
 # Azure DNS 概觀
 
@@ -40,4 +40,4 @@ Azure DNS 中的 DNS 網域裝載於 Azure 的 DNS 名稱伺服器全球網路�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

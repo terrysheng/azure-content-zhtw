@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -276,10 +276,9 @@
 7. 執行完整同步處理：在 [連接器] 索引標籤上，以滑鼠右鍵按一下 [SourceAD]，然後依序按一下 [執行]、 [完整同步處理] 及 [確定]。
 
 
+## 後續步驟
+深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)組態。
 
-## 其他資源
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-* [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
-* [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -16,9 +16,10 @@
  ms.date="08/25/2015"
  ms.author="rasquill"/>
 #管理虛擬機器擴充功能
+
 描述如何尋找、加入、修改或移除 Azure 上之 Windows 或 Linux 虛擬機器的 VM 擴充功能。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何使用傳統部署模型來管理延伸模組。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型
 
 
 ##使用 VM 擴充功能
@@ -141,4 +142,4 @@ Azure VM 延伸模組是 (如需所支援功能的完整延伸模組清單，請
 
 >[AZURE.NOTE]擴充功能也可以使用 JSON 所定義的組態。使用這些類型的延伸模組時，只會使用 **SampleConfig** 元素。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

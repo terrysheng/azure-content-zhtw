@@ -71,4 +71,4 @@ Azure AD Join 的目標對象是雲端優先/僅限雲端的企業 (通常是不
 * [了解適用於 Azure AD Join 的使用案例和部署考量](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

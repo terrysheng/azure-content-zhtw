@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="msolhab;bradsev"/>
+	ms.author="msolhab;bradsev" />
 
 
 # 準備機器學習的資料
@@ -104,4 +104,4 @@ Azure Machine Learning 會取用正確格式的表格式資料。如果資料已
 >_Data Mining: Concepts and Techniques_ (資料採礦：觀念與技術)，第三版，Morgan Kaufmann，2011，Jiawei Han、Micheline Kamber 及 Jian Pei
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -150,4 +150,4 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 請參閱[建立使用服務匯流排主題和訂用帳戶的應用程式](service-bus-create-topics-subscriptions.md)，了解如何在 POS 零售案例中使用佇列。
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

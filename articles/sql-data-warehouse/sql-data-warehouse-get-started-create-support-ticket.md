@@ -84,4 +84,4 @@
 [堆疊溢位]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 資料倉儲 MSDN 論壇上]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

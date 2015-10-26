@@ -73,4 +73,4 @@ function insert(item, user, request) {
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

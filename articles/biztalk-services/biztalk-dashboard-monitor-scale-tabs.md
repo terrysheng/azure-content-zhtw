@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="BizTalk 服務中的儀表板、監視、調整、設定和混合式連線 | Microsoft Azure"
-	description="深入了解控制項，以及在 BizTalk 服務中的 [管理入口網站] 索引標籤上監視效能：儀表板、監視、調整、設定和混合式連線。MABS，WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="BizTalk 服務中的儀表板、監視、調整、設定和混合式連線 | Microsoft Azure" 
+	description="深入了解控制項，以及在 BizTalk 服務中的 [管理入口網站] 索引標籤上監視效能：儀表板、監視、調整、設定和混合式連線。MABS，WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -242,10 +242,10 @@
 4. 選取勾選記號以回到 [**監視**] 索引標籤。
 5. 選取度量旁邊的圓圈，將該度量的值顯示在圖表中。
 
-	例如，**CPU 使用量**度量呈現灰色；其輸出未在圖表中顯示：  
-![CPU 使用量度量呈現灰色][GrayedMetric]  
+	例如，[CPU 使用率] 度量呈現灰色，其輸出不會出現在圖表中：  
+![CPU 使用量度量呈現灰色][GrayedMetric]
 
-	選取灰色圓圈，讓 **CPU 使用量**度量的輸出顯示在圖表中：  
+	選取灰色的圓圈以啟用 [CPU 使用率] 度量，將其輸出顯示在圖表中：
 ![CPU 使用量度量已啟用][EnabledMetric]
 
 6. 若要從顯示圖表和清單中移除度量，請選取工作列中的 [**移除度量**]。若要將度量加回到清單中，請選取工作列的 [加入度量]，勾選度量，然後選取勾選記號以回到 [監視] 索引標籤。選取灰色圓圈以啟用度量。
@@ -365,4 +365,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

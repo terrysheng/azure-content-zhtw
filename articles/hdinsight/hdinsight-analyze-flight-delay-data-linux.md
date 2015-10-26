@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="在 HDInsight 上使用 Hadoop 分析航班延誤資料 | Microsoft Azure" 
-	description="了解如何使用一個 Windows PowerShell 指令碼部署 HDInsight 叢集、執行 Hive 工作、執行 Sqool 工作和刪除叢集。" 
+	pageTitle="在以 Linux 為基礎的 HDInsight 上使用 Hive 分析航班延誤資料 | Microsoft Azure" 
+	description="了解如何在以 Linux 為基礎的 HDInsight 上使用 Hive 分析航班資料，然後使用 Sqoop 將資料匯出至 SQL Database。" 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/09/2015" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 上使用 Hadoop 分析航班延誤資料
@@ -305,4 +305,4 @@
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

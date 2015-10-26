@@ -214,4 +214,4 @@ Azure 應用程式服務提供內建的驗證服務，可實作 [OAuth 2.0](#oau
 
 * [在行動應用程式中取得存取權杖和呼叫 SharePoint API](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="服務匯流排配額"
-   description="服務匯流排限制和配額。"
+   pageTitle="Microsoft Azure 服務匯流排配額和限制 | Microsoft Azure"
+   description="Azure 服務匯流排限制和配額"
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"
@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
+   ms.workload="na"
+   ms.date="10/14/2015"
    ms.author="sethm" />
 
 # 服務匯流排配額
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

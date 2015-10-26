@@ -94,4 +94,4 @@
 - [建立您的第一個 Azure SQL Database](sql-database-get-started.md)
 - [Entity Framework 6 在此處，EF 7 在 GitHub 上](http://entityframework.codeplex.com/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

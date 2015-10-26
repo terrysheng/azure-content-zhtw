@@ -111,4 +111,4 @@ RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE �
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

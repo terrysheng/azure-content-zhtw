@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="ASP.NET 5 的 Application Insights"
-	description="監視 Web 應用程式的可用性、效能和使用方式。"
-	services="application-insights"
-	documentationCenter=".net"
-	authors="alancameronwills"
+	pageTitle="ASP.NET 5 的 Application Insights" 
+	description="監視 Web 應用程式的可用性、效能和使用方式。" 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="alancameronwills" 
 	manager="ronmart"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/27/2015" 
 	ms.author="awills"/>
 
 # ASP.NET 5 的 Application Insights
@@ -172,7 +172,7 @@ Visual Studio Application Insights 可讓您監視 Web 應用程式的可用性�
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

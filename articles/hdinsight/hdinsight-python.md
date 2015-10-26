@@ -326,4 +326,4 @@ Pig|/PigPython/stderr<p>/PigPython/stdout
 
 * 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

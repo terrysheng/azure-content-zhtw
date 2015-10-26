@@ -40,4 +40,4 @@
 
 如需 Azure AD 授權問題和最佳作法的一般概觀，請參閱[什麼是 Azure Active Directory 授權？](active-directory-licensing-what-is.md)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

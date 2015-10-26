@@ -106,8 +106,8 @@ Application Insights 元件參與者 | 可以編輯 Application Insights 資源�
 [account]: https://account.microsoft.com
 [group]: ../azure-preview-portal-using-resource-groups.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # 有關 Azure 虛擬機器的磁碟和 VHD
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括了解以資源管理員部署模型，和以傳統部署模型建立的資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 當您在 Azure 中建立虛擬機器時，所有虛擬機器都會設定成至少有兩個磁碟 – 一個是系統磁碟，另一個是暫存本機磁碟 (又稱資源磁碟)。作業系統磁碟是由映像建立，且作業系統磁碟與該映像，實際上都是儲存在 Azure 儲存體帳戶的虛擬硬碟 (VHD)。虛擬機器也可以有資料磁碟，而這些磁碟也以 VHD 儲存。
 
@@ -67,4 +68,4 @@ Windows 虛擬機器：
 -  [擷取 Windows 虛擬機器](virtual-machines-capture-image-windows-server.md)
 -  [中斷連結磁碟](storage-windows-detach-disk.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

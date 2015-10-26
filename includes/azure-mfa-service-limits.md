@@ -13,4 +13,4 @@ MFA 呼叫期間允許 **X** 次嘗試|1|99
 
 <sup>1</sup>預期未來會增加。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

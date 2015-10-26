@@ -1,10 +1,10 @@
 <properties
- pageTitle="比較 Azure IoT 中樞與事件中樞 |Microsoft Azure"
- description="IoT 中樞與事件中樞的比較。"
+ pageTitle="比較 Azure IoT 中樞與 Azure 事件中樞 |Microsoft Azure"
+ description="透過反白顯示功能差異和使用案例來比較 Azure IoT 中樞和 Azure 事件中樞服務。"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -49,4 +49,4 @@ Azure IoT 中心的主要使用案例之一是從裝置收集遙測。基於這�
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [何謂 Azure IoT 中心？]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

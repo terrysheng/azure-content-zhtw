@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="支援的瀏覽器和裝置"
-	description=""
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	manager="lwelicki"
+	pageTitle="支援的瀏覽器和裝置" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="flanakin" 
+	manager="lwelicki" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/23/2015" 
 	ms.author="micflan"/>
 
 #支援的瀏覽器和裝置
@@ -33,4 +34,4 @@ Microsoft Azure 入口網站可在所有最新的桌上型電腦和平板電腦�
 
 *不支援 Safari 6 和之前的版本。如果您使用的是 OS X，您可以使用 Chrome、Firefox，或升級至 OS X Mavericks 以取得 Safari 7。*
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

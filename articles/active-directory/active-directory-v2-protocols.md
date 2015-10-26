@@ -475,4 +475,4 @@ v2.0 應用程式模型預覽版目前不支援這個流程。若要查看其在
 
 v2.0 應用程式模型預覽版目前不支援這個流程。若要查看其在正式運作之 Azure AD 服務中的運作方式，請參閱[這個 Azure AD 程式碼範例](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

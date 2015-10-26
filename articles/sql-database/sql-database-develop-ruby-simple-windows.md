@@ -131,4 +131,4 @@ Ruby 範例依賴 `AdventureWorks` 範例資料庫。如果您還沒有 `Adventu
     puts row
     end
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

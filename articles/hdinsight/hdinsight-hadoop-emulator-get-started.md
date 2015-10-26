@@ -1,6 +1,7 @@
 <properties
 	pageTitle="開始使用 HDInsight 的 Hadoop 模擬器 |Microsoft Azure"
 	description="使用安裝的模擬器搭配 MapReduce 教學課程和其他範例，深入了解 Hadoop 生態系統。HDInsight Emulator 的運作方式類似 Hadoop 沙箱。"
+	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -497,4 +498,4 @@ HDInsight Emulator 也支援部分 Azure PowerShell Cmdlet。這些 Cmdlet 包�
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

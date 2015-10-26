@@ -70,4 +70,4 @@
 ## 後續步驟
 檢閱[服務定義 XML](https://msdn.microsoft.com/library/azure/ee758711.aspx) 結構描述和[服務組態 XML](https://msdn.microsoft.com/library/azure/ee758710.aspx) 結構描述。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

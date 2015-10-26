@@ -18,9 +18,11 @@
  ms.author="rasquill"/>
 
 #有關虛擬機器代理程式和擴充功能
+
 Azure 虛擬機器代理程式 (VM 代理程式) 用來安裝、設定、管理和執行 Azure 虛擬機器擴充功能 (VM 擴充功能)。VM 擴充功能提供 Microsoft 和其他協力廠商提供的動態功能。代理程式和擴充功能主要是透過管理入口網站來加入，但您也可以在建立 VM 或使用現有的 VM 時使用 [Powershell](../install-configure-powershell.md) Cmdlet 或 [Azure CLI](xplat-install.md) 來加以加入及設定。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文指的是適用於傳統部署模型的部署呼叫。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 
 VM 擴充功能可協助您：
@@ -64,4 +66,4 @@ Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全、輕量級程�
 
 如需這些工作的詳細資訊，請參閱[加入、尋找、更新及移除 Azure VM 延伸模組](virtual-machines-extensions-install.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

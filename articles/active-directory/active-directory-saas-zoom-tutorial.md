@@ -39,13 +39,13 @@
 
     ![新增應用程式](./media/active-directory-saas-zoom-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [您要如何處理] 對話方塊中，按一下 [從資源庫中新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從組件庫新增應用程式]。
 
-    ![從資源庫中新增應用程式](./media/active-directory-saas-zoom-tutorial/IC749322.png "從資源庫中新增應用程式")
+    ![從組件庫新增應用程式](./media/active-directory-saas-zoom-tutorial/IC749322.png "從組件庫新增應用程式")
 
 6.  在**搜尋方塊**中，輸入 **Zoom**。
 
-    ![應用程式資源庫](./media/active-directory-saas-zoom-tutorial/IC784694.png "應用程式資源庫")
+    ![應用程式庫](./media/active-directory-saas-zoom-tutorial/IC784694.png "應用程式資源庫")
 
 7.  在結果窗格中，選取 Zoom，然後按一下 [完成] 以加入應用程式。
 
@@ -135,10 +135,10 @@
 
     ![指派使用者](./media/active-directory-saas-zoom-tutorial/IC784705.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
 
     ![是](./media/active-directory-saas-zoom-tutorial/IC767830.png "是")
   
-如果您想要測試單一登入設定，請開啟 [存取面板]。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
+如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

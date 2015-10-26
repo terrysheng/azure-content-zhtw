@@ -183,4 +183,4 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 如需這個案例的問題和意見，請瀏覽 [Site Recovery 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr/)。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -177,4 +177,4 @@ Cloud App Discovery Endpoint Agent 只會收集上列**代理程式收集的資�
 
 * [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

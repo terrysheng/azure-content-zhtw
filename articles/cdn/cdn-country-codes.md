@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN - 國碼"
-	description="國家 (地區) 篩選功能可使用國碼來定義國家 (地區)，以允許或封鎖該國家 (地區) 對受保護目錄的要求。"
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="CDN - 國碼" 
+	description="國家 (地區) 篩選功能可使用國碼來定義國家 (地區)，以允許或封鎖該國家 (地區) 對受保護目錄的要求。" 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #國碼
@@ -268,4 +268,4 @@
 | ZM | 尚比亞 | |
 | ZW | 辛巴威 | |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

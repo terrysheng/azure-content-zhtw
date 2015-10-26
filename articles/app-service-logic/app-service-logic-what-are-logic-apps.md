@@ -75,4 +75,4 @@ Logic Apps 可讓開發人員設計從觸發程序啟動的工作流程，然後
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

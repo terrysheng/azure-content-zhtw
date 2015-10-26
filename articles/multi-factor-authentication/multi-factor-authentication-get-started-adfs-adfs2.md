@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="搭配 AD FS 2.0 使用 Azure Multi-Factor Authentication Server 保護雲端和內部部署資源"
-	description="這是說明如何開始使用 Azure MFA 和 AD FS 2.0 的 Azure Multi-Factor Authentication 頁面。"
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="搭配 AD FS 2.0 使用 Azure Multi-Factor Authentication Server 保護雲端和內部部署資源" 
+	description="這是說明如何開始使用 Azure MFA 和 AD FS 2.0 的 Azure Multi-Factor Authentication 頁面。" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 # 搭配 AD FS 2.0 使用 Azure Multi-Factor Authentication Server 保護雲端和內部部署資源
 
@@ -57,7 +57,7 @@
 24. 接著，按一下 [公司設定] 圖示，然後選取 [使用者名稱解析] 索引標籤。
 25. 選取 [使用 LDAP 唯一識別碼屬性來比對使用者名稱] 按鈕。
 26. 如果使用者以"domain\\username" 格式將其使用者名稱輸入 ADFS Proxy 登入表單中，伺服器則需能夠在建立 LDAP 查詢時，刪除使用者名稱中的網域。這個動作可透過登錄設定完成。
-27. 開啟登錄編輯程式並移至 64 位元伺服器上的 HKEY\_LOCAL\_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor。如果在 32 位元伺服器上，請拿掉路徑中的 "Wow6432Node"。建立名為 "UsernameCxz\_stripPrefixDomain" 的新 DWORD 登錄機碼，並將值設定為 1。Azure Multi-Factor Authentication 現已保護 ADFS Proxy。確定已將使用者從 Active Directory 匯入伺服器中。如果您想要將內部 IP 位址列入允許清單，以便從這些位置登入網站時不需進行雙因素驗證，請參閱以下「信任的 IP」一節。
+27. 開啟登錄編輯程式並移至 64 位元伺服器上的 HKEY\_LOCAL\_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor。如果在 32 位元伺服器上，請拿掉路徑中的 "Wow6432Node"。建立名為 "UsernameCxz\_stripPrefixDomain" 的新 DWORD 登錄機碼，並將值設定為 1。Azure Multi-Factor Authentication 現已保護 ADFS Proxy。確定已將使用者從 Active Directory 匯入伺服器中。如果您想要將內部 IP 位址列入白名單，以便從這些位置登入網站時不需進行雙因素驗證，請參閱以下「信任的 IP」一節。
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
@@ -76,7 +76,7 @@
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
 8. 按一下 [確定] 按鈕。
 9. 按一下 [原生模組] 索引標籤，然後選取伺服器、ADFS 執行所在的網站 (例如 [預設網站]) 或 ADFS 應用程式 (例如 "adfs" 之下的 "ls")，以在所需的層級啟用 IIS 外掛程式。
-10. 按一下畫面頂端的 [啟用 IIS 驗證] 方塊。Azure Multi-Factor Authentication 現已保護 ADFS。確定已將使用者從 Active Directory 匯入伺服器中。如果您想要將內部 IP 位址列入允許清單，以便從這些位置登入網站時不需進行雙因素驗證，請參閱以下「信任的 IP」一節。
+10. 按一下畫面頂端的 [啟用 IIS 驗證] 方塊。Azure Multi-Factor Authentication 現已保護 ADFS。確定已將使用者從 Active Directory 匯入伺服器中。如果您想要將內部 IP 位址列入白名單，以便從這些位置登入網站時不需進行雙因素驗證，請參閱以下「信任的 IP」一節。
 
 
 ## 信任的 IP
@@ -88,9 +88,9 @@
 1. 在 [IIS 驗證] 區段中，按一下 [信任的 IP] 索引標籤。
 1. 按一下 [新增...] 按鈕。
 1. 當 [新增信任的 IP] 對話方塊出現時，請選取 [單一 IP]、[IP 範圍] 或 [子網路] 選項按鈕。
-1. 輸入應列入允許清單中的 IP 位址、IP 位址範圍或子網路。如果輸入子網路，請選取適當的網路遮罩，然後按一下 [確定] 按鈕。現在已加入信任的 IP。
+1. 輸入應列入白名單中的 IP 位址、IP 位址範圍或子網路。如果輸入子網路，請選取適當的網路遮罩，然後按一下 [確定] 按鈕。現在已加入信任的 IP。
 
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

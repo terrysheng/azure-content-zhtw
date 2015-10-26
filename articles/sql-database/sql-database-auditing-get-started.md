@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="10/08/2015" 
 	ms.author="jeffreyg"/>
  
 # 開始使用 SQL Database 稽核 
@@ -74,7 +74,7 @@ SQL Database 稽核可讓您：
 4. 在 [依事件記錄] 下，按一下 [成功] 和 [失敗] 以記錄所有事件，或選擇個別的事件類別。
 
 
-5. 如果您要設定 SQL Database 的稽核，請按一下 [若要強制執行稽核，按一下這裡...]，並且在 [啟用安全性的存取] 中選取 [必要項]。如果您要設定 SQL Server 的稽核，您有兩個選項：(1) 在步驟 \#6 之後，巡覽此伺服器上的每一個 SQL Database，並套用此步驟，或 (2) [修改連接字串中的伺服器 FDQN](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)。
+5. 如果您要設定 SQL Database 的稽核，請按一下 [若要強制執行稽核，按一下這裡...]，並且在 [啟用安全性的存取] 中選取 [必要項]。如果您要設定 SQL Server 的稽核，您有兩個選項：(1) 在步驟 #6 之後，巡覽此伺服器上的每一個 SQL Database，並套用此步驟，或 (2) [修改連接字串中的伺服器 FDQN](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)。
 
 
 	![][5]
@@ -102,7 +102,7 @@ SQL Database 稽核可讓您：
  
 2.   按一下要稽核的 SQL Database / SQL Server，然後按一下 [稽核與安全性] 索引標籤。
 
-3.   如果您要設定 SQL Database 的稽核，請在 [啟用安全性的存取] 中選取 [必要項]。如果您要設定 SQL Server 的稽核，您有兩個選項：(1) 在步驟 \#7 之後，巡覽此伺服器上的每一個 SQL Database，並套用此步驟，或 (2) [修改連接字串中的伺服器 FDQN](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)。
+3.   如果您要設定 SQL Database 的稽核，請在 [啟用安全性的存取] 中選取 [必要項]。如果您要設定 SQL Server 的稽核，您有兩個選項：(1) 在步驟 #7 之後，巡覽此伺服器上的每一個 SQL Database，並套用此步驟，或 (2) [修改連接字串中的伺服器 FDQN](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)。
 
 4. 在稽核區段中，按一下 [已啟用]。
 
@@ -139,12 +139,15 @@ SQL Database 稽核可讓您：
 4. 返回儲存體 UI 並**重新產生** 「次要存取金鑰」 (為了下一個金鑰重新整理週期做準備)。
   
 ##<a id="subheading-4"></a>自動化
-有數個 PowerShell 指令程式可用來設定 Azure SQL Database 中的稽核。若要存取稽核 Cmdlet，您必須在 [Azure 資源管理員] 模式中執行 PowerShell。
+有數個 PowerShell Cmdlet 可用來設定 Azure SQL Database 中的稽核：
 
-> [AZURE.NOTE][Azure 資源管理員](https://msdn.microsoft.com/library/dn654592.aspx)模組目前為預覽版。它可能沒有如 Azure 模組所提供的相同管理功能。
-
-在 [Azure 資源管理員] 模式中，您可以執行 `Get-Command *AzureSql*` 來列出可用的 Cmdlet。
-
+- [Get-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603731.aspx)
+- [Get-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619329.aspx)
+- [Remove-AzureRMSqlDatabaseAuditing](https://msdn.microsoft.com/library/azure/mt603796.aspx)
+- [Remove-AzureRMSqlServerAuditing](https://msdn.microsoft.com/library/azure/mt603574.aspx)
+- [Set-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603531.aspx)
+- [Set-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603794.aspx)
+- [Use-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619353.aspx)
 
 
 
@@ -182,4 +185,4 @@ SQL Database 稽核可讓您：
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

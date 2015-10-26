@@ -45,4 +45,4 @@ RMS 使用量 | 30 天
 RMS 裝置使用量 | 30 天
 啟用 RMS 的應用程式使用量 | 30 天
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

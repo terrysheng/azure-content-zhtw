@@ -382,4 +382,4 @@
 
 [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

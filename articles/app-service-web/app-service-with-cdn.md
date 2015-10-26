@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="cephalin"/>
 
 # 整合 Azure Web 應用程式與 Azure CDN #
@@ -74,7 +74,7 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 	當發佈完成時，您會在瀏覽器中看到您已發佈的 Web 應用程式。
 
 1. 若要建立 CDN 端點，請登入 [Azure 管理入口網站](http://manage.windowsazure.com/)。
-2. 按一下 [新增] > [應用程式服務] > [CDN] > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
+2. 按一下 [新增] > App Service > CDN > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
 
 	![](media/app-service-with-cdn/7-create-cdn.png)
 
@@ -94,7 +94,7 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 
 	![](media/app-service-with-cdn/11-access-success.png)
 
-1. 接下來，試著存取 ASP.NET 專案中的 **\~/Content/bootstrap.css** 檔案。在瀏覽器視窗中，瀏覽至 **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**。在我的設定中，此 URL 為：
+1. 接下來，試著存取 ASP.NET 專案中的 **~/Content/bootstrap.css** 檔案。在瀏覽器視窗中，瀏覽至 **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**。在我的設定中，此 URL 為：
 
 		http://az673227.vo.msecnd.net/Content/bootstrap.css
 
@@ -444,7 +444,7 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 
 [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
-1. 在 ASP.NET 專案中，開啟 *App_Start\BundleConfig.cs* (其中，您已在每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中加入 CDN URL)，進行下列醒目提示的變更將後援機制加入至預設套件組合：  
+1. 在 ASP.NET 專案中，開啟 *App_Start\BundleConfig.cs* (其中，您已在每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中加入 CDN URL)，並加入下方顯示的 `CdnFallbackExpression` 程式碼，以便將後援功能加入至預設套件組合：  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -558,4 +558,4 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 - [使用 Azure 的 CDN](../cdn-how-to-use.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

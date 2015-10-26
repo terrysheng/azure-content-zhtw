@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/08/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -68,6 +68,8 @@ Polybase 讓查詢 Azure blob 儲存體或 Hadoop 檔案系統 (HDFS) 中的非�
 ## 後續步驟
 了解[資料倉儲工作負載]。若要開始使用，請[佈建]並載入[範例資料]。
 
+>[AZURE.NOTE]我們想要改善這份文件。如果對於「這篇文章很有幫助嗎？」的問題，您選擇回答「否」，則請填寫有關遺漏的內容或如何改善本文的簡短建議。非常感謝！
+
 <!--Image references-->
 
 <!--Article references-->
@@ -79,4 +81,4 @@ Polybase 讓查詢 Azure blob 儲存體或 Hadoop 檔案系統 (HDFS) 中的非�
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

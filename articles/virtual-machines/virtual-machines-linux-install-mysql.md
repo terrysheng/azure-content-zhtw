@@ -23,8 +23,7 @@
 
 本文將示範如何在執行 Linux 的 Azure 虛擬機器上安裝和設定 MySQL
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立資源。
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ##在虛擬機器上安裝 MySQL
@@ -186,4 +185,4 @@
 ###下一步
 按一下[這裡](https://www.mysql.com/)，了解更多 MySQL 使用方式和相關資訊。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

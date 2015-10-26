@@ -1,6 +1,7 @@
 <properties
 	pageTitle="在虛擬網路上佈建 HBase 叢集 | Microsoft Azure"
 	description="開始在 Azure HDInsight 中使用 HBase。了解如何在 Azure 虛擬網路上建立 HDInsight HBase 叢集。"
+	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -9,12 +10,12 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/07/2015"
+   ms.author="jgao"/>
 
 # 在 Azure 虛擬網路上佈建 HBase 叢集
 
@@ -433,4 +434,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "佈建新 HBase 叢集的詳細資料"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用指令碼動作以自訂 HBase 叢集"
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

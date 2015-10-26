@@ -475,4 +475,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md)提交您的意見反應。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

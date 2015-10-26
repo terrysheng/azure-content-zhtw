@@ -1,19 +1,19 @@
 <properties 
    pageTitle="搭配使用遠端桌面與 Azure 角色"
-	description="搭配使用遠端桌面與 Azure 角色"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="搭配使用遠端桌面與 Azure 角色"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # 搭配使用遠端桌面與 Azure 角色
 
@@ -75,4 +75,4 @@
 
 1. 輸入您先前建立的使用者名稱和密碼。您現在已登入遠端工作階段。
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

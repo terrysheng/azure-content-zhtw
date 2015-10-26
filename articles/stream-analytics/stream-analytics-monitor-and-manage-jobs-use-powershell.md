@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -25,26 +25,25 @@
 
 ## 執行 Azure PowerShell Cmdlet 進行串流分析的必要條件
 
-1.	安裝並設定 Azure PowerShell。
+ - 在您的訂閱中建立 Azure 資源群組。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。  
 
-	按照[如何安裝並設定 Azure PowerShell][powershell-install] 的指示安裝 Azure PowerShell。
 
-	若要使用 Azure Active Directory 方法連線到 Azure 訂用帳戶：
-
+ 		# Log in to your Azure account
 		Add-AzureAccount
 
-	若要選取已啟用 Azure 串流分析服務的 Azure 訂用帳戶，請使用下列方法：
+		# Select the Azure subscription you want to use to create the resource group
+		Select-AzureSubscription -SubscriptionName <subscription name>
+ 
+		# Create an Azure resource group	
+			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
-		Select-AzureSubscription
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
 
-2.	設定 Azure 模式。
-
-	安裝 Azure PowerShell 之後，請執行 [Switch-AzureMode][msdn-switch-azuremode] Cmdlet 設定適當的 Azure 模式來存取串流分析的各種 Cmdlet：
-
-		Switch-AzureMode AzureResourceManager
-
-> [AZURE.NOTE]以程式控制方式建立的串流分析工作預設不會啟用監視功能。您可以在 Azure 入口網站中瀏覽到該工作的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用監視，或是按照[Azure 串流分析 - 以程式設計方式監視串流分析工作](stream-analytics-monitor-jobs.md)中的步驟執行，以程式設計方式來啟用。
+> [AZURE.NOTE]以程式控制方式建立的串流分析工作預設不會啟用監視功能。您可以在 Azure 入口網站中瀏覽到該工作的 \[監視\] 頁面，然後按一下 \[啟用\] 按鈕來手動啟用監視，或是按照[Azure 串流分析 - 以程式設計方式監視串流分析工作](stream-analytics-monitor-jobs.md)中的步驟執行，以程式設計方式來啟用。
 
 ## 用於串流分析的 Azure PowerShell Cmdlet
 下表列出可用來監視和管理 Azure 串流分析工作的 Azure PowerShell Cmdlet。
@@ -120,7 +119,7 @@
 
 如果您指定 –Force 參數，並指定現有的輸入名稱，則不經過確認就會取代輸入。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸入 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-input] 一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸入 \(Azure 串流分析\)][msdn-rest-api-create-stream-analytics-input] 一節。
 
 **範例 1**
 
@@ -167,7 +166,7 @@
 
 如果您指定 –Force 參數，並指定現有的輸出名稱，則不經過確認就會取代輸出。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸出 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-output] 一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸出 \(Azure 串流分析\)][msdn-rest-api-create-stream-analytics-output] 一節。
 
 **範例 1**
 
@@ -188,7 +187,7 @@
 
 如果您指定 –Force 參數，並指定現有的轉換名稱，則不經過確認就會取代轉換。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立轉換 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-transformation] 一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立轉換 \(Azure 串流分析\)][msdn-rest-api-create-stream-analytics-transformation] 一節。
 
 **範例 1**
 
@@ -259,7 +258,7 @@
 此 PowerShell 命令會測試 StreamingJob 中 Output 輸出的連接狀態。
 
 ## 取得支援
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟
@@ -288,4 +287,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

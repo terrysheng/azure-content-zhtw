@@ -40,4 +40,4 @@
 - 從來自內部部署檔案系統之純文字檔案讀取資料、使用 GZip 格式加以壓縮並將壓縮的資料寫入到 Azure blob。您可以在此情況下利用壓縮 JSON 屬性定義輸出 Azure Blob 資料集。  
 - 從 Azure blob 讀取 GZIP 壓縮資料，將其解壓縮、使用 BZIP2 將其壓縮，並將結果資料寫入到 Azure blob。您會在此情況下利用設為 GZIP 的壓縮類型定義輸入 Azure Blob 資料集，並利用設為 BZIP2 的壓縮類型定義輸出資料集。   
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

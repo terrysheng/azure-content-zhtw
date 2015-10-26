@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory (AD) B2C 預覽：針對具有 LinkedIn 帳戶的取用者提供註冊和登入
@@ -45,11 +45,11 @@
 ## 將 LinkedIn 設為您目錄中的身分識別提供者
 
 1. [瀏覽至 Azure Preview 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
-2. 在 B2C 功能刀鋒視窗中，按一下 [社交身分識別提供者]。
+2. 在 B2C 功能刀鋒視窗中，按一下 [**身分識別提供者**]。
 3. 按一下刀鋒視窗頂端的 [新增]。
 4. 針對身分識別提供者組態，提供容易辨識的**名稱**。例如，輸入「LI」。
 5. 按一下 [身分識別提供者類型]、選取 [LinkedIn]，然後按一下 [確定]。
 6. 按一下 [設定此身分識別提供者]，然後輸入您先前建立之 LinkedIn 應用程式的 [用戶端識別碼] 與 [用戶端密碼]。
 7. 依序按一下 [確定] 與 [建立]，以儲存您的 LinkedIn 組態。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

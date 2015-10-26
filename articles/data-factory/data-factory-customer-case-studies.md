@@ -48,4 +48,4 @@ Data Factory 是雲端架構資訊管理服務，會自動移動和轉換資料�
 
 [透過雲端機器學習服務尋求更緊密的客戶關係](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -16,4 +16,4 @@
 
 1. 針對可用性群組接聽程式通訊埠 (如稍早在指令碼的 $EndpointPort 參數中指定) 重複上述步驟，並指定適當的規則名稱，例如 [AlwaysOn 接聽程式通訊埠]。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

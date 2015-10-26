@@ -34,7 +34,7 @@
 
 >針對位於區域頂點的記錄集，請使用 "@"做為記錄集名稱 (包括引號)。記錄集的完整名稱就等於區域名稱，在此案例中為 "contoso.com"。
 
-Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。
+Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。請注意 [DNS 標準已棄用 SPF 記錄類型，改用 TXT 記錄類型建立 SPF 記錄](http://tools.ietf.org/html/rfc7208#section-3.1)。
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
@@ -75,7 +75,7 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 
 ## 將記錄加入至記錄集
 
-使用 `azure network dns record-set add-record` 將記錄加入記錄集。
+系統會使用 `azure network dns record-set add-record` 將記錄加入記錄集。
 
 將記錄加入至記錄集的參數，根據記錄集的類型而所有不同。例如，使用 'A' 類型的記錄集時，您只能使用參數 "-a `<IPv4 address>`" 來指定記錄。
 
@@ -239,4 +239,4 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 [開始建立記錄集和記錄](dns-getstarted-create-recordset-cli.md)<BR> [在 DNS 區域上執行作業](dns-operations-dnszones-cli.md)<BR> [使用 .NET SDK 將作業自動化](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

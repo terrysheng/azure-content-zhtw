@@ -1,19 +1,19 @@
 <properties
    pageTitle="設定具名的驗證認證"
-	description="了解如何提供 Visual Studio 可用來向 Azure 驗證要求的認證，以便將應用程式從 Visual Studio 發佈至 Azure，或用來監視現有的雲端服務。"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="了解如何提供 Visual Studio 可用來向 Azure 驗證要求的認證，以便將應用程式從 Visual Studio 發佈至 Azure，或用來監視現有的雲端服務。"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="09/02/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="09/02/2015"
+   ms.author="kempb" />
 
 # 設定具名的驗證認證
 
@@ -71,4 +71,4 @@ Visual Studio 會使用您的訂用帳戶識別碼連同憑證資料做為認證
 
     1. 貼上您剛才建立的 .cer 檔案的完整路徑，然後輸入您指定的密碼。
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

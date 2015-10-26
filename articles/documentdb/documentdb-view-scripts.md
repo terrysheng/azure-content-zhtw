@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="09/02/2015"
 	ms.author="stbaro"/>
 
@@ -106,4 +106,4 @@
 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

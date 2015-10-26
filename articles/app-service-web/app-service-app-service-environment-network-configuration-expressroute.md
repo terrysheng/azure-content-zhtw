@@ -126,4 +126,4 @@ App Service 環境需要下列所有項目，才能正確運作：
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,8 @@
 
 #在 Azure 中的 Linux 虛擬機器上安裝 LAMP 堆疊
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以資源管理員部署模型或傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 LAMP 堆疊由下列不同元素組成：
 
@@ -128,4 +129,4 @@ LAMP 堆疊由下列不同元素組成：
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

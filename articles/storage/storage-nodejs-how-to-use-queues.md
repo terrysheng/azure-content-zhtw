@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="如何使用 Node.js 中的佇列儲存體 | Microsoft Azure"
-	description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Node.js 撰寫。"
-	services="storage"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	pageTitle="如何使用 Node.js 中的佇列儲存體 | Microsoft Azure" 
+	description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Node.js 撰寫。" 
+	services="storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mwasson"/>
 
 
@@ -334,4 +334,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
  [使用 WebMatrix 的網站]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

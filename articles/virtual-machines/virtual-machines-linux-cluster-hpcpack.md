@@ -20,7 +20,8 @@
 
 本文將說明如何使用 Azure PowerShell 指令碼在 Azure 中設定 Microsoft HPC Pack 叢集，其中包含執行 Windows Server 的前端節點和執行 CentOS Linux 散發的數個計算節點。我們來說明了數種可將資料檔案移至 Linux 運算節點的方法。您可以使用這個叢集在 Azure 中執行 Linux HPC 工作負載。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋使用傳統部署模型建立的資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 在較高層級上，下圖顯示您將建立的 HPC Pack 叢集。
 
@@ -312,4 +313,4 @@ HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

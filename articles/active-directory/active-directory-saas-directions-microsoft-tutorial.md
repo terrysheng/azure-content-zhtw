@@ -99,4 +99,4 @@
 
     ![是](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "是")
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

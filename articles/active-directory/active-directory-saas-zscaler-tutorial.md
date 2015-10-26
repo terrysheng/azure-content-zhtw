@@ -40,11 +40,11 @@
 
 5.  在 [您要如何處理] 對話方塊中，按一下 [從資源庫中新增應用程式]。
 
-    ![從資源庫中新增應用程式](./media/active-directory-saas-zscaler-tutorial/IC749322.png "從資源庫中新增應用程式")
+    ![從組件庫新增應用程式](./media/active-directory-saas-zscaler-tutorial/IC749322.png "從組件庫新增應用程式")
 
 6.  在**搜尋方塊**中，輸入 **Zscaler**。
 
-    ![應用程式資源庫](./media/active-directory-saas-zscaler-tutorial/IC769227.png "應用程式資源庫")
+    ![應用程式庫](./media/active-directory-saas-zscaler-tutorial/IC769227.png "應用程式資源庫")
 
 7.  在結果窗格中，選取 Zscaler，然後按一下 [完成] 以新增應用程式。
 
@@ -187,6 +187,6 @@
 
     ![是](./media/active-directory-saas-zscaler-tutorial/IC767830.png "是")
   
-如果您想要測試單一登入設定，請開啟 [存取面板]。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
+如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

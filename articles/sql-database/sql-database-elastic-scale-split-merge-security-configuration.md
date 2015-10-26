@@ -2,6 +2,7 @@
     title="Elastic Scale Security Configurations" 
     pageTitle="Elastic Scale 安全性設定" 
     description="設定加密的 x409 憑證" 
+    metaKeywords="Elastic Database certificates security" 
     services="sql-database" documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
@@ -473,4 +474,4 @@
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

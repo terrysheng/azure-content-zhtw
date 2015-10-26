@@ -3,7 +3,7 @@
         description="在雲端建立檔案共用，並從 Azure VM 或 Linux 上執行的內部部署應用程式掛接檔案共用。"
         services="storage"
         documentationCenter="na"
-        authors="jutang"
+        authors="jasontang501"
         manager="jahogg"
         editor="" />
 
@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="09/28/2015"
+      ms.date="10/06/2015"
       ms.author="jutang;tamram" />
 
 
@@ -22,13 +22,13 @@
 
 Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案共用。檔案儲存體現已公開推出，並同時支援 SMB 3.0 和 SMB 2.1。
 
-您可以使用 Azure 預覽入口網站、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。此外，由於檔案共用為 SMB 共用，因此您可以透過熟悉的標準檔案系統 API 存取它們。
+您可以使用 Azure Preview 入口網站、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。此外，由於檔案共用為 SMB 共用，因此您可以透過熟悉的標準檔案系統 API 存取它們。
 
 在 Azure 中執行的應用程式可以從 Azure 虛擬機器輕鬆地掛接檔案共用。有了最新版本的檔案儲存體後，您也可以從支援 SMB 3.0 的內部部署應用程式掛接檔案共用。
 
 請注意，由於 Linux SMB 用戶端尚未支援加密，因此若要從 Linux 掛接檔案共用，用戶端仍必須與檔案共用位於相同的 Azure 區域。不過，適用於 Linux 的加密支援已列入開發藍圖中，負責 SMB 功能的 Linux 開發人員將著手開發。未來，支援加密功能的 Linux 散發套件也能從任何位置掛接 Azure 檔案共用。
 
-## 應使用哪種 Linux 散發套件 ##
+## 選擇要使用的 Linux 散發套件 ##
 
 在 Azure 中建立 Linux 虛擬機器時，您可以從 Azure 映像庫指定支援 SMB 2.1 或更高版本的 Linux 映像。以下是建議的 Linux 映像清單：
 
@@ -57,9 +57,7 @@ Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
-如需更確切的說明，請參考以下範例。
-
-如果您使用 Azure Marketplace 提供的 Linux 映像 Ubuntu Server 15.04 建立 Azure VM，可以如下所示掛接檔案：
+例如，如果您使用 Linux 映像 Ubuntu Server 15.04 (可從 Azure 映像庫取得) 建立 Azure VM，則可以如下所示掛接檔案：
 
     azureuser@azureconubuntu:~$ sudo apt-get install apt-file
     azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
@@ -85,6 +83,28 @@ Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案
     Filesystem  Size  Used Avail Use% Mounted on
     //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 
+## 管理檔案共用 ##
+
+[Azure Preview 入口網站](https://portal.azure.com/)現在提供可管理 Azure 檔案儲存體的使用者介面。您可以從網路瀏覽器執行下列動作：
+
+- 上傳檔案至檔案共用以及從檔案共用下載檔案。
+- 監視每個檔案共用的實際使用狀況。
+- 調整檔案室共用大小配額。
+- 複製並使用 `net use` 命令以從 Windows 用戶端掛接檔案共用。 
+
+您也可以使用 Linux 的 Azure 跨平台命令列介面 (Azure CLI) 管理檔案共用。Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 儲存體上，包括檔案儲存體。它提供許多與 Azure 入口網站相同的功能，以及豐富的資料存取功能。如需範例，請參閱[使用 Azure CLI 搭配 Azure 儲存體](storage-azure-cli.md)。
+
+## 使用檔案儲存體開發 ##
+
+身為開發人員，您可以使用 [Azure Storage Client Library for Java](https://github.com/azure/azure-storage-java) 建立具有檔案儲存體的應用程式。如需程式碼範例，請參閱[如何使用 Java 的檔案儲存體](storage-java-how-to-use-file-storage.md)。
+
+您也可以使用 [Azure Storage Client Library for Node.js](https://github.com/Azure/azure-storage-node) 針對檔案儲存體進行開發。
+
+## 意見反應和詳細資訊 ##
+
+Linux 使用者，歡迎您提供相關資訊！
+
+Linux 使用者群組的 Azure 檔案儲存體提供論壇，讓您在 Linux 上評估並採用檔案儲存體的同時分享意見。請寄電子郵件至 [Azure 檔案儲存體 Linux 使用者](mailto:azurefileslinuxusers@microsoft.com)加入使用者的群組。
 
 ## 後續步驟
 
@@ -110,4 +130,4 @@ Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

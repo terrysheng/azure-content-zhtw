@@ -171,7 +171,7 @@ Azure 虛擬機器是使用您提供的映像或映像庫中的虛擬機器映�
 
 您可以使用 `vm create` 命令從可用的映象檔之一佈建並啟動虛擬機器。下列範例顯示如何從映像庫中的映像 (CentOS 6.2) 建立 Linux 虛擬機器 (名為 `myVM`)。虛擬機器的根使用者名稱和密碼分別是 `myusername` 和 `Mypassw0rd`。(請注意，`--location` 參數指定要建立虛擬機器的資料中心。如果省略 `--location` 參數，此命令會提示您選擇位置)。
 
-	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-zh-tw-30GB.vhd myusername --location "West US"
+	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-zh-TW-30GB.vhd myusername --location "West US"
 
 您可以選擇將 `--ssh` 旗標 (Linux) 或 `--rdp` 旗標 (Windows) 傳給 `vm create`，以允許從遠端連線至新建立的虛擬機器。
 
@@ -220,4 +220,4 @@ Azure 虛擬機器是使用您提供的映像或映像庫中的虛擬機器映�
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

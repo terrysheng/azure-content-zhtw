@@ -62,4 +62,4 @@ API 管理中的 API 代表可供用戶端應用程式叫用的一組作業。�
 [如何匯入具有作業之 API 的定義]: api-management-howto-import-api.md
 [如何建立和設定進階產品設定]: api-management-howto-product-with-rules.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -78,4 +78,4 @@ Azure SQL 資料倉儲每個月都可能有高達 4 個維護事件，用以安�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

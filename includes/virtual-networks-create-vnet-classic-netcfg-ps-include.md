@@ -65,4 +65,4 @@ Azure 會使用 xml 檔案定義訂用帳戶所有可用的 VNet。您可以下�
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,7 @@
 
 # 基本設定測試環境
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。您也可以使用[資源管理員部署模型](virtual-machines-base-configuration-test-environment-resource-manager.md)建立這些資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-base-configuration-test-environment-resource-manager.md)。
 
 本文將逐步解說如何在 Azure 虛擬網路中建立基本設定測試環境。
 
@@ -59,7 +59,7 @@
 
 首先，您會建立 TestLab Azure 虛擬網路，以架設基本設定的公司網路子網路。
 
-1.	在 [Azure 入口網站](https://manage.windowsazure.com)的工作列上，按一下 [新增] > [網路服務] > [虛擬網路] > [自訂建立]。
+1.	在 [Azure 入口網站](https://manage.windowsazure.com)的工作列上，按一下 **[新增] > [網路服務] > [虛擬網路] > [自訂建立]**。
 2.	在 [虛擬網路詳細資料] 頁面中的 [名稱] 中，輸入 **TestLab**。
 3.	在 [位置] 中，選取適當的區域。
 4.	按 [下一步] 箭頭。
@@ -81,7 +81,7 @@
 
 您必須為雲端服務選擇唯一的名稱。*雲端服務名稱可以包含字母、數字和連字號。欄位中的第一個和最後一個字元，必須是字母或數字。*
 
-例如，可將雲端服務命名為 TestLab-*UniqueSequence*，其中 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱是 Tailspin Toys，則可以將雲端服務命名為 TestVNET-Tailspin。
+例如，雲端服務可命名為 TestLab-*UniqueSequence*，其中 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱是 Tailspin Toys，則可以將雲端服務命名為 TestVNET-Tailspin。
 
 您可以使用這個 Azure PowerShell 命令，測試名稱是否重複。
 
@@ -138,7 +138,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] \([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -288,4 +288,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

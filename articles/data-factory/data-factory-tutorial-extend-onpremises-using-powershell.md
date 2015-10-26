@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="請將輸出資料複製到內部部署 SQL Server 資料庫 (Azure PowerShell)。"
+	pageTitle="請將輸出資料複製到內部部署 SQL Server 資料庫 (Azure PowerShell)。" 
 	description="本逐步解說使用 Azure PowerShell 擴充教學課程，如此可讓管線將輸出資料複製到 SQL Server Database。"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -116,10 +116,10 @@
 ### 建立內部部署邏輯資料表
 
 1.	在 **Azure PowerShell** 中，切換至 **C:\\ADFWalkthrough\\OnPremises** 資料夾。 
-2.	使用 Cmdlet **New-AzureDataFactoryTable** 來建立 **MarketingCampaignEffectivenessOnPremSQLTable.json** 的資料表，如下所示。
+2.	使用 Cmdlet **New-AzureDataFactoryDataset** 來建立 **MarketingCampaignEffectivenessOnPremSQLTable.json** 的資料表，如下所示。
 
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### 建立將資料從 Azure Blob 複製到 SQL Server 的管線
 
@@ -170,4 +170,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

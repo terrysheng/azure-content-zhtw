@@ -276,11 +276,11 @@
     {
         ViewBag.Message = "Your contact page.";
 
-        return View();
-    }
+    return View();
+}
 	</pre>
-
-	由於我在 AD FS 實驗室環境中將**測試使用者**新增至**測試群組**，我將在 `About` 上使用測試群組來測試授權。若為 `Contact`，我將測試**測試使用者**不屬於之 **Domain Admins** 的負面案例。
+	
+	由於我在 AD FS 實驗室環境中將「測試使用者」新增至「測試群組」，我將在 `About` 上使用測試群組來測試授權。若為 `Contact`，我將測試「測試使用者」不屬於之 **Domain Admins** 的負面案例。
 
 3. 輸入 `F5` 開始偵錯工具並登入，然後按一下 [關於]。如果該動作已授權給已驗證的使用者，您現在應可順利檢視 `~/About/Index` 頁面。
 4. 現在按一下 [連絡人]，在我的案例中應該不會將該動作授權給「測試使用者」。不過，瀏覽器會重新導向至 AD FS，最後會顯示這則訊息：
@@ -354,4 +354,4 @@ Azure App Service Web Apps 可透過兩種方式支援存取在內部部署資�
  
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

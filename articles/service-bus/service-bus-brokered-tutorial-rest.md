@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 下一個步驟是撰寫一個方法，以使用 REST 樣式 HTTP PUT 命令來建立佇列。
 
-將下列程式碼直接貼在您在上一個步驟中新增的 `GetToken()` 程式碼之後︰
+將下列程式碼直接貼在您在上一個步驟中新增的 `GetSASToken()` 程式碼之後︰
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -629,4 +629,4 @@ namespace Microsoft.ServiceBus.Samples
 - [Azure 服務匯流排基本概念](fundamentals-service-bus-hybrid-solutions.md)
 - [服務匯流排轉送 REST 教學課程](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

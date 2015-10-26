@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="StorSimple 監視指示器 | Microsoft Azure"
-	description="描述用來監視 StorSimple 裝置狀態的發光二極體 (LED 燈) 與警報器。"
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+    pageTitle="StorSimple 監視指示器 | Microsoft Azure" 
+    description="描述用來監視 StorSimple 裝置狀態的發光二極體 (LED 燈) 與警報器。"
+    services="storsimple"
+    documentationCenter="NA"
+    authors="SharS"
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="TBD"
+    ms.date="08/31/2015"
+    ms.author="v-sharos" />
 
 # 使用 StorSimple 監視指示器來管理您的裝置   
 
@@ -256,4 +256,4 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

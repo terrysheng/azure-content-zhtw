@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="註冊 Google 驗證 | Microsoft Azure"
-	description="了解如何在 Azure 行動服務中註冊您的應用程式以使用 Google 進行驗證。"
-	services="mobile-services"
-	documentationCenter="android"
-	authors="ggailey777"
-	manager="dwrede"
+	pageTitle="註冊 Google 驗證 | Microsoft Azure" 
+	description="了解如何在 Azure 行動服務中註冊您的應用程式以使用 Google 進行驗證。" 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/27/2015" 
 	ms.author="glenga"/>
 
 # 在行動服務中註冊您的應用程式以進行 Google 登入
@@ -56,4 +56,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

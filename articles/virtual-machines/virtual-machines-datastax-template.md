@@ -18,7 +18,8 @@
 
 # 在 Ubuntu 上使用 Resource Manager 範本的 DataStax
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文說明如何以資源管理員部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
 
 DataStax 是知名的業界領導者，他們根據 Apache Cassandra 來開發和提供各種解決方案，這是一種可提供商業支援且符合企業需求的 NoSQL 分散式資料庫技術，此技術廣受市場認可、敏捷、永不停擺，並可依照未來的各種公司規模需求進行調整。DataStax 提供 Enterprise (DSE) 和 Community (DSC) 等版本。它也提供記憶體內部運算、企業級安全性、快速且功能強大的整合式分析與企業搜尋之類的功能。
 
@@ -479,4 +480,4 @@ vm-disk-utils-0.1.sh 檔案是 azure-quickstart-tempates GitHub 儲存機制中 
 
 如需詳細資訊，請參閱 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

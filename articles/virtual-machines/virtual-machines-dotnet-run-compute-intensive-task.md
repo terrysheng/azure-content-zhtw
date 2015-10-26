@@ -21,7 +21,8 @@
 
 Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機器可以處理工作並將結果傳遞給用戶端機器或行動裝置應用程式。完成本教學課程的內容後，您將了解如何建立虛擬機器，以便執行需密集運算並可由其他 .NET 應用程式監控的 .NET 應用程式。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本教學課程假設您知道如何建立 .NET 主控台應用程式。並假設您對 Azure 一無所知。
 
@@ -549,4 +550,4 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

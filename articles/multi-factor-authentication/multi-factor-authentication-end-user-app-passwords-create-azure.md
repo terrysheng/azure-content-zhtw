@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="在 Azure 入口網站中建立 Azure Multi-Factor Authentication 的應用程式密碼"
-	description="此頁面會顯示使用者如何在 Azure 入口網站中建立其他應用程式密碼。"
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenp"
+	pageTitle="在 Azure 入口網站中建立 Azure Multi-Factor Authentication 的應用程式密碼" 
+	description="此頁面會顯示使用者如何在 Azure 入口網站中建立其他應用程式密碼。" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenp" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # 在 Azure 入口網站中建立 Azure Multi-Factor Authentication 的應用程式密碼
@@ -32,4 +32,4 @@
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

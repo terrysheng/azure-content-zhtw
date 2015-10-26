@@ -19,7 +19,7 @@
 
 *Application Insights 目前僅供預覽。*
 
-此編譯程式碼範例會示範如何使用 [Visual Studio Application Insights](app-insights-get-started.md)。
+此編譯程式碼範例會示範如何使用 [Visual Studio Application Insights](app-insights-overview.md)。
 
 ## SDK 實驗室
 
@@ -37,7 +37,7 @@
 * [匯出至 Power BI](app-insights-export-power-bi.md) 
 * [使用背景工作角色剖析匯出的資料](app-insights-code-sample-export-telemetry-sql-database.md)
 * [使用串流分析匯出至 SQL](app-insights-code-sample-export-sql-stream-analytics.md)
-* [針對 Microsoft CRM 啟用遙測](app-insights-sample-mscrm.md)
+* [針對 Microsoft Dynamics CRM 啟用遙測](app-insights-sample-mscrm.md)
 
 
 ## 自動化工作
@@ -53,4 +53,4 @@
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

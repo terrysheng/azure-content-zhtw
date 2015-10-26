@@ -67,4 +67,4 @@
 	
 >[AZURE.NOTE]如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 管理入口網站提交支援票證。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

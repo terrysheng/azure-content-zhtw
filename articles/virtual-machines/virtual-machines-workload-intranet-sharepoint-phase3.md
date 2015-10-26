@@ -19,13 +19,14 @@
 
 # SharePoint 內部網路伺服器陣列工作負載第 3 階段：設定 SQL Server 基礎結構
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 的這個階段中，您需要在服務管理中建立並設定兩部 SQL Server 電腦與叢集多數節點電腦，再將他們併入 Windows Server 叢集。
 
 您必須先完成這個階段才能前往[第 4 階段](virtual-machines-workload-intranet-sharepoint-phase4.md)。如需所有階段的詳細資訊，請參閱[在 Azure 中部署包含 SQL Server AlwaysOn 可用性群組的 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)。
 
-> [AZURE.NOTE]這些指示會使用 Azure 映像資源庫中的 SQL Server 映像，並根據 SQL Server 授權的使用情況產生持續性費用。您也可在 Azure 中建立虛擬機器並安裝您自己的 SQL Server 授權，但您必須擁有軟體保證和授權機動性，才能在虛擬機器上使用 SQL Server 授權，包括 Azure 虛擬機器在內。如需在虛擬機器上安裝 SQL Server 的詳細資訊，請參閱 [SQL Server 的安裝](https://msdn.microsoft.com/library/bb500469.aspx)。
+> [AZURE.NOTE]這些指示會使用 Azure 映像資源庫中的 SQL Server 映像，並根據 SQL Server 授權的使用情況產生持續性費用。您也可在 Azure 中建立虛擬機器並安裝您自己的 SQL Server 授權，但您必須擁有軟體保證和授權機動性，才能在虛擬機器上使用 SQL Server 授權，包括 Azure 虛擬機器在內。如需在虛擬機器上安裝 SQL Server 的詳細資訊，請參閱[安裝 SQL Server](https://msdn.microsoft.com/library/bb500469.aspx)。
 
 ## 在 Azure 中建立 SQL Server 叢集虛擬機器
 
@@ -232,4 +233,4 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

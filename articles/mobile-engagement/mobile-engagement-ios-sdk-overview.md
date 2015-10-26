@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Azure Mobile Engagement iOS SDK
 
@@ -32,9 +32,12 @@
 
 ##版本資訊
 
-###3\.1.0 (2015/08/26)
+##3\.2.0 (10/08/2015)
 
--   搭配協力廠商程式庫修正 iOS 9 相容性錯誤。當傳送投票結果、應用程式資訊或是額外的資料時會造成當機。
+-   啟用 SDK 中的 Bitcode以便使用 **Xcode 7**。
+-   已修正與應用程式內通知相關的錯誤。
+-   讓應用程式內通知在發生電池電力不足與其他這類案例時更可靠。
+-   移除第三方程式庫所產生的額外主控台記錄檔。
 
 如需較早版本，請參閱[完整版本資訊](mobile-engagement-ios-release-notes.md)
 
@@ -49,7 +52,7 @@
 ###從 2.0.0 到 3.0.0
 停止支援 iOS 4.X。從此版本開始，您的應用程式部署目標必須至少為 iOS 6。
 
-如果您在應用程式中使用 Reach，必須將`remote-notification` 值新增至 Info.plist 檔案中的 `UIBackgroundModes` 陣列，以接收遠端通知。
+如果您在應用程式中使用 Reach，必須將 `remote-notification` 值新增至 Info.plist 檔案中的 `UIBackgroundModes` 陣列，以接收遠端通知。
 
 在您的應用程式委派中，方法 `application:didReceiveRemoteNotification:` 需由 `application:didReceiveRemoteNotification:fetchCompletionHandler:` 取代。
 
@@ -59,4 +62,4 @@
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

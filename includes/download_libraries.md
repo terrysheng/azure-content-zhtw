@@ -4,7 +4,7 @@ Azure Libraries for Java 依據 [Apache 授權 2.0 版][license]發行。請按�
 
 ## Azure Libraries for Java - Maven
 
-如果您的專案已設定為使用 Maven 來建置，請將下列相依性新增至 pom.xml 檔案。注意：如需關於在 Eclipse (使用適用於 Java 的 Azure 程式庫) 中建立 Maven 專案的資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=622998]()。
+如果您的專案已設定為使用 Maven 來建置，請將下列相依性新增至 pom.xml 檔案。注意：如需關於在 Eclipse (使用適用於 Java 的 Azure 程式庫) 中建立 Maven 專案的資訊，請參閱[開始使用 Java 的 Azure 管理程式庫][maven-getting-started]。
 
 	<dependency>
 	    <groupId>com.microsoft.azure</groupId>
@@ -56,6 +56,7 @@ Azure Libraries for Java 依據 [Apache 授權 2.0 版][license]發行。請按�
 在 `<version>` 元素內，將此範例中的版本號碼換成有效的版本號碼，可以從 [Azure Libraries Repository on Maven](http://go.microsoft.com/fwlink/?LinkID=286274) 取得。
 
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
-[zip-download]: http://go.microsoft.com/fwlink/?LinkId=253887
+[zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
+[maven-getting-started]: http://go.microsoft.com/fwlink/?LinkID=622998
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

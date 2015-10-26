@@ -12,4 +12,4 @@
 
 7. 您現在可以[使用管理入口網站安裝 Update 1.2](#use-the-management-portal-to-install-update-1)。請遵循從本程序步驟 3 開始的指示。當您安裝完所有更新後，便可重新啟用停用的網路介面。
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

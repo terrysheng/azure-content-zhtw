@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Android SDK 整合"
+	pageTitle="Azure Mobile Engagement Android SDK 整合" 
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #如何在 Android 上整合 Engagement
 
@@ -382,4 +382,4 @@ Engagement 在喜好設定檔案內會一律使用 `engagement:key` 布林值機
 [Device API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

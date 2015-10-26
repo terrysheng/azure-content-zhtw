@@ -658,4 +658,4 @@ Context.Logger.Info("Component started");
 
 -	[開始使用 HBase on HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

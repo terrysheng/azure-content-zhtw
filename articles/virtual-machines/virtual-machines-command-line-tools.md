@@ -1,6 +1,6 @@
 <properties
 	pageTitle="搭配使用 Azure CLI 與服務管理 | Microsoft Azure"
-	description="了解如何使用適用於 Mac、Linux 和 Windows 的命令列工具，以便在傳統 (服務管理) 部署模式使用 Azure CLI 管理 Azure。"
+	description="了解如何使用適用於 Mac、Linux 和 Windows 的命令列工具，在傳統 (Azure 服務管理) 模式中使用 Azure CLI 管理 Azure。"
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,24 +14,26 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。您也可以使用[資源管理員部署模型](virtual-machines-deploy-rmtemplates-azure-cli.md)建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容是在傳統部署模型中以 CLI 命令建立和管理資源。您也可以使用 CLI 命令在[資源管理員部署模型](azure-cli-arm-commands.md)中建立和管理資源。
 
-本主題說明如何在 **arm** 模式下使用 Azure CLI，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。此功能類似於隨 Azure SDK for .NET、Node.JS 和 PHP 安裝的 Windows PowerShell Cmdlet 所提供的功能。
+本文說明如何在服務管理模式 (asm 模式) 下使用 Azure CLI，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫、透過 Azure PowerShell，以及使用 Azure 入口網站來執行其中許多相同的工作。使用 Azure 服務搭配服務管理模式，在概念上類似於建立和管理個別 Azure 概念和服務的思考模式，例如網站、虛擬機器、虛擬網路、儲存體等等。
 
-> [AZURE.NOTE]使用 Azure 服務搭配 **asm** 模式在概念上類似於個別 Azure 概念和服務的思考模式，例如網站、虛擬機器、虛擬網路、儲存體等等。使用 **arm** 模式時，可以透過以邏輯方式分組的階層式資源模型，在命令列上使用更豐富的功能。若要切換到該模式，請參閱[搭配使用 Azure 命令列介面與資源管理員](xplat-cli-azure-resource-manager.md)。
+> [AZURE.NOTE]若要開始這麼做，請先[安裝 Azure CLI](../xplat-cli-install.md)，並[登入與您帳戶相關聯的 Azure 資源](../xplat-cli-connect.md)。
 
-如需安裝指示，請參閱[安裝與設定 Azure 命令列介面](../xplat-cli-install.md)。
+## 文章的範圍
+
+本文章提供傳統 (服務管理) 部署模型的常用 Azure CLI 命令的語法和選項。它不是完整的參考，您的 CLI 版本可能會顯示一些不同的命令或參數。如需在服務管理模式中命令列目前的命令語法和選項，請輸入 `azure help`，或顯示特定命令的說明 `azure help [command]`。您也可以在文件中找到建立和管理特定的 Azure 服務的 CLI 範例。
 
 選用參數會以方括號括住 (例如，[parameter])。其他所有參數皆為必要參數。
 
 除了本文所述的命令特定選用參數，還有三個選用參數可用來顯示詳細輸出，例如要求選項和狀態碼。-v 參數提供詳細資訊輸出，而 -vv 參數提供更詳細的詳細資訊輸出。--json 選項將以原始 json 格式輸出結果。
 
-## 設定 **arm** 模式
+## 設定服務管理模式
 
 目前，當您首次安裝 CLI 時，預設會啟用服務管理模式。如有需要，請使用下列命令來啟用 Azure CLI 服務管理命令。
 
@@ -2348,4 +2350,4 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

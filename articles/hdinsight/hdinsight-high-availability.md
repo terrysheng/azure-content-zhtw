@@ -98,4 +98,4 @@ SDK 的情況十分類似。使用 SDK 建立與佈建叢集的說明已記錄�
 - [使用 RDP 連接到 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)
 - [使用 HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

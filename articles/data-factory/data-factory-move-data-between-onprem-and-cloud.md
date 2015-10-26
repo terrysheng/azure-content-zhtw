@@ -578,4 +578,4 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

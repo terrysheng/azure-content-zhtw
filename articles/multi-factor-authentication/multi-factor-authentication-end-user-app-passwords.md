@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="什麼是 Azure MFA 中的應用程式密碼？"
-	description="本頁面將協助使用者了解什麼是應用程式密碼，以及它們在 Azure MFA 方面的用途。"
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="什麼是 Azure MFA 中的應用程式密碼？" 
+	description="本頁面將協助使用者了解什麼是應用程式密碼，以及它們在 Azure MFA 方面的用途。" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 
@@ -129,4 +129,4 @@
 5. 按一下 [是] 確認刪除。
 6. 應用程式密碼刪除之後，就可以按一下 [關閉]。![關閉](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

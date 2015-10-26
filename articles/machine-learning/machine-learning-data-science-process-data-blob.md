@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="處理使用進階分析的 Azure Blob 資料 | Microsoft Azure"
-	description="處理 Azure Blob 儲存體中的資料。"
-	services="machine-learning,storage"
-	documentationCenter=""
-	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun"/>
+	pageTitle="處理使用進階分析的 Azure Blob 資料 | Microsoft Azure" 
+	description="處理 Azure Blob 儲存體中的資料。" 
+	services="machine-learning,storage" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
 #<a name="heading"></a>處理使用進階分析的 Azure Blob 資料
 
@@ -188,4 +189,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

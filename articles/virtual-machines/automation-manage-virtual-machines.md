@@ -22,7 +22,6 @@
 
 本指南將為您介紹 Azure 自動化服務，以及如何使用它來簡化您的 Azure 虛擬機器管理。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## 什麼是 Azure 自動化？
 
@@ -44,4 +43,4 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 
 [開始使用 Azure 自動化](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

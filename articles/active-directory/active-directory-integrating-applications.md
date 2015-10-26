@@ -351,4 +351,4 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 
 - 請瀏覽 [Active Directory 開發人員指南] (active-directory-developer's guide.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

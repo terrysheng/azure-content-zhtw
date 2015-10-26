@@ -36,7 +36,7 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 ## 使用 Application Insights 監視您的應用程式
 
-如果您還沒嘗試過，現在就是開始的好時機。Application Insights 可以監視許多平台上的任何裝置或 Web App，包含 Windows、iOS、Android、J2EE 等。[開始使用](app-insights-get-started.md)。
+如果您還沒嘗試過，現在就是開始的好時機。Application Insights 可以監視許多平台上的任何裝置或 Web App，包含 Windows、iOS、Android、J2EE 等。[開始使用](app-insights-overview.md)。
 
 ## 在 Azure 中建立儲存體
 
@@ -118,6 +118,7 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 #### 設定路徑前置詞模式 
 
 ![](./media/app-insights-export-power-bi/140.png)
+
 
 請務必將 [日期格式] 設為 YYYY-MM-DD (含連接號)。
 
@@ -238,4 +239,4 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 * [Application Insights](app-insights-overview.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -153,4 +153,4 @@ Runbook 的最後一個步驟是傳送輸出，而不論是否成功提交每個
 - [Azure 自動化中的子 Runbook](automation-child-runbooks.md) 
 - [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

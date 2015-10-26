@@ -105,4 +105,4 @@ Chatter 連接器可以在邏輯應用程式中用作觸發程序或動作，且
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Azure IoT 裝置 SDK for C - 深入了解 IoTHubClient"
-	description="Azure IoT 裝置 SDK for C 中 IoTHubClient 程式庫的其他詳細資料"
+	pageTitle="適用於 C 的 Azure IoT 裝置 SDK - IoTHubClient | Microsoft Azure"
+	description="深入了解在適用於 C 的 Azure IoT 裝置 SDK 中使用 IoTHubClient 程式庫"
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -276,4 +276,4 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 這篇文章會深入探討 **Azure IoT 裝置 SDK for C** 中發現之 **IoTHubClient** 程式庫的行為。利用這項資訊，您就可以充分了解 **IoTHubClient** 程式庫的功能。在[下一篇文章](iot-hub-device-sdk-c-serializer.md)中，我們將提供**序列化程式**程式庫的類似詳細資料。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

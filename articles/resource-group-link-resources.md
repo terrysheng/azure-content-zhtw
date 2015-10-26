@@ -146,4 +146,4 @@ properties 元素包含第二個資源的識別碼。
 - 您也可以使用標記來組織您的資源。若要了解如何標記資源，請參閱[使用標記來組織資源](resource-group-using-tags.md)。
 - 如需如何建立範本並定義要部署之資源的說明，請參閱[撰寫範本](resource-group-authoring-templates.md)。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

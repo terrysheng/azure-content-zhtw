@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="整合雲端服務與 Azure CDN"
-	description="指導如何部署雲端服務來提供整合式 Azure CDN 端點內容的教學課程"
-	services="cdn, cloud-services"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="整合雲端服務與 Azure CDN" 
+	description="指導如何部署雲端服務來提供整合式 Azure CDN 端點內容的教學課程" 
+	services="cdn, cloud-services" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="cephalin"/>
 
 
@@ -48,8 +48,8 @@
 -	使用中的 [Microsoft Azure 帳戶](/account/)
 -	Visual Studio 2013 (含 [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))
 
-> [AZURE.NOTE] 您必須有 Azure 帳戶才能完成本教學課程：
-> + 您可以[免費申請帳戶](/pricing/free-trial/) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps。 
+> [AZURE.NOTE]您必須有 Azure 帳戶才能完成本教學課程：
+> + 您可以[免費申請帳戶](/pricing/free-trial/) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如網站。
 > + 您可以[啟用 MSDN 訂閱者權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂用帳戶每個月都會給您可用來試用付費 Azure 服務的點數。
 
 <a name="deploy"></a>
@@ -618,8 +618,8 @@
 ## 相關資訊 ##
 - [Azure 內容傳遞網路 (CDN) 概觀](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [在 Web 應用程式中從 Azure CDN 提供內容](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [在 Azure App Service 中使用 Azure CDN](../cdn-websites-with-cdn.md)
+- [整合 Azure 網站與 Azure CDN](cdn-websites-with-cdn.md)
 - [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [使用 Azure 的 CDN](cdn-how-to-use.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

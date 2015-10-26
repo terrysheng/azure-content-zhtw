@@ -26,7 +26,7 @@
   
 本主題會示範如何設定 [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) 編碼器，藉此將單一位元速率的即時串流傳送到 AMS 通道，其已針對即時編碼而啟用。如需詳細資訊，請參閱[使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
-本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。此工具只會在 Windows 電腦上執行。如果您是在 Mac 或 Linux 上，請使用 Azure 管理入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program)。
+本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。此工具只會在 Windows 電腦上執行。如果您是使用 Mac 或 Linux，請使用 Azure 管理入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program)。
 
 ##必要條件
 
@@ -39,7 +39,7 @@
 
 ##秘訣
 
-- 請盡可能使用實體連接的網際網路連線。 
+- 請盡可能使用實體的有線網際網路連線。 
 - 判斷頻寬需求的一項法則是將串流位元速率加倍。雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。  
 - 使用軟體式編碼器時，請關閉任何不必要的程式。
 
@@ -60,15 +60,15 @@
  
 3. 按一下 [建立通道]。![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
->[AZURE.NOTE]啟動通道可能需要 20 分鐘的時間。
+>[AZURE.NOTE]通道約需 20 分鐘的時間即可啟動。
 
 當通道啟動時，您可以[設定編碼器](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp)。
 
->[AZURE.IMPORTANT]請注意，只要通道進入就緒狀態，計費即開始。如需詳細資訊，請參閱[通道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
+>[AZURE.IMPORTANT]請注意，只要通道進入就緒狀態，就會開始計費。如需詳細資訊，請參閱[通道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
 
 ###<a id=configure_elemental_rtp></a>設定 Elemental Live 編碼器 
 
-在本教學課程中會使用下列輸出設定。本章節的其餘部分將說明詳細的組態步驟。
+在本教學課程中會使用下列輸出設定。本章節的其餘部分將詳細說明組態步驟。
 
 **視訊**：
  
@@ -139,13 +139,13 @@
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
 
-如果播放程式中出現串流，則編碼器已經妥當設定為連接到 AMS。
+如果播放器中出現串流，則編碼器已妥善設定為連接到 AMS。
 
-如果收到錯誤，會需要重設通道，且編碼器設定需要進行調整。請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)主題以取得指引。
+如果收到錯誤，則必須重設通道，且編碼器設定需要調整。請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)主題以取得指引。
 
 ###建立程式
 
-1. 一旦確認通道播放，請建立程式。在 AMSE 工具的 [Live] 索引標籤下，於程式區域內按一下滑鼠右鍵並選取 [建立新的程式]。  
+1. 一旦確認通道播放沒問題後，請建立程式。在 AMSE 工具的 [Live] 索引標籤下，於程式區域內按一下滑鼠右鍵並選取 [建立新的程式]。  
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
 
@@ -153,12 +153,12 @@
 3. 勾選 [現在啟動程式] 方塊。
 4. 按一下 [建立程式]。  
   
-	注意：建立程式會使用比建立通道更少的時間。
+	注意：建立程式時所使用的時間會比建立通道時更少。
  
 5. 一旦程式執行，請在程式上按一下滑鼠右鍵並瀏覽至 [播放程式]，然後選取 [使用 Azure 媒體播放器] 確認播放。
 6. 一經確認，再次以滑鼠右鍵按一下該程式並選取 [複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
 
-串流現在已經可以內嵌於播放程式中，或散發給對象，以供即時檢視。
+串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。
 
 ## 疑難排解
 
@@ -171,4 +171,4 @@
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

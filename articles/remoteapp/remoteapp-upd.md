@@ -126,4 +126,4 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 不行，Azure RemoteApp 不支援。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

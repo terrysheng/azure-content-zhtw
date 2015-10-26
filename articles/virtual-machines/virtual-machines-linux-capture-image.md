@@ -20,7 +20,8 @@
 
 # 如何擷取 Linux 虛擬機器作為範本使用
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型擷取映像。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本文說明如何擷取執行 Linux 的 Azure 虛擬機器，以便用它做為範本建立其他虛擬機器。此範本包括 OS 磁碟和連結虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立使用該範本的其他虛擬機器時加以設定。
 
@@ -99,4 +100,4 @@ Azure 會將此範本視為映像，並將其儲存在 [映像] 下。這也是�
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [如何建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

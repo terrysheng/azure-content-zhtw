@@ -102,13 +102,9 @@
 
 ## 後續步驟
 
-準備好進行深入了解嗎？ 造訪下列連結：
+準備好進行深入了解嗎？ 請造訪下列連結：
 
 - [服務匯流排 AMQP 概觀]
-- [搭配使用 .NET 的服務匯流排與 AMQP]
-- [搭配使用 Java 的服務匯流排與 AMQP]
-- [搭配使用 Python 的服務匯流排與 AMQP]
-- [搭配使用 PHP 的服務匯流排與 AMQP]
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -117,9 +113,5 @@
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
 [Azure 入口網站]: http://manage.windowsazure.com
-[搭配使用 .NET 的服務匯流排與 AMQP]: service-bus-amqp-dotnet.md
-[搭配使用 Java 的服務匯流排與 AMQP]: service-bus-amqp-java.md
-[搭配使用 Python 的服務匯流排與 AMQP]: service-bus-amqp-python.md
-[搭配使用 PHP 的服務匯流排與 AMQP]: service-bus-amqp-php.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

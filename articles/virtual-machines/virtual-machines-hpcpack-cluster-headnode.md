@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # 使用 Marketplace 映像在 Azure VM 中建立 HPC Pack 叢集的前端節點
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容包括以傳統部署模型建立資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 本文將說明如何使用 Azure Marketplace 中的 [Microsoft HPC Pack 虛擬機器映像](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)，在 Azure 的傳統 (服務管理) 部署模型中建立 Windows HPC 叢集的前端節點。前端節點必須加入 Azure 虛擬網路中的 Active Directory 網域。您可以對 Azure 中的 HPC Pack 的概念證明部署使用此前端節點，並將運算資源加入至叢集以執行 HPC 工作負載。
 
@@ -101,4 +102,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/28/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 #使用 Curl 在 HDInsight 中以 Hadoop 執行 Hive 查詢
@@ -194,4 +194,4 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -24,4 +24,4 @@
 
 * 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用 [虛刪除]。否則，您的應用程式應定期呼叫 `IMobileServiceSyncTable.PurgeAsync()` 才能清除本機存放區。
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

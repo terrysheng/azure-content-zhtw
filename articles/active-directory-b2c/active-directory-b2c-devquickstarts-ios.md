@@ -642,9 +642,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 為了方便參考，您可以[在此處取得 .zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip)的完整範例，或者從 GitHub 中複製：
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
 ## 後續步驟
 
@@ -654,4 +652,4 @@ git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 [自訂 B2C 應用程式的 UX >>]()
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

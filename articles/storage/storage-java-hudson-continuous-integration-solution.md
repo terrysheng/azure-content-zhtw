@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 # 使用 Azure 儲存體與 Hudson 連續整合解決方案
-
-*作者：[Microsoft Open Technologies Inc.][ms-open-tech] (英文)*
 
 ## 概觀
 
 下列資訊說明如何使用 Azure Blob 服務，作為 Hudson 連續整合 (CI) 解決方案所建立的組建成品儲存機制，或作為在組建程序中要使用之可下載檔案的來源。您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
 
-在本教學課程中，您將使用由 Microsoft Open Technologies, Inc. 所提供的 Azure Storage Plugin for Hudson CI。
+在本教學課程中，您將使用由 Microsoft 所提供適用於 Hudson CI 的 Azure 儲存體外掛程式。
 
 ## Hudson 簡介 ##
+
 Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整合其程式碼變更，並可自動和頻繁地產生組建，進而提高開發人員的產能。組建會分版本存在，而組建成品可以上傳至各種存放庫。本文將示範如何使用 Azure Blob 儲存體作為組建成品的存放庫。其中也示範如何從 Azure Blob 儲存體下載相依性。
 
 您可以在[認識 Hudson][] (英文) 中找到有關 Hudson 的詳細資訊。
@@ -77,7 +76,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 2. 在 [管理 Hudson] 頁面中，按一下 [管理外掛程式]。
 3. 按一下 [Available] 索引標籤。
 4. 按一下 [其他]。
-5. 在 [成品上傳程式] 區段中，選取 [Microsoft Azure 儲存體外掛程式]。
+5. 在 [**構件上傳程式**] 區段中，選取 [**Microsoft Azure 儲存體外掛程式**]。
 6. 按一下 [Install]。
 7. 在安裝完成後，請重新啟動 Hudson。
 
@@ -140,7 +139,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
     e.按一下名為 **myjob** 的容器，這是您在建立 Hudson 工作時所指定工作名稱的小寫版本。在 Azure 儲存體中，容器名稱和 Blob 名稱皆為小寫 (並且區分大小寫)。在名為 **myjob** 之容器的 Blob 清單中，您應該會看到 **hello.txt** 和 **date.txt**。請複製這些項目中任何一項的 URL，然後在瀏覽器中開啟它。您會看到文字檔已上傳作為組建成品。
 
-每個工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [要上傳的成品清單] 內，使用分號作為分隔符號來指定不同檔案 (包含萬用字元) 和檔案路徑。例如，若 Hudson 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [要上傳的成品清單] 中使用下列值：**build/*.jar;build/*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [List of Artifacts to upload] 中使用下列值：**build/*.jar::binaries;build/*.txt::notices**。
+每個工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將構件上傳至 Azure Blob 儲存體的單一建置後動作可以在**要上傳的構件清單** 內，使用分號作為分隔符號來指定不同檔案 (包含萬用字元) 和檔案路徑。例如，若 Hudson 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在**要上傳的構件清單**中使用下列值：**build/*.jar;build/*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [List of Artifacts to upload] 中使用下列值：**build/*.jar::binaries;build/*.txt::notices**。
 
 ## 如何建立從 Azure Blob 儲存體下載的組建步驟 ##
 
@@ -150,7 +149,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 2. 在 [儲存體帳戶名稱] 中，選取要使用的儲存體帳戶。
 3. 在 [容器名稱] 中，指定您要下載的 Blob 所在之容器的名稱。您可以使用環境變數。
 4. 在 [Blob 名稱] 中，指定 Blob 名稱。您可以使用環境變數。另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。例如，**project*** 指定名稱開頭為 **project** 的所有 Blob。
-5. [選擇性] 針對 [下載路徑]，指定在 Hudson 機器上，要從 Azure Blob 儲存體下載檔案的目標路徑。也可以使用環境變數(如果未提供 [下載路徑] 的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區)。
+5. [選擇性] 針對**下載路徑**，請於 Hudson 機器上指定要從 Azure Blob 儲存體下載檔案的目標路徑。也可以使用環境變數(若您未提供**下載路徑**的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區)。
 
 如果要從 Azure Blob 儲存體下載其他項目，您可以建立其他組建步驟。
 
@@ -173,8 +172,9 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
+## 後續步驟
+
   [如何建立儲存體帳戶]: http://go.microsoft.com/fwlink/?LinkId=279823
   [認識 Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
-  [ms-open-tech]: http://msopentech.com
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

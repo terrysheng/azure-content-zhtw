@@ -88,4 +88,4 @@ Azure AD B2C 預覽支援 OpenID Connect 和 OAuth 2.0。不過，並非每個�
 
 您無法在 Azure 入口網站中刪除 Azure AD B2C 租用戶。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

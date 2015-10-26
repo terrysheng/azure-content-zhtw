@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="在 Azure AD Connect 中啟用裝置回寫" 
-	description="本文詳細說明如何使用 Azure AD Connect 啟用裝置回寫" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="msStevenPo" 
+<properties
+	pageTitle="在 Azure AD Connect 中啟用裝置回寫 | Microsoft Azure"
+	description="本文詳細說明如何使用 Azure AD Connect 啟用裝置回寫"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="StevenPo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="09/15/2015"
 	ms.author="billmath"/>
 
@@ -62,7 +62,7 @@ Description:
 參數：
 
 
-- DomainName：將建立裝置物件的 Active Directory 網域。附註：指定的 Active Directory 樹系的所有裝置都會在單一網域中建立。 
+- DomainName：將建立裝置物件的 Active Directory 網域。附註：指定的 Active Directory 樹系的所有裝置都會在單一網域中建立。
 
 
 - AdConnectorAccount：Azure AD Connect 會使用此 Active Directory 帳戶來管理目錄中的物件。
@@ -83,17 +83,18 @@ Description:
 
 ## 確認裝置已同步處理至 Active Directory
 裝置回寫現在應該正常運作。請注意，裝置物件寫回至 Active Directory 可能需要 3 小時。若要確認您的裝置已正確同步化，請在同步化規則完成之後執行下列作業：
- 
-1.	啟動 Active Directory 管理中心。 
+
+1.	啟動 Active Directory 管理中心。
 2.	在同盟的網域內展開 RegisteredDevices。![自訂安裝](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback5.png)
-3.	此處會列出目前已註冊的裝置。 
+3.	此處會列出目前已註冊的裝置。
 
 ![自訂安裝](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback6.png)
 
-## 其他資訊 
-
-
+## 其他資訊
 - [使用條件式存取管理風險](active-directory-conditional-access.md)
 - [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
-<!---HONumber=Sept15_HO3-->
+## 後續步驟
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
+
+<!---HONumber=Oct15_HO3-->

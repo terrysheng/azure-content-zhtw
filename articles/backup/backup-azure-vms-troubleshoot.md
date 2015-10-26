@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Azure 虛擬機器備份的疑難排解
@@ -24,7 +24,7 @@
 | 備份作業 | 錯誤詳細資料 | 因應措施 |
 | -------- | -------- | -------|
 | 註冊 | 連接至虛擬機器的資料磁碟數目超過支援的限制 - 請卸離此虛擬機器上的某些資料磁碟，然後重試作業。Azure 備份最多支援 16 個資料磁碟連接至 Azure 虛擬機器進行備份。 | None |
-| 註冊 | Microsoft Azure 備份遇到內部錯誤 - 等候幾分鐘的時間，然後再次嘗試操作。如果問題持續發生，請連絡 Microsoft 支援服務。 | 您可能會因為不支援下列其中一個組態而發生此錯誤：<ol><li>Premium LRS <li>多重 NIC <li>負載平衡器 </ol> |
+| 註冊 | Microsoft Azure 備份遇到內部錯誤 - 等候幾分鐘的時間，然後再次嘗試操作。如果問題持續發生，請連絡 Microsoft 支援服務。 | 您可能會因為不支援下列其中一個組態而發生此錯誤：<ol><li>Premium LRS <li>多重 NIC <li>負載平衡器 (內部和網際網路面向)</ol> |
 | 註冊 | 因為安裝代理程式作業逾時而註冊失敗 | 請檢查是否支援虛擬機器的作業系統版本。 |
 | 註冊 | 命令執行失敗 - 另一項作業正在此項目上進行。請等到前一項作業完成 | None |
 | 註冊 | 不支援備份在進階儲存體中儲存虛擬硬碟的虛擬機器 | None |
@@ -42,7 +42,7 @@
 | 備份 | 擴充功能安裝失敗，發生錯誤「COM+ 無法與 Microsoft Distributed Transaction Coordinator 通話」 | 這通常表示 COM+ 服務未執行。請連絡 Microsoft 支援服務來協助解決此問題。 |
 | 備份 | 快照集作業失敗，發生 VSS 作業錯誤「這個磁碟機已由 BitLocker 磁碟機加密鎖定」。您必須至 [控制台] 解除鎖定這個磁碟機。 | 對 VM 上的所有磁碟機關閉 BitLocker，並觀察是否已解決 VSS 問題 |
 | 備份 | 不支援備份在進階儲存體中儲存虛擬硬碟的虛擬機器 | None |
-| 備份 | 不支援備份具有負載平衡器組態的虛擬機器。 | None |
+| 備份 | 不支援備份具有負載平衡器組態的虛擬機器。 | 無 <br><br>這適用於內部負載平衡器和網際網路面向的負載平衡器。|
 | 備份 | 不支援備份具有一個以上 NIC 的虛擬機器。 | None |
 | 備份 | 找不到 Azure 虛擬機器。 | 當刪除主要 VM 但備份原則繼續尋找 VM 來執行備份時，就會發生這種情況。若要修正此錯誤：<ol><li>使用相同名稱和相同資源群組名稱 [雲端服務名稱] 重新建立虛擬機器，<br>(或) <li> 停用此 VM 的保護，如此將不會建立備份工作 </ol> |
 | 備份 | 虛擬機器代理程式不存在於虛擬機器上：請安裝所需的必要元件 VM 代理程式，並重新啟動作業。 | [深入了解](#vm-agent) VM 代理程式安裝，以及如何驗證 VM 代理程式安裝。 |
@@ -106,8 +106,8 @@
 ### 驗證 VM 代理程式安裝
 如何檢查 Windows VM 上的 VM 代理程式版本：
 
-1. 登入 Azure 虛擬機器，然後巡覽至 *C:\\WindowsAzure\\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
-2. 以滑鼠右鍵按一下該檔案、移至 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
+1. 登入 Azure 虛擬機器，然後瀏覽至 *C:\\WindowsAzure\\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
+2. 以滑鼠右鍵按一下該檔案，移至 **[屬性]**，然後選取 **[詳細資料]** 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
 
 ## 網路
 如同所有的延伸模組，備份延伸模組需要存取公用網際網路才能運作。沒有公用網際網路的存取權可能會以各種方式顯現：
@@ -123,4 +123,4 @@
 1. 取得要列入允許清單的 [Azure 資料中心 IP](https://msdn.microsoft.com/library/azure/dn175718.aspx)。
 2. 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) Cmdlet 解除封鎖 IP。在 Azure VM 中提升權限的 PowerShell 視窗中執行這個 Cmdlet (以系統管理員身分執行)。
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

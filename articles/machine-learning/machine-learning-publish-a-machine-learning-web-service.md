@@ -112,4 +112,4 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 更新 Web 服務的一個選擇是以程式設計方式重新定型模型。如需詳細資訊，請參閱[以程式設計方式重塑機器學習模型](machine-learning-retrain-models-programmatically.md)。
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

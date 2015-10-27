@@ -1,14 +1,14 @@
 <properties
 	pageTitle="使用混合式連線將 Azure 行動應用程式連線到內部部署 SQL Server | Microsoft Azure"
 	description="了解如何使用混合式連線從 App Service Mobile App 連線至內部佈署 SQL Server"
-	services="app-service"
+	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
@@ -164,4 +164,4 @@
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/10/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
 # 使用 Azure 入口網站建立具有站對站 VPN 連線的虛擬網路
@@ -25,7 +25,7 @@
 
 本文將逐步引導您建立虛擬網路以及內部部署網路的站對站 VPN 連線。本文適用於傳統部署模型。
 
->[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+>[AZURE.NOTE]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
 
 您可以使用位於上方的索引標籤，選取部署模型和部署工具的文章。例如，如果您想要使用 Azure 資源管理員模型而不是使用傳統模型建立站對站 VPN 閘道連線，按一下 [PowerShell - 資源管理員] 索引標籤 (上方) 來瀏覽至[使用 Azure 資源管理員和 PowerShell 建立站對站 VPN 連線](vpn-gateway-create-site-to-site-rm-powershell.md)。
 
@@ -34,11 +34,12 @@
 
 在開始設定之前，請確認您具備下列項目。
 
-- 相容的 VPN 裝置 (以及能夠進行設定的人員)。請參閱[關於 VPN 裝置](vpn-gateway-about-vpn-devices.md)。
-- 您的 VPN 裝置對外開放的公用 IP 位址。此 IP 位址不能位於 NAT 後方。
+- 相容的 VPN 裝置 (以及能夠進行設定的人員)。請參閱[關於 VPN 裝置](vpn-gateway-about-vpn-devices.md)。如果不熟悉設定 VPN 裝置，或不熟悉位於內部部署網路組態的 IP 位址範圍，則您將需要與能夠提供那些詳細資料的人協調。
+
+-  您的 VPN 裝置對外開放的公用 IP 位址。此 IP 位址不能位於 NAT 後方。
+
 - Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
->[AZURE.IMPORTANT]如果不熟悉設定 VPN 裝置，或不熟悉位於內部部署網路組態的 IP 位址範圍，則您將需要與能夠提供那些詳細資料的人協調。
 
 ## 建立虛擬網路
 
@@ -85,6 +86,8 @@
 
 按一下頁面底部的核取記號，然後您的虛擬網路即會開始建立。完成時，您將在 Azure 入口網站的 [網路] 頁面上看到 [狀態] 下列出 [已建立]建立了 VNet 之後，您便可設定虛擬網路閘道。
 
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+
 ## 設定虛擬網路閘道
 
 接著，您將設定虛擬網路閘道器，以便建立安全的站對站 VPN 連線。請參閱[在 Azure 入口網站中設定虛擬網路閘道器](vpn-gateway-configure-vpn-gateway-mp.md)。
@@ -99,4 +102,4 @@
 
 如果您想要使用 Azure 資源管理員模式，設定在傳統虛擬網路與所建立的虛擬網路之間的連線，請參閱[將傳統 VNet 連線至 Azure 資源管理員 VNet](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

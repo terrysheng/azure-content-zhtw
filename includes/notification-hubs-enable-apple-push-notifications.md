@@ -8,11 +8,11 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
 1. 在您的 Mac 上，執行「鑰匙圈存取」工具。它位在 [工具程式] 資料夾或 Launch Pad 上的 [其他] 資料夾。
 
-2. 按一下 [金鑰鏈存取]，並展開 [憑證助理]，然後按一下 [向「憑證授權單位」要求憑證…]。
+2. 按一下 [Keychain Access]，並展開 [Certificate Assistant]，然後按一下 [Request a Certificate from a Certificate Authority...]。
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
 
-3. 選取您的 [使用者電子郵件地址] 和 [一般名稱]，確定已勾選 [已儲存到磁碟]，然後按一下 [繼續]。請將 [CA 電子郵件地址] 欄位留空，因為它不是必要資訊。
+3. 選取您的 [使用者電子郵件地址] 和 [一般名稱]，確定已勾選 [Saved to disk]，然後按一下 [繼續]。請將 [CA Email Address] 欄位留空，因為它不是必要資訊。
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
@@ -63,11 +63,11 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
-4. 捲動到畫面底部，然後按一下 [開發推送 SSL 憑證] 區段下方的 [建立憑證...] 按鈕。
+4. 捲動到畫面底部，然後按一下 [Development Push SSL Certificate] 區段下方的 [Create Certificate...] 按鈕。
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
-   	這將顯示 [新增 iOS 憑證] 助理。
+   	這將顯示 [Add iOS Certificate] 助理。
 
     > [AZURE.NOTE]本教學課程使用開發憑證。註冊生產憑證時，將使用同一個程序。只要確定在傳送通知時使用相同的憑證類型。
 
@@ -85,7 +85,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
     > [AZURE.NOTE]依預設，下載的檔案 (開發憑證) 的名稱會是 **aps\_development.cer**。
 
-7. 按兩下下載的推播憑證 **aps_development.cer**。
+7. 按兩下下載的推播憑證 **aps\_development.cer**。
 
    	這樣會將新的憑證安裝在金鑰鏈中，如下所示：
 
@@ -93,7 +93,14 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
     > [AZURE.NOTE]憑證中的名稱可能會不同，不過字首會加上 **Apple Development iOS Push Services:** 前置詞。
 
-之後，您會使用該憑證來產生 .p12 檔案，以啟用 APNS 驗證。
+8. 在 Keychain Access 中，以滑鼠右鍵按一下您在 [憑證] 類別中建立的新推播憑證。按一下 [匯出]、為檔案命名、選取 [.p12] 格式，然後按一下 [儲存]。
+
+	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
+
+	記下匯出的 .p12 憑證的檔案名稱和位置。將用來啟用 APNS 驗證功能。
+
+	>[AZURE.NOTE]本教學課程會建立 QuickStart.p12 檔案。Your file name and location might be different.
+
 
 ##建立應用程式的佈建設定檔
 
@@ -101,7 +108,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
-2. 將 [Development] 下方的 [iOS App 開發 ] 選為佈建設定檔類型，然後按一下 [Continue]。
+2. 將 [Development] 下方的 [iOS App Development] 選為佈建設定檔類型，然後按一下 [Continue]。
 
 
 3. 接著，從 [**應用程式識別碼**] 下拉式清單選取您剛建立的應用程式識別碼，然後按一下 [**繼續**]。
@@ -119,13 +126,13 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 
-6. 最後，在 [設定檔名稱] 中為設定檔挑選名稱，然後依序按一下 [產生] 和 [Done]
+6. 最後，在 [Profile Name] 中為設定檔挑選名稱，然後依序按一下 [產生] 和 [Done]
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
 
-7. 當新的佈建設定檔建立好時，按一下它來下載並安裝在 Xcode 開發電腦上。然後按一下 [Done]。
+7. 當新的佈建設定檔建立好時，按一下它來下載並安裝在 Xcode 開發電腦上。然後按一下 [完成]。
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

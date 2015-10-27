@@ -10,10 +10,10 @@
 <tags
     ms.service="sql-data-warehouse"
     ms.devlang="NA"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="10/05/2015"
+    ms.date="10/20/2015"
     ms.author="sahaj08"/>
 
 # 為 SQL 資料倉儲建立支援票證
@@ -84,4 +84,4 @@
 [堆疊溢位]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 資料倉儲 MSDN 論壇上]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

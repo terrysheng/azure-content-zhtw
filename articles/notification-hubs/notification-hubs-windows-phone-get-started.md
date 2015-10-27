@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/08/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Windows Phone 的通知中樞
@@ -40,36 +40,18 @@
 
 ##建立您的通知中樞
 
-1. 登入 [Azure 入口網站]，並按一下畫面底部的 [+新增]。
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-2. 依序按一下 [應用程式服務]、[服務匯流排]、[通知中樞]，然後按一下 [快速建立]。
+<ol start="7">
+<li><p>按一下 [設定]<b></b> 索引標籤，然後按一下 [Windows Phone 通知設定]<b></b> 區段中的 [啟用未驗證的推播通知]<b></b> 核取方塊。</p>
+</li>
+</ol>
 
-   	![][7]
+&emsp;&emsp;![](./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png)
 
-3. 為您的通知中樞輸入名稱、選取所需的區域，然後按一下 [建立新的通知中樞]。
+現在已建立並設定您的中樞，以傳送未經驗證的 Windows Phone 通知。
 
-   	![][8]
-
-4. 按一下您剛才建立的命名空間 (通常為 ***通知中樞名稱*-ns**)，然後按一下頂端的 [設定] 索引標籤。
-
-   	![][9]
-
-5. 按一下頂端的 [通知中樞] 索引標籤，然後按一下您剛才建立的通知中樞。
-
-   	![][10]
-
-6. 按一下底部的 [連接資訊]。記下這兩個連接字串。
-
-   	![][12]
-
-7. 按一下 [設定] 索引標籤，然後按一下 [Windows Phone 通知設定] 區段中的 [啟用未驗證的推播通知] 核取方塊。
-
-   	![][15]
-
-現在您已擁有註冊 Windows Phone 8 應用程式和傳送通知所需的連接字串。
-
-> [AZURE.NOTE]本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中樞支援 [MPNS 驗證模式](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx)。
-<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE]本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中樞可讓您上傳憑證，以支援 [MPNS 驗證模式](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)。
 
 ##將您的應用程式連接到通知中樞
 
@@ -130,7 +112,7 @@
 
 您可以透過 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>，使用通知中樞從任何後端傳送通知。在本教學課程中，您將使用 .NET 主控台應用程式來傳送通知。如需從整合通知中樞之 Azure 行動服務後端傳送通知的範例，請參閱＜開始在行動服務中使用推播通知＞([.NET 後端](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [JavaScript 後端](../mobile-services-javascript-backend-windows-phone-get-started-push.md))。如需使用 REST API 傳送通知的範例，請參閱＜如何從 Java/PHP 使用通知中樞＞([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))。
 
-1. 以滑鼠右鍵按一下方案，選取 [加入] 和 [新增專案...]，然後按一下 [Visual C#] 下方的 [Windows] 和 [主控台應用程式]，再按一下 [確定]。
+1. 以滑鼠右鍵按一下方案，選取 [加入] 和 [新增專案...]，然後按一下 [Visual C#] 底下的 [Windows] 和 [主控台應用程式]，再按一下 [確定]。
 
    	![][6]
 
@@ -144,7 +126,7 @@
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.通知中樞 NuGet 封裝</a>加入對 Azure 通知中樞 SDK 的參考。
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入 Azure 通知中樞 SDK 的參考。
 
 6. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
 
@@ -207,7 +189,7 @@
 
 <!-- URLs. -->
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure portal]: https://manage.windowsazure.com/
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [使用通知中心來推播通知給使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -216,4 +198,4 @@
 [磚目錄]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

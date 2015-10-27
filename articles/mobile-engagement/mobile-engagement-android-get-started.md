@@ -35,7 +35,7 @@
 
 > [AZURE.IMPORTANT]完成本教學課程是 Android 應用程式適用之所有其他 Mobile Engagement 教學課程的先決條件，若要完成此作業，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
-##<a id="setup-azme"></a>為您的 iOS App 設定 Mobile Engagement
+##<a id="setup-azme"></a>為您的 Android 應用程式設定 Mobile Engagement
 
 [AZURE.INCLUDE [在入口網站中建立 Mobile Engagement App](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -327,4 +327,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

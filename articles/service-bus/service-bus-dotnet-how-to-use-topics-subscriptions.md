@@ -1,6 +1,6 @@
 <properties
-    pageTitle="如何使用服務匯流排主題 (.NET) | Microsoft Azure"
-    description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 .NET 應用程式撰寫。"
+    pageTitle="搭配 .NET 使用服務匯流排主題 | Microsoft Azure"
+    description="了解如何在 Azure 搭配 .NET 使用服務匯流排主題及訂用帳戶。程式碼範例專為 .NET 應用程式撰寫。"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -9,14 +9,16 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/06/2015"
+    ms.date="10/15/2015"
     ms.author="sethm"/>
 
-# 如何使用 Azure 服務匯流排主題和訂用帳戶
+# 如何使用服務匯流排主題和訂用帳戶
+
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 本文說明如何使用服務匯流排主題和訂用帳戶。這些範例均以 C# 撰寫並使用 .NET API。所涵蓋的案例包括建立主題和訂閱、建立訂閱篩選器、傳送訊息至主題、接收訂閱的訊息及刪除主題和訂閱。如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#Next-steps)一節。
 
@@ -124,7 +126,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-[CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) 方法的超載可讓您調整主題的屬性 (例如，針對要在傳送至主題的訊息套用的 [存留時間] 設定預設值)。您可以使用 [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) 類別來套用這些設定。下列範例將示範如何建立大小上限為 5 GB、預設訊息存留時間為 1 分鐘，且名為 **TestTopic** 的主題。
+[CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) 方法的超載可讓您調整主題的屬性 (例如，設定要套用至傳送至主題之訊息的預設存留時間 (TTL) 值)。您可以使用 [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) 類別來套用這些設定。下列範例將說明如何建立大小上限為 5 GB、預設訊息存留時間為 1 分鐘，且名為 **TestTopic** 的主題。
 
 ```
 // Configure Topic Settings.
@@ -153,7 +155,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 ### 使用預設 (MatchAll) 篩選器建立訂閱
 
-**MatchAll** 篩選器是預設篩選器，如果在建立新的訂用帳戶時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。下列範例將建立名為 "AllMessages" 的訂閱，並使用預設的 **MatchAll** 篩選器。
+**MatchAll** 篩選器是預設篩選器，如果在建立新的訂閱時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。下列範例將建立名為 "AllMessages" 的訂閱，並使用預設的 **MatchAll** 篩選器。
 
 ```
 string connectionString =
@@ -234,15 +236,15 @@ for (int i=0; i<5; i++)
 }
 ```
 
-服務匯流排主題支援 [256 KB 的訊息大小上限](service-bus-quotas.md) (包含標準和自訂應用程式屬性的標頭可以容納 64 KB 的大小上限)。主題中所保存的訊息數目沒有限制，但主題所保存的訊息大小總計會有最高限制。此主題大小會在建立時定義，上限是 5 GB。如果啟用分割，上限會更高。如需詳細資訊，請參閱[分割訊息實體](https://msdn.microsoft.com/library/azure/dn520246.aspx)。
+服務匯流排主題支援 [256 KB 的訊息大小上限](service-bus-quotas.md) (包含標準和自訂應用程式屬性的標頭可以容納 64 KB 的大小上限)。主題中所保存的訊息數目沒有限制，但主題所保存的訊息大小總計會有最高限制。此主題大小會在建立時定義，上限是 5 GB。如果啟用分割，上限會更高。如需詳細資訊，請參閱[分割傳訊實體](https://msdn.microsoft.com/library/azure/dn520246.aspx)。
 
 ## 如何自訂用帳戶接收訊息
 
-自訂閱接收訊息的建議方式是使用 [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) 物件。[SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) 物件可在兩種不同的模式下運作：[ReceiveAndDelete 和 PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)。
+自訂用帳戶接收訊息的建議方式是使用 [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) 物件。[SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) 物件可在兩種不同的模式下運作：[ReceiveAndDelete 和 PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)。
 
-使用 **ReceiveAndDelete** 模式時，接收是一次性作業；也就是說，當服務匯流排在訂閱中收到訊息的讀取要求時，它會將此訊息標示為已使用，並將它傳回應用程式。**ReceiveAndDelete** 模式是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
+使用 **ReceiveAndDelete** 模式時，接收是一次性作業；也就是說，當服務匯流排在訂用帳戶中收到訊息的讀取要求時，它會將此訊息標示為已使用，並將它傳回應用程式。**ReceiveAndDelete** 模式是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
-在 **PeekLock** 模式 (此為預設模式) 中，接收程序會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫所接收訊息上的 [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)，來完成接收程序的第二個階段。當服務匯流排看到 **Complete** 呼叫時，它會將訊息標示為已取用，並將它從訂閱中移除。
+在 **PeekLock** 模式 (此為預設模式) 中，接收程序會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫所接收訊息上的 [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)，來完成接收程序的第二個階段。當服務匯流排看到 **Complete** 呼叫時，它會將訊息標示為已取用，並將它從訂用帳戶中移除。
 
 以下範例將示範如何使用預設的 **PeekLock** 模式來接收與處理訊息。若要指定其他 [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) 值，您可以使用 [CreateFromConnectionString](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.createfromconnectionstring.aspx) 的另一個超載。這個範例會使用 [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) 回呼在訊息到達 **HighMessages** 訂用帳戶時處理訊息。
 
@@ -289,7 +291,7 @@ Client.OnMessage((message) =>
 
 與訂用帳戶內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後但尚未發出 [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為*至少處理一次*；也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
+如果應用程式在處理訊息之後但尚未發出 [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為*至少處理一次*，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
 
 ## 刪除主題和訂用帳戶
 
@@ -325,4 +327,4 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [服務匯流排代理傳訊 .NET 教學課程]: service-bus-brokered-tutorial-dotnet.md
   [Azure 範例]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

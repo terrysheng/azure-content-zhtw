@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm"/>
 
 #使用 TSQL 建立 SQL 資料倉儲 
@@ -64,16 +64,16 @@ SERVICE\_OBJECTIVE 會指出您的執行個體起始的 DWU 數量，並接受�
 + DW1500
 + DW2000
 
-如需這些參數的計費影響詳細資訊，請參閱我們的[定價頁面][]。
+如需這些參數的計費影響詳細資訊，請參閱我們的[價格頁面][]。
 
 ## 後續步驟
 您的 SQL 資料倉儲完成佈建之後，您可以[載入範例資料][]或查看如何[開發][]、[載入][]，或[移轉][]。
 
-[連接及查詢]: ./sql-data-warehouse-get-started-connect-query.md
-[移轉]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-migrate/
-[開發]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-develop/
-[載入]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-load/
-[載入範例資料]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[定價頁面]: https://azure.microsoft.com/zh-TW/pricing/details/sql-data-warehouse/
+[連接及查詢]: ./sql-data-warehouse-get-started-connect.md
+[移轉]: ./sql-data-warehouse-overview-migrate.md
+[開發]: ./sql-data-warehouse-overview-develop.md
+[載入]: ./sql-data-warehouse-overview-load.md
+[載入範例資料]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[價格頁面]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

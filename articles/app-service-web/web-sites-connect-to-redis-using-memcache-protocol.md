@@ -1,14 +1,14 @@
 <properties
 	pageTitle="透過 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache | Microsoft Azure"
 	description="使用 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache"
-	services="app-service"
+	services="app-service\web"
 	documentationCenter="php"
 	authors="SyntaxC4"
 	manager="wpickett"
 	editor="riande"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
@@ -198,4 +198,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

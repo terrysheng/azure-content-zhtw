@@ -5,10 +5,10 @@
 	authors="mattchenderson"
 	manager="dwrede"
 	editor="na"
-	services="app-service"/>
+	services="app-service\mobile"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
@@ -188,4 +188,4 @@
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/11/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Windows 市集應用程式的通知中樞
@@ -90,31 +90,15 @@
 
 ##設定您的通知中樞
 
-1. 登入 [Azure 入口網站]，並按一下畫面底部的 [新增]。
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-2. 依序按一下 [應用程式服務]、[服務匯流排]、[通知中樞]，然後按一下 [快速建立]。
+<ol start="7">
+<li><p>選取頂端的 [設定]<b></b> 索引標籤，輸入您在上一節中從 WNS 取得的 [用戶端密碼]<b></b> 和 [封裝 SID]<b></b> 值，然後按一下 [儲存]<b></b>。</p>
+</li>
+</ol>
 
-   	![][7]
+&emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
-3. 為您的通知中樞輸入名稱、選取所需的區域，然後按一下 [建立新的通知中樞]。
-
-   	![][8]
-
-4. 按一下您剛才建立的命名空間 (通常為 **通知中樞名稱-ns**)，然後按一下頂端的 [設定] 索引標籤。
-
-   	![][9]
-
-5. 選取頂端的 [通知中樞] 索引標籤，然後按一下您剛才建立的通知中樞。
-
-   	![][10]
-
-6. 選取頂端的 [設定] 索引標籤，輸入您在上一節中從 WNS 取得的 [用戶端密碼] 和 [封裝 SID] 值，然後按一下 [儲存]。
-
-   	![][11]
-
-7. 選取頂端的 [儀表板] 索引標籤，然後按一下頁面底部的 [連接資訊] 按鈕。記下這兩個連接字串。
-
-   	![][12]
 
 現在已將您的通知中心設定成使用 WNS，而且您已擁有可用來註冊應用程式和傳送通知的連接字串。
 
@@ -217,24 +201,24 @@
 
 	即會將新的 Visual C# 主控台應用程式新增到方案中。您也可以在個別方案中進行此項作業。
 
-4. 在 Visual Studio 中，依序按一下 [工具]、[NuGet 封裝管理員] 和 [封裝管理員主控台]。
+2. 在 Visual Studio 中，依序按一下 [工具]、[NuGet 封裝管理員] 和 [封裝管理員主控台]。
 
 	這會在 Visual Studio 中顯示 [封裝管理員主控台]。
 
-6. 在 [封裝管理員主控台] 視窗中，將 [預設專案] 設為新的主控台應用程式專案，然後在主控台視窗中執行下列命令：
+3. 在 [封裝管理員主控台] 視窗中，將 [預設專案] 設為新的主控台應用程式專案，然後在主控台視窗中執行下列命令：
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入對 Azure 通知中樞 SDK 的參考。
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入 Azure 通知中樞 SDK 的參考。
 
 	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 
-5. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
+4. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
 
         using Microsoft.Azure.NotificationHubs;
 
-6. 在 **Program** 類別中，新增下列方法：
+5. 在 **Program** 類別中，新增下列方法：
 
         private static async void SendNotificationAsync()
         {
@@ -248,12 +232,12 @@
 
 	>[AZURE.NOTE]請確定您使用的連接字串具有 [完整] 存取權，而非 [接聽] 存取權。接聽存取權的字串沒有傳送通知的權限。
 
-7. 在 **[主要]** 方法中新增下列命令列。
+6. 在 **[主要]** 方法中新增下列命令列。
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-8. 在 Visual Studio 中，以滑鼠右鍵按一下主控台應用程式專案，然後按一下 [設定為啟始專案]，將它設為啟始專案。然後按 **F5** 鍵執行應用程式。
+7. 在 Visual Studio 中，以滑鼠右鍵按一下主控台應用程式專案，然後按一下 [設定為啟始專案]，將它設為啟始專案。然後按 **F5** 鍵執行應用程式。
 
    	![][14]
 
@@ -279,12 +263,7 @@
 [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png
 [4]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-select-app-name.png
 [6]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-push-auth.png
-[7]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png
-[8]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal2.png
-[9]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal.png
-[10]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png
-[12]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-connection-strings.png
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [15]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler1.png
@@ -294,7 +273,7 @@
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure portal]: https://manage.windowsazure.com/
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -304,4 +283,4 @@
 [磚目錄]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [徽章概觀]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

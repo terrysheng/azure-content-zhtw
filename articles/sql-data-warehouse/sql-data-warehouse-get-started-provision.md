@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # 使用 Azure Preview 入口網站建立 SQL 資料倉儲#
@@ -121,6 +121,6 @@
 
 ## 後續步驟
 
-現在您已經為 SQL 資料倉儲建立範例資料庫，請在[連接和查詢](./sql-data-warehouse-get-started-connect-query.md)中了解如何使用 SQL 資料倉儲。
+既然您已建立 SQL 資料倉儲的範例資料庫，表示已準備好[連接](./sql-data-warehouse-get-started-connect.md)到您的資料庫。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="如何建立 App Service 環境" 
 	description="App Service 的建立流程說明" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
@@ -146,4 +146,4 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

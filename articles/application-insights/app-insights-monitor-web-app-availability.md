@@ -170,6 +170,8 @@ Web 測試可分為兩種：
 
     ![選取 [多步驟 Web 測試]。](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
+    以進行 ping 測試的相同方式設定測試位置、頻率及警示參數。
+
 就像在單一 url 測試中一樣，以相同的方式檢視您的測試結果和任何失敗。
 
 失敗的常見原因是在測試執行太長。不可執行超過兩分鐘。
@@ -244,4 +246,4 @@ Web 測試外掛程式提供這種作法。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

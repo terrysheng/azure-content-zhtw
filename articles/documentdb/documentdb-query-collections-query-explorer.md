@@ -2,7 +2,7 @@
 	pageTitle="使用 [查詢總管]，針對 DocumentDB 集合建立、編輯和執行 SQL 查詢 | Microsoft Azure" 
 	description="深入了解 DocumentDB 查詢總管是一項 Azure 預覽入口網站工具，可用來針對 DocumentDB 集合建立、編輯和執行 SQL 查詢。" 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/08/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # 使用 [查詢總管]，針對 DocumentDB 集合建立、編輯和執行 SQL 查詢 #
 
@@ -78,4 +78,4 @@
 - 若要深入了解 [查詢總管] 中支援的 DocumentDB SQL 文法，請按一下[這裡](documentdb-sql-query.md)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

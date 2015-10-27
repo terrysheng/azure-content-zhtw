@@ -1,7 +1,7 @@
 >[AZURE.NOTE]若要完成此程序，您必須要有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。
 
 
-1. 導覽至 <a href="http://cloud.google.com/console" target="_blank">Google 雲端主控台</a>網站，並使用 Google 帳戶認證登入，然後按一下 [建立專案]。
+1. 導覽至 [Google 雲端主控台](https://console.developers.google.com/project)，並使用 Google 帳戶認證登入，然後按一下 [建立專案]。
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 
@@ -17,7 +17,7 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. 按一下 [認證]，然後按一下 [建立新的金鑰]
+5. 按一下 [認證]，然後按一下 [新增認證] 和 [API 金鑰]。
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
@@ -25,10 +25,11 @@
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-7. 記下 [API 金鑰] 的值。
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2-2.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png)
+
+7. 記下 [API 金鑰] 的值。
 
 	您將使用此 API 金鑰值，讓 Azure 能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

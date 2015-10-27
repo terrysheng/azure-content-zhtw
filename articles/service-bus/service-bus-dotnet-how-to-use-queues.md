@@ -16,7 +16,9 @@
     ms.date="10/07/2015"
     ms.author="sethm"/>
 
-# 如何使用 Azure 服務匯流排佇列
+# 如何使用服務匯流排佇列
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 本文說明如何使用服務匯流排佇列。這些範例均以 C# 撰寫並使用 .NET API。本文說明的案例包括建立佇列和傳送並接收訊息。如需佇列的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
@@ -52,7 +54,7 @@
 
 ### 在使用雲端服務時設定連接字串
 
-服務組態機制為 Azure 雲端服務專案所獨有，可讓您從 Azure 入口網站動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (.csdef) 檔案中加入 `Setting` 標籤，如下一個範例所示。
+服務組態機制為 Azure 雲端服務專案所獨有，可讓您從 Azure 入口網站動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (.csdef) 檔案中加入 `Setting` 標籤，如下個範例所示。
 
 ```
 <ServiceDefinition name="Azure1">
@@ -123,7 +125,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-[CreateQueue](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx) 方法的超載可讓您調整佇列的屬性 (例如，針對要在傳送至佇列的訊息套用的存留時間 (TTL) 設定預設值)。您可以使用 [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx) 類別來套用這些設定。下列範例將示範如何使用大小上限為 5 GB 和預設訊息 TTL 為 1 分鐘的設定，來建立名為 `TestQueue` 的佇列。
+[CreateQueue](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx) 方法的超載可讓您調整佇列的屬性 (例如，設定要套用至傳送至佇列之訊息的預設存留時間 (TTL) 值)。您可以使用 [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx) 類別來套用這些設定。下列範例將說明如何使用大小上限為 5 GB 和預設訊息 TTL 為 1 分鐘的設定，來建立名為 `TestQueue` 的佇列。
 
 ```
 // Configure queue settings.
@@ -181,7 +183,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-服務匯流排佇列最多可支援 [256 KB 的訊息大小](service-bus-quotas.md) (包含標準和自訂應用程式屬性的標頭可以容納 64 KB 的大小上限)。佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。此佇列大小會在建立時定義，上限是 5 GB。如果啟用分割，上限會更高。如需詳細資訊，請參閱[分割訊息實體](service-bus-partitioning.md)。
+服務匯流排佇列支援 [256 KB 的訊息大小上限](service-bus-quotas.md) (包含標準和自訂應用程式屬性的標頭可以容納 64 KB 的大小上限)。佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。此佇列大小會在建立時定義，上限是 5 GB。如果啟用分割，上限會更高。如需詳細資訊，請參閱[分割傳訊實體](service-bus-partitioning.md)。
 
 ## 如何從佇列接收訊息
 
@@ -234,7 +236,7 @@ Client.OnMessage((message) =>
 
 與佇列內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，尚未發出 [Complete][] 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**；也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 屬性來達到此目的，該屬性會在各個傳遞嘗試中會保持不變。
+如果應用程式在處理訊息之後但尚未發出 [Complete][] 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 屬性來達到此目的，該屬性會在各個傳遞嘗試中會保持不變。
 
 ## 後續步驟
 
@@ -257,4 +259,4 @@ Client.OnMessage((message) =>
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

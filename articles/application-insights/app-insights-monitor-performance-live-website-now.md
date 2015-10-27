@@ -165,7 +165,7 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
   * 使用您的網站來產生一些資料。
   * 等候幾分鐘讓資料抵達，然後按一下 [重新整理]。
-  * 開啟 [診斷搜尋] ([搜尋] 磚) 以查看個別事件。彙總資料在圖表中出現之前，事件通常會顯示在 [診斷搜尋] 中。
+  * 開啟 [診斷搜尋] \([搜尋] 磚) 以查看個別事件。彙總資料在圖表中出現之前，事件通常會顯示在 [診斷搜尋] 中。
   * 開啟狀態監視器，然後選取左窗格中的應用程式。檢查 [設定通知] 區段中是否有任何關於此應用程式的診斷訊息：
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
@@ -174,6 +174,7 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
   * 如果您在伺服器上看到有關「權限不足」的訊息，請嘗試下列操作：
     * 在 IIS 管理員中，選取應用程式集區，開啟 [進階設定]，並記下 [處理序模型] 下的身分識別。
     * 在電腦的管理控制台中，將此身分識別加入至效能監試器使用者群組。
+  * 如果您的伺服器上已安裝 MMA/SCOM，某些版本可能會發生衝突。解除安裝 SCOM 和狀態監視器，重新安裝最新版本。
   * 請參閱[疑難排解][qna]。
 
 ## 系統需求
@@ -215,4 +216,4 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

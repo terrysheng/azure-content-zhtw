@@ -36,7 +36,7 @@
 1.	在 [範本] 窗格中，按一下 [儲存]。
 2.	按一下 [參數]。在 [參數] 窗格中輸入新值、從允許的值選取，或接受預設值，然後按一下 [確定]。
 3.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
-4.	按一下 [資源群組]，然後選取現有的資源群組。或者按一下 [或建立新的]，為此工作負載建立新的資源群組。
+4.	按一下 [資源群組]，然後選取現有的資源群組。或者，按一下 [或建立新的]，為此工作負載建立新的資源群組。
 5.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
 6.	如有需要，按一下 [法律條款]，檢閱使用範本的條款和合約。
 7.	按一下 [建立]。
@@ -45,7 +45,7 @@
 
 ## Azure PowerShell
 
-在開始之前，請確定您已安裝正確版本的 Azure PowerShell、已登入，而且您已切換至新的資源管理員模式。如需詳細資訊，請按一下[這裡](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates)。
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有項目，包括 < and > 字元。
 
@@ -107,4 +107,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

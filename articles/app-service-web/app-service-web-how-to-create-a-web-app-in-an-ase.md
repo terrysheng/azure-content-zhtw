@@ -1,14 +1,14 @@
 <properties
 	pageTitle="如何在 App Service 環境中建立 Web 應用程式"
 	description="針對 App Service 環境檢查之 Web 應用程式和 App Service 方案的建立流程"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -100,4 +100,4 @@ App Service 方案是一組受管理的 Web 應用程式。當您選取價格時
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -19,6 +19,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
+這些都是我們聽說過的實作，包括一些協力廠商提供的實作。
 
 ## 語言
 
@@ -37,21 +38,24 @@
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
-+ [ASP.NET - 已上線](app-insights-monitor-performance-live-website-now.md)
++ [ASP.NET - 適用於即時應用程式](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure Web Apps 和 VM](../insights-perf-analytics.md)
 + [Azure 雲端服務](app-insights-cloudservices.md)：同時包含 Web 與背景工作角色
++ [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 + [Microsoft Dynamics 的 CRM Online](app-insights-sample-mscrm.md)
++ [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
-+ [J2EE - 已上線](app-insights-java-live.md)
++ [J2EE - 適用於即時應用程式](app-insights-java-live.md)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
++ [SLAB](https://github.com/fidmor89/SLAB_AppInsights) 語意記錄
 + [Windows 市集 C#|VB](app-insights-windows-get-started.md)
 + [Windows 市集 C++](app-insights-windows-cpp.md)
 + [Windows 桌面應用程式、服務和背景工作角色](app-insights-windows-desktop.md)
@@ -79,4 +83,4 @@
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

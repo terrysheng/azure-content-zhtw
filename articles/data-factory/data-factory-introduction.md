@@ -29,6 +29,8 @@ Data Factory 會在內部部署、雲端資料來源和 SaaS 之間運作，以�
 
 您可以視需求隨時使用 Data Factory，在可靠的排程下收集各種外型和大小的資料，並加以轉換和發行，以便得到深入的了解。Data Factory 用來建立高度可用的資料流管線，適用於不同產業中的許多案例並滿足其分析管的需求。線上零售商根據客戶瀏覽行為利用它來產生個人化[產品建議](data-factory-product-reco-usecase.md)。遊戲工作室利用它來了解[其行銷活動的效率](data-factory-customer-profiling-usecase.md)。藉由檢閱[客戶個案研究](data-factory-customer-case-studies.md)，直接向我們的客戶了解他們使用 Data Factory 的方法和原因。
 
+> [AZURE.VIDEO azure-data-factory-overview]
+
 ## 重要概念
 
 Azure Data Factory 有幾個主要實體會共同運作，來定義輸入和輸出資料、處理事件以及執行指定之資料流程所需的排程和資源。
@@ -55,7 +57,4 @@ Azure Data Factory 有幾個主要實體會共同運作，來定義輸入和輸�
 
 有了資料集、活動、管線和連結的服務這四個簡單的概念之後，您隨時可以開始使用！ 您可以從頭開始[建置您的第一個管線](data-factory-build-your-first-pipeline.md)，或是依照我們 [Data Factory 範例](data-factory-samples.md)文章中的指示，部署現成的樣本。
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-introduction.md)提交您的意見反應。
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

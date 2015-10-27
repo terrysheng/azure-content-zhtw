@@ -1,7 +1,7 @@
 <properties
 	pageTitle="開始使用適用於 Xamarin.Android 應用程式的通知中樞 | Microsoft Azure"
 	description="在本教學課程中，您會了解如何使用 Azure 通知中樞將推播通知傳送至 Xamarin Android 應用程式。"
-	authors="ysxu"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""
 	services="notification-hubs"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/24/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # 開始使用通知中心
@@ -40,67 +40,89 @@
 
 > [AZURE.IMPORTANT]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)。
 
-##<a name="register"></a>啟用 Google Cloud Messaging
+##啟用 Google 雲端通訊
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##<a name="configure-hub"></a>設定通知中樞
+##設定您的通知中樞
 
-[AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-##<a name="connecting-app"></a>將您的 app 連接到通知中樞
 
-### 建立新專案
+<ol start="7">
+<li><p>按一下頂端的 [設定]<b></b> 索引標籤，輸入前一節中取得的 [API Key]<b></b> 值，然後按一下 [儲存]<b></b>。</p>
+</li>
+</ol>
+&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
 
-1. 在 Xamarin Studio (或 Visual Studio) 中，按一下 [檔案] 和 [新增]，然後按一下 [新增方案] 對話方塊中的 [Android 應用程式]，最後按一下 [確定]。
 
-   	![][14]
+現在已將您的通知中樞設定成使用 GCM，而且您已擁有可用來註冊應用程式以接收通知和傳送推播通知的連接字串。
+
+##將您的應用程式連接到通知中樞
+
+###建立新專案
+
+1. 在 Xamarin Studio 中，依序按一下 [新增方案]、[Android 應用程式] 和 [下一步]。
+
+   	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+
+2. 輸入您的**應用程式名稱**和**識別碼**。按一下您想要支援的 [目標平台]，然後按 [下一步] 和 [建立]。
+
+   	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+
 
 	這會建立新的 Android 專案。
 
 2. 在 [方案] 檢視中以滑鼠右鍵按一下新專案來開啟專案屬性，並選擇 [選項]。選取 [建置] 區段中的 [Android Application] 項目。
 
-   	![][15]
-
-3. 將 [Minimum Android version] 設定為 API 層級 8。
-
-4. 將 [Target Android version] 設定為想要的目標 API 版本 (必須是 API 層級 8 或更高版本)。
-
-5. 確定 [套件名稱] 的第一個字母是小寫。
+	確定 [套件名稱] 的第一個字母是小寫。
 
 	> [AZURE.IMPORTANT]套件名稱的第一個字母必須是小寫。否則，當您在下文為推播通知註冊 **BroadcastReceiver** 和 **IntentFilter** 時，將收到應用程式資訊清單錯誤。
 
-### 將必要元件新增至專案
+   	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+
+
+3. 可選擇性地將 [最低 Android 版本] 設定為另一個 API 層級。
+
+4. 可選擇性地將 [目標 Android 版本] 設定為另一個想要的目標 API 版本 (必須是 API 層級 8 或更高版本)。
+
+按一下 [確定]，並關閉 [專案選項] 對話方塊。
+
+
+###將必要元件新增至專案
 
 可在 Xamarin 元件存放區中取得的 Google Cloud Messaging 用戶端會簡化在 Xamarin.Android 中支援推播通知的程序。
 
-1. 以滑鼠右鍵按一下 Xamarin.Android app 中的 [Components] 資料夾，然後選擇 [Get More Components]。
+1. 以滑鼠右鍵按一下 Xamarin.Android app 中的 [元件] 資料夾，然後選擇 [取得其他元件]。
 
 2. 搜尋 [**Azure 訊息**] 元件，並將該元件新增至專案。
 
 3. 搜尋 [**Google Cloud Messaging 用戶端**] 元件，並將該元件新增至專案。
 
 
-### 在專案中設定通知中樞
+###在專案中設定通知中樞
 
 1. 收集您的 Android 應用程式和通知中樞的下列資訊：
 
-	- **GoogleProjectNumber**：在 Google 開發人員入口網站上，從您 app 的概觀取得此專案編號值。當您在入口網站上建立應用程式時，您可以提早記下這個值。
+	- **GoogleProjectNumber**：在 Google 開發人員入口網站上，從您的應用程式概觀取得此專案編號值。當您在入口網站上建立應用程式時，您可以提早記下這個值。
 	- **接聽連接字串**：在 Azure 入口網站的儀表板上，按一下 [檢視連接字串]。複製此值的 *DefaultListenSharedAccessSignature* 連線字串。
-	- **中樞名稱**：這是您在 Azure 入口網站的中樞名稱。例如 *mynotificationhub2*。
+	- **中樞名稱**：這是您在 Azure 入口網站的中樞名稱。例如，*mynotificationhub2*。
 
 	為您的 Xamarin 專案建立 **Constants.cs** 類別，並定義類別中的下列常數值。以您的值取代預留位置。
 
-		public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
-		public const string ListenConnectionString = "<Listen connection string>";
-		public const string NotificationHubName = "<hub name>";
+		public static class Constants
+		{
+			public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
+			public const string ListenConnectionString = "<Listen connection string>";
+			public const string NotificationHubName = "<hub name>";
+		}
 
 2. 在 **MainActivity.cs** 中新增下列 using 陳述式：
 
 		using Android.Util;
 		using Gcm.Client;
 
-3. 將執行個體變數新增至 `MainActivity` 類別，以用來在 app 執行時顯示警示對話方塊。
+3. 將執行個體變數新增至 `MainActivity` 類別，以用來在應用程式執行時顯示警示對話方塊。
 
 		public static MainActivity instance;
 
@@ -118,7 +140,7 @@
 			GcmClient.Register(this, Constants.SenderID);
 		}
 
-4. 在 **MainActivity.cs** 的 `OnCreate` 方法中新增 `RegisterWithGCM` 的呼叫。
+4. 在 **MainActivity.cs** 的 `OnCreate` 方法中，初始化 `instance` 變數並新增 `RegisterWithGCM` 的呼叫：
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -139,7 +161,7 @@
 
 4. 建立新類別 **MyBroadcastReceiver**。
 
-	> [AZURE.NOTE]我們將在下文中從頭逐步建立 **BroadcastReceiver** 類別。不過，手動建立 **MyBroadcastReceiver.cs** 之外的一個快速替代方式是參考可在 [NotificationHubs 範例][GitHub]中包含的範例 Xamarin.Android 專案中找到的 **GcmService.cs** 檔案。複製 **GcmService.cs** 之後再變更類別名稱，也是很好的開始。
+	> [AZURE.NOTE]我們將在下文中從頭逐步建立 **BroadcastReceiver** 類別。不過，手動建立 **MyBroadcastReceiver.cs** 之外的一個快速替代方式是參考可在 [NotificationHubs 範例][GitHub]隨附的範例 Xamarin.Android 專案中找到的 **GcmService.cs** 檔案。複製 **GcmService.cs** 之後再變更類別名稱，也是很好的開始。
 
 5. 將下列 using 陳述式新增至 **MyBroadcastReceiver.cs** (請參閱稍早新增的元件和組件)：
 
@@ -151,7 +173,7 @@
 		using Gcm.Client;
 		using WindowsAzure.Messaging;
 
-5. 在 **using** 陳述式與 **namespace** 宣告之間新增下列權限要求：
+5. 在 **MyBroadcastReceiver.cs** 中，於 **using** 陳述式與 **namespace** 宣告之間新增下列權限要求：
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -193,7 +215,7 @@
     	}
 
 
-8. **GcmServiceBase** 實作 **OnRegistered()**、**OnUnRegistered()**、**OnMessage()**、**OnRecoverableError()** 和 **OnError()** 等方法。我們的實作類別 **PushHandlerService** 必須覆寫這些方法，而且這些方法將在發生與通知中心的互動時受到觸發作為回應。
+8. **GcmServiceBase** 實作 **OnRegistered()**、**OnUnRegistered()**、**OnMessage()**、**OnRecoverableError()** 和 **OnError()** 等方法。我們的 **PushHandlerService** 實作類別必須覆寫這些方法，而且這些方法將在發生與通知中心的互動時受到觸發作為回應。
 
 
 9. 使用下列程式碼覆寫 **PushHandlerService** 中的 **OnRegistered()** 方法：
@@ -323,20 +345,20 @@
 		}
 
 
-##<a name="run-app"></a>在模擬器中執行您的應用程式
+##在模擬器中執行您的應用程式
 
 如果您在模擬器中執行此應用程式，請務必使用支援 Google API 的 Android 虛擬裝置 (AVD)。
 
 > [AZURE.IMPORTANT]若要收到推播通知，您必須在 Android 虛擬裝置上設定 Google 帳戶(在模擬器中，瀏覽至 [設定]，然後按一下 [新增帳戶])。 另外，確定模擬器已連線到網際網路。
 
->[AZURE.NOTE]Android 5.0 版與更新版本中的通知設計，與先前版本有極大的不同。如果您在 Android 5.0 版或更新版本上進行測試，必須執行應用程式才能收到通知。如需詳細資訊，請參閱 [Android 通知](http://go.microsoft.com/fwlink/?LinkId=615880)。
+>[AZURE.NOTE]Android 5.0 版與更新版本中的通知設計，與先前版本有極大的不同。如需詳細資訊，請參閱 [Android 通知](http://go.microsoft.com/fwlink/?LinkId=615880)。
 
 
 1. 從 [工具] 中，按一下 [Open Android Emulator Manager]，選取您的裝置，然後按一下 [Edit]。
 
    	![][18]
 
-2. 在 [Target] 中選取 [Google API]，然後按一下 [OK]。
+2. 在 [目標] 中選取 [Google API]，然後按一下 [確定]。
 
    	![][19]
 
@@ -363,26 +385,31 @@
 
 在本教學課程接下來的小節中，您會使用 .NET 主控台應用程式以及透過節點指令碼使用行動服務來傳送通知。
 
-###使用 .NET 應用程式傳送通知
+####(選用) 使用 .NET 應用程式傳送通知
 
-
-Microsoft 提供 Azure 服務匯流排 SDK，以在 .NET 平台上傳送通知。在本節中，您將透過 Visual Studio 建立 .NET 主控台應用程式，以使用 Azure 服務匯流排 SDK 來傳送通知。
+在本節中，您將使用 .NET 主控台應用程式來傳送通知。
 
 1. 建立新的 Visual C# 主控台應用程式：
 
    	![][20]
 
-2. 使用 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>，新增對 Azure 服務匯流排 SDK 的參考。在 Visual Studio 主功能表中，依序按一下 [工具]、[程式庫封裝管理員]、[封裝管理員主控台]。接著，在主控台視窗中輸入：
+2. 在 Visual Studio 中，依序按一下 [工具]、[NuGet 封裝管理員] 和 [封裝管理員主控台]。
 
-        Install-Package WindowsAzure.ServiceBus
+	這會在 Visual Studio 中顯示 [封裝管理員主控台]。
 
-    並按 Enter。
+3. 在 [封裝管理員主控台] 視窗中，將 [預設專案] 設為新的主控台應用程式專案，然後在主控台視窗中執行下列命令：
 
-2. 開啟檔案 Program.cs，並新增下列 using 陳述式：
+        Install-Package Microsoft.Azure.NotificationHubs
 
-        using Microsoft.ServiceBus.Notifications;
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入 Azure 通知中樞 SDK 的參考。
 
-3. 在 `Program` 類別中，新增下列方法。使用您的 *DefaultFullSharedAccessSignature* 連線字串和 Azure 入口網站的中樞名稱，來更新預留位置文字。
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+4. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
+
+        using Microsoft.Azure.NotificationHubs;
+
+5. 在 `Program` 類別中，新增下列方法：使用您的 *DefaultFullSharedAccessSignature* 連線字串和 Azure 入口網站的中樞名稱，來更新預留位置文字。
 
         private static async void SendNotificationAsync()
         {
@@ -390,16 +417,16 @@ Microsoft 提供 Azure 服務匯流排 SDK，以在 .NET 平台上傳送通知�
             await hub.SendGcmNativeNotificationAsync("{ "data" : {"message":"Hello from Azure!"}}");
         }
 
-4. 在您的 **Main** 方法中新增下列程式碼行：
+6. 在您的 **Main** 方法中新增下列程式碼行：
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. 按 F5 鍵以執行應用程式。您應該會在應用程式中收到通知。
+7. 按 F5 鍵以執行應用程式。您應該會在應用程式中收到通知。
 
    	![][21]
 
-###使用行動服務傳送通知
+####(選用) 使用行動服務傳送通知
 
 1. 依照[開始使用行動服務]執行作業。
 
@@ -434,7 +461,7 @@ Microsoft 提供 Azure 服務匯流排 SDK，以在 .NET 平台上傳送通知�
 
 6. 按一下底列上的 [執行一次]。您應會收到快顯通知。
 
-## <a name="next-steps"> </a>後續步驟
+##後續步驟
 
 在此簡單範例中，您廣播通知到您的所有 Android 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者]。如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞]。若要深入了解如何使用通知中樞，請參閱[通知中樞指引]和 [Android 的通知中樞作法]。
 
@@ -447,20 +474,10 @@ Microsoft 提供 Azure 服務匯流排 SDK，以在 .NET 平台上傳送通知�
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[1]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png
-[2]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server.png
-[3]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server2.png
-[4]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server3.png
 
-[7]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-from-portal.png
-[8]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-from-portal2.png
-[9]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-select-from-portal.png
-[10]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-configure-android.png
-[12]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-connection-strings.png
 
 [13]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app1.png
-[14]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app2.png
 [15]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app3.png
 
 [18]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-android-app7.png
@@ -497,4 +514,4 @@ Microsoft 提供 Azure 服務匯流排 SDK，以在 .NET 平台上傳送通知�
 [Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
 [Azure 訊息元件]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="設定 Service Fabric 開發環境 | Microsoft Azure"
-   description="安裝 Service Fabric 執行階段、SDK 和工具，並建立本機開發叢集。"
+   pageTitle="設定開發環境 | Microsoft Azure"
+   description="安裝執行階段、SDK 和工具，並建立本機開發叢集。完成此設定之後，您就可以開始建置應用程式。"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="samgeo"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,15 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# 設定 Service Fabric 開發環境
- 本文章涵蓋所有開始建置 [Service Fabric][1] 應用程式的所需資訊，包含安裝執行階段、SDK 和工具，以及設定本機叢集。
+# 準備您的開發環境
+ 若要在您的開發機器上建置並執行 [Service Fabric 應用程式][1]，您需要安裝執行階段、SDK、工具，以及設定本機叢集。
 
- >[AZURE.NOTE]這些指示是針對設定新的電腦。如果您已在電腦上安裝舊版的 Service Fabric，請遵循[指示以更新您的開發環境](service-fabric-update-your-development-environment.md)。
+ >[AZURE.NOTE]這些指示是針對設定新的機器。如果您已安裝舊版的 Service Fabric，請遵循[指示以更新您的開發環境](service-fabric-update-your-development-environment.md)。
 
-## 必要條件
+## 先決條件
 ### 支援的作業系統版本
 下列為支援的作業系統版本：
 
@@ -33,7 +33,7 @@
 
 適用於 Service Fabric 的工具取決於 Visual Studio 2015，您可以在[這裡][2]找到。
 
-> [AZURE.NOTE]若您並未執行其中一個支援的作業系統版本，或不想在您的電腦上安裝 Visual Studio 2015，則您可以設定 Azure 虛擬機器 搭配 Windows Server 2012 R2 和從 VM 資源庫使用映像預先安裝的 Visual Studio 2015。
+> [AZURE.NOTE]若您並未執行其中一個支援的作業系統版本，或不想在您的電腦上安裝 Visual Studio 2015，則您可以設定 Azure 虛擬機器搭配 Windows Server 2012 R2 和從 Azure 虛擬機器資源庫使用映像預先安裝的 Visual Studio 2015。
 
 ## 安裝執行階段、SDK 和工具
 
@@ -106,4 +106,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

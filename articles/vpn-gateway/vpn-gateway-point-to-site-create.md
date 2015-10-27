@@ -4,8 +4,9 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="jdial"
-   editor="tysonn"/>
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,23 +14,24 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
 # 設定 Azure 虛擬網路的點對站 VPN 連接
 
 
->[AZURE.NOTE]這篇文章適用於在傳統的部署模式中建立的虛擬網路的點對站連線。現階段不支援點對站連線至以 Azure 資源管理員部署模式建立的虛擬網路。
+>[AZURE.NOTE]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+
+本文章適用於使用傳統部署模型所建立之虛擬網路的點對站連接 (服務管理)。現階段不支援使用 Azure 資源管理員部署模型所建立之虛擬網路的點對站連接。
 
 以下程序將逐步引導您建立與虛擬網路的安全點對站連線。雖然點對站連線的設定需要多個步驟才能完成，但在電腦和虛擬網路間具備安全連線，而不需取得及設定 VPN 裝置，仍不失為一個好方法。設定點對站 VPN 包含三個主要部分：虛擬網路和 VPN 閘道、用於驗證的憑證，以及用來連線到虛擬網路的 VPN 用戶端。各個部分的設定順序極為重要，因此請勿略過或跳過任何步驟。
 
 
 1. [建立虛擬網路和 VPN 閘道](#create-a-virtual-network-and-a-vpn-gateway)。
-2. [建立憑證](#create-your-certificates)。
-3. [設定 VPN 用戶端](#configure-your-vpn-client)。
+2. [建立您的憑證](#create-your-certificates)
+3. [設定 VPN 用戶端](#configure-your-vpn-client)
 
 ## 建立虛擬網路和 VPN 閘道
-
 
 
 點對站連線需要具備動態路由閘道的虛擬網路。下列步驟將引導您完成二者的建立。
@@ -65,7 +67,7 @@
 憑證是用於點對站 VPN 之 VPN 用戶端驗證。此程序包含多個步驟。請使用以下連結，依序完成每個步驟。
 
 1. [產生自我簽署的根憑證](#generate-a-self-signed-root-certificate) - 目前僅支援自我簽署的根憑證。
-2. [將根憑證上傳至 Azure 入口網站](#upload-the-root-certificate-file-to-the-management-portal)。
+2. [將根憑證檔案上傳至 Azure 入口網站](#upload-the-root-certificate-file-to-the-management-portal)。
 3. [產生用戶端憑證](#generate-a-client-certificate)。
 4. [匯出及安裝用戶端憑證](#export-and-install-the-client-certificate)。
 
@@ -156,10 +158,10 @@
 ## 後續步驟
 
 
-您可以在此文章中進一步了解虛擬網路跨單位連線：〈[關於虛擬網路安全的跨單位連線](vpn-gateway-cross-premises-options.md)〉。
+您可以在此文章中進一步了解虛擬網路跨單位連線：[關於虛擬網路安全的跨單位連線](vpn-gateway-cross-premises-options.md)。
 
-如果您想要設定站對站 VPN 連線，請參閱〈[設定虛擬網路與站對站 VPN 閘道連線](vpn-gateway-site-to-site-create.md)〉。
+如果您想要設定站對站 VPN 連線，請參閱[設定虛擬網路與站對站 VPN 閘道連線](vpn-gateway-site-to-site-create.md)。
 
-您可以將虛擬機器加入您的虛擬網路。請參閱〈[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)〉。
+您可以將虛擬機器加入您的虛擬網路。請參閱[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

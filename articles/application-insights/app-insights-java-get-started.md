@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/15/2015"
 	ms.author="awills"/>
 
 # 在 Java Web 專案中開始使用 Application Insights
@@ -25,7 +25,7 @@
 
 ![範例資料](./media/app-insights-java-get-started/5-results.png)
 
-[Application Insights Web 測試][availability]會監視您的應用程式可用性。
+Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程式。
 
 您需要：
 
@@ -80,7 +80,7 @@
     </dependencies>
 
 
-* 建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：`<version>1.0.n</version>`。您可以在 [SDK 版本資訊](app-insights-release-notes-java.md)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
+* *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`<version>1.0.n</version>`。您可以在 [SDK 版本資訊](app-insights-release-notes-java.md)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
 * *需要更新為新的 SDK？* 請重新整理專案的相依項目。
 
 #### 如果您使用 Gradle...
@@ -98,8 +98,8 @@
       // or applicationinsights-core for bare API
     }
 
-* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `version:'1.0.n'`。您可以在* [SDK 版本資訊](app-insights-release-notes-java.md)*中找到最新版本。
-* 更新為新版 SDK
+* *建置或總和檢查碼驗證錯誤？ 嘗試使用特定版本，例如：* `version:'1.0.n'`。*您可以在 [SDK 版本資訊](app-insights-release-notes-java.md)中找到最新版本。*
+* *更新為新版 SDK*
  * 請重新整理專案的相依項目。
 
 #### 否則...
@@ -117,7 +117,7 @@
  * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。如果您不想自動收集此遙測，您可以忽略這個。例如，如果您想要自己撰寫。
 
 * *在我們發佈變更時更新 SDK*
- * 下載最新的[Java 適用的 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) 並取代舊的。
+ * 下載最新的 [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) 並取代舊的。
  * [SDK 版本資訊](app-insights-release-notes-java.md)中會說明變更內容。
 
 
@@ -271,7 +271,7 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 若要收集其他例外狀況的資料，您有兩個選項：
 
-* [在您的程式碼中插入 trackException() 的呼叫][apiexceptions]。 
+* [在您的程式碼中插入 TrackException 的呼叫][apiexceptions]。 
 * [在伺服器上安裝 Java 代理程式](app-insights-java-agent.md)。指定您想要觀看的方法。
 
 
@@ -396,4 +396,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="開發以 ASP.NET MVC 使用 DocumentDB 的 Web 應用程式 | Microsoft Azure" 
 	description="了解如何使用 DocumentDB with .NET 建立待辦事項清單 Web 應用程式。您將從 Azure 網站託管的 ASP.NET MVC Web 應用程式中儲存和存取資料。" 
-	keywords="Github, visual studio, web application development, application development, database tutorial, mvc applications, json data, documentdb, azure, Microsoft azure"
+	keywords="Github、visual studio、web 應用程式開發、應用程式開發、資料庫教學課程、mvc 應用程式、json 資料、documentdb、azure、Microsoft azure"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -18,7 +18,7 @@
 	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>開發以 ASP.NET MVC 使用 DocumentDB 的 Web 應用程式
+#<a name="_Toc395809351"></a>使用 DocumentDB 搭配 ASP.NET MVC 的 Web 應用程式開發
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -58,32 +58,32 @@
 
 既然您已有帳戶，我們可以開始建立新的 ASP.NET 專案。
 
-1. 在 Visual Studio 的 [**檔案**] 功能表中，指向 [**新增**]，然後按一下 [**專案**]。
+1. 在 Visual Studio 的 [檔案] 功能表中，指向 [新增]，然後按一下 [專案]。
 
-   	[**新增專案** ] 對話方塊隨即出現。
-2. 在 [**專案類型**] 窗格中，依序展開 [**範本**]、[**Visual C#**]、[**Web**]，然後選取 [**ASP.NET Web 應用程式**]。
+   	[新增專案] 對話方塊隨即出現。
+2. 在 [專案類型] 窗格中，依序展開 [範本]、[Visual C#]、[Web]，然後選取 [ASP.NET Web 應用程式]。
 
   	![[新增專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 ASP.NET Web 應用程式專案類型](./media/documentdb-dotnet-application/image10.png)
 
-3. 在 [**名稱**] 方塊中，輸入專案的名稱。本教學課程使用 "todo" 名稱。如果您選擇使用其他名稱，則每當本教學課程提及 todo 命名空間時，您必須調整提供的程式碼範例，以便使用您為應用程式所命名的名稱。
+3. 在 [名稱] 方塊中，輸入專案的名稱。本教學課程使用 "todo" 名稱。如果您選擇使用其他名稱，則每當本教學課程提及 todo 命名空間時，您必須調整提供的程式碼範例，以便使用您為應用程式所命名的名稱。
 
-4. 按一下 [**瀏覽**] 以巡覽至您想要建立專案的資料夾，然後按一下 [**確定**]。
+4. 按一下 [瀏覽] 以巡覽至您想要建立專案的資料夾，然後按一下 [確定]。
 
-  	[**新增 ASP.NET 專案**] 對話方塊隨即出現。
+  	[新增 ASP.NET 專案] 對話方塊隨即出現。
 
   	![[新增 ASP.NET 專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 MVC 應用程式範本，和勾選的 [在雲端託管] 方塊。](./media/documentdb-dotnet-application/image11.png)
 
-5. 在 [範本] 窗格中，選取 [**MVC**]。
+5. 在 [範本] 窗格中，選取 [MVC]。
 
-6. 如果您打算在 Azure 中託管應用程式，則請選取右下角的 [**在雲端託管**] 方塊，Azure 才能託管應用程式。我們已選擇要在雲端託管，並執行 Azure 網站中所託管的應用程式。選取此選項將會預先佈建 Azure 網站，讓您在需要部署最終的運作應用程式時更為容易。如果您希望在各處都能托管，或不想預先設定，則請清除 [**在雲端託管**] 選項。
+6. 如果您打算在 Azure 中託管應用程式，則請選取右下角的 [在雲端託管] 方塊，Azure 才能託管應用程式。我們已選擇要在雲端託管，並執行 Azure 網站中所託管的應用程式。選取此選項將會預先佈建 Azure 網站，讓您在需要部署最終的運作應用程式時更為容易。如果您希望在各處都能托管，或不想預先設定，則請清除 [在雲端託管] 選項。
 
-7. 按一下 [**確定**]，並讓 Visual Studio 執行有關 Scaffolding 空的 ASP.NET MVC 範本的作業。
+7. 按一下 [確定]，並讓 Visual Studio 執行有關 Scaffolding 空的 ASP.NET MVC 範本的作業。
 
 8. 如果您選擇在雲端託管，則至少會有一個其他畫面出現，要求您登入 Azure 帳戶並提供新網站的部分值。提供所有其他的值，然後繼續進行。
 
   	在這裡我並沒有選擇 [資料庫伺服器]，因為我們並未使用 Azure SQL Database Server，稍後我們會在 Azure Preview 入口網站中建立新的 Azure DocumentDB 帳戶。
 
-	如需關於選擇 **App Service 方案**和**資源群組**的詳細資訊，請參閱 [Azure App Service 方案深入概觀](azure-web-sites-web-hosting-plans-in-depth-overview.md)。
+	如需選擇 **App Service 方案**和**資源群組**的詳細資訊，請參閱 [Azure App Service 方案深入概觀](azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
   	![[設定 Microsoft Azure 網站] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -95,19 +95,19 @@
 
 既然我們已經完成了此方案的大部分 ASP.NET MVC 瑣事，我們現在可以開始本教學課程的真正目的，也就是將 Azure DocumentDB 新增至 Web 應用程式。
 
-1. DocumentDB .NET SDK 會隨 NuGet 封裝而分散。若要在 Visual Studio 中取得 NuGet 封裝，請使用 Visual Studio 中的 NuGet 封裝管理員，方法是以滑鼠右鍵按一下 [**方案總管**] 中的專案，然後按一下 [**管理 NuGet 封裝**]。
+1. DocumentDB .NET SDK 會隨 NuGet 封裝而分散。若要在 Visual Studio 中取得 NuGet 封裝，請使用 Visual Studio 中的 NuGet 封裝管理員，方法是以滑鼠右鍵按一下 [方案總管] 中的專案，然後按一下 [管理 NuGet 封裝]。
 
   	![[方案總管] 中 Web 應用程式專案的滑鼠右鍵選項的螢幕擷取畫面，內含反白顯示的 [管理 NuGet 封裝]。](./media/documentdb-dotnet-application/image21.png)
 
-    [**管理 NuGet 封裝**] 對話方塊隨即出現。
+    [管理 NuGet 封裝] 對話方塊隨即出現。
 
-2. 在 [**線上搜尋**] 方塊中，輸入 ***Azure DocumentDB***。
+2. 在 [線上搜尋] 方塊中，輸入 ***Azure DocumentDB***。
     
-    從結果中，安裝 [**Microsoft Azure DocumentDB 用戶端程式庫**] 封裝。這會下載和安裝 DocumentDB 封裝，以及所有依存項目 (例如 Newtonsoft.Json)。
+    從結果中，安裝 [Microsoft Azure DocumentDB 用戶端程式庫] 封裝。這會下載和安裝 DocumentDB 封裝，以及所有依存項目 (例如 Newtonsoft.Json)。
 
   	![[管理 NuGet 封裝] 視窗的螢幕擷取畫面，內含反白顯示的 Microsoft Azure DocumentDB 用戶端程式庫](./media/documentdb-dotnet-application/nuget.png)
 
-  	或者，您也可以使用 Package Manager Console 來安裝封裝。若要這樣做，請在 [**工具**] 功能表上按一下 [**NuGet 封裝管理員**]，然後按一下 [**Package Manager Console**]。在出現提示時輸入下列內容：
+  	或者，您也可以使用 Package Manager Console 來安裝封裝。若要這樣做，請在 [工具] 功能表上按一下 [NuGet 封裝管理員]，然後按一下 [Package Manager Console]。在出現提示時輸入下列內容：
 
     	Install-Package Microsoft.Azure.DocumentDB
 
@@ -129,11 +129,11 @@
 
 首先，讓我們在 MVC 中建立 **M** (模型)。
 
-1. 在 [**方案總管**] 中，以滑鼠右鍵按一下 **Models** 資料夾，再按一下 [**新增**]，然後按一下 [**類別**]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，再按一下 [新增]，然後按一下 [類別]。
 
-  	[**加入新項目**] 對話方塊隨即出現。
+  	[加入新項目] 對話方塊隨即出現。
 
-2. 將您的新類別命名為 **Item.cs**，然後按一下 [**新增**]。
+2. 將您的新類別命名為 **Item.cs**，然後按一下 [新增]。
 
 3. 在這個新的 **Item.cs** 檔案中，將下列程式碼加到最後一個 *using 陳述式* 後面。
 		
@@ -162,7 +162,7 @@
         	public bool Completed { get; set; }    
 		}
 
-	DocumentDB 中的所有資料都會透過線路傳遞，並儲存為 JSON。如需透過 JSON.NET 控管物件序列化/取消序列化，您可以使用在剛才建立的 [**項目**] 類別中所示範 **JsonProperty** 屬性。您**無需**這樣做，但我想確定所有屬性都會依照 JSON camelCase 的命名慣例命名。
+	DocumentDB 中的所有資料都會透過線路傳遞，並儲存為 JSON。如需透過 JSON.NET 控管物件序列化/取消序列化，您可以使用在剛才建立的 [項目] 類別中所示範 **JsonProperty** 屬性。您**無需**這樣做，但我想確定所有屬性都會依照 JSON camelCase 的命名慣例命名。
 	
 	使用 JSON 時，您不但可以控管屬性名稱格式，也可以跟我命名 **Description** 屬性一樣重新命名您的 .NET 屬性。
 	
@@ -171,11 +171,11 @@
 
 我們已經建立了 **M**，現在讓我們建立 MVC 中的 **C** (控制器類別)。
 
-1. 在 [**方案總管**] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，按一下 [**新增**]，然後按一下 [**控制器**]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，按一下 [新增]，然後按一下 [控制器]。
 
-    [**新增 Scaffold**] 對話方塊隨即出現。
+    [新增 Scaffold] 對話方塊隨即出現。
 
-2. 選取 [**Web API 5 控制器 - 空的**]，然後按一下 [**新增**]。
+2. 選取 [Web API 5 控制器 - 空]，然後按一下 [新增]。
 
 	![[新增 Scaffold] 對話方塊的螢幕擷取畫面，內含反白顯示的 [MVC 5 控制器 - 空的] 選項](./media/documentdb-dotnet-application/image14.png)
 
@@ -183,7 +183,7 @@
 
 	![[新增控制器] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image15.png)
 
-	檔案建立之後，您的 Visual Studio 方案應該類似包含下面 [**方案總管**] 中新 ItemController.cs 檔案的方案。稍早建立的新 Item.cs 檔案也會顯示出來。
+	檔案建立之後，您的 Visual Studio 方案應該類似包含下面 [方案總管] 中新 ItemController.cs 檔案的方案。稍早建立的新 Item.cs 檔案也會顯示出來。
 
 	![Visual Studio 的螢幕擷取畫面，[方案總管] 內含反白顯示的新 ItemController.cs 檔案和 Item.cs 檔案](./media/documentdb-dotnet-application/image16.png)
 
@@ -200,32 +200,32 @@
 
 #### <a name="AddItemIndexView"></a>新增項目索引檢視
 
-1. 在 [**方案總管**] 中，展開 **Views** 資料夾，以滑鼠右鍵按一下稍早您在建立 **ItemController** 時，Visual Studio 為您建立的空白 **Item** 資料夾，按一下 [**新增**]，然後按一下 [**檢視**]。
+1. 在 [方案總管] 中，展開 **Views** 資料夾，以滑鼠右鍵按一下稍早您在建立 **ItemController** 時，Visual Studio 為您建立的空白 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
 	![顯示 Visual Studio 方案建立之 Item 資料夾的 [方案總管] 螢幕擷取畫面，內含反白顯示的 [新增檢視] 命令](./media/documentdb-dotnet-application/image17.png)
 
-2. 在 [**新增檢視**] 對話方塊中，執行下列動作：
-	- 在 [**檢視名稱**] 方塊中，輸入「***索引***」。
-	- 在 [**範本**] 方塊中，選取 [***清單***]。
-	- 在 [**模型類別**] 方塊中，選取 [***項目 (todo.Models)***]。
-	- 將 [**資料內容類別**] 方塊保留空白。 
+2. 在 [新增檢視] 對話方塊中，執行下列動作：
+	- 在 [檢視名稱] 方塊中，輸入「***索引***」。
+	- 在 [範本] 方塊中，選取 [清單]。
+	- 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
+	- 將 [資料內容類別] 方塊保留空白。 
 	- 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
 	
 	![顯示 [新增檢視] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image18.png)
 
-3. 設定所有這些值之後，按一下 [**新增**]，並讓 Visual Studio 建立新的範本檢視。完成之後，系統便會開啟剛建立的 cshtml 檔案。我們稍後會回頭使用此檔案，您可以先在 Visual Studio 中將該檔案關閉。
+3. 設定所有這些值之後，按一下 [新增]，並讓 Visual Studio 建立新的範本檢視。完成之後，系統便會開啟剛建立的 cshtml 檔案。我們稍後會回頭使用此檔案，您可以先在 Visual Studio 中將該檔案關閉。
 
 #### <a name="AddNewIndexView"></a>新增項目檢視
 
-與建立 [**項目索引**] 檢視的方式類似，現在我們現在可以開始建立新的檢視，以供建立新的**項目**使用。
+與建立 [項目索引] 檢視的方式類似，現在我們現在可以開始建立新的檢視，以供建立新的**項目**使用。
 
-1. 在 [**方案總管**] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [**新增**]，然後按一下 [**檢視**]。
+1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
-2. 在 [**新增檢視**] 對話方塊中，執行下列動作：
-    - 在 [**檢視名稱**] 方塊中，輸入「***建立***」。
+2. 在 [**新增檢視]** 對話方塊中，執行下列動作：
+    - 在 [檢視名稱] 方塊中，輸入「***建立***」。
     - 在 [**範本**] 方塊中，選取 [***建立***]。
-    - 在 [**模型類別**] 方塊中，選取 [***項目 (todo.Models)***]。
-    - 將 [**資料內容類別**] 方塊保留空白。
+    - 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
+    - 將 [資料內容類別] 方塊保留空白。
     - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
     - 按一下 [新增]。
 
@@ -233,13 +233,13 @@
 
 最後，使用與之前相同的方式新增最後一個檢視，以供編輯**項目**使用；
 
-1. 在 [**方案總管**] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [**新增**]，然後按一下 [**檢視**]。
+1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
-2. 在 [**新增檢視**] 對話方塊中，執行下列動作：
-    - 在 [**檢視名稱**] 方塊中，輸入「***編輯***」。
-    - 在 [**範本**] 方塊中，選取 [***編輯***]。
-    - 在 [**模型類別**] 方塊中，選取 [***項目 (todo.Models)***]。
-    - 將 [**資料內容類別**] 方塊保留空白。 
+2. 在 [新增檢視] 對話方塊中，執行下列動作：
+    - 在 [檢視名稱] 方塊中，輸入「***編輯***」。
+    - 在 [範本] 方塊中，選取 [編輯]。
+    - 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
+    - 將 [資料內容類別] 方塊保留空白。 
     - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
     - 按一下 [新增]。
 
@@ -259,7 +259,7 @@
 
 首先要執行的作業是新增類別，其中包含連線至及使用 DocumentDB 的所有邏輯。在本教學課程中，我們會將所有邏輯封裝到名為 DocumentDBRepository 的儲存機制類別中。
 
-1. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，按一下 [**新增**]，然後按一下 [**類別**]。將新類別命名為 **DocumentDBRepository**，然後按一下 [**新增**]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，按一下 [新增]，然後按一下 [類別]。將新類別命名為 **DocumentDBRepository**，然後按一下 [新增]。
  
 2. 在剛剛建立的 **DocumentDBRepository** 類別中，在*命名空間*宣告上方新增下列 *using 陳述式*
 		
@@ -406,7 +406,7 @@
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. 現在，使用 Azure 預覽入口網站的 [金鑰] 刀鋒視窗來更新 [端點] 和 [authKey] 的值。使用 [金鑰] 刀鋒視窗的 [**URI**] 做為端點設定的值，並使用 [金鑰] 刀鋒視窗的 [**主索引鍵**] 或 [**次要金鑰**] 做為 authKey 設定的值。
+4. 現在，使用Azure Preview 入口網站的 [金鑰] 刀鋒視窗來更新 [端點] 和 [authKey] 的值。使用 [金鑰] 刀鋒視窗的 [URI] 做為端點設定的值，並使用 [金鑰] 刀鋒視窗的 [主索引鍵] 或 [次要金鑰] 做為 authKey 設定的值。
 
 
     負責裝設 DocumentDB 儲存機制，現在讓我們加入我們的應用程式邏輯。
@@ -446,7 +446,7 @@
 	
 此時，應該已經可以建置方案，而不會發生任何錯誤。
 
-如果您現在執行應用程式，您可以前往 **HomeController** 及該控制器的 [**索引**] 檢視。這是我們在一開始時所選擇的 MVC 範本專案預設行為，但是我們不想要這樣的行為！ 讓我們變更此 MVC 應用程式上的路由以改變此行為。
+如果您現在執行應用程式，您可以前往 **HomeController** 及該控制器的 [索引] 檢視。這是我們在一開始時所選擇的 MVC 範本專案預設行為，但是我們不想要這樣的行為！ 讓我們變更此 MVC 應用程式上的路由以改變此行為。
 
 開啟 ***App\_Start\\RouteConfig.cs***，並尋找以 "defaults:" 開頭的程式碼行，然後將它變更為如下所示。
 
@@ -482,7 +482,7 @@
 			return View(); 
    		}
 
-	現在此控制器需要更多程式碼，以接受 [**建立**] 檢視所提交的資料。
+	現在此控制器需要更多程式碼，以接受 [建立] 檢視所提交的資料。
 
 2. 將下一個程式碼區塊新增至 ItemController.cs 類別，以告訴 ASP.NET MVC 如何使用表單 POST 來執行此控制器的作業。
 	
@@ -534,25 +534,12 @@
 				.FirstOrDefault(); 
 		} 
 	
-	這兩個方法中的第一個方法 (**GetItem**) 會從 DocumentDB 提取項目，此項目會被傳回 **ItemController**，接著傳至 [**編輯**] 檢視。
+	這兩個方法中的第一個方法 (**GetItem**) 會從 DocumentDB 提取項目，此項目會被傳回 **ItemController**，接著傳至 [編輯] 檢視。
 	
 	第二個剛剛新增的方法是使用從 **ItemController** 傳入的**文件**版本，來取代 DocumentDB 中的**文件**。
 
 2. 將下列程式碼新增至 **ItemController** 類別。
 
-    	[HttpPost]
-   		[ValidateAntiForgeryToken]
-    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
-    	{
-     	   if (ModelState.IsValid)
-    	    {
-    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
-    	        return RedirectToAction("Index");
-    	    }
-
-  	      return View(item);
- 	   	}
-		
 		public ActionResult Edit(string id)
 		{
 		    if (string.IsNullOrEmpty(id))
@@ -570,10 +557,23 @@
 		    return View(item);
 		}
 		
-	
-	第一個方法會處理當使用者按一下 [**索引**] 檢視中的 [**編輯**] 連結時所發生的 Http GET。此方法會從 DocumentDB 中提取 [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，並將它傳遞給 [**編輯**] 檢視。
+    	[HttpPost]
+   		[ValidateAntiForgeryToken]
+    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
+    	{
+     	   if (ModelState.IsValid)
+    	    {
+    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+    	        return RedirectToAction("Index");
+    	    }
 
-	[**編輯**] 檢視會接著對 **IndexController** 執行 Http POST。
+  	      return View(item);
+ 	   	}
+		
+	
+	第一個方法會處理當使用者按一下 [索引] 檢視中的 [編輯] 連結時所發生的 Http GET。此方法會從 DocumentDB 中提取 [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，並將它傳遞給 [編輯] 檢視。
+
+	[編輯] 檢視會接著對 **IndexController** 執行 Http POST。
 	
 	新增的第二個方法會處理此作業，將更新物件傳遞至 DocumentDB 並保留在資料庫中。
 
@@ -589,17 +589,17 @@
 
 	如果這個時候發生錯誤，您可以將程式碼與 [GitHub][] 上的範例專案進行比對
 
-2. 按一下 [**新建**] 連結，並在 [**名稱**] 和 [**描述**] 欄位中新增值。將 [**已完成**] 核取方塊保持為未選取狀態，否則，**新項目**會以已完成的狀態新增，且不會出現在初始清單中。
+2. 按一下 [新建] 連結，並在 [名稱] 和 [描述] 欄位中新增值。將 [已完成] 核取方塊保持為未選取狀態，否則，**新項目**會以已完成的狀態新增，且不會出現在初始清單中。
 
 	![[建立] 檢視的螢幕擷取畫面](./media/documentdb-dotnet-application/image25.png)
 
-3. 按一下 [**建立**]，您便會被重新導向回到 [**索引**] 檢視，且您的**項目**便會出現在清單中。
+3. 按一下 [建立]，您便會被重新導向回到 [索引] 檢視，且您的**項目**便會出現在清單中。
 
 	![[索引] 檢視的螢幕擷取畫面](./media/documentdb-dotnet-application/image26.png)
 
 	依需要新增一些**項目**至 [待辦事項] 清單。
 
-3. 按一下清單上 [**項目**] 旁邊的 [**編輯**]，您便會被帶到 [**編輯**] 檢視，您可以在此更新物件的任何屬性 (包括 [**已完成**] 旗標)。如果您標示 [**完成**] 旗標，然後按一下 [**儲存**]，則**項目**會從未完成的工作清單中移除。
+3. 按一下清單上 [項目] 旁邊的 [編輯]，您便會被帶到 [編輯] 檢視，您可以在此更新物件的任何屬性 (包括 [已完成] 旗標)。如果您標示 [完成] 旗標，然後按一下 [儲存]，則**項目**會從未完成的工作清單中移除。
 
 	![[索引] 檢視的螢幕擷取畫面，內含勾選的 [已完成] 方塊](./media/documentdb-dotnet-application/image27.png)
 
@@ -607,13 +607,13 @@
 
 ##<a name="_Toc395637774"></a>步驟 7：將應用程式部署至 Azure 網站
 
-您已經擁有可在 DocumentDB 正常運作的完整應用程式，我們現在要將此 Web 應用程式部署至 Azure 網站。如果您在建立空白 ASP.NET MVC 專案時選取了 [**在雲端託管**]，則 Visual Studio 可讓這項作業變得十分簡單，並為您完成大部分的工作。
+您已經擁有可在 DocumentDB 正常運作的完整應用程式，我們現在要將此 Web 應用程式部署至 Azure 網站。如果您在建立空白 ASP.NET MVC 專案時選取了 [在雲端託管]，則 Visual Studio 可讓這項作業變得十分簡單，並為您完成大部分的工作。
 
-1. 若要發佈此應用程式，您只需要以滑鼠右鍵按一下 [**方案總管**] 上的專案，然後按一下 [**發佈**] 即可。
+1. 若要發佈此應用程式，您只需要以滑鼠右鍵按一下 [方案總管] 上的專案，然後按一下 [發佈] 即可。
 
     ![[方案總管] 中 [發佈] 選項的螢幕擷取畫面](./media/documentdb-dotnet-application/image28.png)
 
-2. 系統應該已根據您的認證設定好所有項目；實際上，系統已在 Azure 中建立位於所顯示的 [**目的地 URL**] 的網站，您只需要按一下 [**發佈**] 即可。
+2. 系統應該已根據您的認證設定好所有項目；實際上，系統已在 Azure 中建立位於所顯示的 [目的地 URL] 的網站，您只需要按一下 [發佈] 即可。
 
     ![Visual Studio [發佈 Web] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image29.png)
 
@@ -633,4 +633,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

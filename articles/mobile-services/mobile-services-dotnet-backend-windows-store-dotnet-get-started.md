@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]如果您是使用 Microsoft Azure 進行行動開發的新手，請參閱[開始使用 Azure 行動裝置應用程式](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)而非 Azure 行動服務；這可讓您有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
+>[AZURE.TIP]如果您是使用 Microsoft Azure 進行行動開發的新手，請參閱[開始使用 Azure Mobile Apps](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) 而非 Azure 行動服務；Mobile Apps 可讓您有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
  
 本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到通用 Windows 應用程式。通用 Windows 應用程式解決方案包括 Windows 市集 8.1 和 Windows Phone 市集 8.1 應用程式的專案，以及一般共用專案。如需詳細資訊，請參閱[建置目標為 Windows 和 Windows Phone 的通用 Windows 應用程式](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx)。
 
@@ -133,4 +133,4 @@
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

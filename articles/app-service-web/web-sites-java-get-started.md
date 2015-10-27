@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure App Service 中建立 Java Web 應用程式 | Microsoft Azure"
-	description="本教學課程示範如何將 Java Web 應用程式部署至 Azure App Service。"
+	pageTitle="Creare un'app Web Java in Azure App Service | Microsoft Azure"
+	description="Questa esercitazione illustra come distribuire un'app Web Java nel servizio app di Azure."
 	services="app-service\web"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -15,7 +15,7 @@
 	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
-# 在 Azure App Service 中建立 Java Web 應用程式
+# Creazione di un'app Web Java nel servizio app di Azure
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -25,83 +25,126 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-本教學課程示範如何在 Microsoft Azure 上建立 Web 應用程式，方法是使用 Java、透過 Azure Marketplace 或 [Azure 應用程式服務中的 Web 應用程式功能][]的組態 UI。
+Questa esercitazione illustra come creare un'[app Web Java nel servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) tramite il portale di anteprima di Azure. È possibile scegliere un modello di app Web in Azure Marketplace o creare un'app Web generica e configurarla manualmente per Java.
 
-如果您不打算使用這些技術 (例如，如果您要自訂應用程式容器)，請參閱將[自訂的 Java Web 應用程式上傳至 Azure](web-sites-java-custom-upload.md)。
+Se non si vuole usare nessuna di queste tecniche, ad esempio perché si preferisce personalizzare il proprio contenitore di applicazioni, vedere [Caricare un'app Web Java personalizzata in Azure](web-sites-java-custom-upload.md).
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益][]或是[申請免費試用][]。
+> [AZURE.NOTE]Per completare l'esercitazione, è necessario un account Microsoft Azure. Se non si dispone di un account, è possibile [attivare i benefici della sottoscrizione MSDN][] oppure [iscriversi per ottenere una versione di valutazione gratuita][].
+>
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app][]. In questa pagina è possibile creare immediatamente un'app Web iniziale temporanea in App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service][]。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
+## Scegliere un modello di app Web da Azure Marketplace
 
-## 使用 Azure Marketplace 建立 Java Web 應用程式
+Questa sezione illustra come usare Azure Marketplace per creare un'app Web Java.
 
-本資訊說明如何使用 Azure Marketplace，為您的 Web 應用程式選取 Java 應用程式容器 (Apache Tomcat 或 Jetty)。
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
 
-下列範例示範透過 Azure Marketplace 的 Tomcat 建置的 Web 應用程式會如何顯示：
+2. Fare clic su **Nuovo > Marketplace**.
 
-<!--todo:![Web app using Apache Tomcat](./media/web-sites-java-get-started/tomcat.png)-->
+	![](./media/web-sites-java-get-started/newmarketplace.png)
 
-下列範例示範透過 Azure Marketplace 的 Jetty 建置的 Web 應用程式會如何顯示：
+5. Fare clic su **Web e dispositivi mobili**.
 
-<!--todo:![Web app using Jetty](./media/web-sites-java-get-started/jetty.png)-->
+	Potrebbe essere necessario scorrere verso sinistra per vedere il pannello **Marketplace** dove è possibile selezionare **Web e dispositivi mobili**.
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
-2. 按一下頁面左下方的 [新增]。
-3. 按一下 [Web + 行動] 分頁。
-4. 按一下 [Web + 行動] 分頁底部的 [Azure Marketplace]。
-5. 按一下 [Web]。
-6. [Web] 頁面頂端包含一個搜尋文字方塊。在這個文字方塊中，輸入所需的 Java 應用程式伺服器 - 例如 **Apache Tomcat** 或 **Jetty**。
-4. 按一下所需的 Java 應用程式伺服器。
-5. 按一下 [建立]。
-6. 指定 URL 名稱。
-6. 選取區域。例如，選取 [美國西部]。
-7. 按一下 [建立]。
+6. Nella casella di testo di ricerca immettere il nome di un server applicazioni Java, ad esempio **Apache Tomcat** o **Jetty** e quindi premere INVIO.
 
-幾分鐘內即可建立您的 Web 應用程式。若要在 Azure 入口網站內檢視 Web 應用程式，請在 [Web 應用程式] 刀鋒視窗中，按一下此 Web 應用程式，然後按一下其 URL。
+4. Nei risultati della ricerca fare clic sul server applicazioni Java.
 
-現在，您已建立含有應用程式容器的 Web 應用程式，如需將應用程式上傳至該 Web 應用程式的相關資訊，請參閱**後續步驟**一節。
+	![](./media/web-sites-java-get-started/webmobilejetty.png)
 
-## 使用 Azure 組態 UI 建立 Java Web 應用程式
+5. Nel primo pannello **Apache Tomcat** o **Jetty** fare clic su **Crea**.
 
-本資訊說明如何使用 Azure 組態 UI，為您的 Web 應用程式選取 Java 應用程式容器 (Apache Tomcat 或 Jetty)。
+	![](./media/web-sites-java-get-started/jettyblade.png)
 
-1. 登入 Azure 入口網站。
-2. 按一下頁面左下方的 [新增]。
-3. 按一下 [Web + 行動] 分頁。
-4. 按一下 [Web + 行動] 分頁底部的 [Azure Marketplace]。
-5. 按一下 [Web]。
-6. 按一下 [Web 應用程式]。
-7. 按一下 [建立]。
-8. 指定 URL 名稱。
-9. 選取區域。例如，選取 [美國西部]。
-10. 按一下 [建立]。
-11. 建立 Web 應用程式後，按一下 [所有設定]。
-12. 按一下 [應用程式設定]。
-13. 按一下所需的 Java 版本。
-14. 如此即會顯示 Web 容器的選項，例如 Tomcat 和 Jetty。選取所需的 [Web 容器]。
-15. 按一下 [儲存]。
+4. Nel pannello successivo **Apache Tomcat** o **Jetty** immettere un nome per l'app Web nella casella **App Web**.
 
-幾分鐘內，您的 Web 應用程式即會變成 Java 型 Web 應用程式。若要確認是否為 Java 型，請按一下其 URL。請注意，頁面將提供文字，指出新的 Web 應用程式是 Java 型 Web 應用程式。
+	Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà {nome}.azurewebsites.net. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
 
-現在，您已建立含有應用程式容器的 Web 應用程式，如需將應用程式上傳至該 Web 應用程式的相關資訊，請參閱**後續步驟**一節。
+5. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
 
-## 後續步驟
+	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](../resource-group-portal.md).
 
-此時，在 Azure 上，您會擁有作為 Java Web 應用程式執行的 Java 應用程式伺服器。若要加入您自己的應用程式或網頁，請參閱[將應用程式或網頁新增至 Java Web 應用程式](web-sites-java-add-app.md)。
+5. Selezionare un **Piano di servizio app/Località** o crearne uno nuovo.
 
-如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
+	Per altre informazioni sui piani del servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-## 變更的項目
+6. Fare clic su **Crea**.
 
-* 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務][]。
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱[瀏覽 Azure 入口網站的參考][]。
+	![](./media/web-sites-java-get-started/jettyportalcreate2.png)
+
+	In meno di un minuto Azure completa la creazione della nuova app Web.
+
+7. Fare clic su **App Web > {nuova app Web personale}**.
+
+8. Fare clic su **URL** per passare al nuovo sito.
+
+	![](./media/web-sites-java-get-started/jettyurl.png)
+
+	Se si è scelto Tomcat, viene visualizzata una pagina simile all'esempio seguente.
+
+	![App Web che usa Apache Tomcat](./media/web-sites-java-get-started/tomcat.png)
+
+	Se si è scelto Jetty, viene visualizzata una pagina simile all'esempio seguente.
+
+	![App Web che usa Jetty](./media/web-sites-java-get-started/jetty.png)
+
+Ora che è stata creata un'app Web con un contenitore per le app, vedere la sezione [Passaggi successivi](#next-steps) per informazioni su come caricare l'applicazione nell'app Web.
+
+## Creare un'app Web e configurarla manualmente per Java
+
+Questa sezione illustra come creare un'app Web e configurarla manualmente per Java.
+
+1. Accedere al [portale di anteprima di Azure](https://portal.azure.com/).
+
+2. Fare clic su **Nuovo > Web e dispositivi mobili**.
+
+6. Fare clic su **App Web**.
+
+4. Immettere un nome per l'app Web nella casella **App Web**.
+
+	Il nome deve essere univoco nel dominio azurewebsites.net perché l'URL dell'app Web sarà {nome}.azurewebsites.net. Se il nome immesso non è univoco, nella casella di testo verrà visualizzato un punto esclamativo rosso.
+
+5. Selezionare un **Gruppo di risorse** o crearne uno nuovo.
+
+	Per altre informazioni sui gruppi di risorse, vedere [Uso del portale di anteprima di Azure per gestire le risorse di Azure](../resource-group-portal.md).
+
+5. Selezionare un **Piano di servizio app/Località** o crearne uno nuovo.
+
+	Per altre informazioni sui piani del servizio app, vedere [Panoramica approfondita dei piani del servizio app di Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
+
+6. Fare clic su **Crea**.
+ 
+11. Una volta creata l'app Web, fare clic su **App Web > {app Web personale}**.
+ 
+13. Nel pannello **App Web** fare clic su **Impostazioni**.
+
+12. Fare clic su **Impostazioni applicazione**.
+
+13. Scegliere la **Versione Java** desiderata.
+
+14. Selezionare il **Contenitore Web** desiderato.
+
+15. Fare clic su **Salva**.
+
+	Dopo alcuni secondi, l'app Web diventerà basata su Java.
+
+7. Fare clic su **App Web > {nuova app Web personale}**.
+
+8. Fare clic su **URL** per passare al nuovo sito.
+
+	La pagina Web conferma che è stata creata un'app Web basata su Java.
+
+## Passaggi successivi
+
+A questo punto è disponibile un server applicazioni Java in esecuzione nell'app Web nel servizio app di Azure. Per distribuire codice personalizzato all'app Web, vedere [Aggiungere un'applicazione o una pagina Web a un'app Web Java](web-sites-java-add-app.md).
+
+Per altre informazioni sullo sviluppo di applicazioni Java in Azure, vedere il [Centro per sviluppatori Java](/develop/java/).
 
 <!-- External Links -->
-[啟用自己的 MSDN 訂戶權益]: http://go.microsoft.com/fwlink/?LinkId=623901
-[申請免費試用]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Azure 應用程式服務中的 Web 應用程式功能]: http://go.microsoft.com/fwlink/?LinkId=529714
-[試用 App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Azure App Service 及現有的 Azure 服務]: http://go.microsoft.com/fwlink/?LinkId=529714
-[瀏覽 Azure 入口網站的參考]: http://go.microsoft.com/fwlink/?LinkId=529715
+[attivare i benefici della sottoscrizione MSDN]: http://go.microsoft.com/fwlink/?LinkId=623901
+[iscriversi per ottenere una versione di valutazione gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 
-<!---HONumber=Oct15_HO3-->
+[Prova il servizio app]: http://go.microsoft.com/fwlink/?LinkId=523751
+
+<!---HONumber=Oct15_HO4-->

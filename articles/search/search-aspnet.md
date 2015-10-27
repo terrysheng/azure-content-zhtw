@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將 Azure 搜尋與 ASP.NET Web 應用程式連接 | Microsoft Azure"
+	pageTitle="連接 Azure 搜尋與 ASP.NET MVC Web Apps | Microsoft Azure"
 	description="將 ASP.NET Web 應用程式與 Azure 搜尋連結。了解如何透過 .Net 程式庫或 REST API 連接、查詢和轉譯結果。"
 	services="search"
 	documentationCenter=""
@@ -16,9 +16,9 @@
 	ms.date="08/26/2015"
 	ms.author="heidist"/>
 
-#如何將 Azure 搜尋與 ASP.NET Web 應用程式整合
+#如何整合 Azure 搜尋與 ASP.NET MVC Web Apps
 
-ASP.NET 是自訂方案中與 Azure 搜尋整合的主流 Web 應用程式架構。在本文中，您將學習如何將 ASP.NET Web 應用程式連接到 Azure 搜尋，以及增加一般作業的設計模式，並檢閱幾個撰寫程式碼的做法，讓您的開發經驗更順利。
+ASP.NET MVC 是自訂方案中與 Azure 搜尋整合的主流 Web 應用程式架構。在本文中，您將學習如何將 ASP.NET Web 應用程式連接到 Azure 搜尋，以及增加一般作業的設計模式，並檢閱幾個撰寫程式碼的做法，讓您的開發經驗更順利。
 
 ##使用 ASP.NET 和 Azure 搜尋的範例和示範
 
@@ -462,4 +462,4 @@ JSON 序列化的程式碼位於數個範例中，這些範例在名為 **AzureS
 - [Azure 搜尋開發人員案例研究](search-dev-case-study-whattopedia.md)
 - [Azure 搜尋開發的一般工作流程](search-workflow.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

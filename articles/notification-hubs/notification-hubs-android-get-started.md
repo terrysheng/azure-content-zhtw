@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Android 應用程式的通知中樞
@@ -51,9 +51,19 @@
 
 ##設定新的通知中樞
 
-[AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
 
-##<a id="connecting-app"></a>將您的 App 連接到通知中樞
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
+
+
+<ol start="7">
+<li><p>按一下頂端的 [設定]<b></b> 索引標籤，輸入前一節中取得的 [API Key]<b></b> 值，然後按一下 [儲存]<b></b>。</p>
+</li>
+</ol>
+&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
+
+現在已將您的通知中樞設定成使用 GCM，而且您已擁有可用來註冊應用程式以接收通知和傳送推播通知的連接字串。
+
+##<a id="connecting-app"></a>將您的應用程式連接到通知中樞
 
 ###建立新的 Android 專案
 
@@ -61,11 +71,11 @@
 
    	![][13]
 
-2. 選擇 [Phone and Tablet] 版型規格和您要支援的 [Minimum SDK]。然後按 [下一步]。
+2. 選擇 [電話和平板電腦] 型規格和您要支援的 [Minimum SDK]。然後按 [下一步]。
 
    	![][14]
 
-3. 為主要活動選擇 [Blank Activity]，按一下 [Next]，然後按一下 [Finish]。
+3. 為主要活動選擇 [空白活動]，按 [下一步]，然後按一下 [完成]。
 
 ###新增 Google Play 服務至專案
 
@@ -73,7 +83,13 @@
 
 ###新增程式碼
 
-1. 下載<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">通知中樞 Android SDK</a>。解壓縮 .zip 檔案，並將 **notificationhubs\\notification-hubs-0.3.jar** 和 **notifications\\notifications-1.0.1.jar** 複製到專案的 **app\\libs** 目錄。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 **libs** 資料夾。
+1. 下載<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">通知中樞 Android SDK</a>。解壓縮 .zip 檔案，並將 **notificationhubs\\notification-hubs-0.4.jar** 和 **notifications\\notifications-1.0.1.jar** 複製到專案的 **app\\libs**。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 **libs** 資料夾。
+
+
+
+	這兩個封裝的參考文件位於下列連結：
+	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
+	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
 
 
     > [AZURE.NOTE]檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
@@ -146,7 +162,7 @@
     	}
 
 
-7. 將 **DialogNotify** 方法加入活動，以便在 App 執行且可見時顯示通知。同時覆寫 **onStart** 和 **onStop**，判斷是否可看見活動以顯示對話方塊。
+7. 將 **DialogNotify** 方法新增至活動，以在應用程式執行且可見時顯示通知。同時覆寫 **onStart** 和 **onStop**，判斷是否可看見活動以顯示對話方塊。
 
 	    @Override
 	    protected void onStart() {
@@ -208,11 +224,11 @@
         </receiver>
 
 
-9. 在 [專案檢視] 中，展開 [app] > [src] > [main] > [java]。以滑鼠右鍵按一下 **java** 底下您的封裝資料夾，按一下 [**New**]，然後按一下 [**Java Class**]。
+9. 在 [專案檢視] 中，展開 [應用程式] > [src] > [主要] > [java]。以滑鼠右鍵按一下 **java** 底下您的封裝資料夾，按一下 [**New**]，然後按一下 [**Java Class**]。
 
 	![][6]
 
-10. 在新類別的 [Name] 欄位中輸入「MyHandler」，然後按一下 [OK]。
+10. 在新類別的 [名稱] 欄位中輸入 **MyHandler**，然後按一下 [確定]。
 
 
 11. 在 **MyHandler.java** 的頂端新增下列 import 陳述式：
@@ -286,7 +302,7 @@
 ## (選擇性) 從 App 傳送通知
 
 
-1. 在 Android Studio 的 [專案檢視] 中展開 [App] > [src] > [main] > [res] > [layout]。開啟 **activity\_main.xml** 配置檔案，然後按一下 [**文字**] 索引標籤以更新檔案的文字內容。以下列程式碼進行更新，加入新的 `Button` 和 `EditText` 控制項，以便將通知訊息傳送至通知中樞。在底部將此程式碼加在 `</RelativeLayout>` 之前。
+1. 在 Android Studio 的 [專案檢視] 中展開 [應用程式] > [src] > [主要] > [res] > [配置]。開啟 **activity\_main.xml** 配置檔案，然後按一下 [**文字**] 索引標籤以更新檔案的文字內容。以下列程式碼進行更新，這會加入新的 `Button` 和 `EditText` 控制項，以便將通知訊息傳送至通知中樞。在底部將此程式碼加在 `</RelativeLayout>` 之前。
 
 	    <Button
         android:layout_width="wrap_content"
@@ -306,7 +322,7 @@
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
 
-2. 在 Android Studio 的 [專案檢視] 中展開 [App] > [src] > [main] > [res] > [values]。開啟 **strings.xml** 檔案並加入新的 `Button` 和 `EditText` 控制項所參考的字串值。在檔案底部將這些值加在 `</resources>` 之前。
+2. 在 Android Studio 的 [專案檢視] 中展開 [應用程式] > [src] > [主要] > [res] > [值]。開啟 **strings.xml** 檔案並加入新的 `Button` 和 `EditText` 控制項所參考的字串值。在檔案底部將這些值加在 `</resources>` 之前。
 
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
@@ -421,7 +437,7 @@
         }
 
 
-6. 在 **MainActivity.java** 中，將下列方法加入至 `MainActivity` 類別，以使用 REST API 處理 [傳送通知] 按鈕點選並將通知訊息傳送至中樞。
+6. 在 **MainActivity.java** 中，將下列方法加入至 `MainActivity` 類別，以使用 REST API 處理 [傳送通知] 按鈕點選，並將通知訊息傳送至中樞。
 
         /**
          * Send Notification button click handler. This method parses the
@@ -506,11 +522,6 @@
 
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
-[2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
-[3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
-[4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
-[5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 
 [12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
@@ -544,4 +555,4 @@
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

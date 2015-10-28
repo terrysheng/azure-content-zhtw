@@ -104,29 +104,35 @@ Azure AD Connect 支援兩個層級的管理存取：
 
 ### 如何允許使用者或群組存取 Azure AD Connect Health
 #### 步驟 1：選取適當的存取範圍
-若要允許 Azure AD Connect Health 內「目錄」層級的使用者存取，請在 Azure AD Connect Health 開啟主要刀鋒視窗。<br> [//]\: # (RBAC\_MainBladeSS)
+若要允許 Azure AD Connect Health 內「目錄」層級的使用者存取，請在 Azure AD Connect Health 開啟主要刀鋒視窗。<br>
+[//]: # (RBAC\_MainBladeSS)
 #### 步驟 2：新增使用者、群組及指派角色
 1. 按一下 [設定] 區段中的 [使用者] 組件。<br> [//]\: # (RBAC\_MainBladeUserPart)
 2. 選取 [新增]
-3. 選取 [角色] <br> [//]\: # (RBAC\_AddRole)
+3. 選取 [角色] <br>
+[//]: # (RBAC\_AddRole)
 4. 輸入目標使用者或群組的名稱或識別碼。您可以同時選取一或多個使用者或群組。
-5. 選取 [確定]。<br> [//]\: # (RBAC\_LastStep)
-6. 一旦完成角色指派，使用者和/或群組將會出現在清單中。<br> [//]\: # (RBAC\_ListofUsersAndGroups)
+5. 選取 [確定]。<br>
+[//]: # (RBAC\_LastStep)
+6. 一旦完成角色指派，使用者和/或群組將會出現在清單中。<br>
+[//]: # (RBAC\_ListofUsersAndGroups)
 
 這些步驟可為列出的使用者和群組提供存取權 (依據被指派的角色)。
 >[AZURE.NOTE]- 全域系統管理員一律擁有所有作業的完整存取權，但全域系統管理員帳戶不會出現在上述清單中。[邀請使用者] 功能在 Azure AD Connect Health 內不受支援。
 
 #### 步驟 3：與使用者或群組共用刀鋒視窗位置
 1. 指派權限之後，使用者可以前往 [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth) 存取 Azure AD Connect Health。
-2. 在刀鋒視窗上，使用者可以釘選刀鋒視窗或其他組件到儀表板，只要按一下 [釘選到儀表板] 即可<br> [/ /]\: # (RBAC\_PinBlade)
+2. 在刀鋒視窗上，使用者可以釘選刀鋒視窗或其他組件到儀表板，只要按一下 [釘選到儀表板] 即可<br>
+[//]: # (RBAC\_PinBlade)
 
 >[AZURE.NOTE]被指派「讀取者」角色的使用者將無法執行「建立」作業，以從 Azure Marketplace 取得 Azure AD Connect Health 擴充。這位使用者仍可前往上述連結以存取刀鋒視窗。為方便之後使用，使用者可以將刀鋒視窗釘選到儀表板。
 
 ### 移除使用者和/或群組
-您可以移除新增到 Azure AD Connect Health 角色型存取控制組件的使用者或群組，方法是以滑鼠右鍵按一下並選取移除。<br> [//]\: # (RBAC\_RemoveUser)
+您可以移除新增到 Azure AD Connect Health 角色型存取控制組件的使用者或群組，方法是以滑鼠右鍵按一下並選取移除。<br>
+[//]: # (RBAC\_RemoveUser)
 
 [//]: # "End of RBAC section"
-[/ /]: # "End of RBAC section"
+[//]: # "End of RBAC section"
 
 ## 相關連結
 
@@ -135,4 +141,4 @@ Azure AD Connect 支援兩個層級的管理存取：
 * [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

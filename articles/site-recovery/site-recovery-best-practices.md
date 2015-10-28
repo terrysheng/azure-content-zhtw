@@ -30,17 +30,17 @@
 
 ## 準備 Azure
 
-- Azure 帳戶：您需要一個 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。如果您沒有此帳戶，請先前往[免費試用](pricing/free-trial/)。
+- **Azure 帳戶**：您需要一個 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。如果您沒有此帳戶，請先前往[免費試用](pricing/free-trial/)。
 - 閱讀有關 Site Recovery 的[價格](pricing/details/site-recovery/)。 
-- Azure 儲存體：如果要將具有複寫功能的 Site Recovery 部署至 Azure，就需要 Azure 儲存體帳戶。您可以於部署期間設定，或在開始之前先準備好此帳戶。此帳戶應啟用異地複寫。應該與 Azure Site Recovery 保存庫位於相同的區或，且與相同的訂用帳戶相關聯。請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。 
+- **Azure 儲存體**：如果要將具有複寫功能的 Site Recovery 部署至 Azure，就需要 Azure 儲存體帳戶。您可以於部署期間設定，或在開始之前先準備好此帳戶。此帳戶應啟用異地複寫。應該與 Azure Site Recovery 保存庫位於相同的區或，且與相同的訂用帳戶相關聯。請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。 
 
 ## 虛擬機器
 
 如果想要複寫至 Azure 儲存體，請注意下列事項：
 
 - **支援的作業系統**：您可以部署 Site Recovery 來協調虛擬機器保護工作，此類虛擬機器可執行任何 Azure 所支援的作業系統。這包括大部分的 Windows 和 Linux 版本。
-- VHDX 支援：雖然 Azure 目前不支援 VHDX，但 Site Recovery 會在您容錯移轉至 Azure 時，自動將 VHDX 轉換為 VHD。當您容錯回復到內部部署時，虛擬機器仍會繼續使用 VHDX 格式。
-- Azure 需求：請確認您想要保護的所有虛擬機器均符合 Azure 的需求。
+- **VHDX 支援**：雖然 Azure 目前不支援 VHDX，但 Site Recovery 會在您容錯移轉至 Azure 時，自動將 VHDX 轉換為 VHD。當您容錯回復到內部部署時，虛擬機器仍會繼續使用 VHDX 格式。
+- **Azure 需求**：請確認您想要保護的所有虛擬機器均符合 Azure 的需求。
 
 虛擬機器功能 | 支援 | 詳細資料
 ---|---|---
@@ -63,7 +63,11 @@ FC 磁碟 | 不支援 | 如果不支援，則先決條件檢查會失敗
 
 ## VMM 伺服器
 
-Site Recovery 可以協調 System Center Virtual Machine Manager (VMM) 雲端中位於 Hyper-V 主機伺服器上之虛擬機器的複寫工作：- 從站上的 VMM 伺服器複寫到 Azure (使用 Hyper-V 複本) - 複寫到次要的內部部署站台 (使用 Hyper-V 複本)。我們建議您在主要站台與次要站台中各部署一部 VMM 伺服器。但您可以視需要為兩個站台[部署單一 VMM 伺服器](site-recovery-single-vmm.md)。- 複寫到次要的內部部署站台 (使用 SAN)。您需要有主要和次要資料中心，且每個站台中有一部 VMM 伺服器。如果想要部署具有 Site Recovery 功能的 VMM，您必須設定 VMM 基礎結構。如果您沒有 VMM 伺服器，請參閱[這裡](site-recovery-hyper-v-site-to-azure.md)以了解更多。
+Site Recovery 可以協調 System Center Virtual Machine Manager (VMM) 雲端中位於 Hyper-V 主機伺服器上之虛擬機器的複寫工作：
+	- 從站上的 VMM 伺服器複寫到 Azure (使用 Hyper-V 複本) 
+	- 複寫到次要的內部部署站台 (使用 Hyper-V 複本)。我們建議您在主要站台與次要站台中各部署一部 VMM 伺服器。但您可以視需要為兩個站台[部署單一 VMM 伺服器](site-recovery-single-vmm.md)。
+	- 複寫到次要的內部部署站台 (使用 SAN)。您需要有主要和次要資料中心，且每個站台中有一部 VMM 伺服器。
+如果想要部署具有 Site Recovery 功能的 VMM，您必須設定 VMM 基礎結構。如果您沒有 VMM 伺服器，請參閱[這裡](site-recovery-hyper-v-site-to-azure.md)以了解更多。
 
 
 ### 確認 VMM 版本
@@ -103,11 +107,11 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 
 	- 先設定自訂的 Proxy 伺服器，再安裝提供者。
 	- 允許這些 URL 通過防火牆：
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 
 	- 如果您要部署含 VMM 的 Site Recovery，且您使用自訂 Proxy，則會使用您在 Site Recovery 入口網站的自訂 Proxy 設定中指定的 Proxy 認證，自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。您必須設定 Proxy 伺服器，才能成功驗證此帳戶。
 
@@ -194,4 +198,4 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

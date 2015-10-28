@@ -39,7 +39,7 @@
 
 ## 建立新的通用 Windows 應用程式
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的通用 Windows 應用程式或修改現有的 Windows 市集或 Windows Phone 應用程式專案，以連接到您的行動服務。
+在建立您的行動服務之後，您可以依照管理入口網站中的簡易快速入門，來建立新的通用 Windows 應用程式或修改現有的 Windows 市集或 Windows Phone 應用程式專案，以連接到您的行動服務。
 
 在本節中，您將建立與行動服務連線的新通用 Windows 應用程式。
 
@@ -98,4 +98,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

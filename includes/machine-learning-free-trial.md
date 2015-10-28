@@ -1,5 +1,5 @@
 >[AZURE.NOTE (Try Azure Machine Learning for free)]
 >
->不需要信用卡或 Azure 訂用帳戶。<a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**立即開始 >****</a>
+>不需要信用卡或 Azure 訂用帳戶。<a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**立即開始 >**</a>
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

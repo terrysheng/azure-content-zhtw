@@ -28,11 +28,12 @@
 
 打開裝置包裝之前，請檢閱下列資訊。
 
-
-![警告圖示](./media/storsimple-safety/IC740879.png)![重量圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **警告！**
-
-1. 如果您手動處理它，請確定您有兩名人員可以應付裝置的重量。完全設定的機箱可以重達 32 公斤 (70 磅)。
-1. 將箱子放置在平坦的表面上。
+>[AZURE.WARNING]
+> ![重量圖示](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
+>
+> 1. 如果您手動處理它，請確定您有兩名人員可以應付裝置的重量。完全設定的裝置可以重達 32 公斤 (70 磅)。
+>
+> 2. 將箱子放置在平坦的表面上。
 
 接下來，完成下列步驟以打開裝置的包裝。
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 
@@ -95,9 +95,9 @@ Azure 會將此範本視為映像，並將其儲存在 [映像] 下。這也是�
 
 [管理入口網站]: http://manage.windowsazure.com
 [如何登入執行 Linux 的虛擬機器]: virtual-machines-linux-how-to-log-on.md
-[關於 Azure 中的虛擬機器映像]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[如何建立自訂虛擬機器]: virtual-machines-create-custom.md
+[關於 Azure 中的虛擬機器映像]: virtual-machines-images.md
+[如何建立自訂虛擬機器]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [如何建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

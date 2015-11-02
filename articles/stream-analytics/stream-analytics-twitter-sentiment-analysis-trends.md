@@ -1,7 +1,7 @@
 <properties
 	pageTitle="使用串流分析執行即時 Twitter 情感分析 | Microsoft Azure"
 	description="了解如何使用串流分析來執行即時 Twitter 情感分析。從事件產生到即時儀表板資料的逐步指導。"
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="即時 twitter,人氣分析,社交媒體分析,社交媒體分析工具,real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -75,7 +75,7 @@
 
 ### 佈建資料流分析工作
 
-1.	在 [[Azure 入口網站](https://manage.windowsazure.com/)] 中，依序按一下 [**新增**] > [**資料服務**] > [**串流分析**] > [**快速建立**]。
+1.	在 [Azure 入口網站](https://manage.windowsazure.com/)中，依序按一下 [**新增**] > [**資料服務**] > [**串流分析**] > [**快速建立**]。
 2.	指定下列值，然後按一下 [建立 STREAM ANALYTICS 工作]：
 
 	* **工作名稱**：輸入工作名稱。
@@ -237,4 +237,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure Machine Learning 常見問題集 | Microsoft Azure"
 	description="Azure Machine Learning 簡介：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。"
-	keywords="machine learning introduction,predictive modeling,what is machine learning"
+	keywords="機器學習服務簡介,建立預測模型,什麼是機器學習服務"
 	services="machine-learning"
 	documentationCenter=""
 	authors="pablissima"
@@ -93,8 +93,9 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **可以從 Amazon S3 讀取資料嗎？**
 
-如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。
-<!--<SEE CLOUD DS PROCESS>-->
+如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。<!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **有內建的影像輸入功能嗎？**
 
@@ -177,7 +178,7 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
 **是否有 Python 適用的 REPL 環境？**
 
-您可以在 Machine Learning Studio 中使用 Jupyter Notebook。如需詳細資訊，請參閱[介紹 Azure ML Studio 中的 Jupyter Notebook](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)。
+您可以在 Machine Learning Studio 中使用 Jupyter Notebook。如需詳細資訊，請參閱[介紹 Azure ML Studio 中的 Jupyter Notebook](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Web 服務
 ###以程式設計方式重新訓練模型
@@ -213,7 +214,7 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
 針對 RRS，通常您可在 Web 服務回應查看此結果。您可以也將資料寫入 Blob。BES 的輸出預設會寫入至 Blob。您也可以使用寫入器模組將輸出寫入資料庫或資料表。
 
- ** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
+ **** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
 
 
 ##延展性
@@ -306,4 +307,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

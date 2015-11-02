@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB 中的一致性層級 | Microsoft Azure" 
 	description="請檢閱 DocumentDB 具有相關效能等級的四個一致性等級，可如何協助在最終一致性、可用性和延遲的取捨評估取得平衡。" 
-	keywords="eventual consistency, documentdb, azure, Microsoft azure"
+	keywords="最終一致性, eventual consistency, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -40,9 +40,9 @@
  
 「增強式」一致性可保證資料絕對一致，但是其讀取和寫入效能最差。
 
-**界限-陳舊**：「界限-陳舊」一致性可保證寫入傳播的總體順序，但是讀取時最多可能會比寫入時延遲千倍 (K) 的程度。讀取的認可一律是交由複本的多數仲裁來負責。讀取要求的回應可指出其相對新鮮度 (以 K 來表示)。
+**界限-陳舊**：「界限-陳舊」一致性可保證寫入傳播的總體順序，但是讀取時最多可能會比寫入時延遲千倍 (K) 的程度。讀取的認可一律是交由複本的多數仲裁來負責。讀取要求的回應可指出其相對新鮮度 (以 K 來表示)。您可以透過「界限-陳舊」設定可設定的陳舊臨界值 (以前置詞或時間方式)，以供讀取時在穩定狀態中取捨延遲性與一致性。
 
-「界限-陳舊」的讀取一致性行為更加容易預測，且寫入延遲最低。因為讀取的認可是由多數仲裁負責，所以系統提供的讀取延遲不是最低的。
+「界限-陳舊」的讀取一致性行為更加容易預測，且寫入延遲最低。因為讀取的認可是由多數仲裁負責，所以系統提供的讀取延遲不是最低的。「界線-陳舊」是在您需要增強式一致性但增強式一致性卻不實際時的案例選項。如果您將「界線-陳舊」一致性的設定「陳舊間隔」設定為任一較大的值，它仍將保留總全域寫入順序。這可以提供比「工作階段」或「最終」更強的保證。
 
 >[AZURE.NOTE]界限-陳舊保證只有在明確的讀取要求進行單純讀取。寫入要求的回應伺服器回應不提供繫結的陳舊保證。
 
@@ -88,4 +88,4 @@
 -	Werner Vogels。再論最終一致。[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

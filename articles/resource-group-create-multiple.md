@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/27/2015"
+   ms.date="10/20/2015"
    ms.author="tomfitz"/>
 
 # 在 Azure 資源管理員中建立資源的多個執行個體
@@ -61,12 +61,14 @@
           "name": "[concat('examplecopy-', copyIndex())]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[parameters('count')]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          }
       } 
     ]
 
@@ -103,20 +105,55 @@
           "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[length(parameters('org'))]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          } 
       } 
     ]
 
 您當然可以將列印張數設為陣列長度以外的值。比方說，您可以建立具有許多值的陣列，然後傳入參數值，指定要部署多少陣列項目。在此情況下，您可以設定列印張數，如第一個範例所示。
+
+## 依迴圈中的資源而定
+
+您可以透過使用 **dependsOn** 項目來指定在另一個資源之後部署資源。當您需要部署相依於迴圈中之資源集合的資源時，您可以使用 **dependsOn** 項目中複製迴圈的名稱。下列範例示範如何在部署虛擬機器之前部署 3 個儲存體帳戶。不會顯示完整的虛擬機器定義。請注意，copy 項目將**名稱**設定為 **storagecopy** 且虛擬機器的 **dependsOn** 項目也設定為 **storagecopy**。
+
+    {
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "contentVersion": "1.0.0.0",
+	    "parameters": {},
+	    "resources": [
+	        {
+		        "apiVersion": "2015-06-15",
+		        "type": "Microsoft.Storage/storageAccounts",
+		        "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+		        "location": "[resourceGroup().location]",
+		        "properties": {
+                    "accountType": "Standard_LRS"
+            	 },
+		        "copy": { 
+         	        "name": "storagecopy", 
+         	        "count": 3 
+      		    }
+	        },
+           {
+               "apiVersion": "2015-06-15", 
+               "type": "Microsoft.Compute/virtualMachines", 
+               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+               "dependsOn": ["storagecopy"],
+               ...
+           }
+	    ],
+	    "outputs": {}
+    }
 
 ## 後續步驟
 - 若要了解範本的區段，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
 - 如需可以在範本中使用的函式清單，請參閱 [Azure 資源管理員範本函式](./resource-group-template-functions.md)。
 - 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

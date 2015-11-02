@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint 內部網路伺服器陣列工作負載第 3 階段：設定 SQL Server 基礎結構
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員部署模型。
 
 在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 的這個階段中，您需要在服務管理中建立並設定兩部 SQL Server 電腦與叢集多數節點電腦，再將他們併入 Windows Server 叢集。
 
@@ -144,7 +143,7 @@ SQL Server 虛擬機器共有兩部。一部 SQL Server 包含可用性群組中
 
 SQL Server 需要一個連接埠讓用戶端存取資料庫伺服器，同時也需要連接埠來連線 SQL Server Management Studio，並管理高可用性群組。接下來，在系統管理員層級 Windows PowerShell 命令提示字元中執行下列命令兩次，分別為兩部 SQL server 進行設定，新增允許輸入流量至 SQL Server 的防火牆規則。
 
-	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 4234, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
+	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 1434, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
 
 請在每一部 SQL Server 虛擬機器中，以本機系統管理員的身分登出。
 
@@ -164,7 +163,7 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 - 次要 SQL Server
 - 叢集多數節點
 
-容錯移轉叢集需要至少三部虛擬機器。其中兩部用來主控 SQL Server。第二部 SQL Server VM 為同步處理的次要複本，以確保主要機器故障時，不會遺失任何資料。第三部機器不需主控 SQL Server。叢集多數節點在 WSFC 中負責仲裁見證。由於 WSFC 叢集依賴仲裁來監控狀態，因此一定要有多數來確保 WSFC 叢集為上線狀態。若叢集裡只有兩部機器，當其中一部故障時，就沒有多數的情況。如需詳細資訊，請參閱 [WSFC 仲裁模式與投票設定 (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx)。
+容錯移轉叢集需要至少三部虛擬機器。其中兩部用來主控 SQL Server。第二部 SQL Server VM 為同步處理的次要複本，以確保主要機器故障時，不會遺失任何資料。第三部機器不需主控 SQL Server。叢集多數節點可在 WSFC 中提供仲裁。由於 WSFC 叢集依賴仲裁來監控狀態，因此一定要有多數來確保 WSFC 叢集為上線狀態。若叢集裡只有兩部機器，當其中一部故障時，就沒有多數的情況。如需詳細資訊，請參閱 [WSFC 仲裁模式與投票設定 (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx)。
 
 請在兩部 SQL Server 電腦與叢集多數節點中，於系統管理員層級的 Windows PowerShell 命令提示字元中執行下列命令。
 
@@ -233,4 +232,4 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

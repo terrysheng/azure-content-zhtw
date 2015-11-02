@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Pig 活動
@@ -191,4 +191,4 @@ script | 指定 Pig 指令碼內嵌 | 否
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-pig-activity.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

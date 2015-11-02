@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/03/2015"
+   ms.date="10/15/2015"
    ms.author="larryfr"/>
 
 #使用 PowerShell 執行 Hive 查詢
@@ -39,19 +39,19 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 
 在遠端 HDInsight 叢集中執行 Hive 查詢時，會使用下列 Cmdlet：
 
-* **Add-AzureAccount**：驗證您 Azure 訂閱的 PowerShell
+* **Login-AzureRmAccount**：驗證您 Azure 訂用帳戶的 PowerShell
 
-* **New-AzureHDInsightHiveJobDefinition**：使用指定的 HiveQL 陳述式建立新的*工作定義*
+* **New-AzureRmHDInsightHiveJobDefinition**：使用指定的 HiveQL 陳述式建立新的*工作定義*
 
-* **Start-AzureHDInsightJob**：將工作定義傳送至 HDInsight、啟動工作，然後傳回可用來檢查工作狀態的*工作*物件
+* **Start-AzureRmHDInsightJob**：將工作定義傳送至 HDInsight、啟動工作，然後傳回可用來檢查工作狀態的*工作*物件
 
-* **Wait-AzureHDInsightJob**：使用工作物件來檢查工作的狀態。它會等到工作完成，或等到等候時間超過。
+* **Wait-AzureRmHDInsightJob**：使用工作物件來檢查工作的狀態。它會等到工作完成，或等到等候時間超過。
 
-* **Get-AzureHDInsightJobOutput**：用來擷取工作的輸出
+* **Get-AzureRmHDInsightJobOutput**：用來擷取工作的輸出
 
-* **Invoke AzureHDInsightHiveJob**: 用來執行 HiveQL 陳述式。這會阻止查詢完成，然後傳回結果
+* **Invoke-AzureRmHDInsightHiveJob**：用來執行 HiveQL 陳述式。這會阻止查詢完成，然後傳回結果
 
-* **Use-AzureHDInsightCluster**：設定要用於 **Invoke-Hive** 命令的目前叢集
+* **Use-AzureRmHDInsightCluster**：設定要用於 **Invoke-Hive** 命令的目前叢集
 
 下列步驟示範如何使用這些 Cmdlet，在您的 HDInsight 叢集中執行工作：
 
@@ -59,19 +59,14 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 
 		#Specify the values
 		$clusterName = "CLUSTERNAME"
-		$resourceGroupName = "RESOURCEGROUPNAME"
-		$httpUsername = "HTTPUSERNAME"
-		$httpUserPassword  = "HTTPUSERPASSWORD"
-
-		# Switch to the ARM mode
-		Switch-AzureMode -Name AzureResourceManager
-		
+		$creds=Get-Credential
+        		
 		# Login to your Azure subscription
 		# Is there an active Azure subscription?
-		$sub = Get-AzureSubscription -ErrorAction SilentlyContinue
+		$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 		if(-not($sub))
 		{
-		    Add-AzureAccount
+		    Login-AzureRmAccount
 		}
 
 		#HiveQL
@@ -80,28 +75,43 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 				       "SELECT * FROM log4jLogs WHERE t4 = '[ERROR]';"
 
 		#Create an HDInsight Hive job definition
-		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString 
+		$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString 
 
 		#Submit the job to the cluster
 		Write-Host "Start the Hive job..." -ForegroundColor Green
 
-		$passwd = ConvertTo-SecureString $httpUserPassword -AsPlainText -Force
-		$creds = New-Object System.Management.Automation.PSCredential ($httpUsername, $passwd)
-		$hiveJob = Start-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $creds
+		$hiveJob = Start-AzureRmHDInsightJob -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $creds
 
 
 		#Wait for the Hive job to complete
 		Write-Host "Wait for the job to complete..." -ForegroundColor Green
-		Wait-AzureHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $creds
+		Wait-AzureRmHDInsightJob -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $creds
 
+        #Get the cluster info so we can get the resource group, storage, etc.
+        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $resourceGroup = $clusterInfo.ResourceGroup
+        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+        $container=$clusterInfo.DefaultStorageContainer
+        $storageAccountKey=Get-AzureRmStorageAccountKey `
+            -Name $storageAccountName `
+            -ResourceGroupName $resourceGroup `
+            | %{ $_.Key1 }
 		# Print the output
 		Write-Host "Display the standard output..." -ForegroundColor Green
-		Get-AzureHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -StandardOutput 
-
+		Get-AzureRmHDInsightJobOutput `
+            -Clustername $clusterName `
+            -JobId $hiveJob.JobId `
+            -DefaultContainer $container `
+            -DefaultStorageAccountName $storageAccountName `
+            -DefaultStorageAccountKey $storageAccountKey `
+            -HttpCredential $creds `
+            
 2. 開啟新的 **Azure PowerShell** 命令提示字元。將目錄變更至 **hivejob.ps1** 檔案的位置，然後使用下列命令來執行指令碼：
 
 		.\hivejob.ps1
 
+    執行指令碼時，系統會提示輸入您叢集的 HTTPS/系統管理帳戶認證。可能也會提示登入您的 Azure 訂用帳戶。
+    
 7. 工作完成時，應該會傳回與下面類似的資訊：
 
 		Display the standard output...
@@ -110,7 +120,21 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 4. 如前所述，**Invoke-Hive** 可以用來執行查詢，並等候回應。使用下列命令，並將 **CLUSTERNAME** 取代為您叢集的名稱：
 
 		Use-AzureHDInsightCluster CLUSTERNAME
-		Invoke-Hive -Query @"
+        #Get the cluster info so we can get the resource group, storage, etc.
+        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $resourceGroup = $clusterInfo.ResourceGroup
+        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+        $container=$clusterInfo.DefaultStorageContainer
+        $storageAccountKey=Get-AzureRmStorageAccountKey `
+            -Name $storageAccountName `
+            -ResourceGroupName $resourceGroup `
+            | %{ $_.Key1 }
+		Invoke-AzureRmHDInsightHiveJob `
+            -StatusFolder "wasb:///example/statusout" `
+            -DefaultContainer $container `
+            -DefaultStorageAccountName $storageAccountName `
+            -DefaultStorageAccountKey $storageAccountKey `
+            -Query @"
 		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
 		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 		SELECT * FROM errorLogs;
@@ -133,8 +157,14 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 如果在工作完成時未傳回任何資訊，則可能是處理期間發生錯誤。若要檢視這項工作的錯誤資訊，請將下列內容新增至 **hivejob.ps1** 檔案的結尾，並儲存它，然後重新予以執行。
 
 	# Print the output of the Hive job.
-	Write-Host "Display the standard output ..." -ForegroundColor Green
-	Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardError
+	Get-AzureRmHDInsightJobOutput `
+            -Clustername $clusterName `
+            -JobId $job.JobId `
+            -DefaultContainer $container `
+            -DefaultStorageAccountName $storageAccountName `
+            -DefaultStorageAccountKey $storageAccountKey `
+            -HttpCredential $creds `
+            -DisplayOutputType StandardError
 
 這會傳回執行工作時寫入至伺服器上之 STDERR 的資訊，而且可能有助於判斷工作的失敗原因。
 
@@ -154,4 +184,4 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

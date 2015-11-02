@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -314,4 +314,4 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 [如何取得媒體處理器]: media-services-get-media-processor.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

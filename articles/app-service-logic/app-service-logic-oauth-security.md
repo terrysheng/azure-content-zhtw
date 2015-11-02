@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="10/15/2015"
 	ms.author="mandia"/>
 
 
 # 了解 SaaS 連接器中的 OAUTH 安全性
-許多軟體即服務 (SaaS) 連接器 (像是 Facebook、Twitter、DropBox 等) 要求使用者授權使用 OAUTH 通訊協定。當您使用來自 Logic Apps 的 SaaS 連接器時，我們會提供簡化的使用者體驗，您可以按一下 Logic Apps 設計工具中的 [授權]。當您**授權**時，您必須登入 (如果尚未登入) 並同意以您的名義連接到 SaaS 服務。當您同意並授權時，Logic Apps 就可以存取這些 SaaS 服務。
+許多軟體即服務 (SaaS) 連接器 (像是 Facebook、Twitter、DropBox 等) 要求使用者使用 OAUTH 通訊協定來驗證。當您使用來自 Logic Apps 的 SaaS 連接器時，我們會提供簡化的使用者體驗，您可以按一下 Logic Apps 設計工具中的 [授權]。當您**授權**時，您必須登入 (如果尚未登入) 並同意以您的名義連接到 SaaS 服務。在您同意並授權之後，Logic Apps 就可以存取這些 SaaS 服務。
 
 ## 建立您自己的 SaaS 應用程式
 這個簡化的體驗是可行的，因為我們先前已在這些 SaaS 服務中建立並註冊我們的應用程式。在某些情況下，您可能想要註冊及使用自己的應用程式。這是必要的，例如，當您想要在自訂應用程式中使用這些 SaaS 連接器時，例如[部署 SaaS 連接器 API 應用程式](app-service-api-connnect-your-app-to-saas-connector.md)。這個範例會使用 DropBox 連接器，但程序與所有依賴 OAUTH 的連接器相同。
@@ -48,4 +48,4 @@
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

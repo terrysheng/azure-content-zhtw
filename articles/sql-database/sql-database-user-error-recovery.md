@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="10/08/2015"
+   ms.date="10/20/2015"
    ms.author="elfish"/>
 
 # 從使用者錯誤復原 Azure SQL Database
@@ -26,14 +26,17 @@ Azure SQL Database 提供兩個核心功能，從使用者錯誤或非預期的�
 您可以在此[部落格文章](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)進一步了解這些功能。
 
 Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「標準」和「高階」資料庫都提供這些還原功能。
-##使用時間點還原復原
+
+##時間點還原
 發生使用者錯誤或非預期的資料修改時，時間點還原可用來將資料庫還原至資料庫保留期限內的任何時間點。
 
-「基本」資料庫有 7 天的保留期，「標準」資料庫有 14 天的「保留期」，「高階」資料庫則有 35 天的保留期。若要深入了解資料庫保留，請閱讀我們的[商務持續性概觀](sql-database-business-continuity.md)。
+「基本」資料庫有 7 天的保留期，「標準」資料庫有 14 天的「保留期」，「高階」資料庫則有 35 天的保留期。若要深入了解資料庫保留，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
 > [AZURE.NOTE]還原資料庫會建立新的資料庫。請務必確定您要還原到的伺服器有足夠的 DTU 容量供新的資料庫使用。您可以[連絡支援人員](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)，要求增加此配額。
 
 ###Azure 入口網站
+若要在 Azure 入口網站中使用還原時間點，請使用下列步驟，或[觀看此程序的影片](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore/)：
+
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
 2. 在畫面左側選取 [瀏覽]，然後選取 [SQL Database]。
 3. 瀏覽至您的資料庫，然後選取它。
@@ -42,12 +45,11 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 6. 資料庫還原程序就會開始，您可以使用畫面左側的 [通知] 監視程序。
 
 還原完成後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
+
 ###PowerShell
-使用 PowerShell 可以程式設計方式執行資料庫還原。
+使用 PowerShell 以程式設計方式搭配 [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) Cmdlet 執行還原時間點。如需詳細的逐步執行，請[觀看此程序的影片](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/)。
 
-> [AZURE.IMPORTANT]本文包含適用於 Azure PowerShell 版本的命令，適用版本最新至*但不包括*版本 1.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。
-
-若要使用時間點還原來還原資料庫，請使用 [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) Cmdlet。如需詳細的逐步執行，請參閱我們的[作法視訊](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/)。
+> [AZURE.IMPORTANT]本文包含適用於 Azure PowerShell 版本的命令，適用版本可高達*但不限於*版本 1.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。
 
 		$Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
@@ -66,7 +68,7 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 
 還原完成後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
 
-##復原已刪除的資料庫
+##還原已刪除的資料庫
 若資料庫被刪除，Azure SQL Database 可讓您將已刪除的資料庫還原至刪除的時間點。Azure SQL Database 會將已刪除的資料庫備份，儲存一段資料庫保留期間的時間。
 
 已刪除資料庫的保留期間取決於資料庫所在的服務層，或是資料庫存在的天數，兩者中較少的天數。若要深入了解資料庫保留，請閱讀我們的[商務持續性概觀](sql-database-business-continuity.md)。
@@ -74,6 +76,8 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 > [AZURE.NOTE]還原資料庫會建立新的資料庫。請務必確定您要還原到的伺服器有足夠的 DTU 容量供新的資料庫使用。您可以[連絡支援人員](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)，要求增加此配額。
 
 ###Azure 入口網站
+若要使用 Azure 入口網站還原已刪除的資料庫，請使用下列步驟，或[觀看此程序的影片](https://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database/)：
+
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
 2. 在畫面左側選取 [瀏覽]，然後選取 [SQL Server]。
 3. 瀏覽至您的伺服器，然後選取它。
@@ -85,9 +89,7 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 還原完成後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
 
 ###PowerShell
-使用 PowerShell 可以程式設計方式執行資料庫還原。
-
-若要還原已刪除的資料庫，請使用 [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) Cmdlet。如需詳細的逐步執行，請參閱我們的[作法視訊](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/)。
+若要使用 PowerShell 還原已刪除的資料庫，請使用 [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) Cmdlet。如需詳細的逐步執行，請[觀看此程序的影片](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/)。
 
 1. 從已刪除資料庫的清單中找出已刪除的資料庫及其刪除日期。
 		
@@ -115,4 +117,4 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 還原完成後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="10/19/2015"
     ms.author="larryfr"/>
 
 # 使用 HDInsight 開發指令碼動作
@@ -36,15 +36,18 @@
 
 - [目標 Hadoop 版本](#bPS1)
 - [提供穩定的指令碼資源連結](#bPS2)
+- [使用預先編譯的資源](#bPS4)
 - [確保叢集自訂指令碼具有等冪性](#bPS3)
 - [確保叢集架構具有高可用性](#bPS5)
 - [設定自訂元件來使用 Azure Blob 儲存體](#bPS6)
 - [將資訊寫入至 STDOUT 和 STDERR](#bPS7)
 - [將檔案儲存為具有 LF 行尾結束符號的 ASCII](#bps8)
 
+> [AZURE.IMPORTANT]指令碼動作必須在 15 分鐘內完成，否則就會逾時。在節點佈建期間，會同時執行指令碼與其他安裝和設定程序。與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
+
 ### <a name="bPS1"></a>目標 Hadoop 版本
 
-不同版本的 HDInsight 有不同版本的 Hadoop 服務和已安裝的元件。如果您的指令碼預期特定版本的服務或元件，您應該只在包含必要元件的 HDInsight 版本中使用指令碼。您可以使用 [HDInsight 元件版本設定](hdinsight-component-versioning.md)文件，找到有關 HDInsight 隨附的元件版本的資訊。
+不同版本的 HDInsight 有不同版本的 Hadoop 服務和已安裝的元件。如果您的指令碼預期特定版本的服務或元件，您應該只在包含必要元件的 HDInsight 版本中使用指令碼。您可以使用 [HDInsight 元件版本設定](hdinsight-component-versioning.md)文件，找到有關 HDInsight 隨附的元件版本資訊。
 
 ### <a name="bPS2"></a>提供穩定的指令碼資源連結
 
@@ -55,6 +58,10 @@
 > [AZURE.IMPORTANT]使用的儲存體帳戶必須是叢集的預設儲存體帳戶，或是位於其他任何儲存體帳戶上的公用唯讀容器。
 
 例如，Microsoft 所提供的範例會儲存在 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 儲存體帳戶，這是 HDInsight 小組維護的公用、唯讀容器。
+
+### <a name="bPS4"></a>使用預先編譯的資源
+
+若要讓執行指令碼所花費的時間降到最低，請避免這類從原始程式碼直接編譯的作業。相反地，請預先編譯相關資源並將二進位版本儲存在 Azure Blob 儲存體中，這樣可讓其能夠快速地從您指令碼下載到叢集。
 
 ### <a name="bPS3"></a>確保叢集自訂指令碼具有等冪性
 
@@ -90,7 +97,7 @@
 
 這會將傳送到 STDOUT (1，這是預設值，因此未在此處列出) 的資訊重新導向至 STDERR (2)。如需有關 IO 重新導向的詳細資訊，請參閱 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)。
 
-如需檢視指令碼動作記錄的資訊的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)。
+如需檢視指令碼動作記錄的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ###<a name="bps8"></a>將檔案儲存為具有 LF 行尾結束符號的 ASCII
 
@@ -101,7 +108,7 @@ Bash 指令碼應該儲存為 ASCII 格式，該格式以 LF 做為行尾結束�
 
 ## <a name="helpermethods"></a>自訂指令碼的協助程式方法
 
-指令碼動作協助程式方法是您在撰寫字訂指令碼時可以使用的公用程式。這些協助程式方法是在 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 中定義，並且可以使用以下指令碼包含至您的指令碼中：
+指令碼動作協助程式方法是您在撰寫字訂指令碼時可以使用的公用程式。這些協助程式方法是在 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 中定義，並且可以使用以下方式包含至您的指令碼中：
 
     # Import the helper method module.
     wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
@@ -182,13 +189,13 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您�
 
 使用您所開發的指令碼時可能會遇到下列錯誤：
 
-__錯誤__：`$'\r': command not found`。有時候後面接續著 `syntax error: unexpected end of file`。
+__錯誤__：`$'\r': command not found`。有時候後面接續 `syntax error: unexpected end of file`。
 
 _原因_：這個錯誤的原因是指令碼中以 CRLF 做為行尾結束符號。Unix 系統預期只有 LF 當做行尾結束符號。
 
 此問題最常發生在於 Windows 環境中撰寫指令碼時，因為 CRLF 是 Windows 上許多文字編輯器中常見的行尾結束符號。
 
-_解決方式_：如果您的文字編輯器中有選項，請選取 Unix 格式或 LF 做為行尾結束符號。您也可以在 Unix 系統上使用下列命令，將 CRLF 變更為 LF：
+_解決方式_：如果您的文字編輯器提供選項，請選取 Unix 格式或 LF 做為行尾結束符號。您也可以在 Unix 系統上使用下列命令，將 CRLF 變更為 LF：
 
 > [AZURE.NOTE]下列命令大致相當於將 CRLF 行尾結束符號變更為 LF。根據您的系統上可用的公用程式，選取其中一個。
 
@@ -207,10 +214,10 @@ _解決方式_：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。您也�
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-對於上述命令，以包含 BOM 的檔案取代 __INFILE__。__OUTFILE__ 應該是新檔案名稱，包含不具有 BOM 的指令碼。
+對於上述命令，以包含 BOM 的檔案取代 __INFILE__。__OUTFILE__ 應該是新檔案的名稱，且包含不具有 BOM 的指令碼。
 
 ## <a name="seeAlso"></a>另請參閱
 
 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

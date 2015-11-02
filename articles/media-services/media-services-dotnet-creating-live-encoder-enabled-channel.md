@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="使用 .NET SDK 建立通道，以執行從單一位元速率到多位元速率串流的即時編碼" 
-	description="本教學課程將逐步引導您建立通道，可接收單一位元速率的即時串流，並將其編碼為多位元速率串流。" 
+	description="本教學課程將逐步引導您使用 .NET SDK 建立通道，以接收單一位元速率即時串流，並將其編碼為多位元速率串流。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
@@ -517,4 +517,4 @@
 
 如果本主題未包含您預期的內容、缺少部分內容，或者提供了一些其他不符合您需求的方式，請在下方提供您使用 Disqus 執行緒的意見反應給我們。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -57,6 +57,7 @@
 
 ## 後續步驟
 
+* [在您的警示上設定 Webhook](insights-webhooks-alerts.md) 來將通知路由到各種管道
 * [監視服務計量](insights-how-to-customize-monitoring.md)以確保您的服務可用且可回應。
 * [啟用監視和診斷](insights-how-to-use-diagnostics.md)來在您服務中收集詳細的高頻率計量。
 * 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
@@ -65,4 +66,4 @@
 * [追蹤服務健康狀況](insights-service-health.md) 可以找出 Azure 何時遭遇效能降低或服務中斷。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

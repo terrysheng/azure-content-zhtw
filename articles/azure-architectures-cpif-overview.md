@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="cloud-services"
+   ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -59,4 +59,4 @@ CPIF 描述組織、客戶及合作夥伴應如何使用 Azure、System Center �
 
 [Azure 搜尋服務](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

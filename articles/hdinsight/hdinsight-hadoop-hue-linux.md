@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="10/15/2015" 
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用色調
@@ -49,8 +49,9 @@
 	* __HEAD__：勾選此選項
 	* __WORKER__：將此選項保留空白。
 	* __ZOOKEEPER__：將此選項保留空白。
-	* __參數__：指令碼預期 **cluster admin password** 是參數。這是您在佈建叢集時指定的密碼。您必須在單引號中指定密碼。
-
+	* __參數__：指令碼預期 **cluster admin password** 是參數。這是您在佈建叢集時指定的密碼。同時提供密碼時的重要考量：
+		* 如果叢集的使用者名稱是 "admin"，則您只需要在單引號內指定密碼即可。
+		* 如果叢集的使用者名稱是 "admin" 以外的任何名稱，則您必須指定為參數 `-u [username] [password in single quotes]`
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 
@@ -60,9 +61,9 @@
 
 執行色調之後，SSH 通道是在叢集上存取色調的唯一方式。透過 SSH 的通道允許直接至在其中執行色調之叢集的前端節點的流量。叢集完成佈建之後，請使用下列步驟，在 HDInsight Linux 叢集上使用色調。
 
-1. 請使用[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)中的資訊，建立用戶端系統至 HDInsight 叢集的 SSH 通道，然後設定 Web 瀏覽器將 SSH 通道當做 Proxy 使用。
+1. 請使用[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md) 中的資訊，建立用戶端系統至 HDInsight 叢集的 SSH 通道，然後設定網頁瀏覽器以便將 SSH 通道當做 Proxy 使用。
 
-2. 一旦您建立了 SSH 通道，並設定您的瀏覽器將流量以 Proxy 通過它來傳送，即可使用此瀏覽器來開啟色調入口網站，網址為 http://headnode0:8888。
+2. 一旦您建立了 SSH 通道，並設定您的瀏覽器將流量以 Proxy 通過該通道傳送，即可使用此瀏覽器來開啟色調入口網站，網址為 http://headnode0:8888。
 
     > [AZURE.NOTE]當您第一次登入時，系統會提示您建立帳戶來登入色調入口網站。您在此處指定的認證會限制為入口網站，並且與佈建叢集時您指定的系統管理員或 SSH 使用者認證不相關。
 
@@ -108,7 +109,7 @@
 
 	這是由已知問題造成的。因應措施是修改 Ambari，讓作用中的資源管理員也在 HEADNODE0 上執行。
 
-5.	當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasb://`) 時，色調了解 WebHDFS。因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是針對與 WASB 通訊的 WebHDFS 相容服務。所以，即使色調入口網站說 HDFS 在位置上 (像是將滑鼠移至 [檔案瀏覽器])，它應該解譯為 WASB。
+5.	當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasb://`) 時，色調了解 WebHDFS。因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是針對與 WASB 通訊的 WebHDFS 相容服務。所以，即使色調入口網站說 HDFS 在位置中 (像是將滑鼠移至 [檔案瀏覽器])，它應該解譯為 WASB。
 
 
 ## 後續步驟
@@ -126,4 +127,4 @@
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

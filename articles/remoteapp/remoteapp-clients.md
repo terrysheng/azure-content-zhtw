@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/09/2015"
+    ms.date="10/10/2015"
     ms.author="elizapo" />
 
 
@@ -28,11 +28,10 @@ Azure RemoteApp 的優點之一，就是您可以從任何裝置存取應用程�
 
 如果您的裝置正在執行下列其中一個作業系統，就能夠使用下列步驟來存取 RemoteApp：
 
- - Windows 10 Preview
+ - Windows 10 
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
- - Windows RT
  - Windows Phone 8.1
  - iOS
  - Mac OS X
@@ -49,7 +48,7 @@ Azure RemoteApp 的優點之一，就是您可以從任何裝置存取應用程�
 
 ## 下載用戶端
 
-不論您使用的平台為何，都能在 [遠端桌面用戶端下載](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx) 頁面找到您需要存取 RemoteApp 的用戶端。
+不論您使用的平台為何，都能在 [遠端桌面用戶端下載][](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx) 頁面找到您需要存取 RemoteApp 的用戶端。
 
 按一下不同的連結，將直接開始下載用戶端，或將您送到應用程式市集中該平台的用戶端下載頁面。依照畫面上的指定來安裝用戶端。
 
@@ -63,7 +62,7 @@ Azure RemoteApp 的優點之一，就是您可以從任何裝置存取應用程�
 
 	 ![空白連線中心](./media/remoteapp-clients/Android1.png)
 
-2. 您必須使用電子郵件地址登入以存取服務。點選 [**開始使用**]。
+2. 您必須使用電子郵件地址登入以存取服務。點選 [開始使用]。
 
 	![提示時登入](./media/remoteapp-clients/Android2.png)
 
@@ -208,4 +207,4 @@ Azure RemoteApp 的優點之一，就是您可以從任何裝置存取應用程�
 	![Azure RemoteApp 的示範摘要](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

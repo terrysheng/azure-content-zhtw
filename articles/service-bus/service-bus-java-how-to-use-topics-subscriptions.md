@@ -18,7 +18,9 @@
 
 # 如何使用服務匯流排主題和訂用帳戶
 
-本指南說明如何使用服務匯流排主題和訂用帳戶。相關範例是以 Java 撰寫並使用 [Azure SDK for Java][]。所涵蓋的案例包括**建立主題和訂用帳戶**、**建立訂用帳戶篩選器**、**傳送訊息至主題**、**接收訂用帳戶的訊息**，及**刪除主題和訂用帳戶**。
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+本指南說明如何使用服務匯流排主題和訂用帳戶。相關範例是以 Java 撰寫並使用 [Azure SDK for Java][]。所涵蓋的案例包括**建立主題和訂閱**、**建立訂閱篩選器**、**傳送訊息至主題**、**接收訂閱的訊息**，及**刪除主題和訂閱**。
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
 
@@ -40,7 +42,7 @@
 
 ## 建立主題
 
-服務匯流排主題的管理作業可透過 **ServiceBusContract** 類別來執行。**ServiceBusContract** 物件可使用封裝 SAS 權限權加以管理的適當組態來建構，而對於 Azure，**ServiceBusContract** 類別是唯一的通訊點。
+服務匯流排主題的管理作業可透過 **ServiceBusContract** 類別來執行。**ServiceBusContract** 物件是利用使用權限來封裝 SAS 權杖以加以管理的適當組態所建構，而 **ServiceBusContract** 類別是唯一可與 Azure 通訊的點。
 
 **ServiceBusService** 類別會提供建立、列舉及刪除主題的方法。下列範例顯示如何使用 **ServiceBusService** 物件來建立名為 `TestTopic` 且命名空間為 `HowToSample` 的主題：
 
@@ -79,7 +81,7 @@
 
 ### 使用預設 (MatchAll) 篩選器建立訂閱
 
-**MatchAll** 篩選器是預設篩選器，如果在建立新的訂用帳戶閱時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。下列範例將建立名為 "AllMessages" 的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
+**MatchAll** 篩選器是預設篩選器，如果在建立新的訂閱時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂閱的虛擬佇列中。下列範例將建立名為 "AllMessages" 的訂閱，並使用預設的 **MatchAll** 篩選器。
 
     SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
     CreateSubscriptionResult result =
@@ -89,7 +91,7 @@
 
 您也可以設定篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。
 
-訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 [SqlFilter][]。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][] 語法。
+訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的 [SqlFilter][]。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][] 語法。
 
 以下範例將建立名為 `HighMessages` 的訂用帳戶，其帶有只選取自訂 **MessageNumber** 屬性大於 3 之訊息的 [SqlFilter][] 物件：
 
@@ -129,7 +131,7 @@
 
 傳送至服務匯流排主題的訊息是 [BrokeredMessage][] 類別的執行個體。[BrokeredMessage][]* 物件具有一組標準方法 (例如 **setLabel** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的目錄，以及一組任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 [BrokeredMessage][] 的建構函式，接著系統便會使用適當的 **DataContractSerializer** 來序列化物件。或者，也可以提供 **java.io.InputStream**。
 
-下列範例將示範如何傳送五則測試訊息至上述程式碼片段中所取得的 `TestTopic` **MessageSender**。請注意迴圈反覆運算上每個訊息的 **MessageNumber** 屬性值的變化 (這可判斷接收訊息的訂用帳戶為何)：
+下列範例將示範如何傳送五則測試訊息至上述程式碼片段中所取得的 `TestTopic` **MessageSender**。請注意迴圈反覆運算上每個訊息的 **MessageNumber** 屬性值的變化 (這可判斷接收訊息的訂閱為何)：
 
     for (int i=0; i<5; i++)  {
        	// Create message, passing a string message for the body
@@ -144,7 +146,7 @@
 
 ## 如何自訂用帳戶接收訊息
 
-從訂用帳戶接收訊息的主要方式，是使用 **ServiceBusContract** 物件。接收的訊息可在兩種不同的模式下運作：**ReceiveAndDelete** 和 **PeekLock**。
+從訂閱接收訊息的主要方式，是使用 **ServiceBusContract** 物件。接收的訊息可在兩種不同的模式下運作：**ReceiveAndDelete** 和 **PeekLock**。
 
 使用 **ReceiveAndDelete** 模式時，接收是一次性作業；也就是說，當服務匯流排收到訊息的讀取要求時，它會將此訊息標示為已使用，並將它傳回應用程式。**ReceiveAndDelete** 模式是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
@@ -213,7 +215,7 @@
 
 ## 刪除主題和訂用帳戶
 
-刪除主題和訂用帳戶的主要方式，是使用 **ServiceBusContract** 物件。刪除主題也將會刪除對主題註冊的任何訂用帳戶。您也可以個別刪除訂用帳戶。
+刪除主題和訂閱的主要方式，是使用 **ServiceBusContract** 物件。刪除主題也將會刪除對主題註冊的任何訂用帳戶。您也可以個別刪除訂用帳戶。
 
     // Delete subscriptions
     service.deleteSubscription("TestTopic", "AllMessages");
@@ -225,14 +227,14 @@
 
 ## 後續步驟
 
-現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][]，以取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱[服務匯流排佇列、主題和訂用帳戶][]，以取得詳細資訊。
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-TW/library/azure/hh694271.aspx
   [Azure portal]: http://manage.windowsazure.com/
-  [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
+  [服務匯流排佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

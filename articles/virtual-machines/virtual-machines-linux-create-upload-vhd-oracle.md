@@ -23,7 +23,9 @@
 - [準備執行 Azure 的 Oracle Linux 6.4+ 虛擬機器](#oracle6)
 - [準備執行 Azure 的 Oracle Linux 7.0+ 虛擬機器](#oracle7)
 
-##必要條件##
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+##先決條件##
 
 本文假設您已將 Oracle Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
@@ -229,4 +231,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

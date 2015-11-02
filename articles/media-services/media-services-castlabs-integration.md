@@ -3,7 +3,7 @@
 	description="本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS 使用 PlayReady 與 Widevine DRM 動態加密的資料流。PlayReady 授權來自媒體服務 PlayReady 授權伺服器，Widevine 授權由 castLabs 授權伺服器傳遞。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Mingfeiy,Juliako" 
+	authors="Mingfeiy,willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -26,6 +26,8 @@
 ##概觀
 
 本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS 使用 PlayReady 與 Widevine DRM 動態加密的資料流。PlayReady 授權來自媒體服務 PlayReady 授權伺服器，Widevine 授權則來自 **castLabs** 授權伺服器。
+
+若要播放受 CENC (PlayReady 和/或 Widevine) 保護的串流內容，您可以使用 [Azure 媒體播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。如需詳細資訊，請參閱 [AMP 文件](http://amp.azure.net/libs/amp/latest/docs/)。
 
 以下為 Azure 媒體服務與 castLabs 整合架構概況圖。
 
@@ -98,24 +100,18 @@ jti|權杖的唯一識別碼 (每個權杖在 castLabs 系統中只使用一次)
 
 ##播放視訊
 
-若要播放使用一般加密 (PlayReady) 技術加密的視訊，您可以使用 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。執行主控台應用程式時，會回應內容金鑰識別碼和資訊清單 URL。
+若要播放使用一般加密 (PlayReady 和/或 Widevine) 技術加密的視訊，您可以使用 [Azure 媒體播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。執行主控台應用程式時，會回應內容金鑰識別碼和資訊清單 URL。
 
 1.	開啟新索引標籤，並啟動 STS：http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid]。
 2.	移至 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
 3.	貼上資料流 URL。
 4.	按一下 [**進階選項**] 核取方塊。
-5.	選取在 [**保護**] 下拉式清單中的 PlayReady。
-6.	在 [權杖] 文字方塊中貼上您從 STS 取得的權杖。
+5.	在 [保護] 下拉式清單中選取 PlayReady 和/或 Widevine。
+6.	在 [權杖] 文字方塊中貼上您從 STS 取得的權杖。 
+	
+	castLab 授權伺服器不需要權杖前有 “Bearer=” 前置詞。因此請先移除該前置詞，再提交權杖。
 7.	更新播放程式。
 8.	視訊應隨即播放。
-
-如需在 Chrome 中透過 castLabs 播放程式播放用 HTML5 保護的視訊，請連絡 yanmf@microsoft.com 以取得播放程式的存取權。當您存取時，請注意以下 2 點：
-
-1.	castLabs 播放程式必須存取 MPEG-DASH 資訊清單檔案，讓 (format=mpd-time-csf) 附加到您的資訊清單檔案，以取得 MPEG-DASH 資訊清單檔案，而非預設的 Smooth Streaming 資訊清單檔案。
-
-2.	castLab 授權伺服器不需要權杖前有 “Bearer=” 前置詞。因此請先移除該前置詞，再提交權杖。
-
- 
 
 ##媒體服務學習路徑
 
@@ -124,4 +120,4 @@ jti|權杖的唯一識別碼 (每個權杖在 castLabs 系統中只使用一次)
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -3,7 +3,7 @@
 	description="本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS 使用 PlayReady 與 Widevine DRM 動態加密的資料流。PlayReady 授權來自媒體服務 PlayReady 授權伺服器，Widevine 授權由 Axinom 授權伺服器傳遞。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="willzhan,Juliako" 
+	authors="willzhan,Mingfeiy,rajputam,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"  
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務  
@@ -196,9 +196,6 @@ Axinom Widevine 授權伺服器
 Widevine 授權取得 URL|必須用於設定 DASH 串流資產傳遞原則 (請參閱[本節](media-services-axinom-integration.md#content-protection))。
 內容金鑰識別碼|必須包含其中作為 JWT 權杖之權利訊息宣告值的一部分 (請參閱[本節](media-services-axinom-integration.md#jwt-token-generation))。 
 
-
-
-
 ##媒體服務學習路徑
 
 您可以在此檢視 AMS 學習路徑：
@@ -206,4 +203,8 @@ Widevine 授權取得 URL|必須用於設定 DASH 串流資產傳遞原則 (請�
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+###通知 
+
+我們想要向下列為建立此文件貢獻心力的人員致謝：Kristjan Jõgi of Axinom、Mingfei Yan 及 Amit Rajput。
+
+<!---HONumber=Oct15_HO4-->

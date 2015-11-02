@@ -1,8 +1,7 @@
 <properties
 	pageTitle="在 Azure HDInsight Hive 資料表中進行資料取樣 | Microsoft Azure"
-	description="在 Azure HDInsight Hive 資料表中進行資料向下取樣"
+	description="在 Azure HDInsight (Hadopop) Hive 資料表中進行資料向下取樣"
 	services="machine-learning,hdinsight"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -14,12 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/20/2015"
 	ms.author="hangzh;bradsev" />
 
 # 在 Azure HDInsight Hive 資料表中進行資料取樣
 
-如果您規劃分析的資料集很大，通常最好是對資料進行向下取樣，將資料縮減為更小但具代表性且更容易管理的大小。這有助於資料了解、探索和功能工程。它在 Azure Machine Learning 的進階分析程序和技術 (ADAPT) 中扮演的角色是，讓資料處理函數與機器學習服務模型的原型能夠快速建立。
+此**功能表**連結說明如何從各種不同儲存體環境進行資料取樣的連結。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## 簡介
+
+如果您規劃分析的資料集很大，通常最好是對資料進行向下取樣，將資料縮減為更小但具代表性且更容易管理的大小。這有助於資料了解、探索和功能工程。它在 Cortana 分析程序中扮演的角色是能夠快速建立資料處理函式與機器學習服務模型的原型。
 
 本文將說明如何使用 Hive 查詢，對 Azure HDInsight Hive 資料表中的資料進行向下取樣。我們將討論三個普遍使用的取樣方法：
 
@@ -100,4 +105,4 @@
 如需可在 Hive 中使用的進一步進階取樣方法相關資訊，請參閱 [LanguageManual 取樣](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

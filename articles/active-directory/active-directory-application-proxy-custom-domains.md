@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure AD 應用程式 Proxy 中的自訂網域"
+	pageTitle="使用 Azure AD 應用程式 Proxy 中的自訂網域 | Microsoft Azure"
 	description="說明如何使用 Azure AD 應用程式 Proxy 中的自訂網域。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # 使用 Azure AD 應用程式 Proxy 中的自訂網域
@@ -50,7 +50,7 @@
 
 ## 其他資源
 
-* [以組織身分註冊 Azure](..sign-up-organization.md)
-* [Azure 身分識別](..fundamentals-identity.md)
+* [以組織身分註冊 Azure](sign-up-organization.md)
+* [Azure 身分識別](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

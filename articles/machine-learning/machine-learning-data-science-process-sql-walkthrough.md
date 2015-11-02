@@ -1,8 +1,7 @@
 <properties
-	pageTitle="進階分析程序和技術實務：使用 SQL Server | Microsoft Azure"
+	pageTitle="Cortana 分析程序實務：使用 SQL Server | Microsoft Azure"
 	description="進階分析程序和技術實務"  
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -14,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015" 
+	ms.date="10/18/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
-# 進階分析程序和技術實務：使用 SQL Server
+# Cortana 分析程序實務：使用 SQL Server
 
 在此教學課程，您會跟著逐步解說，使用可公開取得的資料集 ([NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集) 建置和部署模型。此程序遵循《Azure 進階分析程序和技術 (ADAPT) 指南》。
 
@@ -715,4 +714,4 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

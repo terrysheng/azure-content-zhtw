@@ -43,11 +43,7 @@
 - [重新啟動虛擬機器](#restart)
 - [刪除虛擬機器](#delete)
 
-開始之前，確定 Azure PowerShell 已經準備就緒。
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Azure 資源管理員範本和資源群組
 
@@ -380,4 +376,4 @@
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

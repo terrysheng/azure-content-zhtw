@@ -20,6 +20,26 @@
 
 # Azure HDInsight 上 Hadoop 元件的版本資訊
 
+## HDInsight 2015/10/20 版本的附註
+
+使用此版本部署的 HDInsight 叢集的完整版本號碼：
+
+* HDInsight 2.1.10.716.1846990 (Windows) (HDP 1.3.12.0-01795 - 未變更)
+* HDInsight 3.0.6.716.1846990 (Windows) (HDP 2.0.13.0-2117 - 未變更)
+* HDInsight 3.1.4.716.1846990 (Windows) (HDP 2.1.16.0-2374)
+* HDInsight 3.2.7.716.1846990 (Windows) (HDP 2.2.7.1-0004)
+* HDInsight 3.2.1000.0.5930166 (Linux) (HDP 2.2.7.1-0004)
+* SDK 1.5.8
+
+此版本包含下列更新。
+
+| 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 變更為 HDP 2.2 的預設版本 HDP | HDInsight Windows 叢集的預設版本變更為 HDP 2.2。HDInsight 版本 3.2 (HDP 2.2) 自 2015 年 2 月已在公開上市。這項變更只會在使用 Azure 入口網站、PowerShell Cmdlet 或 SDK 叢集佈建的同時未進行明確選擇時，翻轉預設叢集版本。 | 服務 | 全部| N/A |
+|變更 VM 名稱格式以在單一虛擬網路中的 Linux 叢集上部署多個 HDInsight。 | 在這個版本中已加入在單一虛擬網路中部署多個 HDInsight Linux 叢集的支援。其中，叢集的虛擬機器名稱的格式已從 headnode*、workernode* 和 zookeepernode* 分別變更為 hn*、wn* 和 zk*。不建議採取虛擬機器名稱格式的直接相依性，因為這樣會受限於變更。請使用本機機器或 Ambari API 上的 "hostname -f" 以判斷主機清單和元件到主機的對應。您可以在 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 和 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md) 找到更多資訊。 | 服務 | Linux 上的 HDInsight 叢集 | N/A |
+| 組態變更 | 對於 HDInsight 3.1 叢集，現在會啟用下列組態：<ul><li>tez.yarn.ats.enabled 和 yarn.log.server.url。這可讓應用程式時間軸伺服器和記錄伺服器能夠提供記錄檔。</li></ul>對於 HDInsight 3.2 叢集，已經修改下列組態：<ul><li>mapreduce.fileoutputcommitter.algorithm.version 已設為 2。這樣就可以使用 FileOutputCommitter 的 V2 版本。</li></ul> | 服務 | 全部 | N/A |
+
+
 ## HDInsight 2015/09/09 版本的附註
 
 使用此版本部署的 HDInsight 叢集的完整版本號碼：
@@ -1346,4 +1366,4 @@ SQL Server 的 Java 資料庫連接 (JDBC) 驅動程式僅供 HDInsight 內部�
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

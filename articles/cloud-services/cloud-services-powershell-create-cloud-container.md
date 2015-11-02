@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter=".net"
    authors="cawaMS"
-   manager="bscholl" 
+   manager="paulyuk" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="06/19/2015"
+   ms.date="10/14/2015"
    ms.author="cawa"/>
 
 # 如何使用 Azure PowerShell 命令來建立空白的雲端服務容器
@@ -41,4 +41,4 @@ Get-help New-AzureService
     - 若要將雲端服務專案發佈至 Azure，請參閱「[在Azure 中持續提供雲端服務](cloud-services-dotnet-continuous-delivery.md)」中的 **PublishCloudService.ps1** 程式碼範例
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

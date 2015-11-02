@@ -3,24 +3,22 @@
 	description="了解如何在 Azure 使用服務匯流排主題及訂用帳戶。程式碼範例專為 Ruby 應用程式撰寫。"
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
-
+	ms.author="sethm"/>
 
 # 如何使用服務匯流排主題/訂閱
+
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 本指南將說明如何從 Ruby 應用程式使用服務匯流排主題和訂閱。所涵蓋的案例包括**建立主題和訂閱、建立訂閱篩選器、傳送訊息**至主題、**接收訂閱的訊息**，及**刪除主題和訂閱**。如需主題和訂閱的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
@@ -58,7 +56,7 @@
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]如果您登入 [Azure 入口網站](http://manage.windowsazure.com/)並巡覽至您服務匯流排命名空間的連線資訊，也可以找到此金鑰。
+> [AZURE.NOTE]如果您登入 [Azure 入口網站](http://manage.windowsazure.com/)並瀏覽至您服務匯流排命名空間的連線資訊，也可以找到此金鑰。
 
 ## 建立 Ruby 應用程式
 
@@ -215,7 +213,7 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 -   請參閱[佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)。
 -   [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx) 的 API 參考資料。
--	請瀏覽 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
+-	請瀏覽 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 存放庫。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

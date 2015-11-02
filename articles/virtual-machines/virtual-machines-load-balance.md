@@ -19,6 +19,7 @@
 
 # Azure 基礎結構服務的負載平衡#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure 基礎結構服務提供兩種負載平衡層級︰
 
@@ -37,7 +38,7 @@ Azure 基礎結構服務提供兩種負載平衡層級︰
 - **效能**：當您的端點位於不同地理位置，且您為了取得最低延遲而要求用戶端使用「最靠近」的端點時，才可使用此方法。
 - **循環配置資源**：在您想要在相同資料中心的一組雲端服務上，或在不同資料中心的雲端服務或網站上分配負載時，才可使用此方法。
 
-如需詳細資訊，請參閱[關於流量管理員負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)。
+如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)。
 
 下圖顯示在不同雲端服務間使用循環配置資源負載平衡方法分配流量的範例。
 
@@ -50,7 +51,7 @@ Azure 基礎結構服務提供兩種負載平衡層級︰
 3.	流量管理員選擇循環配置資源中的下一個雲端服務，並傳回 DNS 名稱。網際網路用戶端的 DNS 伺服器將該名稱解析為 IP 位址，並傳送至網際網路用戶端。
 4.	網際網路用戶端連線到流量管理員選擇的雲端服務。
 
-如需詳細資訊，請參閱[流量管理員](../traffic-manager/traffic-manager-overview.md)。
+如需詳細資訊，請參閱 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)。
 
 ## 虛擬機器的 Azure 負載平衡 ##
 
@@ -84,4 +85,4 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 <!-- LINKS -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

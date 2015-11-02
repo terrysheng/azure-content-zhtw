@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用指令碼動作來自訂 HDInsight 叢集 | Microsoft Azure"
-	description="深入了解使用指令碼動作來自訂 HDInsight 叢集。"
+	description="學習如何使用指令碼動作在以 Linux 為基礎的 HDInsight 叢集上新增自訂元件。指令碼動作是在叢集建立期間執行的 Bash 指令碼，可用來自訂叢集組態，或新增其他服務和公用程式，如 Hue、Solr 或 R。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="10/22/2015"
 	ms.author="larryfr"/>
 
 # 使用指令碼動作來自訂 HDInsight 叢集| Azure (Linux)
@@ -35,7 +35,10 @@ HDInsight 提供一個稱為「**指令碼動作**」的組態選項，此指令
 
 每個叢集可接受多個指令碼動作，這些指令碼會依其指定順序被叫用。指令碼可在前端節點、背景工作角色節點或同時在兩者執行。
 
-> [AZURE.IMPORTANT]指令碼動作必須在 15 分鐘內完成，否則就會逾時。
+> [AZURE.IMPORTANT]指令碼動作必須在 15 分鐘內完成，否則就會逾時。在節點佈建期間，會同時執行指令碼與其他安裝和設定程序。與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
+> 
+> 若要讓執行指令碼所花費的時間降到最低，請避免從原始程式碼下載和編譯應用程式之類的工作。您應預先編譯相關應用程式，並將二進位檔儲存在 Azure Blob 儲存體中，這樣可讓其能夠快速地下載到叢集。
+
 
 ## 範例指令碼動作指令碼
 
@@ -240,7 +243,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 2. 啟動 Azure PowerShell 並且登入您的 Azure 帳戶。提供您的認證之後，命令會傳回您的帳戶的相關資訊。
 
-		Add-AzureAccount
+		Add-AzureRMAccount
 
 		Id                             Type       ...
 		--                             ----
@@ -248,15 +251,13 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 3. 如果您有多個訂用帳戶，請提供您想要用於部署的訂用帳戶識別碼。
 
-		Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
-4. 切換至 Azure 資源管理員模組。
-
-		Switch-AzureMode AzureResourceManager
+    > [AZURE.NOTE]您可以使用 `Get-AzureRMSubscription` 來取得與您帳戶關聯的所有訂用帳戶清單，同時也包含每個訂用帳戶的訂閱 Id。
 
 5. 如果您沒有現有資源群組，請建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。隨即傳回新資源群組的摘要。
 
-		New-AzureResourceGroup -Name myresourcegroup -Location "West US"
+		New-AzureRMResourceGroup -Name myresourcegroup -Location "West US"
 
 		ResourceGroupName : myresourcegroup
 		Location          : westus
@@ -272,7 +273,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 6. 若要建立資源群組的新部署，請執行 **New-AzureResourceGroupDeployment** 命令，並提供必要的參數。參數會包含您部署的名稱、資源群組的名稱、您建立之範本的路徑或 URL。如果您的範本需要任何參數，您也必須傳遞這些參數。在此案例中，用來在叢集上安裝 R 的指令碼動作不需要任何參數。
 
 
-		New-AzureResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
+		New-AzureRMResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
 
 
 	系統會提示您針對範本中定義的參數提供值。
@@ -288,15 +289,11 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 8. 如果您的部署失敗，您可以使用下列 Cmdlet 來取得失敗的相關資訊。
 
-		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed
-
-	如需部署失敗的詳細資訊，請使用下列 Cmdlet。
-
-		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed -DetailedOutput
+		Get-AzureRMResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
 
 ## 從 Azure PowerShell 使用指令碼動作
 
-本節中，我們使用 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet，使用指令碼動作叫用指令碼以自訂叢集。在繼續之前，請確認您已安裝和設定 Azure PowerShell。如需設定工作站以執行 HDInsight PowerShell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
+本節中，我們使用 [Add-AzureRMHDInsightScriptAction](http://msdn.microsoft.com/library/dn858088.aspx) Cmdlet，使用指令碼動作叫用指令碼以自訂叢集。在繼續之前，請確認您已安裝和設定 Azure PowerShell。如需設定工作站以執行 HDInsight PowerShell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
 
 執行下列步驟：
 
@@ -311,21 +308,21 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# The number of nodes in the HDInsight cluster.
 		$version = "<HDInsightClusterVersion>"          # HDInsight version, for example "3.1"
+        $resourceGroupName = "<ResourceGroupName>"      # The resource group that the HDInsight cluster will be created in
 
 2. 指定組態值 (例如叢集中的節點) 和要使用的預設儲存體。
 
 		# SPECIFY THE CONFIGURATION OPTIONS
-		Select-AzureSubscription $subscriptionName
-		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
-		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
-		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
-		$config.DefaultStorageAccount.StorageContainerName=$containerName
+		Select-AzureRMSubscription $subscriptionName
+		$config = New-AzureRMHDInsightClusterConfig
+		$config.DefaultStorageAccountName="$storageAccountName.blob.core.windows.net"
+		$config.DefaultStorageAccountKey=$storageAccountKey
 
-3. 使用 **Add-AzureHDInsightScriptAction** Cmdlet 以叫用指令碼。下列範例使用指令碼以在叢集上安裝 R：
+3. 使用 **Add-AzureHDInsightScriptAction** Cmdlet 以叫用指令碼。下列範例使用會在叢集上安裝 R 的指令碼：
 
-		# INVOKE THE SCRIPT USING THE SCRIPT ACTION
-		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install R"  -ClusterRoleCollection HeadNode,WorkerNode,ZookeeperNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-
+		# INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
+		$config = Add-AzureRMHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+        $config = Add-AzureRMHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
 
 	**Add-AzureHDInsightScriptAction** Cmdlet 可接受下列參數：
 
@@ -333,13 +330,15 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 	| --------- | ---------- |
 	| 設定 | 要在其中新增指令碼動作資訊的組態物件。 |
 	| 名稱 | 指令碼動作的名稱。 |
-	| ClusterRoleCollection | 指定執行自訂指定碼的節點。有效值為 **HeadNode** (在前端節點上安裝)、**WorkerNode** (在所有資料節點上安裝)，或 **ZookeeperNode** (在 zookeeper 節點上安裝)。您可以使用其中一個值或所有值。 |
+	| NodeType | 指定執行自訂指定碼的節點。有效值為 **HeadNode** (在前端節點上安裝)、**WorkerNode** (在所有資料節點上安裝)，或 **ZookeeperNode** (在 zookeeper 節點上安裝)。 |
 	| 參數 | 指令碼所需的參數。 |
 	| Uri | 指定所執行之指令碼的 URI。 |
 
 4. 最後，建立叢集：
 
 		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+        
+        New-AzureRMHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes 2
 
 出現提示時，請輸入叢集的認證。建立叢集可能需要幾分鐘的時間。
 
@@ -472,9 +471,52 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 7. 按 **F5** 鍵執行應用程式。主控台視窗會開啟並顯示應用程式的狀態。系統也會提示您輸入 Azure 帳戶認證。建立 HDInsight 叢集可能需要幾分鐘的時間。
 
 
+## 疑難排解
+
+您可以使用 Ambari Web UI 來檢視在叢集建立期間指令碼記錄的資訊。不過，如果叢集建立因為指令碼錯誤而失敗，與該叢集相關聯的預設儲存體帳戶中也會有記錄檔。本節提供關於如何使用這兩個選項擷取記錄檔的資訊。
+
+### 使用 Ambari Web UI
+
+1. 在您的瀏覽器中，瀏覽至 https://CLUSTERNAME.azurehdinsight.net。將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
+
+	出現提示時，輸入管理帳戶名稱 (admin) 和叢集的密碼。您可能必須在 Web 表單中重新輸入系統管理員認證。
+
+2. 在頁面頂端的列中，選取 __ops__ 項目。這會顯示透過 Ambari 在叢集上執行的目前和先前作業的清單。
+
+	![Ambari Web UI 列與選取的 ops](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
+
+3. 尋找在 [作業] 欄位中有 __run\_customscriptaction__ 的項目。這些項目是在執行指令碼動作時建立的。
+
+	![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
+
+	選取此項目，並且向下鑽研連結以檢視在叢集上執行指令碼時，產生的 STDOUT 和 STDERR 輸出。
+
+### 從預設的儲存體帳戶存取記錄檔
+
+如果叢集建立因為指令碼動作中的錯誤而失敗，仍可從與該叢集相關聯的預設儲存體帳戶直接存取指令碼動作記錄檔。
+
+* 儲存體記錄檔位於 `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。在其下，記錄檔會個別針對前端節點、背景工作節點和 Zookeeper 節點進行組織。部分範例如下：
+	* 前端節點 - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-headnode0.mycluster-ssh.d4.internal.cloudapp.net`
+	* 背景工作角色節點 - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-workernode0.mycluster-63d9e66a-a8e2-4022-85aa-a484e7700b5c.d4.internal.cloudapp.net`
+	* Zookeeper 節點 - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-zookeepernode0.mycluster-4965986e-3636-4a8b-ae1d-f2dfd898c8d7.d4.internal.cloudapp.net`
+* 對應主機的所有 stdout 和 stderr 都會上傳至儲存體帳戶。每個指令碼動作分別有一個 **output-*.txt** 和 **errors-*.txt**。output-*.txt 檔案包含在主機上執行之指令碼的 URI 相關資訊。例如
+
+		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+
+* 您有可能重複建立具有相同名稱的指令碼動作叢集。在這種情況下，您可以根據 DATE 資料夾名稱來區分相關的記錄檔。例如，在不同的日期為叢集 (mycluster) 建立的資料夾結構將是：
+	* `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04`
+	* `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+
+* 如果您在同一天建立具有相同名稱的指令碼動作叢集，您可以使用唯一的前置詞來識別相關的記錄檔。
+
+* 如果您是在那一天結束時建立叢集，則記錄檔可能會橫跨兩天。在這種情況下，您會看到相同的叢集有兩個不同的日期資料夾。
+
+* 將記錄檔上傳至預設容器可能需要 5 分鐘，特別是大型叢集。因此，如果您想要存取記錄檔，則不應在指令碼動作失敗時立即刪除叢集。
+
+
 ## 支援在 HDInsight 叢集上使用開放原始碼軟體
 
-Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用以 Hadoop 形成之開放原始碼技術的生態系統，在雲端中建置巨量資料應用程式。Microsoft Azure 提供對開放原始碼技術的一般層級支援，如 [Azure 支援常見問題集網站](http://azure.microsoft.com/support/faq/)的＜支援範圍＞章節中所述。HDInsight 服務對於某些元件提供額外層級的支援，如下所述。
+Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用以 Hadoop 形成之開放原始碼技術的生態系統，在雲端中建置巨量資料應用程式。Microsoft Azure 提供對開放原始碼技術的一般層級支援，如 [Azure 支援常見問題集網站](http://azure.microsoft.com/support/faq/)的**支援範圍**章節中所述。HDInsight 服務對於某些元件提供額外層級的支援，如下所述。
 
 HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
@@ -494,24 +536,6 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 3. 範例 - 對於熱門自訂元件，Microsoft 和其他提供者可能會提供如何在 HDInsight 叢集上使用這些元件的範例。提供這些範例，但是沒有支援。
 
-## 疑難排解
-
-您可以使用 Ambari Web UI 來檢視在叢集建立期間指令碼記錄的資訊。
-
-1. 在您的瀏覽器中，瀏覽至 https://CLUSTERNAME.azurehdinsight.net。將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
-
-	出現提示時，輸入管理帳戶名稱 (admin) 和叢集的密碼。您可能必須在 Web 表單中重新輸入系統管理員認證。
-
-2. 在頁面頂端的列中，選取 __ops__ 項目。這會顯示透過 Ambari 在叢集上執行的目前和先前作業的清單。
-
-	![Ambari Web UI 列與選取的 ops](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
-
-3. 尋找在 [作業] 欄位中有 __run\_customscriptaction__ 的項目。這些項目是在執行指令碼動作時建立的。
-
-	![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
-
-	選取此項目，並且向下鑽研連結以檢視在叢集上執行指令碼時，產生的 STDOUT 和 STDERR 輸出。
-
 ## 後續步驟
 
 請參閱下列項目，以取得建立和使用指令碼以自訂叢集時的資訊和範例：
@@ -526,4 +550,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -145,7 +145,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure02.png)
 
-7. 按一下 **建立閘道** (如下列圖 3 所示) 來建立 vnet01 的 VPN 閘道。
+7. 按一下 [**建立閘道**] (如下列圖 3 所示) 來建立 vnet01 的 VPN 閘道。
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure03.png)
 
@@ -272,9 +272,9 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 4. 開啟您剛下載的檔案，然後編輯 **vnet02** 的 **LocalNetworkSite** 元素，為上述步驟 1 中取得的新 VNet 新增閘道的 IP 位址。此元素看起來應該類似下列範例。
 
-	      <LocalNetworkSite name="vnet03">
+	      <LocalNetworkSite name="vnet02">
 	        <AddressSpace>
-	          <AddressPrefix>10.3.0.0/16</AddressPrefix>
+	          <AddressPrefix>10.2.0.0/16</AddressPrefix>
 	        </AddressSpace>
 	        <VPNGatewayAddress>23.99.213.28</VPNGatewayAddress>
 	      </LocalNetworkSite>
@@ -312,7 +312,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
 
-3. 開啟 Azure 入口網站(網址是 https://manage.windowsazure.com )，並在需要時輸入您的認證。
+3. 開啟 Azure 入口網站 (網址是 https://manage.windowsazure.com)，並在需要時輸入您的認證。
 4. 在 [**所有項目**] 下，向下捲動並依序按一下 [**網路**]、[**vnet01**] 和 [**儀表板**]。請注意，現在已建立 **vnet01** 與 **vnet02** 之間的連線，如下所見。
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
@@ -363,4 +363,4 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 - 深入了解 [ARM 的網路資源提供者 (NRP)](../resource-groups-networking.md)。
 - 檢視有關如何[在傳統 VNet 和 ARM VNet 之間建立 S2S VPN 連線](../virtual-networks-arm-asm-s2s-howto.md)的一般指導方針。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

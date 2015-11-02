@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # 使用 Azure 資源管理員和 PowerShell 設定 VNet 對 VNet 連接
@@ -78,9 +78,11 @@
 
 - Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-- 最新版的 Azure PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 Windows PowerShell 區段下載並安裝最新版本。本文是針對 Azure PowerShell *0.9.8* 撰寫。
+- Azure PowerShell 0.9.8 Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 Windows PowerShell 區段下載並安裝此版本。雖然您可以使用這些步驟 (稍微修改 Cmdlet) PowerShell 1.0 Preview 搭配，但是本文章是針對 0.9.8 所撰寫。
 
->[AZURE.NOTE]如果您執行的是關鍵任務應用程式，請繼續使用 Azure PowerShell 0.9.8。在大部分情況下，這二個版本間的唯一差異是 1.0 Preview 的 Cmdlet 命名遵循 {動詞}-AzureRm{名詞} 模式，而 0.9.8 的命名不包含 Rm。例如，New-AzureRmResourceGroup 而不是 New-AzureResourceGroup。如需 Azure PowerShell 1.0 Preview 的詳細資訊，請參閱此[部落格文章](https://azure.microsoft.com/blog/azps-1-0-pre/)。如需 Azure PowerShell 1.0 Preview Cmdlet 的詳細資訊，請參閱 [Azure 資源管理員 Cmdlet](https://msdn.microsoft.com/library/mt125356.aspx) (英文)。
+**關於使用這些步驟與 Azure PowerShell 1.0 Preview 搭配**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
 
 
 ## 1\.規劃 IP 位址範圍
@@ -113,9 +115,7 @@ VNet2 的值：
 
 ## 2\.連線至您的訂用帳戶 
 
-開啟 PowerShell 主控台並連接到您的帳戶。下列說明使用 Azure PowerShell 0.9.8 版本。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 Windows PowerShell 區段下載並安裝此版本。
-
-使用下列範例來協助您連接：
+開啟 PowerShell 主控台並連接到您的帳戶。使用下列範例來協助您連接：
 
 		Add-AzureAccount
 
@@ -206,7 +206,7 @@ VNet2 的值：
 
 		Get-AzureVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
 
- 完成此 cmdlet 之後，請捲動以檢視值。在下列範例中，連線狀態會顯示為 [已連線]，且您可以看見輸入和輸出位元組。
+ 完成此 cmdlet 之後，請捲動以檢視值。在下列範例中，連接狀態會顯示為 [已連接]，且您可以看見輸入和輸出位元組。
 
 	Body:
 	{
@@ -249,8 +249,8 @@ VNet2 的值：
 
 ## 後續步驟
 
-您可以將虛擬機器加入您的虛擬網路。[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)。
+您可以將虛擬機器加入您的虛擬網路。[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)
 
 如需 VPN 閘道的詳細資訊，請參閱 [VPN 閘道常見問題集](vpn-gateway-faq.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

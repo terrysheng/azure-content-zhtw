@@ -1,7 +1,7 @@
 <properties
 	pageTitle="什麼是 HDInsight 中的 HBase？ | Microsoft Azure"
 	description="HDInsight 中的 Apache HBase (建置在 Hadoop 的 NoSQL 資料庫) 簡介。了解使用案例，並將 HBase 與其他 Hadoop 叢集進行比較。"
-	keywords="bigtable,nosql,what is hbase"
+	keywords="bigtable,nosql,什麼是 hbase"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -94,4 +94,4 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -69,7 +69,7 @@ IoT 中樞可讓您透過使用[裝置身分識別登錄][IoT Hub Developer Guid
 
 遵循下列連結以深入了解 Azure IoT 中樞：
 
-- [開始使用 IoT 中心 (教學課程)][lnk-get-started]
+- [開始使用 IoT 中樞 (教學課程)][lnk-get-started]
 - [何謂 Azure IoT 中心？][]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
@@ -88,4 +88,4 @@ IoT 中樞可讓您透過使用[裝置身分識別登錄][IoT Hub Developer Guid
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [何謂 Azure IoT 中心？]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

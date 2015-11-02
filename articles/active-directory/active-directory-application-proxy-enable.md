@@ -1,5 +1,5 @@
 <properties
-	pageTitle="啟用 Azure AD 應用程式 Proxy"
+	pageTitle="啟用 Azure AD 應用程式 Proxy | Microsoft Azure"
 	description="涵蓋如何使用 Azure AD 應用程式 Proxy 啟動並執行。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # 啟用 Azure AD 應用程式 Proxy
@@ -23,7 +23,7 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 
 本節將引導您在 Azure AD 中啟用雲端目錄的 Microsoft Azure AD 應用程式 Proxy、將應用程式 Proxy 連接器安裝在您的私人網路上、使用您的 Microsoft Azure AD 租用戶訂用帳戶註冊連接器。
 
-##應用程式 Proxy 必要條件
+##應用程式 Proxy 先決條件
 您可以啟用並使用應用程式 Proxy 服務之前，必須具備：
 
 - Microsoft Azure 系統管理員帳戶。如果您沒有，可以在這裡取得一個。
@@ -53,18 +53,15 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 4. 按一下畫面底部的 [立即下載]。這會將您帶到下載頁面。閱讀並接受授權條款，然後按一下 [下載]，儲存應用程式 Proxy 連接器的 Windows Installer 檔案 (.exe)。 
 
 ##步驟 2：安裝並註冊連接器
-1. 在您準備好的伺服器上執行 AADApplicationProxyConnectorInstaller.exe (請參閱「應用程式 Proxy 必要條件」)。
+1. 在您準備好的伺服器上執行 AADApplicationProxyConnectorInstaller.exe (請參閱「應用程式 Proxy 先決條件」)。
 2. 依照精靈中的指示進行安裝。
 3. 在安裝期間，系統將提示您使用有效的應用程式 Proxy 帳戶註冊連接器。
-<p>為您提供 Azure AD 全域管理員認證。
-- 請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。此外，您要是 Azure AD 租用戶的全域管理員。您的全域管理員租用戶可能不同於 Microsoft Azure 認證。
-- 如果 [IE 增強式安全性設定] 在您安裝 Azure AD 連接器所在的伺服器上設為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定 Internet Explorer 增強式安全性已關閉。
-- 如果連接器註冊不成功，請參閱「疑難排解應用程式 Proxy」。
+<p>為您提供 Azure AD 全域管理員認證。請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。此外，您要是 Azure AD 租用戶的全域管理員。您的全域系統管理員租用戶可能與 Microsoft Azure 認證不同。如果 [IE 增強式安全性設定] 在您要安裝 Azure AD 連接器所在的伺服器上設定為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定 Internet Explorer 增強式安全性已關閉。如果連接器註冊不成功，請參閱「疑難排解應用程式 Proxy」。
 
-4. 安裝完成後，兩個新的服務會新增到您的伺服器中，如下所示。這些是允許連線的連接器服務，以及可定期檢查連接器新版本，並在需要時更新連接器的自動更新服務。按一下安裝視窗中的 [完成]，以完成安裝 ![應用程式 Proxy 連接器服務！](./media/active-directory-application-proxy-enable/app_proxy_services.png)<p>
+4. 安裝完成後，兩個新的服務會新增到您的伺服器中，如下所示。這些是允許連線的連接器服務，以及可定期檢查連接器新版本，並在需要時更新連接器的自動更新服務。按一下安裝視窗中的 [完成]，以完成安裝 ![應用程式 Proxy 連接器服務！](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
 5. 您現在已經準備好使用應用程式 Proxy 發佈應用程式。
 
-如果您想要解除安裝連接器，在解除安裝連接器服務和 Updater 服務之後，請務必重新啟動電腦，才能完全移除服務。<p>為了實現高可用性，您必須至少部署一個額外的連接器。若要部署額外的連接器，重複以上的步驟 2 和 3。每個連接器都必須分別進行註冊。
+如果您想要解除安裝連接器，在解除安裝連接器服務和 Updater 服務之後，請務必重新啟動電腦，才能完全移除服務。<p>為了實現高可用性，您必須至少部署一個額外的「連接器」。若要部署額外的連接器，重複以上的步驟 2 和 3。每個連接器都必須分別進行註冊。
 
 
 
@@ -72,7 +69,7 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 應用程式 Proxy 還有其他更多用途：
 
 - [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
-- [使用您自己的網域名稱發佈應用程式](active-directory-application-proxy-custom-domains.md)
+- [使用您自己的網域名稱發行應用程式](active-directory-application-proxy-custom-domains.md)
 - [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
 - [啟用條件式存取](active-directory-application-proxy-conditional-access.md)
 - [使用宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)
@@ -85,8 +82,8 @@ Microsoft Azure AD 應用程式 Proxy 可讓您在私人網路內發行應用程
 
 ## 其他資源
 
-* [以組織方式註冊 Azure](..sign-up-organization.md)
-* [Azure 身分識別](..fundamentals-identity.md)
+* [以組織身分註冊 Azure](sign-up-organization.md)
+* [Azure 身分識別](fundamentals-identity.md)
 * [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

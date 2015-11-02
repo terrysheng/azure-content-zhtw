@@ -18,6 +18,8 @@
 
 # 如何使用服務匯流排佇列
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 本指南將說明如何使用服務匯流排佇列。這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP](../php-download-sdk.md) (英文)。本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
@@ -207,4 +209,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

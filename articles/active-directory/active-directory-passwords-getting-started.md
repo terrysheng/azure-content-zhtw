@@ -1,31 +1,31 @@
-<properties
-	pageTitle="開始使用：Azure AD 密碼管理 |Microsoft Azure"
-	description="讓使用者重設自己的密碼、探索密碼重設的必要條件，以及啟用密碼回寫以管理 Active Directory 中的內部部署密碼。"
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="開始使用：Azure AD 密碼管理 |Microsoft Azure" 
+	description="讓使用者重設自己的密碼、探索密碼重設的先決條件，以及啟用密碼回寫以管理 Active Directory 中的內部部署密碼。" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 開始使用密碼管理
-讓您的使用者管理他們自己的雲端 Azure Active Directory 或內部部署 Active Directory 密碼，只要採用幾個簡單的步驟。確定您符合幾個簡單的必要條件之後，您會在您知悉之前，對整個組織啟用密碼變更和重設。本文章將會逐步引導您完成下列概念：
+讓您的使用者管理他們自己的雲端 Azure Active Directory 或內部部署 Active Directory 密碼，只要採用幾個簡單的步驟。確定您符合幾個簡單的先決條件之後，您會在您知悉之前，對整個組織啟用密碼變更和重設。本文章將會逐步引導您完成下列概念：
 
 * [**如何讓使用者重設其雲端 Azure Active Directory 密碼**](#enable-users-to-reset-their-azure-ad-passwords)
- - [自助式密碼重設必要條件](#prerequisites)
+ - [自助式密碼重設先決條件](#prerequisites)
  - [步驟 1：設定密碼重設原則](#step-1-configure-password-reset-policy)
  - [步驟 2：為您的測試使用者加入連絡人資料](#step-2-add-contact-data-for-your-test-user)
  - [步驟 3：以使用者的身分重設您的密碼](#step-3-reset-your-azure-ad-password-as-a-user)
 * [**如何讓使用者重設或變更其內部部署 Active Directory 密碼**](#enable-users-to-reset-or-change-their-ad-passwords)
- - [密碼回寫必要條件](#writeback-prerequisites)
+ - [密碼回寫先決條件](#writeback-prerequisites)
  - [步驟 1：下載最新版本的 Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
  - [步驟 2：在 Azure AD Connect 中透過 UI 或 powershell 啟用密碼回寫並且確認](#step-2-enable-password-writeback-in-azure-ad-connect)
  - [步驟 3：設定您的防火牆](#step-3-configure-your-firewall)
@@ -35,14 +35,14 @@
 ## 讓使用者重設其 Azure AD 密碼
 本節會逐步引導您對 AAD 雲端目錄啟用自助式密碼重設、註冊使用者進行自助式密碼重設，最後以使用者的身分執行自助式密碼重設測試。
 
-- [自助式密碼重設必要條件](#prerequisites)
+- [自助式密碼重設先決條件](#prerequisites)
 - [步驟 1：設定密碼重設原則](#step-1-configure-password-reset-policy)
 - [步驟 2：為您的測試使用者加入連絡人資料](#step-2-add-contact-data-for-your-test-user)
 - [步驟 3：以使用者的身分重設您的密碼](#step-3-reset-your-azure-ad-password-as-a-user)
 
 
-###  必要條件
-在您可以啟用及使用自助式密碼重設之前，您必須完成下列必要條件：
+###  先決條件
+在您可以啟用及使用自助式密碼重設之前，您必須完成下列先決條件：
 
 - 建立 AAD 租用戶。如需詳細資訊，請參閱[開始使用 Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
 - 取得 Azure 訂用帳戶。如需詳細資訊，請參閱 [Azure AD 租用戶是什麼？](active-directory-administer.md#what-is-an-azure-ad-tenant)。
@@ -66,7 +66,7 @@
 
     ![][002]
 
-4.	按一下 [**設定**] 索引標籤。
+4.	按一下 [設定] 索引標籤。
 
     ![][003]
 
@@ -91,8 +91,8 @@
 
 -	在 [Azure 管理入口網站](https://manage.windowsazure.com)或 [Office 365 系統管理入口網站](https://portal.microsoftonline.com)編輯使用者
 -	使用 AAD Connect 從內部部署 Active Directory 網域將使用者屬性同步處理至 Azure AD
--	使用 Windows PowerShell 以編輯使用者屬性
--	引導使用者至位於 [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) 的註冊入口網站，讓他們自行註冊資料
+-	使用 Windows PowerShell 編輯使用者屬性
+-	引導使用者至位於 [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) 的註冊入口網站，讓他們註冊自己的資料
 -	當使用者登入位於 [http://myapps.microsoft.com](http://myapps.microsoft.com) 的存取面板時，要求使用者註冊密碼重設，方法是將 [**要求使用者在登入存取面板時註冊**] SSPR 組態選項設定為 [**是**]。
 
 如果您想要深入了解密碼重設使用哪些資料，以及此資料的任何格式需求，請參閱[密碼重設使用哪些資料？](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset)。
@@ -163,7 +163,7 @@
 
 本章節會引導您透過設定密碼重設，將密碼回寫至內部部署 Active Directory。
 
-- [密碼回寫必要條件](#writeback-prerequisites)
+- [密碼回寫先決條件](#writeback-prerequisites)
 - [步驟 1：下載最新版本的 Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
 - [步驟 2：在 Azure AD Connect 中透過 UI 或 powershell 啟用密碼回寫並且確認](#step-2-enable-password-writeback-in-azure-ad-connect)
 - [步驟 3：設定您的防火牆](#step-3-configure-your-firewall)
@@ -171,8 +171,8 @@
 - [步驟 5：以使用者的身分重設您的 AD 密碼並且確認](#step-5-reset-your-ad-password-as-a-user)
 
 
-### 回寫必要條件
-在您可以啟用及使用密碼回寫之前，您必須確定完成下列必要條件：
+### 回寫先決條件
+在您可以啟用及使用密碼回寫之前，您必須確定完成下列先決條件：
 
 - 您有 Azure AD 租用戶且啟用 Azure AD Premium。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 - 已經在您的租用戶中設定和啟用密碼重設。如需詳細資訊，請參閱[讓使用者重設其 Azure AD 密碼](#enable-users-to-reset-their-azure-ad-passwords)
@@ -194,7 +194,7 @@
 密碼回寫可以在 Azure AD Connect 版本或具有版本號碼 **1.0.0419.0911** 或更高版本的 Azure AD Sync 工具中使用。具有自動帳戶解除鎖定的密碼回寫可以在 Azure AD Connect 版本或具有版本號碼 **1.0.0485.0222** 或更高版本的 Azure AD Sync 工具中使用。如果您執行較舊的版本，請至少升級至此版本，再繼續作業。[按一下這裡以下載最新版本的 Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect)。
 
 #### 檢查 Azure AD Sync 的版本
-1.	瀏覽至 **%ProgramFiles%\Azure Active Directory Sync**。
+1.	瀏覽至 **%ProgramFiles%\\Azure Active Directory Sync**。
 2.	尋找 **ConfigWizard.exe** 可執行檔。
 3.	以滑鼠右鍵按一下可執行檔，然後從內容功能表選取 [**屬性**] 選項。
 4.	按一下 [**詳細資料**] 索引標籤。
@@ -243,12 +243,18 @@
 1.	一旦安裝完成之後，如果您在環境中封鎖不明的輸出連線，您也必須將下列規則加入至您的防火牆。請確定重新啟動 AAD Connect 電腦，再進行這些變更：
    - 允許透過連接埠 443 TCP 的輸出連線
    - 允許對 https://ssprsbprodncu-sb.accesscontrol.windows.net/的輸出連線 
-   - 當使用 proxy 或有一般連線問題時，允許透過連接埠 9350-9534 TCP 的輸出連線
+   - 當使用 Proxy 或有一般連線問題時，允許透過連接埠 9350-9354 TCP 的輸出連線
 
 ### 步驟 4：設定適當的 Active Directory 權限
 對於包含使用者 (其密碼將會重設) 的每個樹系，如果 X 為組態精靈 (初始組態期間) 中針對該樹系指定的帳戶，則必須為 X 指定**重設密碼**、**變更密碼**、`lockoutTime` 的 **寫入權限** 和 `pwdLastSet` 的 **寫入權限**、該樹系中每個網域之根物件的擴充權限。權限應該標示為由所有使用者物件繼承。
 
-設定這些權限將會允許每個樹系的 MA 服務帳戶代表該樹系內的使用者帳戶管理密碼。如果您沒有指定這些權限，則即使回寫看起來設定正確，使用者在嘗試從雲端管理其內部部署密碼時還是會遇到錯誤。以下是您如何使用 [**Active Directory 使用者和電腦**] 管理嵌入式管理單元以進行作業的詳細步驟：
+如果您不確定上述指的是那些帳戶，請開啟 Azure Active Directory Connect 設定 UI，並按一下 [檢閱您的方案] 選項。您需要新增權限的帳戶會有紅色底線，如下列螢幕擷取畫面所示。
+
+**<font color="red">請確定您針對您系統中各樹系的各個網域設定此權限，否則密碼回寫將無法正常運作。</font>**
+
+  ![][032]
+
+  設定這些權限將會允許每個樹系的 MA 服務帳戶代表該樹系內的使用者帳戶管理密碼。如果您沒有指定這些權限，則即使回寫看起來設定正確，使用者在嘗試從雲端管理其內部部署密碼時還是會遇到錯誤。以下是您如何使用 [**Active Directory 使用者和電腦**] 管理嵌入式管理單元以進行作業的詳細步驟：
 
 >[AZURE.NOTE]最多可能需要一小時讓這些權限複寫至您的目錄中的所有物件。
 
@@ -270,9 +276,7 @@
 8.	在最上層的下拉式清單中選取 [**下階使用者物件**]。
 9.	在顯示的 [**權限項目**] 對話方塊中，勾選 [**重設密碼**]、[**變更密碼**]、[`lockoutTime` 的**寫入權限**] 和 [`pwdLastSet` 的**寫入權限**] 的方塊。
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	然後在所有開啟的對話方塊中按一下 [**套用/確定**]。
 
@@ -342,5 +346,6 @@
 [029]: ./media/active-directory-passwords-getting-started/029.jpg "Image_029.jpg"
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
+[032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

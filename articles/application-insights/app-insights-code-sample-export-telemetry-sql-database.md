@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="程式碼範例：剖析從 Application Insights 匯出的資料" 
-	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。" 
+	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。將資料儲存至 SQL。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
@@ -46,7 +46,7 @@
 
 4. 在此範例中，我們正在監視 Web 應用程式，因此可以使用 Visual Studio 中的 Azure Tools 安裝 SDK。告訴 SDK 我們的 Application Insights 資源名稱：
 
-    ![在 Visual Studio 的 [新增專案] 對話方塊中，核取 [新增 Application Insights]，然後在 [傳送遙測資料至] 中，選擇要建立新的應用程式，或使用現有的應用程式。](./media/app-insights-code-sample-export-telemetry-sql-database/030-new-project.png)
+    ![在 Visual Studio 的 [新增專案] 對話方塊中，核取 [新增 Application Insights]，然後在 [傳送遙測至] 中，選擇要建立新的應用程式，或使用現有的應用程式。](./media/app-insights-code-sample-export-telemetry-sql-database/030-new-project.png)
 
 
 ## 在 Azure 中建立儲存體
@@ -543,4 +543,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

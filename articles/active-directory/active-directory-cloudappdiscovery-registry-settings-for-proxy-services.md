@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Proxy 服務的 Cloud App Discovery 登錄設定" 
+	pageTitle="Proxy 服務的雲端應用程式探索登錄設定 | Microsoft Azure" 
 	description="本主題的目標是為您提供在執行 Cloud App Discovery 代理程式的電腦上設定必要連接埠所需的步驟。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="swadhwa" 
-	editor="lisatoft"/>
+	manager="stevenpo"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 # Proxy 服務的 Cloud App Discovery 登錄設定
@@ -48,4 +47,4 @@
 
 * [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

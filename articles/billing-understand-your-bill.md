@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2015"
+   ms.date="10/16/2015"
    ms.author="kareni"/>
 
 
@@ -229,7 +229,7 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **標記**：此資料行包含使用者指定的資源標記。標記可用來分組計費記錄。例如，您可以使用標記，根據使用服務的部門散發成本。深入了解[使用標記來組織 Azure 資源](/resource-group-using-tags.md/)。支援發出標記的服務如下：
+- **標記**：此資料行包含使用者指定的資源標記。標記可用來分組計費記錄。例如，您可以使用標記，根據使用服務的部門散發成本。深入了解[使用標記來組織 Azure 資源](./resource-group-using-tags.md)。支援發出標記的服務如下：  
     - 虛擬機器
     - 儲存體和
     - 使用 [Azure 資源管理員 API](https://msdn.microsoft.com/library/azure/dn790567.aspx) 佈建的網路服務
@@ -262,4 +262,4 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

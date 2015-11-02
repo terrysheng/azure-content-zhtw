@@ -57,12 +57,11 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |登陸頁面|服務層級頁面|裝置層級頁面|裝置層級頁面|
 |---|---|---|---|
 |StorSimple Manager 服務|服務儀表板|裝置儀表板||
-||裝置 →|監視器|| 
-||備份目錄|磁碟區容器→|磁碟區| 
-||設定 (服務)|備份原則|| 
-||工作|設定 (裝置)|| 
-||警示|維護||
+||裝置 →|監視器| ||備份目錄|磁碟區容器→|磁碟區| ||設定 (服務)|備份原則|| ||工作|設定 (裝置)| ||警示|維護|
 
+![提供的影片](./media/storsimple-manager-service-administration/Video_icon.png) **提供的影片**
+
+若要觀看逐步引導您使用 StorSimple Manager 服務使用者介面的影片，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)。
 
 ## 使用 StorSimple Manager 服務管理 StorSimple 裝置
 
@@ -102,9 +101,6 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |建立支援封裝|StorSimple Manager 服務 → 裝置 → 維護|[建立及管理支援封裝](storsimple-create-manage-support-package.md)|
 |安裝軟體更新|StorSimple Manager 服務 → 裝置 → 維護|[更新您的裝置](storsimple-update-device.md)|
 
-![提供的影片](./media/storsimple-manager-service-administration/Video_icon.png)**提供的影片**
-
-若要觀看影片，逐步引導您使用 StorSimple Manager 服務使用者介面，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)。
 
 ##後續步驟
 如果您遇到與 StorSimple 裝置的日常作業或其中任何硬體元件的任何問題，請參閱：
@@ -116,4 +112,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 -  [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

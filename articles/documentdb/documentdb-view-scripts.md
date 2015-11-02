@@ -2,7 +2,7 @@
 	pageTitle="使用 DocumentDB 指令碼總管檢視預存程序、觸發程序和使用者定義函數 | Microsoft Azure"
 	description="了解 DocumentDB [指令碼總管]，它是讓您檢視 DocumentDB 伺服器端程式設計成品 (包括預存程序、觸發程序和使用者定義函數) 的 Azure 預覽入口網站工具。"
 	services="documentdb"
-	authors="stephbaron"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="09/02/2015"
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # 使用 DocumentDB 指令碼總管檢視、編輯和建立預存程序、觸發程序和使用者定義函式。
 
@@ -106,4 +106,4 @@
 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

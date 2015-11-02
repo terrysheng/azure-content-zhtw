@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/16/2015"
 	ms.author="ryanwi"/>
 
 # 使用 PowerShell 部署、升級、測試和移除 Service Fabric 應用程式
@@ -34,13 +34,13 @@ Connect-ServiceFabricCluster
 
 ## 工作：部署 Service Fabric 應用程式
 
-在您建置應用程式且已封裝應用程式類型之後，您可以將應用程式部署至 Service Fabric 叢集。首先，在 Visual Studio 中封裝 HelloWorldStateful 應用程式，方法是以滑鼠右鍵按一下 [方案總管] 中的 **HelloWorldStatefulApplication**，然後選取 [封裝]。如需服務和應用程式資訊清單與封裝配置的詳細資訊，請參閱[在 Service Fabric 中模型化應用程式](service-fabric-application-model.md)。部署牽涉到上傳應用程式套件、註冊應用程式類型，以及建立應用程式執行個體。使用本節中的指示，將新的應用程式部署至叢集。
+在您建置應用程式且已封裝應用程式類型之後，您可以將應用程式部署至本機 Service Fabric 叢集。首先，在 Visual Studio 中封裝 HelloWorldStateful 應用程式，方法是以滑鼠右鍵按一下 [方案總管] 中的 **HelloWorldStatefulApplication**，然後選取 [封裝]。如需服務和應用程式資訊清單與封裝配置的詳細資訊，請參閱[在 Service Fabric 中模型化應用程式](service-fabric-application-model.md)。部署牽涉到上傳應用程式套件、註冊應用程式類型，以及建立應用程式執行個體。使用本節中的指示，將新的應用程式部署至叢集。
 
 ### 步驟 1：上傳應用程式套件
 上傳應用程式套件至 ImageStore，會將它放在一個可由內部 Service Fabric 元件存取的位置。應用程式套件包含必要的應用程式資訊清單、服務資訊清單，以及用來建立應用程式和服務執行個體的程式碼/組態/資料封裝。[Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125905.aspx) 命令會上傳封裝。例如：
 
 ```powershell
-Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ### 步驟 2：註冊應用程式類型
@@ -107,7 +107,7 @@ Get-ServiceFabricApplication | Get-ServiceFabricService
 現在將更新的應用程式套件複製到 Service Fabric ImageStore (Service Fabric 在其中儲存應用程式套件)。參數 *ApplicationPackagePathInImageStore* 會通知 Service Fabric 可以在哪裡找到應用程式套件。下列命令會將應用程式套件複製到 ImageStore 中的 *HelloWorldStatefulV2*：
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore   -ApplicationPackagePathInImageStore HelloWorldStatefulV2
+Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStatefulV2
 ```
 
 下一步是將新版本的應用程式註冊至 Service Fabric，可以使用 [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx) Cmdlet 來執行：
@@ -190,7 +190,7 @@ Unregister-ServiceFabricApplicationType HelloWorldStatefulApplication 1.0.0.0
 在取消註冊應用程式類型之後，可以使用 [Remove-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt163532.aspx) Cmdlet，從 ImageStore 移除應用程式套件。
 
 ```powershell
-Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ## 其他資源
@@ -202,4 +202,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Azure Service Fabric 可測試性 Cmdlet](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

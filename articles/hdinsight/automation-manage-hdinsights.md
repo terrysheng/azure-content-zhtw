@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="10/20/2015"
 	ms.author="elcooper"/>
 
 
@@ -44,4 +44,4 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

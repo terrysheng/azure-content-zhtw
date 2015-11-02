@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 #將範例資料載入 SQL 資料倉儲
@@ -42,7 +42,7 @@
 
 ## 連接並查詢您的範例
 
-如[連接及查詢][]文件中所述，您可以使用 Visual Studio 和 SSDT 連接到這個資料庫。既然您已經將某些範例資料載入您的 SQL 資料倉儲中，就可以快速地執行幾個查詢以開始。
+如[連接][]文件中所述，您可以使用 Visual Studio 和 SSDT 連接到這個資料庫。既然您已經將某些範例資料載入您的 SQL 資料倉儲中，就可以快速地執行幾個查詢以開始。
 
 我們可以執行簡單的 select 陳述式，來取得員工的所有資訊：
 
@@ -71,16 +71,16 @@
 <!--Image references-->
 
 <!--Article references-->
-[移轉]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-migrate/
-[開發]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-develop/
-[載入]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-load/
-[連接及查詢]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[移轉程式碼]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-migrate-code/
+[移轉]: ./sql-data-warehouse-overview-migrate.md
+[開發]: ./sql-data-warehouse-overview-develop.md
+[載入]: ./sql-data-warehouse-overview-load.md
+[連接]: ./sql-data-warehouse-get-started-connect.md
+[移轉程式碼]: ./sql-data-warehouse-migrate-code.md
 
 <!--MSDN references-->
-[適用於 SQL Server 的 Microsoft 命令列公用程式]: http://www.microsoft.com/zh-TW/download/details.aspx?id=36433
+[適用於 SQL Server 的 Microsoft 命令列公用程式]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[範例資料指令碼]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[範例資料指令碼]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

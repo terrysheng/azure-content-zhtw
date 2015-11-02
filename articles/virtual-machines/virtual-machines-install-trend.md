@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 
-# 如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service
+# 如何在 Windows VM 上安裝和設定 Trend Micro Deep Security as a Service
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
@@ -87,4 +87,4 @@
 [如何登入執行 Windows Server 的虛擬機器]: virtual-machines-log-on-windows-server.md
 [Azure VM 延伸模組與功能]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

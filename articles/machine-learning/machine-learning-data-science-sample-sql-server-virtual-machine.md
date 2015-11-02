@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/18/2015" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure 上的 SQL Server 取樣資料
 
-本文件說明了使用 SQL 和 Python 程式設計語言，對儲存在 Azure 上之 SQL Server 中的資料進行取樣。
+本文件顯示如何使用 SQL 和 Python 程式設計語言，對儲存在 Azure 上之 SQL Server 中的資料進行取樣。也示範如何透過將取樣的資料儲存到檔案，讓取樣資料移動到 Azure Machine Learning、將取樣的資料上傳至 Azure blob，然後將其讀入 Azure ML。
 
->[AZURE.NOTE]本文件中的 SQL 程式碼範例假設資料位於 Azure 上的 SQL Server 中。如果資料不在其中，請參閱[進階資料程序指南](machine-learning-data-science-advanced-data-processing.md)中的[將資料移至 Azure 上的 SQL Server](machine-learning-data-science-move-sql-server-virtual-machine.md) 主題，以取得將資料移至 Azure 上的 SQL Server 的指示。
+Python 取樣使用 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 程式庫來連線到 Azure 上的 SQL Server 以及 [Pandas](http://pandas.pydata.org/) 程式庫來進行取樣。
+
+>[AZURE.NOTE]本文件中的 SQL 程式碼範例假設資料位於 Azure 上的 SQL Server 中。如果資料不在其中，請參閱[將資料移至 Azure 上的 SQL Server](machine-learning-data-science-move-sql-server-virtual-machine.md) 主題，以取得如何將資料移至 Azure 上 SQL Server 的指示。
 
 ##<a name="SQL"></a>使用 SQL
 
@@ -55,7 +57,7 @@ Tablesample 可用來進行取樣及示範，如下所示。如果資料大小�
 
 ##<a name="python"></a>使用 Python 程式設計語言 
 
-本節示範如何使用 pyodbc 程式庫連接到 Python 中的 SQL Server 資料庫。資料庫連接字串如下：(使用您的設定來取代伺服器名稱、資料庫名稱、使用者名稱和密碼)：
+本節示範如何使用 [pyodbc 程式庫](https://code.google.com/p/pyodbc/)來建立連線至 Python 中 SQL Server 資料庫的 ODBC。資料庫連接字串如下：(使用您的設定來取代伺服器名稱、資料庫名稱、使用者名稱和密碼)：
 
 	#Set up the SQL Azure connection
 	import pyodbc	
@@ -104,13 +106,13 @@ Python 中的 [Pandas](http://pandas.pydata.org/) 程式庫提供一組豐富的
  
 ![讀取器 Blob][2]
 
-## 進階分析程序和技術實務 (ADAPT) 範例
+## Cortana 分析程序實務範例
 
-如需使用公開資料集之進階分析程序和技術 (ADAPT) 的端對端逐步解說範例，請參閱 [Azure 進階分析程序和技術實務：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)。
+如需使用公用資料集進行 Cortana 分析程序的端對端逐步解說範例，請參閱 [Cortana 分析程序實務範例：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)。
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

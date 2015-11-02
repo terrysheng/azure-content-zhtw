@@ -47,7 +47,7 @@
 
 從 REST 用戶端，請遵循下列指示：
 
-1. 確定您有連線到 Azure 入口網站的用戶端憑證若要取得用戶端憑證，請遵循 [做法：下載與匯入發行設定與訂閱資訊](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx) 中的步驟。
+1. 確定您有連線到 Azure 入口網站的用戶端憑證若要取得用戶端憑證，請遵循[做法：下載與匯入發行設定與訂閱資訊中的步驟](https://msdn.microsoft.com/library/dn385850.aspx)。 
 
 1. 設定名稱為 x-ms-version，值為 2013-11-01 的標頭項目。
 
@@ -71,4 +71,4 @@
 
 [使用網路組態檔指定 DNS 設定](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Data Factory 編輯器建立具有複製活動的管線
@@ -58,9 +58,11 @@
 7. 在 [新增 Data Factory] 刀鋒視窗中，請留意是否已選取 [新增至開始面板]。
 8. 按一下 [新增 Data Factory] 刀鋒視窗中的 [建立]。
 
-	Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：**Data Factory 名稱 “ADFTutorialDataFactory” 無法使用**，請變更 Data Factory 名稱 (例如 yournameADFTutorialDataFactory)，然後試著重新建立。執行本教學課程中的其餘步驟時，請使用此名稱來取代 ADFTutorialFactory。請參閱 [Data Factory - 命名規則][data-factory-naming-rules]主題，以了解 Data Factory 成品的命名規則。
+	Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：**Data Factory 名稱 “ADFTutorialDataFactory” 無法使用**，請變更 Data Factory 名稱 (例如 yournameADFTutorialDataFactory)，然後試著重新建立。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
 	 
 	![Data Factory 名稱無法使用][image-data-factory-name-not-available]
+	
+	> [AZURE.NOTE]Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
 
 9. 按一下左側的 [通知] 中樞，然後從建立程序中尋找通知。按一下 **X** 關閉 [通知] 刀鋒視窗 (若已開啟)。
 10. 建立完成之後，您會看到 [DATA FACTORY] 刀鋒視窗，如下所示。
@@ -150,10 +152,10 @@
 	- **folderPath** 設為 **adftutorial** 容器。您也可以指定資料夾內的 Blob 的名稱。由於您未指定 Blob 的名稱，容器中所有 Blob 的資料都會被視為輸入資料。  
 	- 格式 **type** 設為 **TextFormat**
 	- 文字檔中有兩個欄位 (**FirstName** 和 **LastName**)，以逗號字元分隔 (**columnDelimiter**)	
-	- **availability** 設為 **hourly** (**frequency** 設為 **hour** 且 **interval** 設為 **1**)，因此 Data Factory 服務會每隔一小時在您指定之 blob 容器 (**adftutorial**) 的根資料夾中尋找輸入資料。 
+	- **availability** 設為**每小時** (**frequency** 設為**小時**且 **interval** 設為 **1**)，因此 Data Factory 服務每個小時皆會在您指定之 Blob 容器 (**adftutorial**) 的根資料夾中尋找輸入資料。 
 	
 
-	如果您沒有指定**輸入****資料表**的 **fileName**，則輸入資料夾 (**folderPath**) 中的所有檔案/blob 都會視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱此[教學課程][adf-tutorial]中的範例檔案。
+	如果您沒有指定**輸入****資料表**的 **fileName**，則輸入資料夾 (**folderPath**) 中的所有檔案/Blob 都會視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱此[教學課程][adf-tutorial]中的範例檔案。
  
 	如果您未指定輸出資料表的 **fileName**，**folderPath** 中產生的檔案會依照下列格式命名：Data.&lt;Guid&gt;.txt (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt)。
 
@@ -211,7 +213,7 @@
 	* **linkedServiceName** 設為 **AzureSqlLinkedService** (您已在步驟 2 中建立此連結服務)。
 	* **tablename** 設為 **emp**。
 	* 資料庫的 emp 資料表中有三個資料行 (**ID**、**FirstName** 和 **LastName**)，但 ID 是身分識別資料行，所以您在此處只需要指定 **FirstName** 和 **LastName**。
-	* **availability** 設為 **hourly** (**frequency** 設為 **hour** 且 **interval** 設為 **1**)。Data Factory 服務會每隔一小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。
+	* **availability** 設定為**每小時**，且 (**frequency** 設定為**小時**，**interval** 設定為 **1**)。Data Factory 服務會每隔一小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。
 
 
 3. 按一下工具列上的 [部署]，建立並部署 **EmpSQLTable** 資料表。
@@ -278,7 +280,7 @@
 	
 	開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
-	如果您未指定 **end** 屬性的值，則會以「**開始 + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
+	如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
 	
 	在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
 	
@@ -501,4 +503,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

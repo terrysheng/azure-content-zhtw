@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 REST 設定資產傳遞原則" 
-	description="本主題說明如何設定不同的資產傳遞原則。" 
+	pageTitle="使用媒體服務 REST API 設定資產傳遞原則" 
+	description="本主題說明如何使用媒體服務 REST API 設定不同的資產傳遞原則。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #作法：設定資產傳遞原則
@@ -436,4 +436,4 @@ HDS
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

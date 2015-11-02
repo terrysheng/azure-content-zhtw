@@ -76,7 +76,7 @@ Azure 自動化 DSC 可讓您在 Azure 自動化中匯入、編寫並編譯 DSC 
 
 ###節點組態###
 
-編譯了 DSC 組態之後，根據組態中的節點區塊，會產生一或多個節點組態。節點組態與「MOF」或「組態文件」是一樣的 (如果您熟悉這些 PS DSC 詞彙)，而代表「角色」，例如 webserver 或worker，應該設想一或多個節點的期望狀態。Azure 自動化 DSC 中的節點組態名稱會採用「<Configuration-name>.<Node configuration-block-name>」的形式。
+編譯了 DSC 組態之後，根據組態中的節點區塊，會產生一或多個節點組態。節點組態與「MOF」或「組態文件」是一樣的 (如果您熟悉這些 PS DSC 詞彙)，而代表「角色」，例如 webserver 或worker，應該設想一或多個節點的期望狀態。Azure 自動化 DSC 中的節點組態名稱會採用 Configuration Name.NodeConfigurationBlockName 的形式。
 
 可察覺節點組態的 PS DSC 節點，應該透過 DSC 發送或提取方法來執行。Azure 自動化 DSC 依賴 DSC 提取方法，其中要求節點組態的節點應該從 Azure 自動化 DSC 提取伺服器套用。由於節點會對 Azure 自動化 DSC 提出要求，因此這些節點可以在防火牆之後、將所有輸入連接埠關閉等等。他們只需要對網際網路的輸出存取權。
 
@@ -97,7 +97,7 @@ Azure 自動化 DSC 隨附與 PS DSC 相同的所有內建 DSC 資源。透過�
 
 
 ###編譯工作###
-Azure 自動化 DSC 中的編譯工作是組態編譯的執行個體，以建立一或多個節點組態。它們類似於 Azure 自動化 Runbook 工作，除了它們未實際執行除了建立節點組態以外的任何工作。編譯工作所建立的任何節點組態都會自動放在 Azure 自動化 DSC 提取伺服器上，並覆寫舊版節點組態 (如果此組態具有舊版節點組態)。編譯工作產生之節點組態名稱的形式為 "<Configuration-name>.<Node configuration-block-name>"。例如，編譯下列組態會產生稱為 "MyConfiguration.webserver" 的單一節點組態
+Azure 自動化 DSC 中的編譯工作是組態編譯的執行個體，以建立一或多個節點組態。它們類似於 Azure 自動化 Runbook 工作，除了它們未實際執行除了建立節點組態以外的任何工作。編譯工作所建立的任何節點組態都會自動放在 Azure 自動化 DSC 提取伺服器上，並覆寫舊版節點組態 (如果此組態具有舊版節點組態)。編譯工作產生之節點組態的名稱會採用 ConfigurationName.NodeConfigurationBlockName 的形式。例如，編譯下列組態會產生稱為 "MyConfiguration.webserver" 的單一節點組態
 
 
 ![替代文字](./media/automation-dsc-overview/AADSC_5.png)
@@ -121,7 +121,7 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 
 - Azure 自動化 DSC 目前不支援進行部分或複合 DSC 組態。
 
-- 必須安裝 WMF 5 的最新版本，Windows 適用的 PowerShell DSC 代理程式才能與 Azure 自動化通訊。Linux 適用的 PowerShell DSC 代理程式目前不支援與 Azure 自動化通訊。這應該很快就會更新。
+- 必須安裝 WMF 5 的最新版本，Windows 適用的 PowerShell DSC 代理程式才能與 Azure 自動化通訊。必須安裝 Linux 適用之 PowerShell DSC 代理程式的最新版本，Linux 才能與 Azure 自動化通訊。
 
 - Azure 自動化不支援並存使用 PowerShell 模組。這表示在自動化帳戶內的所有組態，必須與匯入到該自動化帳戶的最後一個版本 PowerShell 模組，以及該模組包含的組態所使用的任何 PowerShell DSC 資源搭配使用。
 
@@ -145,4 +145,4 @@ Azure 自動化 DSC 目前在 [Azure 資源管理員 PowerShell 模組](https://
 - [Azure 自動化 DSC 價格](http://azure.microsoft.com/pricing/details/automation/)
 - [使用 Azure 自動化 DSC 和 Chocolatey 的 IaaS VM 持續部署](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

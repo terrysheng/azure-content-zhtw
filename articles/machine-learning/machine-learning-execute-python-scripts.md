@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="執行 Python 機器學習服務指令碼 | Microsoft Azure" 
 	description="概述 Azure Machine Learning 中對於 Python 指令碼目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。" 
-	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
+	keywords="python 機器學習服務,pandas,python pandas,python 指令碼, 執行 python 指令碼"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -174,4 +174,4 @@ Python 函數，用於根據以下顯示的功能計算重要性分數及排序�
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

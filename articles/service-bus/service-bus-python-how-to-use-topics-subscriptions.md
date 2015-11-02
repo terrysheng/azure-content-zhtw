@@ -18,7 +18,9 @@
 
 # 如何使用服務匯流排主題和訂用帳戶
 
-本文說明如何使用服務匯流排主題和訂用帳戶。相關範例是以 Python 撰寫的，並使用 [Python Azure 封裝][]。所涵蓋的案例包括**建立主題和訂用帳戶**、**建立訂用帳戶篩選器**、**傳送訊息至主題**、**接收訂用帳戶的訊息**，及**刪除主題和訂用帳戶**。如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+本文說明如何使用服務匯流排主題和訂用帳戶。相關範例是以 Python 撰寫的，並使用 [Python Azure 封裝][]。所涵蓋的案例包括**建立主題和訂閱**、**建立訂閱篩選器**、**傳送訊息至主題**、**接收訂閱的訊息**，及**刪除主題和訂閱**。如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -132,7 +134,7 @@ msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lo
 print(msg.body)
 ```
 
-將 **peek\\_lock** 參數設為 **False** 時，則當您讀取訊息後，訊息便會從訂用帳戶中刪除。您可以將參數 **peek\\_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
+將 **peek\_lock** 參數設為 **False** 時，則當讀取訊息後，訊息便會從訂用帳戶中刪除。您可以將參數 **peek\_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
 
 隨著接收作業讀取及刪除訊息之行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
@@ -180,4 +182,4 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Azure 佇列與服務匯流排佇列]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

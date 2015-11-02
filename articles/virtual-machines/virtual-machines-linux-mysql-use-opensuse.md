@@ -21,6 +21,12 @@
 
 [MySQL][MySQL] 是一種很受歡迎的開放原始碼 SQL 資料庫。本教學課程會示範如何建立執行 OpenSUSE Linux 的虛擬機器，然後安裝 MySQL。
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
+
+<br>
+
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## 建立執行 OpenSUSE Linux 的虛擬機器
@@ -38,4 +44,4 @@
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

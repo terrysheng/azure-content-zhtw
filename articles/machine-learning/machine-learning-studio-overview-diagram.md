@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Machine Learning Studio 功能的概觀圖 | Microsoft Azure"
 	description="Azure Machine Learning Studio 功能的可列印圖表，會示範如何使用 Studio 開發預測性分析實驗，並使其在 Azure 雲端中運作。"
-	keywords="machine learning studio,overview diagram,download"
+	keywords="machine learning studio,概觀圖表,下載"
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -47,4 +47,4 @@
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

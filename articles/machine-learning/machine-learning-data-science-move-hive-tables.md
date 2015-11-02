@@ -27,7 +27,7 @@
 ## 簡介
 **本文件**會顯示泛型 Hive 查詢，這類查詢會建立 Hive 資料表，並從 Azure Blob 儲存體載入資料。同時也會提供一些關於資料分割 Hive 資料表，以及使用最佳化單欄式資料列 (ORC) 格式來提升查詢效能的指引。
 
-## 先決條件
+## 必要條件
 本文假設您已經：
  
 * 建立 Azure 儲存體帳戶。如需指示，請參閱[建立 Azure 儲存體帳戶](../hdinsight-get-started.md#storage)。 
@@ -41,7 +41,101 @@
 
 如果您想要使用「NYC 計程車車程資料」進行練習，則需要先下載 24 個 <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">NYC 計程車車程資料</a>檔案 (12 個車程檔案和 12 個費用檔案)，將所有檔案**解壓縮**成 .csv 檔案，然後將檔案上傳至[自訂適用於進階分析程序和技術的 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.md)主題中概述之程序所使用的 Azure 儲存體帳戶的預設 (或適當) 容器。請參閱此[頁面](machine-learning-data-science-process-hive-walkthrough/#upload)，以了解將 .csv 檔案上傳至儲存體帳戶上之預設容器的程序。
 
-## 如何提交 Hive 查詢
+## <a name="submit"></a>如何提交 Hive 查詢
+您可以使用下列方法來提交 Hive 查詢：
+
+* 叢集前端節點上的 Hadoop 命令列
+* IPython Notebook
+* Hive 編輯器
+* Azure PowerShell 指令碼
+
+Hive 查詢類似 SQL。熟悉 SQL 的使用者可能會發現 <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL-Hive 小抄</a>很有用。
+
+提交 Hive 查詢時，您也可以控制 Hive 查詢輸出的目的地，它是否會出現在螢幕上，或是輸出到前端節點上的本機檔案或 Azure Blob。
+
+### 透過 Hadoop 叢集前端節點中的 Hadoop 命令列主控台
+
+如果查詢相當複雜，從 Hadoop 叢集的前端節點中直接提交 Hive 查詢，通常會導致整備速度比使用 Hive 編輯器或使用 Azure PowerShell 指令碼來提交還快。
+
+登入 Hadoop 叢集的前端節點、在前端節點的桌面上開啟 Hadoop 命令列，然後輸入命令
+
+    cd %hive_home%\bin
+
+使用者在 Hadoop 命令列主控台中提交 Hive 查詢的方式有三種：
+
+* 直接從 Hadoop 命令列
+* 使用 .hql 檔案
+* 從 Hive 命令主控台
+
+#### 從 Hadoop 命令列直接提交 Hive 查詢
+
+使用者可以執行類似
+
+	hive -e "<your hive query>;
+
+的命令，在 Hadoop 命令列中直接提交簡單的 Hive 查詢。在下列範例中，紅色方塊框起來的是提交 Hive 查詢的命令，而綠色方塊框起來的則是 Hive 查詢的輸出。
+
+![建立工作區](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
+
+#### 提交 .hql 檔案中的 Hive 查詢。
+
+當 Hive 查詢更為複雜且有多行時，在 Hadoop 命令列或 Hive 命令主控台中編輯查詢並不實際。替代方法是在 Hadoop 叢集的前端節點中使用文字編輯器，並將 Hive 查詢儲存在前端節點本機目錄中的 .hql 檔案。然後可在 `hive` 命令中使用 `-f` 引數來提交 .hql 檔案中的 Hive 查詢，如下所示：
+
+	`hive -f "<path to the .hql file>"`
+
+
+#### 隱藏 Hive 查詢的進度狀態畫面顯示
+
+根據預設，在 Hadoop 命令列主控台中提交 Hive 查詢之後，Map/Reduce 工作的進度將顯示於螢幕上。若要隱藏 Map/Reduce 工作進度的畫面顯示，您可以在命令列中使用引數 `-S` (區分大小寫)，如下所示：
+
+	hive -S -f "<path to the .hql file>"
+	hive -S -e "<Hive queries>"
+
+#### 在 Hive 命令主控台中提交 Hive 查詢。
+
+使用者也可以從 Hadoop 命令列執行 `hive` 命令，先進入 Hive 命令主控台，然後從 **hive>** 提示的 Hive 命令主控台提交 Hive 查詢。範例如下。
+
+![建立工作區](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
+
+在此範例中，這兩個紅色方塊反白顯示的命令分別是用來進入 Hive 命令主控台，以及在 Hive 命令主控台中提交 Hive 查詢。綠色方塊反白顯示的是 Hive 查詢的輸出。
+
+上述範例會在螢幕上直接輸出 Hive 查詢結果。使用者也可以將輸出寫入前端節點上的本機檔案，或寫入 Azure Blob。接著，使用者可以使用其他工具，進一步分析 Hive 查詢的輸出。
+
+#### 將 Hive 查詢結果輸出到本機檔案。
+
+若要將 Hive 查詢結果輸出到前端節點上的本機目錄，使用者必須在 Hadoop 命令列中提交 Hive 查詢，如下所示：
+
+	`hive -e "<hive query>" > <local path in the head node>`
+
+
+#### 將 Hive 查詢結果輸出到 Azure Blob
+
+使用者也可以將 Hive 查詢結果輸出到 Hadoop 叢集預設容器內的 Azure Blob。執行此動作的 Hive 查詢看起來如下：
+
+	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+
+在下列範例中，Hive 查詢的輸出會寫入 Hadoop 叢集預設容器內的 Blob 目錄 `queryoutputdir`。在此處，您應該只提供目錄名稱，而不需提供 Blob 名稱。如果您同時提供目錄和 Blob 名稱 (例如 **wasb:///queryoutputdir/queryoutput.txt*)，則會擲回錯誤。
+
+![建立工作區](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
+
+Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲存體總管 (或對等項目) 工具來開啟 Hadoop 叢集的預設容器。如果只要擷取名稱中具有指定字母的 Blob，您可以套用篩選條件 (以紅色方塊反白顯示)。
+
+![建立工作區](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
+
+### 透過 Hive 編輯器或 Azure PowerShell 命令
+
+使用者也可以透過下列方式來使用查詢主控台 (Hive 編輯器)：在 Web 瀏覽器中輸入
+
+*https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor*
+
+。請注意，系統將要求您輸入 Hadoop 叢集認證以進行登入。或者，您可以[使用 PowerShell 提交 Hive 工作](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)。
+
+
+## 如何提交 Hive 查詢 (舊)
+
+本文件說明在 Azure 中，將 Hive 查詢提交至 HDInsight 服務所管理的 Hadoop 叢集的各種方式。(舊的簡介 - 併入 TBD)
+
+
 Hive 查詢可以從 Hadoop 叢集前端節點上的 Hadoop 命令列主控台提交。若要執行這個動作，請登入 Hadoop 叢集的前端節點、開啟 Hadoop 命令列主控台，然後從該處提交 Hive 查詢。如需執行這個動作的相關指示，請參閱[在進階分析程序中將 Hive 查詢提交至 HDInsight Hadoop 叢集](machine-learning-data-science-process-hive-tables.md)。
 
 使用者也可以透過下列方式來使用查詢主控台 (Hive 編輯器)：在 Web 瀏覽器中輸入 URL
@@ -55,7 +149,7 @@ https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor
 
 ## <a name="create-tables"></a>建立 Hive 資料庫和資料表
 
-Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql)中共用，並且可從此處下載。
+Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql)中共用，並且可從該處下載。
 
 以下是建立 Hive 資料表的 Hive 查詢。
 
@@ -165,4 +259,9 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
 依照此程序執行之後，您應該會有含 ORC 格式之資料的資料表可供使用。
 
-<!---HONumber=Oct15_HO3-->
+
+##微調區段請至這裡
+
+最後一節將討論使用者可以微調的參數，如此即可改善 Hive 查詢的效能。
+
+<!---HONumber=Oct15_HO4-->

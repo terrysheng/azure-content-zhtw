@@ -1,7 +1,7 @@
 <properties
 	pageTitle="從 HDFS 相容的 Blob 儲存體查詢資料 | Microsoft Azure"
 	description="HDInsight 使用 Blob 儲存體作為 HDFS 的大量資料存放區。了解如何從 Blob 儲存體查詢資料並儲存分析的結果。"
-	keywords="blob storage,hdfs,structured data,unstructured data"
+	keywords="blob 儲存體,hdfs,結構化資料,非結構化資料"
 	services="hdinsight,storage"
 	documentationCenter=""
 	tags="azure-portal"
@@ -316,4 +316,4 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

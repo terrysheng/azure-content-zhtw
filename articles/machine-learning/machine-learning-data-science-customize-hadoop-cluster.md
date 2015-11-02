@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="針對進階分析程序和技術自訂 Hadoop 叢集 | Microsoft Azure" 
+	pageTitle="針對 Cortana 分析程序自訂 Hadoop 叢集 | Microsoft Azure" 
 	description="自訂 Azure HDInsight Hadoop 叢集中提供熱門 Python 模組。"
 	services="machine-learning" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="10/13/2015" 
 	ms.author="hangzh;bradsev" />
 
-# 針對進階分析程序和技術自訂 Azure HDInsight Hadoop 叢集
+# 針對 Cortana 分析程序自訂 Azure HDInsight Hadoop 叢集 
 
 此功能表會連結至說明如何設定 Cortana 分析程序 (CAP) 所用的各種資料科學環境的主題。
 
@@ -102,4 +102,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

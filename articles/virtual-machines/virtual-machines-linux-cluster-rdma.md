@@ -146,7 +146,7 @@ VM 完成佈建之後，使用 VM 的外部 IP 位址 (或 DNS 名稱) 以及您
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     ```
 
-    在 ~/.ssh 目錄中編輯或建立 ssh\_config 檔案。提供您將在 Azure 中使用的私人網路 IP 位址範圍 (在本範例中為 10.32.0.0/16)：
+    在 ~/.ssh 目錄中編輯或建立 config 檔案。提供您將在 Azure 中使用的私人網路 IP 位址範圍 (在本範例中為 10.32.0.0/16)：
 
     ```
     host 10.32.0.*
@@ -370,4 +370,4 @@ cluster12
 
 * 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-TW/articles/intel-mpi-library-documentation/)＞。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

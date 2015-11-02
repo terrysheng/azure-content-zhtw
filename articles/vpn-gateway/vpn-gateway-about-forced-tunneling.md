@@ -1,14 +1,20 @@
-<properties pageTitle="針對 Microsoft Azure VPN 閘道設定強制通道 | Microsoft Azure" description="如果您擁有使用跨單位 VPN 閘道的虛擬網路，您可以重新導向或「強制」所有網際網路繫結流量傳回內部部署位置。" services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" />
+<properties pageTitle="針對 Microsoft Azure VPN 閘道設定強制通道 | Microsoft Azure" description="如果您擁有使用跨單位 VPN 閘道的虛擬網路，您可以重新導向或「強制」所有網際網路繫結流量傳回內部部署位置。" services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # 設定強制通道
+
+本文適用於使用傳統部署模型所建立的 VNet 和 VPN 閘道。當有可用於為使用資源管理員模型建立的 VNet 和 VPN 閘道設定強制通道的指示可用時，我們將會在此頁面頂端新增連結。
+
+>[AZURE.NOTE]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+
+## 有關強制通道
 
 強制通道可讓您透過站對站 VPN 通道，重新導向或「強制」所有網際網路繫結流量傳回內部部署位置，以便進行檢查和稽核。這是多數企業 IT 原則的重要安全性需求。若不使用強制通道，則 Azure 中來自 VM 的網際網路繫結流量會永遠從 Azure 網路基礎結構直接向外周遊到網際網路，而您無法選擇檢查或稽核流量。未經授權的網際網路存取可能會導致資訊洩漏或其他類型的安全性漏洞。
 
@@ -149,6 +155,9 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 ## 後續步驟
 
-如需有關保護網路流量的資訊，請參閱[什麼是網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 
-<!---HONumber=Oct15_HO3-->
+如需有關使用者定義的路由的詳細資訊，請參閱[使用者定義的路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)。
+
+如需有關保護網路流量的詳細資訊，請參閱[什麼是網路安全性群組](../virtual-network/virtual-networks-nsg.md)。請注意，您永遠都不應該將網路安全性群組套用至 Azure VNet 閘道子網路。
+
+<!---HONumber=Oct15_HO4-->

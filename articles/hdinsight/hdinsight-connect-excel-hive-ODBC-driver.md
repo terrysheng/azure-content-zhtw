@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/09/2015"
+   ms.date="10/15/2015"
    ms.author="jgao"/>
 
 #使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 Hadoop
@@ -31,21 +31,21 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- **HDInsight 叢集**。若要設定此叢集，請參閱 [Azure HDInsight 使用者入門][hdinsight-get-started]。
+- **HDInsight 叢集**。若要建立，請參閱[開始使用 Azure HDInsight][hdinsight-get-started]。
 - 安裝 Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的**工作站**。
 
 
-##<a id="InstallHiveODBCDriver"></a>安裝 Microsoft Hive ODBC 驅動程式
+##安裝 Microsoft Hive ODBC 驅動程式
 
 從[下載中心][hive-odbc-driver-download]下載並安裝 Microsoft Hive ODBC 驅動程式。
 
-此驅動程式可安裝在 32 位元或 64 位元版的 Windows 7、Windows 8、Windows Server 2008 R2 和 Windows Server 2012 上，並可供連接到 Azure HDInsight (1.6 版和更新版本) 與 Azure HDInsight Emulator (v.1.0.0.0 和更新版本)。您應安裝與您要使用 ODBC 驅動程式的應用程式版本相符的版本。本教學課程將會從 Office Excel 使用此驅動程式。
+此驅動程式可以安裝在 32 位元或 64 位元版本的 Windows 7、Windows 8、Windows 10、Windows Server 2008 R2 和 Windows Server 2012，並且允許連接到 Azure HDInsight (1.6 版及更新版本) 與 Azure HDInsight Emulator (v.1.0.0.0 和更新版本)。您應安裝與您要使用 ODBC 驅動程式的應用程式版本相符的版本。本教學課程將會從 Office Excel 使用此驅動程式。
 
-##<a id="CreateHiveODBCDataSource"></a>建立 Hive ODBC 資料來源
+##建立 Hive ODBC 資料來源
 
 下列步驟將說明如何建立 Hive ODBC 資料來源。
 
-1. 在 Windows 8 中，按視窗鍵以開啟 [開始] 畫面，然後輸入**資料來源**。
+1. 在 Windows 8 或 Windows 10 中，按視窗鍵以開啟 [開始] 畫面，然後輸入**資料來源**。
 2. 根據您的 Office 版本，按一下 [設定 ODBC 資料來源 (32 位元)] 或 [設定 ODBC 資料來源 (64 位元)]。如果您使用 Windows 7，請從 [系統管理工具] 中選擇 [ODBC 資料來源 (32 位元)] 或 [ODBC 資料來源 (64 位元)]。這會啟動 [ODBC 資料來源管理員] 對話方塊。
 
 	![OBDC data source administrator][img-hdi-simbahiveodbc-datasource-admin]
@@ -60,9 +60,9 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 資料來源名稱|為資料來源指定名稱
 Host|輸入 <HDInsightClusterName>.azurehdinsight.net。例如，myHDICluster.azurehdinsight.net
 連接埠|使用 <strong>443</strong>。(此連接埠已從 563 變更為 443。)
-資料庫|使用<strong>預設值</strong>。
-Hive 伺服器類型|選取 [<strong>Hive Server 2</strong>]
-機制|選取 [<strong>Azure HDInsight 服務</strong>]
+資料庫|使用<strong>預設值</strong>
+Hive 伺服器類型|選取 [Hive Server 2]<strong></strong>
+機制|選取 [Azure HDInsight 服務]<strong></strong>
 HTTP 路徑|保留為空白。
 使用者名稱|輸入 HDInsight 叢集使用者的使用者名稱。這是在叢集佈建程序中所建立的使用者名稱。如果您使用快速建立選項，預設使用者名稱會是 <strong>admin</strong>。
 密碼|輸入 HDInsight 叢集使用者的密碼。
@@ -83,7 +83,7 @@ HTTP 路徑|保留為空白。
 7. 按一下 [確定] 以關閉 [測試] 對話方塊。新的資料來源此時應會列示在 [ODBC 資料來源管理員] 中。
 8. 按一下 [確定] 以結束精靈。
 
-##<a id="ImportData"></a>從 HDInsight 叢集將資料匯入 Excel 中
+##從 HDInsight 叢集將資料匯入 Excel 中
 
 下列步驟將說明，如何使用您在前述步驟中建立的 ODBC 資料來源，將資料從 Hive 資料表匯入 Excel 活頁簿中。
 
@@ -108,7 +108,7 @@ HTTP 路徑|保留為空白。
 12. 按一下 [確定] 以關閉 [匯入資料] 對話方塊。  
 13. 重新輸入密碼，然後按一下 [確定]。經過數秒後，資料即會匯入至 Excel。
 
-##<a id="nextsteps"></a>接續步驟
+##後續步驟
 
 在本文中，您已了解到如何使用 Microsoft Hive ODBC 驅動程式將 HDInsight 服務中的資料擷取至 Excel。同樣地，您也可以將 HDInsight 服務中的資料擷取至 SQL Database。此外也可以將資料上傳至 HDInsight 服務。若要深入了解，請參閱：
 
@@ -131,4 +131,4 @@ HTTP 路徑|保留為空白。
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

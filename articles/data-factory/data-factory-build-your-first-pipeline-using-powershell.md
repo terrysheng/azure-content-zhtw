@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # 使用 Azure PowerShell 建置您的第一個 Azure Data Factory 管線
@@ -54,7 +54,9 @@
 
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
 
-	Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：「Data Factory 名稱 “DataFactoryMyFirstPipelinePSH” 無法使用」，請變更名稱 (例如 yournameADFTutorialDataFactoryPSH)。執行本教學課程中的步驟時，請使用此名稱來取代 ADFTutorialFactoryPSH。
+	> [AZURE.IMPORTANT]Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：「Data Factory 名稱 “DataFactoryMyFirstPipelinePSH” 無法使用」，請變更名稱 (例如 yournameADFTutorialDataFactoryPSH)。執行本教學課程中的步驟時，請使用此名稱來取代 ADFTutorialFactoryPSH。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
+	> 
+	> Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
 
 在後續步驟中，您將了解如何建立將在本教學課程使用的連結服務、資料集及管線。
 
@@ -268,4 +270,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

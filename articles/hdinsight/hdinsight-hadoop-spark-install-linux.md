@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用指令碼動作在 Hadoop 叢集上安裝 Spark | Microsoft Azure" 
-	description="了解如何使用 Spark 自訂 HDInsight 叢集。您將使用指令碼動作組態選項來使用指令碼安裝 Spark。" 
+	pageTitle="使用指令碼動作在以 Linux 為基礎的 HDInsight (Hadoop) 上安裝 Apache Spark | Microsoft Azure" 
+	description="在本主題中，您將學習如何使用指令碼動作在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark。透過變更叢集組態或自訂安裝服務與公用程式，指令碼動作可讓您在叢集建立期間自訂叢集。" 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/19/2015" 
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Spark
@@ -40,22 +40,26 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 
 此指令碼會將 Spark 1.5.1 版安裝於 `/usr/hdp/current/spark`。
 
+> [AZURE.WARNING]您可能會發現依照預設會安裝某些 Spark 1.3.1 二進位檔在您的 HDInsight 叢集上。但是不應該使用這些檔案，所以在未來的更新會從 HDInsight 叢集映像移除這些檔案。
+
 ## <a name="install"></a>使用指令碼動作安裝 Spark
 
-您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh)。本節提供有關如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
+您可以從一個唯讀的 Azure 儲存體 blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh)。本節提供有關如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
 
 > [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-1. 使用[建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始建立叢集，但是不完成建立。
+1. 使用[建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始建立叢集，但是不要完成建立。
 
-2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
+2. 在 [選用設定] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
 
 	* __名稱__：輸入指令碼動作的易記名稱。
 	* __指令碼 URI__：https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__：勾選此選項
-	* __WORKER__：勾選此選項
-	* __ZOOKEEPER__：勾選此選項以在 Zookeeper 節點上安裝。
+	* __背景工作__：取消勾選此選項
+	* __ZooKeeper__：取消勾選此選項
 	* __參數__：將此欄位保留空白
+    
+    > [AZURE.NOTE]Spark 範例程式碼只會在前端節點上安裝元件，所以可以取消勾選其他節點類型。
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 
@@ -199,7 +203,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 
 	依序按 __Ctrl+X__、__Y__ 和 __Enter__ 鍵以儲存檔案。
 
-5. 從 __SimpleScalaApp__ 目錄中，使用下列命令來建置應用程式，並將它儲存在 jar 檔案中：
+5. 從 __SimpleScalaApp__ 目錄中，使用下列命令來建置應用程式，並將其儲存在 jar 檔案中：
 
 		sbt package
 
@@ -234,4 +238,4 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

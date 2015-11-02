@@ -1,7 +1,7 @@
 <properties 
     pageTitle="DocumentDB 索引編製原則 | Microsoft Azure" 
     description="了解 DocumentDB 中索引的運作方式，以及了解如何設定及變更編製索引原則。設定在 DocumentDB 中的編製索引原則，以便自動編製索引和追求更高效能。" 
-	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
+	keywords="編製索引運作方式, 自動編製索引, 為資料庫編製索引, how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -769,4 +769,4 @@ DocumentDB API 會提供效能度量 (像是已使用的索引儲存體)，以�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

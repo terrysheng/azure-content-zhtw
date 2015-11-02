@@ -1,7 +1,7 @@
 <properties
 	pageTitle="從另一個實驗匯入資料到 Machine Learning Studio | Microsoft Azure"
 	description="如何將訓練資料儲存在 Azure Machine Learning Studio 並將它使用於另一個實驗中。"
-	keywords="import data,data,data sources,training data"
+	keywords="匯入資料,資料,資料來源,定型資料"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -35,4 +35,4 @@
 
 儲存完成時，資料集可用於工作區中的任何實驗。您可以在模組調色盤的 [**儲存的資料集**] 清單中找到它。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

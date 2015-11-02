@@ -32,9 +32,9 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 如果您尚未設定應用程式的 Application Insights，請[立即進行][start]。
 
-若要在度量超出臨界值時取得電子郵件，請從 [計量瀏覽器] 開始，或是從概觀分頁上的 [警示] 規則磚開始。
+若要在度量超出臨界值時取得電子郵件，請從 [計量瀏覽器] 開始，或是從概觀刀鋒視窗上的 [警示] 規則磚開始。
 
-![在 [警示規則] 分頁中，按一下 [新增警示]。將您的應用程式設定為要測量的資源，提供警示的名稱，然後選擇度量。](./media/app-insights-alerts/01-set-metric.png)
+![在 [警示規則] 刀鋒視窗中，按一下 [新增警示]。將您的應用程式設定為要測量的資源，提供警示的名稱，然後選擇度量。](./media/app-insights-alerts/01-set-metric.png)
 
 設定其他屬性之前的資源。如果您想要設定效能或使用度量的相關警示，請**選擇 "(元件)" 資源**。
 
@@ -56,7 +56,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 狀態變更的歷程記錄位於作業事件記錄檔中：
 
-![在 [概觀] 分頁靠近底部的位置，按一下 [過去一週的事件]](./media/app-insights-alerts/09-alerts.png)
+![在 [概觀] 刀鋒視窗靠近底部的位置，按一下 [過去一週的事件]](./media/app-insights-alerts/09-alerts.png)
 
 *這些「事件」是否與遙測事件或自訂事件相關？*
 
@@ -106,14 +106,22 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 若您未曾將 PowerShell 與 Azure 訂用帳戶搭配使用：
 
-1. 在您要執行指令碼的電腦上，安裝 Azure Powershell 模組。 
+在您要執行指令碼的電腦上，安裝 Azure Powershell 模組。
+
  * 安裝 [Microsoft Web Platform Installer (v5 或更高版本)](http://www.microsoft.com/web/downloads/platform.aspx)。
  * 使用該程式安裝 Microsoft Azure PowerShell
-2. 啟動 Azure PowerShell 並[連接至您的訂用帳戶](powershell-install-configure.md)：
 
-    ```
+
+#### 連接到 Azure
+
+啟動 Azure PowerShell 並[連接至您的訂用帳戶](powershell-install-configure.md)：
+
+```PowerShell
+
     Add-AzureAccount
-    ```
+    Switch-AzureMode AzureResourceManager
+```
+
 
 #### 取得警示
 
@@ -217,4 +225,4 @@ request、<br/>requestFailed|[伺服器要求](app-insights-configuration-with-a
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

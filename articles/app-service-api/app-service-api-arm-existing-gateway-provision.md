@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="以現有閘道部署 API 應用程式" 
 	description="使用 Azure 資源管理員範本，部署使用現有閘道和應用程式服務方案的 API 應用程式。" 
-	services="app-service\api" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-api" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -191,4 +191,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

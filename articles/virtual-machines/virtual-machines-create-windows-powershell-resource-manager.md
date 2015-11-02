@@ -29,7 +29,7 @@
 
 	Get-Module azure | format-table version
 
-如果您尚未這樣做，或者需要更新安裝的 Azure PowerShell 版本，請按照[如何安裝和設定 Azure PowerShell](install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。然後，開啟 Azure PowerShell 命令提示字元。
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 首先，您必須使用此命令登入 Azure。
 
@@ -137,4 +137,4 @@
 
 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

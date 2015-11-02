@@ -7,7 +7,7 @@
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # 將檔案還原到 Windows Server 或 Windows 用戶端電腦
 本文涵蓋執行兩種類型還原作業所需的步驟：
@@ -109,4 +109,4 @@
 - [備份 Azure 虛擬機器](backup-azure-vms-introduction.md)
 - [備份 Microsoft 工作負載](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

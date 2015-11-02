@@ -3,7 +3,7 @@
 	description="了解如何使用 Media Encoder Premium Workflow 進行編碼。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #使用 Media Encoder Premium Workflow 進行進階編碼
@@ -276,4 +276,4 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

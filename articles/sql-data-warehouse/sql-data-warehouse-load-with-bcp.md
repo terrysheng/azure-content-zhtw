@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor="JRJ@BigBangData.co.uk"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -22,12 +22,22 @@
 
 bcp 是將較小的資料集移入和移出 SQL 資料倉儲資料庫的一種快速又輕鬆的方式。透過 bcp 載入/擷取時，建議的確切資料量取決於您對 Azure 資料中心的網路連線。一般而言，可載入和擷取維度資料表，但載入或擷取相當大的事實資料表時可能需要很長的時間。
 
-bcp 可讓您：- 使用簡單的命令列公用程式，將資料載入 SQL 資料倉儲。- 使用簡單的命令列公用程式，從 SQL 資料倉儲擷取資料。
+您可以透過 bcp：
 
-本教學課程將示範如何：- 使用 bcp in 命令將資料匯入資料表 - 使用 bcp out 命令從資料表匯出資料
+- 使用簡單的命令列公用程式將資料載入 SQL 資料倉儲。
+- 使用簡單的命令列公用程式從 SQL 資料倉儲擷取資料。
 
-## 必要條件
-若要逐步執行本教學課程，您需要：- SQL 資料倉儲資料庫 - 已安裝 bcp 命令列公用程式 - 已安裝 SQLCMD 命令 列公用程式
+此教學課程將為您示範如何：
+ 
+- 使用 bcp in 命令將資料匯入資料表
+- 使用 bcp out 命令將資料匯出資料表
+
+## 先決條件
+若要逐步執行本教學課程，您需要：
+
+- SQL 資料倉儲資料庫
+- 已安裝的 bcp 命令列公用程式
+- 已安裝的 SQLCMD 命令列公用程式
 
 >[AZURE.NOTE]您可以從 [Microsoft 下載中心][]下載 bcp 和 sqlcmd 公用程式。
 
@@ -152,4 +162,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 下載中心]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

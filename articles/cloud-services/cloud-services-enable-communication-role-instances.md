@@ -1,6 +1,6 @@
 <properties 
-pageTitle="啟用雲端服務中角色執行個體的通訊 | Microsoft Azure" 
-description="" 
+pageTitle="雲端服務中角色的通訊 | Microsoft Azure" 
+description="您可以為雲端服務中的角色執行個體定義端點 (http、https、tcp、udp)，以便與外部或在其他角色執行個體之間通訊。" 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -359,4 +359,4 @@ namespace WorkerRole1
 ## 後續步驟
 深入了解雲端服務[模型](cloud-services-model-and-package.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory 網域服務預覽：支援的地區 | Microsoft Azure"
-	description="Azure AD 網域服務支援的 Azure 地區"
+	pageTitle="Azure Active Directory 網域服務預覽：支援的區域 | Microsoft Azure"
+	description="Azure AD 網域服務支援的 Azure 區域"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -18,18 +18,6 @@
 
 # Azure AD 網域服務 *(預覽)*
 
-## 支援的 Azure 地區
-下列 Azure 地區有提供 Azure Active Directory 網域服務：
+若要了解可以使用 Azure 服務的區域，請參閱[依區域提供的服務](https://azure.microsoft.com/zh-TW/regions/#services)。
 
-- 美國
-  - 美國中部
-  - 美國東部
-  - 美國東部 2
-  - 美國中南部
-  - 美國西部
-
-- 亞洲
-  - 東亞
-  - 東南亞
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

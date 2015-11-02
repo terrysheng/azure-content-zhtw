@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
 
@@ -34,7 +34,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 - 在 Azure HDInsight 上執行相同的 MapReduce 工作
 - 擷取 MapReduce 工作的結果
 
-##<a name="prerequisites"></a>必要條件
+##先決條件
 
 開始進行本教學課程之前，您必須完成下列工作：
 
@@ -43,7 +43,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 - 取得 Azure 訂閱。如需指示，請參閱＜[購買選項][azure-purchase-options]＞、＜[成員優惠][azure-member-offers]＞或＜[免費試用][azure-free-trial]＞。
 
 
-##<a name="develop"></a>使用 C&#35 開發字數統計 Hadoop 串流程式
+##使用 C&#35 開發字數統計 Hadoop 串流程式
 
 字數統計方案包含兩個主控台應用程式專案：對應器和歸納器。對應器應用程式可將每一個字串流傳送至主控台，而歸納器應用程式可計算從文件中串流傳送而來的字數。對應器和歸納器都會從標準輸入資料流 (stdin) 循行讀取字元並寫入至標準輸出資料流 (stdout)。
 
@@ -156,7 +156,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 - C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
-##<a name="test"></a>在模擬器上測試程式
+##在模擬器上測試程式
 
 在 HDInsight Emulator 上執行下列動作來測試程式：
 
@@ -273,7 +273,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 **檢查工作狀態**
 
-1. 從桌面上，按一下 [**Hadoop YARN 狀態**]，或瀏覽至 ****http://localhost:50030/jobtracker.jsp**。
+1. 從桌面上，按一下 [Hadoop YARN 狀態]，或瀏覽至 ****http://localhost:50030/jobtracker.jsp**。
 2. 在 [**執行中**] 或 [**已完成**] 類別下，使用工作識別碼來尋找工作。
 3. 如果工作失敗，您可以在 [失敗] 類別下找到它。您也可以開啟工作詳細資料，尋找一些有用的資訊來進行偵錯。
 
@@ -288,7 +288,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 	您可以在命令尾端附加 "|more" 來取得頁面檢視。
 
-##<a id="upload"></a>將資料上傳至 Azure Blob 儲存體
+##將資料上傳至 Azure Blob 儲存體
 Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以設定 HDInsight 叢集使用其他 Blob 儲存體來儲存資料檔。本節中，您將建立 Azure 儲存體帳戶，並將資料檔上傳至 Blob 儲存體。資料檔是位於 %hadoop\_home%\\share\\doc\\hadoop\\common 目錄中的 .txt 檔案。
 
 
@@ -377,7 +377,7 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 	您應該會看到兩個應用程式都列在這裡。
 
 
-##<a name="run"></a>在 Azure HDInsight 上執行 MapReduce 工作
+##在 Azure HDInsight 上執行 MapReduce 工作
 
 本節提供的 Azure PowerShell 指令碼會執行與 MapReduce 工作執行有關的所有工作。工作清單包括：
 
@@ -493,7 +493,7 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 如需提交 Hadoop 串流工作的 HDInsight .NET SDK 範例，請參閱[以程式設計方式提交 Hadoop 工作][hdinsight-submit-jobs]。
 
 
-##<a name="retrieve"></a>擷取 MapReduce 工作輸出
+##擷取 MapReduce 工作輸出
 本節說明如何下載和顯示輸出。如需有關在 Excel 上顯示結果的詳細資訊，請參閱[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][hdinsight-ODBC] 和[使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query]。
 
 
@@ -520,7 +520,7 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
 
 
-##<a id="nextsteps"></a>接續步驟
+##後續步驟
 本教學課程中，您學到如何開發 Hadoop 串流 Java MapReduce 工作、如何在 HDInsight Emulator 上測試應用程式，以及如何撰寫 Azure PowerShell 指令碼來佈建 HDInsight 叢集並於叢集上執行 MapReduce 工作。若要深入了解，請參閱下列文章：
 
 - [開始使用 Azure HDInsight](../hdinsight-get-started.md)
@@ -555,4 +555,4 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce 字數統計應用程式流程"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

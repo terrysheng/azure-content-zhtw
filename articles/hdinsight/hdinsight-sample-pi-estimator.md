@@ -14,29 +14,36 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
-# HDInsight 中的 Pi 估算器 Hadoop 範例
+# 在 HDInsight 的 Hadoop 叢集上執行 pi 估計器 MapReduce 程式
 
-本主題說明如何使用 Azure Powershell 在 Azure HDinsight 上執行 Hadoop MapReduce 程式，以估計數學常數 Pi 的值。它還提供在用來估計 Pi 值的 MapReduce 程式中所用的 Java 程式碼以進行檢查。
+HDInsight 叢集隨附內含數個 MarReduce 範例的 jar 檔案。本文說明如何使用 Azure PowerShell 來執行 pi 估計器範例。pi 估計器範例可以估計數學常數 pi 的值
 
 > [AZURE.NOTE]此文件中的步驟需要以 Windows 為基礎的 HDInsight 叢集。如需在以 Linux 為基礎的叢集執行此範例和其他範例的資訊，請參閱[在 HDInsight 上執行 Hadoop 範例](hdinsight-hadoop-run-samples-linux.md)
 
 此程式使用統計 (擬蒙特卡羅法) 方法來估計 Pi 的值。單位正方形內隨機散佈的點，也會落在該正方形的內切圓之內，且機率等於圓面積 Pi/4。Pi 的值可從 4R 的值來估計，其中 R 是圓內點數佔正方形內總點數的比例。使用的樣本點越多，估計越準確。
 
-以下提供包含 mapper 和 reducer 函數的 Pi 估算器 Java 程式碼以進行檢查。對應器程式會產生單位正方形內隨機散佈的一定點數，然後計算落在圓內的點數。Reducer 程式會累計 mapper 所計算的點數，然後從公式 4R 估計 Pi 的值，其中 R 是圓內計算的點數佔正方形內總點數的比例。
-
 此範例的提供指令碼會提交 Hadoop jar 工作，且設定為以 16 個對應的值來執行，每個對應都必須依參數值來計算 1 千萬個樣本點。這些參數可變更來改善 Pi 的估計值。Pi 的前 10 位小數是 3.1415926535，供您參考。
-
-.jar 檔案包含 Azure 的 Hadoop 在部署應用程式時所需的檔案，是一個可供下載的 .zip 檔案。您可以利用各種壓縮公用程式來解壓縮此檔案，以方便探索其中的檔案。
 
 [執行 HDInsight 範例][hdinsight-samples]列出其他範例來協助您更快使用 HDInsight 來執行 MapReduce 工作，也提供執行指示的連結。
 
-**您將了解：**
 
-* 如何使用 Azure PowerShell 在 Azure HDInsight 上執行 Pi 估算器 MapReduce 程式。
-* 以 Java 撰寫的 MapReduce 程式呈現何種面貌。
+**如需其他相關文章，請參閱：**
+
+* [開始使用 Azure HDInsight][hdinsight-get-started]
+* [在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式](hdinsight-develop-deploy-java-mapreduce.md)
+* [在 HDInsight 上提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [範例：10GB GraySort][hdinsight-sample-10gb-graysort]
+* [範例：字數統計][hdinsight-sample-wordcount]
+* [範例：C# 串流][hdinsight-sample-cs-streaming]
+
+
+
+
+
+
 
 **必要條件**：
 
@@ -46,7 +53,7 @@
 
 
 
-## <a id="run-sample"></a>使用 Azure PowerShell 執行範例
+## 使用 Azure PowerShell 執行範例
 
 **提交 MapReduce 工作**
 
@@ -80,8 +87,9 @@
 	Pi 的前 10 位小數是 3.1415926535，供您對照。
 
 
-## <a id="java-code"></a>Pi 估計器 MapReduce 程式的 Java 程式碼
+## MapReduce Java 原始程式碼
 
+以下提供包含 mapper 和 reducer 函數的 Pi 估算器 Java 程式碼以進行檢查。對應器程式會產生單位正方形內隨機散佈的一定點數，然後計算落在圓內的點數。Reducer 程式會累計 mapper 所計算的點數，然後從公式 4R 估計 Pi 的值，其中 R 是圓內計算的點數佔正方形內總點數的比例。
 
 
  	/**
@@ -474,5 +482,6 @@
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-sample-cs-streaming]: hdinsight-sample-csharp-streaming.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/12/2015"
+  ms.date="10/20/2015"
   ms.author="andrl"/>
 
 # 社群入口網站
@@ -126,7 +126,8 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 | ------------------------------------------- | ------------------ | ------- |
 | Integration User Group | 2015 年 10 月 5 日 | [適用於醫療保健整合的 Azure DocumentDB](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | DX Italy - #TecHeroes | 2015 年 10 月 2 日 | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
-| .NET Rocks! 播客 | 2015 年 9 月 29 日 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
+| Microsoft Cloud 節目 - 播客 | 2015 年 9 月 30 日 | [099 集 - 與 Andrew Liu 暢談 Azure DocumentDB](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
+| .NET Rocks! - 播客 | 2015 年 9 月 29 日 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) |
 | Data Exposed | 2015 年 9 月 28 日 | [公開上市後的 Azure DocumentDB 新功能](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
 | Azure 播客 | 2015 年 9 月 17 日 | [第 94 集：azpodcast.com re-architecture](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
 | 雲端報導 | 2015 年 9 月 4 日 | [第 185 集：DocumentDB Updates with Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
@@ -172,7 +173,7 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 
 ### 多人線上交談系統 + 上班時間
 
-在具有 [IRC 用戶端](http://www.irchelp.org/) 的 `#documentdb` 頻道中，或使用 Freenode 的 [WebChat](http://webchat.freenode.net/?channels=documentdb) 將您的 Web 頻道連接至該頻道，即可在 `chat.freenode.net` 上透過 IRC 與我們即時交談。
+在具有 [IRC 用戶端](http://www.irchelp.org/)的 `#documentdb` 頻道中，或使用 Freenode 的 [WebChat](http://webchat.freenode.net/?channels=documentdb) 將您的 Web 頻道連接至該頻道，即可在 `chat.freenode.net` 上透過 IRC 與我們即時交談。
 
 我們在 IRC 的上班時間為每星期五上午 11 點至下午 12 點 (太平洋時間)。
 
@@ -213,4 +214,4 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 | Hadoop 連接器 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 資料移轉工具 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 下載中心](http://www.microsoft.com/zh-TW/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

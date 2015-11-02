@@ -1,10 +1,10 @@
 <properties
-	pageTitle="含範圍篩選器的屬性型 App 佈建"
+	pageTitle="使用範圍篩選器進行以屬性為基礎的應用程式佈建 | Microsoft Azure"
 	description="了解如果某個物件無法滿足您的業務需求，如何使用範圍篩選器來防止實際佈建 App 中支援使用者佈建自動化的物件。"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -77,4 +77,4 @@
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

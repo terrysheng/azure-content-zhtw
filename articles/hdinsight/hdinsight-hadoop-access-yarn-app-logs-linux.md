@@ -1,6 +1,6 @@
 <properties
-	pageTitle="以程式設計方式存取 Hadoop YARN 應用程式記錄檔 | Microsoft Azure"
-	description="在 HDInsight 中的 Hadoop 叢集上以程式設計方式存取應用程式記錄檔"
+	pageTitle="存取以 Linux 為基礎之 HDInsight 上的 Hadoop YARN 應用程式記錄 | Microsoft Azure"
+	description="了解如何使用命令列和網頁瀏覽器存取以 Linux 為基礎之 HDInsight (Hadoop) 叢集上的 YARN 應用程式記錄檔。"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # 存取以 Linux 為基礎之 HDInsight 上的 YARN 應用程式記錄
@@ -96,4 +96,4 @@ YARN ResourceManager UI 會在叢集前端節點上執行，且您可透過 Amba
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

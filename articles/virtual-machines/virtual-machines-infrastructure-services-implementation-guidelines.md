@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Azure 基礎結構服務實作指導方針
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure 是用來實作 dev/test 或概念證明設定的絕佳平台，因為它不需要太多投資，就能測試實作解決方案的特定方法。但是，您必須能夠區分 dev/test 環境的簡單做法，以及更困難且詳細的做法，後者適用於 IT 工作負載之功能完整且準備好用於生產的實作。
 
@@ -168,7 +170,7 @@ Azure 會建立含有一個作業系統磁碟、一個暫存磁碟，以及零�
 ### 等量磁碟
 除了能夠建立大於 1023 GB 的磁碟，在許多情況下，針對資料磁碟使用等量，可藉由允許多個 blob 備份單一磁碟區的儲存體來增強效能。從單一邏輯磁碟寫入和讀取資料所需的 I/O 會透過等量速度以平行方式繼續進行。
 
-根據虛擬機器的大小而定，Azure 會強制限制資料磁碟數量和可用頻寬。如需詳細資訊，請參閱〈[虛擬機器的大小](virtual-machines-size-specs.md)〉。
+根據虛擬機器的大小而定，Azure 會強制限制資料磁碟數量和可用頻寬。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
 
 如果您針對 Azure 資料磁碟使用磁碟等量，請考量下列指導方針：
 
@@ -440,4 +442,4 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 [Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

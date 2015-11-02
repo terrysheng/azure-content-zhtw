@@ -21,6 +21,8 @@
 
 #Azure Linux 代理程式使用者指南
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##簡介
 
 Azure Linux 代理程式 (/usr/sbin/waagent) 可管理虛擬機器與 Azure 網狀架構控制器之間的互動。它具有下列功能：
@@ -318,4 +320,4 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

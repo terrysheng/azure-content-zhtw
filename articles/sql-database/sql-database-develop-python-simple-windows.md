@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
-	ms.author="mebha"/>
+	ms.date="10/20/2015" 
+	ms.author="meetb"/>
 
 
 # 在 Windows 上使用 Python 連接到 SQL Database
@@ -118,4 +118,4 @@
 
 如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

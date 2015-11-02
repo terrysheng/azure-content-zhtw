@@ -1,6 +1,6 @@
 <properties 
 	pageTitle=".NET 適用的 Application Insights 版本資訊" 
-	description="最新的更新。" 
+	description=".NET SDK 的最新更新。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -23,7 +23,7 @@
 
 See [Get started with Application Insights for .NET](app-insights-start-monitoring-app-health-usage.md).
 
-#### 若要升級至最新的 SDK 
+#### 升級至最新的 SDK 
 
 * 升級之後，必須將您對 ApplicationInsights.config 所做的任何自訂合併回來。如果您不確定是否自訂過，請建立新專案，將 Application Insights 新增到其中，然後以新專案中的 .config 檔案與您自己的比較。請記下任何的差異。
 * 在 [方案總管] 中，以滑鼠右鍵按一下您的專案並選擇 [管理 NuGet 封裝]。
@@ -97,4 +97,4 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

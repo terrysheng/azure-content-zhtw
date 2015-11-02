@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Azure VM 上的 Windows Server Active Directory" 
+	pageTitle="Azure VM 上的 Windows Server Active Directory | Microsoft Azure" 
 	description="您可以在 Azure 虛擬機器上執行 Windows Server Active Directory 網域服務 (AD DS) 或 Active Directory 同盟服務 (AD FS)。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="terrylan" 
-	editor="LisaToft"
+	manager="stevenpo" 
 	tags="azure-classic-portal"/>
 
 <tags 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 
@@ -48,4 +47,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

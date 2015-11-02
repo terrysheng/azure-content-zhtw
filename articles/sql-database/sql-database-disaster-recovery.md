@@ -1,6 +1,6 @@
 <properties 
    pageTitle="SQL Database 嚴重損壞修復" 
-   description="了解如何使用 Azure SQL Database 的異地複寫和異地還原功能，從區域資料中心中斷或失敗情況復原資料庫。" 
+   description="了解如何使用 Azure SQL Database 的作用中異地複寫、標準異地複寫和異地還原功能，從區域資料中心中斷或失敗情況復原資料庫。" 
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="10/20/2015"
    ms.author="elfish"/>
 
 # 從中斷情況復原 Azure SQL Database
 
-Azure SQL Database 提供幾項中斷復原功能：
+Azure SQL Database 提供下列功能，以從中斷復原：
 
 - 主動式異地複寫 [(部落格)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - 標準異地複寫 [(部落格)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
@@ -38,32 +38,33 @@ Azure SQL Database 提供幾項中斷復原功能：
 
 如果發生主要資料庫中斷的情況，您可以容錯移轉至次要資料庫，以還原可用性。若要執行這個動作，您需要強制終止連續複製關聯性。如需終止連續複製關聯性的完整說明，請至[這裡](https://msdn.microsoft.com/library/azure/dn741323.aspx)。
 
-
-
 ###Azure 入口網站
+使用 Azure 入口網站終止與地理複寫次要資料庫的連續複製關聯性。
+
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
 2. 在畫面左側選取 [瀏覽]，然後選取 [SQL Database]。
 3. 巡覽至您的資料庫，然後加以選取。 
-4. 在資料庫刀鋒視窗底部選取 [異地複寫對應]。
+4. 在資料庫分頁底部選取 [異地複寫對應]。
 4. 在 [次要] 下，以滑鼠右鍵按一下含有您要復原之資料庫名稱的資料列，然後選取 [停止]。
 
 終止連續複製關聯性之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
-###PowerShell
-使用 PowerShell 可以程式設計方式執行資料庫復原。
 
-若要終止與次要資料庫的關聯性，請使用 [Stop-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720223) Cmdlet。
+###PowerShell
+使用 PowerShell 透過 [Stop-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720223) Cmdlet 終止與地理複寫次要資料庫的連續複製關聯性。
 		
 		$myDbCopy = Get-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName"
 		$myDbCopy | Stop-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -ForcedTermination
 		 
 終止連續複製關聯性之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
+
 ###REST API 
-使用 REST 可以程式設計方式執行資料庫復原。
+使用 REST 以程式設計方式停止與地理複寫次要資料庫的連續複製關聯性。
 
 1. 使用[取得資料庫複本](https://msdn.microsoft.com/library/azure/dn509570.aspx)作業來取得資料庫連續複製。
 2. 使用[停止資料庫複製](https://msdn.microsoft.com/library/azure/dn509573.aspx)作業來停止資料庫連續複製。在停止資料庫複製要求 URI 中，使用次要伺服器名稱和資料庫名稱
 
  終止連續複製關聯性之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定復原的資料庫。
+
 ## 使用異地還原進行復原
 
 如果發生資料庫中斷的情況，您可以使用異地還原，從資料庫最新的異地備援備份來復原資料庫。
@@ -71,6 +72,8 @@ Azure SQL Database 提供幾項中斷復原功能：
 > [AZURE.NOTE]復原資料庫會建立新的資料庫。請務必確定您要復原到的伺服器有足夠的 DTU 容量供新的資料庫使用。您可以[連絡支援人員](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)，要求增加此配額。
 
 ###Azure 入口網站
+若要使用 Azure 入口網站中的異地還原還原 SQL Database，請使用下列步驟，或[觀看此程序的影片](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore/)：
+
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
 2. 在畫面左側選取 [新增]，然後依序選取 [資料和儲存體] 和 [SQL Database]。
 2. 選取 [備份] 做為來源，然後選取您要從中復原的異地備援備份。
@@ -78,16 +81,16 @@ Azure SQL Database 提供幾項中斷復原功能：
 4. 資料庫還原程序隨即開始，您可以使用畫面左側的 [通知] 來監視這個程序。
 
 復原資料庫之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定資料庫以供使用。
-###PowerShell 
-使用 PowerShell 可以程式設計方式執行資料庫復原。
 
-若要啟動異地還原要求，請使用 [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx) Cmdlet。如需詳細的逐步解說，請觀賞我們的[作法影片](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/)。
+###PowerShell 
+若要使用異地還原搭配 PowerShell 還原 SQL Database，請使用 [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx) Cmdlet 啟動異地還原要求。如需詳細的逐步執行，請[觀看此程序的影片](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/)。
 
 		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
 		$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –TargetServerName “TargetServerName”
 		Get-AzureSqlDatabaseOperation –ServerName "TargetServerName" –OperationGuid $RecoveryRequest.RequestID
 
 復原資料庫之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定資料庫以供使用。
+
 ###REST API 
 
 使用 REST 可以程式設計方式執行資料庫復原。
@@ -103,4 +106,4 @@ Azure SQL Database 提供幾項中斷復原功能：
 復原資料庫之後，您可以遵循[完成復原的資料庫](sql-database-recovered-finalize.md)指南，設定資料庫以供使用。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

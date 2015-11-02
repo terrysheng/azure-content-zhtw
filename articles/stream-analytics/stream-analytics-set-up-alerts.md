@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="串流分析警示 | Microsoft Azure" 
 	description="了解串流分析警示" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="巨量資料分析,雲端服務,物聯網,受管理的服務,串流處理,資料流分析,資料流處理資料,big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -51,7 +51,7 @@
 
 ## 透過作業記錄設定警示
 
-1.	移至 [Azure 入口網站](https://manage.windowsazure.com)中管理服務的 [警示] 索引標籤  
+1.	移至 [Azure 入口網站](https://manage.windowsazure.com)中管理服務的 [警示] 索引標籤。  
 2.	按一下 [加入規則]  
 
     ![準則](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)
@@ -85,4 +85,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

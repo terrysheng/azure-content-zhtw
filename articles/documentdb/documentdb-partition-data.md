@@ -1,7 +1,7 @@
 <properties      
     pageTitle="透過分區化在 DocumentDB 中分割資料和調整資料級別 |Microsoft Azure"      
     description="檢閱如何運用分區化技術調整資料級別的相關資訊。瞭解有關分區、如何在 DocumentDB 中分割資料，以及使用「雜湊」和「定界」分割時機的資訊。"         
-    keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
+    keywords="調整資料, 分區, 分區化, scale data, shard, sharding, documentdb, azure, Microsoft azure"
 	services="documentdb"      
     authors="arramac"      
     manager="jhubbard"      
@@ -112,4 +112,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

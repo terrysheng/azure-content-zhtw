@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 進行轉換和分析
@@ -24,11 +24,7 @@
 
 轉換活動 | 運算環境 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop]
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
-[Hadoop 串流](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
-[機器學習批次執行](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop 串流](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [機器學習批次執行](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
 [預存程序](data-factory-stored-proc-activity.md) | Azure SQL | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 或 Azure Batch    
 
@@ -42,4 +38,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

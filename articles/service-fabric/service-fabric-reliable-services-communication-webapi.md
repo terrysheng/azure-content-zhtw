@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Web API 服務與 OWIN 自我裝載 | Microsoft Azure"
-   description="本 Service Fabric 文章解釋如何使用 ASP.NET Web API 與 OWIN 自我裝載在可靠服務中實作服務通訊。"
+   pageTitle="使用 ASP.NET Web API 的服務通訊 |Microsoft Azure"
+   description="了解如何使用 ASP.NET Web API 與 OWIN 自我裝載在 Reliable Services API 中逐步實作服務通訊。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -614,4 +614,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [在 Visual Studio 中偵錯 Service Fabric 應用程式](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

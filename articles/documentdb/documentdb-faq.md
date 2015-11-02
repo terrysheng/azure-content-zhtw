@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB 資料庫問題 - 常見問題集 | Microsoft Azure" 
 	description="取得 Azure DocumentDB NoSql 文件資料庫服務常見問題的解答。解答產能、效能層級和調整的相關資料庫問題。" 
-	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
+	keywords="資料庫問題, 常見問題集, Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -63,7 +63,7 @@ DocumentDB 帳戶可以藉由加入集合，根據儲存體和輸送量來擴充
 主要金鑰是可存取帳戶的所有資源的安全性權杖。擁有此金鑰的人，對資料庫帳戶中的所有資源具有讀取和寫入存取權。分配主要金鑰時，務必謹慎。[Azure Preview 入口網站][azure-portal]的 **[金鑰]** 刀鋒視窗提供主要金鑰和次要金鑰。如需金鑰的詳細資訊，請參閱[檢視、複製和重新產生存取金鑰](documentdb-manage-account.md#keys)。
 
 ### 我如何建立資料庫？
-您可以如[建立 DocumentDB 資料庫](documentdb-create-database.md)所述使用 [Azure Preview 入口網站]()、使用其中一套 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 或透過 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 來建立資料庫。
+您可以如[建立 DocumentDB 資料庫](documentdb-create-database.md)所述使用 [Azure Preview 入口網站]()、利用其中一套 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 或透過 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 來建立資料庫。
 
 ### 什麼是集合？
 集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。查詢和交易的範圍設為集合。您可以將一組異質 JSON 文件儲存在單一集合內，全部會自動編製索引。
@@ -79,7 +79,7 @@ DocumentDB 帳戶可以藉由加入集合，根據儲存體和輸送量來擴充
 ## 針對 Microsoft Azure DocumentDB 進行開發的相關資料庫問題
 
 ### 如何開始針對 DocumentDB 進行開發？
-[SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 適用於 .NET、Python、Node.js、JavaScript 和 Java。開發人員也可以使用 [RESTful HTTP API](https://msdn.microsoft.com/library/azure/dn781481.aspx)，從各種平台和語言來與 DocumentDB 資源互動。
+[SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 適用於 .NET、Python、Node.js、JavaScript 和 Java。開發人員也可以利用 [RESTful HTTP API](https://msdn.microsoft.com/library/azure/dn781481.aspx)，從各種平台和語言來與 DocumentDB 資源互動。
 
 GitHub 上提供 DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples)、[Java](https://github.com/Azure/azure-documentdb-java)、[Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples) 和 [Python](https://github.com/Azure/azure-documentdb-python) 的 SDK。
 
@@ -112,4 +112,4 @@ DocumentDB 透過 JavaScript 預存程序和觸發程序，支援語言整合式
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

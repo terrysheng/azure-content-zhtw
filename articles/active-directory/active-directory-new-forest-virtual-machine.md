@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="在 Azure 虛擬網路上安裝 Active Directory 樹系" 
+	pageTitle="在 Azure 虛擬網路上安裝 Active Directory 樹系 | Microsoft Azure" 
 	description="說明如何在 Azure 虛擬網路之虛擬機器 (VM) 上建立新 Active Directory 樹系的教學課程。" 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="TerryLan" 
-	editor="LisaToft"
-	tags="azure-classic-portal"/>
+	manager="stevenpo" 
+	tags=""/>
 
 <tags 
 	ms.service="active-directory" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 
@@ -25,8 +24,8 @@
 您也可能對以下相關主題有興趣：
 
 - 如需顯示相關步驟的影片，請參閱[如何在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-- 您可以選擇性地[設定站台對站台 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)，然後安裝新樹系，或將內部部署樹系延伸至 Azure 虛擬網路。如需相關步驟，請參閱[在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](../virtual-networks-install-replica-active-directory-domain-controller.md) (英文)。
--  如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱[在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針](https://msdn.microsoft.com/library/azure/jj156090.aspx) (英文)。
+- 您可以選擇性地[設定站台對站台 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)，然後安裝新樹系，或將內部部署樹系延伸至 Azure 虛擬網路。如需相關步驟，請參閱[在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](../virtual-networks-install-replica-active-directory-domain-controller.md)。
+-  如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱[在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
 
 ## 案例圖表
 
@@ -118,7 +117,7 @@
 ## 另請參閱
 
 -  [如何在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
--  [在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+-  [在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)
 -  [設定站台對站台 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](../virtual-networks-install-replica-active-directory-domain-controller.md)
@@ -138,4 +137,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

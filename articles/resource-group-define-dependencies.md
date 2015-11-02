@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="mmercuri"/>
 
 # 定義 Azure 資源管理員範本中的相依性
@@ -43,6 +43,8 @@
 
 如果因為參考物件意味著資源的相依性而使用 reference 函式取得資源的表示法，則不需要這個元素。事實上，如果有使用 reference 和 dependsOn 的選項，此指導方針為使用 reference 函式並具備隱含的參考。再次強調，基本理由就是效能。參考定義已知為必要的隱含相依性，因為在範本內會參考這些相依性。相依性的存在表示它們彼此相關，避免再次針對效能最佳化，並避免轉移部署引擎以避免不必要地使用平行處理原則的潛在風險。
 
+如果您需要定義某項資源和透過複製迴圈所建立之資源之間的相依性，可以將 dependsOn 項目設定為迴圈的名稱。例如，請參閱[在 Azure 資源管理員中建立多個資源的執行個體](resource-group-create-multiple.md)。
+
 ## 資源
 
 resources 屬性可讓您指定與所定義的資源相關的子資源。子資源僅能定義為 5 個層級的深度。請務必注意，在子資源與父資源之間並不會建立隱含的相依性。如果您需要在父資源之後部署子資源，您必須使用 dependsOn 屬性明確地敘述該相依性。
@@ -62,4 +64,4 @@ reference 函式可讓運算式從其他 JSON 名稱和值組或執行階段資�
 - 若要了解如何建立 Azure 資源管理員範本，請參閱[撰寫範本](resource-group-authoring-templates.md)。 
 - 如需在範本中可用函式的清單，請參閱[範本函式](resource-group-template-functions.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

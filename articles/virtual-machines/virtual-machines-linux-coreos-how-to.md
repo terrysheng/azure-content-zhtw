@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/03/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # 如何在 Azure 上使用 CoreOS
@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 
-## <a id='intro'>CoreOS、叢集和 Linux 容器</a>
+## CoreOS、叢集和 Linux 容器
 
 CoreOS 是 Linux 的輕量級版本，旨在支援快速建立可能的大型 VM 叢集，會使用 Linux 容器作為唯一封裝機制 (包括 [Docker] 容器)。CoreOS 將協助支援：
 
@@ -40,10 +40,10 @@ CoreOS 是 Linux 的輕量級版本，旨在支援快速建立可能的大型 VM
 
 這是 CoreOS 及其功能的非常一般說明。如需 CoreOS 的完整詳細資訊，請參閱 [CoreOS 概觀] (英文)。
 
-## <a id='security'>安全性考量</a>
+## 安全性考量
 目前來說，CoreOS 假設可以 SSH 進入叢集的使用者便會有管理叢集的權限。這樣的結果是，在沒有修改的情況下，CoreOS 叢集在測試和開發環境中表現十分出色，但您應在任何實際執行環境中套用另外的安全措施。
 
-## <a id='usingcoreos'>如何在 Azure 上使用 CoreOS</a>
+## 如何在 Azure 上使用 CoreOS
 
 本節說明如何使用 [Azure 命令列介面 (Azure CLI)]，建立內含三部 CoreOS 虛擬機器的 Azure 雲端服務。基本步驟如下：
 
@@ -154,7 +154,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 `git clone https://github.com/coreos/fleet.git`
 
-建置 **fleet** 目錄，方法是透過變更至 `fleet` 並鍵入
+建置 **fleet**，方法是透過變更至 `fleet` 目錄並鍵入
 
 `./build`
 
@@ -166,7 +166,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE]如果您目前已再使用 `~/.ssh/id_rsa` 金鑰，請使用 `ssh-add ~/.ssh/id_rsa` 新增。
+> [AZURE.NOTE]如果您目前已使用 `~/.ssh/id_rsa` 金鑰，請使用 `ssh-add ~/.ssh/id_rsa` 新增。
 
 現在，您可以使用和您在 **node-1** 中使用的相同 **fleetctl** 命令準備開始遠端測試，但傳遞部分遠端引數：
 
@@ -182,7 +182,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 ## 後續步驟
 
-在 Azure 上，您現在應該會有執行三節點 CoreOS 叢集。此後，您可以探索如何建立更複雜的叢集，並使用 Docker 建立更有趣的應用程式。若要操作幾個快速的範例，請參閱＜[開始在 Azure 上的 CoreOS 使用 Fleet]＞。
+在 Azure 上，您現在應該會有執行三節點 CoreOS 叢集。此後，您可以探索如何建立更複雜的叢集，並使用 Docker 建立更有趣的應用程式。若要嘗試幾個快速的範例，請參閱＜[開始在 Azure 上的 CoreOS 使用 Fleet]＞。
 
 <!--Anchors-->
 [CoreOS, Clusters, and Linux Containers]: #intro
@@ -209,4 +209,4 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [YAML]: http://yaml.org/
 [開始在 Azure 上的 CoreOS 使用 Fleet]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

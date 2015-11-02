@@ -28,9 +28,9 @@ IoT 解決方案可以包含自動意見反應迴圈。例如，機器學習服�
 
 許多 IoT 解決方案可讓使用者檢視和分析從他們的裝置所收集的資料。這些檢視可以採用儀表板或 BI 報告的格式。
 
-[img-solution-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
+[img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT 套件]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 自訂密碼管理以符合您的組織的需求
@@ -393,7 +393,56 @@
             </tr>
             <tr>
               <td>
-                <p>安全性問題</p>
+                <p>以知識為基礎的安全性問題</p>
+              </td>
+              <td>
+                <p>定義您的使用者在註冊密碼重設以及重設其密碼時，可以選取的預先定義安全性問題。</p>
+                <p>
+                  
+                </p>
+                <p>(只有在已啟用 [<strong>安全性問題</strong>] 核取方塊時才能看見)。</p>
+              </td>
+              <td>
+                <p>
+                  <strong>注意：</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												所有以知識為基礎的問題將會依據使用者的瀏覽器地區設定，當地語系化成完整的 O365 語言集。<br><br></li>
+                  <li class="unordered">
+												最多總共可以定義 20 個問題 (您的自訂與以知識為基礎的安全性問題總和)。<br><br></li>
+                 <li class="unordered">
+												答案字元最小值限制為 3 個字元。<br><br></li>
+                  <li class="unordered">
+												答案字元最大值限制為 40 個字元。<br><br></li>
+                  <li class="unordered">
+												使用者不能回答相同的問題兩次。<br><br></li>
+                  <li class="unordered">
+												使用者不能對兩個不同的問題提供相同的答案兩次。<br><br></li>
+                  <li class="unordered">
+												可以使用任何字元集來定義解答 (包括 Unicode 字元)。<br><br></li>
+                  <li class="unordered">
+												定義的的問題數目必須大於或等於註冊所需的問題數目。<br><br></li>
+                </ul>
+                <p>
+                  <strong>註冊入口網站：</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												決定當註冊密碼重設時，使用者可以對哪些問題提供答案。<br><br></li>
+                </ul>
+                <p>
+                  <strong>密碼重設入口網站：</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												決定使用者可以使用哪些問題來重設密碼。<br><br></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>自訂安全性問題</p>
               </td>
               <td>
                 <p>定義您的使用者在註冊密碼重設以及重設其密碼時，可能會選取的安全性問題。</p>
@@ -404,11 +453,11 @@
               </td>
               <td>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
-												可以定義最多 20 個問題。<br><br></li>
+												最多總共可以定義 20 個問題 (您的自訂與以知識為基礎的安全性問題總和)。<br><br></li>
                   <li class="unordered">
 												問題字元最大值限制為 200 個字元。<br><br></li>
                   <li class="unordered">
@@ -420,11 +469,11 @@
                   <li class="unordered">
 												使用者不能對兩個不同的問題提供相同的答案兩次。<br><br></li>
                   <li class="unordered">
-												可以使用任何字元集以定義問題和答案 (包括 Unicode 字元)。<br><br></li>
+												可以使用任何字元集來定義問題和答案 (包括 Unicode 字元)。<br><br></li>
                   <li class="unordered">
 												定義的的問題數目必須大於或等於註冊所需的問題數目。<br><br></li>
                   <li class="unordered">
-												尚未支援對不同的地區設定定義不同的問題，但是未來將會支援。<br><br></li>
+												自訂問題不支援針對不同的地區設定定義不同的問題。所有自訂問題將會以您在系統管理 UI 中用來輸入它們的語言顯示，即使使用者的瀏覽器地區設定不同。如果您需要當地語系化這些問題，請改為使用 「以知識為基礎」的問題。<br><br></li>
                 </ul>
                 <p>
                   <strong>註冊入口網站：</strong>
@@ -727,6 +776,6 @@
 * [密碼管理常見問題集](active-directory-passwords-faq.md)
 * [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
 * [深入了解](active-directory-passwords-learn-more.md)
-* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

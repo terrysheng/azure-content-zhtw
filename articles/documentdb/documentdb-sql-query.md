@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="在 DocumentDB 資料庫上執行 SQL 查詢 – 查詢 SQL | Microsoft Azure" 
 	description="瞭解 DocumentDB 如何透過階層式 JSON 文件支援 SQL 查詢以自動編製索引。探索真正無結構描述的 SQL 查詢資料庫環境。" 
-	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
+	keywords="查詢資料庫, sql 查詢, sql 查詢, 結構化查詢語言, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -259,7 +259,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 ## WHERE 子句
 WHERE 子句 (**`WHERE <filter_condition>`**) 是選用的。它會指定條件，而且來源所提供的 JSON 文件必須滿足這些條件才能併入為結果的一部分。任何 JSON 文件都必須將指定的條件評估為 "true"，才能視為結果。索引層使用 WHERE 子句，來判斷可為結果一部分的來源文件的絕對最小子集。
 
-下列查詢會要求包含名稱屬性且其值為 `AndersenFamily` 的文件。沒有名稱屬性或值不符合 `AndersenFamily` 的任何其他文件則會予以排除。
+下列查詢會要求包含名稱屬性且其值為 `AndersenFamily` 的文件。沒有名稱屬性或值不符合 `AndersenFamily` 的任何其他文件。
 
 **查詢**
 
@@ -812,7 +812,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	FROM Families f
 	JOIN f.children
  
-**l結果**
+**結果**
 
 	[
 	  {
@@ -858,7 +858,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 
 JOIN 的實際作用是透過圖形中很難投射的交叉乘積來形成 Tuple。此外，如下面範例所示，您可以根據 Tuple 的組合進行篩選，讓使用者選擇全部 Tuple 都符合的條件。
 
-**查詢**
+**Q查詢**
 
 	SELECT 
 		f.id AS familyName,
@@ -1266,7 +1266,7 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
 
 藉由使用這些函數，您現在可以執行下列查詢：
 
-**查詢**
+**Q查詢**
 
     SELECT VALUE IS_NUMBER(-4)
 
@@ -2089,4 +2089,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

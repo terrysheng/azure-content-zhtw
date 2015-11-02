@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Azure AD 網域服務 (預覽) - 開始使用
@@ -55,6 +55,18 @@
 Azure AD Connect 的安裝指示可於下列文章中取得：[開始使用 Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
 
+#### 啟用傳統認證與 Azure AD 的同步
+
+啟用 Azure AD 網域服務中 NTLM 驗證所需之傳統認證的同步。您可以透過在安裝 Azure AD Connect 的電腦上建立下列登錄機碼來執行此動作。
+
+建立下列 DWORD 登錄機碼並將它設定為 1。
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
+
+Set its value to 1.
+```
+
 #### 強制執行與 Azure AD 的完整密碼同步處理
 
 若要強制執行完整密碼同步處理並啟用所有的內部部署使用者的密碼雜湊 (包括 NTLM/Kerberos 驗證所需的認證雜湊) 以同步處理到您的 Azure AD 租用戶，請在每個 AD 樹系上執行下列 PowerShell 指令碼。
@@ -75,4 +87,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 視目錄的大小而定 (使用者的數目、群組等)，將認證同步處理到 Azure AD，然後到 Azure AD 網域服務，需要花一點時間。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

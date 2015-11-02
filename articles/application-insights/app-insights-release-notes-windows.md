@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows 適用的 Application Insights 版本資訊" 
-	description="最新的更新。" 
+	description="Windows Store SDK 的最新更新。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -23,7 +23,7 @@
 
 請參閱[開始使用適用於 Windows Phone 和市集應用程式的 Application Insights](app-insights-windows-get-started.md)。
 
-#### 若要升級至最新的 SDK 
+#### 升級至最新的 SDK 
 
 * 請取得一份 ApplicationInsights.config 的複本，以保留您所做的任何自訂。
 * 在 [方案總管] 中，以滑鼠右鍵按一下您的專案並選擇 [管理 NuGet 封裝]。
@@ -94,4 +94,4 @@
 
 沒有可用於較舊版本的版本資訊。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

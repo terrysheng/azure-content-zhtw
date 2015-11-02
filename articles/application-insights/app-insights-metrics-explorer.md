@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在 Application Insights 中探索度量" 
-	description="使用 Application Insights 分析內部部署或 Microsoft Azure Web 應用程式的使用情況、可用性和效能。" 
+	description="如何解譯計量瀏覽器上的圖表，以及如何自訂計量瀏覽器刀鋒視窗。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -23,7 +23,7 @@
 
 以下是範例圖表：
 
-![開啟 Azure 入口網站中應用程式的 [概觀] 分頁](./media/app-insights-metrics-explorer/01-overview.png)
+![開啟 Azure 入口網站中應用程式的 [概觀] 刀鋒視窗](./media/app-insights-metrics-explorer/01-overview.png)
 
 有些圖表經過分段：任何點的圖表高度總計為顯示的度量的總合。圖例預設會顯示最大數量。
 
@@ -35,7 +35,7 @@
 
 您可以在任何刀鋒視窗上變更圖表或格線涵蓋的時間範圍。
 
-![開啟 Azure 入口網站中應用程式的 [概觀] 分頁](./media/app-insights-metrics-explorer/03-range.png)
+![開啟 Azure 入口網站中應用程式的 [概觀] 刀鋒視窗](./media/app-insights-metrics-explorer/03-range.png)
 
 
 如果您預期的部分資料尚未出現，請按一下 [重新整理]。圖表本身會定期重新整理，但是時間範圍越大，間隔時間會越長。在發行模式中，資料從分析管線往圖表上顯示可能需要一些時間。
@@ -50,27 +50,27 @@
 
 將滑鼠移至圖表上可顯示該點度量的值。
 
-![垂將滑鼠移至圖表上](./media/app-insights-metrics-explorer/02-focus.png)
+![將滑鼠移至圖表上](./media/app-insights-metrics-explorer/02-focus.png)
 
 特定點的度量值會繼著前一個取樣間隔而彙總。
 
 取樣間隔或「資料粒度」會顯示在刀鋒視窗的頂端。
 
-![分頁的標題。](./media/app-insights-metrics-explorer/11-grain.png)
+![刀鋒視窗的標題。](./media/app-insights-metrics-explorer/11-grain.png)
 
 您可以在時間範圍刀鋒視窗中調整資料粒度：
 
-![分頁的標題。](./media/app-insights-metrics-explorer/grain.png)
+![刀鋒視窗的標題。](./media/app-insights-metrics-explorer/grain.png)
 
 可提供的資料粒度取決於您選取的時間範圍。明確的資料粒度可替代時間範圍內的「自動」資料粒度。
 
 ## 計量瀏覽器
 
-按一下 [概觀] 分頁上的任何圖表，可查看更詳細的一組相關圖表和格線。您可以編輯這些圖表和格線，以著重在感興趣的詳細資料。
+按一下 [概觀] 刀鋒視窗上的任何圖表，可查看更詳細的一組相關圖表和格線。您可以編輯這些圖表和格線，以著重在感興趣的詳細資料。
 
 例如，逐一點選 Web 應用程式的「失敗的要求」圖表：
 
-![在 [概觀] 分頁上，按一下圖表](./media/app-insights-metrics-explorer/14-trix.png)
+![在 [概觀] 刀鋒視窗上，按一下圖表](./media/app-insights-metrics-explorer/14-trix.png)
 
 
 ## 數據代表意義為何？
@@ -97,7 +97,7 @@
 
 ## 編輯圖表和格線
 
-若要對分頁加入新圖表：
+若要對刀鋒視窗加入新圖表：
 
 ![在 [計量瀏覽器] 中，選擇 [加入圖表]](./media/app-insights-metrics-explorer/04-add.png)
 
@@ -151,21 +151,21 @@
 
 ![選取格線或圖表，然後選擇圖表類型](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
-## 儲存您的度量分頁
+## 儲存您的度量刀鋒視窗
 
 建立一些圖表後，請將它們儲存為我的最愛。如果您使用組織帳戶，可以選擇是否要將它與他小組成員分享。
 
 ![選擇 [我的最愛]](./media/app-insights-metrics-explorer/21-favorite-save.png)
 
-若要再次查看分頁，請**前往 [概觀] 分頁**，並開啟 [我的最愛]：
+若要再次查看刀鋒視窗，請**前往 [概觀] 刀鋒視窗**，並開啟 [我的最愛]：
 
-![在 [概觀] 分頁中，選擇 [我的最愛]](./media/app-insights-metrics-explorer/22-favorite-get.png)
+![在 [概觀] 刀鋒視窗中，選擇 [我的最愛]](./media/app-insights-metrics-explorer/22-favorite-get.png)
 
-如果儲存時選擇「相對」時間範圍，會以最新度量更新分頁。如果選擇「絕對」時間範圍，它會每次都顯示相同資料。
+如果儲存時選擇「相對」時間範圍，會以最新度量更新刀鋒視窗。如果選擇「絕對」時間範圍，它會每次都顯示相同資料。
 
-## 重設分頁
+## 重設刀鋒視窗
 
-如果您編輯分頁，但之後想要回到原始儲存的集合，只需要按一下 [重設]。
+如果您編輯刀鋒視窗，但之後想要回到原始儲存的集合，只需要按一下 [重設]。
 
 ![在 [計量瀏覽器] 上方的按鈕中](./media/app-insights-metrics-explorer/17-reset.png)
 
@@ -212,4 +212,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

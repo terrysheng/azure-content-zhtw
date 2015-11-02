@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #教學課程：如何整合 Salesforce 與 Azure Active Directory
@@ -64,7 +64,7 @@
 
 	![按一下 [從資源庫新增應用程式]。][3]
 
-6. 在**搜尋方塊**中，輸入 **Salesforce**。從結果選取 [Salesforce]，然後按一下 [完成] 加入應用程式。
+6. 在搜尋方塊中，輸入 **Salesforce**。從結果選取 [Salesforce]，然後按一下 [完成] 加入應用程式。
 
 	![新增 [Salesforce]。][4]
 
@@ -216,7 +216,7 @@
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] 如果您正在佈建至 Salesforce **開發人員**環境，您的每個設定檔可用的授權將十分有限。因此，最好的方法是將使用者佈建至具有 4,999 個可用授權的 **Chatter Free 使用者**設定檔。
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. 若要測試您的單一登入設定，請開啟 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 的 [存取面板]、登入測試帳戶，然後按一下 [Salesforce]。
 
@@ -253,4 +253,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

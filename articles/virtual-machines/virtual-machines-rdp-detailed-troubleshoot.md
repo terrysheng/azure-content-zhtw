@@ -19,15 +19,17 @@
 
 # 以 Windows 為基礎的 Azure 虛擬機器之遠端桌面連線的詳細疑難排解
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 本文章提供複雜之遠端桌面錯誤的詳細疑難排解步驟。
 
 > [AZURE.IMPORTANT]若要解決較常見的遠端桌面錯誤，請務必閱讀[遠端桌面的基本疑難排解](virtual-machines-troubleshoot-remote-desktop-connections.md)再繼續進行。
 
 ## 連絡 Azure 客戶支援
 
-如果在本文章中有任何需要協助的地方，您可以連絡在 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
 
-或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下**取得支援**。如需使用 Azure 支援的相關資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
+或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
 
 
 ## 一般遠端桌面錯誤訊息
@@ -154,7 +156,7 @@
 	$vmName="<Name of the target virtual machine>"
 	.\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
 
-您可以從 **Get-AzureSubscription** 命令顯示的 _SubscriptionName_ 屬性，取得正確的訂用帳戶名稱。您可以從 **Get-AzureVM** 命令顯示畫面中的 _ServiceName_ 欄位，取得虛擬機器的雲端服務名稱。
+您可以從 **Get-AzureSubscription** 命令顯示畫面中的 _SubscriptionName_ 屬性，取得正確的訂用帳戶名稱。您可以從 **Get-AzureVM** 命令顯示畫面中的 _ServiceName_ 欄位，取得虛擬機器的雲端服務名稱。
 
 如欲證明您有新的憑證，請開啟目前使用者的憑證嵌入式管理單元，然後查看 **Trusted Root Certification Authorities\\Certificates** 資料夾。您應該在 Issued To 資料行中查看具有您的雲端服務之 DNS 名稱的憑證 (範例：cloudservice4testing.cloudapp.net)。
 
@@ -205,4 +207,4 @@ PortNumber 屬性會顯示目前的連接埠號碼。如有需要，請使用此
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

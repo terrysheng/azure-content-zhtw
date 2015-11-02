@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # 從 Visual Studio 部署
@@ -31,7 +31,7 @@
 
 2. 在對話方塊中，尋找 [**雲端**]，然後選取 [**Azure 資源群組**]。輸入 [**名稱**]，然後按一下 [**確定**]。![加入新的專案](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. 您現在必須選取想要 [**邏輯應用程式**]，還是 [**邏輯應用程式+API 應用程式**]。選取 [**邏輯應用程式**] 需要指向現有的 API 的應用程式。如果選取 [**邏輯應用程式+API 應用程式**]，則也可以同時建立新的空白 API 應用程式。![選取 Azure 範本](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+3. 您現在必須選取 [邏輯應用程式] 或 [邏輯應用程式 + API 應用程式]。選取 [邏輯應用程式] 需要指向現有的 API。如果選取 [邏輯應用程式 + API 應用程式]，則也可以同時建立新的空白 API 應用程式。![選取 Azure 範本](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
 4. 選取 [**範本**] 之後，按一下 [**確定**]。
 
@@ -39,13 +39,13 @@
 
 ## 設定邏輯應用程式
 
-建立專案後，您可以在 VS 內編輯邏輯應用程式的定義。在方案總管中，按一下 JSON 檔案。您會看到預留位置定義，您可以在其中填入應用程式的邏輯。
+建立專案後，您可以在 Visual Studio 內編輯邏輯應用程式的定義。在方案總管中，按一下 JSON 檔案。您會看到預留位置定義，您可以在其中填入應用程式的邏輯。
 
 建議在整個定義中都使用**參數**。當您想同時部署至開發與生產環境時，這樣會很有用。在此情況下，您應該將環境專用的所有組態放入 `.param` 檔案中，並使用參數，而不是實際字串。
 
-目前，Visual Studio 沒有內建的設計工具，如果想要使用圖形介面 (而不是撰寫 JSON)，您需要使用 Azure 入口網站。
+目前，Visual Studio 沒有內建的 JSON 設計工具，如果想要使用圖形化介面 (而不是撰寫 JSON)，您將需要使用 Azure 入口網站。
 
-如果您先前在 Azure 入口網站內建立邏輯應用程式，現在想要將它簽入原始檔控制中，您可以透過 3 種不同方法的其中之一來進行：移至入口網站中的 [**程式碼檢視**]，並複製定義。- 使用邏輯應用程式 [REST API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 取得定義。- 使用 [Azure 資源管理員 PowerShell](../powershell-azure-resource-manager.md) (特別是 [`Get-AzureResource` 命令](https://msdn.microsoft.com/library/dn654579.aspx)) 下載定義。
+如果您先前在 Azure 入口網站內建立邏輯應用程式，而現在想要將它簽入原始檔控制中，有 3 種不同的方法可以進行：移至入口網站中的 [程式碼檢視]，並複製定義。- 使用邏輯應用程式 [REST API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 取得定義。- 使用 [Azure 資源管理員 PowerShell](../powershell-azure-resource-manager.md) (特別是 [`Get-AzureResource` 命令](https://msdn.microsoft.com/library/dn654579.aspx)) 下載定義。
 
 ## 部署邏輯應用程式
 
@@ -61,8 +61,8 @@
     
 4. [**輸出**] 視窗會顯示部署狀態 (您可能需要選擇 [**Azure 佈建**]。![輸出](./media/app-service-logic-deploy-from-vs/output.png)
 
-未來，您可以在原始檔控制中修改邏輯應用程式，並利用 Visual Studio 來部署新的版本。請注意，如果您直接在 Azure 入口網站中修改定義，則下次從 Visual Studio 部署時會覆寫這些變更。
+未來，您可以在原始檔控制中修改邏輯應用程式，並利用 Visual Studio 來部署新的版本。請注意，如果您直接在 Azure 入口網站中修改定義，則下次從 Visual Studio 部署時會覆寫那些變更。
 
-如果您不想使用 Visual Studio，但仍想有工具從原始檔控制來部署邏輯應用程式，您永遠都能直接利用 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 或 [Powershell](../powershell-azure-resource-manager.md) 來自動化部署。
+如果您不想使用 Visual Studio，但仍想使用工具從原始檔控制來部署邏輯應用程式，您可以直接使用 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 或 [PowerShell](../powershell-azure-resource-manager.md) 將部署作業自動化。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

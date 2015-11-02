@@ -1,19 +1,19 @@
-<properties
-	pageTitle="最佳作法：Azure AD 密碼管理 | Microsoft Azure"
-	description="Azure Active Directory 中部署和使用方式的最佳作法、範例使用者文件和密碼管理的訓練指南。"
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="最佳做法：Azure AD 密碼管理 | Microsoft Azure" 
+	description="Azure Active Directory 中密碼管理的部署和使用方式最佳做法、範例使用者文件和訓練指南。" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 部署密碼管理並訓練使用者使用它
@@ -24,6 +24,7 @@
   * [自行填入驗證資料的方式](#ways-to-populate-authentication-data)
 * [**組織啟用密碼重設的最佳方式**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [以電子郵件為基礎的啟用與範例電子郵件通訊](#email-based-rollout)
+  * [針對您的使用者建立您自己的自訂密碼管理入口網站](#creating-your-own-password-portal)
   * [如何使用強制註冊來強制使用者在登入時註冊](#using-enforced-registration)
   * [如何上傳使用者帳戶的驗證資料](#uploading-data-yourself)
 * [**範例使用者和支援訓練教材 (即將推出！)**](#sample-training-materials)
@@ -71,7 +72,18 @@
 
   ![][001]
 
-您可以在[這裡](http://1drv.ms/1xWFtQM)下載此電子郵件範本。
+您可以[在這裡下載電子郵件範本](http://1drv.ms/1xWFtQM)。
+
+### 建立您自己的密碼入口網站
+針對部署密碼管理功能的大型客戶，其中一種策略就是建立一個使用者可以在單一位置管理所有與其密碼相關之項目的單一「密碼入口網站」。
+
+我們許多最大客戶都選擇建立根 DNS 項目，例如包含連結到 Azure AD 密碼重設入口網站、密碼重設註冊入口網站，以及密碼變更頁面的 https://passwords.contoso.com。如此一來，您送出的任何電子郵件或傳單都可以包含一個單一、令人印象深刻，且使用者能開始使用該服務時可以前往的 URL。
+
+為了此處的進行，我們建立了一個使用最新回應 UI 設計架構、且能夠在所有的瀏覽器與行動裝置上運作的簡易頁面。
+
+  ![][007]
+  
+您可以[在這裡下載網站範本](https://github.com/kenhoff/password-reset-page)。建議您針對貴組織的需求自訂標誌和色彩。
 
 ### 使用強制註冊
 如果您想讓使用者自行註冊密碼重設，也可以強制這些使用者在登入位於 [http://myapps.microsoft.com](http://myapps.microsoft.com) 的存取面板時註冊。您可以在目錄的 [設定] 索引標籤中，啟用 [要求使用者必須在登入存取面板時註冊嗎] 選項，以啟用此選項。
@@ -98,12 +110,12 @@
 1.	在 **Azure 管理入口網站**的 [Active Directory 延伸模組](https://manage.windowsazure.com)中瀏覽至您的目錄。
 2.	按一下 [使用者] 索引標籤。
 3.	從清單中選取您需要的使用者。
-4.	您會在第一個索引標籤上發現**備用電子郵件**項目，此項目可做為啟用密碼重設的屬性。
+4.	您會在第一個索引標籤上發現**備用電子郵件**項目，此項目可做為啟用密碼重設的屬性。 
 
     ![][005]
 
 5.	按一下 [工作資訊] 索引標籤。
-6.	您會在此頁面上發現**辦公室電話**、**行動電話**、**驗證電話**和**驗證電子郵件**。您也可以設定這些屬性，以允許使用者重設密碼。
+6.	您會在此頁面上發現**辦公室電話**、**行動電話**、**驗證電話**和**驗證電子郵件**。您也可以設定這些屬性，以允許使用者重設密碼。 
 
     ![][006]
 
@@ -122,7 +134,7 @@
 * [密碼管理如何運作](active-directory-passwords-how-it-works.md)
 * [開始使用密碼管理](active-directory-passwords-getting-started.md)
 * [自訂密碼管理](active-directory-passwords-customize.md)
-* [如何使用密碼管理報告取得深入的運作資訊](active-directory-passwords-get-insights.md)
+* [如何使用密碼管理報告取得 Operational Insights](active-directory-passwords-get-insights.md)
 * [密碼管理常見問題集](active-directory-passwords-faq.md)
 * [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
 * [深入了解](active-directory-passwords-learn-more.md)
@@ -136,5 +148,6 @@
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
+[007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

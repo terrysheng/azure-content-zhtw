@@ -257,6 +257,8 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
 您可以使用 `Test-Connection` Cmdlet，來判斷 StorSimple 裝置是否可連線到外部網路。如果已在安裝精靈中正確設定所有網路參數 (包括 DNS)，您就可以使用 `Test-Connection` Cmdlet 來傳送 Ping 給網路外部的已知位址，例如 outlook.com。
 
+如果 ping 已停用，您應該啟用 ping 以進行此 Cmdlet 之連線問題的疑難排解。
+
 請參閱下列來自 `Test-Connection` Cmdlet 的輸出範例。
 
 > [AZURE.NOTE]在第一個範例中，會以不正確的 DNS 設定裝置。在第二個範例中，DNS 是正確的。
@@ -575,4 +577,4 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -378,11 +378,8 @@
 18. 確認輸出檔案已建立在 **adftutorial** 容器的 **apifactoryoutput** 資料夾中。
 
 
-## 另請參閱
 
-文章 | 說明
------- | ---------------
-[Azure Data Factory 開發人員參考][developer-reference] | 開發人員參考包含 .NET 類別庫、Cmdlet、JSON 指令碼、函式等完整參考內容。 
+> [AZURE.NOTE]上述範例程式碼會啟動一個對話方塊供您輸入 Azure 認證。如果您需要以程式設計的方式登入，而不使用對話方塊，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)。
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -395,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

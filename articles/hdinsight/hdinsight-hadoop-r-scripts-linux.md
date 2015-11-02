@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/20/2015"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 R
@@ -48,7 +48,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 | [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | R 與 C++ 整合。 |
 | [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | R 物件序列化/還原序列化為 JSON |
 | [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | 整數向量的位元運算函數。 |
-| [摘要](建立 R 物件的密碼編譯雜湊摘要) | 建立 R 物件的密碼編譯雜湊摘要。 |
+| [摘要] (建立 R 物件的密碼編譯雜湊摘要) | 建立 R 物件的密碼編譯雜湊摘要。 |
 | [函數](https://cran.r-project.org/web/packages/functional/index.html) | Curry、撰寫和其他較高順序函數 |
 | [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | 有彈性地重新建構及彙總資料。 |
 | [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | 一般字串作業的簡單、一致包裝函式。 |
@@ -62,7 +62,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 
 > [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-1. 使用[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不完成佈建。
+1. 使用[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不要完成佈建。
 
 2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
 
@@ -75,7 +75,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 
-4. 繼續如[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中所述佈建叢集。
+4. 繼續如[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md#portal)中所述佈建叢集。
 
 ## 執行 R 指令碼
 
@@ -148,4 +148,4 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

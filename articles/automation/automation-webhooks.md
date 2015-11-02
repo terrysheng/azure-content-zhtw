@@ -169,7 +169,7 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 
 ## 啟動 Runbook 以回應 Azure 警示
 
-啟用 Webhook 的 Runbook 可以用來回應 [Azure 警示](Azure-portal/insights-receive-alert-notifications.md)。Azure 中的資源可以透過 Azure 警示的協助，藉由收集如效能、可用性和使用方式的統計資料進行監視。您可以收到根據監視您 Azure 資源的計量或事件的警示。當指定的計量值超過指派的閾值，或者如果設定的事件觸發，就會傳送通知給服務管理員或共同管理員以解決警示，如需計量和事件的詳細資訊，請參閱 [Azure 警示](Azure-portal/insights-receive-alert-notifications.md)。
+啟用 Webhook 的 Runbook 可以用來回應 [Azure 警示](Azure-portal/insights-receive-alert-notifications.md)。Azure 中的資源可以透過 Azure 警示的協助，藉由收集如效能、可用性和使用方式的統計資料進行監視。您可以收到根據監視您 Azure 資源的計量或事件的警示，目前自動化帳戶僅支援度量。當指定的計量值超過指派的閾值，或者如果設定的事件觸發，就會傳送通知給服務管理員或共同管理員以解決警示，如需計量和事件的詳細資訊，請參閱 [Azure 警示](Azure-portal/insights-receive-alert-notifications.md)。
 
 除了使用 Azure 的警示做為通知系統，也可以使用 Runbook 回應警示。Azure 自動化可讓您使用 Azure 警示執行啟用 Webhook 的 Runbook。當計量超過設定的閾值時，警示規則就會變成作用中，並且觸發自動化 Webhook，連帶執行 Runbook。
 
@@ -255,4 +255,4 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 - [檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job.md)
 - [使用 Azure 自動化對 Azure 警示採取動作](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

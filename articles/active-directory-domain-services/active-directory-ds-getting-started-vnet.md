@@ -21,7 +21,7 @@
 ## 選取 Azure 虛擬網路的指導方針
 選取要與 Azure AD 網域服務搭配使用的虛擬網路時，請記住下列指導方針：
 
-- 確定您選取的虛擬網路位於 Azure AD 網域服務所支援的區域中。您可以在[區域](active-directory-ds-regions.md)頁面上取得目前支援的 Azure 區域清單。
+- 確定您選取的虛擬網路位於 Azure AD 網域服務所支援的區域中。您可以在[區域頁面](active-directory-ds-regions.md)上取得目前支援的 Azure 區域清單。
 - 如果您打算使用現有的虛擬網路，請確定它是區域虛擬網路。使用舊版同質群組機制的虛擬網路不能與 Azure AD 網域服務搭配使用。您必須[將傳統的虛擬網路移轉到區域虛擬網路](../virtual-networks-migrate-to-regional-vnet.md)。
 - 選取目前裝載/將裝載需要存取 Azure AD 網域服務之虛擬機器的虛擬網路。您稍後便無法將網域服務移動到其他虛擬網路。
 
@@ -55,4 +55,4 @@
 ---
 [**下一個步驟 - 啟用 Azure AD 網域服務。**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

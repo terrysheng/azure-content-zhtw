@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/07/2015" 
+  ms.date="10/20/2015" 
   ms.author="tamram"/>
 
 # Azure 儲存體複寫
@@ -88,8 +88,10 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 |日本西部 |日本東部
 |巴西南部 |美國中南部
 |澳洲東部 |澳洲東南部
-|澳洲東南部|澳洲東部  
-
+|澳洲東南部|澳洲東部
+|印度南部 |印度中部
+|印度中部 |印度南部
+  
 
 ## 讀取權限異地備援儲存體
 
@@ -104,4 +106,4 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 - [使用 RA-GRS 的 Microsoft Azure 儲存體模擬器 3.1](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Azure 儲存體 SOSP 文件](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -17,6 +17,8 @@ ms.author="diviso"/>
 
 # 使用 Chef 自動化 Azure 虛擬機器部署
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Chef 是個很棒的工具，可提供自動化和所需狀態組態。
 
 在我們最新的雲端應用程式開發介面版本中，Chef 提供與 Azure 的緊密整合，您可以透過單一命令佈建和部署組態狀態。
@@ -237,4 +239,4 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

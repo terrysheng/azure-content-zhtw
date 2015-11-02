@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights C++ SDK 的版本資訊" 
-	description="最新的更新。" 
+	description="C++ SDK 的最新更新。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -25,7 +25,7 @@
 
 #### 升級至最新的 SDK 
 
-* 在 [方案總管] 中，以滑鼠右鍵按一下您的專案並選擇 [**管理 NuGet 封裝**]。
+* 在 [方案總管] 中，以滑鼠右鍵按一下您的專案並選擇 [管理 NuGet 封裝]。
 * 設定篩選器來顯示已安裝的封裝。 
 * 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
 * 使用新的版本號碼執行[設定步驟](app-insights-windows-cpp.md)。
@@ -37,4 +37,4 @@
 第一次發行
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -207,7 +207,11 @@
 
 21. 在 [設定 Data Factory] 頁面中，執行下列作業：
 	1. 選取 [建立新的 Data Factory] 選項。
-	2. 針對 [名稱] 輸入 **VSTutorialFactory**。
+	2. 針對 [名稱] 輸入 **VSTutorialFactory**。  
+	
+		> [AZURE.NOTE]Azure Data Factory 的名稱在全域必須是唯一的。如果您在發佈時收到與 Data Factory 名稱有關的錯誤，請變更 Data Factory 的名稱 (例如 yournameVSTutorialFactory) 並嘗試再發佈一次。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
+		> 
+		> Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
 	3. 針對 [訂用帳戶] 欄位選取適當的訂用帳戶。 
 	4. 針對要建立的 Data Factory 選取 [資源群組]。 
 	5. 選取 Data Factory 的 [區域]。 
@@ -236,4 +240,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

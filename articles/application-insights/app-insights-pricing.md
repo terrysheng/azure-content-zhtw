@@ -88,7 +88,7 @@
 * [例外狀況](app-insights-api-custom-events-metrics.md#track-exception)，限制為 50 點/秒。
 * 所有其他遙測 (頁面檢視、工作階段、要求、相依性、度量、自訂事件、Web 測試結果)。
 
-如果您的應用程式傳送的數量超過此限制，某些資料會卸除。您會看到通知，警告這種情況的發生。
+如果您的應用程式傳送超過限制的數量達數分鐘，某些資料可能會被捨棄。您會看到通知，警告這種情況的發生。
 
 ### 降低資料速率的秘訣
 
@@ -135,4 +135,4 @@ Application Insights 費用會加到您的 Azure 帳單中。您可以在 Azure 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

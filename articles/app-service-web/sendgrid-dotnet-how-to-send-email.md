@@ -29,7 +29,7 @@
 
 ## 什麼是 SendGrid 電子郵件服務？
 
-SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交易式電子郵件傳遞] (英文)，擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
+SendGrid 是[雲端架構電子郵件服務]，能提供可靠的[交易式電子郵件傳遞]，擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
 
 -   自動傳送回條給客戶。
 -   管理通訊群組清單，以便將每月電子傳單和特別優惠傳送給客戶。
@@ -52,9 +52,13 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
 若要在應用程式中安裝 SendGrid NuGet 封裝，請執行下列動作：
 
-1.  已建立新專案。![建立新專案][create-new-project]
+1.  建立新專案。
 
-2.  選取範本：![選取範本][select-a-template]
+    ![建立新專案][create-new-project]
+
+2.  選取範本。
+
+    ![選取範本][select-a-template]
 
 3.  在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [Manage NuGet Packages]。
 
@@ -104,13 +108,13 @@ SendGrid 的 .NET 類別庫稱為 **SendGridMail**。其中包含下列命名空
     myMessage.Html = "<p>Hello World!</p>";
     myMessage.Text = "Hello World plain text!";
 
-如需 **SendGrid** 類型支援的所有屬性和方法的詳細資訊，請參閱 GitHub 上的 [sendgrid-csharp][] (英文)。
+如需 **SendGrid** 類型支援的所有屬性和方法的詳細資訊，請參閱 GitHub 上的 [sendgrid-csharp][]。
 
 ## 如何：傳送電子郵件
 
 建立電子郵件之後，您可以使用 SendGrid 提供的 Web API 進行傳送。或者，您也可以[使用 .NET 的內建程式庫](https://sendgrid.com/docs/Code_Examples/csharp.html)。
 
-您必須提供 SendGrid 帳戶認證 (使用者名稱和密碼) 或 SendGrid API 金鑰，才能傳送電子郵件。API 金鑰為慣用方法。如果您需要有關如何設定 API 金鑰的詳細資訊，請造訪我們的[文件](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
+您必須提供 SendGrid 帳戶認證 (使用者名稱和密碼) 或 SendGrid API 金鑰，才能傳送電子郵件。API 金鑰為慣用方法。如果您需要有關如何設定 API 金鑰的詳細資訊，請參閱[文件](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
 
 您可以透過 Azure 入口網站儲存這些認證，只要按一下「應用程式設定」下的 [設定] 並新增金鑰/值組。
 
@@ -222,7 +226,7 @@ SendGrid 提供了運用應用程式的其他電子郵件功能。這些設定�
 
 ## 如何：使用其他 SendGrid 服務
 
-SendGrid 提供的網頁式 API 與 Webhook 可供從 Azure 應用程式運用其他 SendGrid 功能。如需完整詳細資料，請參閱 [SendGrid API 文件][] (英文)。
+SendGrid 提供的網頁式 API 與 Webhook 可供從 Azure 應用程式運用其他 SendGrid 功能。如需完整詳細資料，請參閱 [SendGrid API 文件][]。
 
 ## 後續步驟
 
@@ -257,4 +261,4 @@ SendGrid 提供的網頁式 API 與 Webhook 可供從 Azure 應用程式運用�
   [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

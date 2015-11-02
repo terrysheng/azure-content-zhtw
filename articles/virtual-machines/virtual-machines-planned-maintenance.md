@@ -20,6 +20,8 @@
 
 # Azure 虛擬機器的計劃性維護
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Azure 執行計劃性維護的原因
 
 為提升虛擬機器之基礎主機基礎結構的可靠性、效能和安全性，Microsoft Azure 會全球定期執行更新。許多這些更新在執行時並不會對虛擬機器或雲端服務造成任何影響，包括記憶體保留的更新。
@@ -118,4 +120,4 @@ Azure 將會組織一組區域配對。在虛擬機器使用單一執行個體�
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,16 +1,16 @@
 <properties 
 	pageTitle="佈建 Web 應用程式和 Redis 快取" 
 	description="使用 Azure 資源管理員範本來部署 Web 應用程式和 Redis 快取。" 
-	services="redis-cache" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
+	ms.service="app-service" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="cache-redis" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/08/2015" 
@@ -125,4 +125,4 @@
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

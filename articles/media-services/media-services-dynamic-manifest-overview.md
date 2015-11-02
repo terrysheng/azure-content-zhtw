@@ -3,7 +3,7 @@
 	description="本主題說明如何建立篩選器，讓您的用戶端可以使用篩選器來串流特定的資料流區段。媒體服務會建立動態資訊清單來封存此選擇性資料流。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="cenkdin,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #篩選器與動態資訊清單
@@ -74,7 +74,7 @@
 - 裝置特有：只傳遞用來播放內容的裝置所支援的指定轉譯和/或指定的語言資料軌 (「轉譯篩選」)。 
 - 縮小資訊清單以顯示即時事件的子剪輯 (「子剪輯篩選」)。
 - 修剪視訊開頭 (「修剪視訊」)。
-- 調整 [簡報視窗] \(DVR)，以便在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
+- 調整 [簡報視窗] (DVR)，以便在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
  
 為達到這種彈性，媒體服務會根據預先定義的[篩選器](media-services-dynamic-manifest-overview.md#filters)提供**動態資訊清單**。一旦您定義了篩選器，您的用戶端便會使用篩選器來串流視訊的特定轉譯或子剪輯。用戶端會在資料流 URL 中指定篩選器。篩選器可以套用到下列[動態封裝](media-services-dynamic-packaging-overview.md)支援的彈性位元速率資料流通訊協定：HLS、MPEG DASH、Smooth Streaming 和 HDS。例如：
 
@@ -209,6 +209,7 @@
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+
 ##另請參閱
 
 [將內容傳遞給客戶概觀](media-services-deliver-content-overview.md)
@@ -233,4 +234,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

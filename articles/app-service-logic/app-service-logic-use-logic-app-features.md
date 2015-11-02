@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # 使用 Logic Apps 功能
@@ -29,7 +29,7 @@
 
 ## 參考資料
 
-您可能會發現下列文件很實用：
+您可能會發現下列文件很有用：
 
 - [管理和執行階段 REST API](https://msdn.microsoft.com/library/azure/dn948513.aspx) - 包括如何直接叫用邏輯應用程式
 - [語言參考](https://msdn.microsoft.com/library/azure/dn948512.aspx) - 所有支援的函式/運算式完整清單
@@ -117,9 +117,9 @@ Logic Apps 的某些功能只能在程式碼檢視中使用。例如，參數就
 循環觸發程序會依照您指定的間隔執行。當觸發程序具有條件式邏輯時，觸發程序會判斷工作流程是否需要執行。觸發程序透過傳回 `200` 狀態碼，表示應執行。如果不需要執行，則會傳回 `202` 狀態碼。
 
 ### 使用 REST API 回呼
-服務可以呼叫邏輯應用程式端點以啟動工作流程。您可以您可以從邏輯應用程式中的 [**設定**] 命令列按鈕導覽至 [**屬性**] 分頁，以找出要存取的端點。
+服務可以呼叫邏輯應用程式端點以啟動工作流程。您可以您可以從邏輯應用程式中的 [**設定**] 命令列按鈕導覽至 [**屬性**] 刀鋒視窗，以找出要存取的端點。
 
-您可以從自訂應用程式內使用此回呼來叫用邏輯應用程式。您必須使用 [**基本**] 驗證。系統會為您建立 `default` 的使用者名稱，密碼則是 [**屬性**] 分頁上的 [**主要存取金鑰**] 欄位。例如：
+您可以從自訂應用程式內使用此回呼來叫用邏輯應用程式。您必須使用 [**基本**] 驗證。系統會為您建立 `default` 的使用者名稱，密碼則是 [**屬性**] 刀鋒視窗上的 [**主要存取金鑰**] 欄位。例如：
 
         POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
         Content-type: application/json
@@ -143,4 +143,4 @@ Logic Apps 的某些功能只能在程式碼檢視中使用。例如，參數就
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

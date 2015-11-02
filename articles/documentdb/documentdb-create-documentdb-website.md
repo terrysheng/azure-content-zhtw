@@ -2,7 +2,7 @@
 	pageTitle="使用 Azure 資源管理員範本部署 DocumentDB 和 Azure App Service Web Apps | Microsoft Azure" 
 	description="了解如何使用 Azure 資源管理員範本的部署 DocumentDB 帳戶、Azure App Service Web Apps，以及範例 Web 應用程式。" 
 	services="documentdb, app-service\web" 
-	authors="stephbaron" 
+	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="ryancraw"/>
 
 # 使用 Azure 資源管理員範本部署 DocumentDB 和 Azure App Service Web Apps #
 
@@ -33,7 +33,7 @@
 
 - Azure 訂用帳戶。Azure 是訂閱型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項](http://azure.microsoft.com/pricing/purchase-options/)、[成員優惠](http://azure.microsoft.com/pricing/member-offers/)或[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 - 一個 Azure 儲存體帳戶。如需相關指示，請參閱[關於 Azure 儲存體帳戶](../storage-whatis-account.md)。
-- 具有 Azure PowerShell 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。
+- 具有 Azure PowerShell 0.9.8 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。本教學課程尚未針對 Azure PowerShell 1.0 預覽更新。 
 
 ##<a id="CreateDB"></a>步驟 1：下載並解壓縮範例檔案 ##
 讓我們從下載範例檔案開始，我們將在本教學課程中使用。
@@ -210,4 +210,4 @@
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

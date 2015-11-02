@@ -17,7 +17,11 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Azure Windows VM 延伸模組組態範例。
+# Azure Windows VM 延伸模組組態範例
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
+
 
 本文提供範例組態，可用來設定 Windows VM 的 Azure VM 延伸模組。
 
@@ -304,4 +308,4 @@
 
 [Windows VM 上的自訂指令碼延伸模組](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

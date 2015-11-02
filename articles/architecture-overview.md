@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/16/2015" 
 	ms.author="robb"/>
 
 #Microsoft Azure 上的應用程式架構
@@ -108,4 +108,4 @@ Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建�
 
 ![Azure 架構資訊圖](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="以 R 在 Machine Learning 上建置的 Web 服務範例 | Microsoft Azure" 
 	description="尋找以 R 程式碼和 Machine Learning 建立的一組實用 Web 服務範例，並發佈至 Azure Marketplace。" 
-	keywords="csharp,r code,web services examples"
+	keywords="csharp,r 程式碼,web 服務範例"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 
@@ -74,4 +74,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

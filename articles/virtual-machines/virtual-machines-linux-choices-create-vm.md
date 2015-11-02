@@ -19,6 +19,8 @@
 
 # 建立 Linux 虛擬機器的不同方式
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Azure 提供建立 VM 的不同方式，因為 VM 適用於不同的使用者和用途。這表示您必須進行一些關於 VM 的選擇，並選擇建立它的方式。本文提供這些選項及指示連結的摘要說明。
 
 我們最近推出 Azure 資源管理員範本做為一種方式，用以建立虛擬機器，並將它與其不同資源當成一個邏輯部署單位來管理。以下提供這個可用方法的指示。若要深入了解 Azure 資源管理員，以及如何將資源當成一個單位來管理，請參閱[概觀][]。
@@ -101,4 +103,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 [建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 [建立自訂虛擬機器]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

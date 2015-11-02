@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 REST 設定內容金鑰授權原則" 
-	description="了解如何設定內容金鑰的授權原則。" 
+	pageTitle="使用媒體服務 REST API 設定內容金鑰授權原則" 
+	description="了解如何使用媒體服務 REST API 設定內容金鑰的授權原則。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -481,4 +481,4 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

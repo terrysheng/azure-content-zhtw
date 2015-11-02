@@ -1,8 +1,6 @@
 <properties
-	title="Getting started with elastic database query"
-	pageTitle="開始使用彈性資料庫查詢"
-	description="如何使用彈性資料庫查詢"
-	metaKeywords="azure sql database elastic queries"
+	pageTitle="開始使用彈性查詢進行分區化 (水平資料分割) | Microsoft Azure"
+	description="如何使用跨資料庫的資料庫查詢"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -14,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="sidneyh" />
+	ms.date="10/15/2015"
+	ms.author="SilviaDoomra" />
 
-# 開始使用彈性資料庫查詢
+# 開始使用彈性查詢進行分區化 (水平資料分割)
 
 Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連接點跨越多個資料庫的 T-SQL 查詢。如需有關彈性資料庫查詢功能的詳細資訊，請參閱 [功能概觀頁](sql-database-elastic-query-overview.md)。
 
@@ -126,7 +124,7 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 儲存在不同分區中、來自 [**客戶**] 資料表的所有資料列會填入 Excel 工作表。
 
 ## 後續步驟
-您現在可以使用 Excel 強大資料功能。您可以使用具備您的伺服器名稱、資料庫名稱和認證的連接字串來連接您的 BI 和資料整合工具至彈性查詢資料庫。請確定 SQL Server 可支援做為您的工具的資料來源。您可以參考彈性查詢資料庫和外部資料表，就如同您會使用您的工具連接的任何其他 SQL Server 資料庫和 SQL Server 資料表。
+您現在可以使用 Excel 強大的資料視覺化功能。您可以使用具備您的伺服器名稱、資料庫名稱和認證的連接字串來連接您的 BI 和資料整合工具至彈性查詢資料庫。請確定 SQL Server 可支援做為您的工具的資料來源。您可以參考彈性查詢資料庫和外部資料表，就如同您會使用您的工具連接的任何其他 SQL Server 資料庫和 SQL Server 資料表。
 
 ### 成本
 使用彈性資料庫查詢功能不另行收費。不過，目前這項功能僅適用於 Premium 資料庫做為端點，但分區可以是任何服務層。
@@ -144,4 +142,4 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

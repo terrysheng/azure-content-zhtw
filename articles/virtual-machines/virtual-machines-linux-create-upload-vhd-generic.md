@@ -19,6 +19,8 @@
 
 # <a id="nonendorsed"> </a>非背書散發套件的資訊 #
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 **重要事項**：只有在使用其中一個[背書散發套件](virtual-machines-../linux-endorsed-distributions.md)時，Azure 平台 SLA 才適用於執行 Linux OS 的虛擬機器。Azure 映像庫中提供的所有 Linux 散發套件，皆為使用必要組態的背書散發套件。
 
@@ -190,4 +192,4 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 - 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/20/2015"
 	ms.author="carlrab"/>
 
 
@@ -22,7 +22,7 @@
 
 ## 概觀
 
-在 SQL Server 2012 SP1 CU2 中發表了能夠將 SQL Server 備份寫入 Azure Blob 儲存體服務的功能。您可以使用此功能，從內部部署 SQL Server 資料庫或 Azure 虛擬機器中的 SQL Server 資料庫，備份及還原 Azure Blob 服務。備份至雲端提供的好處包括可用性、無限制的地理區域備援異地儲存體，以及輕鬆地與雲端之間來回移轉資料。在此版本中，您可以使用 Transact-SQL 或 SMO 發出 BACKUP 或 RESTORE 陳述式。
+在 SQL Server 2012 SP1 CU2 中發表了能夠將 SQL Server 備份寫入 Azure Blob 儲存體服務的功能。您可以使用此功能，搭配內部部署 SQL Server 資料庫或 Azure 虛擬機器中的 SQL Server 資料庫，從 Azure Blob 服務備份或還原。備份至雲端提供的好處包括可用性、無限制的地理區域備援異地儲存體，以及輕鬆地與雲端之間來回移轉資料。您可以使用 Transact-SQL 或 SMO 發出 BACKUP 或 RESTORE 陳述式。
 
 ## 使用 Azure Blob 服務進行 SQL Server 備份的好處
 
@@ -73,4 +73,4 @@
 
 [備份與還原最佳作法 (Azure Blob 儲存體服務)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

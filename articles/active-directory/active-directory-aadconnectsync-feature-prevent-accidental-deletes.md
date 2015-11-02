@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # 防止意外刪除
@@ -39,7 +39,7 @@
 
 如果想要刪除所有項目，請執行下列作業：
 
-1. 若要暫時停用此保護功能，刪除這些項目，請執行 PowerShell Cmdlet：`Disable-ADSyncExportDeletionThreshold`。
+1. 若要暫時停用此保護功能並刪除這些項目，請執行 PowerShell Cmdlet：`Disable-ADSyncExportDeletionThreshold`。當系統要求您輸入認證時，請提供 Azure AD 全域系統管理員帳戶與密碼。![認證](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
 2. 如果 Azure Active Directory Connector 仍處於選取狀態，請選取 [執行] 動作，再選取 [匯出]。
 3. 若要重新啟用此保護功能，請執行 PowerShell Cmdlet：`Enable-ADSyncExportDeletionThreshold`。
 
@@ -48,4 +48,4 @@
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

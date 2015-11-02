@@ -73,7 +73,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 當您呼叫 **IoTHubClient\_SendEventAsync** 時，您其實是在將事件放在緩衝區中。當您呼叫 **IoTHubClient\_CreateFromConnectionString** 時建立的背景執行緒會持續監視這個緩衝區，並將它所包含的任何資料傳送到 IoT 中心。這些動作會在主執行緒執行其他工作的同時在背景中進行。
 
-同樣地，在您使用 **IoTHubClient\_SetMessageCallback** 註冊訊息的回呼函式時，您正在通知 SDK 在收到訊息時讓背景執行緒叫用回呼函式—獨立於主執行緒。
+同樣地，在您使用 **IoTHubClient\_SetMessageCallback** 註冊訊息的回呼函式時，您正在指示 SDK 在收到訊息時讓背景執行緒叫用回呼函式—獨立於主執行緒。
 
 “LL” API 不會建立背景執行緒。而是必須呼叫新的 API 明確地與 IoT 中心之間傳送和接收資料。同樣地，我們來看一下範例...
 
@@ -276,4 +276,4 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 這篇文章會深入探討 **Azure IoT 裝置 SDK for C** 中發現之 **IoTHubClient** 程式庫的行為。利用這項資訊，您就可以充分了解 **IoTHubClient** 程式庫的功能。在[下一篇文章](iot-hub-device-sdk-c-serializer.md)中，我們將提供**序列化程式**程式庫的類似詳細資料。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -2,7 +2,6 @@
 	pageTitle="處理 SQL Azure 的資料 |Microsoft Azure" 
 	description="處理 SQL Azure 的資料" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="fashah" 
 	manager="paulettm" 
@@ -127,7 +126,7 @@
 
 ##<a name="python"></a>使用類似 Python 的程式設計語言
 
-當資料位於 SQL Server 時，使用 Python 來探索資料和產生功能，類似於使用 Python 來處理 Azure Blob 中的資料，如[此處](machine-learning-data-science-process-data-blob.md)所述。資料必須從資料庫載入 Pandas 資料框架，然後就能進一步處理。我們將在本節中說明連接到資料庫以及將資料載入資料框架的程序。
+當資料位於 SQL Server 時，使用 Python 來瀏覽資料與產生功能，類似於使用 Python 來處理 Azure blob 中的資料，如[在資料科學環境中處理 Azure Blob 資料](machine-learning-data-science-process-data-blob.md)文件所述。資料必須從資料庫載入 Pandas 資料框架，然後就能進一步處理。我們將在本節中說明連接到資料庫以及將資料載入資料框架的程序。
 
 下列連接字串格式可用來使用 pyodbc (使用您的特定值來取代伺服器名稱、dbname、使用者名稱和密碼)，從 Python 連接到 SQL Server 資料庫：
 
@@ -153,4 +152,4 @@ Python 中的 [Pandas 程式庫](http://pandas.pydata.org/)提供一組豐富的
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

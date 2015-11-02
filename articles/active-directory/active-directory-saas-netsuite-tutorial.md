@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #教學課程：如何整合 NetSuite 與 Azure Active Directory
 
 本教學課程將示範如何將 NetSuite 環境與 Azure Active Directory (Azure AD) 連接。您將學習如何設定單一登入 NetSuite、如何啟用自動的使用者佈建，以及如何指派使用者存取 NetSuite。
 
-##必要條件
+##先決條件
 
 1. 若要透過 [Azure 管理入口網站](https://manage.windowsazure.com)存取 Azure Active Directory，您必須先具備有效的 Azure 訂用帳戶。
 
@@ -66,13 +66,13 @@
 
 	> [AZURE.NOTE]若要深入了解有關不同單一登入的選項，請[按一下這裡](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
-3. 在 [設定應用程式設定] 頁面的 [登入 URL] 欄位中，使用下列其中一種格式輸入您的 NetSuite 租用戶 URL：
-	- `https://<tenant-name>.netsuite.com`
-	- `https://<tenant-name>.na1.netsuite.com`
-	- `https://<tenant-name>.na2.netsuite.com`
-	- `https://<tenant-name>.sandbox.netsuite.com`
-	- `https://<tenant-name>.na1.sandbox.netsuite.com`
-	- `https://<tenant-name>.na2.sandbox.netsuite.com`
+3. 在 [設定應用程式設定] 頁面的 [回覆 URL] 欄位中，使用下列其中一種格式輸入您的 NetSuite 租用戶 URL：
+	- `https://<tenant-name>.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	![輸入您的租用戶 URL][8]
 
@@ -116,7 +116,7 @@
 
 	![輸入您的電子郵件地址。][15]
 
-11. 按一下 [完成] 關閉對話方塊。接著，按一下頁面頂端的 [屬性]。
+11. 按一下 [完成] 以關閉對話方塊。接著，按一下頁面頂端的 [屬性]。
 
 	![按一下 [屬性]。][17]
 
@@ -128,7 +128,7 @@
 
 	![新增您的 NetSuite 帳戶識別碼。][19]
 
-	- 在 NetSuite 中，從頂端導覽功能表按一下 [設定]。
+	- 在 NetSuite 中，從頂端瀏覽功能表按一下 [設定]。
 	- 然後按一下左方瀏覽功能表上的 [設定工作] 區段，選取 [整合] 區段，然後按一下 [Web 服務喜好設定]。
 	- 複製您的 NetSuite 帳戶識別碼，並將它貼到 Azure AD 中的 [屬性值] 欄位。
 
@@ -140,57 +140,59 @@
 
 15. 在使用者可以執行單一登入 NetSuite 之前，必須先在 NetSuite 中指派適當的權限。請依照下列指示來指派這些權限。
 
-	- 在頂端的導覽功能表上，按一下 [設定]，然後按一下 [設定管理員]。
+	- 在頂端的瀏覽功能表上，按一下 [設定]，然後按一下 [設定管理員]。
 
-	![移至 [設定管理員]][10]
+		![移至 [設定管理員]][10]
 
-	- 在左方的導覽功能表上，選取 [使用者/角色]，然後按一下 [管理角色]。
+	- 在左方的瀏覽功能表上，選取 [使用者/角色]，然後按一下 [管理角色]。
 
-	![請移至 [管理角色]][22]
+		![請移至 [管理角色]][22]
 
 	- 按一下 [新角色]。
 
 	- 輸入新角色的 [名稱]，然後選取 [僅單一登入] 核取方塊。
 
-	![命名新的角色。][23]
+		![命名新的角色。][23]
 
 	- 按一下 [儲存]。
 
 	- 在頂端的功能表中，按一下 [權限]。然後按一下 [設定]。
 
-	![移至 [權限]][24]
+		![移至 [權限]][24]
 
 	- 選取 [設定 SAM 單一登入]，然後按一下 [新增]。
 
 	- 按一下 [儲存]。
 
-	- 在頂端的導覽功能表上，按一下 [設定]，然後按一下 [設定管理員]。
+	- 在頂端的瀏覽功能表上，按一下 [設定]，然後按一下 [設定管理員]。
 
-	![移至 [設定管理員]][10]
+		![移至 [設定管理員]][10]
 
-	- 在左方的導覽功能表上，選取 [使用者/角色]，然後按一下 [管理使用者]。
+	- 在左方的瀏覽功能表上，選取 [使用者/角色]，然後按一下 [管理使用者]。
 
-	![移至 [管理使用者]][25]
+		![移至 [管理使用者]][25]
 
 	- 選取測試使用者。然後按一下 [編輯]。
 
-	![移至 [管理使用者]][26]
+		![移至 [管理使用者]][26]
 
 	- 在 [角色] 對話方塊中，選取您建立的角色，然後按一下 [新增]。
 
-	![移至 [管理使用者]][27]
+		![移至 [管理使用者]][27]
 
 	- 按一下 [儲存]。
 
-19. 若要測試您的組態，請參閱下面標題為[指派使用者至 NetSuite](#step-4-assign-users-to-netsuite)的章節。
+19. 若要測試您的組態，請參閱下面標題為[指派使用者至 NetSuite](#step-4-assign-users-to-netsuite) 的小節。
 
 ##步驟 3：啟用自動的使用者佈建
+
+> [AZURE.NOTE]根據預設，您已佈建的使用者會新增到您 NetSuite 環境的根子公司。
 
 1. 在 Azure Active Directory 中 NetSuite 的 [快速入門] 頁面上，按一下 [設定使用者佈建]。
 
 	![設定使用者佈建][28]
 
-2. 在開啟的對話方塊中，輸入 NetSuite 的系統管理員認證，然後按 [下一步]。
+2. 在開啟的對話方塊中，輸入 NetSuite 的系統管理員認證，然後按一下 [下一步]。
 
 	![輸入您的 NetSuite 系統管理員認證。][29]
 
@@ -198,7 +200,7 @@
 
 	![確認。][30]
 
-4. 按一下 [完成] 關閉對話方塊。
+4. 按一下 [完成] 以關閉對話方塊。
 
 ##步驟 4：指派使用者至 NetSuite
 
@@ -216,7 +218,7 @@
 
  - 如果已啟用自動的使用者佈建，您會看到提示，定義使用者在 NetSuite 中要具備何種角色。幾分鐘之後，新佈建的使用者應該就會出現在 NetSuite 環境中。
 
-4. 若要測試您的單一登入設定，請開啟 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 的 [存取面板]、登入測試帳戶，然後按一下 [NetSuite]。
+4. 若要測試您的單一登入設定，請開啟位於 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 的 [存取面板]、登入測試帳戶，然後按一下 [NetSuite]。
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
@@ -254,4 +256,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

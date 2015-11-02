@@ -3,7 +3,7 @@
 	description="本主題說明如何使用 .NET 來使用 Media Encoder Standard 為資產編碼。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"    
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
@@ -125,4 +125,4 @@
 
 [如何使用 .NET 的媒體編碼器標準產生縮圖](media-services-dotnet-generate-thumbnail-with-mes.md) [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -15,10 +15,10 @@
 - [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 	- [如何整合 Salesforce](active-directory-saas-salesforce-tutorial.md)
 	- [如何整合 Google Apps](active-directory-saas-google-apps-tutorial.md)
-	- [如何整合 Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
-	- [如何整合 ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [如何整合 Dropbox for Business](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [如何整合 Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
+	- [如何整合 Box](active-directory-saas-box-tutorial.md)
+	- [如何整合 ServiceNow](active-directory-saas-servicenow-tutorial.md)
+	- [如何整合 Dropbox for Business](active-directory-saas-dropboxforbusiness-tutorial.md)
+	- [如何整合 Workday](active-directory-saas-workday-tutorial.md) 
 	- [更多 SaaS 應用程式教學課程...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

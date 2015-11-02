@@ -18,13 +18,15 @@
 
 # 如何使用服務匯流排佇列
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 本文說明如何使用服務匯流排佇列。相關範例是以 Java 撰寫並使用 [Azure SDK for Java][]。本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
 ## 設定應用程式以使用服務匯流排
 
-先確定已安裝 [Azure SDK for Java][] 再建置此範例。如果您正在使用 Eclipse，就可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][]。然後可將 **Microsoft Azure Libraries for Java** 新增至您的專案：
+先確定已安裝 [Azure SDK for Java][] 再建置此範例。如果使用 Eclipse，您可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][]。然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
 
 ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -40,7 +42,7 @@ import javax.xml.datatype.*;
 
 ## 建立佇列
 
-可以透過 **ServiceBusContract** 類別，來執行服務匯流排佇列的管理作業。**ServiceBusContract** 物件是利用使用權限來封裝 SAS 權杖加以管理的適當組態來建構，而 **ServiceBusContract** 類別是唯一可與 Azure 通訊的點。
+可以透過 **ServiceBusContract** 類別，來執行服務匯流排佇列的管理作業。**ServiceBusContract** 物件是利用使用權限來封裝 SAS 權杖以加以管理的適當組態所建構，而 **ServiceBusContract** 類別是唯一可與 Azure 通訊的點。
 
 **ServiceBusService** 類別提供建立、列舉及刪除佇列的方法。以下範例顯示如何使用 **ServiceBusService** 物件建立名稱為「TestQueue」的佇列及名稱為「HowToSample」的命名空間：
 
@@ -90,7 +92,7 @@ import javax.xml.datatype.*;
         System.exit(-1);
     }
 
-傳送至和擷取自服務匯流排佇列的訊息是 [BrokeredMessage][] 類別的執行個體。[BrokeredMessage][] 物件具有一組標準屬性 (例如 [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 和 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx))、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 [BrokeredMessage][] 的建構函式，接著系統便會使用適當的序列化程式來序列化物件。此外，您也可以提供 **java.IO.InputStream** 物件。
+傳送至 (和接收自) 服務匯流排佇列的訊息是 [BrokeredMessage][] 類別的執行個體。[BrokeredMessage][] 物件具有一組標準屬性 (例如 [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 和 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx))、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 [BrokeredMessage][] 的建構函式，接著系統便會使用適當的序列化程式來序列化物件。此外，您也可以提供 **java.IO.InputStream** 物件。
 
 下列範例示範如何將五則測試訊息傳送至上述程式碼片段中所取得的 `TestQueue` **MessageSender**：
 
@@ -188,4 +190,4 @@ import javax.xml.datatype.*;
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="07/02/2015"
+   ms.date="10/21/2015"
    ms.author="rasquill"/>
 
 # 使用範本建立應用程式架構
 
-請使用這個範本，快速設計出色的作品。
+請使用這個範本，快速設計出色的作品。除了這些範本之外，您也可以透過範本搜尋](https://azure.microsoft.com/documentation/templates/)。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
@@ -53,4 +53,4 @@
 
 深入了解 [Azure 資源管理員](../resource-group-template-deploy.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

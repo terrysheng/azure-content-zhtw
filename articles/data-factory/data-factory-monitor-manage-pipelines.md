@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # 監視和管理 Azure Data Factory 管線
@@ -475,4 +475,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure Blob 儲存體中的取樣資料 | Microsoft Azure" 
+	pageTitle="Azure blob 儲存體中的取樣資料 | Microsoft Azure" 
 	description="Azure Blob 儲存體中的取樣資料" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,12 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.date="10/20/2015" 
+	ms.author="sunliangms;fashah;garye;bradsev" />
 
-#<a name="heading"></a>Azure Blob 儲存體中的取樣資料
+#<a name="heading"></a>Azure blob 儲存體中的取樣資料
 
-本文件說明為儲存於 Azure Blob 儲存體中的資料進行取樣，您可以利用程式設計方式下載它，然後使用 Python 程式碼範例來對它進行取樣。執行此動作的步驟如下：
+此**功能表**連結說明如何從各種不同儲存體環境進行資料取樣的連結。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## 簡介
+
+本文件說明為儲存於 Azure blob 儲存體中的資料進行取樣，您可以利用程式設計方式下載它，然後使用 Python 程式碼範例來對它進行取樣。執行此動作的步驟如下：
 
 ## 下載和降低取樣資料
 1. 從下列 Python 程式碼範例中，使用 Blob 服務，從 Azure Blob 儲存體下載資料。 
@@ -97,4 +103,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

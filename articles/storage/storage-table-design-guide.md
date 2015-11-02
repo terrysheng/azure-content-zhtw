@@ -3,8 +3,8 @@
    description="在 Azure 資料表儲存體中設計可擴充且高效能的資料表"
    services="storage"
    documentationCenter="na"
-   authors="tamram" 
-   manager="carolz"
+   authors="jasonnewyork" 
+   manager="tadb"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage"
    ms.date="08/03/2015"
-   ms.author="tamram"/>
+   ms.author="jahogg"/>
 
 # Azure 儲存體資料表設計指南：設計可調整且效用佳的資料表
 
@@ -1550,4 +1550,4 @@ Storage Analytics 會在內部緩衝處理記錄訊息，然後定期更新適�
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

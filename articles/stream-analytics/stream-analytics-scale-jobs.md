@@ -1,7 +1,7 @@
 <properties
 	pageTitle="調整串流分析工作以增加輸送量 | Microsoft Azure"
 	description="了解如何透過設定輸入資料分割、微調查詢定義，及設定工作串流處理單元來調整串流分析工作。"
-	keywords="analytics jobs,data stream,data streaming"
+	keywords="分析工作,資料流,資料流,analytics jobs,data stream,data streaming"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -265,4 +265,4 @@ Azure 串流分析工作定義包含輸入、查詢及輸出。輸入是工作�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

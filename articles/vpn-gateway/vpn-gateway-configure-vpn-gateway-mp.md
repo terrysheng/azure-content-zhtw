@@ -5,19 +5,25 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # 設定 Azure 入口網站中的 VPN 閘道
 
-如果您想要在 Azure 和內部部署位置之間建立安全的跨單位連接，您將需要設定 VPN 閘道。閘道有不同的類型，而您將建立的閘道類型取決於您的網路設計計劃，以及您想要使用的內部部署 VPN 裝置。例如，某些連線選項，例如點對站台連接，則需要動態路由閘道。如果您想要將閘道設定為同時支援點對站台 (P2S) 連線和站台對站台 (S2S) 連接，則您將必須設定動態路由閘道，即使站台對站台可以使用其中一種閘道路由類型進行設定。此外，您必須確定要用於站台對站台連線的裝置將支援所要建立的閘道類型。請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。
+>[AZURE.NOTE]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+
+本文章是針對傳統部署模型與 Azure 入口網站 (而非 Preview Portal) 所撰寫。此時，如果您想要使用入口網站為傳統部署模型設定 VPN 閘道，您必須使用 Azure 入口網站。
+
+如果您想要在 Azure 和內部部署位置之間建立安全的跨單位連接，您將需要設定 VPN 閘道。閘道有不同的類型，而您將建立的閘道類型取決於您的網路設計計劃，以及您想要使用的內部部署 VPN 裝置。例如，某些連線選項，例如點對站台連接，則需要動態路由閘道。如果您想要將閘道設定為同時支援點對站台 (P2S) 連線和站台對站台 (S2S) 連接，則您將必須設定動態路由閘道，即使站台對站台可以使用其中一種閘道路由類型進行設定。此外，您必須確定要用於站台對站台連線的裝置將支援所要建立的閘道類型。請參閱〈[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)〉。
 
 ## 組態概觀
 
@@ -37,7 +43,7 @@
 
 ## 建立 VPN 閘道
 
-1. 在 Azure 入口網站的 [**網路**] 頁面上，確認您的虛擬網路的狀態欄為 [**已建立**]。
+1. 在 Azure 入口網站的 [網路] 頁面上，確認您的虛擬網路的狀態欄為 [已建立]。
 
 1. 在 [**名稱**] 資料行中，按一下虛擬網路的名稱。
 
@@ -151,4 +157,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

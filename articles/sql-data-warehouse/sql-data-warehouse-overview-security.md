@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/15/2015"
    ms.author="sahajs"/>
 
 # 保護 SQL 資料倉儲中的資料庫
@@ -78,7 +78,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 ## 加密
 
-Azure SQL 資料倉儲可以使用[透明資料加密][]，透過加密「靜止」時的資料，或儲存在資料庫檔案和備份中的資料，來協助保護您的資料。若要加密您的資料庫，請以資料庫擁有者的身分連線，然後執行：
+Azure SQL 資料倉儲可以使用[透明資料加密][]，透過加密「靜止」時的資料，或儲存在資料庫檔案和備份中的資料，來協助保護您的資料。若要加密您的資料庫，請連接到您伺服器上的主要資料庫並執行：
 
 
 ```
@@ -119,4 +119,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure Preview 入口網站中的角色型存取控制]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

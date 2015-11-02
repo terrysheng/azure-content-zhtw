@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Java 適用的 Application Insights 版本資訊" 
-	description="最新的更新。" 
+	description="Java SDK 的最新更新。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -22,7 +22,7 @@
 
 請參閱[開始使用 SDK for Java](app-insights-java-get-started.md)。
 
-#### 若要升級至最新的 SDK 
+#### 升級至最新的 SDK 
 
 升級之後，必須將您對 ApplicationInsights.xml 所做的任何自訂合併回來。請取得一份複本來與新的檔案比較。
 
@@ -68,4 +68,4 @@
 - 能夠藉由將 ```SyntheticSource``` 屬性加入至報告項目，將遙測項目標記為綜合。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

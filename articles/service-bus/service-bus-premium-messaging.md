@@ -1,5 +1,5 @@
 <properties
-	pageTitle="服務匯流排進階和標準傳訊層級概觀 | Microsoft Azure"
+	pageTitle="服務匯流排進階和標準傳訊定價層概觀 | Microsoft Azure"
 	description="服務匯流排進階和標準傳訊"
 	services="service-bus"
 	documentationCenter=".net"
@@ -9,12 +9,12 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="sethm"/>
+	ms.date="10/15/2015"
+	ms.author="darosa"/>
 
 # 服務匯流排進階和標準傳訊層級 
 
@@ -41,7 +41,7 @@
 
 ### 資料分割實體
 
-資料分割實體可在進階訊息中提供支援，但是其運作方式與在服務匯流排傳訊的標準和基本層級中不同。進階傳訊不會使用 SQL 做為資料存放區，而且不可能再有與共用平台相關聯的資源競爭。因此，不一定需要資料分割。此外，資料分割計數已從標準傳訊中的 16 個資料分割變更為進階傳訊中的兩個資料分割。擁有 2 個資料分割可確保可用性，而且是比較適合進階執行階段環境的數字。如需詳細資訊，請參閱[分割傳訊實體](https://msdn.microsoft.com/library/dn520246.aspx)。
+資料分割實體可在進階訊息中提供支援，但是其運作方式與在服務匯流排傳訊的標準和基本層級中不同。進階傳訊不會使用 SQL 做為資料存放區，而且不可能再有與共用平台相關聯的資源競爭。因此，不一定需要資料分割。此外，資料分割計數已從標準傳訊中的 16 個資料分割變更為進階傳訊中的兩個資料分割。擁有 2 個資料分割可確保可用性，而且是比較適合進階執行階段環境的數字。如需詳細資訊，請參閱[分割傳訊實體](service-bus-partitioning.md)。
 
 ### 快速實體
 
@@ -54,7 +54,7 @@
 - [Azure 服務匯流排進階傳訊簡介 (部落格文章)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Azure 服務匯流排進階傳訊簡介 (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [服務匯流排訊息概觀](service-bus-messaging-overview.md)
-- [Azure 服務匯流排架構概觀](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 服務匯流排架構概觀](service-bus-fundamentals-hybrid-solutions.md)
 - [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

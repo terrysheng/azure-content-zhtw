@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="使用參考資料 | Microsoft Azure" 
 	description="使用參考資料做為輸入資料流" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="巨量資料分析,雲端服務,物聯網,受管理的服務,串流處理,資料流分析,資料流處理資料,big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -19,7 +19,7 @@
 
 # 使用參考資料做為輸入
 
-參考資料是靜態或本質上不常變更的有限資料集，可用來執行查閱或相互關聯資料流。若要使用 Azure 串流分析工作中的參考資料，您通常會使用查詢中的[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。串流分析會使用 Azure Blob 儲存體做為參考資料的儲存層，且可和 Azure Data Factory 參考資料一起轉換和/或複製到來自[任意數目的雲端架構和內部部署資料存放區](./articles/data-factory-data-movement-activities.md)的 Azure Blob 儲存體，做為參考資料。
+參考資料是靜態或本質上不常變更的有限資料集，可用來執行查閱或相互關聯資料流。若要使用 Azure 串流分析工作中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。串流分析會使用 Azure Blob 儲存體做為參考資料的儲存層，且可和 Azure Data Factory 參考資料一起轉換和/或複製到來自[任意數目的雲端架構和內部部署資料存放區](./articles/data-factory-data-movement-activities.md)的 Azure Blob 儲存體，做為參考資料。
 
 ## 設定參考資料
 
@@ -79,15 +79,15 @@
 [Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/) 可以用來協調建立串流分析所需的更新 blob 工作，以更新參考資料定義。Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。Data Factory 支援[連接到大量的雲端架構和內部部署資料存放區](./articles/data-factory-data-movement-activities.md)以及根據您指定的固定排程輕鬆地移動資料。如需詳細資訊以及有關如何設定 Data Factory 管線以產生在預先定義排程上重新整理之串流分析的參考資料的逐步指引，請參閱 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)。
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 以上就是串流分析 (物聯網資料串流分析專用的受管理服務) 的簡介。若要深入了解此服務，請參閱：
 
-- [開始使用 Azure 串流分析](stream-analytics-get-started.md)
-- [調整 Azure 串流分析工作](stream-analytics-scale-jobs.md)
-- [Azure 串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
+- [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
@@ -97,4 +97,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

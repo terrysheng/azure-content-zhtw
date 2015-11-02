@@ -3,7 +3,7 @@
 	description="本主題概要說明並提供 Azire 隨選媒體編碼器的比較。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015"  
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Azure 隨選媒體編碼器的概觀和比較
 
 ##編碼概觀
 
-編碼器會使用轉碼器壓縮數位媒體。編碼器通常會有各種設定，可讓您指定產生的媒體屬性，例如使用的轉碼器、檔案格式、解析度和位元速率。檔案格式是容器，可用來保存已壓縮視訊以及使用哪些轉碼器來壓縮視訊等相關資訊。
+Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
-轉碼器有兩個元件：一個用來壓縮數位媒體檔案以利傳輸，另一個元件則是解壓縮數位媒體檔案以利播放。音訊轉碼器用於壓縮和解壓縮音訊，視訊轉碼器則用於壓縮和解壓縮視訊。轉碼器可以運用不失真或失真壓縮。不失真轉碼器在進行壓縮時會保留所有資訊。解壓縮檔案時，產生的檔案與輸入媒體完全相同，因此不失真轉碼器相當適合用於封存和儲存。失真轉碼器在進行編碼時會遺失部分資訊並產生較小的檔案 (與原始檔案相比)，代價是減損視訊品質，適用於透過網際網路串流處理。
-
-請務必了解轉碼器和檔案格式之間的差異。轉碼器是實作壓縮/解壓縮演算法的軟體，而檔案格式是保存已壓縮視訊的容器。如需詳細資訊，請參閱[編碼和封裝](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/)。
+開始使用媒體服務時，請務必了解轉碼器和檔案格式之間的差異。轉碼器是實作壓縮/解壓縮演算法的軟體，而檔案格式是保存已壓縮視訊的容器。
 
 媒體服務提供動態封裝，這讓您以媒體服務支援的串流格式 (MPEG DASH, 、HLS、Smooth Streaming、HDS) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。
 
-若要善用[動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
+若要利用[動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
 
 - 將您的夾層 (來源) 檔編碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (編碼步驟稍後示範於本教學課程中)。
 - 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-manage-origins.md#scale_streaming_endpoints/)。
@@ -256,4 +254,4 @@ Windows Media 音訊|否|是|是
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -35,9 +35,9 @@
 * 如何使用 Azure SQL Database 在雲端中儲存關聯式資料。
 * 如何部署 Web 專案，以便將資料庫用於 Azure App Service 中的 [Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
->[AZURE.NOTE]這個教學課程時間很長。如果您想快速認識 Azure App Service 和 Visual Studio Web 專案，請參閱[在 Azure App Service 中建立 ASP.NET Web 應用程式](web-sites-dotnet-get-started.md)。
+>[AZURE.NOTE]這個教學課程時間很長。如果您想快速認識 Azure App Service 和 Visual Studio Web 專案，請參閱[在 Azure App Service 中建立 ASP.NET Web 應用程式](web-sites-dotnet-get-started.md)。如需疑難排解資訊，請參閱[疑難排解](#troubleshooting)一節。
 >
->或者，如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。
+>或者，如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 必要條件
 
@@ -309,13 +309,13 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		add-migration Initial
 
 
-	**add-migration Initial** 命令會在 *Migrations* 資料夾中產生名為 **&lt;date\_stamp&gt;Initial** 的檔案。這個檔案中的程式碼會建立資料庫資料表。第一個參數 ( **Initial** ) 可用來建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。
+	**add-migration Initial** 命令會在 *Migrations* 資料夾中產生名為 **&lt;date\_stamp&gt;Initial** 的檔案。這個檔案中的程式碼會建立資料庫資料表。第一個參數 (**Initial**) 可用來建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。
 
 	在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
 
 3. 開啟 *Migrations\\Configuration.cs* 檔案。
 
-4. 新增下列 `using` 陳述式。
+4. 加入下列 `using` 陳述式。
 
     	 using ContactManager.Models;
 
@@ -390,11 +390,13 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 ## 新增 OAuth2 提供者
 
+>[AZURE.NOTE]如需如何使用 Google 和 Facebook 開發人員入口網站的詳細指示，此教學課程可連結至 ASP.NET 網站上的教學課程。不過，Google 和 Facebook 變更其網站的頻率高於這些教學課程的更新速度，而且現在已過期。如果您在遵循下列指示上遇到問題，請在本教學課程結尾的精選 Disqus 註解查看已變更項目的清單。
+
 [OAuth](http://oauth.net/ "http://oauth.net/") 是一種開放式通訊協定，可讓 Web、行動和桌面應用程式以簡單、標準的方法執行安全授權。ASP.NET MVC 網際網路範本使用 OAuth 來公開 Facebook、Twitter、Google 和 Microsoft 的驗證提供者身分。雖然本教學課程僅使用 Google 作為驗證提供者，但您可以輕易修改程式碼來使用任何其中一個提供者。實作其他提供者的步驟，與您在本教學課程中看到的步驟極為類似。若要使用 Facebook 作為驗證提供者，請參閱[使用 Facebook、Twitter、LinkedIn 和 Google OAuth2 登入的 MVC 5 應用程式](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on)。
 
 除了驗證，本教學課程使用角色來實作授權。只有您新增至 *canEdit* 角色的使用者才能變更資料 (也就是建立、編輯或刪除連絡人)。
 
-1. 依照 [**建立 Google app for OAuth 2 以設定 Google app for OAuth2**] 下 [[使用 Facebook、Twitter、LinkedIn 和 Google OAuth2 登入的 MVC 5 App](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog)] 的指示進行。
+1. 依照 [建立 Google app for OAuth 2 以設定 Google app for OAuth2] 下 [使用 Facebook、Twitter、LinkedIn 和 Google OAuth2 登入的 MVC 5 App][](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog) 的指示進行。
 
 3. 執行與測試應用程式，以確認您可以使用 Google 驗證登入。
 
@@ -588,7 +590,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 使用 **user1@contoso.com* 的身分和密碼 "P\_assw0rd1" ("word" 中的 "0" 是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。
 
-	如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 **AspNetUsers** 資料表的 **UserName** 欄，確認已新增 **user1@contoso.com*。
+	如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 [AspNetUsers] 資料表的 [UserName] 欄，確認已新增 **user1@contoso.com*。
 
 1. 確認您可進行資料變更。
 
@@ -706,6 +708,16 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
  
 3. 確認所列的 **UserId** 屬於 **user1@contoso.com* 和您註冊的 Google 帳戶。
 
+## 疑難排解
+
+如果您碰到問題，以下是一些如何著手的建議。
+
+* 佈建 SQL Database 時發生錯誤 - 請確定您已安裝最新的 SDK。2.7.1 之前的版本有個錯誤，在某些案例中，VS 嘗試建立資料庫伺服器或資料庫時會造成錯誤。
+* 建立 Azure 資源時出現錯誤訊息「您的訂用帳戶優惠類型不支援此作業」- 與上述相同。
+* 部署時發生錯誤 - 請考慮瀏覽[基本 ASP.NET 部署](web-sites-dotnet-get-started.md)一文。部署案例比較簡單，而且如果您有相同的問題，可能會比較容易隔離。例如，在某些企業環境中，公司防火牆可能會阻止 Web Deploy 對 Azure 進行它所需的連接類型。
+* 部署時發佈 Web 精靈中沒有選項可選取連接字串 - 如果您使用不同的方法來建立您的 Azure 資源 (例如，您嘗試部署建立在入口網站中的 web 應用程式和 SQL 資料庫)，SQL 資料庫可能無法與 web 應用程式建立關聯。最簡單的解決方案是使用 VS 來建立新的 web 應用程式和資料庫，如教學課程中所示。您不需要從頭開始本教學課程 -- 在發佈 Web 精靈中，您可以選擇建立新的 web 應用程式，並取得與您建立專案時所取得的相同 Azure 資源建立對話方塊。
+* Google 或 Facebook 開發人員入口網站的說明已過期 - 請參閱本教學課程結尾處的精選 Disqus 註解。
+
 ## 後續步驟
 
 您已建立可驗證使用者的基本 ASP.NET MVC web 應用程式。如需有關一般驗證工作以及如何保護機密資料的詳細資訊，請參閱下列教學課程。
@@ -786,4 +798,4 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

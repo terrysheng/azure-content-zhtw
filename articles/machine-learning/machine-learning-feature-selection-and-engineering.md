@@ -3,7 +3,7 @@
 	description="說明機器學習的資料增強程序中特性選取和特性工程設計的目的，並提供其角色的範例。"
 	services="machine-learning"
 	documentationCenter=""
-	authors="YanZhangADS"
+	authors="bradsev"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/20/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -135,4 +135,4 @@ Azure Machine Learning Studio 中有針對特性選取而提供的模組。如�
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

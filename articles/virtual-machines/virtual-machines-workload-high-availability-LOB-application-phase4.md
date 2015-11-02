@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/20/2015" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 4 階段：設定 Web 伺服器
@@ -30,36 +30,26 @@
 
 Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用程式或可透過 Windows Server 2012 R2 中 Internet Information Services (IIS) 8 裝載舊版應用程式。
 
-> [AZURE.NOTE]本文包含適用於 Azure PowerShell 版本的命令，適用版本可高達*但不限於*版本 1.0.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。本文中的 Azure PowerShell 命令區塊正處於支援 Azure PowerShell 版本 1.0.0 和更新版本中新 Cmdlet 的測試和更新過程中。感謝您耐心配合。
+> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 "-AzureRM" 的所有執行個體取代為 "-Azure"，並且在您執行任何命令之前先新增 **Switch-AzureMode AzureResourceManager** 命令。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
 
-首先，您將設定內部負載平衡，讓 Azure 在兩部 Web 伺服器之間將用戶端流量平均分散到企業營運應用程式。這需要您指定內部負載平衡執行個體，其中包含名稱和從子網路位址空間 (指派至 Azure 虛擬網路) 所指派的專屬 IP 位址。若要確定您為內部負載平衡器所選的 IP 位址是否可用，請使用 Azure PowerShell 提示中的這些命令。指定變數的值並移除 < and > 字元。
+首先，您將設定內部負載平衡，讓 Azure 在兩部 Web 伺服器之間將用戶端流量平均分散到企業營運應用程式。這需要您指定內部負載平衡執行個體，其中包含名稱和從子網路位址空間 (指派至 Azure 虛擬網路) 所指派的專屬 IP 位址。
 
-	Switch-AzureMode AzureServiceManagement
-	$vnet="<Table V – Item 1 – Value column>"
-	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
-	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
+填寫變數並執行下列一組命令：
 
-若 Test-AzureStaticVNetIP 命令中的 [IsAvailable] 欄位顯示為 [True]，您就能使用此 IP 位址。
-
-使用此命令切換回 PowerShell 的資源管理員模式。
-
-	Switch-AzureMode AzureResourceManager
-
-接下來，填寫變數並執行下列一組命令：
-
+	# Set up key variables
 	$rgName="<resource group name>"
 	$locName="<Azure location of your resource group>"
 	$vnetName="<Table V – Item 1 – Value column>"
 	$privIP="<available IP address on the subnet>"
-	$vnet=Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-	$frontendIP=New-AzureLoadBalancerFrontendIpConfig -Name WebServers-LBFE -PrivateIPAddress $privIP -SubnetId $vnet.Subnets[1].Id
-	$beAddressPool=New-AzureLoadBalancerBackendAddressPoolConfig -Name WebServers-LBBE
+	$frontendIP=New-AzureRMLoadBalancerFrontendIpConfig -Name WebServers-LBFE -PrivateIPAddress $privIP -SubnetId $vnet.Subnets[1].Id
+	$beAddressPool=New-AzureRMLoadBalancerBackendAddressPoolConfig -Name WebServers-LBBE
 
 	# This example assumes unsecured (HTTP-based) web traffic to the web servers.
-	$healthProbe=New-AzureLoadBalancerProbeConfig -Name WebServersProbe -Protocol "TCP" -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-	$lbrule=New-AzureLoadBalancerRuleConfig -Name "WebTraffic" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "TCP" -FrontendPort 80 -BackendPort 80
-	New-AzureLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure" -Location $locName -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe -FrontendIpConfiguration $frontendIP
+	$healthProbe=New-AzureRMLoadBalancerProbeConfig -Name WebServersProbe -Protocol "TCP" -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+	$lbrule=New-AzureRMLoadBalancerRuleConfig -Name "WebTraffic" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "TCP" -FrontendPort 80 -BackendPort 80
+	New-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure" -Location $locName -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe -FrontendIpConfiguration $frontendIP
 
 接下來，新增一個內部 DNS 位址記錄至您組織的 DNS 基礎結構，此基礎結構可將企業營運應用程式完整網域名稱 (例如 lobapp.corp.contoso.com) 解析給指派至內部負載平衡器的 IP 位址 (先前 Azure PowerShell 命令區塊中 $privIP 的值)。
 
@@ -75,13 +65,10 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 當您提供所有適當值後，在 Azure PowerShell 提示中執行結果區塊。
 
-	# Set up subscription and key variables
-	$subscr="<name of the Azure subscription>"
-	Set-AzureSubscription -SubscriptionName $subscr
-	Switch-AzureMode AzureResourceManager
+	# Set up key variables
 	$rgName="<resource group name>"
 	$locName="<Azure location of your resource group>"
-	$webLB=Get-AzureLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure"	
+	$webLB=Get-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure"	
 	
 	# Use the standard storage account
 	$saName="<Table ST – Item 2 – Storage account name column>"
@@ -89,37 +76,37 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 	$vnetName="<Table V – Item 1 – Value column>"
 	$beSubnetName="<Table S - Item 2 - Name column>"
 	$avName="<Table A – Item 3 – Availability set name column>"
-	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	$backendSubnet=Get-AzureVirtualNetworkSubnetConfig -Name $beSubnetName -VirtualNetwork $vnet
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$backendSubnet=Get-AzureRMVirtualNetworkSubnetConfig -Name $beSubnetName -VirtualNetwork $vnet
 	
 	# Create the first web server virtual machine
 	$vmName="<Table M – Item 6 - Virtual machine name column>"
 	$vmSize="<Table M – Item 6 - Minimum size column>"
-	$nic=New-AzureNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
-	$avSet=Get-AzureAvailabilitySet -Name $avName –ResourceGroupName $rgName 
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
+	$avSet=Get-AzureRMAvailabilitySet -Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first web server." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 	
 	# Create the second web server virtual machine
 	$vmName="<Table M – Item 7 - Virtual machine name column>"
 	$vmSize="<Table M – Item 7 - Minimum size column>"
-	$nic=New-AzureNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second second SQL Server computer." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 > [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure Preview 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連接] 按鈕將無法使用。
 
@@ -138,14 +125,14 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 接下來，為每個 Web 伺服器安裝並設定 IIS。
 
 1. 執行伺服器管理員，然後按一下 [新增角色及功能]。
-2. 在 [開始之前] 頁面上，按 [下一步]。
-3. 在 [選取安裝類型] 頁面上，按 [下一步]。
-4. 在 [選取目的地伺服器] 頁面上，按 [下一步]。
+2. 在 [開始之前] 頁面上，按一下 [下一步]。
+3. 在 [選取安裝類型] 頁面上，按一下 [下一步]。
+4. 在 [選取目的地伺服器] 頁面上，按一下 [下一步]。
 5. 在 [伺服器角色] 頁面上，按一下 [角色] 清單中的 [網頁伺服器 (IIS)]。
 6. 出現提示時，按一下 [新增功能]，然後按 [下一步]。
-7. 在 [選取功能] 頁面上，按 [下一步]。
-8. 在 [網頁伺服器 (IIS)] 頁面上，按 [下一步]。
-9. 在 [選取角色服務] 頁面上，選取或清除 LOB 應用程式所需服務的核取方塊，然後按 [下一步]。10. 在 [確認安裝選項] 頁面上，按一下 [安裝]。
+7. 在 [選取功能] 頁面上，按一下 [下一步]。
+8. 在 [網頁伺服器 (IIS)] 頁面上，按一下 [下一步]。
+9. 在 [選取角色服務] 頁面上，選取或清除 LOB 應用程式所需服務的核取方塊，然後按一下 [下一步]。10. 在 [確認安裝選項] 頁面上，按一下 [安裝]。
 
 ## 將您的企業營運應用程式部署於 Web 伺服器虛擬機器。
 
@@ -175,4 +162,4 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

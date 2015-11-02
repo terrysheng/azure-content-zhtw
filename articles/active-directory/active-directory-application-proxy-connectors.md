@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure AD 應用程式 Proxy 連接器"
+	pageTitle="使用 Azure AD 應用程式 Proxy 連接器 | Microsoft Azure"
 	description="涵蓋如何建立和管理 Azure AD 應用程式 Proxy 中的連接器群組。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
 # 使用連接器群組在不同的網路和位置發行應用程式
 
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-edition.md)。
+> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
-連接器群組可用於一些不同狀況，包括：
+「連接器」群組可用於一些不同狀況，包括：
 
 
 - 包含互連資料中心的網站，您希望網站中的資料中心內儘可能保持最大流量，而且不使用通常昂貴且具有高延遲的跨資料中心連結。您可以在每個資料中心部署連接器，以只為資料中心內的應用程式提供服務，不使用昂貴的跨資料中心連結，並能為使用者提供完全通透的體驗。
@@ -38,7 +38,7 @@
 ## 步驟 1：建立連接器群組
 您可以建立任意數量的連接器群組。連接器群組的建立是在 Azure 入口網站中完成。選取您的目錄，然後按一下 [設定]。接著按一下 [應用程式 Proxy] 底下的 [管理連接器群組]，提供一個群組名稱以建立新的連接器群組：![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png) ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 ## 步驟 2：將連接器指派給您的群組
-建立連接器群組後，請將連接器移到適當的群組。在 [應用程式 Proxy] 底下，按一下 [管理連接器]，然後在 [群組] 底下選取要為每個連接器指派的群組。請注意，新群組中的連接器最多可能需要 10 分鐘才會變成作用中。![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
+一旦建立「連接器」群組，請將「連接器」移動到適當的群組。在 [應用程式 Proxy] 底下，按一下 [管理連接器]，並在 [群組] 底下針對各個「連接器」選取您想要的群組。請注意，新群組中的連接器最多可能需要 10 分鐘才會變成作用中。![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 ## 步驟 3：將應用程式指派給您的連接器群組
 最後一個步驟是設定將為每個應用程式提供服務的連接器群組。在 Azure 入口網站中，從您的目錄中選取想要指派給群組的應用程式，按一下 [設定]。在 [連接器群組] 底下，選取應用程式要使用的群組。這項變更會立即套用。![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)如需發行應用程式的詳細資訊，請參閱[使用您的網域名稱發行應用程式](active-directory-application-proxy-custom-domains.md)
 ## 另請參閱
@@ -59,4 +59,4 @@
 
 * [關於 Kerberos 限制委派](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

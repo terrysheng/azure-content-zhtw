@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="疑難排解 Windows 裝置中的 Application Insights" 
-	description="疑難排解指南以及問題和答案。" 
+	pageTitle="針對 Windows 裝置中的 Application Insights 進行疑難排解" 
+	description="Windows 裝置中的 Application Insights 疑難排解指南與問題和解答。" 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -29,7 +29,7 @@
 * 檢查您已在 ApplicationInsights.config 檔案中定義檢測金鑰，且該金鑰與 Application Insights 入口網站中的金鑰相同。若要查看金鑰，請按一下 [概觀] 刀鋒視窗上的 [Essentials]。
 * 確定您的應用程式[要求連出網路存取](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx)。
 * 模擬器或測試裝置與 Application Insights 入口網站之間有防火牆嗎？ 您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
-* 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式分頁。
+* 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
 
 
 #### 我曾經看到資料，但是已停止
@@ -120,4 +120,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

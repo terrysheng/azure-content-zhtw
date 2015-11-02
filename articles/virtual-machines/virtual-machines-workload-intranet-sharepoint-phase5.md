@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint 內部網路伺服器陣列工作負載第 5 階段：建立可用性群組及新增 SharePoint 資料庫
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
- 
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員部署模型。
 
 在將具有 AlwaysOn 可用性群組的內部網路專用之 SharePoint 2013 伺服器陣列部署至 Azure 基礎結構服務的最終階段，您需建立新的 AlwaysOn 可用性群組，並新增 SharePoint 伺服器陣列的資料庫。
 
@@ -129,4 +128,4 @@ SharePoint 會在初始組態中建立數個資料庫。您必須透過以下步
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

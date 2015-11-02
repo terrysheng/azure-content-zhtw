@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="了解串流分析工作監視 | Microsoft Azure" 
 	description="了解串流分析工作監視" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="巨量資料分析,雲端服務,物聯網,受管理的服務,串流處理,資料流分析,資料流處理資料,big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -31,7 +31,7 @@ Azure 管理入口網站和 Azure Preview 入口網站都可以顯示關鍵效�
 
   ![Azure Preview 入口網站監視儀表板](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
 
-串流分析工作第一次在區域中建立時，您必須設定適合該地區的診斷功能。若要這樣做，請按一下 [監視] 區段的任何位置，[診斷] 刀鋒視窗隨即出現。您可以在這裡啟用診斷，並指定監視資料的儲存體帳戶。
+串流分析工作第一次在區域中建立時，您必須設定適合該地區的診斷功能。若要這樣做，請按一下 [監視] 區段的任何位置，就會顯示 [診斷] 刀鋒視窗。您可以在這裡啟用診斷，並指定監視資料的儲存體帳戶。
 
   ![Azure Preview 入口網站設定診斷](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
@@ -104,4 +104,4 @@ Azure 管理入口網站和 Azure Preview 入口網站都可以顯示關鍵效�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

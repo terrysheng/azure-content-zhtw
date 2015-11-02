@@ -1,5 +1,5 @@
 <properties
-	pageTitle="敏捷式軟體開發 (Agile Software Development) 與 Azure App Service"
+	pageTitle="使用 Azure App Service 進行敏捷式軟體開發 (Agile Software Development)"
 	description="學習如何使用支援敏捷式軟體開發的方式來建立高級別複雜應用程式與 Azure App Service。"
 	services="app-service"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
-# 敏捷式軟體開發 (Agile Software Development) 與 Azure App Service #
+# 使用 Azure App Service 進行敏捷式軟體開發 (Agile Software Development) #
 
 在本教學課程中，您將學習如何使用支援[敏捷式軟體開發](https://en.wikipedia.org/wiki/Agile_software_development)的方式來建立高級別複雜應用程式與 [Azure App Service](/services/app-service/)。假設您已經知道如何[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md)。
 
@@ -225,7 +225,7 @@
 
 這樣就大功告成了！
 
-前往您測試環境的 Web 應用程式分頁，以查看現在推送至測試環境的新認可 (合併至 NewUpdate 分支)。然後按一下 [瀏覽]，以查看現在於 Azure 中即時執行的樣式變更。
+前往您測試環境的 Web 應用程式刀鋒視窗，以查看現在推送至測試環境的新認可 (合併至 NewUpdate 分支)。然後按一下 [瀏覽]，以查看現在於 Azure 中即時執行的樣式變更。
 
 ## 將更新部署至生產環境 ##
 
@@ -264,7 +264,7 @@
 
 ## 摘要 ##
 
-對於許多想要採用 Azure 做為其應用程式平台的公司而言，敏捷式軟體開發是必要的。在本教學課程中，您已經學會如何輕鬆地建立和終止生產環境的確切複本或接近複本，甚至針對複雜應用程式也是一樣。您也學到如何運用這項功能來建立開發程序，以建置和測試 Azure 中的每個認可。本教學課程希望示範如何最恰當地搭配使用 Azure App Service 和 Azure 資源管理員，來建立提供敏捷式方法的 DevOps 方案。
+對於許多想要採用 Azure 做為其應用程式平台的公司而言，敏捷式軟體開發是必要的。在本教學課程中，您已經學會如何輕鬆地建立和終止生產環境的確切複本或接近複本，甚至針對複雜應用程式也是一樣。您也學到如何運用這項功能來建立開發程序，以建置和測試 Azure 中的每個認可。本教學課程希望示範如何最恰當地搭配使用 Azure App Service 和 Azure 資源管理員，來建立提供敏捷式方法的 DevOps 方案。接下來，您可以透過執行進階 DevOps 技術 (例如[在生產環境中測試](app-service-web-test-in-production-get-start.md))，建置此案例。如需生產過程中測試的常見案例，請參閱 [Azure App Service 中的快速部署 (beta 測試)](app-service-web-test-in-production-controlled-test-flight.md)。
 
 ## 其他資源 ##
 
@@ -274,11 +274,11 @@
 -	[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 -	[JSONLint - JSON 驗證程式](http://jsonlint.com/)
 -	[ARMClient - 設定 GitHub 發行至網站](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
--	[Git 分支 - 基本分支和合併](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[David Ebbo 部落格](http://blog.davidebbo.com/)
+-	[分支 - 基本分支和合併](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+-	[David Ebbo 的部落格](http://blog.davidebbo.com/)
 -	[Azure PowerShell](powershell-install-configure.md)
 -	[Azure 跨平台命令列工具](xplat-cli-install.md)
 -	[在 Azure AD 中建立或編輯使用者](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[專案 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

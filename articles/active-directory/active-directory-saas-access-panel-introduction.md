@@ -1,10 +1,10 @@
 <properties
-	pageTitle="存取面板簡介"
+	pageTitle="存取面板簡介 | Microsoft Azure"
 	description="了解如何使用各種類別的存取面板 (網頁瀏覽器、Android App、iPhone 和 iPad App) 存取已指派給您的 SaaS App。"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -181,4 +181,4 @@
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

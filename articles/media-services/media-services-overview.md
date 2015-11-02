@@ -3,7 +3,7 @@
 	description="本主題提供 Azure 媒體服務的概觀" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 #Azure 媒體服務概觀和常見案例
@@ -74,7 +74,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 	
 	建議您將儲存體加密選項套用到資產，以便內容在上傳時以及在儲存體中存放時可以得到保護。
  
-1. 編碼為調適性位元速率 MP4 集。
+1. 編碼成一組調適性位元速率 MP4 檔案。
 
 	建議您將儲存體加密選項套用到輸出資產，以便保護存放的內容。
 	
@@ -93,7 +93,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 要想使用動態加密，您必須從負責傳送加密內容的資料流端點至少取得一個資料流保留單位。
 
 1. 將高品質夾層檔上傳到資產。將儲存體加密選項套用到資產。
-1. 編碼為調適性位元速率 MP4 集。將儲存體加密選項套用到輸出資產。
+1. 編碼成一組調適性位元速率 MP4 檔案。將儲存體加密選項套用到輸出資產。
 1. 針對您想要在播放期間動態加密的資產，建立加密內容金鑰。
 2. 設定內容金鑰授權原則。
 1. 設定資產傳遞原則 (供動態封裝和動態加密使用)。
@@ -113,7 +113,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 ###提供漸進式下載 
 
 1. 將高品質夾層檔上傳到資產。
-1. 編碼為調適性位元速率 MP4 集或單一 MP4。
+1. 編碼成單一 MP4 檔案。
 1. 藉由建立 OnDemand 或 SAS 定位器的方法來發行資產。
 
 	如果使用 OnDemand 定位器，請在您計劃進行漸進式下載內容的串流端點上，確定至少有一個串流保留單位。
@@ -227,4 +227,4 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

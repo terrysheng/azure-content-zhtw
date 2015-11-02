@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="與 DocumentDB 資源進行 RESTful 互動 | Microsoft Azure" 
 	description="檢閱在此 RESTful Web 服務教學課程中檢閱 HTTP 方法。了解如何使用 HTTP 動詞命令來執行與 Microsoft Azure DocumentDB 資源之間的 RESTful 互動。"
-	keywords="http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
+	keywords="http 方法, 健全服務教學課程, 健全 Web 服務教學課程, http 動詞, http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -205,4 +205,4 @@ DocumentDB 服務將做出下列回應。
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

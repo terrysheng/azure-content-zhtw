@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Service Fabric 應用程式生命週期 |Microsoft Azure"
+   pageTitle="Service Fabric 中的應用程式生命週期 |Microsoft Azure"
    description="描述開發、部署、測試、升級、維護和移除 Service Fabric 應用程式。"
    services="service-fabric"
    documentationCenter=".net"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="10/15/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
@@ -118,4 +118,4 @@
 - [REST 架構應用程式生命週期範例](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

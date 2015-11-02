@@ -1,10 +1,10 @@
 <properties
-	pageTitle="如何使用服務匯流排佇列 (Ruby) | Microsoft Azure"
+	pageTitle="如何將服務匯流排佇列搭配 Ruby 使用 | Microsoft Azure"
 	description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例以 Ruby 撰寫。"
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,12 +14,11 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
+	ms.author="sethm"/>
 
 # 如何使用服務匯流排佇列
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 本指南將說明如何使用服務匯流排佇列。這些範例均以 Ruby 撰寫，並使用 Azure gem。所涵蓋的案例包括**建立佇列、傳送並接收訊息**，以及**刪除佇列**。如需佇列的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
@@ -57,7 +56,7 @@
 
 ![複製金鑰](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]如果您登入 [Azure 入口網站](http://manage.windowsazure.com/)並巡覽至您服務匯流排命名空間的連線資訊，也可以找到此金鑰。
+> [AZURE.NOTE]如果您登入 [Azure 入口網站](http://manage.windowsazure.com/)並瀏覽至您服務匯流排命名空間的連線資訊，也可以找到此金鑰。
 
 ## 建立 Ruby 應用程式
 
@@ -152,4 +151,4 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 若要比較本文所討論的 Azure 服務匯流排佇列與[如何使用 Azure 佇列服務](/develop/ruby/how-to-guides/queue-service/)一文中討論的 Azure 佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](service-bus-azure-and-service-bus-queues-compared-contrasted.md)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

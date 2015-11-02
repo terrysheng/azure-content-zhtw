@@ -13,12 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="09/14/2015"
+   ms.date="10/18/2015"
    ms.author="yuemlu"/>
 
 # Azure 客體作業系統 
 
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。推出這些更新的特定[系列][family-explain]皆會包含這些更新。
+
+## 十月客體作業系統
+
+| 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-106 | [3096441] | Internet Explorer 的累積安全性更新 | 4\.25, 3.32, 2.44 | 2015 年 10 月 13 日 |
+| MS15-108 | [3089659] | JScript 與 VBScript 的安全更新，可解決潛在遠端程式碼執行問題 | 2\.44 | 2015 年 10 月 13 日 |
+| MS15-109 | [3096443] | Windows Shell 的安全性更新，可解決遠端程式碼執行問題 | 4\.25, 3.32, 2.44 | 2015 年 10 月 13 日 |
+| MS15-111 | [3096447] | Windows 核心的安全性更新，可解決提高權限問題 | 4\.25, 3.32, 2.44 | 2015 年 10 月 13 日 |
+| Microsoft Security Advisory | [3092627] | 2015 年 9 月的更新，可修正安裝安全性更新 3076895 之後 Windows 或應用程式凍結的問題 | 4\.25, 3.32, 2.44 | 2015 年 10 月 13 日 |
+
 
 ## 九月客體 OS
 
@@ -172,6 +183,12 @@
 | N/A | [2896881][2896881] | 在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 
 
+[3096441]: http://support.microsoft.com/kb/3096441
+[3089659]: http://support.microsoft.com/kb/3089659
+[3096443]: http://support.microsoft.com/kb/3096443
+[3096447]: http://support.microsoft.com/kb/3096447
+[3092627]: http://support.microsoft.com/kb/3092627
+
 [3088903]: http://support.microsoft.com/kb/3088903
 [3089548]: http://support.microsoft.com/kb/3089548
 [3072595]: http://support.microsoft.com/kb/3072595
@@ -288,4 +305,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

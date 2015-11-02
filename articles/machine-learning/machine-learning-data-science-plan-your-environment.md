@@ -2,9 +2,8 @@
 	pageTitle="規劃機器學習服務進階分析環境 | Microsoft Azure" 
 	description="考慮重要問題來規劃進階分析環境。" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -14,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
-	ms.author="mohabib;bradsev" />
+	ms.date="10/18/2015" 
+	ms.author="bradsev" />
 
 
-# 規劃 Azure Machine Learning 進階分析環境
+# 針對 Cortana 分析程序規劃您的環境
 
-當您準備要設定環境以使用 Azure 機器學習進行進階分析時，什麼案例會符合您的分析問題？ 您針對所需的資源而進行決策的依據是資料的類型、大小和來源位置，以及此資料的目標目的地。本文將討論這些問題，協助您了解您的案例。
+當您準備要設定環境進行進階分析處理時，什麼案例會符合您的分析問題？ 您針對所需的資源而進行決策的依據是資料的類型、大小和來源位置，以及此資料的目標目的地。本文將討論這些問題，協助您了解您的案例。
 
-一旦您了解相關案例，[學習途徑：在 Azure 中建立進階分析解決方案](machine-learning-data-science-how-to-create-machine-learning-service.md)所呈現的進階分析程序和技術 (ADAPT) 工作流程將引導您逐步完成一系列的工作，例如透過以可供應用程式取用的 Azure Web 服務的形式來建立和發行一個模型，藉此取得資料集。
+一旦您了解相關案例，[學習途徑：在 Azure 中建立進階分析解決方案](machine-learning-data-science-how-to-create-machine-learning-service.md)所呈現的 Cortana 分析程序工作流程將引導您逐步完成一系列的工作，例如透過以可供應用程式取用的 Azure Web 服務的形式來建立和發行一個模型，藉此取得資料集。
 
 本主題也會列舉此進階分析程序所使用的一些資源和工具。
 
@@ -80,4 +79,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

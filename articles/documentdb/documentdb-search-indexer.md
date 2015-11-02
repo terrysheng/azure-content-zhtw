@@ -3,7 +3,7 @@
     description="本文將說明如何在 DocumentDB 中使用 Azure 搜尋服務索引子做為資料來源。"
     services="documentdb" 
     documentationCenter="" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="mimig"/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
     ms.date="06/16/2015" 
-    ms.author="andrl"/>
+    ms.author="anhoh"/>
 
 #使用索引子連接 DocumentDB 與 Azure 搜尋
 
@@ -270,4 +270,4 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
  - 若要深入了解 Azure 搜尋服務，請按一下[這裡](/services/search/)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

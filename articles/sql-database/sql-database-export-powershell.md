@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -93,6 +93,9 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 
 這個命令會將匯出資料庫要求提交給服務。視資料庫大小而定，匯出作業可能需要一些時間才能完成。
 
+> [AZURE.IMPORTANT]若要保證在交易上一致的 BACPAC 檔案，您應該先[建立您的資料庫複本](sql-database-copy-powershell.md)，然後匯出資料庫複本。
+
+
     $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     
 
@@ -144,4 +147,4 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -5,21 +5,27 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # 將多個內部部署網站連線到虛擬網路
 
-您可以將多個內部部署網站連線到單一虛擬網路。這對建立混合式雲端解決方案特別具有吸引力。建立多網站連線至 Azure 虛擬網路閘道，與建立其他站對站連線非常類似。事實上，您可以使用現有的 Azure VPN 閘道，只要為虛擬網路設定以路由為基礎 \(或動態路由\) 的 VPN 閘道即可。
+>[AZURE.NOTE]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
 
-如果您的閘道是以原則為基礎 \(或靜態路由\)，您隨時可以變更閘道類型，而不需要重建虛擬網路來容納多網站，但是您也必須確保內部部署 VPN 閘道支援以路由為基礎 VPN 組態。您只要將組態設定新增至網路組態檔中，然後從虛擬網路建立多個 VPN 連線至其他網站。
+本文適用於使用傳統部署模型 (服務管理) 所建立的 VNet 和 VPN 閘道。
+
+您可以將多個內部部署網站連線到單一虛擬網路。這對建立混合式雲端解決方案特別具有吸引力。建立多網站連線至 Azure 虛擬網路閘道，與建立其他站對站連線非常類似。事實上，您可以使用現有的 Azure VPN 閘道，只要為虛擬網路設定以路由為基礎 (或動態路由) 的 VPN 閘道即可。
+
+如果您的閘道是以原則為基礎 (或靜態路由)，您隨時可以變更閘道類型，而不需要重建虛擬網路來容納多網站，但是您也必須確保內部部署 VPN 閘道支援以路由為基礎 VPN 組態。您只要將組態設定新增至網路組態檔中，然後從虛擬網路建立多個 VPN 連線至其他網站。
 
 ![多網站 VPN](./media/vpn-gateway-multi-site/IC727363.png)
 
@@ -41,7 +47,7 @@
 
 - 熟悉如何設定 VPN 硬體的人員。您無法使用從管理入口網站自動產生的 VPN 指令碼來設定 VPN 裝置。這表示您必須非常了解如何設定 VPN 裝置，或是與了解的人員一起進行。
 
-- 您想要用於虛擬網路的 IP 位址範圍 \(如果尚未建立的話\)。
+- 您想要用於虛擬網路的 IP 位址範圍 (如果尚未建立的話)。
 
 - 您要連線之每個區域網路網站的 IP 位址範圍。您必須確定您要連線之每個區域網路網站的 IP 位址範圍沒有重疊。否則，管理入口網站或 REST API 將會拒絕所上傳的組態。例如，如果您有兩個區域網路網站都包含 IP 位址範圍 10.2.3.0/24，而您有一個目的地位址為 10.2.3.3 的封裝，Azure 就會不知道您想要將封裝傳送到哪個網站，因為位址範圍重疊了。為了防止路由問題，Azure 不允許您上傳具有重疊範圍的組態檔。
 
@@ -51,7 +57,7 @@
 
 	**如果您已經有站對站虛擬網路，但它有靜態路由閘道：****1.** 將您的閘道類型變更為動態路由。多網站 VPN 需要動態路由閘道。若要變更閘道類型，您必須先刪除現有的閘道，然後建立新的閘道。如需相關指示，請參閱[變更 VPN 閘道路由類型](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type)。**2.** 設定新的閘道，並建立 VPN 通道。如需相關指示，請參閱[在管理入口網站中設定 VPN 閘道](vpn-gateway-configure-vpn-gateway-mp.md)。
 	
-	**如果您沒有站對站虛擬網路：****1.** 依照下列指示來建立站對站虛擬網路：[在管理入口網站中使用站對站 VPN 連線來建立虛擬網路](vpn-gateway-site-to-site-create.md)。**2.** 依照下列指示來設定動態路由閘道：[在管理入口網站中設定 VPN 閘道](vpn-gateway-configure-vpn-gateway-mp.md)。閘道類型務必選取 \[動態路由\]。
+	**如果您沒有站對站虛擬網路：****1.** 依照下列指示來建立站對站虛擬網路：[在管理入口網站中使用站對站 VPN 連線來建立虛擬網路](vpn-gateway-site-to-site-create.md)。**2.** 依照下列指示來設定動態路由閘道：[在管理入口網站中設定 VPN 閘道](vpn-gateway-configure-vpn-gateway-mp.md)。閘道類型務必選取 [動態路由]。
 
 
 
@@ -114,7 +120,7 @@
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-	若要加入其他網站參考資訊 \(建立多網站組態\)，只要另外加入 "LocalNetworkSiteRef" 字行，如下列範例所示：
+	若要加入其他網站參考資訊 (建立多網站組態)，只要另外加入 "LocalNetworkSiteRef" 字行，如下列範例所示：
 
         <Gateway>
           <ConnectionsToLocalNetwork>
@@ -171,4 +177,4 @@
 
 若要深入了解 VPN 閘道，請參閱[關於 VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="選擇 Service Fabric 架構 | Microsoft Azure"
-   description="Service Fabric 提供兩個高階架構來建置服務：動作項目架構和服務架構。了解每個值將協助您針對應用程式做出正確的架構決定。"
+   pageTitle="Service Fabric 程式撰寫模型 | Microsoft Azure"
+   description="Service Fabric 提供兩種架構來建置服務：動作項目架構和服務架構。它們在簡化與控制中提供不同的取捨。"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
 # 選擇您服務的架構
@@ -36,4 +36,4 @@ Service Fabric 提供兩個高階架構來建置服務：可靠動作項目 API 
 - [深入了解可靠動作項目 API](service-fabric-reliable-actors-introduction.md)
 - [深入了解可靠服務 API](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

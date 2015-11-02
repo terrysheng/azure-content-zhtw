@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/08/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # 在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
+[AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
 在 Microsoft Azure 基礎結構服務中，設定第一個或下一個開發/測試或實際執行 SharePoint 伺服器陣列，這樣您就可以利用簡化設定的優點，還能夠快速擴大伺服器陣列，使其增加新的容量或最佳化關鍵功能。
 
@@ -28,19 +27,25 @@
 
 ## 基本的 SharePoint 開發/測試伺服器陣列
 
-若為使用傳統部署模型建立的虛擬機器，請使用 Azure 預覽入口網站中的 [SharePoint Server 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)功能，建立網際網路面向 SharePoint 網站的基本開發/測試伺服器陣列。
+對於使用資源管理員部署模型建立的虛擬機器，請參閱 Azure Preview 入口網站之 Azure Marketplace 中的 [SharePoint 2013 非 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)項目。這會為連結網際網路的 SharePoint 網站建立基本開發/測試伺服器陣列。
+
+您也可以使用 Azure 資源管理員範本。請參閱[部署一個包含三部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm)。
 
 自動建立的環境包含三個伺服器，用於純雲端 Azure 虛擬網路的網域控制站、SQL Server 和 SharePoint 伺服器。
 
-若要以資源管理員部署模型建立類似的組態，請使用範本。請參閱[部署一個包含三部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm)。
+若要使用傳統部署模型建立類似組態，請使用 Azure Preview 入口網站之 Azure Marketplace 中的 [SharePoint 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)項目。
+
 
 ## 高可用性 SharePoint 開發/測試伺服器陣列
 
-若為傳統虛擬機器，請使用 Azure 預覽入口網站中的 [SharePoint Server 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)功能，建立網際網路面向 SharePoint 網站的高可用性 SharePoint 開發/測試伺服器陣列。
+對於使用資源管理員部署模型建立的虛擬機器，請參閱 Azure Preview 入口網站之 Azure Marketplace 中的 [SharePoint 2013 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) 項目。這會為連結網際網路的 SharePoint 網站建立高可用性伺服器陣列。
+
+您也可以使用 Azure 資源管理員範本。請參閱[部署一個包含九部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm)。
 
 自動建立的環境包含純雲端 Azure 虛擬網路中的九個伺服器：二個用於網域控制站、三個用於 SQL Server 叢集、二個應用程式層 SharePoint 伺服器以及二個 Web 層 SharePoint 伺服器。
 
-若要以資源管理員虛擬機器建立類似的組態，請使用範本。請參閱[部署一個包含九部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm)。
+若要使用傳統部署模型建立類似組態，請使用 Azure Preview 入口網站之 Azure Marketplace 中的 [SharePoint 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)項目。
+
 
 ## 混合式雲端開發/測試伺服器陣列
 
@@ -56,16 +61,14 @@
 
 ## 其他資源
 
-在 Azure 的資訊和組態中查看其他 Sharepoint 的資源：
+[適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
 
-- [適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
+[使用 SharePoint Server 2013 之 Microsoft Azure 中的網際網路網站](https://technet.microsoft.com/library/dn635307.aspx)
 
-- [使用 SharePoint Server 2013 之 Microsoft Azure 中的網際網路網站](https://technet.microsoft.com/library/dn635307.aspx)
+[Microsoft Azure 中的 SharePoint Server 2013 災害復原](https://technet.microsoft.com/library/dn635313.aspx)
 
-- [Microsoft Azure 中的 SharePoint Server 2013 災害復原](https://technet.microsoft.com/library/dn635313.aspx)
+[使用 Microsoft Azure Active Directory 進行 SharePoint 2013 驗證](https://technet.microsoft.com/library/dn635311.aspx)
 
-- [使用 Microsoft Azure Active Directory 進行 SharePoint 2013 驗證](https://technet.microsoft.com/library/dn635311.aspx)
+[在 Microsoft Azure 中部署 Office 365 目錄同步作業 (DirSync)](https://technet.microsoft.com/library/dn635310.aspx)
 
-- [在 Microsoft Azure 中部署 Office 365 目錄同步作業 (DirSync)](https://technet.microsoft.com/library/dn635310.aspx)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -18,6 +18,8 @@
 
 # 如何使用服務匯流排佇列
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 本文說明如何使用服務匯流排佇列。這些範例均以 JavaScript 撰寫並使用 Node.js Azure 模組。本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。如需佇列的詳細資訊，請參閱＜後續步驟＞一節。
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
@@ -34,7 +36,7 @@
 
 1. 使用 **Windows PowerShell for Node.js** 命令視窗巡覽至已建立範例應用程式的 **c:\\node\\sbqueues\\WebRole1** 資料夾。
 
-2. 在命令視窗中輸入 **npm install azure**，這應該會導致類似下列內容的輸出：
+2. 在命令視窗中輸入 **npm install azure**，這應該會產生類似下列內容的輸出：
 
 	```
 	azure@0.7.5 node_modules\azure
@@ -70,7 +72,7 @@ Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVIC
 
 ## 建立佇列
 
-**ServiceBusService** 物件可讓您使用服務匯流排佇列。下列程式碼將建立 **ServiceBusService** 物件。請將程式碼新增至 **server.js** 檔案的頂端附近，放置在匯入 Azure 模型的陳述式後方：
+**ServiceBusService** 物件可讓您使用服務匯流排佇列。下列程式碼將建立 **ServiceBusService** 物件。請將程式碼新增至 **server.js** 檔案的頂端附近，放置在匯入 Azure 模組的陳述式後方：
 
 ```
 var serviceBusService = azure.createServiceBusService();
@@ -126,7 +128,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 
 ## 傳送訊息至佇列
 
-若要傳送訊息至服務匯流排佇列，應用程式將對於 **ServiceBusService** 物件呼叫 **sendQueueMessage** 方法。傳送至服務匯排流 (以及服務匯流排接收) 的佇列是 **BrokeredMessage** 物件，而且具有一組標準屬性 (例如 **Label** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可將字串做為訊息傳遞來設定訊息的內文。任何必要的標準屬性都會填入預設值。
+若要傳送訊息至服務匯流排佇列，應用程式將呼叫 **ServiceBusService** 物件上的 **sendQueueMessage** 方法。傳送至服務匯排流 (以及服務匯流排接收) 的佇列是 **BrokeredMessage** 物件，而且具有一組標準屬性 (例如 **Label** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可將字串做為訊息傳遞來設定訊息的內文。任何必要的標準屬性都會填入預設值。
 
 下列範例示範如何使用 **sendQueueMessage** 將測試訊息傳送至名為 `myqueue` 的佇列：
 
@@ -186,7 +188,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 若要深入了解，請參閱下列資源。
 
 -   [佇列、主題和訂用帳戶][]
--   GitHub 上的 [Azure SDK for Node][] 儲存機制
+-   GitHub 上的 [Azure SDK for Node][] 存放庫
 -   [Node.js 開發人員中心](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
@@ -200,4 +202,4 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
   [Azure 佇列與服務匯流排佇列]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

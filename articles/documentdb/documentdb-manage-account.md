@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="透過 Azure Preview 入口網站管理 DocumentDB 帳戶 | Microsoft Azure" 
 	description="了解如何透過 Azure Preview 入口網站管理 DocumentDB 帳戶。尋找使用 Azure Preview 入口網站來檢視、複製、刪除和存取帳戶的指南。" 
-	keywords="Azure preview portal, documentdb, azure, Microsoft azure"
+	keywords="Azure 預覽入口網站, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # 如何在 Azure Preview 入口網站中管理 DocumentDB 帳戶
 
@@ -32,9 +32,9 @@
 
 1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。 
 
-2.      在 [**摘要**] 透鏡中按一下 [**金鑰**]。
+2.      在 [摘要] 透鏡中按一下 [金鑰]。
 
-3.      在 [**金鑰**] 刀鋒視窗中，按一下要複製之金鑰旁的 [**複製**] 按鈕。
+3.      在 [金鑰] 刀鋒視窗中，按一下要複製之金鑰旁的 [複製] 按鈕。
 
   ![在 Azure Preview 入口網站 [金鑰] 刀鋒視窗中檢視並複製存取金鑰](./media/documentdb-manage-account/image004.jpg)
 
@@ -50,9 +50,9 @@
 
 2.      重新產生 DocumentDB 帳戶的主要存取金鑰。在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
-3.      在 [摘要] 透鏡中按一下 [**金鑰**]。
+3.      在 [摘要] 透鏡中按一下 [金鑰]。
 
-4.      在 [**金鑰**] 刀鋒視窗中按一下 [**重新產生主要金鑰**] 命令，然後按一下 [**確定**] 以確認要產生新的金鑰。
+4.      在 [金鑰] 刀鋒視窗中按一下 [重新產生主要金鑰] 命令，然後按一下 [確定] 以確認要產生新的金鑰。
 
 5.      一旦確認新的金鑰可供使用後 (重新產生後約 5 分鐘)，更新應用程式程式碼中的存取金鑰，以參考新的主要存取金鑰。
 
@@ -77,7 +77,7 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。 
 
-2.      在 [**組態**] 透鏡中，按一下 [**預設一致性**]。
+2.      在 [組態] 透鏡中，按一下 [預設一致性]。
 
 3.      在 [**預設一致性**] 刀鋒視窗中，選取 DocumentDB 帳戶的預設一致性層級。
 
@@ -85,26 +85,26 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 ![預設一致性界限](./media/documentdb-manage-account/image006.png)
 
-4.      按一下 [**儲存**]。
+4.      按一下 [儲存]。
 
 5.      透過 Azure Preview 入口網站通知中樞可監視作業的進度。
 
 *請注意，整個 DocumentDB 帳戶的預設一致性設定變更可能需要幾分鐘的時間才會生效。*
 
 ## <a id="delete"></a> 如何在 Azure Preview 入口網站中刪除 DocumentDB 帳戶
-若要移除 Azure Preview 入口網站中不再使用的 DocumentDB 帳戶，請使用 [**DocumentDB 帳戶**] 刀鋒視窗的 [**刪除**] 命令。
+若要移除 Azure Preview 入口網站中不再使用的 DocumentDB 帳戶，請使用 [DocumentDB 帳戶] 刀鋒視窗的 [刪除] 命令。
 
 ![如何在 Azure Preview 入口網站中刪除 DocumentDB 帳戶](./media/documentdb-manage-account/image009.png)
 
 1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取要刪除的 DocumentDB 帳戶。 
 
-2.      在 [**DocumentDB 帳戶**] 刀鋒視窗中，按一下 [**刪除**] 命令。
+2.      在 [DocumentDB 帳戶] 刀鋒視窗中，按一下 [刪除] 命令。
 
 3.      在後續的確認刀鋒視窗中輸入 DocumentDB 帳戶名稱，確認您想要刪除該帳戶。
 
-4.      在確認刀鋒視窗中按一下 [**刪除**] 按鈕。
+4.      在確認刀鋒視窗中按一下 [刪除] 按鈕。
 
-## <a id="next"></a>後續步驟
+## <a id="next"></a>接續步驟
 
 了解如何[開始使用 DocumentDB 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=402364)。
 
@@ -113,4 +113,4 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

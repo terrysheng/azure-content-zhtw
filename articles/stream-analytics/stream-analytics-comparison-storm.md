@@ -1,7 +1,7 @@
 <properties
 	pageTitle="比較：Apache Storm 與Azure 串流分析 | Microsoft Azure"
 	description="了解如何使用串流分析來執行即時 Twitter 情感分析。從事件產生到即時儀表板資料的逐步指導。"
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="即時 twitter,人氣分析,社交媒體分析,社交媒體分析工具,real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -590,4 +590,4 @@
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="ASP.NET 的 Application Insights" 
-	description="使用 Application Insights 分析內部部署或 Microsoft Azure Web 應用程式的使用情況、可用性和效能。" 
+	description="透過使用 Application Insights 來分析您內部部署或 Microsoft Azure Web 應用程式的效能、可用性與使用模式。" 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -174,4 +174,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

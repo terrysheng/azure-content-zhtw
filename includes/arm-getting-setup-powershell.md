@@ -23,20 +23,6 @@
 
 確認 **PSVersion** 的值是 3.0 或 4.0。如果為否，請參閱 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)。
 
-您也必須有 Azure PowerShell 1.0.0 版或更新版本。如果您尚未安裝和設定 Azure PowerShell，請按一下[這裡](powershell-install-configure.md)以取得指示。
-
-您可以在 Azure PowerShell 命令提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
-
-	Get-Module azure | format-table version
-
-您會收到下列類型的資訊：
-
-	Version
-	-------
-	1.0.0
-
-如果您沒有 1.0.0 或更新版本，則必須使用 [控制台] 中的 [程式和功能] 移除 Azure PowerShell，然後安裝最新版本。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
-
 ### 設定 Azure 帳戶和訂用帳戶
 
 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
@@ -69,4 +55,4 @@
 
 如需 Azure 訂用帳戶和帳戶的詳細資訊，請參閱[如何：連線至訂用帳戶](powershell-install-configure.md#Connect)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

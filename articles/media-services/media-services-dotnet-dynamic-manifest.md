@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="使用媒體服務 .NET SDK 建立篩選器" 
+	pageTitle="使用 Azure 媒體服務 .NET SDK 建立篩選器" 
 	description="本主題說明如何建立篩選器，讓您的用戶端可以使用篩選器來串流特定的資料流區段。媒體服務會建立動態資訊清單來完成此選擇性資料流。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="dwrede,cenkdin" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#使用媒體服務 .NET SDK 建立篩選器
+#使用 Azure 媒體服務 .NET SDK 建立篩選器
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
@@ -147,4 +147,4 @@
 [動態資訊清單概觀](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

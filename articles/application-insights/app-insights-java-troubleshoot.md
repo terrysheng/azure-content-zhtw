@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="疑難排解 Java Web 專案中的 Application Insights" 
-	description="疑難排解指南以及問題和答案。" 
+	description="疑難排解指南 - 使用 Application Insights 監視即時的 Java 應用程式。" 
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
@@ -34,7 +34,7 @@
 * 檢查 ApplicationInsights.xml 檔案 (位於專案的 resources 資料夾) 中已定義檢測機碼
 * 確認 xml 檔案中沒有 `<DisableTelemetry>true</DisableTelemetry>` 節點。
 * 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
-* 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式分頁。
+* 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
 * 在 ApplicationInsights.xml 檔案 (位於專案的 resources 資料夾) 的根節點下加入 `<SDKLogger />` 元素，即可開啟記錄至 IDE 主控台視窗，然後檢查前面加上 [Error] 的項目。
 * 藉由查看主控台的輸出訊息「已成功找到組態檔」陳述式，確定 Java SDK 已成功載入正確的 ApplicationInsights.xml 檔案。
 * 如果找不到組態檔，請檢查輸出訊息以查看在何處搜尋組態檔，並確定 ApplicationInsights.xml 位在這些搜尋位置中的其中一個位置。根據經驗法則，您可以將組態檔置於 Application Insights SDK JAR 附近。例如：在 Tomcat 中，這可能表示 WEB-INF/lib 資料夾。
@@ -138,4 +138,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="透過 Azure PowerShell Cmdlet 監視和管理串流分析工作 | Microsoft Azure" 
 	description="了解如何透過 Azure PowerShell 和 Cmdlet 監視及管理串流分析工作。" 
-	keywords="azure powershell,azure powershell cmdlets,powershell command"	
+	keywords="Powershell 命令,azure powershell,azure powershell cmdlets,powershell command"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -43,7 +43,7 @@
 		
 
 
-> [AZURE.NOTE]以程式控制方式建立的串流分析工作預設不會啟用監視功能。您可以在 Azure 入口網站中瀏覽到該工作的 \[監視\] 頁面，然後按一下 \[啟用\] 按鈕來手動啟用監視，或是按照[Azure 串流分析 - 以程式設計方式監視串流分析工作](stream-analytics-monitor-jobs.md)中的步驟執行，以程式設計方式來啟用。
+> [AZURE.NOTE]以程式控制方式建立的串流分析工作預設不會啟用監視功能。您可以在 Azure 入口網站中瀏覽到該工作的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用監視，或是按照[Azure 串流分析 - 以程式設計方式監視串流分析工作](stream-analytics-monitor-jobs.md)中的步驟執行，以程式設計方式來啟用。
 
 ## 用於串流分析的 Azure PowerShell Cmdlet
 下表列出可用來監視和管理 Azure 串流分析工作的 Azure PowerShell Cmdlet。
@@ -119,7 +119,7 @@
 
 如果您指定 –Force 參數，並指定現有的輸入名稱，則不經過確認就會取代輸入。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸入 \(Azure 串流分析\)][msdn-rest-api-create-stream-analytics-input] 一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸入 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-input] 一節。
 
 **範例 1**
 
@@ -166,7 +166,7 @@
 
 如果您指定 –Force 參數，並指定現有的輸出名稱，則不經過確認就會取代輸出。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸出 \(Azure 串流分析\)][msdn-rest-api-create-stream-analytics-output] 一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸出 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-output] 一節。
 
 **範例 1**
 
@@ -187,7 +187,7 @@
 
 如果您指定 –Force 參數，並指定現有的轉換名稱，則不經過確認就會取代轉換。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立轉換 \(Azure 串流分析\)][msdn-rest-api-create-stream-analytics-transformation] 一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立轉換 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-transformation] 一節。
 
 **範例 1**
 
@@ -258,7 +258,7 @@
 此 PowerShell 命令會測試 StreamingJob 中 Output 輸出的連接狀態。
 
 ## 取得支援
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟
@@ -287,4 +287,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

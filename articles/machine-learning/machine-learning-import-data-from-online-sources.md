@@ -1,7 +1,7 @@
 <properties
 	pageTitle="將來自線上資料來源的資料匯入 Machine Learning Studio | Microsoft Azure"
 	description="如何從各種線上來源將訓練資料匯入 Azure Machine Learning Studio。"
-	keywords="import data,data format,data types,data sources,training data"
+	keywords="匯入資料、資料格式、資料類型、資料來源、定型資料"
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -47,7 +47,7 @@ Azure Machine Learning 的**讀取器**模組支援下列資料來源：
 
 資料來源 | 說明 | 參數 |
 ---|---|---|
-透過 HTTP 的 Web URL |從任何使用 HTTP 的 Web URL 中讀取逗號分隔值 (CSV)、tab 分隔值 (TSV)、屬性關聯檔案格式 (ARFF) 和支援向量機器 (SVM-light) 格式的資料 | <b>URL</b>：指定檔案的完整名稱，包擴網站 URL 和檔案名稱與任何副檔名。<br/><br/><b>資料格式</b>：指定其中一個支援的資料格式：CSV、TSV、ARFF 或 SVM-light。如果資料有標頭資料列，將會用來指派資料行名稱。|
+透過 HTTP 的 Web URL |從任何使用 HTTP 的 Web URL 中讀取逗號分隔值 (CSV)、tab 分隔值 (TSV)、屬性關聯檔案格式 (ARFF) 和支援向量機器 (SVM-light) 格式的資料 | <b>URL</b>：指定檔案的完整名稱，包括網站 URL 和檔案名稱與任何副檔名。<br/><br/><b>資料格式</b>：指定其中一個支援的資料格式：CSV、TSV、ARFF 或 SVM-light。如果資料有標頭資料列，將會用來指派資料行名稱。|
 Hadoop/HDFS|從 Hadoop 中的分散式儲存體讀取資料。您可以使用 HiveQL (類似 SQL 的查詢語言) 指定您要的資料。HiveQL 也可以在您將資料新增至 Machine Learning Studio 之前，用來彙總資料及執行資料篩選。|<b>Hive 資料庫查詢</b>：指定用來產生資料的 Hive 查詢。<br/><br/><b>HCatalog 伺服器 URI</b>：使用 *&lt;your cluster name&gt;.azurehdinsight.net* 的格式指定您叢集的名稱。<br/><br/><b>Hadoop 使用者帳戶名稱</b>：指定用來佈建叢集的 Hadoop 使用者帳戶名稱。<br/><br/><b>Hadoop 使用者帳戶密碼</b>：指定佈建叢集時所使用的認證。如需詳細資訊，請參閱[在 HDInsight 中建立 Hadoop 叢集](article-hdinsight-provision-clusters)。<br/><br/><b>輸出資料的位置</b>：指定資料要儲存在 Hadoop 分散式檔案系統 (HDFS) 還是 Azure 中。<br/><ul>如果您將輸出資料儲存在 HDFS 中，請指定 HDFS 伺服器 URI。(請確實使用沒有 HTTPS:// 前置詞的 HDInsight 叢集名稱)。<br/><br/>如果您將輸出資料儲存在 Azure 中，則必須指定 Azure 儲存體帳戶名稱、儲存體存取金鑰和儲存體容器名稱。</ul>|
 SQL Database |讀取儲存在 Azure SQL Database 或執行於 Azure 虛擬機器之 SQL Server 資料庫中的資料。 | <b>資料庫伺服器名稱</b>：指定資料庫執行所在之伺服器的名稱。<br/><ul>如果是 Azure SQL Database，請輸入產生的伺服器名稱。其格式通常為 *&lt;generated\_identifier&gt;.database.windows.net*。 <br/><br/>如果是裝載在 Azure 虛擬機器上的 SQL Server，請輸入 *tcp:&lt;Virtual Machine DNS Name&gt;, 1433*</ul><br/><b>資料庫名稱</b>：指定伺服器上的資料庫名稱。<br/><br/><b>伺服器使用者帳戶名稱</b>：指定具有資料庫存取權限之帳戶的使用者名稱。<br/><br/><b>伺服器使用者帳戶密碼</b>：指定使用者帳戶的密碼。<br/><br/><b>接受任何伺服器憑證</b>：如果您想要跳過在讀取資料之前檢閱網站憑證的步驟，請使用此選項 (較不安全)。<br/><br/><b>資料庫查詢</b>：輸入 SQL 陳述式以說明您要讀取的資料。|
 Azure 資料表|從 Azure 儲存體中的表格服務讀取資料。<br/><br/>如果您不常讀取大量資料，請使用 Azure 資料表服務。它可提供有彈性、非關聯式 (NoSQL)、具有超高延展性、經濟的且高度可用的儲存解決方案。| **讀取器**中的選項會隨著您存取的是公開資訊還是需要登入認證的私人儲存體帳戶，而有所不同。這取決於值有可能是 "PublicOrSAS" 或 "Account" 的<b>驗證類型</b>，兩者都有其本身的參數集。<br/><br/><b>公用或共用存取簽章 (SAS) URI</b>：參數為：<br/><br/><ul><b>資料表 URI</b>：指定資料表的公用或 SAS URL。<br/><br/><b>指定要為屬性名稱掃描的資料列</b>：值為 <i>TopN</i>，用以掃描指定的資料列數，或是 <i>ScanAll</i>，用以取得資料表中的所有資料列。<br/><br/>如果資料是同質且可預測的，建議您選取 *TopN*，並且輸入 N 的數目。對於大型資料表，這可能會使讀取速度更快。<br/><br/>如果資料已透過隨著資料表的深度和位置而異的屬性集進行結構化，請選擇 *ScanAll* 選項以掃描所有資料列。這可確保產生的屬性和中繼資料轉換具有完整性。<br/><br/></ul><b>私人儲存體帳戶</b>：參數是：<br/><br/><ul><b>帳戶名稱</b>：指定要讀取的資料表所屬帳戶的名稱。<br/><br/><b>帳戶金鑰</b>：指定與帳戶相關聯的儲存體金鑰。<br/><br/><b>資料表名稱</b>：指定要讀取的資料所在之資料表的名稱。<br/><br/><b>要為屬性名稱掃描的資料列</b>：值為 <i>TopN</i>，用以掃描指定的資料列數，或是 <i>ScanAll</i>，用以取得資料表中的所有資料列。<br/><br/>如果資料是同質且可預測的，建議您選取 *TopN*，並且輸入 N 的數目。對於大型資料表，這可能會使讀取速度更快。<br/><br/>如果資料已透過隨著資料表的深度和位置而異的屬性集進行結構化，請選擇 *ScanAll* 選項以掃描所有資料列。這可確保產生的屬性和中繼資料轉換具有完整性。<br/><br/>|
@@ -58,4 +58,4 @@ Azure Blob 儲存體 | 讀取 Azure 儲存體中的 Blob 服務所儲存的資�
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

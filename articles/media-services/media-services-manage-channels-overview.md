@@ -3,7 +3,7 @@
 	description="本主題描述如何讓通道接收內部部署編碼器的多位元速率即時資料流。串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH、HDS。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="cenkdin,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #使用通道，從內部部署編碼器接收多位元速率即時串流
@@ -266,4 +266,4 @@ SCTE-35|數位訊號系統，用來提示廣告插入。下游接收端會使用
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="作業記錄檔 | Microsoft Azure" 
 	description="串流分析作業記錄檔" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="巨量資料分析,雲端服務,物聯網,受管理的服務,串流處理,資料流分析,資料流處理資料,big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -38,7 +38,7 @@
 
 若要以手動方式瀏覽至串流分析的作業記錄檔以及 Azure 入口網站中的其他服務：
 
-1.	按一下 [Azure 入口網站](https://manage.windowsazure.com) 中的 [管理服務]。
+1.	按一下 [Azure 入口網站](https://manage.windowsazure.com)中的 [管理服務]。
 2.	針對 [類型] 選取 [串流分析]，並針對 [服務名稱] 選取作業的名稱。  
 
   ![選取串流分析](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
@@ -96,4 +96,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

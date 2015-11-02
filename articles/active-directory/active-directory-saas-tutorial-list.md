@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="10/06/2015"
+    ms.date="10/16/2015"
     ms.author="markvi"/>
 
 #如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單
@@ -112,6 +112,7 @@
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Projectplace.jpg)| [Projectplace](https://go.microsoft.com/fwLink/?LinkID=510265&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Qualtrics.jpg)| [Qualtrics](https://go.microsoft.com/fwLink/?LinkID=522567&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Questetra_BPM_Suite.jpg)| [Questetra BPM Suite](https://go.microsoft.com/fwLink/?LinkID=530240&clcid=0x409)|
+| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_QuickHelp.jpg)| [QuickHelp](https://go.microsoft.com/fwLink/?LinkID=530246&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_RallySoftware.jpg)| [Rally Software](https://go.microsoft.com/fwLink/?LinkID=403247&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Replicon.jpg)| [Replicon](https://go.microsoft.com/fwLink/?LinkID=403243&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_RightAnswers.jpg)| [RightAnswers](https://go.microsoft.com/fwLink/?LinkID=530239&clcid=0x409)|
@@ -119,8 +120,8 @@
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.jpg)| [Salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.jpg)| [Salesforce](https://go.microsoft.com/fwLink/?LinkID=286017&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Samanage.jpg)| [Samanage](https://go.microsoft.com/fwLink/?LinkID=510241&clcid=0x409)|
-| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.jpg)| [SAP HANA Cloud Platform](https://go.microsoft.com/fwLink/?LinkID=530219&clcid=0x409)|
-| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_SCCLifeCycle.jpg)| [SCC LifeCycle](https://go.microsoft.com/fwLink/?LinkID=530218&clcid=0x409)|
+| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.jpg)| [SAP HANA 雲端平台](https://go.microsoft.com/fwLink/?LinkID=530219&clcid=0x409)|
+| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_SCCLifeCycle.jpg)| [SCC 生命週期](https://go.microsoft.com/fwLink/?LinkID=530218&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Sciforma.jpg)| [Sciforma](https://go.microsoft.com/fwLink/?LinkID=510264&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_SciQuestSpendDirector.jpg)| [SciQuest Spend Director](https://go.microsoft.com/fwLink/?LinkID=530243&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Screensteps.jpg)| [ScreenSteps](https://go.microsoft.com/fwLink/?LinkID=510251&clcid=0x409)|
@@ -150,7 +151,8 @@
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Work.jpg)| [Work.com](https://go.microsoft.com/fwLink/?LinkID=510259&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday Inbound Synchronization](https://msdn.microsoft.com/library/azure/dn762434.aspx)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)|
-| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.jpg)| [OnDemand xMatters](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)|
+| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Workrite.jpg)| [Workrite](https://go.microsoft.com/fwLink/?LinkID=530242&clcid=0x409)|
+| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.jpg)| [xMatters OnDemand](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Zendesk.jpg)| [Zendesk](https://go.microsoft.com/fwLink/?LinkID=403255&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_ZohoMail.jpg)| [Zoho Mail](https://go.microsoft.com/fwLink/?LinkID=403220&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Zoom.jpg)| [Zoom](https://go.microsoft.com/fwLink/?LinkID=403225&clcid=0x409)|
@@ -166,6 +168,7 @@
 
 
 
+
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

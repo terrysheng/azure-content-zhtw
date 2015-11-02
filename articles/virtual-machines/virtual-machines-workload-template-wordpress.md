@@ -45,7 +45,7 @@
 
 ## Azure PowerShell
 
-在開始之前，請確定您已安裝正確版本的 Azure PowerShell、已登入，而且您已切換至新的資源管理員模式。如需詳細資訊，請按一下[這裡](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates)。
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有項目，包括 < and > 字元。
 
@@ -106,4 +106,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

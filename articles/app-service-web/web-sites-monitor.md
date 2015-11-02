@@ -52,14 +52,14 @@
 
 ##<a name="howtoviewusage"></a>作法：檢視 Web 應用程式的使用量配額
 
-Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [調整規模] 管理頁面，設為在 [共用] 或 [標準] 模式中執行。在 [共用] 模式中，每個 Azure 訂用帳戶都能存取針對每個區域執行最多 100 個 Web 應用程式的目的而提供的資源集區。基於此目的而提供給每個 Web 應用程式訂用帳戶使用的資源集區，將由相同地理位置中設定為在 [共用] 模式中執行的其他 Web 應用程式所共用。由於這些資源需與其他 Web 應用程式共用，因此所有訂用帳戶在使用這些資源時均會受到限制。套用在訂用帳戶上的資源使用限制，會以列於各個 Web 應用程式 [儀表板] 管理頁面之 [使用量概觀] 區段下的使用量配額來表示。
+Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的**調整規模**管理頁面，設為在**共用**或**標準**模式中執行。在 [共用] 模式中，每個 Azure 訂用帳戶都能存取針對每個區域執行最多 100 個 Web 應用程式的目的而提供的資源集區。基於此目的而提供給每個 Web 應用程式訂用帳戶使用的資源集區，將由相同地理位置中設定為在 [共用] 模式中執行的其他 Web 應用程式所共用。由於這些資源需與其他 Web 應用程式共用，因此所有訂用帳戶在使用這些資源時均會受到限制。套用在訂用帳戶上的資源使用限制，會以列於各個 Web 應用程式 [儀表板] 管理頁面之 [使用量概觀] 區段下的使用量配額來表示。
 
->[AZURE.NOTE] 若將網站設定為以 [標準] 模式執行，則該網站會被配置相當於下文表格中 [小型] \(預設值)、[中型] 或 [大型] 虛擬機器大小的專用資源：[Azure 的虛擬機器和雲端服務大小][vmsizes]。對於在 [標準] 模式下運作的 Web 應用程式，其訂用帳戶可使用的資源並沒有限制。然而，每個區域容許建立的 [標準] 模式 Web 應用程式數目只有 500 個。
+>[AZURE.NOTE]若將網站設定為以 [標準] 模式執行，則該網站會被配置相當於下文表格中 [小型] (預設值)、[中型] 或 [大型] 虛擬機器大小的專用資源：[Azure 的虛擬機器和雲端服務大小][vmsizes]。對於在 [標準] 模式下運作的 Web 應用程式，其訂用帳戶可使用的資源並沒有限制。然而，每個區域容許建立的 [標準] 模式 Web 應用程式數目只有 500 個。
 
 ### 作法：檢視設定為共用模式的 Web 應用程式的使用量配額 ###
 若要判斷 Web 應用程式影響資源使用量配額的程度，請遵循以下步驟：
 
-1. 開啟 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [儀表板] 管理頁面。
+1. 開啟 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的**儀表板**管理頁面。
 2. 個別[應用程式服務](http://go.microsoft.com/fwlink/?LinkId=529714)方案的使用量配額會顯示在 [使用量概觀] 區段之下，它是下列項目的子集：
 	-	[資料輸出]、[CPU 時間] 和 [記憶體] - 若超出配額，Azure 會在目前剩餘的配額間隔期間停止 Web 應用程式。Azure 會在下一個配額間隔開始時啟動 Web 應用程式。
 	-	[檔案系統儲存體] - 若達到此配額，檔案系統儲存體仍可進行讀取作業，但是會封鎖所有的寫入作業，包括正常 Web 應用程式活動所需的作業。當您降低檔案使用量或將 Web 應用程式移到配額較高的應用程式服務方案時，將會繼續進行寫入作業。
@@ -76,7 +76,7 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 ##<a name="howtoconfigdiagnostics"></a>作法：設定診斷功能及下載 Web 應用程式記錄
 
-您可以在 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤上啟用診斷功能。診斷功能分為兩種：應用程式診斷和網站診斷。
+您可以在 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [**設定**] 索引標籤上啟用診斷功能。診斷功能分為兩種：應用程式診斷和網站診斷。
 
 #### 應用程式診斷 ####
 
@@ -106,7 +106,7 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 您可以同時啟用 [Application diagnostics (file system)]、[Application diagnostics (table storage)] 及 [Application diagnostics (blob storage)]，且它們可以擁有各自的記錄層級組態。例如，您也許會想要將錯誤和警告記錄在儲存體並做為長期的記錄解決方案，同時在檢測應用程式程式碼後啟用檔案系統記錄並搭配詳細資訊層級，以供疑難排解問題之用。
 
-您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)。
 
 > [AZURE.NOTE]應用程式記錄功能仰賴應用程式產生的記錄資訊。用來產生記錄資訊的方法和資訊的格式取決於應用程式的撰寫語言。如需有關使用應用程式記錄功能的語言特有資訊，請參閱以下文章：
 >
@@ -164,7 +164,7 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 **FTP**
 
-1. 開啟 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的 [儀表板] 管理頁面，接著記下 [診斷記錄] 下列示的 FTP 網站和 [部署使用者] 下列示的帳戶。FTP 站台是記錄檔的所在位置，而列示於 [Deployment User] 下的帳戶可用來通過 FTP 站台的驗證。
+1. 開啟 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式的**儀表板**管理頁面，接著記下**診斷記錄**下列示的 FTP 網站和**部署使用者**下列示的帳戶。FTP 站台是記錄檔的所在位置，而列示於 [Deployment User] 下的帳戶可用來通過 FTP 站台的驗證。
 2. 如果您尚未建立部署認證，列示於 [Deployment User] 下的帳戶將會是 [未設定]。在這種情況下，您必須建立部署認證 (如 [儀表板] 的 [Reset Deployment Credentials] 區段所述)，因為您必須使用這些認證來通過儲存記錄檔之 FTP 站台的驗證。Azure 不支援使用 Live ID 認證來通過此 FTP 站台的驗證。
 3. 請考慮使用 FTP 用戶端 (如 [FileZilla][fzilla]) 來連接 FTP 站台。與瀏覽器普遍的功能相比，FTP 用戶端更能簡化認證的指定和 FTP 站台資料夾的檢視。
 4. 請將 FTP 站台上的記錄檔複製到本機電腦。
@@ -237,9 +237,9 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 **記錄檔類型：Web 伺服器記錄**
 
-- 位置：/LogFiles/http/RawLogs。儲存在檔案中的資訊是使用 [W3C 擴充記錄檔格式](http://go.microsoft.com/fwlink/?LinkID=90561) (英文) 加以格式化。Azure Web 應用程式未使用 s-computername、s-ip 及 cs-version 等欄位。
+- 位置：/LogFiles/http/RawLogs。儲存在檔案中的資訊是使用 [W3C 擴充記錄檔格式](http://go.microsoft.com/fwlink/?LinkID=90561)加以格式化。Azure Web 應用程式未使用 s-computername、s-ip 及 cs-version 等欄位。
 
-- 檔案讀取方法：記錄檔剖析器。用來剖析及查詢 IIS 記錄檔。Microsoft 下載中心 <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a> (英文) 備有 Log Parser 2.2 可供使用。
+- 檔案讀取方法：記錄檔剖析器。用來剖析及查詢 IIS 記錄檔。Microsoft 下載中心 <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a> 備有 Log Parser 2.2 可供使用。
 
 
 ##<a name="webendpointstatus"></a>作法：監視 Web 端點狀態
@@ -275,9 +275,9 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 
 如需 Web 應用程式端點監視的詳細資訊，請觀看以下影片：
 
-- [Scott Guthrie 介紹 Azure 網站及設定端點監視](/documentation/videos/websites-and-endpoint-monitoring-scottgu/) (英文)
+- [Scott Guthrie 介紹 Azure 網站及設定端點監視](/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) (英文)
+- [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -289,4 +289,4 @@ Web 應用程式可以從 [Azure 入口網站](https://manage.windowsazure.com) 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

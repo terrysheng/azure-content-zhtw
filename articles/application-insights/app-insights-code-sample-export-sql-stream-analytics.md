@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="逐步解說：將遙測資料從 Application Insights 匯出至 SQL Database" 
-	description="使用連續匯出功能，在 Application Insights 中自行撰寫遙測資料分析的程式碼。" 
+	description="使用 Stream Analytics 持續將 Application Insights 資料匯出至 SQL。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -50,7 +50,7 @@
 
 4. 在此範例中，我們正在監視 Web 應用程式，因此可以使用 Visual Studio 中的 Azure Tools 安裝 SDK。告訴 SDK 您的 Application Insights 資源名稱：
 
-    ![在 Visual Studio [方案總管] 中，以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。在 [傳送遙測資料至] 選擇建立新資源，或使用現有資源。](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
+    ![在 Visual Studio [方案總管] 中，以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。在 [傳送遙測至] 選擇建立新資源，或使用現有資源。](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
 
 5. 發行應用程式，並觀察出現在 Application Insights 資源中的遙測資料。
 
@@ -314,4 +314,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

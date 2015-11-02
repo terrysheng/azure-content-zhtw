@@ -1,6 +1,6 @@
 <properties
    	pageTitle="在 HDInsight 中使用 cURL 與 Azure REST API 在 Linux 上建立 Hadoop、HBase 或 Storm 叢集 | Microsoft Azure"
-   	description="了解如何使用 cURL 與 Azure REST API 在適用於 HDInsight 的 Linux 上建立 Hadoop、HBase 或 Storm 叢集。"
+   	description="了解如何使用 cURL、Azure 資源管理員範本以及 Azure REST API 來建立以 Linux 為基礎的 HDInsight 叢集。您可以指定叢集類型 (Hadoop、HBase、或 Storm) 或使用指令碼來安裝自訂元件。"
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
@@ -351,4 +351,4 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/20/2015" 
 	ms.author="arramac"/>
 
 # 使用 Order By 排序 DocumentDB 資料
@@ -125,7 +125,7 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
         });
 
 ## 範例
-請參閱示範如何使用 Order By 的 [Github 範例專案](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)，其內容包括使用 Order By 建立索引編製原則和分頁。這些範例是開放原始碼，我們鼓勵您提交提取要求，並附上可幫助其他 DocumentDB 開發人員的貢獻。請參閱[貢獻指導方針](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)，以取得有關如何貢獻的指引。
+請參閱示範如何使用 Order By 的 [Github 範例專案](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)，其內容包括使用 Order By 建立索引編製原則和分頁。這些範例是開放原始碼，我們鼓勵您提交提取要求，並附上可幫助其他 DocumentDB 開發人員的貢獻。請參閱[貢獻指導方針](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)，以取得有關如何貢獻的指引。
 
 ## 未來將推出哪些新功能？
 
@@ -152,7 +152,7 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 
 **如何使用 Order By 查詢 DocumentDB 中的現有資料？**
 
-[未來將推出哪些新功能](what's-coming-next)一節提及的動態索引編製原則改善功能推出後，該問題將可獲得支援。若要在現在執行這項操作，您必須先匯出資料，然後再將資料重新匯入以 Range/Order By 索引所建立的新 DocumentDB 集合。您可以使用 DocumentDB 匯入工具在集合之間移轉資料。
+若要使用 Order By 排序查詢結果，您必須將集合的索引編製原則修改為使用範圍索引類型來排序，而不使用屬性來排序。請參閱[修改索引編製原則](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection)。
 
 **Order By 目前的限制有哪些？**
 
@@ -168,13 +168,13 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 
 ## 後續步驟
 
-取用 [Github 範例專案](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)並開始排序您的資料 ！
+取用 [Github 範例專案](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)並開始排序您的資料 ！
 
 ## 參考
 * [DocumentDB 查詢參考](documentdb-sql-query.md)
 * [DocumentDB 索引編製原則參考](documentdb-indexing-policies.md)
 * [DocumentDB SQL 參考](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
+* [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

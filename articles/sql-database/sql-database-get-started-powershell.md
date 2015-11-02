@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/08/2015"
+    ms.date="10/20/2015"
     ms.author="sstein"/>
 
 # 使用 PowerShell 建立 SQL Database
@@ -44,22 +44,22 @@
 
 您必須先建立 Azure 帳戶的存取權，以便執行以下 Cmdlet，然後您會看到要輸入認證的登入畫面。請使用與登入 Azure 入口網站相同的電子郵件和密碼。
 
-	Add-AzureAccount
+	Add-AzureRMAccount
 
 成功登入後，您將會在畫面中看到一些資訊，包括用於登入的 ID 與可以存取的 Azure 訂用帳戶。
 
 
 ### 選取您的 Azure 訂用帳戶
 
-若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureSubscription** Cmdlet，然後複製結果集中所需的訂用帳戶資訊。當您的訂用帳戶執行了以下 Cmdlet 之後：
+若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureRMSubscription** Cmdlet，然後複製結果集中所需的訂用帳戶資訊。當您的訂用帳戶執行了以下 Cmdlet 之後：
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRMSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-成功執行 **Select-AzureSubscription** 之後，您會返回 PowerShell 提示字元。如果您有一個以上的訂用帳戶，您可以執行 **Get-AzureSubscription** 並確認您要使用的訂用帳戶顯示 **IsCurrent: True**。
+成功執行 **Select-AzureRMSubscription** 之後，您會返回 PowerShell 提示字元。如果您有一個以上的訂用帳戶，您可以執行 **Get-AzureRMSubscription** 並確認您要使用的訂用帳戶顯示 **IsCurrent: True**。
 
 ## 建立資源群組、伺服器和防火牆規則
 
-現在您有權在您選取的 Azure 訂用帳戶下執行 Cmdlet，因此下一步是建立含有伺服器的資源群組，以在伺服器中建立資料庫。為了使用您選擇的任何有效位置，您可以編輯下一個命令。執行 **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** 以取得有效位置的清單。
+現在您有權在您選取的 Azure 訂用帳戶下執行 Cmdlet，因此下一步是建立含有伺服器的資源群組，以在伺服器中建立資料庫。為了使用您選擇的任何有效位置，您可以編輯下一個命令。執行 **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** 以取得有效位置的清單。
 
 執行下列命令以建立新的資源群組：
 
@@ -88,7 +88,7 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 
 若要允許其他 Azure 服務存取伺服器，則新增防火牆規則並且將 tartIpAddress 和 EndIpAddress 都設為 0.0.0.0。請注意，這可讓來自任何 Azure 訂用帳戶的 Azure 流量存取伺服器。
 
-如需詳細資訊，請參閱 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx)。
+如需詳細資訊，請參閱 [Azure SQL Database 防火牆](sql-database-firewall-configure.md)。
 
 
 ## 建立 SQL 資料庫
@@ -120,8 +120,8 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
     $DatabasePerfomanceLevel = "S1"
     
     
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRMAccount
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId
     
     $ResourceGroup = New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
     
@@ -144,4 +144,4 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 
 - [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

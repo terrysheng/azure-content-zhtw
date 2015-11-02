@@ -18,7 +18,7 @@
 	ms.author="mingzhan"/>
 
 
-# 如何在 VM 上從 Github 升級至最新版的 Azure Linux 代理程式
+# 如何在 VM 上從 Github 更新至最新版的 Azure Linux 代理程式
 
 若要更新在 Azure 中 Linux VM 之 [Azure Linux 代理程式](https://github.com/Azure/WALinuxAgent) ，您必須準備好：
 
@@ -126,4 +126,4 @@
 
 如需有關 Azure Linux 代理程式的詳細資訊，請參閱 [Azure Linux 代理程式讀我檔案](https://github.com/Azure/WALinuxAgent)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

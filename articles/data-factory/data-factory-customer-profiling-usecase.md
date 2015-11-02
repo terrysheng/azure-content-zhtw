@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # 使用案例 - 客戶分析
@@ -48,4 +48,4 @@ Contoso 的目標是要根據遊戲使用者的遊戲歷程記錄設定檔識別
 
 藉由最佳化其使用者設定檔分析並將其與企業目標對齊，遊戲公司可以快速收集使用模式，並且為其所有不同的遊戲產品分析其行銷活動的效益。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

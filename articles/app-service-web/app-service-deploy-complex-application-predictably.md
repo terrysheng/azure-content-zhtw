@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -288,14 +288,14 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 
 ## 後續步驟 ##
 
-了解如何[輕鬆地套用敏捷式方法並連續發行微服務應用程式](app-service-agile-software-development.md)。
+了解如何[套用敏捷方法，並利用進階部署技術 (例如[正式發行前小眾測試部署](app-service-web-test-in-production-controlled-test-flight.md)) 持續輕鬆地發行您的微服務應用程式](app-service-agile-software-development.md)。
 
 <a name="resources"></a>
 ## 其他資源 ##
 
 -	[Azure 資源管理員範本語言](../resource-group-authoring-templates.md)
 -	[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)
--	[Azure 資源管理員範本函數](../resource-group-template-functions.md)
+-	[Azure 資源管理員範本函式](../resource-group-template-functions.md)
 -	[使用 Azure 資源管理員範本部署應用程式](../resource-group-template-deploy.md)
 -	[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)
 -	[Azure 中的資源群組部署疑難排解](../resource-group-deploy-debug.md)
@@ -305,4 +305,4 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

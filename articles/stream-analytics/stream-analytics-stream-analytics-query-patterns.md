@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 串流分析查詢模式 | Microsoft Azure"
 	description="常見的 Azure 串流分析查詢模式"
-	keywords="stream analytics, sample, query, language, guide, patterns"
+	keywords="串流分析、範例、查詢、語言、指南、模式"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -26,7 +26,7 @@
 ## 基本概念 ##
 
 ## 資料類型轉換 ##
-**描述**：在輸入資料流上定義屬性類型。例如，汽車權數即將出現在輸入資料流做為字串，並且需要轉換為 INT 以執行總結。
+**描述**：在輸入串流上定義屬性類型。例如，汽車權數即將出現在輸入串流做為字串，並且需要轉換為 INT 以執行總結。
 
 **輸入**：
 
@@ -185,7 +185,7 @@
 ## 模式 ##
 
 ## 計算唯一值
-**描述**：計算時間視窗內資料流中出現的唯一值數目。例如，多少汽車的唯一品牌會在第 2 個視窗中通過收費站？
+**描述**：計算時間視窗內串流中出現的唯一值數目。例如，多少汽車的唯一品牌會在第 2 個視窗中通過收費站？
 
 **輸入**：
 
@@ -197,7 +197,7 @@
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 | Toyota | 2015-01-01T00:00:03.0000000Z |
 
-**Output:**
+**輸出：**
 
 | 計數 | 時間 |
 | --- | --- |
@@ -253,7 +253,7 @@
 	WHERE
 		LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**說明**：使用 LAG 查看一個事件前的輸入資料流並取得品牌值。然後將其和目前事件中的品牌比較，並且在兩者不同時輸出事件。
+**說明**：使用 LAG 查看一個事件前的輸入串流並取得品牌值。然後將其和目前事件中的品牌比較，並且在兩者不同時輸出事件。
 
 ## 在視窗中尋找第一個事件 ##
 **描述**：是否每隔 10 分鐘尋找第一輛車？
@@ -352,10 +352,10 @@
 		ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
 		AND Input.Time = LastInWindow.LastEventTime
 
-**說明**：查詢中有兩個步驟 – 第一個是在 10 分鐘視窗中尋找最新的時間戳記。第二個步驟會聯結第一個查詢的結果與原始資料流，以在每個視窗中尋找符合最後一個時間戳記的事件。
+**說明**：查詢中有兩個步驟 – 第一個是在 10 分鐘視窗中尋找最新的時間戳記。第二個步驟會聯結第一個查詢的結果與原始串流，以在每個視窗中尋找符合最後一個時間戳記的事件。
 
 ## 偵測到事件不存在 ##
-**描述**：檢查資料流有沒有符合特定準則的值。例如，90 分鐘內有沒有連續 2 輛相同品牌的汽車進入收費道路？
+**描述**：檢查串流有沒有符合特定準則的值。例如，90 分鐘內有沒有連續 2 輛相同品牌的汽車進入收費道路？
 
 **輸入**：
 
@@ -385,10 +385,10 @@
 	WHERE
 	    LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**說明**：使用 LAG 查看一個事件前的輸入資料流並取得品牌值。然後將其和目前事件中的品牌比較，在兩者相同時輸出事件並使用 LAG 取得上一輛車的相關資料。
+**說明**：使用 LAG 查看一個事件前的輸入串流並取得品牌值。然後將其和目前事件中的品牌比較，在兩者相同時輸出事件並使用 LAG 取得上一輛車的相關資料。
 
 ## 偵測到某情況的持續時間 ##
-**描述**：了解發生某情況的持續時間。例如，假設一個錯誤導致所有車輛的重量都不正確 (超過 20,000 磅) – 我們會想要運算錯誤的持續時間。
+**描述**：了解發生某情況的持續時間。例如，假設一個錯誤導致所有車輛的重量都不正確 (超過 20,000 磅) – 我們會想要計算錯誤的持續時間。
 
 **輸入**：
 
@@ -441,18 +441,18 @@
 
 藉由使用我們在「左方外部聯結包含 NULL 或執行事件不存在」中了解的內容，我們知道要如何檢查我們挑選的 2 個良好事件之間沒有其他良好事件。
 
-將這些內容撰寫在一起，我們就能取得良好 -> 錯誤 -> 良好事件，中間不會包含其他良好事件。我們現在可以運算開頭和結尾良好事件之間的持續時間，進而取得錯誤的持續時間。
+將這些內容撰寫在一起，我們就能取得良好 -> 錯誤 -> 良好事件，中間不會包含其他良好事件。我們現在可以計算開頭和結尾良好事件之間的持續時間，進而取得錯誤的持續時間。
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
-- [Azure 串流分析介紹](stream-analytics-introduction.md)
-- [開始使用 Azure 串流分析](../stream.analytics.get.started.md)
-- [調整 Azure 串流分析工作](stream-analytics-scale-jobs.md)
-- [Azure 串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
+- [開始使用 Azure Stream Analytics](../stream.analytics.get.started.md)
+- [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

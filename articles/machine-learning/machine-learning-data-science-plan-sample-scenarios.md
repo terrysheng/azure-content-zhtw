@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="10/18/2015"
 	ms.author="msolhab;bradsev" />
 
 
 # 在 Azure 機器學習中的進階分析案例
 
-本文概述可以運用 Azure Machine Learning 中的進階分析程序和技術 (ADAPT) 來加以處理的各種範例資料來源和目標案例。本文將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明處理順序中可用的選項。
+本文概述可以運用 Cortana 分析程序 (CAP) 來處理的各種範例資料來源和目標案例。本文將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明處理順序中可用的選項。
 
 最後一節提供**決策樹**，讓您在選取適合您資料和目標的範例案例時可以使用。
 
@@ -32,8 +32,6 @@
 
 *   [建立儲存體帳戶](storage-whatis-account.md)
 *   [建立 Azure ML 工作區](machine-learning/machine-learning-create-workspace.md)
-
-
 
 
 ## <a name="smalllocal"></a>案例 #1：本機檔案中的中小型表格式資料集
@@ -298,8 +296,8 @@
 如需透過公用資料集運用進階分析程序和技術的端對端 Azure Machine Learning 逐步解說，請參閱：
 
 
-* [進階分析程序和技術實務：使用 SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md)。
-* [進階分析程序和技術實務：使用 HDInsight Hadoop 叢集](machine-learning/machine-learning-data-science-process-hive-walkthrough.md)。
+* [Cortana 分析程序實務：使用 SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md)。
+* [Cortana 分析程序實務：使用 HDInsight Hadoop 叢集](machine-learning/machine-learning-data-science-process-hive-walkthrough.md)。
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -316,4 +314,4 @@
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

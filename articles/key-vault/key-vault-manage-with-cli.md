@@ -132,7 +132,7 @@
 
 不過，如果您在 .pem 檔案中有現有金鑰，而該檔案已另存為本機檔案 (在名為 softkey.pem 的檔案中)，且您想要將該金鑰上傳至 Azure 金鑰保存庫，請輸入下列命令以從 .PEM 檔案匯入金鑰 (這樣便可透過金鑰保存庫服務中的軟體來保護金鑰)：
 
-    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password 'PaSSWORD' --destination software
+    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
 您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰 (藉由使用其 URI)。使用 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 可一律取得最新的版本，使用 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可取得此特定版本。
 
@@ -145,7 +145,7 @@
 讓我們來檢視剛剛建立的金鑰或密碼：
 
 - 若要檢視您的金鑰，請輸入：`azure keyvault key list --vault-name 'ContosoKeyVault'`
-- 若要檢視您的密碼，請輸入：`azure keyvault secret list -–vault-name 'ContosoKeyVault'`
+- 若要檢視您的密碼，請輸入：`azure keyvault secret list --vault-name 'ContosoKeyVault'`
 
 
 ## 向 Azure Active Directory 註冊應用程式
@@ -169,7 +169,7 @@
 
 3. 按一下 [**應用程式**]。如果您的目錄中尚未新增任何應用程式，則此頁面將僅會顯示 [**新增應用程式**] 連結。按一下此連結，或者您可以按一下命令列上的 [**新增**]。
 4.	在 [**新增應用程式**] 精靈的 [**您想做什麼？**] 頁面上，按一下 [**新增我的組織正在開發的應用程式**]。
-5.	在 [**告訴我們您的應用程式**] 頁面上，指定您的應用程式名稱，並選取 **WEB 應用程式和/或 WEB API** (預設值)。按 [下一步] 圖示。
+5.	在 [**告訴我們您的應用程式**] 頁面上，指定您的應用程式名稱，並選取 [**WEB 應用程式和/或 WEB API**] (預設值)。按 [下一步] 圖示。
 6.	在 [**應用程式屬性**] 頁面上，為您的 Web 應用程式指定 [**登入 URL**] 和 [**應用程式識別碼 URI**]。如果您的應用程式沒有這些值，您可以在此步驟中虛構這些值 (例如，您可以在這兩個方塊中指定 http://test1.contoso.com)。這些網站是否存在並沒有影響；重要的是目錄中每個應用程式的應用程式識別碼 URI 都會有所不同。目錄會使用此字串來識別您的應用程式。
 7.	按一下 [完成] 圖示以在精靈中儲存變更。
 8.	在 [快速入門] 頁面上，按一下 [**設定**]。
@@ -207,7 +207,7 @@
 
 您可以使用下列命令，從電腦上的 .pem 檔案匯入金鑰。此命令會將金鑰匯入金鑰保存庫服務中的 HSM：
 
-    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' –-password 'PaSSWORD'
+    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' --password 'PaSSWORD'
 
 下一個命令會匯入「自備金鑰」(BYOK) 封包。這可讓您在您的本機 HSM 中產生金鑰，且在金鑰無需離開 HSM 界限的情況下，即可將它傳輸到金鑰保存庫服務中的 HSM：
 
@@ -237,7 +237,7 @@
 
 此命令會顯示指定金鑰的完整屬性清單：
 
-    azure keyvault key show --vault-name 'ContosoKeyVault' –-key-name 'ContosoFirstKey'
+    azure keyvault key show --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey'
 
 此命令會列出以表格形式顯示的所有密碼名稱和所選屬性：
 
@@ -256,4 +256,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

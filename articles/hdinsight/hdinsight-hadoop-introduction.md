@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HDInsight 中的 Hadoop 是什麼：雲端巨量資料分析 | Microsoft Azure"
 	description="雲端上的 HDInsight 中 Hadoop 元件的簡介。深入了解 HDInsight 如何使用 Hadoop 叢集以管理、分析及報告巨量資料。"
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
+	keywords="巨量資料,巨量資料分析,hadoop,hadoop 簡介,什麼是 hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -78,7 +78,7 @@ HDInsight 小組所提供的範例指令碼如下：
 * [Hue](hdinsight-hadoop-hue-linux.md)
 
 	> [AZURE.NOTE]色調指令碼僅適用於以 Linux 為基礎的叢集。
-	
+
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 
 * [R](hdinsight-hadoop-r-scripts-linux.md)
@@ -229,7 +229,7 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 
 * <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a>：深入了解 Apache Hadoop 軟體程式庫，這是能夠進行電腦叢集大型資料集分散式處理的架構。
 
-* <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a>：深入了解 Hadoop 分散式檔案系統的架構和設計，這是 Hadoop 應用程式使用的主要儲存系統。
+* <a target="_blank" href="http://hadoop.apache.org/docs/r1.0.4/hdfs_design.html">HDFS</a>：深入了解 Hadoop 分散式檔案系統的架構和設計，這是 Hadoop 應用程式使用的主要儲存系統。
 
 * <a target="_blank" href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">MapReduce 教學課程</a>：深入了解撰寫 Hadoop 應用程式的程式設計架構，這能夠對於大型運算節點叢集快速平行處理大量資料。
 
@@ -272,6 +272,5 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 [marketing-page]: ../services/hdinsight/
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

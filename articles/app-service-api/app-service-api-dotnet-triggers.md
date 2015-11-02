@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Azure App Service API 應用程式觸發程序" 
 	description="本文會示範如何在 API 應用程式中實作觸發程序" 
-	services="app-service" 
+	services="app-service\logic" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-logic" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/15/2015" 
 	ms.author="guayan"/>
 
 # Azure App Service API 應用程式觸發程序
@@ -341,4 +341,4 @@ API 應用程式常會需要引發事件，以讓 API 應用程式用戶端採�
     }
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

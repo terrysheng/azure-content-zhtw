@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/20/2015" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 1 階段：設定 Azure
  
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
-
+[AZURE.INCLUDE [learn-about-deployment-models-rm-include](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
  
 這個階段會在 Azure 基礎結構服務中，部署內部網路專屬、高可用性的企業營運應用程式，而您將在這個階段中建置 Azure 網路功能與儲存體基礎結構。您必須先完成這個階段才能前往[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)。如需所有階段的相關資訊，請參閱[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)。
 
@@ -46,7 +45,6 @@
 6\. | 虛擬網路的第一個 DNS 伺服器 | 第四個適用於虛擬網路之第二個子網路位址空間的可能 IP 位址 (請參閱資料表 S)。與您的 IT 部門合作來決定這個位址。 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | 虛擬網路的第二個 DNS 伺服器 | 第五個適用於虛擬網路之第二個子網路位址空間的可能 IP 位址 (請參閱資料表 S)。與您的 IT 部門合作來決定這個位址。 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 8\. | IPsec 共用金鑰 | 32 個字元的隨機英數字元字串，將用來驗證網站間 VPN 連接的兩端。與您的 IT 或安全性部門合作來決定此金鑰值。或者，請參閱[建立適用於 IPsec 預先共用金鑰的隨機字串](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx)。| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
 
 **表格 V：跨單位虛擬網路設定**
 
@@ -87,37 +85,21 @@
 
 **表格 L：適用於區域網路的位址首碼**
 
-> [AZURE.NOTE]本文包含適用於 Azure PowerShell 版本的命令，適用版本可從 0.9.5 開始且高達*但不限於*版本 1.0.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。本文中的 Azure PowerShell 命令區塊正處於支援 Azure PowerShell 版本 1.0.0 和更新版本中新 Cmdlet 的測試和更新過程中。感謝您耐心配合。
+> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 "-AzureRM" 的所有執行個體取代為 "-Azure"，並且在您執行任何命令之前先新增 **Switch-AzureMode AzureResourceManager** 命令。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
 
 開啟 Azure PowerShell 提示字元。
-
-首先，利用以下命令選取正確的 Azure 訂用帳戶。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
-
-	$subscr="<Subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
-您可以從 **Get-AzureSubscription** 命令輸出的 **SubscriptionName** 屬性取得訂用帳戶名稱。
-
-接下來，使用此命令將 Azure PowerShell 切換至資源管理員模式。
-
-	Switch-AzureMode AzureResourceManager 
 
 接下來，建立企業營運應用程式的新資源群組。
 
 若要判斷唯一的資源群組名稱，請使用此命令列出現有的資源群組。
 
-	Get-AzureResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
-
-若要列出您可以在其中建立以資源管理員為基礎之虛擬機器的 Azure 位置，請使用這些命令。
-
-	$loc=Get-AzureLocation | where { $_.Name –eq "Microsoft.Compute/virtualMachines" }
-	$loc.Locations
+	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
 使用下列命令建立新的資源群組。
 
 	$rgName="<resource group name>"
 	$locName="<an Azure location, such as West US>"
-	New-AzureResourceGroup -Name $rgName -Location $locName
+	New-AzureRMResourceGroup -Name $rgName -Location $locName
 
 以資源管理員為基礎的虛擬機器需要以資源管理員為基礎的儲存體帳戶。
 
@@ -132,30 +114,19 @@
 
 您必須為每個儲存體帳戶挑選只包含小寫字母和數字的全域唯一名稱。您可以使用此命令列出現有的儲存體帳戶。
 
-	Get-AzureStorageAccount | Sort Name | Select Name
-
-若要測試選擇的儲存體帳戶名稱是否為全域唯一的，您必須以 PowerShell 的 Azure 服務管理模式執行 **Test-AzureName** 命令。執行這些命令。
-
-	Switch-AzureMode AzureServiceManagement
-	Test-AzureName -Storage <Proposed storage account name>
-
-如果 Test-AzureName 命令顯示 **False**，表示您提出的名稱是唯一的。當您為兩個儲存體帳戶決定好唯一的名稱時，請更新資料表 ST，然後利用此命令將 Azure PowerShell 切換回資源管理員模式。
-
-	Switch-AzureMode AzureResourceManager 
+	Get-AzureRMStorageAccount | Sort Name | Select Name
 
 若要建立第一個儲存體帳戶，請執行這些命令。
 
 	$rgName="<your new resource group name>"
 	$locName="<the location of your new resource group>"
 	$saName="<Table ST – Item 1 - Storage account name column>"
-	New-AzureStorageAccount -Name $saName -ResourceGroupName $rgName –Type Premium_LRS -Location $locName
+	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Premium_LRS -Location $locName
 
 若要建立第二個儲存體帳戶，請執行這些命令。
 
-	$rgName="<your new resource group name>"
-	$locName="<the location of your new resource group>"
 	$saName="<Table ST – Item 2 - Storage account name column>"
-	New-AzureStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
+	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
 接下來，您將建立 Azure 虛擬網路，用來裝載企業營運應用程式。
 
@@ -167,42 +138,42 @@
 	$lobSubnetPrefix="<Table S – Item 2 – Subnet address space column>"
 	$gwSubnetPrefix="<Table S – Item 1 – Subnet address space column>"
 	$dnsServers=@( "<Table D – Item 1 – DNS server IP address column>", "<Table D – Item 2 – DNS server IP address column>" )
-	$gwSubnet=New-AzureVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $gwSubnetPrefix
-	$lobSubnet=New-AzureVirtualNetworkSubnetConfig -Name $lobSubnetName -AddressPrefix $lobSubnetPrefix
-	New-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix $vnetAddrPrefix -Subnet $gwSubnet,$lobSubnet -DNSServer $dnsServers
+	$gwSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $gwSubnetPrefix
+	$lobSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name $lobSubnetName -AddressPrefix $lobSubnetPrefix
+	New-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix $vnetAddrPrefix -Subnet $gwSubnet,$lobSubnet -DNSServer $dnsServers
 
 接下來，使用這些命令來建立站對站 VPN 連接的閘道器。
 
 	$vnetName="<Table V – Item 1 – Value column>"
-	$vnet=Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 	
 	# Attach a virtual network gateway to a public IP address and the gateway subnet
 	$publicGatewayVipName="LOBAppPublicIPAddress"
 	$vnetGatewayIpConfigName="LOBAppPublicIPConfig"
-	New-AzurePublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$publicGatewayVip=Get-AzurePublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
-	$vnetGatewayIpConfig=New-AzureVirtualNetworkGatewayIpConfig -Name $vnetGatewayIpConfigName -PublicIpAddressId $publicGatewayVip.Id -SubnetId $vnet.Subnets[0].Id
+	New-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$publicGatewayVip=Get-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
+	$vnetGatewayIpConfig=New-AzureRMVirtualNetworkGatewayIpConfig -Name $vnetGatewayIpConfigName -PublicIpAddressId $publicGatewayVip.Id -SubnetId $vnet.Subnets[0].Id
 
 	# Create the Azure gateway
 	$vnetGatewayName="LOBAppAzureGateway"
-	$vnetGateway=New-AzureVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $rgName -Location $locName -GatewayType Vpn -VpnType RouteBased -IpConfigurations $vnetGatewayIpConfig
+	$vnetGateway=New-AzureRMVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $rgName -Location $locName -GatewayType Vpn -VpnType RouteBased -IpConfigurations $vnetGatewayIpConfig
 	
 	# Create the gateway for the local network
 	$localGatewayName="LOBAppLocalNetGateway"
 	$localGatewayIP="<Table V – Item 4 – Value column>"
 	$localNetworkPrefix=@( <comma-separated, double-quote enclosed list of the local network address prefixes from Table L, example: "10.1.0.0/24", "10.2.0.0/24"> )
-	$localGateway=New-AzureLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
+	$localGateway=New-AzureRMLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
 	
 	# Define the Azure virtual network VPN connection
 	$vnetConnectionName="LOBAppS2SConnection"
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
-	$vnetConnection=New-AzureVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
+	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
 接下來，設定內部部署 VPN 裝置，以連接到 Azure VPN 閘道器。如需詳細資訊，請參閱[設定 VPN 裝置](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device)。
 
 若要設定內部部署 VPN 裝置，您將需要下列項目：
 
-- 適用於虛擬網路之 Azure VPN 閘道的公用 IPv4 位址 (從 **Get-AzurePublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 命令顯示)
+- 適用於虛擬網路之 Azure VPN 閘道的公用 IPv4 位址 (從 **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 命令顯示)
 - 適用於站對站 VPN 連接的 IPsec 預先共用金鑰 (資料表 V- 項目 8 – 值資料行)
 
 接著，確定可從您的內部部署網路連線到虛擬網路的位址空間。這通常是藉由將對應到虛擬網路位址空間的路由新增到您的 VPN 裝置，然後將該路由公告至組織網路中路由基礎結構的剩餘部分。與您的 IT 部門合作來決定如何執行這個動作。
@@ -224,11 +195,11 @@
 	$rgName="<your new resource group name>"
 	$locName="<the Azure location for your new resource group>"
 	$avName="<Table A – Item 1 – Availability set name column>"
-	New-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 	$avName="<Table A – Item 2 – Availability set name column>"
-	New-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 	$avName="<Table A – Item 3 – Availability set name column>"
-	New-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 
 此處顯示已成功完成此階段的設定。
 
@@ -250,4 +221,4 @@
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

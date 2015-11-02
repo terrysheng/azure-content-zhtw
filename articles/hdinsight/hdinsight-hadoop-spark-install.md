@@ -13,17 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="10/15/2015"
 	ms.author="nitinme"/>
 
-# 在 HDInsight Hadoop 叢集上安裝和使用 Spark
+# 使用指令碼動作在 HDInsight Hadoop 叢集上安裝和使用 Spark
 
+> [AZURE.IMPORTANT]這篇文章目前已過時。現在 HDInsight 為以 Windows 為基礎的叢集，提供 Spark 做為第一級叢集類型，這表示您現在可以使用指令碼動作，直接建立 Spark 叢集而不必修改 Hadoop 叢集。使用 Spark 叢集類型時，您會取得具備 Spark 1.3.1 版的 HDInsight 3.2 版叢集。若要安裝不同版本的 Spark，您可以使用指令碼動作。HDInsight 提供指令碼動作指令碼的範例。
 
 了解如何使用指令碼動作在以 Windows 為基礎的 HDInsight 上安裝 Spark，以及如何在 HDInsight 叢集上執行 Spark 查詢。
 
-HDInsight 為以 Windows 為基礎的叢集，提供 Spark 做為第一級叢集類型，這表示您現在可以直接建立 Spark 叢集而不必修改 Hadoop 叢集。使用 Spark 叢集類型時，您會取得具備 Spark 1.3.1 版的 HDInsight 3.2 版叢集。若要安裝不同版本的 Spark，您可以使用指令碼動作。HDInsight 提供指令碼動作指令碼的範例。
 
-**相關文章** - [在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark](hdinsight-hadoop-spark-install-linux.md)。- [在 HDInsight 叢集中建立 Hadoop](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。- [開始在 HDInsight 上使用 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)：在 Windows 作業系統上建立 Spark 類型叢集。- [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集的一般資訊。- [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)。
+**相關文章** - [在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark](hdinsight-hadoop-spark-install-linux.md)。
+
+- [在 HDInsight 建立 Hadoop 叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
+
+- [開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)：在 Windows 作業系統上建立 Spark 類型的叢集。
+
+- [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集的一般資訊。
+
+- [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)
 
 ## 什麼是 Spark？
 
@@ -297,7 +305,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 
 - [在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark](hdinsight-hadoop-spark-install-linux.md)：在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark。
 - [在 HDInsight 中建立 Hadoop 叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集。
-- [開始在 HDInsight 上使用 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)：開始在 HDInsight 上使用 Spark。
+- [開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)：開始在 HDInsight 上使用 Spark。
 - [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集。
 - [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)：開發指令碼動作指令碼。
 - [在 HDInsight 叢集上安裝 R][hdinsight-install-r] 說明如何使用叢集自訂，以在 HDinsight Hadoop 叢集上安裝和使用 R。R 是一個用於統計計算的開放原始碼語言和環境。它提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。它也提供廣泛的圖形功能。
@@ -309,4 +317,4 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

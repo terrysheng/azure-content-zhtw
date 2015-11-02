@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="10/15/2015" 
 	ms.author="tdykstra"/>
 
 # 什麼是 API 應用程式？
 
-API 應用程式提供豐富的平台和生態系統，可用來在雲端和內部部署中建置、主控、使用和分送 API。將您的 API 部署為 API 應用程式，即可受益於企業級安全性、簡單的存取控制、混合式與 SaaS 連線、自動 SDK 產生，並與 [邏輯應用程式](../app-service-logic/app-service-logic-what-are-logic-apps.md) 完美整合。
+API Apps 提供一個豐富的平台，可讓您在雲端和內部部署中建置、裝載與取用 API。將您的 API 部署為 API 應用程式，即可受益於企業級安全性、簡單的存取控制、混合式與 SaaS 連線、自動 SDK 產生，並與 [邏輯應用程式](../app-service-logic/app-service-logic-what-are-logic-apps.md) 完美整合。
 
 API 應用程式是 [Azure 應用程式服務](../app-service/app-service-value-prop-what-is.md)套件的其中一部分，此套件的其他部分包括 Web 應用程式、行動應用程式和邏輯應用程式。
 
@@ -46,18 +46,6 @@ API 應用程式另外包含 [App Service Web Apps 的功能](../app-service-web
 >
 >API 應用程式目前處於公開預覽狀態。[App Service Web Apps](../app-service-web/app-service-web-overview.md) 是正式推出 (GA) 的服務，設計旨在建置及裝載全球規模的安全任務關鍵性應用程式。如果您目前正在尋找 GA 服務來組建 API，則 Web 應用程式正是最佳選項。當 API Apps 進入 GA 時，我們將提供一個採用現有 Web 應用程式並運用 API Apps 其他功能的路徑。
 
-### API Apps 功能即將推出
-
-在不久將來，API 應用程式平台也將建立 API 的豐富生態系統，方法為使得共用您的程式碼變得輕而易舉：
-
-- **公用和私用市場** - [Azure Marketplace](http://azure.microsoft.com/marketplace/) 將可讓您輕鬆地找到 Microsoft 和協力廠商開發的預先套裝 API 應用程式，並將其部署至您的 Azure 訂閱。因此，您將能夠套裝並發佈您開發的專屬 API 應用程式，以便其他開發人員可將它們部署至其 Azure 訂閱。將您的 API 發佈至 Azure Marketplace 時，您將能夠只讓貴組織的其他成員看到它們。 
-
-- **自動相依性部署** - 每當您將 Marketplace 中的 API 應用程式部署至您的 Azure 訂閱時，Azure 將自動部署相依 API 應用程式，並建立必要資源。API 應用程式套件將指定其依賴的 API 應用程式，以及其需要的 Azure 資源。
-
-- **自動更新** - 當更新您已共用的其中一個 API 應用程式套件的程式碼時，您將能夠推送更新至已安裝並正在執行您的 API 應用程式的每一個人。這將適用於非重大變更，以及已選擇接收更新的使用者。
-
-其中許多功能 (例如公用市場和自動更新) 已可供 Microsoft 所提供的 API 應用程式使用。
-
 ## API 應用程式概念 ##
 
 - **閘道** - 一 種 Web 應用程式，可處理 API 管理功能，並驗證資源群組中的所有 API 應用程式。 
@@ -76,4 +64,4 @@ API 應用程式另外包含 [App Service Web Apps 的功能](../app-service-web
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

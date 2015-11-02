@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/20/2015"
    ms.author="larryfr"/>
 
 #使用 Ambari 管理 HDInsight 叢集 (預覽)
@@ -29,11 +29,15 @@
 
 以 Linux 為基礎的 HDInsight 叢集預設會提供 Ambari。以 Windows 為基礎的 HDInsight 叢集則透過 Ambari REST API 提供監視功能。
 
+##連線能力
+
+連線到 HDInsight 叢集上的 Ambari 必須使用 HTTPS。您也必須使用系統管理員帳戶名稱 (預設值是 __admin__) 和建立叢集時所提供的密碼來驗證 Ambari。
+
 ##SSH Proxy
 
 > [AZURE.NOTE]雖然您可直接透過網際網路存取叢集適用的 Ambari，但 Ambari Web UI 中的一些連結 (例如 JobTracker 的連結) 並不會在網際網路上公開。所以除非您使用安全殼層 (SSH) 通道來代理通往叢集前端節點的 Web 流量，否則會在嘗試存取這些功能時看見「找不到伺服器」錯誤。
 
-如需建立 SSH 通道來使用 Ambari 的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
+如需建立 SSH 通道來搭配使用 Ambari 的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ##Ambari Web UI
 
@@ -187,7 +191,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 ![服務動作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]雖然 [新增服務] 會列在此功能表中，但它不應用來將服務加入 HDInsight 叢集。您應該在叢集佈建期間，使用指令碼動作加入新服務。如需使用指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> [AZURE.WARNING]雖然 [新增服務] 會列在此功能表中，但不應用來將服務加入 HDInsight 叢集。您應該在叢集佈建期間，使用指令碼動作加入新服務。如需使用指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 
 雖然 [**動作**] 按鈕可以重新啟動所有服務，但您想要啟動、停止或重新啟動的往往是特定服務。使用下列步驟可對個別服務執行動作：
@@ -228,4 +232,4 @@ Ambari Web 依賴基礎 REST API，供您運用於建立自己的管理和監視
 
 如需 REST API 的完整參考，請參閱 [Ambari API 參考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

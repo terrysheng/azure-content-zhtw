@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="建立新 Application Insights 資源" 
-	description="設定新的應用程式並取得新的檢測金鑰。Application Insights 會監視實際運作之應用程式的效能和使用情形。" 
+	description="針對新的即時應用程式設定 Application Insights 監視。以 Web 為基礎的方法。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@ SDK 包含不需撰寫任何程式碼，即可傳送遙測資料的標準模組�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

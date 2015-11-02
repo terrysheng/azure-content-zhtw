@@ -13,10 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Azure 上 Linux 的 Docker 虛擬機器擴充程式
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 [Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)，作為在共用資源上隔離應用程式資料和執行計算的方法。您可以使用 [Azure Linux 代理程式](virtual-machines-linux-agent-user-guide.md)的 [Azure Docker VM 延伸模組](https://github.com/Azure/azure-docker-extension/blob/master/README.md)來建立 Docker VM，在 Azure 上為您的應用程式託管任何數量的容器。
 
 本主題說明：
@@ -80,6 +83,5 @@ Docker VM 擴充程式是個元件，它會安裝在您所建立的 VM 執行個
 [Docker 和 Linux 容器]: #Docker-and-Linux-Containers
 [如何搭配使用 Docker VM 延伸模組與 Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Linux 及 Windows 的虛擬機器延伸模組]: #Virtual-Machine-Extensions-For-Linux-and-Windows
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

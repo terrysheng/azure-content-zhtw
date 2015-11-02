@@ -19,6 +19,8 @@
 
 # 如何使用服務匯流排主題和訂用帳戶
 
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
 本指南說明如何從 Node.js 應用程式使用服務匯流排主題和訂用帳戶。涵蓋的案例包括**建立主題和訂用帳戶**、**建立訂用帳戶篩選器**、**傳送訊息**至主題、**接收訂用帳戶的訊息**，以及**刪除主題和訂用帳戶**。如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
@@ -33,7 +35,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure**，這應該會導致下列輸出：
 
@@ -150,9 +152,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 您可以使用 **ServiceBusService** 物件的 **createRule** 方法將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
 
-> [AZURE.NOTE]
-
-> 由於預設篩選器會自動套用至所有新的訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 將會覆寫您指定的其他任何篩選器。您可以使用 **ServiceBusService** 物件的 **deleteRule** 方法移除預設規則。
+> [AZURE.NOTE]由於預設篩選器會自動套用至所有新的訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 將會覆寫您指定的任何其他篩選器。您可以使用 **ServiceBusService** 物件的 **deleteRule** 方法移除預設規則。
 
 以下範例將建立名為 `HighMessages` 的訂用帳戶，而且所含的 **SqlFilter** 只會選取自訂 **messagenumber** 屬性大於 3 的訊息：
 
@@ -224,7 +224,7 @@ var rule={
 }
 ```
 
-現在，當訊息傳送至 `MyTopic` 時，一律會將該訊息傳遞至已訂閱 `AllMessages` 主題訂用帳戶的接收者，並選擇性地傳遞至已訂閱 `HighMessages` 和 `LowMessages` 主題訂用帳戶的接收者 (視訊息內容而定)。
+當訊息傳送至 `MyTopic` 時，一律會將該訊息傳遞至已訂閱 `AllMessages` 主題訂用帳戶的接收者，並選擇性地傳遞至已訂閱 `HighMessages` 和 `LowMessages` 主題訂用帳戶的接收者 (視訊息內容而定)。
 
 ## 如何傳送訊息至主題
 
@@ -314,7 +314,7 @@ for (i = 0;i < 5;i++) {
 
 -   請參閱[佇列、主題和訂用帳戶][]。
 -   [SqlFilter][] 的 API 參考資料。
--   造訪 GitHub 上的 [Azure SDK for Node] (英文) 儲存機制。
+-   造訪 GitHub 上的 [Azure SDK for Node][] (英文) 儲存機制。
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure portal]: http://manage.windowsazure.com
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [使用儲存體的 Node.js Web 應用程式]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

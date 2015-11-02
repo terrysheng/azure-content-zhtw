@@ -1,7 +1,7 @@
 <properties
 	pageTitle="將本機檔案的資料匯入 Machine Learning Studio | Microsoft Azure"
 	description="如何從本機檔案將訓練資料匯入 Azure Machine Learning Studio。"
-	keywords="import data,data format,data types,data sources,training data"
+	keywords="匯入資料,資料格式,資料類型,資料來源,定型資料"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -40,4 +40,4 @@
 
 資料上傳之後，會儲存在資料集模組中，並且可供工作區中的任何實驗使用。您可以在編輯實驗時，於模組調色盤的 [**儲存的資料集**] 清單中找到資料集與所有預先載入的範例資料集。當您想將資料集用於進一步的分析和機器學習時，可以在實驗畫布上拖放資料集。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -36,7 +36,13 @@ PolyBase 技術可讓您查詢和聯結多個來源的資料，且完全使用 T
 
 首先，您將建立當 PolyBase 連接到 Azure blob 儲存體和查詢資料時所需要的物件。
 
-> [AZURE.IMPORTANT]PolyBase 所支援的 Azure 儲存體帳戶類型有：+ 標準本地備援儲存體 (標準-LRS) + 標準異地備援儲存體 (標準-GRS) + 標準讀取權限異地備援儲存體 (標準-RAGRS)，PolyBase 並「不」支援標準區域備援儲存體 (標準-ZRS) 和進階本地備援儲存體 (進階-LRS) 帳戶類型。如果您要建立新的 Azure 儲存體帳戶，請確定您從定價層選取 PolyBase 支援的儲存體帳戶類型。
+> [AZURE.IMPORTANT]PolyBase 支援的 Azure 儲存體帳戶類型為︰
+> 
+> + 標準本機備援儲存體 (標準-LRS)
+> + 標準異地備援儲存體 (標準-GRS)
+> + 標準讀取權限異地備援儲存體 (標準-RAGRS)
+>
+> PolyBase 「不」支援標準區域備援儲存體 (標準-ZRS) 及進階本機備援儲存體 (進階-LRS) 帳戶類型。如果您要建立新的 Azure 儲存體帳戶，請確定您從定價層選取 PolyBase 支援的儲存體帳戶類型。
 
 
 ## 建立資料庫主要金鑰
@@ -102,7 +108,7 @@ DROP EXTERNAL DATA SOURCE azure_storage
 ;
 ```
 
-參考主題：[卸除外部資料來源 (Transact-SQL)][]。
+參考主題：[DROP EXTERNAL DATA SOURCE (Transact-SQL)][]。
 
 ## 建立外部檔案格式
 外部檔案格式是指定外部資料格式的資料庫物件。在此範例中，我們在文字檔中有未壓縮的資料，且欄位以縱線字元 ('|') 分隔。
@@ -132,7 +138,7 @@ PolyBase 可以處理壓縮和未壓縮的資料，包括分隔的文字、Hive 
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
-參考主題：[卸除外部檔案格式 (Transact-SQL)][]。
+參考主題：[DROP EXTERNAL FILE FORMAT (Transact-SQL)][]。
 
 ## 建立外部資料表
 
@@ -177,7 +183,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 
 > [AZURE.NOTE]卸除外部資料表時，您必須使用 `DROP EXTERNAL TABLE`。您**不能**使用 `DROP TABLE`。
 
-參考主題：[卸除外部資料表 (Transact-SQL)][]。
+參考主題：[DROP EXTERNAL TABLE (Transact-SQL)][]。
 
 另外值得注意的是，外部資料表會同時顯示在 `sys.tables` 以及更明確的 `sys.external_tables` 目錄檢視中。
 
@@ -211,7 +217,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]外部資料表上的查詢可能會失敗，並顯示*「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」*錯誤。這表示您的外部資料包含*錯誤*記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
+> [AZURE.NOTE]外部資料表上的查詢可能會失敗，並顯示「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」錯誤。這表示您的外部資料包含「錯誤」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
 
 
 ## 從 Azure blob 儲存體載入資料
@@ -319,13 +325,13 @@ $write.Dispose()
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[卸除外部資料來源 (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt146367.aspx
-[卸除外部檔案格式 (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt146379.aspx
-[卸除外部資料表 (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

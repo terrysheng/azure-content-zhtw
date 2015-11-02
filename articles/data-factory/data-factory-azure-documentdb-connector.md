@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 DocumentDB 來回移動資料
@@ -411,9 +411,9 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 3. **問：**資料處理站支援[範圍或雜湊式資料分割](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)嗎？
 
 	**答：**否。 
-4. **問：**我可以為單一資料表指定多個 DocumentDB 集合嗎？
+4. **問：**我可以指定多個資料表 DocumentDB 集合嗎？
 	
 	**回：**否。目前只能指定一個集合。
      
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

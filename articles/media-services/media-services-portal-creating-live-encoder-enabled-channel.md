@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="使用管理入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼" 
-	description="本教學課程將逐步引導您建立通道，可接收單一位元速率即時串流，並將其編碼為多位元速率串流。" 
+	pageTitle="使用 Azure 入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼" 
+	description="本教學課程將逐步引導您使用 Azure 入口網站建立通道，以接收單一位元速率即時串流，並將其編碼為多位元速率串流。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,13 +11,13 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
-#使用管理入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼 
+#使用 Azure 入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -273,4 +273,4 @@
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

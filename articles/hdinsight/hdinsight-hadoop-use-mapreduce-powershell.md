@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/16/2015"
    ms.author="larryfr"/>
 
 #使用 PowerShell 搭配執行 Hive 查詢與 HDInsight 上的 Hadoop
@@ -37,55 +37,94 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Map
 
 在遠端 HDInsight 叢集中執行 MapReduce 工作時，會使用下列 Cmdlet。
 
-* **Add-AzureAccount**：驗證您 Azure 訂閱的 PowerShell
+* **Login-AzureRmAccount**：驗證您 Azure 訂用帳戶的 PowerShell
 
-* **New-AzureHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 資訊建立新的*工作定義*
+* **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 資訊建立新的*工作定義*
 
-* **Start-AzureHDInsightJob**：將工作定義傳送至 HDInsight、啟動工作，然後傳回可用來檢查工作狀態的*工作*物件
+* **Start-AzureRmHDInsightJob**：將工作定義傳送至 HDInsight、啟動工作，然後傳回可用來檢查工作狀態的*工作*物件
 
-* **Wait-AzureHDInsightJob**：使用工作物件來檢查工作的狀態。它會等到工作完成，或等到等候時間超過。
+* **Wait-AzureRmHDInsightJob**：使用工作物件來檢查工作的狀態。它會等到工作完成，或等到等候時間超過。
 
-* **Get-AzureHDInsightJobOutput**：用來擷取工作的輸出
+* **Get-AzureRmHDInsightJobOutput**：用來擷取工作的輸出
 
 下列步驟示範如何使用這些 Cmdlet，在您的 HDInsight 叢集中執行工作。
 
 1. 使用編輯器，將下列程式碼儲存為 **mapreducejob.ps1**。您必須將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
 
-		#Login to your Azure subscription
+		#Specify the values
+		$clusterName = "CLUSTERNAME"
+		$creds=Get-Credential
+        		
+		# Login to your Azure subscription
 		# Is there an active Azure subscription?
-		$sub = Get-AzureSubscription -ErrorAction SilentlyContinue
+		$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 		if(-not($sub))
 		{
-		    Add-AzureAccount
+		    Login-AzureRmAccount
 		}
+        
+        #Get HTTPS/Admin credentials for submitting the job later
+        $creds = Get-Credential
+        #Get the cluster info so we can get the resource group, storage, etc.
+        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $resourceGroup = $clusterInfo.ResourceGroup
+        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+        $container=$clusterInfo.DefaultStorageContainer
+        $storageAccountKey=Get-AzureRmStorageAccountKey `
+            -Name $storageAccountName `
+            -ResourceGroupName $resourceGroup `
+            | %{ $_.Key1 }
 
-		#Specify the cluster name
-		$clusterName = "CLUSTERNAME"
-
+        #Create a storage content and upload the file
+        $context = New-AzureStorageContext `
+            -StorageAccountName $storageAccountName `
+            -StorageAccountKey $storageAccountKey
+            
 		#Define the MapReduce job
 		#NOTE: If using an HDInsight 2.0 cluster, use hadoop-examples.jar instead.
 		# -JarFile = the JAR containing the MapReduce application
 		# -ClassName = the class of the application
 		# -Arguments = The input file, and the output directory
-		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
-		                          -ClassName "wordcount" `
-		                          -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+		$wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+            -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+            -ClassName "wordcount" `
+            -Arguments `
+                "wasb:///example/data/gutenberg/davinci.txt", `
+                "wasb:///example/data/WordCountOutput"
 
 		#Submit the job to the cluster
 		Write-Host "Start the MapReduce job..." -ForegroundColor Green
-		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition
+		$wordCountJob = Start-AzureRmHDInsightJob `
+            -ClusterName $clusterName `
+            -JobDefinition $wordCountJobDefinition `
+            -HttpCredential $creds
 
 		#Wait for the job to complete
 		Write-Host "Wait for the job to complete..." -ForegroundColor Green
-		Wait-AzureHDInsightJob -Job $wordCountJob -WaitTimeoutInSeconds 3600
-
+		Wait-AzureRmHDInsightJob `
+            -ClusterName $clusterName `
+            -JobId $wordCountJob.JobId `
+            -HttpCredential $creds
+        # Download the output
+        Get-AzureStorageBlobContent `
+            -Blob example/data/WordCountOutput/* `
+            -Container $container `
+            -Destination output.txt `
+            -Context $context
 		# Print the output
-		Write-Host "Display the standard output..." -ForegroundColor Green
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardOutput
-
+		Get-AzureRmHDInsightJobOutput `
+            -Clustername $clusterName `
+            -JobId $wordCountJob.JobId `
+            -DefaultContainer $container `
+            -DefaultStorageAccountName $storageAccountName `
+            -DefaultStorageAccountKey $storageAccountKey `
+            -HttpCredential $creds
+            
 2. 開啟新的 **Azure PowerShell** 命令提示字元。將目錄變更至 **mapreducejob.ps1** 檔案的位置，然後使用下列命令來執行指令碼：
 
 		.\mapreducejob.ps1
+    
+    當您執行指令碼時，可能會提示驗證您的 Azure 訂用帳戶。您還必須提供 HDInsight 叢集的 HTTPS/系統管理帳戶名稱和密碼。
 
 3. 工作完成之後，您應該會收到與下列類似的輸出：
 
@@ -103,46 +142,9 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Map
 
 	> [AZURE.NOTE]如果 **ExitCode** 的值不是 0，請參閱[疑難排解](#troubleshooting)。
 
-##<a id="results"></a>檢視工作輸出
+    此範例也會將已下載的檔案儲存到您執行指令碼所在目錄的 **example/data/WordCountOutput** 資料夾中。
 
-MapReduce 工作已將作業結果儲存至 Azure Blob 儲存體 (位於指定為工作之引數的 ****wasb:///example/data/WordCountOutput** 路徑中)。Azure Blob 儲存體可以透過 Azure PowerShell 存取，但是您必須知道儲存體帳戶名稱、金鑰，以及 HDInsight 叢集用來直接存取檔案的容器。
-
-幸運的是，您可以使用下列 Azure PowerShell Cmdlet 取得這項資訊：
-
-* **Get-AzureHDInsightCluster**：傳回 HDInsight 叢集的相關資訊 (包括任何相關聯的儲存體帳戶)。一律會有與叢集相關聯的預設儲存體帳戶。
-* **New-AzureStorageContext**：如果指定使用 **Get-AzureHDInsightCluster** 所擷取的儲存體帳戶名稱和金鑰，則會傳回可用來存取儲存體帳戶的內容物件。
-* **Get-AzureStorageBlob**：如果指定內容物件和容器名稱，則會傳回容器內的 blob 清單。
-* **Get-AzureStorageBlobContent**：如果指定內容物件、檔案路徑和名稱以及容器名稱 (從 **Get-AzureHDinsightCluster** 傳回)，則會從 Azure Blob 儲存體下載檔案。
-
-下列範例會擷取儲存體資訊，然後從 ****wasb:///example/data/WordCountOutput** 下載輸出。將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
-
-		#Login to your Azure subscription
-		# Is there an active Azure subscription?
-		$sub = Get-AzureSubscription -ErrorAction SilentlyContinue
-		if(-not($sub))
-		{
-		    Add-AzureAccount
-		}
-
-		#Specify the cluster name
-		$clusterName = "CLUSTERNAME"
-
-		#Retrieve the cluster information
-		$clusterInfo = Get-AzureHDInsightCluster -ClusterName $clusterName
-
-		#Get the storage account information
-		$storageAccountName = $clusterInfo.DefaultStorageAccount.StorageAccountName
-		$storageAccountKey = $clusterInfo.DefaultStorageAccount.StorageAccountKey
-		$storageContainer = $clusterInfo.DefaultStorageAccount.StorageContainerName
-
-		#Create the context object
-		$context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-
-		#Download the files from wasb:///example/data/WordCountOutput
-		#Use the -blob switch to filter only blobs contained in example/data/WordCountOutput
-		Get-AzureStorageBlob -Container $storageContainer -Blob example/data/WordCountOutput/* -Context $context | Get-AzureStorageBlobContent -Context $context
-
-> [AZURE.NOTE]此範例會將已下載的檔案儲存到您執行指令碼所在目錄的 **example/data/WordCountOutput** 資料夾中。
+##檢視輸出
 
 MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使用文字編輯器開啟 **example/data/WordCountOutput/part-r-00000** 檔案，以查看工作所產生的單字和計數。
 
@@ -154,7 +156,14 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 
 	# Print the output of the WordCount job.
 	Write-Host "Display the standard output ..." -ForegroundColor Green
-	Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError
+	Get-AzureRmHDInsightJobOutput `
+            -Clustername $clusterName `
+            -JobId $wordCountJob.JobId `
+            -DefaultContainer $container `
+            -DefaultStorageAccountName $storageAccountName `
+            -DefaultStorageAccountKey $storageAccountKey `
+            -HttpCredential $creds
+            -DisplayOutputType StandardError
 
 這會傳回執行工作時寫入至伺服器上之 STDERR 的資訊，而且可能有助於判斷工作的失敗原因。
 
@@ -174,4 +183,4 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

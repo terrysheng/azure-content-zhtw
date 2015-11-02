@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/16/2015" 
 	ms.author="genemi"/>
 
 
@@ -89,6 +89,7 @@ EntLib 類別是用來建構其他 EntLib 類別。在此程式碼範例中，�
  - **SqlDatabaseTransientErrorDetectionStrategy** 物件。
 4. 建構 **ReliableSqlConnection** 物件。輸入的參數有：
  - 一個 **String** 物件 - 使用伺服器名稱和其他連接資訊。
+ - **RetryPolicy** 類別。
 5. 透過 **RetryPolicy .ExecuteAction** 方法呼叫進行連接。
 6. 呼叫 **ReliableSqlConnection .CreateCommand** 方法。
  - 傳回 **System.SqlClient.Data.DbCommand** 物件，這是 ADO.NET 的一部分。
@@ -138,6 +139,7 @@ using G = System.Collections.Generic;
 using D = System.Data;
 using C = System.Data.SqlClient;
 using X = System.Text;
+using H = System.Threading;
 using Y = Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
 
 namespace EntLib60Retry
@@ -150,26 +152,35 @@ namespace EntLib60Retry
 
          if (program.Run(args) == false)
          {
-            Console.WriteLine("Something failed.  :-( ");
+            Console.WriteLine("Something was unable to complete.  :-( ");
          }
       }
 
       bool Run(string[] _args)
       {
+         int retryIntervalSeconds = 10;
          bool returnBool = false;
 
          this.InitializeEntLibObjects();
 
-         try
+         for (int tries = 1; tries <= 3; tries++)
          {
-            this.reliableSqlConnection = new Y.ReliableSqlConnection(
-               this.sqlConnectionSB.ToString(),
-               null, null    // Letting RetryPolicy.ExecuteAction method handle retries.
-               );
-            this.retryPolicy.ExecuteAction(this.OpenTheConnection_action);  // Open the connection.
+            if (tries > 1)
+            {
+               H.Thread.Sleep(1000 * retryIntervalSeconds);
+               retryIntervalSeconds = Convert.ToInt32(retryIntervalSeconds * 1.5);
+            }
 
-            this.dbCommand = this.reliableSqlConnection.CreateCommand();
-            this.dbCommand.CommandText = @"
+            try
+            {
+               this.reliableSqlConnection = new Y.ReliableSqlConnection(
+                  this.sqlConnectionSB.ToString(),
+                  this.retryPolicy, null
+                  );
+               this.retryPolicy.ExecuteAction(this.OpenTheConnection_action);  // Open the connection.
+
+               this.dbCommand = this.reliableSqlConnection.CreateCommand();
+               this.dbCommand.CommandText = @"
 SELECT TOP 3
       ob.name,
       CAST(ob.object_id as nvarchar(32)) as [object_id]
@@ -177,16 +188,21 @@ SELECT TOP 3
    WHERE ob.type='IT'
    ORDER BY ob.name;";
 
-            this.retryPolicy.ExecuteAction(this.IssueTheQuery_action);  // Run the query.
-         }
+               // We retry connection .Open after transient faults, but
+               // we do not retry commands that use the connection.
+               this.IssueTheQuery();  // Run the query, loop through results.
 
-         catch (C.SqlException sqlExc)
-         {
-            if (this.sqlDatabaseTransientErrorDetectionStrategy.IsTransient(sqlExc) == true)
-            {
-               Console.WriteLine("Appears a transient fault has not yet cleared after max retries, thus program now terminates.");
+               returnBool = true;
+               break;
             }
-            throw sqlExc;
+
+            catch (C.SqlException sqlExc)
+            {
+               if (false == this.sqlDatabaseTransientErrorDetectionStrategy.IsTransient(sqlExc))
+               {
+                  throw sqlExc;
+               }
+            }
          }
          return returnBool;
       }
@@ -231,7 +247,6 @@ SELECT TOP 3
                this.exponentialBackoff
                );
          this.OpenTheConnection_action = delegate() { this.OpenTheConnection(); };
-         this.IssueTheQuery_action     = delegate() { this.IssueTheQuery(); };
       }
 
       void InitializeSqlConnectionStringBuilder()
@@ -272,7 +287,6 @@ SELECT TOP 3
       private Y.RetryPolicy retryPolicy;
 
       private Action OpenTheConnection_action;
-      private Action IssueTheQuery_action;
 
       private C.SqlConnectionStringBuilder sqlConnectionSB;
       private D.IDbCommand dbCommand;
@@ -288,7 +302,7 @@ SELECT TOP 3
 ## 相關連結
 
 
-- [Enterprise Library 6 – 2013 年 4 月](http://msdn.microsoft.com/library/dn169621.aspx)提供進一步資訊的許多連結。
+- 提供進一步資訊的許多連結：[Enterprise Library 6 – 2013 年 4 月](http://msdn.microsoft.com/library/dn169621.aspx)
  - 如果您想要查看原始程式碼，本主題頂端有一個按鈕可[下載 EntLib60 原始程式碼](http://go.microsoft.com/fwlink/p/?LinkID=290898)。
 
 
@@ -306,4 +320,4 @@ SELECT TOP 3
 
 - [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,19 +1,19 @@
-<properties
-	pageTitle="深入了解：Azure AD 密碼管理 | Microsoft Azure"
-	description="Azure AD 密碼管理的進階主題，包括密碼回寫的運作方式、密碼回寫安全性、密碼重設入口網站的運作方式，以及密碼重設使用哪些資料。"
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="深入了解：Azure AD 密碼管理 | Microsoft Azure" 
+	description="Azure AD 密碼管理的進階主題，包括密碼回寫的運作方式、密碼回寫安全性、密碼重設入口網站的運作方式，以及密碼重設使用哪些資料。" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 深入了解密碼管理
@@ -73,7 +73,7 @@
 密碼回寫服務極為安全、穩固。為了確保您的資訊受到保護，我們啟用了 4 層式的安全性模型，詳細情形如下所述。
 
 - **租用戶特定的服務匯流排轉送** – 當您在設定服務時，我們會設定租用戶特定的服務匯流排轉送，並以隨機產生的強式密碼加以保護，Microsoft 永遠無法得知此密碼。
-- **受到鎖定的密碼編譯強式密碼加密金鑰** – 在建立服務匯流排轉送後，我們會建立強式對稱金鑰，以在密碼透過線路傳送過來時予以加密。此金鑰只會存在於您在雲端的租用戶密碼存放區中，並受到嚴密鎖定和稽核，情形就和目錄中的任何密碼一樣。
+- **受到鎖定的密碼編譯強式密碼加密金鑰** – 在建立服務匯流排轉送後，我們會建立強式對稱金鑰，以在密碼透過線路傳送過來時予以加密。此金鑰只會存在於您在雲端的公司密碼存放區中，並受到嚴密鎖定和稽核，情形就和目錄中的任何密碼一樣。
 - **業界標準的 TLS** – 當雲端上發生密碼重設或變更作業時，我們會擷取純文字密碼，並以公開金鑰予以加密。然後將它放入 HTTPS 訊息中，使用 Microsoft 的 SSL 憑證透過加密通道傳送到您的服務匯流排轉送中。該訊息抵達服務匯流排後，您的內部部署代理程式便會甦醒、使用先前產生的強式密碼向服務匯流排驗證、擷取加密的訊息、使用我們產生的私密金鑰加以解密，然後嘗試透過 AD DS SetPassword API 設定密碼。這個步驟能讓我們在雲端上強制執行 AD 內部部屬密碼原則 (複雜度、使用期限、歷程記錄、篩選等)。
 - **訊息到期原則** – 最後，如果訊息因為內部部署服務已關閉而停留在服務匯流排，它將會在數分鐘後逾時並遭到移除，以便更進一步地提升安全性。
 
@@ -281,4 +281,4 @@
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

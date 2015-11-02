@@ -1,19 +1,19 @@
-<properties
-	pageTitle="它的運作方式：Azure AD 密碼管理 | Microsoft Azure"
-	description="了解 Azure AD 密碼管理的不同元件，包括使用者註冊、重設及變更其密碼的位置，以及系統管理員設定、報告及啟用內部部署 Active Directory 密碼管理的位置。"
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="它的運作方式：Azure AD 密碼管理 | Microsoft Azure" 
+	description="了解 Azure AD 密碼管理的不同元件，包括使用者註冊、重設及變更其密碼的位置，以及系統管理員設定、報告及啟用內部部署 Active Directory 密碼管理的位置。" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 密碼管理如何運作
@@ -38,7 +38,8 @@ Azure Active Directory 中的密碼管理是由以下所述的數個邏輯元件
  - 安全性問題 (以知識為基礎的驗證)
 - 設定使用者必須註冊才能使用安全性問題驗證方法的問題數目 (只有在已啟用安全性問題時才會看見)
 - 設定使用者在重設期間必須提供才能使用安全性問題驗證方法的問題數目 (只有在已啟用安全性問題時才會看見)
-- 定義使用者可以選擇註冊以使用安全性問題驗證方法的自訂安全性問題 (只有在已啟用安全性問題時才會看見)
+- 使用在註冊密碼重設 (只有在已啟用安全性問題時才會看見) 時，使用者可能會選擇之預先定義、當地語系化的安全性問題
+- 定義在註冊密碼重設 (只有在已啟用安全性問題時才會看見) 時，使用者可能會選擇之自訂安全性問題
 - 要求使用者在前往位於 [http://myapps.microsoft.com](http://myapps.microsoft.com) 的應用程式存取面板時，註冊密碼重設。
 - 要求使用者在經過可設定的天數之後重新確認先前已註冊的資料 (只有在已啟用強制執行註冊時才會看見)
 - 提供自訂技術支援中心電子郵件或 URL，在使用者遇到重設密碼的問題時向其顯示
@@ -121,4 +122,4 @@ Azure Active Directory 中的密碼管理是由以下所述的數個邏輯元件
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

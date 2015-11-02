@@ -31,7 +31,8 @@
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Azure 儲存體帳戶](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/zh-TW/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/zh-TW/download/details.aspx?id=40855)
-- [Azure PowerShell](../powershell-install-configure.md)
+
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 執行這些步驟需要 30 分鐘左右。
 
@@ -446,4 +447,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

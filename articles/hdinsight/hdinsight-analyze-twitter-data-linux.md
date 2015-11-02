@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 HDInsight 上使用 Hadoop 分析 Twitter 資料 | Microsoft Azure"
-	description="了解如何在 HDInsight 中的 Hadoop 上使用 Hive 來分析 Twitter 資料，以找出特定單字的使用頻率。"
+	pageTitle="在 HDInsight 上使用 Apache Hive 分析 Twitter 資料 | Microsoft Azure"
+	description="了解如何使用 Python 來儲存包含特定關鍵字的推文，然後在 HDInsight 上使用 Hive 和 Hadoop 將未經處理的 TWitter 資料轉換成可搜尋的 Hive 資料表。"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # 在 HDInsight 中使用 Hive 分析 Twitter 資料
@@ -319,4 +319,4 @@ Twitter 可讓您透過 REST API 抓取[每則推文資料](https://dev.twitter.
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

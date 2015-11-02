@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure AD 應用程式 Proxy 發佈應用程式"
+	pageTitle="使用 Azure AD 應用程式 Proxy 發行應用程式 | Microsoft Azure"
 	description="涵蓋如何使用 Azure AD 應用程式 Proxy 發佈內部部署應用程式。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
 # 使用 Azure AD 應用程式 Proxy 發佈應用程式
 
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-edition.md)。
+> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 啟用 Microsoft Azure AD 應用程式 Proxy 之後，您就可以發佈應用程式，讓您私人網路外部的使用者可以存取。
 
@@ -79,7 +79,7 @@
 應用程式 Proxy 還有其他更多用途：
 
 - [啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
-- [使用您自己的網域名稱發佈應用程式](active-directory-application-proxy-custom-domains.md)
+- [使用您自己的網域名稱發行應用程式](active-directory-application-proxy-custom-domains.md)
 - [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
 - [啟用條件式存取](active-directory-application-proxy-conditional-access.md)
 - [使用宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)
@@ -94,4 +94,4 @@
 
 * [關於 Kerberos 限制委派](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

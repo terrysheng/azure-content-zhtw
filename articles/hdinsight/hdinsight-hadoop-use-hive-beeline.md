@@ -1,6 +1,6 @@
 <properties
-   pageTitle="在 HDInsight 中使用 Hadoop Hive 與 SSH | Microsoft Azure"
-   description="學習如何使用 SSH 連線至 HDInsight 中的 Hadoop 叢集，然後使用 Beeline 工具以互動方式提交 Hive 查詢。"
+   pageTitle="使用 Beeline 與 HDInsight (Hadoop) 上的 Hive 搭配作業 |Microsoft Azure"
+   description="學習如何使用 SSH 連線至 HDInsight 中的 Hadoop 叢集，然後使用 Beeline 以互動方式提交 Hive 查詢。Beeline 是透過 JDBC 與 HiveServer2 搭配作業的公用程式。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -237,4 +237,4 @@ Beeline 也可以用來執行包含 HiveQL 陳述式的檔案。使用下列步�
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -2,9 +2,8 @@
 	pageTitle="使用 SQL 資料分割資料表平行處理大量資料匯入 | Microsoft Azure" 
 	description="使用 SQL 資料分割資料表平行處理大量資料匯入" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/01/2015" 
-	ms.author="msolhab" />
+	ms.author="bradsev" />
 
 # 使用 SQL 資料分割資料表平行處理大量資料匯入
 
@@ -180,9 +179,9 @@
 
  >[AZURE.NOTE]您可以選擇在大量匯入資料之前建立索引。在大量匯入之前建立索引，將讓資料載入速度變慢。
 
-### 進階分析程序和技術實務範例
+## 進階分析程序和技術實務範例
 
-如需使用公開資料集之進階分析程序和技術 (ADAPT) 的端對端逐步解說範例，請參閱[進階分析程序和技術實務：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)。
+如需使用公用資料集進行 Cortana 分析程序的端對端逐步解說範例，請參閱 [Cortana 分析程序實務範例：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

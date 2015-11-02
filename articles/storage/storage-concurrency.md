@@ -3,8 +3,8 @@
 	description="如何管理 Blob、佇列、資料表和檔案服務的並行存取" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	authors="jasonnewyork" 
+	manager="tadb" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="tamram"/>
+	ms.author="jahogg"/>
 
 # 管理 Microsoft Azure 儲存體中的並行存取
 
@@ -273,4 +273,4 @@ Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="在 HDInsight 中使用 Hadoop Hive 與 SSH | Microsoft Azure"
-   description="學習如何使用 SSH 連線至 HDInsight 中的 Hadoop 叢集，然後使用 Hive 命令列介面以互動方式提交 Hive 查詢。"
+   pageTitle="在 HDInsight (Hadoop) 中使用 Hive 殼層 | Microsoft Azure"
+   description="了解如何使用 Hive 殼層搭配以 Linux 為基礎的 HDInsight 叢集。您將了解如何使用 SSh 來連線到 HDInsight 叢集，然後使用 Hive 殼層執行互動式查詢。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -147,4 +147,4 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

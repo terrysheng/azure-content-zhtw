@@ -3,7 +3,7 @@
 	description="本主題描述如何設定通道，從內部部署編碼器接收單一位元速率即時串流，再利用媒體服務將此串流即時編碼為自動調整位元速率串流。串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH、HDS。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/20/2015"  
 	ms.author="juliako"/>
 
 #使用啟用的通道來以 Azure 媒體服務執行即時編碼
@@ -29,10 +29,37 @@
 
 - **無** – 如果您打算使用會輸出多位元速率串流的內部部署即時編碼器，請指定這個值。在此情況下，連入的串流會傳遞至輸出，無須任何編碼。這是在 2.10 版以前的通道行為。如需使用此類型通道的詳細資訊，請參閱[使用會從內部部署編碼器接收多位元速率即時串流的通道](media-services-manage-channels-overview.md)。
 
-- **標準** – 如果您打算使用媒體服務將單一位元速率即時串流編碼成多位元速率串流，請選擇這個值。
+- **標準** – 如果您打算使用媒體服務將單一位元速率即時串流編碼成多位元速率串流，請選擇這個值。請注意即時編碼有計費影響，而且您應該記住將即時編碼通道保持在「執行中」狀態會產生費用。建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。
 
 >[AZURE.NOTE]本主題討論通道的屬性，這些通道為啟用來執行即時編碼 (**標準**編碼類型)。如需使用未啟用來執行即時編碼的通道之相關資訊，請參閱[使用會從內部部署編碼器接收多位元速率即時串流的通道](media-services-manage-channels-overview.md)。
 
+
+##計費影響
+
+即時編碼通道只要其狀態透過 API 轉換為「執行中」，即會開始計費。您也可以在 Azure 入口網站或 Azure 媒體服務總管工具 (http://aka.ms/amse)) 中檢視狀態。
+
+下表顯示通道狀態如何對應至 API 和入口網站的計費狀態。請注意，API 和入口網站 UX 之間的狀態稍有不同。一旦通道透過 API 處於「執行中」狀態，或在 Azure 入口網站中處於「就緒」或「串流」狀態，就會開始計費。若要停止通道進一步向您計費，您必須停止透過 API 或在 Azure 入口網站中的通道。您必須負責在完成即時編碼通道時停止您的通道。無法停止編碼通道將會導致持續計費。
+
+###<a id="states"></a>通道狀態和狀態如何對應至計費模式 
+
+通道的目前狀態。可能的值包括：
+
+- **已停止**。這是通道建立後的初始狀態 (除非在入口網站中選取自動啟動)。 此狀態中不會計費。在此狀態下，通道屬性可以更新，但是不允許串流。
+- **啟動中**。正在啟動通道。此狀態中不會計費。在此狀態期間允許任何更新或串流。如果發生錯誤，通道會回到已停止狀態。
+- **執行中**。通道能夠處理即時串流。現在針對使用量計費。您必須停止通道來防止進一步計費。 
+- **停止中**。正在停止通道。此暫時性狀態中不會計費。在此狀態期間允許任何更新或串流。
+- **刪除中**。正在刪除通道。此暫時性狀態中不會計費。在此狀態期間允許任何更新或串流。
+
+下表顯示通道狀態如何對應至計費模式。
+ 
+通道狀態|入口網站 UI 指標|會計費嗎？
+---|---|---
+啟動中|啟動中|無 (暫時性狀態)
+執行中|就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式)|是
+停止中|停止中|無 (暫時性狀態)
+已停止|已停止|否
+
+##即時編碼工作流程
 下圖代表即時串流工作流程，其中通道可使用下列其中一種通訊協定接收單一位元速率串流：RTMP、Smooth Streaming 或 RTP (MPEG-TS)；然後它會將串流編碼為多位元速率串流。
 
 ![即時工作流程][live-overview]
@@ -49,7 +76,7 @@
 
 下列是建立常見即時串流應用程式所含的一般步驟。
 
->[AZURE.NOTE]目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
+>[AZURE.NOTE]目前，即時事件的最大建議持續時間是 8 小時。如果您需要執行通道更久的時間，請連絡 amslived@Microsoft.com。請注意即時編碼有計費影響，而且您應該記住將即時編碼通道保持在「執行中」狀態會產生每小時的計費。建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。
 
 1. 將攝影機連接到電腦。啟動和設定可使用下列其中一種通訊協定輸出**單一**位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 	
@@ -76,6 +103,9 @@
 2. 即時編碼器會收到啟動公告的信號 (選擇性)。公告會插入輸出串流中。
 1. 每當您想要停止串流處理和封存事件時，請停止程式。
 1. 刪除程式 (並選擇性地刪除資產)。   
+
+>[AZURE.NOTE]切記停止即時編碼通道非常重要。請注意即時編碼有每小時計費影響，而且您應該記住將即時編碼通道保持在「執行中」狀態會產生費用。建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。
+
 
 [即時串流工作](media-services-manage-channels-overview.md#tasks)一節會連結至示範如何達成上述工作的主題。
 
@@ -195,7 +225,7 @@
 
 建立通道之後，您可以取得內嵌 URL。若要取得這些 URL，通道不一定要在**執行**狀態。當您準備好開始將資料推入通道，它必須處於**執行**狀態。一旦通道開始內嵌資料，您就可以透過預覽 URL 預覽您的串流。
 
-您可以透過 SSL 連線選擇內嵌的分散 MP4 (Smooth Streaming) 即時資料流。若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。
+您可以透過 SSL 連線選擇內嵌的分散 MP4 (Smooth Streaming) 即時串流。若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。
 
 ###允許的 IP 位址
 
@@ -383,7 +413,7 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 已停止|已停止|否
 
 
->[AZURE.NOTE]目前，通道啟動可能需要 20 分鐘以上。重設通道可能需要最多 5 分鐘。
+>[AZURE.NOTE]目前的通道啟動平均大約是 2 分鐘，但是有時可能需要多達 20 分鐘以上的時間。重設通道可能需要最多 5 分鐘。
 
 
 ##<a id="Considerations"></a>考量
@@ -397,12 +427,14 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 - 只有當您的通道處於**執行中**狀態時，才會向您計費。若需詳細資訊，請參閱[這個](media-services-manage-live-encoder-enabled-channels.md#states)章節。
 - 目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
 - 請確定在您想串流內容的串流端點上至少有一個串流保留單元。
+- 切記在完成時停止您的通道。如果您忘記，計費會繼續。 
 
 ##已知問題
 
-- 通道啟動時可能需要 20 分鐘以上。
+- 通道啟動時間也改進至平均 2 分鐘，但是有時候因為需求增加，可能仍然需要多達 20 分鐘以上的時間。
 - 為專業的廣播者建立 RTP 支援。請先檢閱[這個](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/)部落格中的 RTP 注意事項。
 - 靜態圖像映像應該符合[這裡](media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。如果您嘗試建立預設 slate 大於 1920 x 1080 的通道，要求最後將會發生錯誤。
+- 再次重申....切記在完成串流時停止您的通道。如果您忘記，計費會繼續。
 
 ###如何建立通道以執行從單一位元速率到自適性串流的即時編碼 
 
@@ -418,8 +450,8 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 
 您可以在此檢視 AMS 學習路徑：
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [AMS 即時串流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選串流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##相關主題
 
@@ -432,4 +464,4 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

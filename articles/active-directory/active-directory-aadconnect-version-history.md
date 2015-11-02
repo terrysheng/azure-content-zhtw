@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect︰版本發行歷程記錄
@@ -42,12 +42,32 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 - 因為 Active Directory 連接器上的密碼不正確，所以有些設定的密碼回寫失敗。
 - 如果 dn 用於屬性篩選，則無法升級 DirSync。
 
+**已移除的預覽功能：**
+
+- 根據預覽客戶的意見，[使用者回寫](active-directory-aadconnect-feature-preview.md#user-writeback)預覽功能已暫時移除。當我們處理所提供的意見反應之後，未來將會重新加入它。
+
 ## 1\.0.8641.0
 發行日期：2015 年 6 月
 
 **Azure AD Connect 的最初發行版本。**
 
 名稱從 Azure AD Sync 變更為 Azure AD Connect。
+
+**新功能︰**
+
+- [快速設定](active-directory-aadconnect-get-started-express.md)安裝
+- 可以[設定 ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- 可以[從 DirSync 升級](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+- [防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
+- 導入[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)
+
+**新的預覽功能：**
+
+- [使用者回寫](active-directory-aadconnect-feature-preview.md#user-writeback)
+- [群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback)
+- [裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [目錄擴充](active-directory-aadconnect-feature-preview.md#directory-extensions)
+
 
 ## 1\.0.494.0501
 發行日期：2015 年 5 月
@@ -96,7 +116,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 
 **新功能︰**
 
-- 現在支援透過以屬性為基礎的篩選進行密碼同步處理。如需詳細資訊，請參閱透過篩選進行密碼同步處理。
+- 現在支援透過以屬性為基礎的篩選進行密碼同步處理。如需詳細資訊，請參閱[透過篩選進行密碼同步](active-directory-aadconnectsync-configure-filtering.md)。
 - msDS ExternalDirectoryObjectID 屬性會寫回至 AD。這可支援 Office 365 應用程式使用 OAuth2 存取混合式 Exchange 部署中的線上和內部部署信箱。
 
 **已修正的升級問題︰**
@@ -140,4 +160,4 @@ AD 帳戶必須獲得其他權限，才能讀取來自 AD 的密碼雜湊。要�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

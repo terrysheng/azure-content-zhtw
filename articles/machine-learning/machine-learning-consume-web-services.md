@@ -2,7 +2,6 @@
 	pageTitle="使用機器學習 Web 服務 | Microsoft Azure"
 	description="部署機器學習服務之後，就可以使用 RESTFul Web 服務做為要求-回應服務或批次執行服務。"
 	services="machine-learning"
-	solutions="big-data"
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="09/09/2015" 
+	ms.date="10/19/2015"
 	ms.author="bradsev" />
 
 
@@ -33,6 +32,8 @@
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
 使用 Azure Machine Learning Web 服務有兩種不同方式，可以做為要求-回應服務，或者批次執行服務。在這兩個案例中，一旦部署實驗之後，就可以使用透過 RESTFul Web 服務提供的功能。在 Azure 中使用 Azure Web 服務端點部署機器學習 Web 服務，服務會根據使用量自動調整，您可以避免預先且持續付出硬體資源成本。
+
+> [AZURE.TIP]如需建立 Web 應用程式以存取您的預測 Web 服務的簡單方式，請參閱[使用 Azure Machine Learning Web 服務與 Web 應用程式範本](machine-learning-consume-web-service-with-web-app-template.md)。
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
@@ -298,7 +299,7 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 
 #### 使用 [BES SDK](machine-learning-consume-web-services.md#batch-execution-service-sdk)
 
-[BES SDK Nuget 封裝](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/)提供可以批次模式簡化呼叫 BES 來進行評分的功能。若要安裝 Nuget 封裝，請在 Visual Studio 中移至 [工具]，選取 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
+[BES SDK Nuget 封裝](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/)提供可以批次模式簡化呼叫 BES 來進行評分的功能。若要安裝 Nuget 套件，請在 Visual Studio 中移至 [工具]，選取 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
 
 部署為 Web 服務的 AzureML 實驗可以包含 Web 服務輸入模組，這表示需要透過 Web 服務呼叫，以 Blob 位置參考的形式提供輸入。另外還有不使用 Web 服務輸入模組的選項，那就是改為使用「讀取器」模組。在此情況下，讀取器通常會在執行階段使用查詢，從 SQL DB 讀取以取得資料。Web 服務參數可用來動態指向其他伺服器或資料表等。SDK 支援以上兩種模式。
 
@@ -432,4 +433,4 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 	    }
 	}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

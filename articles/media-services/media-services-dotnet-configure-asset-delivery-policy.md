@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="使用 .NET 設定資產傳遞原則" 
-	description="本主題說明如何設定不同的資產傳遞原則。" 
+	pageTitle="使用 .NET SDK 設定資產傳遞原則" 
+	description="本主題說明如何使用 Azure 媒體服務 .NET SDK 設定不同的資產傳遞原則。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/20/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
-#作法：設定資產傳遞原則
+#使用 .NET SDK 設定資產傳遞原則
 [AZURE.INCLUDE [媒體-服務-選取器-資產-傳遞-原則](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 如果您打算傳遞加密的資產，媒體服務內容傳遞工作流程的其中一個步驟，是設定資產的傳遞原則。資產傳遞原則會告訴媒體服務您想要如何傳遞資產：您的資產應該動態封裝成哪個串流通訊協定 (如 MPEG DASH、HLS、Smooth Streaming 或所有)，您是否想要動態加密您的資產及其方式 (信封或一般加密)。
@@ -328,4 +328,4 @@ Azure 媒體服務也可讓您加入 Widevine 加密。下列範例會示範 Pla
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="了解什麼是 Hive 以及如何使用 HiveQL |Microsoft Azure"
 	description="了解 Apache Hive 以及如何搭配 HDInsight 中的 Hadoop 使用它。選擇如何執行 Hive 工作，並使用 HiveQL 分析範例 Apache Log4j 檔案。"
-	keywords="hiveql,what is hive"
+	keywords="hiveql,什麼是 hive"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -56,7 +56,7 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 
 因為 Azure Blob 儲存體是 HDInsight 的預設儲存體，所以您也可以從 HiveQL 中的 **/example/data/sample.log** 存取檔案。
 
-> [AZURE.NOTE]語法 ****wasb:///** 是用來存取 HDInsight 叢集的預設儲存體容器所儲存的檔案。如果您在佈建叢集時指定其他儲存體帳戶，並想要存取儲存這些帳戶上的檔案，您可以指定容器名稱和儲存體帳戶位址來存取資料，例如：****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**。
+> [AZURE.NOTE]語法 ****wasb:///** 是用來存取您 HDInsight 叢集的預設儲存體容器所儲存之檔案。如果您在佈建叢集時指定其他儲存體帳戶，並想要存取儲存這些帳戶上的檔案，您可以指定容器名稱和儲存體帳戶位址來存取資料，例如 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**。
 
 ##<a id="job"></a>範例工作：將資料行投影至帶分隔符號的資料上
 
@@ -183,4 +183,4 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

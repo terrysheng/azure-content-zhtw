@@ -14,13 +14,13 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="10/19/2015"
    ms.author="cherylmc"/>
 
 # 設定 ExpressRoute 的虛擬網路
 
-這些步驟將引導您使用傳統部署模型來設定虛擬網路和閘道，以和 ExpressRoute 搭配使用。此組態目前不支援使用資源管理員模型所建立的 VNet 和閘道。當可以支援時，我們將在此頁面中提供文件的連結。
- 
+這些步驟將引導您使用傳統部署模型與服務管理來設定虛擬網路和閘道，以和 ExpressRoute 搭配使用。目前，我們並沒有使用資源管理員部署模型來為 ExpressRoute 設定 VNet 的文件。當我們有發行文章時，我們就會新增該文章的連結。
+
 >[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
 
 1. 登入 **Azure 入口網站**。
@@ -60,14 +60,14 @@
 
 10. 當閘道器建立開始時，系統會顯示訊息來通知您閘道器已啟動。閘道器建立作業最多可能需要花費 15 分鐘的時間。
 
-11. 將網路連結至線路。請依照[如何將 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnets-classic.md)文章中的指示進行。
+11. 將網路連結至線路。請依照[如何將 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnet-classic.md)文章中的指示進行。
 
 ## 後續步驟
 
-- 如果您想要將虛擬機器新增至虛擬網路，請參閱[如何建立自訂虛擬機器](../virtual-machines-create-custom.md)。
+- 如果您想要將虛擬機器新增至虛擬網路，請參閱[虛擬機器學習路徑](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)。
 - 如果您想要深入了解 ExpressRoute，請參閱 [ExpressRoute 技術概觀](expressroute-introduction.md)。
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

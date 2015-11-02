@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="在進階分析程序中將 Hive 查詢提交至 Hadoop 叢集 | Microsoft Azure" 
+	pageTitle="在 Cortana 分析程序中將 Hive 查詢提交至 Hadoop 叢集 | Microsoft Azure" 
 	description="從 Hive 資料表處理資料" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="10/18/2015" 
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> 在進階分析程序中將 Hive 查詢提交至 HDInsight Hadoop 叢集
+#<a name="heading"></a>在 Cortana 分析程序中將 Hive 查詢提交至 HDInsight Hadoop 叢集
 
 本文件說明在 Azure 中，將 Hive 查詢提交至 HDInsight 服務所管理的 Hadoop 叢集的各種方式。您可以使用下列方法來提交 Hive 查詢：
 
@@ -326,4 +325,4 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

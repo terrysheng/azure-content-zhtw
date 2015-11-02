@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="搭配使用 Azure PowerShell 與 Azure 資源管理員" 
-	description="使用 Azure PowerShell 將多個資源做為資源群組部署至 Azure。" 
+	pageTitle="Azure PowerShell 搭配資源管理員 | Microsoft Azure" 
+	description="使用 Azure PowerShell 將多個資源做為資源群組部署至 Azure 的簡介。" 
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="10/16/2015" 
 	ms.author="tomfitz"/>
 
 # 搭配使用 Azure PowerShell 與 Azure 資源管理員
@@ -22,309 +22,397 @@
 - [Azure PowerShell](powershell-azure-resource-manager.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
 
-Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建立並管理個別資源，您首先想像一個複雜的服務，例如，部落格、相片庫、SharePoint 入口網站或 Wiki。使用範本 (服務的資源模型) 建立包含支援此服務所需資源的資源群組。然後，以邏輯單元的方式來管理與部署該資源群組。
+Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建立並管理個別資源，您首先想像整個解決方案，例如，部落格、相片庫、SharePoint 入口網站或 Wiki。使用範本 (解決方案的宣告式呈現) 建立包含支援解決方案所需所有資源的資源群組。然後，以邏輯單元的方式來管理與部署該資源群組。
 
-在本教學課程中，您將了解如何搭配使用 Azure PowerShell 與 Microsoft Azure 的 Azure 資源管理員。它會逐步引導您為搭配 SQL 資料庫的 Azure 託管 web 應用程式，完成建立與部署資源群組的程序，並提供支援此群組所需的所有資源。
+在本教學課程中，您將了解如何搭配使用 Azure PowerShell 與 Azure 資源管理員。它會逐步引導您為搭配 SQL 資料庫的 Azure 託管 web 應用程式，完成建立與部署資源群組的程序，並提供支援此群組所需的所有資源。
 
 ## 必要條件
 
-若要完成此教學課程，您必須具備 Azure PowerShell 0.8.0 版或更新版本。若要安裝最新版本，並將它與 Azure 訂用帳戶建立關聯，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
+若要完成本教學課程，您需要：
+
+- 一個 Azure 帳戶
+  + 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。除非您明確變更您的設定且同意付費，否則我們將不會從您的信用卡收取任何費用。
+  
+  + 您可以[啟用 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
+- Azure PowerShell
+
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
 本教學課程是專為 PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx) (英文)。
+
+## 部署內容
+
+在本教學課程中，您將使用 Azure PowerShell 部署 Web 應用程式和 SQL Database。不過，此 Web 應用程式和 SQL Database 解決方案是由數個一起運作的資源類型組成。您將部署的實際資源是︰
+
+- SQL Server - 主控資料庫
+- SQL Database - 儲存資料
+- 防火牆規則 - 允許 Web 應用程式連接到資料庫
+- App Service 計劃 - 定義 Web 應用程式的功能和成本
+- 網站 - 執行 Web 應用程式
+- Web 組態 - 將連接字串儲存到資料庫 
+
+## 取得 Cmdlet 的說明
 
 若要取得您在本教學課程中任何所見 Cmdlet 的詳細說明，請使用 Get-Help Cmdlet。
 
 	Get-Help <cmdlet-name> -Detailed
 
-例如，如需取得 Add-AzureAccount Cmdlet 的說明，請輸入：
+例如，如需取得 Get-AzureRmResource Cmdlet 的說明，請輸入：
 
-	Get-Help Add-AzureAccount -Detailed
+	Get-Help Get-AzureRmResource -Detailed
 
-## 關於 Azure Powershell 模組
-自 0.8.0 版開始，Azure PowerShell 安裝包括多個 PowerShell 模組。您必須明確決定是否要使用 Azure 模組或 Azure 資源管理員模組中可用的命令。為了要在兩者間輕易切換，我們已將新的 Cmdlet (**Switch-AzureMode**) 新增至 Azure 設定檔模組。
+若要取得資源模組中的 Cmdlet 清單及說明概要，請輸入：
 
-當您使用 Azure PowerShell 時，系統預設會匯入 Azure 模組中的 Cmdlet。若要切換至 Azure 資源管理員模組，請使用 Switch-AzureMode Cmdlet。它會從您的工作階段中移除 Azure 模組，並匯入 Azure 資源管理員和 Azure 設定檔模組。
-
-若要切換至 AzureResoureManager 模組，請輸入：
-
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
-
-若要切回至 Azure 模組，請輸入：
-
-    PS C:\> Switch-AzureMode -Name AzureServiceManagement
-
-依預設，Switch-AzureMode 只會影響目前的工作階段。若要讓切換在所有的 PowerShell 工作階段中生效，請使用 Switch-AzureMode 的 **Global** 參數。
-
-如需 Switch-AzureMode Cmdlet 的說明，請輸入：`Get-Help Switch-AzureMode` 或參閱 [Switch-AzureMode](http://go.microsoft.com/fwlink/?LinkID=394398)。
-  
-若要取得 AzureResourceManager 模組中的 Cmdlet 清單及說明概要，請輸入：
-
-    PS C:\> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
+    PS C:\> Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
 
 輸出類似如下摘錄：
 
 	Name                                   Synopsis
 	----                                   --------
-	Add-AlertRule                          Adds or updates an alert rule of either metric, event, o...
-	Add-AzureAccount                       Adds the Azure account to Windows PowerShell
-	Add-AzureEnvironment                   Creates an Azure environment
-	Add-AzureKeyVaultKey                   Creates a key in a vault or imports a key into a vault.
-        ...
+	Find-AzureRmResource                   Searches for resources using the specified parameters.
+	Find-AzureRmResourceGroup              Searches for resource group using the specified parameters.
+	Get-AzureRmADGroup                     Filters active directory groups.
+	Get-AzureRmADGroupMember               Get a group members.
+	...
 
-To get full help for a cmdlet, type a command with the format:
+如需取得完整的 Cmdlet 說明，請輸入下列格式的命令：
 
 	Get-Help <cmdlet-name> -Full
-
-例如，
-
-	Get-Help Get-AzureLocation -Full
-
-若需完整的 Azure 資源管理員命令集合，請參閱 [Azure 資源管理員 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765)。
   
+## 登入您的 Azure 帳戶
+
+在使用您的解決方案之前，您必須登入您的帳戶。
+
+若要登入您的 Azure 帳戶，請使用 **Login-AzureRmAccount** Cmdlet。在 1.0 Preview 之前的 Azure PowerShell 版本中，使用 **Add-AzureAccount** 命令。
+
+    PS C:\> Login-AzureRmAccount
+
+cmdlet 會提示您 Azure 帳戶的登入認證。登入之後，它會下載您的帳戶設定以供 Azure PowerShell 使用。
+
+帳戶設定已過期，因此您必須偶爾重新整理這些設定。若要重新整理帳戶設定，請再次執行 **Login-AzureRmAccount**。
+
+>[AZURE.NOTE]資源管理員模組需要 Login-AzureRmAccount。發佈設定檔案不符合需求。
+
+## 取得資源類型位置
+
+部署資源時您必須指定想要託管資源的位置。並非每個區域都支援每種資源類型。在部署您的 Web 應用程式和 SQL Database 之前，您必須了解哪些區域支援這些類型。資源群組可以包含位於不同區域的資源；不過，您應該盡可能在相同的位置建立資源以最佳化效能。尤其，您會想要確定您的資料庫與存取資料庫的應用程式位於相同的位置。
+
+若要取得支援各種資源類型的位置，您必須使用 **Get-AzureRmResourceProvider** Cmdlet。首先，讓我們看看此命令傳回的項目：
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    Microsoft.Batch                 Registered        {batchAccounts}
+    ...
+
+ProviderNamespace 表示相關資源類型的集合。這些命名空間通常都能與您想要在 Azure 中建立的服務搭配得宜。如果您想要使用已列為 [已取消註冊] 的資源提供者，您可以藉由執行 **Register-AzureRmResourceProvider** Cmdlet 並指定要註冊的提供者命名空間，註冊該資源提供者。您將在本教學課程使用的資源提供者很有可能已經針對您的訂用帳戶註冊。
+
+您可以藉由指定該命名空間以取得提供者的詳細資訊：
+
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql
+
+    ProviderNamespace RegistrationState ResourceTypes                                 Locations
+    ----------------- ----------------- -------------                                 ---------
+    Microsoft.Sql     Registered        {operations}                                  {East US 2, South Central US, Cent...
+    Microsoft.Sql     Registered        {locations}                                   {East US 2, South Central US, Cent...
+    Microsoft.Sql     Registered        {locations/capabilities}                      {East US 2, South Central US, Cent...
+    ...
+
+若要針對特定類型的資源將您的輸出限制為支援的位置，例如網站，請使用：
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+    
+輸出將類似於：
+
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
+    Central US
+    East US 2
+
+您看到的位置可能會與先前的結果稍有不同。結果可能會不同，因為組織中的系統管理員已建立原則，限制哪些區域可用於您的訂用帳戶，或可能有與您的設籍國家/地區的稅捐原則相關的限制。
+
+讓我們針對資料庫執行相同命令：
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers).Locations
+    East US 2
+    South Central US
+    Central US
+    North Central US
+    West US
+    East US
+    East Asia
+    Southeast Asia
+    Japan West
+    Japan East
+    North Europe
+    West Europe
+    Brazil South
+
+看來這些資源可用於許多區域。此主題中，我們將使用「美國西部」，但是您可以指定任何支援的區域。
+
 ## 建立資源群組
 
-本教學課程的這個部分會逐步引導您為搭配 SQL 資料庫的 web 應用程式，建立與部署資源群組的程序。
+本教學課程的這個部分會逐步引導您建立資源群組的程序。資源群組會做為您的解決方案中共用相同生命週期的所有資源的容器。稍後在教學課程中，您會將 Web 應用程式和 SQL Database 部署至此資源群組。
 
-您不需要是 Azure、SQL、web 應用程式或資源管理等方面的專家就可以進行此工作。範本提供了資源群組的模型，其中包括您可能需要的所有資源。並因為使用 Windows PowerShell 來自動化工作，您可以使用這些程序作為撰寫大規模工作指令碼的模型。
+若要建立資源群組，請使用 **New-AzureRmResourceGroup** Cmdlet。
 
-### 步驟 1：切換至 Azure 資源管理員 
-1. 啟動 PowerShell。您可以任意使用任何主機程式，例如，Azure PowerShell 主控台或 Windows PowerShell ISE。
+此命令會使用 **Name** 參數來指定資源群組的名稱，並使用 **Location** 參數來指定其位置。根據我們在上一節中的發現，我們將使用「美國西部」做為位置。
 
-2. 使用 **Switch-AzureMode** Cmdlet 來匯入 AzureResourceManager 和 AzureProfile 模組中的 Cmdlet。
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-
-3. 若要將您的 Azure 帳戶新增至 Windows PowerShell 工作階段，請使用 **Add-AzureAccount** Cmdlet。
-
-        PS C:\> Add-AzureAccount
-
-cmdlet 會提示您 Azure 帳戶的登入認證。登入之後，它會下載您的帳戶設定以供 Windows PowerShell 使用。
-
-帳戶設定已過期，因此您必須偶爾重新整理這些設定。若要重新整理帳戶設定，請再次執行 **Add-AzureAccount**。
-
->[AZURE.NOTE]AzureResourceManager 模組需要 Add-AzureAccount。發佈設定檔案不符合需求。
-
-### 步驟 2：選取資源庫範本
-
-建立資源群組及其資源的方式有幾種，但最簡單的方式是使用資源群組範本。*resource group template* 是可定義資源群組中資源的 JSON 字串。此字串包含使用者定義值的預留位置 (稱為 "parameters")，例如名稱和大小。
-
-Azure 主控一個資源群組範本的資源庫，您也可以從頭開始或透過編輯資源庫範本以建立自己的範本。在本教學課程中，我們將使用資源庫範本。
-
-若要查看 Azure 資源群組範本資源庫中的所有範本，請使用 **Get-AzureResourceGroupGalleryTemplate** cmdlet；不過，這個命令會傳回大量範本。若要查看更容易管理的範本數目，請指定發佈者參數。
-
-出現 PowerShell 提示時，請輸入：
+    PS C:\> New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
     
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
+    ResourceGroupName : TestRG1
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+    Permissions       :
+                    Actions  NotActions
+                    =======  ==========
+                    *
 
-此 Cmdlet 會傳回包含 Microsoft 的資源庫範本清單做為發佈者。您可以使用 **Identity** 屬性來識別命令中的範本。
+    ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
 
-Microsoft.WebSiteSQLDatabase.0.2.6-preview 範本看起來很有意思。當您執行命令時，範本的版本可能稍有不同，因為已發行新的版本。使用最新版本的範本。若要取得資源庫範本的詳細資訊，請使用 **Identity** 參數。Identity 參數的值是範本的身分識別。
-
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview
-
-此 Cmdlet 會傳回包含此範本更多詳細資訊 (包括摘要和說明) 的物件。
-
-此範本看起來可以滿足我們的需求。我們可以先將它儲存至磁碟，並仔細檢視。
-
-### 步驟 3：檢查範本
-
-我們可以將範本儲存至磁碟上的 JSON 檔案。這不是必要步驟，但它可讓檢視範本變得更加容易。若要儲存範本，請使用 **Save-AzureResourceGroupGalleryTemplate** Cmdlet。使用其 **Identity** 參數來指定範本，並使用 **Path** 參數來指定磁碟上的路徑。
-
-Save-AzureResourceGroupGalleryTemplate 會儲存範本，並傳回 JSON 範本檔案的檔案名稱路徑。
-
-	PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview -Path C:\Azure\Templates\New_WebSite_And_Database.json
-
-	Path
-	----
-	C:\Azure\Templates\New_WebSite_And_Database.json
+已成功建立您的資源群組。
 
 
-您可以在文字編輯器 (例如記事本) 中檢視範本檔案。每個範本包含**參數**區段和**資源**區段。
+## 取得資源的可用 API 版本
 
-範本的 [參數] 區段是在所有資源中定義的參數集合。它包含您可以在設定資源群組時提供的屬性值。
+當您部署範本時，您必須指定要用來建立資源的 API 版本。可用的 API 版本會對應至資源提供者所發行的 REST API 作業版本。當資源提供者啟用新功能時，它會發行新版本的 REST API。因此，您在範本中指定的 API 版本會影響您在建立範本時可用的屬性。一般而言，您會想要在建立新範本時選取最新的 API 版本。對於現有的範本，您可以決定要繼續使用您已知不會變更您的部署的舊 API 版本，或更新您的範本以便最新版本利用新功能。
 
-    "parameters": {
-      "siteName": {
-        "type": "string"
-      },
-      "hostingPlanName": {
-        "type": "string"
-      },
-      "siteLocation": {
-        "type": "string"
-      },
-      ...
-    }
+這個步驟可能會產生混淆，但是探索可用於您的資源的 API 版本並不困難。您將會再次使用 **Get-AzureRmResourceProvider** 命令。
 
-部分參數已有預設值。當您使用範本時，您無需提供這些參數的值。如果您沒有指定值，系統便會使用預設值。
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
 
-    "collation": {
-      "type": "string",
-      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
-    },
+如您所見，這個 API 經常更新。通常，相同的 API 版本號碼可用於資源提供者中的所有資源。唯一的例外狀況是在某個時間點新增或移除資源。我們會假設相同的 API 版本可用於 serverFarms 資源。不過，您可以仔細查看您認為可能會有不同的可用 API 版本清單的任何資源。
 
-當參數具有列舉值時，有效值會與參數一起列出。例如，**sku** 參數可接受 [免費]、[共用]、[基本] 和 [標準] 等值。如果您沒有為 **sku** 參數指定值，則它會使用預設值 ([免費])。
+資料庫中，您會看到：
 
-    "sku": {
-      "type": "string",
-      "allowedValues": [
-        "Free",
-        "Shared",
-        "Basic",
-        "Standard"
-      ],
-      "defaultValue": "Free"
-    },
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Sql).ResourceTypes | Where-Object ResourceTypeName -eq servers/databases).ApiVersions
+    2014-04-01-preview
+    2014-04-01 
 
+## 建立您的範本
 
-請注意，**administratorLoginPassword** 參數會使用安全字串，而非純文字。當您提供安全字串的值時，此值便會被遮住。
+本主題不會顯示如何建立您的範本或討論範本的結構。如需詳細資訊，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。您將要部署的範本如下所示：請注意，範本會使用您在上一節擷取的 API 版本。為了確保所有資源都位於相同區域中，我們使用範本運算式 **resourceGroup().location** 以使用資源群組的位置。
 
-	"administratorLoginPassword": {
-      "type": "securestring"
-    },
+另請注意參數區段。這個區段會定義您在部署資源時可以提供的值。您會在本教學課程中稍後使用這些值。
 
-範本的 **resources** 區段會列出該範本建立的資源。此範本會建立 SQL 資料庫伺服器和 SQL 資料庫、伺服器陣列和網站，以及數個管理設定。
-  
-每個資源定義會包括其屬性 (例如，名稱、類型和位置)，以及使用者定義值的參數。例如，此範本區段定義 SQL 資料庫。它包括資料庫名稱 ([parameters('databaseName')])、資料庫伺服器位置 [parameters('serverLocation')] 和定序屬性 [parameters('collation')] 等參數。
+您可以複製範本，並在本機將它儲存為 .json 檔案。在本教學課程中，我們假設它已儲存至 c:\\Azure\\Templates\\azuredeploy.json，但是您可以將它儲存在任何方便的位置，並且具有對於您的需求有意義的名稱。
 
     {
-        "name": "[parameters('databaseName')]",
-        "type": "databases",
-        "location": "[parameters('serverLocation')]",
-        "apiVersion": "2.0",
-        "dependsOn": [
-          "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
-        ],
-        "properties": {
-          "edition": "[parameters('edition')]",
-          "collation": "[parameters('collation')]",
-          "maxSizeBytes": "[parameters('maxSizeBytes')]",
-          "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]"
-        }
-    },
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "hostingPlanName": {
+                "type": "string"
+            },
+            "serverName": {
+                "type": "string"
+            },
+            "databaseName": {
+                "type": "string"
+            },
+            "administratorLogin": {
+                "type": "string"
+            },
+            "administratorLoginPassword": {
+                "type": "securestring"
+            }
+        },
+        "variables": {
+            "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+        },
+        "resources": [
+            {
+                "name": "[parameters('serverName')]",
+                "type": "Microsoft.Sql/servers",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2014-04-01",
+                "properties": {
+                    "administratorLogin": "[parameters('administratorLogin')]",
+                    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                    "version": "12.0"
+                },
+                "resources": [
+                    {
+                        "name": "[parameters('databaseName')]",
+                        "type": "databases",
+                        "location": "[resourceGroup().location]",
+                        "apiVersion": "2014-04-01",
+                        "dependsOn": [
+                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                        ],
+                        "properties": {
+                            "edition": "Basic",
+                            "collation": "SQL_Latin1_General_CP1_CI_AS",
+                            "maxSizeBytes": "1073741824",
+                            "requestedServiceObjectiveName": "Basic"
+                        }
+                    },
+                    {
+                        "name": "AllowAllWindowsAzureIps",
+                        "type": "firewallrules",
+                        "location": "[resourceGroup().location]",
+                        "apiVersion": "2014-04-01",
+                        "dependsOn": [
+                            "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                        ],
+                        "properties": {
+                            "endIpAddress": "0.0.0.0",
+                            "startIpAddress": "0.0.0.0"
+                        }
+                    }
+                ]
+            },
+            {
+                "apiVersion": "2015-08-01",
+                "type": "Microsoft.Web/serverfarms",
+                "name": "[parameters('hostingPlanName')]",
+                "location": "[resourceGroup().location]",
+                "sku": {
+                    "tier": "Free",
+                    "name": "f1",
+                    "capacity": 0
+                },
+                "properties": {
+                    "numberOfWorkers": 1
+                }
+            },
+            {
+                "apiVersion": "2015-08-01",
+                "name": "[variables('siteName')]",
+                "type": "Microsoft.Web/sites",
+                "location": "[resourceGroup().location]",
+                "dependsOn": [
+                    "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
+                ],
+                "properties": {
+                    "serverFarmId": "[parameters('hostingPlanName')]"
+                },
+                "resources": [
+                    {
+                        "name": "web",
+                        "type": "config",
+                        "apiVersion": "2015-08-01",
+                        "dependsOn": [
+                            "[concat('Microsoft.Web/Sites/', variables('siteName'))]"
+                        ],
+                        "properties": {
+                            "connectionStrings": [
+                                {
+                                    "ConnectionString": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
+                                    "Name": "DefaultConnection",
+                                    "Type": 2
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
 
 
-我們大致上準備好開始使用範本，但在使用範本之前，我們必須找到各個資源的位置。
+## 部署範本
 
-### 步驟 4：取得資源類型位置
+您具有資源群組和範本，因此現在您已經準備好要將在您的範本中定義的基礎結構部署至資源群組。使用 **New-AzureRmResourceGroupDeployment** Cmdlet 部署資源。基本語法如下所示：
 
-大多數的範本會要求您指定資源群組中各個資源的位置。每個資源都位於 Azure 資料中心內，但不是每個 Azure 資料中心都支援每種資源類型。
+    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
 
-選取支援資源類型的任何位置。您不需要在相同位置的資源群組中建立所有資源；不過，您會想要在想同的位置盡可能建立資源以最佳化效能。尤其，您會想要確定您的資料庫與存取資料庫的應用程式位於相同的位置。
+您指定資源群組和範本的位置。如果您的範本不是本機，可以使用 -TemplateUri 參數並指定範本的 URI。
 
-若要取得支援各種資源類型的位置，請使用 **Get-AzureLocation** Cmdlet。若要將您的輸出限制為特定類型的資源，例如 ResourceGroup，請使用：
+###動態範本參數
 
-    Get-AzureLocation | Where-Object Name -eq "ResourceGroup" | Format-Table Name, LocationsString -Wrap
+如果您熟悉 PowerShell，您知道您可以輸入減號 (-) 然後按下 TAB 鍵，循環 Cmdlet 的可用參數。相同的功能也適用於您在範本中定義的參數。在您輸入範本名稱之後，Cmdlet 便會立即擷取範本、剖析範本，並將範本參數動態新增至命令。這會讓指定範本參數值變得再容易不過了。另外，如果您忘記必要參數值，則 PowerShell 會出現此值的提示。
 
-輸出將類似：
+以下是包含參數的完整命令。您可以對資源名稱提供您自己的值。
 
-    Name                                 LocationsString
-    ----                                 ---------------
-    ResourceGroup                        East Asia, South East Asia, East US, West US, North
-                                         Central US, South Central US, Central US, North Europe,
-                                         West Europe
-
-現在我們已經有了建立資源群組所需的資訊。
-
-### 步驟 5：建立資源群組
- 
-在此步驟中，我們將使用群組範本建立資源群組。如需參考，請開啟磁碟上的 New\_WebSite\_And\_Database.json 檔案，並依照指示進行。範本檔案可以非常有助於決定要傳遞的參數值，例如資源的正確 ApiVersion。
-
-若要建立資源群組，請使用 **New-AzureResourceGroup** Cmdlet。
-
-此命令會使用 **Name** 參數來指定資源群組的名稱，並使用 **Location** 參數來指定其位置。使用 **Get-AzureLocation** 的輸出來選取資源群組的位置。它會使用 **GalleryTemplateIdentity** 參數來指定資源庫範本。
-
-	PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview
-            ....
-
-在您輸入範本名稱之後，New-AzureResourceGroup 便會立即擷取範本、剖析範本，並將範本參數動態新增至命令。這會讓指定範本參數值變得再容易不過了。另外，如果您忘記必要參數值，則 Windows PowerShell 會出現此值的提示。
-
-**動態範本參數**
-
-若要取得參數，請輸入減號 (-) 以顯示參數名稱，然後按 TAB 鍵。或者，輸入參數名稱的前幾個字母，例如 siteName，然後按 TAB 鍵。
-
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -si<TAB>
-
-PowerShell 會完成參數名稱。若要循環顯示參數名稱，請重複按 TAB 鍵。
-
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName 
-
-輸入網站名稱，並針對每個參數重複 TAB 程序。具有預設值的參數為選擇性參數。若要接受預設值，請略過來自命令的參數。
-
-當範本參數具有列舉值時 (例如本範本中的 sku 參數)，若要循環顯示參數值，請按 TAB 鍵。
-
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku <TAB>
-
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Basic<TAB>
-
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Free<TAB>
-
-以下是 New-AzureResourceGroup 命令的範例，將只指定必要範本參數和 **Verbose** 命令參數。請注意，將略過 **administratorLoginPassword**。
-
-	PS C:\> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "East Asia" -serverName testserver -serverLocation "East Asia" -administratorLogin Admin01 -databaseName TestDB -Verbose
+    PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json -hostingPlanName freeplanwest -serverName exampleserver -databaseName exampledata -administratorLogin exampleadmin
 
 當您輸入命令時，系統會提示您輸入遺漏的必要參數 **administratorLoginPassword**。並在您輸入密碼時，此安全字串值便會被遮住。如此，就不會有以純文字方式提供密碼的風險。
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	administratorLoginPassword: **********
+    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+    Supply values for the following parameters:
+    (Type !? for Help.)
+    administratorLoginPassword: ********
 
-**New-azureresourcegroup** 會傳回它建立和部署的資源群組。
+資源建立時，命令會執行並且傳回訊息。最後，您會看到您的部署結果。
 
-只需幾個步驟，即可建立與部署複雜網站所需的資源。資源庫範本提供了執行此工作所需的幾乎所有資訊。另外，還可輕易自動化此工作。
+    DeploymentName    : azuredeploy
+    ResourceGroupName : TestRG1
+    ProvisioningState : Succeeded
+    Timestamp         : 10/16/2015 12:55:50 AM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+                    Name             Type                       Value
+                    ===============  =========================  ==========
+                    hostingPlanName  String                     freeplanwest
+                    serverName       String                     exampleserver
+                    databaseName     String                     exampledata
+                    administratorLogin  String                  exampleadmin
+                    administratorLoginPassword  SecureString
+
+    Outputs           :
+
+只需幾個步驟，即可建立與部署複雜網站所需的資源。
 
 ## 取得資源群組的相關資訊
 
-建立資源群組之後，您可以使用 AzureResourceManager 模組中的 Cmdlet，來管理您的資源群組。
+建立資源群組之後，您可以使用資源管理員模組中的 Cmdlet，來管理您的資源群組。
 
-- 若要取得訂用帳戶中的所有資源群組，請使用 **Get-AzureResourceGroup** Cmdlet：
+- 若要取得訂用帳戶中的所有資源群組，請使用 **Get-AzureRmResourceGroup** Cmdlet：
 
-		PS C:\>Get-AzureResourceGroup
+		PS C:\>Get-AzureRmResourceGroup
 
 		ResourceGroupName : TestRG
-		Location          : eastasia
+		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
-		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+		ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG
 		
 		...
 
-- 若要取得資源群組中的資源，請使用 **Get-AzureResource** Cmdlet 及其 ResourceGroupName 參數。在沒有使用參數的情況下，Get-AzureResource 會取得 Azure 訂閱中的所有資源。
+- 若要取得資源群組中的資源，請使用 **Get-AzureRmResource** Cmdlet 及其 ResourceGroupName 參數。在沒有使用參數的情況下，Get-AzureRmResource 會取得 Azure 訂用帳戶中的所有資源。
 
-		PS C:\> Get-AzureResource -ResourceGroupName TestRG
+		PS C:\> Get-AzureRmResource -ResourceGroupName TestRG1
 		
-		ResourceGroupName : TestRG
-		Location          : eastasia
-		ProvisioningState : Succeeded
-		Tags              :
-		
-		Resources         :
-				Name                   Type                          Location
-				----                   ------------                  --------
-				ServerErrors-TestSite  microsoft.insights/alertrules         eastasia
-	        	TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
-	        	TestSite               microsoft.insights/components         centralus
-	         	testserver             Microsoft.Sql/servers                 eastasia
-	        	TestDB                 Microsoft.Sql/servers/databases       eastasia
-	        	TestPlan               Microsoft.Web/serverFarms             eastasia
-	        	TestSite               Microsoft.Web/sites                   eastasia
-		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+		Name              : exampleserver
+                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
+                ResourceName      : exampleserver
+                ResourceType      : Microsoft.Sql/servers
+                Kind              : v12.0
+                ResourceGroupName : TestRG1
+                Location          : westus
+                SubscriptionId    : {guid}
+                
+                ...
+	        
 
 ## 新增至資源群組
 
-- 若要將資源新增至資源群組，請使用 **New-AzureResource** Cmdlet。此命令會將新網站新增至 TestRG 資源群組。由於此命令沒有使用範本，所以稍微有點複雜。 
-
-        PS C:\>New-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01 -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
-
-- 若要將新的範本型部署新增至資源群組，請使用 **New-AzureResourceGroupDeployment** 命令。
-
-		PS C:\>New-AzureResourceGroupDeployment ` 
-		-ResourceGroupName TestRG `
-		-GalleryTemplateIdentity Microsoft.WebSite.0.2.6-preview `
-		-siteName TestWeb2 `
-		-hostingPlanName TestDeploy2 `
-		-siteLocation "North Europe" 
+若要將資源新增至資源群組，您可以使用 **New-AzureRmResource** Cmdlet。不過，以這種方式新增資源可能會造成未來的混淆，因為新的資源不存在於您的範本。如果您重新部署舊範本，則會部署不完整的解決方案。如果您經常部署，您會發現將新的資源新增至您的範本並重新部署它更方便且更可靠。
 
 ## 移動資源
 
@@ -332,49 +420,27 @@ PowerShell 會完成參數名稱。若要循環顯示參數名稱，請重複按
 
 ## 刪除資源群組
 
-- 若要將資源從資源群組中刪除，請使用 **Remove-AzureResource** Cmdlet。此 Cmdlet 會刪除資源，但不會刪除資源群組。
+- 若要將資源從資源群組中刪除，請使用 **Remove-AzureRmResource** Cmdlet。此 Cmdlet 會刪除資源，但不會刪除資源群組。
 
-	此命令會將 TestSite2 網站從 TestRG 資源群組中移除。
+	此命令會將 TestSite 網站從 TestRG 資源群組中移除。
 
-		Remove-AzureResource -Name TestSite2 -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01
+		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
-- 若要刪除資源群組，請使用 **Remove-AzureResourceGroup** Cmdlet。此 Cmdlet 會刪除資源群組及其資源。
+- 若要刪除資源群組，請使用 **Remove-AzureRmResourceGroup** Cmdlet。此 Cmdlet 會刪除資源群組及其資源。
 
-		PS C:\ps-test> Remove-AzureResourceGroup -Name TestRG
+		PS C:\> Remove-AzureRmResourceGroup -Name TestRG1
 		
 		Confirm
-		Are you sure you want to remove resource group 'TestRG'
+		Are you sure you want to remove resource group 'TestRG1'
 		[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
-
-## 疑難排解資源群組
-在嘗試使用 AzureResourceManager 模組中的 Cmdlet 後，您很有可能會遇到錯誤。請使用本節中的秘訣來解決這些錯誤。
-
-### 防止錯誤
-
-AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
-
-
-- **Get-AzureLocation**：此 Cmdlet 會取得支援每種資源類型的位置。在您輸入資源的位置之前，請使用此 Cmdlet 來確認該位置是否支援此資源類型。
-
-
-- **Test-AzureResourceGroupTemplate**：使用範本和範本參數之前，請先進行測試。請輸入自訂或資源庫範本，以及您打算使用的範本參數值。此 Cmdlet 會測試範本是否達到內部的一致性，以及您的參數值設定是否與範本相符。
-
-
-
-### 修正錯誤
-
-- **Get-AzureResourceGroupLog**：此 Cmdlet 會取得每個資源群組部署記錄中的項目。如果出現問題，便會首先檢查部署記錄。 
-
-- **詳細資訊和偵錯**：AzureResourceManager 模組中的 Cmdlet 會呼叫實際執行工作的 REST API。若要查看 API 傳回的訊息，請將 $DebugPreference 變數設為 "Continue"，並在您的命令中使用 Verbose 命令參數。這些訊息通常會提供任何失敗原因的重要線索。
-
-- **您的 Azure 認證未設定或已過期**：若要在 Windows PowerShell 工作階段中重新整理認證，請使用 Add-AzureAccount Cmdlet。發佈設定檔中的認證無法滿足 AzureResourceManager 模組中 Cmdlet 的需求。
 
 
 ## 後續步驟
 
-- 若要了解如何建立資源管理員範本，請參閱〈[撰寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)〉。
-- 若要了解如何部署範本，請參閱〈[使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)〉。
-- 如需部署專案的詳細範例，請參閱〈[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)〉。
+- 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
+- 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)。
+- 如需部署專案的詳細範例，請參閱[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)。
+- 若要了解如何疑難排解失敗的部署，請參閱[在 Azure 中疑難排解資源群組部署](./virtual-machines/resource-group-deploy-debug.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

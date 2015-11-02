@@ -19,6 +19,8 @@
 
 # 如何使用服務匯流排佇列
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 本文說明如何使用服務匯流排佇列。相關範例是以 Python 撰寫的，並使用 [Python Azure 封裝][]。所涵蓋的案例包括**建立佇列、傳送並接收訊息**，以及**刪除佇列**。
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
@@ -42,7 +44,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-SAS 金鑰名稱和值的值可以在 [Azure 入口網站][]連接資訊中找到，或者在 [伺服器總管] 中選取服務匯流排命名空間時於 Visual Studio [**屬性**] 視窗中找到 (如上一節所示)。
+SAS 金鑰名稱和值的值可以在 [Azure 入口網站][]連接資訊中找到，或者在 [伺服器總管] 中選取服務匯流排命名空間時於 Visual Studio [屬性] 視窗中找到 (如上一節所示)。
 
 ```
 bus_service.create_queue('taskqueue')
@@ -80,7 +82,7 @@ msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
 
-如果將 **peek\\_lock** 參數設為 **False**，則當您讀取訊息後，訊息便會從佇列中刪除。您可以將參數 **peek\\_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
+如果將 **peek\_lock** 參數設為 **False**，則當讀取訊息後，訊息便會從佇列中刪除。您可以將參數 **peek\_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
 
 隨著接收作業讀取及刪除訊息之行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
@@ -113,4 +115,4 @@ msg.delete()
 [Azure 佇列與服務匯流排佇列]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

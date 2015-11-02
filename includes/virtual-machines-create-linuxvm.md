@@ -8,6 +8,8 @@
 
         azure vm image list | grep "Linux"
 
+   在 Windows 命令提示字元視窗中，請使用 find 而不要使用 grep。
+
 4. 從上述清單中透過 Linux 映像使用 `azure vm create` 建立新的虛擬機器。這個步驟會建立新的雲端服務以及新的儲存體帳戶。您也可以利用 `-c` 選項將此虛擬機器連接到現有的雲端服務。它也會建立 SSH 端點以利用 `-e` 選項登入 Linux 虛擬機器。
 
         ~$ azure vm create "MyTestVM" b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64 "adminUser" -z "Small" -e -l "West US"
@@ -39,4 +41,4 @@
 
 如需所有 Azure CLI 虛擬機器命令的詳細資料，請閱讀[搭配使用 Azure CLI 與服務管理 API](../articles/virtual-machines/virtual-machines-command-line-tools.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

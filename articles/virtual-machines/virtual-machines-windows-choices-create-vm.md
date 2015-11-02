@@ -21,6 +21,8 @@
 
 Azure 提供建立虛擬機器的不同方式，因為虛擬機器適用於不同的使用者和用途。這表示您需要針對虛擬機器以及建立方式進行一些選擇。本文提供這些選項及指示連結的摘要說明。
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 我們最近推出 Azure 資源管理員範本做為一種方式，用以建立虛擬機器，並將它與其不同資源當成一個邏輯部署單位來管理。以下提供這個可用方法的指示。若要深入了解 Azure 資源管理員，以及如何將資源當成一個單位來管理，請參閱[概觀][]。
 
 ## 工具選項
@@ -99,4 +101,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 [Azure 混合式雲端測試環境]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -21,6 +21,8 @@
 
 #在 Azure 上選取適用於 Linux 的使用者名稱#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 在 Azure 上佈建 Linux 虛擬機器時，您必須指定非根使用者的名稱供稍後使用，以使用登入 VM。您可以選擇新使用者的名稱；如果是透過管理入口網站佈建，可以使用預設名稱「azureuser」。
 
 在多數情況中，這位新使用者不會存在於基本映像中，而會在佈建程序中建立。若此使用者存在於基本 VM 映像，則 Azure Linux 代理程式只會在建立 VM 時，根據您在建立 VM 時所提供的資訊，為該使用者設定密碼 (及/或 SSH 金鑰)。
@@ -249,4 +251,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

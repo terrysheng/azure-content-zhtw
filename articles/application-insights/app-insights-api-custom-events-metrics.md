@@ -29,7 +29,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 方法 | 用於
 ---|---
-[`TrackPageView`](#page-views) | 頁面、螢幕、刀鋒視窗或表單
+[`TrackPageView`](#page-views) | 頁面、畫面、刀鋒視窗或表單
 [`TrackEvent`](#track-event) | 使用者動作和其他事件。用來追蹤使用者行為，或監視效能。
 [`TrackMetric`](#track-metric) | 效能度量，例如與特定事件不相關的佇列長度
 [`TrackException`](#track-exception)|記錄診斷的例外狀況。追蹤與其他事件的發生相對位置，並且檢查堆疊追蹤。
@@ -194,7 +194,7 @@ TelemetryClient 具備執行緒安全。
     telemetry.trackEvent("WinGame", properties, metrics);
 
 
-> [AZURE.NOTE] 切勿在屬性中記錄個人識別資訊。
+> [AZURE.NOTE]切勿在屬性中記錄個人識別資訊。
 
 **如果您使用度量**，請開啟 [計量瀏覽器]，然後從自訂群組中選取度量：
 
@@ -439,7 +439,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
             }
 ```
 
-請記住， 伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
+請記住，伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
 
 若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
 
@@ -535,133 +535,47 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     // ...
 
 
+## 排清資料
 
-## 遙測初始設定式
-
-使用遙測初始設定式來定義與所有遙測一起傳送的全域屬性；並覆寫選取的標準遙測模組行為。
-
-例如，Web 封裝的 Application Insights 會收集有關 HTTP 要求的遙測。根據預設，它會將所有含 >= 400 回應碼的要求標記為失敗。但如果您想將 400 視為成功，您可以提供設定 Success 屬性的遙測初始設定式。
-
-如果您提供遙測初始設定式，會在呼叫任何的 Track*() 方法時呼叫它。這包括由標準遙測模組呼叫的方法。依照慣例，這些模組不會設定任何已由初始設定式設定的屬性。
-
-**定義您的初始設定式**
+通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
 
 *C#*
 
-```C#
+    telemetry.Flush();
 
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
 
-    namespace MvcWebRole.Telemetry
-    {
-      /*
-       * Custom TelemetryInitializer that overrides the default SDK 
-       * behavior of treating response codes >= 400 as failed requests
-       * 
-       */
-      public class MyTelemetryInitializer : ITelemetryInitializer
-      {
-        public void Initialize(ITelemetry telemetry)
-        {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            // Is this a TrackRequest() ?
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                // If we set the Success property, the SDK won't change it:
-                requestTelemetry.Success = true;
-                // Allow us to filter these requests in the portal:
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }
-            // else leave the SDK to set the Success property      
-        }
-      }
-    }
-```
-
-**載入您的初始設定式**
-
-在 ApplicationInsights.config 中：
-
-    <ApplicationInsights>
-      <TelemetryInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/> 
-        ...
-      </TelemetryInitializers>
-    </ApplicationInsights>
-
-*或者*，您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
+請注意記憶體內部通道的函式是非同步的，但如果您選擇使用[永續性通道](app-insights-windows-desktop.md#persistence-channel)，則是同步的。
 
 
-```C#
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
-    }
-```
+
+## 遙測初始設定式和處理器
+
+您可以針對 Application Insights SDK 撰寫與設定外掛程式，以自訂在遙測傳送至 Application Insights 服務之前，擷取與處理它的方式。
+
+[深入了解](app-insights-telemetry-processors.md)
 
 
-[詳細查看此範例。](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+## 停用標準遙測
 
-<a name="js-initializer"></a>
-### JavaScript 遙測初始設定式
+您可以藉由編輯 `ApplicationInsights.config`，[停用所選部分的標準遙測][config]。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
 
-*JavaScript*
-
-在您從入口網站取得的初始化程式碼之後立即插入遙測初始設定式：
-
-```JS
-
-    <script type="text/javascript">
-        // ... initialization code
-        ...({
-            instrumentationKey: "your instrumentation key"
-        });
-        window.appInsights = appInsights;
+[深入了解][config]。
 
 
-        // Adding telemetry initializer.
-        // This is called whenever a new telemetry item
-        // is created.
+## <a name="debug"></a>開發人員模式
 
-        appInsights.queue.push(function () {
-            appInsights.context.addTelemetryInitializer(function (envelope) {
-                var telemetryItem = envelope.data.baseData;
+偵錯期間，讓您的遙測透過管線加速很有用，如此您就可以立即看到結果。您也會取得額外的訊息，協助您追蹤任何遙測的問題。在生產環境中將它關閉，因為它可能會拖慢您的應用程式。
 
-                // To check the telemetry item’s type - for example PageView:
-                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                    // this statement removes url from all page view documents
-                    telemetryItem.url = "URL CENSORED";
-                }
 
-                // To set custom properties:
-                telemetryItem.properties = telemetryItem.properties || {};
-                telemetryItem.properties["globalProperty"] = "boo";
+*C#*
+    
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
-                // To set custom metrics:
-                telemetryItem.measurements = telemetryItem.measurements || {};
-                telemetryItem.measurements["globalMetric"] = 100;
-            });
-        });
+*VB*
 
-        // End of inserted code.
-
-        appInsights.trackPageView();
-    </script>
-```
-
-如需 telemetryItem 上可用的非自訂屬性摘要，請參閱[資料模型](app-insights-export-data-model.md/#lttelemetrytypegt)。
-
-您可以依需要加入多個初始設定式。
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 ## <a name="dynamic-ikey"></a>動態檢測金鑰
 
@@ -700,42 +614,6 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     }) // ...
 
 
-
-## 排清資料
-
-通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
-
-*C#*
-
-    telemetry.Flush();
-
-    // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
-
-請注意記憶體中的通道函式是非同步的，但如果您選擇使用[永續性通道](app-insights-windows-desktop.md#persistence-channel)則是同步的。
-
-
-
-## 停用標準遙測
-
-您可以藉由編輯 `ApplicationInsights.config`，[停用所選部分的標準遙測][config]。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
-
-[深入了解][config]。
-
-
-## <a name="debug"></a>開發人員模式
-
-偵錯期間，讓您的遙測透過管線加速很有用，如此您就可以立即看到結果。您也會取得額外的訊息，協助您追蹤任何遙測的問題。在生產環境中將它關閉，因為它可能會拖慢您的應用程式。
-
-
-*C#*
-    
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
-
-*VB*
-
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
-
 ## TelemetryContext
 
 TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳送的值數目。它們通常由標準遙測模組設定，但是您也可以自行設定它們。例如：
@@ -755,92 +633,6 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 * **屬性** 與所有遙測資料一起傳送的屬性。可以在個別 Track* 呼叫中覆寫。
 * **工作階段** 識別使用者的工作階段。識別碼會設為產生的值，當使用者一段時間沒有作用時會變更。
 * **使用者**：使用者資訊。 
-
-
-## <a name="default-properties"></a>內容初始設定式 - 設定所有遙測的預設屬性
-
-您可以設定全域初始設定式，使得所有新 TelemetryClients 會自動使用您的內容。這包括平台特定遙測模組傳送的標準遙測，例如 Web 伺服器要求追蹤。
-
-典型的用途是識別來自不同版本或您的應用程式元件的遙測。在入口網站中，您可以依據「應用程式版本」篩選或群組結果。
-
-一般而言，[建議使用遙測初始設定式，而非內容初始設定式](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/)。
-
-#### 定義內容初始設定式
-
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MyNamespace
-    {
-      // Context initializer class
-      public class MyContextInitializer : IContextInitializer
-      {
-        public void Initialize (TelemetryContext context)
-        {
-            if (context == null) return;
-
-            context.Component.Version = "v2.1";
-        }
-      }
-    }
-```
-
-*Java*
-
-```Java
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyContextInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.Component.Version = "2.1";
-      }
-    }
-```
-
-#### 載入內容初始設定式
-
-在 ApplicationInsights.config 中：
-
-    <ApplicationInsights>
-      <ContextInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
-        ...
-      </ContextInitializers>
-    </ApplicationInsights>
-
-*或者*，您也可以在程式碼中具現化初始設定式：
-
-*C#*
-
-```C#
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyContextInitializer());
-    }
-```
-
-*Java*
-
-```Java
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
-```
-
 
 
 
@@ -894,7 +686,7 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
 [搜尋事件和記錄檔][diagnostic]
 
-[範例和逐步解說](app-insights-code-samples.md)
+[和逐步解說](app-insights-code-samples.md)
 
 [疑難排解][qna]
 
@@ -916,4 +708,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

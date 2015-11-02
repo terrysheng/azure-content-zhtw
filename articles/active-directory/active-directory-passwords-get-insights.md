@@ -1,19 +1,19 @@
-<properties
-	pageTitle="取得深入了解：Azure AD 密碼管理報告 |Microsoft Azure"
-	description="本文說明如何使用報告，在您的組織中取得密碼管理作業的深入了解。"
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="取得深入了解：Azure AD 密碼管理報告 |Microsoft Azure" 
+	description="本文說明如何使用報告，在您的組織中取得密碼管理作業的深入了解。" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # 如何使用密碼管理報告取得 Operational Insights
@@ -40,13 +40,23 @@
 ## 如何檢視密碼管理報告
 若要尋找密碼管理報告，請遵循下列步驟：
 
-1.	按一下 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [**Active Directory**] 延伸模組。
+1.	按一下 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [Active Directory] 延伸模組。
 2.	從入口網站顯示的清單中選取您的目錄。
-3.	按一下 [**報告**] 索引標籤。
-4.	查看 [**活動記錄檔**] 區段。
-5.	選取 [**密碼重設活動**] 報告或 [**密碼重設註冊活動**] 報告。
+3.	按一下 [報告] 索引標籤。
+4.	查看 [活動記錄檔] 區段。
+5.	選取 [密碼重設活動] 報告或 [密碼重設註冊活動] 報告。
 
     ![][001]
+
+## 如何從 API 存取密碼管理報告
+自 2015 年 8 月起，Azure AD 的報告和事件現在支援擷取密碼重設和密碼重設註冊報告中包含的所有資訊。
+
+若要存取此資料，您必須撰寫小型的應用程式或指令碼，以從我們的伺服器擷取資料。[了解如何開始使用 Azure AD Reporting API](active-directory-reporting-api-getting-started.md)。
+
+一旦您擁有有效的指令碼，您接下來要檢查您可以擷取密碼重設和註冊事件以滿足您的案例。
+
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent)：列出密碼重設事件可用的資料行
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent)：列出密碼重設註冊事件可用的資料行
 
 ## 檢視密碼重設註冊活動
 
@@ -71,7 +81,7 @@
 
 欄|允許的值及其意義
 ---|---
-已註冊資料| **替代電子郵件** – 使用者使用替代電子郵件或驗證電子郵件進行驗證<p><p>**辦公室電話** – 使用者使用辦公室電話進行驗證<p>**行動電話** - 使用者使用行動電話或驗證電話進行驗證<p>**安全性問題** - 使用者使用安全性問題進行驗證<p>**屬於上述任何組合 (例如替代電子郵件 + 行動電話)** – 當指定 2 個閘道原則時會發生這種情況，且會顯示使用者用來驗證其密碼重設要求的兩種方法。
+已註冊資料| **替代電子郵件** – 使用者使用替代電子郵件或驗證電子郵件進行驗證<p><p>**辦公室電話** – 使用者使用辦公室電話進行驗證<p>**行動電話** – 使用者使用行動電話或驗證電話進行驗證<p>**安全性問題** - 使用者使用安全性問題進行驗證<p>**屬於上述任何組合 (例如替代電子郵件 + 行動電話)** – 當指定 2 個閘道原則時會發生這種情況，且會顯示使用者用來驗證其密碼重設要求的兩種方法。
 
 ## 檢視密碼重設活動
 
@@ -95,7 +105,6 @@
 
 ### 報告值說明
 下表描述每個資料行允許的不同值：
-
 
 欄|允許的值及其意義
 ---|---
@@ -148,7 +157,7 @@
 
 
 * [密碼管理是什麼](active-directory-passwords.md)
-* [密碼管理如何運作](active-directory-passwords-how-it-works.md)
+* [密碼管理的運作方式](active-directory-passwords-how-it-works.md)
 * [開始使用密碼管理](active-directory-passwords-getting-started.md)
 * [自訂密碼管理](active-directory-passwords-customize.md)
 * [密碼管理最佳作法](active-directory-passwords-best-practices.md)
@@ -163,4 +172,4 @@
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

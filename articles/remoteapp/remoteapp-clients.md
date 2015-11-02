@@ -48,7 +48,7 @@ Azure RemoteApp 的優點之一，就是您可以從任何裝置存取應用程�
 
 ## 下載用戶端
 
-不論您使用的平台為何，都能在 [遠端桌面用戶端下載][](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx) 頁面找到您需要存取 RemoteApp 的用戶端。
+不論您使用的平台為何，都能在 [遠端桌面用戶端下載](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx) 頁面找到您需要存取 RemoteApp 的用戶端。
 
 按一下不同的連結，將直接開始下載用戶端，或將您送到應用程式市集中該平台的用戶端下載頁面。依照畫面上的指定來安裝用戶端。
 

@@ -32,7 +32,6 @@
 
 + Xcode 6 或 XCode 7，可以從您的 MAC App Store 安裝
 + [Mobile Engagement iOS SDK]
-+ 推播通知憑證 (.p12)，您可以在 Apple Dev Center 取得
 
 完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件。
 
@@ -70,7 +69,7 @@
 
 6. 針對 **XCode 7** - 新增 `libxml2.tbd` 而不是 `libxml2.dylib`。
 
-7. 回到 Azure 入口網站中您應用程式的 [連接資訊] 頁面，並複製連接字串。
+7. 回到 Azure 入口網站，在您的應用程式的 [連線資訊] 頁面中複製連接字串。
 
 	![][4]
 
@@ -78,7 +77,7 @@
 
 		#import "EngagementAgent.h"
 
-9. 現在於 `didFinishLaunchingWithOptions` 委派中貼上連接字串。
+9. 現在 `didFinishLaunchingWithOptions` 代理人中貼上連接字串。
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -103,11 +102,11 @@
 
 	`@interface ViewController : EngagementViewController`
 
-##<a id="monitor"></a>將應用程式與即時監視連接
+##<a id="monitor"></a>將 App 與即時監視連接
 
-[AZURE.INCLUDE [將應用程式與即時監視連接](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+[AZURE.INCLUDE [將 App 與即時監視連接](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>啟用推播通知與應用程式內傳訊
+##<a id="integrate-push"></a>啟用推播通知與 App 內傳訊
 
 Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊」，於活動進行時與使用者互動和觸達 (REACH)。此模組在 Mobile Engagement 入口網站中稱為觸達 (REACH)。以下各節將設定您的用程式來接收它們。
 
@@ -120,7 +119,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 1. 以滑鼠右鍵按一下您的專案。
 2. 選取 [新增檔案至]。
 3. 瀏覽至您解壓縮 SDK 所在的資料夾。
-4. 選取 `EngagementReach` 資料夾。
+4. 選取 `EngagementReach` 資料夾
 5. 按一下 [新增]。
 
 ### 修改您的應用程式代理人
@@ -186,4 +185,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

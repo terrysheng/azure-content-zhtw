@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="10/22/2015"
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中建立 .NET WebJob
@@ -24,7 +24,7 @@
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
-## <a id="prerequisites"></a>必要條件
+## <a id="prerequisites"></a>先決條件
 
 本教學課程假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 專案。
 
@@ -373,7 +373,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	![新增專案](./media/websites-dotnet-webjobs-sdk-get-started/newproject.png)
 
-5. 在 [New ASP.NET Project] 對話方塊中，選擇 MVC 範本，並清除在 [Microsoft Azure] 底下的 [Host in the cloud] 核取方塊。
+5. 在 [新增 ASP.NET 專案] 對話方塊中，選擇 MVC 範本，並清除在 [Microsoft Azure] 底下的 [Host in the cloud] 核取方塊。
 
 	選取 [託管於雲端]，可讓 Visual Studio 自動建立新的 Azure Web 應用程式與 SQL Database。由於您稍早已建立這些項目，您現在無需在建立專案時執行此作業。如果您要建立一個新的，請勾選此核取方塊。您接下來可以使用稍早部署應用程式的相同方法，來設定新的 Web 應用程式和 SQL Database。
 
@@ -466,7 +466,7 @@ Web 和 WebJob 專案都將使用 SQL Database，因此兩者都會需要 Contos
 	- *Global.asax.cs*  
 	- 在 *Controllers* 資料夾中，新增檔案︰*AdController.cs*
 	- *Views\\Shared* 資料夾中的 *\_Layout.cshtml* 檔案
-	- *Views\\Home* 資料夾中的 *Index.cshtml*
+- *Views\\Home* 資料夾中的 *Index.cshtml*
 	- *Views\\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案<br/><br/>
 
 3. 在 ContosoAdsWebJob 專案中，從所下載的專案加入下列檔案。
@@ -813,4 +813,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 如需詳細資訊，請參閱 [Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?LinkId=390226)。
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -38,7 +38,7 @@
 
 2. 按一下 [新增] > [資料 + 儲存體] > [SQL 資料倉儲]。
 
-	![建立資料倉儲](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
+    ![建立](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
 1. 在 [SQL 資料倉儲] 刀鋒視窗中輸入您的資料庫名稱。在此範例中，我們可以將資料庫命名為 AdventureWorksDW。
 
@@ -128,4 +128,4 @@
 
 既然您已建立 SQL 資料倉儲的範例資料庫，表示已準備好[連接](./sql-data-warehouse-get-started-connect.md)到您的資料庫。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

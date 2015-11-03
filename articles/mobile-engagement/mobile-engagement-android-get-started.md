@@ -33,11 +33,11 @@
 + Android SDK (假設您將使用 Android Studio)，您可以從[這裡](http://go.microsoft.com/fwlink/?LinkId=389797)下載
 + [Mobile Engagement Android SDK]
 
-> [AZURE.IMPORTANT]完成本教學課程是 Android 應用程式適用之所有其他 Mobile Engagement 教學課程的先決條件，若要完成此作業，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.IMPORTANT]完成本教學課程是 Android 應用程式適用之所有其他 Mobile Engagement 教學課程的先決條件，若要完成此作業，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ##<a id="setup-azme"></a>為您的 Android 應用程式設定 Mobile Engagement
 
-[AZURE.INCLUDE [在入口網站中建立 Mobile Engagement App](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [在入口網站中建立 Mobile Engagement 應用程式](../../includes/mobile-engagement-create-app-in-portal.md)]
 
 ##<a id="connecting-app"></a>將您的應用程式連線至 Mobile Engagement 後端
 
@@ -135,9 +135,15 @@ Android Studio 現在將建立要用於整合 Mobile Engagement 的示範應用�
 
 若要開始傳送資料並確定使用者正在使用，您必須至少傳送一個畫面 (活動) 到 Mobile Engagement 後端。
 
-移至 **MainActivity.java**，然後新增下列項目，將 **MainActivity** 的基底類別從 **ActionBarActivity** 取代為 **EngagementActivity**：
+移至 **MainActivity.java**，然後新增下列項目，將 **MainActivity** 的基底類別取代為 **EngagementActivity**：
 
 	public class MainActivity extends EngagementActivity {
+
+您應該針對此簡單範例案例註解掉 (排除) 下列一行：
+
+    // setSupportActionBar(toolbar);
+
+如果您想保留此行，則應查看[進階 Android 整合]中的「基本報告」案例
 
 ##<a id="monitor"></a>將 App 與即時監視連接
 
@@ -218,6 +224,10 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 >[AZURE.TIP]若要確保使用正確的圖示解析度，您可以查看[這些範例](https://www.google.com/design/icons)。向下捲動至 [通知] 區段、按一下圖示，然後按一下 `PNGS` 即可下載可繪製圖示的集合。您可看到對於每個版本的圖示要使用哪種解析度的可繪製資料夾。
 
+##建立支援 Google 雲端通訊的專案 
+
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+
 ###啟用應用程式接收 GCM 推播通知
 
 1. 在取代從 Google Play 主控台取得的 `project number` 之後，將下列內容貼到 Manifest.xml 的 `<application>` 和 `</application>` 標記之間。請務必在專案編號後面加上 \\n。
@@ -265,7 +275,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 	  
 	![][17]
 
-4. 在快顯視窗中，貼上您從[啟用 Google Cloud Messaging](#register) 區段中取得的 GCM 伺服器金鑰，然後按一下 [確定]。
+4. 在快顯視窗中，貼上您先前取得的 GCM 伺服器金鑰，然後按一下 [確定]。
 
 	![][18]
 
@@ -306,6 +316,8 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 <!-- URLs. -->
 [Mobile Engagement Android SDK]: http://go.microsoft.com/?linkid=9863935
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[進階 Android 整合]: https://azure.microsoft.com/zh-TW/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -327,4 +339,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員概觀
@@ -97,15 +97,19 @@
 
 資源管理員可讓您控制哪些人能存取組織的特定動作。以原生方式將 OAuth 和角色型存取控制 (RBAC) 整合至管理平台，並將存取控制套用至資源群組中的所有服務。您可以將使用者新增至預先定義的平台和資源專用的角色，並將這些角色套用至訂用帳戶、資源群組或資源以限制存取。例如，您可以利用稱為 SQL DB 參與者的預先定義角色 (可讓使用者管理資料庫，但無法管理資料庫伺服器或安全性原則)。您在組織中新增的使用者需要 SQL DB 參與者的這類存取，並將該角色套用至訂用帳戶、資源群組或資源。
 
-資源管理員會自動記錄使用者的動作以進行稽核。
+資源管理員會自動記錄使用者的動作以進行稽核。如需使用稽核記錄檔的詳細資訊，請參閱[稽核作業與資源管理員](resource-group-audit.md)。
 
 如需角色型存取控制的詳細資訊，請參閱 [Microsoft Azure Preview 入口網站中的角色型存取控制](role-based-access-control-configure.md)。本主題包含內建角色與允許動作的清單。內建角色包含擁有者、讀取者和參與者等一般角色，以及虛擬機器參與者、虛擬網路參與者和 SQL 安全性管理員等服務專屬角色 (僅列舉幾個可用的角色)。
 
-如需設定存取原則的範例，請參閱[管理與稽核資源存取權](azure-portal/resource-group-rbac.md)。
+如需指派角色的範例，請參閱[管理資源的存取權](azure-portal/resource-group-rbac.md)。
 
 您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。如需詳細資訊，請參閱[使用 Azure 資源管理員來鎖定資源](resource-group-lock-resources.md)。
 
 如需最佳做法，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)
+
+## 使用自訂的原則來管理資源
+
+資源管理員可讓您建立自訂的原則，以便管理您的資源。您建立的原則類型可以包含下列各種案例：在資源上強制執行命名慣例、限制哪些區域可以裝載某一種類型的資源，或要求資源上有標記值以便依部門進行計費。如需詳細資訊，請參閱[使用原則來管理資源和控制存取](resource-manager-policy.md)。
 
 ## 一致的管理層
 
@@ -131,4 +135,4 @@
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

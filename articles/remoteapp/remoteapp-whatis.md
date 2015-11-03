@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="什麼是 Azure RemoteApp？ | Microsoft Azure" 
-	description="了解 Azure RemoteApp。" 
+	description="了解如何透過 Azure RemoteApp 與任何裝置共用應用程式和資源。" 
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/28/2015" 
+	ms.date="10/23/2015" 
 	ms.author="elizapo"/>
 
 # 什麼是 Azure RemoteApp？
@@ -22,15 +22,15 @@ Azure RemoteApp 可將遠端桌面服務所支援的內部部署 Microsoft Remot
 
 Azure RemoteApp 幾乎可讓您在任何裝置上與使用者共用應用程式和資源。我們將您的 App 裝載在雲端中，這表示我們會負責處理硬體和調整以符合使用者需求。您只需要上傳要共用的 App 即可，並讓您的使用者使用這些 App。[使用者將保有自己的裝置](remoteapp-clients.md)，同時您可透過 Azure 入口網站管理所有項目。您甚至可以使用公司認證，可讓您確保 App 和資料的安全性。
 
-請閱讀更多有關 RemoteApp 的詳細資訊，或者如果我們已經說服您，請[立即試用](http://azure.microsoft.com/services/remoteapp/)。
+請閱讀更多有關 Azure RemoteApp 的詳細資訊，或者如果我們已經說服您，請[立即試用](http://azure.microsoft.com/services/remoteapp/)。
 
 有關於 Azure RemoteApp 的問題嗎？ 請查看我們的[常見問題集](remoteapp-faq.md)。
 
 Azure RemoteApp 屬於 [Microsoft 虛擬桌面基礎結構](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx)。
 
-**新功能！** 想要深入了解 Azure RemoteApp 嗎？ 或準備要驗證 RemoteApp？ 請加入我們每週的[專家請益網路研討會](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)。
+**新功能！** 想要深入了解 Azure RemoteApp 嗎？ 或準備要驗證 Azure RemoteApp？ 請加入我們每週的[專家請益網路研討會](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)。
 
-## RemoteApp 收藏
+## Azure RemoteApp 收藏
 [Azure RemoteApp 收藏](remoteapp-collections.md)分成兩種：
 
 
@@ -56,25 +56,28 @@ Azure RemoteApp 屬於 [Microsoft 虛擬桌面基礎結構](http://www.microsoft
 
 對於混合式收藏以及使用自訂範本映像的雲端收藏，您必須負責維護映像和應用程式。對於已加入網域的映像，您可以使用 Windows Update、群組原則或 System Center 等工具控制更新。
 
-升級自訂的範本映像後，必須將新映像上傳至 Azure 雲端，然後更新收藏以使用新映像。(您可以從 RemoteApp [快速入門] 頁面或 [儀表板] 執行此作業。)
+升級自訂的範本映像後，必須將新映像上傳至 Azure 雲端，然後更新收藏以使用新映像。(您可以從 Azure RemoteApp [快速入門] 頁面或 [儀表板] 執行此作業。)
 
 如需詳細資訊，請參閱[更新您的收藏](remoteapp-update.md)。
 
 ## 支援的 RemoteApp 用戶端
-Windows 和 Windows RT 的 RemoteApp 用戶端應用程式以及 Mac、iOS 和 Android 適用的 Microsoft 遠端桌面應用程式均可支援 Azure RemoteApp。您的使用者可以在其行動或運算裝置上使用這些應用程式，以存取新的 RemoteApp 程式。
+Windows 和 Windows RT 的 RemoteApp 用戶端應用程式以及 Mac、iOS 和 Android 適用的 Microsoft 遠端桌面應用程式均可支援 Azure RemoteApp。您的使用者可以在其行動或計算裝置上使用這些應用程式，以存取新的 Azure RemoteApp 程式。
 
 如需用戶端的詳細資訊，請參閱[在 Azure RemoteApp 存取您的應用程式](remoteapp-clients.md)。
 
 ## 後續步驟
-快！ 立即試用！ 這些文章可幫助您開始使用 RemoteApp：
+快！ 立即試用！ 這些文章可幫助您開始使用 Azure RemoteApp：
 
 - [Azure RemoteApp 需要何種集合？](remoteapp-collections.md)
-- [建立 RemoteApp 映像](remoteapp-imageoptions.md)
-- [如何建立 RemoteApp 的雲端收藏](remoteapp-create-cloud-deployment.md)
-- [如何建立 RemoteApp 的混合式收藏](remoteapp-create-hybrid-deployment.md)
-- [RemoteApp 中的授權如何運作？](remoteapp-licensing.md)
+- [建立 Azure RemoteApp 映像](remoteapp-imageoptions.md)
+- [如何建立 Azure RemoteApp 的雲端收藏](remoteapp-create-cloud-deployment.md)
+- [如何建立 Azure RemoteApp 的混合式收藏](remoteapp-create-hybrid-deployment.md)
+- [Azure RemoteApp 中的授權如何運作？](remoteapp-licensing.md)
 - [使用 Azure RemoteApp 的最佳作法](remoteapp-bestpractices.md)
 - [Azure RemoteApp 常見問題集](remoteapp-faq.md)
  
 
-<!---HONumber=Oct15_HO3-->
+### 幫我們來協助您 
+您知道除了評比這篇文章以及在下面留言以外，您可以變更文件本身嗎？ 有所遺漏？ 有所錯誤？ 我是否撰寫了令人混淆的內容？ 向上捲動並按一下 [在 GitHub 上編輯] 以進行變更 - 系統會顯示這些變更以供我們檢閱，而我們簽核後，您就會在這裡看到您所進行的變更和改良。
+
+<!---HONumber=Nov15_HO1-->

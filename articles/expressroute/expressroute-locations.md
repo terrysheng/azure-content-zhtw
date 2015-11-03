@@ -29,7 +29,7 @@
 
 |**地緣政治區域**|**Azure 區域**|**ExpressRoute 位置**|
 |---|---|---|
-|**美國**|所有美國區域 - 美國東部、美國西部、美國東部 2、美國中部、美國中南部、美國中北部|亞特蘭大、芝加哥、達拉斯、洛杉磯、紐約、西雅圖、矽谷、華盛頓特區|
+|**北美洲**|所有美國區域 - 美國東部、美國西部、美國東部 2、美國中部、美國中南部、美國中北部|亞特蘭大、芝加哥、達拉斯、洛杉磯、紐約、西雅圖、矽谷、華盛頓特區|
 |**南美洲**|巴西南部|聖保羅|
 |**歐洲**|北歐、西歐|阿姆斯特丹、都柏林+、倫敦|
 |**亞洲**|東亞、東南亞|香港特別行政區、新加坡|
@@ -55,7 +55,7 @@
 
 | **服務提供者** |**Microsoft Azure** | **Office 365** | **位置** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Aryaka 網路](http://www.aryaka.com/)** | 支援 | 不支援 | 阿姆斯特丹、矽谷、新加坡、華盛頓特區 |
+| **[Aryaka 網路](http://www.aryaka.com/)** | 支援 | 支援 | 阿姆斯特丹、矽谷、新加坡、華盛頓特區 |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 支援 | 支援 | 阿姆斯特丹、倫敦+、達拉斯、矽谷、華盛頓特區 |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 支援 | 支援 | 阿姆斯特丹、倫敦、矽谷、新加坡、東京、華盛頓特區 |
 |**China Telecom Global** | 敬請期待 | 不支援 | 香港+ |
@@ -64,8 +64,8 @@
 | **CoreSite** | 支援 | 不支援 | 洛杉磯 | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 支援 | 支援 | 阿姆斯特丹、亞特蘭大、芝加哥、達拉斯、香港、倫敦、洛杉磯、墨爾本、紐約、大阪、聖保羅、西雅圖、矽谷、新加坡、雪梨、東京、華盛頓特區 |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | 支援 | 不支援 | 東京 |
-| **[InterCloud](https://www.intercloud.com/)** | 支援 | 不支援 | 阿姆斯特丹、倫敦、新加坡、華盛頓特區 |
-| **Internet Solutions - Cloud Connect** | 支援 | 不支援 | 阿姆斯特丹、倫敦 |
+| **[InterCloud](https://www.intercloud.com/)** | 支援 | 支援 | 阿姆斯特丹、倫敦、新加坡、華盛頓特區 |
+| **Internet Solutions - Cloud Connect** | 支援 | 支援 | 阿姆斯特丹、倫敦 |
 | **Interxion** | 支援 | 不支援 | 阿姆斯特丹 |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 支援 | 不支援 | 阿姆斯特丹、芝加哥、達拉斯、倫敦、西雅圖、矽谷、華盛頓特區 |
 | **Megaport** | 支援 | 不支援 | 墨爾本、雪梨 |
@@ -91,9 +91,9 @@
 | **服務提供者** |**Microsoft Azure** | **Office 365** | **位置** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 敬請期待 | 不支援 | 芝加哥+、華盛頓特區+ |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 敬請期待 | 不支援 | 芝加哥、華盛頓特區 |
-| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 敬請期待 | 不支援 | 芝加哥、華盛頓特區 |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 不支援 | 芝加哥、華盛頓特區 |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 敬請期待 | 不支援 | 芝加哥+、華盛頓特區+ |
+| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 敬請期待 | 不支援 | 芝加哥+、華盛頓特區 |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 不支援 | 芝加哥+、華盛頓特區 |
 
 ## 透過未列出的服務提供者連線
 
@@ -127,6 +127,6 @@
 ## 後續步驟
 
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
-- 請確定符合所有必要條件。請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)。
+- 請確定符合所有先決條件。請參閱 [ExpressRoute 先決條件](expressroute-prerequisites.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -18,15 +18,15 @@
 
 # 開始使用適用於 .NET 的 Azure Batch 程式庫  
 
-透過建立設定支援檔案的主控台應用程式，以及在 Azure Batch 集區中數個運算節點上執行的程式，來著手使用 Azure Batch .NET 程式庫。本教學課程中建立的工作會評估上傳到 Azure 儲存體的檔案，並傳回這些檔案中最常出現的單字。這些範例均以 C# 撰寫，並使用 [Azure Batch .NET 程式庫](https://msdn.microsoft.com/library/azure/mt348682.aspx)。
+透過建立設定支援檔案的主控台應用程式，以及在 Azure Batch 集區中數個計算節點上執行的程式，來著手使用 Azure Batch .NET 程式庫。本教學課程中建立的工作會評估上傳到 Azure 儲存體的檔案，並傳回這些檔案中最常出現的單字。這些範例均以 C# 撰寫，並使用 [Azure Batch .NET 程式庫](https://msdn.microsoft.com/library/azure/mt348682.aspx)。
 
-## 必要條件
+## 先決條件
 
 - 帳戶：
 
-	- **Azure 帳戶**：只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+	- **Azure 帳戶**：只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-	- **Batch 帳戶** - 請參閱 [Azure Batch 技術概觀](batch-technical-overview.md)中的＜Batch 帳戶＞一節。
+	- **批次帳戶** - 請參閱[建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)。
 
 	- **儲存體帳戶** - 請參閱 [關於 Azure 儲存體帳戶](../storage-create-storage-account.md)中的＜建立儲存體帳戶＞一節。在本教學課程中，您會在此帳戶中建立名為 **testcon1** 的容器。
 
@@ -34,11 +34,11 @@
 
 	1.  開啟 Visual Studio，在 [檔案] 功能表上，按一下 [新增]，然後按一下 [專案]。
 
-	2.	從 [Windows] 中，在 [Visual C#] 下按一下 [主控台應用程式]，並將專案命名為 **GettingStarted**，同時將方案命名為 **AzureBatch**，然後按一下 [確定]。
+	2.	從 [**Windows**] 中，在 [**Visual C#**] 下按一下 [**主控台應用程式**]，並將專案命名為 **GettingStarted**，同時將方案命名為 **AzureBatch**，然後按一下 [**確定**]。
 
 - NuGet 組件：
 
-	1. 在 Visual Studio 中建立專案之後，以滑鼠右鍵按一下 [方案總管] 中的專案，然後選擇 [管理 NuGet 封裝]。在線上搜尋 **Azure.Batch**，然後按一下 [安裝] 以安裝 Microsoft Azure Batch 封裝與相依性。
+	1. 在 Visual Studio 中建立專案之後，以滑鼠右鍵按一下 [**方案總管**] 中的專案，然後選擇 [**管理 NuGet 封裝**]。在線上搜尋 **Azure.Batch**，然後按一下 [安裝] 以安裝 Microsoft Azure Batch 封裝與相依性。
 
 	2. 在線上搜尋 **WindowsAzure.Storage**，然後按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。
 
@@ -107,7 +107,7 @@
 
 5. 儲存 Program.cs 檔案。
 
-	> [AZURE.NOTE]在實際執行環境中，建議您使用[共用的存取簽章](https://msdn.microsoft.com/library/azure/ee395415.aspx)。
+	> [AZURE.NOTE]在實際執行環境中，建議您使用[共用存取簽章](https://msdn.microsoft.com/library/azure/ee395415.aspx)。
 
 若要深入了解 Blob 儲存體，請參閱[如何使用 .NET 的 Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)
 
@@ -195,7 +195,7 @@
 
 ## 步驟 2.將集區新增至您的 Batch 帳戶
 
-運算節點集區是您要執行工作時必須建立的第一組資源。
+計算節點集區是您要執行工作時必須建立的第一組資源。
 
 1.	將這些 using 指示詞加入至 GettingStarted 專案中的 Program.cs 頂端：
 
@@ -208,7 +208,7 @@
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	使用與 Batch 帳戶相關聯的值取代加上括號的值，您可在 [Azure 預覽入口網站](https://portal.azure.com)找到這些值。若要找出這些值，請登入 [Azure 預覽入口網站](https://portal.azure.com)，然後遵循下列指示進行：
+	使用與 Batch 帳戶相關聯的值取代加上括號的值，您可在 [Azure Preview 入口網站](https://portal.azure.com)找到這些值。若要找出這些值，請登入 [Azure Preview 入口網站](https://portal.azure.com)，然後遵循下列指示進行：
 
 	- **[account-name]** - 按一下 [Batch 帳戶]，選取您稍早建立的 Batch 帳戶
 	- **[account-url]** - 在 Batch 帳戶刀鋒視窗中，按一下 [屬性] > [URL]
@@ -296,7 +296,7 @@
 
 ## 步驟 4：將工作加入至作業
 
-建立作業之後，可以在其中加入工作。每個工作都會在運算節點上執行，並處理文字檔案。在本教學課程中，您會將三個工作加入至作業中。
+建立作業之後，可以在其中加入工作。每個工作都會在計算節點上執行，並處理文字檔案。在本教學課程中，您會將三個工作加入至作業中。
 
 1. 將此方法加入至 Program 類別，此類別會將三個工作加入至作業中：
 
@@ -491,8 +491,8 @@
 
 ## 後續步驟
 
-1. 既然您已經了解執行中工作的基本概念，您可以了解如何在應用程式的需求變更時，自動調整運算節點。若要這樣做，請參閱[自動調整 Azure Batch 集區中的運算節點](batch-automatic-scaling.md)
+1. 既然您已經了解執行中工作的基本概念，您可以了解如何在應用程式的需求變更時，自動調整計算節點。若要這樣做，請參閱[自動調整 Azure Batch 集區中的運算節點](batch-automatic-scaling.md)
 
 2. 有些應用程式會產生可能難以處理的大量資料。解決方法之一是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

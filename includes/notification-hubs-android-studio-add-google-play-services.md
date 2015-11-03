@@ -11,18 +11,22 @@
 
 	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
-4. 新增此行至 *相依項目*下方：
+4. 將此行新增至 *android* 之下
+
+		useLibrary 'org.apache.http.legacy'
+
+5. 新增此行至 *相依項目*下方：
 
    		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-5. 在 *defaultConfig* 下方，將 *minSdkVersion* 值變更為 9。
+7. 在 *defaultConfig* 下方，將 *minSdkVersion* 值變更為 9。
  
-6. 按一下工具列中的 [**同步處理專案與 Gradle 檔案**] 圖示。
+8. 按一下工具列中的 [**同步處理專案與 Gradle 檔案**] 圖示。
 
-7. 開啟 **AndroidManifest.xml** 並將此標記加入至應用程式標記。
+9. 開啟 **AndroidManifest.xml** 並將此標記加入至應用程式標記。
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 批次技術概觀 | Microsoft Azure"
-	description="了解 Azure 批次服務的概念、工作流程及案例"
+	description="了解適用於大規模的平行和 HPC 工作負載之 Azure Batch 服務的概念、工作流程及案例"
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -13,23 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/13/2015"
+	ms.date="10/26/2015"
 	ms.author="danlep"/>
 
 
-# Azure 批次技術概觀
-Azure 批次可協助您在雲端中，有效執行大規模的平行和高效能運算 (HPC) 應用程式。它是一項平台服務，可提供作業排程和自動調整受管理的虛擬機器 (集合) 以執行作業。您可以使用批次服務，設定在 Azure 中隨需求或依排程來執行批次工作負載，而不需擔心設定和管理 HPC 叢集、VM 和工作排程器的複雜性。
-
->[AZURE.NOTE]若要使用批次，您需要一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱＜[建立 Azure 帳戶](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)＞。
-
+# 適用於大規模的平行和 HPC 工作負載的 Azure Batch 技術概觀
+Azure 批次可協助您在雲端中，有效執行大規模的平行和高效能運算 (HPC) 應用程式。它是一項平台服務，可排程要在受管理的虛擬機器 (計算節點) 集合上執行的計算密集型工作，而且可以調整計算資源以符合工作的需求。利用 Batch 服務，您可以程式設計方式定義 Azure 計算資源以及隨需求或依排程執行的大型批次工作，而不需要手動設定和管理 HPC 叢集、個別的 VM、虛擬網路或工作排程器。
 
 ## 使用案例
 
-批次使用的彈性和雲端的小數位數來協助您解決 *批次處理* 或 *批次運算* - 執行大量的類似工作以得到期望的結果。命令列程式或指令碼接受一組資料檔案做為輸入，以一系列的工作來處理資料，然後產生一組輸出檔。輸出檔可能是最終的結果，或只是較大工作流程中的中間步驟。
+Batch 是一項受管理的服務，可用於*批次處理* 或*批次運算* - 執行大量的類似工作以得到期望的結果。在依排程或隨需求而處理、轉換和分析大量資料的組織中，批次運算是一種常見的模式，其範例涵蓋於金融服務以至工程設計等領域。
 
-在依排程或隨需求而處理、轉換和分析大量資料的組織中，批次運算是一種常見的模式。其中包括循環終了的處理，例如銀行的每日風險報表，或必須準時完成的薪資表。也包括大型商業、科學和工程應用程式，通常需要運算叢集或網格的工具和資源。應用程式包含傳統的 HPC 應用程式，例如流動式動態模擬以及特殊工作負載，範圍從數位內容創作到金融服務到生命科學研究。
-
-批次很適合處理本質上平行 (有時稱為「窘迫平行」) 的應用程式或工作負載，而這些本身就適合在多部電腦上以平行工作執行，例如批次服務所管理的計算 VM。
+批次很適合處理本質上平行 (有時稱為「窘迫平行」) 的應用程式或工作負載，而這些本身就適合在多部電腦上以平行工作執行。請參閱 [圖 1]。
 
 ![平行工作][parallel]
 
@@ -43,114 +38,69 @@ Azure 批次可協助您在雲端中，有效執行大規模的平行和高效�
 * 基因序列分析
 * 軟體測試
 
-您也可以使用批次來執行平行計算 (最後加上歸納步驟)，以及其他更複雜的平行工作負載。
+Batch 也可以執行平行計算 (最後加上歸納步驟)，以及其他更複雜的平行工作負載。
 
->[AZURE.NOTE]此時您可以只在批次上執行 Windows Server 工作負載。此外，批次目前不支援訊息傳遞介面 (MPI) 應用程式。
+>[AZURE.NOTE]在此階段，Batch 只支援在 Windows Server 型虛擬機器執行的工作負載。此外，批次目前不支援訊息傳遞介面 (MPI) 應用程式。
 
-## 開發人員的案例
+如需 Batch 與 Azure 中其他 HPC 解決方案選項的比較，請參閱 [Batch 和 HPC 解決方案](batch-hpc-solutions.md)。
 
-批次支援不同的開發人員案例，可協助您設定及執行大規模的平行工作負載與批次服務。這些案例會使用 API 建立和管理 VM 集區 (運算節點)，以及排程在其中執行的作業及工作。如需有關批次概念的詳細資訊，請參閱 [Azure 批次的 API 基本概念](batch-api-basics.md)。
+## 使用 Batch 進行開發
 
-下列各節列出一般的批次開發人員案例。
+使用 Batch API 進行開發，以建立和管理計算節點集區，以及排程在其上執行的作業及工作。撰寫用戶端應用程式和前端來隨選、排程，或在較大工作流程的過程中執行作業和工作，例如 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)。
 
-### 相應放大平行工作負載
+如需有關批次概念的詳細資訊，請參閱 [Azure 批次的 API 基本概念](batch-api-basics.md)。
 
-使用批次 API 相應放大本質平行工作，例如集區上的影像轉譯，最多可有數千個計算核心。您可以自動化排定大量計算作業，並相應擴大和縮小計算 VM 集區來執行這些作業，而不需設定計算叢集或撰寫程式碼將作業排入佇列和排定作業，及移動必要的輸入和輸出資料。您可以撰寫用戶端應用程式和前端來隨選、排程，或在較大工作流程的過程中執行作業和工作，例如 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)。
+### 您必須備妥的帳戶
 
-圖 2 顯示簡化的工作流程，可將應用程式提交至批次集區以分散處理。
++ **Azure 帳戶和訂用帳戶** -如果您沒有這類帳戶，可以啟用自己的 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或是申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+
++ **Batch 帳戶** - 您在進行 Batch API 呼叫時，會使用 Batch 帳戶的名稱和 URL 以及存取金鑰做為認證。所有 Batch 資源 (如計算節點、集區、工作) 都與 Batch 帳戶相關聯。使用 [Azure Preview 入口網站](batch-account-create-portal.md)是建立 Batch 帳戶及管理帳戶存取金鑰的其中一種方式。
+
++ **儲存體帳戶** – 對於大部分的 Batch 案例，您需要有 Azure 儲存體帳戶來儲存資料輸入和輸出以及在計算節點上執行的指令碼或可執行檔。若要建立儲存體帳戶，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。
+
+### Batch 開發程式庫和工具
+
+搭配 Visual Studio 使用這些 .NET 程式庫和工具來開發和管理 Azure Batch 應用程式。
+
++ [Batch 用戶端 .NET 程式庫](http://www.nuget.org/packages/Azure.Batch/) (NuGet) – 開發用戶端應用程式以透過 Batch 服務執行工作
++ [Batch 管理 .NET 程式庫](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) (NuGet) – 管理 Batch 帳戶
++ [批次總管](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer) (GitHub) – 建置此 GUI 應用程式來瀏覽、存取和更新 Batch 帳戶內的資源，包括作業和工作、計算節點和集區，以及計算節點上的檔案。請參閱[部落格文章](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx)。
+
+
+## 案例：相應放大平行工作負載
+
+Batch API 的常見案例包括相應放大本質平行工作，例如計算節點集區上的影像轉譯最多可提供數千個計算核心。
+
+圖 2 顯示使用 Batch .NET 用戶端應用程式來執行 Batch 平行工作負載的工作流程。
+
 
 ![工作項目工作流程][work_item_workflow]
 
 **圖 2.相應放大批次的平行工作負載**
 
-1.	將作業所需的輸入檔 (例如來源資料或影像) 上傳至 Azure 儲存體帳戶。這些檔案必須在儲存體帳戶中，批次服務才能夠存取它們。工作執行時，批次服務會將檔案載入到運算節點。
-2.	將相依的二進位檔案上傳至儲存體帳戶。二進位檔案包含工作所執行的程式及相依組件。這些檔案也必須從儲存體中存取，並載入至運算節點。
-3.	建立運算節點的集區，指定屬性，例如其 VM 大小及其執行的作業系統。您也可以定義如何擴充或縮小集區中的節點數目，以回應工作負載。工作執行時，系統會從這個集區指派節點給它。
-4.	定義要在集區上執行的作業。
-5.	將工作加入至作業。每個工作會使用您已上傳的程式，以處理您上傳的檔案中的資訊。
-6.	執行應用程式，並監視輸出的結果。
+1.	將作業所需的輸入檔 (例如來源資料或影像) 上傳至 Azure 儲存體帳戶。執行工作時，Batch 服務會將檔案載入到計算節點。
 
+2.	將要在計算節點上執行的程式檔案或指令碼上傳至儲存體帳戶。這些可能包括二進位檔案及其相依的組件。執行工作時，Batch 服務也會將這些檔案載入到計算節點。
 
-### 啟用雲端功能的大量運算應用程式
+3.	以程式設計方式建立您的 Batch 帳戶中 Batch 計算節點的集區，並指定屬性，例如其大小及其執行的作業系統。您也可以定義如何[相應增加或相應減少](batch-automatic-scaling.md)集區中的節點數目，以回應工作負載。執行工作時，系統會從這個集區指派節點。
 
-您可以使用預覽批次 App API 包裝現有的應用程式，以便在批次於背景中管理的運算節點集區上當做服務執行。應用程式可能是現今在用戶端工作站或計算叢集上執行的應用程式。您可以開發服務，讓使用者將尖峰工作卸載到雲端，或完全在雲端中執行其工作。批次應用程式架構會處理輸入和輸出檔案的移動、將作業分割成工作、作業和工作處理，以及資料保存。
+4.	以程式設計方式定義 Batch 工作，以在節點集區上執行工作負載。
 
->[AZURE.IMPORTANT]Azure 只會以預覽形式提供批次 App API。您只應該針對測試或概念證明專案開發它。在之後的服務版本中，會將關鍵的批次 App 功能整合到批次 API 中。
+5.	將工作加入至作業。每個工作會使用您已上傳的程式，以處理您上傳的檔案中的資訊。視您的工作負載而言，您可能想要在每個計算節點上[同時執行多個工作](batch-parallel-node-tasks.md)，將資源使用量最大化。Batch 也支援特殊化[工作準備和完成工作](batch-job-prep-release.md)，以在執行排定工作前準備計算節點和之後清除。
 
-圖 3 中的基本工作流程顯示使用批次應用程式 API 來發佈應用程式，然後允許使用者將作業提交至應用程式。
-
-![應用程式發佈工作流程][app_pub_workflow]
-
-**圖 3.使用批次應用程式來發佈和執行應用程式的工作流程**
-
-1.	準備**應用程式映像** - zip 檔，含有您現有的應用程式可執行檔及其所需的任何支援檔案。這些可能是您在傳統的伺服器陣列或叢集中執行的相同可執行檔。
-2.	建立**雲端組件**的 zip 檔，該組件叫用工作負載並將其分派至批次服務。這包含兩個元件：
-
-	a.**作業分割器** – 將作業細分成可以獨立處理的工作。比方說，在動畫案例中，作業分割器可將影片轉譯作業細分成個別的畫面。
-
-	b.**工作處理器** – 叫用指定工作的應用程式可執行檔。例如，在動畫案例中，工作處理器會叫用呈現程式，以呈現工作所指定的單一畫面。
-
-3.	使用批次應用程式 API 或開發人員工具，將前兩個步驟中準備的 zip 檔案上傳到 Azure 儲存體帳戶。這些檔案必須在儲存體帳戶中，批次服務才能夠存取它們。這通常由服務管理員對每個應用程式執行一次。
-4.	提供方法將作業提交至 Azure 中啟用的應用程式服務。這可能是您應用程式 UI 中的外掛程式、Web 入口網站，或後端系統中的自動服務。
-
-	執行作業：
-
-	a.上傳使用者作業專用的輸入檔 (例如來源資料或影像)。這些檔案必須在儲存體帳戶中，批次服務才能夠存取它們。
-
-	b.連同必要的參數和檔案清單一起提交作業。
-
-	c.使用 API 或批次應用程式入口網站來監視作業進度。
+6.	執行 Batch 工作負載及監視進度和結果。此應用程式會透過 HTTPS 與 Batch 服務通訊。若要改善監視大量集區、工作 (job) 和工作 (task) 時的應用程式效能，請利用[有效率的技巧來查詢](batch-efficient-list-queries.md) Batch 服務。
 
 
 
-## <a id="BKMK_Account">批次帳戶</a>
-您需要建立一或多個唯一的**批次帳戶**，才使用及開發批次服務。必須使用帳戶名稱及其存取金鑰驗證您對批次服務提出的所有要求。
-
-您可以在 Azure Preview 入口網站中或利用 [批次 PowerShell Cmdlet](batch-powershell-cmdlets-get-started.md)，建立 Batch 帳戶及管理帳戶的存取金鑰。
-
-若要在入口網站中建立批次帳戶：
-
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
-
-2. 按一下 [**新增**] > [**計算**] > [**Marketplace**] > [**一切**]，然後在搜尋方塊中輸入*批次*。
-
-	![Marketplace 中的批次][marketplace_portal]
-
-3. 在搜尋結果中按一下 [**批次服務**]，然後按一下 [**建立**]。
-
-4. 在 [**新批次帳戶**] 刀鋒視窗中，輸入下列資訊：
-
-	a.在 [**帳戶名稱**] 中，輸入要在批次帳戶 URL 中使用的唯一名稱。
-
-	>[AZURE.NOTE]批次帳戶名稱對 Azure 必須是唯一的，介於 3 到 24 個字元，並只能使用小寫字母和數字。
-
-	b.按一下 [**資源群組**]，為帳戶選取現有的資源群組，或建立一個新群組。
-
-	c.如果您有多個訂用帳戶，請按一下 [**訂用帳戶**] 以選取將建立帳戶的可用訂用帳戶。
-
-	d.在 [**位置**] 中，選取批次可用的 Azure 區域。
-
-	![建立批次帳戶：][account_portal]
-
-5. 按一下 [**建立**] 以完成帳戶建立。
 
 
-建立帳戶之後，您可以在入口網站找到它，以便管理存取金鑰和其他設定。例如，按一下要管理存取金鑰的金鑰圖示。
 
-![Batch 帳戶金鑰][account_keys]
+## 後續步驟
 
-## 其他資源
-
-* [開始使用適用於 .NET 的 Azure 批次程式庫](batch-dotnet-get-started.md)
-* [Azure 批次開發程式庫和工具](batch-development-libraries-tools.md)
-* [Azure 批次 REST API 參考](http://go.microsoft.com/fwlink/p/?LinkId=517803)
-* [Azure 批次應用程式 REST API 參考](http://go.microsoft.com/fwlink/p/?LinkId=517804)
+* 使用 [Batch 用戶端 .NET 程式庫](batch-dotnet-get-started.md)開始開發您的第一個應用程式
+* 瀏覽 [GitHub](https://github.com/Azure/azure-batch-samples) 上的 Batch 程式碼範例
 
 [parallel]: ./media/batch-technical-overview/parallel.png
-[marketplace_portal]: ./media/batch-technical-overview/marketplace_batch.PNG
-[account_portal]: ./media/batch-technical-overview/batch_acct_portal.png
-[account_keys]: ./media/batch-technical-overview/account_keys.PNG
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
-[app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

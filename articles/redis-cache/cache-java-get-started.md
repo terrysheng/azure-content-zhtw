@@ -13,17 +13,23 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/05/2015"
+	ms.date="10/23/2015"
 	ms.author="sdanie"/>
 
 # 如何搭配使用 Azure Redis 快取與 Java
+
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
 Azure Redis 快取可讓您存取 Microsoft 所管理的專用 Redis 快取。從 Microsoft Azure 內的任何應用程式都可以存取您的快取。
 
 本主題說明如何搭配使用 Azure Redis 快取與 Java。
 
 
-## 必要條件
+## 先決條件
 
 [Jedis](https://github.com/xetorthio/jedis) - Redis 的 Java 用戶端
 
@@ -87,4 +93,4 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用 Redis 快取。�
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

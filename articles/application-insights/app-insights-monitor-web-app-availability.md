@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="10/21/2015"
 	ms.author="awills"/>
 
 # 監視任何網站的可用性和回應性
@@ -21,7 +21,7 @@
 
 ![Web 測試範例](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-您可以為公用網際網路可存取的任何 HTTP 端點設定 Web 測試。
+您可以為公用網際網路可存取的任何 HTTP 或 HTTPS 端點設定 Web 測試。
 
 Web 測試可分為兩種：
 
@@ -246,4 +246,4 @@ Web 測試外掛程式提供這種作法。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

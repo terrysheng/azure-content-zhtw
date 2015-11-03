@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/15/2015"
+	ms.date="10/22/2015"
 	ms.author="awills"/>
 
 # 在 Java Web 專案中開始使用 Application Insights
@@ -396,4 +396,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

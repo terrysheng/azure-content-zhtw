@@ -12,10 +12,12 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="09/28/2015"
+      ms.date="10/26/2015"
       ms.author="tamram" />
 
 # 如何搭配使用 Azure 檔案儲存體與 Windows
+
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 ## 概觀
 
@@ -34,6 +36,12 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
+
+## 影片：搭配 Windows 使用 Azure 檔案儲存體
+
+以下影片示範如何在 Windows 上建立和使用 Azure 檔案共用。
+
+> [AZURE.VIDEO azure-file-storage-with-windows]
 
 ## 關於本教學課程
 
@@ -130,7 +138,7 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
 - 在不同區域的 Azure 虛擬機器 (僅限 SMB 3.0)
 - 內部部署用戶端應用程式 (僅限 SMB 3.0) 
 
-當用戶端存取檔案儲存體，使用的 SMB 版本取決於作業系統所支援的 SMB 版本。下表提供 Windows 用戶端支援的摘要。如需詳細資訊，請參閱 << Which version of the SMB protocol blog post>>。
+當用戶端存取檔案儲存體，使用的 SMB 版本取決於作業系統所支援的 SMB 版本。下表提供 Windows 用戶端支援的摘要。如需詳細資訊，請參閱< Which version of the SMB protocol blog post>。
 
 | Windows 用戶端 | SMB 版本支援 |
 |------------------------|----------------------|
@@ -518,8 +526,9 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 請參閱這些連結以取得 Azure 檔案儲存體的相關詳細資訊。
 
-### 概念文件
+### 概念性文章和影片
 
+- [Azure 檔案儲存體：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [如何搭配使用 Azure 檔案儲存體與 Linux](storage-how-to-use-files-linux.md)
 
 ### 檔案儲存體的工具支援
@@ -540,4 +549,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

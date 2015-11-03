@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Android 應用程式的通知中樞
@@ -21,7 +21,7 @@
 
 ##概觀
 
-本教學課程說明如何使用 Azure 通知中樞傳送推播通知到 Android 應用程式。您將建立可使用 Google Cloud Messaging (GCM) 接收推播通知的空白 Android app。完成時，您便能夠使用通知中樞，將推播通知廣播到所有執行您 app 的裝置。
+本教學課程說明如何使用 Azure 通知中樞傳送推播通知到 Android 應用程式。您將建立可使用 Google 雲端通訊 (GCM) 接收推播通知的空白 Android app。完成時，您便能夠使用通知中樞，將推播通知廣播到所有執行您 app 的裝置。
 
 本教學課程示範使用通知中樞的簡單廣播案例。請確定依照下一個教學課程的步驟進行，以查看如何使用通知中樞來處理特定使用者和裝置群組。
 
@@ -33,18 +33,18 @@
 您可以在[此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted)的 GitHub 上找到本教學課程的完整程式碼。
 
 
-##必要條件
+##先決條件
 
 本教學課程需要下列各項：
 
 + Android Studio，您可以從 <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 網站</a>下載。
-+ 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)。
++ 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)。
 
 
 完成本教學課程是 Android app 所有其他通知中樞教學課程的先決條件。
 
 
-##建立支援 Google Cloud Messaging 的專案
+##建立支援 Google 雲端通訊的專案
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
@@ -83,13 +83,7 @@
 
 ###新增程式碼
 
-1. 下載<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">通知中樞 Android SDK</a>。解壓縮 .zip 檔案，並將 **notificationhubs\\notification-hubs-0.4.jar** 和 **notifications\\notifications-1.0.1.jar** 複製到專案的 **app\\libs**。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 **libs** 資料夾。
-
-
-
-	這兩個封裝的參考文件位於下列連結：
-	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
-	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+1. 下載<a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">通知中樞 Android SDK</a>。解壓縮 .zip 檔案，並將 **notificationhubs\\notification-hubs-0.3.jar** 和 **notifications\\notifications-1.0.1.jar** 複製到專案的 **app\\libs** 目錄。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 **libs** 資料夾。
 
 
     > [AZURE.NOTE]檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
@@ -126,10 +120,7 @@
 	    private static Boolean isVisible = false;
 
 
-	請務必更新三個預留位置：
-	* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。
-	* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。
-	* **HubName**：在 Azure 中針對您的中樞顯示在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
+	請務必更新三個預留位置：* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。* **HubName**：在 Azure 中針對您的中樞使用在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
 
 
 
@@ -141,7 +132,7 @@
         hub = new NotificationHub(HubName, HubListenConnectionString, this);
         registerWithNotificationHubs();
 
-6. 在 **MainActivity.java** 中，針對 **registerWithNotificationHubs()** 方法加入下列程式碼。向 Google Cloud Messaging 和通知中樞註冊之後，此方法即回報成功。
+6. 在 **MainActivity.java** 中，針對 **registerWithNotificationHubs()** 方法加入下列程式碼。向 Google 雲端通訊和通知中樞註冊之後，此方法即回報成功。
 
     	@SuppressWarnings("unchecked")
     	private void registerWithNotificationHubs() {
@@ -162,7 +153,7 @@
     	}
 
 
-7. 將 **DialogNotify** 方法新增至活動，以在應用程式執行且可見時顯示通知。同時覆寫 **onStart** 和 **onStop**，判斷是否可看見活動以顯示對話方塊。
+7. 將 `DialogNotify` 方法新增至活動，以在應用程式執行且可見時顯示通知。同時覆寫 `onStart`, `onPause`、`onResume` 和 `onStop`，判斷是否可看見活動以顯示對話方塊。
 
 	    @Override
 	    protected void onStart() {
@@ -171,11 +162,22 @@
 	    }
 	
 	    @Override
+	    protected void onPause() {
+	        super.onPause();
+	        isVisible = false;
+	    }
+	
+	    @Override
+	    protected void onResume() {
+	        super.onResume();
+	        isVisible = true;
+	    }
+	
+	    @Override
 	    protected void onStop() {
 	        super.onStop();
 	        isVisible = false;
 	    }
-
 
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
@@ -555,4 +557,4 @@
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

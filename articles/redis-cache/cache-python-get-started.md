@@ -13,15 +13,21 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/05/2015"
+	ms.date="10/23/2015"
 	ms.author="sdanie"/>
 
 # 如何搭配使用 Azure Redis 快取與 Python
 
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
+
 本主題說明如何搭配使用 Azure Redis 快取與 Python。
 
 
-## 必要條件
+## 先決條件
 
 安裝 [redis-py](https://github.com/andymccurdy/redis-py)。
 
@@ -59,4 +65,4 @@
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="了解 Node.js-DocumentDB Node.js 教學課程 |Microsoft Azure" 
 	description="了解 Node.js！ 透過教學課程探索如何使用 Microsoft Azure DocumentDB 來儲存和存取 Azure 網站上託管的 Node.js Express Web 應用程式資料。" 
-	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+	keywords="應用程式開發, 資料庫教學課程, 了解 node.js, node.js 教學課程, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>使用 DocumentDB 建置 Node.js Web 應用程式
@@ -42,13 +42,13 @@
 
 是否沒有時間完成本教學課程，只是想要取得完整的解決方案？ 沒有問題，您可以從 [GitHub][] 取得完整的範例解決方案。
 
-## <a name="_Toc395783176"></a>必要條件
+## <a name="_Toc395783176"></a>先決條件
 
 > [AZURE.TIP]本 Node.js 教學課程假設您先前已有些許使用 Node.js 和 Azure 網站的經驗。
 
 在依照本文中的指示進行之前，您應先確定備妥下列項目：
 
-- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
+- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
 - [Node.js][] v0.10.29 版或更高版本。
 - [Express 產生器](http://www.expressjs.com/starter/generator.html) (您可以透過 `npm install express-generator -g` 進行安裝)
 - [Git][]。
@@ -569,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

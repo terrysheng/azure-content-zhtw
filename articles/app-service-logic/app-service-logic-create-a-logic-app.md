@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/16/2015"
+	ms.date="10/21/2015"
 	ms.author="stepsic"/>
 
 # 建立連接 SaaS 服務的新邏輯應用程式
@@ -188,4 +188,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

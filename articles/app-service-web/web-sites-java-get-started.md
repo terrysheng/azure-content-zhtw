@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
+	ms.date="10/20/2015"
 	ms.author="robmcm"/>
 
 # 在 Azure App Service 中建立 Java Web 應用程式
@@ -43,41 +43,41 @@
 
 	![](./media/web-sites-java-get-started/newmarketplace.png)
 
-5. 按一下 [Web + 行動]。
+3. 按一下 [Web + 行動]。
 
 	您可能必須向左捲動，才能看到 [Marketplace] 刀鋒視窗，在這裡您可以選取 [Web + 行動]。
 
-6. 在 [搜尋] 文字方塊中輸入 Java 應用程式伺服器名稱，例如 **Apache Tomcat** 或 **Jetty**，然後按 Enter 鍵。
+4. 在 [搜尋] 文字方塊中輸入 Java 應用程式伺服器名稱，例如 **Apache Tomcat** 或 **Jetty**，然後按 Enter 鍵。
 
-4. 在搜尋結果中，按一下 Java 應用程式伺服器。
+5. 在搜尋結果中，按一下 Java 應用程式伺服器。
 
 	![](./media/web-sites-java-get-started/webmobilejetty.png)
 
-5. 在第一個 [Apache Tomcat] 或 [Jetty] 刀鋒視窗中，按一下 [建立]。
+6. 在第一個 [Apache Tomcat] 或 [Jetty] 刀鋒視窗中，按一下 [建立]。
 
 	![](./media/web-sites-java-get-started/jettyblade.png)
 
-4. 在下一個 [Apache Tomcat] 或 [Jetty] 刀鋒視窗中，於 [Web 應用程式] 方塊中輸入 Web 應用程式的名稱。
+7. 在下一個 [Apache Tomcat] 或 [Jetty] 刀鋒視窗中，於 [Web 應用程式] 方塊中輸入 Web 應用程式的名稱。
 
 	此名稱在 azurewebsites.net 網域中必須是唯一的，因為 Web 應用程式的 URL 將是 {name}.azurewebsites.net。如果您輸入的名稱不是唯一的，紅色驚嘆號會出現在文字方塊中。
 
-5. 選取 [資源群組] 或建立新的資源群組。
+8. 選取 [資源群組] 或建立新的資源群組。
 
 	如需資源群組的詳細資訊，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
 
-5. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
+9. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
 
 	如需 App Service 方案的詳細資訊，請參閱 [Azure App Service 方案概觀](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-6. 按一下 [建立]。
+10. 按一下 [建立]。
 
 	![](./media/web-sites-java-get-started/jettyportalcreate2.png)
 
 	Azure 很快 (通常不到一分鐘) 就會完成建立新的 Web 應用程式。
 
-7. 按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
+11. 按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
 
-8. 按一下 [URL] 瀏覽至新網站。
+12. 按一下 [URL] 瀏覽至新網站。
 
 	![](./media/web-sites-java-get-started/jettyurl.png)
 
@@ -99,7 +99,8 @@
 
 2. 按一下 [新增] > [Web + 行動]。
 
-6. 按一下 [Web 應用程式]。
+
+3. 按一下 [Web 應用程式]。
 
 4. 在 [Web 應用程式] 方塊中，輸入 Web 應用程式的名稱。
 
@@ -109,29 +110,29 @@
 
 	如需資源群組的詳細資訊，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
 
-5. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
+6. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
 
 	如需 App Service 方案的詳細資訊，請參閱 [Azure App Service 方案概觀](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-6. 按一下 [建立]。
+7. 按一下 [建立]。
  
-11. 建立 Web 應用程式後，按一下 [Web Apps] > [{您的 Web 應用程式}。
+8. 建立 Web 應用程式後，按一下 [Web Apps] > [{您的 Web 應用程式}。
  
-13. 在 [Web 應用程式] 刀鋒視窗中，按一下 [設定]。
+9. 在 [Web 應用程式] 刀鋒視窗中，按一下 [設定]。
 
-12. 按一下 [應用程式設定]。
+10. 按一下 [應用程式設定]。
 
-13. 選擇所需的 [Java 版本]。
+11. 選擇所需的 [Java 版本]。
 
-14. 選擇所需的 [Web 容器]。
+12. 選擇所需的 [Web 容器]。
 
-15. 按一下 [儲存]。
+13. 按一下 [儲存]。
 
 	幾分鐘內，您的 Web 應用程式即會變成 Java 型 Web 應用程式。
 
-7. 按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
+14. 按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
 
-8. 按一下 [URL] 瀏覽至新網站。
+15. 按一下 [URL] 瀏覽至新網站。
 
 	網頁會確認您已建立 Java 型 Web 應用程式。
 
@@ -147,4 +148,4 @@
 
 [試用 App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

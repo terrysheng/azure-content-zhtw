@@ -514,4 +514,4 @@
 [Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
 [Azure 訊息元件]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

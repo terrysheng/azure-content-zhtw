@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/20/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Chrome 應用程式的通知中樞
@@ -380,7 +380,8 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 	- *client* 是我們用來發出 HTTP POST 要求的 *XMLHttpRequest* 執行個體。請注意，我們會使用 sasToken 更新 *Authorization* 標頭。成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
 
 
-您應該會在結尾處看見下列資料夾檢視：![][21]
+您應該會在結尾處看見下列資料夾檢視：
+   	![][21]
 
 ###設定和測試 Chrome 應用程式
 
@@ -416,13 +417,13 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 
 3. 在主控台視窗中，執行下列命令：
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
    	這會使用 <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>新增 Azure 服務匯流排 SDK 的參考。
 
 4. 開啟 **Program.cs** 檔案，並新增下列 `using` 陳述式：
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 5. 在 **Program** 類別中，新增下列方法：
 
@@ -493,4 +494,4 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 [Azure 通知中樞通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 通知中樞即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

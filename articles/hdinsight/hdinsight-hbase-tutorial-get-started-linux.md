@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HBase 教學課程：開始在 Hadoop 中使用 HBase |Microsoft Azure"
 	description="遵循本 HBase 教學課程，開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase。使用 Hive 從 HBase Shell 建立資料表並加以查詢。"
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+	keywords="apache hbase,hbase,hbase shell,hbase 教學課程"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -25,7 +25,7 @@
 
 > [AZURE.NOTE]本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需以 Windows 為基礎之叢集的資訊，請參閱 [在 HDInsight 中開始使用 Apache HBase 搭配 Hadoop (Windows)。
 
-##必要條件
+##先決條件
 
 開始進行本 HBase 教學課程之前，您必須具備下列條件：
 
@@ -74,12 +74,12 @@
 
 ![hdinsight hbase bigtable 資料][img-hbase-sample-data-bigtable]
 
-在您完成下一個程序後，就會更有意義。
+下一個程序完成後，您對此會有更深的理解。
 
 
 **使用 HBase Shell**
 
->[AZURE.NOTE]以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 1.開啟 **PuTTY**。請參閱文章開頭所列的必要條件。2.如果您在佈建期間建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
+>[AZURE.NOTE]以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 1.開啟 **PuTTY**。請參閱文章開頭所列的先決條件。2.如果您在佈建期間建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -87,7 +87,7 @@
 4. 從您 PuTTY 工作階段螢幕的基本選項，輸入下列值：
 
 	- 主機名稱：在 [主機名稱 (或 IP 位址)] 欄位中輸入您 HDInsight 伺服器的 SSH 位址。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，*mycluster-ssh.azurehdinsight.net*。
-	- 連接埠：22。headnode0 上的 SSH 連接埠為 22。請參閱[在 Linux 上使用 HDInsight 的相關資訊 (預覽)](hdinsight-hadoop-linux-information.md#remote-access-to-services)。
+	- 連接埠：22。前端節點 0 上的 ssh 連接埠為 22。請參閱[在 Linux 上使用 HDInsight 的相關資訊 (預覽)](hdinsight-hadoop-linux-information.md#remote-access-to-services)。
 4. 按一下 [**開啟**] 來連線到叢集。
 5. 出現提示時，輸入您建立叢集時所輸入的使用者。如果您對使用者提供密碼，系統會提示您一併輸入密碼。
 6. 執行以下命令：
@@ -114,7 +114,7 @@
 
 	您會看到與使用掃描命令相同的結果，因為只有一個資料列。
 
-	如需 HBase 資料表結構描述的詳細資訊，請參閱 [HBase 結構描述設計簡介][hbase-schema]。如需其他 HBase 命令，請參閱 [Apache HBase 參考指南][hbase-quick-start]。
+	如需 Hbase 資料表結構描述的詳細資訊，請參閱 [HBase 結構描述設計簡介][hbase-schema]。如需其他 HBase 命令，請參閱 [Apache HBase 參考指南][hbase-quick-start]。
 
 
 6. 結束 Shell
@@ -182,7 +182,7 @@ HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請�
 >
 > 在本節的所有命令中，將 **USERNAME** 取代為用來驗證叢集的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。將 **CLUSTERNAME** 取代為您叢集的名稱。
 >
-> REST API 的安全是透過[基本驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護。您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
+> 透過[基本驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
 
 1. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集：
 
@@ -232,7 +232,7 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 4. 從您 PuTTY 工作階段螢幕的基本選項，輸入下列值：
 
 	- **主機名稱**：在 [主機名稱 (或 IP 位址)] 欄位中輸入您 HDInsight 伺服器的 SSH 位址。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，*mycluster-ssh.azurehdinsight.net*。
-	- **連接埠**：22。headnode0 上的 SSH 連接埠為 22。  
+	- **連接埠**：22。前端節點 0 上的 ssh 連接埠為 22。  
 5. 在對話方塊左側的 [類別] 區段中，依序展開 [連接] 和 [SSH]，最後按一下 [通道]。
 6. 在 [控制 SSH 連接埠轉送的選項] 表單中提供下列資訊：
 
@@ -248,7 +248,7 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 2. 輸入您的叢集使用者帳戶認證兩次。
 3. 從左側功能表中，按一下 [zookeeper]。
 4. 從 [摘要] 清單按一下三個 [ZooKeeper 伺服器] 連結中的其中一個。
-5. 複製 [主機名稱]。例如，zookeepernode0.zookeepernode-0-xxxxxxxxxxxxxxxxxxxx.c7.internal.cloudapp.net。
+5. 複製 [主機名稱]。例如，zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net。
 
 **設定用戶端程式 (Firefox) 並檢查叢集狀態**
 
@@ -260,7 +260,7 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 6. 輸入下列值：
 
 	- **Socks 主機**：localhost
-	- **Port**：使用與您在 Putty SSH 通道中設定的相同連接埠。例如 9876。
+	- **連接埠**：使用與您在 Putty SSH 通道中設定的相同連接埠。例如 9876。
 	- **SOCKS v5**：(選取)
 	- **遠端 DNS**：(選取)
 7. 按一下 [確定] 儲存變更。
@@ -305,4 +305,4 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

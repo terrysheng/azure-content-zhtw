@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="genemi"/>
 
 
@@ -23,186 +23,7 @@
 本主題描述如何防止、診斷和減少您的用戶端程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。
 
 
-## 連接：連接字串
-
-
-連接到 Azure SQL Database 所需的連接字串和連接到 Microsoft SQL Server 的字串稍有不同。您可以從 [Azure Preview 入口網站](http://portal.azure.com/)複製資料庫的連接字串。
-
-
-[AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
-
-
-
-#### 30 秒的連接逾時
-
-
-透過網際網路連接比透過私人網路較不穩定。因此，我們建議在您的連線字串中：將 [連接逾時] 參數設為[30] 秒 (而不是 15 秒)。
-
-
-## 連接：IP 位址
-
-
-您必須設定 SQL Database 伺服器，以接受來自裝載您的用戶端程式之電腦的通訊。您可以透過 [Azure Preview 入口網站](http://portal.azure.com/)編輯防火牆設定來執行此動作。
-
-
-如果您忘了設定 IP 位址，您的程式將會失敗並出現一個好用的錯誤訊息，陳述必要的 IP 位址。
-
-
-[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
-
-
-如需詳細資訊，請參閱：[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
-
-
-## 連接：連接埠
-
-
-通常，您只需要在裝載用戶端程式的電腦上確定已開啟連接埠 1433 進行輸出通訊。
-
-
-例如，當用戶端程式裝載在 Windows 電腦上時，主機上的 Windows 防火牆可讓您開啟通訊埠 1433：
-
-
-1. 開啟 [控制台]
-2. &gt; 所有控制台項目
-3. &gt; Windows 防火牆
-4. &gt; 進階設定
-5. &gt; 輸出規則
-6. &gt; 動作
-7. &gt; 新增規則
-
-
-如果您的用戶端程式裝載在 Azure 虛擬機器 (VM) 上，您應該閱讀：<br/>[1433 以外供 ADO.NET 4.5 和 SQL Database 第12 版使用的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
-
-
-如需設定連接埠及 IP 位址的背景資訊，請參閱：[Azure SQL Database 防火牆](sql-database-firewall-configure.md)
-
-
-## 連接：ADO.NET 4.5
-
-
-如果您的程式使用類似 **System.Data.SqlClient.SqlConnection** 的 ADO.NET 類別來連接到 Azure SQL Database，建議您使用.NET Framework 4.5 版或更新的版本。
-
-
-ADO.NET 4.5：- 新增 TDS 7.4 通訊協定的支援。這包括不在 4.0 內的連接增強功能。- 支援連接集區。這包括提供給您的程式的連接物件是否運作的有效驗證。
-
-
-當您從連接集區使用連接物件時，建議您的程式若未立即使用連接，則暫時關閉它。重新開啟連接比建立新的連接更便宜。
-
-
-如果您是使用 ADO.NET 4.0 或更舊版本，建議您升級到最新的 ADO.NET。- 從 2015年 7 月開始，您可以[下載 ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)。
-
-
-## 診斷：測試公用程式是否可以連接
-
-
-如果您的程式無法連接到 Azure SQL Database，有一個診斷選項將嘗試與公用程式連接。理想的情況下，此公用程式會使用您的程式使用的同一程式庫來連接。
-
-
-在任何 Windows 電腦上，您可以試用這些公用程式：- SQL Server Management Studio (ssms.exe)，其使用 ADO.NET 來連接。- sqlcmd.exe，其使用 [ODBC](http://msdn.microsoft.com/library/jj730308.aspx) 來連接。
-
-
-一旦完成連接，就會測試簡短的 SQL SELECT 查詢是否可以運作。
-
-
-## 診斷：檢查開啟的連接埠
-
-
-假設您懷疑連接嘗試由於連接埠問題而失敗。在您的電腦上，您可以執行報告連接埠組態的公用程式。
-
-
-在 Linux 上，下列公用程式可能很有用：- `netstat -nap` - `nmap -sS -O 127.0.0.1` -(將範例值變更為您的 IP 位址)。
-
-
-在 Windows 上，[PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) 公用程式可能很有用。以下是在 Azure SQL Database 伺服器上查詢連接埠情況，以及在膝上型電腦上執行的的範例執行：
-
-
-```
-[C:\Users\johndoe]
->> portqry.exe -n johndoesvr9.database.windows.net -p tcp -e 1433
-
-Querying target system called:
- johndoesvr9.database.windows.net
-
-Attempting to resolve name to IP address...
-Name resolved to 23.100.117.95
-
-querying...
-TCP port 1433 (ms-sql-s service): LISTENING
-
-[C:\Users\johndoe]
->>
-```
-
-
-## 診斷：記錄您的錯誤
-
-
-有時診斷間歇問題的最好方式，就是數天或數週偵測一般模式。
-
-
-您的用戶端可以記錄其遇到的所有錯誤來協助診斷。您可以使記錄項目與 Azure SQL Database 本身內部記錄的錯誤資料相互關聯。
-
-
-Enterprise Library 6 (EntLib60) 提供 .NET 管理旳類別來協助記錄：- [5 - 如掉落記錄一樣容易：使用記錄應用程式區塊](http://msdn.microsoft.com/library/dn440731.aspx)
-
-
-## 診斷：檢查系統記錄找出錯誤
-
-
-以下是一些查詢錯誤記錄和其他資訊的 Transact-SQL SELECT 陳述式。
-
-
-| 記錄查詢 | 說明 |
-| :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [Sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視提供個別事件的相關資訊，包括與重新設定、節流和過度資源累積相關的連線失敗。<br/><br/>理想的情況下，您可以使 **start\_time** 或 **end\_time** 值與用戶端應用程時式何時遇到問題的相關資訊相互關聯。<br/><br/>**秘訣：**您必須連接到**主要** 資料庫才能執行此動作。 |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | [Sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視針對其他診斷提供事件類型的彙總計數。<br/><br/>**秘訣：**您必須連接到**主要**資料庫才能執行此動作。 |
-
-
-### 診斷：在 SQL Database 記錄中搜尋問題事件
-
-
-您可以在 Azure SQL Database 的記錄中搜尋有關問題事件的項目。在**主要**資料庫中嘗試下列 Transact-SQL SELECT陳述式：
-
-
-```
-SELECT
-   object_name
-  ,CAST(f.event_data as XML).value
-      ('(/event/@timestamp)[1]', 'datetime2')                      AS [timestamp]
-  ,CAST(f.event_data as XML).value
-      ('(/event/data[@name="error"]/value)[1]', 'int')             AS [error]
-  ,CAST(f.event_data as XML).value
-      ('(/event/data[@name="state"]/value)[1]', 'int')             AS [state]
-  ,CAST(f.event_data as XML).value
-      ('(/event/data[@name="is_success"]/value)[1]', 'bit')        AS [is_success]
-  ,CAST(f.event_data as XML).value
-      ('(/event/data[@name="database_name"]/value)[1]', 'sysname') AS [database_name]
-FROM
-  sys.fn_xe_telemetry_blob_target_read_file('el', null, null, null) AS f
-WHERE
-  object_name != 'login_event'  -- Login events are numerous.
-  and
-  '2015-06-21' < CAST(f.event_data as XML).value
-        ('(/event/@timestamp)[1]', 'datetime2')
-ORDER BY
-  [timestamp] DESC
-;
-```
-
-
-#### 數個從 sys.fn\_xe\_telemetry\_blob\_target\_read\_file 傳回的資料列
-
-
-接下來是傳回的資料列可能的樣子。顯示的 null 值通常在其他資料列不是 null。
-
-
-```
-object_name                   timestamp                    error  state  is_success  database_name
-
-database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL        AdventureWorks
-```
-
+<a id="i-transient-faults" name="i-transient-faults"></a>
 
 ## 暫時性錯誤
 
@@ -221,6 +42,8 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 執行 SQL 查詢命令期間發生暫時性錯誤時，不應該立即重試命令。而是在延遲之後，應該建立全新的連接。然後，可以重試命令。
 
+
+<a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
 ## 暫時性錯誤的重試邏輯
 
@@ -281,6 +104,8 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 - [快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md) 
 
 
+<a id="k-test-retry-logic" name="k-test-retry-logic"></a>
+
 ## 測試您的重試邏輯
 
 
@@ -311,6 +136,205 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 若要使這個動作可行，您的程式會辨識執行階段參數，其會導致程式：1.暫時將 18456 加入至其錯誤清單，視為暫時性。2.故意將 'WRONG\_' 加入至使用者名稱。3.在攔截到錯誤之後，請從清單中移除 18456。4.從使用者名稱中移除 'WRONG\_'。5.重新嘗試連接，預期成功。
 
 
+<a id="a-connection-connection-string" name="a-connection-connection-string"></a>
+
+## 連接：連接字串
+
+
+連接到 Azure SQL Database 所需的連接字串和連接到 Microsoft SQL Server 的字串稍有不同。您可以從 [Azure Preview 入口網站](http://portal.azure.com/)複製資料庫的連接字串。
+
+
+[AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
+
+
+
+#### 30 秒的連接逾時
+
+
+透過網際網路連接比透過私人網路較不穩定。因此，我們建議在您的連接字串中：將 [連接逾時] 參數設為[30] 秒 (而不是 15 秒)。
+
+
+<a id="b-connection-ip-address" name="b-connection-ip-address"></a>
+
+## 連接：IP 位址
+
+
+您必須設定 SQL Database 伺服器，以接受來自裝載您的用戶端程式之電腦的通訊。您可以透過 [Azure Preview 入口網站](http://portal.azure.com/)編輯防火牆設定來執行此動作。
+
+
+如果您忘了設定 IP 位址，您的程式將會失敗並出現一個好用的錯誤訊息，陳述必要的 IP 位址。
+
+
+[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+
+
+如需詳細資訊，請參閱：[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
+
+
+<a id="c-connection-ports" name="c-connection-ports"></a>
+
+## 連接：連接埠
+
+
+通常，您只需要在裝載用戶端程式的電腦上確定已開啟連接埠 1433 進行輸出通訊。
+
+
+例如，當用戶端程式裝載在 Windows 電腦上時，主機上的 Windows 防火牆可讓您開啟通訊埠 1433：
+
+
+1. 開啟 [控制台]
+2. &gt; 所有控制台項目
+3. &gt; Windows 防火牆
+4. &gt; 進階設定
+5. &gt; 輸出規則
+6. &gt; 動作
+7. &gt; 新增規則
+
+
+如果您的用戶端程式裝載在 Azure 虛擬機器 (VM) 上，您應該閱讀：<br/>[1433 以外供 ADO.NET 4.5 和 SQL Database 第12 版使用的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
+
+
+如需設定連接埠及 IP 位址的背景資訊，請參閱：[Azure SQL Database 防火牆](sql-database-firewall-configure.md)
+
+
+<a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
+
+## 連接：ADO.NET 4.5
+
+
+如果您的程式使用類似 **System.Data.SqlClient.SqlConnection** 的 ADO.NET 類別來連接到 Azure SQL Database，建議您使用.NET Framework 4.5 版或更新的版本。
+
+
+ADO.NET 4.5：- 新增 TDS 7.4 通訊協定的支援。這包括不在 4.0 內的連接增強功能。- 支援連接集區。這包括提供給您的程式的連接物件是否運作的有效驗證。
+
+
+當您從連接集區使用連接物件時，建議您的程式若未立即使用連接，則暫時關閉它。重新開啟連接比建立新的連接更便宜。
+
+
+如果您是使用 ADO.NET 4.0 或更舊版本，建議您升級到最新的 ADO.NET。- 從 2015年 7 月開始，您可以[下載 ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)。
+
+
+<a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
+
+## 診斷：測試公用程式是否可以連接
+
+
+如果您的程式無法連接到 Azure SQL Database，有一個診斷選項將嘗試與公用程式連接。理想的情況下，此公用程式會使用您的程式使用的同一程式庫來連接。
+
+
+在任何 Windows 電腦上，您可以試用這些公用程式：- SQL Server Management Studio (ssms.exe)，其使用 ADO.NET 來連接。- sqlcmd.exe，其使用 [ODBC](http://msdn.microsoft.com/library/jj730308.aspx) 來連接。
+
+
+一旦完成連接，就會測試簡短的 SQL SELECT 查詢是否可以運作。
+
+
+<a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
+
+## 診斷：檢查開啟的連接埠
+
+
+假設您懷疑連接嘗試由於連接埠問題而失敗。在您的電腦上，您可以執行報告連接埠組態的公用程式。
+
+
+在 Linux 上，下列公用程式可能很有用：- `netstat -nap` - `nmap -sS -O 127.0.0.1` - (將範例值變更為您的 IP 位址)。
+
+
+在 Windows 上，[PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) 公用程式可能很有用。以下是在 Azure SQL Database 伺服器上查詢連接埠情況，以及在膝上型電腦上執行的的範例執行：
+
+
+```
+[C:\Users\johndoe]
+>> portqry.exe -n johndoesvr9.database.windows.net -p tcp -e 1433
+
+Querying target system called:
+ johndoesvr9.database.windows.net
+
+Attempting to resolve name to IP address...
+Name resolved to 23.100.117.95
+
+querying...
+TCP port 1433 (ms-sql-s service): LISTENING
+
+[C:\Users\johndoe]
+>>
+```
+
+
+<a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
+
+## 診斷：記錄您的錯誤
+
+
+有時診斷間歇問題的最好方式，就是數天或數週偵測一般模式。
+
+
+您的用戶端可以記錄其遇到的所有錯誤來協助診斷。您可以使記錄項目與 Azure SQL Database 本身內部記錄的錯誤資料相互關聯。
+
+
+Enterprise Library 6 (EntLib60) 提供 .NET 管理旳類別來協助記錄：- [5 - 如掉落記錄一樣容易：使用記錄應用程式區塊](http://msdn.microsoft.com/library/dn440731.aspx)
+
+
+<a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
+
+## 診斷：檢查系統記錄找出錯誤
+
+
+以下是一些查詢錯誤記錄和其他資訊的 Transact-SQL SELECT 陳述式。
+
+
+| 記錄查詢 | 說明 |
+| :-- | :-- |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [Sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視提供個別事件的相關資訊，包括與重新設定、節流和過度資源累積相關的連線失敗。<br/><br/>理想的情況下，您可以使 **start\_time** 或 **end\_time** 值與用戶端應用程時式何時遇到問題的相關資訊相互關聯。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | [Sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視針對其他診斷提供事件類型的彙總計數。<br/><br/>**秘訣：**您必須連接到**master**資料庫才能執行此動作。 |
+
+
+### 診斷：在 SQL Database 記錄中搜尋問題事件
+
+
+您可以在 Azure SQL Database 的記錄中搜尋有關問題事件的項目。在 **master** 資料庫中嘗試下列 Transact-SQL SELECT陳述式：
+
+
+```
+SELECT
+   object_name
+  ,CAST(f.event_data as XML).value
+      ('(/event/@timestamp)[1]', 'datetime2')                      AS [timestamp]
+  ,CAST(f.event_data as XML).value
+      ('(/event/data[@name="error"]/value)[1]', 'int')             AS [error]
+  ,CAST(f.event_data as XML).value
+      ('(/event/data[@name="state"]/value)[1]', 'int')             AS [state]
+  ,CAST(f.event_data as XML).value
+      ('(/event/data[@name="is_success"]/value)[1]', 'bit')        AS [is_success]
+  ,CAST(f.event_data as XML).value
+      ('(/event/data[@name="database_name"]/value)[1]', 'sysname') AS [database_name]
+FROM
+  sys.fn_xe_telemetry_blob_target_read_file('el', null, null, null) AS f
+WHERE
+  object_name != 'login_event'  -- Login events are numerous.
+  and
+  '2015-06-21' < CAST(f.event_data as XML).value
+        ('(/event/@timestamp)[1]', 'datetime2')
+ORDER BY
+  [timestamp] DESC
+;
+```
+
+
+#### 數個從 sys.fn\_xe\_telemetry\_blob\_target\_read\_file 傳回的資料列
+
+
+接下來是傳回的資料列可能的樣子。顯示的 null 值通常在其他資料列不是 null。
+
+
+```
+object_name                   timestamp                    error  state  is_success  database_name
+
+database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL        AdventureWorks
+```
+
+
+<a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
+
 ## Enterprise Library 6
 
 
@@ -321,6 +345,9 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 
 在其重試邏輯中使用 EntLib60 的簡短 C# 程式碼範例位於：- [程式碼範例：來自 Enterprise Library 6 的重試邏輯，在 C# 中用於連接到 SQL Database](sql-database-develop-entlib-csharp-retry-windows.md)
+
+
+> [AZURE.NOTE]EntLib60 的原始程式碼已可公開[下載](http://go.microsoft.com/fwlink/p/?LinkID=290898)。Microsoft 不打算對 EntLib 做進一步的功能或維護更新。
 
 
 ### 用於暫時性錯誤和重試的 EntLib60 類別
@@ -378,7 +405,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 ### EntLib60 IsTransient 方法的原始程式碼
 
 
-接下來，**IsTransient** 方法的 C# 原始程式碼來自 **SqlDatabaseTransientErrorDetectionStrategy** 類別。原始程式碼將釐清哪些錯誤會被視為暫時性並值得重試。
+接下來，**IsTransient** 方法的 C# 原始程式碼來自 **SqlDatabaseTransientErrorDetectionStrategy** 類別。原始程式碼將釐清哪些錯誤會被視為暫時性並值得重試 (從 2013 年 4 月起)。
 
 為了強調可調性，已從此副本移除許多 **//comment** 行。
 
@@ -450,9 +477,6 @@ public bool IsTransient(Exception ex)
 ```
 
 
-不需要下載 EntLib60 的原始程式碼。但是，如果您想要下載原始程式碼，您可以造訪下列主題，然後按一下[下載程式碼](http://go.microsoft.com/fwlink/p/?LinkID=290898)按鈕：- [Enterprise Library 6 - 2013年 4 月](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
-
-
 ## 詳細資訊
 
 
@@ -461,4 +485,4 @@ public bool IsTransient(Exception ex)
 
 - [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，可將新增重試行為的工作簡化為幾乎一切事物。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

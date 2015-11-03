@@ -24,7 +24,10 @@
 + 將資源連接到 Azure Data Factory。
 + 建立管線來將資料從儲存體 Blob 移至 SQL 資料倉儲。
 
+>[AZURE.VIDEO loading-azure-sql-data-warehouse-with-azure-data-factory]
+
 ## 資源
+
 對於本教學課程，您將需要下列資源：
 
    + **Azure 儲存體 Blob**：您的 Azure 儲存體 Blob 將是管線的資料來源。您可以使用現有的 blob 或[佈建新的 blob](../storage/storage-create-storage-account/)。
@@ -36,6 +39,7 @@
 一旦準備好所有片段，您就可以開始準備資料，並建立 Azure Data Factory 管線。
 
 ## 範例資料
+
 除了管線的不同片段外，我們也會需要一些範例資料，用來練習如何在 Azure Data Factory 載入資料。
 
 1. 首先，[下載範例資料](https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv)。此資料會搭配已在您的範例資料中的範例資料 (提供另一個三年銷售資料) 一起使用。
@@ -49,11 +53,13 @@
 既然有了適當的資料，我們就可以移至您的 Data Factory 以建立管線，將資料從儲存體帳戶移至您的 SQL 資料倉儲。
 
 ## 使用 Azure Data Factory
+
 既然已設定所有片段，我們就可以瀏覽至您在 Azure Preview 入口網站的 Azure Data Factory 執行個體，開始設定管線您可以移至 [Azure 入口網站](portal.azure.com)，並從左側功能表中選取您的 Data Factory 來完成此作業。
 
 從這裡將有三個步驟來設定 Azure Data Factory 管線，以將資料傳送到您的資料倉儲：連結您的服務、定義您的資料集，以及建立您的管線。
 
 ### 建立連結服務
+
 第一個步驟就是將您的 Azure 儲存體帳戶和 SQL 資料倉儲連結到您的 Data Factory。
 
 1. 首先，按一下 Data Factory 的 [連結服務] 區段，然後按一下 [新增資料存放區]，開始註冊程序 接著，選擇要在其下註冊 Azure 儲存體的名稱、選取 Azure 儲存體做為類型，然後輸入您的帳戶名稱和帳戶金鑰。
@@ -72,6 +78,7 @@
 		}
 
 ### 註冊資料集
+
 建立連結服務之後，我們必須定義資料集。在這裡，此舉表示將定義要從儲存體移至資料倉儲的資料結構。您可以閱讀如何建立的相關資訊。
 
 1. 若要開始此程序，請瀏覽至 Data Factory 的 [作者與部署] 區段。
@@ -142,6 +149,7 @@
 		}
 
 ### 設定管線
+
 最後，我們將在 Azure Data Factory 中安裝並執行管線。這是將完成實際資料移動的作業。您可以在[這裡](../data-factory/data-factory-azure-sql-data-warehouse-connector/)找到您可以使用 SQL 資料倉儲和 Azure Data Factory 完成之作業的完整檢視。
 
 現在。在 [作者與部署] 區段中。依序按一下 [其他命令] 和 [新增管線]。建立管線之後，您可以使用以下程式碼，將資料傳送到資料倉儲：
@@ -193,4 +201,4 @@
 	}
 	
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

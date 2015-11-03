@@ -51,12 +51,12 @@
 
 
 ## 新增 HTTP 觸發程序
-
+1. 選取 [從頭建立]。
 1. 從組件庫中選取 [**HTTP 接聽程式**] 以建立新的接聽程式。稱它為 **HTTP1**。
 2. 將 [**是否自動傳送回應？**] 設定保留為 false。透過將 _HTTP 方法_設定為 _POST_，並將_相對 URL_ 設定為 _/OneWayPipeline_，來設定觸發程序動作：  
 
 	![HTTP 觸發程序][2]
-
+3. 按一下綠色的核取記號。
 
 ## 加入驗證動作
 
@@ -74,7 +74,7 @@
 ## 新增轉換動作
 我們將設定可標準化內送資料的轉換。
 
-1. 從組件庫新增**轉換**。
+1. 從資源庫中新增 [BizTalk 轉換服務]。
 2. 若要設定轉換以轉換內送 XML 訊息，請選取 [轉換] 動作做為呼叫這個 API 時要執行的動作，然後選取 ```triggers(‘httplistener’).outputs.Content``` 做為 _inputXml_ 的值。因為內送資料符合所有已設定的轉換，因此*對應*會是選擇性參數，而且僅適用於符合結構描述的對應。
 3. 最後，只有當驗證成功時才會執行轉換。若要設定這種情況，請按一下右上方的齒輪圖示，然後選取 [新增要符合的條件]。將條件設為 ```equals(actions('xmlvalidator').status,'Succeeded')```：  
 
@@ -84,8 +84,9 @@
 ## 新增服務匯流排連接器
 接下來，我們將新增可寫入資料的目的地 (服務匯流排佇列)。
 
-1. 從組件庫新增 [**服務匯流排連接器**]。將 **Name** 設為 _Servicebus1_、將 **Connection String** 設為服務匯流排執行個體的連接字串、將 **Entity Name** 設為 _Queue_，然後略過 **Subscription name**。
-2. 選取 [傳送訊息] 動作，並將動作的 [訊息] 欄位設為 _actions('transformservice').outputs.OutputXml_。
+1. 從組件庫新增 [服務匯流排連接器]。將 **Name** 設為 _Servicebus1_、將 **Connection String** 設為服務匯流排執行個體的連接字串、將 **Entity Name** 設為 _Queue_，然後略過 **Subscription name**。
+2. 選取 [傳送訊息] 動作，並將動作的 [內容] 欄位設為 _actions('transformservice').outputs.OutputXml_。
+3. 將 [內容類型] 欄位設為 application/xml
 
 ![服務匯流排][5]
 
@@ -94,10 +95,13 @@
 完成管線處理後，以下列步驟傳回成功和失敗的 HTTP 回應：
 
 1. 從組件庫新增 [**HTTP 接聽程式**]，然後選取 [**傳送 HTTP 回應**] 動作。
-2. 將 [回應內容] 設為 [已完成管線處理]、將 [回應狀態碼] 設為 *200* 以表示 HTTP 200 確定，然後將 [條件] 設為下列運算式：```@equals(actions('servicebusconnector').status,'Succeeded')``` <br/>
+2. 設定用以傳送*訊息*的 [回應識別碼]。
+2. 將 [回應內容] 設為*已完成管線處理*。
+3. [回應狀態碼] 為 *200* 表示 HTTP 200 (確定)。
+4. 按一下右上方的下拉式功能表，然後選取 [新增要符合的條件]。將條件設為下列運算式：```@equals(actions('azureservicebusconnector').status,'Succeeded')``` <br/>
+5. 您也可以重複上述步驟來傳送失敗的 HTTP 回應。將 [條件] 變更為下列運算式：```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
+6. 按一下 [確定]，然後按一下 [建立]
 
-
-您也可以重複上述步驟來傳送失敗的 HTTP 回應。變更 [條件] 為下列運算式：```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## 完成
@@ -114,4 +118,4 @@
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

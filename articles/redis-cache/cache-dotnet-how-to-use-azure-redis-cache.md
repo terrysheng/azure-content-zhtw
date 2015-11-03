@@ -13,27 +13,28 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/13/2015" 
+	ms.date="10/27/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Redis 快取
 
-本指南示範如何開始使用 **Azure Redis 快取**。這些範例均以 C# 程式碼撰寫，並使用 [StackExchange.Redis][] 用戶端。涵蓋的案例包括**建立和設定快取**、**設定快取用戶端**、**加入和移除快取中的物件**，以及**將 ASP.NET 工作階段狀態儲存在快取中**。如需使用 Azure Redis 快取的詳細資訊，請參閱[後續步驟][]一節。
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
-<a name="what-is"></a>
-## 何謂 Azure Redis 快取？
-
-Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取。它可讓您存取由 Microsoft 管理的安全、專用 Redis 快取。使用 Azure Redis 快取建立的快取，可透過 Microsoft Azure 內的任何應用程式加以存取。
+本指南示範如何開始使用 **Azure Redis 快取**。Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取。它可讓您存取由 Microsoft 管理的安全、專用 Redis 快取。使用 Azure Redis 快取建立的快取，可透過 Microsoft Azure 內的任何應用程式加以存取。
 
 Microsoft Azure Redis 快取有下列階層：
 
 -	**基本** - 單一節點。多種大小，最高為 53 GB。
 -	**標準** – 兩個節點 (主要/從屬)。多種大小，最高為 53 GB。99.9% SLA。
--	**Premium** – 目前只能預覽。兩個節點的主要/從屬，具有最多 10 個分區。從 6 GB 到 530 GB 的多種大小 (如需詳細資訊，請與我們連絡)。所有標準層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md) 和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。在預覽期間沒有 SLA。
+-	**Premium** – 目前只能預覽。兩個節點的主要/從屬，具有最多 10 個分區。從 6 GB 到 530 GB 的多種大小 (如需詳細資訊，請與我們連絡)。所有標準層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。在預覽期間沒有 SLA。
 
-每一個階層都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料][]。
+每一個階層都有不同的功能和定價。如需價格的相關資訊，請參閱 [快取價格詳細資料][]。
 
-本指南提供開始使用 Azure Redis 快取的概觀。如需本入門指南涵蓋範圍外之功能的詳細資訊，請參閱 [Azure Redis 快取概觀][]。
+本指南說明如何使用採用 C# 程式碼的 [StackExchange.Redis][] 用戶端。涵蓋的案例包括**建立和設定快取**、**設定快取用戶端**，以及**加入和移除快取中的物件**。如需使用 Azure Redis 快取的詳細資訊，請參閱[後續步驟][]一節。
 
 <a name="getting-started-cache-service"></a>
 ## 開始使用 Azure Redis 快取
@@ -50,23 +51,21 @@ Microsoft Azure Redis 快取有下列階層：
 
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE]如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+>[AZURE.NOTE]如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用][]。
 
 在 [新增 Redis 快取] 分頁中，指定所需的快取組態。
 
 ![Create cache][CacheCreate]
 
-在 [DNS 名稱] 中，輸入要用於快取端點的子網域名稱。端點必須是介於 6 到 20 個字元之間的字串、僅包含小寫數字和字母，而且必須以字母開頭。
-
-使用 [價格層] 來選取需要的快取大小和功能。
-
-在 [資源群組] 中，選取或建立快取的資源群組。
-
->[AZURE.NOTE]如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][]。
-
-針對 [訂閱]，選取您要用於快取的 Azure 訂閱。如果您的帳戶僅有一個訂閱，則會自動加以選取，而且不會顯示 [訂閱] 下拉式清單。
-
-使用 [位置] 來指定管理快取所在的地理位置。為獲得最佳效能，Microsoft 強烈建議您在與快取用戶端應用程式相同的區域中建立快取。
+-	在 [DNS 名稱] 中，輸入要用於快取端點的子網域名稱。端點必須是介於 6 到 20 個字元之間的字串、僅包含小寫數字和字母，而且必須以字母開頭。
+-	針對 [訂閱]，選取您要用於快取的 Azure 訂閱。如果您的帳戶僅有一個訂閱，則會自動加以選取，而且不會顯示 [訂閱] 下拉式清單。
+-	在 [資源群組] 中，選取或建立快取的資源群組。如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][]。 
+-	使用 [位置] 來指定管理快取所在的地理位置。為獲得最佳效能，Microsoft 強烈建議您在與快取用戶端應用程式相同的區域中建立快取。
+-	使用 [價格層] 來選取需要的快取大小和功能。
+-	**Redis 叢集**可讓您建立大於 53 GB 的快取，以及將資料分散於多個 Redis 節點。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md)。
+-	**Redis 持續性**可讓您將您的快取保存至 Azure 儲存體帳戶。如需設定永續性的相關指示，請參閱[如何設定高階 Azure Redis Cache 的永續性](cache-how-to-premium-persistence.md)。
+-	**虛擬網路**藉由將您的快取存取權限制於指定的 Azure 虛擬網路內的用戶端，以提供增強的安全性和隔離。您可以使用 VNet 的所有功能，例如子網路、存取控制原則和其他功能，進一步限制對 Redis 的存取權。如需詳細資訊，請參閱[如何設定高階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)。
+-	使用 [診斷] 來指定快取度量的儲存體帳戶。如需有關設定和檢視快取度量的詳細資訊，請參閱[如何監視 Azure Redis 快取](cache-how-to-monitor.md)。
 
 一旦設定了新的快取選項，請按一下 [建立新快取]。建立快取可能需要數分鐘的時間。若要檢查狀態，您可以監視開始面板上的進度。在建立了快取之後，新快取的狀態會是「執行中」，而且準備好與預設設定搭配使用。
 
@@ -108,12 +107,12 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
 -	[連接到快取][]
 -   [從快取新增和擷取物件][]
--   [將 ASP.NET 工作階段狀態儲存在快取中][]
+-   [使用快取中的 .NET 物件](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
 ## 連接到快取
 
-為了能夠以程式設計方式使用快取，您需要快取的參考。將下面這一行加入至您想要從中使用 StackExchange.Redis 用戶端來存取 Azure Redis 快取之檔案的頂端：
+為了能夠以程式設計方式使用快取，您需要快取的參考。將下面這一行加入至您想要從中使用 StackExchange.Redis 用戶端來存取 Azure Redis 快取之檔案的頂端。
 
     using StackExchange.Redis;
 
@@ -129,7 +128,22 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
 如果您不想使用 SSL，請設定 `ssl=false` 或省略`ssl` 參數。
 
->[AZURE.NOTE]預設會為新快取停用非 SSL 連接埠。如需啟用非 SSL 連接埠的指示，請參閱[在 Azure Redis 快取中設定快取][]主題中的＜存取連接埠＞一節。
+>[AZURE.NOTE]預設會為新快取停用非 SSL 連接埠。如需啟用非 SSL 連接埠的指示，請參閱[存取連接埠](cache-configure.md#access-ports)。
+
+在您的應用程式中共用 `ConnectionMultiplexer` 執行個體的其中一種方法，就是擁有可傳回已連接執行個體的靜態屬性，類似下列範例。這會提供安全執行緒方式，只初始化單一已連接的 `ConnectionMultiplexer` 執行個體。在這些範例中，`abortConnect` 已設為 false，這表示即使無法建立與 Azure Redis 快取的連線，呼叫也會成功。`ConnectionMultiplexer` 的主要功能之一就是一旦解決網路問題或其他原因，它就會自動還原快取的連線能力。
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+	    return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
 
 如需進階連線組態選項的詳細資訊，請參閱 [StackExchange.Redis 組態模型][] (英文)。
 
@@ -139,16 +153,11 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
 ![Manage keys][ManageKeys]
 
-一旦建立連線，即會透過呼叫 `ConnectionMultiplexer.GetDatabase` 方法傳回 Redis 快取資料庫的參考。
+一旦建立連線，即會透過呼叫 `ConnectionMultiplexer.GetDatabase` 方法傳回 Redis 快取資料庫的參考。透過 `GetDatabase` 方法傳回的物件是輕量型傳遞物件，而且不需要儲存。
 
-	// connection refers to a previously configured ConnectionMultiplexer
-	IDatabase cache = connection.GetDatabase();
-
->[AZURE.NOTE]透過 `GetDatabase` 方法傳回的物件是輕量型傳遞物件，而且不需要儲存。
-
-	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-
-	IDatabase cache = connection.GetDatabase();
+	// Connection refers to a property that returns a ConnectionMultiplexer
+	// as shown in the previous example.
+	IDatabase cache = Connection.GetDatabase();
 
 	// Perform cache operations using the cache object...
 	// Simple put of integral data types into the cache
@@ -171,9 +180,9 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
 	string value = cache.StringGet("key1");
 
->[AZURE.NOTE]Redis 會將多數資料儲存為 Redis 字串，但這些字串可能包含許多類型的資料，包括序列化的二進位資料 (在快取中儲存 .NET 物件時可能會用到)。
+Redis 會將多數資料儲存為 Redis 字串，但這些字串可能包含許多類型的資料，包括序列化的二進位資料 (在快取中儲存 .NET 物件時可能會用到)。
 
-呼叫 `StringGet` 時，如果物件已存在，即會傳回，如果物件不存在，則會傳回 Null。在此情況下，您可以從需要的資料來源中擷取值，並將它儲存在快取中供後續使用。這稱為另行快取模式。
+呼叫 `StringGet` 時，如果物件已存在，即會傳回，如果物件不存在，則會傳回 `null`。在此情況下，您可以從需要的資料來源中擷取值，並將它儲存在快取中供後續使用。這稱為另行快取模式。
 
     string value = cache.StringGet("key1");
     if (value == null)
@@ -185,97 +194,50 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
         cache.StringSet("key1", value);
     }
 
->[AZURE.NOTE]Azure Redis 快取可以快取 .NET 物件及基本資料類型，但必須先將 .NET 物件序列化，才能加以快取。這是應用程式開發人員的責任，同時賦與開發人員選擇序列化程式的彈性。如需詳細資訊，請參閱[在快取中使用 .NET 物件][]。
-
-<a name="specify-expiration"></a>
-## 指定快取中項目的到期時間
-
 若要指定快取中項目的到期時間，請使用 `StringSet` 的 `TimeSpan` 參數。
 
 	cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
+## 使用快取中的 .NET 物件
 
-<a name="store-session"></a>
-## 將 ASP.NET 工作階段狀態儲存在快取中
+Azure Redis 快取可以快取 .NET 物件及基本資料類型，但必須先將 .NET 物件序列化，才能加以快取。這是應用程式開發人員的責任，同時賦與開發人員選擇序列化程式的彈性。
 
-Azure Redis 快取提供工作階段狀態提供者，可讓您用來將工作階段狀態儲存在快取中，而不是記憶體內或 SQL Server 資料庫中。若要使用快取工作階段狀態提供者，請先設定快取，再使用「Redis 快取工作階段狀態 NuGet 套件」設定 ASP.NET 應用程式的快取。
+將物件序列化的其中一個簡單方法就是使用 [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) 中的 `JsonConvert` 序列化方法並進行 JSON 的雙向序列化。下列範例使用 `Employee` 物件執行個體顯示 get 和 set。
 
-若要在 Visual Studio 中使用「Redis 快取工作階段狀態 NuGet 封裝」來設定用戶端應用程式，請在 [方案總管] 中的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。
 
-![Manage NuGet packages][NuGetMenu]
+	[Serializable]
+	class Employee
+	{
+	    public int Id { get; set; }
+	    public string Name { get; set; }
+	
+	    public Employee(int EmployeeId, string Name)
+	    {
+	        this.Id = EmployeeId;
+	        this.Name = Name;
+	    }
+	}
 
-在 [線上搜尋] 文字方塊中輸入 **RedisSessionStateProvider**，從結果選取它，然後按一下 [安裝]。
+    // Store to cache
+    cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
 
-![Redis Cache Session State NuGet Package][SessionStateNuGet]
-
-NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入至您的 web.config 檔案，該檔案包含 ASP.NET 應用程式使用 Redis 快取工作階段狀態提供者所需的組態。
-
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
-      <providers>
-        <!--
-          <add name="MySessionStateStore" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />
-      </providers>
-    </sessionState>
-
-標示註解的區段可提供屬性的範例和屬性的範例設定。
-
-以來自預覽入口網站的快取分頁的值設定屬性，並視需要設定其他值。
-
-	<sessionState mode="Custom" customProvider="MySessionStateStore">
-      <providers>
-        <!--
-          <add name="MySessionStateStore" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="contoso5.redis.cache.windows.net" 
-		accessKey="..." ssl="true" />
-      </providers>
-    </sessionState>
-
-務必將標準的 **InProc** 工作階段狀態提供者註解化。
-
-    <!-- <sessionState mode="InProc" customProvider="DefaultSessionProvider">
-      <providers>
-        <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
-      </providers>
-    </sessionState> -->
-
-如需進行這些設定和使用 Azure Redis 工作階段狀態提供者的詳細資訊，請參閱 [Azure Redis 工作階段狀態提供者][]。
+    // Retrieve from cache
+    Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
 
 <a name="next-steps"></a>
 ## 後續步驟
 
-了解 Azure Redis 快取的基礎概念之後，請參考下列連結以了解如何執行更複雜的快取工作。
+了解基礎概念之後，請依照下列連結深入了解 Azure Redis 快取。
 
--	[啟用快取診斷](cache-how-to-monitor.md#enable-cache-diagnostics)，以監視您的快取的健全狀況。您可以在 Preview 入口網站中檢視度量，也可以使用您選擇的工具[下載並檢閱](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)它們。
+-	查看 Azure Redis 快取的 ASP.NET 提供者。
+	-	[Azure Redis 工作階段狀態提供者](cache-asp.net-session-state-provider.md)
+	-	[Azure Redis 快取 ASP.NET 輸出快取提供者](cache-asp.net-output-cache-provider.md)
+-	[啟用快取診斷](cache-how-to-monitor.md#enable-cache-diagnostics)，以[監視](cache-how-to-monitor.md)您快取的健全狀況。您可以在 Preview 入口網站中檢視度量，也可以使用您選擇的工具[下載並檢閱](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)它們。
 -	請參閱 [StackExchange.Redis 快取用戶端文件][]。
 	-	Azure Redis 快取可以透過許多 Redis 用戶端和開發語言進行存取。如需詳細資訊，請參閱 [http://redis.io/clients][] 和[以其他語言開發 Azure Redis 快取][]。
 	-	Azure Redis 快取也可以與服務搭配使用 (例如 Redsmin)。如需詳細資訊，請參閱[如何擷取 Azure Redis 連接字串並將它與 Redsmin 搭配使用][]。
 -	請參閱 [Redis][] (英文) 文件，並閱讀有關 [Redis 資料類型][] (英文) 和 [Redis 資料類型的 15 分鐘簡介][] (英文)。
--   請參閱 [Azure Redis 快取][]的 MSDN 參考資料。 
+
 
 
 <!-- INTRA-TOPIC LINKS -->
@@ -294,7 +256,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 [連接到快取]: #connect-to-cache
 [從快取新增和擷取物件]: #add-object
 [Specify the expiration of an object in the cache]: #specify-expiration
-[將 ASP.NET 工作階段狀態儲存在快取中]: #store-session
+[Store ASP.NET session state in the cache]: #store-session
 
   
 <!-- IMAGES -->
@@ -326,7 +288,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 [http://redis.io/clients]: http://redis.io/clients
 [以其他語言開發 Azure Redis 快取]: http://msdn.microsoft.com/library/azure/dn690470.aspx
 [如何擷取 Azure Redis 連接字串並將它與 Redsmin 搭配使用]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Azure Redis 工作階段狀態提供者]: http://go.microsoft.com/fwlink/?LinkId=398249
+[Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -339,19 +301,19 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
 [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[在 Azure Redis 快取中設定快取]: http://msdn.microsoft.com/library/azure/dn793612.aspx
+[Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
 [StackExchange.Redis 組態模型]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[在快取中使用 .NET 物件]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
+[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[快取定價詳細資料]: http://www.windowsazure.com/pricing/details/cache/
+[快取價格詳細資料]: http://www.windowsazure.com/pricing/details/cache/
 [Azure Preview 入口網站]: https://portal.azure.com/
 
-[Azure Redis 快取概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
-[Azure Redis 快取]: http://go.microsoft.com/fwlink/?LinkId=398247
+[Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
 
 [Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
@@ -368,4 +330,4 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="10/27/2015"
 	ms.author="sdanie"/>
 
 # 使用 Azure API 管理以頻率限制保護 API
@@ -292,4 +292,4 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 [限制呼叫費率]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [設定使用量配額]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

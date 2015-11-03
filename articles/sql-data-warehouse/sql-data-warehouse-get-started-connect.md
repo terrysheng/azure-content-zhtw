@@ -1,10 +1,10 @@
 <properties
-   pageTitle="入門：連接到 Azure SQL 資料倉儲 | Microsoft Azure"
+   pageTitle="使用 Visual Studio 連接到 SQL 資料倉儲 | Microsoft Azure"
    description="開始連線到 SQL 資料倉儲並執行一些查詢。"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,82 +13,99 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
-   ms.author="twounder"/>
+   ms.date="10/22/2015"
+   ms.author="twounder;barbkess"/>
 
-# 使用 Visual Studio 連接及查詢
+# 使用 Visual Studio 連接到 SQL 資料倉儲
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-本逐步解說將示範使用 Visual Studio 在短時間內連接和查詢 Azure SQL 資料倉儲資料庫的方式。在本逐步解說中，您將：
+本逐步解說示範如何使用 Visual Studio 的 SQL Server Data Tools 在短時間內連接到 Azure SQL 資料倉儲資料庫。一旦連線，您將執行簡單的查詢。
 
-+ 安裝必要軟體
-+ 連接到包含 AdventureWorksDW 範例資料庫的資料庫
-+ 針對範例資料庫執行查詢  
+## 先決條件
 
-## 必要條件
++ SQL 資料倉儲中的 AdventureWorksDW 範例資料庫若要建立此資料庫，請參閱[建立 SQL 資料倉儲資料庫](sql-data-warehouse-get-started-create.md)。 
++ Visual Studio 的 SQL Server Data Tools。如需安裝指示和選項，請參閱[安裝 Visual Studio 和/或 SSDT](sql-data-warehouse-install-visual-studio.md)
 
-+ Visual Studio 2013/2015 - 若要下載並安裝 Visual Studio 2015 及/或 SSDT，請參閱[安裝 Visual Studio 與 SSDT](sql-data-warehouse-install-visual-studio.md)
+## 步驟 1：尋找完整的 Azure SQL 伺服器名稱
 
-## 取得您的完整 Azure SQL 伺服器名稱
+您的資料庫會與 Azure SQL 伺服器相關聯。若要連接至您的資料庫，您需要伺服器的完整名稱 (**servername**.database.windows.net*)。
 
-若要連接至您的資料庫，需要包含您想連接之資料庫的伺服器完整名稱 (****servername**.database.windows.net*)。
+若要尋找完整的伺服器名稱：
 
 1. 移至 [Azure Preview 入口網站](https://portal.azure.com)。
-2. 瀏覽至您想連接的資料庫。
-3. 找出完整的伺服器名稱 (我們將在下列步驟中使用此名稱)：
+2. 按一下 [SQL Database]，再按一下您想要連接的資料庫。此範例使用 AdventureWorksDW 範例資料庫。
+3. 找出完整的伺服器名稱。
 
-![][1]
+    ![完整伺服器名稱][1]
 
-## 連接到您的 SQL Database
+## 步驟 2：連接到您的 SQL Database
 
 1. 開啟 Visual Studio。
-2. 從 [檢視] 功能表開啟 **SQL Server 物件總管**
+2. 開啟 [SQL Server 物件總管]。若要這麼做，請選取 [檢視] > [SQL Server 物件總管]。
  
-![][2]
+    ![SQL Server 物件總管][2]
 
-3. 按一下 [新增 SQL Server] 按鈕
+3. 按一下 [新增 SQL Server] 圖示。
 
-![][3]
+    ![新增 SQL Server][3]
 
-4. 輸入我們在上方擷取的*伺服器名稱*
-5. 在 [驗證] 清單中，選取 [SQL Server 驗證]。
-6. 輸入您建立 SQL Database 伺服器時指定的「登入」和「密碼」，然後按一下 [連接]。
+1. 填寫 [連線到伺服器] 視窗中的欄位。
 
-## 執行範例查詢
+    ![連接到伺服器][4]
 
-我們現已註冊我們的伺服器，接著繼續撰寫查詢。
+    - **伺服器名稱**。輸入我們先前找到的*伺服器名稱*。
+    - **驗證**。選取 [SQL Server 驗證]。
+    - **登入**和**密碼**。輸入 Azure SQL Database 的登入和密碼。
+    - 按一下 [連接]。
 
-1. 按一下 SSDT 中的使用者資料庫。
+1. 若要瀏覽，請展開您的 Azure SQL 伺服器。您可以檢視與伺服器相關聯的資料庫。展開 AdventureWorksDW 以查看範例資料庫中的資料表。
 
-2. 按一下 [新增查詢] 按鈕。新的視窗隨即開啟。
+    ![探索 AdventureWorksDW][5]
 
-![][4]
 
-3. 將下列內程式碼輸入查詢視窗中：
+## 步驟 3：執行範例查詢
+
+我們現已連接到伺服器，接著繼續撰寫查詢。
+
+1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。 
+
+2. 選取 [新增查詢]。新的查詢視窗隨即開啟。
+
+    ![新增查詢][6]
+
+3. 將此 TSQL 查詢複製到查詢視窗中：
 
 	```
 	SELECT COUNT(*) FROM dbo.FactInternetSales;
 	```
 
-4. 執行查詢。
+4. 執行查詢。若要這麼做，請按一下綠色箭頭，或使用下列快速鍵：`CTRL`+`SHIFT`+`E`。
 
-	若要執行查詢，請按一下綠色箭頭，或使用下列快速鍵：`CTRL`+`SHIFT`+`E`。
+    ![執行查詢][7]
+
+1. 查看查詢結果。在此範例中，FactInternetSales 資料表有 60398 個資料列。
+
+    ![查詢結果][8]
 
 ## 後續步驟
 
-您現在可以連接並查詢，請嘗試[使用 PowerBI 連接][]。
+您現在可以連接並查詢，請嘗試[使用 PowerBI 將資料視覺化][]。
 
-[使用 PowerBI 連接]: ./sql-data-warehouse-integrate-power-bi.md
+[使用 PowerBI 將資料視覺化]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 
 
 <!--Image references-->
 
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 [2]: ./media/sql-data-warehouse-get-started-connect/open-ssdt.png
-[3]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
-[4]: ./media/sql-data-warehouse-get-started-connect/new-query.png
+[3]: ./media/sql-data-warehouse-get-started-connect/add-server.png
+[4]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
+[5]: ./media/sql-data-warehouse-get-started-connect/explore-sample.png
+[6]: ./media/sql-data-warehouse-get-started-connect/new-query2.png
+[7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
+[8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

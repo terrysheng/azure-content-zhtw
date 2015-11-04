@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/01/2015"
+	ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Azure 備份的簡介
 本文提供 Microsoft 的雲端整合式備份解決方案的高階概觀，可讓客戶備份內部部署或 Azure 中的資料。
@@ -62,7 +69,8 @@ Azure 備份是一個多租用戶的 Azure 服務，可讓您備份您任何位�
 | Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
 | Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) | | Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
 
 
 ## 後續步驟
@@ -70,4 +78,4 @@ Azure 備份是一個多租用戶的 Azure 服務，可讓您備份您任何位�
 - Azure 備份服務的常見問題集在[這裡](backup-azure-backup-faq.md)列出。
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

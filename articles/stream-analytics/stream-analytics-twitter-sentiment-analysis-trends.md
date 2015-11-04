@@ -83,6 +83,7 @@
 	* **儲存體帳戶**：選擇您為在此區域內執行的所有 Stream Analytics 工作儲存監視資料時所要使用的儲存體帳戶。您可以選擇現有的儲存體帳戶，或建立新帳戶。
 
 3.	按一下左窗格中的 [STREAM ANALYTICS]，以列出 Stream Analytics 工作。
+	![Stream Analytics service icon](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	新工作會以 [已建立] 的狀態列出。請注意，頁面底部的 [啟動] 按鈕會停用。您必須先設定工作輸入、輸出、查詢等項目，才能啟動工作。
 
@@ -237,4 +238,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

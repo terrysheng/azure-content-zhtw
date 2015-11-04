@@ -63,6 +63,8 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 ||工作|設定 (裝置)|| 
 ||警示|維護||
 
+![提供的影片](./media/storsimple-manager-service-administration/Video_icon.png) **提供的影片**
+
 若要觀看逐步引導您使用 StorSimple Manager 服務使用者介面的影片，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)。
 
 ## 使用 StorSimple Manager 服務管理 StorSimple 裝置
@@ -115,4 +117,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 -  [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

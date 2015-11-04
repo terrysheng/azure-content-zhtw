@@ -17,23 +17,23 @@
 
 	- 在 [資源群組] 中，選取或建立 DocumentDB 帳戶的資源群組。依預設會建立新的資源群組。不過，您可以選擇現有的資源群組，以便在其中加入您的 DocumentDB 帳戶。如需詳細資訊，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](resource-group-portal.md)。
  
-	- 使用 [位置] 指定將代管您的 DocumentDB 帳戶的地理位置。
+	- 使用 [位置] 指定將代管您的 DocumentDB 帳戶的地理位置。   
 
-4.	設定新的 DocumentDB 帳戶選項之後，按一下 [建立]。建立 DocumentDB 帳戶可能需要數分鐘。若要檢查狀態，您可以監視「開始面板」上的進度。 
-	![「開始面板」上 [建立] 磚的螢幕擷取畫面 - 線上資料庫建立者](media/documentdb-create-dbaccount/ca4.png)
+4.	設定新的 DocumentDB 帳戶選項之後，按一下 [建立]。  建立 DocumentDB 帳戶可能需要數分鐘。若要檢查狀態，您可以監視「開始面板」上的進度。  
+	![「開始面板」上 [建立] 磚的螢幕擷取畫面 - 線上資料庫建立者](media/documentdb-create-dbaccount/ca4.png)  
   
-	或者，您也可以從 [通知] 中樞監視進度。
+	或者，您也可以從 [通知] 中樞監視進度。  
 
-	![快速建立資料庫 - 通知中樞的螢幕擷取畫面，顯示正在建立 DocumentDB 帳戶](media/documentdb-create-dbaccount/ca5.png)
+	![快速建立資料庫 - 通知中樞的螢幕擷取畫面，顯示正在建立 DocumentDB 帳戶](media/documentdb-create-dbaccount/ca5.png)  
 
 	![通知中樞的螢幕擷取畫面，顯示已成功建立 DocumentDB 帳戶並部署到資源群組 - 線上資料庫建立者通知](media/documentdb-create-dbaccount/ca6.png)
 
 5.	建立 DocumentDB 帳戶之後，即可在線上入口網站中使用預設設定。請注意，DocumentDB 帳戶的預設一致性會設定為 [工作階段]。您可以藉由按一下 [DocumentDB 帳戶] 刀鋒視窗上的 [預設一致性] 磚，調整預設一致性設定。
 
-    ![[資源群組] 刀鋒視窗的螢幕擷取畫面 - 開始進行應用程式開發](media/documentdb-create-dbaccount/ca7.png)
+    ![[資源群組] 刀鋒視窗的螢幕擷取畫面 - 開始進行應用程式開發](media/documentdb-create-dbaccount/ca7.png)  
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

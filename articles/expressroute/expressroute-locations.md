@@ -39,7 +39,7 @@
 
 
 
-下表提供國家雲端的區域和地理政治界限等資訊。
+下表提供國家/地區雲端的區域和地理政治界限等資訊。
 
 |**地緣政治區域**|**Azure 區域**|**ExpressRoute 位置**|
 |---|---|---|---|
@@ -129,4 +129,4 @@
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 - 請確定符合所有先決條件。請參閱 [ExpressRoute 先決條件](expressroute-prerequisites.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!-----HONumber=Nov15_HO1-->

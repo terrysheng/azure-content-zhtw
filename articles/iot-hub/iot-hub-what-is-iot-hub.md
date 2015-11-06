@@ -46,7 +46,7 @@ IoT 專案所面臨的其中一個最大挑戰，就是如何可靠且安全地�
 
 Azure IoT 中心會以下列方式解決裝置連線需求：
 
--   **每個裝置的驗證和安全連線**。每個裝置都可以使用自己的安全性金鑰來連接至 IoT 中心。應用程式後端就能夠個別將每個裝置列入白名單和黑名單，對裝置存取啟用完全的控制。
+-   **每個裝置的驗證和安全連線**。每個裝置都可以使用自己的安全性金鑰來連接至 IoT 中心。應用程式後端就能夠個別將每個裝置列入允許清單和封鎖清單，對裝置存取啟用完全的控制。
 
 -   **一組廣泛的裝置程式庫**。Azure IoT 裝置 SDK 可供各種語言和平台使用並受其支援：C 表示許多 Linux 散發套件、Windows 和 RTOS。Azure IoT 裝置 SDK 也支援 C#、Java 和 JavaScript 等 Managed 語言。
 
@@ -99,4 +99,4 @@ Azure IoT 中心會在實作[服務輔助通訊][lnk-service-assisted-pattern]�
 
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "服務輔助通訊，由 Clemens Vasters 撰寫的部落格文章"
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

@@ -18,20 +18,20 @@
 
 # 將您的行動應用程式連接到 SaaS API
 
-在本教學課程中，您會將行動應用程式連接到企業的軟體即服務 (SaaS) 解決方案。每當新增新的 TodoItem 時，您都將從 [Azure Active Directory 驗證程式庫單一登入][] 更新應用程式，藉此在 SharePoint Online 中建立 Microsoft Word 文件。
+在本教學課程中，您會將行動應用程式連接到企業的軟體即服務 (SaaS) 解決方案。每當新增新的 TodoItem 時，您都將從 [Azure Active Directory 驗證程式庫單一登入] 更新應用程式，藉此在 SharePoint Online 中建立 Microsoft Word 文件。
 
 本教學課程需要下列各項：
 
 * 執行於 Windows 8.1 的 Visual Studio 2013
 * 作用中 [SharePoint Online] 訂閱
-* 完成 [Azure Active Directory 驗證程式庫單一登入][] 教學課程。您應使用 SharePoint 訂閱所提供的租用戶。
+* 完成 [Azure Active Directory 驗證程式庫單一登入] 教學課程。您應使用 SharePoint 訂閱所提供的租用戶。
 
 [AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
 ## <a name="configure-permissions"></a>針對 SharePoint 的委派存取設定您的應用程式
 根據預設，您從 AAD 取得的權杖僅具有有限權限。若要存取第三方資源或 SaaS 應用程式 (例如 SharePoint Online)，您必須明確允許此類存取。
 
-1. 在 **Azure 管理入口網站**的 [Active Directory][] 區段中，選取您的租用戶。導覽至您為 App Service 建立的 Web 應用程式。
+1. 在 [Azure 管理入口網站]的 **Active Directory** 區段中，選取您的租用戶。導覽至您為 App Service 建立的 Web 應用程式。
 
 2. 在 [設定] 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [Office 365 SharePoint Online]，然後授與 [編輯或刪除使用者的檔案] 委派權限。然後按一下 [儲存]。
 
@@ -182,9 +182,10 @@
 
 <!-- URLs. -->
 
-[]: https://manage.windowsazure.com/
+[Azure 管理入口網站]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/zh-TW/sharepoint/
 []: app-service-mobile-ios-aad-sso.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
+[Azure Active Directory 驗證程式庫單一登入]: app-service-mobile-ios-aad-sso.md
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

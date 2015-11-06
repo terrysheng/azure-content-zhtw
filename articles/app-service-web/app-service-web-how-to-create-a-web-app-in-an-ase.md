@@ -30,7 +30,7 @@
 
 ## 建立 Web 應用程式
 
-1. 在 [Azure Preview 入口網站][](https://portal.azure.com/) 中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。 
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/) 中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。 
 
 	![][1]
 
@@ -118,4 +118,4 @@
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

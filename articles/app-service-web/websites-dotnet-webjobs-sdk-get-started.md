@@ -466,7 +466,7 @@ Web 和 WebJob 專案都將使用 SQL Database，因此兩者都會需要 Contos
 	- *Global.asax.cs*  
 	- 在 *Controllers* 資料夾中，新增檔案︰*AdController.cs*
 	- *Views\\Shared* 資料夾中的 *\_Layout.cshtml* 檔案
-- *Views\\Home* 資料夾中的 *Index.cshtml*
+	- *Views\\Home* 資料夾中的 *Index.cshtml*
 	- *Views\\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案<br/><br/>
 
 3. 在 ContosoAdsWebJob 專案中，從所下載的專案加入下列檔案。
@@ -813,4 +813,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 如需詳細資訊，請參閱 [Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?LinkId=390226)。
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

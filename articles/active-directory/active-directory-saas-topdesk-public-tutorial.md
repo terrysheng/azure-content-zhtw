@@ -108,9 +108,9 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "設定應用程式 URL")
 
-    1.  在 [TOPdesk - Public 登入 URL] 文字方塊中，輸入您的使用者用來登入 TOPdesk - Public 應用程式的 URL (例如："**https://qssolutions.topdesk.net*"))。
-2.  在 [TOPdesk - Public 回覆 URL] 文字方塊中，貼上 **TOPdesk - Public AssertionConsumerService URL** (例如："**https://qssolutions.topdesk.net/tas/public/login/saml*")。
-3.  按 [下一步]。
+    1.  在 [TOPdesk - Public 登入 URL] 文字方塊中，輸入您的使用者用來登入 TOPdesk - Public 應用程式的 URL (例如："*https://qssolutions.topdesk.net*"))。
+    2.  在 [TOPdesk - Public 回覆 URL] 文字方塊中，貼上 **TOPdesk - Public AssertionConsumerService URL** (例如："*https://qssolutions.topdesk.net/tas/public/login/saml*")。
+    3.  按 [下一步]。
 
 10. 於 [在 TOPdesk - Public 設定單一登入] 頁面上，按 [下載中繼資料] 下載您的中繼資料，然後將檔案儲存在您的本機電腦中。
 
@@ -148,7 +148,7 @@
     1.  若要上傳您下載的中繼資料檔，請在 [同盟中繼資料] 下按一下 [瀏覽]。
     2.  若要上傳您的憑證檔案，請在 [憑證 (RSA)] 下按一下 [瀏覽]。
     3.  若要上傳您從 TOPdesk 支援小組取得的標誌檔案，請在 [標誌圖示] 下按一下 [瀏覽]。
-    4.  在 [使用者名稱屬性] 文字方塊中，輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
+    4.  在 [使用者名稱屬性] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
 5.  在 [顯示名稱] 文字方塊中，輸入您的組態名稱。
     6.  按一下 [儲存]。
 

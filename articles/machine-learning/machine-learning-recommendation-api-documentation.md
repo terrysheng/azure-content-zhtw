@@ -88,7 +88,10 @@ Azure Machine Learning 建議 API 的服務根 URI 在[這裡。](https://api.da
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
-|	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：20 | | apiVersion | 1.0 | ||| | 要求主體 | 無 |
+|	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：20 | 
+| apiVersion | 1.0 | 
+||| 
+| 要求主體 | 無 |
 
 
 **回應**：
@@ -138,7 +141,8 @@ OData XML
 |:--------			|:--------								|
 |	id |	模型的唯一識別碼 (區分大小寫) |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -200,7 +204,8 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -285,7 +290,8 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 |	id |	模型的唯一識別碼 (區分大小寫) |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -328,7 +334,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -564,7 +571,8 @@ OData XML
 |	modelId |	模型的唯一識別碼 |
 |	buildId |	選擇性 – 識別成功組建的編號。 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -643,7 +651,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -796,7 +805,8 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -900,7 +910,8 @@ OData XML
 |	modelId |	模型的唯一識別碼 |
 |	filterId |	篩選器的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -916,7 +927,8 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -940,7 +952,11 @@ HTTP 狀態碼：200
 
 | 名稱 | 強制 | 類型 | 說明 |
 |:---|:---|:---|:---|
-| 項目識別碼 |是 | [A-z]、[a-z]、[0-9]、[\_] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度： 50 | 項目的唯一識別碼。 | | 項目名稱 | 是 | 任何英數字元<br> 最大長度：255 | 項目名稱。 | | 項目類別 | 是 | 任何英數字元 <br> 最大長度：255 | 此項目所屬類別 (例如烹飪書籍、劇本…) 可以是空的。 | | 描述 | 否，除非顯示功能 (但也可能是空的) | 任何英數字元 <br> 最大長度：4000 | 此項目的說明 | | 功能清單 | 否 | 任何英數字元 <br> 最大長度：4000 | 以逗號分隔的功能名稱清單 = 功能值，可用來增強模型建議；請參閱[進階主題](#2-advanced-topics)一節。 |
+| 項目識別碼 |是 | [A-z]、[a-z]、[0-9]、[\_] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度： 50 | 項目的唯一識別碼。 |
+| 項目名稱 | 是 | 任何英數字元<br> 最大長度：255 | 項目名稱。 |
+| 項目類別 | 是 | 任何英數字元 <br> 最大長度：255 | 此項目所屬類別 (例如烹飪書籍、劇本…) 可以是空的。 | 
+| 描述 | 否，除非顯示功能 (但也可能是空的) | 任何英數字元 <br> 最大長度：4000 | 此項目的說明 | 
+| 功能清單 | 否 | 任何英數字元 <br> 最大長度：4000 | 以逗號分隔的功能名稱清單 = 功能值，可用來增強模型建議；請參閱[進階主題](#2-advanced-topics)一節。 |
 
 
 | HTTP 方法 | URI |
@@ -951,7 +967,10 @@ HTTP 狀態碼：200
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 | | apiVersion | 1.0 | ||| | 要求本文 | 範例 (包含功能)：<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 | 
+| apiVersion | 1.0 | 
+||| 
+| 要求本文 | 範例 (包含功能)：<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **回應**：
@@ -994,7 +1013,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -1096,7 +1116,8 @@ OData XML
 |	modelId |	模型的唯一識別碼 |
 |	token |	目錄項目名稱的 token。應該至少包含 3 個字元。 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -1150,7 +1171,10 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)。<br>最大長度：50 | | apiVersion | 1.0 | ||| | 要求主體 | 使用狀況資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>[A-z]、[a-z]、[0-9]、[_] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度：255 </td><td>使用者的唯一識別碼。</td></tr><tr><td>項目識別碼</td><td>是</td><td>[A-z]、[a-z]、[0-9]、[&#95;] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度：50</td><td>項目的唯一識別碼。</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間。</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限：200MB<br><br>範例：<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)。<br>最大長度：50 | 
+| apiVersion | 1.0 | 
+||| 
+| 要求主體 | 使用狀況資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>[A-z]、[a-z]、[0-9]、[_] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度：255 </td><td>使用者的唯一識別碼。</td></tr><tr><td>項目識別碼</td><td>是</td><td>[A-z]、[a-z]、[0-9]、[&#95;] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度：50</td><td>項目的唯一識別碼。</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間。</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限：200MB<br><br>範例：<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **回應**：
 
@@ -1286,7 +1310,8 @@ OData XML
 |:--------			|:--------								|
 |	forModelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -1352,7 +1377,8 @@ OData XML
 | endDate |	結束日期。格式：yyyy/MM/ddTHH:mm:ss |
 | eventTypes |	以逗號分隔的事件類型字串或是 null，可取得所有事件 |
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -1434,7 +1460,8 @@ OData XML
 | modelId |	模型的唯一識別碼 |
 | fileId |	模型使用方式檔案的唯一識別碼 |
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -1456,7 +1483,8 @@ HTTP 狀態碼：200
 | fid |	模型使用方式檔案的唯一識別碼 |
 | 下載 | 1 |
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -1476,7 +1504,8 @@ HTTP 狀態碼：200
 | modelId |	模型的唯一識別碼 |
 | fileId | 要刪除之檔案的唯一識別碼 |
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -1494,7 +1523,8 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 | modelId |	模型的唯一識別碼 |
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -1515,7 +1545,8 @@ HTTP 狀態碼：200
 | modelId |	模型的唯一識別碼 |
 |samplingSize| 每個功能要包含的值數目是根據出現在目錄中的資料。<br/>可能的值為：<br>-1 - 所有範例。<br>0 - 沒有取樣。<br>N - 傳回每個功能名稱的 N 範例。|
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 
 **回應**：
@@ -1597,7 +1628,8 @@ OData XML
 |samplingSize| 每個功能要包含的值數目是根據出現在目錄中的資料。<br/> 可能的值為：<br>-1 - 所有範例。<br>0 - 沒有取樣。<br>N - 傳回每個功能名稱的 N 範例。|
 |rankBuildId| 排名組建的唯一識別碼或代表上一個排名組建的 -1|
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 
 **回應**：
@@ -1746,7 +1778,8 @@ FBT (通常會一起購買) 組建也是另一種建議運算法，有時稱為�
 | modelId |	模型的唯一識別碼 |
 | userDescription | 目錄的文字識別碼。請注意，如果您使用空格，必須將其編碼改成 %20。請參閱上面的範例。<br>最大長度：50 |
 | apiVersion | 1\.0 |
-||| | 要求本文 |如果保留空白，則組建會以預設的組建參數執行。<br><br>如果您想要設定組建參數，請傳送參數至本文做為 XML，如下列範例所示。(如需參數的說明，請參閱「組建參數」一節)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+||| 
+| 要求本文 |如果保留空白，則組建會以預設的組建參數執行。<br><br>如果您想要設定組建參數，請傳送參數至本文做為 XML，如下列範例所示。(如需參數的說明，請參閱「組建參數」一節)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **回應**：
 
@@ -1821,7 +1854,8 @@ OData XML
 | userDescription | 目錄的文字識別碼。請注意，如果您使用空格，必須將其編碼改成 %20。請參閱上面的範例。<br>最大長度：50 |
 | buildType | 要叫用的組建類型：<br/> - 'Recommendation' 為建議組建 <br> - 'Ranking' 為排名組建 <br/> - 'Fbt' 為 FBT 組建
 | apiVersion | 1\.0 |
-||| | 要求本文 | 如果保留空白，則組建會以預設組建參數執行。<br><br>如果您想要設定組建參數，請將參數當做 XML 傳送至本文，如下列範例所示。(如需參數的說明和完整清單，請參閱＜組建參數＞一節)。`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+|||
+| 要求本文 | 如果保留空白，則組建會以預設組建參數執行。<br><br>如果您想要設定組建參數，請將參數當做 XML 傳送至本文，如下列範例所示。(如需參數的說明和完整清單，請參閱＜組建參數＞一節)。`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **回應**：
 
@@ -2785,7 +2819,8 @@ Azure Machine Learning 建議會在系統中持續發生錯誤時建立通知。
 |:--------			|:--------								|
 | modelId | 選擇性參數。如果省略此參數，您將會取得所有模型的所有通知。<br>有效值：模型的唯一識別碼。|
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應：**
 
@@ -2836,7 +2871,8 @@ OData XML
 |:--------			|:--------								|
 | modelId | 模型的唯一識別碼 |
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -2853,7 +2889,8 @@ HTTP 狀態碼：200
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+||| 
+| 要求主體 | 無 |
 
 **回應**：
 

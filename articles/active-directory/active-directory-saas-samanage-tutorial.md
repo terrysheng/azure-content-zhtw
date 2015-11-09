@@ -64,7 +64,9 @@
     ![Samanage](./media/active-directory-saas-samanage-tutorial/IC771708.png "Samanage")
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 Samanage 中進行驗證。在此程序中，您必須建立 base-64 編碼的憑證檔案。如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 Samanage 中進行驗證。  
+在此程序中，您必須建立 base-64 編碼的憑證檔案。  
+如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
 ###若要設定單一登入，請執行下列步驟：
 
@@ -96,8 +98,10 @@
 
 8.  在 [使用 SAML 登入] 對話方塊頁面上，執行下列步驟，然後按一下 [儲存變更]：
 
-    1.  按一下 [使用 SAML 啟用單一登入]。![使用 SAML 登入](./media/active-directory-saas-samanage-tutorial/IC771719.png "使用 SAML 登入")
-    2.  在 Azure 入口網站的 [設定在 Samanage 單一登入] 對話方塊頁面中，複製**識別提供者 ID** 值，然後將它貼至 [識別提供者 URL] 文字方塊中。![設定單一登入](./media/active-directory-saas-samanage-tutorial/IC771720.png "設定單一登入")
+    1.  按一下 [使用 SAML 啟用單一登入]。
+        ![使用 SAML 登入](./media/active-directory-saas-samanage-tutorial/IC771719.png "使用 SAML 登入")
+    2.  在 Azure 入口網站的 [設定在 Samanage 單一登入] 對話方塊頁面中，複製**識別提供者 ID** 值，然後將它貼至 [識別提供者 URL] 文字方塊中。
+        ![設定單一登入](./media/active-directory-saas-samanage-tutorial/IC771720.png "設定單一登入")
 3.  在 Azure 入口網站的 [設定在 Samanage 單一登入] 對話方塊頁面中，複製**遠端登入 URL** 值，然後將其貼至 [登入 URL] 文字方塊中。
     4.  在 Azure 入口網站的 [設定在 Samanage 單一登入] 對話方塊頁面中，複製**遠端登出 URL** 值，然後將其貼至 [登出 URL] 文字方塊中。
     5.  從您下載的憑證建立 **base-64 編碼**檔案。  
@@ -105,7 +109,8 @@
         >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
     6.  在記事本中開啟您的 base-64 編碼的憑證，將其內容複製到剪貼簿，然後貼到 [X.509 憑證] 文字方塊
-    7.  按一下 [若 Samanage 中不存在使用者則加以建立]。![更新](./media/active-directory-saas-samanage-tutorial/IC771722.png "更新")
+    7.  按一下 [若 Samanage 中不存在使用者則加以建立]。
+        ![更新](./media/active-directory-saas-samanage-tutorial/IC771722.png "更新")
     8.  按一下 [更新]。
 
 9.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。

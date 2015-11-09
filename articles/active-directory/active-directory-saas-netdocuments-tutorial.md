@@ -64,7 +64,9 @@
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶在 NetDocuments 中進行驗證。設定 NetDocuments 的單一登入需要您從憑證抓取指紋值。如果您不熟悉這個程序，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶在 NetDocuments 中進行驗證。  
+設定 NetDocuments 的單一登入需要您從憑證抓取指紋值。  
+如果您不熟悉這個程序，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
 
 ###若要設定單一登入，請執行下列步驟：
 
@@ -80,7 +82,7 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "設定應用程式 URL")
 
-    1.  在 [登入 URL] 文字方塊中，輸入使用者用來登入您 NetDocuments 應用程式的 URL (例如："**https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*")。
+    1.  在 [登入 URL] 文字方塊中，輸入使用者用來登入您 NetDocuments 應用程式的 URL (例如："*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*")。
 2.  在 [NetDocuments 回覆 URL] 文字方塊中，輸入您在 [登入 URL] 文字方塊中，輸入的相同值。  
 
         >[AZURE.NOTE]您可以在 [同盟身分識別] 對話方塊結尾找到正確值 (請參閱步驟 9 的螢幕擷取畫面)。

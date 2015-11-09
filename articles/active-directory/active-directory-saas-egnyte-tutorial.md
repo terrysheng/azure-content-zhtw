@@ -64,7 +64,9 @@
     ![Egnyte](./media/active-directory-saas-egnyte-tutorial/IC787814.png "Egnyte")
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證到 Egnyte。在此程序中，您必須建立 base-64 編碼的憑證檔案。如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證到 Egnyte。  
+在此程序中，您必須建立 base-64 編碼的憑證檔案。  
+如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
 ###若要設定單一登入，請執行下列步驟：
 
@@ -76,7 +78,7 @@
 
     ![設定單一登入](./media/active-directory-saas-egnyte-tutorial/IC787816.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面上，於 [Egnyte 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："**https://company.egnyte.com*"，然後按 [下一步]。
+3.  在 [設定應用程式 URL] 頁面上，於 [Egnyte 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://company.egnyte.com*"，然後按 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-egnyte-tutorial/IC787817.png "設定應用程式 URL")
 

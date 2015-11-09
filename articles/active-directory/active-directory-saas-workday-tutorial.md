@@ -103,7 +103,7 @@
 
     ![重新導向 URL](./media/active-directory-saas-workday-tutorial/IC7829581.png "重新導向 URL")
 
-     9\.1.按一下 [新增資料列]。
+     9.1.按一下 [新增資料列]。
 
      9\.2.在 [登入重新導向 URL] 文字方塊和 [行動裝置重新導向 URL] 文字方塊中，輸入您在 Azure 入口網站的 [設定應用程式 URL] 頁面上輸入的 [Workday 租用戶 URL]。
     
@@ -120,7 +120,7 @@
 
      10\.1.選取 [啟用 SAML 驗證]。
 
-     10\.2.按一下 [新增資料列]。
+     10.2.按一下 [新增資料列]。
 
 11. 在 [SAML 身分識別提供者] 區段中，執行下列步驟：
 
@@ -157,19 +157,21 @@
 
 12.  執行下列步驟：<br><br> ![SSO 組態](./media/active-directory-saas-workday-tutorial/IC7829351111.png "SSO 組態")
 
-     12\.1.啟用 [x509 私密金鑰組]。
+     12.1.啟用 [x509 私密金鑰組]。
 
-     12\.2.在 [服務提供者識別碼] 文字方塊中，輸入 ****http://www.workday.com**。
+     12.2.在 [服務提供者識別碼] 文字方塊中，輸入 **http://www.workday.com**。
 
-     12\.3.選取 [啟用 SP 啟始的 SAML 驗證]。
+     12.3.選取 [啟用 SP 啟始的 SAML 驗證]。
 
-     12\.4.在 Azure 入口網站中的 [在 Workday 設定單一登入] 對話方塊頁面上，複製 [單一登入服務 URL] 值，然後將它貼入 [IdP SSO 服務 URL] 文字方塊中。
+     12.4.在 Azure 入口網站中的 [在 Workday 設定單一登入] 對話方塊頁面上，複製 [單一登入服務 URL] 值，然後將它貼入 [IdP SSO 服務 URL] 文字方塊中。
      
-     12\.5. 選取 [不要壓縮 SP 啟始的驗證要求]。
+     12.5. 選取 [不要壓縮 SP 啟始的驗證要求]。
 
-     12\.6.選取 [SHA256] 做為 [驗證要求簽章方法]。<br><br> ![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/IC782932.png "驗證要求簽章方法") <br><br>
+     12.6.選取 [SHA256] 做為 [驗證要求簽章方法]。<br><br>
+        ![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/IC782932.png "驗證要求簽章方法") <br><br>
  
-     12\.7. 按一下 [確定]。<br><br> ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+     12.7. 按一下 [確定]。<br><br>
+        ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 12. 在 Azure AD 入口網站的 [在 Workday 設定單一登入] 頁面上，按 [下一步]。<br><br>
 

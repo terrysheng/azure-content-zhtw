@@ -80,8 +80,8 @@
 
     ![設定 App 設定](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "設定 App 設定")
 
-    1.  在 [登入 URL] 文字方塊中，輸入使用者用來登入 Aba Sainsburys Connect 應用程式的 URL (例如：**https://myaba.co.uk/client-access/sainsburys/saml.php*)。
-2.  按 [**下一步**]
+    1.  在 [登入 URL] 文字方塊中，輸入使用者用來登入至 Aba Sainsburys Connect 應用程式的 URL (例如：**https://myaba.co.uk/client-access/sainsburys/saml.php*))。
+    2.  按 [**下一步**]
 
 4.  於 [在 Aba Sainsburys Connect 設定單一登入] 頁面上，按一下 [下載中繼資料] 以下載您的中繼資料，然後將中繼資料檔儲存在您的電腦中。
 

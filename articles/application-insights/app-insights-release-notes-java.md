@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/21/2015" 
 	ms.author="awills"/>
  
 # Java 適用的 Application Insights SDK 的版本資訊
@@ -36,6 +36,11 @@
 * 請下載最新版的 [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) 取代舊版本。 
  
 比較舊的和新的 ApplicationInsights.xml。您看到的變更許多是因為我們新增與移除了模組。恢復您所做的任何自訂。
+
+## 版本 1.0.2
+
+- 與 Docker 相容
+- Bug 修正 - 攔截所有例外狀況、處理所有成功的狀態碼
 
 ## 版本 1.0.1
 - [Java 代理程式](app-insights-java-agent.md)可收集與下列有關的相依性資訊：
@@ -68,4 +73,4 @@
 - 能夠藉由將 ```SyntheticSource``` 屬性加入至報告項目，將遙測項目標記為綜合。
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

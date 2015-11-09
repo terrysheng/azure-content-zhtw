@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure 自動化中的認證資產 | Microsoft Azure"
-   description="Azure 自動化中的認證資產包含可用來驗證由 Runbook 存取資源的安全性認證。本文說明如何建立認證資產和在 Runbook 中使用它們。"
+   description="Azure 自動化中的認證資產包含可用來驗證由 Runbook 或 DSC 設定存取資源的安全性認證。本文說明如何建立認證資產和在 Runbook 或 DSC 設定中使用它們。"
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的認證資產
 
-自動化認證資產會保存 [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) 物件，其中包含安全性認證，例如使用者名稱和密碼。Runbook 可以使用可接受 PSCredential 物件進行驗證的 Cmdlet，否則 Runbook可能會擷取 PSCredential 物件的使用者名稱和密碼，以對需要驗證的一些應用程式或服務提供。認證的屬性會安全地儲存在 Azure 自動化中，並且可在 Runbook 中透過 [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 活動存取。
+自動化認證資產會保存 [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) 物件，其中包含安全性認證，例如使用者名稱和密碼。Runbook 和 DSC 設定可以使用可接受 PSCredential 物件進行驗證的 Cmdlet，否則可能會擷取 PSCredential 物件的使用者名稱和密碼，以對需要驗證的一些應用程式或服務提供。認證的屬性會安全地儲存在 Azure 自動化中，並且可在 Runbook 或 DSC 設定中透過 [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 活動存取。
 
 >[AZURE.NOTE]Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
 
 ## Windows PowerShell Cmdlet
 
-下表中的 Cmdlet 是用來透過 Windows PowerShell 建立和管理自動化認證資產。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 中使用。
+下表中的 Cmdlet 是用來透過 Windows PowerShell 建立和管理自動化認證資產。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
 
 |Cmdlet|說明|
 |:---|:---|
@@ -34,13 +34,13 @@
 
 ## Runbook 活動
 
-下表中的活動用來存取中 Runbook 的認證。
+下表中的活動用來存取中 Runbook 和 DSC 設定的認證。
 
 |活動|說明|
 |:---|:---|
-|Get-AutomationPSCredential|取得要在 Runbook 中使用的認證。傳回 [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) 物件。|
+|Get-AutomationPSCredential|取得要在 Runbook 或 DSC 設定中使用的認證。傳回 [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) 物件。|
 
->[AZURE.NOTE]您應該避免在 Get-AutomationPSCredential 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 與認證資產之間的相依性變得複雜。
+>[AZURE.NOTE]您應該避免在 Get-AutomationPSCredential 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與認證資產之間的相依性變得複雜。
 
 ## 建立新認證
 
@@ -71,9 +71,9 @@
 	$cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
 	New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 
-## 在 Runbook 中使用 PowerShell 認證
+## 使用 PowerShell 認證
 
-您會使用 **Get-AutomationConnection** 活動在 Runbook 中擷取認證資產。這會傳回 [PSCredential 物件](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx)，您可以對需要 PSCredential 參數的活動或 Cmdlet 搭配使用此物件。您也可以擷取要個別使用的認證物件的屬性。物件具備使用者名稱和安全密碼的屬性，或是您可以使用 **GetNetworkCredential** 方法來傳回將提供不安全版本的密碼的 [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) 物件。
+您會使用 **Get-AutomationPSCredential** 活動在 Runbook 或 DSC 設定中擷取認證資產。這會傳回 [PSCredential 物件](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx)，您可以對需要 PSCredential 參數的活動或 Cmdlet 搭配使用此物件。您也可以擷取要個別使用的認證物件的屬性。物件具備使用者名稱和安全密碼的屬性，或是您可以使用 **GetNetworkCredential** 方法來傳回將提供不安全版本的密碼的 [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) 物件。
 
 ### 文字式 Runbook 範例
 
@@ -96,6 +96,8 @@
 
 ![加入認證至畫布](media/automation-credentials/get-credential.png)
 
+## 在 DSC 中使用 PowerShell 認證
+雖然 Azure 自動化中的 DSC 設定可以使用 **Get-AutomationPSCredential** 參考認證資產，但如有需要，也可以透過參數傳入認證資產。如需詳細資訊，請參閱[編譯 Azure Automation DSC 中的設定](automation-dsc-compile.md#credential-assets)。
 
 ## 相關文章
 
@@ -103,4 +105,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

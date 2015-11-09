@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -225,4 +225,4 @@ Service Fabric 將所有百分比轉譯為健康狀態評估的實體實際數�
 [資料序列化](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

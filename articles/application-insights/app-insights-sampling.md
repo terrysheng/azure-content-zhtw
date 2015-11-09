@@ -30,17 +30,27 @@
 取樣目前可供 ASP.NET SDK 或[任何網頁](#other-web-pages)使用。
 
 ### ASP.NET 伺服器
-若要在應用程式中設定取樣，請插入下列程式碼片段至 Global.asax.cs 的 `Application_Start()` 方法：
 
-```C#
+1. 將您專案的 NuGet 封裝更新為 Application Insights 的最新「發行前」版本。以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。 
 
-    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+2. 將這個程式碼片段加入 ApplicationInsights.config
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
 ```
 
-> [AZURE.NOTE]針對取樣百分比，選擇接近 100/N 的百分比，其中 N 是整數。舉例來說，有效的值包括的 50 (= 1/2)、33.33 (= 1/3)、25 (= 1/4)、20 (= 1/5)，依此類推。目前取樣並不支援其他值。
+> [AZURE.NOTE]針對取樣百分比，選擇接近 100/N 的百分比，其中 N 是整數。目前取樣並不支援其他值。
 
+<a name="other-web-pages"></a>
 ### 具有 JavaScript 的網頁
 
 您可以從任何伺服器設定要取樣的網頁。針對 ASP.NET 伺服器，設定用戶端和伺服器端。
@@ -63,6 +73,26 @@
 確定您在 JavaScript 中提供與伺服器端相同的取樣百分比。
 
 [深入了解 API](app-insights-api-custom-events-metrics.md)
+
+
+### 替代方法：在伺服器程式碼中設定取樣
+
+
+除了在 .config 檔中設定取樣參數之外，您還可以使用程式碼。這樣做可讓您開啟或關閉取樣。
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+    // It's recommended to set SamplingPercentage in the .config file instead.
+
+    // This configures sampling percentage at 10%:
+    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+
+```
 
 
 ## 何時使用取樣？
@@ -132,4 +162,4 @@ SDK 會決定要卸除的遙測項目以及要保留哪些。取樣決策會根�
 
 * 否，目前不支援對裝置應用程式進行取樣。 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

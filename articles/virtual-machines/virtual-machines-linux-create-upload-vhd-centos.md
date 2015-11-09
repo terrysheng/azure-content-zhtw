@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/22/2015"
 	ms.author="szarkos"/>
 
 # 準備執行 Azure 的 CentOS 型虛擬機器
@@ -32,7 +32,7 @@
 
 **CentOS 安裝注意事項**
 
-- Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
+- Azure 不支援 VHDX 格式，只支援**固定 VHD**。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 
 - 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果願意，您可以在資料磁碟上使用 LVM 或 [RAID](virtual-machines-linux-configure-raid.md)。
 
@@ -82,33 +82,12 @@
 		# sudo chkconfig network on
 
 
-8. **僅限 CentOS 6.3**：安裝 Linux Integration Services 的驅動程式
+8. **僅限 CentOS 6.3**：安裝 Linux Integration Services (LIS) 的驅動程式
 
-	**重要事項：此步驟僅適用於 CentOS 6.3 和較舊的版本。** 在 CentOS 6.4+ 中，Linux Integration Services *已是核心中的可用項目*。
+	**重要事項：此步驟僅適用於 CentOS 6.3 和較舊的版本。** 在 CentOS 6.4+ 中，Linux Integration Services *已是標準核心中的可用項目*。
 
-	a) 從 [Microsoft 下載中心](http://www.microsoft.com/download/details.aspx?id=41554)取得包含 Linux Integration Services 驅動程式的 .iso 檔案。
+	- 請遵循 [LIS 下載頁面](https://www.microsoft.com/zh-TW/download/details.aspx?id=46842)上的安裝指示，並將 RPM 安裝到您的映像上。  
 
-	b) 在 Hyper-V 管理員的 **[動作]** 窗格中，按一下 **[設定]**。
-
-	![開啟 Hyper-V 設定](./media/virtual-machines-linux-create-upload-vhd-centos/settings.png)
-
-	c) 在 **[硬體]** 窗格中，按一下 **[IDE 控制器 1]**。
-
-	![使用安裝媒體新增 DVD 光碟機](./media/virtual-machines-linux-create-upload-vhd-centos/installiso.png)
-
-	d) 在 **[IDE 控制器]** 方塊中，按一下 **[DVD 光碟機]**，再按 **[新增]**。
-
-	e) 選取 **[映像檔]**，瀏覽至 **Linux IC v3.2.iso**，然後按一下 **[開啟]**。
-
-	f) 在 **[設定]** 頁面中，按一下 **[確定]**。
-
-	g) 按一下 **[連接]**，以開啟虛擬機器的視窗。
-
-	h) 在 [命令提示字元] 視窗中，輸入下列命令：
-
-		# sudo mount /dev/cdrom /media
-		# sudo /media/install.sh
-		# sudo reboot
 
 9. 執行下列命令以安裝 python-pyasn1 封裝：
 
@@ -365,4 +344,4 @@
 
 16. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

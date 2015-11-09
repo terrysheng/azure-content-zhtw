@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 管理原則參考文件
@@ -32,6 +32,8 @@
 	-	[驗證 JWT][] - 強制擷取自指定 HTTP 標頭或指定查詢參數的 JWT 必須存在且有效。
 -	[進階原則][]
 	-	[控制流程][] - 根據布林值[運算式][]的評估結果，有條件地套用原則陳述式。
+	-	[轉寄要求][] - 將要求轉寄給後端服務。
+	-	[記錄至事件中樞][] - 將指定格式的訊息傳送給[記錄器](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger)實體所定義的訊息目標。
 	-	[設定變數][] - 保存具名 [context][] 變數中的值，供日後存取使用。
 -	[驗證原則][]
 	-	[使用基本驗證進行驗證][] - 使用基本驗證來驗證後端服務。
@@ -72,6 +74,8 @@
 [設定變數]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [運算式]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 [context]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
+[轉寄要求]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
+[記錄至事件中樞]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
 [驗證原則]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [使用基本驗證進行驗證]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
@@ -105,4 +109,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -27,26 +27,14 @@
 
 ## 步驟 1：安裝 Azure PowerShell
 
-您也必須有 Azure PowerShell 1.0.0 版或更新版本。如果您尚未安裝和設定 Azure PowerShell，請按一下[這裡](../powershell-install-configure.md)以取得指示。
-
-您可以在 Azure PowerShell 提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
-
-	Get-Module azure | format-table version
-
-範例如下。
-
-	Version
-	-------
-	1.0.0
-
-如果您沒有 1.0.0 版或更新版本，則必須使用 [控制台] 中的 [程式和功能] 移除 Azure PowerShell，然後安裝最新版本。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## 步驟 2：設定您的訂用帳戶
 
 首先，開啟 Azure PowerShell 提示字元。
 
 登入您的帳戶。
-	
+
 	Login-AzureRmAccount
 
 使用下列命令取得您的訂用帳戶名稱。
@@ -130,8 +118,8 @@
 
 	Get-AzureRmAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-### NAT 規則	
-	
+### NAT 規則
+
 使用輸入 NAT 規則可設定以資源管理員為基礎的虛擬機器，允許來自網際網路的連入流量並放在負載平衡集中。在這兩種情況下，您必須指定負載平衡器執行個體和其他設定。如需詳細資料，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 以資源管理員部署模型建立的 VM，需要以資源管理員建立的虛擬網路。如果需要，請使用新虛擬機器的至少一個子網路建立以資源管理員為基礎的新虛擬網路。以下是具有 **frontendSubnet** 和 **backendSubnet** 兩個子網路的新虛擬網路 **TestNet** 的範例。
@@ -215,7 +203,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 - 要指派給 NIC 的負載平衡器執行個體的後端位址集區的索引編號
 - 要指派給 NIC 之輸入 NAT 規則的索引編號。
 
-如需關於如何使用輸入 NAT 規則建立負載平衡器執行個體的詳細資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+如需如何使用輸入 NAT 規則建立負載平衡器執行個體的相關資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 將這幾行複製到您的命令集，並指定所需的名稱和索引編號。
 
@@ -235,7 +223,7 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 - 先前建立的負載平衡器執行個體名稱，其具有負載平衡流量適用的規則。
 - 要指派給 NIC 的負載平衡器執行個體的後端位址集區的索引編號
 
-如需關於如何使用負載平衡流量適用規則建立負載平衡器執行個體的詳細資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+如需如何使用負載平衡流量適用規則建立負載平衡器執行個體的相關資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 將這幾行複製到您的命令集，並指定所需的名稱和索引編號。
 
@@ -396,4 +384,4 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

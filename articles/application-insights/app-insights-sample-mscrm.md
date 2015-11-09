@@ -40,10 +40,10 @@
 
 當您於另一個瀏覽器視窗中執行下一個步驟時，**保持程式碼頁面開啟**。您很快就會需要程式碼。
 
-### 在 Microsoft CRM 中建立 JavaScript Web 資源
+### 在 Microsoft Dynamics CRM 中建立 JavaScript Web 資源
 
 1. 開啟您的 CRM Online 執行個體並使用系統管理員權限登入。
-2. 開啟 [Microsoft Dynamics CDM 設定]、[自訂]、[系統]。
+2. 開啟 [Microsoft Dynamics CRM 設定]、[自訂]、[自訂系統]
 
     ![](./media/app-insights-sample-mscrm/04.png)
     
@@ -60,7 +60,7 @@
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. 從 Application Insights 複製程式碼。在複製時請務必略過 <script> 標記。請參閱以下螢幕擷取畫面：
+4. 從 Application Insights 複製程式碼。在複製時請務必略過指令碼標記。請參閱以下螢幕擷取畫面：
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -149,9 +149,9 @@
 
 如果您[將資料匯出到 Microsoft Power BI](app-insights-export-power-bi.md)，則可以進行更深入的分析。
 
-## 範例 Dynamics CRM 解決方案
+## Microsoft Dynamics CRM 解決方案範例
 
-[以下是在 Dynamics CRM 中實作的範例解決方案](https://dynamicsandappinsights.codeplex.com/)。
+[以下是在 Microsoft Dynamics CRM 中實作的解決方案範例](https://dynamicsandappinsights.codeplex.com/)。
 
 ## 詳細資訊
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

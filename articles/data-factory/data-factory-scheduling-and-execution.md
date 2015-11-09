@@ -511,6 +511,8 @@ Hive 活動接受 2 個輸入，並且每日產生輸出配量。您可以針對
 	}
 
 
+## 鏈結活動
+您可以將一個活動的輸出資料集設為另一個活動的輸入資料集，藉此鏈結兩個活動。活動可以在相同的管線中或在不同的管線中。只有當第一個活動執行成功完成時，第二個活動才會執行。此鏈結發生在時間配量層級 (在資料集內的不連續單位)。
 
 ## Data Factory 系統變數
 
@@ -518,7 +520,7 @@ Hive 活動接受 2 個輸入，並且每日產生輸出配量。您可以針對
 ------------- | ----------- | ------------ | ------------------------
 WindowStart | 目前活動執行時段的時間間隔開始 | 活動 | <ol><li>指定資料選取範圍查詢。請參閱[資料移動活動](data-factory-data-movement-activities.md)文章中參考的連接器文章。</li><li>傳遞參數給 Hive 指令碼 (如上所示的範例)。</li>
 WindowEnd | 目前活動執行時段的時間間隔結束 | 活動 | 同上
-SliceStart | 所產生之資料配量的時間間隔開始 | 活動<br/>資料集 | <ol><li>指定使用 [Azure Blob](data-factory-azure-blob-connector.md) 和[檔案系統資料集](data-factory-onprem-file-system-connector.md)時的動態資料夾路徑與檔案名稱。</li><li>使用 Data Factory 函式在活動輸入集合中指定輸入相依性。</li></ol>
+SliceStart | 所產生之資料配量的時間間隔開始 | 活動<br/>資料集 | <ol><li>指定使用 [Azure blob](data-factory-azure-blob-connector.md) 和[檔案系統資料集](data-factory-onprem-file-system-connector.md)時的動態資料夾路徑與檔案名稱。</li><li>使用 Data Factory 函式在活動輸入集合中指定輸入相依性。</li></ol>
 SliceEnd | 所產生之目前資料配量的時間間隔結束 | 活動<br/>資料集 | 同上。 
 
 > [AZURE.NOTE]目前 Data Factory 需要活動中指定的排程與輸出資料集之可用性中指定的排程完全相符。這表示 WindowStart、WindowEnd 和 SliceStart 與 SliceEnd 一律對應到相同的時間期間和單一輸出配量。
@@ -534,7 +536,7 @@ SliceEnd | 所產生之目前資料配量的時間間隔結束 | 活動<br/>資�
 
 	指定輸入相依性運算式不需要 $$。
 
-在下列範例中，JSON 檔案中的 **sqlReaderQuery** 屬性指派給 **Text.Format** 函式所傳回的值。此範例也會使用名為 **WindowStart** 的系統變數，它代表活動執行時段的開始時間。
+在下列範例中，將 JSON 檔案中的 **sqlReaderQuery** 屬性指派給 **Text.Format** 函式所傳回的值。此範例也會使用名為 **WindowStart** 的系統變數，它代表活動執行時段的開始時間。
 	
 	{
 	    "Type": "SqlSource",
@@ -556,7 +558,7 @@ Date | AddQuarters(X,Y) | X：DateTime <p>Y：int</p> | 將 Y * 3 個月新增�
 Date | AddWeeks(X,Y) | X：DateTime<p>Y：int</p> | 將 Y * 7 天新增至 X<p>範例：9/15/2013 12:00:00 PM + 1 週 = 9/22/2013 12:00:00 PM</p>
 Date | AddYears(X,Y) | X：DateTime<p>Y：int</p> | 將 Y 年新增至 X。<p>範例：9/15/2013 12:00:00 PM + 1 年 = 9/15/2014 12:00:00 PM</p>
 Date | Day(X) | X：DateTime | 取得 X 的日元件。<p>範例：9/15/2013 12:00:00 PM 的日期是 9。</p>
-Date | DayOfWeek(X) | X：DateTime | 取得 X 的週元件。<p>範例：9/15/2013 12:00:00 PM 的星期幾是星期日。</p>
+Date | DayOfWeek(X) | X：DateTime | 取得 X 的星期幾元件。<p>範例：9/15/2013 12:00:00 PM 的星期幾是星期日。</p>
 Date | DayOfYear(X) | X：DateTime | 取得 X 的年元件代表的一年當中的日期。<p>範例：<br/>12/1/2015：2015 年的第 335 天<br/>12/31/2015：2015 年的第 365 天<br/>12/31/2016：2016 年的第 366 天 (閏年)</p>
 Date | DaysInMonth(X) | X：DateTime | 取得參數 X 的月元件代表的月份中的日期。<p>範例：9/15/2013 的 DaysInMonth 是 30，因為 9 月份有 30 天。</p>
 Date | EndOfDay(X) | X：DateTime | 取得 X 的結尾天數 (日元件) 代表的日期時間。<p>範例：9/15/2013 05:10:23 PM 的 EndOfDay 是 9/15/2013 11:59:59 PM。</p>
@@ -607,7 +609,7 @@ DateTime | Ticks(X) | X：DateTime | 取得參數 X 的刻度屬性。一個刻�
    
 如果已產生資料配量但是未通過驗證，將不會處理相依於驗證失敗的配量的下游配量活動執行。
 
-Data Factory 中資料配量的各種狀態涵蓋於[監視和管理管線](data-factory-monitor-manage-pipelines.md)文章中。
+[監視和管理管線](data-factory-monitor-manage-pipelines.md)文章中介紹 Data Factory 中資料配量的各種狀態。
 
 ## 外部資料
 
@@ -676,4 +678,4 @@ Data Factory 中資料配量的各種狀態涵蓋於[監視和管理管線](data
 
   
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

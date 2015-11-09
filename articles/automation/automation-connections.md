@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure 自動化中的連接資產 |Microsoft Azure"
-   description="Azure 自動化中的連接資產包含從 Runbook 連接到外部服務或應用程式所需的資訊。這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式加以使用。"
+   description="Azure 自動化中的連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式加以使用。"
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的連接資產
 
-自動化連接資產包含從 Runbook 連接到外部服務或應用程式所需的資訊。除了連接資訊，例如 URL 或連接埠等，這可能包括驗證所需的資訊，例如使用者名稱和密碼。連接的值會將連接到特定應用程式的所有屬性放在一個資產中，而不是建立多個變數。使用者可以在一個地方編輯連接的值，而您可以將連接的名稱在單一參數中傳遞至 Runbook。可以在 Runbook 中使用 **Get-AutomationConnection** 活動存取連接的屬性。
+自動化連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。除了連接資訊，例如 URL 或連接埠等，這可能包括驗證所需的資訊，例如使用者名稱和密碼。連接的值會將連接到特定應用程式的所有屬性放在一個資產中，而不是建立多個變數。使用者可以在一個地方編輯連接的值，而您可以將連接的名稱在單一參數中傳遞至 Runbook 或 DSC 設定。可以在 Runbook 或 DSC 設定中使用 **Get-AutomationConnection** 活動存取連接的屬性。
 
 建立連接時，您必須指定*連接類型*。連接類型是定義一組屬性的範本。連接會定義在其連接類型中定義的每一個屬性的值。連接類型是在整合模組中加入 Azure 自動化或使用 [Azure 自動化 API](http://msdn.microsoft.com/library/azure/mt163818.aspx) 建立。當您建立連接時，唯一可用的連接類型是安裝在您的自動化帳戶中的那些。
 
@@ -25,7 +25,7 @@
 
 ## Windows PowerShell Cmdlet
 
-下表中的 Cmdlet 是用來使用 Windows PowerShell 建立及管理自動化連接。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 中使用。
+下表中的 Cmdlet 是用來使用 Windows PowerShell 建立及管理自動化連接。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
 
 |Cmdlet|說明|
 |:---|:---|
@@ -34,15 +34,15 @@
 |[Remove-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921827.aspx)|移除現有的連接。|
 |[Set-AzureAutomationConnectionFieldValue](http://msdn.microsoft.com/library/dn921826.aspx)|設定現有連接的特定欄位的值。|
 
-## Runbook 活動
+## 活動
 
-下表中的活動是用來存取 Runbook 中的連接。
+下表中的活動是用來存取 Runbook 或 DSC 設定中的連接。
 
 |活動|說明|
 |---|---|
-|Get-AutomationConnection|取得要在 Runbook 中使用的連接。傳回具有連線屬性的雜湊表。|
+|Get-AutomationConnection|取得要使用的連接。傳回具有連線屬性的雜湊表。|
 
->[AZURE.NOTE]您應該避免在 **Get-AutomationConnection** 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 與連接資產之間的相依性變得複雜。
+>[AZURE.NOTE]您應該避免在 **Get-AutomationConnection** 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與連接資產之間的相依性變得複雜。
 
 ## 建立新連接
 
@@ -79,9 +79,9 @@
 	New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
 
 
-## 在 Runbook 中使用連接
+## 在 Runbook 或 DSC 設定中使用連接
 
-您會使用 **Get-AutomationConnection** Cmdlet 在 Runbook 中擷取連接。這個活動會擷取連接中不同欄位的值，並傳回其作為 [雜湊表](http://go.microsoft.com/fwlink/?LinkID=324844)，然後可以與 Runbook 中的適當命令搭配使用。
+您會使用 **Get-AutomationConnection** Cmdlet 在 Runbook 或 DSC 設定中擷取連接。這個活動會擷取連接中不同欄位的值，並傳回其作為 [雜湊表](http://go.microsoft.com/fwlink/?LinkID=324844)，然後可以與 Runbook 或 DSC 設定中的適當命令搭配使用。
 
 ### 文字式 Runbook 範例
 下列範例命令顯示如何在上述範例中使用 Twilio 連接從 Runbook 傳送簡訊。這裡使用的 Send-TwilioSMS 活動有兩個參數集，每個使用不同的方法來向 Twilio 服務驗證。其中一個使用連接物件而另一個對帳戶 SID 和授權權杖使用個別的參數。在此範例中會顯示這兩種方法。
@@ -120,4 +120,4 @@
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

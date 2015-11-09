@@ -1,7 +1,20 @@
-<properties pageTitle="教學課程：Azure Active Directory 與 Workday 整合 | Microsoft Azure" description="了解如何使用 Workday 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="教學課程：Azure Active Directory 與 Workday 整合 | Microsoft Azure" 
+    description="了解如何使用 Workday 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #教學課程：Azure Active Directory 與 Workday 整合
->[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=330042)。
   
 本教學課程的目的是要示範 Azure 與 Workday 的整合。本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -31,17 +44,17 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![[應用程式]](./media/active-directory-saas-workday-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-workday-tutorial/IC700994.png "[應用程式]")
 
-4.  若要開啟 [應用程式資源庫]，請按一下 [新增應用程式]，然後按一下 [加入應用程式讓我的組織使用]。
+4.  若要開啟 [應用程式庫]，請按一下 [新增應用程式]，然後按一下 [新增應用程式讓我的組織使用]。
 
-    ![欲執行動作](./media/active-directory-saas-workday-tutorial/IC700995.png "您要如何處理？")
+    ![您要如何處理？](./media/active-directory-saas-workday-tutorial/IC700995.png "您要如何處理？")
 
 5.  在**搜尋方塊**中，輸入 **Workday**。
 
     ![Workday](./media/active-directory-saas-workday-tutorial/IC701021.png "Workday")
 
-6.  在結果窗格中，選取 [Workday]，然後按一下 [完成] 以加入應用程式。
+6.  在結果窗格中，選取 [Workday]，然後按一下 [完成] 以新增應用程式。
 
     ![Workday](./media/active-directory-saas-workday-tutorial/IC701022.png "Workday")
 
@@ -68,7 +81,7 @@
 
         >[AZURE.NOTE]您的回覆 URL 必須有子網域 (例如：www、wd2、wd3、wd3-impl、wd5、wd5-impl)。使用「**http://www.myworkday.com*」這類網域有效，但「**http://myworkday.com*」這類網域則無效。
  
-4.  在 [在 Workday 設定單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後將憑證檔案儲存在您的電腦中。
+4.  在 [設定在 Workday 單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後將憑證檔案儲存在您的電腦中。
 
     ![設定單一登入](./media/active-directory-saas-workday-tutorial/IC782922.png "設定單一登入")
 
@@ -90,7 +103,7 @@
 
     ![重新導向 URL](./media/active-directory-saas-workday-tutorial/IC7829581.png "重新導向 URL")
 
-     9\.1.按一下 [加入資料列]。
+     9\.1.按一下 [新增資料列]。
 
      9\.2.在 [登入重新導向 URL] 文字方塊和 [行動裝置重新導向 URL] 文字方塊中，輸入您在 Azure 入口網站的 [設定應用程式 URL] 頁面上輸入的 [Workday 租用戶 URL]。
     
@@ -107,7 +120,7 @@
 
      10\.1.選取 [啟用 SAML 驗證]。
 
-     10\.2.按一下 [加入資料列]。
+     10\.2.按一下 [新增資料列]。
 
 11. 在 [SAML 身分識別提供者] 區段中，執行下列步驟：
 
@@ -136,13 +149,13 @@
 
       4.  從您下載的憑證建立 **Base-64 編碼**檔案。
 
-		>[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+		>[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
       5.  在記事本中開啟 base-64 編碼的憑證，然後複製其內容。
       6.  在 [憑證] 文字方塊中貼上剪貼簿的內容。
       7.  按一下 [確定]。
 
-12.  請執行下列步驟：<br><br> ![SSO 組態](./media/active-directory-saas-workday-tutorial/IC7829351111.png "SSO 組態")
+12.  執行下列步驟：<br><br> ![SSO 組態](./media/active-directory-saas-workday-tutorial/IC7829351111.png "SSO 組態")
 
      12\.1.啟用 [x509 私密金鑰組]。
 
@@ -152,13 +165,11 @@
 
      12\.4.在 Azure 入口網站中的 [在 Workday 設定單一登入] 對話方塊頁面上，複製 [單一登入服務 URL] 值，然後將它貼入 [IdP SSO 服務 URL] 文字方塊中。
      
-     12\.5 選取 [不要壓縮 SP 啟始的驗證要求]。
+     12\.5. 選取 [不要壓縮 SP 啟始的驗證要求]。
 
-     12\.6.選取 [SHA256] 做為 [驗證要求簽章方法]。<br><br> 
-        ![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/IC782932.png "驗證要求簽章方法") <br><br>
+     12\.6.選取 [SHA256] 做為 [驗證要求簽章方法]。<br><br> ![驗證要求簽章方法](./media/active-directory-saas-workday-tutorial/IC782932.png "驗證要求簽章方法") <br><br>
  
-     12\.7 按一下 [確定]。<br><br> 
-        ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+     12\.7. 按一下 [確定]。<br><br> ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 12. 在 Azure AD 入口網站的 [在 Workday 設定單一登入] 頁面上，按 [下一步]。<br><br>
 
@@ -190,6 +201,6 @@
 
     ![是](./media/active-directory-saas-workday-tutorial/IC767830.png "是")
   
-如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
+如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

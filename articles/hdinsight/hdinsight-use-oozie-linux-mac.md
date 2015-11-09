@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 
@@ -62,7 +62,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 ##建立工作目錄
 
-Oozie 的工作所需資源必須儲存在同一個目錄中。此範例使用 **wasb:///tutorials/useoozie**。請使用以下命令建立此目錄，以及建立資料目錄，以保存此工作流程所建立的新 Hive 資料表：
+Oozie 的工作所需資源必須儲存在同一個目錄中。此範例使用 ****wasb:///tutorials/useoozie**。請使用以下命令建立此目錄，以及建立資料目錄，以保存此工作流程所建立的新 Hive 資料表：
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -112,7 +112,7 @@ Oozie 的工作所需資源必須儲存在同一個目錄中。此範例使用 *
 
 2. 按 Ctrl-X，以結束編輯器。出現提示時，請選取 **Y** 儲存檔案，然後按 **Enter** 鍵以使用 **useooziewf.hql** 檔案名稱。
 
-3. 使用以下命令將 **useooziewf.hql** 複製到 **wasb:///tutorials/useoozie/useooziewf.hql**：
+3. 使用以下命令將 **useooziewf.hql** 複製到 ****wasb:///tutorials/useoozie/useooziewf.hql**：
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -193,7 +193,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
 2. 依序按 Ctrl-X、**Y** 和 **Enter** 鍵以儲存檔案。
 
-3. 使用以下命令，將 **workflow.xml** 檔案複製到 **wasb:///tutorials/useoozie/workflow.xml**：
+3. 使用以下命令，將 **workflow.xml** 檔案複製到 ****wasb:///tutorials/useoozie/workflow.xml**：
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -292,9 +292,9 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
 	此命令傳回的資訊類似如下：
 
-		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
+		hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net
 
-	JobTracker 使用的連接埠是 8050，因此要用於 JobTracker 的完整位址便是 **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050**。
+	JobTracker 使用的連接埠是 8050，因此要用於 JobTracker 的完整位址便是 **hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050**。
 
 1. 使用以下命令建立 Oozie 工作定義組態：
 
@@ -390,13 +390,13 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 	此命令會傳回類似以下的值：
 
 		<name>oozie.base.url</name>
-		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
+		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	****http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** 部分是要搭配 Oozie 命令使用的 URL。
+	****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** 部分是要搭配 Oozie 命令使用的 URL。
 
 2. 使用以下命令建立 URL 的環境變數，讓您不必為每個命令輸入該 URL：
 
-		export OOZIE_URL=http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie
+		export OOZIE_URL=http://HOSTNAMEt:11000/oozie
 
 	將 URL 替換為您稍早收到的 URL。
 
@@ -493,7 +493,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。它可讓
 
 	![工作資訊](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
-6. 您可以在 [Job Info] \(工作資訊) 索引標籤中看到基本的工作資訊，以及工作內的個別動作。使用上方的索引標籤，即可檢視 Job Definition (工作定義)、Job Configuration (工作組態)，以及存取 Job Log (工作記錄)，或檢視工作的定向非循環圖 (DAG)。
+6. 您可以在 [Job Info] (工作資訊) 索引標籤中看到基本的工作資訊，以及工作內的個別動作。使用上方的索引標籤，即可檢視 Job Definition (工作定義)、Job Configuration (工作組態)，以及存取 Job Log (工作記錄)，或檢視工作的定向非循環圖 (DAG)。
 
 	* **工作記錄**：選取 [取得記錄] 按鈕，以取得工作的所有記錄，或使用 [輸入搜尋篩選條件] 欄位來篩選記錄
 
@@ -620,7 +620,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 ###JA009：無法初始化叢集
 
-**徵兆**：工作狀態會變更為 **SUSPENDED**。工作的詳細資料會將 RunHiveScript 狀態顯示為 **START_MANUAL**。選取該動作會顯示下列錯誤訊息：
+**徵兆**：工作狀態會變更為 **SUSPENDED**。工作的詳細資料會將 RunHiveScript 狀態顯示為 **START\_MANUAL**。選取該動作會顯示下列錯誤訊息：
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
@@ -630,7 +630,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 ###JA002：不允許 Oozie 模擬 &lt;USER>
 
-**徵兆**：工作狀態會變更為 **SUSPENDED**。工作的詳細資料會將 RunHiveScript 狀態顯示為 **START_MANUAL**。選取該動作會顯示下列錯誤訊息：
+**徵兆**：工作狀態會變更為 **SUSPENDED**。工作的詳細資料會將 RunHiveScript 狀態顯示為 **START\_MANUAL**。選取該動作會顯示下列錯誤訊息：
 
 	JA002: User: oozie is not allowed to impersonate <USER>
 
@@ -721,4 +721,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

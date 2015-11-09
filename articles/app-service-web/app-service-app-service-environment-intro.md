@@ -36,6 +36,8 @@ App Service 環境已經過隔離，可執行只有單一客戶的應用程式�
 
 若要查看 AzureCon Deep Dive 中顯示之安全性架構的設定方式，請參閱有關使用 App Service 環境實作[分層安全性架構](app-service-app-service-environment-layered-security.md)的文章。
 
+在 App Service 環境中執行之應用程式的存取權可能會受到 Web 應用程式防火牆 (WAF) 等上游裝置的管制。[設定 App Service 環境的 WAF](app-service-app-service-environment-web-application-firewall.md) 上的文章將說明這種情況。
+
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 專用計算資源 ##
@@ -60,7 +62,7 @@ App Service 環境是由前端計算資源集區，以及一到三個背景工�
 
 應用程式也經常需要存取公司資源，例如內部資料庫和 Web 服務。常見的方法是讓這些端點僅可用於在 Azure 虛擬網路中傳送的內部網路流量。一旦 App Service 環境加入與內部服務相同的虛擬網路，在此環境中執行的應用程式即可存取這些內部服務，包括可透過[站台對站台][SiteToSite]和 [Azure ExpressRoute][ExpressRoute] 連線聯繫的端點。
 
-如需 App Service 環境如何搭配虛擬網路和內部部署網路使用的詳細資料，請參閱下列文章：[網路架構][NetworkArchitectureOverview]、[控制輸入流量][ControllingInboundTraffic]和[安全地連接到後端][SecurelyConnectingToBackends]。
+如需 App Service 環境如何搭配虛擬網路和內部部署網路使用的詳細資訊，請參閱下列文章：[網路架構][NetworkArchitectureOverview]、[控制輸入流量][ControllingInboundTraffic]和[安全地連接到後端][SecurelyConnectingToBackends]。
 
 **注意：**在 "v2" 虛擬網路中，無法建立 App Service 環境。
 
@@ -70,9 +72,9 @@ App Service 環境是由前端計算資源集區，以及一到三個背景工�
 
 如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service][AzureAppService]。
 
-如需 App Service 環境網路架構的概觀，請參閱[網路架構概觀][NetworkArchitectureOverview]文章。
+如需 App Service 環境網路架構的概觀，請參閱[網路架構概觀][NetworkArchitectureOverview]一文。
 
-如需搭配 ExpressRoute 使用 App Service 環境的詳細資訊，請參閱 [Express Route 與 App Service 環境][NetworkConfigDetailsForExpressRoute]文章。
+如需搭配 ExpressRoute 使用 App Service 環境的詳細資訊，請參閱 [Express Route 與 App Service 環境][NetworkConfigDetailsForExpressRoute]一文。
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -103,4 +105,4 @@ App Service 環境是由前端計算資源集區，以及一到三個背景工�
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

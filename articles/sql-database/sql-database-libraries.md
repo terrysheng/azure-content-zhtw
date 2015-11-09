@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="08/04/2015"
 	ms.author="pehteh"/>
 
 
@@ -22,14 +22,6 @@
 
 
 本主題列出當連接到 Azure SQL Database 或 Microsoft SQL Server 時，用戶端程式可使用之每個程式庫/驅動程式的最低版本號碼。
-
-
-本主題分成兩小節：
-
-
-- ＜Microsoft 所發行的驅動程式庫資料表＞：包括 Microsoft 已發行的程式庫。Microsoft 會維護本節中的資訊。
-- ＜協力廠商程式庫＞：列出由協力廠商 (而不是 Microsoft) 發行和維護的程式庫。**只有開發人員公用社群會維護本節中的資訊，Microsoft 並不會維護本節。**
-
 
 ## Microsoft 所發行的驅動程式庫資料表
 
@@ -45,6 +37,14 @@
 | ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | [連結](http://msdn.microsoft.com/library/jj730308.aspx) |
 | ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | 。 |
 | ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | 。 |
+
+### ODBC 支援
+
+使用資料來源名稱 (DSN) 精靈來定義 Azure SQL Database 的資料來源，按一下 [以使用者輸入的登入識別碼和密碼進行 SQL Server 驗證] 選項，並選取 [連線到 SQL Server 以獲得其他設定選項的預設設定]。輸入您的使用者名稱和密碼做為 [登入識別碼] 和 [密碼] 以連線到 Azure SQL Database 伺服器。清除 [連線到 SQL Server 以獲得其他設定...] 核取方塊。按一下 [變更預設資料庫為:] 然後輸入您的 Azure SQL Database 名稱，即使它沒有顯示在清單中。請注意，精靈會在 [變更 SQL Server 系統訊息的語言為:] 清單中列出數種語言。
+
+在此版本中，Microsoft Azure SQL Database 僅支援英文，因此選取英文做為語言。Microsoft Azure SQL Database 不支援 **鏡像伺服器**或**附加資料庫**，所以這些項目保留空白。按一下 [測試連接]。
+
+使用 SQL Server 2008 Native Client ODBC 驅動程式時，[測試連接] 按鈕可能會造成不支援 **master.dbo.syscharsets** 錯誤。忽略此錯誤，儲存 DSN 並使用它。
 
 
 ### 適用於 DB2 和 SQL Server 及 DRDA 設計的 OLEDB
@@ -82,4 +82,4 @@ Microsoft OLE DB Provider for DB2 Version 5.0 (資料提供者) 可讓您建立�
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

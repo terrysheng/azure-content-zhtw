@@ -1,14 +1,27 @@
-<properties pageTitle="教學課程：Azure Active Directory 與 Jobscience 整合 | Microsoft Azure" description="了解如何使用 Jobscience 搭配 Azure Active Directory 來啟用單一登入、自動化佈建及更多功能！" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="教學課程：Azure Active Directory 與 Jobscience 整合 | Microsoft Azure" 
+    description="了解如何使用 Jobscience 搭配 Azure Active Directory 來啟用單一登入、自動化佈建及更多功能！" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #教學課程：Azure Active Directory 與 Jobscience 整合
->[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=526255)。
   
 本教學課程的目的是要示範 Azure 與 Jobscience 的整合。本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   啟用 Jobscience 單一登入的訂用帳戶
   
-完成本教學課程之後，您已指派給 Jobscience 的 Azure AD 使用者將能夠在 Jobscience 公司網站 (服務提供者起始登入) 執行單一登入來登入應用程式，或使用[存取面板簡介](https://msdn.microsoft.com/library/dn308586)執行單一登入。
+完成本教學課程之後，您已指派給 Jobscience 的 Azure AD 使用者將能夠在 Jobscience 公司網站 (服務提供者起始登入) 執行單一登入來登入應用程式，或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)執行單一登入。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -32,17 +45,17 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![[應用程式]](./media/active-directory-saas-jobscience-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-jobscience-tutorial/IC700994.png "[應用程式]")
 
 4.  按一下頁面底部的 [新增]。
 
     ![新增應用程式](./media/active-directory-saas-jobscience-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [欲執行動作] 對話方塊中，按一下 [從組件庫新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。
 
     ![從組件庫新增應用程式](./media/active-directory-saas-jobscience-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在**搜尋方塊**中，輸入 **jobscience**。
+6.  在**搜尋方塊**中輸入 **jobscience**。
 
     ![應用程式庫](./media/active-directory-saas-jobscience-tutorial/IC784342.png "應用程式庫")
 
@@ -51,19 +64,17 @@
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶在 Jobscience 中進行驗證。  
-設定 Jobscience 的單一登入需要您從憑證抓取指紋值。  
-如果您不熟悉這個程序，請參閱[如何抓取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶在 Jobscience 中進行驗證。設定 Jobscience 的單一登入需要您從憑證抓取指紋值。如果您不熟悉這個程序，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
 
 ###若要設定單一登入，請執行下列步驟：
 
 1.  以系統管理員身分登入您的 Jobscience 公司網站。
 
-2.  移到 [設定]。
+2.  移至 [設定]。
 
     ![設定](./media/active-directory-saas-jobscience-tutorial/IC784358.png "設定")
 
-3.  在 [系統管理員] 區段的左側導覽窗格中，按一下 [網域管理] 展開相關區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。
+3.  在左方導覽窗格的 [系統管理員] 區段中，按一下 [網域管理] 展開相關的區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。
 
     ![我的網域](./media/active-directory-saas-jobscience-tutorial/IC767825.png "我的網域")
 
@@ -81,7 +92,7 @@
 
     ![設定單一登入](./media/active-directory-saas-jobscience-tutorial/IC784361.png "設定單一登入")
 
-8.  在 [設定應用程式 URL] 頁面的 [Jobscience 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："**http://company.my.salesforce.com*"，然後按一下 [下一步]。
+8.  在 [設定應用程式 URL] 頁面的 [Jobscience 登入 URL] 文字方塊中，以下列模式輸入您的 URL："**http://company.my.salesforce.com*"，然後按一下 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-jobscience-tutorial/IC784362.png "設定應用程式 URL")
 
@@ -97,7 +108,7 @@
 
     ![單一登入設定](./media/active-directory-saas-jobscience-tutorial/IC781026.png "單一登入設定")
 
-    1.  選取 [啟用 SAML]。
+    1.  選取 [已啟用 SAML]。
     2.  按一下 [新增]。
 
 12. 在 [SAML 單一登入設定編輯] 對話方塊中，執行下列步驟：
@@ -105,16 +116,16 @@
     ![SAML 單一登入設定](./media/active-directory-saas-jobscience-tutorial/IC784365.png "SAML 單一登入設定")
 
     1.  在 [名稱] 文字方塊中，輸入您的組態名稱。
-    2.  在 Azure 入口網站中的 [設定在 Jobscience 單一登入] 對話頁面上， 複製 [簽發者 URL] 值，然後將它貼至 [簽發者] 文字方塊中。
-    3.  在 [實體識別碼] 文字方塊中，輸入 ****https://salesforce-jobscience.com**
+    2.  在 Azure 入口網站中的 [設定在 Jobscience 單一登入] 對話頁面上，複製 [簽發者 URL] 值，然後將它貼至 [簽發者] 文字方塊中。
+    3.  在 [實體識別碼] 文字方塊中輸入 ****https://salesforce-jobscience.com**。
 4.  按一下 [瀏覽] 來上傳您的 Azure AD 憑證。
-    5.  在 [SAML 識別類型] 中選取 [判斷提示包含來自使用者物件的同盟識別碼]。
-    6.  在 [SAML 識別位置] 中選取 [識位於 Subject 陳述式的 NameIdentifier 元素中]。
-    7.  在 Azure 入口網站中的 [設定在 Jobscience 單一登入] 對話頁面上， 複製 [遠端登入 URL] 值，然後將它貼至 [識別提供者登入 URL] 文字方塊中。
-    8.  在 Azure 入口網站中的 [設定在 Jobscience 單一登入] 對話頁面上， 複製 [遠端登出 URL] 值，然後將它貼至 [識別提供者登出 URL] 文字方塊中。
+    5.  在 [SAML 身分識別類型] 選取 [判斷提示包含來自使用者物件的同盟身分識別碼]。
+    6.  在 [SAML 身分識別位置] 選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]。
+    7.  在 Azure 入口網站中的 [設定在 Jobscience 單一登入] 對話頁面上，複製 [遠端登入 URL] 值，然後將它貼至 [身分識別提供者登入 URL] 文字方塊中。
+    8.  在 Azure 入口網站中的 [設定在 Jobscience 單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將它貼至 [身分識別提供者登出 URL] 文字方塊中。
     9.  按一下 [儲存]。
 
-13. 在 [系統管理員] 區段的左側導覽窗格中，按一下 [網域管理] 展開相關區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。
+13. 在左方導覽窗格的 [系統管理員] 區段中，按一下 [網域管理] 展開相關的區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。
 
     ![我的網域](./media/active-directory-saas-jobscience-tutorial/IC767825.png "我的網域")
 
@@ -126,7 +137,7 @@
 
     ![登入頁面商標](./media/active-directory-saas-jobscience-tutorial/IC784366.png "登入頁面商標")
 
-16. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
+16. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-jobscience-tutorial/IC784367.png "設定單一登入")
   
@@ -155,7 +166,7 @@
 
     ![所有使用者](./media/active-directory-saas-jobscience-tutorial/IC784370.png "所有使用者")
 
-5.  在 [編輯使用者] 對話頁面上，執行下列步驟：
+5.  在 [編輯使用者] 對話方塊上，執行下列步驟：
 
     ![使用者編輯](./media/active-directory-saas-jobscience-tutorial/IC784371.png "使用者編輯")
 
@@ -182,6 +193,6 @@
 
     ![是](./media/active-directory-saas-jobscience-tutorial/IC767830.png "是")
   
-如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
+如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

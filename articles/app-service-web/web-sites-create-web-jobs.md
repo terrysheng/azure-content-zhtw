@@ -74,7 +74,35 @@ Azure WebJobs SDK 能簡化許多 WebJobs 程式設計工作。如需詳細資�
 	
 > 若要讓連續 WebJobs 能夠在所有執行個體上可靠地執行，請對 Web 應用程式啟用 [永遠開啟] 組態設定，否則當 SCM 主機網站閒置太久時，其可能會停止執行。
 
-## <a name="CreateScheduled"></a>建立排程 WebJob
+## <a name="CreateScheduledCRON"></a>使用 CRON 運算式建立排定的 WebJob
+
+在標準或高階模式中執行的 Web Apps可使用這項技術，前提是應用程式上的 [永遠開啟] 設定需啟用。
+
+若要將依需求 WebJob 設成排定的 WebJob，只要在 WebJob zip 檔案的根目錄加入 `settings.job` 檔案。此 JSON 檔案應該包含 `schedule` 屬性與 [CRON 運算式](https://en.wikipedia.org/wiki/Cron)，如以下範例所示。
+
+CRON 運算式由 6 個欄位組成: `{second} {minute} {hour} {day} {month} {day of the week}`。
+
+例如，若要每隔 15 分鐘觸發 WebJob，您的 `settings.job` 必須有：
+
+```json
+{
+    "schedule": "0 */15 * * * *"
+}
+``` 
+
+其他的 CRON 排程範例：
+
+- 每隔一小時 (也就是每當分鐘的計數是 0)：`* 0 * * * *` 
+- 上午 9 點到下午 5 點之間每隔一小時：`* 0 9-17 * * *` 
+- 每天上午 9:30：`* 30 9 * * *`
+- 每個工作日上午 9:30：`* 30 9 * * 1-5`
+
+**注意**：從 Visual Studio 部署 WebJob 時，請務必將您的 `settings.job` 檔案屬性標示為 [有更新時才複製 ]。
+
+
+## <a name="CreateScheduled"></a>使用 Azure 排程器建立排定的 WebJob
+
+以下的替代技術會使用 Azure 排程器。在此情況下，您的 WebJob 對排程一無所知。反而是 Azure 排程器會被設定為依排程觸發 WebJob。
 
 Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入該功能之前，您可以使用[舊的入口網站](http://manage.windowsazure.com)來執行這個動作。
 
@@ -211,4 +239,4 @@ Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

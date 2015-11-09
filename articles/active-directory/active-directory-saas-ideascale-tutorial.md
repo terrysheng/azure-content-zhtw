@@ -1,14 +1,27 @@
-<properties pageTitle="教學課程：Azure Active Directory 與 IdeaScale 整合 | Microsoft Azure" description="了解如何使用 IdeaScale 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="教學課程：Azure Active Directory 與 IdeaScale 整合 | Microsoft Azure" 
+    description="了解如何使用 IdeaScale 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #教學課程：Azure Active Directory 與 IdeaScale 整合
->[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=529830)。
   
 本教學課程的目的是要示範 Azure 與 IdeaScale 的整合。本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   已啟用 IdeaScale 單一登入的訂閱
   
-完成本教學課程之後，您已指派至 IdeaScale 的 Azure AD 使用者將能夠使用[存取面板簡介](https://msdn.microsoft.com/library/dn308586)進行單一登入。
+完成本教學課程之後，您指派給 IdeaScale 的 Azure AD 使用者就能夠使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)單一登入應用程式。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -32,17 +45,17 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![[應用程式]](./media/active-directory-saas-ideascale-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-ideascale-tutorial/IC700994.png "[應用程式]")
 
 4.  按一下頁面底部的 [新增]。
 
     ![新增應用程式](./media/active-directory-saas-ideascale-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [欲執行動作] 對話方塊中，按一下 [從組件庫新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。
 
     ![從組件庫新增應用程式](./media/active-directory-saas-ideascale-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在搜尋方塊中，輸入 **IdeaScale**。
+6.  在**搜尋方塊**中，輸入 **IdeaScale**。
 
     ![應用程式庫](./media/active-directory-saas-ideascale-tutorial/IC790841.png "應用程式庫")
 
@@ -51,19 +64,19 @@
     ![IdeaScale](./media/active-directory-saas-ideascale-tutorial/IC790842.png "IdeaScale")
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 IdeaScale 中進行驗證。設定 IdeaScale 的單一登入需要您從憑證抓取指紋值。如果您不熟悉這個程序，請參閱[如何抓取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 IdeaScale 中進行驗證。設定 IdeaScale 的單一登入需要您從憑證抓取指紋值。如果您不熟悉這個程序，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 [IdeaScale] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 **IdeaScale** 應用程式整合頁面中，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-ideascale-tutorial/IC790843.png "設定單一登入")
 
-2.  在 [您希望使用者如何登入 IdeaScale] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按一下 [下一步]。
+2.  在 [要如何讓使用者登入 IdeaScale] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-ideascale-tutorial/IC790844.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面的 [IdeaScale 單一登入 URL] 文字方塊輸入使用者登入您 IdeaScale 應用程式所使用的 URL (例如："**https://company.IdeaScale.com*")，然後按一下 [下一步]。
+3.  在 [設定應用程式 URL] 頁面上，於 [IdeaScale 登入 URL] 文字方塊輸入使用者登入您 IdeaScale 應用程式所使用的 URL (例如："**https://company.IdeaScale.com*")，然後按 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-ideascale-tutorial/IC790845.png "設定應用程式 URL")
 
@@ -81,7 +94,7 @@
 
     ![單一登入設定](./media/active-directory-saas-ideascale-tutorial/IC790848.png "單一登入設定")
 
-8.  在 [單一登入類型]，選取 [SAML 2.0]。
+8.  針對 [單一登入類型]，選取 [SAML 2.0]。
 
     ![單一登入類型](./media/active-directory-saas-ideascale-tutorial/IC790849.png "單一登入類型")
 
@@ -89,12 +102,12 @@
 
     ![單一登入設定](./media/active-directory-saas-ideascale-tutorial/IC790850.png "單一登入設定")
 
-    1.  在 Azure 入口網站中的 [設定在 IdeaScale 單一登入] 對話方塊頁面上，複製 [實體識別碼] 值，然後貼到 [SAML IdP 實體識別碼] 文字方塊。
+    1.  在 Azure 入口網站的 [設定在 IdeaScale 單一登入] 對話方塊頁面中，複製**實體識別碼**值，然後貼到 [SAML IdP 實體識別碼] 文字方塊。
     2.  複製您下載的中繼資料檔案的內容，並將它貼到 [SAML IdP 中繼資料] 文字方塊。
-    3.  在 Azure 入口網站中的 [設定在 IdeaScale 單一登入] 對話方塊頁面上，複製 [遠端登出 URL] 值，然後貼到 [登出成功 URL] 文字方塊。
+    3.  在 Azure 入口網站的 [設定在 IdeaScale 單一登入] 對話方塊頁面中，複製**遠端登出 URL** 值，然後貼到 [登出成功 URL] 文字方塊。
     4.  按一下 [儲存變更]。
 
-10. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
+10. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-ideascale-tutorial/IC790851.png "設定單一登入")
 ##設定使用者佈建
@@ -119,7 +132,7 @@
 
     ![加入新成員](./media/active-directory-saas-ideascale-tutorial/IC790853.png "加入新成員")
 
-    1.  在 [電子郵件地址] 文字方塊輸入您想要佈建之 AAD 帳戶的有效電子郵件地址。
+    1.  在 [電子郵件地址] 文字方塊中，輸入您想要佈建之 AAD 帳戶的有效電子郵件地址。
     2.  按一下 [儲存變更]。
 
     >[AZURE.NOTE]Azure Active Directory 帳戶的持有者會收到一封包含連結的電子郵件，以在啟用帳戶前進行確認。
@@ -134,14 +147,14 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 [IdeaScale] 應用程式整合頁面中，按一下 [指派使用者]。
+2.  在 **IdeaScale** 應用程式整合頁面中，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-ideascale-tutorial/IC790854.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
 
     ![是](./media/active-directory-saas-ideascale-tutorial/IC767830.png "是")
   
-如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
+如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

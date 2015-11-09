@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="bradsev" />
 
 
@@ -48,10 +48,10 @@
 建立資料科學 VM 執行個體的步驟如下：
 
 1.	登入 Azure 入口網站
-2.	瀏覽至 [新增] -> [計算] -> [Marketplace]，並搜尋 [資料科學虛擬機器]。選取由 Microsoft 發佈且標題為 “**Data Science Virtual Machine**” 的 VM，以查看說明資料科學虛擬機器的面板
-3.	按一下底部的 [確定] 按鈕以進入精靈。![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
-4.	 下列各節提供用來建立資料科學 VM 的精靈中每個步驟的輸入
-
+2.	瀏覽至 [新增] -> [計算] -> [Marketplace]，並搜尋 [資料科學虛擬機器]。![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
+3.	選取由 Microsoft 發佈且標題為 “**Data Science Virtual Machine**” 的 VM，以查看說明資料科學虛擬機器的面板。 	
+4.	 按一下底部的 [確定] 按鈕以進入精靈。![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+5.	 下列各節提供用來建立資料科學 VM 的精靈中每個步驟 (共有 5 個步驟列舉在上圖的右邊) 的輸入。以下是設定每個步驟所需的輸入：
 
  **1.基本**：
 
@@ -119,4 +119,4 @@ VM 上安裝的 Visual Studio Community 版本。它是 Microsoft 提供的熱�
 ## 其他 Microsoft 開發工具
 [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) 可以用來探索並下載其他 Microsoft 開發工具。也有捷徑連結 VM 桌面上提供的工具。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

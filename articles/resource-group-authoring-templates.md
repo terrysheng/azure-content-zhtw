@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # 編寫 Azure 資源管理員範本
@@ -174,6 +174,15 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 在變數區段中，您會建構可用來簡化範本語言運算式的值。一般而言，這些變數將會以參數所提供的值為根據。
 
+您會定義結構如下的變數：
+
+    "variables": {
+       "<variable-name>": "<variable-value>",
+       "<variable-name>": { 
+           <variable-complex-type-value> 
+       }
+    }
+
 下列範例說明如何定義由兩個參數值建構的變數：
 
     "parameters": {
@@ -228,6 +237,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
          "name": "<name-of-the-resource>",
          "location": "<location-of-resource>",
          "tags": "<name-value-pairs-for-resource-tagging>",
+         "comments": "<your-reference-notes>",
          "dependsOn": [
            "<array-of-related-resource-names>"
          ],
@@ -240,18 +250,19 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 | 元素名稱 | 必要 | 說明
 | :----------------------: | :------: | :----------
-| apiVersion | 是 | 支援資源的 API 版本。如需可用版本及資源的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
+| apiVersion | 是 | 支援資源的 API 版本。如需資源的可用版本及結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
 | 類型 | 是 | 資源類型。這個值是資源提供者的命名空間與資源提供者所支援資源類型的組合。
 | 名稱 | 是 | 資源名稱。此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。
 | location | 否 | 所提供資源的支援地理位置。
 | tags | 否 | 與資源相關聯的標記。
+| 註解 | 否 | 您在範本中記錄資源的註解
 | dependsOn | 否 | 正在定義的資源所相依的資源。評估資源與依相依順序部署資源之間的相依性。資源若不互相依賴，則會嘗試平行部署資源。值可以是以逗號分隔的資源名稱或資源唯一識別碼清單。
 | 屬性 | 否 | 資源特定的組態設定。
 | 資源 | 否 | 與正在定義的資源相依的下層資源。
 
 如果資源名稱不是唯一，您可以使用 **resourceId** Helper 函式 (如下所述) 來取得任何資源的唯一識別碼。
 
-**properties** 元素的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是完全一樣的。如需您想要部署之資源的 REST API 作業，請參閱 [Azure 參考](https://msdn.microsoft.com/library/azure/mt420159.aspx)。
+**properties** 項目的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是完全一樣的。如需您想要部署之資源的 REST API 作業，請參閱 [Azure 參考](https://msdn.microsoft.com/library/azure/mt420159.aspx)。
 
 下列範例顯示 **Microsoft.Web/serverfarms** 資源，以及含巢狀 **Extensions** 資源的 **Microsoft.Web/sites** 資源：
 
@@ -337,7 +348,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)。
 
-建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
+若要反覆指定次數以建立某種類型的資源，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 
 您可能需要使用不同資源群組內的資源。這常見於使用多個資源群組之間所共用的儲存體帳戶或虛擬網路時。如需詳細資訊，請參閱 [resourceId 函式](../resource-group-template-functions#resourceid)。
 
@@ -424,9 +435,9 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
     }
 
 ## 後續步驟
-- 如需關於您可以在範本內使用之函式的詳細資訊，請參閱 [Azure 資源管理員範本函式](resource-group-template-functions.md)
+- 如需您可以在範本內使用之函式的詳細資訊，請參閱 [Azure 資源管理員範本函式](resource-group-template-functions.md)
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/11/2015" 
+    ms.date="10/27/2015" 
     ms.author="arramac"/>
     
 # 使用 Azure DocumentDB 中的地理空間資料
@@ -31,7 +31,7 @@
 空間資料可描述空間中物件的位置和形狀。在大部分的應用程式中，這些會對應至地球上的物件，也就是地理空間資料。空間資料可以用來代表人、感興趣的地方、城市邊界或湖泊。常見使用案例通常涉及鄰近性查詢，例如「尋找我目前位置附近的所有咖啡廳」。
 
 ### GeoJSON
-DocumentDB 支援對使用 [GeoJSON 規格](http://geojson.org/geojson-spec.html)表示的地理空間資料執行索引編製和查詢。GeoJSON 資料結構永遠是有效的 JSON 物件，因此可以透過 DocumentDB 來儲存及查詢，無須任何特殊的工具或程式庫。DocumentDB SDK 提供協助程式類別和方法，讓使用空間資料更容易。
+DocumentDB 支援對使用 [GeoJSON 規格](http://geojson.org/geojson-spec.html)表示的地理空間點資料執行索引編製和查詢。GeoJSON 資料結構永遠是有效的 JSON 物件，因此可以透過 DocumentDB 來儲存及查詢，無須任何特殊的工具或程式庫。DocumentDB SDK 提供協助程式類別和方法，讓使用空間資料更容易。
 
 ### 點、Linestring 和多邊形
 **點**代表空間中的單一位置。在地理空間資料中，某個點所代表的確切位置可能是雜貨店的街道地址、電話亭、汽車或城市。點會使用其座標組或經緯度，以 GeoJSON (和 DocumentDB) 來表示。以下是點的 JSON 範例。
@@ -81,7 +81,7 @@ DocumentDB 支援對使用 [GeoJSON 規格](http://geojson.org/geojson-spec.html
 >
 >多邊形內的點必須以逆時針順序指定。以順時針順序指定多邊形，代表區域內的反轉。
 
-除了點、LineString 和多邊形之外，GeoJSON 也會指定如何將多個地理空間位置的表示加以分組，以及如何將任意屬性與地理位置產生關聯成為**特徵**的表示。由於這些物件都是有效的 JSON，因此均可在 DocumentDB 中儲存及處理。
+除了點、LineString 和多邊形之外，GeoJSON 也會指定如何將多個地理空間位置的表示加以分組，以及如何將任意屬性與地理位置產生關聯成為**特徵**的表示。由於這些物件都是有效的 JSON，因此均可在 DocumentDB 中儲存及處理。不過，DocumentDB 僅支援自動編製點的索引。
 
 ### 座標參考系統
 
@@ -355,4 +355,4 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 - 深入了解 [DocumentDB 查詢](documentdb-sql-query.md)
 - 深入了解 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,13 +1,15 @@
 
-1.  On your Mac, launch **Keychain Access**. Open **Category** > **My Certificates**. Find the SSL certificate to export (that you downloaded earlier) and disclose its contents. Select only the certificate without selecting the private key, and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
+1.  在您的 Mac 上啟動 **Keychain Access**。開啟 [類別] > [我的憑證]。尋找要匯出的 SSL 憑證 (您稍早下載的)，並公開其內容。僅選取憑證，但不選取私密金鑰，然後[將它匯出](https://support.apple.com/kb/PH20122?locale=en_US)。
 
-2. In the Azure portal, click **Browse All** > **Mobile Apps** > your backend > **Settings** > **Mobile App** > **Push** > **Configure required settings** > **+ Notification Hub**, and provide a name and namespace for your notification hub, and then click the **OK** button.
+2. 在 Azure 入口網站中，依序按一下 [全部瀏覽] > [行動應用程式] > 您的後端 > [設定] > [行動應用程式] > [推播] > [設定必要設定] > [+ 通知中樞]，然後為您的通知中樞提供名稱與命名空間，最後按一下 [確定] 按鈕。
 
   ![][1]
 
-3. In the **Create Notification Hub** blade, click the **Create** button.
+3. 在 [建立通知中樞] 刀鋒視窗中，按一下 [建立] 按鈕。
      
-    Before you proceed to the next step, click **Notifications**, to ensure that your notification hub setup is complete. 
-4. In the Azure portal, click **Browse All** > **Mobile Apps** > your backend > **Settings** > **Mobile App** > **Push** > **Apple Push Notification Services** > **Upload Certificate**. Upload the .p12 file, selecting the correct **Mode** (corresponding to whether the client SSL certificate you generated earlier was Development or Distribution.) Your service is now configured to work with push notifications on iOS!
+    在您繼續進行下一步驟之前，按一下 [通知]，確定您的通知中樞設定已完成。 
+4. 在 Azure 入口網站中，依序按一下 [全部瀏覽] > [行動應用程式] > 您的後端 > [設定] > [行動應用程式] > [推播] > [Apple 推播通知服務] > [上傳憑證]。上傳 .p12 檔案，並選取正確的 [模式] (對應於您稍早產生的用戶端 SSL 憑證為 [開發] 或 [配送])。 您的服務現在已設定成在 iOS 上使用推播通知！
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png
+
+<!---HONumber=Nov15_HO1-->

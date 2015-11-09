@@ -22,7 +22,7 @@
 
 ## 簡介
 
-本主題描述如何使用三種技術從 Azure Blob 儲存體來回移動資料：
+以下是有關從 Azure Blob 儲存體來回移動資料所使用之技術的指引連結：
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -44,4 +44,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

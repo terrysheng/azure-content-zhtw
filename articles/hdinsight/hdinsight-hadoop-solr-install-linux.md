@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Solr
@@ -158,7 +158,17 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 
 一旦您建立 SSH 通道，請使用下列步驟以使用 Solr 儀表板：
 
-1. 在您的瀏覽器中，連線至 \_\___http://headnode0:8983/solr/#/__。此流量應該會透過 SSH 通道路由至您的 HDInsight 叢集的 headnode0 。您應該會看到如下所示的頁面：
+1. 決定前端節點的主機名稱：
+
+    1. 在瀏覽器中，移至 https://CLUSTERNAME.azurehdinsight.net。出現提示時，使用系統管理員使用者名稱和密碼來向網站進行驗證。
+    
+    2. 在頁面頂端的功能表中，選取 [主機]。
+    
+    3. 選取以 __hn0__ 開頭的項目。當頁面開啟時，主機名稱會顯示在頂端。主機名稱的格式為 __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__。這是您連接到 Solr 儀表板時必須使用的主機名稱。
+    
+1. 在瀏覽器中，連接到 \_\___http://HOSTNAME:8983/solr/#/__，其中 __HOSTNAME__ 是您在先前步驟中決定的名稱。
+
+    此要求應該會透過 SSH 通道路由傳送至您的 HDInsight 叢集的前端節點。您應該會看到如下所示的頁面：
 
 	![Solr 儀表板的映像](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
@@ -240,9 +250,13 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 
 您最好從 Solr 叢集節點將已編製索引的資料備份到 Azure Blob 儲存體。請執行下列步驟來進行此作業：
 
-1. 使用 SSH 連線到叢集，然後使用下列命令來建立已編製索引之資料的快照：
+1. 使用 SSH 連線到叢集，然後使用下列命令來取得前端節點的主機名稱：
 
-		curl http://headnode0:8983/solr/replication?command=backup
+        hostname -f
+        
+2. 使用下列命令來建立已編製索引之資料的快照。以上一個命令傳回的名稱取代 __HOSTNAME__：
+
+		curl http://HOSTNAME:8983/solr/replication?command=backup
 
 	您應該會看到如下所示的回應：
 
@@ -294,4 +308,4 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

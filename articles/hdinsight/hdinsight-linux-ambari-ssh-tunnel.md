@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/09/2015"
+ms.date="10/26/2015"
 ms.author="larryfr"/>
 
 #使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI
@@ -144,21 +144,11 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 4. 選取 [**URL 模式**] 索引標籤，然後選取 [**加入新的模式**]。使用下列欄位定義模式，然後按一下 [**確定**]：
 
-	* **模式名稱** - **headnode** - 這是易記的模式名稱。
+	* **模式名稱** - **clusternodes** - 這是易記的模式名稱。
 
-	* **URL 模式** - ***headnode*** - 這會定義模式來比對任何 URL 中是否有 **headnode** 一字。
+	* **URL 模式** - ***internal.cloudapp.net*** - 這會定義符合叢集節點之內部完整網域名稱的模式。
 
 	![foxyproxy 模式](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-
-	> [AZURE.NOTE]如果使用 __HBase__ 叢集，您也必須新增下列模式，因為它所主控的 Web UI 在叢集的 Zookeeper 節點上：
-	>
-	> * __模式名稱__ - __zookeeper__
-	> * __URL 模式__ - __*zookeeper*__
-	>
-	> 如果使用 __Storm__ 叢集，您必須加入下列模式，做為擷取記錄時，背景工作節點的 IP 位址的 Storm UI 連結。我們正在努力做更改，以在未來的更新中使用網域名稱。
-	>
-	> * __模式名稱__ - __nodesbyip__
-	> * __URL 模式__ - __*10.0.0.*__
 
 4. 選取 [**確定**] 以加入 Proxy 並關閉 [**Proxy 設定**]。
 
@@ -166,7 +156,7 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 	![foxyproxy 選取模式](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
 
-在執行這些步驟後，只有包含 **headnode** 字串之 URL 的要求會透過 SSL 通道路由傳送。
+在執行這些步驟後，只有包含 __internal.cloudapp.net__ 字串之 URL 的要求會透過 SSL 通道路由傳送。
 
 ##驗證 Ambari Web UI
 
@@ -193,7 +183,7 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 	![YARN ResourceManager UI 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP]請注意此頁的 URL，它應該類似於 __http://headnode1.CLUSTERNAME-ssh.j8.internal.cloudapp.net:8088/cluster__。這使用了節點的內部完整網域名稱 (FQDN)，而且必須使用 SSH 通道才能存取。
+	> [AZURE.TIP]請注意這個頁面的 URL，它應該類似於 \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__。這使用了節點的內部完整網域名稱 (FQDN)，而且必須使用 SSH 通道才能存取。
 
 ##後續步驟
 
@@ -207,4 +197,4 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 * [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="jgao"/>
 
 #在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
@@ -23,7 +23,11 @@
 
 HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NET Framework 應用程式使用 HDInsight。這份文件示範如何使用 .NET SDK 建立以 Linux 為基礎的 HDInsight 叢集。
 
-##必要條件
+> [AZURE.IMPORTANT]本文中的步驟會建立具有一個背景工作節點的叢集。如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
+>
+> 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
+
+##先決條件
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
@@ -49,7 +53,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
     這些命令會將 .NET 程式庫及其參考新增至目前的 Visual Studio 專案。
 
-6. 在 [方案總管] 中按兩下 **Program.cs** 予以開啟，貼上下列程式碼，並提供變數的值：
+6. 在方案總管中按兩下 **Program.cs** 予以開啟，貼上下列程式碼，並提供變數的值：
 
         using System;
         using System.Security;
@@ -190,13 +194,13 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 ###HBase 叢集
 
-* [開始在 HDInsight 中使用 HBase](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [開始在 HDInsight 上使用 HBase](hdinsight-hbase-tutorial-get-stared-linux.md)
 * [在 HDInsight 上開發適用於 HBase 的 Java 應用程式](hdinsight-hbase-build-java-maven-linux)
 
 ###Storm 叢集
 
-* [開發 Storm on HDInsight 的 Java 拓撲](hdinsight-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 元件](hdinsight-storm-develop-python.md)
-* [使用 Storm on HDInsight 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [在 HDInsight 上開發適用於 Storm 的 Java 拓撲](hdinsight-storm-develop-java-topology.md)
+* [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python.md)
+* [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

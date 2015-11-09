@@ -1,7 +1,7 @@
 
-Go back to Visual Studio and select the Shared Code Client App project (it is named like `<your app name>.Shared`)
+返回 Visual Studio，並選取共用程式碼用戶端應用程式專案 (其名稱類似 `<your app name>.Shared`)
 
-1. Expand the **App.xaml** file and then open the **App.xaml.cs** file. Locate the declaration of the `MobileService` member which is initialized with a localhost URL. Comment out this declaration (with `CTRL+K,CTRL+C`) and uncomment the declaration (`CTRL+K,CTRL+U`) that connects to your hosted service:
+1. 展開 **App.xaml** 檔案，然後開啟 **App.xaml.cs** 檔案。找出使用 localhost URL 初始化之 `MobileService` 成員的宣告。註解此宣告 (使用 `CTRL+K,CTRL+C`)，並取消註解連接至您的託管服務的宣告 (`CTRL+K,CTRL+U`)：
 
         // This MobileServiceClient has been configured to communicate with your local
         // test project for debugging purposes.
@@ -17,17 +17,18 @@ Go back to Visual Studio and select the Shared Code Client App project (it is na
             "XXXX-APPLICATION-KEY-XXXXX"
         );
 
-2. Press the F5 key to rebuild the project and start the Windows Store app, which should be your default start up project.
+2. 按下 F5 鍵以重建專案並啟動 Windows 市集應用程式，這應該是您的預設啟始專案。
 
-2. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** textbox, and then click **Save**.
+2. 在應用程式的 [**插入 TodoItem**] 中輸入有意義的文字，例如*完成教學課程*，然後按一下 [**儲存**]。
 
 	![](./media/app-service-mobile-windows-universal-test-app/mobile-quickstart-startup.png)
 
-	This sends a POST request to the new mobile app backend hosted in Azure.
+	這會將 POST 要求傳送至 Azure 中主控的新行動應用程式後端。
 
-3. Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app (right click the `<your app name>.WindowsPhone` project and click **Set as StartUp Project**) and press F5 again.
+3. 停止偵錯，並將通用 Windows 方案中的預設啟始專案變更為 Windows Phone 市集應用程式 (以滑鼠右鍵按一下 `<your app name>.WindowsPhone` 專案，然後按一下 [**設定為啟始專案**])，然後再按下 F5 一次。
 
 	![](./media/app-service-mobile-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 
-	Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.
+	請注意，從先前步驟中儲存的資料，會在 Windows 應用程式啟動後從行動應用程式載入。
 
+<!---HONumber=Nov15_HO1-->

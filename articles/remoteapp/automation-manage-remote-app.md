@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
+	ms.date="10/23/2015"
 	ms.author="csand"/>
 
 
@@ -42,4 +42,4 @@ Azure RemoteApp 可透過 [Azure PowerShell](https://msdn.microsoft.com/library/
 
 * 請參閱 Azure 自動化[入門指南](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

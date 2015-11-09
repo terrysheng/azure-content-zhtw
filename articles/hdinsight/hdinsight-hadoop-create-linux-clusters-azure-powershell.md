@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 #使用 Azure PowerShell 在 HDInsight 中建立以 Linux 為基礎的叢集
@@ -50,37 +50,31 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 下列指令碼示範如何建立新叢集：
 
-    # Use the new Azure Resource Manager mode
-    Switch-AzureMode AzureResourceManager
-
     ###########################################
     # Create required items, if none exist
     ###########################################
 
     # Sign in
-    Add-AzureAccount
+    Add-AzureRmAccount
 
     # Select the subscription to use
-    $subscriptionName = "<SubscriptionName>"        # Provide your Subscription Name
-    Select-AzureSubscription -SubscriptionName $subscriptionName
-
-    # Register your subscription to use HDInsight
-    Register-AzureProvider -ProviderNamespace "Microsoft.HDInsight" -Force
+    $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
+    Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
     # Create an Azure Resource Group
     $resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
     $location = "<Location>"                        # For example, "West US"
-    New-AzureResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
     # Create an Azure Storage account
     $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-    New-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
+    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 
     # Create an Azure Blob Storage container
     $containerName = "<ContainerName>"              # Provide a container name
-    $storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+    $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+    $destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    New-AzureRmStorageContainer -Name $containerName -Context $destContext
 
     ###########################################
     # Create an HDInsight Cluster
@@ -99,12 +93,16 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
     $sshCredentials = Get-Credential
 
     # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-    $location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
+    $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
 
     # Create a new HDInsight cluster
-    New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials
+    New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials
 
-> [AZURE.NOTE]您對 **$clusterCredentials** 指定的值會用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連線到叢集。您對 **$sshCredentials** 指定的值會用來建立叢集的 SSH 使用者。您會使用此帳戶在叢集上啟動遠端 SSH 工作階段並執行工作。如果從 Azure 入口網站使用 [快速建立] 選項佈建叢集，則預設 Hadoop 使用者名稱是 "admin"，預設 SSH 使用者名稱是 "hdiuser"。
+您對 **$clusterCredentials** 指定的值會用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連線到叢集。您對 **$sshCredentials** 指定的值會用來建立叢集的 SSH 使用者。您會使用此帳戶在叢集上啟動遠端 SSH 工作階段並執行工作。如果從 Azure 入口網站使用 [快速建立] 選項佈建叢集，則預設 Hadoop 使用者名稱是 "admin"，預設 SSH 使用者名稱是 "hdiuser"。
+
+> [AZURE.IMPORTANT]在這個指令碼中，您必須指定將位於叢集中的背景工作節點數目。如果您在建立叢集時或在建立後調整叢集時規劃使用 32 個以上的背景工作節點，則您也必須指定具有至少 8 個核心和 14 GB RAM 的前端節點大小。
+>
+> 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 完成佈建最多需要花費 15 分鐘。
 
@@ -120,13 +118,13 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 ###HBase 叢集
 
-* [開始在 HDInsight 中使用 HBase](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [開始在 HDInsight 上使用 HBase](hdinsight-hbase-tutorial-get-stared-linux.md)
 * [在 HDInsight 上開發適用於 HBase 的 Java 應用程式](hdinsight-hbase-build-java-maven-linux)
 
 ###Storm 叢集
 
-* [開發 Storm on HDInsight 的 Java 拓撲](hdinsight-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 元件](hdinsight-storm-develop-python.md)
+* [在 HDInsight 上開發適用於 Storm 的 Java 拓撲](hdinsight-storm-develop-java-topology.md)
+* [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python.md)
 * [使用 Storm on HDInsight 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

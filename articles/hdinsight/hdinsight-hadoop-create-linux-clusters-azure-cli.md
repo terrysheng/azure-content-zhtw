@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="larryfr"/>
 
 #使用 Azure CLI 建立 HDInsight 上的 Linux 型叢集
@@ -25,13 +25,17 @@ Azure CLI 是可讓您管理 Azure 服務的跨平台命令列公用工具。它
 
 Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 HDInsight) 的 JSON 文件。 這個以範本為基礎的方法可讓您在一個範本中定義 HDInsight 所需的所有資源，並透過可將變更套用至群組的__部署__，整體管理群組的變更。
 
-本文件中的步驟將逐步完成使用 Azure CLI 和範本建立新 HDInsight 叢集的程序︰
+本文件中的步驟將逐步完成使用 Azure CLI 和範本建立新 HDInsight 叢集的程序。
 
-##必要條件
+> [AZURE.IMPORTANT]本文件中的步驟使用 HDInsight 叢集的背景工作節點預設數目 (4)。如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
+>
+> 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 價格](https://azure.microsoft.com/pricing/details/hdinsight/)。
+
+##先決條件
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- __Azure CLI__。如需安裝 CLI 的相關資訊，請參閱[安裝 Azure CLI](xplat-cli-install.md)。
+- __Azure CLI__。如需有關安裝 CLI 的相關資訊，請參閱[安裝 Azure CLI](xplat-cli-install.md)。
 
 ##登入您的 Azure 訂用帳戶
 
@@ -108,13 +112,13 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 ###HBase 叢集
 
-* [開始在 HDInsight 中使用 HBase](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [開始在 HDInsight 上使用 HBase](hdinsight-hbase-tutorial-get-stared-linux.md)
 * [在 HDInsight 上開發適用於 HBase 的 Java 應用程式](hdinsight-hbase-build-java-maven-linux)
 
 ###Storm 叢集
 
-* [開發 Storm on HDInsight 的 Java 拓撲](hdinsight-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 元件](hdinsight-storm-develop-python.md)
+* [在 HDInsight 上開發適用於 Storm 的 Java 拓撲](hdinsight-storm-develop-java-topology.md)
+* [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

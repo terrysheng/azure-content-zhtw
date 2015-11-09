@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/04/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 # 部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲
@@ -143,7 +143,14 @@ Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行
 
 ### 基底 URI
 
-以 Linux 為基礎的 HDInsight 叢集上的 REST API 的基底 URI 是 **https://headnode0:8744/api/v1/</a>**。
+在以 Linux 為基礎的 HDInsight 叢集上的 REST API 基底 URI 可於前端節點 (位於 ****https://HEADNODEFQDN:8744/api/v1/**) 取得；不過，前端節點的網域名稱是在叢集建立期間產生，而且不是靜態。
+
+您可以用幾種不同的方式尋找叢集前端節點的完整網域名稱 (FQDN)：
+
+* __從 SSH 工作階段__：使用命令 `headnode -f` (從 SSH 工作階段到叢集)。
+* __從 Ambari Web__：從頁面頂端選取 [服務]，然後選取 [Storm]。從 [摘要] 索引標籤，選取 [Storm UI 伺服器]。Storm UI 和 REST API 執行所在節點的 FQDN 會位於頁面頂端。
+* __從 Ambari REST API__：使用命令 `curl -u admin:PASSWORD -G "https://CLUSTERNAME
+.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 來擷取 Storm UI 和 REST API 執行所在節點的相關資訊。將 __PASSWORD__ 取代為叢集的系統管理員密碼。將 __CLUSTERNAME__ 取代為叢集名稱。在回應中，"host\_name" 項目包含節點的 FQDN。
 
 ### 驗證
 
@@ -161,4 +168,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 
 若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

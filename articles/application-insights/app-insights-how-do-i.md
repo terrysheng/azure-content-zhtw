@@ -195,20 +195,39 @@
 
 ## 降低從我的 App 到 Application Insights 的流量
 
-* 在 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中，停用任何您不需要的模組，例如效能計數器。
+* 在 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中，停用任何您不需要的模組，例如效能計數器收集器。
+* 使用 SDK 中的[取樣和篩選](app-insights-api-filtering-sampling.md)。
 * 如果您使用的是 [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)，請在傳送結果之前，先計算計量值批次的彙總。有一個 TrackMetric() 的多載是針對該動作所提供。
+
 
 深入了解[定價和配額](app-insights-pricing.md)。
 
+## 停用遙測
+
+若要從伺服器**動態停止和開始**收集及傳輸遙測資料：
+
+```
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+
+
+若要**停用選取的標準收集器** (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config](app-insights-api-custom-events-metrics.md) 中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
+
+
+
 ## 檢視系統效能計數器
 
-您可以在計量總管中顯示的計量資訊是一組系統效能計數器。有一個預先定義且標題為**伺服器**的刀鋒視窗會顯示它們其中幾個。
+您可以在計量總管中顯示的計量資訊是一組系統效能計數器。有一個預先定義且標題為 [伺服器] 的刀鋒視窗會顯示它們其中幾個。
 
 ![開啟 Application Insights 資源並按一下伺服器](./media/app-insights-how-do-i/121-servers.png)
 
 ### 如果您看不到效能計數器資料
 
-* 在您自己電腦上或 VM 上的 **IIS 伺服器**。[安裝狀態監視器](app-insights-monitor-performance-live-website-now.md)。 
+* 您自己的電腦或 VM 上的 **IIS 伺服器**。[安裝狀態監視器](app-insights-monitor-performance-live-website-now.md)。 
 * **Azure 網站** - 我們尚未支援效能計數器。您可以取得數個計量來做為 Azure 網站控制台的標準部分。
 * **Unix 伺服器** - [安裝 collectd](app-insights-java-collectd.md)
 
@@ -224,4 +243,4 @@
 
 我們目前並未監視相關的效能計數器
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

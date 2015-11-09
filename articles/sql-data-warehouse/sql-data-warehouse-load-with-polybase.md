@@ -26,9 +26,10 @@ PolyBase 技術可讓您查詢和聯結多個來源的資料，且完全使用 T
 - 建立 PolyBase 物件：外部資料來源、外部檔案格式和外部資料表。 
 - 查詢儲存在 Azure blob 儲存體中的資料。
 - 從 Azure blob 儲存體將資料載入 SQL 資料倉儲。
+- 將資料從 SQL 資料倉儲匯出至 Azure blob 儲存體。
 
 
-## 必要條件
+## 先決條件
 若要逐步執行本教學課程，您需要：
 
 - Azure 儲存體帳戶
@@ -167,8 +168,6 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]請注意，您目前無法在外部資料表上建立統計資料。
-
 參考主題：[CREATE EXTERNAL TABLE (Transact-SQL)][]。
 
 您剛才建立的物件會儲存在 SQL 資料倉儲資料庫。您可以在 SQL Server Data Tools (SSDT) 物件總管中檢視它們。
@@ -227,7 +226,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 此範例使用 CREATE TABLE AS SELECT 陳述式來載入資料。新的資料表繼承查詢中指名的資料行。它會從外部資料表定義繼承這些資料行的資料型別。
 
-CREATE TABLE AS SELECT 是效能很高的 Transact-SQL 陳述式，可替代 INSERT...SELECT。它原本是針對分析平台系統中的大量平行處理 (MPP) 引擎所開發，現在已納入 SQL 資料倉儲中。
+CREATE TABLE AS SELECT 是高效能 TRANSACT-SQL 陳述式，可將資料平行載入到您的 SQL 資料倉儲的所有計算節點。它原本是針對分析平台系統中的大量平行處理 (MPP) 引擎所開發，現在已納入 SQL 資料倉儲中。
 
 ```
 -- Load data from Azure blob storage to SQL Data Warehouse 
@@ -245,6 +244,33 @@ FROM   [ext].[CarSensor_Data]
 ```
 
 請參閱 [CREATE TABLE AS SELECT (Transact-SQL)][]。
+
+
+## 將資料匯出至 Azure Blob 儲存體
+這一節說明如何將資料從 SQL 資料倉儲匯出至 Azure blob 儲存體。此範例使用 CREATE EXTERNAL TABLE AS SELECT (高效能 TRANSACT-SQL 陳述式) 將資料從所有計算節點平行匯出。
+
+下列範例會使用 dbo.Weblogs 資料表中的資料行定義和資料從 dbo 建立外部資料表 Weblogs2014。外部資料表定義會儲存在 SQL 資料倉儲中，而 SELECT 陳述式的結果會匯出至資料來源所指定的 blob 容器下的 "/archive/log2014/" 目錄。以指定的文字檔案格式匯出的資料。
+
+```
+CREATE EXTERNAL TABLE Weblogs2014 WITH
+(
+    LOCATION='/archive/log2014/',
+    DATA_SOURCE=azure_storage,
+    FILE_FORMAT=text_file_format
+)
+AS
+SELECT
+    Uri,
+    DateRequested
+FROM
+    dbo.Weblogs
+WHERE
+    1=1
+    AND DateRequested > '12/31/2013'
+    AND DateRequested < '01/01/2015';
+```
+
+
 
 
 ## 解決 PolyBase UTF-8 需求
@@ -334,4 +360,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

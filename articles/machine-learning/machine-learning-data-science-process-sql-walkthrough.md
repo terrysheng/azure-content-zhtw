@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015" 
+	ms.date="10/27/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
 # Cortana 分析程序實務：使用 SQL Server
 
-在此教學課程，您會跟著逐步解說，使用可公開取得的資料集 ([NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集) 建置和部署模型。此程序遵循《Azure 進階分析程序和技術 (ADAPT) 指南》。
+在此教學課程，您會跟著逐步解說，使用可公開取得的資料集 ([NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集) 建置和部署模型。此程序遵循 Cortana 分析程序 (CAP) 工作流程。
 
 
 ## <a name="dataset"></a>NYC 計程車車程資料集
@@ -714,4 +714,4 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

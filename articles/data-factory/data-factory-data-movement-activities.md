@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
 # 資料移動活動
@@ -27,20 +27,21 @@
 
 | **來源** | **接收** |
 | ------ | ---- |
-| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、內部部署檔案系統 |
-| [Azure 資料表](data-factory-azure-table-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB |
-| [Azure SQL Database](data-factory-azure-sql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB |
-| [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB |
-| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲 |
-| [IaaS 上的 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server |
-| [內部部署檔案系統](data-factory-onprem-file-system-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、內部部署檔案系統 |
-| [內部部署 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server |
-| [內部部署 Oracle 資料庫](data-factory-onprem-oracle-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server |
-| [內部部署 MySQL 資料庫](data-factory-onprem-mysql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server |
-| [內部部署 DB2 資料庫](data-factory-onprem-db2-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server |
-| [內部部署 Teradata 資料庫](data-factory-onprem-teradata-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server |
-| [內部部署 Sybase 資料庫](data-factory-onprem-sybase-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server |
-| [內部部署 PostgreSQL 資料庫](data-factory-onprem-postgresql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server |
+| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、內部部署檔案系統、Azure 資料湖存放區 |
+| [Azure 資料表](data-factory-azure-table-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、Azure 資料湖存放區 |
+| [Azure SQL Database](data-factory-azure-sql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、Azure 資料湖存放區 |
+| [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、Azure 資料湖存放區 |
+| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、Azure 資料湖存放區 |
+| [Azure 資料湖存放區](data-factory-azure-datalake-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、內部部署檔案系統、Azure 資料湖存放區 | 
+| [IaaS 上的 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
+| [內部部署檔案系統](data-factory-onprem-file-system-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、內部部署檔案系統、Azure 資料湖存放區 |
+| [內部部署 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
+| [內部部署 Oracle 資料庫](data-factory-onprem-oracle-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
+| [內部部署 MySQL 資料庫](data-factory-onprem-mysql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
+| [內部部署 DB2 資料庫](data-factory-onprem-db2-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
+| [內部部署 Teradata 資料庫](data-factory-onprem-teradata-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
+| [內部部署 Sybase 資料庫](data-factory-onprem-sybase-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
+| [內部部署 PostgreSQL 資料庫](data-factory-onprem-postgresql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
 
 ## <a name="copyactivity"></a>複製活動
 複製活動採用輸入資料集 (**來源**) 並將每個活動組態的資料複製到輸出資料集 (**接收**)。資料複製是根據活動上指定的排程以批次方式完成。
@@ -101,4 +102,4 @@
 ## 傳送意見反應
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

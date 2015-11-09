@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/16/2015"
+   ms.date="10/22/2015"
    ms.author="kareni"/>
 
 
@@ -24,7 +24,15 @@ Microsoft Azure 訂用帳戶的費用會因費率方案而異。某些費率方�
 
 請注意，先前計費期間的最多 24 小時潛在使用量可以列於您的目前計費期間。
 
-如需有關耗用量、使用量以及費率方案的詳細資訊，請參閱 [Microsoft Azure 購買選項頁面](http://azure.microsoft.com/pricing/purchase-options/)。
+如需耗用量和費率方案的詳細資訊，請參閱 [Microsoft Azure 購買選項頁面](http://azure.microsoft.com/pricing/purchase-options/)。
+
+下列連結涵蓋所有 Microsoft Azure 服務的完整清單。
+
+- [服務詳細資料清單 (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+- [服務詳細資料清單 (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+
+*注意：**csv1** 連結是指 csv 1 版的資料行標頭名稱，而 **csv2** 連結是指 csv 2 版的新資料行標頭名稱。這些檔案會每月更新。*
+
 
 ## 內容：
 
@@ -237,14 +245,6 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 ![tags](./media/billing-understand-your-bill/tags.png)
 
 
-如需每個服務上的更多詳細資料，請參閱這些其他來源。這些檔案會每月更新，並於下個月的 25 號發佈，從 **2015 年五月**開始提供 .csv 第 1 版使用，並從 **2015 年六月**開始提供 .csv 第 2 版使用。以下是服務下載欄位的基底檔案 URL：
-
->>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v2_MMYYYY.xlsx
-
-
-
-若要尋找最新版本，請輸入年和月 (若要尋找 2015 年 5 月的檔案，請在上述 URL 的區段 _**"MMYYYY"**_ 中輸入 **052015**)。此試算表提供 [**使用量下載報告**] 中服務相關欄位的所有可能組合清單。
-
 ## 其他資源
 瀏覽至[管理您的服務](https://msdn.microsoft.com/library/azure/dn578292.aspx)之下的**管理帳戶、訂用帳戶和系統管理員角色**區段，以取得一些非常有用的連結：
 
@@ -262,4 +262,4 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

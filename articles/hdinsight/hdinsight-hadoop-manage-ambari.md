@@ -1,6 +1,6 @@
 <properties
-   pageTitle="使用 Ambari 管理 HDInsight 叢集 | Microsoft Azure"
-   description="了解如何使用 Ambari 來監視和管理以 Linux 為基礎的 HDInsight 叢集。"
+   pageTitle="使用 Apache Ambari Web UI 監視和管理 HDInsight 叢集 | Microsoft Azure"
+   description="了解如何使用 Ambari 來監視和管理以 Linux 為基礎的 HDInsight 叢集。在本文件中，您將學習如何使用 HDInsight 叢集隨附的 Ambari Web UI。"
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,24 +14,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/20/2015"
+   ms.date="10/27/2015"
    ms.author="larryfr"/>
 
-#使用 Ambari 管理 HDInsight 叢集 (預覽)
+#使用 Ambari Web UI 管理 HDInsight 叢集
 
-了解如何使用 Ambari 管理和監視以 Linux 為基礎的 Azure HDInsight 叢集。
+[AZURE.INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-> [AZURE.NOTE]本文的多數資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。若為以 Windows 為基礎的 HDInsight 叢集，則只能透過 Ambari REST API 進行監視。請參閱[在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop](hdinsight-monitor-use-ambari-api.md)。
+Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢集的管理和監視。以 Linux 為基礎的 HDInsight 叢集上有 Ambari，用來監視叢集並進行組態變更。
+
+在本文件中，您將學習如何搭配使用 Ambari Web UI 和 HDInsight 叢集。
+
+> [AZURE.NOTE]本文的資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。若為以 Windows 為基礎的 HDInsight 叢集，則只能透過 Ambari REST API 進行監視。請參閱[在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop](hdinsight-monitor-use-ambari-api.md)。
 
 ##<a id="whatis"></a>什麼是 Ambari？
 
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> 提供簡單易用的 Web UI，以供用來佈建、管理及監視 Hadoop 叢集，讓 Hadoop 管理起來更為簡單。開發人員可以使用 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a> 將這些功能整合到應用程式。
 
-以 Linux 為基礎的 HDInsight 叢集預設會提供 Ambari。以 Windows 為基礎的 HDInsight 叢集則透過 Ambari REST API 提供監視功能。
+以 Linux 為基礎的 HDInsight 叢集預設會提供 Ambari Web UI。
 
 ##連線能力
 
-連線到 HDInsight 叢集上的 Ambari 必須使用 HTTPS。您也必須使用系統管理員帳戶名稱 (預設值是 __admin__) 和建立叢集時所提供的密碼來驗證 Ambari。
+Ambari Web UI 位在您的 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdidnsight.net，其中 __CLUSTERNAME__ 是您的叢集的名稱。
+
+> [AZURE.IMPORTANT]連線到 HDInsight 上的 Ambari 需要 HTTPS。您也必須使用系統管理員帳戶名稱 (預設值是 __admin__) 和建立叢集時所提供的密碼來驗證 Ambari。
 
 ##SSH Proxy
 
@@ -41,15 +47,7 @@
 
 ##Ambari Web UI
 
-您可以在所建立的每一個以 Linux 為基礎的 HDInsight 叢集上，於 **https://&lt;clustername>.azurehdinsight.net** 取得 Ambari Web UI。
-
-系統會提示您驗證頁面兩次。第一個提示是驗證 HDInsight 叢集，第二個則是驗證 Ambari。
-
-* **叢集驗證** - 使用叢集系統管理員使用者名稱 (預設值是 **admin**) 和密碼。
-
-* **Ambari 驗證** - 使用者名稱和密碼的預設值都是 **admin**。
-
-	> [AZURE.NOTE]如果您已變更 **admin** 使用者的密碼，則必須輸入新密碼。
+連線到 Ambari Web UI 時，系統會提示您通過頁面驗證。使用叢集系統管理員使用者 (預設值是 Admin) 和建立叢集時使用的密碼。
 
 當頁面開啟時，請注意頂端的資訊列。此資訊列包含下列資訊和控制項：
 
@@ -147,7 +145,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 ###Ambari 使用者、群組和權限
 
-在以 Linux 為基礎的 HDInsight 預覽期間，請勿使用管理使用者、群組和權限。
+使用者、群組和權限的管理不應與 HDInsight 叢集搭配使用。
 
 ###主機
 
@@ -187,11 +185,11 @@ Ambari 提供許多警示，其可能狀態如下：
 
 ###<a id="service"></a>服務
 
-從 [儀表板] 或 [服務] 頁面，使用服務清單底部的 [動作] 按鈕來停止和啟動所有服務。
+在 [儀表板] 或 [服務] 頁面中，使用服務清單底部的 [動作] 按鈕來停止和啟動所有服務。
 
 ![服務動作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]雖然 [新增服務] 會列在此功能表中，但不應用來將服務加入 HDInsight 叢集。您應該在叢集佈建期間，使用指令碼動作加入新服務。如需使用指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> [AZURE.WARNING]雖然 [新增服務] 列在此功能表中，但不應用來將服務新增 HDInsight 叢集。您應該在叢集佈建期間，使用指令碼動作加入新服務。如需使用指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 
 雖然 [**動作**] 按鈕可以重新啟動所有服務，但您想要啟動、停止或重新啟動的往往是特定服務。使用下列步驟可對個別服務執行動作：
@@ -218,18 +216,4 @@ Ambari 提供許多警示，其可能狀態如下：
 
 3. 使用顯示的欄位修改組態，然後選取 [**儲存**]。或選取先前的組態，然後選取 [**設為現用**] 以回復到先前的設定。
 
-##REST API
-
-Ambari Web 依賴基礎 REST API，供您運用於建立自己的管理和監視工具。雖然 API 相對簡單易用，但仍有一些要注意的 Azure 特殊事項：
-
-* **驗證** - 應使用叢集系統管理員使用者名稱 (預設 **admin**) 和密碼來驗證服務。
-
-* **安全性** - Ambari 使用基本驗證，因此在使用 API 進行通訊時，請一律使用安全 HTTP (HTTPS)。
-
-* **IP 位址** - 您無法從叢集之外存取叢集內主機所傳回的位址，除非叢集是 Azure 虛擬網路的成員。即便是這樣，也只能由虛擬網路的其他成員存取 IP 位址，而不是從網路外部來存取。
-
-* **某些功能未啟用** - 某些 Ambari 功能已停用，因為這些功能是由 HDInsight 雲端服務所管理；例如，在叢集中新增或移除主機，或新增服務。其他功能則有可能未在以 Linux 為基礎的 HDInsight 預覽期間完整實作。
-
-如需 REST API 的完整參考，請參閱 [Ambari API 參考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

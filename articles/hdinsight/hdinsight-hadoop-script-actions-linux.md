@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
+    ms.date="10/29/2015"
     ms.author="larryfr"/>
 
 # 使用 HDInsight 開發指令碼動作
@@ -43,7 +43,7 @@
 - [將資訊寫入至 STDOUT 和 STDERR](#bPS7)
 - [將檔案儲存為具有 LF 行尾結束符號的 ASCII](#bps8)
 
-> [AZURE.IMPORTANT]指令碼動作必須在 15 分鐘內完成，否則就會逾時。在節點佈建期間，會同時執行指令碼與其他安裝和設定程序。與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
+> [AZURE.IMPORTANT]指令碼動作必須在 60 分鐘內完成，否則就會逾時。在節點佈建期間，會同時執行指令碼與其他安裝和設定程序。與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
 
 ### <a name="bPS1"></a>目標 Hadoop 版本
 
@@ -71,7 +71,7 @@
 
 ### <a name="bPS5"></a>確保叢集架構具有高可用性
 
-以 Linux 為基礎的 HDInsight 叢集提供在叢集中是作用中的兩個前端節點，且指令碼動作會針對兩個節點執行。如果您安裝的元件預期只有一個前端節點，您必須設計指令碼，它只會在叢集中兩個前端節點之一安裝元件。前端節點名為 **headnode0** 和 **headnode1**。
+以 Linux 為基礎的 HDInsight 叢集提供在叢集中是作用中的兩個前端節點，且指令碼動作會針對兩個節點執行。如果您安裝的元件預期只有一個前端節點，您必須設計指令碼，它只會在叢集中兩個前端節點之一安裝元件。
 
 > [AZURE.IMPORTANT]安裝為 HDInsight 一部分的預設服務是被設計來視需要在兩個前端節點之間容錯移轉，但是此功能未擴充至透過指令碼動作安裝的自訂元件。如果您需要讓透過指令碼動作安裝的元件高度可用，您必須實作您自己的容錯移轉機制，該機制使用兩個可用的前端節點。
 
@@ -91,13 +91,13 @@
 
         echo "Getting ready to install Foo"
 
-根據預設，`echo` 會將字串傳送至 STDOUT。若要將其導向至 STDERR，請在 `echo` 之前新增 `>&2`。例如：
+根據預設，`echo` 會將字串傳送至 STDOUT。若要將其導向至 STDERR，請在 `echo` 之前加入 `>&2`。例如：
 
         >&2 echo "An error occured installing Foo"
 
-這會將傳送到 STDOUT (1，這是預設值，因此未在此處列出) 的資訊重新導向至 STDERR (2)。如需有關 IO 重新導向的詳細資訊，請參閱 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)。
+這會將傳送到 STDOUT (1，這是預設值，因此未在此處列出) 的資訊重新導向至 STDERR (2)。如需 IO 重新導向的詳細資訊，請參閱 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)。
 
-如需檢視指令碼動作記錄的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+如需檢視指令碼動作記錄的資訊的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)。
 
 ###<a name="bps8"></a>將檔案儲存為具有 LF 行尾結束符號的 ASCII
 
@@ -147,7 +147,7 @@ Bash 指令碼應該儲存為 ASCII 格式，該格式以 LF 做為行尾結束�
 
 後續的資訊存取則可以使用 `$PASSWORD`。
 
-在指令碼中設定的環境變數只會存在於指令碼的範圍內。在某些情況下，您可能需要新增整個系統的環境變數，這些變數在指令碼完成之後仍然會保存。通常這就是為何透過 SSH 連線至叢集的使用者可以使用您的指令碼所安裝的元件。您可以藉由將環境變數新增至 `/etc/environment` 來完成這個動作。例如，以下會新增 __HADOOP\_CONF\_DIR__：
+在指令碼中設定的環境變數只會存在於指令碼的範圍內。在某些情況下，您可能需要新增整個系統的環境變數，這些變數在指令碼完成之後仍然會保存。通常這就是為何透過 SSH 連線至叢集的使用者可以使用您的指令碼所安裝的元件。您可以藉由將環境變數加入 `/etc/environment` 來完成這個動作。例如，以下會加入 __HADOOP\_CONF\_DIR__：
 
     echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
@@ -220,4 +220,4 @@ _解決方式_：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。您也�
 
 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

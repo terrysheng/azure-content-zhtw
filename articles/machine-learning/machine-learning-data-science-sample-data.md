@@ -20,7 +20,7 @@
 
 此**功能表**連結說明如何從各種不同儲存體環境進行資料取樣的連結。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-explore-data-selector.md)]
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## 簡介
 
@@ -32,4 +32,4 @@
 - 使用 SQL 和 Python 程式設計語言來對 **SQL Server 資料** 進行取樣。 
 - 使用 Hive 查詢來對 **Hive 資料表**進行取樣。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

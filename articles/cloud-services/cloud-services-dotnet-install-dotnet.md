@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2015"
+   ms.date="10/28/2015"
    ms.author="saurabh"/>
 
 # 在雲端服務角色上安裝 .NET 
@@ -142,4 +142,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

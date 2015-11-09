@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/28/2015" 
 	ms.author="mimig"/>
 
 # 管理 DocumentDB 容量需求
@@ -77,4 +77,4 @@ DocumentDB 可供進行許多的資料庫作業，包括使用 UDF、預存程�
 如需為集合選擇效能層級的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

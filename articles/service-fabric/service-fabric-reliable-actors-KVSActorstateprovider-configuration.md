@@ -4,7 +4,7 @@
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
-   manager="anuragg"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -81,4 +81,4 @@ Service-Fabric 執行階段會查尋 "settings.xml" 檔案中預先定義的區�
 
 BatchAcknowledgementInterval 會控制複寫延遲性。值為 '0' 時延遲可能性最低，但代價是降低輸送量 (隨著必須傳送與處理的通知訊息增加，每個訊息包含的通知會變少)。BatchAcknowledgementInterval 的值越大，整體複寫輸送量越高，代價是作業延遲變高。這可直接解讀為交易認可延遲。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -151,7 +151,7 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 
 3. 將 `[Authorize]` 屬性新增至任何需要驗證的控制器或方法。現在必須驗證使用者才能存取該端點或特定 API。
 
-若要了解如何在您的 Mobile Apps 後端驗證用戶端，請參閱[將驗證新增至您的應用程式](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md)。
+若要了解如何在您的 Mobile Apps 後端驗證用戶端，請參閱[將驗證新增至您的應用程式](app-service-mobile-dotnet-backend-ios-get-started-users.md)。
 
 ## 做法：將推播通知新增至伺服器專案
 
@@ -191,13 +191,13 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-目前您可以使用「通知中樞」用戶端將推播通知傳送到已註冊的裝置。如需詳細資訊，請參閱[將推播通知新增至應用程式](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md)若要深入了解您可以使用通知中樞執行的所有功能，請參閱[通知中樞概觀](../notification-hubs/notification-hubs-overview.md)。
+目前您可以使用「通知中樞」用戶端將推播通知傳送到已註冊的裝置。如需詳細資訊，請參閱[將推播通知新增至應用程式](app-service-mobile-ios-get-started-push.md)。若要深入了解您可以使用通知中樞執行的所有功能，請參閱[通知中樞概觀](../notification-hubs/notification-hubs-overview.md)。
 
 ## 做法：發行伺服器專案
 
 使用下列步驟將伺服器專案發行至 Azure：
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 
 [NuGet.org]: http://www.nuget.org/
@@ -205,4 +205,4 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

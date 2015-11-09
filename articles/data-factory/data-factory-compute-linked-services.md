@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # 運算連結服務
@@ -234,9 +234,43 @@ mlEndpoint | 批次評分 URL。 | 是
 apiKey | 已發佈的工作區模型的 API。 | 是
 
 
+## Azure 資料湖分析連結服務
+您建立 **Azure 資料湖分析**連結服務，將 Azure 資料湖分析計算服務連結至 Azure Data Factory，再使用管線中的[資料湖分析 U-SQL 活動](data-factory-usql-activity.md)。
+
+下列範例提供 Azure 資料湖分析連結服務的 JSON 定義。
+
+	{
+	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeAnalytics",
+	        "typeProperties": {
+	            "accountName": "adftestaccount",
+	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+	            "authorization": "<authcode>",
+				"sessionId": "<session ID>", 
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
+
+
+下表提供 JSON 定義中所使用之屬性的描述：
+
+屬性 | 說明 | 必要
+-------- | ----------- | --------
+型別 | type 屬性應設為：**AzureDataLakeAnalytics**。 | 是
+accountName | Azure 資料湖分析帳戶名稱。 | 是
+dataLakeAnalyticsUri | Azure 資料湖分析 URI。 | 否 
+授權 | 按一下 Data Factory 編輯器中的 [授權] 按鈕並且完成 OAuth 登入之後，會自動擷取授權碼。 | 是 
+subscriptionId | Azure 訂用帳戶識別碼 | 否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。 
+resourceGroupName | Azure 資源群組名稱 | 否 (如果未指定，便會使用 Data Factory 的群組)。
+sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階段識別碼都是唯一的，只能使用一次。這是在 Data Factory 編輯器中自動產生。 | 是
+
+
 ## Azure SQL 連結服務
 
-您可以建立 Azure SQL 連結服務，並用它搭配[預存程序活動](data-factory-stored-proc-activity.md)叫用 Data Factory 管線中的預存程序。如需此連結服務的相關詳細資料，請參閱〈[Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)〉。
+您可以建立 Azure SQL 連結服務，並用它搭配[預存程序活動](data-factory-stored-proc-activity.md)叫用 Data Factory 管線中的預存程序。如需此連結服務的詳細資料，請參閱[Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)一文。
 
 
   
@@ -247,4 +281,4 @@ apiKey | 已發佈的工作區模型的 API。 | 是
  
    
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="管理和稽核資源存取權"
+   pageTitle="管理資源的存取"
    description="使用角色型存取控制 (RBAC) 來管理部署至 Azure 之資源的使用者權限。"
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="10/28/2015"
    ms.author="tomfitz"/>
 
 # 管理資源的存取
@@ -265,7 +265,8 @@
 - 若要深入了解角色型存取控制，請參閱 [Microsoft Azure 入口網站中的角色型存取控制](../role-based-access-control-configure.md)。
 - 若要深入了解使用服務主體，以您的訂用帳戶管理應用程式的存取，請參閱[透過 Azure 資源管理員驗證服務主體](../resource-group-authenticate-service-principal.md)和[使用 Azure 傳統入口網站建立新的 Azure 服務主體](../resource-group-create-service-principal-portal.md)。
 - 若要深入了解稽核您組織中的作業，請參閱[使用資源管理員稽核作業](../resource-group-audit.md)。
+- 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。如需詳細資訊，請參閱[使用原則來管理資源和控制存取](../resource-manager-policy.md)。
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

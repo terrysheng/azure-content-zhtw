@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/26/2015"
+   ms.date="10/27/2015"
    ms.author="alkohli" />
 
 # 適用於 StorSimple 裝置的技術規格和相容性
@@ -20,8 +20,6 @@
 ## 概觀
 
 Microsoft Azure StorSimple 裝置的硬體元件會遵循本文中概述的技術規格與法規標準。技術規格會說明電源和冷卻模組 (PCM)、磁碟機及機箱。相容性資訊則涵蓋國際標準、安全性和排放量，以及連接纜線等資訊。
-
-> [AZURE.NOTE]如需 StorSimple 裝置的詳細資訊，請下載 [StorSimple 8000 系列資料工作表](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx)。
 
 ## 電源和冷卻模組規格  
 
@@ -170,6 +168,8 @@ EBOD 機箱使用 580 W PCM，而主要機箱會使用 764 W PCM。下表列出�
 
 針對 10 GbE 的網路介面 DATA 2 和 DATA 3，請參閱[支援的網路纜線和模組清單](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)。
 
- 
+## 後續步驟
 
-<!---HONumber=Oct15_HO3-->
+如需 StorSimple 裝置規格的詳細資訊，請下載 [StorSimple 8000 系列規格](http://storsimple.seagate.com/Specifications-8000)。
+
+<!---HONumber=Nov15_HO1-->

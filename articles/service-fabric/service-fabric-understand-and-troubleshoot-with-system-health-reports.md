@@ -1,6 +1,6 @@
 <properties
-   pageTitle="使用系統健康情況報告進行疑難排解"
-   description="說明系統健康狀態報告，以及如何將它們用於疑難排解叢集或應用程式問題"
+   pageTitle="使用系統健康情況報告進行疑難排解 | Microsoft Azure"
+   description="描述針對 Azure Service Fabric 元件及其使用量所傳送的健康情況報告，以便對叢集或應用程式問題進行疑難排解。"
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # 使用系統健康情況報告進行疑難排解
@@ -530,4 +530,4 @@ HealthEvents          :
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

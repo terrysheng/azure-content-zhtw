@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="10/22/2015"
    ms.author="sameerch"/>
 
 
@@ -62,23 +62,23 @@ HDInsight 連接器可讓您在 Azure 上建立 Hadoop 叢集，並提交各種 
 
 ## 在邏輯應用程式中使用連接器 ##
 
-HDInsight 在邏輯應用程式中只能當動作使用。讓我們以一個簡單的邏輯應用程式為例，它會建立叢集，執行 Hive 工作，然後在工作結束時刪除叢集。
+HDInsight 連接器在邏輯應用程式中只能當動作使用。讓我們以一個簡單的邏輯應用程式為例，它會建立叢集，執行 Hive 工作，然後在工作完成時刪除叢集。
 
 
 1. 在 [啟動邏輯] 卡中，按一下 [手動執行此邏輯]。
-2. 選取從資源庫建立的 HDInsight 連接器 API 應用程式。可用的動作會列出：![][5]
+2. 選取您稍早在資源庫中建立的 HDInsight 連接器 API 應用程式 (您會在螢幕右邊的 API Apps 中找到建立的 HDInsight 連接器)。選取黑色的向右箭號。可用的動作會列出：![][12]
 
 3. 選取 [建立叢集]，輸入所有必要的叢集參數，然後選取 ✓︰![][6]
 
-4. 現在，動作在邏輯應用程式中顯示為已設定。會顯示動作輸出的結果並可用於輸入後續動作︰![][7]
+4. 現在，動作在邏輯應用程式中顯示為已設定。會顯示動作的輸出，並可用作後續動作的輸入︰![][7]
 
-5. 從元件庫選取相同的 HDInsight 連接器做為動作。選取 [等候建立叢集] 動作，輸入所有必要的參數，然後選取 ✓︰![][8]
+5. 從資源庫選取相同的 HDInsight 連接器做為動作。選取 [等候建立叢集] 動作，輸入所有必要的參數，然後選取 ✓︰![][8]
 
-6. 從元件庫選取相同的 HDInsight 連接器做為動作。選取 [提交 Hive 工作] 動作，輸入所有必要的參數，然後選取 ✓︰![][9]
+6. 從資源庫選取相同的 HDInsight 連接器做為動作。選取 [提交 Hive 工作] 動作，輸入所有必要的參數，然後選取 ✓︰![][9]
 
-7. 從元件庫選取相同的 HDInsight 連接器做為動作。選取 [等候工作完成] 動作，輸入所有必要的參數，然後選取 ✓︰![][10]
+7. 從資源庫選取相同的 HDInsight 連接器做為動作。選取 [等候工作完成] 動作，輸入所有必要的參數，然後選取 ✓︰![][10]
 
-8. 從元件庫選取相同的 HDInsight 連接器做為動作。選取 [刪除叢集] 動作，輸入所有必要的參數，然後選取 ✓︰![][11]
+8. 從資源庫選取相同的 HDInsight 連接器做為動作。選取 [刪除叢集] 動作，輸入所有必要的參數，然後選取 ✓︰![][11]
 
 9. 使用設計工具頂端的儲存命令，儲存邏輯應用程式。
 
@@ -105,5 +105,6 @@ HDInsight 在邏輯應用程式中只能當動作使用。讓我們以一個簡�
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
+[12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

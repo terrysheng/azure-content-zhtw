@@ -185,7 +185,10 @@
   >[AZURE.NOTE]如果您執行舊版 Windows Server 2008 或 2008 R2，您仍然可以使用此功能，但是需要先[下載及安裝 KB 2386717](https://support.microsoft.com/kb/2386717)，才能在雲端中強制執行您的本機 AD 密碼原則。
   
 - 您已安裝 Azure AD Connect 工具，且已備妥 AD 環境進行同步處理至雲端。如需詳細資訊，請參閱[在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
-- 如果您使用 DirSync，您必須確定您組織的防火牆設定為封鎖輸出連線和解除封鎖 **TCP 連接埠 828 或 818**，才能啟用及使用密碼回寫。如果您使用 Azure AD Sync 或 Azure AD Connect，此步驟並非必要，因為只有 **TCP 443** 輸出 (在某些情況下 **TCP 9350-9354**) 必須開啟。
+
+  >[AZURE.NOTE]測試密碼回寫之前，請確定您先完成 AD 和 Azure AD 的完整匯入和完整同步處理
+
+- 如果您使用 Azure AD Sync 或 Azure AD Connect，則需要開啟 **TCP 443** 輸出 (在某些情況下 **TCP 9350-9354**)。如需詳細資訊，請參閱[步驟 3：設定您的防火牆](#step-3-configure-your-firewall)。這個案例不再支援使用 DirSync。如果您仍要使用 DirSync，請升級至最新版的 Azure AD Connect，再部署密碼回寫。
 
   >[AZURE.NOTE]我們強烈建議使用 Azure AD Sync 或 DirSync 工具的任何人升級至最新版的 Azure AD Connect，以確保擁有最佳使用經驗和發行的新功能。
   
@@ -248,9 +251,9 @@
 ### 步驟 4：設定適當的 Active Directory 權限
 對於包含使用者 (其密碼將會重設) 的每個樹系，如果 X 為組態精靈 (初始組態期間) 中針對該樹系指定的帳戶，則必須為 X 指定**重設密碼**、**變更密碼**、`lockoutTime` 的 **寫入權限** 和 `pwdLastSet` 的 **寫入權限**、該樹系中每個網域之根物件的擴充權限。權限應該標示為由所有使用者物件繼承。
 
-如果您不確定上述指的是那些帳戶，請開啟 Azure Active Directory Connect 設定 UI，並按一下 [檢閱您的方案] 選項。您需要新增權限的帳戶會有紅色底線，如下列螢幕擷取畫面所示。
+如果您不確定上述指的是哪些帳戶，請開啟 Azure Active Directory Connect 組態 UI，並按一下 [檢閱您的方案] 選項。您需要新增權限的帳戶會有紅色底線，如下列螢幕擷取畫面所示。
 
-**<font color="red">請確定您針對您系統中各樹系的各個網域設定此權限，否則密碼回寫將無法正常運作。</font>**
+**<font color="red">請確定針對您系統中各樹系的各個網域設定這項權限，否則密碼回寫將無法正常運作。</font>**
 
   ![][032]
 
@@ -350,4 +353,4 @@
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

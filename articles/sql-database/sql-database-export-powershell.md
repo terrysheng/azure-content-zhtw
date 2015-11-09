@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/20/2015"
+	ms.date="10/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -28,9 +28,10 @@
 
 本文提供使用 PowerShell 匯出您 Azure SQL Database 的 BACPAC 檔案的說明。
 
-BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需詳細資訊，請參閱[資料層應用程式](https://msdn.microsoft.com/library/ee210546.aspx)中的備份封裝 (.bacpac)。
+[BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 是一種包含資料庫結構描述和資料的 .bacpac 檔案。BACPAC 的主要使用案例是將資料庫從一部伺服器移到另一部，以[將本機資料庫移轉至雲端](sql-database-cloud-migrate.md)，以及用於以開放式格式保存現有的資料庫。
 
-> [AZURE.NOTE]Azure SQL Database 會自動為每個使用者資料庫建立備份。如需詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
+> [AZURE.NOTE]BACPAC 並非用於備份和還原作業。Azure SQL Database 會自動為每個使用者資料庫建立備份。如需詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
+
 
 BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成之後下載。
 
@@ -59,7 +60,7 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-成功執行 **Select-AzureSubscription** 之後，您會返回 PowerShell 提示字元。如果您有一個以上的訂用帳戶，您可以執行 **Get-AzureSubscription** 並確認您要使用的訂用帳戶顯示 **IsCurrent: True**。
+成功執行 **Select-AzureSubscription** 之後，您會返回 PowerShell 提示。如果您有一個以上的訂用帳戶，您可以執行 **Get-AzureSubscription** 並確認您要使用的訂用帳戶顯示 **IsCurrent: True**。
 
 
 ## 為您的特定環境設定變數
@@ -69,7 +70,7 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 將伺服器和資料庫名稱取代為帳戶中目前存在的伺服器和資料庫。針對 blob 名稱，請輸入將建立的 BACPAC 檔名。輸入認何您想命名 BACPAC 檔案的任何名稱，但您必須包含.bacpac 副檔名。
 
     $ServerName = "servername"
-    $DatabaseName = "nameofdatabasetobackup"
+    $DatabaseName = "nameofdatabasetoexport"
     $BlobName = "filename.bacpac"
 
 在 [Azure Preview 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶以取得這些值。您可以在儲存體帳戶的刀鋒視窗中，依序按一下 [所有設定] 與 [金鑰]，以找到主要存取金鑰。
@@ -80,7 +81,7 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 
 ## 建立您的伺服器與儲存體帳戶的指標
 
-執行 **Get-Credential** Cmdlet 時會開啟一個視窗，以詢問您的使用者名稱和密碼。輸入 SQL Server 的系統管理員登入和密碼 (而不是 Azure 帳戶的使用者名稱和密碼)。
+執行 **Get-Credential** Cmdlet 時會開啟一個視窗，詢問您的使用者名稱和密碼。輸入 SQL Server 的系統管理員登入和密碼 (而不是 Azure 帳戶的使用者名稱和密碼)。
 
     $credential = Get-Credential
     $SqlCtx = New-AzureSqlDatabaseServerContext -ServerName $ServerName -Credential $credential
@@ -147,4 +148,4 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

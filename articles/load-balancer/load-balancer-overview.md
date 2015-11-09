@@ -16,7 +16,8 @@
    ms.author="joaoma" />
 
 
-# 負載平衡器概觀 
+# 什麼是 Azure 負載平衡器？
+ 
 Azure 負載平衡器可為您的應用程式提供高可用性和網路效能。這是 Layer-4 (TCP、UDP) 類型負載平衡器，可將連入流量分散在負載平衡器集合中定義之雲端服務或虛擬機器集中狀況良好的服務執行個體。
  
 可以設定為：
@@ -87,7 +88,7 @@ Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 
 
 您可以取得指派給一組虛擬機器的多個負載平衡公用 IP 位址。運用這項功能，您可以在同一組虛擬機器上裝載多個 SSL 網站和/或多個 SQL AlwaysOn 可用性群組接聽程式。如需詳細資訊，請參閱[每一雲端服務有多重 VIP](load-balancer-multivip.md)
 
-**使用 Azure 資源管理員的範本型部署 (公開預覽版)** Azure 資源管理員 (ARM) 是 Azure 中新的服務管理架構。Azure 負載平衡器現在可使用以 Azure 資源管理員為基礎的 API 和工具來管理。若要深入了解 Azure 資源管理員，請參閱 [Iaas 因為 Azure 資源管理員變得更容易](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
+****使用 Azure 資源管理員的範本型部署 ** Azure 資源管理員 (ARM) 是 Azure 中新的服務管理架構。Azure 負載平衡器現在可使用以 Azure 資源管理員為基礎的 API 和工具來管理。若要深入了解 Azure 資源管理員，請參閱 [Iaas 因為 Azure 資源管理員變得更容易](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
 
 
 ## 後續步驟
@@ -99,4 +100,4 @@ Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 
 [開始使用 - 網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

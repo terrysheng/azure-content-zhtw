@@ -2,7 +2,7 @@
 	pageTitle="了解如何安全存取 DocumentDB 中的資料 | Microsoft Azure" 
 	description="深入了解 DocumentDB 中的存取控制概念，其中包括主要金鑰、唯讀金鑰、使用者和權限。" 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="ryancraw"/>
 
 # 安全存取 DocumentDB 資料 #
 
@@ -163,4 +163,4 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
 - 若要了解如何建構 DocumentDB 授權權杖，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

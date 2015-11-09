@@ -12,7 +12,7 @@
      ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="nana"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -656,4 +656,4 @@ serializer_deinit();
 
 在此也將結束有關如何使用 **Azure IoT 裝置 SDK for C** 開發應用程式共三個部分的系列。這些資訊應該足以讓您入門並且能夠徹底了解 API 的運作方式。如果您仍想尋找其他詳細資料，有幾個 SDK 中的範例未涵蓋在上方的討論中。否則，[SDK 文件](https://github.com/Azure/azure-iot-sdks)是其他資訊的絕佳資源。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

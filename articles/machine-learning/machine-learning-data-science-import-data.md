@@ -14,16 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/27/2015"
 	ms.author="garye;bradsev" />
 
 
 # 從各種資料來源將訓練資料匯入 Azure Machine Learning Studio
-
-此**功能表**所連結的主題說明如何將資料擷取至目標環境，以在 Cortana 分析程序 (CAPS) 期間儲存和處理該資料。
-
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
-
 
 ## 簡介
 
@@ -83,7 +78,7 @@ Machine Learning Studio 可辨識下列**資料類型**：
 - DateTime
 - TimeSpan
 
-Machine Learning Studio 使用名為***資料表格***的內部資料類型以在模組之間傳遞資料。您可以使用[轉換為資料集][convert-to-dataset]模組，明確地將資料轉換為「資料表格」格式。
+Machine Learning Studio 使用名為***資料表***的內部資料類型以在模組之間傳遞資料。您可以使用[轉換為資料集][convert-to-dataset]模組，明確地將資料轉換為「資料表格」格式。
 
 接受「資料表格」以外格式的任何模組，會在將資料傳遞至下一個模組之前，無訊息地將資料轉換為「資料表格」。
 
@@ -96,4 +91,4 @@ Machine Learning Studio 使用名為***資料表格***的內部資料類型以�
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

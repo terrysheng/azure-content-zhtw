@@ -3,7 +3,7 @@
 	description="Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。本主題說明如何使用 Media Indexer。"
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,johndeu"
+	authors="Juliako,Asolanki,johndeu"
 	manager="dwrede"
 	editor=""/>
 
@@ -359,4 +359,4 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 <!-- URLs. -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

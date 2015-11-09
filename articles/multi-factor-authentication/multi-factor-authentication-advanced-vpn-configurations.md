@@ -43,4 +43,4 @@ Azure Multi-Factor Authentication 可以與您的 Juniper/Pulse Secure SSL VPN �
 [Juniper/Pulse Secure SSL VPN 與 Azure MFA Configuration for LDAP](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx)| 使用 LDAP 緊密整合 Juniper/Pulse Secure SSL VPN 與 Azure MFA|
 [Juniper/Pulse Secure SSL VPN 與 Azure MFA Configuration for RADIUS](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | 使用 RADIUS 緊密整合 Juniper/Pulse Secure SSL VPN 應用裝置與 Azure MFA
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

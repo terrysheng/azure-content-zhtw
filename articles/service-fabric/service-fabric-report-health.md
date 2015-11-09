@@ -1,5 +1,5 @@
 <properties
-   pageTitle="新增自訂 Service Fabric 健康狀態報告"
+   pageTitle="加入自訂 Service Fabric 健康狀態報告 | Microsoft Azure"
    description="描述如何將自訂健康狀態報告傳送給 Azure Service Fabric 健康狀態實體。提供設計和實作高品質健康狀態報告的建議。"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # 新增自訂 Service Fabric 健康狀態報告
@@ -274,4 +274,4 @@ HealthEvents          :
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

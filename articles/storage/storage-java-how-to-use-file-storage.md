@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/26/2015" 
 	ms.author="v-dedomi"/>
 
 # 如何使用 Java 的檔案儲存體
@@ -222,4 +222,4 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Application Insights for Java 的疑難排解和問答集
@@ -24,7 +24,7 @@
 
 *在 Eclipse 中，透過 Maven 或 Gradle 加入 Application Insights SDK 時，我收到建置或總和檢查碼驗證錯誤。*
 
-* 如果相依性 <version> 元素使用具有萬用字元的模式 (例如 (Maven) `<version>[0.9,)</version>` 或 (Gradle) `version:'0.9.+'`)，請嘗試改為指定特定版本 (例如 `0.9.3`)。
+* 如果相依性 <version> 元素使用具有萬用字元的模式 (例如 (Maven) `<version>[1.0,)</version>` 或 (Gradle) `version:'1.0.+'`)，請嘗試改為指定特定版本 (例如 `1.0.2`)。請參閱最新版本的[版本資訊](app-insights-release-notes-java.md)。
 
 ## 沒有資料 
 
@@ -138,4 +138,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

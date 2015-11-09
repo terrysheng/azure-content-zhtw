@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
+   ms.date="10/27/2015"
    ms.author="cherylmc" />
 
 # 關於站對站虛擬網路連線的 VPN 裝置
@@ -47,19 +47,19 @@
 | Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | 不相容 |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [組態指示](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | 不相容 |
 | Check Point | Security Gateway | R75.40、R75.40VS | [組態指示](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [組態指示](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Cisco ASA 範本](https://msdn.microsoft.com/library/azure/dn133793.aspx) | 不相容 |
-| Cisco | ASR | IOS 15.1 (靜態)、IOS 15.2 (動態) | [Cisco ASR 範本](https://msdn.microsoft.com/library/azure/dn133802.aspx) | [Cisco ASR 範本](https://msdn.microsoft.com/library/azure/dn133802.aspx) |
-| Cisco | ISR | IOS 15.0 (靜態)、IOS 15.1 (動態) | [Cisco ISR 範本](https://msdn.microsoft.com/library/azure/dn133800.aspx) | [Cisco ISR 範本](https://msdn.microsoft.com/library/azure/dn133800.aspx) |
+| Cisco | ASA | 8\.3 | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) | 不相容 |
+| Cisco | ASR | IOS 15.1 (靜態)、IOS 15.2 (動態) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Cisco | ISR | IOS 15.0 (靜態)、IOS 15.1 (動態) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | CloudBridge MPX 裝置或 VPX 虛擬裝置 | N/A | [整合指示](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | 不相容 |
 | Dell SonicWALL | TZ 系列、NSA 系列、SuperMassive 系列、E 級 NSA 系列 | SonicOS 5.8.x、SonicOS 5.9.x、SonicOS 6.x | [組態指示](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | 不相容 |
 | F5 | BIG-IP 系列 | N/A | [組態指示](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | 不相容 |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [組態指示](http://docs.fortinet.com/fortigate/admin-guides) | [組態指示](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | SEIL 系列 | SEIL/X 4.60、SEIL/B1 4.60、SEIL/x86 3.20 | [組態指示](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | 不相容 |
-| Juniper | SRX | JunOS 10.2 (靜態)、JunOS 11.4 (動態) | [Juniper SRX 範本](https://msdn.microsoft.com/library/azure/dn133794.aspx) | [Juniper SRX 範本](https://msdn.microsoft.com/library/azure/dn133794.aspx) |
-| Juniper | J 系列 | JunOS 10.4r9 (靜態)、JunOS 11.4 (動態) | [Juniper J 系列範本](https://msdn.microsoft.com/library/azure/dn133799.aspx) | [Juniper J 系列範本](https://msdn.microsoft.com/library/azure/dn133799.aspx) |
-| Juniper | ISG | ScreenOS 6.3 (靜態和動態) | [Juniper ISG 範本](https://msdn.microsoft.com/library/azure/dn133797.aspx) | [Juniper ISG 範本](https://msdn.microsoft.com/library/azure/dn133797.aspx) |
-| Juniper | SSG | ScreenOS 6.2 (靜態和動態) | [Juniper SSG 範本](https://msdn.microsoft.com/library/azure/dn133796.aspx) | [Juniper SSG 範本](https://msdn.microsoft.com/library/azure/dn133796.aspx) |
-| Microsoft | 路由及遠端存取服務 | Windows Server 2012 | 不相容 | [路由及遠端存取服務 (RRAS) 範本](https://msdn.microsoft.com/library/azure/dn133801.aspx) |
+| Juniper | SRX | JunOS 10.2 (靜態)、JunOS 11.4 (動態) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | J 系列 | JunOS 10.4r9 (靜態)、JunOS 11.4 (動態) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | ISG | ScreenOS 6.3 (靜態和動態) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | SSG | ScreenOS 6.2 (靜態和動態) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Microsoft | 路由及遠端存取服務 | Windows Server 2012 | 不相容 | [Microsoft 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Openswan | Openswan | 2\.6.32 | (敬請期待) | 不相容 |
 | Palo Alto Networks | 所有執行 PAN-OS 5.0 或更新版本的裝置 | PAN-OS 5.x 或更新版本 | [Palo Alto Networks](https://support.paloaltonetworks.com/) | 不相容 |
 | Watchguard | 全部 | Fireware XTM v11.x | [組態指示](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | 不相容 |
@@ -156,4 +156,4 @@
 
 若要設定站對站 VPN，請參閱〈[建立虛擬網路與站對站 VPN 連線](vpn-gateway-site-to-site-create.md)〉。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/22/2015"
    ms.author="alkohli"/>
 
 # StorSimple 軟體、高可用性和網路需求
@@ -163,6 +163,9 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 
 <sup>3</sup> StorSimple 裝置上的控制器固定 IP 必須可路由傳送，且能夠連線到網際網路。固定的 IP 位址用來為裝置更新提供服務。如果裝置控制器無法透過固定 IP 連線到網際網路，您將無法更新您的 StorSimple 裝置。
 
+> [AZURE.IMPORTANT]請確定防火牆不會修改或解密 StorSimple 裝置和 Azure 之間的任何 SSL 流量。
+
+<br></br>
 ### 連接埠路由
 
 連接埠路由會根據 StorSimple 裝置上執行的軟體版本而有所不同。
@@ -197,4 +200,4 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

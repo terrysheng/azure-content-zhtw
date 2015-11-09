@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -526,14 +526,6 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 **針對 JavaScript Web 用戶端**，[請使用 JavaScript 遙測初始設定式](#js-initializer)。
 
 
-## <a name="ikey"></a>設定已選取自訂遙測的檢測金鑰
-
-*C#*
-    
-    var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
-    // ...
-
 
 ## 排清資料
 
@@ -550,19 +542,33 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 
 
-## 遙測初始設定式和處理器
-
-您可以針對 Application Insights SDK 撰寫與設定外掛程式，以自訂在遙測傳送至 Application Insights 服務之前，擷取與處理它的方式。
-
-[深入了解](app-insights-telemetry-processors.md)
 
 
-## 停用標準遙測
+## 取樣、篩選及處理遙測資料 
 
-您可以藉由編輯 `ApplicationInsights.config`，[停用所選部分的標準遙測][config]。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
+您可以撰寫程式碼，在從 SDK 傳送遙測資料前加以處理。處理包括從標準遙測模組 (如 HTTP 要求收集和相依性收集) 的資料。
 
-[深入了解][config]。
+* [新增屬性](app-insights-api-filtering-sampling.md#add-properties)至遙測 - 例如，版本號碼或從其他屬性計算而來的值。
+* [取樣](app-insights-api-filtering-sampling.md#sampling)可減少從您的應用程式傳送到入口網站的資料量，但不會影響顯示的度量，而且藉由在相關項目 (如例外狀況、要求和頁面檢視) 之間瀏覽，並不會影響您診斷問題的能力。
+* [篩選](app-insights-api-filtering-sampling.md#filtering)也會減少數量。您可控制要傳送或捨棄的項目，但是您必須考量這對您的度量的影響。視您捨棄項目的方式而定，您可能會喪失在相關項目之間瀏覽的能力。
 
+[深入了解](app-insights-api-filtering-sampling.md)
+
+
+## 停用遙測
+
+若要**動態停止和開始**收集及傳輸遙測資料：
+
+*C#*
+
+```C#
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+若要**停用選取的標準收集器** (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config][config] 中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
 
 ## <a name="debug"></a>開發人員模式
 
@@ -576,6 +582,16 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 *VB*
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+
+## <a name="ikey"></a>設定已選取自訂遙測的檢測金鑰
+
+*C#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
+
 
 ## <a name="dynamic-ikey"></a>動態檢測金鑰
 
@@ -618,7 +634,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳送的值數目。它們通常由標準遙測模組設定，但是您也可以自行設定它們。例如：
 
-    telemetryClient.Context.Operation.Name = “MyOperationName”;
+    telemetryClient.Context.Operation.Name = "MyOperationName";
 
 如果您自行設定這些值，請考慮從 [ApplicationInsights.config][config] 的相關程式碼行移除，如此您的值和標準值才不致混淆。
 
@@ -686,7 +702,7 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
 [搜尋事件和記錄檔][diagnostic]
 
-[和逐步解說](app-insights-code-samples.md)
+[範例和逐步解說](app-insights-code-samples.md)
 
 [疑難排解][qna]
 
@@ -708,4 +724,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

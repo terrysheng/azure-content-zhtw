@@ -13,11 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - .NET SDK 變更記錄 
 本文章提供 Azure Data Factory SDK 在特定版本中有何變更的相關資訊。您可以在[這裡](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)找到 Azure Data Factory 的最新 Nuget 封裝
+
+## 4\.1.0 版
+發行日期：2015 年 10 月 28 日
+
+### 新增功能
+* 已加入下列連結服務類型： 
+    * [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
+    * [AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
+* 已加入下列活動類型： 
+    * [DataLakeAnalyticsUSQLActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datalakeanalyticsusqlactivity.aspx)
+* 已加入下列資料集類型： 
+    * [AzureDataLakeStoreDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoredataset.aspx)
+* 已加入複製活動的下列來源和接收器類型：
+    * [AzureDataLakeStoreSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)
+    * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
+
 
 ## 4\.0.1 版
 發行日期：2015-10-13
@@ -56,9 +72,9 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 | TableListResponse | [DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters | [DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) | 
     
-- 此版本的 **API 版本**為：**2015-10-01**。
+- 這個發行版本的 **API 版本**為：**2015-10-01**。
 
-- **List** 方法現在會傳回分頁式結果。如果回應包含非空白的 **NextLink** 屬性，用戶端應用程式需要繼續提取下一個頁面，直到傳回了所有頁面為止。下列是一個範例：
+- **List** 方法現在會傳回分頁式結果。如果回應包含非空白的 **NextLink** 屬性，用戶端應用程式需要繼續擷取下一個頁面，直到傳回了所有頁面為止。下列是一個範例：
 
 		PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
 	    var pipelines = new List<Pipeline>(response.Pipelines);
@@ -75,8 +91,8 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 - **List** 管線 API 只會傳回管線的摘要，而不是完整的詳細資料。例如，管線摘要中的活動只包含名稱和類型。
 
 ### 新增功能
-- [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 類別支援兩個新屬性 (**SliceIdentifierColumnName** 和 **SqlWriterCleanupScript**)，以支援將資料等冪複製到 Azure SQL 資料倉儲。如需這些屬性的詳細資訊，請參閱 [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md)文章，尤其是[機制 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) 和 [機制 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) 小節。
+- [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 類別支援兩個新屬性 (**SliceIdentifierColumnName** 和 **SqlWriterCleanupScript**)，以支援將資料等冪複製到 Azure SQL 資料倉儲。如需這些屬性的詳細資訊，請參閱 [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md)一文，尤其是[機制 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) 和 [機制 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) 小節。
 
-- 我們現在支援對 Azure SQL Database 和 Azure SQL 資料倉儲的來源執行預存程序，做為複製活動的一部分。[SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) 和 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 類別具有下列屬性，以支援此功能：**SqlReaderStoredProcedureName** 和 **StoredProcedureParameters**。如需這些屬性的詳細資料，請參閱 Azure.com 上的 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 和 [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource)文章。
+- 我們現在支援對 Azure SQL Database 和 Azure SQL 資料倉儲的來源執行預存程序，做為複製活動的一部分。[SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) 和 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 類別具有下列屬性，以支援此功能：**SqlReaderStoredProcedureName** 和 **StoredProcedureParameters**。如需這些屬性的詳細資訊，請參閱 Azure.com 上的 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 和 [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource)文章。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

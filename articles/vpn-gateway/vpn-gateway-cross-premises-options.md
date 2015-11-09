@@ -55,8 +55,6 @@
 
 如果您想要設定站對站 VPN 閘道連線，請參閱〈[設定虛擬網路與站對站 VPN 連線](vpn-gateway-site-to-site-create.md)〉。
 
-如果您想要使用 RRAS 建立站對站 VPN 閘道連線，請參閱〈[使用 Windows Server 2012 路由及遠端存取服務 (RRAS) 設定站對站 VPN](https://msdn.microsoft.com/library/dn636917.aspx)〉。
-
 
 ## 點對站台連線
 
@@ -76,7 +74,7 @@
 
 - 您的 VPN 裝置沒有連結網際網路的 IPv4 IP 位址。
 
-如需設定點對站連線的詳細資訊，請參閱〈[設定虛擬網路的點對站 VPN 連線](vpn-gateway-point-to-site-create.md)〉。
+如需設定點對站連接的詳細資訊，請參閱[設定虛擬網路的點對站 VPN 連線](vpn-gateway-point-to-site-create.md)。
 
 ## ExpressRoute 連線
 
@@ -84,11 +82,11 @@ Azure ExpressRoute 可讓您在 Azure 資料中心和內部部署或共置環境
 
 在某些情況下，使用 ExpressRoute 連線在內部部署裝置和 Azure 之間傳輸資料，可以產生重大的成本效益。有了 ExpressRoute，您可以在 ExpressRoute 位置 (交換服務提供者設備) 與 Azure 建立連線，或從您現有的 WAN 網路 (例如，網路服務提供者提供的 MPLS VPN) 直接與 Azure 連線。
 
-如需 ExpressRoute 的詳細資訊，請參閱 〈[ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)〉。
+如需 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)。
 
 
 ## 後續步驟
 
-如需詳細資訊，請參閱〈[ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)〉和〈[VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)〉。
+如需詳細資訊，請參閱 [ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)和 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -62,13 +62,13 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
     * 如果您只安裝核心 API 封裝 Microsoft.ApplicationInsights，您必須在程式碼中設定金鑰，例如在 main ()： 
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "`*您的金鑰*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *您的金鑰* `";`
 
-    * 如果您安裝其中一個其他封裝，您可以使用程式碼設定金鑰，或在 ApplicationInsights.config 中設定：
+    如果您安裝其中一個其他封裝，您可以使用程式碼設定金鑰，或在 ApplicationInsights.config 中設定：
  
     `<InstrumentationKey>`*您的金鑰*`</InstrumentationKey>`
 
-
+    如果使用 ApplicationInsights.config，請確定其在方案總管中的屬性已設定為 [建置動作] = [內容]、[複製到輸出目錄] = [複製]。
 
 ## <a name="telemetry"></a>插入遙測呼叫
 
@@ -115,12 +115,12 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 使用任一個 [Application Insights API][api] 來傳送遙測。在 Windows 桌面應用程式中，不會自動傳送遙測。一般您會使用：
 
-* 在切換表單、頁面或索引標籤上的 `TrackPageView(pageName)`
+* 切換表單、頁面或索引標籤上的 `TrackPageView(pageName)`
 * 其他使用者動作的 `TrackEvent(eventName)`
-* 背景工作中的 `TrackMetric(name, value)`，可傳送未附加到特定事件之度量的一般報告。
-* [診斷記錄][][diagnostic] 的 `TrackTrace(logEvent)`
+* 背景工作中的 `TrackMetric(name, value)`，可傳送未附加到特定事件之度量的一般報表。
+* [診斷記錄][diagnostic]的 `TrackTrace(logEvent)`
 * catch 子句中的 `TrackException(exception)`
-* `Flush()` 確定所有遙測在關閉應用程式之前都已傳送。只有當您只使用核心 API (Microsoft.ApplicationInsights) 時才可以使用此選項。Web 和裝置 SDK 會自動實作此行為。(如果您的應用程式會在不一定有網際網路的內容中執行，請參閱[持續性通道](#persistence-channel)。)
+* `Flush()`，可確定所有遙測在關閉應用程式之前都已傳送。只有當您只使用核心 API (Microsoft.ApplicationInsights) 時才可以使用此選項。Web 和裝置 SDK 會自動實作此行為。(如果您的應用程式會在不一定有網際網路的內容中執行，請參閱[持續性通道](#persistence-channel))。
 
 
 #### 內容初始設定式
@@ -169,7 +169,7 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 如果您預期有更多資料，請在幾秒之後按一下 [重新整理]。
 
-如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟 [計量瀏覽器][][metrics]，並開啟 [篩選器] 刀鋒視窗。您應該會看到您的度量，但是它們有時可能需要一些時間才能通過管線，所以您可能必須關閉篩選器刀鋒視窗、稍待片刻，然後重新整理。
+如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟[計量瀏覽器][metrics]，並開啟 [篩選器] 刀鋒視窗。您應該會看到您的度量，但是它們有時可能需要一些時間才能通過管線，所以您可能必須關閉篩選器刀鋒視窗、稍待片刻，然後重新整理。
 
 
 
@@ -274,7 +274,7 @@ namespace ConsoleApplication1
 ```
 
 
-持續性通道的程式碼位於 [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel) 上。
+持續性通道的程式碼位於 [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel) 上。
 
 
 ## <a name="usage"></a>後續步驟
@@ -299,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

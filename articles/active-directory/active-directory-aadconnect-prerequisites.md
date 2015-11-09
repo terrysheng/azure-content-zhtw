@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 的必要條件 | Microsoft Azure"
+   pageTitle="Azure Active Directory Connect 的必要條件 | Microsoft Azure"
    description="將顯示在登陸頁面和大部分搜尋結果中的文章描述"
    services="active-directory"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="10/13/2015"
    ms.author="andkjell;billmath"/>
 
-# Azure AD Connect 的必要條件
+# Azure Active Directory Connect (Azure AD Connect) 的必要條件
 本主題描述 Azure AD Connect 的必要條件和硬體需求。
 
 ## 安裝 Azure AD Connect 之前
@@ -39,7 +39,7 @@
 **帳戶**
 
 - 想要與其整合之 Azure AD 目錄的 Azure AD 全域管理員帳戶
-- 本機 Active Directory 的企業系統管理員帳戶 (如果使用快速設定)。
+- 如果使用快速設定或從 DirSync 升級，則為本機 Active Directory 的企業系統管理員帳戶。
 - 如果您使用自訂設定的安裝路徑，[帳戶是 Active Directory](active-directory-aadconnect-accounts-permissions.md)。
 
 **連線能力**
@@ -114,4 +114,4 @@ Azure AD Connect 需要 PowerShell 和 .Net 4.5.1。依您的 Windows Server 版
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

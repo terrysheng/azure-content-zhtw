@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 # 在 Linux 上使用 HDInsight 的相關資訊
@@ -23,7 +23,19 @@
 
 ## 網域名稱
 
-連接到叢集時所要使用的完整網域名稱 (FQDN) 是 **&lt;clustername>.azurehdinsight.net** 或 (僅適用於 SSH) **&lt;clustername-ssh>.azurehdinsight.net**。
+從網際網路連接到叢集時所要使用的完整網域名稱 (FQDN) 是 **&lt;clustername>.azurehdinsight.net** 或 (僅適用於 SSH) **&lt;clustername-ssh>.azurehdinsight.net**。
+
+就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。若要尋找叢集名稱，您可以造訪 Ambari Web UI 的 [主機] 頁面，或使用下列命令以傳回來自 Ambari REST API (使用 [cURL](http://curl.haxx.se/) 和 [jq](https://stedolan.github.io/jq/)) 的主機清單：
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+
+將 __PASSWORD__ 取代為系統管理員帳戶的密碼，並且將 __CLUSTERNAME__ 取代為叢集名稱。這個方法會傳回包含叢集中主機清單的 JSON 文件，然後 jq 會針對叢集中的每個主機提取 `host_name` 元素值。
+
+如果您需要針對特定服務尋找節點的名稱，您可以查詢 Ambari 有無該元件。例如，若要尋找主機有無 HDFS 名稱節點，使用下列項目。
+
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+
+這會傳回描述服務的 JSON 文件，然後 jq 只會針對主機提取 `host_name` 值。
 
 ## 遠端存取服務
 
@@ -232,7 +244,7 @@ HDInsight 是受管理的服務，這表示如果偵測到問題，叢集中的�
 
 > [AZURE.WARNING]透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 ## 後續步驟
 
@@ -240,4 +252,4 @@ HDInsight 是受管理的服務，這表示如果偵測到問題，叢集中的�
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

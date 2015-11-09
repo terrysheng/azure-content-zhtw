@@ -18,6 +18,12 @@
 
 
 # 使用 PolyBase 載入資料
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 本教學課程將說明如何使用 PolyBase 將資料載入您的 Azure SQL 資料倉儲。
 
 
@@ -66,8 +72,8 @@
 
 - [建立主要金鑰][]：可加密資料庫範圍認證的密碼。
 - [建立資料庫範圍認證]：可指定 Azure 儲存體帳戶的驗證資訊。
-- [建立外部資料來源]：可指定 Azure blob 儲存體位置。
-- [建立外部檔案格式]：可指定資料的配置。
+- [建立外部資料來源]：可指定 Azure Blob 儲存體位置。
+- [建立外部檔案格式]：可指定資料的版面配置。
 - [建立外部資料表]：可參考 Azure 儲存體資料。
 
 
@@ -148,11 +154,11 @@ FROM   [dbo].[DimDate2External];
 請參閱 [CREATE TABLE AS SELECT (Transact-SQL)][]。
 
 
-若要深入了解 PolyBase，請參閱 [SQL 資料倉儲教學課程中的 PolyBase][]。
+若要深入了解 PolyBase，請參閱 [SQL 資料倉儲中的 PolyBase 教學課程][]。
 
 
 <!--Article references-->
-[SQL 資料倉儲教學課程中的 PolyBase]: sql-data-warehouse-load-with-polybase.md
+[SQL 資料倉儲中的 PolyBase 教學課程]: sql-data-warehouse-load-with-polybase.md
 
 
 <!-- External Links -->
@@ -166,4 +172,4 @@ FROM   [dbo].[DimDate2External];
 [建立資料庫範圍認證]: https://msdn.microsoft.com/zh-TW/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

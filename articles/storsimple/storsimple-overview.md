@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/09/2015"
+   ms.date="10/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 系列：混合式雲端存放解決方案 
@@ -46,7 +46,7 @@ StorSimple 使用[儲存體分層](#automatic-storage-tiering)管理各種儲存
 |Azure 政府機構入口網站中的可用性 | StorSimple 現在可以在 Azure 政府機構入口網站中使用。如需詳細資訊，請參閱[在政府機構入口網站中部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough-gov.md)。|
 |支援區域備援儲存體 | 升級至最新版的儲存體 API 之後，StorSimple 8000 系列除了本地備援儲存體 (LRS) 和異地備援儲存體 (GRS) 之外，也將支援區域備援儲存體 (ZRS)。如需 ZRS 的詳細資訊，請參閱[本文件的 Azure 儲存體備援選項](https://azure.microsoft.com/documentation/articles/storage-redundancy/)。
 
-![影片圖示](./media/storsimple-overview/video_icon.png) 觀賞[這段影片](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be)了解 StorSimple 8000 系列功能及優點的概觀。
+![影片圖示](./media/storsimple-overview/video_icon.png) 觀賞[這段影片](http://azure.microsoft.com/documentation/videos/guru-pangals-welcome-to-wpc--july-2015)了解 StorSimple 8000 系列功能及優點的簡介。
 
 ## StorSimple 元件
 
@@ -65,6 +65,8 @@ Microsoft Azure StorSimple 解決方案包括下列元件：
 ![StorSimple 架構](./media/storsimple-overview/overview-big-picture.png)
 
 下列各節將更詳細描述每個元件，並說明解決方案如何排列資料、配置儲存體、加快儲存體管理速度以及資料保護。最後一節提供一些與 StorSimple 元件和其管理相關之重要詞彙的定義。
+
+![影片圖示](./media/storsimple-overview/video_icon.png) 觀賞[這段影片](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be)了解 StorSimple 裝置、StorSimple 虛擬裝置和 StorSimple Manager 服務的簡介。
 
 ## StorSimple 裝置
 
@@ -226,7 +228,7 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 | 動態磁碟鏡像 | 複寫動態磁碟上的邏輯磁碟區。|
 | 動態磁碟 | 一種磁碟區格式，其會使用邏輯磁碟管理員 (LDM)，跨多個實體磁碟儲存和管理資料。動態磁碟可以擴大來提供更多的可用空間。|
 | 擴充的磁碟群 (EBOD) 機箱 | Microsoft Azure StorSimple 裝置的次要機箱，其中包含額外的硬碟來提供額外的儲存體。|
-| 豐富佈建 | 一種傳統的儲存體佈建，其中的儲存體空間是根據預期需求 (通常超過目前需求) 來配置。另請參閱*精簡佈建*。|
+| 豐富佈建 | 一種傳統的儲存體佈建，其中的儲存體空間是根據預期需求 (通常超過目前需求) 來配置。另請參閱＜精簡佈建＞。|
 | 硬碟 (HDD) | 使用旋轉盤來儲存資料的磁碟機。|
 | 混合式雲端儲存體 | 使用本機和異地資源 (包括雲端儲存體) 的儲存體架構。|
 | Internet Small Computer System Interface (iSCSI) | 用於連結資料儲存設備或設施的網際網路通訊協定 (IP) 型儲存體網路標準。|
@@ -249,7 +251,7 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 | StorSimple Manager 服務 | Azure 管理入口網站的延伸模組，可讓您管理您的 Azure StorSimple 內部部署和虛擬裝置。|
 | StorSimple Snapshot Manager | 一種 Microsoft Management Console (MMC) 嵌入式管理單元，用於管理 Microsoft Azure StorSimple 中的備份和還原作業。|
 | 進行備份 | 一種可讓使用者進行磁碟區互動式備份的功能。相對於透過定義的原則進行自動備份，它是進行磁碟區手動備份的替代方式。|
-| 精簡佈建 | 一種可在儲存體系統中以最佳效率使用可用之儲存空間的方法。在精簡佈建中，會根據每個使用者在任何給定時間所需的最小空間，在多個使用者之間配置儲存體。另請參閱*豐富佈建*。|
+| 精簡佈建 | 一種可在儲存體系統中以最佳效率使用可用之儲存空間的方法。在精簡佈建中，會根據每個使用者在任何給定時間所需的最小空間，在多個使用者之間配置儲存體。另請參閱＜豐富佈建＞。|
 | 分層 | 根據目前使用量、時間以及與其他資料的關聯性來排列邏輯群組中的資料。StorSimple 會自動排列各層的資料。 |
 | 磁碟區 | 以磁碟機形式呈現的邏輯存放區域。StorSimple 磁碟區會對應至主機所掛接的磁碟區，包括透過使用 iSCSI 及 StorSimple 裝置探索到的磁碟區。|
  | 磁碟區容器 | 磁碟區和套用至其中之設定的群組。StorSimple 裝置中分組為磁碟區容器的所有磁碟區。磁碟區容器設定包括儲存體帳戶、使用相關聯的加密金鑰將資料傳送至雲端的加密設定，以及對牽涉到雲端之作業所耗用的頻寬。|
@@ -269,4 +271,4 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

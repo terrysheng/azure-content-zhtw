@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/23/2015"
 	ms.author="cynthn"/>
 
 #關於 Azure 虛擬機器 
@@ -22,9 +22,9 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Azure 虛擬機器是由 Azure 所提供的隨選且可調整的數種運算資源類型之一。一般而言，如果您對於計算環境所需的控制權比其他選擇可提供的還要多，則您會選擇虛擬機器，而不是其他選項。
+Azure 虛擬機器是由 Azure 所提供的隨選且可調整的數種運算資源類型之一。一般而言，如果您對於運算環境所需的控制權比其他選擇可提供的還要多，則您會選擇虛擬機器。
 
-另一種方法是使用您自己硬體上的虛擬機器。相較於該方法，Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並維護執行虛擬機器的實體硬體。不過，您仍然需要維護虛擬機器 -- 設定、修補和維護作業系統，以及在虛擬機器上執行的任何其他軟體。
+Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並維護執行虛擬機器的實體硬體。不過，您仍然需要維護虛擬機器 - 設定、修補和維護作業系統，以及在虛擬機器上執行的任何其他軟體。
 
 下表可協助您比較 Azure 所提供的選擇。
 
@@ -52,4 +52,4 @@ Azure 虛擬機器是由 Azure 所提供的隨選且可調整的數種運算資�
 [虛擬機器]: #tellmevm
 [雲端服務]: cloud-services-choose-me.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

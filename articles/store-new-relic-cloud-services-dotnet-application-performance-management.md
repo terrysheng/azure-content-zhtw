@@ -3,8 +3,8 @@
 	description="了解如何使用 New Relic 服務來管理與監控 Azure 應用程式。" 
 	services="" 
 	documentationCenter=".net" 
-	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	authors="nickfloyd" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -14,23 +14,22 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="stepsic"/>
+	ms.author="nickfloyd@newrelic.com"/>
 
 
 
-#Azure 上的 New Relic 應用程式效能管理
+# Azure 上的 New Relic 應用程式效能管理
 
 本指南說明如何將 New Relic 的世界級效能監視加入至 Azure 託管的應用程式。我們將討論以快速又簡單的程序將 New Relic 加入至應用程式，並介紹一些 New Relic 功能。如需有關使用 New Relic 的詳細資訊，請參閱＜[使用 New Relic](#using-new-relic)＞。
 
-什麼是 New Relic？
---
+## 什麼是 New Relic？
 
 New Relic 是一種開發人員專用工具，可監視生產應用程式，並深入探索其效能和可靠性。主要是讓您在識別和診斷效能問題時可節省時間，並隨手取得解決這些問題所需的資訊。
 
 New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自伺服器和使用者瀏覽器。它會顯示您在資料庫中花費多少時間、分析較慢的查詢和 Web 要求、提供運作時間監視和警示、追蹤應用程式例外狀況，還有許多其他功能。
 
-透過 Azure 市集享受 New Relic 優惠價格 
---
+## 透過 Azure 市集享受 New Relic 優惠價格
+
 
 New Relic Standard 供 Azure 使用者免費使用。New Relic Pro 依 Azure 雲端服務的執行個體大小來報價
 
@@ -40,8 +39,7 @@ New Relic Standard 供 Azure 使用者免費使用。New Relic Pro 依 Azure 雲
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱 2 週。
 
-使用 Azure 市集註冊 New Relic 
---
+## 使用 Azure 市集註冊 New Relic
 
 New Relic 與 Azure Web 角色和背景工作角色緊密整合。
 
@@ -95,7 +93,7 @@ New Relic 與 Azure Web 角色和背景工作角色緊密整合。
 	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**注意：**如果這是您第一次將此應用程式部署至 Azure，系統會提示您輸入 Azure 認證。如需詳細資訊，請參閱<a href="/develop/net/tutorials/get-started/">將 ASP.NET Web 應用程式部署至 Azure 網站</a>。
+**注意：**如果這是您第一次將此應用程式部署至 Azure，系統會提示您輸入 Azure 認證。如需詳細資訊，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](app-service-web\web-sites-dotnet-get-started.md)
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
@@ -117,49 +115,23 @@ New Relic 與 Azure Web 角色和背景工作角色緊密整合。
 
 從 [Applications] 功能表的清單中選取應用程式之後，[Overview] 儀表板會顯示目前的應用程式伺服器和瀏覽器資訊。若要在這兩個檢視之間切換，請按一下 [App server] 或 [Browser] 按鈕。
 
-除了<a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">標準 New Relic UI</a>和<a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">儀表板向下鑽研</a>功能，[Applications Overview] 儀表板還有其他功能。
+除了[標準 New Relic UI](https://newrelic.com/docs/site/the-new-relic-ui#functions")和[儀表板向下鑽研](https://newrelic.com/docs/site/the-new-relic-ui#drilldown)功能，[Applications Overview] 儀表板還有其他功能。
 
-<table border="1">
-  <thead>
-    <tr>
-      <th><b>如果您想要...</b></th>
-      <th><b>執行此動作...</b></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-       <td>顯示所選取應用程式的伺服器或瀏覽器的儀表板資訊</td>
-       <td>按一下 [App Server]<b></b> 或 [Browser]<b></b> 按鈕。</td>
-    </tr>
-     <tr>
-       <td>檢視應用程式的 <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> 分數的臨界值層級</td>
-       <td>指向 [Apdex score <b>?<b>] 圖示。</b></b></td>
-    </tr>
-    <tr>
-       <td>檢視全球 Apdex 詳細資料</td>
-       <td>從 [Overview] 的 [Browser]<b></b> 檢視中，指向 Global Apdex 地圖的任意處。<br /><b>秘訣：</b>若要直接移至選取的應用程式的 <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a> 儀表板，請按一下 [Global Apdex]<b></b> 標題，或按一下 Global Apdex 地圖的任意處。</td>
-    </tr>
-    <tr>
-       <td>檢視 <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a> 儀表板</td>
-       <td>按一下 [Applications Overview] 儀表板的 [Web Transactions] 資料表。或者，若要檢視特定 Web 交易 (包括 <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>) 的詳細資料，請按一下其名稱。</td>
-    </tr>
-    <tr>
-       <td>檢視 <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a> 儀表板</td>
-       <td>按一下 [Applications Overview] 儀表板的 [Error rate] 圖表標題。<br /><b>祕訣：</b>您也可以從 [Applications]<b></b> > (您的應用程式) > [Events] > [Errors] 來檢視 [Errors] 儀表板。</td>
-    </tr>
-    <tr>
-       <td>檢視應用程式的伺服器詳細資料</td>
-       <td><p>執行下列任何動作：<p>
-        <ul>
-          <li>在主機的資料表檢視或每個主機的分組度量詳細資料之間切換。</li>
-          <li>按一下個別伺服器的名稱。</li>
-          <li>指向個別伺服器的 Apdex 分數。</li>
-          <li>按一下個別伺服器的 CPU 使用率或記憶體。</li>
-        </ul>
-       </p></p></td>
-    </tr>
-  </tbody>
-</table>
+| 如果您想要... | 執行此動作... |
+| ----------------- | ---------- |
+| 顯示所選取應用程式的伺服器或瀏覽器的儀表板資訊。 | 按一下 [App Server] 或 [Browser] 按鈕。 |
+| 檢視應用程式的 [Apdex](https://newrelic.com/docs/site/apdex) 分數的臨界值層級。 | 指向 Apdex 分數 **?** 圖示。 |
+| 檢視全球 Apdex 詳細資料。 | 從 [Overview] 的 [Browser] 檢視中，指向 Global Apdex 地圖的任意處。**秘訣：**若要直接移至選取之應用程式的 [Geography](https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard") 儀表板，請按一下 [Global Apdex] 標題，或按一下 Global Apdex 地圖的任意處。 |
+| 檢視 [Web Transactions](https://newrelic.com/docs/applications-dashboards/web-transactions) 儀表板。 | 按一下 [Applications Overview] 儀表板的 [Web Transactions] 資料表。或者，若要檢視特定 Web 交易 (包括 [Key Transactions](https://newrelic.com/docs/site/key-transactions")) 的詳細資料，請按一下其名稱。 |
+| 檢視 [Errors](https://newrelic.com/docs/site/errors) 儀表板。 | 按一下 [Applications Overview] 儀表板的 [Error rate] 圖表標題。**祕訣：**您也可以從 [Applications] > (您的應用程式) > [Events] > [Errors] 來檢視 [Errors] 儀表板。 |
+
+
+此外，如果您想要檢視應用程式的伺服器詳細資料，請執行下列任何動作：
+
+- 在主機的資料表檢視或每個主機的分組度量詳細資料之間切換。
+- 按一下個別伺服器的名稱。
+- 指向個別伺服器的 Apdex 分數。
+- 按一下個別伺服器的 CPU 使用率或記憶體。
 
 以下是選取 [Browser] 檢視時的 [Applications Overview] 儀表板範例。
 
@@ -176,4 +148,4 @@ New Relic 與 Azure Web 角色和背景工作角色緊密整合。
  * [實際使用者監控](https://newrelic.com/docs/features/real-user-monitoring) (英文)：RUM 如何詳述使用者瀏覽器載入網頁所需的時間、使用者來自何方及使用什麼瀏覽器的概觀
  * [尋找說明](https://newrelic.com/docs/site/finding-help) (英文)：New Relic 線上說明中心提供的資源
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

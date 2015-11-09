@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="如何在 Azure RemoteApp 中重新導向 QuickBooks？| Microsoft Azure" 
+    pageTitle="如何在 Azure RemoteApp 中重新導向 USB 裝置？| Microsoft Azure" 
     description="了解如何在 Azure RemoteApp 中對 USB 裝置使用重新導向。" 
     services="remoteapp" 
 	documentationCenter="" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/19/2015" 
+    ms.date="10/23/2015" 
     ms.author="elizapo" />
 
 
@@ -72,4 +72,9 @@
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
 
-<!---HONumber=Oct15_HO4-->
+
+
+### 幫助我們來協助您 
+您知道除了評比這篇文章以及在下面留言以外，您可以變更文件本身嗎？ 有所遺漏？ 有所錯誤？ 我是否撰寫了令人混淆的內容？ 向上捲動並按一下 [在 GitHub 上編輯] 以進行變更 - 系統會顯示這些變更以供我們檢閱，一旦我們處理結束，您就會在這裡看到您所進行的變更和改良。
+
+<!---HONumber=Nov15_HO1-->

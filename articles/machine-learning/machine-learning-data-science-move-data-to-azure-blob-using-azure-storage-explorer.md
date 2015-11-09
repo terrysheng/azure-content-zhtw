@@ -18,6 +18,8 @@
 
 # 使用 Azure 儲存體總管從 Azure Blob 儲存體來回移動資料
 
+以下是有關從 Azure Blob 儲存體來回移動資料所使用之技術的指引連結：
+
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## 簡介
@@ -53,4 +55,4 @@ Azure 儲存體總管是一個免費的 Windows 型工具，可用以檢查及�
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

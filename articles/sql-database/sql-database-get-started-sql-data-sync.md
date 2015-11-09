@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/27/2015"
 	ms.author="jhubbard"/>
 
 
@@ -23,6 +23,7 @@
 
 本教學課程假設學員只有最少的 SQL Server 和 Azure SQL Database 使用經驗。在本教學課程中，您將建立已完全設定的混合 (SQL Server 和 SQL Database 案例) 同步群組，並依照您設定的排程進行同步。
 
+**注意！** Azure SQL 資料同步的完整技術文件集先前位於 MSDN 上，現在則是可從[這裡](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)下載的單一 .pdf。
 
 ## 步驟 1：連接到 Azure SQL Database
 
@@ -63,7 +64,7 @@
 <a id="InstallClient"></a>
 ### 步驟 2b：安裝新的用戶端代理程式
 
-遵循[安裝 SQL 資料同步 (預覽) 用戶端代理程式](http://msdn.microsoft.com/library/jj823137.aspx)中的指示，以安裝代理程式。
+遵循 [安裝用戶端代理程式 (SQL 資料同步)](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf) 中的指示，以安裝代理程式。
 
 
 
@@ -80,7 +81,7 @@
 
 ## 步驟 3：向用戶端代理程式註冊 SQL Server 資料庫
 
-安裝用戶端代理程式之後，註冊您要納入代理程式之同步群組中的每個內部部署 SQL Server 資料庫。若要向代理程式註冊資料庫，請遵循[向用戶端代理程式註冊 SQL Server 資料庫](http://msdn.microsoft.com/library/jj823138.aspx)中的指示。
+安裝用戶端代理程式之後，註冊您要納入代理程式之同步群組中的每個內部部署 SQL Server 資料庫。若要向代理程式註冊資料庫，請遵循[向用戶端代理程式註冊 SQL Server 資料庫](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)中的指示。
 
 
 
@@ -195,11 +196,11 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 ## 後續步驟
 如需 SQL Database 與 SQL 資料同步的其他資訊，請參閱：
 
-* [下載 SQL 資料同步技術文件](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
+* [下載完整的 SQL 資料同步技術文件](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [SQL Database 概觀](sql-database-technical-overview.md)
 * [資料庫生命週期管理](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

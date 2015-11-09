@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="使用 SSH 來連線至 Linux 虛擬機器 | Microsoft Azure" 
-	description="了解如何在 Azure 的 Linux 虛擬機器上產生並使用 SSH 金鑰。" 
+	pageTitle="在 Mac 和 Linux 使用 SSH |Microsoft Azure" 
+	description="在 Linux 和 Mac 上產生和使用 SSH 金鑰，搭配 Azure 上資源管理員和傳統部署模型。" 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="szarkos" 
+	authors="squillace" 
 	manager="timlt" 
 	editor=""
 	tags="azure-service-management,azure-resource-manager" />
@@ -14,169 +14,288 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
-	ms.author="szark"/>
+	ms.date="10/28/2015" 
+	ms.author="rasquill"/>
 
-#如何對 Azure 上的 Linux 使用 SSH
+#如何在Azure 的 Linux 和 Mac 使用 SSH
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+> [AZURE.SELECTOR]
+- [Windows](../articles/virtual-machines/virtual-machines-windows-use-ssh-key.md)
+- [Linux/Mac](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)
 
-目前版本的 Azure 管理入口網站僅接受封裝於 X509 憑證中的 SSH 公開金鑰。請遵循下列步驟，產生 SSH 金鑰並用於 Azure。
-
-## 在 Linux 中產生 Azure 的相容金鑰 ##
-
-1. 視需要安裝 `openssl` 公用程式：
-
-	**CentOS / Oracle Linux**
-
-		# sudo yum install openssl
-
-	**Ubuntu**
-
-		# sudo apt-get install openssl
-
-	**SLES 和 openSUSE**
-
-		# sudo zypper install openssl
-
-
-2. 使用 `openssl`，以 2048 位元 RSA 金鑰組來產生 X509 憑證。請回答 `openssl` 提示的一些問題 (您也可以將這些問題留空)。平台並未使用這些欄位的內容：
-
-		# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-
-3.	變更私密金鑰的權限來保護私密金鑰。
-
-		# chmod 600 myPrivateKey.key
-
-4.	建立 Linux 虛擬機器時上傳 `myCert.pem`。佈建程序會為虛擬機器中的指定使用者，自動將此憑證中的公開金鑰安裝至 `authorized_keys` 檔案中。
-
-5.	如果您將直接使用 API，而不使用管理入口網站，請使用下列命令，將 `myCert.pem` 轉換為 `myCert.cer` (DER 編碼的 X509 憑證)：
-
-		# openssl  x509 -outform der -in myCert.pem -out myCert.cer
-
-
-## 從現有 OpenSSH 相容金鑰產生金鑰
-上一個範例說明如何建立用於 Azure 的新金鑰。在某些情況下，您可能已經有現有的 OpenSSH 相容公用與私密金鑰組，並希望對 Azure 使用相同的金鑰。
-
-`openssl` 公用程式可以直接讀取 OpenSSH 私密金鑰。下列命令將使用現有的 SSH 私密金鑰 (在下例中為 id\_rsa)，並建立 Azure 所需的 `.pem` 公開金鑰：
-
-	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
-
-**myCert.pem** 檔案是之後可用來在 Azure 上佈建 Linux 虛擬機器的公開金鑰。在佈建期間，`.pem` 檔案將轉譯為 `openssh` 相容的公開金鑰，並放在 `~/.ssh/authorized_keys` 中。
-
-
-## 從 Linux 連線到 Azure 虛擬機器
-
-1. 在某些情況下，Linux 虛擬機器的 SSH 端點可能會針對預設連接埠 22 以外的連接埠而設定。在管理入口網站中，您可以在 VM 的 [儀表板] 上找到正確的連接埠號碼 (在 [SSH 詳細資料] 下)。
-
-2.	使用 `ssh` 連線到 Linux 虛擬機器。第一次登入時，將提示您接受主機公開金鑰的指紋。
-
-		# ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
-
-3.	(選用) 您可以將 `myPrivateKey.key` 複製到 `~/.ssh/id_rsa`，使 OpenSSH 用戶端能夠自動選擇此金鑰，而無需使用 `-i` 選項。
-
-## 在 Windows 上取得 OpenSSL ##
-
-目前有多個公用程式可供使用，包括 `openssl` for Windows。以下列出數個範例：
-
-### 使用 Msysgit ###
-
-1.	從下列位置下載並安裝 msysgit：[http://msysgit.github.com/](http://msysgit.github.com/)
-2.	從安裝目錄執行 `msys` (例如 c:\\msysgit\\msys.exe)
-3.	輸入 `cd bin` 切換至 `bin` 目錄。
-
-
-### 使用 GitHub for Windows ###
-
-1.	從下列位置下載並安裝 GitHub for Windows：[http://windows.github.com/](http://windows.github.com/)
-2.	從 [開始] 功能表 > [所有程式] > [GitHub, Inc] 執行 Git Shell
-
-	**注意：**當您執行上述的 `openssl` 命令時，可能會遇到下列錯誤：
-
-		Unable to load config info from /usr/local/ssl/openssl.cnf
-
-	解決此問題最簡單的方法是設定 `OPENSSL_CONF` 環境變數。設定這個變數的程序會因您已在 Github 中設定的殼層而有所不同：
-
-	**Powershell：**
-
-		$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-
-	**CMD：**
-
-		set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-
-	**Git Bash：**
-
-		export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
-
-
-###使用 Cygwin###
-
-1.	從下列位置下載並安裝 Cygwin：[http://cygwin.com/](http://cygwin.com/)
-2.	確定已安裝 OpenSSL 封裝及其所有的相依性。
-3.	執行 `cygwin`
-
-
-## 在 Windows 上建立私密金鑰 ##
-
-1.	遵循以上的其中一組指示，以便執行 `openssl.exe`
-2.	輸入以下命令：
-
-		# openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
-
-3.	畫面應該如下所示：
-
-	![linuxwelcomegit](./media/virtual-machines-linux-use-ssh-key/linuxwelcomegit.png)
-
-4.	回答提出的問題。
-5.	它會建立兩個檔案：`myPrivateKey.key` 和 `myCert.pem`。
-6.	如果您將直接使用 API，而不使用管理入口網站，請使用下列命令，將 `myCert.pem` 轉換為 `myCert.cer` (DER 編碼的 X509 憑證)：
-
-		# openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
-
-## 建立 Putty 的 PPK ##
-
-1. 從下列位置下載並安裝 Puttygen： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-
-2. Puttygen 可能無法讀取稍早建立的私密金鑰 (`myPrivateKey.key`)。執行下列命令以將它轉譯成 Puttygen 可認得的 RSA 私密金鑰：
-
-		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
-		# chmod 600 ./myPrivateKey_rsa
-
-	上述命令應會產生一個名為 myPrivateKey\_rsa 的新私密金鑰。
-
-3. 執行 `puttygen.exe`
-
-4. 按一下功能表：[檔案] > [載入私密金鑰]
-
-5. 找出您的私密金鑰，也就是上述命名為 `myPrivateKey_rsa` 的金鑰。您將需要變更檔案篩選，顯示**所有檔案 (*.*)**
-
-6. 按一下 [開啟]。您將看見提示，看起來如下所示：
-
-	![linuxgoodforeignkey](./media/virtual-machines-linux-use-ssh-key/linuxgoodforeignkey.png)
-
-7. 按一下 [確定]。
-
-8. 按一下以下螢幕擷取畫面強調顯示的 [Save Private Key]：
-
-	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtygenprivatekey.png)
-
-9. 將檔案儲存為 PPK。
-
-
-## 使用 Putty 連線到 Linux 機器 ##
-
-1.	從下列位置下載並安裝 putty： [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2.	執行 putty.exe
-3.	使用管理入口網站的 IP 來填入主機名稱：
-
-	![linuxputtyconfig](./media/virtual-machines-linux-use-ssh-key/linuxputtyconfig.png)
-
-4.	選取 [Open] 之前，請按一下 [Connection] > [SSH] > [Auth] 索引標籤來選擇您的金鑰。請參閱以下螢幕擷取畫面，以了解要填入的欄位：
-
-	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
-
-5.	按一下 [開啟] 以連線到虛擬機器。
- 
-
-<!---HONumber=Oct15_HO4-->
+本主題描述如何在 Linux 和 Mac 上使用 **ssh-keygen** 和 **openssl**，以建立和使用 **ssh-rsa** 格式和 **.pem** 格式檔案來保護與 Linux 型 Azure VM 的安全通訊。建議您建立新的部署時，使用資源管理員部署模型建立以 Linux 為基礎的 Azure 虛擬機器，並採用 *ssh-rsa* 類型的公用金鑰檔案或字串 (取決於部署用戶端)。[預覽入口網站](https://portal.azure.com) 目前僅接受 **ssh-rsa** 格式的字串，不論是傳統或資源管理員的部署。
+
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]若要建立這些類型的檔案，用於Windows 電腦與 Azure 中的 Linux VM 進行安全通訊 ，請參閱[在 Windows 上使用 SSH 金鑰](virtual-machines-windows-use-ssh-key.md)。
+
+## 您需要哪些檔案？
+
+Azure 的基本 SSH 安裝程式包含 2048 位元的 **ssh-rsa** 公用和私密金鑰組 (根據預設，**ssh-keygen** 會將這些檔案儲存為 **~/.ssh/id\_rsa** 和 **~/.ssh/id-rsa.pub**，除非變更預設值) 以及從 **id\_rsa** 私密金鑰檔案產生的 `.pem` 檔案，以搭配傳統入口網站的傳統部署模型使用。
+
+以下是部署案例，以及您在每個案例中使用的檔案類型：
+
+1. 使用[預覽入口網站](https://portal.azure.com)的任何部署都需要 **ssh-rsa** 金鑰，無論部署模型為何。
+2. 需要 .pem 檔案才能使用[傳統入口網站](https://manage.windowsazure.com)來建立 VM。使用 [Azure CLI](xplat-cli-install.md) 的傳統部署也支援 .pem 檔案。 
+
+## 建立金鑰與 SSH 搭配使用
+
+Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem 檔案，取決於您的案例。如果您已經有這類檔案，在建立 Azure VM 時傳遞公開金鑰檔。
+
+如果您需要建立檔案：
+
+1. 請確定您的 **ssh-keygen** 和 **openssl** 實作是最新版。這會因平台而異。 
+
+	- 若是 Mac，請務必瀏覽 [Apple 產品安全性網站](https://support.apple.com/HT201222)，必要時選擇適當的更新。
+	- 若是 Ubuntu、Debian、Mint 等 Debian 型的 Linux 散發套件：
+		
+			sudo apt-get update ssh-keygen
+			sudo apt-get update openssl
+			
+	- 若是 CentOS、Oracle Linux 等 RPM 型的 Linux 散發套件：
+		
+			sudo yum update ssh-keygen
+			sudo yum update openssl
+			
+	- 若是 SLES 和 OpenSUSE
+		
+			sudo zypper update ssh-keygen
+			sudo zypper update openssl
+	
+2. 使用 **ssh-keygen** 建立 2048 位元 RSA 公開和私密金鑰檔案，且除非您有要用於檔案的特定位置或特定名稱，否則接受預設位置和名稱 `~/.ssh/id_rsa`。基本命令是：
+
+		ssh-keygen -t rsa -b 2048 
+	
+	正常情況下，您的 **ssh-keygen** 實作會加入註解，通常是使用者名稱和電腦的主機名稱。您可以使用 `-C` 選項指定特定的註解。
+	
+3. 從您 `~/.ssh/id_rsa` 檔案建立.pem 檔案，以便您使用傳統的入口網站。使用 **openssl**，如下所示：
+
+		openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
+
+	如果您想要從不同的私密金鑰檔案建立.pem 檔案，請修改 `-key` 引數。
+
+> [AZURE.NOTE]如果您打算管理使用傳統部署模型部署的服務，您可能也想要建立 **.cer** 格式檔案以上傳至入口網站 - 雖然這不牽涉到 **ssh** 或連接到 Linux VM，這是本文的主題。若要在 Linux 或 Mac 上建立這些檔案，輸入：<br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
+
+將.pem 檔案轉換成 DER 編碼的 x509 憑證檔案。
+
+## 使用您有的 SSH 金鑰
+
+您可以在所有新工作使用 ssh rsa (`.pub`) 金鑰，尤其是資源管理員部署模型和預覽入口網站；如果您需要使用傳統入口網站，您可能需要從您的金鑰建立 `.pem` 檔案。
+
+## 建立 VM 與您的公用金鑰檔案
+
+建立所需的檔案之後，有許多方法可以建立能使用公開-私密金鑰交換進行安全連線的 VM。在幾乎所有的情況下，尤其是使用資源管理員部署，請在系統提示您提供 ssh 金鑰檔案路徑或檔案內容字串時，傳遞.pub 檔案。
+
+### 範例：建立 VM with the id\_rsa.pub 檔案
+
+最常見的用法是以命令方式建立 VM 時 - 或上傳範本建立 VM 時。下列程式碼範例示範在 Azure 中建立新的、安全 Linux VM，做法是將公開金鑰檔案名稱 (在此案例中是預設 `~/.ssh/id_rsa` 檔案) 傳遞給 `azure vm create` 命令。(其他引數已事先建立。)
+
+	azure vm create \
+	--nic-name testnic \
+	--public-ip-name testpip \
+	--vnet-name testvnet \
+	--vnet-subnet-name testsubnet \
+	--storage-account-name computeteststore 
+	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
+	--username ops \
+	-ssh-publickey-file ~/.ssh/id_rsa \
+	testrg testvm westeurope linux
+
+下一個範例示範如何使用 **ssh-rsa** 格式與資源管理員範本和 Azure CLI，建立受到使用者名稱和 `~/.ssh/id_rsa.pub` 內容字串保護的 Ubuntu VM。(本範例縮短公開金鑰字串以利閱讀。)
+
+	azure group deployment create \
+	--resource-group test-sshtemplate \
+	--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
+	--name mysshdeployment
+	info:    Executing command group deployment create
+	info:    Supply values for the following parameters
+	testnewStorageAccountName: testsshvmtemplate3
+	adminUserName: ops
+	sshKeyData: ssh-rsa AAAAB3NzaC1yc2EAAAADAQA+/L+rHIjz+nXTzxApgnP+iKDZco9 user@macbookpro
+	dnsNameForPublicIP: testsshvmtemplate
+	location: West Europe
+	vmName: sshvm
+	+ Initializing template configurations and parameters
+	+ Creating a deployment
+	info:    Created template deployment "mysshdeployment"
+	+ Waiting for deployment to complete
+	data:    DeploymentName     : mysshdeployment
+	data:    ResourceGroupName  : test-sshtemplate
+	data:    ProvisioningState  : Succeeded
+	data:    Timestamp          : 2015-10-08T00:12:12.2529678Z
+	data:    Mode               : Incremental
+	data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+	data:    ContentVersion     : 1.0.0.0
+	data:    Name                   Type    Value
+	
+	data:    newStorageAccountName  String  testtestsshvmtemplate3
+	data:    adminUserName          String  ops
+	data:    sshKeyData             String  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAkek3P6V3EhmD+xP+iKDZco9 user@macbookpro
+	data:    dnsNameForPublicIP     String  testsshvmtemplate
+	data:    location               String  West Europe
+	data:    vmSize                 String  Standard_A2
+	data:    vmName                 String  sshvm
+	data:    ubuntuOSVersion        String  14.04.2-LTS
+	info:    group deployment create command OK
+
+
+### 範例：以 .pem 檔案建立 VM
+
+接著您可以使用 .pem 檔案搭配傳統入口網站或是搭配傳統部署模式和 `azure vm create`，如以下範例所示：
+
+	azure vm create \
+	-l "West US" -n testpemasm \
+	-P -t myCert.pem -e 22 \
+	testpemasm \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB \
+	ops
+	info:    Executing command vm create
+	warn:    --vm-size has not been specified. Defaulting to "Small".
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB
+	+ Looking up cloud service
+	info:    cloud service testpemasm not found.
+	+ Creating cloud service
+	+ Retrieving storage accounts
+	+ Configuring certificate
+	+ Creating VM
+	info:    vm create command OK
+	
+
+## 連接到您的 VM
+
+**ssh** 命令需要登入用的使用者名稱、電腦的網路位址、要連接至該位址的連接埠、以及許多其他特殊變數。(如需 **ssh** 的詳細資訊，請按一下[這裡](https://en.wikipedia.org/wiki/Secure_Shell)。)
+
+資源管理員部署的典型用法看起來如下 (如果您只是指定子網域和部署位置)：
+
+	ssh user@subdomain.westus.cloudapp.azure.com -p 22
+	
+或者，如果您要連接至傳統部署雲端服務，您使用的位址可能看起來像這樣：
+
+	ssh user@subdomain.cloudapp.net -p 22
+	
+因為位址形式可以變更 - 您永遠可以使用的 IP 位址，也或許使用您指派的自訂網域名稱 - 您將必須探索 Azure VM 的位址。
+
+### 探索搭配傳統部署之 Azure VM SSH 的位址
+
+您可以使用 `azure vm show` 命令搭配 VM 名稱，來探索用於 VM 與傳統部署模型的位址：
+
+	azure vm show testpemasm
+	info:    Executing command vm show
+	+ Getting virtual machines
+	data:    DNSName "testpemasm.cloudapp.net"
+	data:    Location "West US"
+	data:    VMName "testpemasm"
+	data:    IPAddress "100.116.160.154"
+	data:    InstanceStatus "ReadyRole"
+	data:    InstanceSize "Small"
+	data:    Image "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB"
+	data:    OSDisk hostCaching "ReadWrite"
+	data:    OSDisk name "testpemasm-testpemasm-0-201510102050230517"
+	data:    OSDisk mediaLink "https://portalvhds4blttsxgjj1rf.blob.core.windows.net/vhd-store/testpemasm-2747c9c432b043ff.vhd"
+	data:    OSDisk sourceImageName "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB"
+	data:    OSDisk operatingSystem "Linux"
+	data:    OSDisk iOType "Standard"
+	data:    ReservedIPName ""
+	data:    VirtualIPAddresses 0 address "40.83.178.221"
+	data:    VirtualIPAddresses 0 name "testpemasmContractContract"
+	data:    VirtualIPAddresses 0 isDnsProgrammed true
+	data:    Network Endpoints 0 localPort 22
+	data:    Network Endpoints 0 name "ssh"
+	data:    Network Endpoints 0 port 22
+	data:    Network Endpoints 0 protocol "tcp"
+	data:    Network Endpoints 0 virtualIPAddress "40.83.178.221"
+	data:    Network Endpoints 0 enableDirectServerReturn false
+	info:    vm show command OK
+
+### 探索搭配資源管理員部署之 Azure VM SSH 的位址
+
+	azure vm show testrg testvm
+	info:    Executing command vm show
+	+ Looking up the VM "testvm"
+	+ Looking up the NIC "testnic"
+	+ Looking up the public ip "testpip"
+
+請檢查網路設定檔 (Network Profile) 區段：
+
+	data:    Network Profile:
+	data:      Network Interfaces:
+	data:        Network Interface #1:
+	data:          Id                        :/subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/networkInterfaces/testnic
+	data:          Primary                   :true
+	data:          MAC Address               :00-0D-3A-21-8E-AE
+	data:          Provisioning State        :Succeeded
+	data:          Name                      :testnic
+	data:          Location                  :westeurope
+	data:            Private IP alloc-method :Static
+	data:            Private IP address      :192.168.1.101
+	data:            Public IP address       :40.115.48.189
+	data:            FQDN                    :testsubdomain.westeurope.cloudapp.azure.com
+	data:
+	data:    Diagnostics Instance View:
+	info:    vm show command OK
+
+如果您建立 VM 時沒有使用預設的 SSH 連接埠 22，您可以使用 `azure network nsg show` 命令探索具有輸入規則的連接埠，如下列範例所示：
+
+	azure network nsg show testrg testnsg
+	info:    Executing command network nsg show
+	+ Looking up the network security group "testnsg"
+	data:    Id                              : /subscriptions/<guid>/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testnsg
+	data:    Name                            : testnsg
+	data:    Type                            : Microsoft.Network/networkSecurityGroups
+	data:    Location                        : westeurope
+	data:    Provisioning state              : Succeeded
+	data:    Security group rules:
+	data:    Name                           Source IP          Source Port  Destination IP  Destination Port  Protocol  Direction  Access  Priority
+	data:    -----------------------------  -----------------  -----------  --------------  ----------------  --------  ---------  ------  --------
+	data:    testnsgrule                    *                  *            *               22                Tcp       Inbound    Allow   1000
+	data:    AllowVnetInBound               VirtualNetwork     *            VirtualNetwork  *                 *         Inbound    Allow   65000
+	data:    AllowAzureLoadBalancerInBound  AzureLoadBalancer  *            *               *                 *         Inbound    Allow   65001
+	data:    DenyAllInBound                 *                  *            *               *                 *         Inbound    Deny    65500
+	data:    AllowVnetOutBound              VirtualNetwork     *            VirtualNetwork  *                 *         Outbound   Allow   65000
+	data:    AllowInternetOutBound          *                  *            Internet        *                 *         Outbound   Allow   65001
+	data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500
+	info:    network nsg show command OK
+
+### 範例：使用 .pem 金鑰和傳統部署之 SSH 工作階段的輸出
+
+如果您使用從您的 `~/.ssh/id_rsa` 檔案建立之 .pem 檔案建立虛擬機器，可以直接 ssh 到該 VM。請注意，當您這樣做，憑證交握會使用您在 `~/.ssh/id_rsa` 的私密金鑰。看起來可能這樣：
+
+	ssh ops@testpemasm.cloudapp.net -p 22
+	The authenticity of host 'testpemasm.cloudapp.net (40.83.178.221)' can't be established.
+	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
+	Are you sure you want to continue connecting (yes/no)? yes
+	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
+	Saving password to keychain failed
+	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
+	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
+	
+	* Documentation:  https://help.ubuntu.com/
+	
+	System information as of Sat Oct 10 20:53:08 UTC 2015
+	
+	System load: 0.52              Memory usage: 5%   Processes:       80
+	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
+	
+	Graph this data and manage this system at:
+		https://landscape.canonical.com/
+	
+	Get cloud support with Ubuntu Advantage Cloud Guest:
+		http://www.ubuntu.com/business/services/cloud
+	
+	0 packages can be updated.
+	0 updates are security updates.
+	
+	The programs included with the Ubuntu system are free software;
+	the exact distribution terms for each program are described in the
+	individual files in /usr/share/doc/*/copyright.
+	
+	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+	applicable law.
+
+## 如果您遇到連接問題
+
+您可以閱讀[疑難排解 SSH 連接](virtual-machines-troubleshoot-ssh-connections.md)中的建議，試試是否能解決狀況。
+
+## 後續步驟
+
+既然您已連接到您的 VM，請務必先更新您所選的散發套件，再繼續使用它。
+
+<!---HONumber=Nov15_HO1-->

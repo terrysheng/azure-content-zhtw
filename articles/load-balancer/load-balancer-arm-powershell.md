@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/03/2015"
+   ms.date="10/26/2015"
    ms.author="joaoma" />
 
 # 開始使用 Azure 資源管理員設定網際網路面向的負載平衡器
@@ -44,7 +44,7 @@
 
 您可以在 [Azure 資源管理員的負載平衡器支援](load-balancer-arm.md)中取得關於負載平衡器元件與 Azure 資源管理員的詳細資訊。
 
-下列步驟將示範如何設定負載平衡器，以在 2 個虛擬機器之間進行負載平衡。
+下列步驟將示範如何在 2 部虛擬機器之間設定負載平衡器。
 
 
 ## 使用 PowerShell 逐步進行
@@ -109,6 +109,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
+>[AZURE.NOTE]公用 IP 位址網域名稱標籤屬性會是負載平衡器的 FQDN。
 
 ## 建立前端 IP 集區和後端位址集區
 
@@ -241,7 +242,37 @@ PS C:\> $backendnic1
 
 使用 Add-AzureVMNetworkInterface 命令將 NIC 指派給虛擬機器。
 
-您可以在以下文件中找到建立虛擬機器並指派給的 NIC 的逐步解說：[利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+您可以在以下文件中找到建立虛擬機器並指派給的 NIC 的逐步解說：[利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)的選項 4 或 5。
+
+## 更新現有負載平衡器
+
+
+### 步驟 1
+
+使用上述範例中的負載平衡器，透過 Get-AzureLoadBalancer 將負載平衡器物件指派給變數 $slb
+
+	$slb=get-azureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+### 步驟 2
+
+在下列範例中，您會使用前端的連接埠 81 和後端集區的連接埠 8181，將新的輸入 NAT 規則新增現有的負載平衡器
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### 步驟 3
+
+使用 Set-AzureLoadBalancer 儲存新組態
+
+	$slb | Set-AzureLoadBalancer
+
+## 移除負載平衡器
+
+使用命令 Remove-AzureLoadBalancer 刪除資源群組 "NRP-RG" 中先前建立的負載平衡器 "NRP-LB"
+
+	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]您可以使用選擇性參數 -Force 以避免出現刪除提示。
 
 
 ## 另請參閱
@@ -251,4 +282,4 @@ PS C:\> $backendnic1
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

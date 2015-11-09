@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure 自動化中的變數資產 | Microsoft Azure"
-   description="變數資產是可用於 Azure 自動化中所有 Runbook 的值。這篇文章說明變數的詳細資料，以及如何以文字式和圖形化編寫形式加以使用。"
+   description="變數資產是可用於 Azure 自動化中所有 Runbook 和 DSC 設定的值。這篇文章說明變數的詳細資料，以及如何以文字式和圖形化編寫形式加以使用。"
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,22 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的變數資產
 
-變數資產是可用於自動化帳戶中所有 Runbook 的值。可以從 Azure 入口網站、Windows PowerShell 和 Runbook 建立修改並擷取。自動化變數對下列案例很實用：
+變數資產是可用於自動化帳戶中所有 Runbook 和 DSC 設定的值。可以從 Azure 入口網站、Windows PowerShell、Runbook 或 DSC 設定建立修改並擷取。自動化變數對下列案例很實用：
 
-- 在多個 Runbook 之間共用值。
+- 在多個 Runbook 或 DSC 設定之間共用值。
 
-- 在來自相同 Runbook 的多個工作之間共用值。
+- 在相同 Runbook 或 DSC 設定的多個工作之間共用值。
 
-- 從入口網站或 Windows PowerShell 命令列管理 Runbook 使用的值。
+- 從入口網站或 Windows PowerShell 命令列管理 Runbook 或 DSC 設定使用的值。
 
-自動化變數會保存，即使 Runbook 失敗也可持續使用變數。這也可讓一個 Runbook 設定某個值，然後由另一個 Runbook 使用，或者由相同的 Runbook 於下次執行時使用該值。
+自動化變數會保存，即使 Runbook 或 DSC 設定失敗也可持續使用變數。這也可讓一個 Runbook 設定某個值，然後由另一個 Runbook 使用，或者由相同的 Runbook 或 DSC 設定於下次執行時使用該值。
 
-建立變數時，您可以指定將其加密儲存。變數加密時，會安全地儲存在 Azure 自動化中，而無法透過隨附於 Azure PowerShell 模組的 [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx) Cmdlet 擷取其值。可以擷取加密值的唯一方法是從 Runbook 中的 **Get-AutomationVariable** 活動。
+建立變數時，您可以指定將其加密儲存。變數加密時，會安全地儲存在 Azure 自動化中，而無法透過隨附於 Azure PowerShell 模組的 [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx) Cmdlet 擷取其值。可以擷取加密值的唯一方法是從 Runbook 或 DSC 設定中的 **Get-AutomationVariable** 活動。
 
 >[AZURE.NOTE]Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
 
@@ -39,7 +39,7 @@
 
 ## Cmdlet 和工作流程活動
 
-下表中的 Cmdlet 是用來使用 Windows PowerShell 建立和管理自動化變數。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 中使用。
+下表中的 Cmdlet 是用來使用 Windows PowerShell 建立和管理自動化變數。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
 
 |Cmdlet|說明|
 |:---|:---|
@@ -48,14 +48,14 @@
 |[Remove-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913775.aspx)|移除現有的變數。|
 |[Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx)|設定現有的變數的值。|
 
-下表中的工作流程活動可用來在 Runbook 中存取自動化變數。它們僅供在 Runbook 中使用，並且不會隨著 Azure PowerShell 模組的一部分推出。
+下表中的工作流程活動可用來在 Runbook 中存取自動化變數。它們僅供在 Runbook 或 DSC 設定中使用，並且不會隨著 Azure PowerShell 模組的一部分推出。
 
 |工作流程活動|說明|
 |:---|:---|
 |Get-AutomationVariable|擷取現有變數的值。|
 |Set-AutomationVariable|設定現有的變數的值。|
 
->[AZURE.NOTE]您應該避免在 Runbook 中 **Get-AutomationVariable** 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 與自動化變數之間的相依性變得複雜。
+>[AZURE.NOTE]您應該避免在 Runbook 或 DSC 設定中 **Get-AutomationVariable** 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與自動化變數之間的相依性變得複雜。
 
 ## 建立新自動化變數
 
@@ -96,9 +96,9 @@
 
 
 
-## 在 Runbook 中使用變數
+## 在 Runbook 或 DSC 設定中使用變數
 
-使用 **Set-AutomationVariable** 活動來設定 Runbook 中自動化變數的值，並且使用 **Get-AutomationVariable** 來擷取它。您不應該在 Runbook 中使用 **Set-AzureAutomationVariable** 或 **Get-AzureAutomationVariable**，因為它們都不如工作流程活動中的 Cmdlet 有效率。您也無法使用 **Get-AzureAutomationVariable** 擷取安全變數的值。在 Runbook 中建立新變數的唯一方法是使用 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) Cmdlet。
+使用 **Set-AutomationVariable** 活動來設定 Runbook 或 DSC 設定中自動化變數的值，並且使用 **Get-AutomationVariable** 來擷取它。您不應該在 Runbook 或 DSC 設定中使用 **Set-AzureAutomationVariable** 或 **Get-AzureAutomationVariable**，因為它們都不如工作流程活動中的 Cmdlet 有效率。您也無法使用 **Get-AzureAutomationVariable** 擷取安全變數的值。在 Runbook 或 DSC 設定中建立新變數的唯一方法是使用 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) Cmdlet。
 
 
 ### 文字式 Runbook 範例
@@ -188,4 +188,4 @@
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

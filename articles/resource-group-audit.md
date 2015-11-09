@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="tomfitz"/>
 
 # 使用資源管理員來稽核作業
@@ -22,21 +22,30 @@
 
 稽核記錄檔包含在您的資源上執行的所有動作。所以，如果您組織中的使用者修改資源，您將能夠識別此動作、時間和使用者。
 
+使用稽核記錄時，有兩個重要限制需謹記在心：
+
+1. 稽核記錄只會保留 90 天。
+2. 您只能查詢 15 天內的範圍。
+
 您可以透過 Azure PowerShell、Azure CLI、REST API 或 Azure Preview 入口網站，擷取稽核記錄檔中的資訊。
 
 ## PowerShell
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-若要擷取記錄項目，請執行 **Get AzureRmLog** 命令 (或者如果 PowerShell 版本早於 1.0 Preview，則為 **Get-AzureResourceGroupLog**)。您可提供額外的參數來篩選項目清單。
+若要擷取記錄項目，請執行 **Get-AzureRmLog** 命令 (或者如果 PowerShell 版本早於 1.0 Preview，則為 **Get-AzureResourceGroupLog**)。您可提供額外的參數來篩選項目清單。
 
-下列範例示範如何使用稽核記錄檔來研究在方案存留期間所採取的動作。您可以看到此動作的發生時間以及提出要求者。
+下列範例示範如何使用稽核記錄檔來研究在方案存留期間所採取的動作。您可以看到此動作的發生時間以及提出要求者。以日期格式指定開始和結束日期。
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+
+或者，您可以使用日期函數來指定日期範圍，例如過去 15 天。
+
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15)
 
 視您指定的開始時間而定，先前的命令可以傳回該資源群組的一長串動作。您可以提供搜尋準則，以篩選您所尋找的結果。例如，如果您試著研究 Web 應用程式的停止方式，您可以執行下列命令並查看由 someone@example.com 執行的停止動作。
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -56,7 +65,7 @@
 
 在下一個範例中，我們將只尋找在指定的開始時間後的失敗動作。我們也將包含 **DetailedOutput** 參數，以查看錯誤訊息。
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) -Status Failed –DetailedOutput
     
 如果這個命令傳回太多項目和屬性，您可以擷取 **properties** 屬性，專注進行稽核。
 
@@ -89,7 +98,7 @@
 
     azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == "Update web sites config")"
 
-您可以加入 **–-last-deployment** 參數，將傳回的項目限制於僅限上次部署的作業。
+您可以新增 **-last-deployment** 參數，將傳回的項目限制於僅限上次部署的作業。
 
     azure group log show ExampleGroup --last-deployment
 
@@ -153,4 +162,4 @@
 - 若要了解如何授與服務主體的存取權，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)。
 - 若要了解如何對所有使用者的資源採取動作，請參閱[使用 Azure 資源管理員鎖定資源](resource-group-lock-resources.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

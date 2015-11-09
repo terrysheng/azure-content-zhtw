@@ -4,7 +4,7 @@
 	services="" 
 	documentationCenter="" 
 	authors="Joharve2" 
-	manager="carolz" 
+	manager="Chrisnie" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="azure-government" 
-	ms.date="01/21/2014" 
+	ms.date="10/29/2015" 
 	ms.author="jharve"/>
 
 
@@ -66,6 +66,16 @@ Azure Government 目前在在「美國政府愛荷華州」(US GOV IOWA) 及「�
 - 排程器
 - 虛擬網路
 - SQL Database
+- Azure 檔案
+- 媒體服務
+- 流量管理員
+- 服務匯流排
+- StorSimple
+- Redis 快取
+- Azure 備份
+- 自動化
+- ExpressRoute
+- 等
 
 有其他服務可用，並且會持續新增更多服務。如需最新的服務清單，請參閱[區域頁面](http://azure.microsoft.com/regions/#services)，當中將醒目提示每個可用的區域及其服務。
 
@@ -78,7 +88,6 @@ Azure Government 目前在在「美國政府愛荷華州」(US GOV IOWA) 及「�
 
 服務類型|Azure 公用|Azure Government
 ---|---|---
-Azure Government 首頁|windowsazure.com|microsoftazure.us
 管理入口網站|manage.windowsazure.com|manage.windowsazure.us
 一般|*.windows.net|*.usgovcloudapi.net
 核心|*.core.windows.net|*.core.usgovcloudapi.net
@@ -87,9 +96,23 @@ Blob 儲存體|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Queue Stor
 資料表儲存體|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 服務管理|management.core.windows.net|management.core.usgovcloudapi.net
 SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
+ARM 負載平衡端點|https://management.windows.net|https://management.usgovcloudapi.net  
+
+* 如需透過 Azure AD 進行 ARM 驗證，請參閱[驗證 Azure 資源管理員要求](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
 ## <a name="next"></a>接續步驟
-如果您有興趣進一步了解 Azure Government 以及您組織如何取得存取資格，請到 <A href="http://azure.com/gov">http://www.azure.com/gov</a>
+
+如果您有興趣深入了解 Azure Government，請利用下面的連結。
+
+- **[註冊試用版](https://azuregov.microsoft.com/trial/azuregovtrial)**
+
+- **[取得和存取 Azure Government](http://azure.com/gov)**
+
+- **[Azure Government 概觀](/azure-government-overview)**
+
+- **[Azure Government 部落格](http://blogs.msdn.com/b/azuregov/)**
+
+- **[Azure 法規遵循](http://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -105,4 +128,4 @@ SQL Database|*.database.windows.net|*.database.usgovcloudapi.net
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

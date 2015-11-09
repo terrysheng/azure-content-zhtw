@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/09/2015"
+      ms.date="10/28/2015"
       ms.author="hascipio; v-divte" />
 
 # 建立 Azure Marketplace 解決方案範本的指南
@@ -44,16 +44,6 @@
 
 上傳 zip 檔案之後，按一下 [要求認證]。Microsoft 認證團隊會檢閱檔案並認證拓撲。
 
-您也可以使用下列步驟，為使用者驗證沒有實際部署的建立體驗。
-
-1. 儲存 *createUiDefinition.json*，產生絕對的 URL。此 URL 必須可公開存取。
-2. 將 URL [[http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)] 編碼。
-3. 將反白顯示的文字取代為需要驗證的 *createUiDefinition.json* 的位置 (編碼的 URL)。
-
-  https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-  
-4. 複製 URL 並在任何瀏覽器中貼上 URL，檢視 createUiDefinition.json 檔案的使用者體驗。
-
 > [AZURE.TIP]在您的開發人員建立解決方案範本拓撲和取得認證的同時，貴公司的業務/行銷/法律部門就可以處理行銷和法律內容。
 
 ## 後續步驟
@@ -75,4 +65,4 @@
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

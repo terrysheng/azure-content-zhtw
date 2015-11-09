@@ -135,7 +135,6 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 如果您想要，也可以撰寫程式碼來達到相同效果：
 
     var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
@@ -194,4 +193,4 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

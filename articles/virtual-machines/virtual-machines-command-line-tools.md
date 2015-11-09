@@ -19,11 +19,11 @@
 
 # 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋的內容是在傳統部署模型中以 CLI 命令建立和管理資源。您也可以使用 CLI 命令在[資源管理員部署模型](azure-cli-arm-commands.md)中建立和管理資源。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]((azure-cli-arm-commands.md)。
 
 本文說明如何在服務管理模式 (asm 模式) 下使用 Azure CLI，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫、透過 Azure PowerShell，以及使用 Azure 入口網站來執行其中許多相同的工作。使用 Azure 服務搭配服務管理模式，在概念上類似於建立和管理個別 Azure 概念和服務的思考模式，例如網站、虛擬機器、虛擬網路、儲存體等等。
 
-> [AZURE.NOTE]若要開始這麼做，請先[安裝 Azure CLI](../xplat-cli-install.md)，並[登入與您帳戶相關聯的 Azure 資源](../xplat-cli-connect.md)。
+> [AZURE.NOTE]若要開始這麼做，請先[安裝 Azure CLI](../xplat-cli-install.md)，並[登入以使用與您帳戶相關聯的 Azure 資源](../xplat-cli-connect.md)。
 
 ## 文章的範圍
 
@@ -2350,4 +2350,4 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,13 +14,13 @@
   
 3. 選擇您要使用的身分識別提供者，並遵循對應文章中的步驟，透過該提供者來設定您的 API 應用程式。這些文章是針對行動應用程式所撰寫的，但與 API 應用程式所用的程序相同。有些程序需要您使用 [Azure 入口網站]。
 
- - [Microsoft 帳戶](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Facebook 登入](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Twitter 登入](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Google 登入](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
+ - [Microsoft 帳戶](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
+ - [Facebook 登入](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
+ - [Twitter 登入](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+ - [Google 登入](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
+ - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
 
-例如，下列螢幕擷取畫面顯示您在設定 Azure Active Directory 驗證之後，應在 [Azure 入口網站] 頁面和 [Azure 預覽入口網站] 刀鋒視窗中看到的內容。
+例如，下列螢幕擷取畫面顯示您在設定 Azure Active Directory 驗證之後，應在 [Azure 入口網站] 頁面和 [Azure Preview 入口網站] 刀鋒視窗中看到的內容。
 
 在 Azure 預覽入口網站中， [**Azure Active Directory**] 分頁有來自您在 Azure 入口網站的 [Azure Active Directory] 索引標籤中建立之應用程式的 [**用戶端識別碼**]，而 [**允許的租用戶**] 有您的 Azure Active Directory 租用戶 (例如，"contoso.onmicrosoft.com")。
 
@@ -38,4 +38,4 @@
 
 (影像中的回覆 URL 會顯示相同 URL 兩次，一次搭配 `http:`，一次搭配 `https:`。)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

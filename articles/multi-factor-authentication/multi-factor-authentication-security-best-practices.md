@@ -84,14 +84,6 @@ Azure Multi-Factor Authentication Server 可以用於保護由 Azure AD 帳戶�
 - 需要 IIS 6 或以上版本
 - 必須安裝並註冊 ASP.NET v2.0.507207
 - 此伺服器可以部署在周邊網路中。
-- 如果有防火牆篩選此伺服器與 Azure 之間的通訊，必須使用 TCP 連接埠 443 輸出以允許與下列 URL 的通訊：
-	- https://pfd.phonefactor.net 
-	- https://pfd2.phonefactor.net 
-	- https://css.phonefactor.net
-- 如果輸出防火牆會限制連接埠 443，以下 IP 位址範圍必須允許輸出：
-	- 134\.170.116.0/25
-	- 134\.170.165.0/25
-	- 70\.37.154.128/25
 
 
 
@@ -129,4 +121,4 @@ Azure Multi-Factor Authentication Server 可以用於保護由 Azure AD 帳戶�
 - [Azure Multi-factor Authentication 的設定體驗](multi-factor-authentication-end-user-first-time.md)
 - [Azure Multi-Factor Authentication 常見問題集](multi-factor-authentication-faq.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

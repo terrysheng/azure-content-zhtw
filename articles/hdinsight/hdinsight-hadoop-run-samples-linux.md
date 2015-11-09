@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在以 Linux 為基礎的 HDInsight 上執行 Hadoop 範例| Microsoft Azure"
+	pageTitle="在以 Linux 為基礎的 HDInsight 上執行 Hadoop MapReduce 範例 | Microsoft Azure"
 	description="開始搭配以 Linux 為基礎的 HDInsight 使用 MapReduce 範例。使用 SSH 連接到叢集，然後使用 Hadoop 命令執行範例工作。"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/29/2015"
 	ms.author="larryfr"/>
 
 
@@ -79,7 +79,7 @@
 
     - [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. 在 `username@headnode0:~$` 提示中，使用下列命令來列出範例：
+2. 在 `username@#######:~$` 提示中，使用下列命令來列出範例：
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
@@ -243,4 +243,4 @@ GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

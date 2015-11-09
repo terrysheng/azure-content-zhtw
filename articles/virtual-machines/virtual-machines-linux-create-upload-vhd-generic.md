@@ -41,7 +41,7 @@
 
 ## <a id="linuxinstall"> </a>一般 Linux 安裝注意事項 ##
 
-- Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
+- Azure 不支援 VHDX 格式，只支援**固定 VHD**。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 
 - 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果願意，您可以在資料磁碟上使用 LVM 或 [RAID](virtual-machines-linux-configure-raid.md)。
 
@@ -74,9 +74,10 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
-若要解決這個問題，您可以使用 Hyper-V 管理員主控台或 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell Cmdlet 調整 VM 的大小。
+若要解決這個問題，您可以使用 Hyper-V 管理員主控台或 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell Cmdlet 調整 VM 的大小。如果您不在 Windows 環境中執行，建議使用 qemu-img 來轉換 VHD (如果需要) 及調整其大小。
 
-如果您不在 Windows 環境中執行，建議使用 qemu-img 來轉換 VHD (如果需要) 及調整其大小：
+> [AZURE.NOTE]qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。這個問題將於即將推出的 qemu-img 版本中獲得修正。目前建議使用 qemu-img 2.2.0 版或更低版本。參考：https://bugs.launchpad.net/qemu/+bug/1490611
+
 
  1. 直接使用工具 (例如 `qemu-img` 或 `vbox-manage`) 調整 VHD 的大小，可能會導致 VHD 無法開機。因此，建議先將 VHD 轉換為 RAW 磁碟映像。如果 VM 映像已建立為 RAW 磁碟映像 (有些 Hypervisor 的預設值，例如 KVM)，您可以省略此步驟：
 
@@ -192,4 +193,4 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 - 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

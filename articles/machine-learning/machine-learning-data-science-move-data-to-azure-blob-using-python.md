@@ -18,6 +18,8 @@
 
 # 使用 Python 從 Azure Blob 儲存體來回移動資料
 
+以下是有關從 Azure Blob 儲存體來回移動資料所使用之技術的指引連結：
+
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## 簡介
@@ -30,7 +32,7 @@
 - 列出容器中的 Blob
 - 刪除 Blob
 
-本節說明如何列出、上傳和下載 Blob。如需關於使用 Python API 的詳細資訊，請參閱[如何從 Python 使用 Blob 儲存體服務](../storage-python-how-to-use-blob-storage.md)。
+本節說明如何列出、上傳和下載 Blob。如需使用 Python API 的詳細資訊，請參閱[如何從 Python 使用 Blob 儲存體服務](../storage-python-how-to-use-blob-storage.md)。
 
 > [AZURE.NOTE]如果您是使用以 [Azure 中的資料科學虛擬機器](machine-learning-data-science-virtual-machines.md)提供的指令碼所設定的 VM，則 AzCopy 已經安裝在 VM 上。
 
@@ -41,7 +43,7 @@
 本文件假設您擁有 Azure 訂用帳戶、儲存體帳戶和該帳戶的對應儲存體金鑰。上傳/下載資料之前，您必須知道 Azure 儲存體帳戶名稱和帳戶金鑰。
 
 - 若要設定 Azure 訂用帳戶，請參閱[免費試用一個月](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
-- 如需建立儲存體帳戶的指示，以及取得帳戶和金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)。
+- 如需建立儲存體帳戶以及取得帳戶和金鑰資訊的指示，請參閱[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)。
 
 ## 將資料上傳至 Blob
 
@@ -121,4 +123,4 @@
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

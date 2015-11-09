@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory 企業對企業 (B2B) 共同作業"
+   pageTitle="Azure Active Directory B2B 共同作業 | Microsoft Azure"
    description="Azure Active Directory B2B 共同作業可讓商務夥伴存取您的公司應用程式，且每位使用者都可用單一 Azure AD 帳戶來代表"
    services="active-directory"
    documentationCenter=""
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="10/27/2015"
    ms.author="curtand"/>
 
-# Azure Active Directory B2B 共同作業
+# Azure Active Directory (Azure AD) B2B 共同作業
 
-Azure Active Directory B2B 共同作業允許以合作夥伴管理的身分識別來存取您的公司應用程式。您可以建立跨公司的關聯性，邀請並授權合作夥伴公司的使用者存取您的資源。複雜性降低，因為每一家公司與 Azure Active Directory (Azure AD) 只同盟一次，且每一位使用者都由單一 Azure AD 帳戶來代表。安全性提高，因為當合作夥伴使用者從他們的組織中離職時，存取權即撤銷，絕不可能再透過內部目錄中的成員資格來存取。對於還沒有 Azure AD 的商務夥伴，B2B 共同作業有簡便的註冊體驗提供 Azure AD 帳戶給您的商務夥伴。
+Azure AD B2B 共同作業允許以合作夥伴管理的身分識別來存取您的公司應用程式。您可以建立跨公司的關聯性，邀請並授權合作夥伴公司的使用者存取您的資源。複雜性降低，因為每一家公司與 Azure Active Directory 只同盟一次，且每一位使用者都由單一 Azure AD 帳戶來代表。安全性提高，因為當合作夥伴使用者從他們的組織中離職時，存取權即撤銷，絕不可能再透過內部目錄中的成員資格來存取。對於還沒有 Azure AD 的商務夥伴，B2B 共同作業有簡便的註冊體驗提供 Azure AD 帳戶給您的商務夥伴。
 
 -   您的商務夥伴使用他們自己的登入認證，您不必管理外部合作夥伴目錄，也不需要在使用者離開合作夥伴組織時移除存取權。
 
@@ -42,7 +42,7 @@ Azure Active Directory B2B 共同作業的設定很簡單，各種規模的合�
 
 4. 登入之後，使用者將重新導向至與他們共用的應用程式。
 
-目前不支援邀請消費者電子郵件地址 (例如，gmail 或 [*comcast.net*](http://comcast.net/))。
+目前不支援邀請消費者電子郵件地址 (例如，Gmail 或 [*comcast.net*](http://comcast.net/))。
 
 如需有關 B2B 共同作業運作方式的詳細資訊，請觀賞[這段影片](http://aka.ms/aadshowb2b)。
 
@@ -61,5 +61,15 @@ wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.
 jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
+## 後續步驟
+請瀏覽有關 Azure B2B 共同作業的其他文章
 
-<!---HONumber=Oct15_HO3-->
+- [何謂 Azure AD B2B 共同作業？](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [運作方式](active-directory-b2b-how-it-works.md)
+- [詳細的逐步解說](active-directory-b2b-detailed-walkthrough.md)
+- [CSV 檔案格式參考](active-directory-b2b-references-csv-file-format.md)
+- [外部使用者權杖格式](active-directory-b2b-references-external-user-token-format.md)
+- [外部使用者物件屬性變更](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [目前的預覽版本限制](active-directory-b2b-current-preview-limitations.md)
+
+<!---HONumber=Nov15_HO1-->

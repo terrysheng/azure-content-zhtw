@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/05/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #利用 Beeline 搭配使用 Hive 與 HDInsight 中的 Hadoop
@@ -55,17 +55,23 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 ##<a id="beeline"></a>使用 Beeline 命令
 
-2. 連線之後，使用下列命令來啟動 Hive CLI：
+1. 連線之後，使用下列命令來取得前端節點的主機名稱：
+
+        hostname -f
+    
+    儲存傳回的主機名稱，因為稍後從 Beeline 連接到 HiveServer2 時會用到該資料。
+    
+2. 使用下列命令來啟動 Hive CLI：
 
         beeline
 
-2. 從 `beeline>` 命令提示字元，使用下列命令來連接至 HiveServer2 服務︰
+2. 從 `beeline>` 命令提示字元，使用下列命令來連接至 HiveServer2 服務。以稍早傳回的前端節點主機名稱取代 __HOSTNAME__：
 
-        !connect jdbc:hive2://headnode0:10001/;transportMode=http admin
+        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
 
     出現提示時，輸入 HDInsight 叢集的系統管理員 (admin) 帳戶密碼。建議連線後，提示將變更如下：
     
-        jdbc:hive2://headnode0:10001/>
+        jdbc:hive2://HOSTNAME:10001/>
 
 3. Beeline 命令通常以 `!` 字元開頭，例如 `!help` 顯示說明。不過，往往會省略 `!`。例如，`help` 也可行。
 
@@ -114,7 +120,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
     * **CREATE EXTERNAL TABLE** - 在 Hive 中建立新的「外部」資料表。外部資料表只會將資料表定義儲存在 Hive 中。資料會留在原來的位置。
     * **ROW FORMAT** - 告訴 Hive 如何格式化資料。在此情況下，每個記錄中的欄位會以空格隔開。
     * **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
-    * **SELECT** - 選擇其資料欄 **t4** 包含值 **[ERROR]** 的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值。
+    * **SELECT** - 選取其資料行 **t4** 包含 **[ERROR]** 值的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值。
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - 告訴 Hive 我們只應該從檔名以 log 結尾的檔案中傳回資料。通常在使用 hive 查詢時，您在相同的資料夾中只會有具有相同結構描述的資料，不過此範例記錄檔會以其他資料格式儲存。
 
     > [AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
@@ -151,7 +157,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 Beeline 也可以用來執行包含 HiveQL 陳述式的檔案。使用下列步驟建立檔案，然後利用執行該檔案。
 
-1. 使用以下命令建立名為 __query.hql__ 的新檔案：
+1. 使用以下命令，建立名為 __query.hql__ 的新檔案：
 
         nano query.hql
         
@@ -164,21 +170,21 @@ Beeline 也可以用來執行包含 HiveQL 陳述式的檔案。使用下列步�
 
     * **CREATE TABLE IF NOT EXISTS** - 建立資料表 (如果不存在)。因為未使用 **EXTERNAL** 關鍵字，所以這是內部資料表，而內部資料表儲存在 Hive 資料倉儲中，並完全透過 Hive 所管理。
     * **STORED AS ORC** - 以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。這是高度最佳化且有效率的 Hive 資料儲存格式。
-    * **INSERT OVERWRITE ...SELECT**- 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
+    * **INSERT OVERWRITE ...SELECT** - 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
     
     > [AZURE.NOTE]與外部資料表不同，捨棄內部資料表也會同時刪除基礎資料。
     
-3. 若要儲存檔案，請使用 __Ctrl__+___\_X__，然後輸入 __Y__，最後按 __Enter__ 鍵。
+3. 若要儲存檔案，請使用 __Ctrl__+___\_X__，然後輸入 __Y__，最後按 __Enter__。
 
-4. 使用下列命令，以使用 Beeline 來執行檔案︰
+4. 使用下列命令，以使用 Beeline 來執行檔案。以稍早取得的前端節點名稱取代 __HOSTNAME__，以及以管理員帳戶的密碼取代 __PASSWORD__：
 
-        beeline -u 'jdbc:hive2://headnode0:10001/;transportMode=http' -n admin -p GiantR0b0! -f query.hql
+        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
 
-5. 若要確認已建立 **errorLogs** 資料表，啟動 Beeline 並連接到 HiveServer2，然後使用下列陳述式從 **errorLogs** 傳回所有資料列︰
+5. 若要確認已建立 **errorLogs** 資料表，啟動 Beeline 並連接到 HiveServer2，然後使用下列陳述式從 **errorLogs** 傳回所有資料列：
 
         SELECT * from errorLogs;
 
-    應該傳回三個資料列，且在資料行 t4 中全部包含 **[ERROR]**︰
+    應該傳回三個資料列，且在資料行 t4 中全部包含 **[ERROR]**：
     
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
@@ -237,4 +243,4 @@ Beeline 也可以用來執行包含 HiveQL 陳述式的檔案。使用下列步�
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

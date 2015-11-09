@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2015"
+	ms.date="10/26/2015"
 	ms.author="selcint"/>
 
 # 搭配使用 Azure PowerShell 與 Azure 儲存體
@@ -237,7 +237,7 @@ Azure 儲存體內容是 PowerShell 中用以封裝儲存體認證的物件。�
 
 您現已設定您的電腦並學會如何使用 Azure PowerShell 管理訂用帳戶和儲存體帳戶。請移至下一節，以了解如何管理 Azure Blob 和 Blob 快照集。
 
-## 如何管理 Azure Blob 和 Blob 快照集
+## 如何管理 Azure Blob
 Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。本節假設您已熟悉 Azure Blob 儲存體服務概念。如需詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](http://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
 ### 如何建立容器
@@ -736,4 +736,4 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 [Next Steps]: #next
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

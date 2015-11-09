@@ -13,10 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/22/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 串流分析版本資訊
+
+## 串流分析 2015/10/22 版本的注意事項 ##
+
+此版本包含下列更新。
+
+課程名稱 | 說明
+---|---
+其他查詢語言功能 | 串流分析已藉由納入下列功能來擴充查詢語言：[ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx)、[CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx)、[EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx)、[FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx)、[POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx)、[SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx)、[SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) 和 [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx)。
+移除了彙總限制 | 此版本移除一個查詢 15 個彙總的限制。現在每一個查詢的彙總數目沒有限制。
+新增了 GROUP BY System.Timestamp 功能 | [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) 函式現在允許用於 window\_type 或 [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx)。
+新增了適用於輪轉和跳動視窗的 OFFSET | 根據預設，[輪轉](https://msdn.microsoft.com/library/azure/dn835055.aspx)和[跳動](https://msdn.microsoft.com/library/azure/dn835041.aspx)視窗會對齊零點時間 (1/1/0001 12:00:00 AM UTC)。新的 (選擇性) 參數 'offsetsize' 允許指定自訂的 位移 (或對齊)。
+
 
 ## 串流分析 2015/09/29 版本的注意事項 ##
 
@@ -104,4 +116,4 @@ PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -3,9 +3,10 @@
 	description="了解如何在 Azure App Service 中將自訂網域名稱與 Web 應用程式搭配使用。"
 	services="app-service"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="cephalin"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe"
+	tags="top-support-issue"/>
 
 <tags
 	ms.service="app-service"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="mwasson"/>
+	ms.date="10/23/2015"
+	ms.author="cephalin"/>
 
 # 在 Azure App Service 中設定自訂網域名稱
 
@@ -26,15 +27,17 @@
 
 當您建立 Web 應用程式時，Azure 會將它指派給 azurewebsites.net 的子網域。例如，如果您的 Web 應用程式名稱為 **contoso**，則 URL 會是 **contoso.azurewebsites.net**。Azure 也會指派虛擬 IP 位址。
 
-若是實際執行的 Web 應用程式，您可能想讓使用者看到自訂網域名稱。本文章說明如何利用 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 保留或設定自訂網域。
+若是實際執行的 Web 應用程式，您可能想讓使用者看到自訂網域名稱。本文說明如何使用 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 設定自訂網域。
 
-[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下**取得支援**。
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## 概觀
 
-如果您有網域名稱，或您想要保留來自其他網域註冊機構的網域，以下是產生 Web 應用程式的自訂網域名稱的一般步驟：
+您如果還沒有註冊外部網域名稱 (不是 *.azurewebsites.net)，要設定自訂網域最簡單的方法，是直接到 [Azure Preview 入口網站](https://portal.azure.com) 購買。這個程序可讓您直接在入口網站中管理您的 Web 應用程式的網域名稱，而不必到 GoDaddy 等第三方網站管理名稱。此外，不論您的 Web 應用程式是否使用 [Azure 流量管理員](web-sites-traffic-manager-custom-domain-name.md)，在 Web 應用程式中設定網域名稱的程序也大幅簡化。如需詳細資訊，請參閱[在 Azure App Service 中購買和設定自訂網域名稱](custom-dns-web-site-buydomains-web-app.md)。
+
+如果您已有網域名稱，或您想要保留來自其他網域註冊機構的網域，以下是產生 Web 應用程式的自訂網域名稱的一般步驟 (請參閱 [GoDaddy.com 的專屬指示](web-sites-godaddy-custom-domain-name.md))：
 
 1. 保留您的網域名稱。本文不包含此流程。有許多網域註冊機構可供選擇。當您註冊時，這些網站會逐步引導您進行此流程。
 1. 建立 DNS 記錄，將網域對應至您的 Azure Web 應用程式。
@@ -70,8 +73,8 @@
 3.	按一下 [**Web Apps**] 刀鋒視窗。
 4.	按一下您的 Web 應用程式的名稱。
 5.	在 [**基本功能**] 頁面上，按一下 [**所有設定**]。
-6.	按一下 [**自訂網域和 SSL**]。 
-7.	在 [**自訂網域和 SSL**] 刀鋒視窗中，按一下 [**帶出外部網域**]。IP 位址位於此部分的底部。
+6.	按一下 [**自訂網域和 SSL**]。
+7.	在 [自訂網域和 SSL] 刀鋒視窗中，按一下 [帶出外部網域]。IP 位址位於此部分的底部。
 
 ## 建立 DNS 記錄
 
@@ -95,7 +98,7 @@
   <tr>
     <td>@</td>
     <td>A (位址)</td>
-    <td>127.0.0.1</td>
+    <td>168.62.48.183</td>
   </tr>
   <tr>
     <td>www</td>
@@ -106,8 +109,8 @@
 
 假設自訂網域名稱為 'contoso.com'，則會建立以下記錄：
 
-- 對應至 127.0.0.1 的 **contoso.com**。
-- 對應至 **contoso.azurewebsites.net** 的 **www.contoso.com**。
+- **contoso.com**，對應至 168.62.48.183。
+- **contoso.azurewebsites.net**，對應至 **www.contoso.com**。
 
 >[AZURE.NOTE]您可以使用 Azure DNS 來裝載 web 應用程式所需的網域記錄。若要在 Azure DNS 設定您的自訂網域，並建立您的記錄，請參閱[建立 Web 應用程式的自訂 DNS 記錄](../dns-web-sites-custom-domain)。
 
@@ -127,6 +130,13 @@
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
+## 確認 DNS 傳播
+
+完成設定步驟之後，可能需要一些時間來傳播變更，視您的 DNS 提供者而定。您可以利用 [http://digwebinterface.com/](http://digwebinterface.com/) (英文) 確認 DNS 傳播是否如預期。前往該網站之後，在文字方塊中指定主機名稱，然後按一下 [Dig]。查看結果以確認最近的變更是否生效。
+
+![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
+
+> [AZURE.NOTE]DNS 傳播最多需要 48 小時 (有時候更久)。如果您已正確設定所有項目，仍然需要等待傳播成功。
 
 ## 後續步驟
 
@@ -145,6 +155,5 @@
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

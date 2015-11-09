@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/16/2015" 
 	ms.author="johnmac"/>
 
 #DocumentDB 中的效能等級
@@ -29,7 +29,7 @@
 
 ##效能等級的簡介
 
-在標準帳戶下建立的每個 DocumentDB 集合將會佈建相關聯的效能等級。效能等級可指定為 S1、S2 或 S3，效能範圍從最低到最高。集合的效能等級決定保留給您的應用程式的服務資源量。在資料庫中的每一個集合可以有不同的效能等級，讓您為經常存取的集合指定較多的輸送量，以及為較不常存取的集合指定較少的輸送量。
+在標準帳戶下建立的每個 DocumentDB 集合將會佈建相關聯的效能等級。效能等級可指定為 S1、S2 或 S3，效能範圍從最低到最高。集合的效能等級決定保留給您應用程式的要求處理資源量。在資料庫中的每一個集合可以有不同的效能等級，讓您為經常存取的集合指定較多的輸送量，以及為較不常存取的集合指定較少的輸送量。任何集合的最小效能等級為 S1。
 
 每個效能等級都有相關聯的要求單位 (RU) 費率限制。這是依以效能等級為基礎保留給集合的輸送量，而且是該集合所專用。可以透過 [Azure 入口網站](http://portal.azure.com)或任何 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 建立集合。DocumentDB API 可讓您指定集合的效能等級。
 
@@ -122,4 +122,4 @@ Azure Preview 入口網站是您在管理集合的效能層級的其中一個選
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

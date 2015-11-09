@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop
@@ -137,7 +137,7 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 6. 出現提示時，輸入您建立叢集時所輸入的使用者。如果您對使用者提供密碼，系統會提示您一併輸入密碼。
 
-> [AZURE.NOTE]上述步驟假設您使用連接埠 22，這將會連接到 HDInsight 叢集上的 headnode0。如果您使用連接埠 23，您將會連接到 headnode1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
+> [AZURE.NOTE]上述步驟假設您使用連接埠 22，這將會連接到 HDInsight 叢集上的前端節點 0。如果您使用連接埠 23，您將會連接到前端節點 1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
 ###連接至背景工作節點
 
@@ -233,4 +233,4 @@ SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsi
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

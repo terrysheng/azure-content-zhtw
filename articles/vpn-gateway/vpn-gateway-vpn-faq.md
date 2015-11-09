@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/26/2015"
    ms.author="cherylmc" />
 
 # VPN 閘道常見問題集
@@ -70,6 +70,10 @@ ExpressRoute 可讓您在 Microsoft 資料中心和內部部署或共置環境�
 ### 如果我有不在已知相容裝置清單的 VPN 裝置，該怎麼辦？
 
 如果未看到您的裝置列為已知的相容 VPN 裝置，而且想要使用它進行 VPN 連線，則您將需要確認其符合支援的 IPsec/IKE 組態選項和參數 (在[這裡](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list)列出)。符合最低需求的裝置也應該適合使用 VPN 閘道。如需額外支援和設定指示，請連絡裝置製造商。
+
+### 為什麼我的原則型 VPN 通道會在流量閒置時終止？
+
+這是原則型 (也稱為靜態路由) VPN 閘道的預期行為。當通道上的流量閒置超過 5 分鐘時，通道就會終止。但是只要流量開始流向任何一個方向，便會立即重新建立通道。如果您使用路由型 (也稱為動態) VPN 閘道，就不會發生這種行為。
 
 ### 可以使用軟體 VPN 連接到 Azure 嗎？
 
@@ -223,7 +227,7 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
 ### Azure 會對虛擬網路之間的流量收費嗎？
 
-對於不同 Azure 虛擬網路之間的流量，Azure 只會對從一個 Azure 區域周遊至另一個區域的流量收費。收費金額列在 Azure [VPN 閘道價格](https://azure.microsoft.com/pricing/details/vpn-gateway/)頁面中。
+對於不同 Azure 虛擬網路之間的流量，Azure 只會對從一個 Azure 區域周遊至另一個區域的流量收費。收費金額列在 Azure [VPN 閘道定價](https://azure.microsoft.com/pricing/details/vpn-gateway/)頁面中。
 
 
 ### 是否可以將使用 IPsec VPN 的虛擬網路連接到我的 ExpressRoute 電路？
@@ -252,4 +256,4 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。當建立 VPN 通道時，就
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

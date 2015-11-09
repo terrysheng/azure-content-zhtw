@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/19/2015"
+   ms.date="10/21/2015"
    ms.author="tomfitz"/>
 
 # 資源管理員對於服務、區域和 API 版本的支援
@@ -29,10 +29,12 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
-| 虛擬機器 | 是 | 是 | 否 | [建立 VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| 批次 | 是 | 否 | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
+| 虛擬機器 | 是 | 是，許多選項 | 否 | [建立 VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
+| 批次 | 是 | [是 (僅限傳統)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics 週期服務 | 是 | 否 | | | |
-| 虛擬機器 (傳統) | 有限 | 是 | 部分 (請參閱下文) | - | - | | 遠端 App | 否 | - | - | - | - | | Service Fabric | 否 | - | - | - | - |
+| 虛擬機器 (傳統) | 有限 | 是，許多選項 | 部分 (請參閱下文) | - | - |
+| 遠端 App | 否 | 否 | - | - | - |
+| Service Fabric | 否 | 否 | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
@@ -42,11 +44,11 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| API 管理| 是 | 否 | 是 | [建立 API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
-| API 應用程式 | 是 | 是 | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
-| Web Apps | 是 | 是 | 是，但有限制 (請參閱下文) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| 通知中樞 | 是 | 是 | | [建立通知中樞](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
-| Logic Apps | 是 | 是 | | | |
+| API 管理 | 是 | 否 | 是 | [建立 API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
+| API 應用程式 | 是 | [是](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
+| Web Apps | 是 | [是](https://portal.azure.com/#create/Microsoft.WebSite) | 是，但有限制 (請參閱下文) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
+| 通知中樞 | 是 | [是](https://portal.azure.com/#create/Microsoft.NotificationHub) | | [建立通知中樞](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
+| Logic Apps | 是 | [是](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | | | |
 | Mobile Engagement | 是 | 否 | 是 | | |
 
 使用 Web 應用程式時，您無法只移動 App Service 方案。若要移動 Web 應用程式，您的選項如下：
@@ -59,23 +61,23 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
-| DocumentDB | 是 | 是 | 是 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| 儲存體 | 是 | 是 | | [建立儲存體](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
-| Redis 快取 | 是 | 是 | 是 | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL Database | 是 | 是 | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
-| 搜尋 | 是 | 是 | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL 資料倉儲 | 是 | 是 | | | |
-| StorSimple | 否 | 否 | - | - | - | | 備份 | 否 | 否 | - | - | - | | Site Recovery | 否 | 否 | - | - | - | | 受管理的快取 | 否 | 否 | - | - | - | | 資料目錄 | 否 | 否 | - | - | - |
+| DocumentDB | 是 | [是](https://portal.azure.com/#create/Microsoft.DocumentDB) | 是 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
+| 儲存體 | 是 | [是](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [建立儲存體](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
+| Redis 快取 | 是 | [是](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | 是 | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
+| SQL Database | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| 搜尋 | 是 | [是](https://portal.azure.com/#create/Microsoft.Search) | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
+| SQL 資料倉儲 | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| StorSimple | 否 | 否 | - | - | - | | 受管理快取 | 否 | 否 | - | - | - |
 
 ## Analytics
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | 事件中心 | 是 | 否 | | [建立事件中樞](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
-| 串流分析 | 是 | 是 | | | |
-| HDInsights | 是 | 是 | | | |
-| Data Factory | 是 | 是 | 是 | [建立 Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| 機器學習服務 | 否 | 否 | - | - | - |
+| 串流分析 | 是 | [是](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
+| HDInsights | 是 | [是](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
+| Data Factory | 是 | [是](https://portal.azure.com/#create/Microsoft.DataFactory) | 是 | [建立 Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
+| 機器學習服務 | 否 | 否 | - | - | - | | 資料目錄 | 否 | 否 | - | - | - |
 
 ## 網路
 
@@ -84,7 +86,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 應用程式閘道 | 是 | | | | |
 | DNS | 是 | | | [建立 DNS 區域](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | 負載平衡器 | 是 | | | [建立負載平衡器](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| 虛擬網路 | 是 | 是 | 否 | [建立虛擬網路](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| 虛擬網路 | 是 | [是](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | 否 | [建立虛擬網路](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | 流量管理員 | 是 | 否 | | [建立流量管理員設定檔](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
 | ExpressRoute | 是 | 否 | 否 | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
@@ -101,30 +103,33 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk 服務 | 是 | 否 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | 服務匯流排 | 是 | 否 | | [服務匯流排 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
+| 備份 | 否 | 否 | - | - | - | | Site Recovery | 否 | 否 | - | - | - |
 
 ## 身分識別與存取管理 
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | 否 | 否 | - | - | - | | Azure Actice Directory B2C | 否 | 否 | - | - | - | | Multi-Factor Authentication | 否 | 否 | - | - | - |
+| Azure Active Directory | 否 | 否 | - | - | - |
+| Azure Actice Directory B2C | 否 | 否 | - | - | - |
+| Multi-Factor Authentication | 否 | 否 | - | - | - |
 
 ## 開發人員服務 
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | 是 | 是 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
-| Bing 地圖 | 是 | 是 | | | |
+| Application Insights | 是 | [是](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Bing 地圖 | 是 | [是](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
 | Visual Studio 帳戶 | 是 | | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## 管理 
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| 自動化 | 是 | 是 | | | |
+| 自動化 | 是 | [是](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | | | |
 | 金鑰保存庫 | 是 | 否 | 是 | [金鑰保存庫 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | 排程器 | 是 | 否 | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | 是 | 否 | 是 | | |
-| IoTHubs | 是 | 是 | | | |
+| IoTHubs | 是 | [是](https://portal.azure.com/#create/Microsoft.IotHub) | | | |
 
 
 ## 支援的區域
@@ -158,6 +163,10 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
     Southeast Asia
     Central US
     East US 2
+
+Azure PowerShell 0.9.8 請使用下列命令：
+
+    PS C:\> ((Get-AzureProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 
 ### Azure CLI
 
@@ -204,6 +213,10 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
     2014-04-01-preview
     2014-04-01
 
+Azure PowerShell 0.9.8 請使用：
+
+    PS C:\> ((Get-AzureProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+
 ### Azure CLI
 
 您可以使用下列命令，將資源提供者的資訊 (包括可用的 API 版本) 儲存至檔案。
@@ -217,4 +230,4 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 - 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](./azure-portal/resource-group-template-deploy.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

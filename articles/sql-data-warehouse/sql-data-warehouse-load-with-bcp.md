@@ -18,6 +18,12 @@
 
 
 # 使用 bcp 載入資料
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 **[bcp][]** 是命令列大量載入公用程式，可讓您在 SQL Server、資料檔和 SQL 資料倉儲之間複製資料。使用 bcp 公用程式將大量資料列匯入 SQL 資料倉儲資料表，或將 SQL Server 資料表中的資料匯出成資料檔案。除非與 queryout 選項一起使用，否則 bcp 不需 TRANSACT-SQL 方面的知識。
 
 bcp 是將較小的資料集移入和移出 SQL 資料倉儲資料庫的一種快速又輕鬆的方式。透過 bcp 載入/擷取時，建議的確切資料量取決於您對 Azure 資料中心的網路連線。一般而言，可載入和擷取維度資料表，但載入或擷取相當大的事實資料表時可能需要很長的時間。
@@ -32,7 +38,10 @@ bcp 是將較小的資料集移入和移出 SQL 資料倉儲資料庫的一種�
 - 使用 bcp in 命令將資料匯入資料表
 - 使用 bcp out 命令將資料匯出資料表
 
+>[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+
 ## 先決條件
+
 若要逐步執行本教學課程，您需要：
 
 - SQL 資料倉儲資料庫
@@ -41,10 +50,12 @@ bcp 是將較小的資料集移入和移出 SQL 資料倉儲資料庫的一種�
 
 >[AZURE.NOTE]您可以從 [Microsoft 下載中心][]下載 bcp 和 sqlcmd 公用程式。
 
-##將資料匯入 SQL 資料倉儲
+## 將資料匯入 SQL 資料倉儲
+
 在本教學課程中，您將在 Azure SQL 資料倉儲中建立資料表，並將資料匯入資料表。
 
 ### 步驟 1：在 Azure SQL 資料倉儲中建立資料表
+
 從命令提示字元中，使用下列命令連接到您的執行個體 (請適當地取代其中的值)：
 
 ```
@@ -162,4 +173,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 下載中心]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

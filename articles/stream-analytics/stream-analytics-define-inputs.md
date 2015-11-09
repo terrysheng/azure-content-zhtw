@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/13/2015"
+	ms.date="10/23/2015"
 	ms.author="jeffstok"/>
 
 # 了解串流分析輸入
@@ -137,7 +137,7 @@ IoT 中心是具高延展性的發佈-訂閱事件擷取器，最適用於 IoT �
 </tr>
 <tr>
 <td>路徑前置詞模式 [選用]</td>
-<td>用來在指定容器中找出 Blob 的檔案路徑。在該路徑內，您也可以指定下列 3 個變數的一個或多個執行個體：<BR>{date}、{time}、<BR>{partition}<BR>範例 1：cluster1/logs/{date}/{time}/{partition}<BR>範例 2：cluster1/logs/{date}</td>
+<td>用來在指定容器中找出 Blob 的檔案路徑。在該路徑內，您也可以指定下列 3 個變數的一個或多個執行個體：<BR>{date}、{time}、<BR>{partition}<BR>範例 1：cluster1/logs/{date}/{time}/{partition}<BR>範例 2：cluster1/logs/{date}<P>請注意，"*"不是路徑前置詞允許的值。僅允許有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 字元</a>。</td>
 </tr>
 <tr>
 <td>日期格式 [選用]</td>
@@ -201,4 +201,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

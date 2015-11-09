@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="sumukhs"
-   manager="anuragg"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -69,4 +69,4 @@ Service-Fabric 會自動將 HTTP 端點處理為 ACL。
 ```
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -65,6 +65,8 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 **附註：**同盟錯誤 10053 和 10054 也應該要包含在您的重試邏輯中。
 
 
+<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
+
 ## 資料庫複製錯誤
 
 
@@ -88,6 +90,8 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40571|16|資料庫複製因內部錯誤而失敗。請卸除目標資料庫並稍後再試一次。|
 
 
+<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
+
 ## 資源管理錯誤
 
 
@@ -100,7 +104,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - 您的程式可能耗用太多 `TempDb` 空間。
 
 
-**秘訣：**下列連結提供適用於本節中的大部分或所有錯誤的詳細資訊：
+**秘訣：**下列連結提供適用於本節中大部分或所有錯誤的詳細資訊：
 
 
 - [Azure SQL Database 資源限制](http://msdn.microsoft.com/library/azure/dn338081.aspx)。
@@ -108,14 +112,14 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 |錯誤號碼|嚴重性|說明|
 |---:|---:|:---|
-|10928|20|資源識別碼：%d。資料庫的 %s 限制是 %d，且已達到。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。<br/><br/>資源識別碼可指出已達到限制的資源。對於背景工作執行緒，資源識別碼 = 1。針對工作階段，資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源管理](http://msdn.microsoft.com/library/azure/dn338078.aspx)。 |
-|10929|20|資源識別碼：%d。%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。否則，請稍後再試。<br/><br/>資源識別碼表示資源已達到限制。對於背景工作執行緒，資源識別碼 = 1。針對工作階段，資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源管理](http://msdn.microsoft.com/library/azure/dn338078.aspx)。|
+|10928|20|資源識別碼：%d。資料庫的 %s 限制是 %d，且已達到。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。<br/><br/>資源識別碼可指出已達到限制的資源。對於背景工作執行緒，資源識別碼 = 1。工作階段的資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源管理](http://msdn.microsoft.com/library/azure/dn338078.aspx)。 |
+|10929|20|資源識別碼：%d。%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。否則，請稍後再試。<br/><br/>資源識別碼可指出已達到限制的資源。對於背景工作執行緒，資源識別碼 = 1。工作階段的資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源管理](http://msdn.microsoft.com/library/azure/dn338078.aspx)。|
 |40544|20|資料庫已達到大小配額。資料分割或刪除資料、卸除索引，或參閱可能解決方式的文件。|
 |40549|16|工作階段已終止，因為您有長時間執行的交易。請嘗試縮短您的交易時間。|
 |40550|16|工作階段已終止，因為它取得太多鎖定。嘗試在單一交易中讀取或修改較少的資料列。|
 |40551|16|已終止工作階段，因為它過度使用 `TEMPDB`。請嘗試修改查詢以減少暫存資料表空間的使用量。<br/><br/>*秘訣：*如果您使用暫存物件，請在工作階段不再需要暫存物件時予以卸除，藉此節省 `TEMPDB` 資料庫的空間。|
 |40552|16|已終止工作階段，因為過度使用交易記錄檔空間。請嘗試將單一交易的資料列修改成較小數目。<br/><br/>*秘訣：*如果您使用 `bcp.exe` 公用程式或 `System.Data.SqlClient.SqlBulkCopy` 類別執行大量插入，請嘗試使用 `-b batchsize` 或 `BatchSize` 選項來限制每一筆交易中要複製到伺服器的資料列數目。如果您要使用 `ALTER INDEX` 陳述式重建索引，請嘗試使用 `REBUILD WITH ONLINE = ON` 選項。|
-|40553|16|已終止工作階段，因為過度使用記憶體。請嘗試修改查詢以處理較少的資料列。<br/><br/>*秘訣：*減少您 Transact-SQL 程式碼中的 `ORDER BY` 和 `GROUP BY` 作業數目，減少查詢的記憶體需求。|
+|40553|16|已終止工作階段，因為過度使用記憶體。請嘗試修改查詢以處理較少的資料列。<br/><br/>*秘訣：*減少 Transact-SQL 程式碼中的 `ORDER BY` 和 `GROUP BY` 作業數目，減少查詢的記憶體需求。|
 
 
 如需資源管理和相關聯錯誤的額外討論，請參閱：
@@ -123,6 +127,8 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 - [Azure SQL Database 資源管理](http://msdn.microsoft.com/library/azure/dn338078.aspx)。
 
+
+<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
 
 ## 同盟錯誤
 
@@ -161,8 +167,10 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |45013|16|此 SID 已經存在於不同使用者名稱下|同盟成員中使用者的 SID 是從同盟根目錄中相同使用者帳戶的 SID 複製。在某些情況下，SID 可能已在使用中。|
 |45014|16|%ls 在 %ls 上不受支援|不支援的作業。|
 |45022|16|<statement> 作業失敗。同盟索引鍵 <distribution_name> 和同盟 <federation_name> 已有指定的界限值。|指定已經是界限值的值。|
-|45023|16|<statement> 作業失敗。同盟索引鍵 <distribution_name> 和同盟 <federation_name> 沒有指定的界限值。|指定已經不是界限值的值。|
+|45023|16|<statement> 作業失敗。同盟索引鍵 <distribution_name> 和同盟 <federation_name> 沒有指定界限值。|指定已經不是界限值的值。|
 
+
+<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
 
 ## 一般錯誤
 
@@ -202,7 +210,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40528|16|無法在這個版本的 SQL Server 中將使用者對應到憑證、非對稱金鑰或 Windows 登入。|
 |40529|16|模擬內容中的內建函數 '%.&#x2a;ls' 在這個版本的 SQL Server 中不受支援。|
 |40532|11|無法開啟登入所要求的伺服器 "%.&#x2a;ls"。登入失敗。|
-|40553|16|已終止工作階段，因為過度使用記憶體。請嘗試修改查詢以處理較少的資料列。<br/><br/>*請注意：*減少您 Transact-SQL 程式碼中的 `ORDER BY` 和 `GROUP BY` 的作業數目，有助於降低查詢的記憶體需求。|
+|40553|16|已終止工作階段，因為過度使用記憶體。請嘗試修改查詢以處理較少的資料列。<br/><br/>*請注意：*減少 Transact-SQL 程式碼中的 `ORDER BY` 和 `GROUP BY` 的作業數目，有助於降低查詢的記憶體需求。|
 |40604|16|無法 CREATE/ALTER DATABASE，因為它會超過伺服器的配額。|
 |40606|16|附加資料庫在這個版本的 SQL Server 中不受支援。|
 |40607|16|Windows 登入在這個版本的 SQL Server 中不受支援。|
@@ -224,7 +232,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40642|17|伺服器目前太過忙碌。請稍後再試一次。|
 |40643|16|指定的 x-ms-version 標頭值無效。|
 |40644|14|無法授權存取指定的訂用帳戶。|
-|40645|16|Servername <servername> 不能是空白或 null。它可以只由小寫字母 'a'-'z'、數字 0-9 和連字號組成。連字號不得在名稱的開頭或結尾。|
+|40645|16|伺服器名稱 <servername> 不能是空白或 null。它可以只由小寫字母 'a'-'z'、數字 0-9 和連字號組成。連字號不得在名稱的開頭或結尾。|
 |40646|16|訂用帳戶 ID 不能空白。|
 |40647|16|訂用帳戶 <subscription-id> 沒有伺服器的伺服器名稱。|
 |40648|17|已經執行太多要求。請稍後重試。|
@@ -242,4 +250,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 一般方針和限制](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [資源管理](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

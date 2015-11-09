@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -66,4 +66,4 @@ UnmonitoredManual 在每次於升級網域上升級之後需要手動介入，�
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

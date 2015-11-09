@@ -46,7 +46,7 @@ PowerShell 可以自動化下列設定和註冊工作：
 您可以使用 **New-AzureRMBackupVault** Cmdlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
@@ -300,4 +300,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 如果您想要將製作圖表功能加入至這個報表輸出，請在 TechNet 部落格上了解[使用 PowerShell 製作圖表](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

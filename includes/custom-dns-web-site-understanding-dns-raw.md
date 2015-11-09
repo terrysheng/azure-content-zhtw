@@ -44,10 +44,14 @@ CNAME 記錄將*特定的*網域 (例如 **mail.contoso.com** 或 **www.contoso.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
+3. 在 [自訂網域及 SSL] 刀鋒視窗中，按一下 [帶出外部網域]。
+
+	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
+
 	> [AZURE.NOTE]如果未啟用 [**管理網域**]，您將使用 [**免費**]的 Web 應用程式。您無法搭配 [**免費**] 的 Web 應用程式使用自訂網域名稱，因此必須將 App Service 計劃升級到 [**共用**]、[**基本**] 或 [**標準**] 模式。如需有關 App Service 計劃模式的詳細資訊，包括如何變更 Web 應用程式的模式，請參閱[如何調整 Web 應用程式](../articles/web-sites-scale.md)。
 
-6. 在 [管理自訂網域] 對話方塊中，您會看到 **awverify** 資訊、目前指派的 **.azurewebsites.net** 網域名稱，以及虛擬 IP 位址。儲存此資訊，在建立 DNS 記錄時會用得到。
+6. 在 [帶出外部網域] 刀鋒視窗中，您會看到 **awverify** 資訊、目前指派的 **.azurewebsites.net** 網域名稱，以及虛擬 IP 位址。儲存此資訊，在建立 DNS 記錄時會用得到。
 
-	![](./media/custom-dns-web-site/managecustomdomains.png)
+	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

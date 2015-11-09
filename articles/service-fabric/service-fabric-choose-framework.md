@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -36,4 +36,4 @@ Service Fabric 提供兩個高階架構來建置服務：可靠動作項目 API 
 - [深入了解可靠動作項目 API](service-fabric-reliable-actors-introduction.md)
 - [深入了解可靠服務 API](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

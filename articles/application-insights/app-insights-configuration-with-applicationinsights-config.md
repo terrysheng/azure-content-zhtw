@@ -213,58 +213,9 @@ handling a request with the automatically generated `RequestTelemetry.Id`。
    </ApplicationInsights>
 ```
 
-## 自訂初始設定式
+## 遙測初始設定式
 
-
-如果標準初始設定式不適合您的應用程式，可以自行建立初始設定式。
-
-使用內容初始設定式，以設定要用來初始化每個遙測用戶端的值。例如，如果已經發行多個版本的應用程式，您可以透過篩選自訂屬性來確實區隔資料：
-
-    plublic class MyContextInitializer: IContextInitializer
-    {
-        public void Initialize(TelemetryContext context)
-        {
-          context.Properties["AppVersion"] = "v2.1";
-        }
-    }
-
-您可以使用遙測初始設定式，將處理加入至每個事件。例如，任一要求回應碼 > = 400 時，Web SDK 會標記為失敗。您可以覆寫該行為：
-
-    public class MyTelemetryInitializer : ITelemetryInitializer
-    {
-        public void Initialize(ITelemetry telemetry)
-        {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                requestTelemetry.Success = true;
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }            
-        }
-    }
- 
-若要安裝您的初始設定式，請在 ApplicationInsights.config 中加入以下幾行：
-
-    <TelemetryInitializers> <!-- or ContextInitializers -->
-    <Add Type="MyNamespace.MyTelemetryInitializer, MyAssemblyName" />
-
-
-或者，您可以撰寫程式碼，以在應用程式執行初期安裝初始設定式。例如：
-
-
-    // In the app initializer such as Global.asax.cs:
-
-    protected void Application_Start()
-    {
-      TelemetryConfiguration.Active.TelemetryInitializers.Add(
-                new MyTelemetryInitializer());
-            ...
-
-
+您可以撰寫遙測初始設定式，以篩選及修改從應用程式收集的遙測。這些初始設定式可以連同標準模組一起從 .config 檔案進行初始化。[深入了解](app-insights-api-filtering-sampling.md)
 
 
 ## InstrumentationKey
@@ -313,4 +264,4 @@ handling a request with the automatically generated `RequestTelemetry.Id`。
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/26/2015"
    ms.author="tomfitz"/>
 
 # 了解資源管理員部署和傳統部署
@@ -46,7 +46,7 @@
 
         ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        針對運算、儲存體及網路資源，您可以選擇使用資源管理員或傳統部署。 選擇**資源管理員**。
+        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -77,7 +77,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        或安裝 Preview 入口網站並指定進行**傳統**部署 (範圍包括運算、儲存體及網路).
+        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -155,9 +155,11 @@
 - 使用資源管理員部署模型部署的虛擬機器必須包含在虛擬網路中。
 - 使用傳統部署模型部署的虛擬機器不一定要包含在虛擬網路中。
 
+如果您負擔得起虛擬機器的停機時間，您可以從傳統部署轉換至資源管理員搭配使用 [ASM2ARM PowerShell 指令碼](https://github.com/fullscale180/asm2arm)。
+
 從傳統部署轉換至資源管理員時，如需對等 Azure CLI 命令的清單，請參閱 [VM 作業的對等資源管理員和服務管理命令](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md)。
 
-如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員下的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
+如需轉換計算、儲存和網路資源的詳細資訊，請參閱 [Azure 資源管理員提供的 Azure 計算、網路和儲存提供者](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
 
 若要了解從不同部署模型連接虛擬網路，請參閱[將傳統 VNet 連接到新的 VNet](./virtual-network/virtual-networks-arm-asm-s2s.md)。
 
@@ -166,4 +168,4 @@
 - 若要了解如何建立宣告式部署範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要查看部署範本的命令，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 進行轉換和分析
@@ -34,12 +34,12 @@
 
 您需要為運算環境建立連結的服務，然後在定義轉換活動時使用連結的服務。Data Factory 支援兩種類型的資運算環境。
 
-1. **隨選**：在此情況下，運算環境完全由 Data Factory 進行管理。Data Factory 服務會在工作提交前自動建立運算環境以處理資料，而在工作完成時予以移除。使用者可以針對工作執行、叢集管理和啟動動作，設定和控制隨選運算環境的細微設定。 
-2. **攜帶您自己的裝置**：在此情況下，您可以註冊自己的運算環境 (例如 HDInsight 叢集)，做為 Data Factory 中的連結服務。運算環境由您自行管理，而 Data Factory 會使用它來執行活動。 
+1. **隨選**：在這種情況下，運算環境完全由 Data Factory 進行管理。Data Factory 服務會在工作提交前自動建立運算環境以處理資料，而在工作完成時予以移除。使用者可以針對工作執行、叢集管理和啟動動作，設定和控制隨選運算環境的細微設定。 
+2. **攜帶您自己的裝置**：在這種情況下，您可以註冊自己的運算環境 (例如 HDInsight 叢集)，做為 Data Factory 中的連結服務。運算環境由您自行管理，而 Data Factory 會使用它來執行活動。 
 
-請參閱[運算連結服務](data-factory-compute-linked-services.md)一文以了解 Data Factory 所支援的運算連結服務。
+請參閱[計算連結服務](data-factory-compute-linked-services.md)一文以了解 Data Factory 所支援的計算連結服務。
 
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

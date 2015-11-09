@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="10/26/2015"
    ms.author="joaoma" />
 
 # 每一雲端服務有多重 VIP
@@ -155,4 +155,4 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

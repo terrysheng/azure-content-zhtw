@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="09/03/2015" 
+  ms.date="10/26/2015" 
   ms.author="tamram"/>
 
 
@@ -28,15 +28,17 @@
 
 *   **使用者定義的中繼資料。** 使用者定義的中繼資料是您針對給定的資源，以名稱/值組的形式指定的中繼資料。您可以使用中繼資料將額外的值與儲存體資源一同儲存。這些值僅供自己的用途使用，不會影響資源的運作方式。
 
-## 設定與擷取屬性
-
-擷取儲存體資源的屬性和中繼資料值是一個兩步驟程序。您必須先呼叫 **FetchAttributes** 或 **FetchAttributesAsync** 方法明確地擷取這些值，才能開始讀取。
+擷取儲存體資源的屬性和中繼資料值是一個兩步驟程序。您必須先呼叫 **FetchAttributes** 方法明確地擷取這些值，才能開始讀取這些值。
 
 > [AZURE.IMPORTANT]除非您呼叫其中一個 **FetchAttributes** 方法，否則無法填入儲存體資源的屬性和中繼資料值。
 
-若要設定 Blob 的屬性，指定屬性值，然後呼叫 **SetProperties** 或 **SetPropertiesAsync** 方法。
+## 設定與擷取屬性
 
-下列程式碼範例會建立一個容器，並將屬性值寫入主控台視窗。
+若要擷取屬性值，請呼叫 Blob 或容器上的 **FetchAttributes** 方法，以填入屬性，然後讀取這些值。
+
+若要設定物件的屬性，請指定屬性值，然後呼叫 **SetProperties** 方法。
+
+下列程式碼範例會建立一個容器，並將其部分屬性值寫入主控台視窗：
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -64,46 +66,37 @@
 
 > [AZURE.NOTE]：您的中繼資料名稱必須符合 C# 識別碼的命名慣例。
  
-若要擷取 Blob 或容器的中繼資料，請呼叫 **FetchAttributes** 方法以填入**中繼資料**集合，然後讀取這些值。
+下列程式碼範例會在容器上設定中繼資料。其中一個值是使用集合的 **Add** 方法設定。其他值是使用隱含的索引鍵/值語法來設定。兩者都有效。
 
-下列程式碼範例會建立一個新的容器，並為其設定中繼資料，然後讀回中繼資料值：
+    public static void AddContainerMetadata(CloudBlobContainer container)
+    {
+        //Add some metadata to the container.
+        container.Metadata.Add("docType", "textDocuments");
+        container.Metadata["category"] = "guidance";
 
-         
-	// Account name and key.  Modify for your account.
-	<span style="color:Blue;">string accountName = <span style="color:#A31515;">"myaccount";
-	<span style="color:Blue;">string accountKey = <span style="color:#A31515;">"SzlFqgzqhfkj594cFoveYqCuvo8v9EESAnOLcTBeBIo31p16rJJRZx/5vU/oY3ZsK/VdFNaVpm6G8YSD2K48Nw==";
+        //Set the container's metadata.
+        container.SetMetadata();
+    }
 
-	// Get a reference to the storage account and client with authentication credentials.
-	StorageCredentials credentials = <span style="color:Blue;">new StorageCredentials(accountName, accountKey);
-	CloudStorageAccount storageAccount = <span style="color:Blue;">new CloudStorageAccount(credentials, <span style="color:Blue;">true);
-	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+若要擷取 Blob 或容器的中繼資料，請呼叫 **FetchAttributes** 方法以填入**中繼資料**集合，然後讀取這些值，如以下範例所示。
 
-	// Retrieve a reference to a container. 
-	CloudBlobContainer container = blobClient.GetContainerReference(<span style="color:#A31515;">"mycontainer");
+    public static void ListContainerMetadata(CloudBlobContainer container)
+    {
+        //Fetch container attributes in order to populate the container's properties and metadata.
+        container.FetchAttributes();
 
-	// Create the container if it does not already exist.
-	container.CreateIfNotExists();
-
-	// Set metadata for the container.
-	container.Metadata[<span style="color:#A31515;">"category"] = <span style="color:#A31515;">"images";
-	container.Metadata[<span style="color:#A31515;">"owner"] = <span style="color:#A31515;">"azure";
-	container.SetMetadata();
-
-	// Get container metadata.
-	container.FetchAttributes();
-	<span style="color:Blue;">foreach (<span style="color:Blue;">string key <span style="color:Blue;">in container.Metadata.Keys)
-	{
-	   Console.WriteLine(<span style="color:#A31515;">"Metadata key: " + key);
-	   Console.WriteLine(<span style="color:#A31515;">"Metadata value: " + container.Metadata[key]);
-	}
-
-	//Clean up.
-	container.Delete();
+        //Enumerate the container's metadata.
+        Console.WriteLine("Container metadata:");
+        foreach (var metadataItem in container.Metadata)
+        {
+            Console.WriteLine("\tKey: {0}", metadataItem.Key);
+            Console.WriteLine("\tValue: {0}", metadataItem.Value);
+        }
+    }
 
 ## 另請參閱  
 
-- [Azure Storage Client Library 參考](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [開始使用適用於 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)  
- 
+- [Azure Storage Client Library for .NET 參考資料](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
+- [Azure Storage Client Library for .NET 封裝](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

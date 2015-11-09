@@ -13,20 +13,39 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="10/23/2015" 
     ms.author="elizapo" />
 
 
 
-# RemoteApp 有哪些新功能？
+# Azure RemoteApp 有哪些新功能？
 
-RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當 RemoteApp 有新功能時 ，我們便會在這裡發表變更。
+Azure RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當 RemoteApp 有新功能時 ，我們便會在這裡發表變更。
+
+## 2015 年 9 月
+- 已將 Infopath 新增至 Microsoft Office 365 範本和資源庫映像。如果您想要共用 Infopath，請務必使用最新的映像來更新您的集合。
+- 用戶端更新：
+	- 更新 Windows 用戶端讓使用者分享意見，特別是關於連線問題。
+	- 更新 iOS 用戶端以修正錯誤訊息和修正您的認證比預期提早過期的問題。
+- 我們正在努力測試 Office 2016 支援。完成時，請尋找更新的映像。
+- 發佈關於[雲端和混合式集合之間的差異](remoteapp-collections.md)的新文章 - 這可以協助您選擇最適合您的應用程式的集合類型 (僅限雲端、雲端 + VNET 或混合式)。
+- 想要分享使用 Azure RemoteApp 的 QuickBooks 卻不知道步驟嗎？ 參閱 [Eric 的新文章](remoteapp-quickbooks.md)，該文章會告訴您怎麼做。
+
+## 2015 年 8 月
+8 月的重大變更 - 以下是重點：
+
+- 您現在可以使用 Azure VNET 搭配雲端集合！ 參閱[雲端建立指示](remoteapp-create-cloud-deployment.md)以取得新步驟。
+- 讓新增應用程式至 Windows RemoteApp 用戶端的 [開始] 功能表成為可能。應用程式會顯示在應用程式清單中，您可以將它們釘選至 Windows 中的 [開始] 功能表。
+- 將新的映像新增至 Azure VM 資源庫 - Windows Server 遠端桌面工作階段主機與 Microsoft Office 365 ProPlus。
+- 修正 Mac 用戶端，讓具有強制回應視窗的應用程式停止凍結。
+- 說明如何搭配 Azure RemoteApp 使用 [Office 365 ProPlus 訂用帳戶](remoteapp-officesubscription.md)。
+- 詳述說明如何在 Azure RemoteApp 集合中[保護應用程式和資料](remoteapp-secure.md)。
 
 ## 2015 年 7 月
 
 7 月設定即將在 8 月推出之變更的階段，因此現在沒有很多可談，而且大部分都是文件更新。以下是最新的變更：
 
-- 已將 [**支援**] 索引標籤新增至入口網站，可讓您更輕鬆地存取支援資源，像是論壇。
+- 已將 [支援] 索引標籤新增至入口網站，可讓您更輕鬆地存取支援資源，像是論壇。
 - 已修改建立混合式集合的疑難排解資訊。如需疑難排解秘訣，像是如何識別要對您的 VNET 設定的正確連接埠，請查看[最新和最大](remoteapp-hybridtrouble.md)。
 - 說明如何在 Azure RemoteApp 建立並儲存[使用者資料](remoteapp-upd.md)。
 - 說明如何[鎖定應用程式](remoteapp-secure.md)。
@@ -61,4 +80,8 @@ RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當 Remot
 
 感謝您持續關注我們 - 下個月還會有其他更新。
 
-<!---HONumber=Oct15_HO3-->
+
+### 幫我們來協助您 
+您知道除了評比這篇文章以及在下面留言以外，您可以變更文件本身嗎？ 有所遺漏？ 有所錯誤？ 我是否撰寫了令人混淆的內容？ 向上捲動並按一下 [在 GitHub 上編輯] 以進行變更 - 系統會顯示這些變更以供我們檢閱，而我們簽核後，您就會在這裡看到您所進行的變更和改良。
+
+<!---HONumber=Nov15_HO1-->

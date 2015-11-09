@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/20/2015"
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
@@ -68,6 +68,11 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 * **Blob 儲存體** - 會將應用程式診斷資訊儲存至指定的 Azure 儲存體帳戶與 Blob 容器中。
 * **保留週期** - 依預設，所有記錄不會自動從 [Blob 儲存體] 中刪除。如果您想要讓系統自動刪除記錄的話，請選取 [set retention] 並輸入記錄保留天數。
 
+>[AZURE.NOTE]如果您[重新產生儲存體帳戶的存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)，您必須重設個別的記錄組態，才能使用更新的金鑰。作法：
+>
+> 1. 在 [設定] 索引標籤上，將個別的記錄功能設定為 [關閉]。儲存您的設定。
+> 2. 重新啟用記錄至儲存體帳戶 Blob 或資料表。儲存您的設定。
+
 包括檔案系統、資料表儲存體或是 Blob 儲存體的任意組合都可以同時啟用，並個別具有記錄層級組態。例如，您也許想要將各種錯誤與警告資訊記錄到 Blob 儲存體做為長期的記錄解決方案，同時啟用詳細資訊層級的檔案系統記錄功能。
 
 雖然以上三個儲存位置全都提供相同的基本資訊供您記錄事件，[資料表儲存體] 與 [Blob 儲存體] 會比 [檔案系統] 記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。
@@ -94,7 +99,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 ### FTP
 
-若要使用 FTP 存取診斷資訊，請在 [Azure 入口網站](https://manage.windowsazure.com)中造訪您 Web 應用程式的 [儀表板]。在 [Quick Glance] 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。[Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
+若要使用 FTP 存取診斷資訊，請瀏覽 [Azure 入口網站](https://manage.windowsazure.com)中您 Web 應用程式的 [儀表板]。在 [Quick Glance] 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。[Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
 
 > [AZURE.NOTE]如果未設定的 [部署/FTP 使用者] 項目，或是您忘記此使用者的密碼，您可以使用 [儀表板] 的 [快速概覽] 區段中**重設部署認證**連結來建立新的使用者名稱和密碼。
 
@@ -207,7 +212,7 @@ Timestamp|事件發生的日期與時間
 EventTickCount|事件發生的日期與時間 (刻度格式，精準度更高)
 ApplicationName|Web 應用程式名稱
 等級|事件層級 (例如，錯誤、警告、資訊)
-EventId|如果沒有指定此事件的事件識別碼<p><p>，則預設為 0
+EventId|這個事件的事件識別碼<p><p>如果沒有指定，預設為 0。
 InstanceId|發生事件的 Web 應用程式執行個體
 Pid|處理序識別碼
 Tid|產生事件的執行緒之執行緒識別碼
@@ -224,7 +229,7 @@ Level|事件層級 (例如，錯誤、警告、資訊)
 ApplicationName|Web 應用程式名稱
 InstanceId|發生事件的 Web 應用程式執行個體
 EventTickCount|事件發生的日期與時間 (刻度格式，精準度更高)
-EventId|如果沒有指定此事件的事件識別碼<p><p>，則預設為 0
+EventId|這個事件的事件識別碼<p><p>如果沒有指定，預設為 0。
 Pid|處理序識別碼
 Tid|產生事件的執行緒之執行緒識別碼
 訊息|事件詳細資訊訊息
@@ -265,4 +270,4 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 和 Azure Machine Learning 來建立預測管線 
@@ -315,4 +315,4 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure Ma
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="nana"
+   ms.workload="na"
    ms.date="09/29/2015"
    ms.author="kdotchko"/>
 
@@ -37,4 +37,4 @@ MQTT 配接器也會示範程式設計模型，此模型可為其他通訊協定
 * [GitHub 上的 Azure IoT 通訊協定閘道儲存機制](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) (英文)
 * [Azure IoT 通訊協定閘道開發人員指南](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md) (英文)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

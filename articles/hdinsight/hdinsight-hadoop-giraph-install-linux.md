@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝 Giraph，以及使用 Giraph 來處理大規模圖形
@@ -99,9 +99,13 @@
 
 		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
 
-4. 使用下列命令執行 SimpleShortestPathsComputation 範例：
+3. 使用下列項目以取得叢集前端節點的完整網域名稱 (FQDN)：
 
-		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnode0:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
+        hostname -f
+        
+4. 使用下列命令執行 SimpleShortestPathsComputation 範例。以上一個步驟所傳回的 FQDN 取代 __HEADNODE__：
+
+		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
 	與此命令搭配使用的參數會在下表中說明：
 
@@ -110,14 +114,14 @@
 	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | 包含範例的 jar 檔案。 |
 	| `org.apache.giraph.GiraphRunner` | 用於啟動範例的類別。 |
 	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | 將會執行的範例。在此案例中，它會計算圖形中識別碼 1 和所有其他識別碼之間的最短路徑。 |
-	| `-ca mapred.job.tracker=headnode0:9010` | 叢集的前端節點。 |
+	| `-ca mapred.job.tracker=HEADNODE:9010` | 叢集的前端節點。 |
 	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | 用於輸入資料的輸入格式。 |
 	| `-vip /example/data/tiny_graph.txt` | 輸入資料檔案。 |
 	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | 輸出格式。在此案例中，識別碼和值是純文字。 |
 	| `-op /example/output/shortestpaths` | 輸出位置。 |
 	| `-w 2` | 要使用的背景工作角色數目。在此案例中為 2。 |
 
-	如需有關這些項目以及與 Giraph 範例搭配使用之其他參數的詳細資訊，請參閱 [Giraph 快速入門](http://giraph.apache.org/quick_start.html)。
+	如需這些項目以及與 Giraph 範例搭配使用之其他參數的詳細資訊，請參閱 [Giraph 快速入門](http://giraph.apache.org/quick_start.html)。
 
 5. 一旦工作完成，結果會儲存在 \_\___wasb:///example/out/shotestpaths__ 目錄中。建立的檔案會以 __part-m-__ 開頭，結束的數字表示是第一個、第二個檔案，依此類推。使用下列項目以檢視輸出：
 
@@ -142,10 +146,10 @@
 
 - [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。色調是 Web UI，可讓您更輕鬆地建立、執行及儲存 Pig 和 Hive 工作，以及瀏覽您的 HDInsight 叢集的預設儲存體。
 
-- [在 HDInsight 叢集上安裝和使用 Spark](hdinsight-hadoop-spark-install-linux.md)：如何使用叢集自訂，以在 HDinsight Hadoop 叢集上安裝和使用 Spark 的指示。Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。
+- [在 HDInsight 叢集上安裝和使用 Spark](hdinsight-hadoop-spark-install-linux.md)：如何使用叢集自訂，以在 HDInsight Hadoop 叢集上安裝和使用 Spark 的指示。Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。
 
-- [在 HDInsight 叢集上安裝 R](hdinsight-hadoop-r-scripts-linux.md)：如何使用叢集自訂，以在 HDinsight Hadoop 叢集上安裝和使用 R 的指示。R 是一個用於統計計算的開放原始碼語言和環境。它提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。它也提供廣泛的圖形功能。
+- [在 HDInsight 叢集上安裝 R](hdinsight-hadoop-r-scripts-linux.md)：如何使用叢集自訂，以在 HDInsight Hadoop 叢集上安裝和使用 R 的指示。R 是一個用於統計計算的開放原始碼語言和環境。它提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。它也提供廣泛的圖形功能。
 
 - [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install-linux.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。Solr 可讓您在儲存的資料上執行功能強大的搜尋作業。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

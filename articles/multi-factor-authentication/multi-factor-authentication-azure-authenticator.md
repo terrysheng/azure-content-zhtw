@@ -127,7 +127,9 @@
 如果您想要手動新增非 Azure 帳戶，例如您的 Microsoft 帳戶，可以執行下列動作：
 
 
-- 首先，您必須從與帳戶相關聯的網站取得秘密金鑰。例如，在 Outlook.com 中移至您的帳戶設定、您的安全性設定，然後選取安裝驗證應用程式。您必須選取「我無法掃描條碼以取得密碼金鑰」。
+- 掃描 QR 代碼或輸入秘密金鑰，以手動加入非 Azure 帳戶。
+- 如果您要手動輸入秘密金鑰，請從與帳戶相關聯的網站取得秘密金鑰。例如，在 Outlook.com 中移至您的帳戶設定、您的安全性設定，然後選取安裝驗證應用程式。您必須選取「我無法掃描條碼以取得密碼金鑰」。
+- 
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
@@ -135,11 +137,11 @@
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- 按一下底部的 [手動輸入] 按鈕。
+- 掃描 QR 代碼或按一下底部的 [手動輸入] 按鈕。如果掃描 QR 代碼，由於啟用會立即開始，因此請略過下一個步驟。
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
-- 輸入顯示條碼的同一頁所提供的帳戶名稱和秘密金鑰。此資料會填入行動應用程式中的代碼和 URL 方塊。隨即會開始啟用程序。
+- 如果手動輸入秘密金鑰，請輸入顯示條碼的同一頁所提供的帳戶名稱和秘密金鑰。此資料會填入行動應用程式中的代碼和 URL 方塊。隨即會開始啟用程序。
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
@@ -162,4 +164,4 @@
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

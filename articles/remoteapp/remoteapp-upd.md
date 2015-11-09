@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/29/2015" 
+    ms.date="10/28/2015" 
     ms.author="elizapo" />
 
 
@@ -30,7 +30,7 @@ Azure RemoteApp 跨越裝置和工作階段儲存使用者身分識別和自訂�
 
 ## 系統管理員如何取得資料？
 
-如果您需要存取您其中一個使用者的資料 (為了災害復原或如果使用者離開公司)，請連絡 [Azure RemoteApp](mailto:remoteappforum@microsoft.com) 並提供集合和使用者身分識別的訂用帳戶資訊。Azure RemoteApp 小組將提供一個可供您存取資料的 URL - 您可以從該處瀏覽位置並擷取任何您所需的文件或檔案。
+如果您需要存取您其中一個使用者的資料 (為了災害復原或如果使用者離開公司)，請連絡 [Azure RemoteApp](mailto:remoteappforum@microsoft.com) 並提供集合和使用者身分識別的訂用帳戶資訊。Azure RemoteApp 小組會為您提供 VHD 的 URL。請下載該 VHD，並擷取您需要的任何文件或檔案。請注意，VHD 為 50 GB，因此下載需要一些時間。
 
 
 ## 已備份資料嗎？
@@ -126,4 +126,4 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 不行，Azure RemoteApp 不支援。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 
@@ -44,6 +44,8 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 在設定期間，您將選取其中一種叢集類型。您可以使用[指令碼動作](#scriptaction)，將其他技術 (例如 Hue、Spark 或 R) 加入至這些基本類型。
 
 每個叢集類型對於叢集內的節點，都有它自己術語，而每個節點類型也有各自的節點數目和預設 VM 大小：
+
+> [AZURE.IMPORTANT]如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
 
 ![HDInsight Hadoop 叢集節點](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
 
@@ -93,7 +95,7 @@ HDInsight 的 Spark 叢集有三種節點：- 前端節點 (2 個節點) - 背�
 | Storm | 即時事件處理 |
 | Spark (Windows 專用預覽) | 記憶體內處理、互動式查詢、微批次串流處理 |
 
-您可以使用[指令碼動作](#scriptaction)，將其他技術 (例如 Hue、Spark 或 R) 加入至這些基本類型。
+您可以使用[指令碼動作](#scriptaction)，將其他技術 (例如 Hue、Spark 或 R) 新增這些基本類型。
 
 ###叢集作業系統
 
@@ -103,7 +105,7 @@ HDInsight 的 Spark 叢集有三種節點：- 前端節點 (2 個節點) - 背�
 
 - **Linux 上的 HDInsight (Ubuntu 12.04 LTS for Linux)**：如果您熟悉 Linux 或 Unix、想要從現有的以 Linux 為基礎的 Hadoop 方案移轉，或想要輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請選取此選項。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-get-started.md)。
 
-> [AZURE.NOTE]本文件的資訊假設您使用以 Linux 為基礎的 HDInsight 叢集。如需有關以 Windows 為基礎的叢集的特定資訊，請參閱[在 HDInsight 中建立以 Windows 為基礎的 Hadoop 叢集](hdinsight-provision-clusters.md)。
+> [AZURE.NOTE]本文件的資訊假設您使用以 Linux 為基礎的 HDInsight 叢集。如需有關以 Windows 為基礎的叢集的資訊，請參閱[在 HDInsight 中建立以 Windows 為基礎的 Hadoop 叢集](hdinsight-provision-clusters.md)。
 
 ###訂用帳戶名稱
 
@@ -152,11 +154,13 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
 您可以選取叢集使用的運算資源大小。例如，如果您知道將會執行需要大量記憶體的作業，您可以選取具有較多記憶體的運算資源。
 
-> [AZURE.NOTE]不同的叢集類型具有不同的節點類型、節點數目和節點大小。例如，Hadoop 叢集類型有兩個_前端節點_和預設四個_資料節點_，而 Storm 叢集類型有兩個 _Nimbus 節點_、三個 _Zookeeper 節點_和預設四個_監督員節點_。
+不同的叢集類型具有不同的節點類型、節點數目和節點大小。例如，Hadoop 叢集類型有兩個_前端節點_和預設的四個_資料節點_，而 Storm 叢集類型有兩個 _Nimbus 節點_、三個 _Zookeeper 節點_和預設的四個_監督員節點_。
 
-使用 Azure Preview 入口網站來設定叢集時，[節點大小] 會透過 [節點定價層級]刀鋒視窗公開，也會顯示與不同節點大小相關聯的成本。
+> [AZURE.IMPORTANT]如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
 
-> [AZURE.IMPORTANT]建立叢集後就開始計費，只有在刪除叢集時才會停止計費。如需價格的詳細資訊，請參閱 [HDInsight 價格詳細資料](https://azure.microsoft.com/zh-TW/pricing/details/hdinsight/)。
+使用 Azure Preview 入口網站設定叢集時，節點大小會透過 [節點定價層] 刀鋒視窗公開，也會顯示與不同節點大小相關聯的成本。
+
+> [AZURE.IMPORTANT]建立叢集後就開始計費，只有在刪除叢集時才會停止計費。如需價格的詳細資訊，請參閱 [HDInsight 價格詳細資料](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ##<a id="optionalconfiguration"></a>選擇性組態
 
@@ -187,7 +191,7 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 > Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。使用 Azure PowerShell Cmdlet Get-AzureVNetConfig 來檢查現有的 Azure 虛擬網路是否以位置為基礎。如果您的虛擬網路並非以位置為基礎，您會有下列選項：
 >
 > - 將現有的虛擬網路組態匯出，然後建立新的虛擬網路。根據預設，所有新的虛擬網路都是以位置為基礎。
-> - 移轉到以位置為基礎的虛擬網路。請參閱[將現有服務移轉到區域範圍](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)。
+> - 移轉到以位置為基礎的虛擬網路。請參閱[將現有服務移轉到區域範圍](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) (英文)。
 >
 > 強烈建議您一個叢集只指定一個子網路。
 >
@@ -205,7 +209,7 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
 ###<a id="scriptaction"></a>指令碼動作
 
-您可以在叢集佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼透過 [指令碼動作] 叫用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+您可以在叢集佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼要透過 [指令碼動作] 叫用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 > [AZURE.IMPORTANT]建立叢集之後，不支援加入其他元件，因為在重新安裝叢集節點的映像之後，便無法使用這些元件。透過指令碼動作安裝的元件會在重新安裝映像程序時進行重新安裝。
 
@@ -276,4 +280,4 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

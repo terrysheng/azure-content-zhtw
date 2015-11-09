@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure 自動化中的憑證資產 | Microsoft Azure"
-   description="憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 可以存取憑證，以向 Azure 和協力廠商資源進行驗證。這篇文章說明憑證的詳細資料，以及如何以文字和圖形化編寫形式加以使用。"
+   description="憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 或 DSC 組態可以存取憑證，以向 Azure 和協力廠商資源進行驗證。這篇文章說明憑證的詳細資料，以及如何以文字和圖形化編寫形式加以使用。"
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的憑證資產
 
-憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 可以透過使用 **Get-AutomationCertificate** 活動來存取憑證。這可讓您建立使用憑證進行驗證的 Runbook，或將它們加入至 Runbook 可能會建立或設定的 Azure 或協力廠商的資源。
+憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 或 DSC 組態可以透過使用 **Get-AutomationCertificate** 活動來存取憑證。這可讓您建立使用憑證進行驗證的 Runbook 和 DSC 組態，或將它們新增至 Azure 或協力廠商的資源。
 
 >[AZURE.NOTE]Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
 
 ## Windows PowerShell Cmdlet
 
-下表中的 Cmdlet 是用來透過 Windows PowerShell 建立和管理自動化憑證資產。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 中使用。
+下表中的 Cmdlet 是用來透過 Windows PowerShell 建立和管理自動化憑證資產。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
 
 |Cmdlet|說明|
 |:---|:---|
@@ -32,19 +32,19 @@
 |[Remove-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913773.aspx)|從 Azure 自動化中移除憑證。|
 |[Set-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913763.aspx)|設定現有的憑證，包括上傳憑證檔案和設定 .pfx 的密碼屬性。|
 
-## Runbook 活動
+## 存取憑證的活動
 
-下表中的活動可用來在 Runbook 中存取憑證。
+下表中的活動是用來存取 Runbook 或 DSC 組態中的憑證。
 
 |活動|說明|
 |:---|:---|
-|Get-AutomationCertificate|取得要在 Runbook 中使用的憑證。|
+|Get-AutomationCertificate|取得要在 Runbook 或 DSC 組態中使用的憑證。|
 
->[AZURE.NOTE]您應該避免在 Get-AutomationCertificate 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 與憑證資產之間的相依性變得複雜。
+>[AZURE.NOTE]您應該避免在 Get-AutomationCertificate 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 組態與憑證資產之間的相依性變得複雜。
 
 ## 建立新憑證
 
-建立新憑證時，您會將 cer 或 pfx 檔案上傳到 Azure 自動化。如果您將憑證標示為可匯出，那麼您可以將它傳送到 Azure 自動化憑證存放區外部。如果無法匯出，則只可以將它用在 Runbook 內的簽署。
+建立新憑證時，您會將 cer 或 pfx 檔案上傳到 Azure 自動化。如果您將憑證標示為可匯出，那麼您可以將它傳送到 Azure 自動化憑證存放區外部。如果無法匯出，則只可以將它用在 Runbook 或 DSC 組態內的簽署。
 
 ### 使用 Azure 入口網站建立新憑證
 
@@ -77,9 +77,9 @@
 	
 	New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable
 
-## 在 Runbook 中使用憑證
+## 使用憑證
 
-您必須使用 **Get-AutomationCertificate** 活動在 Runbook 中使用憑證。您不能使用 [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx) Cmdlet，因為它會傳回憑證資產的相關資訊，而不是憑證本身。
+您必須使用 **Get-AutomationCertificate** 活動以使用憑證。您不能使用 [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx) Cmdlet，因為它會傳回憑證資產的相關資訊，而不是憑證本身。
 
 ### 文字式 Runbook 範例
 
@@ -107,4 +107,4 @@
 
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

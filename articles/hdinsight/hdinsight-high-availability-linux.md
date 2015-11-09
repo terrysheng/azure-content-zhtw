@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 #HDInsight 上 Hadoop 叢集的可用性和可靠性
@@ -37,7 +37,7 @@ HDInsight 叢集提供次要的前端節點，在主要節點失敗時，可讓�
 
 一般而言，擁有多個前端節點並不會影響透過公用閘道 (Ambari Web 和 REST API) 對叢集的所有存取。此要求會依適當情況，路由傳送至作用中的前端節點和服務。
 
-當該叢集使用 SSH 存取時，透過連接埠 22 (SSH 的預設值) 的連接將會連接到 headnode0；透過連接埠 23 的連接將會連接到 headnode1。
+使用 SSH 存取叢集時，透過連接埠 22 (SSH 的預設值) 的連接將會連接到前端節點 0；透過連接埠 23 的連接將會連接到前端節點 1。
 
 ### 內部完整網域名稱 (FQDN)
 
@@ -49,7 +49,7 @@ HDInsight 叢集中的節點具有內部 IP 位址和 FQDN，這些只能自叢�
 
 這會傳回如下的值，其中包含要使用 `oozie` 命令的內部 URL：
 
-	"oozie.base.url": "http://headnode0.CLUSTERNAME-ssh.d9.internal.cloudapp.net:11000/oozie"
+	"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
 ## 如何檢查服務狀態
 
@@ -74,7 +74,7 @@ Ambari Web UI 或 Ambari REST API 可用來檢查在前端節點執行的服務�
 回應將如下所示：
 
 	{
-	  "href" : "http://headnode0.mycluster-ssh.j7.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+	  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
 	  "ServiceInfo" : {
 	    "cluster_name" : "mycluster",
 	    "service_name" : "HDFS",
@@ -82,7 +82,7 @@ Ambari Web UI 或 Ambari REST API 可用來檢查在前端節點執行的服務�
 	  }
 	}
 
-該 URL 會告訴我們 **headnode0** 上目前執行的服務。
+該 URL 會告訴我們**前端節點 0** 上目前執行的服務。
 
 該狀態會告訴我們此服務目前正在執行，或**已啟動**。
 
@@ -166,4 +166,4 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -245,7 +245,7 @@ Azure Data Factory 提供各種[資料移動](data-factory-data-movement-activit
 
 屬性 | 允許的值 | 預設值 | 說明
 -------- | ----------- | -------------- | ---------------
-並行 | 整數 <p>最大值：10</p> | 1 | 活動的並行執行數目。<p>它可決定不同配量上可以發生的平行活動執行數目。比方說，如果活動需要處理大量可用的資料，具有較大的並行處理就會加快資料處理。</p> 
+並行 | 整數 <p>最大值：10</p> | 1 | 活動的並行執行數目。<p>它可決定不同配量上可以發生的平行活動執行數目。例如，如果活動需要處理大量可用的資料，具有較大的並行處理就會加快資料處理。</p> 
 executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | 決定正在處理之資料配量的順序。<p>例如，如果您有 2 個配量 (一個發生在下午 4 點，另一個發生在下午 5 點)，而兩者都暫停執行。如果您將 executionPriorityOrder 設為 NewestFirst，則會先處理下午 5 點的配量。同樣地，如果您將 executionPriorityOrder 設為 OldestFIrst，則會處理下午 4 點的配量。</p> 
 retry | 整數<p>最大值可以是 10</p> | 3 | 在配量的資料處理標示為 [失敗] 前的重試次數。資料配量的活動執行會一直重試，直到指定的重試計數為止。在失敗後會儘速完成重試。
 timeout | TimeSpan | 00:00:00 | 活動的逾時。範例：00:10:00 (意指逾時 10 分鐘)<p>如果未指定一個值或為 0，則無限期逾時。</p><p>如果配量的資料處理時間超過逾時值，則會予以取消，而系統會嘗試重試處理。重試次數取決於 retry 屬性。若發生逾時，狀態會是 TimedOut。</p>
@@ -260,7 +260,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
 1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
 2. 瀏覽至您想在其中建立管線的 Azure Data Factory 執行個體
-3. 按一下 [**摘要**] 透鏡中的 [**製作和部署**] 磚。 
+3. 按一下 [摘要] 透鏡中的 [製作和部署] 磚。 
  
 	![[製作和部署] 磚](./media/data-factory-create-pipelines/author-deploy-tile.png)
 
@@ -272,7 +272,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
 	![管線編輯器](./media/data-factory-create-pipelines/pipeline-in-editor.png)
 
-6. 在您完成管線製作之後，接著按一下命令列上的 [**部署**] 來部署管線。
+6. 在您完成管線製作之後，接著按一下命令列上的 [部署] 來部署管線。
 
 	**注意：**在部署期間，Azure Data Factory 服務會執行一些驗證檢查，協助修正一些常見問題。萬一發生錯誤，將顯示對應的資訊。採取更正動作並重新部署所製作的管線。您可以使用編輯器來更新及刪除管線。
 
@@ -284,7 +284,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
 	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-若要深入了解這個 Cmdlet，請參閱 [New-AzureDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/dn820227.aspx)。
+若要深入了解這個 Cmdlet，請參閱 [New-AzureDataFactoryPipeline Cmdlet](https://msdn.microsoft.com/library/dn820227.aspx)。
 
 ### 使用 REST API
 您也可以使用 REST API 建立和部署管線。這項機制可用來以程式設計的方式建立管線。若要深入了解，請參閱[建立或更新管線](https://msdn.microsoft.com/library/azure/dn906741.aspx)。
@@ -301,7 +301,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 事實上，並不是執行管線。而是執行管線中的活動。不過，活動會在管線的整體內容中執行。請參閱[排程和執行](data-factory-scheduling-and-execution.md)，以了解如何在 Azure Data Factory 中排程和執行。
 
 ## 管理和監視  
-一旦部署管線，您即可管理和監視管線、配量和執行。如需詳細資訊，請參閱〈[監視和管理管線](data-factory-monitor-manage-pipelines.md)〉。
+一旦部署管線，您即可管理和監視管線、配量和執行。如需詳細資訊，請參閱[監視和管理管線](data-factory-monitor-manage-pipelines.md)。
 
 ## 後續步驟
 
@@ -336,4 +336,4 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

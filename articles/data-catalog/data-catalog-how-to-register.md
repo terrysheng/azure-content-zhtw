@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/12/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 
@@ -39,8 +39,9 @@
 * Azure 儲存體 Blob 和目錄
 * HDFS 檔案和目錄
 * HDInsight Hive 資料表
+* Teradata 資料表和檢視
 
-> [AZURE.NOTE]SQL Server 支援也包括 Microsoft Azure SQL Database
+> [AZURE.NOTE]SQL Server 支援也包括 Microsoft Azure SQL Database 和 Microsoft Azure SQL 資料倉儲
 
 <br/>
 
@@ -94,4 +95,4 @@
 ## 摘要
 使用 **Azure 資料目錄**註冊資料來源，可讓您透過將結構化和描述性中繼資料從資料來源複製到「目錄」服務，來更容易地探索及了解資料來源。資料來源一經註冊之後，便可以使用 **Azure 資料目錄**入口網站加以註解、管理及探索。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

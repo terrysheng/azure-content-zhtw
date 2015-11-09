@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="10/06/2015"
+      ms.date="10/26/2015"
       ms.author="jutang;tamram" />
 
 
@@ -27,6 +27,12 @@ Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案
 在 Azure 中執行的應用程式可以從 Azure 虛擬機器輕鬆地掛接檔案共用。有了最新版本的檔案儲存體後，您也可以從支援 SMB 3.0 的內部部署應用程式掛接檔案共用。
 
 請注意，由於 Linux SMB 用戶端尚未支援加密，因此若要從 Linux 掛接檔案共用，用戶端仍必須與檔案共用位於相同的 Azure 區域。不過，適用於 Linux 的加密支援已列入開發藍圖中，負責 SMB 功能的 Linux 開發人員將著手開發。未來，支援加密功能的 Linux 散發套件也能從任何位置掛接 Azure 檔案共用。
+
+## 影片：搭配 Linux 使用 Azure 檔案儲存體
+
+以下影片示範如何在 Linux 上建立和使用 Azure 檔案共用。
+
+> [AZURE.VIDEO azure-file-storage-with-linux]
 
 ## 選擇要使用的 Linux 散發套件 ##
 
@@ -96,7 +102,7 @@ Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案
 
 ## 使用檔案儲存體開發 ##
 
-身為開發人員，您可以使用 [Azure Storage Client Library for Java](https://github.com/azure/azure-storage-java) 建立具有檔案儲存體的應用程式。如需程式碼範例，請參閱[如何使用 Java 的檔案儲存體](storage-java-how-to-use-file-storage.md)。
+身為開發人員，您可以使用 [Azure Storage Client Library for Java](https://github.com/azure/azure-storage-java) 建置具有檔案儲存體的應用程式。如需程式碼範例，請參閱[如何使用 Java 的檔案儲存體](storage-java-how-to-use-file-storage.md)。
 
 您也可以使用 [Azure Storage Client Library for Node.js](https://github.com/Azure/azure-storage-node) 針對檔案儲存體進行開發。
 
@@ -104,14 +110,15 @@ Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案
 
 Linux 使用者，歡迎您提供相關資訊！
 
-Linux 使用者群組的 Azure 檔案儲存體提供論壇，讓您在 Linux 上評估並採用檔案儲存體的同時分享意見。請寄電子郵件至 [Azure 檔案儲存體 Linux 使用者](mailto:azurefileslinuxusers@microsoft.com)加入使用者的群組。
+Linux 使用者群組的 Azure 檔案儲存體提供論壇，讓您在 Linux 上評估並採用檔案儲存體的同時分享意見。請寄電子郵件給要加入使用者群組的 [Azure 檔案儲存體 Linux 使用者](mailto:azurefileslinuxusers@microsoft.com)。
 
 ## 後續步驟
 
 請參閱這些連結以取得 Azure 檔案儲存體的相關詳細資訊。
 
-### 概念文章
+### 概念性文章和影片
 
+- [Azure 檔案儲存體：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [如何搭配使用 Azure 檔案儲存體與 Windows](storage-dotnet-how-to-use-files.md)
 
 ### 檔案儲存體的工具支援
@@ -130,4 +137,4 @@ Linux 使用者群組的 Azure 檔案儲存體提供論壇，讓您在 Linux 上
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

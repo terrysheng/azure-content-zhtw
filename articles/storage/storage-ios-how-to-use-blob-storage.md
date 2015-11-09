@@ -92,7 +92,7 @@
 
 2. 接下來，請在 Azure CLI 中輸入下列命令，以取得帳戶的連接字串：
 
-		azure storage account connectionString show youraccountname
+		azure storage account connectionstring show youraccountname
 
 3. 使用您剛才產生的連接字串建立環境變數：
 
@@ -358,4 +358,4 @@
 [Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

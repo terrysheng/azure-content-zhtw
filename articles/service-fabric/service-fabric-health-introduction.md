@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric 健康狀態監視簡介"
-   description="本文章說明 Azure Service Fabric 健康狀態監視的模型，包含健康狀態實體、報告和評估。"
+   pageTitle="Service Fabric 的健康狀態監視 | Microsoft Azure"
+   description="Azure Service Fabric 健康狀態監視模型的簡介，該模型提供對叢集及其應用程式和服務的監視。"
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Service Fabric 健康狀態監視簡介
@@ -336,4 +336,4 @@ HealthEvents                    :
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

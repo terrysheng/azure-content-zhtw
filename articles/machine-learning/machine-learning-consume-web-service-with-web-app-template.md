@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="garye;raymondl"/>
 
 # 使用 Azure Machine Learning Web 服務與 Web 應用程式範本
 
-您已經從 Machine Learning Studio 的實驗建立和部署預測的 Web 服務，您可以使用 REST API 存取預測模型。有數種方法可以使用 REST API 和存取 Web 服務。例如，您可以使用當您部署 Web 服務時為您產生的範例程式碼，在 C#、R 或 Python 中寫入應用程式 (可以在 Machine Learning Studio 中 Web 服務儀表板中的 API 說明頁面上取得)。或者您可以使用為您建立的範例 Microsoft Excel 活頁簿 (也可以在 Studio 中的 Web 服務儀表板取得)。
+一旦使用 Machine Learning Studio，或使用 R 或 Python 之類的工具開發預測模型並部署為 Azure Web 服務後，即可使用 REST API 存取實際運作模型。
+
+有數種方法可以使用 REST API 和存取 Web 服務。例如，您可以使用當您部署 Web 服務時為您產生的範例程式碼，在 C#、R 或 Python 中寫入應用程式 (可以在 Machine Learning Studio 中 Web 服務儀表板中的 API 說明頁面上取得)。或者您可以使用為您建立的範例 Microsoft Excel 活頁簿 (也可以在 Studio 中的 Web 服務儀表板取得)。
 
 但是最簡單快速存取 Web 服務的方式是透過 [Azure Web 應用程式 Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/) 中提供的 Web 應用程式範本。
 
@@ -123,4 +125,4 @@ Web 應用程式將會顯示具有工作狀態的頁面。工作完成時，系�
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

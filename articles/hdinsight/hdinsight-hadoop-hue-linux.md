@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用色調
@@ -63,7 +63,15 @@
 
 1. 請使用[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md) 中的資訊，建立用戶端系統至 HDInsight 叢集的 SSH 通道，然後設定網頁瀏覽器以便將 SSH 通道當做 Proxy 使用。
 
-2. 一旦您建立了 SSH 通道，並設定您的瀏覽器將流量以 Proxy 通過該通道傳送，即可使用此瀏覽器來開啟色調入口網站，網址為 http://headnode0:8888。
+2. 一旦您建立了 SSH 通道，並設定您的瀏覽器將流量以 Proxy 通過該通道傳送後，您必須找到前端節點的主機名稱。使用下列步驟從 Ambari 取得這項資訊：
+
+    1. 在瀏覽器中，移至 https://CLUSTERNAME.azurehdinsight.net。出現提示時，使用系統管理員使用者名稱和密碼來向網站進行驗證。
+    
+    2. 在頁面頂端的功能表中，選取 [主機]。
+    
+    3. 選取以 __hn0__ 開頭的項目。當頁面開啟時，主機名稱會顯示在頂端。主機名稱的格式為 __hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__。這是您連接到色調時必須使用的主機名稱。
+
+2. 一旦您建立了 SSH 通道，並設定您的瀏覽器將流量以 Proxy 通過該通道傳送，即可使用此瀏覽器來開啟色調入口網站，網址為 http://HOSTNAME:8888。以您在先前步驟從 Ambari 取得的名稱取代 HOSTNAME：
 
     > [AZURE.NOTE]當您第一次登入時，系統會提示您建立帳戶來登入色調入口網站。您在此處指定的認證會限制為入口網站，並且與佈建叢集時您指定的系統管理員或 SSH 使用者認證不相關。
 
@@ -71,11 +79,11 @@
 
 ### 執行 HIVE 查詢
 
-1. 從色調入口網站中，按一下 [查詢編輯器]，然後按一下 [Hive] 以開啟 Hive 編輯器。
+1. 從色調入口網站中，按一下 [查詢編輯器]，然後按一下 [Hive] 開啟 Hive 編輯器。
 
 	![使用 Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "使用 Hive")
 
-2. 在 [協助] 索引標籤中，於 [資料庫] 底下，您應該會看到 **hivesampletable**。這是 HDInsight 上的所有 Hadoop 叢集隨附的範例資料表。在右窗格中輸入範例查詢，然後在下方窗格的 [結果] 索引標籤中查看輸出，如螢幕擷取畫面所示。
+2. 在 [協助] 索引標籤的 [資料庫] 底下，您應該會看到 **hivesampletable**。這是 HDInsight 上的所有 Hadoop 叢集隨附的範例資料表。在右窗格中輸入範例查詢，然後在下方窗格的 [結果] 索引標籤中查看輸出，如螢幕擷取畫面所示。
 
 	![執行 Hive 查詢](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "執行 Hive 查詢")
 
@@ -85,17 +93,17 @@
 
 1. 從色調入口網站中，按一下功能表列右上角的 [檔案瀏覽器]。
 
-2. 根據預設，檔案瀏覽器會在 **/user/myuser** 目錄中開啟。按一下路徑中使用者目錄前面的正斜線，以移至與叢集相關聯的 Azure 儲存體容器的根目錄。
+2. 根據預設，檔案瀏覽器開啟後會顯示 **/user/myuser** 目錄。按一下路徑中使用者目錄前面的正斜線，以移至與叢集相關聯的 Azure 儲存體容器的根目錄。
 
 	![使用檔案瀏覽器](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "使用檔案瀏覽器")
 
-3. 以滑鼠右鍵按一下檔案或資料夾，以查看可用的作業。使用右邊的 [上傳] 按鈕，將檔案上傳至目前的目錄。使用 [新增] 按鈕以建立新的檔案或目錄。
+3. 以滑鼠右鍵按一下檔案或資料夾，以查看可用的作業。使用右邊的 [上傳] 按鈕，將檔案上傳至目前的目錄。使用 [新增] 按鈕建立新的檔案或目錄。
 
-> [AZURE.NOTE]色調檔案瀏覽器只會顯示與 HDInsight 叢集相關聯的預設容器的內容。已與叢集相關聯的任何額外儲存體帳戶/容器將無法使用檔案瀏覽器存取。不過，與叢集相關聯的其他容器一律可供 Hive 工作存取。例如，如果您在 Hive 編輯器中輸入命令 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net`，您也可以看到其他容器的內容。在這個命令中，**newcontainer** 不是與叢集相關聯的預設容器。
+> [AZURE.NOTE]色調檔案瀏覽器只會顯示與 HDInsight 叢集相關聯的預設容器的內容。已與叢集相關聯的任何額外儲存體帳戶/容器將無法使用檔案瀏覽器存取。不過，與叢集相關聯的其他容器一律可供 Hive 工作存取。例如，如果您在 Hive 編輯器中輸入 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` 命令，您也可以看到其他容器的內容。在這個命令中，**newcontainer** 不是與叢集相關聯的預設容器。
 
 ## 重要考量︰
 
-1. 用來安裝色調的指令碼只會在叢集的 HEADNODE0 上安裝它。
+1. 用來安裝色調的指令碼只會在叢集的前端節點 0 上安裝它。
 
 2. 在安裝期間，會重新啟動多個 Hadoop 服務 (HDFS、YARN、MR2、Oozie) 以更新與設定。指令碼完成安裝色調之後，可能需要一些時間讓其他 Hadoop 服務啟動。一開始可能會影響色調的效能。所有服務啟動之後，色調就可以完全正常運作。
 
@@ -103,13 +111,13 @@
 
 		set hive.execution.engine=mr;
 
-4.	使用 Linux 叢集，您就可以在 HEADNODE0 上執行服務，而在 HEADNODE1 上執行資源管理員。使用色調以檢視叢集上「執行中」工作的詳細資料時，此類案例可能會導致錯誤 (如下所示)。不過，您可以在工作完成時檢視工作詳細資料。
+4.	使用 Linux 叢集，您就可以在前端節點 0 上執行服務，同時在前端節點 1 上執行資源管理員。使用色調以檢視叢集上「執行中」工作的詳細資料時，此類案例可能會導致錯誤 (如下所示)。不過，您可以在工作完成時檢視工作詳細資料。
 
 	![色調入口網站錯誤](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "色調入口網站錯誤")
 
-	這是由已知問題造成的。因應措施是修改 Ambari，讓作用中的資源管理員也在 HEADNODE0 上執行。
+	這是由已知問題造成的。因應措施是修改 Ambari，讓作用中的資源管理員也在前端節點 0 上執行。
 
-5.	當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasb://`) 時，色調了解 WebHDFS。因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是針對與 WASB 通訊的 WebHDFS 相容服務。所以，即使色調入口網站說 HDFS 在位置中 (像是將滑鼠移至 [檔案瀏覽器])，它應該解譯為 WASB。
+5.	當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasb://`) 時，色調能了解 WebHDFS。因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是可與 WASB 通訊的 WebHDFS 相容服務。所以，即使色調入口網站說有 HDFS (例如將滑鼠移至 [檔案瀏覽器] 時)，其實應該解讀為 WASB。
 
 
 ## 後續步驟
@@ -127,4 +135,4 @@
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

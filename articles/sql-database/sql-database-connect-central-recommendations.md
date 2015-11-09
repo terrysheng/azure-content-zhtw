@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -23,6 +23,8 @@
 
 本主題是開始使用至 Azure SQL Database 的用戶端連線的好地方。它提供指向各種技術之程式碼範例的連結，可用來連接到 SQL Database 並與其互動。這些技術包括企業程式庫、JDBC 和 PHP 和更多技術。所提供的資訊適用於您用來連接到 SQL Database 的所有特定技術。
 
+
+<a id="a-tech-independent-recommend" name="a-tech-independent-recommend"></a>
 
 ## 與技術無關的建議
 
@@ -35,6 +37,8 @@
  - 限制強制執行
  - 節流
 
+
+<a id="b-authentication-recommend" name="b-authentication-recommend"></a>
 
 ## 驗證建議
 
@@ -49,9 +53,9 @@
 
 將某人新增為 SQL Database 的使用者時，您有一些選擇：
 
-- 將登入與密碼加入至 **master** 資料庫，然後再將對應的使用者加入至相同伺服器上的一或多個其他資料庫。
+- 將登入與密碼新增至 **master** 資料庫，然後再將對應的使用者新增至相同伺服器上的一或多個其他資料庫。
 
-- 將自主使用者與密碼加入至一或多個資料庫，但沒有 **master** 中任何登入的連結。
+- 將自主使用者與密碼新增至一或多個資料庫，但沒有 **master** 中任何登入的連結。
 
 
 自主使用者方法有其優點和缺點︰
@@ -63,8 +67,10 @@
  - 身為數個資料庫中的自主使用者的人員可能需要記住或更新更多密碼。
 
 
-如需進一步資訊，請參閱[自主資料庫](http://msdn.microsoft.com/library/ff929071.aspx)。
+如需進一步資訊，請參閱[自主資料庫使用者 - 讓資料庫具有可攜性](http://msdn.microsoft.com/library/ff929188.aspx)。
 
+
+<a id="c-connection-recommend" name="c-connection-recommend"></a>
 
 ## 連接建議
 
@@ -73,14 +79,13 @@
  - 預設 15 秒對於依賴網際網路的連線而言太短。
 
 
-- 確定您的 [Azure SQL Database 防火牆](sql-database-firewall-configure.md)允許連接埠 1433 上的傳出 TCP 通訊。
- - 您可以在 SQL Database 伺服器上或個別的資料庫中設定防火牆設定。
+- 在託管您的用戶端程式的電腦上，請確定防火牆允許連接埠 1433 上的傳出 TCP 通訊。
 
 
 - 如果您的用戶端在 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
-- 若要處理「暫時性錯誤」，請將[「重試」邏輯](#TransientFaultsAndRetryLogicGm)加入至與 Azure SQL Database 互動的用戶端程式。
+- 若要處理*暫時性錯誤*，請將[*重試*邏輯](#TransientFaultsAndRetryLogicGm)新增至與 Azure SQL Database 互動的用戶端程式。
 
 
 ### 連接集區
@@ -98,7 +103,7 @@
 #### 使用集區時擲回的例外狀況
 
 
-啟用連接集區，並發生逾時錯誤或其他登入錯誤時，就會擲回例外狀況。接下來 5 秒的後續連接嘗試都會失敗，這稱為「封鎖期間」。
+啟用連接集區，並發生逾時錯誤或其他登入錯誤時，就會擲回例外狀況。接下來 5 秒的後續連接嘗試都會失敗，這稱為*封鎖期間*。
 
 如果應用程式嘗試在封鎖期間內連接，將會再次擲回第一個例外狀況。在封鎖期間結束之後，後續失敗會導致新的封鎖期間，其持續時間是前一個封鎖期間的兩倍。
 
@@ -108,7 +113,7 @@
 ### V12 中 1433 以外的連接埠
 
 
-與 Azure SQL Database V12 的用戶端連線有時會略過 proxy 並直接與資料庫互動。1433 以外的連接埠變得重要。如需詳細資訊，請參閱：<br/> [針對 ADO.NET 4.5 和 SQL Database V12 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)
+與 Azure SQL Database V12 的用戶端連線有時會略過 proxy 並直接與資料庫互動。1433 以外的連接埠變得重要。如需詳細資訊，請參閱：<br/>[針對 ADO.NET 4.5 和 SQL Database V12 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 下一節會更詳細說明重試邏輯和暫時性錯誤處理。
@@ -145,6 +150,8 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 如需進一步資訊，請參閱：[Azure SQL Database 開發：作法主題](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [疑難排解 Azure SQL Database 的連接問題](http://support.microsoft.com/kb/2980233/)
 
 
+<a id="e-technologies" name="e-technologies"></a>
+
 ## 技術
 
 
@@ -167,4 +174,4 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 - [SQL Database 和 SQL Server 的連接庫](sql-database-libraries.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

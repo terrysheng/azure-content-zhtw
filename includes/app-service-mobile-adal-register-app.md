@@ -25,6 +25,6 @@
 您的應用程式現在已設定於 AAD 中，因此使用者可以使用 AAD 單一登入來登入。
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[如何使用 Azure Active Directory 設定行動應用程式]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
+[如何使用 Azure Active Directory 設定行動應用程式]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

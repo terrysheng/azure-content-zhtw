@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/26/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的排程
 
 自動化排程是用來排程 Runbook 以自動執行。這可以是在單一日期和時間執行一次 Runbook。或也可以是重複執行的排程，以啟動 Runbook 多次。排程通常不會從 Runbook 存取。
+
+>[AZURE.NOTE]排程目前不支援 Azure Automation DSC 組態。
 
 ## Windows PowerShell Cmdlet
 
@@ -66,4 +68,4 @@
 - [在 Azure 自動化中排程 Runbook](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
-   manager="vipulm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * ＜[撰寫使用 WebAPI 通訊堆疊的可靠服務 API 服務](service-fabric-reliable-services-communication-webapi.md)＞
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -30,7 +30,6 @@
 為了判斷出正確的 Multi-Factor Authentication 解決方案，首先我們必須回答一個問題：您試圖使用第二個驗證方法來保護什麼？它是 Azure 中的應用程式嗎？ 或者是遠端存取系統之類的系統。藉由判斷我們嘗試保護的東西，我們可以找出該在何處啟用 Multi-Factor Authentication 這個問題的答案。
 
 
-
 您想要保護什麼| 雲端中的 Multi-Factor Authentication|Multi-Factor Authentication Server 
 ------------- | :-------------: | :-------------: |
 第一方 Microsoft 應用程式|* |* |
@@ -82,9 +81,4 @@ MFA 報告 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-**其他資源**
-
-* [適用於使用者](multi-factor-authentication-end-user.md)
-* [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

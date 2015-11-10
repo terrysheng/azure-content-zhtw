@@ -3,7 +3,7 @@
 	description="了解 Azure 虛擬機器中的 Azure SQL Database 和 SQL Server檢閱常見的商業動因，以判斷哪一種 SQL 技術最符合應用程式需求。" 
 	services="sql-database, virtual-machines" 
 	documentationCenter="" 
-	authors="Selcin" 
+	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor="tysonn"/>
 
@@ -12,9 +12,9 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="10/19/2015" 
-	ms.author="selcint"/>
+	ms.author="jeffreyg"/>
 
 # 了解 Azure SQL Database 和 Azure VM 中的 SQL Server
 
@@ -257,4 +257,4 @@ Microsoft Azure 會提供裝載 SQL Server 的兩個選項：[[Azure SQL Databas
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

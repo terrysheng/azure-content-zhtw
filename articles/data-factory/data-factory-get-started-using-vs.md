@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.topic="get-started-article" 
+	ms.date="11/02/2015" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Visual Studio 建立和監視 Data Factory
@@ -240,4 +240,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HBase 教學課程：開始在 Hadoop 中使用 HBase |Microsoft Azure"
 	description="遵循本 HBase 教學課程，開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase。使用 Hive 從 HBase Shell 建立資料表並加以查詢。"
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+	keywords="apache hbase,hbase,hbase shell,hbase 教學課程"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/28/2015"
+	ms.date="10/29/2015"
 	ms.author="jgao"/>
 
 
 
 # HBase 教學課程：開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase
 
-了解如何在 HDInsight 中使用 Hive 佈建 HBase 叢集，建立 HBase 資料表，以及查詢資料表。如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
+了解如何在 HDInsight 中使用 Hive 建立 HBase 叢集，建立 HBase 資料表，以及查詢資料表。如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
 
 [AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
@@ -38,31 +38,31 @@
 - **Microsoft Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - 具有 Visual Studio 2013 的**工作站**：如需相關指示，請參閱[安裝 Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx)。
 
-## 佈建 HBase 叢集
+## 建立 HBase 叢集
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**使用 Azure 入口網站佈建 HBase 叢集**
+**使用 Azure 入口網站建立 HBase 叢集**
 
 
-1. 登入 [Azure 入口網站][azure-management-portal]。
+1. 登入 [Azure Preview 入口網站][azure-management-portal]。
 2. 按一下左上角的 [新增]，再按 [資料 + 分析]、[HDInsight]。
 3. 輸入下列值：
 
 	- **叢集名稱** - 輸入識別此叢集的名稱
 	- **叢集類型** - HBase
 	- **叢集作業系統** - HDInsight HBase 叢集目前僅適用於 Windows 作業系統
-	- **訂用帳戶** - 選取用於佈建此叢集的 Azure 訂用帳戶
-	- **資源群組** - 加入或選取 Azure 資源群組。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)
+	- **訂用帳戶** - 選取用於建立此叢集的 Azure 訂用帳戶
+	- **資源群組** - 加入或選取 Azure 資源群組如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
 	- **設定認證** - 您可以為以 Windows 為主的叢集建立叢集使用者 (又名為 HTTP 使用者、HTTP Web 服務使用者) 和遠端桌面使用者
 	- **資料來源** - 建立新的 Azure 儲存體帳戶，或選取現有的 Azure 儲存體帳戶，使其做為叢集的預設檔案系統。這個 Azure 儲存體帳戶必須與 HDInsight HBase 叢集位於相同的位置
 	- **節點定價層** - 選取 HBase 叢集的區域伺服器數目
 
-		> [AZURE.WARNING]如需 HBase 服務的高可用性，您必須佈建包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
+		> [AZURE.WARNING]如需 HBase 服務的高可用性，您必須建立包含至少**三個**節點的叢集這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
 
 		> 如果正在學習 HBase 時，請務必選擇 1 做為叢集大小，並在每次使用叢集後予以刪除，以降低成本。
 
-	- **選用組態** - 選取叢集版本、設定 Azure 虛擬網路、設定 Hive/Oozie 中繼存放區、設定指令碼動作，和新增額外的儲存體帳戶。
+	- **選擇性組態** - 選取叢集版本、設定 Azure 虛擬網路、設定 Hive/Oozie 中繼存放區、設定指令碼動作，以及新增其他儲存體帳戶。
 
 4. 按一下 [建立]。
 
@@ -173,8 +173,8 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 
 **開啟叢集儀表板**
 
-1. 請瀏覽 **https://<HDInsightClusterName>.azurehdinsight.net/**。
-5. 輸入 Hadoop 使用者帳戶的使用者名稱和密碼。預設使用者名稱為 **admin**，密碼則是您在佈建程序中輸入的密碼。隨即開啟新的瀏覽器索引標籤。
+1. 瀏覽至 **https://<HDInsightClusterName>.azurehdinsight.net/**。
+5. 輸入 Hadoop 使用者帳戶的使用者名稱和密碼。預設使用者名稱為 **admin**，密碼則是您在建立程序中輸入的密碼。隨即開啟新的瀏覽器索引標籤。
 6. 按一下頁面頂端的 [Hive 編輯器]。Hive 編輯器外觀如下：
 
 	![HDInsight 叢集儀表板。][img-hdinsight-hbase-hive-editor]
@@ -301,7 +301,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 如需詳細資訊，請參閱：
 
 - [HDInsight HBase 概觀][hdinsight-hbase-overview]。HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
-- [在 Azure 虛擬網路上佈建 HBase 叢集][hdinsight-hbase-provision-vnet]。由於 HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。
+- [在 Azure 虛擬網路上建立 HBase 叢集][hdinsight-hbase-provision-vnet]。由於 HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。
 - [在 HDInsight 中設定 HBase 複寫](hdinsight-hbase-geo-replication.md)。了解如何跨兩個 Azure 資料中心設定 HBase 複寫。
 - [使用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]。了解如何在 HDInsight 中使用 Hadoop 叢集中的 HBase 針對巨量資料進行即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
 
@@ -332,4 +332,4 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

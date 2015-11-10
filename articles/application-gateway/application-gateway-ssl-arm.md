@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="使用 Azure 資源管理員建立、啟動或刪除應用程式閘道 | Microsoft Azure"
-   description="本頁面提供使用 Azure 資源管理員建立、設定、啟動和刪除 Azure 應用程式閘道的指示。"
+   pageTitle="使用 Azure 資源管理員設定適用於 SSL 的應用程式閘道 | Microsoft Azure"
+   description="本頁面提供使用 Azure 資源管理員範本，建立具有 SSL 卸載之應用程式閘道的指示。"
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -12,28 +12,16 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-
-# 使用 Azure 資源管理員建立、啟動或刪除應用程式閘道
-
-應用程式閘道是第 7 層負載平衡器。它提供在不同伺服器之間進行容錯移轉、效能路由傳送 HTTP 要求，而不論它們是在雲端或內部部署中。應用程式閘道具有下列應用程式傳遞功能：HTTP 負載平衡、以 Cookie 為基礎的工作階段同質性、SSL 卸載。
+# 使用 Azure 資源管理員設定適用於 SSL 的應用程式閘道
 
 
-> [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
+ 應用程式閘道可以設定為在閘道終止 SSL 工作階段，以避免 Web 伺服陣列發生高成本的 SSL 解密工作。SSL 卸載也可以簡化 Web 應用程式的前端伺服器設定和管理。
 
 
-<BR>
-
-
-本文將逐步引導您完成建立和設定、啟動及刪除應用程式閘道的步驟。
-
-
->[AZURE.IMPORTANT]使用 Azure 資源之前，請務必了解 Azure 目前有「資源管理員」和「傳統」兩種部署模型。在使用任何 Azure 資源之前，請先確認您了解[部署模型和工具](azure-classic-rm.md)。您可以按一下本文頂端的索引標籤，檢視不同工具的文件。本文件將說明使用 Azure 資源管理員建立應用程式閘道的方式。若要使用傳統的版本，請移至[使用 PowerShell 建立應用程式閘道傳統部署](application-gateway-create-gateway.md)。
+>[AZURE.IMPORTANT]使用 Azure 資源之前，請務必了解 Azure 目前有「資源管理員」和「傳統」兩種部署模型。在使用任何 Azure 資源之前，請先確認您了解[部署模型和工具](azure-classic-rm.md)。您可以按一下本文頂端的索引標籤，檢視不同工具的文件。本文件將說明使用 Azure 資源管理員建立應用程式閘道的方式。若要使用傳統的版本，請移至[使用 PowerShell (傳統) 設定應用程式閘道 SSL 卸載](application-gateway-ssl.md)。
 
 
 
@@ -49,9 +37,14 @@
 - **後端伺服器集區：**後端伺服器的 IP 位址清單。列出的 IP 位址應屬於虛擬網路子網路或是公用 IP/VIP。 
 - **後端伺服器集區設定：**每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。這些設定會繫結至集區，並套用至集區內所有伺服器。
 - **前端連接埠：**此連接埠是在應用程式閘道上開啟的公用連接埠。流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
-- **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，皆區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 
+- **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 
 - **規則：**規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。目前只支援*基本*規則。*基本*規則是循環配置資源的負載分配。
 
+**其他組態注意事項：**
+
+針對 SSL 憑證組態，**HttpListener** 中的通訊協定應該變更為 *Https* (區分大小寫)。需要將 **SslCertificate** 元素加入至 **HttpListener**，並針對 SSL 憑證設定變數值。前端連接埠應該更新為 443。
+
+**若要啟用以 Cookie 為基礎的同質**：您可以設定應用程式閘道，以確保來自用戶端工作階段的要求一律會導向至 Web 伺服陣列中的相同 VM。這是透過插入允許閘道適當導向流量的工作階段 Cookie 來完成。若要啟用以 Cookie 為基礎的同質，請在 **BackendHttpSettings** 元素中將 **CookieBasedAffinity** 設定為 *Enabled*。
 
  
 ## 建立新的應用程式閘道
@@ -122,9 +115,11 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 使用前置詞 10.0.0.0/16 搭配子網路 10.0.0.0/24，在美國西部 ("West US") 區域的 "appw-rg" 資源群組中建立名為 "appgwvnet" 的虛擬網路
 
 ### 步驟 3
-	
+
 	$subnet=$vnet.Subnets[0]
 
+將子網路物件指派給下一個步驟的變數 $subnet。
+	
 ## 建立前端組態的公用 IP 位址
 
 	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
@@ -144,51 +139,58 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-這個步驟會設定名為 "pool01" 的後端 IP 位址集區，其 IP 位址有 "134.170.185.46, 134.170.188.221,134.170.185.50"。這些 IP 位址將接收來自前端 IP 端點的網路流量。您要取代上述 IP 位址，加入您自己的應用程式 IP 位址端點。
+這個步驟會設定名為 "pool01" 的後端 IP 位址集區，其 IP 位址有 134.170.185.46、134.170.188.221、134.170.185.50。 這些 IP 位址將接收來自前端 IP 端點的網路流量。以您的 Web 應用程式端點的 IP 位址取代上述範例中的 IP 位址。
 
 ### 步驟 3
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
 設定後端集區中負載平衡網路流量的應用程式閘道設定 "poolsetting01"。
 
 ### 步驟 4
 
-	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
 在此案例中是設定公用 IP 端點的前端 IP 連接埠 "frontendport01"。
 
-### 步驟 5
+### 步驟 5 
+
+	$cert = New-AzureApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
+
+設定 SSL 連接所使用的憑證。憑證必須是 .pfx 格式，其密碼介於 4 到 12 個字元。
+
+### 步驟 6
 
 	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
 建立名為 "fipconfig01" 的前端 IP 組態，並將公用 IP 位址與前端 IP 組態產生關聯。
 
-### 步驟 6
+### 步驟 7
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
-建立名為 "listener01" 的接聽程式，並將前端連接埠與前端 IP 組態產生關聯。
 
-### 步驟 7 
+建立名為 "listener01" 的接聽程式，並將前端連接埠與前端 IP 組態和憑證產生關聯。
+
+### 步驟 8 
 
 	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 建立名為 "rule01" 的負載平衡器路由規則，設定負載平衡器的行為。
 
-### 步驟 8
+### 步驟 9
 
 	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-設定應用程式閘道的執行個體大小
+設定應用程式閘道的執行個體大小。
 
 >[AZURE.NOTE]*InstanceCount* 的預設值是 2，且最大值是 10。*GatewaySize* 的預設值是 Medium。您可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之間選擇。
 
 ## 使用 New-AzureApplicationGateway 建立應用程式閘道
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-從上述步驟的所有組態項目建立應用程式閘道。範例中的應用程式閘道名為 "appgwtest"。
+以上述步驟中的所有組態項目建立應用程式閘道。範例中的應用程式閘道名為 "appgwtest"。
 
 
 ## 啟動應用程式閘道
@@ -358,7 +360,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
                                     ]
 	ResourceGroupName                 : appgw-rg
 	Location                          : westus
-		Tag                               : {}
+	Tag                               : {}
 	TagsTable                         : 
 	Name                              : appgwtest
 	Etag                              : W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"
@@ -367,49 +369,8 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 
 
-## 刪除應用程式閘道
-
-若要刪除應用程式閘道，您需要依序執行下列動作：
-
-1. 使用 `Stop-AzureApplicationGateway` Cmdlet 停止閘道。 
-2. 使用 `Remove-AzureApplicationGateway` Cmdlet 移除閘道。
-3. 使用 `Get-AzureApplicationGateway` Cmdlet 確認已移除閘道。
-
-
-### 步驟 1
-
-取得應用程式閘道物件，並關聯至變數 "$getgw"：
- 
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-### 步驟 2
-	 
-使用 `Stop-AzureApplicationGateway` 停止應用程式閘道：
-
-	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
-
-
-應用程式閘道處於「已停止」狀態之後，請使用 `Remove-AzureApplicationGateway` Cmdlet 移除服務。
-
-
-	Remove-AzureApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
-
-	
-
->[AZURE.NOTE]選擇性的 "-force" 參數可用來隱藏移除確認訊息
->
-
-若要確認已移除服務，您可以使用 `Get-AzureApplicationGateway` Cmdlet。這不是必要步驟。
-
-
-	Get-AzureApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
-
-	
-
-
 ## 後續步驟
 
-如果您想要設定 SSL 卸載，請參閱[設定應用程式閘道以進行 SSL 卸載](application-gateway-ssl.md)。
 
 如果您想要將應用程式閘道設為與 ILB 搭配使用，請參閱[建立具有內部負載平衡器 (ILB) 的應用程式閘道](application-gateway-ilb.md)。
 

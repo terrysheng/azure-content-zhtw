@@ -10,10 +10,10 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015"
+	ms.date="10/29/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -199,4 +199,4 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

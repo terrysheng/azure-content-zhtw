@@ -22,8 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
 
 本教學課程會逐步完成使用 Azure Media Services (AMS) SDK for .NET 實作點播視訊 (VoD) 內容傳遞應用程式。
 
@@ -252,22 +251,23 @@
 
 	static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
 	{
-		// Prepare a job with a single task to transcode the specified asset
-        // into a multi-bitrate asset.
-
+	
+	    // Prepare a job with a single task to transcode the specified asset
+	    // into a multi-bitrate asset.
+	
 	    IJob job = _context.Jobs.CreateWithSingleTask(
-	        MediaProcessorNames.AzureMediaEncoder,
-	        MediaEncoderTaskPresetStrings.H264AdaptiveBitrateMP4Set720p,
+	        "Media Encoder Standard",
+	        "H264 Multiple Bitrate 720p",
 	        asset,
 	        "Adaptive Bitrate MP4",
 	        options);
-
-		Console.WriteLine("Submitting transcoding job...");
-
-
+	
+	    Console.WriteLine("Submitting transcoding job...");
+	
+	
 	    // Submit the job and wait until it is completed.
 	    job.Submit();
-
+	
 	    job = job.StartExecutionProgressTask(
 	        j =>
 	        {
@@ -275,11 +275,11 @@
 	            Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
 	        },
 	        CancellationToken.None).Result;
-
+	
 	    Console.WriteLine("Transcoding job finished.");
-
+	
 	    IAsset outputAsset = job.OutputMediaAssets[0];
-
+	
 	    return outputAsset;
 	}
 
@@ -440,4 +440,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

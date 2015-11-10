@@ -21,9 +21,9 @@
 # 開始使用 In-Memory (預覽)
 
 
-SQL In-Memory 技術大幅提升交易和分析工作負載的效能。視工作負載而定，使用 In-Memory OLTP，可以提升高達 30 倍的交易輸送量，而使用 Memory Analytics，可以提升高達 100 倍的查詢效能。
+SQL In-Memory 技術大幅提升交易和分析工作負載的效能。視工作負載而定，使用 In-Memory OLTP，可以提升高達 30 倍的交易輸送量，而使用 Memory Analytics，可以提升高達 100 倍的查詢效能。使用即時分析，結合這些技術來取得以作業資料為基礎的即時商務深入解析。
 
-In-Memory Analytics 已正式上市。In-Memory OLTP 處於預覽階段 (適用於 Premium Azure SQL Database)。
+In-Memory Analytics 已在 Azure DB 中正式提供。In-Memory OLTP 和 Real-Time Operational Analytics 都處於預覽階段 (適用於 Premium Azure SQL Database)。
 
 
 ## 開始使用
@@ -31,18 +31,18 @@ In-Memory Analytics 已正式上市。In-Memory OLTP 處於預覽階段 (適用�
 嘗試將 In-Memory OLTP 用於交易工作負載：
 
 
-- [以 In-Memory OLTP 範例擴充 AdventureWorksLT 資料庫](#Enrich-an-AdventureWorksLT-database-with-In-Memory-OLTP-samples)。
+- [安裝 In-Memory OLTP 範例](#install-the-in-memory-oltp-sample)。
 - [在現有的 Azure SQL 應用程式中使用 In-Memory OLTP](sql-database-in-memory-oltp-migration.md)。
 - [監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
 
 
-嘗試將 In-Memory Analytics 用於交易工作負載：
+嘗試將 In-Memory Analytics 用於分析工作負載：
 
-- [安裝 In-Memory Analytics](#Install-the-In-Memory-Analytics-sample)。
+- [安裝 In-Memory Analytics 範例](#install-the-in-memory-analytics-sample)。
 - 在 MSDN 上深入了解[資料行存放區索引](https://msdn.microsoft.com/library/gg492088.aspx)。
 
 
-## 以 In-Memory OLTP 範例擴充 AdventureWorksLT 資料庫
+## 安裝 In-Memory OLTP 範例
 
 在 Azure Preview 入口網站中按幾下滑鼠，即可建立 AdventureWorksLT [V12] 範例資料庫。下列步驟說明如何利用資料表和原生編譯預存程序擴充 AdventureWorksLT 資料庫，以說明 In-Memory OLTP 物件。
 
@@ -241,9 +241,11 @@ In-Memory OLTP 不支援某些 TRANSACT-SQL 功能。如需詳細資訊，請參
 
 ## 其他資源
 
-深入了解 In-Memory OLTP 和 Analytics：[In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
+[深入了解 MSDN 上的 In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 
-[在 MSDN 上了解資料行存放區索引](https://msdn.microsoft.com/library/gg492088.aspx)
+[深入了解 MSDN 上的 In-Memory Analytics (Columnstore)](https://msdn.microsoft.com/library/gg492088.aspx)
+
+[深入了解 MSDN 上的 Real-Time Operational Analytics](https://msdn.microsoft.com/library/dn817827.aspx)
 
 [一般工作負載模式和移轉考量白皮書](https://msdn.microsoft.com/library/dn673538.aspx)描述 In-Memory OLTP 經常提供顯著效能改善的工作負載模式。
 
@@ -253,4 +255,4 @@ In-Memory OLTP 不支援某些 TRANSACT-SQL 功能。如需詳細資訊，請參
 
 [監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md) (適用於 In-Memory OLTP)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

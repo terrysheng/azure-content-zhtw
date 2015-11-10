@@ -25,17 +25,38 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-本教學課程說明如何使用 Azure Preview 入口網站[在 Azure App Service 中建立 Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)。您可以從 Azure Marketplace 選擇 Web 應用程式範本，或可對 Java 建立一般 Web 應用程式，並手動加以設定。
-
-如果您不打算使用這些技術 (例如，如果您要自訂應用程式容器)，請參閱將[自訂的 Java Web 應用程式上傳至 Azure](web-sites-java-custom-upload.md)。
+本教學課程說明如何使用 [Azure Preview 入口網站](https://portal.azure.com/)，[在 Azure App Service 中建立 Java Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)。Azure Preview 入口網站是可用來管理 Azure 資源的 Web 介面。
 
 > [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益][]或是[申請免費試用][]。
 >
 > 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service][]。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
 
-## 從 Azure Marketplace 選擇 Web 應用程式範本
+## Java 應用程式選項
 
-本節說明如何使用 Azure Marketplace 來建立 Java Web 應用程式。
+有數種方式可讓您在 App Service Web 應用程式中設定 Java 應用程式。
+
+1. 使用來自 Azure Marketplace 的範本。
+
+	Azure Marketplace 包含數個範本，其可使用 Tomcat 或 Jetty Web 容器自動建立及設定 Java Web 應用程式。設定範本的 Web 容器是可設定的。如需詳細資訊，請參閱本教學課程的[使用來自 Azure Marketplace 的 Java 範本](#marketplace)區段。
+ 
+1. 建立應用程式，然後設定 [應用程式設定]。
+
+	App Service 提供數個 Tomcat 或 Jetty 版本 (包含預設組態)。如果您將託管的應用程式會使用其中一個內建版本，這就是設定 Web 容器的最簡單方法，但是它缺乏其他方法中的設定功能。採用這個方法，您會在入口網站中建立應用程式，然後移至應用程式的 [應用程式設定] 刀鋒視窗來選擇您的 Java 版本以及所需的 Java Web 容器。當您使用這個方法時，應用程式會從背景工作角色用來裝載應用程式的本機硬碟機執行，而不會佔用租用戶的磁碟空間。當您使用此模型時，您沒有在這部分的檔案系統中編輯檔案的權限，這表示您不能進行像是設定 *server.xml* 檔案或將程式庫檔案放在 */lib* 資料夾中的作業。如需詳細資訊，請參閱本教學課程後面的[建立及設定 Java Web 應用程式](#appsettings)一節。
+  
+3. 建立應用程式，然後手動複製並編輯組態檔
+
+	您可能想要裝載不會部署在 App Service 所提供的任何 Web 容器中的自訂 Java 應用程式。例如，以下是這麼做的一些原因：
+	
+	* Java 應用程式需要 App Service 未直接支援或資源庫不提供的 Tomcat 或 Jetty 版本。
+	* Java 應用程式會接受 HTTP 要求，但不會以 WAR 形式部署到預先存在的 Web 容器中。
+	* 您想要自行從頭設定 Web 容器。 
+	* 您想要使用 App Service 所不支援的 Java 版本並自行將它上傳。
+
+	這類情況下，您可以使用入口網站建立應用程式，然後以手動方式提供適當的執行階段檔案。在此情況下，會針對您的 App Service 計畫的儲存空間配額計算檔案。如需詳細資訊，請參閱[將自訂 Java Web 應用程式上傳至 Azure](https://acom-sandbox.azurewebsites.net/zh-TW/documentation/articles/web-sites-java-custom-upload/)。
+
+## <a name="marketplace"></a>使用來自 Azure Marketplace 的 Java 範本
+
+本節說明如何使用 Azure Marketplace 來建立 Java Web 應用程式。相同的一般流程也可以用來建立 Java 型行動或 API 應用程式。
 
 1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
 
@@ -81,26 +102,25 @@
 
 	![](./media/web-sites-java-get-started/jettyurl.png)
 
-	如果選擇 Tomcat，您會看到類似下列範例的頁面。
+	Tomcat 隨附一組預設頁面，所以如果選擇 Tomcat，您會看到類似下列範例的頁面。
 
 	![使用 Apache Tomcat 的 Web 應用程式](./media/web-sites-java-get-started/tomcat.png)
 
-	如果選擇 Jetty，您會看到類似下列範例的頁面。
+	如果選擇 Jetty，您會看到類似下列範例的頁面。Jetty 沒有一組預設頁面，所以用於空白 Java 網站的相同 JSP 會在此重複使用。
 
 	![使用 Jetty 的 Web 應用程式](./media/web-sites-java-get-started/jetty.png)
 
 現在，您已建立含有應用程式容器的 Web 應用程式，如需如何將應用程式上傳至該 Web 應用程式的相關資訊，請參閱[後續步驟](#next-steps)一節。
 
-## 對 Java 建立 Web 應用程式，並手動設定它
+## <a name="portal"></a>建立及設定 Java Web 應用程式
 
-本節說明如何對 Java 建立 Web 應用程式，並手動設定它。
+本節說明如何建立 Web 應用程式，並使用入口網站的 [應用程式設定] 刀鋒視窗針對 Java 進行設定。
 
 1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
 
-2. 按一下 [新增] > [Web + 行動]。
+2. 按一下 [新增] > [Web + 行動] > [Web 應用程式]。
 
-
-3. 按一下 [Web 應用程式]。
+	![](./media/web-sites-java-get-started/newwebapp.png)
 
 4. 在 [Web 應用程式] 方塊中，輸入 Web 應用程式的名稱。
 
@@ -115,20 +135,28 @@
 	如需 App Service 方案的詳細資訊，請參閱 [Azure App Service 方案概觀](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 7. 按一下 [建立]。
+
+	![](./media/web-sites-java-get-started/newwebapp2.png)
  
 8. 建立 Web 應用程式後，按一下 [Web Apps] > [{您的 Web 應用程式}。
  
+	![](./media/web-sites-java-get-started/selectwebapp.png)
+
 9. 在 [Web 應用程式] 刀鋒視窗中，按一下 [設定]。
 
 10. 按一下 [應用程式設定]。
 
 11. 選擇所需的 [Java 版本]。
 
-12. 選擇所需的 [Web 容器]。
+12. 選擇所需的 [Java 次要版本]。如果您選取 [最新]，您的應用程式會使用 App Service 可用的最新次要版本作為該 Java 主要版本。
+
+12. 選擇所需的 [Web 容器]。如果您選取的容器名稱開頭為 [最新]，您的應用程式將會保留在 App Service 中該 Web 容器主要版本可用的最新版本。
+
+	![](./media/web-sites-java-get-started/versions.png)
 
 13. 按一下 [儲存]。
 
-	幾分鐘內，您的 Web 應用程式即會變成 Java 型 Web 應用程式。
+	幾分鐘內，您的 Web 應用程式即會變成 Java 型 Web 應用程式並設定成使用您選取的 Web 容器。
 
 14. 按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
 
@@ -148,4 +176,4 @@
 
 [試用 App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

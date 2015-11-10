@@ -1,6 +1,6 @@
 <properties
-	pageTitle="搭配 Azure 搜尋使用 Chrome Postman | Microsoft Azure"
-	description="搭配 Azure 搜尋使用 Chrome Postman。安裝並設定 Postman。建立 Azure Search 索引。使用 Postman 張貼文件和查詢索引。"
+	pageTitle="搭配 Azure 搜尋服務使用 Chrome Postman | Microsoft Azure"
+	description="搭配 Azure 搜尋服務 (雲端託管搜尋服務) 使用 Chrome Postman。安裝並設定 Postman。建立 Azure 搜尋服務索引。使用 Postman 張貼文件和查詢索引。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # 如何搭配 Azure 搜尋服務使用 Chrome Postman #
@@ -32,7 +32,7 @@
 
 ![][2]
 
-## 設定 Postman 以查詢 Azure 搜尋 ##
+## 設定 Postman 以查詢 Azure 搜尋服務 ##
 若要設定 Postman，請遵循下列步驟：
 
 1. 請在「於此處輸入要求 URL」的位置，輸入 Azure 搜尋服務的 URL。  
@@ -42,11 +42,11 @@
 5. 輸入下列項目的值：
 	- `api-key`：[管理員金鑰]
 	- `Content-Type`：`application/json; charset=utf-8`
-6. 按一下 [傳送]，對 Azure 搜尋發出 REST 呼叫並顯示 JSON 回應。
+6. 按一下 [傳送]，對 Azure 搜尋服務發出 REST 呼叫並顯示 JSON 回應。
 
 ![][3]
 
-## 使用 Postman 建立 Azure 搜尋索引 ##
+## 使用 Postman 建立 Azure 搜尋服務索引 ##
 
 接下來，我們可以發出 REST 呼叫來新建 Azure 搜尋服務的索引，並擴充在上一個步驟完成的項目。索引建立與上一個呼叫不同，該作業需使用 HTTP PUT 以及含有索引結構描述定義的 JSON 文件。在這個範例中，我們將建立一個索引來存放登山路線清單。作法：
 
@@ -68,7 +68,7 @@
 
 ![][4]
 
-## 使用 Postman 將文件張貼至 Azure 搜尋索引 ##
+## 使用 Postman 將文件張貼至 Azure 搜尋服務索引 ##
 建立好索引後，即可將文件載入其中。為了進行這項作業，我們會使用來自美國地質調查局 (USGS) 資料集的五個路線資料，批次張貼一組文件：
 
 1. 將 URL 變更為：使用您的搜尋服務名稱的 `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28`。請注意，這個 URL 應包含您剛建立的索引路徑。
@@ -96,7 +96,7 @@
 2. 將 HTTP 要求類型變更為 `GET`。
 3. 按一下 [傳送]。
 
-在回應中，您應可看到 Azure 搜尋傳回的 JSON 搜尋結果。
+在回應中，您應可看到 Azure 搜尋服務傳回的 JSON 搜尋結果。
 
 ![][6]
 
@@ -118,4 +118,4 @@
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

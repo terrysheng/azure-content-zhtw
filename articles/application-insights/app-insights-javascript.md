@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/10/2015"
+	ms.date="11/03/2015"
 	ms.author="awills"/>
 
 # 適用 JavaScript Web 應用程式的 Application Insights
@@ -53,14 +53,16 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 指令碼包含檢測金鑰，會將資料導向您的 Application Insights 資源。
 
+([進一步說明指令碼。](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+
 *(如果您使用的是已知網頁架構，請在 Application Insights 配接器附近尋找。例如，有 [AngularJS 模組](http://ngmodules.org/modules/angular-appinsights)。)*
 
 
 ## <a name="run"></a>執行您的應用程式
 
-執行您的 Web 應用程式，稍微使用一下來產生遙測，並等候數秒鐘。您可以在開發電腦上使用 **F5** 執行它，或發佈它讓使用者處理。
+執行您的 Web 應用程式，稍微使用一下來產生遙測，並等候數秒鐘。您可以在開發電腦上使用 **F5** 執行應用程式，或發佈應用程式讓使用者處理。
 
-如果您想要檢查 Web App 傳送至 Application Insights 的遙測，請使用您瀏覽器的偵錯工具 (在許多瀏覽器上為 **F12**)。資料會傳送至 dc.services.visualstudio.com。
+如果您想要檢查 Web 應用程式傳送至 Application Insights 的遙測，請使用您瀏覽器的偵錯工具 (在許多瀏覽器上為 **F12**)。資料會傳送至 dc.services.visualstudio.com。
 
 ## 探索資料
 
@@ -96,7 +98,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 ## 用戶端使用量概觀
 
-返回 [概觀] 刀鋒視窗上，按一下 [使用量]：
+返回 [概觀] 刀鋒視窗上，按一下 **[使用量]**：
 
 ![](./media/app-insights-javascript/14-usage.png)
 
@@ -184,4 +186,4 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

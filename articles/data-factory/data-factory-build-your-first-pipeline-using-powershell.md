@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.topic="hero-article"
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # 使用 Azure PowerShell 建置您的第一個 Azure Data Factory 管線
@@ -33,6 +33,10 @@
 本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文。
 
 > [AZURE.IMPORTANT]執行本教學課程之前，請先閱讀[教學課程概觀](data-factory-build-your-first-pipeline.md)一文並完成先決條件步驟。
+>   
+> 這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
+>    
+> 如果您使用 Azure PowerShell 1.0 Preview，您必須使用[這裡](https://msdn.microsoft.com/library/dn820234.aspx)所記載的 Cmdlet。例如，使用 New-AzureRMDataFactory，而非使用 New-AzureDataFactory。
 
 ## 步驟 1：建立 Data Factory
 
@@ -77,7 +81,7 @@
 		    }
 		}
 
-	使用您的 Azure 儲存體帳戶名稱取代 **account name**，並使用 Azure 儲存體帳戶的存取金鑰取代 **account key**。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)。
+	使用您的 Azure 儲存體帳戶名稱取代**帳戶名稱**，並使用 Azure 儲存體帳戶的存取金鑰取代**帳戶金鑰**。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)。
 
 2.	在 Azure PowerShell 中，切換到 ADFGetStartedPSH 資料夾。
 3.	您可以使用 **New-AzureDataFactoryLinkedService** Cmdlet 建立連結服務。此 Cmdlet 和您在本教學課程中使用的其他 Data Factory Cmdlet，皆需要您將值傳給 *ResourceGroupName* 和 *DataFactoryName* 參數。或者，您可以使用 **Get-AzureDataFactory** 取得 **DataFactory** 物件，並傳遞此物件，就不需要在每次執行 Cmdlet 時輸入 *ResourceGroupName* 和 *DataFactoryName*。執行以下命令，將 **Get-AzureDataFactory** Cmdlet 的輸出指派給 **$df** 變數。
@@ -152,7 +156,7 @@
 		  }
 		}
 
-	在上述範例中，您要建立名為 **AzureBlobOutput** 的資料集，並指定將由 Hive 指令碼產生的資料結構。此外，指定結果儲存在名為 **data** 的 Blob 容器及名為 **partitioneddata** 的資料夾中。**availability** 區段指定每個月產生一次輸出資料集。
+	在上述範例中，您要建立名為 **AzureBlobOutput** 的資料集，並指定將由 Hive 指令碼產生的資料結構。此外，指定將結果儲存在名為 **data** 的 Blob 容器及名為 **partitioneddata** 的資料夾中。**availability** 區段指定每個月產生一次輸出資料集。
 
 2. 在 Azure PowerShell 中執行以下命令來建立 Data Factory 資料集。
 
@@ -270,4 +274,6 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md)提交您的意見反應。
 
-<!---HONumber=Oct15_HO4-->
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
+<!---HONumber=Nov15_HO2-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/30/2015"
@@ -59,4 +59,4 @@ SQL Server 的資料安全性向來是一項可靠的傳統，而 SQL Database �
 
 - 從[建立您的第一個資料庫](sql-database-get-started.md)開始。然後以 [C#](sql-database-connect-query.md)、[Java](sql-database-develop-java-simple-windows.md)、[Node.js](sql-database-develop-nodejs-simple-windows.md)、[PHP](sql-database-develop-php-retry-windows.md)、[Python](sql-database-develop-python-simple-windows.md) 或 [Ruby](sql-database-develop-ruby-simple-linux) 建置您的第一個 App。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -362,9 +362,9 @@ require_once(ABSPATH . 'wp-settings.php');
   </repositories>
  ```
 
-在 `<repositories>` 下，輸入生產網站 URL URL 和使用者資訊。 如果您使用預設的 Umbraco Membership 提供者，請在 <user> 區段中新增管理使用者的識別碼。 如果您使用自訂 Umbraco Membership 提供者，使用 `<login>`,`<password>` Courier2 模組相關知識連接到生產網站。 如需更多詳細資訊，請檢閱 [文件](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)了解 Courier 模組。
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-同樣地，在您的生產網站中安裝 Courier 模組，並將其設定為指向這裡顯示的相關 courier.config 檔案中的階段 Web 應用程式
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
@@ -429,4 +429,4 @@ Courier 將不會隨著從一個版本的 Umbraco CMS 升級至另一個版本�
 
 [封鎖對非生產部署位置的 Web 存取](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!-----HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

@@ -425,10 +425,10 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [在混合式環境中使用 Power BI](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [透過 Microsoft SQL Server Connect 提交意見及連絡資訊](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### 社群內容
 
 - [使用 PowerShell 管理 Azure SQL Database](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO3-->

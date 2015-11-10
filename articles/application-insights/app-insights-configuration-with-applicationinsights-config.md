@@ -87,7 +87,8 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
 * `ClientIpHeaderTelemetryInitializer` 會根據要求的 `X-Forwarded-For` HTTP 標頭來更新所有遙測項目的 `Location` 內容的 `Ip` 屬性。
 * `UserAgentTelemetryInitializer` 會根據要求的 `User-Agent` HTTP 標頭來更新所有遙測項目的 `User` 內容的 `UserAgent` 屬性。
 * `OperationNameTelemetryInitializer` 會根據 HTTP 方法，以及 ASP.NET MVC 控制器的名稱和叫用來處理要求的動作，更新所有遙測項目 `RequestTelemetry` 的 `Name` 屬性和 `Operation` 內容的 `Name` 屬性。
-* `OperationNameTelemetryInitializer`會在處理自動產生 `RequestTelemetry.Id` 的要求時更新所有遙測項目的 `Operation.Id`內容屬性。
+* `OperationNameTelemetryInitializer` 會更新 'Operation.Id` context property of all telemetry items tracked while 
+handling a request with the automatically generated `RequestTelemetry.Id`。
 * 針對具有從使用者瀏覽器中執行的 Application Insights JavaScript 檢測程式碼所產生的 `ai_user` Cookie 擷取的值的所有遙測項目，`UserTelemetryInitializer` 會更新 `User` 內容的 `Id` 和 `AcquisitionDate` 屬性。
 * 針對具有從使用者瀏覽器中執行的 Application Insights JavaScript 檢測程式碼所產生的 `ai_session` Cookie 擷取的值的所有遙測項目，`SessionTelemetryInitializer` 會更新 `Session` 內容的 `Id` 屬性。 
 * 針對具有從 Azure 執行階段環境擷取的資訊的所有遙測項目，`AzureRoleEnvironmentTelemetryInitializer` 會更新 `Device` 內容的 `RoleName` 和 `RoleInstance` 屬性。
@@ -312,4 +313,4 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO3-->

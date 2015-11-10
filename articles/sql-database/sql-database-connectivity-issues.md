@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/02/2015"
 	ms.author="genemi"/>
 
 
@@ -81,17 +81,10 @@
 ### 增加重試之間的間隔
 
 
-您的程式應該在其第一次重試之前一律至少等候 6-10 秒。否則，雲端服務可能會突然充斥尚未準備好處理的要求。
 
+我們建議您在您第一次重試前延遲 5 秒鐘。在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
 
-如果需要多次重試，必須在每個後續的重試之前增加間隔，最多不可超出上限。兩個替代策略如下：
-
-
-- 單調遞增間隔例如，您可以在每個後續的間隔中加入另一個 5 秒。
-
-
-- 指數遞增間隔例如，您可以將每個後續間隔乘以 1.5。
-
+在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找使用 ADO.NET 之用戶端的封鎖期間討論。
 
 您也可能想要設定程式在自行終止之前的重試次數上限。
 
@@ -284,7 +277,7 @@ Enterprise Library 6 (EntLib60) 提供 .NET 管理旳類別來協助記錄：- [
 
 | 記錄查詢 | 說明 |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [Sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視提供個別事件的相關資訊，包括與重新設定、節流和過度資源累積相關的連線失敗。<br/><br/>理想的情況下，您可以使 **start\_time** 或 **end\_time** 值與用戶端應用程時式何時遇到問題的相關資訊相互關聯。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [Sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視提供個別事件的相關資訊，包括可能導致暫時性錯誤或連線失敗的一些事件。<br/><br/>理想的情況下，您可以使 **start\_time** 或 **end\_time** 值與用戶端應用程時式何時遇到問題的相關資訊相互關聯。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | [Sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視針對其他診斷提供事件類型的彙總計數。<br/><br/>**秘訣：**您必須連接到**master**資料庫才能執行此動作。 |
 
 
@@ -485,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，可將新增重試行為的工作簡化為幾乎一切事物。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

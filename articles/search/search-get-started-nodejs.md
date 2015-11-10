@@ -1,6 +1,6 @@
 <properties
 	pageTitle="開始在 NodeJS 中使用 Azure 搜尋服務 | Microsoft Azure"
-	description="逐步了解如何藉由使用 NodeJS 做為程式設計語言，建置自訂 Azure 搜尋服務應用程式。"
+	description="逐步了解如何使用 NodeJS 做為程式設計語言，在 Azure 的雲端託管搜尋服務上建置搜尋應用程式。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # 開始在 NodeJS 中使用 Azure 搜尋服務
@@ -38,7 +38,7 @@
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在動態工具列中，按一下 [新增] > [資料 + 儲存體] > [搜尋]。
+2. 在動態工具列中，依序按一下 [新增] > [資料 + 儲存體] > [搜尋]。
 
      ![][1]
 
@@ -147,4 +147,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

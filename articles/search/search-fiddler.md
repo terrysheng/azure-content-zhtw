@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何使用 Fiddler 評估及測試 Azure 搜尋 REST API | Microsoft Azure"
+	pageTitle="如何使用 Fiddler 評估及測試 Azure 搜尋服務 REST API | Microsoft Azure"
 	description="使用 Fiddler 以無程式碼的方式驗證 Azure 搜尋服務的可用性，並試用 REST API。"
 	services="search"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# 使用 Fiddler 評估及測試 Azure 搜尋 REST API
+# 使用 Fiddler 評估及測試 Azure 搜尋服務 REST API
 
-本文說明如何使用 Fiddler ([可從 Telerik 免費下載](http://www.telerik.com/fiddler))，以在不必撰寫任何程式碼的情況下，透過 Azure 搜尋服務 REST API 發送 HTTP 要求以及檢視回應。[MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) 中記載了 Azure 搜尋服務 REST API。
+本文說明如何使用 Fiddler ([可從 Telerik 免費下載](http://www.telerik.com/fiddler))，以在不必撰寫任何程式碼的情況下，透過 Azure 搜尋服務 REST API 發送 HTTP 要求以及檢視回應。Azure 搜尋服務是 Microsoft Azure 上完整管理的雲端託管搜尋服務，可輕鬆地透過 .NET 和 REST API 程式化。[MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) 中記載了 Azure 搜尋服務 REST API。
 
 在下列步驟中，您將建立索引、上傳文件、查詢索引，然後查詢系統以取得服務資訊。
 
@@ -186,7 +186,7 @@
 
    ![][4]
 
-下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure 搜尋 API)](http://msdn.microsoft.com/library/dn798927.aspx) (英文)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
+下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure 搜尋服務 API)](http://msdn.microsoft.com/library/dn798927.aspx) (英文)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
 
 **取代空格之前：**
 
@@ -235,4 +235,4 @@
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

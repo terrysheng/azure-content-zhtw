@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="11/04/2015"
 	ms.author="awills"/>
 
 # 監視任何網站的可用性和回應性
@@ -217,14 +217,17 @@ Web 測試外掛程式提供這種作法。
 
 ## 有疑問嗎？ 有問題嗎？
 
-
-* *「Web 測試」和「可用性」之間有任何差異嗎？*
-
-    我們會交替使用這兩個詞彙。
-
 * *可以從我的 Web 測試呼叫程式碼嗎？*
 
     否。測試步驟必須在 .webtest 檔案中。而且您不能呼叫其他 Web 測試或使用迴圈。但是這裡有一些您會覺得有用的外掛程式。
+
+* *是否支援 HTTPS？*
+
+    我們目前支援 SSL 3.0 和 TLS 1.0。
+
+* *「Web 測試」和「可用性測試」之間有任何差異嗎？*
+
+    我們會交替使用這兩個詞彙。
 
 ## <a name="video"></a>影片
 
@@ -246,4 +249,4 @@ Web 測試外掛程式提供這種作法。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -45,7 +45,7 @@
 
 最常見的連接失敗原因是伺服器名稱、使用者名稱或密碼錯誤，以及基於安全性理由不允許連接伺服器。請確定伺服器的防火牆設定允許從本機電腦的 IP 位址和 SSMS 用戶端使用的 IP 位址連接。它們有時候不同。
 
-如果因為防火牆規則而連接失敗，則會在錯誤訊息中報告 IP 位址。將此 IP 位址加入至伺服器防火牆規則。如需詳細資訊，請參閱[作法：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)。
+如果因為防火牆設定而連線失敗，則最新版的 SSMS 會在詢問後為您建立防火牆規則。若要取得最新版的 SSMS，請參閱[下載 SSMS](https://msdn.microsoft.com/library/mt238290.aspx)。如果您使用較舊的版本，則會在錯誤訊息中回報 IP 位址，而您需要將此 IP 位址加入至伺服器防火牆規則。如需詳細資訊，請參閱[作法：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)。
 
 ## 執行範例查詢
 
@@ -76,4 +76,4 @@
 
 如果您是 Transact-SQL 新手，請參閱[教學課程：撰寫 Transact-SQL 陳述式](https://msdn.microsoft.com/library/ms365303.aspx)和[Transact-SQL 參考 (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

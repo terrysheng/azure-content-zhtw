@@ -3,9 +3,9 @@
 	description="本主題說明組織如何在所管理的所有網站和服務上套用一致的外觀及操作，讓使用者在需要使用這些網站時不致混淆。"
 	services="active-directory"
 	documentationCenter=""
-	authors="MarkusVi"
+	authors="markusvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015" 
+	ms.date="10/30/2015" 
 	ms.author="MarkVi"/>
 
 # 將公司商標新增至登入和存取面板頁面
@@ -185,4 +185,4 @@ Azure AD 中的部分可自訂元素有多個使用案例。公司標誌可以�
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

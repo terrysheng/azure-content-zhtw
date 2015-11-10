@@ -150,6 +150,26 @@ Azure Multi-Factor Authentication Server 提供各種方式來設定您的使用
 
 ![Email templates](./media/multi-factor-authentication-get-started-server/email2.png)
 
+## Azure Multi-Factor Authentication Server 如何處理使用者資料？
+
+當您使用 Multi-Factor Authentication (MFA) Server 內部部署時，使用者的資料會儲存在內部部署伺服器中。雲端中不會儲存任何持續性的使用者資料。當使用者執行雙因素驗證時，MFA Server 會將資料傳送至 Azure MFA 雲端服務，以執行驗證。當這些驗證要求傳送至雲端服務時，要求和記錄檔中會傳送下列欄位，供客戶的驗證/使用情況報告中使用。某些欄位是選擇性，可以在 Multi-Factor Authentication Server 內啟用或停用。從 MFA Server 到 MFA 雲端服務的通訊使用透過連接埠 443 輸出的 SSL/TLS。這些欄位包括：
+
+- 唯一識別碼 - 使用者名稱或內部的 MFA 伺服器識別碼
+- 名字和姓氏 - 選擇性
+- 電子郵件地址 - 選擇性
+- 電話號碼 - 進行語音通話或簡訊驗證時
+- 安全性權杖 - 執行行動應用程式驗證時
+- 驗證模式 
+- 驗證結果 
+- MFA Server 名稱 
+- MFA Server IP 
+- 用戶端 IP – 如果有的話
+
+
+
+除了上述欄位，驗證結果 (成功/拒絕) 和任何拒絕的原因也與驗證資料一起儲存，可透過驗證/使用情況報告取得。
+
+
 ## 進階 Azure Multi-Factor Authentication Server 組態
 如需進階設定的詳細資訊和組態資訊，請使用下表。
 
@@ -157,12 +177,12 @@ Azure Multi-Factor Authentication Server 提供各種方式來設定您的使用
 :------------- | :------------- | 
 [使用者入口網站](multi-factor-authentication-get-started-portal.md)| 有關設定使用者入口網站的資訊，包括部署和使用者自助。
 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|有關搭配 AD FS 設定 Azure Multi-Factor Authentication 的資訊。
-[RADIUS 驗證](multi-factor-authentication-get-started-server-radius.md)| 有關搭配 RADIUS 設定 Azure MFA Server 的資訊。
+[RRADIUS 驗證](multi-factor-authentication-get-started-server-radius.md)| 有關搭配 RADIUS 設定 Azure MFA Server 的資訊。
 [IIS 驗證](multi-factor-authentication-get-started-server-iis.md)|有關搭配 IIS 設定 Azure MFA Server 的資訊。
 [Windows 驗證](multi-factor-authentication-get-started-server-windows.md)| 有關搭配 Windows 驗證設定 Azure MFA Server 的資訊。
 [LDAP 驗證](multi-factor-authentication-get-started-server-ldap.md)|有關搭配 LDAP 驗證設定 Azure MFA Server 的資訊。
-[使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)| 有關使用 RADIUS 搭配遠端桌面閘道器設定 Azure MFA Server 的資訊。
+[使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)| 有關使用 RADIUS 搭配遠端桌面閘道設定 Azure MFA Server 的資訊。
 [與 Windows Server Active Directory 同步處理](multi-factor-authentication-get-started-server-dirint.md)|有關設定 Active Directory 與 Azure MFA Server 之間同步處理的資訊。
 [部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

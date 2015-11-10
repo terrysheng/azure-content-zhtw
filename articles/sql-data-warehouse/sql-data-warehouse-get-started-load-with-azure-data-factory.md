@@ -18,6 +18,11 @@
 
 # 使用 Azure Data Factory 載入資料
 
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
  遵循此教學課程將說明您如何在 Azure Data Factory 建立管線，將資料從 Azure 儲存體 Blob 移至 SQL 資料倉儲。使用下列步驟，您將：
 
 + 在 Azure 儲存體 Blob 中設定範例資料。
@@ -201,4 +206,4 @@
 	}
 	
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

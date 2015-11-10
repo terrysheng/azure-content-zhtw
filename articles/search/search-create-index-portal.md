@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在入口網站中建立 Azure 搜尋索引 | Microsoft Azure"
-	description="在 Azure 入口網站中填入欄位定義，即可為 Azure 搜尋加入索引。"
+	pageTitle="在入口網站中建立 Azure 搜尋服務索引 | Microsoft Azure"
+	description="在 Azure 入口網站中填入欄位定義，即可為 Azure 搜尋服務 (雲端託管搜尋服務) 加入索引。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# 在 Azure 入口網站中建立 Azure 搜尋索引
+# 在 Azure 入口網站中建立 Azure 搜尋服務索引
 
-只需在 Azure 入口網站中建立一個索引，即可快速地在 Azure 搜尋中建立一個索引原型。入口網站十分適合用來進行概念證明測試，對於已部署到您服務中的任何索引，您也可以透過入口網站檢視任一索引的結構描述定義和資源使用狀況。
+只需在 Azure 入口網站中建立一個索引，即可快速地在 Azure 搜尋服務中建立一個索引原型。入口網站十分適合用來進行概念證明測試，對於已部署到您服務中的任何索引，您也可以透過入口網站檢視任一索引的結構描述定義和資源使用狀況。
 
 若要完成此工作，請先確定您已擁有可供使用的 Azure 搜尋服務。如果您需要設定 Azure 搜尋服務的協助，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
@@ -89,7 +89,7 @@
 
 ## 後續步驟
 
-雖然已定義索引，但仍需事先載入文件才能供人使用。假設您要重新建立 Hotels 索引，作為測試之用，您可以在 [Fiddler](search-fiddler.md) 輕鬆地載入該索引的少量文件，方法為使用[如何搭配 Azure 搜尋使用 Fiddler](search-fiddler.md) 的＜載入文件＞ 一節中的指示。接著您可以按照該篇文章中的剩餘步驟執行一些查詢。
+雖然已定義索引，但仍需事先載入文件才能供人使用。假設您要重新建立 Hotels 索引，作為測試之用，您可以在 [Fiddler](search-fiddler.md) 輕鬆地載入該索引的少量文件，方法為使用[如何搭配 Azure 搜尋服務使用 Fiddler](search-fiddler.md) 的＜載入文件＞ 一節中的指示。接著您可以按照該篇文章中的剩餘步驟執行一些查詢。
 
 一旦您熟悉基本的索引，請考慮新增語言分析器或建議工具，以新增多語言支援或預先輸入建議。索引結構描述中提供這兩項功能的詳細說明。如需詳細資訊，請參閱[語言支援](https://msdn.microsoft.com/elibrary/azure/dn879793.aspx)和[建立索引](https://msdn.microsoft.com/library/azure/dn798941.aspx)。
 
@@ -100,4 +100,4 @@
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

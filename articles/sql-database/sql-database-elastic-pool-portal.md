@@ -10,10 +10,10 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015"
+	ms.date="10/29/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -44,7 +44,7 @@
 如果您看到訊息說明伺服器有建議的集區，請按一下該集區，即可輕鬆地檢閱並建立最適合您伺服器資料庫的集區。如需詳細資訊，請參閱[建議的彈性資料庫集區](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)。
    
   
-![建立彈性集區][1]
+   ![建立彈性集區][1]
 
 
 **彈性資料庫集區**刀鋒視窗提供選項，可選擇定價層、加入資料庫，以及設定集區的效能特性。
@@ -199,4 +199,4 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

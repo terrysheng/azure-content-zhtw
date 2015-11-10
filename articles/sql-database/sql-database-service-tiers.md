@@ -1,20 +1,20 @@
 <properties
-   pageTitle="SQL Database 服務層"
-   description="比較 Azure SQL Database 各個服務層的效能和商務持續性功能，根據停機時間的需求，在成本和功能之間找出適當的平衡。"
-   services="sql-database"
-   documentationCenter=""
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="SQL Database 服務層"
+	description="比較 Azure SQL Database 各個服務層的效能和商務持續性功能，根據停機時間的需求，在成本和功能之間找出適當的平衡。"
+	services="sql-database"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="10/29/2015"
-   ms.author="jroth"/>
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="11/03/2015"
+	ms.author="jroth"/>
 
 # SQL Database 服務層
  
@@ -45,7 +45,7 @@
 >[AZURE.NOTE]如需此服務層資料表中所有其他資料列的詳細說明，請參閱[服務層功能和限制](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)。
 
 ### 彈性資料庫集區的服務層
-除了建立及調整單一資料庫之外，您也可以選擇管理[彈性資料庫集區](sql-database-elastic-pool.md)中的多個資料庫。彈性資料庫集區中的所有資料庫會共用一組通用資源。您可使用*彈性資料庫交易單位* (eDTU) 來測量效能特性。如同單一資料庫，彈性資料庫集區有三個效能層：**基本**、**標準**和**進階**。彈性資料庫的這三個服務層仍會定義整體效能限制與多項功能。
+除了建立及調整單一資料庫之外，您也可以選擇管理[彈性資料庫集區](sql-database-elastic-pool.md)中的多個資料庫。彈性資料庫集區中的所有資料庫會共用一組通用資源。您可使用*彈性資料庫交易單位* (eDTU) 來測量效能特性。如同單一資料庫，彈性資料庫集區有三個服務層：**基本**、**標準**和**進階**。彈性資料庫的這三個服務層仍會定義整體效能限制與多項功能。
 
 彈性資料庫集區可讓這些資料庫共用和取用 DTU 資源，無須指派特定效能層級給集區中的資料庫。例如，標準集區中的單一資料庫可從使用 0 eDTU 到最大資料庫 eDTU (由服務層定義的 100 eDTU，或是您設定的自訂數字)。如此可讓多個具有不同工作負載的資料庫有效使用整個集區中的可用 eDTU。
 
@@ -95,4 +95,4 @@
 如果您認識了 SQL Database 各個層，可以[免費試用](http://azure.microsoft.com/pricing/free-trial/)親身體驗，然後了解[如何建立您的第一個 SQL Database](sql-database-get-started.md)！
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

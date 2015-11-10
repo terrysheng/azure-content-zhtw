@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
    ms.date="10/08/2015"
@@ -229,4 +229,4 @@
 
 如需關於彈性資料庫和彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

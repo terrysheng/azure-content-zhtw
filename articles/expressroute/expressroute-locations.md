@@ -39,7 +39,7 @@
 
 
 
-下表提供國家/地區雲端的區域和地理政治界限等資訊。
+下表提供國家雲端的區域和地理政治界限等資訊。
 
 |**地緣政治區域**|**Azure 區域**|**ExpressRoute 位置**|
 |---|---|---|---|
@@ -90,9 +90,9 @@
 
 | **服務提供者** |**Microsoft Azure** | **Office 365** | **位置** |
 |-----------------------|--------------------|----------------|---------------|
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 敬請期待 | 不支援 | 芝加哥+、華盛頓特區+ |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 支援 | 不支援 | 芝加哥+、華盛頓特區 |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 敬請期待 | 不支援 | 芝加哥+、華盛頓特區+ |
-| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 敬請期待 | 不支援 | 芝加哥+、華盛頓特區 |
+| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 支援 | 不支援 | 芝加哥+、華盛頓特區 |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 不支援 | 芝加哥+、華盛頓特區 |
 
 ## 透過未列出的服務提供者連線
@@ -129,4 +129,4 @@
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 - 請確定符合所有先決條件。請參閱 [ExpressRoute 先決條件](expressroute-prerequisites.md)。
 
-<!-----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

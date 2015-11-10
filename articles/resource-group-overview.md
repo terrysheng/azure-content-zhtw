@@ -79,7 +79,7 @@
 
 如需範本結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
 
-如需使用範本進行部署的相關資訊，請參閱[利用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)。
+如需使用範本進行部署的相關資訊，請參閱[利用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
 如需如何建構您的範本的相關指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)。
 
@@ -101,7 +101,7 @@
 
 如需角色型存取控制的詳細資訊，請參閱 [Microsoft Azure Preview 入口網站中的角色型存取控制](role-based-access-control-configure.md)。本主題包含內建角色與允許動作的清單。內建角色包含擁有者、讀取者和參與者等一般角色，以及虛擬機器參與者、虛擬網路參與者和 SQL 安全性管理員等服務專屬角色 (僅列舉幾個可用的角色)。
 
-如需指派角色的範例，請參閱[管理資源的存取權](azure-portal/resource-group-rbac.md)。
+如需指派角色的範例，請參閱[管理資源的存取權](resource-group-rbac.md)。
 
 您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。如需詳細資訊，請參閱[使用 Azure 資源管理員來鎖定資源](resource-group-lock-resources.md)。
 
@@ -127,7 +127,7 @@
 ## 後續步驟
 
 - 若要了解如何建立範本，請參閱[撰寫範本](./resource-group-authoring-templates.md)。
-- 若要部署您所建立的範本，請參閱[部署範本](azure-portal/resource-group-template-deploy.md)
+- 若要部署您所建立的範本，請參閱[部署範本](resource-group-template-deploy.md)
 - 若要了解您可以在範本中使用的函式，請參閱[範本函式](./resource-group-template-functions.md)
 - 如需設計範本的指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)
 
@@ -135,4 +135,4 @@
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

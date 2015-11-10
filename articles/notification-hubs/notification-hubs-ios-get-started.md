@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/19/2015"
+	ms.date="11/04/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 iOS app 的通知中樞
@@ -33,7 +33,7 @@
 
 您可以在[此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted)的 GitHub 上找到本教學課程的完整程式碼。
 
-##必要條件
+##先決條件
 
 本教學課程需要下列各項：
 
@@ -302,8 +302,8 @@
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
 
 				// Construct authorization token string
-				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
-					targetUri, signature, expires, HubSasKeyName];
+				token = [NSString stringWithFormat:@"SharedAccessSignature sig=%@&se=%qu&skn=%@&sr=%@",
+					signature, expires, HubSasKeyName, targetUri];
 			}
 			@catch (NSException *exception)
 			{
@@ -365,7 +365,7 @@
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-		        if (error || httpResponse.statusCode != 200)
+		        if (error || (httpResponse.statusCode != 200 && httpResponse.statusCode != 201))
 		        {
 		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
 		        }
@@ -433,9 +433,9 @@
 11. 建置專案並確認一切正確無誤。
 
 
+> [AZURE.NOTE]如果您在 Xcode7 中遇到有關 Bitcode 支援的建置錯誤，您應該在 Xcode 中將 [建置設定] -> [啟用 Bitcode] (ENABLE\_BITCODE) 變更為 'NO'。通知中樞 SDK 目前不支援 Bitcode。
 
 您可以在 Apple [本機和推播通知程式設計指南]中找到所有可能的通知承載。
-
 
 
 ##測試應用程式
@@ -503,4 +503,4 @@
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

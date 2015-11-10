@@ -147,6 +147,7 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
 | Windows 8 | SMB 3.0 |
 | Windows Server 2012 | SMB 3.0 |
 | Windows Server 2012 R2 | SMB 3.0 |
+| Windows 10 | SMB 3.0 |
 
 ### 從執行 Windows 的 Azure 虛擬機器掛接檔案共用
 
@@ -549,4 +550,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

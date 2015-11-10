@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="11/04/2015"
 	ms.author="andkjell;billmath"/>
 
 # 整合內部部署身分識別與 Azure Active Directory
@@ -22,7 +22,7 @@ Azure AD Connect 是一種工具，用來整合您的內部部署身分識別系
 ![何謂 Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
 ## 使用 Azure AD Connect 的理由
-將內部部署目錄與 Azure AD 整合可提供一個通用身分識別來存取雲端和內部部署資源，讓使用者變得更有生產力。透過此整合，使用者和組織可以享受到下列好處：
+將內部部署目錄與 Azure AD 整合可提供通用身分識別以存取雲端和內部部署資源，進而讓您的使用者更具生產力。透過此整合，使用者和組織可以享受到下列好處：
 
 - 使用者可以使用單一身分識別來存取內部部署應用程式和雲端服務，例如 Office 365。
 
@@ -104,7 +104,7 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 ## 自訂 Azure AD Connect 同步處理
 Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預設組態。但總是會有一些情況，預設組態將不適用，因而必須進行調整。支援依照本節和連結主題所述進行變更。
 
-如果之前沒有使用過同步處理拓撲，您可能想要開始了解[技術概念](active-directory-aadconnect-technical-concepts.md)中所述的基本概念和術語。Azure AD Connect 是 MIIS2003、ILM2007 和 FIM2010 的進化。即使有些東西相同，但改變的卻更多。
+如果之前沒有使用過同步處理拓撲，您可能想要開始了解[技術概念](active-directory-aadconnectsync-technical-concepts.md)中所述的基本概念和術語。Azure AD Connect 是 MIIS2003、ILM2007 和 FIM2010 的進化。即使有些東西相同，但改變的卻更多。
 
 組態會假設組態中可能有多個樹系。在那些拓撲中，使用者物件可能會表示為另一個樹系中的連絡人。使用者也可能在另一個資源樹系中具有連結的信箱。預設組態的行為載明於[使用者和連絡人](active-directory-aadconnectsync-understanding-users-and-contacts.md)中。
 
@@ -114,7 +114,7 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 
 | 主題 | |
 | --------- | --------- |
-| 技術概念 | [Azure AD Connect 同步處理：技術概念](active-directory-aadconnect-technical-concepts.md) |
+| 技術概念 | [Azure AD Connect 同步處理：技術概念](active-directory-aadconnectsync-technical-concepts.md) |
 | 了解使用者和連絡人 | [Azure AD Connect 同步處理：了解使用者和連絡人](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | 宣告式佈建 | [Azure AD Connect 同步處理：了解宣告式佈建運算式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | 宣告式佈建函式參考 | [Azure AD Connect 同步處理：函式參考](active-directory-aadconnectsync-functions-reference.md) |
@@ -138,4 +138,4 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

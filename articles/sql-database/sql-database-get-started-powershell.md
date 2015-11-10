@@ -10,7 +10,7 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
     ms.date="10/20/2015"
@@ -144,4 +144,4 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 
 - [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

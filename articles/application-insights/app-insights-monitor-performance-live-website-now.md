@@ -99,7 +99,7 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
 ## 檢視效能遙測資料
 
-登入 [Azure Preview 入口網站](http://portal.azure.com)、瀏覽 Application Insights，然後開啟您建立的資源。
+登入 [Azure 入口網站](http://portal.azure.com)、瀏覽 Application Insights，然後開啟您建立的資源。
 
 ![依序選擇 [瀏覽]、[Application Insights]，然後選取您的應用程式](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -216,4 +216,4 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

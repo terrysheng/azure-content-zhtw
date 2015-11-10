@@ -1,6 +1,6 @@
 
 <properties 
-	pageTitle="在 AD FS 使用 Azure AD Connect Health | Microsoft Azure" 
+	pageTitle="使用 Azure AD Connect Health 搭配 AD FS | Microsoft Azure" 
 	description="這是如何監視內部部署 AD FS 基礎結構的 Azure AD Connect Health 頁面。" 
 	services="active-directory" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.date="08/14/2015" 
 	ms.author="billmath"/>
 
-# 在 AD FS 使用 Azure AD Connect Health 
+# 使用 Azure AD Connect Health 搭配 AD FS 
 下列文件適用於使用 Azure AD Connect Health 來監視 AD FS 基礎結構。
 
 ## AD FS 的警示
@@ -69,8 +69,9 @@ Azure AD Connect Health 效能監視會提供關於度量的監視資訊。選�
 ## 相關連結
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [適用於 AD FS 的 Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health 操作](active-directory-aadconnect-health-operations.md)
+* [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

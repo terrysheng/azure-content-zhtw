@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始在 Java 中使用 Azure 搜尋 | Microsoft Azure"
-	description="如何藉由使用 Java 做為程式設計語言，建置自訂 Azure 搜尋服務應用程式。"
+	pageTitle="開始在 Java 中使用 Azure 搜尋服務 | Microsoft Azure"
+	description="如何使用 Java 做為程式設計語言，在 Azure 上建置雲端託管搜尋應用程式。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # 開始在 Java 中使用 Azure 搜尋服務
@@ -34,7 +34,7 @@
 
 ## 關於資料
 
-此範例應用程式使用的[美國地理服務中心 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) 資料已依據羅德島州進行篩選，藉此減少資料集的大小。我們將使用此資料建置可傳回地標建築物 (例如醫院和學校) 及地理特徵 (例如河流、湖泊和山峰) 的搜尋應用程式。
+此範例應用程式使用的[美國地理服務中心 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) 資料已依據羅德島州進行篩選，藉此減少資料集的大小。我們將使用此資料，建置可傳回地標建築物 (例如醫院和學校) 及地理特徵 (例如河流、湖泊和山峰) 等相關資料的搜尋應用程式。
 
 在此應用程式中，**SearchServlet.java** 程式會使用[索引子](https://msdn.microsoft.com/library/azure/dn798918.aspx)建構來建置及載入索引，以從公用 Azure SQL Database 擷取篩選過的 USGS 資料集。程式碼中提供線上資料來源的預先定義認證和連接資訊。關於資料存取，不需要進一步設定。
 
@@ -57,7 +57,7 @@
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在動態工具列中依序按一下 [新增] > [資料 + 儲存體] > [搜尋]。
+2. 在動態工具列中，依序按一下 [新增] > [資料 + 儲存體] > [搜尋]。
 
      ![][1]
 
@@ -83,7 +83,7 @@
 注意 Jumpbar 中的通知。服務一旦準備就緒可供使用時就會顯示通知。
 
 <a id="sub-2"></a>
-## 尋找 Azure Search 服務的服務名稱和 API 金鑰
+## 尋找 Azure 搜尋服務的服務名稱和 API 金鑰
 
 建立服務之後，可以返回入口網站取得 URL 和 `api-key`。如果想要連接至搜尋服務，您必須同時擁有 URL 和 `api-key` 才能驗證呼叫。
 
@@ -95,7 +95,7 @@
 
 3. 複製服務 URL 和系統管理金鑰，稍後會需要將它們加到 **config.properties** 檔案中。
 
-## 下載範例專案
+## 下載範例檔案
 
 1. 前往 Github 的 [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197)。
 
@@ -103,7 +103,7 @@
 
 3. 範例檔案為唯讀。請以滑鼠右鍵按一下資料夾內容，然後清除唯讀屬性。
 
-所有後續的檔案修改及執行陳述式都會用到此資料夾中的檔案。
+所有後續的檔案修改及執行陳述式都會用到此資料夾的檔案。
 
 ## 匯入專案
 
@@ -231,4 +231,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

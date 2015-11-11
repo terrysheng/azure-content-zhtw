@@ -67,7 +67,8 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | SQL Database | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | 搜尋 | 是 | [是](https://portal.azure.com/#create/Microsoft.Search) | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL 資料倉儲 | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | 否 | 否 | - | - | - | | 受管理快取 | 否 | 否 | - | - | - |
+| StorSimple | 否 | 否 | - | - | - |
+| 受管理快取 | 否 | 否 | - | - | - |
 
 ## Analytics
 
@@ -77,7 +78,8 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 串流分析 | 是 | [是](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | 是 | [是](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Data Factory | 是 | [是](https://portal.azure.com/#create/Microsoft.DataFactory) | 是 | [建立 Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| 機器學習服務 | 否 | 否 | - | - | - | | 資料目錄 | 否 | 否 | - | - | - |
+| 機器學習服務 | 否 | 否 | - | - | - |
+| 資料目錄 | 否 | 否 | - | - | - |
 
 ## 網路
 
@@ -103,7 +105,8 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk 服務 | 是 | 否 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | 服務匯流排 | 是 | 否 | | [服務匯流排 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| 備份 | 否 | 否 | - | - | - | | Site Recovery | 否 | 否 | - | - | - |
+| 備份 | 否 | 否 | - | - | - |
+| Site Recovery | 否 | 否 | - | - | - |
 
 ## 身分識別與存取管理 
 
@@ -230,4 +233,4 @@ Azure PowerShell 0.9.8 請使用：
 - 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](./azure-portal/resource-group-template-deploy.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

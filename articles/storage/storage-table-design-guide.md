@@ -567,10 +567,10 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 #### 相關的模式和指導方針  
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
--	[實體群組交易](#entity-group-transactions)
--	[合併或取代](#merge-or-replace)
+-	[實體群組交易](#entity-group-transactions)  
+-	[合併或取代](#merge-or-replace)  
 
->[AZURE.NOTE]如果交易隔離對您的方案而言很重要，您應該考慮重新設計，讓您能夠使用 EGT 資料表。
+>[AZURE.NOTE] 如果交易隔離對您的方案而言很重要，您應該考慮重新設計，讓您能夠使用 EGT 資料表。
 
 ### 索引實體模式
 維護索引項目，啟用有效的搜尋以傳回實體清單。
@@ -1575,4 +1575,4 @@ Storage Analytics 會在內部緩衝處理記錄訊息，然後定期更新適�
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!----HONumber=Oct15_HO4-->
+<!-----HONumber=Oct15_HO4-->

@@ -42,4 +42,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md)提交您的意見反應。
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

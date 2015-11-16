@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="11/04/2015" 
     ms.author="elizapo" />
 
 
@@ -25,6 +25,9 @@
 是否尚未建立集合？ 如需步驟，請參閱[建立混合式集合](remoteapp-create-hybrid-deployment.md)。
 
 如果在建立集合時發生問題，或集合未如您預期地運作，請參閱下列資訊。
+
+## 您的映像無效 ##
+如果您在等候 Azure 佈建集合時，看到如「GoldImageInvalid」的訊息，表示範本映像不符合[已定義的映像需求](remoteapp-imagereqs.md)。因此，請閱讀[需求](remoteapp-imagereqs.md)並修正映像，然後再嘗試重新建立集合。
 
 ## VNET 是否使用強制通道？ ##
 RemoteApp 目前不支援使用已啟用強制通道的 VNET。如果您需要這個功能，請連絡 [RemoteApp 小組](mailto:remoteappforum@microsoft.com)來請求支援。
@@ -81,4 +84,4 @@ RemoteApp 目前不支援使用已啟用強制通道的 VNET。如果您需要�
 
 建立或新增的網域名稱必須是內部網域名稱 (非 Azure AD 網域名稱)，而且必須是可解析的 DNS 格式 (contoso.local)。例如，您有 Active Directory 內部名稱 (contoso.local) 和 Active Directory UPN (contoso.com) - 您必須在建立集合時使用內部名稱。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="在 Visual Studio 中管理 Service Fabric 應用程式"
-   description="您可以透過 Visual Studio 管理 Microsoft Azure Service Fabric 應用程式與服務。"
+   pageTitle="在 Visual Studio 中管理應用程式 | Microsoft Azure"
+   description="使用 Visual Studio 來建立、開發、封裝、部署和偵錯 Service Fabric 應用程式和服務。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# 在 Visual Studio 中管理 Service Fabric 應用程式
+# 使用 Visual Studio 簡化撰寫及管理 Service Fabric 應用程式。
 
-您可以透過 Visual Studio 管理 Microsoft Azure Service Fabric 應用程式與服務。[設定開發環境](../service-fabric-setup-your-development-environment)後，您可以使用 Visual Studio 在本機開發叢集中建立 Service Fabric 應用程式、新增服務，或封裝、註冊及部署應用程式。
+您可以透過 Visual Studio 管理 Service Fabric 應用程式與服務。[設定開發環境](service-fabric-setup-your-development-environment.md)後，您可以使用 Visual Studio 在本機開發叢集中建立 Service Fabric 應用程式、新增服務，或封裝、註冊及部署應用程式。
 
-若要管理 Service Fabric 應用程式，請到 [方案總管] 中，在應用程式專案上按一下滑鼠右鍵。
+若要管理應用程式，請到 [方案總管] 中，在應用程式專案上按一下滑鼠右鍵。
 
 ![在應用程式專案上按一下滑鼠右鍵以管理 Service Fabric 應用程式][manageservicefabric]
 
 ## 部署 Service Fabric 應用程式
 
-部署 Service Fabric 應用程式會將以下幾個步驟結合成一個簡單的作業。
+部署應用程式會將以下幾個步驟結合成一個簡單的作業。
 
 1. 建立應用程式封裝
 2. 將應用程式封裝上傳至映像存放區
@@ -79,4 +79,4 @@
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

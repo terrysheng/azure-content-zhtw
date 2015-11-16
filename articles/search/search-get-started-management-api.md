@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="開始使用 Azure 搜尋服務管理 REST API" 
-	description="開始使用 Azure 搜尋服務管理 REST API" 
+	pageTitle="開始使用 Azure 搜尋服務管理 REST API | Microsoft Azure" 
+	description="使用管理 REST API 管理託管的雲端 Azure 搜尋服務" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # 開始使用 Azure 搜尋管理 REST API
@@ -204,4 +204,4 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

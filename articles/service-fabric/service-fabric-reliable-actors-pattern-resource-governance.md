@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actor 資源管理設計模式"
-   description="如何將需調整有限資源應用程式模組化的 Service Fabric Actor 設計模式"
+   pageTitle="資源管理設計模式 | Microsoft Azure"
+   description="如何將 Service Fabric Reliable Actor 使用在需使用有限資源來達成應用程式相應增加需求的設計模式。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,6 +17,7 @@
    ms.author="vturecek"/>
 
 # Reliable Actor 設計模式：資源管理
+
 企業或其他開發人員能輕鬆地辨識此模式和相關案例，他們在內部部署或雲端擁有無法立即調整的有限資源，或需要將大規模的應用程式與資料移至雲端。
 
 這些企業的有限資源 (像是資料庫)，皆在相應增加的硬體上執行。任何有長期企業經驗的人都知道，這是常見的內部部署狀況。即使是在雲端規模，我們也看過這種情況，當雲端服務嘗試與超過 64K TCP 上限的位址/連接埠 Tuple 連線，或嘗試連接到會限制並行連線數目的雲端架構的資料庫時便會發生。
@@ -30,6 +31,7 @@
 ![][1]
 
 ## 模組化快取與動作項目的案例
+
 基本上，我們將存取資源模組化成一個或多個動作項目，並作為至資源或群組的資源的 Proxy (例如連接)。您可以透過個別動作項目或協調動作項目直接管理資源動作項目。為了讓您更具體了解詳情，我們將說明滿足常見於因效能和延展性考量，而進行儲存體層資料分割 (也稱為分區化) 的需求。我們的第一個選項很基本：我們可以使用靜態函式對應和解析動作項目至下游資源。這類函數可以傳回像是指定輸入的連接字串。這完全取決於我們實作該函式的方式。當然，這種方法有其缺點，例如靜態親和性會導致重新分割資源或重新將動作項目對應至資源變得很困難。以下是一個非常簡單的範例，我們利用使用者識別碼和使用區域識別資料庫伺服器，以進行模數算術判定資料庫的名稱。
 
 ## 資源控管程式碼範例 – 靜態解析度
@@ -140,6 +142,7 @@ public class Resolver : Actor<ResolverState>, IResolver
 ```
 
 ## 存取具有限功能的資源
+
 現在讓我們看看另一個範例。寶貴資源如資料庫、儲存體帳戶和具有限輸送量功能的檔案系統獨佔存取。我們的案例如下：我們想要使用負責處理並保存事件的動作項目 (稱為 EventProcessor) 以處理事件。為了簡單起見，在此案例中為處理 .CSV 檔案。雖然我們可以依照上述資料分割方法向外延展資源，我們還是必須應付並行處理的問題。也就是為何我們選擇使用以檔案為基礎的範例來說明此特定點，從多個動作項目寫入單一檔案將會引發並行處理問題。若要解決此問題，我們將介紹另一個有限資源獨佔擁有權的動作項目，稱為 EventWriter。其案例如下圖所示：
 
 ![][3]
@@ -398,6 +401,7 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 
 
 ## 後續步驟
+
 [模式：智慧型快取](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [模式：分散式網路和圖形](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -417,4 +421,4 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

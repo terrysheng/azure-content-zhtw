@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/20/2015"
+   ms.date="11/03/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect︰版本發行歷程記錄
@@ -21,6 +21,44 @@
 Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Connect。並非所有新增項目都適用於所有的對象。
 
 本文旨在協助您追蹤已發行的版本，以及了解您是否需要更新為最新版本。
+
+相關連結：
+
+- 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](active-directory-aadconnect-accounts-permissions.md#upgrade)
+- [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.0.9125.0
+發行日期：2015 年 11 月
+
+**新功能︰**
+
+- 可以將 ADFS 重新設定為 Azure AD 信任。
+- 可以重新整理 Active Directory 結構描述並重新產生同步處理規則。
+- 可以停用同步處理規則。
+- 可以在同步處理規則中定義 "AuthoritativeNull" 做為新的常值。
+
+**新的預覽功能：**
+
+- [適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)。
+- 支援[Azure AD 網域服務](active-directory-ds-getting-started.md)密碼同步處理
+
+**新的支援案例：**
+
+- 支援多個內部部署的 Exchange 組織。如需詳細資訊，請參閱[內含多個 Active Directory 樹系的混合式部署](https://technet.microsoft.com/zh-TW/library/jj873754.aspx)。
+
+**已修正的問題：**
+
+- 密碼同步處理問題：
+    - 從範圍外移到範圍內的物件不會同步處理其密碼。這包含 OU 及屬性篩選。
+    - 選取要包含在同步處理的新 OU 不需要完整密碼同步處理。
+    - 啟用已停用的使用者時，不會同步處理密碼。
+    - 密碼重試佇列為無限，而且已移除 5000 個物件要淘汰的先前限制。
+    - [改良的疑難排解](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)。
+- 無法連接到具 Windows Server 2016 樹系功能等級的 Active Directory。
+- 初始安裝後，無法變更群組篩選所使用的群組。
+- 對於在啟用密碼回寫的情況下執行密碼變更的每個使用者，將無法再於 Azure AD Connect 伺服器上建立新的使用者設定檔。
+- 無法在同步處理規則範圍中使用長整數值。
+- 如果有無法連線的網域控制站，[裝置回寫] 核取方塊會維持停用狀態。
 
 ## 1\.0.8667.0
 發行日期：2015 年 8 月
@@ -41,6 +79,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 - 如果已加入擴充屬性，則無法啟用和停用「預備模式」。
 - 因為 Active Directory 連接器上的密碼不正確，所以有些設定的密碼回寫失敗。
 - 如果 dn 用於屬性篩選，則無法升級 DirSync。
+- 使用密碼重設時，CPU 使用率過高。
 
 **已移除的預覽功能：**
 
@@ -160,4 +199,4 @@ AD 帳戶必須獲得其他權限，才能讀取來自 AD 的密碼雜湊。要�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

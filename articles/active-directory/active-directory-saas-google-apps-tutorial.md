@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="11/01/2015"
    ms.author="liviodlc"/>
 
 #教學課程：如何整合 Google Apps 與 Azure Active Directory
@@ -25,6 +25,12 @@
 1. 若要透過 [Azure 管理入口網站](https://manage.windowsazure.com)存取 Azure Active Directory，您必須先具備有效的 Azure 訂用帳戶。
 
 2. 您必須擁有 [Google Apps for Work](https://www.google.com/work/apps/) 或 [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/) 的有效租用戶。您可以使用免費試用帳戶來使用任何服務。
+
+##影片教學課程
+
+如何在 2 分鐘內啟用單一登入至 Google Apps：
+
+> [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
 
 ##步驟 1：將 Google Apps 加入您的目錄
 
@@ -42,11 +48,11 @@
 
 	![按一下 [新增] 以加入新的應用程式。][2]
 
-5. 在 [您想要執行什麼動作] 對話方塊中，按一下 [從資源庫新增應用程式]。
+5. 在 [欲執行動作] 對話方塊中，按一下 [從組件庫中新增應用程式]。
 
-	![按一下 [從資源庫新增應用程式]。][3]
+	![按一下 [從資源庫中新增應用程式]。][3]
 
-6. 在搜尋方塊中，輸入 **Google Apps**。從結果選取 [Google Apps]，然後按一下 [完成] 加入應用程式。
+6. 在**搜尋方塊**中，輸入 **Google Apps**。然後從結果選取 [Google Apps]，並按一下 [完成] 加入應用程式。
 
 	![新增 [Google Apps]。][4]
 
@@ -70,11 +76,51 @@
 
 	![輸入您的租用戶 URL][8]
 
-4. 在 [在 Google Apps 設定單一登入] 頁面上，按一下 [下載憑證]，然後在本機電腦上儲存憑證檔案。
+4. 在 [自動設定單一登入] 頁面上，輸入 Google Apps 租用戶的網域。然後按下 [設定] 按鈕。
+
+	![輸入您的網域名稱並按下 [設定]。](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.png)
+
+	> [AZURE.NOTE]如果您想要手動設定單一登入，請參閱[選擇性步驟：手動設定單一登入](#optional-step-manually-configure-single-sign-on)
+
+5. 登入您的 Google Apps 管理員帳戶。然後按一下 [允許] 以允許 Azure Active Directory 在您的 Google Apps 訂用帳戶中進行組態變更。
+
+	![輸入您的網域名稱並按下 [設定]。](./media/active-directory-saas-google-apps-tutorial/ga-consent.PNG)
+
+6. 在 Azure Active Directory 設定 Google Apps 租用戶時請稍候幾秒的時間。完成後按 [下一步]。
+
+10. 在對話方塊的最後一頁，如果您想要收到電子郵件通知與此單一登入組態相關的錯誤和警告，請輸入電子郵件地址。
+
+	![輸入您的電子郵件地址。][14]
+
+11. 按一下 [完成] 以關閉對話方塊。若要測試您的組態，請參閱下面標題為[指派使用者至 Google Apps](#step-4-assign-users-to-google-apps) 的章節。
+
+##選擇性步驟：手動設定單一登入
+
+如果您想要手動設定單一登入，請完成下列步驟：
+
+1. 在 Azure AD 中 Google Apps 的 [快速入門] 頁面上，按一下 [設定單一登入] 按鈕。
+
+	![[設定單一登入] 按鈕][6]
+
+2. 此時會開啟一個對話方塊，您會看到一個畫面，詢問「您要讓使用者如何登入 Google Apps?」 選取 [Azure AD 單一登入]，然後按 [下一步]。
+
+	![選取 [Azure AD 單一登入]][7]
+
+	> [AZURE.NOTE]若要深入了解有關不同單一登入的選項，請[按一下這裡](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+
+3. 在 [設定應用程式設定] 頁面的 [登入 URL] 欄位中，使用下列格式輸入您的 Google Apps 租用戶 URL：`https://mail.google.com/a/<yourdomain>`
+
+	![輸入您的租用戶 URL][8]
+
+4. 在 [自動設定單一登入] 頁面上，選取標示為 [手動設定應用程式以進行單一登入] 的核取方塊。然後按 [下一步]。
+
+	![按一下 [手動組態]。](./media/active-directory-saas-google-apps-tutorial/ga-auto-skip.PNG)
+
+4. 在 [設定在 Google Apps 單一登入] 頁面上，按一下 [下載憑證]，然後在本機電腦上儲存憑證檔案。
 
 	![下載憑證。][9]
 
-5. 在瀏覽器中開啟新索引標籤，然後使用系統管理員帳戶登入 [Google Apps 管理控制台](http://admin.google.com/)。
+5. 在瀏覽器中開啟新索引標籤，然後使用系統管理員帳戶登入 [Google Apps 管理主控台](http://admin.google.com/)。
 
 6. 按一下 [安全性]。如果您沒有看到連結，它可能隱藏在畫面底部的 [其他控制項] 功能表之下。
 
@@ -90,11 +136,11 @@
 
 	- 選取 [使用協力廠商身分識別提供者設定 SSO]。
 
-	- 在 Azure AD 中，複製 [單一登入服務 URL]，並將它貼到 Google Apps 中的 [登入頁面 URL] 欄位。
+	- 在 Azure AD 中，複製**單一登入服務 URL**，並將它貼到 Google Apps 中的 [登入頁面 URL] 欄位。
 
-	- 在 Azure AD 中，複製 [單一登出服務 URL]，並將它貼到 Google Apps 中的 [登出頁面 URL] 欄位。
+	- 在 Azure AD 中，複製**單一登出服務 URL**，並將它貼到 Google Apps 中的 [登出頁面 URL] 欄位。
 
-	- 在 Azure AD 中，複製 [變更密碼 URL]，並將它貼到 Google Apps 中的 [變更密碼 URL] 欄位。
+	- 在 Azure AD 中，複製**變更密碼 URL**，並將它貼到 Google Apps 中的 [變更密碼 URL] 欄位。
 
 	- 在 Google Apps 中，對於 [驗證憑證]，上傳您在步驟 #4 中下載的憑證。
 
@@ -108,7 +154,7 @@
 
 	![輸入您的電子郵件地址。][14]
 
-11. 按一下 [完成] 關閉對話方塊。若要測試您的組態，請參閱下面標題為[指派使用者至 Google Apps](#step-4-assign-users-to-google-apps) 的章節。
+11. 按一下 [完成] 以關閉對話方塊。若要測試您的組態，請參閱下面標題為[指派使用者至 Google Apps](#step-4-assign-users-to-google-apps) 的章節。
 
 ##步驟 3：啟用自動的使用者佈建
 
@@ -126,17 +172,17 @@
 
 	![按一下 [API 參考]。][16]
 
-	> [AZURE.IMPORTANT]對於您想要佈建至 Google Apps 的每位使用者，其使用者名稱在 Azure Active Directory 中「必須」繫結至自訂網域。例如，Google Apps 將不會接受如 bob@contoso.onmicrosoft.com 的使用者名稱，但是會接受 bob@contoso.com。您可以在 Azure AD 中編輯現有使用者的內容，來變更其網域。以下將說明如何設定 Azure Active Directory 與 Google Apps 兩者的自訂網域。
+	> [AZURE.IMPORTANT]對於您想要佈建至 Google Apps 的每位使用者，其使用者名稱在 Azure Active Directory 中*必須*繫結至自訂網域。例如，Google Apps 將不會接受如 bob@contoso.onmicrosoft.com 的使用者名稱，但是會接受 bob@contoso.com。您可以在 Azure AD 中編輯現有使用者的內容，來變更其網域。以下將說明如何設定 Azure Active Directory 與 Google Apps 兩者的自訂網域。
 
 4. 如果您還沒將自訂網域名稱加入 Azure Active directory，請執行下列步驟：
 
 	- 在 [Azure 管理入口網站](https://manage.windowsazure.com)的左方瀏覽窗格中，按一下 [Active Directory]。在目錄清單中，選取您的目錄。 
 
-	- 從最上層功能表按一下 [網域]，然後按一下 [新增自訂網域]。
+	- 從最上層功能表按一下 [網域]，然後按一下 [加入自訂網域]。
 
 		![新增自訂網域][17]
 
-	- 在 [網域名稱] 欄位中輸入您的網域名稱。這個網域名稱必須與您要用於 Google Apps 的網域名稱相同。準備好時，按一下 [新增] 按鈕。
+	- 在 [網域名稱] 欄位中輸入您的網域名稱。這個網域名稱必須與您要用於 Google Apps 的網域名稱相同。準備好時，按一下 [加入] 按鈕。
 
 		![輸入您的網域名稱。][18]
 
@@ -152,11 +198,11 @@
 
 		![按一下 [網域]][20]
 
-	- 按一下 [新增網域或網域別名]。
+	- 按一下 [加入網域或網域別名]。
 
 		![新增網域][21]
 
-	- 選取 [新增另一個網域]，並輸入您想要新增的網域名稱。
+	- 選取 [加入另一個網域]，並輸入您想要加入的網域名稱。
 
 		![輸入您的網域名稱][22]
 
@@ -166,15 +212,15 @@
 
 	> [AZURE.WARNING]如果您變更您 Google Apps 租用戶的主要網域，而且如果您已經向 Azure AD 設定單一登入，那麼就必須重複[步驟 2：啟用單一登入](#step-two-enable-single-sign-on)下的步驟 #3。
 
-6. 在 [Google Apps 管理控制台](http://admin.google.com/)中，按一下 [管理角色]。
+6. 在 [Google Apps 管理主控台](http://admin.google.com/)中，按一下 [管理員角色]。
 
 	![按一下 [Google Apps]][26]
 
-7. 決定您想要用來管理使用者佈建的管理帳戶。對於該帳戶的 [管理角色]，編輯該角色的 [權限]。確定它已啟用所有 [管理 API 權限]，以便讓此帳戶可以用來佈建。
+7. 決定您想要用來管理使用者佈建的管理帳戶。對於該帳戶的**管理員角色**，編輯該角色的**權限**。確定它已啟用所有 [管理 API 權限]，以便讓此帳戶可以用來佈建。
 
 	![按一下 [Google Apps]][27]
 
-	> [AZURE.NOTE]如果您要設定生產環境，最佳作法是特別針對此步驟在 Google Apps 中建立新的管理帳戶。這些帳戶必須具有與其相關聯的管理角色，具備必要的 API 權限。
+	> [AZURE.NOTE]如果您要設定生產環境，最佳作法是特別針對此步驟在 Google Apps 中建立新的管理帳戶。這些帳戶必須具有與其相關聯的管理員角色，具備必要的 API 權限。
 
 8. 在 Azure Active Directory 中，按一下最上層功能表中的 [應用程式]，然後按一下 [Google Apps]。
 
@@ -192,7 +238,7 @@
 
 	![確認權限。][28]
 
-12. 按一下 [完成] 關閉對話方塊。
+12. 按一下 [完成] 以關閉對話方塊。
 
 ##步驟 4：指派使用者至 Google Apps
 
@@ -210,7 +256,7 @@
 
  - 如果已啟用自動的使用者佈建，您會看到提示，定義使用者在 Google Apps 中要具備何種角色。幾分鐘之後，新佈建的使用者應該就會出現在 Google Apps 環境中。
 
-4. 若要測試您的單一登入設定，請開啟 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 的 [存取面板]、登入測試帳戶，然後按一下 [Google Apps]。
+4. 若要測試您的單一登入組態，請開啟 [https://myapps.microsoft.com](https://myapps.microsoft.com/) 的 [存取面板]、登入測試帳戶，然後按一下 [Google Apps]。
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
@@ -246,4 +292,4 @@
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

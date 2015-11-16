@@ -1,6 +1,6 @@
 <properties
 	pageTitle="如何使用 Azure 搜尋服務來搜尋 StackExchange 資料 | Microsoft Azure"
-	description="了解如何使用 Azure 搜尋服務執行 REST 搜尋。"
+	description="了解如何使用 Azure 搜尋服務 (Microsoft Azure 上的雲端託管搜尋服務) 執行 REST 搜尋。"
 	services="search"
 	documentationCenter=""
 	authors="liamca"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="10/15/2015"
+	ms.date="11/04/2015"
 	ms.author="liamca"/>
 
 # 如何使用 Azure 搜尋服務來搜尋 StackExchange 資料
@@ -109,4 +109,4 @@ Brent 已藉由示範如何將資料預備至 SQL Database，進行了很多困�
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

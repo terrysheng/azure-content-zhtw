@@ -1,16 +1,16 @@
 
 <properties
-	pageTitle="Azure 備份 - 管理虛擬機器 | Microsoft Azure"
-	description="了解如何管理 Azure 虛擬機器"
+	pageTitle="管理和監視 Azure 虛擬機器備份 | Microsoft Azure"
+	description="了解如何管理和監視 Azure 虛擬機器備份"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
-# 管理和監視 Azure 虛擬機器的備份
+# 管理和監視 Azure 虛擬機器備份
 
 ## 管理受保護的虛擬機器
 
@@ -39,7 +39,7 @@
 
 若要進行虛擬機器的隨選備份：
 
-1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 做為 [類型] \(若尚未選取)，然後按一下 [選取] 按鈕。
+1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 做為 [類型] (若尚未選取)，然後按一下 [選取] 按鈕。
 
     ![VM 類型](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -249,4 +249,4 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 - [還原 Azure VM](backup-azure-restore-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

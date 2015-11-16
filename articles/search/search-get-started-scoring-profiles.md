@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何使用 Azure Search 中的評分設定檔" 
-	description="開始使用 Azure Search 中的評分設定檔" 
+	pageTitle="如何使用 Azure Search 中的評分設定檔 | Microsoft Azure" 
+	description="在 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 中透過評分設定檔調整搜尋排名。" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # 如何使用 Azure Search 中的評分設定檔
@@ -126,4 +126,4 @@
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

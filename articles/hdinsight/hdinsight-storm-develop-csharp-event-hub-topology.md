@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/02/2015"
+   ms.date="10/30/2015"
    ms.author="larryfr"/>
 
 # 利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
@@ -28,15 +28,15 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 
 [AZURE.NOTE]本文件的步驟只適用於以 Windows 為基礎的 HDInsight 叢集。Java 版本的這個專案將會使用 Linux 或 Windows 叢集，請參閱[使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](hdinsight-storm-develop-java-event-hub-topology.md)。
 
-## 必要條件
+## 先決條件
 
-* <a href="../hdinsight-storm-getting-started/" target="_blank">Apache Storm on HDInsight 叢集</a>
+* [Apache Storm on HDInsight 叢集](hdinsight-storm-getting-started.md)
 
-* <a href="../service-bus-event-hubs-csharp-ephcs-getstarted/" target="_blank">Azure 事件中樞</a>
+* [Azure 事件中樞](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
 
-* <a href="http://azure.microsoft.com/downloads/" target="_blank">Azure .NET SDK</a>
+* [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 
-* <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">HDInsight Tools for Visual Studio</a> (2015/2/17 版本或更新版本)
+* [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 ## 已完成的專案
 
@@ -557,4 +557,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

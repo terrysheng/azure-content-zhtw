@@ -29,7 +29,7 @@
 ## 訂用帳戶配額
 資源|預設限制|上限
 ---|---|---
-Batch 帳戶 (每一區域的每一訂用帳戶)|1|20
+Batch 帳戶 (每一區域的每一訂用帳戶)|1|50
 
 ## Batch 帳戶配額
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -95,4 +95,4 @@ Azure 支援會與您連絡。完成要求需要花費最多 2 個工作天。
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

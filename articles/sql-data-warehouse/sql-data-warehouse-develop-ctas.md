@@ -13,29 +13,95 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/03/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 在 SQL 資料倉儲中的 Create Table As Select (CTAS)
-Create table as select 或 CTAS 是最重要的可用 T-SQL 功能之一。這是根據 Select 陳述式的輸出建立新資料表的完全平行化作業。您可以根據意願將它視為 SELECT..INTO 的增強版本。
+Create table as select 或 CTAS 是最重要的可用 T-SQL 功能之一。這是根據 SELECT 陳述式的輸出建立新資料表的完全平行化作業。CTAS 是建立資料表複本最簡單快速的方法。您可以根據意願將它視為 SELECT..INTO 的增強版本。本文件提供 CTAS 的範例和最佳做法。
 
-CTAS 也可以用來解決上面所列的數個不支援的功能。這通常可以證明是雙贏的情況，因為您的程式碼不但能夠相容，而且通常可以在 SQL 資料倉儲上更快速執行。這是完全平行化設計的結果。
+## 使用 CTAS 複製資料表
 
-> [AZURE.NOTE]嘗試考慮「CTAS 優先」。如果您認為您可以使用 CTAS 解決問題，即使您正在撰寫更多資料做為結果，這通常是最佳的解決方法。
+CTAS 最常見的用途之一，就是建立資料表複本，讓您可以變更 DDL。例如，您原本將資料表建立為 ROUND\_ROBIN，而現在想變更為在資料行上散發的資料表，CTAS 就是您將變更散發資料行的方式。CTAS 也可用於變更資料分割、索引，或資料行類型。
 
-可以使用 CTAS 解決的案例包括：
+假設您因為在 CREATE TABLE 中沒有指定散發資料行，而使用 ROUND\_ROBIN 散發的預設散發類型建立資料表。
+
+```
+CREATE TABLE FactInternetSales
+(
+	ProductKey int NOT NULL,
+	OrderDateKey int NOT NULL,
+	DueDateKey int NOT NULL,
+	ShipDateKey int NOT NULL,
+	CustomerKey int NOT NULL,
+	PromotionKey int NOT NULL,
+	CurrencyKey int NOT NULL,
+	SalesTerritoryKey int NOT NULL,
+	SalesOrderNumber nvarchar(20) NOT NULL,
+	SalesOrderLineNumber tinyint NOT NULL,
+	RevisionNumber tinyint NOT NULL,
+	OrderQuantity smallint NOT NULL,
+	UnitPrice money NOT NULL,
+	ExtendedAmount money NOT NULL,
+	UnitPriceDiscountPct float NOT NULL,
+	DiscountAmount float NOT NULL,
+	ProductStandardCost money NOT NULL,
+	TotalProductCost money NOT NULL,
+	SalesAmount money NOT NULL,
+	TaxAmt money NOT NULL,
+	Freight money NOT NULL,
+	CarrierTrackingNumber nvarchar(25),
+	CustomerPONumber nvarchar(25)
+);
+```
+
+現在您想建立此資料表的新複本搭配叢集的資料行存放區索引，讓您可以利用叢集的資料行存放區資料表的效能。您也會想要在 ProductKey 上散發此資料表，因為您預期會聯結此資料行，並在聯結 ProductKey 期間避免資料移動。最後您也會想在 OrderDateKey 上加入資料分割，如此就可以透過卸除舊的資料分割來快速刪除舊資料。以下是 CTAS 陳述式，會將您的舊資料表複製到新資料表。
+
+```
+CREATE TABLE FactInternetSales_new
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = HASH(ProductKey),
+    PARTITION
+    (
+        OrderDateKey RANGE RIGHT FOR VALUES 
+        (
+        20000101,20010101,20020101,20030101,20040101,20050101,20060101,20070101,20080101,20090101,
+        20100101,20110101,20120101,20130101,20140101,20150101,20160101,20170101,20180101,20190101,
+        20200101,20210101,20220101,20230101,20240101,20250101,20260101,20270101,20280101,20290101
+        )
+    )
+)
+AS SELECT * FROM FactInternetSales;
+```
+
+最後可以重新命名您的資料表以切換到新的資料表，然後卸除舊資料表。
+
+```
+RENAME OBJECT FactInternetSales TO FactInternetSales_old;
+RENAME OBJECT FactInternetSales_new TO FactInternetSales;
+
+DROP TABLE FactInternetSales_old;
+```
+
+> [AZURE.NOTE]Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱主題群組＜開發＞之中的[統計資料][]主題。
+
+## 使用 CTAS 解決不支援的功能
+
+CTAS 也可以用來解決以下數個不支援的功能。這通常可以證明是雙贏的情況，因為您的程式碼不但能夠相容，而且通常可以在 SQL 資料倉儲上更快速執行。這是完全平行化設計的結果。可以使用 CTAS 解決的案例包括：
 
 - SELECT..INTO
 - ANSI JOINS on UPDATEs 
 - ANSI JOINs on DELETEs
 - MERGE 陳述式
 
-這份文件也包含利用 CTAS 撰寫程式碼時的一些一些最佳作法。
+> [AZURE.NOTE]嘗試考慮「CTAS 優先」。如果您認為您可以使用 CTAS 解決問題，即使您正在撰寫更多資料做為結果，這通常是最佳的解決方法。
+> 
 
 ## SELECT..INTO
 您可能會發現 SELECT...INTO 會出現在解決方案中的幾個地方。
 
-以下是 SELECT..INTO 的一個範例：
+以下是 SELECT..INTO 陳述式的範例：
 
 ```
 SELECT *
@@ -50,7 +116,6 @@ CREATE TABLE #tmp_fct
 WITH
 (
     DISTRIBUTION = ROUND_ROBIN
-,   LOCATION = USER_DB
 )
 AS
 SELECT  *
@@ -58,7 +123,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-使用 CTAS 表示您也可以指定資料散發喜好設定和選擇性索引以及資料表。
+> [AZURE.NOTE]CTAS 目前需要指定散發資料行。如果您並不想要嘗試變更散發資料行，若您選取與基礎資料表相同的散發資料行作為避免資料移動的策略，則 CTAS 將會執行的最快。如果您正在建立小資料表，其效能並非重要因素，那麼您可以指定 ROUND\_ROBIN，來避免必須決定散發資料行。
 
 ## update 陳述式的 ANSI 聯結取代
 
@@ -357,10 +422,11 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Article references-->
 [開發概觀]: sql-data-warehouse-overview-develop.md
+[統計資料]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [CTAS]: https://msdn.microsoft.com/zh-TW/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

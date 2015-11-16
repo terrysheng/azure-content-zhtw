@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Database 的 XEvent 事件檔案程式碼 | Microsoft Azure" 
+	pageTitle="SQL Database 的 XEvent 信號緩衝區程式碼 | Microsoft Azure" 
 	description="提供 Transact-SQL 程式碼範例，可在 Azure SQL Database 中輕鬆又快速使用環形緩衝區目標。" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -377,4 +377,4 @@ Azure SQL Database 上擴充事件的主要主題是：
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="技術概觀"
-   description="Service Fabric 技術概觀。討論重要概念與架構概觀"
+   pageTitle="Service Fabric 技術概觀 | Microsoft Azure"
+   description="Service Fabric 技術概觀。討論重要概念與架構概觀。"
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -54,4 +54,4 @@ Service Fabric 是分散式系統平台，可讓您輕鬆建置可擴充、可�
 - [應用程式案例](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 搜尋中的服務限制 | Microsoft Azure"
-	description="容量計劃中使用的 Azure 搜尋限制以及要求和回應的最大限制。"
+	description="Azure 搜尋服務 (託管的雲端搜尋服務) 的容量計劃中使用的服務限制，以及要求與回應的最大限制。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/18/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Azure 搜尋中的服務限制
@@ -39,6 +39,7 @@ Object|限制
 索引子數目上限|3
 索引子資料來源數目上限|3
 每個索引子引動過程的索引文件數目上限|10,000
+最大索引子執行時間|3 分鐘
 
 請注意這裡沒有與查詢相關聯的配額或最大限制。每秒查詢 (QPS) 會根據可用的頻寬和系統資源的爭用而有所不同。可備份共用服務的 Azure 計算和儲存體資源由多個訂閱者共用，因此您解決方案的 QPS 會根據有多少其他工作負載在同時執行而有所不同。
 
@@ -132,4 +133,4 @@ API 金鑰可用於服務驗證。有兩種類型。系統管理金鑰在要求�
 - 每一頁搜尋結果最多傳回 1000 個文件
 - 每個建議 API 要求最多傳回 100 個建議
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

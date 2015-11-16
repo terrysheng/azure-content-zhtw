@@ -7,12 +7,12 @@
         manager="dwrede" />
 
 <tags ms.service="app-service-mobile"
-ms.workload="mobile"
-ms.tgt_pltfrm="mobile-ios"
-ms.devlang="objective-c"
-ms.topic="article"
-ms.date="09/14/2015"
-ms.author="mahender" />
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="09/14/2015"
+	ms.author="mahender" />
 
 # 將 Azure Active Directory 登入新增至您的 iOS 應用程式
 
@@ -120,7 +120,7 @@ ms.author="mahender" />
 [如何向 Azure Active Directory 設定您的行動應用程式]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [開始使用行動應用程式]: app-service-mobile-ios-get-started.md
- [將驗證新增至您的應用程式]: app-service-mobile-ios-get-started-users.md
+[開始使用行動應用程式]: app-service-mobile-ios-get-started.md
+[將驗證新增至您的應用程式]: app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

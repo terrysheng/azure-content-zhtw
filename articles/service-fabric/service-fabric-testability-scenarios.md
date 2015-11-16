@@ -1,6 +1,6 @@
 <properties
-   pageTitle="執行混亂測試。"
-   description="本文討論 Microsoft 提供的預先定義 Service Fabric 案例。"
+   pageTitle="混亂和容錯移轉測試 | Microsoft Azure"
+   description="使用 Service Fabric 混亂測試和容錯移轉測試案例來引發錯誤並確認服務的可靠性。"
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -33,7 +33,7 @@
 
 1. 將您專案的 NuGet 封裝更新為 Application Insights 的最新「發行前」版本。以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。 
 
-2. 將這個程式碼片段加入 ApplicationInsights.config
+2. 將這個程式碼片段加入 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)：
 
 ```XML
 
@@ -162,4 +162,6 @@ SDK 會決定要卸除的遙測項目以及要保留哪些。取樣決策會根�
 
 * 否，目前不支援對裝置應用程式進行取樣。 
 
-<!---HONumber=Nov15_HO1-->
+>>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
+
+<!---HONumber=Nov15_HO2-->

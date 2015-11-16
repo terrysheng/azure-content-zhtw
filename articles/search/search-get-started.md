@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="開始使用 Azure 搜尋服務 | Microsoft Azure" 
-	description="開始使用 Azure Search" 
+	description="開始使用 Azure 搜尋服務 (Microsoft Azure 上的雲端託管搜尋服務)。" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # 開始使用 Azure Search
 
-Microsoft Azure 搜尋服務是一項可讓您將搜尋功能內嵌到自訂用程式中的新服務。它可為您的資料提供搜尋引擎和儲存體，並讓您透過 .NET 檔案庫或 REST API 加以存取和管理。
+Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋功能內嵌到自訂用程式。它可為您的資料提供搜尋引擎和儲存體，並讓您透過 .NET 檔案庫或 REST API 加以存取和管理。
 
 本文章可讓您開始使用 Azure 搜尋服務 REST API。
 
@@ -378,4 +378,4 @@ Microsoft Azure 搜尋服務是一項可讓您將搜尋功能內嵌到自訂用�
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

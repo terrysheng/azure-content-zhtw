@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="11/03/2015"  
 	ms.author="juliako"/>
 
 #使用通道，從內部部署編碼器接收多位元速率即時串流
@@ -240,7 +240,7 @@ SCTE-35|數位訊號系統，用來提示廣告插入。下游接收端會使用
 
 ##如何建立從內部部署編碼器接收多位元速率即時串流的通道
 
-如需內部部署即時編碼器的詳細資訊，請參閱[搭配使用協力廠商即時編碼器與 Azure 媒體服務](https://msdn.microsoft.com/library/azure/dn783464.aspx)。
+如需內部部署即時編碼器的詳細資訊，請參閱[搭配使用協力廠商即時編碼器與 Azure 媒體服務](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/)。
 
 選擇**入口網站**、**.NET**、**REST API** 以了解如何建立及管理通道和程式。
 
@@ -266,4 +266,4 @@ SCTE-35|數位訊號系統，用來提示廣告插入。下游接收端會使用
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="資源平衡器叢集描述"
-   description="指定資源平衡器的叢集描述"
+   pageTitle="資源平衡器叢集描述 | Microsoft Azure"
+   description="將容錯網域、升級網域、節點屬性和節點容量指定給資源平衡器以描述 Service Fabric。"
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -16,7 +16,7 @@
    ms.date="09/03/2015"
    ms.author="masnider"/>
 
-# 叢集描述
+# 描述 Service Fabric 叢集
 
 Service Fabric 資源平衡器可提供數種機制來描述叢集。在執行階段期間，資源平衡器會使用這些資訊，以確保放置服務的方式可保障在叢集中執行之服務的高可用性，以及叢集資源的最大使用率。資源平衡器用來描述叢集的功能包括容錯網域、升級網域、節點屬性和節點容量。除此之外，資源平衡器有一些可以調校其效能的組態選項。
 
@@ -192,4 +192,4 @@ NodeName、NodeType、FaultDomain 和 UpgradeDomain 位置屬性均有預設值�
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

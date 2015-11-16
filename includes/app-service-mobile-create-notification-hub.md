@@ -1,10 +1,12 @@
-Follow these steps to create a new notification hub to use for push notifications. You can skip this section when you have already created a notification hub in the same resource group as your Mobile App backend.
+請遵循下列步驟來建立新的「通知中樞」來針對推播通知使用。若您已在和您的行動應用程式後端相同的資源群組中建立通知中樞，便可以略過本節。
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** and click your Mobile App backend
+1. 造訪 [Azure 入口網站]。按一下 [全部瀏覽] > [行動應用程式]，然後按一下您的行動應用程式後端
 
-2. Click **Settings** > **Mobile** > **Push**. 
+2. 按一下 [設定] > [行動裝置] > [推播]。
 
-2. Follow the work flow to create a notification hub. You will need to create a new namespace if there is none in your current resource group. Click **Create** once you've configured all the settings.
+2. 請遵循工作流程來建立通知中樞。如果您目前的資源群組中沒有命名空間，您必須建立新的命名空間。在您設定所有的設定後，按一下 [建立]。
 
 
-[Azure Portal]: https://portal.azure.com/
+[Azure 入口網站]: https://portal.azure.com/
+
+<!---HONumber=Nov15_HO2-->

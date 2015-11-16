@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="jroth" />
 
 # Azure SQL Database 一般限制與方針
@@ -41,9 +41,7 @@ Azure SQL Database 不支援分散式交易，這些交易會影響數個資源�
 
 ## SQL Server 定序支援
 
-Microsoft Azure SQL Database 使用的預設資料庫定序是 **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**，其中 **LATIN1\_GENERAL** 是英文 (美國)，**CP1** 是代碼頁 1252，**CI** 不區分大小寫，**AS** 區分重音。
-
-使用內部部署 SQL Server 時，您可以在伺服器、資料庫、欄與運算式層級設定定序。Microsoft Azure SQL Database 不支援在伺服器層級設定定序。若要將非預設定序搭配 Microsoft Azure SQL Database 使用，請使用 [建立資料庫定序] 選項或在欄層級或運算式層級設定定序。SQL Database 不支援將 [定序] 選項搭配 Alter Database 命令使用。依預設，SQL Database 中的暫存資料的定序與資料庫相同。如需如何設定定序的詳細資訊，請參閱 [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)。
+Microsoft Azure SQL Database 使用的預設資料庫定序是 **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**，其中 **LATIN1\_GENERAL** 是英文 (美國)，**CP1** 是代碼頁 1252，**CI** 不區分大小寫，**AS** 區分重音。可以使用 Transact-SQL 改變 V12 資料庫的定序。如需如何設定定序的詳細資訊，請參閱 [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)。
 
 ## 命名需求
 
@@ -71,4 +69,4 @@ Microsoft Azure SQL Database 使用的預設資料庫定序是 **SQL\_LATIN1\_GE
 
 - 如需驅動程式的可用性和 SQL Database 支援的相關資訊，請參閱 [SQL Database 與 SQL Server 的連線庫](sql-database-libraries.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

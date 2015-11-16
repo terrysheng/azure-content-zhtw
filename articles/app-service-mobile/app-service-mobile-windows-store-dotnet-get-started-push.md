@@ -18,9 +18,7 @@
 
 # 新增推播通知至 Windows 執行階段 8.1 通用 app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -37,16 +35,9 @@
 * 完成[快速入門教學課程](../app-service-mobile-windows-store-dotnet-get-started.md)。  
 
 
+##<a name="create-hub"></a>建立通知中樞
 
-##<a name="create-gateway"></a>建立通知中樞
-
-請遵循下列步驟來建立新的「通知中樞」來處理推播通知。如果您在同一個資源群組中已經有一個中樞，就不需要完成本節。
-
-1. 瀏覽 [Azure 入口網站]。按一下 [全部瀏覽] > [行動應用程式] > 您剛才建立的後端。按一下 [設定] > [行動裝置] > [推播]。 
-
-2. 請遵循工作流程來建立通知中樞。如果您目前的資源群組中沒有命名空間，您必須建立新的命名空間。在您設定所有的設定後，按一下 [建立]。
-
-接下來，您將使用此通知中樞來啟用您應用程式的推播。
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
 ##針對推播通知註冊應用程式
 
@@ -192,4 +183,4 @@
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

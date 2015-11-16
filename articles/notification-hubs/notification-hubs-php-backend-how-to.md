@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # 如何從 PHP 使用通知中樞
@@ -106,7 +106,7 @@
 	}
 
 ### 傳送通知
-首先，讓我們先定義呈現通知的類別。
+首先，讓我們先定義代表通知的類別。
 
 	class Notification {
 		public $format;
@@ -133,11 +133,7 @@
 
 有了此類別之後，我們現在可以在 **NotificationHub** 類別內寫入傳送通知方法。
 
-	public function sendNotification($notification) {
-		$this->sendNotification($notification, "");
-	}
-
-	public function sendNotification($notification, $tagsOrTagExpression) {
+	public function sendNotification($notification, $tagsOrTagExpression="") {
 		if (is_array($tagsOrTagExpression)) {
 			$tagExpression = implode(" || ", $tagsOrTagExpression);
 		} else {
@@ -199,7 +195,9 @@
 ##<a name="complete-tutorial"></a>完成教學課程
 現在您可以透過從 PHP 後端傳送通知，來完成開始使用教學課程。
 
-初始化您的通知中樞用戶端 (請依[開始使用教學課程]中的指示替換連接字串和中心名稱)：$hub = new NotificationHub("connection string", "hubname");
+初始化您的通知中樞用戶端 (請依[開始使用教學課程]中的指示替換連接字串和中心名稱)：
+
+	$hub = new NotificationHub("connection string", "hubname");	
 
 然後根據您的目標行動平台新增傳送程式碼。
 
@@ -229,7 +227,7 @@
 		                '<wp:Text1>Hello from PHP!</wp:Text1>' .
 		           '</wp:Toast> ' .
 		        '</wp:Notification>';
-	$notification = new Notification("mpns", $toast);
+	$notification = new Notification("windowsphone", $toast);
 	$notification->headers[] = 'X-WindowsPhone-Target : toast';
 	$notification->headers[] = 'X-NotificationClass : 2';
 	$hub->sendNotification($notification);
@@ -256,4 +254,4 @@
 [開始使用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="建置 Azure 搜尋服務的原型應用程式" 
-	description="建立您的第一個應用程式原型來開始使用 Azure 搜尋服務。" 
+	description="建立您的第一個應用程式原型來開始使用 Azure 搜尋服務 (託管的雲端搜尋服務)。" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # 建置 Azure 搜尋服務的原型應用程式
 
-評估 Azure 搜尋服務的開發人員幾乎一開始都使用初步測試應用程式，示範將 Azure 搜尋服務加至入自訂應用程式的價值。在本文中，我們提供您幾個建置組塊，加速原型程序的設計。
+針對託管的雲端搜尋評估 Azure 搜尋服務的開發人員幾乎一開始都使用初步測試應用程式，示範將 Azure 搜尋服務加至入自訂應用程式的價值。在本文中，我們提供您幾個建置組塊，加速原型程序的設計。
  
 - 包含 data.json 和 schema.json 檔案的 Visual studio C# 專案。具有範例資料，可讓您立即建置並執行方案，以在您撰寫一行程式碼之前，確認方案適用於您的系統。 
 
@@ -133,4 +133,4 @@
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="wesmc"/>
 
 #Azure 通知中樞 - 診斷指導方針
@@ -115,7 +115,7 @@ Azure 通知中樞需要在開發人員應用程式的內容中自行驗證，�
 
 	![][8]
  
-	> [AZURE.NOTE]Visual Studio 的編輯註冊功能僅應用於註冊數量有限的開發/測試期間。如果您需要修正大量註冊，請考慮使用匯出/匯入註冊 (僅適用於 Standard 階層) 所述的[匯出/匯入註冊功能]。
+	> [AZURE.NOTE]Visual Studio 的編輯註冊功能僅應用於註冊數量有限的開發/測試期間。如果您需要修正大量註冊，請考慮使用[匯出/匯入註冊](https://msdn.microsoft.com/library/dn790624.aspx)所述的匯出/匯入註冊功能。
 
 2. **服務匯流排總管**
 
@@ -227,7 +227,7 @@ Azure 通知中樞需要在開發人員應用程式的內容中自行驗證，�
 [範本指引]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNS 指引]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [GCM 指引]: http://developer.android.com/google/gcm/adv.html
-[匯出/匯入註冊功能]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [服務匯流排總管]: http://msdn.microsoft.com/library/dn530751.aspx
 [服務匯流排總管程式碼]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [VS 伺服器總管概觀]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
@@ -239,4 +239,4 @@ Azure 通知中樞需要在開發人員應用程式的內容中自行驗證，�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

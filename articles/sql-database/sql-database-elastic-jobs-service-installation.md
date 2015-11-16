@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="安裝彈性資料庫工作" 
+	pageTitle="安裝彈性資料庫工作 | Microsoft Azure" 
 	description="逐步解說如何安裝彈性工作功能。" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # 安裝彈性資料庫工作概觀
-**彈性資料庫工作**可以透過 PowerShell 或是透過 Azure 入口網站安裝，不過，只在安裝 PowerShell 封裝時，才會取得存取權，使用 PowerShell API 來建立和管理工作。此外，PowerShell API 目前透過入口網站提供相當多的功能。如需**彈性資料庫工作**的詳細資訊，請參閱[彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md)。
+[**彈性資料庫工作**](sql-database-elastic-jobs-overview.md)可以透過 PowerShell 或是透過 Azure 入口網站安裝。只在安裝 PowerShell 封裝時，才會取得存取權，使用 PowerShell API 來建立和管理工作。此外，PowerShell API 目前比入口網站提供更多的功能。
 
 如果您已從現有的**彈性資料庫集區**透過入口網站安裝**彈性資料庫工作**，最新的 Powershell 預覽包括升級現有安裝的指令碼。強烈建議將安裝升級至最新的**彈性資料庫工作**元件，以利用透過 PowerShell API 公開的新功能。
 
@@ -54,7 +54,7 @@
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
-當您執行此命令時，會隨即開啟向您詢問 [**使用者名稱**]和 [**密碼**] 的視窗。這不是您的 Azure 認證，請輸入要用於新伺服器之系統管理員認證的使用者名稱和密碼。
+當您執行此命令時，會隨即開啟向您詢問 [使用者名稱] 和 [密碼] 的視窗。這不是您的 Azure 認證，請輸入要用於新伺服器之系統管理員認證的使用者名稱和密碼。
 
 在此範例引動過程上提供的參數可以進行修改，以適用於您所需的設定。下列提供每個參數行為的詳細資訊：
 
@@ -156,7 +156,7 @@
 **預估完成時間：**10 分鐘。
 
 1. 從彈性資料庫集區的儀表板檢視，透過 [Azure Preview 入口網站](https://ms.portal.azure.com/#)，按一下 [建立工作]。
-2. 如果您是第一次建立工作，則必須安裝**彈性資料庫工作**，方法是按一下 [**預覽條款**]， 
+2. 如果您是第一次建立工作，則必須安裝**彈性資料庫工作**，方法是按一下 [預覽條款]。 
 3. 然後按一下核取方塊接受條款。
 4. 在 [安裝服務] 檢視中，按一下 [工作認證]。
 
@@ -187,4 +187,4 @@
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

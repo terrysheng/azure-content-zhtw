@@ -154,6 +154,6 @@
 ## 後續步驟
 - 若要了解範本的區段，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
 - 如需可以在範本中使用的函式清單，請參閱 [Azure 資源管理員範本函式](./resource-group-template-functions.md)。
-- 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)。
+- 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

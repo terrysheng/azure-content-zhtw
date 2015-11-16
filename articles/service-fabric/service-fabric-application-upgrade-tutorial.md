@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric 應用程式升級教學課程"
-   description="本文章逐步解說升級 Service Fabric 應用程式的體驗。"
+   pageTitle="應用程式升級教學課程 | Microsoft Azure"
+   description="這篇文章會逐步引導部署 Service Fabric 應用程式、變更程式碼和執行升級的過程。"
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -24,7 +24,7 @@
 
 Service Fabric 監視輪流升級可以讓應用程式系統管理員設定 Service Fabric 用來判斷應用程式健康狀態良好的健康狀態評估原則。此外，它也可讓系統管理員設定當健康狀態評估失敗時採取的動作，例如自動回復。此章節會逐步解說其中一個 SDK 範例的監視升級。
 
-## 步驟 1：建置與部署視覺物件範例
+## 步驟 1：建置和部署視覺物件範例
 
 這些步驟可以藉由下列動作來完成：在 Visual Studio 中開啟專案，以滑鼠右鍵按一下解決方案，並且在 Service Fabric 功能表項目中選取部署命令。如需詳細資訊，請參閱[在 Visual Studio 中管理您的 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)。或者，使用者會使用 PowerShell。
 
@@ -126,4 +126,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

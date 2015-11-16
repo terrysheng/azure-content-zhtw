@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/03/2015" 
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中部署及設定 SaaS 連接器 API 應用程式
@@ -236,4 +236,4 @@ Azure 現在正為您管理三個驗證權杖：
 [Azure 入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

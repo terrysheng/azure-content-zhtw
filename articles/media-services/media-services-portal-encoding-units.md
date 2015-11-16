@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="如何使用 Azure 入口網站調整編碼保留單位。" 
-	description="了解如何指定要佈建給帳戶的隨選串流保留單元和編碼保留單元，以調整媒體服務。" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,milangada" 
-	manager="dwrede" 
+<properties
+	pageTitle="如何使用 Azure 入口網站調整媒體處理"
+	description="了解如何指定要佈建給帳戶的隨選串流保留單元和編碼保留單元，以調整媒體服務。"
+	services="media-services"
+	documentationCenter=""
+	authors="juliako,milangada"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
-#如何使用 Azure 入口網站調整編碼。
+# 如何使用 Azure 入口網站調整媒體處理
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -25,11 +25,13 @@
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
-##概觀
+## 概觀
 
-媒體服務帳戶是與可決定編碼工作處理速度的保留單元類型相關聯。您可以在下列的保留單元類型之間選擇：**Basic**、**Standard** 或 **Premium**。例如，在執行相同編碼工作的前提下，使用 **Standard** 保留單元類型的速度會比 **Basic** 類型快。如需詳細資訊，請參閱[編碼保留單元類型](http://azure.microsoft.com/blog/author/milanga)。
+媒體服務帳戶是與可決定媒體處理工作速度的保留單元類型相關聯。您可以在下列的保留單元類型之間選擇：**Basic**、**Standard** 或 **Premium**。例如，在執行相同編碼工作的前提下，使用 **Standard** 保留單元類型的速度會比 **Basic** 類型快。如需詳細資訊，請參閱[編碼保留單元類型](http://azure.microsoft.com/blog/author/milanga)。
 
 除了指定保留單元類型之外，您還可以指定使用編碼保留單元來佈建帳戶。佈建的編碼保留單元數目可決定給定帳戶中可同時處理的媒體工作數目。例如，如果帳戶有 5 個保留單元，則只要有工作需要處理，就會同時執行 5 個媒體工作。剩餘的工作會在佇列中等待，且隨著執行中的工作完成，就立即循序地挑選來開始處理。如果帳戶未佈建任何保留單元，則會循序地挑選工作。在此情況下，一件工作完成與下一件工作開始之間的等待時間，視系統中的資源可用性而定。
+
+>[AZURE.IMPORTANT]保留單元用於平行化所有媒體處理，包括使用 Azure 媒體索引器的索引工作。不過，與編碼不同，索引工作不會因為使用較快的保留單元而變快。
 
 若要變更保留單元類型以及編碼保留單元數目，請執行下列動作：
 
@@ -40,11 +42,11 @@
 	若要變更**保留單元類型**，請按 BASIC、STANDARD 或 PREMIUM。
 
 	若要變更所選取保留單元類型的保留單元數目，請使用**編碼**滑動軸。
-	
-	
+
+
 	![Processors page](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
-	  
+
 	>[AZURE.NOTE]下列資料中心不提供 Premium 保留單位類型：新加坡、香港特別行政區、大阪、北京、上海。
 
 3. 按 [儲存] 以儲存您的變更。
@@ -66,7 +68,4 @@
 - [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

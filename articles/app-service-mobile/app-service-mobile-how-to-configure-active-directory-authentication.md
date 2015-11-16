@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/29/2015" 
 	ms.author="mahender"/>
 
 # 如何設定您的應用程式以使用 Azure Active Directory 登入
@@ -26,7 +26,7 @@
 
 1. 登入[預覽 Azure 管理入口網站]，並瀏覽至您的行動應用程式。
 
-2. 在 [設定] 底下，按一下 [使用者驗證]，然後按一下 [Azure Active Directory]。複製該處列出的 [應用程式 URL] 與 [回覆 URL]。您稍後將會使用這些 URL。請確定 [應用程式 URL] 與 [回覆 URL] 都使用 HTTPS 配置。
+2. 在 [設定] 底下，按一下 [行動驗證]，然後按一下 [Azure Active Directory]。複製該處列出的 [應用程式 URL] 與 [回覆 URL]。您稍後將會使用這些 URL。請確定 [應用程式 URL] 與 [回覆 URL] 都使用 HTTPS 配置。
 
     ![][1]
 
@@ -73,6 +73,5 @@
 [預覽 Azure 管理入口網站]: https://portal.azure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

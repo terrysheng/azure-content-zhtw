@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="使用彈性資料庫分割合併工具來縮放" 
+    pageTitle="使用彈性資料庫分割合併工具來縮放 | Microsoft Azure" 
     description="說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。" 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh"/>
+    authors="ddove"/>
 
 <tags 
     ms.service="sql-database" 
@@ -12,14 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/29/2015" 
-    ms.author="sidneyh" />
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh" />
 
 # 使用彈性資料庫分割合併工具來縮放
 
-如果您選擇不使用簡單的模型來配置不同資料庫給每個 Shardlet (租用戶)，當容量需要變動時，您的應用程式可能需要靈活地在資料庫之間重新分配資料。彈性資料庫工具包含客戶裝載的分割合併工具，可重新平衡資料分佈及管理分區化應用程式的作用區。它根據一項基礎功能在不同資料庫之間隨需求移動 Shardlet，並與分區對應管理整合來維持一致的對應。
+[彈性資料庫工具](sql-database-elastic-scale-introduction.md)包含的工具可重新平衡資料分佈及管理分區化應用程式的作用區。**分割合併工具**管理相應縮小和相應放大；您可以在分區集加入或移除資料庫，並使用分割合併工具重新平衡它們之間的 Shardlet 分佈。(關於詞彙定義，請參閱 [Elastic Scale 詞彙](sql-database-elastic-scale-glossary.md))。
 
-分割合併工具管理相應縮小和相應放大。您可以在分區集加入或移除資料庫，並使用分割合併工具重新平衡它們之間的 Shardlet 分佈。(關於詞彙定義，請參閱 [Elastic Scale 名詞解釋](sql-database-elastic-scale-glossary.md))。
+此工具在不同資料庫之間隨需求移動 Shardlet，並與[分區對應管理](sql-database-elastic-scale-shard-map-management.md)整合來維持一致的對應。
+
+若要開始，請參閱[彈性資料庫分割合併工具](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
 
 ## 分割合併的新功能
 
@@ -29,8 +31,6 @@
 
 ## 如何升級
 
-若要升級到最新版的分割合併，請遵循下列步驟：
-
 1. 從 NuGet 下載最新版本的分割合併套件，如[下載分割合併套件](sql-database-elastic-scale-configure-deploy-split-and-merge.md#download-the-Split-Merge-packages)所述。
 2. 變更分割合併部署的雲端服務組態檔，以反映新的組態參數。新的必要參數是用於加密的憑證相關資訊。若要這樣做，一個簡單方法是將下載的新組態範本檔案與現有組態進行比較。請確定您新增 Web 和背景工作角色的 "DataEncryptionPrimaryCertificateThumbprint" 和 "DataEncryptionPrimary" 設定。
 3. 將更新部署至 Azure 之前，請確定目前執行的所有分割合併作業都已完成。作法很簡單，您可以針對進行中的要求，查詢分割合併中繼資料資料庫中的 RequestStatus 和 PendingWorkflows 資料表。
@@ -39,6 +39,7 @@
 您無需佈建新的中繼資料資料庫，即可升級分割合併。新的版本會自動將現有的中繼資料資料庫升級到新的版本。
 
 ## 分割合併的案例 
+
 應用程式需要靈活地伸展超越單一 Azure SQL DB 資料庫的限制，如下列案例所示：
 
 * **放大容量 – 分割範圍**：在資料層放大彙總容量可解決增加的容量需求。在此案例中，應用程式將資料分區，並分散到越來越多的資料庫上，直到滿足容量需求為止，以此來提供更多的容量。Elastic Scale 分割合併服務的「分割」功能可滿足此案例。 
@@ -238,4 +239,4 @@
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

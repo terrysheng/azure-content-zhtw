@@ -1,6 +1,6 @@
 <properties
 	pageTitle="何謂 Azure 搜尋服務"
-	description="Azure 搜尋服務的技術概觀和功能摘要"
+	description="Azure 搜尋服務是託管的雲端搜尋服務。深入了解此技術概觀和功能摘要。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # 何謂 Azure 搜尋服務？
 
-Azure 搜尋服務是完全受管理的雲端服務，可讓開發人員使用 .NET SDK 或 REST API 建置豐富的搜尋應用程式。它包含範圍涵蓋您整個內容的全文檢索，再加上那些常見於商業 Web 搜尋引擎的類似進階搜尋行為，例如根據局部詞彙輸入的自動提示查詢、符合結果醒目提示，以及多面向瀏覽。自然語言支援是內建功能，其會使用適用於指定之語言的語言規則。
+Azure 搜尋服務是完全受管理之託管的雲端服務，可讓開發人員使用 .NET SDK 或 REST API 建置豐富的搜尋應用程式。它包含範圍涵蓋您整個內容的全文檢索，再加上那些常見於商業 Web 搜尋引擎的類似進階搜尋行為，例如根據局部詞彙輸入的自動提示查詢、符合結果醒目提示，以及多面向瀏覽。自然語言支援是內建功能，其會使用適用於指定之語言的語言規則。
 
 您可以根據增加的搜尋或儲存容量調整服務。例如，零售商可以增加容量，以滿足與假日購物或促銷活動相關聯的額外容量。
 
@@ -131,4 +131,4 @@ REST API 由 HTTP 要求和回應組成，其內容以 JSON 格式表示。有�
 
 [如何在 .NET 中使用 Azure 搜尋](search-howto-dotnet-sdk.md) [開始使用 Azure 搜尋 .NET](search-get-started-dotnet.md) [Azure 搜尋：教學課程、影片示範和範例](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

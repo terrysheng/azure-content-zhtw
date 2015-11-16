@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/29/2015"
 	ms.author="davidmu"/>
 
 
@@ -34,11 +34,9 @@ Azure 資源管理員會簡化在 Azure 基礎結構服務上所執行複雜應�
 
 [使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
+[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員](xplat-cli-azure-resource-manager.md)
+
 [使用 Azure 資源管理員範本和 PowerShell 部署以及管理虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## 一般資源
-
-[Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)
 
 [Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -47,31 +45,17 @@ Azure 資源管理員會簡化在 Azure 基礎結構服務上所執行複雜應�
 
 [網路資源提供者](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
 
-
-## 使用 Azure CLI 進行自動化
-
-[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員](xplat-cli-azure-resource-manager.md)
-
-[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
-
-## 使用 Azure PowerShell 自動化
-
-[使用 Azure 資源管理員範本和 PowerShell 部署以及管理虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
-
-
-## 使用 .NET 進行自動化
+## .NET
 
 [使用 .NET 程式庫部署 Azure 資源](virtual-machines-arm-deployment.md)
 
 
-## 使用 Azure 自動化進行自動化
+## Azure 自動化
 
 [使用 Azure 自動化管理 Azure 虛擬機器](automation-manage-virtual-machines.md)
-
-
 
 ## 其他資源
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

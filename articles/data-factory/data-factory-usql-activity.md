@@ -178,7 +178,7 @@ degreeOfParallelism | 同時用來執行工作的節點數目上限。 | 否
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -187,4 +187,4 @@ degreeOfParallelism | 同時用來執行工作的節點數目上限。 | 否
 
 請參閱[移動 Azure 資料湖存放區的資料](data-factory-azure-datalake-connector.md)以取得上述的 Azure 資料湖存放區連結服務中的 JSON 屬性和資料集 JSON 片段的說明。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="vm-windows"
    	ms.workload="big-compute"
-   	ms.date="09/30/2015"
+   	ms.date="11/02/2015"
    	ms.author="v-marsma"/>
 
 # 使用並行節點工作最大化 Azure Batch 運算資源使用量
@@ -38,7 +38,7 @@
 
 針對在集區層級完成平行工作執行，在您的 Batch 解決方案中設定運算節點。使用 Batch .NET API 時，[CloudPool.MaxTasksPerComputeNode][maxtasks_net] 屬性是在建立集區時設定。在 Batch REST API 中，[maxTasksPerNode][maxtasks_rest] 元素是在集區建立期間於要求主體中設定。
 
-Azure Batch 允許每個節點的最大化工作設定為多達節點核心數目的 4 倍 (4x)。例如，如果集區設定的節點大小為 [大] (四個核心)，則 `maxTasksPerNode` 可以設定為十六個。每個節點大小的核心數目的詳細資料可於[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)中找到，關於服務限制的詳細資訊可於 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)中找到。
+Azure Batch 允許每個節點的最大化工作設定為多達節點核心數目的 4 倍 (4x)。例如，如果集區設定的節點大小為 [大] (四個核心)，則 `maxTasksPerNode` 可以設定為十六個。每個節點大小的核心數目的詳細資料可於[雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)中找到，關於服務限制的詳細資訊可於 [Azure Batch 服務的配額與限制](batch-quota-limit.md)中找到。
 
 > [AZURE.TIP]當為您的集區建構[自動調整公式][enable_autoscaling]時，請務必考慮 `maxTasksPerNode` 值。例如，評估 `$RunningTasks` 的公式可能大幅受到每個節點的工作增加的影響。如需詳細資訊，請參閱[自動調整 Azure Batch 集區中的運算節點](batch-automatic-scaling.md)。
 
@@ -106,11 +106,11 @@ Duration: 00:08:48.2423500
 
 ## Batch 總管熱圖
 
-[Batch 總管][batch_explorer]，其中一個 Azure Batch [範例應用程式][github_samples]，包含*熱圖*功能，提供集區內節點核心使用量的視覺效果。執行 [ParallelTasks][parallel_tasks_sample] 範例應用程式時，使用熱圖功能來輕易地視覺化節點核心活動。
+[Batch 總管][batch_explorer]，其中一個 Azure Batch [範例應用程式][github_samples]，包含「熱圖」功能 ，提供工作執行的視覺效果。執行 [ParallelTasks][parallel_tasks_sample] 範例應用程式時，使用熱圖功能來輕易地視覺化每個節點上 平行工作的執行。
 
 ![Batch 總管熱圖][1]
 
-*Batch 總管熱圖顯示各具有四個核心的四個節點，每個核心目前正在執行工作*
+*顯示包含四個節點的集區的Batch 總管熱圖，每個節點目前正在執行四個工作*
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
@@ -127,4 +127,4 @@ Duration: 00:08:48.2423500
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

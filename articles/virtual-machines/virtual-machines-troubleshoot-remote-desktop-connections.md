@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/27/2015"
 	ms.author="dkshir"/>
 
 # 疑難排解執行 Windows 之 Azure 虛擬機器的遠端桌面連線
@@ -30,9 +30,9 @@
 
 「基本步驟」的第一節列出解決常見連接問題的步驟，第二節提供特定錯誤訊息的解決方案步驟，而最後一節協助執行每個網路元件的詳細疑難排解。
 
-## 基本步驟
+## 基本步驟 - 傳統部署模型
 
-這些基本步驟可協助解決大部分常見的遠端桌面連線失敗。在執行每個步驟之後，請嘗試重新連接至 VM。
+這些基本步驟可協助解決使用傳統部署模型所建立之虛擬機器中最常見的遠端桌面連線失敗。在執行每個步驟之後，請嘗試重新連接至 VM。
 
 - 從 [Azure 入口網站](https://portal.azure.com)重設遠端桌面服務以修正 RDP 伺服器的啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重設遠端存取]。
 
@@ -44,17 +44,44 @@
 
 - 檢閱您的 VM 主控台記錄檔或螢幕擷取畫面以修正開機問題。依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [開機診斷]。
 
+- 檢查 VM 的資源健康情況是否有任何平台問題。依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [檢查健康情況]
+-  
+
+## 基本步驟 - 資源管理員部署模型
+
+這些基本步驟可協助解決使用資源管理員部署模型所建立之虛擬機器中最常見的遠端桌面連線失敗。在執行每個步驟之後，請嘗試重新連接至 VM。
+
+- 使用 Powershell 重設遠端存取<br> a.如果尚未安裝，請使用 Azure AD 方法[安裝 Azure PowerShell 並連線至您的 Azure 訂用帳戶](../powershell-install-configure.md)。
+
+	b.切換至資源管理員模式。
+
+	```
+	Switch-AzureMode -Name AzureResourceManager
+	```
+	c.執行 Set-AzureVMAccessExtension 命令來重設您的 RDP 連線，如下列範例所示。
+
+	```
+	Set-AzureVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
+	```
+
+- 重新啟動虛擬機器來處理其他啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [重新啟動]。
+
+- 調整 VM 大小以修正任何主機問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [設定] > [大小]。
+
+- 檢閱 VM 的主控台記錄檔或螢幕擷取畫面，以修正開機問題。依序按一下 [全部瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [開機診斷]。
+
+
 ## 疑難排解常見的 RDP 錯誤
 
 以下是您嘗試連線 Azure 虛擬機器和遠端桌面時可能最常遇到的錯誤：
 
 1. [遠端桌面連線錯誤：遠端工作階段已中斷連線，因為沒有可用的遠端桌面授權伺服器來提供授權](#rdplicense)。
 
-2. [遠端桌面連線錯誤：遠端桌面無法找到電腦「名稱」](#rdpname)。
+2. [遠端桌面連線錯誤：遠端桌面找不到電腦「名稱」](#rdpname)。
 
 3. [遠端桌面連線錯誤：發生驗證錯誤。無法連絡本機安全性授權](#rdpauth)。
 
-4. [Windows 安全性錯誤：您的認證無法運作](#wincred)。
+4. [Windows 安全性錯誤：您的認證無效](#wincred)。
 
 5. [遠端桌面連線錯誤：這部電腦無法連線到遠端電腦](#rdpconnect)。
 
@@ -93,7 +120,7 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 原因：目標 VM 在認證的使用者名稱部分找不到安全性授權。
 
-若您的使用者名稱格式為 *SecurityAuthority*\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分便應輸入虛擬機器的電腦名稱 (做為本機的安全性授權) 或 Active Directory 網域名稱。
+若您的使用者名稱格式為 *SecurityAuthority*\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分就應該是虛擬機器的電腦名稱 (適用於本機安全性授權) 或 Active Directory 網域名稱。
 
 可能的解決方案：
 
@@ -124,11 +151,11 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 每部 Windows 電腦都有遠端桌面使用者本機群組，其中包含能夠遠端登入的帳戶和群組。本機系統管理員群組成員也有權限，即使這些帳戶未列在遠端桌面使用者本機群組中。對於加入網域的機器，本機系統管理員群組也包含此網域的網域系統管理員。
 
-請確保您正用於連接的帳戶具有遠端桌面登入權限。請使用網域或本機系統管理員帳戶做為因應措施，以透過遠端桌面連線，並使用電腦管理嵌入式管理單元 (**系統工具 > 本機使用者和群組 > 群組 > 遠端桌面使用者**)，將想要的帳戶新增到遠端桌面使用者本機群組。
+請確保您正用於連接的帳戶具有遠端桌面登入權限。因應措施是使用網域或本機系統管理員帳戶，透過遠端桌面來連線，然後使用 [電腦管理] 嵌入式管理單元 ([系統工具] > [本機使用者和群組] > [群組] > [遠端桌面使用者])，將所需的帳戶新增到 [遠端桌面使用者] 本機群組。
 
 ## 詳細疑難排解
 
-如果沒有發生這些錯誤，但您仍然無法透過遠端桌面連線到 VM，請參閱[這篇文章](virtual-machines-rdp-detailed-troubleshoot.md)以找出其他原因。
+如果沒有發生這些錯誤，而您仍然無法透過遠端桌面連線到 VM，請參閱[這篇文章](virtual-machines-rdp-detailed-troubleshoot.md)以找出其他原因。
 
 
 ## 其他資源
@@ -143,4 +170,4 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

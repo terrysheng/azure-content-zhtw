@@ -108,6 +108,6 @@
 
 ## 後續步驟
 - [撰寫範本](./resource-group-authoring-templates.md)
-- [部署範本](azure-portal/resource-group-template-deploy.md)
+- [部署範本](resource-group-template-deploy.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

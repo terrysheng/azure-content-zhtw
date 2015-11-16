@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Java 適用的 Application Insights 版本資訊" 
-	description="Java SDK 的最新更新。" 
-	services="application-insights" 
+<properties
+	pageTitle="Java 適用的 Application Insights 版本資訊"
+	description="Java SDK 的最新更新。"
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="awills"/>
- 
+
 # Java 適用的 Application Insights SDK 的版本資訊
 
 [Application Insights SDK for Java](app-insights-java-get-started.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](http://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
@@ -22,7 +22,7 @@
 
 請參閱[開始使用 SDK for Java](app-insights-java-get-started.md)。
 
-#### 升級至最新的 SDK 
+#### 升級至最新的 SDK
 
 升級之後，必須將您對 ApplicationInsights.xml 所做的任何自訂合併回來。請取得一份複本來與新的檔案比較。
 
@@ -33,14 +33,15 @@
 
 否則
 
-* 請下載最新版的 [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) 取代舊版本。 
- 
+* 請下載最新版的 [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) 取代舊版本。
+
 比較舊的和新的 ApplicationInsights.xml。您看到的變更許多是因為我們新增與移除了模組。恢復您所做的任何自訂。
 
 ## 版本 1.0.2
+- 使用組態中指定的項目，當它在程式碼中明確提供時，可防止覆寫檢測金鑰。
+- 處理所有成功的 HTTP 狀態碼，將相關的 HTTP 要求報告為成功。
+- 處理 ConfigurationFileLocator 擲回的所有例外狀況。
 
-- 與 Docker 相容
-- Bug 修正 - 攔截所有例外狀況、處理所有成功的狀態碼
 
 ## 版本 1.0.1
 - [Java 代理程式](app-insights-java-agent.md)可收集與下列有關的相依性資訊：
@@ -71,6 +72,5 @@
 - 支援從 32 位元 Windows 電腦收集效能計數器。
 - 支援使用新的 ```trackDependency``` 方法 API 手動追蹤相依性。
 - 能夠藉由將 ```SyntheticSource``` 屬性加入至報告項目，將遙測項目標記為綜合。
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

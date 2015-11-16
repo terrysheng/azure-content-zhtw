@@ -1,6 +1,6 @@
 <properties
-   pageTitle="自訂測試案例"
-   description="如何針對非失誤性/失誤性失敗強化服務"
+   pageTitle="自訂測試案例 | Microsoft Azure"
+   description="如何針對非失誤性和失誤性失敗強化服務。"
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -153,4 +153,4 @@ class Test
 ```
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

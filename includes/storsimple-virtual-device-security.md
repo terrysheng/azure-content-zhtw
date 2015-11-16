@@ -1,10 +1,11 @@
 <!--v-sharos 10/13/2105 virtual device security-->
 
-Keep the following security considerations in mind when you use the StorSimple virtual device:
+使用 StorSimple 虛擬裝置時，請留意下列安全性考量：
 
-- The virtual device is secured through your Microsoft Azure subscription. This means that if you are using the virtual device and your Azure subscription is compromised, the data stored on your virtual device is also susceptible.
+- 虛擬裝置會透過您的 Microsoft Azure 訂用帳戶受到保護。這表示，如果您使用的是虛擬裝置，而您的 Azure 訂用帳戶遭到洩漏，則儲存在虛擬裝置上的資料也會受到影響。
 
-- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Azure portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure.
+- 用來對儲存在 Azure StorSimple 中的資料加密的憑證公開金鑰，會安全地在 Microsoft Azure 入口網站中供人使用，而私密金鑰則會保留在 StorSimple 裝置中。在 StorSimple 虛擬裝置上，公開和私密金鑰都會儲存於 Azure 中。
 
-- The virtual device is hosted in the Microsoft Azure datacenter.
+- 虛擬裝置會裝載於 Microsoft Azure 資料中心。
 
+<!---HONumber=Nov15_HO2-->

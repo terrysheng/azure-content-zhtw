@@ -21,29 +21,36 @@
 我們將會繼續新增新的文件來支援 Azure 資料湖分析的服務開發，並反白顯示常見使用案例和選項。此頁面會列出目前已規劃的文件。您可以讓我們知道您希望我們著重的部分，方法是新增本文的註解、在 GitHub 中提交提取要求，或傳送電子郵件給我們。
 
 ## 文件集待處理項目
-領域 |主題 | 優先順序 | 狀態
-------------- | ------------- | -------------- | --------------
-U-SQL | 分散式查詢 | 1 | 暫止、取得適當的防火牆指引
-U-SQL | 正在處理 JSON | 2 |  
-服務 | 與 Curl 互動 | |暫止的 RestFUL API |
-U-SQL | 資料分割資料表 |1 |
-U-SQL | 效能微調 | |
-U-SQL | 程式設計人員指南 | |
-U-SQL | 從 T-SQL 背景開始使用 U-SQL | |
-U-SQL | 從 Hive 背景開始使用 U-SQL | |
-U-SQL | 文法鐵路圖 | 1 | 進行中，使用[這個項目](http://bottlecaps.de/rr/ui) |
-服務 | 保護資料湖分析中的工作、資料和資料表 |1|我會和 Saveen 合作進行這個項目
-服務 | 使用 Data Factory 將工作輸出移至 SQL 資料倉儲 |1 |我會和 Sreedhar 合作進行這個項目
-服務 | 使用 ARM 範本與其他 Azure 服務協調資料湖分析的部署 |1 |我已使用 PowerShell 文件在「管理」中包含 ARM 範本。它將會上線供公開預覽。使用 CLI 的管理會有相同的涵蓋範圍
-工具 | 使用診斷工具 | 1 |
+
+領域 |主題 | 優先順序 | 狀態 | 指派對象 | 要求者 
+------------- | ------------- | -------------- | -------------- | --------------- | --------------
+U-SQL | 分散式查詢 | 1 | In Process | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | 正在處理 JSON | 2 | Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
+服務 | 與 Curl 互動 | 3 |Pending |[@mumian](https://github.com/mumian)
+U-SQL | 資料分割資料表 |1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | 效能微調 | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
+U-SQL | 程式設計人員指南 | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | 從 T-SQL 背景開始使用 U-SQL | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
+U-SQL | 從 Hive 背景開始使用 U-SQL | 1 | Pending | [@mumian](https://github.com/mumian)| [@MikeRys](https://github.com/mikerys)
+U-SQL | 文法鐵路圖 | 1 | 進行中，使用[這個項目](http://bottlecaps.de/rr/ui) | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
+服務 | 保護資料湖分析中的工作、資料和資料表 |1| In Progress | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
+服務 | 使用 Data Factory 將工作輸出移至 SQL 資料倉儲 |1 | In Progress | [@mumian](https://github.com/mumian) | 
+工具 | 使用診斷工具 | 1 | Pending | [@mumian](https://github.com/mumian) | 
 
 
+
+
+## 待處理項目中的已完成文件
+
+領域 |主題 | location
+------------- | ------------- | -------------- 
+服務 | 使用 ARM 範本與其他 Azure 服務協調資料湖分析的部署 | [位置](https://azure.microsoft.com/zh-TW/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## 如何在待處理項目上提供意見反應
 有幾個選項可以在待處理項目上提供意見反應：
 
 * 在下方新增註解
-* 在 Azure 內容存放庫中提交這份文件的提取要求
+* 在 [Azure 內容存放庫](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)中提交這份文件的提取要求
 * 傳送電子郵件給 [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -18,9 +18,7 @@
 
 # 將推播通知新增至 Xamarin.iOS 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -39,6 +37,10 @@
 * 實體的 iOS 裝置。
 
 * 完成[快速入門教學課程](../app-service-mobile-xamarin-ios-get-started.md)。
+
+##<a name="create-hub"></a>建立通知中樞
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
 ## <a id="register"></a>註冊應用程式以取得推播通知
 
@@ -154,4 +156,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

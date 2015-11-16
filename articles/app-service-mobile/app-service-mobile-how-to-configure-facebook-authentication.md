@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # 如何設定應用程式以使用 Facebook 登入
@@ -28,7 +28,7 @@
 
 1. 登入 [Azure 管理入口網站]，並瀏覽至您的行動應用程式。複製您的 [URL]。您將使用此 URL 設定您的 Facebook 應用程式。
  
-2. 按一下 [設定]、[使用者驗證]，然後按一下 [Facebook]。然後從 [Facebook] 刀鋒視窗複製 [重新導向 URI]。您將搭配此 URI 使用您的 Facebook 應用程式。
+2. 按一下 [設定]、[行動驗證]，然後按一下 [Facebook]。然後從 [Facebook] 刀鋒視窗複製 [重新導向 URI]。您將搭配此 URI 使用您的 Facebook 應用程式。
  
 3. 在其他瀏覽器視窗中，瀏覽至 [Facebook 開發人員]網站，並以您的 Facebook 帳戶認證登入。
 
@@ -79,6 +79,5 @@
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /zh-TW/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure 管理入口網站]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -92,10 +92,10 @@ CRON 運算式由 6 個欄位組成: `{second} {minute} {hour} {day} {month} {da
 
 其他的 CRON 排程範例：
 
-- 每隔一小時 (也就是每當分鐘的計數是 0)：`* 0 * * * *` 
-- 上午 9 點到下午 5 點之間每隔一小時：`* 0 9-17 * * *` 
-- 每天上午 9:30：`* 30 9 * * *`
-- 每個工作日上午 9:30：`* 30 9 * * 1-5`
+- 每隔一小時 (也就是每當分鐘的計數是 0)：`0 0 * * * *` 
+- 上午 9 點到下午 5 點之間每隔一小時：`0 0 9-17 * * *` 
+- 每天上午 9:30：`0 30 9 * * *`
+- 每個工作日上午 9:30：`0 30 9 * * 1-5`
 
 **注意**：從 Visual Studio 部署 WebJob 時，請務必將您的 `settings.job` 檔案屬性標示為 [有更新時才複製 ]。
 
@@ -239,4 +239,4 @@ Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

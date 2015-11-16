@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # 如何設定應用程式以使用 Twitter 登入
@@ -29,7 +29,7 @@
 
 1. 登入 [Azure 管理入口網站]，並瀏覽至您的行動應用程式。複製您的 [URL]。您將使用此 URL 設定您的 Twitter 應用程式。
 
-2. 按一下 [設定]、[使用者驗證]，然後按一下 [Twitter]。複製**回呼 URL**。您將使用此 URL 設定您的 Twitter 應用程式。
+2. 按一下 [設定]、[行動驗證]，然後按一下 [Twitter]。複製**回呼 URL**。您將使用此 URL 設定您的 Twitter 應用程式。
 
 3. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [**建立新的應用程式**]。
 
@@ -70,6 +70,5 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure 管理入口網站]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

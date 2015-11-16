@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="10/29/2015" 
 	ms.author="tomfitz"/>
 
 # 使用範本建立 Web 應用程式和 Redis 快取
@@ -49,7 +49,7 @@
 
 ### Redis 快取
 
-建立與 Web 應用程式搭配使用的 Azure Redics 快取。快取的名稱指定於 **redisCacheName** 參數中。
+建立與 Web 應用程式搭配使用的 Azure Redis 快取。快取的名稱指定於 **redisCacheName** 參數中。
 
 此範本會在與 Web 應用程式相同的位置中建立快取，而這項建議可達到最佳效能。
 
@@ -125,4 +125,4 @@
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

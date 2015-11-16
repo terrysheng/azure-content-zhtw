@@ -1,6 +1,6 @@
 ## 建立模擬裝置應用程式
 
-在本節中，您會撰寫 Windows 主控台應用程式，模擬裝置傳送裝置對雲端訊息至 IoT 中心。
+在本節中，您會撰寫 Windows 主控台應用程式，模擬裝置傳送裝置對雲端訊息至 IoT 中樞。
 
 1. 在目前的 Visual Studio 解決方案中，按一下 [檔案]->[加入]->[專案]，使用 [主控台應用程式] 專案範本建立新的 Visual C# 桌面應用程式專案。將專案命名為 **SimulatedDevice**。
 
@@ -20,7 +20,7 @@
         using Newtonsoft.Json;
         using System.Threading;
 
-5. 在 [程式] 類別加入下列欄位，分別以 IoT 中心 URI 和擷取自**建立 IoT 中心**和**建立裝置身分識別**區段的裝置機碼取代預留位置值：
+5. 在 [程式] 類別加入下列欄位，分別以 IoT 中樞 URI 和擷取自**建立 IoT 中樞**和**建立裝置身分識別**區段的裝置機碼取代預留位置值：
 
 		static DeviceClient deviceClient;
         static string iotHubUri = "{iot hub URI}";
@@ -62,7 +62,10 @@
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
-> [AZURE.NOTE]為求簡單，本教學課程不會實作任何重試原則。在實際程式碼中，建議如 MSDN 文章[暫時性錯誤處理]所建議，實作重試原則 (例如指數型輪詢)。
+  根據預設，**Create** 方法會建立一個使用 AMQP 通訊協定的 **DeviceClient** 來和 IoT 中樞通訊。若要使用 HTTP 通訊協定，請使用 **Create** 方法的覆寫來指定通訊協定。若您選擇使用 HTTP 通訊協定，您也應該將 **Microsoft.AspNet.WebApi.Client** NuGet 封裝新增至您的專案，以包含 **System.Net.Http.Formatting** 命名空間。
+
+
+> [AZURE.NOTE]為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，建議如 MSDN 文章[暫時性錯誤處理]所建議，實作重試原則 (例如指數型輪詢)。
 
 <!-- Links -->
 
@@ -72,4 +75,4 @@
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

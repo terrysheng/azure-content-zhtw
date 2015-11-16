@@ -1,6 +1,6 @@
 <properties
-   pageTitle="可靠的集合"
-   description="可靠的集合可讓您撰寫高度可用、可擴充且低延遲的雲端應用程式。"
+   pageTitle="可靠的集合 | Microsoft Azure"
+   description="Service Fabric 具狀態服務提供可靠的集合，可讓您撰寫高度可用、可調整且低延遲的雲端應用程式。"
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="mcoskun"/>
 
-# 可靠的集合
+# Service Fabric 具狀態服務中之可靠的集合簡介
 
 可靠的集合可讓您撰寫高度可用、可擴充且低延遲的雲端應用程式，如同您在撰寫單一機器應用程式一般。`Microsoft.ServiceFabric.Data.Collections` 命名空間中的類別提供一組現成的集合，可讓您自動具有高度可用的狀態。開發人員只需要將程式設計為可靠的集合 API，並讓可靠的集合來管理複寫和本機狀態。
 
@@ -38,7 +38,7 @@
 
 可靠的集合 API 是並行集合 API (位於 `System.Collections.Concurrent` 命名空間) 的一種演化：
 
-1. 非同步：會傳回工作；不同於可靠的集合，其作業會受到複寫及保存。
+1. 非同步：會傳回工作；不同於並行集合，其作業會受到複寫及保存。
 2. 沒有 out 參數：使用 `ConditionalResult<T>` 傳回 bool 和值，而不是 out 參數。`ConditionalResult<T>` 就像 `Nullable<T>`，但 T 可以不是結構。
 3. 交易：使用交易物件，讓使用者可在交易中的多個可靠的集合上群組動作。
 
@@ -78,7 +78,7 @@
 
 為了進一步了解記錄檔和檢查點模型，我們來看看磁碟無限時的案例。可靠的狀態管理員會在複寫作業之前，記錄每一項作業。這可讓可靠的集合只在記憶體中套用作業。由於記錄檔會保存，即使複本失敗而必須重新啟動，可靠的狀態管理員在其記錄檔中仍具有足夠的資訊，以重新執行複本已遺失的所有作業。由於磁碟是無限的，因此永遠都不需要移除記錄檔記錄，而可靠的集合就只需要管理記憶體內部的狀態。
 
-現在讓我們看看磁碟有限的案例。在某個時間點，可靠的狀態管理員會用完磁碟空間。在這種情況發生前，可靠的狀態管理員必須截斷其記錄檔以騰出空間給較新的記錄。它會要求可靠的集合進行其記憶體內部狀態的檢查點檢查。由可靠的集合負責保存到該點為止的狀態。一旦可靠的集合完成其檢查點檢查，可靠的狀態管理員即可截斷記錄檔以釋放磁碟空間。如此一來，當複本必須重新啟動時，可靠的集合將會復原其檢查點的狀態，而可靠的狀態管理員則會復原並播放在該檢查點之後發生的所有狀態變更。
+現在讓我們看看磁碟有限的案例。在某個時間點，可靠的狀態管理員會用完磁碟空間。在這種情況發生前，可靠的狀態管理員必須截斷其記錄檔以騰出空間給較新的記錄。它會要求可靠的集合對磁碟進行其記憶體內部狀態的檢查點檢查。由可靠的集合負責保存到該點為止的狀態。一旦可靠的集合完成其檢查點檢查，可靠的狀態管理員即可截斷記錄檔以釋放磁碟空間。如此一來，當複本必須重新啟動時，可靠的集合將會復原其檢查點的狀態，而可靠的狀態管理員則會復原並播放在該檢查點之後發生的所有狀態變更。
 
 ## 鎖定
 在可靠的集合中，所有交易都有兩個階段：在以中止或認可來終止交易之前，交易不會釋放它所取得的鎖定。
@@ -115,7 +115,7 @@
 
 - [可靠的服務快速入門](service-fabric-reliable-services-quick-start.md)
 - [開始使用 Service Fabric Web API 服務](service-fabric-reliable-services-communication-webapi.md)
-- [可靠的服務程式設計模型進階用法](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
+- [可靠的服務程式設計模型進階用法](service-fabric-reliable-services-advanced-usage.md)
 - [可靠的集合的開發人員參考資料](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

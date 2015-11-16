@@ -57,7 +57,12 @@
 - 密碼同步和 Exchange 混合式設定
 - 您的樹系/網域與 Azure AD 設定
 
-下列變更無法升級。如果您進行了任何這些變更，將會封鎖升級。在這些情況下，建議您在[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)安裝 Azure AD Connect 伺服器，並確認舊的 DirSync 及新的 Azure AD Connect 組態。
+下列變更無法升級。如果您進行了任何這些變更，將會封鎖升級。
+
+![已封鎖升級](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
+
+在這些情況下，建議您在[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)安裝 Azure AD Connect 伺服器，並確認舊的 DirSync 及新的 Azure AD Connect 組態。使用自訂組態重新套用任何變更，如 [Azure AD Connect 同步處理自訂組態](active-directory-aadconnectsync-whatis.md)中所述。
+
 
 - 不支援的 DirSync 變更，例如移除屬性和使用自訂延伸模組 DLL
 - 根據使用者屬性進行篩選
@@ -155,6 +160,8 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 - AD 連接器上的完整同步處理
 - Azure AD 連接器上的完整同步處理
 
+![匯入和同步處理完成](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsynccompleted.png)
+
 檢閱這些作業的結果，並確定沒有任何錯誤。
 
 如果您想要查看並檢查哪些變更即將匯出到 Azure AD，則了解如何在[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)下驗證組態。進行必要的組態變更，直到看不到非預期的任何項目。
@@ -191,4 +198,4 @@ Azure AD Connect 現在是您的作用中伺服器。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

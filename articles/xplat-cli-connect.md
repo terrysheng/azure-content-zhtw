@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="10/30/2015"
 	ms.author="danlep"/>
 
 # 從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶
@@ -27,45 +27,47 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 
 有兩種方法可從 Azure CLI 連接到您的訂用帳戶：
 
-* **使用公司或學校帳戶或 Microsoft 帳戶身分識別登入 Azure** - 這會使用其中一種類型的帳戶身分識別進行驗證。從 CLI 0.9.9 版開始，CLI 可支援已啟用 Multi-Factor Authentication 的帳戶的互動式驗證。在互動式登入後，即可使用資源管理員或傳統 (服務管理) 命令。
+* **使用公司或學校帳戶或 Microsoft 帳戶身分識別登入 Azure** - 這會使用其中一種類型的帳戶身分識別進行驗證。目前的 CLI 也能支援已啟用多重要素驗證之帳戶的互動式驗證。在互動式登入後，即可使用資源管理員或傳統 (服務管理) 命令。
 
-* **下載和使用發佈設定檔** - 這會安裝憑證，只要訂用帳戶和憑證有效，該憑證便可讓您執行管理工作。此方法只允許您使用傳統 (服務管理) 命令。
+* **下載和使用發佈設定檔** - 這會在您的本機電腦上安裝憑證，只要訂用帳戶和憑證有效，該憑證便可讓您執行管理工作。此方法只允許您使用傳統 (服務管理) 命令。
 
 如需驗證與訂用帳戶管理的詳細資訊，請參閱[帳戶式驗證與憑證式驗證之間的差別][authandsub]。
 
 如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][free-trial]。
 
-> [AZURE.NOTE]如果您使用 Azure CLI 0.9.9 版之前的版本，您只能搭配公司或學校帳戶身分識別使用 `azure login` 命令；無法使用 Microsoft 帳戶身分識別。不過，您可以使用任何身分識別，以 Azure CLI 0.9.9 版和更新版本，使用互動式 `azure login` 命令登入您的帳戶。
+>[AZURE.NOTE]如果您使用的是 Azure CLI 0.9.10 版之前的版本，就只能搭配公司或學校帳戶身分識別使用 `azure login` 命令；無法使用 Microsoft 帳戶身分識別。不過，您可以使用任何身分識別，利用 Azure CLI 0.9.10 版和更新版本，使用互動式 `azure login` 命令來登入帳戶。
+>
+CLI 0.9.9 版和更新版本支援多重要素驗證。
 
 
 
 ## 使用互動式登入方法
 
-使用 `azure login` 命令 - 不含任何引數 - 以互動方式驗證其他項目：
+使用 `azure login` 命令 (不含任何引數)，以互動方式驗證其他項目：
 
 - 需要 Multi-Factor Authentication 的公司或學校帳戶身分識別，或
 - 當您想要存取資源管理員部署模式功能時的 Microsoft 帳戶身分識別
 
-> [AZURE.NOTE]在兩個案例中，驗證和授權是使用 Azure Active Directory 執行，在 Microsoft 帳戶的案例中，是藉由存取您的 Azure Active Directory 預設網域來執行。(如果您註冊免費試用版，您可能不會察覺 Azure Active Directory 為您的帳戶建立預設網域。)
+> [AZURE.NOTE]在這兩種情況下，驗證和授權都是使用 Azure Active Directory 來執行。如果您使用 Microsoft 帳戶身分識別，登入程序就會存取您的 Azure Active Directory 預設網域(如果您註冊免費試用版，可能就不會察覺 Azure Active Directory 為您的帳戶建立了預設網域)。
 
-以互動方式登入很簡單。輸入 `azure login` 並遵循提示，如下所示：
+以互動方式登入很簡單：輸入 `azure login` 並依照提示執行，如下所示：
 
 	azure login                                                                                                                                                                                         
 	info:    Executing command login
-	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code B4MGHQS7K to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
-	
-複製上方提供給您的程式碼，並將瀏覽器開啟至 http://aka.ms/devicelogin。輸入程式碼，您會收到提示，輸入您想要使用的身分識別的使用者名稱和密碼。完成這個程序時，命令殼層會完成登入程序。您應該會看到類似下面的畫面：
-	
+	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+
+複製上方提供給您的程式碼，並將瀏覽器開啟至 http://aka.ms/devicelogin。輸入程式碼，然後系統會提示您輸入想要使用之身分識別的使用者名稱和密碼。完成這個程序之後，命令殼層便會完成登入程序。您應該會看到類似下面的畫面：
+
 	info:    Added subscription Visual Studio Ultimate with MSDN
 	info:    Added subscription Azure Free Trial
 	info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
 	+
 	info:    login command OK
 
-## 以公司或學校帳戶使用非互動式登入
+## 利用公司或學校帳戶使用非互動式登入
 
 
-非互動式登入方法只適用於公司或學校帳戶，這兩種帳戶也稱為*組織帳戶*。這個帳戶是您的組織所管理，並定義於組織的 Azure Active Directory 中。如果沒有帳戶，您可以[建立組織帳戶](#create-an-organizational-account)，或是[從 Microsoft 帳戶識別碼建立公司或學校識別碼](./virtual-machines/resource-group-create-work-id-from-personal.md)。這會要求您對 `azure login` 命令指定使用者名稱或使用者名稱和密碼，如下所示：
+非互動式登入方法只適用於公司或學校帳戶，這兩種帳戶也稱為「組織帳戶」。這個帳戶是您的組織所管理，並定義於組織的 Azure Active Directory 中。如果沒有帳戶，您可以[建立組織帳戶](#create-an-organizational-account)，或是[從 Microsoft 帳戶識別碼建立公司或學校識別碼](./virtual-machines/resource-group-create-work-id-from-personal.md)。這會要求您為 `azure login` 命令指定使用者名稱或使用者名稱和密碼，如下所示：
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
@@ -73,7 +75,7 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 	|info:    Added subscription Visual Studio Ultimate with MSDN
 	+
 	info:    login command OK
-	
+
 在系統提示時輸入您的密碼。
 
 	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
@@ -88,7 +90,7 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 
 如果您只需要使用傳統 (服務管理) CLI 命令，您可以使用發佈設定檔連線。
 
-* **若要下載您的帳戶的發佈設定檔**，請使用下列命令：
+* **若要下載適用於帳戶的發佈設定檔**，請使用下列命令：
 
 		azure account download
 
@@ -101,7 +103,7 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 * **若要匯入發佈設定檔**，請執行下列命令：
 
 		azure account import <path to your .publishsettings file>
-	
+
 	匯入發行設定之後，因為 Azure CLI 已不再需要 `.publishsettings` 檔案，而且該檔案可用於存取您的訂用帳戶，並因此而造成安全風險，所以應予以刪除。
 
 
@@ -125,11 +127,11 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 
 如果您要 Azure CLI 使用非預設的訂用帳戶，但又不想變更目前的預設值，可以使用適用於該命令的 `--subscription` 選項，並提供希望該作業使用的訂用帳戶名稱。
 
-一旦您連接到 Azure 訂用帳戶之後，就可以開始使用 Azure CLI 命令。如需詳細資訊，請參閱[如何使用 Azure CLI](xplat-cli-install.md)。
+一旦您連接到 Azure 訂用帳戶之後，就可以開始使用 Azure CLI 命令。
 
 ## CLI 設定的儲存位置
 
-不論您是使用公司或學校帳戶進行登入或是匯入發佈設定，您的 CLI 設定檔和記錄檔都會存放在 `.azure` 目錄中 (位於您的 `user` 目錄中)。您的 `user` 目錄會受到作業系統的保護，但建議您採取額外步驟來加密 `user` 目錄。做法如下：
+不論您是使用公司或學校帳戶進行登入或是匯入發佈設定，您的 CLI 設定檔和記錄檔都會儲存於 `.azure` 目錄 (位於您的 `user` 目錄中)。您的 `user` 目錄會受到作業系統的保護，但建議您採取額外步驟來加密 `user` 目錄。做法如下：
 
 * 在 Windows 中，修改目錄屬性或使用 BitLocker。
 * 在 Mac 中，開啟目錄的 FileVault。
@@ -154,6 +156,6 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

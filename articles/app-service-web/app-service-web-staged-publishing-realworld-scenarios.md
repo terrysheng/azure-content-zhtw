@@ -312,7 +312,7 @@ require_once(ABSPATH . 'wp-settings.php');
 務必記得移除您的應用程式下的 `install` 資料夾，而且永遠不要將它上傳至預備或生產 Web 應用程式。在本教學課程中，我將使用 WebMatrix
 
 #### 設定預備環境
-如上所述為 Umbraco CMS Web 應用程式建立部署位置，假設您已有 Umbraco CMS Web 應用程式運作且執行中。如果沒有，您可以從 Marketplace 建立一個。若要深入了解，請按一下[這裡](web-sites-gallery-umbraco)。
+如上所述為 Umbraco CMS Web 應用程式建立部署位置，假設您已有 Umbraco CMS Web 應用程式運作且執行中。如果沒有，您可以從 Marketplace 建立一個。
 
 將您的預備部署位置的連接字串更新，以指向新建立的資料庫 **umbraco-stage-db**。您的生產 Web 應用程式 (umbraositecms-1) 和預備 Web 應用程式 (umbracositecms-1-stage) **必須**指向不同的資料庫。
 
@@ -362,21 +362,14 @@ require_once(ABSPATH . 'wp-settings.php');
   </repositories>
  ```
 
-在 `<repositories>` 下，輸入生產網站 URL URL 和使用者資訊。 如果您使用預設的 Umbraco Membership 提供者，請在 <user> 區段中新增管理使用者的識別碼。 如果您使用自訂 Umbraco Membership 提供者，使用 `<login>`,`<password>` Courier2 模組相關知識連接到生產網站。 如需更多詳細資訊，請檢閱 [文件](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)了解 Courier 模組。
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-同樣地，在您的生產網站中安裝 Courier 模組，並將其設定為指向這裡顯示的相關 courier.config 檔案中的階段 Web 應用程式
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 在 Umbraco CMS Web 應用程式儀表板中的 Courier2 索引標籤上按一下，並選取位置。您應該會看到在 `courier.config` 中提及的儲存機制名稱。在生產和預備 Web 應用程式上執行這項操作。
 
@@ -386,7 +379,7 @@ require_once(ABSPATH . 'wp-settings.php');
 
 ![變更頁面的標題並發佈](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
 
-現在選取已修改的頁面，然後*以滑鼠右鍵按一下*來檢視所有選項。按一下 **Courier** 來檢視 [部署] 對話方塊。按一下 [部署] 來起始部署。
+現在選取已修改的頁面，然後*以滑鼠右鍵按一下*來檢視所有選項。按一下 [Courier] 來檢視 [部署] 對話方塊。按一下 [部署] 來起始部署。
 
 ![Courier 模組部署對話方塊](./media/app-service-web-staged-publishing-realworld-scenarios/18dialog1.png)
 
@@ -429,4 +422,4 @@ Courier 將不會隨著從一個版本的 Umbraco CMS 升級至另一個版本�
 
 [封鎖對非生產部署位置的 Web 存取](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

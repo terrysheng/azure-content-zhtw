@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="資料相依路由" 
-	description="如何將 ShardMapManager 用於 Azure SQL DB 功能之一的資料相依路由。" 
+	pageTitle="資料依存路由 | Microsoft Azure" 
+	description="如何將 ShardMapManager 用於 Azure SQL Database 功能之一的資料相依路由。" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 #資料相依路由
 
 在分區化環境中，**ShardMapManager** 類別可讓 ADO.NET 應用程式輕鬆地將資料庫查詢和命令指向適當的實體資料庫。這稱為**資料相依路由**，也是使用分區化資料庫時的一種基本模式。在使用資料相依路由的應用程式中，每個特定的查詢或交易會限制每個要求只能存取單一資料庫。
 
 使用資料相依路由時，應用程式在分區化環境中不需要追蹤不同的連接字串，或與不同資料片段相關聯的 DB 位置。相反地，[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)會根據分區對應中的資料和分區化索引鍵的值 (應用程式要求的目標)，負責在必要時提供正確資料庫的開啟連接。(此索引鍵通常是 *customer\_id*、*tenant\_id*、*date\_key*，或作為資料庫要求基本參數的其他一些特定的識別項)。
+
+## 下載用戶端程式庫
+
+若要安裝程式庫，請移至[彈性資料庫用戶端程式庫](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
 ## 在資料相依路由應用程式中使用 ShardMapManager 
 
@@ -32,7 +36,7 @@
 
 此範例中會初始化 **ShardMapManager** 及其包含的特定 **ShardMap**。
 
-對於不操作分區對應本身的應用程式，在用來取得 **ShardMapManager** 的 Factory 方法中 (上述範例中的 *smmConnectionString*)，使用的認證在連接字串所參考的**全域分區對應**資料庫上應該只具有唯讀權限。這些認證通常不同於用來對分區對應管理員開啟連接的認證。請參閱[在彈性資料庫用戶端程式庫中使用認證](sql-database-elastic-scale-manage-credentials.md)。
+對於不操作分區對應本身的應用程式，在用來取得 **ShardMapManager** 的 Factory 方法中 (上述範例中的 *smmConnectionString*)，使用的認證在連接字串所參考的**全域分區對應**資料庫上應該只具有唯讀權限。這些認證通常不同於用來對分區對應管理員開啟連接的認證。另請參閱[在彈性資料庫用戶端程式庫中使用認證](sql-database-elastic-scale-manage-credentials.md)。
 
 ## 叫用資料相依路由 
 
@@ -117,4 +121,4 @@ int newPersonId = 4321;
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

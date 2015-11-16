@@ -1,10 +1,10 @@
-<properties pageTitle="Azure 搜尋服務管理 REST API 版本 2015-02-28" description="Azure 搜尋服務管理 REST API： 版本 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="Azure 搜尋服務管理 REST API 版本 2015-02-28 | Microsoft Azure" description="Azure 搜尋服務管理 REST API： 版本 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="09/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
 # 管理 API： 版本 2015-02-28
 
-本文說明 **2015-02-28* 版本的 Azure 搜尋管理 REST API。在那之後，較新版本已取代它。如需最新版本，請參閱 MSDN 上的 [Azure 搜尋管理 REST API 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx)。
+Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。本文說明 **2015-02-28* 版本的 Azure 搜尋管理 REST API。在那之後，較新版本已取代它。如需最新版本，請參閱 MSDN 上的 [Azure 搜尋管理 REST API 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx)。
 
 ##服務管理作業
 
@@ -812,4 +812,4 @@ Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀�
 
 無。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

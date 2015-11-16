@@ -1,5 +1,5 @@
 <properties
-   pageTitle="疑難排解 Service Fabric 應用程式升級"
+   pageTitle="疑難排解應用程式升級 | Microsoft Azure"
    description="本文涵蓋升級 Service Fabric 應用程式的一些常見問題，以及解決方式。"
    services="service-fabric"
    documentationCenter=".net"
@@ -225,4 +225,4 @@ Service Fabric 將所有百分比轉譯為健康狀態評估的實體實際數�
 [資料序列化](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

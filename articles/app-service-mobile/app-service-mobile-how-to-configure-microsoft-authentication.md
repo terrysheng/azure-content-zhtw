@@ -18,6 +18,8 @@
 
 # 如何設定應用程式以使用 Microsoft 帳戶登入
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 本主題說明如何設定 Azure 行動應用程式，以使用 Microsoft 帳戶做為驗證提供者。
@@ -68,6 +70,5 @@
 
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure 管理入口網站]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

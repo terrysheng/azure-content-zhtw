@@ -13,10 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="11/04/2015"
    ms.author="cherylmc"/>
 
 # 建立和修改 ExpressRoute 線路
+
+> [AZURE.SELECTOR]
+[PowerShell Classic](expressroute-howto-circuit-classic.md)
+[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
 
 本文將逐步引導您使用 PowerShell Cmdlet 和傳統部署模型建立 ExpressRoute 線路。下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路。
 
@@ -116,7 +120,7 @@
 
 4. **列出所有 ExpressRoute 線路。**
 
-	您可以執行 *Get-AzureDedicatedCircuit* 命令，取得您已建立的所有 ExpressRoute 線路的清單。
+	您可以執行 *Get-AzureDedicatedCircuit* 命令，取得您已建立之所有 ExpressRoute 線路的清單。
 
 		#Getting service key
 		Get-AzureDedicatedCircuit
@@ -192,7 +196,7 @@
 
 7. **將 VNet 連結到 ExpressRoute 線路。**
 
-	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 電路連結到 VNet](expressroute-howto-linkvnet-classic.md)，取得逐步指示。如果您需要為 ExpressRoute 建立虛擬網路，請參閱[為 ExpressRoute 建立虛擬網路](expressroute-howto-createvnet-classic.md)中的相關指示。
+	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 線路連結到 VNet](expressroute-howto-linkvnet-classic.md)，取得逐步指示。如果您需要為 ExpressRoute 建立虛擬網路，請參閱[為 ExpressRoute 建立虛擬網路](expressroute-howto-createvnet-classic.md)中的相關指示。
 
 ##  如何取得 ExpressRoute 線路的狀態？
 
@@ -324,4 +328,4 @@
 - [設定路由](expressroute-howto-routing-classic.md)
 - [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何在 Azure 搜尋服務中對搜尋結果分頁" 
-	description="Azure 搜尋服務中的分頁方式" 
+	pageTitle="如何在 Azure 搜尋服務中對搜尋結果分頁 | Microsoft Azure" 
+	description="Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 中的分頁方式。" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #如何在 Azure 搜尋服務中對搜尋結果分頁#
@@ -114,4 +114,4 @@
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

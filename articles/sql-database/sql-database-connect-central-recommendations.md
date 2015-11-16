@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/02/2015" 
 	ms.author="genemi"/>
 
 
@@ -100,20 +100,10 @@
 - 關閉連線。
 
 
-#### 使用集區時擲回的例外狀況
-
-
-啟用連接集區，並發生逾時錯誤或其他登入錯誤時，就會擲回例外狀況。接下來 5 秒的後續連接嘗試都會失敗，這稱為*封鎖期間*。
-
-如果應用程式嘗試在封鎖期間內連接，將會再次擲回第一個例外狀況。在封鎖期間結束之後，後續失敗會導致新的封鎖期間，其持續時間是前一個封鎖期間的兩倍。
-
-封鎖期間的最長持續時間為 60 秒。
-
-
 ### V12 中 1433 以外的連接埠
 
 
-與 Azure SQL Database V12 的用戶端連線有時會略過 proxy 並直接與資料庫互動。1433 以外的連接埠變得重要。如需詳細資訊，請參閱：<br/>[針對 ADO.NET 4.5 和 SQL Database V12 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)
+與 Azure SQL Database V12 的用戶端連線有時會略過 proxy 並直接與資料庫互動。1433 以外的連接埠變得重要。如需詳細資訊，請參閱：<br/> [針對 ADO.NET 4.5 和 SQL Database V12 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 下一節會更詳細說明重試邏輯和暫時性錯誤處理。
@@ -131,7 +121,12 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 不過，重新設定可能會導致您的用戶端程式遺失其 SQL Database 連接。這種錯誤稱為「暫時性錯誤」。
 
-用戶端程式可以在重試間大概等候 6 至 60 秒後，嘗試重新建立連接。您必須在用戶端中提供重試邏輯。
+如果您的用戶端程式具有重試邏輯，在給予暫時性錯誤一些時間自行修正後，可以嘗試重新建立連接。
+
+我們建議您在您第一次重試前延遲 5 秒鐘。在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
+
+在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找到使用 ADO.NET 之用戶端的「封鎖期間」討論。
+
 
 如需說明重試邏輯的程式碼範例，請參閱：[SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
@@ -174,4 +169,4 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 - [SQL Database 和 SQL Server 的連接庫](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

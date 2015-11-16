@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="10/30/2015"
    ms.author="maroche"/>
 
 # Azure 資料目錄的常見問題集
@@ -70,7 +70,7 @@
 - Azure 儲存體 Blob
 - Azure 儲存體目錄
 - HDFS 檔案
-- HDSF 目錄
+- HDFS 目錄
 - Teradata 資料表
 - Teradata 檢視
 
@@ -79,7 +79,7 @@
 - SQL Server Database
 - Oracle 資料庫
 - HDFS 叢集
-- Teradata 資料庫 
+- Teradata 資料庫
 
 
 ## 問：如何要求另一個資料來源的支援？
@@ -172,4 +172,4 @@
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -183,9 +183,13 @@
 
 ![](./media/app-insights-how-do-i/115-metrics.png)
 
+## 修改屬性名稱或值
+
+建立一個篩選 (app-insights-api-filtering-sampling.md#filtering)。這可讓您先修改或篩選遙測，然後再將它從您的應用程式傳送至 Application Insights。
+
 ## 列出特定使用者和其使用方式
 
-如果您只想要[搜尋特定使用者](#search-specific-users)，就可以設定 [驗證使用者識別碼](app-insights-api-custom-events-metrics/#authenticated-users)。
+如果您只想要[搜尋特定使用者](#search-specific-users)，可以設定[驗證使用者識別碼](app-insights-api-custom-events-metrics/#authenticated-users)。
 
 如果您想要使用者清單以及像是他們查看過哪些頁面或登入頻率等資料，則有兩個選項：
 
@@ -236,11 +240,4 @@
 * 首先，[新增圖表](app-insights-metrics-explorer.md)，並查看計數器是否位於我們提供的基本組合中。
 * 如果沒有，請[將計數器加入效能計數器模組所收集的組合](app-insights-web-monitor-performance.md#system-performance-counters)。
 
-
- 
-
-### Azure Web 角色
-
-我們目前並未監視相關的效能計數器
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

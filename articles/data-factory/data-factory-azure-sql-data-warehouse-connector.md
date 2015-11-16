@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure SQL 資料倉儲來回移動資料
@@ -371,6 +371,8 @@
 	   }
 	}
 
+請參閱 Azure SQL 資料倉儲文件中的[使用 Azure Data Factory 載入資料](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md)一文以取得逐步解說。
+
 ## Azure SQL 資料倉儲連結服務屬性
 
 下表提供 Azure SQL 資料倉儲連結服務專屬 JSON 元素的描述。
@@ -396,13 +398,13 @@
 
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
 
-**附註：**複製活動只會採用一個輸入，而且只會產生一個輸出。
+**附註：**複製活動只會採用一個輸入，而且只產生一個輸出。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
 ### SqlDWSource
 
-在複製活動的案例中，如果來源類型為 **SqlDWSource**，則 **typeProperties** 區段可使用下列屬性：
+在複製活動的案例中，如果來源的類型為 **SqlDWSource**，則 **typeProperties** 區段有下列可用屬性：
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
@@ -478,7 +480,7 @@
 
 從 Azure SQL、SQL Server、Sybase 來回移動資料時，將使用下列從 SQL 類型到 .NET 類型的對應，反之亦然。
 
-此對應與 [ADO.NET 的 SQL Server 資料類型對應相同](https://msdn.microsoft.com/library/cc716729.aspx)。
+此對應與 [ADO.NET 的 SQL Server 資料類型對應](https://msdn.microsoft.com/library/cc716729.aspx)相同。
 
 | SQL Server Database Engine 類型 | .NET Framework 類型 |
 | ------------------------------- | ------------------- |
@@ -521,4 +523,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

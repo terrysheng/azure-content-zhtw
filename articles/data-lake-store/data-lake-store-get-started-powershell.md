@@ -31,11 +31,7 @@
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
 - **啟用您的 Azure 訂用帳戶**以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
-- **Azure PowerShell 1.0 或更新版本**。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。安裝 Azure PowerShell 1.0 或更新版本後，您應執行下列 Cmdlet 安裝 Azure 資料湖存放區模組。
-
-		Install-Module AzureRM.DataLakeStore
-
-	如需 **AzureRM.DataLakeStore** 模組的詳細資訊，請參閱 [PowerShell 資源庫](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore)。
+- **Azure PowerShell 1.0**。從[這裡](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi)安裝。
 
 ## 建立 Azure 資料湖存放區帳戶
 
@@ -143,4 +139,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

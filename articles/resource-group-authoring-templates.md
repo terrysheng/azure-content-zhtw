@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # 編寫 Azure 資源管理員範本
@@ -54,32 +54,6 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 一般而言，您可以將運算式搭配函數使用，以執行可設定部署的作業。正如同在 JavaScript 中，函數呼叫的格式為 **functionName(arg1,arg2,arg3)**。您可以使用點與 [index] 運算子來參考屬性。
 
-下列清單顯示常見的函式。
-
-- **parameters(parameterName)**
-
-    傳回執行部署時提供的參數值。
-
-- **variables(variableName)**
-
-    傳回範本中定義的變數。
-
-- **concat(arg1,arg2,arg3,...)**
-
-    結合多個字串值。此函數可以接受任意數目的引數。
-
-- **base64(inputString)**
-
-    傳回輸入字串的 base64 表示法。
-
-- **resourceGroup()**
-
-    傳回代表目前資源群組的結構化物件 (包括 ID、名稱及位置屬性)。
-
-- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
-
-    傳回資源的唯一識別碼。可用於擷取另一個資源群組中的資源。
-
 下列範例將示範如何在結構化值時使用數個函數：
  
     "variables": {
@@ -88,7 +62,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-現在您知道有關運算式和函數的相關資訊，以便了解範本區段。如需有關所有範本函式的詳細資訊，包括參數和傳回值的格式，請參閱 [Azure 資源管理員範本函數](./resource-group-template-functions.md)。
+如需範本函數的完整清單，請參閱 [Azure 資源管理員範本函數](./resource-group-template-functions.md)。
 
 
 ## 參數
@@ -107,7 +81,10 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
          "minValue": <optional-minimum-value-for-int-parameters>,
          "maxValue": <optional-maximum-value-for-int-parameters>,
          "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
-         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>,
+         "metadata": {
+             "description": "<optional-description-of-the parameter>" 
+         }
        }
     }
 
@@ -121,6 +98,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 | maxValue | 否 | int 類型參數的最大值，含此值。
 | minLength | 否 | 字串、secureString 及陣列類型參數長度的最小值，含此值。
 | maxLength | 否 | 字串、secureString 及陣列類型參數長度的最大值，含此值。
+| 說明 | 否 | 經由入口網站自訂範本介面顯示給範本使用者的參數說明。
 
 允許的類型和值為：
 
@@ -346,9 +324,9 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 ## 進階案例。
 本主題介紹範本。然而，您的案例可能需要更進階的工作。
 
-您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)。
+您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[搭配使用連結的範本與 Azure 資源管理員](resource-group-linked-templates.md)。
 
-若要反覆指定次數以建立某種類型的資源，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
+建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 
 您可能需要使用不同資源群組內的資源。這常見於使用多個資源群組之間所共用的儲存體帳戶或虛擬網路時。如需詳細資訊，請參閱 [resourceId 函式](../resource-group-template-functions#resourceid)。
 
@@ -435,9 +413,9 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
     }
 
 ## 後續步驟
-- 如需您可以在範本內使用之函式的詳細資訊，請參閱 [Azure 資源管理員範本函式](resource-group-template-functions.md)
-- 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
+- 如需關於您可以在範本內使用之函式的詳細資訊，請參閱 [Azure 資源管理員範本函式](resource-group-template-functions.md)
+- 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

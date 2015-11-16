@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric 可靠的服務架構"
-   description="可靠的服務架構的高階概觀"
+   pageTitle="可靠的服務架構 | Microsoft Azure"
+   description="具狀態與無狀態之可靠的服務架構概觀。"
    services="service-fabric"
    documentationCenter=".net"
    authors="AlanWarwick"
@@ -16,30 +16,30 @@
    ms.date="09/03/2015"
    ms.author="alanwar"/>
 
-# 可靠的服務架構
+# 具狀態與無狀態之可靠的服務架構
 
-Service Fabric 可靠的服務可能是具狀態或無狀態。每一種服務都在這篇文章中所述的特定架構內執行。請參閱[可靠的服務概觀](../Service-Fabric/service-fabric-reliable-services-introduction.md)，以取得具狀態與無狀態服務之間差異的詳細資訊。
+Service Fabric 可靠的服務可能是具狀態或無狀態。每一種服務都在這篇文章中所述的特定架構內執行。請參閱[可靠的服務概觀](service-fabric-reliable-services-introduction.md)，以取得具狀態與無狀態服務之間差異的詳細資訊。
 
-## 具狀態可靠的服務
+## 具狀態之可靠的服務
 
-### 具狀態可靠的服務架構圖表
+### 具狀態服務的架構
 ![架構圖表](./media/service-fabric-reliable-services-platform-architecture/reliable-stateful-service-architecture.png)
 
-### 具狀態可靠的服務
+### 具狀態之可靠的服務
 
-具狀態可靠的服務可以從 StatefulService 或 StatefulServiceBase 類別衍生。這兩個基底類別都由 Service Fabric 所提供，並為您的具狀態服務提供各種支援和抽象層級以便與 Service Fabric 互動，以及做為 Service Fabric 叢集內的服務參與。StatefulService 衍生自 StatefulServiceBase；StatefulServiceBase 提供服務更多的彈性，但需要對 Service Fabric 內部運作有更多了解。請參閱[可靠的服務概觀](../Service-Fabric/service-fabric-reliable-services-introduction.md)和[可靠的服務進階用法](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)，以取得使用 StatefulService 和 StatefulServiceBase 類別撰寫服務細節的詳細資訊。
+具狀態可靠的服務可以從 StatefulService 或 StatefulServiceBase 類別衍生。這兩個基底類別都由 Service Fabric 所提供，並為您的具狀態服務提供各種支援和抽象層級以便與 Service Fabric 互動，以及做為 Service Fabric 叢集內的服務參與。StatefulService 衍生自 StatefulServiceBase；StatefulServiceBase 提供服務更多的彈性，但需要對 Service Fabric 內部運作有更多了解。請參閱[可靠的服務概觀](service-fabric-reliable-services-introduction.md)和[可靠的服務進階用法](service-fabric-reliable-services-advanced-usage.md)，以取得使用 StatefulService 和 StatefulServiceBase 類別撰寫服務細節的詳細資訊。
 
 這兩個基底類別會管理服務實作的存留期和角色。如果服務實作在服務實作生命週期中的那些點有工作要執行，或是想要建立通訊接聽程式物件，服務實作可能會覆寫任一基底類別的虛擬方法。請注意雖然服務實作可能會實作自己的通訊接聽程式物件並公開 ICommunicationListener，在上圖中，通訊接聽程式由 Service Fabric 實作，因為服務實作使用 Service Fabric 所實作的通訊接聽程式。
 
 您的具狀態可靠的服務會使用可靠的狀態管理員來利用可靠的集合。可靠的集合是對服務而言高度可用的本機資料結構，也就是，不論服務容錯移轉，一律可以使用。可靠的集合的每個類型是由可靠的狀態提供者所實作。如需可靠的集合的詳細資訊，請參閱[可靠的集合概觀](service-fabric-reliable-services-reliable-collections.md)
 
-### 可靠的狀態管理員和提供者
+### 可靠的狀態管理員和狀態提供者
 
 可靠的狀態管理員是用以管理可靠的狀態提供者的物件，而且它具有建立、刪除、列舉和確保可靠的狀態提供者持續保存且高度可用的功能。可靠的狀態提供者執行個體代表持續保存且高度可用之資料結構的執行個體，例如字典或佇列。每個可靠的狀態提供者會公開具狀態服務所使用的介面，以和可靠的狀態提供者互動。例如，IReliableDictionary 用來與可靠的字典互動，而 IReliableQueue 用來與可靠的佇列互動。所有可靠的狀態提供者都實作 IReliableState 介面。
 
-可靠的狀態管理員具有名為 IReliableStateManager 的介面，它允許具狀態服務實作來存取它。與可靠的狀態提供者的介面會透過 IReliableStateManager 傳回。
+可靠的狀態管理員具有名為 IReliableStateManager 的介面，它可讓您從具狀態服務來存取它。與可靠的狀態提供者的介面會透過 IReliableStateManager 傳回。
 
-可靠的狀態管理員的架構具有動態外掛程式架構，新類型的可靠的集合可以動態地插入。
+可靠的狀態管理員使用外掛程式架構，因此新類型的可靠的集合可以動態地插入。
 
 可靠的字典和可靠的佇列是建立在高效能版本的差異存放區實作上。
 
@@ -63,33 +63,33 @@ Service Fabric 可靠的服務可能是具狀態或無狀態。每一種服務�
 
 除了對記錄檔的最小使用者模式介面，記錄檔會撰寫為核心模式驅動程式。藉由以核心模式驅動程式方式執行，記錄檔可以提供最高的效能給使用它的所有服務。
 
-如需設定記錄的詳細資訊，請參閱[設定具狀態可靠的服務](../Service-Fabric/service-fabric-reliable-services-configuration.md)。
+如需設定記錄的詳細資訊，請參閱[設定具狀態之可靠的服務](service-fabric-reliable-services-configuration.md)。
 
-## 無狀態的可靠的服務
+## 無狀態之可靠的服務
 
-### 無狀態的可靠的服務架構圖表
+### 無狀態服務的架構
 ![架構圖表](./media/service-fabric-reliable-services-platform-architecture/reliable-stateless-service-architecture.png)
 
-### 無狀態的可靠的服務
+### 無狀態之可靠的服務
 
 無狀態服務實作衍生自 StatelessService 類別或 StatelessServiceBase 類別，其中 StatelessServiceBase 類別比 StatelessService 允許更多彈性。這兩個基底類別會管理服務的存留期和角色。如果服務在服務生命週期中的那些點有工作要執行，或是想要建立通訊接聽程式物件，服務實作可能會覆寫任一基底類別的虛擬方法。請注意雖然服務可能會實作自己的通訊接聽程式物件並公開 ICommunicationListener，在上圖中，通訊接聽程式由 Service Fabric 實作，因為服務實作使用 Service Fabric 所實作的通訊接聽程式。
 
-請參閱[可靠的服務概觀](../Service-Fabric/service-fabric-reliable-services-introduction.md)和[可靠的服務進階用法](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)，以取得使用 StatelessService 和 StatelessServiceBase 類別撰寫服務細節的詳細資訊。
+請參閱[可靠的服務概觀](service-fabric-reliable-services-introduction.md)和[可靠的服務進階用法](service-fabric-reliable-services-advanced-usage.md)，以取得使用 StatelessService 和 StatelessServiceBase 類別撰寫服務細節的詳細資訊。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 
 如需 Service Fabric 的詳細資訊，請參閱：
 
-[可靠的服務概觀](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+[可靠的服務概觀](service-fabric-reliable-services-introduction.md)
 
 [快速入門](service-fabric-reliable-services-quick-start.md)
 
 [可靠的集合概觀](service-fabric-reliable-services-reliable-collections.md)
 
-[可靠的服務的進階用法](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
+[可靠的服務的進階用法](service-fabric-reliable-services-advanced-usage.md)
 
-[可靠的服務組態](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+[可靠的服務組態](service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

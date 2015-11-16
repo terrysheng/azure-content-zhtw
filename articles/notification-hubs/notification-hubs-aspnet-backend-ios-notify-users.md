@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 通知中心通知使用者"
+	pageTitle="Azure 通知中樞透過 .NET 後端通知使用者"
 	description="了解如何在 Azure 中將推播通知傳送給使用者。程式碼範例是以 Objective-C 撰寫並以 .NET API 作為後端。"
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -16,7 +16,7 @@
 	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
-#Azure 通知中心通知使用者
+#Azure 通知中樞透過 .NET 後端通知使用者
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -465,4 +465,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

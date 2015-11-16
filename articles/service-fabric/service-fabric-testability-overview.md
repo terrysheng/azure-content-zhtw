@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Testability 概觀"
-   description="本文說明 Microsoft Azure Service Fabric 中的 Testability 功能。"
+   pageTitle="可測試性概觀 | Microsoft Azure"
+   description="本文描述 Microsoft Azure Service Fabric 中可測試性功能，以引發錯誤和針對您的服務執行測試案例。"
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -94,4 +94,4 @@ System.Fabric.Testability.dll 中有各種 Testability 功能。此 dll 位於 M
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

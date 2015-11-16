@@ -56,7 +56,7 @@ Microsoft Azure SQL Database 使用防火牆規則以允許連接到您的伺服
 3. 可從查詢視窗中選取、建立、更新或刪除伺服器層級防火牆規則。
 4. 若要建立或更新伺服器層級防火牆規則，請執行 sp\_set\_firewall 規則預存程序。下列範例會在伺服器 Contoso 上啟用某個範圍的 IP 位址。<br/>您可以從檢閱現有的規則開始著手。
 
-		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+		SELECT * FROM sys.firewall_rules ORDER BY name;
 
 	接著，加入防火牆規則。
 
@@ -141,4 +141,4 @@ Microsoft Azure SQL Database 使用防火牆規則以允許連接到您的伺服
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

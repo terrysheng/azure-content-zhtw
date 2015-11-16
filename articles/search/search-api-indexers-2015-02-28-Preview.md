@@ -1,5 +1,5 @@
 <properties 
-pageTitle="索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)" 
+pageTitle="索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview) | Microsoft Azure" 
 description="索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/29/2015" 
+ms.date="11/04/2015" 
 ms.author="heidist" />
 
 #索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)#
@@ -21,7 +21,7 @@ ms.author="heidist" />
 
 ## 概觀 ##
 
-Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不需要撰寫程式碼來編製資料的索引。若要進行此項設定，您可呼叫 Azure 搜尋服務 API 以建立並管理**索引子**和**資料來源**。
+Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不需要撰寫程式碼來編製資料的索引。若要進行此項設定，您可呼叫 Azure 搜尋服務 API 以建立並管理**索引子**和**資料來源**。
 
 **索引子**是一種用來連接資料來源與目標搜尋索引的資源。索引子的使用方式如下：
 
@@ -776,4 +776,4 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 </tr>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

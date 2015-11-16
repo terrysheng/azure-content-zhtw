@@ -44,7 +44,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 如需向 Microsoft Azure 進行驗證的詳細資訊，請參閱[從 Azure CLI 連線至 Azure 訂用帳戶](xplat-cli-connect.md)。
 
->[AZURE.NOTE]當您使用公司或學校帳戶 (由 Azure Active Directory 管理) 時，您也可以使用 Azure 角色式存取控制 (RBAC) 管理 Azure 資源的存取與使用。如需詳細資訊，請參閱[管理與稽核資源存取權](../azure-portal/resource-group-rbac.md)。
+>[AZURE.NOTE]當您使用公司或學校帳戶 (由 Azure Active Directory 管理) 時，您也可以使用 Azure 角色式存取控制 (RBAC) 管理 Azure 資源的存取與使用。如需詳細資訊，請參閱[管理與稽核資源存取權](resource-group-rbac.md)。
 
 ## 設定 Azure 資源管理員模式
 
@@ -88,30 +88,31 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 1. 從 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) 將 azuredeploy.json 和 azuredeploy.parameters.json 檔案下載到本機電腦上的工作資料夾。
 
-2. 在文字編輯器中開啟 azuredeploy.parameters.json 檔案並輸入您的環境適用的參數值 (讓 **ubuntuOSVersion** 值保持不變)。```
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "newStorageAccountName": {
-	      "value": "MyStorageAccount"
-	    },
-	    "adminUsername": {
-	      "value": "MyUserName"
-	    },
-	    "adminPassword": {
-	      "value": "MyPassword"
-	    },
-	    "dnsNameForPublicIP": {
-	      "value": "MyDomainName"
-	    },
-	    "ubuntuOSVersion": {
-	      "value": "14.04.2-LTS"
-	    }
-	  }
-	}
-```
-3. 儲存 azuredeploy.parameters.json 檔案後，請使用下列命令以根據範本建立新資源群組。`-e` 選項會指定您在上一個步驟中修改的 azuredeploy.parameters.json 檔案。以您要使用的群組名稱取代 *testRG*，並以您選擇的部署名稱取代 *testDeploy*。位置應與您在範本參數檔案中指定的位置相同。
+2. 在文字編輯器中開啟 azuredeploy.parameters.json 檔案，然後輸入您的環境適用的參數值 (讓 **ubuntuOSVersion** 值保持不變)。
+
+		{
+	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	  	"contentVersion": "1.0.0.0",
+	  	"parameters": {
+		    "newStorageAccountName": {
+		      "value": "MyStorageAccount"
+		    },
+		    "adminUsername": {
+		      "value": "MyUserName"
+		    },
+		    "adminPassword": {
+		      "value": "MyPassword"
+		    },
+		    "dnsNameForPublicIP": {
+		      "value": "MyDomainName"
+		    },
+		    "ubuntuOSVersion": {
+		      "value": "14.04.2-LTS"
+		    }
+		  }
+		}
+	```
+3. 儲存 azuredeploy.parameters.json 檔案後，請使用下列命令以根據範本建立新資源群組。`-e` 選項會指定您在上一個步驟中修改的 azuredeploy.parameters.json 檔案。利用您要使用的群組名稱來取代 *testRG*，並利用您選擇的部署名稱來取代 *testDeploy*。位置應與您在範本參數檔案中指定的位置相同。
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
 
@@ -147,7 +148,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 	>
 	> `azure group deployment stop "testRG" "testDeploy"`
 	>
-	> 若未提供部署名稱，則會根據範本檔案的名稱自動建立一個名稱。`azure group create` 命令的輸出傳回該名稱。
+	> 若未提供部署名稱，則會根據範本檔案的名稱自動建立一個名稱。`azure group create` 命令的輸出會傳回該名稱。
 
 	現在您可以使用您指定的網域名稱，透過 SSH 連接到 VM。連接到 VM 時，您需要使用格式為 `<domainName>.<region>.cloudapp.azure.com` 的完整網域名稱，例如 `MyDomainName.westus.cloudapp.azure.com`。
 
@@ -157,7 +158,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 	此命令會傳回群組中資源的相關資訊。如果您有多個群組，可使用 `azure group list` 命令來擷取群組名稱清單，然後使用 `azure group show` 來檢視特定群組的詳細資料。
 
-您也可以直接使用 [GitHub](https://github.com/Azure/azure-quickstart-templates) 中的範本，無須從電腦下載範本。若要這麼做，請使用 **--template-url** 選項，在命令中將 URL 傳遞至範本的 azuredeploy.json 檔。若要取得 URL，請以「原始」模式在 GitHub 上開啟 azuredeploy.json，然後複製瀏覽器網址列中的 URL。接著，您可以使用類似下列的命令，直接使用此 URL 建立部署。
+您也可以直接使用 [GitHub](https://github.com/Azure/azure-quickstart-templates) 中的範本，而不需將範本下載到電腦。若要執行此動作，可在命令中使用 **--template-url** 選項，將 URL 傳遞至範本的 azuredeploy.json 檔。若要取得 URL，請以「原始」模式在 GitHub 上開啟 azuredeploy.json，然後複製出現在瀏覽器網址列中的 URL。接著，您可以使用類似下列的命令，直接使用此 URL 建立部署。
 
 	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
 系統會提示您輸入必要的範本參數。
@@ -196,17 +197,17 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 ## 記錄
 
-若要檢視群組上執行之作業的記錄資訊，請使用 `azure group log show` 命令。依預設，這會列出在群組上執行的最後一個作業。若要檢視所有作業，請使用選用的 `--all` 參數。針對前次部署，使用 `--last-deployment`。針對特定部署，使用 `--deployment` 並指定部署名稱。下列範例傳回對群組 *MyGroup* 執行的所有作業記錄。
+若要檢視群組上執行之作業的記錄資訊，請使用 `azure group log show` 命令。依預設，這會列出在群組上執行的最後一個作業。若要檢視所有作業，請使用選用的 `--all` 參數。針對前次部署，使用 `--last-deployment`。針對特定部署，使用 `--deployment` 並指定部署名稱。下列範例會傳回針對群組 *MyGroup* 執行的所有作業記錄。
 
 	azure group log show MyGroup --all
 
 ## 後續步驟
 
-* 如需透過 Azure PowerShell 來使用 Azure 資源管理員的相關資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
+* 如需透過 Azure PowerShell 使用 Azure 資源管理員的相關資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
 * 如需從 Azure 入口網站使用 Azure 資源管理員的相關資訊，請參閱[使用資源群組管理 Azure 資源][psrm]。
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

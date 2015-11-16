@@ -8,39 +8,30 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="app-service-logic" 	
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/01/2015"
+   ms.date="10/29/2015"
    ms.author="rajram"/>
 
 # BizTalk 一般檔案編碼器
 
-使用 BizTalk 一般檔案編碼連接器可在一般檔案資料 (例如 excel、csv) 與 XML 資料之間交互操作。它可以將指定的一般檔案執行個體轉換成 XML，反之亦然。
+使用 BizTalk 一般檔案編碼連接器可在一般檔案資料 (例如 Excel 或 CSV 檔案) 與 XML 資料之間交互操作。它可以將指定的一般檔案執行個體轉換成 XML，反之亦然。
 
 ##使用 BizTalk 一般檔案編碼器
-若要使用 BizTalk 一般檔案編碼器，您必須先建立 BizTalk 一般檔案編碼器 API 應用程式的執行個體。在建立邏輯應用程式時進行內嵌，或從 Azure Marketplace 選取 BizTalk 一般檔案編碼器 API 應用程式，即可完成此作業。
+若要使用 BizTalk 一般檔案編碼器，您必須先建立 BizTalk 一般檔案編碼器 API 應用程式的執行個體。在建立邏輯應用程式時進行內嵌，或從 Azure Marketplace 選取 BizTalk 一般檔案編碼器 API 應用程式，即可完成此作業。以下是從 Azure Marketplace 建立 BizTalk 一般檔案編碼器 API App 的一些步驟：1.登入 Azure 入口網站 (http://portal.azure.com) 2.選取 [新增 > Marketplace > 所有項目] 3.在搜尋方塊中搜尋「BizTalk 一般檔案編碼器」4.從結果清單中選取 BizTalk 一般檔案編碼器 5.選取 [建立]，然後提供名稱和其他必要的詳細資料 6.選取 [建立]。您將會重新導向至起始頁，在該處您可以看到建立程序。這可能需要一些時間才能完成。您會在完成時收到通知。
 
 ###設定 BizTalk 一般檔案編碼器
-BizTalk 一般檔案編碼器會將結構描述視為其組態的一部分。直接從 Azure 入口網站啟動 API 應用程式，或按兩下設計工具介面上的 API 應用程式，使用者即可啟動 API 應用程式組態刀鋒視窗。
+建立 API App 之後，您可以直接從 Azure 入口網站的起始頁啟動它，或是在建立 Logic App 時從設計工具的介面啟動它。
 
-![BizTalk 一般檔案編碼器的組態][1]
-
-在 [API 應用程式] 刀鋒視窗中，使用者可以按一下 [*結構描述*] 組件來設定結構描述。
-
-![BizTalk 一般檔案編碼器的結構描述組件][2]
-
-使用者可以從磁碟上傳結構描述，或從一般檔案執行個體或 JSON 執行個體產生一個結構描述。
-
-![BizTalk 一般檔案編碼器的結構描述組件][3]
-
+若要從 Azure 起始頁啟動它，您可以輸入您建立 BizTalk 一般檔案編碼器時提供給它的名稱來搜尋。方法如下：1.在 Auzre 入口網站的搜尋方塊中輸入您的 BizTalk 一般檔案編碼器的名稱來搜尋 2.接著，從清單中選取您的 BizTalk 一般檔案編碼器。這會開啟 API App 刀鋒視窗，您可在該處設定您的 BizTalk 一般檔案編碼器 API App。若要開始設定，您要透過下列方式新增結構描述：1.選取 [結構描述] 元件 ![BizTalk 一般檔案編碼器的結構描述組件][2] 2.然後在開啟的 [結構描述] 刀鋒視窗上選取 [新增] ![BizTalk 一般檔案編碼器的動作清單][7] 3.選取三個選項中的其一來提供您的結構描述。選項包括 [上傳新的結構描述]、[從 JSON 產生] 和 [從一般檔案產生] ![BizTalk 一般檔案編碼器的動作清單][8] 4.根據您在上一步中的選項，按步驟提供您的結構描述。您接著會看到結構描述已上傳：![BizTalk 一般檔案編碼器的動作清單][9]
 
 ###在設計介面中使用 BizTalk 一般檔案編碼器
-一旦設定，使用者可以按一下 *->* 並從動作清單中選擇動作。
+設定 Biztalk 一般檔案編碼器之後，接著是在 Logic App 中使用它。若要開始，請建立一個新的 Logic App 或啟動您事先建立的現有 Logic App，然後執行下列步驟：1.在 [啟動邏輯] 卡中，按一下 [手動執行此邏輯]。2.選取您稍早在資源庫中建立的 BizTalk 一般檔案編碼器 API App (您會在螢幕右邊的 API Apps 中找到建立的 BizTalk 一般檔案編碼器)。3.選取黑色的向右箭號。會顯示兩個可用的動作 (一般檔案轉 Xml 和 Xml 轉一般檔案)：![BizTalk 一般檔案編碼器的動作清單][1] ![BizTalk 一般檔案編碼器的動作清單][4]
 
-![BizTalk 一般檔案編碼器的動作清單][4]
+根據您選取的動作按下列步驟執行。
 
 ####一般檔案至 Xml
 
@@ -72,6 +63,10 @@ BizTalk 一般檔案編碼器會將結構描述視為其組態的一部分。直
 [4]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.ListOfActions.PNG
 [5]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.FlatFileToXml.PNG
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
+[7]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.addschema.PNG
+[8]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.selectschemauploadoption.PNG
+[9]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.shemauploaded.PNG
+
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="10/01/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Azure 搜尋服務的最新更新事項#
 
-Azure 搜尋服務已正式推出，並為支援的 [2015-02-28 版本 API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 組態提供 99.9% 可用性的服務等級協定 (SLA)。
+Azure 搜尋服務是 Microsoft Azure 上的雲端託管搜尋服務。此服務已正式推出，並為支援的 [2015-02-28 版本 API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 組態提供 99.9% 可用性的服務等級協定 (SLA)。
 
 ##各版本的主要功能以及發行日期
 
@@ -32,7 +32,7 @@ Azure 搜尋服務已正式推出，並為支援的 [2015-02-28 版本 API](http
 
 此版本加入新的 [Lucene 查詢語法支援](https://msdn.microsoft.com/library/azure/mt589323.aspx)，可針對 [Azure 搜尋服務 REST API 的預覽版本](search-api-2015-02-28-preview.md)加以使用。若要使用新語法，您必須在搜尋文件作業中指定 `queryType`。
 
-此外，下列這兩個功能是從預覽版本中轉換出來的，而現在是 MSDN 上官方 API 的一部分：- 自然語言處理器 - 張貼於搜尋、建議和查閱查詢中
+此外，下列這兩個功能是從預覽版本中轉換出來的，而現在是 MSDN 上官方 API 的一部分：- [自然語言處理器](search-language-support.md) - 搜尋、建議和查閱查詢中的 POST
 
 ##.NET SDK 0.10.0 預覽版本
 **發行日期：2015 年 8 月**
@@ -125,4 +125,4 @@ Azure 搜尋服務已正式推出，並為支援的 [2015-02-28 版本 API](http
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="誰在使用 Azure 搜尋︰個案研究和客戶案例"
-	description="Azure 搜尋個案研究和客戶案例。"
+	description="關於 Azure 搜尋服務 (在 Microsoft Azure 上託管的雲端搜尋服務) 的案例研究和客戶案例。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="10/05/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # 誰在使用 Azure 搜尋︰個案研究和客戶案例
@@ -61,4 +61,4 @@ Medihoo 是一家新公司，對於其醫療保健搜尋網站有重大計劃，
 [5]: ./media/search-case-studies/weichert_m.png
 [6]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

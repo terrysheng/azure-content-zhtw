@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在 Microsoft Azure 上管理搜尋服務 | Microsoft Azure" 
-	description="在 Microsoft Azure 上管理搜尋服務" 
+	description="管理 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務)" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # 在 Microsoft Azure 上管理搜尋服務
 
-Azure 搜尋是一種雲端架構服務和 HTTP 架構 API，可用來自訂搜尋應用程式。搜尋服務提供的引擎具備全文檢索文字分析、進階搜尋功能、搜尋資料儲存體及查詢命令語法。
+Azure 搜尋服務是包含 HTTP 架構 API 的雲端型服務，可用於自訂搜尋應用程式中。搜尋服務提供的引擎具備全文檢索文字分析、進階搜尋功能、搜尋資料儲存體及查詢命令語法。
 
 本文說明如何在 [Azure 入口網站](https://portal.azure.com)中管理搜尋服務。
 
@@ -193,4 +193,4 @@ Azure 特別為透過 Preview 入口網站管理的所有服務，或在 Azure �
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

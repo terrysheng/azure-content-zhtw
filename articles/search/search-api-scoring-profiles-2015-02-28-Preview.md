@@ -1,6 +1,6 @@
 <properties
 	pageTitle="評分設定檔 (Azure 搜尋服務 REST API 2015-02-28-Preview 版) | Microsoft Azure"
-	description="評分設定檔 (Azure 搜尋服務 REST API 2015-02-28-Preview 版)"
+	description="Azure 搜尋服務是託管的雲端搜尋服務，且支援根據使用者定義的評分設定檔調整排名結果。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="10/01/2015" />
+	ms.date="11/04/2015" />
 
 # 評分設定檔 (Azure 搜尋服務 REST API 2015-02-28-Preview 版)
 
@@ -370,4 +370,4 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

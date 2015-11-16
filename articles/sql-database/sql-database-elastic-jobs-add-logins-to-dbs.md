@@ -1,11 +1,10 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="如何將使用者加入彈性資料庫集區" 
 	description="您必須將具有權限的使用者加入集區中的每個資料庫" 
 	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # 如何將使用者加入至彈性資料庫集區
@@ -33,7 +32,7 @@
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. 使用者也必須具有足夠的權限，才能執行為工作所指定的指令碼。使用 **sp\_addrolemember** 程序提供使用者最小必要權限，以順利執行指令碼。
+3. 使用者也必須具有足夠的權限，才能執行為工作所指定的指令碼。使用 [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 程序提供使用者最小必要權限，以順利執行指令碼。
 
 ## 後續步驟
 
@@ -45,4 +44,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

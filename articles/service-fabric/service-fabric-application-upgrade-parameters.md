@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Service Fabric 應用程式升級：升級參數"
-   description="本文說明與升級 Service Fabric 應用程式相關的各種參數。"
+   pageTitle="應用程式升級：升級參數 | Microsoft Azure"
+   description="描述升級 Service Fabric 應用程式的相關參數，包括執行健全狀況檢查和自動復原升級的原則。"
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -77,4 +77,4 @@
 [資料序列化](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

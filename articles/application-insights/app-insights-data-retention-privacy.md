@@ -107,7 +107,7 @@ Microsoft 只會使用這項資料，以將服務提供給您。
 
 #### 我的資料有多安全？ 
 
-資料會儲存在 Microsoft Azure 伺服器中。如果是 Azure Preview 入口網站中的帳戶，帳戶限制如 [Azure 安全性、隱私權和法規遵循文件](http://go.microsoft.com/fwlink/?linkid=392408)中所述。如果是 Visual Studio Online 入口網站中的帳戶，則適用 [Visual Studio Online 資料保護](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf)文件。
+資料會儲存在 Microsoft Azure 伺服器中。如果是 Azure 入口網站中的帳戶，帳戶限制如 [Azure 安全性、隱私權和法規遵循文件](http://go.microsoft.com/fwlink/?linkid=392408)中所述。如果是 Visual Studio Online 入口網站中的帳戶，則適用 [Visual Studio Online 資料保護](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf)文件。
 
 Microsoft 人員對您的資料存取會受到限制。我們只有在獲得您的許可及為了支援您使用 Application Insights 而有必要時，才會存取您的資料。
 
@@ -250,4 +250,4 @@ SDK 診斷 | 追蹤訊息或例外狀況
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

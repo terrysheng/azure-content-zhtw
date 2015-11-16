@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/03/2015"
 	ms.author="larryfr"/>
 
 #HDInsight 上 Hadoop 叢集的可用性和可靠性
@@ -146,7 +146,7 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 
 * **Azure CLI**：使用 `azure hdinsight cluster create` 命令時，您可以使用 `--headNodeSize` 參數設定前端節點的大小。
 
-* **Azure PowerShell**：使用 `New-AzureHDInsightCluster` Cmdlet 時，您可以使用 `-HeadNodeVMSize` 參數設定前端節點的大小。
+* **Azure PowerShell**：使用 `New-AzureRmHDInsightCluster` Cmdlet 時，您可以使用 `-HeadNodeVMSize` 參數設定前端節點的大小。
 
 ##後續步驟
 
@@ -166,4 +166,4 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

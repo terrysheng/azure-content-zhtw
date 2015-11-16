@@ -1,23 +1,27 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK 整合" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK 整合"
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 
 #版本資訊
+
+##4\.1.1 (11/04/2015)
+
+- 穩定性改進。
 
 ##4\.1.0 (2015/08/25)
 
@@ -45,6 +49,4 @@
 -   增強安全性。
 -   已移除 Google Play 和 SmartAd 追蹤。
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

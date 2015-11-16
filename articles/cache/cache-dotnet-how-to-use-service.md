@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="11/03/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure 受管理快取服務
@@ -483,7 +483,7 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+[適合我的 Azure 快取提供項目]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

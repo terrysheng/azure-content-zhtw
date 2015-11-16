@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="10/28/2015"
 	ms.author="tomfitz"/>
 
 
@@ -155,8 +155,9 @@
 
 ## 後續步驟
 
+- 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。您所定義的原則可能會需要為所有資源設定特定標記。如需詳細資訊，請參閱[使用原則來管理資源和控制存取](resource-manager-policy.md)。
 - 如需部署資源時使用 Azure PowerShell 的簡介，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](./powershell-azure-resource-manager.md)。
 - 如需部署資源時使用 Azure CLI 的簡介，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](./xplat-cli-azure-resource-manager.md)。
-- 如需使用預覽入口網站的簡介，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](./resource-group-portal.md)  
+- 如需使用 Preview 入口網站的簡介，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](./resource-group-portal.md)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""
     manager="jeffreyg"
-    authors="sidneyh"
+    authors="ddove"
     editor=""/>
 
 <tags
@@ -13,12 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/29/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # 彈性資料庫用戶端程式庫概觀
 
-**彈性資料庫用戶端程式庫**，可讓您使用 Microsoft Azure 上的 Azure SQL Database 數百或甚至上千個集合的用戶端應用程式，來輕鬆開發分區化應用程式。這類設計通常用於軟體即服務 (SaaS) 應用程式，其通常為單一租用戶架構 -- 其中每個租用戶是使用資料庫佈建。建立和管理這類應用程式是程式庫的目標。用戶端程式庫是可以安裝到使用 [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) 和 [Nuget](http://go.microsoft.com/?linkid=9862605) 的任何應用程式專案的 .NET Framework 程式庫。用戶端程式庫會特別去的彈性資料庫工具組件[彈性資料庫功能](sql-database-elastic-scale-introduction.md)。
+**彈性資料庫用戶端程式庫**，可讓您使用 Microsoft Azure 上的 Azure SQL Database 數百或甚至上千個集合的用戶端應用程式，來輕鬆開發分區化應用程式。這類設計通常用於軟體即服務 (SaaS) 應用程式，其通常為單一租用戶架構 -- 其中每個租用戶是使用資料庫佈建。建立和管理這類應用程式是程式庫的目標。
+
+若要安裝程式庫，請參閱 [Microsoft Azure SQL Database：Elastic Scale](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。用戶端程式庫是彈性資料庫工具，[彈性資料庫功能](sql-database-elastic-scale-introduction.md)的組件。
 
 ## 用戶端功能
 
@@ -40,7 +42,7 @@
 
 請嘗試示範用戶端功能的[範例應用程式](sql-database-elastic-scale-get-started.md)。
 
-若要安裝文件庫，請移至[彈性資料庫用戶端程式庫](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
+若要安裝程式庫，請移至[彈性資料庫用戶端程式庫](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
 如需有關使用分割合併工具的指示，請參閱[分割合併工具概觀](sql-database-elastic-scale-overview-split-and-merge.md)。
 
@@ -53,4 +55,4 @@
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

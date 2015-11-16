@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric 應用程式升級：進階主題"
+   pageTitle="應用程式升級：進階主題 | Microsoft Azure"
    description="本文章涵蓋升級 Service Fabric 應用程式相關的一些進階主題。"
    services="service-fabric"
    documentationCenter=".net"
@@ -51,4 +51,4 @@ Service Fabric 應用程式可以藉由佈建完整、獨立式應用程式封�
 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

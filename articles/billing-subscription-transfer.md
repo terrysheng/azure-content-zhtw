@@ -25,7 +25,7 @@
 - 想要將您的 Azure 訂用帳戶移到另一個目錄？
 - Azure 和 Office 365 在不同的租用戶中，想要合併？
 
-如果您的帳戶是在美國，現在您可以輕鬆地在 Microsoft Azure 帳戶中心這樣做 - 隨用隨付訂用帳戶。我們已經可讓您將您的訂用帳戶轉移給另一位使用者。換句話說，現在可以在您所擁有的任何隨用隨付訂用帳戶上變更帳戶管理員。
+您現在可以針對隨用隨付或 MSDN 訂用帳戶，輕鬆地在 Microsoft Azure 帳戶中心執行此動作。我們已經可讓您將您的訂用帳戶轉移給另一位使用者。換句話說，您現在可以在所擁有的任何隨用隨付或 MSDN 訂用帳戶上變更帳戶管理員，而不論您是在哪個國家/地區進行操作。
 
 ## 如何移轉 Azure 訂用帳戶
 
@@ -71,7 +71,7 @@
 
     這不是完整的清單。如果接受者需要限制對其資源的存取權，則應該考慮更新與服務相關聯的任何密碼。大部分資源可以更新如下：
 
-    1.   移至 Azure 入口網站：[*https://portal.azure.com*](https://portal.azure.com)
+    1.   移至 Azure 入口網站：[**https://portal.azure.com*](https://portal.azure.com)
 
     2.    按一下 [全部瀏覽] -&gt; [所有資源]
 
@@ -111,4 +111,4 @@
 4. 請至 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)[深入了解](http://go.microsoft.com/fwlink/?LinkID=533292) 更新此訂用帳戶的計費警示。
 5. 	如果您正與合作夥伴協力作業，請考慮更新此訂用帳戶的合作夥伴 ID。您可以在 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)中執行這個動作。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

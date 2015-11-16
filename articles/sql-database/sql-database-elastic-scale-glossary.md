@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="彈性資料庫工具字彙" 
+    pageTitle="彈性資料庫工具字彙 | Microsoft Azure" 
     description="彈性資料庫工具所用詞彙的解釋" 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/24/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # 彈性資料庫工具字彙
-以下是針對 Azure SQL Database 功能之一彈性資料庫工具所定義的詞彙。這些工具包括用戶端程式庫、分割合併工具、彈性集區和查詢。
+以下是針對 Azure SQL Database 功能之一的[彈性資料庫工具](sql-database-elastic-scale-introduction.md)所定義的詞彙。這些工具包括[用戶端程式庫](sql-database-elastic-database-client-library.md)、[分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)、[彈性集區](sql-database-elastic-pool.md)和[查詢](sql-database-elastic-query-overview.md)。
 
 ![彈性擴縮詞彙][1]
 
@@ -80,4 +80,4 @@
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

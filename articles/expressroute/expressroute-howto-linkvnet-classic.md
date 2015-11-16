@@ -13,21 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="11/02/2015"
    ms.author="cherylmc" />
 
 # 將 Vnet 連結到 ExpressRoute 循環
 
-本文提供如何將虛擬網路 (Vnet) 連結到 ExpressRoute 循環的概觀。虛擬網路可以位於相同的訂用帳戶中，或屬於另一個訂用帳戶。本文適用於使用傳統部署模型部署的 VNet。
+> [AZURE.SELECTOR]
+- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
+- [Template - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
->[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的相關資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+本文提供如何將虛擬網路 (Vnet) 連結到 ExpressRoute 線路的概觀。虛擬網路可以位於相同的訂用帳戶中，或屬於另一個訂用帳戶。本文適用於使用傳統部署模型部署的 VNet。如果您想要連結已使用 Azure 資源管理員部署方法進行部署的虛擬網路，您可以使用範本來執行。請參閱上述索引標籤以瀏覽至範本。
+
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## 組態必要條件
 
 - 您需要最新版的 Azure PowerShell 模組。您可以從 [Azure 下載頁面](http://azure.microsoft.com/downloads)的 PowerShell 區段下載最新的 PowerShell 模組。遵循[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 頁面上的指示，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指引。 
 - 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)頁面、[路由需求](expressroute-routing.md)頁面和[工作流程](expressroute-workflows.md)頁面。
 - 您必須擁有作用中的 ExpressRoute 循環。 
-	- 遵循指示來[建立 ExpressRoute 循環](expressroute-howto-circuit-classic.md)，並由您的連線提供者來啟用該循環。 
+	- 遵循指示來[建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)，並由您的連線提供者來啟用該線路。 
 	- 確定您已針對循環設定了 Azure 私用對等。請參閱[設定路由](expressroute-howto-routing-classic.md)一文，以取得路由指示。 
 	- Azure 私用對等必須設定，且在您的網路與 Microsoft 之間的 BGP 對等必須為您啟用端對端連線。
 
@@ -50,7 +54,7 @@
 
 ### 系統管理
 
-「循環擁有者」是訂用帳戶的管理員/共同管理員，而 ExpressRoute 循環即建立於該訂用帳戶中。循環擁有者可以授權其他訂用帳戶的管理員/共同管理員 (工作流程圖中稱為「循環使用者」) 來使用他們擁有的專用循環。一旦獲得使用組織 ExpressRoute 循環的授權，這些循環使用者就可以將其訂用帳戶中的 VNet 連結到 ExpressRoute 循環。
+「線路擁有者」是訂用帳戶的管理員/共同管理員，而 ExpressRoute 線路即建立於該訂用帳戶中。循環擁有者可以授權其他訂用帳戶的管理員/共同管理員 (工作流程圖中稱為「循環使用者」) 來使用他們擁有的專用循環。一旦獲得使用組織 ExpressRoute 循環的授權，這些循環使用者就可以將其訂用帳戶中的 VNet 連結到 ExpressRoute 循環。
 
 電路擁有者能夠隨時修改及撤銷授權。如果撤銷授權，則在存取權遭撤銷的訂用帳戶中，所有連結均會被刪除。
 
@@ -145,4 +149,4 @@
 
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

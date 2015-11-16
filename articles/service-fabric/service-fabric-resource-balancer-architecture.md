@@ -1,6 +1,6 @@
 <properties
-   pageTitle="資源平衡器架構"
-   description="Service Fabric 資源平衡器的架構概觀"
+   pageTitle="資源平衡器架構 | Microsoft Azure"
+   description="Service Fabric 資源平衡器的架構概觀。"
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -38,4 +38,4 @@ Service Fabric 資源平衡器是由單一的集中式資源平衡服務和存�
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

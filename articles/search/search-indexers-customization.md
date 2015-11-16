@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 搜尋服務索引子自訂" 
-	description="深入了解如何自訂設定與 Azure 搜尋服務索引子的原則。" 
+	pageTitle="Azure 搜尋服務索引子自訂 | Microsoft Azure" 
+	description="了解如何自訂 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 中的設定和索引子原則。" 
 	services="search" 
 	documentationCenter="" 
 	authors="chaosrealm" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Azure 搜尋服務索引子自訂
@@ -117,4 +117,4 @@ Azure 搜尋服務會將文件索引鍵欄位內的字元限制為 URL 安全字
 目前是如此。如果您有任何未來內容的想法和建議，請使用 #AzureSearch 雜湊標記推文給我們，或者在我們的 [UserVoice 頁面](http://feedback.azure.com/forums/263029-azure-search)上提出您的想法。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

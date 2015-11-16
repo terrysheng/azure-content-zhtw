@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="11/03/2015"
    ms.author="bwren" />
 
 # Azure 自動化混合式 Runbook 背景工作
@@ -52,6 +52,10 @@ Azure 自動化中的 Runbook 無法存取您的本機資料中心中的資源�
 - 混合式背景工作角色可以與 Service Management Automation 或 System Center Orchestrator Runbook 伺服器並存。
 - 請考慮使用實際位於或接近自動化帳戶所在區域的電腦，因為當工作完成時，工作資料會送回到 Azure 自動化。
 
+防火牆需求：
+
+- 執行 Hybrid Runbook Worker 的內部部署電腦必須有連接埠 443、 9354 和 30000-30199 上的 *.cloudapp.net 的對外存取權。
+
 ## 安裝混合式 Runbook 背景工作
 下列程序描述如何安裝和設定 Hybrid Runbook Worker。對您的自動化環境執行一次前兩個步驟，再對每一台背景工作角色電腦重複其餘步驟。
 
@@ -61,7 +65,7 @@ Azure 自動化中的 Runbook 無法存取您的本機資料中心中的資源�
 ### 2\.將自動化解決方案加入至 Operations Management Suite 工作區
 解決方案會將功能加入至 Operations Management Suite。自動化解決方案會增加 Azure 自動化的功能，包括支援 Hybrid Runbook Worker。將解決方案加入至工作區時，它會自動將背景工作角色元件往下推送給您在下一步將安裝的代理程式電腦。
 
-請依照[使用方案庫加入方案](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions)中的指示，將**自動化**方案加入 Operations Management Suite 工作區。
+請依照[使用方案庫加入方案](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions)中的指示，將「自動化」方案加入 Operations Management Suite 工作區。
 
 ### 3\.安裝 Microsoft Management Agent
 Microsoft Management Agent 可將電腦連線至 Operations Management Suite。將代理程式安裝在內部部署電腦，並連接到您的工作區時，它會自動下載 Hybrid Runbook Worker 所需的元件。
@@ -106,7 +110,7 @@ Runbook 可以使用 Azure 自動化環境中安裝的模組中定義的任何�
 
 [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md) 描述啟動 Runbook 的不同方法。混合式 Runbook 背景工作加入了 **RunOn** 選項，您可以在其中指定混合式 Runbook 背景工作群組的名稱。如果未指定群組，則會擷取 Runbook，且由該群組中的背景工作執行。如果未指定此選項，則會正常在 Azure 自動化中執行。
 
-在 Azure 預覽入口網站中啟動 Runbook 時，您會看到**執行於**選項，您可以在此選取 [**Azure**] 或 [**混合式背景工作**]。如果您選取 [**混合式背景工作**]，則您可以從下拉式清單中選取群組。
+在 Azure Preview 入口網站中啟動 Runbook 時，您會看到**執行於**選項，您可以在此選取 [**Azure**] 或 [**混合式背景工作**]。如果您選取 [**混合式背景工作**]，則您可以從下拉式清單中選取群組。
 
 使用 **RunOn** 參數。您可以使用下列命令使用 Windows PowerShell 在混合式 Runbook 背景工作群組上啟動名為 Test-Runbook 的 Runbook。
 
@@ -164,4 +168,4 @@ Runbook 將在混合式 Runbook 背景工作上的本機系統帳戶內容中執
 - [在 Azure 自動化中編輯 Runbook](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
+   ms.date="10/27/2015"
    ms.author="derrickv"/>
 
 # Azure 資料目錄開發人員概念
@@ -40,7 +40,7 @@ Microsoft **Azure 資料目錄**是全面管理的雲端服務，能夠進行資
 
 一個使用者可能扮演多個不同的角色。如需角色的詳細資訊，請參閱＜角色和授權＞一節。
 
-只能加入個別使用者 (不是安全性群組)。
+可加入個別的使用者和安全性群組。
 
 Azure 資料目錄使用 Azure Active Directory 來管理身分識別和存取權。每個目錄使用者必須是帳戶 Active Directory 的成員。
 
@@ -92,19 +92,19 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 
 > [AZURE.NOTE]名稱開頭為雙底線的屬性是系統類型。
 
-<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>上次修改根目錄的時間。這是由用戶端設定(伺服器不維護此值)。</td></tr><tr><td>__id</td><td>Guid</td><td>項目的識別碼 (唯讀)。保證這是資產的唯一識別碼。項目的索引鍵是 __Id, 根目錄的 __id。只保證此組合在目錄內是唯一的。</td></tr><tr><td>__typeId</td><td>Guid</td><td>資產的類型 (唯讀)</td></tr><tr><td>__creatorId</td><td>String</td><td>由資產建立者用來唯一識別資產的字串。</td></tr></table>
+<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>上次修改根目錄的時間。這是由用戶端設定(伺服器不維護此值)。</td></tr><tr><td>__id</td><td>String</td><td>項目的識別碼 (唯讀)。此識別碼是目錄中資產的唯一識別碼。</td></tr><tr><td>__type</td><td>String</td><td>資產的類型 (唯讀)</td></tr><tr><td>__creatorId</td><td>String</td><td>由資產建立者用來唯一識別資產的字串。</td></tr></table>
 
 ### 通用根屬性
 
 這些屬性套用至所有根資產類型。
 
-<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>名稱</td><td>String</td><td>衍生自資料來源位置資訊的名稱</td></tr><tr><td>dsl</td><td>資料來源位置</td><td>可唯一描述資料來源，為資產的其中一個識別碼(請參閱＜雙重識別＞一節)。dsl 的結構隨來源類型而異。</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>資產類型的詳細資料。</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>描述最近註冊此資產的使用者。包含使用者的唯一識別碼 (upn) 和顯示名稱 (lastName 和 firstName)。</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>此資產上次註冊在目錄中的時間。</td></tr></table>
+<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>名稱</td><td>String</td><td>衍生自資料來源位置資訊的名稱</td></tr><tr><td>dsl</td><td>資料來源位置</td><td>可唯一描述資料來源，為資產的其中一個識別碼(請參閱＜雙重識別＞一節)。dsl 的結構隨來源類型而異。</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>資產類型的詳細資料。</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>描述最近註冊此資產的使用者。包含使用者的唯一識別碼 (upn) 和顯示名稱 (lastName 和 firstName)。</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>此資產上次註冊在目錄中的時間。</td></tr><tr><td>containerId</td><td>String</td><td>資料來源的容器資產識別碼。容器類型不支援這個屬性。</td></tr></table>
 
 ### 根資產類型
 
 根資產類型所指的類型代表可以註冊在目錄中的各種資料資產。
 
-<table><tr><td><b>資產類型</b></td><td><b>其他屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>資料表</td><td></td><td></td><td>資料表代表任何表格式資料。這包括 SQL 資料表、SQL 檢視、 Analysis Services 表格式資料表、Analysis Services 多維度的維度、Oracle 資料表等等...   </td></tr><tr><td>Measure</td><td></td><td></td><td>此類型代表 Analysis Services 量值。</td></tr><tr><td></td><td>Measure</td><td>欄</td><td>描述量值的中繼資料</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>指定是否計算量值。</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>量值的實體容器</td></tr><tr><td>KPI</td><td></td><td></td><td>此類型代表 Analysis Services 關鍵效能指標。</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td>會傳回 KPI 目標值的 MDX 數值運算式或計算。</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td>會傳回 KPI 實際值的 MDX 數值運算式。</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td>代表指定時間點之 KPI 狀態的 MDX 運算式。</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>評估一段時間的 KPI 值的 MDX 運算式。趨勢可以是特定商務情況下適用的任何時間性準則。</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>量值的實體容器</td></tr><tr><td>報告</td><td></td><td></td><td>此類型代表 SQL Server Reporting Services 報表 </td></tr><tr><td></td><td>CreatedBy</td><td>String</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr></table>
+<table><tr><td><b>資產類型</b></td><td><b>其他屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>資料表</td><td></td><td></td><td>資料表代表任何表格式資料。這包括 SQL 資料表、SQL 檢視、 Analysis Services 表格式資料表、Analysis Services 多維度的維度、Oracle 資料表等等...   </td></tr><tr><td>Measure</td><td></td><td></td><td>此類型代表 Analysis Services 量值。</td></tr><tr><td></td><td>Measure</td><td>欄</td><td>描述量值的中繼資料</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>指定是否計算量值。</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>量值的實體容器</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td>會傳回 KPI 目標值的 MDX 數值運算式或計算。</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td>會傳回 KPI 實際值的 MDX 數值運算式。</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td>代表指定時間點之 KPI 狀態的 MDX 運算式。</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>評估一段時間的 KPI 值的 MDX 運算式。趨勢可以是特定商務情況下適用的任何時間性準則。</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>量值的實體容器</td></tr><tr><td>報告</td><td></td><td></td><td>此類型代表 SQL Server Reporting Services 報表 </td></tr><tr><td></td><td>CreatedBy</td><td>String</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr><tr><td>容器</td><td></td><td></td><td>此類型代表其他資產 (例如 SQL database、Azure Blob 容器或 Analysis Services 模型) 的容器 。</td></tr></table>
 
 ### 註解類型
 
@@ -123,6 +123,10 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 
 <tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>在此資料集的資料列數目。</td></tr>
+
+<tr><td>文件</td><td></td><td></td><td>指定的資產只能有一個相關聯的文件。</td></tr>
+<tr><td></td><td>mimeType</td><td>字串</td><td>內容的 mime 類型。</td></tr>
+<tr><td></td><td>內容</td><td>字串</td><td>文件內容。</td></tr>
 
 
 </table>
@@ -258,4 +262,4 @@ Azure 資料目錄使用兩種授權機制：
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

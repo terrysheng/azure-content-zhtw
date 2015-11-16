@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Azure 搜尋服務建立您的第一個搜尋解決方案" 
-	description="使用 Azure 搜尋服務建立您的第一個搜尋解決方案" 
+	pageTitle="使用 Azure 搜尋服務建立您的第一個搜尋解決方案 | Microsoft Azure" 
+	description="使用 Azure 搜尋服務 (Microsoft Azure 上託管的雲端搜尋服務) 建立您的第一個搜尋解決方案。" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # 使用 Azure 搜尋建立您的第一個搜尋解決方案
@@ -206,4 +206,4 @@
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

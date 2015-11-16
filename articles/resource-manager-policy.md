@@ -13,16 +13,24 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="10/06/2015"
+	ms.date="11/02/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # 使用原則來管理資源和控制存取
 
-Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則代表在所需的範圍內防止的一或多個違規。在此情況下的範圍可以是訂用帳戶、資源群組或個別資源。
+Azure 資源管理員現在可讓您透過自訂原則來控制存取。您可以透過原則來防止組織中的使用者違反管理組織資源所需的慣例。
 
-原則是預設允許系統。原則是透過「原則定義」來定義，並且透過原則指派套用。「原則指派」可讓您控制可套用原則的範圍。
+建立描述您想要明確拒絕之動作或資源的原則定義。在所需範圍內指派那些原則定義，例如訂用帳戶、資源群組或是個別的資源。
 
-在本文中，我們將說明您可用來建立原則的原則定義語言的基本結構。然後我們將說明如何可以在不同範圍套用這些原則，以及最後我們將說明您如何透過 REST API 達成此目的的一些範例。近期也將加入 PowerShell 支援。
+在本文中，我們將說明您可用來建立原則的原則定義語言的基本結構。然後我們將說明如何可以在不同範圍套用這些原則，並在最後示範如何透過 REST API 達成此目的的一些範例。
+
+## 它和 RBAC 有什麼不同？
+
+原則和角色型存取控制之間有幾個關鍵的差異，但首先您必須了解原則是和 RBAC 一起運作的。若要使用原則，使用者必須經由 RBAC 通過驗證。不同於 RBAC，原則是個預設允許和明確拒絕的系統。
+
+RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若特定使用者被加入所需範圍內之資源群組的參與者角色中，該使用者便能對該資源群組做出變更。
+
+原則著重於各種範圍內的**資源**動作。例如，您能夠透過原則控制可以佈建的資源類型，或限制資源可以佈建的位置。
 
 ## 常見案例
 
@@ -60,14 +68,15 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
 
 | 運算子名稱 | 語法 |
 | :------------- | :------------- |
-| 否 | "not" : {&lt;條件&gt;} |
+| Not | "not" : {&lt;條件或運算子 &gt;} |
 | 和 | "allOf" : [ {&lt;條件 1&gt;},{&lt;條件 2&gt;}] |
 | 或 | "anyOf" : [ {&lt;條件 1&gt;},{&lt;條件 2&gt;}] |
 
+不支援巢狀條件。
 
 ## 條件
 
-以下列出支援的條件以及語法：
+條件將評估**欄位**或**來源**是否符合特定準則。以下列出支援的條件名稱以及語法：
 
 | 條件名稱 | 語法 |
 | :------------- | :------------- |
@@ -80,11 +89,15 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
 
 ## 欄位和來源
 
-透過使用欄位和來源形成條件。支援下列欄位和來源：
+透過使用欄位和來源形成條件。欄位代表資源要求裝載中的屬性來源代表要求本身的特性。
+
+支援下列欄位和來源：
 
 欄位：**name**、**kind**、**type**、**location**、**tags**、**tags.***。
 
-來源：**action**
+來源：**action**。
+
+如需有關動作的詳細資訊，請參閱 [RBAC - 內建角色](active-directory/role-based-access-built-in-roles.md)。
 
 ## 原則定義範例
 
@@ -211,7 +224,7 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
     }
 
 
-原則定義可以定義為如上所示的其中一個範例。針對 api-version，使用 *2015-10-01-preview*。如需範例與更多詳細資料，請參閱[適用於原則定義的 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)。
+原則定義可以定義為如上所示的其中一個範例。針對 api-version，請使用 *2015-10-01-preview*。如需範例與詳細資料，請參閱[適用於原則定義的 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)。
 
 ### 使用 PowerShell 建立原則定義
 
@@ -243,7 +256,7 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} 是原則指派的名稱。針對 api-version，使用 *2015-10-01-preview*。
+{policy-assignment} 是原則指派的名稱。針對 api-version，請使用 *2015-10-01-preview*。
 
 使用如下的要求內文：
 
@@ -258,7 +271,7 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
       "name":"VMPolicyAssignment"
     }
 
-如需範例與其他詳細資料，請參閱[適用於原則指派的 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)。
+如需範例與詳細資料，請參閱[適用於原則指派的 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)。
 
 ### 使用 PowerShell 指派原則
 
@@ -276,4 +289,4 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。原則�
 
 同樣地，您可以分別透過 Get-AzureRmPolicyAssignment、Set-AzureRmPolicyAssignment 和 Remove-AzureRmPolicyAssignment 取得、變更或移除原則指派。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

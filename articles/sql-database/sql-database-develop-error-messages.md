@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -34,7 +34,8 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 在用戶端程式中，您可以選擇針對任何特定錯誤提供您的使用者由您自訂的替代訊息。
 
 
-**秘訣：**特別重要的是*暫時性錯誤*錯誤一節。這些錯誤應該會提示您的用戶端程式執行您設計的*重試*邏輯來重試作業。
+> [AZURE.TIP]特別重要的是下列有關[「暫時性錯誤」錯誤一節](#bkmk_connection_errors)。
+
 
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
@@ -44,19 +45,36 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 下表涵蓋透過網際網路使用 Azure SQL Database 時可能會遇到的連接遺失錯誤和其他暫時性錯誤。
 
-暫時性錯誤 (error) 也稱為暫時性錯誤 (fault)。當您的程式攔截到 `SqlException`，您的程式可以檢查是否 `sqlException.Number` 值為暫時性錯誤的這一節中所列的值。如果 `Number` 值指出暫時性錯誤，您的程式可以重試建立連接，並透過連接重試查詢。如需重試邏輯的程式碼範例，請參閱：
+
+### 最常見的暫時性錯誤
+
+
+暫時性錯誤通常是資訊清單，在您用戶端程式中的下列錯誤訊息之一：
+
+- 伺服器 <Azure_instance> 上的資料庫 <db_name> 目前無法使用。請稍後重試連接。如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 <session_id>
+
+- 伺服器 <Azure_instance> 上的資料庫 <db_name> 目前無法使用。請稍後重試連接。如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 <session_id>。(Microsoft SQL Server, 錯誤: 40613)
+
+- 遠端主機已強制關閉現有的連接。
+
+- System.Data.Entity.Core.EntityCommandExecutionException: 執行命令定義時發生錯誤。詳細資訊請參閱內部例外狀況。---> System.Data.SqlClient.SqlException: 從伺服器接收結果時發生傳輸層級錯誤。(提供者: 工作階段提供者, 錯誤: 19 - 無法使用實際連線)
+
+暫時性錯誤應該會提示您的用戶端應用程式執行設計用來重試操作的*重試邏輯*。如需重試邏輯的程式碼範例，請參閱：
 
 
 - [SQL Database 的用戶端開發和快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-- [作法：可靠地連接到 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+- [修正 SQL Database 中連接錯誤和暫時性錯誤的動作](sql-database-connectivity-issues.md)
+
+
+### 暫時性錯誤錯誤號碼
 
 
 | 錯誤號碼 | 嚴重性 | 說明 |
 | ---: | ---: | :--- |
 | 4060 | 16 | 無法開啟登入所要求的資料庫 "%.&#x2a;ls"。登入失敗。 |
 |40197|17|服務處理您的要求時發生錯誤。請再試一次。錯誤代碼 %d。<br/><br/>當服務因為軟體或硬體升級、硬體故障或任何其他容錯移轉問題而關閉時，您會收到這個錯誤。內嵌在錯誤 40197 訊息中的錯誤代碼 (%d) 提供發生的失敗或容錯移轉種類的其他資訊。內嵌在錯誤 40197 訊息中錯誤代碼的一些範例包括包括 40020、40143、40166 和 40540。<br/><br/>重新連接至 SQL Database 伺服器會將您自動連接至狀況良好的資料庫副本。您的應用程式必須攔截錯誤 40197、記錄訊息中內嵌的錯誤碼 (%d) 以進行疑難排解，並嘗試重新連接到 SQL Database 直到資源可供使用，並再次建立您的連線。|
-|40501|20|服務目前忙碌中。在 10 秒後重試要求。事件識別碼：%ls。代碼：%d。<br/><br/>* 請注意：* 如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>•[Azure SQL Database 節流](http://msdn.microsoft.com/library/azure/dn338079.aspx)。
+|40501|20|服務目前忙碌中。在 10 秒後重試要求。事件識別碼：%ls。代碼: %d。<br/><br/>*請注意：*如需詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-resource-limits.md)。
 |40613|17|資料庫 '%.&#x2a;ls' (在伺服器 '%.&#x2a;ls' 上) 目前無法使用。請稍後重試連接。如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 '%.&#x2a;ls'。|
 |49918|16|無法處理要求。沒有足夠的資源來處理要求。<br/><br/>服務目前忙碌中。請稍後再重試要求。 |
 |49919|16|無法處理建立或更新要求。有太多訂用帳戶 "%ld" 的建立或更新作業正在進行中。<br/><br/>服務正忙於處理您的訂用帳戶或伺服器的多個建立或更新要求。要求目前已封鎖以求資源最佳化。查詢 [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看暫止的作業。等待直到暫止的建立或更新要求已完成，或刪除您其中一個暫止要求，稍後再重試您的要求。 |
@@ -70,7 +88,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 ## 資料庫複製錯誤
 
 
-下表涵蓋在 Azure SQL Database 中複製資料庫時您可能遇到的各種錯誤。如需詳細資訊，請參閱「[在 Azure SQL Database 中複製資料庫](http://msdn.microsoft.com/library/azure/ff951624.aspx)」。
+下表涵蓋在 Azure SQL Database 中複製資料庫時您可能遇到的各種錯誤。如需詳細資訊，請參閱[複製 Azure SQL Database](sql-database-copy.md)。
 
 
 |錯誤號碼|嚴重性|說明|
@@ -101,19 +119,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - 也許您的交易已開啟太長的時間。
 - 也許您的交易持有太多鎖定。
 - 也許您的程式耗用太多記憶體。
-- 您的程式可能耗用太多 `TempDb` 空間。
+- 也許您的程式耗用太多 `TempDb` 空間。
 
 
 **秘訣：**下列連結提供適用於本節中大部分或所有錯誤的詳細資訊：
 
 
-- [Azure SQL Database 資源限制](http://msdn.microsoft.com/library/azure/dn338081.aspx)。
+- [Azure SQL Database 資源限制](sql-database-resource-limits.md)
 
 
 |錯誤號碼|嚴重性|說明|
 |---:|---:|:---|
-|10928|20|資源識別碼：%d。資料庫的 %s 限制是 %d，且已達到。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。<br/><br/>資源識別碼可指出已達到限制的資源。對於背景工作執行緒，資源識別碼 = 1。工作階段的資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源管理](http://msdn.microsoft.com/library/azure/dn338078.aspx)。 |
-|10929|20|資源識別碼：%d。%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。否則，請稍後再試。<br/><br/>資源識別碼可指出已達到限制的資源。對於背景工作執行緒，資源識別碼 = 1。工作階段的資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源管理](http://msdn.microsoft.com/library/azure/dn338078.aspx)。|
+|10928|20|資源識別碼：%d。資料庫的 %s 限制是 %d，且已達到。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。<br/><br/>資源識別碼可指出已達到限制的資源。對於背景工作執行緒，資源識別碼 = 1。對於工作階段，資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-resource-limits.md)。 |
+|10929|20|資源識別碼：%d。%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。否則，請稍後再試。<br/><br/>資源識別碼可指出已達到限制的資源。對於背景工作執行緒，資源識別碼 = 1。對於工作階段，資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-resource-limits.md)。|
 |40544|20|資料庫已達到大小配額。資料分割或刪除資料、卸除索引，或參閱可能解決方式的文件。|
 |40549|16|工作階段已終止，因為您有長時間執行的交易。請嘗試縮短您的交易時間。|
 |40550|16|工作階段已終止，因為它取得太多鎖定。嘗試在單一交易中讀取或修改較少的資料列。|
@@ -125,7 +143,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 如需資源管理和相關聯錯誤的額外討論，請參閱：
 
 
-- [Azure SQL Database 資源管理](http://msdn.microsoft.com/library/azure/dn338078.aspx)。
+- [Azure SQL Database 資源限制](sql-database-resource-limits.md)。
 
 
 <a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
@@ -133,14 +151,14 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 ## 同盟錯誤
 
 
-下表涵蓋使用同盟時可能會遇到的錯誤。如需詳細資訊，請參閱[管理資料庫同盟 (Azure SQL Database)](http://msdn.microsoft.com/library/azure/hh597455.aspx)。
+下表涵蓋使用同盟時可能會遇到的錯誤。
 
 
 > [AZURE.IMPORTANT]目前實作的「同盟」將與 Web 和 Business 服務層一起被淘汰。Azure SQL Database 的版本 V12 不支援 Web 和 Business 服務層。
 > 
 > Elastic Scale 功能的設計可以最少的力氣建立分區化應用程式。
 > 
-> 如需 Elastic Scale 的詳細資訊，請參閱 [Azure SQL Database Elastic Scale 主題](sql-database-elastic-scale-documentation-map.md)。請考慮部署自訂分區化解決方案，以將延展性、彈性和效能最大化。如需自訂分區化的詳細資訊，請參閱[向外擴充 Azure SQL Database](http://msdn.microsoft.com/library/azure/dn495641.aspx)。
+> 如需 Elastic Scale 的詳細資訊，請參閱 [Azure SQL Database Elastic Scale 主題](sql-database-elastic-scale-documentation-map.md)。請考慮部署自訂分區化解決方案，以將延展性、彈性和效能最大化。如需自訂分區化的詳細資訊，請參閱[彈性資料庫功能概觀](sql-database-elastic-scale-introduction.md)。
 
 
 |錯誤號碼|嚴重性|說明|緩和|
@@ -226,7 +244,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40632|16|密碼驗證失敗。因為密碼不夠複雜，密碼不符合原則需求。|
 |40636|16|無法在此作業中使用保留的資料庫名稱 '%.&#x2a;ls'。|
 |40638|16|無效的訂用帳戶識別碼 <subscription-id>。訂用帳戶不存在。|
-|40639|16|要求不符合結構描述：<schema error>。|
+|40639|16|要求不符合結構描述: <schema error>。|
 |40640|20|伺服器發生非預期的例外狀況。|
 |40641|16|指定的位置無效。|
 |40642|17|伺服器目前太過忙碌。請稍後再試一次。|
@@ -247,7 +265,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 ## 相關連結
 
-- [Azure SQL Database 一般方針和限制](http://msdn.microsoft.com/library/azure/ee336245.aspx)
-- [資源管理](http://msdn.microsoft.com/library/azure/dn338083.aspx)
+- [Azure SQL Database 一般限制與方針](sql-database-general-limitations.md)
+- [Azure SQL Database 資源限制](sql-database-resource-limits.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

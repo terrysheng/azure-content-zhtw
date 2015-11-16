@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="10/29/2015"  
 	ms.author="juliako"/>
 
 #Azure 隨選媒體編碼器的概觀和比較
@@ -166,6 +166,7 @@ AVI (未壓縮 8 位元/10 位元)|是|是 |是
 Smooth Streaming 檔案格式 (PIFF 1.3)|是|是|否
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|是|否|否
 Matroska/WebM |是|否|否
+QuickTime (.mov) |是|否|否
 
 ###輸入視訊轉碼器
 
@@ -181,6 +182,12 @@ Windows Media 視訊/VC-1 |是|是|是
 Canopus HQ/HQX |否|是|否
 Mpeg-4 第 2 部分 |是|否|否
 [Theora](https://en.wikipedia.org/wiki/Theora) |是|否|否
+Apple ProRes 422 |是|否|否
+Apple ProRes 422 LT |是|否|否
+Apple ProRes 422 HQ |是|否|否
+Apple ProRes Proxy|是|否|否
+Apple ProRes 4444 |是|否|否
+Apple ProRes 4444 XQ |是|否|否
 
 ###輸入音訊轉碼器
 
@@ -254,4 +261,4 @@ Windows Media 音訊|否|是|是
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

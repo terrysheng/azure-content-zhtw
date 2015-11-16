@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="11/04/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -24,10 +24,10 @@
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
-本教學課程將說明如何使用 PolyBase 將資料載入您的 Azure SQL 資料倉儲。
+本教學課程將說明如何使用 PolyBase 將資料載入您的 Azure SQL 資料倉儲。若要深入了解 PolyBase，請參閱 [SQL 資料倉儲中的 PolyBase 教學課程][]。
 
 
-## 必要條件
+## 先決條件
 若要逐步執行本教學課程，您需要
 
 - SQL 資料倉儲資料庫
@@ -73,9 +73,8 @@
 - [建立主要金鑰][]：可加密資料庫範圍認證的密碼。
 - [建立資料庫範圍認證]：可指定 Azure 儲存體帳戶的驗證資訊。
 - [建立外部資料來源]：可指定 Azure Blob 儲存體位置。
-- [建立外部檔案格式]：可指定資料的版面配置。
+- [建立外部檔案格式]：可指定資料的配置。
 - [建立外部資料表]：可參考 Azure 儲存體資料。
-
 
 
 ```
@@ -132,7 +131,7 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ## 步驟 4：將資料載入 SQL 資料倉儲
 
-- 若要將資料載入新的資料表，請執行 CREATE TABLE AS SELECT 陳述式。新的資料表繼承查詢中指名的資料行。它會從外部資料表定義繼承這些資料行的資料型別。 
+- 若要將資料載入新的資料表，請執行 [CREATE TABLE AS SELECT (Transact-SQL)][] 陳述式。新的資料表繼承查詢中指名的資料行。它會從外部資料表定義繼承這些資料行的資料型別。 
 - 若要將資料載入現有的資料表，請使用 INSERT...SELECT 陳述式。  
 
 
@@ -144,18 +143,25 @@ CREATE TABLE dbo.DimDate2
 WITH 
 (   
     CLUSTERED COLUMNSTORE INDEX,
-		DISTRIBUTION = ROUND_ROBIN
+    DISTRIBUTION = ROUND_ROBIN
 )
 AS 
 SELECT * 
 FROM   [dbo].[DimDate2External];
 
 ```
-請參閱 [CREATE TABLE AS SELECT (Transact-SQL)][]。
 
 
-若要深入了解 PolyBase，請參閱 [SQL 資料倉儲中的 PolyBase 教學課程][]。
+## 步驟 5：建立新載入資料的統計資料 
 
+Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱主題群組＜開發＞之中的[統計資料][]主題。以下是快速範例，說明如何在此範例中建立載入資料表的統計資料
+
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+```
 
 <!--Article references-->
 [SQL 資料倉儲中的 PolyBase 教學課程]: sql-data-warehouse-load-with-polybase.md
@@ -172,4 +178,9 @@ FROM   [dbo].[DimDate2External];
 [建立資料庫範圍認證]: https://msdn.microsoft.com/zh-TW/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Nov15_HO1-->
+
+<!--Article references-->
+
+[統計資料]: ./sql-data-warehouse-develop-statistics.md
+
+<!---HONumber=Nov15_HO2-->

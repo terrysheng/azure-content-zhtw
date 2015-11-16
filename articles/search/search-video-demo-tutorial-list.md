@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 搜尋的影片、範例和教學課程"
-	description="在單一核心清單中尋找針對 Azure 搜尋建立的所有影片、範例、示範和教學課程。"
+	pageTitle="Azure 搜尋服務的影片、範例和教學課程 | Microsoft Azure"
+	description="針對 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 所建立之所有影片、範例、示範和教學課程的集中清單。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/29/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 #Azure 搜尋：教學課程、影片示範和範例
@@ -25,13 +25,16 @@
 
 [**Azure 搜尋示範用紐約市 (NYC) 徵才入口網站**](http://aka.ms/azjobsdemo)是一個活躍的 ASP.NET 網站，使用 NYC 開放資料計劃中的資料來示範 Azure 搜尋的功能。
 
-[**Try App Service + Azure 搜尋**](search-tryappservice.md)具有免費一小時工作階段與 Azure 搜尋，其中包含資料、實用的 Web 應用程式，以及讓您可以線上修改以便試用多種搜尋功能的原始碼。
+[**在 ASP.NET MVC 組合應用程式中 Try App Service + Azure 搜尋服務**](search-tryappservice.md)具有免費一小時工作階段與 Azure 搜尋，其中包含資料、實用的 Web 應用程式，以及讓您可以線上修改以便試用多種搜尋功能的原始碼。
+
+[**Azure 搜尋服務示範網站**](https://searchsamples.azurewebsites.net/#/)是一系列 Azure 搜尋服務的示範應用程式。使用 Azure 搜尋服務測試媒體搜尋、地理搜尋和產品庫存應用程式。
 
 ##影片
 
 連結|說明
 ----|-----------
-[適用於 Azure 搜尋的 AzureCon 2015 最佳做法](https://azure.microsoft.com/zh-TW/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|在建置 Web 或行動裝置 App 時，如何成功調整、達成最佳效能及有效率編碼的實務建議。 
+[何謂 Azure 搜尋服務？](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|一分鐘半的 Azure 搜尋服務概觀。
+[適用於 Azure 搜尋的 AzureCon 2015 最佳做法](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|在建置 Web 或行動裝置 App 時，如何成功調整、達成最佳效能及有效率編碼的實務建議。 
 [Microsoft Virtual Academy：將 Azure 搜尋加入您的網站和應用程式中](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|共 7 部分的系列教學將說明如何將 Azure 搜尋加入應用程式中，主講者為 Liam Cavanagh、Janusz Lembicz 與 Bernardita Torres Garayar。
 [Build 2015：現代資料](http://channel9.msdn.com/Events/Build/2015/2-663)|在 29 分鐘的時間裡，深入了解 Azure 搜尋如何與現代資料革命相合，主講者為 Shawn Bice 和 Pablo Castro。
 [Build 2015：使用 Azure 搜尋在行動和 Web 應用程式中建置絕佳的搜尋體驗](http://channel9.msdn.com/Events/Build/2015/2-745)|由 Pablo Castro 於 Microsoft Build 2015 主講。
@@ -50,6 +53,7 @@
 
 逐步介紹|說明
 -----------|-----------
+[如何使用 Azure 搜尋服務來搜尋 StackExchange 資料](search-howto-stackexchange-data.md)|在整合 Azure 搜尋服務的應用程式中對 StackExchange 資料進行全文檢索。
 [如何使用 Azure 搜尋搭配 D3.js 建置互動式資料視覺效果](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|部落格文章和範例程式碼示範如何將圖像式搜尋功能加入自訂應用程式中。
 [開始在 .NET 中使用 Azure 搜尋](search-get-started-dotnet.md)|了解如何在受管理的程式碼中使用 Azure 搜尋。
 [開始在 NodeJS 中使用 Azure 搜尋服務](search-get-started-nodejs.md)|了解如何在 NodeJS 中使用 Azure 搜尋。
@@ -69,9 +73,9 @@
 
 - [AdventureWorksWP8]() 是 Windows Phone App。
 - [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
-- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) 是 index.html 檔案，在教學課程中提供檔案。
-- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) 是適用於 Azure 搜尋的 ASP.NET MVC 應用程式。
-- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) 提供 NYCJobs 現場示範網站的原始程式碼。
+- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) 是在教學課程中提供資料的 index.html 檔案。
+- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) 是適用於 Azure 搜尋服務的 ASP.NET MVC 應用程式。
+- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) 提供 NYCJobs 實際線上示範網站的原始程式碼。
 - [建議](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations)使用 Active Data Factory、SQL Database、Blob 儲存體，和 HDInsight 以根據產品被一起購買的頻率實作產品建議。
 
 [****https://github.com/AzureSearch**](https://github.com/AzureSearch) 是 Azure 搜尋的另一個 GitHub 儲存機制，包含 Azure 搜尋開發小組所建立的程式碼範例。您可以瀏覽儲存機制來查看其內容，或按一下下方連結直接移至特定的範例。
@@ -91,4 +95,4 @@
 - [**SQL Server 與 Azure 搜尋的同步處理範例**](http://sqlserver2azuresearch.codeplex.com/)是從內嵌的本機資料庫載入 SQL Server 資料列集的 Windows 主控台應用程式。
 - [**評分設定檔示範**](https://azuresearchscoringprofiles.codeplex.com/)是定義、執行和更新評分設定檔，以微調搜尋結果的 Windows 主控台應用程式。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

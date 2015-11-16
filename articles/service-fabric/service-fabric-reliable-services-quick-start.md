@@ -1,6 +1,6 @@
 <properties
-   pageTitle="開始使用 Microsoft Azure Service Fabric 可靠的服務"
-   description="如何使用無狀態與具狀態服務來建立 Service Fabric 應用程式。"
+   pageTitle="開始使用可靠的服務 | Microsoft Azure"
+   description="概述使用無狀態與具狀態服務來建立 Microsoft Azure Service Fabric 應用程式。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="10/15/2015"
    ms.author="vturecek"/>
 
 # 開始使用 Microsoft Azure Service Fabric 可靠的服務
 
-Service Fabric 應用程式包含一個或多個執行您的程式碼的服務。本教學課程將逐步引導您完成使用[可靠的服務程式設計模型](../Service-Fabric/service-fabric-reliable-services-introduction.md)，建立無狀態與具狀態 "Hello World" Service Fabric 應用程式。
+Service Fabric 應用程式包含一個或多個執行您的程式碼的服務。本教學課程將逐步引導您完成使用 [Reliable Services 程式設計模型](service-fabric-reliable-services-introduction.md)，建立無狀態與具狀態 "Hello World" Service Fabric 應用程式。
 
 無狀態服務是目前大部分存在於雲端應用程式的服務類型。服務會被視為無狀態，因為服務本身不包含需要可靠地儲存或設為高度可用的資料；也就是說，如果無狀態服務的執行個體關閉，其所有內部狀態都會遺失。在這些類型的服務中，狀態必須保存到外部存放區，例如 Azure 資料表或 SQL 資料庫中，才能成為高度可用且可靠。
 
@@ -30,7 +30,7 @@ Service Fabric 還導入一種新的具狀態服務：可以在服務本身內�
 
 現在讓我們著手無狀態的服務。
 
-以**管理員**身分啟動 Visual Studio 2015 RC，並建立新的 **Service Fabric Application** 專案，命名為 *HelloWorld*：
+以**系統管理員**身分啟動 Visual Studio 2015 RC，並建立新的 **Service Fabric Application** 專案，命名為 *HelloWorld*：
 
 ![使用 [新增專案] 對話方塊來建立新的 Service Fabric 應用程式](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -204,4 +204,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [可靠的服務的開發人員參考資料](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

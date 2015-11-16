@@ -1,35 +1,37 @@
-The following table lists the limits associated with the the different service tiers (S1, S2, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](http://azure.microsoft.com/pricing/details/iot-hub/).
+下表列出與不同服務層 (S1, S2, F1) 關聯的限制。如需有關每一層中各個*單位*之成本的詳細資訊，請參閱 [IoT 中樞價格](http://azure.microsoft.com/pricing/details/iot-hub/)。
 
-| Resource | S1 Standard | S2 Standard | F1 Free |
+| 資源 | S1 標準 | S2 標準 | F1 免費 |
 | -------- | ----------- | ----------- | ------- |
-| Devices/unit | 500 | 500 | 10 |
-| Messages/day | 50,000 | 1,500,000 | 3,000 |
-| Maximum units | 200 | 200 | 1 |
-| Device updates (create, update, <br/> delete) per unit per day | 1100 | 1100 | 1100 |
+| 裝置/單位 | 500 | 500 | 10 |
+| 訊息/天 | 50,000 | 1,500,000 | 3,000 |
+| 單位上限 | 200 | 200 | 1 |
+| 裝置更新 (建立、更新、 <br/> 刪除) 每天每個單位 | 1100 | 1100 | 1100 |
 
-> [AZURE.NOTE] If you anticipate using more than 200 units with an S1 or S2 tier hub, please contact Microsoft support.
+> [AZURE.NOTE]若您預期單一 S1 或 S2 層的中心會使用超過 200 個單位，請連絡 Microsoft 支援。
 
-The following table lists the limits that apply to IoT Hub resources:
+下表列出適用於 IoT 中樞資源的限制：
 
-| Resource | Limit |
+| 資源 | 限制 |
 | -------- | ----- |
-| Maximum IoT hubs per Azure subscription | 10 |
-| Maximum number of device identities<br/>  returned in a single call | 1000 |
-| IoT Hub message maximum retention | 7 days |
-| Maximum size of device-to-cloud message | 256 KB |
-| Maximum size of device-to-cloud batch | 256 KB |
-| Maximum messages in device-to-cloud batch | 500 |
-| Maximum size of cloud-to-device message | 64 KB |
-| Maximum TTL for cloud-to-device messages | 2 days |
-| Maximum delivery count for cloud-to-device <br/> messages | 100 |
-| Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message | 100 |
-| Maximum TTL for feedback messages in <br/> response to a cloud-to-device message | 2 days |
+| 每個 Azure 訂用帳戶的 IoT 中樞上限 | 10 |
+| 單一呼叫中傳回的裝置身分識別 <br/> 數目上限 | 1000 |
+| IoT 中樞訊息保留上限 | 7 天 |
+| 裝置到雲端訊息的大小上限 | 256 KB |
+| 裝置到雲端批次的大小上限 | 256 KB |
+| 裝置到雲端批次的訊息上限 | 500 |
+| 雲端到裝置訊息的大小上限 | 64 KB |
+| 雲端到裝置訊息的 TTL 上限 | 2 天 |
+| 雲端到裝置訊息的傳遞計數 <br/> 上限 | 100 |
+| 回應雲端到裝置訊息之反應訊息的 <br/> 傳遞計數上限 | 100 |
+| 回應雲端到裝置訊息之反應訊息的 <br/> TTL 上限 | 2 天 |
 
-The IoT Hub service throttles requests when the following quotas are exceeded:
+IoT 中樞服務將在超過下列配額時開始對要求進行節流：
 
-| Throttle | Per-hub value |
+| 節流 | 每個中心的值 |
 | -------- | ------------- |
-| Identity registry operations <br/> (create, retrieve, list, update, delete), <br/> individual or bulk import/export | 100/min/unit, up to 5000/min |
-| Device connections | 100/sec/unit |
-| Device-to-cloud sends | 2000/min/unit (for S2), 60/min/unit (for S1) <br/> Minimum of 100/sec |
-| Cloud-to-device operations <br/> (sends, receives, feedback) | 100/min/unit |
+| 身分識別登錄作業 <br/> (建立、擷取、列出、更新、刪除)， <br/> 個別或大量匯入/匯出 | 100/分鐘/單位，最高 5000/分鐘 |
+| 裝置連線 | 100/秒/單位 |
+| 裝置到雲端傳送 | 2000/分鐘/單位 (適用於 S2)，60/分鐘/單位 (適用於 S1) <br/> 最小值為 100/秒 |
+| 雲端到裝置作業 <br/> (傳送、接收、意見反應) | 100/分鐘/單位 |
+
+<!---HONumber=Nov15_HO2-->

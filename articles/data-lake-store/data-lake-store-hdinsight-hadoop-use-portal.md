@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # 使用 Azure Preview 入口網站佈建 HDInsight 叢集與資料湖存放區
@@ -23,7 +23,12 @@
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-了解如何使用 Azure Preview 入口網站設定 HDInsight 叢集 (Hadoop、HBase 或 Storm) 以使用 Azure 資料湖存放區。此版本的一些重要考量：* **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。* **對於 HBase 叢集 (Windows 和 Linux)**，資料湖存放區可以做為預設儲存體或其他儲存體。
+了解如何使用 Azure Preview 入口網站設定 HDInsight 叢集 (Hadoop、HBase 或 Storm) 以使用 Azure 資料湖存放區。此版本的一些重要考量：
+
+* * **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
+
+* **對於 HBase 叢集 (Windows 和 Linux)**，您可以使用資料湖存放區做為預設儲存體或額外的儲存體。
+
 
 在本文中，我們佈建 Hadoop 叢集與資料湖存放區做為額外的儲存體。使用 Azure Preview 入口網站以設定 HDInsight 來搭配資料湖存放區使用，包含下列步驟：
 
@@ -36,7 +41,7 @@
 開始進行本教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
-- 針對資料湖存放區公開預覽**啟用您的 Azure 訂用帳戶**。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
+- **啟用您的 Azure 訂用帳戶**以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 
 
 ## 建立具有 Azure Active Directory 服務主體驗證的 HDInsight 叢集
@@ -95,7 +100,7 @@
 
 	![資料總管](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.start.data.explorer.png "資料總管")
 
-4. 在 [資料總管] 刀鋒視窗中，按一下您帳戶的根，然後在帳戶刀鋒視窗中，按一下 [存取] 圖示。
+4. 在 [資料總管] 刀鋒視窗中，按一下帳戶的根，然後在 [帳戶] 刀鋒視窗中，按一下 [存取] 圖示。
 
 	![設定資料湖檔案系統上的 ACL](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.1.png "設定資料湖檔案系統上的 ACL")
 
@@ -103,19 +108,19 @@
 
 	![列出標準和自訂存取](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.2.png "列出標準和自訂存取")
 
-6. 按一下 [新增] 圖示以開啟 [新增自訂存取] 刀鋒視窗。在此刀鋒視窗中，按一下 [選取使用者或群組]，然後在 [選取使用者或群組] 刀鋒視窗中，搜尋您稍早在 Azure Active Directory 中建立的服務主體。稍早建立的服務主體名稱是 **HDIADL**。按一下服務主體名稱，然後按一下 [選取]。
+6. 按一下 [新增] 圖示，以開啟 [新增自訂存取] 刀鋒視窗。在此刀鋒視窗中，按一下 [選取使用者或群組]，然後在 [選取使用者或群組] 刀鋒視窗中，搜尋您稍早在 Azure Active Directory 中建立的服務主體。稍早建立的服務主體名稱是 **HDIADL**。按一下服務主體名稱，然後按一下 [選取]。
 
 	![新增群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.3.png "新增群組")
 
 7. 按一下 [選取權限]，選取您想要指派給服務主體的權限，然後按一下 [確定]。
 
-	![將權限指派至群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.4.png "將權限指派至群組")
+	![指派權限給群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.4.png "指派權限給群組")
 
-8. 在 [新增自訂存取] 刀鋒視窗中按一下 [確定]。具有相關聯權限的新增群組，現在會列在 [存取] 刀鋒視窗。
+8. 在 [新增自訂存取] 刀鋒視窗中，按一下 [確定]。具有相關權限的新增群組現在將列在 [存取] 刀鋒視窗中。
 
-	![將權限指派至群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.5.png "將權限指派至群組")
+	![指派權限給群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.5.png "將權限指派至群組")
 
-7. 如果需要，您也可以在新增服務主體之後修改存取權限。根據您想要移除或指派該權限，清除或選取每個權限類型的核取方塊 (讀取、寫入、執行)。按一下 [儲存] 儲存變更，或按一下 [捨棄] 還原變更。
+7. 如果需要，您也可以在新增服務主體之後修改存取權限。根據您想要移除或指派該權限，清除或選取每個權限類型的核取方塊 (讀取、寫入、執行)。按一下 [儲存] 儲存變更，或按一下 [捨棄] 復原變更。
 
 
 
@@ -202,4 +207,4 @@
 [makecert]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

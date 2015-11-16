@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="物聯網 Reliable Actor"
-   description="Service Fabric Reliable Actor 是系統中的主要建置組塊 (作為中介層)，結合了支援多個傳輸 (例如 HTTPS、MQTT 或 AMQP) 的傳訊系統前端，然後與代表個別裝置的動作項目通訊。"
+   pageTitle="適用於物聯網的 Reliable Actor | Microsoft Azure"
+   description="Service Fabric Reliable Actor 是系統中的主要建置組塊，結合了支援多個傳輸 (例如 HTTPS、MQTT 或 AMQP) 的傳訊系統前端，然後與代表個別裝置的動作項目通訊。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -217,4 +217,4 @@ Azure Service Fabric Actor 也負責動作項目的生命週期。不妨如此�
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

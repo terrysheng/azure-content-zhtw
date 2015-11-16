@@ -1,1 +1,3 @@
- >[AZURE.NOTE] It's important to understand that Azure currently has two different deployment models: Resource Manager, and Classic (also known as Service Management). For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+ >[AZURE.NOTE]請務必了解 Azure 目前有「資源管理員」和「傳統 (也稱為服務管理)」兩種不同的部署模型。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+
+<!---HONumber=Nov15_HO2-->

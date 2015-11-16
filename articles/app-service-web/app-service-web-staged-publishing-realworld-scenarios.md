@@ -312,7 +312,7 @@ require_once(ABSPATH . 'wp-settings.php');
 務必記得移除您的應用程式下的 `install` 資料夾，而且永遠不要將它上傳至預備或生產 Web 應用程式。在本教學課程中，我將使用 WebMatrix
 
 #### 設定預備環境
-如上所述為 Umbraco CMS Web 應用程式建立部署位置，假設您已有 Umbraco CMS Web 應用程式運作且執行中。如果沒有，您可以從 Marketplace 建立一個。若要深入了解，請按一下[這裡](web-sites-gallery-umbraco)。
+如上所述為 Umbraco CMS Web 應用程式建立部署位置，假設您已有 Umbraco CMS Web 應用程式運作且執行中。如果沒有，您可以從 Marketplace 建立一個。
 
 將您的預備部署位置的連接字串更新，以指向新建立的資料庫 **umbraco-stage-db**。您的生產 Web 應用程式 (umbraositecms-1) 和預備 Web 應用程式 (umbracositecms-1-stage) **必須**指向不同的資料庫。
 
@@ -386,7 +386,7 @@ require_once(ABSPATH . 'wp-settings.php');
 
 ![變更頁面的標題並發佈](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
 
-現在選取已修改的頁面，然後*以滑鼠右鍵按一下*來檢視所有選項。按一下 **Courier** 來檢視 [部署] 對話方塊。按一下 [部署] 來起始部署。
+現在選取已修改的頁面，然後*以滑鼠右鍵按一下*來檢視所有選項。按一下 [Courier] 來檢視 [部署] 對話方塊。按一下 [部署] 來起始部署。
 
 ![Courier 模組部署對話方塊](./media/app-service-web-staged-publishing-realworld-scenarios/18dialog1.png)
 
@@ -429,4 +429,4 @@ Courier 將不會隨著從一個版本的 Umbraco CMS 升級至另一個版本�
 
 [封鎖對非生產部署位置的 Web 存取](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

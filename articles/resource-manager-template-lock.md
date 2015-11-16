@@ -60,7 +60,7 @@
 
 您可以將此資源新增至範本，以避免在資源上進行指定的動作。鎖定會套用到所有的使用者和群組。一般而言，您只能套用鎖定一段有限的時間，例如當處理序正在執行時，或者您想要確定組織中的某個人不會不小心修改或刪除資源。
 
-若要建立或刪除管理鎖定，您必須能夠存取 **Microsoft.Authorization/*** 或 **Microsoft.Authorization/locks/*** 動作。內建角色中，只有**擁有者**和**使用者存取系統管理員**被授與這些動作。如需與角色存取控制相關的資訊，請參閱[管理資源的存取](./azure-portal/resource-group-rbac.md)。
+若要建立或刪除管理鎖定，您必須能夠存取 **Microsoft.Authorization/*** 或 **Microsoft.Authorization/locks/*** 動作。內建角色中，只有**擁有者**和**使用者存取系統管理員**被授與這些動作。如需有關角色型存取控制的相關資訊，請參閱[管理資源的存取權](resource-group-rbac.md)。
 
 鎖定會套用至指定的資源和任何子資源。如果您將多個鎖定套用至資源，最嚴格的鎖定優先順序較高。例如，如果您在父層級 (例如資源群組) 套用 ReadOnly 和在該群組內的資源上套用 CanNotDelete，將優先套用來自父層級更具限制性的鎖定 (唯讀)。
 
@@ -133,4 +133,4 @@
 - 如需範本結構的相關資訊，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 如需詳細資訊，請參閱[使用 Azure 資源管理員鎖定資源](resource-group-lock-resources.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

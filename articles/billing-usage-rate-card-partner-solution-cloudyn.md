@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Azure 使用情況和 RateCard API 可讓 Cloudyn 提供 ITFM 給客戶"
+   pageTitle="Microsoft Azure 使用量和 RateCard API 可讓 Cloudyn 提供 ITFM 給客戶 | Microsoft Azure"
    description="提供 Microsoft Azure 計費合作夥伴 Cloudyn 將 Azure 計費 API 整合至其產品的經驗所得來的獨特觀點。這特別適用於有興趣使用/嘗試將 Cloudyn 用於 Azure 服務的客戶。"
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/14/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Microsoft Azure 使用情況和 RateCard API 可讓 Cloudyn 提供 ITFM 給客戶 
@@ -74,7 +74,7 @@ RateCard API 需要數個輸入參數 -- 例如區域資訊、貨幣及區域設
 + 開始免費 [Cloudyn for Azure](https://www.cloudyn.com/microsoft-azure/) 試用版，查看如何利用 Microsoft Azure 雲端部署的自訂報告和分析取得成本透明度。
 + 請參閱[深入了解 Microsoft Azure 資源耗用量](billing-usage-rate-card-overview.md)以取得 Azure 資源使用情況和 RateCard API 的概觀。 
 + 查看 [Azure 計費 REST API 參考](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)以取得屬於 Azure 資源管理員所提供之 API 集合的兩個 API 之詳細資訊。
-+ 如果您想要探究範例程式碼，請查看 [Github 上的 Microsoft Azure 計費 API 程式碼範例](https://github.com/Azure/BillingCodeSamples)。
++ 如果您想要探究範例程式碼，請查看 [Azure 程式碼範例](https://azure.microsoft.com/documentation/samples/?term=billing)上的＜Microsoft Azure 計費 API 程式碼範例＞。
 
 ## 詳細資訊
 + 若要深入了解 Microsoft Azure 企業合約 (EA) 優惠，請瀏覽[授權企業用 Azure](http://azure.microsoft.com/pricing/enterprise-agreement/)
@@ -90,4 +90,4 @@ RateCard API 需要數個輸入參數 -- 例如區域資訊、貨幣及區域設
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

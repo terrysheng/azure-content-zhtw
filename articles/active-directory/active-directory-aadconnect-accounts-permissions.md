@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="andkjell;billmath"/>
 
 
@@ -77,6 +77,14 @@ AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」|AD 使用者�
 | 裝置回寫 | [裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)中所述的使用 PowerShell 指令碼授與權限。|
 | 群組回寫 | 讀取、建立、更新和刪除散發群組所在 OU 中的群組物件。|
 
+## 升級
+當您從一個版本的 Azure AD Connect 升級到新的版本時，您需要下列權限：
+
+| 主體 | 所需的權限 | 用於 |
+| ---- | ---- | ---- |
+| 執行安裝精靈的使用者 | 本機伺服器的系統管理員 | 更新二進位檔案。 |
+| 執行安裝精靈的使用者 | ADSyncAdmins 的成員 | 對同步處理規則和其他組態進行變更。 |
+| 執行安裝精靈的使用者 | 如果使用同步處理引擎資料庫的完整 SQL Server: DBO (或類似選項) | 變更資料庫層級，例如更新含有新資料行的資料表。 |
 
 ## 已建立帳戶的相關資訊
 
@@ -86,12 +94,14 @@ AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」|AD 使用者�
 
 ![AD 帳戶](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### Azure AD Connect 同步服務帳戶
-安裝精靈會建立本機服務帳戶 (除非您在自訂設定指定要使用的帳戶)。此帳戶的前置詞會是 **AAD\_**，並且是實際同步服務用來執行的身分。如果您在網域控制站上安裝 Azure AD Connect，則在網域中建立帳戶。如果您在遠端伺服器上使用 SQL 伺服器，帳戶必須位於網域中。
+### Azure AD Connect 同步處理服務帳戶
+安裝精靈會建立兩個本機服務帳戶 (除非您在自訂設定指定要使用的帳戶)。前置詞是 **AAD\_** 的帳戶是實際同步處理服務的執行身分。如果您在網域控制站上安裝 Azure AD Connect，則會在網域中建立帳戶。如果您在遠端伺服器上使用 SQL Server，**AAD\_** 服務帳戶必須位於網域中。前置詞是 **AADSyncSched\_** 的帳戶用於正在執行同步引擎的排程工作。
 
 ![同步服務帳戶](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
-會使用不會過期的長複雜密碼建立帳戶。此帳戶將由 Windows 用來儲存加密金鑰，使得此帳戶的密碼不被重設或變更。
+會使用不會過期的長複雜密碼建立帳戶。
+
+對於同步處理引擎服務帳戶，此帳戶將由 Windows 用來儲存加密金鑰，使得此帳戶的密碼不被重設或變更。
 
 如果您使用完整的 SQL Server，那麼服務帳戶將會是為同步引擎建立的資料庫的 DBO。使用其他權限，服務將無法如預期般運作。也會建立 SQL 登入。
 
@@ -104,7 +114,7 @@ AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」|AD 使用者�
 
 使用帳戶所在伺服器的名稱可以透過使用者名稱的第二個部分來識別。在上圖中，伺服器名稱是 FABRIKAMCON。如果您有預備伺服器，則每個伺服器將會有自己的帳戶。Azure AD 中有 10 個同步服務帳戶的限制。
 
-會使用不會過期的長複雜密碼建立服務帳戶。它會獲授與特殊角色**目錄同步處理帳戶**，其僅具有執行目錄同步處理工作的權限。這個特殊的內建角色無法在 Azure AD Connect 精靈以外授與，並且 Azure 入口網站只會顯示此帳戶具備角色**使用者**。
+會使用不會過期的長複雜密碼建立服務帳戶。它會獲授與特殊角色「目錄同步處理帳戶」，其僅具有執行目錄同步處理工作的權限。這個特殊的內建角色無法在 Azure AD Connect 精靈以外授與，並且 Azure 入口網站只會顯示此帳戶具備角色「使用者」。
 
 ![AD 帳戶角色](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
 
@@ -112,4 +122,4 @@ AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」|AD 使用者�
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

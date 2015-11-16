@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="同盟移轉" 
+    pageTitle="同盟移轉 |Microsoft Azure" 
     description="概述將使用同盟功能建立的現有應用程式移轉至彈性資料庫模型的步驟。" 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/14/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # 同盟移轉 
 
@@ -108,7 +108,7 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 
 ## 功能比較
 
-雖然彈性資料庫工具提供許多其他功能 (例如，[多分區查詢](sql-database-elastic-scale-multishard-querying.md)、[分割及合併分區](sql-database-elastic-scale-overview-split-and-merge.md)、[分區彈性](sql-database-elastic-scale-elasticity.md)、[用戶端快取](sql-database-elastic-scale-shard-map-management.md)等)，但有一些在彈性資料庫工具中不支援但值得注意的同盟功能。
+雖然彈性資料庫工具提供許多其他功能 (例如，[多分區查詢](sql-database-elastic-scale-multishard-querying.md)、[分割及合併分區](sql-database-elastic-scale-overview-split-and-merge.md)、分區彈性、[用戶端快取](sql-database-elastic-scale-shard-map-management.md)等)，但有一些在彈性資料庫工具中不支援但值得注意的同盟功能。
   
 - 使用 **FILTERING=ON**。相反地，建議您針對資料列篩選使用資料列層級安全性 (RLS)。就像在同盟中篩選一樣，RLS 會自動新增一個述詞到分區資料表上的所有查詢。如需詳細資訊，請參閱[使用彈性資料庫工具和資料列層級安全性的多租用戶應用程式](sql-database-elastic-tools-multi-tenant-row-level-security.md)。 
  
@@ -150,4 +150,4 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Reliable Actor 具狀態服務的組合設計模式"
-   description="Service Fabric Reliable Actor 設計模式使用具狀態的動作項目，以維護服務之間的呼叫和快取先前服務結果的狀態。狀態可以是持續性或暫時性。"
+   pageTitle="具狀態服務組合模式 | Microsoft Azure"
+   description="Service Fabric Reliable Actor 設計模式使用具狀態的動作項目，以維護服務之間的呼叫和快取先前服務結果的狀態。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -18,9 +18,11 @@
    ms.author="vturecek"/>
 
 # Reliable Actor 設計模式：可設定狀態的服務組合
+
 開發人員花費了最近 15 年建置在企業中多層式架構的無狀態服務。他們在資料庫上建置服務、在其他服務建置高序位服務，更建置協調流程引擎和訊息導向中介軟體以協調這些服務。當使用者工作負載擴大時，無論是要求更多的互動性或級別，無狀態服務導向架構開始曝露其缺點。
 
 ## 舊有方式：SOA 服務
+
 雖然 SOA 服務基於其無狀態的本質，能順暢地進行水平調整，其卻建立了儲存層中並行處理和輸送量的瓶頸。存取儲存體也變得越來越昂貴。大部分開發人員的常見作法是引進快取，作為減少對儲存體需求的解決方案，但該方案不是沒有缺點，像是另一個需要管理的層、並行存取快取、語意的限制及變更，而最後還有一致性問題。如稍早在智慧快取模式中，虛擬動作項目模型為此提供完美的解決方案。
 
 有些開發人員嘗試將複寫其儲存層以解決問題。不過，此方法並未妥善調整，並很快就達到 CAP 界限。第二個挑戰依瞬息萬變的需求而擴大；使用者和企業要求互動式服務，並以毫秒為單位，取代一般使用的秒來回應需求。若要回應，開發人員會開始在其他服務上建置服務的外觀機制，在某些情況下需要服務的 10 秒來建立以使用者為中心的服務。不過撰寫多個下游服務很快曝露出延遲問題。
@@ -34,6 +36,7 @@
 ![][1]
 
 ## 動作項目是更好的解決方案
+
 在撰寫服務的情況下，動作項目可以是無狀態或具狀態。
 
 * 無狀態的動作項目可以做為基礎服務的 Proxy。這些動作項目可以動態調整 Azure Service Fabric 叢集，並能夠快取相關特定資訊，例如發現的端點。
@@ -46,6 +49,7 @@
 現在讓我們聊聊以動作項目為基礎的方法。使用者動作項目可以代表使用者的行為 (瀏覽目錄、對產品按讚、將項目加入購物籃、推薦產品給朋友)，及其組成的狀態，使用者的設定檔、購物籃中的物品、朋友推薦的產品、購買歷程記錄、目前地區位置及其他項目。
 
 ## 具狀態的動作項目
+
 首先，讓我們看看一個使用者動作項目需要從多個服務填入其狀態的範例。我們不會為此項目提供程式碼範例，因為所有我們在智慧快取模式討論過的項目，也適用於此處。我們可以在登入時啟動使用者動作項目，從後端服務中填入足夠的資料。當然，我們稍早在本文中已經看過許多情況，全部及部分狀態可以預先填入隨選、計時器、或兩者的一部分，並在動作項目中快取。這個範例中，「設定檔」和「願望清單」如下圖所示：
 
 ![][2]
@@ -71,6 +75,7 @@
 
 
 ## 後續步驟
+
 [模式：智慧型快取](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [模式：分散式網路和圖形](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -91,4 +96,4 @@
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

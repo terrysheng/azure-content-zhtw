@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #從預覽 API 版本 = 2014* 轉換為 API 版本 = 2015*#
 
-下列指引供客戶在 Azure 搜尋服務的預覽版本建置自訂應用程式，及目前移轉到正式運作的版本所用 (2015-02-28)。
+Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。下列指引供客戶在 Azure 搜尋服務的預覽版本建置自訂應用程式，及目前移轉到正式運作的版本所用 (2015-02-28)。
 
 身為預覽客戶，您可能有這些舊的預覽版本之一：
 
@@ -144,4 +144,4 @@ API 版本 `2015-02-28` 是在 SLA 下。請使用在[此頁](../support/options
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

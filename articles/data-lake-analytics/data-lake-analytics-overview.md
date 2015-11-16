@@ -47,7 +47,7 @@ Azure 資料湖分析是一個全新的服務，其目的是為了讓巨量資�
 
 - **使用所有的 Azure 資料**
 
-    資料湖分析使用大量的 Azure 資料來源：Azure Storage Blob、Azure SQL DB、Azure SQL DB，資料湖分析當然已特別針對與 Azure 資料湖存放區搭配使用最佳化，可提供最高等級的效能、輸送量，並會平行處理您的巨量資料工作負載。
+    資料湖分析使用大量的 Azure 資料來源：Azure Blob 儲存體、Azure SQL 資料庫，資料湖分析當然已特別針對與 Azure 資料湖存放區搭配使用最佳化，可提供最高等級的效能、輸送量，並會平行處理您的巨量資料工作負載。
 
 ## 另請參閱
 
@@ -77,4 +77,4 @@ Azure 資料湖分析是一個全新的服務，其目的是為了讓巨量資�
     - [提交要求功能](http://aka.ms/adlafeedback)
     - [在論壇上取得協助](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

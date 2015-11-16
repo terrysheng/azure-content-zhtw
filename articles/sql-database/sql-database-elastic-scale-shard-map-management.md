@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="分區對應管理" 
+	pageTitle="分區對應管理 | Microsoft Azure" 
 	description="如何使用彈性資料庫用戶端程式庫 ShardMapManager" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # 分區對應管理
-在分區化資料庫環境中，**分區對應**會維護資訊，以便讓應用程式根據**分區化索引鍵**的值，連線到正確的資料庫。為了使用彈性資料庫用戶端程式庫來管理分區，有必要了解如何建構這些對應。
+
+使用[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)管理分區化應用程式。在分區化資料庫環境中，[**分區對應**](sql-database-elastic-scale-glossary.md)會維護資訊，以便讓應用程式根據**分區化索引鍵**的值，連線到正確的資料庫。了解這些對應建構的方式，是分區對應管理的基本。
 
 ## 分區對應和分區對應方式
  
@@ -49,7 +50,7 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
  
 
 ### 範圍分區對應 
-在**範圍分區對應**中，由一組 **[低值, 高值)** 描述索引鍵範圍，其中*低值*是範圍內的最小索引鍵，*高值*是高於該範圍的第一個值。
+在**範圍分區對應**中，由一組 **[低值, 高值)** 描述索引鍵範圍，其中「低值」是範圍內的最小索引鍵，「高值」是高於該範圍的第一個值。
 
 例如，**[0, 100)** 包含所有大於或等於 0 且小於 100 的整數。請注意，多個範圍可指向相同的資料庫，而且可支援不相連的範圍 (例如 [100, 200) 和 [400, 600) 都指向下面範例中的資料庫 C。)
 
@@ -253,4 +254,4 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

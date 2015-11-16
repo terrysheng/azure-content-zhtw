@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
  
 # 疑難排解與問題：ASP.NET 的 Application Insights
@@ -136,12 +136,15 @@
 + 按一下 [重新整理] 按鈕。刀鋒視窗會定期自行重新整理，但您也可以手動重新整理。時間範圍越大，重新整理的間隔就越長。
 + 在 Microsoft Azure 開始面板中，查看服務狀態對應。如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
 + 也請查閱[我們的狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
++ 如果您編輯過 ApplicationInsights.config，請仔細檢查 TelemetryInitializers 和 TelemetryProcessors 的設定。不當命名的類型或參數可能導致 SDK 不會傳送任何資料。
 
 #### 我發佈 App 到我的伺服器之後卻沒有資料
 
++ 請確認您實際上已複製所有 Microsoft.ApplicationInsights DLL 到伺服器，並且連帶 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll ApplicationInsights Dll 一併複製。
 + 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
 + 如果您必須使用 Proxy 在貴公司網路之外傳送內容，請設定 Web.config 中的 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx)
 + Windows Server 2008：確定您已安裝以下更新：[KB2468871](https://support.microsoft.com/kb/2468871)、[KB2533523](https://support.microsoft.com/kb/2533523)、[KB2600217](https://support.microsoft.com/kb/2600217)。
+
 
 #### <a name="q04"></a>我在網站的流量分析下沒有看到資料
 
@@ -243,4 +246,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

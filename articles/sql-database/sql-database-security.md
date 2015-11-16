@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/13/2015"
+   ms.workload="data-management"
+   ms.date="10/21/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -96,7 +96,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 * [儲存格層級加密](https://msdn.microsoft.com/library/ms179331.aspx)，可利用不同的加密金鑰來加密特定的資料行或甚至是資料儲存格。
 * 如果您需要硬體安全性模組或集中管理您的加密金鑰階層，請考慮[在 Azure VM 中使用 Azure 金鑰保存庫搭配 SQL Server](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx)。
-
+* [一律加密](https://msdn.microsoft.com/library/mt163865.aspx) (預覽版) 讓加密對應用程式透明化，且允許用戶端加密用戶端應用程式中的機密資料，而不需與 SQL Database 共用加密金鑰。
 
 ## 稽核
 
@@ -106,4 +106,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 除了上述可協助您的應用程式符合各種安全法規需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。如需詳細資訊，請參閱 [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](http://azure.microsoft.com/support/trust-center/services/)的最新清單。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

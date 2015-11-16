@@ -47,7 +47,7 @@ BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需�
 
 開啟您要匯入資料庫的 SQL Server 刀鋒視窗：
 
-1.	移至 [Azure Preview 入口網站](https//:portal.azure.com)。
+1.	移至 [Azure Preview 入口網站](https://portal.azure.com)。
 2.	按一下 [全部瀏覽]。
 3.	按一下 [SQL Server]。
 2.	按一下伺服器，以將資料庫還原至該伺服器。
@@ -110,4 +110,4 @@ BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需�
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

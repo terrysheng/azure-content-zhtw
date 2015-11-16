@@ -32,6 +32,18 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * 與舊的複本比較 ApplicationInsights.config。您看到的變更大部分是因為我們移除了部分模組，並讓其他的模組可參數化。恢復您對舊檔案做的任何自訂。
 * 重建您的方案。
 
+## 版本 2.0.0-beta2
+- 新增對 ITelemetryProcessor 的支援，而且可以透過程式碼或組態設定。[在 SDK 中啟用自訂篩選](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- 已移除內容初始設定式。改用 [遙測初始設定式](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)。
+- 已更新 .Net framework 4.6 適用的 Application Insights 
+- 自訂的事件名稱現在最多可包含 512 個字元。
+- 屬性 ```OperationContext.Name``` 已重新命名為 ```RootName```。
+- 屬性 ```RequestTelemetry.Id``` 已移除。
+- 建立新的 RequestTelemetry 時，不會初始化 RequestTelemetry 的屬性 ```Id``` 和 ```Context.Operation.Id```。
+- ```RequestTelemetry.Name``` 不會再初始化。將改用 ```RequestTelemetry.Context.Operation.Name```。
+- 在要求監視中，回應碼 401 是一般驗證信號交換的一部分，並會導致成功的要求。
+- 修正從 UI 執行緒初始化 InMemoryChannel (預設通道) 時的 UI 執行緒鎖定。這會修正 WPF 應用程式的 UI 凍結問題。
+ 
 ## 2\.0.0 版 Beta1
 - 未指定所有必要欄位時，TrackDependency 將產生有效的 JSON。
 - 備援屬性 ```RequestTelemetry.ID``` 現在只是 ```RequestTelemetry.Operation.Id``` 的 Proxy。
@@ -97,4 +109,4 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

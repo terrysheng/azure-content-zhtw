@@ -40,7 +40,7 @@
 
 ## 2\.下載 SDK
 
-1. 下載 [Java 適用的 Application Insights SDK](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip)。 
+1. 下載 [Java 適用的 Application Insights SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)。 
 2. 在您的伺服器上，將 SDK 內容解壓縮到載入您專案二進位檔的目錄。如果您使用 Tomcat，這通常會在 `webapps<your_app_name>\WEB-INF\lib` 下
 
 
@@ -139,4 +139,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

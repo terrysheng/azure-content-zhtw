@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 搜尋開發人員案例研究：WhatToPedia 如何在 Microsoft Azure 建置資訊媒體入口網站" 
-	description="了解如何在 Microsoft Azure 上使用搜尋服務建置資訊入口網站和中繼搜索引擎" 
+	pageTitle="Azure 搜尋服務開發人員案例研究：WhatToPedia 如何在 Microsoft Azure 建置資訊媒體入口網站 | Microsoft Azure" 
+	description="了解如何使用 Azure 搜尋服務 (適用於開發人員之託管的雲端搜尋服務) 建置資訊入口網站和中繼搜尋引擎。" 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Azure 搜尋開發人員案例研究
@@ -111,7 +111,7 @@ Azure 搜尋服務為我們的專案帶來重大突破。在 Azure 搜尋服務�
 **設定 Azure 搜尋服務**
 
 1. 登入 Azure 入口網站，加入搜尋服務到我們的訂用帳戶中。我們使用共用版本 (利用我們的訂用帳戶免費使用)。
-2. 建立索引。關於原型，我們使用入口網站 UI 來定義搜尋欄位，並且建立評分設定檔。我們的評分設定檔以地區資料為基礎：國家/地區 | 城市 | 地址 (請參閱：新增評分設定檔)。
+2. 建立索引。關於原型，我們使用入口網站 UI 來定義搜尋欄位，並且建立評分設定檔。我們的評分設定檔以地區資料為基礎：國家 | 城市 | 地址 (請參閱：新增評分設定檔)。
 3. 複製服務 URL 和系統管理 API 金鑰到我們的組態檔。這個金鑰位於入口網站的搜尋服務頁面上，且用於驗證服務。
 	
 **開發搜尋索引子工作 – Windows 主控台**
@@ -421,4 +421,4 @@ Azure 搜尋服務並不是唯一的驚喜。與我們先前的方式相比，�
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

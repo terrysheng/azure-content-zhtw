@@ -14,7 +14,9 @@
 本文說明如何使用 Azure PowerShell 來備份和復原 Azure IaaS VM。
 
 ## 概念
-取得 Azure 備份文件中的 [Azure IaaS VM 備份簡介](backup-azure-vms-introduction.md)。其中涵蓋為什麼應該備份 VM 的基本資訊、必要條件和限制。
+取得 Azure 備份文件中的 [Azure IaaS VM 備份簡介](backup-azure-vms-introduction.md)。
+
+> [AZURE.WARNING]開始之前，請確定您已了解使用 Azure 備份需要的[必要條件](backup-azure-vms-prepare.md)的重點，以及目前的 VM 備份解決方案的[限制](backup-azure-vms-prepare.md#limitations)。
 
 若要有效地使用 PowerShell，就必須了解物件的階層及從何處開始。
 
@@ -300,4 +302,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 如果您想要將製作圖表功能加入至這個報表輸出，請在 TechNet 部落格上了解[使用 PowerShell 製作圖表](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

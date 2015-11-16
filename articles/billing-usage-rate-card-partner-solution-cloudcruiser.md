@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cloud Cruiser 和 Microsoft Azure 計費 API 整合"
+   pageTitle="Cloud Cruiser 和 Microsoft Azure 計費 API 整合 | Microsoft Azure"
    description="提供 Microsoft Azure 計費合作夥伴 Cloud Cruiser 將 Azure 計費 API 整合至其產品的經驗所得來的獨特觀點。這特別適用於有興趣使用/嘗試將 Cloud Cruiser 用於 Microsoft Azure Pack 的客戶。"
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="08/10/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Cloud Cruiser 和 Microsoft Azure 計費 API 整合
@@ -213,7 +213,7 @@ Cloud Cruiser 活頁簿提供自動化的方式收集和處理來自 Usage API �
 + 如需建立 Cloud Cruiser 活頁簿和報告的詳細指示，請參閱 Cloud Cruiser 的線上[文件](http://docs.cloudcruiser.com/) (需要有效的登入)。如需有關 Cloud Cruiser 的詳細資訊，請連絡 [info@cloudcruiser.com](mailto:info@cloudcruiser.com)。
 + 請參閱[深入了解 Microsoft Azure 資源耗用量](billing-usage-rate-card-overview.md)以取得 Azure 資源使用情況和 RateCard API 的概觀。
 + 查看 [Azure 計費 REST API 參考](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)以取得屬於 Azure 資源管理員所提供之 API 集合的兩個 API 之詳細資訊。
-+ 如果您想要探究範例程式碼，請查看 [Github 上的 Microsoft Azure 計費 API 程式碼範例](https://github.com/Azure/BillingCodeSamples)。
++ 如果您想要探究範例程式碼，請查看 [Azure 程式碼範例](https://azure.microsoft.com/documentation/samples/?term=billing)上的＜Microsoft Azure 計費 API 程式碼範例＞。
 
 ### 詳細資訊
 + 請參閱 [Azure 資源管理員概觀](resource-group-overview.md)一文，以深入了解 Azure 資源管理員。
@@ -234,4 +234,4 @@ Cloud Cruiser 活頁簿提供自動化的方式收集和處理來自 Usage API �
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "圖 13 - 建立新的標記資訊欄位"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "圖 14 - 利用來自查閱的資訊填入帳戶結構中"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

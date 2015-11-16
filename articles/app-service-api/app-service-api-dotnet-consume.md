@@ -51,7 +51,7 @@
 
 1. 如果您尚未這麼做，請依照[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)來將 ContactsList 範例專案部署至 Azure 訂用中 API 應用程式。
 
-	該教學課程會引導您在 Visual Studio 發佈對話方塊中將存取層級設定為 [**任何人皆可用**]，這相當於入口網站中的 [**公用 (匿名)**]。然而，如果您在這之後進行[保護 API 應用程式](../app-service-dotnet-add-authentication.md)教學課程，則存取層級已被設定為 [**公用 (驗證)**]。在此情況下，您需要依照下列步驟的引導進行變更。
+	該教學課程會引導您在 Visual Studio 發佈對話方塊中將存取層級設定為 [**任何人皆可用**]，這相當於入口網站中的 [**公用 (匿名)**]。然而，如果您在這之後進行[保護 API 應用程式](../app-service-api-dotnet-add-authentication.md)教學課程，則存取層級已被設定為 [**公用 (驗證)**]。在此情況下，您需要依照下列步驟的引導進行變更。
 
 2. 在 [Azure Preview 入口網站](https://portal.azure.com/)，針對欲呼叫之 API 應用程式，在 [**API 應用程式**] 刀鋒視窗中移至 [**設定 > 應用程式設定**]，並將 [**存取層級**] 設定為 [**公用 (匿名)**]。
 
@@ -102,7 +102,7 @@
 
 ### 設定 API 應用程式並建立專案
 
-1. 請遵循[保護 API 應用程式](../app-service-dotnet-add-authentication.md)教學課程，以設定存取層級為 [**公用 (驗證)**] 的 API 應用程式。
+1. 請遵循[保護 API 應用程式](../app-service-api-dotnet-add-authentication.md)教學課程，以設定存取層級為 [**公用 (驗證)**] 的 API 應用程式。
 
 1. 在 Visual Studio 中，建立 Windows Forms 桌面專案。
 
@@ -205,4 +205,4 @@
 如需如何在 API 應用程式中使用驗證的相關資訊，請參閱 [Azure App Service 中 API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
 
 # 在 Application Insights SDK 中取樣、篩選及前置處理遙測
@@ -42,7 +42,7 @@
 
 1. 將您專案的 NuGet 封裝更新為最新的 Application Insights *發行前版本*。以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [**包含發行前版本**] 並搜尋 Microsoft.ApplicationInsights.Web。 
 
-2. 將這個程式碼片段加入 ApplicationInsights.config：
+2. 將這個程式碼片段加入 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)：
 
 ```XML
 
@@ -91,21 +91,26 @@
 
 ### 建立遙測處理器
 
-1. 若要建立篩選器，請實作 ITelemetryProcessor。這是遙測模組、遙測初始設定式和遙測通道之類的另一個擴充點。 
+1. 將 Application Insights SDK 更新為最新版本 (2.0.0-beta2 或更新版本)。在 Visual Studio 方案總管中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。在 [NuGet 封裝管理員] 中，核取 [Include Prerelease]，然後搜尋 Microsoft.ApplicationInsights.Web。
+
+1. 若要建立篩選器，請實作 ITelemetryProcessor。這是遙測模組、遙測初始設定式和遙測通道之類的另一個擴充點。
 
     請注意，遙測處理器建構一連串的處理。當您具現化遙測處理器時，您會傳遞連結至鏈結中的下一個處理器。遙測資料點傳遞至處理序方法時，它會完成其工作並接著呼叫鏈結中的下一個遙測處理器。
 
     ``` C#
 
-    namespace FilteringTelemetryProcessor
-    {
-      using Microsoft.ApplicationInsights.Channel;
-      using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-      class UnauthorizedRequestFilteringProcessor : ITelemetryProcessor
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
       {
-        public UnauthorizedRequestFilteringProcessor(ITelemetryProcessor next)
-		//Initialization will fail without this constructor. Link processors to each other
+        private ITelemetryProcessor Next { get; set; }
+
+        // You can pass values from .config
+        public string MyParamFromConfigFile { get; set; }
+
+        // Link processors to each other in a chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
         {
             this.Next = next;
         }
@@ -117,17 +122,52 @@
             ModifyItem(item);
 
             this.Next.Process(item);
-        }      private ITelemetryProcessor Next { get; set; }
-      }
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
+
+        // Example: replace with your own modifiers.
+        private void ModifyItem (ITelemetry item)
+        {
+            item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
+        }
     }
+    
 
     ```
-2. 在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
+2. 在 ApplicationInsights.config 中插入： 
+
+```XML
+
+    <TelemetryProcessors>
+      <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
+         <!-- Set public property -->
+         <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+(請注意，這是您用來初始化取樣篩選器的相同區段)。
+
+您可以在類別中提供公開具名屬性，以從 .config 檔案傳遞字串值。
+
+> [AZURE.WARNING]仔細地將 .config 檔案中的類型名稱和任何屬性名稱與程式碼中的類別和屬性名稱做比對。如果 .config 檔案參考不存在的類型或屬性，SDK 可能無法傳送任何遙測，而且不會產生任何訊息。
+
+ 
+或者，您也可以在程式碼中初始化篩選。在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
 
     ```C#
 
-    var builder = new TelemetryChannelBuilder();
-    builder.Use((next) => new UnauthorizedRequestFilteringProcessor(next));
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
@@ -136,7 +176,7 @@
 
     ```
 
-    在這個點之後建立的 TelemetryClients 會使用您的處理器。
+在這個點之後建立的 TelemetryClients 會使用您的處理器。
 
 ### 範例篩選器
 
@@ -146,13 +186,13 @@
 
 ``` C#
 
-public void Process(ITelemetry item)
-{
-    if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource))
-    { return; }
+    public void Process(ITelemetry item)
+    {
+      if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
 
-    this.Next.Process(item);
-}
+      // Send everything else: 
+      this.Next.Process(item);
+    }
 
 ```
 
@@ -333,33 +373,14 @@ public void Process(ITelemetry item)
 * [API 概觀](app-insights-api-custom-events-metrics.md)
 
 * [ASP.NET 參考](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Java 參考](http://dl.windowsazure.com/applicationinsights/javadoc/)
-* [JavaScript 參考](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 
 ## SDK 程式碼
 
 * [ASP.NET 核心 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
-* [所有平台](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
-## 問題
-
-* *Track\_() 呼叫會擲回什麼例外狀況？*
-    
-    無。您不需要將它們包裝在 try-catch 子句中。如果 SDK 發生問題，它會記錄訊息，您可以在偵錯主控台輸出中查看。若訊息得以留存，也可在診斷搜尋中查看。
-
-
-
-* *是否有 REST API？*
-
-    是，但我們尚未發佈。
 
 ## <a name="next"></a>接續步驟
 
@@ -388,4 +409,4 @@ public void Process(ITelemetry item)
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

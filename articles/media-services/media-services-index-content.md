@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Azure Media Indexer 編輯媒體檔案索引"
-	description="Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。本主題說明如何使用 Media Indexer。"
+	pageTitle="使用 Azure 媒體索引器編輯媒體檔案索引"
+	description="Azure 媒體索引器讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。本主題說明如何使用 Media Indexer。"
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako,Asolanki,johndeu"
@@ -17,14 +17,14 @@
 	ms.author="juliako"/>
 
 
-# 使用 Azure Media Indexer 編輯媒體檔案索引
+# 使用 Azure 媒體索引器編輯媒體檔案索引
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-manage-content.md#index)
 - [.NET](media-services-index-content.md)
 
 
-Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。
+Azure 媒體索引器讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。
 
 >[AZURE.IMPORTANT]在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。適當內容的一些範例有：錄製的會議、演講或簡報。下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
 
@@ -37,12 +37,12 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 - 關鍵字檔案 (XML)。
 - 與 SQL Server 搭配使用的音訊編製索引 blob 檔案 (AIB)。
 
-	如需詳細資訊，請參閱[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
+	如需詳細資訊，請參閱[搭配 Azure 媒體索引器和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
 
 
 本主題示範如何建立索引工作**建立資產的索引**和**建立多個檔案的索引**。
 
-如需最新的 Azure Media Indexer 更新，請參閱[媒體服務部落格](http://azure.microsoft.com/blog/topics/media-services/)。
+如需最新的 Azure 媒體索引器更新，請參閱[媒體服務部落格](#preset)。
 
 ## 針對索引工作使用組態和資訊清單檔
 
@@ -50,7 +50,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
 您也可以使用資訊清單檔，一次處理多個媒體檔案。
 
-如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)。
+如需詳細資訊，請參閱 [Azure 媒體索引器的工作預設](#)。
 
 ## 編製資產索引
 
@@ -143,43 +143,22 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	                                                   mediaProcessorName));
 
 	    return processor;
-	}
-
+	}  
+<!-- __ -->
 ### <a id="output_files"></a>輸出檔案
 
 索引工作預設會產生下列輸出檔案。檔案會儲存在第一個輸出資產。
 
+當有多個輸入媒體檔案時，索引子會產生工作輸出的資訊清單檔，名為 'JobResult.txt'。針對每個輸入媒體檔案，產生的 AIB、SAMI、TTML、WebVTT 以及關鍵字檔案會循序編號並使用「別名」命名。
 
-<table border="1">
-<tr><th>檔案名稱</th><th>說明</th></tr>
-<tr><td>InputFileName.aib </td>
-<td>音訊索引 blob 檔案。<br/><br/>
-音訊索引 Blob (AIB) 檔案是二進位檔案，可以使用全文檢索搜尋在 Microsoft SQL Server 中搜尋。AIB 檔比簡單的字幕檔案強大，因為它包含每個字的替代字，允許更豐富的搜尋經驗。
-<br/>
-<br/>
-它需要在執行 Microsoft SQL 2008 或更新版本的電腦上安裝 Indexer SQL 附加元件。使用 Microsoft SQL Server 全文檢索搜尋來搜尋 AIB 可以比搜尋 WAMI 產生之隱藏式字幕檔案提供更正確的搜尋結果。這是因為 AIB 包含發音類似的替代字，而隱藏式字幕檔案則包含音訊每一節的最高信賴字。如果搜尋說的話重要性最高，則建議一起使用 AIB 和 Microsoft SQL Server。
-<br/><br/>
-若要下載附加元件，請按一下 <a href="http://aka.ms/indexersql">Azure Media Indexer SQL 附加元件</a>。
-<br/><br/>
-也可以利用其他搜尋引擎，例如 Apache Lucene/Solr，只根據隱藏式字幕和關鍵字 XML 檔案編製視訊的索引，但這會導致搜尋結果較不正確。</td></tr>
-<tr><td>InputFileName.smi<br/>InputFileName.ttml<br/>InputFileName.vtt</td>
-<td>SAMI、TTML 和 WebVTT 格式的隱藏式輔助字幕 (CC) 檔案。
-<br/><br/>
-它們可以用來讓具有聽力障礙的人存取音訊和視訊檔案。
-<br/><br/>
-隱藏式輔助字幕檔案包含稱為 <b>Recognizability</b> 的標記，它會根據來源視訊中的語音可辨識度來為索引工作評分。您可以使用 <b>Recognizability</b> 值篩選輸出檔的實用性。較低的分數表示由於音訊品質所致的不良索引結果。</td></tr>
-<tr><td>InputFileName.kw.xml
-<br/>
-InputFileName.info
-</td>
-<td>關鍵字與資訊檔案。
-<br/><br/>
-關鍵字檔案是 XML 檔案，其中包含從語音內容擷取的關鍵字，以及頻率和位移的資訊。
-<br/><br/>
-資訊檔案是純文字檔案，包含與每個所辨識出之詞彙有關的詳細資訊。第一行是特殊行並包含可辨識分數。後續每一行皆是下列資料的清單 (以 tab 鍵分隔)：開始時間、結束時間、文字/片語、信賴值。時間是以秒為單位，信賴值則是以 0-1 的數字標示。 <br/><br/>範例行："1.20 &#160;&#160;&#160;1.45 &#160;&#160;&#160;word &#160;&#160;&#160;0.67"
-<br/><br/>
-這些檔案可以用於數個用途，例如執行語音分析，或公開至如 Bing、Google 或 Microsoft SharePoint 等搜尋引擎，使媒體檔案更容易被找到，或用來提供更多相關的廣告。</td></tr>
-</table>
+檔案名稱 | 說明
+----------|------------
+__InputFileName.aib__ | 音訊索引 blob 檔案。<br /><br />音訊索引 Blob (AIB) 檔案是二進位檔案，可以使用全文檢索搜尋在 Microsoft SQL Server 中搜尋。AIB 檔比簡單的字幕檔案強大，因為它包含每個字的替代字，允許更豐富的搜尋經驗。<br/> <br/>它需要在執行 Microsoft SQL 2008 或更新版本的電腦上安裝 Indexer SQL 附加元件。使用 Microsoft SQL Server 全文檢索搜尋來搜尋 AIB 可以比搜尋 WAMI 產生之隱藏式字幕檔案提供更正確的搜尋結果。這是因為 AIB 包含發音類似的替代字，而隱藏式字幕檔案則包含音訊每一節的最高信賴字。如果搜尋說的話重要性最高，則建議一起使用 AIB 和 Microsoft SQL Server。<br/><br/> 若要下載附加元件，請按一下 <a href="http://aka.ms/indexersql">Azure 媒體索引器 SQL 附加元件</a>。<br/><br/>也可以利用其他搜尋引擎，例如 Apache Lucene/Solr，只根據隱藏式字幕和關鍵字 XML 檔案編製視訊的索引，但這會導致搜尋結果較不正確。
+__InputFileName.smi__<br />\_\_InputFileName.ttml\_\_<br />\_\_InputFileName.vtt\_\_ |SAMI、TTML 和 WebVTT 格式的隱藏式字幕 (CC) 檔案。<br/><br/>它們可以用來讓具有聽力障礙的人存取音訊和視訊檔案。<br/><br/>隱藏式字幕檔案包含稱為 <b>Recognizability</b> 的標記，它會根據來源視訊中的語音可辨識度來為索引工作評分。您可以使用 <b>Recognizability</b> 值篩選輸出檔的實用性。較低的分數表示由於音訊品質所致的不良索引結果。
+__InputFileName.kw.xml<br />InputFileName.info__ |關鍵字與資訊檔案。<br/><br/>關鍵字檔案是 XML 檔案，其中包含從語音內容擷取的關鍵字，以及頻率和位移的資訊。<br/><br/>資訊檔案是純文字檔案，包含與每個所辨識出之詞彙有關的詳細資訊。第一行是特殊行並包含可辨識分數。後續每一行皆是下列資料的清單 (以 tab 鍵分隔)：開始時間、結束時間、文字/片語、信賴值。時間是以秒為單位，信賴值則是以 0-1 的數字標示。<br/><br/>範例行："1.20 1.45 word 0.67" <br/><br/>這些檔案可以用於數個用途，例如執行語音分析，或公開至如 Bing、Google 或 Microsoft SharePoint 等搜尋引擎，使媒體檔案更容易被找到，或用來提供更多相關的廣告。
+__JobResult.txt__ |包含下列資訊的輸出資訊清單 (只會在檢索多個檔案時顯示)：<br/><br/><table border="1"><tr><th>InputFile</th><th>別名</th><th>MediaLength</th><th>錯誤</th></tr><tr><td>a.mp4</td><td>Media\_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media\_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
+
+
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
@@ -187,7 +166,7 @@ InputFileName.info
 
 下列方法會將多個媒體檔案上傳為資產，並建立工作來批次編製這些檔案的索引。
 
-會建立 .lst 副檔名的資訊清單檔，並上傳到資產。資訊清單檔案包含所有資產檔案的清單。如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)。
+會建立 .lst 副檔名的資訊清單檔，並上傳到資產。資訊清單檔案包含所有資產檔案的清單。如需詳細資訊，請參閱 [Azure 媒體索引器的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)。
 
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -262,49 +241,6 @@ InputFileName.info
 	    return asset;
 	}
 
-
-### 輸出檔案
-
-當有多個輸入媒體檔案時，索引子會產生工作輸出的資訊清單檔，名為 'JobResult.txt'。針對每個輸入媒體檔案，產生的 AIB、SAMI、TTML、WebVTT 以及關鍵字檔案會循序編號，如下所示。
-
-如需輸出檔案的描述，請參閱[輸出檔案](#output_files)。
-
-
-<table border="1">
-<tr><th>檔案名稱</th><th>說明</th></tr>
-<tr><td>JobResult.txt</td>
-<td>輸出資訊清單
-<br/><br/>以下是輸出資訊清單檔案 (JobResult.txt) 的格式。
-<br/><br/>
-
-<table border="1">
-<tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>錯誤</th></tr>
-<tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr>
-<tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr>
-<tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr>
-</table><br/>
-每個資料列都代表一個輸入媒體檔案：
-<br/><br/>
-InputFile：資產檔案名稱或輸入媒體檔案的 URL。
-<br/><br/>
-Alias：對應輸出檔案名稱。
-<br/><br/>
-MediaLength：輸入媒體檔案的長度 (秒)。如果此輸入發生錯誤，可能是 0。
-<br/><br/>
-Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，其他則代表失敗。如需具體的錯誤資訊，請參閱<a href="#error_codes">錯誤碼</a>。
-</td></tr>
-<tr><td>Media_1.aib </td>
-<td>檔案 #0 - 音訊索引 blob 檔案。</td></tr>
-<tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>檔案 #0 - SAMI、TTML 和 WebVTT 格式的隱藏式輔助字幕 (CC) 檔案。</td></tr>
-<tr><td>Media_1.kw.xml</td>
-<td>檔案 #0 - 關鍵字檔案。</td></tr>
-<tr><td>Media_2.aib </td>
-<td>檔案 #1 - 音訊索引 blob 檔案。</td></tr>
-</table>
-
-如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
-
 ### 部分成功的工作
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
@@ -312,36 +248,40 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 會產生 (與成功工作) 相同的輸出。您可以參閱輸出資訊清單檔，根據 Error 欄位值找出哪些輸入檔案失敗。針對失敗的輸入檔案，將不會產生結果的 AIB、SAMI、TTML、WebVTT 和關鍵字檔案。
 
+### <a id="preset"></a>Azure 媒體索引器的工作預設
+
+在工作旁邊提供選擇性工作預設，即可自訂從 Azure 媒體索引器處理。下表說明此組態 xml 的格式。
+
+名稱 | 必要 | 說明
+----|----|---
+__輸入__ | false | 您想要檢索的資產檔案。</p><p>Azure 媒體索引器支援下列媒體檔案格式：MP4、WMV、MP3、M4A、WMA、AAC、WAV。</p><p>您可以在 **input** 元素的 **name** 或 **list** 屬性中指定檔案名稱 (如下所示)。如果未指定要檢索的資產檔案，則會挑選主要檔案。如果未設定主要資產檔案，則會檢索輸入資產中的第一個檔案。</p><p>若要明確指定資產檔案名稱，請執行：<br />`<input name="TestFile.wmv">`<br /><br />您也可以一次檢索多個資產檔案 (最多 10 個檔案)。若要這麼做：<br /><br /><ol class="ordered"><li><p>建立文字檔 (資訊清單檔) 並指定 .lst 副檔名。</p></li><li><p>將輸入資產中所有資產檔案名稱的清單加入至此資訊清單檔案。</p></li><li><p>將此資訊檔案新增 (上傳) 到資產。</p></li><li><p>在輸入的清單屬性中指定資訊清單檔案的名稱。<br />`<input list="input.lst">`</li></ol><br /><br />注意：如果將 10 個以上的檔案加入至資訊清單檔案，檢索工作將會失敗並顯示 2006 錯誤碼。
+__中繼資料__ | false | 用於詞彙調節之指定資產檔案的中繼資料。適合用來準備 Indexer 以辨識非標準詞彙文字，例如專有名詞。<br />`<metadata key="..." value="..."/>` <br /><br />您可以提供預先定義的__索引鍵__的__值__。目前支援下列索引鍵：<br /><br />"title" 和 "description" - 用於詞彙調整，以微調您的工作的語言模型及改進語音辨識準確度。值會植入網際網路搜尋來尋找內容相關的文字文件，並使用內容來加強索引工作期間的內部字典。<br />`<metadata key="title" value="[Title of the media file]" />`<br />`<metadata key="description" value="[Description of the media file] />"`
+__功能__ <br /><br /> 在 1.2 版中新增。目前唯一支援的功能是語音辨識 ("ASR")。| false | 語音辨識功能具有下列設定索引鍵：<table><tr><th><p>索引鍵</p></th> <th><p>描述</p></th><th><p>範例值</p></th></tr><tr><td><p>語言</p></td><td><p>要在多媒體檔案中辨識的自然語言。</p></td><td><p>英文、西班牙文</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>所需輸出字幕格式的分號分隔清單 (如果有的話)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>布林值旗標，用來指定是否需要 AIB 檔案 (適用於 SQL Server 和客戶索引器 IFilter)。如需詳細資訊，請參閱<a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">搭配 Azure 媒體索引器和 SQL Server 使用 AIB 檔案</a>。</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>布林值旗標，用於指定是否需要關鍵字 XML 檔案。</p></td><td><p>True; False。</p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>布林值旗標，用於指定是否強制完整字幕 (不管信賴等級為何)。</p><p>預設值為 false，在此情況下，會省略最終字幕輸出中信賴等級小於 50% 的單字和片語並以省略符號 ("...") 取代。省略符號適合用於字幕品質控制和稽核。</p></td><td><p>True; False。</p></td></tr></table>
 
 ### <a id="error_codes"></a>錯誤碼
 
+如果發生錯誤，Azure 媒體索引器應回報下列其中一個錯誤碼：
 
-<table border="1">
-<tr><th>代碼</th><th>名稱</th><th>可能的原因</th></tr>
-<tr><td>2000</td><td>無效的組態</td><td>無效的組態</td></tr>
-<tr><td>2001</td><td>無效的輸入資產</td><td>遺漏輸入資產或資產是空的。</td></tr>
-<tr><td>2002</td><td>無效的資訊清單</td><td>資訊清單是空的或資訊清單包含無效的項目。</td></tr>
-<tr><td>2003</td><td>無法下載媒體檔案</td><td>資訊清單檔中的 URL 無效。</td></tr>
-<tr><td>2004</td><td>不支援的通訊協定</td><td>不支援媒體 URL 的通訊協定。</td></tr>
-<tr><td>2005</td><td>不支援的檔案類型</td><td>不支援輸入媒體檔案類型。</td></tr>
-<tr><td>2006</td><td>太多輸入檔案</td><td>輸入資訊清單中有超過 10 個檔案。</td></tr>
-<tr><td>3000</td><td>無法解碼媒體檔案</td>
-<td>不支援的媒體轉碼器。
-<br/>或<br/>
-損毀的媒體檔案。
-<br/>或<br/>
-輸入媒體沒有音訊資料流。</td></tr>
-<tr><td>4000</td><td>批次編製索引已部分成功</td><td>某些輸入媒體檔案無法編製索引。如需詳細資訊，請參閱<a href="output_files">輸出檔案</a>。</td></tr>
-<tr><td>其他</td><td>內部錯誤</td><td>請連絡技術支援小組。</td></tr>
-</table>
+代碼 | 名稱 | 可能的原因
+-----|------|------------------
+2000 | 無效的組態 | 無效的組態
+2001 | 無效的輸入資產 | 遺漏輸入資產或資產是空的。
+2002 | 無效的資訊清單 | 資訊清單是空的或資訊清單包含無效的項目。
+2003 | 無法下載媒體檔案 | 資訊清單檔中的 URL 無效。
+2004 | 不支援的通訊協定 | 不支援媒體 URL 的通訊協定。
+2005 | 不支援的檔案類型 | 不支援輸入媒體檔案類型。
+2006 | 太多輸入檔案 | 輸入資訊清單中有超過 10 個檔案。
+3000 | 無法解碼媒體檔案 | 不支援的媒體轉碼器 <br/>或<br/> 已損毀的媒體檔案 <br/>或<br/> 輸入媒體中沒有音訊串流。
+4000 | 批次編製索引已部分成功 | 某些輸入媒體檔案無法編製索引。如需詳細資訊，請參閱<a href="output_files">輸出檔案</a>。
+其他 | 內部錯誤 | 請連絡技術支援小組。indexer@microsoft.com
 
 
-##<a id="supported_languages"></a>支援的語言
+## <a id="supported_languages"></a>支援的語言
 
-目前支援英文和西班牙文。如需詳細資訊，請參閱 [Azure Media Indexer (西班牙文)](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)。
+目前支援英文和西班牙文。如需詳細資訊，請參閱 [v1.2 版部落格文章](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)。
 
 
-##媒體服務學習路徑
+## 媒體服務學習路徑
 
 您可以在此檢視 AMS 學習路徑：
 
@@ -349,9 +289,9 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 - [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-##相關連結
+## 相關連結
 
-[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[搭配 Azure 媒體索引器和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -359,4 +299,4 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

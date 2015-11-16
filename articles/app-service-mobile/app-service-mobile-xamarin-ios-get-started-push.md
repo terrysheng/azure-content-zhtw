@@ -40,6 +40,10 @@
 
 * 完成[快速入門教學課程](../app-service-mobile-xamarin-ios-get-started.md)。
 
+##<a name="create-hub"></a>建立通知中樞
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
 ## <a id="register"></a>註冊應用程式以取得推播通知
 
 [AZURE.INCLUDE [啟用 Apple 推播通知](../../includes/enable-apple-push-notifications.md)]
@@ -154,4 +158,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

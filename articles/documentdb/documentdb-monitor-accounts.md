@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/30/2015" 
 	ms.author="mimig"/>
 
 # 使用 Azure Preview 入口網站監視 DocumentDB 帳戶 
@@ -21,7 +21,7 @@
 您可以在 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)監視 DocumentDB 帳戶。每一個 DocumentDB 帳戶都有效能度量 (例如要求和伺服器錯誤) 和使用量度量 (例如儲存體耗用量) 可供使用。
 
 ## 如何：檢視 DocumentDB 帳戶的效能度量
-1.	在 [Azure Preview 入口網站](https://portal.azure.com/)，按一下 [全部瀏覽]、[DocumentDB 帳戶]，然後按一下您要檢視其效能度量的 DocumentDB 帳戶名稱。
+1.	在 [Azure Preview 入口網站](https://portal.azure.com/)中，按一下 [瀏覽]、[DocumentDB 帳戶]，然後按一下您想要檢視效能度量的 DocumentDB 帳戶名稱。
 2.	在 [監視] 透鏡內，依預設可以看到：
 	*	當日的要求總數。
 	*	當日的每秒平均要求數 
@@ -90,4 +90,4 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 若要深入了解 DocumentDB 容量，請參閱[管理 DocumentDB 容量](documentdb-manage.md)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Azure 虛擬機器備份 - 疑難排解 | Microsoft Azure"
-	description="尋找 Azure 虛擬機器備份與還原的疑難排解資訊"
+	pageTitle="移難排解 Azure 虛擬機器備份 | Microsoft Azure"
+	description="Azure 虛擬機器備份與還原的疑難排解"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Azure 虛擬機器備份的疑難排解
@@ -123,4 +123,4 @@
 1. 取得要列入允許清單的 [Azure 資料中心 IP](https://msdn.microsoft.com/library/azure/dn175718.aspx)。
 2. 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) Cmdlet 解除封鎖 IP。在 Azure VM 中提升權限的 PowerShell 視窗中執行這個 Cmdlet (以系統管理員身分執行)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

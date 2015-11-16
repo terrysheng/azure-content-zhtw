@@ -19,7 +19,7 @@
 
 # 作為 Azure 串流分析輸出的 DocumentDB
 
-Azure 串流分析現在支援 [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 作為輸出，允許在非結構化 JSON 資料上進行資料封存與低延遲查詢。本文件說明如何以最好的方式實作此整合。對於不熟悉 DocumentDB 的人，可從參閱 [DocumentDB 的學習路徑](../articles/documentdb-get-started.md/)開始。
+Azure 串流分析現在支援 [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 作為輸出，允許在非結構化 JSON 資料上進行資料封存與低延遲查詢。本文件說明如何以最好的方式實作此整合。對於不熟悉 DocumentDB 的人，可從參閱 [DocumentDB 的學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)開始。
 
 串流分析中的 Azure DocumentDB 輸出可將處理結果的串流寫入您的 DocumentDB 集合。串流分析不會在資料庫中建立集合，而是需要您預先建立集合。如此一來，DocumentDB 集合的帳單寄送成本就能對您公開透明，您也可以直接使用 [DocumentDB API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 來微調集合的效能、一致性與容量。建議每個串流工作使用一個 DocumentDB Database，以邏輯為串流工作分隔集合。
 
@@ -59,4 +59,4 @@ DocumentDB 集合可讓您根據查詢模式和應用程式的效能需求來分
 -   **分割索引鍵** – 輸出事件中的欄位名稱會用來為跨集合的資料分割輸出指定索引鍵。若為單一集合輸出，則可使用任何任意的輸出欄，例如 PartitionId。  
 -   **文件識別碼** – 選用。輸出事件中的欄位名稱會用來指定主索引鍵，其為插入或更新作業的依據。  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

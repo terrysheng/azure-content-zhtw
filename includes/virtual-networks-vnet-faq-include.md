@@ -219,15 +219,16 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。Azure
 
 ### 我可以使用 Web Apps 搭配虛擬網路嗎？
 
-否。Azure Web 應用程式無法部署在 VNet 中。不過，如果您已針對 VNet 設定點對站台，則 Web Apps 可以安全地連線並存取 Azure VNet 中的資源。如需詳細資訊，請參閱下列主題：
+是。您可以使用 ASE (App Service 環境) 在 VNet 中部署 Web Apps。除此之外，如果您已針對 VNet 設定點對站台，則 Web Apps 可以安全地連線並存取 Azure VNet 中的資源。如需詳細資訊，請參閱下列主題：
 
-- [Web Apps 虛擬網路整合](http://azure.microsoft.com/blog/
-- 014/09/15/azure-websites-virtual-network-integration/)
+
+- [在 App Service 環境中建立 Web Apps](https://azure.microsoft.com/zh-TW/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+
+- [Web Apps 虛擬網路整合](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
 - [使用 VNet 整合和混合式連接搭配 Web Apps](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [將 Web 應用程式與 Azure 虛擬網路整合](web-sites-integrate-with-vnet.md)
-
 
 ### 我可以在 VNet 中使用 Web 和背景工作角色 (PaaS) 部署雲端服務嗎？
 
@@ -265,4 +266,4 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 
 是。您可以針對各種平台使用 PowerShell 和命令列工具。如需詳細資訊，請參閱[這裡](http://go.microsoft.com/fwlink/?LinkId=317721)。
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

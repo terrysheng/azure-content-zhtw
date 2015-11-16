@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/03/2015" 
 	ms.author="awills"/>
  
 # 監視 Java Web 應用程式中的相依性、例外狀況和執行時間
@@ -33,7 +33,7 @@
 
 ## 安裝 Java 的 Application Insights 代理程式
 
-1. 在執行 Java 伺服器的電腦上[下載代理程式](http://go.microsoft.com/fwlink/?LinkId=618633)。
+1. 在執行 Java 伺服器的電腦上[下載代理程式](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)。
 2. 編輯應用程式伺服器啟動指令碼，並加入下列 JVM：
 
     `javaagent:`*代理程式 JAR 檔案的完整路徑*
@@ -122,4 +122,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

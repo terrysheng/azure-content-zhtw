@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actor 分散式計算模式"
-   description="Service Fabric Reliable Actor 適用於平行非同步傳訊、可輕鬆管理的分散狀態和平行計算。"
+   pageTitle="分散式計算模式 | Microsoft Azure"
+   description="Service Fabric Reliable Actor 適合平行非同步傳訊、可輕鬆管理的分散狀態和平行計算。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -206,4 +206,4 @@ public class Finaliser : Actor<FinalizerState>, IFinaliser
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -19,7 +19,7 @@
 
 # DocumentDB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
 
-了解 DocumentDB 的語言如何整合，JavaScript 的交易式執行可讓開發人員在 JavaScript 中原生撰寫 [**預存程序**]、[**觸發程序**] 和 [**使用者定義函數 (UDF)**]。這一特點可讓您得以撰寫能直接在資料庫儲存體資料分割上傳送和執行的資料庫程式應用程式邏輯。
+了解 DocumentDB 的語言如何整合，JavaScript 的交易式執行可讓開發人員在 JavaScript 中原生撰寫 [預存程序]、[觸發程序] 和 [使用者定義函數 (UDF)]。這一特點可讓您得以撰寫能直接在資料庫儲存體資料分割上傳送和執行的資料庫程式應用程式邏輯。
 
 我們建議使用者從觀看下列影片開始入門，Andrew Liu 在其中提供了 DocumentDB 的伺服器端資料庫程式設計模型的簡介。
 
@@ -50,7 +50,7 @@
 	-	它會在未經處理的資料上方新增抽象層，讓資料架構設計人員發展其應用程式，而不會動到資料。這在資料無結構描述時特別有用，因為暫時的假設是，如果它們需要直接處理資料，則可能需要編譯成應用程式。  
 	-	這個抽象層讓企業得以透過指令碼簡化存取來確保資料安全。  
 
-[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行資料庫觸發程序、預存程序和自訂查詢運算子。<b>本教學課程使用 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)</b> 說明預存程序、觸發程序和 UDF 的語法和用法。
+[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行資料庫觸發程序、預存程序和自訂查詢運算子。**本教學課程使用 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 說明預存程序、觸發程序和 UDF 的語法和用法。
 
 ## 預存程序
 
@@ -537,7 +537,7 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 
 當裡面包含述詞和/或選取器函式時，下列 JavaScript 建構會自動取得最佳化，以便直接在 DocumentDB 索引上執行：
 
-* 簡單的運算子：= + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! \~
+* 簡單的運算子：= + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
 * 常值，包括 literal: {} 物件
 * var、return
 
@@ -746,7 +746,7 @@ __.chain()
 </table>
 
 ## 執行階段支援
-[DocumentDB JavaScript 伺服器端 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) 支援以 [ECMA-262](documentdb-interactions-with-resources.md) 做為標準的大部分主流 JavaScript 語言功能。
+[DocumentDB JavaScript 伺服器端 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) 支援以 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 做為標準的大部分主流 JavaScript 語言功能。
 
 ### 安全性
 JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料庫層級的快照交易隔離機制，否則某個指令碼的效果不會傳遞到另一個指令碼。每次執行之後，都會對執行階段環境進行集區化處理，但會清除內容。因此，環境與環境彼此之間絕對不會有任何未預期的副作用。
@@ -916,4 +916,4 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 -	[服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

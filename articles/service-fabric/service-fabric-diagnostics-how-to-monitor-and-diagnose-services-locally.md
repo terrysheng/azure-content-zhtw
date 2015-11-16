@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/04/2015"
    ms.author="kunalds"/>
 
 
@@ -79,4 +79,4 @@ Service Fabric Visual Studio 專案範本包含範例程式碼。程式碼示範
 * [Azure Service Fabric 動作項目診斷與效能監視](service-fabric-reliable-actors-diagnostics.md)
 * [可設定狀態可靠服務診斷](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

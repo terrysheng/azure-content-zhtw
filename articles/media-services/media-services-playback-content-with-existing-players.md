@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="11/03/2015"
 	ms.author="juliako"/>
 
 
@@ -31,14 +31,14 @@ Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、
  
 適用一些考量事項：
 
-- **媒體服務內容播放程式**會從預設串流端點播放。如果您想要從非預設串流端點播放，請使用其他播放程式。例如，[Azure 媒體服務播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
+- **媒體服務內容播放程式**會從預設串流端點播放。如果您想要從非預設串流端點播放，請使用其他播放程式。例如，[Azure 媒體播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
  
 
 ![AMSPlayer][AMSPlayer]
 
-###Azure 媒體服務播放器
+###Azure Media Player
 
-使用 [Azure 媒體服務播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)播放以下任一格式的內容 (清除或受保護)：
+使用 [Azure 媒體播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)播放以下任一格式的內容 (清除或受保護)：
 
 - Smooth Streaming
 - MPEG DASH
@@ -89,4 +89,4 @@ Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

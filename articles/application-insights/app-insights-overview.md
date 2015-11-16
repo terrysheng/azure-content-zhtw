@@ -89,7 +89,7 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
 1. 您將需要 [Microsoft Azure](http://azure.com) 訂用帳戶。您可以免費註冊，並選擇 Application Insights 的免費[定價層](https://azure.microsoft.com/pricing/details/application-insights/)。
 
-2. 登入 [Azure Preview 入口網站](http://portal.azure.com)
+2. 登入 [Azure 入口網站](http://portal.azure.com)。
 3. 建立 Application Insights 資源。這是您會看到來自您的應用程式資料的位置。
 
     ![[加入]、[開發人員服務]、[Application Insights]。](./media/app-insights-overview/11-new.png)
@@ -154,4 +154,4 @@ SDK 有數個模組收集遙測，例如，計算使用者、工作階段和效�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

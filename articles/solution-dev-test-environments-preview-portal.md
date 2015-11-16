@@ -144,7 +144,7 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## 建立環境
-所有的 Azure 資源必須建立於 [Azure 資源群組](azure-portal/resource-group-portal.md)內。資源群組可讓您將 Azure 資源分組，讓他們可以共同管理。[權限](azure-portal/resource-group-rbac.md)可以指派給資源群組，讓組織內的特定人員可以建立、修改、刪除或檢視它們和其中的資源。資源群組中資源的警示和計費資訊可以在 [Azure Preview 入口網站](https://portal.azure.com)中檢視。資源群組會在 Azure [位置](http://azure.microsoft.com/regions/)中建立。在本文中，所有資源都會在美國中部位置建立。當您開始建立實際環境時，您會選擇最適合您需求的位置。
+所有的 Azure 資源必須建立於 [Azure 資源群組](azure-portal/resource-group-portal.md)內。資源群組可讓您將 Azure 資源分組，讓他們可以共同管理。[權限](resource-group-rbac.md)可以指派給資源群組，讓組織內的特定人員可以建立、修改、刪除或檢視它們和其中的資源。資源群組中資源的警示和計費資訊可以在 [Azure Preview 入口網站](https://portal.azure.com)中檢視。資源群組會在 Azure [位置](http://azure.microsoft.com/regions/)中建立。在本文中，所有資源都會在美國中部位置建立。當您開始建立實際環境時，您會選擇最適合您需求的位置。
 
   **步驟 5：**使用下列任何一種方法建立開發和測試環境的資源群組。這兩種方法會達到完全相同的結果。
 
@@ -384,4 +384,4 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 - 使用 [Visual Studio 發行管理](http://msdn.microsoft.com/Library/vs/alm/Release/overview)建立受管理的連續部署管線以快速、輕鬆且經常發行。
 - 要求 [Azure 研發/測試實驗室](http://azure.microsoft.com/campaigns/devtest-lab/)的預覽邀請。它可讓您使用範本管理開發和測試實驗室環境，並設定組織內的使用配額和原則。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

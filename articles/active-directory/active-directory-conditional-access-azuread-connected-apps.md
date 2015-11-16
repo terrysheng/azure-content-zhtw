@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/30/2015"
 	ms.author="femila"/>
 
 # SaaS 應用程式的 Azure 條件式存取預覽
@@ -55,7 +55,7 @@ SaaS 應用程式的 Azure 條件式存取已可公開預覽。預覽版本可�
 
 選取 [除了] 選項並指定一個或多個群組，可以明確地從原則中排除安全性群組。屬於 [除了] 清單中的群組的使用者，即使是屬於套用存取規則的群組，也不受限於多因素驗證需求。以下顯示的存取規則會要求「管理員」群組中的所有使用者在存取應用程式時使用多因素驗證。
 
-![使用 MFA 設定條件式存取規則](./media/active-directory-conditional-access/conditionalaccess-saas-apps.jpg)
+![使用 MFA 設定條件式存取規則](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
 ##條件式存取規則和 MFA
 如果已使用每個使用者多因素驗證 功能來設定使用者，則使用者的這項設定優先於應用程式的多因素驗證規則。這表示已設定每個使用者多因素驗證的使用者，即使已從應用程式多因素驗證規則中免除，也都必須執行多因素驗證。深入了解多因素驗證和每個使用者設定。
@@ -86,4 +86,4 @@ SaaS 應用程式的 Azure 條件式存取已可公開預覽。預覽版本可�
 
 除了設定這個旗標，同盟租用戶 AD FS 執行個體必須設為執行多因素驗證。依照指示在內部部署 Microsoft Azure Multi-Factor Authentication。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

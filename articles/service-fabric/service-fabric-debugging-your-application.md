@@ -1,6 +1,6 @@
 <properties
-   pageTitle="在 Visual Studio 中使用 F5 偵錯 Service Fabric 應用程式"
-   description="透過使用 Visual Studio 和本機開發叢集，改善您服務的可靠性和效能。"
+   pageTitle="在 Visual Studio 中進行應用程式偵錯 | Microsoft Azure"
+   description="透過在 Visual Studio 和本機開發叢集中開發及偵錯服務，改善您服務的可靠性和效能。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# 在 Visual Studio 中使用 F5 偵錯 Service Fabric 應用程式
+# 使用 Visual Studio 偵錯 Service Fabric 應用程式
 
 您可以透過在本機電腦開發叢集中部署和偵錯 Service Fabric 應用程式來節省時間和金錢。Visual Studio 可以將應用程式部署至本機叢集，並自動將偵錯工具連接至您應用程式的所有執行個體。
 
@@ -66,4 +66,4 @@
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

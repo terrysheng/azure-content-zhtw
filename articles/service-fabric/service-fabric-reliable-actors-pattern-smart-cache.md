@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actor 智慧快取設計模式"
-   description="如何在以 Web 為基礎應用程式上，使用 Reliable Actor 作為快取基礎結構的設計模式"
+   pageTitle="智慧快取設計模式 | Microsoft Azure"
+   description="如何使用 Service Fabric 的 Reliable Actor 程式設計模型建置 Web 型應用程式快取介面的設計模式。"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,11 +17,13 @@
    ms.author="vturecek"/>
 
 # Reliable Actor 設計模式：智慧型快取
+
 Web 層、快取層、儲存層和 (偶爾) 背景工作層的組合差不多是現今應用程式的標準部分。快取層效能通常很重要，而且事實上本身可能就包含多個階層。許多快取是簡單的機碼值組配對，而其他作為快取的系統如 [Redis](http://redis.io)，則提供更豐富的語意。不過，任何特殊的快取層將會在語意受到限制，更重要的，那是另一個需要管理的層。如果取而代之，物件只是在本機變數保存狀態，而這些物件可自動快照或保留至永久性存放區呢？ 此外，豐富的集合如清單、已排序的集、佇列和任何其他這方面的自訂類型，皆模組化為成員變數和方法。
 
 ![][1]
 
 ## 排行榜範例
+
 以排行榜為範例，排行榜物件需要維護玩家及其分數的排序清單，好讓我們可以進行查詢。例如，「前 100 名玩家」或在排行榜中找出相對於 +-N 該玩家上方和下方的玩家位置。使用傳統工具的典型解決方案需要 'GET' 排行榜物件 (可支援插入<Player  Points>稱為分數之新 tuple 的集合)，排序後再 'PUT' 回快取。為了一致性，我們可能會 LOCK (GETLOCK, PUTLOCK) 排行榜物件。讓我們使用以動作項目為基礎的解決方案，其狀態和行為綁在一起。有兩個選項：
 
 * 將排行榜集合實作為動作項目的部分，
@@ -280,6 +282,7 @@ public Task RefreshRates()
 
 
 ## 後續步驟
+
 [模式：分散式網路和圖形](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [模式：資源管理](service-fabric-reliable-actors-pattern-resource-governance.md)
@@ -298,4 +301,4 @@ public Task RefreshRates()
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

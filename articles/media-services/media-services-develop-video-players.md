@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/02/2015" 
 	ms.author="juliako"/>
 
 
@@ -36,7 +36,7 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 - [Azure Media Player 文件](http://aka.ms/ampdocs) 
 - [Azure Media Player 開始使用部落格](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
 - [註冊以持續收到 Azure Media Player 的最新消息](http://aka.ms/ampsignup)
-- [加入新的功能要求、概念和意見反應](http://feedback.azure.com/forums/293565-azure-media-player/filters/my_feedback) 
+- [加入新的功能要求、概念和意見反應](http://aka.ms/ampuservoice) 
 
 
 ##其他可用來建立播放器應用程式的工具
@@ -48,7 +48,7 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 - [Microsoft 媒體平台：Player Framework](http://playerframework.codeplex.com/) 
 - [HTML5 Player Framework 文件](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licensing Microsoft® Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
+- [Licensing Microsoft® Smooth Streaming Client Porting Kit](http://aka.ms/sspk) 
 - [XBOX Video Application Development](http://xbox.create.msdn.com/) 
  
 
@@ -82,4 +82,4 @@ Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framewo
 [GitHub dash.js 存放庫](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="10/30/2015"
 	ms.author="markvi"/>
 
 
@@ -60,11 +60,11 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要開啟應用程式檢視，可在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![[應用程式]][2]
-4. 按一下頁面底部的 [加入]。<br><br> ![[應用程式]][3]
-5. 在 [您想要執行什麼動作] 對話方塊中，按一下 [從資源庫新增應用程式]。<br><br> ![[應用程式]][4]
-6. 在搜尋方塊中，輸入 **CloudPassage**。<br><br> ![[應用程式]][5]
-7. 在結果窗格中，選取 [CloudPassage]，然後按一下 [完成] 以新增應用程式。<br><br> ![[應用程式]][6]
+3. 若要開啟應用程式檢視，可在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2]
+4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]
+5. 在 [您想要執行什麼動作] 對話方塊中，按一下 [從資源庫新增應用程式]。<br><br> ![應用程式][4]
+6. 在搜尋方塊中，輸入 **CloudPassage**。<br><br> ![應用程式][5]
+7. 在結果窗格中，選取 [CloudPassage]，然後按一下 [完成] 以新增應用程式。<br><br> ![應用程式][6]
 
 
 
@@ -281,4 +281,4 @@
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

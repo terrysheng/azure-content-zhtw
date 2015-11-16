@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Service Fabric Testability 案例：服務通訊" 
+   pageTitle="可測試性：服務通訊 | Microsoft Azure" 
    description="服務之間的通訊是整合 Service Fabric 應用程式的重要環節。本文討論設計考量及測試技巧。" 
    services="service-fabric" 
    documentationCenter=".net" 
@@ -101,4 +101,4 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 [深入了解 Testability 案例](service-fabric-testability-scenarios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="10/29/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # 在 Azure 中規劃 VM 備份基礎結構
@@ -102,4 +102,4 @@ Azure 備份服務在排定的時間開始備份工作時，會觸發備份擴�
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [疑難排解 VM 備份問題](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

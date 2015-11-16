@@ -1,16 +1,16 @@
 
 <properties
-	pageTitle="Azure 備份 - 管理虛擬機器 | Microsoft Azure"
-	description="了解如何管理 Azure 虛擬機器"
+	pageTitle="管理和監視 Azure 虛擬機器備份 | Microsoft Azure"
+	description="了解如何管理和監視 Azure 虛擬機器備份"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
-# 管理和監視 Azure 虛擬機器的備份
+# 管理和監視 Azure 虛擬機器備份
 
 ## 管理受保護的虛擬機器
 
@@ -249,4 +249,4 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 - [還原 Azure VM](backup-azure-restore-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

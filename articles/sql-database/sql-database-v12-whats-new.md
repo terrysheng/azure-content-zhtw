@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
@@ -97,6 +97,7 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 - [透明資料加密](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [使用 Azure Active Directory 驗證連線到 SQL Database](sql-database-aad-authentication.md)
  - SQL Database 現在支援 Azure Active Directory 驗證，這是 Azure Active Directory (Azure AD) 中使用身分識別連線到 SQL Database 的機制。您可以使用 Azure Active Directory 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。
+- [一律加密](https://msdn.microsoft.com/library/mt163865.aspx) (預覽版) 讓加密對應用程式透明化，且允許用戶端加密用戶端應用程式中的機密資料，而不需與 SQL Database 共用加密金鑰。
 
 
 ## 當需要復原時提升業務持續性
@@ -161,4 +162,4 @@ V12 資料庫只能裝載在 V12 邏輯伺服器上。而 V12 只可以裝載 V1
 
 [Microsoft Azure 預覽專用的使用補充條款](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

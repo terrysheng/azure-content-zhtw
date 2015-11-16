@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 通知中心通知使用者"
+	pageTitle="Azure 通知中樞透過 .NET 後端通知使用者"
 	description="了解如何在 Azure 中將推播通知傳送給使用者。程式碼範例是以適用於 Android 的 Java 撰寫。"
 	documentationCenter="android"
 	services="notification-hubs"
@@ -16,7 +16,7 @@
 	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
-#Azure 通知中心通知使用者
+#Azure 通知中樞透過 .NET 後端通知使用者
 
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -432,4 +432,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

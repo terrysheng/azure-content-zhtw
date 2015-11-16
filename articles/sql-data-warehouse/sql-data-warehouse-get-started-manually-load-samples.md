@@ -13,49 +13,50 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/02/2015"
    ms.author="lodipalm;barbkess"/>
 
 #將範例資料載入 SQL 資料倉儲
 
-既然您已經安裝 SQL 資料倉儲執行個體，就可以輕鬆地將某些範例資料載入其中。以下資訊將協助您在資料庫中建立一個稱為 AdventureWorksPDW2012 的資料集。此資料集以虛構公司 (稱為 AdventureWorks) 的範例資料倉儲結構為其模型。請注意，您將必須已安裝 BCP，才能進行下列步驟。如果目前沒有安裝 BCP，請安裝[適用於 SQL Server 的 Microsoft 命令列公用程式][]。
+一旦您[建立 SQL 資料倉儲資料庫執行個體][create a SQL Data Warehouse database instance]之後，下一步便是建立並載入某些資料表。您可以使用我們為 SQL 資料倉儲建立的 Adventure Works 範例指令碼，建立並載入名為 Adventure Works 之虛構公司的資料表。這些指令碼使用 sqlcmd 來執行 SQL，並使用 bcp 載入資料。如果您還沒有安裝這些工具，請依照下列連結[安裝 bcp][] 和[安裝 sqlcmd][]。
 
-1. 若要開始，請按一下以下載我們的[範例資料指令碼][]。
+請遵循下列簡單的步驟，將 Adventure Works 範例資料庫載入至 SQL DW...
 
-2. 下載檔案之後，請解壓縮 AdventureWorksPDW2012.zip 檔案的內容，並開啟新的 AdventureWorksPDW2012 資料夾。
+1. 下載[適用於 SQL 資料倉儲的 Adventure Works 範例指令碼][]。
 
-3. 編輯 aw\_create.bat 檔案，並在檔案頂端設定下列值：
+2. 請從下載的 zip 將檔案解壓縮到本機電腦上的目錄。
 
-   a.**伺服器**：SQL 資料倉儲所在之伺服器的完整名稱
+3. 編輯解壓縮的 aw\_create.bat 檔案，並設定下列可在檔案頂端找到的變數。請務必不要在 "=" 和參數之間留有空白。以下是您可能會想看看如何編輯的範例。
 
-   b.**使用者**：上述伺服器的使用者
-   
-   c.**密碼**：用於登入所提供之伺服器的密碼
-   
-   d.**資料庫**：您想要載入資料至其中之 SQL 資料倉儲執行個體的名稱
-   
-   確保 '=' 和這些參數之間沒有空格。
-   
+    	server=mylogicalserver.database.windows.net
+    	user=mydwuser
+    	password=Mydwpassw0rd
+    	database=mydwdatabase
 
-4. 從其所在目錄執行 aw\_create.bat。這會建立結構描述，並使用 BCP 將資料載入至所有資料表。
+4. 從 Windows 命令提示字元執行編輯過的 aw\_create.bat。請確定您所在的目錄是您儲存編輯過之 aw\_create.bat 版本的位置。此指令碼將...
+	* 卸除任何 Adventure Works 資料表或任何已存在資料庫中的檢視表
+	* 建立 Adventure Works 資料表和檢視表
+	* 使用 bcp 載入每個 Adventure Works 資料表
+	* 驗證每個 Adventure Works 資料表的資料列計數
+	* 收集每個 Adventure Works 資料表之所有資料行上的統計資料
 
 
-## 連接並查詢您的範例
+##查詢範例資料
 
-如[連接][]文件中所述，您可以使用 Visual Studio 和 SSDT 連接到這個資料庫。既然您已經將某些範例資料載入您的 SQL 資料倉儲中，就可以快速地執行幾個查詢以開始。
+一旦已經將某些範例資料載入您的 SQL 資料倉儲中，就可以快速地執行幾個查詢。若要執行查詢，請使用 Visual Studio 和 SSDT 連接 Azure SQL DW 中新建立的 Adventure Works 資料庫，如[連接][]文件中所描述。
 
-我們可以執行簡單的 select 陳述式，來取得員工的所有資訊：
+取得員工之所有資訊，簡單的 select 陳述式範例：
 
 	SELECT * FROM DimEmployee;
 
-我們也可以使用建構 (例如 GROUP BY) 執行更複雜的查詢， 來查看每一天所有銷售的總金額：
+使用建構 (例如 GROUP BY) 來查看每一天所有銷售之總金額，更複雜的查詢範例：
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-我們甚至可以使用 WHERE 子句，來篩選出特定日期之前的訂單：
+SELECT 搭配 WHERE 子句，來篩選出特定日期之前訂單的範例：
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
@@ -63,10 +64,10 @@
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-事實上，SQL 資料倉儲幾乎支援 SQL Server 支援的所有 T-SQL 建構，而且您可以在我們的[移轉程式碼][]文件中找到一些差異。
+SQL 資料倉儲幾乎支援所有 SQL Server 支援的 T-SQL 建構。所有的差異都記錄在[程式碼移轉][]文件中。
 
 ## 後續步驟
-既然我們已經提供您一些時間，讓您利用範例資料進入狀況，接著請查看如何[開發][]、[載入][]或[移轉][]。
+現在您已經有機會搭配範例資料嘗試一些查詢，請參閱以了解如何[開發][]、[載入][]，或[移轉][]到 SQL 資料倉儲。
 
 <!--Image references-->
 
@@ -75,12 +76,12 @@
 [開發]: ./sql-data-warehouse-overview-develop.md
 [載入]: ./sql-data-warehouse-overview-load.md
 [連接]: ./sql-data-warehouse-get-started-connect.md
-[移轉程式碼]: ./sql-data-warehouse-migrate-code.md
-
-<!--MSDN references-->
-[適用於 SQL Server 的 Microsoft 命令列公用程式]: http://www.microsoft.com/download/details.aspx?id=36433/
+[程式碼移轉]: ./sql-data-warehouse-migrate-code.md
+[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
+[安裝 bcp]: ./sql-data-warehouse-load-with-bcp.md
+[安裝 sqlcmd]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
 
 <!--Other Web references-->
-[範例資料指令碼]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
+[適用於 SQL 資料倉儲的 Adventure Works 範例指令碼]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

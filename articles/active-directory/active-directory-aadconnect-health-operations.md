@@ -104,7 +104,7 @@ Azure AD Connect 支援兩個層級的管理存取：
 
 ### 如何允許使用者或群組存取 Azure AD Connect Health
 #### 步驟 1：選取適當的存取範圍
-若要允許 Azure AD Connect Health 內「目錄」層級的使用者存取，請在 Azure AD Connect Health 開啟主要刀鋒視窗。<br>
+若要允許 Azure AD Connect Health 內的「所有服務執行個體」層級使用者存取，請開啟 Azure AD Connect Health 中的主要刀鋒視窗。<br>
 [//]: # (RBAC\_MainBladeSS)
 #### 步驟 2：新增使用者、群組及指派角色
 1. 按一下 [設定] 區段中的 [使用者] 組件。<br>
@@ -137,8 +137,9 @@ Azure AD Connect 支援兩個層級的管理存取：
 ## 相關連結
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [適用於 AD FS 的 Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install.md)
 * [使用 Azure AD Connect Health 來搭配 AD FS](active-directory-aadconnect-health-adfs.md)
+* [使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

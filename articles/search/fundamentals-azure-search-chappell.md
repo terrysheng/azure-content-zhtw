@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="簡介 Azure 搜尋 | Microsoft Azure" 
-	description="了解 Azure 搜尋服務如何協助您建置多樣化的搜尋應用程式。" 
+	description="了解託管的雲端搜尋服務「Azure 搜尋服務」如何協助您建置搜尋功能豐富的應用程式。" 
 	editor="monicar" 
 	manager="mblythe" 
 	services="search" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Azure 搜尋服務簡介 #
 
-**摘要：**了解 Azure 搜尋服務，這是一項在 Azure 上受到完整管理的搜尋服務，可在 Web 角色和行動應用程式中支援豐富的搜尋體驗。搜尋是與網路上資料互動的預設樣式。期盼所有應用程式狀況都具備此功能。
+**摘要：**了解如何使用 Azure 上完整管理與託管的雲端服務「Azure 搜尋服務」，為 Web 和行動裝置應用程式帶來豐富的搜尋體驗。搜尋是與網路上資料互動的預設樣式。期盼所有應用程式狀況都具備此功能。
 
 **內容：**
 
@@ -42,4 +42,4 @@
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Azure 搜尋服務簡介」(PDF 檔案)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Azure 搜尋服務簡介」(Microsoft Word 檔案)</a> 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

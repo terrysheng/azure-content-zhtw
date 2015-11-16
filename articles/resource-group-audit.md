@@ -158,8 +158,8 @@
 
 ## 後續步驟
 
-- 若要了解如何設定安全性原則，請參閱[管理資源存取權](./azure-portal/resource-group-rbac.md)。
+- 若要了解如何設定安全性原則，請參閱[管理資源的存取權](resource-group-rbac.md)。
 - 若要了解如何授與服務主體的存取權，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)。
 - 若要了解如何對所有使用者的資源採取動作，請參閱[使用 Azure 資源管理員鎖定資源](resource-group-lock-resources.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="建立和管理彈性資料庫工作"
+	pageTitle="建立和管理彈性資料庫工作 | Micosoft Azure"
 	description="逐步解說如何建立和管理彈性資料庫工作。"
 	services="sql-database"
 	documentationCenter=""
 	manager="jhubbard"
-	authors="sidneyh"
+	authors="ddove"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/04/2015"
 	ms.author="ddove; sidneyh"/>
 
 # 使用入口網站建立和管理 SQL Database 彈性工作 (預覽)
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

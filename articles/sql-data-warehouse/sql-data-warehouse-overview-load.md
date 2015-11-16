@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/04/2015"
    ms.author="lodipalm;barbkess"/>
 
 # 將資料載入 SQL 資料倉儲
@@ -31,7 +31,7 @@ SQL 資料倉儲提供許多選項，供載入資料，包括：
 從內部部署 SQL Server 執行個體載入至 SQL 資料倉儲時，建議採用下列步驟：
 
 1. **BCP** SQL Server 資料轉為一般檔案 
-2. 使用 **AZCopy** 或 **匯入/匯出** (若為大型資料集)，將檔案移至 Azure
+2. 使用 **AZCopy** 或 [匯入/匯出] (若為大型資料集)，將檔案移至 Azure
 3. 將 PolyBase 設定為從您的儲存體帳戶讀取您的檔案
 4. 利用 **PolyBase** 建立新的資料表並載入資料
 
@@ -163,6 +163,16 @@ FROM    <External Table Name>
 
 除了 `CREATE TABLE...AS SELECT` 陳述式外，您也可以使用 'INSERT...INTO' 陳述式，將資料從外部資料表載入到預先存在的資料表。
 
+##  建立新載入資料的統計資料 
+
+Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱主題群組＜開發＞之中的[統計資料][]主題。以下是快速範例，說明如何在此範例中建立載入資料表的統計資料。
+
+
+```
+create statistics [<name>] on [<Table Name>] ([<Column Name>]);
+create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
+```
+
 ## 後續步驟
 如需更多開發祕訣，請參閱[開發概觀][]。
 
@@ -176,6 +186,7 @@ FROM    <External Table Name>
 [開發概觀]: sql-data-warehouse-overview-develop.md
 [移轉結構描述]: sql-data-warehouse-migrate-schema.md
 [移轉程式碼]: sql-data-warehouse-migrate-code.md
+[統計資料]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -190,4 +201,4 @@ FROM    <External Table Name>
 [Azure 儲存體文件]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-create-storage-account/
 [ExpressRoute 文件]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

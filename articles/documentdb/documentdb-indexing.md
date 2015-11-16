@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="arramac"/>
 	
 # 在 Azure DocumentDB 中自動編製索引
@@ -55,7 +55,7 @@ DocumentDB 中的索引編製利用了 JSON 文法允許**以樹狀結構表示*
 
 ![以樹狀結構表示索引](media/documentdb-indexing/IndexAsTree.png)
 
-儘管 DocumentDB 的 SQL 和 JavaScript 查詢語言具有無結構描述的特性，還是會提供關聯式投影和篩選、跨文件的階層式導覽，以及叫用完全以 JavaScript 撰寫的 UDF。DocumentDB 的查詢執行階段可以支援這些查詢，因為它可以直接針對資料的這個索引樹狀結構表示法運作。
+儘管 DocumentDB 的 SQL 和 JavaScript 查詢語言具有無結構描述的特性，還是會提供關聯式投影和篩選、跨文件的階層式導覽、空間作業，以及叫用完全以 JavaScript 撰寫的 UDF。DocumentDB 的查詢執行階段可以支援這些查詢，因為它可以直接針對資料的這個索引樹狀結構表示法運作。
 
 預設的索引編製原則會自動為所有文件的所有屬性編製索引，並提供一致的查詢 (亦即，文件寫入時，會同步更新索引)。DocumentDB 如何支援索引樹狀結構的大規模一致更新？ DocumentDB 使用寫入最佳化、無鎖定以及將記錄結構化的索引維護技術。也就是說，DocumentDB 既可以支援大量的快速寫入，同時又能提供一致的查詢。
 
@@ -67,4 +67,4 @@ DocumentDB 的索引編製功能是針對儲存效率而設計，並可處理多
 - 在[這裡](documentdb-indexing-policies.md)了解如何自訂 DocumentDB 索引
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

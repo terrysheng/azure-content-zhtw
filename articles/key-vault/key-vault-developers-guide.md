@@ -25,7 +25,7 @@
 
 - 使用 [[建立]](https://msdn.microsoft.com/library/azure/dn903634.aspx)、[[匯入]](https://msdn.microsoft.com/library/azure/dn903626.aspx)、[[更新]](https://msdn.microsoft.com/library/azure/dn903616.aspx)、[[刪除]](https://msdn.microsoft.com/library/azure/dn903611.aspx) 和其他作業管理密碼編譯金鑰。
 
-- 使用 [[取得]](https://msdn.microsoft.com/library/azure/dn903633.aspx)、[更新] (https://msdn.microsoft.com/library/azure/dn986818.aspx)、[刪除](https://msdn.microsoft.com/library/azure/dn903613.aspx) 和其他作業管理密碼。
+- 使用 [[取得]](https://msdn.microsoft.com/library/azure/dn903633.aspx)、[更新] (https://msdn.microsoft.com/library/azure/dn986818.aspx)、[[刪除]](https://msdn.microsoft.com/library/azure/dn903613.aspx) 和其他作業管理密碼。
 
 - 以 [[簽章]](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[[驗證]](https://msdn.microsoft.com/library/azure/dn878082.aspx)、[[包裝金鑰]](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[[解除包裝金鑰]](https://msdn.microsoft.com/library/azure/dn878079.aspx) 和 [[加密]](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[[解密]](https://msdn.microsoft.com/library/azure/dn878097.aspx) 作業使用密碼編譯金鑰。
 
@@ -51,8 +51,9 @@ Node.js API 是一組包裝函式，可透過 node.js 程式設計模型實作�
 
 ## 管理金鑰保存庫
 
-Azure 金鑰保存庫容器 (保存庫) 可以使用 PowerShell 或 CLI 管理，如下列文章中所述：
+Azure 金鑰保存庫容器 (保存庫) 可以使用 REST、PowerShell 或 CLI 管理，如下列文章中所述：
 
+- [使用 REST 建立和管理金鑰保存庫](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [使用 PowerShell 建立和管理金鑰保存庫](key-vault-get-started.md)
 - [使用 CLI 建立和管理金鑰保存庫](key-vault-manage-with-cli.md)
 
@@ -67,4 +68,4 @@ Azure 金鑰保存庫容器 (保存庫) 可以使用 PowerShell 或 CLI 管理�
 
 - 這個下載包含範例應用程式 HelloKeyVault 和 Azure Web 服務範例。[Azure 金鑰保存庫程式碼範例](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

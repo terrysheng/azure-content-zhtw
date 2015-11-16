@@ -31,7 +31,7 @@
 
 從組件庫中受歡迎的 CMS 快速建立新的 Web 應用程式，或在應用程式服務 Web 應用程式中沿用現有各種不同語言與架構的 Web 資產。
 
-Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例如 [Orchard]、[Umbraco]、Drupal 以及 [WordPress]。您可以使用喜愛的 CMS 風格來建立 Web 應用程式。您可以根據自己的需求從各種不同的資料庫後端中選擇，包括 [Azure SQL Database] 和 [MySQL]。
+Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例如 Orchard、Umbraco、Drupal 以及 [WordPress]。您可以使用喜愛的 CMS 風格來建立 Web 應用程式。您可以根據自己的需求從各種不同的資料庫後端中選擇，包括 [Azure SQL Database] 和 [MySQL]。
 
 您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 Web Apps 上執行。您可以使用熟悉的 [FTP] 工具將它們移至 Web Apps。如果您經常建立數位行銷活動，您可能在原始檔控制管理系統已經有 Web 資產。您可以直接從受歡迎的原始檔控制選項，例如 [Visual Studio]、[Visual Studio Online] 和 [Git] - 本機、GitHub、BitBucket、DropBox 及 Mercurial 等部署至 Web Apps。
 
@@ -81,7 +81,7 @@ App Service Web Apps [相應增加和放大]的能力非常適合無法預期的
 
 使用 Azure 或協力廠商工具，掌握關於您 Web 應用程式效能的最新資訊。接收重要 Web 應用程式事件的警示。使用 Application Insight 或使用 HDInsight 的 Web 記錄分析，取得使用者深入觀點。
 
-在 [Azure 預覽入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)的 Web 應用程式刀鋒視窗中，[快速瀏覽] Web 應用程式目前效能標準與資源配額。如需應用程式的可用性、效能和使用方式的全方位檢視，請使用 [Azure Application Insights] 以取得快速和強大的疑難排解、診斷和使用方式的深入觀點。或者，使用像是 [New Relic] 的協力廠商工具，提供您 Web 應用程式的進階監視資料。
+在 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)的 Web 應用程式刀鋒視窗中，[快速瀏覽] Web 應用程式目前效能標準與資源配額。如需應用程式的可用性、效能和使用方式的全方位檢視，請使用 [Azure Application Insights] 以取得快速和強大的疑難排解、診斷和使用方式的深入觀點。或者，使用像是 [New Relic] 的協力廠商工具，提供您 Web 應用程式的進階監視資料。
 
 在**標準**層中，每當您的 Web 應用程式沒有回應時，監視 Web 應用程式回應便會收到電子郵件通知。如需詳細資訊，請參閱[作法：在 Azure 中接收警示通知及管理警示規則]。
 
@@ -95,8 +95,6 @@ App Service Web Apps [相應增加和放大]的能力非常適合無法預期的
 
 [Azure App Service]: /services/app-service/web/
 
-[Orchard]: web-sites-dotnet-orchard-cms-gallery.md
-[Umbraco]: web-sites-gallery-umbraco.md
 [WordPress]: web-sites-php-web-site-gallery.md
   
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
@@ -140,4 +138,4 @@ App Service Web Apps [相應增加和放大]的能力非常適合無法預期的
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

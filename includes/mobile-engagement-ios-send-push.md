@@ -43,6 +43,17 @@
 
 	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
+7. 您會在 iOS 裝置上的通知中心中收到類似下列的通知：
+
+	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+
+8. 若您擁有與此 iOS 裝置配對的 Apple Watch，您將會在 Apple Watch 上看見該通知：
+
+	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+
+
  
 
-<!---HONumber=Oct15_HO3-->
+ 
+
+<!---HONumber=Nov15_HO2-->

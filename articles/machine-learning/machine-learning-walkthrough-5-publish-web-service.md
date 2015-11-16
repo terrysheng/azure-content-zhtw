@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="garye"/>
 
 
@@ -61,7 +61,7 @@
 2. 精簡實驗，移除只有定型才需要的模組
 3. 定義 Web 服務輸入和輸出節點的位置
 
-幸好上述三個步驟只要按一下實驗畫布底部的 [部署 Web 服務] \(選取 [預測 Web 服務] 選項)，即可完成。
+幸好上述三個步驟只要按一下實驗畫布底部的 [部署 Web 服務] (選取 [預測 Web 服務] 選項)，即可完成。
 
 當您按一下 [部署 Web 服務]，會發生幾件事：
 
@@ -98,8 +98,11 @@
 
 您可以按一下 [設定] 索引標籤來設定服務。您可以在這裡修改服務名稱 (預設會指定實驗名稱) 並輸入描述。您也可以為輸入和輸出資料行指定更好記的標籤。
 
+![設定 Web 服務][5]
+
 ## 測試 Web 服務
-在 [儀表板] 頁面上，按一下 [預設端點] 下的 [測試] 連結。即會顯示對話方塊，要求您提供服務的輸入資料。這些就是在原始的德國信用風險資料集中出現的資料行。
+在 [儀表板] 頁面上，按一下 [預設端點] 下的 [測試] 連結。即會顯示對話方塊，要求您提供服務的輸入資料。這些就是在原始的德國信用風險資料集中出現的資料行。![測試 Web 服務][6]
+
 
 輸入一組資料，然後按一下 [確定]。
 
@@ -114,6 +117,8 @@ Web 服務產生的結果會顯示在儀表板底部。我們如何設定服務�
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
+[5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
+[6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
 
 
 <!-- Module References -->
@@ -127,4 +132,4 @@ Web 服務產生的結果會顯示在儀表板底部。我們如何設定服務�
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

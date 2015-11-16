@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2015"   
+	ms.date="11/03/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [目前的已知問題](#issues)
 - [REST API 版本歷程記錄](#rest_version_history)
+- [2015 年 10 月版本](#oct_changes_15)
 - [2015 年 9 月版本](#september_changes_15)
 - [2015 年 8 月版本](#august_changes_15)
 - [2015 年 7 月版本](#july_changes_15)
@@ -74,6 +75,14 @@ SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配
 
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
 
+##<a id="oct_changes_15"></a>2015 年 10 月版本
+
+Azure 媒體服務 (AMS) 現在也適用於下列資料中心：巴西南部、印度西部、印度南部和印度中部。您現在可以使用 Azure 管理入口網站，[建立媒體服務帳戶](media-services-create-account.md#create-a-media-services-account-using-quick-create)並執行[這裡](https://azure.microsoft.com/documentation/services/media-services/)所述的各種工作。不過，這些資料中心不會啟用即時編碼。此外，並非所有類型的編碼保留單元都可用於這些資料中心。
+
+- 巴西南部：只可以使用標準和基本編碼保留單元
+- 印度西部、印度南部和印度中部：只可以使用基本編碼保留單元
+
+
 ##<a id="september_changes_15"></a>2015 年 9 月版本 
 
 - AMS 現在提供以 Widevine Modular DRM 技術，保護點播視訊 (VOD) 和即時資料流的能力。您可以使用下列傳遞服務合作夥伴來助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
@@ -108,7 +117,7 @@ SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配
 
 - 宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格文章](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
 
-	Media Encoder Standard 使用[本節](http://go.microsoft.com/fwlink/?LinkId=618336)描述的預設。請注意，使用 4k 編碼的預設時，您應該取得「進階」保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
+	Media Encoder Standard 使用[本節](http://go.microsoft.com/fwlink/?LinkId=618336)描述的預設。請注意，使用 4k 編碼的預設時，您應該取得「Premium」保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
 - 直播即時字幕與 Azure 媒體服務和播放器。如需詳細資訊，請參閱[此部落格文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###媒體服務 .NET SDK 更新
@@ -119,7 +128,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.4.0.0。此版本中加入了下�
 - 動態篩選的實作支援。
 - 實作功能，可讓使用者在刪除資產時保留儲存體容器的。
 - 通道中重試原則的相關 Bug 修正。
-- 啟用的**媒體編碼器高階工作流程**。
+- 啟用的「媒體編碼器高階工作流程」。
 
 ##<a id="june_changes_15"></a>2015 年 6 月版本
 
@@ -603,4 +612,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

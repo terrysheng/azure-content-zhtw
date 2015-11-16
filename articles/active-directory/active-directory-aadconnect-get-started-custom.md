@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/02/2015"
 	ms.author="billmath;andkjell"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -90,7 +90,7 @@ SQL Server 名稱 | 可讓您指定 SQL Server 名稱和執行個體名稱。如
 ------------- | ------------- |
 [使用者在整個樹系中只會顯示一次](active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) | 在 Azure AD 中，所有使用者會都建立為個別物件。<br> 在 Metaverse 中這些物件不會聯結。
 [郵件屬性](active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) | 如果郵件屬性在不同樹系中具有相同的值，則此選項就會聯結使用者和連絡人。如果已透過 GALSync 建立了您的連絡人，則建議使用此選項。
-[ObjectSID 與 msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|此選項會在帳戶樹系中聯結啟用的使用者，在 Exchange 資源樹系中聯結停用的使用者。這在 Exchange 中也稱為連結的信箱。
+[ObjectSID 與 msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|此選項會在帳戶樹系中聯結啟用的使用者，在 Exchange 資源樹系中聯結停用的使用者。這在 Exchange 中也稱為連結的信箱。如果您只使用 Lync 而 Exchange 不存在資源樹系中，也可以使用此選項。
 sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入 ID 的屬性中聯結。
 我自己的屬性|此選項可讓您選取您的屬性。**限制：**確定選擇的是已經存在於 Metaverse 中的屬性。如果您選擇自訂屬性，精靈將無法完成。
 
@@ -246,4 +246,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

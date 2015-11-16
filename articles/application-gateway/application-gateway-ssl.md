@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="為 SSL 卸載設定應用程式閘道 | Microsoft Azure"
+   pageTitle="使用傳統部署設定適用於 SSL 卸載的應用程式閘道| Microsoft Azure"
    description="本文提供在 Azure 應用程式閘道上設定 SSL 卸載的指示。"
    documentationCenter="na"
    services="application-gateway"
@@ -12,12 +12,15 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/25/2015"
+   ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-# 為 SSL 卸載設定應用程式閘道
+# 使用傳統部署設定適用於 SSL 卸載的應用程式閘道
+ 
+應用程式閘道可以設定為在閘道終止 SSL 工作階段，以避免 Web 伺服陣列發生高成本的 SSL 解密工作。SSL 卸載也可以簡化 Web 應用程式的前端伺服器設定和管理。
 
-應用程式閘道可以設定為在閘道終止 SSL 工作階段，如此可避免在 Web 伺服陣列上的高成本 SSL 解密。SSL 卸載也可以簡化應用程式的前端伺服器設定和管理。
+>[AZURE.IMPORTANT]使用 Azure 資源之前，請務必了解 Azure 目前有「資源管理員」和「傳統」兩種部署模型。在使用任何 Azure 資源之前，請先確認您了解[部署模型和工具](azure-classic-rm.md)。您可以按一下本文頂端的索引標籤，檢視不同工具的文件。本文件將說明使用 Azure 傳統部署建立應用程式閘道的方式。若要使用傳統的版本，請移至[使用 Azure 資源管理員設定應用程式閘道 SSL 卸載](application-gateway-ssl-arm.md)。
+
 
 ## 開始之前
 
@@ -107,11 +110,11 @@
 
 值如下：
  
-- **後端伺服器集區：**後端伺服器的 IP 位址清單。列出的 IP 位址應該屬於 VNet 子網路，或應該是公用 IP/VIP。 
-- **後端伺服器集區設定：**每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質。這些設定會繫結至集區，並套用至集區內所有伺服器。
-- **前端連接埠：**此連接埠是在應用程式閘道上開啟的公用連接埠。流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
-- **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，這些都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 
-- **規則：**規則會繫結接聽程式和後端伺服器集區，並在符合特定接聽程式時定義應該將流量重新導向至其中的後端伺服器集區。目前，只支援*基本*規則。*基本*規則是循環配置資源負載散發。
+- **後端伺服器集區**：後端伺服器的 IP 位址清單。列出的 IP 位址應該屬於 VNet 子網路，或應該是公用 IP/VIP。 
+- **後端伺服器集區設定**：每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。這些設定會繫結至集區，並套用至集區內所有伺服器。
+- **前端連接埠**：此連接埠是在應用程式閘道上開啟的公用連接埠。流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
+- **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 
+- **規則**：規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。目前只支援「基本」規則。「基本」規則是循環配置資源的負載分配。
 
 **其他組態注意事項：**
 
@@ -204,7 +207,7 @@
 
 ## 確認閘道狀態
 
-使用 `Get-AzureApplicationGateway` Cmdlet 來檢查閘道狀態。如果上一個步驟中的 *Start-AzureApplicationGateway* 成功，則狀態應該是 *Running*，而且 Vip 和 DnsName 應該具有有效的輸入。
+使用 `Get-AzureApplicationGateway` Cmdlet 檢查閘道狀態。如果 *Start-AzureApplicationGateway* 在上一個步驟成功，則此狀態應該會是 *Running*，且 Vip 和 DnsName 應該會具有有效的項目。
 
 這個範例所示範的應用程式閘道已啟動、執行中以及準備好要接受將流量
 
@@ -229,4 +232,4 @@
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

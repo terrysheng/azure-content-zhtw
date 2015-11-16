@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Data Factory 移動及處理記錄檔 [PowerShell]
 本文章提供的端對端逐步解說，是有關使用 Azure Data Factory，將記錄檔的資料轉換成見解的記錄檔處理程序標準案例。
+
+> [AZURE.IMPORTANT]這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
+>    
+> 如果您使用 Azure PowerShell 1.0 Preview，您必須使用[這裡](https://msdn.microsoft.com/library/dn820234.aspx)所記載的 Cmdlet。例如，使用 New-AzureRMDataFactory，而非使用 New-AzureDataFactory。
 
 ## 案例
 Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手持裝置與個人電腦 (PC)。每個遊戲都會產生大量記錄檔。Contoso 的目標是要收集和分析這些遊戲所產生的記錄檔以取得使用量資訊、識別向上銷售與交叉銷售機會、開發新的強大功能等，以改善業務並為客戶提供更好的經驗。
@@ -174,7 +178,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 	
 		![建立資源群組][image-data-factory-tutorial-create-resourcegroup]
 7. 選取 [**ADF**] 做為 [**資源群組名稱**]。  
-8.	在 [**新增 Data Factory**] 刀鋒視窗中，請注意，預設會選取 [**新增至開始面板**]。這會將連結加入開始面板上的 Data Factory (登入 Azure 預覽入口網站時會看見)。
+8.	在 [**新增 Data Factory**] 刀鋒視窗中，請注意，預設會選取 [**新增至開始面板**]。這會將連結加入開始面板上的 Data Factory (登入 Azure Preview 入口網站時會看見)。
 
 	![[建立 Data Factory] 刀鋒視窗][image-data-factory-tutorial-create-datafactory]
 
@@ -434,7 +438,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 	![RawGameEventsTable [資料配量] 刀鋒視窗][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	如果發生錯誤，您在這裡會看到 **[Failed] **狀態。您也可能會看到兩個配量的狀態都是 [**就緒**]，或都是 [**PendingValidation**]，根據處理配量的速度而定。
+	如果發生錯誤，您在這裡會看到 **[Failed] **狀態。您也可能會看到兩個配量的狀態都是 [就緒]，或都是 [PendingValidation]，根據處理配量的速度而定。
  
 	請參閱 [Azure Data Factory 開發人員參考資料][developer-reference]，以了解所有可能的配量狀態。
 
@@ -558,4 +562,4 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

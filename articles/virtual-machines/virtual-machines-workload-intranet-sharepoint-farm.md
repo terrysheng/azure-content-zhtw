@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/29/2015"
 	ms.author="josephd"/>
 
 # Azure 基礎結構服務工作負載：內部網路 SharePoint 伺服器陣列
@@ -48,9 +48,9 @@
 
 ### 純雲端虛擬網路
 
-純雲端虛擬網路並未連接至內部部署網路。如果您只想要快速建立基本或高可用性的 SharePoint 伺服器陣列，請參閱＜[SharePoint 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)＞。下列範例會顯示基本的 SharePoint 伺服陣列組態。
+純雲端虛擬網路並未連接至內部部署網路。如果您只想要快速建立基本或高可用性的 SharePoint 伺服器陣列，請參閱[建立 SharePoint 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)。下列範例會顯示基本的 SharePoint 伺服陣列組態。
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
 
 ### 跨單位虛擬網路
 
@@ -128,4 +128,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

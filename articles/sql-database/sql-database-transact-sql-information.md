@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="11/02/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL 資訊
@@ -76,6 +76,8 @@ SQL Database V12 支援部分而非全部的引數，這些引數存在於對應
 - SHUTDOWN
 - sp\_addmessage
 - sp\_configure 選項和 RECONFIGURE
+- sp\_helpuser
+- sp\_migrate\_user\_to\_contained
 - SQL Server Audit (改用 SQL Database Auditing)
 - SQL Server Profiler
 - SQL Server 追蹤
@@ -94,4 +96,4 @@ Transact-SQL 參考包含 SQL Server 2008、SQL Server 2008 R2、SQL Server 2012
 
 在某些情況下，主題的一般主旨可以用於產品，但並不支援所有引數。例如，自主資料庫使用者是在 SQL Server 2012 中導入。**CREATE USER** 陳述式可以用於任何 SQL Server 產品，不過 **WITH PASSWORD** 語法不能用於較舊版本。在此案例中，其他「**適用於**」區段會插入到主題的主體中適當的引數描述。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

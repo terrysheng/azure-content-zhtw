@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/28/2015" 
 	ms.author="bradsev" />
 
 # 使用 SSIS 連接器從 Azure Blob 儲存體來回移動資料
@@ -45,7 +45,7 @@
 若要使用 **SSIS 連接器**，您必須下載:
 
 - **SQL Server 2014 或 2016 標準版 (或更新版本)**：安裝包含 SQL Server 整合服務。
-- **Azure 適用的 Microsoft SQL Server 2016 整合服務功能套件**：可從 [SQL Server 整合服務](https://www.microsoft.com/download/details.aspx?id=49492)頁面下載。
+- **適用於 Azure 的 Microsoft SQL Server 2014 或 2016 整合服務 Feature Pack**：您可以個別從 [SQL Server 2014 整合服務](http://www.microsoft.com/download/details.aspx?id=47366)和 [SQL Server 2016 整合服務](https://www.microsoft.com/download/details.aspx?id=49492)頁面下載。
 
 > [AZURE.NOTE]SSIS 會隨同 SQL Server 安裝，但未包含在 Express 版本中。如需 SQL Server 各種版本中包含哪些應用程式的相關資訊，請參閱 [SQL Server 版本](http://www.microsoft.com/zh-TW/server-cloud/products/sql-server-editions/)
 
@@ -54,7 +54,7 @@
 如需如何使用 SISS 啟動與執行，以建置簡單擷取、轉換與載入 (ETL) 封裝的相關資訊，請參閱 [SSIS 教學課程：建立簡易 ETL 封裝](https://msdn.microsoft.com/library/ms169917.aspx)。
 
 ## 下載紐約計程車資料集  
-此處描述的範例使用供大眾使用的資料集 -- [紐約計程車路線](http://www.andresmh.com/nyctaxitrips/)資料集。此資料集收集了 2013 年紐約 1 億 7 千 3 百萬筆計程車行程資料。資料有兩種：路線詳細資料及車費資料。由於每個月都有一個檔案，因此總共有 24 個檔案，每個檔案未壓縮的大小約 2GB。資料集可以很方便地從 [Github](https://github.com/andresmh/nyctaxitrips) 下載
+此處描述的範例使用供大眾使用的資料集 -- [紐約計程車路線](http://www.andresmh.com/nyctaxitrips/)資料集。此資料集收集了 2013 年紐約 1 億 7 千 3 百萬筆計程車行程資料。資料有兩種：路線詳細資料及車費資料。由於每個月都有一個檔案，因此總共有 24 個檔案，每個檔案未壓縮的大小約 2GB。
 
 
 ## 將資料上傳至 Azure Blob 儲存體
@@ -88,4 +88,4 @@
 - 若要使用 SSIS 在 Azure HDInsight 叢集上執行 Hive 指令碼，請使用 [Azure HDInsight Hive 工作](https://msdn.microsoft.com/library/mt146771.aspx)。
 - 若要使用 SSIS 在 Azure HDInsight 叢集上執行 Pig 指令碼，請使用 [Azure HDInsight Pig 工作](https://msdn.microsoft.com/library/mt146781.aspx)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

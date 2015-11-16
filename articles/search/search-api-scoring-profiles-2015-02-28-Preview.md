@@ -370,4 +370,4 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Nov15_HO2-->
+<!------HONumber=Nov15_HO2-->

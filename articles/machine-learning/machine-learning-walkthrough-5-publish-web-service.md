@@ -89,7 +89,8 @@
 
 最後一次執行實驗 (按一下 [執行])。如果要驗證模型仍然有效，請按一下[評分模型][score-model]模組的輸出結果，並選取 [檢視結果]。您會看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities").
 
-## 部署 Web 服務
+##
+部署 Web 服務
 
 若要部署衍生自實驗的 Web 服務，請按一下畫布下方的 [發佈 Web 服務]。Machine Learning Studio 會將實驗當做 Web 服務部署，並帶您前往服務儀表板。
 

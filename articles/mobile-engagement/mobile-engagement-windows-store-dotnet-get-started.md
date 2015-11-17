@@ -33,7 +33,7 @@
 + Visual Studio 2013
 + [MicrosoftAzure.MobileEngagement] Nuget 封裝
 
-> [AZURE.IMPORTANT]完成本教學課程是所有其他 Windows 通用 app 的 Mobile Engagement 教學課程的先決條件。若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.IMPORTANT]完成本教學課程是所有其他 Windows 通用 app 的 Mobile Engagement 教學課程的必要條件。若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ##<a id="setup-azme"></a>設定 Windows 通用 App 的 Mobile Engagement
 
@@ -157,28 +157,47 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 
 ###授與 Mobile Engagement 存取權以傳送通知
 
-1. 若要取得您的**封裝安全性識別碼 (SID)** 和**秘密金鑰** (用戶端密碼)，必須將您的 App 與 Windows 市集 App 建立關聯。您可以從 [Windows 市集開發人員中心]建立一個 App，然後確定會從 Visual Studio 使用**將 App 與市集建立關聯**。
+1. 在網頁瀏覽器中開啟 [Windows 市集開發人員中心]，視需要登入和建立帳戶。
+2. 按一下右上角的 [儀表板]，然後按一下左面板功能表中的 [建立新的應用程式]。 
 
-	![][7]
+	![][9]
 
-2. 瀏覽到 Mobile Engagement 入口網站的 [設定]，然後按一下左側的 [原生推送] 區段。
+2. 建立您的應用程式並保留其名稱。
 
-3. 按一下 [編輯] 按鈕來輸入您的**封裝安全性識別碼 (SID)** 和**秘密金鑰**，如下所示：
+	![][10]
+
+3. 建立應用程式之後，從左側功能表瀏覽至 [服務] -> [推播通知]。
+
+	![][11]
+
+4. 在 [推播通知] 區段中按一下 [Live 服務網站] 連結。
+
+	![][12]
+
+5. 您將會瀏覽至推播認證區段。請確定您位於 [應用程式設定] 區段中，然後複製您的 [封裝 SID] 和 [用戶端密碼]
+
+	![][13]
+
+6. 瀏覽到 Mobile Engagement 入口網站的 [設定]，然後按一下左側的 [原生推送] 區段。然後，按一下 [編輯] 按鈕來輸入您的 [封裝安全性識別碼 (SID)] 和 [秘密金鑰]，如下所示：
 
 	![][6]
+
+8. 最後確定您的 Visual Studio 應用程式與在應用程式市集中建立的此應用程式相關聯。您需要從 Visual Studio 按一下 [將應用程式與市集建立關聯] 來執行這項操作。
+
+	![][7]
 
 ##<a id="send"></a>傳送通知至應用程式
 
 [AZURE.INCLUDE [建立 Windows 推播活動](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-如果 App 正在執行，則您將會看到 App 內的通知，否則會看到快顯通知 (如果 App 已關閉)。如果您看見的是 App 內的通知而不是快顯通知，而且您正在 Visual Studio 中的偵錯模式下執行 App，則應嘗試執行工具列中的 [週期事件] -> [暫止]，以確保 App 會實際暫止。如果您在 Visual Studio 中偵錯應用程式時只按了 [首頁] 按鈕，則它永遠不會暫止，而您將會看見 App 內的通知，它不會顯示為快顯通知。
+如果 App 正在執行，則您將會看到 App 內的通知，否則會看到快顯通知 (如果 App 已關閉)。如果您看見的是應用程式內的通知而不是快顯通知，而且您正在 Visual Studio 中的偵錯模式下執行應用程式，則應嘗試執行工具列中的 [週期事件] -> [暫止]，以確保應用程式會實際暫止。如果您在 Visual Studio 中偵錯應用程式時只按了 [首頁] 按鈕，則它永遠不會暫止，而您將會看見 App 內的通知，它不會顯示為快顯通知。
 
 ![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
-[Windows 市集開發人員中心]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
+[Windows 市集開發人員中心]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
@@ -189,5 +208,10 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 [8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
+[9]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_create_app.png
+[10]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_app_name.png
+[11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
+[12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
+[13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

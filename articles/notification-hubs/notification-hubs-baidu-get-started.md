@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="10/19/2015"
+	ms.date="11/03/2015"
 	ms.author="wesmc"/>
 
 # 透過百度開始使用通知中樞
@@ -503,4 +503,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [百度入口網站]: http://www.baidu.com/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

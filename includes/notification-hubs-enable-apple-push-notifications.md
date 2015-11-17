@@ -6,7 +6,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
 產生憑證簽署要求 (CSR) 檔案，這將由 Apple 用來產生簽署的推播憑證。
 
-1. 在您的 Mac 上，執行「鑰匙圈存取」工具。它位在 [工具程式] 資料夾或 Launch Pad 上的 [其他] 資料夾。
+1. 在您的 Mac 上，執行「鑰匙圈存取」工具。它可從 Launch Pad 上的 [公用程式] 資料夾或 [其他] 資料夾開啟。
 
 2. 按一下 [Keychain Access]，並展開 [Certificate Assistant]，然後按一下 [Request a Certificate from a Certificate Authority...]。
 
@@ -35,7 +35,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
 2. 更新您新的 App 的下列三個欄位，然後按一下 [Continue]：
 
-	* [Name]：在 [App ID Description] 區段的 [Name] 欄位輸入 App 的描述性名稱。
+	* **名稱**：在 [應用程式 ID 說明] 區段的 [名稱] 欄位輸入應用程式的描述性名稱。
 	
 	* [Bundle Identifier]：在 [Explicit App ID] 區段之下，以 [App Distribution Guide](http://go.microsoft.com/fwlink/?LinkId=613485) 中所提的 `<Organization Identifier>.<Product Name>` 形式輸入 [Bundle Identifier]。您使用的 [*組織識別碼*] 和 [*產品名稱*] 必須符合當您建立 XCode 專案時使用的組織識別碼和產品名稱。在下面的快照中，*NotificationHubs* 做為組織識別碼，*GetStarted* 做為產品名稱。確定這符合您將在 XCode 專案中使用的值，讓您使用正確的發行設定檔搭配 XCode。
 	
@@ -126,7 +126,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 
-6. 最後，在 [Profile Name] 中為設定檔挑選名稱，然後依序按一下 [產生] 和 [Done]
+6. 最後，在 [設定檔] 中為設定檔挑選名稱，按一下 [產生]。
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
@@ -135,4 +135,4 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

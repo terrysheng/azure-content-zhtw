@@ -13,18 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="09/02/2015"
+   ms.date="11/05/2015"
    ms.author="elizapo"/>
 
 # 使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式
 
-只要使用 Azure RemoteApp，您可以在任何裝置的任何位置立即執行 Windows 應用程式。不論是 Internet Explorer 6、10 年前撰寫的自訂應用程式還是 Office 應用程式，您的使用者不再需要繫結至數個應用程式的特定作業系統 (如 Windows XP)。
+只要使用 Azure RemoteApp，您可以在任何裝置的任何位置立即執行 Windows 應用程式。不論是 10 年前撰寫的自訂應用程式還是 Office 應用程式，您的使用者不再需要繫結至數個應用程式的特定作業系統 (如 Windows XP)。
 
 有了 Azure RemoteApp，您的使用者也可以使用專屬 Android 或 Apple 裝置，以及取得與 Windows (或 Windows Phone) 上的相同經驗。完成方式是在 Azure 的 Windows 虛擬機器集合中裝載 Windows 應用程式，而您的使用者可以從具有網際網路連線的任何地方進行存取。
 
 請繼續往下看，可找到如何執行這項操作的範例。
 
-在本文中，我們會與所有使用者共用 Access。不過，您可以使用任何應用程式。只要您可以在 Windows Server 2012 R2 電腦上安裝您的應用程式，就可以使用下列步驟進行共用。您可以檢閱[應用程式需求](remoteapp-appreqs)，確認應用程式可以運作。
+在本文中，我們會與所有使用者共用 Access。不過，您可以使用任何應用程式。只要您可以在 Windows Server 2012 R2 電腦上安裝您的應用程式，就可以使用下列步驟進行共用。您可以檢閱[應用程式需求](remoteapp-appreqs.md)，確認應用程式可以運作。
 
 請注意：因為 Access 是一個資料庫，而且我們想要使用該資料庫，所以我們會進行一些額外的步驟，讓使用者存取 Access 資料共用。如果您的應用程式不是資料庫，或不需要使用者能夠存取檔案共用，您可以略過本教學課程中的這些步驟
 
@@ -119,4 +119,4 @@
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

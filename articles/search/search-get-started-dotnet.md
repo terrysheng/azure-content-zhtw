@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始在 .NET 中建立第一個 Azure 搜尋服務應用程式 | Microsoft Azure"
+	pageTitle="開始在 .NET 中建立第一個 Azure 搜尋服務應用程式 | Microsoft Azure | 雲端託管搜尋服務"
 	description="如何從 Azure 搜尋服務 .NET SDK 使用 .NET 用戶端程式庫建置 Visual Studio 方案的教學課程。"
 	services="search"
 	documentationCenter=""
@@ -794,4 +794,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

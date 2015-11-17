@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="11/05/2015"
 	ms.author="ricksal"/>
 
 # 開始使用適用於 Android 的行動服務 (JavaScript 後端)
@@ -28,7 +28,9 @@
 
 > [AZURE.VIDEO mobile-get-started-android]
 
-以下是完成 App 的螢幕擷取畫面：![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+以下是完成應用程式的螢幕擷取畫面：
+
+![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## 必要條件
 
@@ -36,7 +38,7 @@
 
 下載的快速入門專案包含 Azure Mobile Services SDK for Android。
 
-> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。
+> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。
 
 
 ## 建立新的行動服務
@@ -64,7 +66,7 @@
 4. 按一下 [Create TodoItem table] 以建立儲存應用程式資料的資料表。
 
 
-5. 按下 [下載] 按鈕，立即下載您的 App。
+5. 按下 [下載] 按鈕，立即下載您的應用程式。
 
 ## 執行您的 Android 應用程式
 
@@ -93,4 +95,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

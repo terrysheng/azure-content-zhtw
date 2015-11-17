@@ -1,7 +1,7 @@
 <properties
 	pageTitle="學習使用適用於 HDInsight 的 Visual Studio Hadoop 工具 | Microsoft Azure"
 	description="了解如何安裝和使用適用於 HDInsight 的 Visual Studio Hadoop 工具來連線到 Hadoop 叢集和執行 Hive 查詢。"
-	keywords="hadoop tools,hive query,visual studio"
+	keywords="hadoop 工具,hive 查詢,visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -180,6 +180,21 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 	![Hadoop 工具：HDInsight Visual Studio 工具檢視 Hive 工作][12]
 
+### 透過 HiveServer2 的更快速路徑 Hive 執行
+
+>[AZURE.NOTE]此功能僅適用於 HDInsight 3.2 版及更新版本。
+
+HDInsight 工具用來透過 WebHCat (也稱為 Templeton) 提交 Hive 工作。傳回工作詳細資料和錯誤資訊所需的時間很長。為了解決此效能問題，HDInsight 工具會透過 HiveServer2 直接在叢集中執行 Hive 工作，以便略過 RDP/SSH。除了提升效能，使用者也可以檢視 Tez 圖形上的 Hive 和工作詳細資料。
+
+若為 HDInsight 叢集 3.2 版或更新版本，您可以看見 [透過 HiveServer2 執行] 按鈕：
+
+![透過 hiveserver2 執行 hdinsight visual studio 工具](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
+
+而且，如果 Hive 查詢是在 Tez 中執行，您可以即時查看串流送回的記錄檔，以及查看工作圖形。
+ 
+![hdinsight visual studio 工具快速路徑 hive 執行](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
+
+
 ### Tez Hive 工作效能圖表
 
 HDInsight Visual Studio 工具支援顯示由 Tez 執行引擎執行之 Hive 工作的效能圖形。如需啟用 Tez 的資訊，請參閱[在 HDInsight 中使用 Hive][hdinsight.hive]。您提交 Visual Studio 中的 Hive 工作之後，Visual Studio 會在工作完成時顯示圖形。請按一下 [重新整理] 按鈕，以取得最新的工作狀態。
@@ -189,6 +204,12 @@ HDInsight Visual Studio 工具支援顯示由 Tez 執行引擎執行之 Hive 工
 ![hadoop hive tez 效能圖表](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
 為協助您更了解 Hive 查詢，此工具在本版本中新增了 Hive 運算子檢視功能。您只需按兩下工作圖形的頂點，即可查看頂點內的所有運算子。您也可將滑鼠停留在特定運算子上方，以檢視該運算子的更多詳細資料。
+
+### Tez 工作上 Hive 的工作執行檢視
+
+Tez 工作上 Hive 的工作執行檢視可用來取得結構化和視覺化 Hive 工作的資訊，以及取得更多工作詳細資料。發生效能問題時，您可以使用此檢視來取得進一步的詳細資料。例如，每個工作的運作方式和每個工作的詳細資訊 (資料讀取/寫入、排程/開始/結束時間等)，以便根據視覺化資訊微調工作組態或系統架構。
+
+![hdinsight visual studio 工具工作執行檢視](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)
 
 ## 執行 Pig 指令碼
 
@@ -237,4 +258,4 @@ HDInsight Tools for Visual Studio 支援建立 Pig 指令碼並提交至 HDInsig
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

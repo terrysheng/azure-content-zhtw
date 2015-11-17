@@ -61,35 +61,37 @@
 
 	此名稱在 azurewebsites.net 網域中必須是唯一的，因為 Web 應用程式的 URL 將是 {name}.azurewebsites.net。如果您輸入的名稱不是唯一的，紅色驚嘆號會出現在文字方塊中。
 
-5. 選取 [資源群組] 或建立新的資源群組。
+5. 選取 [訂用帳戶]。
+
+6. 選取 [資源群組] 或建立新的資源群組。
 
 	如需資源群組的詳細資訊，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
 
-5. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
+7. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
 
 	如需 App Service 方案的詳細資訊，請參閱 [Azure App Service 方案概觀](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-6. 按一下 [建立]。
+8. 按一下 [建立]。
    
 	![][portal-quick-create2]
 
 	Azure 很快 (通常不到一分鐘) 就會完成建立新的 Web 應用程式。
 
-7. 按一下 [Web 應用程式] > [{新的 Web 應用程式}]。
+9. 按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
 
 	![](./media/web-sites-nodejs-develop-deploy-mac/gotowebapp.png)
 
-8. 在 [Web 應用程式] 刀鋒視窗中，按一下 [部署] 組件。
+10. 在 [Web 應用程式] 刀鋒視窗中，按一下 [部署] 組件。
 
 	![][deployment-part]
 
-9. 在 [持續部署] 刀鋒視窗，按一下 [選擇來源]
+11. 在 [持續部署] 刀鋒視窗中，按一下 [選擇來源]
 
-14. 按一下 [本機 Git 儲存機制]，然後按一下 [確定]。
+12. 按一下 [本機 Git 儲存機制]，然後按一下 [確定]。
 
 	![][setup-git-publishing]
 
-11. 如果您還沒有設定部署認證，請設定之。
+13. 如果您還沒有設定部署認證，請設定之。
 
 	a.在 [Web 應用程式] 刀鋒視窗中，按一下 [設定] > [部署認證]。
 
@@ -99,7 +101,7 @@
 	
 	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 
-11. 在 [Web 應用程式] 刀鋒視窗中，按一下 [設定]，然後按一下 [內容]。
+14. 在 [Web 應用程式] 刀鋒視窗中，按一下 [設定]，然後按一下 [內容]。
  
 	若要發佈，您將推送至遠端 Git 儲存機制。儲存機制的 URL 列示在 **GIT URL** 下方。您稍後將在教學課程中使用此 URL。
 
@@ -111,7 +113,7 @@
 
 1. 建立名為 *helloworld* 的目錄。
 
-2. 使用文字編輯器，在 **helloworld** 目錄中建立名為 *server.js* 的新檔案。
+2. 使用文字編輯器，在 *helloworld* 目錄中建立名為 **server.js** 的新檔案。
 
 2. 將下列程式碼複製至 **server.js** 檔案，然後儲存該檔案：
 
@@ -172,7 +174,7 @@
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		 * [new branch]      master -> master
 
-5. 若要檢視您的應用程式，請按一下 Azure 入口網站中 [Web 應用程式] 組件上的 [瀏覽] 按鈕。
+5. 若要檢視您的應用程式，請按一下 Azure 入口網站中的 [Web 應用程式] 組件上的 [瀏覽] 按鈕。
 
 	![瀏覽按鈕](./media/web-sites-nodejs-develop-deploy-mac/browsebutton.png)
 
@@ -208,7 +210,7 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 
 如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure App Service 中偵錯 Node.js 應用程式](web-sites-nodejs-debug.md)，以獲得診斷問題的詳細資訊。
 
-這篇文章會使用 Azure 入口網站來建立 Web 應用程式。您也可以使用 [Azure 命令列介面](../xplat-cli-install.md) 或 [Azure PowerShell](../install-configure-powershell.md) 執行相同作業。
+這篇文章會使用 Azure 入口網站來建立 Web 應用程式。您也可以使用 [Azure 命令列介面](../xplat-cli-install.md)或 [Azure PowerShell](../install-configure-powershell.md) 執行相同作業。
 
 如需如何在 Azure 上開發 Node.js 應用程式的詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
 
@@ -222,4 +224,4 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

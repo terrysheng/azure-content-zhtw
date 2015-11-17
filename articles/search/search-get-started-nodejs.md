@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始在 NodeJS 中使用 Azure 搜尋服務 | Microsoft Azure"
+	pageTitle="開始以 NodeJS 使用 Azure 搜尋服務 | Microsoft Azure | 雲端託管搜尋服務"
 	description="逐步了解如何使用 NodeJS 做為程式設計語言，在 Azure 的雲端託管搜尋服務上建置搜尋應用程式。"
 	services="search"
 	documentationCenter=""
@@ -147,4 +147,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

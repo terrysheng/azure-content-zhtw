@@ -1,11 +1,11 @@
 <properties
-	pageTitle="使用 In-Memory OLTP 來改善 Azure SQL 交易效能 | Microsoft Azure"
+	pageTitle="In-Memory OLTP 可改善 SQL 交易效能 | Microsoft Azure"
 	description="採用 In-Memory OLTP 來改善現有 SQL Database 的交易效能。"
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
 	manager="jeffreyg"
-	editor=""/>
+	editor="MightyPen"/>
 
 
 <tags
@@ -14,107 +14,223 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/28/2015"
+	ms.date="11/10/2015"
 	ms.author="jodebrui"/>
 
 
-# 使用 In-Memory (預覽) 來改善 Azure SQL 應用程式的效能
+# 使用 In-Memory (預覽) 改善 SQL Database 中的應用程式效能
 
-請遵循下列步驟，使用 [In-Memory](sql-database-in-memory.md) 來最佳化現有 Premium Azure SQL Database 的交易效能。
+請遵循下列步驟，使用 [In-Memory](sql-database-in-memory.md) 功能最佳化現有[進階](sql-database-service-tiers.md) Azure SQL Database 的交易效能。
 
-如需比較，請選擇類似您的生產工作負載的工作負載，而且並行連接數目和讀/寫比率相似。為了減少網路延遲，建議您在與資料庫相同的 Azure 區域中執行測試工作負載。
 
-## 步驟 1：將資料複製到新的 Premium 資料庫
-1.	使用下列其中一項，將生產資料庫匯出至 bacpac：
+## 步驟 1：確定您的進階資料庫支援 In-Memory
 
-	答：[入口網站](https://portal.azure.com/)中的 [匯出] 功能，或
+建立於 2015 年 11 月或之後的進階資料庫支援 In-Memory 功能。您可以執行下列 Transact-SQL 陳述式，確認您的進階資料庫是否支援 In-Memory 功能。如果傳回的結果為 1 (不是 0)，則支援 In-Memory：
 
-	B.SQL Server Management Studio 中的 [匯出資料層應用程式] 功能
+```
+SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
+```
 
-2.	將 bacpac 匯入到 V12 伺服器中新的 Premium 資料庫：
+*XTP* 代表*極端交易處理 (Extreme Transaction Processing)*
 
-	答：在入口網站中：瀏覽至伺服器並選取 [匯入資料庫] 選項。務必選取 Premium 定價層。
+如果您現有的資料庫必須移至新的 V12 進階資料庫，您可以使用下列技術將資料先行匯出再匯入。
 
-	B.在 SQL Server Management Studio (SSMS) 中：連接到伺服器、以滑鼠右鍵按一下 [資料庫] 節點，並選取 [匯入資料層應用程式]。
+#### 匯出步驟
+
+使用下列其中一項，將生產資料庫匯出至 bacpac：
+
+- [入口網站](https://portal.azure.com/)中的[匯出](sql-database-export.md)功能。
+
+- [最新 SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio) 中的**匯出資料層應用程式**功能。
+ 1. 在 [物件總管] 中，展開 [資料庫] 節點。
+ 2. 以滑鼠右鍵按一下您的資料庫節點。
+ 3. 按一下 [工作] > [匯出資料層應用程式]。
+ 4. 操作顯示的精靈視窗。
+
+
+#### 匯入步驟
+
+將 bacpac 匯入到新的進階資料庫：
+
+1. 在 Azure [入口網站](http://portal.azure.com/)中，
+ - 導覽至伺服器。
+ - 選取 [匯入資料庫][](sql-database-import.md) 選項。
+ - 選取進階定價層。
+
+2. 使用 SSMS 匯入 bacpac：
+ - 在 [物件總管] 中，以滑鼠右鍵按一下 [資料庫] 節點。
+ - 按一下 [匯入資料層應用程式]。
+ - 操作顯示的精靈視窗。
 
 
 ## 步驟 2：識別要移轉至 In-Memory OLTP 的物件
-SQL Server Management Studio (SSMS) 包含一份交易效能分析報表，該報表可針對具有作用中工作負載的資料庫執行，以及識別適合移轉至 In-Memory OLTP 的資料表和預存程序。如需詳細資訊，請參閱[判斷資料表或預存程序是否應該移植到 In-Memory OLTP](https://msdn.microsoft.com/library/dn205133.aspx)。
 
-1.	使用 SSMS 連接到生產資料庫。或者，如果您有針對新的測試資料庫執行的工作負載，您也可以連接到該資料庫。
-2.	以滑鼠右鍵按一下此資料庫並選取 [報表] -> [標準報表]-> [交易效能分析報表]。報表可讓您根據使用方式，識別可能受益於 In-Memory OLTP 的資料表和預存程序。
+SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易效能分析概觀] 報告。此報告會識別要移轉至 In-Memory OLTP 的候選資料表和預存程序。
 
+在 SSMS 中，若要產生報告，請：-在 [物件總管] 中，以滑鼠右鍵按一下您的資料庫節點。- 按一下 [報告] > [標準報告] > [交易效能分析概觀]。
 
-## 步驟 3：移轉資料表
-1.	使用 SSMS 連接到新的測試資料庫。若要避免在查詢中使用 WITH (SNAPSHOT) 選項的需求，我們建議設定資料庫選項 MEMORY\_OPTIMIZED\_ELEVATE\_TO\_SNAPSHOT。
-2.	一旦連接到新的測試資料庫，請執行：
-
-   	    ALTER DATABASE CURRENT SET MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT=ON
-
-3.	使用任一種方法，將磁碟型資料表移轉至記憶體最佳化資料表：
-
-	答：SSMS 記憶體最佳化精靈：連接到測試資料庫後，以滑鼠右鍵按一下資料表並選取 [記憶體最佳化建議程式]。使用建議程式來判斷資料表是否有記憶體最佳化資料表所不支援的功能。如果沒有，建議程式可以執行實際的結構描述和資料移轉。如需詳細資訊，請檢閱 [MSDN 上的記憶體最佳化建議程式主題](https://msdn.microsoft.com/library/dn284308.aspx)。
-
-	B.手動移轉：使用 SSMS 連接到新的測試資料庫。
-
-請遵循下列步驟來移轉資料表：
-
-1.	在資料表上按一下滑鼠右鍵並選取 [編寫程序的指令碼為] -> [CREATE 至] -> [新增查詢視窗]，以編寫資料表的指令碼。
-2.	將 CLUSTERED 索引變更為 NONCLUSTERED 並加入 WITH 選項 (MEMORY\_OPTIMIZED = ON)。
-3.	如果資料表使用任何不支援的功能，請實作各項因應措施。MSDN 記載如何處理[常見不支援的功能](https://msdn.microsoft.com/library/dn247639.aspx)。
-4.	使用 sp\_rename 重新命名現有的資料表。
-5.	執行 CREATE TABLE 指令碼，以建立新的記憶體最佳化資料表。
-6.	執行下列陳述式來複製資料：``INSERT INTO <new_memory_optimized_table> SELECT * FROM <old_disk_based_table>
-
-## 步驟 4 (選擇性)：移轉預存程序
-
-使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 2015 年 9 月預覽版本或更新版本，連接到新的測試資料庫。
-
-在舊程序上執行[原生編譯建議程式](https://msdn.microsoft.com/library/dn284308.aspx)，以識別原生編譯預存程序中所有不支援的功能。常見不支援功能的因應措施都記載於 [MSDN](https://msdn.microsoft.com/library/dn296678.aspx)。
-
-將預存程序移轉至原生模組時要考量兩件事：
-
-- 原生模組需要下列選項：
-
-	- NATIVE\_COMPILATION
-	- SCHEMABINDING
+如需詳細資訊，請參閱[判斷資料表或預存程序是否應該移植到 In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx)。
 
 
+## 步驟 3：建立可比較的測試資料庫
 
-- 原生模組使用 [ATOMIC 區塊](https://msdn.microsoft.com/library/dn452281.aspx)進行交易管理；不需要明確的 BEGIN TRAN/COMMIT/ROLLBACK 陳述式。
+假設報告指出您的資料庫的某個資料表若轉換成記憶體最佳化的資料表將會有好處。我們建議您先測試以確認這項指示。
 
-典型的原生編譯預存程序如下所示：
+您需要實際執行資料庫的測試複本。測試資料庫必須位於與實際執行資料庫相同的服務層級。
 
+為了簡化測試，請依照下列方式調整測試資料庫：
 
-   	    CREATE PROCEDURE schemaname.procedurename
-   		@param1 type1, …
-   		WITH NATIVE_COMPILATION, SCHEMABINDING
-   		AS
-   		BEGIN ATOMIC WITH (TRANSACTION ISOLATION LEVEL = SNAPSHOT, LANGUAGE = N'your_language')
+1. 使用 SSMS 連接到測試資料庫。
 
-   		…
-
-   		END
-
+2. 若要避免在查詢中用到 WITH (SNAPSHOT) 選項，請依照下列 T-SQL 陳述式中所示設定資料庫選項：```
+ALTER DATABASE CURRENT
+	SET
+		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
+```
 
 
-請注意，雖然 SNAPSHOT 是記憶體最佳化資料表最常使用的隔離層級，但也支援 REPEATABLE READ 和 SERIALIZABLE。
+## 步驟 4：移轉資料表
 
-##### 請遵循下列步驟來移轉預存程序：
+您必須建立並填入您想要測試之資料表的記憶體最佳化複本。您可以使用下列其中一種方式加以建立：
 
-1.	在舊的預存程序上按一下滑鼠右鍵並選取 [編寫程序的指令碼為] -> [CREATE 至] -> [新增查詢視窗]，以編寫舊預存程序的指令碼。
-2.	使用上述範本重寫程序標頭，並移除任何 BEGIN TRAN/ROLLBACK/COMMIT 陳述式。
-3.	如果預存程序使用任何不支援的功能，請實作各項因應措施。MSDN 記載如何處理[常見不支援的功能](https://msdn.microsoft.com/library/dn296678.aspx)。
-4.	使用 sp\_rename 卸除此程序或重新命名舊程序。
-5.	執行 CREATE PROCEDURE 指令碼，以建立新的原生編譯預存程序。
+- SSMS 中好用的記憶體最佳化精靈。
+- 手動 T-SQL。
 
-## 步驟 5：執行您的工作負載
-針對記憶體最佳化資料表和原生編譯預存程序執行您的測試工作負載，以及測量效能改善。
 
-## 後續步驟
+#### SSMS 中的記憶體最佳化精靈
 
-[監視記憶體內部儲存體](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/)。
+若要使用此移轉選項：
 
-[使用動態管理檢視監視 Azure SQL Database](sql-database-monitoring-with-dmvs.md)
+1. 使用 SSMS 連接到測試資料庫。
 
-<!---HONumber=Nov15_HO1-->
+2. 在 [物件總管] 中，以滑鼠右鍵按一下資料表，然後按一下 [記憶體最佳化建議程式]。
+ - [資料表記憶體最佳化建議程式] 精靈隨即顯示。
+
+3. 在此精靈中按一下 [移轉驗證] (或 [下一步] 按鈕)，以查看資料表是否有任何在記憶體最佳化資料表中不受支援的功能。如需詳細資訊，請參閱：
+ - [記憶體最佳化建議程式](http://msdn.microsoft.com/library/dn284308.aspx)中的*記憶體最佳化檢查清單*。
+ - [In-Memory OLTP 不支援的 Transact-SQL 建構](http://msdn.microsoft.com/library/dn246937.aspx)。
+ - [移轉至 In-Memory OLTP](http://msdn.microsoft.com/library/dn247639.aspx)。
+
+4. 如果資料表沒有不受支援的功能，建議程式可以為您執行實際的結構描述和資料移轉。
+
+
+#### 手動 T-SQL
+
+若要使用此移轉選項：
+
+1. 使用 SSMS (或類似的公用程式) 連接到您的測試資料庫。
+
+2. 為您的資料表及其索引取得完整 T-SQL 指令碼。
+ - 在 SSMS 中，以滑鼠右鍵按一下資料表節點。
+ - 按一下 [產生資料表的指令碼為] > [建立] > [新增查詢視窗]。
+
+3. 在指令碼視窗中，將 WITH (MEMORY\_OPTIMIZED = ON) 新增至 CREATE TABLE 陳述式。
+
+4. 如果有 CLUSTERED 索引，請將其變更為 NONCLUSTERED。
+
+5. 使用 SP\_RENAME 重新命名現有的資料表。
+
+6. 執行您已編輯的 CREATE TABLE 指令碼，以建立新的記憶體最佳化資料表複本。
+
+7. 使用 INSERT...SELECT * INTO，將資料複製到您的記憶體最佳化資料表：
+	
+```
+INSERT INTO <new_memory_optimized_table>
+		SELECT * FROM <old_disk_based_table>;
+```
+
+
+## 步驟 5 (選擇性)：移轉預存程序
+
+In-Memory 功能也可以修改預存程序，以改善效能。
+
+
+### 原生編譯預存程序的考量
+
+原生編譯預存程序的 T-SQL WITH 子句必須具有下列選項：
+
+- NATIVE\_COMPILATION
+
+- SCHEMABINDING：表示除非您捨棄預存程序，否則無法由預存程序以任何會影響到預存程序的方式變更其資料行定義的資料表。
+
+
+原生模組必須使用一個大型 [ATOMIC 區塊](http://msdn.microsoft.com/library/dn452281.aspx)進行交易管理。沒有明確 BEGIN TRANSACTION 的角色。
+
+
+### 原生編譯的一般 CREATE PROCEDURE
+
+建立原生編譯預存程序的 T-SQL 通常會類似於下列範本：
+
+```
+CREATE PROCEDURE schemaname.procedurename
+	@param1 type1, …
+	WITH NATIVE_COMPILATION, SCHEMABINDING
+	AS
+		BEGIN ATOMIC WITH
+			(TRANSACTION ISOLATION LEVEL = SNAPSHOT,
+			LANGUAGE = N'your_language__see_sys.languages'
+			)
+		…
+		END;
+```
+
+- 就 TRANSACTION\_ISOLATION\_LEVEL 而言，SNAPSHOT 是原生編譯預存程序最常用的值。不過，也支援其他值的子集：
+ - REPEATABLE READ
+ - SERIALIZABLE
+
+
+- sys.languages 檢視中必須有 LANGUAGE 值存在。
+
+
+### 如何移轉預存程序
+
+移轉步驟如下：
+
+
+1. 取得規則解譯之預存程序的 CREATE PROCEDURE 指令碼。
+
+2. 請重寫其標頭，以符合先前的範本。
+
+3. 確認預存程序 T-SQL 程式碼是否使用任何不支援原生編譯預存程序的功能。視需要實作因應措施。
+ - 如需詳細資訊，請參閱[原生編譯預存程序的移轉問題](http://msdn.microsoft.com/library/dn296678.aspx)。
+
+4. 使用 SP\_RENAME 重新命名舊的預存程序。或直接加以捨棄。
+
+5. 執行已編輯的 CREATE PROCEDURE T-SQL 指令碼。
+
+
+## 步驟 6：在測試環境中執行您的工作負載
+
+在測試資料庫中，執行與您在實際執行資料庫中執行的工作負載類似的工作負載。如此，將 In-Memory 功能用於資料表和預存程序所達到的效能改善應可顯現出來。
+
+工作負載的主要屬性包括：
+
+- 並行連線數目。
+
+- 讀取/寫入比率。
+
+
+若要修改並執行測試工作負載，請考慮使用方便的 ostress.exe 工具，如[這裡](sql-database-in-memory.md)所說明。
+
+
+為了盡可能減少網路延遲，請在資料庫所在的相同 Azure 地理區域中執行您的測試。
+
+
+## 步驟 7：實作後的監視
+
+請考慮監視您在實際執行環境中實作 In-Memory 的效能影響：
+
+- [監視記憶體內部儲存體](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/)。
+
+- [使用動態管理檢視監視 Azure SQL Database](sql-database-monitoring-with-dmvs.md)
+
+
+## 相關連結
+
+- [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
+
+- [原生編譯預存程序簡介](http://msdn.microsoft.com/library/dn133184.aspx)
+
+- [記憶體最佳化建議程式](http://msdn.microsoft.com/library/dn284308.aspx)
+
+<!---HONumber=Nov15_HO3-->

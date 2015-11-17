@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="08/12/2015"
+	ms.date="11/03/2015"
 	ms.author="normesta"/>
 
 #建立 Xamarin.Forms 應用程式
@@ -168,4 +168,4 @@
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

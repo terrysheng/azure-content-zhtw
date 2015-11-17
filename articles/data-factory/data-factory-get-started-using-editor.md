@@ -383,8 +383,6 @@
  
 若要使用 Azure PowerShell 進行本教學課程，請參閱[使用 Azure PowerShell 建立和監視 Data Factory][monitor-manage-using-powershell]。
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md)提交您的意見反應。
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -503,4 +501,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

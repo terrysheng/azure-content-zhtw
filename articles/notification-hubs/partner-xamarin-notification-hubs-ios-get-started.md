@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/03/2015"
 	ms.author="yuaxu"/>
 
 # 開始使用通知中心
@@ -81,7 +81,7 @@
 
 3. 在 **AppDelegate.cs** 中，新增下列 using 陳述式：
 
-    using WindowsAzure.Messaging;
+    	using WindowsAzure.Messaging;
 
 4. 宣告 **SBNotificationHub** 的執行個體：
 
@@ -98,9 +98,17 @@
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert |
-                UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
-            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
+            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+    			var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
+                       UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
+                       new NSSet ());
+
+			    UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
+			    UIApplication.SharedApplication.RegisterForRemoteNotifications ();
+			} else {
+			    UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+			    UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (notificationTypes);
+			}
 
             return true;
         }
@@ -323,4 +331,4 @@
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="10/07/2015"
+	ms.date="11/05/2015"
 	ms.author="ricksal"/>
 
 
@@ -126,4 +126,4 @@
 
 [管理入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

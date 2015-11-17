@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/15/2015"
+	ms.date="11/06/2015"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 >
 > 如需詳細資訊，請參閱整合 [Axinom](media-services-axinom-integration.md) 和 [castLabs](media-services-castlabs-integration.md)。
 
-媒體服務支援多種方式來授權提出金鑰要求的使用者。內容金鑰授權原則可能會有一個或多個授權限制：open 或 token 限制。token 限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援[簡單 Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) 格式和 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖。如需詳細資訊，請參閱＜設定內容金鑰的授權原則＞。
+媒體服務支援多種方式來授權提出金鑰要求的使用者。內容金鑰授權原則可能會有一個或多個授權限制：open 或 token 限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援[簡單 Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) 格式和 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖。如需詳細資訊，請參閱＜設定內容金鑰的授權原則＞。
 
 若要利用動態加密，您需有一個資源，其中包含一組多位元速率 MP4 檔案或多位元速率 Smooth Streaming 來源檔案。您也需要設定資產的傳遞原則 (本主題稍後會加以描述)。然後，根據串流 URL 中指定的格式，隨選資料流處理伺服器將確保以您所選擇的通訊協定傳遞串流。因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的每個要求建置及提供適當的 HTTP 回應。
 
@@ -50,9 +50,9 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 1. 設定資產的傳遞原則。傳遞原則組態包括：傳遞通訊協定 (例如，MPEG DASH、HLS、HDS、Smooth Streaming 或全部)、動態加密的類型 (例如，Common Encryption)、PlayReady 或 Widevine 授權取得 URL。 
  
 	您可以將不同的原則套用至相同資產上的每一個通訊協定。例如，您可以將 PlayReady 加密套用到 Smooth/DASH，以及將 AES 信封加密套用到 HLS。傳遞原則中未定義的任何通訊協定 (例如，您加入單一原則，它只有指定 HLS 做為通訊協定) 將會遭到封鎖無法串流。這個狀況的例外情形是您完全沒有定義資產傳遞原則之時。那麼，將允許所有通訊協定，不受阻礙。
-1. 若要取得串流 URL，請建立隨選定位器。
+1. 若要取得串流 URL，請建立隨選串流定位器。
 
->[AZURE.NOTE]目前，媒體服務不提供 Widevine 授權伺服器。您可以使用下列 AMS 合作夥伴來助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
+>[AZURE.NOTE]目前，媒體服務不提供 Widevine 授權伺服器。您可以使用下列 AMS 合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
 >
 > 如需詳細資訊，請參閱整合 [Axinom](media-services-axinom-integration.md) 和 [castLabs](media-services-castlabs-integration.md)。
 
@@ -104,7 +104,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 
 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 
-##<a id="create_locator"></a>建立隨選串流定位器以取得串流 URL
+##<a id="create_locator"></a>若要取得串流 URL，請建立隨選串流定位器
 
 您必須為您的使用者提供 Smooth、DASH 或 HLS 的串流 URL。
 
@@ -128,7 +128,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
 	
-您可以使用 [AMS 播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)來測試資料流。
+您可以使用 [AMS 播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)來測試串流。
 
 ##<a id="example"></a>範例
 
@@ -436,15 +436,49 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		        {
 		            // The following code configures PlayReady License Template using .NET classes
 		            // and returns the XML string.
-		             
+		
+		            //The PlayReadyLicenseResponseTemplate class represents the template for the response sent back to the end user. 
+		            //It contains a field for a custom data string between the license server and the application 
+		            //(may be useful for custom app logic) as well as a list of one or more license templates.
 		            PlayReadyLicenseResponseTemplate responseTemplate = new PlayReadyLicenseResponseTemplate();
+		
+		            // The PlayReadyLicenseTemplate class represents a license template for creating PlayReady licenses
+		            // to be returned to the end users. 
+		            //It contains the data on the content key in the license and any rights or restrictions to be 
+		            //enforced by the PlayReady DRM runtime when using the content key.
 		            PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
+		            //Configure whether the license is persistent (saved in persistent storage on the client) 
+		            //or non-persistent (only held in memory while the player is using the license).  
+		            licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
+		           
+		            // AllowTestDevices controls whether test devices can use the license or not.  
+		            // If true, the MinimumSecurityLevel property of the license
+		            // is set to 150.  If false (the default), the MinimumSecurityLevel property of the license is set to 2000.
+		            licenseTemplate.AllowTestDevices = true;
+		
+		
+		            // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
+		            // It grants the user the ability to playback the content subject to the zero or more restrictions 
+		            // configured in the license and on the PlayRight itself (for playback specific policy). 
+		            // Much of the policy on the PlayRight has to do with output restrictions 
+		            // which control the types of outputs that the content can be played over and 
+		            // any restrictions that must be put in place when using a given output.
+		            // For example, if the DigitalVideoOnlyContentRestriction is enabled, 
+		            //then the DRM runtime will only allow the video to be displayed over digital outputs 
+		            //(analog video outputs won’t be allowed to pass the content).
+		
+		            //IMPORTANT: These types of restrictions can be very powerful but can also affect the consumer experience. 
+		            // If the output protections are configured too restrictive, 
+		            // the content might be unplayable on some clients. For more information, see the PlayReady Compliance Rules document.
+		
+		            // For example:
+		            //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
 		
 		            responseTemplate.LicenseTemplates.Add(licenseTemplate);
 		
 		            return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
 		        }
-		
+
 		
 				static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 				{
@@ -558,15 +592,18 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		}
 
 
+
 ##媒體服務學習路徑
 
-您可以在此檢視 AMS 學習路徑：
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##提供意見反應
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ##另請參閱
 
 [使用 AMS 設定 Widevine 封裝](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

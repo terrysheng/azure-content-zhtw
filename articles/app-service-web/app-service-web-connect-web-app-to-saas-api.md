@@ -10,7 +10,7 @@
 <tags
 	ms.service="app-service-web"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
 	ms.date="09/15/2015"
@@ -96,4 +96,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!-----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

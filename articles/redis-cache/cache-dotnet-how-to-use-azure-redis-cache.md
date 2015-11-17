@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/27/2015" 
+	ms.date="11/10/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Redis 快取
@@ -205,7 +205,6 @@ Azure Redis 快取可以快取 .NET 物件及基本資料類型，但必須先�
 將物件序列化的其中一個簡單方法就是使用 [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) 中的 `JsonConvert` 序列化方法並進行 JSON 的雙向序列化。下列範例使用 `Employee` 物件執行個體顯示 get 和 set。
 
 
-	[Serializable]
 	class Employee
 	{
 	    public int Id { get; set; }
@@ -330,4 +329,4 @@ Azure Redis 快取可以快取 .NET 物件及基本資料類型，但必須先�
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

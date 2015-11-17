@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/09/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員概觀
@@ -123,6 +123,7 @@
 
 如需使用 Preview 入口網站的相關資訊，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](azure-portal/resource-group-portal.md)。
 
+Azure 資源管理員支援跨原始資源共用 (CORS)。利用 CORS，您可以從位於不同網域的 Web 應用程式呼叫資源管理員 REST API 或 Azure 服務 REST API。若沒有 CORS 支援，網頁瀏覽器將會阻止某個網域中的應用程式存取另一個網域中的資源。資源管理員會對所有具備有效驗證認證的要求啟用 CORS。
 
 ## 後續步驟
 
@@ -135,4 +136,4 @@
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

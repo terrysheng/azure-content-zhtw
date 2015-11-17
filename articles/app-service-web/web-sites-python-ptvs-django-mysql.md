@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -218,4 +218,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

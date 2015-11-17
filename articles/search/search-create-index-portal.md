@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在入口網站中建立 Azure 搜尋服務索引 | Microsoft Azure"
+	pageTitle="在入口網站中建立 Azure 搜尋服務索引 | Microsoft Azure | 雲端託管搜尋服務"
 	description="在 Azure 入口網站中填入欄位定義，即可為 Azure 搜尋服務 (雲端託管搜尋服務) 加入索引。"
 	services="search"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="search"
-	ms.devlang="rest-api"
+	ms.devlang="na"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
@@ -18,6 +18,11 @@
 	ms.author="heidist"/>
 
 # 在 Azure 入口網站中建立 Azure 搜尋服務索引
+> [AZURE.SELECTOR]
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
+- [.NET](search-create-index-dotnet.md)
+- [REST API](search-create-index-rest-api.md)
 
 只需在 Azure 入口網站中建立一個索引，即可快速地在 Azure 搜尋服務中建立一個索引原型。入口網站十分適合用來進行概念證明測試，對於已部署到您服務中的任何索引，您也可以透過入口網站檢視任一索引的結構描述定義和資源使用狀況。
 
@@ -82,14 +87,14 @@
 	- **Key** 是每一份文件的唯一識別碼，用於查閱文件。每個索引必須有一個索引鍵。只有一個欄位可以是索引鍵，而且它必須設定為 Edm.String。
 	- **Searchable** 將欄位標記為 full-text searchable。
 
-3. 若要移除任何您不需要的欄位，請以滑鼠右鍵按一下該欄位，然後選取 [**刪除**]。
+3. 若要移除任何您不需要的欄位，請以滑鼠右鍵按一下該欄位，然後選取 [刪除]。
 
-4. 按一下 [**確定**] 以儲存您剛定義的索引，然後按一下 [新增索引] 頁面上的 [**確定**] 來建立索引。
+4. 按一下 [確定] 以儲存您剛定義的索引，然後按一下 [新增索引] 頁面上的 [確定] 來建立索引。
 
 
 ## 後續步驟
 
-雖然已定義索引，但仍需事先載入文件才能供人使用。假設您要重新建立 Hotels 索引，作為測試之用，您可以在 [Fiddler](search-fiddler.md) 輕鬆地載入該索引的少量文件，方法為使用[如何搭配 Azure 搜尋服務使用 Fiddler](search-fiddler.md) 的＜載入文件＞ 一節中的指示。接著您可以按照該篇文章中的剩餘步驟執行一些查詢。
+雖然已定義索引，但仍需事先載入文件才能供人使用。假設您要重新建立 Hotels 索引，作為測試之用，您可以在 [Fiddler](search-fiddler.md) 輕鬆地載入該索引的少量文件，方法為使用[如何搭配 Azure 搜尋服務使用 Fiddler](search-fiddler.md) 的＜載入文件＞一節中的指示。接著您可以按照該篇文章中的剩餘步驟執行一些查詢。
 
 一旦您熟悉基本的索引，請考慮新增語言分析器或建議工具，以新增多語言支援或預先輸入建議。索引結構描述中提供這兩項功能的詳細說明。如需詳細資訊，請參閱[語言支援](https://msdn.microsoft.com/elibrary/azure/dn879793.aspx)和[建立索引](https://msdn.microsoft.com/library/azure/dn798941.aspx)。
 
@@ -100,4 +105,4 @@
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

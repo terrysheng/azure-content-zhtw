@@ -25,7 +25,7 @@
 
 本文章可協助您開始建置第一個管線，並將其部署到 Azure Data Factory。
 
-> [AZURE.NOTE] 本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文。
+> [AZURE.NOTE]本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文。
 
 ## 教學課程概觀
 本教學課程將帶您執行所需步驟，建置您的第一個管線並加以執行。您將會建立管線，並從頭開始指定所有需要的資源。
@@ -37,7 +37,7 @@
 
 1.	**Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需要幾分鐘就可以建立免費試用帳戶。請參閱[免費試用](http://azure.microsoft.com/pricing/free-trial/)一文了解如何取得免費試用帳戶。
 
-2.	**Azure 儲存體** – 在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱〈[建立儲存體帳戶](../storage-create-storage-account/#create-a-storage-account)〉一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱〈[檢視、複製和重新產生儲存體存取金鑰](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)〉。
+2.	**Azure 儲存體** – 在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱〈[〉建立儲存體帳戶](../storage-create-storage-account/#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱〈[檢視、複製和重新產生儲存體存取金鑰](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)〉。
 
 ## 本教學課程涵蓋哪些內容？	
 Azure Data Factory 可讓您以資料驅動型工作流程的方式，撰寫資料移動和資料處理工作。您將了解如何建置第一個管線，每個月使用 HDInsight 來轉換及分析 Web 記錄檔。
@@ -172,7 +172,4 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 - 按一下頂端的[使用 PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) 連結，使用 Azure PowerShell 執行教學課程。
 - 按一下頂端的[使用 Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) 連結以使用 Visual Studio 執行本教學課程。 
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)提交您的意見反應。
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

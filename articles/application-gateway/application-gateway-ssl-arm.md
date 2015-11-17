@@ -17,18 +17,21 @@
 
 # 使用 Azure 資源管理員設定適用於 SSL 的應用程式閘道
 
+> [AZURE.SELECTOR]
+-[Azure Classic Powershell](application-gateway-ssl.md)
+-[Azure Resource Manager Powershell](application-gateway-ssl-arm.md)
 
  應用程式閘道可以設定為在閘道終止 SSL 工作階段，以避免 Web 伺服陣列發生高成本的 SSL 解密工作。SSL 卸載也可以簡化 Web 應用程式的前端伺服器設定和管理。
 
 
->[AZURE.IMPORTANT]使用 Azure 資源之前，請務必了解 Azure 目前有「資源管理員」和「傳統」兩種部署模型。在使用任何 Azure 資源之前，請先確認您了解[部署模型和工具](azure-classic-rm.md)。您可以按一下本文頂端的索引標籤，檢視不同工具的文件。本文件將說明使用 Azure 資源管理員建立應用程式閘道的方式。若要使用傳統的版本，請移至[使用 PowerShell (傳統) 設定應用程式閘道 SSL 卸載](application-gateway-ssl.md)。
+>[AZURE.IMPORTANT]使用 Azure 資源之前，請務必了解 Azure 目前有「資源管理員」和「傳統」兩者部署模型。在使用任何 Azure 資源之前，請先確認您了解[部署模型和工具](azure-classic-rm.md)。您可以按一下本文頂端的索引標籤，檢視不同工具的文件。本文件將說明使用 Azure 資源管理員建立應用程式閘道的方式。若要使用傳統部署模型版本，請移至[使用 Azure 傳統部署來設定應用程式閘道 SSL 卸載](application-gateway-ssl.md)。
 
 
 
 ## 開始之前
 
 1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 **Windows PowerShell** 區段下載並安裝最新版本。
-2. 您將建立應用程式閘道的虛擬網路和子網路。請確定沒有虛擬機器或是雲端部署正在使用子網路。應用程式閘道必須單獨在虛擬網路子網路中。
+2. 您將建立應用程式閘道的虛擬網路和子網路。請確定沒有虛擬機器或是雲端部署正在使用子網路。應用程式閘道本身必須在虛擬網路子網路中。
 3. 您將要設定為使用應用程式閘道的伺服器必須存在，或是在虛擬網路中建立其端點，或是指派公用 IP/VIP。
 
 ## 建立應用程式閘道需要什麼？
@@ -49,9 +52,9 @@
  
 ## 建立新的應用程式閘道
 
-使用「Azure 傳統」和「Azure 資源管理員」的差別，在於您建立應用程式閘道和需設定項目的順序。
+使用 Azure 傳統部署模型和 Azure 資源管理員的差別，在於您建立應用程式閘道和需設定項目的順序。
 
-使用資源管理員，組成應用程式閘道器的所有項目都將個別設定，然後放在一起建立應用程式閘道資源。
+使用資源管理員，組成應用程式閘道的所有項目都將個別設定，然後放在一起建立應用程式閘道資源。
 
 
 以下是建立應用程式閘道所需的步驟：
@@ -167,7 +170,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 ### 步驟 7
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
 建立名為 "listener01" 的接聽程式，並將前端連接埠與前端 IP 組態和憑證產生關聯。
@@ -195,10 +198,10 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 ## 啟動應用程式閘道
 
-設定閘道之後，請使用 `Start-AzureApplicationGateway` Cmdlet 來啟動閘道。成功啟動閘道之後，會開始應用程式閘道計費。
+閘道設定完成後，使用 `Start-AzureApplicationGateway` Cmdlet 啟動閘道。成功啟動閘道之後，會開始應用程式閘道計費。
 
 
-**注意：**`Start-AzureApplicationGateway` Cmdlet 可能需要 15-20 分鐘的時間才能完成。
+**注意：**`Start-AzureApplicationGateway`Cmdlet 可能需要 15-20 分鐘的時間才能完成。
 
 在以下範例中，應用程式閘道名為 "appgwtest"，資源群組為 "app-rg"：
 
@@ -219,7 +222,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 ## 確認應用程式閘道狀態
 
-使用 `Get-AzureApplicationGateway` Cmdlet 來檢查閘道狀態。如果上一個步驟中的 *Start-AzureApplicationGateway* 成功，則狀態應該是 *Running*，而且 Vip 和 DnsName 應該具有有效的輸入。
+使用 `Get-AzureApplicationGateway` Cmdlet 檢查閘道狀態。如果 *Start-AzureApplicationGateway* 在上一個步驟成功，則此狀態應該會是 *Running*，且 Vip 和 DnsName 應該會具有有效的項目。
 
 這個範例示範已啟動、正在執行且準備好將流量傳送到 `http://<generated-dns-name>.cloudapp.net` 的應用程式閘道。
 
@@ -379,4 +382,4 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

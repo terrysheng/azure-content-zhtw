@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/28/2015"
+	ms.date="11/08/2015"
 	ms.author="juliako"/>
 
 
@@ -29,6 +29,12 @@
 
 
 教學課程中介紹基本的媒體服務工作流程，以及媒體服務開發最常用的程式設計物件和必要工作。完成本教學課程時，您將能夠串流或漸進式下載您已上傳、編碼和下載的範例媒體檔案。
+
+
+##下載範例
+
+從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)取得和執行範例。
+
 
 ## 必要條件
 需要有下列必要條件，才能開始使用 Media Services SDK for .NET 進行開發。
@@ -68,7 +74,7 @@
 
 	您可以在視窗底端的訊息區域監視程序的狀態。
 
-	成功建立帳戶之後，狀態會變更為**作用中**。
+	成功建立帳戶之後，狀態會變更為 [作用中]。
 
 	在頁面底部會顯示 [管理金鑰] 按鈕。當您按一下此按鈕時，會顯示對話方塊，其中具有媒體服務帳戶名稱和主要和次要金鑰。您將需要帳戶名稱和主要金鑰資訊，以便以程式設計方式存取媒體服務帳戶。
 
@@ -105,7 +111,7 @@
 
 	>[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
 	>
-	> 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
+	> 計算成本時會使用 24 小時內指定的最大單元數。如需價格詳細資料的相關資訊，請參閱[媒體服務價格詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
 
 
 
@@ -244,7 +250,7 @@
 - 將您的夾層 (來源) 檔編碼或轉換為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案。  
 - 為您計畫從該處傳遞內容的串流端點至少取得一個串流單元。
 
-下列程式碼顯示如何提交編碼工作。此工作 (Job) 包含一項工作 (Task)，指定使用 **Azure Media Encoder** 將夾層檔轉碼為一組調適性位元速率 MP4。此程式碼會提交工作，並等到工作完成。
+下列程式碼顯示如何提交編碼工作。此工作 (Job) 包含一項工作 (Task)，指定使用 **Azure 媒體編碼器**將夾層檔轉碼為一組調適性位元速率 MP4。此程式碼會提交工作，並等到工作完成。
 
 工作完成之後，就可以串流處理資產，或漸進式下載轉碼後所建立的 MP4 檔案。請注意，您不需要擁有任何串流單元，即可漸進式下載 MP4 檔案。
 
@@ -420,14 +426,14 @@ MPEG DASH
 若要測試漸進式下載，請將 URL 貼入瀏覽器 (例如，Internet Explorer、Chrome 或 Safari)。
 
 
-##後續步驟
+##後續步驟：媒體服務學習路徑
 
-###媒體服務學習路徑
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-您可以在此檢視 AMS 學習路徑：
+##提供意見反應
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ### 尋找其他內容嗎？
 
@@ -441,4 +447,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

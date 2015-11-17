@@ -1,7 +1,7 @@
 <properties
 	pageTitle="開始使用串流分析：即時詐騙偵測 | Microsoft Azure"
 	description="了解如何使用串流分析建立即時詐騙偵測解決方案。使用事件中樞以即時處理事件。"
-	keywords="event hub,fraud detection,real-time,real-time processing"
+	keywords="事件中樞, 詐騙偵測, 即時, 即時處理"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="10/05/2015"
+	ms.date="11/06/2015"
 	ms.author="jeffstok" />
 
 
@@ -86,7 +86,7 @@
 
 ### 佈建資料流分析工作
 
-1.	在 Azure 入口網站中，按一下 [新增] > [資料服務] > [串流分析] > [快速建立]。。
+1.	在 [Azure 入口網站] 中，依序按一下 [新增] > [資料服務] > [串流分析] > [快速建立]。
 2.	指定下列的值，然後按一下 [建立串流分析工作]：
 
 	* **工作名稱**：輸入工作名稱。
@@ -221,7 +221,7 @@
 3.	在第三頁上輸入或選取下列值：
 
 	* **輸出別名**：為這個工作輸出設定一個容易記的名稱。
-	* **訂用帳戶**：如果建立的 Blob 儲存體與串流分析工作屬於相同的訂用帳戶，請選取 [從目前的訂用帳戶使用儲存體帳戶]。如果儲存體屬於不同的訂閱，請選取 [從另一個訂用帳戶使用儲存體帳戶]，然後手動輸入 [儲存體帳戶]」[儲存體帳戶金鑰、[容器] 等資訊。
+	* **訂用帳戶**：如果建立的 Blob 儲存體與「串流分析」工作屬於相同的訂用帳戶，請選取 [從目前的訂用帳戶使用儲存體帳戶]。如果儲存體屬於不同的訂閱，請選取 [從另一個訂用帳戶使用儲存體帳戶]，然後手動輸入 [儲存體帳戶]」[儲存體帳戶金鑰、[容器] 等資訊。
 	* **儲存體帳戶名稱**：選取儲存體帳戶的名稱。
 	* **容器**：選取容器的名稱。
 	* **檔案名稱前置詞**：輸入當您填寫 Blob 輸出時所使用的檔案前置詞。
@@ -257,6 +257,6 @@
 - [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
 - [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

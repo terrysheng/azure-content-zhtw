@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
+	ms.date="11/10/2015"
 	ms.author="jroth"/>
 
 # SQL Database 服務層
@@ -35,7 +35,7 @@
 ### 單一資料庫的服務層
 單一資料庫的每個服務層內有多個效能層級，您可以彈性選擇最符合您工作負載需求的層級。如果您需要相應增加或相應減少，可以很輕鬆地在 Azure 入口網站中變更資料庫層，您的應用程式完全不需要停機。如需詳細資訊，請參閱[變更資料庫服務層和效能層級](sql-database-scale-up.md)。
 
-此處所列的效能特性會套用至使用 [SQL Database V12](sql-database-v12-whats-new.md) 建立的資料庫。
+此處所列的效能特性會套用至使用 [SQL Database V12](sql-database-v12-whats-new.md) 建立的資料庫。如果 Azure 中的基礎硬體裝載了多個 SQL Database，您的資料庫仍然一定會有一組資源，且個別資料庫的預期效能特性不會受到影響。
 
 [AZURE.INCLUDE [SQL DB 服務層資料表](../../includes/sql-database-service-tiers-table.md)]
 
@@ -88,11 +88,11 @@
 若為彈性資料庫集區，您可以監視其中的個別資料庫，技巧如本節所述。但您也可以監視集區整體。如需詳細資訊，請參閱[監視和管理彈性資料庫集區](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)。
 
 ## 後續步驟
-請在 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)進一步了解這些層的定價。
+請在 [SQL Database 價格](http://azure.microsoft.com/pricing/details/sql-database/)進一步了解這些層的價格。
 
 如果您有興趣以群組形式管理多個資料庫，請考慮[彈性資料庫集區](sql-database-elastic-pool-guidance.md)，以及相關聯之[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。
 
 如果您認識了 SQL Database 各個層，可以[免費試用](http://azure.microsoft.com/pricing/free-trial/)親身體驗，然後了解[如何建立您的第一個 SQL Database](sql-database-get-started.md)！
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

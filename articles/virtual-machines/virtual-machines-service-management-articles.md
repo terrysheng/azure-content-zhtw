@@ -38,7 +38,7 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[使用 Azure PowerShell 建立和管理以 Windows 為基礎的虛擬機器](virtual-machines-create-windows-powershell-service-manager.md)
+[以 Powershell 和傳統部署模型建立 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [使用 Azure 命令列介面 (Azure CLI) 建立執行 Linux 的自訂 VM](virtual-machines-linux-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [服務管理 REST API 參考](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

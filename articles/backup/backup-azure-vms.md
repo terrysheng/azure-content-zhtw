@@ -20,7 +20,7 @@
 # 備份 Azure 虛擬機器
 本文提供備份現有 Azure 虛擬機器，以根據您的公司的備份和保留原則加以保護的程序。
 
-首先，您必須注意幾件事，才能備份 Azure 虛擬機器。如果您尚未這樣做，請先完成[先決條件](backup-azure-vms-prepare.md)為您的環境進行 VM 備份的準備工作，再繼續作業。
+首先，您必須注意幾件事，才能備份 Azure 虛擬機器。如果您尚未這樣做，請先完成[必要條件](backup-azure-vms-prepare.md)為您的環境進行 VM 備份的準備工作，再繼續作業。
 
 如果您要尋找[在 Azure 中規劃 VM 備份基礎結構](backup-azure-vms-introduction.md)或 [Azure 虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)的相關資訊，可以使用這些連結取得該資訊。
 
@@ -70,13 +70,13 @@
 
     ![註冊工作](./media/backup-azure-vms/register-create-job.png)
 
-   虛擬機器也會連同註冊作業的狀態，出現在已註冊的項目清單中。
+    虛擬機器也會連同註冊作業的狀態，出現在已註冊的項目清單中。
 
-    ![Registering status 1](./media/backup-azure-vms/register-status01.png)
+    ![註冊狀態 1](./media/backup-azure-vms/register-status01.png)
 
-    When the operation completes, the status will change to reflect the *registered* state.
+    作業完成時，狀態會改變以反映已註冊的狀態。
 
-    ![Registration status 2](./media/backup-azure-vms/register-status02.png)
+    ![註冊狀態 2](./media/backup-azure-vms/register-status02.png)
 
 ## 步驟 3 - 保護 Azure 虛擬機器
 現在，您可以設定虛擬機器的備份和保留原則。多個虛擬機器可以使用單一保護動作受到保護。
@@ -161,4 +161,4 @@
 - [管理和監視虛擬機器](backup-azure-manage-vms.md)
 - [還原虛擬機器](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

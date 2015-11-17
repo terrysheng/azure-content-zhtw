@@ -50,7 +50,7 @@
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 **New-AzureRMResourceGroup** 取代為 **New-AzureResourceGroup**、將 **New-AzureResourceGroupDeployment** 取代為 **New-AzureResourceGroupDeployment**，以及將 **Switch-AzureMode AzureResourceManager** 命令加在 **New-AzureResourceGroup** 命令前面。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
+> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 **New-AzureRMResourceGroup** 取代為 **New-AzureResourceGroup**、將 **New-AzureRMResourceGroupDeployment** 取代為 **New-AzureResourceGroupDeployment**，以及將 **Switch-AzureMode AzureResourceManager** 命令加在 **New-AzureResourceGroup** 命令前面。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
 
 在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有項目，包括 < and > 字元。
 
@@ -122,7 +122,7 @@
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 **New-AzureRMResourceGroup** 取代為 **New-AzureResourceGroup**、將 **New-AzureResourceGroupDeployment** 取代為 **New-AzureResourceGroupDeployment**，以及將 **Switch-AzureMode AzureResourceManager** 命令加在 **New-AzureResourceGroup** 命令前面。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
+> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 **New-AzureRMResourceGroup** 取代為 **New-AzureResourceGroup**、將 **New-AzureRMResourceGroupDeployment** 取代為 **New-AzureResourceGroupDeployment**，以及將 **Switch-AzureMode AzureResourceManager** 命令加在 **New-AzureResourceGroup** 命令前面。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
 
 在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有項目，包括 < and > 字元。
 
@@ -186,4 +186,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

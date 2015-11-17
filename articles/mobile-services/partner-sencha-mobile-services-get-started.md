@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>開始使用行動服務和 Sencha Touch
@@ -42,6 +42,7 @@
 - 下載及安裝 [Sencha Cmd 工具](http://www.sencha.com/products/sencha-cmd/download" target="\_blank")。
 
 - Java Runtime Environment (JRE) 或 Java Development Kit (如果您要建立 Android 應用程式)
+- Ruby 和 SASS gem。
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
@@ -94,7 +95,7 @@
 
 以下步驟可讓您以手動方式將 Azure 擴充功能新增至應用程式：
 
-1. 從[這裡](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure) (英文) 下載 Azure 擴充功能套件。(您可以使用 Sencha 論壇 ID 來存取此區域。)
+1. 從[這裡](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure) (英文) 下載 Azure 擴充功能套件。(您可以使用 Sencha 論壇 ID 來存取此區域。)
 
 2. 從下載目錄將 Azure 擴充功能套件複製到您想要放置套件的位置，然後將套件解除封裝：
 
@@ -111,7 +112,7 @@
 
 對於所有以 Sencha Cmd 產生的應用程式，其根目錄均有 "packages" 資料夾。您可以設定該資料夾的位置，但不論位置為何，"packages" 資料夾的角色在於成為容納應用程式 (或多個應用程式，如果您已建立 Sencha Workspace) 使用之所有套件的儲存體。
 
-由於 Ext.Azure 是 Sencha Cmd 套件，因此您可以輕鬆地使用 Sencha Cmd 來安裝來源程式碼並納入應用程式中。(如需詳細資訊，請參閱 [Sencha Cmd 套件](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages) (英文)。)
+由於 Ext.Azure 是 Sencha Cmd 套件，因此您可以輕鬆地使用 Sencha Cmd 來安裝來源程式碼並納入應用程式中。(如需詳細資訊，請參閱 [Sencha Cmd 套件](http://docs.sencha.com/cmd/6.x/cmd_packages/cmd_packages.html) (英文)。)
 
 若要從 Sencha Packages 儲存機制下載及安裝 Azure 擴充功能套件，您需要將套件名稱新增至 **app.json** 檔案並建置應用程式：
 
@@ -663,7 +664,7 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 
   2. 使用 Sencha Cmd 執行以下命令：
 
-    * *sencha app refresh*：這會指示 Sencha Cmd 找出所有的應用程式相依項目，並下載任何需要的封裝 (例如 [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure))。
+    * *sencha app refresh*：這會指示 Sencha Cmd 找出所有的應用程式相依項目，並下載任何需要的封裝 (例如 [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure))。
 
     * *sencha web start*：這會啟動本機 Web 伺服器以測試我們的應用程式。
 
@@ -675,7 +676,7 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 
     ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
 
-    如此會傳送 POST 要求到 Azure 中代管的新行動服務。Data from the request is inserted into the TodoItem table.
+    如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。
 
   5. 回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 表格。
 
@@ -701,7 +702,7 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 ##其他資源
 
   * [下載 Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
-  * [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure) (英文)
+  * [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure) (英文)
 
 
 ##摘要
@@ -716,4 +717,4 @@ Sencha Touch Extension for Azure 套件備有此處簡述的範例，其位於 B
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

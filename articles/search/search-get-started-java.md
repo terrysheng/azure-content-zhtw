@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始在 Java 中使用 Azure 搜尋服務 | Microsoft Azure"
+	pageTitle="開始以 Java 使用 Azure 搜尋服務 | Microsoft Azure | 雲端託管搜尋服務"
 	description="如何使用 Java 做為程式設計語言，在 Azure 上建置雲端託管搜尋應用程式。"
 	services="search"
 	documentationCenter=""
@@ -103,7 +103,7 @@
 
 3. 範例檔案為唯讀。請以滑鼠右鍵按一下資料夾內容，然後清除唯讀屬性。
 
-所有後續的檔案修改及執行陳述式都會用到此資料夾的檔案。
+所有後續的檔案修改及執行陳述式均會用到此資料夾的檔案。
 
 ## 匯入專案
 
@@ -231,4 +231,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

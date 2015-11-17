@@ -93,7 +93,7 @@
 
 	>[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
 	>
-	> 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
+	> 計算成本時會使用 24 小時內指定的最大單元數。如需價格詳細資料的相關資訊，請參閱[媒體服務價格詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
 
 ## 上傳內容
 
@@ -223,16 +223,15 @@ Azure 入口網站提供內容播放程式，您可用來測試您的視訊。
 
 
 
-##後續步驟
+##後續步驟：媒體服務學習路徑
 
-###媒體服務學習路徑
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-您可以在此檢視 AMS 學習路徑：
+##提供意見反應
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### 尋找其他內容嗎？
+## 尋找其他內容嗎？
 
 如果本主題未包含您預期的內容、缺少部分內容，或者提供了一些其他不符合您需求的方式，請在下方提供您使用 Disqus 執行緒的意見反應給我們。
 
@@ -261,4 +260,4 @@ Azure 入口網站提供內容播放程式，您可用來測試您的視訊。
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

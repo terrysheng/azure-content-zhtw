@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/05/2015" 
+	ms.date="11/05/2015" 
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>開始使用行動服務
@@ -39,7 +39,7 @@
 
 下載的快速入門專案包含 Xamarin.Android 的 Azure 行動服務元件。雖然這個專案的目標是 Android 4.2 或以上的版本，不過行動服務 SDK 只需要 Android 2.2 或以上的版本。
 
-> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5)。
+> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5)。
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
@@ -51,7 +51,7 @@
 
 在本節中，您將建立可連接到您行動服務的新 Xamarin.Android 應用程式。
 
-1.  在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
+1.  在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
 
 2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Xamarin.Android]，並展開 [Create a new Android app]。
 
@@ -77,7 +77,7 @@
 
 3. 按 [執行] 按鈕，以建立專案並啟動應用程式。系統將要求您選取模擬器或連接的 USB 裝置。
 
-	> [AZURE.NOTE]若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。請使用 AVD 管理員來建立和管理這些裝置。
+	> [AZURE.NOTE]若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。
 
 4. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下 [新增]。
 
@@ -141,4 +141,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="建立和管理 SQL Database 彈性資料庫集區 | Microsoft Azure"
-	description="建立單一資源集區供 Azure SQL Database 的群組共用。"
+	pageTitle="使用 Azure Preview 入口網站建立 Azure SQL Database 彈性資料庫集區 | Microsoft Azure"
+	description="建立彈性資料庫集區，以多個 Azure SQL Database 之間共用資源。"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,24 +10,26 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/29/2015"
+	ms.date="11/06/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# 建立彈性資料庫集區
+# 使用 Azure Preview 入口網站建立彈性資料庫集區
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-client-library.md)
+- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-本文說明如何建立彈性資料庫集區，來簡化建立、維護和管理多個資料庫的效能與成本的流程。在開始之前，您至少需要一個在 SQL Database V12 伺服器上的資料庫。如果沒有，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)，在 5 分鐘內建立一個資料庫。
+本文將說明如何使用 [Azure Preview 入口網站](sql-database-elastic-pool.md)建立彈性資料庫集區。
+
+> [AZURE.NOTE]彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server.md)。
 
 
-> [AZURE.NOTE]彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。
+在開始之前，您需要一個在 SQL Database V12 伺服器上的資料庫。如果沒有，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)，在 5 分鐘內建立一個資料庫。或者，如果您已有 SQL Database V11 伺服器，您可以[在入口網站中升級至 V12](sql-database-v12-upgrade.md)，然後再依照這些指示建立集區。
 
 
 ## 步驟 1：將集區加入伺服器
@@ -35,27 +37,27 @@
 將新的集區加入至伺服器，以建立彈性資料庫集區。您可以將多個集區加入至伺服器，但可以與每個集區相關聯的伺服器只有一 (1) 部。此外，可以將伺服器上的所有或部分資料庫加入至集區。
 
 
-在 [Azure Preview 入口網站](https://ms.portal.azure.com/)，按一下 [SQL 伺服器]，再按一下主控您要加入集區之資料庫的伺服器，然後按一下 [加入集區]。
+在 [Azure Preview 入口網站](https://ms.portal.azure.com/)，按一下 [SQL 伺服器]，再按一下裝載要新增至集區之資料庫的伺服器，然後按一下 [新增集區]。
 
 ![將集區加入伺服器](./media/sql-database-elastic-pool-portal/elastic-pool-add-pool.png)
 
 -或-
 
-如果您看到訊息說明伺服器有建議的集區，請按一下該集區，即可輕鬆地檢閱並建立最適合您伺服器資料庫的集區。如需詳細資訊，請參閱[建議的彈性資料庫集區](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)。
+如果您看到訊息說明伺服器有建議的集區，請按一下該集區，即可輕鬆地檢閱並建立最適合您伺服器資料庫的集區。如需詳細資料，請參閱[建議的彈性資料庫集區](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)。
    
   
-   ![建立彈性集區][1]
+![建立彈性集區][1]
 
 
-**彈性資料庫集區**刀鋒視窗提供選項，可選擇定價層、加入資料庫，以及設定集區的效能特性。
+[彈性資料庫集區] 刀鋒視窗提供的選項可讓您選擇定價層、新增資料庫，以及設定集區的效能特性。
 
-> [AZURE.NOTE]當您第一次選取 [加入集區] 命令時，必須選取 [預覽條款] 並完成 [預覽條款] 刀鋒視窗，接受預覽版的條款。各個訂用帳戶只需要進行一次這個程序。
+> [AZURE.NOTE]當您第一次選取 [新增集區] 命令時，必須選取 [預覽條款] 並完成 [預覽條款] 刀鋒視窗，接受預覽版的條款。各個訂用帳戶只需要進行一次這個程序。
 
    ![設定彈性集區][2]
 
 ## 步驟 2：選擇定價層
 
-集區的定價層決定了集區中彈性資料庫可用的功能，還有最大數目的 eDTU (eDTU MAX)，以及每個資料庫可用的儲存體 (GB)。如需詳細資訊，請參閱[服務層](sql-database-service-tiers.md#Service-tiers-for-elastic-database-pools)。
+集區的定價層決定了集區中彈性資料庫可用的功能，還有最大數目的 eDTU (eDTU MAX)，以及每個資料庫可用的儲存體 (GB)。如需詳細資料，請參閱[服務層](sql-database-service-tiers.md#Service-tiers-for-elastic-database-pools)。
 
 >[AZURE.NOTE]目前在預覽中，您無法在建立彈性資料庫集區的價格層之後進行變更。若要變更現有彈性集區的價格層，在所需的價格層中建立新的彈性集區，並且將彈性資料庫移轉至這個新的集區。
 
@@ -98,7 +100,7 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 
 ## 步驟 4：調整效能特性
 
-您可以藉由設定集區和集區中彈性資料庫的效能參數，來設定集區的效能。請記住，**彈性資料庫設定**會套用到集區中的所有資料庫。
+您可以藉由設定集區和集區中彈性資料庫的效能參數，來設定集區的效能。請記住，[彈性資料庫設定] 會套用到集區中的所有資料庫。
 
    ![設定彈性集區][3]
 
@@ -106,8 +108,8 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 
 | 效能參數 | 說明 |
 | :--- | :--- |
-| **POOL eDTU** - 集區的 eDTU 保證 | 集區的 eDTU 保證是保證的可用 eDTU 數目，且會由集區中的所有資料庫共用這些 eDTU。<br>佈建特定大小的群組 eDTU 保證時，應該考慮群組過去的 eDTU 使用量。或者，也可以根據每個資料庫所需的 eDTU 保證，以及在同時作用中資料庫的使用量，來設定這個大小。集區的 eDTU 保證也與集區的可用儲存體量相互關聯，您配置給集區的每個 eDTU，都會成為固定數量的資料庫儲存體。<br> **我應該將集區的 eDTU 保證設定為？** <br>您至少應該將集區的 eDTU 保證設為 ([資料庫數目] x [每個資料庫的 DTU 平均使用量])。 |
-| **eDTU MIN** - 每個資料庫的 eDTU 保證 | 每個資料庫的 eDTU 保證是集區中單一資料庫能夠保證的 eDTU 數。例如，在 Standard 集區中您可以將這項保證設定為 0、10、20、50 或 100 個 eDTU，或者您可以選擇不提供保證給群組中的資料庫 (eDTU MIN = 0)。<br> **我應該將每個資料庫的 eDTU 保證設定為？** <br>一般來說，每個資料庫的 eDTU 保證 (eDTU MIN) 會設為 0 和 ([每個資料庫的平均使用量]) 之間的任意數量。每個資料庫的 eDTU 保證是全域設定，會設定集區中所有資料庫的 eDTU 保證。 |
+| **POOL eDTU** - 集區的 eDTU 保證 | 集區的 eDTU 保證是保證的可用 eDTU 數目，且會由集區中的所有資料庫共用這些 eDTU。<br>佈建特定大小的群組 eDTU 保證時，應該考慮群組過去的 eDTU 使用量。或者，也可以根據每個資料庫所需的 eDTU 保證，以及在同時作用中資料庫的使用量，來設定這個大小。集區的 eDTU 保證也與集區的可用儲存體量相互關聯，您配置給集區的每個 eDTU，都會成為固定數量的資料庫儲存體。<br> **我應該將集區的 eDTU 保證設定為何？** <br>您至少應該將集區的 eDTU 保證設為 ([資料庫數目] x [每個資料庫的 DTU 平均使用量])。 |
+| **eDTU MIN** - 每個資料庫的 eDTU 保證 | 每個資料庫的 eDTU 保證是集區中單一資料庫能夠保證的 eDTU 數。例如，在 Standard 集區中您可以將這項保證設定為 0、10、20、50 或 100 個 eDTU，或者您可以選擇不提供保證給群組中的資料庫 (eDTU MIN = 0)。<br> **我應該將每個資料庫的 eDTU 保證設定為何？** <br>一般來說，每個資料庫的 eDTU 保證 (eDTU MIN) 會設為 0 和 ([每個資料庫的平均使用量]) 之間的任意數量。每個資料庫的 eDTU 保證是全域設定，會設定集區中所有資料庫的 eDTU 保證。 |
 | **eDTU MAX** - 每個資料庫的 eDTU 上限設定 | 每個資料庫的 eDTU 上限是集區中單一資料庫可使用的最大 eDTU 數。將每個資料庫的 eDTU 上限設定得夠高，才能有效處理資料庫可能會遇到的高負載量或暴增量。您可以將此上限設為系統限制的最大值，這會取決於集區的價格層 (Premium 為 1000 個 eDTU)。此上限的特定大小應該配合群組中資料庫的尖峰使用量模式。某種程度的群組過量使用是可預期的情況，因為集區通常會假設資料庫的熱門和冷門使用模式；在這些模式中，所有資料庫不會同時處於尖峰期。<br> **我應該將每個資料庫的 eDTU 上限設定為？** <br> 請將每個資料庫的 eDTU MAX 或 eDTU 上限設定設為 ([資料庫尖峰使用量])。例如，假設每個資料庫的尖峰使用量是 50 個 DTU，且群組中的 100 個資料庫只有 20% 會同時暴增到尖峰。如果每個資料庫的 eDTU 上限設為 50 個 eDTU，則以 5 倍的量過量使用集區，並將群組的 eDTU 保證 (集區 eDTU) 設為 1,000 個 eDTU 都是合理的。此外值得注意的是，eDTU 上限不等於資料庫的資源保證，這只是情況許可時能達到的 eDTU 上限而已。 |
 
 ## 建議的彈性資料庫集區
@@ -135,7 +137,7 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 
 ## 對集區加入和移除資料庫
 
-建立集區後，您可以在 [加入資料庫] 頁面上選取或清除資料庫，藉此將資料庫加進或移出集區。
+建立集區後，您可以在 [新增資料庫] 頁面上選取或清除資料庫，藉以將資料庫加進或移出集區。
 
 建立集區之後，您也可以使用 Transact-SQL 在集區中建立新的彈性資料庫，以及將資料庫移入和移出集區。如需詳細資訊，請參閱[彈性資料庫集區參考 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)。*
 
@@ -199,4 +201,4 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

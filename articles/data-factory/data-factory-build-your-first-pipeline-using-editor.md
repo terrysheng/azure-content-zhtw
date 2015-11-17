@@ -81,7 +81,7 @@
 	![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	在編輯器中，您應該會看到用來建立 Azure 儲存體連結服務的 JSON 指令碼。 
-4. 使用您的 Azure 儲存體帳戶名稱取代**帳戶名稱**，並使用 Azure 儲存體帳戶的存取金鑰取代**帳戶金鑰**。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)。
+4. 使用您的 Azure 儲存體帳戶名稱取代**帳戶名稱**，並使用 Azure 儲存體帳戶的存取金鑰取代**帳戶金鑰**。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 5. 按一下命令列的 [部署]，部署連結服務。
 
 	![[部署] 按鈕](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -235,7 +235,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](./data-factory-get-started.md)。
   
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md)提交您的意見反應。
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

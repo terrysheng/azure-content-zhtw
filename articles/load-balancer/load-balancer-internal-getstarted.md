@@ -23,6 +23,7 @@
 
 Azure 內部負載平衡 (ILB) 可在位於雲端服務或虛擬網路 (具有區域範圍) 中的虛擬機器之間提供負載平衡。如需使用和設定具有區域範圍之虛擬網路的相關資訊，請參閱[區域虛擬網路](virtual-networks-migrate-to-regional-vnet.md)。已針對同質群組設定的現有虛擬網路無法使用 ILB。
 
+
 ## 若要建立虛擬機器的內部負載平衡集合
 
 若要建立 Azure 內部負載平衡集合以及會將其流量傳送至該集合的伺服器，您必須執行下列作業：
@@ -332,4 +333,4 @@ Contoso Corporation 想要在 Azure 的一組 Web 伺服器上裝載特定業務
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

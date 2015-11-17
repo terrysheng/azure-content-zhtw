@@ -44,6 +44,7 @@
 |**地緣政治區域**|**Azure 區域**|**ExpressRoute 位置**|
 |---|---|---|---|
 |**美國政府雲端**|美國政府|愛荷華州、維吉尼亞州|阿士伯恩、芝加哥|
+|**中國雲端**|中國|東北部|
 
 
 標準 ExpressRoute SKU 不支援跨地緣政治區域的連線。您必須啟用 ExpressRoute 進階附加元件，以支援全球連線。不支援連線至國家雲端環境。如果有需要的話，您可以聯絡您的連線提供者。
@@ -55,8 +56,8 @@
 
 | **服務提供者** |**Microsoft Azure** | **Office 365** | **位置** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Aryaka 網路](http://www.aryaka.com/)** | 支援 | 支援 | 阿姆斯特丹、矽谷、新加坡、華盛頓特區 |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 支援 | 支援 | 阿姆斯特丹、倫敦+、達拉斯、矽谷、華盛頓特區 |
+| **[Aryaka Networks](http://www.aryaka.com/)** | 支援 | 支援 | 阿姆斯特丹、矽谷、新加坡、華盛頓特區 |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 支援 | 支援 | 阿姆斯特丹、倫敦、達拉斯、矽谷、華盛頓特區 |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 支援 | 支援 | 阿姆斯特丹、倫敦、矽谷、新加坡、東京、華盛頓特區 |
 |**China Telecom Global** | 敬請期待 | 不支援 | 香港+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 支援 | 不支援 | 阿姆斯特丹、倫敦 |
@@ -93,7 +94,14 @@
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 支援 | 不支援 | 芝加哥+、華盛頓特區 |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 敬請期待 | 不支援 | 芝加哥+、華盛頓特區+ |
 | **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 支援 | 不支援 | 芝加哥+、華盛頓特區 |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 不支援 | 芝加哥+、華盛頓特區 |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 不支援 | 芝加哥、華盛頓特區 |
+
+#### 中國雲端
+
+| **服務提供者** |**Microsoft Azure** | **Office 365** | **位置** |
+|-----------------------|--------------------|----------------|---------------|
+| **China Telecom** | 支援 | 不支援 | 北京、上海+|
+若要深入了解，請參閱 [ExpressRoute (中國)](http://www.windowsazure.cn/home/features/expressroute/)。
 
 ## 透過未列出的服務提供者連線
 
@@ -127,6 +135,6 @@
 ## 後續步驟
 
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
-- 請確定符合所有先決條件。請參閱 [ExpressRoute 先決條件](expressroute-prerequisites.md)。
+- 請確定符合所有必要條件。請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

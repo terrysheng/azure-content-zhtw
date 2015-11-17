@@ -28,7 +28,7 @@
 
 
 
-本教學課程將示範在 Preview 入口網站中建立 Azure 虛擬機器 (VM) 有多麼容易，只需數分鐘而已。我們將使用 Windows Server 2012 R2 資料中心映像做為範例來建立虛擬機器，但這只是 Azure 提供之眾多映像的其中一個。您的映像選擇取決於訂用帳戶。例如，桌面映像可能可供 MSDN 訂閱者使用。
+本教學課程示範在 Azure Preview 入口網站中建立 Azure 虛擬機器有多麼容易，只需數分鐘。我們將使用 Windows Server 2012 R2 資料中心映像做為範例來建立虛擬機器，但這只是 Azure 提供之眾多映像的其中一個。您的映像選擇取決於訂用帳戶。例如，桌面映像可能可供 MSDN 訂閱者使用。
 
 您也可以使用自己的映像，搭配資源管理員範本或自動化工具來建立虛擬機器。若要深入瞭解不同的方法，請參閱[建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)。
 
@@ -44,7 +44,7 @@
 
 ## 選取映像
 
-1. 登入 [Preview 入口網站](https://portal.azure.com)。
+1. 登入 Azure Preview 入口網站。
 
 2. 在 [中樞] 功能表上，依序按一下 [新增] > [計算] > [Windows Server 2012 R2 資料中心]。
 
@@ -60,7 +60,7 @@
 
 選取映像之後，您可以針對多數組態使用 Azure 的預設設定，並快速建立虛擬機器。
 
-1. 在 [建立虛擬機器] 刀鋒視窗中，按一下 [基本概念]。輸入您想給予虛擬機器的**名稱**、系統管理**使用者名稱**，以及強式**密碼**。如果您有一個以上的訂用帳戶，請針對新的虛擬機器，以及新的或現有的**資源群組**和 Azure 資料中心**位置**，指定一個訂用帳戶。
+1. 在 [**建立虛擬機器**] 刀鋒視窗 中，按一下 [**基本概念**]。輸入您想給予虛擬機器的 [名稱]、系統管理 [使用者名稱] 和強式 [密碼]。如果您有多個訂用帳戶，請針對新的虛擬機器，以及新的或現有的 [資源群組] 和 Azure 資料中心 [位置]，指定一個訂用帳戶。
 
 	![設定 VM 基本概念](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
@@ -70,13 +70,13 @@
 
 	![設定 VM 大小](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE]進階儲存體可供某些區域的 DS 系列虛擬機器使用。進階儲存體對於如資料庫這類資料密集的工作負載是最佳的儲存體選項。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+	>[AZURE.NOTE]進階儲存體可供某些區域的 DS 系列虛擬機器使用。進階儲存體對於如資料庫這類資料密集的工作負載是最佳的儲存體選項。如需詳細資料，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
 
 3. 按一下 [設定] 以查看新虛擬機器的儲存體和網路設定。若為第一個虛擬機器，通常您可以接受預設的設定。如果您選取支援的虛擬機器大小，可以藉由選取 [磁碟類型] 下的 [進階 (SSD)] 嘗試進階儲存體。
 
 	![設定 VM 設定](./media/virtual-machines-windows-tutorial/create_vm_settings.PNG)
 
-6. 按一下 [**摘要**] 以檢閱您的組態選擇。當您檢閱或更新設定後，請按一下 [建立]。
+6. 按一下 [摘要] 以檢閱您的組態選擇。當您檢閱或更新設定後，請按一下 [建立]。
 
 	![設定 VM 設定](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
@@ -88,7 +88,7 @@
 
 >[AZURE.NOTE]如需要求和疑難排解提示，請參閱[透過 RDP 或 SSH 連接至 Azure 虛擬機器](https://msdn.microsoft.com/library/azure/dn535788.aspx)。
 
-1. 如果您尚未登入 [Preview 入口網站](https://portal.azure.com)，請先登入。
+1. 如果您未曾執行過這項操作，請登入 Azure Preview 入口網站。
 
 2. 在 [開始面板] 上按一下虛擬機器。如果您需要尋找它，請按一下 [全部瀏覽] > [最近]，或 [全部瀏覽] > [虛擬機器]。然後從清單中選取您的虛擬機器。
 
@@ -111,4 +111,4 @@
 * 使用 Azure PowerShell 和 Azure CLI [尋找並選取虛擬機器映像](resource-groups-vm-searching.md)。
 * 使用 [Azure 資源管理員](virtual-machines-how-to-automate-azure-resource-manager.md)和 [Azure 資源管理員範本](http://azure.microsoft.com/documentation/templates/)，自動部署和管理虛擬機器和工作負載。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

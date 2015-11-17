@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/02/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 
@@ -94,20 +94,15 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [將行動服務新增至現有的應用程式][Get started with data]
-  <br/>深入了解使用行動服務來儲存與查詢資料。
+* [將行動服務新增至現有的應用程式][Get started with data] <br/>深入了解使用行動服務來儲存與查詢資料。
 
-* [開始使用離線資料同步]
-  <br/>了解如何使用離線資料同步，讓您的應用程式更穩健及具備回應力。
+* [開始使用離線資料同步] <br/>了解如何使用離線資料同步，讓您的 App 更穩健及具備回應力。
 
-* [將驗證新增至行動服務應用程式][Get started with authentication]
-  <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [將驗證新增至行動服務 App][Get started with authentication] <br/>了解如何向身分識別提供者驗證 App 的使用者。
 
-* [將推播通知新增至您的應用程式][Get started with push notifications]
-  <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至您的應用程式][Get started with push notifications] <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
-* [行動服務 .NET 後端疑難排解]
-  <br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
+* [行動服務 .NET 後端疑難排解]<br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
 如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs) (英文)。
 
@@ -133,4 +128,4 @@
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

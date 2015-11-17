@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/22/2015"
+   ms.date="11/02/2015"
    ms.author="bwren" />
 
 # 設定 Azure 自動化
@@ -21,7 +21,7 @@
 
 ## 自動化帳戶
 
-當您第一次啟動 Azure 自動化時，您必須建立至少一個自動化帳戶。自動化帳戶可讓您將您的自動化資源 (Runbook、資產) 與其他自動化帳戶中包含的自動化資源中區隔。您可以使用自動化帳戶，將自動化資源分成個別的邏輯環境。例如，您可能會使用一個帳戶進行開發和另一個用於生產環境。
+當您第一次啟動 Azure 自動化時，您必須建立至少一個自動化帳戶。自動化帳戶可讓您將您的自動化資源 (Runbook、資產、組態) 與其他自動化帳戶中包含的自動化資源中區隔。您可以使用自動化帳戶，將自動化資源分成個別的邏輯環境。例如，您可能會使用一個帳戶進行開發和另一個用於生產環境。
 
 每個自動化帳戶的自動化資源都會與單一 Azure 區域相關聯，但自動化帳戶可管理任何區域中的 Azure 服務。在不同區域建立自動化帳戶的主要原因會是，若您擁有需要區隔資料和資源到特定區域的原則時。
 
@@ -67,4 +67,4 @@
 - [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

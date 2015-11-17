@@ -1,5 +1,5 @@
 <properties
-	pageTitle="搭配 Azure 搜尋服務使用 Chrome Postman | Microsoft Azure"
+	pageTitle="搭配 Azure 搜尋服務使用 Chrome Postman | Microsoft Azure | 雲端託管搜尋服務"
 	description="搭配 Azure 搜尋服務 (雲端託管搜尋服務) 使用 Chrome Postman。安裝並設定 Postman。建立 Azure 搜尋服務索引。使用 Postman 張貼文件和查詢索引。"
 	services="search"
 	documentationCenter=""
@@ -14,10 +14,16 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/10/2015"
 	ms.author="heidist"/>
 
 # 如何搭配 Azure 搜尋服務使用 Chrome Postman #
+> [AZURE.SELECTOR]
+- [Overview](search-query-overview.md)
+- [Fiddler](search-fiddler.md)
+- [Postman](search-chrome-postman.md)
+- [.NET](search-query-dotnet.md)
+- [REST](search-query-rest-api.md)
 
 [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") 是 Google Chrome 的一種工具，可讓開發人員有效搭配使用 Azure 搜尋服務這類的 REST API 服務。您可透過 Postman 傳送 API 呼叫，不需撰寫任何程式碼，即可使用 Postman 快速建立與查詢搜尋索引。這個方法可讓您有效了解 API 並嘗試新功能。
 
@@ -118,4 +124,4 @@
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

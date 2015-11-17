@@ -13,18 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="09/02/2015"
+   ms.date="11/05/2015"
    ms.author="elizapo"/>
 
 # 使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式
 
-只要使用 Azure RemoteApp，您可以在任何裝置的任何位置立即執行 Windows 應用程式。不論是 Internet Explorer 6、10 年前撰寫的自訂應用程式還是 Office 應用程式，您的使用者不再需要繫結至數個應用程式的特定作業系統 (如 Windows XP)。
+只要使用 Azure RemoteApp，您可以在任何裝置的任何位置立即執行 Windows 應用程式。不論是 10 年前撰寫的自訂應用程式還是 Office 應用程式，您的使用者不再需要繫結至數個應用程式的特定作業系統 (如 Windows XP)。
 
 有了 Azure RemoteApp，您的使用者也可以使用專屬 Android 或 Apple 裝置，以及取得與 Windows (或 Windows Phone) 上的相同經驗。完成方式是在 Azure 的 Windows 虛擬機器集合中裝載 Windows 應用程式，而您的使用者可以從具有網際網路連線的任何地方進行存取。
 
 請繼續往下看，可找到如何執行這項操作的範例。
 
-在本文中，我們會與所有使用者共用 Access。不過，您可以使用任何應用程式。只要您可以在 Windows Server 2012 R2 電腦上安裝您的應用程式，就可以使用下列步驟進行共用。您可以檢閱[應用程式需求](remoteapp-appreqs)，確認應用程式可以運作。
+在本文中，我們會與所有使用者共用 Access。不過，您可以使用任何應用程式。只要您可以在 Windows Server 2012 R2 電腦上安裝您的應用程式，就可以使用下列步驟進行共用。您可以檢閱[應用程式需求](remoteapp-appreqs.md)，確認應用程式可以運作。
 
 請注意：因為 Access 是一個資料庫，而且我們想要使用該資料庫，所以我們會進行一些額外的步驟，讓使用者存取 Access 資料共用。如果您的應用程式不是資料庫，或不需要使用者能夠存取檔案共用，您可以略過本教學課程中的這些步驟
 
@@ -55,12 +55,9 @@
 
 如果您在建立集合時離開 Azure RemoteApp 節點，請從 Azure 首頁回到該節點開始。
 
-2. 按一下您先前建立的集合來存取其他選項和設定集合。
-![新的 RemoteApp 雲端集合](./media/remoteapp-anyapp/ra-anyappcollection.png)
-3. 在 [**發佈**] 索引標籤上，按一下畫面底部的 [**發佈**]，然後按一下 [**發佈開始功能表程式**]。
-![發佈 RemoteApp 程式](./media/remoteapp-anyapp/ra-anyapppublish.png)
-4. 從清單中，選取您想要發佈的應用程式。基於我們的目的，我們已選擇 [Access]。按一下 [完成]。等候應用程式完成發佈。
-![在 RemoteApp 中發佈 Access](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
+2. 按一下您先前建立的集合來存取其他選項和設定集合。![新的 RemoteApp 雲端集合](./media/remoteapp-anyapp/ra-anyappcollection.png)
+3. 在 [**發佈**] 索引標籤上，按一下畫面底部的 [**發佈**]，然後按一下 [**發佈開始功能表程式**]。![發佈 RemoteApp 程式](./media/remoteapp-anyapp/ra-anyapppublish.png)
+4. 從清單中，選取您想要發佈的應用程式。基於我們的目的，我們已選擇 [Access]。按一下 [完成]。等候應用程式完成發佈。![在 RemoteApp 中發佈 Access](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
 
 
 1. 應用程式完成發佈之後，請前往 [**使用者存取**] 索引標籤，新增所有需要存取您應用程式的使用者。輸入您使用者的使用者名稱 (電子郵件地址)，然後按一下 [儲存]。
@@ -68,8 +65,7 @@
 ![將使用者新增至 RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
 
 
-1. 現在，就可以開始告訴您的使用者有關這些新應用程式的存取方式。若要這樣做，請將使用者指向遠端桌面用戶端下載 URL 的電子郵件傳送給您的使用者。
-![RemoteApp 的用戶端下載 URL](./media/remoteapp-anyapp/ra-anyappurl.png)
+1. 現在，就可以開始告訴您的使用者有關這些新應用程式及其存取方式。若要這樣做，請將使用者指向遠端桌面用戶端下載 URL 的電子郵件傳送給您的使用者。![RemoteApp 的用戶端下載 URL](./media/remoteapp-anyapp/ra-anyappurl.png)
 
 ## 設定 Access 的存取權
 
@@ -78,15 +74,11 @@
 第一部分是您以系統管理員身分執行的作業。然後，是您的使用者執行的一些步驟。
 
 1. 請從發佈命令列介面 (cmd.exe) 開始。在 [**發佈**] 索引標籤中，選取 [**cmd**]，然後按一下 [**發佈 > 使用路徑發佈程式**]。
-2. 輸入應用程式和路徑的名稱。基於我們的目的，使用 "File Explorer" 做為名稱並使用 "%SYSTEMDRIVE%\\windows\\explorer.exe" 做為路徑。
-![發佈 cmd.exe 檔案。](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. 現在，您需要建立 Azure [儲存體帳戶](../storage-create-storage-account.md)。我們命名為 "accessstorage"，因此請選擇對您有意義的名稱 (只能有一個 "accessstorage")。
-![Azure 儲存體帳戶](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. 現在，回到您的儀表板，以取得您儲存體的路徑 (端點位置)。您將立即使用此項，因此請確定在某個位置複製它。
-
-![儲存體帳戶路徑](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
-5.接著，建立儲存體帳戶之後，您需要有主要存取金鑰。按一下 [**管理存取金鑰**]，然後複製主要存取金鑰。
-6.現在，設定儲存體帳戶的內容，並建立 Access 的新檔案共用。在提升權限的 Windows PowerShell 視窗中，執行下列 Cmdlet：
+2. 輸入應用程式和路徑的名稱。基於我們的目的，使用 "File Explorer" 做為名稱並使用 "%SYSTEMDRIVE%\\windows\\explorer.exe" 做為路徑。![發佈 cmd.exe 檔案。](./media/remoteapp-anyapp/ra-publishcmd.png)
+3. 現在，您需要建立 Azure [儲存體帳戶](../storage-create-storage-account.md)。我們的命名為 "accessstorage"，因此請選擇對您有意義的名稱。(若要誤引 Highlander，則只能有一個 "accessstorage"。)![Azure 儲存體帳戶](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+4. 現在，回到您的儀表板，以取得您儲存體的路徑 (端點位置)。您將經常用到它，因此請確定在某個位置複製它。![儲存體帳戶路徑](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
+5. 接著，建立儲存體帳戶之後，您需要有主要存取金鑰。按一下 [**管理存取金鑰**]，然後複製主要存取金鑰。
+6. 現在，設定儲存體帳戶的內容，並建立 Access 的新檔案共用。在提升權限的 Windows PowerShell 視窗中，執行下列 Cmdlet：
 
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
@@ -105,10 +97,8 @@
 		net use z: \<accountname>.file.core.windows.net<share name> /u:<user name> <account key>
 
 	如果您將 **/persistent** 參數設定為 yes，對應的磁碟機將在工作階段之間持續保存。
-1. 現在，從 RemoteApp 啟動 File Explorer 應用程式。將您要在共用的應用程式中使用的任何 Access 檔案複製至檔案共用。
-![將 Access 檔案放在 Azure 共用中](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
-1. 最後，開啟 Access，然後開啟您剛共用的資料庫。您應該會看到從雲端執行的 Access 中的資料。
-![從雲端執行的實際 Access 資料庫](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
+1. 現在，從 RemoteApp 啟動 File Explorer 應用程式。將您要在共用的應用程式中使用的任何 Access 檔案複製至檔案共用。![將 Access 檔案放在 Azure 共用中](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
+1. 最後，開啟 Access，然後開啟您剛共用的資料庫。您應該會看到從雲端執行的 Access 中的資料。![從雲端執行的實際 Access 資料庫](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
 
 現在，您可以在任何裝置上使用 Access - 只要確定您安裝 RemoteApp 用戶端。
 
@@ -119,4 +109,4 @@
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

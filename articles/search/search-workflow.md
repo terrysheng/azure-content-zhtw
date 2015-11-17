@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 搜尋服務開發的一般工作流程 | Microsoft Azure"
+	pageTitle="Azure 搜尋服務開發的一般工作流程 | Microsoft Azure | 雲端託管搜尋服務"
 	description="一個工作流程或藍圖，用於建置原型以及與 Azure 搜尋服務 (雲端託管搜尋服務) 整合的生產應用程式。"
 	services="search"
 	documentationCenter=""
@@ -190,4 +190,4 @@ Azure 搜尋服務中其中一個較吸引人的功能是可以輕鬆地放大�
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

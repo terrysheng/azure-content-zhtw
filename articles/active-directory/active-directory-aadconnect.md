@@ -106,7 +106,7 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 
 如果之前沒有使用過同步處理拓撲，您可能想要開始了解[技術概念](active-directory-aadconnectsync-technical-concepts.md)中所述的基本概念和術語。Azure AD Connect 是 MIIS2003、ILM2007 和 FIM2010 的進化。即使有些東西相同，但改變的卻更多。
 
-組態會假設組態中可能有多個樹系。在那些拓撲中，使用者物件可能會表示為另一個樹系中的連絡人。使用者也可能在另一個資源樹系中具有連結的信箱。預設組態的行為載明於[使用者和連絡人](active-directory-aadconnectsync-understanding-users-and-contacts.md)中。
+[預設組態](active-directory-aadconnectsync-understanding-default-configuration.md)會假設組態中可能有多個樹系。在那些拓撲中，使用者物件可能會表示為另一個樹系中的連絡人。使用者也可能在另一個資源樹系中具有連結的信箱。預設組態的行為載明於[使用者和連絡人](active-directory-aadconnectsync-understanding-users-and-contacts.md)中。
 
 同步處理中的組態模型稱為[宣告式佈建](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)。進階屬性流程會使用[函式](active-directory-aadconnectsync-functions-reference.md)來表示屬性轉換。您可以使用 Azure AD Connect 隨附的工具來查看整個組態。如果您需要對組態進行變更，請確定您遵循[最佳作法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)，因為當有新版本可用時，將可以更輕鬆地採用這些版本。
 
@@ -115,6 +115,7 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 | 主題 | |
 | --------- | --------- |
 | 技術概念 | [Azure AD Connect 同步處理：技術概念](active-directory-aadconnectsync-technical-concepts.md) |
+| 了解預設組態 | [Azure AD Connect 同步處理：了解預設組態](active-directory-aadconnectsync-understanding-default-configuration.md) |
 | 了解使用者和連絡人 | [Azure AD Connect 同步處理：了解使用者和連絡人](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | 宣告式佈建 | [Azure AD Connect 同步處理：了解宣告式佈建運算式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | 宣告式佈建函式參考 | [Azure AD Connect 同步處理：函式參考](active-directory-aadconnectsync-functions-reference.md) |
@@ -138,4 +139,4 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

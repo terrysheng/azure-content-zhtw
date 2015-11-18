@@ -503,4 +503,4 @@
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

@@ -30,7 +30,9 @@
 [Hadoop 串流](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
 [機器學習服務 Batch 評分](data-factory-create-predictive-pipelines.md) | Azure VM 
 [預存程序](data-factory-stored-proc-activity.md) | Azure SQL | 
-[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 或 Azure Batch    
+[資料湖分析 U-SQL](data-factory-usql-activity.md) | Azure 資料湖分析 
+[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 或 Azure Batch
+    
 
 您需要為運算環境建立連結的服務，然後在定義轉換活動時使用連結的服務。Data Factory 支援兩種類型的資運算環境。
 
@@ -42,4 +44,4 @@
 ## 傳送意見
 非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md)提交您的意見反應。
 
-<!----HONumber=Nov15_HO1-->
+<!-----HONumber=Nov15_HO1-->

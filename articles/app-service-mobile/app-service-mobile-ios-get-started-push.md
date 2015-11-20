@@ -71,4 +71,4 @@
 <!-- URLs. -->
 [iOS 快速入門]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->

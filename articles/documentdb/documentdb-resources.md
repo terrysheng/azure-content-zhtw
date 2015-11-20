@@ -34,7 +34,8 @@ DocumentDB 管理的資料庫實體稱為**資源**。每個資源可透過邏�
 
 >[AZURE.NOTE]DocumentDB 提供高效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 [.NET 用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 取得。
 
-![DocumentDB 階層式資源模型][1] **階層式資源模型**
+![DocumentDB 階層式資源模型][1]  
+**階層式資源模型**
 
 若要開始使用資源，您必須使用 Azure 訂用帳戶[建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)。資料庫帳戶可以是由一組**資料庫**所組成，每個資料庫都包含多個**集合**，而每個集合又依序包括**預存程序、觸發程序、UDF、文件**及相關**附件** (預覽功能)。資料庫也有相關聯的**使用者**，每位使用者都有一組可存取集合、預存程序、觸發程序、UDF、文件或附件的**權限**。雖然資料庫、使用者、權限和集合都是具有已知結構描述的系統定義資源，但是文件和附件包含任意使用者定義 JSON 內容。
 
@@ -78,6 +79,8 @@ DocumentDB 不會要求您提供用於 JSON 標準或特殊編碼的專屬延伸
 |/dbs/{_rid-db} |唯一 id 屬性值為 {_rid-db} 的資料庫
 |/dbs/{_rid-db}/colls/ |資料庫下轄集合的摘要
 |/dbs/{_rid-db}/colls/{_rid-coll} |唯一 id 屬性值為 {_rid-coll} 的集合
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs |集合下轄文件的摘要
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |id 符合值 {_rid-doc} 的文件
 |/dbs/{_rid-db}/users/ |資料庫下轄使用者的摘要
 |/dbs/{_rid-db}/users/{_rid-user} |唯一 id 屬性值為 {_rid-user} 的使用者
 |/dbs/{_rid-db}/users/{_rid-user}/permissions |資料庫下轄權限的摘要
@@ -109,7 +112,7 @@ MediaStorageUsageInMB (READ)|資料庫帳戶的目前媒體儲存體使用情形
 ## 資料庫
 DocumentDB 資料庫是一個或多個集合和使用者的邏輯容器，如下圖所示。您可以在 DocumentDB 資料庫帳戶下，根據供應項目限制建立任意數目的資料庫。
 
-![資料庫帳戶和集合階層式模型][2] 
+![資料庫帳戶和集合階層式模型][2]  
 
 **資料庫是使用者和集合的邏輯容器**
 
@@ -393,7 +396,7 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 
 不論您選擇的特定分區化策略為何，您可以將實際使用者建模為 DocumentDB 資料庫中的使用者，並將微調權限關聯至每個使用者。
 
-![使用者集合][3] 
+![使用者集合][3]  
 
 **分區化策略和模型化使用者**
 
@@ -414,4 +417,4 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->

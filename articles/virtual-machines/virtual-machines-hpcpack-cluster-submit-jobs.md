@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -156,14 +156,14 @@ net start hpcscheduler
 
     [HPC 工作管理員] 隨即開啟，並顯示前端節點上的工作清單。
 
-**在前端節點上使用 Web 型工作入口網站**
+**使用在前端節點上執行的 Web 入口網站**
 
 1. 在用戶端電腦上啟動網頁瀏覽器，並輸入下列位址：```
     https://HeadNodeDnsName.cloudapp.net/HpcPortal
     ```
 2. 在出現的安全性對話方塊中，輸入 HPC 叢集系統管理員的網域認證。(您也可以在不同的角色中新增其他叢集使用者。如需詳細資訊，請參閱[管理叢集使用者](https://technet.microsoft.com/library/ff919335.aspx)。)
 
-    入口網站會開啟並顯示工作清單檢視。
+    Web 入口網站會開啟並顯示工作清單檢視。
 
 3. 若要提交會從叢集傳回字串 "Hello World" 的範例工作，請按一下左側導覽列中的 [新增工作]。
 
@@ -183,4 +183,4 @@ net start hpcscheduler
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/04/2015"
+   ms.date="11/11/2015"
    ms.author="tomfitz"/>
 
 # 資源管理員對於服務、區域和 API 版本的支援
@@ -62,15 +62,15 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
 | DocumentDB | 是 | [是](https://portal.azure.com/#create/Microsoft.DocumentDB) | 是 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| 儲存體 | 是 | [是](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [建立儲存體](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
+| 儲存體 | 是 | [是](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [建立儲存體](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [儲存體帳戶](resource-manager-template-storage.md) |
 | Redis 快取 | 是 | [是](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | 是 | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL Database | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| SQL Database | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | 搜尋 | 是 | [是](https://portal.azure.com/#create/Microsoft.Search) | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL 資料倉儲 | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
 | StorSimple | 否 | 否 | - | - | - |
 | 備份 | 否 | 否 | - | - | - |
 | Site Recovery | 否 | 否 | - | - | - |
-| StorSimple | 否 | 否 | - | - | - | | 受管理快取 | 否 | 否 | - | - | - |
+| 受管理的快取 | 否 | 否 | - | - | - |
 | 資料目錄 | 否 | 否 | - | - | - |
 
 ## Analytics
@@ -136,12 +136,19 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | Operational Insights | 是 | 否 | 是 | | |
 | IoTHubs | 是 | [是](https://portal.azure.com/#create/Microsoft.IotHub) | | | |
 
+## 資源管理員
+
+| 功能 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| Authorization | 是 | N/A | N/A | [管理鎖定](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[角色型存取控制](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [資源鎖定](resource-manager-template-lock.md)<br />[角色指派](resource-manager-template-role.md) |
+| 資源 | 是 | N/A | N/A | [Linked resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [資源連結](resource-manager-template-links.md) |
+
 
 ## 支援的區域
 
 部署資源時，通常需要指定資源的區域。所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。這些限制可能與您所在國家/地區的稅務問題有關，或者與由您的訂用帳戶管理員所放置，只能使用特定區域的原則結果有關。
 
-若要取得所有 Azure 服務之所有支援區域的完整清單，請參閱[依區域提供的服務](https://azure.microsoft.com/regions/#services)。不過，這份清單可能包含您的訂用帳戶不支援的區域。您可以藉由執行下列其中一個命令，來判斷您的訂用帳戶支援之特定資源類型的區域。
+若要取得所有 Azure 服務之所有支援區域的完整清單，請參閱[依地區提供的服務](https://azure.microsoft.com/regions/#services)。不過，這份清單可能包含您的訂用帳戶不支援的區域。您可以藉由執行下列其中一個命令，來判斷您的訂用帳戶支援之特定資源類型的區域。
 
 ### REST API
 
@@ -235,4 +242,4 @@ Azure PowerShell 0.9.8 請使用：
 - 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

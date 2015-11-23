@@ -20,17 +20,19 @@
 
 本主題說明如何在主要的 Azure App Service 行動應用程式案例中使用 .NET 後端伺服器 SDKAzure 行動應用程式 SDK 可協助您從 ASP.NET 應用程式使用行動用戶端。
 
+>[AZURE.TIP] [適用於 Azure Mobile Apps 的 .NET 伺服器 SDK](https://github.com/Azure/azure-mobile-apps-net-server) 是在 GitHub 上的開放原始碼。儲存機制包含整個伺服器 SDK 單元測試組件以及一些範例專案。
+
 ## 做法：下載並初始化 SDK
 
 SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本功能。若要初始化 SDK，您需要在 **HttpConfiguration** 物件上執行動作。
 
 ###安裝 SDK
 
-若要安裝 SDK，以滑鼠右鍵按一下 Visual Studio 中的伺服器專案，選取 [管理 NuGet 封裝]，搜尋 [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) 封裝，然後按一下 [安裝]。
+若要安裝 SDK，請以滑鼠右鍵按一下 Visual Studio 中的伺服器專案，選取 [管理 NuGet 封裝]，搜尋 [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) 封裝，然後按一下 [安裝]。
 
-###初始化伺服器專案
+###<a name="server-project-setup"></a>初始化伺服器專案
 
-初始化 .NET 後端伺服器專案的方式類似其他 ASP.NET 專案，可藉由包含 OWIN 啟動類別來完成。若要在 Visual Studio 中新增這個類別，可使用滑鼠右鍵按一下伺服器專案、選取 [新增] -> [新項目]，然後依序選取 [Web] -> [一般] -> [OWIN 啟動類別]。
+初始化 .NET 後端伺服器專案的方式類似其他 ASP.NET 專案，可藉由包含 OWIN 啟動類別來完成。若要在 Visual Studio 中新增這個類別，請使用滑鼠右鍵按一下伺服器專案、選取 [新增] -> [新項目]，然後依序選取 [Web] -> [一般] -> [OWIN 啟動類別]。
 
 這將會產生具有下列屬性的類別：
 
@@ -56,7 +58,7 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-許多功能的擴充方法都可透過其他您可以包含的 NuGet 封裝提供使用，於下節中說明。從 Azure 入口網站的伺服器快速入門呼叫 **UseDefaultConfiguration()**。此命令相當於下列設定：
+許多功能的擴充方法都可透過其他您可以包含的 NuGet 封裝提供使用，於下節中說明。Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()**。此命令相當於下列設定：
     
 		new MobileAppConfiguration()
 			.AddMobileAppHomeController()             // from the Home package
@@ -73,11 +75,11 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 
 ### SDK 延伸模組
 
-下列 NuGet 型擴充套件提供了許多您應用程式可以使用的行動功能。您可以使用 **MobileAppConfiguration** 物件，在初始化期間啟用擴充套件。
+下列 NuGet 型擴充套件提供了許多您應用程式可以使用的行動功能。您可以使用 **MobileAppConfiguration** 物件，在初始化期間啟用擴充功能。
 
 - [Microsoft.Azure.Mobile.Server.Quickstart] 支援基本的 Mobile Apps 設定。在初始化期間，透過呼叫 **UseDefaultConfiguration** 擴充方法來新增到組態。此延伸模組包含下列延伸模組：通知、驗證、實體、資料表，Crossdomain 與首頁封裝。這就相當於您從 Azure 入口網站下載的快速入門伺服器專案。
 
-- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 實作網站根目錄的預設 [此行動裝置應用程式已啟動並執行中] 頁面。透過呼叫 **AddMobileAppHomeController** 擴充方法來新增到組態。
+- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 實作網站根目錄的預設 [此行動應用程式已啟動並執行頁面] 頁面。透過呼叫 **AddMobileAppHomeController** 擴充方法來新增到組態。
 
 - [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 包含適用於處理資料與設定資料管線的類別。透過呼叫 **AddTables** 擴充方法來新增到組態。
 
@@ -87,15 +89,15 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 
 - [Microsoft.Azure.Mobile.Server.Notifications] 啟用推播通知，並定義推播註冊端點。透過呼叫 **AddPushNotifications** 擴充方法來新增到組態。
 
-- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 建立從行動裝置應用程式提供資料給舊版網頁瀏覽器的控制器。透過呼叫 **MapLegacyCrossDomainController** 擴充方法來新增到組態。
+- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 建立從行動應用程式提供資料給舊版網頁瀏覽器的控制器。透過呼叫 **MapLegacyCrossDomainController** 擴充方法來新增到組態。
 
 ## 做法：定義自訂 API 控制器
 
 自訂 API 控制器透過公開端點，提供最基本的功能給您的行動應用程式後端。自訂 API 控制器
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 [Controllers] 資料夾，然後按一下 [新增] > [控制器]、選取 [Web API 2 控制器&mdash;空的]，然後按一下 [新增]。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 [控制器] 資料夾，然後按一下 [新增] > [控制器]、選取 [Web API 2 控制器&mdash;空白]，然後按一下 [新增]。
 
-2. 提供**控制器名稱** (例如 `CustomController`)，然後按一下 [新增]。這會建立繼承自 **ApiController** 的新 **CustomController** 類別。
+2. 提供 [控制器名稱] (例如 `CustomController`)，然後按一下 [新增]。這會建立繼承自 **ApiController** 的新 **CustomController** 類別。
 
 3. 在新的控制器類別檔案中，新增下列 Using 陳述式：
 
@@ -135,7 +137,7 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
         .MapTableControllers()
         .AddEntityFramework()).ApplyTo(config);
  
-如需使用存取 Azure SQL Database 資料之資料表控制器的範例，請參閱從 Azure 入口網站下載之快速入門伺服器專案中的 **TodoItemController** 類別。
+如需使用 Entity Framework 存取 Azure SQL Database 資料之資料表控制器的範例，請參閱從 Azure 入口網站下載之快速入門伺服器專案中的 **TodoItemController** 類別。
 
 ## 做法：將驗證新增至伺服器專案
 
@@ -155,11 +157,11 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 
 ## 做法：將推播通知新增至伺服器專案
 
-您可以透過擴充 **MobileAppConfiguration** 物件並建立通知中樞用戶端，來新增推播通知。安裝 [Microsoft.Azure.Mobile.Server.Quickstart] 封裝並呼叫 **UseDefaultConfiguration** 擴充方法時，您可以跳到步驟 3。
+您可以透過擴充 **MobileAppConfiguration** 物件並建立通知中樞用戶端，將推播通知新增至您的伺服器專案。安裝 [Microsoft.Azure.Mobile.Server.Quickstart] 封裝並呼叫 **UseDefaultConfiguration** 擴充方法時，您可以往下跳到步驟 3。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 封裝]、尋找 Microsoft.Azure.Mobile.Server.Notifications，然後按一下 [安裝]。這會安裝 [Microsoft.Azure.Mobile.Server.Notifications] 封裝。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 封裝]、搜尋 Microsoft.Azure.Mobile.Server.Notifications，然後按一下 [安裝]。這會安裝 [Microsoft.Azure.Mobile.Server.Notifications] 封裝。
  
-3. 重複此步驟以安裝 `Microsoft.Azure.NotificationHubs` 封裝，其會包含通知中樞用戶端程式庫。
+3. 重複此步驟以安裝 `Microsoft.Azure.NotificationHubs` 封裝，其中包含通知中樞用戶端程式庫。
 
 2. 在 App\_Start/Startup.MobileApp.cs 中，於初始化期間新增對 **AddPushNotifications** 擴充方法的呼叫，如下所示：
 
@@ -205,4 +207,4 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

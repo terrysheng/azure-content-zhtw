@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="建置 Azure 搜尋服務的原型應用程式" 
+	pageTitle="建置 Azure 搜尋服務的原型應用程式 | Microsoft Azure | 雲端託管搜尋服務" 
 	description="建立您的第一個應用程式原型來開始使用 Azure 搜尋服務 (託管的雲端搜尋服務)。" 
 	services="search" 
 	documentationCenter="" 
@@ -133,4 +133,4 @@
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

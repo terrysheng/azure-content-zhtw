@@ -43,6 +43,8 @@ AMQP 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以�
 
 ## AMQP 1.0 是一項標準 (Standard 的 S 為大寫)
 
+AMQP 1.0 是由 ISO 與 IEC 核定為 ISO/IEC 19464:2014 的國際標準。
+
 有一個由包含技術提供者及使用者公司在內超過 20 家公司所組成的核心群組，從 2008 年起就開始開發 AMQP 1.0。在這段期間，使用者公司貢獻了他們的實際商業需求，而技術廠商逐步開發出此通訊協定來符合這些需求。在整個過程中，廠商參與了他們共同合作的研討會，一起驗證他們實作間的交互操作性。
 
 在 2011 年 10 月，開發工作移轉到資訊結構標準發展組織 (OASIS) 內的一個技術委員會，並在 2012 年 10 月發佈 OASIS AMQP 1.0 標準。以下為在標準開發期間參與了該技術委員會的公司：
@@ -73,7 +75,7 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 
 | 語言 | 程式庫 |
 |----------|-------------------------------------------------------------------------------|
-| Java | Apache Qpid Java 訊息服務 (JMS) 用戶端<br/> IIT Software SwiftMQ Java 用戶端 |
+| Java | Apache Qpid Java 訊息服務 (JMS) 用戶端<br/>IIT Software SwiftMQ Java 用戶端 |
 | C | Apache Qpid Proton-C |
 | PHP | Apache Qpid Proton-PHP |
 | Python | Apache Qpid Proton-Python |
@@ -105,4 +107,4 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 [在 Azure Linux VM 上安裝 Apache Qpid Proton-C]: service-bus-amqp-apache.md
 [Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

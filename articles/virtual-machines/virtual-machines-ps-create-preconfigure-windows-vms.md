@@ -20,7 +20,7 @@
 # 以 Powershell 和傳統部署模型建立 Windows 虛擬機器 
 
 > [AZURE.SELECTOR]
-- [Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
@@ -146,8 +146,8 @@
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
 	$lbsetname="<name of the existing load-balanced set>"
-	$probeprotocol="<Specify one: tcp, udp>"
-	$probeport=<TCP or UDP port number of probe traffic>
+	$probeprotocol="<Specify one: tcp, http>"
+	$probeport=<TCP or HTTP port number of probe traffic>
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
@@ -157,7 +157,7 @@
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-雲端服務的簡短名稱是 Azure 管理入口網站的雲端服務清單或 Azure Preview 入口網站的資源群組清單中顯示的名稱。
+雲端服務的簡短名稱是顯示在 Azure 入口網站的「雲端服務」清單中，或顯示在 Azure Preview 入口網站的「資源群組」清單中的名稱。
 
 選項 2：在現有的雲端服務和虛擬網路中建立虛擬機器。
 
@@ -174,7 +174,7 @@
 如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以：
 
 - 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)。
-- 在 Azure 管理入口網站的 [**自動化**] 區段中，將此命令集儲存為 Azure 自動化 Runbook。
+- 在 Azure 入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
 
 ## <a id="examples"></a>範例
 
@@ -265,4 +265,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

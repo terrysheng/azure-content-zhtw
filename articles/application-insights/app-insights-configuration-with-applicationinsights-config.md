@@ -5,7 +5,7 @@
     documentationCenter="" 
 	authors="OlegAnaniev-MSFT"
     editor="alancameronwills" 
-	manager="meravd"/>
+	manager="douge"/>
  
 <tags 
 	ms.service="application-insights" 
@@ -13,143 +13,134 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 # 使用 ApplicationInsights.config 或 .xml 設定 Application Insights SDK
 
 Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝](http://www.nuget.org/packages/Microsoft.ApplicationInsights)提供 API，用於傳送遙測至 Application Insights。[其他封裝](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遙測_模組_和_初始設定式_，用於自動從您的應用程式和其內容追蹤遙測。您可以藉由調整組態檔，來啟用或停用遙測模組和初始設定式，並為其設定一些參數。
 
-組態檔的名稱為 `ApplicationInsights.config` 或 `ApplicationInsights.xml`，端視您的應用程式類型而定。當您[安裝某些版本的 SDK][start] 時，系統會自動將組態檔加入至您的專案。[IIS 伺服器上的狀態監視器][redfield]，或是當您[選取 Azure 網站或 VM 的 Application Insights 延伸模組][azure]時，也會將組態檔加入至 Web 應用程式。
+組態檔的名稱為 `ApplicationInsights.config` 或 `ApplicationInsights.xml`，端視您的應用程式類型而定。當您[安裝大部分版本的 SDK][start] 時，系統會自動將組態檔加入您的專案。[IIS 伺服器上的狀態監視器][redfield]，或是當您[選取 Azure 網站或 VM 的 Application Insights 延伸模組][azure]時，也會將組態檔加入至 Web 應用程式。
 
 沒有同等的檔案可以控制[網頁中的 SDK][client]。
 
+本文件說明您在組態檔中看到的內容、控制 SDK 元件的方式，以及哪些 NuGet 封裝載入這些元件。
+
+## 遙測模組 (ASP.NET)
+
+每個遙測模組收集特定類型的資料，以及使用核心 API 來傳送資料。模組由不同的 NuGet 封裝安裝，也會將必要的行加入 .config 檔案。
+
 組態檔中的每個模組都有一個節點。若要停用模組，請刪除節點或將其註解化。
 
-## [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 封裝
 
-`Microsoft.ApplicationInsights` NuGet 封裝在 `ApplicationInsights.config` 中提供下列遙測模組。
 
-```
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-  <TelemetryModules>
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule, Microsoft.ApplicationInsights" />
-  </TelemetryModules>
-</ApplicationInsights>
-```
-`DiagnosticsTelemetryModule` 報告 Application Insights 檢測程式碼本身中的錯誤。例如，如果程式碼無法存取效能計數器，或 `ITelemetryInitializer` 擲回例外狀況。此模組所追蹤的追蹤遙測會出現在[診斷搜尋][diagnostic]中。
+### 相依性追蹤
 
-## [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet 封裝
-
-`Microsoft.ApplicationInsights.DependencyCollector` NuGet 封裝在 `ApplicationInsights.config` 中提供下列遙測模組。
-
-```
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-  <TelemetryModules>
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.ApplicationInsights.Extensibility.DependencyCollector" />
-  </TelemetryModules>
-</ApplicationInsights>
-```
-`DependencyTrackingTelemetryModule` 會追蹤您的應用程式對外部相依性所做的呼叫 (例如 HTTP 要求和 SQL 查詢) 的相關遙測。若要允許此模組用於 IIS 伺服器，您必須[安裝狀態監視器][redfield]。若要在 Azure Web 應用程式或 VM 中使用此模組，[請選取 Application Insights 延伸模組][azure]。
+[相依性追蹤](app-insights-dependencies.md)會收集有關您的 app 對資料庫和外部服務和資料庫呼叫的遙測。若要允許此模組用於 IIS 伺服器，您必須[安裝狀態監視器][redfield]。若要在 Azure Web 應用程式或 VM 中使用此模組，[請選取 Application Insights 延伸模組][azure]。
 
 您也可以使用 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 撰寫您自己的相依性追蹤程式碼。
 
-## [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 封裝
 
-`Microsoft.ApplicationInsights.Web` NuGet 封裝在 `ApplicationInsights.config` 中提供下列遙測初始設定式和模組。
+* `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
+* [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet 封裝。
 
-```
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-  <TelemetryInitializers>
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.SyntheticTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.ClientIpHeaderTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.UserAgentTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.OperationNameTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.OperationIdTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.UserTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.SessionTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.AzureRoleEnvironmentTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.DomainNameRoleInstanceTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.BuildInfoConfigComponentVersionTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.DeviceTelemetryInitializer, Microsoft.ApplicationInsights.Extensibility.Web"/>
-  </TelemetryInitializers>
-  <TelemetryModules>
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.RequestTrackingTelemetryModule, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.ExceptionTrackingTelemetryModule, Microsoft.ApplicationInsights.Extensibility.Web" />
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.DeveloperModeWithDebuggerAttachedTelemetryModule, Microsoft.ApplicationInsights.Extensibility.Web" />
-  </TelemetryModules>
-</ApplicationInsights>
-```
+### 效能收集器
 
-**初始設定式**
+[收集系統效能計數器](app-insights-web-monitor-performance.md#system-performance-counters)，例如 CPU、記憶體和網路負載 (從 IIS 安裝)。您可以指定要收集哪些計數器，包括您自己所設定的效能計數器。
 
-* `SyntheticTelemetryInitializer` 會更新所有遙測項目在處理來自綜合來源 (例如可用性測試) 要求時追蹤的 `User`、`Session` 和 `Operation` 內容屬性。Application Insights 入口網站預設不會顯示綜合遙測。
-* `ClientIpHeaderTelemetryInitializer` 會根據要求的 `X-Forwarded-For` HTTP 標頭來更新所有遙測項目的 `Location` 內容的 `Ip` 屬性。
-* `UserAgentTelemetryInitializer` 會根據要求的 `User-Agent` HTTP 標頭來更新所有遙測項目的 `User` 內容的 `UserAgent` 屬性。
-* `OperationNameTelemetryInitializer` 會根據 HTTP 方法，以及 ASP.NET MVC 控制器的名稱和叫用來處理要求的動作，更新所有遙測項目 `RequestTelemetry` 的 `Name` 屬性和 `Operation` 內容的 `Name` 屬性。
-* `OperationNameTelemetryInitializer`會在處理自動產生 `RequestTelemetry.Id` 的要求時更新所有遙測項目的 `Operation.Id`內容屬性。
-* 針對具有從使用者瀏覽器中執行的 Application Insights JavaScript 檢測程式碼所產生的 `ai_user` Cookie 擷取的值的所有遙測項目，`UserTelemetryInitializer` 會更新 `User` 內容的 `Id` 和 `AcquisitionDate` 屬性。
-* 針對具有從使用者瀏覽器中執行的 Application Insights JavaScript 檢測程式碼所產生的 `ai_session` Cookie 擷取的值的所有遙測項目，`SessionTelemetryInitializer` 會更新 `Session` 內容的 `Id` 屬性。 
+* `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
+* [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet 封裝。
+
+
+### Application Insights 診斷遙測
+
+`DiagnosticsTelemetryModule` 報告 Application Insights 檢測程式碼本身中的錯誤。例如，如果程式碼無法存取效能計數器，或 `ITelemetryInitializer` 擲回例外狀況。此模組所追蹤的追蹤遙測會出現在[診斷搜尋][diagnostic]中。
+ 
+* `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
+* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 封裝。如果您只安裝這個封裝，不會自動建立 ApplicationInsights.config 檔案。 
+
+### 開發人員模式
+
+`DeveloperModeWithDebuggerAttachedTelemetryModule` 會強制 Application Insights `TelemetryChannel` 立即傳送資料，在偵錯工具附加至應用程式程序時一次傳送一個遙測項目。這會減少您的應用程式追蹤遙測時，與當遙測出現在 Application Insights 入口網站時之間的時間量。但是會造成 CPU 和網路頻寬明顯的負擔。
+
+* `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
+* [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 封裝
+
+### Web 要求追蹤
+
+報告 HTTP 要求的[回應時間和結果碼](app-insights-start-monitoring-app-health-usage.md)。
+
+* `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
+* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 封裝
+
+### 例外狀況追蹤
+
+`ExceptionTrackingTelemetryModule` 追蹤 Web 應用程式中未處理的例外狀況。請參閱[失敗和例外狀況][exceptions]。
+
+* `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
+* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 封裝
+
+
+* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - 追蹤[未觀察到的工作例外狀況](http://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx)。
+* `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - 追蹤背景工作角色、Windows 服務和主控台應用程式的未處理例外狀況。
+* [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 封裝。
+
+### 核心 API
+
+核心套件提供 SDK 的[核心 API](https://msdn.microsoft.com/library/mt420197.aspx)。其他遙測模組使用此功能，您也可以[使用它來定義您自己的遙測](app-insights-api-custom-events-metrics.md)。
+
+* ApplicationInsights.config 中沒有項目。
+* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 封裝。如果您只安裝此 NuGet，不會產生任何 .config 檔案。
+
+## 遙測通道
+
+遙測通道管理遙測的緩衝處理和到 Application Insights 服務的傳輸。
+
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` 是服務的預設通道。它會在記憶體中緩衝資料。
+* `Microsoft.ApplicationInsights.PersistenceChannel` 是主控台應用程式的替代通道。它可以在您的 app 關閉時將任何未清除的資料儲存到永續性儲存體，並在 app 重新啟動時再次傳送資料。
+
+
+## 遙測初始設定式 (ASP.NET)
+
+遙測初始設定式設定與遙測的每個項目一起傳送的內容屬性。
+
+您可以[撰寫您自己的初始設定式](app-insights-api-filtering-sampling.md#add-properties)設定內容屬性。
+
+標準的初始設定式已由 Web 或 WindowsServer NuGet 封裝設定：
+
+
+* `AccountIdTelemetryInitializer` 設定 AccountId 屬性。
+* `AuthenticatedUserIdTelemetryInitializer` 如 JavaScript SDK 設定般設定 AuthenticatedUserId 屬性。
 * 針對具有從 Azure 執行階段環境擷取的資訊的所有遙測項目，`AzureRoleEnvironmentTelemetryInitializer` 會更新 `Device` 內容的 `RoleName` 和 `RoleInstance` 屬性。
-* 針對具有 Web 應用程式執行所在電腦的網域名稱的所有遙測項目，`DomainNameRoleInstanceTelemetryInitializer` 會更新 `Device` 內容的 `RoleInstance` 屬性。
-* 針對具有從 TFS 組建所產生的 `BuildInfo.config` 檔案擷取的值的所有遙測項目，`BuildInfoConfigComponentVersionTelemetryInitializer` 會更新 `Component` 內容 的 `Version` 屬性。
+* 針對具有從 MS 組建所產生的 `BuildInfo.config` 檔案擷取的值的所有遙測項目，`BuildInfoConfigComponentVersionTelemetryInitializer` 會更新 `Component` 內容 的 `Version` 屬性。
+* `ClientIpHeaderTelemetryInitializer` 會根據要求的 `X-Forwarded-For` HTTP 標頭來更新所有遙測項目的 `Location` 內容的 `Ip` 屬性。
 * `DeviceTelemetryInitializer` 會更新所有遙測項目 `Device` 內容的下列屬性。
  - `Type` 設定為 "PC"
- - `Id` 是設定為 Web 應用程式執行所在電腦的網域名稱。
- - `OemName` 是設定為使用 WMI 從 `Win32_ComputerSystem.Manufacturer` 欄位擷取的值。
- - `Model` 是設定為使用 WMI 從 `Win32_ComputerSystem.Model` 欄位擷取的值。
- - `NetworkType` 是設定為從 `NetworkInterface` 擷取的值。
- - `Language` 是設定為 `CurrentCulture` 的名稱。
+ - `Id` 設定為 Web 應用程式執行所在電腦的網域名稱。
+ - `OemName` 設定為使用 WMI 從 `Win32_ComputerSystem.Manufacturer` 欄位擷取的值。
+ - `Model` 設定為使用 WMI 從 `Win32_ComputerSystem.Model` 欄位擷取的值。
+ - `NetworkType` 設定為從 `NetworkInterface` 擷取的值。
+ - `Language` 設定為 `CurrentCulture` 的名稱。
+* 針對具有 Web 應用程式執行所在電腦的網域名稱的所有遙測項目，`DomainNameRoleInstanceTelemetryInitializer` 會更新 `Device` 內容的 `RoleInstance` 屬性。
+* `OperationNameTelemetryInitializer` 會根據 HTTP 方法，以及 ASP.NET MVC 控制器的名稱和叫用來處理要求的動作，更新所有遙測項目 `RequestTelemetry` 的 `Name` 屬性和 `Operation` 內容的 `Name` 屬性。
+* `OperationIdTelemetryInitializer` 在處理具有自動產生的 `RequestTelemetry.Id` 的要求時，會更新追蹤的所有遙測項目的 `Operation.Id` 內容屬性。
+* 針對具有從使用者瀏覽器中執行的 Application Insights JavaScript 檢測程式碼所產生的 `ai_session` Cookie 擷取的值的所有遙測項目，`SessionTelemetryInitializer` 會更新 `Session` 內容的 `Id` 屬性。 
+* `SyntheticTelemetryInitializer` 在處理來自綜合來源 (例如可用性測試或搜尋引擎 bot) 要求時，會更新追蹤的所有遙測項目的 `User`、`Session` 和 `Operation` 內容屬性。根據預設，[計量瀏覽器](app-insights-metrics-explorer.md)不會顯示綜合的遙測。
+* `UserAgentTelemetryInitializer` 會根據要求的 `User-Agent` HTTP 標頭來更新所有遙測項目的 `User` 內容的 `UserAgent` 屬性。
+* 針對具有從使用者瀏覽器中執行的 Application Insights JavaScript 檢測程式碼所產生的 `ai_user` Cookie 擷取的值的所有遙測項目，`UserTelemetryInitializer` 會更新 `User` 內容的 `Id` 和 `AcquisitionDate` 屬性。
 
-**模組**
 
-* `RequestTrackingTelemetryModule` 會追蹤您的 Web 應用程式所接收到的要求，並測量回應時間。
-* `ExceptionTrackingTelemetryModule` 可計算 Web 應用程式中未處理的例外狀況數。請參閱[失敗和例外狀況][exceptions]。
-* `DeveloperModeWithDebuggerAttachedTelemetryModule` 會強制 Application Insights `TelemetryChannel` 立即傳送資料，在偵錯工具附加至應用程式程序時一次一個遙測項目。這會減少當您的應用程式追蹤遙測，與當它出現在 Application Insights 入口網站但耗用大量 CPU 和網路頻寬負荷時的時間量。
+## 遙測處理器 (ASP.NET)
 
-## [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet 封裝
+遙測處理器可以在遙測從 SDK 傳送至入口網站之前篩選並修改每個遙測項目。
 
-`Microsoft.ApplicationInsights.PerfCounterCollector` NuGet 封裝預設會對 `ApplicationInsights.config` 加入下列遙測模組。
+您可以[撰寫您自己的遙測處理器](app-insights-api-filtering-sampling.md#filtering)。
 
-```
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-  <TelemetryModules>
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector" />
-  </TelemetryModules>
-</ApplicationInsights>
-```
+有一個標準的處理器 (從 2.0.1 開始)：
 
-### PerformanceCollectorModule
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor` - [取樣](app-insights-api-filtering-sampling.md#sampling)可減少遙測數量，同時讓您在相關的遙測項目之間巡覽以進行診斷。
 
-`PerformanceCollectorModule` 會追蹤 Windows 效能計數器的數目。當您在計量瀏覽器中按一下圖表以開啟其 [詳細資料] 刀鋒視窗時，您可以看到這些計數器。
 
-您可以監視其他效能計數器，包括標準 Windows 計數器，以及您加入的任何其他計數器。
-      
-使用以下語法來收集其他效能計數器：
-
-```
-<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector">
-  <Counters>
-    <Add PerformanceCounter="\MyCategory\MyCounter" />
-    <Add PerformanceCounter="\Process(??APP_WIN32_PROC??)\Handle Count" ReportAs="Process handle count" />
-    <!-- ... -->
-  </Counters>
-</Add>
-```      
-      
-`PerformanceCounter` 必須是 `\CategoryName(InstanceName)\CounterName` 或 `\CategoryName\CounterName`
-      
-如果您提供 `ReportAs` 屬性，則會將它當作 Application Insights 中顯示的名稱。
-
-若要向 Application Insights 報告，計數器名稱只能包含：字母、圓角括號、斜線、連字號、底線、空格和點。
-
-如果您想要監視的計數器含有任何無效的字元，例如 '#' 或數字，則您必須使用 ReportAs。
-      
-支援以下預留位置做為 `InstanceName`：
-
-    ?APP_WIN32_PROC?? - instance name of the application process  for Win32 counters.
-    ??APP_W3SVC_PROC?? - instance name of the application IIS worker process for IIS/ASP.NET counters.
-    ??APP_CLR_PROC?? - instance name of the application CLR process for .NET counters.
 
 ## 通道參數 (Java)
 
@@ -212,9 +203,6 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
    </ApplicationInsights>
 ```
 
-## 遙測初始設定式
-
-您可以撰寫遙測初始設定式，以篩選及修改從應用程式收集的遙測。這些初始設定式可以連同標準模組一起從 .config 檔案進行初始化。[深入了解](app-insights-api-filtering-sampling.md)
 
 
 ## InstrumentationKey
@@ -263,4 +251,4 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

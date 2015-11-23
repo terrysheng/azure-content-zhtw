@@ -1,5 +1,5 @@
 <properties
-	pageTitle="何謂 Azure 搜尋服務"
+	pageTitle="什麼是 Azure 搜尋服務 | Microsoft Azure | 雲端託管搜尋服務"
 	description="Azure 搜尋服務是託管的雲端搜尋服務。深入了解此技術概觀和功能摘要。"
 	services="search"
 	documentationCenter=""
@@ -131,4 +131,4 @@ REST API 由 HTTP 要求和回應組成，其內容以 JSON 格式表示。有�
 
 [如何在 .NET 中使用 Azure 搜尋](search-howto-dotnet-sdk.md) [開始使用 Azure 搜尋 .NET](search-get-started-dotnet.md) [Azure 搜尋：教學課程、影片示範和範例](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

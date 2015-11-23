@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
@@ -656,4 +656,4 @@ Microsoft Azure 認證工具的執行對象是運作中的 VM (從您的使用�
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

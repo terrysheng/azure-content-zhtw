@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD B2C 預覽 | Microsoft Azure"
+	pageTitle="Azure AD B2C 預覽：使用圖形 API | Microsoft Azure"
 	description="如何對 B2C 租用戶呼叫圖形 API 並使用應用程式身分識別將過程自動化。"
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -222,7 +222,7 @@ Content-Length: 338
 {
 	// These properties are all required for creating consumer users.
 	 
-	"accountEnabled": false,                    // always set to false
+	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
@@ -349,4 +349,4 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 對於您想要使用圖形 API 在 B2C 租用戶上執行的動作，如果您有任何問題或要求，我們洗耳恭聽！ 請在文章上留言，或在程式碼範例 GitHub 儲存機制中提出問題。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -31,17 +31,17 @@
 
 ## 尋找虛擬機器
 
-1. 登入 [Preview 入口網站](https://portal.azure.com)。
+1. 登入 Azure Preview 入口網站。
 
-2. 在 [中樞] 功能表上，按一下 [**瀏覽**]。
+2. 在 [中樞] 功能表上，按一下 [瀏覽]。
 
-3. 在搜尋刀鋒視窗中，向下捲動然後按一下 [**虛擬機器**]。
+3. 在搜尋刀鋒視窗上，向下捲動，然後按一下 [虛擬機器]。
 
 	![搜尋虛擬機器](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
 
 4.	然後從清單中選取虛擬機器。
 
-5. 在右側的 [**程式集**] 下，按一下 [**所有設定**]，然後按一下 [**磁碟**]。
+5. 在右側的 [Essentials] 底下，按一下 [所有設定]，然後按一下 [磁碟]。
 
 	![開啟磁碟設定](./media/virtual-machines-attach-disk-preview/find-disk-settings.png)
 
@@ -49,38 +49,38 @@
 
 ## 選項 1：連接新的磁碟
 
-1.	在 [**磁碟**] 刀鋒視窗中，按一下 [**連接新項目**]。
+1.	在 [磁碟] 刀鋒視窗上，按一下 [連接新項目]。
 
-2.	檢視預設設定，視需要進行更新，然後按一下 [**確定**]。
+2.	檢閱預設設定，視需要進行更新，然後按一下 [確定]。
 
  	![檢閱磁碟設定](./media/virtual-machines-attach-disk-preview/attach-new.png)
 
-3.	Azure 建立並連接磁碟至虛擬機器之後，該新磁碟會列在 [**資料磁碟**] 下的虛擬機器磁碟設定中。
+3.	在 Azure 建立磁碟並將其連接至虛擬機器之後，該新磁碟就會列在虛擬機器之磁碟設定中的 [資料磁碟] 底下。
 
 ## 選項 2：連接現有磁碟
 
-1.	在 [**磁碟**] 刀鋒視窗中，按一下 [**連接現有項目**]。
+1.	在 [磁碟] 刀鋒視窗上，按一下 [連接現有項目]。
 
-2.	在 [**連接現有磁碟**] 底下，按一下 [**VHD 檔案**]。
+2.	在 [連接現有磁碟] 底下，按一下 [VHD 檔案]。
 
 	![連接現有磁碟](./media/virtual-machines-attach-disk-preview/attach-existing.png)
 
-3.	在 [**儲存體帳戶**] 中，選取持有該 .vhd 檔案的帳戶和容器。
+3.	在 [儲存體帳戶] 底下，選取持有該 .vhd 檔案的帳戶和容器。
 
 	![尋找 VHD 位置](./media/virtual-machines-attach-disk-preview/find-storage-container.png)
 
 4.	選取 .vhd 檔案。
 
-5.	在 [**連接現有磁碟**] 中，您剛才選取的檔案會列在 [**VHD 檔案**]中。按一下 [確定]。
+5.	在 [連接現有磁碟] 底下，您剛才選取的檔案會列在 [VHD 檔案] 底下。按一下 [確定]。
 
-6.	Azure 將磁碟連接至虛擬機器之後，該磁碟會列在 [**資料磁碟**] 下的虛擬機器磁碟設定中。
+6.	在 Azure 將該磁碟連接至虛擬機器之後，該磁碟就會列在虛擬機器之磁碟設定中的 [資料磁碟] 底下。
 
 ## 後續步驟
 
 新增磁碟之後，您必須準備將它用於虛擬機器的作業系統：
 
-- 若為 Linux，請參閱此[文章](virtual-machines-linux-how-to-attach-disk.md)中的＜作法：在 Linux 中初始化新的資料磁碟＞。
-- 若為 Windows，請參閱此[文章](storage-windows-attach-disk.md)中的＜作法：在 Windows Server 中初始化新的資料磁碟＞。
+- 針對 Linux，請參閱這篇[文章](virtual-machines-linux-how-to-attach-disk.md)中的＜做法：在 Linux 中初始化新的資料磁碟＞。
+- 針對 Windows，請參閱這篇[文章](storage-windows-attach-disk.md)中的＜做法：在 Windows Server 中初始化新的資料磁碟＞。
 
 ## 其他資源
 
@@ -90,4 +90,4 @@
 
 [關於 Azure 儲存體帳戶]: ../storage-whatis-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

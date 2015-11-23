@@ -414,8 +414,6 @@
 
 如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間，透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md)提交您的意見反應。
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -437,4 +435,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

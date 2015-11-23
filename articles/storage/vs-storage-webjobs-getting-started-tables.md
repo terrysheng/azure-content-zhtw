@@ -3,7 +3,7 @@
 	description="在使用 Visual Studio 已連接服務連接到儲存體帳戶之後，如何於 Visual Studio Azure WebJobs 專案中開始使用 Azure 資料表儲存體"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 開始使用 Azure 儲存體 (Azure WebJob 專案)
 
@@ -165,4 +165,4 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 本文提供的程式碼範例示範如何處理使用 Azure 資料表的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

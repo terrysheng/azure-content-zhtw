@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/03/2015"
 	ms.author="jolevy"/>
 
 
@@ -43,4 +43,4 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 
 [開始使用 Azure 自動化](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

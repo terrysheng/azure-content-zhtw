@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務 | Microsoft Azure" 
+	pageTitle="使用索引子將 Azure SQL Database 連線至 Azure 搜尋服務 | Microsoft Azure | 雲端託管搜尋服務" 
 	description="了解如何使用索引子將資料從 Azure SQL Database 提取至 Azure 搜尋服務索引。" 
 	services="search" 
 	documentationCenter="" 
@@ -279,4 +279,4 @@ Azure 搜尋服務是託管的雲端搜尋服務，讓提供絕佳的搜尋體�
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

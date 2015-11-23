@@ -86,6 +86,31 @@
 - 一個儲存體帳戶。
 - 一個 Azure 訂用帳戶。
 
+以下是適用於此組態的虛擬機器及其預設大小。
+
+項目 | 虛擬機器描述 | 資源庫映像 | 預設大小
+--- | --- | --- | ---
+1\. | 第一網域控制站 | Windows Server 2012 R2 Datacenter | A2 (中型)
+2\. | 第二網域控制站 | Windows Server 2012 R2 Datacenter | A2 (中型)
+3\. | 第一資料庫伺服器 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4\. | 第二資料庫伺服器 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5\. | 叢集的多數節點 | Windows Server 2012 R2 Datacenter | A1 (小型)
+6\. | 第一 SharePoint 應用程式伺服器 | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+7\. | 第二 SharePoint 應用程式伺服器 | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+8\. | 第一 SharePoint Web 伺服器 | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+9\. | 第二 SharePoint Web 伺服器 | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+
+若要計算此組態的預估成本，請參閱 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
+
+1. 在 [模組] 中，按一下 [計算]，然後按一下 [虛擬機器] 數次，直到足夠建立含有九個虛擬機器的清單為止。
+2. 針對每一個虛擬機器，選取：
+	- 您想要的區域
+	- [Windows] 類型
+	- [標準] 定價層
+	- 上表中的預設大小或您想要的大小來做為 [執行個體大小]
+
+> [AZURE.NOTE]「Azure 價格計算機」並未納入兩個執行 SQL Server 2014 Enterprise 之虛擬機器的額外 SQL Server 授權費用。如需詳細資訊，請參閱[虛擬機器定價-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
+
 ### 部署階段
 
 若要部署此組態，請使用下列程序：
@@ -128,4 +153,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

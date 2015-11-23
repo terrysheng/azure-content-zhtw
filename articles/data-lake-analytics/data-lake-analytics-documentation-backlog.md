@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="mwinkle"/>
 
 # Azure 資料湖分析文件待處理項目
@@ -24,10 +24,10 @@
 
 領域 |主題 | 優先順序 | 狀態 | 指派對象 | 要求者 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL | 分散式查詢 | 1 | In Process | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | 分散式查詢 | 1 | 保留 | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | 正在處理 JSON | 2 | Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 服務 | 與 Curl 互動 | 3 |Pending |[@mumian](https://github.com/mumian)
-U-SQL | 資料分割資料表 |1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | 資料分割資料表 |1 | 處理中 | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | 效能微調 | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
 U-SQL | 程式設計人員指南 | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | 從 T-SQL 背景開始使用 U-SQL | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
@@ -53,4 +53,4 @@ U-SQL | 文法鐵路圖 | 1 | 進行中，使用[這個項目](http://bottlecaps
 * 在 [Azure 內容存放庫](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)中提交這份文件的提取要求
 * 傳送電子郵件給 [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="BrucePerlerMS"
    manager="mbaldwin"
-   editor="mbaldwin" />
+   editor="bruceper" />
 <tags
    ms.service="key-vault"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/22/2015"
-   ms.author="mbaldwin" />
+   ms.date="11/06/2015"
+   ms.author="bruceper" />
 
 # Azure 金鑰保存庫開發人員指南
 
@@ -33,21 +33,11 @@
 
 ## 金鑰保存庫的程式設計
 
-程式設計人員的金鑰保存庫管理系統由幾個介面組成，並以 REST 做為基礎。REST 參考中的文章[有關金鑰和密碼](https://msdn.microsoft.com/library/azure/dn903623.aspx)提供核心概念
+程式設計人員的金鑰保存庫管理系統由幾個介面組成，並以 REST 做為基礎。[金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-### REST
-
-REST API 是以程式設計方式和金鑰保存庫互動的基礎。
-
-金鑰保存庫有其自己的 REST 端點，如[金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)中所述。
-
-### .NET
-
-.NET API 是一組包裝函式，可透過 C# 程式設計模型實作，而不需要直接與 REST 端點互動。您可以在這裡找到 [Azure 金鑰保存庫.NET 用戶端 API 參考](https://msdn.microsoft.com/library/azure/dn903301.aspx)。
-
-### Node.js
-
-Node.js API 是一組包裝函式，可透過 node.js 程式設計模型實作，而不需要直接與 REST 端點互動。您可以在這裡找到 [Microsoft Azure SDK for Node.js - 金鑰保存庫管理](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)。
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|:--:|:--:|
+|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
 ## 管理金鑰保存庫
 
@@ -67,5 +57,12 @@ Azure 金鑰保存庫容器 (保存庫) 可以使用 REST、PowerShell 或 CLI �
 ## 範例
 
 - 這個下載包含範例應用程式 HelloKeyVault 和 Azure Web 服務範例。[Azure 金鑰保存庫程式碼範例](http://www.microsoft.com/download/details.aspx?id=45343)
+- 使用此教學課程來幫助您了解如何從 Azure 中的 Web 應用程式使用 Azure 金鑰保存庫。[從 Web 應用程式使用 Azure 金鑰保存庫](key-vault-use-from-web-application.md)
 
-<!---HONumber=Nov15_HO2-->
+## 支援程式庫
+
+- [Microsoft Azure 金鑰保存庫核心程式庫](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0)提供 IKey 和 IKeyResolver 介面，以從識別碼尋找金鑰和使用金鑰執行作業。
+
+- [Microsoft Azure 金鑰保存庫延伸模組](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0)提供 Azure 金鑰保存庫的擴充功能。
+
+<!---HONumber=Nov15_HO3-->

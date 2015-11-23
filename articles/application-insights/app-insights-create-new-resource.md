@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # 建立新 Application Insights 資源
@@ -94,4 +94,4 @@ SDK 包含不需撰寫任何程式碼，即可傳送遙測資料的標準模組�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

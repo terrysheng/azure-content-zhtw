@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="11/11/2015"
 	ms.author="genli"/>
 
 # 如何新增或變更 Azure 共同管理員、 服務管理員和帳戶管理員
@@ -39,7 +39,11 @@ Microsoft Azure 中的管理員角色有三種：
 * **Microsoft 帳戶** (先前稱為 Windows Live ID) </br> 您可以使用 Microsoft 帳戶登入所有消費者導向的 Microsoft 產品和雲端服務，例如 Outlook (Hotmail)、Skype (MSN)、OneDrive、Windows Phone 和 Xbox LIVE。
 * **組織帳戶**</br> 組織帳戶是建立在 Azure Active Directory 之下的帳戶。組織帳戶地址的樣式如下：user@<your domain>.onmicrosoft.com
 
-**注意** * 如果您是以 Microsoft 帳戶登入，就只能將其他 Microsoft 帳戶加入為共同管理員。這是基於安全的考量，以防止非組織帳戶探索某些帳戶 (例如 janedoe@contoso.com) 是否為有效帳戶。* 如果您是以組織帳戶登入，則可將組織中其他組織帳戶加入為共同管理員。例如，abby@contoso.com 可以將 bob@contoso.com 加入為服務管理員或共同管理員，但無法將 john@notcontoso.com 加入。以組織帳戶登入的使用者可以繼續將 Microsoft 帳戶使用者加入為服務管理員或共同管理員。* 既然能夠使用組織帳戶登入 Azure，那麼以下是服務管理員和共同管理員帳戶必要條件的變更情形：
+**注意**
+
+ * 如果您是以 Microsoft 帳戶登入，就只能將其他 Microsoft 帳戶加入為共同管理員。這是基於安全的考量，以防止非組織帳戶探索某些帳戶 (例如 janedoe@contoso.com) 是否為有效帳戶。
+ * 如果您是以組織帳戶登入，您可以在組織中加入其他組織帳戶做為共同管理員。例如，abby@contoso.com 可以將 bob@contoso.com 加入為服務管理員或共同管理員，但無法將 john@notcontoso.com 加入。使用組織帳戶登入的使用者可以繼續新增 Microsoft 帳戶使用者做為服務管理員或共同管理員。
+ * 現在可以使用組織帳戶登入至 Azure，以下是服務管理員和共同管理員帳戶需求的變更：
 
 | 登入方法| 是否可將 Microsoft 帳戶加入為共同管理員或服務管理員？ |是否可將相同組織的組織帳戶加入為共同管理員或服務管理員？ |是否可將不同組織的組織帳戶加入為共同管理員或服務管理員？
 | ------------- | ------------- |---------------|---------------|
@@ -49,14 +53,14 @@ Microsoft Azure 中的管理員角色有三種：
 ## 變更訂用帳戶的服務管理員
 只有帳戶管理員可以變更訂用帳戶的服務管理員。
 
-1. 以帳戶管理員的身分登入[帳戶管理入口網站](https://account.windowsazure.com/subscriptions)。
+1. 使用帳戶管理員的身分登入[帳戶管理入口網站](https://account.windowsazure.com/subscriptions)。
 2. 選取您想變更的訂用帳戶。
-3. 在右側按一下 [**編輯訂用帳戶**] 詳細資料。 </br> ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
+3. 按一下右側的 [編輯訂用帳戶] 詳細資料。</br> ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 
-4. 在 [**服務管理員**] 方塊中，輸入新的服務管理員的電子郵件地址。![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+4. 在 [服務管理員] 方塊中，輸入新的服務管理員的電子郵件位址。![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## 變更帳戶管理員 (將 Azure 帳戶的擁有權移轉到另一個帳戶)
+## 變更帳戶管理員
 
 若要將 Azure 帳戶的擁有權移轉到另一個帳戶，請參閱[移轉 Azure 訂用帳戶](../billing-subscription-transfer.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

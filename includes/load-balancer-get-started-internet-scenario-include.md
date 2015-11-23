@@ -1,7 +1,9 @@
-## 案例
+下列工作將會在此案例中完成：
 
-下列案例將示範如何為使用連接埠 80 接收網際網路流量的 2 部虛擬機器 "web1" 和 "web2" 加入負載平衡器，也會將已進行負載平衡的網路流量傳送到這 2 部伺服器上的連接埠 80。
+- 建立在連接埠 80 上接收網路流量的負載平衡器，並傳送負載平衡流量到虛擬機器 "web1" 和 "web2"。
+- 建立 NAT 規則已進行負載平衡器之後虛擬機器的遠端桌面存取
+- 建立健全狀態探查
 
 ![負載平衡器案例](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="開始使用 Azure 搜尋服務 | Microsoft Azure" 
+	pageTitle="開始使用 Azure 搜尋服務 | Microsoft Azure | 雲端託管搜尋服務" 
 	description="開始使用 Azure 搜尋服務 (Microsoft Azure 上的雲端託管搜尋服務)。" 
 	services="search" 
 	documentationCenter="" 
@@ -378,4 +378,4 @@ Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋�
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -196,15 +196,17 @@ Axinom Widevine 授權伺服器
 Widevine 授權取得 URL|必須用於設定 DASH 串流資產傳遞原則 (請參閱[本節](media-services-axinom-integration.md#content-protection))。
 內容金鑰識別碼|必須包含其中作為 JWT 權杖之權利訊息宣告值的一部分 (請參閱[本節](media-services-axinom-integration.md#jwt-token-generation))。 
 
+
 ##媒體服務學習路徑
 
-您可以在此檢視 AMS 學習路徑：
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##提供意見反應
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ###通知 
 
 我們想要向下列為建立此文件貢獻心力的人員致謝：Kristjan Jõgi of Axinom、Mingfei Yan 及 Amit Rajput。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

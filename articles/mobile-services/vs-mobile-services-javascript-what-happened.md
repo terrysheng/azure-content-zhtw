@@ -3,7 +3,7 @@
 	description="說明您在 Visual Studio 中的 Azure 行動服務專案的情形 " 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="09/23/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 當我使用連線的 Visual Studio 服務加入 Azure 行動服務時，我的 Javascript 專案會發生什麼狀況？
 
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

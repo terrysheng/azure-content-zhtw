@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="11/10/2015"
    ms.author="dkshir;memccror"/>
 
 # 如何在 Azure 中標記虛擬機器
@@ -88,7 +88,7 @@
 
 如果要透過 PowerShell 新增標記，您可以使用 `Set-AzureResource` 命令。請注意，透過 PowerShell 標記更新時，標記會整體進行更新。所以，如果您將一個標記新增至已有標記的資源，您必須包含想要置於資源上的所有標記。以下是如何透過 PowerShell Cmdlet 將其他標記新增至資源的範例。
 
-第一個 Cmdlet 會使用 `Get-AzureResource` 和 `Tags` 函數，將置於 *MyWindowsVM* 上的所有標記設為 *tags* 變數。
+第一個 Cmdlet 會使用 `Get-AzureResource` 和 `Tags` 函數，將置於 *MyWindowsVM* 上的所有標記設為 *tags* 變數。請注意，參數 `ApiVersion` 為選擇性；如果未指定，則會使用資源提供者的最新 API 版本。
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -107,11 +107,11 @@
         Value		Production
         Name		Environment
 
-第三個命令會將其他標記新增至 *tags* 變數。注意，請使用 **+=** 將新的索引鍵/值組附加至 *tags* 清單。
+第三個命令會將一個額外標記新增至 *tags* 變數。請注意，可使用 **+=** 將新的「索引鍵/值」組附加至 *tags* 清單。
 
         PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
-第四個命令會將 *tags* 變數中定義的所有標記設為指定的資源。在此情況下是 MyWindowsVM。
+第四個命令會將 *tags* 變數中定義的所有標記設定為指定的資源。在此情況下是 MyWindowsVM。
 
         PS C:\> Set-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview -Tag $tags
 
@@ -141,7 +141,7 @@
 
         azure vm show -g MyResourceGroup -n MyVM
 
-不同於 PowerShell 的是，如果您要將標記新增至已含有標記的資源，不需指定所有標記 (無論新舊) 即可使用 `azure vm set` 命令。相反地，此命令可讓您將標記附加至您的資源。若要透過 Azure CLI 新增 VM 標記，您可以搭配使用 `azure vm set` 命令與標記參數 **-t**：
+不同於 PowerShell 的是，如果您要將標記新增至已含有標記的資源，不需先指定所有標記 (無論新舊)，即可使用 `azure vm set` 命令。相反地，此命令可讓您將標記附加至您的資源。若要透過 Azure CLI 新增 VM 標記，您可以搭配使用 `azure vm set` 命令搭配標記參數 **-t**：
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
@@ -155,17 +155,17 @@
 
 ## 在使用量詳細資料中檢視標記
 
-透過 Azure 資源管理員置於運算、網路和儲存體資源上的標記，將會在計費入口網站填入您的使用量詳細資料。
+透過「Azure 資源管理員」在「運算」、「網路」及「儲存體」資源上放置的標記，將會填入[帳務入口網站](https://account.windowsazure.com/)中您的使用情況詳細資料中。
 
-按一下 [下載使用量詳細資料]，以檢視訂用帳戶的使用量詳細資料。
+按一下 [下載使用情況詳細資料]，以檢視您訂用帳戶中的使用情況詳細資料。
 
 ![Azure 入口網站中的使用量詳細資料](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
-選取您的計費陳述式和 [第 2 版] 使用量詳細資料：
+選取您的帳單和 [版本 2] 使用情況詳細資料：
 
 ![Azure 入口網站中的版本 2 預覽使用量詳細資料](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
-從使用量詳細資料中，您可以在 [標記] 資料行中看到所有標記：
+從使用情況詳細資料中，您可以在 [標記] 資料行中看到所有標記：
 
 ![Azure 入口網站中的標記資料行](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
@@ -190,4 +190,4 @@
 [了解 Azure 帳單]: ../billing-understand-your-bill.md
 [深入瞭解 Microsoft Azure 資源耗用量]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

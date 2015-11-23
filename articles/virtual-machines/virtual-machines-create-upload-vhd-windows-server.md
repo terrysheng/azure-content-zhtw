@@ -66,7 +66,7 @@
 
 ### 選項 1：建立儲存體帳戶
 
-1. 登入[入口網站](http://manage.windowsazure.com)。
+1. 登入 Azure 入口網站。
 
 2. 按一下命令列上的 [新增]。
 
@@ -98,23 +98,23 @@
 
 	![容器名稱](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [AZURE.NOTE]容器預設為私人，且只能由帳戶擁有者存取。若要允許對容器中的 Blob 進行公開讀取存取，但不允許存取容器屬性和中繼資料，請使用 [公用 Blob] 選項。若要允許對容器及 Blob 進行完整的公開讀取存取，請使用 [公用容器] 選項。
+	> [AZURE.NOTE]容器預設為私人，且只能由帳戶擁有者存取。若要允許對容器中的 Blob 進行公開讀取存取，但不允許存取容器屬性和中繼資料，請使用 [公用 Blob] 選項。若要允許對容器和 Blob 進行完整的公開讀取存取，請使用 [公開容器] 選項。
 
 ### 選項 2：取得儲存體帳戶資訊
 
-1.	登入[入口網站](http://manage.windowsazure.com)。
+1.	登入 Azure 入口網站。
 
 2.	從導覽窗格中，按一下 [儲存體]。
 
-3.	按一下儲存體帳戶的名稱，然後按一下 [儀表板]。
+3.	按一下儲存體帳戶名稱，然後按一下 [儀表板]。
 
-4.	在儀表板的 [服務] 下方，將滑鼠停留在 Blob URL 上方、按一下剪貼簿圖示以複製 URL，然後將其貼上並儲存。您將在建置命令以上傳 VHD 時使用它。
+4.	從**服務**下的儀表板，將滑鼠停留在 Blob URL、按一下剪貼簿圖示以複製 URL，然後將其貼上並儲存。您將在建置命令以上傳 VHD 時使用它。
 
 ## 步驟 3：從 Azure PowerShell 連接至您的訂用帳戶
 
 您必須先在電腦與 Azure 中的訂用帳戶之間建立安全連線，才能上傳 .vhd 檔案。您可以使用 Microsoft Azure Active Directory 方法或憑證方法來達到此目的。
 
-> [AZURE.TIP]若要開始使用 Azure PowerShell，請參閱[如何安裝及設定 Microsoft Azure PowerShell](../install-configure-powershell.md)。如需一般資訊，請參閱[開始使用 Microsoft Azure Cmdlet](https://msdn.microsoft.com/library/azure/jj554332.aspx)。
+> [AZURE.TIP]若要開始使用 Azure PowerShell，請參閱[如何安裝及設定 Microsoft Azure PowerShell](../install-configure-powershell.md)。如需一般資訊，請參閱[開始使用 Microsoft Azure Cmdlet。](https://msdn.microsoft.com/library/azure/jj554332.aspx)
 
 ### 選項 1：使用 Microsoft Azure AD
 
@@ -150,7 +150,7 @@
 
 	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
 
-	其中： - **BlobStorageURL** 是儲存體帳戶的 URL - **YourImagesFolder** 是您想要在其中儲存映像之 Blob 儲存體內的容器 - **VHDName** 是您想要入口網站顯示以識別虛擬硬碟的名稱 - **PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱
+	其中：- **BlobStorageURL** 是儲存體帳戶的 URL - **YourImagesFolder** 是 Blob 儲存體內您想要在其中儲存映像的容器 - **VHDName** 是您想要 Azure 入口網站顯示以識別虛擬硬碟的名稱 - **PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱
 
 	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
 
@@ -158,11 +158,11 @@
 
 ## 步驟 5：將映像加入至您的自訂映像清單
 
-> [AZURE.TIP]若要使用 Azure PowerShell 而不是入口網站來新增映像，請使用 **Add-AzureVMImage** Cmdlet。例如：
+> [AZURE.TIP]若要使用 Azure PowerShell (而不使用 Azure 入口網站) 來加入映像，請使用 **Add-AzureVMImage** Cmdlet。例如：
 
 >	`Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>`
 
-1. 在入口網站的 [所有項目] 下方按一下 [虛擬機器]。
+1. 在 Azure 入口網站的 [所有項目] 底下，按一下 [虛擬機器]。
 
 2. 在 [虛擬機器] 下，按一下 [映像]。
 
@@ -172,15 +172,15 @@
 
 4. 在 [從 VHD 建立映像] 視窗中：
 
-	- 指定**名稱**。
+	- 指定 [名稱]。
 
-	- 指定**說明**。
+	- 指定 [說明]。
 
-	- 在 [VHD URL] 下方，按一下資料夾按鈕，以開啟 [瀏覽雲端儲存體] 視窗。尋找 .vhd 檔案，然後按一下 [開啟]。
+	- 在 **VHD URL** 之下，按一下資料夾按鈕，以開啟 [瀏覽雲端儲存體] 視窗。尋找 .vhd 檔案，並按一下 [開啟]。
 
     ![選取 VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
 
-5.	在 [從 VHD 建立映像] 視窗的 [作業系統系列] 下方，選取您的作業系統。勾選 [我已經在與這個 VHD 相關聯的虛擬機器上執行 Sysprep]，以確認您已將作業系統一般化，然後按一下 [確定]。
+5.	在 [從 VHD 建立映像] 視窗中的 [作業系統系列] 下，選取您的作業系統。核取 [我已經在與此 VHD 相關聯的虛擬機器上執行 Sysprep] 確認您已一般化作業系統，然後按一下 [確定]。
 
     ![新增映像](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
 
@@ -188,19 +188,19 @@
 
 	![自訂映像](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	這個新的映像現在會在您建立虛擬機器時出現於 [我的映像] 下。如需相關指示，請參閱[如何建立執行 Windows 的自訂虛擬機器](virtual-machines-windows-create-custom.md)。
+	這個新的映像現在會在您建立虛擬機器時出現於 [我的映像] 下。如需指示，請參閱[如何建立執行 Windows 的自訂虛擬機器](virtual-machines-windows-create-custom.md)。
 
 	![從自訂映像建立 VM](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]如果在您嘗試建立 VM 時發生錯誤，並出現錯誤訊息「VHD https://XXXXX... 具有不受支援的虛擬大小 YYYY 位元組。大小必須是整數 (以 MB 為單位)」，這表示您的 VHD 不是整數 MB，且必須是固定大小的 VHD。嘗試使用 **Add-AzureVMImage** PowerShell Cmdlet 來新增映像，而不要使用入口網站 (請參閱上面的步驟 5)。Azure Cmdlet 可確保 VHD 會符合 Azure 需求。
+	> [AZURE.TIP]如果在您嘗試建立 VM 時發生錯誤，並出現錯誤訊息「VHD https://XXXXX... 具有不受支援的虛擬大小 YYYY 位元組。大小必須是整數 (以 MB 為單位)」，這表示您的 VHD 不是整數 MB，且必須是固定大小的 VHD。請嘗試使用 **Add-AzureVMImage** PowerShell Cmdlet (而不要使用 Azure 入口網站) 來加入映像 (請參閱上面的步驟 5)。Azure Cmdlet 可確保 VHD 會符合 Azure 需求。
 
 ## 後續步驟 ##
 
-建立虛擬機器之後，嘗試建立 SQL Server 虛擬機器。如需相關指示，請參閱[在 Microsoft Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
+建立虛擬機器之後，嘗試建立 SQL Server 虛擬機器。如需指示，請參閱[在 Microsoft Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Create a storage account in Azure]: #createstorage
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

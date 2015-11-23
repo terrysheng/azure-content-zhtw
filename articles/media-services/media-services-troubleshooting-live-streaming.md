@@ -67,4 +67,12 @@
 	
 >[AZURE.NOTE]如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 管理入口網站提交支援票證。
 
-<!---HONumber=Oct15_HO3-->
+##媒體服務學習路徑
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##提供意見反應
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

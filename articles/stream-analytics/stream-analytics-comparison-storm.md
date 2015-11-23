@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/13/2015"
+	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
 # Apache Storm 和 Azure 串流分析的比較 #
@@ -590,4 +590,4 @@
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

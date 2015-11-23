@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 搜尋服務的影片、範例和教學課程 | Microsoft Azure"
+	pageTitle="Azure 搜尋服務中的影片、範例與教學課程 | Microsoft Azure | 雲端託管搜尋服務"
 	description="針對 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 所建立之所有影片、範例、示範和教學課程的集中清單。"
 	services="search"
 	documentationCenter=""
@@ -95,4 +95,4 @@
 - [**SQL Server 與 Azure 搜尋的同步處理範例**](http://sqlserver2azuresearch.codeplex.com/)是從內嵌的本機資料庫載入 SQL Server 資料列集的 Windows 主控台應用程式。
 - [**評分設定檔示範**](https://azuresearchscoringprofiles.codeplex.com/)是定義、執行和更新評分設定檔，以微調搜尋結果的 Windows 主控台應用程式。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

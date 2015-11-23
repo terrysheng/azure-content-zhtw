@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-  ms.service="marketplace-publishing"
+  ms.service="marketplace"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
@@ -38,7 +38,7 @@
 這是您要用來建立 VM 映像和提交映像到 [Azure Marketplace](http://azure.microsoft.com/marketplace) 的訂用帳戶。如果您沒有訂用帳戶，請在 https://account.windowsazure.com/signup?offer=ms-azr-0003p 註冊
 
 ## 「銷售來源」國家/地區
-> [AZURE.WARNING]如果要在 Microsoft Azure Marketplace 上銷售服務，您的註冊實體必須是其中一個經過核准的「銷售來源」國家/地區。這項限制是基於付款和稅收理由。我們正積極在不久的將來擴充這份國家/地區清單，所以敬請密切注意。如需完整的清單，請參閱 [Microsoft Azure Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)的**第 1 節 b 項**。
+> [AZURE.WARNING]如果要在 Microsoft Azure Marketplace 上銷售服務，您的註冊實體必須是其中一個經過核准的「銷售來源」國家/地區。這項限制是基於付款和稅務理由。我們正積極在不久的將來擴充這份國家/地區清單，所以敬請密切注意。如需完整的清單，請參閱 [Microsoft Azure Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)的**第 1 節 b 項**。
 
 ## 後續步驟
 接下來是每個供應項目類型的技術性必要條件。按一下您想要針對 Azure Marketplace 建立的個別供應項目類型的文章連結。
@@ -50,4 +50,4 @@
 ## 另請參閱
 - [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

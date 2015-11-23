@@ -310,8 +310,7 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 - 了解[在 Azure Data Factory 中管理和監視](data-factory-monitor-manage-pipelines.md)。
 - [建置和部署第一個管線](data-factory-build-your-first-pipeline.md)。 
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md)提交您的意見反應。
+
  
 
    
@@ -336,4 +335,4 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

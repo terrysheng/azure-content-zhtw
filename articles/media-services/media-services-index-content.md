@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Azure 媒體索引器編輯媒體檔案索引"
-	description="Azure 媒體索引器讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。本主題說明如何使用 Media Indexer。"
+	pageTitle="使用 Azure Media Indexer 編輯媒體檔案索引"
+	description="Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。本主題說明如何使用 Media Indexer。"
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako,Asolanki,johndeu"
@@ -17,14 +17,14 @@
 	ms.author="juliako"/>
 
 
-# 使用 Azure 媒體索引器編輯媒體檔案索引
+# 使用 Azure Media Indexer 編輯媒體檔案索引
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-manage-content.md#index)
 - [.NET](media-services-index-content.md)
 
 
-Azure 媒體索引器讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。
+Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。
 
 >[AZURE.IMPORTANT]在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。適當內容的一些範例有：錄製的會議、演講或簡報。下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
 
@@ -37,7 +37,7 @@ Azure 媒體索引器讓您能將媒體檔案的內容變成可搜尋，並產�
 - 關鍵字檔案 (XML)。
 - 與 SQL Server 搭配使用的音訊編製索引 blob 檔案 (AIB)。
 
-	如需詳細資訊，請參閱[搭配 Azure 媒體索引器和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
+	如需詳細資訊，請參閱[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
 
 
 本主題示範如何建立索引工作**建立資產的索引**和**建立多個檔案的索引**。
@@ -281,17 +281,19 @@ __功能__ <br /><br /> 在 1.2 版中新增。目前唯一支援的功能是語
 目前支援英文和西班牙文。如需詳細資訊，請參閱 [v1.2 版部落格文章](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)。
 
 
-## 媒體服務學習路徑
+##媒體服務學習路徑
 
-您可以在此檢視 AMS 學習路徑：
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##提供意見反應
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ## 相關連結
 
-[搭配 Azure 媒體索引器和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -299,4 +301,4 @@ __功能__ <br /><br /> 在 1.2 版中新增。目前唯一支援的功能是語
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

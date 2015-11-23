@@ -30,7 +30,7 @@
 否。您只能針對單一 Azure AD 目錄，建立由 Azure AD 網域服務所服務的單一網域服務 。
 
 #### 我可以在訂用帳戶內的多個虛擬網路中使用 Azure AD 網域服務嗎？
-服務本身並不直接支援這種情況。Azure AD 網域服務一次只能在一個虛擬網路上使用。不過，您可以在多個虛擬網路之間設定連線，以便將 Azure AD 網域服務公開至其他虛擬網路。此文章說明如何[在 Azure 中連接虛擬網路](../vpn-gateway/virtual-networks-configure-vnet-to-vnetconnection.md)。
+服務本身並不直接支援這種情況。Azure AD 網域服務一次只能在一個虛擬網路上使用。不過，您可以在多個虛擬網路之間設定連線，以便將 Azure AD 網域服務公開至其他虛擬網路。本文將說明如何[在 Azure 中連接虛擬網路](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)。
 
 #### 我是否可以使用 PowerShell 來啟用「Azure AD 網域服務」？
 目前不提供「Azure AD 網域服務」的 PowerShell/自動化部署。
@@ -68,4 +68,4 @@
 #### 「Azure AD 網域服務」將於何時正式上市？
 我們目前無法分享服務何時將公開上市的時間表。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

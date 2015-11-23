@@ -190,14 +190,14 @@
 - 除非您想要繼續將即時事件封存為隨選串流，否則您可以停止串流端點。如果通道處於已停止狀態，就不會產生任何費用。
 
 
-##後續步驟
+##後續步驟：媒體服務學習路徑
 
-###媒體服務學習路徑
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-您可以在此檢視 AMS 學習路徑：
+##提供意見反應
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ### 尋找其他內容嗎？
 
@@ -212,4 +212,4 @@
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

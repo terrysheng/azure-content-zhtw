@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 # Windows 傳統型應用程式、服務和背景工作角色上的 Application Insights
@@ -23,9 +23,9 @@
 
 Application Insights 可讓您監視所部署應用程式的使用量和效能。
 
-所有的 Windows 應用程式 - 包括傳統型應用程式、背景服務和背景工作角色 - 都能使用 Application Insights 核心 SDK 傳送遙測至 Application Insights。您也可以將 Application Insights SDK 新增至類別庫專案。
+所有的 Windows 應用程式 - 包括傳統型應用程式、背景服務和背景工作角色 - 都能使用 Application Insights SDK 傳送遙測至 Application Insights。您也可以將 Application Insights SDK 新增至類別庫專案。
 
-核心 SDK 僅提供一個 API：不同於 Web 或裝置 SDK，它不包含任何自動收集資料的模組，因此您必須撰寫程式碼來傳送您自己的遙測。效能計數器收集器等某些其他封裝也能在桌面應用程式中運作。
+您可以選擇您想要使用哪些標準資料收集器 (例如用來監視效能計數器或相依性呼叫) 或只是使用核心 API 並撰寫您自己的遙測。
 
 
 ## <a name="add"></a> 建立 Application Insights 資源
@@ -48,13 +48,13 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
     ![以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 封裝]](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. 安裝 Application Insights 核心 API 套件：Microsoft.ApplicationInsights。
+2. 安裝 Application Insights Windows Server 封裝：Microsoft.ApplicationInsights.WindowsServer
 
-    ![搜尋「Application Insights」](./media/app-insights-windows-desktop/04-core-nuget.png)
+    ![搜尋「Application Insights」](./media/app-insights-windows-desktop/04-ai-nuget.png)
 
     *可以使用其他封裝嗎？*
 
-    可以，您可以安裝其他封裝 (例如效能計數器或是相依性收集器封裝)，以便使用其模組。Microsoft.ApplicationInsights.Web 包含數個這類封裝。如果您想要使用[記錄或追蹤收集器封裝](app-insights-asp-net-trace-logs.md)，請從使用 Web 伺服器封裝開始。
+    是。如果您只想要使用 API 來傳送您自己的遙測，請選擇核心 API (Microsoft.ApplicationInsights)。Windows Server 封裝會自動包含核心 API 及其他封裝，例如效能計數器收集和相依性監視。
 
     (但請勿使用 Microsoft.ApplicationInsights.Windows：其只適用於 Windows 市集應用程式。)
 
@@ -113,14 +113,14 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 ```
 
-使用任一個 [Application Insights API][api] 來傳送遙測。在 Windows 桌面應用程式中，不會自動傳送遙測。一般您會使用：
+使用任一個 [Application Insights API][api] 來傳送遙測。如果您使用核心 API，不會自動傳送任何遙測。一般您會使用：
 
-* 切換表單、頁面或索引標籤上的 `TrackPageView(pageName)`
-* 其他使用者動作的 `TrackEvent(eventName)`
-* 背景工作中的 `TrackMetric(name, value)`，可傳送未附加到特定事件之度量的一般報表。
-* [診斷記錄][diagnostic]的 `TrackTrace(logEvent)`
-* catch 子句中的 `TrackException(exception)`
-* `Flush()`，可確定所有遙測在關閉應用程式之前都已傳送。只有當您只使用核心 API (Microsoft.ApplicationInsights) 時才可以使用此選項。Web 和裝置 SDK 會自動實作此行為。(如果您的應用程式會在不一定有網際網路的內容中執行，請參閱[持續性通道](#persistence-channel))。
+* `TrackPageView(pageName)` (用於切換表單、頁面或索引標籤)
+* `TrackEvent(eventName)` (對於其他使用者動作)
+* `TrackMetric(name, value)` (用於背景工作中)，傳送未附加到特定事件之度量的一般報告。
+* `TrackTrace(logEvent)` 供[診斷記錄][diagnostic]
+* `TrackException(exception)` (用於 catch 子句中)
+* `Flush()` 確定所有遙測在關閉應用程式之前都已傳送。只有當您只使用核心 API (Microsoft.ApplicationInsights) 時才可以使用此選項。Web SDK 會自動實作這個行為。(如果您的應用程式會在不一定有網際網路的內容中執行，請參閱[持續性通道](#persistence-channel)。)
 
 
 #### 內容初始設定式
@@ -169,7 +169,7 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 如果您預期有更多資料，請在幾秒之後按一下 [重新整理]。
 
-如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟[計量瀏覽器][metrics]，並開啟 [篩選器] 刀鋒視窗。您應該會看到您的度量，但是它們有時可能需要一些時間才能通過管線，所以您可能必須關閉篩選器刀鋒視窗、稍待片刻，然後重新整理。
+如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟[計量瀏覽器][metrics]，並開啟 [篩選] 刀鋒視窗。您應該會看到您的度量，但是它們有時可能需要一些時間才能通過管線，所以您可能必須關閉篩選器刀鋒視窗、稍待片刻，然後重新整理。
 
 
 
@@ -228,7 +228,7 @@ private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionE
 
 ``` 
 
-當應用程式關閉時，您會看到 `%LocalAppData%\Microsoft\ApplicationInsights` 中的檔案，其中包含壓縮的事件。
+當應用程式關閉時，您會看到 `%LocalAppData%\Microsoft\ApplicationInsights` 中的檔案，包含壓縮的事件。
  
 下次您啟動此應用程式時，通道將盡可能找出此檔案並傳送遙測至 Application Insights。
 
@@ -274,7 +274,7 @@ namespace ConsoleApplication1
 ```
 
 
-持續性通道的程式碼位於 [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel) 上。
+持續性通道的程式碼位於 [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel) 上。
 
 
 ## <a name="usage"></a>後續步驟
@@ -299,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

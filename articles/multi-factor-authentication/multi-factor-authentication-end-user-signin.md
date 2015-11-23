@@ -17,7 +17,8 @@
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 的登入體驗
-此頁面提供的文件顯示一般登入體驗。如需登入的說明，請參閱[使用 Azure Multi-Factor Authentication 時碰到困難](multi-factor-authentication-end-user-manage-settings.md)
+> [AZURE.NOTE]此頁面提供的文件顯示一般登入體驗。如需登入的說明，請參閱[使用 Azure Multi-Factor Authentication 時碰到困難](multi-factor-authentication-end-user-manage-settings.md)
+
 
 
 ## 您的登入體驗將會如何？
@@ -102,4 +103,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

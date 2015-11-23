@@ -185,4 +185,12 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 - WOOX Innovations Limited
 - ZTE Corporation
 
-<!---HONumber=Nov15_HO2-->
+##媒體服務學習路徑
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##提供意見反應
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

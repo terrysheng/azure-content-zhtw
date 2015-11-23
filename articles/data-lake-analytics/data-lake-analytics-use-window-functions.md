@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/11/2015"
    ms.author="jgao"/>
 
 
@@ -603,10 +603,10 @@ CUME\_DIST 會計算指定的值在值群組中的相對位置。它會計算延
 分割索引鍵為 “Web” 的分割中有 6 個資料列 (第 4 個資料列和以下)：
 
 - 有 6 個資料列的值等於或小於 500，因此 CUME\_DIST 等於 6/6=1
-- 有 5 個資料列的值等於或小於 500，因此 CUME\_DIST 等於 5/6=0.83
-- 有 4 個資料列的值等於或小於 500，因此 CUME\_DIST 等於 5/6=0.66
-- 有 3 個資料列的值等於或小於 500，因此 CUME\_DIST 等於 3/6=0.5。有兩個資料列具有相同的延遲值。
-- 有 1 個資料列的值等於或小於 500，因此 CUME\_DIST 等於 1/6=1。 
+- 有 5 個資料列的值等於或小於 400，因此 CUME\_DIST 等於 5/6=0.83
+- 有 4 個資料列的值等於或小於 300，因此 CUME\_DIST 等於 5/6=0.66
+- 有 3 個資料列的值等於或小於 200，因此 CUME\_DIST 等於 3/6=0.5。有兩個資料列具有相同的延遲值。
+- 有 1 個資料列的值等於或小於 100，因此 CUME\_DIST 等於 1/6=0.16。 
 
 
 **使用注意事項：**
@@ -743,4 +743,4 @@ PERCENTILE\_DISC 不會插補值，因此 Web 的中間值是 200 - 也就是在
 - [使用 Azure PowerShell 管理 Azure 資料湖分析](data-lake-analytics-use-powershell.md)
 - [使用 Azure Preview 入口網站監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

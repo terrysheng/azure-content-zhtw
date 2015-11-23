@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="具備 Azure 搜尋服務的 Try Azure App Service | Microsoft Azure" 
+   pageTitle="嘗試搭配 Azure 搜尋服務使用 Azure 應用程式服務 | Microsoft Azure | 雲端託管搜尋服務" 
    description="使用 TryAzureAppService 範本，免費試用 Azure 搜尋服務 (託管的雲端搜尋服務) 一小時。" 
    services="search" 
    documentationCenter="" 
@@ -529,4 +529,4 @@ Azure 搜尋服務具有可設定的 **searchMode** 屬性，可用來控制搜�
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

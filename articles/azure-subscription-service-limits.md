@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2015"
+	ms.date="11/10/2015"
 	ms.author="jroth"/>
 
 # Azure 訂閱和服務限制、配額與限制
@@ -262,4 +262,4 @@
 
 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

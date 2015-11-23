@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/11/2015"
 	ms.author="jgao"/>
 
 
 #HDInsight 所提供 Hadoop 叢集版本的新功能
 
 ##HDInsight 版本和 Hadoop 元件
-Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本選擇都會佈建特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。下表列舉了與 HDInsight 叢集版本相關聯的元件版本。請注意，Azure HDInsight 目前所使用的預設叢集版本為 3.1 版，採用 HDP 2.1.7 (截止 11/7/2014 為止)。
+Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本選擇都會建立特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。下表列舉了與 HDInsight 叢集版本相關聯的元件版本。請注意，Azure HDInsight 目前所使用的預設叢集版本為 3.1 版，採用 HDP 2.1.7 (截止 11/7/2014 為止)。
 
 
 元件|HDInsight 3.2 版|HDInsight 3.1 版 (預設)|HDInsight 3.0 版|HDInsight 2.1 版
@@ -50,7 +50,7 @@ Apache Spark|1\.3.1|||
 
 請參閱 [HDInsight 版本資訊](hdinsight-release-notes.md)，以取得 HDInsight 最新版本的其他版本資訊。
 
-### 佈建 HDInsight 叢集時選取版本
+### 建立 HDInsight 叢集時選取版本
 
 在透過 HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 建立叢集時，您可以在 Azure Preview 入口網站中使用 [選擇性組態] 刀鋒視窗上的 [HDInsight 版本] 下拉式清單，選擇 HDInsight Hadoop 的叢集版本。
 
@@ -66,7 +66,7 @@ Apache Spark|1\.3.1|||
 
 - **Storm** - Azure HDInsight 上的 Storm 現在可供使用，只要一些點擊動作，就可以在幾分鐘內快速、輕易地部署即時分析。Azure HDInsight 上的 Apache Storm 是 Apache Hadoop 生態系統中的開放原始碼專案，提供能夠可靠地處理數百萬事件之分析平台的存取權。現在 Hadoop 使用者可以在事件發生時獲得深入見解，也能夠獲得過去發生之事件的深入見解。Microsoft 也提供與 Visual Studio 的內建整合，讓開發人員輕易地與 Storm 互動。您現在可以從 Visual Studio 開發、部署及偵錯 Storm 拓撲。
 
-- **Linux 上的 HDInsight** - Azure HDInsight 提供佈建 Hadoop 叢集的選項，該叢集在 Linux (Ubuntu) 虛擬機器 (VM) 上執行。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。您可以使用 Azure Preview 入口網站、Azure CLI 或 HDInsight .NET SDK (僅限 Windows)，從執行 Windows 或 Linux 的用戶端電腦，在 Linux 上佈建 HDInsight 叢集。
+- **Linux 上的 HDInsight** - Azure HDInsight 提供建立 Hadoop 叢集的選項，該叢集在 Linux (Ubuntu) 虛擬機器 (VM) 上執行。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。您可以使用 Azure Preview 入口網站、Azure CLI 或 HDInsight .NET SDK (僅限 Windows)，從執行 Windows 或 Linux 的用戶端電腦，在 Linux 上建立 HDInsight 叢集。
 
 - **其他 VM 大小** - HDInsight 叢集現在有更多 VM 類型和大小可用。HDInsight 叢集現在可以利用針對一般用途建置的 A2 到 A7 大小；特色為固態硬碟 (SSD) 和處理器速度更快 60% 的 D 系列節點；以及具有 InfiniBand 支援可快速進行網路連線的 A8 和 A9 大小。Azure HDInsight 上的 Apache HBase 客戶可以從 D 系列更大的記憶體組態獲得效能增加的優點。Azure HDInsight 上的 Apache Storm 客戶可以獲得額外記憶體的優點，用來載入更大的參考資料集，以及更快的 CPU 可用於更高的輸送量。
 
@@ -86,7 +86,7 @@ Apache Spark|1\.3.1|||
 
 - **Tez (僅限 HDInsight 3.1 和更新版本)** - 這是一套通用且可自訂的架構，可在 Hadoop 的大小規模工作負載中建立簡化的資料處理工作。它可讓您執行單一工作的複雜定向非循環圖 (DAG) 工作，以便 Apache Hadoop 生態系統 (例如 Apache Hive 和 Apache Pig) 中的專案可滿足人類互動回應時間和極高輸送量 (以 PB 為單位) 的需求。請注意，Hive 0.13 允許在 Tez (而不是 MapReduce) 上執行 Hive 查詢。
 
-- **高可用性 (HA)** - 已在 HDInsight 所部署的 Hadoop 叢集中新增第二個前端節點，以提升服務的可用性。Hadoop 叢集的標準實作通常包含單一前端節點。HDInsight 會透過新增次要前端節點，來將這個單一失敗點移除。除非客戶使用超大型前端節點 (而不是預設的大型節點) 來佈建叢集，否則新的 HA 叢集組態開關並不會變更叢集價格。
+- **高可用性 (HA)** - 已在 HDInsight 所部署的 Hadoop 叢集中新增第二個前端節點，以提升服務的可用性。Hadoop 叢集的標準實作通常包含單一前端節點。HDInsight 會透過新增次要前端節點，來將這個單一失敗點移除。除非客戶使用超大型前端節點 (而不是預設的大型節點) 來建立叢集，否則新的 HA 叢集組態開關並不會變更叢集價格。
 
 - **Hive 效能** - 採用**最佳化資料列單欄式 (Optimized Row Columnar, ORC)** 格式，大幅改善 Hive 查詢回應時間 (最快達到 40x) 和資料壓縮 (最高達到 80%)。
 
@@ -101,7 +101,7 @@ Apache Spark|1\.3.1|||
 下表列出目前可用的 HDInsight 版本、它們使用的相對應 Hortonworks Data Platform 版本及其發行日期。另外也會提供其支援到期日和淘汰日期 (已知道的話)。請注意：
 
 * 依預設，系統會為 HDInsight 2.1 和更新版本部署搭配兩個前端節點的高可用性叢集。HDInsight 1.6 叢集並不適用。
-* 特定版本的支援到期後，其可能無法透過 Azure Preview 入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
+* 特定版本的支援到期後，其可能無法透過 Azure Preview 入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
 
 HDInsight 版本|HDP 版本|高可用性|發行日期|可在 Azure 入口網站上取得|支援到期日|淘汰日期
 ---|---|---|---|---|---|---
@@ -162,4 +162,4 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

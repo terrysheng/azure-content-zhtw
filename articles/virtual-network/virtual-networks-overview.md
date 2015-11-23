@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2015"
+   ms.date="10/29/2015"
    ms.author="telmos" />
 
 # 虛擬網路概觀
@@ -49,7 +49,7 @@ VNet 提供下列服務給 IaaS VM 以及 PaaS 角色執行個體部署至 IaaS 
 
 - **連線能力**。透過站對站 VPN 連線或 ExpressRoute 連線，VNet 可以彼此連線，甚至連線至您的內部部署資料中心。若要深入了解 VPN 閘道，請造訪[關於 VPN 閘道](./vpn-gateway-about-vpngateways.md)。若要深入了解 ExpressRoute，請參閱 [ExpressRoute 技術概觀](./expressroute-introduction.md)。
 
-    >[AZURE.NOTE]在將任何 IaaS VM 或 PaaS 角色執行個體部署至 Azure 環境之前，請確定您已建立 VNet。ARM 架構的 VM 需要 VNet，而且如果沒有指定現有的 VNet，Azure 建立的預設 VNet 可能會與您的內部部署網路產生 CIDR 位址區塊衝突，而使您無法將 VNet 連線至內部部署網路。
+    >[AZURE.NOTE]在將任何 IaaS VM 或 PaaS 角色執行個體部署至 Azure 環境之前，請確定您已建立 VNet。ARM 架構的 VM 需要 VNet，而且如果沒有指定現有的 VNet，Azure 建立的預設 VNet 可能會與您的內部部署網路產生 CIDR 位址區塊衝突，這會使您無法將 VNet 連線至內部部署網路。
 
 ## 子網路
 
@@ -93,4 +93,4 @@ VNet 提供下列服務給 IaaS VM 以及 PaaS 角色執行個體部署至 IaaS 
 - [保留公用 IP 位址](../virtual-networks-reserved-public-ip.md)。
 - 了解[使用者定義的路由和 IP 轉送](virtual-networks-udr-overview.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

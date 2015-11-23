@@ -38,7 +38,7 @@
 
 建立原則之後，它會獲指派*主索引鍵*和*次要索引鍵*。這些是密碼編譯增強式金鑰。不會遺失或洩漏它們 - 它們永遠都可在入口網站取得。您可以使用其中一個產生的金鑰，以及您可以隨時重新產生它們。不過，如果您重新產生或變更原則中的主索引鍵，從其建立的任何共用存取簽章將會失效。
 
-建立服務匯流排命名空間時，將會自動為整個命名空間建立稱為 **RootManageSharedAccessKey** 的原則，而且此原則會具備所有權限。您未以 **root** 登入，所以除非有適合的理由，請勿使用此原則。您可以在 Azure 管理入口網站命名空間的 [**設定**] 索引標籤中建立額外的原則。請務必注意服務匯流排中單一樹狀目錄的層級 (命名空間、佇列、事件中樞等) 只能有最多 12 個附加至它的原則。
+建立服務匯流排命名空間時，將會自動為整個命名空間建立稱為 **RootManageSharedAccessKey** 的原則，而且此原則會具備所有權限。您未以 **root** 登入，所以除非有適合的理由，請勿使用此原則。您可以在 [Azure 入口網站](http://manage.windowsazure.com)命名空間的 [**設定**] 索引標籤中建立額外的原則。請務必注意服務匯流排中單一樹狀目錄的層級 (命名空間、佇列、事件中樞等) 只能有最多 12 個附加至它的原則。
 
 ## 共用存取簽章 (權杖)
 
@@ -184,9 +184,9 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 在前一節中，說明了如何使用 SAS 權杖搭配 HTTP POST 要求傳送資料到服務匯流排。如您所了解，您可以使用 AMQP (進階訊息佇列通訊協定) 通訊協定來存取服務匯流排，AMQP 通訊協定在許多的案例中，都是基於效能考量而做為主要及慣用的通訊協定。使用 SAS 權杖搭配 AMQP 的用法在下列文章 [AMQP 宣告型安全性 1.0 版](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)中說明，這是自 2013 年開始的工作草稿，不過現在 Azure 已經提供良好的支援。
 
-開始將資料傳送到服務匯流排之前，發行者需要在 AMQP 訊息內部將 SAS 權杖傳送至正確定義且名為 **"$cbs"** 的 AMQP 節點 (您可以將它視為像是一個由服務使用的「特別」佇列，用來取得並驗證所有的 SAS 權杖)。發行者需要指定 AMQP 內部的 **"ReplyTo"** 欄位；這是服務將向發行者回覆權杖驗證結果 (一種在發行者與服務間的簡單要求/回覆模式) 時所在的節點。此回覆節點是「動態」建立，如 AMQP 1.0 規格中所述的「動態建立遠端節點」。檢查 SAS 權杖有效之後，發行者可以繼續並開始將資料傳送至服務。
+開始將資料傳送到服務匯流排之前，發行者需要在 AMQP 訊息內部將 SAS 權杖傳送至正確定義且名為 **"$cbs"** 的 AMQP 節點 (您可以將它視為像是一個由服務使用的「特別」佇列，用來取得並驗證所有的 SAS 權杖)。發行者必須在 AMQP 訊息中指定 **"ReplyTo"** 欄位；這是服務將以權杖驗證結果 (發行者與服務之間的簡單要求/回覆模式) 回覆發行者的節點所在。此回覆節點是「動態」建立，如 AMQP 1.0 規格中所述的「動態建立遠端節點」。檢查 SAS 權杖有效之後，發行者可以繼續並開始將資料傳送至服務。
 
-下列步驟將說明如果您無法在 C&#35; 中使用官方的服務匯流排 SDK (例如在 WinRT、.Net Compact Framework、.Net Micro Framework 和 Mono 中) 進行開發，應如何有效地使用 [AMQP.Net Lite](http://amqpnetlite.codeplex.com) 程式庫搭配 AMQP 通訊協定傳送 SAS 權杖。當然，此函式庫對於了解宣告型安全性如何在 AMQP 層級運作而言非常有用，如同您了解他如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。不過，不用擔心！ 如果您不需要這類關於 AMQP 的深入知識，您可以使用官方服務匯流排 SDK 搭配 .Net Framework 應用程式來為您執行這些動作，或是針對其他所有平台使用 [Azure SB Lite](http://azuresblite.codeplex.com) 程式庫 (請參閱上述說明)。
+下列步驟將說明如果您無法在 C&#35; 中使用官方的服務匯流排 SDK (例如在 WinRT、.Net Compact Framework、.Net Micro Framework 和 Mono 中) 進行開發，應如何有效地使用 [AMQP.Net Lite](http://amqpnetlite.codeplex.com) 程式庫搭配 AMQP 通訊協定傳送 SAS 權杖。當然，此函式庫對於了解宣告型安全性如何在 AMQP 層級運作而言非常有用，如同您了解他如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。不過，不用擔心！ 如果您不需要深入了解 AMQP，您可以搭配 .Net Framework 應用程式使用正式服務匯流排 SDK，這也會為您和所有其他平台的 [Azure SB Lite](http://azuresblite.codeplex.com) 程式庫 (請參閱前述) 做到這點。
 
 ### C&#35;
 
@@ -239,20 +239,20 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-上述的 *PutCbsToken()* 方法會接收代表對服務之 TCP 連線的 *connection* (AMQP .Net Lite 程式庫提供的 AMQP Connection 類別執行個體)，以及代表要傳送之 SAS 權杖的 *sasToken* 參數代表。請注意：務必在將 **SASL 驗證機制設定為 EXTERNAL** 的情況下建立連線 (而不是在您不需要傳送 SAS 權杖時所使用的含有使用者名稱與密碼的預設 PLAIN)。
+上述 *PutCbsToken()* 方法會接收代表服務之 TCP 連線的*連線* (AMQP .Net Lite 程式庫所提供的 AMQP Connection 類別執行個體) 以及要做為 SAS 權杖傳送的 *sasToken* 參數。注意：請務必以**設為 EXTERNAL 的 SASL 驗證機制** (而非當您不需要傳送 SAS 權杖時所使用之包含使用者名稱與密碼的預設 PLAIN) 建立連線。
 
 接下來，發行者會建立兩個 AMQP 連結來傳送 SAS 權杖並接受來自服務的回覆 (權杖驗證結果)。
 
-AMQP 訊息因為具有眾多屬性而有點複雜，且含有比簡單訊息更多的資訊。SAS 權杖會放在訊息內文中 (使用其建構函式)。**"ReplyTo"** 屬性會設定為節點名稱，以便在接收者連結上接受驗證結果 (您可以隨意變更其名稱，它會由服務動態建立)。最後三個 application/custom 屬性是由服務使用，以了解它必須執行什麼類型的作業。如 CBS 草稿規格所描述，這些屬性必須是**作業名稱** ("put-token")，放入的**權杖類型**("servicebus.windows.net:sastoken")，最後則是要套用權杖的**對象名稱** (整個實體)。
+AMQP 訊息因為具有眾多屬性而有點複雜，且含有比簡單訊息更多的資訊。SAS 權杖會放在訊息內文中 (使用其建構函式)。**"ReplyTo"** 屬性設定為在接收者連結上接收驗證結果的節點名稱 (您可以將它變更為您想要的名稱，服務將會動態建立它)。最後三個 application/custom 屬性是由服務使用，以了解它必須執行什麼類型的作業。如 CBS 草稿規格所述，它們必須是**作業名稱** (像是 "put-token")、放置的**語彙基元類型** (像是 "servicebus.windows.net:sastoken")，最後則是套用權杖之**對象的 "name"** (完整實體)。
 
-在寄件者連結上傳送 SAS 權杖之後，發行者需要在接收者連結上讀取回覆。回覆是一個簡單 AMQP 訊息，含有一個名為 **"status-code"** 的應用程式屬性，可以包含與 HTTP 狀態碼相同的值。
+在寄件者連結上傳送 SAS 權杖之後，發行者需要在接收者連結上讀取回覆。回覆是包含名稱為 **"status-code"** 之應用程式屬性的簡單 AMQP 訊息，可用來包含做為 HTTP 狀態碼的相同值
 
 ## 後續步驟
 
 如需有關如何使用這些 SAS 權杖的詳細資訊，請參閱[服務匯流排 REST API 參考](https://msdn.microsoft.com/library/azure/hh780717.aspx)。
 
-如需關於服務匯流排驗證的詳細資訊，請參閱[服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。
+如需有關服務匯流排驗證的詳細資訊，請參閱[服務匯流排驗證與授權](service-bus-authentication-and-authorization.md)。
 
-您可以在[此部落格文章](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)中找到更多 C# 和 Java Script 的 SAS 範例。
+[本部落格文章](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)中有更多 C# 和 Java Script 的 SAS 範例。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

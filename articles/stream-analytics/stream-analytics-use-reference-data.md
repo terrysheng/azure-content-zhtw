@@ -14,16 +14,16 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="11/09/2015" 
 	ms.author="jeffstok"/>
 
 # 使用參考資料做為輸入
 
-參考資料是靜態或本質上不常變更的有限資料集，可用來執行查閱或相互關聯資料流。若要使用 Azure 串流分析工作中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。串流分析會使用 Azure Blob 儲存體做為參考資料的儲存層，且可和 Azure Data Factory 參考資料一起轉換和/或複製到來自[任意數目的雲端架構和內部部署資料存放區](./articles/data-factory-data-movement-activities.md)的 Azure Blob 儲存體，做為參考資料。
+參考資料是靜態或本質上不常變更的有限資料集，可用來執行查閱或相互關聯資料流。若要使用 Azure 串流分析工作中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。串流分析會使用 Azure Blob 儲存體做為參考資料的儲存層，且可和 Azure Data Factory 參考資料一起轉換和/或複製到來自[任意數目的雲端架構和內部部署資料存放區](./articles/data-factory-data-movement-activities.md)的 Azure Blob 儲存體，做為參考資料。參考資料會依 Blob 名稱中指定之日期/時間的遞增順序，以 Blob 序列的形式建立模型 (在輸入組態中定義)。它「只」支援使用比序列中最後一個 Blob 指定之日期/時間「大」的日期/時間來新增到序列的結尾。
 
 ## 設定參考資料
 
-若要設定參考資料，您必須先建立屬於參考資料類型的輸入。下表說明您在建立參考資料輸入及其描述時必須提供的每個屬性：
+若要設定參考資料，您必須先建立屬於「參考資料」類型的輸入。下表說明您在建立參考資料輸入及其描述時必須提供的每個屬性：
 
 <table>
 <tbody>
@@ -48,7 +48,7 @@
 <td>容器提供邏輯分組給儲存在 Microsoft Azure Blob 服務中的 blob。當您將 blob 上傳至 Blob 服務時，您必須指定該 blob 的容器。</td>
 </tr>
 <tr>
-<td>路徑前置詞模式 [選用]</td>
+<td>路徑格式</td>
 <td>用來在指定容器中找出 Blob 的檔案路徑。在該路徑內，您也可以指定下列 2 個變數的一個或多個執行個體：<BR>{date}、{time}<BR>範例 1：products/{date}/{time}/product-list.csv<BR>範例 2：products/{date}/product-list.csv
 </tr>
 <tr>
@@ -72,11 +72,17 @@
 
 ## 產生排程上的參考資料
 
-如果您的參考資料是不常變更的資料集，可以啟用重新整理參考資料的支援，方法是使用 {date} 與 {time} 權杖指定輸入設定內的路徑模式。串流分析會根據此路徑模式採用更新的參考資料定義。例如，日期格式為 “YYYY-MM-DD” 且時間格式為 “HH:mm” 的模式 ````"/sample/{date}/{time}/products.csv"````，會告知串流分析在 UTC 時區 2015 年 4 月 16 日的下午 5:30 擷取更新的 blob ````"/sample/2015-04-16/17:30/products.csv"````。
+如果您的參考資料是不常變更的資料集，可以啟用重新整理參考資料的支援，方法是使用 {date} 與 {time} 權杖指定輸入設定內的路徑模式。串流分析會根據此路徑模式採用更新的參考資料定義。例如，日期格式為 “YYYY-MM-DD” 且時間格式為 “HH:mm” 的模式 ````"/sample/{date}/{time}/products.csv"```` 會告知「串流分析」在 UTC 時區 2015 年 4 月 16 日的下午 5:30 擷取更新的 Blob ````"/sample/2015-04-16/17:30/products.csv"````。
 
-> [AZURE.NOTE]目前串流分析工作只有在機器時間與 Blob 名稱中編碼的時間一致時，才會尋找 blob 重新整理。例如，工作會在 UTC 時區 2015 年 4 月 16 日的下午 5:30 到下午5:30:59.9 之間尋找 /sample/2015-04-16/17:30/products.csv。當機器時間為下午 5:31 時，就會停止尋找 /sample/2015-04-16/17:30/products.csv，並開始尋找 /sample/2015-04-16/17:31/products.csv。先前參考資料 Blob 唯一考量的時間就是該工作第一次啟動的時間。當時作業正在尋找指定的作業啟動時間之前所產生的最新 blob。這是為了確保工作啟動時有非空白參考資料集。如果無法找到，工作就會失敗，並向使用者顯示診斷注意事項。
+> [AZURE.NOTE]目前串流分析工作只有在機器時間與 Blob 名稱中編碼的時間一致時，才會尋找 blob 重新整理。例如，工作會在 UTC 時區 2015 年 4 月 16 日的下午 5:30 到下午5:30:59.9 之間尋找 /sample/2015-04-16/17:30/products.csv。當機器時間為下午 5:31 時，就會停止尋找 /sample/2015-04-16/17:30/products.csv，並開始尋找 /sample/2015-04-16/17:31/products.csv。此情況有例外，就是當工作需要回到之前來重新處理資料，或當工作第一次啟動的時候。啟動時，工作會尋找在指定的工作啟動時間之前產生的最新 Blob。這是為了確保在工作啟動時會有非空白的參考資料集。如果無法找到，工作就會失敗，並向使用者顯示診斷注意事項。
 
-[Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/) 可以用來協調建立串流分析所需的更新 blob 工作，以更新參考資料定義。Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。Data Factory 支援[連接到大量的雲端架構和內部部署資料存放區](./articles/data-factory-data-movement-activities.md)以及根據您指定的固定排程輕鬆地移動資料。如需詳細資訊以及有關如何設定 Data Factory 管線以產生在預先定義排程上重新整理之串流分析的參考資料的逐步指引，請參閱 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)。
+[Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/) 可用來針對「串流分析」更新參考資料定義時所需的已更新 Blob，協調建立這些 Blob 的工作。Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。Data Factory 支援[連線到大量雲端式和內部部署的資料存放區](./articles/data-factory-data-movement-activities.md)，也支援根據您指定的定期排程輕鬆地移動資料。如需詳細資訊，以及有關如何設定 Data Factory 管線為「串流分析」產生根據預先定義排程重新整理之參考資料的逐步指引，請查看這個 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)。
+
+## 重新整理參考資料的秘訣 ##
+
+1. 覆寫參考資料 Blob 並不會造成「串流分析」重新載入 Blob，並且在某些情況下，它可能會造成工作失敗。若要變更參考資料，建議的方式是藉由使用工作輸入中定義的相同容器和路徑格式，並使用比序列中最後一個 Blob 指定之日期/時間「大」的日期/時間，加入新的 Blob。
+2.	參考資料 Blobs 不是依 Blob 的「上次修改日期」時間排序，而是只依 Blob 名稱中使用 {date} 和 {time} 替代來指定的時間和日期排序。
+3.	在一些情況下，工作必須回到之前，因此參照資料必須不被更改或刪除。
 
 ## 取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
@@ -97,4 +103,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

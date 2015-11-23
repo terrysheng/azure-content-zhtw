@@ -43,7 +43,7 @@
 
 本節說明如何使用 Azure 入口網站中的 [**從資源庫**] 選項來建立虛擬機器。此選項提供的組態選擇比 [快速建立] 選項還多。例如，如果您要將虛擬機器加入虛擬網路中，您必須使用 [從組件庫] 選項。
 
-> [AZURE.NOTE]您也可以嘗試透過更豐富且可自訂的 [Azure Preview 入口網站](https://portal.azure.com)來建立虛擬機器、使用增強的監控和診斷功能、使用進階儲存體，以及其他更多功能。兩個入口網站中用來設定虛擬機器的可用選項有許多重疊之處，但並不完全相同。例如，使用 Preview 入口網站設定包含進階儲存體的虛擬機器。
+> [AZURE.NOTE]您也可以嘗試透過更豐富且可自訂的 Azure Preview 入口網站來建立虛擬機器、使用增強的監視和診斷功能、使用進階儲存體，以及其他更多功能。兩個入口網站中用來設定虛擬機器的可用選項有許多重疊之處，但並不完全相同。例如，使用 Azure Preview 入口網站來設定配備進階儲存體的虛擬機器。
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
@@ -51,6 +51,6 @@
 
 - 登入虛擬機器。如需指示，請參閱[如何登入執行 Windows Server 的虛擬機器](virtual-machines-log-on-windows-server.md)。
 
-- 附加磁碟來儲存資料。您可以附加空的磁碟和含有資料的磁碟。如需相關指示，請參閱[連接資料磁碟教學課程](storage-windows-attach-disk.md)。
+- 附加磁碟來儲存資料。您可以附加空的磁碟和含有資料的磁碟。如需指示，請參閱[連接資料磁碟教學課程](storage-windows-attach-disk.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

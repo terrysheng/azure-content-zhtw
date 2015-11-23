@@ -44,7 +44,9 @@
 		public bool Complete { get; set; }
 	}
 
-啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新欄位。如需詳細資訊，請參閱[動態結構描述](http://go.microsoft.com/fwlink/?LinkId=296271)。
+請注意 [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) 是用來定義用戶端類型與資料表之間PropertyName 對應之間的對應。
+
+當 JavaScript 後端行動服務中啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件為基礎，自動產生新的資料行。如需詳細資訊，請參閱[動態結構描述](http://go.microsoft.com/fwlink/?LinkId=296271)。在 .NET 後端行動服務中，資料表會在專案的資料模型中定義。
 
 ##<a name="create-client"></a>作法：建立行動服務用戶端
 
@@ -62,12 +64,12 @@
 
 ##<a name="instantiating"></a>作法：建立資料表參考
 
-只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。
+只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫 `MobileServiceTable` 物件上的函數。透過在 `MobileServiceClient` 的執行個體上呼叫 [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) 方法來取得資料表的參考，如下所示：
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-此為具類型的序列化模型，請參閱下面的<a href="#untyped">不具類型的序列化模型</a>討論。
+此為具類型的序列化模型，請參閱下面的[不具類型的序列化模型](#untyped)討論。
 
 ##<a name="querying"></a>作法：查詢行動服務中的資料
 
@@ -426,7 +428,7 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 		lb.ItemsSource = items;
 
 
-若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>` 上使用 `ToCollection`。若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
+若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>`上使用 `ToCollection` extension method若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
@@ -669,16 +671,19 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 		await table.InsertAsync(newItem);
 	}
 
-	public class MyHandler : DelegatingHandler
-	{
-		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-		{
-			request.Headers.Add("x-my-header", "my value");
-			var response = awaitbase.SendAsync(request, cancellationToken);
-			response.StatusCode = HttpStatusCode.ServiceUnavailable;
-			return response;
-		}
-	}
+    public class MyHandler : DelegatingHandler
+    {
+        protected override async Task<HttpResponseMessage> 
+            SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            // Add a custom header to the request.
+            request.Headers.Add("x-my-header", "my value");
+            var response = await base.SendAsync(request, cancellationToken);
+            // Set a differnt response status code.
+            response.StatusCode = HttpStatusCode.ServiceUnavailable;
+            return response;
+        }
+    }
 
 此程式碼在要求中新增新的 **x-my-header** 標頭，並且任意設定回應代碼為無法使用。在實際案例中，您會根據應用程式所需的一些自訂邏輯來設定回應狀態碼。
 
@@ -740,6 +745,7 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
 [開放式並型存取教學課程]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[MobileServiceClient]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
@@ -748,4 +754,4 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 [Azure 行動服務用戶端 SDK 中的自訂 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

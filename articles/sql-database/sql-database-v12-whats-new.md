@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/11/2015" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,6 @@ SQL Database 的資源限制的最新資訊記載於：<br/>[Azure SQL Database 
 SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 2014 的相容性。在其他區域中，V12 在可程式性的重要區域中已達成 SQL Server 同位檢查例如：
 
 
-- [Common Language Runtime (CLR) 組件](http://msdn.microsoft.com/library/ms189524.aspx)
 - [Window 函數](http://msdn.microsoft.com/library/bb934097.aspx) (包含 [OVER](http://msdn.microsoft.com/library/ms189461.aspx)) 
 - [XML 索引](http://msdn.microsoft.com/library/bb934097.aspx)和[選擇性 XML 索引](http://msdn.microsoft.com/library/jj670104.aspx)
 - [變更追蹤](http://msdn.microsoft.com/library/bb933875.aspx)
@@ -48,7 +47,7 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 - [全文檢索搜尋](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
-如需了解 SQL Database 中尚未支援的少部分功能，請參閱[這裡](http://msdn.microsoft.com/library/azure/ee336281.aspx)。
+如需了解 SQL Database 中尚未支援的少部分功能，請參閱[這裡](sql-database-transact-sql-information.md)。
 
 
 ## 更多高階效能，新的效能層級
@@ -71,7 +70,7 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 - 14000-14999
 
 
-如需 SQL Database V12 連接埠的詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。SQL Database V12 的效能增強功能需要這些連接埠。
+如需有關 SQL Database V12 連接埠的詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。SQL Database V12 的效能增強功能需要這些連接埠。
 
 
 ## 更有效地支援雲端 SaaS 廠商
@@ -92,12 +91,12 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 
 - [資料列層級安全性](http://msdn.microsoft.com/library/dn765131.aspx) (RLS)
 - [動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)
-- [自主資料庫](http://msdn.microsoft.com/library/azure/ff394108.aspx)
+- [自主資料庫](http://msdn.microsoft.com/library/ff929188.aspx)
 - 使用 GRANT、DENY、REVOKE 管理的[應用程式角色](http://msdn.microsoft.com/library/ms190998.aspx)
 - [透明資料加密](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [使用 Azure Active Directory 驗證連線到 SQL Database](sql-database-aad-authentication.md)
  - SQL Database 現在支援 Azure Active Directory 驗證，這是 Azure Active Directory (Azure AD) 中使用身分識別連線到 SQL Database 的機制。您可以使用 Azure Active Directory 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。
-- [一律加密](https://msdn.microsoft.com/library/mt163865.aspx) (預覽版) 讓加密對應用程式透明化，且允許用戶端加密用戶端應用程式中的機密資料，而不需與 SQL Database 共用加密金鑰。
+- [永遠加密](https://msdn.microsoft.com/library/mt163865.aspx) (預覽版) 可讓加密對應用程式來說變成透明化，並允許用戶端加密用戶端應用程式內的機密資料，而不需與 SQL Database 共用加密金鑰。
 
 
 ## 當需要復原時提升業務持續性
@@ -113,7 +112,7 @@ V12 提供大幅改進的復原點目標 (RPO) 與預估復原時間 (ERT)：
 | 主動式異地複寫 | • RPO < 5 分鐘。<br/>• ERT < 1 小時。 | • RPO < 5 秒。<br/>• ERT < 30 秒。 |
 
 
-如需詳細資訊，請參閱 [SQL Database 業務持續性](http://msdn.microsoft.com/library/azure/hh852669.aspx)。
+如需詳細資訊，請參閱 [SQL Database 業務持續性](sql-database-business-continuity.md)。
 
 
 ## 更多需要立即升級的理由
@@ -162,4 +161,4 @@ V12 資料庫只能裝載在 V12 邏輯伺服器上。而 V12 只可以裝載 V1
 
 [Microsoft Azure 預覽專用的使用補充條款](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

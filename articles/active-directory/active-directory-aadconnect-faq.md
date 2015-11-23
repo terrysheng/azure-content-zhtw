@@ -13,10 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/10/2015"
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect 常見問題集
+
+## 一般安裝
+**問：如果 Azure AD 全域管理員已啟用 2FA，安裝是否能夠運作？**
+
+安裝將無法在此情況下運作。安裝 Azure AD Connect 的全域管理員不能啟用 MFA。我們已經注意到這項限制，並將在未來支援此功能。
+
+**問：是否有方法可自動安裝 Azure AD Connect？**
+
+它僅支援使用安裝精靈來安裝 Azure AD Connect。不支援自動和無訊息安裝。
 
 ## 快速安裝
 
@@ -26,7 +35,6 @@
 **問：我的防火牆、網路裝置或其他軟硬體會限制在網路上開啟連線的時間上限。使用 Azure AD Connect 時，用戶端逾時閥值時間應該多長？**
 
 所有網路軟體、實體裝置或其他軟硬體限制連線開啟時間上限的閥值應該至少為 5 分鐘 (300 秒)，以便讓安裝 Azure AD Connect 用戶端的伺服器與 Azure Active Directory 連線。這也適用於所有先前發行的 Microsoft Identity 同步處理工具。
-
 
 **問：如果我收到一封電子郵件，要求我更新我的 Office 365 憑證，該怎麼辦**
 
@@ -49,4 +57,4 @@
 
 - 使用此連結透過 Azure 入口網站取得支援。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

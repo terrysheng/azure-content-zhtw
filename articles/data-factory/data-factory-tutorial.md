@@ -173,7 +173,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 	
 		![建立資源群組][image-data-factory-tutorial-create-resourcegroup]
 7. 選取 [**ADF**] 做為 [**資源群組名稱**]。  
-8.	在 [**新增 Data Factory**] 刀鋒視窗中，請注意，預設會選取 [**新增至開始面板**]。這會將連結加入開始面板上的 Data Factory (登入 Azure 預覽入口網站時會看見)。
+8.	在 [**新增 Data Factory**] 刀鋒視窗中，請注意，預設會選取 [**新增至開始面板**]。這會將連結加入開始面板上的 Data Factory (登入 Azure Preview 入口網站時會看見)。
 
 	![[建立 Data Factory] 刀鋒視窗][image-data-factory-tutorial-create-datafactory]
 
@@ -418,8 +418,6 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 練習[逐步解說：使用內部部署資料來源][tutorial-onpremises]，了解如何建立管線，以將行銷活動成效資料複製到內部部署 SQL Server 資料庫。
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md)提交您的意見反應。
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -528,4 +526,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

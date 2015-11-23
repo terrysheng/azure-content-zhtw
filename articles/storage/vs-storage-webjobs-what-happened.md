@@ -3,7 +3,7 @@
 	description="說明使用 Visual Studio 已連接服務連接到儲存體帳戶後，會在 Azure WebJob 專案中發生什麼事" 
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 我的 WebJob 專案 (Visual Studio Azure 儲存體連接的服務) 發生什麼狀況？
 
@@ -41,4 +41,4 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案或在其中更新�
 
 如需詳細資訊，請參閱 [Azure WebJobs 建議資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

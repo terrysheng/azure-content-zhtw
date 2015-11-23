@@ -19,7 +19,7 @@
 ### 佈建 Azure 儲存體帳戶和服務匯流排佇列
 若要使用 [EventProcessorHost]，您必須擁有 Azure 儲存體帳戶。您可以使用現有帳戶，或是依照[關於 Azure 儲存體]中的指示，另外建立新的帳戶。記下儲存體帳戶連接字串。
 
-您也需要服務匯流排佇列以啟用可靠的互動式訊息處理。您可以程式設計方式使用 1 小時重複資料刪除視窗建立佇列，如[如何使用服務匯流排佇列][Service Bus Queue]中所述，或遵循下列步驟以使用 [Azure 管理入口網站]：
+您也需要服務匯流排佇列以啟用可靠的互動式訊息處理。您可以程式設計方式使用 1 小時重複資料刪除視窗建立佇列，如[如何使用服務匯流排佇列][Service Bus Queue]中所述，或遵循下列步驟以使用 [Azure 入口網站]：
 
 1. 依序按一下左下角的 [新增]、[應用程式服務]、[服務匯流排]、[佇列]、[自訂]，選取名稱 **d2ctutorial**，然後選取 1 小時的重複資料刪除視窗。
 
@@ -301,11 +301,11 @@
 
 [事件中樞程式設計指南]: ../event-hubs/event-hubs-programming-guide.md
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 入口網站]: https://manage.windowsazure.com/
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
@@ -324,4 +324,4 @@
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

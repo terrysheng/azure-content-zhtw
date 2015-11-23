@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure 串流分析與 Power BI：用於串流資料即時分析的即時儀表板
@@ -35,7 +35,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 ## 建立 Azure 串流分析工作 ##
 
-在 [Azure 入口網站](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[串流分析]、[快速建立]。
+在 [Azure 入口網站][](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[Stream Analytics]、[快速建立]。
 
 指定下列值，然後按一下 [建立 Stream Analytics 工作]：
 
@@ -43,7 +43,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 * **區域** - 選取要執行此工作的區域。請考慮將工作和事件中樞放在相同的區域以確保更好的效能，以及在區域之間傳輸資料時無須付費。
 * **儲存體帳戶** - 選擇您為在此區域內執行的所有 Stream Analytics 工作儲存監視資料時所要使用的儲存體帳戶。您可以選擇現有的儲存體帳戶，或建立新帳戶。
 
-按一下左窗格中的 [Stream Analytics]，以列出 Stream Analytics 工作。
+按一下左窗格中的 [串流分析]，以列出串流分析工作。
 
 ![graphic1][graphic1]
 
@@ -161,12 +161,12 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 請注意，本教學課程示範如何為一個資料集建立一種圖表類型。Power BI 可協助您為組織建立其他客戶商業智慧型工具。如需其他 Power BI 儀表板範例，請觀賞[開始使用 Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) 視訊。
 
-另一個深入了解如何利用 Power BI 建立儀表板的實用資源，可參考 [Power BI 預覽中的儀表板](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview)。
+如需有關設定 Power BI 輸出及利用 Power BI 群組的進一步資訊，請檢閱[了解串流分析輸出](stream-analytics-define-outputs.md "了解串流分析輸出")的 [Power BI 小節](stream-analytics-define-outputs.md#power-bi)。另一個深入了解如何利用 Power BI 建立儀表板的實用資源，可參考 [Power BI 預覽中的儀表板](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview)。
 
 ## 限制和最佳作法 ##
-Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 價格")
+Power BI 同時採用了並行處理和輸送量條件約束，如以下所述：[https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 價格")
 
-由於這些 Power BI 本身以最自然的方式符合案例需求，其中 Azure 串流分析會大量降低資料載入的作業。我們建議使用 TumblingWindow 或 HoppingWindow 來確保資料推送最多 1 推送/秒，且查詢會落在輸送量需求之中 – 您可以使用下列方程式來運算每秒提供給視窗的值：![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)。
+由於這些 Power BI 本身以最自然的方式符合案例需求，其中 Azure 串流分析會大量降低資料載入的作業。我們建議使用 TumblingWindow 或 HoppingWindow 來確保資料推送最多為每秒推送 1 次，並且您的查詢會符合輸送量的要求範圍 – 您可以使用下列方程式，以秒為單位計算要提供給視窗的值：![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)。
 
 在此範例中 – 如果您有 1,000 個每秒傳送資料的裝置，且位於支援每小時 1,000,000 個資料列的 Power BI Pro SKU 上，而您想要在 Power BI 上取得每個裝置的平均資料，則每個裝置最多可以每 4 秒執行一次推送 (如下所示)：
 ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
@@ -222,4 +222,4 @@ Power BI 同時採用並行處理和輸送量的條件約束，如下所述：[h
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

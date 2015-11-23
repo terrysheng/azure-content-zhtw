@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="簡介 Azure 搜尋 | Microsoft Azure" 
+	pageTitle="Azure 搜尋服務簡介 | Microsoft Azure | 雲端託管搜尋服務" 
 	description="了解託管的雲端搜尋服務「Azure 搜尋服務」如何協助您建置搜尋功能豐富的應用程式。" 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Azure 搜尋服務簡介」(PDF 檔案)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Azure 搜尋服務簡介」(Microsoft Word 檔案)</a> 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

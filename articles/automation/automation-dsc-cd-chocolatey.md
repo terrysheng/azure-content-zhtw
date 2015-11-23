@@ -60,8 +60,7 @@ ARM 範本的一項主要功能是能夠在佈建時將 VM 延伸模組安裝至
 
 在已驗證的 (Add-AzureAccount) PowerShell 命令列：(設定提取伺服器可能需要幾分鐘時間)
 
-    Switch-AzureMode -Name AzureResourceManager                     <-- assumes you are still running Azure PowerShell v0.9.x    
-    New-AzureResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
 您可以將自動化帳戶放入下列任何區域 (也就是位置)：日本東部、美國東部 2、西歐、東南亞、美國中南部。
@@ -92,7 +91,7 @@ PowerShell 資源庫會自動將 DSC 資源安裝到您的 Azure 自動化帳戶
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
         
 
-隨附的範例針對 cChoco 和 xNetworking 執行這些步驟。請參閱「cChoco 特殊處理的注意事項」。
+隨附的範例針對 cChoco 和 xNetworking 執行這些步驟。請參閱 cChoco 特殊處理的[注意事項](#notes)。
 
 ## 步驟 4：將節點組態加入到提取伺服器
 
@@ -145,18 +144,18 @@ ISVBoxConfig.ps1：
 
 New-ConfigurationScript.ps1：
 
-    Import-AzureAutomationDscConfiguration ` 
+    Import-AzureRmAutomationDscConfiguration ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 ` 
         -Published –Force
     
-    $jobData = Start-AzureAutomationDscCompilationJob ` 
+    $jobData = Start-AzureRmAutomationDscCompilationJob ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -ConfigurationName ISVBoxConfig 
     
     $compilationJobId = $jobData.Id
     
-    Get-AzureAutomationDscCompilationJob ` 
+    Get-AzureRmAutomationDscCompilationJob ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -Id $compilationJobId
 
@@ -188,4 +187,4 @@ PowerShell 資源庫中的 cChoco DSC 資源版本的原始檔並不是最新的
 - [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 - [上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

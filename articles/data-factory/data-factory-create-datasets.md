@@ -49,11 +49,11 @@
 | 屬性 | 說明 | 必要 | 預設值 |
 | -------- | ----------- | -------- | ------- |
 | 名稱 | 資料集的名稱 | 是 | NA |
-| Structure | <p>資料集的結構描述</p><p>請參閱[資料集結構](#Structure)一節，以取得詳細資訊</p> | 編號 | NA |
+| structure | <p>資料集的結構描述</p><p>請參閱[資料集結構](#Structure)一節，以取得詳細資訊</p> | 編號 | NA |
 | 類型 | 資料集的類型 | 是 | NA |
 | typeProperties | <p>對應至所選類型的屬性</p><p>請參閱[資料集類型](#Type)一節，以取得支援的類型及其屬性的詳細資訊。</p> | 是 | NA |
 | external | 用來指定資料集是否由 Data Factory 管線明確產生的布林值旗標 | 否 | false | 
-| Availability | <p>定義處理時間範圍或資料集生產的切割模型。</p><p>請參閱[資料集可用性](#Availability)主題，以取得詳細資訊</p><p>請參閱[排程和執行](data-factory-scheduling-and-execution.md)一文，以取得資料集切割模型的詳細資訊</p> | 是 | NA
+| availability | <p>定義處理時間範圍或資料集生產的切割模型。</p><p>請參閱[資料集可用性](#Availability)主題，以取得詳細資訊</p><p>請參閱[排程和執行](data-factory-scheduling-and-execution.md)一文，以取得資料集切割模型的詳細資訊</p> | 是 | NA
 | 原則 | 定義資料集配量必須符合的準則或條件。<p>請參閱[資料集原則](#Policy)主題，以取得詳細資訊</p> | 否 | NA |
 
 ### 範例
@@ -142,7 +142,7 @@
 
 
 
-## <a name="Policy"></a> 資料集原則
+## <a name="Policy"></a>資料集原則
 
 資料集中的 Policy 區段定義資料集配量必須符合的準則或條件。
 
@@ -208,13 +208,4 @@
 	  }
 	}
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md)提交您的意見反應。
-
-
-
-
-
-  
-
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -47,7 +47,7 @@ Azure IoT 中樞是多租用戶服務，且公開功能給各種執行者。下�
 * **裝置端點**：對於裝置身分識別登錄中佈建的每個裝置，IoT 中樞會公開一組用來與該裝置進行通訊的端點。這些端點目前公開於 HTTP 和 [AMQP][lnk-amqp] 中︰
     - *傳送裝置到雲端的訊息*。此端點用來傳送裝置到雲端的訊息。如需詳細資訊，請參閱[裝置到雲端傳訊](#d2c)。
     - *接收雲端到裝置的訊息*。裝置會使用此端點來接收已鎖定為目標的雲端到裝置訊息。如需詳細資訊，請參閱[雲端到裝置傳訊](#c2d)。
-* **服務端點**：每個 IoT 中樞也公開一組由應用程式後端 (*服務*) 用來與裝置進行通訊的端點。目前僅使用 [AMQP][lnk-amqp] 通訊協定公開這些端點。
+* **服務端點**：每個 IoT 中樞也公開一組由應用程式後端 (服務) 用來與裝置進行通訊的端點。目前僅使用 [AMQP][lnk-amqp] 通訊協定公開這些端點。
     - *接收裝置到雲端的訊息*。此端點與 [Azure 事件中樞][lnk-event-hubs]相容，可用來讀取您的裝置所傳送的所有裝置到雲端訊息。如需詳細資訊，請參閱[裝置到雲端傳訊](#d2c)。
     - *傳送雲端到裝置的訊息及接收傳遞通知*。這些端點可讓您的應用程式後端傳送雲端到裝置的可靠訊息，以及接收對應的傳遞或到期通知。如需詳細資訊，請參閱[雲端到裝置傳訊](#c2d)。
 
@@ -59,7 +59,7 @@ Azure IoT 中樞是多租用戶服務，且公開功能給各種執行者。下�
 
 使用[適用於 .NET 的 Azure 服務匯流排 SDK](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 或[事件中樞 - 事件處理器主機][]時，您可以使用任何 IoT 中樞連接字串搭配正確的權限，然後使用 `messages/events` 做為事件中樞名稱。
 
-使用未能察覺 IoT 中樞的 SDK (或產品整合) 時，您必須從 [Azure Preview 入口網站][]的 IoT 中樞設定中，擷取事件中樞相容端點和事件中樞名稱︰
+使用 IoT 中樞未識別的 SDK (或產品整合) 時，您必須從 [Azure Preview 入口網站][]的 IoT 中樞設定中，擷取事件中樞相容端點和事件中樞名稱︰
 
 1. 在 IoT 中樞刀鋒視窗中，按一下 [設定]，然後按一下 [傳訊]。
 2. 在 [裝置到雲端的設定] 區段中，您會發現 [事件中樞相容端點]、[事件中樞相容名稱] 和 [資料分割] 方塊。
@@ -121,9 +121,9 @@ IoT 中樞裝置身分識別登錄會公開下列作業︰
 
 上述所有作業允許使用 [RFC7232][lnk-rfc7232] 中指定的開放式並行存取。
 
-> [AZURE.IMPORTANT]如果要擷取中心的身分識別登錄中的所有身分識別，唯一方法是使用[匯出](#importexport)功能。
+> [AZURE.IMPORTANT]如果要擷取中樞的身分識別登錄中的所有身分識別，唯一方法是使用[匯出](#importexport)功能。
 
-中心的裝置身分識別登錄不包含任何應用程式中繼資料、可如同字典一樣使用 **deviceId** 做為索引鍵來存取，而且不支援表達式查詢。任何 IoT 解決方案都有解決方案特定的存放區，其中包含應用程式特定的中繼資料，例如在智慧型建築解決方案中部署溫度感應器的場所。
+中樞的裝置身分識別登錄不包含任何應用程式中繼資料、可如同字典一樣使用 **deviceId** 做為索引鍵來存取，而且不支援表達式查詢。任何 IoT 解決方案都有解決方案特定的存放區，其中包含應用程式特定的中繼資料，例如在智慧型建築解決方案中部署溫度感應器的場所。
 
 ### 停用裝置
 
@@ -144,7 +144,7 @@ IoT 中樞裝置身分識別登錄會公開下列作業︰
 * 擷取執行中工作的狀態
 * 取消執行中的工作
 
-> [AZURE.NOTE]在任何指定的時間，每個中心只可以有一項執行中的工作。
+> [AZURE.NOTE]在任何指定的時間，每個中樞只可以有一項執行中的工作。
 
 如須匯入和匯出 API 的詳細資訊，請參閱 [Azure IoT 中樞 - 資源提供者 API][lnk-resource-provider-apis]。
 
@@ -193,7 +193,7 @@ IoT 中樞使用下列*權限*組，授與每個 IoT 中樞端點的存取權。
 
 授與權限的方式如下：
 
-* **中心層級的共用存取原則**。*共用存取原則*可以授與上一節所列權限的任意組合。您可以在 [Azure 管理入口網站][lnk-management-portal]中定義原則，或使用 [Azure IoT 中樞資源提供者 API][lnk-resource-provider-apis] 以程式設計方式定義原則。新建立的 IoT 中樞有下列預設原則︰
+* **中樞層級的共用存取原則**。*共用存取原則*可以授與上一節所列權限的任意組合。您可以在 [Azure Preview 管理入口網站][lnk-management-portal]中定義原則，或使用 [Azure IoT 中樞資源提供者 API][lnk-resource-provider-apis] 以程式設計方式定義原則。新建立的 IoT 中樞有下列預設原則︰
 
     - *iothubowner*︰具備所有權限的原則
     - *service*︰具備 **ServiceConnect** 權限的原則
@@ -250,7 +250,7 @@ Azure IoT 中樞可根據共用存取原則和裝置身分識別登錄安全性�
 
 在這兩種情況下，密碼欄位都包含[權杖格式](#tokenformat)一節所述的權杖。
 
-> [AZURE.NOTE][Azure IoT 中樞 SDK][lnk-apis-sdks] 會在連接至服務時自動產生權杖。在某些情況下，SDK 在其所支援的通訊協定或可用的驗證方法中會受限。如需詳細資訊，請參閱 [Azure IoT 中樞 SDK][lnk-apis-sdks] 文件。
+> [AZURE.NOTE] [Azure IoT 中樞 SDK][lnk-apis-sdks] 會在連接至服務時自動產生權杖。在某些情況下，SDK 在其所支援的通訊協定或可用的驗證方法中會受限。如需詳細資訊，請參閱 [Azure IoT 中樞 SDK][lnk-apis-sdks] 文件。
 
 #### 相較於 CBS 的 SASL PLAIN
 
@@ -259,9 +259,9 @@ Azure IoT 中樞可根據共用存取原則和裝置身分識別登錄安全性�
 *  閘道器通常會代表許多裝置連線。使用 SASL PLAIN 時，它們必須針對連接至 IoT 中樞的每個裝置不同的建立 TCP 連線。這會大幅提高電力與網路資源的耗用量並增加每個裝置連線的延遲。
 * 在每個權杖到期後，增加使用要重新連接的資源通常會影響資源受限的裝置。
 
-### 設定中心層級認證的範圍
+### 設定中樞層級認證的範圍
 
-使用受限制的資源 URI 建立權杖，可以設定中心層級安全性原則的範圍。例如，負責從裝置傳送裝置到雲端訊息的端點是 `/devices/{deviceId}/events`。您也可以使用中心層級的共用存取原則搭配 **DeviceConnect** 權限，簽署 resourceURI 為 `/devices/{deviceId}` 的權杖，建立只能代表裝置 **deviceId** 傳送訊息的權杖。
+使用受限制的資源 URI 建立權杖，可以設定中樞層級安全性原則的範圍。例如，負責從裝置傳送裝置到雲端訊息的端點是 `/devices/{deviceId}/events`。您也可以使用中樞層級的共用存取原則搭配 **DeviceConnect** 權限，簽署 resourceURI 為 `/devices/{deviceId}` 的權杖，建立只能代表裝置 **deviceId** 傳送訊息的權杖。
 
 這個機制類似於[事件中樞發佈者原則][lnk-event-hubs-publisher-policy]，能夠如 [Azure IoT 中樞指引][lnk-guidance-security]的安全性一節所述實作自訂驗證方法。
 
@@ -339,7 +339,7 @@ IoT 中樞實作裝置到雲端傳訊的方式類似於[事件中樞][lnk-event-
 
 #### 非遙測流量
 
-在許多情況下，裝置不只會將遙測資料點傳送到應用程式後端，也會傳送需要從應用程式商務邏輯層執行和處理的*互動式*訊息和要求。具代表性的範例包括必須在後端觸發特定動作的重要警示，或命令的裝置回覆。
+在許多情況下，裝置不只會將遙測資料點傳送到應用程式後端，也會傳送需要從應用程式商務邏輯層執行和處理的「互動式」訊息和要求。具代表性的範例包括必須在後端觸發特定動作的重要警示，或命令的裝置回覆。
 
 如需有關此種訊息最佳處理方式的詳細資訊，請參閱「IoT 中樞指引」的[裝置到雲端的處理][lnk-guidance-d2c-processing]一節。
 
@@ -352,7 +352,7 @@ IoT 中樞公開下列屬性以控制 D2C 傳訊。
 
 而且，與事件中樞類似，IoT 中樞允許管理裝置到雲端的接收端點上的取用者群組。
 
-您可以使用 [Azure 入口網站][lnk-management-portal]修改以上所有屬性，或透過 [Azure IoT 中樞 - 資源提供者 API][lnk-resource-provider-apis] 以程式設計方式來修改。
+您可以使用 [Azure Preview 入口網站][lnk-management-portal]修改以上所有屬性，或透過 [Azure IoT 中樞 - 資源提供者 API][lnk-resource-provider-apis] 以程式設計方式來修改。
 
 #### 防詐騙屬性 <a id="antispoofing"></a>
 
@@ -418,9 +418,8 @@ IoT 中樞公開下列屬性以控制 D2C 傳訊。
 
 | 屬性 | 說明 |
 | -------- | ----------- |
-| EnqueuedTime | 指出訊息的結果出現時的時間戳記。例如，完成已裝置或訊息已到期。 |
-| CorrelationId | 與此意見反應資訊相關的雲端到裝置訊息的 **MessageId**。 |
-| StatusCode | 如果成功則為 **0**，如果訊息到期則為 **1**，如果超過最大傳遞計數則為 **2**，如果訊息遭到拒絕則為 **3**。 |
+| EnqueuedTimeUtc | 指出訊息的結果出現時的時間戳記。例如，完成已裝置或訊息已到期。 |
+| OriginalMessageId | 與此意見反應資訊相關的雲端到裝置訊息的 **MessageId**。 |
 | 說明 | 先前結果的字串值。 |
 | DeviceId | 與此意見反應相關之雲端到裝置訊息的目標裝置的 **DeviceId**。 |
 | DeviceGenerationId | 與此意見反應相關之雲端到裝置訊息的目標裝置的 **DeviceGenerationId**。 |
@@ -431,9 +430,8 @@ IoT 中樞公開下列屬性以控制 D2C 傳訊。
 
     [
         {
-            "CorrelationId": "0987654321",
-            "EnqueuedTime": "2015-07-28T16:24:48.789Z",
-            "StatusCode": "0",
+            "OriginalMessageId": "0987654321",
+            "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
             "Description": "Success",
             "DeviceId": "123",
             "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -471,9 +469,9 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 
 作業節流是在分鐘範圍內套用的速率限制，主要是為了避免不當使用。IoT 中樞會試著儘可能避免傳回錯誤，但如果違反節流太久，就會開始傳回例外狀況。
 
-以下是強制執行的節流清單。個別中心的值如下。
+以下是強制執行的節流清單。個別中樞的值如下。
 
-| 節流 | 每個中心的值 |
+| 節流 | 每個中樞的值 |
 | -------- | ------------- |
 | 身分識別登錄作業 (建立、擷取、列出、更新、刪除)，個別或大量匯入/匯出 | 100/分鐘/單位，最高 5000/分鐘 |
 | 裝置連線 | 100/秒/單位 |
@@ -493,7 +491,7 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 
 [事件中樞 - 事件處理器主機]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[Azure Preview 入口網站]: https://ms.portal.azure.com
+[Azure Preview 入口網站]: https://portal.azure.com
 
 [img-summary]: ./media/iot-hub-devguide/summary.png
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
@@ -534,4 +532,4 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Nov15_HO3-->

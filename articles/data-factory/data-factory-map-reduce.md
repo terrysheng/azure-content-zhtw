@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # 從 Data Factory 叫用 MapReduce 程式
@@ -22,7 +22,7 @@
 ## 簡介 
 Azure Data Factory 中的「管線」會使用連結的計算服務，來處理連結的儲存體服務中的資料。它包含一系列活動，其中每個活動都會執行特定的處理作業。本文說明如何使用「HDInsight 活動」的 MapReduce 轉換。
  
-若要了解如何使用 HDInsight 活動的 Pig/Hive 轉換，在 HDInsight 叢集上從 Azure Data Factory 管線執行 Pig/Hive 指令碼，請參閱〈[Pig](data-factory-pig-activity) 和 [Hive](data-factory-hive-activity.md)〉文章。
+若要了解如何使用 HDInsight 活動的 Pig/Hive 轉換，在 Windows/Linux 的 HDInsight 叢集上從 Azure Data Factory 管線執行 Pig/Hive 指令碼，請參閱 [Pig](data-factory-pig-activity) 和 [Hive](data-factory-hive-activity.md) 文章。
 
 ## 使用 MapReduce 轉換之 HDInsight 活動的 JSON 
 
@@ -102,4 +102,4 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

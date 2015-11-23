@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/02/2015"
+   ms.date="11/09/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL 資訊
@@ -29,7 +29,6 @@ Microsoft Azure SQL Database 中完全支援大多數的 SQL Server 2016 Transac
 
 SQL Database V12 支援部分而非全部的引數，這些引數存在於對應的 SQL Server 2016 Transact-SQL 陳述式中。例如，CREATE PROCEDURE 陳述式可以使用，但是 CREATE PROCEDURE 的 WITH ENCRYPTION 選項無法使用。請參閱連結的語法主題，以了解每個陳述式支援區域的詳細資訊。
 
-- CLR 組件：[CREATE ASSEMBLY](https://msdn.microsoft.com/library/ms189524.aspx)
 - 資料庫：[CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - DMV 通常可用於已公開推出的功能
 - 函式：[CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
@@ -96,4 +95,4 @@ Transact-SQL 參考包含 SQL Server 2008、SQL Server 2008 R2、SQL Server 2012
 
 在某些情況下，主題的一般主旨可以用於產品，但並不支援所有引數。例如，自主資料庫使用者是在 SQL Server 2012 中導入。**CREATE USER** 陳述式可以用於任何 SQL Server 產品，不過 **WITH PASSWORD** 語法不能用於較舊版本。在此案例中，其他「**適用於**」區段會插入到主題的主體中適當的引數描述。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

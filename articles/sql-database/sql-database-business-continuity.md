@@ -68,6 +68,9 @@
 
 這些功能是為了解決稍早所列案例而提供。如需如何選取特定功能的指引，請參閱[業務續航力的設計](sql-database-business-continuity-design.md)一節。
 
+> [AZURE.NOTE]ERT 和 RPO 值是設計目標，僅供做為指引之用。它們並非 [SQL Database SLA](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/) 的一部分。
+
+
 ###時間點還原
 
 時間點還原的設計是為了將您的資料庫還原到較早的時間點。它使用服務為每個使用者資料庫自動維護的資料庫備份、增量備份和交易記錄備份。這項功能適用於所有服務層。基本層可還原 7 天，標準層可還原 14 天，而高階層可還原 35 天。如需如何使用時間點還原的詳細資訊，請參閱[從人為疏失復原](sql-database-user-error-recovery.md)。
@@ -88,4 +91,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

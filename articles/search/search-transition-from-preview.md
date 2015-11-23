@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從預覽 API 版本 = 2014* 轉換為 API 版本 = 2015*" 
+	pageTitle="由預覽 api-version=2014* 轉換至 api-version=2015* | Microsoft Azure | 雲端託管搜尋服務" 
 	description="了解重大變更，以及要如何將寫在 2014-07-31-Preview 或 2014-10-20-Preview 上的程式碼移轉到 Azure 搜尋服務 (API 版本 = 2015-02-28)。" 
 	services="search" 
 	documentationCenter="" 
@@ -22,8 +22,8 @@ Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。下列
 
 身為預覽客戶，您可能有這些舊的預覽版本之一：
 
-- [2014-07-31-Preview](search-api-2014-07-31-preview.md)
-- [2014-10-20-Preview](search-api-2014-10-20-preview.md)
+- 2014-07-31-Preview
+- 2014-10-20-Preview
 
 既然 Azure 搜尋服務已正式推出，我們鼓勵轉換到較新的版本：2015-02-28 是 Azure 搜尋服務正式運作版本的官方 API 版本。這個版本記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx)。
 
@@ -144,4 +144,4 @@ API 版本 `2015-02-28` 是在 SLA 下。請使用在[此頁](../support/options
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

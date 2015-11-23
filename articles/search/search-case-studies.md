@@ -1,5 +1,5 @@
 <properties
-	pageTitle="誰在使用 Azure 搜尋︰個案研究和客戶案例"
+	pageTitle="誰在使用 Azure 搜尋服務：案例研究和客戶經驗談 | Microsoft Azure | 雲端託管搜尋服務"
 	description="關於 Azure 搜尋服務 (在 Microsoft Azure 上託管的雲端搜尋服務) 的案例研究和客戶案例。"
 	services="search"
 	documentationCenter=""
@@ -61,4 +61,4 @@ Medihoo 是一家新公司，對於其醫療保健搜尋網站有重大計劃，
 [5]: ./media/search-case-studies/weichert_m.png
 [6]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

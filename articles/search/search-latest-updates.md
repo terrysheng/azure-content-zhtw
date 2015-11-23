@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 搜尋服務的最新更新事項 | Microsoft Azure" 
+	pageTitle="Azure 搜尋服務最新更新中的新功能 | Microsoft Azure | 雲端託管搜尋服務" 
 	description="描述服務之最新更新內容的 Azure 搜尋服務版本資訊" 
 	services="search" 
 	documentationCenter="" 
@@ -125,4 +125,4 @@ Azure 搜尋服務是 Microsoft Azure 上的雲端託管搜尋服務。此服務
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

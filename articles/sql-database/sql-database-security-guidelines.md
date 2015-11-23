@@ -96,7 +96,7 @@ GO
 
 請考慮下列幾點，讓 Azure SQL Database 應用程式比較不容易受到安全性威脅：
 
-- 一律使用最新的更新：連接到 SQL Database 時，一律使用最新版的工具和程式庫，以防止安全性弱點。如需支援哪些工具和程式庫的詳細資訊，請參閱 [Azure SQL Database 一般方針和限制](https://msdn.microsoft.com/library/azure/ee336245.aspx)。
+- 一律使用最新的更新：連接到 SQL Database 時，一律使用最新版的工具和程式庫，以防止安全性弱點。
 - 封鎖 TCP 通訊埠 1433 的傳入連接：應用程式與 SQL Database 進行通訊時，只需要 TCP 通訊埠 1433 的傳出連接。如果該電腦上的任何其他應用程式不需要傳入的通訊，請確定您的防火牆會繼續封鎖 TCP 通訊埠 1433 的傳入連接。
 - 防止插入式攻擊弱點：若要確定您的應用程式沒有 SQL 插入式攻擊弱點，盡可能使用參數化的查詢。同時，請務必在部署應用程式之前，徹底檢閱程式碼並執行滲透測試。
 
@@ -107,8 +107,6 @@ GO
 
 [作法：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
-[Azure SQL Database 一般方針和限制](https://msdn.microsoft.com/library/azure/ee336245.aspx)
-
 [管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -58,7 +58,7 @@ IoT 中心會從單一端點接收來自冷卻器的遙測資料，並維護裝�
 
 IoT 中心會透過取用者群組端點公開收到的遙測資料。
 
-此預先設定解決方案中的 IoT 中樞執行個體與典型 IoT 解決方案架構中的「IoT 後端應用程式」相對應。
+此預先設定解決方案中的 IoT 中樞執行個體與典型 IoT 解決方案架構中的「雲端閘道器」相對應。
 
 ### Azure 串流分析
 
@@ -91,4 +91,4 @@ IoT 中心會透過取用者群組端點公開收到的遙測資料。
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Azure 串流分析]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

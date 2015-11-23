@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,hpc-pack"/>
 
 <tags
 	ms.service="cloud-services"
@@ -296,7 +297,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Not Deployed Nodes][stop_node4]
 
-4. 若要確認角色執行個體在 Azure 中不再執行，請在[傳統入口網站](https://manage.windowsazure.com)中按一下 [**雲端服務**]，按一下您雲端服務的名稱，然後按一下 [**執行個體**]。將不會有任何執行個體部署於生產環境中。
+4. 若要確認角色執行個體在 Azure 中不再執行，請在[入口網站](https://manage.windowsazure.com)中按一下 [雲端服務]，按一下您雲端服務的名稱，然後按一下 [執行個體]。將不會有任何執行個體部署於生產環境中。
 
 	![No Instances][view_instances2]
 
@@ -347,4 +348,4 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

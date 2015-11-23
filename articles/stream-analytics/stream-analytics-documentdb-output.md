@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/29/2015" 
+	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
 # 作為 Azure 串流分析輸出的 DocumentDB
@@ -59,4 +59,4 @@ DocumentDB 集合可讓您根據查詢模式和應用程式的效能需求來分
 -   **分割索引鍵** – 輸出事件中的欄位名稱會用來為跨集合的資料分割輸出指定索引鍵。若為單一集合輸出，則可使用任何任意的輸出欄，例如 PartitionId。  
 -   **文件識別碼** – 選用。輸出事件中的欄位名稱會用來指定主索引鍵，其為插入或更新作業的依據。  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

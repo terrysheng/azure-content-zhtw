@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="11/10/2015" 
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中使用 Visual Studio 2015 建立 ASP.NET API 應用程式
@@ -297,4 +297,4 @@ API 應用程式基本上是 Azure 提供其他功能作為 Web 服務功能的 
 您現已使用 Visual Studio 2015 RC 建立及部署 API 應用程式。如需 API 應用程式的相關文件，請參閱顯示於頁面左邊 (適用於寬瀏覽器視窗) 或頁面頂端 (適用於窄瀏覽器視窗) 的瀏覽窗格中的項目。大部分 API 應用程式文件目前顯示 Visual Studio 2013，但其中許多內容適用於 VS 2015，因為 UI 類似，您所撰寫的程式碼相同，而且入口網站 UI 也相同。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

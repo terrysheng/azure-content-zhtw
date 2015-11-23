@@ -3,7 +3,7 @@
 	description="說明您使用 Visual Studio 已連線服務連線至 Azure AD 時，MVC 專案會有何狀況"
 	services="active-directory"
 	documentationCenter="na"
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 我的 MVC 專案 (Visual Studio Azure Active Directory 已連線服務) 發生什麼事？
 
@@ -171,4 +171,4 @@ Azure Active Directory 應用程式已更新為包含*讀取目錄資料*權限�
 
 [深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

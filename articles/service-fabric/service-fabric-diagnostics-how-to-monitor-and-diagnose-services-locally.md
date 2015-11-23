@@ -75,8 +75,7 @@ Service Fabric Visual Studio 專案範本包含範例程式碼。程式碼示範
 ## 後續步驟
 
 * [Service Fabric 健康狀態簡介](service-fabric-health-introduction.md)
-* [Application Insights 設定](service-fabric-diagnostics-application-insights-setup.md)
 * [Azure Service Fabric 動作項目診斷與效能監視](service-fabric-reliable-actors-diagnostics.md)
 * [可設定狀態可靠服務診斷](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/03/2015"
 	ms.author="jolevy"/>
 
 
@@ -43,4 +43,4 @@ Azure 雲端服務可透過 [Azure PowerShell 工具](https://msdn.microsoft.com
 請參閱 Azure 自動化[入門指南](../automation/automation-create-runbook-from-samples.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

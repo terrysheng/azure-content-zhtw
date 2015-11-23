@@ -93,7 +93,7 @@ ReportViewer 必須使用正確的認證對報表伺服器進行驗證，而且�
 
 ## 將 ASP.NET Web 應用程式發佈至 Azure
 
-如需將 ASP.NET Web 應用程式發佈至 Azure 的指示，請參閱[作法：從 Visual Studio 將 Web 應用程式移轉並發行至 Azure 雲端服務](https://msdn.microsoft.com/library/azure/hh420322.aspx)，和[開始使用 Web 應用程式和 ASP.NET](../app-service-web/web-sites-dotnet-get-started.md)。
+如需有關將 ASP.NET Web 應用程式發佈至 Azure 的指示，請參閱[做法：從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md)和[開始使用 Web 應用程式和 ASP.NET](../app-service-web/web-sites-dotnet-get-started.md)。
 
 >[AZURE.IMPORTANT]如果新增 Azure 部署專案，或新增 Azure 雲端服務專案命令沒有顯示在 [方案總管] 的捷徑功能表中，您可能需要將專案的目標 Framework 變更為 .NET Framework 4。
 >
@@ -109,4 +109,4 @@ ReportViewer 必須使用正確的認證對報表伺服器進行驗證，而且�
 
 [Reporting Services 報告檢視器控制項和 Microsoft Azure 虛擬機器型報表伺服器](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

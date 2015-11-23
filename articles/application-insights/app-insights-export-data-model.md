@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Application Insights 匯出資料模型
@@ -120,43 +120,6 @@
 
     *範例*<br/> www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/>
 
-**urlData.port**
-
-    string <telemetrytype>.urldata.port      Max: 100
-* 
-    如果在完整 URL 上表示則為 URL 資料項目的連接埠。否則為空白。 
-
-    *衍生：*查看 URL 轉換的附錄
-
-    *範例*<br/> 80<br/>443
-
-**urlData.protocol**
-
-    string <telemetrytype>.urldata.protocol      Max: 100
-* 
-    URL 資料項目的通訊協定 (HTTP、FTP 等) 
-
-    *衍生：*查看 URL 轉換的附錄
-
-    *範例*<br/> http<br/>https
-
-**urlData.queryParameters.parameter**
-
-    string <telemetrytype>.urldata.queryparameters.parameter      Max: 100
-* 
-    URL 資料項目的查詢參數名稱陣列 
-
-    *衍生：*查看 URL 轉換的附錄
-
-    *範例*<br/> etc<br/>extraqs<br/>pagemode<br/>pagetype
-
-**urlData.queryParameters.value**
-
-    string <telemetrytype>.urldata.queryparameters.value      Max: 100
-* 
-    從 URL 資料項目剖析的查詢參數值陣列。 
-
-    *衍生：*查看 URL 轉換的附錄
 
 
 ## availability
@@ -255,7 +218,7 @@
 
     string basicexception.problemid      Max: 100
 * 
-    *衍生：*查看呼叫堆疊剖析的附錄 
+    衍生：查看呼叫堆疊剖析的附錄 
 
 **Exceptions.Assembly**
 
@@ -353,7 +316,7 @@
 * 
     用戶端應用程式的應用程式版本 
 
-    *範例*<br/> 2015.5.21.3<br/>NokiaMailBye\_CD\_20150227.4
+    範例<br/> 2015.5.21.3<br/>NokiaMailBye\_CD\_20150227.4
 
 **telemetryType**
 
@@ -367,9 +330,9 @@
 * 
     遙測項目的唯一識別碼。在資料集合端點指派。 
 
-    *衍生：*產生的 UUID4
+    衍生：產生的 UUID4
 
-    *範例*<br/> edc6eaf3-3459-46a0-bb81-bedc24913864
+    範例<br/> edc6eaf3-3459-46a0-bb81-bedc24913864
 
 **eventTime**
 
@@ -377,7 +340,7 @@
 * 
     記錄在 UTC 的遙測事件時間。這通常會在用戶端填入。如果此欄位遺漏，它會在資料集合端點填入。此欄位的格式為 YYYY-MM-DDTHH:MM:SS.sssZ。    
 
-    *範例*<br/> 2015-05-20T04:00:46.8338283Z
+    範例<br/> 2015-05-20T04:00:46.8338283Z
 
 **samplingRate**
 
@@ -391,9 +354,9 @@
 * 
     用戶端的瀏覽器 
 
-    *預設：*若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
+    預設：若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
 
-    *範例*<br/> Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
+    範例<br/> Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
 
 **browserVersion**
 
@@ -401,9 +364,9 @@
 * 
     用戶端的瀏覽器版本 
 
-    *預設：*若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
+    預設：若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
 
-    *範例*<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
+    範例<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
 
 **deploymentId**
 
@@ -423,7 +386,7 @@
 * 
     行動硬體用戶端的 devicemodel 
 
-    *範例*<br/> 其他<br/>iPad<br/>Nokia 503s
+    範例<br/> 其他<br/>iPad<br/>Nokia 503s
 
 **deviceName**
 
@@ -437,7 +400,7 @@
 * 
     用戶端硬體的裝置類型 
 
-    *範例*<br/> 電腦<br/>行動裝置<br/>平板電腦
+    範例<br/> 電腦<br/>行動裝置<br/>平板電腦
 
 **語言**
 
@@ -451,7 +414,7 @@
 * 
     用戶端上的應用程式本機。如果遙測項目上未明確提供，則以使用者代理程式欄位做為其來源。 
 
-    *範例*<br/> ru<br/>zh-TW<br/>de-DE<br/>未知
+    範例<br/> ru<br/>zh-TW<br/>de-DE<br/>未知
 
 **machineName**
 
@@ -477,9 +440,9 @@
 * 
     用戶端的作業系統 
 
-    *預設：*若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
+    預設：若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
 
-    *範例*<br/> Windows<br/>iOS iPad<br/>Nokia
+    範例<br/> Windows<br/>iOS iPad<br/>Nokia
 
 **operatingSystemVersion**
 
@@ -487,9 +450,9 @@
 * 
     用戶端的作業系統版本 
 
-    *預設：*若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
+    預設：若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
 
-    *範例*<br/> Windows XP<br/>iOS 8.3<br/>Nokia Series 40<br/>Windows 7<br/>Windows 8
+    範例<br/> Windows XP<br/>iOS 8.3<br/>Nokia Series 40<br/>Windows 7<br/>Windows 8
 
 **roleInstance**
 
@@ -509,9 +472,9 @@
 * 
     記錄遙測項目時用戶端硬體上應用程式的螢幕高度。如果未明確提供，則以 screenresolution 資料項目的轉換做為其來源。 
 
-    *衍生：*從 context.device.screenresolution (如果有) 剖析
+    衍生：從 context.device.screenresolution (如果有) 剖析
 
-    *範例*<br/> 360<br/>1280<br/>1920
+    範例<br/> 360<br/>1280<br/>1920
 
 **screenResolution**
 
@@ -519,7 +482,7 @@
 * 
     應用程式擷取遙測項目時的螢幕解析度。可在工作階段的過程中於直向和橫向之間切換。當這個屬性被帶到工作階段層級時，它會是擷取來代表完整工作階段的第一個螢幕解析度。 
 
-    *範例*<br/> 螢幕解析度高度寬度<br/>360X640<br/>1280X800<br/>1920x1080
+    範例<br/> 螢幕解析度高度寬度<br/>360X640<br/>1280X800<br/>1920x1080
 
 **screenWidth**
 
@@ -527,19 +490,10 @@
 * 
     記錄遙測項目時用戶端硬體上應用程式的螢幕寬度。如果未明確提供，則以 screenresolution 資料項目的轉換做為其來源。 
 
-    *衍生：*從 context.device.screenresolution (如果有) 剖析
+    衍生：從 context.device.screenresolution (如果有) 剖析
 
-    *範例*<br/> 640<br/>800<br/>1080
+    範例<br/> 640<br/>800<br/>1080
 
-**userAgentString**
-
-    string context.device.useragent      Max: 1000
-* 
-    用戶端瀏覽器的使用者代理程式 
-
-    *預設：*若為 null，則設定為在資料收集端點擷取的 HTTP 使用者代理程式
-
-    *範例*<br/> Opera/9.80 (Windows NT 5.1) Presto/2.12.388 版/12.17<br/>Mozilla/5.0 (iPad; CPU OS 8\_3 例如 Mac OS X) AppleWebKit/600.1.4 (KHTML，例如 Gecko) 版/8.0 Mobile/12F69 Safari/600.1.4<br/>Chrome/37.0.2062.124 Safari/537.36<br/>Mozilla/4.0 (相容; MSIE 7.0; Windows NT 6.1; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)<br/>Safari/537.36<br/>+S89
 
 **aiAgentVersion**
 
@@ -553,7 +507,7 @@
 * 
     應用程式工作階段的城市。它可以直接在遙測項目上提供。如果不存在，會根據遙測項目上的 IPv4 填入。如果未提供任何 IPv4，此欄位保留空白。 
 
-    *範例*<br/> Minsk<br/>Haarlem
+    範例<br/> Minsk<br/>Haarlem
 
 **clientIpAddress**
 
@@ -561,9 +515,9 @@
 * 
     xxx.xxx.xxx.xxx 格式中的用戶端 IPv4 位址。   
 
-    *預設：*若為 null，則設定為在資料收集端點擷取的 HTTP IP
+    預設：若為 null，則設定為在資料收集端點擷取的 HTTP IP
 
-    *範例*<br/> 0.123.63.143<br/>123.203.131.197
+    範例<br/> 0.123.63.143<br/>123.203.131.197
 
 **continent**
 
@@ -571,7 +525,7 @@
 * 
     應用程式工作階段的洲。它可以直接在遙測項目上提供。如果不存在，會根據遙測項目上的 IPv4 填入。如果未提供任何 IPv4，此欄位保留空白。 
 
-    *範例*<br/> 歐洲<br/>北美地區
+    範例<br/> 歐洲<br/>北美州
 
 **country**
 
@@ -579,19 +533,8 @@
 * 
     應用程式工作階段的國家 (地區)。它可以直接在遙測項目上提供。如果不存在，會根據遙測項目上的 IPv4 填入。如果未提供任何 IPv4，此欄位保留空白。 
 
-    *範例*<br/> 白俄羅斯<br/>荷蘭<br/>德國
+    範例<br/> 白俄羅斯<br/>荷蘭<br/>德國
 
-**緯度**
-
-    long context.location.point.lat      
-* 
-    *範例*<br/> 53.9<br/>45.7788 
-
-**經度**
-
-    long context.location.point.lon      
-* 
-    *範例*<br/> 27.5667<br/>-119.529 
 
 **state**
 
@@ -599,7 +542,7 @@
 * 
     應用程式工作階段的省/市。它可以直接在遙測項目上提供。如果不存在，會根據遙測項目上的 IPv4 填入。如果未提供任何 IPv4，此欄位保留空白。 
 
-    *範例*<br/> 明斯克<br/>奧勒岡<br/>塞爾維亞中部<br/>奧里斯塔諾省
+    範例<br/> 明斯克<br/>奧勒岡<br/>塞爾維亞中部<br/>奧里斯塔諾省
 
 **operationId**
 
@@ -625,7 +568,7 @@
 * 
     如果 issynthetic=true，此資料項目代表綜合資料的來源。 
 
-    *預設：*若為 null，則會檢查使用者代理程式是否有已知的綜合來源 (webcrawlers 等) 並且可能會據此設定來源。
+    預設：若為 null，則會檢查使用者代理程式是否有已知的綜合來源 (webcrawlers 等) 並且可能會據此設定來源。
 
 **syntheticTransaction**
 
@@ -633,7 +576,7 @@
 * 
     遙測項目因為綜合測試 (而非真正的使用者活動) 而產生的指標。 
 
-    *預設：*若為 null，則會檢查使用者代理程式是否有已知的綜合代理程式清單。如果找到符合項目，此值設為 true。<br/>如果使用者代理程式為 null，則設為 false
+    預設：若為 null，則會檢查使用者代理程式是否有已知的綜合代理程式清單。如果找到符合項目，此值設為 true。<br/>如果使用者代理程式為 null，則設為 false
 
 **session.Id**
 
@@ -641,9 +584,9 @@
 * 
     與應用程式的真實使用者互動的唯一識別碼。這種互動是「工作階段」。在相同的 iKey 之下由應用程式所產生的所有遙測應該都包含這個唯一識別碼。<br/><br/>工作階段是在相同的使用者互動下由連續事件所定義。超過 30 分鐘沒有遙測事件的一段時間代表工作階段結束。   
 
-    *預設：*在 MetricType、BillingType 上無效
+    預設：在 MetricType、BillingType 上無效
 
-    *範例*<br/> CFFC8B21-9828-4F56-AD7C-B6B5AC26B133
+    範例<br/> CFFC8B21-9828-4F56-AD7C-B6B5AC26B133
 
 **accountAcquisitionDate**
 
@@ -654,7 +597,7 @@
 * 
     在應用程式內定義匿名使用者的唯一識別碼。使用 SDK 時，會在用戶端上自動產生並保存。在相同登入下共用一個裝置時，卻不會在真實的使用者之間造成差異。它會在使用不同登入時，以及作業系統支援設定檔時，在真實的使用者之間造成差異。沒有驗證經驗時，它是唯一使用者的最佳 proxy。 
 
-    *範例*<br/> f23854a1b01c4b1fa79fa2d9a5768526
+    範例<br/> f23854a1b01c4b1fa79fa2d9a5768526
 
 **anonymousUserAcquisitionDate**
 
@@ -1055,7 +998,7 @@
 
     衍生：查看 URL 轉換的附錄
 
-    *範例*<br/> http<br/>https
+    範例<br/> http<br/>https
 
 **referrerData.queryParameters.parameter**
 
@@ -1081,4 +1024,4 @@
 * [連續匯出](app-insights-export-telemetry.md)
 * [程式碼範例](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

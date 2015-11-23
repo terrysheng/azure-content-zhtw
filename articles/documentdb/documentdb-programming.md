@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="11/11/2015" 
 	ms.author="andrl"/>
 
 # DocumentDB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
@@ -898,7 +898,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 
 ## 範例程式碼
 
-您可以在我們的 [Github 儲存機制](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples)中找到更多伺服器端程式碼範例 (包括 [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js)、[bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) 和 [update](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js))。
+您可以在我們的 [Github 存放庫](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)中找到更多伺服器端程式碼範例 (包括 [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js)、[bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 和 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js))。
 
 想要共用您絕佳的預存程序嗎？ 請傳送提取要求給我們！
 
@@ -916,4 +916,4 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 -	[服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

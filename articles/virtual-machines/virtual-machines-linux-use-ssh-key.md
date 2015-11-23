@@ -46,26 +46,26 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 
 	- 若是 Mac，請務必瀏覽 [Apple 產品安全性網站](https://support.apple.com/HT201222)，必要時選擇適當的更新。
 	- 若是 Ubuntu、Debian、Mint 等 Debian 型的 Linux 散發套件：
-		
+
 			sudo apt-get update ssh-keygen
 			sudo apt-get update openssl
-			
+
 	- 若是 CentOS、Oracle Linux 等 RPM 型的 Linux 散發套件：
-		
+
 			sudo yum update ssh-keygen
 			sudo yum update openssl
-			
+
 	- 若是 SLES 和 OpenSUSE
-		
+
 			sudo zypper update ssh-keygen
 			sudo zypper update openssl
-	
+
 2. 使用 **ssh-keygen** 建立 2048 位元 RSA 公開和私密金鑰檔案，且除非您有要用於檔案的特定位置或特定名稱，否則接受預設位置和名稱 `~/.ssh/id_rsa`。基本命令是：
 
 		ssh-keygen -t rsa -b 2048 
-	
+
 	正常情況下，您的 **ssh-keygen** 實作會加入註解，通常是使用者名稱和電腦的主機名稱。您可以使用 `-C` 選項指定特定的註解。
-	
+
 3. 從您 `~/.ssh/id_rsa` 檔案建立.pem 檔案，以便您使用傳統的入口網站。使用 **openssl**，如下所示：
 
 		openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
@@ -125,7 +125,7 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 	data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	data:    ContentVersion     : 1.0.0.0
 	data:    Name                   Type    Value
-	
+
 	data:    newStorageAccountName  String  testtestsshvmtemplate3
 	data:    adminUserName          String  ops
 	data:    sshKeyData             String  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAkek3P6V3EhmD+xP+iKDZco9 user@macbookpro
@@ -157,7 +157,7 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 	+ Configuring certificate
 	+ Creating VM
 	info:    vm create command OK
-	
+
 
 ## 連接到您的 VM
 
@@ -166,11 +166,11 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 資源管理員部署的典型用法看起來如下 (如果您只是指定子網域和部署位置)：
 
 	ssh user@subdomain.westus.cloudapp.azure.com -p 22
-	
+
 或者，如果您要連接至傳統部署雲端服務，您使用的位址可能看起來像這樣：
 
 	ssh user@subdomain.cloudapp.net -p 22
-	
+
 因為位址形式可以變更 - 您永遠可以使用的 IP 位址，也或許使用您指派的自訂網域名稱 - 您將必須探索 Azure VM 的位址。
 
 ### 探索搭配傳統部署之 Azure VM SSH 的位址
@@ -266,27 +266,27 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 	Saving password to keychain failed
 	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-	
+
 	* Documentation:  https://help.ubuntu.com/
-	
+
 	System information as of Sat Oct 10 20:53:08 UTC 2015
-	
+
 	System load: 0.52              Memory usage: 5%   Processes:       80
 	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-	
+
 	Graph this data and manage this system at:
 		https://landscape.canonical.com/
-	
+
 	Get cloud support with Ubuntu Advantage Cloud Guest:
 		http://www.ubuntu.com/business/services/cloud
-	
+
 	0 packages can be updated.
 	0 updates are security updates.
-	
+
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-	
+
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
 
@@ -295,7 +295,7 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 您可以閱讀[疑難排解 SSH 連接](virtual-machines-troubleshoot-ssh-connections.md)中的建議，試試是否能解決狀況。
 
 ## 後續步驟
-
+ 
 既然您已連接到您的 VM，請務必先更新您所選的散發套件，再繼續使用它。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

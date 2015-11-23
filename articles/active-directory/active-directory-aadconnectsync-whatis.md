@@ -32,21 +32,17 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 - 如需 Auzre AD Connect 同步處理支援的拓撲和案例概觀，請參閱 [Azure AD Connect 的拓撲](active-directory-aadconnect-topologies.md)。
 - 如果想要了解如何實作篩選，請參閱[設定篩選](active-directory-aadconnectsync-configure-filtering.md)。
 - 如果想要深入了解密碼同步處理，請參閱[實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。
+- 如果想要了解 Azure AD Connect 同步處理中的預設組態，請參閱[了解預設組態](active-directory-aadconnectsync-understanding-default-configuration.md)。
 - 如果想要深入了解 Azure AD Connect 同步處理中的使用者和連絡人，請參閱[了解使用者和連絡人](active-directory-aadconnectsync-understanding-users-and-contacts.md)。
-- 如果想要變更預設設定，請參閱[變更預設組態的最佳作法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
-- 如果想要深入了解如何操作同步伺服器，請參閱[作業工作和考量](active-directory-aadconnectsync-operations.md)
+- 如果想要變更預設組態，請參閱[變更預設組態的最佳作法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
+- 如果想要深入了解如何操作同步處理伺服器，請參閱[可操作的工作和考量](active-directory-aadconnectsync-operations.md)
 - 如果想要探索同步處理至 Azure AD 的屬性，請參閱[同步處理至 Azure Active Directory 的屬性](active-directory-aadconnectsync-attributes-synchronized.md)
 - 如果想要深入了解宣告式佈建，請參閱[了解宣告式佈建運算式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 - 若要探索宣告式佈建函式，請參閱[函式參考](active-directory-aadconnectsync-functions-reference.md)
 
 
-
-
 ## 其他資源
 
-* [以組織身分註冊 Azure](sign-up-organization.md)
+* [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-
-<!--Image references-->
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

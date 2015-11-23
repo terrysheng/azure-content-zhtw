@@ -21,8 +21,9 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
+> [AZURE.NOTE]Azure Marketplace 現已提供 MariaDB Enterprise 叢集。此新方案會自動在 ARM 上部署 MariaDB Galera 叢集。您應該從 https://azure.microsoft.com/zh-TW/marketplace/partners/mariadb/cluster-maxscale/ 使用此新方案
 
-我們要建立 [MariaDB](https://mariadb.org/en/about/) 的多重主機 [Galera](http://galeracluster.com/products/) 叢集，它穩固、可擴充且非常可靠，可在某些時刻取代 MySQL，在 Azure 虛擬機器上的高可用環境中運作。
+我們正在建立 [MariaDB](https://mariadb.org/en/about/) 的多重主機 [Galera](http://galeracluster.com/products/) 叢集，這是一個既穩固、可擴充又可靠的叢集，可在某些時刻取代 MySQL 在「Azure 虛擬機器」上的高可用環境中運作。
 
 ## 架構概觀
 
@@ -36,7 +37,7 @@
 
 ![架構](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [AZURE.NOTE] 本主題使用 [Azure CLI] 工具，請務必下載這些工具，並且根據指示將它們連線至您的 Azure 訂用帳戶。如果您需要 Azure CLI 中可用命令的參考，請查看這個 [Azure CLI 命令參考]連結。您也必須[建立驗證的 SSH 金鑰]，並且記下 **.pem 檔案位置**。
+> [AZURE.NOTE]本主題使用 [Azure CLI] 工具，請務必下載這些工具，並且根據指示將它們連線至您的 Azure 訂用帳戶。如果您需要 Azure CLI 中可用命令的參考，請查看這個 [Azure CLI 命令參考]連結。您也必須[建立驗證的 SSH 金鑰]，並且記下 **.pem 檔案位置**。
 
 
 ## 建立範本
@@ -210,7 +211,7 @@
 
 	- 編輯 **[mariadb]** 區段，並且附加下列內容
 
-	> [AZURE.NOTE] 建議 **innodb\_buffer\_pool\_size** 是您的 VM 記憶體的 70%。這裡為 3.5 GB RAM 的中型 Azure VM 設定為 2.45 GB。
+	> [AZURE.NOTE]建議 **innodb\_buffer\_pool\_size** 是您的 VM 記憶體的 70%。這裡為 3.5 GB RAM 的中型 Azure VM 設定為 2.45 GB。
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -237,7 +238,7 @@
 
 1. 從您建立的 **mariadb-galera-image** 映像建立第一個 CentOS 7 VM，提供虛擬網路名稱 **mariadbvnet** 和子網路 **mariadb**、機器大小為 **Medium**、傳入雲端服務名稱為 **mariadbha** (或您想要透過 mariadbha.cloudapp.net 存取的任何名稱)、設定此機器的名稱為 **mariadb1** 和使用者名稱為 **azureuser**，以及啟用 SSH 存取和傳遞 SSH 憑證 .pem 檔案，並使用您儲存所產生的 .pem SSH 金鑰的路徑取代 **/path/to/key.pem**。
 
-	> [AZURE.NOTE] 下列命令為清楚起見會分成多行，但是您應該以一行輸入每個命令。
+	> [AZURE.NOTE]下列命令為清楚起見會分成多行，但是您應該以一行輸入每個命令。
 
 		azure vm create
         --virtual-network-name mariadbvnet
@@ -338,29 +339,13 @@
 
 將會產生下表
 
-<pre class="prettyprint copy-to-clipboard  prettyprinted" id="clipboard-element-40"><span class="pun">+----+--------+</span><span class="pln">
-</span><span class="pun">|</span><span class="pln" style="
-    padding-left: 6px;
-    padding-right: 6px;
-"> id </span><span class="pun">|</span><span class="pln" style="
-    padding-left: 8px;
-"> value  </span><span class="pun">|</span><span class="pln">
-</span><span class="pun">+----+--------+</span><span class="pln">
-</span><span class="pun">|</span><span class="pln">  </span><span class="lit" style="
-    padding-left: 6px;
-    border-right-width: 5px;
-    padding-right: 6px;
-">1</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="typ" style="
-    padding-left: 4px;
-">Value1</span><span class="pln"> </span><span class="pun">|</span><span class="pln">
-</span><span class="pun">|</span><span class="pln">  </span><span class="lit" style="
-    padding-left: 6px;
-    padding-right: 6px;
-">4</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="typ" style="
-    padding-left: 4px;
-">Value2</span><span class="pln"> </span><span class="pun">|</span><span class="pln">
-</span><span class="pun">+----+--------+</span><span class="pln">
-</span><span class="lit">2</span><span class="pln"> rows </span><span class="kwd">in</span><span class="pln"> </span><span class="kwd">set</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0.00</span><span class="pln"> sec</span><span class="pun">)</span></pre>
+	+----+--------+
+	| id | value  |
+	+----+--------+
+	|  1 | Value1 |
+	|  4 | Value2 |
+	+----+--------+
+	2 rows in set (0.00 sec)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
@@ -390,4 +375,4 @@
 [Azure CLI 工具中的問題 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [在 Linux 上叢集 MySQL 的另一種方法]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

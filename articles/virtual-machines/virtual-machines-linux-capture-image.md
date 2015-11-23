@@ -18,14 +18,14 @@
 	ms.author="dkshir"/>
 
 
-# 如何擷取 Linux 虛擬機器作為範本使用
+# 如何將傳統 Linux 虛擬機器擷取成映像
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image-resource-manager.md)。
 
 
-本文說明如何擷取執行 Linux 的 Azure 虛擬機器，以便用它做為範本建立其他虛擬機器。此範本包括 OS 磁碟和連結虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立使用該範本的其他虛擬機器時加以設定。
+本文說明如何將執行 Linux 的傳統 Azure 虛擬機器擷取成映像來建立其他虛擬機器。此映像包含作業系統磁碟和連結至虛擬機器的資料磁碟。它並不包含網路組態，因此當您從此映像建立其他虛擬機器時，將需要設定該組態。
 
-Azure 會將此範本視為映像，並將其儲存在 [映像] 下。這也是您已上傳的任何映像儲存所在之處。如需有關映像的詳細資訊，請參閱[關於 Azure 中的虛擬機器映像][]。
+Azure 會將映像儲存在 [映像] 底下。這也是您已上傳的任何映像儲存所在之處。如需有關映像的詳細資訊，請參閱[關於 Azure 中的虛擬機器映像][]。
 
 ## 開始之前
 
@@ -51,7 +51,7 @@ Azure 會將此範本視為映像，並將其儲存在 [映像] 下。這也是�
 	- 將主機名稱重設為 localhost.localdomain
 	- 刪除最後佈建的使用者帳戶 (取自於 /var/lib/waagent) **和相關聯的資料**。
 
-	>[AZURE.NOTE]解除佈建會刪除檔案與資料，以將映象「一般化」。請只在您意圖擷取做為新的映像範本的虛擬機器上執行這個命令。這不能保證映像檔中的所有機密資訊都會清除完畢或適合轉散發給第三方。
+	>[AZURE.NOTE]解除佈建會刪除檔案與資料，以將映象「一般化」。請只在您想要擷取做為新映像範本的虛擬機器上執行這個命令。這不能保證映像檔中的所有機密資訊都會清除完畢或適合轉散發給第三方。
 
 
 3. 輸入 **y** 繼續。您可以加入 `-force` 參數，便不用進行此確認步驟。
@@ -89,7 +89,7 @@ Azure 會將此範本視為映像，並將其儲存在 [映像] 下。這也是�
 
 
 ## 後續步驟
-映像已可用來做為範本，建立虛擬機器。您可以使用 Azure CLI 命令 `azure vm create`，並提供您剛才建立的映像名稱。如需命令的詳細資料，請參閱[使用 Azure CLI 搭配服務管理 API](virtual-machines-command-line-tools.md)。或者，您可以利用 [從資源庫] 方法，並選取您剛才建立的映像，以便使用[管理入口網站][]來建立自訂虛擬機器。如需詳細資料，請參閱[如何建立自訂虛擬機器][]。
+映像已準備好用來建立虛擬機器。您可以使用 Azure CLI 命令 `azure vm create`，並提供您剛才建立的映像名稱。如需有關命令的詳細資訊，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](virtual-machines-command-line-tools.md)。或者，您也可以使用[管理入口網站][]，利用 [從資源庫] 方法並選取您剛才建立的映像，來建立自訂虛擬機器。如需詳細資料，請參閱[如何建立自訂虛擬機器][]。
 
 **另請參閱：** [Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)
 
@@ -100,4 +100,4 @@ Azure 會將此範本視為映像，並將其儲存在 [映像] 下。這也是�
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [如何建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -45,7 +45,7 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 ## 新增自己的規則
 
-除了變更預先設定的 Azure 串流分析工作，您也可以使用 Azure 入口網站新增工作或新增現有工作的查詢。
+除了變更預先設定的 Azure 串流分析工作，您也可以使用 Azure Preview 入口網站新增工作或新增現有工作的查詢。
 
 ## 自訂裝置
 
@@ -69,4 +69,4 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

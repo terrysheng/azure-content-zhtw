@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -286,7 +286,7 @@ HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用�
 * 建立可在叢集中的每個節點上一秒顯示數字 1 到 10 的殼層指令碼，加以執行並立即顯示節點的輸出。
 
     ```
-    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    > clusrun /interleaved echo "for i in {1..10}; do echo \"\$i\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 >[AZURE.NOTE]您可能需要在 **clusrun** 命令中使用逸出字元。如此範例所示，在命令視窗中使用 ^ 來逸出 ">" 符號。
@@ -313,4 +313,4 @@ HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -27,7 +27,7 @@
 
 依預設，服務匯流排 .NET 用戶端程式庫能使用專屬的 SOAP 型通訊協定與服務匯流排服務通訊。若要使用 AMQP 1.0 (而非預設的通訊協定)，您需要明確地設定服務匯流排連接字串，如下節內容所述。除了這項變更之外，在使用 AMQP 1.0 時，應用程式程式碼基本上會維持不變。
 
-目前的版本中有幾項在使用 AMQP 時不支援的 API 功能。這些不支援的功能列示於後續的＜不支援的功能和限制＞一節中。 在使用 AMQP 時，某些進階組態設定亦有不同的意義。
+目前的版本中有幾項在使用 AMQP 時不支援的 API 功能。這些不支援的功能稍後會在[不支援的功能、限制與行為差異](#unsupported-features-restrictions-and-behavioral-differences)一節中列示。在使用 AMQP 時，某些進階組態設定亦有不同的意義。
 
 ### 使用 App.config 進行設定
 
@@ -168,6 +168,7 @@
 準備好進行深入了解嗎？ 請造訪下列連結：
 
 - [服務匯流排 AMQP 概觀]
+- [適用於服務匯流排分割的佇列和主題的 AMQP 1.0 支援]
 - [Windows Server 服務匯流排中的 AMQP]
 
   [如何使用服務匯流排佇列]: service-bus-dotnet-how-to-use-queues.md
@@ -199,6 +200,7 @@
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
+[適用於服務匯流排分割的佇列和主題的 AMQP 1.0 支援]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

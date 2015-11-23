@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從內部部署檔案系統來回移動資料
@@ -52,7 +52,7 @@
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -273,7 +273,7 @@
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -427,7 +427,7 @@
 屬性 | 說明 | 必要
 -------- | ----------- | --------
 類型 | type 屬性應設為 **OnPremisesFileServer** | 是 
-主機 | 伺服器的主機名稱。使用 ‘ \\ ’ 做為逸出字元，如下列範例所示：如果您的共用是 \\servername，請指定 \\\servername。<p>如果檔案系統位於閘道器電腦，請使用 Local 或 localhost。如果檔案系統與閘道器電腦位於不同的伺服器上，請使用 \\\servername。</p> | 是
+主機 | 伺服器的主機名稱。使用 ‘ \\ ’ 做為逸出字元，如下列範例所示：如果您的共用是 \\servername，請指定 \\servername。<p>如果檔案系統位於閘道器電腦，請使用 Local 或 localhost。如果檔案系統與閘道器電腦位於不同的伺服器上，請使用 \\servername。</p> | 是
 userid | 指定具有伺服器存取權之使用者的識別碼 | 否 (如果您選擇 encryptedCredential)
 password | 指定使用者的密碼 (userid) | 否 (如果您選擇 encryptedCredential) 
 encryptedCredential | 指定您可以藉由執行 New-AzureDataFactoryEncryptValue Cmdlet 取得的加密認證<p>**請注意：**您必須使用 Azure PowerShell 0.8.14 或更高版本才能使用 Cmdlet，例如類型參數設為 OnPremisesFileSystemLinkedService 的 New-AzureDataFactoryEncryptValue</p> | 否 (如果您選擇以純文字指定使用者識別碼和密碼)
@@ -442,7 +442,7 @@ gatewayName | 資料處理站服務應該用來連接到內部部署檔案伺服
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -475,7 +475,7 @@ gatewayName | 資料處理站服務應該用來連接到內部部署檔案伺服
 folderPath | 資料夾的路徑。範例：myfolder<p>使用逸出字元 ‘ \\ ’ 做為字串中的特殊字元。例如：若為 folder\\subfolder，指定 folder\\subfolder，若為 d:\\samplefolder，指定 d:\\samplefolder。</p><p>您可以將其與 **partitionBy** 結合，使資料夾路徑以配量開始/結束日期時間為基礎。</p> | 是
 fileName | 如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。如果您未指定此屬性的任何值，資料表會指向資料夾中的所有檔案。<p>沒有為輸出資料集指定 fileName 時，所產生的檔案名稱會是下列格式：</p><p>Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 否
 partitionedBy | partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。例如，folderPath 可針對每小時的資料進行參數化。 | 否
-格式 | 支援兩種格式類型：**TextFormat**、**AvroFormat**。若為此值，您需要將格式底下的 type 屬性設定為其中之一。如果 forAvroFormatmat 為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資料，請參閱下面的格式一節。 | 否
+Format | 支援兩種格式類型：**TextFormat**、**AvroFormat**。若為此值，您需要將格式底下的 type 屬性設定為其中之一。如果 forAvroFormatmat 為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資料，請參閱下面的格式一節。 | 否
 fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<p>允許的值為：* (多個字元) 和 ? (單一字元)。</p><p>範例 1："fileFilter": "*.log"</p>範例 2："fileFilter": 2014-1-?.txt"</p><p>**請注意**：fileFilter 適用於輸入 FileShare 資料集</p> | 否
 | compression | 指定此資料的壓縮類型和層級。支援的類型為：GZip、Deflate 和 BZip2，而支援的層級為：最佳和最快。如需詳細資訊，請參閱[壓縮支援](#compression-support)一節。 | 否 |
 
@@ -565,7 +565,7 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
-| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 | True/False (預設值為 False)| 否 | 
+| recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 | True/False (預設值為 False)| 否 | 
 
 **FileSystemSink** 支援下列屬性：
 
@@ -573,10 +573,10 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 | -------- | ----------- | -------------- | -------- |
 | copyBehavior | 當來源為 BlobSource 或 FileSystem 時，定義複製行為。 | <p>有三種可能的 copyBehavior 屬性值。</p><ul><li>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</li><li>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案都會有自動產生的名稱。</li><li>**MergeFiles：**會將來源資料夾的所有檔案合併到一個檔案。如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。</li></ul> | 否 |
 
-### 遞迴和 copyBehavior 範例
-本節說明遞迴和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。
+### recursive 和 copyBehavior 範例
+本節說明 recursive 和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。
 
-遞迴 | copyBehavior | 產生的行為
+recursive | copyBehavior | 產生的行為
 --------- | ------------ | --------
 true | preserveHierarchy | <p>針對具有下列結構的來源資料夾 Folder1：</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>目標資料夾 Folder1 將和來源具有相同的結構<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>  
 true | flattenHierarchy | <p>針對具有下列結構的來源資料夾 Folder1：</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>目標 Folder1 將具有下列結構：<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;為 File1 自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;為 File2 自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;為 File3 自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;為 File4 自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;為 File5 自動產生的名稱</p>
@@ -599,4 +599,4 @@ false | mergeFiles | <p>針對具有下列結構的來源資料夾 Folder1：</p
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

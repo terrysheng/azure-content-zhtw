@@ -35,7 +35,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure**，這應該會導致下列輸出：
 
@@ -69,7 +69,7 @@ Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVIC
 
 如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務][]。
 
-如需在 Azure 網站的管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
+如需在 Azure 網站的 Azure 入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
 
 ## 建立主題
 
@@ -292,7 +292,7 @@ for (i = 0;i < 5;i++) {
 
 ## 刪除主題和訂用帳戶
 
-主題和訂用帳戶是持續性的，您必須透過 Azure 管理入口網站或程式設計方法明確地加以刪除。下列範例示範如何刪除名為 `MyTopic` 的主題：
+主題和訂用帳戶是持續性的，您必須透過 Azure 入口網站或程式設計明確地加以刪除。下列範例示範如何刪除名為 `MyTopic` 的主題：
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [使用儲存體的 Node.js Web 應用程式]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

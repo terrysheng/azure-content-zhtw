@@ -3,7 +3,7 @@
 	description="Active directory 連線精靈偵測到不相容的驗證類型" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 驗證偵測期間發生錯誤
 
@@ -97,4 +97,4 @@
 如需詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

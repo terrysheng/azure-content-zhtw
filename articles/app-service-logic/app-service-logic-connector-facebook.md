@@ -3,7 +3,7 @@
    description="如何建立並設定 Facebook 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
+   authors="rajeshramabathiran"
    manager="dwrede"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 
 # 開始使用 Facebook 連接器並將它加入您的邏輯應用程式
@@ -80,4 +80,4 @@
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

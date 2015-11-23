@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
-    ms.author="torsteng" />
+    ms.date="11/09/2015"
+    ms.author="torsteng;sidneyh" />
 
 # 跨資料庫查詢 (垂直資料分割) 的彈性資料庫查詢
 
@@ -44,7 +44,7 @@
     SECRET = ‘<password>’
     [;]
     
-或要卸除認證和金鑰：
+刪除憑證：
     
     DROP DATABASE SCOPED CREDENTIAL <credential_name>;  
     DROP MASTER KEY;   
@@ -184,4 +184,4 @@ SCHEMA\_NAME 和 OBJECT\_NAME 子句提供的功能可將外部資料表定義�
 <!--Image references-->
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

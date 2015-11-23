@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 # 開始使用 Box 連接器並將它加入您的邏輯應用程式 
 連接您的 Box 以對您的檔案執行取得、上傳、刪除等操作。連接器在 Logic Apps 中是用作「工作流程」的一部分。
@@ -107,4 +107,4 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

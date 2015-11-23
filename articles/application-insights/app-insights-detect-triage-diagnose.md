@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2015"
+	ms.date="11/06/2015"
 	ms.author="awills"/>
 
 # 使用 Application Insights 刪除、分級和診斷
@@ -20,28 +20,29 @@
 *Application Insights 目前僅供預覽。*
 
 
-發佈應用程式之後，Application Insights 可幫助您確保它運作正常且執行良好。如果有問題想要盡快得知，那麼您會想要知道該怎麼處理。
+Application Insights 幫助您瞭解您的 app 在作用中時如何執行和使用。當發生問題時，它可讓您了解、協助您評估影響，以及協助您判斷原因。
+
+以下是某個開發 Web 應用程式的小組的敘述：
 
 * *「幾天前，我們部署了次要的 Hotfix。我們沒有執行廣泛測試階段，但很不幸地，有些未預期的變更被合併到裝載中，造成前端與後端之間的不相容。伺服器例外狀況隨即湧現，警報發出，我們便知道了這個情況。在按幾下 Application Insights 入口網站之後，我們從例外狀況堆疊取得了足夠的資訊，而得以縮小問題。我們立即復原並將損害降至最低。Application Insights 使得這個部分的開發作業週期變得非常輕鬆且可行。」*
 
-我們可以將開發作業週期的這個部分想像成管道：
-
-![偵測-分級-診斷](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
-
-
-一旦診斷出問題，您會知道要將工作著重在何處 - 是要偵錯程式碼、配置更多記憶體或用相依性追蹤。最後，您可以確認您的修正發揮效用：
-
-
-
-![修復-驗證](./media/app-insights-detect-triage-diagnose/02-pipe2.png)
-
-
-讓我們看看 Application Insights 在管道的每個階段進行的作業。
-
-Application Insights 會處理裝置應用程式和 Web 應用程式。在此逐步導覽中，我們將著重在 Web 應用程式。我們會跟隨 Fabrikam 銀行負責網路銀行的 OBS 小組。他們已將 Application Insights 加入至其 Web 專案中。
-
+我們來看看一般的 Web 開發小組如何使用 Application Insights 來監視效能。我們會跟隨 Fabrikam 銀行的小組，開發網路銀行系統 (OBS)。
 
 ![銀行網站範例](./media/app-insights-detect-triage-diagnose/03-bank.png)
+
+小組運作的循環如下：
+
+![DevOps 循環](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
+
+送入其開發待處理項目 (工作清單) 的需求。小組努力工作，經常交付可行的軟體 - 通常是對現有的應用程式進行改進和延伸。上線的 app 則會經常更新新功能。雖然 app 已經上線，但小組會透過 Application Insights 的協助監視其效能和使用情況。這項分析會餵送回其開發待處理項目。
+
+小組使用 Application Insights 密切監視上線 Web 應用程式的下列項目：* 效能。他們想要了解回應時間如何隨著要求計數變化；使用多少 CPU、網路、磁碟和其他資源；以及瓶頸所在。* 失敗。如果有例外狀況或失敗的要求，或如果效能計數器超出其舒適範圍，小組必須快速知道以便可以採取動作。* 使用方式。當發行新功能時，小組想要知道其使用程度，以及使用者在使用上是否有任何問題。
+
+
+
+接下來討論循環的回饋部分：
+
+![偵測-分級-診斷](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 
 
@@ -260,4 +261,4 @@ Application Insights 也可以用來了解使用者在應用程式內執行的�
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

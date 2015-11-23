@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-本文說明如何在 Azure 資源管理員模式下使用 Azure 命令列介面 (CLI)，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫、透過 Azure PowerShell，以及使用 Azure Preview 入口網站來執行其中許多相同的工作。
+本文說明如何在 Azure 資源管理員模式下使用 Azure 命令列介面 (CLI)，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫、透過 Azure PowerShell 以及使用 Azure Preview 入口網站，來執行其中許多相同的工作。
 
 Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站、資料庫等，並作為單一部署單位。然後，您可以透過單一、協調的工作來部署、更新或刪除應用程式的所有資源。您會在 JSON 範本中描述部署的群組資源，然後可以將該範本用於不同的環境，例如測試、預備和生產環境。
 
@@ -1251,7 +1251,23 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 	info:    network public-ip create command OK
 
 
-參數選項：-h, --help 輸出使用量資訊 -v, --verbose 使用詳細資訊輸出 --json 使用 JSON 輸出 -g, --resource-group <resource-group> 資源群組的名稱 -n, --name <name> 公用 IP 的名稱 -l, --location <location> 位置 -d, --domain-name-label <domain-name-label> 網域名稱標籤。這會將 DNS 設定為 <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> 配置方法 [Static][Dynamic] -i, --idletimeout <idletimeout> 以分鐘為單位的閒置逾時 -f, --reverse-fqdn <reverse-fqdn> 反向 FQDN -t, --tags <tags> 標記的清單。可以使用多個選項。格式為「名稱 = 值」。名稱為必填，而值為選擇性項目。例如，-t tag1=value1;tag2 -s, --subscription <subscription> 訂用帳戶識別碼 <br>
+參數選項：
+	-h, --help                                     輸出使用量資訊
+	-v, --verbose                                  使用詳細資訊輸出
+	--json                                         使用 JSON 輸出
+	-g, --resource-group <resource-group>          資源群組的名稱
+	-n, --name <name>                              公用 IP 的名稱
+	-l, --location <location>                      位置
+	-d, --domain-name-label <domain-name-label>    網域名稱標籤。
+	這會將 DNS 設定為 <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>    配置方法 [Static][Dynamic]
+	-i, --idletimeout <idletimeout>                以分鐘為單位的閒置逾時
+	-f, --reverse-fqdn <reverse-fqdn>              反向 FQDN
+	-t, --tags <tags>                              標記的清單。
+	可以使用多個選項。格式為「名稱 = 值」。
+	名稱為必填，而值為選擇性項目。例如，-t tag1=value1;tag2
+	-s, --subscription <subscription>              訂用帳戶識別碼
+<br>
 
 	network public-ip set [options] <resource-group> <name>
 更新現有公用 IP 資源的屬性。在下列範例中，我們會將公用 IP 位址從動態變更為靜態。
@@ -1742,4 +1758,4 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO3-->

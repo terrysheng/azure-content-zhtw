@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -26,7 +26,7 @@
 
 NAMD (適用於奈米分子動力程式) 是專為高效能模擬大型生物分子系統而設計的平行分子動力套件，包含多達數百萬個原子，例如病毒、細胞結構和大蛋白。NAMD 會針對典型模擬縮放到數百個核心，以及針對最大型的模擬縮放至超過 500,000 個核心。
 
-Microsoft HPC Pack 提供功能來執行各種大規模 HPC 和平行應用程式，包括 Microsoft Azure 虛擬機器的叢集上的 MPI 應用程式。從 Microsoft HPC Pack 2012 R2 開始，HPC Pack 也支援在 HPC Pack 叢集中部署的 Linux 運算節點 VM 上執行 Linux HPC 應用程式。如需搭配 HPC Pack 使用 Linux 運算節點的簡介，請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster-hpcpack.md)。
+Microsoft HPC Pack 提供功能來執行各種大規模 HPC 和平行應用程式，包括 Microsoft Azure 虛擬機器的叢集上的 MPI 應用程式。從 Microsoft HPC Pack 2012 R2 Update 2 開始，HPC Pack 也支援在於 HPC Pack 叢集中部署的 Linux 計算節點 VM 上執行 Linux HPC 應用程式。如需搭配 HPC Pack 使用 Linux 運算節點的簡介，請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster-hpcpack.md)。
 
 
 ## 必要條件
@@ -129,9 +129,9 @@ Microsoft HPC Pack 提供功能來執行各種大規模 HPC 和平行應用程�
 
 現在在前端節點上的資料夾設定標準 SMB 共用，並且在所有 Linux 節點上掛接共用資料夾，以允許 Linux 節點存取具有共用路徑的 NAMD 檔案。請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster-hpcpack.md)中的檔案共用選項和步驟。(我們建議您在本文中的前端節點上掛接共用資料夾，因為 CentOS 6.6 Linux 節點目前不支援 Azure 檔案服務，該服務提供類似的功能。如需掛接 Azure 檔案共用的詳細資訊，請參閱 [Microsoft Azure 檔案的持續性連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)。)
 
-1.	在前端節點上建立資料夾，並藉由設定讀取/寫入權限與每個人共用。在此範例中，\\\CentOS66HN\\Namd 是資料夾的名稱，其中CentOS66HN 是前端節點的主機名稱。
+1.	在前端節點上建立資料夾，並藉由設定讀取/寫入權限與每個人共用。在此範例中，\\CentOS66HN\\Namd 是資料夾的名稱，其中CentOS66HN 是前端節點的主機名稱。
 
-2. 在資料夾中解壓縮 NAMD 檔案，方法是使用 Windows 的 **tar** 版本，或其他可以操作 .tar 封存的 Windows 公用程式。將 NAMD tar 封存解壓縮至 \\\CentOS66HN\\Namd\\namd2，並且在 \\\CentOS66HN\\Namd\\namd2\\namdsample 底下解壓縮教學課程檔案。
+2. 在資料夾中解壓縮 NAMD 檔案，方法是使用 Windows 的 **tar** 版本，或其他可以操作 .tar 封存的 Windows 公用程式。將 NAMD tar 封存解壓縮至 \\CentOS66HN\\Namd\\namd2，並且在 \\CentOS66HN\\Namd\\namd2\\namdsample 底下解壓縮教學課程檔案。
 
 2.	開啟 Windows PowerShell 視窗並執行下列命令來裝載共用資料夾。
 
@@ -302,7 +302,7 @@ host CENTOS66LN-03 ++cpus 2
 
 6.	工作需要數分鐘的時間才能完成。
 
-7.	在 \<headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log 中尋找工作記錄檔，在 \<headnode>\\Namd\\namd2\\namdsample\\1-2-sphere 中尋找輸出檔案。
+7.	在 <headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log 中尋找工作記錄檔，在 <headnode>\\Namd\\namd2\\namdsample\\1-2-sphere 中尋找輸出檔案。
 
 8.	選擇性啟動 VMD 以檢視您的工作結果。用來視覺化 NAMD 輸出檔案 (在此案例中，水圈中的泛素蛋白質分子) 的步驟已超出本文的範圍。如需詳細資訊，請參閱 [NAMD 教學課程](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf)。
 
@@ -408,4 +408,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/02/2015"
+   ms.date="11/09/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員範本函數
 
 本主題描述您可以在 Azure 資源管理員範本中使用的所有函數。
 
-範本函數和其參數不區分大小寫。例如，資源管理員在解析 **variables('var1')** 和 **VARIABLES('VAR1')** 時，會將它們視為相同。
+範本函數和其參數不區分大小寫。例如，資源管理員在解析 **variables('var1')** 和 **VARIABLES('VAR1')** 時，會將它們視為相同。當評估時，除非函式明確修改大小寫 (例如 toUpper 或 toLower)，否則函式將會保留大小寫。特定資源類型可能有與評估運算式方式無關的大小寫需求。
 
 ## 新增
 
@@ -547,4 +547,4 @@
 - 若要在建立資源類型時逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

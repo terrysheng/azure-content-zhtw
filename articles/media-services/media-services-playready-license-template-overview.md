@@ -74,7 +74,7 @@ XML 符合 PlayReady 授權範本 XML 結構描述，該結構描述是在 PlayR
 
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) - 此類別代表 PlayReady 授權的 PlayRight。它授與使用者能力可以播放內容，該內容受限於授權中設定及 PlayRight 本身 (適用於播放特定原則) 的零或多個限制。大部分的 PlayRight 原則與輸出限制相關，控制內容可以播放的輸出類型，和使用指定輸出時必須套用的任何限制。例如，如果 DigitalVideoOnlyContentRestriction 已啟用，則 DRM 執行階段只會允許透過數位輸出 (不允許類比視訊輸出傳遞內容) 顯示視訊。
 
->[AZURE.IMPORTANT]這些類型的限制非常強大，但也可能會影響客戶體驗。如果輸出保護設定限制太多，內容可能無法在某些用戶端上播放。如需詳細資訊，請參閱「PlayReady 法規規則」文件。
+>[AZURE.IMPORTANT]這些類型的限制非常強大，但也可能會影響客戶體驗。如果輸出保護設定限制太多，內容可能無法在某些用戶端上播放。如需詳細資訊，請參閱 [PlayReady 法規規則](https://www.microsoft.com/playready/licensing/compliance/)文件。
 
 如需 Silverlight 支援的保護層級的範例，請參閱：[Silverlight 支援輸出保護](http://go.microsoft.com/fwlink/?LinkId=617318)。
 
@@ -302,11 +302,13 @@ XML 符合 PlayReady 授權範本 XML 結構描述，該結構描述是在 PlayR
 	</xs:schema>
 
 
+
 ##媒體服務學習路徑
 
-您可以在此檢視 AMS 學習路徑：
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##提供意見反應
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

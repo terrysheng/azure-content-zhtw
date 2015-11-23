@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/12/2015"
+   ms.date="11/06/2015"
    ms.author="joaoma"/>
 
 # Azure DNS 概觀
@@ -40,4 +40,4 @@ Azure DNS 中的 DNS 網域裝載於 Azure 的 DNS 名稱伺服器全球網路�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

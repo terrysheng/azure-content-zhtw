@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/11/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@
 
 一般而言，一個資源群組包含一個特定應用程式的相關資源。例如，一個群組可能會包含一個代管公用網站的 Web 應用程式、一個儲存網站所使用之關聯式資料的 SQL Database，和一個儲存非關聯式資產的儲存體帳戶。資源群組中的每項資源應共用相同的存留期。如需資源管理員的詳細資訊，請參閱[資源管理員概觀](../resource-group-overview.md)。
 
-本主題簡單說明如何在 Azure Preview 入口網站中使用資源群組。
+本主題簡單說明如何在 Azure Preview 入口網站中使用資源群組。目前不是每個服務都支援 Preview 入口網站或資源管理員。針對這些服務，您必須使用[入口網站](https://manage.windowsazure.com)。如需每個服務的狀態，請參閱[資源管理員對於服務、區域和 API 版本的支援](resource-manager-supported-services.md)
 
 ## 建立資源群組和資源
 
@@ -154,4 +154,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

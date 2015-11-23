@@ -960,4 +960,13 @@
 
 您現在可以使用流量管理員在兩個資料中心之間路由傳送要求，因此在任何中斷的情況下容錯移轉。
 
-<!---HONumber=Oct15_HO3-->
+
+##媒體服務學習路徑
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##提供意見反應
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

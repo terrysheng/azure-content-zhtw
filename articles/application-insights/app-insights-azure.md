@@ -26,7 +26,8 @@
 
 您有何種應用程式？
 
-* [Azure Web 應用程式 - Web 和背景工作角色](app-insights-cloudservices.md)
+* [Azure Web 應用程式](insights-perf-analytics.md)
+* [Azure 雲端服務 App - Web 和背景工作角色](app-insights-cloudservices.md)
 * [Azure VM 中的 IIS 上的 Web 應用程式](../insights-perf-analytics.md)
 * [Azure 外部的應用程式](app-insights-overview.md)
 
@@ -39,4 +40,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

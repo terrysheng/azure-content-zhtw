@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="nitinme"/>
 
 # 使用 .NET SDK 開始使用 Azure 資料湖存放區
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 了解如何使用 Azure 資料湖存放區 .NET SDK 以建立 Azure 資料湖帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖的詳細資訊，請參閱 [Azure 資料湖存放區](data-lake-store-overview.md)。
 
@@ -50,7 +51,7 @@
 5. 將 Nuget 封裝新增至您的專案。
 
 	1. 在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後按一下 [管理 NuGet 封裝]。
-	2. 在 [Nuget 封裝管理員] 對話方塊方塊中，請確定 [封裝來源] 設為 [nuget.org] ，且已選取 [包含發行前版本] 核取方塊。
+	2. 在 [Nuget 封裝管理員] 索引標籤中，請確定 [封裝來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
 	3. 搜尋並安裝下列封裝：
 	
 		* Microsoft.Azure.Common.Authentication
@@ -212,7 +213,8 @@
 ## 建立資料湖存放區帳戶的其他方式
 
 - [使用入口網站開始使用資料湖存放區](data-lake-store-get-started-portal.md)
-- [使用 PowerShell 開始使用資料湖存放區](data-lake-store-get-started-powershell.md) 
+- [運用 PowerShell 開始使用資料湖儲存區](data-lake-store-get-started-powershell.md)
+- [使用 Azure CLI 開始使用資料湖存放區](data-lake-store-get-started-cli.md)
 
 
 ## 後續步驟
@@ -221,4 +223,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

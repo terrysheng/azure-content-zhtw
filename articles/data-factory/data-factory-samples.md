@@ -54,9 +54,7 @@
 ## GitHub 上的範例
 [GitHub Azure-DataFactory 儲存機制](https://github.com/azure/azure-datafactory)包含數個範例，可協助您快速運用 Azure Data Factory 服務，或修改指令碼並用在您自己的應用程式中。Samples\\JSON 資料夾包含常見案例的 JSON 程式碼片段。
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-samples.md)提交您的意見反應。
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -3,7 +3,7 @@
 	description="在使用 Visual Studio 已連接服務連接到儲存體帳戶之後，如何在 Visual Studio 雲端服務專案中開始使用 Azure 佇列儲存體"
 	services="storage" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (雲端服務專案)
 
@@ -202,4 +202,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 			
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

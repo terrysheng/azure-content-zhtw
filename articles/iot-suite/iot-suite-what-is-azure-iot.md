@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/29/2015"
+ ms.date="11/05/2015"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -46,4 +46,4 @@ Microsoft Azure IoT 套件是企業級解決方案，可讓您快速開始使用
 [Azure Machine Learning]: https://azure.microsoft.com/zh-TW/services/machine-learning/
 [Azure 儲存體]: https://azure.microsoft.com/zh-TW/services/storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

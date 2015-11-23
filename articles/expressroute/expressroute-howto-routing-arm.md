@@ -3,8 +3,8 @@
    description="本文將逐步引導您為 ExpressRoute 線路建立和佈建私用、公用及 Microsoft 對等。本文也示範如何檢查狀態、更新或刪除線路的對等。"
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
-   manager="rossort"
+   authors="cherylmc"
+   manager="carolz"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,23 +13,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
-   ms.author="ganesr"/>
+   ms.date="11/05/2015"
+   ms.author="cherylmc"/>
 
-# 建立和修改 ExpressRoute 路由組態
+# 使用 Azure 資源管理員及 PowerShell 建立和修改 ExpressRoute 線路的路由
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-routing-classic.md)
-[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-本文將逐步引導您使用 PowerShell Cmdlet 和 ARM 部署模型，以建立和管理 ExpressRoute 線路的路由組態。下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路的對等。
+本文將逐步引導您使用 PowerShell Cmdlet 和 Azure 資源管理員部署模型，以建立和管理 ExpressRoute 線路的路由組態。下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路的對等。
 
->[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
-
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## 組態必要條件
 
-- 您需要最新版的 Azure PowerShell 模組。您可以從 [Azure 下載頁面](http://azure.microsoft.com/downloads)的 PowerShell 區段下載最新的 PowerShell 模組。遵循[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 頁面上的指示，取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指引。 
+- 您需要最新版的 Azure PowerShell 模組 (版本 1.0 或更新版本)。 
 - 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)頁面、[路由需求](expressroute-routing.md)頁面和[工作流程](expressroute-workflows.md)頁面。
 - 您必須擁有作用中的 ExpressRoute 線路。繼續之前，請遵循指示來[建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)，並由您的連線提供者來啟用該線路。ExpressRoute 線路必須處於已佈建和已啟用狀態，您才能執行如下所述的 Cmdlet。
 
@@ -45,7 +44,7 @@
 
 1. **匯入 ExpressRoute 的 PowerShell 模組。**
 	
- 	您必須從 [PowerShell 資源庫](http://www.powershellgallery.com/)安裝最新的 Powershell 安裝程式並將 Azure 資源管理員模組匯入至 PowerShell 工作階段，以開始使用 ExpressRoute Cmdlet。您必須以系統管理員身分執行 PowerShell。
+ 	您必須從 [PowerShell 資源庫](http://www.powershellgallery.com/)安裝最新的 PowerShell 安裝程式並將 Azure 資源管理員模組匯入至 PowerShell 工作階段，以開始使用 ExpressRoute Cmdlet。您必須以系統管理員身分執行 PowerShell。
 
 	    Install-Module AzureRM
 
@@ -69,7 +68,9 @@
 
 2. **建立 ExpressRoute 線路。**
 	
-	請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-arm.md)，並由連線提供者佈建它。**如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。在此情況下，您不需要遵循後續幾節所列的指示。** 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
+	請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-arm.md)，並由連線提供者佈建它。
+
+	如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。在此情況下，您不需要遵循後續幾節所列的指示。不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
 
 3. **檢查 ExpressRoute 線路以確定已佈建。**
 
@@ -110,7 +111,7 @@
 	- 次要連結的 /30 子網路。這不能在保留給虛擬網路的任何位址空間中。
 	- 供建立此對等的有效 VLAN ID。請確定線路有沒有其他對等使用相同的 VLAN ID。
 	- 對等的 AS 編號。您可以使用 2 位元組和 4 位元組 AS 編號。您可以將私用 AS 編號用於此對等。請確定您不是使用 65515。
-	- MD5 雜湊 (如果選擇使用)。**這是選擇性**。
+	- MD5 雜湊 (如果選擇使用)。**這是選擇性的**。
 	
 	您可以執行下列 Cmdlet 來為線路設定 Azure 私用對等。
 
@@ -148,10 +149,12 @@
 
 您可以執行下列 Cmdlet 來移除對等組態。
 
+>[AZURE.WARNING]執行此 Cmdlet 之前，您必須確定所有虛擬網路都已經與 ExpressRoute 取消連結。
+
 	Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
->[AZURE.IMPORTANT]執行此 Cmdlet 之前，您必須確定所有虛擬網路都已經與 ExpressRoute 取消連結。
+
 
 ## Azure 公用對等
 
@@ -161,7 +164,7 @@
 
 1. **匯入 ExpressRoute 的 PowerShell 模組。**
 	
- 	您必須從 [PowerShell 資源庫](http://www.powershellgallery.com/)安裝最新的 Powershell 安裝程式並將 Azure 資源管理員模組匯入至 PowerShell 工作階段，以開始使用 ExpressRoute Cmdlet。您必須以系統管理員身分執行 PowerShell。
+ 	您必須從 [PowerShell 資源庫](http://www.powershellgallery.com/)安裝最新的 PowerShell 安裝程式並將 Azure 資源管理員模組匯入至 PowerShell 工作階段，以開始使用 ExpressRoute Cmdlet。您必須以系統管理員身分執行 PowerShell。
 
 	    Install-Module AzureRM
 
@@ -185,7 +188,9 @@
 
 2. **建立 ExpressRoute 線路**
 	
-	請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-arm.md)，並由連線提供者佈建它。**如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。在此情況下，您不需要遵循後續幾節所列的指示。** 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
+	請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-arm.md)，並由連線提供者佈建它。
+
+	如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。在此情況下，您不需要遵循後續幾節所列的指示。不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
 
 3. **檢查 ExpressRoute 線路以確定已佈建**
 
@@ -225,7 +230,7 @@
 	- 次要連結的 /30 子網路。這必須是有效的公用 IPv4 首碼。
 	- 供建立此對等的有效 VLAN ID。請確定線路有沒有其他對等使用相同的 VLAN ID。
 	- 對等的 AS 編號。您可以使用 2 位元組和 4 位元組 AS 編號。您必須將公用 AS 編號用於此對等。
-	- MD5 雜湊 (如果選擇使用)。**這是選擇性**。
+	- MD5 雜湊 (如果選擇使用)。**這是選擇性的**。
 	
 	您可以執行下列 Cmdlet 來為線路設定 Azure 私用對等
 
@@ -276,7 +281,7 @@
 
 1. **匯入 ExpressRoute 的 PowerShell 模組。**
 	
- 	您必須從 [PowerShell 資源庫](http://www.powershellgallery.com/)安裝最新的 Powershell 安裝程式並將 Azure 資源管理員模組匯入至 PowerShell 工作階段，以開始使用 ExpressRoute Cmdlet。您必須以系統管理員身分執行 PowerShell。
+ 	您必須從 [PowerShell 資源庫](http://www.powershellgallery.com/)安裝最新的 PowerShell 安裝程式並將 Azure 資源管理員模組匯入至 PowerShell 工作階段，以開始使用 ExpressRoute Cmdlet。您必須以系統管理員身分執行 PowerShell。
 
 	    Install-Module AzureRM
 
@@ -300,7 +305,9 @@
 
 2. **建立 ExpressRoute 線路**
 	
-	請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-arm.md)，並由連線提供者佈建它。**如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。在此情況下，您不需要遵循後續幾節所列的指示。** 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
+	請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-arm.md)，並由連線提供者佈建它。
+
+	如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。在此情況下，您不需要遵循後續幾節所列的指示。不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
 
 3. **檢查 ExpressRoute 線路以確定已佈建**
 
@@ -340,7 +347,7 @@
 	- 供建立此對等的有效 VLAN ID。請確定線路有沒有其他對等使用相同的 VLAN ID。
 	- 對等的 AS 編號。您可以使用 2 位元組和 4 位元組 AS 編號。您必須只使用公用 AS 編號。您必須擁有 AS 編號。
 	- 公告的首碼：您必須提供一份您打算在 BGP 工作階段上公告的所有首碼的清單。只接受公用 IP 位址首碼。如果您打算傳送一組首碼，您可以傳送逗號分隔清單。這些首碼必須在 RIR / IRR 中註冊給您。
-	- 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。**這是選擇性**。
+	- 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。**這是選擇性的**。
 	- 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
 	- MD5 雜湊 (如果選擇使用)。**這是選擇性**。
 	
@@ -379,8 +386,13 @@
 
 ## 後續步驟
 
--  接著，[將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)。
--  如需有關工作流程的詳細資訊，請參閱 [ExpressRoute 工作流程](expressroute-workflows.md)。
+接著，將 VNet 連結到 ExpressRoute 線路。當使用 Azure 資源管理員部署模式時，您可以使用[此範本](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)。我們目前正在進行 PowerShell 步驟。
+
+
+-  如需有關 ExpressRoute 工作流程的詳細資訊，請參閱 [ExpressRoute 工作流程](expressroute-workflows.md)。
+
 -  如需線路對等的詳細資訊，請參閱 [ExpressRoute 線路和路由網域](expressroute-circuit-peerings.md)。
 
-<!---HONumber=Nov15_HO2-->
+-  如需使用虛擬網路的詳細資訊，請參閱[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
+
+<!---HONumber=Nov15_HO3-->

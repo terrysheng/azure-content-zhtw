@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/04/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 進行轉換和分析
@@ -23,16 +23,12 @@
 
 
 轉換活動 | 運算環境 
------------------------ | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
-[Hadoop 串流](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
-[機器學習服務 Batch 評分](data-factory-create-predictive-pipelines.md) | Azure VM 
-[預存程序](data-factory-stored-proc-activity.md) | Azure SQL | 
+:----------------------- | :--------------------
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop 串流](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [機器學習服務活動：批次執行和更新資源](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
+[預存程序](data-factory-stored-proc-activity.md) | Azure SQL |
 [資料湖分析 U-SQL](data-factory-usql-activity.md) | Azure 資料湖分析 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 或 Azure Batch
-    
+   
 
 您需要為運算環境建立連結的服務，然後在定義轉換活動時使用連結的服務。Data Factory 支援兩種類型的資運算環境。
 
@@ -41,7 +37,4 @@
 
 請參閱[計算連結服務](data-factory-compute-linked-services.md)一文以了解 Data Factory 所支援的計算連結服務。
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md)提交您的意見反應。
-
-<!-----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

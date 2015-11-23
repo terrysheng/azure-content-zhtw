@@ -144,17 +144,19 @@
 
 使用[步驟 3](media-services-roll-storage-access-keys.md#step-3-update-locators) 中所述的相同程序。
 
- 
+
 ##媒體服務學習路徑
 
-您可以在此檢視 AMS 學習路徑：
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##提供意見反應
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ###通知 
 
 我們想要向下列為建立此文件貢獻心力的人員致謝：Cenk Dingiloglu、Milan Gada、Seva Titov。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

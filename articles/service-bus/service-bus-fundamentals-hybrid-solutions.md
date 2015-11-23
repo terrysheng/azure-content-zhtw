@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2015" 
+	ms.date="11/06/2015" 
 	ms.author="sethm"/>
 
 # Azure 服務匯流排
@@ -21,7 +21,8 @@
 無論應用程式或服務是在雲端或內部部署中執行，通常都需要與其他應用程式或服務互動。Azure 提供「服務匯流排」，讓您有更多實用的作法。本文探討這項技術，並說明其為何物及為何需要採用。
 
 ## 服務匯流排基本概念
-不同的情況需要不同的通訊方式。有時，讓應用程式透過簡單的佇列來傳送和接收訊息，就是最好的解決方案。在其他情況下，普通的佇列仍嫌不足，具有發佈與訂閱機制的佇列會更好。在某些情況下，就只需要應用程式之間的連線，根本不需要佇列。服務匯流排提供這三種選項，可讓應用程式以幾種不同的方式互動。
+
+不同的情況需要不同的通訊方式。有時，讓應用程式透過簡單的佇列來傳送和接收訊息，就是最好的解決方案。在其他情況下，普通的佇列仍嫌不足，具有發佈與訂閱機制的佇列會更好。在某些情況下，就只需要應用程式之間的連線，而不需要佇列。服務匯流排提供這三種選項，可讓應用程式以幾種不同的方式互動。
 
 服務匯流排是多租用戶的雲端服務，亦即，由多位使用者共用服務。每個使用者 (例如應用程式開發人員) 可建立*命名空間*，然後在該命名空間內定義所需的通訊機制。圖 1 顯示運作架構。
 
@@ -56,13 +57,13 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 
 接收者以兩種不同的方法從服務匯流排佇列讀取訊息。第一個選項 (稱為 *ReceiveAndDelete*) 會從佇列中移除訊息，並立即刪除訊息。這很簡單，但如果接收者在完成訊息處理之前當掉，則會遺失訊息。因為訊息已從佇列中移除，其他接收者無法再取得該訊息。
 
-第二個選項 *PeekLock* 就是為了解決此問題。就像 ReceiveAndDelete 一樣，PeekLock 讀取也會從佇列中移除訊息，但並不會刪除訊息。相反地，此選項會鎖定訊息，不讓其他接收者看到訊息，然後等待三種事件發生：
+第二個選項 *PeekLock* 就是為了解決此問題。就像 **ReceiveAndDelete**一樣，**PeekLock** 讀取也會從佇列中移除訊息，但並不會刪除訊息。相反地，此選項會鎖定訊息，不讓其他接收者看到訊息，然後等待三種事件發生：
 
-- 如果接收者成功處理訊息，則會呼叫 *Complete*，然後佇列會刪除訊息。 
-- 如果接收者判斷無法成功處理訊息，則會呼叫 *Abandon*。然後，佇列會解除訊息的鎖定，讓其他接收者可以存取訊息。
-- 如果接收者在一段可設定的時間內 (預設為 60 秒) 未呼叫這些方法，佇列會假定接收者已失效。在此情況下，就視為接收者已呼叫 Abandon，讓其他接收者可以存取訊息。
+- 如果接收者成功處理訊息，則會呼叫 **Complete**，然後佇列會刪除訊息。 
+- 如果接收者判斷無法成功處理訊息，則會呼叫 **Abandon**。然後，佇列會解除訊息的鎖定，讓其他接收者可以存取訊息。
+- 如果接收者在一段可設定的時間內 (預設為 60 秒) 未呼叫這些方法，佇列會假定接收者已失效。在此情況下，就視為接收者已呼叫 **Abandon**，讓其他接收者可以存取訊息。
 
-請注意這裡發生的情形：相同的訊息可能傳遞兩次，或許是傳給兩個不同的接收者。使用服務匯流排佇列的應用程式對此必須有因應之道。為了輕鬆偵測重複訊息，每個訊息都有唯一的 MessageID 屬性，不論同一個訊息從佇列中讀取多少次，依預設此屬性維持不變。
+請注意這裡發生的情形：相同的訊息可能傳遞兩次，或許是傳給兩個不同的接收者。使用服務匯流排佇列的應用程式對此必須有因應之道。為了輕鬆偵測重複訊息，每個訊息都有唯一的 **MessageID** 屬性，不論同一個訊息從佇列中讀取多少次，依預設此屬性維持不變。
 
 佇列在許多情況下都很有用。即使兩個應用程式未同時都在執行，佇列仍可讓應用程式通訊，這尤其適用於批次和行動應用程式。如果佇列有多個接收者，由於傳送的訊息會襲捲這些接收者，此佇列也提供自動的負載平衡。
 
@@ -80,7 +81,7 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 - 訂閱者 2 可接收包含 *Seller="Ruby"* 屬性及/或包含 *Amount* 屬性 (其值大於 100,000) 的訊息。Ruby 可能是銷售經理，因此想查看自己的銷售和所有人的銷售佳績。
 - 訂閱者 3 將篩選設為 *True*，這表示接收所有訊息。例如，此應用程式可能負責維護稽核記錄，因此需要查看所有的訊息。
 
-如同佇列一樣，主題的訂閱者也可以使用 ReceiveAndDelete 或 PeekLock 來讀取訊息。但與佇列不同，傳送至主題的單一訊息可以由多個訂閱者接收。每當多個應用程式可能都需要存取相同的訊息時，此方法很有用，這個方法通常稱為*發佈和訂閱*。每個訂閱者只要定義正確的篩選，即可只存取所需的訊息資料流部分。
+如同佇列一樣，主題的訂閱者也可以使用 **ReceiveAndDelete** 或 **PeekLock** 來讀取訊息。但與佇列不同，傳送至主題的單一訊息可以由多個訂閱者接收。每當多個應用程式可能都需要存取相同的訊息時，此方法很有用，這個方法通常稱為*發佈和訂閱*。每個訂閱者只要定義正確的篩選，即可只存取所需的訊息資料流部分。
 
 ## 轉送
 
@@ -104,7 +105,7 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 
 ## 事件中樞
 
-事件中樞是可高度擴充的內嵌系統，每秒可處理數百萬事件，可讓您的應用程式處理和分析連接的裝置和應用程式所產生的大量資料。例如，您可以使用事件中樞收集車隊的即時引擎效能資料。收集到事件中樞後，您可以使用任何即時分析提供者或儲存體叢集轉換和儲存資料。如需事件中樞的詳細資訊，請參閱[事件中樞概觀](../event-hubs-overview.md)。
+事件中樞是可高度擴充的內嵌系統，每秒可處理數百萬事件，可讓您的應用程式處理和分析連接的裝置和應用程式所產生的大量資料。例如，您可以使用事件中樞收集車隊的即時引擎效能資料。收集到事件中樞後，您可以使用任何即時分析提供者或儲存體叢集轉換和儲存資料。如需事件中樞的詳細資訊，請參閱[事件中樞概觀](../event-hubs/event-hubs-overview.md)。
 
 ## 摘要
 
@@ -114,20 +115,14 @@ Windows 應用程式可以利用 Windows Communication Foundation (WCF) 來使�
 
 現在，您已了解 Azure 服務匯流排的基礎，請參考下列連結以取得更多資訊。
 
-- 如何使用[服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)。
-- 如何使用[服務匯流排主題](service-bus-dotnet-how-to-use-topics-subscriptions.md)。
-- 如何使用[服務匯流排轉送](service-bus-dotnet-how-to-use-relay.md)。
-- 服務匯流排範例：請參閱 [MSDN][] 上的概觀。 
-
-[svc-bus]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_01_architecture.png
-[queues]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_02_queues.png
-[topics-subs]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
-[relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
-[MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
+- 如何使用[服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
+- 如何使用[服務匯流排主題](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- 如何使用[服務匯流排轉送](service-bus-dotnet-how-to-use-relay.md)
+- [服務匯流排範例](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

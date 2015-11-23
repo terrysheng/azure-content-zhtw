@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/05/2015"
 	ms.author="larryfr"/>
 
 # 使用指令碼動作來自訂 HDInsight 叢集| Azure (Linux)
@@ -492,10 +492,12 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 如果叢集建立因為指令碼動作中的錯誤而失敗，仍可從與該叢集相關聯的預設儲存體帳戶直接存取指令碼動作記錄檔。
 
-* 儲存體記錄檔位於 `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。在其下，記錄檔會個別針對前端節點、背景工作節點和 Zookeeper 節點進行組織。部分範例如下：
-	* 前端節點 - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-headnode0.mycluster-ssh.d4.internal.cloudapp.net`
-	* 背景工作角色節點 - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-workernode0.mycluster-63d9e66a-a8e2-4022-85aa-a484e7700b5c.d4.internal.cloudapp.net`
-	* Zookeeper 節點 - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-zookeepernode0.mycluster-4965986e-3636-4a8b-ae1d-f2dfd898c8d7.d4.internal.cloudapp.net`
+* 儲存體記錄檔位於 `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。 
+
+	![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+
+	在其下，記錄檔會個別針對前端節點、背景工作節點和 Zookeeper 節點進行組織。範例如：* **Headnode** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` * **Worker node** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` * **Zookeeper node** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+
 * 對應主機的所有 stdout 和 stderr 都會上傳至儲存體帳戶。每個指令碼動作分別有一個 **output-*.txt** 和 **errors-*.txt**。output-*.txt 檔案包含在主機上執行之指令碼的 URI 相關資訊。例如
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
@@ -547,4 +549,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

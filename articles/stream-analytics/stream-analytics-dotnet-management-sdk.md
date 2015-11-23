@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="了解如何使用串流分析管理 .NET SDK | Microsoft Azure" 
 	description="Azure 串流分析管理 .NET SDK 入門。了解如何設定及執行分析工作：建立專案、輸入、輸出及轉換。" 
-	keywords=".net skd,analytics jobs,event hub"
+	keywords=".net skd,分析工作,事件中樞"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/06/2015" 
+	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -48,7 +48,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 		
 
--	設定要使用的輸入來源和輸出目標。若需進一步指示，請參閱[加入輸入](stream-analytics-add-inputs.md)以設定範例輸入；[加入輸出](stream-analytics-add-outputs.md)以設定範例輸出。
+-	設定要使用的輸入來源和輸出目標。如需進一步的指示，請參閱[加入輸入](stream-analytics-add-inputs.md)來設定範例輸入，以及參閱[加入輸出](stream-analytics-add-outputs.md)來設定範例輸出。
 
 
 ## 設定專案
@@ -365,4 +365,4 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

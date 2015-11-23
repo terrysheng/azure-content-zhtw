@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
@@ -146,9 +146,7 @@
 ## 後續步驟
 既然已載入您的 Marketplace 內容，讓我們進入**步驟 3：在預備環境中測試您的供應項目**。不過，您必須從下列清單選取適當的供應項目類型，因為步驟會隨著供應項目類型而有所不同。
 
-||虛擬機器映像 |開發人員服務 |資料服務 | 解決方案範本|
-|---|---|---|---|---|
-| **步驟 3.將您的供應項目推送至預備環境** | [在預備環境中測試您的 VM 供應項目](marketplace-publishing-vm-image-test-in-staging.md) | 在預備環境中測試您的開發人員服務供應項目 | 在預備環境中測試您的資料服務供應項目 | [在預備環境中測試您的解決方案範本](marketplace-publishing-solution-template-test-in-staging.md) |
+||虛擬機器映像 |開發人員服務 |資料服務 | 解決方案範本| |---|---|---|---|---| | **步驟 3.將您的供應項目推送至預備環境** | [在預備環境中測試您的 VM 供應項目](marketplace-publishing-vm-image-test-in-staging.md) | 在預備環境中測試您的開發人員服務供應項目 | 在預備環境中測試您的資料服務供應項目 | [在預備環境中測試您的解決方案範本](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## 另請參閱
 - [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -162,4 +160,4 @@
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

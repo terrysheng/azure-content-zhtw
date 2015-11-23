@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/30/2015"
 	ms.author="mahender"/>
 
 # 如何設定應用程式以使用 Microsoft 帳戶登入
@@ -71,4 +71,4 @@
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure 管理入口網站]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

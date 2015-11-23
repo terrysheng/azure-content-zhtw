@@ -204,10 +204,10 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 ## 後續步驟
 
 * 如需透過 Azure PowerShell 使用 Azure 資源管理員的相關資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
-* 如需從 Azure 入口網站使用 Azure 資源管理員的相關資訊，請參閱[使用資源群組管理 Azure 資源][psrm]。
+* 如需從 Azure Preview 入口網站使用 Azure 資源管理員的相關資訊，請參閱[使用資源群組管理 Azure 資源][psrm]。
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

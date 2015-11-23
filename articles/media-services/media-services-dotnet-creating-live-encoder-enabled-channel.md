@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015"  
+	ms.date="11/08/2015"  
 	ms.author="juliako"/>
 
 
@@ -86,6 +86,10 @@
 
 - 目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
 - 請確定在您想串流內容的串流端點上至少有一個串流保留單元。
+
+##下載範例
+
+從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)取得和執行範例。
 
 ##必要條件
 需要有下列項目，才能完成教學課程。
@@ -506,17 +510,16 @@
 	}	
 
 
-##後續步驟
+##後續步驟：媒體服務學習路徑
 
-###媒體服務學習路徑
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-您可以在此檢視 AMS 學習路徑：
+##提供意見反應
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ### 尋找其他內容嗎？
 
 如果本主題未包含您預期的內容、缺少部分內容，或者提供了一些其他不符合您需求的方式，請在下方提供您使用 Disqus 執行緒的意見反應給我們。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

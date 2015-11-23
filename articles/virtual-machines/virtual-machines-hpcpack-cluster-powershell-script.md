@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-service-management,hpc-pack"/>
 <tags
    ms.service="virtual-machines"
    ms.devlang="NA"
@@ -390,4 +390,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
 
 * 嘗試以 HPC Pack 的工具啟動、停止、新增和移除您所建立之叢集中的運算節點。請參閱[在 Azure 中管理 HPC Pack 叢集的運算節點](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

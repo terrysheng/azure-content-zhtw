@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/06/2015"
 	ms.author="larryfr"/>
 
 #透過在 HDInsight 上將 Apache Mahout 與 Linux 架構的 Hadoop 搭配使用來產生電影推薦 (預覽)
@@ -76,7 +76,8 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 4. 使用下列命令將資料複製到 HDInsight 儲存體：
 
         cd ml-100k
-        hadoop fs -copyFromLocal ml-100k/u.data /example/data/u.data
+        hdfs dfs -put u.data /example/data
+
 
     此檔案內含的資料具有 `userID`、`movieID`、`userRating` 和 `timestamp` 結構，可告訴我們每位使用者對於電影的評價為何。以下是資料範例：
 
@@ -91,7 +92,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 
 使用下列命令來執行推薦工作：
 
-	mahout recommenditembased -s SIMILARITY_COOCCURRENCE --input /example/data/u.data --output /example/data/mahoutout  --tempDir /temp/mahouttemp
+	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
 > [AZURE.NOTE]此工作可能需要幾分鐘的時間才能完成，並可能執行多項 MapReduce 工作。
 
@@ -99,7 +100,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 
 1. 工作完成後，使用以下命令來檢視所產生的輸出：
 
-		hadoop fs -text /example/data/mahoutout/part-r-00000
+		hdfs dfs -text /example/data/mahoutout/part-r-00000
 
 	輸出將如下所示：
 
@@ -112,7 +113,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 
 2. **ml-100k** 目錄內含的其他一些資料可用來讓資料更方便使用者使用。首先，使用下列命令下載資料：
 
-		hadoop fs -copyToLocal /example/data/mahoutout/part-r-00000 recommendations.txt
+		hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
 
 	這會將輸出資料複製到目前目錄中名為 **recommendations.txt** 的檔案。
 
@@ -122,55 +123,55 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 
 	開啟編輯器時，請使用下列做為檔案的內容：
 
-		#!/usr/bin/env python
-
-		import sys
-
-		if len(sys.argv) != 5:
-		        print "Arguments: userId userDataFilename movieFilename recommendationFilename"
-		        sys.exit(1)
-
-		userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
-
-		print "Reading Movies Descriptions"
-		movieFile = open(movieFilename)
-		movieById = {}
-		for line in movieFile:
-		        tokens = line.split("|")
-		        movieById[tokens[0]] = tokens[1:]
-		movieFile.close()
-
-		print "Reading Rated Movies"
-		userDataFile = open(userDataFilename)
-		ratedMovieIds = []
-		for line in userDataFile:
-		        tokens = line.split("\t")
-		        if tokens[0] == userId:
-		                ratedMovieIds.append((tokens[1],tokens[2]))
-		userDataFile.close()
-
-		print "Reading Recommendations"
-		recommendationFile = open(recommendationFilename)
-		recommendations = []
-		for line in recommendationFile:
-		        tokens = line.split("\t")
-		        if tokens[0] == userId:
-		                movieIdAndScores = tokens[1].strip("[]\n").split(",")
-		                recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
-		                break
-		recommendationFile.close()
-
-		print "Rated Movies"
-		print "------------------------"
-		for movieId, rating in ratedMovieIds:
-		        print "%s, rating=%s" % (movieById[movieId][0], rating)
-		print "------------------------"
-
-		print "Recommended Movies"
-		print "------------------------"
-		for movieId, score in recommendations:
-		        print "%s, score=%s" % (movieById[movieId][0], score)
-		print "------------------------"
+        #!/usr/bin/env python
+        
+        import sys
+        
+        if len(sys.argv) != 5:
+                print "Arguments: userId userDataFilename movieFilename recommendationFilename"
+                sys.exit(1)
+        
+        userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
+        
+        print "Reading Movies Descriptions"
+        movieFile = open(movieFilename)
+        movieById = {}
+        for line in movieFile:
+                tokens = line.split("|")
+                movieById[tokens[0]] = tokens[1:]
+        movieFile.close()
+        
+        print "Reading Rated Movies"
+        userDataFile = open(userDataFilename)
+        ratedMovieIds = []
+        for line in userDataFile:
+                tokens = line.split("\t")
+                if tokens[0] == userId:
+                        ratedMovieIds.append((tokens[1],tokens[2]))
+        userDataFile.close()
+        
+        print "Reading Recommendations"
+        recommendationFile = open(recommendationFilename)
+        recommendations = []
+        for line in recommendationFile:
+                tokens = line.split("\t")
+                if tokens[0] == userId:
+                        movieIdAndScores = tokens[1].strip("[]\n").split(",")
+                        recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
+                        break
+        recommendationFile.close()
+        
+        print "Rated Movies"
+        print "------------------------"
+        for movieId, rating in ratedMovieIds:
+                print "%s, rating=%s" % (movieById[movieId][0], rating)
+        print "------------------------"
+        
+        print "Recommended Movies"
+        print "------------------------"
+        for movieId, score in recommendations:
+                print "%s, score=%s" % (movieById[movieId][0], score)
+        print "------------------------"
 
 	按下 **CTRL-X**、**Y**，最後再按 **Enter** 鍵儲存資料。
 
@@ -178,9 +179,9 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 
 		chmod +x show_recommendations.py
 
-4. 執行 Python 指令碼：
+4. 執行 Python 指令碼。以下假設您位於包含 `u.data` 和 `u.item` 檔案的 [ml-100k] 目錄中：
 
-		./show_recommendations.py 4 ml-100k/u.data ml-100k/u.item recommendations.txt
+		./show_recommendations.py 4 u.data u.item recommendations.txt
 
 	這要看看為使用者 ID 4 所產生的建議。
 
@@ -238,9 +239,11 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 
 Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作中指定 `--tempDir` 參數將暫存檔隔離到特定路徑中以方便刪除。若要移除暫存檔案，請使用下列命令：
 
-	hadoop fs -rm -f -r wasb:///temp/mahouttemp
+	hdfs dfs -rm -f -r /temp/mahouttemp
 
-> [AZURE.WARNING]如果您未移除暫存檔或輸出檔，則以相同的 `--tempDir` 路徑重新執行工作時，您會收到「無法覆寫檔案」錯誤訊息。
+> [AZURE.WARNING]如果您要再次執行該命令，您必須也刪除輸出目錄。使用以下命令刪除此目錄：
+>
+> ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
 ##後續步驟
 
@@ -264,4 +267,4 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

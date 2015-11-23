@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure App Service 中部署 Web 應用程式"
-	description="了解可用來將內容部署到 Web 應用程式的方法。"
+	pageTitle="Azure App Service 部署文件"
+	description="找到說明如何將您的 app 部署至 Azure App Service 的文件。"
 	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
@@ -13,46 +13,46 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="11/06/2015"
 	ms.author="tdykstra"/>
 
-#在 Azure App Service 中部署 Web 應用程式
+# Azure App Service 部署文件
 
 ## 概觀
 
-本主題提供將自己的內容部署至 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 之選項的簡要概觀。
+這篇文章列出可將您自己的內容部署到 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 的方法，包括含有使用說明資訊的文件和部落格連結。若有其他文章發佈，將會加入這份清單。
 
 部署 Web 應用程式的最佳方式是設定已與您的[原始檔控制系統](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)整合的[連續傳遞工作流程](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)。自動化不但可以讓開發程序更有效率，也可以使您的備份和還原程序更容易管理且可靠。
 
-如需雲端託管原始檔控制系統的部署相關資訊，請參閱本文稍後的下列章節。
+##### 從雲端代管的原始檔控制系統部署
 
-* [Visual Studio Online](#vso)
+* [使用 Visual Studio Online 連續傳遞](#vso)
 * [使用 Git 的儲存機制網站](#git)
 * [使用 Mercurial 的儲存機制網站](#mercurial)
-* [Dropbox](#dropbox)
+* [從 Dropbox 自動化部署](#dropbox)
 
-如需內部部署原始檔控制系統的部署相關資訊，請參閱本文稍後的下列章節。
+##### 從內部部署原始檔控制系統部署
 
-* [Team Foundation Server (TFS)](#tfs)
+* [使用 Team Foundation Server (TFS) 連續傳遞](#tfs)
 * [內部部署 Git 或 Mercurial 儲存機制](#onpremises)
 
-您也可以使用命令列工具來自動化部署。如需使用命令列工具進行部署的相關資訊，請參閱本文稍後的下列章節。
+##### 使用命令列工具自動化部署
 
-* [MSBuild](#msbuild)
-* [FTP 工具和指令碼](#ftp)
-* [Windows PowerShell](#powershell)
-* [.NET 管理 API](#api)
-* [Azure 命令列介面 (Azure CLI)](#cli)
-* [Web Deploy 命令列](#webdeploy)
+* [使用 MSBuild 自動化部署](#msbuild)
+* [使用 FTP 工具和指令碼複製檔案](#ftp)
+* [使用 Windows PowerShell(#powershell) 自動化部署
+* [使用 .NET 管理 API 自動化部署](#api)
+* [從 Azure 命令列介面 (Azure CLI) 部署](#cli)
+* [從 Web Deploy 命令列部署](#webdeploy)
  
-有時候從您的整合式開發環境 (IDE) 中部署會比較方便。如需從 IDE 進行部署的相關資訊，請參閱本文稍後的下列章節。
+##### 從整合式開發環境 (IDE) 部署
 
-* [Visual Studio](#vs)
-* [WebMatrix](#webmatrix)
+* [直接從 Visual Studio 部署](#vs)
+* [直接從 WebMatrix 部署](#webmatrix)
 
 另一個部署選項是使用雲端式服務，例如 [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy)。如需詳細資訊，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)。
 
-##<a name="vso"></a>Visual Studio Online
+##<a name="vso"></a>使用 Visual Studio Online 連續傳遞
 
 [Visual Studio Online](http://www.visualstudio.com/) (前身為 Team Foundation Service) 是 Microsoft 針對原始檔控制和團隊共同作業而推出的雲端解決方案。此服務可免費供 5 個開發人員以內的團隊使用。您可以執行連續傳遞至 App Service 中的 Web 應用程式，而您的儲存機制可以使用 [Git 或 TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs)。
 
@@ -81,7 +81,7 @@
 * [使用 Git 從原始檔控制發行至 Web Apps](web-sites-publish-source-control.md)。此教學課程說明的是發佈 Git 儲存機制的方式，但在 CodePlex 或 BitBucket 中受到代管的 Mercurial 儲存機制其實也採用類似的程序。
 * [Git、Mercurial 和 Dropbox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)。
 
-##<a name="dropbox"></a>Dropbox
+##<a name="dropbox"></a>從 Dropbox 自動化部署
 
 [Dropbox](https://www.dropbox.com/) 並不是原始檔控制系統，但若您將原始程式碼儲存在 Dropbox 中，您將可從 Dropbox 帳戶進行自動部署。
 
@@ -89,7 +89,7 @@
 * [Dropbox 部署至 Web Apps](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites)。這段影片會逐步解說將 DropBox 資料夾連接到 Web 應用程式的程序，並示範您只需使用拖放部署，即可快速啟動及執行 Web 應用程式並加以維護。
 * [Git、Mercurial 和 Dropbox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)。
 
-##<a name="vs"></a>Visual Studio
+##<a name="vs"></a>直接從 Visual Studio 部署
 
 如需如何從 Visual Studio 部署至 Web Apps 的相關資訊，請參閱下列資源：
 
@@ -100,7 +100,7 @@
 * [使用 Visual Studio 的 ASP.NET Web 部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)。這是分成 12 個單元的教學課程系列，其中討論的部署工作比此處所列的其他資源更為詳盡。本教學課程撰寫後已新增某些 Azure 部署功能，但稍後的附註會說明遺漏的功能。
 * [在 Visual Studio 2012 中直接從 Git 儲存機制將 ASP.NET 網站部署至 Azure](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)。說明如何使用 Git 外掛程式將程式碼認可至 Git，以及將 Azure 連接到 Git 儲存機制，以在 Visual Studio 中部署 ASP.NET Web 專案。自 Visual Studio 2013 起，Git 支援已是內建的功能，不需安裝外掛程式。
 
-##<a name="webmatrix"></a>WebMatrix
+##<a name="webmatrix"></a>直接從 WebMatrix 部署
 
 如需如何從 WebMatrix 部署至 Web Apps 的相關資訊，請參閱下列資源：
 
@@ -112,7 +112,7 @@
 
 * [建立 PHP-MySQL Web 應用程式並使用 FTP 部署](web-sites-php-mysql-deploy-use-ftp.md)。
 
-##<a name="tfs"></a>Team Foundation Server (TFS)
+##<a name="tfs"></a>使用 Team Foundation Server (TFS) 連續傳遞
 
 Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業而推出的內部部署解決方案。您可以設定 TFS，以便對 Web 應用程式執行連續傳遞。
 
@@ -131,7 +131,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * [Git、Mercurial 和 Dropbox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)。
 * [從一個 Git 儲存機制將兩個網站部署至 Azure](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx)。取自 Scott Hanselman 的部落格文章。
 
-##<a name="msbuild"></a>MSBuild
+##<a name="msbuild"></a>使用 MSBuild 自動化部署
 
 如果您使用 [Visual Studio IDE](#vs) 進行開發，您將可使用 [MSBuild](http://msbuildbook.com/) 將任何您可在 IDE 中執行的工作自動化。您可以設定 MSBuild，以使用 [Web Deploy](#webdeploy) 或 [FTP/FTPS](#ftp) 來複製檔案。Web Deploy 也可自動化其他多種部署相關工作，例如部署資料庫。
 
@@ -140,7 +140,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * [使用 Visual Studio 的 ASP.NET Web 部署：命令列部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment)。這是系列中的第十個教學課程，討論如何使用 Visual Studio 部署至 Azure。此課程說明在 Visual Studio 中設定發佈設定檔後，如何使用命令列進行部署。
 * [深入瞭解 Microsoft Build Engine： 使用 MSBuild 和 Team Foundation Build](http://msbuildbook.com/)。這是實體書籍，其中有幾章會說明如何使用 MSBuild 進行部署。
 
-##<a name="ftp"></a>FTP 工具和指令碼
+##<a name="ftp"></a>使用 FTP 工具和指令碼複製檔案
 
 您可以使用 [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 複製檔案，將內容部署至您的 App。您可以輕鬆地為 Web 應用程式建立 FTP 認證，並將其用於指令碼或可與 FTP 搭配使用的應用程式中，例如 Internet Explorer 之類的瀏覽器，以及功能完備的免費公用程式 (例如 [FileZilla](https://filezilla-project.org/))。Web Apps 也支援更安全的 FTPS 通訊協定。
 
@@ -150,7 +150,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 * [使用 FTP 批次指令碼](http://support.microsoft.com/kb/96269)。
 
-##<a name="powershell"></a>Windows PowerShell
+##<a name="powershell"></a>使用 Windows PowerShell 自動化部署
 
 您可以從 [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx) (英文) 執行 MSBuild 或 FTP 部署功能。如果您這麼做，則您也可以使用 Windows PowerShell Cmdlet 的集合，使 Azure REST 管理 API 更容易呼叫。
 
@@ -162,7 +162,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * [使用 Azure 建置真實世界的雲端應用程式 - 自動化各個項目](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)。這是電子書的其中一章，說明電子書中的範例應用程式如何使用 Windows PowerShell 指令碼建立 Azure 測試環境，並加以部署。如需其他 Azure PowerShell 文件的連結，請參閱[資源](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources)一節。
 * [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)。如何使用 Visual Studio 產生的 Windows PowerShell 部署指令碼。
 
-##<a name="api"></a>.NET 管理 API
+##<a name="api"></a>使用 .NET 管理 API 自動化部署
 
 您可以撰寫 C# 程式碼，以執行部署所需的 MSBuild 或 FTP 功能。如果您這麼做，您將可存取 Azure 管理 REST API，以執行網站管理功能。
 
@@ -170,7 +170,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 * [使用 Azure 管理庫和 .NET 將一切自動化](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)。這是 .NET 管理 API 的簡介，並提供相關文件的連結。
 
-##<a name="cli"></a>Azure 命令列介面 (Azure CLI)
+##<a name="cli"></a>從 Azure 命令列介面 (Azure CLI) 部署
 
 您可以透過 FTP，使用 Windows、Mac 或 Linux 機器中的命令列進行部署。如果您這麼做，也可以使用 Azure CLI 存取 Azure REST 管理 API。
 
@@ -178,7 +178,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 * [Azure 命令列工具](/downloads/#cmd-line-tools)。Azure.com 中提供命令列工具資訊的入口網站頁面。
 
-##<a name="webdeploy"></a>Web Deploy 命令列
+##<a name="webdeploy"></a>從 Web Deploy 命令列部署
 
 [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) 是一項用於 IIS 部署的 Microsoft 軟體，不僅提供智慧型檔案同步功能，也可執行或協調其他許多無法在您使用 FTP 時自動化的部署相關工作。例如，Web Deploy 可對您的 Web 應用程式部署新的資料庫或資料庫更新。Web Deploy 也可儘量縮短更新現有網站所需的時間，因為它具有智慧功能，可僅複製有所變更的檔案。Microsoft WebMatrix、Visual Studio、Visual Studio Online 和 Team Foundation Server 皆有內建的 Web Deploy 支援，但您也可直接從命令列使用 Web Deploy，將部署自動化。Web Deploy 命令的功能十分強大，但學習起來較為困難。
 
@@ -205,4 +205,4 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

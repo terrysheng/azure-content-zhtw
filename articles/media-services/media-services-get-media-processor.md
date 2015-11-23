@@ -59,11 +59,11 @@ Windows Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資�
 
 ##媒體服務學習路徑
 
-您可以在此檢視 AMS 學習路徑：
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##提供意見反應
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##後續步驟
 現在您已了解如何取得媒體處理器執行個體，接著請移至[如何為資產編碼][]主題，以了解如何使用 Azure Media Encoder 為資產編碼。
@@ -72,4 +72,4 @@ Windows Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資�
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [如何：以程式設計方式連接到媒體服務]: ../media-services-set-up-computer/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

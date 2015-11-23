@@ -79,7 +79,7 @@ Microsoft 發佈一組高階[架構藍圖](http://aka.ms/azblueprints)，示範�
 
 - 先[檢視訓練影片](http://aka.ms/3dBlueprintTemplateVideo)，讓您知道它的功能   
 - 下載 [Microsoft 3D 藍圖 Visio 範本](http://aka.ms/3DBlueprintTemplate)
-- 下載[雲端和企業符號](#symbol-and-icon-sets)以搭配 3D 範本使用
+- 下載[雲端和企業符號](#drawing-symbol-and-icon-sets)以搭配 3D 範本使用。 
 
 如果有訓練教材無法解答的特定問題或要提供意見反應，請將電子郵件寄至以下的地址 [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com)。可用性是此範本的主要目標之一，請讓我們知道我們的優點及缺失。
 
@@ -108,4 +108,4 @@ Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建�
 
 ![Azure 架構資訊圖](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

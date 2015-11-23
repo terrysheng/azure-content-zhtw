@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/14/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 # 了解串流分析輸出
@@ -143,6 +143,8 @@
 | 資料表名稱 | 提供 Power BI 輸出資料集的資料表名稱。目前，串流分析工作的 Power BI 輸出中，一個資料集只能有一個資料表 |
 | 群組名稱 | 若要啟用與其他 Power BI 使用者共用資料，請將資料寫入群組。如果您不想寫入群組，您可以選取 Power BI 帳戶內的群組或選擇「我的工作區」。更新現有的群組需要更新 Power BI 驗證。 |
 
+如需設定 Power BI 輸出和儀表板的逐步解說，請參閱 [Azure 串流分析與 Power BI](stream-analytics-power-bi-dashboard.md) 一文。
+
 > [AZURE.NOTE]未在 Power BI 儀表板中明確建立資料集和資料表。當工作開始並將輸出提取至 Power BI 時，就會自動填入資料集和資料表。請注意，如果工作查詢沒有產生任何結果，將不會建立資料集和資料表。也請注意，如果 Power BI 已經具有與串流分析工作中提供的名稱相同的資料集和資料表，可能會覆寫現有的資料。
 
 ### 更新 Power BI 授權
@@ -157,7 +159,7 @@
 
 ## 資料表儲存體
 
-[Azure 資料表儲存體](./articles/storage-introduction.md)提供高可用性且可大幅擴充的儲存體，方便應用程式自動擴充以滿足使用者需求。資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，其中可以使用結構化資料，但結構描述的限制較少。使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
+[Azure 資料表儲存體](./articles/storage-introduction.md)提供高可用性且可大幅擴充的儲存體，可讓應用程式自動調整來滿足使用者需求。資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，其中可以使用結構化資料，但結構描述的限制較少。使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
 
 下表列出屬性名稱及其描述以建立資料表輸出。
 
@@ -169,11 +171,11 @@
 | 資料表名稱 | 資料表的名稱。如果資料表不存在，將會建立資料表。 |
 | 資料分割索引鍵 | 包含資料分割索引鍵的輸出資料行名稱。在構成實體主索引鍵第一個部分的指定資料表內，資料分割索引鍵是資料分割的唯一識別碼。大小最高為 1 KB 的字串值。 |
 | 列索引鍵 | 包含資料列索引鍵的輸出資料行名稱。資料列索引鍵是指定資料分割內實體的唯一識別碼。它可構成實體主索引鍵的第二個部分。資料列索引鍵是大小可能高達 1 KB 的字串值。 |
-| 批次大小 | 批次作業的記錄數目。預設值通常足以應付大部分的工作，如需修改此設定的詳細資訊，請參閱[資料表批次作業規格](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) (英文)。 |
+| 批次大小 | 批次作業的記錄數目。預設值通常就已足以應付大部分的工作，如需有關修改此設定的詳細資訊，請參閱[資料表批次作業規格](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)。 |
 
 ## 服務匯流排佇列
 
-如果有一或多個競爭取用者，[服務匯流排佇列](https://msdn.microsoft.com/library/azure/hh367516.aspx)會採取先進先出 (FIFO) 訊息傳遞機制。通常會預期由接收者依訊息加入佇列的時間順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。
+如果有一或多個競爭取用者，[服務匯流排佇列](https://msdn.microsoft.com/library/azure/hh367516.aspx)會採用「先進先出」(FIFO) 訊息傳遞機制。通常會預期由接收者依訊息加入佇列的時間順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。
 
 下表列出屬性名稱及其描述以建立佇列輸出。
 
@@ -191,7 +193,7 @@
 
 ## 服務匯流排主題
 
-相較於服務匯流排佇列會提供從傳送者到接收者的一對一通訊方法，[服務匯流排主題](https://msdn.microsoft.com/library/azure/hh367516.aspx)則是提供一對多的通訊形式。
+「服務匯流排佇列」提供從傳送者到接收者的一對一通訊方法，而[服務匯流排主題](https://msdn.microsoft.com/library/azure/hh367516.aspx)則是提供一對多的通訊形式。
 
 下表列出屬性名稱及其描述以建立資料表輸出。
 
@@ -208,7 +210,7 @@
 
 ## DocumentDB
 
-[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 是完全受管理的 NoSQL 文件資料庫服務，可透過無結構描述的資料提供查詢和交易，且具備可預測的可靠效能，還能讓您快速開發。
+[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 是完全受管理的 NoSQL 文件資料庫服務，可提供透過無結構描述資料進行的查詢和交易，並且提供既可預測又可靠的效能，還能讓您快速開發。
 
 下表列出用於建立 DocumentDB 輸出的屬性名稱及其描述。
 
@@ -265,4 +267,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

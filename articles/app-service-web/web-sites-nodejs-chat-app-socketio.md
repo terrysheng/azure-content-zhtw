@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="10/30/2015"
 	ms.author="mwasson"/>
 
 
@@ -69,7 +69,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 
 > [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。
 
-1. 安裝 Azure 命令列介面 (Azure CLI)，並連線到您的 Azure 訂用帳戶。請參閱[安裝和設定 Azure CLI](xplat-cli)。
+1. 安裝 Azure 命令列介面 (Azure CLI)，並連線到您的 Azure 訂用帳戶。請參閱[安裝和設定 Azure CLI](../xplat-cli)。
 
 2. 如果這是您第一次在 Azure 中設定儲存機制，就需要建立登入認證。從 Azure CLI 中，輸入下列命令：
 
@@ -119,7 +119,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 ###建立 Redis 快取
 
-執行[在 Azure Redis 快取中建立快取](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409)中的步驟以建立新的快取。
+執行[在 Azure Redis 快取中建立快取](https://azure.microsoft.com/zh-TW/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache)中的步驟以建立新的快取。
 
 > [AZURE.NOTE]儲存快取的__主機名稱__和__主要金鑰__，因為後續步驟將會需要這些項目。
 
@@ -145,7 +145,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 	> [AZURE.NOTE]雖然 __socket.io-redis__ 配接器可以直接與 Redis 通訊，但是目前版本並不支援 Azure Redis 快取所需的驗證。因此，系統會使用 __redis__ 模組來建立初始連線，然後將該用戶端傳遞至 __socket.io-redis__ 配接器。
 	>
-	> 雖然 Azure Redis 快取使用連接埠 6380 來支援安全的連線，但是此範例中使用的模組截至 2014/7/14 為止並不支援安全的連線。以上程式碼使用的是預設的 6380 連接埠 (不安全)。
+	> 雖然 Azure Redis 快取使用連接埠 6380 來支援安全的連線，但是此範例中使用的模組截至 2014/7/14 為止並不支援安全的連線。以上程式碼使用的是預設的 6379 連接埠 (不安全)。
 
 3. 儲存已修改的 __app.js__
 
@@ -285,4 +285,4 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

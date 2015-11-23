@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="11/05/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的圖形化編寫
@@ -131,7 +131,7 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。只可執�
 |自動化認證資產|選取「自動化認證」做為輸入。|  
 |自動化憑證資產|選取「自動化憑證」做為輸入。|  
 |自動化連線資產|選取「自動化連線」做為輸入。| 
-|PowerShell 運算式|指定簡單 PowerShell 運算式。在活動和用於參數值的結果之前，將會評估運算式。您可以使用變數來參照活動或 Runbook 的輸入參數的輸出。|
+|PowerShell 運算式|指定簡單 [PowerShell 運算式](#powershell-expressions)。在活動和用於參數值的結果之前，將會評估運算式。您可以使用變數來參照活動或 Runbook 的輸入參數的輸出。|
 |空字串|空字串值。|
 |Null|Null 值。|
 |取消選取|清除先前設定的任何值。|
@@ -241,6 +241,7 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。只可執�
 
 在您的 Runbook 中設定[檢查點](automation-powershell-workflow/#checkpoints)的相同指示適用於圖形化 Runbook。您可以在您要設定檢查點的位置加入 Checkpoint-Workflow Cmdlet 的活動。然後，如果 Runbook 在不同的背景工作從這個檢查點開始，您應該使用 Add-AzureAccount 遵循此活動。
 
+
 ## 向 Azure 資源驗證
 
 Azure 自動化中的大部分 Runbook 將會需要向 Azure 資源驗證。此驗證所使用的一般方法是使用 Add-AzureAccount Cmdlet 搭配代表對 Azure 帳戶的 Active Directory 使用者具有存取權的[認證資產](http://msdn.microsoft.com/library/dn940015.aspx)。[設定 Azure 自動化](automation-configuring.md)中將會就此討論。
@@ -285,10 +286,97 @@ Runbook 可能需要使用者透過 Azure 預覽入口網站啟動 Runbook 時�
 沒有連出連結的任何活動所建立的資料會加入至 [Runbook 的輸出](http://msdn.microsoft.com/library/azure/dn879148.aspx)。輸出會隨著 Runbook 工作儲存，並且在 Runbook 用作子項時提供給父 Runbook 使用。
 
 
+## PowerShell 運算式
+
+圖形化撰寫的優點之一是提供您以 PowerShell 的基本知識建立 Runbook 的能力。目前，您還是需要知道一點 PowerShell，以填入某些[參數值](#activities)和設定[連結條件](#links-and-workflow)。本節提供 PowerShell 運算式的快速簡介，供不熟悉的使用者參考。PowerShell 的完整詳細資料位於 [使用 Windows PowerShell 撰寫指令碼](http://technet.microsoft.com/library/bb978526.aspx)。
+
+
+### PowerShell 運算式資料來源
+
+您可以使用 PowerShell 運算式做為資料來源，使用一些 PowerShell 程式碼的結果來填入[活動參數](#activities)的值。這可以是執行一些簡單函式的單行程式碼，或執行一些複雜邏輯的多行程式碼。未指派給變數的任何命令輸出都會輸出到參數值。
+
+例如，下列命令會輸出目前的日期。
+
+	Get-Date
+
+下列命令會從目前的日期建立字串並將它指派給變數。然後將變數的內容傳送至輸出
+
+	$string = "The current date is " + (Get-Date)
+	$string
+
+下列命令會評估目前的日期並傳回表示當天是工作日或週末的字串。
+
+	$date = Get-Date
+	if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
+	else { "Weekday" }
+	
+ 
+
+### 活動輸出
+
+若要在 Runbook 中使用上一個活動的輸出，請以下列語法使用 $ActivityOutput 變數。
+
+	$ActivityOutput['Activity Label'].PropertyName
+
+例如，您可能有一個活動，具有需要虛擬機器名稱的屬性，在此情況下您可以使用下列運算式。
+
+	$ActivityOutput['Get-AzureVm'].Name
+
+如果是需要虛擬機器物件的屬性而非只是單純的屬性，則您要使用下列語法傳回整個物件。
+
+	$ActivityOutput['Get-AzureVm']
+
+您也可以在更複雜的運算式中使用活動的輸出，例如串連文字到虛擬機器名稱的下列運算式。
+
+	"The computer name is " + $ActivityOutput['Get-AzureVm'].Name
+
+
+### 條件
+
+使用[比較運算子](https://technet.microsoft.com/library/hh847759.aspx)來比較值或判斷值是否符合指定的模式。比較會傳回 $true 或 $false 的值。
+
+例如，下列條件判斷活動的虛擬機器名稱 *Get-AzureVM* 目前是否「已停止」。
+
+	$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+
+下列條件會檢查相同的虛擬機器是否處於「已停止」以外的任何狀態。
+
+	$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+
+您可以使用[邏輯運算子](https://technet.microsoft.com/library/hh847789.aspx) (例如 **-and** 或 **-or**) 加入多個條件。例如，下列條件會檢查上述範例中相同虛擬機器的狀態是否為「已停止」或「正在停止」。
+
+	($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping") 
+
+
+### 雜湊表
+
+[雜湊表](http://technet.microsoft.com/library/hh847780.aspx)是傳回一組值時很有用的名稱/值組。某些活動的屬性可能是雜湊表而不是簡單值。雜湊表也可能稱為字典。
+
+使用下列語法建立雜湊表。雜湊表可以包含任意數目的項目，但是每個項目都由一個名稱和值定義。
+
+	@{ <name> = <value>; [<name> = <value> ] ...}
+
+例如，下列運算式建立要在活動參數的資料來源中使用的雜湊表，這個雜湊表的值要做為網際網路搜尋。
+
+	$query = "Azure Automation"
+	$count = 10
+	$h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
+	$h
+
+下列範例使用稱為 *Get Twitter Connection* 的活動的輸出來填入雜湊表。
+
+	@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
+	  'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
+	  'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
+	  'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+
+
+
 ## 相關文章
 
 - [了解 Windows PowerShell 工作流程](automation-powershell-workflow.md)
 - [自動化資產](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+- [運算子](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

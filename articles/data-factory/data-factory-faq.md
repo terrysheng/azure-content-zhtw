@@ -126,10 +126,6 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 
 在上述範例中，otherLinkedServiceName1 和 otherLinkedServiceName2 連結服務的定義，包含 HDInsight 叢集存取替代儲存體帳戶所需的認證。
 
-## 預存程序活動 - 常見問題集
-### 預存程序活動支援哪些資料來源？
-預存程序活動目前只支援 Azure SQL Database。
-
 ## 配量 - 常見問題集
 
 ### 如何重新執行配量？
@@ -181,4 +177,4 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

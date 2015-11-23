@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Microsoft Azure 上管理搜尋服務 | Microsoft Azure" 
+	pageTitle="在 Microsoft Azure 上管理您的搜尋服務 | Microsoft Azure | 雲端託管搜尋服務" 
 	description="管理 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務)" 
 	services="search" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ Azure 特別為透過 Preview 入口網站管理的所有服務，或在 Azure �
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

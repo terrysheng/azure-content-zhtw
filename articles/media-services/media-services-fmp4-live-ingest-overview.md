@@ -200,13 +200,15 @@ Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時
 2. 使用個別的資料流傳送兩個最低的視訊位元速率。這些資料流皆「應該」包含每個唯一音訊資料軌的複本。例如，當支援多國語言時，這些資料流「應該」包含每種語言的音訊資料軌。
 3. 使用不同的伺服器 (編碼器) 執行個體來編碼和傳送 (1) 和 (2) 中所提到的多餘資料流。 
 
+
+
 ##媒體服務學習路徑
 
-您可以在此檢視 AMS 學習路徑：
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##提供意見反應
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
@@ -219,4 +221,4 @@ Microsoft Azure 媒體服務的 ISO 分散 MP4 即時內嵌使用標準的長時
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

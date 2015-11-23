@@ -194,4 +194,4 @@ VM 代理程式已存在於從 Azure 資源庫建立的 VM 中。不過，從內
 - [備份虛擬機器](backup-azure-vms.md)
 - [管理虛擬機器備份](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

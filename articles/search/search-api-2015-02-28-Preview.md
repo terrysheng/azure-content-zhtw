@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 搜尋服務 REST API 版本 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="Azure 搜尋服務 REST API 版本 2015-02-28-Preview | Microsoft Azure | 雲端託管搜尋服務"
    description="Azure 搜尋服務 REST API Version 2015-02-28-Preview 包含 Lucene 搜尋語法和 moreLikeThis 搜尋等實驗性功能。"
    services="search"
    documentationCenter="na"
@@ -1742,4 +1742,4 @@ ________________________________________
       "suggesterName": "sg"
     }
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

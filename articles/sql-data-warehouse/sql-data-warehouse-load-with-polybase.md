@@ -45,36 +45,26 @@ PolyBase 技術可讓您查詢和聯結多個來源的資料，且完全使用 T
 >
 > PolyBase 「不」支援標準區域備援儲存體 (標準-ZRS) 及進階本機備援儲存體 (進階-LRS) 帳戶類型。如果您要建立新的 Azure 儲存體帳戶，請確定您從定價層選取 PolyBase 支援的儲存體帳戶類型。
 
+## 步驟 1： 將認證儲存在您的資料庫中
+若要存取 Azure blob 儲存體，您需要建立資料庫範圍認證，其中儲存 Azure 儲存體帳戶的驗證資訊。請依照下列步驟儲存與您資料庫搭配使用的認證
 
-## 建立資料庫主要金鑰
-連接到伺服器上的使用者資料庫來建立資料庫主要金鑰。這個金鑰在下一步用來加密認證密碼。
+1. 連線到您的「SQL 資料倉儲」資料庫。
+2. 使用 [CREATE MASTER KEY (Transact-SQL)][] 為您的資料庫建立主要金鑰。如果您的資料庫已經主要金鑰，您就不需要建立另一個主要金鑰。在下一個步驟中，會使用這個金鑰來加密您的認證「密碼」。
 
-```
--- Creating master key
-CREATE MASTER KEY;
-```
+    ```
+    -- Create a E master key
+    CREATE MASTER KEY;
+    ```
 
-參考主題：[CREATE MASTER KEY (Transact-SQL)][]。
+1. 檢查看看您是否已經有任何資料庫認證。若要這樣做，請使用 sys.database\_credentials 系統檢視，而不要使用只會顯示伺服器認證的 sys.credentials。
 
-## 建立資料庫範圍認證
-若要存取 Azure blob 儲存體，您需要建立資料庫範圍認證，其中儲存 Azure 儲存體帳戶的驗證資訊。連接到資料倉儲資料庫，並為您想要存取的每個 Azure 儲存體帳戶建立資料庫範圍認證。指定身分識別名稱和 Azure 儲存體帳戶金鑰做為密碼。身分識別名稱並不會影響到 Azure 儲存體的驗證。
+    ``` -- 檢查是否有現有的資料庫範圍認證。SELECT * FROM sys.database\_credentials;
 
-若要查看資料庫範圍的認證是否已存在，請使用 sys.database\_credentials，而不是只顯示伺服器認證的 sys.credentials。
+3. 使用 [CREATE CREDENTIAL (Transact-SQL)][] 為您想要存取的每個 Azure 儲存體帳戶建立資料庫範圍認證。在此範例中，IDENTITY 是易記的認證名稱。它不會影響對 Azure 儲存體的驗證。SECRET 是您的 Azure 儲存體帳戶金鑰。
 
-```
--- Check for existing database-scoped credentials.
-SELECT * FROM sys.database_credentials;
+    -- 建立資料庫範圍認證 CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; ```
 
--- Create a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
-WITH IDENTITY = 'joe'
-,    Secret = '<azure_storage_account_key>'
-;
-```
-
-參考主題：[CREATE CREDENTIAL (Transact-SQL)][]。
-
-若要卸除資料庫範圍認證，您只需要使用下列語法：
+1. 如果您需要卸除某個資料庫範圍認證，請使用 [DROP CREDENTIAL (Transact-SQL)][]：
 
 ```
 -- Dropping credential
@@ -82,93 +72,90 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret
 ;
 ```
 
-參考主題：[DROP CREDENTIAL (Transact-SQL)][]。
+## 步驟 2：建立外部資料來源
+外部資料來源是儲存 Azure blob 儲存體資料位置及存取資訊的資料庫物件。請使用 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][] 為您想要存取的每個 Azure 儲存體 Blob 定義外部資料來源。
 
-## 建立外部資料來源
-外部資料來源是儲存 Azure blob 儲存體資料位置及存取資訊的資料庫物件。對於您想要存取的每個 Azure 儲存體容器，您需要定義外部資料來源。
+    ```
+    -- Create an external data source for an Azure storage blob
+    CREATE EXTERNAL DATA SOURCE azure_storage 
+    WITH
+    (
+        TYPE = HADOOP,
+        LOCATION ='wasbs://mycontainer@test.blob.core.windows.net',
+        CREDENTIAL = ASBSecret
+    )
+    ;
+    ```
 
-```
--- Creating external data source (Azure Blob Storage) 
-CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH
-(
-    TYPE = HADOOP
-,   LOCATION ='wasbs://mycontainer@test.blob.core.windows.net'
-,   CREDENTIAL = ASBSecret
-)
-;
-```
+如果您需要卸除外部資料表，請使用 [DROP EXTERNAL DATA SOURCE][]：
 
-參考主題：[CREATE EXTERNAL DATA SOURCE (Transact-SQL)][]。
+    ```
+    -- Drop an external data source
+    DROP EXTERNAL DATA SOURCE azure_storage
+    ;
+    ```
 
-若要卸除外部資料來源，其語法如下：
+## 步驟 3：建立外部檔案格式
+外部檔案格式是指定外部資料格式的資料庫物件。PolyBase 可以處理壓縮和未壓縮的資料，包括分隔的文字、Hive RCFILE 和 HIVE ORC 格式。
 
-```
--- Dropping external data source
-DROP EXTERNAL DATA SOURCE azure_storage
-;
-```
-
-參考主題：[DROP EXTERNAL DATA SOURCE (Transact-SQL)][]。
-
-## 建立外部檔案格式
-外部檔案格式是指定外部資料格式的資料庫物件。在此範例中，我們在文字檔中有未壓縮的資料，且欄位以縱線字元 ('|') 分隔。
+請使用 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] 來建立外部檔案格式。此範例指定檔案中的資料為未壓縮的文字，而欄位是以縱線字元 ('|') 分隔。
 
 ```
--- Creating external file format (delimited text file)
+-- Create an external file format for a text-delimited file.
+-- Data is uncompressed and fields are separated with the
+-- pipe character.
 CREATE EXTERNAL FILE FORMAT text_file_format 
 WITH 
 (   
-    FORMAT_TYPE = DELIMITEDTEXT 
-,	FORMAT_OPTIONS  (
-                        FIELD_TERMINATOR ='|'
-                    ,   USE_TYPE_DEFAULT = TRUE
-                    )
+    FORMAT_TYPE = DELIMITEDTEXT, 
+    FORMAT_OPTIONS  
+    (
+        FIELD_TERMINATOR ='|',
+        USE_TYPE_DEFAULT = TRUE
+    )
 )
 ;
 ```
 
-PolyBase 可以處理壓縮和未壓縮的資料，包括分隔的文字、Hive RCFILE 和 HIVE ORC 格式。
-
-參考主題：[CREATE EXTERNAL FILE FORMAT (Transact-SQL)][]。
-
-若要卸除外部檔案格式，其語法如下：
+如果您需要卸除某個外部檔案格式，請使用 [DROP EXTERNAL FILE FORMAT]。
 
 ```
 -- Dropping external file format
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
-參考主題：[DROP EXTERNAL FILE FORMAT (Transact-SQL)][]。
 
 ## 建立外部資料表
 
-外部資料表定義類似於關聯式資料表定義。主要的差異在於資料的位置和格式。外部資料表定義儲存在 SQL 資料倉儲資料庫。資料儲存在資料來源所指定的位置。
+外部資料表定義類似於關聯式資料表定義。主要的差異在於資料的位置和格式。
 
-LOCATION 選項指定從資料來源根目錄到資料的路徑。在此範例中，資料位於 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'。相同資料表的所有檔案都必須在 Azure BLOB 中相同的邏輯資料夾底下。
+- 外部資料表定義會以中繼資料的形式儲存在「SQL 資料倉儲」資料庫中。 
+- 資料會儲存在資料來源所指定的位置。
+
+請使用 [CREATE EXTERNAL TABLE (Transact-SQL)][] 來定義外部資料表。
+
+LOCATION 選項指定從資料來源根目錄到資料的路徑。在此範例中，資料是位於 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'。相同資料表的所有檔案都必須在 Azure Blob 儲存體中相同的邏輯資料夾底下。
 
 您也可以選擇指定拒絕選項 (REJECT\_TYPE、REJECT\_VALUE、REJECT\_SAMPLE\_VALUE)，以決定 PolyBase 如何處理從外部資料來源收到的錯誤記錄。
 
 ```
--- Creating external table pointing to file stored in Azure Storage
+-- Creating an external table for data in Azure blob storage.
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
 (
-     [SensorKey]     int    NOT NULL 
-,    [CustomerKey]   int    NOT NULL 
-,    [GeographyKey]  int        NULL 
-,    [Speed]         float  NOT NULL 
-,    [YearMeasured]  int    NOT NULL
+     [SensorKey]     int    NOT NULL,
+     [CustomerKey]   int    NOT NULL,
+     [GeographyKey]  int        NULL,
+     [Speed]         float  NOT NULL,
+     [YearMeasured]  int    NOT NULL,
 )
 WITH 
 (
-    LOCATION    = '/Demo/'
-,   DATA_SOURCE = azure_storage
-,   FILE_FORMAT = text_file_format      
+    LOCATION    = '/Demo/',
+    DATA_SOURCE = azure_storage,
+    FILE_FORMAT = text_file_format      
 )
 ;
 ```
-
-參考主題：[CREATE EXTERNAL TABLE (Transact-SQL)][]。
 
 您剛才建立的物件會儲存在 SQL 資料倉儲資料庫。您可以在 SQL Server Data Tools (SSDT) 物件總管中檢視它們。
 
@@ -180,11 +167,11 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]卸除外部資料表時，您必須使用 `DROP EXTERNAL TABLE`。您**不能**使用 `DROP TABLE`。
+> [AZURE.NOTE]卸除外部資料表時，您必須使用 `DROP EXTERNAL TABLE`。您「不能」使用 `DROP TABLE`。
 
 參考主題：[DROP EXTERNAL TABLE (Transact-SQL)][]。
 
-另外值得注意的是，外部資料表會同時顯示在 `sys.tables` 以及更明確的 `sys.external_tables` 目錄檢視中。
+另外值得注意的是，在 `sys.tables` 和 `sys.external_tables` 目錄檢視中 (後者更為明確) 都會顯示外部資料表。
 
 ## 替換儲存體金鑰
 
@@ -216,7 +203,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]外部資料表上的查詢可能會失敗，並顯示「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」錯誤。這表示您的外部資料包含「錯誤」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
+> [AZURE.NOTE]對外部資料表的查詢可能會因「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」錯誤而失敗。這表示您的外部資料包含「錯誤」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
 
 
 ## 從 Azure blob 儲存體載入資料
@@ -247,7 +234,7 @@ FROM   [ext].[CarSensor_Data]
 
 ## 建立新載入資料的統計資料
 
-Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱主題群組＜開發＞之中的[統計資料][]主題。以下是快速範例，說明如何在此範例中建立載入資料表的統計資料。
+Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱＜開發＞主題群組中的[統計資料][]主題。以下是快速範例，說明如何在此範例中建立載入資料表的統計資料。
 
 ```
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -370,4 +357,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

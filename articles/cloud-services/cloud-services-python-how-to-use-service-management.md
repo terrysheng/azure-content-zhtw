@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
+	ms.date="11/03/2015"
 	ms.author="huvalo"/>
 
 # 如何從 Python 使用服務管理
 
-本指南將說明如何透過程式設計從 Python 執行一般服務管理工作。[Azure SDK for Python][download-SDK-Python] 中的 **ServiceManagementService** 類別支援以程式設計方式存取[管理入口網站][management-portal]中提供的多種服務管理相關功能 (例如**建立、更新及刪除雲端服務、部署、資料管理服務和虛擬機器**)。這項功能在建置需要以程式設計方式存取服務管理的應用程式時，將有所幫助。
+本指南將說明如何透過程式設計從 Python 執行一般服務管理工作。[Azure SDK for Python](../python-how-to-install.md) 中的 **ServiceManagementService** 類別支援以程式設計方式存取[管理入口網站][management-portal]中提供的多種服務管理相關功能 (例如**建立、更新及刪除雲端服務、部署、資料管理服務和虛擬機器**)。這項功能在建置需要以程式設計方式存取服務管理的應用程式時，將有所幫助。
+
+> [AZURE.NOTE]服務管理 API 會以新的資源管理 API 取代，目前可在 Preview 版本中使用。請參閱 [Azure 資源管理文件](http://azure-sdk-for-python.readthedocs.org/)了解從 Python 使用新的資源管理 API 的詳細資訊。
+
 
 ## <a name="WhatIs"> </a>什麼是服務管理？
 管理服務 API 可讓使用者以程式設計方式存取[管理入口網站][management-portal]所提供的多種服務管理功能。Azure SDK for Python 可讓您管理雲端服務和儲存體帳戶。
@@ -29,7 +32,7 @@
 Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是一種 REST API。所有 API 作業都會透過 SSL 而執行，並可使用 X.509 v3 憑證相互驗證。管理服務可從執行於 Azure 的服務內存取，或直接透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式存取。
 
 ## <a name="Connect"> </a>作法：連線到服務管理
-若要連接到服務管理端點，您必須具備 Azure 訂閱 ID 和有效的管理憑證。您可以透過[管理入口網站][management-portal]取得訂閱 ID。
+若要連接到服務管理端點，您必須具備 Azure 訂用帳戶 ID 和有效的管理憑證。您可以透過[管理入口網站][management-portal]取得訂閱 ID。
 
 > [AZURE.NOTE]從 Azure SDK for Python v0.8.0 開始，目前在 Windows 上執行時就能使用以 OpenSSL 建立的憑證。這需要使用 Python 2.7.4 或更新版本。建議使用者使用 OpenSSL 而非 .pfx，因為未來可能會移除 .pfx 憑證的支援。
 
@@ -42,7 +45,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-如需 Azure 憑證的詳細資訊，請參閱[在 Azure 中管理憑證](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx)。如需 OpenSSL 參數的完整說明，請參閱 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html) 上的文件。
+如需 Azure 憑證的詳細資訊，請參閱 [Azure 雲端服務的憑證概觀](./cloud-services-certs-create.md)。如需 OpenSSL 參數的完整說明，請參閱 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html) 上的文件。
 
 建立這些檔案後，您必須透過[管理入口網站][management-portal]中 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure，且必須記下 `.pem` 檔案的儲存位置。
 
@@ -64,7 +67,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-此命令會建立 `.cer` 檔案，並將其安裝在 [**個人**] 憑證存放區中。如需詳細資訊，請參閱[建立及上傳 Azure 的管理憑證](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx)。
+此命令會建立 `.cer` 檔案，並將其安裝在 [**個人**] 憑證存放區中。如需詳細資訊，請參閱 [Azure 雲端服務的憑證概觀](./cloud-services-certs-create.md)。
 
 建立憑證後，您必須透過[管理入口網站][management-portal]中 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure。
 
@@ -167,7 +170,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 
 ## <a name="CreateStorageService"> </a>作法：建立儲存體服務
 
-[儲存服務]可讓您存取 Azure [Blob][azure-blobs]、[資料表][azure-tables]和[佇列][azure-queues]。若要建立儲存服務，您必須要有服務的名稱 (3 到 24 個小寫字元，且在 Azure 中是唯一的)、描述、標籤 (最多 100 個字元，會自動編碼為 base64)，以及位置。下列範例說明如何藉由指定位置來建立儲存服務。
+[儲存服務](../storage/storage-create-storage-account.md)可讓您存取 Azure [Blob](../storage/storage-python-how-to-use-blob-storage.md)、[資料表](../storage/storage-python-how-to-use-table-storage.md)和[佇列](../storage/storage-python-how-to-use-queue-storage.md)。若要建立儲存服務，您必須要有服務的名稱 (3 到 24 個小寫字元，且在 Azure 中是唯一的)、描述、標籤 (最多 100 個字元，會自動編碼為 base64)，以及位置。下列範例說明如何藉由指定位置來建立儲存服務。
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -398,13 +401,13 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 		role_size='Small',
 		vm_image_name = image_name)
 
-若要深入了解如何擷取 Linux 虛擬機器，請參閱[如何擷取 Linux 虛擬機器](../virtual-machines-linux-capture-image.md)。
+若要深入了解如何擷取 Linux 虛擬機器，請參閱[如何擷取 Linux 虛擬機器](../virtual-machines/virtual-machines-linux-capture-image.md)。
 
-若要深入了解如何擷取 Windows 虛擬機器，請參閱[如何擷取 Windows 虛擬機器](../virtual-machines-capture-image-windows-server.md)。
+若要深入了解如何擷取 Windows 虛擬機器，請參閱[如何擷取 Windows 虛擬機器](../virtual-machines/virtual-machines-capture-image-windows-server.md)。
 
 ## <a name="What's Next"> </a>後續步驟
 
-現在，您已了解服務管理的基本概念，您可以存取 [Azure Python SDK 的完整 API 參考文件](http://azure-sdk-for-python.readthedocs.org/en/documentation/index.html)並輕鬆執行複雜工作，以管理 Python 應用程式。
+現在，您已了解服務管理的基本概念，您可以存取 [Azure Python SDK 的完整 API 參考文件](http://azure-sdk-for-python.readthedocs.org/)並輕鬆執行複雜工作，以管理 Python 應用程式。
 
 如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
 
@@ -430,19 +433,6 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[download-SDK-Python]: https://www.windowsazure.com/develop/python/common-tasks/install-python/
-[雲端服務]: http://windowsazure.com/documentation/articles/cloud-services-what-is
-[service package]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[Azure PowerShell cmdlets]: https://www.windowsazure.com/develop/php/how-to-guides/powershell-cmdlets/
-[cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
-[Deploying an Azure Service]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
-[儲存服務]: https://www.windowsazure.com/manage/services/storage/what-is-a-storage-account/
-[azure-blobs]: https://www.windowsazure.com/develop/python/how-to-guides/blob-service/
-[azure-tables]: https://www.windowsazure.com/develop/python/how-to-guides/table-service/
-[azure-queues]: https://www.windowsazure.com/develop/python/how-to-guides/queue-service/
-[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
- 
+[雲端服務]: https://azure.microsoft.com/zh-TW/documentation/services/cloud-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

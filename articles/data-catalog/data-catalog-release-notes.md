@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/04/2015"
+   ms.date="11/06/2015"
    ms.author="maroche"/>
 
 # Azure 資料目錄版本資訊
 
-## Azure 資料目錄 2015 年 9 月 4 日版本的注意事項
 
-### 某些已註冊的資料資產可能遺漏資料設定檔
+## Azure 資料目錄 2015 年 11 月 6 日版本的注意事項
 
-在註冊資料來源時，於資料來源註冊工具中選取資料分析選項，則在資料行名稱中使用多位元組字元註冊 Oracle 資料表和檢視表時，資料設定檔資訊可能未包含在內。
+### 使用者在啟動資料來源註冊工具時可能會遇到錯誤
 
-這些限制起因於 9 月 4 日版本的已知問題，而且將在未來的 Azure 資料目錄更新中解決。
+從 **Azure 資料目錄**入口網站啟動 **Azure 資料目錄**資料來源註冊工具時，先前已安裝舊版工具的使用者可能會收到這個訊息：「無法啟動應用程式。請連絡應用程式廠商」。
+
+收到這個訊息的使用者要使用 Windows 控制台移除現有的「Azure 資料目錄」應用程式，然後從 **Azure 資料目錄**入口網站重新啟動此工具。
 
 ## Azure 資料目錄 2015 年 7 月 13 日版本的注意事項
 
@@ -43,7 +44,7 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 ### 在 Excel 中開啟資料資產
 
-從 Azure 資料目錄入口網站使用 Microsoft Excel 開啟資料資產時，使用者可能會看到 [Microsoft Excel 安全性注意事項] 對話方塊。這是標準的預期行為，使用者可以選取 [啟用] 以繼續。
+從 **Azure 資料目錄**入口網站使用 Microsoft Excel 開啟資料資產時，使用者可能會看到 [Microsoft Excel 安全性注意事項] 對話方塊。這是標準的預期行為，使用者可以選取 [啟用] 以繼續。
 
 如需詳細資訊，請參閱[啟用或停用可疑網站之連結和檔案的安全性警告](https://support.office.com/zh-TW/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)。
 
@@ -77,4 +78,4 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

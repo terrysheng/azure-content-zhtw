@@ -17,13 +17,13 @@
    ms.date="10/21/2015"
    ms.author="joaoma" />
 
-# 使用 PowerShell 在資源管理員中建立網際網路面向的負載平衡器
+# 開始使用 PowerShell 在資源管理員中建立網際網路面向的負載平衡器
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。如果您正在尋找 Azure 傳統部署模型，請參閱[開始使用傳統部署建立網際網路面向的負載平衡器](load-balancer-get-started-internet-classic-portal.md)
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -33,7 +33,7 @@
 
 ## 若要建立網際網路面向的負載平衡器，需要哪些項目？
 
-您需要建立和設定下列物件以部署負載平衡器。
+您需要建立和設定下列物件以部署負載平衡器：
 
 - 前端 IP 組態 - 包含傳入網路流量的公用 IP 位址。 
 
@@ -41,7 +41,7 @@
 
 - 負載平衡規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中 NIC 上的連接埠的規則。
 
-- 輸入 NAT 規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中個別 NIC 的連接埠的規則。
+- 輸入 NAT 規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中個別 NIC 之連接埠的規則。
 
 - 探查 - 包含用來檢查連結至後端位址集區中 NIC 的 VM 可用性的健全狀態探查。
 
@@ -69,20 +69,6 @@
 
 ### 步驟 2
 
- 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。在 Azure PowerShell 提示字元中執行 **Switch-AzureMode** Cmdlet，以切換至資源管理員模式，如下所示。
-
-		Switch-AzureMode AzureResourceManager
-	
-	Expected output:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-
->[AZURE.WARNING]Switch-AzureMode Cmdlet 即將被汰除。屆時將重新命名所有的資源管理員 Cmdlet。
-
-
-### 步驟 3
-
 登入您的 Azure 帳戶。
 
 
@@ -91,7 +77,7 @@
 系統會提示使用您的認證進行驗證。
 
 
-### 步驟 4
+### 步驟 3
 
 選擇要使用哪一個 Azure 訂用帳戶。
 
@@ -101,7 +87,7 @@
 
 ## 建立資源群組
 
-在*美國西部* Azure 位置中建立名為 *NRP-RG* 的新資源群組。
+在「美國西部」Azure 位置中建立名為 *NRP-RG* 的新資源群組。
 
     PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
@@ -120,7 +106,7 @@
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT]負載平衡器將會使用公用 IP 的網域標籤做為它的 FQDN。這樣會變更傳統部署，該部署使用雲端服務做為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.westus.cloudapp.azure.com*。
+>[AZURE.IMPORTANT]負載平衡器將使用公用 IP 的網域標籤做為其 FQDN。這樣會變更傳統部署模型，該部署使用雲端服務作為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.westus.cloudapp.azure.com*。
 
 ## 建立前端 IP 集區和後端位址集區
 
@@ -140,11 +126,14 @@
 
 上述範例會建立下列項目：
 
-- NAT 規則，將連接埠 3441 上的所有傳入流量轉譯至連接埠 3389。
+- NAT 規則，將連接埠 3441 上的所有傳入流量轉譯至連接埠 3389<sup>1</sup>
 - NAT 規則，將連接埠 3442 上的所有傳入流量轉譯至連接埠 3389。
 - 負載平衡器規則，將連接埠 80 上的所有傳入流量，負載平衡至後端集區中位址的連接埠 80。
-- 探查規則，檢查名為 *HealthProbe.aspx* 的頁面的健全狀態。
+- 探查規則，將在名為 *HealthProbe.aspx* 的頁面上檢查健全狀態。
 - 負載平衡器，使用上述所有物件。
+
+
+<sup>1</sup> NAT 規則會關聯到在負載平衡器後方的特定虛擬機器執行個體。傳入到連接埠 3341 的網路流量，將會使用與下方範例中 NAT 規則關聯的連接埠 3389，傳送至特定的虛擬機器。您必須針對 NAT 規則選擇 UDP 或 TCP 通訊協定。無法將兩種通訊協定指派到相同的連接埠。
 
 ### 步驟 1
 
@@ -174,7 +163,7 @@
 
 ## 建立 NIC
 
-您需要建立 NIC (或修改現有的) 並將它們關聯至 NAT 規則、負載平衡器規則和探查。
+您需要建立 (或修改現有的) NIC，並將它們關聯至 NAT 規則、負載平衡器規則和探查。
 
 ### 步驟 1 
 
@@ -254,6 +243,36 @@
 
 您可以在以下文件中找到建立虛擬機器並指派 NIC 的指引：[利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)，使用範例中的選項 5。
 
+## 更新現有負載平衡器
+
+
+### 步驟 1
+
+使用上述範例中的負載平衡器，透過 Get-AzureLoadBalancer 將負載平衡器物件指派給變數 $slb
+
+	$slb=get-azureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+### 步驟 2
+
+在下列範例中，您會使用前端的連接埠 81 和後端集區的連接埠 8181，將新的輸入 NAT 規則新增現有的負載平衡器
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### 步驟 3
+
+使用 Set-AzureLoadBalancer 儲存新組態
+
+	$slb | Set-AzureLoadBalancer
+
+## 移除負載平衡器
+
+使用命令 Remove-AzureLoadBalancer 刪除資源群組 "NRP-RG" 中先前建立的負載平衡器 "NRP-LB"
+
+	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]您可以使用選擇性參數 -Force 以避免出現刪除提示。
+
 ## 後續步驟
 
 [開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
@@ -262,4 +281,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -42,7 +42,7 @@
 若要連線虛擬網路中的虛擬機器：
 
 1.	在 [Azure Preview 入口網站](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)中建立虛擬網路。
-2.	為部署一組建立雲端服務，以反映可用性設定組和負載平衡的設計。在入口網站中，針對每個雲端服務按一下 [新增] > [計算] > [雲端服務] > [自訂建立]。
+2.	為部署一組建立雲端服務，以反映可用性設定組和負載平衡的設計。在 Azure 入口網站中，針對每一個雲端服務，按一下 [新增] > [計算] > [雲端服務] > [自訂建立]。
 3.	若要逐一建立新的虛擬機器，請按一下 [新增] > [計算] > [虛擬機器] > [從組件庫]。為 VM 選擇正確的雲端服務和虛擬網路。如果雲端服務已加入虛擬網路，系統會為您選取服務名稱。
 
 ![選取虛擬機器的雲端服務](./media/howto-connect-vm-cloud-service/VMConfig1.png)
@@ -67,4 +67,4 @@
 
 [如何將資料磁碟連接至 Windows 虛擬機器](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

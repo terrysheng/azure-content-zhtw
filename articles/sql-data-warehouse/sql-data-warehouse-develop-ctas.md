@@ -169,7 +169,7 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-因為 SQL 資料倉儲不支援 ANSI 聯結，所以您無法在毫不變更此程式碼的情形下將其複製。
+由於「SQL 資料倉儲」不支援在 UPDATE 陳述式的 FROM 子句中使用 ANSI 聯結，因此您無法在毫不變更此程式碼的情況下將它複製過去。
 
 您可以使用 CTAS 和隱含聯結的組合來取代此程式碼：
 
@@ -206,7 +206,7 @@ DROP TABLE CTAS_acs
 ```
 
 ## delete 陳述式的 ANSI 聯結取代
-有時候刪除資料的最佳方法是使用 CTAS。除了刪除資料以外，可以只選取您想要保留的資料。這對於使用 ansi 聯結語法的 DELETE 陳述式尤其適用，因為 SQL 資料倉儲上並不支援此方式。
+有時候刪除資料的最佳方法是使用 CTAS。除了刪除資料以外，可以只選取您想要保留的資料。這對於使用 ANSI 聯結語法的 DELETE 陳述式尤其適用，因為「SQL 資料倉儲」不支援在 DELETE 陳述式的 FROM 子句中使用 ANSI 聯結。
 
 已轉換之 DELETE 陳述式的範例如下所示：
 
@@ -429,4 +429,4 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

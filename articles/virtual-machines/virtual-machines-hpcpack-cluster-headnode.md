@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -58,7 +58,7 @@ ms.service="virtual-machines"
 
     * 如需簡單的概念證明部署，您可以省略此步驟，並稍後將前端節點 VM 升級為網域控制站。
 
-3. 在 Azure 管理入口網站或 Azure Preview 入口網站中，請從 Azure Marketplace 選取 HPC Pack 2012 R2 映像來建立傳統的 VM。(請參閱[這裡](virtual-machines-windows-tutorial-classic-portal.md)的管理入口網站的步驟。)
+3. 在 Azure 入口網站或 Azure Preview 入口網站中，從 [Azure Marketplace] 中選取 HPC Pack 2012 R2 映像來建立傳統 VM。(請參閱[這裡](virtual-machines-windows-tutorial-classic-portal.md)的 Azure 入口網站步驟。)
 
     **考量**
 
@@ -102,4 +102,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

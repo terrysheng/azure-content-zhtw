@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/13/2015" 
-	ms.author="mimig"/>
+	ms.author="arramac"/>
 
 # 在 DocumentDB 中執行 SQL 查詢
 Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構化查詢語言) 來查詢文件。DocumentDB 確實是無結構描述。由於它是直接在資料庫引擎內使用 JSON 資料模型，因此它提供不需明確的結構描述或建立次要索引，即可自動編製 JSON 文件索引的功能。
@@ -390,7 +390,7 @@ IN 就相當於鏈結多個 OR 子句，不過因為可以使用單一索引，�
 
 和其他查詢運算子一樣，如果任何文件中的條件運算式遺漏了參考屬性，或如果要比較的類型不同，則查詢結果會將這些文件排除在外。
 
-聯合 (??) 運算子可用來有效率地檢查文件中是否有屬性存在 (a.k.a. 已定義)。針對半結構化或混合類型的資料執行查詢時，這非常有用。例如，此查詢會傳回 "lastName" (如果存在) 或 "surname" (如果不存在)。
+聯合 (??) 運算子可用來有效率地檢查文件中是否有屬性存在 (也稱為已定義)。針對半結構化或混合類型的資料執行查詢時，這非常有用。例如，此查詢會傳回 "lastName" (如果存在) 或 "surname" (如果不存在)。
 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
@@ -2089,4 +2089,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

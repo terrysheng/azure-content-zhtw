@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/29/2015"
+   ms.date="11/06/2015"
    ms.author="nitinme"/>
 
 # 使用 Azure PowerShell 佈建 HDInsight 叢集與資料湖存放區
@@ -46,7 +46,7 @@
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
 - **啟用您的 Azure 訂用帳戶**以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 - **Windows SDK**。您可以從[這裡](https://dev.windows.com/zh-TW/downloads)安裝。您使用它來建立安全性憑證。
-- **Azure PowerShell 1.0**。從[這裡](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi)安裝。
+- **Azure PowerShell 1.0 或更新版本**。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。
  
 
 ## 建立 Azure 資料湖存放區
@@ -294,4 +294,4 @@
 [makecert]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

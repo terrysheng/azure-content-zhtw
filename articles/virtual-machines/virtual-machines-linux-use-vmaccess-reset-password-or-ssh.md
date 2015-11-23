@@ -22,15 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
 
-如果您因為忘記密碼、安全殼層 (SSH) 金鑰不正確或 SSH 設定有問題而無法連線到 Linux 虛擬機器，請使用 Azure Preview 入口網站或 VMAccessForLinux 延伸模組，來重設密碼或 SSH 金鑰或修正 SSH 組態。請注意，本文適用於使用**傳統**部署模型建立的虛擬機器。
+如果您因為忘記密碼、安全殼層 (SSH) 金鑰不正確或 SSH 組態有問題而無法連線到 Linux 虛擬機器，請使用 Azure Preview 入口網站或 VMAccessForLinux 延伸模組，來重設密碼或 SSH 金鑰或修正 SSH 組態。請注意，本文適用於使用**傳統**部署模型建立的虛擬機器。
 
 ## Azure Preview 入口網站
 
-若要在 [Azure Preview 入口網站](https://portal.azure.com)中重設 SSH 組態 ，可依序按一下 [瀏覽] > [虛擬機器] > *您的Linux 虛擬機器* > [重設遠端存取]。範例如下。
+若要在 [Azure Preview 入口網站](https://portal.azure.com)中重設 SSH 組態 ，請依序按一下 [瀏覽] > [虛擬機器] >「您的Linux 虛擬機器」> [重設遠端存取]。範例如下。
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-若要在 [Azure Preview 入口網站](https://portal.azure.com)中使用 sudo 權限或 SSH 公開金鑰來重設使用者帳戶的名稱和密碼，可依序按一下 [瀏覽] > [虛擬機器] > *您的 Linux 虛擬機器* > [所有設定] > [密碼重設]。範例如下。
+若要在 [Azure Preview 入口網站](https://portal.azure.com)中使用 sudo 權限或 SSH 公開金鑰來重設使用者帳戶的名稱和密碼，請依序按一下 [瀏覽] > [虛擬機器] >「您的 Linux 虛擬機器」> [所有設定] > [密碼重設]。範例如下。
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -165,7 +165,7 @@
 
 > [AZURE.NOTE]以 $ 開頭的命令列將設定之後在 PowerShell 命令中使用的 PowerShell 變數。
 
-如果您已經使用 Azure 管理入口網站建立虛擬機器，請執行下列額外的命令：
+如果您已經使用 Azure 入口網站建立虛擬機器，請執行下列額外的命令：
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -266,4 +266,4 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 [Azure VM 延伸模組與功能]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

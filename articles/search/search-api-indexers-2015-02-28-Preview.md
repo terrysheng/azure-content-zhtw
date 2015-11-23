@@ -1,5 +1,5 @@
 <properties 
-pageTitle="索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview) | Microsoft Azure" 
+pageTitle="索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview) | Microsoft Azure | 雲端託管搜尋服務" 
 description="索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -776,4 +776,4 @@ Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。Azure 
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

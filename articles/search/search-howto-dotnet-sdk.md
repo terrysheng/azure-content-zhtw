@@ -1,5 +1,5 @@
 <properties
-   pageTitle="如何從 .NET 應用程式使用 Azure 搜尋服務 | Microsoft Azure"
+   pageTitle="如何由 .NET 應用程式使用 Azure 搜尋服務 | Microsoft Azure | 雲端託管搜尋服務"
    description="如何從 .NET 應用程式使用 Azure 搜尋服務"
    services="search"
    documentationCenter=""
@@ -627,4 +627,4 @@ Hotel.cs：
     }
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -555,11 +555,9 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md)提交您的意見反應。
 
 
 
 	 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

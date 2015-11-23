@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用事件中心"
+	pageTitle="搭配 C 和 Apache Storm 開始使用事件中樞 | Microsoft Azure"
 	description="遵循此教學課程，開始使用 Azure 事件中樞；以 C 傳送事件並且在 Apache Storm 叢集中接收這些事件。"
 	services="event-hubs"
 	documentationCenter=""
@@ -44,7 +44,7 @@
 
 	![][1]
 
-3. 為您的事件中心輸入名稱、選取所需的區域，然後按一下 [建立新的事件中心]。
+3. 為您的事件中樞輸入名稱、選取所需的區域，然後按一下 [建立新的事件中樞]。
 
 	![][2]
 
@@ -111,4 +111,4 @@
 [在 Storm 和 HDInsight 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

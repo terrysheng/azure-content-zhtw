@@ -17,19 +17,20 @@
    ms.date="10/21/2015"
    ms.author="joaoma" />
 
-#使用範本建立網際網路面向的負載平衡器
+# 使用範本建立網際網路面向的負載平衡器
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。如果您正在尋找 Azure 傳統部署模型，請參閱[開始使用傳統部署建立網際網路面向的負載平衡器](load-balancer-get-started-internet-classic-portal.md)
+
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## 使用按一下即部署來部署 ARM 範本
 
-公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。若要部署此範本，請使用按一下即部署，依循[此連結](http://go.microsoft.com/fwlink/?LinkId=544801)，然後按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
+公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。若要使用「按一下即部署」來部署此範本，請依循[此連結](http://go.microsoft.com/fwlink/?LinkId=544801)，按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
 
 ## 使用 PowerShell 部署 ARM 範本
 
@@ -56,8 +57,8 @@
 
 若要使用 Azure CLI 部署 ARM 範本，請依照下列步驟執行。
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶步驟。
-2. 執行 **azure config mode** 命令以切換至資源管理員模式，如下所示。
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
+2. 執行 **azure config mode** 命令切換至資源管理員模式，如下所示。
 
 		azure config mode arm
 
@@ -70,4 +71,4 @@
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

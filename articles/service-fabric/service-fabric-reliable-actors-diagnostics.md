@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actor 診斷和效能監視"
-   description="本文將說明 Reliable Actor 執行階段中的診斷與效能監視功能，包括其發出的事件與效能計數器。"
+   pageTitle="動作項目診斷和監視功能 | Microsoft Azure"
+   description="本文將說明 Service Fabric Reliable Actor 執行階段中的診斷與效能監視功能，包括其發出的事件與效能計數器。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="abhisram"/>
 
 # 可靠動作項目的診斷和效能監視
 Reliable Actor 執行階段會發出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件與[效能計數器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)，以供深入了解執行階段如何運作，並協助進行疑難排解與效能監視。
 
 ## EventSource 事件
-Reliable Actor 執行階段的 EventSource 名稱為 "Microsoft-ServiceFabric-Actor"。當在 [Visual Studio 中正在偵錯](service-fabric-debugging-your-application.md)動作項目應用程式時，事件來源中的事件會出現在 [[診斷事件](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio)] 視窗中。
+Reliable Actor 執行階段的 EventSource 提供者名稱為 "Microsoft-ServiceFabric-Actor"。當在 [Visual Studio 中正在偵錯](service-fabric-debugging-your-application.md)動作項目應用程式時，事件來源中的事件會出現在 [[診斷事件](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio)] 視窗中。
 
-Service Fabric 也會提供選項將這些事件導向至 [Application Insights](http://azure.microsoft.com/services/application-insights/)。如需詳細資訊，請參閱＜[Service Fabric 的 Application Insights 設定](service-fabric-diagnostics-application-insights-setup.md)＞一文。
-
-可協助您收集和/或檢視 EventSource 事件的其他工具和技術範例包括 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services-dotnet-diagnostics.md)、[語意記錄](https://msdn.microsoft.com/library/dn774980.aspx)和 [Microsoft TraceEvent 程式庫](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
+可協助您收集和/或檢視 EventSource 事件的工具和技術範例包括 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services-dotnet-diagnostics.md)、[語意記錄](https://msdn.microsoft.com/library/dn774980.aspx)和 [Microsoft TraceEvent 程式庫](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
 ### 關鍵字
 所有屬於 Reliable Actor EventSource 的事件皆有一或多個相關聯的關鍵字。這會啟動篩選所選的事件。以下為已定義的關鍵字位元：
@@ -88,7 +86,7 @@ Windows 作業系統中預設可用的 [Windows 效能監視器](https://technet
 ## 事件與效能計數器清單
 
 ### 動作項目方法事件與效能計數器
-Reliable Actor 執行階段會發出下列與[動作方法](service-fabric-reliable-actors-introduction.md#actors)相關的事件。
+Reliable Actor 執行階段會發出下列與[動作項目方法](service-fabric-reliable-actors-introduction.md#actors)相關的事件。
 
 |事件名稱|事件識別碼|層級|關鍵字|說明|
 |---|---|---|---|---|
@@ -118,7 +116,7 @@ Reliable Actor 執行階段會發佈下列與並行相關的效能計數器。
 |Service Fabric 動作項目|等待動作項目鎖定的動作項目呼叫數|擱置中的動作項目呼叫數目，這些呼叫正等待取得強制執行回合式並行的各動作項目鎖定。|
 
 ### 動作項目狀態管理事件與效能計數器
-Reliable Actor 執行階段會發出下列與[動作狀態管理](service-fabric-reliable-actors-introduction.md#actor-state-management)相關的事件。
+Reliable Actor 執行階段會發出下列與[動作項目狀態管理](service-fabric-reliable-actors-introduction.md#actor-state-management)相關的事件。
 
 |事件名稱|事件識別碼|層級|關鍵字|說明|
 |---|---|---|---|---|
@@ -155,4 +153,4 @@ Reliable Actor 執行階段會發出下列與[動作項目啟動與停用](servi
 |ActorActivated|5|資訊|0x1|動作項目已啟動。|
 |ActorDeactivated|6|資訊|0x1|動作項目已停用。|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

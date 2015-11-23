@@ -16,11 +16,11 @@
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
-# 調整 IoT 中心
+# 調整 IoT 中樞
 
 藉由將 IoT 中樞 S1 或 S2 單位的數目增加至 2,000，IoT 中樞最多可以同時支援一百萬個連接的裝置。如需詳細資訊，請參閱 [IoT 中樞價格][lnk-pricing]。
 
-每個 IoT 中心單位可在登錄中允許某數目的裝置身分識別，讓這些裝置可以同時連接，此外也允許一些每日訊息。
+每個 IoT 中樞單位可在登錄中允許某數目的裝置身分識別，讓這些裝置可以同時連接，此外也允許一些每日訊息。
 
 為了適當調整您的解決方案，您必須考慮 IoT 中樞的特定使用方式。尤其要考慮以下類別的作業所需的尖峰輸送量：
 
@@ -32,7 +32,7 @@
 
 ## 裝置到雲端及雲端到裝置訊息輸送量
 
-若要評估每個裝置的流量，最佳方式為調整 IoT 中心解決方案的大小。
+若要評估每個裝置的流量，最佳方式為調整 IoT 中樞解決方案的大小。
 
 裝置到雲端訊息會遵循這些持續的輸送量指導方針。
 
@@ -52,7 +52,7 @@
 
 ## 身分識別登錄作業輸送量
 
-因為大部分的 IoT 中心識別登錄作業都與裝置佈建相關，所以不支援這些作業做為執行階段作業。
+因為大部分的 IoT 中樞識別登錄作業都與裝置佈建相關，所以不支援這些作業做為執行階段作業。
 
 如需特定高載效能數據，請參閱 [IoT 中樞配額與節流][]。
 
@@ -64,13 +64,13 @@
 
 遵循下列連結以深入了解 Azure IoT 中樞：
 
-- [開始使用 IoT 中心 (教學課程)][lnk-get-started]
-- [何謂 Azure IoT 中心？][]
+- [開始使用 IoT中樞 (教學課程)][lnk-get-started]
+- [何謂 Azure IoT 中樞？][]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT 中樞配額與節流]: iot-hub-devguide.md#throttling
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[何謂 Azure IoT 中心？]: iot-hub-what-is-iot-hub.md
+[何謂 Azure IoT 中樞？]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

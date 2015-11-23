@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/02/2015"
+	ms.date="11/10/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # 使用原則來管理資源和控制存取
@@ -23,6 +23,8 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。您可�
 建立描述您想要明確拒絕之動作或資源的原則定義。在所需範圍內指派那些原則定義，例如訂用帳戶、資源群組或是個別的資源。
 
 在本文中，我們將說明您可用來建立原則的原則定義語言的基本結構。然後我們將說明如何可以在不同範圍套用這些原則，並在最後示範如何透過 REST API 達成此目的的一些範例。
+
+原則目前以預覽版提供。
 
 ## 它和 RBAC 有什麼不同？
 
@@ -289,4 +291,4 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 
 同樣地，您可以分別透過 Get-AzureRmPolicyAssignment、Set-AzureRmPolicyAssignment 和 Remove-AzureRmPolicyAssignment 取得、變更或移除原則指派。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

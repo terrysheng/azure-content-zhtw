@@ -38,7 +38,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 本教學課程是建立 HBase 異地複寫[系列][hdinsight-hbase-replication]的一部分。
 
 - 設定兩個虛擬網路之間的 VPN 連線 (本教學課程)
-- [設定虛擬網路的 DNS][hdinsight-hbase-geo-replication-DNS]
+- [設定虛擬網路的 DNS][hdinsight-hbase-geo-replication-dns]
 - [設定 HBase 異地複寫][hdinsight-hbase-geo-replication]
 
 下圖說明您將在本教學課程中建立的兩個虛擬網路：
@@ -249,7 +249,7 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 
 
 
-[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 
 
@@ -270,4 +270,4 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

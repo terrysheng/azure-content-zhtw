@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **ServiceName** - 將會新增運算節點 VM 之雲端服務的名稱。
 
-* **ImageName** - Azure VM 映像名稱，可透過 AzurePortal 或 Azure PowerShell Cmdlet **Get-AzureVMImage** 取得。這些映像必須符合下列需求：
+* **ImageName** - Azure VM 映像名稱，透過 Azure 入口網站或 Azure PowerShell Cmdlet **Get-AzureVMImage** 可以取得此名稱。這些映像必須符合下列需求：
 
     1. 必須安裝 Windows 作業系統。
 
@@ -178,4 +178,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * 如果您需要能根據叢集上目前的工作和任務的工作負載自動增加和縮減 Azure 運算資源的方法，請參閱[在 HPC Pack 叢集中增加和縮減 Azure 運算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

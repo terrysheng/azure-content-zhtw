@@ -98,10 +98,10 @@
 
 [利用 Azure Resource Manager 和 PowerShell 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[利用 PowerShell 和 Azure Service Manager 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-service-manager.md)
+[以 Powershell 和傳統部署模型建立 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

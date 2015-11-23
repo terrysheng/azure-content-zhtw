@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/09/2015"
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure 資料湖存放區來回移動資料
@@ -396,9 +396,9 @@
 
 | 屬性 | 說明 | 必要 |
 | :-------- | :----------- | :-------- |
-| 類型 | type 屬性必須設為：**AzureDataLakeStore** | 是 |
+| type | type 屬性必須設為：**AzureDataLakeStore** | 是 |
 | dataLakeUri | 指定有關 Azure 資料湖存放區帳戶的資訊。格式如下：https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | 是 |
-| 授權 | 按一下 [**Data Factory 編輯器**] 中的 [**授權**] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
+| authorization | 按一下 [**Data Factory 編輯器**] 中的 [**授權**] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
 | sessionId | OAuth 工作階段的 OAuth 工作階段識別碼。每個工作階段識別碼都是獨一無二的，只能使用一次。當您使用 Data Factory 編輯器時便會自動產生。 | 是 |  
 | accountName | 資料湖帳戶名稱 | 否 |
 | subscriptionId | Azure 訂用帳戶識別碼。 | 否 (若未指定，便會使用 Data Factory 的訂用帳戶)。 |
@@ -545,7 +545,7 @@
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
-| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 | True (預設值)、False | 否 |
+| recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 | True (預設值)、False | 否 |
 
 
 
@@ -553,7 +553,7 @@
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | 指定複製行為。 | <p>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</p><p>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案都會有自動產生的名稱。</p><p>**MergeFiles：**會將來源資料夾的所有檔案合併為一個檔案。若已指定檔案/Blob 名稱，合併的檔案名稱將會是指定的名稱；否則，就會是自動產生的檔案名稱。</p> | 否 |
+| copyBehavior | 指定複製行為。 | <p>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</p><p>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案都會有自動產生的名稱。</p><p>**MergeFiles：** (此功能近期會加入) 將來源資料夾的所有檔案合併為一個檔案。若已指定檔案/Blob 名稱，合併的檔案名稱將會是指定的名稱；否則，就會是自動產生的檔案名稱。</p> | 否 |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -562,4 +562,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

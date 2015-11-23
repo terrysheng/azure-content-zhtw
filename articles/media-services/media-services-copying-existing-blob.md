@@ -24,6 +24,10 @@
 
 >[AZURE.NOTE]請勿在不使用媒體服務 API 的情況下，嘗試變更由媒體服務所產生的 blob 容器內容。
 
+##下載範例
+
+從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)取得和執行範例。
+
 ##必要條件
 
 - 在新的或現有的 Azure 訂用帳戶中有兩個媒體服務帳戶。請參閱主題＜[如何建立媒體服務帳戶](media-services-create-account.md)＞ (英文)。
@@ -305,9 +309,10 @@
 
 ##媒體服務學習路徑
 
-您可以在此檢視 AMS 學習路徑：
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##提供意見反應
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

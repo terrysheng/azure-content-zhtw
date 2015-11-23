@@ -26,7 +26,7 @@
 
 ## 建立批次帳戶：
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
 
 2. 按一下 [新增] > [計算] > [Batch 服務]。
 
@@ -80,4 +80,4 @@ Batch 帳戶 URL 會出現在 [Essentials] 中。它是格式為 `https://<accou
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

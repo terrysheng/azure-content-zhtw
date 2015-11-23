@@ -94,11 +94,11 @@ CLI 0.9.9 版和更新版本支援多重要素驗證。
 
 		azure account download
 
-這會開啟預設瀏覽器，並提示您登入 [Azure 入口網站][portal]。登入後便會下載 `.publishsettings` 檔案。請記下此檔案的儲存位置。
+這會開啟您的預設瀏覽器，並提示您登入 [Azure 入口網站][portal]。登入後便會下載 `.publishsettings` 檔案。請記下此檔案的儲存位置。
 
 	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 	>
-	> Once selected using the download page, or by visiting the Azure Portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+	> Once selected using the download page, or by visiting the Azure portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * **若要匯入發佈設定檔**，請執行下列命令：
 
@@ -158,4 +158,4 @@ CLI 0.9.9 版和更新版本支援多重要素驗證。
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

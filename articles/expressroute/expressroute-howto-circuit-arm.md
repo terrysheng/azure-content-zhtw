@@ -1,10 +1,10 @@
 <properties
-   pageTitle="設定 ExpressRoute 線路 wising ARM 的步驟 | Microsoft Azure"
+   pageTitle="使用 Azure 資源管理員和 PowerShell 設定 ExpressRoute 線路 | Microsoft Azure"
    description="本文將逐步引導您建立和佈建 ExpressRoute 線路。本文也會示範如何檢查狀態、更新或刪除和取消佈建線路。"
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
-   manager="rossort"
+   authors="cherylmc"
+   manager="carolz"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,29 +13,29 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
-   ms.author="ganesr"/>
+   ms.date="11/06/2015"
+   ms.author="cherylmc"/>
 
-# 建立和修改 ExpressRoute 線路
+# 使用 Azure 資源管理員及 PowerShell 建立和修改 ExpressRoute 線路
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-circuit-classic.md)
-[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-本文將逐步引導您使用 PowerShell Cmdlet 和 ARM 部署模型建立 ExpressRoute 線路。下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路。
+本文將逐步引導您使用 PowerShell Cmdlet 和 Azure 資源管理員部署模型建立 ExpressRoute 線路。下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路。
 
->[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## 組態必要條件
 
-- 您需要最新版的 Azure PowerShell 模組。您可以從 [Azure 下載頁面](http://azure.microsoft.com/downloads)的 PowerShell 區段下載最新的 PowerShell 模組。遵循[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 頁面上的指示，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指引。 
+- 您需要最新版的 Azure PowerShell 模組 (版本 1.0 或更新版本)。遵循[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 頁面上的指示，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指引。 
 - 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)頁面和[工作流程](expressroute-workflows.md)頁面。
 
 ## 建立和佈建 ExpressRoute 線路
 
 1. **匯入 ExpressRoute 的 PowerShell 模組。**
 
- 	您必須從 [PowerShell 資源庫](http://www.powershellgallery.com/)安裝最新的 Powershell 安裝程式並將 Azure 資源管理員模組匯入至 PowerShell 工作階段，以開始使用 ExpressRoute Cmdlet。您必須以系統管理員身分執行 PowerShell。
+ 	您必須從 [PowerShell 資源庫](http://www.powershellgallery.com/)安裝最新的 PowerShell 安裝程式並將 Azure 資源管理員模組匯入至 PowerShell 工作階段，以開始使用 ExpressRoute Cmdlet。您必須以系統管理員身分執行 PowerShell。
 
 	    Install-Module AzureRM
 
@@ -97,7 +97,7 @@
 
 4. **列出所有 ExpressRoute 線路。**
 
-	您可以執行 *Get-AzureRmExpressRouteCircuit* 命令，取得您已建立的所有 ExpressRoute 線路的清單。
+	您可以執行 *Get-AzureRmExpressRouteCircuit* 命令，取得您已建立之所有 ExpressRoute 線路的清單。
 
 		#Getting service key
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -221,7 +221,7 @@
 
 	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 線路連結到 VNet](expressroute-howto-linkvnet-arm.md)，取得逐步指示。如果您需要為 ExpressRoute 建立虛擬網路，請參閱[為 ExpressRoute 建立虛擬網路](expressroute-howto-createvnet-classic.md)中的相關指示。
 
-##  如何取得 ExpressRoute 線路的狀態？
+##  取得 ExpressRoute 線路的狀態
 
 您可以使用 *Get-AzureRmExpressRouteCircuit* Cmdlet，隨時擷取這項資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。
 
@@ -281,7 +281,7 @@
 
 		get-help get-azurededicatedcircuit -detailed 
 
-##  修改 ExpressRoute 線路
+## 修改 ExpressRoute 線路
 
 您可以修改 ExpressRoute 線路的某些屬性，而不會影響連線。
 
@@ -320,9 +320,9 @@
 
 您的線路現在已經停用進階附加元件。
 
->[AZURE.IMPORTANT]如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
->
->- 從高階降級為標準之前，您必須確定連結至線路的虛擬網路數目小於 10。如果您沒有這麼做，則更新要求將會失敗，將會以高階費率向您收費。
+請注意，如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
+
+- 從高階降級為標準之前，您必須確定連結至線路的虛擬網路數目小於 10。如果您沒有這麼做，則更新要求將會失敗，將會以高階費率向您收費。
 - 您必須取消連結其他地理政治區域中的所有虛擬網路。如果您沒有這麼做，則更新要求將會失敗，將會以高階費率向您收費。
 - 就私用對等而言，路由表必須是少於 4000 個路由。如果路由表大小超過 4000 個路由，BGP 工作階段將會中斷，而且在通告的首碼數目降到 4000 以下之前不會重新啟用。
 
@@ -341,7 +341,7 @@
 
 >[AZURE.IMPORTANT]降低 ExpressRoute 線路的頻寬時必須中斷運作。頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
 
-##  刪除和取消佈建 ExpressRoute 線路
+## 刪除和佈建 ExpressRoute 線路
 
 您可以執行下列命令來刪除 ExpressRoute 線路：
 
@@ -349,7 +349,7 @@
 
 請注意，您必須取消連結 ExpressRoute 的所有虛擬網路，此作業才會成功。如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 
-如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成*正在停用*。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
+如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成「正在停用」。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
 
 如果服務提供者在您執行上述 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為「未佈建」)，我們將會取消佈建線路並停止向您收費。
 
@@ -358,4 +358,4 @@
 - [設定路由](expressroute-howto-routing-arm.md)
 - [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md) 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

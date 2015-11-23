@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用事件中心"
+	pageTitle="開始使用以 Java 撰寫的事件中樞 | Microsoft Azure"
 	description="遵循此教學課程，以開始使用 Azure 事件中樞；透過 Java 傳送事件並使用 EventProcessorHost 以 C# 接收事件。"
 	services="event-hubs"
 	documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
 	ms.service="event-hubs"
 	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # 開始使用事件中心
@@ -24,21 +24,21 @@
 
 事件中心是可高度擴充的擷取系統，每秒可以吸收數以百萬計的事件，讓應用程式能處理和分析已連線裝置和應用程式所產生的大量資料。收集到事件中樞後，您可以使用任何即時分析提供者或儲存體叢集轉換和儲存資料。
 
-如需詳細資訊，請參閱[事件中心概觀]。
+如需詳細資訊，請參閱[事件中樞概觀][]。
 
-在本教學課程中，您將學習如何使用以 Java 撰寫的主控台應用程式將訊息擷取到事件中樞，以及使用 C# [事件處理器主機]程式庫平行擷取它們。
+在本教學課程中，您將學習如何使用以 Java 撰寫的主控台應用程式將訊息擷取到事件中樞，以及使用 C# [事件處理器主機][]程式庫平行擷取它們。
 
 若要完成本教學課程，您需要下列項目：
 
 + Java 開發環境。在本教學課程中，我們將採用 [Eclipse](https://www.eclipse.org/)。
 
-+ Microsoft Visual Studio Express 2013 for Windows
++ Microsoft Visual Studio Express for Windows
 
 + 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ## 建立事件中心
 
-1. 登入 [Azure 管理入口網站]，然後按一下畫面底部的 [新增]。
+1. 登入 [Azure 入口網站]，並按一下畫面底部的 [新增]。
 
 2. 按一下 [**應用程式服務**]、[**服務匯流排**]、[**事件中樞**]、[**快速建立**]。
 
@@ -91,11 +91,11 @@
 
 您已經建置工作應用程式，可建立「事件中樞」和傳送及接收資料，接下來可進行下列案例：
 
-- [使用事件中樞的完整範例應用程式]。
-- [使用「事件中樞」相應放大事件處理]範例。
-- 使用服務匯流排佇列的[佇列訊息解決方案]。
+- [使用事件中樞的完整範例應用程式][]。
+- [使用「事件中樞」相應放大事件處理][]範例。
+- 使用服務匯流排佇列的[佇列訊息解決方案][]。
 
-如需詳細資訊，也請參閱 [Java 開發人員中心](/develop/java/)。
+如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub1.png
@@ -111,12 +111,12 @@
 [22]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 入口網站]: https://manage.windowsazure.com/
 [事件處理器主機]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[事件中心概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[使用「事件中樞」相應放大事件處理]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[事件中樞概觀]: event-hubs-overview.md
+[使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[使用「事件中樞」相應放大事件處理]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

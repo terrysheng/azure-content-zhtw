@@ -13,19 +13,18 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/30/2015"
+     ms.date="11/10/2015"
      ms.author="michelb"/>
 
 # Azure IoT 裝置 SDK (適用於 C) 簡介
 
-「Azure IoT 裝置 SDK」是一組程式庫，設計用來簡化從 **Azure IoT 中樞** 服務傳送事件和接收訊息的程序。有各種不同的 SDK，而每個 SDK 會以特定平台為目標，但在這篇文章將著重於 **Azure IoT 裝置 SDK (適用於 C)**。
+「Azure IoT 裝置 SDK」是一組程式庫，設計用來簡化從 **Azure IoT 中樞** 服務傳送事件和接收訊息的程序。有各種不同的 SDK，而每個 SDK 會以特定平台為目標，但本文說明 **Azure IoT 裝置 SDK (適用於 C)**。
 
 Azure IoT 裝置 SDK (適用於 C) 是以 ANSI C (C99) 撰寫，以獲得最大可攜性。如此就很適合在數個平台和裝置上運作 - 尤其是在優先將磁碟和記憶體使用量降至最低的情況下。
 
-SDK 已在各種平台上進行測試 (如需詳細資訊，請參閱 [SDK 文件](https://github.com/Azure/azure-iot-sdks/tree/master/c))。雖然本文包含在 *Windows* 平台上執行範例程式碼上的逐步解說，但請記住，以下所述的程式碼在各種支援的平台上完全相同。
+SDK 已在各種平台上進行測試 (如需詳細資訊，請參閱 [SDK 文件](https://github.com/Azure/azure-iot-sdks/tree/master/c))。雖然本文包含在 Windows 平台上執行範例程式碼上的逐步解說，但請記住，本文所述的程式碼在各種支援的平台上完全相同。
 
-本文將介紹 Azure IoT 裝置 SDK (適用於 C) 的架構。我們將示範如何初始化裝置程式庫，將事件傳送到 IoT 中樞，以及從 IoT 中樞接收訊息。本文中的資訊應足以讓您開始使用 SDK，但也提供給您可以取得程式庫的其他資訊的指標。
-
+本文將介紹 Azure IoT 裝置 SDK (適用於 C) 的架構。我們將示範如何初始化裝置程式庫，將事件傳送到 IoT 中樞，以及從 IoT 中樞接收訊息。本文中的資訊應足以讓您開始使用 SDK，但也提供可取得程式庫的其他資訊的指標。
 
 ## SDK 架構
 
@@ -37,7 +36,7 @@ SDK 已在各種平台上進行測試 (如需詳細資訊，請參閱 [SDK 文�
 
   ![](media/iot-hub-device-sdk-c-intro/01-MasterBranch.PNG)
 
-此儲存機制包含整個系列的 Azure IoT 裝置 SDK。但這篇文章是關於可在 **c** 資料夾中找到的 Azure IoT 裝置 SDK *for C*。
+此儲存機制包含整個系列的 Azure IoT 裝置 SDK。不過，這篇文章是關於可在 **c** 資料夾中找到的 Azure IoT 裝置 SDK *for C*。
 
   ![](media/iot-hub-device-sdk-c-intro/02-CFolder.PNG)
 
@@ -45,21 +44,19 @@ SDK 已在各種平台上進行測試 (如需詳細資訊，請參閱 [SDK 文�
 
 -   **IoTHubClient** - **iothub\_client** 資料夾包含 SDK (**IoTHubClient** 程式庫) 中最低 API 層的實作。**IoTHubClient** 程式庫包含用於將事件傳送到 IoT 中樞以及從 IoT 中樞接收訊息的 API。如果您使用此程式庫，則需負責實作訊息序列化，但會為您處理與 IoT 中樞通訊的其他細節。
 
--   **serializer** - **serializer** 資料夾包含 **serializer** 程式庫的實作。**serializer** 程式庫在 **IoTHubClient** 所提供的功能之上加入模型化功能。如果您使用 **serializer** 程式庫，您首先會定義一個模型，以指定您要傳送至 IoT 中樞的事件以及您期望從 IoT 中樞收到的訊息。但是定義此模型後，SDK 會提供 API 介面給您，讓您輕鬆地使用事件和訊息，而不需擔心序列化細節。
+-   **serializer** - **serializer** 資料夾包含 **serializer** 程式庫的實作。**serializer** 程式庫在 **IoTHubClient** 所提供的功能之上加入模型化功能。如果您使用 **serializer** 程式庫，您首先會定義一個模型，以指定您要傳送至 IoT 中樞的事件以及您期望從 IoT 中樞收到的訊息。定義此模型後，SDK 會提供 API 介面給您，讓您輕鬆地使用事件和訊息，而不需擔心序列化細節。
 
-查看一些範例程式碼，即可輕易了解這一切。下列各節將為您逐步解說 SDK 中包含的幾個範例應用程式。這應可讓您輕鬆了解 SDK 架構層的各種功能以及 API 運作方式的簡介。
+查看範例程式碼，即可輕易了解這一切。下列各節將為您逐步解說 SDK 中包含的幾個範例應用程式。這應可讓您輕鬆了解 SDK 架構層的各種功能以及 API 運作方式的簡介。
 
 ## 執行範例之前
 
-您必須先完成兩項工作，才可以在 Azure IoT 裝置 SDK (適用於 C) 中執行範例：準備開發環境和取得裝置認證。SDK 隨附的[讀我檔案](https://github.com/Azure/azure-iot-sdks/tree/master/c)會提供這兩項工作的指示。但下列各節包含有關這些指示的一些額外評論。
+您必須先完成兩項工作，才可以在 Azure IoT 裝置 SDK (適用於 C) 中執行範例：準備開發環境和取得裝置認證。SDK 隨附的[讀我檔案](https://github.com/Azure/azure-iot-sdks/tree/master/c)會提供這兩項工作的指示。下列各節包含有關這些指示的一些額外評論。
 
 ### 準備開發環境
 
-首先，您必須從 GitHub 取得 SDK 的複本，然後建立來源。您應從 GitHub 儲存機制的 **master** 分支擷取來源的複本：
+首先，您必須從 GitHub 取得 SDK 的複本，然後建立來源。您應從 [GitHub 儲存機制](https://github.com/Azure/azure-iot-sdks)的 **master** 分支取得來源的複本：
 
-<https://github.com/Azure/azure-iot-sdks>
-
-當您下載來源的複本後，您需要先完成一些步驟才能執行您的程式碼。在標題為[準備開發環境](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md)的 SDK 文件中可找到這些步驟的摘要。您必須為 Windows 執行的大部分工作，都牽涉到[準備 QPID Proton 程式庫](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#preparing-qpid-proton-libraries-in-windows)和[驗證您的環境](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#verify-your-environment)。但以下有一些秘訣可幫助您完成準備指南中所描述的程序：
+下載來源的複本後，您必須完成 SDK 文章[準備開發環境](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md)中所述的步驟。您必須為 Windows 執行的大部分工作，都牽涉到[準備 QPID Proton 程式庫](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#preparing-qpid-proton-libraries-in-windows)和[驗證您的環境](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#verify-your-environment)。以下有一些秘訣可幫助您完成準備指南中所描述的程序：
 
 -   當您建立 **PROTON\_PATH** 環境變數時，讓它成為**系統**環境變數，如下所示：
 
@@ -75,18 +72,27 @@ SDK 已在各種平台上進行測試 (如需詳細資訊，請參閱 [SDK 文�
 
 您可以使用安裝程式中的預設選項。
 
-- 將 Python 目錄新增至系統 **PATH** 環境變數。在 Windows 上，畫面如下所示：![](media/iot-hub-device-sdk-c-intro/16-PythonPath.PNG)
+- 將 Python 目錄新增至系統 **PATH** 環境變數。在 Windows 上，畫面如下所示：
+- 
+![](media/iot-hub-device-sdk-c-intro/16-PythonPath.PNG)
 
 -   在您開啟 [VS2015 的開發人員命令提示字元] 之前，請先安裝 Git 命令列工具。若要安裝這些工具，請完成下列步驟：
 
 	1. 啟動 **Visual Studio 2015** 安裝程式 (或從 [程式和功能] 控制台選擇 **Microsoft Visual Studio 2015**，然後選取 [變更])。
-	2. 請確定已在安裝程式中選取 [適用於 Windows 的 Git] 功能，但您也可以核取 [適用於 Visual Studio 的 GitHub 延伸模組] 選項，以提供 IDE 整合：![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
+	
+	2. 請確定已在安裝程式中選取 [適用於 Windows 的 Git] 功能，但您也可以核取 [適用於 Visual Studio 的 GitHub 延伸模組] 選項，以提供 IDE 整合：
+
+  		![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
+
 	3. 完成安裝精靈來安裝工具。
-	4. 將 Git 工具 **bin** 目錄新增至系統 **PATH** 環境變數。在 Windows 上，畫面如下所示：![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
-當您從命令提示字元執行 **build\_proton.cmd** 指令碼時，此指令碼會從其 GitHub 儲存機制提取 Proton 來源，然後建立 Proton 程式庫。
+	4. 將 Git 工具 **bin** 目錄新增至系統 **PATH** 環境變數。在 Windows 上，畫面如下所示：
 
-如果您要執行 MQTT 範例，您可以依照 SDK 文件中的[建置 Apache MQTT 程式庫](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#building-the-apache-mqtt-library-in-windows)的指示操作。無論如何，最後您都必須要執行 **build.cmd**。
+  		![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
+
+當您從命令提示字元執行 **build\_proton.cmd** 指令碼時，此指令碼會從其 GitHub 儲存機制下載 Proton 來源，然後建立 Proton 程式庫。
+
+如果您要執行 MQTT 範例，請依照 SDK 文件中的[建置 Apache MQTT 程式庫](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#building-the-apache-mqtt-library-in-windows)的指示操作。無論如何，最後您都必須要執行 **build.cmd**。
 
 完成上述步驟後，您就可以開始編譯範例應用程式。
 
@@ -94,7 +100,7 @@ SDK 已在各種平台上進行測試 (如需詳細資訊，請參閱 [SDK 文�
 
 現在已設定好您的開發環境，最後一件事就是取得一組裝置認證。若要讓裝置能存取 IoT 中樞，您必須先將此裝置加入至 IoT 中樞裝置登錄。當您加入您的裝置時，您會取得一組所需的裝置認證，以便裝置能夠連線到 IoT 中樞。我們在下一節中看到的範例應用程式預期這些認證的形式為**裝置連接字串**。
 
-[裝置總管](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer)工具 (包括 Azure IoT 裝置 SDK) 會使用 Azure IoT 服務程式庫在 IoT 中樞執行各種功能 — 包括新增裝置。如果您使用 [裝置總管] 來新增裝置，您會得到對應的連接字串，而您需要此連接字串才能執行範例應用程式。
+[裝置總管](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer)工具 (Azure IoT 裝置 SDK 隨附) 會使用 Azure IoT 服務程式庫在 IoT 中樞執行各種功能 (包括新增裝置)。如果您使用 [裝置總管] 來新增裝置，您會得到對應的連接字串。您需要此連接字串才能執行範例應用程式。
 
 萬一您不熟悉此程序，下列程序說明如何使用 [裝置總管] 來新增裝置和取得裝置連接字串。
 
@@ -102,7 +108,7 @@ SDK 已在各種平台上進行測試 (如需詳細資訊，請參閱 [SDK 文�
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-在第一個欄位中輸入您的 [IoT 中樞連接字串]，然後按一下 [更新] 按鈕。這可設定此工具，以便與 IoT 中樞通訊。
+在第一個欄位中輸入您的 [IoT 中樞連接字串]，然後按一下 [更新]。這可設定此工具，以便與 IoT 中樞通訊。
 
 設定 IoT 中樞連接字串後，按一下 [管理] 索引標籤：
 
@@ -110,7 +116,7 @@ SDK 已在各種平台上進行測試 (如需詳細資訊，請參閱 [SDK 文�
 
 您將在其中管理在 IoT 中樞註冊的裝置。
 
-按一下 [建立] 按鈕即可建立裝置。隨即顯示已填妥一組金鑰 (主要和次要) 的對話方塊。您只需要輸入 [裝置識別碼]，然後按一下 [建立] 按鈕。
+按一下 [建立] 按鈕即可建立裝置。隨即顯示已預先填入一組金鑰 (主要和次要) 的對話方塊。您只需要輸入 [裝置識別碼]，然後按一下 [建立]。
 
   ![](media/iot-hub-device-sdk-c-intro/05-CreateDevice.PNG)
 
@@ -118,9 +124,9 @@ SDK 已在各種平台上進行測試 (如需詳細資訊，請參閱 [SDK 文�
 
   ![](media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
 
-如果您選擇 [複製所選裝置的連接字串] 選項，您的裝置的連接字串就會複製到剪貼簿。保留一份複本。您在執行如下所述的範例應用程式時會需要它。
+如果您選擇 [複製所選裝置的連接字串] 選項，您的裝置的連接字串就會複製到剪貼簿。保留連接字串的複本。您在執行如後續各節所述的範例應用程式時會需要它。
 
-完成上述步驟後，您就可以開始執行一些程式碼。以下所述的兩個範例在主要原始程式檔之上有一個常數，可讓您輸入連接字串。例如，以下是 **iothub\_client\_sample\_amqp** 應用程式中的對應行。
+完成上述步驟後，您就可以開始執行一些程式碼。兩個範例在主要原始程式檔之上有一個常數，可讓您輸入連接字串。例如，**iothub\_client\_sample\_amqp** 應用程式中的對應行如下所示。
 
 ```
 static const char* connectionString = "[device connection string]";
@@ -136,18 +142,17 @@ Windows 版本的 **iothub\_client\_sample\_ampq** 應用程式包含下列 Visu
 
   ![](media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-amqp.PNG)
 
-此解決方案內含單一專案：但值得注意的是，此此解決方案中安裝了四個 GitHub 套件：
+此解決方案內含單一專案：值得注意的是，此解決方案中安裝了四個 NuGet 套件：
 
   ![](media/iot-hub-device-sdk-c-intro/17-iothub-client-sample-amqp-githubpackages.PNG)
 
-您在使用 SDK 時一律需要 **Microsoft.Azure.IoTHub.Common** 套件。由於此範例依賴 AMQP，因此我們也必須納入 **Apache.QPID.Proton.AzureIoT** 和 **Microsoft.Azure.IoTHub.AmqpTransport** 套件 (HTTP 有對等套件)。此外，此範例使用 **IoTHubClient** 程式庫，因此我們也必須在解決方案中納入 **Microsoft.Azure.IoTHub.IoTHubClient** 專案。
+您在使用 SDK 時一律需要 **Microsoft.Azure.IoTHub.Common** 套件。由於此範例依賴 AMQP，所以您也必須納入 **Apache.QPID.Proton.AzureIoT** 和 **Microsoft.Azure.IoTHub.AmqpTransport** 套件 (HTTP 有對等套件)。此範例使用 **IoTHubClient** 程式庫，因此您也必須在解決方案中納入 **Microsoft.Azure.IoTHub.IoTHubClient** 套件。
 
 您可以在 **iothub\_client\_sample\_amqp.c** 原始程式檔中找到範例應用程式的實作：
 
   ![](media/iot-hub-device-sdk-c-intro/13-iothub_client_sample_amqp_c.PNG)
 
 我們將使用此範例應用程式來逐步解說使用 **IoTHubClient** 程式庫時所需的項目。
-
 
 ### 初始化程式庫
 
@@ -158,7 +163,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-請注意，我們正將我們的裝置連接字串複本傳遞至此函式 (我們從 [裝置總管] 取得的函式)。我們也會指定我們想要使用的通訊協定 — 我們在此範例中使用 AMQP，但也可以選取 HTTP。
+請注意，我們正將我們的裝置連接字串複本傳遞至此函式 (我們從 [裝置總管] 取得的函式)。我們也會指定我們想要使用的通訊協定。此範例會使用 AMQP，但 HTTP 也是一個選項。
 
 當您具有有效的 **IOTHUB\_CLIENT\_HANDLE** 時，您可以開始呼叫 API 來傳送事件和從 IoT 中樞接收訊息。我們會接著進行探討。
 
@@ -193,7 +198,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 }
 ```
 
-請注意在您完成訊息時所呼叫的 **IoTHubMessage\_Destroy** 函式。您必須這麼做，才可以釋放在建立訊息時配置的資源。
+請注意在您完成訊息時所呼叫的 **IoTHubMessage\_Destroy** 函式。您必須進行此呼叫，才可以釋放在建立訊息時配置的資源。
 
 ### 接收訊息
 
@@ -225,11 +230,11 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-請注意您如何使用 **IoTHubMessage\_GetByteArray** 函式來擷取訊息 (在此範例中是一個字串)。
+請注意您使用 **IoTHubMessage\_GetByteArray** 函式來擷取訊息 (在此範例中是一個字串)。
 
 ### 解除初始化程式庫
 
-當您完成事件傳送和訊息接收時，您可以解除初始化 IoT 程式庫 — 使用下列函式呼叫即可完成：
+當您完成事件傳送和訊息接收時，您可以解除初始化 IoT 程式庫。若要這麼做，請發出下列函式呼叫：
 
 ```
 IoTHubClient_Destroy(iotHubClientHandle);
@@ -237,9 +242,9 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 這會釋放 **IoTHubClient\_CreateFromConnectionString** 函式先前所配置的資源。
 
-如您所見，使用 **IoTHubClient** 程式庫可以輕鬆傳送事件和接收訊息。程式庫會負責與 IoT 中樞進行通訊的細節 — 包括要使用哪個通訊協定 (從開發人員的觀點來看，這是一個簡單的設定選項)。
+如您所見，使用 **IoTHubClient** 程式庫可以輕鬆傳送事件和接收訊息。程式庫會處理與 IoT 中樞進行通訊的細節，包括要使用哪個通訊協定 (從開發人員的觀點來看，這是一個簡單的設定選項)。
 
-**IoTHubClient** 程式庫也可讓您精確地控制如何序列化您的裝置傳送到 IoT 中樞的事件。在某些情況下，這是一項優點，但在其他情況下，這是您不想要參與的實作細節。如果是這樣，您可以考慮使用接下來我們將討論的 **serializer** 程式庫。
+**IoTHubClient** 程式庫也可供精確地控制如何序列化您的裝置傳送到 IoT 中樞的事件。在某些情況下，這是一項優點，但在其他情況下，這是您不想要參與的實作細節。如果是這樣，您可以考慮使用我們將在下一節中說明的 **serializer** 程式庫。
 
 ## 序列化程式
 
@@ -253,9 +258,9 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
   ![](media/iot-hub-device-sdk-c-intro/18-simplesample_amqp-githubpackages.PNG)
 
-這些我們在先前範例中大多都已看過，但 **Microsoft.Azure.IoTHub.Serializer** 是新的 - 我們在使用 **serializer** 程式庫時將會用到。
+這些我們在先前範例中大多都已看過，但 **Microsoft.Azure.IoTHub.Serializer** 是新的。我們在使用 **serializer** 程式庫時將會用到。
 
-您可以在 **simplesample\_amqp.c** 程式碼檔案中找到範例應用程式的實作：
+您可以在 **simplesample\_amqp.c** 檔案中找到範例應用程式的實作：
 
   ![](media/iot-hub-device-sdk-c-intro/15-simplesample_amqp_c.PNG)
 
@@ -273,9 +278,9 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionStrin
 ContosoAnemometer* myWeather = CREATE_MODEL_INSTANCE(WeatherStation, ContosoAnemometer);
 ```
 
-呼叫 **serializer\_init** 函式是用來初始化基礎程式庫的一次性呼叫。然後您會呼叫 **IoTHubClient\_CreateFromConnectionString** 函式，這就是我們在 **IoTHubClient** 範例中看到的相同 API。此呼叫會設定您的裝置連接字串 (這也可用來選擇您要使用的通訊協定)。請注意，此範例使用 AMQP 做為傳輸方式，但我們也可以使用 HTTP。
+呼叫 **serializer\_init** 函式是用來初始化基礎程式庫的一次性呼叫。然後您會呼叫 **IoTHubClient\_CreateFromConnectionString** 函式，這就是 **IoTHubClient** 範例中的相同 API。此呼叫會設定您的裝置連接字串 (這也可用來選擇您要使用的通訊協定)。請注意，此範例使用 AMQP 做為傳輸方式，但也可以使用 HTTP。
 
-最後，呼叫 **CREATE\_MODEL\_INSTANCE** 函式。請注意，**WeatherStation** 是模型的命名空間，而 **ContosoAnemometer** 是模型的名稱。建立模型執行個體後，您可以使用它來傳送事件和接收訊息。但首先，請務必了解模型是什麼。
+最後，呼叫 **CREATE\_MODEL\_INSTANCE** 函式。請注意，**WeatherStation** 是模型的命名空間，而 **ContosoAnemometer** 是模型的名稱。建立模型執行個體後，您可以使用它來傳送事件和接收訊息。不過，請務必了解模型是什麼。
 
 ### 定義模型
 
@@ -309,7 +314,7 @@ END_NAMESPACE(WeatherStation);
 myWeather->WindSpeed = 15;
 ```
 
-我們先前定義的模型讓我們只需設定結構的成員，即可這麼做。接著，我們必須將想要傳送的事件序列化：
+我們先前定義的模型可讓我們設定 **struct** 的成員來這麼做。接著，我們要將想要傳送的事件序列化：
 
 ```
 unsigned char* destination;
@@ -364,7 +369,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 }
 ```
 
-第二個參數是使用者內容的指標 — 我們傳遞至 **IoTHubClient\_SendEventAsync** 的相同指標。在此情況下，此內容是一個簡易計數器，但它可能是您想要的任何項目。
+第二個參數是使用者內容的指標 — 我們傳遞至 **IoTHubClient\_SendEventAsync** 的相同指標。在此情況下，此內容是一個簡易計數器，但它可以是您想要的任何項目。
 
 傳送事件就是這麼簡單。最後只剩下說明如何接收訊息。
 
@@ -376,7 +381,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
 ```
 
-然後撰寫在接收訊息時所叫用的回呼函式：
+然後，撰寫在接收訊息時所叫用的回呼函式：
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -414,7 +419,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-此程式碼會重複使用 - 對任何解決方案而言都一樣。此函式會接收訊息並透過呼叫 **EXECUTE\_COMMAND** 負責將它路由傳送至適當的函式。基本上，此時會呼叫的函式取決於模型中的動作定義。
+此程式碼會重複使用 - 對任何解決方案而言都一樣。此函式會接收訊息並透過呼叫 **EXECUTE\_COMMAND** 負責將它路由傳送至適當的函式。此時會呼叫的函式取決於模型中的動作定義。
 
 當您在模型中定義動作時，您必須實作在裝置接收對應的訊息時所呼叫的函式。例如，如果您的模型定義這項動作：
 
@@ -435,7 +440,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 請注意，函式的名稱會符合模型中的動作名稱，而函式的參數會符合為此動作指定的參數。第一個參數是必要參數，含有我們的模型執行個體的指標。
 
-當裝置收到符合此簽章的訊息時，就會呼叫對應的函式。所以除了必須包含 **IoTHubMessage** 中重複使用的程式碼，接收訊息只需為模型中定義的每個動作定義簡單函式。
+當裝置收到符合此簽章的訊息時，就會呼叫對應的函式。因此，除了必須包含 **IoTHubMessage** 中重複使用的程式碼，接收訊息只需為模型中定義的每個動作定義簡單函式。
 
 ### 解除初始化程式庫
 
@@ -455,4 +460,4 @@ serializer_deinit();
 
 本文涵蓋使用 **Azure IoT 裝置 SDK (適用於 C)** 中的程式庫的基本概念。這應可提供足夠的資訊，讓您了解 SDK 中包含什麼、其架構，以及如何開始使用 Windows 範例。下一篇文章藉由說明 [IoTHubClient 程式庫的相關資訊](iot-hub-device-sdk-c-iothubclient.md)來繼續說明 SDK。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

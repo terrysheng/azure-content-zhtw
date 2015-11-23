@@ -3,7 +3,7 @@
 	services="cloud-services"
 	description="使用 Visual Studio 分析工具調查雲端服務中的效能問題" 
 	documentationCenter=""
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"
 	tags="" 
@@ -16,7 +16,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/14/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
 
@@ -186,4 +186,4 @@
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

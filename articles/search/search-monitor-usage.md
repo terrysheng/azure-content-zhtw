@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="監視 Azure 搜尋服務中的使用量和統計資料 | Microsoft Azure" 
+   pageTitle="監視 Azure 搜尋服務中的使用狀況與統計資料 | Microsoft Azure | 雲端託管搜尋服務" 
    description="追蹤 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 的資源耗用量和索引大小。" 
    services="search" 
    documentationCenter="" 
@@ -57,4 +57,4 @@ Azure 搜尋服務 REST API 和 .NET SDK 都提供以程式設計方式存取服
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

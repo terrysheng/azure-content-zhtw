@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
 # 參考架構：使用 Microsoft Azure 串流分析的即時事件處理
@@ -62,4 +62,4 @@ Microsoft Azure 提供分析技術的全面目錄，可以支援一系列不同�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

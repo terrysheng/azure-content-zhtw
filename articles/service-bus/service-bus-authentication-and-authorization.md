@@ -45,7 +45,7 @@
 
 ## ACS 驗證
 
-透過 ACS 的服務匯流排驗證可透過隨附的 "-sb" ACS 命名空間管理。如果您想要建立服務匯流排命名空間的隨附 ACS 命名空間，您無法使用 Azure 管理入口網站建立您的服務匯流排命名空間。您必須使用 [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) PowerShell cmdlet 建立命名空間。例如：
+透過 ACS 的服務匯流排驗證可透過隨附的 "-sb" ACS 命名空間管理。如果您想要建立服務匯流排命名空間的隨附 ACS 命名空間，您無法使用 Azure 管理入口網站建立您的服務匯流排命名空間。您必須使用 [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) PowerShell Cmdlet 建立命名空間。例如：
 
 ```
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
@@ -73,4 +73,4 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 
 您可以在[作法：透過 OAuth 包裝通訊協定向 ACS 要求權杖](https://msdn.microsoft.com/library/hh674475.aspx)中找到 ACS 權杖的詳細資訊。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Pig 活動
 
-Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活動會在[您自己的](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight 叢集上執行 Pig 查詢。這篇文章是根據〈[資料轉換活動](data-factory-data-transformation-activities.md)〉文章，它呈現資料轉換和支援的轉換活動的一般概觀。
+Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活動會在[您自己的](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 的 HDInsight 叢集上執行 Pig 查詢。這篇文章是根據〈[資料轉換活動](data-factory-data-transformation-activities.md)〉文章，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 ## 語法
 
@@ -186,9 +186,4 @@ script | 指定 Pig 指令碼內嵌 | 否
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-
- 
-## 傳送意見
-非常感謝您對本文的意見反應。請花幾分鐘的時間透過[電子郵件](mailto:adfdocfeedback@microsoft.com?subject=data-factory-pig-activity.md)提交您的意見反應。
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

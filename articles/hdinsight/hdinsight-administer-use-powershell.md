@@ -45,11 +45,11 @@ HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob �
 
 **連接到 Azure**
 
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
-		Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
+	Login-AzureRmAccount
+	Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
+	Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
 
-	**Select-AzureRMSubscription** is called in case you have multiple Azure subscriptions.
+如果您多個 Azure 訂用帳戶時會呼叫 **Select-AzureRMSubscription**。
 	
 **建立新的資源群組**
 
@@ -180,28 +180,6 @@ Azure PowerShell 無法在 HDInsight 建立程序期間建立 Blob 容器。您�
 
 	Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 	
-##尋找資源群組
-
-	$clusterName = "<HDInsight Cluster Name>"
-	
-	$cluster = Get-AzureRmHDInsightCluster  -ClusterName $clusterName
-	$resourceGroupName = $cluster.ResourceGroup
-
-
-##尋找預設的儲存體帳戶
-
-下列 Powershell 指令碼示範如何取得叢集的預設儲存體帳戶名稱和預設儲存體帳戶金鑰。
-
-
-	$clusterName = "<HDInsight Cluster Name>"
-	
-	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-	$resourceGroupName = $cluster.ResourceGroup
-	$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
-	$defaultBlobContainerName = $cluster.DefaultStorageContainer
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
-	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
-
 
 ##授與/撤銷存取權
 
@@ -214,155 +192,86 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 - Templeton
 
 
-預設會授與這些服務的存取權。您可以撤銷/授與存取權。範例如下：
+預設會授與這些服務的存取權。您可以撤銷/授與存取權。撤銷：
 
-	Revoke-AzureHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+	Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+
+授與：
+
+	$clusterName = "<HDInsight Cluster Name>"
+
+	# Credential option 1
+	$hadoopUserName = "admin"
+	$hadoopUserPassword = "Pass@word123"
+	$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
+	$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
+
+	# Credential option 2
+	#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+	
+	Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
 >[AZURE.NOTE]透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
 
 這也可以透過預覽入口網站完成。請參閱[使用 Azure Preview 入口網站管理 HDInsight][hdinsight-admin-portal]。
 
+##更新 HTTP 使用者認證
+
+與[授與/撤銷 HTTP 存取權](#grant/revoke-access)程序一樣。如果已授與叢集 HTTP 存取權，必須先將它撤銷。然後再使用新的 HTTP 使用者認證授與存取權。
 
 
+##尋找預設儲存體帳戶
+
+下列 Powershell 指令碼示範如何取得叢集的預設儲存體帳戶名稱和預設儲存體帳戶金鑰。
+
+	$clusterName = "<HDInsight Cluster Name>"
+	
+	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
+	$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
+	$defaultBlobContainerName = $cluster.DefaultStorageContainer
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+
+##尋找資源群組
+
+在 ARM 模式中，每個 HDInsight 叢集皆屬於一個 Azure 資源群組。尋找資源群組：
+
+	$clusterName = "<HDInsight Cluster Name>"
+	
+	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
 
 
-##提交 MapReduce 工作
-HDInsight 叢集配送提供一些 MapReduce 範例。其中一個範例是計算來源檔案中的文字出現率。
+##提交工作
 
 **提交 MapReduce 工作**
 
-下列 Azure PowerShell 指令碼會提交字數統計範例工作：
-
-	$clusterName = "<HDInsightClusterName>"
-
-	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-								-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
-								-ClassName "wordcount" `
-								-Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
-	
-	# Submit the job and wait for job completion
-	$cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
-	$wordCountJob = Start-AzureRmHDInsightJob `
-						-ResourceGroupName $resourceGroupName `
-						-ClusterName $clusterName `
-						-HttpCredential $cred `
-						-JobDefinition $wordCountJobDefinition 
-	
-	Wait-AzureRmHDInsightJob `
-		-ResourceGroupName $resourceGroupName `
-		-ClusterName $clusterName `
-		-HttpCredential $cred `
-		-JobId $wordCountJob.JobId 
-
-	# Get the job output
-	$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
-	$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
-	$defaultStorageContainer = $cluster.DefaultStorageContainer
-	
-	Get-AzureRmHDInsightJobOutput `
-		-ResourceGroupName $resourceGroupName `
-		-ClusterName $clusterName `
-		-HttpCredential $cred `
-		-DefaultStorageAccountName $defaultStorageAccount `
-		-DefaultStorageAccountKey $defaultStorageAccountKey `
-		-DefaultContainer $defaultStorageContainer  `
-		-JobId $wordCountJob.JobId `
-		-DisplayOutputType StandardError
-		
-如需 **wasb** 首碼的詳細資訊，請參閱[對於 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
-
-**下載 MapReduce 工作輸出**
-
-下列 Azure PowerShell 指令碼會從最後一個程序中擷取 MapReduce 工作輸出：
-
-	$storageAccountName = "<StorageAccountName>"
-	$containerName = "<ContainerName>"
-
-	# Create the Storage account context object
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
-	# Download the output to local computer
-	Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
-
-	# Display the output
-	cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
-
-如需開發和執行 MapReduce 工作的詳細資訊，請參閱[將 MapReduce 與 HDInsight 搭配使用][hdinsight-use-mapreduce]。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##提交 Hive 工作
-HDInsight 叢集配送提供稱為 *hivesampletable* 的範例 Hive 資料表。您可以使用 HiveQL **SHOW TABLES** 命令，列出叢集上的 Hive 資料表。
+請參閱 [在以 Windows 為基礎的 HDInsight 中執行 Hadoop MapReduce 範例](hdinsight-run-samples.md)。
 
 **提交 Hive 工作**
 
-下列指令碼會提交 Hive 工作，以列出 Hive 資料表：
+請參閱[使用 PowerShell 執行 Hive 查詢](hdinsight-hadoop-use-hive-powershell.md)。
 
-	$clusterName = "<HDInsightClusterName>"
+**提交 Pig 工作**
 
-	# HiveQL query
-	$querystring = @"
-		SHOW TABLES;
-		SELECT * FROM hivesampletable
-			WHERE Country='United Kingdom'
-			LIMIT 10;
-	"@
+請參閱[使用 PowerShell 執行 Pig 工作](hdinsight-hadoop-use-pig-powershell.md)。
 
-	Use-AzureHDInsightCluster -Name $clusterName
-	Invoke-Hive $querystring
+**提交 Sqoop 工作**
 
-Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesampletable 資料表傳回的資料。
+請參閱[在 HDInsight 上使用 Sqoop](hdinsight-use-sqoop.md)。
 
-如需使用 Hive 的詳細資訊，請參閱[將 Hive 與 HDInsight 搭配使用][hdinsight-use-hive]。
+**提交 Oozie 工作**
 
+請參閱[在 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](hdinsight-use-oozie.md)。
 
 ##將資料上傳至 Azure Blob 儲存體
 請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。
 
-##從 Azure Blob 儲存體下載工作輸出
-請參閱本文中的[提交 MapReduce 工作](#mapreduce)一節。
 
 ## 另請參閱
 * [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]
-* [使用 Azure Preview 入口網站管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 預覽入口網站管理 HDInsight][hdinsight-admin-portal]
 * [使用命令列介面管理 HDInsight][hdinsight-admin-cli]
 * [建立 HDInsight 叢集][hdinsight-provision]
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
@@ -393,4 +302,4 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

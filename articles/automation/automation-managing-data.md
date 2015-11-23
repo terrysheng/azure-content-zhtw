@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="11/02/2015"
    ms.author="bwren;sngun" />
 
 # 管理 Azure 自動化資料
@@ -34,12 +34,15 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 |模組|使用者刪除模組後 90 天，或使用者刪除持有模組的帳戶 90 天後永久移除。|
 |Runbook|使用者刪除資源後 90 天，或使用者刪除持有資源的帳戶 90 天後永久移除。|
 |作業|在上次修改日期的 90 天後刪除並永久移除。這可以是在工作完成、停止或暫止之後。|
+|節點組態/MOF 檔案| 舊的節點組態會在新的節點組態產生之後的 90 天永久移除。|
+|DSC 節點| 使用 Azure 入口網站或在 Windows PowerShell Cmdlet 中使用 [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) 在節點從自動化帳戶取消註冊之後的 90 天永久移除。節點也會在擁有節點的帳戶被使用者刪除之後的 90 天永久移除。 |
+|節點報告| 該節點產生新的報告之後的 90 天永久移除|
 
 保留原則適用於所有使用者，而且目前無法自訂。
 
 ## 備份 Azure 自動化
 
-在 Microsoft Azure 中刪除自動化帳戶時，會刪除帳戶中的所有物件，包括 Runbook、模組、設定、工作和資產。刪除帳戶之後，就無法復原物件。您可以使用下列資訊，在刪除之前備份您的自動化帳戶的內容。
+在 Microsoft Azure 中刪除自動化帳戶時，會刪除帳戶中的所有物件，包括 Runbook、模組、組態、設定、工作和資產。刪除帳戶之後，就無法復原物件。您可以使用下列資訊，在刪除之前備份您的自動化帳戶的內容。
 
 ### Runbook
 
@@ -60,6 +63,11 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 您無法從 Azure 自動化匯出憑證。您必須確定 Azure 外部有任何憑證可供使用。
 
+### DSC 組態
+
+您可以使用 Azure 管理入口網站或 Windows PowerShell 中的 [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) Cmdlet，將您的組態匯出為指令碼檔案。這些組態可以匯入並用於另一個自動化帳戶中。
+
+
 ##Azure 自動化中的異地複寫
 
 異地複寫是 Azure 自動化帳戶中的標準功能，可將帳戶資料備份到其他地理區域做為備援。您可以在設定帳戶時選擇主要區域，然後就會自動指派次要區域給帳戶。從主要區域複製到次要區域的資料會持續更新，以防止資料遺失。
@@ -76,4 +84,4 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 萬一主區域資料遺失，Microsoft 會嘗試將它復原。如果主要資料無法復原，則會執行異地容錯移轉，而且將透過受影響客戶的訂用帳戶將此情況通知他們。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

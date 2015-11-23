@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽版本：有何差異？
@@ -121,4 +121,4 @@ V2.0 端點所簽發的權杖中的宣告與公開上市 Azure AD 端點所簽�
 ## Preview 限制
 在公開預覽期間建置具有 v2.0 應用程式模型的應用程式時，有一些限制要注意。請參閱 [v2.0 應用程式模型限制文件](active-directory-v2-limitations.md)，以了解是否有任何限制適用於您特定的案例。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

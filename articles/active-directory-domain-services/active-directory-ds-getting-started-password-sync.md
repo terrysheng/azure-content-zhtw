@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="udayh"
-	editor="inhenk"/>
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="11/09/2015"
 	ms.author="maheshu"/>
 
 # Azure AD 網域服務 (預覽) - 開始使用
@@ -23,7 +23,7 @@
 
 所需的步驟會根據組織是僅限雲端，或已設定為使用 Azure AD Connect 來同步處理內部部署目錄而有所不同。
 
-### 針對僅限雲端的租用戶啟用密碼同步處理
+### 僅限雲端的租用戶 - 在 Azure AD 中啟用 NTLM 和 Kerberos 認證雜湊產生功能
 如果您的組織是僅限雲端的 Azure AD 租用戶，需要使用 Azure AD 網域服務的使用者就必須變更其密碼。這個步驟的結果就是在 Azure AD 中產生 Azure AD 網域服務進行 Kerberos 和 NTLM 驗證所需的認證雜湊。您可以針對租用戶中所有需要使用 Azure AD 網域服務的使用者來使其密碼過期，或者指示這些使用者變更他們的密碼。
 
 以下是您需要提供使用者才能變更其密碼的指示：
@@ -34,38 +34,30 @@
 
     ![建立適用於 Azure AD 網域服務的虛擬網路。](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-4. 這會顯示 [變更密碼] 頁面。使用者接著可以輸入現有的 (舊) 密碼，然後繼續變更密碼。
+4. 這會顯示 [變更密碼] 頁面。使用者可以輸入現有的 (舊) 密碼，然後繼續變更密碼。
 
     ![建立適用於 Azure AD 網域服務的虛擬網路。](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
-當使用者變更密碼之後，新的密碼將會在短時間內同步處理至 Azure AD 網域服務。完成密碼同步處理之後，使用者接著就能使用最近變更的密碼來登入網域。
+當使用者變更密碼之後，新的密碼短時間內就能在 Azure AD 網域服務中使用。幾分鐘之後，使用者就能使用最近變更的密碼，來登入已加入受管理網域的電腦。
 
 
-### 針對同步處理的租用戶啟用密碼同步處理
+### 同步處理的租用戶 - 能夠將 NTLM 和 Kerberos 認證雜湊同步處理到 Azure AD
 如果貴組織的 Azure AD 租用戶已設定為使用Azure AD Connect 來同步處理內部部署目錄，則您必須設定 Azure AD Connect，來同步處理 NTLM 和 Kerberos 驗證所需的認證雜湊。這些雜湊預設不會同步處理到 Azure AD，而下列步驟可讓您將雜湊同步處理到 Azure AD 租用戶。
 
-#### 安裝 Azure AD Connect
+#### 安裝或更新 Azure AD Connect
 
-您必須在加入網域的電腦上安裝 GA 版本的 Azure AD Connect。如果您目前已設定 Azure AD Connect 的執行個體，就必須更新它來使用 Azure AD Connect GA 組建。
+您必須在已加入網域的電腦上安裝建議的最新 Azure AD Connect 版本。如果您目前已設定 Azure AD Connect 的執行個體，就必須更新它來使用 Azure AD Connect GA 組建。請確定您使用的是目前的 Azure AD Connect 版本，以避免已知的問題/bug。
 
-  [下載 Azure AD Connect - GA 組建](http://download.microsoft.com/download/B/0/0/B00291D0-5A83-4DE7-86F5-980BC00DE05A/AzureADConnect.msi)。
+**[下載 Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-> [AZURE.WARNING]您「必須」安裝 GA 版本的 Azure AD Connect，才能將傳統密碼認證 (NTLM 和 Kerberos 驗證所需的認證) 同步處理到 Azure AD 租用戶。此功能無法在舊版的 Azure AD Connect 中使用。
+最低建議版本：**1.0.9125** - 已於 2015 年 11 月 3 日發行。
+
+  >[AZURE.WARNING]您「必須」安裝建議的最新 Azure AD Connect 版本，才能將傳統密碼認證 (NTLM 和 Kerberos 驗證所需的認證) 同步處理到 Azure AD 租用戶。此功能無法在舊版的 Azure AD Connect 中使用，或與舊版 DirSync 工具搭配使用。
+
+注意：您不再需要利用最新的 Azure AD Connect 版本 (亦即 1.0.9125 和更新版本) 來建立 'EnableWindowsLegacyCredentialsSync' 登錄機碼。
 
 Azure AD Connect 的安裝指示可於下列文章中取得：[開始使用 Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
-
-#### 啟用傳統認證與 Azure AD 的同步
-
-啟用 Azure AD 網域服務中 NTLM 驗證所需之傳統認證的同步。您可以透過在安裝 Azure AD Connect 的電腦上建立下列登錄機碼來執行此動作。
-
-建立下列 DWORD 登錄機碼並將它設定為 1。
-
-```
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
-
-Set its value to 1.
-```
 
 #### 強制執行與 Azure AD 的完整密碼同步處理
 
@@ -76,7 +68,7 @@ $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
 $azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"  
 Import-Module adsync  
 $c = Get-ADSyncConnector -Name $adConnector  
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null  
+$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
 $p.Value = 1  
 $c.GlobalParameters.Remove($p.Name)  
 $c.GlobalParameters.Add($p)  
@@ -85,6 +77,6 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true  
 ```
 
-視目錄的大小而定 (使用者的數目、群組等)，將認證同步處理到 Azure AD，然後到 Azure AD 網域服務，需要花一點時間。
+視目錄的大小而定 (使用者的數目、群組等)，將認證同步處理到 Azure AD 需要花一點時間。將認證雜湊同步處理到 Azure AD 之後，密碼短時間內就能在 Azure AD 網域服務管理的網域上使用。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

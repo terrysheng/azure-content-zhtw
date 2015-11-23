@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager"/>
+ tags="azure-resource-manager,hpc-pack"/>
 
 <tags
  ms.service="virtual-machines"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="08/18/2015"
+ ms.date="11/11/2015"
  ms.author="danlep"/>
 
 # 開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載
@@ -43,15 +43,15 @@
 
 
 ### 使用快速入門範本
-使用 Azure 快速入門範本來快速且輕鬆地 HPC Pack 叢集部署在 Azure Preview 入口網站。當您在入口網站中開啟範本時，您會取得一個簡單的 UI 讓您在其中輸入叢集的設定。步驟如下：
+使用 Azure 快速入門範本在 Azure Preview 入口網站中快速、輕鬆地部署 HPC Pack 叢集。在 Preview 入口網站中開啟範本時，您會看到一個可供您輸入叢集設定的簡單 UI。步驟如下：
 
 1. 造訪 [在 GitHub 上建立 HPC 叢集範本頁面](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)。您可根據意願檢視範本和原始碼的相關資訊。
 
-2. 按一下 [**部署至 Azure**] 以在 Azure Preview 入口網站中利用範本開始部署。
+2. 按一下 [部署至 Azure]，以在 Azure Preview 入口網站中利用範本開始部署。
 
     ![將範本部署到 Azure][github]
 
-3. 在入口網站中，遵循下列步驟輸入 HPC 叢集範本的參數。
+3. 在 Preview 入口網站中，依照下列步驟輸入 HPC 叢集範本的參數。
 
     a.在 [**編輯範本**] 頁面上，按一下 [**儲存**]。
 
@@ -81,7 +81,7 @@
 
 3.	當部署完成時 (通常需要約 30 分鐘)，從叢集前端節點匯出叢集憑證檔。在稍後的步驟中，此公開憑證將在用戶端電腦上匯入以提供安全 HTTP 繫結的伺服器端驗證。
 
-    a.從 Azure Preview 入口網站透過遠端桌面連接到前端節點。
+    a.從 Azure Preview 入口網站透過「遠端桌面」連線到前端節點。
 
      ![連接至前端節點][connect]
 
@@ -272,7 +272,7 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
 若要執行 Excel UDF，請遵循上述的步驟 1 - 3 來設定用戶端電腦。關於 Excel UDF，您不需要在運算節點上安裝 Excel 應用程式，因此您可以在步驟 1 中選擇一般運算節點映像，而不是具有 Excel 的運算節點映像。
 
->[AZURE.NOTE][Excel 2010 和 2013 叢集連接器] 對話方塊中有 34 個字元的限制。如果完整的叢集名稱過長，例如 hpcexcelhn01.southeastasia.cloudapp.azure.com，該名稱就無法放入對話方塊中。解決方法是對用戶端電腦上的 SOA 工作階段 API 套用 Update 2 QFE KB3085833 ([在此](http://www.microsoft.com/zh-TW/download/details.aspx?id=48725)下載)，然後以長叢集名稱的值設定機器寬變數 (如 *CCP\_IAASHN*) 並在對話方塊中輸入 *%CCP\_IAASHN%* 做為叢集前端節點名稱。
+>[AZURE.NOTE] [Excel 2010 和 2013 叢集連接器] 對話方塊中有 34 個字元的限制。如果完整的叢集名稱過長，例如 hpcexcelhn01.southeastasia.cloudapp.azure.com，該名稱就無法放入對話方塊中。解決方法是對用戶端電腦上的 SOA 工作階段 API 套用 Update 2 QFE KB3085833 ([在此](http://www.microsoft.com/zh-TW/download/details.aspx?id=48725)下載)，然後以長叢集名稱的值設定機器寬變數 (如 *CCP\_IAASHN*) 並在對話方塊中輸入 *%CCP\_IAASHN%* 做為叢集前端節點名稱。
 
 成功部署叢集之後，繼續進行下列步驟來執行內建的範例 Excel UDF。關於自訂的 Excel UDF，請參閱這些[資源](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx)以建置 XLL 並將其部署在 IaaS 叢集上。
 
@@ -355,7 +355,7 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 
 ### 使用 NetTcp 繫結
 
-若要使用 NetTcp 繫結，組態就像是連接至內部部署叢集。您必須開啟幾個前端節點 VM 上的端點。在 Azure 管理入口網站中，執行下列動作。
+若要使用 NetTcp 繫結，組態就像是連接至內部部署叢集。您必須開啟幾個前端節點 VM 上的端點。在 Azure 入口網站中執行下列動作。
 
 
 1. 停止 VM。
@@ -389,4 +389,4 @@ SOA 用戶端應用程式不需要變更，除了將標頭名稱改變為 IaaS �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

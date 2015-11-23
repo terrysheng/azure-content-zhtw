@@ -28,7 +28,7 @@
 
 若要完成本教學課程，您將需要下列產品。所有產品都有免費版本可使用，因此您可以免費進行 Azure 解決方案開發。
 
-- **Azure 訂閱** - 如需免費訂閱，請參閱 [Azure 免費試用](/pricing/free-trial/)。 
+- **Azure 訂用帳戶** - 如需免費訂閱，請參閱 [Azure 免費試用](/pricing/free-trial/)。 
 
 - **Visual Studio** - 若要下載 Visual Studio 2013 或 Visual Studio 2015 的免費試用版，請參閱 [Visual Studio 下載](http://www.visualstudio.com/downloads/download-visual-studio-vs)。在繼續之前安裝其中一種。(本教學課程中是使用 Visual Studio 2013 的螢幕擷取畫面)
 
@@ -36,7 +36,7 @@
 
 - **SQL Server Management Studio Express** - 此項目隨附於前述的 SQL Server 2014 Express with Tools 下載中，但您必須個別加以安裝，您可以從 [SQL Server Express 下載頁面](https://www.microsoft.com/zh-TW/download/details.aspx?id=42299)加以下載並安裝。
 
-本教學課程假設您具有 Azure 訂閱、您已安裝 Visual Studio 2013，並且已安裝或啟用 .NET Framework 3.5。本教學課程將說明如何在可與 Azure 混合式連線功能妥善搭配運作的組態中安裝 SQL Server 2014 Express (使用靜態 TCP 連接埠的預設執行個體)。在開始本教學課程之前，如果您尚未安裝 SQL Server，請先從前述位置下載 (但不要安裝) SQL Server 2014 Express with Tools。
+本教學課程假設您具有 Azure 訂用帳戶、您已安裝 Visual Studio 2013，並且已安裝或啟用 .NET Framework 3.5。本教學課程將說明如何在可與 Azure 混合式連線功能妥善搭配運作的組態中安裝 SQL Server 2014 Express (使用靜態 TCP 連接埠的預設執行個體)。在開始本教學課程之前，如果您尚未安裝 SQL Server，請先從前述位置下載 (但不要安裝) SQL Server 2014 Express with Tools。
 
 ### 注意事項
 若要透過混合式連線使用內部部署 SQL Server 或 SQL Server Express 資料庫，必須在靜態連接埠上啟用 TCP/IP。SQL Server 上的預設執行個體會使用靜態連接埠 1433，但指定的執行個體則否。
@@ -361,7 +361,7 @@
 
 4. 在 [API 應用程式] 刀鋒視窗中，找到您的 API 應用程式並按一下它。
 
-5. 在您的 API 應用程式的刀鋒視窗中，按一下 [API 主控處理程序] 底下的值。
+5. 在您的 API 應用程式的刀鋒視窗中，按一下 [API 應用程式主機] 底下的值。
  
 	![API 應用程式刀鋒視窗](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
@@ -430,4 +430,4 @@
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

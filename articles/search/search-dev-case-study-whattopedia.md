@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 搜尋服務開發人員案例研究：WhatToPedia 如何在 Microsoft Azure 建置資訊媒體入口網站 | Microsoft Azure" 
+	pageTitle="Azure 搜尋服務開發人員案例研究：WhatToPedia 如何在 Microsoft Azure 上建置 infomedia 入口網站 | Microsoft Azure | 雲端託管搜尋服務" 
 	description="了解如何使用 Azure 搜尋服務 (適用於開發人員之託管的雲端搜尋服務) 建置資訊入口網站和中繼搜尋引擎。" 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
@@ -421,4 +421,4 @@ Azure 搜尋服務並不是唯一的驚喜。與我們先前的方式相比，�
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

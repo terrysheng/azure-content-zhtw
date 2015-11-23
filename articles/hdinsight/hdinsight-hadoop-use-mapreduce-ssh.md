@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # 搭配使用 MapReduce 與 HDInsight 上的 Hadoop 和 SSH
@@ -72,7 +72,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 3. 工作完成時，使用下列命令列出儲存在 ****wasb://example/data/WordCountOutput** 的輸出檔案：
 
-		hadoop fs -ls wasb:///example/data/WordCountOutput
+		hdfs dfs -ls wasb:///example/data/WordCountOutput
 
 	這應該會顯示兩個檔案：**SUCCESS** 和 **part-r-00000**。**part-r-00000** 檔案包含這項工作的輸出。
 
@@ -80,7 +80,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 4. 若要檢視輸出，請使用下列命令：
 
-		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
+		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
 	這會顯示 ****wasb://example/data/gutenberg/davinci.txt** 檔案中所含的單字清單，以及每個單字的出現次數。以下是要包含在檔案中之資料的範例：
 
@@ -108,4 +108,4 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -2,9 +2,9 @@
 
 [**Apache Storm**](https://storm.incubator.apache.org) 是分散式即時運算系統，可簡化未繫結資料串流的可靠處理。本節顯示如何使用事件中心 Storm Spout 接收來自事件中心的事件。使用 Apache Storm，您可以將事件分割到多個裝載於不同節點的處理序。事件中心與 Storm 的整合透過使用 Storm 的 Zookeeper 安裝透明地設定檢查點以檢查其進度、管理持續檢查點以及來自事件中心的平行接收，以簡化事件的使用。
 
-如需事件中樞接收模式的詳細資訊，請參閱[事件中樞概觀]。
+如需事件中樞接收模式的詳細資訊，請參閱[事件中樞概觀][]。
 
-本教學課程使用 [HDInsight Storm] 安裝，其包含在已可使用的事件中樞 Spout 中。
+本教學課程使用 [HDInsight Storm][] 安裝，其包含在已可使用的事件中樞 Spout 中。
 
 1. 請遵循 [HDInsight Storm - 入門](../hdinsight/hdinsight-storm-overview.md)程序來建立新的 HDInsight 叢集，並透過遠端桌面與其連線。
 
@@ -230,4 +230,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

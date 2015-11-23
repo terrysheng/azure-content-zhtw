@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="11/06/2015" 
 	ms.author="tomfitz"/>
 
 # 在「Azure 資源管理員」中連結資源
@@ -28,96 +28,7 @@
 
 ## 範本中的連結
 
-以下範例顯示的範本會使用一組對網站的單向關係、通知中樞和 SQL 資料庫，建立 "Microsoft.AppService/apiapps" 型別的資源。
-
-    {
-        "$schema": "http://schemas.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "$system": {
-                "type": "Object"
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "2014-11-01",
-                "type": "Microsoft.Web/sites",
-                "name": "[parameters('$system').siteName]",
-                "location": "[parameters('$system').location]",
-                "resources": [
-                    {
-                        "apiVersion": "2014-11-01",
-                        "name": "appsettings",
-                        "type": "config",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        ],
-                        "properties": {
-                            "MS_MobileServiceName": "[parameters('$system').apiAppName]",
-                            "MS_NotificationHubName": "[variables('notificationHubName')]",
-                            "MS_NotificationHubConnectionString": "[listkeys(resourceId('Microsoft.NotificationHubs/namespaces/notificationHubs/authorizationRules', variables('notificationHubNamespace'), variables('notificationHubName'), 'DefaultFullSharedAccessSignature'), '2014-09-01').primaryConnectionString]"
-                        }
-                    }
-                ]
-            },
-            {
-                "apiVersion": "[parameters('$system').apiVersion]",
-                "type": "Microsoft.AppService/apiapps",
-                "name": "[parameters('$system').apiAppName]",
-                "properties": {
-                    "accessLevel": "PublicAnonymous"
-                },
-                "resources": [
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-codesite",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]",
-                            "[resourceId('Microsoft.Web/Sites', variables('userSiteName'))]"
-                        ],
-                        "properties": {
-                            "targetId": "[resourceId('Microsoft.Web/sites', variables('userSiteName'))]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-notificationhub",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]",
-                            "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        ],
-                        "properties": {
-                            "targetId": "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-sqlserver",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]"
-                        ],
-                        "properties": {
-                            "targetId": "[concat('/subscriptions/', parameters('userDatabase').subscriptionId, '/resourcegroups/', parameters('userDatabase').resourceGroupName, '/providers/Microsoft.Sql/servers/', parameters('userDatabase').serverName)]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-sqldb",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]"
-                        ],
-                        "properties": {
-                            "targetId": "[concat('/subscriptions/', parameters('userDatabase').subscriptionId, '/resourcegroups/', parameters('userDatabase').resourceGroupName, '/providers/Microsoft.Sql/servers/', parameters('userDatabase').serverName, '/databases/', parameters('userDatabase').databaseName)]"
-                        }
-                    }
-                ]
-            }
-        ]
-    }
+若要在範本中定義資源間的連結，請參閱[資源連結 - 範本結構描述](resource-manager-template-links.md)。
 
 ## 使用 REST API 連結
 
@@ -139,11 +50,11 @@
 
 properties 元素包含第二個資源的識別碼。
 
-如需其他範例，包括如何抓取連結的相關資訊，請參閱[連結的資源](https://msdn.microsoft.com/library/azure/mt238499.aspx)。
+如需其他範例，包括如何擷取連結的相關資訊，請參閱[連結的資源](https://msdn.microsoft.com/library/azure/mt238499.aspx)。
 
 ## 後續步驟
 
 - 您也可以使用標記來組織您的資源。若要了解如何標記資源，請參閱[使用標記來組織資源](resource-group-using-tags.md)。
 - 如需如何建立範本並定義要部署之資源的說明，請參閱[撰寫範本](resource-group-authoring-templates.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

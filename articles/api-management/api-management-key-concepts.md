@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/05/2015" 
 	ms.author="sdanie"/>
 
 #什麼是 API 管理？
@@ -78,7 +78,7 @@ API 是 API 管理服務執行個體的基礎。每個 API 都代表可供開發
 
 原則是 API 管理的強大功能，可讓發行者透過組態變更 API 的行為。原則是陳述式的集合，會因 API 的要求或回應循序執行。常見陳述式包括從 XML 對 JSON 的格式轉換，以及可限制來自開發人員的傳入呼叫數量的呼叫費率限制，而且還有許多原則可供使用。
 
-如果原則不另行指定，則可以在任何 API 管理原則中，使用原則運算式做為屬性值或文字值。某些原則是以原則運算式為基礎，例如[控制流程][]和[設定變數][]原則。如需詳細資訊，請參閱[進階原則][]和[原則運算式][]，並觀看以下影片。
+如果原則不另行指定，則可以在任何 API 管理原則中，使用原則運算式做為屬性值或文字值。某些原則是以原則運算式為基礎，例如[控制流程](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose)和[設定變數](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable)原則。如需詳細資訊，請參閱[進階原則](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies)和[原則運算式](https://msdn.microsoft.com/library/azure/dn910913.aspx)，並觀看以下影片。
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
@@ -114,4 +114,4 @@ API 是 API 管理服務執行個體的基礎。每個 API 都代表可供開發
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

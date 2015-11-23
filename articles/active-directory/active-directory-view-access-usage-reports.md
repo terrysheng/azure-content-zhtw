@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="11/10/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 # 檢視存取和使用情況報告
@@ -159,6 +159,10 @@
 | :-------------     | :-------        |
 | 使用這份報告可以查看您的目錄中所有 SaaS 應用程式的使用情況。這份報告是以使用者在 [存取面板] 中點選應用程式的次數為基礎。 | 目錄 > 報告索引標籤 |
 
+這份報告包含您目錄有權存取之「所有」應用程式的登入，包括預先整合的 Microsoft 應用程式。
+
+預先整合的 Microsoft 應用程式包括 Office 365、Sharepoint、Azure 管理入口網站和其他項目。
+
 ![應用程式使用情況摘要](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
@@ -239,7 +243,7 @@
 
 - 連絡使用者來確認活動
 - 重設使用者的密碼
-- [啟用多因素驗證](http://go.microsoft.com/fwlink/?linkid=335774)以提供額外的安全性
+- [啟用多因素驗證](multi-factor-authentication-get-started.md)以提供額外的安全性
 
 ## 檢視或下載報告
 
@@ -264,11 +268,11 @@
 
 ## 自動電子郵件通知
 
-如需有關 Azure AD 的報告通知的詳細資訊，請參閱 [Azure Active Directory 報告通知](active-directory-reporting-notifications.md)。
+如需 Azure AD 報告通知的詳細資訊，請參閱 [Azure Active Directory 報告通知](active-directory-reporting-notifications.md)。
 
 ## 後續步驟
 
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

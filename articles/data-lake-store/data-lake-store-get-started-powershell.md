@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/06/2015"
    ms.author="nitinme"/>
 
 # 使用 Azure PowerShell 開始使用 Azure 資料湖分析存放區
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 了解如何使用 Azure PowerShell 建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱[資料湖存放區概覽](data-lake-store-overview.md)。
 
@@ -31,7 +32,7 @@
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
 - **啟用您的 Azure 訂用帳戶**以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
-- **Azure PowerShell 1.0**。從[這裡](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi)安裝。
+- **Azure PowerShell 1.0 或更新版本**。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。
 
 ## 建立 Azure 資料湖存放區帳戶
 
@@ -131,6 +132,7 @@
 
 - [使用入口網站開始使用資料湖存放區](data-lake-store-get-started-portal.md)
 - [使用 .NET SDK 開始使用資料湖存放區](data-lake-store-get-started-net-sdk.md)
+- [使用 Azure CLI 開始使用資料湖存放區](data-lake-store-get-started-cli.md)
 
 
 ## 後續步驟
@@ -139,4 +141,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

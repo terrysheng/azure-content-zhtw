@@ -3,7 +3,7 @@
 	description="在使用 Visual Studio 已連接服務連接到儲存體帳戶之後，如何於 Visual Studio 的 ASP.NET專案中開始使用 Azure Blob 儲存體"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 開始使用 Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET)
 
@@ -246,4 +246,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

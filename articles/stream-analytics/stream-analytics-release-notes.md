@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/22/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 串流分析版本資訊
+
+## 串流分析 2015/11/12 版本的注意事項 ##
+
+此版本包含下列更新。
+
+課程名稱 | 說明
+---|---
+SELECT 的新行為 | 「串流分析」中的 SELECT 已經延伸成允許使用 * 做為巢狀記錄的屬性存取子。如需進一步資訊，請參閱 [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "複雜資料類型")。
 
 ## 串流分析 2015/10/22 版本的注意事項 ##
 
@@ -24,10 +32,10 @@
 
 課程名稱 | 說明
 ---|---
-其他查詢語言功能 | 串流分析已藉由納入下列功能來擴充查詢語言：[ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx)、[CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx)、[EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx)、[FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx)、[POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx)、[SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx)、[SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) 和 [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx)。
+其他查詢語言功能 | 「串流分析」已藉由納入下列功能來擴充查詢語言：[ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx)、[CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx)、[EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx)、[FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx)、[POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx)、[SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx)、[SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) 及 [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx)。
 移除了彙總限制 | 此版本移除一個查詢 15 個彙總的限制。現在每一個查詢的彙總數目沒有限制。
 新增了 GROUP BY System.Timestamp 功能 | [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) 函式現在允許用於 window\_type 或 [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx)。
-新增了適用於輪轉和跳動視窗的 OFFSET | 根據預設，[輪轉](https://msdn.microsoft.com/library/azure/dn835055.aspx)和[跳動](https://msdn.microsoft.com/library/azure/dn835041.aspx)視窗會對齊零點時間 (1/1/0001 12:00:00 AM UTC)。新的 (選擇性) 參數 'offsetsize' 允許指定自訂的 位移 (或對齊)。
+新增了適用於輪轉和跳動視窗的 OFFSET | 根據預設，[輪轉](https://msdn.microsoft.com/library/azure/dn835055.aspx)和[跳動](https://msdn.microsoft.com/library/azure/dn835041.aspx)視窗會對齊零點時間 (UTC 時間 0001/1/1 上午 12:00:00)。新的 (選擇性) 參數 'offsetsize' 允許指定自訂的 位移 (或對齊)。
 
 
 ## 串流分析 2015/09/29 版本的注意事項 ##
@@ -37,10 +45,10 @@
 課程名稱 | 說明
 ---|---
 Azure IoT Suite 公用預覽 | Azure IoT Suite 公用預覽包含串流分析。
-Azure Preview 入口網站整合 | 除了持續存在於 Azure 管理入口網站，串流分析現已整合到 [Azure Preview 入口網站](http://azure.microsoft.com/overview/preview-portal/)。請注意，Preview 入口網站中的串流分析功能目前是 Azure 管理入口網站所提供功能的子集，不支援瀏覽器中查詢測試、Power BI 輸出組態和在有存取權限的訂用帳戶中瀏覽或建立新的輸入和輸出資源。
-支援 DocumentDB 輸出 | 串流分析工作現在可以輸出至 [DocumentDB](http://azure.microsoft.com/services/documentdb/)。
+Azure Preview 入口網站整合 | 除了繼續存在於「Azure 管理入口網站」中，「串流分析」現在也已整合到 [Azure Preview 入口網站](http://azure.microsoft.com/overview/preview-portal/)中。請注意，Preview 入口網站中的串流分析功能目前是 Azure 管理入口網站所提供功能的子集，不支援瀏覽器中查詢測試、Power BI 輸出組態和在有存取權限的訂用帳戶中瀏覽或建立新的輸入和輸出資源。
+支援 DocumentDB 輸出 | 「串流分析」工作現在已可以輸出到 [DocumentDB](http://azure.microsoft.com/services/documentdb/)。
 支援 IoT 中心輸入 | 串流分析作業現在可以內嵌來自 IoT 中心的資料。
-異質事件的時間戳記格式 | 當單一資料流包含時間戳記位於不同欄位的多個事件類型時，現在可以使用 [時間戳記格式][](http://msdn.microsoft.com/library/mt573293.aspx) 和運算式為每個案例指定不同的時間戳記欄位。
+異質事件的時間戳記格式 | 當單一資料流包含多個時間戳記位於不同欄位的事件類型時，您現在已可以使用 [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) 搭配運算式為每個案例指定不同的時間戳記欄位。
 
 ## 資料流分析 2015/09/10 版本的注意事項 ##
 
@@ -48,7 +56,7 @@ Azure Preview 入口網站整合 | 除了持續存在於 Azure 管理入口網�
 
 課程名稱|說明
 ---|---
-支援 PowerBI 群組|若要啟用與其他 Power BI 使用者共用資料，現在串流分析工作可寫入至 Power BI 帳戶內的 [PowerBI 群組](stream-analytics-define-outputs.md#power-bi)。
+支援 PowerBI 群組|為了能夠與其他 Power BI 使用者共用資料，「串流分析」工作現在已可以寫入至 Power BI 帳戶內的 [PowerBI 群組](stream-analytics-define-outputs.md#power-bi)。
 
 ## 串流分析 2015 年 8 月 20 日版本的注意事項 ##
 
@@ -56,9 +64,9 @@ Azure Preview 入口網站整合 | 除了持續存在於 Azure 管理入口網�
 
 課程名稱|說明
 ---|---
-加入 LAST 函式 |在串流分析工作中已可使用 [LAST](http://msdn.microsoft.com/library/mt421186.aspx) 函式，讓您擷取指定時間範圍內事件資料流中的最新事件。
-新的陣列函數|現在已可使用陣列函式 [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx)、[GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) 及 [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx)。
-新的記錄函數|現在已可使用記錄函式 [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) 和 [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx)。
+加入 LAST 函式 |「串流分析」工作中現在已可以使用 [LAST](http://msdn.microsoft.com/library/mt421186.aspx) 函式，這可讓您擷取指定時間範圍內事件資料流中的最新事件。
+新的陣列函數|現在已可以使用陣列函式 [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx)、[GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) 及 [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx)。
+新的記錄函數|現在已可以使用記錄函式 [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) 和 [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx)。
 
 ## 串流分析 07/30/2015 版本的注意事項 ##
 
@@ -66,9 +74,9 @@ Azure Preview 入口網站整合 | 除了持續存在於 Azure 管理入口網�
 
 課程名稱|說明
 ---|---
-與 Azure 識別碼分離的 Power BI 組織識別碼|此功能可在任何 Azure 帳戶類型 (Live ID 或組織識別碼) 下啟用 ASA 工作的 [Power BI 輸出](stream-analytics-power-bi-dashboard.md)。此外，您可以擁有 Azure 帳戶的組織識別碼，並使用另一個識別碼用於授權 Power BI 輸出。
-服務匯流排佇列輸出的支援|[服務匯流排佇列](stream-analytics-connect-data-event-outputs.md#service-bus-queues)輸出現在可用於串流分析工作。
-服務匯流排主題輸出的支援|[服務匯流排主題](stream-analytics-connect-data-event-outputs.md#service-bus-topics)輸出現在可用於串流分析工作。
+與 Azure 識別碼分離的 Power BI 組織識別碼|此功能可為任何 Azure 帳戶類型 (Live ID 或組織識別碼) 下的 ASA 工作啟用 [Power BI 輸出](stream-analytics-power-bi-dashboard.md)。此外，您可以擁有 Azure 帳戶的組織識別碼，並使用另一個識別碼用於授權 Power BI 輸出。
+服務匯流排佇列輸出的支援|「串流分析」工作中現在已可以使用[服務匯流排佇列](stream-analytics-connect-data-event-outputs.md#service-bus-queues)輸出。
+服務匯流排主題輸出的支援|「串流分析」工作中現在已可以使用[服務匯流排主題](stream-analytics-connect-data-event-outputs.md#service-bus-topics)。
 
 ## 串流分析 2015/07/09 版本的注意事項 ##
 
@@ -116,4 +124,4 @@ PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

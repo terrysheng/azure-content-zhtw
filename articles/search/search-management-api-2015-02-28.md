@@ -1,4 +1,4 @@
-<properties pageTitle="Azure 搜尋服務管理 REST API 版本 2015-02-28 | Microsoft Azure" description="Azure 搜尋服務管理 REST API： 版本 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="Azure 搜尋服務管理 REST API 版本 2015-02-28 | Microsoft Azure | 雲端託管搜尋服務" description="Azure 搜尋服務管理 REST API： 版本 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
@@ -812,4 +812,4 @@ Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀�
 
 無。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

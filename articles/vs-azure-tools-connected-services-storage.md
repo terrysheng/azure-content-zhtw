@@ -3,7 +3,7 @@
    description="使用 Visual Studio 的加入已連接服務對話方塊加入 Azure 儲存體"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
    ms.date="08/12/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 # 使用 Visual Studio 的已連接服務加入 Azure 儲存體
 
@@ -94,4 +94,4 @@
 
      - [azure.microsoft.com 上的儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

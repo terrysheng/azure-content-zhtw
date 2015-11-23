@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="服務匯流排架構"
+   pageTitle="服務匯流排架構 | Microsoft Azure"
    description="描述 Azure 服務匯流排的訊息處理架構。"
    services="service-bus"
    documentationCenter="na"
@@ -11,19 +11,19 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="11/06/2015"
    ms.author="sethm" />
 
 # 服務匯流排架構
 
-下節將說明 Azure 服務匯流排的訊息處理架構。
+本文章描述 Azure 服務匯流排的訊息處理架構。
 
 ## 服務匯流排縮放單位
 
 服務匯流排依*縮放單位*組織。縮放單位是部署單位，並包含執行服務所需的所有元件。每個區域都會部署一或多個服務匯流排縮放單位。
 
-服務匯流排命名空間會對應到一個縮放單位。縮放單位會處理所有類型的服務匯流排實體：轉送、代理傳訊實體 (佇列、主題、訂用帳戶) 和通知中樞。服務匯流排縮放單位是由下列元件所組成：
+服務匯流排命名空間會對應到一個縮放單位。縮放單位會處理所有類型的服務匯流排實體：轉送和代理傳訊實體 (佇列、主題、訂用帳戶)。服務匯流排縮放單位是由下列元件所組成：
 
 - **一組閘道器節點。** 閘道節點會驗證傳入要求並處理轉送要求。每個閘道器節點都有一個公用 IP 位址。
 
@@ -33,7 +33,7 @@
 
 - **一個閘道器存放區。** 閘道器存放區會保存此縮放單位中定義的每個實體的資料。閘道器存放區是在 SQL Azure 資料庫上實作。
 
-- **許多訊息存放區。** 訊息存放區會保存此縮放單位中定義的所有佇列、主題和訂用帳戶的訊息。它也包含所有訂用帳戶資料。除非啟用了[分割訊息實體](https://msdn.microsoft.com/library/azure/dn520246.aspx)，佇列或主題才會對應至一個訊息存放區。訂用帳戶是儲存在與父項主題相同的訊息存放區。訊息存放區是在 SQL Azure 資料庫上實作。
+- **許多訊息存放區。** 訊息存放區會保存此縮放單位中定義的所有佇列、主題和訂用帳戶的訊息。它也包含所有訂用帳戶資料。除非啟用了[分割訊息實體](service-bus-partitioning.md)，佇列或主題才會對應至一個訊息存放區。訂用帳戶是儲存在與父項主題相同的訊息存放區。除了服務匯流排[進階傳訊](service-bus-premium-messaging.md)以外，訊息存放區會在 SQL Azure 資料庫之上實作。
 
 - **多個登錄存放區。** 登錄存放區包含此縮放單位中定義的所有通知中樞的裝置註冊。登錄存放區是在 SQL Azure 資料庫上實作。
 
@@ -69,4 +69,4 @@
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 - [使用服務匯流排佇列的佇列訊息解決方案](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

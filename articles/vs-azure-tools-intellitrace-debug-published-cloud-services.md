@@ -3,7 +3,7 @@
    description="使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/14/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 
 
@@ -69,4 +69,4 @@ IntelliTrace 記錄檔是循環記錄檔，大小上限是在 IntelliTrace 設�
 
 [偵錯雲端服務](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

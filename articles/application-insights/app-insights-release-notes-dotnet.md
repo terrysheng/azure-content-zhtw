@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="sergkanz"/>
  
 # .NET 適用的 Application Insights SDK 的版本資訊
@@ -109,4 +109,4 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

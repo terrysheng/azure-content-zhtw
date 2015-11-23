@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/16/2015"
+   ms.date="11/06/2015"
    ms.author="mbaldwin"/>
 
 
@@ -46,9 +46,9 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 ### Web 應用程式快速入門指南
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
-|:--:|:--:|:--:|
-|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
+|:--:|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)
 
 ### Web API 快速入門指南
 
@@ -74,16 +74,17 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 - [預覽：如何建置可同時透過個人和公司/學校帳戶登入使用者的應用程式](active-directory-appmodel-v2-overview.md)
 - [預覽：如何建置註冊與登入取用者的應用程式](active-directory-b2c-overview.md)
 
+
 ## 參考
 
 這些文章提供 REST 和驗證程式庫 API、通訊協定、錯誤、程式碼範例和端點的基礎參考。
 
 ###  支援
-- [標記的問題](http://stackoverflow.com/questions/tagged/azure-active-directory)：在 Stack Overflow 上搜尋 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 和 [adal](http://stackoverflow.com/questions/tagged/adal) 標記，以尋找 Azure Active Directory 解決方案。
+- [標記的問題](http://stackoverflow.com/questions/tagged/azure-active-directory)：在堆疊溢位上搜尋 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 和 [adal](http://stackoverflow.com/questions/tagged/adal) 標記，以尋找 Azure Active Directory 解決方案。
 
 ### 代碼
 
-- [Azure Active Directory 開放原始碼程式庫](http://github.com/AzureAD)：尋找程式庫原始碼的最簡單方式，即是使用我們的[程式庫清單](active-directory-authentication-libraries.md)。
+- [Azure Active Directory 開放原始碼程式庫](http://github.com/AzureAD)：尋找程式庫原始碼的最簡單方式是使用我們的[程式庫清單](active-directory-authentication-libraries.md)。
 
 - [Azure Active Directory 範例](http://github.com/AzureADSamples)：瀏覽範例清單的最簡單方式是使用[程式碼範例索引](active-directory-code-samples.md)。
 
@@ -92,7 +93,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [圖形 API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)：Azure Active Directory 圖形 API 的 REST 參考。[檢視互動式圖形 API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-- [圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)：OAuth 2.0 權限範圍，用來控制應用程式對租用戶中的目錄資料有何存取權。
+- [圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)：OAuth 2.0 權限範圍，用來控制 app 對租用戶中的目錄資料有何種存取權。
 
 
 ### 驗證通訊協定
@@ -108,7 +109,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [WS-同盟 1.2 通訊協定參考](https://msdn.microsoft.com/library/azure/dn903702.aspx)：Web 服務同盟 1.2 版規格中所指定的 WS-同盟 1.2 通訊協定。
 
-- [支援的權杖與宣告類型](active-directory-token-and-claims.md)：您可以使用此指南來了解及評估 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告。
+- [支援的權杖與宣告類型](active-directory-token-and-claims.md)：您可以使用本指南來了解及評估 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告。
 
 ## 影片
 
@@ -129,12 +130,12 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 ## 社交
 
-- [Active Directory 團隊部落格](http://blogs.technet.com/b/ad/)：Azure Active Directory 領域的最新發展。
+- [Active Directory 小組部落格](http://blogs.technet.com/b/ad/)：Azure Active Directory 領域的最新發展。
 
-- [Azure Active Directory Graph 團隊部落格](http://blogs.msdn.com/b/aadgraphteam)︰圖形 API 專屬的 Azure Active Directory 資訊。
+- [Azure Active Directory Graph小組部落格](http://blogs.msdn.com/b/aadgraphteam)︰圖形 API 專屬的 Azure Active Directory 資訊。
 
 - [雲端識別](http://www.cloudidentity.net)：一位 Azure Active Directory 重要 PM 對於「身分識別管理即服務」的見解。
 
 - [Twitter 上的 Azure Active Directory](https://twitter.com/azuread)：140 個字元以內的 Azure Active Directory 公告。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

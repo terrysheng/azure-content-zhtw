@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何在 Azure 搜尋服務中實作多面向導覽 | Microsoft Azure" 
+	pageTitle="如何在 Azure 搜尋服務中實作多面向導覽 | Microsoft Azure | 雲端託管搜尋服務" 
 	description="將「多面向導覽」加入與 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 整合的應用程式。" 
 	services="search" 
 	documentationCenter="" 
@@ -372,4 +372,4 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

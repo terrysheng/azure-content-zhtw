@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # 使用 Application Insights 監視 SharePoint 網站
@@ -77,21 +77,21 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 返回 [Azure 入口網站](http://portal.azure.com)中的應用程式刀鋒視窗。
 
-前幾個事件將出現在診斷搜尋中。
+前幾個事件將出現在搜尋中。
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
 如果您預期有更多資料，請在幾秒之後按一下 [重新整理]。
 
-**使用情況分析**連結至使用者、工作階段和頁面檢視的圖表：
+從 [概觀] 刀鋒視窗按一下 [使用情況分析] 以查看使用者、工作階段和頁面檢視次數的圖表：
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-例如，按一下 [頁面檢視] 以查看更多詳細資料：
+按一下任何圖表以查看更多詳細資料 - 例如頁面檢視次數：
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-逐一點選 [使用者] 以查看新的使用者及其位置的相關詳細資料。
+或使用者：
 
 
 ![](./media/app-insights-sharepoint/08-users.png)
@@ -108,4 +108,4 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

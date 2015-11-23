@@ -285,7 +285,9 @@
 
 3. 在 **NotificationsController** 類別中新增下列方法。
 
-	此程式碼會傳送以平台通知服務 (PNS) `pns` 參數為基礎的通知類型。`to_tag` 的值用來設定訊息上的 *username* 標記。此標記必須符合作用中通知中樞註冊的使用者名稱標記。通知訊息會從 POST 要求的主體提取。
+	此程式碼會傳送以平台通知服務 (PNS) `pns` 參數為基礎的通知類型。`to_tag` 的值用來設定訊息上的 *username* 標記。此標記必須符合作用中通知中樞註冊的使用者名稱標記。通知訊息是取自 POST 要求主體，並針對目標 PNS 格式化。
+
+	根據您的支援裝置用來接收通知的平台通知服務 (PNS)，使用不同的格式可支援不同的通知。例如在 Windows 裝置上，您可以搭配 WNS 使用不受其他 PNS 直接支援的[快顯通知](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)。因此您的後端必須針對您想要支援的裝置 PNS，將通知格式化為支援的通知。然後在 [NotificationHubClient 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)上使用適當的傳送 API
 
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -334,7 +336,7 @@
 
 ##發佈新的 WebAPI 後端
 
-1. 為了可以從所有裝置存取此應用程式，我們現在可以將它部署到 Azure 網站。以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]。
+1. 為了可以從所有裝置存取此應用程式，我們現在可以將它部署到 Azure 網站。以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發行]。
 
 2. 選取 [Microsoft Azure Web Apps] 做為發佈目標。
 
@@ -362,4 +364,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

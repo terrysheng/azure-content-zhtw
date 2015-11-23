@@ -1,5 +1,5 @@
 <properties
-   pageTitle="在 Azure 搜尋服務中以多種語言建立文件的索引定義 | Microsoft Azure"
+   pageTitle="在 Azure 搜尋服務中建立多種語言的文件索引 | Microsoft Azure | 雲端託管搜尋服務"
    description="Azure 搜尋服務支援 56 種語言，運用來自 Lucene 的語言分析器和來自 Microsoft 的自然語言處理技術。"
    services="search"
    documentationCenter=""
@@ -16,9 +16,9 @@
    ms.date="10/19/2015"
    ms.author="jlembicz"/>
 
-# 在 Azure 搜尋服務中以多種語言建立文件的索引定義
-
+# 在 Azure 搜尋服務中建立多種語言的文件索引
 > [AZURE.SELECTOR]
+- [Portal](search-language-support.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
 - [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
 
@@ -74,4 +74,4 @@
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

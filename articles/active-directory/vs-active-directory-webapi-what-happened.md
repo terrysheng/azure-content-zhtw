@@ -1,4 +1,4 @@
-<properties pageTitle="我的 WebApi 專案發生什麼狀況 (Visual Studio Azure Active Directory 已連接服務) |Microsoft Azure " description="說明使用 Visual Studio 服務連接至 Azure AD 的 MVC 專案 WebApi 時，會發生什麼事="active-directory" services="active-directory" documentationCenter="" authors="patshea123" manager="douge" editor="tglee"/>
+<properties pageTitle="我的 WebApi 專案發生什麼狀況 (Visual Studio Azure Active Directory 已連接服務) |Microsoft Azure " description="說明使用 Visual Studio 服務連接至 Azure AD 的 MVC 專案 WebApi 時，會發生什麼事="active-directory" services="active-directory" documentationCenter="" authors="TomArcher" manager="douge" editor="tglee"/>
 
 <tags
 	ms.service="active-directory"
@@ -7,7 +7,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # 我的 WebApi 專案發生什麼狀況 (Visual Studio Azure Active Directory 已連接服務)
 
@@ -109,4 +109,4 @@ Azure Active Directory 應用程式已更新為包含「讀取目錄資料」權
 
 [深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

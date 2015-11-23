@@ -471,14 +471,16 @@
 
 **SqlSink** 支援下列屬性：
 
+
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | 使用者指定了要將資料更新插入 (更新/插入) 目標資料表中的預存程序名稱。 | 預存程序的名稱。 | 否 |
-| sqlWriterTableType | 使用者指定了要用於上述預存程序中的資料表類型名稱。複製活動可讓正在移動的資料可用於此資料表類型的暫存資料表。然後，預存程序程式碼可以合併正在複製的資料與現有的資料。 | 資料表類型名稱。 | 否 |
-| writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中 | 整數。(單位 = 資料列計數) | 否 (預設值 = 10000) |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。 | (單位 = 時間範圍) 範例：“00:30:00” (30 分鐘)。 | 否 | 
-| sqlWriterCleanupScript | 使用者指定了可供複製活動執行的查詢，以確定清除特定配量的資料。 | 查詢陳述式。 | 否 | 
-| sliceIdentifierColumnName | 使用者指定了可供複製活動使用自動產生的配量識別碼填入的資料行名稱，在重新執行時將用來清除特定配量的資料。 | 資料類型為 binary(32) 之資料行的資料行名稱。 | 否 |
+| writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中 | 整數。(單位 = 資料列計數) | 否 (預設值 = 10000)
+| sqlWriterCleanupScript | 使用者指定了可供複製活動執行的查詢，以便清除特定配量的資料。如需詳細資訊，請參閱下面「重複性」一節。 | 查詢陳述式。 | 否 |
+| sliceIdentifierColumnName | 使用者指定了可供複製活動使用自動產生的配量識別碼填入的資料行名稱，在重新執行時將用來清除特定配量的資料。如需詳細資訊，請參閱下面「重複性」一節。 | 資料類型為 binary(32) 之資料行的資料行名稱。 | 否 |
+| sqlWriterStoredProcedureName | 將資料更新插入 (更新/插入) 目標資料表中的預存程序名稱。 | 預存程序的名稱。 | 否 |
+| storedProcedureParameters | 預存程序的參數。 | 名稱/值組。參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 | 
+| sqlWriterTableType | 使用者指定了要用於上述預存程序中的資料表類型名稱。複製活動可讓正在移動的資料可用於此資料表類型的暫存資料表。然後，預存程序程式碼可以合併正在複製的資料與現有的資料。 | 資料表類型名稱。 | 否 |
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -503,35 +505,35 @@
 | SQL Server Database Engine 類型 | .NET Framework 類型 |
 | ------------------------------- | ------------------- |
 | bigint | Int64 |
-| binary | 位元組 |
+| binary | Byte |
 | bit | Boolean |
 | char | String、Char |
-| 日期 | DateTime |
+| date | DateTime |
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| 十進位 | 十進位 |
-| FILESTREAM 屬性 (varbinary(max)) | 位元組 |
-| Float | 兩倍 |
-| image | 位元組 | 
+| Decimal | Decimal |
+| FILESTREAM 屬性 (varbinary(max)) | Byte |
+| Float | Double |
+| image | Byte | 
 | int | Int32 | 
-| money | 十進位 |
+| money | Decimal |
 | nchar | String、Char |
 | ntext | String、Char |
-| numeric | 十進位 |
+| numeric | Decimal |
 | nvarchar | String、Char |
-| real | 單一 |
-| rowversion | 位元組 |
+| real | Single |
+| rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | 十進位 | 
-| sql\_variant | 物件 * |
-| 文字 | String、Char |
-| 分析 | TimeSpan |
-| timestamp | 位元組 |
-| tinyint | 位元組 |
+| smallmoney | Decimal | 
+| sql\_variant | Object * |
+| text | String、Char |
+| time | TimeSpan |
+| timestamp | Byte |
+| tinyint | Byte |
 | uniqueidentifier | Guid |
-| varbinary | 位元組 |
+| varbinary | Byte |
 | varchar | String、Char |
 | xml | Xml |
 
@@ -541,4 +543,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

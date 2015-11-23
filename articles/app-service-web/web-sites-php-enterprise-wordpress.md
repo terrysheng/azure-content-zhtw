@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="08/03/2015"
+	ms.date="11/06/2015"
 	ms.author="tomfitz"/>
 
 #Azure App Service 上的企業級 WordPress
@@ -28,7 +28,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
     > [AZURE.NOTE]ClearDB 提供數個 MySQL 組態，每個組態具有不同的效能特性。請參閱 [Azure 市集][cdbnstore]，以取得透過 Azure 市集所提供的產品相關資訊，請參閱 [ClearDB 定價](http://www.cleardb.com/pricing.view)，以取得 ClearDB 直接提供的產品。
 
-* **PHP 5.2.4 或更高版本** - Azure App Service 目前提供 [PHP 5.3、5.4 和 5.5 版][phpwebsite]。
+* **PHP 5.2.4 或更高版本** - Azure App Service 目前提供 [PHP 5.4、5.5 和 5.6 版][phpwebsite]。
 
 	> [AZURE.NOTE]建議您務必在最新版的 PHP 上執行，以確保您擁有最新的安全性問題修正。
 
@@ -53,7 +53,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 ###包含媒體儲存體和快取的多重區域部署
 
-如果網站接受上傳或主機媒體檔案，請使用 Azure Blob 儲存體。如果您需要快取，請考慮 [Redis cache][rediscache]、[Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/gallery/store/)中的其中一個快取產品。
+如果網站接受上傳或主機媒體檔案，請使用 Azure Blob 儲存體。如果您需要快取，請考慮 [Redis cache][rediscache]、[Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/)、[MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/gallery/store/)中的其中一個快取產品。
 
 ![Azure Web 應用程式，裝載於多個區域中，為 MySQLapp 使用 CDBR 高可用性路由器，搭配受管理的快取、Blob 儲存體和 CDN][performance-diagram]
 
@@ -87,7 +87,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 作法... | 目的...
 ------------------------|-----------
 **了解 App Service 執行個體功能** | [定價詳細資料，包括 App Service 層的功能][websitepricing]
-**快取資源** | [Redis cache][rediscache]、[Memcache Cloud](/gallery/store/garantiadata/memcached/)、[MemCachier](/gallery/store/memcachier/memcachier/) 或 [Azure 市集](/gallery/store/)中的其中一個快取產品。
+**快取資源** | [Redis cache][rediscache]、[Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/)、[MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 或 [Azure 市集](/gallery/store/)中的其中一個快取產品。
 **調整您的應用程式** | [調整 Azure App Service 中的 Web 應用程式][websitescale]及 [ClearDB 高可用性路由][cleardbscale]。如果您選擇主控與管理自己的 MySQL 安裝，您應考量可相應放大的 [MySQL 叢集 CGE][cge] (英文)。
 
 ####移轉
@@ -249,10 +249,10 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
 [customdomain]: web-sites-custom-domain-name.md
-[trafficmanager]: /blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
+[trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[rediscache]: https://azure.microsoft.com/documentation/services/redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
@@ -279,8 +279,8 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 [deploy]: web-sites-deploy.md
 [posh]: ../install-configure-powershell.md
 [Azure CLI]: ../xplat-cli-install.md
-[storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
+[storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="設定 ExpressRoute 線路的步驟 | Microsoft Azure"
+   pageTitle="使用 PowerShell 設定 ExpressRoute 線路的步驟 | Microsoft Azure"
    description="本文將逐步引導您建立和佈建 ExpressRoute 線路。本文也會示範如何檢查狀態、更新或刪除和取消佈建線路。"
    documentationCenter="na"
    services="expressroute"
@@ -13,18 +13,19 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
+   ms.date="11/05/2015"
    ms.author="cherylmc"/>
 
-# 建立和修改 ExpressRoute 線路
+# 使用 PowerShell 建立和修改 ExpressRoute 線路
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-circuit-classic.md)
-[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
 本文將逐步引導您使用 PowerShell Cmdlet 和傳統部署模型建立 ExpressRoute 線路。下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路。
 
->[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+
 
 ## 組態必要條件
 
@@ -198,7 +199,7 @@
 
 	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 線路連結到 VNet](expressroute-howto-linkvnet-classic.md)，取得逐步指示。如果您需要為 ExpressRoute 建立虛擬網路，請參閱[為 ExpressRoute 建立虛擬網路](expressroute-howto-createvnet-classic.md)中的相關指示。
 
-##  如何取得 ExpressRoute 線路的狀態？
+##  取得 ExpressRoute 線路的狀態
 
 您隨時可以使用 *Get-AzureCircuit* Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。
 
@@ -311,7 +312,7 @@
 
 >[AZURE.IMPORTANT]降低 ExpressRoute 線路的頻寬時必須中斷運作。頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
 
-##  刪除和取消佈建 ExpressRoute 線路
+##  刪除和佈建 ExpressRoute 線路
 
 您可以執行下列命令來刪除 ExpressRoute 線路：
 
@@ -319,7 +320,7 @@
 
 請注意，您必須取消連結 ExpressRoute 的所有虛擬網路，此作業才會成功。如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 
-如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成*正在停用*。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
+如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成「正在停用」。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
 
 如果服務提供者在您執行上述 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為「未佈建」)，我們將會取消佈建線路並停止向您收費。
 
@@ -328,4 +329,4 @@
 - [設定路由](expressroute-howto-routing-classic.md)
 - [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

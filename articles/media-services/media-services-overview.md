@@ -210,6 +210,10 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 [模式與實例指南](https://wamsg.codeplex.com/) [線上文件](https://msdn.microsoft.com/library/dn735912.aspx) [可下載的電子書](https://www.microsoft.com/download/details.aspx?id=42629)
 
 
+##提供意見反應
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 ##服務等級協定 (SLA)
 
 - 對於媒體服務編碼，我們保證 REST API 交易可用性高達 99.9%。
@@ -227,4 +231,4 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -98,6 +98,27 @@ SQL DB 的彈性資料庫交易也支援協調分散式交易，您需要使用�
 
 您可以自動將彈性資料庫交易所需的 .NET 版本和程式庫安裝和部署至 Azure (到雲端服務中的客體 OS)。對於 Azure 背景工作角色，請使用啟動工作。[在雲端服務角色上安裝 .NET](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/) 中說明概念和步驟。
 
+請注意，與 .NET 4.6 的安裝程式相比，.NET 4.6.1 的安裝程式在於 Azure 雲端服務上進行啟動程序時，需要更多的暫存儲存體。為了確保能夠順利安裝，您必須在 ServiceDefinition.csdef 檔案中，於啟動工作的 LocalResources 區段和環境設定中，增加 Azure 雲端服務的暫存儲存體，如以下範例所示：
+
+	<LocalResources>
+	...
+		<LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+		<LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+	</LocalResources>
+	<Startup>
+		<Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+			<Environment>
+		...
+				<Variable name="TEMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+				</Variable>
+				<Variable name="TMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+				</Variable>
+			</Environment>
+		</Task>
+	</Startup>
+
 ## 監視交易狀態
 
 使用 SQL DB 中的動態管理檢視 (DMV) 來監視進行中彈性資料庫交易的狀態和進度。所有與交易相關的 DMV 都與 SQL DB 中的分散式交易有關聯。您可以在這裡找到對應的 DMV 清單：[交易相關的動態管理檢視和函數 (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx)。
@@ -105,8 +126,8 @@ SQL DB 的彈性資料庫交易也支援協調分散式交易，您需要使用�
 這些 DMV 特別有用：
 
 * **sys.dm\_tran\_active\_transactions**：列出目前使用中的交易及其狀態。UOW (工作單位) 資料行可以識別屬於相同分散式交易的不同子交易。相同分散式交易內的所有交易具有相同的 UOW 值。如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms174302.aspx)。
-* **sys.dm\_tran\_database\_transactions**：提供交易的其他資訊，例如記錄檔中交易的位置。如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms186957.aspx)。
-* **sys.dm\_tran\_locks**：提供目前進行中交易所持有的鎖定的相關資訊。如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms190345.aspx)。
+* **sys.dm\_tran\_database\_transactions**：提供交易的其他相關資訊，例如交易在記錄檔中的位置。如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms186957.aspx)。
+* **sys.dm\_tran\_locks**：提供目前進行中交易所持有的鎖定相關資訊。如需詳細資訊，請參閱 [DMV 文件](https://msdn.microsoft.com/library/ms190345.aspx)。
 
 ## 限制 
 
@@ -119,9 +140,9 @@ SQL DB 中的彈性資料庫交易目前有下列限制：
 
 ## 詳細資訊
 
-您的 Azure 應用程式還未使用彈性資料庫功能嗎？ 請瀏覽[文件中心](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/)。如有問題，請在 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)上與我們連絡，如需要求增加功能，請將這些功能新增至 [SQLSQL Database 意見反應論壇](http://feedback.azure.com/forums/217321-sql-database)。
+您的 Azure 應用程式還未使用彈性資料庫功能嗎？ 請瀏覽我們的[文件導引圖](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/)。如有問題，請在 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)上與我們連絡，如需要求增加功能，請將這些功能新增至 [SQLSQL Database 意見反應論壇](http://feedback.azure.com/forums/217321-sql-database)。
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

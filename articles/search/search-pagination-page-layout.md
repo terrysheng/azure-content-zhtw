@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何在 Azure 搜尋服務中對搜尋結果分頁 | Microsoft Azure" 
+	pageTitle="如何分頁 Azure 搜尋服務中的搜尋結果 | Microsoft Azure | 雲端託管搜尋服務" 
 	description="Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 中的分頁方式。" 
 	services="search" 
 	documentationCenter="" 
@@ -114,4 +114,4 @@
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

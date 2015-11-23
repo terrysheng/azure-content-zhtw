@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="11/09/2015"
 	ms.author="jgao"/>
 
 # 開發 HDInsight 的指令碼動作指令碼
@@ -200,9 +200,9 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 在此範例中，您必須確定儲存體帳戶 'somestorageaccount' 中的容器 'somecontainer' 可公開存取。否則，指令碼將會擲回「找不到」例外狀況而且失敗。
 
-### 將參數傳遞至 Add-AzureHDInsightScriptAction cmdlet
+### 傳遞參數到 Add-AzureRmHDInsightScriptAction Cmdlet
 
-若要將多個參數傳遞至 AzureHDInsightScriptAction cmdlet，您必須先格式化字串值以包含指令碼的所有參數。例如：
+若要將多個參數傳遞至 Add-AzureRmHDInsightScriptAction Cmdlet，您必須先格式化字串值以包含指令碼的所有參數。例如：
 
 	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
@@ -351,4 +351,4 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

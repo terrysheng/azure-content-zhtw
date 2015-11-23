@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="tomfitz"/>
 
 # 將資源移動到新的資源群組或訂用帳戶
@@ -30,6 +30,7 @@
 2. 您要將資源移動到其中的目的地資源群組，只應包含與該資源共用相同應用程式生命週期的資源。
 3. 若使用 Azure PowerShell，請確定您使用最新版本。**Move-AzureResource** 命令經常更新。若要更新您的版本，執行 Microsoft Web Platform Installer 並檢查是否有新的版本可用(如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell](powershell-install-configure.md))。
 4. 移動作業可能需要一段時間來完成，且作業期間您的 PowerShell 提示字元會等候直到作業完成。
+5. 當移動資源時，會在作業期間鎖定來源群組和目標群組。群組上的寫入和刪除作業將會封鎖，直到移動完成。
 
 ## 支援的服務
 
@@ -87,18 +88,7 @@
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-以目前包含您要移動之資源的訂用帳戶和資源群組取代 **{source-subscription-id}** 和 **{source-resource-group-name}**。對於 {api-version}，請使用 **2015-01-01**。
-
-在要求中包含定義目標資源群組和您想要移動之資源的 JSON 物件。
-
-    {
-        "targetResourceGroup": "/subscriptions/{target-subscription-id}/resourceGroups/{target-resource-group-name}", "resources": [
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}"
-        ]
-    }
+在要求主體中，您可以指定目標資源群組以及要移動的資源。如需有關移動 REST 作業的詳細資訊，請參閱[移動資源](https://msdn.microsoft.com/library/azure/mt218710.aspx)。
 
 ## 後續步驟
 - [Azure PowerShell 搭配資源管理員使用](./powershell-azure-resource-manager.md)
@@ -106,4 +96,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

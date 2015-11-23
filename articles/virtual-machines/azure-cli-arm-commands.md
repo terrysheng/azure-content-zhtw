@@ -1251,7 +1251,23 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 	info:    network public-ip create command OK
 
 
-參數選項：-h, --help 輸出使用量資訊 -v, --verbose 使用詳細資訊輸出 --json 使用 JSON 輸出 -g, --resource-group <resource-group> 資源群組的名稱 -n, --name <name> 公用 IP 的名稱 -l, --location <location> 位置 -d, --domain-name-label <domain-name-label> 網域名稱標籤。這會將 DNS 設定為 <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> 配置方法 [Static][Dynamic] -i, --idletimeout <idletimeout> 以分鐘為單位的閒置逾時 -f, --reverse-fqdn <reverse-fqdn> 反向 FQDN -t, --tags <tags> 標記的清單。可以使用多個選項。格式為「名稱 = 值」。名稱為必填，而值為選擇性項目。例如，-t tag1=value1;tag2 -s, --subscription <subscription> 訂用帳戶識別碼 <br>
+參數選項：
+	-h, --help                                     輸出使用量資訊
+	-v, --verbose                                  使用詳細資訊輸出
+	--json                                         使用 JSON 輸出
+	-g, --resource-group <resource-group>          資源群組的名稱
+	-n, --name <name>                              公用 IP 的名稱
+	-l, --location <location>                      位置
+	-d, --domain-name-label <domain-name-label>    網域名稱標籤。
+	這會將 DNS 設定為 <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>    配置方法 [Static][Dynamic]
+	-i, --idletimeout <idletimeout>                以分鐘為單位的閒置逾時
+	-f, --reverse-fqdn <reverse-fqdn>              反向 FQDN
+	-t, --tags <tags>                              標記的清單。
+	可以使用多個選項。格式為「名稱 = 值」。
+	名稱為必填，而值為選擇性項目。例如，-t tag1=value1;tag2
+	-s, --subscription <subscription>              訂用帳戶識別碼
+<br>
 
 	network public-ip set [options] <resource-group> <name>
 更新現有公用 IP 資源的屬性。在下列範例中，我們會將公用 IP 位址從動態變更為靜態。
@@ -1742,4 +1758,4 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

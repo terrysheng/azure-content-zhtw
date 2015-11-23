@@ -250,7 +250,7 @@ Azure IoT 中樞可根據共用存取原則和裝置身分識別登錄安全性�
 
 在這兩種情況下，密碼欄位都包含[權杖格式](#tokenformat)一節所述的權杖。
 
-> [AZURE.NOTE][Azure IoT 中樞 SDK][lnk-apis-sdks] 會在連接至服務時自動產生權杖。在某些情況下，SDK 在其所支援的通訊協定或可用的驗證方法中會受限。如需詳細資訊，請參閱 [Azure IoT 中樞 SDK][lnk-apis-sdks] 文件。
+> [AZURE.NOTE] [Azure IoT 中樞 SDK][lnk-apis-sdks] 會在連接至服務時自動產生權杖。在某些情況下，SDK 在其所支援的通訊協定或可用的驗證方法中會受限。如需詳細資訊，請參閱 [Azure IoT 中樞 SDK][lnk-apis-sdks] 文件。
 
 #### 相較於 CBS 的 SASL PLAIN
 
@@ -532,4 +532,4 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

@@ -60,7 +60,8 @@
 <tr><td>Azure SQL Database 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>Azure SQL Database 的登入名稱。</td></tr>
 <tr><td>Azure SQL Database 登入密碼</td><td>$sqlDatabasePassword</td><td></td><td>Azure SQL Database 的登入密碼。</td></tr>
 <tr><td>Azure SQL Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出或匯入的 Azure SQL Database。</td></tr>
-</table>> [AZURE.NOTE]根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure Preview 入口網站中加以啟用。如需關於建立 Azure SQL Database 和設定防火牆規則的指示，請參閱[建立和設定 SQL Database][sqldatabase-create-configue]。
+</table>
+> [AZURE.NOTE]根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure Preview 入口網站中加以啟用。如需關於建立 Azure SQL Database 和設定防火牆規則的指示，請參閱[建立和設定 SQL Database][sqldatabase-create-configue]。
 	
 	* **SQL Server**：如果您的 HDInsight 叢集與 SQL Server 位於同一個 Azure 虛擬網路上，您可以使用本文中的步驟在 SQL Server Database 上匯入和匯出資料。
 	

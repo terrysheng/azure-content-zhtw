@@ -284,7 +284,8 @@
 
 		sudo vi /etc/my.cnf.d/server.cnf
 
-	移除開頭的 **#** 取消註解 **`wsrep_cluster_name`** 和 **`wsrep_cluster_address`**，並且驗證它們是您所想要的結果。此外，分別使用 VM 的 IP 位址和名稱取代 **`wsrep_node_address`** 中的 **`<ServerIP>`** 和 **`wsrep_node_name`** 中的 **`<NodeName>`**，並一併取消這幾行的註解。
+	移除開頭的 **#** 取消註解 **`wsrep_cluster_name`** 和 **`wsrep_cluster_address`**，並且驗證它們是您所想要的結果。
+    此外，分別使用 VM 的 IP 位址和名稱取代 **`wsrep_node_address`** 中的 **`<ServerIP>`** 和 **`wsrep_node_name`** 中的 **`<NodeName>`**，並一併取消這幾行的註解。
 
 5. 啟動 MariaDB1 上的叢集，並讓它在啟動時執行
 

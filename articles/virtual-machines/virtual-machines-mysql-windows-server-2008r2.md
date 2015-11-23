@@ -89,7 +89,7 @@
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
 
-19.	您也可以使用 C:\\Program Files (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini 檔案中的項目設定伺服器預設設定，例如基底與資料目錄和磁碟機。如需詳細資訊，請參閱 [5\.1.2 伺服器組態預設值](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
+19.	您也可以使用 C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini 檔案中的項目設定伺服器預設設定，例如基底與資料目錄和磁碟機。如需詳細資訊，請參閱 [5.1.2 伺服器組態預設值](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
 
 ## 設定端點
 

@@ -54,7 +54,7 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 	![閘道應用程式設定](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. 新增 **MS\_CrossDomainOrigins** 應用程式設定。讓此設定的值成為您要提供 API 應用程式存取權的 HTTP 主機清單 (以逗號分隔)。如果您要提供多部主機的存取權，則可將 *appSetting* 的值設定為類似下列的程式碼。
+1. 新增 **MS_CrossDomainOrigins** 應用程式設定。讓此設定的值成為您要提供 API 應用程式存取權的 HTTP 主機清單 (以逗號分隔)。如果您要提供多部主機的存取權，則可將 *appSetting* 的值設定為類似下列的程式碼。
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -80,7 +80,7 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. 開啟 *App\_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。
+1. 開啟 *App_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。
 
 		config.EnableCors();
 

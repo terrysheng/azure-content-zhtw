@@ -31,15 +31,15 @@
 
 項目 | 虛擬機器名稱 | 資源庫映像 | 最小大小
 --- | --- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | A2 (中型)
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | A2 (中型)
-3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (叢集多數節點，範例 MN1) | Windows Server 2012 R2 Datacenter | A1 (小型)
-6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+1. | ______________ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | A2 (中型)
+2. | ______________ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | A2 (中型)
+3. | ______________ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+4. | ______________ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+5. | ______________ (叢集多數節點見證，範例 MN1) | Windows Server 2012 R2 Datacenter | A1 (小型)
+6. | ______________ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+7. | ______________ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+8. | ______________ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+9. | ______________ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
 
 **資料表 M – SharePoint 2013 內部網路伺服器陣列在 Azure 中的虛擬機器**
 

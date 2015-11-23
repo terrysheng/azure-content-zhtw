@@ -42,7 +42,9 @@
 
 	接著，將該類別的主體取代為下列程式碼：
 
-	``` class SimpleEventProcessor : IEventProcessor { Stopwatch checkpointStopWatch;
+		class SimpleEventProcessor : IEventProcessor
+	    {
+	        Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {

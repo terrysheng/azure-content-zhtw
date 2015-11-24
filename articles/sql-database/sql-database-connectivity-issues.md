@@ -1,6 +1,6 @@
 <properties
 	pageTitle="修正暫時性連接中斷的動作 |Microsoft Azure"
-	description="與 Azure SQL Database 互動時防止、診斷和修正連接錯誤和其他暫時性錯誤的動作。"
+	description="與 Azure SQL Database 互動時排解、診斷和防止連接錯誤和其他暫時性錯誤的動作。"
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="genemi"/>
 
 
-# 修正 SQL Database 中連接錯誤和暫時性錯誤的動作
+# 排解 SQL database 的暫時性錯誤和連接錯誤
 
 
-本主題描述如何防止、診斷和減少您的用戶端程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。
+本主題描述如何防止、排解、診斷和減少您的用戶端程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。
 
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
@@ -278,7 +278,7 @@ Enterprise Library 6 (EntLib60) 提供 .NET 管理旳類別來協助記錄：- [
 | 記錄查詢 | 說明 |
 | :-- | :-- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [Sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視提供個別事件的相關資訊，包括可能導致暫時性錯誤或連線失敗的一些事件。<br/><br/>理想的情況下，您可以使 **start\_time** 或 **end\_time** 值與用戶端應用程時式何時遇到問題的相關資訊相互關聯。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | [Sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視針對其他診斷提供事件類型的彙總計數。<br/><br/>**秘訣：**您必須連接到**master**資料庫才能執行此動作。 |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | [Sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視針對其他診斷提供事件類型的彙總計數。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
 
 
 ### 診斷：在 SQL Database 記錄中搜尋問題事件
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，可將新增重試行為的工作簡化為幾乎一切事物。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

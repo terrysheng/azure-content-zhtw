@@ -1,11 +1,12 @@
 <properties 
-    pageTitle="使用 PowerShell 建立 Azure SQL Database" 
-    description="使用 PowerShell 建立 Azure SQL Database" 
-    services="sql-database" 
+    pageTitle="使用 PowerShell 新增 SQL Database 設定| Microsoft Azure" 
+    description="了解如何使用 PowerShell 建立新的 SQL Database。透過 PowerShell cmdlet 可以管理一般資料庫設定工作。" 
+    keywords="建立新的 sql database,資料庫設定"
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
-    editor=""/>
+    editor="cgronlun"/>
 
 <tags
     ms.service="sql-database"
@@ -16,7 +17,7 @@
     ms.date="10/20/2015"
     ms.author="sstein"/>
 
-# 使用 PowerShell 建立 SQL Database
+# 建立新的 SQL Database 並使用 PowerShell Cmdlet 執行一般資料庫設定工作 
 
 **單一資料庫**
 
@@ -26,14 +27,12 @@
 - [PowerShell](sql-database-get-started-powershell.md)
 
 
-## 概觀
+了解如何建立新的 SQL Database 並使用 PowerShell Cmdlet 執行一般資料庫設定工作。
 
-本文將說明如何使用 PowerShell 建立 SQL Database。
-
-> [AZURE.IMPORTANT]從 Azure PowerShell 1.0 Preview 起，不再提供 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。本文中的範例使用新的 PowerShell 1.0 Preview 命名慣例。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell) (英文)。
+> [AZURE.IMPORTANT]從 Azure PowerShell 1.0 Preview 起，不再提供 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。本文中的範例使用新的 PowerShell 1.0 Preview 命名慣例。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)。
 
 
-若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行，且由於 Switch-AzureMode 已移除，因此您應該執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 下載並安裝最新的Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行中。由於 Switch-AzureMode 已移除，因此您應該執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 下載並安裝最新的Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 - 如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
 
@@ -57,7 +56,7 @@
 
 成功執行 **Select-AzureRMSubscription** 之後，您會返回 PowerShell 提示字元。如果您有一個以上的訂用帳戶，您可以執行 **Get-AzureRMSubscription** 並確認您要使用的訂用帳戶顯示 **IsCurrent: True**。
 
-## 建立資源群組、伺服器和防火牆規則
+## 資料庫設定：建立資源群組、伺服器和防火牆規則
 
 現在您有權在您選取的 Azure 訂用帳戶下執行 Cmdlet，因此下一步是建立含有伺服器的資源群組，以在伺服器中建立資料庫。為了使用您選擇的任何有效位置，您可以編輯下一個命令。執行 **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** 以取得有效位置的清單。
 
@@ -91,7 +90,7 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 如需詳細資訊，請參閱 [Azure SQL Database 防火牆](sql-database-firewall-configure.md)。
 
 
-## 建立 SQL 資料庫
+## 建立新的 SQL Database
 
 現在您已擁有資源群組、伺服器和設定完成的防火牆規則，便可以存取伺服器。
 
@@ -103,7 +102,7 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 
 成功建立資料庫後，會出現資料庫詳細資料。
 
-## 建立 SQL Database PowerShell 指令碼
+## 建立新的 SQL Database PowerShell 指令碼
 
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     $ResourceGroupName = "resourcegroupname"
@@ -136,6 +135,7 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 
 
 ## 後續步驟
+建立新的 SQL Database 並執行基本的資料庫設定工作之後，您就可以執行下列作業：
 
 - [連接 SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
 
@@ -144,4 +144,4 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 
 - [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

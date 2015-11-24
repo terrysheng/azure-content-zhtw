@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="11/10/2015"
    ms.author="bwren" />
 
 # 設定 Azure 自動化
@@ -52,6 +52,33 @@
 10. 登出 Azure，然後使用您剛才建立的帳戶登入。將提示您變更使用者的密碼。
 11. 為您所建立的使用者帳戶建立新 [Azure 自動化認證資產](http://msdn.microsoft.com/library/dn940015.aspx)。[**認證類型**] 應該是 [**Windows PowerShell 認證**]。
 
+## 建立自動化帳戶
+
+自動化帳戶是 Azure 自動化資源的容器。可供您劃分您的環境或進一步組織您的工作流程。如果您已經建立自動化帳戶，則可以略過此步驟。
+
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
+
+2. 在 Azure Preview 入口網站中，按一下 [新增] > [管理] > [自動化帳戶]
+
+3. 在 [加入自動化帳戶] 刀鋒視窗中，設定您的自動化帳戶詳細資料。
+
+>[AZURE.NOTE]使用 Azure Preview 入口網站來建立自動化帳戶時，帳戶和與其相關聯的所有資源，不會回到傳統管理入口網站。
+
+以下是要設定的參數清單：
+
+|參數 |說明 |
+|:---|:---|
+| 名稱 | 您的自動化帳戶的名稱；它必須是唯一的值。 |
+| 資源群組 | 資源群組可簡單地查看和管理相關的 Azure 資源。在 Azure Preview 入口網站中，您可以選擇現有的資源群組或為自動化帳戶建立新群組，而 Azure 管理入口網站中，所有的自動化帳戶會放在預設資源群組中。 |
+| 訂閱 | 從可用的訂用帳戶清單中選擇訂用帳戶。 |
+| 區域 | 此區域指定帳戶中的自動化資源將儲存在哪裡。您可以從清單選擇任何區域，這不會影響帳戶的功能，但如果帳戶區域靠近其他 Azure 資源的儲存位置，則 Runbook 可能會執行得更快。 |
+| 帳戶選項 | 此選項可讓您選擇要在新自動化帳戶建立的資源；選取 [是] 將建立教學課程 Runbook。 |
+
+![Create Account](media/automation-configuration/automation-01-create-automation-account.png)
+
+>[AZURE.NOTE]當使用傳統管理入口網站建立的自動化帳戶使用 Azure Preview 入口網站[移至不同的資源群組](../resource-group-move-resources.md)時，自動化帳戶將不再可於 Azure 傳統入口網站中使用，因為傳統管理入口網站不支援 Azure 資源管理員帳戶。
+
+
 
 ## 在 Runbook 中使用認證
 
@@ -67,4 +94,4 @@
 - [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

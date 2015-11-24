@@ -12,11 +12,11 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
-# 開始使用事件中樞
+# 開始使用事件中心
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
@@ -108,4 +108,4 @@
 [佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

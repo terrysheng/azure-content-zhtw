@@ -21,7 +21,7 @@
 
  >[AZURE.NOTE]這些指示是針對設定新的機器。如果您已安裝舊版的 Service Fabric，請遵循[指示以更新您的開發環境](service-fabric-update-your-development-environment.md)。
 
-## 先決條件
+## 必要條件
 ### 支援的作業系統版本
 下列為支援的作業系統版本：
 
@@ -46,6 +46,14 @@ Service Fabric 元件的安裝是由 Web Platform Installer 所完成。遵循�
 3. 檢閱並接受使用者授權合約。
 
 系統將自動繼續安裝。
+
+## 安裝 Azure PowerShell
+
+若要設定 Service Fabric 叢集，您必須安裝 Azure PowerShell 指令碼。
+
+您可以執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?LinkId=320376) 來下載和安裝 Azure PowerShell 模組。出現提示時，請按一下 [執行]。Web Platform Installer 會安裝 Azure PowerShell 模組和所有相依項目。請依照提示來完成安裝。
+
+> [AZURE.NOTE]如果您只想要下載 PowerShell 安裝程式，請瀏覽 https://github.com/Azure/azure-powershell/releases。PowerShell Cmdlet 的原始程式碼也可以在此儲存機制中找到
 
 ## 啟用 PowerShell 指令碼執行
 
@@ -106,4 +114,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

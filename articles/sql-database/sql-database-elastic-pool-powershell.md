@@ -1,7 +1,8 @@
 <properties 
-    pageTitle="使用 PowerShell 建立 Azure SQL Database 彈性資料庫集區 | Microsoft Azure" 
-    description="建立彈性資料庫集區，以多個 Azure SQL Database 之間共用資源。" 
-    services="sql-database" 
+    pageTitle="使用彈性資料庫集區相應放大資源 | Microsoft Azure" 
+    description="了解如何藉由建立彈性資料庫集區來管理多個資料庫，進而使用 PowerShell 來相應放大Azure SQL Database 資源。" 
+	keywords="多個資料庫,相應放大"    
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
@@ -16,17 +17,18 @@
     ms.date="11/06/2015"
     ms.author="adamkr; sstein"/>
 
-# 使用 PowerShell 建立彈性資料庫集區
+# 使用 PowerShell 建立彈性資料庫集區，以相應放大多個 SQL Database 的資源 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-
-本文說明如何使用 PowerShell Cmdlet 建立[彈性資料庫集區](sql-database-elastic-pool.md)。
+了解如何使用 PowerShell Cmdlet 建立[彈性資料庫集區](sql-database-elastic-pool.md)，以管理多個資料庫。
 
 > [AZURE.NOTE]彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server.md)。
+
+彈性資料庫集區可讓您相應放大多個 SQL Database 的資料庫資源和管理。
 
 本文說明如何建立所需的一切 (包括 V12 伺服器) 以建立和設定彈性資料庫集區，但建立 Azure 訂用帳戶除外。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
 
@@ -60,7 +62,7 @@
 
 ## 建立資源群組、伺服器和防火牆規則
 
-現在您有權在您的 Azure 訂用帳戶下執行 Cmdlet，因此下一步是建立含有伺服器的資源群組，以在伺服器中建立彈性資料庫集區。為了使用您選擇的任何有效位置，您可以編輯下一個命令。執行 **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** 以取得有效位置的清單。
+現在您有權在您的 Azure 訂用帳戶下執行 Cmdlet，因此下一步是建立含有伺服器的資源群組，以在伺服器中建立含有多個資料庫的彈性資料庫集區。為了使用您選擇的任何有效位置，您可以編輯下一個命令。執行 **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** 以取得有效位置的清單。
 
 如果您已經有資源群組，可以前往下一個步驟，或執行以下命令來建立新的資源群組：
 
@@ -102,7 +104,7 @@
 
 ### 在彈性資料庫集區內建立新的彈性資料庫
 
-若要直接在集區內建立新的資料庫，請使用 [New-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) Cmdlet，並設定 **ElasticPoolName** 參數。
+若要直接在集區內建立新的資料庫，請使用 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) Cmdlet，並設定 **ElasticPoolName** 參數。
 
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -111,7 +113,7 @@
 
 ### 將現有資料庫移入彈性資料庫集區
 
-若要將現有資料庫移入集區，請使用 [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) Cmdlet，並設定 **ElasticPoolName** 參數。
+若要將現有資料庫移入集區，請使用 [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) Cmdlet，並設定 **ElasticPoolName** 參數。
 
 
 這裡為了示範，建立了不在彈性資料庫集區中的資料庫。
@@ -129,6 +131,8 @@
 
 
 ## 監視彈性資料庫和彈性資料庫集區
+彈性資料庫集區提供計量報告，可協助您相應放大工作量以管理多個資料庫。
+
 
 ### 取得彈性資料庫集區作業的狀態
 
@@ -232,4 +236,4 @@
 
 如需關於彈性資料庫和彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

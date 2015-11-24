@@ -1,7 +1,8 @@
 <properties
-	pageTitle="使用 C# 查詢 SQL Database | Microsoft Azure"
-	description="IP 位址、連接字串、安全登入的組態檔和免費 Visual Studio 的詳細資料皆可啟用 C# 程式以使用 ADO.NET 連接到您在雲端中的 Azure SQL Database 資料庫。"
+	pageTitle="透過 C# 查詢連接到 SQL Database | Microsoft Azure"
+	description="以 C# 撰寫程式以查詢和連接到 SQL Database。有關 IP 位址、連接字串、安全登入和免費 Visual Studio 的資訊。"
 	services="sql-database"
+	keywords="c# 資料庫查詢, c# 查詢, 連接到資料庫"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -17,22 +18,22 @@
 	ms.author="genemi"/>
 
 
-# 使用 C&#x23; 連接及查詢您的 SQL Database
+# 以 & #x 23; 撰寫程式以查詢和連接到 SQL Database
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-您想要撰寫在雲端中使用 ADO.NET 連接到 Azure SQL Database 資料庫的 C# 程式。
+了解如何以 C# 撰寫程式來查詢和連接到雲端的 Azure SQL Database。
 
-本主題會為每位 Azure SQL Database 和 C# 的新手描述每一個步驟。對 Microsoft SQL Server 和 C# 有豐富經驗的人可略過一些步驟並著重於專屬於 SQL Database 的步驟。
+本文會為 Azure SQL Database、C# 和 ADO.NET 的每位新手描述每一個步驟。對 Microsoft SQL Server 和 C# 有豐富經驗的人可略過一些步驟並著重於專屬於 SQL Database 的步驟。
 
 
 ## 必要條件
 
 
-若要執行 C# 程式碼範例，您必須具備：
+若要執行 C# 查詢程式碼範例，您必須具備：
 
 
 - Azure 帳戶和訂用帳戶。您可以註冊[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
@@ -75,7 +76,7 @@
 5. 為了方便起見，請按一下前述每個刀鋒視窗上的最小化控制項。
 
 6. 按一下資料庫刀鋒視窗頂端附近的 [在 Visual Studio 中開啟] 按鈕。關於 Visual Studio 的新刀鋒視窗會利用連結開啟以安裝 Visual Studio 的位置。
- 
+
 	![[在 Visual Studio 中開啟] 按鈕][20-OpenInVisualStudioButton]
 
 7. 按一下 [社群 (免費)] 連結或類似的連結。新的網頁會隨即新增。
@@ -126,7 +127,7 @@
 ## 步驟 4：取得連接字串
 
 
-使用 [Azure Preview 入口網站](http://portal.azure.com/)複製資料庫的連接字串。
+使用 [Azure Preview 入口網站](http://portal.azure.com/)來複製連接到 SQL Database 所需的連接字串。
 
 您的第一次使用會將 Visual Studio 連接到您的 Azure SQL Database **AdventureWorksLT** 資料庫。
 
@@ -145,10 +146,10 @@
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
-	    <startup> 
+	    <startup>
 	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	    </startup>
-	
+
 		<connectionStrings>
 			<clear />
 			<add name="ConnectionString4NoUserIDNoPassword"
@@ -172,9 +173,9 @@
 ## 步驟 6：在範例 C# 程式碼中貼上
 
 
-1. 在 Visual Studio 中，使用 [方案總管] 窗格開啟您的 **Program.cs** 檔案。 
+1. 在 Visual Studio 中，使用 [方案總管] 窗格開啟您的 **Program.cs** 檔案。
 
-	![貼到我們的範例 C# 程式碼中][40-VSProgramCsOverlay]
+	![在範例 C# 查詢程式碼中貼上。][40-VSProgramCsOverlay]
 
 2. 在下列範例 C# 程式碼中貼上以覆寫 Program.cs 中的所有起始程式碼。
  - 如果您想要較短的程式碼範例，您可以將整個連接字串指派給變數 **SQLConnectionString** 當做常值。然後您可以清除這兩個方法 **GetConnectionStringFromExeConfig** 和 **GatherPasswordFromConsole**。
@@ -186,7 +187,7 @@ using G = System.Configuration;   // System.Configuration.dll
 using D = System.Data;            // System.Data.dll
 using C = System.Data.SqlClient;  // System.Data.dll
 using T = System.Text;
-	
+
 namespace ConnectAndQuery_Example
 {
 	class Program
@@ -195,7 +196,7 @@ namespace ConnectAndQuery_Example
 		{
 			string connectionString4NoUserIDNoPassword,
 				password, userName, SQLConnectionString;
-	
+
 			// Get most of the connection string from ConnectAndQuery_Example.exe.config
 			// file, in the same directory where ConnectAndQuery_Example.exe resides.
 			connectionString4NoUserIDNoPassword = Program.GetConnectionStringFromExeConfig
@@ -205,17 +206,17 @@ namespace ConnectAndQuery_Example
 			userName = Console.ReadLine();
 			// Get the password from keyboard input.
 			password = Program.GatherPasswordFromConsole();
-	
+
 			SQLConnectionString = "Password=" + password + ';' +
 				"User ID=" + userName + ";" + connectionString4NoUserIDNoPassword;
-	
+
 			// Create an SqlConnection from the provided connection string.
 			using (C.SqlConnection connection = new C.SqlConnection(SQLConnectionString))
 			{
 				// Formulate the command.
 				C.SqlCommand command = new C.SqlCommand();
 				command.Connection = connection;
-	
+
 				// Specify the query to be executed.
 				command.CommandType = D.CommandType.Text;
 				command.CommandText = @"
@@ -224,7 +225,7 @@ namespace ConnectAndQuery_Example
 					";
 				// Open a connection to database.
 				connection.Open();
-	
+
 				// Read data returned for the query.
 				C.SqlDataReader reader = command.ExecuteReader();
 				while (reader.Read())
@@ -237,12 +238,12 @@ namespace ConnectAndQuery_Example
 			Console.ReadKey(true);
 		}
 		//----------------------------------------------------------------------------------
-	
+
 		static string GetConnectionStringFromExeConfig(string connectionStringNameInConfig)
 		{
 			G.ConnectionStringSettings connectionStringSettings =
 				G.ConfigurationManager.ConnectionStrings[connectionStringNameInConfig];
-	
+
 			if (connectionStringSettings == null)
 			{
 				throw new ApplicationException(String.Format
@@ -251,7 +252,7 @@ namespace ConnectAndQuery_Example
 			}
 				return connectionStringSettings.ConnectionString;
 		}
-	
+
 		static string GatherPasswordFromConsole()
 		{
 			T.StringBuilder passwordBuilder = new T.StringBuilder(32);
@@ -294,7 +295,7 @@ namespace ConnectAndQuery_Example
 
 2. 從鍵盤收集使用者名稱和密碼，並將其新增以完成連接字串。
 
-3. 使用連接字串和 ADO.NET 類別來連接至 Azure SQL Database 上的 **AdventureWorksLT** 示範資料庫。
+3. 使用連接字串和 ADO.NET 類別來連接至 SQL Database 上的 **AdventureWorksLT** 示範資料庫。
 
 4. 發出 SQL **SELECT** 以從 **SalesLT** 資料表讀取。
 
@@ -312,7 +313,7 @@ namespace ConnectAndQuery_Example
 ## 步驟 7：加入伺服器防火牆中允許的 IP 位址範圍
 
 
-在用戶端電腦的 IP 位址加入 SQL Database 防火牆之前，您的用戶端 C# 程式無法連接到 Azure SQL Database。您的程式將會失敗並出現一個好用的錯誤訊息，陳述必要的 IP 位址。
+在用戶端電腦的 IP 位址加入 SQL Database 防火牆之前，您的用戶端 C# 程式無法連接到 SQL Database。您的程式將會失敗並出現一個好用的錯誤訊息，陳述必要的 IP 位址。
 
 
 您可以使用 [Azure Preview 入口網站](http://portal.azure.com/)新增 IP 位址。
@@ -323,14 +324,14 @@ namespace ConnectAndQuery_Example
 
 
 
-如需詳細資訊，請參閱：<br/> [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
+如需詳細資訊，請參閱：<br/> [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
 
 
 
 ## 步驟 8：執行程式
 
 
-1. 在 Visual Studio 中，藉由功能表 [偵錯] > [開始偵錯] 執行您的程式。主控台視窗隨即顯示。
+1. 在 Visual Studio 中，藉由功能表 [偵錯] > [開始偵錯] 執行您的 C# 查詢程式。主控台視窗隨即顯示。
 
 2. 依照指示輸入您的使用者名稱和密碼。
  - 幾個連接工具需要您的使用者名稱附加 "@{your\_serverName\_here}"，但這個後置詞對於 ADO.NET 而言是選擇性的。請務必輸入此後置詞。
@@ -357,4 +358,4 @@ namespace ConnectAndQuery_Example
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,10 +1,10 @@
 <properties
-    pageTitle="iOS App 適用的 Application Insights | Microsoft Azure"
-    description="使用 Application Insights 分析您 iOS 應用程式的使用情況和效能。"
+    pageTitle="iOS 應用程式的分析 | Microsoft Azure"
+    description="分析 iOS 應用程式的使用情況和效能。"
     services="application-insights"
     documentationCenter="ios"
     authors="alancameronwills"
-    manager="ronmart"/>
+    manager="douge"/>
 
 <tags
     ms.service="application-insights"
@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/27/2015"
+    ms.date="11/15/2015"
     ms.author="awills"/>
 
-# iOS 應用程式的 Application Insights
+# iOS 應用程式的分析
 
 Visual Studio Application Insights 可讓您監視行動應用程式的使用量、事件及當機。
+
+
+> [AZURE.NOTE]我們建議使用 [HockeyApp](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios) 來獲得當機報告、分析、散發和意見反應管理。
 
 ## 需求
 
@@ -35,75 +38,13 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 開啟的刀鋒視窗是您要查看您的應用程式效能和使用量資料的位置。若要在下次登入 Azure 時回到此位置，您應該會在開始畫面上發現它的磚。或者按一下 [瀏覽] 以尋找它。
 
-## 下載 Application Insights for Mac
+## 設定
 
-(如果您尚未執行這項操作。)
-
-1. 下載 [Application Insights for Mac](http://go.microsoft.com/fwlink/?LinkID=533209)。
-
-2. 解壓縮 zip 檔案。
-
-3. 按一下 App 圖示以啟動 Application Insights for Mac。
-
-## <a name="signin"></a>登入 Azure
-
-1. 按一下 [登入]。
-
-2. 使用您的 Azure 帳戶進行登入。
-
-## 在應用程式中安裝 SDK
-
-1. 按一下 [整合] 以啟動 SDK 整合。
-
-2. 從清單中選取您的 Xcode 專案，或按一下 [開啟其他] 以尋找您的專案，然後按一下 [整合]。
-
-3. 選擇 Application Insights SDK 的資料夾，然後按一下 [安裝]。
-
-4. 將此執行指令碼新增至組建階段：[新增執行指令碼階段](http://hockeyapp.net/help/runscriptbuildphase/)。
-
-5. 將遺漏的架構新增至您的 Xcode 專案。
-
-6. 將 Application Insights 架構拖曳到 Xcode 專案，然後按 [下一步]。
-
-7. 針對您的目標，選取 [將 SDK 整合至目標]。
-
-8. 按一下 [建立新元件]，以便在 Application Insights 入口網站中建立您的 App。
-
-9. 選取您的訂用帳戶、資源群組，並輸入元件名稱。在大部分情況下，這應該符合您的應用程式名稱。以 [建立資源] 按鈕進行確認。
-
-10. 請確定已選取正確的元件，然後按 [下一步]。
-
-11. 如精靈中所示，修改您的原始程式碼，然後按一下 [完成]。
-
-12. 在 iOS 模擬器中使用 [建置和執行] 啟動您的 App。
-
-## 插入遙測呼叫
-
-一旦呼叫 `[MSAIApplicationInsights start]` 之後，SDK 就會開始追蹤工作階段、頁面檢視及任何未處理的例外狀況或當機。
-
-您可以新增其他事件，如下所示：
-
-    // Send an event with custom properties and measuremnts data
-    [MSAITelemetryManager trackEventWithName:@"Hello World event!"
-                                  properties:@{@"Test property 1":@"Some value",
-                                             @"Test property 2":@"Some other value"}
-                                 measurements:@{@"Test measurement 1":@(4.8),
-                                             @"Test measurement 2":@(15.16),
-                                             @"Test measurement 3":@(23.42)}];
-
-    // Send a message
-    [MSAITelemetryManager trackTraceWithMessage:@"Test message"];
-
-    // Manually send pageviews (note: this will also be done automatically)
-    [MSAITelemetryManager trackPageView:@"MyViewController"
-                               duration:300
-                             properties:@{@"Test measurement 1":@(4.8)}];
-
-    // Send custom metrics
-    [MSAITelemetryManager trackMetricWithName:@"Test metric"
-                                        value:42.2];
+請遵循[設定指南](https://github.com/Microsoft/ApplicationInsights-iOS#setup)在您的應用程式中安裝 SDK。
 
 ## 在 Application Insights 中檢視資料
+
+執行您的應用程式來產生一些遙測。
 
 返回 http://portal.azure.com 並且瀏覽至您的 Application Insights 資源。
 
@@ -137,4 +78,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

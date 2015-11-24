@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # 開始使用 Azure Multi-Factor Authentication Server
@@ -182,8 +182,8 @@ Azure Multi-Factor Authentication Server 提供各種方式來設定您的使用
 [IIS 驗證](multi-factor-authentication-get-started-server-iis.md)|有關搭配 IIS 設定 Azure MFA Server 的資訊。
 [Windows 驗證](multi-factor-authentication-get-started-server-windows.md)| 有關搭配 Windows 驗證設定 Azure MFA Server 的資訊。
 [LDAP 驗證](multi-factor-authentication-get-started-server-ldap.md)|有關搭配 LDAP 驗證設定 Azure MFA Server 的資訊。
-[使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)| 有關使用 RADIUS 搭配遠端桌面閘道設定 Azure MFA Server 的資訊。
+[使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)| 有關使用 RADIUS 搭配遠端桌面閘道器設定 Azure MFA Server 的資訊。
 [與 Windows Server Active Directory 同步處理](multi-factor-authentication-get-started-server-dirint.md)|有關設定 Active Directory 與 Azure MFA Server 之間同步處理的資訊。
 [部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

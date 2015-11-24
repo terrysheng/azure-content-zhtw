@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # 開始使用通知中心
@@ -26,7 +26,7 @@
 
 本教學課程示範使用通知中樞的簡單廣播案例。
 
-##先決條件
+##必要條件
 
 本教學課程需要下列各項：
 
@@ -38,7 +38,7 @@
 
    >[AZURE.NOTE]基於推播通知的組態需求，您必須在具備 iOS 功能的裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-完成本教學課程是 Xamarin.iOS app 所有其他通知中樞教學課程的先決條件。
+完成本教學課程是 Xamarin.iOS app 所有其他通知中樞教學課程的必要條件。
 
 > [AZURE.IMPORTANT]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)。
 
@@ -331,4 +331,4 @@
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

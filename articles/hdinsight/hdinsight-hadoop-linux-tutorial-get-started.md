@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 # Hadoop 教學課程：在 Linux 上開始在 HDInsight 中搭配使用 Hadoop 與 Hive
@@ -27,7 +27,7 @@
 
 > [AZURE.NOTE]如果您是 Hadoop 和巨量資料的新使用者，您可以進一步了解這些術語：[Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084)、[MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086)、[Hadoop 分散式檔案系統 (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) 及 [Hive](http://go.microsoft.com/fwlink/?LinkId=510085)。若要了解 HDInsight 如何在 Azure 中啟用 Hadoop，請參閱 [HDInsight 中 Hadoop 的簡介](hdinsight-hadoop-introduction.md)。
 
-## 先決條件
+## 必要條件
 
 開始進行 Hadoop 的本 Linux 教學課程之前，您必須具備下列條件：
 
@@ -70,9 +70,7 @@
 
 	![提供叢集認證](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "提供叢集認證")
 
-    > [AZURE.NOTE]SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼會在透過 SSH 連接到叢集時使用。此外，SSH 使用者名稱必須是唯一的，因為該名稱會在所有 HDInsight 叢集節點上建立使用者帳戶。以下是一些保留給叢集上的服務使用的帳戶名稱，不能做為 SSH 使用者名稱︰
-    >
-    > root、hdiuser、storm、hbase、ubuntu、zookeeper、hdfs、yarn、mapred、hbase、hive、oozie、falcon、sqoop、admin、tez、hcat、hdinsight-zookeeper。
+    > [AZURE.NOTE]SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼會在透過 SSH 連接到叢集時使用。
 
 	如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列其中一份文件：
 
@@ -80,31 +78,31 @@
 	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-7. 按一下 [資料來源] 為叢集選擇現有的資料來源，或建立一個新的資料來源。當您在 HDInsight 中佈建 Hadoop 叢集時，您需要指定一個 Azure 儲存體帳戶。該帳戶特定的 Blob 儲存體容器將被指定為預設檔案系統，如同 Hadoop 分散式檔案系統 (HDFS)。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)＞。
+7. 按一下 [資料來源] 選擇該叢集的現有資料來源，或建立一個新的資料來源。當您在 HDInsight 中佈建 Hadoop 叢集時，您需要指定一個 Azure 儲存體帳戶。該帳戶特定的 Blob 儲存體容器將被指定為預設檔案系統，如同 Hadoop 分散式檔案系統 (HDFS)。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)＞。
 
 	![資料來源刀鋒視窗](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "提供資料來源組態")
 
-	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。請使用下列步驟來了解 [資料來源] 刀鋒視窗上的項目。
+	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。使用下列步驟來了解 [資料來源] 刀鋒視窗上的項目。
 
 	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
 
-	- **選取儲存體帳戶 / 建立新項目**：按一下 [選取儲存體帳戶] 瀏覽並選取您要與叢集相關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+	- **選取儲存體帳戶/建立新的帳戶**：按一下 [選取儲存體帳戶]，瀏覽並選取您要與叢集產生關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
 
 	- **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
 
-	- **位置**：儲存體帳戶所在地或將建立的地理區域。
+	- **位置**：儲存體帳戶所在或將建立的地理區域。
 
 		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
 
 	按一下 [選取] 以儲存資料來源組態。
 
-8. 按一下 [節點定價層] 會顯示將針對此叢集建立之節點的相關資訊。設定該叢集所需的背景工作節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
+8. 按一下 [節點定價層]，來顯示將針對此叢集建立的節點相關資訊。設定該叢集所需的背景工作節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
 
 	![節點定價層刀鋒視窗](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "指定叢集節點的數目")
     
     > [AZURE.IMPORTANT]如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
     >
-    > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 價格](https://azure.microsoft.com/pricing/details/hdinsight/)。
+    > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 	按一下 [選取] 以儲存節點定價組態。
 
@@ -128,14 +126,13 @@
 
 		ssh <username>@<clustername>-ssh.azurehdinsight.net
 
-	因為您是使用 [快速建立] 選項佈建叢集，預設的 SSH 使用者名稱是 **hdiuser**。因此，命令必須是：
-
-		ssh hdiuser@myhdinsightcluster-ssh.azurehdinsight.net
+	將 &lt;username> 取代為您建立叢集時使用 SSH 使用者名稱。將 &lt;clustername> 取代為叢集的名稱。
 
 2. 出現提示時，輸入您在佈建叢集時所提供的密碼。成功連線後，提示將變更如下：
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
+    > [AZURE.NOTE]提示的 `@hn0-clustername` 部分可能與您的叢集上不同。
 
 ###從以 Windows 為基礎的電腦連線
 
@@ -147,9 +144,9 @@
 
 3. 若要儲存連線資訊供日後使用，請在 [**儲存的工作階段**] 底下輸入此連線的名稱，然後按一下 [**儲存**]。連線便會加入已儲存的工作階段清單。
 
-4. 按一下 [**開啟**] 來連線到叢集。在提示輸入使用者名稱時，請輸入 **hdiuser**。至於密碼，請輸入您在佈建叢集時指定的密碼。成功連線後，提示將變更如下：
+4. 按一下 [**開啟**] 來連線到叢集。當提示輸入使用者名稱時，請輸入您在建立叢集時使用的 SSH 使用者名稱。至於密碼，請輸入您在建立叢集時指定的密碼。成功連線後，提示將變更如下：
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
 ##<a name="hivequery"></a>執行 Hive 查詢
 
@@ -179,7 +176,7 @@
 
 	這會傳回下列輸出：
 
-		Query ID = hdiuser_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
+		Query ID = username_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
 		Total jobs = 1
 		Launching Job 1 out of 1
 		Number of reduce tasks not specified. Estimated from input data size: 1
@@ -231,7 +228,7 @@
 
 	傳回的資料應該會全都對應至 [ERROR] 記錄檔。
 
-## <a name="nextsteps"></a>接續步驟
+## <a name="nextsteps"></a>後續步驟
 
 在本文件中，您已經學會如何使用 Azure Preview 入口網站、使用 SSH 連線到叢集，以及如何執行基本的 Hive 查詢，建立以 Linux 為基礎的 HDInsight 叢集。
 
@@ -286,4 +283,4 @@
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

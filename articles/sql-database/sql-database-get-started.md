@@ -1,11 +1,12 @@
 <properties
-	pageTitle="開始使用 SQL Database | Microsoft Azure"
-	description="使用 Azure 入口網站和 AdventureWorks 範例資料庫，透過 Azure SQL Database (雲端中的 Microsoft 關聯式資料庫管理服務 (RDBMS)) 在幾分鐘之內建立您的第一個的雲端資料庫。"
+	pageTitle="SQL Database 教學課程：建立 SQL Database | Microsoft Azure"
+	description="在 Azure 入口網站中使用 Microsoft 的關聯式資料庫管理系統 (RDBMS)，於幾分鐘內建立第一個 SQL Database。"
+	keywords="sql database 教學課程,建立 sql database"	
 	services="sql-database"
 	documentationCenter=""
 	authors="jeffgoll"
 	manager="jeffreyg"
-	editor=""/>
+	editor="cgronlun"/>
 
 
 <tags
@@ -17,7 +18,7 @@
 	ms.date="10/09/2015"
 	ms.author="jeffreyg"/>
 
-# 建立您的第一個 Azure SQL Database
+# SQL Database 教學課程：使用範例資料和 Azure 入口網站在幾分鐘內建立 SQL database
 
 **單一資料庫**
 
@@ -26,20 +27,20 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-本文將說明如何在幾分鐘內使用 Azure Preview 入口網站建立範例 SQL Database。您將學習如何：
+本 SQL Database 教學課程示範如何在 Azure Preview 入口網站中使用範例資料，在短短幾分鐘內建立第一個 SQL Database。您將學習如何：
 
-- 建立伺服器以裝載您建立的資料庫，然後為其設定防火牆規則
-- 從 AdventureWorks 範例中建立資料庫，其中包含您可以處理的資料
+- 建立伺服器以裝載您建立的資料庫，然後為其設定防火牆規則。
+- 從 AdventureWorks 範例中建立 SQL Database，其中包含您可以處理的資料
 
 在開始之前，您需要有 Azure 帳戶和訂用帳戶。如果您沒有帳戶，請註冊[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-> [AZURE.NOTE]本操作說明涵蓋如何使用雲端、Azure SQL Database 中的 Microsoft 相關資料庫服務設定資料庫。另一個選項是在 Azure 虛擬機器上執行 SQL Server。請參閱[了解 Azure SQL Database 和 Azure VM 中的 SQL Server](data-management-azure-sql-database-and-sql-server-iaas.md) 以進行快速比較，或者您可以參閱[佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)以開始使用虛擬機器。
+> [AZURE.NOTE]本 SQL Database 教學課程涵蓋如何使用雲端、Azure SQL Database 中的 Microsoft 關聯性資料庫管理服務設定資料庫。另一個選項是在 Azure 虛擬機器上執行 SQL Server。請參閱[了解 Azure SQL Database 和 Azure VM 中的 SQL Server](data-management-azure-sql-database-and-sql-server-iaas.md) 以進行快速比較，或者您可以參閱[佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)以開始使用虛擬機器。
 
 ## 步驟 1：登入並開始設定 SQL Database
 1. 登入 [Azure Preview 入口網站](http://portal.azure.com/)。
 2. 按一下 [新增] > [資料 + 儲存體] > [SQL Database]。
 
-	![建立新的 SQL Database](./media/sql-database-get-started/create-db.png)
+	![SQL Database 教學課程：建立新的 SQL Database。](./media/sql-database-get-started/create-db.png)
 	
 	您會在出現的 **SQL Database** 設定刀鋒視窗中，設定伺服器和資料庫詳細資料。
 
@@ -66,20 +67,20 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 資料庫與伺服器尚未建立。此狀況將會在下一個步驟 (您會選擇從 AdventureWorks 範例中建立資料庫，然後確認設定) 完成後發生。
 
-## 步驟 3：設定並建立資料庫
+## 步驟 3：設定並建立 SQL Database
 1. 在 [SQL Database] 刀鋒視窗中，按一下 [選取來源]，然後按一下 [範例]。 
 
-	![從範例建立資料庫](./media/sql-database-get-started/new-sample-db.png)
+	![從範例建立 SQL Database](./media/sql-database-get-started/new-sample-db.png)
 
 2. 當您回到 [SQL Database] 刀鋒視窗後，[選取範例] 會立即顯示 **AdventureWorks LT [V12]**。按一下 [建立]，開始建立伺服器和資料庫。
 
-	![建立範例資料庫](./media/sql-database-get-started/adworks_create.png)
+	![建立範例 SQL Database](./media/sql-database-get-started/adworks_create.png)
 
-	>[AZURE.NOTE]由於這些步驟為快速操作，因此我們並未變更 [定價層]、[定序] 和 [資源群組] 的設定。您可以隨時變更資料庫定價層，並向上調升和向下減少，無須停機。如需深入了解，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/) 和 [SQL Database 定價層](sql-database-service-tiers.md)。完成資料庫定序設定後，您將無法進行變更。如需關於定序的詳細資料，請參閱[定序與 Unicode 支援](https://msdn.microsoft.com/library/ms143726.aspx)。如需關於 Azure 資源群組的詳細資料，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+	>[AZURE.NOTE]由於這些步驟為快速操作，因此我們並未變更 [定價層]、[定序] 和 [資源群組] 的設定。您可以隨時變更資料庫定價層，並向上調升和向下減少，無須停機。如需深入了解，請參閱 [SQL Database 價格](http://azure.microsoft.com/pricing/details/sql-database/)和 [SQL Database 定價層](sql-database-service-tiers.md)。完成資料庫定序設定後，您將無法進行變更。如需關於定序的詳細資料，請參閱[定序與 Unicode 支援](https://msdn.microsoft.com/library/ms143726.aspx)。如需關於 Azure 資源群組的詳細資料，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
 
 您會跳回「Azure 開始面板」，其中磚會顯示進度，直到資料庫建立完畢且已上線為止。您也可以按一下 [全部瀏覽]，然後按一下 [SQL Database] 確認資料庫是否已上線。
 	
-恭喜！ 您的雲端中目前已有執行的資料庫。您即將完成設定。最後還剩下一個重要步驟。您必須在資料庫中設定規則，以便連接至資料庫。
+恭喜！ 您的雲端中目前已有執行的 SQL Database。您即將完成設定。最後還剩下一個重要步驟。您必須在資料庫中設定規則，以便連接至資料庫。
 
 ## 步驟 4：設定防火牆
 
@@ -106,7 +107,7 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 	>[AZURE.IMPORTANT]您的用戶端 IP 位址可能會不時變動，且在您建立新的防火牆規則前，將可能無法存取伺服器。您可以使用 [Bing](http://www.bing.com/search?q=my%20ip%20address) 檢查 IP 位址，然後新增單一 IP 位址或某個範圍的 IP 位址。如需詳細資訊，請參閱[如何設定防火牆設定](sql-database-configure-firewall-settings.md)。
 
 ## 後續步驟
-現在您的資料庫中已有些範例資料，可以準備開始使用慣用的工具進行探索。
+現在您已完成本 SQL Database 教學課程並建立有一些範例資料的資料庫，您可以準備開始使用慣用的工具進行探索。
 
 - 如果您熟悉 TRANSACT-SQL 和 SQL Server Management Studio，請了解如何[使用 SSMS 連接和查詢 SQL Database](sql-database-connect-query-ssms.md)。
 
@@ -116,4 +117,4 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 - 如果您想要進一步了解如何將內部部署的 SQL Server 資料庫移動至 Azure，請參閱[將資料庫移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

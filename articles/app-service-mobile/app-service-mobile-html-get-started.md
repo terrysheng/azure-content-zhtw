@@ -13,31 +13,33 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="11/18/2015"
 	ms.author="glenga"/>
 
 
 #建立 HTML 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+
+>[AZURE.IMPORTANT]Mobile Apps 目前不支援本主題，因為 HTML/JavaScript 應用程式的快速入門已暫時從 Azure 入口網站移除。我們計劃在不久的將來將它加回來。在我們完成 Mobile Apps 預覽版的同時，感謝您的耐心等候。
 
 ##概觀
 
-本教學課程說明如何使用 Azure 行動應用程式後端，將雲端型後端服務新增到 HTML5/JavaScript Web 應用程式。您將建立新的行動應用程式後端，以及在 Azure 中儲存應用程式資料的簡單 *Todo 清單* Web 應用程式。
+本教學課程說明如何將雲端型後端服務加入到 HTML5/JavaScript Web 應用程式。如需詳細資訊，請參閱[什麼是 Mobile Apps？](app-service-mobile-value-prop.md)。
 
 以下是完成應用程式的螢幕擷取畫面：
 
 ![已完成的應用程式的螢幕擷取畫面](./media/app-service-mobile-html-get-started/mobile-quickstart-completed-html.png)
 
-完成本教學課程是 HTML 應用程式的所有其他 Mobile Apps 教學課程的先決條件。
+完成本教學課程是 HTML 應用程式的所有其他 Mobile Apps 教學課程的必要條件。
 
-##先決條件
+##必要條件
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 * [Visual Studio Community 2013] 或更新版本。
 
@@ -49,7 +51,7 @@
 
 ## 下載伺服器專案
 
-1. 在 [Azure 入口網站]中，按一下 [全部瀏覽] > [Web Apps]，然後按一下您剛建立的行動應用程式後端。 
+1. 在 [Azure 入口網站中]，按一下 [全部瀏覽] > [Web Apps]，然後按一下您剛建立的 Mobile Apps 後端。 
 
 2. 在行動應用程式後端中，按一下 [所有設定]，並在 [行動應用程式] 底下按一下 [快速入門] > [HTML/JavaScript]。
 
@@ -116,9 +118,9 @@
 <!-- URLs. -->
 [Get started with authentication]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 入口網站中]: https://portal.azure.com/
 
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO4-->

@@ -312,7 +312,7 @@
 
 ## 後續步驟
 
-請記住，如果將新磁碟重新開機，除非您將該資訊寫入 [/etc/fstab](http://en.wikipedia.org/wiki/Fstab) 檔案，否則該磁碟通常無法供 VM 使用。如果想要的話，您可以新增數個磁碟，並[設定 RAID](virtual-machines-linux-configure-raid.md)。
+請記住，如果將新磁碟重新開機，除非您將該資訊寫入 [fstab](http://en.wikipedia.org/wiki/Fstab) 檔案，否則該磁碟通常無法供 VM 使用。
 
 若要深入了解 Azure 上的 Linux，請參閱：
 

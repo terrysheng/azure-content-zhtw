@@ -10,7 +10,7 @@
    3. 在下拉式清單中，為磁碟區選取 [使用類型] 。如果您將此磁碟區用於封存資料，請選取 [將此磁碟區用於較不常存取的封存資料] 核取方塊。對於所有其他使用情況，只需選取 [階層式磁碟區]。(階層式磁碟區之前稱為主要磁碟區)。
    4. 按一下箭頭圖示 ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) 以移至下一頁。
 
-        ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)
+     ![新增磁碟區](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
 
 3. 在 [其他設定] 對話方塊中，加入新的存取控制記錄 (ACR)：
    1. 提供 ACR 的 [名稱]。
@@ -19,7 +19,7 @@
 
         > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
 
-        ![Add volume](./media/storsimple-create-volume/AddVolume2-include.png)
+     ![新增磁碟區](./media/storsimple-create-volume/HCs_AddVolume2M-include.png)
 
 4. 按一下核取圖示 ![核取圖示](./media/storsimple-create-volume/HCS_CheckIcon-include.png)。使用指定的設定來建立磁碟區。
 

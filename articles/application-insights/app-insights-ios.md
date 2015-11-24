@@ -48,7 +48,7 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 返回 http://portal.azure.com 並且瀏覽至您的 Application Insights 資源。
 
-按一下 [搜尋] 以開啟[診斷搜尋][diagnostic] - 這是前幾個事件顯示的位置。如果您看不到任何資料，請稍做等待後再按一下 [重新整理]。
+按一下 [搜尋] 以開啟 [診斷搜尋][diagnostic] - 這是前幾個事件顯示的位置。如果您看不到任何資料，請稍做等待後再按一下 [重新整理]。
 
 ![按一下 [診斷搜尋]](./media/app-insights-ios/21-search.png)
 

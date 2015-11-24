@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 管理 Azure 流量管理員設定檔
@@ -73,22 +73,16 @@
    - 若要檢視每個個別變更的詳細資訊，請選取包含您要檢視之變更的資料列，然後按一下頁面底部的 [**詳細資料**]。在 [**作業詳細資料**] 視窗中，您可以檢視已建立或更新為作業一部分之 API 物件的 XML 表示法，並將 XML 程式碼複製到剪貼簿。
 
 
-## 其他資源
+## 後續步驟
 
-[什麼是流量管理員？](traffic-manager-overview.md)
+[新增端點。](traffic-manager-endpoints.md)
 
-[在流量管理員中管理端點](traffic-manager-endpoints.md)
+[設定容錯移轉路由方法](traffic-manager-configure-failover-routing-method.md)
 
-[關於流量管理員監視](traffic-manager-monitoring.md)
+[設定循環配置資源路由方法](traffic-manager-configure-round-robin-routing-method.md)
 
-[流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
+[設定效能路由方法](traffic-manager-configure-performance-routing-method.md)
 
-[流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)
+[疑難排解流量管理員的已降級狀態](traffic-manager-troubleshooting-degraded.md)
 
-[流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[雲端服務](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

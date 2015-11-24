@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/18/2015"
+	ms.date="11/16/2015"
 	ms.author="jgao"/>
 
 
@@ -25,7 +25,7 @@
 
 > [AZURE.NOTE]本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需以 Windows 為基礎之叢集的資訊，請參閱 [在 HDInsight 中開始使用 Apache HBase 搭配 Hadoop (Windows)。
 
-##先決條件
+##必要條件
 
 開始進行本 HBase 教學課程之前，您必須具備下列條件：
 
@@ -47,7 +47,8 @@
 	- **叢集名稱**：輸入識別此叢集的名稱。
 	- **叢集類型**：選取 [HBase]。
 	- **叢集作業系統**：選取 [Ubuntu]。
-	- **訂用帳戶**：選取用於佈建此叢集的 Azure 訂用帳戶。
+	- **版本**：選取您想要使用的叢集版本。如需不同的 HDInsight 版本中隨附內容的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
+    - **訂用帳戶**：如果您有多個 Azure 訂用帳戶，請選取您要用於此叢集的訂用帳戶。
 	- **資源群組**：加入或選取 Azure 資源群組。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
 	- **認證**。輸入 HTTP Web 服務使用者的密碼。預設的使用者名稱為 **admin**。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。建議使用公開金鑰的方法。如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
 
@@ -58,7 +59,7 @@
 
 		> [AZURE.WARNING]如需 HBase 服務的高可用性，您必須佈建包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
 
-	- **選擇性組態**：選取叢集版本、設定 Azure 虛擬網路、設定 Hive/Oozie 中繼存放區、設定指令碼動作，以及新增其他儲存體帳戶。
+	- **選擇性組態**：選取叢集版本、設定 Azure 虛擬網路、設定指令碼動作，以及加入其他儲存體帳戶。
 
 4. 按一下 [建立]。
 
@@ -79,7 +80,7 @@
 
 **使用 HBase Shell**
 
->[AZURE.NOTE]以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 1.開啟 **PuTTY**。請參閱文章開頭所列的先決條件。2.如果您在佈建期間建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
+>[AZURE.NOTE]以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 1.開啟 **PuTTY**。請參閱文章開頭所列的必要條件。2.如果您在佈建期間建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -114,7 +115,7 @@
 
 	您會看到與使用掃描命令相同的結果，因為只有一個資料列。
 
-	如需 Hbase 資料表結構描述的詳細資訊，請參閱 [HBase 結構描述設計簡介][hbase-schema]。如需其他 HBase 命令，請參閱 [Apache HBase 參考指南][hbase-quick-start]。
+	如需 HBase 資料表結構描述的詳細資訊，請參閱 [HBase 結構描述設計簡介][hbase-schema]。如需其他 HBase 命令，請參閱 [Apache HBase 參考指南][hbase-quick-start]。
 
 
 6. 結束 Shell
@@ -238,8 +239,8 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 	- **來源連接埠** - 您想要轉送之用戶端上的連接埠。例如 9876。
 	- **動態** - 啟用動態 SOCKS Proxy 路由。
-7. 按一下 [新增] 加入設定。
-8. 按一下對話方塊底部的 [開啟] 開啟 SSH 連線。
+7. 按一下 [加入] 來加入設定。
+8. 按一下對話方塊底部的 [開啟] 來開啟 SSH 連線。
 9. 出現提示時，使用 SSH 帳戶登入伺服器。這會建立 SSH 工作階段，並啟用通道。
 
 **使用 Ambari 尋找 zookeeper 的 FQDN**
@@ -247,20 +248,20 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 1. 瀏覽至 https://<ClusterName>.azurehdinsight.net/。
 2. 輸入您的叢集使用者帳戶認證兩次。
 3. 從左側功能表中，按一下 [zookeeper]。
-4. 從 [摘要] 清單按一下三個 [ZooKeeper 伺服器] 連結中的其中一個。
-5. 複製 [主機名稱]。例如，zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net。
+4. 從 [摘要] 清單按一下三個 **ZooKeeper 伺服器**連結中的其中一個。
+5. 複製**主機名稱**。例如，zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net。
 
 **設定用戶端程式 (Firefox) 並檢查叢集狀態**
 
 1. 開啟 Firefox。
-2. 按一下 [開啟選單] 按鈕。
+2. 按一下 [開啟功能表] 按鈕。
 3. 按一下 [選項]。
 4. 依序按一下 [進階]、[網路] 及 [設定]。
-5. 選取 [手動設定 Proxy]。
+5. 選取 [手動 Proxy 設定]。
 6. 輸入下列值：
 
 	- **Socks 主機**：localhost
-	- **連接埠**：使用與您在 Putty SSH 通道中設定的相同連接埠。例如 9876。
+	- **Port**：使用與您在 Putty SSH 通道中設定的相同連接埠。例如 9876。
 	- **SOCKS v5**：(選取)
 	- **遠端 DNS**：(選取)
 7. 按一下 [確定] 儲存變更。
@@ -305,4 +306,4 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="NoSQL 資料庫 - 開始使用 DocumentDB .NET SDK | Microsoft Azure"
-	description="了解如何建立資料庫並設定 Azure DocumentDB 帳戶。建立資料庫、集合，以及在 NoSQL 資料庫帳戶內儲存 JSON 文件。"
-	keywords="建立資料庫, 建立資料庫, nosql 資料庫, nosql 資料庫, nuget, documentdb, azure, Microsoft azure"
+	pageTitle="NoSQL 教學課程：DocumentDB .NET SDK | Microsoft Azure"
+	description="NoSQL 教學課程，將使用 DocumentDB.NET SDK 來建立線上資料庫以及 C# 主控台應用程式。DocumentDB 是 JSON 的 NoSQL 資料庫。"
+	keywords="nosql 教學課程, 線上資料庫, c# 主控台應用程式"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/05/2015"
+	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-#開始使用 DocumentDB .NET SDK  
+# NoSQL 教學課程：DocumentDB C# 主控台應用程式 
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-歡迎開始使用 DocumentDB .NET SDK！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 DocumentDB 資源。
+歡迎使用 DocumentDB .NET SDK 的 NoSQL 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 DocumentDB 資源。
 
 本文將討論：
 
 - 建立和連接到 DocumentDB 帳戶
 - 設定 Visual Studio 方案
-- 建立資料庫
+- 建立線上資料庫
 - 建立集合
 - 建立 JSON 文件
 - 查詢集合
@@ -45,16 +45,16 @@
 
 請確定您具有下列項目：
 
-- 使用中的 Azure 帳戶。如果您沒有帳戶，您可以註冊[免費的 Azure 試用](http://azure.microsoft.com/pricing/free-trial/)。
-- [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/)。
+- 使用中的 Azure 帳戶。如果您沒有帳戶，您可以註冊[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/)。
 
 ## 步驟 1：建立 DocumentDB 帳戶
 
-讓我們建立 DocumentDB 帳戶。如果您已經擁有想要使用的帳戶，就可以跳到[安裝 Visual Studio 方案](#SetupVS)。
+讓我們建立 DocumentDB 帳戶。如果您已經擁有想要使用的帳戶，就可以跳到[設定您的 Visual Studio 方案](#SetupVS)。
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> 步驟 2：安裝 Visual Studio 方案
+##<a id="SetupVS"></a> 步驟 2：設定您的 Visual Studio 方案
 
 1. 在電腦上開啟 **Visual Studio**。
 2. 從 [檔案] 功能表中，選取 [新增]，然後選擇 [專案]。
@@ -76,7 +76,7 @@
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
-> [AZURE.IMPORTANT]若要完成此應用程式，請務必加入上述的相依性。
+> [AZURE.IMPORTANT]若要完成此 NoSQL 教學課程，請務必加入上述的相依性。
 
 接著，儲存 DocumentDB 帳戶端點以及主要或次要存取金鑰 (可於 [Azure Preview 入口網站](https://portal.azure.com)中找到)。
 
@@ -112,8 +112,8 @@
 
 現在，您已經知道如何連接到 DocumentDB 帳戶和建立 **DocumentClient** 類別的執行個體，接下來說明使用 DocumentDB 資源。
 
-## 步驟 4：建立資料庫
-您可透過使用 **DocumentClient** 類別的 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法來建立[資料庫](documentdb-resources.md#databases)。資料庫是分割給多個集合之文件儲存體的邏輯容器。在您建立 **DocumentClient** 之後，在 **GetStartedDemo** 方法中建立新的資料庫。
+## 步驟 4：建立線上資料庫
+可以使用 **DocumentClient** 類別的 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法建立 DocumentDB [資料庫](documentdb-resources.md#databases)。資料庫是分割給多個集合之 JSON 文件儲存體的邏輯容器。在您建立 **DocumentClient** 之後，在 **GetStartedDemo** 方法中建立新的資料庫。
 
 	// Check to verify a database with the id=FamilyRegistry does not exist
 	Database database = client.CreateDatabaseQuery().Where(db => db.Id == "FamilyRegistry").AsEnumerable().FirstOrDefault();
@@ -136,7 +136,7 @@
 
 ##<a id="CreateColl"></a>步驟 5：建立集合  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有價格含意的新 S1 集合。如需詳細資訊，請造訪[價格頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
+> [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
 
 您可以使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。在 **GetStartedDemo** 方法中建立資料庫之後，建立名為 **FamilyCollection** 的新集合。
 
@@ -159,10 +159,10 @@
         Console.Clear();
 	}
 
-##<a id="CreateDoc"></a>步驟 6：建立文件
+##<a id="CreateDoc"></a>步驟 6：建立 JSON 文件
 您可以使用 **DocumentClient** 類別的 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法來建立[文件](documentdb-resources.md#documents)。文件會是使用者定義的 (任意) JSON 內容。現在可插入一或多份文件。如果您已經有想要儲存於資料庫中的資料，就可以使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)。
 
-首先，我們需要建立**Parent**、**Child**、**Pet**、**Address** 和 **Family** 類別。藉由在 **GetStartedDemo** 方法之後新增下列內部子類別來建立這些類別。
+首先，我們需要建立**Parent**、**Child**、**Pet**、**Address** 和 **Family** 類別。藉由在 **GetStartedDemo** 方法之後加入下列內部子類別來建立這些類別。
 
     internal sealed class Parent
     {
@@ -279,7 +279,7 @@
 
 您現在已經在 DocumentDB 帳戶中建立下列資料庫、集合和文件。
 
-![說明帳戶、資料庫、集合和文件之間階層式關聯性的圖表](./media/documentdb-get-started/account-database.png)
+![說明帳戶、資料庫、集合和文件之間階層式關聯性的圖表](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>步驟 7：查詢 DocumentDB 資源
 
@@ -319,7 +319,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 
 下圖說明如何針對您所建立的集合呼叫 DocumentDB SQL 查詢語法，相同邏輯也可以套用至 LINQ 查詢。
 
-![說明查詢範圍和意義的圖表](./media/documentdb-get-started/collection-documents.png)
+![說明查詢範圍和意義的圖表](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 因為 DocumentDB 查詢已侷限於單一集合，所以查詢中的 [FROM](documentdb-sql-query.md#from-clause) 關鍵字是選擇性的。因此，"FROM Families f" 可以換成 "FROM root r"，或您選擇的任何其他變數名稱。依預設，DocumentDB 會推斷該系列、根或您選擇的變數名稱來參考目前的集合。
 
@@ -331,7 +331,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
     await client.DeleteDatabaseAsync("dbs/" + database.Id);
 	client.Dispose();
 
-##<a id="Run"></a>步驟 9：執行您的應用程式！
+##<a id="Run"></a>步驟 9：執行您的 C# 主控台應用程式！
 
 您現在可以開始執行應用程式。在 **Main** 方法的結尾處加入下列程式碼行，這可讓您在應用程式完成執行之前讀取主控台輸出。
 
@@ -456,7 +456,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 	  "_attachments": "attachments/"
 	} from LINQ query
 
-恭喜！ 您已建立您的第一支 DocumentDB 應用程式！
+恭喜！ 您已經完成本 NoSQL 教學課程！
 
 ##<a id="GetSolution"></a>取得完整的方案
 若要建置包含本文中所有範例的 GetStarted 方案，您將需要下列項目：
@@ -468,7 +468,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 
 ## 後續步驟
 
--   需要更複雜的 ASP.NET MVC 範例嗎？ 請參閱[使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式](documentdb-dotnet-application.md)。
+-   需要更複雜的 ASP.NET MVC NoSQL 教學課程嗎？ 請參閱[使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式](documentdb-dotnet-application.md)。
 -	了解如何[監視 DocumentDB 帳戶](documentdb-monitor-accounts.md) (英文)。
 -	在 [Query Playground](https://www.documentdb.com/sql/demo) 中，針對範例資料集執行查詢。
 -	如需深入了解程式設計模型，請參閱 [DocumentDB 文件頁面](../../services/documentdb/)中的＜開發＞一節。
@@ -477,7 +477,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
-[keys]: media/documentdb-get-started/keys.png
+[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

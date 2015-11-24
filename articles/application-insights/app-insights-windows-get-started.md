@@ -1,6 +1,6 @@
 <properties
-	pageTitle="適用於 Windows Phone 和市集 App 的 Application Insights | Microsoft Azure"
-	description="使用 Application Insights 分析 Windows 裝置應用程式的使用情况和效能。"
+	pageTitle="Windows Phone 和市集應用程式的分析 | Microsoft Azure"
+	description="分析 Windows 裝置應用程式的使用情况和效能。"
 	services="application-insights"
     documentationCenter="windows"
 	authors="alancameronwills"
@@ -12,92 +12,45 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/16/2015"
+	ms.date="11/11/2015"
 	ms.author="awills"/>
 
-# 適用於 Windows Phone 和市集應用程式的 Application Insights
+# Windows Phone 和市集應用程式的分析
 
-*Application Insights 目前僅供預覽。*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Visual Studio Application Insights 可讓您監視已發佈的應用程式在以下各方面的情況：
+Visual Studio Application Insights 可讓您監視已發佈的應用程式的使用情況和效能。
 
-* [**使用量**][windowsUsage]：了解您有多少使用者及他們如何使用您的 App。
-* [**損毀**][windowsCrash]：取得損毀的診斷報告，並了解損毀對使用者的影響。
+
+> [AZURE.NOTE]我們建議使用 [HockeyApp](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-store-apps-and-windows-phone-store-apps) 來獲得當機報告、分析、散發和意見反應管理。
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
-對於許多應用程式類型，[Visual Studio 可以將 Application Insights 加入至您的應用程式](#ide)，而且您幾乎不會察覺。為了讓您清楚了解整個運作情形，本文將帶您手動完成這些步驟。
+
+## 為您的 Windows 裝置專案設定 Application Insights
 
 您需要：
 
 * [Microsoft Azure][azure] 訂用帳戶。
 * Visual Studio 2013 或更新版本。
 
-## 1\.建立 Application Insights 資源
+**C++ UAP 應用程式** -請參閱 [Application Insights C++ 設定指南](https://github.com/Microsoft/ApplicationInsights-CPP)
 
-在 [Azure 入口網站][portal] 中，建立新的 Application Insights 資源。
+### <a name="new"></a>如果您要建立新的 Windows 應用程式專案...
 
-![選擇 [新增]、[開發人員服務]、[Application Insights]](./media/app-insights-windows-get-started/01-new.png)
+在 [新增專案] 對話方塊中，選取 [Application Insights]。
 
-Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應用程式的遙測將經過分析並呈現的地方。
+系統要求您登入時，請使用 Azure 帳戶的認證。
 
-#### 複製檢測金鑰
-
-此金鑰識別資源。您需要用它來設定 SDK 將資料傳送給資源。
-
-![開啟 Essentials 下拉式抽屜，選取檢測金鑰](./media/app-insights-windows-get-started/02-props.png)
+![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
 
-## 2\.將 Application Insights SDK 加入至應用程式
+### <a name="existing"></a>或者如果是現有的專案...
 
-在 Visual Studio 中，將適當的 SDK 加入至專案。
+從 [方案總管] 加入 Application Insights。
 
-如果是 Windows Universal 應用程式，請對 Windows Phone 專案與 Windows 專案重複這些步驟。
 
-1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [**管理 NuGet 封裝**]。
-
-    ![](./media/app-insights-windows-get-started/03-nuget.png)
-
-2. 搜尋「Application Insights」。
-
-    ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
-
-3. 選擇 [適用於 Windows 應用程式的 Application Insights]
-
-4. 將 ApplicationInsights.config 檔案加入至您專案的根目錄，並插入從入口網站複製的檢測金鑰。此組態檔的範例 XML 如下所示。
-
-	```xml
-
-		<?xml version="1.0" encoding="utf-8" ?>
-		<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings>
-			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
-		</ApplicationInsights>
-	```
-
-    設定 ApplicationInsights.config 檔案的屬性：[建置動作] == [內容] 而 [複製到輸出目錄] == [一律複製]。
-
-	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
-
-5. 加入下列的初始化程式碼。最好是將此程式碼加入至 `App()` 建構函式。如果您在其他地方加入，您可能會遺漏第一個 PageViews 的自動集合。
-
-```C#
-
-    using Microsoft.ApplicationInsights;
-    ...
-
-	public App()
-	{
-	   // Add this initilization line.
-	   WindowsAppInitializer.InitializeAsync();
-
-	   this.InitializeComponent();
-	   this.Suspending += OnSuspending;
-	}  
-```
-
-**Windows 通用 App**：對 [手機] 和 [市集] 專案重複這些步驟。[Windows 8.1 通用 App 的範例](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal)。
+![](./media/app-insights-windows-get-started/appinsights-d22-add.png) **Windows 通用應用程式**：對 [手機] 和 [市集] 專案重複這些步驟。[Windows 8.1 通用應用程式的範例](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal)。
 
 ## <a name="network"></a>3.對應用程式啟用網路存取
 
@@ -176,32 +129,14 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 * [深入了解診斷搜尋][diagnostic]
 
 
-## <a name="ide"></a>自動化設定
 
-如果您偏好使用 Visual Studio 執行設定步驟，可以針對 Windows Phone、Windows 市集和其他許多類型的應用程式這樣做。
-
-### <a name="new"></a>如果您要建立新的 Windows 應用程式專案...
-
-在 [新增專案] 對話方塊中，選取 [Application Insights]。
-
-系統要求您登入時，請使用 Azure 帳戶的認證。
-
-![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
-
-
-### <a name="existing"></a>或者，如果是現有的專案...
-
-從 [方案總管] 加入 Application Insights。
-
-
-![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
 
 ## 升級到新版的 SDK
 
 當[新的 SDK 版本發行](app-insights-release-notes-windows.md)時：
 
 * 以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
-* 選取已安裝的 Application Insights 封裝，然後選擇 [動作: 升級]。
+* 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
 
 
 ## <a name="usage"></a>後續步驟
@@ -232,4 +167,4 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

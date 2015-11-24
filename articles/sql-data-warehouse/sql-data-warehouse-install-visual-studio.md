@@ -29,7 +29,7 @@
 
 若要安裝 Visual Studio 2015：
 
-1. 從 Visual Studio Online [下載 Visual Studio 2015](https://www.visualstudio.com/downloads)。 
+1. 從 Visual Studio Team Services [下載 Visual Studio 2015](https://www.visualstudio.com/downloads)。 
 2. 依照 MSDN 上的[安裝 Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) 指南進行安裝，並選擇預設組態。
 
 ## 步驟 2：下載並安裝最新的 SQL Server Data Tools (SSDT) 
@@ -49,4 +49,4 @@
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

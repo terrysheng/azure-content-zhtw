@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 
@@ -22,10 +22,9 @@
 應用程式閘道是第 7 層負載平衡器。它提供在不同伺服器之間進行容錯移轉、效能路由傳送 HTTP 要求，而不論它們是在雲端或內部部署中。應用程式閘道具有下列應用程式傳遞功能：HTTP 負載平衡、以 Cookie 為基礎的工作階段同質性、SSL 卸載。
 
 > [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
-
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -60,7 +59,7 @@
 
 您可以下載現有的 ARM 範本，以透過 Github 建立 VNet 和兩個子網路，然後進行任何需要的變更，並重複使用該範本。若要這樣做，請依照下列步驟執行。
 
-1. 瀏覽至 https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip。
+1. 瀏覽至 https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/
 2. 依序按一下 [azuredeploy.json] 和 [RAW]。
 3. 將檔案儲存至您電腦上的本機資料夾。
 4. 如果您熟悉 ARM 範本的使用方式，請跳至步驟 7。
@@ -76,8 +75,8 @@
 	| **skuname** | sku 執行個體大小 |
 	| **容量** | 執行個體數目 |
 	| **backendaddress1** | 第一部 Web 伺服器的 IP 位址 |
-	| **backendaddress2** | 第二部 Web 伺服器的 IP 位址|
-
+	| **backendaddress2** | 第二部 Web 伺服器的 IP 位址 |
+	
 
 >[AZURE.IMPORTANT]Github 所管理的 ARM 範本內容可能會隨著時間改變。使用範本前，請務必先檢查當中的內容。
 	
@@ -87,37 +86,35 @@
 	- **name**。資源的名稱。請注意 **[parameters('applicationGatewayName')]** 的用法，這表示此名稱是在部署期間由使用者輸入的內容，或是由參數檔案所提供。
 	- **properties**。資源屬性的清單。此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。
 
-7. 瀏覽回到 https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip。
+7. 瀏覽回到 https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json。
 8. 依序按一下 [azuredeploy-paremeters.json] 和 [RAW]。
 9. 將檔案儲存至您電腦上的本機資料夾。
 10. 開啟您剛儲存的檔案，編輯參數的值。使用下列值來部署本文案例所述的應用程式閘道。
 
 		{
-		   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		   "contentVersion": "1.0.0.0",
-		   "parameters": {
-		     "location": {
-		       "value": "East US"
-		     },
-		     "addressPrefix": {
-		      "value": "10.0.0.0/16"
-    		 },
-		     "subnetPrefix": {
-		      "value": "10.0.0.0/24"
-		     },
-		     "skuName": {
-		       "value": "Standard_Small"
-		     },
-		     "capacity": {
-		       "value": 2
-		    },
-		    "backendIpAddress1": {
-		      "value": "10.0.1.10"
-		    },
-		     "backendIpAddress2": {
-		       "value": "10.0.1.11"
-		     }
-		  }
+		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		{
+    	"location" : {
+        "value" : "West US"
+    	},
+    	"addressPrefix": {
+        "value": "10.0.0.0/16"
+    	},
+    	"subnetPrefix": {
+        "value": "10.0.0.0/24"
+    	},
+    	"skuName": {
+        "value": "Standard_Small"
+    	},
+    	"capacity": {
+        "value": 2
+    	},
+    	"backendIpAddress1": {
+        "value": "10.0.1.10"
+    	},
+    	"backendIpAddress2": {
+        "value": "10.0.1.11"
+    	}
 		}
 
 11. 儲存檔案。您可以使用線上 json 驗證工具 (例如 [JSlint.com](http://www.jslint.com/))，來測試 Json 範本和參數範本。
@@ -150,7 +147,7 @@
 	                 =======  ==========
 	                  *
 
-		ResourceId        : /subscriptions/################################/resourceGroups/AppgatewayRG
+		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 4. 執行 New-AzureResourceGroupDeployment Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的 VNet。
 
@@ -175,7 +172,7 @@
                    capacity         Int                        2
                    backendIpAddress1  String                     10.0.1.10
                    backendIpAddress2  String                     10.0.1.11
-
+					
 		Outputs           :
 
 
@@ -192,7 +189,7 @@
 
 		info:	New mode is arm
 
-3. 如有必要，請執行 **azure group create** 來建立新的資源群組，如下所示。請查看命令的輸出內容。輸出之後所顯示的清單說明需使用的參數。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md)。
+3. 如有必要，請執行 **azure group create** 來建立新的資源群組，如下所示。請查看命令的輸出內容。輸出後顯示的清單可說明所使用的參數。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md)。
 
 		azure group create -n appgatewayRG -l eastus
 
@@ -240,7 +237,7 @@
 
 
 ### 步驟 1 
-使用[按一下即部署應用程式閘道](http://azure.microsoft.com/documentation/templates/101-create-applicationgateway-publicip/)連結，會將您重新導向至應用程式閘道的入口網站範本頁面。
+使用[按一下即部署應用程式閘道](https://azure.microsoft.com/zh-TW/documentation/templates/101-application-gateway-public-ip/)連結，會將您重新導向至應用程式閘道的入口網站範本頁面。
 
 
 ### 步驟 2 
@@ -276,4 +273,4 @@
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

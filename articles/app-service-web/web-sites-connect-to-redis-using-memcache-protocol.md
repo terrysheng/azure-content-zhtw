@@ -112,7 +112,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ### 啟用 Memcache WordPress 外掛程式
 
->[AZURE.NOTE]遵循此部落格中有關[如何啟用 Web Apps 中的網站延伸模組][8] (英文) 的指示，以安裝 Visual Studio Online。
+>[AZURE.NOTE]遵循此部落格中有關[如何啟用 Web Apps 中的網站延伸模組][8]的指示，以安裝 Visual Studio Team Services。
 
 在 `wp-config.php` 檔案中，在檔案結尾附近停止編輯註解的上方，新增下列程式碼。
 
@@ -198,4 +198,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

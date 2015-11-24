@@ -70,6 +70,11 @@
 +   [語意記錄](https://github.com/fidmor89/SLAB_AppInsights)：與[語意記錄應用程式區塊](https://msdn.microsoft.com/library/dn440729.aspx)整合
 +   [雲端式負載測試](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
+## 匯出
+
++ [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
++ [串流分析](app-insights-export-power-bi.md)
+
 ## <a name="projects"></a> 建置您自己的 SDK
 
 如果您的語言或平台中還沒有 SDK，您會想要建置一個嗎？ 查看 [GitHub 上之 Application Insights SDK 專案](https://github.com/Microsoft/AppInsights-Home) (英文) 中列出的現有 SDK 程式碼
@@ -83,4 +88,4 @@
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

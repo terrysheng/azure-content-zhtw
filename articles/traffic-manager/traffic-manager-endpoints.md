@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 加入、停用、啟用或刪除端點
@@ -62,20 +62,17 @@
 
 >[AZURE.NOTE]您無法使用 Azure 入口網站刪除做為端點的外部位置或流量管理員設定檔。您必須使用 Windows PowerShell。如需詳細資訊，請參閱 [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx)。
 
-## 其他資源
+## 後續步驟
 
-[流量管理員概觀](traffic-manager-overview.md)
 
-[關於流量管理員監視](traffic-manager-monitoring.md)
+[設定容錯移轉路由方法](traffic-manager-configure-failover-routing-method.md)
 
-[流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
+[設定循環配置資源路由方法](traffic-manager-configure-round-robin-routing-method.md)
 
-[流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)
+[設定效能路由方法](traffic-manager-configure-performance-routing-method.md)
+
+[疑難排解流量管理員的已降級狀態](traffic-manager-troubleshooting-degraded.md)
 
 [流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-[雲端服務](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

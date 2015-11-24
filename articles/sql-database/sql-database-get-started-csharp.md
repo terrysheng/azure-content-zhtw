@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="以 C# 建立 Azure SQL Database" 
-   description="本文將說明如何使用 Azure SQL Database Library for .NET 以 C# 建立 Azure SQL Database。" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+	pageTitle="試用 SQL Database：使用 C# 建立 SQL Database | Microsoft Azure" 
+	description="嘗試用 SQL Database 開發 SQL 和 C# 應用程式，然後使用 SQL Database Library for .NET 以 C# 建立 Azure SQL Database。" 
+	keywords="試用 sql, sql c#"   
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -16,7 +17,7 @@
    ms.date="09/01/2015"
    ms.author="sstein"/>
 
-# 以 C& 建立 SQL Database#x23;
+# 試用 SQL Database：透過 SQL Database Library for .NET 使用 C&#x23; 建立 SQL Database 
 
 **單一資料庫**
 
@@ -27,9 +28,9 @@
 
 
 
-本文提供使用 [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) 以 C# 建立 Azure SQL Database 的命令。
+了解如何使用 C# 命令透過 [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) 建立 Azure SQL Database。
 
-本文將說明如何建立單一資料庫，若要了解如何建立彈性資料庫，請參閱[建立彈性資料庫集區](sql-database-elastic-pool-portal.md)。
+您可使用 SQL 和 C# 建立單一資料庫，試用 SQL Database。若要建立彈性資料庫，請參閱[建立彈性資料庫集區](sql-database-elastic-pool-portal.md)。
 
 為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
 
@@ -37,19 +38,19 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 <br>
 
-> [AZURE.NOTE] SQL Database Library for .NET 目前為預覽狀態。
+> [AZURE.NOTE]SQL Database Library for .NET 目前為預覽狀態。
 
 <br>
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
 - Azure 訂用帳戶。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
-- 。如需 Visual Studio 的免費複本，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
+- 。如需免費的 Visual Studio，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
 
 
 ## 安裝必要的程式庫
 
-使用[封裝管理員主控台](http://docs.nuget.org/Consume/Package-Manager-Console)安裝下列封裝，即可取得必要的管理程式庫：
+若要以 C# 設定 SQL Database，使用[封裝管理員主控台](http://docs.nuget.org/Consume/Package-Manager-Console)安裝下列封裝，即可取得必要的管理程式庫：
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -68,33 +69,33 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 1. 捲動左側的功能表以找出 **Active Directory** 服務並且開啟。
 
-    ![AAD][1]
+    ![試用 SQL Database：設定 Azure Active Directory (AAD)。][1]
 
 2. 選取要驗證您的應用程式的目錄並按一下該目錄的 [名稱]。
 
-    ![目錄][4]
+    ![選取要驗證您的 SQL C# 的目錄。][4]
 
 3. 在目錄頁面上，按一下 [應用程式]。
 
-    ![[應用程式]][5]
+    ![包含應用程式的目錄頁面。][5]
 
-4. 按一下 [新增] 以新增新的應用程式。
+4. 按一下 [新增] 為 SQL Database 建立新的 C# 應用程式。
 
-    ![新增應用程式][6]
+    ![新增 SQL C# 應用程式。][6]
 
 5. 選取 [新增組織正在開發的應用程式]。
 
 5. 提供應用程式的 [名稱]，然後選取 [原生用戶端應用程式]。
 
-    ![新增應用程式][7]
+    ![提供 SQL C# 應用程式的相關資訊。][7]
 
 6. 提供 [重新導向 URI]。它不需要是實際的端點，只要是有效的 URI 即可。
 
-    ![新增應用程式][8]
+    ![新增 SQL C# 應用程式的重新導向 URL。][8]
 
-7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] \(您在程式碼中需要用戶端識別碼)。
+7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] (您在程式碼中需要用戶端識別碼)。
 
-    ![取得用戶端識別碼][9]
+    ![取得 SQL C# 應用程式的用戶端識別碼。][9]
 
 
 1. 在頁面底部按一下 [新增應用程式]。
@@ -102,7 +103,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 1. 選取 [Azure 服務管理 API]，然後完成精靈。
 2. 選取 API 之後，您現在必須授與必要的存取權以存取此 API，方法是選取 [存取 Azure 服務管理 (預覽)]。
 
-    ![權限][2]
+    ![設定權限。][2]
 
 2. 按一下 [儲存]。
 
@@ -115,7 +116,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 1. 移至 [Azure Preview 入口網站](https://portal.azure.com)。
 2. 將滑鼠停留在右上角的名稱，並記下出現在快顯視窗的網域。
 
-    ![識別網域名稱][3]
+    ![識別網域名稱。][3]
 
 
 
@@ -150,7 +151,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 
 
-> [AZURE.NOTE] 這篇文章中的範例使用每個 API 要求的同步表單，並且封鎖直到基礎服務上的 REST 呼叫完成。有可用的非同步方法。
+> [AZURE.NOTE]這篇文章中的範例使用每個 API 要求的同步表單，並且封鎖直到基礎服務上的 REST 呼叫完成。有可用的非同步方法。
 
 
 
@@ -220,12 +221,12 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 
 
 
-若要允許其他 Azure 服務存取伺服器，則新增防火牆規則並且將 tartIpAddress 和 EndIpAddress 都設為 0.0.0.0。請注意，這可讓來自*任何* Azure 訂用帳戶的 Azure 流量存取伺服器。
+若要允許其他 Azure 服務存取伺服器，則新增防火牆規則並且將 tartIpAddress 和 EndIpAddress 都設為 0.0.0.0。請注意，這可讓來自任何 Azure 訂用帳戶的 Azure 流量存取伺服器。
 
 
-## 建立資料庫
+## 使用 C&#x23; 建立基本 SQL Database
 
-如果伺服器上沒有相同名稱的資料庫存在，則下列命令會建立新的基本資料庫；如果具有相同名稱的資料庫已存在，則會更新。
+如果伺服器上沒有相同名稱的資料庫存在，則下列 C# 命令會建立新的基本 SQL Database；如果具有相同名稱的資料庫已存在，則會更新。
 
         // Create a database
 
@@ -250,7 +251,7 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 
 
 
-## 範例主控台應用程式
+## 範例 C&#x23; 主控台應用程式
 
 
     using Microsoft.Azure;
@@ -411,6 +412,7 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 
 
 ## 後續步驟
+既然您已試用 SQL Database 並以 C# 設定資料庫，您就可以進行下列文章：
 
 - [使用 C# 連接及查詢您的 SQL Database](sql-database-connect-query.md)
 - [連接 SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
@@ -434,4 +436,4 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

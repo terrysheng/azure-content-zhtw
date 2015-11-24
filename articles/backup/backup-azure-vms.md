@@ -1,11 +1,12 @@
 <properties
 	pageTitle="備份 Azure 虛擬機器 | Microsoft Azure"
-	description="用於備份 Azure 虛擬機器的程序。"
+	description="利用 Azure 虛擬機器備份的這些程序來探索、註冊及備份您的虛擬機器。"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="虛擬機器備份; 備份虛擬機器; 備份和災害復原"/>
 
 <tags
 	ms.service="backup"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/29/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
-# 備份 Azure 虛擬機器
-本文提供備份現有 Azure 虛擬機器，以根據您的公司的備份和保留原則加以保護的程序。
+# Azure 虛擬機器備份
+本文提供如何備份現有 Azure 虛擬機器，以根據您的公司的備份和災害復原原則保護 VM 的程序。
 
 首先，您必須注意幾件事，才能備份 Azure 虛擬機器。如果您尚未這樣做，請先完成[必要條件](backup-azure-vms-prepare.md)為您的環境進行 VM 備份的準備工作，再繼續作業。
 
@@ -26,12 +27,12 @@
 
 備份 Azure 虛擬機器需要三個主要步驟：
 
-![備份 Azure 虛擬機器的三個步驟](./media/backup-azure-vms/3-steps-for-backup.png)
+![備份 Azure IaaS VM 的三個步驟](./media/backup-azure-vms/3-steps-for-backup.png)
 
 >[AZURE.NOTE]虛擬機器備份位於本機。您無法將虛擬機器從一個區域備份到另一個區域中的備份保存庫。因此，對於每一個有 VM 需要備份的 Azure 區域，必須在該區域中至少建立 1 個備份保存庫。
 
 ## 步驟 1 - 探索 Azure 虛擬機器
-探索程序一律為首要執行步驟，以確保能夠識別任何新增至訂用帳戶的新虛擬機器。此程序會在 Azure 中查詢訂用帳戶中的虛擬機器清單，以及其他資訊，例如雲端服務名稱、區域等。
+探索程序一律為首要執行步驟，以確保能夠識別任何加入至訂用帳戶的新虛擬機器。此程序會在 Azure 中查詢訂用帳戶中的虛擬機器清單，以及其他資訊，例如雲端服務名稱、區域等。
 
 1. 在 Azure 入口網站中，瀏覽至 [復原服務] 下的備份保存庫，然後按一下 [註冊的項目]。
 
@@ -39,7 +40,7 @@
 
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 按一下頁面底部的 [**探索**]。![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
+3. 按一下頁面底部的 [探索]。![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
 
     在列表顯示虛擬機器時，探索程序可能需花費幾分鐘的時間。畫面底部會有通知讓您知道程序正在執行中。
 
@@ -147,7 +148,7 @@
 ![搭配復原點備份虛擬機器](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## 檢視備份狀態和詳細資料
-虛擬機器受到保護後，[**儀表板**] 頁面摘要中的虛擬機器計數也會遞增。[儀表板] 頁面也會顯示過去 24 小時內*成功*、*失敗*及仍在*進行中*的工作數目。按一下任何一個類別，可在 [工作] 頁面中深入查看該類別。
+虛擬機器受到保護後，[**儀表板**] 頁面摘要中的虛擬機器計數也會遞增。[儀表板] 頁面也會顯示過去 24 小時內*成功*、*失敗*及仍在*進行中*的工作數目。按一下任何一個類別可在 [工作] 頁面中深入查看該類別。
 
 ![儀表板頁面中的備份狀態](./media/backup-azure-vms/dashboard-protectedvms.png)
 
@@ -161,4 +162,4 @@
 - [管理和監視虛擬機器](backup-azure-manage-vms.md)
 - [還原虛擬機器](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

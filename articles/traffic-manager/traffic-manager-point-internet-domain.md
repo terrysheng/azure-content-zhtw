@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 將公司網際網路網域指向 Azure 流量管理員網域
@@ -29,12 +29,10 @@
 
 ## 後續步驟
 
-[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
+[流量管理員路由方法](traffic-manager-routing-methods.md)
 
 [流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
 
 [流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)
 
-[什麼是流量管理員？](traffic-manager-overview.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

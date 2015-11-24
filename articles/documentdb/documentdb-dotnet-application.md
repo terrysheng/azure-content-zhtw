@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="開發以 ASP.NET MVC 使用 DocumentDB 的 Web 應用程式 | Microsoft Azure" 
-	description="了解如何使用 DocumentDB with .NET 建立待辦事項清單 Web 應用程式。您將從 Azure 網站託管的 ASP.NET MVC Web 應用程式中儲存和存取資料。" 
-	keywords="Github、visual studio、web 應用程式開發、應用程式開發、資料庫教學課程、mvc 應用程式、json 資料、documentdb、azure、Microsoft azure"
+	pageTitle="DocumentDB 的 ASP.NET MVC 教學課程：Web 應用程式開發 | Microsoft Azure" 
+	description="完成這個 ASP.NET MVC 教學課程來使用 DocumentDB 建立 MVC Web 應用程式。您將從託管於 Azure 網站的待辦事項應用程式儲存 JSON 和存取資料。" 
+	keywords="asp.net mvc 教學課程, web 應用程式開發, mvc web 應用程式, asp net mvc 教學課程逐步解說"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/20/2015" 
+	ms.date="11/18/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>使用 DocumentDB 搭配 ASP.NET MVC 的 Web 應用程式開發
@@ -26,9 +26,9 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md) 
 
-為了特別說明您可以如何有效率地利用 Azure DocumentDB 來儲存和查詢 JSON 文件，本文提供如何使用 Azure DocumentDB 建置待辦事項清單 Web 應用程式的完整逐步解說。在 Azure DocumentDB 中，這些工作將會儲存為 JSON 文件。
+為了特別說明您可以如何有效率地利用 Azure DocumentDB 來儲存和查詢 JSON 文件，本文提供如何使用 Azure DocumentDB 建置待辦事項應用程式的完整逐步解說。在 Azure DocumentDB 中，這些工作將會儲存為 JSON 文件。
 
-![本教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/documentdb-dotnet-application/image1.png)
+![本教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面 - ASP NET MVC 教學課程逐步解說](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
 本逐步解說說明如何使用 Azure 所提供的 DocumentDB 服務，來儲存和存取 Azure 上所託管 ASP.NET MVC Web 應用程式的資料。
 
@@ -63,7 +63,7 @@
    	[新增專案] 對話方塊隨即出現。
 2. 在 [專案類型] 窗格中，依序展開 [範本]、[Visual C#]、[Web]，然後選取 [ASP.NET Web 應用程式]。
 
-  	![[新增專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 ASP.NET Web 應用程式專案類型](./media/documentdb-dotnet-application/image10.png)
+  	![[新增專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 ASP.NET Web 應用程式專案類型](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
 
 3. 在 [名稱] 方塊中，輸入專案的名稱。本教學課程使用 "todo" 名稱。如果您選擇使用其他名稱，則每當本教學課程提及 todo 命名空間時，您必須調整提供的程式碼範例，以便使用您為應用程式所命名的名稱。
 
@@ -71,7 +71,7 @@
 
   	[新增 ASP.NET 專案] 對話方塊隨即出現。
 
-  	![[新增 ASP.NET 專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 MVC 應用程式範本，和勾選的 [在雲端託管] 方塊。](./media/documentdb-dotnet-application/image11.png)
+  	![[新增 ASP.NET 專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 MVC 應用程式範本，和勾選的 [在雲端託管] 方塊。](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image11.png)
 
 5. 在 [範本] 窗格中，選取 [MVC]。
 
@@ -91,9 +91,9 @@
 
 	我們會跳過在本機執行專案，因為我確定我們都已看過 ASP.NET "Hello World" 應用程式。讓我們直接跳到將 DocumentDB 新增至此專案並建置應用程式的步驟。
 
-## <a name="_Toc395637767"></a>步驟 3：將 DocumentDB 新增至 Web 應用程式專案
+## <a name="_Toc395637767"></a>步驟 3：將 DocumentDB 加入至 MVC Web 應用程式專案
 
-既然我們已經完成了此方案的大部分 ASP.NET MVC 瑣事，我們現在可以開始本教學課程的真正目的，也就是將 Azure DocumentDB 新增至 Web 應用程式。
+既然我們已經完成了此方案的大部分 ASP.NET MVC 瑣事，我們現在可以開始本教學課程的真正目的，也就是將 Azure DocumentDB 加入至 MVC Web 應用程式。
 
 1. DocumentDB .NET SDK 會隨 NuGet 封裝而分散。若要在 Visual Studio 中取得 NuGet 封裝，請使用 Visual Studio 中的 NuGet 封裝管理員，方法是以滑鼠右鍵按一下 [方案總管] 中的專案，然後按一下 [管理 NuGet 封裝]。
 
@@ -221,7 +221,7 @@
 
 1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
-2. 在 [**新增檢視]** 對話方塊中，執行下列動作：
+2. 在 [新增檢視] 對話方塊中，執行下列動作：
     - 在 [檢視名稱] 方塊中，輸入「***建立***」。
     - 在 [**範本**] 方塊中，選取 [***建立***]。
     - 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
@@ -255,7 +255,7 @@
 - [新增項目](#_Toc395637771)。
 - [編輯項目](#_Toc395637772)。
 
-### <a name="_Toc395637770"></a>列出 Web 應用程式中的未完成項目
+### <a name="_Toc395637770"></a>列出 MVC Web 應用程式中的未完成項目
 
 首先要執行的作業是新增類別，其中包含連線至及使用 DocumentDB 的所有邏輯。在本教學課程中，我們會將所有邏輯封裝到名為 DocumentDBRepository 的儲存機制類別中。
 
@@ -615,15 +615,15 @@
 
 2. 系統應該已根據您的認證設定好所有項目；實際上，系統已在 Azure 中建立位於所顯示的 [目的地 URL] 的網站，您只需要按一下 [發佈] 即可。
 
-    ![Visual Studio [發佈 Web] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image29.png)
+    ![Visual Studio 中 [發佈 Web] 對話方塊的螢幕擷取畫面 - ASP NET MVC 教學課程逐步解說](./media/documentdb-dotnet-application/image29.png)
 
 幾秒後，Visual Studio 便會發佈 Web 應用程式並啟動瀏覽器，您可以在瀏覽器中看到您方便好用的應用程式已在 Azure 中執行！
 
 ##<a name="_Toc395637775"></a>後續步驟
 
-恭喜！ 您剛剛使用 Azure DocumentDB 建置您的第一個 ASP.NET MVC 應用程式，並將它發佈至 Azure 網站。您可以從 [GitHub][] 下載或複製完整應用程式 (包括不包含在本教學課程中的詳細資料和刪除功能) 的原始程式碼。所以如果您想要將程式碼加入您的應用程式，請抓取程式碼，並將它加入這個應用程式。
+恭喜！ 您剛剛使用 Azure DocumentDB 建置您的第一個 ASP.NET MVC Web 應用程式，並將它發佈至 Azure 網站。您可以從 [GitHub][] 下載或複製完整應用程式 (包括不包含在本教學課程中的詳細資料和刪除功能) 的原始程式碼。所以如果您想要將程式碼加入您的應用程式，請抓取程式碼，並將它加入這個應用程式。
 
-若要將其他功能加入至您的應用程式，請檢閱[文件 DB .NET 程式庫](http://msdn.microsoft.com/library/azure/dn783362.aspx)中提供的 API，並歡迎您貢獻到 [GitHub][] 上的 DocumentDB .NET 程式庫。
+若要將其他功能加入至您的應用程式，請檢閱[文件 DB .NET 程式庫](https://msdn.microsoft.com/library/azure/dn948556.aspx)中提供的 API，並歡迎您貢獻到 [GitHub][] 上的 DocumentDB .NET 程式庫。
 
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
@@ -633,4 +633,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

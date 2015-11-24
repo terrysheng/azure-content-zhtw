@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/10/2015"
+	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
 
@@ -50,7 +50,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 #### 匯入步驟
 
-將 bacpac 匯入到新的進階資料庫：
+將 bacpac 匯入到新的進階資料庫。
 
 1. 在 Azure [入口網站](http://portal.azure.com/)中，
  - 導覽至伺服器。
@@ -154,7 +154,7 @@ In-Memory 功能也可以修改預存程序，以改善效能。
 - SCHEMABINDING：表示除非您捨棄預存程序，否則無法由預存程序以任何會影響到預存程序的方式變更其資料行定義的資料表。
 
 
-原生模組必須使用一個大型 [ATOMIC 區塊](http://msdn.microsoft.com/library/dn452281.aspx)進行交易管理。沒有明確 BEGIN TRANSACTION 的角色。
+原生模組必須使用一個大型 [ATOMIC 區塊](http://msdn.microsoft.com/library/dn452281.aspx)進行交易管理。沒有明確 BEGIN TRANSACTION 或 ROLLBACK TRANSACTION 的角色。如果您的程式碼偵測到違反商務規則，它可以利用 [THROW](http://msdn.microsoft.com/library/ee677615.aspx) 陳述式終止不可部分完成的區塊。
 
 
 ### 原生編譯的一般 CREATE PROCEDURE
@@ -233,4 +233,4 @@ CREATE PROCEDURE schemaname.procedurename
 
 - [記憶體最佳化建議程式](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

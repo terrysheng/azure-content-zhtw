@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/27/2015"
+	ms.date="11/16/2015"
 	ms.author="sdanie"/>
 
 # 在 Azure API 管理中管理您的第一個 API
@@ -116,7 +116,7 @@ API 是從發行者入口網站所設定，您可以透過 Azure 入口網站存
 
 ![API summary][api-management-imported-api-summary]
 
-API 區段有一些索引標籤。[摘要] 索引標籤會顯示 API 的基本度量和相關資訊。[設定](api-management-howto-create-apis.md#configure-api-settings)索引標籤可用來檢視和編輯 API 的組態。[作業](api-management-howto-add-operations.md)索引標籤可用來管理 API 的作業。[安全性] 索引標籤可用來將後端伺服器的 Proxy 驗證設定為使用基本驗證或[相互憑證驗證](api-management-howto-mutual-certificates.md)，以及用來設定[使用 OAuth 2.0 的使用者授權](api-management-howto-oauth2.md)。[問題] 索引標籤是用來檢視使用您 API 的開發人員所報告的問題。[產品] 索引標籤是用來設定包含此 API 的產品。
+API 區段有一些索引標籤。[摘要] 索引標籤會顯示 API 的基本度量和相關資訊。[設定](api-management-howto-create-apis.md#configure-api-settings)索引標籤可用來檢視和編輯 API 的組態。[作業](api-management-howto-add-operations.md)索引標籤可用來管理 API 的作業。[安全性] 索引標籤可用來將後端伺服器的閘道驗證設定為使用基本驗證或[相互憑證驗證](api-management-howto-mutual-certificates.md)，以及用來設定[使用 OAuth 2.0 的使用者授權](api-management-howto-oauth2.md)。[問題] 索引標籤是用來檢視使用您 API 的開發人員所報告的問題。[產品] 索引標籤是用來設定包含此 API 的產品。
 
 依預設，每個 API 管理執行個體會隨附兩個範例產品：
 
@@ -243,4 +243,4 @@ API 區段有一些索引標籤。[摘要] 索引標籤會顯示 API 的基本�
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

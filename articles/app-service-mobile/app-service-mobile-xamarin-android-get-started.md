@@ -3,7 +3,7 @@
 	description="遵循此教學課程，可開始使用 Azure Mobile Apps 進行 Xamarin Android 開發。"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="ggailey777"
 	manager="dwrede"
 	editor="" />
 
@@ -13,65 +13,46 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
-	ms.author="normesta" />
+	ms.date="11/17/2015"
+	ms.author="glenga" />
 
 #建立 Xamarin.Android 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
  
 ##概觀
 
-本教學課程顯示如何使用 Azure 行動應用程式後端，將雲端型後端服務新增到 Xamarin Android 應用程式。您將建立新的行動應用程式後端，以及在 Azure 中儲存應用程式資料的簡單 _Todo 清單_ Xamarin.Andorid 應用程式。
+本教學課程將示範如何將雲端後端服務加入至 Xamarin.Android 應用程式。如需詳細資訊，請參閱[什麼是 Mobile Apps？](app-service-mobile-value-prop.md)。
 
 以下是完成應用程式的螢幕擷取畫面：
 
 ![][0]
 
-完成本教學課程是 Xamarin Android 應用程式所有其他行動應用程式教學課程的先決條件。
+完成本教學課程是 Xamarin Android 應用程式所有其他行動應用程式教學課程的必要條件。
  
-##先決條件
+##必要條件
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
  
 * [Visual Studio Community 2013] 或更新版本。如果您安裝 Visual Studio Community 2013，請個別安裝 [Xamarin]。當您安裝 Visual Studio 2015 時，可以安裝 Xamarin 工具。
  
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)，即可在 App Service 中立即建立短期入門行動應用程式。不需要信用卡；沒有承諾。
 
-
 ## 建立新的 Azure 行動應用程式後端
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## 下載伺服器專案
+## 設定伺服器專案
 
-1. 在您的電腦上瀏覽 [Azure 入口網站]。按一下 [瀏覽全部] > [Mobile Apps]，然後按一下您剛才建立的行動應用程式後端。
-
-2. 在 [行動應用程式] 刀鋒視窗中，按一下 [設定]，並在 [行動應用程式] 底下按一下 [快速入門] > **Xamarin.Android**。
- 
-3. 在 [下載並執行您的伺服器專案] 底下，按一下 [下載]。將壓縮的專案檔案解壓縮至您的電腦，並在 Visual Studio 中開啟方案。
- 
-## 在本機測試您的後端專案
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-## 將伺服器專案發行至 Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## 下載並執行 Xamarin.Android 應用程式
 
 1. 在 [下載並執行 Xamarin.Android 專案] 底下，按一下 [下載] 按鈕。
 
   	這會下載包含連線到您行動應用程式之用戶端應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
-
-	![][8]
-
-	![][9]
 
 2. 按 **F5** 鍵，以重建專案並啟動應用程式。
 
@@ -85,7 +66,7 @@
 
 ##後續步驟
 
-* [將驗證新增至應用程式](app-service-mobile-xamarin-android-get-started-users.md) <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [加入驗證至應用程式](app-service-mobile-xamarin-android-get-started-users.md) <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
 
 
 <!-- Images. -->
@@ -96,11 +77,11 @@
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[Azure 入口網站]: https://azure.portal.com/
+[Azure Portal]: https://azure.portal.com/
 [Xamarin]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

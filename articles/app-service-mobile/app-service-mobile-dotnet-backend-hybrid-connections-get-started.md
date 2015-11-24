@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
-## 先決條件 ##
+## 必要條件 ##
 
 本教學課程要求您具備下列項目：
 
@@ -49,7 +49,7 @@
 
 2. 按一下 [混合式連線] 區段中的 [設定混合式連線端點]。
 
-	![混合式連線](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/start-hybrid-connection.png)
+	![Hybrid connections](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/start-hybrid-connection.png)
 
 2. 在 [混合式連線] 刀鋒視窗上，按一下 [**新增**] > [**新增混合式連線**]。
 
@@ -63,7 +63,7 @@
 
 	程序完成後，[**通知**] 區域會閃爍綠色 [**成功**]，而且 [**混合式連線**] 刀鋒視窗會顯示新的混合式連線，且狀態為 [**未連線**]。
 
-	![已建立一個混合式連線](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/hybrid-connection-created.png)
+	![已建立一個建立混合式連線](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/hybrid-connection-created.png)
 
 此時，您已經完成雲端混合式連線基礎結構的重要部分。接下來，您會建立對應的內部部署片段。
 
@@ -119,7 +119,7 @@
 
 	將 `<**secure_password**>` 替換為您內部部署資料庫的安全密碼。
 
-	![內部部署資料庫的連接字串](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/set-sql-server-database-connection.png)
+	![Connection string for on-premises database](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/set-sql-server-database-connection.png)
 
 2. 按下 [**儲存**]，以儲存您剛剛建立的混合式連線和連接字串。
 
@@ -139,13 +139,11 @@
 
 	發佈完成後，就會重新啟動服務並顯示後端啟動頁面。
 
-4. 使用連接到行動服務的用戶端應用程式 <!--- either the **Try it now** button on the start page as before or using -->，叫用會產生資料庫變更的某些作業。
-<!--- This try it now is not longer on the page after it is published. 
-	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
--->
-4. 在 SQL Server Management Studio 中，連線到 SQL Server 執行個體，開啟物件總管，然後依序展開 [**OnPremisesDB**] 資料庫和 [**表格**]。
+4. 使用連接到行動應用程式的用戶端應用程式，叫用會產生資料庫變更的某些作業。
 
-5. 以滑鼠右鍵按一下 **hybridService1.TodoItems** 資料表，然後選擇 [Select Top 1000 Rows] 以檢視結果。
+5. 在 SQL Server Management Studio 中，連線到 SQL Server 執行個體，開啟物件總管，然後依序展開 [**OnPremisesDB**] 資料庫和 [**表格**]。
+
+6. 以滑鼠右鍵按一下 **hybridService1.TodoItems** 資料表，然後選擇 [Select Top 1000 Rows] 以檢視結果。
 
 	請注意，您的行動應用程式後端會使用混合式連線，將用戶端應用程式中產生的變更儲存到內部部署資料庫。
 
@@ -164,4 +162,4 @@
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

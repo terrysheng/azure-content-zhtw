@@ -12,7 +12,9 @@
 # 準備環境以備份 Windows 電腦
 
 本教學課程將引導您啟用 Azure 備份功能。若要將 Windows Server 或 Windows 用戶端備份至 Azure，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
->[AZURE.NOTE]您之前需要建立或取得 X.509 第 3 版憑證，才能註冊備份伺服器。這些憑證仍受到支援，但現在為了簡化向伺服器註冊 Azure 保存庫的作業，您可以直接從 [快速啟動] 頁面產生保存庫認證。
+
+>[AZURE.NOTE] 您之前需要建立或取得 X.509 第 3 版憑證，才能註冊備份伺服器。這些憑證仍受到支援，但現在為了簡化向伺服器註冊 Azure 保存庫的作業，您可以直接從 [快速啟動] 頁面產生保存庫認證。
+
 
 ## 開始之前
 若要將檔案和資料從 Windows Server 備份至 Azure，您必須先：
@@ -34,4 +36,4 @@
 - [Azure 備份常見問題集](backup-azure-backup-faq.md)
 - [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=Nov15_HO3-->
+<!-----HONumber=Nov15_HO3-->

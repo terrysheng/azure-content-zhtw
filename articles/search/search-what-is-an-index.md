@@ -102,4 +102,4 @@ Azure 搜尋服務所執行的所有資料相關作業，都會從索引取用�
 
 如果查詢磁碟區或資料儲存體需求會隨時間變更，您可以藉由新增或移動複本與資料分割來增加或減少容量。如需詳細資料，請參閱[在 Azure 中管理您的搜尋服務](search-manage.md)或[服務限制](search-limits-quotas-capacity.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

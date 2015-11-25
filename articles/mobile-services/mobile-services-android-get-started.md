@@ -38,7 +38,7 @@
 
 下載的快速入門專案包含 Azure Mobile Services SDK for Android。
 
-> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。
+> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。
 
 
 ## 建立新的行動服務
@@ -47,7 +47,7 @@
 
 ## 建立新的 Android 應用程式
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。
+在建立您的行動服務之後，您可以依照 \[管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。
 
 在本節中，您將建立與行動服務連線的新 Android 應用程式。
 
@@ -76,11 +76,14 @@
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [開始使用資料] <br/>深入了解使用行動服務來儲存與查詢資料。
+* [開始使用資料]
+  <br/>深入了解使用行動服務來儲存與查詢資料。
 
-* [開始使用驗證] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [開始使用驗證]
+  <br/>了解如何向身分識別提供者驗證應用程式的使用者。
 
-* [開始使用推播通知] <br/>了解如何將極為基本的推播通知傳送到應用程式。
+* [開始使用推播通知]
+  <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -95,4 +98,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

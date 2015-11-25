@@ -24,7 +24,7 @@
 
 *預估完成時間：** 20 分鐘
 
->[AZURE.NOTE]本教學課程的指示並未說明如何撰寫其中步驟所包含的 Azure 應用程式，也就是如何授權應用程式使用金鑰保存庫中的金鑰或密碼。
+>[AZURE.NOTE] 本教學課程的指示並未說明如何撰寫其中步驟所包含的 Azure 應用程式，也就是如何授權應用程式使用金鑰保存庫中的金鑰或密碼。
 >
 >目前，您無法在 Azure 入口網站中設定 Azure 金鑰保存庫。請改用這些 Azure PowerShell 指示。或者，如需跨平台命令列介面的指示，請參閱[這個對等的教學課程](key-vault-manage-with-cli.md)。
 
@@ -91,8 +91,8 @@
 
 此 Cmdlet 的輸出會顯示您剛剛建立的金鑰保存庫屬性。兩個最重要屬性是：
 
-- **保存庫名稱**：在此範例中是 **ContosoKeyVault**。您將在其他金鑰保存庫 Cmdlet 中使用此名稱。
-- **保存庫 URI**：在此範例中是 https://contosokeyvault.vault.azure.net/。透過其 REST API 使用保存庫的應用程式必須使用此 URI。
+- **保存庫名稱**：在此範例中是 **ContosoKeyVault**。 您將在其他金鑰保存庫 Cmdlet 中使用此名稱。
+- **保存庫 URI**：在此範例中是 https://contosokeyvault.vault.azure.net/。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
 
 您的 Azure 帳戶現已取得在此金鑰保存庫上執行任何作業的授權。而且，沒有其他人有此授權。
 
@@ -111,7 +111,7 @@
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-透過使用其 URI，您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰。使用 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 可一律取得最新的版本，使用 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可取得此特定版本。
+透過使用其 URI，您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰。使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 可一律取得最新的版本，使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可取得此特定版本。
 
 若要顯示此金鑰的 URI，請輸入：
 
@@ -125,7 +125,7 @@
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。使用 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** 可一律取得最新的版本，使用 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 可取得此特定版本。
+透過使用其 URI，您現在可以參照您新增至 Azure 金鑰保存庫的密碼。使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 可一律取得最新的版本，使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 可取得此特定版本。
 
 若要顯示此密碼的 URI，請輸入：
 
@@ -143,7 +143,7 @@
 這步驟通常會由開發人員在個別電腦上完成。這並非 Azure 金鑰保存庫的特有狀況，在此列出是為了讓程式完整。
 
 
->[AZURE.IMPORTANT]若要完成本教學課程，您的帳戶、保存庫及將在本步驟中註冊的應用程式全都必須位於相同的 Azure 目錄中。
+>[AZURE.IMPORTANT] 若要完成本教學課程，您的帳戶、保存庫及將在本步驟中註冊的應用程式全都必須位於相同的 Azure 目錄中。
 
 使用金鑰保存庫的應用程式必須使用 Azure Active Directory 的權杖進行驗證。若要達到此目的，應用程式擁有者首先必須在其 Azure Active Directory 中註冊該應用程式。註冊結束時，應用程式擁有者會取得下列值：
 
@@ -158,7 +158,7 @@
 3. 按一下 [**應用程式**]。如果您的目錄中尚未新增任何應用程式，則此頁面僅會顯示 [新增應用程式] 連結。按一下此連結，或者您可以按一下命令列上的 [新增]。
 4.	在 [**新增應用程式**] 精靈的 [**您想做什麼？**] 頁面上，按一下 [**新增我的組織正在開發的應用程式**]。
 5.	在 [告訴我們您的應用程式] 頁面上，指定您的應用程式名稱，然後選取 [WEB 應用程式和/或 WEB API] (預設值)。按 [下一步] 圖示。
-6.	在 [**應用程式屬性**] 頁面上，為您的 Web 應用程式指定 [**登入 URL**] 和 [**應用程式識別碼 URI**]。如果您的應用程式沒有這些值，您可以在此步驟中虛構這些值 (例如，您可以在這兩個方塊中指定 http://test1.contoso.com)。這些網站是否存在並沒有影響；重要的是目錄中每個應用程式的應用程式識別碼 URI 都會有所不同。目錄會使用此字串來識別您的應用程式。
+6.	在 [**應用程式屬性**] 頁面上，為您的 Web 應用程式指定 [**登入 URL**] 和 [**應用程式識別碼 URI**]。如果您的應用程式沒有這些值，您可以在此步驟中虛構這些值 (例如，您可以在這兩個方塊中指定 http://test1.contoso.com)。 這些網站是否存在並沒有影響；重要的是目錄中每個應用程式的應用程式識別碼 URI 都會有所不同。目錄會使用此字串來識別您的應用程式。
 7.	按一下 [完成] 圖示在精靈中儲存變更。
 8.	在 [快速入門] 頁面上，按一下 [設定]。
 9.	捲動到 [**金鑰**] 區段，選取持續時間，然後按一下 [**儲存**]。頁面會重新整理，並顯示金鑰值。您必須使用此金鑰值和 [**用戶端識別碼**] 值來設定您的應用程式。(有關此設定的指示僅適用於特定應用程式。)
@@ -238,4 +238,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

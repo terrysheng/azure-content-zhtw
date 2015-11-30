@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="v-sharos" />
 
 # 在 Government 入口網站中部署您的內部部署 StorSimple 裝置
@@ -277,4 +277,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

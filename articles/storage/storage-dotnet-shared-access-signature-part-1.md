@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="tamram"/>
 
 
@@ -144,17 +144,22 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 
 >[AZURE.IMPORTANT]共用存取簽章 URI 會與用來建立簽章的帳戶金鑰，以及相關聯的預存的存取原則 (如果有的話) 產生關聯。如果未指定任何預存的存取原則，則撤銷共用存取簽章的唯一方式是變更帳戶金鑰。
 
-## 共用存取簽章的範例
+## 範例：建立並使用共用存取簽章
 
 下面是兩種類型共用存取簽章 (帳戶 SAS 和服務 SAS) 的一些範例。
 
-### 帳戶 SAS 範例
+若要執行這些範例，您將需要下載和參考這些套件：
+
+- [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage)，版本 6.x 或更高版本 (以使用 帳戶 SAS)。
+- [Azure 資源管理員](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+
+### 範例：帳戶 SAS
 
 下列程式碼範例會建立適用於 Blob 和檔案服務的帳戶 SAS，並提供用戶端權限讀取、寫入和列出權限來存取服務層級 API。帳戶 SAS 會將通訊協定限制為 HTTPS，因此必須使用 HTTPS 提出要求。
 
     static string GetAccountSASToken()
     {
-        // To create the account SAS, you need to use your shared key credentials.
+        // To create the account SAS, you need to use your shared key credentials. Modify for your account.
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -218,21 +223,13 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
         Console.WriteLine(serviceProperties.HourMetrics.Version);
     }
 
-### 服務 SAS 範例
+### 範例：包含預存存取原則的服務 SAS：
 
-下列程式碼範例會在容器上建立預存的存取原則，然後為容器產生服務 SAS。然後可以將此 SAS 提供給用戶端，以取得容器上的讀寫權限：
+下列程式碼範例會在容器上建立預存的存取原則，然後為容器產生服務 SAS。然後可以將此 SAS 提供給用戶端，以取得容器上的讀寫權限。變更程式碼以使用您自己的帳戶名稱：
 
-    // The connection string for the storage account.  Modify for your account.
-    string storageConnectionString =
-       "DefaultEndpointsProtocol=https;" +
-       "AccountName=myaccount;" +
-       "AccountKey=<account-key>";
-    
-    // As an alternative, you can retrieve storage account information from an app.config file. 
-    // This is one way to store and retrieve a connection string if you are 
-    // writing an application that will run locally, rather than in Microsoft Azure.
-    
-    // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
     
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -246,6 +243,9 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
     
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
+
+    // Clear the container's shared access policies to avoid naming conflicts.
+    blobPermissions.SharedAccessPolicies.Clear();
     
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
@@ -253,24 +253,23 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write |
-      SharedAccessBlobPermissions.Read
+       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
     
     // The public access setting explicitly specifies that 
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
     
-    // Set the permission policy on the container.
+    // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
     
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
 
-擁有服務 SAS 的用戶端可以在其程式碼中用它來驗證對容器中 Blob 的讀取或寫入要求。例如，下列程式碼會使用 SAS 權杖在容器中建立新的區塊 Blob：
+擁有服務 SAS 的用戶端可以在其程式碼中用它來驗證對容器中 Blob 的讀取或寫入要求。例如，下列程式碼會使用 SAS 權杖在容器中建立新的區塊 Blob。變更程式碼以使用您自己的帳戶名稱：
 
-    Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
+    Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
     
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
@@ -281,7 +280,7 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
     // Upload the blob. 
     // If the blob does not yet exist, it will be created. 
     // If the blob does exist, its existing content will be overwritten.
-    using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
+    using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
     	blob.UploadFromStream(fileStream);
     }
@@ -322,4 +321,4 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

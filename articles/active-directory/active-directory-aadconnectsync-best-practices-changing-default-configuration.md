@@ -83,4 +83,4 @@ Azure AD Connect 同步處理已設定為每 3 小時同步處理身分識別資
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

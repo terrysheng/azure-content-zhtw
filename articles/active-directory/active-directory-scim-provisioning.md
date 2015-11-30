@@ -20,32 +20,82 @@
 
 ##概觀
 
-Azure Active Directory 會利用 [SCIM 通訊協定規格](https://tools.ietf.org/html/draft-ietf-scim-api-19)中定義的介面，自動佈建使用者和群組到 Web 服務前端的任何應用程式或身分識別存放區。Azure Active Directory 可以傳送要求給此 Web 服務來建立、修改和刪除指派的使用者與群組，Web 服務接著可將這些要求轉譯為目標身分識別存放區的作業。
+Azure Active Directory 會利用 [SCIM 2.0 通訊協定規格](https://tools.ietf.org/html/draft-ietf-scim-api-19)中定義的介面，自動佈建使用者和群組到 Web 服務前端的任何應用程式或身分識別存放區。Azure Active Directory 可以傳送要求給此 Web 服務來建立、修改和刪除指派的使用者與群組，Web 服務接著可將這些要求轉譯為目標身分識別存放區的作業。
 
-![][1] *圖：透過 Web 服務從 Azure Active Directory 佈建至任意身分識別存放區*
+![][1] *圖：透過 Web 服務從 Azure Active Directory 佈建至身分識別存放區*
 
-這項功能可搭配 Azure AD 中的「自備應用程式」功能，以為提供使用者佈建 API 的幾乎任何應用程式啟用單一登入和自動使用者佈建。
+這項功能可搭配 Azure AD 中的[「自備應用程式」](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)功能，以為提供 SCIM Web 服務或位於該服務後端的應用程式啟用單一登入和自動使用者佈建。
 
-運作方式如下：
+Azure Active Directory 中的 SCIM 有兩個使用案例：
+
+* **將使用者與群組佈建至支援 SCIM 的應用程式** - 應用程式若支援 SCIM 2.0，而且能夠接受來自 Azure AD 的 OAuth 持有人權杖，將可直接與 Azure AD 搭配運作。
+
+* **為支援其他 API 型佈建的應用程式建置您自己的佈建解決方案** - 對於非 SCIM 應用程式，您可以建立能夠在 Azure AD 的 SCIM 端點與應用程式為使用者佈建支援的任何 API 之間進行轉譯的 SCIM 端點。為了促進 SCIM 端點的開發，我們連同程式碼範例提供了 CLI 程式庫，為您說明如何提供 SCIM 端點及轉譯 SCIM 訊息。
+
+##將使用者與群組佈建至支援 SCIM 的應用程式
+
+Azure Active Directory 可以設定為將已指派的使用者和群組佈建至實作 [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) Web 服務、並接受以 OAuth 持有人權杖進行驗證的應用程式。在 SCIM 2.0 規格中，應用程式必須符合下列需求：
+
+* 支援根據 SCIM 通訊協定 3.3 小節建立使用者和 (或) 群組的作業。  
+
+* 支援根據 SCIM 通訊協定 3.5.2 小節修改具有修補要求的使用者和 (或) 群組的作業。
+
+* 支援根據 SCIM 通訊協定 3.4.1 小節擷取已知資源的作業。
+
+*  支援根據 SCIM 通訊協定 3.4.2 小節查詢使用者和 (或) 群組的作業。依預設會依 externalId 來查詢使用者，並依 displayName 查詢群組。
+
+* 支援根據 SCIM 通訊協定 3.4.2 小節，依 ID 和管理員查詢使用者的作業。
+
+* 支援根據 SCIM 通訊協定 3.4.2 小節，依 ID 和成員查詢群組的作業。
+
+* 接受根據 SCIM 通訊協定 2.1 小節以 OAuth 持有人權杖進行授權的作法。
+
+* 支援以 Azure AD 作為 OAuth 權杖的身分識別提供者 (外部身分識別提供者的支援將於近期推出)
+
+您應洽詢應用程式提供者，或參閱應用程式提供者文件中的相關陳述，以了解是否符合這些需求。
+ 
+###開始使用
+
+支援上述 SCIM 設定檔的應用程式，可使用 Azure AD 應用程式庫中的「自訂」應用程式功能連接到 Azure Active Directory。連接之後，Azure AD 會每隔 5 分鐘執行一次同步處理程序，此程序會為指派的使用者和群組查詢應用程式的 SCIM 端點，並根據指派詳細資料加以建立或修改。
+
+**若要連接支援 SCIM 的應用程式：**
+
+1.	在網頁瀏覽器中，在 https://manage.windowsazure.com 啟動 Azure 管理入口網站。
+2.	瀏覽至 [Active Directory] > [目錄] > [您的目錄] > [應用程式]，然後選取 [新增] > [從資源庫中新增應用程式]。
+3.	選取左側的 [自訂] 索引標籤，輸入應用程式的名稱，然後按一下核取記號圖示以建立應用程式物件。
+
+![][2]
+
+4.	在產生的畫面中，選取第二個 [設定帳戶佈建] 按鈕。
+5.	在對話方塊中，輸入應用程式SCIM 端點的 URL。  
+6.	按 [下一步]，然後按一下 [開始測試] 按鈕，讓 Azure Active Directory 嘗試連接到 SCIM 端點。如果嘗試失敗，就會顯示診斷資訊。  
+7.	如果嘗試連接到應用程式成功，請在其餘畫面上按 [下一步]，然後按一下 [完成] 以結束對話方塊。
+8.	在產生的畫面中，選取第三個 [指派帳戶] 按鈕。在產生的使用者和群組區段中，指派您想要佈建到應用程式的使用者或群組。
+9.	指派使用者和群組之後，按一下畫面頂端附近的 [設定] 索引標籤。
+10.	在 [帳戶佈建] 下，確認狀態設為開啟。 
+11.	在 [工具] 下，按一下 [重新啟動帳戶佈建] 以開始進行佈建程序。
+
+請注意，可能需要 5-10 分鐘的時間，佈建程序才會開始將要求傳送至 SCIM 端點。應用程式的 [儀表板] 索引標籤上提供的連接嘗試的摘要和佈建活動的報表和佈建的任何錯誤就可以從下載目錄的 [報表] 索引標籤。
+
+##為任何應用程式建置您自己的佈建解決方案
+
+建立可與 Azure Active Directory 互動的 SCIM Web 服務後，您即可為提供 REST 或 SOAP 使用者佈建 API 的絕大多數應用程式啟用單一登入和自動使用者佈建。
+
+其運作方式如下：
 
 1.	Azure AD 提供名為 [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/) 的通用語言基礎結構程式庫。系統整合業者和開發人員可以使用此程式庫來建立及部署能夠將 Azure AD 連線到任何應用程式的身分識別存放區的 SCIM 式 Web 服務端點。
 2.	對應會在 Web 服務中實作，以將標準的使用者結構描述對應到使用者結構描述和應用程式所需的通訊協定。
 3.	端點 URL 會在 Azure AD 中註冊，作為應用程式資源庫中自訂應用程式的一部分。
 4.	使用者和群組會在 Azure AD 中指派給此應用程式。指派時，它們會被放入佇列，以同步處理至目標應用程式。同步處理程序會每隔 5 分鐘處理佇列的執行。
 
-##程式碼範例
+###程式碼範例
 
-為了讓這個程序更簡單，提供了一組[程式碼範例](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)，該範例會建立 SCIM Web 服務端點並示範自動佈建。其中一個範例是維護代表使用者和群組、具有逗號分隔值資料列檔案的提供者。另一個是在 Amazon Web 服務身分識別與存取管理服務上運作的提供者。
+為了讓這個程序更簡單，我們提供了一組[程式碼範例](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)，該範例會建立 SCIM Web 服務端點並示範自動佈建。其中一個範例是維護代表使用者和群組、具有逗號分隔值資料列檔案的提供者。另一個是在 Amazon Web 服務身分識別與存取管理服務上運作的提供者。
 
 
-###必要條件
-* Visual Studio 2013 或更新版本
-* [Azure SDK for .NET](https://azure.microsoft.com/zh-TW/downloads/)
-* 支援將 ASP.NET Framework 4.5 用作 SCIM 端點的 Windows 電腦。必須能夠自雲端存取這台電腦
-* [具有 Azure AD Premium 試用版或授權版的 Azure 訂用帳戶](https://azure.microsoft.com/zh-TW/services/active-directory/)
-* Amazon AWS 範例需要來自 [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html) 的程式庫。請參閱範例隨附的讀我檔案，以取得其他詳細資料
+**先決條件** * Visual Studio 2013 或更新版本 * [Azure SDK for .NET](https://azure.microsoft.com/zh-TW/downloads/) * 支援將 ASP.NET Framework 4.5 作為 SCIM 端點的 Windows 電腦。這台電腦必須能夠從雲端存取 * [具有 Azure AD Premium 試用版或授權版的 Azure 訂用帳戶](https://azure.microsoft.com/zh-TW/services/active-directory/) * Amazon AWS 範例需要來自於 [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html) 的程式庫。請參閱範例隨附的讀我檔案，以取得其他詳細資料
 
-##開始使用
+###開始使用
 
 實作可以接受來自 Azure AD 的佈建要求的 SCIM 端點的最簡單的方式是建置和部署會將佈建的使用者輸出至以逗號分隔值 (CSV) 檔案的程式碼範例。
 
@@ -64,32 +114,32 @@ Azure Active Directory 會利用 [SCIM 通訊協定規格](https://tools.ietf.or
 
     FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
 
-8.	在 Windows 中，於 [Windows 設定] > [網路和網際網路設定] 下，選取 [Windows 防火牆] > [進階設定]，並建立允許對連接埠 9000 輸入存取的**輸入規則**。
+8.	在 Windows 中，於 [Windows 設定] > [網路和網際網路設定] 下，選取 [Windows 防火牆] > [進階設定]，並建立允許對連接埠 9000 進行輸入存取的 [輸入規則]。
 9.	如果 Windows 電腦位於路由器背後，必須將路由器設定為在公開到網際網路的連接埠 9000 和 Windows 電腦上的連接埠 9000 之間執行網路存取轉譯。為了讓 Azure AD 能夠在雲端中存取這個端點，這是必要的。
 
 
 **若要在 Azure AD 中註冊範例 SCIM 端點：**
 
-1.	在 Web 瀏覽器中，在 https://manage.windowsazure.com 啟動 Azure 管理入口網站。
-2.	瀏覽至 [Active Directory] > [目錄] > [您的目錄] > [應用程式]，然後選取 [加入] > [從資源庫中新增應用程式]。
+1.	在網頁瀏覽器中，在 https://manage.windowsazure.com 啟動 Azure 管理入口網站。
+2.	瀏覽至 [Active Directory] > [目錄] > [您的目錄] > [應用程式]，然後選取 [新增] > [從資源庫中新增應用程式]。
 3.	選取左側的 [自訂] 索引標籤，輸入「SCIM 測試應用程式」之類的名稱，並按一下核取記號圖示來建立應用程式物件。請注意，建立的應用程式物件要代表您要佈建和實作登一登入的目標應用程式，而不只是 SCIM 端點。
 
 ![][2]
 
 4.	在產生的畫面中，選取第二個 [設定帳戶佈建] 按鈕。
 5.	在對話方塊中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。這看起來應該像 http://testmachine.contoso.com:9000 或 http://<ip-address>:9000/，其中 <ip-address> 是網際網路公開 IP 位址。  
-6.	按 [下一步]，然後按一下 [開始測試] 按鈕，讓 Azure Active Directory 嘗試連線到 SCI 端點。如果嘗試失敗，就會顯示診斷資訊。  
-7.	如果嘗試連接到您的 Web 服務成功，請在其餘畫面上按 [下一步]，然後按一下 [完成] 結束對話方塊。
+6.	按 [下一步]，然後按一下 [開始測試] 按鈕，讓 Azure Active Directory 嘗試連接到 SCIM 端點。如果嘗試失敗，就會顯示診斷資訊。  
+7.	如果嘗試連接到您的 Web 服務成功，請在其餘畫面上按 [下一步]，然後按一下 [完成] 以結束對話方塊。
 8.	在產生的畫面中，選取第三個 [指派帳戶] 按鈕。在產生的使用者和群組區段中，指派您想要佈建到應用程式的使用者或群組。
 9.	指派使用者和群組之後，按一下畫面頂端附近的 [設定] 索引標籤。
 10.	在 [帳戶佈建] 下，確認狀態設為開啟。 
-11.	在 [工具] 下，按一下 [重新啟動帳戶佈建] 來開始進行佈建程序。
+11.	在 [工具] 下，按一下 [重新啟動帳戶佈建] 以開始進行佈建程序。
 
 請注意，可能需要 5-10 分鐘的時間，佈建程序才會開始將要求傳送至 SCIM 端點。應用程式的 [儀表板] 索引標籤上提供的連接嘗試的摘要和佈建活動的報表和佈建的任何錯誤就可以從下載目錄的 [報表] 索引標籤。
 
 確認此範例的最後一個步驟是開啟 Windows 電腦上 \\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug 資料夾中的 TargetFile.csv 檔案。一旦執行佈建程序，此檔案會顯示所有指派和佈建的使用者和群組的詳細資料。
 
-##開發程式庫
+###開發程式庫
 
 若要開發自己符合 SCIM 規格的 Web 服務，請先熟悉下列 Microsoft 所提供、有助於加速開發程序的程式庫：
 
@@ -99,7 +149,7 @@ Azure Active Directory 會利用 [SCIM 通訊協定規格](https://tools.ietf.or
 
 **2：**提供 [ExpressRoute 處理常式](http://expressjs.com/guide/routing.html) 用於剖析 node.js 要求物件，以代表對 node.js Web 服務的呼叫 (如 SCIM 規格所定義)。
 
-##建置自訂 SCIM 端點
+###建置自訂 SCIM 端點
 
 使用上述的程式庫，使用這些程式庫的開發人員可以將其服務託管在任何可執行的通用語言基礎結構組件內，或在網際網路資訊服務內。以下範例程式碼用於將服務託管在可執行組件內，於位址 http://localhost:9000：
 
@@ -220,7 +270,7 @@ Azure Active Directory 會利用 [SCIM 通訊協定規格](https://tools.ietf.or
     }
     }
 
-##處理端點驗證
+###處理端點驗證
 
 來自 Azure Active Directory 的要求包括 OAuth 2.0 持有人權杖。接收要求的任何服務應該代表預期的 Azure Active Directory 租用戶，將簽發者驗證為 Azure Active Directory，以存取 Azure Active Directory 的圖形 Web 服務。在 Token 中，簽發者是由 iss 宣告，例如："iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"。在此範例中，宣告值的基礎位址 https://sts.windows.net 會將 Azure Active Directory 識別為簽發者，而相對位址區段 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 是唯一識別碼，代表核發權杖時的 Azure Active Directory 租用戶。如果發出的權杖要用於存取 Azure Active Directory 的圖形 Web 服務，則該服務的識別項 00000002-0000-0000-c000-000000000000，應該位於權杖的 aud 宣告中的值。
 
@@ -242,7 +292,7 @@ Azure Active Directory 會利用 [SCIM 通訊協定規格](https://tools.ietf.or
     {
     }
 
-**2：**加入下列程式碼至該方法，代表指定的租用戶，將對任何服務端點的任何要求驗證為承載 Azure Active Directory 所簽發的權杖，以存取 Azure Active Directory 的圖形 Web 服務：
+**2：**加入下列程式碼至該方法，代表指定的租用戶，將對任何服務端點的任何要求驗證為承載 Azure Active Directory 所發出的權杖，以存取 Azure Active Directory 的圖形 Web 服務：
 
     private void OnServiceStartup(
       Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
@@ -599,7 +649,7 @@ Microsoft 所提供、用於實作 SCIM 服務的通用語言基礎結構程式�
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-**6：**若要從 SCIM 服務前端的身分識別存放區解除佈建使用者，Azure Active Directory 將會傳送要求，類似這個：
+**6：**若要從 SCIM 服務前端的身分識別存放區解除佈建使用者，Azure Active Directory 將會傳送如下的要求：
 
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -637,4 +687,4 @@ Microsoft 所提供、用於實作 SCIM 服務的通用語言基礎結構程式�
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

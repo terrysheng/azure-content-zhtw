@@ -26,9 +26,9 @@
 本文提供範例組態，可用來設定 Windows VM 的 Azure VM 延伸模組。
 
 
-若要深入了解這些延伸模組，請按一下這裡：[Azure VM 延伸模組概觀](https://msdn.microsoft.com/library/azure/dn606311.aspx)。
+若要深入了解這些延伸模組，請參閱 [Azure VM 延伸模組概觀](https://msdn.microsoft.com/library/azure/dn606311.aspx)。
 
-若要深入了解如何撰寫延伸模組範本，請按一下這裡：[撰寫延伸模組範本](virtual-machines-extensions-authoring-templates.md)。
+若要深入了解如何撰寫延伸模組範本，請參閱[撰寫延伸模組範本](virtual-machines-extensions-authoring-templates.md)。
 
 本文列出部分 Windows 延伸模組所需的組態值。
 
@@ -285,12 +285,13 @@
 
 ### Azure 診斷
 
-按一下這裡以取得 [Azure 診斷功能延伸模組](https://msdn.microsoft.com/library/azure/dn782207.aspx/)的概觀
+如需有關如何設定診斷功能的詳細資訊，請參閱 [Azure 診斷延伸模組](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
-            "typeHandlerVersion": "1.4",
+            "typeHandlerVersion": "1.5",
+			"autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"
@@ -308,4 +309,4 @@
 
 [Windows VM 上的自訂指令碼延伸模組](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

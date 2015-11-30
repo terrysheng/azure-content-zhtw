@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # 使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源
@@ -44,7 +44,7 @@
 		<saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
 		<saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
 		</saml:Attribute>
-- 按一下 [確定]。按一下 完成 (Finish)。關閉 AD FS 管理主控台。
+- 按一下 [確定]。按一下 [完成] (Finish)。關閉 AD FS 管理主控台。
 
 使用者便可以使用內部部署方法 (例如智慧卡) 完成登入。
 
@@ -62,7 +62,7 @@
 5. 在 [新增轉換宣告規則精靈] 上，從下拉式清單選取 [通過或篩選傳入宣告]，然後按 [下一步]。![雲端](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
 6. 在 [宣告規則名稱] 旁邊的方塊中，命名您的規則。例如：InsideCorpNet。
 7. 從 [連入宣告類型] 旁邊的下拉式清單中，選取 [位於公司網路之內]。![雲端](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
-8. 按一下 完成 (Finish)。
+8. 按一下 [完成] (Finish)。
 9. 在 [發佈轉換規則] 上，按一下 [**新增規則**]。
 10. 在 [新增轉換宣告規則精靈] 上，從下拉式清單選取 [使用自訂規則傳送宣告]，然後按 [下一步]。
 11. 在 [宣告規則名稱] 下的方塊中：輸入「保持使用者登入」。
@@ -93,4 +93,4 @@
 
 這樣就大功告成了！ 現在，當宣告來自公司內部網路之外時，Office 365 使用者同盟只需要使用 MFA。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

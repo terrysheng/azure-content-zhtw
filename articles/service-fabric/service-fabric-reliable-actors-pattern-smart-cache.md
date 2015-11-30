@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Reliable Actor 設計模式：智慧型快取
@@ -51,7 +51,7 @@ public interface ILeaderboard : IActor
 ## 智慧型的快取程式碼範例 – 排行榜動作項目
 
 ```
-public class Leaderboard : Actor<LeaderboardCollection>, ILeaderboard
+public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
 {
     // Specialised collection, could be part of the actor
 
@@ -173,7 +173,7 @@ public class Job : IComparable<Job>
 ## 智慧快取程式碼範例 – 工作佇列
 
 ```
-public class JobQueue : Actor<List<Jobs>>, IJobQueue
+public class JobQueue : StatefulActor<List<Jobs>>, IJobQueue
 {
 
     public override Task OnActivateAsync()
@@ -301,4 +301,4 @@ public Task RefreshRates()
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

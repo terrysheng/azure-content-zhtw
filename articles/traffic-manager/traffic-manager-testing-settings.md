@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 測試流量管理員設定
@@ -61,22 +61,15 @@
 
 您可以找到免費的 Web 型 DNS 查閱和挖掘服務。其中部分提供您從不同位置檢查 DNS 名稱解析的能力。例如，搜尋 “DNS lookup” 相關資料。另一個選項是使用協力廠商解決方案 (如 Gomez 或 Keynote)，確認您的設定檔正如預期般分配流量。
 
-## 另請參閱
+## 後續步驟
 
-[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
+[流量管理員的效能考量](traffic-manager-performance-considerations.md)
 
-[流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
+[疑難排解流量管理員的已降級狀態](traffic-manager-troubleshooting-degraded.md)
 
-[流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)
 
-[什麼是流量管理員？](traffic-manager-overview.md)
 
-[雲端服務](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

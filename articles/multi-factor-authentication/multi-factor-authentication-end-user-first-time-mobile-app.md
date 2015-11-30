@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015"
 	ms.author="billmath"/>
 
 # 搭配 Azure Multi-Factor Authentication 使用行動應用程式做為連絡方式
@@ -73,4 +73,4 @@
 >[AZURE.NOTE]如果您看到「新增工作帳戶」，這是針對「加入工作場所」而非多因素驗證。您可以忽略此項目。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

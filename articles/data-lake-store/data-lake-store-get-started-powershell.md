@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # 使用 Azure PowerShell 開始使用 Azure 資料湖分析存放區
@@ -24,15 +24,15 @@
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
 
-了解如何使用 Azure PowerShell 建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱[資料湖存放區概覽](data-lake-store-overview.md)。
+了解如何使用 Azure PowerShell 建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱[資料湖存放區概觀](data-lake-store-overview.md)。
 
-## 先決條件
+## 必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
-- **啟用您的 Azure 訂用帳戶**以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
-- **Azure PowerShell 1.0 或更新版本**。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。
+- **啟用您的 Azure 訂用帳戶** 以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
+- **Azure PowerShell 1.0 或更新版本**。如需指示，請參閱 [安裝並設定 Azure PowerShell](../install-configure-powershell.md)。
 
 ## 建立 Azure 資料湖存放區帳戶
 
@@ -69,7 +69,7 @@
 
 		Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-	此輸出應為 **True**。
+	輸出應為 **True**。
 
 ## 在您的 Azure 資料湖存放區中建立目錄結構
 
@@ -87,16 +87,16 @@
 
 		Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -Path $myrootdir
 
-	畫面中應該會顯示如下的輸出：
+	應該會顯示類似下面的輸出畫面：
 
 	![確認目錄](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "確認目錄")
 
 
 ## 將資料上傳至 Azure 資料湖存放區
 
-您可以在根層級直接將資料上傳至資料湖存放區，或上傳至您在帳戶內建立的目錄。下列程式碼示範如何將一些範例資料上傳至您在上一節中建立的目錄 (**mynewdirectory**)。
+您可以在根層級直接將資料上傳至資料湖存放區，或上傳至您在帳戶內建立的目錄。下列程式碼範例說明如何將一些範例資料上傳至您在上一節中建立的目錄 (**mynewdirectory**)。
 
-如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。下載檔案並將它儲存在電腦的本機目錄上，例如 C:\\sampledata。
+如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。下載檔案並將它儲存在電腦的本機目錄上，例如 C:\\sampledata。
 
 	Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
@@ -141,4 +141,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

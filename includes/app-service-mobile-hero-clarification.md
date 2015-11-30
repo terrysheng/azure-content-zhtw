@@ -1,2 +1,4 @@
 
-In this topic, you will create a new Mobile App backend, download and publish the server project, and download a "todo list" client app that connects to the new Mobile App backend. Mobile Apps provides you with all the backend functionality of App Service, but with additional features designed for mobile developers, including offline sync and push notifications. Client SDKs simplify cloud-based data storage and authentication in your apps. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
+在本主題中，您會依據說明建立新的行動應用程式後端、下載與發佈伺服器專案，然後下載「待辦事項清單」用戶端應用程式，連接到新的行動應用程式後端。Mobile Apps 提供您 App Service 所有後端功能，同時還有其他專為行動開發人員設計的功能，包括離線同步處理與推播通知。用戶端 SDK 可簡化雲端架構儲存體與應用程式驗證。如需詳細資訊，請參閱[什麼是 Mobile Apps？](app-service-mobile-value-prop.md)。
+
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 
@@ -44,7 +44,7 @@
 
 &nbsp;&nbsp;7.開啟 shared App.xaml.cs 程式碼檔案，並注意新的 **UploadChannel** 方法呼叫已經新增到 **OnLaunched** 事件處理常式。這可確保在每次啟動應用程式時嘗試註冊裝置。
 
-&nbsp;&nbsp;8.重複上述步驟將推播通知新增至 Windows Phone 市集應用程式專案，然後從共用 App.xaml.cs 檔案中移除額外的 **UploadChannel** 呼叫與剩餘的 `#if...#endif` 條件式包裝函式。這兩個專案現在都會共用 **UploadChannel** 的單一呼叫。
+&nbsp;&nbsp;8.重複上述步驟將推播通知新增至 Windows Phone 市集 App 專案，然後在共用的 App.xaml.cs 檔案中，移除額外的 **Mobile Service Client**、**UploadChannel** 呼叫以及剩餘的 `#if...#endif` 條件式包裝函式。這兩個專案現在都會共用 **UploadChannel** 的單一呼叫。
 
 &nbsp;&nbsp;請注意，您也可以將使用 `#if...#endif` 包裝的 [MobileServiceClient] 定義統一至單一未包裝的定義，以供這兩個應用程式版本使用，藉此簡化產生的程式碼。
 
@@ -100,4 +100,4 @@
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

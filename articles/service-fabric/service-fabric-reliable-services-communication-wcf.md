@@ -1,11 +1,11 @@
 <properties
-   pageTitle="可靠服務 API 所提供的 WCF 式通訊堆疊"
-   description="本文將說明可靠服務 API 所提供的 WCF 式通訊堆疊。"
+   pageTitle="Reliable Services WCF 通訊堆疊 | Microsoft Azure"
+   description="Services Fabric 內建的 WCF 通訊堆疊提供 Reliable Services 專用的用戶端服務 WCF 通訊。"
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,24 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
+   ms.date="11/12/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # 可靠服務的 WCF 式通訊堆疊
 可靠服務架構允許服務作者決定其想要使用服務的通訊堆疊。他們可以透過 [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md) 方法傳回的 `ICommunicationListener` 在其選擇的通訊堆疊上外掛程式。服務作者如果想要使用 WCF 式通訊，架構提供以 WCF 式實作的通訊堆疊。
 
 ## WCF 通訊接聽程式
-WCF 的 `ICommunicationListener` 特定實作是由 `WcfCommunicationListener` 類別所提供。
+WCF 的 `ICommunicationListener` 特定實作是由 `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener` 類別所提供。
 
 ```csharp
 
-public WcfCommunicationListener(
-    Type communicationInterfaceType,
-    Type communicationImplementationType);
-
-protected override ICommunicationListener CreateCommunicationListener()
-    {
-        WcfCommunicationListener communicationListener = new WcfCommunicationListener(typeof(ICalculator), this)
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    // TODO: If your service needs to handle user requests, return a list of ServiceReplicaListeners here.
+    return new[] { new ServiceReplicaListener(parameters =>
+        new WcfCommunicationListener(typeof(ICalculator), this)
         {
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section
@@ -42,10 +40,9 @@ protected override ICommunicationListener CreateCommunicationListener()
             // Populate the binding information that you want the service to use.
             //
             Binding = this.CreateListenBinding()
-        };
-
-        return communicationListener;
-    }
+        }
+    )};
+}
 
 ```
 
@@ -110,8 +107,11 @@ var calculatorServicePartitionClient = new ServicePartitionClient<WcfCommunicati
 var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
     client => client.Channel.AddAsync(2, 3)).Result;
 
-
 ```
  
+## 後續步驟
+* [使用 Reliable Services 遠端服務進行遠端程序呼叫](service-fabric-reliable-services-communication-remoting.md)
 
-<!---HONumber=Nov15_HO1-->
+* [在 Reliable Services 中搭配 OWIN 使用 Web API](service-fabric-reliable-services-communication-webapi.md)
+
+<!---HONumber=Nov15_HO4-->

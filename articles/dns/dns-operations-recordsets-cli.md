@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="Adinah" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # 如何使用 CLI 管理 DNS 記錄
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-recordsets-cli.md)
-- [Azure Powershell](dns-operations-recordsets.md)
+- [PowerShell](dns-operations-recordsets.md)
 
 本指南示範如何管理 DNS 區域的記錄集和記錄。
 
@@ -236,7 +236,7 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 
 ##另請參閱
 
-[開始建立記錄集和記錄](dns-getstarted-create-recordset-cli.md)<BR> [在 DNS 區域上執行作業](dns-operations-dnszones-cli.md)<BR> [使用 .NET SDK 將作業自動化](dns-sdk.md)
+[將網域委派給 Azure DNS](dns-domain-delegation.md)<BR> [ 管理 DNS 區域](dns-operations-dnszones-cli.md)<BR> [ 使用 .NET SDK 自動化作業](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="abhisram"/>
 
 # Reliable Acto 如何使用 Service Fabric 平台
@@ -97,10 +97,6 @@
 
 上述清單中顯示實作 VoicemailBox 動作項目的組件，將包含在應用程式封裝的服務封裝中程式碼封裝內。
 
-Visual Studio 解決方案包含用來部署應用程式和從叢集移除應用程式的 PowerShell 指令碼。指令碼已圈選於以下螢幕擷取畫面。
-
-![][2]
-
 應用程式的後續管理 (也就是升級和最終刪除)，也是使用 Service Fabric 應用程式管理機制執行。如需詳細資訊，請參閱主題＜[應用程式模型](service-fabric-application-model.md)＞、＜[應用程式部署和移除](service-fabric-deploy-remove-applications.md)＞，和＜[應用程式升級](service-fabric-application-upgrade.md)＞。
 
 ## 動作項目服務的可調整性
@@ -109,7 +105,7 @@ Visual Studio 解決方案包含用來部署應用程式和從叢集移除應用
 > [AZURE.NOTE]無狀態動作項目服務都需要有 1 的 [執行個體](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services)計數。不支援資料分割中的一個無狀態動作項目服務有多個執行個體。因此，無狀態動作項目服務無法選擇增加執行個體計數來達成延展性。他們必須使用[延展性文章](service-fabric-concepts-scalability.md)所述的延展性選項。
 
 ## 動作項目的 Service Fabric 資料分割概念
-動作項目的動作項目識別碼會對應至動作項目服務的資料分割。動作項目建立於動作項目識別碼所對應的資料分割中。建立動作項目時，動作項目執行階段會寫入 [EventSource 事件](service-fabric-reliable-actors-diagnostics.md#eventsource-events)，指出動作項目會建立在哪個資料分割。以下是此事件的範例，將指出有識別碼 `-5349766044453424161` 的動作項目建立於服務 `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService` 與應用程式 `fabric:/VoicemailBoxAdvancedApplication` 的資料分割 `0583c745-1bed-43b2-9545-29d7e3448156`。
+動作項目的動作項目識別碼會對應至動作項目服務的資料分割。動作項目建立於動作項目識別碼所對應的資料分割中。建立動作項目時，動作項目執行階段會寫入 [EventSource 事件](service-fabric-reliable-actors-diagnostics.md#eventsource-events)，指出動作項目會建立在哪個資料分割。以下是此事件的範例，將指出有識別碼 `-5349766044453424161` 的動作項目建立於服務 `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService` 與應用程式 `fabric:/VoicemailBoxAdvancedApplication` 的資料分割 `b6afef61-be9a-4492-8358-8f473e5d2487`。
 
     {
       "Timestamp": "2015-04-26T10:12:20.2485941-07:00",
@@ -121,14 +117,14 @@ Visual Studio 解決方案包含用來部署應用程式和從叢集移除應用
         "actorType": "Microsoft.Azure.Service.Fabric.Samples.VoicemailBox.VoiceMailBoxActor",
         "actorId": "-5349766044453424161",
         "isStateful": "True",
-        "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "0583c745-1bed-43b2-9545-29d7e3448156",
+        "replicaOrInstanceId": "130906628008120392",
+        "partitionId": "b6afef61-be9a-4492-8358-8f473e5d2487",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
     }
 
-另一個有識別碼 `-4952641569324299627` 的動作項目則建立於相同服務但不同的資料分割 `c146fe53-16d7-4d96-bac6-ef54613808ff`，如下列事件指出。
+另一個有識別碼 `-4952641569324299627` 的動作項目則建立於相同服務但不同的資料分割 `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`，如下列事件指出。
 
     {
       "Timestamp": "2015-04-26T15:06:56.93882-07:00",
@@ -141,7 +137,7 @@ Visual Studio 解決方案包含用來部署應用程式和從叢集移除應用
         "actorId": "-4952641569324299627",
         "isStateful": "True",
         "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "c146fe53-16d7-4d96-bac6-ef54613808ff",
+        "partitionId": "5405d449-2da6-4d9a-ad75-0ec7d65d1a2a",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
@@ -149,27 +145,30 @@ Visual Studio 解決方案包含用來部署應用程式和從叢集移除應用
 
 *附註：*為求簡潔而省略上述事件的一些欄位。
 
-資料分割識別碼可用來取得資料分割的其他資訊。例如，[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 工具可用來檢視其所屬的資料分割、服務和應用程式的相關資訊。以下螢幕擷取畫面顯示資料分割的相關資訊 `c146fe53-16d7-4d96-bac6-ef54613808ff`，其中包含有識別碼 `-4952641569324299627` 的動作項目，如上述範例中所示。
+資料分割識別碼可用來取得資料分割的其他資訊。例如，[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 工具可用來檢視其所屬的資料分割、服務和應用程式的相關資訊。以下螢幕擷取畫面顯示資料分割的相關資訊 `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`，其中包含有識別碼 `-4952641569324299627` 的動作項目，如上述範例中所示。
 
 ![][3]
 
 動作項目可以由程式設計方式取得資料分割識別碼、服務名稱、應用程式名稱和其他 Service Fabric 的平台特定資訊，透過 `Host.ActivationContext` 和 `Host.StatelessServiceInitialization` 或 `Host.StatefulServiceInitializationParameters` 動作項目類型衍生自基底類別的成員。下列程式碼片段將顯示一個範例：
 
 ```csharp
-public void ActorMessage<TState>(Actor<TState> actor, string message, params object[] args)
+public void ActorMessage(StatefulActorBase actor, string message, params object[] args)
 {
-    string finalMessage = string.Format(message, args);
-    this.ActorMessage(
-        actor.GetType().ToString(),
-        actor.Id.ToString(),
-        actor.Host.ActivationContext.ApplicationTypeName,
-        actor.Host.ActivationContext.ApplicationName,
-        actor.Host.StatefulServiceInitializationParameters.ServiceTypeName,
-        actor.Host.StatefulServiceInitializationParameters.ServiceName.ToString(),
-        actor.Host.StatefulServiceInitializationParameters.PartitionId,
-        actor.Host.StatefulServiceInitializationParameters.ReplicaId,
-        FabricRuntime.GetNodeContext().NodeName,
-        finalMessage);
+    if (this.IsEnabled())
+    {
+        string finalMessage = string.Format(message, args);
+        ActorMessage(
+            actor.GetType().ToString(),
+            actor.Id.ToString(),
+            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationTypeName,
+            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationName,
+            actor.ActorService.ServiceInitializationParameters.ServiceTypeName,
+            actor.ActorService.ServiceInitializationParameters.ServiceName.ToString(),
+            actor.ActorService.ServiceInitializationParameters.PartitionId,
+            actor.ActorService.ServiceInitializationParameters.ReplicaId,
+            FabricRuntime.GetNodeContext().NodeName,
+            finalMessage);
+    }
 }
 ```
 
@@ -204,7 +203,7 @@ public void ActorMessage<TState>(Actor<TState> actor, string message, params obj
 
 > [AZURE.TIP]網狀架構動作項目執行階段會發出一些[可設定狀態的動作項目執行個體的相關事件](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas)。這些項目對於診斷與效能監視很有幫助。
 
-請回想在[稍早所呈現的 VoiceMailBoxActor 範例中](#service-fabric-partition-concepts-for-actors)，有識別碼 `-4952641569324299627` 的動作項目是在資料分割 `c146fe53-16d7-4d96-bac6-ef54613808ff` 內所建立。該範例的 EventSource 事件也指出動作項目建立在該資料分割的複本 `130745418574851853`。這是建立動作項目的時，該資料分割的主要複本。下列 Service Fabric Explore 螢幕擷取畫面進一步確認這一點。
+請回想在[稍早所呈現的 VoiceMailBoxActor 範例中](#service-fabric-partition-concepts-for-actors)，有識別碼 `-4952641569324299627` 的動作項目是在資料分割 `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` 內所建立。該範例的 EventSource 事件也指出動作項目建立在該資料分割的複本 `130745418574851853`。這是建立動作項目的時，該資料分割的主要複本。下列 Service Fabric Explore 螢幕擷取畫面進一步確認這一點。
 
 ![][4]
 
@@ -225,7 +224,7 @@ public void ActorMessage<TState>(Actor<TState> actor, string message, params obj
 
 ```csharp
 [VolatileActorStateProvider]
-public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+public class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -243,4 +242,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

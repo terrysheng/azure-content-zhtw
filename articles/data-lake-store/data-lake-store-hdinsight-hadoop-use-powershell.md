@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # 使用 Azure PowerShell 佈建 HDInsight 叢集與資料湖存放區
@@ -39,7 +39,7 @@
 * 建立具有資料湖存放區驗證的 HDInsight 叢集
 * 在叢集上執行測試工作
 
-## 先決條件
+## 必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
@@ -53,7 +53,7 @@
 
 依照這些步驟建立資料湖存放區。
 
-1. 從您的桌面開啟新的 Azure PowerShell 視窗，並輸入下列程式碼片段。系統提示您登入時，請以 admininistrators/owner 其中一個訂用帳戶身分登入：
+1. 從您的桌面開啟新的 Azure PowerShell 視窗，並輸入下列程式碼片段。系統提示您登入時，請使用其中一個訂用帳戶管理員/擁有者身分登入：
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -87,7 +87,7 @@
 
 	此輸出應為 **True**。
 
-4. 將一些範例資料上傳至 Azure 資料湖。我們將在本文稍後使用這個項目來確認資料可以從 HDInsight 叢集存取。如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
+4. 將一些範例資料上傳至 Azure 資料湖。我們將在本文稍後使用這個項目來確認資料可以從 HDInsight 叢集存取。如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 存放庫](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
 
 		
 		$myrootdir = "/"
@@ -294,4 +294,4 @@
 [makecert]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

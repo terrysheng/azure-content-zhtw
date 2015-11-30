@@ -55,10 +55,10 @@ SQL Database 是以可預測的每小時費率收費，同時根據服務層 + �
 - 若要查看您是否需要向上或向下調整單一資料庫，請參閱[單一資料庫的效能指引](sql-database-performance-guidance.md)。
 
 ## 變更單一資料庫的服務層或效能等級可以多久進行一次？ 
-在 24 小時內，您可以變更服務層 (Basic、Standard 和 Premium 之間) 或服務層內的效能等級 (例如 S1 到 S2) 總計四次。
+藉由 V12 資料庫，您可以隨意不限次數變更服務層 (Basic、Standard 和 Premium 之間) 或服務層內的效能等級 (例如 S1 到 S2)。若為較早版本的資料庫，在 24 小時內，您總計只可以變更服務層或效能層級四次。
 
 ##調整每一集區 eDTU 頻率為何？ 
-一天一次。
+視您所需，不限次數。
 
 ## 變更單一資料庫的服務層次或效能等級，或將資料庫移入和移出彈性資料庫集區需要多久的時間？ 
 變更資料庫的服務層和移入和移出集區需要在平台上複製資料庫做為背景作業。這可能需要數分鐘到數小時的時間不等，視資料庫的大小而定。在這兩種情況下，在移動期間，資料庫將維持完全連線且可供使用的狀態。如需變更單一資料庫的詳細資訊，請參閱[變更資料庫的服務層](sql-database-scale-up.md)。針對彈性資料庫，請參閱[彈性集區參考](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations)
@@ -74,4 +74,4 @@ Azure 的智慧型引擎如果發現必要的使用模式，將會對資料庫�
 ## 我正從 Web/Business 移到新的服務層，我應該知道什麼？
 Azure SQL Web 和 Business 資料庫現已淘汰。基本、標準、高階和彈性層取代淘汰 Web 和商務資料庫。我們提供額外的常見問題集，在此過渡期應該有所幫助。[Web 和 Business 版本終止常見問題集](sql-database-web-business-faq.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

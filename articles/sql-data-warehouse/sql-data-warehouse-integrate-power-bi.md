@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="10/06/2015"
    ms.author="lodipalm"/>
 
 # 搭配使用 Power BI 與 SQL 資料倉儲
@@ -37,7 +37,7 @@
 2.	按一下 [在 Power BI 中開啟] 按鈕。
 3.	如果我們無法直接將您登入，或者您沒有 Power BI 帳戶，您必須登入。  
 4.	您會被導向到 SQL 資料倉儲連線頁面，其中預先填入您的 SQL 資料倉儲中的資訊。
-5.  輸入您的認證後，您將會完全連接到您的 SQL 資料倉儲。 
+5.  輸入您的認證後，您將會完全連線到您的 SQL 資料倉儲。 
 
 ## 透過 Power BI 入口網站連接
 除了使用 [在 Power BI 中開啟] 按鈕，使用者也可以透過 Power BI 入口網站連接至其 SQL 資料倉儲。
@@ -63,4 +63,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

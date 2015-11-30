@@ -28,7 +28,7 @@
 - 這些 app 是如何發佈的？
 - 貴公司是否提供遠端存取，讓員工可以存取內部部署 app？
 
-如果是，是哪種類型的遠端存取？您也需要評估存取這些應用程式的使用者所在位置。這項評估是另一個定義適當多重要素驗證策略的步驟。請確定回答下列問題：
+如果是，是哪種類型的遠端存取？您也需要評估存取這些應用程式的使用者所在位置。這項評估是另一個定義適當多重要素驗證策略的步驟。請確實回答下列問題：
 
 - 使用者即將位於何處？
 - 他們將無所不在嗎？
@@ -55,6 +55,6 @@
 
 
 ## 另請參閱
-[設計考量概觀](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

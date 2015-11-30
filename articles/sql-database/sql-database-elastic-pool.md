@@ -1,25 +1,26 @@
-<properties 
-	pageTitle="使用彈性資料庫有效駕馭爆炸性的成長" 
-	description="Azure SQL Database 彈性資料庫集區是由一組彈性資料庫共用的可用資源集合。" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
-	editor=""/>
+<properties
+	pageTitle="彈性資料庫集區的 SQL Database |Microsoft Azure"
+	description="了解如何透過跨多個資料庫共用可用資源的方式，有效使用彈性資料庫集區駕馭 SQL 資料庫中的爆炸性成長。"
+	keywords="彈性資料庫、sql 資料庫"	
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor="cgronlun"/>
 
-<tags 
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/10/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="11/10/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# 使用彈性資料庫有效駕馭爆炸性的成長
+# 在 SQL 資料庫使用彈性資料庫集區駕馭爆炸性的成長，以共用資源
 
-如果您是擁有數十、數百或甚至數千個資料庫的 SaaS 開發人員，彈性資料庫集區可以在您控制的預算內，簡化跨資料庫建立、維護及管理效能的流程。您可以使用 Microsoft Azure 入口網站、PowerShell 或 C#，在幾分鐘內[建立彈性資料庫集區](sql-database-elastic-pool-portal.md)。
+如果您是擁有數十、數百或甚至數千個 SQL 資料庫的 SaaS 開發人員，彈性資料庫集區可以在您控制的預算內，簡化跨資料庫建立、維護及管理效能的流程。您可以使用 Microsoft Azure 入口網站、PowerShell 或 C#，在幾分鐘內為您的 SQL Database [建立彈性資料庫集區](sql-database-elastic-pool-portal.md)。
 
 常見的 SaaS 應用程式模式是每個資料庫有不同的客戶，而且這些客戶各有不同且無法預測的資源耗用量 (以 DTU 彙總的 CPU/IO/記憶體)。由於每個資料庫的需求有高有低，因此很難預測及佈建資源。您有兩個選擇：您可以根據尖峰使用量，過度佈建資料庫資源並多付費；也可以少量佈建來節省成本，但代價是在尖峰期間的效能和客戶滿意度可能會很低。
 
@@ -32,24 +33,24 @@ Microsoft 建立彈性資料庫集區的目的，便是為了協助您解決這�
 
 如需更多 eDTU 以滿足集區的需求 (有更多資料庫加入至集區，或現有的資料庫開始使用更多 eDTU)，可將其他 eDTU 加入至現有的集區，而不會使資料庫停機或對資料庫造成負面影響。同樣地，如果不再需要額外 eDTU，則隨時可以從現有集區中移除。
 
-![共用 eDTU 的資料庫][1]
+![在彈性資料庫集區中共用 eDTU 的 SQL 資料庫。][1]
 
-最適合加入至彈性資料庫集區的資料庫通常是有時活躍，有時閒置。在上述例子中，您可以看到單一資料庫的活動、4 個資料庫的活動，最後是具有 20 個資料庫的彈性資料庫集區的活動。活動隨時間而不同的這些資料庫很適合加入至彈性資料庫，因為它們不是永遠都在使用中，而且可以共用 eDTU。並非所有資料庫都符合這個模式。有些資料庫的資源需求比較固定，這類資料庫較適合基本、標準和高階服務層，在這些服務層中會個別指派資源。如需協助判斷您的資料庫是否能從彈性資料庫集區受益，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。
+最適合加入至彈性資料庫集區的資料庫通常是有時活躍，有時閒置。在上述例子中，您可以看到單一資料庫的活動、4 個資料庫的活動，最後是具有 20 個資料庫的彈性資料庫集區的活動。活動隨時間而不同的這些資料庫很適合加入至彈性資料庫，因為它們不是永遠都在使用中，而且可以共用 eDTU。並非所有資料庫都符合這個模式。有些資料庫的資源需求比較固定，這類資料庫較適合基本、標準和高階服務層，在這些服務層中會個別指派資源。如需判斷您的資料庫是否因彈性資料庫集區而受益的協助，請參閱＜[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)＞。
 
-如需彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
+如需彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱＜[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)＞。
 
 
 > [AZURE.NOTE]彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。
 
-## 使用彈性資料庫工具輕鬆管理大量資料庫
+## 使用彈性資料庫工具輕鬆管理大量 SQL 資料庫
 
-除了提供更有效率的資源使用量和可預測的效能之外，彈性資料庫集區還透過簡化建立和管理資料層的工具，更輕鬆地進行 SaaS 應用程式開發。在許多不同的資料庫之間執行維護工作及實作變更，在過去是既耗時又複雜的流程，現在只要執行彈性工作中的指令碼即可完成。建立和執行彈性資料庫工作的能力，大幅減輕與管理數百或甚至數千個資料庫相關的繁重工作。如需可跨集區中所有彈性資料庫執行 Transact-SQL 指令碼之彈性資料庫工作服務的相關資訊，請參閱[彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md)。
+除了提供更有效率的資源使用量和可預測的效能之外，彈性資料庫集區還透過簡化建立和管理資料層的工具，更輕鬆地進行 SaaS 應用程式開發。在許多不同的資料庫之間執行維護工作及實作變更，在過去是既耗時又複雜的流程，現在只要執行彈性工作中的指令碼即可完成。建立和執行彈性資料庫工作的能力，大幅減輕與管理數百或甚至數千個資料庫相關的繁重工作。如需可跨集區中所有彈性資料庫執行 Transact-SQL 指令碼之彈性資料庫工作服務的相關資訊，請參閱＜[彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md)＞。
 
 還提供一組可用於實作彈性資料庫應用程式模式之豐富且強大的開發人員工具。針對分區資料庫，您可以使用分割-合併工具等其他工具，來分割一個分區中的資料，再合併到另一個分區。這可大幅減少管理大規模分區資料庫的工作。如需詳細資訊，請參閱[彈性資料庫工具主題對應](sql-database-elastic-scale-documentation-map.md)。
 
 ## 集區中資料庫的業務續航力功能
 
-彈性資料庫支援 V12 伺服器上單一資料庫可用的大部分[業務續航力功能](sql-database-business-continuity.md) (目前為預覽階段)。
+彈性資料庫支援 V12 伺服器上的單一資料庫可用的大部分[業務續航力功能](sql-database-business-continuity.md) (目前為預覽階段)。
 
 ### 備份和還原資料庫 (還原時間點)
 
@@ -72,4 +73,4 @@ Microsoft 建立彈性資料庫集區的目的，便是為了協助您解決這�
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

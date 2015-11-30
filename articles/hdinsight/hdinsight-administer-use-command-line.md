@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 # 使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集
@@ -28,7 +28,7 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a 
 本文只涵蓋搭配 HDInsight 使用 Azure CLI。如需如何使用 Azure CLI 的一般指南，請參閱[安裝及設定 Azure CLI][azure-command-line-tools]。
 
 
-##先決條件
+##必要條件
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
@@ -115,6 +115,8 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a 
 ##使用組態檔建立叢集
 一般而言，您會建立 HDInsight 叢集、在叢集上執行工作，然後就刪除叢集，以降低成本。此命令列介面可讓您選擇將組態儲存至檔案，以便您在每次建立叢集時皆可加以重複使用。
 
+> [AZURE.NOTE]HBase 叢集類型無法使用中繼存放區類型組態。
+
 	azure hdinsight cluster config create <file>
 
 	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName ""<Storage Account Name>".blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
@@ -158,7 +160,7 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a 
 ##後續步驟
 本文中，您學到如何執行不同的 HDInsight 叢集管理工作。若要深入了解，請參閱下列文章：
 
-* [使用 Azure Preview 入口網站管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 預覽入口網站管理 HDInsight][hdinsight-admin-portal]
 * [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 * [如何使用 Azure CLI][azure-command-line-tools]
@@ -180,4 +182,4 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "列出和顯示叢集"
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

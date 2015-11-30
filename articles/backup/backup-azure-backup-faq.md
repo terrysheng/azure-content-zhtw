@@ -1,16 +1,17 @@
 <properties
    pageTitle="Azure 備份常見問題集 | Microsoft Azure"
-   description="Azure 備份服務的常見問題集"
+   description="Azure 備份解決方案的常見問題 ─ 備份代理程式、 備份和保留、 復原、 安全性，以及 Azure 備份服務其他常見問題。"
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
-   editor=""/>
+   editor=""
+   keywords="備份解決方案；備份服務"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
-# Azure 備份 - 常見問題集
-下列是關於 Azure 備份常見問題的清單。若您有任何關於 Azure 備份的其他問題，請前往[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)並張貼您的問題。我們社群的服務人員將協助您找到答案。若遇到常見問題，我們會將其加入此文章，以便您可以快速且輕鬆地找到。
+# Azure 備份服務常見問題集
+下列是關於 Azure 備份常見問題的清單。若您有任何關於 Azure 備份解決方案的問題，請前往[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)並張貼您的問題。我們社群的服務人員將協助您找到答案。若遇到常見問題，我們會將其加入此文章，以便您可以快速且輕鬆地找到。
 
 ## 安裝和設定
 **Q1.若我要使用 Azure 備份來備份至 Azure，受支援的作業系統清單為何？** <br/> A1.Azure 備份支援下列作業系統清單
@@ -82,7 +83,7 @@
 
 **Q18.如果我在它啟動後取消備份，是否會刪除備份的資料？** <br/>A18：否。備份保存庫會儲存取消點之前已傳輸的備份資料。Azure 備份使用檢查點機制，讓備份資料在備份期間偶爾會取得檢查點，並在下一個備份程序驗證檔案的完整性。下次觸發的備份會隨先前經備份的資料遞增。這提供較佳的頻寬使用率，讓您不需要重複傳輸相同的資料。
 
-**Q19.為什麼出現「Azure 備份尚未針對此伺服器設定」警告，即使我之前已排定定期備份亦然？** <br/>A19：當本機伺服器儲存的備份排程設定與備份保存庫儲存的設定不同時，會發生這種情況。當伺服器或設定已復原至已知的良好狀態時，備份排程可能會失去同步處理。如果發生這種情況，您應該重新設定備份原則，然後**立即執行備份**以重新同步處理本機伺服器與 Azure。
+**Q19.為什麼出現「Azure 備份尚未針對此伺服器設定」警告，即使我之前已排定定期備份亦然？** <br/>A19：當本機伺服器儲存的備份排程設定與備份保存庫儲存的設定不同時，會發生這種情況。當伺服器或設定已復原至已知的良好狀態時，備份排程可能會失去同步處理。如果發生這種情況，您應該重新設定備份原則，然後 **立即執行備份** 以重新同步處理本機伺服器與 Azure。
 
 **Q20.針對「Azure 備份」的備份要設定什麼防火牆規則？** <br/> A20.請確定防火牆規則啟用與下列 URL 的通訊，以進行 Azure 內部部署的無縫式備份與 Azure 上的工作負載保護：
 
@@ -175,4 +176,4 @@
 
 一旦利用新快取位置成功備份，您就可以移除原始的快取資料夾。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

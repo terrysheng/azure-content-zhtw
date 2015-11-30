@@ -13,22 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/17/2015"
 	ms.author="glenga"/>
 
 # 將驗證新增至您的 Windows 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 本主題說明如何從用戶端應用程式驗證 App Service 行動應用程式的使用者。在本教學課程中，您將使用 App Service 支援的身分識別提供者，將驗證新增至快速入門專案。由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值。
 
 本教學課程以行動應用程式快速入門為基礎。您必須先完成[開始使用行動應用程式]教學課程。
-
-##<a name="create-gateway"></a>建立 App Service 閘道
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
@@ -38,7 +32,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4.在 Visual Studio 中，開啟您用戶端應用程式專案中共用的 App.xaml.cs 專案檔案，並確定 **MobileServiceClient** 執行個體設定為使用行動應用程式後端與閘道兩者的 URL。
+&nbsp;&nbsp;4.在 Visual Studio 中，開啟您用戶端應用程式專案中的共用 App.xaml.cs 專案檔案，並確定 **MobileServiceClient** 執行個體設定為使用行動應用程式後端與閘道器兩者的 URL。
 
 &nbsp;&nbsp;5.將其中一個 Windows 應用程式專案設定為啟始專案，按 F5 鍵執行應用程式；應用程式啟動後，確認會引發狀態碼為 401 (未經授權) 的未處理例外狀況。
 
@@ -62,4 +56,4 @@
 [開始使用行動應用程式]: app-service-mobile-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

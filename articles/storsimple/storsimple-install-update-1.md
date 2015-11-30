@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/28/2015"
+   ms.date="11/16/2015"
    ms.author="alkohli" />
 
 # 在 StorSimple 裝置上安裝 Update 1.2
@@ -21,7 +21,7 @@
 
 本教學課程說明如何在執行 Update 1 之前軟體版本的 StorSimple 裝置上安裝 Update 1.2。本教學課程也涵蓋了在 StorSimple 裝置之 DATA 0 以外的網路介面上設定閘道器時，進行更新所需的額外步驟。
 
-Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更新。此軟體和 LSI 驅動程式更新為非干擾性更新且可透過管理入口網站套用。磁碟韌體更新為干擾性更新，且只能透過裝置的 Windows PowerShell 介面套用。
+Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更新。此軟體和 LSI 驅動程式更新為非干擾性更新且可透過 Azure 入口網站套用。磁碟韌體更新為干擾性更新，且只能透過裝置的 Windows PowerShell 介面套用。
 
 根據正在執行的裝置版本，您可以判斷是否套用 Update 1.2。您可以藉由瀏覽至裝置**儀表板**的**快速瀏覽**區段，檢查裝置的軟體版本。
 
@@ -42,7 +42,7 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
  
 > -  您可能不會立即看到 Update 1.2，因為我們會分階段推出更新。請在數天內再次掃描更新，因為很快就會提供 Update。
 > - 此更新包括一組手動和自動預先檢查，以根據硬體狀態和網路連線來判斷裝置健全狀況。這些預先檢查只會在您從 Azure 入口網站套用更新時執行。 
-> - 建議您透過 Azure 管理入口網站安裝軟體和驅動程式更新。如果入口網站中的更新前閘道器檢查失敗，您應該只能進入裝置的 Windows PowerShell 介面 (若安裝更新)。更新可能需要 5-10 小時才能安裝 (包括 Windows Updates)。維護模式更新必須透過裝置的 Windows PowerShell 介面安裝。由於維護模式更新是干擾性更新，它們將會導致裝置的停機時間。
+> - 建議您透過 Azure 入口網站安裝軟體和驅動程式更新。如果入口網站中的更新前閘道器檢查失敗，請移至裝置的 Windows PowerShell 介面安裝更新 (勿透過其他方式)。更新可能需要 5-10 小時才能安裝 (包括 Windows Updates)。維護模式更新必須透過裝置的 Windows PowerShell 介面安裝。由於維護模式更新是干擾性更新，它們將會導致裝置的停機時間。
 
 ## 準備更新
 您必須在掃描和套用更新之前執行下列步驟：
@@ -50,8 +50,7 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
 
 1. 擷取裝置資料的雲端快照。
 
-
-1. 請確認您的控制器固定 IP 能夠路由，且可以連線到網際網路。這些固定 IP 將用於裝置的服務更新。您可以從裝置的 Windows PowerShell 介面，在每個控制站上執行下列 Cmdlet 以進行測試：
+2. 請確認您的控制器固定 IP 能夠路由，且可以連線到網際網路。這些固定 IP 將用於裝置的服務更新。您可以從裝置的 Windows PowerShell 介面，在每個控制站上執行下列 Cmdlet 以進行測試：
 
  	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
@@ -78,7 +77,7 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
 
 在您成功完成這些手動預先檢查之後，您就可以繼續掃描和安裝更新。
 
-## 透過管理入口網站安裝 Update 1.2 
+## 透過 Azure 入口網站安裝 Update 1.2 
 
 只有當您在裝置上的 DATA 0 網路介面上設定閘道器時才使用此程序。請執行下列步驟，以更新您的裝置。
 
@@ -86,7 +85,7 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
 
 ## 在含有為非 DATA 0 網路介面設定之閘道器的裝置上安裝 Update 1.2 
 
-嘗試透過管理入口網站安裝更新時，您應該只在無法通過閘道器檢查時才使用此程序。當您指派閘道器給非 DATA 0 網路介面且您的裝置正在執行早於 Update 1 的軟體版本時，檢查才會失敗。如果您的裝置在非 DATA 0 網路介面上沒有閘道器，您可以直接從管理入口網站更新您的裝置。請參閱[使用管理入口網站安裝 Update 1](#install-update-12-via-the-management-portal)。
+請只在嘗試透過 Azure 入口網站安裝更新，而無法通過閘道器檢查時再執行此程序。當您指派閘道器給非 DATA 0 網路介面且您的裝置正在執行早於 Update 1 的軟體版本時，檢查才會失敗。如果您的裝置在非 DATA 0 網路介面上沒有閘道器，您可以直接在 Azure 入口網站中更新您的裝置。請參閱[透過 Azure 入口網站安裝更新 Update 1.2](#install-update-12-via-the-azure-portal)。
 
 可以使用這個方法升級的軟體版本為 Update 0.1、Update 0.2、和 Update 0.3。
 
@@ -94,20 +93,20 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
 > [AZURE.IMPORTANT]
 > 
 > - 如果您的裝置正在執行 Release (GA) 版本，請連絡 [Microsoft 支援服務](storsimple-contact-microsoft-support.md)以協助您進行更新。
-> - 此程序僅需要執行一次，即可套用 Update 1.2。您可以使用 Azure 管理入口網站套用後續的更新。
+> - 此程序僅需要執行一次，即可套用 Update 1.2。您可以使用 Azure 入口網站套用後續的更新。
 
 如果您的裝置執行的是 Update 1.0 之前版本的軟體，而且有設定 DATA 0 以外的網路介面的閘道器，您可以下列兩種方式套用 Update 1.2：
 
 - **選項 1**：下載更新，並從裝置的 Windows PowerShell 介面使用 `Start-HcsHotfix` Cmdlet 套用更新。這是建議的方法。**如果您的裝置正在執行 Update 1.0 或 Update 1.1，請勿使用這個方法來套用 Update 1.2。** 
 
-- **選項 2**：直接從管理入口網站移除閘道器組態並安裝更新。
+- **選項 2**：直接從 Azure 入口網站移除閘道器組態並安裝更新。
 
 
 下列各節提供每個選項的詳細指示。
 
 ## 選項 1：使用 Windows PowerShell for StorSimple 套用 Update 1.2 做為 hotfix
 
-嘗試透過管理入口網站安裝更新時，您應該只在執行 Update 0.1、0.2、0.3 時，以及無法通過閘道器檢查時才使用此程序。如果您正在執行 Release (GA) 軟體，請連絡 [Microsoft 支援服務](storsimple-contact-microsoft-support.md)以更新您的裝置。
+請只在您執行的是 Update 0.1、0.2、0.3，且嘗試透過 Azure 入口網站安裝更新，而無法通過閘道器檢查時再執行此程序。如果您正在執行 Release (GA) 軟體，請連絡 [Microsoft 支援服務](storsimple-contact-microsoft-support.md)以更新您的裝置。
 
 使用此程序套用更新之前，請確認：
 
@@ -151,6 +150,6 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
 
 ## 後續步驟
 
-深入了解 [Update 1.2 版](storsimple-update1-release-notes.md)
+深入了解 [Update 1.2 版](storsimple-update1-release-notes.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

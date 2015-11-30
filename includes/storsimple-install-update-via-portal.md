@@ -1,6 +1,6 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 11/16/15-->
 
-#### 從管理入口網站安裝 Update 1.2
+#### 從 Azure 入口網站安裝 Update 1.2
 
 1. 在 [StorSimple 服務] 頁面上，選取您的裝置。瀏覽至 [**裝置**] > [**維護**]。
 
@@ -61,8 +61,8 @@
 
     ![維護頁面](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 
-13. 您現在會看到已有維護模式更新可供使用。這些更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。請遵循[安裝維護模式更新](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)中的指示，以透過 Windows PowerShell for StorSimple 來安裝這些更新。
+13. 您現在會看到已有維護模式更新可供使用。這些更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。請依照[安裝維護模式更新](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)中的指示執行，以透過 Windows PowerShell for StorSimple 安裝這些更新。
 
 > [AZURE.NOTE]在某些情況下，在裝置上成功套用維護模式更新之後，指出維護模式更新可供使用的訊息可能會持續顯示長達 24 小時。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

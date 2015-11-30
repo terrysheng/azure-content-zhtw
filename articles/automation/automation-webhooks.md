@@ -17,7 +17,7 @@
 
 # Azure 自動化 Webhook
 
-*Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。這可讓外部服務，例如 Visual Studio Online、 GitHub 或自訂應用程式啟動 Runbook，而不需使用 Azure 自動化 API 實作完整的解決方案。
+*Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。這可讓外部服務，例如 Visual Studio Team Services、GitHub 或自訂應用程式啟動 Runbook，而不需使用 Azure 自動化 API 實作完整的解決方案。
 
 ![Webhook](media/automation-webhooks/webhooks-overview.png)
 
@@ -255,4 +255,4 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 - [檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job.md)
 - [使用 Azure 自動化對 Azure 警示採取動作](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

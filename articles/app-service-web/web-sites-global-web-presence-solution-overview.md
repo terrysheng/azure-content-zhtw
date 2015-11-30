@@ -35,7 +35,7 @@
 
 Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例如 Orchard、Umbraco、Drupal 以及 [WordPress]。您可以使用喜愛的 CMS 風格來建立 Web 應用程式。您可以根據自己的需求從各種不同的資料庫後端中選擇，包括 [Azure SQL Database] 和 [MySQL]。
 
-您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 App Service Web 應用程式上執行。您可以使用熟悉的 [FTP] 工具或原始檔控制管理系統，將它們移至 Web Apps。Web Apps 支援從 [Visual Studio]、[Visual Studio Online] 以及 [Git] - 本機、GitHub、BitBucket、DropBox、Mercurial 等受歡迎的原始檔控制選項直接發佈。
+您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 App Service Web 應用程式上執行。您可以使用熟悉的 [FTP] 工具或原始檔控制管理系統，將它們移至 Web Apps。Web Apps 支援從 [Visual Studio]、[Visual Studio Team Services] 以及 [Git] - 本機、GitHub、BitBucket、DropBox、Mercurial 等受歡迎的原始檔控制選項直接發佈。
 
 ## 可靠地發行
 
@@ -102,7 +102,7 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 [Azure SQL Database]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [部署到預備位置]: web-sites-staged-publishing.md
@@ -137,4 +137,4 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -20,7 +20,7 @@
 
 本文所述的程序顯示如何為 Azure 雲端應用程式設定連續傳遞。此程序可讓您自動建立套件，並在每次程式碼簽入時將套件部署到 Azure。本文所述的套件建置程序等同於 Visual Studio 中的 [封裝] 命令，而發佈步驟等同於 Visual Studio 中的 [發行] 命令。文中會說明使用 MSBuild 命令列陳述式與指令碼來建置伺服器的方法，同時也會示範如何選擇性設定 Visual StudioTeam Foundation Server - Team Build 定義來使用 MSBuild 命令及 PowerShell 指令碼。您可根據自己的組建環境及 Azure 目標環境自訂此程序。
 
-此動作也可以用 Visual Studio Online (託管於 Azure 中的 TFS 版本) 來執行，這樣會變得更容易。如需詳細資訊，請參閱[使用 Visual Studio Online 連續傳遞至 Azure][]。
+此動作也可以用 Visual Studio Team Services (託管於 Azure 中的 TFS 版本) 來執行，這樣會變得更容易。如需詳細資訊，請參閱[使用 Visual Studio Team Services 連續傳遞至 Azure][]。
 
 開始之前，您應該先從 Visual Studio 發佈應用程式。如此可確保當您嘗試將發佈程序自動化時，所有資源皆可用並已初始化。
 
@@ -557,7 +557,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 若要在使用連續傳遞時啟用遠端偵錯，請參閱[使用連續傳遞來發行至 Azure 時啟用遠端偵錯](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)。
 
-  [使用 Visual Studio Online 連續傳遞至 Azure]: cloud-services-continuous-delivery-use-vso.md
+  [使用 Visual Studio Team Services 連續傳遞至 Azure]: cloud-services-continuous-delivery-use-vso.md
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -576,4 +576,4 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

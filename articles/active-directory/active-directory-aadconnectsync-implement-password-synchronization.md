@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/16/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -45,6 +45,8 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 密碼同步處理不會影響目前已登入的使用者。如果使用者已登入雲端服務並變更內部部署密碼，則雲端服務工作階段將會繼續運作不受干擾。不過，一旦雲端服務要求使用者重新驗證，就需要提供新的密碼。此時，使用者必須提供新的密碼 – 也就是最近從內部部署 Active Directory 同步至雲端的密碼。
 
+> [AZURE.NOTE]只有 Active Directory 的物件類型使用者才支援密碼同步。不支援 iNetOrgPerson 物件類型。
+
 ### 密碼同步處理對 Azure AD 網域服務的運作方式
 
 如果您在 Azure AD 中啟用這項服務，則需要密碼同步處理選項，才能獲得單一登入體驗。啟用此服務時，密碼同步處理的行為會變更，而也會從您的內部部署 Active Directory 依原樣同步處理密碼雜湊到 Azure AD 網域服務。此功能類似於 ADMT (Active Directory 遷移工具)，並可讓 Azure AD 網域服務能夠以內部部署 AD 中可用的所有方法驗證使用者。
@@ -53,7 +55,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 同步密碼的時候，純文字版本的使用者密碼不會向密碼同步處理功能及 Azure AD 或任何相關服務公開。
 
-此外，內部部署 Active Directory 不需使用可反轉加密的格式儲存密碼。Active Directory 密碼雜湊的摘要會用於內部部署 AD 和 Azure Active Directory 之間的傳輸。密碼雜湊的摘要無法用來存取客戶的內部部署環境中的資源。
+此外，內部部署 Active Directory 不需使用可反轉加密的格式儲存密碼。Active Directory 密碼雜湊的摘要會用於內部部署 AD 和 Azure Active Directory 之間的傳輸。密碼雜湊的摘要無法用來存取客戶的內部部署環境。
 
 ### 密碼原則考量
 
@@ -91,7 +93,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 如果您在安裝 Azure AD Connect 時使用自訂設定，則必須在使用者登入頁面上啟用密碼同步處理。![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
 
-如果您選擇使用**與 AD FS 同盟**，則可以選擇性地啟用密碼同步，作為 AD FS 基礎結構失敗時的備用方式。如果您打算使用 Azure AD 網域服務，您也可以啟用它。
+如果您選擇使用 [與 AD FS 同盟]，則可以選擇性地啟用密碼同步，做為 AD FS 基礎結構失敗時的備用方式。如果您打算使用 Azure AD 網域服務，您也可以啟用它。
 
 ### 密碼同步處理和 FIPS
 
@@ -113,13 +115,13 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 ### 疑難排解密碼同步處理
 
-啟動 **Synchronization Service Manager**，開啟 [連接器]，選取使用者所在的 Active Directory 連接器，選取 [搜尋連接器空間]，並找到您要尋找的使用者。
+啟動**同步處理服務管理器**，開啟 [連接器]，選取使用者所在的 Active Directory 連接器，選取 [搜尋連接器空間]，並找到您要尋找的使用者。
 
 ![csuser](./media/active-directory-aadsync-implement-password-synchronization/cspasswordsync.png)
 
-在使用者上，選取 [歷程] 索引標籤，並確認至少有一個同步規則的**密碼同步**顯示為 **True**。對於預設組態，這會是名為 **In from AD - User AccountEnabled** 的同步規則。
+在使用者上，選取 [歷程] 索引標籤，並確認至少有一個同步規則的 [密碼同步] 顯示為 **True**。對於預設組態，這會是名為 **In from AD - User AccountEnabled** 的同步規則。
 
-若要查看物件的密碼同步詳細資料，請此頁面底部按一下按鈕 [記錄...]。這將會產生此頁面在過去一週使用者的密碼同步狀態的歷程記錄檢視。
+若要查看物件的密碼同步詳細資料，請按一下這個頁面底部的 [記錄...] 按鈕。這將會產生此頁面在過去一週使用者的密碼同步狀態的歷程記錄檢視。
 
 ![物件記錄檔](./media/active-directory-aadsync-implement-password-synchronization/csobjectlog.png)
 
@@ -156,4 +158,4 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

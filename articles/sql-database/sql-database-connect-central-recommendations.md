@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@
 
 
 - [以程式設計方式連接到 Azure SQL Database 的方針](http://msdn.microsoft.com/library/azure/ee336282.aspx) - 討論包括：
- - [連接埠和防火牆](sql-database-configure-firewall-settings.md/)
+ - [連接埠和防火牆](sql-database-configure-firewall-settings.md)
  - 連接字串
-- [Azure SQL Database 資源管理](https://msdn.microsoft.com/library/azure/dn338083.aspx) - 討論包括：
+- [Azure SQL Database 資源管理](http://msdn.microsoft.com/library/azure/dn338083.aspx) - 討論包括：
  - 資源管理
  - 限制強制執行
  - 節流
@@ -53,9 +53,9 @@
 
 將某人新增為 SQL Database 的使用者時，您有一些選擇：
 
-- 將登入與密碼新增至 **master** 資料庫，然後再將對應的使用者新增至相同伺服器上的一或多個其他資料庫。
+- 將*登入*與密碼新增至 **master** 資料庫，然後再將對應的*使用者*新增至相同伺服器上的一或多個其他資料庫。
 
-- 將自主使用者與密碼新增至一或多個資料庫，但沒有 **master** 中任何登入的連結。
+- 將*自主使用者*與密碼新增至一或多個資料庫，但沒有 **master** 中任何*登入*的連結。
 
 
 自主使用者方法有其優點和缺點︰
@@ -85,7 +85,7 @@
 - 如果您的用戶端在 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
-- 若要處理*暫時性錯誤*，請將[*重試*邏輯](#TransientFaultsAndRetryLogicGm)新增至與 Azure SQL Database 互動的用戶端程式。
+- 若要處理*暫時性錯誤*，請將[*重試*邏輯](#TransientFaultsAndRetryLogicGm)加入至與 Azure SQL Database 互動的用戶端程式。
 
 
 ### 連接集區
@@ -125,7 +125,7 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 我們建議您在您第一次重試前延遲 5 秒鐘。在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
 
-在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找到使用 ADO.NET 之用戶端的「封鎖期間」討論。
+在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找到使用 ADO.NET 之用戶端的*封鎖期間*討論。
 
 
 如需說明重試邏輯的程式碼範例，請參閱：[SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
@@ -138,7 +138,7 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 
 - [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md#bkmk_connection_errors)
- - 它的 [暫時性錯誤、連接中斷錯誤] 區段是一個有理由自動重試的暫時性錯誤清單。
+ - 它的 [**暫時性錯誤、連接中斷錯誤**] 區段是一個有理由自動重試的暫時性錯誤清單。
  - 例如，如果出現錯誤號碼 40613，表示發生類似如下的狀況，則重試：<br/>*伺服器 'theserver' 上的資料庫 'mydatabase' 目前無法使用。*
 
 
@@ -169,4 +169,4 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 - [SQL Database 和 SQL Server 的連接庫](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

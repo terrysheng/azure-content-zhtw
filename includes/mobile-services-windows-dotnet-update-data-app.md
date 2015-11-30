@@ -1,9 +1,5 @@
 
-1. 在檔案 MainPage.xaml.cs 中，使用陳述式新增或取消註解下列項目： 
-
-		using Microsoft.WindowsAzure.MobileServices;
-
-2. 以下列程式碼取代 TodoItem 類別定義：
+2. 以下列程式碼取代 TodoItem 類別定義： 
 
 	    public class TodoItem
 	    {
@@ -20,13 +16,19 @@
 
 	>[AZURE.NOTE]在通用 Windows 應用程式專案中，TodoItem 類別的定義位於共用之 DataModel 資料夾內的個別程式碼檔案中。
 
-3. 在 MainPage.xaml.cs 中，將定義現有項目集合的資料行註解化或予以刪除，然後取消註解或加入下列程式碼行，然後以您將專案連線到行動服務時新增到 App.xaml.cs 檔案的 `MobileServiceClient` 欄位來取代 _&lt;yourClient&gt;_：
+1. 在檔案 MainPage.cs 中，使用陳述式新增或取消註解下列項目：
+
+		using Microsoft.WindowsAzure.MobileServices;
+
+
+4. 將定義現有項目集合的資料行註解化或予以刪除，然後取消註解或加入下列程式碼行，然後以您將專案連線到行動服務時新增到 App.xaml.cs 檔案的 `MobileServiceClient` 欄位來取代 _&lt;yourClient&gt;_：
 
 		private MobileServiceCollection<TodoItem, TodoItem> items;
 		private IMobileServiceTable<TodoItem> todoTable = 
 		    App.<yourClient>.GetTable<TodoItem>();
 		  
 	此程式碼會建立行動服務感知繫結集合 (項目)，和資料庫資料表 (todoTable) 的 Proxy 類別。
+
 
 4. 在 **InsertTodoItem** 方法中，移除設定 **TodoItem.Id** 屬性的程式碼行，將 **async** 修正詞新增至方法，並取消註解下列程式碼行：
 
@@ -70,4 +72,4 @@
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -79,7 +79,7 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 #### 使用新的登入
 
-若要使用您所建立的登入連接到 Microsoft Azure SQL Database，您必須先使用 ``CREATE USER`` 命令授與每個登入資料庫層級權限。如需詳細資訊，請參閱[授與登入資料庫層級權限](https://msdn.microsoft.com/library/ee336235.aspx#DatabasePerms)。
+若要使用您所建立的登入連接到 Microsoft Azure SQL Database，您必須先使用 ``CREATE USER`` 命令授與每個登入資料庫層級權限。如需詳細資訊，請參閱下面**授與登入資料庫存取權**一節。
 
 由於部分工具以不同的方式實作表格式資料流 (TDS)，您可能需要以 ``<login>@<server>`` 標記法，將 Azure SQL Database 伺服器名稱附加至登入中的連接字串。在這些案例中，請使用 ``@`` 符號分隔登入和 Azure SQL Database 伺服器名稱。例如，如果您的登入名為 **login1** 且 Azure SQL Database 伺服器的完整的名稱是 **servername.database.windows.net**，則您的連接字串使用者名稱參數應該是：****login1@servername**。這項限制會限制您針對登入名稱可選用的文字。如需詳細資訊，請參閱 [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx)。
 
@@ -169,4 +169,4 @@ SELECT * FROM sys.databases;
 
 [Azure SQL Database 安全性方針和限制](sql-database-security-guidelines.md) [利用 Azure Active Directory 驗證連線到 SQL Database](sql-database-aad-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

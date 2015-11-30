@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # 可靠動作項目：標準的 HelloWorld 逐步解說案例
@@ -26,7 +26,7 @@
 若要開始使用可靠動作項目，您只需要了解 4 個基本概念：
 
 * **動作項目服務**。可靠動作項目封裝在可在 Service Fabric 基礎結構內部署的服務中。服務可以裝載一或多個動作項目。我們將在稍後討論如何在各服務之間取捨一或多個動作項目。現在讓我們假設只需要實作一個動作項目。
-* **動作項目介面**。動作項目介面用於定義動作項目的公用介面。在動作項目模型術語中，其定義動作項目能夠了解程序的訊息類型。其他的動作項目或用戶端應用程式會使用動作項目介面將訊息「傳送」(非同步) 給動作項目。可靠動作項目可實作多個介面，如我們所見，HelloWorld Actor 可實作 IHelloWorld 介面，但也會實作定義訊息/功能的 ILogging 介面。
+* **動作項目介面**。動作項目介面用於定義動作項目的公用介面。在動作項目模型術語中，其定義動作項目能夠了解並處理訊息類型。其他的動作項目或用戶端應用程式會使用動作項目介面將訊息「傳送」(非同步) 給動作項目。可靠動作項目可實作多個介面，如我們所見，HelloWorld Actor 可實作 IHelloWorld 介面，但也會實作定義訊息/功能的 ILogging 介面。
 * **動作項目註冊**。在動作項目服務中必須註冊動作項目類型，Service Fabric 才能感知新的類型，並將其用於建立新的動作項目。
 * **ActorProxy 類別**。ActorProxy 類別用於與動作項目繫結，並叫用透過其介面公開的方法。ActorProxy 類別提供兩個重要的功能：
 	* 名稱解析：能夠在叢集中找到動作項目 (在裝載動作項目的叢集節點中尋找)。
@@ -58,18 +58,14 @@
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld.Interfaces
+namespace MyActor.Interfaces
 {
-    public interface IHelloWorld : IActor
+    using System.Threading.Tasks;
+    using Microsoft.ServiceFabric.Actors;
+
+    public interface IMyActor : IActor
     {
-        Task<string> SayHello(string greeting);
+        Task<string> HelloWorld();
     }
 }
 
@@ -79,22 +75,18 @@ namespace HelloWorld.Interfaces
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using HelloWorld.Interfaces;
-using Microsoft.ServiceFabric;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld
+namespace MyActor
 {
-    public class HelloWorld : Actor, IHelloWorld
+    using System;
+    using System.Threading.Tasks;
+    using Interfaces;
+    using Microsoft.ServiceFabric.Actors;
+
+    internal class MyActor : StatelessActor, IMyActor
     {
-        public Task<string> SayHello(string greeting)
+        public Task<string> HelloWorld()
         {
-            return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
+            throw new NotImplementedException();
         }
     }
 }
@@ -105,26 +97,34 @@ namespace HelloWorld
 
 ```csharp
 
-public class Program
+namespace MyActor
 {
-    public static void Main(string[] args)
-    {
-        try
-        {
-            using (FabricRuntime fabricRuntime = FabricRuntime.Create())
-            {
-                fabricRuntime.RegisterActor(typeof(HelloWorld));
+    using System;
+    using System.Fabric;
+    using System.Threading;
+    using Microsoft.ServiceFabric.Actors;
 
-                Thread.Sleep(Timeout.Infinite);
+    internal static class Program
+    {
+        private static void Main()
+        {
+            try
+            {
+                using (FabricRuntime fabricRuntime = FabricRuntime.Create())
+                {
+                    fabricRuntime.RegisterActor<MyActor>();
+
+                    Thread.Sleep(Timeout.Infinite);  // Prevents this host process from terminating so services keeps running.
+                }
+            }
+            catch (Exception e)
+            {
+                ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
+                throw;
             }
         }
-        catch (Exception e)
-        {
-            ActorEventSource.Current.ActorHostInitializationFailed(e);
-            throw;
-        }
     }
-}  
+}
 
 ```
 
@@ -132,7 +132,7 @@ public class Program
 
 ```csharp
 
-fabricRuntime.RegisterActor(typeof(MyNewActor));
+fabricRuntime.RegisterActor<MyActor>();
 
 
 ```
@@ -158,4 +158,4 @@ Visual Studio 專用的 Service Fabric 工具支援在本機機器上偵錯。�
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

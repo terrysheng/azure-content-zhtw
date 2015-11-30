@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # 準備環境以備份 Azure 虛擬機器
@@ -50,7 +50,7 @@
 
 7. 按一下備份保存庫，前往 [快速啟動] 頁面，上面將會顯示備份 Azure 虛擬機器的相關指示。
 
-    ![虛擬機器的備份指示在 [儀表板] 頁面上](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
+    ![虛擬機器的備分指示在 [儀表板] 頁面上](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
 
 
@@ -173,10 +173,7 @@ VM 代理程式已存在於從 Azure 資源庫建立的 VM 中。不過，從內
 - 不支援備份以 Azure 資源管理員 (亦稱為 IaaS V2) 為基礎的虛擬機器。
 - 不支援備份具有 16 個以上資料磁碟的虛擬機器備份。
 - 不支援備份使用進階儲存體的虛擬機器。
-- 不支援備份具有多個保留的 IP 的虛擬機器。
 - 不支援備份具有保留的 IP 及未定義端點的虛擬機器。
-- 不支援備份使用多個 NIC 的虛擬機器。
-- 不支援備份正處於負載平衡組態 (內部和網際網路面向) 的虛擬機器。
 - 不支援在還原期間取代現有的虛擬機器。先刪除現有的虛擬機器及任何相關聯的磁碟，然後從備份還原資料。
 - 不支援跨區域備份和還原。
 - Azure 的所有公用區域皆支援使用 Azure 備份服務備份虛擬機器。以下是支援區域的[檢查清單](http://azure.microsoft.com/regions/#services)。如果您尋找的區域目前不受支援，就不會於建立保存庫期間出現在下拉式清單中。
@@ -194,4 +191,4 @@ VM 代理程式已存在於從 Azure 資源庫建立的 VM 中。不過，從內
 - [備份虛擬機器](backup-azure-vms.md)
 - [管理虛擬機器備份](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

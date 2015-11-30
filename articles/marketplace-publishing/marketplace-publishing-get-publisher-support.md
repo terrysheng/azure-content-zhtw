@@ -19,22 +19,22 @@
 
 # 存取 Azure Marketplace 的發佈者支援
 
-Microsoft 提供各種產品和服務的支援，而確保您的查詢可找到適當的支援團隊，即可確保適當且及時的回應。請考慮下列案例，這些案例應有助於將您的查詢傳送給適當的團隊。
+Microsoft 提供各式各樣的產品和服務支援。務必讓您的查詢能找到正確的支援團隊，對確保適當且及時的回應很重要。請考慮下列案例，這些案例應有助於將您的查詢傳送給適當的團隊。
 
-- 如果您是 Marketplace 中的發佈者且仍在開發您的 VM，您應該與您的 Microsoft 上線或計算團隊交流。
+- 如果您是 Azure Marketplace 中的發佈者且仍在開發您的 VM，您應該與您的 Microsoft 上線或計算團隊交流。
 
-- 如果您是 Marketplace 中的發佈者並有來自客戶的問題，請告訴您的客戶透過支援連結 (https://ms.portal.azure.com/) 要求支援
+- 如果您是 Marketplace 中的發佈者並有來自客戶的問題，請告訴您的客戶透過支援連結 (https://ms.portal.azure.com/) 要求支援。
 
 - 如果您是 Marketplace 中的發佈者並有與您的應用程式或服務相關的問題，請繼續閱讀以下內容。
 
-## 此文將示範如何：
+此文將示範如何：
 
-- 登入您的 Microsoft 帳戶
-- 瀏覽至發佈者支援頁面
-- 選取問題類型和類別
-- 要求支援
-- 提供連絡資訊
-- 描述問題
+- 登入您的 Microsoft 帳戶。
+- 瀏覽至發佈者支援頁面。
+- 選取問題類型和類別。
+- 要求支援。
+- 提供連絡資訊。
+- 描述問題。
 
 ## 1\.登入您的 Microsoft 帳戶
 
@@ -44,34 +44,34 @@ Microsoft 提供各種產品和服務的支援，而確保您的查詢可找到�
 
 ## 2\.瀏覽至發佈者支援頁面
 
-從右上方的功能表中選取 [取得支援]
+從右上方的功能表中選取 [取得支援]。
 
   ![取得支援][2]
 
 ## 3\.選取問題類型和類別
 
-![問題類型和類別][3]
+![問題類型類別][3]
 
 可用的問題類型如下：
 
-  - 帳戶管理
-  - 報告和見解
-  - VM 映像憑證
-  - 管理客戶
-  - 管理供應項目
-  - 支出
-  - 賣方儀表板
-  - 其他
+  - **帳戶管理**
+  - **報告和見解**
+  - **VM 映像憑證**
+  - **管理客戶**
+  - **管理供應項目**
+  - **支出**
+  - **賣方儀表板**
+  - **其他**
 
 ## 4\.要求支援
 
-選取 [問題類型] 和 [類別] 之後，按一下 [提出要求] 按鈕
+選取問題類型和類別之後，按一下 [提出要求] 按鈕。
 
 ![啟動支援][4]
 
 ## 5\.提供連絡資訊並描述問題
 
-儘可能完整地描述問題，並提供任何可能有助於解決問題的檔案 (例如螢幕擷取畫面、網路追蹤等)。
+儘可能完整地描述問題，並提供任何可能有助於解決問題的檔案 (螢幕擷取畫面、網路追蹤等)。
 
 ![描述問題][5]
 
@@ -83,7 +83,7 @@ Microsoft 提供各種產品和服務的支援，而確保您的查詢可找到�
 
 ## 後續步驟
 
-若要了解如何解決特定的支援問題，請造訪：[疑難排解 Azure Marketplace 的常見問題](marketplace-publishing-support-common-issues.md)。
+若要了解如何解決特定的支援問題，請參閱[疑難排解 Azure Marketplace 的常見問題](marketplace-publishing-support-common-issues.md)。
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
 [2]: ./media/marketplace-publishing-get-publisher-support/step2.png
@@ -92,4 +92,4 @@ Microsoft 提供各種產品和服務的支援，而確保您的查詢可找到�
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

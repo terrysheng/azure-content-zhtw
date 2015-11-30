@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="10/15/2015"
+   ms.date="11/11/2015"
    ms.author="mcoskun"/>
 
 # Service Fabric 具狀態服務中之可靠的集合簡介
@@ -108,6 +108,7 @@
 
 - 所有可靠的集合 API 的預設逾時都是 4 秒。大部分使用者應該都不會覆寫此預設值。
 - 在所有可靠的集合 API 中，預設的取消權杖為 `CancellationToken.None`。
+- 可靠字典的索引鍵類型參數 (TKey) 必須正確實作 GetHashCode() and Equals()。索引鍵必須是不可變的。
 - 在集合中，快照集中的列舉都是一致的。但是，在跨多個集合的情況下，列舉並不是一致的。
 - 若要讓可靠的集合達到高度可用性，每個服務應至少有一個目標和大小為 3 的最小複本集。
 
@@ -118,4 +119,4 @@
 - [可靠的服務程式設計模型進階用法](service-fabric-reliable-services-advanced-usage.md)
 - [可靠的集合的開發人員參考資料](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

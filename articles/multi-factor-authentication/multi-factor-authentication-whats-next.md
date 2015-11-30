@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # 設定 Azure Multi-Factor Authentication
@@ -365,4 +365,4 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 <li>在 [服務設定] 頁面上，於管理使用者裝置設定下方選取/取消選取 [藉由讓系統記住裝置來允許使用者暫停 Multi-Factor Authentication]。</li>
 ![暫停裝置](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>設定要允許暫停的天數。預設值為 14 天。</li> <li>按一下 [儲存]。</li> <li>按一下 [關閉]。</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

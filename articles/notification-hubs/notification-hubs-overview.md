@@ -28,11 +28,8 @@ Azure 通知中樞提供一種易用、多平台、向外延展的推播基礎�
 在企業和消費者案例中，您可以使用通知中樞。例如：
 
 - 將即時新聞通知傳送給數百萬名使用者 (通知中樞強力支援所有 Windows 和 Windows Phone 裝置上已預先安裝的 Bing 應用程式)，且延遲性低。
-
 - 將位置型折價券傳送至使用者區段。
-
 - 將事件通知傳送給運動/財金/遊戲應用程式使用者或群組。
-
 - 通知使用者有關企業事件 (例如新訊息/電子郵件) 和潛在業務機會。
 - 傳送 Multi-Factor Authentication 所需的一次性密碼。
 
@@ -69,7 +66,7 @@ Azure 通知中樞提供一種易用、多平台、向外延展的推播基礎�
 
 ##推播通知的挑戰
 
-儘管這些系統功能強大，但即便應用程式開發人員想要實作一般的推播通知工作 (例如廣播或傳送推播通知給使用者)，都有許多工作有待處理。
+儘管這些系統功能非常強大，但即便 App 開發人員想要實作一般的推播通知工作 (例如廣播或傳送推播通知給分段式使用者)，都有許多工作有待處理。
 
 就行動應用程式而言，推播通知是雲端服務中最常被要求的功能之一。原因是，其運作所需的基礎結構頗為複雜，且大部分與應用程式的主要商業邏輯沒有關聯。建置隨選推播基礎結構的挑戰包括：
 
@@ -88,15 +85,10 @@ Azure 通知中樞提供一種易用、多平台、向外延展的推播基礎�
 ![][1]
 
 
-
-
-
-
 通知中樞提供具有下列優點且容易使用的推播通知基礎結構：
 
 - **多個平台。**
 	+  支援所有主要行動平台。通知中心可傳送推播通知至 Windows 市集、iOS、Android 和 Windows Phone 應用程式。
-
 
 	+  通知中心提供可將通知傳送至所有支援平台的共同介面。不需要平台特定通訊協定。應用程式後端可傳送平台專用格式的通知，或平台共用格式的通知。應用程式只會與通知中樞通訊。
 
@@ -115,7 +107,7 @@ Azure 通知中樞提供一種易用、多平台、向外延展的推播基礎�
 
 	- *分割*：標記運算式所定義的推播至複雜區段 (例如，紐約追蹤洋基的裝置)。
 
-	每個裝置在將其控制代碼傳送至通知中樞時，都可指定一或多個_「標記」_。如需[標記](http://msdn.microsoft.com/library/azure/dn530749.aspx)的詳細資訊。標籤不一定要預先佈建或處置。透過標籤，通知將可輕易傳送給使用者或相關群組。由於標籤可包含任何應用程式專用的識別碼 (例如使用者或群組 ID)，因此使用標籤後，應用程式後端將可省卻儲存及管理裝置控制代碼的工作負擔。
+	每個裝置在將其控制代碼傳送至通知中樞時，都可指定一或多個_「標記」_。如需[標記]的詳細資訊。標籤不一定要預先佈建或處置。透過標籤，通知將可輕易傳送給使用者或相關群組。由於標籤可包含任何應用程式專用的識別碼 (例如使用者或群組 ID)，因此使用標籤後，應用程式後端將可省卻儲存及管理裝置控制代碼的工作負擔。
 
 - **個人化**：每個裝置都可以有一或多個範本，以達成每個裝置的當地語系化和個人化，而不影響後端程式碼。
 
@@ -124,6 +116,18 @@ Azure 通知中樞提供一種易用、多平台、向外延展的推播基礎�
 - **豐富遙測**：可在入口網站並透過程式設計方式使用。
 
 
+##與 App Service Mobile Apps 整合
+
+為了在 Azure 服務間促進完美且統一的體驗，[App Service Mobile Apps] 具備使用通知中樞提供推播通知的內建支援。[App Service Mobile Apps] 具有高擴充性且可供全球使用，是專為企業開發人員與系統整合人員設計的行動應用程式開發平台，能提供一組豐富的功能給行動應用程式開發人員。
+
+Mobile Apps 開發人員可以使用下列流程來利用通知中樞：
+
+1. 擷取裝置 PNS 控制代碼
+2. 透過便利的 Mobile Apps Client SDK 註冊 API，使用通知中樞註冊裝置和[範本](optional)
+    + 請注意，Mobile Apps 會基於安全性考量，去除註冊上的所有標籤。直接從後端使用通知中樞，將標籤關聯至裝置。
+3. 從 App 後端使用通知中樞傳送通知
+
+以下是透過此註冊為開發人員帶來的一些便利性：- **Mobile Apps Client SDK**。 這些多平台 SDK 提供簡單的 API 來進行註冊，然後會自動與連結到行動 App 的通知中樞聯繫。開發人員不需要透過通知中樞認證進行挖掘，以及使用其他服務。+ SDK 會使用 Mobile Apps 驗證的使用者識別碼自動標記指定的裝置，以啟用推送至使用者案例。+ SDK 會自動使用 Mobile Apps 安裝識別碼做為 GUID 來向通知中樞註冊，省去開發人員維護多個服務 GUID 的麻煩。**安裝模型。** Mobile Apps 會使用通知中樞的最新推送模型，來呈現 JSON 安裝中所有與裝置相關聯的推送屬性，其會與推播通知密切合作且易於使用。- **彈性。** 即使已就地整合，開發人員一律還是可以選擇直接使用通知中樞。- **[Azure 入口網站]中的整合體驗。** Mobile Apps 中會以視覺化方式呈現以功能形式出現的推送，而開發人員可以透過 Mobile Apps 輕鬆使用相關聯的通知中樞。
 
 
 
@@ -156,5 +160,9 @@ Azure 通知中樞提供一種易用、多平台、向外延展的推播基礎�
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
+  [App Service Mobile Apps]: https://azure.microsoft.com/zh-TW/documentation/articles/app-service-mobile-value-prop/
+  [templates]: https://msdn.microsoft.com/zh-TW/library/azure/dn530748.aspx
+  [Azure 入口網站]: https://portal.azure.com
+  [標記]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

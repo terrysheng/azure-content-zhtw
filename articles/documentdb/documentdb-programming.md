@@ -475,64 +475,9 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 ## JavaScript Language Integrated Query API
 除了使用 DocumentDB 的 SQL 文法發出查詢，伺服器端 SDK 可讓您使用流暢的 JavaScript 介面執行最佳化查詢，不需具備任何 SQL 的知識。JavaScript 的查詢 API 使用 ECMAScript5 陣列內建和受歡迎的 JavaScript 程式庫如 lodash 所熟悉的語法，將述詞函式傳遞至可鏈結式函式呼叫，藉此以程式設計方式建立查詢。查詢是由 JavaScript 執行階段使用 DocumentDB 的索引來有效地執行剖析。
 
-> [AZURE.NOTE]`__` (雙底線) 是 `getContext().getCollection()` 的別名。
-> <br/>
-> 換句話說，您可以使用 `__` 或 `getContext().getCollection()` 存取 JavaScript 查詢 API。
+> [AZURE.NOTE]`__` (雙底線) 是 `getContext().getCollection()` 的別名。<br/> 換句話說，您可以使用 `__` 或 `getContext().getCollection()` 存取 JavaScript 查詢 API。
 
-支援的功能包括：
-<ul>
-<li>
-<b>chain() ... .value([callback] [, options])</b>
-<ul>
-<li>
-以鏈結呼叫開頭，則必須以 value() 結束。
-</li>
-</ul>
-</li>
-<li>
-<b>filter(predicateFunction [, options] [, callback])</b>
-<ul>
-<li>
-使用述詞函式篩選輸入時，會傳回 true/false 以便將輸入文件篩選到結果集。此行為類似於 SQL 中的 WHERE 子句。
-</li>
-</ul>
-</li>
-<li>
-<b>map(transformationFunction [, options] [, callback])</b>
-<ul>
-<li>
-適用於所指定的轉換函式將每個輸入項目對應至 JavaScript 物件或值的投影。此行為類似於 SQL 中的 SELECT 子句。
-</li>
-</ul>
-</li>
-<li>
-<b>pluck([propertyName] [, options] [, callback])</b>
-<ul>
-<li>
-這是對應的捷徑，會從每個輸入項目擷取單一屬性的值。</li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b>
-<ul>
-<li>
-將每個輸入項目的陣列合併並壓平至單一陣列。此行為類似 LINQ 中的 SelectMany。
-</li>
-</ul>
-</li>
-<li>
-<b>sortBy([predicate] [, options] [, callback])</b>
-<ul>
-<li>
-使用指定述詞以遞增順序排序輸入文件資料流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY 子句。
-</li>
-</ul>
-</li>
-<li>
-<b>sortByDescending([predicate] [, options] [, callback])</b>
-<ul>
-<li>
-使用指定述詞以遞減順序排序輸入文件資料流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY x DESC 子句。
-</li>
-</ul>
-</li>
-</ul>
+支援的功能包括：<ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li>以鏈結呼叫開頭，則必須以 value() 結束。</li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li>使用述詞函式篩選輸入時，會傳回 true/false 以便將輸入文件篩選到結果集。此行為類似於 SQL 中的 WHERE 子句。</li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li>適用於所指定的轉換函式將每個輸入項目對應至 JavaScript 物件或值的投影。此行為類似於 SQL 中的 SELECT 子句。</li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li>這是對應的捷徑，會從每個輸入項目擷取單一屬性的值。</li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li>將每個輸入項目的陣列合併並壓平至單一陣列。此行為類似 LINQ 中的 SelectMany。</li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li>使用指定述詞以遞增順序排序輸入文件串流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY 子句。</li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li>使用指定述詞以遞減順序排序輸入文件串流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY x DESC 子句。</li> </ul> </li> </ul>
 
 
 當裡面包含述詞和/或選取器函式時，下列 JavaScript 建構會自動取得最佳化，以便直接在 DocumentDB 索引上執行：
@@ -609,141 +554,7 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 
 使用 SQL 查詢時，文件屬性索引鍵 (例如 `doc.id`) 會區分大小寫。
 
-<br/>
-<table border="1" width="100%">
-<colgroup>
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<th>SQL</th>
-<th>JavaScript Query API</th>
-<th>詳細資訊</th>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT *
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-__.map(function(doc) {
-    return doc;
-});
-</pre>
-</td>
-<td>列出所有文件中的結果 (以接續權杖重新編頁)。</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg, docs.actions 
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-__.map(function(doc) {
-    return {
-        id: doc.id,
-        msg: doc.message,
-        actions: doc.actions
-    };
-});
-</pre>
-</td>
-<td>投影所有文件的識別碼、訊息 (msg 的別名) 和動作。</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT * 
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-__.filter(function(doc) {
-    return doc.id === "X998_Y998";
-});
-</pre>
-</td>
-<td>以述詞：id = "X998_Y998" 查詢文件。</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT *
-FROM docs
-WHERE ARRAY_CONTAINS(docs.Tags, 123)
-</pre>
-</td>
-<td>
-<pre>
-__.filter(function(x) {
-    return x.Tags && x.Tags.indexOf(123) > -1;
-});
-</pre>
-</td>
-<td>查詢具有標記屬性且標記是含有值 123 之陣列的文件。</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-__.chain()
-    .filter(function(doc) {
-        return doc.id === "X998_Y998";
-    })
-    .map(function(doc) {
-        return {
-            id: doc.id,
-            msg: doc.message
-        };
-    })
-    .value();
-</pre>
-</td>
-<td>以述詞 id = "X998_Y998" 查詢文件，然後投影識別碼和訊息 (msg 的別名)。</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT VALUE tag
-FROM docs
-JOIN tag IN docs.Tags
-ORDER BY docs._ts
-</pre>
-</td>
-<td>
-<pre>
-__.chain()
-    .filter(function(doc) {
-        return doc.Tags && Array.isArray(doc.Tags);
-    })
-    .sortBy(function(doc) {
-    	return doc._ts;
-    })
-    .pluck("Tags")
-    .flatten()
-    .value()
-</pre>
-</td>
-<td>篩選具有陣列屬性標記的文件，並以 _ts 時間戳記系統屬性排序結果文件，然後投影和壓平標記陣列。</td>
-</tr>
-</tbody>
-</table>
+<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>JavaScript Query API</th> <th>詳細資訊</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>列出所有文件中的結果 (以接續權杖重新編頁)。</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>投影所有文件的識別碼、訊息 (msg 的別名) 和動作。</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>以述詞：id = "X998\_Y998" 查詢文件。</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>查詢具有標記屬性且標記是含有值 123 之陣列的文件。</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>以述詞 id = "X998\_Y998" 查詢文件，然後投影識別碼和訊息 (msg 的別名)。</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>篩選具有陣列屬性標記的文件，並以 \_ts 時間戳記系統屬性排序結果文件，然後投影和壓平標記陣列。</td> </tr> </tbody> </table>
 
 ## 執行階段支援
 [DocumentDB JavaScript 伺服器端 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) 支援以 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 做為標準的大部分主流 JavaScript 語言功能。
@@ -755,7 +566,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 預存程序、觸發程序和 UDF 會隱含地預先編譯為位元組程式碼格式，以避免掉每次叫用指令碼時的編譯成本。這種作法可確保能夠快速叫用預存程序，且只需耗費少量資源。
 
 ## 用戶端 SDK 支援
-除了 [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) 用戶端之外，DocumentDB 還支援 [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx)、[Java](http://dl.windowsazure.com/documentdb/javadoc/)、[JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) 和 [Python SDK](http://dl.windowsazure.com/documentDB/pythondocs/)。使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。下列範例說明如何使用 .NET 用戶端建立和執行預存程序。請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
+除了 [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) 用戶端之外，DocumentDB 還支援 [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)、[Java](http://dl.windowsazure.com/documentdb/javadoc/)、[JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) 和 [Python SDK](http://dl.windowsazure.com/documentDB/pythondocs/)。使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。下列範例說明如何使用 .NET 用戶端建立和執行預存程序。請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -788,7 +599,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-此範例說明如何使用 [.NET SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx) 建立預先觸發程序以及建立已啟用觸發程序的文件。
+此範例說明如何使用 [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx) 建立預先觸發程序以及建立已啟用觸發程序的文件。
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -850,8 +661,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 	}
 
 
-此預存程序是透過對 URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs (其本文包含要建立的預存程序) 執行 POST 要求，來進行註冊。觸發程序和 UDF可以透過分別發出 /triggers 和 /udfs 的 POST 要求，以類似方式進行註冊。
-您可以接著對其資源連結發出 POST 要求來執行這個預存程序：
+此預存程序是透過對 URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs (其本文包含要建立的預存程序) 執行 POST 要求，來進行註冊。觸發程序和 UDF可以透過分別發出 /triggers 和 /udfs 的 POST 要求，以類似方式進行註冊。您可以接著對其資源連結發出 POST 要求來執行這個預存程序：
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>
@@ -916,4 +726,4 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 -	[服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

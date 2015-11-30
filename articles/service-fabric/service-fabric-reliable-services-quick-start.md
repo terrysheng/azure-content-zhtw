@@ -13,26 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/15/2015"
    ms.author="vturecek"/>
 
 # 開始使用 Microsoft Azure Service Fabric 可靠的服務
 
-Service Fabric 應用程式包含一個或多個執行您的程式碼的服務。本教學課程將逐步引導您完成使用 [Reliable Services 程式設計模型](service-fabric-reliable-services-introduction.md)，建立無狀態與具狀態 "Hello World" Service Fabric 應用程式。
-
-無狀態服務是目前大部分存在於雲端應用程式的服務類型。服務會被視為無狀態，因為服務本身不包含需要可靠地儲存或設為高度可用的資料；也就是說，如果無狀態服務的執行個體關閉，其所有內部狀態都會遺失。在這些類型的服務中，狀態必須保存到外部存放區，例如 Azure 資料表或 SQL 資料庫中，才能成為高度可用且可靠。
-
-Service Fabric 還導入一種新的具狀態服務：可以在服務本身內可靠地維護狀態的服務，並且與使用該服務的程式碼共存。您的狀態是由 Service Fabric 設為高度可用，而不需要將狀態保存到外部存放區。
-
-在此教學課程中，您將實作無狀態的服務，和保留內部計數器的具狀態服務。在無狀態服務中，服務重新啟動或移動時計數器的值會遺失。不過，在具狀態服務中 ，計數器狀態會由 Service Fabric 設為可靠，因此如果在計算中因故中斷服務執行，它可以從留下的地方再接續。
+Service Fabric 應用程式包含一個或多個執行您的程式碼的服務。本指南說明如何使用 [Reliable Services](service-fabric-reliable-services-introduction.md) 同時建立無狀態與具狀態的 Service Fabric 應用程式。
 
 ## 建立無狀態服務
 
-現在讓我們著手無狀態的服務。
+無狀態服務是目前大部分存在於雲端應用程式的服務類型。服務會被視為無狀態，因為服務本身不包含需要可靠地儲存或設為高度可用的資料；也就是說，如果無狀態服務的執行個體關閉，其所有內部狀態都會遺失。在這些類型的服務中，狀態必須保存到外部存放區，例如 Azure 資料表或 SQL 資料庫中，才能成為高度可用且可靠。
 
-以**系統管理員**身分啟動 Visual Studio 2015 RC，並建立新的 **Service Fabric Application** 專案，命名為 *HelloWorld*：
+以**管理員**身分啟動 Visual Studio 2015 RC，並建立新的 **Service Fabric Application** 專案，命名為 *HelloWorld*：
 
-![使用 [新增專案] 對話方塊來建立新的 Service Fabric 應用程式](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![使用新增專案對話方塊來建立新的 Service Fabric 應用程式](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
 然後建立名為 *HelloWorldStateless*的**無狀態服務**專案：
 
@@ -46,7 +40,7 @@ Service Fabric 還導入一種新的具狀態服務：可以在服務本身內�
 
 ## 實作服務
 
-在服務專案中開啟 **HelloWorld.cs** 檔案。在 Service Fabric 中，服務可以執行任何商務邏輯。服務 API 為您的程式碼提供兩個進入點：
+在服務專案中開啟 **HelloWorldStateless.cs** 檔案。在 Service Fabric 中，服務可以執行任何商務邏輯。服務 API 為您的程式碼提供兩個進入點：
 
  - 開放式的進入點方法，稱為 *RunAsync*，您可以在這裡開始執行任何工作負載，例如長時間執行的運算工作負載。
 
@@ -60,7 +54,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
  - 通訊進入點，您可以將其中插入您選擇的通訊堆疊，例如 Web API，在這裡您可以開始接收來自使用者或其他服務的要求。
 
 ```C#
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -74,15 +68,20 @@ protected override ICommunicationListener CreateCommunicationListener()
 ### RunAsync
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServiceInstance)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
 
     int iterations = 0;
-    while (!cancellationToken.IsCancellationRequested)
+    // This service instance continues processing until the instance is terminated.
+    while (!cancelServiceInstance.IsCancellationRequested)
     {
+
+        // Log what the service is doing
         ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", iterations++);
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServiceInstance);
     }
 }
 ```
@@ -102,6 +101,8 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ## 建立具狀態服務
 
+Service Fabric 還導入一種新的具狀態服務：可以在服務本身內可靠地維護狀態的服務，並且與使用該服務的程式碼共存。您的狀態是由 Service Fabric 設為高度可用，而不需要將狀態保存到外部存放區。
+
 若要將我們的計數器值從無狀態轉換成高度可用且持續，即使服務移動或重新啟動亦然，我們需要具狀態服務。
 
 在同一個 **HelloWorld** 應用程式中，加入新的服務，在應用程式專案上按一下滑鼠右鍵並選取 [**新網狀架構服務**]。
@@ -110,34 +111,47 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 選取 [Service Fabric 具狀態服務] 並將它命名為 "HelloWorldStateful"。按一下 [新增]。
 
-![使用 [新增專案] 對話方塊來建立新的 Service Fabric 具狀態服務](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![使用新增專案對話方塊來建立新的 Service Fabric 具狀態服務](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
 您的應用程式現在應該有兩個服務：無狀態服務 *HelloWorld* 和具狀態服務 *HelloWorldStateful*。
 
 在 *HelloWorldStateful* 中開啟 **HelloWorldStateful.cs**，其中包含下列 `RunAsync` 方法：
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
+
+    // Gets (or creates) a replicated dictionary called "myDictionary" in this partition.
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-    while (!cancellationToken.IsCancellationRequested)
+    // This partition's replica continues processing until the replica is terminated.
+    while (!cancelServicePartitionReplica.IsCancellationRequested)
     {
+
+        // Create a transaction to perform operations on data within this partition's replica.
         using (var tx = this.StateManager.CreateTransaction())
         {
+
+            // Try to read a value from the dictionary whose key is "Counter-1".
             var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-            ServiceEventSource.Current.ServiceMessage(
-                this,
-                "Current Counter Value: {0}",
+
+            // Log whether the value existed or not.
+            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
+            // If the "Counter-1" key doesn't exist, set its value to 0
+            // else add 1 to its current value.
             await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
+            // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // discarded, and nothing is sent to this partition's secondary replicas.
             await tx.CommitAsync();
         }
 
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
     }
 }
 ```
@@ -204,4 +218,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [可靠的服務的開發人員參考資料](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

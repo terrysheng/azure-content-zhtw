@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/20/2015"
+   ms.date="11/16/2015"
    ms.author="alkohli" />
 
 # StorSimple 8000 系列 Update 1.2 版本資訊  
@@ -49,7 +49,7 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
     - **業務持續性**：透過允許將 5000-7000 系列應用裝置上的現有資料移轉到 8000 系列應用裝置。
     - **8000 系列應用裝置的改進功能**：例如透過 StorSimple Manager 服務對多個應用裝置進行有效率的集中式管理、更高等級的硬體和更新的韌體、虛擬應用裝置、資料行動力，以及未來藍圖中的功能。
 
-    如需如何將 StorSimple 5000-7000 系列移轉至 8000 系列裝置的詳細資訊，請參閱[移轉指南](http://www.microsoft.com/download/details.aspx?id=47322)。
+    如需如何將 StorSimple 5000-7000 系列移轉至 8000 系列裝置的詳細資訊，請參閱《移轉指南》[](http://www.microsoft.com/download/details.aspx?id=47322)。
 
 - **Azure Government 入口網站的可用性** – Azure Government 入口網站現已提供 StorSimple。請參閱如何[在 Azure Government 入口網站中部署 StorSimple 裝置](storsimple-deployment-walkthrough-gov.md)。
 
@@ -91,7 +91,7 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
 | 1 | 磁碟仲裁 | 在罕見情況下，如果 8600 裝置的 EBOD 機箱中大部分的磁碟都已中斷連線，而導致沒有磁碟仲裁，那麼將會使存放集區離線。即使已重新連接磁碟時，它依然會保持離線。 | 您必須重新啟動裝置。如果問題持續發生， 請連絡 Microsoft 支援以進行後續步驟。 | 是 | 否 |
 | 2 | 不正確的控制器識別碼 | 進行控制器更換時，控制器 0 可能顯示為控制器 1。在控制器更換期間從對等節點載入影像時，控制器識別碼一開始可能會顯示為對等控制器的識別碼。在罕見情況下，可能會在系統重新開機後出現這種行為。 | 因此，使用者不需要採取任何動作。控制器更換完成之後，會自行解決這種情況。 | 是 | 否 |
 | 3 | 儲存體帳戶 | 不支援使用儲存體服務刪除儲存體帳戶的案例。這會導致無法擷取使用者資料的情況。 | 是 | 是 |
-| 4 | 裝置容錯移轉 | 不支援從相同來源裝置將某個磁碟區容器多次容錯移轉至不同的目標裝置。從單一失效裝置容錯移轉到多個裝置，會讓第一個容錯移轉裝置上的磁碟區容器失去資料擁有權。進行這類容錯移轉之後，當您在管理入口網站中檢視時，會發現這些磁碟區容器出現或發生不同的行為。 | | 是 | 否 |
+| 4 | 裝置容錯移轉 | 不支援從相同來源裝置將某個磁碟區容器多次容錯移轉至不同的目標裝置。從單一失效裝置容錯移轉到多個裝置，會讓第一個容錯移轉裝置上的磁碟區容器失去資料擁有權。進行這類容錯移轉之後，當您在 Azure 入口網站中檢視這些磁碟區容器時，會發現它們的外觀或行為有所不同。 | | 是 | 否 |
 | 5 | 安裝 | 在 StorSimple Adapter for SharePoint 安裝其間，您必須提供裝置 IP，才能順利完成安裝。 | | 是 | 否 |
 | 6 | Web Proxy | 如果您的 Web Proxy 組態設定將 HTTPS 做為指定的通訊協定，您的裝置對服務通訊將會受到影響並使裝置離線。同時會在程序中產生支援封裝，耗用裝置上的大量資源。 | 請確定 Web Proxy URL 指定的通訊協定為 HTTP。如需詳細資訊，請參閱[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。 | 是 | 否 |
 | 7 | Web Proxy | 如果您在註冊的裝置上設定並啟用 Web Proxy，將需要重新啟動裝置上的主動控制器。 | | 是 | 否 |
@@ -124,4 +124,4 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
 - [在您的裝置上安裝 Update 1.2](storsimple-install-update-1.md)。
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

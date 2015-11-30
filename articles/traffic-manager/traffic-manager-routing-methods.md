@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 流量管理員路由方法
@@ -123,18 +123,11 @@
 
 ## 後續步驟
 
-[什麼是流量管理員？](traffic-manager-overview.md)
+[流量管理員監視](traffic-manager-monitoring.md)
 
-[關於流量管理員監視](traffic-manager-monitoring.md)
+[建立設定檔](traffic-manager-manage-profiles.md)
 
-[流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[雲端服務](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
+[新增端點。](traffic-manager-endpoints.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

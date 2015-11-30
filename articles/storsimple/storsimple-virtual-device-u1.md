@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/23/2015"
+   ms.date="11/16/2015"
    ms.author="alkohli" />
 
 # 部署和管理 Azure 中的 StorSimple 虛擬裝置
@@ -57,7 +57,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 - 虛擬裝置會透過您的 Microsoft Azure 訂用帳戶受到保護。這表示，如果您使用的是虛擬裝置，而您的 Azure 訂用帳戶遭到洩漏，則儲存在虛擬裝置上的資料也會受到影響。
 
-- 用來對儲存在 Azure StorSimple 中的資料加密的憑證公開金鑰，會安全地在 Microsoft Azure 管理入口網站中供人使用，而私密金鑰則會保留在 StorSimple 裝置中。在 StorSimple 虛擬裝置上，公開和私密金鑰都會儲存於 Azure 中。
+- 用來加密儲存在 Azure StorSimple 中的資料之憑證的公開金鑰，會安全地在 Microsoft Azure 入口網站中提供使用，而私密金鑰則會保留在 StorSimple 裝置中。在 StorSimple 虛擬裝置上，公開和私密金鑰都會儲存於 Azure 中。
 
 - 虛擬裝置會裝載於 Microsoft Azure 資料中心。
 
@@ -97,7 +97,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 開始之前，請確定您擁有下列資訊：
 
 
-- 您擁有的 Azure 管理入口網站帳戶具有存取認證。
+- 您擁有的 Azure 入口網站帳戶具有存取認證。
 
 - 您擁有 Azure 儲存體帳戶存取認證。
 
@@ -118,7 +118,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 執行下列步驟來建立 StorSimple 虛擬裝置。
 
-1.  在管理入口網站中，移至 **StorSimple Manager** 服務。
+1.  在 Azure 入口網站中，移至 **StorSimple Manager** 服務。
 
 2. 移至 [裝置] 頁面。按一下 [裝置] 頁面底部的 [建立虛擬裝置]。
 
@@ -128,9 +128,9 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 	1. **名稱** - 虛擬裝置的唯一名稱。
 
-	2. **版本** - 選擇虛擬裝置的版本。如果您利用此服務註冊 Update 1 (或以上版本) 實體裝置，就不會有此選項。只有在您利用此服務註冊更新 1 台實體裝置前和更新 1 台實體裝置後的組合時，此欄位才會出現。給定版本的虛擬裝置會判斷您可以容錯移轉或從其複製的實體裝置，請務必建立適當版本的虛擬裝置。選取：
+	2. **版本** - 選擇虛擬裝置的版本。如果您利用此服務註冊 Update 1 (或以上版本) 實體裝置，就不會有此選項。只有在您同時將 Update 1 之前和之後的實體裝置註冊此服務後，此欄位才會出現。給定版本的虛擬裝置會判斷您可以容錯移轉或從其複製的實體裝置，請務必建立適當版本的虛擬裝置。選取：
 
-	   - 如果您使用 GA 版本或 Update 0.1 到 0.3 從實體裝置容錯移轉或複製，則為 Update 0.3 版。 
+	   - 如果您從安裝了 GA 版本或 Update 0.1 到 0.3 的實體裝置進行容錯移轉或複製，請選取 Update 0.3。 
 	   - 如果您使用 Update 1 (或以上版本) 從實體裝置容錯移轉或複製，則為 Update 1 版。在下拉式清單中選擇 Update 1.1 實際上將會佈建 Update 1.1 虛擬裝置。
  
 	3. **虛擬網路** - 要與此虛擬裝置一起使用的虛擬網路名稱。
@@ -293,7 +293,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 執行下列步驟，在虛擬裝置上建立公用端點。
 
-1. 登入管理入口網站。
+1. 登入 Azure 入口網站。
 
 - 按一下 [虛擬機器]，然後選取想要用來做為虛擬裝置的虛擬機器。
 
@@ -375,7 +375,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 ### 關閉 StorSimple 虛擬裝置
 
-1. 登入管理入口網站。
+1. 登入 Azure 入口網站。
 
 2. 按一下 [虛擬機器]，然後選取虛擬裝置。
 
@@ -383,7 +383,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 ### 刪除 StorSimple 虛擬裝置
 
-1. 登入管理入口網站。
+1. 登入 Azure 入口網站。
 
 - 按一下 [虛擬機器]，然後選取虛擬裝置。
 
@@ -393,4 +393,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

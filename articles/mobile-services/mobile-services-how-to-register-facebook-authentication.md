@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # 在行動服務中註冊應用程式以採用 Facebook 驗證
@@ -48,11 +48,14 @@
 	
     >[AZURE.IMPORTANT]應用程式密鑰是重要的安全性認證。請勿將此密碼告訴任何人或隨應用程式一起散發。&nbsp;
 
-8. 按一下 [**進階**] 索引標籤，在 [**有效的 OAuth 重新導向 URI**] 中，輸入行動服務的 URL，後面附加路徑 _/login/facebook_，然後按一下 [**儲存變更**]。
+8. 按一下 [**進階**] 索引標籤，在 [**有效的 OAuth 重新導向 URl**] 中輸入下列其中一個 URL，然後按一下 [**儲存變更**]：
+ 
+	+ **.NET 後端**：`https://<mobile_service>.azure-mobile.net/signin-facebook`
+	+ **JavaScript 後端**：`https://<mobile_service>.azure-mobile.net/login/facebook` 
 
-     >[AZURE.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 後面附加路徑 _signin-facebook_，而您的行動服務為 .NET 服務，例如 `https://todolist.azure-mobile.net/signin-facebook`。
+	 >[AZURE.NOTE]請確定針對您的行動服務後端類型使用正確的重新導向 URL 路徑格式。若格式不正確，驗證將不會成功。
+
        
-
 9. 按一下 [**狀態與檢閱**] > [**是**]，以啟用應用程式的一般公用存取權。
 
 	您用來註冊新應用程式的 Facebook 帳戶是應用程式的管理員，具有該應用程式的管理員存取權。此步驟會授與一般公用存取權，讓應用程式能夠使用其他 Facebook 帳戶進行驗證。
@@ -73,4 +76,4 @@
 [Azure 行動服務]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

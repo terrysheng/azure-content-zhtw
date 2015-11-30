@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="11/17/2015"
 	ms.author="dkshir"/>
 
 # 疑難排解存取在 Azure 虛擬機器上執行的應用程式
@@ -100,12 +100,24 @@
 - 從您的用戶端電腦輸出到 Azure 虛擬機器的應用程式要求流量。
 - 來自 Azure 虛擬機器的輸入應用程式回應流量。
 
+## 疑難排解端點連線能力問題
+
+如果您在連接到端點時遇到問題，例如連接遠端桌面端點時，您可以嘗試依照下列一般疑難排解步驟執行：
+
+- 重新啟動虛擬機器
+- 重新建立端點
+- 從其他位置連接
+- 調整虛擬機器的大小
+- 重新建立虛擬機器
+
+如需詳細資訊，請參閱 [疑難排解端點連接能力 (RDP/SSH/HTTP 等失敗問題)](https://social.msdn.microsoft.com/Forums/azure/zh-TW/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows)。
+
 ## 後續步驟
 
-如果您已經執行本文章的步驟 1 到 3，且需要其他協助以更正問題，您可以：
+如果您已經執行本文中的以上步驟，且需要其他協助以更正問題，您可以：
 
 - 取得來自世界各地的 Azure 專家協助。提交您的問題至 MSDN Azure 或 Stack Overflow 論壇。如需詳細資訊，請參閱 [Microsoft Azure 論壇](http://azure.microsoft.com/support/forums/)。
-- 提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後在「技術與帳務支援」之下按一下 [取得支援]。
+- 提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後在 [**技術及帳務支援**] 下方按一下 [**取得支援**]。
 
 ## 其他資源
 
@@ -113,4 +125,4 @@
 
 [疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/16/2015"
 	ms.author="billmath;andkjell"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -46,7 +46,7 @@
 選用組態 | 說明
 ------------- | ------------- |
 SQL Server 名稱 | 可讓您指定 SQL Server 名稱和執行個體名稱。如果您已經有想要使用的 ad 資料庫伺服器，請選擇這個選項。
-服務帳戶 | Azure AD Connect 預設會建立本機服務帳戶，以供同步處理服務使用。密碼是自動產生的，但安裝 Azure AD Connect 的人員並不知道。如果您使用遠端 SQL Server，您需要在網域中有一個服務帳戶並知道密碼。在這類情況下，請輸入要使用的服務帳戶。 |
+服務帳戶 | Azure AD Connect 預設會建立本機服務帳戶，以供同步處理服務使用。密碼是自動產生的，但安裝 Azure AD Connect 的人員並不知道。如果您使用遠端 SQL Server，您需要在網域中有一個服務帳戶並知道密碼。在這類情況下，請輸入要使用的服務帳戶。請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 權限 | Azure AD Connect 預設會在安裝同步處理服務時，建立四個伺服器的本機群組。這些群組如下：[系統管理員] 群組、[操作員] 群組、[瀏覽] 群組和 [密碼重設群組]。如果您想要指定自己的群組，則可以在這裡這麼做。群組必須位於伺服器本機上，不能位於網域中。 |
 
 
@@ -94,9 +94,9 @@ SQL Server 名稱 | 可讓您指定 SQL Server 名稱和執行個體名稱。如
 sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入 ID 的屬性中聯結。
 我自己的屬性|此選項可讓您選取您的屬性。**限制：**確定選擇的是已經存在於 Metaverse 中的屬性。如果您選擇自訂屬性，精靈將無法完成。
 
-- **來源錨點**：屬性 sourceAnchor 是使用者物件存留期間都不會變更的屬性。它是連結內部部署使用者與 Azure AD 中使用者的主要金鑰。因為無法改變屬性，所以您必須規劃並使用好的屬性。objectGUID 就是不錯的選項。只要使用者帳戶沒有在樹系/網域之間移動，此屬性就不會改變。若在多樹系環境中，您會在樹系間移動帳戶時，就必須使用另一個屬性，例如 employeeID 屬性。要避免如果某人結婚或變更指派時會改變的屬性。因為不可以使用帶有 @ 符號的屬性，所以無法使用 email 和 userPrincipalName。屬性也有區分大小寫，因此在樹系間移動物件時，請務必保留大寫/小寫。對二進位屬性而言值是 Base64 編碼，但對其他屬性類型而言仍會保持其未編碼的狀態。在同盟情況以及部分 Azure AD 介面中，此屬性也稱為 immutableID。[設計概念](active-directory-aadconnect-design-concepts.md#sourceAnchor)中有關於來源錨點的詳細資訊。
+- **來源錨點**：屬性 sourceAnchor 是使用者物件存留期間都不會變更的屬性。它是連結內部部署使用者與 Azure AD 中使用者的主要金鑰。因為無法改變屬性，所以您必須規劃並使用好的屬性。objectGUID 就是不錯的選項。只要使用者帳戶沒有在樹系/網域之間移動，此屬性就不會改變。若在多樹系環境中，您會在樹系間移動帳戶時，就必須使用另一個屬性，例如 employeeID 屬性。要避免如果某人結婚或變更指派時會改變的屬性。因為不可以使用帶有 @ 符號的屬性，所以無法使用 email 和 userPrincipalName。屬性也有區分大小寫，因此在樹系間移動物件時，請務必保留大寫/小寫。對二進位屬性而言值是 Base64 編碼，但對其他屬性類型而言仍會保持其未編碼的狀態。在同盟情況以及部分 Azure AD 介面中，此屬性也稱為 immutableID。您可以在[設計概念](active-directory-aadconnect-design-concepts.md#sourceAnchor)中找到關於來源錨點的詳細資訊。
 
-- **UserPrincipalName**：屬性 userPrincipalName 是使用者登入 Azure AD 和 Office 365 時會使用的屬性。使用的網域 (也稱為 UPN 尾碼)，應該會在同步處理使用者前於 Azure AD 中進行驗證。強烈建議保留預設屬性 userPrincipalName。如果此屬性不可路由傳送且無法驗證，則可以選取另一個屬性，例如選取 email 做為保存登入 ID 的屬性。這就是所謂的「替代 ID」。替代 ID 屬性值必須遵循 RFC822 標準。替代 ID 可以搭配密碼單一登入 (SSO) 和同盟 SSO 做為登入解決方案使用。
+- **UserPrincipalName**：屬性 userPrincipalName 是使用者登入 Azure AD 和 Office 365 時會使用的屬性。使用的網域 (也稱為 UPN 尾碼)，應該會在同步處理使用者前於 Azure AD 中進行驗證。強烈建議保留預設屬性 userPrincipalName。如果此屬性不可路由傳送且無法驗證，則可以選取另一個屬性，例如選取 email 做為保存登入 ID 的屬性。這就是所謂的**替代 ID**。替代 ID 屬性值必須遵循 RFC822 標準。替代 ID 可以搭配密碼單一登入 (SSO) 和同盟 SSO 做為登入解決方案使用。
 
 >[AZURE.WARNING]使用替代 ID 會與所有 Office 365 工作負載不相容。如需詳細資訊，請參閱[設定替代登入 ID](https://technet.microsoft.com/library/dn659436.aspx.)。
 
@@ -122,9 +122,9 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 Exchange 混合部署 |「Exchange 混合部署」功能透過將一組特定[屬性](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback)從 Azure AD 同步處理回內部部署目錄，以允許 Exchange 信箱同時存在於內部部署和 Azure 中。
 Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性篩選，可將這組同步處理的屬性調整為精靈後續頁面上的特定一組屬性。這會在精靈中開啟兩個額外的組態頁面。  
 密碼同步處理 | 如果您選取同盟做為登入解決方案，您可以啟用此選項。密碼同步處理可做為備份選項。如需詳細資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。
-密碼回寫|透過啟用密碼回寫，使用 Azure AD 所產生的密碼變更會回寫至內部部署目錄。如需詳細資訊，請參閱 [密碼管理入門](active-directory-passwords-getting-started.md)。
-群組回寫 |如果您使用 **Office 365 中的群組**功能，可以在內部部署的 Active Directory 中使用這些群組做為通訊群組。只有當您內部部署的 Active Directory 中已經有 Exchange 時，才能使用此選項。如需詳細資訊，請參閱[群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback)。
-裝置回寫 | 在條件式存取情況下，可讓您將 Azure AD 中的裝置物件回寫到內部部署的 Active Directory。如需詳細資訊，請參閱[在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)。
+密碼回寫|透過啟用密碼回寫，使用 Azure AD 所產生的密碼變更會回寫至內部部署目錄。如需詳細資訊，請參閱[密碼管理入門](active-directory-passwords-getting-started.md)。
+群組回寫 |如果您使用 **Office 365 中的群組**功能，可以在內部部署的 Active Directory 中使用這些群做為通訊群組。只有當您內部部署的 Active Directory 中已經有 Exchange 時，才能使用此選項。如需詳細資訊，請參閱[群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback)。
+裝置回寫 | 在條件式存取情況下，可讓您將 Azure AD 中的裝置物件回寫到內部部署的 Active Directory。如需詳細資訊，請參閱[在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)
 目錄擴充屬性同步處理|透過啟用目錄擴充屬性同步處理，指定的其他屬性將會同步處理至 Azure AD。如需詳細資訊，請參閱[目錄擴充](active-directory-aadconnect-feature-preview.md#directory-extensions)。
 
 ### Azure AD 應用程式和屬性篩選
@@ -246,4 +246,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

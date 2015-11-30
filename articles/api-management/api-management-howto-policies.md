@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 
@@ -23,7 +23,7 @@
 
 如需原則陳述式及其設定的完整清單，請參閱[原則參考文件][]。
 
-原則是在位於 API 取用者與受管理 API 之間的 Proxy 內套用。Proxy 會接收所有要求，然後通常原封不動地轉送至基礎 API。不過，原則可以套用至輸入要求和輸出要求。
+原則是在位於 API 取用者與受管理 API 之間的閘道內套用。閘道會接收所有要求，然後通常原封不動地轉送至基礎 API。不過，原則可以套用至輸入要求和輸出要求。
 
 如果原則不另行指定，則可以在任何 API 管理原則中，使用原則運算式做為屬性值或文字值。某些原則是以原則運算式為基礎，例如[控制流程][]和[設定變數][]原則。如需詳細資訊，請參閱[進階原則][]和[原則運算式][]。
 
@@ -73,7 +73,7 @@
 
 ![Save][policies-save]
 
-完成設定原則的陳述式時，按一下 [儲存]，變更會立即傳播至 API 管理 Proxy。
+完成設定原則的陳述式時，按一下 [儲存]，變更會立即傳播至 API 管理閘道。
 
 ##<a name="sections"> </a>了解原則組態
 
@@ -128,4 +128,4 @@
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

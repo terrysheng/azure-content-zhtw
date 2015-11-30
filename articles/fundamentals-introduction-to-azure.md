@@ -250,23 +250,23 @@ Azure 提供數種工具，可用來協助開發人員和 IT 專業人員建立�
 
 除了協助您建置 Azure 應用程式，這些 SDK 還提供了用戶端程式庫，協助您建立使用 Azure 服務的軟體。例如，您可以建置一個可讀取和寫入 Azure Blob 的應用程式，或建立一個可透過 Azure 管理介面部署 Azure 應用程式的工具。
 
-### Visual Studio Online
+### Visual Studio Team Services
 
-Visual Studio Online 是個行銷名稱，包含可協助開發 Azure 應用程式的多種服務。
+Visual Studio Team Services 是個行銷名稱，包含可協助開發 Azure 應用程式的多種服務。
 
 為了避免混淆，它不會提供託管或 Web 架構版本的 Visual Studio。您仍然需要本機執行的 Visual Studio 版本。但它提供了許多其他非常有用的工具。
 
 它並不包含稱為 Team Foundation Service 的託管來源控制系統，該系統提供了版本控制和工作項目追蹤等功能。如果您偏好使用 Git 進行版本控制，您也可以做得到。另外，您可以按專案變化使用不同的來源控制系統。您可以建立無限制的私人小組專案，並從全球各地進行存取。
 
-Visual Studio Online 提供負載測試服務。您可以在雲端的 VM 上，執行在 Visual Studio 中建立的負載測試。指定您要負載測試的使用者總數，Visual Studio Online 便會自動判斷所需的代理程式數目、運轉所需的虛擬機器，然後執行您的負載測試。如果您是 MSDN 訂閱者，您每個月將會獲得數以千計的免費負載測試使用者分鐘數。
+Visual Studio Team Services 提供負載測試服務。您可以在雲端的 VM 上，執行在 Visual Studio 中建立的負載測試。指定您要負載測試的使用者總數，Visual Studio Team Services 便會自動判斷所需的代理程式數目、運轉所需的虛擬機器，然後執行您的負載測試。如果您是 MSDN 訂閱者，您每個月將會獲得數以千計的免費負載測試使用者分鐘數。
 
-Visual Studio Online 亦可支援具備如連續整合組置、看板和虛擬小組室等功能的便捷開發。
+Visual Studio Team Services 亦可支援具備如連續整合組建、工作流程看板和虛擬小組室等功能的便捷開發。
 
-**Visual Studio Online 案例**
+**Visual Studio Team Services Scenarios**
 
-針對需要全球合作但還沒準備好基礎結構朝此目標前進的公司，Visual Studio Online 會是最佳的選項。您可以在數分鐘內完成設定、選擇來源控制系統，並於當天開始撰寫程式碼及組建。小組工具提供一個可協調和共同作業的地方，而其他工具則提供快速測試和調整應用程式所需的分析。
+針對需要全球合作但還沒準備好基礎結構朝此目標前進的公司，Visual Studio Team Services 會是最佳的選項。您可以在數分鐘內完成設定、選擇來源控制系統，並於當天開始撰寫程式碼及組建。小組工具提供一個可協調和共同作業的地方，而其他工具則提供快速測試和調整應用程式所需的分析。
 
-但具備內部部署系統的組織可以在 Visual Studio Online 上測試新專案，以檢查它是否更具效率。
+但具備內部部署系統的組織可以在 Visual Studio Team Services 上測試新專案，以檢查它是否更具效率。
 
 ### Application Insights
 
@@ -611,4 +611,4 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

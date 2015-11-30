@@ -23,8 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文章涵蓋傳統部署模型。如果您正在尋找 Azure 資源管理員部署模型，請參閱[開始使用資源管理員建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)。
-
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋傳統的部署模型。您也可以[了解如何使用 Azure 資源管理員建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-cli.md)。
 
 雲端服務是使用負載平衡器自動設定，並可透過服務模型加以自訂。
 
@@ -66,7 +65,7 @@
     	<LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
  	 	</LoadBalancerProbes>
 
-負載平衡器會合併端點的資訊和探查的資訊，以建立形式為 http://{DIP of VM}:80/Probe.aspx 的 URL，該 URL 可用來查詢服務的健全狀況。
+負載平衡器會合併端點的資訊和探查的資訊，以建立形式為 http://{DIP of VM}:80/Probe.aspx 的 URL，該 URL 可用來查詢服務的健康狀態。
 
 該服務偵測到來自相同 IP 位址的定期探查。這是來自虛擬機器執行所在之節點主機的健全狀況探查要求。服務必須以負載平衡器的 HTTP 200 狀態碼回應，假設服務的狀況良好。任何其他 HTTP 狀態碼 (例如 503) 都會直接讓虛擬機器脫離循環。
 
@@ -82,4 +81,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

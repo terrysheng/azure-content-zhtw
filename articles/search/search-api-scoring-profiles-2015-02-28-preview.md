@@ -340,7 +340,9 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 `boostingDuration` 是 freshness 函數的屬性。您可以用它來設定要開始停止對特定文件進行提升的到期時間。例如，若要在為期 10 天的促銷期間提升某個產品系列或品牌，您可以為這些文件指定 10 天的期間 "P10D"。或者，若要提升下一週即將發生的事件，請指定 "-P7D"。
 
-`boostingDuration` 必須格式化為 XSD "dayTimeDuration" 值 (ISO 8601 持續時間值的限定子集)。其模式為："P\[nD]\[T\[nH]\[nM]\[nS]\]"。
+`boostingDuration` 必須格式化為 XSD "dayTimeDuration" 值 (ISO 8601 持續時間值的限定子集)。此模式為：
+
+     [-]P[nD][T[nH][nM][nS]]
 
 下表提供數個範例。
 
@@ -370,4 +372,4 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -26,7 +26,7 @@
 
 Azure 媒體服務 (AMS) 已新增 Google Widevine 動態保護 (如需詳細資訊，請參閱 [Mingfei 的部落格](https://azure.microsoft.com/zh-TW/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/))。此外，Azure 媒體播放器 (AMP) 也已新增 Widevine 支援 (如需詳細資訊，請參閱 [AMP 文件](http://amp.azure.net/libs/amp/latest/docs/))。談到在配備 MSE 和 EME 的現代瀏覽器上串流處理受到 CENC 與多重原生 DRM (PlayReady 和 Widevine) 保護的 DASH 內容時，這可說是一大成就。
 
->[AZURE.NOTE]目前，媒體服務不提供 Widevine 授權伺服器。您可以使用下列 AMS 合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
+從媒體服務 .NET SDK 版本 3.5.2 開始，媒體服務讓您可設定 Widevine 授權範本並取得 Widevine 授權。您也可以使用下列 AMS 合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
 
 本文說明如何整合和測試受 Axinom 管理的 Widevine 授權伺服器。具體而言，其內容包括：
 
@@ -40,14 +40,14 @@ Azure 媒體服務 (AMS) 已新增 Google Widevine 動態保護 (如需詳細資
 
 ##內容保護
 
-若要設定動態保護和金鑰傳遞原則，請參閱 Mingfei 的部落格：[如何使用 Azure 媒體服務設定 Widevine 封裝](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)。
+若要設定動態保護和金鑰傳遞原則，請參閱 Mingfei 的部落格：[如何使用 Azure 媒體服務設定 Widevine 封裝](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (英文)。
 
 您可以使用多重 DRM 為同時具有下列二者的 DASH 串流設定動態 CENC 保護：
 
 1. MS Edge 和 IE11 的 PlayReady 保護，可能有權杖授權限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖，例如 Azure Active Directory；
 1. Chrome 的 Widevine 保護，它可能需要對其他 STS 所發行的權杖進行權杖驗證。 
 
-請參閱 [JWT 權杖產生](media-services-axinom-integration.md#jwt-token-generation)一節，了解 Azure Active Directory 為何無法做為 Axinom Widevine 授權伺服器的 STS。
+請參閱＜[JWT 權杖產生](media-services-axinom-integration.md#jwt-token-generation)＞一節，了解 Azure Active Directory 為何無法做為 Axinom Widevine 授權伺服器的 STS。
 
 ###考量
 
@@ -60,7 +60,7 @@ AMP 1.4.0 版支援同時使用 PlayReady 和 Widevine DRM 動態封裝的 AMS �
 
 	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
-AMP 程式碼的其餘部分標準 AMP API，如[這裡](http://amp.azure.net/libs/amp/latest/docs/)的 AMP 文件所說明。
+AMP 程式碼的其餘部分是標準 AMP API，如[這裡](http://amp.azure.net/libs/amp/latest/docs/)的 AMP 文件所說明。
 
 請注意，上述用來設定自訂授權標頭的 Javascript 是在 AMP 中正式發行長期方法之前所使用的短期方法。
 
@@ -209,4 +209,4 @@ Widevine 授權取得 URL|必須用於設定 DASH 串流資產傳遞原則 (請�
 
 我們想要向下列為建立此文件貢獻心力的人員致謝：Kristjan Jõgi of Axinom、Mingfei Yan 及 Amit Rajput。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

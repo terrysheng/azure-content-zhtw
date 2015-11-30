@@ -59,7 +59,7 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 	**不支援下列服務：**
 
 	- CDN
-	- Visual Studio Online 載入測試
+	- Visual Studio Team Services 負載測試
 	- 多因素驗證
 
 ## 資料與連線
@@ -258,4 +258,4 @@ ExpressRoute Premium 是下面所列功能的集合。
 是。即使 ExpressRoute 已設定供我的組織使用，您仍可以透過網際網路存取 Office 365 服務端點。如果所處位置已設定透過 ExpressRoute 連線到 Office 365 服務，您將會透過 ExpressRoute 進行連線。
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

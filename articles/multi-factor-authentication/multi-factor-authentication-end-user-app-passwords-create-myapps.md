@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # 在 myapps 365 入口網站中建立 Azure Multi-Factor Authentication 的應用程式密碼
@@ -39,4 +39,4 @@
 <li>輸入應用程式密碼的名稱，然後按 [**下一步**]</li>
 <li>將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

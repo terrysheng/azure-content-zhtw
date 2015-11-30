@@ -48,9 +48,9 @@
 <a name="observe" />
 ### 1\.觀察和監視應用程式行為
 
-#### 追蹤服務的健康狀態
+#### 追蹤服務健全狀況
 
-每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。您可以在 [Azure Preview 入口網站](https://portal.azure.com/)上追蹤服務健康狀態 。如需詳細資訊，請參閱[追蹤服務健康狀態](insights-service-health.md)。
+每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。您可以在 [Azure Preview 入口網站](https://portal.azure.com/)上追蹤服務健全狀況。如需詳細資訊，請參閱[追蹤服務健全狀況](insights-service-health.md)。
 
 #### 監視 Web 應用程式
 
@@ -87,7 +87,7 @@
 
 您也可以利用_網站擴充功能_監視應用程式的效能。
 
-每個 App Service Web 應用程式都提供可擴充的管理端點，讓您得以運用一套以網站擴充功能形式部署的強大工具。這些工具從原始程式碼編輯器 (例如 [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx))，到已連接資源的管理工具 (例如連接至 Web 應用程式的 MySQL 資料庫)，應有盡有。
+每個 App Service Web 應用程式都提供可擴充的管理端點，讓您得以運用一套以網站擴充功能形式部署的強大工具。這些工具從原始程式碼編輯器 (例如 [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx))，到已連接資源的管理工具 (例如連接至 Web 應用程式的 MySQL 資料庫)，應有盡有。
 
 [Azure Application Insights](/services/application-insights/) 和 [New Relic](/marketplace/partners/newrelic/newrelic/) 是兩個可用的效能監視網站擴充功能。若要使用 New Relic，您需要在執行階段安裝代理程式。若要使用 Azure Application Insights，請透過 SDK 重建程式碼，您也可以安裝可存取其他資料的擴充功能。SDK 可讓您撰寫程式碼來監視應用程式的詳細使用狀況和效能。
 
@@ -135,7 +135,7 @@ Azure App Service 支援入口網站提供三個不同的索引標籤，支援�
 
 若問題現在正好發生，請按一下 [**分析**] > [**診斷**] > [**立即診斷**]，將為您建立診斷工作階段，該工作階段會收集 HTTP 記錄檔、事件檢視器記錄檔、記憶體傾印、PHP 錯誤記錄檔和 PHP 處理序報告。
 
-完成資料收集後，將對資料執行分析，產生一份 HTML 報告。
+完成資料收集後，將對資料執行分析並提供您一份 HTML 報告。
 
 若您想下載資料，根據預設，資料會儲存在 D:\\home\\data\\DaaS 資料夾中。
 
@@ -149,7 +149,7 @@ Web Apps 隨附可用於偵錯、探索、上傳檔案的偵錯主控台，以�
 
 Kudu 提供的部分項目為：
 
--	應用程式的環境設定
+-	您的應用程式的環境設定
 -	記錄檔串流
 -	診斷傾印
 -	您可以執行 Powershell Cmdlet 和基本 DOS 命令的偵錯主控台。
@@ -157,12 +157,12 @@ Kudu 提供的部分項目為：
 
 Kudu 的另一項實用功能是，如果應用程式擲回第一次例外狀況，您可以使用 Kudu 和 SysInternals 工具 Procdump 建立記憶體傾印。這些記憶體傾印是處理序的快照集，通常可以協助您疑難排解 Web 應用程式較複雜的問題。
 
-如需有關 Kudu 可用功能的詳細資訊，請參閱[您應該知道的 Azure 網站線上工具](/blog/windows-azure-websites-online-tools-you-should-know-about/)。
+如需 Kudu 可用功能的詳細資訊，請參閱[您應該知道的 Azure 網站 Team Services 工具](/blog/windows-azure-websites-online-tools-you-should-know-about/)。
 
 <a name="mitigate" />
 ### 3\.減輕問題
 
-####	調整 Web 應用程式大小
+####	調整 Web 應用程式
 
 在 Azure App Service 中，為提高效能和輸送量，您可以調整所執行之應用程式的大小。相應增加 Web 應用程式規模牽涉到兩個相關動作：將 App Service 方案變更為較高的定價層，以及在改為較高的定價層後進行某些設定。
 
@@ -186,4 +186,4 @@ AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體
 
 您也可以使用 Azure Powershell 管理 Web 應用程式。如需詳細資訊，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](powershell-azure-resource-manager.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

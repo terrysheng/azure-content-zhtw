@@ -61,9 +61,9 @@
 
     ![輸入參數][parameters]
 
-    >[AZURE.NOTE]前端節點 VM 會在 Windows Server 2012 R2 上從 HPC Pack 2012 R2 的[最新 Marketplace 映像](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)自動建立。目前此映像以 HPC Pack 2012 R2 Update 2 為基礎。
+    >[AZURE.NOTE]前端節點 VM 會在 Windows Server 2012 R2 上從 HPC Pack 2012 R2 的[最新 Marketplace 映像](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)自動建立。目前此映像以 HPC Pack 2012 R2 Update 3 為基礎。
     >
-    >運算節點 VM 會從選取之運算節點系列的最新映像建立。選取 **ComputeNode** 選項做為一般用途的最新 HPC Pack 2012 R2 Update 2 運算映像。選取 **ComputeNodeWithExcel** 選項做為最新的 HPC Pack 運算節點映像，包含評估版 Microsoft Excel Professional Plus 2013。如果您想要部署一般 SOA 工作階段或 Excel UDF 卸載的叢集，請選擇 **ComputeNode** 選項 (不需安裝 Excel)。
+    >運算節點 VM 會從選取之運算節點系列的最新映像建立。選取 **ComputeNode** 選項做為一般用途的最新 HPC Pack 2012 R2 Update 3 計算映像。選取 **ComputeNodeWithExcel** 選項做為最新的 HPC Pack 運算節點映像，包含評估版 Microsoft Excel Professional Plus 2013。如果您想要部署一般 SOA 工作階段或 Excel UDF 卸載的叢集，請選擇 **ComputeNode** 選項 (不需安裝 Excel)。
     >
     >使用 **ComputeNodeWithExcel** 做為生產工作負載時，您必須提供有效的 Excel 授權以在運算節點上啟用 Excel。否則，Excel 評估版會在 30 天內到期，且執行 Excel 活頁簿會不斷失敗並出現 COMExeption (0x800AC472)。如果發生這種情況，您可登入前端節點，透過 [HPC 叢集管理員] 主控台在所有 Excel 運算節點上 clusrun “%ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe”，進而重設 Excel 的授權狀態以獲得另外 30 天的評估時間。寬限期的重設授權狀態時間上限為 2，之後您可能需要提供有效的 Excel 授權。
 
@@ -97,7 +97,7 @@ HPC Pack IaaS 部署指令碼提供靈活的另一種方式部署 HPC Pack 叢�
 
 * **Azure PowerShell** - 在您的用戶端電腦上[安裝和設定 Azure PowerShell](../powershell-install-configure.md) (0.8.10 版或更新版本)。
 
-* **HPC Pack IaaS 部署指令碼** - 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=44949)下載並解壓縮最新版的指令碼。執行 `New-HPCIaaSCluster.ps1 –Version` 以檢查指令碼的版本。這篇文章根據 4.4.0 版或更新版本的指令碼。
+* **HPC Pack IaaS 部署指令碼** - 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=44949)下載並解壓縮最新版的指令碼。執行 `New-HPCIaaSCluster.ps1 –Version` 以檢查指令碼的版本。這篇文章根據 4.5.0 版或更新版本的指令碼。
 
 **建立組態檔**
 
@@ -133,21 +133,21 @@ HPC Pack IaaS 部署指令碼提供靈活的另一種方式部署 HPC Pack 叢�
     <VMSize>Large</VMSize>
     <EnableRESTAPI/>
     <EnableWebPortal/>
-<PostConfigScript>C:\tests\PostConfig.ps1</PostConfigScript>
+    <PostConfigScript>C:\tests\PostConfig.ps1</PostConfigScript>
   </HeadNode>
   <ComputeNodes>
     <VMNamePattern>HPCExcelCN%00%</VMNamePattern>
     <ServiceName>HPCExcelCN01</ServiceName>
     <VMSize>Medium</VMSize>
     <NodeCount>18</NodeCount>
-    <ImageName HPCPackInstalled="true">96316178b0644ae08bc4e037635ce104__HPC-Pack-2012R2-Update2-CN-Excel-4.4.4868.0-WS2012R2-ENU</ImageName>
+    <ImageName>HPCPack2012R2_ComputeNodeWithExcel</ImageName>
   </ComputeNodes>
 </IaaSClusterConfig>
 ```
 
 **組態檔的相關注意事項**
 
-* 前端節點的 **VMName** 必須和 **ServiceName** 完全相同，否則 SOA 工作會無法執行。
+* 前端節點的 **VMName** **必須**和 **ServiceName** 完全相同，否則 SOA 工作會無法執行。
 
 * 請確定您會指定 **EnableWebPortal**，所以已經產生並匯出前端節點憑證。
 
@@ -215,7 +215,7 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
 2. 在用戶端電腦上，在 Cert:\\CurrentUser\\Root 下匯入叢集憑證。
 
-3. 請確定已安裝 Excel。利用用戶端電腦上的 Excel.exe，建立具備相同資料夾中下列內容的 Excel.exe.config 檔案。這可確保 HPC Pack 2012 R2 Excel COM 增益集和 Azure 儲存體程式庫能成功載入。請注意下方的 'href' 應該指向用戶端電腦上的 "%CCP\_HOME%Bin\\Microsoft.WindowsAzure.Storage.dll"。
+3. 請確定已安裝 Excel。利用用戶端電腦上的 Excel.exe，建立具備相同資料夾中下列內容的 Excel.exe.config 檔案。這樣可確保 HPC Pack 2012 R2 Excel COM 增益集順利載入。
 
     ```
 <?xml version="1.0"?>
@@ -223,23 +223,15 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
     <startup useLegacyV2RuntimeActivationPolicy="true">
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
     </startup>
-    <runtime>
-        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-            <dependentAssembly>
-                <assemblyIdentity name="Microsoft.WindowsAzure.Storage"  culture="neutral" publicKeyToken="31bf3856ad364e35"/>
-                <codeBase version="4.3.0.0" href="C:\Program Files\Microsoft HPC Pack 2012\Bin\Microsoft.WindowsAzure.Storage.dll"/>
-            </dependentAssembly>
-        </assemblyBinding>
-    </runtime>
 </configuration>
 ```
-4.	為您的電腦 ([x64](http://www.microsoft.com/download/details.aspx?id=14632)、[x86](https://www.microsoft.com/download/details.aspx?id=5555)) 下載完整的 [HPC Pack 2012 R2 Update 2 安裝](http://www.microsoft.com/download/details.aspx?id=47755)並安裝 HPC Pack 用戶端，或下載並安裝 [HPC Pack 2012 R2 Update 2 用戶端公用程式](https://www.microsoft.com/download/details.aspx?id=47754)及適當的 Visual C++ 2010 可轉散發套件。
+4.	為您的電腦 ([x64](http://www.microsoft.com/download/details.aspx?id=14632)、[x86](https://www.microsoft.com/download/details.aspx?id=5555)) 下載完整的 [HPC Pack 2012 R2 Update 3 安裝](http://www.microsoft.com/download/details.aspx?id=49922)並安裝 HPC Pack 用戶端，或下載並安裝 [HPC Pack 2012 R2 Update 3 用戶端公用程式](https://www.microsoft.com/download/details.aspx?id=49923)及適當的 Visual C++ 2010 可轉散發套件。
 
 5.	在此範例中，我們使用名為 ConvertiblePricing\_Complete.xlsb 的範例 Excel 活頁簿，可在[這裡](https://www.microsoft.com/zh-TW/download/details.aspx?id=2939)下載。
 
 6.	將 Excel 活頁簿複製到工作資料夾，例如 D:\\Excel\\Run。
 
-7.	開啟 Excel 活頁簿。在 [**開發**] 功能區上，按一下 [**COM 增益集**] 並確認 HPC Pack Excel COM 增益集已成功載入，如下列畫面所示。
+7.	開啟 Excel 活頁簿。在 [開發] 功能區上，按一下 [COM 增益集] 並確認 HPC Pack Excel COM 增益集已成功載入，如下列畫面所示。
 
     ![HPC Pack 的 Excel 增益集][addin]
 
@@ -266,13 +258,13 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
 9.	將 Excel 活頁簿複製到上載目錄，例如 D:\\Excel\\Upload，如同 VBA 巨集中的 HPC\_DependsFiles 常數中所指定。
 
-10.	按一下工作表上的 [**叢集**] 按鈕以在 Azure IaaS 叢集上執行活頁簿。
+10.	按一下工作表上的 [叢集] 按鈕以在 Azure IaaS 叢集上執行活頁簿。
 
 ### 執行 Excel UDF
 
 若要執行 Excel UDF，請遵循上述的步驟 1 - 3 來設定用戶端電腦。關於 Excel UDF，您不需要在運算節點上安裝 Excel 應用程式，因此您可以在步驟 1 中選擇一般運算節點映像，而不是具有 Excel 的運算節點映像。
 
->[AZURE.NOTE] [Excel 2010 和 2013 叢集連接器] 對話方塊中有 34 個字元的限制。如果完整的叢集名稱過長，例如 hpcexcelhn01.southeastasia.cloudapp.azure.com，該名稱就無法放入對話方塊中。解決方法是對用戶端電腦上的 SOA 工作階段 API 套用 Update 2 QFE KB3085833 ([在此](http://www.microsoft.com/zh-TW/download/details.aspx?id=48725)下載)，然後以長叢集名稱的值設定機器寬變數 (如 *CCP\_IAASHN*) 並在對話方塊中輸入 *%CCP\_IAASHN%* 做為叢集前端節點名稱。
+>[AZURE.NOTE] [Excel 2010 和 2013 叢集連接器] 對話方塊中有 34 個字元的限制。如果完整的叢集名稱過長，例如 hpcexcelhn01.southeastasia.cloudapp.azure.com，該名稱就無法放入對話方塊中。解決方法是以長叢集名稱的值設定電腦全域變數 (例如 *CCP\_IAASHN*) 並在對話方塊中輸入 *%CCP\_IAASHN%* 做為叢集前端節點名稱。請注意對於 Update 2 叢集，在用戶端電腦的 SOA 工作階段 API 需要 Update 2 QFE KB3085833 (請在[這裡](http://www.microsoft.com/zh-TW/download/details.aspx?id=48725)下載)，以支援這個因應措施。
 
 成功部署叢集之後，繼續進行下列步驟來執行內建的範例 Excel UDF。關於自訂的 Excel UDF，請參閱這些[資源](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx)以建置 XLL 並將其部署在 IaaS 叢集上。
 
@@ -280,7 +272,7 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
     ![選取 UDF][udf]
 
-2.	按一下 [檔案] > [選項] > [進階]。在 [公式]下，核取 [允許使用者定義的 XLL 函數執行運算叢集]。然後按一下 [選項] 並在 [叢集前端節點名稱] 中輸入完整叢集名稱。(如先前所述，這個輸入方塊限制為 34 個字元，因此較長的叢集名稱可能不適合。您可以在用戶端上套用 Update 2 QFE KB3085833，然後在這裡設定長叢集名稱的電腦全域變數。)
+2.	按一下 [檔案] > [選項] > [進階]。在 [公式]下，核取 [允許使用者定義的 XLL 函數執行計算叢集]。然後按一下 [選項] 並在 [叢集前端節點名稱] 中輸入完整叢集名稱。(如先前所述，這個輸入方塊限制為 34 個字元，因此較長的叢集名稱可能不適合。您在這裡可以對長叢集名稱使用電腦全域變數。)
 
     ![設定 UDF][options]
 
@@ -296,7 +288,7 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
 1. 擷取叢集憑證之後，在 Cert:\\CurrentUser\\Root 下的用戶端電腦上匯入叢集憑證。
 
-2. 安裝 [HPC Pack 2012 R2 Update 2 SDK](http://www.microsoft.com/download/details.aspx?id=47756) 和 [HPC Pack 2012 R2 Update 2 用戶端公用程式](https://www.microsoft.com/download/details.aspx?id=47754)，讓您開發並執行 SOA 用戶端應用程式。
+2. 安裝 [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) 和 [HPC Pack 2012 R2 Update 3 用戶端公用程式](https://www.microsoft.com/download/details.aspx?id=49923)，讓您開發並執行 SOA 用戶端應用程式。
 
 3. 下載 HellowWorldR2 [範例程式碼](https://www.microsoft.com/download/details.aspx?id=41633)。在 Visual Studio 2010 或 2012 中開啟 HelloWorldR2.sln。
 
@@ -389,4 +381,4 @@ SOA 用戶端應用程式不需要變更，除了將標頭名稱改變為 IaaS �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

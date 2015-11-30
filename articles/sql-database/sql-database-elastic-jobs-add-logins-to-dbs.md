@@ -17,7 +17,7 @@
 
 # 如何將使用者加入至彈性資料庫集區
 
-**彈性資料庫工作**功能 (預覽) 可讓您跨資料庫群組執行 Transact-SQL 指令碼，資料庫包括自訂定義資料庫集合、**彈性資料庫集區**或 Azure SQL Database 中的**彈性資料庫分區集**。若要執行指令碼，您必須將具有適當權限的使用者加入執行工作所在的每個資料庫。如需詳細資訊，請參閱[管理 Azure SQL Database 中的資料庫和登入](https://msdn.microsoft.com/library/azure/ee336235.aspx)或[將使用者加入 SQL Azure Database](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+**彈性資料庫工作**功能 (預覽) 可讓您跨資料庫群組執行 Transact-SQL 指令碼，資料庫包括自訂定義資料庫集合、**彈性資料庫集區**或 Azure SQL Database 中的**彈性資料庫分區集**。若要執行指令碼，您必須將具有適當權限的使用者加入執行工作所在的每個資料庫。如需詳細資訊，請參閱[管理 Azure SQL Database 中的資料庫和登入](sql-database-manage-logins.md)或[將使用者加入 SQL Azure Database](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## 必要條件
 * 安裝[彈性工作元件](sql-database-elastic-jobs-service-installation.md)。 
@@ -32,11 +32,11 @@
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. 使用者也必須具有足夠的權限，才能執行為工作所指定的指令碼。使用 [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 程序提供使用者最小必要權限，以順利執行指令碼。
+3. 使用者也必須具有足夠的權限，才能執行為工作所指定的指令碼。使用 [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 提供使用者最小必要權限，以順利執行指令碼。
 
 ## 後續步驟
 
-建立和管理工作，請參閱[建立和管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)。
+若要使用 Azure 入口網站建立和管理工作，請參閱[建立和管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)。若要使用 PowerShell 建立工作，請參閱[使用 PowerShell 建立和管理 SQL Database 彈性資料庫工作 (預覽)](sql-database-elastic-jobs-powershell.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -44,4 +44,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

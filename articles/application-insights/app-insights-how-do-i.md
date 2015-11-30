@@ -143,9 +143,9 @@
 
     若要允許 MSBuild 產生版本號碼，請在 AssemblyReference.cs 中設定類似 `1.0.*` 的版本
 
-## 監視後端伺服器
+## 監視後端伺服器與桌面應用程式
 
-[使用基本的 API](app-insights-windows-desktop.md)
+[使用 Windows Server SDK 模組](app-insights-windows-desktop.md)。
 
 
 ## 顯現資料
@@ -185,15 +185,15 @@
 
 ## 修改屬性名稱或值
 
-建立一個篩選 (app-insights-api-filtering-sampling.md#filtering)。這可讓您先修改或篩選遙測，然後再將它從您的應用程式傳送至 Application Insights。
+建立[篩選器](app-insights-api-filtering-sampling.md#filtering)。這可讓您先修改或篩選遙測，然後再將它從您的應用程式傳送至 Application Insights。
 
 ## 列出特定使用者和其使用方式
 
-如果您只想要[搜尋特定使用者](#search-specific-users)，可以設定[驗證使用者識別碼](app-insights-api-custom-events-metrics/#authenticated-users)。
+如果您只想要[搜尋特定使用者](#search-specific-users)，就可以設定[驗證使用者識別碼](app-insights-api-custom-events-metrics.md#authenticated-users)。
 
 如果您想要使用者清單以及像是他們查看過哪些頁面或登入頻率等資料，則有兩個選項：
 
-* [設定驗證使用者識別碼](app-insights-api-custom-events-metrics/#authenticated-users)、[匯出到資料庫](app-insights-code-sample-export-sql-stream-analytics.md)，然後使用適當的工具來分析使用者資料。
+* [設定驗證使用者識別碼](app-insights-api-custom-events-metrics.md#authenticated-users)、[匯出到資料庫](app-insights-code-sample-export-sql-stream-analytics.md)，然後使用適當的工具來分析使用者資料。
 * 如果您只有少數的使用者，則可傳送自訂事件或計量、使用感興趣的資料做為計量值或事件名稱，然後設定使用者識別碼做為屬性。若要分析頁面檢視，可取代標準的 JavaScript trackPageView 呼叫。若要分析伺服器端遙測，可使用遙測初始設定式，將使用者識別碼新增至所有伺服器遙測。然後您可以篩選與分割關於使用者識別碼的計量資訊和搜尋。
 
 
@@ -204,7 +204,7 @@
 * 如果您使用的是 [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)，請在傳送結果之前，先計算計量值批次的彙總。有一個 TrackMetric() 的多載是針對該動作所提供。
 
 
-深入了解[定價和配額](app-insights-pricing.md)。
+深入了解[價格和配額](app-insights-pricing.md)。
 
 ## 停用遙測
 
@@ -225,7 +225,7 @@
 
 ## 檢視系統效能計數器
 
-您可以在計量總管中顯示的計量資訊是一組系統效能計數器。有一個預先定義且標題為 [伺服器] 的刀鋒視窗會顯示它們其中幾個。
+您可以在計量總管中顯示的計量資訊是一組系統效能計數器。有一個預先定義且標題為**伺服器**的刀鋒視窗會顯示它們其中幾個。
 
 ![開啟 Application Insights 資源並按一下伺服器](./media/app-insights-how-do-i/121-servers.png)
 
@@ -238,6 +238,6 @@
 ### 顯示更多效能計數器
 
 * 首先，[新增圖表](app-insights-metrics-explorer.md)，並查看計數器是否位於我們提供的基本組合中。
-* 如果沒有，請[將計數器加入效能計數器模組所收集的組合](app-insights-web-monitor-performance.md#system-performance-counters)。
+* 如果沒有，請[將計數器加入效能計數器模組所收集的組合中](app-insights-web-monitor-performance.md#system-performance-counters)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用相互憑證驗證來保護後端服務
@@ -54,7 +54,7 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 
 ![Certificate uploaded][api-management-certificate-uploaded]
 
-待憑證上傳完畢後，它會顯示在 [用戶端憑證] 索引標籤中。如果您擁有多個憑證，請記下主體或指紋的最後四個字元，因為在設定 API 以使用憑證時，您可以利用它們來選取憑證，如下文中的[設定 API 以使用相互憑證來驗證 Proxy][] 一節所述。
+待憑證上傳完畢後，它會顯示在 [用戶端憑證] 索引標籤中。如果您擁有多個憑證，請記下主體或指紋的最後四個字元，因為在設定 API 以使用憑證時，您可以利用它們來選取憑證，如下文中的＜[設定 API 以使用相互憑證來驗證閘道][]＞一節所述。
 
 ## <a name="step1a"> </a>刪除用戶端憑證
 
@@ -70,7 +70,7 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 
 ![Confirm delete][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>設定 API 以使用相互憑證來驗證 Proxy
+## <a name="step2"> </a>設定 API 以使用相互憑證來驗證閘道
 
 從左側的 [API 管理] 功能表按一下 [API]，再依序按一下所需之 API 的名稱和 [安全性] 索引標籤。
 
@@ -90,7 +90,7 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 
 ![Save API changes][api-management-save-api]
 
->當您將憑證指定用於 API 後端服務的 Proxy 驗證時，憑證遂成為該 API 之原則的一部分，因此可以在原則編輯器中檢視。
+>當您將憑證指定用於 API 後端服務的閘道驗證時，憑證遂成為該 API 之原則的一部分，因此可以在原則編輯器中檢視。
 
 ![Certificate policy][api-management-certificate-policy]
 
@@ -133,7 +133,7 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[設定 API 以使用相互憑證來驗證 Proxy]: #step2
+[設定 API 以使用相互憑證來驗證閘道]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
@@ -141,4 +141,4 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

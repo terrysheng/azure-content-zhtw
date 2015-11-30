@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # 密碼管理常見問題集
@@ -187,21 +187,20 @@
 
 <br/> <br/> <br/>
 
-**其他資源**
+## 密碼重設文件的連結
+以下是所有 Azure AD 密碼重設文件頁面的連結：
 
-
-* [密碼管理是什麼](active-directory-passwords.md)
-* [密碼管理如何運作](active-directory-passwords-how-it-works.md)
-* [開始使用密碼管理](active-directory-passwords-getting-started.md)
-* [自訂密碼管理](active-directory-passwords-customize.md)
-* [密碼管理最佳作法](active-directory-passwords-best-practices.md)
-* [如何使用密碼管理報告取得 Operational Insights](active-directory-passwords-get-insights.md)
-* [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
-* [深入了解](active-directory-passwords-learn-more.md)
-* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**重設自己的密碼**](active-directory-passwords-update-your-own-password) - 了解身為系統使用者如何重設或變更自己的密碼
+* [**運作方式**](active-directory-passwords-how-it-works.md) - 了解六個不同的服務元件及其功能
+* [**開始使用**](active-directory-passwords-getting-started.md) - 了解如何讓使用者重設及變更雲端或內部部署密碼
+* [**自訂**](active-directory-passwords-customize.md) - 了解如何依照組織的需求自訂外觀和服務行為
+* [**最佳作法**](active-directory-passwords-best-practices.md) - 了解如何快速部署且有效管理組織的密碼
+* [**深入探索**](active-directory-passwords-get-insights.md) - 了解整合式報告功能
+* [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何快速移難排解服務的問題
+* [**深入了解**](active-directory-passwords-learn-more.md) - 深入探索服務運作方式的技術細節
 
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # 使用 .NET SDK 開始使用 Azure 資料湖存放區
@@ -26,7 +26,7 @@
 
 了解如何使用 Azure 資料湖存放區 .NET SDK 以建立 Azure 資料湖帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖的詳細資訊，請參閱 [Azure 資料湖存放區](data-lake-store-overview.md)。
 
-## 先決條件
+## 必要條件
 
 * Visual Studio 2013 或 2015。以下指示使用 Visual Studio 2015。
 * **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
@@ -34,7 +34,7 @@
 
 ## 建立 .NET 應用程式
 
-1. 開啟 Visual Studio，並且建立主控台應用程式。
+1. 開啟 Visual Studio，建立主控台應用程式。
 
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 
@@ -50,7 +50,7 @@
 
 5. 將 Nuget 封裝新增至您的專案。
 
-	1. 在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後按一下 [管理 NuGet 封裝]。
+	1. 在方案總管中以滑鼠右鍵按一下專案名稱，然後按一下 [**管理 NuGet 封裝**]。
 	2. 在 [Nuget 封裝管理員] 索引標籤中，請確定 [封裝來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
 	3. 搜尋並安裝下列封裝：
 	
@@ -61,11 +61,11 @@
 
 		![新增 Nuget 來源](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "建立新的 Azure 資料湖帳戶")
 
-	4. 關閉 [Nuget 封裝管理員]。
+	4. 關閉 [**Nuget 封裝管理員**]。
 
-7. 開啟 [Program.cs]，並以下列程式碼取代現有的程式碼區塊。此外，在程式碼片段中提供參數的值。
+7. 開啟 [**Program.cs**]，並以下列程式碼取代現有的程式碼區塊。此外，在程式碼片段中提供參數的值。
 
-	這個程式碼會進行建立資料湖存放區的程序，在存放區中建立資料夾、上傳檔案、下載檔案，以及最後刪除帳戶。如果您要尋找要上傳的某些範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
+	這個程式碼會進行建立資料湖存放區的程序，在存放區中建立資料夾、上傳檔案、下載檔案，以及最後刪除帳戶。如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
 	
 		using System;
 		using System.Collections.Generic;
@@ -213,7 +213,7 @@
 ## 建立資料湖存放區帳戶的其他方式
 
 - [使用入口網站開始使用資料湖存放區](data-lake-store-get-started-portal.md)
-- [運用 PowerShell 開始使用資料湖儲存區](data-lake-store-get-started-powershell.md)
+- [使用 PowerShell 開始使用資料湖存放區](data-lake-store-get-started-powershell.md)
 - [使用 Azure CLI 開始使用資料湖存放區](data-lake-store-get-started-cli.md)
 
 
@@ -223,4 +223,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # 部署 StorSimple Snapshot Manager MMC 嵌入式管理單元
@@ -35,9 +35,7 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
 下列步驟提供在安裝 StorSimple Snapshot Manager 之前必須完成之組態工作的高階概觀。如需完整的 Microsoft Azure StorSimple 組態和安裝資訊，包括系統需求和逐步指示，請參閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
 
->[AZURE.IMPORTANT]在您開始之前，請檢閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
-中的[部署設定檢查清單](storsimple-deployment-walkthrough.md#deployment-configuration-checklist)和[部署必要條件](storsimple-deployment-walkthrough.md#deployment-prerequisites)。
-<br>
+>[AZURE.IMPORTANT]在您開始之前，請檢閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)中的[部署設定檢查清單](storsimple-deployment-walkthrough.md#deployment-configuration-checklist)和[部署必要條件](storsimple-deployment-walkthrough.md#deployment-prerequisites)。<br>
  
 ### 安裝 StorSimple Snapshot Manager 之前
 
@@ -129,7 +127,7 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
     ![設定裝置](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
-3. 在 [**裝置**] 清單方塊中，選取 Microsoft Azure StorSimple 裝置或虛擬裝置的 IP 位址。在 [**密碼**] 文字方塊中，鍵入您為 Microsoft Azure 管理入口網站中的裝置所建立的 StorSimple Snapshot Manager 密碼。按一下 [確定]。
+3. 在 [**裝置**] 清單方塊中，選取 Microsoft Azure StorSimple 裝置或虛擬裝置的 IP 位址。在 [**密碼**] 文字方塊中，輸入您在 Azure 入口網站中為裝置建立的 StorSimple Snapshot Manager 密碼。按一下 [確定]。
 
 4. StorSimple Snapshot Manager 會搜尋您所識別的裝置。如果裝置可供使用，StorSimple Snapshot Manager 會新增連接。您可以[確認裝置連接](#to-verify-the-connection)以確認連接已成功新增。
 
@@ -257,4 +255,4 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
 - 若要深入了解如何使用 StorSimple Snapshot Manager，請移至[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

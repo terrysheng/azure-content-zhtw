@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # 使用 Azure Preview 入口網站開始使用 Azure 資料湖分析
@@ -26,7 +26,7 @@
 
 了解如何使用 Azure Preview 入口網站建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱 [Azure 資料湖存放區概觀](data-lake-store-overview.md)。
 
-## 先決條件
+## 必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
@@ -38,7 +38,7 @@
 
 1. 登入新的 [Azure Preview 入口網站](https://portal.azure.com)。
 2. 按一下 [新增]，然後依序按一下 [資料 + 儲存體] 和 [Azure 資料湖存放區]。
-3. 在 [新增資料湖存放區] 刀鋒視窗中，按一下 [註冊使用預覽版]。閱讀資訊，然後按一下 [確定]。您的訂用帳戶已啟用公開預覽版之後，您會收到一封電子郵件。
+3. 在 [新增資料湖存放區] 刀鋒視窗中，按一下 [註冊使用預覽版]。閱讀資訊，然後按一下 [**確定**]。您的訂用帳戶已啟用公開預覽版之後，您會收到一封電子郵件。
 
 	![註冊以取得公開預覽版](./media/data-lake-store-get-started-portal/preview-signup.png "建立新的 Azure 資料湖帳戶")
 
@@ -87,7 +87,7 @@
 
 您可以直接在根層級將資料上傳至 Azure 資料湖存放區帳戶，或上傳至您在帳戶內建立的資料夾。在下面的螢幕擷取畫面，遵循步驟從 [資料總管] 刀鋒視窗將檔案上傳至子資料夾。在這個螢幕擷取畫面中，檔案會上傳到階層連結所示的子資料夾 (以紅色方塊標示)。
 
-如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
+如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
 
 ![上傳資料](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "上傳資料")
 
@@ -133,4 +133,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

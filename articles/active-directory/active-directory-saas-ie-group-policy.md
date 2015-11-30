@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/28/2015"
+   ms.date="11/18/2015"
    ms.author="liviodlc"/>
 
 #如何使用群組原則部署 Internet Explorer 的存取面板延伸模組
@@ -128,24 +128,53 @@
 
 延伸模組現在應該已在所選 OU 中的機器啟用。[深入了解使用群組原則啟用或停用 Internet Explorer 附加元件。](https://technet.microsoft.com/library/dn454941.aspx)
 
-##步驟 5：測試部署
+##步驟 5 (選用)：停用 [記住密碼] 提示
+
+當使用者登入使用存取面板擴充功能的網站時，Internet Explorer 可能會顯示下列提示詢問「是否要儲存密碼？」
+
+![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+
+如果不想使用者看到此提示，請依照下列步驟防止自動完成記住密碼：
+
+1. 在 [群組原則管理編輯器] 視窗中，移至下文列出的路徑。請注意，這項組態設定僅提供於 [使用者設定]。
+	- `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
+
+2. 尋找名為 [開啟表單上使用者名稱和密碼的自動完成功能] 的設定。
+
+	> [AZURE.NOTE]舊版的 Active Directory 可能會列出這項設定，但名為 [不允許以自動完成儲存密碼]。該設定的組態不同於本教學課程中所描述的設定。
+
+	![記得要在 [使用者設定] 下尋找此項目。](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+
+3. 以滑鼠右鍵按一下上述設定，然後選取 [編輯]。
+
+4. 在標題為 [開啟表單上使用者名稱和密碼的自動完成功能] 的視窗中選取 [停用]。
+
+	![選取 [停用]](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
+
+5. 按一下 [確定] 套用這些變更並關閉視窗。
+
+使用者不能再繼續儲存其認證，或使用自動完成來存取之前儲存的認證。不過，這項原則允許使用者對其他類型的表單欄位可繼續使用自動完成，例如搜尋欄位。
+
+> [AZURE.WARNING]如果在使用者選擇儲存某些認證之後才啟用這項原則，此原則*不*會清除已儲存的認證。
+
+##步驟 6：測試部署
 
 請遵循下列步驟以確認延伸模組是否成功部署：
 
-1. 如果您部署使用 [電腦設定]，請登入屬於您在[步驟 2：建立群組原則物件](#step-2-create-the-group-policy-object)中選取的 OU 的用戶端電腦。如果您部署使用 [使用者設定]，請務必以屬於該 OU 的使用者身分登入。
+1. 如果您使用 [電腦組態] 進行部署，請登入屬於您在[步驟 2：建立群組原則物件](#step-2-create-the-group-policy-object)中選取之 OU 的用戶端電腦。如果您使用 [使用者組態] 進行部署，請務必以屬於該 OU 的使用者身分登入。
 
 2. 可能要登入好幾次才能讓群組原則變更完全更新至此電腦。若要強制更新，開啟 [命令提示字元] 視窗，然後執行下列命令：`gpupdate /force`
 
 3. 您必須重新啟動電腦才能進行安裝。安裝延伸模組時，開機可能需要比平常更多的時間。
 
-4. 重新開機之後，開啟 **Internet Explorer**。在視窗的右上角按一下 [工具] (齒輪圖示)，然後選取 [管理附加元件]。
+4. 重新開機之後，開啟 **Internet Explorer**。在視窗的右上角按一下 [工具] 的齒輪圖示，然後選取 [管理附加元件]。
 
 	![移至工具 > 管理附加元件](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
 
-5. 在 [管理附加元件] 視窗中，確認 [存取面板延伸模組] 已安裝且其 [狀態] 已設為 [已啟用]。
+5. 在 [管理附加元件] 視窗中，確認 [存取面板擴充功能] 已安裝且其 [狀態] 已設為 [已啟用]。
 
 	![確認存取面板延伸模組已安裝並啟用。](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

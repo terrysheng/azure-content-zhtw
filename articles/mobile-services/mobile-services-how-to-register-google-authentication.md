@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # 在行動服務中註冊您的應用程式以進行 Google 登入
@@ -34,10 +34,13 @@
 
 6. 在 [認證] 索引標籤中，按一下 [新增認證] > [OAuth 2.0 用戶端識別碼]，然後選取 [Web 應用程式]。
 
-7. 在 [已授權的 JavaScript 起源] 中輸入您的行動服務 URL，將 [已授權重新導向 URL] 中所產生的 URL 取代為行動服務的 URL，後面附加路徑 `/login/google`，然後按一下 [建立用戶端識別碼]。
+7. 在 [**授權的 JavaScript 來源**] 中輸入您的行動服務 URL、使用下列其中一種 URL 格式取代 [**授權重新導向 URI**] 中所產生的 URL，然後按一下 [**建立用戶端識別碼**]：
+ 
+	+ **.NET 後端**：`https://<mobile_service>.azure-mobile.net/signin-google`
+	+ **JavaScript 後端**：`https://<mobile_service>.azure-mobile.net/login/google` 
 
-	>[AZURE.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 後面附加路徑 _signin-google_，而您的行動服務為 .NET 服務，例如 `https://todolist.azure-mobile.net/signin-google`。&nbsp;
-	
+	 >[AZURE.NOTE]請確定針對您的行動服務後端類型使用正確的重新導向 URL 路徑格式。若格式不正確，驗證將不會成功。
+
 8. 在下一個畫面上，記下用戶端識別碼和用戶端密碼的值。
 
     > [AZURE.IMPORTANT]用戶端密碼是重要的安全性認證。請勿與任何人共用此密碼，或在用戶端應用程式中加以散發。
@@ -56,4 +59,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

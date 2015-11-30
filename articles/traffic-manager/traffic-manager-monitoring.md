@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 關於流量管理員監視
@@ -108,15 +108,11 @@ Azure 流量管理員會在管理入口網站中顯示設定檔和端點服務�
 
 ## 另請參閱
 
-[什麼是流量管理員？](traffic-manager-overview.md)
+[建立設定檔](traffic-manager-manage-profiles.md)
 
-[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
-
-[雲端服務](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[新增端點。](traffic-manager-endpoints.md)
 
 [疑難排解 Azure 流量管理員上的已降級狀態](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

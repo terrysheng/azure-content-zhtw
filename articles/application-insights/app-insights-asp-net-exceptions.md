@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在 ASP.NET 應用程式中使用 Application Insights 的診斷失敗和例外狀況" 
-	description="設定您的應用程式以取得吸引人的診斷經驗，方法是擷取例外狀況以及要求遙測。" 
+	description="擷取從 ASP.NET 應用程式與所要求遙測的例外狀況。" 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,10 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
- 
-# 在 ASP.NET 應用程式中使用 Application Insights 的診斷失敗和例外狀況  
+
+
+# 設定 Application Insights：診斷例外狀況
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 藉由使用 [Visual Studio Application Insights][start] 監視您的應用程式，就可以在用戶端和伺服器端讓失敗的要求與例外狀況和其他事件相互關聯，如此您就可以快速地診斷原因。
 
@@ -64,10 +68,10 @@
 
 您有幾種選項：
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) 通常用來監視使用模式，但它傳送的資料也會出現在診斷搜尋的 [自訂事件] 下。事件會被命名，並且可以承載字串屬性和數字度量，您可以對其[篩選診斷搜尋][diagnostic]。
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) 通常用來監視使用模式，但它傳送的資料也會出現在診斷搜尋的 [自訂事件] 下。事件具有名稱，並且可以包含字串屬性和數值度量，您可以對其[篩選診斷搜尋][diagnostic]。
 * [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) 可讓您傳送較長的資料，例如 POST 資訊。
 * [TrackException()](#exceptions) 會傳送堆疊追蹤。[深入了解例外狀況](#exceptions)。
-* 如果您已經使用 Log4Net 或 NLog 之類的記錄架構，您可以[擷取這些記錄][netlogs]，並且在診斷搜尋中隨著要求和例外狀況資料查看記錄。
+* 如果您已經使用 Log4Net 或 NLog 等記錄架構，您可以[擷取這些記錄][netlogs]，並且在診斷搜尋中隨著要求和例外狀況資料查看記錄。
 
 若要查看這些事件，請開啟[搜尋][diagnostic]，開啟 [篩選]，然後選擇 [自訂事件]、[追蹤] 或 [例外狀況]。
 
@@ -429,7 +433,7 @@ VB
 
 若您已在伺服器上[安裝狀態監視器][redfield]，則可取得由 .NET 測量的例外狀況比率圖表。這包括已處理和未處理的 .NET 例外狀況。
 
-開啟 [計量瀏覽器] 刀鋒視窗、加入新圖表，然後選取 [效能計數器] 下方所列的 [例外狀況比率]。
+開啟 [計量瀏覽器] 刀鋒視窗、加入新圖表，然後選取 [效能計數器] 下方所列的 [**例外狀況比率**]。
 
 .NET framework 會計算間隔中的例外狀況次數並除以間隔長度，以計算得出例外狀況比率。
 
@@ -448,4 +452,4 @@ VB
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -23,13 +23,13 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。如果您正在尋找 Azure 傳統部署模型，請參閱[開始使用傳統部署建立網際網路面向的負載平衡器](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。您也可以[了解如何使用 Azure 資源管理員建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-cli.md)。
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 下列步驟將說明如何搭配 PowerShell 使用 Azure 資源管理員，建立網際網路面向的負載平衡器。使用 Azure 資源管理員時，會個別設定建立網際網路面向的負載平衡器所需的項目，然後放置在一起，以建立資源。
 
-我們會在這一頁中說明必須完成才能建立負載平衡器的個別工作順序，並詳細說明要達到建立負載平衡器的目標，需要做些什麼。
+這一頁中會說明必須完成才能建立負載平衡器的個別工作順序，並詳細說明要達到的目標，需要做些什麼。
 
 ## 若要建立網際網路面向的負載平衡器，需要哪些項目？
 
@@ -37,18 +37,19 @@
 
 - 前端 IP 組態 - 包含傳入網路流量的公用 IP 位址。 
 
-- 後端位址集區 - 包含從負載平衡器接收流量的網路介面 (NIC)。
+- 後端位址集區 - 包含從負載平衡器接收網路流量的虛擬機器網路介面 (NIC)。
 
-- 負載平衡規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中 NIC 上的連接埠的規則。
+- 負載平衡規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中連接埠的規則。
 
-- 輸入 NAT 規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中個別 NIC 之連接埠的規則。
+- 輸入 NAT 規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中特定虛擬機器之連接埠的規則。
 
-- 探查 - 包含用來檢查連結至後端位址集區中 NIC 的 VM 可用性的健全狀態探查。
+- 探查 - 包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀態探查。
 
 您可以在 [Azure 資源管理員的負載平衡器支援](load-balancer-arm.md)中取得關於負載平衡器元件與 Azure 資源管理員的詳細資訊。
 
 
 ## 設定 PowerShell 以使用資源管理員
+
 請確定您的 PowerShell 的 Azure 模組具有最新的實際執行版本，以及正確設定 PowerShell 以存取您的 Azure 訂用帳戶。
 
 ### 步驟 1
@@ -108,7 +109,7 @@
 
 >[AZURE.IMPORTANT]負載平衡器將使用公用 IP 的網域標籤做為其 FQDN。這樣會變更傳統部署模型，該部署使用雲端服務作為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.westus.cloudapp.azure.com*。
 
-## 建立前端 IP 集區和後端位址集區
+## 建立前端 IP 集區與後端位址集區
 
 ### 步驟 1 
 
@@ -163,7 +164,7 @@
 
 ## 建立 NIC
 
-您需要建立 (或修改現有的) NIC，並將它們關聯至 NAT 規則、負載平衡器規則和探查。
+您需要建立 NIC (或修改現有的) 並將它們關聯至 NAT 規則、負載平衡器規則和探查。
 
 ### 步驟 1 
 
@@ -254,7 +255,7 @@
 
 ### 步驟 2
 
-在下列範例中，您會使用前端的連接埠 81 和後端集區的連接埠 8181，將新的輸入 NAT 規則新增現有的負載平衡器
+在下列範例中，您會使用前端的連接埠 81 和後端集區的連接埠 8181，將新的輸入 NAT 規則加入現有的負載平衡器
 
 	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 
@@ -281,4 +282,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

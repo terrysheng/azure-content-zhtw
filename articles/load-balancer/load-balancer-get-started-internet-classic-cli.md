@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括傳統部署模型。您也可以[了解如何使用 Azure 資源管理員建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-cli.md)。
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括傳統部署模型。您也可以[了解如何使用 Azure 資源管理員建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)。
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -52,14 +52,17 @@
 
 針對虛擬機器 "web1" 使用 `azure network vm endpoint create` 建立第一個端點和負載平衡器集
 
-	azure network endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
 
+所使用的參數：
 
+**-k** - local virtual machine port<br> **-o** - protocol<BR> **-t** - probe port<BR> **-b** - load balancer name<BR>
+ 
 ## 步驟 2 
 
 將第二個虛擬機器 "web2" 新增到負載平衡器集。
 
-	azure network endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
 ## 步驟 3 
 
@@ -140,4 +143,4 @@
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

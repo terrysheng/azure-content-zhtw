@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="11/18/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -49,7 +49,7 @@
 
 | 定價層 | 大小 | 可用的頻寬 | 1 KB 金鑰大小 |
 |----------------------|--------|----------------------------|--------------------------------|
-| **標準快取大小** | &nbsp; | **(Mbps)** | **每秒要求數目 (RPS)** |
+| **標準快取大小** | &nbsp; |**以 MB / 秒 (Mbps) 為單位** | **每秒要求數目 (RPS)** |
 | C0 | 250 MB | 5 | 600 |
 | C1 | 1 GB | 100 | 12200 |
 | C2 | 2\.5 GB | 200 | 24000 |
@@ -189,7 +189,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 
 Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取，可讓您存取 Microsoft 所管理的專用安全 Redis 快取。有各種 [Redis 用戶端](http://redis.io/clients)可供許多程式設計語言使用。每個用戶端都有它自己的 API，以使用 [Redis 命令](http://redis.io/commands)來呼叫 Redis 快取執行個體。
 
-因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，Azure.com 上還會有數個教學課程，可顯示如何使用 [[Redis 快取文件](http://azure.microsoft.com/documentatgion/services/redis-cache/)] 頁面上的不同語言和快取用戶端來開始使用 Azure Redis 快取。
+因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，Azure.com 上還會有數個教學課程，可顯示如何使用 [[Redis 快取文件](http://azure.microsoft.com/documentation/services/redis-cache/)] 頁面上的不同語言和快取用戶端來開始使用 Azure Redis 快取。
 
 
 ## 我適合使用哪個 Azure 快取服務？
@@ -206,7 +206,7 @@ Azure 快取目前有三個提供項目：
 ### Azure Redis 快取
 Azure Redis 快取已正式提供，大小最多 53 GB 和可用性 SLA 99.9%。新的[高階層](cache-premium-tier.md)處於預覽階段，提供高達 530 GB 的大小並且支援叢集、VNET 和持續性。
 
-Azure Redis 快取可以讓客戶使用 Microsoft 所管理的安全、專用 Redis 快取。使用這項提供項目，您可以利用 Redis 提供的豐富功能集和生態系統，並使用 Microsoft 提供的可靠託管及監控服務。
+Azure Redis Cache 可以讓客戶使用 Microsoft 所管理的安全、專用 Redis 快取。使用這項提供項目，您可以利用 Redis 提供的豐富功能集和生態系統，並使用 Microsoft 提供的可靠託管及監控服務。
 
 不同於僅處理金鑰-值組的傳統快取，Redis 受到歡迎是因為其高效能資料類型。Redis 也支援在這些類型上執行不可部分完成的作業，例如附加至字串、在雜湊中遞增值、推入至清單、計算集合交集、聯集和差異，或取得已排序集合中最高排名的成員。其他功能包括支援交易、發行/訂用、Lua 指令碼撰寫、存活時間有限的索引鍵及組態設定，可讓 Redis 的行為更像傳統快取。
 
@@ -215,9 +215,9 @@ Redis 成功的另一個重要層面是建置健全、有活力的開放原始�
 如需有關如何開始使用 Azure Redis 快取的詳細資訊，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)和 [Azure Redis 快取文件](https://azure.microsoft.com/documentation/services/redis-cache/)。
 
 ### 受管理的快取服務
-若您現為 Azure 受管理快取服務的客戶，可選擇繼續使用現有服務，或是移轉成 Azure Redis Cache 來充分利用其豐富的功能集。Azure 受管理的快取服務已正式運作，同時提供 99.9% 的可用性 SLA。
+若您現為 Azure 受管理快取服務的客戶，可選擇繼續使用現有服務，或是移轉成 Azure Redis 快取來充分利用其豐富的功能集。Azure 受管理的快取服務已正式運作，同時提供 99.9% 的可用性 SLA。
 
 ### 角色中快取
 如果您使用 In-Role Cache 自我裝載，您可以繼續這麼做。因為 In-Role Cache 是一種自我裝載的軟體元件，而不是 Microsoft 託管服務，所以它不提供任何 SLA。In-Role Cache 使用者可以選擇移轉至 Azure Redis 快取，來運用它的豐富功能集並取得 SLA。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

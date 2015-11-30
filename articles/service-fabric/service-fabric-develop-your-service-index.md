@@ -79,7 +79,7 @@ Reliable Service 提供您簡易、功能強大、最高階的程式設計模型
 
 - [與服務進行通訊](service-fabric-connect-and-communicate-with-services.md)
 - [服務通訊模型](service-fabric-reliable-services-communication.md)
-- [Reliable Service 架構所提供的預設通訊堆疊](service-fabric-reliable-services-communication-default.md)
+- [可靠服務架構所提供的預設通訊堆疊](service-fabric-reliable-services-communication-remoting.md)
 - [適用於 Reliable Service 的 WCF 式通訊堆疊](service-fabric-reliable-services-communication-wcf.md)
 - [開始使用 Microsoft Azure Service Fabric Web API 服務搭配 OWIN 自我裝載 (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 
@@ -87,4 +87,4 @@ Reliable Service 會發出事件和效能計數器，可用來診斷和監視您
 
 - [可設定狀態 Reliable Service 診斷](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

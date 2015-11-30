@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # 使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server
@@ -59,4 +59,4 @@ Azure Multi-Factor Authentication Server 設定為 RD 閘道器和 NPS 之間的
 
 ![Radius 驗證](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -65,7 +65,7 @@
 	+ [附錄 2：使用 Wireshark 擷取網路流量]
 	+ [附錄 3：使用 Microsoft Message Analyzer 擷取網路流量]
 	+ [附錄 4：使用 Excel 檢視度量與記錄資料]
-	+ [附錄 5：使用 Application Insights for Visual Studio Online 監視]
+	+ [附錄 5：使用 Application Insights for Visual Studio Team Services 監視]
 
 ## <a name="introduction"></a>簡介
 
@@ -125,7 +125,7 @@
 
 Azure 入口網站同時可提供會影響各種 Azure 服務的事件通知。注意：此項資訊之前會隨著歷程資料一起顯示在 <a href="http://status.azure.com" target="_blank">http://status.azure.com</a> 的 Azure 服務儀表板上。
 
-雖然入口網站會收集 Azure 資料中心內的健康情況資訊 (從裡到外的監視)，您仍舊應該考慮採用從外到內的監視方式來產生互補的資訊，以便定期存取來自多個位置的 Azure 託管 Web 應用程式。<a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>、<a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> 與 Application Insights for Visual Studio Online 所提供的各項服務，都是此由外到內的監視方式範例之一。如需有關 Application Insights for Visual Studio Online 的詳細資訊，請參閱[附錄 5：使用 Application Insights for Visual Studio Online 監視]。
+雖然入口網站會收集 Azure 資料中心內的健康情況資訊 (從裡到外的監視)，您仍舊應該考慮採用從外到內的監視方式來產生互補的資訊，以便定期存取來自多個位置的 Azure 託管 Web 應用程式。<a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>、<a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> 與 Application Insights for Visual Studio Team Services 所提供的各項服務，都是此由外到內的監視方式範例之一。如需有關 Application Insights for Visual Studio Team Services 的詳細資訊，請參閱＜[附錄 5：使用 Application Insights for Visual Studio Team Services 監視]＞。
 
 ### <a name="monitoring-capacity"></a>監視容量
 
@@ -240,9 +240,9 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 儲存體用戶端程式庫會自動為每一項要求產生唯一的用戶端要求 ID。
 
-- 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求 ID 會顯示在與該要求相關之每個記錄項目的 [用戶端要求 ID\] 欄位。
+- 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求 ID 會顯示在與該要求相關之每個記錄項目的 [用戶端要求 ID] 欄位。
 - 以 Fiddler 所擷取的網路追蹤為例，用戶端要求 ID 會顯示在要求訊息中，並呈現為 **x-ms-client-request-id** HTTP 標頭值。
-- 在伺服器端的儲存體記錄中，用戶端要求 ID 會顯示在 [用戶端要求 ID\] 資料欄。
+- 在伺服器端的儲存體記錄中，用戶端要求 ID 會顯示在 [用戶端要求 ID] 資料欄。
 
 > [AZURE.NOTE]多個要求可以共用同一個用戶端要求 ID，這是因為用戶端可以指派此值 (雖然儲存體用戶端程式庫會自動指派新的值)。如果重試來自用戶端，則所有嘗試都共用相同的用戶端要求 ID。如果批次是從用戶端傳送，則該批次具有單一用戶端要求 ID。
 
@@ -827,14 +827,14 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 
 在 [Text Import Wizard] 的步驟 1 中，選取 [Semicolon] 作為唯一的分隔字元，並選擇雙引號作為**文字辨識符號**。接著按一下 [完成]，並選擇要將資料放在工作簿的哪個位置。
 
-### <a name="appendix-5"></a>附錄 5：使用 Application Insights for Visual Studio Online 進行監視
+### <a name="appendix-5"></a>附錄 5：使用 Application Insights for Visual Studio Team Services 監視
 
-您也可以在效能與可用性監視作業中，使用 Visual Studio Online 的 Application Insights 功能。這項工具可以：
+您也可以在效能與可用性監視作業中，使用 Visual Studio Online 的「Application Insights」功能。這項工具可以：
 
 - 確保您的 Web 服務可用且迅速回應。無論您的應用程式是網站或是使用 Web 服務的裝置應用程式，此工具都可以每幾分鐘從全球各地測試您的 URL，然後讓您知道是否有問題。
 - 快速診斷 Web 服務中的任何效能問題或例外。了解 CPU 或其他資源是否過度使用，從例外中取得堆疊追蹤資料，並且輕鬆地搜尋記錄追蹤項目。當應用程式的效能低於可接受的範圍，我們可以傳送一封電子郵件給您。我們可以同時監視 .NET 與 Java Web 服務。
 
-本文撰寫期間，Application Insights 已經進入預覽階段。您可以在 <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN 上的 Application Insights for Visual Studio Online</a> 找到詳細資訊。
+本文撰寫期間，Application Insights 已經進入預覽階段。您可以在 <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN 上的 Application Insights for Visual Studio Online</a> 找到更多資訊。
 
 
 <!--Anchors-->
@@ -896,7 +896,7 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [附錄 2：使用 Wireshark 擷取網路流量]: #appendix-2
 [附錄 3：使用 Microsoft Message Analyzer 擷取網路流量]: #appendix-3
 [附錄 4：使用 Excel 檢視度量與記錄資料]: #appendix-4
-[附錄 5：使用 Application Insights for Visual Studio Online 監視]: #appendix-5
+[附錄 5：使用 Application Insights for Visual Studio Team Services 監視]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
@@ -910,4 +910,4 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

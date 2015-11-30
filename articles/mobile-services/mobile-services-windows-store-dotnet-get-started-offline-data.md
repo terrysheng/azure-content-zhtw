@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="11/06/2015" 
 	ms.author="donnam"/>
 
 # 在行動服務中使用離線資料同步
@@ -38,7 +38,7 @@
 * 完成[開始使用行動服務]。
 * [Azure 行動服務 SDK 1.3.0 版 (或更新版本)][Mobile Services SDK Nuget]
 * [Azure 行動服務 SQLite Store 1.0.0 版 (或更新版本)][SQLite store nuget]
-* [SQLite for Windows 8.1](www.sqlite.org/downloads)
+* [SQLite for Windows 8.1](http://www.sqlite.org/download.html)
 * 一個 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。 
 
 ## <a name="enable-offline-app"></a>更新應用程式以支援離線功能
@@ -278,4 +278,4 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

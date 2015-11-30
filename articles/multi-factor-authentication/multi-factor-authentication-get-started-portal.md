@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # 部署 Azure Multi-factor Authentication Server 使用者入口網站
@@ -189,4 +189,4 @@ Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

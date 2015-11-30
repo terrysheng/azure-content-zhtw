@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # 使用 Azure 命令列開始使用 Azure 資料湖存放區
@@ -24,7 +24,7 @@
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
 
-了解如何使用 Azure 命令列介面建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱[資料湖存放區概覽](data-lake-store-overview.md)。
+了解如何使用 Azure 命令列介面建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱[資料湖存放區概觀](data-lake-store-overview.md)。
 
 Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平台上使用，包括 Windows、Mac 和 Linux。Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>)。本文只涵蓋使用 Azure CLI 搭配資料湖存放區。如需如何使用 Azure CLI 的一般指引，請參閱[如何使用 Azure CLI][azure-command-line-tools]。
 
@@ -90,7 +90,7 @@ Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平�
 
 您可以在根層級直接將資料上傳至資料湖存放區，或上傳至您在帳戶內建立的資料夾。下列程式碼片段示範如何將一些範例資料上傳至您在上一節中建立的資料夾 (**mynewfolder**)。
 
-如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 存放庫](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。下載檔案並將它儲存在電腦的本機目錄上，例如 C:\\sampledata。
+如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。下載檔案並將它儲存在電腦的本機目錄上，例如 C:\\sampledata。
 
 	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
@@ -180,7 +180,7 @@ Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平�
 
 - [使用入口網站開始使用資料湖存放區](data-lake-store-get-started-portal.md)
 - [使用 .NET SDK 開始使用資料湖存放區](data-lake-store-get-started-net-sdk.md)
-- [運用 PowerShell 開始使用資料湖儲存區](data-lake-store-get-started-powershell.md)
+- [使用 PowerShell 開始使用資料湖存放區](data-lake-store-get-started-powershell.md)
 
 
 ## 後續步驟
@@ -192,4 +192,4 @@ Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平�
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

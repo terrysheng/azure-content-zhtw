@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="11/12/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員範本函數
@@ -494,6 +494,25 @@
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
+## 修剪
+
+**trim (stringToTrim)**
+
+從指定的字串中移除所有開頭和尾端空白字元。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| stringToTrim | 是 | 要修剪的字串。
+
+下列範例會修剪由使用者提供之參數值的空白字元。
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
 
 ## uniqueString
 
@@ -529,6 +548,21 @@
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+## uri
+
+**uri (baseUri, relativeUri)**
+
+藉由結合 baseUri 和 relativeUri 字串建立絕對 URI。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| baseUri | 是 | 基底 uri 的字串。
+| relativeUri | 是 | 要加入至基底 uri 字串的相對 uri 字串。
+
+下列範例示範如何在範本連結中建立絕對 URI：結果為 ****http://contoso.com/resources/nested/azuredeploy.json**。
+
+    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+
 
 ## 變數
 
@@ -544,7 +578,7 @@
 ## 後續步驟
 - 如需 Azure 資源管理員範本中各節的說明，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - 若要合併多個範本，請參閱[搭配使用連結的範本與 Azure 資源管理員](resource-group-linked-templates.md)
-- 若要在建立資源類型時逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)
+- 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 
@@ -95,12 +95,12 @@
 
   	這會建立用來存取行動服務的新 **MobileServiceClient** 執行個體。
 
-6. 在檔案 MainPage.xaml.cs 中，新增或取消註解下列 `using` 陳述式：
+6. 在檔案 MainPage.cs 中，新增或取消註解下列 `using` 陳述式：
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. 在相同檔案中，使用下列程式碼來取代 **TodoItem** 類別定義：
+7. 在此 DataModel 資料夾中，使用下列程式碼來取代 **TodoItem** 類別定義：
 
         public class TodoItem
         {
@@ -131,13 +131,13 @@
 
         items = await todoTable.ToCollectionAsync();
 
-   	這會對 todoTable 中的項目集合設定繫結，其中包含從行動服務傳回的所有 TodoItem 物件。
+   	This sets the binding to the collection of items in the todoTable, which contains all TodoItem objects returned from the mobile service.
 
 9. 在 **UpdateCheckedTodoItem** 方法中，將 **async** 修正因子新增至方法，並取消註解下列程式碼行：
 
          await todoTable.UpdateAsync(item);
 
-   	這會將項目更新傳送到行動服務。
+   	This sends an item update to the mobile service.
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 
@@ -163,14 +163,11 @@
 
 本教學課程將示範啟用 Windows Phone 8 應用程式，進而使用行動服務資料的基本概念。接著，請考慮閱讀下列其他主題：
 
-* [將驗證新增至您的應用程式](mobile-services-windows-phone-get-started-users.md) 
-  <br/>了解如何驗證應用程式的使用者。
+* [將驗證新增至您的應用程式](mobile-services-windows-phone-get-started-users.md) <br/>了解如何驗證應用程式的使用者。
 
-* [將推播通知新增至您的應用程式](mobile-services-javascript-backend-windows-phone-get-started-push.md) 
-  <br/>了解如何使用行動服務將非常基本的推播通知傳送到應用程式。
+* [將推播通知新增至您的應用程式](mobile-services-javascript-backend-windows-phone-get-started-push.md) <br/>了解如何使用行動服務將非常基本的推播通知傳送到應用程式。
 
-* [行動服務 C# 做法概念性參考](mobile-services-windows-dotnet-how-to-use-client-library.md)
-  <br/>深入了解如何搭配 .NET使用行動服務。
+* [行動服務 C# 做法概念性參考](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>深入了解如何搭配 .NET使用行動服務。
  
 <!-- Anchors. -->
 [Download the Windows Phone 8 app project]: #download-app
@@ -196,4 +193,4 @@
 [開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

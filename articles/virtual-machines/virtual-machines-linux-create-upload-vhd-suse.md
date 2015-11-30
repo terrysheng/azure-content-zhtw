@@ -14,14 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
-	ms.author="szarkos"/>
+	ms.date="11/13/2015"
+	ms.author="szark"/>
 
 # 準備執行 Azure 的 SLES 或 openSUSE 虛擬機器
-
-
-- [準備執行 Azure 的 SLES 11 SP3 虛擬機器](#sles11)
-- [準備執行 Azure 的 openSUSE 13.1+ 虛擬機器](#osuse)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -29,13 +25,16 @@
 
 本文假設您已將 SUSE 或 openSUSE Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
-
-**SLES / openSUSE 安裝注意事項**
-
  - [SUSE Studio](http://www.susestudio.com) 可讓您輕鬆建立及管理 Azure 和 Hyper-V 的 SLES / openSUSE 映像。這是建議用來自訂您自己的 SUSE 和 openSUSE 映像的方法。您也可以將 SUSE Studio Gallery 中的下列正式映像下載或複製到您專屬的 SUSE Studio：
 
   - [SUSE Studio Gallery 上的 SLES 11 SP3 for Azure](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [SUSE Studio Gallery 上的 openSUSE 13.1 for Azure](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
+
+
+- SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007) 發佈 SLES 的 BYOS (自備訂用帳戶，Bring Your Own Subscription) 映像。
+
+
+**SLES / openSUSE 安裝注意事項**
 
 - Azure 不支援 VHDX 格式，只支援**固定 VHD**。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 
@@ -46,7 +45,7 @@
 - 所有 VHD 的大小都必須是 1 MB 的倍數。
 
 
-## <a id="sles11"> </a>準備執行 SUSE Linux Enterprise Server 11 SP3 ##
+## 準備執行 SUSE Linux Enterprise Server 11 SP3 ##
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
@@ -100,7 +99,7 @@
 
 ----------
 
-## <a id="osuse"> </a>準備 openSUSE 13.1+ ##
+## 準備執行 openSUSE 13.1+ ##
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
@@ -180,4 +179,4 @@
 
 13. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

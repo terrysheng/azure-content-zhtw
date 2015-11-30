@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 停用或啟用流量管理員端點
@@ -40,14 +40,8 @@
 
 [流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
 
-[什麼是流量管理員？](../traffic-manager.md)
+[疑難排解流量管理員的已降級狀態](traffic-manager-troubleshooting-degraded.md)
 
-[雲端服務](http://go.microsoft.com/fwlink/?LinkId=314074)
+[流量管理員的效能考量](traffic-manager-performance-considerations.md)
 
-[網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-
-[流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/?LinkId=313584)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

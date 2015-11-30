@@ -26,7 +26,7 @@
 
 ##### 從雲端代管的原始檔控制系統部署
 
-* [使用 Visual Studio Online 連續傳遞](#vso)
+* [使用 Visual Studio Team Services 連續傳遞](#vsts)
 * [使用 Git 的儲存機制網站](#git)
 * [使用 Mercurial 的儲存機制網站](#mercurial)
 * [從 Dropbox 自動化部署](#dropbox)
@@ -52,14 +52,14 @@
 
 另一個部署選項是使用雲端式服務，例如 [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy)。如需詳細資訊，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)。
 
-##<a name="vso"></a>使用 Visual Studio Online 連續傳遞
+##<a name="vso"></a>使用 Visual Studio Team Services 連續傳遞
 
-[Visual Studio Online](http://www.visualstudio.com/) (前身為 Team Foundation Service) 是 Microsoft 針對原始檔控制和團隊共同作業而推出的雲端解決方案。此服務可免費供 5 個開發人員以內的團隊使用。您可以執行連續傳遞至 App Service 中的 Web 應用程式，而您的儲存機制可以使用 [Git 或 TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs)。
+[Visual Studio Team Services](http://www.visualstudio.com/) (前身為 Team Foundation Service) 是 Microsoft 針對原始檔控制和團隊共同作業而推出的雲端解決方案。此服務可免費供 5 個開發人員以內的團隊使用。您可以執行連續傳遞至 App Service 中的 Web 應用程式，而您的儲存機制可以使用 [Git 或 TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs)。
 
 如需詳細資訊，請參閱下列資源：
 
-* [使用 Visual Studio Online 和 TFVC 連續傳遞至 Azure](../cloud-services-continuous-delivery-use-vso.md)。示範如何使用 TFVC，從 Visual Studio Online 設定連續傳遞至 Web 應用程式的逐步教學課程。TFVC 是集中式原始檔控制選項，相對於作為分散式原始檔控制選項的 Git。
-* [使用 Visual Studio Online 和 Git 連續傳遞至 Azure](../cloud-services-continuous-delivery-use-vso-git.md) (英文)。與上一個教學課程類似，但使用 Git 而不是 TFVC。
+* [使用 Visual Studio Team Services 和 Git 連續傳遞至 TFVC](../cloud-services-continuous-delivery-use-vso.md)。示範如何使用 TFVC，從 Visual Studio Team Services 設定連續傳遞至 Web 應用程式的逐步教學課程。TFVC 是集中式原始檔控制選項，相對於作為分散式原始檔控制選項的 Git。
+* [使用 Visual Studio Team Services 和 Git 連續傳遞至 Azure](../cloud-services-continuous-delivery-use-vso-git.md)。與上一個教學課程類似，但使用 Git 而不是 TFVC。
 
 ##<a name="git"></a>使用 Git 的儲存機制網站
 
@@ -180,7 +180,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 ##<a name="webdeploy"></a>從 Web Deploy 命令列部署
 
-[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) 是一項用於 IIS 部署的 Microsoft 軟體，不僅提供智慧型檔案同步功能，也可執行或協調其他許多無法在您使用 FTP 時自動化的部署相關工作。例如，Web Deploy 可對您的 Web 應用程式部署新的資料庫或資料庫更新。Web Deploy 也可儘量縮短更新現有網站所需的時間，因為它具有智慧功能，可僅複製有所變更的檔案。Microsoft WebMatrix、Visual Studio、Visual Studio Online 和 Team Foundation Server 皆有內建的 Web Deploy 支援，但您也可直接從命令列使用 Web Deploy，將部署自動化。Web Deploy 命令的功能十分強大，但學習起來較為困難。
+[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) 是一項用於 IIS 部署的 Microsoft 軟體，不僅提供智慧型檔案同步功能，也可執行或協調其他許多無法在您使用 FTP 時自動化的部署相關工作。例如，Web Deploy 可對您的 Web 應用程式部署新的資料庫或資料庫更新。Web Deploy 也可儘量縮短更新現有網站所需的時間，因為它具有智慧功能，可僅複製有所變更的檔案。Microsoft WebMatrix、Visual Studio、Visual Studio Team Services 和 Team Foundation Server 皆有內建的 Web Deploy 支援，但您也可直接從命令列使用 Web Deploy，將部署自動化。Web Deploy 命令的功能十分強大，但學習起來較為困難。
 
 如需詳細資訊，請參閱下列資源：
 
@@ -205,4 +205,4 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

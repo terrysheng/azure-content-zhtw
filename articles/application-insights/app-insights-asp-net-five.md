@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
 # ASP.NET 5 的 Application Insights
@@ -23,132 +23,35 @@ Visual Studio Application Insights 可讓您監視 Web 應用程式的可用性�
 
 您需要 [Microsoft Azure](http://azure.com) 的訂用帳戶。使用 Microsoft 帳戶登入，可能是針對 Windows、XBox Live 或其他 Microsoft 雲端服務具備的帳戶。
 
-## 建立 ASP.NET 5 專案
 
-... 如果您尚未完成。
+## 開始使用
 
-在 Visual Studio 2015 中使用標準 ASP.NET 5 專案範本。
+如果您是在 Visual Studio 2015 中建立您的專案，您應該已經有 Application Insights。否則，請依照[快速入門指南](https://github.com/Microsoft/ApplicationInsights-aspnet5/wiki/Getting-Started)的指示進行。
 
+## 使用 Application Insights
 
-## 建立 Application Insights 資源
+登入 [Microsoft Azure 入口網站](https://portal.azure.com)，瀏覽至您建立用來監視應用程式的資源。
 
-在 [Azure 入口網站][portal] 中，建立新的 Application Insights 資源。挑選 [ASP.NET] 選項。
+在另一個瀏覽器視窗中，使用您的應用程式一段時間。您會看到資料出現在 Application Insights 圖表。(您可能需要按一下 [重新整理])。 在您的開發過程只會有少量的資料，但是當您發行應用程式並有許多使用者時，這些圖表就會真正活躍起來。
 
-![按一下 [新增]、[開發人員服務]、[Application Insights]](./media/app-insights-asp-net-five/01-new-asp.png)
+[概觀] 頁面顯示您最可能有興趣的效能圖表：伺服器回應時間、頁面載入時間和失敗的要求計數。按一下任一圖表以查看更多的圖表和資料。
 
-開啟的[資源][roles]刀鋒視窗是您查看您的應用程式效能和使用量資料的位置。若要在下次登入 Azure 時回到此位置，您應該會在開始畫面上發現它的磚。或者按一下 [瀏覽] 以尋找它。
+入口網站中的檢視分成兩個主要類別：
 
-應用程式類型的選擇會設定[計量瀏覽器][metrics]中可見的資源刀鋒視窗和屬性的預設內容。
+* [計量瀏覽器](app-insights-metrics-explorer.md)，顯示計量和計數 (如回應時間、失敗率或您使用 [API](app-insights-api-custom-events-metrics.md) 自行建立的計量) 的圖形與表格。依屬性值篩選和分割資料，以進一步了解您的應用程式和其使用者。
+* [搜尋總管](app-insights-diagnostic-search.md)，列出個別事件，例如特定要求、例外狀況、記錄檔追蹤或您使用 [API](app-insights-api-custom-events-metrics.md) 自行建立的事件。在事件中篩選和搜尋，並瀏覽相關事件以調查問題。
 
-##  使用檢測金鑰設定您的專案。
+## Alerts
 
-從您的 Application Insights 資源複製金鑰：
-
-![按一下 [屬性]，選取金鑰，然後按下 CTRL+C](./media/app-insights-asp-net-five/02-props-asp.png)
-
-在 ASP.NET 5 專案中，將它貼入 `config.json`：
-
-    {
-      "ApplicationInsights": {
-        "InstrumentationKey": "11111111-2222-3333-4444-555555555555"
-      }
-    }
-
-或者，如果您偏好動態的組態，您可以將此程式碼加入至應用程式的啟動類別：
-
-    configuration.AddApplicationInsightsSettings(
-      instrumentationKey: "11111111-2222-3333-4444-555555555555");
+* 設定[可用性測試](app-insights-monitor-web-app-availability.md)，持續從全球各地的位置 測試您的網站，並在有任何測試失敗時立即取得電子郵件。
+* 設定[計量警示](app-insights-monitor-web-app-availability.md)，以了解計量 (如回應時間或例外狀況率) 是否超出可接受的限制。
 
 
-## 將 Application Insights 加入至專案
+## 取得更多的遙測
 
-
-#### 參考 NuGet 封裝
-
-尋找 NuGet 封裝的[最新版本號碼](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)。
-
-開啟 `project.json` 並編輯 `dependencies` 區段：
-
-    {
-      "dependencies": {
-        // Replace 0.* with a specific version:
-        "Microsoft.ApplicationInsights.AspNet": "0.*",
-
-       // Add these if they aren't already there:
-       "Microsoft.Framework.ConfigurationModel.Interfaces": "1.0.0-beta7",
-       "Microsoft.Framework.ConfigurationModel.Json":  "1.0.0-beta7"
-      }
-    }
-
-#### 剖析組態檔
-
-在 `startup.cs` 中：
-
-    using Microsoft.ApplicationInsights.AspNet;
-
-    public IConfiguration Configuration { get; set; }
-
-在 `Startup` 方法中：
-
-    public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
-    {
-    	// Setup configuration sources.
-    	var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
-	   		.AddJsonFile("config.json")
-	   		.AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
-    	builder.AddEnvironmentVariables();
-
-    	if (env.IsEnvironment("Development"))
-    	{
-	    	builder.AddApplicationInsightsSettings(developerMode: true);
-    	}
-    
-    	Configuration = builder.build();
-    }
-
-在 `ConfigurationServices` 方法中：
-
-    services.AddApplicationInsightsTelemetry(Configuration);
-
-在 `Configure` 方法中：
-
-    // Add Application Insights monitoring to the request pipeline as a very first middleware.
-    app.UseApplicationInsightsRequestTelemetry();
-
-    // Any other error handling middleware goes here.
-
-    // Add Application Insights exceptions handling to the request pipeline.
-    app.UseApplicationInsightsExceptionTelemetry();
-
-## 新增 JavaScript 用戶端檢測
-
-如果您有 \_Layout.cshtml 檔案，在其中插入下列程式碼。否則，將程式碼放在您想要追蹤的任何頁面中。
-
-在檔案的最上層定義插入：
-
-    @inject Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration TelemetryConfiguration
-
-在 `</head>` 標記之前和任何其他指令碼之前插入 Html 協助程式。您要從頁面報告的任何自訂 JavaScript 遙測應該插入到這個程式碼片段之後：
-
-    <head> 
-
-      @Html.ApplicationInsightsJavaScript(TelemetryConfiguration) 
-
-      <!-- other scripts -->
-    </head>
-
-## 執行您的應用程式
-
-在 Visual Studio 中偵錯您的應用程式，或是將它發佈到 Web 伺服器。
-
-## 檢視應用程式相關的資料
-
-返回 [Azure 入口網站][portal]，並且瀏覽至您的 Application Insights 資源。如果 [概觀] 刀鋒視窗中沒有任何資料，請等待一兩分鐘，然後按一下 [重新整理]。
-
-* [追蹤應用程式的使用量][usage]
-* [診斷效能問題][detect]
-* [設定 Web 測試以監視可用性][availability]
-
+* [監視相依性](app-insights-dependencies.md)，可查看 REST、SQL 或其他外部資源是否降低您的效能。
+* [使用 API](app-insights-api-custom-events-metrics.md) 可傳送您自己的事件和計量，以取得您的應用程式效能和使用方式的更詳細檢視。
+* [可用性測試](app-insights-monitor-web-app-availability.md)可持續從世界各地檢查您的應用程式。 
 
 
 ## 開放原始碼
@@ -175,4 +78,4 @@ Visual Studio Application Insights 可讓您監視 Web 應用程式的可用性�
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

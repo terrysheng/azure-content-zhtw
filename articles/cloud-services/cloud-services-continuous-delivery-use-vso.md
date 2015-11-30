@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞"
-	description="了解如何設定 Visual Studio Online Team 專案，以自動建置和部署至 Azure App Service 或雲端服務中的 Web 應用程式功能。"
+	pageTitle="在 Azure 中使用 Visual Studio Team Services 來連續傳遞"
+	description="了解如何設定 Visual Studio Team Services 的 Team 專案，自動建置和部署至 Azure App Service 或雲端服務中的 Web 應用程式功能。"
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="kempb"
@@ -16,16 +16,15 @@
 	ms.date="09/02/2015"
 	ms.author="kempb"/>
 
-# 使用 Visual Studio Online 連續傳遞至 Azure
+# 使用 Visual Studio Team Services 連續傳遞至 Azure
 
-您可以將 Visual Studio Online 小組專案設定為自動建置和部署至 Azure Web 應用程式或雲端服務。(如需如何使用「內部部署」的 Team Foundation Server 來設定連續組建及部署系統的相關資訊，請參閱 [Azure 中雲端服務的連續傳遞](cloud-services-dotnet-continuous-delivery.md))。
+您可以將 Visual Studio Team Services 小組專案設定為自動建置和部署至 Azure Web 應用程式或雲端服務。(如需如何使用「內部部署」的 Team Foundation Server 來設定連續組建及部署系統的相關資訊，請參閱 [Azure 中雲端服務的連續傳遞](cloud-services-dotnet-continuous-delivery.md))。
 
-本教學課程假設您已安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 [www.visualstudio.com](http://www.visualstudio.com) 選擇 **免費開始用** 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
+本教學課程假設您已安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 **www.visualstudio.com** 選擇 [免費開始用][](http://www.visualstudio.com) 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
 
-> [AZURE.NOTE] 您需要 Visual Studio Online 帳戶，才能完成本教學課程：
-> 您可以[開啟免費的 Visual Studio Online 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
+> [AZURE.NOTE]您需要 Visual Studio Team Services 帳戶，才能完成本教學課程：您可以[開啟免費的 Visual Studio Team Services 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
 
-若要使用 Visual Studio Online 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行。
+若要使用 Visual Studio Team Services 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行。
 
 ## 步驟 1：建立 Team 專案
 
@@ -33,13 +32,9 @@
 
 ## 步驟 2：將專案簽入原始檔控制
 
-1. 在 Visual Studio 中，開啟您要部署的方案，或建立新方案。您可以依照此逐步解說的步驟部署 Web 應用程式或雲端服務 (Azure 應用程式)。
-如果要建立新方案，請建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，
-請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 [**網際網路應用程式**]。
-如果要建立 Web 應用程式，請選擇 ASP.NET Web 應用程式的專案範本，然後選擇 [MVC]。
-請參閱「[在 Azure App Service 中建立 ASP.NET Web 應用程式](../web-sites-dotnet-get-started.md)」。
+1. 在 Visual Studio 中，開啟您要部署的方案，或建立新方案。您可以依照此逐步解說的步驟部署 Web 應用程式或雲端服務 (Azure 應用程式)。如果要建立新方案，請建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 [**網際網路應用程式**]。如果要建立 Web 應用程式，請選擇 ASP.NET Web 應用程式的專案範本，然後選擇 [MVC]。請參閱「[在 Azure App Service 中建立 ASP.NET Web 應用程式](../web-sites-dotnet-get-started.md)」。
 
-	> [AZURE.NOTE] Visual Studio Online 目前僅支援 Visual Studio Web 應用程式的 CI 部署。Web Site 專案超出範圍。
+	> [AZURE.NOTE]Visual Studio Team Services 目前僅支援 Visual Studio Web 應用程式的 CI 部署。Web Site 專案超出範圍。
 
 1. 開啟方案的內容功能表，選擇 [將方案加入至原始檔控制]。
 
@@ -63,23 +58,23 @@
 
 ## 步驟 3：將專案連接至 Azure
 
-1. 您現有一個 VSO 小組專案，且裡面有一些原始程式碼，可以準備將小組專案連線至 Azure。在 [Azure 管理入口網站](http://manage.windowsazure.com)中，選取您的雲端服務或 Web 應用程式，或選取左下方的 **+** 圖示並選擇 [雲端服務] 或 [Web 應用程式]，然後選取 [快速建立]，建立新的雲端服務或 Web 應用程式。選擇 [使用 Visual Studio Online 設定發行] 連結。
+1. 您現有一個 VSTS 小組專案，且裡面有一些原始程式碼，可以準備將小組專案連線至 Azure。在 [Azure 管理入口網站](http://manage.windowsazure.com)中，選取您的雲端服務或 Web 應用程式，或選取左下方的 **+** 圖示並選擇 [雲端服務] 或 [Web 應用程式]，然後選取 [快速建立]，建立新的雲端服務或 Web 應用程式。請選擇 [使用 Visual Studio Team Services 設定發行] 連結。
 
 	![][10]
 
-1. 在精靈中，在文字方塊中輸入 Visual Studio Online 帳戶的名稱，然後按一下 [立即授權] 連結。可能會要求您登入。
+1. 在精靈中，於文字方塊中輸入 Visual Studio Team Services 帳戶的名稱，然後按一下 [立即授權] 連結。可能會要求您登入。
 
 	![][11]
 
-1. 在 [連線要求] 快顯對話方塊中，選擇 [接受] 按鈕，以授權 Azure 在 VSO 中設定 Team 專案。
+1. 在 [連線要求] 快顯對話方塊中，選擇 [接受] 按鈕，以授權 Azure 在 VSTS 中設定 Team 專案。
 
 	![][12]
 
-1. 授權成功時，將出現含有 Visual Studio Online 小組專案清單的下拉清單。選擇您在先前步驟中建立的小組專案，然後選擇精靈的勾選記號按鈕。
+1. 授權成功時，將出現含有 Visual Studio Team Services 小組專案清單的下拉清單。選擇您在先前步驟中建立的小組專案，然後選擇精靈的勾選記號按鈕。
 
 	![][13]
 
-1. 連結專案之後，將出現一些指示，指出如何將變更簽入至 Visual Studio Online 小組專案。下次簽入時，Visual Studio Online 就會建立專案並部署至 Azure。現在就試著按一下 [從 Visual Studio 簽入] 連結，再按一下 [啟動 Visual Studio] 連結 (或入口網站畫面底部同等的 [Visual Studio] 按鈕)。
+1. 連結專案之後，將出現一些指示，指出如何將變更簽入至 Visual Studio Team Services 小組專案。下次簽入時，Visual Studio Team Services 就會建立專案並部署至 Azure。現在就試著按一下 [從 Visual Studio 簽入] 連結，再按一下 [啟動 Visual Studio] 連結 (或入口網站畫面底部同等的 [Visual Studio] 按鈕)。
 
 	![][14]
 
@@ -162,7 +157,7 @@
 
 	![][29]
 
-1. 在 [Azure 管理入口網站](http://manage.windowsazure.com) 中，選取預備環境之後，您可以在 [部署] 索引標籤上檢視相關聯的部署。
+1. 在 [Azure 管理入口網站][](http://manage.windowsazure.com) 中，選取預備環境之後，您可以在 [部署] 索引標籤上檢視相關聯的部署。
 
 	![][30]
 
@@ -269,7 +264,7 @@
 	![][50]
 
 ## 後續步驟
-如需在 Visual Studio Online 中進行單元測試的詳細資訊，請參閱[在建置中執行單元測試](http://go.microsoft.com/fwlink/p/?LinkId=510474)。如果您使用的是 Git，請參閱「[在 Git 中共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)」和「[在 Azure App Service 中使用 GIT 連續部署](../web-sites-publish-source-control.md)」。如需 Visual Studio Online 的詳細資訊，請參閱 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)。
+如需在 Visual Studio Team Services 中進行單元測試的詳細資訊，請參閱[在建置中執行單元測試](http://go.microsoft.com/fwlink/p/?LinkId=510474)。如果您使用的是 Git，請參閱「[在 Git 中共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)」和「[在 Azure App Service 中使用 GIT 連續部署](../web-sites-publish-source-control.md)」。如需 Visual Studio Team Services 的詳細資訊，請參閱 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)。
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -322,4 +317,4 @@
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

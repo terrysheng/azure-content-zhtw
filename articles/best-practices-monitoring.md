@@ -101,7 +101,7 @@
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-這有助於 SLA 用途 (本指南稍後將詳加描述 [SLA 監視](#SLA-monitoring))。_停機_定義取決於服務。例如，Visual Studio Online 將停機定義為客戶嘗試連接到服務，花費時間超過 120 秒的期間，以及在建立連線之後，所有基本讀取和寫入作業在該期間內失敗。
+這有助於 SLA 用途 (本指南稍後將詳加描述 [SLA 監視](#SLA-monitoring))。_停機_定義取決於服務。例如，Visual Studio Team Services 將停機定義為客戶在嘗試連接服務的期間，所花費的時間超過 120 秒，以及在建立連接之後，所有基本讀取和寫入作業在該期間內失敗。
 
 ## 效能監視
 由於使用者數量增加，以及這些使用者存取的資料庫大小成長，因而系統的壓力越來越大時，一個或多個元件越有可能失敗。通常，在元件失敗之前效能會先降低。如果您可以偵測這類降低，就可以採取主動步驟來修正這個狀況。
@@ -612,4 +612,4 @@ _圖 6.根據分析和儲存體需求分割資料_
 - Microsoft 網站上的＜[了解 Azure 中的監視警示和通知](https://msdn.microsoft.com/library/azure/dn306639.aspx)＞頁面。
 - Microsoft 網站上的＜[Application Insights](app-insights-get-started/)＞頁面。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -92,7 +92,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 
 > [AZURE.NOTE]名稱開頭為雙底線的屬性是系統類型。
 
-<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>上次修改根目錄的時間。這是由用戶端設定(伺服器不維護此值)。</td></tr><tr><td>__id</td><td>String</td><td>項目的識別碼 (唯讀)。此識別碼是目錄中資產的唯一識別碼。</td></tr><tr><td>__type</td><td>String</td><td>資產的類型 (唯讀)</td></tr><tr><td>__creatorId</td><td>String</td><td>由資產建立者用來唯一識別資產的字串。</td></tr></table>
+<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>上次修改根目錄的時間。這是由用戶端設定(伺服器不維護此值)。</td></tr><tr><td>__id</td><td>String</td><td>項目的識別碼 (唯讀)。此識別碼是目錄資產中的唯一識別碼。</td></tr><tr><td>__type</td><td>String</td><td>資產的類型 (唯讀)</td></tr><tr><td>__creatorId</td><td>String</td><td>由資產建立者用來唯一識別資產的字串。</td></tr></table>
 
 ### 通用根屬性
 
@@ -111,7 +111,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 註解類型代表可以指派給目錄內其他類型的中繼資料類型。
 
 <table><tr><td><b>註解類型</b></td><td><b>其他屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>說明</td><td></td><td></td><td>系統的每個使用者可以加入自己的描述和標記。只有該使用者可以編輯 Description 物件(系統管理員和資產擁有者可以刪除 Description 描述物件，但無法編輯它)。系統會個別維護這些物件。因此，每個資產上有一個描述陣列 (除了可能有一個描述包含衍生自資料來源的資訊，每一個已對資產貢獻知識的使用者都有一個描述)。</td></tr><tr><td></td><td>friendlyName</td><td>字串</td><td>易記名稱，可代替衍生自資料來源的名稱。這適合用於顯示和搜尋。</td></tr><tr><td></td><td>tags</td><td>string[]</td><td>資產的標記陣列</td></tr><tr><td></td><td>說明</td><td>字串</td><td>資產的簡短描述 (2-3 行)</td></tr><tr><td>結構描述</td><td></td><td></td><td>Schema 描述資料的結構。它會列出屬性 (也就是資料行、屬性、欄位等等..) 名稱、類型及其他中繼資料。此資訊完全衍生自資料來源。資產上通常有一個結構描述項目。</td></tr><tr><td></td><td>columns</td><td>Column[]</td><td>資料行物件的陣列。它們以衍生自資料來源的資訊來描述資料行。</td></tr><tr><td>SchemaDescription</td><td></td><td></td><td>這包含結構描述中定義的每個屬性的描述和標記集合。系統的每個使用者可以加入自己的描述和標記。只有該使用者可以編輯 Description 物件(系統管理員和資產擁有者可以刪除 SchemaDescription 物件，但無法編輯它)。系統會個別維護這些物件。因此，每個資產上有一個 SchemaDescription 物件陣列 (除了可能有一個描述包含衍生自資料來源的資訊，每一個已對屬性貢獻知識的使用者都有一個描述)。SchemaAttributes 與結構描述不緊密繫結，所以可能不會同步，亦即 SchemaDescription 描述的資料行可能已不存在於結構描述中，或無法參考最近加入的新資料行。由寫入者決定是否要保持同步。資料來源也可能有描述資訊。這是執行工具時建立的另一個 schemaDescription 物件。</td></tr><tr><td></td><td>columnDescriptions</td><td>ColumnDescription[]</td><td>描述結構描述中的資料行的 ColumnDescriptions 陣列。</td></tr><tr><td>專家</td><td></td><td></td><td>這包含可視為資料集專家的使用者清單。列出描述時，專家意見 (也就是描述) 會移至 UX 頂端。每個使用者可以指定自己的專家清單。只有該使用者可以編輯 Expert 物件(系統管理員和資產擁有者可以刪除 Expert 物件，但無法編輯它)。</td></tr><tr><td></td><td>experts</td><td>string[]</td><td>電子郵件地址的陣列。</td></tr><tr><td>預覽</td><td></td><td></td><td>預覽包含資產的前 20 列資料的快照集。預覽只對某些資產類型才有意義 (也就是，對資料表有意義，但對量值沒有意義)。</td></tr><tr><td></td><td>preview</td><td>object[]</td><td>代表資料行的物件陣列。每個物件都有屬性與資料行的對應，根據的是資料列在該資料行中的值。</td></tr>
-<tr><td>AccessInstruction</td><td></td><td></td><td></td></tr>
+<tr><td>AccessInstruction</td><td></td><td></td><td>這包含如何要求存取資料來源的資訊。這項資訊是目錄入口網站顯示的「 要求存取 」欄位。</td></tr>
 <tr><td></td><td>mimeType</td><td>字串</td><td>內容的 mime 類型。</td></tr>
 <tr><td></td><td>內容</td><td>字串</td><td>如何取得這項資料資產的指示。可能是一個 URL、電子郵件地址或一組指示。</td></tr>
 
@@ -262,4 +262,4 @@ Azure 資料目錄使用兩種授權機制：
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

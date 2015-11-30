@@ -13,11 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/06/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Azure 資料目錄版本資訊
 
+## Azure 資料目錄 2015 年 11 月 20 日版本的注意事項
+
+### 在 Power BI Desktop 中開啟資料來源
+
+使用 **Azure 資料目錄**入口網站的 [在 Power BI Desktop 中開啟資料來源] 選項時，使用者可能會在 Power BI Desktop 應用程式中遇到下列兩個問題之一：
+
+- 會顯示標題為「無法開啟文件」的對話方塊
+- Power BI Desktop 應用程式可開啟，但檔案是空的
+
+針對上述每個狀況，只要從 [PowerBI.com](https://powerbi.com) 下載並安裝最新版的 Power BI Desktop 即可解決問題。
+
+## Azure 資料目錄 2015 年 11 月 13 日版本的注意事項
+
+### 註冊並連接至 Teradata
+
+連接到 Teradata 資料來源時，使用者必須已安裝正確的 Teradata ODBC 驅動程式，符合所使用軟體的位元 (32 位元或 64 位元)。
+
+截至本 ADC 發行日為止，最新[適用於 Windows 的 Teradata ODBC 驅動程式 (15.10 版)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) 相容於 Office 2013，但不相容於 Office 2016。
 
 ## Azure 資料目錄 2015 年 11 月 6 日版本的注意事項
 
@@ -44,7 +62,7 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 ### 在 Excel 中開啟資料資產
 
-從 **Azure 資料目錄**入口網站使用 Microsoft Excel 開啟資料資產時，使用者可能會看到 [Microsoft Excel 安全性注意事項] 對話方塊。這是標準的預期行為，使用者可以選取 [啟用] 以繼續。
+從 **Azure 資料目錄**入口網站使用 Microsoft Excel 開啟資料資產時，使用者可能會看到 [Microsoft Excel 安全性注意事項] 對話方塊的提示。這是標準的預期行為，使用者可以選取 [啟用] 以繼續。
 
 如需詳細資訊，請參閱[啟用或停用可疑網站之連結和檔案的安全性警告](https://support.office.com/zh-TW/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)。
 
@@ -78,4 +96,4 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

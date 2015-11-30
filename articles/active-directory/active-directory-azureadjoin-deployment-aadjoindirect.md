@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="適用於 Azure AD Join 的使用案例和部署考量| Microsoft Azure" 
-	description="列出並說明 Azure AD Join 可用的不同部署案例。" 
+	description="說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join 的主題。其中也會討論使用 Azure AD Join 時出現的各種真實案例。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # 適用於 Azure AD Join 的使用案例和部署考量 
@@ -23,9 +24,7 @@
 --------------------------------------------------------
 如果您目前是在雲端為貴公司操作和管理身分識別，或者即將轉向雲端，則可從 Azure AD Join 獲益。您可以使用在 Azure AD 中建立的帳戶來登入 Windows 10。透過[初次執行體驗 (FRX) 程序](active-directory-azureadjoin-user-frx.md)或透過[設定經驗](active-directory-azureadjoin-user-upgrade.md)加入 Azure AD，您的使用者可將其電腦加入 Azure AD。您的使用者現在可以在瀏覽器或 Office 應用程式中，享有其雲端資源 (例如 Office 365) 的 SSO 存取權。
 
-案例 2：教育機構
-----------------------------------------------------------------------------------
-教育機構通常有兩種使用者類型：教職員和學生。教職成員會被視為組織中較長期的成員，因此需要為他們建立內部部署帳戶。但學生是組織中期限較短的成員，因而可在 Azure AD 中進行管理，如此一來，就能將目錄範圍推送至雲端，而不是內部部署。這些學生現在可以使用其 Azure AD 帳戶登入 Windows，並在 Office 應用程式中取得 Office 365 資源的存取權。
+案例 2：教育機構 ---------------------------------------------------------------------------------- 教育機構通常有兩種使用者類型：教職員和學生。教職成員會被視為組織中較長期的成員，因此需要為他們建立內部部署帳戶。但學生是組織中期限較短的成員，因而可在 Azure AD 中進行管理，如此一來，就能將目錄範圍推送至雲端，而不是內部部署。這些學生現在可以使用其 Azure AD 帳戶登入 Windows，並在 Office 應用程式中取得 Office 365 資源的存取權。
 
 案例 3：零售業
 ---------------------------------------------------------------------------------------
@@ -53,7 +52,7 @@
 *	Windows 10 (Professional 和 Enterprise SKU)
 
 ### 系統管理員工作
-* [設定裝置註冊和 MFA](active-directory-azureadjoin-setup.md)
+* [設定裝置註冊](active-directory-azureadjoin-setup.md)
 
 ### 使用者工作
 * [設定期間使用 Azure AD 設定新的 Windows 10 裝置](active-directory-azureadjoin-user-frx.md)
@@ -77,14 +76,18 @@
 
 ### 系統管理員工作
 
-* [設定裝置註冊和 MFA](active-directory-azureadjoin-setup.md)
+* [設定裝置註冊](active-directory-azureadjoin-setup.md)
 
 ### 使用者工作
 * [將個人的 Windows 10 裝置加入您的組織](active-directory-azureadjoin-personal-device.md)
 
 
 ## 其他資訊
-* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md)
+* [適合企業使用的 Windows 10：使用裝置工作的方式](active-directory-azureadjoin-windows10-devices-overview.md)
+* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
+* [透過 Microsoft Passport 不需要密碼就能驗證身分識別](active-directory-azureadjoin-passport.md)
+* [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

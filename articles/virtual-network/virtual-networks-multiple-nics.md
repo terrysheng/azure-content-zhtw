@@ -4,20 +4,22 @@
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+   manager="carmonm"
+   editor="tysonn" 
+   tags="azure-service-management,azure-resource-manager"
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
+   ms.date="11/09/2015"
    ms.author="telmos" />
 
 # 建立具有多個 NIC 的 VM
 
-多個 NIC 功能可讓您建立和管理 Azure 虛擬機器 (VM) 上的多個虛擬網路介面卡 (NIC)。多個 NIC 是許多網路虛擬應用裝置的需求，例如應用程式傳遞和 WAN 最佳化解決方案。多個 NIC 也會提供更多網路流量管理功能，包括前端 NIC 與後端 NIC 之間的流量隔離，或者從管理平面流量中將資料平面流量分隔開來。
+您可以在 Azure 中建立虛擬機器 (VM) 並將多個網路介面 (NIC) 連接至每個 VM。多個 NIC 是許多網路虛擬應用裝置的需求，例如應用程式傳遞和 WAN 最佳化解決方案。多個 NIC 也會提供更多網路流量管理功能，包括前端 NIC 與後端 NIC 之間的流量隔離，或者從管理平面流量中將資料平面流量分隔開來。
 
 ![適用於 VM 的多個 NIC](./media/virtual-networks-multiple-nics/IC757773.png)
 
@@ -28,15 +30,15 @@
 多個 NIC 目前具有下列需求和條件約束：
 
 - 多個 NIC 的 VM 必須建立於 Azure 虛擬網路 (VNet) 中。不支援非 VNet 的 VM。 
-- 在單一雲端服務中，僅允許下列設定： 
+- 在單一雲端服務 (傳統部署) 或資源群組 (資源管理員部署) 中，僅允許下列設定： 
 	- 該雲端服務中的所有 VM 必須已啟用多個 NIC 功能，或者 
 	- 該雲端服務中的每一個 VM 都必須具有單一 NIC 
 
->[AZURE.IMPORTANT]如果您嘗試將多個 NIC 的 VM 加入已經包含單一 NIC 的 VM (反之亦然) 的部署 (雲端服務)，您將會收到下列錯誤：同一個部署中不支援同時具有次要網路介面的虛擬機器和沒有次要網路介面的虛擬機器，而且也無法更新沒有任何次要網路介面的虛擬機器，使其具有次要網路介面，反之亦然。
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
  
-- 只有「預設」VIP 上才支援網際網路對向的 VIP。只有一個 VIP 可以連接到預設 NIC 的 IP。 
-- 執行個體層級公用 IP (LPIP) 位址目前不支援多個 NIC 的 VM。 
-- VM 內部的 NIC 順序是隨機的，而且也可透過 Azure 基礎結構更新來變更。不過，IP 位址及對應的乙太網路 MAC 位址會維持不變。例如，假設 **Eth1** 具有 IP 位址 10.1.0.100 和 MAC 位址 00-0D-3A-B0-39-0D；在 Azure 基礎結構更新並重新開機之後，就無法變更為 Eth2，但是 IP 和 MAC 配對會保持相同。當客戶起始重新啟動時，NIC 順序會保持相同。 
+- 只有「預設」NIC 上才支援網際網路對向的 VIP (傳統部署)。只有一個 VIP 可以連接到預設 NIC 的 IP。 
+- 執行個體層級公用 IP (LPIP) 位址 (傳統部署) 目前不支援多個 NIC 的 VM。 
+- VM 內部的 NIC 順序是隨機的，而且也可透過 Azure 基礎結構更新來變更。不過，IP 位址及對應的乙太網路 MAC 位址會維持不變。例如，假設 **Eth1** 具有 IP 位址 10.1.0.100 和 MAC 位址 00-0D-3A-B0-39-0D；在 Azure 基礎結構更新並重新開機之後，就無法變更為 **Eth2**，但是 IP 和 MAC 配對會保持相同。當客戶起始重新啟動時，NIC 順序會保持相同。 
 - 每個 VM 上的每個 NIC 位址都必須位於子網路中，單一 VM 上的多個 NIC 每個都可以指派位於相同子網路的位址。 
 - VM 大小會決定您可以為 VM 建立的 NIC 數目。下表列出與 VM 大小相對應的 NIC 數目： 
 
@@ -88,16 +90,16 @@
 |所有的其他大小|1|
 
 ## 網路安全性群組 (NSG)
-VM 上的任何 NIC 可能會關聯至網路安全性群組 (NSG)，包括已啟用多個 NIC 功能的 VM 上的任何 NIC。如果已為 NIC 指派子網路 (該子網路會關聯至 NSG) 內的位址，則子網路 NSG 中的規則也適用於該 NIC。除了將子網路關聯至 NSG，您也可以將 NIC 關聯至 NSG。
+在資源管理員部署中，VM 上的任何 NIC 可能會關聯至網路安全性群組 (NSG)，包括已啟用多個 NIC 功能的 VM 上的任何 NIC。如果已為 NIC 指派子網路 (該子網路會關聯至 NSG) 內的位址，則子網路 NSG 中的規則也適用於該 NIC。除了將子網路關聯至 NSG，您也可以將 NIC 關聯至 NSG。
 
-如果將子網路關聯至 NSG，而且該子網路內的 NIC 會個別關聯至 NSG，則相關聯的 NSG 規則會根據傳入或傳出 NIC 的流量方向套用「流程順序」****：
+如果將子網路關聯至 NSG，而且該子網路內的 NIC 會個別關聯至 NSG，則相關聯的 NSG 規則會根據傳入或傳出 NIC 的流量方向套用**流程順序**：
 
 - ****連入流量** 的目的地是問題流量中的 NIC，首先會通過子網路，並在傳入 NIC 前觸發子網路的 NSG 規則，然後再觸發 NIC 的 NSG 規則。
 - **連出流量**的來源是有問題的流量中第一次從 NIC 流出的 NIC，會在流經子網路之前觸發 NIC 的 NSG 規則，然後觸發子網路的 NSG 規則。 
 
-上圖顯示如何根據流量來完成 NSG 規則的應用 (從 VM 到子網路，或從子網路到 VM)。
+深入了解[網路安全性群組](virtual-networks-nsg)和其如何根據與子網路、VM 和 NIC 之關聯而套用。
 
-## 如何設定多個 NIC 的 VM
+## 如何在傳統部署中設定有多個 NIC 的 VM
 
 下列指示將協助您建立多個 NIC 的 VM，其中包含 3 個 NIC：一個預設的 NIC 和兩個額外的 NIC。組態步驟將建立 VM，此 VM 將根據下列服務組態檔片段來設定：
 
@@ -162,7 +164,7 @@ VM 上的任何 NIC 可能會關聯至網路安全性群組 (NSG)，包括已啟
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]您在此處指定的 VNet 必須已經存在 (如必要條件中所提及)。以下範例指定了一個名為 **MultiNIC-VNet** 的虛擬網路。
+>[AZURE.NOTE]您在此處指定的 VNet 必須已經存在 (如必要條件中所提及)。下面範例指定名稱為 **MultiNIC-VNet** 的虛擬網路。
 
 ## 其他子網路的次要 NIC 存取
 
@@ -227,7 +229,7 @@ VM 上的任何 NIC 可能會關聯至網路安全性群組 (NSG)，包括已啟
 		===========================================================================
 
 2. 請注意資料表中的第二個項目，索引為 27 (此範例中)。
-3. 從命令提示字元執行 **route add** 命令，如以下所示。在此範例中，您指定 192.168.2.1 做為次要 NIC 的預設閘道：
+3. 透過下列方式，經由命令提示字元執行 **route add** 命令。在此範例中，您指定 192.168.2.1 做為次要 NIC 的預設閘道：
 
 		route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
 
@@ -258,4 +260,9 @@ VM 上的任何 NIC 可能會關聯至網路安全性群組 (NSG)，包括已啟
 
 若是 Linux VM，因為預設行為是使用弱式主機路由，建議您將次要 NIC 的流量限制在相同的子網路中。不過，如果某些情況要求子網路外部的連線，使用者應該根據路由啟用原則，以確保輸入和輸出流量都使用相同的 NIC。
 
-<!---HONumber=Nov15_HO3-->
+## 後續步驟
+
+- 部署[在資源管理員部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-arm-template)。
+- 部署[在傳統部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-classic-ps)。
+
+<!---HONumber=Nov15_HO4-->

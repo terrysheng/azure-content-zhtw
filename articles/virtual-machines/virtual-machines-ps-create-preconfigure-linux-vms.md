@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="11/11/2015"
 	ms.author="cynthn"/>
 
 # 使用 Azure PowerShell 建立和預先設定 Linux 虛擬機器
@@ -27,31 +27,35 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
  
+這些步驟說明如何使用用於建立 Azure PowerShell 命令集的填空方式建立 Linux 虛擬機器。如果您剛使用 Azure PowerShell 或只想知道可指定哪些值來成功設定組態，這個方法相當實用。
 
-下列步驟將示範如何利用一組 Azure PowerShell 命令，以傳統管理模型建立和預先設定 Linux 虛擬機器。您可以使用此程序，對於以 Linux 為基礎的新虛擬機器建立命令集合，並擴充現有部署，或建立快速建置自訂開發/測試或 IT 專業環境的多個命令集。
+您將透過把幾組命令區塊複製到文字檔或 PowerShell ISE，然後填入變數值並移除 < and > 字元，來建置命令集。請參閱本文結尾的兩個[範例](#examples)，以了解最終產生的結果。
 
-這些步驟遵循建立 Azure PowerShell 命令集合的填空方法。如果您剛使用 Azure PowerShell 或只想知道可指定哪些值來成功設定組態，這個方法相當實用。進階的 Azure PowerShell 使用者可以使用命令並取代本身的變數值 (以「$」為開頭的行)。
+關於 Windows 型虛擬機器的系列主題，請參閱[使用 Azure PowerShell 建立以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)。
 
-如需設定以 Windows 為基礎的虛擬機器系列主題，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)。
+## 安裝 Azure PowerShell
 
-## 步驟 1：安裝 Azure PowerShell
+如果您尚未這樣做，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。然後，開啟 Azure PowerShell 命令提示字元。
 
-如果您尚未這樣做，請按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。然後，開啟 Azure PowerShell 命令提示字元。
+## 設定您的訂閱和儲存體帳戶
 
-## 步驟 2：設定您的訂用帳戶和儲存體帳戶
+透過 Azure PowerShell 命令提示字元執行下列命令，以設定 Azure 訂用帳戶和儲存體帳戶。
 
-透過 Azure PowerShell 命令提示字元執行下列命令，以設定 Azure 訂用帳戶和儲存體帳戶。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
+您可以從 **Get-AzureSubscription** 命令輸出的 **SubscriptionName** 屬性，取得正確的訂用帳戶名稱。
+
+發出 Select-AzureSubscription 命令後，就能從 **Get-AzureStorageAccount** 命令輸出的 **Label** 屬性取得正確的儲存體帳戶名稱。
+
+以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-您可以從 **Get-AzureSubscription** 命令輸出的 **SubscriptionName** 屬性，取得正確的訂用帳戶名稱。發出 **Select-AzureSubscription** 命令後，就能從 **Get-AzureStorageAccount** 命令輸出的 **Label** 屬性取得正確的儲存體帳戶名稱。您也可以將這些命令儲存在文字檔中，以供日後使用。
 
-## 步驟 3：決定 ImageFamily
+## 尋找您要使用的映像
 
-接著，您必須對於與要建立的 Azure 虛擬機器相對應的特定映像決定 ImageFamily 值。您可以透過下列命令取得可用 ImageFamily 值的清單。
+接下來，您必須決定您要使用之映像的 ImageFamily 值。您可以透過下列命令取得可用 ImageFamily 值的清單。
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
@@ -66,19 +70,17 @@
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-## 步驟 4：建置命令集
-
-將下列其中一組命令區塊複製到新的文字檔或 PowerShell ISE，然後填入變數值並移除 < and > 字元，以建置命令集的剩餘部分。請參閱本文結尾的兩個[範例](#examples)，以了解最終產生的結果。
+## 指定名稱、大小和可用性設定組 (選擇性)
 
 選擇兩個命令區塊的其中一個，啟動命令集 (必要)。
 
-選項 1：指定虛擬機器名稱和大小。
+**選項 1**：指定虛擬機器名稱和大小。
 
 	$vmname="<machine name>"
 	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-選項 2：指定名稱、大小和可用性設定組名稱。
+**選項 2**：指定名稱、大小和可用性設定組名稱。
 
 	$vmname="<machine name>"
 	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
@@ -87,22 +89,28 @@
 
 如需 D、DS 或 G 系列虛擬機器的 InstanceSize 值，請參閱 [Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
 
-使用下列命令指定初始的 Linux 使用者名稱和密碼 (必要步驟)。選擇強式密碼。要檢查密碼強度，請參閱[密碼檢查程式：使用強式密碼](https://www.microsoft.com/security/pc-security/password-checker.aspx)。
+
+## 設定使用者存取安全性選項
+
+**選項 1**：指定初始的 Linux 使用者名稱和密碼 (必要)。選擇強式密碼。要檢查密碼強度，請參閱[密碼檢查程式：使用強式密碼](https://www.microsoft.com/security/pc-security/password-checker.aspx)。
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
-也可選擇指定已在訂閱中部署的 SSH 金鑰組。
+**選項 2**：指定已在訂閱中部署的 SSH 金鑰組。
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
 如需詳細資訊，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux](virtual-machines-linux-use-ssh-key.md)。
 
-也可選擇指定已在訂閱中部署的 SSH 公開金鑰清單。
+**選項 3**：指定已在訂閱中部署的 SSH 公開金鑰清單。
 
 	$vm1 | Add-AzureProvisioningConfig -Linux - SSHPublicKeys "<SSH public keys>"
 
-如需以 Linux 為基礎之虛擬機器的其他預先組態選項，請參閱 [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) 中的 **Linux** 參數集語法。
+如需 Linux 型虛擬機器的其他預先設定選項，請參閱 [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) 中設定的 **Linux** 參數語法。
+
+
+## 選擇性：指派靜態 DIP
 
 也可選擇將特定 IP 位址 (稱為靜態 DIP) 指派給虛擬機器。
 
@@ -112,11 +120,16 @@
 
 	Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
 
-也可選擇將虛擬機器指派給 Azure 虛擬網路中的特定子網路。
+## 選擇性：指派虛擬機器給特定子網路 
+
+將虛擬機器指派給 Azure 虛擬網路中的特定子網路。
 
 	$vm1 | Set-AzureSubnet -SubnetNames "<name of the subnet>"
 
-也可選擇將單一資料磁碟加入至虛擬機器。
+	
+## 選擇性：新增資料磁碟
+	
+將下列項目新增至命令集，以新增資料磁碟至虛擬機器。
 
 	$disksize=<size of the disk in GB>
 	$disklabel="<the label on the disk>"
@@ -124,7 +137,9 @@
 	$hcaching="<Specify one: ReadOnly, ReadWrite, None>"
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
 
-也可選擇將虛擬機器加入至外部流量的現有負載平衡集。
+## 選擇性：將虛擬機器新增至現有的負載平衡 
+
+將下列項目新增至命令集，以將虛擬機器新增至外部流量的現有負載平衡集。
 
 	$prot="<Specify one: tcp, udp>"
 	$localport=<port number of the internal port>
@@ -136,31 +151,31 @@
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-最後，選擇下列其中一個命令區塊，以啟動虛擬機器建立程序 (必要步驟)。
+## 決定如何啟動虛擬機器建立程序 
 
-選項 1：在現有的雲端服務中建立虛擬機器。
+選擇下列其中一個命令區塊，以新增區塊至命令集來啟動虛擬機器建立程序。
+
+**選項 1**：在現有的雲端服務中建立虛擬機器。
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
 雲端服務的簡短名稱出現於 Azure 入口網站內的 Azure 雲端服務清單，或出現於 Azure Preview 入口網站的資源群組清單中。
 
-選項 2：在現有的雲端服務和虛擬網路中建立虛擬機器。
+**選項 2**：在現有的雲端服務和虛擬網路中建立虛擬機器。
 
 	$svcname="<short name of the cloud service>"
 	$vnetname="<name of the virtual network>"
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-## 步驟 5：執行命令集
+## 執行命令集
 
-檢閱在步驟 4 中使用文字編輯器或 PowerShell ISE 以多個命令區塊建立的 Azure PowerShell 命令集。確定您已指定所需的所有變數，並且這些變數具有正確的值。也確定已移除所有 < and > 字元。
+檢閱您在文字編輯器或 PowerShell ISE 中建立的 Azure PowerShell 命令集，並確定您已經指定所有變數且變數都有正確的值。也請確定已移除所有的 < and > 字元。
 
-如果您使用文字編輯器，請將命令集複製到剪貼簿，然後以滑鼠右鍵按一下 [開啟 Azure PowerShell 命令提示字元]。這將發出命令集作為一系列的 PowerShell 命令，並建立 Azure 虛擬機器。或者，在 PowerShell ISE 中執行您的命令集。
-
-如果您在錯誤的訂閱、儲存體帳戶、雲端服務、可用性設定組、虛擬網路或子網路中建立虛擬機器，請刪除虛擬機器，並更正命令區塊語法，然後執行更正的命令集。
+將命令集複製到剪貼簿，然後以滑鼠右鍵按一下 [開啟 Azure PowerShell 命令提示字元]。這將發出命令集作為一系列的 PowerShell 命令，並建立 Azure 虛擬機器。
 
 建立虛擬機器之後，請參閱[如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)。
 
-如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以：
+如果您想要重複使用命令集，可以：
 
 - 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
 - 在 Azure 入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
@@ -265,4 +280,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

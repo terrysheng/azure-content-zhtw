@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="執行個體層級公用 IP (ILPIP)"
+   pageTitle="執行個體層級公用 IP (ILPIP) | Microsoft Azure"
    description="了解 ILPIP (PIP) 及管理它們的方法"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
+   ms.date="11/11/2015"
    ms.author="telmos" />
 
 # 執行個體層級公用 IP 概觀
@@ -33,8 +33,6 @@
 
 ## 為什麼我應該要求 ILPIP？
 如果您想要能夠透過直接指派給 VM 或角色執行個體的 IP 位址直接連接到它，而不是使用雲端服務 VIP:&lt;連接埠號碼&gt;，則可要求適用於 VM 或角色執行個體的 ILPIP。- **被動 FTP** - 透過在 VM上擁有 ILPIP，您幾乎能夠接收所有連接埠的流量，而不需開啟端點來接收流量。這會啟用像是被動 FTP (會動態選擇連接埠) 之類的案例。- **輸出 IP** - 源自 VM 的輸出流量是使用 ILPIP 做為來源所送出，而這可將 VM 唯一識別為外部實體。
-
->[AZURE.NOTE]使用保留的 ILPIP 可能需支付額外的 Azure 訂用帳戶費用。如需 ILPIP 定價的詳細資訊，請參閱 [IP 位址定價](http://azure.microsoft.com/pricing/details/ip-addresses/)。
 
 ## 如何在建立 VM 期間要求 ILPIP
 下列 PowerShell 指令碼會建立名為 *FTPService* 的新雲端服務，然後從 Azure 擷取映像，並使用擷取的映像建立名為 *FTPInstance* 的 VM、設定要使用 ILPIP 的 VM，然後將 VM 加入新服務：
@@ -125,4 +123,4 @@
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

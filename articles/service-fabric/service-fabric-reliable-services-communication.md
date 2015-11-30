@@ -3,9 +3,9 @@
    description="Reliable Service 通訊模型概觀，其中包括開啟服務的接聽程式、解析端點和服務間通訊。"
    services="service-fabric"
    documentationCenter=".net"
-   authors="BharatNarasimman"
+   authors="vturecek"
    manager="timlt"
-   editor=""/>
+   editor="BharatNarasimman"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,34 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
-   ms.author="bharatn@microsoft.com"/>
+   ms.date="11/17/2015"
+   ms.author="vturecek@microsoft.com"/>
 
-# Reliable Service 通訊模型概觀
+# Reliable Service 通訊模型
 
-可靠服務程式設計模型允許服務作者指定他們想要用來公開其服務端點的通訊機制，也提供用戶端可用來與服務端點進行探索和通訊的抽象概念。
+「Service Fabric 即平台」完全不受服務間的通訊影響。任何及所有通訊協定和堆疊 (從 UDP 到 HTTP) 都具有平等地位。它是由服務開發人員選擇服務應有的通訊方式。Reliable Services 應用程式架構提供幾個預先建置的通訊堆疊及工具來運作您的自訂通訊堆疊，例如可供用戶端用來探索服務端點並與其進行通訊的抽象概念。
 
-## 設定服務通訊堆疊
+## 設定服務通訊
 
-可靠服務 API允許服務作者在其選擇的服務中外掛程式通訊堆疊，並在其服務中實作下列方法，
-
-```csharp
-
-protected override ICommunicationListener CreateCommunicationListener()
-{
-    ...
-}
-
-```
-
-`ICommunicationListener` 介面定義必須由服務通訊接聽程式實作的介面。
+Reliable Services API 使用一個簡單的服務通訊介面。若要開啟服務的端點，只要實作此介面即可：
 
 ```csharp
 
 public interface ICommunicationListener
 {
-    void Initialize(ServiceInitializationParameters serviceInitializationParameters);
-
     Task<string> OpenAsync(CancellationToken cancellationToken);
 
     Task CloseAsync(CancellationToken cancellationToken);
@@ -49,7 +36,46 @@ public interface ICommunicationListener
 }
 
 ```
-服務所需的端點將透過＜端點＞一節下的＜[服務資訊清單](service-fabric-application-model.md)＞進行說明。
+
+然後，在服務基底類別方法覆寫項中傳回您的通訊接聽程式實作來新增該實作。
+
+針對具狀態的情況：
+
+```csharp
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+```
+
+針對無狀態的情況：
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+```
+
+在這兩種情況下，您都會傳回一個可讓您的服務輕鬆使用多個接聽程式的接聽程式集合 - 例如，您可能會有一個 HTTP 接聽程式和一個個別的 WebSocket 接聽程式。每個接聽程式都會獲得一個名稱及所產生的名稱集合：當用戶端要求服務執行個體或資料分割的接聽位址時，系統會以 JSON 物件的形式呈現位址配對。
+
+在無狀態服務中，覆寫項會傳回 ServiceInstanceListeners 的集合。ServiceInstanceListener 只包含一個用來建立 ICommunicationListener 並賦予其名稱的函式。就具狀態服務而言，覆寫項則會傳回 ServiceReplicaListeners 集合。這與其無狀態的對應項稍有不同，因為 ServiceReplicaListener 可以選擇在次要複本上開啟 ICommunicationListener。這讓您不僅可以在服務中使用多個通訊接聽程式，也可以指定哪些接聽程式要在次要複本上接受要求，以及哪些接聽程式只在主要複本上進行接聽。
+
+例如，我們可以有一個只在主要複本上接受 RPC 呼叫的 ServiceRemotingListener，以及一個在次要複本上接受讀取要求的第二、自訂接聽程式：
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    return new[]
+    {
+        new ServiceReplicaListener(initParams =>
+            new MyCustomListener(initParams),
+            "customReadonlyEndpoint",
+            true),
+
+        new ServiceReplicaListener(initParams =>
+            new ServiceRemotingListener<IMyStatefulInterface2>(initParams, this),
+            "rpcPrimaryEndpoint",
+            false)
+    };
+}
+```
+
+最後，請在[服務資訊清單](service-fabric-application-model.md)的 Endpoints 區段底下說明服務所需的端點。
 
 ```xml
 
@@ -100,13 +126,13 @@ var listenAddress = new Uri(
 
 ```
 
+如需有關撰寫 `ICommunicationListener` 完整逐步解說，請參閱[開始使用 Microsoft Azure Service Fabric Web API 服務與 OWIN 自我裝載](service-fabric-reliable-services-communication-webapi.md)。
+
 ## 用戶端對服務間的通訊
 可靠服務 API提供下列抽象概念讓撰寫用於與服務進行通訊的用戶端更簡單。
 
-## ServicePartitionResolver
-ServicePartitionResolver 類別可協助用戶端在執行階段決定 Service Fabric 服務的端點。
-
-> [AZURE.TIP]判斷服務端點的程序在 Service Fabric 術語中稱為「服務端點解析」。
+### ServicePartitionResolver
+此公用程式類別可協助用戶端在執行階段判斷 Service Fabric 服務的端點。判斷服務端點的程序在 Service Fabric 術語中稱為「服務端點解析」。
 
 ```csharp
 
@@ -129,7 +155,7 @@ Task<ResolvedServicePartition> ResolveAsync(ResolvedServicePartition previousRsp
 
 通常用戶端程式碼不需要直接搭配 `ServicePartitionResolver`。其在可靠服務 API中建立並傳遞給其他協助程式類別，並在內部使用解析程式及協助用戶端與服務進行通訊。
 
-## CommunicationClientFactory
+### CommunicationClientFactory
 `ICommunicationClientFactory` 定義通訊用戶端處理站所實作的基底介面，並產生可以與 ServiceFabric 服務通訊的用戶端。CommunicationClientFactory 的實作將取決於用戶端想要通訊的 Service Fabric 服務所使用的通訊堆疊。可靠的服務 API 提供 CommunicationClientFactoryBase<TCommunicationClient>，而其提供這個 `ICommunicationClientFactory` 的基底實作介面，並執行常見的所有通訊堆疊作業 (就像使用 `ServicePartitionResolver` 決定服務端點)。用戶端通常會實作 CommunicationClientFactoryBase 抽象類別來處理通訊堆疊的特定邏輯。
 
 ```csharp
@@ -152,30 +178,30 @@ public class MyCommunicationClient : ICommunicationClient
 
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
 {
-   protected override void AbortClient(MyCommunicationClient1 client)
-   {
-      throw new NotImplementedException();
-   }
+    protected override void AbortClient(MyCommunicationClient client)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override Task<MyCommunicationClient> CreateClientAsync(ResolvedServiceEndpoint endpoint, CancellationToken cancellationToken)
-   {
-      throw new NotImplementedException();
-   }
+    protected override Task<MyCommunicationClient> CreateClientAsync(string endpoint, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override bool ValidateClient(MyCommunicationClient clientChannel)
-   {
-      throw new NotImplementedException();
-   }
+    protected override bool ValidateClient(MyCommunicationClient clientChannel)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override bool ValidateClient(ResolvedServiceEndpoint endpoint, MyCommunicationClient client)
-   {
-      throw new NotImplementedException();
-   }
+    protected override bool ValidateClient(string endpoint, MyCommunicationClient client)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 ```
 
-## ServicePartitionClient
+### ServicePartitionClient
 透過處理一般通訊和 Service Fabric 暫時性例外狀況的重試，`ServicePartitionClient` 使用的 CommunicationClientFactory (內部的 ServicePartitionResolver) 將有助於與服務通訊。
 
 ```csharp
@@ -192,7 +218,7 @@ public async Task<TResult> InvokeWithRetryAsync<TResult>(
 
 ```
 
-一般使用模式如下所示：
+一般使用模式會看起來如下：
 
 ```csharp
 
@@ -222,11 +248,12 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(
 ```
 
 ## 後續步驟
-* ＜[可靠服務架構所提供的預設通訊堆疊](service-fabric-reliable-services-communication-default.md)＞
+* [使用 Reliable Services 遠端服務進行遠端程序呼叫](service-fabric-reliable-services-communication-remoting.md)
 
-* ＜[可靠服務架構所提供的 WCF 式通訊堆疊](service-fabric-reliable-services-communication-wcf.md)＞
+* [在 Reliable Services 中搭配 OWIN 使用 Web API](service-fabric-reliable-services-communication-webapi.md)
 
-* ＜[撰寫使用 WebAPI 通訊堆疊的可靠服務 API 服務](service-fabric-reliable-services-communication-webapi.md)＞
+* [使用 Reliable Services 的 WCF 通訊](service-fabric-reliable-services-communication-wcf.md)
+
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

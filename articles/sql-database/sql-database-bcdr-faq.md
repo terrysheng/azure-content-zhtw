@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 # 業務續航力常見問題集
@@ -48,7 +48,7 @@
 
 ## 7\.如何大量還原伺服器下的所有資料庫？
 
-沒有可執行大量還原的內建功能。您可以使用 [Azure SQL Database：完整伺服器復原](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666)指令碼來完成這項工作。
+沒有可執行大量還原的內建功能。[Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 指令碼是其中一種完成這項工作的範例。
 
 ## 8\.標準異地複寫和主動式異地複寫有何不同？
 
@@ -58,11 +58,6 @@
 
 ## 9\.什麼是使用標準異地複寫或主動式異地複寫時的複寫延遲？
 
-異地複寫使用連續複製。因此，使用 [sys.dm\_continuous\_copy\_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) 動態管理檢視 (DMV) 可取得上次複寫時間和其他資訊。
+使用 [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) 動態管理檢視 (DMV) 可取得上次複寫時間、上次複寫延遲和其他複寫連結的相關資訊。
 
-
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

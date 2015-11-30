@@ -25,6 +25,7 @@
 
 - [目前的已知問題](#issues)
 - [REST API 版本歷程記錄](#rest_version_history)
+- [2015 年 11 月版本](#nov_changes_15)
 - [2015 年 10 月版本](#oct_changes_15)
 - [2015 年 9 月版本](#september_changes_15)
 - [2015 年 8 月版本](#august_changes_15)
@@ -75,9 +76,15 @@ SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配
 
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
 
+##<a id="nov_changes_15"></a>2015 年 11 月版本
+
+Azure 媒體服務現在在雲端提供 Google Widevine 授權傳遞服務。如需詳細資訊，請閱讀[本公告部落格](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。同時也參閱[本教學課程](media-services-protect-with-drm.md)和 [GitHub 儲存機制](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)。
+
+請注意，Azure 媒體服務所提供的 Widevine 授權傳遞服務為預覽狀態。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。
+
 ##<a id="oct_changes_15"></a>2015 年 10 月版本
 
-Azure 媒體服務 (AMS) 現在也適用於下列資料中心：巴西南部、印度西部、印度南部和印度中部。您現在可以使用 Azure 管理入口網站，[建立媒體服務帳戶](media-services-create-account.md#create-a-media-services-account-using-quick-create)並執行[這裡](https://azure.microsoft.com/documentation/services/media-services/)所述的各種工作。不過，這些資料中心不會啟用即時編碼。此外，並非所有類型的編碼保留單元都可用於這些資料中心。
+Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、印度西部、印度南部和印度中部。您現在可以使用 Azure 管理入口網站[建立媒體服務帳戶](media-services-create-account.md#create-a-media-services-account-using-quick-create)，並執行[這裡](https://azure.microsoft.com/documentation/services/media-services/)所述的各種工作。不過，這些資料中心不會啟用即時編碼。此外，並非所有類型的編碼保留單元都可用於這些資料中心。
 
 - 巴西南部：只可以使用標準和基本編碼保留單元
 - 印度西部、印度南部和印度中部：只可以使用基本編碼保留單元
@@ -85,7 +92,7 @@ Azure 媒體服務 (AMS) 現在也適用於下列資料中心：巴西南部、�
 
 ##<a id="september_changes_15"></a>2015 年 9 月版本 
 
-- AMS 現在提供以 Widevine Modular DRM 技術，保護點播視訊 (VOD) 和即時資料流的能力。您可以使用下列傳遞服務合作夥伴來助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
+- AMS 現在提供以 Widevine Modular DRM 技術，保護點播視訊 (VOD) 和即時資料流的能力。您可以使用下列傳遞服務合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
 
 	您可以使用 [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從版本 3.5.1 開始) 或 REST API 來設定 AssetDeliveryConfiguration 以使用 Widevine。
 
@@ -98,11 +105,11 @@ Azure 媒體服務 (AMS) 現在也適用於下列資料中心：巴西南部、�
 	- 您現在可以使用 Apple HTTP Live Streaming (HLS) 格式搭配僅限音訊的篩選條件。這項更新可讓您在 URL 中指定 (audio-only=false) 來移除僅限音訊的曲目。
 	- 在定義您的資產篩選條件時，現在您可以結合多個 (最多 3 個) 篩選器到單一 URL 中。
 
-	如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)。
+	如需詳細資訊，請參閱[此](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)部落格。
 
 - AMS 現在支援 HLS v4 的 I-Frames。 I-Frames 支援最佳化向前快轉和倒轉的作業。根據預設，所有 HLS v4 輸出都包含 I-Frames 播放清單 (EXT-X-I-FRAME-STREAM-INF)。
  
-	如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)。
+	如需詳細資訊，請參閱[此](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)部落格。
 
 ##<a id="august_changes_15"></a>2015 年 8 月版本
 
@@ -117,7 +124,7 @@ Azure 媒體服務 (AMS) 現在也適用於下列資料中心：巴西南部、�
 
 - 宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格文章](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
 
-	Media Encoder Standard 使用[本節](http://go.microsoft.com/fwlink/?LinkId=618336)描述的預設。請注意，使用 4k 編碼的預設時，您應該取得「Premium」保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
+	Media Encoder Standard 使用[本節](http://go.microsoft.com/fwlink/?LinkId=618336)描述的預設值。請注意，使用 4k 編碼的預設值時，您應該取得**進階**保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
 - 直播即時字幕與 Azure 媒體服務和播放器。如需詳細資訊，請參閱[此部落格文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###媒體服務 .NET SDK 更新
@@ -128,7 +135,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.4.0.0。此版本中加入了下�
 - 動態篩選的實作支援。
 - 實作功能，可讓使用者在刪除資產時保留儲存體容器的。
 - 通道中重試原則的相關 Bug 修正。
-- 啟用的「媒體編碼器高階工作流程」。
+- 已啟用的 **Media Encoder Premium 工作流程**。
 
 ##<a id="june_changes_15"></a>2015 年 6 月版本
 
@@ -614,4 +621,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

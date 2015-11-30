@@ -27,7 +27,7 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 
 | 角色名稱 | 說明 |
 | --------- | ----------- |
-| [API 管理服務參與者](#api-management-service-contributor) | 可以管理 Application Insights 元件 |
+| [API 管理服務參與者](#api-management-service-contributor) | 可以管理 API 管理服務 |
 | [Application Insights 元件參與者](#application-insights-component-contributor) | 可以管理 Application Insights 元件 |
 | [自動化運算子](#automation-operator) | 能夠啟動、停止、暫停和繼續工作 |
 | [BizTalk 參與者](#biztalk-contributor) | 可以管理 BizTalk 服務 |
@@ -53,7 +53,7 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 | [使用者存取系統管理員](#user-access-administrator) | 可以管理 Azure 資源的使用者存取 |
 | [傳統虛擬機器參與者](#classic-virtual-machine-contributor) | 可以管理傳統虛擬機器，但是無法管理它們連接的虛擬網路或儲存體帳戶 |
 | [虛擬機器參與者](#virtual-machine-contributor) | 可以管理虛擬機器，但是無法管理它們連接的虛擬網路或儲存體帳戶 |
-| [傳統網路參與者](#classic-network-contributor) | 可以管理虛擬機器，但是無法管理它們連接的虛擬網路或儲存體帳戶 |
+| [傳統網路參與者](#classic-network-contributor) | 可以管理傳統虛擬網路和保留 IP |
 | [Web 方案參與者](#web-plan-contributor) | 可以管理 Web 方案 |
 | [網站參與者](#website-contributor) | 可以管理網站，但是不能管理它們連接的 Web 方案 |
 
@@ -480,4 +480,4 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 ## RBAC 主題
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

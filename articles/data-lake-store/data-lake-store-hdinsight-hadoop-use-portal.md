@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/29/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # 使用 Azure Preview 入口網站佈建 HDInsight 叢集與資料湖存放區
@@ -36,12 +36,12 @@
 * 使用相同的服務主體設定資料湖存放區存取
 * 在叢集上執行測試工作
 
-## 先決條件
+## 必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
-- **啟用您的 Azure 訂用帳戶**以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
+- **啟用您的 Azure 訂用帳戶**以使用資料湖存放區公開預覽版。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 
 
 ## 建立具有 Azure Active Directory 服務主體驗證的 HDInsight 叢集
@@ -52,7 +52,7 @@
 
 2. 請依照[在 HDInsight 中建立 Hadoop 叢集](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal)中的步驟，開始佈建 HDInsight 叢集。
  
-3. 在 [選擇性組態] 刀鋒視窗中，按一下 [資料來源]。在 [資料來源] 刀鋒視窗中，指定儲存體帳戶和儲存體容器的詳細資料、指定 [位置] 為 [美國東部 2]，然後按一下 [叢集 AAD 身分識別]。
+3. 在 [選擇性組態] 刀鋒視窗中，按一下 [資料來源]。在 [資料來源] 刀鋒視窗中，指定儲存體帳戶和儲存體容器的詳細資料、將 [位置] 指定為 [美國東部 2]，然後按一下 [叢集 AAD 身分識別]。
 
 	![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "將服務主體新增至 HDInsight 叢集")
 
@@ -62,7 +62,7 @@
 
 		![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "將服務主體新增至 HDInsight 叢集")
 
-		在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [選取] 以建立的服務主體繼續作業。
+		在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [選取]，利用將建立的服務主體繼續作業。
 
 		![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "將服務主體新增至 HDInsight 叢集")
 
@@ -77,7 +77,7 @@
 
 6. 按一下 [資料來源] 刀鋒視窗上的 [選取]，並使用叢集佈建繼續作業，如[在 HDInsight 中建立 Hadoop 叢集](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal)中所述。
 
-7. 佈建叢集之後，您可以驗證服務主體是與 HDInsight 叢集相關聯。若要這樣做，從叢集刀鋒視窗按一下 [設定]，按一下 [叢集 AAD 身分識別]，您應該會看到相關聯的服務主體。
+7. 佈建叢集之後，您可以驗證服務主體是與 HDInsight 叢集相關聯。若要這樣做，從 [叢集] 刀鋒視窗中依序按一下 [設定] 和 [叢集 AAD 身分識別]，您應該會看到相關聯的服務主體。
 
 	![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "將服務主體新增至 HDInsight 叢集")
 
@@ -87,16 +87,16 @@
 
 2. 如果您沒有資料湖存放區帳戶，請建立一個。遵循[使用 Azure Preview 入口網站開始使用 Azure 資料湖存放區](data-lake-store-get-started-portal.md)的指示。
 
-	如果您已經有資料湖存放區帳戶，從左窗格中，按一下 [瀏覽]，按一下 [資料湖存放區]，然後按一下您要授與存取權的帳戶名稱。
+	如果您已經擁有資料湖存放區帳戶，可從左窗格中依序按一下 [瀏覽] 和 [資料湖存放區]，然後按一下您要授與存取權的帳戶名稱。
 
 	在您的資料湖存放區帳戶底下執行下列工作。
 
 	* [在資料湖存放區中建立資料夾](data-lake-store-get-started-portal.md#createfolder)。
-	* [將檔案上傳至資料湖存放區](data-lake-store-get-started-portal.md#uploaddata)。如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
+	* [將檔案上傳至資料湖存放區](data-lake-store-get-started-portal.md#uploaddata)。如果您正在尋找一些可上傳的範例資料，可以從 [Azure 資料湖 Git 存放庫](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
 
 	您稍後在測試資料湖存放區帳戶與 HDInsight 叢集時，將使用上傳的檔案。
 
-3. 在資料湖存放區刀鋒視窗中，按一下 [資料總管]。
+3. 在 [資料湖存放區] 刀鋒視窗中，按一下 [資料總管]。
 
 	![資料總管](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.start.data.explorer.png "資料總管")
 
@@ -104,7 +104,7 @@
 
 	![設定資料湖檔案系統上的 ACL](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.1.png "設定資料湖檔案系統上的 ACL")
 
-5. [存取] 刀鋒視窗會列出已指派給根的標準存取和自訂存取。按一下 [新增] 圖示以新增自訂層級 ACL，並包含您稍早建立的服務主體。
+5. [存取] 刀鋒視窗會列出已指派給根的標準存取權和自訂存取權。按一下 [新增] 圖示以新增自訂層級 ACL，並包含您稍早建立的服務主體。
 
 	![列出標準和自訂存取](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.2.png "列出標準和自訂存取")
 
@@ -114,11 +114,11 @@
 
 7. 按一下 [選取權限]，選取您想要指派給服務主體的權限，然後按一下 [確定]。
 
-	![指派權限給群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.4.png "指派權限給群組")
+	![將權限指派至群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.4.png "將權限指派至群組")
 
 8. 在 [新增自訂存取] 刀鋒視窗中，按一下 [確定]。具有相關權限的新增群組現在將列在 [存取] 刀鋒視窗中。
 
-	![指派權限給群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.5.png "將權限指派至群組")
+	![將權限指派至群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.5.png "將權限指派至群組")
 
 7. 如果需要，您也可以在新增服務主體之後修改存取權限。根據您想要移除或指派該權限，清除或選取每個權限類型的核取方塊 (讀取、寫入、執行)。按一下 [儲存] 儲存變更，或按一下 [捨棄] 復原變更。
 
@@ -138,13 +138,13 @@
 
 	![開啟 Hive 編輯器](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster2.png "開啟 Hive 編輯器")
 
-3. 在 [Hive 編輯器] 中，輸入下列查詢，然後按一下 [提交]。
+3. 在 [Hive 編輯器] 中輸入下列查詢，然後按一下 [提交]。
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-	在此 Hive 查詢中，我們會根據儲存在 `adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder` 的資料湖存放區中的資料，建立資料表。這個位置具有您稍早應該已上傳的範例資料檔案。
+	在此 Hive 查詢中，我們會根據儲存在 `adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder` 上資料湖存放區中的資料來建立資料表。這個位置具有您稍早應該已上傳的範例資料檔案。
 
-	底部的 [工作工作階段] 資料表會顯示工作的狀態從 [正在初始化] 變更為 [執行中]、[已完成]。您也可以按一下 [檢視詳細資料] 以查看已完成工作的詳細資訊。
+	底部的 [工作工作階段] 資料表會顯示工作的狀態從 [正在初始化] 變更為 [執行中]，然後變更為 [已完成]。您也可以按一下 [檢視詳細資料] 以查看已完成工作的詳細資訊。
 
 	![建立資料表](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster3.png "建立資料表")
 
@@ -157,9 +157,9 @@
 		hivesampletable
 		vehicles
 
-	[車輛] 是您稍早建立的資料表。[hivesampletable] 是所有 HDInsight 叢集中預設可用的範例資料表。
+	**vehicles** 是您稍早建立的資料表。**hivesampletable** 是所有 HDInsight 叢集中預設可用的範例資料表。
 
-5. 您也可以執行查詢以從 [車輛] 擷取資料。
+5. 您也可以執行查詢，從 **vehicles** 擷取資料。
 
 		SELECT * FROM vehicles LIMIT 5;
 
@@ -187,16 +187,16 @@
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
 
-	您也可以使用 `hdfs dfs -put` 命令將一些檔案上傳至資料湖存放區，然後使用 `hdfs dfs -ls` 以確認是否成功上傳檔案。
+	您也可以使用 `hdfs dfs -put` 命令來將一些檔案上傳至資料湖存放區，然後使用 `hdfs dfs -ls` 以確認是否成功上傳檔案。
 
 ## 佈建 HBase 叢集 (使用資料湖存放區做為預設儲存體) 的考量
 
-對於 HBase 叢集，您可以使用資料湖存放區帳戶做為預設儲存體。如果您選擇這樣做，若要成功佈建叢集，與叢集相關聯的服務主體**必須**有資料湖存放區帳戶的存取權。您可以使用兩種方式確定：
+對於 HBase 叢集，您可以使用資料湖存放區帳戶做為預設儲存體。如果您選擇這樣做，若要成功佈建叢集，與叢集相關聯的服務主體**必須**具備資料湖存放區帳戶的存取權。您可以使用兩種方式確定：
 
-* **如果您使用現有的服務主體**，您必須確定服務主體新增至根層級資料湖存放區檔案系統的 ACL，再開始佈建叢集。
-* **如果您選擇建立新的服務主體**做為叢集佈建的一部分，只要叢集開始佈建，您必須將新建立的服務主體新增至根層級資料湖存放區檔案系統。如果您無法執行這項操作，將會佈建叢集但是 HBase 服務將無法啟動。若要解決此問題，您必須再將服務主體新增至資料湖存放區帳戶的 ACL，然後使用 Ambari Web UI 重新啟動 HBase 服務。
+* **如果您使用現有的服務主體**，就必須確定服務主體已新增至根層級的資料湖存放區檔案系統的 ACL，然後再開始佈建叢集。
+* **如果您選擇建立新的服務主體**做為叢集佈建的一部分，只要叢集開始佈建，就必須將新建立的服務主體新增至根層級的資料湖存放區檔案系統。如果您無法執行這項操作，將會佈建叢集但是 HBase 服務將無法啟動。若要解決此問題，您必須再將服務主體新增至資料湖存放區帳戶的 ACL，然後使用 Ambari Web UI 重新啟動 HBase 服務。
 
-如需有關如何將服務主體新增至資料湖存放區檔案系統的指示，請參閱[設定服務主體以存取資料湖存放區檔案系統](#acl)。
+如需如何將服務主體新增至資料湖存放區檔案系統的相關指示，請參閱[設定服務主體以存取資料湖存放區檔案系統](#acl)。
 
 
 
@@ -207,4 +207,4 @@
 [makecert]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

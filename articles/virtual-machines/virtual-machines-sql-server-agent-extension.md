@@ -1,9 +1,9 @@
-<properties 
-	pageTitle="SQL Server IaaS 代理程式延伸模組 | Microsoft Azure" 
-	description="本主題會使用以傳統部署模型建立的資源，並說明 SQL Server 代理程式延伸模組，其可讓在 Azure 上執行 SQL Server 的 VM 使用自動化功能。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
+<properties
+	pageTitle="SQL Server IaaS 代理程式延伸模組 | Microsoft Azure"
+	description="本主題會使用以傳統部署模型建立的資源，並說明 SQL Server 代理程式延伸模組，其可讓在 Azure 上執行 SQL Server 的 VM 使用自動化功能。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="jeffgoll"
 	manager="jeffreyg"
    editor="monicar"    
    tags="azure-service-management"/>
@@ -13,17 +13,17 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
+	ms.workload="infrastructure-services"
 	ms.date="10/02/2015"
 	ms.author="jeffreyg"/>
 
 # SQL Server IaaS 代理程式延伸模組
 
-這個延伸模組可讓 Azure 虛擬機器中的 SQL Server 使用這篇文章中列出的某些服務，這些服務只有在安裝此延伸模組時才能使用。此延伸模組會為 Azure Preview 入口網站中的 SQL Server 組件庫映像自動安裝。它可以安裝在 Azure 中的任何 SQL Server VM，其已安裝 Azure VM 客體代理程式。
+這個延伸模組可讓 Azure 虛擬機器中的 SQL Server 使用這篇文章中列出的某些服務，這些服務只有在安裝此延伸模組時才能使用。此延伸模組會為 Azure Preview 入口網站中的 SQL Server 資源庫映像自動安裝。它可以安裝在 Azure 中的任何 SQL Server VM，其已安裝 Azure VM 客體代理程式。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
- 
- 
+
+
 ## 必要條件
 使用 Powershell cmdlet 的需求：
 
@@ -34,14 +34,14 @@
 - Azure VM 客體代理程式
 - Windows Server 2012、Windows Server 2012 R2 或更新版本
 - SQL Server 2012、SQL Server 2014 或更新版本
- 
+
 ## 延伸模組可用的服務
 
 - **SQL 自動化備份**：這項服務會針對 VM 中 SQL Server 的預設執行個體，自動化所有資料庫的備份排程。若要查看此服務的詳細資訊，請參閱[Azure 虛擬機器中 SQL Server 的自動化備份](virtual-machines-sql-server-automated-backup.md)。
 - **SQL 自動化修補**：這項服務可讓您設定維護視窗 (在此期間會進行 VM 的更新)，您就可以在工作負載的尖峰時段避免更新。若要查看此服務的詳細資訊，請參閱[Azure 虛擬機器中 SQL Server 的自動化修補](virtual-machines-sql-server-automated-patching.md)。
 
 ## 利用 Powershell 新增延伸模組
-如果您使用 [Azure Preview 入口網站](https://portal.azure.com/)佈建 SQL Server VM，將會自動安裝延伸模組。對於利用 [Azure 管理入口網站](https://manage.windowsazure.com)佈建的 SQL Server VM，或對於您授與自己 SQL 授權的目標 VM，您都可以使用下列 Azure PowerShell cmdlet 將此延伸模組新增至現有的 VM。
+如果您透過 [Azure Preview 入口網站](https://portal.azure.com/)佈建 SQL Server VM，將會自動安裝延伸模組。對於透過 [Azure 入口網站](https://manage.windowsazure.com)佈建的 SQL Server VM，或對於您授與自己 SQL 授權的目標 VM，您都可以使用下列 Azure PowerShell cmdlet 將此延伸模組新增至現有的 VM。
 
 **Set-AzureVMSqlServerExtension**
 
@@ -78,4 +78,4 @@ Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<Co
 ### 語法
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

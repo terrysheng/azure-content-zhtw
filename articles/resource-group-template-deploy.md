@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="11/13/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
@@ -213,9 +213,15 @@
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## 透過 Visual Studio 部署
+
+有了 Visual Studio，您可以透過其使用者介面建立資源群組專案，並將其部署至 Azure。選取要包含在您專案中的資源類型後，這些資源會自動新增至資源管理員範本中。該專案也提供 PowerShell 指令碼來部署範本。
+
+如需透過資源群組使用 Visual Studio 的簡介，請參閱[透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
 ## 使用 Preview 入口網站部署
 
-您知道嗎？ Azure 資源管理員範本支援所有經由[預覽入口網站](https://portal.azure.com/)建立的應用程式！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。只要選取 [新增] 圖示，您即可進入透過 Azure 資源管理員部署應用程式的程序。
+您知道嗎？ Azure 資源管理員範本支援所有經由[預覽入口網站](https://portal.azure.com/)建立的應用程式！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。只要選取 [**新增**] 圖示，您即可進入透過 Azure 資源管理員部署應用程式的程序。
 
 ![新增](./media/resource-group-template-deploy/new.png)
 
@@ -247,10 +253,10 @@
 ## 後續步驟
 - 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](arm-template-deployment.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
-- 如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](solution-dev-test-environments-preview-portal.md)。
+- 如需將您的方案部署到不同的環境的指導，請參閱[在 Microsoft Azure 中開發和測試環境](solution-dev-test-environments-preview-portal.md)。
 - 若要了解 Azure 資源管理員範本的區段，請參閱[撰寫範本](resource-group-authoring-templates.md)
-- 如需可以在 Azure 資源管理員範本中使用的函數清單，請參閱[範本函數](resource-group-template-functions.md)
+- 如需可以在 Azure 資源管理員範本中使用的函式清單，請參閱[範本函式](resource-group-template-functions.md)
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

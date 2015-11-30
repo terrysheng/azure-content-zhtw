@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 #使用 Azure PowerShell 在 HDInsight 中建立以 Linux 為基礎的叢集
@@ -98,9 +98,9 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
     # Create a new HDInsight cluster
     New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials
 
-您對 **$clusterCredentials** 指定的值會用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連線到叢集。您對 **$sshCredentials** 指定的值會用來建立叢集的 SSH 使用者。您會使用此帳戶在叢集上啟動遠端 SSH 工作階段並執行工作。如果從 Azure 入口網站使用 [快速建立] 選項佈建叢集，則預設 Hadoop 使用者名稱是 "admin"，預設 SSH 使用者名稱是 "hdiuser"。
+您對 **$clusterCredentials** 指定的值會用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連線到叢集。您對 **$sshCredentials** 指定的值會用來建立叢集的 SSH 使用者。您會使用此帳戶在叢集上啟動遠端 SSH 工作階段並執行工作。
 
-> [AZURE.IMPORTANT]在這個指令碼中，您必須指定將位於叢集中的背景工作節點數目。如果您在建立叢集時或在建立後調整叢集時規劃使用 32 個以上的背景工作節點，則您也必須指定具有至少 8 個核心和 14 GB RAM 的前端節點大小。
+> [AZURE.IMPORTANT]在這個指令碼中，您必須指定將位於叢集中的背景工作節點數目。如果您在建立叢集時或在建立後調整叢集時規劃使用 32 個以上的背景工作角色節點，則您也必須指定具有至少 8 個核心和 14 GB RAM 的前端節點大小。
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
@@ -112,9 +112,9 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 ###Hadoop 叢集
 
-* 〈[搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)〉
+* [〈搭配 HDInsight 使用 Hivet〉](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
-* 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
+* [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
 
 ###HBase 叢集
 
@@ -127,4 +127,4 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python.md)
 * [使用 Storm on HDInsight 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

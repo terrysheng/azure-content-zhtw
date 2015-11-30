@@ -95,7 +95,7 @@ HDInsight 的 Spark 叢集有三種節點：- 前端節點 (2 個節點) - 背�
 | Storm | 即時事件處理 |
 | Spark (Windows 專用預覽) | 記憶體內處理、互動式查詢、微批次串流處理 |
 
-您可以使用[指令碼動作](#scriptaction)，將其他技術 (例如 Hue、Spark 或 R) 新增這些基本類型。
+您可以使用[指令碼動作](#scriptaction)，將其他技術 (例如 Hue、Spark 或 R) 加入這些基本類型。
 
 ###叢集作業系統
 
@@ -207,9 +207,11 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
 使用中繼存放區組態選項可讓您指定一個使用 SQL Database 的外部中繼存放區。當您刪除叢集時，由於中繼資料資訊已儲存在外部資料庫中，因而得以保留下來。如需有關如何在 Azure 中建立 SQL Database 的指示，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
 
+> [AZURE.NOTE]HBase 叢集類型無法使用中繼存放區組態。
+
 ###<a id="scriptaction"></a>指令碼動作
 
-您可以在叢集佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼要透過 [指令碼動作] 叫用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+您可以在叢集佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼透過 [指令碼動作] 叫用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 > [AZURE.IMPORTANT]建立叢集之後，不支援加入其他元件，因為在重新安裝叢集節點的映像之後，便無法使用這些元件。透過指令碼動作安裝的元件會在重新安裝映像程序時進行重新安裝。
 
@@ -280,4 +282,4 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

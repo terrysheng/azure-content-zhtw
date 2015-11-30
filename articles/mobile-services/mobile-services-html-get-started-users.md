@@ -35,7 +35,7 @@
 
 3. 在應用程式目錄中，從 **server** 子資料夾啟動下列其中一個命令檔。
 
-	+ **launch-windows** (Windows 電腦) 
+	+ **.\\start-iisexpress.ps1** (Windows 電腦) 
 	+ **launch-mac.command** (Mac OS X 電腦)
 	+ **launch-linux.sh** (Linux 電腦)
 
@@ -68,7 +68,7 @@
 
 	這樣可讓您從網頁登入行動服務。
 
-2. 在 app.js 檔案中，找出檔案最尾端呼叫 refreshTodoItems 函數的那一行程式碼，換成下列程式碼：
+2. 在 page.js 檔案中，找出檔案最尾端呼叫 refreshTodoItems 函數的那一行程式碼，換成下列程式碼：
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -137,4 +137,4 @@
 [行動服務 HTML/JavaScript 作法概念性參考]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="alkohli" />
 
 # 部署您的內部部署 StorSimple 裝置 (Update 1)
@@ -152,7 +152,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 當 StorSimple Manager 服務啟動後處於執行中時，您就必須取得服務註冊金鑰。這個金鑰是用來註冊和將 StorSimple 裝置與服務連接。
 
-請在管理入口網站中執行下列步驟。
+請在 Azure 入口網站中執行下列步驟。
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -171,7 +171,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 - 至少在一個網路介面上啟用 iSCSI。
 - 針對兩個控制器指派固定的 IP 位址。
 
-請在管理入口網站中執行下列步驟，以完成最小量裝置設定。
+請在 Azure 入口網站中執行下列步驟以完成最小量裝置設定。
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
@@ -179,13 +179,13 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 磁碟區容器具有其中所含之所有磁碟區的儲存體帳戶、頻寬及加密設定。您必須建立磁碟區容器，才能開始在 StorSimple 裝置上佈建磁碟區。
 
-請在管理入口網站中執行下列步驟，以建立磁碟區容器。
+請在 Azure 入口網站中執行下列步驟以建立磁碟區容器。
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## 步驟 6：建立磁碟區
 
-建立磁碟區容器之後，您就可以為伺服器在 StorSimple 裝置上佈建存放磁碟區。請在管理入口網站中執行下列步驟，以建立磁碟區。
+建立磁碟區容器之後，您就可以為伺服器在 StorSimple 裝置上佈建存放磁碟區。請在 Azure 入口網站中執行下列步驟以建立磁碟區。
 
 > [AZURE.IMPORTANT]StorSimple Manager 只能建立精簡佈建的磁碟區。您無法建立完整佈建或部分佈建的磁碟區。
 
@@ -212,7 +212,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 備份可提供磁碟區的時間點保護，並改善復原能力，同時讓還原時間降至最低。您可以在 StorSimple 裝置上進行兩種備份類型： 本機快照與雲端快照。每一種備份類型都可以是 [排程] 或 [手動]。
 
-請在管理入口網站中執行下列步驟，以建立排程備份。
+請在 Azure 入口網站中執行下列步驟，以建立排程備份。
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -224,7 +224,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)以取得逐步指示。
 
-請在管理入口網站上的 [StorSimple Manager 服務] 頁面，執行下列步驟。
+請在 Azure 入口網站上的「**StorSimple Manager 服務**」頁面，執行下列步驟。
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -238,8 +238,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 掃描並套用更新
 
-更新裝置可能需要數小時的時間。在裝置上執行下列步驟來掃描並套用更新。
-<!-- > can take 1-4 hours-->
+更新裝置可能需要數小時的時間。在裝置上執行下列步驟來掃描並套用更新。<!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -265,7 +264,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 建立手動備份
 
-請在管理入口網站中執行下列步驟，以針對 StorSimple 裝置上的單一磁碟區建立隨選手動備份。
+請在 Azure 入口網站中執行下列步驟，以針對 StorSimple 裝置上的單一磁碟區建立隨選手動備份。
 
 [AZURE.INCLUDE [建立手動備份](../../includes/storsimple-create-manual-backup.md)]
 
@@ -287,4 +286,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -18,13 +18,6 @@
 
 # 設定 Application Insights：網頁
 
-*Application Insights 目前僅供預覽。*
-
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) 監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時[探索應用程式的使用情況][knowUsers]。
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -104,7 +97,7 @@
 
 ## 用戶端使用量概觀
 
-返回 [概觀] 刀鋒視窗上，按一下 **[使用量]**：
+返回 [概觀] 刀鋒視窗上，按一下 [**使用量**]：
 
 ![](./media/app-insights-asp-net-client/14-usage.png)
 
@@ -200,4 +193,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

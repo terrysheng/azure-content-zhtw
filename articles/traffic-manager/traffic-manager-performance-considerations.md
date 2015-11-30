@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 
@@ -87,15 +87,11 @@ http://www.digwebinterface.com – 與 watchmouse 站台類似，但此站台會
 
 [關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
 
-[什麼是流量管理員？](../traffic-manmager-overview.md)
-
-[雲端服務](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[測試流量管理員設定](traffic-manager-testing-settings.md)
 
 [流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

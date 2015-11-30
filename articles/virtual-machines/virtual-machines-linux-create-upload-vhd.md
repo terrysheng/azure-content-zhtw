@@ -164,7 +164,7 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 如需詳細資訊，請參閱 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)。
 
-> [AZURE.NOTE][Azure Powershell 1.0 預覽版本](https://azure.microsoft.com/zh-TW/blog/azps-1-0-pre/)大幅變更了其處理傳統和資源管理員部署模型之 Cmdlet 的方式。本文尚未使用「預覽」版本。
+> [AZURE.NOTE] [Azure Powershell 1.0 預覽版本](https://azure.microsoft.com/zh-TW/blog/azps-1-0-pre/)大幅變更了其處理傳統和資源管理員部署模型之 Cmdlet 的方式。本文尚未使用「預覽」版本。
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage

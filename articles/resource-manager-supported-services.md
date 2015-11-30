@@ -32,7 +32,9 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 虛擬機器 | 是 | 是，許多選項 | 否 | [建立 VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | 批次 | 是 | [是 (僅限傳統)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics 週期服務 | 是 | 否 | | | |
-| 虛擬機器 (傳統) | 有限 | 是，許多選項 | 部分 (請參閱下文) | - | - | | 遠端應用程式 | 否 | 否 | - | - | - | | Service Fabric | 否 | 否 | - | - | - |
+| 虛擬機器 (傳統) | 有限 | 是，許多選項 | 部分 (請參閱下文) | - | - |
+| 遠端應用程式 | 否 | 否 | - | - | - |
+| Service Fabric | 否 | 否 | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
@@ -107,7 +109,9 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | 否 | 否 | - | - | - | | Azure Actice Directory B2C | 否 | 否 | - | - | - | | Multi-Factor Authentication | 否 | 否 | - | - | - |
+| Azure Active Directory | 否 | 否 | - | - | - |
+| Azure Actice Directory B2C | 否 | 否 | - | - | - |
+| Multi-Factor Authentication | 否 | 否 | - | - | - |
 
 ## 開發人員服務 
 

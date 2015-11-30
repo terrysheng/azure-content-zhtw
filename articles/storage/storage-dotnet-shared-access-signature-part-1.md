@@ -316,7 +316,9 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 - [如何搭配 Azure 檔案儲存體使用 Windows](storage-dotnet-how-to-use-files.md)
 - [管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)
 - [使用共用存取簽章來委派存取權](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [資料表和佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [資料表和佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  

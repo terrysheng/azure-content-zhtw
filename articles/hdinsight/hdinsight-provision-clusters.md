@@ -55,7 +55,9 @@
 	應用程式通常由許多元件組成，例如，Web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。	
 - **作業系統**
 
-	您可以在下列兩個作業系統其中之一建立 HDInsight 叢集：- **Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)**：- **Linux 上的 HDInsight (Linux 版 Ubuntu 12.04 LTS) (預覽版)**：HDInsight 提供在 Azure 上設定 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的 Linux Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請設定 Linux 叢集。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-get-started.md)。
+	您可以在下列兩個作業系統其中之一建立 HDInsight 叢集：
+	- **Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)**：
+	- **Linux 上的 HDInsight (Linux 版 Ubuntu 12.04 LTS) (預覽版)**：HDInsight 提供在 Azure 上設定 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的 Linux Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請設定 Linux 叢集。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-get-started.md)。
 
 
 - **HDInsight 版本**
@@ -86,16 +88,25 @@
 
 	![HDInsight Hadoop 叢集角色](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	HDInsight 適用的 HBase 叢集會以三種角色來部署：- 前端伺服器 (2 個節點) - 區域伺服器 (至少 1 個節點) - 主要/Zookeeper 節點 (3 個節點)
+	HDInsight 適用的 HBase 叢集會以三種角色來部署：
+	- 前端伺服器 (2 個節點)
+	- 區域伺服器 (至少 1 個節點)
+	- 主要/Zookeeper 節點 (3 個節點)
 
 	![HDInsight Hadoop 叢集角色](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	HDInsight 適用的 Storm 叢集會以三種角色來部署：- Nimbus 伺服器 (2 個節點) - 監督員伺服器 (至少 1 個節點) - Zookeeper 節點 (3 個節點)
+	HDInsight 適用的 Storm 叢集會以三種角色來部署：
+	- Nimbus 伺服器 (2 個節點)
+	- 監督員伺服器 (至少 1 個節點)
+	- Zookeeper 節點 (3 個節點)
 
 
 	![HDInsight Hadoop 叢集角色](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	HDInsight 適用的 Spark 叢集會以三種角色來部署：- 前端伺服器 (2 個節點) - 背景工作伺服器 (至少 1 個節點) - Zookeeper 節點 (3 個節點) (為 A1 Zookeeper 免費提供)
+	HDInsight 適用的 Spark 叢集會以三種角色來部署：
+	- 前端伺服器 (2 個節點)
+	- 背景工作伺服器 (至少 1 個節點)
+	- Zookeeper 節點 (3 個節點) (為 A1 Zookeeper 免費提供)
 
 	客戶需根據叢集的生命期，就這些節點的使用量支付費用。一旦建立叢集之後便會開始計費，而刪除叢集時便會停止計費 (無法取消配置或保留叢集)。叢集大小會影響叢集價格。為了方便學習，建議使用 1 個資料節點。如需關於 HDInsight 價格的詳細資訊，請參閱 [HDInsight 價格](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
 
@@ -269,10 +280,10 @@
 
    		![Data source blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Provide data source configuration")
 
-  		* **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
-  		* **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
-  		* **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
-  		* **Location**: The geographic region that the storage account is in, or will be created in. This location will determine the cluster location.  The cluster and its default storage account must co-locate in the same Azure data center.
+  		* **選取方法**：將此設為 **[來自所有訂用帳戶]**，即可瀏覽您所有訂用帳戶中的儲存體帳戶。 如果您想要輸入現有儲存體帳戶的 **[儲存體名稱]** 和 **[存取金鑰]**，請將此設為 **[存取金鑰]**。
+  		* **選取儲存體帳戶 / 建立新的**：請按一下 **[選取儲存體帳戶]** 來瀏覽並選取您要與叢集關聯的現有儲存體帳戶 或按一下 **[建立新項目]** 來建立新的儲存體帳戶。 使用出現的欄位輸入儲存體帳戶名稱。 使用出現的欄位輸入儲存體帳戶名稱。
+  		* **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。 雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
+  		* **位置**：儲存體帳戶所在或將建立帳戶的地理區域。 這個位置將會決定叢集位置。  該叢集與預設儲存體帳戶必須並存於相同的 Azure 資料中心。
   	
   * **節點定價層**：設定您針對該叢集所需的背景工作角色節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
   

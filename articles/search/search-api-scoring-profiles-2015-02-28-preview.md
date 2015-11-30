@@ -342,7 +342,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 `boostingDuration` 必須格式化為 XSD "dayTimeDuration" 值 (ISO 8601 持續時間值的限定子集)。此模式為：
 
-     [-]P[nD][T[nH][nM][nS]]
+     [-]P\[nD]\[T\[nH]\[nM]\[nS]\]
 
 下表提供數個範例。
 

@@ -5,8 +5,16 @@
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor="tysonn"
-	keywords="備份與還原；復原服務"/>
+	editor="tysonn"/>
+
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/01/2015"
+	ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 <tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
@@ -44,9 +52,9 @@ Azure 備份是一個多租用戶的 Azure 服務，可讓您備份與還原內�
 ## 部署案例
 | 元件 | 可以在 Azure 中部署嗎？ | 可以在內部部署嗎？ | 支援的目標儲存體|
 | --- | --- | --- | --- |
-| Azure 備份代理程式 | **是** <br><br> 您可以在 Azure 中執行的任何 Windows Server VM 上部署Azure 備份代理程式。 | **是** <br><br> 您可以在 Windows Server VM 或實體機器上部署Azure 備份代理程式。 | Azure 備份保存庫 |
-| System Center Data Protection Manager (SCDPM) | **是** <br><br> 深入了解 [ 使用 SCDPM 保護 Azure 中的工作負載](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx) (英文)。 | **是** <br><br>深入了解[保護工作負載和資料中心內的 VM](https://technet.microsoft.com/zh-TW/library/hh758173.aspx) (英文)。 | 本機連接的磁碟、<br>Azure 備份保存庫、<br>磁帶 (僅限內部部署) |
-| Azure 備份 (VM 延伸模組) | **是** <br><br> 適用於 [Azure IaaS 虛擬機器備份](backup-azure-vms-introduction.md)的特殊元件。 | **否** <br><br> 請使用 SCDPM 備份資料中心內的虛擬機器。 | Azure 備份保存庫 |
+| Azure 備份代理程式 | **是** <br><br>您可以在 Azure 中執行的任何 Windows Server VM 上部署Azure 備份代理程式。 | **是** <br><br>您可以在 Windows Server VM 或實體機器上部署Azure 備份代理程式。 | Azure 備份保存庫 |
+| System Center Data Protection Manager (SCDPM) | **是** <br><br>深入了解[使用 SCDPM 保護 Azure 中的工作負載](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx) (英文)。 | **是** <br><br>深入了解[保護工作負載和資料中心內的 VM](https://technet.microsoft.com/zh-TW/library/hh758173.aspx) (英文)。 | 本機連接的磁碟、<br>Azure 備份保存庫、<br>磁帶 (僅限內部部署) |
+| Azure 備份 (VM 延伸模組) | **是** <br><br>適用於 [Azure IaaS 虛擬機器備份](backup-azure-vms-introduction.md)的特殊元件。 | **否** <br><br>請使用 SCDPM 備份資料中心內的虛擬機器。 | Azure 備份保存庫 |
 
 
 ## 應用程式和工作負載
@@ -60,7 +68,8 @@ Azure 備份是一個多租用戶的 Azure 服務，可讓您備份與還原內�
 | Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
 | Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) | | Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
 
 
 ## 後續步驟

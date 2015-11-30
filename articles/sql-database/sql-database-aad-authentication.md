@@ -65,7 +65,11 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 
 ## Azure AD 功能和限制 
 
-下列 Azure Active Directory 的成員可在 Azure SQL Server 中佈建： - 原生成員：在受管理的網域或客戶網域的 Azure AD 中建立的成員。如需詳細資訊，請參閱[將您自己的網域名稱新增至 Azure AD](active-directory-add-domain.md)。 - 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。如需詳細資訊，請參閱 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。 從其他 Azure Active Directory 匯入的成員，他們是原生或同盟網域成員。 建立 Active Directory 群組做為安全性群組。
+下列 Azure Active Directory 的成員可在 Azure SQL Server 中佈建：
+- 原生成員：在受管理的網域或客戶網域的 Azure AD 中建立的成員。如需詳細資訊，請參閱[將您自己的網域名稱新增至 Azure AD](active-directory-add-domain.md)。
+- 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。如需詳細資訊，請參閱 [Windows Azure 現在支援 Windows Server Active Directory 的同盟](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
+- 從其他 Azure Active Directory 匯入的成員，他們是原生或同盟網域成員。
+- 建立 Active Directory 群組做為安全性群組。
 
 不支援 Microsoft 帳戶 (例如 outlook.com、hotmail.com、live.com) 或其他來賓帳戶 (例如 gmail.com、yahoo.com)。如果您可以使用的帳戶和密碼登入 [https://login.live.com](https://login.live.com)，您就能使用 Azure SQL Database 的 Azure AD 驗證不支援的 Microsoft 帳戶。
 
@@ -168,9 +172,9 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 
 | Cmdlet 名稱 | 說明 |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [Set-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | 佈建 Azure SQL Server 的 Azure Active Directory 系統管理員。(必須來自目前的訂用帳戶。) |
-| [Remove-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | 移除 Azure SQL Server 的 Azure Active Directory 系統管理員。 |
-| [Get-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | 傳回目前為 Azure SQL Server 設定的 Azure Active Directory 系統管理員的相關資訊。 |
+| Set-AzureSqlServerActiveDirectoryAdministrator | 佈建 Azure SQL Server 的 Azure Active Directory 系統管理員。(必須來自目前的訂用帳戶。) |
+| Remove-AzureSqlServerActiveDirectoryAdministrator | 移除 Azure SQL Server 的 Azure Active Directory 系統管理員。 |
+| Get-AzureSqlServerActiveDirectoryAdministrator | 傳回目前為 Azure SQL Server 設定的 Azure Active Directory 系統管理員的相關資訊。 |
 
 使用 PowerShell 命令 get-help 來查看這當中每個命令的詳細資料，例如 ``get-help Set-AzureRMSqlServerActiveDirectoryAdministrator``。
 
@@ -228,7 +232,7 @@ Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫
  
 若要確認 Azure AD 系統管理員已正確設定，請使用 Azure AD 系統管理員帳戶連線到「主要」資料庫。若要佈建以 Azure AD 為基礎的自主資料庫使用者 (而非擁有資料庫的伺服器系統管理員)，請連接到具有資料庫存取權之 Azure AD 身分識別的資料庫。
 
-> [AZURE.IMPORTANT][SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 支援 Azure Active Directory 驗證。
+> [AZURE.IMPORTANT] [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 支援 Azure Active Directory 驗證。
 
 #### 使用 Active Directory 整合式驗證進行連接 
 

@@ -29,7 +29,7 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 
 本主題說明如何使用「快速建立」方法建立新的雲端服務，然後使用 [上傳] 上傳雲端服務封裝並在 Azure 中部署。當您使用這個方法時，Azure 入口網站會在過程中提供便利的連結，讓您完成所有要求。如果您準備在建立雲端服務時加以部署，可以同時使用**自訂建立**進行這兩項作業。
 
-> [AZURE.NOTE]如果您計劃從 Visual Studio Online (VSO) 發佈您的雲端服務，請使用 [快速建立]，然後從 [**快速啟動**] 或儀表板設定 VSO 發佈。如需詳細資訊，請參閱[使用 Visual Studio Online 連續傳遞至 Azure][TFSTutorialForCloudService] 或**快速啟動**頁面的說明。
+> [AZURE.NOTE]如果您計劃從 Visual Studio Team Services (VSTS) 發佈您的雲端服務，請使用 [快速建立]，然後從 [**快速啟動**] 或儀表板設定 VSTS 發佈。如需詳細資訊，請參閱 [使用 Visual Studio Team Services 連續傳遞至 Azure][TFSTutorialForCloudService][**快速啟動**] 頁面的說明。
 
 ## 概念
 需要三個元件才能部署應用程式成為 Azure 中的雲端服務：
@@ -156,4 +156,4 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：[**快�
 * [管理您的雲端服務](cloud-services-how-to-manage.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

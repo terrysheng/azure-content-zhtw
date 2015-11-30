@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # 部署密碼管理並訓練使用者使用它
@@ -48,12 +48,14 @@
 您有幾個選項可供您選擇如何指定組織中的使用者資料，以用於密碼重設。
 
 - 在 [Azure 管理入口網站](https://manage.windowsazure.com)或 [Office 365 管理入口網站](https://portal.microsoftonline.com)中編輯使用者
-- 使用 AADSync 從內部部署 Active Directory 網域將使用者屬性同步處理至 Azure AD
-- 使用 Windows PowerShell 編輯使用者屬性
+- 使用 Azure AD Sync 從內部部署 Active Directory 網域將使用者屬性同步處理至 Azure AD
+- 使用 Windows PowerShell 並透過[遵循下列步驟](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users)，來編輯使用者屬性。
 - 引導使用者至位於 [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) 的註冊入口網站，讓他們註冊自己的資料
-- 將 [要求使用者註冊 SSPR] 組態選項設定為 [是]，以在使用者登入位於 [http://myapps.microsoft.com](http://myapps.microsoft.com) 的存取面板時，要求使用者註冊密碼重設。
+- 將 [[**登入時要求使用者註冊？**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in)] 組態選項設為 [**是**]，以在使用者登入 Azure AD 帳戶時，要求使用者註冊密碼重設。
 
-使用者不需要註冊密碼重設，系統也能運作。舉例來說，如果您在本機目錄中有現有的電話號碼，就可以在 Azure AD 中同步處理這些號碼，然後我們會自動將這些號碼用於密碼重設。
+使用者不需要註冊密碼重設，系統也能運作。舉例來說，如果您在本機目錄中有現有的行動電話號碼或辦公室電話號碼，就可以在 Azure AD 中同步處理這些號碼，然後我們會自動將這些號碼用於密碼重設。
+
+您也可以進一步了解[密碼重設如何使用資料](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset)和[如何使用 PowerShell 填入個別驗證欄位](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users)。
 
 ## 為使用者啟用密碼重設的最佳方式？
 啟用密碼重設的一般步驟如下：
@@ -121,24 +123,25 @@
 
 請參閱[密碼重設使用哪些資料](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset)，了解這些屬性的使用方式。
 
+請參閱[如何從 PowerShell 為您的使用者存取密碼重設資料](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users)，了解您如何使用 PowerShell 讀取和設定這項資料。
+
 ## 範例訓練教材
 我們正在準備範例訓練教材，讓您的 IT 部門和使用者都能快速了解如何部署及使用密碼重設。敬請期待！
 
 
 <br/> <br/> <br/>
 
-**其他資源**
+## 密碼重設文件的連結
+以下是所有 Azure AD 密碼重設文件頁面的連結：
 
-
-* [密碼管理是什麼](active-directory-passwords.md)
-* [密碼管理如何運作](active-directory-passwords-how-it-works.md)
-* [開始使用密碼管理](active-directory-passwords-getting-started.md)
-* [自訂密碼管理](active-directory-passwords-customize.md)
-* [如何使用密碼管理報告取得 Operational Insights](active-directory-passwords-get-insights.md)
-* [密碼管理常見問題集](active-directory-passwords-faq.md)
-* [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
-* [深入了解](active-directory-passwords-learn-more.md)
-* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**重設自己的密碼**](active-directory-passwords-update-your-own-password) - 了解身為系統使用者如何重設或變更自己的密碼
+* [**運作方式**](active-directory-passwords-how-it-works.md) - 了解六個不同的服務元件及其功能
+* [**開始使用**](active-directory-passwords-getting-started.md) - 了解如何讓使用者重設及變更雲端或內部部署密碼
+* [**自訂**](active-directory-passwords-customize.md) - 了解如何依照組織的需求自訂外觀和服務行為
+* [**深入探索**](active-directory-passwords-get-insights.md) - 了解整合式報告功能
+* [**常見問題集**](active-directory-passwords-faq.md) - 取得常見問題的解答
+* [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何快速移難排解服務的問題
+* [**深入了解**](active-directory-passwords-learn-more.md) - 深入探索服務運作方式的技術細節
 
 
 
@@ -150,4 +153,4 @@
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

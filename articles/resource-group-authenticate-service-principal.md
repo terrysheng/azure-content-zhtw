@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="10/30/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員驗證服務主體
@@ -22,7 +22,7 @@
 
 其示範如何使用使用者名稱與密碼或憑證進行驗證。
 
-您可以使用 Mac、Linux 和 Windows 適用的 Azure PowerShell 或 Azure CLI。如果您未安裝 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](./powershell-install-configure.md)。如果您未安裝 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)。
+您可以使用 Mac、Linux 和 Windows 適用的 Azure PowerShell 或 Azure CLI。如果您未安裝 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](./powershell-install-configure.md)。如果您未安裝 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)。如需使用入口網站執行這些步驟的詳細資訊，請參閱[使用入口網站建立 Active Directory 應用程式和服務主體](resource-group-create-service-principal-portal.md)
 
 ## 概念
 1. Azure Active Directory (AAD) - 雲端的身分識別與存取管理服務。如需詳細資訊，請參閱[什麼是 Azure Active Directory](active-directory/active-directory-whatis.md)。
@@ -88,7 +88,7 @@
 
      如果您已在非目前所選取訂用帳戶的訂用帳戶中建立角色指派，則可以指定 **SubscriptoinId** 或 **SubscriptionName** 參數來擷取不同的訂用帳戶。
 
-5. 執行 **Get-Credential** 命令，以建立含有您認證的新 **PSCredential** 物件。
+5. 若要透過 PowerShell 以服務主體身分登入，請執行 **Get-Credential** 命令，以建立含有您認證的新 **PSCredential** 物件。
 
         PS C:\> $creds = Get-Credential
 
@@ -98,10 +98,9 @@
 
      針對使用者名稱，使用您在建立應用程式時所使用的 **ApplicationId** 或 **IdentifierUris**。針對密碼，使用您在建立帳戶時所指定的密碼。
 
-6. 使用您輸入的認證做為 **Add-AzureAccount** Cmdlet 的輸入，以將服務主體登入：
+     使用您輸入的認證做為 **Login-AzureRmAccount** Cmdlet 的輸入，以將服務主體登入：
 
         PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
-        
         Environment           : AzureCloud
         Account               : {guid}
         Tenant                : {guid}
@@ -110,9 +109,9 @@
 
      您現在應該驗證為您所建立 AAD 應用程式的服務主體。
 
-7. 若要從應用程式進行驗證，請包含下列 .NET 程式碼。擷取權杖之後，您便可以存取訂用帳戶中的資源。
+6. 若要從應用程式進行驗證，請包含下列 .NET 程式碼。擷取權杖之後，您便可以存取訂用帳戶中的資源。
 
-        public static string GetAToken()
+        public static string GetAccessToken()
         {
           var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
           var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
@@ -289,14 +288,28 @@
 
     您現在應該驗證為您所建立 AAD 應用程式的服務主體。
 
+## 使用憑證驗證服務主體 - PowerShell - Azure CLI
+
+在本節中，您要執行的步驟是為 Azure Active Directory 應用程式建立可使用憑證進行驗證的服務主體。本主題假設您已簽發憑證，並已安裝 [OpenSSL](http://www.openssl.org/)。
+
+1. 使用下列項目建立 **.pem** 檔案：
+
+        openssl.exe pkcs12 -in examplecert.pfx -out examplecert.pem -nodes
+
+2. 開啟 **.pem** 檔案並複製憑證資料。
+
+3. 執行 **azure ad app create** 命令，以建立新的 AAD 應用程式，並提供您在上一個步驟中複製的憑證資料以做為金鑰值。
+
+        azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
+
 ## 後續步驟
   
-- 如需角色型存取控制的概觀，請參閱[管理和稽核資源存取權](resource-group-rbac.md)  
+- 如需角色存取控制的概觀，請參閱[管理和稽核資源存取權](resource-group-rbac.md)  
 - 若要了解如何使用入口網站與服務主體，請參閱[使用 Azure 入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)  
-- 如需實作 Azure 資源管理員安全性的指導，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)
+- 如需實作 Azure 資源管理員的安全性指導，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

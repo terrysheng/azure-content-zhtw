@@ -643,10 +643,10 @@ namespace Microsoft.ServiceBus.Samples
 
 本教學課程示範了如何使用服務匯流排代理傳訊功能，建置服務匯流排用戶端應用程式和服務。如需使用服務匯流排[轉送傳訊](service-bus-messaging-overview.md/#Relayed-messaging)的類似教學課程，請參閱[服務匯流排轉送傳訊教學課程](service-bus-relay-tutorial.md)。
 
-若要深入了解服務匯流排，請參閱下列主題。
+若要深入了解[服務匯流排](https://azure.microsoft.com/services/service-bus/)，請參閱下列主題。
 
 - [服務匯流排訊息概觀](service-bus-messaging-overview.md)
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 - [服務匯流排架構](service-bus-architecture.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

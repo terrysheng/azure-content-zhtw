@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric Reliable Actor 概觀"
+   pageTitle="Service Fabric Reliable Actors 概觀 | Microsoft Azure"
    description="Service Fabric Reliable Actor 程式設計模型簡介"
    services="service-fabric"
    documentationCenter=".net"
@@ -36,10 +36,10 @@ public interface ICalculatorActor : IActor
 }
 ```
 
-動作項目類型可實作上述介面，如下所示：
+動作項目類型可實作此介面，如下所示：
 
 ```csharp
-public class CalculatorActor : Actor, ICalculatorActor
+public class CalculatorActor : StatelessActor, ICalculatorActor
 {
     public Task<double> AddAsync(double valueOne, double valueTwo)
     {
@@ -81,9 +81,9 @@ Service Fabric 動作項目是虛擬的，也就是說，其生命週期不會�
 為了提供高延展性和可靠性，Service Fabric 將動作項目分散於整個叢集，並且讓動作項目視需要自動從失敗的節點移轉到狀況良好的節點。用戶端上的 `ActorProxy` 類别會執行必要的解決方案，以便依 ID [資料分割](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)找到動作項目並開啟與該動作項目通訊的管道。`ActorProxy`也會在通訊失敗和容錯移轉的情況下重試。這可確保即使存在錯誤也會可靠地傳遞訊息，但這也表示動作項目實作能夠從相同的用戶端取得重複的訊息。
 
 ## 並行
-### 回合式並行
+### 回合式存取
 
-動作項目執行階段為動作項目方法提供簡單的回合式並行。這表示動作項目代碼內永遠只能有一個執行緒為使用中。
+動作項目執行階段為存取動作項目方法提供簡單的回合式模型。這表示動作項目代碼內永遠只能有一個執行緒為使用中。
 
 一個回合包含完整執行動作項目方法以回應其他動作項目或用戶端的要求，或完整執行[計時器/提醒](service-fabric-reliable-actors-timers-reminders.md)回撥。即使這些方法和回呼是非同步的執行者執行階段不交錯它們 - 必須完整完成一個回合，才能允許進行下一回合。換句話說，計時器/提醒回撥目前正在執行的動作項目方法或計時器/提醒回撥必須完整完成，才能對方法或回撥進行新的呼叫。如果已從方法或回撥傳回執行，且方法或回撥傳回的工作已完成，則方法或回撥視為已完成。值得強調的是，即使是在不同的方法、計時器與回撥之間，仍會遵守回合式並行。
 
@@ -121,12 +121,12 @@ Service Fabric 動作項目是虛擬的，也就是說，其生命週期不會�
 Fabric Actor 可讓您建立無狀態或可設定狀態的動作項目。
 
 ### 無狀態的動作項目
-無狀態的動作項目 (衍生自 ``Actor`` 基底類別) 不需要任何由動作項目執行階段管理的狀態。其成員變數會在其整個記憶體內部生命週期中存留，正如同任何其他的 .NET 類型一樣。不過，如果在一段無活動期間後回收記憶體，則會遺失其狀態。同樣的，狀態會因為容錯移轉而失去，這發生在升級、資源平衡作業期間，或是動作項目處理序或其裝載節點失敗的結果。
+無狀態的動作項目 (衍生自 `StatelessActor` 基底類別) 不需要任何由動作項目執行階段管理的狀態。其成員變數會在其整個記憶體內部生命週期中存留，正如同任何其他的 .NET 類型一樣。不過，如果在一段無活動期間後回收記憶體，則會遺失其狀態。同樣的，狀態會因為容錯移轉而失去，這發生在升級、資源平衡作業期間，或是動作項目處理序或其裝載節點失敗的結果。
 
 以下是無狀態動作項目的範例。
 
 ```csharp
-class HelloActor : Actor, IHello
+class HelloActor : StatelessActor, IHello
 {
     public Task<string> SayHello(string greeting)
     {
@@ -136,12 +136,12 @@ class HelloActor : Actor, IHello
 ```
 
 ### 可設定狀態的動作項目
-在記憶體回收與容錯移轉之間保留可設定狀態的動作項目其狀態。它們衍生自 `Actor<TState>` 基底類別，其中`TState` 是必須保留的狀態類型。透過基底類別的 `State` 屬性可在動作項目方法中存取狀態。
+在記憶體回收與容錯移轉之間保留可設定狀態的動作項目其狀態。它們衍生自 `StatefulActor<TState>`，其中`TState` 是必須保留的狀態類型。透過基底類別的 `State` 屬性可在動作項目方法中存取狀態。
 
 以下為存取狀態之可設定狀態的動作項目範例。
 
 ```csharp
-class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -198,4 +198,4 @@ public interface IVoicemailBoxActor : IActor
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

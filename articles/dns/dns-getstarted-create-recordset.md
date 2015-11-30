@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
-- [Azure Powershell steps](dns-getstarted-create-recordset.md)
+- [PowerShell](dns-getstarted-create-recordset.md)
 
 建立 DNS 區域之後，您必須加入網域的 DNS 記錄。若要這樣做，您必須先了解 DNS 記錄和記錄集。
 
@@ -124,4 +124,4 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

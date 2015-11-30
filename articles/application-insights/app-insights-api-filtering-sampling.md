@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在 Application Insights SDK 中取樣、篩選及前置處理" 
-	description="撰寫 SDK 外掛程式以篩選、取樣或將屬性加入資料，再將遙測傳送至 Application Insights 入口網站。" 
+	description="撰寫 SDK 的外掛程式來篩選、取樣或將屬性加入資料，再將遙測傳送至 Application Insights 入口網站。" 
 	services="application-insights"
     documentationCenter="" 
 	authors="alancameronwills" 
@@ -40,7 +40,7 @@
 
 減少流量同時保留準確的統計資料所建議的方式。篩選器會選取相關的項目，使得您可以瀏覽診斷中的項目。事件計數會在計量瀏覽器中調整，以補償所篩選的項目。
 
-1. 將您專案的 NuGet 封裝更新為最新的 Application Insights *發行前版本*。以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [**包含發行前版本**] 並搜尋 Microsoft.ApplicationInsights.Web。 
+1. 將您專案的 NuGet 封裝更新為最新的 Application Insights *發行前版本*。以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。 
 
 2. 將這個程式碼片段加入 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)：
 
@@ -72,7 +72,7 @@
 	}); 
 ```
 
-* 設定等於 100/N 的百分比 (在這些範例中為 10) 且 N 是整數，例如 50 (=100/2)、33.33 (=100/3)、25 (=100/4)、10 (=100/5)。 
+* 設定等於 100/N 的百分比 (在這些範例中為 10)，其中 N 是整數，例如 50 (=100/2)、33.33 (=100/3)、25 (=100/4) 或 10 (=100/10)。 
 * 若有許多資料，您可使用非常低的抽樣率，例如 0.1。
 * 如果您同時在網頁和伺服器中設定取樣，請確定在兩端中設定相同的取樣百分比。
 * 用戶端和伺服器端會協調以選取相關的項目。
@@ -162,7 +162,7 @@
 > [AZURE.WARNING]仔細地將 .config 檔案中的類型名稱和任何屬性名稱與程式碼中的類別和屬性名稱做比對。如果 .config 檔案參考不存在的類型或屬性，SDK 可能無法傳送任何遙測，而且不會產生任何訊息。
 
  
-或者，您也可以在程式碼中初始化篩選。在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
+**或者**，您也可以在程式碼中初始化篩選。在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
 
     ```C#
 
@@ -172,7 +172,7 @@
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
 
-    TelemetryConfiguration.Active.TelemetryChannel = builder.Build();
+    builder.Build();
 
     ```
 
@@ -409,4 +409,4 @@ public void Process(ITelemetry item)
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

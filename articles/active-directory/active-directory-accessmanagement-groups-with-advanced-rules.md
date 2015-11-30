@@ -4,36 +4,36 @@
 	description="《使用說明》用來建立進階的群組規則，包括支援的運算式規則運算子和參數。"
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="curtand"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015" 
-	ms.author="femila"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 
 # 使用屬性來建立進階規則
-Azure 管理入口網站會為您提供設定更進階的規則的彈性，以啟用群組的動態成員資格。
+Azure 入口網站可讓您彈性地設定 Azure Active Directory (Azure AD) 中的進階規則，以啟用 Azure AD 群組更複雜的動態成員資格。
 
-若要在 Azure 管理入口網站中**建立進階規則**，在群組的 [設定] 索引標籤底下，選取 [進階規則] 選項按鈕，然後在提供的文字方塊中輸入您的進階規則。您可以使用下列資訊建立進階規則。
+**建立進階規則**在 Azure 入口網站中，選取群組 [**設定**] 索引標籤下的 [**進階規則**] 選項，然後在提供的文字方塊中輸入您的進階規則。您可以使用下列資訊建立進階規則。
 
 ## 建構進階規則的主體
 您可以為群組的動態成員資格建立的進階規則基本上是一個二進位運算式，其中包含三個部分，且會產生 true 或 false 的結果。這三個部分包括：
 
 - 左側的參數
 - 二進位運算子
-- 右側的常數 
+- 右側的常數
 
 完整的進階規則外觀如下：(leftParameter binaryOperator "RightConstant")，其中需要左右括號括住整個二進位運算式、需要雙引號括住右側的常數，且左側參數的語法是 user.property。進階規則可以包含多個二進位運算式，並以 -and、 -or 和 -not 邏輯運算子分隔。以下是正確建構的進階規則的範例：
 
-- (user.department -eq "Sales") -or (user.department -eq "Marketing") 
-- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE") 
+- (user.department -eq "Sales") -or (user.department -eq "Marketing")
+- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 如需支援的參數和運算式規則運算子的完整清單，請參閱下列各節。
 
@@ -152,13 +152,13 @@ Azure 管理入口網站會為您提供設定更進階的規則的彈性，以�
 您現在可以根據使用者的經理屬性在群組中填入成員。
 設定群組為「經理」群組
 --------------------------------------------------------------------------------
-1. 在管理員入口網站上按一下 [設定] 索引標籤，然後選取 [進階規則]。 
+1. 在管理員入口網站上按一下 [設定] 索引標籤，然後選取 [進階規則]。
 2. 使用下列語法輸入規則：*Direct Reports for {UserID\_of\_manager}* 的屬下
-3. 儲存這項規則時，符合規則的所有使用者都會加入成為群組的成員。請注意，一開始填入群組可能需要幾分鐘的時間。 
+3. 儲存這項規則時，符合規則的所有使用者都會加入成為群組的成員。請注意，一開始填入群組可能需要幾分鐘的時間。
 
 
 ## 其他資訊
-以下是一些可提供有關 Azure Active Directory 額外資訊的主題
+這些文章提供有關 Azure Active Directory 的其他資訊。
 
 * [疑難排解群組的動態成員資格](active-directory-accessmanagement-troubleshooting.md)
 
@@ -168,4 +168,4 @@ Azure 管理入口網站會為您提供設定更進階的規則的彈性，以�
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

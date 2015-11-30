@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/29/2015"
+   ms.date="11/17/2015"
    ms.author="tomfitz"/>
 
 # 使用入口網站建立 Active Directory 應用程式和服務主體
 
 ## 概觀
-當您有需要存取或修改訂用帳戶中資源的應用程式時，您可以使用入口網站來建立 Active Directory 應用程式，並將它指派給擁有正確權限的角色。當您經由入口網站建立 Active Directory 應用程式時，將會同時建立應用程式和服務主體。於設定權限時使用服務主體。
+當您有需要存取或修改訂用帳戶中資源的自動化程序或應用程式時，您可以使用入口網站來建立 Active Directory 應用程式，並將它指派給擁有正確權限的角色。當您經由入口網站建立 Active Directory 應用程式時，將會同時建立應用程式和服務主體。於設定權限時使用服務主體。
 
-本主題顯示如何使用 Azure 入口網站建立新的應用程式和服務主體。目前，您必須使用 Microsoft Azure 入口網站來建立新的 Active Directory 應用程式。在更新的版本中，會將這項功能加入至 Azure Preview 入口網站。您可以使用 Preview 入口網站將應用程式指派給角色。
+本主題顯示如何使用 Azure 入口網站建立新的應用程式和服務主體。目前，您必須使用 Microsoft Azure 入口網站來建立新的 Active Directory 應用程式。在更新的版本中，會將這項功能加入至 Azure Preview 入口網站。您可以使用 Preview 入口網站將應用程式指派給角色。您也可以透過 Azure PowerShell 或 Azure CLI 執行下列步驟。如需詳細資訊，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)。
 
 ## 概念
 1. Azure Active Directory (AAD) - 雲端的身分識別與存取管理服務組建。如需詳細資料，請參閱：[什麼是 Azure Active Directory](active-directory/active-directory-whatis.md)。
 2. 服務主體 - 目錄中應用程式的執行個體。
 3. AD 應用程式 - AAD 中向 AAD 識別應用程式的目錄記錄。 
 
-如需應用程式和服務主體的詳細說明，請參閱[應用程式物件和服務主體物件](active-directory/active-directory-application-objects.md)。如需有關 Active Directory 驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory/active-directory-authentication-scenarios.md)。
+如需應用程式和服務主體的詳細說明，請參閱[應用程式物件和服務主體物件](active-directory/active-directory-application-objects.md)。如需 Active Directory 驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory/active-directory-authentication-scenarios.md)。
 
 
 ## 建立應用程式和服務主體物件
@@ -82,7 +82,7 @@
 
      ![儲存][13]
 
-     即會顯示儲存的金鑰，而且您可以進行複製。
+     即會顯示儲存的金鑰，而且您可以進行複製。您將無法在稍後擷取金鑰，所以您應該會想現在就複製金鑰。
 
      ![儲存的金鑰][8]
 
@@ -90,6 +90,9 @@
   
      ![用戶端識別碼][5]
 
+5. 在某些情況下，您需要將您的驗證要求傳遞給租用戶識別碼。您可以擷取租用戶識別碼，方法是選取 [檢視端點]，然後擷取識別碼，如下所示。
+
+     ![租用戶識別碼](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
 您的應用程式現在已就緒，並且已在租用戶上建立服務主體。以服務主體身分登入時，請務必使用：
 
@@ -98,7 +101,17 @@
 
 ## 將應用程式指派給角色
 
-您可以使用 [Preview 入口網站](https://portal.azure.com)將 Active Directory 應用程式指派給擁有需要存取之資源存取權限的角色。如需將應用程式指派給角色的詳細資訊，請參閱 [Azure Active Directory 角色型存取控制](active-directory/role-based-access-control-configure.md)。
+您必須將應用程式指派給某個角色，以便授與它執行動作的權限。您可以使用 [Preview 入口網站](https://portal.azure.com)指派 Active Directory 應用程式到具有正確權限的角色。
+
+若要開始使用 Preview 入口網站中的存取控制，請選取**存取**圖示。
+
+![選取使用者](./media/resource-group-create-service-principal-portal/select-users.png)
+
+選取您想要指派給應用程式的角色，並搜尋此應用程式。
+
+![選取使用者](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+如需管理使用者、應用程式與角色的詳細資訊，請參閱[使用 Azure 管理入口網站管理存取權](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal)。
 
 ## 以程式碼取得存取權杖
 
@@ -129,7 +142,7 @@
 ## 後續步驟
 
 - 若要深入了解指定安全性原則，請參閱[管理和稽核資源存取權](resource-group-rbac.md)。  
-- 若要取得這些步驟的示範影片，請參閱[利用 Azure Active Directory 啟用 Azure 資源的程式管理 (英文)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)。
+- 若要取得這些步驟的示範影片，請參閱[利用 Azure Active Directory 啟用 Azure 資源的程式管理](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)。
 - 若要了解如何使用 Azure PowerShell 或 Azure CLI 搭配 Active Directory 應用程式和服務主體，包括如何使用憑證進行驗證，請參閱[使用 Azure 資源管理員驗證服務主體](./resource-group-authenticate-service-principal.md)。
 - 如需實作 Azure 資源管理員安全性的指導，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
 
@@ -149,4 +162,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

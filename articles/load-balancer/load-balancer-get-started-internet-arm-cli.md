@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/16/2015"
    ms.author="joaoma" />
 
 # 開始使用 Azure CLI 建立網際網路面向的負載平衡器
@@ -28,6 +28,8 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
+其中將說明必須完成才能建立負載平衡器的個別工作順序，並詳細說明若要達到此目標，需要做些什麼。
+
 
 ## 若要建立網際網路面向的負載平衡器，需要哪些項目？
 
@@ -35,21 +37,21 @@
 
 - 前端 IP 組態 - 包含傳入網路流量的公用 IP 位址。 
 
-- 後端位址集區 - 包含從負載平衡器接收流量的網路介面 (NIC)。
+- 後端位址集區 - 包含虛擬機器的網路介面 (NIC)，可從負載平衡器接收網路流量。
 
-- 負載平衡規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中 NIC 上的連接埠的規則。
+- 負載平衡規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中的連接埠的規則。
 
-- 輸入 NAT 規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中個別 NIC 的連接埠的規則。
+- 輸入 NAT 規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中特定虛擬機器之連接埠的規則。
 
-- 探查 - 包含用來檢查連結至後端位址集區中 NIC 的 VM 可用性的健全狀態探查。
+- 探查 - 包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀態探查。
 
 您可以在 [Azure 資源管理員的負載平衡器支援](load-balancer-arm.md)中取得關於負載平衡器元件與 Azure 資源管理員的詳細資訊。
 
 ## 設定 CLI 以使用資源管理員
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
+1. 如果您從未用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
 
-2. 執行 **azure config mode** 命令切換至資源管理員模式，如下所示。
+2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
 
 		azure config mode arm
 
@@ -102,14 +104,14 @@
 
 ## 建立 LB 規則、NAT 規則及探查
 
-下述範例會建立下列項目：
+以下範例會建立下列項目。
 
 - NAT 規則，將連接埠 3441 上的所有傳入流量轉譯至連接埠 3389<sup>1</sup>
 - NAT 規則，將連接埠 3442 上的所有傳入流量轉譯至連接埠 3389
 - 負載平衡器規則，將連接埠 80 上的所有傳入流量，負載平衡至後端集區中位址的連接埠 80。
 - 探查規則，將在名為 *HealthProbe.aspx* 的頁面上檢查健全狀態。
 
-<sup>1</sup> NAT 規則會關聯到在負載平衡器後方的特定虛擬機器執行個體。傳入到連接埠 3341 的網路流量，將會使用與下方範例中 NAT 規則關聯的連接埠 3389，傳送至特定的虛擬機器。您必須針對 NAT 規則選擇 UDP 或 TCP 通訊協定。無法將兩種通訊協定指派到相同的連接埠。
+<sup>1</sup> NAT 規則會關聯到負載平衡器後方的特定虛擬機器執行個體。傳入到連接埠 3341 的網路流量，將會使用與下方範例中 NAT 規則關聯的連接埠 3389，傳送至特定的虛擬機器。您必須針對 NAT 規則選擇 UDP 或 TCP 通訊協定。無法將兩種通訊協定指派到相同的連接埠。
 
 ### 步驟 1
 
@@ -122,22 +124,26 @@
 
 - **-g** - 資源群組名稱
 - **-l** - 負載平衡器名稱 
-- **-n** -資源名稱是否為 NAT 規則、探查或 lb 規則。
+- **-n** -資源名稱是否為 nat 規則、探查或 lb 規則。
 - **-p** - 通訊協定 (可以是 TCP 或 UDP)  
-- **-f** - 要使用的前端連接埠 (探查命令使用 -f 定義探查路徑)
+- **-f** - 要使用的前端連接埠 (探查命令會使用 -f 來定義探查路徑)
 - **-b** - 要使用的後端連接埠
 
 ### 步驟 2
 
 建立負載平衡器規則。
 
-	azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
-
+	azure network lb rule create nrprg nrplb lbrule -p tcp -f 80 -b 80 -t NRPfrontendpool -o NRPbackendpool
 ### 步驟 3
 
 建立健全狀況探查。
 
-	azure network lb rule create -g nrprg -l nrplb -n HTTP -p tcp -f 80 -b 80
+	azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
+
+	
+	
+
+**-g** - 資源群組 **-l** - 負載平衡器集的名稱 **-n** - 健全狀況探查的名稱 **-p** - 健全狀況探查所使用的通訊協定 **-i** - 探查間隔 (秒) **-c** - 檢查的數目
 
 ### 步驟 4
 
@@ -208,11 +214,11 @@
 
 ## 建立 NIC
 
-您需要建立 (或修改現有的) NIC，並將它們關聯至 NAT 規則、負載平衡器規則和探查。
+您需要建立 NIC (或修改現有的) 並將它們關聯至 NAT 規則、負載平衡器規則和探查。
 
 ### 步驟 1 
 
-建立名為 *lb-nic1-be* 的 NIC，並將它與 *rdp1* NAT 規則及 *NRPbackendpool* 後端位址集區相關聯。
+建立名為 *lb-nic1-be* 的 NIC，並將它與 *rdp1* NAT 規則及 *NRPbackendpool* 後端位址集區產生關聯。
 	
 	azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
@@ -254,13 +260,13 @@
 
 ### 步驟 2
 
-建立名為 *lb-nic2-be* 的 NIC，並將它與 *rdp2* NAT 規則及 *NRPbackendpool* 後端位址集區相關聯。
+建立名為 *lb-nic2-be* 的 NIC，並將它與 *rdp2* NAT 規則及 *NRPbackendpool* 後端位址集區產生關聯。
 
  	azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
 ### 步驟 3 
 
-建立名為 *web1* 的虛擬機器 (VM)，並將它與名為 *lb-nic1-be* 的 NIC 相關聯。系統先建立了名為 *web1nrp* 的儲存體帳戶，再執行下方命令。
+建立名為 *web1* 的虛擬機器 (VM)，並將它與名為 *lb-nic1-be* 的 NIC 產生關聯。系統先建立了名為 *web1nrp* 的儲存體帳戶，再執行下方命令。
 
 	azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
@@ -285,17 +291,17 @@
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE]預期會顯示「此 NIC 未設有 publicIP」訊息，因為針對負載平衡器建立的 NIC 將透過負載平衡器公用 IP 位址連線到網際網路。
+>[AZURE.NOTE]預期會顯示「此 NIC 未設有 publicIP」訊息，因為針對負載平衡器建立的 NIC 會使用負載平衡器公用 IP 位址連線到網際網路。
 
-由於 *lb-nic1-be* NIC 與 *rdp1* NAT 規則相關聯，因此您可以使用 RDP 透過負載平衡器上的連接埠 3441 連線至 *web1*。
+由於 *lb-nic1-be* NIC 會與 *rdp1* NAT 規則相關聯，因此您可以使用 RDP 透過負載平衡器上的連接埠 3441 連線至 *web1*。
 
 ### 步驟 4
 
-建立名為 *web2* 的虛擬機器 (VM)，並將它與名為 *lb-nic2-be* 的 NIC 相關聯。系統先建立了名為 *web1nrp* 的儲存體帳戶，再執行下方命令。
+建立名為 *web2* 的虛擬機器 (VM)，並將它與名為 *lb-nic2-be* 的 NIC 產生關聯。系統先建立了名為 *web1nrp* 的儲存體帳戶，再執行下方命令。
 
 	azure vm create --resource-group nrprg --name web2 --location eastus --vnet-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
-## 更新現有負載平衡器
+## 更新現有的負載平衡器
 
 您可以新增參考現有負載平衡器的規則。在下列範例中，新的負載平衡器規則會新增至現有的負載平衡器 **NRPlb**
 
@@ -312,7 +318,7 @@
 
 	azure network lb delete -g nrprg -n nrplb 
 
-其中 **nrprg** 是資源群組，**nrplb** 是負載平衡器名稱。
+其中 **nrprg** 是資源群組，而 **nrplb** 是負載平衡器名稱。
 
 ## 後續步驟
 
@@ -322,4 +328,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

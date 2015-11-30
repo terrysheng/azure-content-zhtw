@@ -33,17 +33,17 @@
 
 您也可以使用 Azure 資源管理員範本。請參閱[部署一個包含三部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm)。
 
-> [AZURE.NOTE]在 Azure Preview 入口網站的 Azure Marketplace 中，已移除 [SharePoint 伺服器陣列] 項目。
+> [AZURE.NOTE]Azure Preview 入口網站的 Azure Marketplace 中的 **SharePoint 伺服器陣列**項目已移除。
 
 ## 高可用性 SharePoint 開發/測試伺服器陣列
 
 這個自動建立的環境包含純雲端 Azure 虛擬網路中的九部伺服器：兩部用於網域控制站、三部用於 SQL Server 叢集、兩部應用程式層的 SharePoint 伺服器，以及兩部 Web 層的 SharePoint 伺服器。
 
-請參閱 Azure Preview 入口網站的 Azure Marketplace 中的 [SharePoint 2013 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/)項目。這會為連結網際網路的 SharePoint 網站建立高可用性的開發/測試伺服器陣列。如需其他詳細資訊，請參閱[建立 SharePoint 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)。
+請參閱 Azure Preview 入口網站的 Azure Marketplace 中的 [SharePoint 2013 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/)項目。這會為網際網路對向的 SharePoint 網站建立高可用性的開發/測試伺服器陣列。如需其他詳細資訊，請參閱[建立 SharePoint 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)。
 
 您也可以使用 Azure 資源管理員範本。請參閱[部署一個包含九部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm)。
 
-> [AZURE.NOTE]在 Azure Preview 入口網站的 Azure Marketplace 中，已移除 [SharePoint 伺服器陣列] 項目。
+> [AZURE.NOTE]Azure Preview 入口網站的 Azure Marketplace 中的 **SharePoint 伺服器陣列**項目已移除。
 
 ## 混合式雲端開發/測試伺服器陣列
 
@@ -53,7 +53,7 @@
 
 ## 高可用性、內部網路 SharePoint 實際執行伺服器陣列
 
-使用[在 Azure 中以 SQL Server AlwaysOn 可用性群組部署 SharePoint 2013](virtual-machines-workload-intranet-sharepoint-overview.md)，您可以在 Azure 中建置可立即實際執行、高可用性的內部網路 SharePoint Server 2013 伺服器陣列。
+部署 [具有 Azure 中 SQL Server AlwaysOn 可用性群組的 SharePoint 2013](virtual-machines-workload-intranet-sharepoint-overview.md) 後，即表示您在 Azure 中建置了可立即實際執行、高可用性的內部網路 SharePoint Server 2013 伺服器陣列。
 
 這個組態會使用傳統部署模型。
 
@@ -69,4 +69,4 @@
 
 [在 Microsoft Azure 中部署 Office 365 目錄同步作業 (DirSync)](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

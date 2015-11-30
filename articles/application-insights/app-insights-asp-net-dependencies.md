@@ -12,19 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # 設定 Application Insights：追蹤相依性
 
-*Application Insights 目前僅供預覽。*
-
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) 監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時[探索應用程式的使用情況][knowUsers]。
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -67,7 +60,7 @@
 
     一般來說，您會選擇設定新的資源和[資源群組][roles]。
 
-    否則，如果您已經為網站設定 [Web 測試][availability] 或 [Web 用戶端監視][client]，請使用現有的資源。
+    否則，如果您已經為網站設定 [Web 測試][availability]，或設定 [Web 用戶端監視][client]，請使用現有的資源。
 
 6. 重新啟動 IIS。
 
@@ -151,9 +144,9 @@
 
 標準的相依性追蹤模組會自動探索外部相依性，例如資料庫和 REST API。但是您可能想以相同的方式對待一些其他元件。
 
-您可以使用標準模組所使用的相同 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 來撰寫會傳送相依性資訊的程式碼。
+您可以使用標準模組所使用的相同 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 來撰寫傳送相依性資訊的程式碼。
 
-例如，如果您建置程式碼的組件不是您自己撰寫的，您可以計算對組件的所有呼叫，以找出它佔回應時間的比例。若要在 Application Insights 的相依性圖表中顯示此資料，請使用 `TrackDependency` 傳送。
+例如，如果您建置程式碼的組件不是您自己撰寫的，您可以計算對組件的所有呼叫，以找出它佔回應時間的比例。若要在 Application Insights 中的相依性圖表中顯示此資料，請使用 `TrackDependency` 傳送。
 
 ```C#
 
@@ -202,4 +195,4 @@
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

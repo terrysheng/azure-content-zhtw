@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # 資源管理員對於服務、區域和 API 版本的支援
@@ -32,13 +32,36 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 虛擬機器 | 是 | 是，許多選項 | 否 | [建立 VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | 批次 | 是 | [是 (僅限傳統)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics 週期服務 | 是 | 否 | | | |
-| 虛擬機器 (傳統) | 有限 | 是 | 部分 (請參閱下文) | - | - |
-| 遠端 App | 否 | - | - | - | - |
-| Service Fabric | 否 | - | - | - | - |
+| 虛擬機器 (傳統) | 有限 | 是，許多選項 | 部分 (請參閱下文) | - | - |
+| 遠端應用程式 | 否 | 否 | - | - | - |
+| Service Fabric | 否 | 否 | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
 虛擬機器 (傳統) 資源可以移至新的資源群組，但不能移至新的訂用帳戶。
+
+## 網路
+
+| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| 應用程式閘道 | 是 | | | | |
+| DNS | 是 | | | [建立 DNS 區域](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| 負載平衡器 | 是 | | | [建立負載平衡器](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| 虛擬網路 | 是 | [是](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | 否 | [建立虛擬網路](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| 流量管理員 | 是 | 否 | | [建立流量管理員設定檔](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
+| ExpressRoute | 是 | 否 | 否 | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
+
+## 資料與儲存體
+
+| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| ------- | ------- | ------- | -------------- | -------- | ------ |
+| DocumentDB | 是 | [是](https://portal.azure.com/#create/Microsoft.DocumentDB) | 是 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
+| 儲存體 | 是 | [是](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | 否 | [建立儲存體](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [儲存體帳戶](resource-manager-template-storage.md) |
+| Redis 快取 | 是 | [是](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | 是 | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
+| SQL Database | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| 搜尋 | 是 | [是](https://portal.azure.com/#create/Microsoft.Search) | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
+| SQL 資料倉儲 | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| StorSimple | 否 | 否 | - | - | - | | 受管理快取 | 否 | 否 | - | - | - |
 
 ## Web 與行動
 
@@ -56,23 +79,6 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 - 如果目的地資源群組還沒有 Microsoft.Web 資源，將所有的資源從某個資源群組移動到不同的資源群組。
 - 將 Web 應用程式移動到不同的資源群組，但在原始的資源群組中保留 App Service 方案。
 
-
-## 資料與儲存體
-
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | ------- | -------------- | -------- | ------ |
-| DocumentDB | 是 | [是](https://portal.azure.com/#create/Microsoft.DocumentDB) | 是 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| 儲存體 | 是 | [是](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [建立儲存體](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [儲存體帳戶](resource-manager-template-storage.md) |
-| Redis 快取 | 是 | [是](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | 是 | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL Database | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
-| 搜尋 | 是 | [是](https://portal.azure.com/#create/Microsoft.Search) | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL 資料倉儲 | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | 否 | 否 | - | - | - |
-| 備份 | 否 | 否 | - | - | - |
-| Site Recovery | 否 | 否 | - | - | - |
-| 受管理的快取 | 否 | 否 | - | - | - |
-| 資料目錄 | 否 | 否 | - | - | - |
-
 ## Analytics
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
@@ -82,17 +88,6 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | HDInsights | 是 | [是](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Data Factory | 是 | [是](https://portal.azure.com/#create/Microsoft.DataFactory) | 是 | [建立 Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
 | 機器學習服務 | 否 | 否 | - | - | - | | 資料目錄 | 否 | 否 | - | - | - |
-
-## 網路
-
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | -------- | -------------- | -------- | ------ |
-| 應用程式閘道 | 是 | | | | |
-| DNS | 是 | | | [建立 DNS 區域](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| 負載平衡器 | 是 | | | [建立負載平衡器](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| 虛擬網路 | 是 | [是](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | 否 | [建立虛擬網路](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| 流量管理員 | 是 | 否 | | [建立流量管理員設定檔](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| ExpressRoute | 是 | 否 | 否 | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
 ## 媒體與 CDN
 
@@ -148,11 +143,11 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 部署資源時，通常需要指定資源的區域。所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。這些限制可能與您所在國家/地區的稅務問題有關，或者與由您的訂用帳戶管理員所放置，只能使用特定區域的原則結果有關。
 
-若要取得所有 Azure 服務之所有支援區域的完整清單，請參閱[依地區提供的服務](https://azure.microsoft.com/regions/#services)。不過，這份清單可能包含您的訂用帳戶不支援的區域。您可以藉由執行下列其中一個命令，來判斷您的訂用帳戶支援之特定資源類型的區域。
+若要取得所有 Azure 服務之所有支援區域的完整清單，請參閱[依地區提供的服務](https://azure.microsoft.com/regions/#services)。不過，這份清單可能包含您的或訂用帳戶不支援的區域。您可以藉由執行下列其中一個命令，來判斷您的訂用帳戶支援之特定資源類型的區域。
 
 ### REST API
 
-若要探索哪些區域可供您的訂用帳戶中的特定資源類型使用，請使用[列出所有資源提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。
+若要探索哪些區域可供您的或訂用帳戶中的特定資源類型使用，請使用[列出所有資源提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。
 
 ### PowerShell
 
@@ -242,4 +237,4 @@ Azure PowerShell 0.9.8 請使用：
 - 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

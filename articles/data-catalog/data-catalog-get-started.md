@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="11/20/2015"
    ms.author="derrickv"/>
 
 # 開始使用 Azure 資料目錄
@@ -38,7 +38,7 @@
 
 Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Works Cycles) 的標準線上交易處理案例，包括製造、銷售和採購。Adventure Works DW 資料庫示範如何建立資料倉儲。
 
-這些資料庫位於 http://msftdbprodsamples.codeplex.com/，請依照 [如何安裝 Adventure Works 2014 範例資料庫] 中的步驟來安裝。
+這些資料庫位於 [CodePlex.com](http://msftdbprodsamples.codeplex.com/)，請遵循 [Adventure Works 2014 範例資料庫讀我檔案](https://msftdbprodsamples.codeplex.com/downloads/get/880669)中的步驟來安裝。
 
 在本練習中，您已安裝供其餘練習使用的 Adventure Works 範例資料庫。如果您選擇略過此練習，並使用您自己的企業資料來源，請準備記下名稱、標記和其他中繼資料。
 
@@ -52,36 +52,36 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
     ![register1][1]
 
-2.	向下捲動並按一下 [**發佈資料**]。
+2.	向下捲動並按一下 [發行資料]。
 
     ![register2][2]
-3.	按一下 [**啟動應用程式**]。
-4.	在 [**歡迎使用**] 頁面上，按一下 [**登入**]，並輸入您的認證。
-5.	在 [**Microsoft Azure 資料目錄**] 頁面上，按一下 [**SQL Server**]。
+3.	按一下 [啟動應用程式]。
+4.	在 [歡迎使用] 頁面上，按一下 [登入]，並輸入您的認證。
+5.	在 [Microsoft Azure 資料目錄] 頁面上，按一下 [SQL Server]。
 
     ![register3][3]
-6.	輸入您的 [**伺服器名稱**]，然後按一下 [**連接**]。
+6.	輸入您的 [伺服器名稱]，然後按一下 [連接]。
 7.	下一頁將註冊您的資料來源的中繼資料。在此範例中，您將註冊 AdventureWorks Production 命名空間中的 **Product** 物件。作法如下：
 
-    a.在階層樹狀結構中，按一下 [**Production**]。
+    a.在階層樹狀結構中，按一下 [Production]。
 
     b.Ctrl+按一下 Product、ProductCategory、ProductDescription 和 ProductPhoto。
 
     ![register4][4]
 
-    c.按一下移動選取項目箭號 (**>**)。這會將所有 Product 物件移至 [**準備註冊**] 清單。
+    c.按一下以移動選取項目箭號 (**>**)。這會將所有 Product 物件移至 [準備註冊] 清單。
 
     ![register5][5]
 
     d.**選擇性**：您可以**包含預覽**和**加入資料來源專家**。
 
-    e.在 [**加入標記**] 中，輸入描述、相片。這會加入這些資料資產的搜尋標記。標記可協助使用者尋找已註冊的資料來源，非常有用。
+    e.在 [加入標記] 中，輸入描述、相片。這會加入這些資料資產的搜尋標記。標記可協助使用者尋找已註冊的資料來源，非常有用。
 
-    f.按一下 [**註冊**]。Azure 資料目錄會註冊您選取的物件。本練習中會註冊從 Adventure Works 選取的物件。
+    f.按一下 [註冊]。Azure 資料目錄會註冊您選取的物件。本練習中會註冊從 Adventure Works 選取的物件。
 
     ![register6][6]
 
-    g.若要查看您註冊的資料來源物件，請按一下 [**檢視入口網站**]。在 Azure 資料目錄入口網站中，您可以在**磚**或**清單**中檢視資料來源物件。
+    g.若要查看您註冊的資料來源物件，請按一下 [檢視入口網站]。在 Azure 資料目錄入口網站中，您可以在**磚**或**清單**中檢視資料來源物件。
 
     ![register7][7]
 
@@ -93,7 +93,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 ### 以下說明如何探索已註冊的資料資產
 
-**Azure 資料目錄**提供簡單但功能強大的搜尋語法，可讓您輕鬆建立查詢來傳回使用者需要的資料。如需 **Azure 資料目錄**的詳細資訊，請參閱〈搜尋語法參考〉。
+**Azure 資料目錄**提供簡單但功能強大的搜尋語法，可讓您輕鬆建立查詢來傳回使用者需要的資料。如需 **Azure 資料目錄**的詳細資訊，請參閱＜搜尋語法參考＞。
 
 **Azure 資料目錄**具有下列搜尋選項：
 
@@ -109,13 +109,13 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 在此範例中，您將使用關鍵字搜尋。**Azure 資料目錄**搜尋有幾種查詢技巧。此範例將使用**分組**搜尋查詢。
 
-**查詢技巧** <table><tr><td><b>技巧</b></td><td><b>使用</b></td><td><b>範例</b></td></tr><tr><td>屬性範圍</td><td>只傳回搜尋詞彙符合指定屬性的資料來源</td><td>name:product</td></tr><tr><td>邏輯運算子</td><td>使用布林值運算擴大或縮小搜尋，如本頁的〈布林運算子〉一節所述</td><td>finance NOT corporate</td></tr><tr><td>使用括號分組</td><td>使用括號將查詢各部分予以分組，達到邏輯隔離，尤其是結合布林運算子</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>比較運算子</td><td>對具有數值和日期資料類型的屬性使用比較而非等式</td><td>creationTime:&gt;11/05/14</td></tr></table>
+**查詢技巧** <table><tr><td><b>技巧</b></td><td><b>使用</b></td><td><b>範例</b></td></tr><tr><td>屬性範圍</td><td>只傳回搜尋詞彙符合指定屬性的資料來源</td><td>name:product</td></tr><tr><td>邏輯運算子</td><td>使用布林值運算擴大或縮小搜尋，如本頁的＜布林運算子＞一節所述</td><td>finance NOT corporate</td></tr><tr><td>使用括弧分組</td><td>使用括弧將查詢各部分予以分組，達到邏輯隔離，尤其是結合布林運算子</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>比較運算子</td><td>對具有數值和日期資料類型的屬性使用比較而非等式</td><td>creationTime:&gt;11/05/14</td></tr></table>
 
 在此範例中，您對資料資產執行**分組**搜尋，其中 name 等於 product 且 tags 等於 illustration 或 tags 等於 photo。
 
 1.	登入 **Azure 資料目錄**入口網站。
-2.	按一下 [**探索**]。
-3.	在 [**搜尋**] 方塊中，輸入**分組**查詢：(tags:description OR tags:photo)。
+2.	按一下 [探索]。
+3.	在 [搜尋] 方塊中，輸入**分組**查詢：(tags:description OR tags:photo)。
 4.	按一下搜尋圖示，或按 Enter 鍵。**Azure 資料目錄**會顯示這個搜尋查詢傳回的資料資產。
 
     ![search][8]
@@ -129,9 +129,9 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 ### 以下說明如何加註資料資產
 
 1.	登入 **Azure 資料目錄**入口網站。
-2.	按一下 [**探索**]。
-3.	選擇一或多個**資料資產**。在此範例中，選擇 [**ProductPhoto**]，並輸入「行銷資料的產品相片」。
-4.	輸入 [**描述**]，幫助其他人探索並了解為何及如何使用選取的資料資產。例如，輸入「產品影像」。您也可以加入更多的標記，並檢視資料行。
+2.	按一下 [探索]。
+3.	選擇一或多個**資料資產**。在此範例中，選擇 [ProductPhoto]，並輸入「行銷資料的產品相片」。
+4.	在 [描述] 中輸入，幫助其他人探索並了解為何及如何使用選取的資料資產。例如，輸入「產品影像」。您也可以加入更多的標記，並檢視資料行。
 5.	現在您可以使用已加入至目錄的描述性中繼資料，嘗試搜尋和篩選來探索資料資產。
 
     ![annotate][9]
@@ -214,7 +214,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 ## 摘要
 
-在本教學課程中，您已瀏覽 **Azure 資料目錄**預覽的基本功能，包括註冊、加註、探索和管理企業資料來源。既然您已經完成本教學課程，現在可以開始使用。您可以立即開始註冊您和小組所依賴的資料來源，並邀請同事使用目錄。
+在本教學課程中，您已瀏覽 **Azure 資料目錄**預覽的基本功能，包括註冊、註解、探索和管理企業資料來源。既然您已經完成本教學課程，現在可以開始使用。您可以立即開始註冊您和小組所依賴的資料來源，並邀請同事使用目錄。
 
 
 <!--Image references-->
@@ -232,4 +232,4 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

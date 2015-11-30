@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 備份簡介 | Microsoft Azure"
-	description="這篇文章提供 Azure 備份服務的概觀，Azure 備份可讓客戶將資料備份至 Azure，或在 Azure 中備份資料"
+	pageTitle="何謂 Azure 備份中心？ | Microsoft Azure"
+	description="您可以使用 Azure 備份和復原服務，從 Windows 伺服器、 Windows 用戶端電腦、 SCDPM 伺服器或 Azure 虛擬機器備份和還原資料與應用程式。"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
@@ -16,11 +16,10 @@
 	ms.date="10/01/2015"
 	ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
-# Azure 備份的簡介
-本文提供 Microsoft 的雲端整合式備份解決方案的高階概觀，可讓客戶備份內部部署或 Azure 中的資料。
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
-## 何謂 Azure 備份？
-Azure 備份是一個多租用戶的 Azure 服務，可讓您備份您任何位置 (內部部署或 Azure 中) 的資料。它將以一個可靠、安全及具成本競爭力的雲端架構優惠，取代您現有的內部部署或異地備份解決方案。同時也提供保護雲端執行資產的彈性。Azure 備份是以可調整、持久和高可用性的世界級基礎結構為建置基礎。您可以使用此解決方案，從 System Center Data Protection Manager (SCDPM) 伺服器、Windows 伺服器、Windows 用戶端機器或 Azure Iaas 虛擬機器，備份資料與應用程式。Azure 備份和 SCDPM 是構成 Microsoft 雲端整合式備份解決方案的基礎技術。
+# 何謂 Azure 備份？
+Azure 備份是一個多租用戶的 Azure 服務，可讓您備份與還原內部部署或 Azure 中的資料。它將以一個可靠、安全及具成本競爭力的雲端備份解決方案，取代您現有的內部部署或異地備份解決方案。同時也提供保護雲端執行資產的彈性。Azure 備份是以可調整、持久和高可用性的世界級基礎結構為建置基礎。您可以使用此解決方案，從 System Center Data Protection Manager (SCDPM) 伺服器、Windows 伺服器、Windows 用戶端機器或 Azure Iaas 虛擬機器，備份資料與應用程式。Azure 備份和 SCDPM 是構成 Microsoft 雲端整合式備份解決方案的基礎技術。
 
 > [AZURE.VIDEO what-is-azure-backup]
 
@@ -78,4 +77,4 @@ Azure 備份是一個多租用戶的 Azure 服務，可讓您備份您任何位�
 - Azure 備份服務的常見問題集在[這裡](backup-azure-backup-faq.md)列出。
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

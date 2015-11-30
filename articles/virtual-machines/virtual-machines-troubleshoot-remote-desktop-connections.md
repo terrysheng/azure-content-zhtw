@@ -1,6 +1,7 @@
 <properties
-	pageTitle="在 Windows VM 上疑難排解遠端桌面連線 | Microsoft Azure"
-	description="尋找和解決使用 RDP 連接至 Windows VM 的常見問題。取得快速因應步驟、錯誤訊息的特定說明和詳細的網路疑難排解。"
+	pageTitle="疑難排解遠端桌面連線到 Azure VM | Microsoft Azure"
+	description="在 Windows VM 上疑難排解遠端桌面連線錯誤。取得快速因應步驟、錯誤訊息的說明和詳細的網路疑難排解。"
+	keywords="遠端桌面錯誤、遠端桌面連線錯誤、無法連接到 VM、遠端桌面疑難排解"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,24 +20,23 @@
 
 # 疑難排解執行 Windows 之 Azure 虛擬機器的遠端桌面連線
 
+有許多原因可能導致嘗試連線到 Windows 的 Azure 虛擬機器時發生遠端桌面 (RDP) 錯誤。問題與 VM 上的 RDP 軟體、基礎主機電腦、網路連線或連接的用戶端上相關。本文將協助您找出原因並加以更正。
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
-遠端桌面 (RDP) 連接到執行 Windows 之 Azure 虛擬機器失敗，可以有各種原因。問題與 VM 上的 RDP 軟體、基礎主機電腦、網路連線或連接的用戶端上相關。本文將協助您找出原因並加以更正。
-
-本文僅適用於執行 Windows 之 Azure 虛擬機器。如需疑難排解*執行 Linux 之 Azure 虛擬機器*的連線，請參閱[這篇文章](virtual-machines-troubleshoot-ssh-connections.md)。
+本文僅適用於執行 Windows 之 Azure 虛擬機器。對於執行 Linux 的 Azure 虛擬機器，請參閱[疑難排解 Azure VM 的 SSH 連線](virtual-machines-troubleshoot-ssh-connections.md)。
 
 如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。
 
 「基本步驟」的第一節列出解決常見連接問題的步驟，第二節提供特定錯誤訊息的解決方案步驟，而最後一節協助執行每個網路元件的詳細疑難排解。
 
-## 基本步驟 - 傳統部署模型
+## 修正傳統部署模型中常見遠端桌面錯誤的步驟
 
 這些基本步驟可協助解決使用傳統部署模型所建立之虛擬機器中最常見的遠端桌面連線失敗。在執行每個步驟之後，請嘗試重新連接至 VM。
 
 - 從 [Azure 入口網站](https://portal.azure.com)重設遠端桌面服務以修正 RDP 伺服器的啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重設遠端存取]。
 
-    ![重設遠端存取](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
+    ![顯示重設 RDP 設定的螢幕擷取畫面](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
 - 重新啟動虛擬機器以處理其他啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重新啟動]。
 
@@ -45,9 +45,8 @@
 - 檢閱您的 VM 主控台記錄檔或螢幕擷取畫面以修正開機問題。依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [開機診斷]。
 
 - 檢查 VM 的資源健康情況是否有任何平台問題。依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [檢查健康情況]
--  
 
-## 基本步驟 - 資源管理員部署模型
+## 修正 [資源管理員] 部署模型中常見遠端桌面錯誤的步驟
 
 這些基本步驟可協助解決使用資源管理員部署模型所建立之虛擬機器中最常見的遠端桌面連線失敗。在執行每個步驟之後，請嘗試重新連接至 VM。
 
@@ -64,24 +63,24 @@
 	Set-AzureVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 	```
 
-- 重新啟動虛擬機器來處理其他啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [重新啟動]。
+- 重新啟動虛擬機器以處理其他啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [重新啟動]。
 
 - 調整 VM 大小以修正任何主機問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [設定] > [大小]。
 
 - 檢閱 VM 的主控台記錄檔或螢幕擷取畫面，以修正開機問題。依序按一下 [全部瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [開機診斷]。
 
 
-## 疑難排解常見的 RDP 錯誤
+## 疑難排解特定的遠端桌面連線錯誤
 
 以下是您嘗試連線 Azure 虛擬機器和遠端桌面時可能最常遇到的錯誤：
 
-1. [遠端桌面連線錯誤：遠端工作階段已中斷連線，因為沒有可用的遠端桌面授權伺服器來提供授權](#rdplicense)。
+1. [遠端桌面連線錯誤：遠端工作階段已中斷連線，因為沒有可用的遠端桌面授權伺服器能夠提供授權](#rdplicense)。
 
 2. [遠端桌面連線錯誤：遠端桌面找不到電腦「名稱」](#rdpname)。
 
 3. [遠端桌面連線錯誤：發生驗證錯誤。無法連絡本機安全性授權](#rdpauth)。
 
-4. [Windows 安全性錯誤：您的認證無效](#wincred)。
+4. [Windows 安全性錯誤：您的認證無法運作](#wincred)。
 
 5. [遠端桌面連線錯誤：這部電腦無法連線到遠端電腦](#rdpconnect)。
 
@@ -120,7 +119,7 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 原因：目標 VM 在認證的使用者名稱部分找不到安全性授權。
 
-若您的使用者名稱格式為 *SecurityAuthority*\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分就應該是虛擬機器的電腦名稱 (適用於本機安全性授權) 或 Active Directory 網域名稱。
+若您的使用者名稱格式為 *SecurityAuthority*\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分便應輸入虛擬機器的電腦名稱 (做為本機的安全性授權) 或 Active Directory 網域名稱。
 
 可能的解決方案：
 
@@ -151,11 +150,11 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 每部 Windows 電腦都有遠端桌面使用者本機群組，其中包含能夠遠端登入的帳戶和群組。本機系統管理員群組成員也有權限，即使這些帳戶未列在遠端桌面使用者本機群組中。對於加入網域的機器，本機系統管理員群組也包含此網域的網域系統管理員。
 
-請確保您正用於連接的帳戶具有遠端桌面登入權限。因應措施是使用網域或本機系統管理員帳戶，透過遠端桌面來連線，然後使用 [電腦管理] 嵌入式管理單元 ([系統工具] > [本機使用者和群組] > [群組] > [遠端桌面使用者])，將所需的帳戶新增到 [遠端桌面使用者] 本機群組。
+請確保您正用於連接的帳戶具有遠端桌面登入權限。請使用網域或本機系統管理員帳戶做為因應措施，以透過遠端桌面連線，並使用電腦管理嵌入式管理單元 (**系統工具 > 本機使用者和群組 > 群組 > 遠端桌面使用者**)，將想要的帳戶新增到遠端桌面使用者本機群組。
 
-## 詳細疑難排解
+## 詳細的遠端桌面錯誤疑難排解
 
-如果沒有發生這些錯誤，而您仍然無法透過遠端桌面連線到 VM，請參閱[這篇文章](virtual-machines-rdp-detailed-troubleshoot.md)以找出其他原因。
+如果沒有發生這些錯誤，但您仍然無法透過遠端桌面連線到 VM，請參閱[這篇文章](virtual-machines-rdp-detailed-troubleshoot.md)以找出其他原因。
 
 
 ## 其他資源
@@ -170,4 +169,4 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

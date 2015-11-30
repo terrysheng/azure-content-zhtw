@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="10/16/2015"
+   ms.date="11/11/2015"
    ms.author="golive"/>
 
 # 使用範例：使用 Automation DSC 和 Chocolatey 持續部署至虛擬機器
@@ -91,7 +91,7 @@ PowerShell 資源庫會自動將 DSC 資源安裝到您的 Azure 自動化帳戶
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
         
 
-隨附的範例針對 cChoco 和 xNetworking 執行這些步驟。請參閱 cChoco 特殊處理的[注意事項](#notes)。
+隨附的範例針對 cChoco 和 xNetworking 執行這些步驟。請參閱[注意事項](#notes)，了解 cChoco 的特殊處理方式。
 
 ## 步驟 4：將節點組態加入到提取伺服器
 
@@ -163,11 +163,11 @@ New-ConfigurationScript.ps1：
 
 ## 步驟 5：建立和維護封裝中繼資料
 
-對於放入封裝儲存機制中的每一個封裝，您需要 nuspec 來描述它。該 nuspec 必須編譯並儲存在 NuGet 伺服器中。此程序的說明請見[這裡](http://docs.nuget.org/create/creating-and-publishing-a-package)。您可以使用 MyGet.org 做為 NuGet 伺服器。他們銷售這項服務，但有免費的入門 SKU。在 NuGet.org，您可以找到為私人封裝來安裝 NuGet 伺服器的指示。
+對於放入封裝儲存機制中的每一個封裝，您需要 nuspec 來描述它。該 nuspec 必須編譯並儲存在 NuGet 伺服器中。此程序的說明請參閱[這裡](http://docs.nuget.org/create/creating-and-publishing-a-package)。您可以使用 MyGet.org 做為 NuGet 伺服器。他們銷售這項服務，但有免費的入門 SKU。在 NuGet.org，您可以找到為私人封裝來安裝 NuGet 伺服器的指示。
 
 ## 步驟 6：整合一切
 
-每當有某個版本通過 QA 並核准可部署時，即會建立封裝，且 nuspec 及 nupkg 會更新並部署至 NuGet 伺服器。此外也必須更新組態 (上述的步驟 4)，以符合新的版本號碼。它必須傳送至提取伺服器並進行編譯。從這裡開始，則須由依存於該組態的 VM 提取更新並加以安裝。這些更新內容很簡單 - 只有一兩行 PowerShell。以 Visual Studio Online 為例，有些更新會封裝在可一起鏈結在組建內的建置工作中。[本文](https://www.visualstudio.com/zh-TW/get-started/build/build-your-app-vs)將詳加說明。此 [GitHub 儲存機制](https://github.com/Microsoft/vso-agent-tasks)會詳細說明各種可用的建置工作。
+每當有某個版本通過 QA 並核准可部署時，即會建立封裝，且 nuspec 及 nupkg 會更新並部署至 NuGet 伺服器。此外也必須更新組態 (上述的步驟 4)，以符合新的版本號碼。它必須傳送至提取伺服器並進行編譯。從這裡開始，則須由依存於該組態的 VM 提取更新並加以安裝。這些更新內容很簡單 - 只有一兩行 PowerShell。以 Visual Studio Team Services 為例，有些更新會封裝在可一起鏈結在組建內的建置工作中。[本文](https://www.visualstudio.com/zh-TW/get-started/build/build-your-app-vs)將詳加說明。此 [GitHub 儲存機制](https://github.com/Microsoft/vso-agent-tasks)會詳細說明各種可用的建置工作。
 
 ## 注意事項
 
@@ -187,4 +187,4 @@ PowerShell 資源庫中的 cChoco DSC 資源版本的原始檔並不是最新的
 - [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 - [上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

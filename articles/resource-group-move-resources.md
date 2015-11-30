@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/13/2015" 
 	ms.author="tomfitz"/>
 
 # 將資源移動到新的資源群組或訂用帳戶
@@ -58,6 +58,7 @@
 
 - 虛擬機器
 - 虛擬網路
+- 儲存體
 
 使用 Web 應用程式時，您無法只移動 App Service 方案。若要移動 Web 應用程式，您的選項如下：
 
@@ -96,4 +97,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

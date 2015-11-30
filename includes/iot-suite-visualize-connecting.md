@@ -1,40 +1,40 @@
-## View device telemetry in the dashboard
+## 在儀表板中檢視裝置遙測
 
-The dashboard in the remote monitoring solution enables you to view the telemetry that your devices send to IoT Hub.
+遠端監視解決方案中的儀表板，可讓您檢視裝置傳送到 IoT 中樞的遙測。
 
-1. In your browser, return to the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
+1. 在瀏覽器中，返回遠端監視解決方案儀表板，按一下左面板中的 [裝置] 瀏覽至 [裝置清單]。
 
-2. In the **Devices list**, you should see that the status of your device is now **Running**.
+2. 在 [裝置清單] 中，您應該會看到裝置狀態現在是 [正在執行]。
 
     ![][18]
 
-3. In the dashboard, select your device in the **Device to View** drop-down to view its telemetry. The telemetry from the sample application is 50 units for internal temperature, 55 units for external temperature, and 50 units for humidity. Note that by default the dashboard displays only temperature and humidity values.
+3. 在儀表板中，在 [要檢視的裝置] 下拉式清單中選取您的裝置，以檢視其遙測。範例應用程式的遙測是 50 個單位的內部溫度、 55 個單位的外部溫度，以及 50 個單位的濕度。請注意，儀表板預設只顯示溫度和溼度的值。
 
     ![][img-telemetry]
 
-## Send a command to your device
+## 傳送命令至裝置
 
-The dashboard in the remote monitoring solution enables you to request IoT Hub to send commands to your devices. For example, in the remote monitoring solution you can send a command to set the internal temperature of a device.
+遠端監視解決方案中的儀表板，可讓您要求 IoT 中樞傳送命令至裝置。例如，在遠端監視解決方案中，您可以傳送命令來設定裝置的內部溫度。
 
-1. In the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
+1. 在遠端監視解決方案的儀表板中，按一下左面板中的 [裝置] 瀏覽至 [裝置清單]。
 
-2. Click **Device ID** for your device in the **Devices list**.
+2. 在 [裝置清單] 中，按一下裝置的 [裝置識別碼]。
 
-3. In the **Device details** panel, click **Commands**.
+3. 在 [裝置詳細資料] 面板中，按一下 [命令]。
 
     ![][13]
 
-4. In the **Command** drop-down, select **SetTemperature**, and then in **Temperature** enter a new temperature value. Click **Send command** to send the command to the device.
+4. 在 [命令] 下拉式清單中選取 [SetTemperature]，然後在 [溫度] 輸入新的溫度值。按一下 [傳送命令] 將命令傳送至裝置。
 
     ![][14]
 
-    > [AZURE.NOTE] The command history initially shows the command status as **Pending**. When the device acknowledges the command, the status changes to **Success**.
+    > [AZURE.NOTE]命令歷程記錄一開始會顯示命令狀態為 [暫止]。當裝置認可命令時，狀態就會變更為 [成功]。
 
-5. On the dashboard, verify that the device is now sending 75 as the new temperature value.
+5. 在儀表板上確認該裝置現在正傳送 75 為新的溫度值。
 
-## Next steps
+## 後續步驟
 
-The article [Customizing preconfigured solutions][lnk-customize] describes some ways you can extend this sample. Possible extensions include using real sensors and implementing additional commands.
+[自訂預先設定的解決方案][lnk-customize]一文描述可以擴充這個範例的一些方法。可能的延伸模組包括使用真實的感應器和實作其他命令。
 
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
@@ -42,3 +42,5 @@ The article [Customizing preconfigured solutions][lnk-customize] describes some 
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/
 [lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
+
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 停用、啟用或刪除設定檔
@@ -46,8 +46,12 @@
 
 [流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)
 
-[什麼是流量管理員？](traffic-manager-overview.md)
+[設定容錯移轉路由方法](traffic-manager-configure-failover-routing-method.md)
 
- 
+[設定循環配置資源路由方法](traffic-manager-configure-round-robin-routing-method.md)
 
-<!---HONumber=Oct15_HO3-->
+[設定效能路由方法](traffic-manager-configure-performance-routing-method.md)
+
+[疑難排解流量管理員的已降級狀態](traffic-manager-troubleshooting-degraded.md)
+
+<!---HONumber=Nov15_HO4-->

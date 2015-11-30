@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL Server 高可用性和災害復原 | Microsoft Azure"
-   description="本教學課程使用隨傳統部署模型建立的資源，並討論在 Azure 虛擬機器中執行的 SQL Server 適用的各種 HADR 策略。"
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" 
-   tags="azure-service-management"/>
+	pageTitle="SQL Server 高可用性和災害復原 | Microsoft Azure"
+	description="本教學課程使用隨傳統部署模型建立的資源，並討論在 Azure 虛擬機器中執行的 SQL Server 適用的各種 HADR 策略。"
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # Azure 虛擬機器中的 SQL Server 高可用性和災害復原
 
@@ -104,15 +104,20 @@ Azure 中的可用性設定組可讓您將高可用性節點分別放入容錯�
 
 ### 可用性群組接聽程式支援
 
-可用性群組接聽程式支援執行 Windows Server 2008 R2、Windows Server 2012 和 Windows Server 2012 R2 的 Azure VM。透過使用負載平衡端點，以及在屬於可用性群組節點的 Azure VM 中啟用伺服器直接回傳 (DSR)，即可提供支援。您必須遵循特殊組態步驟，以便接聽程式在 Azure 中執行的用戶端應用程式，以及在內部部署中執行的用戶端應用程式運作。
+可用性群組接聽程式支援執行 Windows Server 2008 R2、Windows Server 2012 和 Windows Server 2012 R2 的 Azure VM。透過使用在為可用性群組節點的 Azure VM 上啟用的負載平衡端點，即可提供支援。您必須遵循特殊組態步驟，以便接聽程式在 Azure 中執行的用戶端應用程式，以及在內部部署中執行的用戶端應用程式運作。
 
-用戶端必須從不在相同雲端服務 (做為 AlwaysOn 可用性群組節點) 中的機器連接至接聽程式。如果可用性群組跨越多個 Azure 子網路 (例如跨越多個 Azure 區域的部署)，則用戶端連接字串必須包含 "MultisubnetFailover = True"。這會導致對於不同子網路中的複本進行平行連接嘗試。如需設定接聽程式的指示，請參閱[在 Azure 中設定 AlwaysOn 可用性群組的 ILB 接聽程式](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)。
+設定接聽程式有主要兩個選項：外部 (公用) 或內部。外部 (公用) 接聽程式與可透過網際網路存取的公用虛擬 IP (VIP) 相關聯。使用外部的接聽程式時，您必須啟用伺服器直接回傳，意即您必須從和 AlwaysOn 可用性群組節點位處不同雲端服務的電腦連接至接聽程式。另一個選項是使用內部負載平衡器 (ILB) 的內部接聽程式。內部接聽程式只支援位於相同虛擬網路的用戶端。
+
+如果可用性群組跨越多個 Azure 子網路 (例如跨越多個 Azure 區域的部署)，用戶端連接字串就必須包含 "**MultisubnetFailover = True**"。這會導致對於不同子網路中的複本進行平行連接嘗試。如需有關設定接聽程式的指示，請參閱
+
+- [設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [設定 Azure 中 AlwaysOn 可用性群組的外部接聽程式](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)。
 
 您仍可以透過直接連接至服務執行個體，分別連接至各個可用性複本。此外，由於 AlwaysOn 可用性群組能與資料庫鏡像用戶端回溯相容，因此只要將可用性複本設定成類似資料庫鏡像，即可連接至該複本 (例如資料庫鏡像合作夥伴)：
 
 - 一個主要複本與一個次要複本
 
-- 次要複本會設定為不可讀取 ([可讀取次要] 選項設為 [否])
+- 次要複本被設定為不可讀取 ([**可讀取次要**] 選項設為 [**否**])
 
 使用 ADO.NET 或 SQL Server Native Client 對應至類似此資料庫鏡像組態的範例用戶端連接字串如下：
 
@@ -122,7 +127,7 @@ Azure 中的可用性設定組可讓您將高可用性節點分別放入容錯�
 
 - [搭配 SQL Server Native Client 使用連接字串關鍵字](https://msdn.microsoft.com/library/ms130822.aspx)
 - [將用戶端連接至資料庫鏡像工作階段 (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-- [連線至混合式 IT 中的可用性群組接聽程式](http://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx) (英文)
+- [連線至混合式 IT 中的可用性群組接聽程式 (英文)](http://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
 - [可用性群組接聽程式、用戶端連接及應用程式容錯移轉 (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
 - [搭配可用性群組使用資料庫鏡像連接字串](https://technet.microsoft.com/library/hh213417.aspx)
 
@@ -136,15 +141,15 @@ Azure 磁碟中的異地複寫不支援將相同資料庫的資料檔與記錄�
 
 ## 後續步驟
 
-如果您需要使用 SQL Server 建立 Azure 虛擬機器，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
+如果您需要透過 SQL Server 建立 Azure 虛擬機器，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
 
-若要從 Azure VM 上執行的 SQL Server 取得最佳效能，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)中的指引。
+若要獲得在 Azure VM 上執行的 SQL Server 的最佳效能，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)中的指引。
 
-如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
+如需有關在 Azure VM 中執行 SQL Server 的其他主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
 ### 其他資源：
 
 - [在 Azure 中安裝新的 Active Directory 樹系](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [在 Azure VM 中建立 AlwaysOn 可用性群組的 WSFC 叢集](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

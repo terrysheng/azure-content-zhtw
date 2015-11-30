@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -21,7 +21,7 @@
 
 在免費試用期間，或是使用[標準及高階定價方案](http://azure.microsoft.com/pricing/details/application-insights/)時，都可使用「連續匯出」功能。
 
-(如果您只想要[一次性匯出](app-insights-metrics-explorer.md#export-to-excel)您在度量或搜尋刀鋒視窗上看到的內容，請按一下分頁頂端的 [匯出]。)
+(如果您只想要[一次性匯出](app-insights-metrics-explorer.md#export-to-excel)您在度量或搜尋刀鋒視窗上看到的內容，請按一下分頁頂端的 [匯出]。如果您想要查看 Power BI 的資料，請使用[配接器](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) (*不*使用「連續匯出」。)
 
 ## 建立儲存體帳戶
 
@@ -77,9 +77,9 @@
 
 ## <a name="get"></a> 檢查資料
 
-您可以直接在入口網站中檢查儲存體。按一下 [瀏覽]、選取您的儲存體帳戶，然後開啟 [容器]。
+您可以直接在入口網站中檢查儲存體。按一下 [**瀏覽**]、選取您的儲存體帳戶，然後開啟 [**容器**]。
 
-若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [檢視]、[Cloud Explorer]。(如果您沒有該功能表命令，則必須安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 [Visual C#]/[Cloud]，然後選擇 [取得 Microsoft Azure SDK for .NET]。)
+若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [**檢視**]、[**雲端總管**]。(如果您沒有該功能表命令，則必須安裝 Azure SDK：開啟 [**新增專案**] 對話方塊，展開 [Visual C#]/[Cloud]，然後選擇 [**取得 Microsoft Azure SDK for .NET**]。)
 
 當您開啟 Blob 存放區時，您會看到含有一組 Blob 檔案的容器。衍生自您 Application Insights 的資源名稱、其檢測金鑰、遙測-類型/日期/時間之每個檔案的 URI。(資源名稱全部小寫，而檢測金鑰會省略連字號。)
 
@@ -141,22 +141,13 @@
 
 連續匯出將重新開始。
 
-## 匯出至 Power BI
+## 匯出範例
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，以及將多個來源的資訊整合的能力。您可以將有關您應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
-
-[從 Application Insights 串流處理到 Power BI](app-insights-export-power-bi.md)
-
-![Application Insights 使用量資料的 Power BI 檢視範例](./media/app-insights-export-telemetry/210.png)
-
-## 匯出至 SQL
-
-另一種選擇是將資料移動至 SQL Database，您可以在其中執行更強大的分析功能。
-
-以下範例說明，要將 Blob 儲存體中的資料移至資料庫，有兩種替代方法可以選擇：
 
 * [使用背景工作角色匯出至 SQL][exportcode]
 * [使用串流分析匯出至 SQL][exportasa]
+* [使用串流分析匯出至 Power BI](app-insights-export-power-bi.md)
+ * 請注意這不是使用 Power BI 的標準方式。您可使用[配接器](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) (不需要「連續匯出」)。
 
 
 就更大型規模而言，請考慮 [HDInsight](http://azure.microsoft.com/services/hdinsight/) - 雲端中的 Hadoop 叢集。HDInsight 提供各種技術，用於管理和分析巨量資料。
@@ -217,4 +208,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

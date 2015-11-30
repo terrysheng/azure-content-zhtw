@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/14/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # 傳送跨平台通知給特定使用者
@@ -109,4 +109,4 @@
 [範本]: https://msdn.microsoft.com/zh-TW/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

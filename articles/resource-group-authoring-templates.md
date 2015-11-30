@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/04/2015"
+   ms.date="11/13/2015"
    ms.author="tomfitz"/>
 
 # 編寫 Azure 資源管理員範本
 
 Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網站等) 結合在一起，以達到所需的目標。您不是分開部署與管理每個資源，而是建立一個 Azure 資源管理員範本，藉此經由單一、協調的作業署與佈建應用程式有的資源。在範本中，您會定義應用程式所需的資源，並指定部署參數以針對不同的環境輸入值。範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
 
-此主題說明範本的各區段。對於實際結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
+此主題說明範本的各區段。對於實際結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。Visual Studio 提供工具來協助您建立範本。如需有關如何以您的範本使用 Visual Studio 的詳細資訊，請參閱[透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)和[使用 Visual Studio 編輯資源管理員範本](vs-azure-tools-resource-group-adding-resources.md)。
 
 您必須將範本大小限制為 1 MB，並將每個參數檔案限制為 64 KB。1 MB 的限制適用於已增加反覆資源定義和變數和參數值之範本的最終狀態。
 
@@ -152,7 +152,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 在變數區段中，您會建構可用來簡化範本語言運算式的值。一般而言，這些變數將會以參數所提供的值為根據。
 
-您會定義結構如下的變數：
+您可使用以下結構定義變數：
 
     "variables": {
        "<variable-name>": "<variable-value>",
@@ -228,7 +228,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 | 元素名稱 | 必要 | 說明
 | :----------------------: | :------: | :----------
-| apiVersion | 是 | 支援資源的 API 版本。如需資源的可用版本及結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
+| apiVersion | 是 | 支援資源的 API 版本。如需可用版本及資源的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
 | 類型 | 是 | 資源類型。這個值是資源提供者的命名空間與資源提供者所支援資源類型的組合。
 | 名稱 | 是 | 資源名稱。此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。
 | location | 否 | 所提供資源的支援地理位置。
@@ -240,7 +240,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 如果資源名稱不是唯一，您可以使用 **resourceId** Helper 函式 (如下所述) 來取得任何資源的唯一識別碼。
 
-**properties** 項目的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是完全一樣的。如需您想要部署之資源的 REST API 作業，請參閱 [Azure 參考](https://msdn.microsoft.com/library/azure/mt420159.aspx)。
+[屬性] 項目的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是完全一樣的。如需您想要部署之資源的 REST API 作業，請參閱 [Azure 參考](https://msdn.microsoft.com/library/azure/mt420159.aspx)。
 
 下列範例顯示 **Microsoft.Web/serverfarms** 資源，以及含巢狀 **Extensions** 資源的 **Microsoft.Web/sites** 資源：
 
@@ -324,7 +324,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 ## 進階案例。
 本主題介紹範本。然而，您的案例可能需要更進階的工作。
 
-您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[搭配使用連結的範本與 Azure 資源管理員](resource-group-linked-templates.md)。
+您可能必須將兩個範本合併在一起，或在上層範本中使用下層範本。如需詳細資訊，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)。
 
 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 
@@ -418,4 +418,4 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="kwill-MSFT"
-   manager="adinah"
+   manager="carmonm"
    editor="joaoma" />
 
 <tags 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 疑難排解 Azure 流量管理員上的已降級狀態
-此頁面將會描述如何疑難排解 Azure 流量管理員設定檔 (顯示已降級狀態)，並提供一些重點以了解流量管理員探查。
 
+此頁面將會描述如何疑難排解 Azure 流量管理員設定檔 (顯示已降級狀態)，並提供一些重點以了解流量管理員探查。
 
 您已將流量管理員設定檔設定為指向部分的 .cloudapp.net 裝載服務，幾秒鐘之後您就會看到狀態為「降級」。
 
@@ -80,4 +80,4 @@
 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

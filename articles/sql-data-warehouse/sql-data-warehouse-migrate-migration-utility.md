@@ -18,6 +18,10 @@
 
 
 #資料倉儲移轉公用程式 (預覽)
+
+> [AZURE.SELECTOR]
+- [Download Migration Utility](https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip)
+
 資料倉儲移轉公用程式是一種工具，專門用來將結構描述和資料從 SQL Server 和 Azure SQL Database 移轉至 Azure SQL 資料倉儲。在結構描述移轉的過程中，此工具會在來源與目的地之間自動對應相應的結構描述。結構描述完成移轉後，使用者也能選擇以自動產生的指令碼來移動資料。
 
 除了結構描述和資料移轉之外，此工具還能讓使用者選擇產生相容性報告，以摘要的形式列出目標和來源執行個體之間可能會妨礙移轉作業的不相容問題。
@@ -31,7 +35,7 @@
 完成驗證後，工具會顯示已連接伺服器中現有的資料庫清單。您可以選取想要移轉的資料庫，然後按一下 [移轉選取項目]，開始移轉程序。
  
 ##移轉報告
-在工具中選取 [檢查資料庫相容性] 會產生一份報告，針對您要移轉的資料庫，摘要說明資料庫物件的所有不相容問題。未列在 SQL 資料倉儲中的部分 SQL Server 功能清單，可以在[移轉文件][]中找到。報告產生後，您可以將它儲存並在 Excel 中開啟。
+在工具中選取 [檢查資料庫相容性] 會產生一份報告，針對您要移轉的資料庫，摘要說明資料庫物件的所有不相容問題。未列在 SQL 資料倉儲中的部分 SQL Server 功能清單，可以在我們的[移轉文件][]中找到。報告產生後，您可以將它儲存並在 Excel 中開啟。
 
 請注意，產生移轉結構描述時，大部分識別為「物件」的問題將會經過調整，以便立即移轉該資料。請檢閱變更的項目，確保您對所有調整項皆感到滿意後，再套用結構描述。
 
@@ -57,4 +61,4 @@
 [開發]: https://azure.microsoft.com/zh-TW/documentation/articles/sql-data-warehouse-overview-develop/
 [這裡]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -32,7 +32,7 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 播放程式要求串流時，媒體服務便會使用 AES 或 PlayReady 加密，使用指定的金鑰動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
-媒體服務支援多種方式來驗證提出金鑰要求的使用者。內容金鑰授權原則可能會有一個或多個授權限制：**open**、**token** 限制或 **IP** 限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援**簡單 Web 權杖** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 格式和 **JSON Web 權杖** (JWT) 格式的權杖。
+媒體服務支援多種方式來驗證提出金鑰要求的使用者。內容金鑰授權原則可能會有一個或多個授權限制：**open**或**token** 限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援**簡單 Web 權杖** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 格式和 **JSON Web 權杖** (JWT) 格式的權杖。
 
 媒體服務不提供安全權杖服務。您可以建立自訂 STS，或利用 Microsoft Azure ACS 來發行權杖。STS 必須設定為建立使用指定金鑰簽署的權杖，並發行在權杖限制組態中指定的宣告 (如本文中所述)。如果權杖有效，且權杖中的宣告符合為內容金鑰設定的宣告，媒體服務金鑰傳遞服務會將加密金鑰傳回給用戶端。
 
@@ -409,9 +409,10 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 
     public enum ContentKeyDeliveryType
     {
-        None = 0,
-        PlayReadyLicense = 1,
-        BaselineHttp = 2,
+      None = 0,
+      PlayReadyLicense = 1,
+      BaselineHttp = 2,
+      Widevine = 3
     }
 
 ###<a id="TokenType"></a>TokenType
@@ -439,4 +440,4 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 現在，您已設定內容金鑰授權原則，請移至[如何設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)主題。
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

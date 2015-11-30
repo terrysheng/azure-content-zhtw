@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="在 Azure 中建立及上傳 RedHat Linux VHD" 
+	pageTitle="建立及上傳 Red Hat Enterprise Linux VHD 以在 Azure 中使用" 
 	description="了解如何建立及上傳包含 RedHat Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -29,13 +29,16 @@
 
 **RHEL 安裝注意事項**
 
-- Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd powershell Cmdlet，將磁碟轉換為 VHD 格式。
+- Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Powershell Cmdlet，將磁碟轉換為 VHD 格式。
 
 - 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果願意，您可以在資料磁碟上使用 LVM 或 RAID。
 
 - 請勿在作業系統磁碟上設定交換磁碟分割。您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。您可以在以下步驟中找到與此有關的詳細資訊。
 
 - 所有 VHD 的大小都必須是 1 MB 的倍數。
+
+- 使用 qemu-img 將磁碟映像轉換成 VHD 格式時，請注意 qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。這個問題將於即將推出的 qemu-img 版本中獲得修正。目前建議使用 qemu-img 2.2.0 版或更低版本。
+
 
 ###RHEL 6.6/6.7
 
@@ -74,11 +77,11 @@
 
         # sudo chkconfig network on
 
-8.	註冊 Red Hat 訂用帳戶以便從 RHEL 儲存機制安裝封裝：
+8.	透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	啟用 epel 儲存機制，因為 WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制：
+9.	WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制。執行下列命令以啟用 EPEL 儲存機制：
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -109,7 +112,7 @@
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    **注意：**如果 NetworkManager 和 NetworkManager-gnome 套件沒有如步驟 2 所述遭到移除，則在安裝 WALinuxAgent 套件時會將這兩個套件移除。
+    **注意**：如果 NetworkManager 和 NetworkManager-gnome 套件沒有如步驟 2 所述遭到移除，則在安裝 WALinuxAgent 套件時會將這兩個套件移除。
 
 13.	請不要在 OS 磁碟上建立交換空間。Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是暫存磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
@@ -130,9 +133,10 @@
         # logout
 
 16.	在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
+
 ###RHEL 7.0/7.1
 
-1.	在 Hyper-V 管理員中，選取虛擬機器。
+1. 在 Hyper-V 管理員中，選取虛擬機器。
 
 2.	按一下 [連接] 以開啟虛擬機器的主控台視窗。
 
@@ -155,7 +159,7 @@
 
         # sudo chkconfig network on
 
-6.	註冊 Red Hat 訂用帳戶以便從 RHEL 儲存機制安裝封裝：
+6.	透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -178,7 +182,7 @@
 
         ClientAliveInterval 180
 
-10.	啟用 epel 儲存機制，因為 WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 7 儲存機制。
+10.	WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制。執行下列命令以啟用 EPEL 儲存機制：
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -256,7 +260,7 @@
 
         # chkconfig network on
 
-8.	註冊 Red Hat 訂用帳戶以便從 RHEL 儲存機制安裝封裝：
+8.	透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -289,7 +293,7 @@
 
 		# service sshd restart
 
-12.	啟用 epel 儲存機制，因為 WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 **Fedora EPEL 6** 儲存機制：
+12.	WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制。執行下列命令以啟用 EPEL 儲存機制：
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -324,12 +328,20 @@
          # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
     確定原始映像的大小 為 1 MB，否則將大小四捨五入為 1 MB：
 
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
+
          # qemu-img resize rhel-6.6.raw $rounded_size
 
     將原始磁碟轉換成固定大小的 vhd：
 
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+
  
+
+
 ###RHEL 7.0/7.1
 
 1.	從 Red Hat 網站下載 RHEL 7.0 的 KVM 映像。
@@ -372,7 +384,7 @@
 
         # chkconfig network on
 
-7.	註冊 Red Hat 訂用帳戶以便從 RHEL 儲存機制安裝封裝：
+7.	透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -409,7 +421,7 @@
 
         systemctl restart sshd	
 
-12.	啟用 epel 儲存機制，因為 WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 **Fedora EPEL 7** 儲存機制：
+12.	WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制。執行下列命令以啟用 EPEL 儲存機制：
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -449,6 +461,11 @@
          # qemu-img convert -f qcow2 –O raw rhel-7.0.qcow2 rhel-7.0.raw
 
     確定原始映像的大小 為 1 MB，否則將大小四捨五入為 1 MB：
+
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
 
          # qemu-img resize rhel-7.0.raw $rounded_size
 
@@ -499,11 +516,11 @@
 
         # sudo chkconfig network on
 
-6.	註冊 Red Hat 訂用帳戶以便從 RHEL 儲存機制安裝封裝：
+6.	透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	啟用 epel 儲存機制，因為 WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制：
+7.	WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制。執行下列命令以啟用 EPEL 儲存機制：
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -558,11 +575,17 @@
 
     確定原始映像的大小 為 1 MB，否則將大小四捨五入為 1 MB：
 
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+                gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+
         # qemu-img resize rhel-6.6.raw $rounded_size
 
     將原始磁碟轉換成固定大小的 vhd：
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+
 
 ###RHEL 7.0/7.1
 
@@ -585,7 +608,7 @@
 
         # sudo chkconfig network on
 
-4.	註冊 Red Hat 訂用帳戶以便從 RHEL 儲存機制安裝封裝：
+4.	透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -619,7 +642,7 @@
 
         ClientAliveInterval 180
 
-9.	啟用 epel 儲存機制，因為 WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 7 儲存機制。
+9.	WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制。執行下列命令以啟用 EPEL 儲存機制：
 
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
@@ -655,6 +678,11 @@
         # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
 
     確定原始映像的大小 為 1 MB，否則將大小四捨五入為 1 MB：
+
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
 
         # qemu-img resize rhel-7.0.raw $rounded_size
 
@@ -792,7 +820,7 @@
 
 5.	啟動 VM，當安裝指南出現時，請按 **Tab** 以設定開機選項。
 
-6.	在開機選項結尾輸入 `inst.ks=<the location of the Kickstart file>`，然後按 **Enter**。
+6.	在開機選項結尾輸入 `inst.ks=<the location of the Kickstart file>`，然後按 **Enter** 鍵。
 
 7.	等待安裝完成，當它完成時，VM 將會關閉自動。您現在可以將 Linux VHD 上傳至 Azure。
 
@@ -813,11 +841,11 @@
 
 附買回利率：
 
-問題會間歇發生，不過在 Hyper-V 和 Azure 中比較常發於頻繁的磁碟 I/O 作業期間。
+此問題會間歇發生，不過在 Hyper-V 和 Azure 中比較常發於頻繁的磁碟 I/O 作業期間。
 
     
 [AZURE.NOTE]Red Hat 已解決這 2 個已知問題。若要安裝相關聯的修正程式，您可以執行下列命令：
 
     # sudo yum update
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

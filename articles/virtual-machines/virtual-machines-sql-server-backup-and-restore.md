@@ -14,21 +14,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/05/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Azure 虛擬機器中的 SQL Server 備份和還原
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
-
 
 ## 概觀
 
 為防止因為應用程式或使用者錯誤而遺失資料，備份 SQL Server 資料庫的資料是該保護措施中的重要一環。這同樣適用於執行 Azure 虛擬機器 (VM) 上的 SQL Server。
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 針對在 Azure VM 中執行的 SQL Server，您可以藉助備份檔案目的地的連接磁碟，使用原生備份和還原技術。不過，根據該[虛擬機器的大小](virtual-machines-size-specs.md)而定，您可以連接到 Azure 虛擬機器的磁碟數有所限制。磁碟管理的負擔也需要加以考量。
 
-從 SQL Server 2014 開始，您可以備份和還原至 Microsoft Azure Blob 儲存體。SQL Server 2016 也提供這個選項的增強功能。此外，針對儲存在 Microsoft Azure Blob 儲存體的資料庫檔案，SQL Server 2016 提供的選項，可使用 Azure 的快照集，用於幾乎即時的備份和快速的還原作業。這篇文章提供這些選項的概觀，而其他資訊可在 [以 Microsoft Azure Blob 儲存體服務備份及還原 SQL Server](https://msdn.microsoft.com/library/jj919148(v=sql.130).aspx) 中找到。
+從 SQL Server 2014 開始，您可以備份和還原至 Microsoft Azure Blob 儲存體。SQL Server 2016 也提供這個選項的增強功能。此外，針對儲存在 Microsoft Azure Blob 儲存體的資料庫檔案，SQL Server 2016 提供的選項，可使用 Azure 的快照集，用於幾乎即時的備份和快速的還原作業。這篇文章提供這些選項的概觀，而其他資訊可在 [以 Microsoft Azure Blob 儲存體服務備份及還原 SQL Server] 中找到 (https://msdn.microsoft.com/library/jj919148(v=sql.130).aspx)。
 
 >[AZURE.NOTE]如需備份超大型資料庫選項的討論，請參閱[適用於 Azure 虛擬機器的多 TB 級 SQL Server 資料庫備份策略](http://blogs.msdn.com/b/igorpag/archive/2015/07/28/multi-terabyte-sql-server-database-backup-strategies-for-azure-virtual-machines.aspx)。
 
@@ -42,11 +41,11 @@
 
 - 您仍然需要執行資料庫備份來提供防護，以免發生使用者錯誤，或基於保存之目的、稽核的原因或系統管理目的而備份。
 
-- 您可以在 Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2) 中使用 SQL Server 檔案快照集備份功能，執行幾乎即時的備份及快速還原。如需詳細資訊，請參閱[適用於在 Azure 中的資料庫檔案的檔案快照集備份](https://msdn.microsoft.com/library/mt169363.aspx)。
+- 您可以在 Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3) 中使用 SQL Server 檔案快照集備份功能，執行幾乎即時的備份及快速還原。如需詳細資訊，請參閱[適用於在 Azure 中的資料庫檔案的檔案快照集備份](https://msdn.microsoft.com/library/mt169363.aspx)。
 
-## 在 Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2) 中的備份與還原
+## Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3) 中的備份與還原
 
-Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2) 支援[使用 Azure Blob 備份和還原](https://msdn.microsoft.com/library/jj919148.aspx)功能，這些可在 SQL Server 2014 中找到，以下也會加以描述。不過它也包含下列增強功能：
+Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3) 支援[透過 Azure Blob 備份和還原](https://msdn.microsoft.com/library/jj919148.aspx)功能，這些資訊可在 SQL Server 2014 中找到，以下也會加以描述。不過它也包含下列增強功能：
 
 - **串接**：當備份至 Microsoft Azure Blob 儲存體時，SQL Server 2016 支援備份至多個 Blob，以啟用可高達 12.8 TB 之大型資料庫的備份。
 
@@ -93,4 +92,4 @@ SQL Server 2014 包含下列增強功能：
 
 請檢閱其他[在 Azure 虛擬機器中執行 SQL Server 的資源](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -23,11 +23,11 @@
 動作項目可以在其基底類別使用 `RegisterTimer` 和 `UnregisterTimer` 方法註冊和取消其計時器。下列範例示範如何使用計時器 API。API 和 .NET 計時器非常類似。在下列範例中，當計時器到期時動作項目執行階段將呼叫 `MoveObject` 方法，而其保證接受回合式的並行存取，也就是說直到此回呼完成執行，沒有其他動作項目方法或計時器/提醒會進行回呼。
 
 ```csharp
-class VisualObjectActor : Actor<VisualObject>, IVisualObject
+class VisualObjectActor : StatefulActor<VisualObject>, IVisualObject
 {
     private IActorTimer _updateTimer;
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         ...
 
@@ -40,7 +40,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
         return base.OnActivateAsync();
     }
 
-    public override Task OnDeactivateAsync()
+    protected override Task OnDeactivateAsync()
     {
         if (_updateTimer != null)
         {
@@ -53,7 +53,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
     private Task MoveObject(object state)
     {
         ...
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 }
 ```
@@ -87,7 +87,7 @@ Task<IActorReminder> reminderRegistration = RegisterReminder(
 使用提醒的動作項目必須實作 `IRemindable` 介面，如下列範例所示。
 
 ```csharp
-public class ToDoListActor : Actor<ToDoList>, IToDoListActor, IRemindable
+public class ToDoListActor : StatefulActor<ToDoList>, IToDoListActor, IRemindable
 {
     public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
     {
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 如上所示，`UnregisterReminder` 方法會接受 `IActorReminder` 介面。動作項目基底類別支援 `GetReminder` 方法，在傳遞進提醒名稱時可以用來擷取 `IActorReminder` 介面。這很方便，因為動作項目不需保存從 `RegisterReminder` 方法呼叫傳回的 `IActorReminder` 介面。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

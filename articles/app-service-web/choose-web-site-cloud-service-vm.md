@@ -161,8 +161,8 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
 整合 Visual Studio|X|X|X|
 遠端偵錯|X|X|X|
 利用 TFS 來部署程式碼|X|X|X|
-利用 [Azure 虛擬網路](../services/virtual-network/)進行網路隔離|X|X|X|另請參閱＜[Azure 網站虛擬網路整合](../blog/2014/09/15/azure-websites-virtual-network-integration/)＞
-支援 [Azure 流量管理員](../services/traffic-manager/)|X|X|X|
+利用 [Azure 虛擬網路](/services/virtual-network/)進行網路隔離|X|X|X|另請參閱＜[Azure 網站虛擬網路整合](/blog/2014/09/15/azure-websites-virtual-network-integration/)＞
+支援 [Azure 流量管理員](/services/traffic-manager/)|X|X|X|
 整合式端點監視|X|X|X|
 透過桌面遠端來存取伺服器||X|X|
 安裝任何自訂 MSI||X|X|
@@ -204,4 +204,4 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
   [儲存體]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

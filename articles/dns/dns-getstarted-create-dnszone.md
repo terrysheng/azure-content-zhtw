@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # 開始藉由 Powershell 使用 Azure DNS
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+- [PowerShell](dns-getstarted-create-dnszone.md)
 
 網域 'contoso.com' 可能包含許多的 DNS 記錄，例如 'mail.contoso.com' (用於郵件伺服器) 和 'www.contoso.com' (用於網站)。DNS 區域用來裝載特定網域的 DNS 記錄。<BR><BR> 為了開始裝載您的網域，我們必須先建立 DNS 區域。針對特定網域建立的任何 DNS 記錄，都位於該網域的 DNS 區域內。<BR><BR> 這些指示使用 Microsoft Azure PowerShell。請務必更新至最新的 Azure PowerShell，才能使用 Azure DNS Cmdlet。相同的步驟也可以使用 Microsoft Azure 命令列介面、REST API 或 SDK 來執行。<BR><BR>
 
@@ -155,4 +155,4 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 [開始建立記錄集與記錄](dns-getstarted-create-recordset.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

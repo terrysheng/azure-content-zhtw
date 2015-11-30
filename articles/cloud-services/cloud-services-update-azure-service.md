@@ -77,7 +77,7 @@ Azure 會將您的角色執行個體組織成名為升級網域 (UD) 的邏輯�
 
 ![升級服務](media/cloud-services-update-azure-service/IC345879.png "升級服務")
 
-下圖說明如果您只要升級單一角色，如何繼續進行升級：
+下圖說明如果您只要升級單一角色，如何繼續進行更新：
 
 ![升級角色](media/cloud-services-update-azure-service/IC345880.png "升級角色")
 
@@ -119,8 +119,11 @@ Azure 會將您的角色執行個體組織成名為升級網域 (UD) 的邏輯�
 
 在自動更新期間，Azure 網狀架構控制器會定期評估雲端服務的健康狀態，以判斷何時可放心進行下一個 UD。此健康狀態評估會根據每一個角色執行，而且只考慮最新版本中的執行個體 (也就是 UD 中已進行的執行個體)。它會確認每個角色的最少角色執行個體是否已達到令人滿意的終止狀態。
 
+### 角色執行個體啟動逾時 
+網狀架構控制器會等待 30 分鐘，讓每個角色執行個體達到啟動狀態。當逾時期間過去後，網狀架構控制器會繼續前進到下一個角色執行個體。
+
 ## 復原更新
-Azure 讓您在 Azure 網狀架構控制器接受初始更新要求後，於服務上起始其他作業，以提供在更新期間管理服務的彈性。只有當部署上的更新 (組態變更) 或升級處於**進行中**狀態時，才能執行復原。只要服務有至少一個執行個體尚未更新為新版本，更新或升級就會被視為進行中。若要測試是否允許復原，請檢查[取得部署](https://msdn.microsoft.com/library/azure/ee460804.aspx)和[取得雲端服務屬性](https://msdn.microsoft.com/library/azure/ee460806.aspx)作業所傳回的RollbackAllowed 旗標值是否設定為 true。
+Azure 讓您在 Azure 網狀架構控制器接受初始更新要求後，於服務上起始其他作業，以提供在更新期間管理服務的彈性。只有當部署上的更新 (組態變更) 或升級處於**進行中**狀態時，才能執行復原。只要服務有至少一個執行個體尚未更新為新版本，更新或升級就會被視為進行中。若要測試是否允許復原，請檢查[取得部署](https://msdn.microsoft.com/library/azure/ee460804.aspx)和[取得雲端服務屬性](https://msdn.microsoft.com/library/azure/ee460806.aspx)作業所傳回的 RollbackAllowed 旗標值是否設定為 true。
 
 > [AZURE.NOTE]只有對**就地**更新或升級呼叫 Rollback 才有意義，因為 VIP 交換升級牽涉到以另一個執行個體取代服務的一整個執行中執行個體。
 
@@ -131,20 +134,20 @@ Azure 讓您在 Azure 網狀架構控制器接受初始更新要求後，於服�
 
 此作用是由下列功能提供：
 
--   [復原更新或升級](https://msdn.microsoft.com/library/azure/hh403977.aspx)作業；只要服務中有至少一個執行個體尚未更新為新版本，即可對組態更新 (藉由呼叫[變更部署組態](https://msdn.microsoft.com/library/azure/ee460809.aspx)來觸發) 或升級 (藉由呼叫[升級部署](https://msdn.microsoft.com/library/azure/ee460793.aspx)來觸發) 呼叫此作業。
--   Locked 元素和 RollbackAllowed 元素；這兩個元素可當作[取得部署](https://msdn.microsoft.com/library/azure/ee460804.aspx)和[取得雲端服務屬性](https://msdn.microsoft.com/library/azure/ee460806.aspx)作業的回應本文的一部分傳回：
+-   [復原更新或升級](https://msdn.microsoft.com/library/azure/hh403977.aspx)作業：只要服務中有至少一個執行個體尚未更新為新版本，即可對組態更新 (藉由呼叫[變更部署組態](https://msdn.microsoft.com/library/azure/ee460809.aspx)來觸發) 或升級 (藉由呼叫[升級部署](https://msdn.microsoft.com/library/azure/ee460793.aspx)來觸發) 呼叫此作業。
+-   Locked 項目和 RollbackAllowed 項目；這兩個項目可當作[取得部署](https://msdn.microsoft.com/library/azure/ee460804.aspx)和[取得雲端服務屬性](https://msdn.microsoft.com/library/azure/ee460806.aspx)作業的回應本文的一部分傳回：
     1.  Locked 元素可讓您偵測何時可對指定的部署叫用變更作業。
-    2.  RollbackAllowed 元素可讓您偵測何時可對指定的部署呼叫[復原更新或升級](https://msdn.microsoft.com/library/azure/hh403977.aspx)作業。
+    2.  RollbackAllowed 項目可讓您偵測何時可對指定的部署呼叫[復原更新或升級](https://msdn.microsoft.com/library/azure/hh403977.aspx)作業。
 
     若要執行復原，您不必同時檢查 Locked 和 RollbackAllowed 元素。就足以確認 RollbackAllowed 已設定為 true。只有在使用設定為 “x-ms-version: 2011-10-01” 或更新版本的要求標頭叫用這些方法時，才會傳回這些元素。如需標頭版本控制的詳細資訊，請參閱[服務管理版本控制](https://msdn.microsoft.com/library/azure/gg592580.aspx)。
 
 有某些情況下，不支援復原更新或升級，如下所示：
 
--   減少本機資源 - 如果更新增加角色的本機資源，則 Azure 平台不會允許復原。如需有關如何設定角色的本機資源的詳細資訊，請參閱[設定本機儲存體資源](https://msdn.microsoft.com/library/azure/ee758708.aspx)。
+-   減少本機資源 - 如果更新增加角色的本機資源，則 Azure 平台不會允許復原。如需如何設定角色之本機資源的詳細資訊，請參閱[設定本機儲存體資源](https://msdn.microsoft.com/library/azure/ee758708.aspx)。
 -   配額限制 - 如果更新是相應減少作業，您可能不再有足夠的計算配額來完成復原作業。每個 Azure 訂用帳戶都有相關聯的配額，以指定屬於該訂用帳戶的所有託管服務可以取用的核心數目上限。如果執行指定之更新的復原會讓您的訂用帳戶超出配額，則不會啟用復原。
 -   競爭情形 - 如果已完成初始更新，則不可能進行復原。
 
-如果您在手動模式中使用[升級部署](https://msdn.microsoft.com/library/azure/ee460793.aspx)作業來控制您的 Azure 託管服務的主要就地升級推展速率，復原更新可能很實用。
+如果您在手動模式中使用[升級部署](https://msdn.microsoft.com/library/azure/ee460793.aspx)作業來控制您 Azure 託管服務的主要就地升級推展速率，復原更新可能很實用。
 
 在升級推展期間，您會在手動模式中呼叫[升級部署](https://msdn.microsoft.com/library/azure/ee460793.aspx)並開始處理升級網域。如果在某個時間點，當您監視升級時，您注意到您檢查的第一個升級網域中有某些角色執行個體變得沒有回應，您可以在部署上呼叫[復原更新或升級](https://msdn.microsoft.com/library/azure/hh403977.aspx)作業，讓尚未升級的執行個體維持不變，而讓已升級的執行個體復原為先前的服務封裝和組態。
 
@@ -162,7 +165,7 @@ Azure 讓您在 Azure 網狀架構控制器接受初始更新要求後，於服�
 若要呼叫可傳回 Locked 旗標的這些方法的版本，您必須將要求標頭設定為 “x-ms-version: 2011-10-01” 或更新版本。如需標頭版本控制的詳細資訊，請參閱[服務管理版本控制](https://msdn.microsoft.com/library/azure/gg592580.aspx)。
 
 ## 將角色散發於升級網域
-Azure 會將角色的執行個體平均分散於一組升級網域，而升級網域可設定為服務定義 (.csdef) 檔案的一部分。升級網域數目上限為 20，其預設值為 5。如需有關如何修改服務定義檔的詳細資訊，請參閱 [Azure 服務定義結構描述 (.csdef 檔)](https://msdn.microsoft.com/library/azure/ee758711.aspx)。
+Azure 會將角色的執行個體平均分散於一組升級網域，而升級網域可設定為服務定義 (.csdef) 檔案的一部分。升級網域數目上限為 20，其預設值為 5。如需如何修改服務定義檔的詳細資訊，請參閱 [Azure 服務定義結構描述 (.csdef 檔)](https://msdn.microsoft.com/library/azure/ee758711.aspx)。
 
 例如，如果您的角色有 10 個執行個體，依預設每個升級網域包含 2 個執行個體。如果您的角色有 14 個執行個體，則其中 4 個升級網域包含 3 個執行個體，而第 5 個網域包含 2 個執行個體。
 
@@ -177,4 +180,4 @@ Azure 會將角色的執行個體平均分散於一組升級網域，而升級�
 ## 後續步驟
 [如何管理雲端服務](cloud-services-how-to-manage.md)<br> [如何監視雲端服務](cloud-services-how-to-monitor.md)<br> [如何設定雲端服務](cloud-services-how-to-cofigure.md)<br>
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

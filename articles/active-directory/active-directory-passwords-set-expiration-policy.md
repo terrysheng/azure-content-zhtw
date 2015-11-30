@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="11/16/2015"
 	ms.author="curtand"/>
 
 
@@ -51,10 +51,10 @@
 2.  執行下列其中一項：
 
 	- 若要將某位使用者的密碼設為會到期，請透過使用使用者主體名稱 (UPN) 或使用者的使用者識別碼，執行下列 Cmdlet：`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
-  	
+
 	- 若要將組織中所有使用者的密碼設為會到期，請使用下列 Cmdlet：`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
 
-## 將密碼設為不會到期
+## 設定密碼為永久有效
 
 1. 使用您公司的管理員認證連線至 Windows PowerShell。
 
@@ -64,4 +64,4 @@
 
 	- 若要將組織中所有使用者的密碼設為永久有效，請執行下列 Cmdlet：`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

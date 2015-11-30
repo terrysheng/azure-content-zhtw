@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 # 部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲
@@ -137,7 +137,7 @@ Storm UI 的主頁面會提供下列資訊：- **叢集摘要**：Storm 叢集�
 
 Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行類似的管理和監視功能。您可以使用 REST API 建立自訂工具來管理和監視 Storm 拓撲。
 
-如需詳細資訊，請參閱 <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">Storm UI REST API</a>下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
+如需詳細資訊，請參閱 [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md)。下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
 
 > [AZURE.IMPORTANT]Storm REST API 不是透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
@@ -168,4 +168,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 
 若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -40,6 +40,9 @@
 - [Microsoft In The Cloud 部落格](http://blogs.technet.com/b/in_the_cloud/)
 - [Microsoft Intune 部落格](http://blogs.technet.com/b/microsoftintune/)
 - [Microsoft System Center Configuration Manager 部落格](http://blogs.technet.com/b/configurationmgr/)
-- [Microsoft System Center Configuration Manager 小組部落格](http://blogs.technet.com/b/configmgrteam/)
+- [Microsoft System Center Configuration Manager Team 部落格](http://blogs.technet.com/b/configmgrteam/)
 
-<!---HONumber=Nov15_HO3-->
+## 另請參閱
+[設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
+
+<!---HONumber=Nov15_HO4-->

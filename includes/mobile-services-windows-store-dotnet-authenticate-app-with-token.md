@@ -3,7 +3,7 @@
 
 >[AZURE.NOTE]無論您使用用戶端管理或服務管理驗證，皆可以快取行動服務發行的權杖。本教學課程使用服務管理驗證。
 
-1. 在 MainPage.xaml.cs 專案檔中，新增下列 **using** 陳述式：
+1. 在 MainPage.cs 專案檔中，新增下列 **using** 陳述式：
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
@@ -91,4 +91,4 @@
 
 	請注意，第一次啟動時，需要再次使用該提供者登入。不過，在第二次重新啟動時，可以使用快取的認證，並略過登入。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

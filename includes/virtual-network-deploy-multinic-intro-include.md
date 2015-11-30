@@ -1,3 +1,5 @@
-You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multi NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multi NIC also provides more network traffic management functionality, including isolation of traffic between a front end NIC and back end NIC(s), or separation of data plane traffic from management plane traffic.
+您可以在 Azure 中建立虛擬機器 (VM) 並將多個網路介面 (NIC) 連接至每個 VM。多個 NIC 是許多網路虛擬應用裝置的需求，例如應用程式傳遞和 WAN 最佳化解決方案。多個 NIC 也會提供更多網路流量管理功能，包括前端 NIC 與後端 NIC 之間的流量隔離，或者從管理平面流量中將資料平面流量分隔開來。
 
-Before you can implement multi NICs in VMs, it is necessary to understand when you can use multi NICs, and how they are used. Read the [multi NIC overview](virtual-networks-multiple-nics.md) to learn more about VMs with multiple NICs.
+在 VM 中實作多個 NIC 之前，您必須先了解可以使用多個 NIC 的時機和使用方式。若要深入了解含有多個 NIC 的 VM，請閱讀[多個 NIC 概觀](virtual-networks-multiple-nics.md)。
+
+<!---HONumber=Nov15_HO4-->

@@ -33,7 +33,7 @@
 
 1. 將您專案的 NuGet 封裝更新為 Application Insights 的最新「發行前」版本。以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。 
 
-2. 將這個程式碼片段加入 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)：
+2. 將此程式碼片段新增至 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)：
 
 ```XML
 
@@ -55,7 +55,7 @@
 
 您可以從任何伺服器設定要取樣的網頁。針對 ASP.NET 伺服器，設定用戶端和伺服器端。
 
-當您[設定 Application Insights 的網頁](app-insights-javascript.md)時，請修改您從 Application Insights 入口網站取得的程式碼片段。(在 ASP.NET 中，您會在 \_Layout.cshtml 中找到它。) 在檢測金鑰之前插入類似 `samplingPercentage: 10,` 的行：
+當您[設定 Application Insights 的網頁](app-insights-javascript.md)時，請修改您從 Application Insights 入口網站取得的程式碼片段。(在 ASP.NET 中，您會在 \_Layout.cshtml 中找到它。) 在檢測金鑰之前插入類似 `samplingPercentage: 10,` 的一行：
 
     <script>
 	var appInsights= ... 
@@ -104,7 +104,7 @@
 
 
 * 當您的應用程式在短時間間隔傳送非常高比率的遙測時，Application Insights 服務會將資料點卸除 (「節流」)。 
-* 您想要保持在您的定價層的資料點[配額](app-insights-pricing.md)。 
+* 您想要保持在定價層的資料點[配額](app-insights-pricing.md)內。 
 * 若要從收集的遙測降低網路流量。 
 
 ## 取樣運作方式？
@@ -164,4 +164,4 @@ SDK 會決定要卸除的遙測項目以及要保留哪些。取樣決策會根�
 
 >>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

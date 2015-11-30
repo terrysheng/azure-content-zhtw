@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Sybase 移動資料 
@@ -264,4 +264,4 @@ Sybase 支援 T-SQL 和 T-SQL 類型。如需從 sql 類型到.NET 類型的對�
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

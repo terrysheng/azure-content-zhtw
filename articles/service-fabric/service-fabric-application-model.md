@@ -31,7 +31,7 @@
 
 應用程式和服務的類別 (或「類型」) 是使用 XML 檔案 (應用程式資訊清單和服務資訊清單) 來加以說明，該檔案是應用程式可以針對它具現化的範本。不同應用程式執行個體的程式碼會執行為個別的程序，即使是由相同的 Service Fabric 節點所裝載。此外，每個應用程式執行個體的生命週期可以獨立進行管理 (也就是升級)。下圖顯示應用程式類型如何由服務類型組成，依序分別為程式碼、組態和封裝的組成。
 
-![Service Fabric ApplicationTypes 和 ServiceTypes][Image1]
+![Service Fabric ApplicationTypes 和 ServiceTypes][圖 1]
 
 兩個不同的資訊清單檔案用來說明應用程式和服務：服務資訊清單和應用程式資訊清單，後續章節中有詳細說明。
 
@@ -39,7 +39,7 @@
 
 下圖顯示應用程式和服務執行個體、分割和複本之間的關聯性。
 
-![服務內的分割和複本][Image2]
+![服務內的分割和複本][圖 2]
 
 
 ## 描述服務
@@ -135,6 +135,8 @@ For more information about other features supported by service manifests, refer 
 
 > [AZURE.NOTE]應用程式資訊清單可以包含多個服務資訊清單匯入和預設服務。每個服務資訊清單匯入都可以獨立建立版本。
 
+若要了解如何針對個別環境維護不同的應用程式和服務參數，請參閱[管理多個環境的應用程式參數](service-fabric-manage-multiple-environment-app-configuration.md)
+
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
 
@@ -169,6 +171,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 ~~~
 
 命名資料夾以符合每個對應元素的**名稱**屬性。例如，如果服務資訊清單包含名稱為 **MyCodeA** 和 **MyCodeB** 的兩個程式碼封裝，則必須為兩個具有相同名稱的資料夾，其中包含每個程式碼封裝所需的二進位檔。
+
+### 使用 SetupEntryPoint
+一般來說，在服務啟動前，或您需要執行較高權限的作業時，都需要使用 SetupEntryPoint。其他使用案例包括 - 設定及初始化服務可執行檔可使用的環境變數。這不只包括以 Service Fabric 程式撰寫模型撰寫的可執行檔，也包含任何用到的 EXE。例如，如果您部署 nodejs 應用程式，則 npm.exe 也需要設定環境變數。- ACL 憑證等資源
+
+下列步驟可確保您的程式碼 (exe)、批次檔或 PowerShell 正確封裝在 Visual Studio 專案中。
+
 
 ### 使用 Visual Studio 建置封裝
 
@@ -221,15 +229,11 @@ PS D:\temp>
 
 ## 後續步驟
 
-[部署與移除應用程式][10]
-
-<!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[部署與移除應用程式][10] [管理多個環境的應用程式參數][11] [RunAs：使用不同的安全性權限執行 Service Fabric 應用程式][12] <!--Image references--> [1]: ./media/service-fabric-application-model/application-model.jpg [2]: ./media/service-fabric-application-model/vs-package-command.png [Image1]: media/service-fabric-application-model/Service1.jpg [Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
+[11]: service-fabric-manage-multiple-environment-app-configuration.md
+[12]: service-fabric-application-runas-security.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

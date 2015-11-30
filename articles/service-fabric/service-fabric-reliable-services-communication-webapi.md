@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/23/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # 開始使用 Microsoft Azure Service Fabric Web API 服務與 OWIN 自我裝載
@@ -33,9 +33,9 @@ Service Fabric 中的 Web API 是您熟知而且喜愛的相同 ASP.NET Web API�
 Web API 應用程式本身不會在此處變更，它與您過去撰寫的 Web API 應用程式並無不同，您應該能夠直接搬移大部分的應用程式程式碼。如果您過去裝載在 IIS 上，那麼裝載應用程式可能會與您過去習慣的稍有不同。但我們進入裝載部分之前，讓我們從較熟悉的部分開始：Web API 應用程式。
 
 
-## 設定 Web API 應用程式
+## 建立應用程式
 
-從在 Visual Studio 2015 中，使用單一無狀態服務建立新的應用程式開始：
+從在 Visual Studio 2015 中，使用單一無狀態服務建立新的 Service Fabric 應用程式開始：
 
 ![建立新的 Service Fabric 應用程式](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
@@ -53,13 +53,13 @@ Web API 應用程式本身不會在此處變更，它與您過去撰寫的 Web A
  + Controllers
  + Models
 
-在 App\_Start 目錄中加入基本的 Web API 組態類別：
+在 App\_Start 目錄中加入基本的 Web API 組態類別。現在，我們要新增空的媒體類型格式子組態：
 
  + FormatterConfig.cs
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using System.Net.Http.Formatting;
 
@@ -73,65 +73,48 @@ namespace WebApi
 
 ```
 
- + RouteConfig.cs
-
-```csharp
-
-namespace WebApi
-{
-    using System.Web.Http;
-
-    public static class RouteConfig
-    {
-        public static void RegisterRoutes(HttpRouteCollection routes)
-        {
-            routes.MapHttpRoute(
-                    name: "DefaultApi",
-                    routeTemplate: "api/{controller}/{id}",
-                    defaults: new { controller = "Default", id = RouteParameter.Optional }
-                );
-        }
-    }
-}
-
-```
-
 在 Controllers 目錄中加入預設控制器：
 
  + DefaultController.cs
 
 ```csharp
 
-namespace WebApi.Controllers
+namespace WebApiService.Controllers
 {
     using System.Collections.Generic;
     using System.Web.Http;
 
+    [RoutePrefix("api")]
     public class DefaultController : ApiController
     {
         // GET api/values
+        [Route("values")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
+        [Route("values/{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
         // POST api/values
+        [Route("values")]
         public void Post([FromBody]string value)
         {
         }
 
         // PUT api/values/5
+        [Route("values/{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE api/values/5
+        [Route("values/{id}")]
         public void Delete(int id)
         {
         }
@@ -146,7 +129,7 @@ namespace WebApi.Controllers
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using Owin;
     using System.Web.Http;
@@ -157,8 +140,8 @@ namespace WebApi
         {
             HttpConfiguration config = new HttpConfiguration();
 
+            config.MapHttpAttributeRoutes();
             FormatterConfig.ConfigureFormatters(config.Formatters);
-            RouteConfig.RegisterRoutes(config.Routes);
 
             appBuilder.UseWebApi(config);
         }
@@ -171,7 +154,7 @@ namespace WebApi
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using Owin;
 
@@ -202,7 +185,7 @@ public class Program
         {
             using (FabricRuntime fabricRuntime = FabricRuntime.Create())
             {
-                fabricRuntime.RegisterServiceType(Service.ServiceTypeName, typeof(Service));
+                fabricRuntime.RegisterServiceType("WebApiServiceType", typeof(Service));
 
                 Thread.Sleep(Timeout.Infinite);
             }
@@ -217,9 +200,7 @@ public class Program
 
 ```
 
-如果看起來疑似主控台應用程式的進入點，這是因為它是：
-
-![](media/service-fabric-reliable-services-communication-webapi/webapi-projectproperties.png)
+如果看起來疑似主控台應用程式的進入點，這是因為它是。
 
 關於服務主機處理序和服務註冊的詳細資料超出本文的範圍，但現在知道**您的服務程式碼是在自己的處理序中執行**是很重要的。
 
@@ -234,24 +215,11 @@ public class Program
 
 ## 設定 Web 伺服器
 
-可靠服務 API 為您的商務邏輯提供兩個進入點：
-
- + 開放式的進入點方法，您可以在這裡開始執行任何工作負載，這主要是供長時間執行的運算工作負載使用：
+Reliable Services API 提供通訊進入點，您可在其中插入通訊堆疊，讓使用者和用戶端連線到服務：
 
 ```csharp
 
-protected override async Task RunAsync(CancellationToken cancellationToken)
-{
-    ...
-}
-
-```
-
- + 通訊進入點，您可以在這裡插入選擇的通訊堆疊：
-
-```csharp
-
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -275,7 +243,7 @@ namespace WebApi
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Owin.Hosting;
-    using Microsoft.ServiceFabric.Services;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
 
     public class OwinCommunicationListener : ICommunicationListener
     {
@@ -287,10 +255,6 @@ namespace WebApi
         {
         }
 
-        public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
-        {
-        }
-
         public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
         }
@@ -299,9 +263,8 @@ namespace WebApi
 
 ```
 
-ICommunicationListener 介面提供 4 個方法來管理服務的通訊接聽程式：
+ICommunicationListener 介面提供三個方法來管理服務的通訊接聽程式：
 
- + **Initialize**：這通常是您設定服務將接聽位址的地方。對於 Web 伺服器而言，這是 URL 設定位置。
  + **OpenAsync**：開始接聽要求。
  + **CloseAsync**：停止接聽要求，完成任何進行中的要求，並正常關機。
  + **Abort**：取消所有項目，並立即停止。
@@ -316,20 +279,22 @@ public class OwinCommunicationListener : ICommunicationListener
     private readonly string appRoot;
     private IDisposable serverHandle;
     private string listeningAddress;
+    private readonly ServiceInitializationParameters serviceInitializationParameters;
 
-    public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup)
+    public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup, ServiceInitializationParameters serviceInitializationParameters)
     {
         this.startup = startup;
         this.appRoot = appRoot;
-    }
+        this.serviceInitializationParameters = serviceInitializationParameters;
+    }        
 
     ...
 
 ```
 
-### Initialize
+### 實作
 
-Web 伺服器 URL 將在此處設定。若要這樣做，您需要一些資訊：
+若要設定 Web 伺服器，我們需要一些資訊：
 
  + **URL 路徑前置詞**。雖然是選擇性的，但最好現在就設定，以便您能安全地在應用程式中裝載多個 Web 服務。
  + **連接埠**。
@@ -350,11 +315,12 @@ Web 伺服器 URL 將在此處設定。若要這樣做，您需要一些資訊�
 
 這個步驟很重要，因為服務主機處理序在限制認證下執行 (Windows 上為網路服務)，這表示您的服務沒有自行設定 HTTP 端點的存取權。藉由使用端點組態，Service Fabric 會知道要為服務將接聽的 URL 設定適當的 ACL，同時提供標準位置來設定端點。
 
-回到 OwinCommunicationListener.cs 中，在 Initialize 方法中取得端點資訊以取得連接埠。建立服務將接聽的 URL，並將它儲存至先前建立的類別成員變數。這將用於 OpenAsync 中以啟動 Web 伺服器。
+
+返回 OwinCommunicationListener.cs 中，我們可以開始實作 OpenAsync。我們會從此處啟動 Web 伺服器。首先，取得端點資訊，並建立服務將接聽的 URL。
 
 ```csharp
 
-public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
+public Task<string> OpenAsync(CancellationToken cancellationToken)
 {
     EndpointResourceDescription serviceEndpoint = serviceInitializationParameters.CodePackageActivationContext.GetEndpoint("ServiceEndpoint");
     int port = serviceEndpoint.Port;
@@ -366,15 +332,11 @@ public void Initialize(ServiceInitializationParameters serviceInitializationPara
         String.IsNullOrWhiteSpace(this.appRoot)
             ? String.Empty
             : this.appRoot.TrimEnd('/') + '/');
-}
+    ...
 
 ```
 
 請注意這裡用 "http://+"。這是為了確定 Web 伺服器正在接聽所有可用的位址，包括 localhost、FQDN，以及電腦的 IP。
-
-### OpenAsync
-
-OpenAsync 在 Initialize 之後由平台呼叫。您在這裡使用 Initialize 中建立的位址，以開啟 Web 伺服器。
 
 實作 OpenAsync 是 Web 伺服器 (或任何通訊堆疊) 之所以實作為 ICommunicationListener，而非直接從服務中的 RunAsync() 開啟它，最重要的原因之一。OpenAsync 的傳回值是 Web 伺服器正在接聽的位址。當傳回這個位址給系統時，它會向服務註冊位址。Service Fabric 會提供一個 API，讓用戶端或其他服務依服務名稱來要求這個位址。這很重要，因為服務位址並非靜態，因為服務會在叢集中移動，以達到資源平衡與可用性的目的。這是可讓用戶端解析服務接聽位址的機制。
 
@@ -382,15 +344,14 @@ OpenAsync 在 Initialize 之後由平台呼叫。您在這裡使用 Initialize �
 
 ```csharp
 
-public Task<string> OpenAsync(CancellationToken cancellationToken)
-{
+    ...
+
     this.serverHandle = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Configuration(appBuilder));
+    string publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-    string resultAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+    ServiceEventSource.Current.Message("Listening on {0}", publishAddress);
 
-    ServiceEventSource.Current.Message("Listening on {0}", resultAddress);
-
-    return Task.FromResult(resultAddress);
+    return Task.FromResult(publishAddress);
 }
 
 ```
@@ -438,13 +399,16 @@ private void StopWebServer()
 
 ## 啟動 Web 伺服器
 
-您現在可以開始建立並傳回 OwinCommunicationListener 的執行個體以啟動 Web 伺服器。回到 Service 類別 (Service.cs)，覆寫 **CreateCommunicationListener()** 方法：
+您現在可以開始建立並傳回 OwinCommunicationListener 的執行個體以啟動 Web 伺服器。返回 Service 類別 (Service.cs)，覆寫 **CreateServiceInstanceListeners()** 方法：
 
 ```csharp
 
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
-	return new OwinCommunicationListener("api", new Startup());
+    return new[]
+    {
+        new ServiceInstanceListener(initParams => new OwinCommunicationListener("webapp", new Startup(), initParams))
+    };
 }
 
 ```
@@ -459,28 +423,31 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
-    using Microsoft.ServiceFabric.Services;
+    using System.Collections.Generic;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
+    using Microsoft.ServiceFabric.Services.Runtime;
 
-    public class Service : StatelessService
+    public class WebApiService : StatelessService
     {
-        public const string ServiceTypeName = "WebApiType";
-
-        protected override ICommunicationListener CreateCommunicationListener()
+        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new OwinCommunicationListener("api", new Startup());
+            return new[]
+            {
+                new ServiceInstanceListener(initParams => new OwinCommunicationListener("webapp", new Startup(), initParams))
+            };
         }
     }
 }
 
 ```
 
-與完整的 OwinCommunicationListener 類別：
+以及完整 `OwinCommunicationListener` 類別：
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using System;
     using System.Fabric;
@@ -489,22 +456,24 @@ namespace WebApi
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Owin.Hosting;
-    using Microsoft.ServiceFabric.Services;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
 
     public class OwinCommunicationListener : ICommunicationListener
     {
         private readonly IOwinAppBuilder startup;
         private readonly string appRoot;
+        private readonly ServiceInitializationParameters serviceInitializationParameters;
         private IDisposable serverHandle;
         private string listeningAddress;
-
-        public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup)
+        
+        public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup, ServiceInitializationParameters serviceInitializationParameters)
         {
             this.startup = startup;
             this.appRoot = appRoot;
+            this.serviceInitializationParameters = serviceInitializationParameters;
         }
 
-        public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
+        public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
             EndpointResourceDescription serviceEndpoint = serviceInitializationParameters.CodePackageActivationContext.GetEndpoint("ServiceEndpoint");
             int port = serviceEndpoint.Port;
@@ -516,21 +485,19 @@ namespace WebApi
                 String.IsNullOrWhiteSpace(this.appRoot)
                     ? String.Empty
                     : this.appRoot.TrimEnd('/') + '/');
-        }
 
-        public Task<string> OpenAsync(CancellationToken cancellationToken)
-        {
             this.serverHandle = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Configuration(appBuilder));
+            string publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-            string resultAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+            ServiceEventSource.Current.Message("Listening on {0}", publishAddress);
 
-            ServiceEventSource.Current.Message("Listening on {0}", resultAddress);
-
-            return Task.FromResult(resultAddress);
+            return Task.FromResult(publishAddress);
         }
 
         public Task CloseAsync(CancellationToken cancellationToken)
         {
+            ServiceEventSource.Current.Message("Close");
+
             this.StopWebServer();
 
             return Task.FromResult(true);
@@ -538,6 +505,8 @@ namespace WebApi
 
         public void Abort()
         {
+            ServiceEventSource.Current.Message("Abort");
+
             this.StopWebServer();
         }
 
@@ -570,7 +539,7 @@ namespace WebApi
 如果您尚未這麼做，請[設定開發環境](service-fabric-get-started.md)。
 
 
-您現在可以建置並部署您的服務。在 Visual Studio 中按 **F5** 以建置及部署應用程式。在 [診斷事件] 視窗中，您應該會看到一則訊息指出 Web 伺服器在 ****http://localhost:80/api** 中開啟
+您現在可以建置並部署您的服務。在 Visual Studio 中按 **F5** 以建置及部署應用程式。在 [診斷事件] 視窗中，您應該會看到一則訊息指出 Web 伺服器在 ****http://localhost:80/webapp/api** 中開啟
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -578,7 +547,7 @@ namespace WebApi
 > [AZURE.NOTE]如果連接埠由您電腦上的另一個處理序開啟，您可能會看到錯誤，指出無法開啟接聽程式。如果是這種情況，請嘗試在 ServiceManifest.xml 中的端點組態中使用不同的通訊埠。
 
 
-一旦服務正常執行，請開啟瀏覽器並瀏覽至 [http://localhost/api](http://localhost/api) 進行測試。
+一旦服務正常執行，請開啟瀏覽器並瀏覽至 [http://localhost/webapp/api/values](http://localhost/webapp/api/values) 進行測試。
 
 ## 相應放大
 
@@ -614,4 +583,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [在 Visual Studio 中偵錯 Service Fabric 應用程式](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

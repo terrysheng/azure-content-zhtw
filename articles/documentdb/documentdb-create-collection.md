@@ -16,7 +16,7 @@
 	ms.date="09/28/2015" 
 	ms.author="mimig"/>
 
-# 使用 Azure Preview 入口網站建立 DocumentDB 集合
+# 建立 DocumentDB 集合
 
 若要使用 Microsoft Azure DocumentDB，您必須擁有 [DocumentDB 帳戶](documentdb-create-account.md)、[資料庫](documentdb-create-database.md)、集合和文件。本主題說明如何在 Azure Preview 入口網站中建立 DocumentDB 集合。
 
@@ -65,4 +65,4 @@
 
 在集合中有了文件之後，您可以使用 Preview 入口網站中的[查詢總管](documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或其中一個 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，針對文件使用 [DocumentDB SQL](documentdb-sql-query.md) 來[執行查詢](documentdb-sql-query.md#executing-queries)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

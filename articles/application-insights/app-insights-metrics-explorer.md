@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中探索度量
@@ -196,7 +196,7 @@
 
 ### Power BI
 
-如果您希望更完整地檢視您的資料，您可以[匯出至 Power BI](app-insights-export-power-bi.md)。
+如果您希望更完整地檢視您的資料，您可以[匯出至 Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)。
 
 ## 後續步驟
 
@@ -212,4 +212,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/14/2015"
 	ms.author="brandwe"/>
 
 
@@ -21,7 +21,9 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直接，只需幾行的程式碼便可提供單一登入和登出。在 Asp.NET Web 應用程式中，您可以使用 Microsoft 的社群導向 OWIN 中介軟體 (隨附於 .NET Framework 4.5) 實作來完成這個作業。現在，我們將使用 OWIN 來執行下列動作：- 使用 Azure AD 作為身分識別提供者將使用者登入應用程式。- 顯示一些使用者的相關資訊。- 將使用者登出應用程式。
+Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直接，只需幾行的程式碼便可提供單一登入和登出。在 Java Web 應用程式中，您可以使用 Microsoft 的 ADAL4J 社群導向實作來完成這項作業。
+
+  現在，我們將使用 ADAL4J 來執行下列動作：- 使用 Azure AD 作為身分識別提供者將使用者登入應用程式。- 顯示一些使用者的相關資訊。- 將使用者登出應用程式。
 
 為執行此作業，您必須執行下列動作：
 
@@ -45,7 +47,7 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
     - [**應用程式識別碼 URI**] 是指應用程式的唯一識別碼。慣例會使用 `https://<tenant-domain>/<app-name>`，例如：`http://localhost:8080/adal4jsample/`
 - 完成註冊後，AAD 會為您的應用程式指派一個唯一用戶端識別碼。您在後續章節中將會用到這個值，所以請從 [設定] 索引標籤中複製此值。
 
-一旦進入入口網站，為您的應用程式建立**應用程式密碼**，並複製下來。稍後您將會用到此資訊。
+一旦進入入口網站，為您的應用程式建立 [**應用程式密碼**]，並複製下來。稍後您將會用到此資訊。
 
 
 ## 2\.使用 Maven 設定您的應用程式以使用 ADAL4J 程式庫和必要條件
@@ -235,7 +237,7 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 
 接受其餘的組態參數。
 
-> [AZURE.NOTE]您可以從 XML 檔案中看到，我們要編寫名為 `mvc-dispatcher` 的 JSP/Servlet Web 應用程式，每當我們瀏覽 /secure URL 時將會使用 `BasicFilter`。您會在我們編寫的其餘相同程式碼中看到我們使用 /secure 做為受保護內容的所在的位置，並且將會強制向 Azure Active Directory 進行驗證。
+> [AZURE.NOTE]您可以從 XML 檔案中看到，我們要編寫一個名為 `mvc-dispatcher` 的 JSP/Servlet Web 應用程式，該應用程式會在我們瀏覽 /secure URL 時使用 `BasicFilter`。您會在我們編寫的其餘相同程式碼中看到我們使用 /secure 做為受保護內容的所在的位置，並且將會強制向 Azure Active Directory 進行驗證。
 
 -	接下來，在 `\webapp\WEB-INF` 下建立 `mvc-dispatcher-servlet.xml` 檔案，並輸入下列：
 
@@ -270,11 +272,11 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 
 我們在 WEB-INF 中 Web 應用程式的設定目前只完成了一半。接下來，我們必須建立 Web 應用程式將會執行的實際 Java Server Pages 檔案 (已經在組態中提示)。
 
-如果您記得，我們已在 XML 組態檔案中告知 Java，我們有應該載入 .jsp 檔案的 `/` 資源，以及應該傳遞通過稱為 `BasicFilter` 的篩選器的 `/secure` 資源。
+如果您記得，我們已在 XML 組態檔案中告知 Java，我們有個應該載入 .jsp 檔案的 `/` 資源，以及應該通過稱為 `BasicFilter` 之篩選器的 `/secure` 資源。
 
 我們現在來製作那些項目。
 
--	若要開始，請在 `\webapp` 下建立 `index.jsp` 檔案，並複製/貼上下列：
+-	首先，請在 `\webapp` 下建立 `index.jsp` 檔案，並剪下/貼上下列內容：
 
 ```jsp
 <html>
@@ -290,7 +292,7 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 
 這只會重新導向至我們的篩選條件保護的安全的頁面。
 
-- 接下來，讓我們在相同的目錄中建立 `error.jsp` 檔案，以攔截可能會發生的任何錯誤：
+- 接下來，在相同的目錄中建立 `error.jsp` 檔案，以攔截可能會發生的任何錯誤：
 
 ```jsp
 <html>
@@ -306,9 +308,9 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 </html>
 ```
 
-- 最後，讓我們藉由在 `\webapp` 下建立稱為 `\secure` 的資料夾，以建立我們需要的安全網頁，這麼一來，我們現在具有目錄 `\webapp\secure`。 
+- 最後，在 `\webapp` 下建立稱為 `\secure` 的資料夾，以建立我們需要的安全網頁，如此一來，目錄即為 `\webapp\secure`。 
 
-- 在此目錄內，我們接著建立 `aad.jsp` 檔案，並剪下/貼上下列項目：
+- 在此目錄內，接著建立 `aad.jsp` 檔案，並剪下/貼上下列內容：
 
 ```jsp
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -737,7 +739,7 @@ public class HttpClientHelper {
 
 ## 6\.建立 Java 圖形 API 模型檔案 (適用於 BasicFilter MVC)
 
-如以上所述，我們將使用圖形 API 來取得有關所登入使用者的資料。為了讓我們順利進行，我們應該建立一個檔案來代表**目錄物件**和一個個別檔案來代表**使用者**，如此便可以使用 Java 的 OO 模式。
+如以上所述，我們將使用圖形 API 來取得有關所登入使用者的資料。為了讓我們順利進行，我們應該建立一個代表**目錄物件**的檔案以及一個代表**使用者**的個別檔案，如此便可以使用 Java 的 OO 模式。
 
 1. 建立名為 `DirectoryObject.java` 的檔案，我們將用它來儲存有關任何 DirectoryObject 的基本資料 (您稍後可以隨意使用它執行任何其他圖形查詢)。您可以從下面剪下/貼上：
 
@@ -1314,7 +1316,7 @@ public class User extends DirectoryObject{
 
 ## 7\.建立驗證模型/控制器檔案 (適用於 BasicFilter)
 
-沒錯，Java 有些累贅，但我們就快完成了。在最後一步之後，我們要編寫 BasicFilter Servlet 來處理我們的要求，讓我們編寫 `ADAL4J` 程式庫所需的更多協助程式檔案。
+沒錯，Java 有些累贅，但我們就快完成了。在進行最後一個步驟之前，先編寫更多 `ADAL4J` 程式庫所需的協助程式檔案，再編寫 BasicFilter Servlet 來處理我們的要求。
 
 1. 建立名為 `AuthHelper.java` 的檔案，這可提供我們用來判斷登入的使用者狀態的方法。其中包含：
 
@@ -1370,7 +1372,7 @@ public final class AuthHelper {
 }
 ```
 
-2. 建立名為 `AuthParameterNames.java` 的檔案，這可提供我們一些 `ADAL4J` 將需要的不可變變數。複製/貼上下列項目：
+2. 建立名為 `AuthParameterNames.java` 的檔案，這可提供我們一些 `ADAL4J` 將會需要的不可變變數。剪下/貼上下列內容：
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1388,7 +1390,7 @@ public final class AuthParameterNames {
 }
 ```
 
-3. 最後，建立名為 `AadController.java` 的檔案，這是我們 MVC 模式的控制器，它將提供我們 JSP 控制器，並為我們的應用程式公開 `secure/aad` URL 端點。此外，我們也會將圖形查詢放在這個檔案中。
+3. 最後，建立名為 `AadController.java` 的檔案，這是我們 MVC 模式的控制器，它將提供我們 JSP 控制器，並公開我們的應用程式 `secure/aad` URL 端點。此外，我們也會將圖形查詢放在這個檔案中。
 
 剪下/貼上下列項目：
 
@@ -1471,7 +1473,7 @@ public class AadController {
 
 最後，我們準備要建立 BasicFilter 檔案，以從我們的檢視 (JSP 檔案) 處理我們的要求。
 
-建立名為 `BasicFilter.java` 的檔案，其中包含下列：
+建立名為 `BasicFilter.java` 的檔案，其中包含下列內容：
 
 ```Java
 
@@ -1713,17 +1715,17 @@ public class BasicFilter implements Filter {
 }
 ```
 
-此 Servlet 會公開 `ADAL4J` 預期從我們的應用程式執行的所有方法。其中包括：
+此 Servlet 會公開 `ADAL4J` 預期來自我們的應用程式用以執行的所有方法。其中包括：
 
 - `getAccessTokenFromClientCredentials()` - 從我們的密碼取得存取權杖
 - `getAccessTokenFromRefreshToken()` - 從重新整理權杖中取得存取權杖
-- `getAccessToken()` - 從 OpenID Connect 流程 (我們所使用) 取得存取權杖
+- `getAccessToken()` - 從我們所使用的 OpenID Connect 流程取得存取權杖
 - `createSessionPrincipal()` - 建立我們使用圖形 API 存取的主體
 - `getRedirectUrl()` - 取得重新導向 URL，以將它與您在入口網站輸入的值相比較。
 
 ##在 Tomcat 中編譯和執行範例
 
-變更回根目錄，並執行下列命令來建置您剛剛使用 `maven` 放在一起的範例。這將會使用您針對相依性所撰寫的 `pom.xml` 檔案。
+變更回根目錄，並執行下列命令來建置您剛剛使用 `maven` 組成的範例。這將會使用您針對相依性所撰寫的 `pom.xml` 檔案。
 
 `$ mvn package`
 
@@ -1738,8 +1740,8 @@ public class BasicFilter implements Filter {
 
 恭喜！ 您現在有一個可運作的 Java 應用程式，能夠驗證使用者、使用 OAuth 2.0 安全地呼叫 Web API，以及取得使用者的基本資訊。如果您還沒有這麼做，現在是將一些使用者植入租用戶的時候。
 
-如需參考，[此處以 .zip 格式提供](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)完整範例 (不含您的組態值)，您也可以從 GitHub 予以複製：
+如需參考，[此處以 .zip 格式提供](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)完整範例 (不含您的組態值)，您也可以從 GitHub 將其複製：
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

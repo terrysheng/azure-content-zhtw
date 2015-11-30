@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="11/18/2015"
    ms.author="larryfr"/>
 
 
@@ -64,9 +64,9 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
 >
 > 強烈建議您每個叢集只指定一個子網路。
 >
-> 您不能在 Linux 的 HDInsight 使用 v1 (傳統) Azure 虛擬網路。虛擬網路必須是 v2 (Azure 資源管理員)，才能在 Azure Preview 入口網站中的 HDInsight 叢集建立程序期間列出來做為選項，或者在以 Azure CLI 或 Azure PowerShell 建立叢集時使用。
+> 以 Windows 為基礎的叢集需要 v1 (傳統) 虛擬網路，而以 Linux 為基礎的叢集需要 v2 (Azure 資源管理員) 虛擬網路。如果您沒有正確的網路類型，當您建立叢集時就無法使用。
 >
-> 如果您擁有 v1 網路上的資源，而您想要讓 HDInsight 透過虛擬網路直接存取這些資源，請參閱[將傳統 VNet 連接到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)，以取得如何將 v2 虛擬網路連接到 v1 虛擬網路的相關資訊。一旦建立此連線之後，您便可以在 v2 虛擬網路中建立 HDInsight 叢集。
+> 如果虛擬網路上的資源不能為您計劃要建立的叢集所用，您可以建立可為叢集使用的新虛擬網路，並連接到不相容的虛擬網路。然後在叢集需要的網路版本中建立叢集，因為兩個網路聯結在一起，所以它就可以存取其他網路中的資源。如需連接傳統和新虛擬網路的詳細資訊，請參閱[連接傳統 VNet 和新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)。
 
 如需如何在虛擬網路佈建 HDInsight 叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](hdinsight-provision-clusters.md)。
 
@@ -176,4 +176,4 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

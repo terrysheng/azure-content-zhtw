@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="11/17/2015" 
 	ms.author="huvalo"/>
 	
 # Linux VM 上的 Django Hello World Web 應用程式
@@ -25,7 +25,7 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]資源管理員模型。
 
 
 本教學課程說明如何使用 Linux 虛擬機器在 Microsoft Azure 上裝載 Django 型網站。本教學課程假設您先前沒有使用 Azure 的經驗。完成本指南之後，您將在雲端啟動並執行 Django 型應用程式。
@@ -45,14 +45,11 @@
 
 ## 建立及設定 Azure 虛擬機器以裝載 Django
 
-1. 按照[此處][portal-vm] (英文) 所提供的指示，建立 *Ubuntu Server 14.04 LTS* 散發套件的 Azure 虛擬機器。
+1. 按照[此處](virtual-machines-linux-tutorial-portal-rm.md) (英文) 所提供的指示，建立 *Ubuntu Server 14.04 LTS* 散發套件的 Azure 虛擬機器。您也可以選擇以密碼驗證取代 SSH 公開金鑰。
 
-  **注意：**您*只*需要建立虛擬機器。請停在標題為＜如何在建立虛擬機器之後登入＞的小節。
+1. 參考[這裡](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)的指示，編輯網路安全性群組以允許連接埠 80 的傳入 http 流量。
 
-1. 指示 Azure 將連接埠 **80** 的流量從 Web 導向虛擬機器上的連接埠 **80**：
-	* 在 Azure 入口網站中瀏覽至新建立的虛擬機器，並按一下 [端點] 索引標籤。
-	* 按一下畫面底部的 [新增] 按鈕。![新增端點](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* 開啟 [TCP] 通訊協定的 [公用連接埠 80]，比照 [私人連接埠 80]。![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
+1. 根據預設，新的虛擬機器沒有完整網域名稱 (FQDN)。您可以遵循[這裡](virtual-machines-create-fqdn-on-portal.md)的指示建立一個 FQDN。此為完成本教學課程的選擇性步驟。
 
 ## <a id="setup"> </a>設定開發環境
 
@@ -62,14 +59,14 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 1.  啟動一個新的 [終端機] 視窗。
     
-1.  輸入下列命令以連線至 Azure VM。
+1.  輸入下列命令以連線至 Azure VM。如果您尚未建立 FQDN，您可以使用 Azure 入口網站中虛擬機器摘要所顯示的公用 IP 位址來連接。
 
 		$ ssh yourusername@yourVmUrl
 
 1.  輸入下列命令以安裝 Django：
 
-		$ sudo apt-get install python-setuptools
-		$ sudo easy_install django
+		$ sudo apt-get install python-setuptools python-pip
+		$ sudo pip install django
 
 1.  輸入下列命令以安裝含 mod-wsgi 的 Apache：
 
@@ -104,10 +101,10 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 ## 設定 Apache
 
-1.  建立 Apache 虛擬主機組態檔 **/etc/apache2/sites-available/helloworld.conf**。設定為以下內容，並務必以您使用之機器的實際 URL (例如 *pyubuntu.cloudapp.net*) 取代 *yourVmUrl*。
+1.  建立 Apache 虛擬主機組態檔 **/etc/apache2/sites-available/helloworld.conf**。設定成以下內容，並以您使用之機器的實際名稱取代 [*yourVmName*] (例如 *pyubuntu*)。
 
 		<VirtualHost *:80>
-		ServerName yourVmUrl
+		ServerName yourVmName
 		</VirtualHost>
 		WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
 		WSGIPythonPath /var/www/helloworld
@@ -129,8 +126,4 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 完成本教學課程時，請關閉並/或移除新建立的 Azure 虛擬機器釋出資源供其他教學課程使用，並避免產生 Azure 使用的費用。
 
-
-[portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

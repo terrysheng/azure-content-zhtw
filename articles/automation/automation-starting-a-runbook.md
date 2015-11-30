@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/28/2015"
+   ms.date="11/13/2015"
    ms.author="bwren;sngun"/>
 
 # 在 Azure 自動化中啟動 Runbook
@@ -93,7 +93,7 @@
   </td>
  </tr>
  <tr>
-  <td><a href="http://msdn.microsoft.com/library/azure/dn857355.aspx">從另一個 Runbook</a></td>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-child-runbooks/">從另一個 Runbook</a></td>
   <td>
    <ul>
     <li>在另一個 Runbook 中使用 Runbook 作為活動</li>
@@ -150,7 +150,7 @@ Start-AzureAutomationRunbook 會傳回工作物件，一旦啟動 Runbook，您�
 
 ## Runbook 參數
 
-使用 Azure 管理入口網站或 Windows PowerShell 啟動 Runbook 時，指示會透過 Azure 自動化 Web 服務傳送。此服務不支援具有複雜資料型別的參數。如果您需要提供複雜參數的值，則您必須內嵌從另一個 Runbook 呼叫它，如[從另一個 Runbook 啟動 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)中所述。
+使用 Azure 管理入口網站或 Windows PowerShell 啟動 Runbook 時，指示會透過 Azure 自動化 Web 服務傳送。此服務不支援具有複雜資料型別的參數。如 [Azure 自動化中的子 Runbook](automation-child-runbooks.md) 中所述，如果您需要提供複雜參數的值，您必須從另一個 Runbook 呼叫它內嵌。
 
 Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，如下列小節所述。
 
@@ -216,7 +216,7 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 ### 認證
 
-如果參數是資料型別 **PSCredential**，則可以提供 Azure 自動化[認證資產](http://msdn.microsoft.com/library/azure/dn940015.aspx)的名稱。Runbook 將會使用您所指定的名稱擷取認證。
+如果參數是資料型別 **PSCredential**，則可以提供 Azure 自動化[認證資產](automation-credentials.md)的名稱。Runbook 將會使用您所指定的名稱擷取認證。
 
 請考慮可接受稱為 credential 的參數的下列測試 Runbook。
 
@@ -238,6 +238,6 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 ## 相關文章
 
-- [從另一個 Runbook 啟動 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
+- [Azure 自動化中的子 Runbook](automation-child-runbooks.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="11/13/2015"
 	ms.author="szark"/>
 
 
@@ -79,4 +79,4 @@ Oracle 的策略是提供公用與私人雲端適用的各種解決方案，同�
 
 Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算提供優異可靠性與安全性的平台。SUSE 彈性的 Linux 平台可與 Azure 雲端服務緊密整合，提供容易管理的雲端環境。隨著 SUSE Linux Enterprise Server 有 1,800 多家獨立軟體廠商提供 9,200 多個認證應用程式，SUSE 可確保資料中心內所執行受支援的工作負載可以安心部署於 Azure 上。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

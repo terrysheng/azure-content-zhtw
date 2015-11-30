@@ -14,13 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Azure 虛擬機器中的 SQL Server 效能最佳作法
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
- 
 
 ## 概觀
 
@@ -28,7 +25,9 @@
 
 建立 SQL Server 映像時可考慮使用[新入口網站](https://manage.windowsazure.com)，以善用各項功能 (例如預設使用進階儲存體) 以及其他選項 (例如自動修補、自動備份和 AlwaysOn 組態)。
 
->[AZURE.NOTE]本文的主題為如何讓 Azure VM 上的 SQL Server 達到最佳效能。如果您的工作負載需求較低，可能就不需要採用下列每一項最佳化條件。評估以下建議時，請考慮您的效能需求和工作負載模式。
+本文的主題為如何讓 Azure VM 上的 SQL Server 達到最佳效能。如果您的工作負載需求較低，可能就不需要採用下列每一項最佳化條件。評估以下建議時，請考慮您的效能需求和工作負載模式。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## 快速檢查清單
 
@@ -54,7 +53,7 @@
 
 如需支援的虛擬機器大小的最新資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
 
-此外，我們建議您在存放 SQL Server 虛擬機器的同一個資料中心內建立 Azure 儲存體帳戶，以減少傳輸延遲的狀況。建立儲存體帳戶時，請停用 [異地複寫] 功能，因為跨多個磁碟時無法保證寫入順序一致。請考慮另一個方法，在兩個 Azure 資料中心之間設定 SQL Server 災害復原技術。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和嚴重損壞修復](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)。
+此外，我們建議您在存放 SQL Server 虛擬機器的同一個資料中心內建立 Azure 儲存體帳戶，以減少傳輸延遲的狀況。建立儲存體帳戶時，請停用 [異地複寫] 功能，因為跨多個磁碟時無法保證寫入順序一致。請考慮另一個方法，在兩個 Azure 資料中心之間設定 SQL Server 災害復原技術。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)。
 
 ## 磁碟和效能考量
 
@@ -70,7 +69,7 @@
 
 標示為 **D**: 磁碟機的暫存磁碟機不會保存至 Azure Blob 儲存體。請勿將資料或記錄檔案儲存在 **D**: 磁碟機上。
 
-使用 D 系列或 G 系列的虛擬機器 (VM) 時，才會在 **D** 磁碟機上儲存 TempDB 和/或緩衝集區擴充功能。不同於其他 VM 系列，D 系列和 G 系列中的 **D** 磁碟機為 SSD 式。這可改善大量使用暫存物件，或工作集超過記憶體容量的工作負載的效能。如需詳細資訊，請參閱[使用 Azure VM 中的 SSD 來儲存 SQL Server TempDB 和緩衝集區擴充功能](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx) (英文)。
+使用 D 系列或 G 系列的虛擬機器 (VM) 時，才會在 **D** 磁碟機上儲存 TempDB 和/或緩衝集區擴充功能。不同於其他 VM 系列，D 系列和 G 系列 VM 中的 **D** 磁碟機為 SSD 式。這可改善大量使用暫存物件，或工作集超過記憶體容量的工作負載的效能。如需詳細資訊，請參閱[使用 Azure VM 中的 SSD 來儲存 SQL Server TempDB 和緩衝集區擴充功能](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx)。
 
 ### 資料磁碟
 
@@ -84,9 +83,9 @@
 
 	- 若為 Windows 8/Windows Server 2012 以上版本，請參閱[儲存空間](https://technet.microsoft.com/library/hh831739.aspx)。將 OLTP 工作負載的等量磁碟區大小設為 64 KB，資料倉儲的工作負載則設為 256 KB，以避免分割對齊錯誤影響效能。此外，設定資料行計數 = 實體磁碟數量。若要設定磁碟超過 8 個的儲存空間，您必須使用 PowerShell (非伺服器管理員 UI)，以明確地將資料行計數設定為符合磁碟的數量。如需如何設定[儲存空間](https://technet.microsoft.com/library/hh831739.aspx)的詳細資訊，請參閱 [Windows PowerShell 中的儲存空間 Cmdlet](https://technet.microsoft.com/library/jj851254.aspx)
 	
-	- 對於 Windows 2008 R2 之前的版本，可以使用動態磁碟 (OS 分割的磁碟區)，且等量磁碟區的大小一律為 64 KB。請注意，Windows 8/Windows Server 2012 已不再提供此選項。如需相關資訊，請參閱[虛擬磁碟服務正轉換為 Windows 存放管理 API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx) (英文) 中的支援聲明。
+	- 對於 Windows 2008 R2 之前的版本，可以使用動態磁碟 (OS 分割的磁碟區)，且等量磁碟區的大小一律為 64 KB。請注意，Windows 8/Windows Server 2012 已不再提供此選項。如需相關資訊，請參閱[虛擬磁碟服務正轉換為 Windows 存放管理 API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx) 中的支援聲明。
 	
-	- 如果您的工作負載不需大量記錄及，且不需專屬於 IOP，您可以只設定一個儲存體集區。否則，請建立兩個儲存體集區，一個用於儲存記錄檔案，另一個用於儲存資料檔案和存放 TempDB。請根據您預期的負載量，決定與每個儲存體集區相關聯的磁碟數量。請注意，各 VM 大小所允許連接的資料磁碟數量皆不同。如需相關資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
+	- 如果您的工作負載不需大量記錄及，且不需專屬於 IOP，您可以只設定一個儲存體集區。否則，請建立兩個儲存體集區，一個用於儲存記錄檔案，另一個用於儲存資料檔案和存放 TempDB。請根據您預期的負載量，決定與每個儲存體集區相關聯的磁碟數量。請注意，各 VM 大小所允許連接的資料磁碟數量皆不同。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
 
 ## I/O 效能考量
 
@@ -98,9 +97,9 @@
 
 - 請考慮啟用 [立即檔案初始化] 功能，以減少配置初始檔案所需的時間。若要發揮「立即檔案初始化」的優點，請將 SE\_MANAGE\_VOLUME\_NAME 授與 SQL Server (MSSQLSERVER) 服務帳戶，並將該帳戶加入 [執行磁碟區維護工作] 安全性原則。如果您使用的是 Azure 的 SQL Server 平台映像，則預設服務帳戶 (NT Service\\MSSQLSERVER) 不會加入 [執行磁碟區維護工作] 安全性原則。也就是說，SQL Server Azure 平台映像未啟用 [立即檔案初始化] 功能。將 SQL Server 服務帳戶加入 [執行磁碟區維護工作] 安全性原則之後，請重新啟動 SQL Server 服務。使用此功能時，可能有安全性考量。如需詳細資訊，請參閱[資料庫檔案初始化](https://msdn.microsoft.com/library/ms175935.aspx)。
 
-- 「自動成長」只是發生非預期成長時的應變方案。請勿每天使用「自動成長」功能，管理資料和記錄成長。若已使用「自動成長」功能，請透過 大小參數預先放大檔案。
+- **自動成長**只是發生非預期成長時的應變方案。請勿每天使用「自動成長」功能，管理資料和記錄成長。若已使用「自動成長」功能，請透過 大小參數預先放大檔案。
 
-- 請確定已停用「自動壓縮」，以避免不必要的額外負荷，而對效能造成負面影響。
+- 請確定已停用**自動壓縮**，以避免不必要的額外負荷，而對效能造成負面影響。
 
 - 如果您執行的是 SQL Server 2012，請安裝 Service Pack 1 累計更新 10。此更新包含一個修正程式，可修正在 SQL Server 2012 中執行 select into 暫存資料表陳述式時，I/O 效能不佳的狀況。如需相關資訊，請參閱此[知識庫文章](http://support.microsoft.com/kb/2958012)。
 
@@ -120,7 +119,7 @@
 
 有些部署作業可能會使用更進階的組態技術，提供額外的效能優點。下列清單特別強調了一些可協助您達到更佳效能的 SQL Server 功能：
 
-- **備份至 Azure 儲存體**：備份在 Azure 虛擬機器中執行的 SQL Server 時，可以使用 [SQL Server 備份至 URL](https://msdn.microsoft.com/library/dn435916.aspx) 功能。此功能從 SQL Server 2012 SP1 CU2 開始提供，建議在備份至連接的資料磁碟時使用。在備份至 Azure 儲存體 (或從中還原) 時，請依照 [SQL Server 備份至 URL 的最佳作法和疑難排解，以及從儲存在 Azure 儲存體中的備份還原](https://msdn.microsoft.com/library/jj919149.aspx)中提供的建議進行。您也可以使用 [Azure 虛擬機器中的 SQL Server 自動備份](virtual-machines-sql-server-automated-backup.md)，自動執行這些備份作業。
+- **備份至 Azure 儲存體**：備份在 Azure 虛擬機器中執行的 SQL Server 時，可以使用 [SQL Server 備份至 URL](https://msdn.microsoft.com/library/dn435916.aspx) 功能。此功能從 SQL Server 2012 SP1 CU2 開始提供，建議在備份至連接的資料磁碟時使用。在備份至 Azure 儲存體 (或從中還原) 時，請遵循 [SQL Server 備份至 URL 的最佳作法和疑難排解，以及從儲存在 Azure 儲存體中的備份還原](https://msdn.microsoft.com/library/jj919149.aspx)中提供的建議進行。您也可以使用 [Azure 虛擬機器中的 SQL Server 自動備份](virtual-machines-sql-server-automated-backup.md)，自動執行這些備份作業。
 
 	對於 SQL Server 2012 之前的版本，您可以使用 [SQL Server Backup to Azure Tool](https://www.microsoft.com/download/details.aspx?id=40740)。這項工具可以透過多個備份等量磁碟區目標協助您提高備份的輸送量。
 
@@ -134,4 +133,4 @@
 
 請檢閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)中的其他 SQL Server 虛擬機器主題。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

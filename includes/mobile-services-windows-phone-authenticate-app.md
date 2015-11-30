@@ -1,24 +1,23 @@
 1. 開啟專案檔案 mainpage.xaml.cs，然後將下列程式碼片段新增至 MainPage 類別：
 	
         private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
+        private async Task Authenticate()
         {
             while (user == null)
             {
                 string message;
                 try
                 {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-                    message =
-                        string.Format("You are now logged in - {0}", user.UserId);
+                    user = await App.MobileServiceDotNetClient.LoginAsync(MobileServiceAuthenticationProvider.Twitter);
+                    message = string.Format("You are now logged in - {0}", user.UserId);
                 }
                 catch (InvalidOperationException)
                 {
                     message = "You must log in. Login Required";
                 }
 
-                MessageBox.Show(message);
+                var dialog = new MessageDialog(message);
+                await dialog.ShowAsync();
             }
         }
 
@@ -51,4 +50,4 @@
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

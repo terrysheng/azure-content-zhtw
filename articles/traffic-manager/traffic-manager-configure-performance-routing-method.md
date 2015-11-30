@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # 設定效能流量路由方法
@@ -33,22 +33,20 @@
 
 ## 後續步驟
 
-[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
+
+[將公司網際網路網域指向流量管理員網域](traffic-manager-point-internet-domain.md)
+
+[流量管理員路由方法](traffic-manager-routing-methods.md)
+
+[設定容錯移轉路由方法](traffic-manager-configure-failover-routing-method.md)
+
+[設定循環配置資源路由方法](traffic-manager-configure-round-robin-routing-method.md)
+
+[疑難排解流量管理員的已降級狀態](traffic-manager-troubleshooting-degraded.md)
 
 [流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
 
 [流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)
-
-[什麼是流量管理員？](traffic-manager-overview.md)
-
-[雲端服務](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

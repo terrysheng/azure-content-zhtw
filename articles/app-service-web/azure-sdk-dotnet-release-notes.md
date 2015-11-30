@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="11/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,6 +21,11 @@
 #Azure SDK for .NET 版本資訊
 
 本主題包含 Azure SDK for .NET 版本資訊的連結。
+
+
+##Azure SDK for .NET 2.8 版本資訊
+
+[Azure SDK for .NET 2.8 版本資訊](azure-sdk-dotnet-release-notes-2_8.md)
 
 ##Azure SDK for .NET 2.7 版本資訊
 
@@ -65,4 +70,4 @@
 [MSDN 上的 Azure SDK 版本資訊](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

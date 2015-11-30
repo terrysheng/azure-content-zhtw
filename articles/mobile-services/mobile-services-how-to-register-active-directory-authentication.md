@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="11/15/2015" 
 	ms.author="ricksal"/>
 
 # 註冊應用程式以使用 Azure Active Directory 帳戶登入
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # 開始使用密碼管理
@@ -186,7 +186,7 @@
   
 - 您已安裝 Azure AD Connect 工具，且已備妥 AD 環境進行同步處理至雲端。如需詳細資訊，請參閱[在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
 
-  >[AZURE.NOTE]測試密碼回寫之前，請確定您先完成 AD 和 Azure AD 的完整匯入和完整同步處理
+  >[AZURE.NOTE]測試密碼回寫之前，請確定您先在 Azure AD Connect 中完成 AD 和 Azure AD 的完整匯入和完整同步處理。
 
 - 如果您使用 Azure AD Sync 或 Azure AD Connect，則需要開啟 **TCP 443** 輸出 (在某些情況下 **TCP 9350-9354**)。如需詳細資訊，請參閱[步驟 3：設定您的防火牆](#step-3-configure-your-firewall)。這個案例不再支援使用 DirSync。如果您仍要使用 DirSync，請升級至最新版的 Azure AD Connect，再部署密碼回寫。
 
@@ -251,7 +251,7 @@
 ### 步驟 4：設定適當的 Active Directory 權限
 對於包含使用者 (其密碼將會重設) 的每個樹系，如果 X 為組態精靈 (初始組態期間) 中針對該樹系指定的帳戶，則必須為 X 指定**重設密碼**、**變更密碼**、`lockoutTime` 的 **寫入權限** 和 `pwdLastSet` 的 **寫入權限**、該樹系中每個網域之根物件的擴充權限。權限應該標示為由所有使用者物件繼承。
 
-如果您不確定上述指的是哪些帳戶，請開啟 Azure Active Directory Connect 組態 UI，並按一下 [檢閱您的方案] 選項。您需要新增權限的帳戶會有紅色底線，如下列螢幕擷取畫面所示。
+如果您不確定上述指的是哪些帳戶，請開啟 Azure Active Directory Connect 組態 UI，並按一下 [**檢閱您的方案**] 選項。您需要新增權限的帳戶會有紅色底線，如下列螢幕擷取畫面所示。
 
 **<font color="red">請確定針對您系統中各樹系的各個網域設定這項權限，否則密碼回寫將無法正常運作。</font>**
 
@@ -305,18 +305,17 @@
 
 <br/> <br/> <br/>
 
-**其他資源**
+## 密碼重設文件的連結
+以下是所有 Azure AD 密碼重設文件頁面的連結：
 
-
-* [密碼管理是什麼](active-directory-passwords.md)
-* [密碼管理如何運作](active-directory-passwords-how-it-works.md)
-* [自訂密碼管理](active-directory-passwords-customize.md)
-* [密碼管理最佳作法](active-directory-passwords-best-practices.md)
-* [如何使用密碼管理報告取得 Operational Insights](active-directory-passwords-get-insights.md)
-* [密碼管理常見問題集](active-directory-passwords-faq.md)
-* [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
-* [深入了解](active-directory-passwords-learn-more.md)
-* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**重設自己的密碼**](active-directory-passwords-update-your-own-password) - 了解身為系統使用者如何重設或變更自己的密碼
+* [**運作方式**](active-directory-passwords-how-it-works.md) - 了解六個不同的服務元件及其功能
+* [**自訂**](active-directory-passwords-customize.md) - 了解如何依照組織的需求自訂外觀和服務行為
+* [**最佳作法**](active-directory-passwords-best-practices.md) - 了解如何快速部署且有效管理組織的密碼
+* [**深入探索**](active-directory-passwords-get-insights.md) - 了解整合式報告功能
+* [**常見問題集**](active-directory-passwords-faq.md) - 取得常見問題的解答
+* [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何快速移難排解服務的問題
+* [**深入了解**](active-directory-passwords-learn-more.md) - 深入探索服務運作方式的技術細節
 
 
 
@@ -353,4 +352,4 @@
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

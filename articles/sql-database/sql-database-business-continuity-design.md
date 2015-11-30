@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 #業務續航力的設計
@@ -49,7 +49,7 @@ SQL Database 預設提供每個資料庫的內建基本保護功能。其作法�
 
 ##何時選擇標準與主動式異地複寫
 
-標準層資料庫沒有使用主動式異地複寫的選項，因此如果您的應用程式使用標準資料庫並符合上述準則，則應該啟用標準異地複寫。至於高階資料庫則可以選擇任一選項。標準異地複寫已設計成更簡單且成本更低的嚴重損壞修復解決方案，特別適用於只在發生未規劃事件 (例如中斷) 時使用這個複寫提供保護的應用程式。透過標準異地複寫，您只能使用 DR 配對區域進行復原，而無法建立多個次要資料庫。後者是對應用程式升級案例很重要的功能。因此，如果您的應用程式需要升級，則應該改為啟用主動式異地複寫。如需其他詳細資訊，請參閱[升級應用程式而不需要停機](sql-database-business-continuity-application-upgrade.md)。
+標準層資料庫沒有使用主動式異地複寫的選項，因此如果您的應用程式使用標準資料庫並符合上述準則，則應該啟用標準異地複寫。至於高階資料庫則可以選擇任一選項。標準異地複寫已設計成更簡單且成本更低的嚴重損壞修復解決方案，特別適用於只在發生未規劃事件 (例如中斷) 時使用這個複寫提供保護的應用程式。透過標準異地複寫，您只能使用 DR 配對區域進行復原，且只能針對每一個主要資料庫建立一個次要資料庫。應用程式升級案例可能需要額外的次要資料庫。因此，如果您的應用程式需要升級，則應該改為啟用主動式異地複寫。如需其他詳細資訊，請參閱[升級應用程式而不需要停機](sql-database-business-continuity-application-upgrade.md)。
 
 > [AZURE.NOTE]主動式異地複寫也支援對次要資料庫的唯讀存取，因此可提供唯讀工作負載額外的容量。
 
@@ -74,31 +74,28 @@ SQL Database 預設提供每個資料庫的內建基本保護功能。其作法�
 
 ###PowerShell
 
-使用 [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) PowerShell Cmdlet 可自動化異地複寫組態。
+使用 [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) PowerShell Cmdlet 可建立異地複寫組態。此命令是在同步處理主要和次要資料庫時會同步傳回。
 
-若要為高階或標準資料庫建立使用不可讀取之次要資料庫的異地複寫：
+若要為高階或標準資料庫建立使用不可讀取之次要資料庫的異地複寫進行設定：
 		
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy -OfflineSecondary
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+
 若要為高階資料庫建立使用可讀取之次要資料庫的異地複寫：
 
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 		 
-這個命令是非同步的。傳回後，請使用 [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) Cmdlet 來檢查這項作業的狀態。當作業完成時，傳回物件的 [ReplicationState] 欄位會有 CATCH\_UP 值。
-
-		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
-
 
 ###REST API 
 
-使用 [Start Database Copy](https://msdn.microsoft.com/library/azure/dn509576.aspx) API 可以程式設計方式建立異地複寫組態。
+使用 [Create Database](https://msdn.microsoft.com/library/mt163685.aspx) API 並將 *createMode* 設定為 *NonReadableSecondary* 或 *Secondary*，即可以程式設計方式建立異地複寫的次要資料庫。
 
-這個 API 是非同步的。傳回後，請使用 [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx) API 來檢查這項作業的狀態。當作業完成時，回應主體的 [ReplicationState] 欄位會有 CATCH\_UP 值。
+這個 API 是非同步的。傳回後，請使用 [Get Database Copy](https://msdn.microsoft.com/library/mt600778.aspx) API 來檢查這項作業的狀態。當作業完成時，回應主體的 *replicationState* 欄位會有 CATCHUP 值。
 
 
 ##如何選擇容錯移轉組態 
 
 設計應用程式的業務續航力時，您應該考慮幾個組態選項。您的選擇會視應用程式部署拓撲，以及應用程式的哪些部分最容易受到中斷的影響而定。如需指引，請參閱[使用異地複寫設計災害復原的雲端解決方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
 
- 
-
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

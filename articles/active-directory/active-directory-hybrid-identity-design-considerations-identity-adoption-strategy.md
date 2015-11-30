@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory 混合式身分識別設計考量 - 定義混合式身分識別採用策略 | Microsoft Azure"
-	description="透過條件式存取控制，Azure Active Directory 會在驗證使用者時及允許存取應用程式之前，檢查您挑選的特定條件。一旦符合這些條件，使用者就通過驗證，而能夠存取應用程式。"
+	description="透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。一旦符合這些條件，就會驗證使用者並允許存取應用程式。"
 	documentationCenter=""
 	services="active-directory"
 	authors="billmath"
@@ -39,14 +39,14 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 - **同步處理**：這些是存在於內部部署和雲端的身分識別。使用 Azure AD Connect 時，將會以現有的 Azure AD 帳戶建立或聯結這些使用者。在所謂的密碼雜湊中，使用者的密碼雜湊會從內部部署環境同步處理到雲端。使用同步處理時，必須注意如果在內部部署環境中停用使用者，可能需要經過 3 小時，Azure AD 中才會顯示該帳戶狀態。這是因為有同步處理時間間隔。
 - **同盟**：這些身分識別同時存在於內部部署和雲端。使用 Azure AD Connect 時，將會以現有的 Azure AD 帳戶建立或聯結這些使用者。  
  
->[AZURE.NOTE]如需有關同步處理選項的詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](https://azure.microsoft.com/zh-TW/documentation/articles/active-directory-aadconnect/)。
+>[AZURE.NOTE]如需同步處理選項的詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](https://azure.microsoft.com/zh-TW/documentation/articles/active-directory-aadconnect/)。
 
 下表有助於判斷下列每個策略的優缺點：
 
 | 策略 | 優點 | 缺點 |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **雲端身分識別** | 在小型組織中易於管理。<br> 不需要在內部部署安裝 - 不需要額外的硬體<br>使用者離職時輕易停用 | 使用者存取雲端中的工作負載時必須登入 <br> 雲端和內部部署身分識別的密碼可能相同，也可能不相同 |
-| **同步處理** | 內部部署密碼會驗證內部部署和雲端目錄 <br>在小型、中型或大型組織中易於管理 <br>使用者可以透過單一登入 (SSO) 存取某些資源 <br> Microsoft 建議的同步處理方法 <br> 易於管理 | 基於公司的特定原則，有些客戶可能不願意將目錄與雲端同步 |
+| **已同步處理** | 內部部署密碼會驗證內部部署和雲端目錄 <br>在小型、中型或大型組織中易於管理 <br>使用者可以透過單一登入 (SSO) 存取某些資源 <br> Microsoft 建議的同步處理方法 <br> 易於管理 | 基於公司的特定原則，有些客戶可能不願意將目錄與雲端同步 |
 | **同盟** | 使用者可以有單一登入 (SSO) <br>如果使用者遭解僱或離職，立即可停用帳戶並撤銷存取權 <br> 支援同步處理所無法解決的進階案例 | 安裝和設定的步驟較多 <br> 維護較辛苦 <br> STS 基礎結構可能需要額外的硬體 <br> 可能需要額外的硬體來安裝同盟伺服器。如果使用 AD FS，則需要額外的軟體 <br> SSO 需要大量的設定 <br> 同盟伺服器當機時會發生嚴重失敗點，使用者無法驗證 |
 
 ### 用戶端體驗
@@ -96,7 +96,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
  
 ![](./media/hybrid-id-design-considerations/single-forest.png) 單一樹系案例。在大型組織，甚至小型組織中，擁有多個樹系很平常，如圖 5 所示。
 
->[AZURE.NOTE]如需有關不同的內部部署和 Azure AD 拓撲與 Azure AD Connect 同步處理的詳細資訊，請參閱 [Azure AD Connect 的拓撲](active-directory-aadconnect-topologies.md)一文。
+>[AZURE.NOTE]如需不同的內部部署和 Azure AD 拓撲與 Azure AD Connect 同步處理的詳細資訊，請參閱 [Azure AD Connect 的拓撲](active-directory-aadconnect-topologies.md)一文。
 
 
 ![](./media/hybrid-id-design-considerations/multi-forest.png)
@@ -112,7 +112,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 - 使用者只有一個信箱
 - 對於 Exchange 全域通訊清單 (GAL) 中可見的屬性，裝載使用者信箱的樹系有最佳的資料品質
 - 如果使用者沒有信箱，則任何樹系都可用於提供這些值
-- 如果您有連結的信箱，則不同的樹系中還有另一個帳戶用來登入
+- 如果您有連結的信箱，則不同的樹系中還有另一個帳戶用來登入。
 
 >[AZURE.NOTE]同時存在於內部部署和雲端的物件透過唯一識別碼「連接」。就「目錄同步作業」而言，這個唯一識別碼稱為 SourceAnchor。就「單一登入」而言，這稱為 ImmutableId。如需關於使用 SourceAnchor 的更多考量，請參閱 [Azure AD Connect 的設計概念](https://azure.microsoft.com/zh-TW/documentation/articles/active-directory-aadconnect-design-concepts/#sourceanchor)。
 
@@ -137,9 +137,9 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 - DNS 網域只能在單一 Azure AD 目錄中註冊，因此內部部署 AD 中的使用者 UPN 必須使用個別的命名空間。
 - 一個 Azure AD 執行個體中的使用者只能看到他們的執行個體中的使用者。他們看不到其他執行個體中的使用者
 - 只有其中一個 Azure AD 目錄可以啟用 Exchange 與內部部署 AD 混合
-- 回寫也有互斥性。這造成此拓撲不支援部分寫回功能，因為這些功能都假設使用單一內部部署組態。其中包括：
+- 回寫也有互斥性。這造成此拓撲不支援部分回寫功能，因為這些功能都假設使用單一內部部署組態。其中包括：
  - 使用預設組態的群組回寫
- - 裝置回寫
+ - 裝置寫回
 
 
 請注意，不支援下列各項，而且不應該選擇作為實作：
@@ -163,7 +163,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 | Microsoft 應用程式 | yes | yes |
 | 應用程式資源庫中的 SaaS 應用程式 | yes | yes |
 | 透過 Azure AD App Proxy 發佈的 IIS 應用程式 | yes | yes |
-| 非透過 Azure AD App Proxy 發佈的 IIS 應用程式 | no | yes |
+| 非透過 Azure AD App Proxy 發行的 IIS 應用程式 | no | yes |
 | VPN、RDG 等遠端存取 | no | yes |
 
 即使已選定策略的解決方案，您仍然需要使用上述評估來判斷使用者位於何處。這可能會造成解決方案變更。使用下表來協助判斷：
@@ -172,14 +172,14 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 |---------------------------------------------------------------------|-----------------------------------------|
 | Azure Active Directory | 雲端中的 Multi-Factor Authentication |
 | Azure AD 和使用 AD FS 同盟的內部部署 AD | 兩者 |
-| Azure AD 和內部部署 AD，使用 Azure AD Connect，沒有密碼同步 | 兩者 |
-| Azure AD 和內部部署，使用 Azure AD Connect，搭配密碼同步 | 兩者 |
+| Azure AD 和內部部署 AD，使用 Azure AD Connect，沒有密碼同步處理 | 兩者 |
+| Azure AD 和內部部署，使用 Azure AD Connect，搭配密碼同步處理 | 兩者 |
 | 內部部署 AD | Multi-Factor Authentication Server |
 
 >[AZURE.NOTE]您也應該確定您選取的多重要素驗證設計選項，支援您的設計所需的功能。如需詳細資訊，請參閱[選擇合適的多重因素安全性解決方案](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure)。
 
 ## Multi-Factor Auth Provider
-依預設，擁有 Azure Active Directory 租用戶的全域管理員可以使用 Multi-Factor Authentication。不過，如果您想要將多重要素驗證延伸到所有使用者，以及/或想要讓全域管理員利用管理入口網站、自訂問候語及報告等功能，您必須購買並設定 Multi-Factor Authentication 提供者。
+依預設，擁有 Azure Active Directory 租用戶的全域管理員可以使用 Multi-Factor Authentication。不過，如果您想要將多重要素驗證延伸到所有使用者，及/或想要讓全域管理員利用管理入口網站、自訂問候語及報告等功能，您必須購買並設定 Multi-Factor Authentication 提供者。
 
 >[AZURE.NOTE]您也應該確定您選取的多重要素驗證設計選項，支援您的設計所需的功能。
 
@@ -187,6 +187,6 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 [判斷資料保護需求](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## 另請參閱
-[設計考量概觀](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[設計考量概觀]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

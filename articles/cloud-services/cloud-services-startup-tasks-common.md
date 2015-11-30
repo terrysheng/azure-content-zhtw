@@ -201,9 +201,9 @@ Azure 會針對在角色內啟動的處理序建立防火牆規則。例如，�
 ```xml
 <system.webServer>
     <security>
-    <!--Unlisted IP addresses are denied access-->
+    <!--Unlisted IP addresses are granted access-->
     <ipSecurity>
-        <!--The following IP addresses are granted access-->
+        <!--The following IP addresses are denied access-->
         <add allowed="false" ipAddress="192.168.100.1" subnetMask="255.255.0.0" />
         <add allowed="false" ipAddress="192.168.100.2" subnetMask="255.255.0.0" />
     </ipSecurity>
@@ -503,4 +503,4 @@ Startup2.cmd：
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="masnider;jesseb"/>
 
 # 可靠的服務概觀
@@ -52,7 +52,7 @@ Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service 
 ## 服務生命週期
 無論您的服務是具狀態還是無狀態，可靠的服務會提供簡單的生命週期，可讓您快速插入您的程式碼，並開始著手。您真正只有需要實作一個或兩個方法，即可讓您的服務啟動並執行。
 
-+ CreateCommunicationListener ：這是服務定義它要使用之通訊堆疊的地方。通訊堆疊 (如 [Web API](service-fabric-reliable-services-communication-webapi.md)) 定義服務的接聽端點 (用戶端如何連線服務)，以及顯示的訊息最後如何與服務程式碼的其餘部分互動。
++ CreateServiceReplicaListeners/CreateServiceInstanceListeners：這是服務定義它要使用之通訊堆疊的地方。通訊堆疊 (如 [Web API](service-fabric-reliable-services-communication-webapi.md)) 定義服務的接聽端點 (用戶端如何連線服務)，以及顯示的訊息最後如何與服務程式碼的其餘部分互動。
 
 + RunAsync：這是您的服務執行其商務邏輯的地方。所提供的取消語彙基元是針對該工作何時應該停止的訊號。比方說，如果您的服務需要不斷從 ReliableQueue 提取訊息並加以處理，這會是該工作會發生的位置。
 
@@ -60,16 +60,16 @@ Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service 
 
 1. 建構服務物件 (衍生自 StatelessService 或 StatefulService 的項目)。
 
-2. 呼叫 CreateCommunicationListener 方法，讓服務有機會傳回其選擇的通訊接聽程式。
+2. 會呼叫 CreateServiceReplicaListeners/CreateServiceInstanceListeners 方法，讓服務有機會傳回其選擇的一個或多個通訊接聽程式。
   + 請注意這是選擇性的，雖然大部分的服務會直接公開某個端點。
 
 3. 一旦建立通訊接聽程式，即會予以開啟。
-  + 通訊接聽程式有一個稱為 Open() 的方法，此時會呼叫該方法並傳回服務的接聽位址。如果您的可靠的服務使用其中一個內建 ICommunicationListener，那麼便會為您處理。
+  + 通訊接聽程式有一個稱為 OpenAsync() 的方法，此時會呼叫該方法並傳回服務的接聽位址。如果您的可靠的服務使用其中一個內建 ICommunicationListener，那麼便會為您處理。
 
-4. 通訊接聽程式為 Open() 之後，會在主要服務上呼叫 RunAsync()。
+4. 通訊接聽程式為開啟之後，會在主要服務上呼叫 RunAsync() 方法。
   + 請注意，RunAsync 是選擇性的，如果服務所有工作都只直接進行，以回應使用者呼叫，則它不需要實作 RunAsync()。
 
-當服務正在關閉 (無論是刪除或只是要從特定位置移出) 時，呼叫順序相同，會先對通訊接聽程式呼叫 Close()，然後會取消傳遞給 RunAsync() 的取消語彙基元。
+當服務正在關閉 (無論是刪除、升級，或只是要從特定位置移出) 時，呼叫順序相同，會先對通訊接聽程式呼叫 CloseAsync()，然後會取消傳遞給 RunAsync() 的取消語彙基元。
 
 ## 範例服務
 了解這個程式設計模型之後，讓我們來快速看看兩個不同的服務，了解這些部分如何彼此搭配運作。
@@ -79,7 +79,7 @@ Service Fabric 中的可靠的服務與您之前撰寫的服務不同。Service 
 
 例如，假設沒有記憶體的計算機，它會接收所有項並同時執行作業。
 
-在此情況下，服務的 RunAsync() 可以是空的，因為沒有服務需要進行的背景工作處理。建立計算機服務時，它會傳回 CommunicationListener (例如 [Web API](service-fabric-reliable-services-communication-webapi.md))，其會在某個連接埠上開啟接聽端點。此接聽端點將會連結到不同的方法 (例如："Add(n1, n2)")，其會定義計算機的公用 API。
+在此情況下，服務的 RunAsync() 可以是空的，因為沒有服務需要進行的背景工作處理。建立計算機服務時，它會傳回 ICommunicationListener (例如 [Web API](service-fabric-reliable-services-communication-webapi.md))，其會在某個連接埠上開啟接聽端點。此接聽端點將會連結到不同的方法 (例如："Add(n1, n2)")，其會定義計算機的公用 API。
 
 從用戶端進行呼叫時，會叫用適當的方法，且計算機服務會在所提供的資料上執行作業，並傳回結果。它不會儲存任何狀態。
 
@@ -92,11 +92,11 @@ Service Fabric 中常見的無狀態服務使用範例是做為前端，其公�
 
 現在的大部分服務會在外部儲存其狀態，因為外部存放區為該狀態提供可靠性、可用性、延展性和一致性。在 Service Fabric 中，具狀態服務不需要外部儲存其狀態，因為 Service Fabric 會為服務程式碼和服務狀態處理這些需求。
 
-例如，假設我們想要撰寫的服務接受一系列需要在影像上執行的轉換，以及要轉換的影像。針對這個服務，它會傳回 CommunicationListener (假設是 WebAPI)，這會開啟通訊連接埠，並允許透過例如 `ConvertImage(Image i, IList<Conversion> conversions)` 的 API 提交。在這個 API 中，服務可能擷取資訊並將要求儲存在 ReliableQueue，然後傳回某個語彙基元給用戶端，以便追蹤要求 (因為要求可能需要一些時間)。
+例如，假設我們想要撰寫的服務接受一系列需要在影像上執行的轉換，以及要轉換的影像。針對這個服務，它會傳回通訊接聽程式 (假設是 WebAPI)，這會開啟通訊連接埠，並允許透過例如 `ConvertImage(Image i, IList<Conversion> conversions)` 的 API 提交。在這個 API 中，服務可能擷取資訊並將要求儲存在 ReliableQueue，然後傳回某個語彙基元給用戶端，以便追蹤要求 (因為要求可能需要一些時間)。
 
-在這個服務中，RunAsync 可能會更複雜：服務在其 RunAsync 內會有一個迴圈，將要求從 ReliableQueue 提取出來、執行列出的轉換，然後將結果儲存在 ReliableDictionary，以便當用戶端回來時可以取得轉換後的影像。為了確保即使某個項目失敗影像也不會遺失，這個可靠的服務會從佇列提取、執行轉換，然後將結果儲存在交易中，使得只有在轉換完成時，訊息才會實際從佇列移除，並且將結果儲存在結果字典中。如果中途某個項目失敗 (例如此程式碼執行個體執行所在的電腦)，要求會保留在佇列中等候再次處理。
+在這個服務中，RunAsync 可能會更複雜：服務在其 RunAsync 內會有一個迴圈，將要求從 IReliableQueue 提取出來、執行列出的轉換，然後將結果儲存在 IReliableDictionary，以便當用戶端回來時可以取得轉換後的影像。為了確保即使某個項目失敗影像也不會遺失，這個可靠的服務會從佇列提取、執行轉換，然後將結果儲存在交易中，使得只有在轉換完成時，訊息才會實際從佇列移除，並且將結果儲存在結果字典中。如果中途某個項目失敗 (例如此程式碼執行個體執行所在的電腦)，要求會保留在佇列中等候再次處理。
 
-關於這個服務，要注意一件事，就是它聽起來像是一般的 .NET 服務； 唯一的差別在於使用的資料結構 (ReliableQueue 和 ReliableDictionary) 是由 Service Fabric 提供，因此高度可靠、可用且一致。
+關於這個服務，要注意一件事，就是它聽起來像是一般的 .NET 服務； 唯一的差別在於使用的資料結構 (IReliableQueue 和 IReliableDictionary) 是由 Service Fabric 提供，因此高度可靠、可用且一致。
 
 ## 使用可靠的服務 API 的時機
 如果下列任何一項描述您的應用程式服務需求，那麼便應該考慮可靠的服務 API：
@@ -130,4 +130,4 @@ Service Fabric 中常見的無狀態服務使用範例是做為前端，其公�
 + [閱讀可靠執行者程式設計模型](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

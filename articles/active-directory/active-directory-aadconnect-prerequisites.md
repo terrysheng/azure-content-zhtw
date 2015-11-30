@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="11/02/2015"
+   ms.date="11/16/2015"
    ms.author="andkjell;billmath"/>
 
 # Azure Active Directory Connect (Azure AD Connect) 的必要條件
@@ -33,7 +33,8 @@
 - AD 結構描述版本與樹系功能等級必須是 Windows Server 2003 或更新版本。只要符合結構描述和樹系層級需求，網域控制站就能執行任何版本。
 - 如果您打算使用「密碼回寫」功能，網域控制站必須是 Windows Server 2008 (含最新的 SP) 或更新版本。
 - Azure AD Connect 必須安裝於 Windows Server 2008 或更新版本上。此伺服器可以是網域控制站或成員伺服器 (如果使用快速設定)。如果您使用自訂設定，伺服器也可以是獨立伺服器，而且不需加入網域。
-- 如果您打算使用功能「密碼同步處理」，伺服器必須是 Windows Server 2008 R2 SP1 或更新版本。
+- Azure AD Connect 無法安裝至 Small Business Server 或 Windows Server Essentials。伺服器必須使用 Windows Server Standard 或以上版本。
+- 如果您打算使用功能**密碼同步處理**，伺服器必須是 Windows Server 2008 R2 SP1 或更新版本。
 - 如果部署的是 Active Directory 同盟服務，則將安裝 AD FS 或 Web 應用程式 Proxy 的伺服器必須是 Windows Server 2012 R2 或更新版本。必須在這些伺服器上啟用 Windows 遠端管理，才能執行遠端安裝。
 - Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。預設會安裝 SQL Server 2012 Express LocalDB (輕量版的 SQL Server Express)，並且在本機電腦上建立服務的服務帳戶。SQL Server Express 有 10 GB 的大小限制，可讓您管理大約 100000 個物件。如果您需要管理更多數量的目錄物件，則必須將安裝程序指向不同版本的 SQL Server。Azure AD Connect 支援從 SQL Server 2008 (含 SP4) 至 SQL Server 2014 的各種 Microsoft SQL Server。
 
@@ -45,7 +46,7 @@
 
 **連線能力**
 
-- 如果您使用連出 Proxy 連線到網際網路，則必須在 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 檔案中新增下列設定，安裝精靈和 Azure AD 同步處理才能連線到網際網路和 Azure AD。
+- 如果您使用輸出 Proxy 連線到網際網路，則必須在 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 檔案中新增下列設定，安裝精靈和 Azure AD 同步處理才能連線到網際網路和 Azure AD。
 
 ```
     <system.net>
@@ -115,4 +116,4 @@ Azure AD Connect 需要 PowerShell 和 .Net 4.5.1。依您的 Windows Server 版
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

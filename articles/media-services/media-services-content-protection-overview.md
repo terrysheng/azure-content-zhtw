@@ -23,12 +23,12 @@ Microsoft Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存�
 
 - 下圖示範「PlayReady 和/或 Widevine DRM 動態一般加密」工作流程。如需詳細資訊，請參閱[使用 PlayReady 和/或 Widevine DRM 動態一般加密](media-services-protect-with-drm.md)。
 
-	![利用 PlayReady 保護](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
+![利用 PlayReady 保護](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 
 - 下圖示範「AES-128 動態加密」工作流程。如需詳細資訊，請參閱[使用 AES-128 動態加密和金鑰傳遞服務](media-services-protect-with-aes128.md)。
 
-	![利用 AES 128 保護](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
+![利用 AES 128 保護](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
 >[AZURE.NOTE]要想使用動態加密，您必須從負責傳送加密內容的資料流端點至少取得一個資料流保留單位。
 
@@ -46,7 +46,7 @@ Microsoft Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存�
 
 若要傳遞儲存體加密資產，您必須設定資產的傳遞原則，讓媒體服務知道您的內容傳遞方式。串流處理資產之前，串流伺服器會移除儲存體加密，並使用指定的傳遞原則來串流處理您的內容 (例如，AES、一般加密或不加密)。
 
-**CommonEncryptionProtected** - 如果您想要使用一般加密來加密 (或上傳已加密) 內容，請使用此選項。PlayReady 和 Widewine 是依照一般加密 (CENC) 規格，並且受 AMS 支援。
+**CommonEncryptionProtected** -如果您想要使用一般加密來加密 (或上傳已加密) 內容，請使用此選項。PlayReady 和 Widewine 是依照一般加密 (CENC) 規格，並且受 AMS 支援。
 
 **EnvelopeEncryptionProtected** - 如果您想要保護利用進階加密標準 (AES) 所加密的 HTTP 即時串流 (HLS) 或上傳利用相同標準所加密的已保護 HTTP 即時串流 (HLS)，請使用此選項。請注意，如果您正在上傳已利用 AES 所加密的 HLS，則必須已由 Transform Manager 進行加密。
 
@@ -80,7 +80,7 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 ###權杖限制
 
-內容金鑰授權原則可能會有一個或多個授權限制：Open、權杖限制或 IP 限制。token 限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援簡單 Web 權杖 (SWT) 格式和 JSON Web 權杖 (JWT) 格式的權杖。媒體服務不提供安全權杖服務。您可以建立自訂 STS，或利用 Microsoft Azure ACS 來發行權杖。STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。如果權杖有效，且權杖中的宣告符合針對金鑰 (或授權) 所設定的宣告，媒體服務金鑰傳遞服務會將所要求的金鑰 (或授權) 傳回給用戶端。
+內容金鑰授權原則可能會有一個或多個授權限制：open 或 token 限制。權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援簡單 Web 權杖 (SWT) 格式和 JSON Web 權杖 (JWT) 格式的權杖。媒體服務不提供安全權杖服務。您可以建立自訂 STS，或利用 Microsoft Azure ACS 來發行權杖。STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。如果權杖有效，且權杖中的宣告符合針對金鑰 (或授權) 所設定的宣告，媒體服務金鑰傳遞服務會將所要求的金鑰 (或授權) 傳回給用戶端。
 
 設定 token 限制原則時，您必須指定主要驗證金鑰、簽發者和對象參數。主要驗證金鑰包含簽署權杖使用的金鑰，簽發者是發行權杖的安全權杖服務。對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
@@ -88,11 +88,11 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 AMS 也可讓您傳遞使用 Widevine DRM 加密的 MPEG DASH。PlayReady 和 Widewine 是依照一般加密 (CENC) 規格加密。您可以使用 [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從版本 3.5.1 開始) 或 REST API 來設定 AssetDeliveryConfiguration 以使用 Widevine。
 
-目前，媒體服務不提供 Widevine 授權伺服器。您可以使用下列 AMS 合作夥伴來助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
+從媒體服務 .NET SDK 版本 3.5.2 開始，媒體服務讓您可設定 Widevine 授權範本並取得 Widevine 授權。您也可以使用下列 AMS 合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
 
 ##常見案例
 
-###保護儲存體中的內容、提供動態加密串流處理媒體、使用 AMS 金鑰\\授權傳遞服務  
+###保護儲存體中的內容、提供動態加密串流處理媒體、使用 AMS 金鑰\\授權傳遞服務
 
 1. 將高品質夾層檔內嵌到資產。將儲存體加密選項套用到資產。
 2. 設定串流端點。
@@ -137,6 +137,5 @@ AMS 也可讓您傳遞使用 Widevine DRM 加密的 MPEG DASH。PlayReady 和 Wi
 [使用 Azure ACS 發行權杖](http://mingfeiy.com/acs-with-key-services)。
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
- 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

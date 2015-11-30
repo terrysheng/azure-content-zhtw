@@ -153,7 +153,7 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 
 3. 將 `[Authorize]` 屬性新增至任何需要驗證的控制器或方法。現在必須驗證使用者才能存取該端點或特定 API。
 
-若要了解如何在您的 Mobile Apps 後端驗證用戶端，請參閱[將驗證新增至您的應用程式](app-service-mobile-dotnet-backend-ios-get-started-users.md)。
+若要了解如何在您的 Mobile Apps 後端驗證用戶端，請參閱[將驗證新增至您的應用程式](app-service-mobile-ios-get-started-users.md)。
 
 ## 做法：將推播通知新增至伺服器專案
 
@@ -195,6 +195,29 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 
 目前您可以使用「通知中樞」用戶端將推播通知傳送到已註冊的裝置。如需詳細資訊，請參閱[將推播通知新增至應用程式](app-service-mobile-ios-get-started-push.md)。若要深入了解您可以使用通知中樞執行的所有功能，請參閱[通知中樞概觀](../notification-hubs/notification-hubs-overview.md)。
 
+## 作法：將標記加入發送到標記的裝置安裝
+
+遵循上述的**作法：定義自訂 API 控制器**，您會想在後端設定自訂的 API，以使用通知中樞將標記加入特定的裝置安裝。請確定您已傳遞儲存在用戶端本機儲存體的裝置識別碼和您想加入的標記 (可省略，因為您也可以直接在您的後端指定標記)。下列程式碼片段應新增至您的控制器，才能使用通知中樞新增標記至裝置安裝識別碼。
+
+使用 [Azure 通知中樞 Nuget](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)([參考](https://msdn.microsoft.com/library/azure/mt414893.aspx))：
+
+		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+
+		hub.PatchInstallation("my-installation-id", new[]
+		{
+		    new PartialUpdateOperation
+		    {
+		        Operation = UpdateOperationType.Add,
+		        Path = "/tags",
+		        Value = "{my-tag}"
+		    }
+		});
+	
+
+若要發送到這些標記，請使用[通知中樞 API](https://msdn.microsoft.com/library/azure/dn495101.aspx)。
+
+您也可以獨立出自訂 API 以使用通知中樞直接在您的後端上註冊裝置安裝。
+
 ## 做法：發行伺服器專案
 
 使用下列步驟將伺服器專案發行至 Azure：
@@ -207,4 +230,4 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

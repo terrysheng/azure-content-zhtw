@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # 搭配 Azure AD 帳戶使用 Azure Multi-Factor Authentication 的安全性最佳做法
@@ -121,4 +121,4 @@ Azure Multi-Factor Authentication Server 可以用於保護由 Azure AD 帳戶�
 - [Azure Multi-factor Authentication 的設定體驗](multi-factor-authentication-end-user-first-time.md)
 - [Azure Multi-Factor Authentication 常見問題集](multi-factor-authentication-faq.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

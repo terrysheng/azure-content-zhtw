@@ -24,10 +24,6 @@
 
 在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入 [iOS 快速入門]專案。本教學課程以 [iOS 快速入門]教學課程為基礎，您必須先完成該教學課程。如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-##<a name="create-gateway"></a>建立 App Service 閘道
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
-
 ##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -36,7 +32,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-在 Xcode 中，按下 [執行] 以啟動應用程式。因為應用程式嘗試以未驗證的使用者身分來存取後端，但 _TodoItem_ 資料表現在需要驗證，所以會引發例外狀況。
+在 Xcode 中，按下 [**執行**] 以啟動應用程式。因為應用程式嘗試以未驗證的使用者身分來存取後端，但 _TodoItem_ 資料表現在需要驗證，所以會引發例外狀況。
 
 ##<a name="add-authentication"></a>將驗證加入應用程式
 
@@ -50,4 +46,4 @@
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # 註冊應用程式來使用 Microsoft 帳戶進行驗證
@@ -30,51 +30,39 @@
 
 >[AZURE.NOTE]Windows Phone 8、Windows Phone 8.1 Silverlight 以及非 Windows 的應用程式可跳過本節。
 
-1. 如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面]，使用您的 Microsoft 帳戶登入，然後按一下 **[應用程式名稱]**。
-
-   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-submit-win8-app.png)
-
-2. 選取 [**保留唯一名稱來建立新應用程式**]，再按一下 [**繼續**]，然後在 [**應用程式名稱**] 中輸入應用程式的名稱，按一下 [**保留應用程式名稱**]，然後按一下 [**儲存**]。
-
-   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-name.png)
-
-   	This creates a new Windows Store registration for your app.
-
-3. 在 Visual Studio 中，開啟您完成[開始使用行動服務](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) (英文) 教學課程時所建立的專案。
-
-4. 在 [方案總管] 中，以滑鼠右鍵按一下 Windows 市集應用程式專案，然後依序按一下 [市集] 和 [將應用程式與市集建立關聯...]。
+1. 如果您尚未註冊您的 App，請瀏覽至 [Windows 開發人員中心](https://dev.windows.com/dashboard/Application/New)，使用 Microsoft 帳戶登入，輸入 App 名稱，然後按一下 [保留應用程式名稱]。
+ 
+3. 在 Visual Studio 開啟您的 Windows App 專案，然後在方案總管中以滑鼠右鍵按一下 Windows 市集 App 專案，按一下 [市集] > [將應用程式與市集建立關聯]。
 
   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-store-association.png)
 
-   	這將會顯示 **[將您的應用程式與 Windows 市集建立關聯]** 精靈。
+5. 在精靈中，按一下 [登入]，然後以您的 Microsoft 帳戶登入，選取您保留的應用程式名稱，按 [下一步] > [關聯]。
 
-5. 在精靈中，按一下 [**登入**]，然後以您的 Microsoft 帳戶登入，選取您在步驟 2 保留的應用程式名稱，按 [**下一步**] > [**關聯**]。
+6. (選擇性) 若為 Windows 8.1 通用 App，請針對 Windows Phone 市集專案重複執行步驟 4 與 5。
 
-   	This adds the required Windows Store registration information to the application manifest.
+6. 回到新 App 的 Windows 開發人員中心頁面，按一下 [服務] > [推播通知]。
 
-6. (選擇性) 若為 Windows 通用 app，請針對 Windows Phone 市集專案重複執行步驟 4 與 5。
+7. 在 [推播通知] 頁面上，按一下 [Windows 推播通知服務 (WNS) 和 Microsoft Azure 行動服務] 下的 [線上服務網站]。
 
-6. 回到新應用程式的 Windows 開發人員中心頁面，按一下 [**服務]**] > [**推播通知**]。
-
-7. 在 [**推播通知**] 頁面上，按一下 [**Windows 推播通知服務 (WNS) 和 Microsoft Azure 行動服務**]下的 [**線上服務網站**]。
-
-您應用程式的 Microsoft 帳戶頁面會隨即顯示。
+您應用程式的 Microsoft 帳戶頁面會隨即顯示。接下來，您會收到 Azure 需要搭配 App 使用 Microsoft 驗證的驗證認證。
 
 ## 設定您的 Microsoft 帳戶註冊，並連結至行動服務
 
 本節的第一個步驟只適用於 Windows Phone 8、Windows Phone 8.1 Silverlight 以及非 Windows 市集應用程式。若是上述應用程式，您也可以忽略封裝安全性識別碼 (SID)，這只有 Windows 市集應用程式可使用。
 
-1. 若為非 Windows 市集應用程式，請瀏覽至 Microsoft 帳戶開發人員中心的<a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">我的應用程式</a>頁面，接著以您的 Microsoft 帳戶登入 (若需要)，並按一下 [建立應用程式]，然後輸入應用程式名稱，最後按一下 [我接受]。
+1. 若為非 Windows 市集應用程式，請瀏覽至 Microsoft 帳戶開發人員中心的[我的應用程式](http://go.microsoft.com/fwlink/p/?LinkId=262039)頁面，接著以您的 Microsoft 帳戶登入 (若需要)，並按一下 [建立應用程式]，輸入**應用程式名稱**，然後按一下 [我接受]。
 
    	這將透過 Microsoft 帳戶為您保留應用程式名稱，並顯示您應用程式的 Microsoft 帳戶頁面。
 
-2. 在應用程式的 Microsoft 帳戶頁面上，按一下 [API 設定]，選取啟用 [行動或桌面用戶端應用程式]，將行動服務 URL 設為 [目標網域]，在 [重新導向 URL] 中提供 `https://<mobile_service>.azure-mobile.net/` 的值，然後按一下 [儲存]。
+2. 在 App 的 Microsoft 帳戶頁面上，按一下 [API 設定]，啟用 [行動或桌面用戶端應用程式]，將行動服務 URL 設為 [目標網域]，然後在 [重新導向 URL] 中提供下列 URL 格式之一，然後按一下 [儲存]：
 
-	 >[AZURE.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務 URL 並附加路徑 _signin-microsoft_，而您的行動服務為 .NET 服務，例如 `https://todolist.azure-mobile.net/signin-microsoft`。
+	+ **.NET 後端**：`https://<mobile_service>.azure-mobile.net/signin-microsoft`
+	+ **JavaScript 後端**：`https://<mobile_service>.azure-mobile.net/login/microsoftaccount` 
+
+	 >[AZURE.NOTE]請確定您使用正確的重新導向 URL 路徑格式為您的行動服務後端的類型。若這不正確，驗證也將不會成功。[根網域] 應該會自動填入。
 
     ![Microsoft 帳戶 API 設定](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth-2.png)
 
-	根網域應該會自動填入。
 
 4. 按一下 [應用程式設定]，記下 [用戶端識別碼]、[用戶端密碼] 以及 [套件 SID] 中的值。
 	
@@ -84,8 +72,6 @@
     > [AZURE.NOTE]用戶端密碼是重要的安全性認證。請勿將用戶端密碼與任何人分享，或與您的應用程式一起散發。只有註冊 Windows 市集應用程式才會顯示 [套件 SID] 欄位。
 
 4. 在 [Azure 管理入口網站]中，按一下行動服務的 [身分識別] 索引標籤，輸入取自身分識別提供者的用戶端識別碼、用戶端密碼以及套件 SID，然後按一下 [儲存]。
-
- 	![行動服務身分識別索引標籤](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-identity-tab.png)
 	
 	>[AZURE.NOTE]若是 Windows Phone 8、Windows Phone Store 8.1 Silverlight 或非 Windows 應用程式，則不需提供套件 SID 值。
 	
@@ -97,10 +83,10 @@
 
 <!-- URLs. -->
 
-[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

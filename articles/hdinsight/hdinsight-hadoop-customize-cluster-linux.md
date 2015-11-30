@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="11/16/2015"
 	ms.author="larryfr"/>
 
 # 使用指令碼動作來自訂 HDInsight 叢集| Azure (Linux)
@@ -108,7 +108,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		        },
 		        "sshUserName": {
 		            "type": "string",
-		            "defaultValue": "hdiuser"
+		            "defaultValue": "username"
 		        },
 		        "sshPassword": {
 		            "type": "securestring"
@@ -515,7 +515,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 ## 支援在 HDInsight 叢集上使用開放原始碼軟體
 
-Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用以 Hadoop 形成之開放原始碼技術的生態系統，在雲端中建置巨量資料應用程式。Microsoft Azure 提供對開放原始碼技術的一般層級支援，如 [Azure 支援常見問題集網站](http://azure.microsoft.com/support/faq/)的**支援範圍**章節中所述。HDInsight 服務對於某些元件提供額外層級的支援，如下所述。
+Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用以 Hadoop 形成之開放原始碼技術的生態系統，在雲端中建置巨量資料應用程式。Microsoft Azure 提供對開放原始碼技術的一般層級支援，如 [Azure 支援常見問題集網站](http://azure.microsoft.com/support/faq/)的＜**支援範圍**＞章節中所述。HDInsight 服務對於某些元件提供額外層級的支援，如下所述。
 
 HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
@@ -525,7 +525,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
 > [AZURE.WARNING]透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使用或如何安裝在叢集上，都適用相同層級的支援。以下是自訂元件可用於 HDInsight 叢集之最常見方式的清單：
 
@@ -549,4 +549,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

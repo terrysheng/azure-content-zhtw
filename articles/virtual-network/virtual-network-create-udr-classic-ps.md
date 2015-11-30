@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-以下的範例 Azure CLI 命令是假設您已根據上述案例建立簡單的環境。如果您想要執行如本文件中所示的命令，請建立[使用 PowerShell 建立 VNet (傳統)](virtual-networks-create-vnet-classic-ps.md) 中所示的環境。
+以下的 Azure PowerShell 命令範例假設您已根據上述案例建立簡單的環境。如果您想要執行如本文件中所示的命令，請建立[使用 PowerShell 建立 VNet (傳統)](virtual-networks-create-vnet-classic-ps.md) 中所示的環境。
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -119,4 +119,4 @@
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

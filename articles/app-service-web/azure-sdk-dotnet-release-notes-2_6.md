@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/08/2015"
+   ms.date="11/18/2015"
    ms.author="juliako"/>
 
 
@@ -106,4 +106,4 @@ Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄�
 
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

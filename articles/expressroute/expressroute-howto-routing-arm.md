@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/12/2015"
    ms.author="cherylmc"/>
 
 # 使用 Azure 資源管理員及 PowerShell 建立和修改 ExpressRoute 線路的路由
@@ -133,7 +133,7 @@
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
+		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt	
 
 
 ### 更新 Azure 私用對等組態
@@ -349,7 +349,7 @@
 	- 公告的首碼：您必須提供一份您打算在 BGP 工作階段上公告的所有首碼的清單。只接受公用 IP 位址首碼。如果您打算傳送一組首碼，您可以傳送逗號分隔清單。這些首碼必須在 RIR / IRR 中註冊給您。
 	- 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。**這是選擇性的**。
 	- 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
-	- MD5 雜湊 (如果選擇使用)。**這是選擇性**。
+	- MD5 雜湊 (如果選擇使用)。**這是選擇性。**
 	
 	您可以執行下列 Cmdlet 來為線路設定 Microsoft 對等
 
@@ -389,10 +389,10 @@
 接著，將 VNet 連結到 ExpressRoute 線路。當使用 Azure 資源管理員部署模式時，您可以使用[此範本](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)。我們目前正在進行 PowerShell 步驟。
 
 
--  如需有關 ExpressRoute 工作流程的詳細資訊，請參閱 [ExpressRoute 工作流程](expressroute-workflows.md)。
+-  如需 ExpressRoute 工作流程的詳細資訊，請參閱 [ExpressRoute 工作流程](expressroute-workflows.md)。
 
 -  如需線路對等的詳細資訊，請參閱 [ExpressRoute 線路和路由網域](expressroute-circuit-peerings.md)。
 
 -  如需使用虛擬網路的詳細資訊，請參閱[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

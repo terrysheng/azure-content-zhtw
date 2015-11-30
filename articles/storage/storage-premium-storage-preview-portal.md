@@ -1,6 +1,6 @@
 <properties
 	pageTitle="進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體 | Microsoft Azure"
-	description="「進階儲存體」可為在「Azure 虛擬機器」上執行且需要大量 I/O 的工作負載提供高效能、低延遲的磁碟支援。Azure DS 系列和 GS 系列 VM 支援「進階儲存體」。"
+	description="「進階儲存體」可針對在「Azure 虛擬機器」上執行且需要大量 I/O 的工作負載，提供高效能、低延遲的磁碟支援。Azure DS 系列和 GS 系列 VM 支援「進階儲存體」。"
 	services="storage"
 	documentationCenter=""
 	authors="ms-prkhad"
@@ -21,9 +21,9 @@
 
 ## 概觀
 
-「Azure 進階儲存體」可為執行需要大量 I/O 之工作負載的虛擬機器提供高效能、低延遲的磁碟支援。使用「進階儲存體」的虛擬機器 (VM) 會將資料儲存在固態硬碟 (SSD) 上。您可以將應用程式的 VM 磁碟移轉到「Azure 進階儲存體」，以利用這些磁碟的速度和效能。
+針對執行時需要大量 I/O 之工作負載的虛擬機器，「Azure 進階儲存體」可提供高效能、低延遲的磁碟支援。使用「進階儲存體」的虛擬機器 (VM) 會將資料儲存在固態硬碟 (SSD) 上。您可以將應用程式的 VM 磁碟移轉到「Azure 進階儲存體」，以利用這些磁碟的速度和效能。
 
-Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的每一 VM 最多可擁有 64 TB 的儲存體。使用「進階儲存體」時，您應用程式的每一 VM 可達到 80,000 IOPS (每秒輸入/輸出作業)，而每一 VM 的每秒磁碟輸送量為 2000 MB 且讀取作業的延遲極低。
+Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的每一 VM 最多可擁有 64 TB 的儲存體。使用「進階儲存體」時，您應用程式的每一 VM 可達到 80,000 IOPS (每秒輸入/輸出作業)，而每一 VM 的每秒磁碟輸送量為 2000 MB，且讀取作業的延遲極低。
 
 >[AZURE.NOTE]建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到「Azure 進階儲存體」，以發揮應用程式最佳效能。如果您的磁碟不需要高 IOPS，您可以在「標準儲存體」中維護它來限制成本，這會將虛擬機器磁碟資料儲存在「硬碟機 (HDD)」上而非 SSD 上。
 
@@ -43,7 +43,7 @@ Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的�
 
 - Premium 儲存體帳戶是本機備援 (LRS) 帳戶，在單一區域內會保留三份資料。如需使用 Premium 儲存體時關於地理複寫的考量，請參閱本文的[使用 Premium 儲存體時的快照與複製 Blob](#snapshots-and-copy-blob-whzh-TWing-premium-storage) 一節。
 
-- 如果您希望您的 VM 磁碟使用進階儲存體帳戶，您必須使用 DS 系列或 GS 系列的 VM。DS 系列或 GS 系列的 VM 可同時使用 Standard 和 Premium 儲存體磁碟。非 DS 系列或非 GS 系列的 VM 則無法使用進階儲存體磁碟。如需可用的 Azure VM 磁碟類型和大小的詳細資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)。
+- 如果您希望您的 VM 磁碟使用進階儲存體帳戶，您必須使用 DS 系列或 GS 系列的 VM。DS 系列或 GS 系列的 VM 可同時使用 Standard 和 Premium 儲存體磁碟。非 DS 系列或非 GS 系列的 VM 則無法使用進階儲存體磁碟。如需可用的 Azure VM 磁碟類型和大小的詳細資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](../virtual-machines/virtual-machines-size-specs.md)。
 
 - 設定 VM 之 Premium 儲存體磁碟的程序和標準儲存體磁碟的類似。您必須為您的 Azure 磁碟和 VM 選擇最適合的 Premium 儲存體選項。依 Premium 解決方案的效能特性而定，VM 大小應適合您的工作負載。如需詳細資訊，請參閱[使用 Premium 儲存體時的延展性和效能目標](#scalability-and-performance-targets-whzh-TWing-premium-storage)。
 
@@ -59,7 +59,7 @@ Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的�
 
 Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。換句話說，如果您建立 Azure DS 系列或 GS 系列的 VM 並選取 Azure 進階儲存體帳戶，您的作業系統和資料磁碟會儲存在該儲存體帳戶中。
 
-如需有關將現有虛擬機器移轉到「進階儲存體」的資訊，請參閱[移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)。
+如需有關將現有虛擬機器移轉到「進階儲存體」的資訊，請參閱＜[移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)＞。
 
 為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。若要這樣做，您可以使用 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)、[Azure PowerShell](../install-configure-powershell.md) 或[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
@@ -71,7 +71,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 
 	請注意，這些限制僅適用於磁碟流量，不包含快取命中數和網路流量。VM 網路流量有不同的頻寬，與 Premium 儲存體磁碟專用的頻寬不同。
 	
-	如需 DS 系列和 GS 系列 VM 的最大 IOPS 和輸送量 (頻寬) 的最新資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)。若要了解有關進階儲存體磁碟及其 IOPS 與輸送量限制，請參閱本文[使用進階儲存體時的延展性和效能目標](#scalability-and-performance-targets-whzh-TWing-premium-storage)一節中的表格。
+	如需 DS 系列和 GS 系列 VM 的最大 IOPS 和輸送量 (頻寬) 的最新資訊，請參閱＜[Azure 的虛擬機器和雲端服務大小](../virtual-machines/virtual-machines-size-specs.md)＞。若要了解有關「進階儲存體」磁碟及其 IOPS 與輸送量限制，請參閱本文＜[使用進階儲存體時的延展性和效能目標](#scalability-and-performance-targets-whzh-TWing-premium-storage)＞一節中的表格。
 
 > [AZURE.NOTE]快取命中數不會受到磁碟配置 IOPS/輸送量的限制。也就是說，當您在 DS 系列 VM 或 GS 系列 VM 上使用具 ReadOnly 快取設定的資料磁碟時，來自快取的讀取數不會受到進階儲存體磁碟的限制。因此，如果工作負載以讀取為主，可以從磁碟獲得極高的輸送量。請注意，快取會根據 VM 大小，受到 VM 層級個別 IOPS / 輸送量的限制。DS 系列 VM 大約有 4000 IOPS，快取與本機 SSD IO 是每個核心 33 MB/秒。
 
@@ -201,9 +201,9 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 	- 如果您使用 **XFS**，請使用掛接選項 "nobarrier" 停用阻礙 (若要啟用阻礙，請使用 "barrier" 選項)
 
 - 對於快取設定為 "ReadWrite" 的 Premium 儲存體磁碟，則應該啟用阻礙以持續寫入。
-- 對於要在 VM 重新開機後保存的磁碟機標籤，您必須以參考磁碟的 UUID 更新 /etc/fstab。另請參閱[如何將資料磁碟連接至 Linux 虛擬機器](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-how-to-attach-disk)。
+- 對於要在 VM 重新開機後保存的磁碟機標籤，您必須以參考磁碟的 UUID 更新 /etc/fstab。另請參閱＜[如何將資料磁碟連接至 Linux 虛擬機器](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-how-to-attach-disk)＞。
 
-以下是我們驗證能使用 Premium 儲存體的 Linux 散發套件。我們建議您升級 VM 到至少其中一個版本 (或更新版本)，以便獲得 Premium 儲存體較佳的效能和穩定性。此外，部分版本需要最新的 LIS (適用於 Microsoft Azure 的 Linux Integration Services v4.0)。請依照下面提供的連結進行下載及安裝。當我們完成其他驗證後，將繼續在清單中新增更多映像。請注意，我們的驗證顯示效能依映像而有所不同，而且也取決於工作負載特性和映像上的設定。不同的映像已針對不同種類的工作負載進行調整。<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>發行版本</strong></td> <td><strong>版本</strong></td> <td><strong>支援的核心</strong></td> <td><strong>支援的映像</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-zh-TW-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-zh-TW-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-zh-TW-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-zh-TW-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> 需要 LIS 4.0 </a> </br> *請參閱下方附註 </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> 建議使用 LIS 4.0 </a> <br/> *請參閱下方附註 </td> </tr>
+以下是我們驗證能使用 Premium 儲存體的 Linux 散發套件。我們建議您升級 VM 到至少其中一個版本 (或更新版本)，以便獲得 Premium 儲存體較佳的效能和穩定性。此外，部分版本需要最新的 LIS (適用於 Microsoft Azure 的 Linux Integration Services v4.0)。請依照下面提供的連結進行下載及安裝。當我們完成其他驗證後，將繼續在清單中新增更多映像。請注意，我們的驗證顯示效能依映像而有所不同，而且也取決於工作負載特性和映像上的設定。不同的映像已針對不同種類的工作負載進行調整。<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>發佈</strong></td> <td><strong>版本</strong></td> <td><strong>支援的核心</strong></td> <td><strong>支援的映像</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-zh-TW-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-zh-TW-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-zh-TW-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-zh-TW-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> 需要 LIS 4.0 </a> </br> *請參閱下方附註 </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> 建議使用 LIS 4.0 </a> <br/> *請參閱下方附註 </td> </tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
@@ -333,11 +333,11 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [在 Azure 儲存體帳戶使用 Blob 服務作業](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)。
 - [建立執行 Windows 的虛擬機器](../virtual-machines-windows-tutorial-azure-preview.md)
-- [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+- [Azure 的虛擬機器和雲端服務大小](../virtual-machines/virtual-machines-size-specs.md)
 - [儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 - [MSDN 參考](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -17,44 +17,59 @@
 	ms.author="spelluru"/>
 
 # 資料移動活動
-資料處理站有[供全域使用服務](#global)以跨下方所列之不同資料存放區使用[複製活動](#copyactivity)支援資料移動。資料處理站也有[安全地在內部部署位置與雲端之間移動資料](#moveonpremtocloud)的內建支援，使用資料管理閘道器。
+[複製活動](#copyactivity)會在 Azure Data Factory 中執行資料移動，而此活動是由[全域可用的資料移動服務](#global)所提供，可以使用安全、可靠及可調整的方式，在各種不同的資料存放區之間複製資料。此服務會根據來源與接收資料存放區的位置，自動選擇用最佳區域來執行資料移動作業。系統會使用目前最靠近接收資料存放區的區域。
+ 
+讓我們來了解在不同情況下發生這個資料移動的方式。
 
-如需使用複製活動的快速教學課程，請參閱[教學課程：在 Azure Data Factory 管線中使用複製活動](data-factory-get-started.md)。在教學課程中，您會使用複製活動將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。下列區段列出複製活動支援的所有來源與接收。
+## 在兩個雲端資料存放區之間複製資料
+當來源和接收 (目的地) 資料存放區同時位於雲端時，複製活動就會經歷下列階段，將資料從來源複製/移動到接收資料存放區。資料移動服務
+
+1. 從來源資料存放區讀取資料
+2.	根據輸入資料集、輸出資料集和複製活動的組態，執行序列化/還原序列化、壓縮/解壓縮、資料行對應及類型轉換 
+3.	將資料寫入目的地資料存放區
+
+![從雲端複製到雲端](.\media\data-factory-data-movement-activities\cloud-to-cloud.png)
 
 
-## 複製活動支援的資料存放區
+## 在內部部署資料存放區和雲端資料存放區之間複製資料
+若要[安全地在公司防火牆背後的內部部署資料存放區和雲端資料存放區之間移動資料](#moveonpremtocloud)，您必須安裝資料管理閘道，這是一個代理程式，能夠在內部部署的電腦上啟用混合式資料移動及處理。資料管理閘道可以和資料存放區本身安裝於同一部電腦上，或者安裝於具備可觸達該資料存放區之存取權的個別電腦上。在此案例中，序列化/還原序列化、壓縮/解壓縮、資料行對應及類型轉換都是透過資料管理閘道來執行。資料移動服務並未包含在此案例中。
+
+![從內部部署複製到雲端](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
+
+## 複製自/至 Azure Iaas VM 上資料存放區的資料 
+您也可以使用資料管理閘道，將資料移出/移入裝載於 Azure IaaS VM (基礎結構即為服務的虛擬機器) 上支援的資料存放區。在此情況下，資料管理閘道可以和資料存放區本身安裝於同一部 Azure VM 上，或者安裝於具備可觸達該資料存放區之存取權的個別 VM 上。
+
+## 支援的資料存放區
 複製活動會將資料從**來源**資料存放區複製到**接收**資料存放區。資料處理站支援下列資料存放區和來源接收組合。按一下資料存放區以了解如何從該存放區複製資料以及將資料複製到該存放區。
 
 | **來源** | **接收** |
 | ------ | ---- |
-| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、內部部署檔案系統、Azure 資料湖存放區 |
-| [Azure 資料表](data-factory-azure-table-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、Azure 資料湖存放區 |
-| [Azure SQL Database](data-factory-azure-sql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、Azure 資料湖存放區 |
-| [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、Azure 資料湖存放區 |
+| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、檔案系統內部部署/Azure IaaS、Azure 資料湖存放區 |
+| [Azure 資料表](data-factory-azure-table-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、Azure 資料湖存放區 |
+| [Azure SQL Database](data-factory-azure-sql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、Azure 資料湖存放區 |
+| [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、Azure 資料湖存放區 |
 | [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、Azure 資料湖存放區 |
-| [Azure 資料湖存放區](data-factory-azure-datalake-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure DocumentDB、內部部署檔案系統、Azure 資料湖存放區 | 
-| [IaaS 上的 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
-| [內部部署檔案系統](data-factory-onprem-file-system-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、內部部署檔案系統、Azure 資料湖存放區 |
-| [內部部署 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
-| [內部部署 Oracle 資料庫](data-factory-onprem-oracle-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
-| [內部部署 MySQL 資料庫](data-factory-onprem-mysql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
-| [內部部署 DB2 資料庫](data-factory-onprem-db2-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
-| [內部部署 Teradata 資料庫](data-factory-onprem-teradata-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
-| [內部部署 Sybase 資料庫](data-factory-onprem-sybase-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
-| [內部部署 PostgreSQL 資料庫](data-factory-onprem-postgresql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、內部部署 SQL Server、IaaS 上的 SQL Server、Azure 資料湖存放區 |
+| [Azure 資料湖存放區](data-factory-azure-datalake-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、檔案系統內部部署/Azure IaaS、Azure 資料湖存放區 | 
+| [IaaS 上的 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
+| [檔案系統內部部署/Azure IaaS](data-factory-onprem-file-system-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、檔案系統內部部署/Azure IaaS、Azure 資料湖存放區 |
+| [SQL Server 內部部署/AzureIaaS](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
+| [Oracle 資料庫內部部署/Azure IaaS](data-factory-onprem-oracle-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
+| [MySQL 資料庫內部部署/Azure IaaS](data-factory-onprem-mysql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
+| [DB2 資料庫內部部署/Azure IaaS](data-factory-onprem-db2-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
+| [Teradata 資料庫內部部署/Azure IaaS](data-factory-onprem-teradata-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
+| [Sybase 資料庫內部部署/Azure IaaS](data-factory-onprem-sybase-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
+| [PostgreSQL 資料庫內部部署/Azure IaaS](data-factory-onprem-postgresql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
+
+## 教學課程
+如需使用複製活動的快速教學課程，請參閱[教學課程：在 Azure Data Factory 管線中使用複製活動](data-factory-get-started.md)。在教學課程中，您會使用複製活動將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。下列區段列出複製活動支援的所有來源與接收。
 
 ## <a name="copyactivity"></a>複製活動
-複製活動採用輸入資料集 (**來源**) 並將每個活動組態的資料複製到輸出資料集 (**接收**)。資料複製是根據活動上指定的排程以批次方式完成。
-
-> [AZURE.NOTE]若要了解一般在高層級定義活動的方法，例如各種 JSON 區段和所有活動都可用的屬性，請參閱[了解管線和活動](data-factory-create-pipelines.md)一文。
+複製活動會採用一個輸入資料集 (**來源**) 和一個輸出資料集 (**接收**)。資料複製是根據活動上指定的排程以批次方式完成。若要了解一般在高層級定義活動的方法 (例如，各種 JSON 區段和所有活動都可使用的屬性)，請參閱[了解管線和活動](data-factory-create-pipelines.md)一文。
 
 複製活動提供下列功能：
 
 ### <a name="global"></a>全域可用的資料移動
-即使 Azure Data Factory 本身只能在美國西部地區使用，但是資料移動服務支援的複製活動可供下列區域和地理位置全域使用。全域可用性的拓撲可確保有效資料移動，避免大部分情況下的跨區域躍點。
-
-
-如果您要從雲端來源複製到雲端目的地 (例如：Azure Blob -> SQL Azure)，資料移動服務會挑選最接近接收位置的部署來傳輸。在將資料從內部部署資料來源複製到雲端或相反的情況下 (例如：內部部署 SQL Server -> Azure Blob)，資料移動實際上是由資料管理閘道器進行，資料移動服務則未參與。
+即使 Azure Data Factory 本身只能在美國西部和北歐地區使用，但是資料移動服務支援的複製活動可供下列區域和地理位置全域使用。全域可用性的拓撲可確保有效資料移動，避免大部分情況下的跨區域躍點。
 
 | 區域 | [地理位置] |
 | ------ | --------- | 
@@ -70,9 +85,12 @@
 | 東南亞 | APAC |
 | 日本東部 | APAC |
 
+請注意：
 
+- 如果您將資料從**內部部署資料來源**複製到**雲端**或相反的情況 (例如：內部部署 SQL Server -> Azure Blob)，資料移動實際上是由**資料管理閘道**在您的內部部署環境中進行，資料移動服務則未參與。
+- 如果您要從**雲端來源**複製到**雲端目的地** (例如：Azure Blob -> Azure SQL)，**資料移動服務**就會挑選**同一個地理位置中最接近接收位置**的部署來傳輸。例如，如果您要從東南亞複製到日本西部，就可以使用日本東部的資料移動服務部署來執行複製活動。當來源和目的地位於同一個地理位置，且該地理位置 (例如，目前是澳大利亞) 中沒有可用的資料移動服務時，複製活動將會失敗，而不會透過替代的地理位置。附註：資料移動服務也會延伸到澳大利亞。 
 
-### <a name="moveonpremtocloud"></a>安全地在內部部署位置和雲端之間移動資料
+### <a name="moveonpremtocloud"></a>安全地在內部部署位置與雲端之間移動資料
 現代資料整合的挑戰之一是順暢地在內部部署和雲端之間來回移動資料。資料管理閘道器是您可以安裝內部部署以啟用混合式資料管線的代理程式。
 
 資料閘道器提供下列功能：
@@ -81,11 +99,12 @@
 2.	在相同資料處理站內建立內部部署資料存放區和雲端資料存放區的模型及移動資料。
 3.	具有用於監視和管理的單一窗格，可利用資料處理站雲端為基礎的儀表板看見閘道器的狀態。
 
+您應該將資料來源視為內部部署資料來源 (亦即在防火牆後面)，即使您使用 **ExpressRoute** 和**使用閘道**來建立服務與資料來源之間的連接也一樣。
 
 如需詳細資料，請參閱[在內部部署和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)。
 
 ### 可靠且符合成本效益的資料移動
-複製活動設計為以可靠的方式移動大量資料，可跨各種資料來源抵抗暫時性錯誤。資料可以符合成本效益的方式利用此選項複製，以透過線路啟用壓縮。
+複製活動是設計來利用可靠的方式移動大量資料，可跨各種資料來源抵抗暫時性錯誤。資料可以符合成本效益的方式利用此選項複製，以透過線路啟用壓縮。
 
 ### 跨不同類型系統的類型轉換
 不同的資料存放區有不同的原生類型系統。複製活動會利用下列 2 個步驟的方法執行自動類型轉換，從來源類型到接收類型：
@@ -93,14 +112,14 @@
 1. 從原生來源類型轉換成 .NET 類型
 2. 從 .NET 類型轉換成原生接收類型
 
-您可以在各自的資料存放區連接器文章中的資料存放區找到指定原生類型系統到 .NET 的對應。您可以在建立資料表時使用這些對應來判斷適當的類型，就會在複製活動期間執行正確的轉換。
+您可以在各自的資料存放區連接器文章中的資料存放區找到指定原生類型系統到 .NET 的對應。您可以在建立資料表時使用這些對應來判斷適當的類型，如此就能在複製活動期間執行正確的轉換。
 
 ### 使用不同的檔案格式。
-複製活動支援多種檔案格式，包括二進位、文字及 Avro 格式以用於檔案式存放區。您可以使用複製活動，從某種格式轉換為另一種。範例：文字 (CSV) 轉 Avro。
+複製活動支援各種不同的檔案格式，包括二進位、文字及 Avro 格式，以用於檔案式存放區。您可以使用複製活動，將資料從某種格式轉換為另一種。範例：文字 (CSV) 轉 Avro。如果是非結構化的資料，您可以省略 [資料集](data-factory-create-datasets.md) JSON 定義中的 **Structure** 屬性。
 
 ### 複製活動屬性
-名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。另一方面，活動的 **typeProperties** 區段中可用的屬性會隨著每項活動類型而有所不同。
+名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。另一方面，活動的 **typeProperties** 區段中可用的屬性會隨著每個活動類型而有所不同。
 
-以複製活動而言，**typeProperties** 區段會根據來源和接收等類型而有所不同。以上所列的每個資料存放區特定頁面都會記錄這些資料存放區類型專屬的屬性。
+以複製活動而言，**typeProperties** 區段會根據來源和接收的類型而有所不同。以上所列的每個資料存放區特定頁面都會記錄這些資料存放區類型專屬的屬性。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

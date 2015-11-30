@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="11/18/2015" 
 	ms.author="anhoh"/>
 
-# 如何在 Azure Preview 入口網站中管理 DocumentDB 帳戶
+# 如何管理 DocumentDB 帳戶
 
 了解如何使用金鑰、一致性設定，並了解如何在 Azure Preview 入口網站中刪除帳戶。
 
@@ -30,9 +30,9 @@
 
 ### 在 Azure Preview 入口網站中檢視並複製存取金鑰
 
-1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。 
+1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。 
 
-2.      在 [摘要] 透鏡中按一下 [金鑰]。
+2.      在 [摘要] 透鏡中按一下 [金鑰]。
 
 3.      在 [金鑰] 刀鋒視窗中，按一下要複製之金鑰旁的 [複製] 按鈕。
 
@@ -71,27 +71,27 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 - **最終**一致性可保證讀取作業一律讀取寫入內容的有效子集，且最終會趨於一致。
 
-*請注意，預設是使用工作階段層級一致性佈建 DocumentDB 帳戶。如需 DocumentDB 一致性設定的其他資訊，請參閱[一致性層級](http://go.microsoft.com/fwlink/p/?LinkId=402365)一節。*
+*請注意，預設是使用工作階段層級一致性佈建 DocumentDB 帳戶。如需有關 DocumentDB 一致性設定的其他資訊，請參閱 [一致性層級](http://go.microsoft.com/fwlink/p/?LinkId=402365)一節。*
 
 ### 指定 DocumentDB 帳戶的預設一致性
 
-1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。 
+1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取您的 DocumentDB 帳戶。 
 
-2.      在 [組態] 透鏡中，按一下 [預設一致性]。
+2.      在 [**組態**] 透鏡中，按一下 [**預設一致性**]。
 
-3.      在 [預設一致性] 刀鋒視窗中，選取 DocumentDB 帳戶的預設一致性層級。
+3.      在 [**預設一致性**] 刀鋒視窗中，選取 DocumentDB 帳戶的預設一致性層級。
 
 ![預設一致性工作階段](./media/documentdb-manage-account/image005.png)
 
 ![預設一致性界限](./media/documentdb-manage-account/image006.png)
 
-4.      按一下 [儲存]。
+4.      按一下 [儲存]。
 
 5.      透過 Azure Preview 入口網站通知中樞可監視作業的進度。
 
 *請注意，整個 DocumentDB 帳戶的預設一致性設定變更可能需要幾分鐘的時間才會生效。*
 
-## <a id="delete"></a> 如何：在 Azure Preview 入口網站中刪除 DocumentDB 帳戶
+## <a id="delete"></a> 如何在 Azure Preview 入口網站中刪除 DocumentDB 帳戶
 若要移除 Azure Preview 入口網站中不再使用的 DocumentDB 帳戶，請使用 [DocumentDB 帳戶] 刀鋒視窗的 [刪除] 命令。
 
 ![如何在 Azure Preview 入口網站中刪除 DocumentDB 帳戶](./media/documentdb-manage-account/image009.png)
@@ -113,4 +113,4 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
  
  
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

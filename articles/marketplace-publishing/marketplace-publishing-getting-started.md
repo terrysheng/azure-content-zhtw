@@ -1,5 +1,5 @@
 <properties
-   pageTitle="概述如何建立及部署供應項目至 Marketplace | Microsoft Azure"
+   pageTitle="概述如何建立及部署優惠至 Marketplace | Microsoft Azure"
    description="了解在 Azure Marketplace 中成為核准的 Microsoft 賣方，以及建立及部署虛擬機器映像、範本、資料服務或開發人員服務所需的步驟"
    services="marketplace-publishing"
    documentationCenter=""
@@ -19,18 +19,18 @@
 # 如何將供應項目發佈至 Microsoft Azure Marketplace
 本文旨在幫助賣方建立和部署解決方案 (例如單一虛擬機器映像、解決方案範本、開發人員服務或資料服務) 到 Azure Marketplace，供其他 Azure 客戶和合作夥伴購買及利用。
 
-首先，您需要以發行者的身分，定義您的公司提供的解決方案類型。Azure Marketplace 支援多種不同類型的解決方案，您必須為每個解決方案進行略為不同的工作，才能成功發佈到 Marketplace。
+首先，您需要以發行者的身分，定義您的公司提供的解決方案類型。Azure Marketplace 支援多種解決方案，您必須為每個解決方案進行略為不同的工作，才能成功發佈到 Marketplace。
 
-**解決方案類型：**
+解決方案類型：
 
-- 資料服務
+- 虛擬機器映像
 - 開發人員服務
-- 虛擬機器
+- 資料服務
 - 解決方案範本
 
-不同類型的解決方案之間有一些相同的步驟。這裡提供簡短的概觀，讓您了解每種類型的解決方案必須完成哪些步驟。
+不同類型的解決方案之間有一些相同的步驟。本文提供簡短的概觀，讓您了解每種類型的解決方案必須完成哪些步驟。
 
-**開始在 Azure Marketplace 上進行任何工作之前，必須取得預先核准。不適用於資料服務發行者。**
+> [AZURE.NOTE]開始在 Azure Marketplace 上進行任何工作之前，必須取得預先核准。這不適用於資料服務發佈者。
 
 ||虛擬機器映像 |開發人員服務 | 資料服務 | 解決方案範本 |
 |---|---|---|---|---|
@@ -44,7 +44,7 @@
 | **步驟 4。將您的供應項目部署至 Marketplace** | [將您的供應項目部署至 Marketplace][link-pushprod] | [將您的供應項目部署至 Marketplace][link-pushprod] | [將您的供應項目部署至 Marketplace][link-pushprod] | [將您的供應項目部署至 Marketplace][link-pushprod] |
 
 ## 支援
-- [以發行者身分取得支援][suppt-general]
+- [以發佈者身分取得支援][suppt-general]
 - [了解賣方 Insights 報告][suppt-rpt-insights]
 - [了解付款報告][suppt-rpt-payouts]
 - [疑難排解 Marketplace 中常見的發佈問題][suppt-common]
@@ -75,4 +75,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

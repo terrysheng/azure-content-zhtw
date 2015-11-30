@@ -21,7 +21,7 @@
 
 連續匯出會以 JSON 格式將遙測資料移入 Azure 儲存體。我們將使用 Azure 串流分析來剖析 JSON 物件，並在資料庫資料表中建立資料列。
 
-(一般來說，「連續匯出」是對應用程式傳送至 Application Insights 的遙測資料自行進行分析的方式。您可以調整這個程式碼範例，以使用匯出的遙測資料執行其他作業，例如彙總資料，以及將資料發佈至 PowerBI 視覺效果套件)。
+(一般來說，「連續匯出」是對應用程式傳送至 Application Insights 的遙測資料自行進行分析的方式。您可以調整這個程式碼範例，以使用匯出的遙測資料執行其他作業，例如彙總資料)。
 
 我們先假設您已經有想要監視的應用程式。
 
@@ -300,6 +300,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 ## 相關文章
 
 * [使用背景工作角色匯出至 SQL](app-insights-code-sample-export-telemetry-sql-database.md)
+* [使用串流分析匯出至 PowerBI](app-insights-export-power-bi.md)
 * [屬性類型和值的詳細資料模型參考。](app-insights-export-data-model.md)
 * [Application Insights 中的連續匯出](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -314,4 +315,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

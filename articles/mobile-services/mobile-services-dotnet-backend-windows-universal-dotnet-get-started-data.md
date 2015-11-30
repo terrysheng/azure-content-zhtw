@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # 將行動服務新增至現有的應用程式
@@ -67,7 +67,7 @@
 
 ##更新應用程式以使用行動服務
 
-在本節中，您將會更新通用 Windows 應用程式，以使用行動服務作為應用程式的後端服務。您只需要變更 [GetStartedWithData.Shared] 專案資料夾的 MainPage.xaml.cs 專案檔案。
+在本節中，您將會更新通用 Windows 應用程式，以使用行動服務作為應用程式的後端服務。您只需要變更 [GetStartedWithData.Shared] 專案資料夾的 MainPage.cs 專案檔案。
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
@@ -121,4 +121,4 @@
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

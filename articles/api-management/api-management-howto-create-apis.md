@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立 API
@@ -55,7 +55,7 @@ API 是在發行者入口網站中建立和設定。若要存取發行者入口�
 
 ![API settings][api-management-api-settings]
 
-若要針對實作 API 的 Web 服務設定 [**Proxy 驗證**]，請選取 [**安全性**] 索引標籤。[**使用認證**] 下拉式清單可用來設定 [**基本驗證**] 或 [**相互憑證**] 驗證。若要使用基本驗證，只需要輸入所需的認證。如需使用相互憑證驗證的詳細資訊，請參閱[如何在 Azure API 管理中使用相互憑證驗證來保護後端服務][]。
+若要針對實作 API 的 Web 服務設定 [**閘道驗證**]，請選取 [**安全性**] 索引標籤。[**使用認證**] 下拉式清單可用來設定 [**基本驗證**] 或 [**相互憑證**] 驗證。若要使用基本驗證，只需要輸入所需的認證。如需使用相互憑證驗證的詳細資訊，請參閱[如何在 Azure API 管理中使用相互憑證驗證來保護後端服務][]。
 
 [**安全性**] 索引標籤也可用來使用 OAuth 2.0 設定 [**使用者授權**]。如需詳細資訊，請參閱[如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶][]。
 
@@ -97,4 +97,4 @@ API 是在發行者入口網站中建立和設定。若要存取發行者入口�
 [如何在 Azure API 管理中使用相互憑證驗證來保護後端服務]: api-management-howto-mutual-certificates.md
 [如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶]: api-management-howto-oauth2.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

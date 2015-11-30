@@ -38,7 +38,7 @@
 
 將各種語言和架構的現有 Web 資產應用在 App Service Web 應用程式。
 
-您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 App Service Web 應用程式上執行。您可以使用熟悉的 [FTP] 工具或原始檔控制管理系統，將它們移至 Web Apps。Web Apps 支援從 [Visual Studio]、[Visual Studio Online] 以及 [Git] - 本機、GitHub、BitBucket、DropBox、Mercurial 等受歡迎的原始檔控制選項直接發行。
+您現有的 Web 資產 (無論是 .NET、PHP、Java、Node.js 或 Python) 都可以在 App Service Web 應用程式上執行。您可以使用熟悉的 [FTP] 工具或原始檔控制管理系統，將它們移至 Web Apps。Web Apps 支援從 [Visual Studio]、[Visual Studio Team Services] 以及 [Git] - 本機、GitHub、BitBucket、DropBox、Mercurial 等受歡迎的原始檔控制選項直接發佈。
 
 ## 保護您的資產
 
@@ -92,7 +92,7 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [HTTPS]: web-sites-configure-ssl-certificate.md
@@ -124,4 +124,4 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

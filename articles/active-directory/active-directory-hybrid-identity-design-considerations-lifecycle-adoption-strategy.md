@@ -67,7 +67,7 @@ Azure AD 中的群組型授權管理可讓系統管理員將使用者指派到�
 Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用程式提供單一登入和增強的應用程式存取安全性。如需 Azure Active Directory 應用程式資源庫中支援的 SaaS 應用程式的詳細清單，請參閱「Azure Active Directory 同盟相容性清單：使用協力廠商身分識別提供者實作單一登入」
 
 ## 定義同步處理管理
-將內部部署目錄與 Azure AD 整合可提供通用身分識別以存取雲端和內部部署資源，進而讓您的使用者更具生產力。透過此整合，使用者和組織可以享受到下列好處：
+將內部部署目錄與 Azure AD 整合可提供通用身分識別供存取雲端和內部部署資源，進而讓您的使用者更具生產力。透過此整合，使用者和組織可以享受到下列好處：
 
 - 組織可以運用 Windows Server Active Directory，然後連線到 Azure Active Directory，提供跨內部部署或雲端架構服務的通用混合式身分識別給使用者。 
 - 系統管理員可以根據應用程式資源、裝置和使用者身分識別、網路位置及多因素驗證，提供條件式存取。
@@ -91,6 +91,6 @@ Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用�
 
 
 ## 另請參閱
-[設計考量概觀](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

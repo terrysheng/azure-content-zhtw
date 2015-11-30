@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 
@@ -129,4 +129,4 @@
 5. 按一下 [是] 確認刪除。
 6. 應用程式密碼刪除之後，就可以按一下 [關閉]。![關閉](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,26 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # 設定 ASP.NET 的 Application Insights
 
-*Application Insights 目前僅供預覽。*
-
-<a name="selector1"></a>
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) 監視您的即時應用程式，協助您[偵測並診斷效能問題和例外狀況][detect]，同時[探索應用程式的使用情況][knowUsers]。其藉由將 SDK 安裝在應用程式中發揮作用。SDK 會將應用程式的遙測傳送至 Application Insights 服務，您可以在 Application Insights 中分析和視覺化應用程式的行為。
-
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-在 Visual Studio 中，將 SDK 加入應用程式，即可取得伺服器要求、 回應時間和失敗次數的圖表。
+Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網站，您可以在此登入並查看應用程式效能和使用量的圖表。
 
 ![範例效能監視圖表](./media/app-insights-asp-net/10-perf.png)
 
-您也可以使用 API 來監視使用量的詳細資料。
+您也可以調查特殊要求、例外狀況和記錄事件，並將其相互關聯。您可以使用 API 新增遙測以詳細監視效能和使用量。
 
 #### 開始之前
 
@@ -174,4 +168,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

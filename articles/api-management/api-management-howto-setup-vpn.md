@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="11/16/2015"
 	ms.author="antonba"/>
 
 # 如何在 Azure API 管理中設定 VPN 連線
 
-API 管理的 VPN 支援可讓您將 API 管理 Proxy 連接到 Azure 虛擬網路。這可讓 API 服務客戶安全地連線到其內部部署或公用網際網路無法存取的後端 Web 服務。
+API 管理的 VPN 支援可讓您將 API 管理閘道連接到 Azure 虛擬網路。這可讓 API 服務客戶安全地連線到其內部部署或公用網際網路無法存取的後端 Web 服務。
 
 ## <a name="enable-vpn"> </a>啟用 VPN 連線
 
@@ -36,9 +36,9 @@ API 管理的 VPN 支援可讓您將 API 管理 Proxy 連接到 Azure 虛擬網�
 
 ![選取 VPN][api-management-setup-vpn-select]
 
-按一下畫面底部的 [**儲存**]。更新時，您將無法透過 Azure 管理入口網站對 API 管理服務執行其他作業。服務 Proxy 將保持可用，而執行時期呼叫應該不會受到影響。
+按一下畫面底部的 [**儲存**]。更新時，您將無法透過 Azure 管理入口網站對 API 管理服務執行其他作業。服務閘道將保持可用，而執行時期呼叫應該不會受到影響。
 
-請注意，Proxy 的 VIP 位址將在每次啟用或停用 VPN 時變更。
+請注意，閘道的 VIP 位址將在每次啟用或停用 VPN 時變更。
 
 ## <a name="connect-vpn"> </a>連接至 VPN 的 Web 服務
 
@@ -67,4 +67,4 @@ API 管理的 VPN 支援可讓您將 API 管理 Proxy 連接到 Azure 虛擬網�
 [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

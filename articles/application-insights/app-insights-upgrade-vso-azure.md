@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從 Application Insights 的舊 Visual Studio Online 版本升級" 
+	pageTitle="從 Application Insights 的舊 Visual Studio Team Services 版本升級" 
 	description="升級現有專案"
 	services="application-insights" 
     documentationCenter=""
@@ -15,9 +15,9 @@
 	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
-# 從 Application Insights 的舊 Visual Studio Online 版本升級
+# 從 Application Insights 的舊 Visual Studio Team Services 版本升級
 
-本文件僅適用仍在使用屬於 Visual Studio Online 一部分的舊版 Application Insights 專案的您。該版本將自然進入關閉階段，而我們鼓勵您升級為新版本，它屬於 Microsoft Azure 內的服務。
+本文件僅適用仍在使用屬於 Visual Studio Team Services 一部分的舊版 Application Insights 專案的您。該版本將自然進入關閉階段，而我們鼓勵您升級為新版本，它屬於 Microsoft Azure 內的服務。
 
 ## 我擁有的是什麼版本？
 
@@ -73,4 +73,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

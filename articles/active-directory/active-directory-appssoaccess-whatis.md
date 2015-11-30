@@ -122,7 +122,7 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 如果 Azure AD 應用程式庫中找不到您的應用程式，您可以選擇：
 
-*	**新增您正在使用但未列出的應用程式** - 使用 Azure 管理入口網站內應用程式資源庫中的自訂類別目錄，連線您的組織正在使用但未列出的應用程式。您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。如需詳細資訊，請參閱[加入自己的應用程式](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)一文。
+*	**新增您正在使用但未列出的應用程式** - 使用 Azure 管理入口網站內應用程式資源庫中的自訂類別目錄，連線您的組織正在使用但未列出的應用程式。您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。如需詳細資訊，請參閱[加入自己的應用程式](active-directory-saas-custom-apps.md)一文。
 
 
 *	**新增您正在開發的專屬應用程式** - 如果您自己開發了應用程式，請依照 Azure AD 開發人員文件中的指導方針來實作同盟單一登入或使用 Azure AD 圖形 API 的佈建。如需詳細資訊，請參閱這些資源：
@@ -220,4 +220,4 @@ Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

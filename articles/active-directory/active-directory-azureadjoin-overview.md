@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -30,7 +31,7 @@ Azure AD Join 的目標對象是雲端優先/僅限雲端的企業 (通常是不
 
 ## 為什麼企業應該採用 Azure AD Join 
 
- * **如果您的企業主要是在雲端**：如果您已經或即將移至可減少內部部署電腦設備擺設區域且想要在雲端進行更多操作的模型，則 Azure AD Join 對您有助益。或許您已經手動或透過同步處理內部部署 AD 的方式來建立 Azure AD 帳戶。無論如何，您在 Azure AD 中已有一個帳戶且可用來登入 Windows 10。您的使用者可以透過 OOBE 程序或設定經驗，將他們的電腦加入 Azure AD。您的使用者現在可以在瀏覽器或 Office 應用程式中，享有其雲端資源 (例如 Office 365) 的 SSO 存取權。 
+* **如果您的企業主要是在雲端**：如果您已經或即將移至可減少內部部署電腦設備擺設區域且想要在雲端進行更多操作的模型，則 Azure AD Join 對您有助益。或許您已經手動或透過同步處理內部部署 AD 的方式來建立 Azure AD 帳戶。無論如何，您在 Azure AD 中已有一個帳戶且可用來登入 Windows 10。您的使用者可以透過 OOBE 程序或設定經驗，將他們的電腦加入 Azure AD。您的使用者現在可以在瀏覽器或 Office 應用程式中，享有其雲端資源 (例如 Office 365) 的 SSO 存取權。 
 * **教育機構**：我們聽到的其中一個成功案例是教育機構有兩種使用者類型：教職員和學生。教職成員會被視為組織中較長期的成員，因此需要為他們建立內部部署帳戶。但學生是組織中期限較短的成員，因而可在 Azure AD 中進行管理，如此一來，就能將目錄範圍推送至雲端，而不是內部部署。這些學生現在可以使用其 Azure AD 帳戶登入 Windows，並在 Office 應用程式中取得 Office 365 資源的存取權。 
 * **零售業**：客戶告知的另一個領域是他們的設計讓您能夠更容易管理季節性工作者。再次提醒，您可以將較長期的全職員工建立為內部部署帳戶，而他們通常會使用已加入網域的電腦。但季節性工作者是組織中期限較短的成員，因而需要在可更輕易四處移動使用者授權的地方加以管理。在具有 Office 365 授權的雲端中建立這些使用者，讓這些使用者能夠因為使用 Azure AD 帳戶登入 Windows 和 Office 應用程式而獲益，同時在他們離開公司之後對於他們的授權保有更多機動性。 
 * **其他企業**：除了這些特定案例之外，您可能會發現即使您在內部部署 AD 目錄中維護使用者，仍然能讓使用者在使用 Azure AD Join 時因為簡化的加入經驗、Azure AD 中的裝置管理、自動執行 MDM 註冊，以及單一登入 Azure AD 與內部部署資源而獲益。  
@@ -67,8 +68,12 @@ Azure AD Join 的目標對象是雲端優先/僅限雲端的企業 (通常是不
 | 從桌面到工作 App/網站/資源的 SSO，在使用 Azure AD 進行驗證的內部部署和 cloudApps 中 | 在企業目錄中自動登錄 (Azure AD) 以及在 MDM 中自動註冊。(Azure AD Premium 功能) | 使用此工作帳戶跨 App 提供 SSO 且登入網站/資源 |
 | 使用者可以新增其個人 MSA 來存取個人的圖片/檔案，而不會影響到企業資料 (漫遊設定會持續使用工作帳戶來運作)。MSA 帳戶會啟用 SSO，且不再啟用裝置漫遊設定。 | Winlogon 上的自助式密碼重設 (SSPR，能夠重設忘記的密碼) (您需要 AzureAD Premium 才能執行此動作) | 為企業提供市集前端/區段的存取權，讓使用者可以在其個人裝置上取得並使用 LoB App。 | |
 
-## 後續步驟
-* [了解適用於 Azure AD Join 的使用案例和部署考量](active-directory-azureadjoin-deployment-aadjoindirect.md)
+## 其他資訊
+* [適合企業使用的 Windows 10：使用裝置工作的方式](active-directory-azureadjoin-windows10-devices-overview.md)
+* [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
+* [透過 Microsoft Passport 不需要密碼就能驗證身分識別](active-directory-azureadjoin-passport.md)
+* [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

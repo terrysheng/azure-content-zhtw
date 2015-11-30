@@ -41,7 +41,7 @@
 現在您已對公司的商務需求有所了解，您必須評估內部部署身分識別基礎結構。在定義將目前的身分識別解決方案整合到雲端身分識別管理系統的技術需求時，這項評估是很重要的。請確實回答下列問題：
 
 - 您的公司在內部部署中使用何種驗證和授權解決方案？ 
-- 您的公司目前有任何內部部署同步處理解決方案嗎？
+- 您的公司目前有任何內部部署同步處理服務嗎？
 - 您的貴公司是否使用任何協力廠商身分識別提供者 (IdP)？
 
 您也需要知道公司可能有的雲端服務。執行評估以了解您的環境中目前與 SaaS、IaaS 或 PaaS 模型的整合，是非常重要的。在此評估期間請確實回答下列問題：- 您的公司是否整合了任何雲端服務提供者？- 如果是，正在使用哪些服務？- 此整合目前是在生產環境中，還是處於試驗階段？
@@ -53,7 +53,7 @@
 接下來，您必須評估身分識別整合需求。要定義使用者執行驗證的方式、組織存在於雲端中的型態、組織提供授權的方式以及將會有何種使用者經驗的技術需求，這項評估是很重要的。請確實回答下列問題：
 
 - 您的組織是否會使用同盟和 (或) 標準驗證？
-- 同盟是必要條件嗎？ (原因如下：)
+- 同盟是必要條件嗎？ 原因如下：
  - Kerberos 型 SSO
  - 您的公司有使用 SAML 或類似同盟功能的內部部署應用程式 (內建或協力廠商)。
  - 透過智慧卡的 MFA。RSA SecurID 等等。
@@ -83,17 +83,17 @@
 ## 評估使用者需求
 您也必須評估使用者需求。要定義在使用者轉換至雲端時予以登入並提供協助所需的步驟，這項評估是很重要的。請確實回答下列問題：
 
-- 使用者會存取內部部署應用程式嗎？
+- 使用者會存取應用程式內部部署嗎？
 - 使用者會存取雲端中的應用程式嗎？
 - 使用者通常會以何種方式登入其內部部署環境？
 - 使用者將如何登入雲端？
 
->[附註] 請確定會記下每個答案，並了解答案背後的原理。[判斷事件因應需求](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)將說明可用的選項，以及每個選項的優缺點。回答這些問題之後，您就能選取最適合業務需求的選項。
+>[附註] 請確定會記下每個答案，並了解答案背後的原理。[判斷事件回應需求](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)將說明可用的選項，以及每個選項的優缺點。回答這些問題之後，您就能選取最適合業務需求的選項。
 
 ## 後續步驟
 [判斷目錄同步處理需求](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## 另請參閱
-[設計考量概觀](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[設計考量概觀]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

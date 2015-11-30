@@ -14,26 +14,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="09/01/2015"
+	ms.date="11/12/2015"
 	ms.author="jroth"/>
 
 # Azure 虛擬機器上的 SQL Server 概觀
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
-
 
 ## 開始使用
 您可以利用各種設定來架設 [Azure 虛擬機器上的 SQL Server](http://azure.microsoft.com/services/virtual-machines/sql-server/)，範圍包括單一資料庫伺服器到使用 AlwaysOn 可用性群組和 Azure 虛擬網路的多電腦設定。
 
 >[AZURE.NOTE]在 Azure VM 上執行 SQL Server，是用來將關聯式資料儲存到 Azure 的選項之一。您也可以使用 Azure SQL Database 服務。如需詳細資訊，請參閱[了解 Azure SQL Database 和 Azure VM 中的 SQL Server](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)。
 
-若要在 Azure 中建立 SQL Server 虛擬機器，必須先取得 Azure 平台訂用帳戶。您可以在[購買選項](http://azure.microsoft.com/pricing/purchase-options/)購買 Azure 訂用帳戶。若要免費試用，請造訪 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+若要在 Azure 中建立 SQL Server 虛擬機器，必須先取得 Azure 平台訂用帳戶。您可以在 [[購買選項](http://azure.microsoft.com/pricing/purchase-options/)] 中購買 Azure 訂用帳戶。若要免費試用，請造訪 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ### 在單一 VM 上部署 SQL Server 執行個體
 
 在註冊訂用帳戶之後，若要在 Azure 中部署 SQL Server 虛擬機器，最簡單的方式就是[在 Azure 管理入口網站中佈建 SQL Server 機器資源庫映像](virtual-machines-provision-sql-server.md)。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。
 
->[AZURE.NOTE]使用[新的入口網站](https://manage.windowsazure.com)來佈建及管理 SQL Server 虛擬機器。預設使用進階儲存體，並提供自動化修補、自動化備份及 AlwaysOn 組態。
+>[AZURE.NOTE]使用[新的入口網站](https://manage.windowsazure.com)佈建及管理 SQL Server 虛擬機器。預設使用進階儲存體，並提供自動化修補、自動化備份及 AlwaysOn 組態。
 
 下表提供虛擬機器資源庫中的可用 SQL Server 映像比較。
 
@@ -49,9 +46,9 @@
 
 >[AZURE.NOTE]用於資料倉儲和交易式工作負載的虛擬機器資源庫映像 (非上方所示)，已被取代且即將從資源庫移除。請使用上表中的標準映像並最佳化特定工作負載的效能。
 
-除了這些預先設定的映像之外，您也可以[建立 Azure 虛擬機器](virtual-machines-windows-tutorial.md)，不必預先安裝 SQL Server。您可以安裝任何您擁有授權的 SQL Server 執行個體。將您的授權移轉至 Azure，以使用 [Azure 上透過軟體保證的授權流動性](http://azure.microsoft.com/pricing/license-mobility/)，在 Azure 虛擬機器中執行 SQL Server。在此案例中，您只需支付與虛擬機器相關聯的 Azure 運算和儲存體[成本](http://azure.microsoft.com/pricing/details/virtual-machines)。
+除了這些預先設定的映像之外，您也可以在不預先安裝 SQL Server 的狀況下，[建立 Azure 虛擬機器](virtual-machines-windows-tutorial.md)。您可以安裝任何您擁有授權的 SQL Server 執行個體。將您的授權移轉至 Azure，以使用 [Azure 上透過軟體保證的授權流動性](http://azure.microsoft.com/pricing/license-mobility/)，在 Azure 虛擬機器中執行 SQL Server。在此案例中，您只需支付與虛擬機器相關聯的 Azure 計算和儲存體[成本](http://azure.microsoft.com/pricing/details/virtual-machines)。
 
-為判斷 SQL Server 映像的最佳虛擬機器組態設定，請檢閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)。針對生產環境的工作負載建議，SQL Server Enterprise Edition 的虛擬機器大小至少為 **DS3**，Standard Edition 的虛擬機器大小至少為 **DS2**。
+為判斷 SQL Server 映像的最佳虛擬機器組態設定，請檢閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)。針對生產環境的工作負載，建議的 SQL Server Enterprise Edition 的虛擬機器大小至少為 **DS3**，Standard Edition 的虛擬機器大小至少為 **DS2**。
 
 除了檢閱效能最佳作法、 其他初始工作還包括：
 
@@ -151,4 +148,4 @@
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure 虛擬機器](virtual-machines-about.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

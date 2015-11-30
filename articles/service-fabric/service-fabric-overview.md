@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Service Fabric 概觀 | Microsoft Azure" 
-   description="組成微服務的 Service Fabric 概觀。Service Fabric 是分散式系統平台，用於建置可擴充、可靠且可輕鬆管理的雲端應用程式。" 
+   description="組成多個微服務以提供調整和恢復功能的 Service Fabric 概觀。Service Fabric 是分散式系統平台，用於建置可擴充、可靠且可輕鬆管理的雲端應用程式。" 
    services="service-fabric" 
    documentationCenter=".net" 
    authors="msfussell" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/25/2015"
+   ms.date="11/18/2015"
    ms.author="mfussell"/>
 
 # Service Fabric 概觀
@@ -89,13 +89,15 @@ Service Fabric ALM 功能讓應用程式管理員/IT 操作員能夠使用簡單
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 
-* 如需詳細資訊：請參閱＜[技術概觀](service-fabric-technical-overview.md)＞。
-* 設定 Service Fabric [開發環境](service-fabric-get-started.md)。  
-* 選擇您服務的[架構](service-fabric-choose-framework.md)。
+* 其他資訊： 
+	* [為何要用微服務方式建置應用程式？](service-fabric-overview-microservices.md)
+	* [技術概觀](service-fabric-technical-overview.md)。
+* 設定您的 Service Fabric [開發環境](service-fabric-get-started.md)。  
+* 為您的服務選擇[程式設計模型架構](service-fabric-choose-framework.md)。
 
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

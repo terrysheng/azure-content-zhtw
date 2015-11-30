@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="在 Power BI 中查看 Application Insights 資料" 
-	description="使用 Power BI 監視您應用程式的效能與使用量。" 
+	pageTitle="從 Application Insights 使用串流分析匯出至 Power BI" 
+	description="示範如何使用串流分析處理匯出的資料。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,16 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
-# Application Insights 資料的 Power BI 檢視
+# 從 Application Insights 使用串流分析將資料傳送至 Power BI
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，以及將多個來源的資訊整合的能力。您可以將有關您 Web 或裝置應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
 
+> [AZURE.NOTE]從 Application Insights 將資料送入 Power BI 最簡單的方式是[使用配接器](https://powerbi.microsoft.com/zh-TW/documentation/powerbi-content-pack-application-insights/) (可在 [服務] 下的 Power BI 資源庫中找到)。本文中所描述的內容目前較多樣化，但也可示範如何利用 Application Insights 進行串流分析。
+
 ![Application Insights 使用量資料的 Power BI 檢視範例](./media/app-insights-export-power-bi/010.png)
 
-在本文中，我們將示範如何從 Application Insights 匯出資料，並使用「串流分析」將資料移入 Power BI。[串流分析](http://azure.microsoft.com/services/stream-analytics/)是我們做為配接器使用的 Azure 服務。
+在本文中，我們將示範如何從 Application Insights 匯出資料，並使用「串流分析」將資料移入 Power BI。[串流分析](http://azure.microsoft.com/services/stream-analytics/)是我們作為配接器使用的 Azure 服務。
 
 ![Application Insights 使用量資料的 Power BI 檢視範例](./media/app-insights-export-power-bi/020.png)
 
@@ -81,7 +83,7 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
     此外，資料會匯出至您的儲存體。
 
-4. 檢查匯出的資料。在 Visual Studio 中選擇 [檢視] / [Cloud Explorer]，然後開啟 [Azure] / [儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
+4. 檢查匯出的資料。在 Visual Studio 中，依序選擇** [檢視]、[雲端總管]**，然後依序開啟 [Azure]、[儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
 
     ![](./media/app-insights-export-power-bi/04-data.png)
 
@@ -118,7 +120,6 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 #### 設定路徑前置詞模式 
 
 ![](./media/app-insights-export-power-bi/140.png)
-
 
 請務必將 [日期格式] 設為 YYYY-MM-DD (含連接號)。
 
@@ -205,7 +206,28 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 * 此查詢會切入度量遙測，來取得事件時間和度量值。度量值位於陣列中，因此我們使用 OUTER APPLY GetElements 模式來擷取資料列。在此情況下，"myMetric" 是度量的名稱。 
 
+#### 包含維度屬性值的查詢
 
+```SQL
+
+    WITH flat AS (
+    SELECT
+      MySource.context.data.eventTime as eventTime,
+      InstanceId = MyDimension.ArrayValue.InstanceId.value,
+      BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
+    FROM MySource
+    OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
+    )
+    SELECT
+     eventTime,
+     InstanceId,
+     BusinessUnitId
+    INTO AIOutput
+    FROM flat
+
+```
+
+* 此查詢包括維度屬性值，而不需根據陣列索引中固定索引的特定維度。
 
 ## 執行工作
 
@@ -239,4 +261,4 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 * [Application Insights](app-insights-overview.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

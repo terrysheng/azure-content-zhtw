@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # 深入了解密碼管理
@@ -25,6 +25,7 @@
   - [密碼回寫的安全性模型](#password-writeback-security-model)
 * [**密碼重設入口網站的運作方式**](#how-does-the-password-reset-portal-work)
   - [密碼重設使用哪些資料？](#what-data-is-used-by-password-reset)
+  - [如何存取密碼為使用者重設資料](#how-to-access-password-reset-data-for-your-users)
 
 ## 密碼回寫概觀
 密碼回寫是一種可供目前的 Azure Active Directory Premium 訂閱者啟用及使用的 [Azure Active Directory Connect](active-directory-aadconnect) 元件。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
@@ -261,24 +262,121 @@
           </tr>
         </tbody></table>
 
-<br/> <br/> <br/>
+###如何存取密碼為使用者重設資料
+####可透過同步處理設定的資料
+下列欄位可以從内部部署同步處理：
 
-**其他資源**
+* 行動電話
+* 辦公室電話
 
+####可使用 Azure AD PowerShell 設定的資料
+下列欄位可使用 Azure AD PowerShell 和圖形 API 存取：
 
-* [密碼管理是什麼](active-directory-passwords.md)
-* [密碼管理如何運作](active-directory-passwords-how-it-works.md)
-* [開始使用密碼管理](active-directory-passwords-getting-started.md)
-* [自訂密碼管理](active-directory-passwords-customize.md)
-* [密碼管理最佳作法](active-directory-passwords-best-practices.md)
-* [如何使用密碼管理報告取得 Operational Insights](active-directory-passwords-get-insights.md)
-* [密碼管理常見問題集](active-directory-passwords-faq.md)
-* [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
-* [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* 替代電子郵件
+* 行動電話
+* 辦公室電話
+* 驗證電話
+* 驗證電子郵件
+
+####只能使用註冊 UI 設定的資料
+下列欄位只能透過 SSPR 註冊 UI 存取 (https://aka.ms/ssprsetup)：
+
+* 安全性問題和答案
+
+####當使用者註冊時會發生什麼事？
+當使用者註冊時，註冊頁面**一律**會設定下列欄位：
+
+* 驗證電話
+* 驗證電子郵件
+* 安全性問題和答案
+
+如已提供**行動電話**或**備用電子郵件**的值，使用者就可以立即使用這些資訊重設密碼，即使他們尚未註冊此服務。此外，使用者會在第一次註冊時看到這些值，並可隨意加以修改。不過，成功註冊之後，這些值就會分別保存在 [驗證電話] 和 [驗證電子郵件] 欄位中。
+
+這在解除封鎖大量使用者使其得以使用 SSPR，同時允許使用者在整個註冊程序中驗證這項資訊，是很有用的方式。
+
+####使用 PowerShell 設定密碼重設資料
+您可使用 Azure AD PowerShell 設定下列欄位的值。
+
+* 替代電子郵件
+* 行動電話
+* 辦公室電話
+
+若要開始，您必須先[下載並安裝 Azure AD PowerShell 模組](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule)。一旦安裝好，即可依照下列步驟設定每一個欄位。
+
+#####替代電子郵件
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
+```
+
+#####行動電話
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
+```
+
+#####辦公室電話
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+```
+
+####使用 PowerShell 讀取密碼重設資料
+您可以使用 Azure AD PowerShell 閱讀下列欄位的值。
+
+* 替代電子郵件
+* 行動電話
+* 辦公室電話
+* 驗證電話
+* 驗證電子郵件
+
+若要開始，您必須先[下載並安裝 Azure AD PowerShell 模組](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule)。一旦安裝好，即可依照下列步驟設定每一個欄位。
+
+#####替代電子郵件
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
+```
+
+#####行動電話
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
+```
+
+#####辦公室電話
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
+```
+
+#####驗證電話
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
+```
+
+#####驗證電子郵件
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
+```
+
+## 連結至密碼重設文件
+以下是所有 Azure AD 密碼重設文件頁面的連結：
+
+* [**重設自己的密碼**](active-directory-passwords-update-your-own-password) - 了解身為系統使用者如何重設或變更自己的密碼
+* [**運作方式**](active-directory-passwords-how-it-works.md) - 了解六個不同的服務元件及其功能
+* [**開始使用**](active-directory-passwords-getting-started.md) - 了解如何讓使用者重設及變更雲端或內部部署密碼
+* [**自訂**](active-directory-passwords-customize.md) - 了解如何依照組織的需求自訂外觀和服務行為
+* [**最佳作法**](active-directory-passwords-best-practices.md) - 了解如何快速部署且有效管理組織的密碼
+* [**深入探索**](active-directory-passwords-get-insights.md) - 了解整合式報告功能
+* [**常見問題集**](active-directory-passwords-faq.md) - 取得常見問題的解答
+* [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何快速移難排解服務的問題
 
 
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

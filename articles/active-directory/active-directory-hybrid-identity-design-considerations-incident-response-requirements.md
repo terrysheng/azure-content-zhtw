@@ -60,6 +60,6 @@
 [定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
 
 ## 另請參閱
-[設計考量概觀](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

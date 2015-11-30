@@ -755,7 +755,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 預存程序、觸發程序和 UDF 會隱含地預先編譯為位元組程式碼格式，以避免掉每次叫用指令碼時的編譯成本。這種作法可確保能夠快速叫用預存程序，且只需耗費少量資源。
 
 ## 用戶端 SDK 支援
-除了 [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) 用戶端之外，DocumentDB 還支援 [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx)、[Java](http://dl.windowsazure.com/documentdb/javadoc/)、[JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) 和 [Python SDK](http://dl.windowsazure.com/documentDB/pythondocs/)。使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。下列範例說明如何使用 .NET 用戶端建立和執行預存程序。請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
+除了 [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) 用戶端之外，DocumentDB 還支援 [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)、[Java](http://dl.windowsazure.com/documentdb/javadoc/)、[JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) 和 [Python SDK](http://dl.windowsazure.com/documentDB/pythondocs/)。使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。下列範例說明如何使用 .NET 用戶端建立和執行預存程序。請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -788,7 +788,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-此範例說明如何使用 [.NET SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx) 建立預先觸發程序以及建立已啟用觸發程序的文件。
+此範例說明如何使用 [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx) 建立預先觸發程序以及建立已啟用觸發程序的文件。
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -916,4 +916,4 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 -	[服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

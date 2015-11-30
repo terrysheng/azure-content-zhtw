@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/01/2015"
+	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
@@ -147,7 +147,6 @@
 
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
-        using System.ComponentModel.DataAnnotations;
         using System;
 
 4. 接著，將這些額外的屬性新增至各個類別：
@@ -615,4 +614,4 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
 
 您可在此時建置用來存取服務的用戶端應用程式，以執行下一個步驟。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

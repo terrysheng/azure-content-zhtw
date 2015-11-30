@@ -288,7 +288,7 @@ Mobile Apps 支援資料表 **id** 資料欄使用唯一自訂字串值。這可
 
 ##作法：註冊推播通知
 
-Mobile Apps 用戶端可讓您向 Azure 通知中樞註冊推播通知。註冊時，您會取得從特定平台「推播通知服務 (PNS)」取得的控制代碼。然後您就可以在建立註冊時提供此值以及任何標記。下列程式碼會為您的 Windows 應用程式向 Windows 通知服務 (WNS) 註冊推播通知：
+Mobile Apps 用戶端可讓您向 Azure 通知中樞註冊推播通知。註冊時，您會取得從特定平台「推送通知服務 (PNS)」取得的控制代碼。然後您就可以在建立註冊時提供此值以及任何標記。下列程式碼會為您的 Windows 應用程式向 Windows 通知服務 (WNS) 註冊推播通知：
 
 		private async void InitNotificationsAsync()
 		{
@@ -310,6 +310,40 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 >[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 >-->
 
+## 作法：註冊發送範本以傳送跨平台通知
+
+若要註冊範本，只要在用戶端應用程式中使用 **MobileService.GetPush().RegisterAsync()** 方法傳遞範本。
+
+        MobileService.GetPush().RegisterAsync(channel.Uri, newTemplates());
+
+您的範本類型會是 JObject，並且可能包含下列 JSON 格式的多個範本：
+
+        public JObject newTemplates()
+        {
+            // single template for Windows Notification Service toast
+            var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
+            
+            var templates = new JObject
+            {
+                ["generic-message"] = new JObject
+                {
+                    ["body"] = template,
+                    ["headers"] = new JObject
+                    {
+                        ["X-WNS-Type"] = "wns/toast"
+                    },
+                    ["tags"] = new JArray()
+                },
+                ["more-templates"] = new JObject {...}
+            };
+            return templates;
+        }
+
+方法 **RegisterAsync()** 也接受次要磚：
+
+        MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
+
+若要利用這些已註冊的範本傳送通知，請使用[通知中樞 API](https://msdn.microsoft.com/library/azure/dn495101.aspx)。
 
 ##<a name="optimisticconcurrency"></a>作法：使用開放式並行存取
 
@@ -427,7 +461,7 @@ Mobile Apps 支援開放式並行存取控制項，方法是使用 `__version` �
 		lb.ItemsSource = items;
 
 
-若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>` 上使用 `ToCollection`。若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
+若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>`上使用 `ToCollection` extension method若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
@@ -705,6 +739,6 @@ Mobile Apps 用戶端程式庫使用 Json.NET 在用戶端上將 JSON 回應轉�
 [Fiddler]: http://www.telerik.com/fiddler
 [Azure 行動服務用戶端 SDK 中的自訂 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-[DelegatingHandler]: https://msdn.microsoft.com/zh-TW/library/system.net.http.delegatinghandler(v=vs.110).aspx
+[DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -26,12 +26,6 @@
 
 本教學課程以行動應用程式快速入門為基礎。您也必須先完成[建立 Xamarin.iOS 應用程式]教學課程。如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
-
-##<a name="create-gateway"></a>建立 App Service 閘道
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
-
 ##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -120,4 +114,4 @@
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

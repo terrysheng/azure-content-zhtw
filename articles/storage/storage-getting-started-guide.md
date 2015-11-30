@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/12/2015" 
 	ms.author="tamram;selcint"/>
 
 # 在五分鐘內開始使用 Azure 儲存體 
 
-對 Azure 儲存體開始進行開發相當容易。本教學課程示範如何取得 Azure 儲存體應用程式，並快速執行。我們將示範兩種案例，用以輕鬆加強 Azure 儲存體：
+## 概觀
 
-- [針對 Azure 儲存體模擬器在本機執行第一個 Azure 儲存體應用程式](#run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator)
-- [針對雲端 Azure 儲存體執行第一個 Azure 儲存體應用程式](#run-your-first-azure-storage-application-against-azure-storage-in-the-cloud)
+Azure SDK 包含「快速啟動」範本，方便從 Microsoft Visual Studio 使用 Azure 儲存體。您可以
+
+對 Azure 儲存體開始進行開發相當容易。本教學課程示範如何取得 Azure 儲存體應用程式，並快速執行。我們將示範兩種案例，用以輕鬆加強 Azure 儲存體：
 
 如果您想要鑽研程式碼前深入了解 Azure 儲存體，請參閱[後續步驟](#next-steps)。
 
@@ -40,7 +41,7 @@
 
 在開發使用 Azure 儲存體的應用程式時，您可以針對 [Azure 儲存體模擬器](storage-use-emulator.md)執行。此儲存體模擬器提供了模擬 Azure Blob、佇列和資料表服務的本機環境，以供進行開發。您可以使用儲存體模擬器在本機測試儲存體應用程式，而不需建立 Azure 訂用帳戶或儲存體帳戶，也不會產生任何費用。
 
-若要試用，讓我們在 Visual Studio 中使用其中一個 Azure 快速入門範例專案，建立簡單的 Azure 儲存體應用程式。本教學課程著重於 **Azure Blob 儲存體**、**Azure 資料表儲存體**和 **Azure 佇列儲存體**範例專案：
+若要試用，讓我們在 Visual Studio 中使用其中一個 Azure 快速啟動範例專案，建立簡單的 Azure 儲存體應用程式。本教學課程著重於 **Azure Blob 儲存體**、**Azure 資料表儲存體**和 **Azure 佇列儲存體**範例專案：
 
 1. 啟動 Visual Studio。
 2. 從 [檔案] 功能表，按一下 [新增專案]。
@@ -107,4 +108,4 @@
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

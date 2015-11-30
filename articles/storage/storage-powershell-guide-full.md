@@ -237,7 +237,7 @@ Azure 儲存體內容是 PowerShell 中用以封裝儲存體認證的物件。�
 
 您現已設定您的電腦並學會如何使用 Azure PowerShell 管理訂用帳戶和儲存體帳戶。請移至下一節，以了解如何管理 Azure Blob 和 Blob 快照集。
 
-## 如何管理 Azure Blob
+## 如何管理 Azure blob
 Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。本節假設您已熟悉 Azure Blob 儲存體服務概念。如需詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](http://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
 ### 如何建立容器
@@ -548,9 +548,6 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
     $QueueName = "yourqueuename"
     Remove-AzureStorageQueue –Name $QueueName –Context $Ctx
 
-### 如何管理佇列訊息
-目前，Azure PowerShell 不會提供 Cmdlet 來直接管理佇列實體。若要在佇列訊息上執行作業，您可以使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)中提供的類別。
-
 #### 如何將訊息插入佇列中
 若要將訊息插入現有佇列中，請先建立 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 類別的新執行個體。接著，呼叫 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 方法。您可以從字串 (採用 UTF-8 格式) 或位元組陣列建立 CloudQueueMessage。
 
@@ -576,7 +573,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 
 #### 如何在下一個訊息中清除佇列
-您的程式碼可以使用兩個步驟將訊息自佇列中清除佇列。呼叫 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) 方法，會取得佇列中的下一個訊息。從 **GetMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。若要完成從佇列移除訊息的動作，您還必須呼叫 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) 方法。這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **DeleteMessage**。
+您的程式碼可以使用兩個步驟將訊息自佇列中清除佇列。當您呼叫 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) 方法，會取得佇列中的下一個訊息。從 **GetMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。若要完成從佇列移除訊息的動作，您還必須呼叫 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) 方法。這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **DeleteMessage**。
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -597,14 +594,14 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 ## 如何管理 Azure 檔案共用和檔案
 Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用儲存體。Microsoft Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API 或 Azure PowerShell，存取共用中的檔案資料。
 
-如需 Azure 檔案儲存體的詳細資訊，請參閱 [Azure 檔案儲存體如何搭配 Windows](storage-dotnet-how-to-use-files.md) 和[檔案服務 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)。
+如需 Azure 檔案儲存體的詳細資訊，請參閱＜[Azure 檔案儲存體如何搭配 Windows](storage-dotnet-how-to-use-files.md)＞和＜[檔案服務 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)＞。
 
 ## 如何設定及查詢儲存體分析
 您可以使用 [Azure 儲存體分析](storage-analytics.md)收集 Azure 儲存體帳戶的計量，以及關於傳送至儲存體帳戶之要求的記錄資料。也可以使用儲存體計量監視儲存體帳戶的健康狀態，並使用儲存體記錄診斷和疑難排解儲存體帳戶的問題。根據預設，不會針對您的儲存體服務啟用儲存體計量功能。您可以使用 Azure 管理入口網站、Windows PowerShell，或以程式設計方式透過儲存體 API，來啟用監視。系統會在伺服器端執行儲存體記錄，這可讓您在儲存體帳戶中記錄成功和失敗要求的詳細資料。這些記錄檔可讓您查看資料表、佇列和 Blob 的讀取、寫入和刪除作業詳細資料，以及失敗要求的原因。
 
-若要了解如何使用 PowerShell 啟用和檢視儲存體計量的資料，請參閱[如何使用 PowerShell 啟用儲存體度量](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell)。
+若要了解如何使用 PowerShell 啟用和檢視儲存體計量的資料，請參閱＜[如何使用 PowerShell 啟用儲存體度量](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell)＞。
 
-若要了解如何使用 PowerShell 啟用和擷取儲存體記錄的資料，請參閱 [如何使用 PowerShell 啟用儲存體記錄](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell)和[尋找儲存體記錄的記錄資料](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata)。如需使用儲存體計量和儲存體記錄疑難排解儲存體問題的詳細資訊，請參閱[監控、診斷和疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)。
+若要了解如何使用 PowerShell 啟用和擷取儲存體記錄的資料，請參閱＜[如何使用 PowerShell 啟用儲存體記錄](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell)＞和＜[尋找儲存體記錄的記錄資料](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata)＞。如需使用儲存體計量和儲存體記錄疑難排解儲存體問題的詳細資訊，請參閱＜[監控、診斷和疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)＞。
 
 ## 如何管理共用存取簽章 (SAS) 和預存的存取原則
 對於任何使用 Azure 儲存體的應用程式而言，共用存取簽章是安全性模型不可或缺的一部分。若要提供您儲存體帳戶的有限權限給沒有帳戶金鑰的用戶端，它們是非常有用的方式。根據預設，只有儲存體帳戶的擁有者可以存取該帳戶內的 Blob、資料表和佇列。如果您的服務或應用程式需要將這些資源提供給其他用戶端使用，而不共用存取金鑰，您會有下列三個選項：
@@ -618,12 +615,12 @@ Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用
 - **臨機操作 SAS**：當您建立臨機操作的 SAS 時，SAS 的開始時間、到期時間和權限全都標示在 SAS URI 上。您可以在容器、Blob、資料表或佇列上建立此類型的 SAS，而且無法撤銷它。
 - **具有預存存取原則的 SAS**：預存存取原則是在資源容器、Blob 容器、資料表或佇列中定義，且可用來管理一或多個共用存取簽章的條件約束。當您將 SAS 與預存存取原則建立關聯時，SAS 會繼承為該預存存取原則所定義的限制 (開始時間、過期時間和權限)。這種類型的 SAS 是可撤銷的。
 
-如需詳細資訊，請參閱[共用存取簽章教學課程](storage-dotnet-shared-access-signature-part-1.md)和[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
+如需詳細資訊，請參閱＜[共用存取簽章教學課程](storage-dotnet-shared-access-signature-part-1.md)＞和＜[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)＞。
 
-在下一節中，您將了解如何為 Azure 資料表建立共用存取簽章權杖和預存的存取原則。Azure PowerShell 也會為容器、Blob 和佇列提供類似的 Cmdlet。若要執行本節中的指令碼，請下載 [Azure PowerShell 0.8.14 版](http://go.microsoft.com/?linkid=9811175&clcid=0x409)或更新版本。
+在下一節中，您將了解如何為 Azure 資料表建立共用存取簽章權杖和預存的存取原則。Azure PowerShell 也會為容器、Blob 和佇列提供類似的 Cmdlet。若要執行本節中的指令碼，請下載 [Azure PowerShell 0.8.14 版](http://go.microsoft.com/?linkid=9811175&clcid=0x409)或更高版本。
 
 ### 如何建立原則式共用存取簽章權杖
-使用 New-AzureStorageTableStoredAccessPolicy Cmdlet 來建立新的預存存取原則。然後呼叫 [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) Cmdlet ，為 Azure 儲存體資料表建立新的原則式共用存取簽章權杖。
+使用 New-AzureStorageTableStoredAccessPolicy Cmdlet 來建立新的預存存取原則。然後呼叫 [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) Cmdlet，為 Azure 儲存體資料表建立新的原則式共用存取簽章權杖。
 
     $policy = "policy1"
     New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
@@ -670,7 +667,7 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 
 若要將 Azure 儲存體與[適用於美國政府的 Azure Government ](http://azure.microsoft.com/features/gov/) 搭配使用，請定義一個新環境，然後在此環境中建立新的儲存體內容：
 
-1. 呼叫 [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) Cmdlet，以為您的私人資料中心建立新的 Azure 環境。
+1. 呼叫 [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) Cmdlet，以便為您的私人資料中心建立新的 Azure 環境。
 
     	Add-AzureEnvironment -Name $EnvironmentName -PublishSettingsFileUrl $publishSettingsFileUrl -ServiceEndpoint $serviceEndpoint -ManagementPortalUrl $managementPortalUrl -StorageEndpoint $storageEndpoint -ActiveDirectoryEndpoint $activeDirectoryEndpoint -ResourceManagerEndpoint $resourceManagerEndpoint -GalleryEndpoint $galleryEndpoint -ActiveDirectoryServiceEndpointResourceId $activeDirectoryServiceEndpointResourceId -GraphEndpoint $graphEndpoint -SubscriptionDataFile $subscriptionDataFile
 
@@ -736,4 +733,4 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 [Next Steps]: #next
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

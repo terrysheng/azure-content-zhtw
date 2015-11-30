@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Windows 驗證與 Azure Multi-Factor Authentication Server
@@ -49,4 +49,4 @@
 10. 如果您想要使用子網路標記法指定 IP 範圍，請選取 [子網路]。輸入子網路的起始 IP，並從下拉式清單中挑選適當的網路遮罩。 
 11. 按一下 [確定] 按鈕。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="11/15/2015"
    ms.author="sdash"/>
 
 # Azure 雲端服務的 Application Insights
@@ -58,7 +58,7 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 
     ![以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 封裝]](./media/app-insights-cloudservices/03-nuget.png)
 
-2. 新增 [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 封裝。此 SDK 版本包含新增伺服器內容 (如角色資訊) 的模組。
+2. 新增 [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 封裝。此 SDK 版本包含新增伺服器內容 (如角色資訊) 的模組。若為背景工作角色，請使用 Windows 服務的 Application Insights。
 
     ![搜尋「Application Insights」](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -69,9 +69,9 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
  
     ```XML
      
-    <Role name="WorkerRoleA"> 
+     <Role name="WorkerRoleA"> 
       <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
-    </Role>
+     </Role>
     ```
  
     在適合的啟動函式中，從組態設定設定檢測金鑰：
@@ -90,6 +90,20 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 4. 將 ApplicationInsights.config 設定為一律複製到輸出目錄。 
 
     (在 .config 檔案中，您會看到訊息詢問您將檢測金鑰放至該處。不過，針對雲端應用程式，最好是從 .cscfg 檔案中設定。這可確保角色會在入口網站中正確識別。)
+
+## 啟用 Azure 診斷
+
+Azure 診斷會將應用軟體的效能計數器、Windows 事件記錄檔，以及追蹤記錄檔傳送至 Application Insights。
+
+在 [方案總管] 中，開啟每個角色的屬性。啟用 **傳送診斷至 Application Insights**。
+
+![在 [屬性] 中，選取 [啟用診斷] 與 [傳送至 Application Insights]。](./media/app-insights-cloudservices/05-wad.png)
+
+在其他角色中重複同樣的動作。
+
+### 在即時應用程式或 Azure VM 中啟用 Azure 診斷功能
+
+您也可以透過 Visual Studio 內的 [伺服器總管] 或 [雲端總管]，針對在 Azure 上執行中的應用程式啟用診斷。
 
 
 ## 使用 SDK 報告遙測
@@ -208,4 +222,4 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

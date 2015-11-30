@@ -4,7 +4,7 @@
  services="traffic-manager, automation" 
  documentationCenter="" 
  authors="eamonoreilly" 
- manager="adinah" 
+ manager="carmonm" 
  editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="na" 
  ms.topic="article" 
- ms.date="08/12/2015" 
+ ms.date="11/12/2015" 
  ms.author="joaoma"/>
 
 
-#使用 Azure 自動化管理 Azure 流量管理員
+# 使用 Azure 自動化管理 Azure 流量管理員
 
 本指南將為您介紹 Azure 自動化服務，以及如何使用它來簡化 Azure 流量管理員的管理。
 
@@ -42,4 +42,4 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 * 請參閱 Azure 自動化[入門指南](http://go.microsoft.com/fwlink/?LinkId=390560)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

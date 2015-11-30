@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/02/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # 如何使用 CLI 管理 DNS 區域
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-dnszones-cli.md)
-- [Azure Powershell](dns-operations-dnszones.md)
+- [PowerShell](dns-operations-dnszones.md)
 
 本指南說明如何管理 DNS 區域。有助於了解管理 DNS 區域所需執行的作業序列。
 
@@ -76,4 +76,4 @@
 
 [使用 .NET SDK 自動化作業](dns-sdk.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

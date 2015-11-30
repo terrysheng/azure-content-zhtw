@@ -13,12 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/18/2015"
+   ms.date="11/13/2015"
    ms.author="yuemlu"/>
 
 # Azure 客體作業系統 
 
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。推出這些更新的特定[系列][family-explain]皆會包含這些更新。
+
+## 十一月客體作業系統
+
+| 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15 112 | [3104517] | Internet Explorer 的累積安全性更新 | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+| MS15 114 | [3100213] | Windows Journal 的安全性更新，可解決遠端程式碼執行問題 | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+| MS15-115 | [3105864] | Microsoft Windows 的安全性更新，可解決遠端程式碼執行問題 | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+| MS15 117 | [3101722] | NDIS 的安全性更新，可解決提高權限問題 | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+| MS15 118 | [3104507] | .NET Framework 的安全性更新，可解決提高權限問題 | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+| MS15-119 | [3104521] | 可解決提高權限的 Winsock 安全性更新 | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+| MS15-120 | [3102939] | 可解決阻斷服務問題的 IPSec 安全性更新 | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+| MS15 121 | [3081320] | 解決詐騙的 Schannel 安全性更新， | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+| MS15 122 | [3105256] | 解決詐騙的 Kerberos 安全性更新 | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+| Microsoft Security Advisory | [3097966] | 不慎公開數位憑證可能會允許詐騙 | 4\.26, 3.33, 2.45 | 2015 年 11 月 10 日 |
+
 
 ## 十月客體作業系統
 
@@ -182,6 +198,16 @@
 | N/A | [2999802][2999802] | 在 Windows 中列印虛線時會變成實線 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 | N/A | [2896881][2896881] | 在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 
+[3104517]: http://support.microsoft.com/kb/3104517
+[3100213]: http://support.microsoft.com/kb/3100213
+[3105864]: http://support.microsoft.com/kb/3105864
+[3101722]: http://support.microsoft.com/kb/3101722
+[3104507]: http://support.microsoft.com/kb/3104507
+[3104521]: http://support.microsoft.com/kb/3104521
+[3102939]: http://support.microsoft.com/kb/3102939
+[3081320]: http://support.microsoft.com/kb/3081320
+[3105256]: http://support.microsoft.com/kb/3105256
+[3097966]: http://support.microsoft.com/kb/3097966
 
 [3096441]: http://support.microsoft.com/kb/3096441
 [3089659]: http://support.microsoft.com/kb/3089659
@@ -305,4 +331,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

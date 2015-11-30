@@ -26,10 +26,6 @@
 
 本教學課程以行動應用程式快速入門為基礎。您也必須先完成[建立 Xamarin.Android 應用程式教學課程]。如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-##<a name="create-gateway"></a>建立 App Service 閘道
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
-
 ##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -69,7 +65,7 @@
 
     這會建立新方法來驗證使用者。上述範例程式碼中的使用者是使用 Facebook 登入進行驗證。對話方塊會在驗證後用來顯示使用者識別碼。
 
-    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
+    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Facebook，請將傳遞給上述 **LoginAsync** 的值變更為下列其中之一：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
 
 3. 在 **onCreate** 方法中，在具現化 `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
 
@@ -96,4 +92,4 @@
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

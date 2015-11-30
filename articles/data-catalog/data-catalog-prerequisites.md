@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # 我需要什麼才能開始使用 Azure 資料目錄？
@@ -42,4 +42,4 @@ Azure Active Directory (Azure AD) 為您的企業提供在雲端和內部部署�
 ## Azure 訂閱
 Azure 訂用帳戶可協助您組織雲端服務資源的存取權，例如 Azure 資料目錄。它們也可協助您控制如何根據資源使用量產生報告、計費及付費。每一個訂用帳戶可以有不同的計費和付款設定，因此，依照部門、專案、區域辦事處等，您可以有不同的訂用帳戶和不同的計劃。每一個雲端服務都屬於某個訂用帳戶，在設定 Azure 資料目錄之前，您必須先有訂用帳戶。若要深入了解，請參閱[管理帳戶、訂用帳戶及管理角色](https://msdn.microsoft.com/library/azure/hh531793.aspx)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

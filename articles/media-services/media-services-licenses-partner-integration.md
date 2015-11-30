@@ -22,7 +22,7 @@
 
 Microsoft Azure 媒體服務可讓您提供受 Widevine DRM 保護的 MPEG-DASH，其會依據「一般加密 (Common Encryption，CENC)」規格進行加密。
 
->[AZURE.NOTE]目前，媒體服務不提供 Widevine 授權伺服器。您可以使用下列 AMS 合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)
+從媒體服務 .NET SDK 版本 3.5.2 開始，媒體服務讓您可設定 Widevine 授權範本並取得 Widevine 授權。您也可以使用下列 AMS 合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。
 
 ##castLabs
 
@@ -47,4 +47,4 @@ Microsoft Azure 媒體服務可讓您提供受 Widevine DRM 保護的 MPEG-DASH�
 
 [Mingfei 的部落格](https://azure.microsoft.com/zh-TW/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

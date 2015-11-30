@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,10 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
-
-
 
 
 
@@ -204,11 +202,11 @@ EndpointStatus、Weight 和 Priority 是選擇性的參數。如果省略，Powe
 	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
-## 另請參閱
+## 後續步驟
 
-[什麼是流量管理員？](traffic-manager-overview.md)
+[流量管理員監視](traffic-manager-monitoring.md)
 
-[Azure Cmdlet 使用者入門](https://msdn.microsoft.com/library/jj554332.aspx)
+[流量管理員的效能考量](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

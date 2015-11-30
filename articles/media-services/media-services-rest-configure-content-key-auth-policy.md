@@ -464,6 +464,7 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
         None = 0,
         PlayReadyLicense = 1,
         BaselineHttp = 2,
+        Widevine = 3
     }
 
 
@@ -482,4 +483,4 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

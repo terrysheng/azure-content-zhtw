@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="保留的 IP"
-   description="了解保留的 IP、VIP、ILPIP，以及如何管理"
+   pageTitle="保留的 IP |Microsoft Azure"
+   description="了解保留的 IP 以及如何管理"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/11/2015"
    ms.author="telmos" />
 
 # 保留的 IP 概觀
@@ -27,7 +27,7 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 ## 常見問題集
 1. 我可以針對所有 Azure 服務使用保留的 IP 嗎？  
-  - 保留的 IP 僅可用於 VM 和雲端服務執行個體角色。
+  - 保留的 IP 僅可用於 VM 和雲端服務透過 VIP 公開的執行個體角色。
 1. 我可以有多少保留的 IP？  
   - 目前，所有 Azure 訂用帳戶已獲授權可使用 20 個保留的 IP。不過，您可以要求其他保留的 IP。請參閱＜[訂用帳戶和服務限制](../azure-subscription-service-limits/)＞頁面以取得詳細資訊。
 1. 保留的 IP 是否會收取費用？ 
@@ -119,4 +119,4 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 - 請參閱[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -292,17 +292,17 @@
 
 行動服務用戶端可讓您向 Azure 通知中樞註冊推播通知。註冊時，您會取得從特定平台「推送通知服務 (PNS)」取得的控制代碼。然後您就可以在建立註冊時提供此值以及任何標記。下列程式碼會為您的 Windows 應用程式向 Windows 通知服務 (WNS) 註冊推播通知：
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+	private async void InitNotificationsAsync()
+	{
+	    // Request a push notification channel.
+	    var channel =
+	        await PushNotificationChannelManager
+	            .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+	    // Register for notifications using the new channel and a tag collection.
+		var tags = new List<string>{ "mytag1", "mytag2"};
+	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+	}
 
 請注意，在此範例中，註冊中會包含兩個標記：如需有關 Windows 應用程式的詳細資訊，請參閱[新增推播通知給您的應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)。
 
@@ -310,6 +310,18 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 
 >[AZURE.NOTE]當您必須傳送通知給特定的已註冊使用者時，務必在註冊之前要求驗證，然後確認已授權該使用者註冊特定標記。例如，您必須檢查以確保使用者註冊的標記，不是其他人的使用者識別碼。如需詳細資訊，請參閱[傳送推播通知給已驗證的使用者](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md)。
 
+##<a name="pull-notifications"></a>如何：在 Windows 應用程式中使用定期通知
+
+Windows 支援定期通知 (提取通知) 更新動態磚。透過啟用定期通知，Windows 將定期存取自訂 API 端點來更新 [開始] 功能表上的應用程式磚。若要使用定期通知，您必須[定義自訂 API](mobile-services-javascript-backend-define-custom-api.md) 以採用磚的特定格式傳回 XML 資料。如需詳細資訊，請參閱[定期通知](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx)。
+
+下列範例會開啟定期通知，以向「磚」自訂端點要求磚範本資料：
+
+    TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
+        new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
+        PeriodicUpdateRecurrence.Hour
+    ); 
+
+選取與您的資料更新頻率最相符的 [PeriodicUpdateRecurrance][](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) 值。
 
 ##<a name="optimisticconcurrency"></a>作法：使用開放式並行存取
 
@@ -402,7 +414,7 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 如需為行動服務使用開放式並型存取的完整範例，請參閱[開放式並型存取教學課程] (英文)。
 
 
-##<a name="binding"></a>做法：將行動服務資料繫結至 Windows 使用者介面
+##<a name="binding"></a>作法：將行動服務資料繫結至 Windows 使用者介面
 
 本節說明如何在 Windows app 中使用 UI 元素來顯示傳回的資料物件。若要查詢 `todoTable` 中的未完成項目，並將它顯示在非常簡單的清單中，您可以執行下列範例程式碼來將清單來源與查詢繫結。使用 `MobileServiceCollection` 建立行動服務感知繫結集合。
 
@@ -418,7 +430,7 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-受管理執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。通用 Windows 8.1 應用程式可透過 `MobileServiceIncrementalLoadingCollection` 為此介面提供內建支援，以自動處理控制項的呼叫。若要在 Windows 應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列動作：
+Managed 執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。通用 Windows 8.1 應用程式可透過 `MobileServiceIncrementalLoadingCollection` 為此介面提供內建支援，以自動處理控制項的呼叫。若要在 Windows 應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列動作：
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -428,14 +440,14 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 		lb.ItemsSource = items;
 
 
-若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>`上使用 `ToCollection` extension method若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
+若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>` 上使用 `ToCollection` 擴充方法。若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 當您使用藉由呼叫 `ToCollectionAsync` 或 `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。此集合有分頁感知功能，例如，控制項可要求集合「載入更多項目」，集合便會為此控制項執行此動作。此時，控制項會在未涉及使用者程式碼的情況下啟動流程。不過，因為集合會從網路中載入資料，因此載入有時候可能會失敗。若要處理這類失敗，您可以覆寫 `MobileServiceIncrementalLoadingCollection` 上的 `OnException` 方法，以處理呼叫控制項執行的 `LoadMoreItemsAsync` 時，所造成的例外狀況。
 
-最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述＜[選取特定資料欄](#selecting)＞一節中的指引，以選取要在 UI 中顯示的特定資料欄。
+最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述[選取特定資料欄](#selecting)一節中的指引，以選取要在 UI 中顯示的特定資料欄。
 
 ##<a name="authentication"></a>作法：驗證使用者
 
@@ -518,7 +530,7 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 
 ####使用含有 Live SDK 的 Microsoft 帳戶單一登入
 
-若要能夠驗證使用者，您必須在 Microsoft 帳戶開發人員中心註冊您的應用程式。然後您必須將此註冊連接到您的行動服務。請完成[註冊您的 app 來使用 Microsoft 帳戶登入](mobile-services-how-to-register-microsoft-authentication.md)中的步驟以建立 Microsoft 帳戶註冊，並將其連接到您的行動服務。如果您的 app 同時有 Windows 市集與 Windows Phone 8/Silverlight 版本，請先註冊 Windows 市集版本。
+若要能夠驗證使用者，您必須在 Microsoft 帳戶開發人員中心註冊您的應用程式。然後您必須將此註冊連接到您的行動服務。請完成[註冊應用程式來使用 Microsoft 帳戶登入](mobile-services-how-to-register-microsoft-authentication.md)中的步驟以建立 Microsoft 帳戶註冊，並將其連接到您的行動服務。如果您的 app 同時有 Windows 市集與 Windows Phone 8/Silverlight 版本，請先註冊 Windows 市集版本。
 
 以下程式碼會使用 Live SDK 驗證，並使用傳回的權杖登入您的行動服務。
 
@@ -754,4 +766,4 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
 [Azure 行動服務用戶端 SDK 中的自訂 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

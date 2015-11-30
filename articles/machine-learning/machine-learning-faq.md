@@ -17,11 +17,11 @@
 	ms.date="09/09/2015"
 	ms.author="paulettm"/>
 
-#Azure Machine Learning 常見問題集 (FAQ)：計費、功能、限制及支援
+# Azure Machine Learning 常見問題集 (FAQ)：計費、功能、限制及支援
 
 此常見問題集針對 Azure Machine Learning 問題提供解答，Azure Machine Learning 是適合透過 Web 服務執行預測性模型化和運作方案的雲端服務。這個常見問題集涵蓋使用服務的相關問題，包括計費模型、功能、限制及支援。
 
-##一般問題
+## 一般問題
 
 **什麼是 Azure Machine Learning 服務？**
 
@@ -43,7 +43,7 @@ Machine Learning API 服務可讓您將 Machine Learning Studio 中內建的預�
 如需詳細資訊，請參閱[連線到 Machine Learning Web 服務](machine-learning-connect-to-azure-machine-learning-web-service.md)。
 
 
-##計費問題
+## 計費問題
 
 **機器學習服務如何計費？**
 
@@ -55,18 +55,18 @@ Machine Learning API 服務可讓您將 Machine Learning Studio 中內建的預�
 
 ## Machine Learning Studio 問題
 
-###建立實驗
+### 建立實驗
 **實驗圖形有版本控制或 Git 整合嗎？**
 
 沒有，不過每次執行實驗便會保留該版本的圖形，無法由其他使用者修改。
 
-###匯入和匯出機器學習服務的資料
+### 匯入和匯出機器學習服務的資料
 **機器學習服務支援何種資料來源？**
 
 資料可透過兩種方式載入 Machine Learning Studio 中：以資料集的形式上傳本機檔案，或使用讀取器模組匯入資料。可以上傳本機檔案，方法是在 Machine Learning Studio 中新增資料集。若要深入了解支援的檔案格式，請參閱[將訓練資料匯入 Azure Machine Learning Studio](machine-learning-import-data.md)。
 
 
-####<a id="ModuleLimit"></a>我的模組適用多大的資料集？
+#### <a id="ModuleLimit"></a>我的模組適用多大的資料集？
 
 Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的密集數值資料的資料集。如果模組接受一個以上的輸入，10 GB 是所有輸入的大小總計。您也可以取樣較大型資料集，方法是透過 Hive 或 Azure SQL Database 查詢，或在擷取前透過依計數學習前置處理。
 
@@ -100,7 +100,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 您可以在[映像讀取器][image-reader]參考中了解影像輸入功能。
 
-###模組
+### 模組
 
 **我在尋找的演算法、資料來源、資料格式、資料轉換作業不在 Azure ML Studio 中，我有哪些選擇？**
 
@@ -116,7 +116,8 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 不，不支援，但是自訂 R 和 Python 程式碼可以用來定義模組。
 
 
-###資料處理
+### 資料處理
+
 **有能力在實驗內將資料以互動方式視覺化嗎 (R 視覺效果外)？**
 
 按一下模組的輸出，您即可以將資料視覺化，並取得統計資料。
@@ -125,7 +126,8 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 因為資料會傳輸至瀏覽器，而且可能很大，限制資料大小是為了防止減緩 ML Studio。最好是下載資料/結果，並使用 Excel 或其他工具，將整個資料視覺化。
 
-###演算法
+### 演算法
+
 **Machine Learning Studio 中支援哪些現有的演算法？**
 
 Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision 樹、Bayesian Recommendation 系統、Deep Neural Networks 和 Decision Jungles (由 Microsoft Research 開發)。此外也包含可調整的開放原始碼機器學習封裝，例如 Vowpal Wabbit。Machine Learning Studio 支援多類別與二進位分類、迴歸和叢集的機器學習演算法。請參閱[機器學習服務單元][machine-learning-modules]的完整清單。
@@ -156,7 +158,8 @@ Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision
 
 目前只能在 R 中建立新的自訂模組。
 
-###R 模組
+### R 模組
+
 **Machine Learning Studio 中可使用什麼 R 套件？**
 
 Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在持續增加。若要了解如何取得支援的 R 封裝的清單，請參閱 [透過 R 擴展您的實驗](machine-learning-extend-your-experiment-with-r.md)。如果您要的封裝不在此清單中，請在[使用者意見反映論壇](http://go.microsoft.com/fwlink/?LinkId=404231)中提供封裝名稱。
@@ -169,7 +172,7 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
 否，Studio 中沒有 R 適用的 REPL 環境。
 
-###Python 模組
+### Python 模組
 
 **是否可以建置自訂的 Python 模組？**
 
@@ -180,11 +183,12 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 您可以在 Machine Learning Studio 中使用 Jupyter Notebook。如需詳細資訊，請參閱[介紹 Azure ML Studio 中的 Jupyter Notebook](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Web 服務
+
 ###以程式設計方式重新訓練模型
 
 **如何以程式設計方式重新訓練 AzureML 模型？** 使用重新訓練 API。[這裡](https://azuremlretrain.codeplex.com/)提供範例程式碼。
 
-###建立
+### 建立
 
 **可以在本機或在沒有網際網路連線的應用程式中部署模型嗎？** 編號
 
@@ -193,7 +197,8 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
 請參閱 [Azure 訂用帳戶限制](../azure-subscription-service-limits.md)
 
-###使用
+### 使用
+
 **何時該以「批次執行服務」的形式執行預測模型？何時該以要求回應服務的形式執行？**
 
 「要求回應服務 (RRS)」是低延遲性的高階 Web 服務，可用來為從實驗環境建立並部署的無狀態模型提供介面。「批次執行服務 (BES)」是可為一批資料記錄進行非同步評分的服務。BES 的輸入類似於 RRS 中使用的資料輸入。主要差異在於，BES 會從多種來源讀取記錄區塊，例如 Blob 服務、Azure 中的資料表服務、Azure SQL Database、HDInsight (Hive 查詢) 和 HTTP 來源。如需詳細資訊，請參閱[如何使用 Machine Learning Web 服務](machine-learning-consume-web-services.md)。
@@ -203,7 +208,6 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 要為已部署的服務更新預測模型，只需修改並重新執行用來撰寫和儲存已訓練模型的實驗即可。在您有新版的已訓練模型後，ML Studio 會詢問您是否要更新預備 Web 服務。在更新套用至預備 Web 服務後，相同的更新也將可供您套用至實際執行 Web 服務。如需關於如何更新已部署 Web 服務的詳細資訊，請參閱[部署機器學習 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
 
 您也可以使用重新訓練 API。[這裡](https://azuremlretrain.codeplex.com/)提供範例程式碼。
-
 
 **如何監控部署在實際執行環境中的 Web 服務？**
 
@@ -215,12 +219,11 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
  ** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
 
-
-##延展性
+## 延展性
 
 **什麼是 Web 服務的延展性？**
 
-目前，最大值是每個端點 20 個並行要求，不過它可以調整為 10,000 個端點。如果我們使用每個資源 (300 個背景工作)，這會轉譯為 4,800 個並行要求。
+目前的預設端點是每個端點上佈建 20 個並行的 RRS 要求。您可以將每個端點的並行要求調整為每個端點 200 個要求，您也可以將每個 Web 服務調整為每個 Web 服務 10,000 個端點，如[調整 API 端點](machine-learning-scaling-endpoints.md)一文所述。針對 BES，每個端點可一次處理 40 個要求，超過 40 個的其他要求則會排入佇列。這些排入佇列的要求會在佇列清空後自動執行。
 
 
 **R 作業會分散於節點嗎？**
@@ -258,7 +261,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 編號
 
-##安全性和可用性
+## 安全性和可用性
 
 **根據預設，哪些人可以存取部署在實際執行環境之 Web 服務的 HTTP 端點？ 如何限制對此端點的存取？**
 
@@ -277,11 +280,11 @@ Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能�
 如果您變更了儲存體帳戶存取金鑰，請確保在 Azure 入口網站中的工作區設定中重新同步處理存取金鑰
 
 
-##Azure Marketplace
+## Azure Marketplace
 
 請參閱[在 Machine Learning Marketplace 中發佈和使用 App 的常見問題集](machine-learning-marketplace-faq.md)
 
-##支援和訓練
+## 支援和訓練
 
 **哪裡可以取得 Azure ML 的訓練？**
 
@@ -306,4 +309,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

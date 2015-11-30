@@ -85,7 +85,7 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
 請考慮使用[預備部署](web-sites-staged-publishing.md)。此選項可讓您將更新發佈到與生產部署並行運作的預備部署。
 
-如果您使用 Visual Studio Online，可以從原始檔控制設定連續部署：
+如果您使用 Visual Studio Team Services，可以從原始檔控制設定連續部署：
 
 - [使用 Team Foundation 版本控制 (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
 - [使用 Git](../cloud-services-continuous-delivery-use-vso-git.md)
@@ -103,4 +103,4 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
   
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure 中使用 Git 和 Visual Studio Online 來連續傳遞" 
-	description="了解如何設定 Visual Studio Online Team 專案，以使用 Git 自動建置和部署至 Azure App Service 或雲端服務中的 Web 應用程式功能。"
+	pageTitle="在 Azure 中使用 Git 和 Visual Studio Team Services 來連續傳遞" 
+	description="了解如何設定 Visual Studio Team Services 的 Team 專案，以使用 Git 自動建置和部署至 Azure App Service 或雲端服務中的 Web 應用程式功能。"
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="kempb"
@@ -16,21 +16,21 @@
 	ms.date="09/02/2015"
 	ms.author="kempb"/>
 
-# 使用 Visual Studio Online 和 Git 連續傳遞至 Azure
+# 使用 Visual Studio Team Services 和 Git 連續傳遞至 Azure
 
-您可以使用 Visual Studio Online Team 專案託管原始程式碼的 Git 儲存機制，並在每次將認可推送至儲存機制時，自動建置該機制並部署至 Azure Web 應用程式或雲端服務。
+您可以使用 Visual Studio Team Services 的 Team 專案託管原始程式碼的 Git 儲存機制，並在每次將認可推送至儲存機制時，自動建置該機制並部署至 Azure Web 應用程式或雲端服務。
 
 您需要安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 [www.visualstudio.com](http://www.visualstudio.com) 選擇 **免費開始用** 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
 
 
-> [AZURE.NOTE] 您需要 Visual Studio Online 帳戶，才能完成本教學課程：
-> 您可以[開啟免費的 Visual Studio Online 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
+> [AZURE.NOTE]您需要 Visual Studio Team Services 帳戶，才能完成本教學課程：
+> 您可以[開啟免費的 Visual Studio Team Services 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
 
-若要使用 Visual Studio Online 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行。
+若要使用 Visual Studio Team Services 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行。
 
 ## 步驟 1：建立 Git 儲存機制
 
-1. 如果您還沒有 Visual Studio Online 帳戶，請在[這裡](http://go.microsoft.com/fwlink/?LinkId=397665)取得。建立小組專案時，請選擇 Git 作為原始檔控制系統。依照指示將 Visual Studio 連接至小組專案。
+1. 如果您還沒有 Visual Studio Team Services 帳戶，請在[這裡](http://go.microsoft.com/fwlink/?LinkId=397665)取得。建立小組專案時，請選擇 Git 作為原始檔控制系統。依照指示將 Visual Studio 連接至小組專案。
 
 2. 在 **Team Explorer** 中，選擇 [複製這個儲存機制] 連結。
 
@@ -50,7 +50,7 @@
 
 	![][7]
 
-4. 如果是第一次在 Visual Studio Online 中使用 Git，您需要提供一些資訊在 Git 中識別您的身分。在 **Team Explorer** 的 [暫止的變更] 區域中，輸入您的使用者名稱和電子郵件地址。輸入認可的註解，然後選擇 [認可] 按鈕。
+4. 如果是第一次在 Visual Studio Team Services 中使用 Git，您需要提供一些資訊在 Git 中識別您的身分。在 **Team Explorer** 的 [暫止的變更] 區域中，輸入您的使用者名稱和電子郵件地址。輸入認可的註解，然後選擇 [認可] 按鈕。
 
 	![][8]
 
@@ -60,27 +60,27 @@
 
 ## 步驟 3：將專案連接至 Azure
 
-1. 現在，您在 Visual Studio Online 中有一個 Git 儲存機制，裡面還有一些原始程式碼，您可以準備將 Git 儲存機制連接至 Azure。在 [Azure 管理入口網站](http://manage.windowsazure.com)中，選取您的雲端服務或 Web 應用程式，或選取左下方的 + 圖示並選擇 [雲端服務] 或 [Web 應用程式]，然後選取 [快速建立]，建立新的雲端服務或 Web 應用程式。
+1. 現在，您在 Visual Studio Team Services 中有一個 Git 儲存機制，裡面還有一些原始程式碼，您可以準備將 Git 儲存機制連接至 Azure。在 [Azure 管理入口網站](http://manage.windowsazure.com)中，選取您的雲端服務或 Web 應用程式，或選取左下方的 + 圖示並選擇 [雲端服務] 或 [Web 應用程式]，然後選取 [快速建立]，建立新的雲端服務或 Web 應用程式。
 
 	![][9]
 
-3. 若是雲端服務，請擇 [**Set up publishing with Visual Studio Online**] 連結。若是 Web 應用程式，請選擇 [設定從原始檔控制進行部署] 連結。
+3. 若是雲端服務，請擇 [使用 Visual Studio Team Services 設定發行] 連結。若是 Web 應用程式，請選擇 [設定從原始檔控制進行部署] 連結。
 
 	![][10]
 
-2. 在精靈中，在文字方塊中輸入 Visual Studio Online 帳戶的名稱，然後選擇 [**立即授權**] 連結。可能會要求您登入。
+2. 在精靈中，於文字方塊中輸入 Visual Studio Team Services 帳戶的名稱，然後選擇 [立即授權] 連結。可能會要求您登入。
 
 	![][11]
 
-3. 在 [連線要求] 快顯對話方塊中，選擇 [接受]，授權 Azure 在 Visual Studio Online 中設定小組專案。
+3. 在 [連線要求] 快顯對話方塊中，選擇 [接受]，授權 Azure 在 Visual Studio Team Services 中設定 Team 專案。
 
 	![][12]
 
-4. 授權成功後，將出現含有 Visual Studio Online 小組專案的下拉式清單。選取您在先前步驟中建立的小組專案，然後選擇精靈的勾選記號按鈕。
+4. 授權成功後，將出現含有 Visual Studio Team Services 之 Team 專案的下拉式清單。選取您在先前步驟中建立的小組專案，然後選擇精靈的勾選記號按鈕。
 
 	![][13]
 
-	您下次將認可推送至儲存機制時，Visual Studio Online 將會建置專案並部署至 Azure。
+	您下次將認可推送至儲存機制時，Visual Studio Team Services 將會建置專案並部署至 Azure。
 
 ## 步驟 4：觸發重建和重新部署專案
 
@@ -102,7 +102,7 @@
 
 	![][38]
 
-6. 選擇 [推送] 連結，將認可推送至 Visual Studio Online 中的儲存機制(您也可以使用 [同步處理] 按鈕，將認可複製到儲存機制。差別在於 [同步處理] 還會從儲存機制中提取最新的變更)。
+6. 選擇 [推送] 連結，將認可推送至 Visual Studio Team Services 中的儲存機制。(您也可以使用 [同步處理] 按鈕，將認可複製到儲存機制。差別在於 [同步處理] 還會從儲存機制中提取最新的變更)。
 
 	![][39]
 
@@ -124,7 +124,7 @@
 
 	![][25]
 
-11. 在 [觸發程序] 索引標籤中，您會看到組建定義已設為依預設每次簽入時建置。(若是雲端服務，Visual Studio Online 會自動建置主要分支並部署至預備環境。您仍然必須執行手動步驟來部署至即時網站。對於沒有預備環境的 Web 應用程式，它會將主要分支直接部署到即時網站。
+11. 在 [觸發程序] 索引標籤中，您會看到組建定義已設為依預設每次簽入時建置。(若是雲端服務，Visual Studio Team Services 會自動建置主要分支並部署至預備環境。您仍然必須執行手動步驟來部署至即時網站。對於沒有預備環境的 Web 應用程式，它會將主要分支直接部署到即時網站。
 
 	![][26]
 
@@ -217,7 +217,7 @@
 
 	![][43]
 
-10. 選擇 [未同步處理的認可] 連結，再選擇 [同步處理] 按鈕或 [推送] 連結，將變更複製到 Visual Studio Online 中工作分支的複本。
+10. 選擇 [未同步處理的認可] 連結，再選擇 [同步處理] 按鈕或 [推送] 連結，將變更複製到 Visual Studio Team Services 中工作分支的複本。
 
 	![][45]
 
@@ -225,7 +225,7 @@
 
 ## 後續步驟
 
-如需深入了解有關使用 Git 搭配 Visual Studio Online 的祕訣，請參閱[使用 Visual Studio 在 Git 中開發和共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)；關於使用未受 Visual Studio Online 管理的 Git 儲存機制來發佈至 Azure 的詳細資訊，請參閱[在 Azure App Service 中使用 GIT 連續部署](../web-sites-publish-source-control.md)。如需詳細資訊，請參閱 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)。
+如需深入了解有關使用 Git 搭配 Visual Studio Team Services 的祕訣，請參閱[使用 Visual Studio 在 Git 中開發和共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)；關於使用未受 Visual Studio Team Services 管理的 Git 儲存機制來發行至 Azure 的詳細資訊，請參閱[在 Azure App Service 中使用 GIT 連續部署](../web-sites-publish-source-control.md)。如需 Visual Studio Team Services 的詳細資訊，請參閱 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)。
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -273,4 +273,4 @@
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 
@@ -95,12 +95,12 @@
 
   	這會建立用來存取行動服務的新 **MobileServiceClient** 執行個體。
 
-6. 在檔案 MainPage.xaml.cs 中，新增或取消註解下列 `using` 陳述式：
+6. 在檔案 MainPage.cs 中，新增或取消註解下列 `using` 陳述式：
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. 在相同檔案中，使用下列程式碼來取代 **TodoItem** 類別定義：
+7. 在此 DataModel 資料夾中，使用下列程式碼來取代 **TodoItem** 類別定義：
 
         public class TodoItem
         {
@@ -196,4 +196,4 @@
 [開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

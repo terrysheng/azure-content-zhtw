@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # 新增推播通知至 Windows 執行階段 8.1 通用 app
@@ -49,7 +49,7 @@
 
     ![建立應用程式與 Windows 市集的關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-win8-app.png)
     
-2. 在精靈中按一下 [下一步]、使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
+2. 在精靈中按 [下一步]、使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
 
 3. 成功建立應用程式註冊之後，選取新的應用程式名稱，按 [下一步]，然後按一下 [關聯]。這會將所需的 Windows 市集註冊資訊新增至應用程式資訊清單。
 
@@ -79,14 +79,13 @@
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 封裝]，搜尋 `Microsoft.Azure.NotificationHubs`，然後按一下 [安裝]。這會安裝通知中樞用戶端程式庫。
 
-3. 在伺服器專案中開啟 [控制器] > **TodoItemController.cs**，並新增下列 Using 陳述式：
+2. 在伺服器專案中開啟 [控制器] > **TodoItemController.cs**，並新增下列 Using 陳述式：
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
-	
 
-2. 在 **PostTodoItem** 方法中，於呼叫 **InsertAsync** 之後新增下列程式碼：
+3. 在 **PostTodoItem** 方法中，於呼叫 **InsertAsync** 之後新增下列程式碼：
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -130,32 +129,24 @@
 
 ##<a id="update-service"></a>將推播通知新增至應用程式
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [管理 NuGet 封裝]。 
-
-    此時會顯示 [管理 NuGet 封裝] 對話方塊。
-
-2. 在應用程式服務行動應用程式用戶端 SDK 中搜尋受管理的項目，然後按一下 [安裝]，選取方案中的所有專案，並接受使用條款。
-
-    這會下載並安裝適用於 Windows 的 Azure Mobile Push 程式庫，並在所有用戶端專案中加入對該程式庫的參考。
-
-3. 開啟共用的 **App.xaml.cs** 專案檔案，並新增下列 `using` 陳述式：
+1. 開啟共用的 **App.xaml.cs** 專案檔案，並新增下列 `using` 陳述式：
 
 		using System.Threading.Tasks;  
         using Windows.Networking.PushNotifications;       
 
-4. 在相同檔案中，將下列 **InitNotificationsAsync** 方法定義新增至 [**應用程式**] 類別：
+2. 在相同檔案中，將下列 **InitNotificationsAsync** 方法定義新增至 [**應用程式**] 類別：
     
         private async Task InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
+            await MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     此程式碼會從 WNS 中擷取應用程式的 ChannelURI，然後向您的應用程式服務行動應用程式註冊該 ChannelURI。
     
-5. 在 **App.xaml.cs** 中 **OnLaunched** 事件處理常式頂端，將 **async** 修飾詞新增到方法定義並加入對新的 **InitNotificationsAsync** 方法的下列呼叫，如下列範例所示：
+3. 在 **App.xaml.cs** 中 **OnLaunched** 事件處理常式頂端，將 **async** 修飾詞新增到方法定義並加入對新的 **InitNotificationsAsync** 方法的下列呼叫，如下列範例所示：
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -166,17 +157,22 @@
 
     這樣可保證在每次啟動應用程式時都會註冊存留期較短的 ChannelURI。
 
-6. 在 [方案總管] 中，按兩下 Windows 市集應用程式的 **Package.appxmanifest**，並將 [**通知**] 中的 [**支援快顯通知**] 設為 [**是**]：
+4. 在 [方案總管] 中，按兩下 Windows 市集應用程式的 **Package.appxmanifest**，並將 [**通知**] 中的 [**支援快顯通知**] 設為 [**是**]：
 
     從 [檔案] 功能表中，按一下 [全部儲存]。
 
-7. 針對 Windows Phone 市集應用程式專案重複上一個步驟。
+5. 針對 Windows Phone 市集應用程式專案重複上一個步驟。
 
 您的應用程式現在已能夠接收快顯通知。
 
 ##<a id="test"></a>在應用程式中測試推播通知
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
+
+##<a id="more"></a>更多資訊
+
+* 範本可讓您彈性地傳送跨平台推播和當地語系化推播。[如何使用 Azure Mobile Apps 的 Managed 用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)示範如何註冊範本。
+* 標記可讓您使用推播鎖定區隔的客戶。[使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 示範如何在安裝裝置時加入標記。
 
 <!-- Anchors. -->
 
@@ -185,4 +181,4 @@
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

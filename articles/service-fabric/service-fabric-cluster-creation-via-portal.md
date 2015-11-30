@@ -38,12 +38,12 @@
  	 ![CreateRG][CreateRG]
 
 
-6. 請務必選取您要部署叢集的 [訂用帳戶] (尤其在您有多個訂用帳戶時)。
+6. 請務必選取您要部署叢集的 [訂用帳戶] \(尤其在您有多個訂用帳戶時)。
 
-7. 從下拉式清單中選取**位置** (如果您想要建立於其他位置，否則會預設為 [美國西部])
+7. 從下拉式清單中選取**位置** (如果您想要建立於其他位置，否則會預設為 \[美國西部]\)
 
 8. 設定您的 [節點類型]。節點類型可以視為雲端服務中的「角色」對等項目。其可定義 VM 大小、VM 數目及其屬性。您的叢集可以有一個以上的節點類型。唯一的條件約束是您需至少有一個節點類型 (您在入口網站中定義的主要或第一個節點類型) 有至少 5 部 VM。
-	1. 選取您需要的 VM 大小/定價層 (預設值為 [D4 標準]，如果您即將使用此叢集來測試您的應用程式，也可以選取 D2 或任何較小的 VM)	
+	1. 選取您需要的 VM 大小/定價層 (預設值為 \[D4 標準]\，如果您即將使用此叢集來測試您的應用程式，也可以選取 D2 或任何較小的 VM)	
 	2. 選擇 VM 數目。您稍後可以相應增加或減少節點類型中的 VM 數目，但主要或第一個節點類型必須至少有 5 部 VM
 	3. 選擇節點類型的名稱 (長度為 1 到 12 個字元，只能包含字母和數字)	
 	4. 選擇 VM 遠端桌面的使用者名稱和密碼
@@ -213,4 +213,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!----HONumber=Nov15_HO4-->
+<!-------HONumber=Nov15_HO4-->

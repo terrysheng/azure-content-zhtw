@@ -197,7 +197,7 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-- [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)。
+- [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)
 - [Service Fabric 叢集安全性](service-fabric-cluster-security.md)
 - [Service Fabric 健康狀態模型簡介](service-fabric-health-introduction.md)
 
@@ -213,4 +213,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!-------HONumber=Nov15_HO4-->
+<!-------HONumber=Nov15_HO4--->

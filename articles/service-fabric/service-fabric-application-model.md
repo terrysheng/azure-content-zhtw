@@ -229,11 +229,18 @@ PS D:\temp>
 
 ## 後續步驟
 
-[部署與移除應用程式][10] [管理多個環境的應用程式參數][11] [RunAs：使用不同的安全性權限執行 Service Fabric 應用程式][12] <!--Image references--> [1]: ./media/service-fabric-application-model/application-model.jpg [2]: ./media/service-fabric-application-model/vs-package-command.png [Image1]: media/service-fabric-application-model/Service1.jpg [Image2]: media/service-fabric-application-model/Service2.jpg
+[部署與移除應用程式][10]
+[管理多個環境的應用程式參數][11]
+[RunAs：使用不同的安全性權限執行 Service Fabric 應用程式][12]
+<!--Image references-->
+[1]: ./media/service-fabric-application-model/application-model.jpg
+[2]: ./media/service-fabric-application-model/vs-package-command.png
+[Image1]: media/service-fabric-application-model/Service1.jpg
+[Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

@@ -33,7 +33,7 @@
 + Visual Studio 2013
 + [MicrosoftAzure.MobileEngagement] Nuget 封裝
 
-> [AZURE.IMPORTANT]完成本教學課程是所有其他 Windows 通用 app 的 Mobile Engagement 教學課程的必要條件。若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.IMPORTANT]完成本教學課程是所有其他 Windows 通用 app 的 Mobile Engagement 教學課程的必要條件。若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ##<a id="setup-azme"></a>設定 Windows 通用 App 的 Mobile Engagement
 
@@ -55,13 +55,11 @@
 
     ![][1]
 
-> [AZURE.IMPORTANT]Azure Mobile Engagement 不支援 Windows 10 通用 Windows App。
-
 現在已建立新的 Windows 通用 app 專案，接著我們要將 Azure Mobile Engagement SDK 整合至其中。
 
 ###將您的應用程式連線至 Mobile Engagement 後端
 
-1. 在您的專案中安裝 [MicrosoftAzure.MobileEngagement] Nuget 封裝。如果您是以 Windows 和 Windows Phone 兩個平台為目標，您就必須對這些專案執行此操作。相同的 Nuget 封裝會在每個專案中放置正確的平台專屬二進位檔。
+1. 在您的專案中安裝 [MicrosoftAzure.MobileEngagement] Nuget 封裝。如果您是以 Windows 和 Windows Phone 兩個平台為目標，您就必須對這些專案執行此操作。對於 Windows 8.x 和 Windows Phone 8.1，相同的 Nuget 封裝會在每個專案中放置正確的平台專屬二進位檔。
 
 2. 開啟 **Package.appxmanifest**，並確定已在該處新增下列功能：
 
@@ -81,11 +79,20 @@
 
 			using Microsoft.Azure.Engagement;
 
-	b.在 **OnLaunched** 方法中初始化 SDK：
+	b.將專用方法加入至 Engagement 初始化和設定：
+
+           private void InitEngagement(IActivatedEventArgs e)
+           {
+             EngagementAgent.Instance.Init(e);
+
+			 //... rest of the code
+           }
+
+    c.在 **OnLaunched** 方法中初始化 SDK：
 
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -94,7 +101,7 @@
 
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -137,17 +144,9 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 
 ###初始化 REACH SDK
 
-1. 在 `App.xaml.cs` 中，於代理程式初始化之後，立即在 **OnLaunched** 函式中呼叫 **EngagementReach.Instance.Init();**：
+在 `App.xaml.cs` 中，於代理程式初始化之後，立即在 **InitEngagement** 函式中呼叫 **EngagementReach.Instance.Init(e);**：
 
-		protected override void OnLaunched(LaunchActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.Init(e);
-		   EngagementReach.Instance.Init(e);
-		}
-
-2. 在 `App.xaml.cs` 中，於代理程式初始化之後，立即在 **OnActivated** 函式中呼叫 **EngagementReach.Instance.Init(e);**：
-
-		protected override void OnActivated(IActivatedEventArgs e)
+        private void InitEngagement(IActivatedEventArgs e)
 		{
 		   EngagementAgent.Instance.Init(e);
 		   EngagementReach.Instance.Init(e);
@@ -190,7 +189,7 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 
 [AZURE.INCLUDE [建立 Windows 推播活動](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-如果 App 正在執行，則您將會看到 App 內的通知，否則會看到快顯通知 (如果 App 已關閉)。如果您看見的是應用程式內的通知而不是快顯通知，而且您正在 Visual Studio 中的偵錯模式下執行應用程式，則應嘗試執行工具列中的 [週期事件] -> [暫止]，以確保應用程式會實際暫止。如果您在 Visual Studio 中偵錯應用程式時只按了 [首頁] 按鈕，則它永遠不會暫止，而您將會看見 App 內的通知，它不會顯示為快顯通知。
+如果 App 正在執行，則您將會看到 App 內的通知，否則會看到快顯通知 (如果 App 已關閉)。如果您看見的是 App 內的通知而不是快顯通知，而且您正在 Visual Studio 中的偵錯模式下執行 App，則應嘗試執行工具列中的 [週期事件] -> [暫止]，以確保 App 會實際暫止。如果您在 Visual Studio 中偵錯應用程式時只按了 [首頁] 按鈕，則它永遠不會暫止，而您將會看見 App 內的通知，它不會顯示為快顯通知。
 
 ![][8]
 
@@ -214,4 +213,4 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

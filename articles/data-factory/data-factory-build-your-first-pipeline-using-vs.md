@@ -33,7 +33,7 @@
 
 本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文。
 
-> [AZURE.IMPORTANT]請檢閱[教學課程概觀](data-factory-build-your-first-pipeline.md)文章，並在執行本教學課程之前完成必要的步驟。
+> [AZURE.IMPORTANT]執行本教學課程之前，請先閱讀[教學課程概觀](data-factory-build-your-first-pipeline.md)一文並完成必要條件步驟。
 
 ## 逐步解說：使用 Visual Studio 建立及部署 Data Factory 實體 
 
@@ -102,7 +102,6 @@
 	版本 | 指定所建立之 HDInsight 的版本為 3.1。 
 	ClusterSize | 建立一個單一節點的 HDInsight 叢集。 
 	TimeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
-	JobsContainer | 指定將建立來儲存 HDInsight 產生之記錄檔的工作容器的名稱
 	linkedServiceName | 指定將用來儲存 HDInsight 產生之記錄檔的儲存體帳戶
 
 4. 儲存 **HDInsightOnDemandLinkedService1.json** 檔案。
@@ -181,7 +180,7 @@
 	
 	Hive 指令碼檔案 (**partitionweblogs.hql**) 儲存於 Azure 儲存體帳戶 (透過名為 **AzureStorageLinkedService1** 的scriptLinkedService 來指定) 以及名為 **script** 的容器中。
 
-	**extendedProperties** 區段可用來指定執行階段設定，該設定將傳遞到 hive 指令碼做為 Hive 組態值 (例如 ${hiveconf:PartitionedData})。
+	**defines** 區段可用來指定執行階段設定，該設定將傳遞到 hive 指令碼做為 Hive 組態值 (例如 ${hiveconf:PartitionedData})。
 
 	管線的 **start** 和 **end** 屬性會指定管線的作用中期間。
 
@@ -197,7 +196,7 @@
 
 ### 發佈/部署 Data Factory 實體
 
-18. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [發佈]。 
+18. 在 [方案總管] 中，以滑鼠右鍵按一下專案，再按一下 [發佈]。 
 19. 如果您看到 [登入您的 Microsoft 帳戶] 對話方塊，請輸入具有 Azure 訂用帳戶的帳戶認證，然後按一下 [登入]。
 20. 您應該會看到下列對話方塊：
 
@@ -244,4 +243,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](data-factory-get-started.md)。
   
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

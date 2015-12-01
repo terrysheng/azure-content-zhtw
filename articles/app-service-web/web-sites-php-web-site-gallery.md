@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="11/13/2015"
 	ms.author="tomfitz"/>
 
 # 在 Azure App Service 中建立 WordPress Web 應用程式
@@ -40,7 +40,7 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 
 1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
 
-2. 按一下 [新增] > [Marketplace]。
+2. 按一下 [新增]。
 	
     ![建立新的][5]
 	
@@ -124,4 +124,4 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

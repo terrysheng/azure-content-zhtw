@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 #  設定內部部署 VMM 網站和 Azure 之間的保護
@@ -162,34 +162,36 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 8. 按 [下一步]，完成此程序。註冊後，Azure Site Recovery 即可從 VMM 伺服器擷取中繼資料。此伺服器會顯示在保存庫中 [伺服器] 頁面的 [VMM 伺服器] 索引標籤上。
 
 >[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來在適用於 Windows Server 2012 R2 的伺服器核心上安裝提供者
->
->1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
->2. 停止 System Center Virtual Machine Manager 服務
->3. 從命令提示字元使用**管理員**權限執行下列命令，來解壓縮提供者安裝程式
->
+
+1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
+1. 停止 System Center Virtual Machine Manager 服務
+1. 從命令提示字元使用**管理員**權限執行下列命令，來解壓縮提供者安裝程式
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
->4. 執行下列命令來安裝提供者
->
+1. 執行下列命令來安裝提供者
+
 		C:\ASR> setupdr.exe /i
->5. 執行下列命令來登錄提供者
->
+1. 執行下列命令來登錄提供者
+
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
- ####命令列安裝參數清單####
->
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+
+  
+#### 命令列安裝參數清單
+
  - **/Credentials**：必要參數，用來指定註冊金鑰檔案所在的位置  
  - **/FriendlyName**：對於 Hyper-V 主機伺服器名稱的必要參數，該伺服器會出現在 Azure Site Recovery 入口網站中。
  - **/EncryptionEnabled**：如果您需要在 Azure 中以靜止的方式為虛擬機器加密，則必須只能在 VMM 到 Azure 案例中使用這個選用參數。請確定您提供的檔案名稱具有 **.pfx** 副檔名。
  - **/proxyAddress**：指定 Proxy 伺服器位址的選用參數。
  - **/proxyport**：指定 Proxy 伺服器連接埠的選用參數。
  - **/proxyUsername**：指定 Proxy 使用者名稱 (如果 Proxy 需要驗證) 的選用參數。
- - **/proxyPassword**：指定用以驗證 Proxy 伺服器之密碼 (如果 Proxy 需要驗證) 的選用參數。
+ - **/proxyPassword**：指定用以驗證 Proxy 伺服器之密碼 (如果 Proxy 需要驗證) 的選用參數。  
 
 
 ## 步驟 4：建立 Azure 儲存體帳戶
 
-如果您沒有 Azure 儲存體帳戶，可按一下 [新增 Azure 儲存體帳戶]。此帳戶應啟用異地複寫。此帳戶應與 Azure 站台復原服務位於相同的區或，且與相同的訂閱相關聯。
+如果您沒有 Azure 儲存體帳戶，可按一下 [新增 Azure 儲存體帳戶]。此帳戶應啟用異地複寫。此帳戶應與 Azure 站台復原服務位於相同的區域，且與相同的訂閱相關聯。
 
 
 ![儲存體帳戶](./media/site-recovery-vmm-to-azure/ASRE2AVMM_StorageAgent.png)
@@ -276,7 +278,16 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 4. 在虛擬機器屬性的 [設定] 索引標籤上可以修改下列網路屬性。
 
-    1. 目標虛擬機器的網路介面卡數目－目標虛擬機器上的網路介面卡數目取決於選取的虛擬機器的大小。目標虛擬機器的網路介面卡數目是來源虛擬機器上網路介面卡數目的最小值和選取的虛擬機器大小支援的網路介面卡的最大數目。  
+
+	1.  目標虛擬機器的網路介面卡數目 - 網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。查看[虛擬機器大小規格](../virtual-machines/virtual-machines-size-specs.md#size-tables)中虛擬機器大小所支援的 NIC 數目。 
+
+		當您修改虛擬機器的大小並儲存設定時，網路介面卡數目將會在您下次開啟 [設定] 頁面時變更。目標虛擬機器的網路介面卡數目是來源虛擬機器上網路介面卡數目的最小值和選取的虛擬機器大小支援的網路介面卡的最大數目。其說明如下：
+
+
+		- 如果來源電腦上的網路介面卡數目小於或等於針對目標機器大小所允許的介面卡數目，則目標將具備與來源相同的介面卡數目。
+		- 如果來源虛擬機器的介面卡數目超過針對目標大小所允許的數目，則將使用目標大小的最大值。
+		- 例如，如果來源機器具有兩張網路介面卡，而目標機器大小支援四張，則目標機器將會有兩張介面卡。如果來源機器具有兩張介面卡，但支援的目標大小僅支援一張，則目標機器將只會有一張介面卡。 	
+
 
 	1. 目標虛擬機器的網路－虛擬機器連接的網路取決於來源虛擬機器網路的網路對應。如果來源虛擬機器有一個以上的網路介面卡，且來源網路對應至目標上的不同網路，則使用者必須選擇其中一個目標網路。
 
@@ -285,6 +296,8 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 	1. 目標 IP－如果來源虛擬機器的網路介面卡是設定為使用靜態 IP，則使用者可以提供目標虛擬機器的 IP。使用者可以使用此功能，在容錯移轉之後保留來源虛擬機器的 IP。如果未提供任何 IP，在容錯移轉時會將任何可用的 IP 提供給網路介面卡。如果由使用者提供的目標 IP 已由 Azure 中執行的其他某部虛擬機器使用，則容錯移轉會失敗。
 
 		![修改網路屬性](./media/site-recovery-vmm-to-azure/MultiNic.png)
+
+>[AZURE.NOTE]不支援使用靜態 IP 的 Linux 虛擬機器。
 
 ## 測試您的部署
 若要測試部署，您可以對單一虛擬機器執行測試容錯移轉，或者建立包含多部虛擬機器的復原方案，再對這個方案執行測試容錯移轉。測試容錯移轉會在隔離的網路中模擬您的容錯移轉與復原機制。請注意：
@@ -356,4 +369,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 <LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI> </UL>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

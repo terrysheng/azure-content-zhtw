@@ -24,11 +24,11 @@
 
 - 帳戶：
 
-	- **Azure 帳戶**：只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+	- **Azure 帳戶**：只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 	- **批次帳戶** - 請參閱[建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)。
 
-	- **儲存體帳戶** - 請參閱 [關於 Azure 儲存體帳戶](../storage-create-storage-account.md)中的＜建立儲存體帳戶＞一節。在本教學課程中，您會在此帳戶中建立名為 **testcon1** 的容器。
+	- **儲存體帳戶** - 請參閱 [關於 Azure 儲存體帳戶](../storage-create-storage-account.md)中的「建立儲存體帳戶」一節。在本教學課程中，您會在此帳戶中建立名為 **testcon1** 的容器。
 
 - Visual Studio 主控台應用程式專案：
 
@@ -42,7 +42,7 @@
 
 	2. 在線上搜尋 **WindowsAzure.Storage**，然後按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。
 
-> [AZURE.TIP]本教學課程會利用 [Azure Batch 的 API 基本概念](batch-api-basics.md) 中討論的一些核心 Batch 概念，如果您是第一次接觸 Batch，強烈建議您先閱讀該文章。
+> [AZURE.TIP]本教學課程會利用 [Azure Batch 概觀](batch-api-basics.md)中討論的一些核心 Batch 概念，如果您是第一次接觸 Batch，強烈建議您先閱讀該文章。
 
 ## 步驟 1：建立及上傳支援檔案
 
@@ -50,7 +50,7 @@
 
 ### 設定儲存體連接字串
 
-1. 開啟 GettingStarted 專案的 App.config 檔案，然後將 *&lt;appSettings&gt;* 元素加入至 *&lt;configuration&gt;*。
+1. 開啟 GettingStarted 專案的 App.config 檔案，然後將 &lt;appSettings&gt; 元素加入至 &lt;configuration&gt;。
 
 		<?xml version="1.0" encoding="utf-8" ?>
 		<configuration>
@@ -495,4 +495,4 @@
 
 2. 有些應用程式會產生可能難以處理的大量資料。解決方法之一是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

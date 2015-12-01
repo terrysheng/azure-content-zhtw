@@ -102,7 +102,6 @@
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -115,7 +114,6 @@
 	版本 | 指定所建立之 HDInsight 的版本為 3.1。 
 	ClusterSize | 建立一個單一節點的 HDInsight 叢集。 
 	TimeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
-	JobsContainer | 指定將建立來儲存 HDInsight 產生之記錄檔的工作容器的名稱
 	linkedServiceName | 指定將用來儲存 HDInsight 產生之記錄檔的儲存體帳戶
 3. 按一下命令列的 [部署]，部署連結服務。 
 4. 確認您有在左側的樹狀檢視中看到 StorageLinkedService 和 HDInsightOnDemandLinkedService。
@@ -128,7 +126,7 @@
 1. 在 [Data Factory 編輯器] 中，按一下命令列的 [新增資料集]，然後選取 [Azure Blob 儲存體]。  
 
 	![新增資料集](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. 複製下列程式碼片段並貼到 Draft-1 視窗。在 JSON 程式碼片段中，建立名為 **AzureBlobOutput** 的資料集，並指定將由 Hive 指令碼產生的資料結構。此外，指定結果儲存在名為 **data** 的 Blob 容器及名為 **partitioneddata** 的資料夾中。**availability** 區段指定每個月產生一次輸出資料集。
+2. 複製下列程式碼片段並貼到 Draft-1 視窗。在 JSON 程式碼片段中，建立名為 **AzureBlobOutput** 的資料集，並指定將由 Hive 指令碼產生的資料結構。此外，指定將結果儲存在名為 **data** 的 Blob 容器及名為 **partitioneddata** 的資料夾中。**availability** 區段指定每個月產生一次輸出資料集。
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -204,11 +202,11 @@
 	
 	Hive 指令碼檔案 (**partitionweblogs.hql**) 儲存於 Azure 儲存體帳戶 (透過 scriptLinkedService 指定，名為 **StorageLinkedService**) 且在容器中名為 **script**。
 
-	**extendedProperties** 區段可用來指定執行階段設定，該設定將傳遞到 hive 指令碼做為 Hive 組態值 (例如 ${hiveconf:PartitionedData})。
+	**defines** 區段可用來指定執行階段設定，該設定將傳遞到 hive 指令碼做為 Hive 組態值 (例如 ${hiveconf:PartitionedData})。
 
 	管線的 **start** 和 **end** 屬性會指定管線的作用中期間。
 
-	在活動 JSON 中，您會指定 Hive 指令碼要在透過連結的服務 **HDInsightOnDemandLinkedService** 指定的計算上執行。
+	在活動 JSON 中，您會指定 Hive 指令碼要在透過連結的服務 **HDInsightOnDemandLinkedService** 指定的運算上執行。
 3. 按一下命令列上的 [部署]，部署管線。
 4. 確認您在樹狀檢視中看到管線。
 
@@ -226,7 +224,7 @@
 9. 當處理完成時，您會看到配量處於 [就緒] 狀態。請注意，建立隨選 HDInsight 叢集通常需要一些時間。 
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. 當配量處於**就緒**狀態時，檢查您 blob 儲存體中 **data** 容器內 **partitioneddata** 資料夾的輸出資料。  
+10. 當配量處於「就緒」狀態時，檢查您 blob 儲存體中 **data** 容器內 **partitioneddata** 資料夾的輸出資料。  
  
 
  
@@ -235,4 +233,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](./data-factory-get-started.md)。
   
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

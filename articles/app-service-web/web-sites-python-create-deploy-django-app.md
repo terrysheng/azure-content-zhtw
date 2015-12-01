@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/16/2015"
+	ms.author="huvalo"/>
 
 
 # 在 Azure 中使用 Django 建立 Web 應用程式
@@ -26,7 +26,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 
 ## 必要條件
@@ -57,7 +57,7 @@
 建立應用程式的第一步是透過 [Azure 入口網站](https://portal.azure.com)建立 Web 應用程式。
 
 1. 登入 Azure 入口網站中，並按一下左下角的 [新增] 按鈕。
-2. 按一下 [Web + 行動] > [Azure Marketplace] > [Web Apps]。
+2. 按一下 [Web + 行動]。
 3. 在搜尋方塊中，輸入 "python"。
 4. 在搜尋結果中，選取 [Django]，然後按一下 [建立]。
 5. 設定新的 Django 應用程式，例如為它建立新的應用程式服務方案和新的資源群組。然後按一下 [建立]。
@@ -234,7 +234,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 我們要建立開發用途的新虛擬環境 (不加入至儲存機制)。Python 虛擬環境不可重置，因此每位使用該應用程式的開發人員都會在本機建立。
 
-確認使用針對您 Web 應用程式選取的 Python 版本 (在 runtime.txt 中，或在 Azure 入口網站中您的 Web 應用程式的 [應用程式設定] 分頁中) 相同的版本。
+務必使用正確的 Python 版本；應與您為 Web 應用程式所選取的版本相同 (在 runtime.txt 中，或在 Azure 入口網站中您的 Web 應用程式的 [應用程式設定] 刀鋒視窗中) 相同的版本。
 
 針對 Python 2.7：
 
@@ -323,7 +323,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 我們要建立開發用途的新虛擬環境 (不加入至儲存機制)。Python 虛擬環境不可重置，因此每位使用該應用程式的開發人員都會在本機建立。
 
-確認使用針對您 Web 應用程式選取的 Python 版本 (在 runtime.txt 中，或在 Azure 入口網站中您的 Web 應用程式的 [應用程式設定] 分頁中) 相同的版本。
+務必使用正確的 Python 版本；應與您為 Web 應用程式所選取的版本相同 (在 runtime.txt 中，或在 Azure 入口網站中您的 Web 應用程式的 [應用程式設定] 刀鋒視窗中) 相同的版本。
 
 針對 Python 2.7：
 
@@ -332,6 +332,10 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 針對 Python 3.4：
 
     python -m venv env
+
+或
+
+	pyvenv env
 
 安裝應用程式所需的任何外部封裝。您可以在儲存機制的根目錄使用 requirements.txt 檔案，在虛擬環境中安裝封裝：
 
@@ -515,4 +519,4 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 [Python Tools for Visual Studio 說明文件]: http://aka.ms/ptvsdocs
 [Django 說明文件]: https://www.djangoproject.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

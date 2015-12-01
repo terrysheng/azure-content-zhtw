@@ -54,34 +54,34 @@
 
 ### 生產 Azure
 
-| **服務提供者** |**Microsoft Azure** | **Office 365** | **位置** |
+| **服務提供者** |**Microsoft Azure** | **Office 365 和 CRM Online** | **位置** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | 支援 | 支援 | 阿姆斯特丹、矽谷、新加坡、華盛頓特區 |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 支援 | 支援 | 阿姆斯特丹、倫敦、達拉斯、矽谷、華盛頓特區 |
-| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 支援 | 支援 | 阿姆斯特丹、倫敦、矽谷、新加坡、東京、華盛頓特區 |
-|**China Telecom Global** | 敬請期待 | 不支援 | 香港+ |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 支援 | 支援 | 阿姆斯特丹、達拉斯、倫敦、矽谷、新加坡、華盛頓特區 |
+| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 支援 | 支援 | 阿姆斯特丹、香港、倫敦、矽谷、新加坡、東京、華盛頓特區 |
+|**China Telecom Global** | 敬請期待 | 不支援 | 香港 |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 支援 | 不支援 | 阿姆斯特丹、倫敦 |
-| **Comcast** | 支援 | 不支援 | 矽谷、華盛頓特區 |
+| **Comcast** | 支援 | 支援 | 矽谷、華盛頓特區 |
 | **CoreSite** | 支援 | 不支援 | 洛杉磯 | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 支援 | 支援 | 阿姆斯特丹、亞特蘭大、芝加哥、達拉斯、香港、倫敦、洛杉磯、墨爾本、紐約、大阪、聖保羅、西雅圖、矽谷、新加坡、雪梨、東京、華盛頓特區 |
-| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | 支援 | 不支援 | 東京 |
-| **[InterCloud](https://www.intercloud.com/)** | 支援 | 支援 | 阿姆斯特丹、倫敦、新加坡、華盛頓特區 |
+| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | 支援 | 不支援 | 大阪、東京 |
+| **[InterCloud](https://www.intercloud.com/)** | 支援 | 支援 | 阿姆斯特丹+、倫敦、新加坡、華盛頓特區 |
 | **Internet Solutions - Cloud Connect** | 支援 | 支援 | 阿姆斯特丹、倫敦 |
 | **Interxion** | 支援 | 支援 | 阿姆斯特丹 |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 支援 | 不支援 | 阿姆斯特丹、芝加哥、達拉斯、倫敦、西雅圖、矽谷、華盛頓特區 |
 | **Megaport** | 支援 | 不支援 | 墨爾本、雪梨 |
 | **MTN** | 支援 | 不支援 | 倫敦 |
+| **NEXTDC** | 支援 | 支援 | 墨爾本、雪梨+ |
 | **NTT Communications** | 支援 | 不支援 | 倫敦+、東京 |
-| **NEXTDC** | 支援 | 不支援 | 墨爾本、雪梨+ |
 | **[Orange](http://www.orange-business.com/)** | 支援 | 不支援 | 阿姆斯特丹、香港、倫敦、矽谷、新加坡、華盛頓特區 |
 | **PCCW Global Limited** | 支援 | 不支援 | 香港 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | 支援 | 不支援 | 新加坡 |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 支援 | 支援 | 阿姆斯特丹、辰內+、香港、倫敦、孟買、新加坡 |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 支援 | 支援 | 阿姆斯特丹、辰內、香港、倫敦、孟買、新加坡、華盛頓特區 |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | 支援 | 支援 | 阿姆斯特丹、倫敦 |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 支援 | 不支援 | 墨爾本、雪梨 |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | 支援 | 支援 | 香港、倫敦、矽谷、雪梨、華盛頓特區 |
 | **Vodafone** | 支援 | 不支援 | 倫敦 | 
-| **[Zayo Group](http://www.zayo.com/)** | 支援 | 不支援 | 芝加哥、矽谷、華盛頓特區 |
+| **[Zayo Group](http://www.zayo.com/)** | 支援 | 支援 | 芝加哥、洛杉磯、紐約、矽谷、華盛頓特區 |
 
  **+** 表示即將推出
 
@@ -137,4 +137,4 @@
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 - 請確定符合所有必要條件。請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

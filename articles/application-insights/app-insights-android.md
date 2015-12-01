@@ -26,4 +26,6 @@ Microsoft 為裝置 devOps 提供兩種解決方案：適用於 devOps 工作流
 * [開始使用 Application Insights for Android](https://github.com/Microsoft/ApplicationInsights-Android)。
 * [開始使用 HockeyApp for Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)。
 
+```java
+
 <!---HONumber=AcomDC_1125_2015-->

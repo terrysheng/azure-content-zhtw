@@ -183,7 +183,7 @@
 
 <!-- URLs. -->
 
-[]: https://manage.windowsazure.com/
+[Azure 管理入口網站]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/zh-TW/sharepoint/
 [Azure Active Directory 驗證程式庫單一登入]: app-service-mobile-ios-aad-sso.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/

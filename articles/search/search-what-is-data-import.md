@@ -39,7 +39,7 @@
 
 ##提取 (搜耙) 資料 
 
-提取模型會搜耙支援的資料來源並為您載入索引。在 Azure 搜尋服務中，這項功能透過*索引子*實作，目前可供 Azure SQL Database、DocumentDB 和 Azure VM 上的 SQL Server 使用。請參閱[索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)來了解上傳 Azure SQL 資料。
+提取模型會搜耙支援的資料來源並為您載入索引。在 Azure 搜尋服務中，這項功能透過 *索引子* 實作，目前可供 Azure SQL Database、DocumentDB 和 Azure VM 上的 SQL Server 使用。請參閱[索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)來了解上傳 Azure SQL 資料。
 
 您可以使用入口網站、REST API 或 .NET SDK 將資料提取到索引。
 

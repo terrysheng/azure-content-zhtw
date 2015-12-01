@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="get-started-article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 # Azure 上使用 Python Tools 2.2 for Visual Studio 的 Django 和 MySQL 
 
@@ -42,7 +42,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 建立專案
 
@@ -98,14 +98,13 @@
 
 您可以依照下列步驟，透過免費計畫建立資料庫。
 
-1.  登入 [Azure 入口網站]。
+1.  登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1.  在瀏覽窗格的底部，按一下 [新增]。接著，按一下 [資料 + 儲存體] > [Azure Marketplace]。
+1.  在導覽窗格的頂端，按一下 [新增]。接著，按一下 [資料 + 儲存體] > [Azure Marketplace]。
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
+  
 
 1.  在搜尋方塊中輸入 "**mysql**"，然後按一下 [MySQL 資料庫]，再按一下 [建立]。
-
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
 1.  設定新的 MySQL 資料庫，做法是建立新的資源群組，然後為其選取一個適當的位置。
@@ -164,10 +163,10 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 1.  按一下 [新增] 以建立新的 Web 應用程式。
 
 1.  填寫下列欄位，然後按一下 [建立]。
-	-	Web 應用程式名稱
-	-	App Service 計劃
-	-	資源群組
-	-	區域
+	-	**Web 應用程式名稱**
+	-	**App Service 計劃**
+	-	**資源群組**
+	-	**區域**
 	-	讓「資料庫伺服器」維持設定為「沒有資料庫」
 
   	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-mysql/PollsCommonCreateWebSite.png) -->
@@ -203,7 +202,7 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [Azure 雲端服務]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Azure 入口網站]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio 範例 VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -218,4 +217,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

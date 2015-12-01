@@ -12,70 +12,20 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="11/15/2015"
+    ms.date="11/17/2015"
     ms.author="awills"/>
 
 # iOS 應用程式的分析
 
-Visual Studio Application Insights 可讓您監視行動應用程式的使用量、事件及當機。
+Microsoft 為裝置 devOps 提供兩種解決方案：適用於 devOps 工作流程和當機分析的 [HockeyApp](http://hockeyapp.net/)；以及適用於使用量和當機分析的 [Application Insights](app-insights-overview.md)。
+
+[HockeyApp](http://hockeyapp.net/) 是我們的行動 DevOps 解決方案，可供建置 iOS、OS X、Android 或 Windows 裝置應用程式，以及以 Xamarin、Cordova 和 Unity 為基礎的跨平台應用程式。利用該解決方案，您可以將組建散發給 Beta 版測試人員、收集損毀資料，以及取得使用者意見反應。與 Visual Studio Team Services 整合，您即可輕鬆建置部署和工作項目整合。您可以從 [HockeyApp 知識庫](http://support.hockeyapp.net/kb)獲得深入了解並從 [HockeyApp 部落格](http://hockeyapp.net/blog/)獲得最新資訊。
 
 
-> [AZURE.NOTE]我們建議使用 [HockeyApp](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios) 來獲得當機報告、分析、散發和意見反應管理。
-
-## 需求
-
-您需要：
-
-* [Microsoft Azure](http://azure.com) 訂用帳戶。您使用 Microsoft 帳戶登入，可能是針對 Windows、XBox Live 或其他 Microsoft 雲端服務具備的帳戶。
-* Xcode 6 或更新版本。
-* SDK 會在具有 iOS 6.0 或更新版本的裝置上執行。
-
-## 建立 Application Insights 資源
-
-在 [Azure 入口網站][portal] 中，建立新的 Application Insights 資源。挑選 iOS 選項。
-
-![按一下 [新增]、[開發人員服務]、[Application Insights]](./media/app-insights-ios/11-new.png)
-
-開啟的刀鋒視窗是您要查看您的應用程式效能和使用量資料的位置。若要在下次登入 Azure 時回到此位置，您應該會在開始畫面上發現它的磚。或者按一下 [瀏覽] 以尋找它。
-
-## 設定
-
-請遵循[設定指南](https://github.com/Microsoft/ApplicationInsights-iOS#setup)在您的應用程式中安裝 SDK。
-
-## 在 Application Insights 中檢視資料
-
-執行您的應用程式來產生一些遙測。
-
-返回 http://portal.azure.com 並且瀏覽至您的 Application Insights 資源。
-
-按一下 [搜尋] 以開啟 [診斷搜尋][diagnostic] - 這是前幾個事件顯示的位置。如果您看不到任何資料，請稍做等待後再按一下 [重新整理]。
-
-![按一下 [診斷搜尋]](./media/app-insights-ios/21-search.png)
-
-使用您的應用程式時，[概觀] 刀鋒視窗上會顯示資料。
-
-![[概觀] 刀鋒視窗](./media/app-insights-ios/22-oview.png)
-
-按一下任何圖表以查看詳細資料。例如，當機：
-
-![按一下當機圖表](./media/app-insights-ios/23-crashes.png)
-## <a name="usage"></a>後續步驟
-
-[追蹤應用程式的使用量][track]
-
-[診斷搜尋][diagnostic]
-
-[計量瀏覽器][metrics]
-
-[疑難排解][qna]
+使用 [Application Insights SDK for iOS](https://github.com/Microsoft/ApplicationInsights-iOS) 進行使用量分析。如果您的應用程式有伺服器端，您可以將用戶端和伺服器資料傳送至相同的 Application Insights 資源。
 
 
-<!--Link references-->
+* [開始使用 Application Insights for iOS](https://github.com/Microsoft/ApplicationInsights-iOS)。
+* [開始使用 HockeyApp for Android](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios)。
 
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-api-custom-events-metrics.md
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

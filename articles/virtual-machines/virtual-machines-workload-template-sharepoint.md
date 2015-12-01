@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 ARM 範本部署 SharePoint 伺服器陣列 | Microsoft Azure"
-	description="使用資源管理員範本和 Azure 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署一個包含 3 部或 9 部伺服器的 SharePoint 伺服器陣列。"
+	description="使用資源管理員範本和 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署一個包含 3 部或 9 部伺服器的 SharePoint 伺服器陣列。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -186,4 +186,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

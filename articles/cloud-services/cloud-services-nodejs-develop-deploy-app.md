@@ -3,7 +3,7 @@
 	description="了解如何建立簡單的 Node.js Web 應用程式，並將它部署至 Azure 雲端服務。"
 	services="cloud-services"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # 建立 Node.js 應用程式並部署到 Azure 雲端服務
@@ -27,7 +27,7 @@
 
 如需雲端服務及其相較於 Azure 網站和虛擬機器的詳細資訊，請參閱 [Azure 網站、雲端服務與虛擬機器的比較](../choose-web-site-cloud-service-vm.md)。
 
->[AZURE.TIP]尋求建置簡單的網站？ 如果您只需要簡單的網站前端，請考慮使用<a href="/documentation/articles/web-sites-nodejs-develop-deploy-mac/">輕量型 Web 應用程式。</a> 隨著 Web 應用程式擴大以及需求改變，您可以輕易地升級到雲端服務。
+>[AZURE.TIP]尋求建置簡單的網站？ 如果您只需要簡單的網站前端，請考慮使用<a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">輕量型 Web 應用程式。</a> 隨著 Web 應用程式擴大以及需求改變，您可以輕易地升級到雲端服務。
 
 
 按照本教學課程進行，您將建立在 Web 角色內代管的簡單 Web 應用程式。您將使用計算模擬器在本機測試您的應用程式，然後使用 PowerShell 命令列工具部署應用程式。
@@ -197,4 +197,4 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

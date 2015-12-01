@@ -17,6 +17,9 @@
 
 # 監視任何網站的可用性和回應性
 
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 開發 Web 應用程式之後，您可以設定 Web 測試來監視其可用性和回應性。Application Insights 會定期傳送來自全球各地的 Web 要求，如果應用程式回應太慢或完全沒有回應，則會警告您。
 
 ![Web 測試範例](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
@@ -117,7 +120,7 @@ Web 測試可分為兩種：
 或者，您可以下載結果檔案，然後在 Visual Studio 中檢查。
 
 
-看起來正常，但回報為失敗？ 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。If any of them fails, the test will be reported as failed, even if the main html page loads OK.
+*看起來正常，但回報為失敗？* 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。If any of them fails, the test will be reported as failed, even if the main html page loads OK.
 
 
 
@@ -233,7 +236,7 @@ Web 測試外掛程式提供這種作法。
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
 
-## <a name="next"></a>接續步驟
+## <a name="next"></a>後續步驟
 
 [搜尋診斷記錄][diagnostic]
 
@@ -249,4 +252,4 @@ Web 測試外掛程式提供這種作法。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

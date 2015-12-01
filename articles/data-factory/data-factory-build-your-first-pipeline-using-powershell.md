@@ -32,7 +32,7 @@
 
 本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文。
 
-> [AZURE.IMPORTANT]執行本教學課程之前，請先閱讀[教學課程概觀](data-factory-build-your-first-pipeline.md)一文並完成先決條件步驟。
+> [AZURE.IMPORTANT]執行本教學課程之前，請先閱讀[教學課程概觀](data-factory-build-your-first-pipeline.md)一文並完成必要條件步驟。
 >   
 > 這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
 >    
@@ -49,7 +49,7 @@
 2. 切換至 AzureResourceManager 模式，因為 Azure Data Factory Cmdlet 在此模式中可供使用。
 
 		Switch-AzureMode AzureResourceManager
-3. 執行以下命令，建立名為 *ADFTutorialResourceGroup* 的 Azure 資源群組。
+3. 執行以下命令，建立名為「ADFTutorialResourceGroup」的 Azure 資源群組。
 
 		New-AzureResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -84,7 +84,7 @@
 	使用您的 Azure 儲存體帳戶名稱取代**帳戶名稱**，並使用 Azure 儲存體帳戶的存取金鑰取代**帳戶金鑰**。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)。
 
 2.	在 Azure PowerShell 中，切換到 ADFGetStartedPSH 資料夾。
-3.	您可以使用 **New-AzureDataFactoryLinkedService** Cmdlet 建立連結服務。此 Cmdlet 和您在本教學課程中使用的其他 Data Factory Cmdlet，皆需要您將值傳給 *ResourceGroupName* 和 *DataFactoryName* 參數。或者，您可以使用 **Get-AzureDataFactory** 取得 **DataFactory** 物件，並傳遞此物件，就不需要在每次執行 Cmdlet 時輸入 *ResourceGroupName* 和 *DataFactoryName*。執行以下命令，將 **Get-AzureDataFactory** Cmdlet 的輸出指派給 **$df** 變數。
+3.	您可以使用 **New-AzureDataFactoryLinkedService** Cmdlet 建立連結服務。此 Cmdlet 和您在本教學課程中使用的其他 Data Factory Cmdlet，皆需要您將值傳給 *ResourceGroupName* 和 *DataFactoryName* 參數。或者，您可以使用 **Get-AzureDataFactory** 取得 **DataFactory** 物件，並傳遞此物件，就不需要在每次執行 Cmdlet 時輸入「ResourceGroupName」和「DataFactoryName」。執行以下命令，將 **Get-AzureDataFactory** Cmdlet 的輸出指派給 **$df** 變數。
 
 		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
@@ -92,7 +92,7 @@
 
 		New-AzureDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
-	如果您還沒執行 **Get-AzureDataFactory** Cmdlet 和指派輸出給 **$df** 變數，您就必須指定 *ResourceGroupName* 和 *DataFactoryName* 參數的值，如下所示。
+	如果您還沒執行 **Get-AzureDataFactory** Cmdlet 和指派輸出給 **$df** 變數，您就必須指定「ResourceGroupName」 和「DataFactoryName」參數的值，如下所示。
 
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
 
@@ -112,7 +112,6 @@
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -125,7 +124,6 @@
 	版本 | 指定所建立之 HDInsight 的版本為 3.1。
 	ClusterSize | 建立一個單一節點的 HDInsight 叢集。
 	TimeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
-	JobsContainer | 指定將建立來儲存 HDInsight 產生之記錄檔的工作容器的名稱
 	linkedServiceName | 指定將用來儲存 HDInsight 產生之記錄檔的儲存體帳戶
 2. 執行 **New-AzureDataFactoryLinkedService** Cmdlet 建立名為 HDInsightOnDemandLinkedService 的連結服務。
 
@@ -205,7 +203,7 @@
 
 	Hive 指令碼檔案 (partitionweblogs.hql) 儲存於 Azure 儲存體帳戶 (透過 scriptLinkedService 指定，名為 StorageLinkedService) 且在容器中名為 **script**。
 
-	**extendedProperties** 區段用於指定執行階段設定，該設定將會傳遞到 hive 指令碼作為 Hive 設定值 (例如 ${hiveconf:PartitionedData})。
+	**defines** 區段用於指定執行階段設定，該設定將會傳遞到 hive 指令碼作為 Hive 設定值 (例如 ${hiveconf:PartitionedData})。
 
 	管線的 **start** 和 **end** 屬性會指定管線的作用中期間。
 
@@ -274,4 +272,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

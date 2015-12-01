@@ -12,32 +12,39 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/03/2015"
+	ms.date="11/17/2015"
 	ms.author="awills"/>
 
 # 適用 JavaScript Web 應用程式的 Application Insights
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-了解網頁的效能和使用量。將 Visual Studio Application Insights 加入至您的頁面，您會了解您擁有多少使用者、他們回來的頻率，以及他們最常使用哪些頁面。您也可以取得載入時間和任何例外狀況的報告。加入幾個[自訂事件和度量][track]，您就可以詳細分析最受歡迎的功能、最常見的錯誤，並調整頁面以滿足使用者的需求。
+了解網頁的效能和使用量。將 Visual Studio Application Insights 加入至您的頁面，您會了解您擁有多少使用者、他們回來的頻率，以及他們最常使用哪些頁面。您也可以取得載入時間和任何例外狀況的報告。加入幾個[自訂事件和度量](app-insights-api-custom-events-metrics.md)，您就可以詳細分析最受歡迎的功能、最常見的錯誤，並調整頁面以滿足使用者的需求。
 
 ![選擇 [新增]、[開發人員服務]、[Application Insights]。](./media/app-insights-javascript/16-page-views.png)
 
-如果您已經針對 [ASP.NET][greenbrown] 或 [Java][java] Web 應用程式設定伺服器遙測，就會取得用戶端和伺服器角度的圖片。兩個資料流會在 Application Insights 入口網站中整合。
+如果您已經針對 [ASP.NET](app-insights-asp-net.md) 或 [Java](app-insights-java-get-started.md) Web 應用程式設定伺服器遙測，就會取得用戶端和伺服器角度的圖片。兩個資料流會在 Application Insights 入口網站中整合。
 
 #### 快速示範
 
 如果您沒有 Azure 訂用帳戶而想要在您的網頁上試用 Application Insights，請造訪[試用 Application Insights](http://aka.ms/ainow)。
 
-## 建立 Application Insights 資源
+## 開啟 Application Insights 資源
 
 Application Insights 資源是您的頁面的效能和使用量相關資料顯示的位置。(如果您已經建立資源，或許會從您的 Web 伺服器收集資料，略過此步驟)。
 
-在 [Azure 入口網站](http://portal.azure.com) 中，建立新的 Application Insights 資源：
+登入 [Azure 入口網站](http://portal.azure.com)。
+
+如果您已經設定好應用程式伺服器端的監視，您已經擁有資源：
+
+![選擇 [瀏覽]、[開發人員服務]、[Application Insights]。](./media/app-insights-javascript/01-find.png)
+
+如果您沒有資源，請建立資源：
 
 ![選擇 [新增]、[開發人員服務]、[Application Insights]。](./media/app-insights-javascript/01-create.png)
 
-*已經有問題了嗎？* [建立資源的詳細資訊][new]。
+
+*已經有問題了嗎？* [建立資源的詳細資訊](app-insights-create-new-resource.md)。
 
 
 ## 將 SDK 指令碼加入至您的應用程式或網頁
@@ -72,7 +79,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 ![](./media/app-insights-javascript/05-browser-page-load.png)
 
 
-*仍沒有資料？ 按一下頁面頂端的 [**重新整理**]。仍然沒有嗎？ 請參閱[疑難排解][qna]。*
+*仍沒有資料？ 按一下頁面頂端的 [**重新整理**]。仍然沒有嗎？ 請參閱[疑難排解](app-insights-troubleshoot-faq.md)。*
 
 按一下該圖表，您會取得更詳細的版本：
 
@@ -143,9 +150,9 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 選取任一事件以查看詳細資料。在詳細資料頁面中，按一下 "..." 來查看更多詳細資料。
 
-> [AZURE.NOTE]如果您使用[搜尋][diagnostic]，請注意，您必須比對完整字詞："Abou" 和 "bout" 與 "About" 不相符，但是 "Abou* " 相符。此外，您不能將萬用字元當做搜尋詞彙的開頭。例如，搜尋 "*bou" 將無法與 "About" 相符。
+> [AZURE.NOTE]如果您使用[搜尋](app-insights-diagnostic-search.md)，請注意，您必須比對完整字詞："Abou" 和 "bout" 與 "About" 不相符，但是 "Abou* " 相符。此外，您不能將萬用字元當做搜尋詞彙的開頭。例如，搜尋 "*bou" 將無法與 "About" 相符。
 
-> [深入了解診斷搜尋][diagnostic]
+> [深入了解診斷搜尋](app-insights-diagnostic-search.md)
 
 ### 頁面檢視屬性
 
@@ -155,16 +162,20 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 想要了解使用者如何使用您的應用程式嗎？ 在您的用戶端和伺服器程式碼中插入呼叫，可以將您自己的遙測傳送至 Application Insights。例如，您可以了解雖然建立訂單但未完成的使用者數目、最常發生的驗證錯誤，或遊戲中的平均分數。
 
-* [深入了解自訂事件和度量 API][track]。
+* [深入了解自訂事件和計量 API](app-insights-api-custom-events-metrics.md)。
 * [API 參考資料](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## 伺服器遙測
 
-如果您尚未這樣做，您可以從您的伺服器取得詳細資料，並且與用戶端的資料一同顯示，讓您評估伺服器的效能和診斷任何問題。
+如果您尚未這樣做，您可以從您的伺服器取得詳細資料，並且與用戶端的資料一同顯示，讓您評估伺服器的效能和診斷任何問題。只要將 Application Insights SDK 加入至應用程式：
 
-* [將 Application Insights 加入至 ASP.NET 應用程式][greenbrown]
-* [將 Application Insights 加入至 Java Web 應用程式][java]
+* [將 SDK 加入至 ASP.NET 應用程式](app-insights-asp-net.md)
+* [將 SDK 加入至 Java Web 應用程式](app-insights-java-get-started.md)
 
+或者，如果您的 Web 應用程式已上線，您仍可新增伺服器遙測，而不必重建或重新部署：
+
+* [監視即時 ASP.NET 應用程式](app-insights-monitor-performance-live-website-now.md)
+* [監視即時 Java 應用程式](app-insights-java-live.md)
 
 ## <a name="video"></a>影片：追蹤使用量
 
@@ -172,18 +183,8 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 ## <a name="next"></a> 後續步驟
 
-[使用事件和度量來追蹤使用量][track]
+* [追蹤流量](app-insights-web-track-usage.md)
+* [自訂事件和計量](app-insights-api-custom-events-metrics.md)
+* [Build-measure-learn](app-insights-overview-usage.md)
 
-
-
-
-<!--Link references-->
-
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[new]: app-insights-create-new-resource.md
-[qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-api-custom-events-metrics.md
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -18,23 +18,19 @@
 
 #建立 iOS 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 
-本教學課程會示範如何使用 Azure 的行動裝置應用程式後端，將雲端型後端服務加入 iOS 行動應用程式。您將建立新的行動應用程式後端，以及在 Azure 中儲存應用程式資料的簡單 _Todo 清單_ iOS 應用程式。
+本教學課程說明如何將雲端型後端服務 ([Azure Mobile Apps](app-service-mobile-value-prop.md)) 使用於 iOS 行動應用程式。您將建立新的行動後端並使用在 Azure 中儲存應用程式資料的簡單「Todo 清單」iOS 應用程式。
 
-對於在 Azure App Service 中使用 Mobile Apps 功能的所有其他 iOS 教學課程，完成本教學課程是必要條件。
-
-## 先決條件
+## 必要條件
 
 若要完成此教學課程，您需要下列項目：
 
 * [使用中的 Azure 帳戶](http://azure.microsoft.com/pricing/free-trial/)
 
-* 具有 [Visual Studio Community 2013] 或更新版本的電腦。
+* 具有 [Visual Studio Community 2013] 或更新版本的電腦
 
 * 具有 Xcode v7.0 或更新版本的 Mac 電腦
 
@@ -42,7 +38,11 @@
 
 ## 建立新的 Azure 行動應用程式後端
 
+依照下列步驟建立新的行動應用程式後端。
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+您現在已佈建 Azure 行動應用程式後端，可供您的行動用戶端應用程式使用。接下來，您將下載簡易「待辦事項清單」後端的伺服器專案，然後將專案發佈至 Azure。
 
 ## 下載伺服器專案
 
@@ -50,11 +50,10 @@
 
 2. 在 [行動應用程式] 刀鋒視窗中，按一下 [設定]，然後在 [行動應用程式] 底下按一下 [快速入門] > [iOS (Objective-C)]。如果您偏好使用 Swift，請改為按一下 [快速入門] > [iOS (Swift)]。
 
-3. 在 [下載並執行您的伺服器專案] 底下，按一下 [下載]。將壓縮的專案檔案解壓縮至您的電腦，並在 Visual Studio 中開啟方案。
+## 設定伺服器專案
 
-## 將伺服器專案發佈至 Azure
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ## 下載並執行 iOS 應用程式
 
@@ -68,4 +67,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/19/2015"
    ms.author="lodipalm;barbkess"/>
 
-# 使用 Azure Preview 入口網站建立 SQL 資料倉儲#
+# 建立 SQL 資料倉儲
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-data-warehouse-get-started-provision.md)
@@ -46,14 +46,10 @@
 
 
 ## 步驟 2：設定並建立伺服器
+
 在 SQL Database 和 SQL 資料倉儲中，每個資料庫都會指派給一部伺服器，而每部伺服器會指派給一個地理位置。此伺服器稱為邏輯 SQL Server。
 
-> [AZURE.NOTE]<a name="note"></a>邏輯 SQL Server︰
-  >
-  > + 提供一致的方式在相同的地理位置設定多個資料庫。
-  > + 不是內部部署伺服器的實體硬體。它是服務軟體的一部分。這就是為什麼我們將它稱為邏輯伺服器。
-  > + 可以裝載多個資料庫，而不會影響其效能。
-  > + 在其名稱中使用小寫 *s*。SQL **s**erver 是 Azure 邏輯伺服器，而 SQL **S**erver 則是 Microsoft 的內部部署資料庫產品。
+> [AZURE.NOTE]<a name="note"></a>邏輯 SQL Server︰ > > + 提供一致的方式在相同的地理位置設定多個資料庫。> + 不是內部部署伺服器的實體硬體。它是服務軟體的一部分。這就是為什麼我們將它稱為邏輯伺服器。 > + 可以裝載多個資料庫，而不會影響其效能。 > + 在其名稱中使用小寫 *s*。SQL **s**erver 是 Azure 邏輯伺服器，而 SQL **S**erver 則是 Microsoft 的內部部署資料庫產品。
 
 1. 按一下 [伺服器] > [建立新伺服器]。伺服器不會收取費用。如果您已經有想要使用的 V12 邏輯 SQL 伺服器，請選擇現有的伺服器，然後移至下一個步驟。 
 
@@ -75,6 +71,7 @@
     ![設定新的伺服器](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
 ## 步驟 3：設定並建立資料庫
+
 您現已選取您的邏輯 SQL 伺服器，所以您準備要完成資料庫的建立。
  
 2. 在 [SQL 資料倉儲] 刀鋒視窗中，填入其餘欄位。 
@@ -103,6 +100,7 @@
 
 
 ## 步驟 4：設定您的用戶端 IP 的伺服器防火牆存取權
+
 若要從目前的 IP 位址連接到伺服器，請將您的用戶端 IP 位址加入防火牆規則。此步驟說明如何執行該作業。
 
 1. 按一下 [瀏覽] > [SQL Server] > 選擇您的伺服器 > [設定] > [防火牆]。
@@ -123,9 +121,8 @@
 
 您現已設定防火牆，所以能夠從桌面連接到您剛才建立的 Azure SQL 資料倉儲資料庫。
 
-
 ## 後續步驟
 
 既然您已建立 SQL 資料倉儲的範例資料庫，表示已準備好[連接](./sql-data-warehouse-get-started-connect.md)到您的資料庫。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

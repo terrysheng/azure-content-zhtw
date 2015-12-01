@@ -19,9 +19,7 @@
 
 #建立 HTML 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
 >[AZURE.IMPORTANT]Mobile Apps 目前不支援本主題，因為 HTML/JavaScript 應用程式的快速入門已暫時從 Azure 入口網站移除。我們計劃在不久的將來將它加回來。在我們完成 Mobile Apps 預覽版的同時，感謝您的耐心等候。
 
@@ -43,15 +41,19 @@
 
 * [Visual Studio Community 2013] 或更新版本。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)，即可在 App Service 中立即建立短期入門行動應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)，即可在 App Service 中立即建立短期入門行動應用程式。不需要信用卡；無需承諾。
 
 ##建立新的行動應用程式後端
 
+依照下列步驟建立新的行動應用程式後端。
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+您現在已佈建 Azure 行動應用程式後端，可供您的行動用戶端應用程式使用。接下來，您將下載簡易「待辦事項清單」後端的伺服器專案，然後將專案發佈至 Azure。
 
 ## 下載伺服器專案
 
-1. 在 [Azure 入口網站中]，按一下 [全部瀏覽] > [Web Apps]，然後按一下您剛建立的 Mobile Apps 後端。 
+1. 在 [Azure 入口網站中]，按一下 [全部瀏覽] > [Web Apps]，然後按一下您剛建立的行動應用程式後端。 
 
 2. 在行動應用程式後端中，按一下 [所有設定]，並在 [行動應用程式] 底下按一下 [快速入門] > [HTML/JavaScript]。
 
@@ -73,7 +75,7 @@
 
 		using System.Web.Http.Cors;
 
-3. 接下來，在建立 **HttpConfiguration** (*config*) 之後，將下列程式碼加入 **Startup.ConfigureMobileApp** 方法︰
+3. 接下來，在建立 **HttpConfiguration** (config) 之後，將下列程式碼加入 **Startup.ConfigureMobileApp** 方法︰
 
         // Enable CORS support for localhost port 8000, all headers and methods.
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
@@ -123,4 +125,4 @@
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

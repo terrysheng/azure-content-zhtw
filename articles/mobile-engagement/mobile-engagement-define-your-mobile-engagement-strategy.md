@@ -117,6 +117,9 @@
 
 ### 後續步驟
 - 請瀏覽 [Mobile Engagement 概念]，進一步了解 Mobile Engagement 基本概念。
+- 請瀏覽[最佳作法](mobile-engagement-getting-started-best-practices.md)以取得詳細資料
+- 請瀏覽[遊戲應用程式案例](mobile-engagement-gaming-scenario.md)來了解如何使用範例遊戲應用程式實作 Mobile Engagement。 
+- 請瀏覽[媒體應用程式案例](mobile-engagement-media-scenario.md)來了解如何使用範例媒體應用程式實作 Mobile Engagement。 
 - 請瀏覽[教學課程] (英文)，進一步了解實作。
 
 <!-- Images. -->
@@ -127,4 +130,4 @@
 [Mobile Engagement 概念]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [教學課程]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

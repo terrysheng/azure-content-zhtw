@@ -3,7 +3,7 @@
 	description="了解如何將 Node.js 應用程式部署到 Azure App Service 中的 Web 應用程式。"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # 在 Azure App Service 中建立 Node.js Web 應用程式
 
@@ -49,7 +49,7 @@
 
 [Git](http://git-scm.com/%20target="_blank) 是一個您可用來部署 Azure 網站的分散式版本控制系統。您將會在本機 Git 儲存機制中儲存您為 Web 應用程式撰寫的程式碼，並藉由發送至遠端儲存機制，將您的程式碼部署至 Azure。此部署方法是 App Service Web Apps 的功能。
 
-1. 登入 [AAzure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
 
 2. 按一下入口網站左上方的 [+新增] 圖示。
 
@@ -101,7 +101,7 @@
 	
 	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 
-14. 在 [Web 應用程式] 刀鋒視窗中，按一下 [設定]，然後按一下 [內容]。
+14. 在 [Web 應用程式] 刀鋒視窗中，按一下 [設定]，然後按一下 [屬性]。
  
 	若要發佈，您將推送至遠端 Git 儲存機制。儲存機制的 URL 列示在 **GIT URL** 下方。您稍後將在教學課程中使用此 URL。
 
@@ -113,7 +113,7 @@
 
 1. 建立名為 *helloworld* 的目錄。
 
-2. 使用文字編輯器，在 *helloworld* 目錄中建立名為 **server.js** 的新檔案。
+2. 使用文字編輯器，在「helloworld」目錄中建立名為 **server.js** 的新檔案。
 
 2. 將下列程式碼複製至 **server.js** 檔案，然後儲存該檔案：
 
@@ -224,4 +224,4 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

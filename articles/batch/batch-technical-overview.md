@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 批次技術概觀 | Microsoft Azure"
+	pageTitle="Azure Batch 服務基本概念 | Microsoft Azure"
 	description="了解適用於大規模的平行和 HPC 工作負載之 Azure Batch 服務的概念、工作流程及案例"
 	services="batch"
 	documentationCenter=""
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/19/2015"
 	ms.author="danlep"/>
 
+# Azure Batch 的基本概念
 
-# 適用於大規模的平行和 HPC 工作負載的 Azure Batch 技術概觀
 Azure 批次可協助您在雲端中，有效執行大規模的平行和高效能運算 (HPC) 應用程式。它是一項平台服務，可排程要在受管理的虛擬機器 (計算節點) 集合上執行的計算密集型工作，而且可以調整計算資源以符合工作的需求。利用 Batch 服務，您可以程式設計方式定義 Azure 計算資源以及隨需求或依排程執行的大型批次工作，而不需要手動設定和管理 HPC 叢集、個別的 VM、虛擬網路或工作排程器。
 
 ## 使用案例
 
-Batch 是一項受管理的服務，可用於*批次處理* 或*批次運算* - 執行大量的類似工作以得到期望的結果。在依排程或隨需求而處理、轉換和分析大量資料的組織中，批次運算是一種常見的模式，其範例涵蓋於金融服務以至工程設計等領域。
+Batch 是一項受管理的服務，可用於「批次處理」或「批次運算」- 執行大量的類似工作以得到期望的結果。在依排程或隨需求而處理、轉換和分析大量資料的組織中，批次運算是一種常見的模式，其範例涵蓋於金融服務以至工程設計等領域。
 
 批次很適合處理本質上平行 (有時稱為「窘迫平行」) 的應用程式或工作負載，而這些本身就適合在多部電腦上以平行工作執行。請參閱 [圖 1]。
 
@@ -48,7 +48,7 @@ Batch 也可以執行平行計算 (最後加上歸納步驟)，以及其他更�
 
 使用 Batch API 進行開發，以建立和管理計算節點集區，以及排程在其上執行的作業及工作。撰寫用戶端應用程式和前端來隨選、排程，或在較大工作流程的過程中執行作業和工作，例如 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)。
 
-如需有關批次概念的詳細資訊，請參閱 [Azure 批次的 API 基本概念](batch-api-basics.md)。
+如需有關 Batch 概念的詳細資訊，請參閱 [Azure Batch 功能概觀](batch-api-basics.md)。
 
 ### 您必須備妥的帳戶
 
@@ -103,4 +103,4 @@ Batch API 的常見案例包括相應放大本質平行工作，例如計算節�
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

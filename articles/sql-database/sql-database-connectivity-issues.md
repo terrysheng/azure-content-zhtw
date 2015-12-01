@@ -31,7 +31,7 @@
 暫時性錯誤是根本原因很快就自行解決的錯誤。當 Azure 系統快速地將硬體資源轉移到負載平衡更好的各種工作負載時，偶爾會發生暫時性錯誤。在此重新設定時間範圍期間，與 Azure SQL Database的連接可能會失去。
 
 
-如果用戶端程式使用 ADO.NET，系統會擲回 **SqlException**，告知您的程式發生暫時性錯誤。**數目**屬性可以與主題頂端附近的暫時性錯誤清單進行比較：[SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages)。
+如果用戶端程式使用 ADO.NET，系統會擲回 **SqlException**，告知您的程式發生暫時性錯誤。**數目**屬性可以與主題頂端附近的暫時性錯誤清單進行比較：[SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)。
 
 
 ### 連接與命令
@@ -94,7 +94,7 @@
 
 各種程式設計語言中具有重試邏輯的程式碼範例位於：
 
-- [快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md) 
+- [快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，可將新增重試行為的工作簡化為幾乎一切事物。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

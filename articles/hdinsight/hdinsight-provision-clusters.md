@@ -256,7 +256,7 @@
 
 ## 使用預覽入口網站建立
 
-您可以參考 [基本組態選項][](#basic-configuration-options) 和 [進階組態選項][](#advanced-configuration-options) 以取得有關欄位的說明。
+您可以參考 [基本組態選項](#basic-configuration-options) 和 [進階組態選項](#advanced-configuration-options) 以取得有關欄位的說明。
 
 **建立 HDInsight 叢集**
 
@@ -745,4 +745,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

@@ -96,7 +96,6 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 <td>ValidationRetry</td><td>正在等待重試驗證。</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>驗證進行中。</td>
 </tr>
 <td></td>
@@ -498,7 +497,9 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
  
 以適當的值取代上述範例中的 subscriptionId、resourceGroupName、和 dataFactoryName。
 
-*metricName* 目前支援 2 個值：- FailedRuns - SuccessfulRuns
+*metricName* 目前支援 2 個值：
+- FailedRuns
+- SuccessfulRuns
 
 **部署警示：**
 
@@ -522,4 +523,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 	Parameters        :
 	Outputs           
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

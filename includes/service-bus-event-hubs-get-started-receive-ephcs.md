@@ -42,7 +42,8 @@
 
 	接著，將該類別的主體取代為下列程式碼：
 
-		class SimpleEventProcessor : IEventProcessor
+	```
+	class SimpleEventProcessor : IEventProcessor
 	    {
 	        Stopwatch checkpointStopWatch;
 
@@ -80,7 +81,8 @@
                 this.checkpointStopWatch.Restart();
             }
 	    }
-	} ````
+	}
+    ````
 
 	**EventProcessorHost** 會呼叫這個類別來處理接收自事件中樞的事件。請注意，`SimpleEventProcessor` 類別會使用馬錶定期在 **EventProcessorHost** 內容上呼叫檢查點方法。這可確保重新啟動接收者時，遺失的處理工作不超過五分鐘。
 
@@ -94,11 +96,25 @@
 
 	然後，如下所示修改 **Program** 類別的 **Main** 方法，替代事件中樞名稱和連接字串，以及您在先前各節中複製的儲存體帳戶和金鑰：
 
-    ``` static void Main(string args) { string eventHubConnectionString = "{event hub connection string}"; string eventHubName = "{event hub name}"; string storageAccountName = "{storage account name}"; string storageAccountKey = "{storage account key}"; string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+    ```
+	static void Main(string[] args)
+    {
+      string eventHubConnectionString = "{event hub connection string}";
+      string eventHubName = "{event hub name}";
+      string storageAccountName = "{storage account name}";
+      string storageAccountKey = "{storage account key}";
+      string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
-      string eventProcessorHostName = Guid.NewGuid().ToString(); EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString); Console.WriteLine("Registering EventProcessor..."); eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+      string eventProcessorHostName = Guid.NewGuid().ToString();
+      EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+      Console.WriteLine("Registering EventProcessor...");
+      eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
 
-      Console.WriteLine("Receiving.Press enter key to stop worker."); Console.ReadLine(); eventProcessorHost.UnregisterEventProcessorAsync().Wait(); } ````
+      Console.WriteLine("Receiving. Press enter key to stop worker.");
+      Console.ReadLine();
+      eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+    }
+	````
 
 > [AZURE.NOTE]本教學課程使用單一 [EventProcessorHost][] 執行個體。若要增加輸送量，建議您執行多個 [EventProcessorHost][] 執行個體 (如[擴充事件處理]範例所示)。在這些情況下，各種執行個體會自動彼此協調以對已接收的事件進行負載平衡。如果您想要多個接收者都處理*所有*事件，則必須使用 **ConsumerGroup** 概念。收到來自不同電腦的事件時，根據在其中執行 [EventProcessorHost][] 執行個體的電腦 (或角色) 來指定名稱可能十分有用。如需這些主題的詳細資訊，請參閱[事件中樞概觀][]和[事件中樞程式設計指南][]主題。
 
@@ -117,4 +133,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

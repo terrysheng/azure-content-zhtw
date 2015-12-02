@@ -31,7 +31,7 @@
 
 應用程式和服務的類別 (或「類型」) 是使用 XML 檔案 (應用程式資訊清單和服務資訊清單) 來加以說明，該檔案是應用程式可以針對它具現化的範本。不同應用程式執行個體的程式碼會執行為個別的程序，即使是由相同的 Service Fabric 節點所裝載。此外，每個應用程式執行個體的生命週期可以獨立進行管理 (也就是升級)。下圖顯示應用程式類型如何由服務類型組成，依序分別為程式碼、組態和封裝的組成。
 
-![Service Fabric ApplicationTypes 和 ServiceTypes][圖 1]
+![Service Fabric ApplicationTypes 和 ServiceTypes][Image1]
 
 兩個不同的資訊清單檔案用來說明應用程式和服務：服務資訊清單和應用程式資訊清單，後續章節中有詳細說明。
 
@@ -39,7 +39,7 @@
 
 下圖顯示應用程式和服務執行個體、分割和複本之間的關聯性。
 
-![服務內的分割和複本][圖 2]
+![服務內的分割和複本][Image2]
 
 
 ## 描述服務
@@ -243,4 +243,4 @@ PS D:\temp>
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!----HONumber=Nov15_HO4-->
+<!-----HONumber=Nov15_HO4-->

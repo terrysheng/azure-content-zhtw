@@ -79,6 +79,7 @@ Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 <!-- Links -->
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
+[使用 loT 中心傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
 
 [Azure Preview 入口網站]: https://portal.azure.com/
 
@@ -87,6 +88,7 @@ Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [使用 IoT 中樞傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
+[使用 loT 中心傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
 [處理裝置到雲端訊息]: iot-hub-csharp-csharp-process-d2c.md
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
 
@@ -98,4 +100,4 @@ Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

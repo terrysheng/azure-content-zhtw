@@ -863,7 +863,10 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | 要求本文 | <ins>在提供商務規3的項目識別嗎時，請務必使用項目的外部識別碼 (您用於類別目錄檔案的同一識別碼)</ins><br> <ins>新增 BlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>新增高規格規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>新增 WhiteList規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>新增 PerSeedBlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+|||
+| 要求本文 |
+<ins>在提供商務規3的項目識別嗎時，請務必使用項目的外部識別碼 (您用於類別目錄檔案的同一識別碼)</ins><br>
+<ins>新增 BlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>新增高規格規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>新增 WhiteList規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>新增 PerSeedBlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **回應**：
 
@@ -977,7 +980,9 @@ HTTP 狀態碼：200
 
 HTTP 狀態碼：200
 
-API 會傳回匯入的報表。- `feed\entry\content\properties\LineCount` – 已接受的行數。- `feed\entry\content\properties\ErrorCount` – 因錯誤而未插入的行數。
+API 會傳回匯入的報表。
+- `feed\entry\content\properties\LineCount` – 已接受的行數。
+- `feed\entry\content\properties\ErrorCount` – 因錯誤而未插入的行數。
 
 OData XML
 
@@ -1492,7 +1497,24 @@ OData XML
 
 HTTP 狀態碼：200
 
-回應會以原始文字格式傳回：<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
+回應會以原始文字格式傳回：
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+</pre>
 
 
 ###9\.5.取得模型使用方式檔案
@@ -1515,7 +1537,42 @@ HTTP 狀態碼：200
 
 HTTP 狀態碼：200
 
-回應會以原始文字格式傳回：<pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
+回應會以原始文字格式傳回：
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+</pre>
 
 ###9\.6.刪除使用方式檔案
 刪除指定的模型使用方式檔案。
@@ -1726,9 +1783,19 @@ OData
 
   本節說明和組建相關的不同 API。有 3 個類型的組建：建議組建、排名組建和 FBT (通常會一起購買) 組建。
 
-建議組建的用途是產生用於預測的建議模型。這種組建類型的預測可分為兩種類別：* I2I - 又稱為項目對項目的建議 - 這個選項會根據指定的一個項目或項目清單，來預測可能高度感興趣的項目清單。* U2I - 又稱為使用者對項目的建議 - 這個選項會根據指定的使用者識別碼 (及選擇性的項目清單)，來預測指定使用者 (及針對額外選擇的項目) 可能高度感興趣的項目清單。U2I 建議是根據使用者在建置模型前感興趣之項目的歷程記錄。
+建議組建的用途是產生用於預測的建議模型。這種組建類型的預測可分為兩種類別：
+* I2I - 又稱為項目對項目的建議 - 這個選項會根據指定的一個項目或項目清單，來預測可能高度感興趣的項目清單。
+* U2I - 又稱為使用者對項目的建議 - 這個選項會根據指定的使用者識別碼 (及選擇性的項目清單)，來預測指定使用者 (及針對額外選擇的項目) 可能高度感興趣的項目清單。U2I 建議是根據使用者在建置模型前感興趣之項目的歷程記錄。
 
-排名組建為技術組建，可讓您了解功能的效益。通常，若要取得包含功能之建議模型的最佳結果，您應該採取下列步驟：- 觸發排名組建 (除非功能的分數很穩定)，並等待直到取得功能分數。- 藉由呼叫 [取得功能資訊](#101-get-features-info-for-last-rank-build) API 擷取功能的排名。- 以下列參數設定建議組建：- `useFeatureInModel` - 設定為 True。- `ModelingFeatureList` - 設定為分數 2.0 以上的逗號分隔功能清單 (根據您在上一個步驟中擷取到的排名)。- `AllowColdItemPlacement` - 設定為 True。- 您可以選擇性地設定 `EnableFeatureCorrelation` 為 True 和 `ReasoningFeatureList` 設定為您想要用於說明的功能清單 (通常是使用於模型化的相同功能清單或子清單)。- 以設定的參數觸發建議組建。
+排名組建為技術組建，可讓您了解功能的效益。通常，若要取得包含功能之建議模型的最佳結果，您應該採取下列步驟：
+- 觸發排名組建 (除非功能的分數很穩定)，並等待直到取得功能分數。
+- 藉由呼叫 [取得功能資訊](#101-get-features-info-for-last-rank-build) API 擷取功能的排名。
+- 以下列參數設定建議組建：
+	- `useFeatureInModel` - 設定為 True。
+	- `ModelingFeatureList` - 設定為分數 2.0 以上的逗號分隔功能清單 (根據您在上一個步驟中擷取到的排名)。
+	- `AllowColdItemPlacement` - 設定為 True。
+	- 您可以選擇性地設定 `EnableFeatureCorrelation` 為 True 和 `ReasoningFeatureList` 設定為您想要用於說明的功能清單 (通常是使用於模型化的相同功能清單或子清單)。
+- 以設定的參數觸發建議組建。
 
 注意：如果您未設定任何參數 (例如叫用不含參數的建議組建) 或您沒有明確停用功能的使用方式 (例如 `UseFeatureInModel` 設為 False)，系統將會在排名組建存在時，將與功能相關的參數設定為上述的說明值。
 
@@ -1979,9 +2046,18 @@ HTTP 狀態碼：200
 - `feed/entry/content/properties/ExecutionTime` – 組建持續時間。
 - `feed/entry/content/properties/ProgressStep` – 正在進行中組建的目前階段相關詳細資料。
 
-有效的組建狀態：- 已建立 – 已建立組建要求項目。已排入佇列 – 組建要求已觸發並已排入佇列。建置中 – 組建進行中。- 成功 – 建置成功結束。- 錯誤 – 組建已結束但發生失敗。- 已取消 – 組建已取消。- 取消中 – 正在取消組建。
+有效的組建狀態：
+- 已建立 – 已建立組建要求項目。
+- 已排入佇列 – 組建要求已觸發並已排入佇列。
+- 建置中 – 組建進行中。
+- 成功 – 建置成功結束。
+- 錯誤 – 組建已結束但發生失敗。
+- 已取消 – 組建已取消。
+- 取消中 – 正在取消組建。
 
-組建類型的有效值：- Rank - 排名組建。- Recommendation - 建議組建。
+組建類型的有效值：
+- Rank - 排名組建。
+- Recommendation - 建議組建。
 
 
 OData XML
@@ -2054,10 +2130,19 @@ HTTP 狀態碼：200
 - `feed/entry/content/properties/ExecutionTime` – 組建持續時間。
 - `feed/entry/content/properties/ProgressStep` – 正在進行中組建的目前階段相關詳細資料。
 
-有效的組建狀態：- 已建立 – 已建立組建要求項目。已排入佇列 – 組建要求已觸發並已排入佇列。建置中 – 組建進行中。- 成功 – 建置成功結束。- 錯誤 – 組建已結束但發生失敗。- 已取消 – 組建已取消。- 取消中 – 正在取消組建。
+有效的組建狀態：
+- 已建立 – 已建立組建要求項目。
+- 已排入佇列 – 組建要求已觸發並已排入佇列。
+- 建置中 – 組建進行中。
+- 成功 – 建置成功結束。
+- 錯誤 – 組建已結束但發生失敗。
+- 已取消 – 組建已取消。
+- 取消中 – 正在取消組建。
 
 
-組建類型的有效值：- Rank - 排名組建。- Recommendation - 建議組建。
+組建類型的有效值：
+- Rank - 排名組建。
+- Recommendation - 建議組建。
 
 
 OData XML
@@ -2146,7 +2231,9 @@ HTTP 狀態碼：200
 
 HTTP 狀態碼：200
 
-此 API 會傳回索引鍵/值項目的集合。每個項目都代表參數和它的值：- `feed/entry/content/properties/Key` – 組建參數名稱。- `feed/entry/content/properties/Value` – 組建參數值。
+此 API 會傳回索引鍵/值項目的集合。每個項目都代表參數和它的值：
+- `feed/entry/content/properties/Key` – 組建參數名稱。
+- `feed/entry/content/properties/Value` – 組建參數值。
 
 下表描述每個索引鍵表示的值。
 
@@ -2356,7 +2443,11 @@ OData XML
 HTTP 狀態碼：200
 
 
-回應會包含每個建議項目的一個項目。每個項目具有下列資料：- `Feed\entry\content\properties\Id` – 建議項目識別碼。- `Feed\entry\content\properties\Name` – 項目的名稱。- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
+回應會包含每個建議項目的一個項目。每個項目具有下列資料：
+- `Feed\entry\content\properties\Id` – 建議項目識別碼。
+- `Feed\entry\content\properties\Name` – 項目的名稱。
+- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。
+- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
 
 以下範例回應包含 10 個建議項目。
 
@@ -2533,7 +2624,11 @@ OData XML
 HTTP 狀態碼：200
 
 
-回應會包含每個建議項目的一個項目。每個項目具有下列資料：- `Feed\entry\content\properties\Id` – 建議項目識別碼。- `Feed\entry\content\properties\Name` – 項目的名稱。- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
+回應會包含每個建議項目的一個項目。每個項目具有下列資料：
+- `Feed\entry\content\properties\Id` – 建議項目識別碼。
+- `Feed\entry\content\properties\Name` – 項目的名稱。
+- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。
+- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
 
 請參閱 12.1 中的回應範例
 
@@ -2559,7 +2654,13 @@ HTTP 狀態碼：200
 HTTP 狀態碼：200
 
 
-回應會包含每個建議項目集 (通常會與種子/輸入項目一起購買的一組項目) 的一個項目。每個項目具有下列資料：- `Feed\entry\content\properties\Id1` - 建議項目識別碼。- `Feed\entry\content\properties\Name1` - 項目的名稱。- `Feed\entry\content\properties\Id2` - 第二個建議項目識別碼 (選擇性)。- `Feed\entry\content\properties\Name2` - 第二個項目的名稱 (選擇性)。- `Feed\entry\content\properties\Rating` - 建議的評等，數字越高表示信賴度越高。- `Feed\entry\content\properties\Reasoning` - 建議推論 (例如建議說明)。
+回應會包含每個建議項目集 (通常會與種子/輸入項目一起購買的一組項目) 的一個項目。每個項目具有下列資料：
+- `Feed\entry\content\properties\Id1` - 建議項目識別碼。
+- `Feed\entry\content\properties\Name1` - 項目的名稱。
+- `Feed\entry\content\properties\Id2` - 第二個建議項目識別碼 (選擇性)。
+- `Feed\entry\content\properties\Name2` - 第二個項目的名稱 (選擇性)。
+- `Feed\entry\content\properties\Rating` - 建議的評等，數字越高表示信賴度越高。
+- `Feed\entry\content\properties\Reasoning` - 建議推論 (例如建議說明)。
 
 以下範例回應包含 3 個建議項目集。
 
@@ -2645,7 +2746,13 @@ OData XML
 HTTP 狀態碼：200
 
 
-回應會包含每個建議項目集 (通常會與種子/輸入項目一起購買的一組項目) 的一個項目。每個項目具有下列資料：- `Feed\entry\content\properties\Id1` - 建議項目識別碼。- `Feed\entry\content\properties\Name1` - 項目的名稱。- `Feed\entry\content\properties\Id2` - 第二個建議項目識別碼 (選擇性)。- `Feed\entry\content\properties\Name2` - 第二個項目的名稱 (選擇性)。- `Feed\entry\content\properties\Rating` - 建議的評等，數字越高表示信賴度越高。- `Feed\entry\content\properties\Reasoning` - 建議推論 (例如建議說明)。
+回應會包含每個建議項目集 (通常會與種子/輸入項目一起購買的一組項目) 的一個項目。每個項目具有下列資料：
+- `Feed\entry\content\properties\Id1` - 建議項目識別碼。
+- `Feed\entry\content\properties\Name1` - 項目的名稱。
+- `Feed\entry\content\properties\Id2` - 第二個建議項目識別碼 (選擇性)。
+- `Feed\entry\content\properties\Name2` - 第二個項目的名稱 (選擇性)。
+- `Feed\entry\content\properties\Rating` - 建議的評等，數字越高表示信賴度越高。
+- `Feed\entry\content\properties\Reasoning` - 建議推論 (例如建議說明)。
 
 請參閱 12.3 中的回應範例
 
@@ -2655,7 +2762,9 @@ HTTP 狀態碼：200
 
 這個 API 會根據使用者的使用歷程記錄，傳回預測的項目清單。
 
-注意：1.FBT 組建沒有使用者建議。2.如果作用中組建是 FBT，這個方法會傳回錯誤。
+注意：
+1.FBT 組建沒有使用者建議。
+2.如果作用中組建是 FBT，這個方法會傳回錯誤。
 
 | HTTP 方法 | URI |
 |:--------|:--------|
@@ -2674,7 +2783,11 @@ HTTP 狀態碼：200
 HTTP 狀態碼：200
 
 
-回應會包含每個建議項目的一個項目。每個項目具有下列資料：- `Feed\entry\content\properties\Id` – 建議項目識別碼。- `Feed\entry\content\properties\Name` – 項目的名稱。- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
+回應會包含每個建議項目的一個項目。每個項目具有下列資料：
+- `Feed\entry\content\properties\Id` – 建議項目識別碼。
+- `Feed\entry\content\properties\Name` – 項目的名稱。
+- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。
+- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
 
 請參閱 12.1 中的回應範例
 
@@ -2705,7 +2818,11 @@ HTTP 狀態碼：200
 HTTP 狀態碼：200
 
 
-回應會包含每個建議項目的一個項目。每個項目具有下列資料：- `Feed\entry\content\properties\Id` – 建議項目識別碼。- `Feed\entry\content\properties\Name` – 項目的名稱。- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
+回應會包含每個建議項目的一個項目。每個項目具有下列資料：
+- `Feed\entry\content\properties\Id` – 建議項目識別碼。
+- `Feed\entry\content\properties\Name` – 項目的名稱。
+- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。
+- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
 
 請參閱 12.1 中的回應範例
 
@@ -2736,7 +2853,11 @@ HTTP 狀態碼：200
 HTTP 狀態碼：200
 
 
-回應會包含每個建議項目的一個項目。每個項目具有下列資料：- `Feed\entry\content\properties\Id` – 建議項目識別碼。- `Feed\entry\content\properties\Name` – 項目的名稱。- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
+回應會包含每個建議項目的一個項目。每個項目具有下列資料：
+- `Feed\entry\content\properties\Id` – 建議項目識別碼。
+- `Feed\entry\content\properties\Name` – 項目的名稱。
+- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。
+- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
 
 請參閱 12.1 中的回應範例
 
@@ -2770,7 +2891,11 @@ HTTP 狀態碼：200
 HTTP 狀態碼：200
 
 
-回應會包含每個建議項目的一個項目。每個項目具有下列資料：- `Feed\entry\content\properties\Id` – 建議項目識別碼。- `Feed\entry\content\properties\Name` – 項目的名稱。- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
+回應會包含每個建議項目的一個項目。每個項目具有下列資料：
+- `Feed\entry\content\properties\Id` – 建議項目識別碼。
+- `Feed\entry\content\properties\Name` – 項目的名稱。
+- `Feed\entry\content\properties\Rating` – 建議的評等，數字越高表示信賴度越高。
+- `Feed\entry\content\properties\Reasoning` – 建議推論 (例如建議說明)。
 
 請參閱 12.1 中的回應範例
 
@@ -2799,7 +2924,11 @@ HTTP 狀態碼：200
 
 HTTP 狀態碼：200
 
-回應會包含每個建議項目的一個項目。每個項目具有下列資料：- `Feed\entry\content\properties\Id` - 建議項目識別碼。- `Feed\entry\content\properties\Name` - 項目的名稱。- `Feed\entry\content\properties\Rating` - N/A。- `Feed\entry\content\properties\Reasoning` - N/A。
+回應會包含每個建議項目的一個項目。每個項目具有下列資料：
+- `Feed\entry\content\properties\Id` - 建議項目識別碼。
+- `Feed\entry\content\properties\Name` - 項目的名稱。
+- `Feed\entry\content\properties\Rating` - N/A。
+- `Feed\entry\content\properties\Reasoning` - N/A。
 
 OData XML
 
@@ -2928,4 +3057,4 @@ HTTP 狀態碼：200
 這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br> 此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br> 本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br> © 2015 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

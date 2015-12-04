@@ -82,7 +82,7 @@
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*、*InstanceCount* 和 *GatewaySize* 為選用參數。
+ *Description*、 *InstanceCount* 和 *GatewaySize* 為選用參數。
 
 
 **若要驗證**閘道已建立，您可以使用 `Get-AzureApplicationGateway` Cmdlet。
@@ -101,7 +101,7 @@
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]*InstanceCount* 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
+>[AZURE.NOTE]  *InstanceCount* 的預設值是 2，最大值是 10。 *GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
 
 
  因為尚未啟動閘道，所以 *Vip* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，將會建立這些項目。
@@ -420,4 +420,4 @@
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

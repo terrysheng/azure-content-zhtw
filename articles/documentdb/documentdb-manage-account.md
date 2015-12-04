@@ -30,9 +30,9 @@
 
 ### 在 Azure Preview 入口網站中檢視並複製存取金鑰
 
-1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。 
+1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
-2.      在 [摘要] 透鏡中按一下 [金鑰]。
+2.      在 [摘要] 透鏡中按一下 [金鑰]。
 
 3.      在 [金鑰] 刀鋒視窗中，按一下要複製之金鑰旁的 [複製] 按鈕。
 
@@ -75,17 +75,17 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 ### 指定 DocumentDB 帳戶的預設一致性
 
-1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取您的 DocumentDB 帳戶。 
+1.      在 [Azure Preview 入口網站](https://portal.azure.com/)中，存取您的 DocumentDB 帳戶。 
 
-2.      在 [**組態**] 透鏡中，按一下 [**預設一致性**]。
+2.      在 [**組態**] 透鏡中，按一下 [**預設一致性**]。
 
-3.      在 [**預設一致性**] 刀鋒視窗中，選取 DocumentDB 帳戶的預設一致性層級。
+3.      在 [**預設一致性**] 刀鋒視窗中，選取 DocumentDB 帳戶的預設一致性層級。
 
 ![預設一致性工作階段](./media/documentdb-manage-account/image005.png)
 
 ![預設一致性界限](./media/documentdb-manage-account/image006.png)
 
-4.      按一下 [儲存]。
+4.      按一下 [儲存]。
 
 5.      透過 Azure Preview 入口網站通知中樞可監視作業的進度。
 
@@ -113,4 +113,4 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
  
  
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

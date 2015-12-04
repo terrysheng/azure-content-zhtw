@@ -88,11 +88,25 @@ Service Fabric 能夠保護在叢集中以不同的使用者帳戶執行 (稱為
 
 ![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][Image1]
 
-現在開啟 MySetup.bat 檔案並加入下列命令。~~~ REM Set a system environment variable.This requires administrator privilege setx -m TestVariable "MyValue" echo System TestVariable set to > test.txt echo %TestVariable% >> test.txt
+現在開啟 MySetup.bat 檔案並加入下列命令。
+~~~
+REM Set a system environment variable.This requires administrator privilege
+setx -m TestVariable "MyValue"
+echo System TestVariable set to > test.txt
+echo %TestVariable% >> test.txt
 
-REM To delete this system variable us REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f ~~~
+REM To delete this system variable us
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+~~~
 
-接下來建置解決方案並部署至本機開發叢集。一旦啟動服務，如在 Service Fabric 總管中所見，您可以看到 MySetup.bat 成功的方式有兩種。開啟 PowerShell 命令提示字元並輸入 ~~~ [Environment]::GetEnvironmentVariable("TestVariable","Machine") ~~~ Like this ~~~ PS C:\\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue ~~~
+接下來建置解決方案並部署至本機開發叢集。一旦啟動服務，如在 Service Fabric 總管中所見，您可以看到 MySetup.bat 成功的方式有兩種。開啟 PowerShell 命令提示字元並輸入
+~~~
+ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+~~~
+Like this
+~~~
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+~~~
 
 接著，在 Service Fabric 總管中記下部署和啟動服務的節點名稱 (例如節點 1)，然後瀏覽至應用程式執行個體工作資料夾，尋找可顯示 **TestVariable** 值的 out.txt 檔案。例如，如果此服務已部署至節點 2，您可以移至 MyApplicationType 的這個路徑
 
@@ -103,9 +117,16 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  從 SetupEntryPoint 啟動 PowerShell 命令
 若要從 **SetupEntryPoint** 執行Power Shell，您可以在指向 PowerShell 檔案的批次檔中執行 PowerShell.exe。先將 PowerShell 檔案加入至服務專案 (例如 MySetup.ps1)。請記得設定 [有更新時才複製] 屬性，讓這個檔案也包含在服務封裝內。下列範例顯示的範例批次檔可啟動名為 MySetup.ps1 的 PowerShell 檔案，以設定名為 *TestVariable* 的系統環境變數。
 
-用以啟動 PowerShell 檔案的 MySetup.bat。~~~ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1" ~~~
+用以啟動 PowerShell 檔案的 MySetup.bat。
+~~~
+powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+~~~
 
-在 PowerShell 檔案中加入下列內容以設定系統環境變數 ~~~ [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine") [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt ~~~
+在 PowerShell 檔案中加入下列內容以設定系統環境變數
+~~~
+[Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
+[Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
+~~~
 
 ## 將 RunAs 原則套用到服務 
 在上述步驟中，您會看到如何將 RunAs 原則套用到 SetupEntryPoint。讓我們深入了解如何建立可當作服務原則套用的不同主體。
@@ -266,4 +287,4 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 
 [Image1]: media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

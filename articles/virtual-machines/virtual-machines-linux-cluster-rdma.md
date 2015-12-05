@@ -368,6 +368,6 @@ cluster12
 
 * 嘗試在 Linux 叢集上部署並執行 Linux MPI 應用程式。
 
-* 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-TW/articles/intel-mpi-library-documentation/)＞。
+* 如需 Intel MPI 的指引，請參閱 [Intel MPI Library 文件](https://software.intel.com/zh-TW/articles/intel-mpi-library-documentation/)。
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

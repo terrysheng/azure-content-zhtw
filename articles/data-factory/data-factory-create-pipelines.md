@@ -232,8 +232,8 @@ outputs | 活動所使用的輸出資料表。<p>// 一個輸出資料表<br/>"o
 linkedServiceName | 活動所使用的連結服務名稱。<p>活動可能會要求您指定可連結至所需運算環境的連結服務。</p> | 是：適用於 HDInsight 活動和 Azure Machine Learning Batch 評分活動 <p>否：所有其他活動</p>
 typeProperties | TypeProperties 區段中的屬性會視活動的類型而定。若要深入了解，請參閱各個活動的相關文章 |否
 policy | 會影響活動之執行階段行為的原則。如果未指定，則會使用預設原則。向下捲動以取得詳細資訊 |否
-start | 管線的開始日期時間。必須使用 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。管線的 start 和 end 屬性共同指定管線的作用中期間。輸出配量只會在此作用中期間內產生。 | 否<p>使用 Set-AzureDataFactoryPipelineActivePeriod Cmdlet 也可以設定管線的作用中期間</p>
-End | 管線的結束日期時間。如果已指定，則必須使用 ISO 格式。例如：2014-10-14T17:32:41Z <p>如果未指定，則會計算為 "start + 48 小時"。若要無限期執行管線，請指定 9999-09-09 做為 end 屬性的值。</p>| 否
+start | 管線的開始日期時間。必須使用 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。 <p>管線的 start 和 end 屬性共同指定管線的作用中期間。輸出配量只會在此作用中期間內產生。 | 否<p>如果您指定 end 屬性的值，您必須指定 start 屬性的值。</p><p>開始和結束時間都可以是空白來建立管線，但是兩者都必須有值以設定執行管線的作用中時間。 如果您建立管線時未指定開始和結束時間，您可以在稍後使用 Set-AzureDataFactoryPipelineActivePeriod Cmdlet 進行設定。</p>
+End | 管線的結束日期時間。如果已指定，則必須使用 ISO 格式。例如：2014-10-14T17:32:41Z <p>如果未指定，則會計算為 "start + 48 小時"。若要無限期執行管線，請指定 9999-09-09 做為 end 屬性的值。</p>| 否  <p>If you specify a value for the start property, you must specify value for the end property.</p><p>See notes for the **start** property.</p>
 isPaused | 如果設為 true，將不會執行管線。預設值 = false。您可以使用此屬性來啟用或停用。|否
 scheduler | “scheduler” 屬性用來定義所要的活動排程。其子屬性與[資料集中的可用性屬性](data-factory-create-datasets.md#Availability)相同。| 否 |   
 
@@ -335,4 +335,4 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

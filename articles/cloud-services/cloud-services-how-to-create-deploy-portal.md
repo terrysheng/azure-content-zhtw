@@ -22,8 +22,8 @@
 # 如何建立和部署雲端服務
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy.md)
-- [Azure preview portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure 入口網站](cloud-services-how-to-create-deploy.md)
+- [Azure Preview 入口網站](cloud-services-how-to-create-deploy-portal.md)
 
 Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快速建立」和「自訂建立」。
 
@@ -34,11 +34,14 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 ## 概念
 需要三個元件才能部署應用程式成為 Azure 中的雲端服務：
 
-- **服務定義** 雲端服務定義檔 (.csdef) 定義服務模型，包括角色數目。
+- **服務定義**  
+  雲端服務定義檔 (.csdef) 定義服務模型，包括角色數目。
 
-- **服務組態** 雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
+- **服務組態**  
+  雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
 
-- **服務封裝** 服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
+- **服務封裝**  
+  服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
 
 您可以在[這裡](cloud-services-model-and-package.md)深入了解這些內容，以及如何建立封裝。
 
@@ -51,7 +54,7 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 
 - 如果您要設定角色執行個體的遠端桌面連線，請設定遠端桌面的角色。如需有關準備遠端存取服務定義檔的詳細資訊，請參閱[設定 Azure 中角色的遠端桌面連接](http://msdn.microsoft.com/library/hh124107.aspx)。
 
-- 如果您要設定雲端服務的詳細資訊監視，請啟用雲端服務的 Azure 診斷。*最小監視* (預設監視層級) 使用從角色執行個體 (虛擬機器) 的主機作業系統收集的效能計數器。*詳細資訊監視*會按照角色執行個體內的效能資料來收集其他度量，以便進一步分析應用程式處理期間發生的問題。若要了解如何啟用 Azure 診斷，請參閱[在 Azure 中啟用診斷](cloud-services-dotnet-diagnostics.md)。
+- 如果您要設定雲端服務的詳細資訊監視，請啟用雲端服務的 Azure 診斷。*最小監視* (預設監視層級) 使用從角色執行個體 (虛擬機器) 的主機作業系統收集的效能計數器。*詳細資訊監視* 會按照角色執行個體內的效能資料來收集其他度量，以便進一步分析應用程式處理期間發生的問題。若要了解如何啟用 Azure 診斷，請參閱[在 Azure 中啟用診斷](cloud-services-dotnet-diagnostics.md)。
 
 若要使用 Web 角色或背景工作角色的部署來建立雲端服務，您必須建立服務封裝。如需封裝的相關檔案的詳細資訊，請參閱[設定 Azure 的雲端服務](http://msdn.microsoft.com/library/hh124108.aspx)。若要建立封裝檔，請參閱[封裝 Azure 應用程式](http://msdn.microsoft.com/library/hh403979.aspx)。如果您使用 Visual Studio 來開發應用程式，請參閱[使用 Azure Tools 發佈雲端服務](http://msdn.microsoft.com/library/ff683672.aspx)。
 
@@ -114,4 +117,4 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

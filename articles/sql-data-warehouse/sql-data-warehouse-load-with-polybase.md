@@ -58,7 +58,9 @@ PolyBase 技術可讓您查詢和聯結多個來源的資料，且完全使用 T
 
 1. 檢查看看您是否已經有任何資料庫認證。若要這樣做，請使用 sys.database\_credentials 系統檢視，而不要使用只會顯示伺服器認證的 sys.credentials。
 
-    ``` -- 檢查是否有現有的資料庫範圍認證。SELECT * FROM sys.database\_credentials;
+    ```
+    -- 檢查是否有現有的資料庫範圍認證。
+    SELECT * FROM sys.database\_credentials;
 
 3. 使用 [CREATE CREDENTIAL (Transact-SQL)][] 為您想要存取的每個 Azure 儲存體帳戶建立資料庫範圍認證。在此範例中，IDENTITY 是易記的認證名稱。它不會影響對 Azure 儲存體的驗證。SECRET 是您的 Azure 儲存體帳戶金鑰。
 
@@ -357,4 +359,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

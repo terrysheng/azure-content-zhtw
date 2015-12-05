@@ -104,7 +104,8 @@ For more information about other features supported by service manifests, refer 
 ## 描述應用程式
 
 
-應用程式資訊清單以宣告方式描述應用程式類型和版本，並指定服務組成中繼資料，例如穩定的名稱、分割配置、執行個體計數/複寫因數、安全性/隔離原則、安置限制、組態覆寫和組成服務類型。也說明要放置應用程式的負載平衡網域。因此，應用程式資訊清單描述應用程式層級的元素，並參考用來組成應用程式類型的一個或多個服務資訊清單。以下是簡單的範例應用程式資訊清單：
+應用程式資訊清單以宣告方式描述應用程式類型和版本，並指定服務組成中繼資料，例如穩定的名稱、分割配置、執行個體計數/複寫因數、安全性/隔離原則、安置限制、組態覆寫和組成服務類型。也說明要放置應用程式的負載平衡網域。
+因此，應用程式資訊清單描述應用程式層級的元素，並參考用來組成應用程式類型的一個或多個服務資訊清單。以下是簡單的範例應用程式資訊清單：
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -243,4 +244,4 @@ PS D:\temp>
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!-----HONumber=Nov15_HO4-->
+<!------HONumber=Nov15_HO4-->

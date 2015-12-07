@@ -149,7 +149,8 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 > [AZURE.NOTE]依預設，訊息只會隱藏 30 秒，之後又會被其他用戶端看見。您可以使用具有 **getMessages** 的 `options.visibilityTimeout` 指定其他值。
 
-> [AZURE.NOTE]當佇列中沒有任何訊息時，使用 **getMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
+> [AZURE.NOTE]
+> 當佇列中沒有任何訊息時，使用 **getMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
 
 ## 作法：變更佇列訊息的內容
 
@@ -333,4 +334,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
  [使用 WebMatrix 的網站]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

@@ -119,7 +119,7 @@ Visual Studio Application Insights 提供兩種使用情況追蹤層級：
 使用者及帳戶識別碼不得包含空格或字元 `,;=|`
 
 
-在 [計量瀏覽器][](app-insights-metrics-explorer.md) 中，您可以建立 [驗證的使用者] 和 [帳戶] 的圖表。
+在 [計量瀏覽器](app-insights-metrics-explorer.md) 中，您可以建立 [驗證的使用者] 和 [帳戶] 的圖表。
 
 ## 綜合流量
 

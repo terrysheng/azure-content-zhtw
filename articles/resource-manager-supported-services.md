@@ -107,7 +107,9 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | 否 | 否 | - | - | - | | Azure Actice Directory B2C | 否 | 否 | - | - | - | | Multi-Factor Authentication | 否 | 否 | - | - | - |
+| Azure Active Directory | 否 | 否 | - | - | - |
+| Azure Actice Directory B2C | 否 | 否 | - | - | - |
+| Multi-Factor Authentication | 否 | 否 | - | - | - |
 
 ## 開發人員服務 
 

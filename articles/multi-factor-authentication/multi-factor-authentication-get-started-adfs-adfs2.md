@@ -31,7 +31,7 @@
 2. 按一下 [表單架構] 索引標籤。
 3. 按一下 [新增...] 按鈕。
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
-4. 若要自動偵測使用者名稱、密碼和網域變數，請在 [自動設定表單架構網站] 對話方塊中輸入 [登入 URL] (例如 https://sso.contoso.com/adfs/ls)，然後按一下 [確定]。
+4. 若要自動偵測使用者名稱、密碼和網域變數，請在 [自動設定表單架構網站] 對話方塊中輸入 登入 URL (例如 https://sso.contoso.com/adfs/ls)，然後按一下 [確定]。
 5. 如果所有使用者都已或將要匯入伺服器並進行 Multi-Factor Authentication，請核取 [需要進行 Azure Multi-Factor Authentication 使用者比對] 方塊。如果有大量使用者尚未匯入伺服器及/或將免除多重要素驗證，請勿核取此方塊。如需此功能的其他資訊，請參閱說明檔。
 6. 如果無法自動偵測頁面變數，請按一下 [自動設定表單架構網站] 對話方塊中的 [手動指定...] 按鈕。
 7. 在 [新增表單架構網站] 對話方塊中，於 [提交 URL] 欄位中輸入 ADFS 登入頁面的 URL (例如 https://sso.contoso.com/adfs/ls)，然後輸入 [應用程式名稱] (選擇性)。應用程式名稱會出現在 Azure Multi-Factor Authentication 報表中，而且可能顯示在簡訊或行動應用程式驗證訊息內。如需 [提交 URL] 的詳細資訊，請參閱說明檔。
@@ -69,7 +69,7 @@
 1. 在 Azure Multi-Factor Authentication Server 內，按一下左功能表中的 [IIS 驗證] 圖示。
 2. 按一下 [HTTP] 索引標籤。
 3. 按一下 [新增...] 按鈕。
-4. 在 [新增基底 URL] 對話方塊中，於 [基底 URL] 欄位中輸入執行 HTTP 驗證之 ADFS 網站的 URL (例如 https://sso.domain.com/adfs/ls/auth/integrated)，然後輸入 [應用程式名稱] (選擇性)。應用程式名稱會出現在 Azure Multi-Factor Authentication 報表中，而且可能顯示在簡訊或行動應用程式驗證訊息內。
+4. 在 [新增基底 URL] 對話方塊中，於 [基底 URL] 欄位中輸入執行 HTTP 驗證之 ADFS 網站的 URL (例如 https://sso.domain.com/adfs/ls/auth/integrated)，然後輸入 應用程式名稱 (選擇性)。應用程式名稱會出現在 Azure Multi-Factor Authentication 報表中，而且可能顯示在簡訊或行動應用程式驗證訊息內。
 5. 如有需要，請調整 [閒置逾時] 和 [最大工作階段] 時間。
 6. 如果所有使用者都已或將要匯入伺服器並進行 Multi-Factor Authentication，請核取 [需要進行 Azure Multi-Factor Authentication 使用者比對] 方塊。如果有大量使用者尚未匯入伺服器及/或將免除多重要素驗證，請勿核取此方塊。如需此功能的其他資訊，請參閱說明檔。
 7. 如有需要，請核取 Cookie 快取方塊。

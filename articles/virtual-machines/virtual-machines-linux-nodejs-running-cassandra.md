@@ -293,7 +293,8 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 這需要幾秒鐘的時間，然後您應該就可以在映像庫的 [我的映像] 區段中找到映像。成功擷取映像之後，來源 VM 就會自動刪除。
 
 ##單一區域部署程序
-**步驟 1：建立虛擬網路**登入 Azure 入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在 Azure 入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
+**步驟 1：建立虛擬網路**
+登入管理入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在管理入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
 
 <table>
 <tr><th>VM 屬性名稱</th><th>值</th><th>備註</th></tr>
@@ -317,7 +318,8 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 
 透過網路安全性群組可保護「資料」與 Web 子網路，但這已超出本文的討論範圍。
 
-**步驟 2：佈建虛擬網路**使用先前建立的映像，我們將在雲端伺服器 “hk-c-svc-west” 中建立下列虛擬機器，並將它們繫結到個別的子網路，如下所示：
+**步驟 2：佈建虛擬網路**
+使用先前建立的映像，我們將在雲端伺服器 “hk-c-svc-west” 中建立下列虛擬機器，並將它們繫結到個別的子網路，如下所示：
 
 <table>
 <tr><th>機器名稱    </th><th>子網路	</th><th>IP 位址	</th><th>可用性集合</th><th>DC/機架</th><th>是否為種子？</th></tr>
@@ -509,7 +511,9 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 </table>
 
 ###步驟 6：更新共用金鑰
-使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]：Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
+使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]： 
+Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK 
+Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
 ###步驟 6：建立 VNET 對 VNET 連線
 從 Azure 入口網站中，使用兩個虛擬網路的 [儀表板] 功能表建立閘道對閘道的連線。使用底部工具列的 [連線] 功能表項目。請稍候幾分鐘，儀表板應該會以圖形方式顯示連線詳細資料。
@@ -535,8 +539,11 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 ###步驟 8：在每個 VM 上設定 Cassandra
 登入 VM 並執行下列項目：
 
-1. 編輯 $CASS\_HOME/conf/cassandra-rackdc.properties，以下列格式指定資料中心和機架內容：dc =EASTUS rack =rack1
-2. 編輯 cassandra.yaml 設定種子節點：種子："10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
+1. 編輯 $CASS\_HOME/conf/cassandra-rackdc.properties，以下列格式指定資料中心和機架內容：
+    dc =EASTUS
+    rack =rack1
+2. 編輯 cassandra.yaml 設定種子節點： 
+    種子："10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 ###步驟 9：啟動 Cassandra
 登入每個 VM，執行下列命令在背景啟動 Cassandra：$CASS\_HOME/bin/cassandra
 

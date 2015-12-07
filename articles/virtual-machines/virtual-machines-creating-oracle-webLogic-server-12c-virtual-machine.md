@@ -107,7 +107,7 @@
 ##在 Azure 中於 Oracle WebLogic Server 12c 虛擬機器上安裝應用程式
 1.	仍然登入您的虛擬機器，複製在 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 本機可用的 shoppingcart.war 範例。例如，建立名為 **c:\\mywar** 的資料夾，然後將位於 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 的 WAR 儲存至 **c:\\mywar**。
 
-2.	開啟 [WebLogic Server 管理主控台] (http://localhost:7001/console)。出現提示時，請提供您的 WebLogic 使用者名稱與密碼。
+2.	開啟 [WebLogic Server 管理主控台]，http://localhost:7001/console。出現提示時，請提供您的 WebLogic 使用者名稱與密碼。
 
 3.	在 [WebLogic Server 管理主控台] 中，依序按一下 [鎖定與編輯]、[部署] 及 [安裝]。
 
@@ -161,7 +161,7 @@
 
 	2.	按一下 [Windows 開始]，輸入「具有進階安全性的 Windows 防火牆」，然後按一下 [具有進階安全性的 Windows 防火牆] 圖示。這會開啟 [具有進階安全性的 Windows 防火牆] 管理主控台。
 
-	3.	在防火牆管理主控台中，按一下左邊窗格內的 [輸入規則] (如果您沒有看到 [輸入規則]，請展開左邊窗格內的最上層節點)，然後按一下右邊窗格內的 [新增規則]。
+	3.	在防火牆管理主控台中，按一下左邊窗格內的 \[輸入規則] (如果您沒有看到 [輸入規則]，請展開左邊窗格內的最上層節點)，然後按一下右邊窗格內的 [新增規則]。
 
 	4.	對於 [規則類型]，請選取 [連接埠]，然後按 [下一步]。
 

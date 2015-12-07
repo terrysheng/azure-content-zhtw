@@ -242,40 +242,60 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
+## 4. 使用 Passport，向 Azure AD 發出登入和登出要求
 
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
+您的應用程式現在已正確設定，將使用 OpenID Connect 驗證通訊協定與 v2.0 端點通訊。  `passport-azure-ad`  已經處理所有製作驗證訊息、驗證 Azure AD 的權杖和維護使用者工作階段的瑣碎詳細資料。  所有剩餘的部分就是為使用者提供一種方式來登入、登出，以及收集關於已登入使用者的其他資訊。
 
-- First, lets add the default, login, account, and logout methods to our `app.js` file:
+- 首先，將預設、登入、帳戶及登出方法加入 `app.js`  檔案：
 
 ```JavaScript
 
 //路由 (第 4 區段)
 
-app.get('/', function(req, res){ res.render('index', { user: req.user }); });
+app.get('/', function(req, res){
+  res.render('index', { user: req.user });
+});
 
-app.get('/account', ensureAuthenticated, function(req, res){ res.render('account', { user: req.user }); });
+app.get('/account', ensureAuthenticated, function(req, res){
+  res.render('account', { user: req.user });
+});
 
-app.get('/login', passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }), function(req, res) { log.info('Login was called in the Sample'); res.redirect('/'); });
+app.get('/login',
+  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+  function(req, res) {
+    log.info('Login was called in the Sample');
+    res.redirect('/');
+});
 
-app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	讓我們詳細檢閱這些方法：
+    -	`/`  路由將重新導向到 index.ejs 檢視，其會在要求中傳遞使用者 (如果有的話)
+    - `/account`  路由將先***確保我們已通過驗證*** (我們將在下面實作)，然後在要求中傳遞使用者，讓我們能夠取得關於該使用者的其他資訊。
+    - `/login`  路由將從 `passport-azuread`  呼叫 azuread-openidconnect 驗證器，如果失敗，即會再次將使用者重新導向到 /login
+    - `/logout`  會直接呼叫 logout.ejs (以及路由)，其會清除 Cookie，然後讓使用者返回 index.ejs
 
 
-- For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
+- 針對 `app.js`  的最後一個部分，加入可在上述 `/account`  中使用的 EnsureAuthenticated 方法。
 
 ```JavaScript
 
 // 簡單的路由中介軟體可用來確保使用者已驗證。(第 4 區段)
 
-// 在任何需要保護的資源上使用此路由中介軟體。如果 // 此要求已驗證 (通常是透過持續登入工作階段)，// 此要求會繼續執行。否則使用者將重新導向至 // 登入頁面。function ensureAuthenticated(req, res, next) { if (req.isAuthenticated()) { return next(); } res.redirect('/login') } ```
+//   在任何需要保護的資源上使用此路由中介軟體。  如果
+//   此要求已驗證 (通常是透過持續登入工作階段)，
+//   此要求會繼續執行。否則使用者將重新導向至
+//   登入頁面。
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
+}
+```
 
 - 最後，在 `app.js` 中實際建立伺服器本身：
 

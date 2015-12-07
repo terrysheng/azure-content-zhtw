@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="08/22/2015" 
+	ms.date="11/23/2015" 
 	ms.author="wesmc"/>
 
 # 將推播通知新增至 Xamarin.iOS 應用程式
@@ -24,9 +24,9 @@
 
 ##概觀
 
-在本教學課程中，您會將推播通知加入 [Xamarin.iOS 快速入門] 專案，以便在每次插入一筆記錄時傳送推播通知。本教學課程以 [Xamarin.iOS 快速入門] 教學課程為基礎，您必須先完成該教學課程。如果您不要使用下載的快速入門伺服器專案，必須將推播通知擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+本教學課程以 [Xamarin.iOS 快速入門](app-service-mobile-xamarin-ios-get-started.md)教學課程為基礎，您必須先完成該教學課程。您將會新增推播通知至 Xamarin.iOS 快速入門專案，以便在每次插入一筆記錄時傳送推播通知。如果您不要使用下載的快速入門伺服器專案，必須將推播通知擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
-[iOS 模擬器不支援推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，所以您必須使用實體 iOS 裝置。您也必須註冊 [Apple Developer Program 成員資格](https://developer.apple.com/programs/ios/)。
+[IOS 模擬器不支援推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，所以您必須使用實體 iOS 裝置。您也必須註冊 [Apple Developer Program 成員資格](https://developer.apple.com/programs/ios/)。
 
 ##必要條件
 
@@ -34,37 +34,44 @@
 
 * 使用中的 Azure 帳戶。如果您還沒有帳戶，註冊 Azure 試用版並取得最多 10 個免費的行動應用程式。試用結束之後您仍可以繼續使用它們。查看 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-* 已安裝 [Xamarin Studio] 和 [Xcode] v4.4 或更新版本的 Mac。請注意，使用 Xamarin Studio 在 Mac 上執行 Xamarin.iOS 應用程式較為容易。如果想要，您可以在 Windows 電腦上使用 Visual Studio 執行 Xamarin.iOS 應用程式，但這樣會比較複雜，因為您必須連線到已加入網路的 Mac。如果您想這麼做，請參閱[在 Windows 上安裝 Xamarin.iOS]。
+* 已安裝 [Xamarin Studio] 和 [Xcode] v4.4 或更新版本的 Mac。如果想要，您可以在 Windows 電腦上使用 Visual Studio 執行 Xamarin.iOS 應用程式，但這樣會比較複雜，因為您必須連線到已加入網路並正在執行 Xamarin.iOS 組建主機 的 Mac。如果您想這麼做，請參閱[在 Windows 上安裝 Xamarin.iOS]。
 
-* 實體的 iOS 裝置。
+* 實體的 iOS 裝置。iOS 模擬器不支援推播通知。
 
-* 完成[快速入門教學課程](../app-service-mobile-xamarin-ios-get-started.md)。
+* 完成 [Xamarin.iOS 快速入門教學課程](app-service-mobile-xamarin-ios-get-started.md)。
 
-##<a name="create-hub"></a>建立通知中樞
 
-[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+##在 Apple 的開發人員入口網站註冊應用程式以取得推播通知
 
-## <a id="register"></a>註冊應用程式以取得推播通知
+[AZURE.INCLUDE [通知中樞 Xamarin 會啟用 Apple 推播通知](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
-[AZURE.INCLUDE [啟用 Apple 推播通知](../../includes/enable-apple-push-notifications.md)]
+##設定您的行動應用程式以傳送推播通知
 
-## 設定 Azure 來傳送推播通知
+若要設定應用程式以傳送通知，請建立新的中樞，並針對您要使用的平台通知服務加以設定。
 
-[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
+1. 在 Azure 入口網站中，按一下 [瀏覽] > [行動應用程式] > 您的行動應用程式 > [設定] > [行動] > [推播] > [通知中樞] > [+通知中樞]，提供新的通知中樞的名稱和命名空間，然後按一下 [確定] 按鈕。
 
-##<a id="update-server"></a>更新伺服器專案以傳送推播通知
+	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
-[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
+2. 在 [建立通知中樞] 刀鋒視窗中，按一下 [建立]。
 
-## <a name="publish-the-service"></a>將伺服器專案部署至 Azure
+3. 按一下 [推播] > [Apple (APNS)] > [上傳憑證]。上傳您稍早匯出的 .p12 推播憑證檔案。如果您是針對開發與測試而建立開發推播憑證，請務必選取 [沙箱]。否則，請選擇 [生產]。您的服務現在已設定成在 iOS 上使用推播通知！
+
+	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+
+##更新伺服器專案以傳送推播通知
+
+[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
+
+##將伺服器專案部署至 Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-## <a name="configure-app"></a>設定您的 Xamarin.iOS 專案
+##設定 Xamarin.Forms 專案
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-## <a name="add-push"></a>將推播通知新增至應用程式
+##將推播通知新增至應用程式
 
 1. 在 **QSTodoService** 中新增下列屬性，使 **AppDelegate** 能夠取得行動用戶端：
         
@@ -79,7 +86,7 @@
             }
         }
 
-1. 在 **AppDelegate.cs** 檔案的開頭處新增下列 `using` 陳述式。
+1. 在 **AppDelegate.cs** 檔案的開頭處加入下列 `using` 陳述式。
 
         using Microsoft.WindowsAzure.MobileServices;
 
@@ -158,4 +165,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015--->

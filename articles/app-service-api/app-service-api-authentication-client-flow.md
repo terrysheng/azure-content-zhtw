@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="從驗證的用戶端呼叫 API 應用程式" 
 	description="了解如何從經過 Azure Active Directory 驗證的 Web 應用程式用戶端呼叫 Azure API 應用程式。" 
+	keywords="App Service,Azure App Service,驗證,Azure 驗證,API,驗證API"
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -40,7 +41,7 @@
 
 ![](./media/app-service-api-authentication-client-flow/clientflow.png)
 
-如果您不熟悉 API 應用程式閘道器在 API 應用程式的驗證中的角色，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
+如果您不熟悉 API 應用程式閘道器在 API 應用程式驗證中的角色，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
 
 ## 必要條件
 
@@ -52,7 +53,7 @@
 
 1. 建立或下載 API 應用程式專案。
  
-	* 若要建立專案，請遵照[建立 API 應用程式](app-service-dotnet-create-api-app.md)中的指示。
+	* 若要建立專案，請遵循[建立 API 應用程式](app-service-dotnet-create-api-app.md)中的指示。
 
 	* 若要下載專案，請從 [ContactsList GitHub 儲存機制](https://github.com/tdykstra/ContactsList)取得。
 
@@ -64,7 +65,7 @@
 
 	遵循[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)的指示。
 
-	在 [Azure Preview 入口網站]中，API 應用程式的 [API 定義] 刀鋒視窗現在會顯示您部署的 Web API 專案的 Get 和 Post 方法。
+	在 [Azure Preview 入口網站]中，API 應用程式的 [API 定義] 刀鋒視窗現在會顯示您部署之 Web API 專案的 Get 和 Post 方法。
 
 	![](./media/app-service-api-authentication-client-flow/apiappinportal.png)
 
@@ -96,7 +97,7 @@
 
 	* 使用您已建立的 AAD 應用程式而不是建立一個新應用程式。
  
-	* 保持您的 AAD 應用程式已經擁有的相同**應用程式識別碼 URI**。(不要將它變更為讀我檔案中指定的格式。)
+	* 保留您的 AAD 應用程式已經擁有的相同**應用程式識別碼 URI**。(不要將它變更為讀我檔案中指定的格式。)
 	
 	* 依照指示變更其他 AAD 應用程式設定；特別是將登入和回覆 URL 設為範例應用程式的基底 URL。
 
@@ -112,7 +113,7 @@
 
 	程式碼產生完成之後，您會在 [**方案總管**] 中看到該 API 應用程式名稱的新資料夾。此資料夾包含實作用戶端類別和資料模型的程式碼。
 
-10. 修正 *ContactsList/ContactsExtensions.cs* 中產生的程式碼造成的不明確參考：將 `Task.Factory.StartNew` 的兩個執行個體變更為 `System.Threading.Tasks.Task.Factory.StartNew`。
+10. 修正 *ContactsList/ContactsExtensions.cs* 中產生之程式碼造成的不明確參考：將 `Task.Factory.StartNew` 的兩個執行個體變更為 `System.Threading.Tasks.Task.Factory.StartNew`。
  
 ## 加入程式碼來交換 Zumo 權杖的 AAD 權杖
 
@@ -227,4 +228,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure Preview 入口網站]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

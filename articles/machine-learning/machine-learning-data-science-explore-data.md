@@ -27,7 +27,6 @@
 - 使用 [Pandas](http://pandas.pydata.org/) Python 封裝來瀏覽 **Azure blob 容器**資料。
 - 使用 SQL 和使用類似 Python 的程式設計語言來瀏覽 **SQL Server 資料**。
 - 使用 Hive 查詢來瀏覽 **Hive 資料表**資料。
-- Azure Machine Learning Studio 
 - 使用 AML 模組來瀏覽 **Azure Machine Learning (AML) Studio** 資料。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

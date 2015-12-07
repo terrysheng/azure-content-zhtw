@@ -12,23 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
  
 # 從 Application Insights 使用串流分析將資料傳送至 Power BI
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，以及將多個來源的資訊整合的能力。您可以將有關您 Web 或裝置應用程式效能與使用量的遙測資料，從 Application Insights 串流處理到 Power BI。
+本文將說明如何使用[串流分析](http://azure.microsoft.com/services/stream-analytics/)來處理從 [Visual Studio Application Insights](app-insights-overview.md) [匯出](app-insights-export-telemetry.md)的資料。作為範例目標，我們將資料傳送到 [Microsoft Power BI](https://powerbi.microsoft.com/)。
+
 
 > [AZURE.NOTE]從 Application Insights 將資料送入 Power BI 最簡單的方式是[使用配接器](https://powerbi.microsoft.com/zh-TW/documentation/powerbi-content-pack-application-insights/) (可在 [服務] 下的 Power BI 資源庫中找到)。本文中所描述的內容目前較多樣化，但也可示範如何利用 Application Insights 進行串流分析。
 
+[Microsoft Power BI](https://powerbi.microsoft.com/) 以豐富多元的視覺方式呈現您的資料，且能整合多個來源的資訊。
+
+
 ![Application Insights 使用量資料的 Power BI 檢視範例](./media/app-insights-export-power-bi/010.png)
 
-在本文中，我們將示範如何從 Application Insights 匯出資料，並使用「串流分析」將資料移入 Power BI。[串流分析](http://azure.microsoft.com/services/stream-analytics/)是我們作為配接器使用的 Azure 服務。
+[串流分析](http://azure.microsoft.com/services/stream-analytics/)是一項 Azure 服務可以做為配接器，會持續處理從 Application Insights 匯出的資料。
 
 ![Application Insights 使用量資料的 Power BI 檢視範例](./media/app-insights-export-power-bi/020.png)
 
 
-> [AZURE.NOTE]您需要有工作或學校的帳戶 (MSDN 的組織帳戶)，才能將串流分析的資料傳送至 Power BI。
+
 
 ## 影片
 
@@ -83,7 +87,7 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
     此外，資料會匯出至您的儲存體。
 
-4. 檢查匯出的資料。在 Visual Studio 中，依序選擇** [檢視]、[雲端總管]**，然後依序開啟 [Azure]、[儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
+4. 檢查匯出的資料。在 Visual Studio 中，依序選擇 [檢視]、[Cloud Explorer]，然後依序開啟 [Azure]、[儲存體]。(如果您沒有此功能表選項，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，然後開啟 [Visual C#] / [Cloud] / [取得 Microsoft Azure SDK for .NET]。)
 
     ![](./media/app-insights-export-power-bi/04-data.png)
 
@@ -121,7 +125,8 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 ![](./media/app-insights-export-power-bi/140.png)
 
-請務必將 [日期格式] 設為 YYYY-MM-DD (含連接號)。
+
+請務必將 [日期格式] 設為 [YYYY-MM-DD] (含連接號)。
 
 路徑前置詞模式會指定串流分析在存放區中尋找輸入檔案的位置。您需要將它設定為與連續匯出儲存資料的方式相對應。請設定如下：
 
@@ -129,8 +134,8 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 在此範例中：
 
-* `webapplication27` 是 Application Insights 資源名稱，**全部小寫**。
-* `1234...` 是 Application Insights 資源的檢測金鑰，**省略破折號**。 
+* `webapplication27` 是 Application Insights 資源名稱 (全部小寫 )。
+* `1234...` 是 Application Insights 資源的檢測金鑰 (省略破折號)。 
 * `PageViews` 是您想要分析的資料類型。可用的類型取決於您在「連續匯出」中設定的篩選。檢查匯出的資料以查看其他可用的類型，並查看[匯出資料模型](app-insights-export-data-model.md)。
 * `/{date}/{time}` 是要依字面意思寫入資訊的格式。
 
@@ -261,4 +266,4 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 * [Application Insights](app-insights-overview.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

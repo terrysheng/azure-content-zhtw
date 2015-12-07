@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # 透過 Microsoft Passport 不需要密碼就能驗證身分識別
@@ -29,6 +29,7 @@
 公開金鑰是使用 Azure Active Directory 和 Windows Server Active Directory (適用於內部部署) 進行登錄。身分識別提供者 (IDP) 會藉由將使用者的公開金鑰對應到私密金鑰來驗證該使用者，並透過單次密碼 (OTP)、PhoneFactor 或不同的通知機制來提供登入資訊。
 
 ## 為什麼企業應該採用 Microsoft Passport
+
 藉由啟用 Microsoft Passport，企業可透過下列動作，使其資源更安全：
 
 * 使用硬體慣用選項來設定 Microsoft Passport，這表示將在 TPM 1.2 或 TPM 2.0 可供使用時於其上產生金鑰，或者在 TPM 無法使用時透過軟體產生金鑰。 
@@ -52,7 +53,7 @@
 
 1. 使用者透過多個內建校訂方法 (手勢、實體智慧卡、多重要素驗證) 證明其身分識別，並將此資訊傳送到類似 Azure Active Directory 或 Active Directory 的身分識別提供者 (IDP)。
 
-2.  裝置接著會建立金鑰、證明金鑰、接受此金鑰的公開部分、為其附加站台聲明、登入並傳送至 IDP 以登錄此金鑰。
+2. 裝置接著會建立金鑰、證明金鑰、接受此金鑰的公開部分、為其附加站台聲明、登入並傳送至 IDP 以登錄此金鑰。
 
 3. 一旦在 IDP 中登錄金鑰的公開部分之後，它就會要求裝置使用金鑰的私密部分進行簽署。IDP 接著會驗證並發出讓使用者能夠存取受保護資源的驗證權杖。
 
@@ -71,13 +72,13 @@
 
 如需部署指示的詳細資訊，請參閱[啟用 Microsoft Passport 並在組織中運用](active-directory-azureadjoin-passport-deployment.md)。
 
+
 ## 其他資訊
 
 * [適合企業使用的 Windows 10：使用裝置工作的方式](active-directory-azureadjoin-windows10-devices-overview.md)
 * [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
 * [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [啟用 Microsoft Passport 並在組織中運用](active-directory-azureadjoin-passport-deployment.md)
-* [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [將已加入網域的裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

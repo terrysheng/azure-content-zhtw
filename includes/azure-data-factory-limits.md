@@ -20,7 +20,7 @@
 
 **Resource** | **預設下限** | **下限**
 -------- | ------------------- | -------------
-排程間隔 | 15 Minuten | 5 分鐘
+排程間隔 | 15 Minuten | 15 Minuten
 重試嘗試間的間隔 | 1 秒 | 1 秒
 重試逾時值 | 1 秒 | 1 秒
 
@@ -29,4 +29,4 @@
 
 Azure 資源管理員有 API 呼叫限制。您可使用 [Azure 資源管理員 API 限制](azure-subscription-service-limits/#resource-group-limits)內的速率進行 API 呼叫。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/24/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -383,13 +383,34 @@
 | mailNickName| X| X| X| |
 | member| | | X| |
 | objectSID| X| | | 機械屬性。AD 使用者識別碼，可用來維持 Azure AD 和 AD 之間的同步處理。|
-| proxyAddresses| X| X| x| |
+| proxyAddresses| X| X| X| |
 | pwdLastSet| X| | | 機械屬性。用來得知何時要讓已經發行的權杖失效。供密碼同步處理和同盟使用。|
 | sn| X| X| | |
 | sourceAnchor| X| X| X| 機械屬性。不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。|
 | usageLocation| X| | | 機械屬性。使用者的國家/地區。用於授權指派。|
 | userPrincipalName| X| | | UPN 是使用者的登入識別碼。最常與 [mail] 值相同。|
 
+## Windows 10
+Windows 10 已加入網域的電腦 (裝置) 會將某些屬性同步處理至 Azure AD。如需這些案例的詳細資訊，請參閱[將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)。這些屬性會自動同步處理且 Windows 10 不會顯示為您可以取消選取的 app。Windows 10 已加入網域的電腦是透過填入屬性 userCertificate 來識別。
+
+| 屬性名稱| 裝置| 註解 |
+| --- | :-: | --- |
+| accountEnabled| X| |
+| deviceTrustType| X| 已加入網域的電腦的硬式編碼值。 |
+| displayName | X| |
+| ms-DS-CreatorSID | X| 也稱為 registeredOwnerReference。|
+| objectGUID | X| 也稱為 deviceID。|
+| objectSID | X| 也稱為 omPremisesSecurityIdentifier。|
+| operatingSystem | X| 也稱為 deviceOSType。|
+| operatingSystemVersion | X| 也稱為 deviceOSVersion。|
+| userCertificate | X| |
+
+這些使用者屬性不包括您已選取的其他應用程式。
+
+| 屬性名稱| 使用者| 註解 |
+| --- | :-: | --- |
+| domainFQDN| X| 也稱為 dnsDomainName。例如 contoso.com。|
+| domainNetBios| X| 也稱為 netBiosName。例如CONTOSO。|
 
 ## Exchange 混合回寫
 當您選擇啟用 Exchange 混合時，這些屬性會從 Azure AD 被回寫到內部部署 Active Directory。根據您的 Exchange 版本有可能會同步處理較少的屬性。
@@ -410,8 +431,8 @@
 
 
 ## 後續步驟
-深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)組態。
+深入了解 [Azure AD Connect 同步處理](active-directory-aadconnectsync-whatis.md)組態。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

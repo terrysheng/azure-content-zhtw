@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # 如何設定 Azure SQL Database 防火牆
@@ -133,7 +133,9 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 
 [作法：進行資料庫防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
+[SQL Server Database Engine 和 Azure SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)
+
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

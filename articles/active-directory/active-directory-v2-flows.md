@@ -95,34 +95,36 @@ Web API 可以接收來自所有類型應用程式的 access\_token，包括 Web
 
 ![Web 應用程式 Web API 泳道映像](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-若要深入了解 authorization\_code、refresh\_token 和取得 access\_token 的詳細步驟，請參閱 [OAuth 2.0 通訊協定](active-directory-v2-protocols.md#oauth2-authorization-code-flow)。
+若要深入了解 authorization\_code、refresh\_token 和取得 access\_token 的詳細步驟，請參閱 [OAuth 2.0 通訊協定](active-directory-v2-protocols-oauth-code.md)。
 
 若要了解如何使用 v2.0 應用程式模型及 OAuth 2.0 access\_token 保護 Web API，請查看[使用者入門章節](active-directory-appmodel-v2-overview.md#getting-started)中的 Web API 程式碼範例。
 
 
 ## 行動和原生應用程式
-安裝在裝置中的應用程式 (如行動和桌面應用程式) 通常需要存取儲存資料和代替使用者執行各種功能的後端服務或 Web API。這些應用程式可以使用 v2.0 模型和 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md#oauth2-authorization-code-flow)，將登入和授權加入後端服務。
+安裝在裝置中的應用程式 (如行動和桌面應用程式) 通常需要存取儲存資料和代替使用者執行各種功能的後端服務或 Web API。這些應用程式可以使用 v2.0 模型和 [OAuth 2.0 授權碼流程](active-directory-v2-protocols-oauth-code.md)，將登入和授權加入後端服務。
 
 在這個流程中，應用程式會在使用者登入時，接收來自 v2.0 端點的 authorization\_code，這代表應用程式有權限代替目前登入的使用者呼叫後端服務。然後應用程式就可以在背景中交換 OAuth 2.0 access\_token 和 refresh\_token 的 authoriztion\_code。應用程式可以使用 access\_token 在 HTTP 要求中向 Web API 驗證，也可以在舊的 access\_token 過期時，用 refresh\_token 取得新的 access\_token。
 
 ![原生應用程式泳道映像](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
+## 單一頁面應用程式 (Javascript)
+許多新式的應用程式都有單一頁面應用程式前端，以 javascript 編碼為主，而且通常使用 AngularJS、Ember.js、Durandal 等 SPA 架構。Azure AD 應用程式模型 2.0 版支援使用 [OAuth 2.0 隱含流程](active-directory-v2-protocols-implicit.md)的這些應用程式。
+
+在流程中，應用程式會直接收到來自 v2.0 授權端點的權杖，而不需要執行任何後端伺服器對伺服器交換。這可讓所有的驗證邏輯和工作階段處理完全在 javascript 用戶端中發生，而不需要執行額外的頁面重新導向。
+
+若要查看此案例的實際運作情形，請在[使用者入門](active-directory-appmodel-v2-overview.md#getting-started)一節的單一頁面應用程式程式碼範例中擇一試用。
+
 ## 目前的預覽版本限制
 v2.0 應用程式模型預覽目前不支援這些類型的應用程式，但計劃於正式運作時提供支援。[v2.0 預覽限制文章](active-directory-v2-limitations.md)會說明 v2.0 應用程式模型公用預覽版本的其他限制。
 
-### 單一頁面應用程式 (Javascript)
-許多新式的應用程式都有單一頁面應用程式前端，以 javascript 編碼為主，而且通常使用 AngularJS、Ember.js、Durandal 等 SPA 架構。正式運作的 Azure AD 服務支援使用 [OAuth 2.0 隱含流程](active-directory-v2-protocols.md#oauth2-implicit-flow)的應用程式，但 v2.0 應用程式模型尚不提供此流程。近期內可望提供。
-
-如果您急於取得使用 v2.0 應用程式模型的 SPA，可以使用上述的 [Web 伺服器應用程式流程](#web-apps)實作驗證。但這不是建議的方法，而這個案例的相關文件也有所限制。如果想要了解 SPA 案例，請參閱[已正式運作的 Azure AD SPA 程式碼範例](active-directory-devquickstarts-angular.md)。
-
 ### 精靈/伺服器端應用程式
-包含長時執行處理序或不需要使用者操作的應用程式，也需他法存取受保護的資源，例如 Web API。這些應用程式可以使用 [OAuth 2.0 用戶端認證流程](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow)，驗證及取得使用應用程式身分識別 (而非使用者委派身分識別) 的權杖。
+包含長時執行處理序或不需要使用者操作的應用程式，也需他法存取受保護的資源，例如 Web API。這些應用程式可以透過 [OAuth 2.0 用戶端認證流程](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow)，利用應用程式身分識別 (而非使用者委派身分識別) 驗證及取得權杖。
 
 v2.0 應用程式模型目前不支援此流程，也就是說應用程式只能在互動式使用者登入流程之後取得權杖。近期內即會加入用戶端認證流程。如果想要在正式運作的 Azure AD 服務中查看用戶端認證流程，請參閱 [GitHub 上的精靈範例](https://github.com/AzureADSamples/Daemon-DotNet)。
 
 ### 鏈結的 Web API (代理者)
 許多架構包含需要呼叫另一個下游 Web API 的 Web API，而這兩者都受到 v2.0 應用程式模型的保護。有 Web API 後端的原生用戶端中常出現這種情況，而呼叫 Office 365 或 Graph API 等 Microsoft 線上服務。
 
-使用 OAuth 2.0 的 Jwt Bearer 認證授與可支援此鏈結的 Web API，亦稱為[代理者流程](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)。不過，v2.0 應用程式模型預覽目前尚未施行代理者流程。若要查看此流程在正式運作的 Azure AD 服務中如何運作，請參閱 [GitHub 上的代理者程式碼範例](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)。
+使用 OAuth 2.0 Jwt 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為[代理者流程](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)。不過，v2.0 應用程式模型預覽目前尚未施行代理者流程。若要查看此流程在正式運作的 Azure AD 服務中如何運作，請參閱 [GitHub 上的代理者程式碼範例](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

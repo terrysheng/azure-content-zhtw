@@ -1,6 +1,6 @@
 <properties
    pageTitle="應用程式升級：資料序列化 | Microsoft Azure"
-   description="資料序列化的最佳作法，以及它如何影響進行應用程式升級。"
+   description="資料序列化的最佳作法，以及它如何影響應用程式輪流升級。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -37,7 +37,7 @@ Service Fabric 中保留及複寫的資料來自您的 C# 類別。對於使用[
 
 ### 資料合約是預設的序列化程式
 
-序列化程式通常負責讀取資料，以及還原序列化為目前版本，即使資料是舊版或*新*版。預設的序列化程式是[資料合約序列化程式](https://msdn.microsoft.com/library/ms733127.aspx)，其具有定義完善的版本控制規則。可靠的集合允許序列化程式加以覆寫，但是可靠的執行者目前不允許。資料序列化程式在啟用輪流升級中扮演著重要的角色。資料合約序列化程式是建議的 Service Fabric 應用程式的序列化程式。
+序列化程式通常負責讀取資料，以及還原序列化為目前版本，即使資料是舊版或*新*版。預設的序列化程式是[資料合約序列化程式](https://msdn.microsoft.com/library/ms733127.aspx)，其具有定義完善的版本控制規則。可靠的集合允許序列化程式加以覆寫，但是可靠的執行者目前不允許。資料序列化程式在啟用輪流升級中扮演著重要的角色。資料合約序列化程式是建議用於 Service Fabric 應用程式的序列化程式。
 
 
 ## 資料格式如何影響輪流升級
@@ -59,10 +59,12 @@ Service Fabric 中保留及複寫的資料來自您的 C# 類別。對於使用[
 
 ## 後續步驟
 
-[升級教學課程](service-fabric-application-upgrade-tutorial.md)
+[使用 Visual Studio 進行 Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
+
+[使用 PowerShell 進行 Service Fabric 應用程式升級](service-fabric-application-upgrade-powershell.md)
 
 [升級參數](service-fabric-application-upgrade-parameters.md)
 
-[進階主題](service-fabric-application-upgrade-advanced.md)
+[手動升級及使用差異封裝進行升級](service-fabric-application-upgrade-advanced.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

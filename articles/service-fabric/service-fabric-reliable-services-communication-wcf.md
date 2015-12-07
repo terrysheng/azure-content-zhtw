@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/12/2015"
+   ms.date="11/17/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # 可靠服務的 WCF 式通訊堆疊
-可靠服務架構允許服務作者決定其想要使用服務的通訊堆疊。他們可以透過 [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md) 方法傳回的 `ICommunicationListener` 在其選擇的通訊堆疊上外掛程式。服務作者如果想要使用 WCF 式通訊，架構提供以 WCF 式實作的通訊堆疊。
+可靠服務架構允許服務作者決定其想要使用服務的通訊堆疊。他們可以透過從 [CreateServiceReplicaListeners 或 CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md) 方法傳回的 `ICommunicationListener` 外掛所選擇的通訊堆疊。服務作者如果想要使用 WCF 式通訊，架構提供以 WCF 式實作的通訊堆疊。
 
 ## WCF 通訊接聽程式
 WCF 的 `ICommunicationListener` 特定實作是由 `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener` 類別所提供。
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## 撰寫 WCF 通訊堆疊的用戶端
-如需撰寫使用 WCF 讓用戶端與服務進行通訊，架構提供 `WcfClientCommunicationFactory`，也就是 WCF 的 [`ClientCommunicationFactoryBase`](../service-fabric-reliable-service-communication.md) 特定實作。
+如需撰寫使用 WCF 讓用戶端與服務進行通訊，架構提供 `WcfClientCommunicationFactory`，也就是 WCF 的 [`ClientCommunicationFactoryBase`](service-fabric-reliable-service-communication.md) 特定實作。
 
 ```csharp
 
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 
 * [在 Reliable Services 中搭配 OWIN 使用 Web API](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

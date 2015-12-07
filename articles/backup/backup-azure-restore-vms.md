@@ -49,9 +49,9 @@
   - 指定虛擬機器名稱：在指定的雲端服務中，虛擬機器名稱應該是唯一的。如果您打算使用相同的名稱取代現有的 VM，先刪除現有的 VM 和資料磁碟，然後從 Azure 備份還原資料。
   - 選取 VM 的雲端服務：這是建立 VM 的必要步驟。您可以選擇使用現有的雲端服務，或建立新的雲端服務。
 
-        「無論雲端服務名稱為何，都必須是全域唯一的名稱。一般來說，雲端服務名稱會與形式為 [cloudservice].cloudapp.net 的公用 URL 相關聯。如果該名稱已有他人使用，Azure 不允許您建立新的雲端服務。如果您選擇建立新的雲端名稱，則該名稱會與虛擬機器相同，在這種情況下，所選擇的 VM 名稱應該是唯一的，以便套用至所有相關的雲端服務。」
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        「我們只會顯示與還原執行個體詳細資料中的任何同質群組不關聯的雲端服務和虛擬網路」[深入瞭解](https://msdn.microsoft.com/zh-tw/library/azure/jj156085.aspx)。」
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. 選取 VM 的儲存體帳戶：這是建立 VM 的必要步驟。您可以選取與 Azure 備份保存庫位於相同區域的現有儲存體帳戶。我們不支援區域備援或進階儲存體類型的儲存體帳戶。
 
@@ -101,8 +101,36 @@ VM 可以從 Azure 入口網站或使用 PowerShell 還原 (就像任何其他 V
 
 深入了解 [USN 回復問題](https://technet.microsoft.com/library/dd363553) 以及修正此問題的建議策略。
 
+## 使用特殊網路組態還原 VM
+Azure 備份支援備份虛擬機器的以下特殊網路組態。
+
+- 負載平衡器底下的 VM (內部與外部)
+- 具有多個保留的 IP 的 VM
+- 具有多個 NIC 的 VM
+
+這些組態可在還原組態時授權以下考量項目。
+
+>[AZURE.TIP]請使用 PowerShell 型還原流程重新建立 VM 後續還原的特殊網路組態。
+
+### 從 UI 還原：
+從 UI 還原時，請**一律選擇新的雲端服務**。請注意，入口網站在還原流程中只接受強制參數，使用 UI 還原的 VM 將會失去它們擁有的特殊網路組態。也就是說，還原後的 VM 將會是一般的 VM，不具有負載平衡器組態、多個 NIC 或多個保留的 IP。
+
+### 從 PowerShell 還原：
+PowerShell 能夠只從備份還原 VM 磁碟，而不建立虛擬機器。在還原需要上述特殊網路組態的虛擬機器時，這很有用。
+
+為了完整重新建立虛擬機器後續還原磁碟，請依照以下步驟執行：
+
+1. 使用 [Azure 備份 PowerShell](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm) 從備份保存庫還原磁碟
+
+2. 使用 PowerShell Cmdlet 建立負載平衡器/多個 NIC/多個保留的 IP 所需的 VM 組態，並使用該組態建立具備想要之組態的 VM。
+	- 使用[內部負載平衡器](https://azure.microsoft.com/zh-TW/documentation/articles/load-balancer-internal-getstarted/)在雲端服務中建立 VM。
+	- 建立 VM 來連線至[網際網路對向負載平衡器](https://azure.microsoft.com/zh-TW/documentation/articles/load-balancer-internet-getstarted)
+	- 建立具有[多個 NIC](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics) 的 VM
+	- 建立具有[多個保留的 IP](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)的 VM
+  
+
 ## 後續步驟
 - [錯誤疑難排解](backup-azure-vms-troubleshoot.md#restore)
 - [管理虛擬機器](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

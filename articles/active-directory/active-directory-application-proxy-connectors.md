@@ -3,7 +3,7 @@
 	description="涵蓋如何建立和管理 Azure AD 應用程式 Proxy 中的連接器群組。"
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
+	authors="kgremban"
 	manager="StevenPo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 # 使用連接器群組在不同的網路和位置發行應用程式
@@ -59,4 +59,4 @@
 
 * [關於 Kerberos 限制委派](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

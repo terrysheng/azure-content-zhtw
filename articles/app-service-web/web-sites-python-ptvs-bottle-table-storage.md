@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/18/2015"
+	ms.author="huvalo"/>
 
 
 # Azure 上使用 Python Tools 2.2 for Visual Studio 的 Bottle 和 Azure 資料表儲存體 
@@ -37,7 +37,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 建立專案
 
@@ -67,9 +67,9 @@
 
 若要使用儲存體作業，您需要 Azure 儲存體帳戶。您可以依照下列步驟來建立儲存體帳戶。
 
-1.  登入 [Azure 入口網站]。
+1.  登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 按一下入口網站左下方的 [新增] 圖示，然後按一下 [資料 + 儲存體] >[ 儲存體]。為儲存體帳戶指定唯一名稱，並為它建立新的[資源群組](../resource-group-overview.md)。
+2. 按一下入口網站左上方的 [新增] 圖示，然後按 [資料+儲存體] > [儲存體帳戶]。按一下 [建立] 按鈕，接著為儲存體帳戶指定唯一名稱，並為它建立新的[資源群組](../resource-group-overview.md)。
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
 
@@ -103,6 +103,8 @@
 
 1.  使用 `F5` 執行應用程式。使用 [Create Sample Polls] 建立的民調以及投票所提交的資料將會在 Azure 資料表儲存體中序列化。
 
+	> [AZURE.NOTE]Python 2.7 虛擬環境可能會在 Visual Studio 中造成例外狀況中斷。按下 `F5` 以繼續載入 Web 專案。
+
 1.  瀏覽至 [關於] 頁面，確認應用程式是使用「Azure 資料表儲存體」儲存機制。
 
   	![Web Browser](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageAbout.png)
@@ -134,10 +136,10 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 1.  按一下 [新增] 以建立新的 Web 應用程式。
 
 1.  填寫下列欄位，然後按一下 [建立]。
-	-	Web 應用程式名稱
-	-	App Service 計劃
-	-	資源群組
-	-	區域
+	-	**Web 應用程式名稱**
+	-	**App Service 計劃**
+	-	**資源群組**
+	-	**區域**
 	-	讓「資料庫伺服器」維持設定為「沒有資料庫」
 
   	<!-- ![Create Web App on Microsoft Azure Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonCreateWebSite.png) -->
@@ -158,7 +160,7 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  向下捲動到 [應用程式設定] 區段，並設定 **REPOSITORY_NAME**、**STORAGE_NAME** 和 **STORAGE_KEY** 的值，如＜設定專案＞一節所述。
+1.  向下捲動到 [應用程式設定] 區段，並設定 **REPOSITORY\_NAME**、**STORAGE\_NAME** 和 **STORAGE\_KEY** 的值，如＜設定專案＞一節所述。
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -215,4 +217,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

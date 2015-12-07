@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="11/19/2015" 
 	ms.author="spelluru"/>
 
 # 資料移動活動
@@ -40,25 +40,12 @@
 您也可以使用資料管理閘道，將資料移出/移入裝載於 Azure IaaS VM (基礎結構即為服務的虛擬機器) 上支援的資料存放區。在此情況下，資料管理閘道可以和資料存放區本身安裝於同一部 Azure VM 上，或者安裝於具備可觸達該資料存放區之存取權的個別 VM 上。
 
 ## 支援的資料存放區
-複製活動會將資料從**來源**資料存放區複製到**接收**資料存放區。資料處理站支援下列資料存放區和來源接收組合。按一下資料存放區以了解如何從該存放區複製資料以及將資料複製到該存放區。
+複製活動會將資料從**來源**資料存放區複製到**接收**資料存放區。Data Factory 支援下列資料存放區，且**來自任何來源的資料都可以寫入任何接收**。按一下資料存放區以了解如何從該存放區複製資料以及將資料複製到該存放區。
 
-| **來源** | **接收** |
-| ------ | ---- |
-| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、檔案系統內部部署/Azure IaaS、Azure 資料湖存放區 |
-| [Azure 資料表](data-factory-azure-table-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、Azure 資料湖存放區 |
-| [Azure SQL Database](data-factory-azure-sql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、Azure 資料湖存放區 |
-| [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、Azure 資料湖存放區 |
-| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、Azure 資料湖存放區 |
-| [Azure 資料湖存放區](data-factory-azure-datalake-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure DocumentDB、檔案系統內部部署/Azure IaaS、Azure 資料湖存放區 | 
-| [IaaS 上的 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
-| [檔案系統內部部署/Azure IaaS](data-factory-onprem-file-system-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、檔案系統內部部署/Azure IaaS、Azure 資料湖存放區 |
-| [SQL Server 內部部署/AzureIaaS](data-factory-sqlserver-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
-| [Oracle 資料庫內部部署/Azure IaaS](data-factory-onprem-oracle-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
-| [MySQL 資料庫內部部署/Azure IaaS](data-factory-onprem-mysql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
-| [DB2 資料庫內部部署/Azure IaaS](data-factory-onprem-db2-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
-| [Teradata 資料庫內部部署/Azure IaaS](data-factory-onprem-teradata-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
-| [Sybase 資料庫內部部署/Azure IaaS](data-factory-onprem-sybase-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
-| [PostgreSQL 資料庫內部部署/Azure IaaS](data-factory-onprem-postgresql-connector.md) | Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、SQL Server 內部部署/Azure IaaS、Azure 資料湖存放區 |
+| 來源| 接收 |
+|:------- | :---- |
+| <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 資料表](data-factory-azure-table-connector.md)</li><li>[Azure SQL Database](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB](data-factory-azure-documentdb-connector.md)</li><li>[Azure 資料湖存放區](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 內部部署/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[檔案系統內部部署/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle Database 內部部署/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[MySQL 資料庫內部部署/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[DB2 資料庫內部部署/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Teradata 資料庫內部部署/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Sybase 資料庫內部部署/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[PostgreSQL 資料庫內部部署/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 資料表](data-factory-azure-table-connector.md)</li><li>[Azure SQL Database](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB](data-factory-azure-documentdb-connector.md)</li><li>[Azure 資料湖存放區](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 內部部署/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[檔案系統內部部署/Azure IaaS](data-factory-onprem-file-system-connector.md)</li></ul> |
+
 
 ## 教學課程
 如需使用複製活動的快速教學課程，請參閱[教學課程：在 Azure Data Factory 管線中使用複製活動](data-factory-get-started.md)。在教學課程中，您會使用複製活動將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。下列區段列出複製活動支援的所有來源與接收。
@@ -122,4 +109,4 @@
 
 以複製活動而言，**typeProperties** 區段會根據來源和接收的類型而有所不同。以上所列的每個資料存放區特定頁面都會記錄這些資料存放區類型專屬的屬性。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 #  利用單一 VMM 伺服器設定保護
@@ -43,7 +43,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 ## 開始之前
 
 - 逐步解說步驟說明如何使用單一獨立式 VMM 伺服器部署 Site Recovery。
-- 請確定您已備妥這些[必要條件](site-recovery-vmm-to-vmm.md/#before-you-start)，然後再開始部署。
+- 請確定您已備妥這些[必要條件](site-recovery-vmm-to-vmm.md#before-you-start)，然後再開始部署。
 - 單一 VMM 伺服器必須設定至少兩個雲端。一個雲端做為受保護的雲端，另一個雲端則將執行保護。
 - 您想要保護的雲端必須包含下列項目：
 	- 一或多個 VMM 主機群組
@@ -63,19 +63,19 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 	- [設定 VMM 雲端網狀架構](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
 	- [在 VMM 中建立私人雲端](https://technet.microsoft.com/library/jj860425.aspx)與[逐步解說：使用 System Center 2012 SP1 VMM 建立私人雲端](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)。
 3. 將您要保護的虛擬機器所在的來源 Hyper-V 主機伺服器新增到您將要保護的雲端 (來源雲端)。將目標 Hyper-V 主機伺服器新增到將提供保護之 VMM 伺服器上的雲端。
-4. [建立](site-recovery-vmm-to-vmm.md/#step-1-create-a-site-recovery-vault) Azure Site Recovery 保存庫，並產生保存庫註冊金鑰。
-4. 在 VMM 伺服器上[安裝](site-recovery-vmm-to-vmm.md/#step-3-install-the-azure-site-recovery-provider) Azure Site Recovery 提供者，並在保存庫中註冊伺服器。 
-5. 請確定雲端有出現在 Site Recovery 入口網站，並[設定雲端保護設定](site-recovery-vmm-to-vmm.md/#step-4-configure-cloud-protection-settings)。
+4. [建立](site-recovery-vmm-to-vmm.md#step-1-create-a-site-recovery-vault) Azure Site Recovery 保存庫，並產生保存庫註冊金鑰。
+4. 在 VMM 伺服器上[安裝](site-recovery-vmm-to-vmm.md#step-3-install-the-azure-site-recovery-provider) Azure Site Recovery 提供者，並在保存庫中註冊伺服器。 
+5. 請確定雲端有出現在 Site Recovery 入口網站，並[設定雲端保護設定](site-recovery-vmm-to-vmm.md#step-4-configure-cloud-protection-settings)。
 	- 在 [來源位置] 和 [目標位置] 中，指定單一 VMM 伺服器的名稱。
 	- 在 [複寫方法] 中，為初始複寫選取 [透過網路]，因為雲端位於相同的伺服器上。
 
-6. (選擇性) [設定網路對應](site-recovery-vmm-to-vmm.md/#step-5-configure-network-mapping)：
+6. (選擇性) [設定網路對應](site-recovery-vmm-to-vmm.md#step-5-configure-network-mapping)：
 
 	- 在 [來源] 和 [目標] 中，指定單一 VMM 伺服器的名稱。
 	- 在 [來源上的網路] 中，選取設定為您要保護的雲端的 VM 網路。
 	- 在 [目標上的網路] 中，選取設定為您要用於保護的雲端的 VM 網路。
 	- 網路對應可以在相同 VMM 伺服器上的兩個虛擬機器 (VM) 網路之間設定。如果相同的 VMM 網路存在於兩個不同的站台，您可以在相同的網路之間對應。
-7. 在 VMM 雲端中，為您要保護的虛擬機器[啟用保護](site-recovery-vmm-to-vmm.md/#step-7-enable-virtual-machine-protection)。 
+7. 在 VMM 雲端中，為您要保護的虛擬機器[啟用保護](site-recovery-vmm-to-vmm.md#step-7-enable-virtual-machine-protection)。 
 7. 在 Hyper-V 管理員主控台中，使用 Hyper-V 複本設定 VMM 虛擬機器的複寫。VMM 虛擬機器不應該加入至任何 VMM 雲端中。
 
 
@@ -86,7 +86,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 復原計畫會將應該一起容錯移轉和復原的虛擬機器群組在一起。
 
 1. 當您在 [來源] 和 [目標] 中建立復原計畫時，指定單一 VMM 伺服器的名稱。在 [選取虛擬機器] 中，將會顯示與主要雲端相關聯的虛擬機器。
-2. 接著，[建立並自訂復原計畫](https://msdn.microsoft.com/library/azure/dn337331.aspx)。
+2. 接著，[建立並自訂復原計畫](site-recovery-create-recovery-plans.md)。
 
 
 ### 復原
@@ -100,4 +100,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -4,7 +4,7 @@
 	description="了解如何在 Azure App Service 中購買搭配 Web 應用程式的自訂網域名稱。"
 	services="app-service\web"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # 在 Azure App Service 中購買並設定自訂網域名稱
 
@@ -93,9 +93,9 @@
 
 > [AZURE.NOTE]您可以在 5 天內「取消購買」以獲取完整退款。5 天後您將無法再「取消購買」，取而代之的是您會看到「刪除」網域的選項。刪除該網域不會退款，並將導致網域從您訂用帳戶釋放變成可用的網域。
 
-	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+完成設定後，自訂網域名稱將列在 Web 應用程式的 [**主機名稱繫結**] 區段中。
 
 此時，您應該能夠在瀏覽器中輸入自訂網域名稱，並且能成功移至您的 Web 應用程式。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

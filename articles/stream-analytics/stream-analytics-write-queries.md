@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="撰寫查詢 | Microsoft Azure" 
-	description="撰寫查詢學習路徑區段。"
+	description="在串流分析中撰寫查詢 | 學習路徑區段。"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 撰寫查詢
+# 如何在串流分析中撰寫查詢
 
 Azure 串流分析中的資料流處理邏輯會實作為「常設查詢」，其在工作開始前就已經獲得定義且在到達工作時便會在資料上執行。資料轉換會以類似 SQL 的查詢語言來表示，其大部分是 T-SQL 子集並加入某些語言擴充功能例如 [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) 來表示時間的語意。
 
@@ -70,4 +70,4 @@ Azure 串流分析中的資料流處理邏輯會實作為「常設查詢」，�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

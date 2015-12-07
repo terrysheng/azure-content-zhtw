@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="11/24/2015"
    ms.author="mfussell"/>
 
 # RunAs：使用不同的安全性權限執行 Service Fabric 應用程式
@@ -86,26 +86,25 @@ Service Fabric 能夠保護在叢集中以不同的使用者帳戶執行 (稱為
 
 讓我們現在將 MySetup.bat 檔案加入至 Visual Studio 專案，以便測試系統管理員權限。在 Visual Studio 中，以滑鼠右鍵按一下服務專案並加入名為 MySetup.bat 的新檔案。接下來就必須確保這個檔案包含在服務封裝內 (這並非預設)。若要確保 MySetup.bat 檔案已包含在封裝內，請選取此檔案，以滑鼠右鍵按一下以取得內容功能表，選擇 [屬性] 並在 [屬性] 對話方塊中確定 [複製到輸出目錄] 設為 [有更新時才複製]。如以下螢幕擷取畫面所示。
 
-![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][Image1]
+![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][image1]
 
 現在開啟 MySetup.bat 檔案並加入下列命令。
+
 ~~~
-REM Set a system environment variable.This requires administrator privilege
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
 echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
 REM To delete this system variable us
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
 接下來建置解決方案並部署至本機開發叢集。一旦啟動服務，如在 Service Fabric 總管中所見，您可以看到 MySetup.bat 成功的方式有兩種。開啟 PowerShell 命令提示字元並輸入
+
 ~~~
- [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-~~~
-Like this
-~~~
-PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+MyValue
 ~~~
 
 接著，在 Service Fabric 總管中記下部署和啟動服務的節點名稱 (例如節點 1)，然後瀏覽至應用程式執行個體工作資料夾，尋找可顯示 **TestVariable** 值的 out.txt 檔案。例如，如果此服務已部署至節點 2，您可以移至 MyApplicationType 的這個路徑
@@ -117,18 +116,20 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  從 SetupEntryPoint 啟動 PowerShell 命令
 若要從 **SetupEntryPoint** 執行Power Shell，您可以在指向 PowerShell 檔案的批次檔中執行 PowerShell.exe。先將 PowerShell 檔案加入至服務專案 (例如 MySetup.ps1)。請記得設定 [有更新時才複製] 屬性，讓這個檔案也包含在服務封裝內。下列範例顯示的範例批次檔可啟動名為 MySetup.ps1 的 PowerShell 檔案，以設定名為 *TestVariable* 的系統環境變數。
 
-用以啟動 PowerShell 檔案的 MySetup.bat。
+MySetup.bat 可啟動 PowerShell 檔案。
+
 ~~~
-powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-在 PowerShell 檔案中加入下列內容以設定系統環境變數
-~~~
+在 PowerShell 檔案中，加入以下項目來設定系統環境變數。
+
+```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-~~~
+```
 
-## 將 RunAs 原則套用到服務 
+## 將 RunAs 原則套用到服務
 在上述步驟中，您會看到如何將 RunAs 原則套用到 SetupEntryPoint。讓我們深入了解如何建立可當作服務原則套用的不同主體。
 
 ### 建立本機使用者群組
@@ -168,7 +169,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
   </Users>
 </Principals>
 ~~~
- 
+
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -183,8 +184,8 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
 
 ~~~
 <Policies>
-<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
@@ -265,7 +266,9 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
                <Group NameRef="LocalAdminGroup" />
             </MemberOf>
          </User>
+         <!--Customer1 below create a local account that this service runs under -->
          <User Name="Customer1" />
+         <User Name="MyDefaultAccount" AccountType="NetworkService" />
       </Users>
    </Principals>
    <Policies>
@@ -285,6 +288,6 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
 * [在服務資訊清單中指定資源](service-fabric-service-manifest-resources.md)
 * [部署應用程式](service-fabric-deploy-remove-applications.md)
 
-[Image1]: media/service-fabric-application-runas-security/copy-to-output.png
+[image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

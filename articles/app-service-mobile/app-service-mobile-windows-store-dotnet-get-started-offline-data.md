@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="11/22/2015"
 	ms.author="wesmc"/>
 
 # 啟用 Windows 應用程式離線同步處理
@@ -36,7 +36,7 @@
 
 * 執行於 Windows 8.1 的 Visual Studio 2013。
 * 完成[建立 Windows 應用程式][create a windows app]。
-* [Azure 行動服務 SQLite Store 2.0.0-beta 版][sqlite store nuget]
+* [Azure 行動服務 SQLite Store 版本 2.0.0-beta2][sqlite store nuget]
 * [SQLite for Windows 8.1](http://www.sqlite.org/downloads)
 
 ## 更新用戶端應用程式以支援離線功能
@@ -84,7 +84,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 7. 在 MainPage.cs 中標示為 `Offline sync` 的區域內，取消註解 `InitLocalStoreAsync` 和 `SyncAsync` 方法。`InitLocalStoreAsync` 方法會初始化與 SQLite 存放區的用戶端同步處理內容。您可以在 Visual Studio 中，選取所有加上註解的行，並使用鍵盤快速鍵 **Ctrl**+**K**+**U** 來取消註解。
 
-	請注意，在 `SyncAsync` 中推送作業是透過 `MobileServiceClient.SyncContext` 執行而非 `IMobileServicesSyncTable`。這是因為內容會追蹤用戶端針對所有資料表所做的變更。這是為了解說資料表之間有所關聯的情況。如需這項行為的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
+	請注意，在 `SyncAsync` 中推送作業是透過 `MobileServiceClient.SyncContext` 執行而非 `IMobileServicesSyncTable`。這是因為內容會追蹤用戶端針對所有資料表所做的變更。這是為了解說資料表之間有所關聯的情況。如需此行為的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
 
         private async Task InitLocalStoreAsync()
         {
@@ -184,30 +184,27 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 1. 編輯共用專案中的 App.xaml.cs。註解化 **MobileServiceClient** 的初始化，並新增使用無效行動應用程式 URL 的以下幾行：
 
-         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://your-service.azurewebsites.fail",
-            "https://your-gateway.azurewebsites.fail",
-            ""
-        );
+         public static MobileServiceClient MobileService = 
+				new MobileServiceClient("https://your-service.azurewebsites.fail");
+
+	請注意，當應用程式也使用驗證時，這會導致登入失敗。您也可以透過停用裝置的 WiFi 和行動電話通訊網路，或使用飛航模式來示範離線行為。
 
 2. 按 **F5** 以建置並執行應用程式。請注意，應用程式啟動後同步處理無法重新整理。
-3. 輸入一些新的 todo 項目，然後為每個項目按一下 [儲存]。包含 `PushResult.Status=CancelledByNetworkError` 的每個項目，推送會失敗。新的 todo 項目在可推送至行動應用程式後端之前，都只會存留在本機存放區中。 
+3. 輸入一些新的 todo 項目，然後為每個項目按一下 [儲存]。對於包含 `PushResult.Status=CancelledByNetworkError` 的每個項目，推送都會失敗。新的 todo 項目在可推送至行動應用程式後端之前，都只會存留在本機存放區中。 
  
-	您可以隱藏 `PushResult.Status=CancelledByNetworkError` 的例外狀況對話方塊，用戶端應用程式會如同連線到行動應用程式後端的情況運作，順暢地支援所有建立、讀取、更新、刪除 (CRUD) 作業。
+	您可以隱藏 `PushResult.Status=CancelledByNetworkError` 的例外狀況對話方塊，用戶端應用程式會如同連線到行動應用程式後端一樣，順暢地支援所有建立、讀取、更新、刪除 (CRUD) 作業。
 
 4. 關閉應用程式並重新加以開啟，以驗證您所建立的新項目持續存留於本機存放區中。
 
-5. (選擇性) 使用 Visual Studio 檢視您的 Azure SQL Database 資料表，以查看後端資料庫中的資料並無變更。
+5. 在 Visual Studio 中，開啟 [伺服器總管]。巡覽至 [Azure]-> [SQL Database] 中您的資料庫。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。現在您可以瀏覽至您的 SQL Database 資料表和其內容。確認後端資料庫中的資料沒有變更。
 
-   在 Visual Studio 中，開啟 [伺服器總管]。巡覽至 [Azure]-> [SQL Database] 中您的資料庫。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。現在您可以瀏覽至您的 SQL Database 資料表和其內容。
-
-6. (選擇性) 使用 REST 工具 (例如 Fiddler 或 Postman) 來查詢您的行動後端 (使用表單 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 中的 GET 查詢)。 
+6. (選擇性) 使用 REST 工具 (例如 Fiddler 或 Postman) 來查詢您的行動後端 (使用表單 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 中的 GET 查詢)。
 
 ## <a name="update-online-app"></a>更新應用程式以重新連線您的行動應用程式後端
 
 在本節中，您會將應用程式重新連接至行動應用程式後端。您將藉此模擬應用程式在行動應用程式後端中，從離線狀態恢復為線上狀態的情境。當您第一次執行應用程式時，`OnNavigatedTo` 事件處理常式會呼叫 `InitLocalStoreAsync`。接著會呼叫 `SyncAsync` 來同步處理您的本機存放區與後端資料庫。因此，應用程式會嘗試於開機時同步處理。
 
-1. 開啟共用專案中的 App.xaml.cs。取消註解先前的 `MobileServiceClient` 初始化，以使用正確的行動應用程式 URL 與閘道 URL。
+1. 開啟共用專案中的 App.xaml.cs。取消註解先前的 `MobileServiceClient` 初始化，以使用正確的行動應用程式 URL 與閘道器 URL。
 
 2. 按 **F5** 鍵，以重新建置與執行應用程式。該應用程式會在 `OnNavigatedTo` 事件處理常式執行時使用推送與提取作業，同步處理您的本機變更與 Azure 行動應用程式後端。
 
@@ -215,7 +212,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 4. 在應用程式中，按一下幾個項目旁邊的核取方塊，以在本機存放區中完成它們。
 
-  `UpdateCheckedTodoItem` 會呼叫 `SyncAsync` 來完成每個項目與行動應用程式後端的同步處理。`SyncAsync` 會同時呼叫推送與提取。不過，您應該注意**每當您針對用戶端進行變更的資料表執行提取時，用戶端同步處理內容上的推送一律會先自動執行**。這是為了確保本機存放區中的所有資料表和關聯性都保持一致。因此在此情況下，我們可以先移除對 `PushAsync` 的呼叫，因為執行提取時它會自動執行。如果您不注意，此行為會導致非預期的推送。如需這項行為的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
+  `UpdateCheckedTodoItem` 會呼叫 `SyncAsync` 來完成每個項目與行動應用程式後端的同步處理。`SyncAsync` 會同時呼叫推送與提取。不過，您應該注意**每當您針對用戶端進行變更的資料表執行提取時，一律會先自動執行用戶端同步處理內容推送**。這是為了確保本機存放區中的所有資料表和關聯性都保持一致。因此在此情況下，我們可以先移除對 `PushAsync` 的呼叫，因為執行提取時它會自動執行。如果您不注意，此行為會導致非預期的推送。如需此行為的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
 
 
 ##摘要
@@ -251,7 +248,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 * [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
+* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure Mobile Apps 中的方式)
 
 * [Azure Friday：Azure 行動服務中離線啟用的應用程式]
 
@@ -281,4 +278,4 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday：Azure 行動服務中離線啟用的應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015--->

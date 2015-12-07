@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 
@@ -62,11 +62,11 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 - 您應該執行最新版本的提供者和代理程式。
 - 保存庫中的所有 Hyper-V 伺服器版本應該都一樣。
 - 提供者必須透過網際網路連接到 Azure Site Recovery。您不需要使用 Poxy 就能選擇執行這個動作，方法是使用目前設定於 VMM 伺服器上的 Poxy 設定，或使用您在提供者安裝期間所設定的自訂 Poxy 設定。若要使用現有的 Poxy 伺服器，請確定允許 URL 透過防火牆連接到 Azure
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
  
 - 若要使用自訂的 Proxy，請先安裝 Proxy 伺服器，然後再安裝提供者。在提供者安裝期間，您需要指定 Proxy 伺服器的位址和連接埠，以及可用於存取的認證。請注意，不支援 HTTPS 型 Proxy。
 
@@ -145,13 +145,13 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	- 如果 Hyper-V 伺服器上的預設 Proxy 需要驗證，則您應該選取使用自訂的 Proxy 伺服器。輸入預設的 Proxy 詳細資料，然後指定認證。
 	- 如果您想要使用自訂的 Proxy 伺服器，請在安裝提供者之前先設定它。
 	- 下列 URL 應可從 Hyper-v 主機存取
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 
-	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的允許清單 IP 範圍。
+	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 9. 在 [保存庫設定] 頁面上，按一下 [瀏覽] 來選取金鑰檔案。指定 Azure Site Recovery 訂用帳戶、保存庫名稱，以及 Hyper-V 伺服器所屬的 Hyper-V 站台。
 
@@ -166,33 +166,34 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 	![伺服器註冊](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider7.png)
 
-	> [AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來在適用於 Windows Server 2012 R2 的伺服器核心上安裝提供者
-	>
-	>1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
-	>2. 從命令提示字元，使用**系統管理員**權限執行下列命令，來解壓縮提供者安裝程式
-	>
-	    	C:\Windows\System32> CD C:\ASR
-	    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-	>4. 執行下列命令來安裝提供者
-	>
-			C:\ASR> setupdr.exe /i
-	>5. 執行下列命令來登錄提供者
-	>
-	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
-	    	C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>
+>[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來在適用於 Windows Server 2012 R2 的伺服器核心上安裝提供者
+
+1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
+1. 從命令提示字元，使用**系統管理員**權限執行下列命令，來解壓縮提供者安裝程式
+
+    	C:\Windows\System32> CD C:\ASR
+    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+1. 執行下列命令來安裝提供者
+
+		C:\ASR> setupdr.exe /i
+1. 執行下列命令來登錄提供者
+
+    	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
 
 
-	>----------
-          
-	>####命令列安裝參數清單####
-	>- **/Credentials**：必要參數，用來指定註冊金鑰檔案所在的位置  
-	> - **/FriendlyName**：對於 Hyper-V 主機伺服器名稱的必要參數，該伺服器會出現在 Azure Site Recovery 入口網站中。
-	> - **/proxyAddress**：指定 Proxy 伺服器位址的選用參數。
-	> - **/proxyport**：指定 Proxy 伺服器連接埠的選用參數。
-	> - **/proxyUsername**：指定 Proxy 使用者名稱 (如果 Proxy 需要驗證) 的選用參數。
-	> - **/proxyPassword**：指定用以驗證 Proxy 伺服器之密碼 (如果 Proxy 需要驗證) 的選用參數。
 
->[AZURE.TIP]您可以設定每個個別的 Hyper-V 主機以使用不同的網路頻寬設定，將虛擬機器複寫至 Azure。深入了解[如何管理內部部署至 Azure 保護的網路頻寬使用量](https://support.microsoft.com/zh-TW/kb/3056159)
+#### 命令列安裝參數清單
+
+ - **/Credentials**：必要參數，用來指定註冊金鑰檔案所在的位置  
+ - **/FriendlyName**：對於 Hyper-V 主機伺服器名稱的必要參數，該伺服器會出現在 Azure Site Recovery 入口網站中。
+ - **/EncryptionEnabled**：如果您需要在 Azure 中以靜止的方式為虛擬機器加密，則必須只能在 VMM 到 Azure 案例中使用這個選用參數。請確定您提供的檔案名稱具有 **.pfx** 副檔名。
+ - **/proxyAddress**：指定 Proxy 伺服器位址的選用參數。
+ - **/proxyport**：指定 Proxy 伺服器連接埠的選用參數。
+ - **/proxyUsername**：指定 Proxy 使用者名稱 (如果 Proxy 需要驗證) 的選用參數。
+ - **/proxyPassword**：指定用以驗證 Proxy 伺服器之密碼 (如果 Proxy 需要驗證) 的選用參數。  
+
+>[AZURE.TIP]您可以設定每個個別的 Hyper-V 主機以使用不同的網路頻寬設定，將虛擬機器複寫至 Azure。深入了解《[如何管理內部部署至 Azure 保護的網路頻寬使用量](https://support.microsoft.com/zh-TW/kb/3056159)》
 
 
 ## 步驟 4：建立 Azure 資源
@@ -239,15 +240,10 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 		![設定虛擬機器屬性](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
 	- 在 [受保護的項目] > [保護群組] > *protectiongroup\_name* > [虛擬機器] *virtual\_machine\_name* > [設定] 中，設定其他的虛擬機器設定，包括：
 
-		- **網路介面卡**：網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。
-			- 大型 (A3) 和 A6：2
-			- 超大型 (A4) 和 A7：
-			- A9：2
-			- D3：2
-			- D4：4
-			- D13：4
+		- **網路介面卡**：網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。查看[虛擬機器大小規格](../virtual-machines/virtual-machines-size-specs.md#size-tables)，瞭解虛擬機器大小所支援的 NIC 數目。 
+		
 
-			在修改虛擬機器的大小並儲存設定之後，當您下次開啟 [設定] 頁面時，將會顯示網路介面卡。虛擬機器的介面卡數目會根據下列內容來判斷：
+			在修改虛擬機器的大小並儲存設定之後，當您下次開啟 [**設定**] 頁面時，網路介面卡的數量將會改變。目標虛擬機器的網路介面卡數目，是來源虛擬機器上的網路介面卡數目下限，以及所選虛擬機器大小支援的網路介面卡數目上限。其說明如下：
 
 
 			- 如果來源電腦上的網路介面卡數目小於或等於針對目標機器大小所允許的介面卡數目，則目標將具備與來源相同的介面卡數目。
@@ -258,6 +254,9 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 		- **目標 IP 位址**：如果來源虛擬機器的網路介面卡已設定為使用靜態 IP 位址，則您可以指定目標虛擬機器的 IP 位址，以確保機器在容錯移轉後會有相同的 IP 位址。如果您未指定 IP 位址，則系統將在容錯移轉期間指派任何可用的位址。如果您指定了使用中的位址，則容錯移轉將會失敗。
 
 		![設定虛擬機器屬性](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
+
+>[AZURE.NOTE]不支援使用靜態 IP 的 Linux 虛擬機器。
+
 
 ## 步驟 7：建立復原計畫
 
@@ -270,7 +269,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 - 在沒有 Azure 網路的情況下測試容錯移轉—這種測試容錯移轉可以檢查虛擬機器是否正確地出現在 Azure 中。在容錯移轉之後，虛擬機器不會連線到任何 Azure 網路。
 - 利用 Azure 網路測試容錯移轉—這種測試容錯移轉可以檢查整個復寫環境是否如預期般出現並進行容錯移轉，虛擬機器會連線到只訂的目標 Azure 網路。針對子網路處理的測試容錯移轉，可根據複本虛擬機器的子網路得知測試虛擬機器的子網路。這和一般的複寫不同，一般複寫的複本虛擬機器子網路是根據來源虛擬機器的子網路得知。
 
-如果您想要針對啟用保護的虛擬機器執行測試容錯轉移至 Azure ，卻不想指定 Azure 目標網路，您不需要作任何準備。若要以目標 Azure 網路執行測試容錯移轉，您必須建立與您的 Azure 正式作業網路 (當您在 Azure 中建立新網路時的預設行為) 分隔的新的 Azure 網路。如需詳細資訊，請參閱[執行測試容錯移轉](site-recovery-failover.md#run-a-test-failover)。
+如果您想要針對啟用保護的虛擬機器執行測試容錯轉移至 Azure ，卻不想指定 Azure 目標網路，您不需要作任何準備。若要以目標 Azure 網路執行測試容錯移轉，您必須建立與您的 Azure 正式作業網路 (當您在 Azure 中建立新網路時的預設行為) 分隔的新的 Azure 網路。如需詳細資訊，請參考如何[執行測試容錯移轉](site-recovery-failover.md#run-a-test-failover)。
 
 
 您也必須針對複寫虛擬機器設定基礎結構，以如預期般運作。例如，具有網域控制站和 DNS 的虛擬機器可以使用 Azure Site Recovery 複寫到 Azure，而且可以使用測試容錯移轉，在測試網路中加以建立。如需詳細資訊，請參閱 [Active Directory 測試容錯移轉考量](site-recovery-active-directory.md#considerations-for-test-failover)一節。
@@ -305,4 +304,4 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

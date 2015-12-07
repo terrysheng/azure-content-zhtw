@@ -3,7 +3,7 @@
    description="描述如何分割 Service Fabric 服務"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager="timlt"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 # 如何分割 Service Fabric 可靠的服務
-這篇文章介紹分割 Service Fabric 可靠的服務的基本概念。[Github (加入最後一個連結)](http://Github.com) 上也提供本文中使用的原始碼。
+這篇文章介紹分割 Service Fabric 可靠的服務的基本概念。[Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions) 上也提供本文中使用的原始碼。
 
 ## 什麼是分割
-分割不是 Service Fabric 所獨有，實際上它是建置可調整服務的核心模式。廣義上，我們可以將分割視為將狀態 (資料) 和計算分成較小的可存取單位來改善延展性和效能。[資料分割] (https://en.wikipedia.org/wiki/Partition_(database)) 是一種知名的分割形式，也稱為分區化。
+分割不是 Service Fabric 所獨有，實際上它是建置可調整服務的核心模式。廣義上，我們可以將分割視為將狀態 (資料) 和計算分成較小的可存取單位來改善延展性和效能。[資料分割][wikipartition]是一種知名的分割形式，也稱為分區化。
 
 
 ### 分割 Service Fabric 無狀態服務
@@ -59,7 +59,7 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
 若要避免這種情況，您應該從分割觀點來做兩件事：
 
 - 試著分割狀態，使它平均分散到所有資料分割。
-- [報告服務每個複本的度量](service-fabric-reliable-services-advanced-usage.md)。Service Fabric 能夠報告服務的度量，例如記憶體數量或記錄數量。根據報告的度量，Service Fabric 會偵測到某些資料分割處理的負載高於其他資料分割，然後將複本移至更適合的節點，以平新重衡叢集。
+- [報告服務每個複本的度量](service-fabric-resource-balancer-dynamic-load-reporting.md)。Service Fabric 能夠報告服務的度量，例如記憶體數量或記錄數量。根據報告的度量，Service Fabric 會偵測到某些資料分割處理的負載高於其他資料分割，然後將複本移至更適合的節點，以平新重衡叢集。
 
 有時候您不知道給定的資料分割中有多少資料，一般是建議兩者都做，首先是採用分割策略將資料平均分散到資料分割，其次是報告負載。第一種方法可避免投票範例中的情況，第二種方法有助於消除一段期間內短暫的存取或負載差異。
 
@@ -75,7 +75,7 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
 
 如果在執行中的叢集遇到資源限制，該怎麼辦？ 答案是您可以輕易地調相應放大群集來滿足新的需求。
 
-[容量規劃指南](manisdoc.md)提供如何判斷叢集需要多少節點的指導方針。
+[容量規劃指南](service-fabric-capacity-planning.md)提供如何判斷叢集需要多少節點的指導方針。
 
 ## 如何分割
 本節描述如何開始分割您的服務。
@@ -99,7 +99,7 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
 ### 選取雜湊演算法
 雜湊中的重要部分即為選取雜湊演算法。無論目標是分組彼此靠近的類似索引鍵 (位置敏感雜湊)，或應該將活動廣泛分散到所有資料分割 (分散雜湊)，需要考量何者較常用。
 
-良好分散雜湊演算法的特性包括容易計算、衝突小且平均分佈索引鍵。[FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) 雜湊演算法是有效率雜湊演算法的一個很好例子。
+良好分散雜湊演算法的特性包括容易計算、衝突小且平均分佈索引鍵。[FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) 雜湊演算法是高效率雜湊演算法的一個很好例子。
 
 
 一般選擇雜湊程式碼演算法的絕佳資源是[雜湊函數的維基百科頁面](http://en.wikipedia.org/wiki/Hash_function)。
@@ -324,7 +324,7 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
 16. 部署之後，您可以在 Service Fabric 總管中檢查服務及其所有資料分割。![服務](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
 17. 您可以在瀏覽器中輸入 `http://localhost:8090/?lastname=somename` 來測試分割邏輯。您會看到以相同字母開頭的每個姓氏儲存在相同的資料分割中。![[瀏覽器]](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
-範例的完整原始程式碼位於 [Github](www.github.com)
+範例的完整原始程式碼位於 [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)
 
 ## 後續步驟
 
@@ -334,4 +334,6 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
 
 - [Service Fabric 服務的延展性](service-fabric-concepts-scalability.md)
 
-<!---HONumber=Nov15_HO4-->
+[wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
+
+<!---HONumber=AcomDC_1125_2015-->

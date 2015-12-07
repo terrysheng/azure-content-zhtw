@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/20/2015"
 	ms.author="larryfr"/>
 
 # 使用指令碼動作來自訂 HDInsight 叢集| Azure (Linux)
@@ -60,7 +60,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 2. 在 [選擇性組態] 的 [指令碼動作] 刀鋒視窗上，按一下 [加入指令碼動作] 以提供有關指令碼動作的詳細資料，如下所示：
 
-	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "使用指令碼動作以自訂叢集")
+	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
 
 	| 屬性 | 值 |
 	| -------- | ----- |
@@ -80,12 +80,12 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 ### 開始之前
 
 * 如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
-* 如需如何建立 ARM 範本的指示，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
-* 如果您之前未曾搭配使用Azure PowerShell 與資源管理員，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](powershell-azure-resource-manager)。
+* 如需如何建立 ARM 範本的指示，請參閱[撰寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
+* 如果您之前未曾搭配使用Azure PowerShell 與資源管理員，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](../powershell-azure-resource-manager.md)。
 
 ### 使用指令碼動作來建立叢集
 
-1. 將下列範本複製到您的電腦上的位置。此範本會在叢集中的前端節點和背景工作角色節點上安裝 R。您也可以確認 JSON 範本是否有效。將您的範本內容貼上至 [JSONLint](http://jsonlint.com/)，這是一個線上 JSON 驗證器工具。
+1. 將下列範本複製到您的電腦上的位置。此範本會在叢集中的前端節點和背景工作角色節點上安裝 R。您也可以確認 JSON 範本是否有效。將您的範本內容貼至 [JSONLint](http://jsonlint.com/)，這是一個線上 JSON 驗證器工具。
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -333,11 +333,27 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 	| 參數 | 指令碼所需的參數。 |
 	| Uri | 指定所執行之指令碼的 URI。 |
 
+4. 為此叢集設定 admin/HTTPS 使用者：
+
+        $httpCreds = get-credential
+        
+    系統顯示提示時，請輸入 'admin' 做為名稱，並提供密碼。
+
+5. 設定 SSH 認證：
+
+        $sshCreds = get-credential
+    
+    出現提示時，請輸入 SSH 使用者名稱和密碼。如果您想要使用認證 (而非密碼) 來保護 SSH 帳戶，請使用空白密碼並將 `$sshPublicKey` 設為您想使用之憑證公開金鑰的內容。例如：
+    
+        $sshPublicKey = Get-Content .\path\to\public.key -Raw
+    
 4. 最後，建立叢集：
         
-        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes
+        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
+    
+    如果您是使用公開金鑰來保護 SSH 帳戶，您也必須指定 `-SshPublicKey $sshPublicKey` 做為參數。
 
-出現提示時，請輸入叢集的認證。建立叢集可能需要幾分鐘的時間。
+建立叢集可能需要幾分鐘的時間。
 
 ## 從 HDInsight .NET SDK 使用指令碼動作
 
@@ -380,7 +396,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
         private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
         private const string NewClusterVersion = "3.2";
         private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-        private const OSType NewClusterOSType = OSType.Windows;
+        private const OSType NewClusterOSType = OSType.Linux;
 
         private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
         private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
@@ -549,4 +565,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

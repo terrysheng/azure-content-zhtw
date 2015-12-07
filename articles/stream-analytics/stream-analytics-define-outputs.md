@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/12/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 # 了解串流分析輸出
@@ -171,7 +171,7 @@
 | 資料表名稱 | 資料表的名稱。如果資料表不存在，將會建立資料表。 |
 | 資料分割索引鍵 | 包含資料分割索引鍵的輸出資料行名稱。在構成實體主索引鍵第一個部分的指定資料表內，資料分割索引鍵是資料分割的唯一識別碼。大小最高為 1 KB 的字串值。 |
 | 列索引鍵 | 包含資料列索引鍵的輸出資料行名稱。資料列索引鍵是指定資料分割內實體的唯一識別碼。它可構成實體主索引鍵的第二個部分。資料列索引鍵是大小可能高達 1 KB 的字串值。 |
-| 批次大小 | 批次作業的記錄數目。預設值通常就已足以應付大部分的工作，如需有關修改此設定的詳細資訊，請參閱[資料表批次作業規格](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)。 |
+| 批次大小 | 批次作業的記錄數目。預設值通常足以應付大部分的工作，如需修改此設定的詳細資訊，請參閱[資料表批次作業規格](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)。 |
 
 ## 服務匯流排佇列
 
@@ -267,4 +267,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

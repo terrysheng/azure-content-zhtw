@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
-# 了解串流分析輸入
+# 了解串流分析輸入連接
 
 Azure 串流分析的輸入定義為資料來源的連接。在工作執行所在的 Azure 訂用帳戶內外，資料流分析具有與 Azure 來源事件中樞、IoT 中心和 Blob 儲存體的第一級整合。當資料推送到該資料來源時，它會由串流分析工作所取用並即時處理。輸入可分為兩個不同類型：資料流輸入和參考資料輸入。
 
@@ -201,4 +201,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -57,7 +57,7 @@
 
 |Technology|範例架構|
 |---|---|
-|**AlwaysOn 可用性群組**|為了進行嚴重損壞修復，可用性複本會在 Azure VM 的多個資料中心執行。這種跨區域解決方案可防止網站完全中斷。<br/> ![AlwaysOn 可用性群組](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_alwayson.png)<br/>在區域內，所有複本都應位於相同的雲端服務與 VNet 中。由於每個區域會有不同的 VNet，因此這些解決方案會需要 VNet 對 VNet 連線。如需詳細資訊，請參閱[在管理入口網站中設定網站間 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)。|
+|**AlwaysOn 可用性群組**|為了進行嚴重損壞修復，可用性複本會在 Azure VM 的多個資料中心執行。這種跨區域解決方案可防止網站完全中斷。<br/> ![AlwaysOn 可用性群組](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_alwayson.png)<br/>在區域內，所有複本都應位於相同的雲端服務與 VNet 中。由於每個區域會有不同的 VNet，因此這些解決方案會需要 VNet 對 VNet 連線。如需詳細資訊，請參閱[在 Azure 入口網站中設定站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)。|
 |**資料庫鏡像**|為了進行嚴重損壞修復，主體、鏡像和伺服器會在不同的資料中心內執行。由於 Active Directory 網域無法跨多個資料中心，因此您必須使用伺服器憑證進行部署。<br/>![資料庫鏡像](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_dbmirroring.gif)|
 |**備份及還原與 Azure Blob 儲存體服務**|為了進行嚴重損害修復，生產資料庫會直接備份至不同資料中心內的 Blob 儲存體。<br/>![備份與還原](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_dr_backup_restore.gif)<br/>如需詳細資訊，請參閱[Azure 虛擬機器中的 SQL Server 備份和還原](virtual-machines-sql-server-backup-and-restore.md)。|
 
@@ -152,4 +152,4 @@ Azure 磁碟中的異地複寫不支援將相同資料庫的資料檔與記錄�
 - [在 Azure 中安裝新的 Active Directory 樹系](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [在 Azure VM 中建立 AlwaysOn 可用性群組的 WSFC 叢集](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

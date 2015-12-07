@@ -45,33 +45,13 @@
 
 在您能從 Azure 傳送推播通知到您的 Windows 應用程式之前，您必須將應用程式提交至 Windows 市集。接著您可以設定您的伺服器專案與 WNS 整合。
 
-1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 Windows 市集應用程式專案，然後按一下 [市集] > [將應用程式與市集建立關聯]。 
+[AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
-    ![建立應用程式與 Windows 市集的關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-win8-app.png)
-    
-2. 在精靈中按 [下一步]、使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
-
-3. 成功建立應用程式註冊之後，選取新的應用程式名稱，按 [下一步]，然後按一下 [關聯]。這會將所需的 Windows 市集註冊資訊新增至應用程式資訊清單。
-
-7. 使用您之前為 Windows 市集應用程式所建立的相同登錄，針對 Windows Phone 市集應用程式專案重複步驟 1 和 3。
-
-7. 瀏覽至 [Windows 開發人員中心](https://dev.windows.com/zh-TW/overview)、使用您的 Microsoft 帳戶登入、在 [我的應用程式] 中按一下 [新增應用程式註冊]，然後展開 [服務] > [推播通知]。
-
-8. 在 [推播通知] 頁面上，按一下 [Microsoft Azure 行動服務] 底下的 [線上服務網站]。
-
-9. 在 [應用程式設定] 索引標籤上，記下 [用戶端密碼] 和 [封裝 SID] 的值。
-
-    ![開發人員中心的應用程式設定](./media/app-service-mobile-windows-store-dotnet-get-started-push/mobile-services-win8-app-push-auth.png)
-
-    > [AZURE.IMPORTANT]用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些值，或與您的應用程式一起散發密碼。
 
 ##設定行動應用程式以傳送推播要求
 
-1. 登入 [Azure 入口網站]，選取 [瀏覽] > [行動應用程式] > 您的應用程式 > [推播通知服務]。
+[AZURE.INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-2. 在 [Windows 通知服務] 中，輸入您從線上服務網站取得的**安全性金鑰** (用戶端密碼) 和**封裝 SID**，然後按一下 [儲存]。
-
-您的行動應用程式後端現在已設定成使用 WNS。
 
 ##<a id="update-service"></a>更新伺服器以傳送推播通知
 
@@ -146,7 +126,7 @@
     
     此程式碼會從 WNS 中擷取應用程式的 ChannelURI，然後向您的應用程式服務行動應用程式註冊該 ChannelURI。
     
-3. 在 **App.xaml.cs** 中 **OnLaunched** 事件處理常式頂端，將 **async** 修飾詞新增到方法定義並加入對新的 **InitNotificationsAsync** 方法的下列呼叫，如下列範例所示：
+3. 在 **App.xaml.cs** 中的 **OnLaunched** 事件處理常式頂端，將 **async** 修飾詞新增到方法定義並加入對新的 **InitNotificationsAsync** 方法的下列呼叫，如下列範例所示：
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -171,14 +151,14 @@
 
 ##<a id="more"></a>更多資訊
 
-* 範本可讓您彈性地傳送跨平台推播和當地語系化推播。[如何使用 Azure Mobile Apps 的 Managed 用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)示範如何註冊範本。
-* 標記可讓您使用推播鎖定區隔的客戶。[使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 示範如何在安裝裝置時加入標記。
+* 範本可讓您彈性地傳送跨平台推播和當地語系化推播。[如何針對 Azure Mobile Apps 使用受管理的用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)示範如何註冊範本。
+* 標記可讓您使用推播鎖定區隔的客戶。[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 示範如何在安裝裝置時加入標記。
 
 <!-- Anchors. -->
 
 <!-- URLs. -->
-[Azure 入口網站]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015--->

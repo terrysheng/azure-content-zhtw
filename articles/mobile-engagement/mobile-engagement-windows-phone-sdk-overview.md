@@ -32,11 +32,11 @@
 
 ##版本資訊
 
-###3\.0.0 (2015/04/03)
+###3\.1.0 (11/20/2015)
+*MicrosoftAzure.MobileEngagement* Nuget 套件 **v3.2.0** 的一部分。
 
--   預設通知圖示已更新。
--   按一下通知時，會傳回系統通知動作回饋。
--   已修正系統通知的競爭條件。
+-   修正初始化之後立即要求裝置 ID 時發生的當機。
+-   主控台記錄檔改善。
 
 如需較早版本，請參閱[完整版本資訊](mobile-engagement-windows-phone-release-notes.md)
 
@@ -55,4 +55,4 @@
 請參閱[升級程序](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

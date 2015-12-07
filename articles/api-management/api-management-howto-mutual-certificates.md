@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何在 Azure API 管理中使用相互憑證驗證來保護後端服務" 
-	description="了解如何在 Azure API 管理中使用相互憑證驗證來保護後端服務。" 
+	pageTitle="如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務" 
+	description="了解如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務。" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/23/2015" 
 	ms.author="sdanie"/>
 
-# 如何在 Azure API 管理中使用相互憑證驗證來保護後端服務
+# 如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務
 
-API 管理提供以相互憑證保護 API 後端服務之存取的功能。本指南將示範如何在 API 發行者入口網站內管理憑證，以及如何設定 API 以使用憑證來存取其後端服務。
+API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。本指南將示範如何在 API 發行者入口網站內管理憑證，以及如何設定 API 以使用憑證來存取其後端服務。
 
 如需使用 API 管理 REST API 來管理憑證的詳細資訊，請參閱 [Azure API 管理 REST API 憑證實體][]。
 
 ## <a name="prerequisites"> </a>必要條件
 
-本指南將示範如何設定 API 管理服務執行個體，以使用相互憑證驗證來存取 API 的後端服務。在遵循本主題中的步驟之前，請先設定後端服務以進行相互憑證驗證，以及取得憑證的存取權限和憑證密碼，以在 API 管理發行者入口網站內上傳。
+本指南將示範如何設定 API 管理服務執行個體，以使用用戶端憑證驗證來存取 API 的後端服務。在遵循本主題中的步驟之前，請先設定後端服務以進行用戶端憑證驗證，以及取得憑證的存取權限和憑證密碼，以在 API 管理發行者入口網站內上傳。
 
 ## <a name="step1"> </a>上傳用戶端憑證
 
@@ -54,7 +54,7 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 
 ![Certificate uploaded][api-management-certificate-uploaded]
 
-待憑證上傳完畢後，它會顯示在 [用戶端憑證] 索引標籤中。如果您擁有多個憑證，請記下主體或指紋的最後四個字元，因為在設定 API 以使用憑證時，您可以利用它們來選取憑證，如下文中的＜[設定 API 以使用相互憑證來驗證閘道][]＞一節所述。
+待憑證上傳完畢後，它會顯示在 [用戶端憑證] 索引標籤中。如果您擁有多個憑證，請記下主體或指紋的最後四個字元，因為在設定 API 以使用憑證時，您可以利用它們來選取憑證，如下文中的＜[設定 API 以使用用戶端憑證來驗證閘道][]＞一節所述。
 
 ## <a name="step1a"> </a>刪除用戶端憑證
 
@@ -70,15 +70,15 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 
 ![Confirm delete][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>設定 API 以使用相互憑證來驗證閘道
+## <a name="step2"> </a>設定 API 以使用用戶端憑證來驗證閘道
 
 從左側的 [API 管理] 功能表按一下 [API]，再依序按一下所需之 API 的名稱和 [安全性] 索引標籤。
 
 ![API security][api-management-api-security]
 
-從 [With credentials] 下拉式清單選取 [Mutual certificates]。
+從 [使用認證] 下拉式清單選取 [用戶端憑證]。
 
-![Mutual certificates][api-management-mutual-certificates]
+![Client certificates][api-management-mutual-certificates]
 
 從 [用戶端憑證] 下拉式清單選取需要的憑證。如果有多個憑證，可以藉由主體或指紋的最後四個字元來判斷正確的憑證 (如前文所述)。
 
@@ -96,7 +96,7 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 
 ## 後續步驟
 
-如需詳細資訊，請參閱下列影片。
+如需其他用來保護您後端服務方式的詳細資訊，例如 HTTP Basic 或共用密碼驗證，請參閱下列影片。
 
 > [AZURE.VIDEO last-mile-security]
 
@@ -133,7 +133,7 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[設定 API 以使用相互憑證來驗證閘道]: #step2
+[設定 API 以使用用戶端憑證來驗證閘道]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
@@ -141,4 +141,4 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

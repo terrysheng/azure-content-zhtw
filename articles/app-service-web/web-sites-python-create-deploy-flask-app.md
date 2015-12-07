@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 
 # 在 Azure 中使用 Flask 建立 Web 應用程式
@@ -26,7 +26,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 必要條件
 
@@ -56,7 +56,7 @@
 建立應用程式的第一步是透過 [Azure 入口網站](https://portal.azure.com)建立 Web 應用程式。
 
 1. 登入 Azure 入口網站中，並按一下左下角的 [新增] 按鈕。 
-2. 按一下 [Web + 行動] > [Azure Marketplace] > [Web Apps]。
+2. 按一下 [Web + 行動]。
 3. 在搜尋方塊中，輸入 "python"。
 4. 在搜尋結果中，選取 [Flask]，然後按一下 [建立]。
 5. 設定新的 Flask 應用程式，例如為它建立新的 App Service 計劃和新的資源群組。然後按一下 [建立]。
@@ -299,6 +299,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 針對 Python 3.4：
 
     python -m venv env
+或 pyvenv env
 
 安裝應用程式所需的任何外部封裝。您可以在儲存機制的根目錄使用 requirements.txt 檔案，在虛擬環境中安裝封裝：
 
@@ -369,7 +370,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 請遵循下列連結以深入了解 Flask 和 Python Tools for Visual Studio：
  
-- [Flask 說明文件] (英文)
+- [Flask 說明文件 (英文)]
 - [Python Tools for Visual Studio 說明文件]
 
 如需有關使用 Azure 資料表儲存體和 MongoDB 的資訊：
@@ -399,7 +400,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 [Visual Studio]: http://www.visualstudio.com/
 [Python Tools for Visual Studio 文件]: http://aka.ms/ptvsdocs
 [Python Tools for Visual Studio 說明文件]: http://aka.ms/ptvsdocs
-[Flask 說明文件]: http://flask.pocoo.org/
+[Flask 說明文件 (英文)]: http://flask.pocoo.org/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

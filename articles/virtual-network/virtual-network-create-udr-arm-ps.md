@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 #在 PowerShell 中建立使用者定義的路由 (UDR)
@@ -38,29 +38,29 @@
 
 3. 建立用來傳送到以後端子網路 (192.168.2.0/24) 為目標的路由，以路由傳送所有流量到 **FW1** 虛擬應用裝置 (192.168.0.4)。
 
-		$route = New-AzureRouteConfig -Name RouteToBackEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. 在包含上述建立之路由的 **westus** 區域中建立名為 **UDR-FrontEnd** 的路由表。
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. 建立包含子網路所在之 VNet 的變數。在我們的案例中，VNet 名為 **TestVNet**。
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. 將上方建立的路由表與 **FrontEnd** 子網路建立關聯。
 		
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
 >[AZURE.WARNING]上述命令的輸出會顯示虛擬網路設定物件的內容，此物件只存在於您執行 PowerShell 的電腦上。您需要執行 **Set-AzureVirtualNetwork** Cmdlet 來將這些設定儲存至 Azure。
 
 7. 在 Azure 中儲存新的子網路設定。
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	預期的輸出：
 
@@ -115,23 +115,23 @@
 
 1. 建立用來傳送到以前端子網路 (192.168.1.0/24) 為目標的路由，以路由傳送所有流量到 **FW1** 虛擬應用裝置 (192.168.0.4)。
 
-		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. 在包含上方建立的路由 **uswest** 區域中建立名為 **UDR-BackEnd** 的路由表。
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. 將上方建立的路由表與 **BackEnd** 子網路建立關聯。
 
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
 
 7. 在 Azure 中儲存新的子網路設定。
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	預期的輸出：
 
@@ -185,12 +185,12 @@
 
 1. 建立包含 FW1 所使用 NIC 的設定的變數。在我們的案例中，NIC 名為 **NICFW1**。
 
-		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureRmNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. 啟用 IP 轉送並儲存 NIC 設定。
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
 
 	預期的輸出：
 
@@ -236,4 +236,4 @@
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

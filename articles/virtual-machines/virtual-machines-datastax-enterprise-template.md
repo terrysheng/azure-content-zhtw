@@ -252,7 +252,7 @@ DataStax 是知名的業界領導者，他們根據 Apache Cassandra™ 來開�
 
 部署期間以及部署結束之後，您可以檢查所有佈建期間所進行的要求，包括任何發生的錯誤。
 
-若要這樣做，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
+若要這樣做，請移至 [Azure Preview 入口網站](https://portal.azure.com)，然後執行下列動作：
 
 - 按一下左側導覽列上的 [瀏覽]，向下捲動，然後按一下 [資源群組]。
 - 按一下剛建立的資源群組之後，系統就會顯示 [資源群組] 刀鋒視窗。
@@ -386,7 +386,7 @@ azuredeploy.json 的 "parameters" 區段會指定此範本中所使用的可修�
 
 在第一個範例中，我們很清楚地知道此案例中的 azuredeploy.json 是用來做為一種協調流程機制，負責叫用一些其他範本檔案，而這其中每一個檔案都會負責部分的必要部署活動。
 
-特別是，下列連結的範本將用於此部署：
+特別是，下列連結的範本將用於此部署
 <!-- In list format, using bold typeface in the following manner is ok -->
 -	**shared-resource.json**：包含可以跨部署共用的所有資源定義。範例是用來儲存 VM 的作業系統磁碟和虛擬網路的儲存體帳戶。
 -	**opscenter resources.json**：部署 OpsCenter VM 和所有相關的資源，包括網路介面以及公用 IP 位址。
@@ -504,4 +504,4 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 shared
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

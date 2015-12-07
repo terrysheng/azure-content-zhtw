@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="brandwe"/>
 
 # Azure AD B2C 預覽：從 Android 應用程式呼叫 Web API
@@ -113,9 +113,9 @@ repositories {
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:2.0-alpha') {
+    compile('com.microsoft.aad:adal:2.0.1-alpha') {
         exclude group: 'com.android.support'
-    } // Recent version is 2.0-alpha
+    } // Recent version is 2.0.1-alpha
 }
 ```
 
@@ -127,7 +127,7 @@ dependencies {
 <dependency>
     <groupId>com.microsoft.aad</groupId>
     <artifactId>adal</artifactId>
-    <version>2.0-alpha</version>
+    <version>2.0.1-alpha</version>
     <type>aar</type>
 </dependency>
 ```
@@ -902,7 +902,7 @@ ADAL for Android 以 **UserIdentifier** 物件的形式來代表使用者。這�
         return endpoint;
     }
 
-```
+ ```
 
 
 請注意，在下列程式碼中，我們將存取權杖加入至要求：
@@ -973,7 +973,9 @@ Android 需要我們處理某些回呼來操作應用程式。這些回呼是 `c
 
 為了方便參考，您可以[在此處取得 .zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip)的完整範例，或者從 GitHub 中複製：
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
 
 
 ### 重要資訊
@@ -993,4 +995,4 @@ CookieSyncManager.getInstance().sync();
 ``` 深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

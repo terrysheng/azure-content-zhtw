@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server 與 Azure Site Recovery 的災害復原" 
+	pageTitle="SQL Server 與 Azure Site Recovery 的災害復原 | Microsoft Azure" 
 	description="Azure Site Recovery 可以將 SQL Server 的複寫、容錯移轉及復原作業協調至次要內部部署站台或 Azure。" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="11/18/2015" 
 	ms.author="raynew"/>
 
 
@@ -31,8 +31,8 @@ Site Recovery 是一種 Azure 服務，可藉由協調虛擬機器與實體伺�
 
 
 1. 獨立 SQL Server：SQL Server 和所有資料庫都裝載在單一電腦 (實體或虛擬機器) 上。在虛擬化的情況下，會使用主機叢集來提供本機高可用性 (HA)，而不會實作任何客體層級 HA。 
-2.	SQL Server 容錯移轉叢集執行個體 (也稱為 AlwaysOn FCI)：在此步驟中，會在「Windows 容錯移轉」叢集中設定 2 個或更多個具有共用磁碟的 SQL Server 執行個體節點。如果任何「SQL 容錯移轉」叢集執行個體停止運作，叢集便可將 SQL 容錯移轉到另一個執行個體。此設定通常用於主要站台上的 HA。這並無法防止共用儲存體層中發生失敗或中斷。實作共用磁碟時，可以使用 ISCSI、「光纖通道」或「共用 VHDx」來實作。
-3.	SQL AlwaysOn 可用性群組：在此步驟中，會在不共用任何內容的叢集中設定 2 個節點，其中此叢集的 SQL 資料庫是設定在具有同步複寫和自動容錯移轉功能的可用性群組中。
+2.	SQL Server 容錯移轉叢集執行個體 (也稱為 Always ON FCI)：在此步驟中，會在「Windows 容錯移轉」叢集中設定 2 個或更多個具有共用磁碟的 SQL Server 執行個體節點。如果任何「SQL 容錯移轉」叢集執行個體停止運作，叢集便可將 SQL 容錯移轉到另一個執行個體。此設定通常用於主要站台上的 HA。這並無法防止共用儲存體層中發生失敗或中斷。實作共用磁碟時，可以使用 ISCSI、「光纖通道」或「共用 VHDx」來實作。
+3.	SQL Always ON 可用性群組：在此步驟中，會在不共用任何內容的叢集中設定 2 個節點，其中此叢集的 SQL 資料庫是設定在具有同步複寫和自動容錯移轉功能的可用性群組中。
 
 SQL Server 在 Enterprise 版本中也提供可將資料庫復原至遠端站台的原生災害復原技術。在適用的情況下，我們會利用並整合下列原生 SQL 災害復原技術，以建置以 Azure Site Recovery 為基礎的「災害復原計畫」：
 
@@ -105,7 +105,7 @@ SQL Server (任何版本) | Enterprise 或 Standard | 容錯移轉叢集執行�
 
 本文件中的指示假設在次要位置會提供網域控制站。您可以參考[這裡](http://aka.ms/asr-ad)的 AD DR 解決方案指南。
 
-##設定 SQL AlwaysOn 可用性群組保護
+## 使用 SQL AlwaysOn 整合至 Azure
 
 ### 內部部署至 Azure
 
@@ -135,7 +135,7 @@ Azure Site Recovery (ASR) 原生支援 SQL AlwaysOn。如果您已經建立 SQL 
 	- ALTER AVAILABILITY GROUP - [參考 1](https://msdn.microsoft.com/zh-TW/library/hh231018.aspx)、[參考 2](https://msdn.microsoft.com/zh-TW/library/ff878601.aspx#Anchor_3)
 	- ALTER DATABASE - [參考 1](https://msdn.microsoft.com/zh-TW/library/ff877956.aspx#Security)
 
-##### 加入 SQL Server
+##### 1\.加入 SQL Server
 
 按一下 [加入 SQL] 以加入新的 SQL Server。
 
@@ -146,17 +146,17 @@ Azure Site Recovery (ASR) 原生支援 SQL AlwaysOn。如果您已經建立 SQL 
 ![加入 SQL 對話方塊](./media/site-recovery-sql/add-sql-dialog.png)
 
 ###### 參數
-1. 名稱：您想要提供以參考這個 SQL Server 的易記名稱
-2. SQL Server (FQDN)：您想要加入的來源 SQL Server 的完整網域名稱 (FQDN)。如果 SQL Server 安裝在容錯移轉叢集上，則提供叢集的 FQDN，而不是任何叢集節點的 FQDN。 
-3. SQL Server 執行個體：選擇預設 SQL 執行個體或提供自訂 SQL 執行個體的名稱。
-4. VMM 伺服器：選取其中一個已向 Azure Site Recovery (ASR) 註冊的 VMM 伺服器。ASR 會使用此 VMM 伺服器與 SQL Server 通訊
-5. 執行身分帳戶：提供已在前面選取的 VMM 伺服器上建立的其中一個執行身分帳戶的名稱。此執行身分帳戶會用來存取 SQL Server，且應該有 SQL Server 上可用性群組的讀取和容錯移轉權限。 
+ - 名稱：您想要提供以參考這個 SQL Server 的易記名稱
+ - SQL Server (FQDN)：您想要加入的來源 SQL Server 的完整網域名稱 (FQDN)。如果 SQL Server 安裝在容錯移轉叢集上，則提供叢集的 FQDN，而不是任何叢集節點的 FQDN。 
+ - SQL Server 執行個體：選擇預設 SQL 執行個體或提供自訂 SQL 執行個體的名稱。
+ - VMM 伺服器：選取其中一個已向 Azure Site Recovery (ASR) 註冊的 VMM 伺服器。ASR 會使用此 VMM 伺服器與 SQL Server 通訊
+ - 執行身分帳戶：提供已在前面選取的 VMM 伺服器上建立的其中一個執行身分帳戶的名稱。此執行身分帳戶會用來存取 SQL Server，且應該有 SQL Server 上可用性群組的讀取和容錯移轉權限。 
 
 一旦您加入 SQL Server，它就會顯示在 [SQL Server] 索引標籤下。
 
 ![SQL Server 清單](./media/site-recovery-sql/sql-server-list.png)
 
-##### 加入 SQL 可用性群組
+##### 2\.加入 SQL 可用性群組
 
 加入 SQL Server 之後，下一步是將可用性群組加入 ASR。若要這樣做，請向下切入在上一個步驟中加入的 SQL Server，然後按一下 SQL 可用性群組。
 
@@ -170,7 +170,7 @@ SQL 可用性群組可以複寫至 Azure 中的一或多個虛擬機器。當加
 
 >[AZURE.NOTE]只有上述步驟中加入的 SQL Server 的「主要」可用性群組可以加入 ASR。如果您在 SQL Server 上讓可用性群組成為「主要」，或您在 SQL Server 加入之後加入多個可用性群組，請使用 SQL Server 上可用的 [重新整理] 選項進行重新整理。
 
-#### 建立復原計劃
+#### 3\.建立復原計劃
 
 下一步是使用虛擬機器和可用性群組建立復原計劃。選取在步驟 1 中所使用的相同 VMM 伺服器做為來源，選取 Microsoft Azure 做為目標。
 
@@ -184,7 +184,7 @@ SQL 可用性群組可以複寫至 Azure 中的一或多個虛擬機器。當加
 
 ![自訂復原計劃](./media/site-recovery-sql/customize-rp.png)
 
-#### 容錯移轉
+#### 4\.容錯移轉
 
 一旦可用性群組加入至復原計劃，就可以使用不同的容錯移轉選項。
 
@@ -201,7 +201,7 @@ SQL 可用性群組可以複寫至 Azure 中的一或多個虛擬機器。當加
 
 或者，請考慮下列選項：
 
-######選項 1
+###### 選項 1
 
 
 
@@ -209,12 +209,12 @@ SQL 可用性群組可以複寫至 Azure 中的一或多個虛擬機器。當加
 
 2. 更新應用程式層，以便在唯讀模式下存取副本，並執行應用程式的唯讀測試。
 
-######選項 2
+###### 選項 2
 
 1.	建立 SQL Server 虛擬機器執行個體的副本 (使用 VMM 複製進行站台對站台或 Azure 備份)，並將其顯示在測試網路中
 2.	使用復原計畫執行測試容錯移轉。
 
-##### 容錯回復
+#### 容錯回復
 
 如果您想要再次在內部部署 SQL Server 上讓可用性群組成為「主要」，則您可以藉由在復原計劃上觸發計劃的容錯移轉，並且選擇從 Microsoft Azure 到內部部署 VMM 伺服器的方向來完成
 
@@ -314,7 +314,7 @@ SQL 可用性群組可以複寫至 Azure 中的一或多個虛擬機器。當加
 
 對於使用分散式交易的應用程式，建議您使用 [Site Recovery 搭配 SAN 複寫](site-recovery-vmm-san.md)或 [VMWare 站台對站台複寫](site-recovery-vmware-to-vmware.md)。
 
-####復原計畫考量
+#### 復原計畫考量
 
 1. 將此範例指令碼加入至主要和次要站台上的 VMM 程式庫。
 
@@ -374,4 +374,4 @@ SQL 可用性群組可以複寫至 Azure 中的一或多個虛擬機器。當加
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

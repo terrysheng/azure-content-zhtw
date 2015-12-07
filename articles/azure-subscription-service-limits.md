@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/17/2015"
 	ms.author="jroth"/>
 
 # Azure 訂閱和服務限制、配額與限制
@@ -48,7 +48,7 @@
 - [Data Factory](#data-factory-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
-- [IoT 中樞](#iot-hub-limits)
+- [IoT 中心](#iot-hub-limits)
 - [金鑰保存庫](#key-vault-limits)
 - [媒體服務](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
@@ -116,19 +116,27 @@
 
 ### 儲存體限制
 
-#### 標準儲存體限制
+如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)。
+
+#### 儲存體服務限制
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)。
+#### 虛擬機器磁碟限制 
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-#### 進階儲存體限制
+如需其他詳細資訊，請參閱[虛擬機器大小](../articles/virtual-machines/virtual-machines-size-specs.md)。
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
+**標準儲存體帳戶**
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
-#### 存放裝置 - Azure 資源管理員
+**進階儲存體帳戶**
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
+
+#### 儲存體資源提供者限制
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -171,7 +179,7 @@
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-如需 Azure 搜尋服務限制的其他詳細資訊，請參閱[限制和條件約束](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
+如需進一步瞭解共用服務的上限，或金鑰、要求和回應的限制明細，請參閱 [Azure 搜尋服務中的服務限制](search/search-limits-quotas-capacity.md)。
 
 ### 媒體服務限制
 
@@ -262,4 +270,4 @@
 
 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

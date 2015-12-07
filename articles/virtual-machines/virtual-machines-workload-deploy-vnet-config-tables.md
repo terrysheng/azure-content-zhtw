@@ -36,7 +36,7 @@
 
 ## 使用您的設定表格設定建立新的跨單位 Azure 虛擬網路
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com/)。
+1. 登入 [Azure 入口網站]。
 2. 從工作列中，依序按一下 [新增] > [網路服務] > [虛擬網路] > [自訂建立]。
 3. 在 [虛擬網路詳細資料] 頁面上：
 	- 在 [名稱] 中，輸入來自表格 V 之項目 1 的名稱。
@@ -69,4 +69,4 @@
 
 [設定 Azure 虛擬網路的跨單位站對站連線](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

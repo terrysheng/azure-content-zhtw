@@ -78,11 +78,11 @@ HYPER-V 和 VMM 案例支援動態磁碟。VMware 虛擬機器或實體機器案
 ## 版本支援
 
 ### 支援哪些版本的 Windows Server 主機和叢集？
-當您選擇 Hyper-V 複本，在 Hyper-V 站台之間啟用複寫和保護時，可以使用 Windows Server 2012 和 Windows Server 2012 R2。
+當您選擇 Hyper-V 複本，在兩個內部部署 Hyper-V 站台之間啟用複寫和保護時，可以使用 Windows Server 2012 和 Windows Server 2012 R2。當您要從 Hyper-v 伺服器設定複寫到Azure 時，需要 Windows Server 2012 R2。
 
 
-### 支援哪些版本的 Hyper-V 客體作業系統？
-您可以在標題為[關於虛擬機器及客體作業系統](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)的主題中找到支援客體作業系統的最新清單。
+### 支援哪些版本的客體作業系統？
+若為內部部署之間的保護，您可以在標題為《[關於虛擬機器和客體作業系統](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)》的主題中，找到支援客體作業系統的最新清單。針對 Hyper-v 到 Azure 的案例，Azure Site Recovery 支援所有 Azure 支援的客體作業系統。針對 VMware 到 Azure 的案例，請參閱[這篇文章](site-recovery-vmware-to-azure.md#before-you-start)
 
 ### 當 Hyper-V 正在用戶端作業系統上執行時是否可以設定虛擬機器保護？
 
@@ -148,12 +148,6 @@ HYPER-V 和 VMM 案例支援動態磁碟。VMware 虛擬機器或實體機器案
 ### Hyper-V 伺服器是否需要是網域成員？
 
 不需要，伺服器不需要位於網域中。
-
-### 支援哪些版本的 Windows Server 主機和叢集？
-在 Hyper-V 網站與 Azure 之間使用 ASR 和 Hyper-V 複寫時，可以使用 Windows Server 2012 和 Windows Server 2012 R2。
-
-### 支援哪些版本的客體作業系統？
-您可以在標題為[關於虛擬機器及客體作業系統](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)的文章中找到支援客體作業系統的最新清單。
 
 ## 在兩個 VMM 資料中心之間部署
 
@@ -256,4 +250,4 @@ NetApp、EMC 和 HP 已啟用 Azure Site Recovery SAN 複寫支援 (包含其 SM
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

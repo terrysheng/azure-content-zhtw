@@ -84,7 +84,7 @@
 
 1. 一旦您已設定變數，請從文字編輯器將指令碼複製到您的 Azure PowerShell 工作階段來執行它。如果提示依然顯示「>>」，請再次按 ENTER 鍵以確定指令碼開始執行。注意
 
->[AZURE.NOTE]Azure 管理入口網站目前不支援內部負載平衡器，因此您不會看到 ILB 或入口網站中的端點。不過，如果負載平衡器正在其中執行，**Get-AzureEndpoint** 便會傳回內部 IP 位址。否則，它會傳回 null。
+>[AZURE.NOTE]Azure 入口網站目前不支援內部負載平衡器，因此您不會看到 ILB 或 Azure 入口網站中的端點。不過，如果負載平衡器正在其中執行，**Get-AzureEndpoint** 便會傳回內部 IP 位址。否則，它會傳回 null。
 
 ## 必要時，請確認已安裝 KB2854082
 
@@ -138,4 +138,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

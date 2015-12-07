@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中設定警示
@@ -215,6 +215,11 @@ remoteDependencyFailed| [相依性](app-insights-configuration-with-applicationi
 request、<br/>requestFailed|[伺服器要求](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
+## 另請參閱
+
+
+* [從範本建立 Application Insights 和 Web 測試資源](app-insights-powershell.md)
+
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -225,4 +230,4 @@ request、<br/>requestFailed|[伺服器要求](app-insights-configuration-with-a
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

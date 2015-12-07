@@ -3,8 +3,8 @@
 	description="適用於 Xamarin 的 Azure 儲存體用戶端程式庫預覽可讓開發人員使用其原生的使用者介面以建立 iOS、Android 和 Windows 市集應用程式。本教學課程會示範如何使用 Xamarin 以建立 Android 應用程式，該應用程式使用 Azure Blob 儲存體。" 
 	services="storage" 
 	documentationCenter="xamarin" 
-	authors="tamram" 
-	manager="carolz" 
+	authors="micurd" 
+	manager="" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="11/18/2015" 
 	ms.author="tamram"/>
 
 # 如何使用 Xamarin 的 Blob 儲存體 (預覽)
@@ -179,4 +179,4 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_1125_2015-->

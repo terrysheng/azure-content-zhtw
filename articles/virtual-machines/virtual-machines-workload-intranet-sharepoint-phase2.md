@@ -31,15 +31,15 @@
 
 項目 | 虛擬機器名稱 | 資源庫映像 | 最小大小
 --- | --- | --- | ---
-1. | ______________ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | A2 (中型)
-2. | ______________ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | A2 (中型)
-3. | ______________ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4. | ______________ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5. | ______________ (叢集多數節點見證，範例 MN1) | Windows Server 2012 R2 Datacenter | A1 (小型)
-6. | ______________ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-7. | ______________ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-8. | ______________ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-9. | ______________ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | A2 (中型)
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | A2 (中型)
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (叢集多數節點，範例 MN1) | Windows Server 2012 R2 Datacenter | A1 (小型)
+6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
 
 **資料表 M – SharePoint 2013 內部網路伺服器陣列在 Azure 中的虛擬機器**
 
@@ -111,13 +111,13 @@
 1.	在 Azure 入口網站的左窗格中，按一下 [虛擬機器]。
 2.	若要連線到虛擬機器，按一下機器名稱旁 [**狀態**] 資料行中的 [**執行**]。
 3.	在頁面底部的命令列中按一下 [**連線**]。
-4.	入口網站會通知您正在擷取 .rdp 檔案。按一下 [確定]。
+4.	Azure 入口網站會通知您正在擷取 .rdp 檔案。按一下 [確定]。
 5.	瀏覽器對話方塊隨即出現，並詢問「您想開啟或儲存來自 manage.windowsazure.com 的 ComputerName.rdp 嗎？」。 按一下 [開啟]。
 6.	在 [**遠端桌面連線**] 對話方塊中按一下 [**連線**]。
 7.	在 [**Windows 安全性**] 對話方塊中按一下 [**使用其他帳戶**]。
 8.	在 [**使用者名稱**] 中，輸入虛擬機器名稱以及使用該虛擬機器建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。  
   
-使用下列格式：*ComputerName**LocalAdministratorAccountName*
+使用下列格式：*ComputerName*\*LocalAdministratorAccountName*
 9.	在 [**密碼**] 中輸入本機系統管理員帳戶的密碼。
 10.	按一下 [確定]。
 11.	在 [**遠端桌面連線**] 對話方塊中按一下 [**是**]。新機器的桌面會顯示在遠端桌面工作階段視窗中。
@@ -250,4 +250,4 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

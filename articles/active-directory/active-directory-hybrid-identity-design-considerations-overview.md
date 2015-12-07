@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/10/2015"
+	ms.date="11/24/2015"
 	ms.author="yuridio"/>
 
 # Azure Active Directory 混合式身分識別設計考量
@@ -49,6 +49,10 @@
 | 透過增強式身分識別解決方案規劃更高的資料安全性 | [判斷資料保護需求](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [判斷內容管理需求](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [判斷存取控制需求](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [判斷事件回應需求](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | 規劃混合式身分識別生命週期 | [判斷混合式身分識別管理工作](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) <br> [同步處理管理](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)<br> [判斷混合式身分識別管理採用策略](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |     
 
+
+##下載此指南
+您可以從 [Technet 組件庫](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288)下載 PDF 版本的《混合式身分識別設計考量》指南。
+
                                                              
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -27,9 +27,9 @@ Azure 提供建立 VM 的不同方式，因為 VM 適用於不同的使用者和
 
 ## 工具選項
 
-### GUI：Azure 入口網站或 Preview 入口網站
+### GUI：Azure 入口網站或 Azure Preview 入口網站
 
-Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器的簡單方法，特別是在您剛開始使用 Azure 時。使用 [Azure 入口網站](http://manage.windowsazure.com)或 [Azure Preview 入口網站](http://portal.azure.com)來建立 VM。如需一般指示，請參閱[建立自訂虛擬機器][]，並從**資源庫**選取任何 Linux 映像。請注意 [Azure 入口網站](http://manage.windowsazure.com)僅使用傳統部署模型建立虛擬機器。
+入口網站的圖形化使用者介面是用來嘗試設定虛擬機器的簡單方法，特別是在您剛開始使用 Azure 時。使用 [Azure 入口網站](http://manage.windowsazure.com)或 [Azure Preview 入口網站](http://portal.azure.com)來建立 VM。如需一般指示，請參閱[建立自訂虛擬機器][]，並從**資源庫**選取任何 Linux 映像。請注意 [Azure 入口網站](http://manage.windowsazure.com)僅使用傳統部署模型建立虛擬機器。
 
 ### 命令殼層：Azure CLI 或 Azure PowerShell
 
@@ -103,4 +103,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 [建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
 [建立自訂虛擬機器]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

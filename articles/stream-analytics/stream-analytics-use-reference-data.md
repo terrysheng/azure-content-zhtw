@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用參考資料 | Microsoft Azure" 
-	description="使用參考資料做為輸入資料流" 
+	description="在串流分析的輸入串流中使用參考資料" 
 	keywords="巨量資料分析,雲端服務,物聯網,受管理的服務,串流處理,資料流分析,資料流處理資料,big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -14,16 +14,16 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/09/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 使用參考資料做為輸入
+# 在串流分析的輸入串流中使用參考資料
 
 參考資料是靜態或本質上不常變更的有限資料集，可用來執行查閱或相互關聯資料流。若要使用 Azure 串流分析工作中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。串流分析會使用 Azure Blob 儲存體做為參考資料的儲存層，且可和 Azure Data Factory 參考資料一起轉換和/或複製到來自[任意數目的雲端架構和內部部署資料存放區](./articles/data-factory-data-movement-activities.md)的 Azure Blob 儲存體，做為參考資料。參考資料會依 Blob 名稱中指定之日期/時間的遞增順序，以 Blob 序列的形式建立模型 (在輸入組態中定義)。它「只」支援使用比序列中最後一個 Blob 指定之日期/時間「大」的日期/時間來新增到序列的結尾。
 
 ## 設定參考資料
 
-若要設定參考資料，您必須先建立屬於「參考資料」類型的輸入。下表說明您在建立參考資料輸入及其描述時必須提供的每個屬性：
+若要設定參考資料，您必須先建立屬於「**參考資料**」類型的輸入。下表說明您在建立參考資料輸入及其描述時必須提供的每個屬性：
 
 <table>
 <tbody>
@@ -72,11 +72,11 @@
 
 ## 產生排程上的參考資料
 
-如果您的參考資料是不常變更的資料集，可以啟用重新整理參考資料的支援，方法是使用 {date} 與 {time} 權杖指定輸入設定內的路徑模式。串流分析會根據此路徑模式採用更新的參考資料定義。例如，日期格式為 “YYYY-MM-DD” 且時間格式為 “HH:mm” 的模式 ````"/sample/{date}/{time}/products.csv"```` 會告知「串流分析」在 UTC 時區 2015 年 4 月 16 日的下午 5:30 擷取更新的 Blob ````"/sample/2015-04-16/17:30/products.csv"````。
+如果您的參考資料是不常變更的資料集，可以啟用重新整理參考資料的支援，方法是使用 {date} 與 {time} 權杖指定輸入設定內的路徑模式。串流分析會根據此路徑模式採用更新的參考資料定義。例如，日期格式為 “YYYY-MM-DD” 且時間格式為 “HH:mm” 的模式 ````"/sample/{date}/{time}/products.csv"````，會告知「串流分析」在 UTC 時區 2015 年 4 月 16 日的下午 5:30 擷取更新的 Blob ````"/sample/2015-04-16/17:30/products.csv"````。
 
-> [AZURE.NOTE]目前串流分析工作只有在機器時間與 Blob 名稱中編碼的時間一致時，才會尋找 blob 重新整理。例如，工作會在 UTC 時區 2015 年 4 月 16 日的下午 5:30 到下午5:30:59.9 之間尋找 /sample/2015-04-16/17:30/products.csv。當機器時間為下午 5:31 時，就會停止尋找 /sample/2015-04-16/17:30/products.csv，並開始尋找 /sample/2015-04-16/17:31/products.csv。此情況有例外，就是當工作需要回到之前來重新處理資料，或當工作第一次啟動的時候。啟動時，工作會尋找在指定的工作啟動時間之前產生的最新 Blob。這是為了確保在工作啟動時會有非空白的參考資料集。如果無法找到，工作就會失敗，並向使用者顯示診斷注意事項。
+> [AZURE.NOTE]目前串流分析工作只有在機器時間與 Blob 名稱中編碼的時間一致時，才會尋找 blob 重新整理。例如，工作會在 UTC 時區 2015 年 4 月 16 日的下午 5:30 到下午5:30:59.9 之間尋找 /sample/2015-04-16/17:30/products.csv。當機器時間為下午 5:31 時，就會停止尋找 /sample/2015-04-16/17:30/products.csv，並開始尋找 /sample/2015-04-16/17:31/products.csv。此情況有例外，就是當工作需要回到之前來重新處理資料，或當工作第一次啟動的時候。啟動時，工作會尋找在指定工作啟動時間之前產生的最新 Blob。這是為了確保在工作啟動時，會有非空白的參考資料集。如果無法找到，工作就會失敗，並向使用者顯示診斷注意事項。
 
-[Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/) 可用來針對「串流分析」更新參考資料定義時所需的已更新 Blob，協調建立這些 Blob 的工作。Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。Data Factory 支援[連線到大量雲端式和內部部署的資料存放區](./articles/data-factory-data-movement-activities.md)，也支援根據您指定的定期排程輕鬆地移動資料。如需詳細資訊，以及有關如何設定 Data Factory 管線為「串流分析」產生根據預先定義排程重新整理之參考資料的逐步指引，請查看這個 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)。
+[Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/) 可用來針對「串流分析」更新參考資料定義時所需的已更新 Blob，協調建立這些 Blob 的工作。Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。Data Factory 可[連線到大量雲端式和內部部署的資料存放區](./articles/data-factory-data-movement-activities.md)，也可根據您指定的定期排程輕鬆移動資料。如需詳細資訊及逐步解說指南，瞭解該如何設定 Data Factory 管線才能產生依預先定義排程重新整理的「串流分析」參考資料，請查看此 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)。
 
 ## 重新整理參考資料的秘訣 ##
 
@@ -103,4 +103,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

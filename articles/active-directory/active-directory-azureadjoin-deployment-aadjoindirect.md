@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="適用於 Azure AD Join 的使用案例和部署考量| Microsoft Azure" 
-	description="說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join 的主題。其中也會討論使用 Azure AD Join 時出現的各種真實案例。" 
+	description="說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join。其中也會討論使用 Azure AD Join 時出現的各種真實案例。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # 適用於 Azure AD Join 的使用案例和部署考量 
@@ -92,4 +92,4 @@
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

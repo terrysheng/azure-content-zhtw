@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 
 #HDInsight 所提供 Hadoop 叢集版本的新功能
 
 ##HDInsight 版本和 Hadoop 元件
-Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本選擇都會建立特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。下表列舉了與 HDInsight 叢集版本相關聯的元件版本。請注意，Azure HDInsight 目前所使用的預設叢集版本為 3.1 版，採用 HDP 2.1.7 (截止 11/7/2014 為止)。
+Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本選擇都會建立特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。下表列舉了與 HDInsight 叢集版本相關聯的元件版本。請注意，Azure HDInsight 目前所使用的預設叢集版本為 3.2 版，採用 HDP 2.2 (截至 11/19/2015 為止)。
 
 
 元件|HDInsight 3.2 版|HDInsight 3.1 版 (預設)|HDInsight 3.0 版|HDInsight 2.1 版
@@ -52,7 +52,7 @@ Apache Spark|1\.3.1|||
 
 ### 建立 HDInsight 叢集時選取版本
 
-在透過 HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 建立叢集時，您可以在 Azure Preview 入口網站中使用 [選擇性組態] 刀鋒視窗上的 [HDInsight 版本] 下拉式清單，選擇 HDInsight Hadoop 的叢集版本。
+在透過 HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 建立叢集時，您可以在 Azure 預覽入口網站中使用 [選擇性組態] 刀鋒視窗上的 [HDInsight 版本] 下拉式清單，選擇 HDInsight Hadoop 的叢集版本。
 
 ##功能要點
 一些 HDInsight 平台的突出功能包括：
@@ -101,7 +101,7 @@ Apache Spark|1\.3.1|||
 下表列出目前可用的 HDInsight 版本、它們使用的相對應 Hortonworks Data Platform 版本及其發行日期。另外也會提供其支援到期日和淘汰日期 (已知道的話)。請注意：
 
 * 依預設，系統會為 HDInsight 2.1 和更新版本部署搭配兩個前端節點的高可用性叢集。HDInsight 1.6 叢集並不適用。
-* 特定版本的支援到期後，其可能無法透過 Azure Preview 入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
+* 特定版本的支援到期後，其可能無法透過 Azure 預覽入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
 
 HDInsight 版本|HDP 版本|高可用性|發行日期|可在 Azure 入口網站上取得|支援到期日|淘汰日期
 ---|---|---|---|---|---|---
@@ -162,4 +162,4 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

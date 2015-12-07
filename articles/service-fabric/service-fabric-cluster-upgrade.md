@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="11/23/2015"
    ms.author="chackdan"/>
 
 # 升級 Service Fabric 叢集
@@ -74,15 +74,17 @@ Microsoft 會維護在叢集中執行的 Fabric 程式碼和組態，而我們�
 
 1. **將新的探查新增至適當的負載平衡器**
 
- 如果您已使用入口網站部署您的叢集，則負載平衡器將命名為 "loadBalancer-0"、"loadBalancer-1" 等 (每個節點類型有一個負載平衡器)。因為負載平衡器名稱只有在資源群組 (RG) 中是唯一的，所以最好在指定的 RG 下搜尋名稱。
+    如果您已使用入口網站部署您的叢集，則負載平衡器將命名為 "loadBalancer-0"、"loadBalancer-1" 等 (每個節點類型有一個負載平衡器)。因為負載平衡器名稱只有在資源群組 (RG) 中是唯一的，所以最好在指定的 RG 下搜尋名稱。
 
- ![AddingProbes][addingProbes]
+    ![AddingProbes][AddingProbes]
+
 
 2. **將新規則加入至負載平衡器**
 
-  使用您在上一個步驟中建立的探查，對相同的負載平衡器加入新的規則。
+    使用您在上一個步驟中建立的探查，對相同的負載平衡器加入新的規則。
 
-  ![AddingLBRules][AddingLBRules]
+    ![AddingLBRules][AddingLBRules]
+
 
 ### 放置屬性
 
@@ -111,4 +113,4 @@ Microsoft 會維護在叢集中執行的 Fabric 程式碼和組態，而我們�
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

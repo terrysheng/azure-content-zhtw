@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/24/2015"
 	ms.author="jgao"/>
 
 # 使用 Azure Preview 入口網站管理 HDInsight 上的 Hadoop 叢集
@@ -93,9 +93,9 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 	![Azure 入口網站 hdinsight 叢集基本功能](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 	
 	- 若要自訂功能表，請在功能表上的任意處按一下滑鼠右鍵，然後按一下 [自訂]。
-	- **設定**和**所有設定**：顯示該叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
+	- **設定**和**所有設定**：顯示叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
 	- **儀表板**、**叢集儀表板**和 **URL**：這些是存取叢集儀表板 (也就是適用於 Linux 型叢集的 Ambari Web) 的所有方法。
-	- **遠端桌面**：使用遠端桌面連接到叢集。
+- **遠端桌面**：使用 RDP 連接到叢集。
 	- **調整叢集**：可讓您變更此叢集的背景工作節點數目。
 	- **刪除**：刪除叢集。
 	- **快速入門** (![雲和雷電圖示 = 快速入門](./media/hdinsight-administer-use-portal-linux/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
@@ -157,7 +157,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 ##調整叢集
 叢集調整功能可讓您變更在 Azure HDInsight 中執行的叢集所用的背景工作節點數目，而不需要重新建立叢集。
 
->[AZURE.NOTE]只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果不確定您的叢集版本，您可以檢查 [屬性] 頁面。請參閱[熟悉叢集入口網站介面](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)。
+>[AZURE.NOTE]只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果不確定您的叢集版本，您可以檢查 [屬性] 頁面。請參閱[列出和顯示叢集](hdinsight-adminster-use-management-portal/#list-and-show-clusters)。
 
 變更 HDInsight 支援的每一種叢集所用的資料節點數目會有何影響：
 
@@ -211,8 +211,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 
 ##暫停/關閉叢集
 
-大部分 Hadoop 工作是只會偶爾執行的批次工作。對於大部分的 Hadoop 叢集而言，叢集長時間並未用於處理。利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。
-您也需支付 HDInsight 叢集的費用 (即使未使用)。由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+大部分 Hadoop 工作是只會偶爾執行的批次工作。對於大部分的 Hadoop 叢集而言，叢集長時間並未用於處理。利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。您也需支付 HDInsight 叢集的費用 (即使未使用)。由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
 
 有許多方法可以設計程序：
 
@@ -267,7 +266,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 ##尋找預設的儲存體帳戶
 
-每個 HDInsight 叢集都有預設的儲存體帳戶。叢集的預設儲存體帳戶與其金鑰會顯示在 [設定] / [屬性]**** / [Azure 儲存體金鑰]**** 之下。請參閱[列出和顯示叢集](list-and-show-clusters)。
+每個 HDInsight 叢集都有預設的儲存體帳戶。叢集的預設儲存體帳戶與其金鑰會顯示在 [設定] / [屬性]**** / [Azure 儲存體金鑰]**** 之下。請參閱[列出和顯示叢集](#list-and-show-clusters)。
 
 	
 ##尋找資源群組 
@@ -277,7 +276,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 - 叢集清單含有 [資源群組] 資料行。
 - 叢集 [基本資料] 磚。  
 
-請參閱[列出和顯示叢集](list-and-show-clusters)。
+請參閱[列出和顯示叢集](#list-and-show-clusters)。
    
 ##開啟 HDInsight 查詢主控台
 
@@ -339,7 +338,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 ##開啟 Yarn UI
 
-若要使用 Yarn 使用者介面，請按一下 HDInsight 查詢主控台中的 [Hadoop UI]。請參閱[開啟 HDInsight 查詢主控台](#open-hdinsight-query-console)。
+若要使用 Yarn 使用者介面，請按一下 HDInsight 查詢主控台中的 [Yarn UI]。請參閱[開啟 HDInsight 查詢主控台](#open-hdinsight-query-console)。
 
 ##使用 RDP 連接到叢集
 
@@ -400,4 +399,4 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 命令列"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

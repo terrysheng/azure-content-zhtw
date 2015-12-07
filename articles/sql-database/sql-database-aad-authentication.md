@@ -147,7 +147,8 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 4. 在 [Active Directory 管理 (預覽)] 刀鋒視窗中，按一下以檢閱，然後按一下 [確定] 接受預覽條款。
 5. 在 [Active Directory 管理 (預覽)] 刀鋒視窗中，按一下 [Active Directory 管理]，然後在頂端按一下 [設定管理員]。
 6. 在 [新增系統管理員] 刀鋒視窗中，搜尋使用者，選取使用者或群組成為系統管理員，然後按一下 [選取]。(Active Directory 管理刀鋒視窗會顯示您的 Active Directory 的所有成員與群組。呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。(請參閱以上 **Azure AD 功能和限制**中支援的系統管理員清單。) 以角色為基礎的存取控制 (RBAC) 只會套用至入口網站，並且不會傳播至 SQL Server。
-7. 在 [Active Directory 管理] 刀鋒視窗頂端，按一下 [儲存]。![選擇系統管理員][10]
+7. 在 [Active Directory 管理] 刀鋒視窗頂端，按一下 [儲存]。
+	![選擇系統管理員][10]
 
 	變更系統管理員的程序可能需要幾分鐘的時間。然後新的系統管理員會出現在 [Active Directory 管理] 方塊中。
 
@@ -172,9 +173,9 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 
 | Cmdlet 名稱 | 說明 |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| Set-AzureSqlServerActiveDirectoryAdministrator | 佈建 Azure SQL Server 的 Azure Active Directory 系統管理員。(必須來自目前的訂用帳戶。) |
-| Remove-AzureSqlServerActiveDirectoryAdministrator | 移除 Azure SQL Server 的 Azure Active Directory 系統管理員。 |
-| Get-AzureSqlServerActiveDirectoryAdministrator | 傳回目前為 Azure SQL Server 設定的 Azure Active Directory 系統管理員的相關資訊。 |
+| [Set-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | 佈建 Azure SQL Server 的 Azure Active Directory 系統管理員。(必須來自目前的訂用帳戶。) |
+| [Remove-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | 移除 Azure SQL Server 的 Azure Active Directory 系統管理員。 |
+| [Get-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | 傳回目前為 Azure SQL Server 設定的 Azure Active Directory 系統管理員的相關資訊。 |
 
 使用 PowerShell 命令 get-help 來查看這當中每個命令的詳細資料，例如 ``get-help Set-AzureRMSqlServerActiveDirectoryAdministrator``。
 
@@ -331,4 +332,4 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015--->

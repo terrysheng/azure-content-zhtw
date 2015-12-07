@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # 在自訂應用程式中建置 Multi-Factor Authentication (SDK)
@@ -191,4 +191,4 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 	    }
 	}
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

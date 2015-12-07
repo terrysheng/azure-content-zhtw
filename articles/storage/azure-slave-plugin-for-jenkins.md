@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/19/2015"
     ms.author="v-dedomi"/>
 
 # 如何搭配使用 Azure 從屬外掛程式與 Jenkins 連續整合
@@ -204,4 +204,4 @@
 
 Jenkins 會隨即使用上一節建立的範本來建立從屬節點，並執行您在建置步驟中為這項工作指定的指令碼。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

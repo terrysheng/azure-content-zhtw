@@ -3,7 +3,7 @@
 	
 	![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
 	
-4. [混合式連線屬性] 分頁隨即開啟。在 [**內部部署 Hybrid Connection Manager**] 下，選擇 [**手動下載和設定**]，並儲存下載的 HybridConnectionManager.msi 封裝，然後複製閘道器連接字串。
+4. [混合式連線屬性] 分頁隨即開啟。在 [**內部部署混合式連線管理員**] 下，選擇 [**手動下載和設定**]，並儲存下載的 HybridConnectionManager.msi 封裝，然後複製閘道器連接字串。
 	
 	![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
 	
@@ -25,4 +25,4 @@
 	
 	![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

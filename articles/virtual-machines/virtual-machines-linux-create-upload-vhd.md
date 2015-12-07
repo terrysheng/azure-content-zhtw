@@ -156,7 +156,7 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 您需要一個可供上傳 VHD 檔案的儲存體帳戶。您可以選取現有的或建立新的儲存體帳戶。若要建立儲存體帳戶，請參閱[建立儲存體帳戶](../storage-create-storage-account.md)
 
-在上傳 .vhd 檔案時，您可以將 .vhd 檔案放在 Blob 儲存體中的任一處。在下列命令範例中，**BlobStorageURL** 是您打算使用的儲存體帳戶的 URL，**YourImagesFolder** 是您在 blob 儲存體中要用來儲存映像的容器。**VHDName** 是[管理入口網站](http://manage.windowsazure.com)中用來識別虛擬硬碟的標籤。**PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱。
+在上傳 .vhd 檔案時，您可以將 .vhd 檔案放在 Blob 儲存體中的任一處。在下列命令範例中，**BlobStorageURL** 是您打算使用的儲存體帳戶的 URL，**YourImagesFolder** 是您在 blob 儲存體中要用來儲存映像的容器。**VHDName** 是 [Azure 入口網站](http://manage.windowsazure.com)中，用來識別虛擬硬碟的顯示標籤。**PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱。
 
 從您在上一個步驟使用的 Azure PowerShell 視窗中，輸入：
 
@@ -171,4 +171,4 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015--->

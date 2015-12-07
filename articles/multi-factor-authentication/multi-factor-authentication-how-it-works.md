@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 #Azure Multi-Factor Authentication 的作用
@@ -102,4 +102,4 @@ Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 和 E
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -89,10 +89,10 @@ Azure 支援會與您連絡。完成要求需要花費最多 2 個工作天。
 
 * [建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)
 
-* [Azure 批次的 API 基本概念](batch-api-basics.md)
+* [Azure Batch 功能概觀](batch-api-basics.md)
 
 * [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

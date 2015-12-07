@@ -58,6 +58,7 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 
     ![以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 封裝]](./media/app-insights-cloudservices/03-nuget.png)
 
+
 2. 新增 [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 封裝。此 SDK 版本包含新增伺服器內容 (如角色資訊) 的模組。若為背景工作角色，請使用 Windows 服務的 Application Insights。
 
     ![搜尋「Application Insights」](./media/app-insights-cloudservices/04-ai-nuget.png)
@@ -68,18 +69,19 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
     在 `ServiceConfiguration.Cloud.cscfg` 檔案中將檢測金鑰設定為組態設定。([範例程式碼](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg))。
  
     ```XML
-     
      <Role name="WorkerRoleA"> 
-      <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="YOUR IKEY" /> 
      </Role>
     ```
  
     在適合的啟動函式中，從組態設定設定檢測金鑰：
 
     ```C#
-
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey");
+     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
     ```
+
+    請注意，Azure 診斷報告會使用組態設定的相同名稱 `APPINSIGHTS_INSTRUMENTATIONKEY`。
+
 
     對於應用程式中的每個角色執行這項操作。請參閱範例：
  
@@ -91,34 +93,91 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 
     (在 .config 檔案中，您會看到訊息詢問您將檢測金鑰放至該處。不過，針對雲端應用程式，最好是從 .cscfg 檔案中設定。這可確保角色會在入口網站中正確識別。)
 
-## 啟用 Azure 診斷
 
-Azure 診斷會將應用軟體的效能計數器、Windows 事件記錄檔，以及追蹤記錄檔傳送至 Application Insights。
+#### 執行和發佈應用程式
 
-在 [方案總管] 中，開啟每個角色的屬性。啟用 **傳送診斷至 Application Insights**。
+執行應用程式，並且登入 Azure。開啟您建立的 Application Insights 資源，您會看到個別資料點顯示在[搜尋](app-insights-diagnostic-search.md)中，並且在[計量瀏覽器](app-insights-metrics-explorer.md)中彙總資料。
 
-![在 [屬性] 中，選取 [啟用診斷] 與 [傳送至 Application Insights]。](./media/app-insights-cloudservices/05-wad.png)
-
-在其他角色中重複同樣的動作。
-
-### 在即時應用程式或 Azure VM 中啟用 Azure 診斷功能
-
-您也可以透過 Visual Studio 內的 [伺服器總管] 或 [雲端總管]，針對在 Azure 上執行中的應用程式啟用診斷。
+新增更多遙測 - 請參閱以下章節 - 然後再發佈應用程式以取得即時診斷和使用方式的意見反應。
 
 
-## 使用 SDK 報告遙測
-### 報告要求
- * 在 Web 角色中，要求模組會自動收集有關 HTTP 要求的資料。如需有關如何覆寫預設收集行為的範例，請參閱[範例 MVCWebRole](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)。 
- * 您可以藉由與追蹤 HTTP 要求相同的方式追蹤背景工作角色，來擷取背景工作角色呼叫的效能。在 Application Insights 中，要求遙測類型會測量一個單位的具名伺服器端工作，可以進行計時，而且可以獨立成功或失敗。由 SDK 會自動擷取 HTTP 要求時，您可以插入自己的程式碼，來追蹤對背景工作角色的要求。
- * 請參閱檢測兩個範例背景工作角色以報告要求：[WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) 和 [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
+#### 沒有資料？
 
-### 報告相依性
-  * Application Insights SDK 可以報告應用程式對外部相依性的呼叫，例如 REST API 和 SQL Server。這可讓您查看是否有特定的相依性造成回應變慢或失敗。
-  * 若要追蹤相依性，您必須搭配 [Application Insights 代理程式](app-insights-monitor-performance-live-website-now.md) (也稱為「狀態監視器」) 設定 Web/背景工作角色。
-  * 若要使用 Application Insights 代理程式搭配 Web/背景工作角色：
-    * 新增 [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) 資料夾和兩個檔案到 Web/背景工作角色專案中。請務必設定其建置屬性，使它們一律複製到輸出目錄。這些檔案將安裝代理程式。
-    * 新增啟動工作到 CSDEF 檔案，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18)所示。
-    * 注意：*背景工作角色*需要三個環境變數，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44)所示。Web 角色則不需要這個設定。
+* 開啟 [[搜尋][diagnostic]] 磚來查看個別事件。
+* 使用應用程式、開啟不同頁面，以產生一些遙測。
+* 請稍等片刻，然後按一下 [重新整理]。
+* 請參閱[疑難排解][qna]。
+
+
+
+## 更多遙測
+
+以下各節說明如何從您的應用程式的不同層面取得其他的遙測。
+
+
+## 從背景工作角色追蹤要求
+
+在 Web 角色中，要求模組會自動收集有關 HTTP 要求的資料。如需有關如何覆寫預設收集行為的範例，請參閱[範例 MVCWebRole](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)。
+
+您可以藉由與追蹤 HTTP 要求相同的方式追蹤背景工作角色，來擷取背景工作角色呼叫的效能。在 Application Insights 中，要求遙測類型會測量一個單位的具名伺服器端工作，可以進行計時，而且可以獨立成功或失敗。由 SDK 會自動擷取 HTTP 要求時，您可以插入自己的程式碼，來追蹤對背景工作角色的要求。
+
+請參閱檢測兩個範例背景工作角色以報告要求：[WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) 和 [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
+
+## Azure 診斷
+
+[Azure 診斷](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)資料包含角色管理事件、效能計數器，以及應用程式記錄檔。您可以將這些項目傳送至 Application Insights，以便看到它們與您的遙測的其餘部分，讓診斷問題更容易。
+
+如果角色意外失敗或無法啟動，Azure 診斷特別有用。
+
+1. 以滑鼠右鍵按一下 [角色] (不是專案！) 以開啟其 [屬性]，然後選取 [啟用診斷]、[將診斷傳送至 Application Insights]。
+
+    ![搜尋「Application Insights」](./media/app-insights-cloudservices/21-wad.png)
+
+    **或者如果您的應用程式已發佈且執行**，開啟 [伺服器總管] 或 [雲端總管]，以滑鼠右鍵按一下您的應用程式並選取相同的選項。
+
+3.  選取相同的 Application Insights 資源做為其他遙測。
+
+    如果您想要，可以在不同的服務組態 (雲端、本機) 設定不同的資源，以便分隔開發資料和即時資料。
+
+3. 選擇性[排除某些 Azure 診斷](app-insights-azure-diagnostics.md)，這些診斷是您想要轉送至 Application Insights 的項目。預設值為所有項目。
+
+### 檢視 Azure 診斷事件
+
+哪裡可以找到診斷：
+
+* 效能計數器顯示為自訂度量。 
+* Windows 事件記錄檔顯示為追蹤和自訂事件。
+* 應用程式記錄檔、ETW 記錄檔和任何診斷基礎結構記錄檔顯示為追蹤。
+
+若要查看效能計數器和事件計數，開啟[計量瀏覽器](app-insights-metrics-explorer.md)並加入新的圖表：
+
+
+![](./media/app-insights-cloudservices/23-wad.png)
+
+使用[搜尋](app-insights-diagnostic-search.md)在各種 Azure 診斷傳送的追蹤記錄檔中搜尋。例如，如果您的角色中有未處理的例外狀況造成該角色當機和回收，該資訊會顯示在 [Windows 事件記錄檔] 的 [應用程式] 通道。您可以使用搜尋功能來查看 Windows 事件記錄檔錯誤並取得例外狀況的完整堆疊追蹤，讓您尋找問題的根本原因。
+
+
+![](./media/app-insights-cloudservices/25-wad.png)
+
+## 應用程式診斷
+
+Azure 診斷會自動包含您的應用程式使用 System.Diagnostics.Trace 所產生的記錄項目。
+
+但是如果您已經使用 Log4N 或 NLog 架構，您也可以[擷取其記錄追蹤][netlogs]。
+
+在用戶端、伺服器或兩者中[追蹤自訂事件和度量][api]，以深入了解應用程式的效能和使用情況。
+
+## 相依項目
+
+Application Insights SDK 可以報告應用程式對外部相依性的呼叫，例如 REST API 和 SQL Server。這可讓您查看是否有特定的相依性造成回應變慢或失敗。
+
+若要追蹤相依性，您必須搭配 [Application Insights 代理程式](app-insights-monitor-performance-live-website-now.md) (也稱為「狀態監視器」) 設定 Web/背景工作角色。
+
+若要使用 Application Insights 代理程式搭配 Web/背景工作角色：
+
+* 新增 [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) 資料夾和兩個檔案到 Web/背景工作角色專案中。請務必設定其建置屬性，使它們一律複製到輸出目錄。這些檔案將安裝代理程式。
+* 新增啟動工作到 CSDEF 檔案，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18)所示。
+* 注意：*背景工作角色*需要三個環境變數，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44)所示。Web 角色則不需要這個設定。
 
 以下是您在 Application Insights 入口網站中所看到的範例：
 
@@ -134,17 +193,21 @@ Azure 診斷會將應用軟體的效能計數器、Windows 事件記錄檔，以
 
     ![](./media/app-insights-cloudservices/a5R0PBk.png)
 
-### 報告例外狀況
+## 例外狀況
 
-* 如需如何從不同的 Web 應用程式類型收集未處理的例外狀況的資訊，請參閱[在 Application Insights 中監視例外狀況](app-insights-asp-net-exceptions.md)。
-* 範例 Web 角色具有 MVC5 以及 Web API 2 控制器。來自 2 的未處理例外狀況可如下擷取：
-    * 針對 MVC5 控制器，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12)設定 [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs)
-    * 針對 Web API 2 控制器，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25)設定 [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs)
-* 針對背景工作角色：有兩種方式來追蹤例外狀況。
-    * TrackException(ex)
-    * 如果您已新增 Application Insights 追蹤接聽項 NuGet 套件，您可以使用 System.Diagnostics.Trace 來記錄例外狀況。[程式碼範例。](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
+如需如何從不同的 Web 應用程式類型收集未處理的例外狀況的資訊，請參閱[在 Application Insights 中監視例外狀況](app-insights-asp-net-exceptions.md)。
 
-### 效能計數器
+範例 Web 角色具有 MVC5 以及 Web API 2 控制器。來自 2 的未處理例外狀況可如下擷取：
+
+* 針對 MVC5 控制器，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12)設定 [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs)
+* 針對 Web API 2 控制器，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25)設定 [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs)
+
+針對背景工作角色，有兩種方式來追蹤例外狀況。
+
+* TrackException(ex)
+* 如果您已新增 Application Insights 追蹤接聽項 NuGet 套件，您可以使用 System.Diagnostics.Trace 來記錄例外狀況。[程式碼範例。](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107)
+
+## 效能計數器
 
 根據預設會收集下列計數器：
 
@@ -165,7 +228,7 @@ Azure 診斷會將應用軟體的效能計數器、Windows 事件記錄檔，以
 
   ![](./media/app-insights-cloudservices/OLfMo2f.png)
 
-### 背景工作角色的相互關聯遙測
+## 背景工作角色的相互關聯遙測
 
 當您可以看見導致失敗或高延遲要求的原因時，診斷體驗會更加豐富。使用 Web 角色，SDK 會在關聯的遙測間自動設定相互關聯。針對背景工作角色，您可以使用自訂遙測初始設定式，來設定一個通用 Operation.Id 內容屬性，讓所有的遙測可以達到此目的。這可讓您查看是否因為相依性或程式碼導致延遲/失敗問題，一目了然！
 
@@ -179,32 +242,26 @@ Azure 診斷會將應用軟體的效能計數器、Windows 事件記錄檔，以
 
 ![](./media/app-insights-cloudservices/bHxuUhd.png)
 
-#### 沒有資料？
-
-* 開啟 [[搜尋][diagnostic]] 磚來查看個別事件。
-* 使用應用程式、開啟不同頁面，以產生一些遙測。
-* 請稍等片刻，然後按一下 [重新整理]。
-* 請參閱[疑難排解][qna]。
 
 
-## 完成安裝
+## 用戶端遙測
 
-若要取得您的應用程式的完整 360 度檢視，您需要執行一些動作：
+[將 JavaScript SDK 加入至網頁][client]，以取得瀏覽器型遙測，例如 Web 檢視計數、頁面載入時間、指令碼例外狀況，並讓您在頁面指令碼中撰寫自訂遙測。
 
+## 可用性集合
 
-* [將 JavaScript SDK 加入至網頁][client]，以取得瀏覽器型遙測，例如 Web 檢視計數、頁面載入時間、指令碼例外狀況，並讓您在頁面指令碼中撰寫自訂遙測。
-* 加入相依性追蹤，診斷由資料庫或應用程式使用的其他元作所造成的問題：
- * [在您的 Azure Web 應用程式或 VM 中][azure]
- * [在您的內部部署 IIS 伺服器中][redfield]
-* 從您最喜愛的記錄架構[擷取記錄追蹤][netlogs]
-* 在用戶端、伺服器或兩者，[追蹤自訂事件和度量][api]，以深入了解應用程式的使用情況。
-* [設定 Web 測試][availability]，以確認應用程式處於線上狀態且能夠回應。
+[設定 Web 測試][availability]，以確認應用程式處於線上狀態且能夠回應。
 
 
 
 ## 範例
 
 [此範例](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)監視具有 Web 角色和兩個背景工作角色的服務。
+
+## 相關主題
+
+* [設定將 Azure 診斷傳送至 Application Insights](app-insights-azure-diagnostics.md)
+* [使用 PowerShell 將 Azure 診斷傳送至 Application Insights])(app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -222,4 +279,4 @@ Azure 診斷會將應用軟體的效能計數器、Windows 事件記錄檔，以
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

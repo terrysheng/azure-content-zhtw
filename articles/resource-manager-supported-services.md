@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # 資源管理員對於服務、區域和 API 版本的支援
@@ -30,11 +30,9 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | 虛擬機器 | 是 | 是，許多選項 | 否 | [建立 VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| 批次 | 是 | [是 (僅限傳統)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
+| 批次 | 是 | [是 (僅限傳統)](https://portal.azure.com/#create/Microsoft.BatchAccount) | 是 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics 週期服務 | 是 | 否 | | | |
-| 虛擬機器 (傳統) | 有限 | 是，許多選項 | 部分 (請參閱下文) | - | - |
-| 遠端應用程式 | 否 | 否 | - | - | - |
-| Service Fabric | 否 | 否 | - | - | - |
+| 虛擬機器 (傳統) | 有限 | 是，許多選項 | 部分 (請參閱下文) | - | - | | 遠端應用程式 | 否 | 否 | - | - | - | | Service Fabric | 否 | 否 | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
@@ -70,8 +68,8 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | API 管理 | 是 | 否 | 是 | [建立 API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
 | API 應用程式 | 是 | [是](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
 | Web Apps | 是 | [是](https://portal.azure.com/#create/Microsoft.WebSite) | 是，但有限制 (請參閱下文) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| 通知中樞 | 是 | [是](https://portal.azure.com/#create/Microsoft.NotificationHub) | | [建立通知中樞](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
-| Logic Apps | 是 | [是](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | | | |
+| 通知中樞 | 是 | [是](https://portal.azure.com/#create/Microsoft.NotificationHub) | 是 | [建立通知中樞](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
+| Logic Apps | 是 | [是](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | 是 | | |
 | Mobile Engagement | 是 | 否 | 是 | | |
 
 使用 Web 應用程式時，您無法只移動 App Service 方案。若要移動 Web 應用程式，您的選項如下：
@@ -85,7 +83,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | 事件中心 | 是 | 否 | | [建立事件中樞](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
 | 串流分析 | 是 | [是](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
-| HDInsights | 是 | [是](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
+| HDInsights | 是 | [是](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | 是 | | |
 | Data Factory | 是 | [是](https://portal.azure.com/#create/Microsoft.DataFactory) | 是 | [建立 Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
 | 機器學習服務 | 否 | 否 | - | - | - | | 資料目錄 | 否 | 否 | - | - | - |
 
@@ -117,7 +115,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | 是 | [是](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Application Insights | 是 | [是](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | 否 | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing 地圖 | 是 | [是](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
 | Visual Studio 帳戶 | 是 | | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
@@ -125,7 +123,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 | 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| 自動化 | 是 | [是](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | | | |
+| 自動化 | 是 | [是](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | 是 | | |
 | 金鑰保存庫 | 是 | 否 | 是 | [金鑰保存庫 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | 排程器 | 是 | 否 | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | 是 | 否 | 是 | | |
@@ -237,4 +235,4 @@ Azure PowerShell 0.9.8 請使用：
 - 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

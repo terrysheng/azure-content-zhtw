@@ -129,10 +129,12 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 | 狀態 | 說明 |
 | ---- | ----- |
-| 成功 | 已成功同步處理密碼 |
-| SourceConnectorNotPresent | 在內部部署 Active Directory 連接器空間中找不到任何物件 |
-| NoTargetConnection | Metaverse 或 Azure AD 連接器空間中沒有任何物件 |
-| TargetNotExportedToDirectory | 尚未匯出 Azure AD 連接器空間中的物件 |
+| 成功 | 已成功同步處理密碼。 |
+| FilteredByTarget | 密碼會設為 [使用者必須在下次登入時變更密碼]。未同步處理密碼。 |
+| NoTargetConnection | Metaverse 或 Azure AD 連接器空間中沒有任何物件。 |
+| SourceConnectorNotPresent | 在內部部署 Active Directory 連接器空間中找不到任何物件。 |
+| TargetNotExportedToDirectory | 尚未匯出 Azure AD 連接器空間中的物件。 |
+| MigratedCheckDetailsForMoreInfo | 記錄項目建立於組建 1.0.9125.0 之前，並且以其舊版的狀態顯示。 |
 
 
 ### 觸發所有密碼的完整同步處理
@@ -158,4 +160,4 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

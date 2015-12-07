@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
  
 # 逐步解說：使用 Application Insights 啟用Microsoft Dynamics CRM Online 遙測
@@ -60,7 +60,7 @@
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. 從 Application Insights 複製程式碼。在複製時請務必略過指令碼標記。請參閱以下螢幕擷取畫面：
+4. 從 Application Insights 複製程式碼。在複製時請務必略過 script 標記。請參閱以下螢幕擷取畫面：
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

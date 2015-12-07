@@ -3,7 +3,7 @@
    description="本文章包含用於管理 Azure 自動化環境的多個主題。目前將資料保留和備份 Azure 自動化災害復原併入 Azure 自動化中。"
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -84,4 +84,4 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 萬一主區域資料遺失，Microsoft 會嘗試將它復原。如果主要資料無法復原，則會執行異地容錯移轉，而且將透過受影響客戶的訂用帳戶將此情況通知他們。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

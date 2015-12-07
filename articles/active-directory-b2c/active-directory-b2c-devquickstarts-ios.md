@@ -80,14 +80,13 @@ $ open Microsoft Tasks for Consumers.xcworkspace
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
 	<key>clientId</key>
-	<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	<key>scopes</key>
 	<array>
-		<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	</array>
 	<key>additionalScopes</key>
 	<array>
-		<string></string>
 	</array>
 	<key>redirectUri</key>
 	<string>urn:ietf:wg:oauth:2.0:oob</string>
@@ -233,9 +232,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
         [self readApplicationSettings];
     }
     
-    NSDictionary* params = [self convertPolicyToDictionary:policy];
-    
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:params parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
+    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
         
         if (userInfo == nil)
         {
@@ -256,42 +253,8 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 您會看到方法相當簡單。它會接收我們不久之前建立的 `samplesPolicyData` 物件、父 ViewController 和回呼以做為輸入。此回呼很有趣，我們將逐步解說。
 
 1. 您會看到 `completionBlock` 的類型為 ADProfileInfo，其將隨著 `userInfo` 物件一起傳回。ADProfileInfo 這個類型保存來自伺服器的所有回應，特別是宣告。 
-
 2. 您會看到我們有 `readApplicationSettings`。這會讀取我們在 `settings.plist` 中提供的資料
-3. 您會看到我們有一個方法 `convertPolicyToDictionary:policy`，其會取用我們的原則，並將它格式化為要傳送至伺服器的 URL。我們接下來會撰寫此協助程式方法。
-4. 最後，有一個很大型的 `getClaimsWithPolicyClearingCache` 方法。這就是我們真正需要撰寫來呼叫 ADAL for iOS 的方法。我們稍後會這樣做。
-
-
-接下來，我們要在剛剛寫好的程式碼下方撰寫 `convertPolicyToDictionary` 方法：
-
-```
-// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-    
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-    
-    return dictionary;
-}
-
-+(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    
-    if (policy.policyID){
-        [dictionary setValue:policy.policyID forKey:@"p"];
-    }
-    
-    return dictionary;
-}
-
-```
-這行相當簡單的程式碼只是將 p 附加到原則，所以查詢看起來應該像 ?p=<policy>。
+3. 最後，有一個很大型的 `getClaimsWithPolicyClearingCache` 方法。這就是我們真正需要撰寫來呼叫 ADAL for iOS 的方法。我們稍後會這樣做。
 
 現在來撰寫大型方法 `getClaimsWithPolicyClearingCache`。這大到足以自成一個段落
 
@@ -368,7 +331,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 您在這裡可以看到呼叫相當簡單。
 
-**scopes** - 是我們傳給伺服器的範圍，而在使用者登入時，我們想要向伺服器要求此範圍。在 B2C 預覽中，我們傳遞 client\_id。不過，這在未來將寫成 scopes。屆時會更新本文件。**addtionalScopes** - 這些是您可能想要用於應用程式的其他範圍。這將在之後使用。**clientId** - 您從入口網站取得的應用程式識別碼。**redirectURI** - 我們預期會回傳權杖的重新導向。**identifier** - 這是識別使用者的方式，可讓我們判斷快取中是否有可用的權杖，還是一律要向伺服器要求另一個權杖。您會看到這包含在名為 `ADUserIdentifier` 的類型中，我們可以指定要用來做為識別碼的項目。您應該使用使用者名稱。**promptBehavior** - 這已被取代，現在應該是 AD\_PROMPT\_ALWAYS。**extraQueryParameters** - 您想要以 URL 編碼格式傳遞給伺服器的任何額外參數。**policy** - 您叫用的原則。本逐步解說的後續重要部分。
+**SCOPES** - 是我們傳給伺服器的範圍，而在使用者登入時，我們想要向伺服器要求此範圍。在 B2C 預覽中，我們傳遞 client\_id。不過，這在未來將寫成 scopes。屆時會更新本文件。**addtionalScopes** - 這些是您可能想要用於應用程式的其他範圍。這將在之後使用。**clientId** - 您從入口網站取得的應用程式識別碼。**redirectURI** - 我們預期會回傳權杖的重新導向。**identifier** - 這是識別使用者的方式，可讓我們判斷快取中是否有可用的權杖，還是一律要向伺服器要求另一個權杖。您會看到這包含在名為 `ADUserIdentifier` 的類型中，我們可以指定要用來做為識別碼的項目。您應該使用使用者名稱。**promptBehavior** - 這已被取代，現在應該是 AD\_PROMPT\_ALWAYS。**extraQueryParameters** - 您想要以 URL 編碼格式傳遞給伺服器的任何額外參數。**policy** - 您叫用的原則。本逐步解說的後續重要部分。
 
 您可以在 completionBlock 中看到我們傳遞 `ADAuthenticationResult`，其中包含我們的權杖和設定檔資訊 (如果呼叫成功)
 
@@ -652,4 +615,4 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 [自訂 B2C 應用程式的 UX >>]()
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

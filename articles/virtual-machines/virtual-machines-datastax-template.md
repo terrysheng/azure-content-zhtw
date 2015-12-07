@@ -232,7 +232,7 @@ DataStax 是知名的業界領導者，他們根據 Apache Cassandra 來開發�
 
 部署期間以及部署結束之後，您可以檢查所有佈建期間所進行的要求，包括任何發生的錯誤。
 
-若要這樣做，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
+若要這樣做，請移至 [Azure Preview 入口網站](https://portal.azure.com)，然後執行下列動作：
 
 - 按一下左側導覽列上的 [瀏覽]，然後向下捲動並按一下 [資源群組]。  
 - 按一下剛建立的資源群組，以顯示 [資源群組] 刀鋒視窗。  
@@ -480,4 +480,4 @@ vm-disk-utils-0.1.sh 檔案是 azure-quickstart-tempates GitHub 儲存機制中 
 
 如需詳細資訊，請參閱 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

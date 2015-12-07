@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/27/2015"
+   ms.date="11/17/2015"
    ms.author="tamram" />
 
 # Azure 儲存體延展性和效能目標
+
+## 概觀
 
 本主題描述 Microsoft Azure 儲存體的延展性和效能。如需其他 Azure 限制的摘要，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 
@@ -29,15 +31,26 @@
 
 如果您的應用程式需求超出單一儲存體帳戶的延展性目標，您可以建置可使用多個儲存體帳戶的應用程式，並將資料物件分割到那些儲存體帳戶中。如需批量價格的相關資訊，請參閱[儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/storage/)。
 
-## 標準儲存體帳戶的延展性目標
+
+## Blob、佇列、資料表和檔案的延展性目標
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Premium 儲存體帳戶延展性目標
+## 虛擬機器磁碟的延展性目標 
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../../includes/azure-storage-limits-premium-storage.md)]
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-## 存放裝置 - Azure 資源管理員
+如需其他詳細資訊，請參閱[虛擬機器大小](../virtual-machines/virtual-machines-size-specs.md)。
+
+### 標準儲存體帳戶
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
+
+### 進階儲存體帳戶
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
+
+## Azure 資源管理員的延展性目標
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -45,7 +58,7 @@
 
 每個在 Azure 儲存體中保存資料的物件 (Blob、訊息、實體和檔案) 都屬於分割，也都由分割索引鍵所識別。分割會判斷 Azure 儲存體要如何在伺服器間取得 Blob、訊息、實體和檔案的負載平衡，以滿足這些物件的流量需求。分割索引鍵在儲存體帳戶中是唯一的，用於尋找 Blob、訊息或實體。
 
-上方位於[標準儲存體帳戶的延展性目標](#scalability-targets-for-standard-storage-accounts)中的表格列出每個服務的單一分割的效能目標。
+上方位於[標準儲存體帳戶的延展性目標](#scalability-targets-for-standard-storage-accounts)中的表格，列出每個服務的單一分割效能目標。
 
 分割會影響每個儲存體服務的負載平衡和延展性，方式如下：
 
@@ -70,10 +83,6 @@
 - [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal/)
 - [Azure 儲存體複寫](storage-redundancy.md)
 - [Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md)
-- [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。
+- [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務。](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

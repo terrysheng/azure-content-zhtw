@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="11/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -34,7 +34,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 在用戶端程式中，您可以選擇針對任何特定錯誤提供您的使用者由您自訂的替代訊息。
 
 
-> [AZURE.TIP]特別重要的是下列有關[「暫時性錯誤」錯誤一節](#bkmk_connection_errors)。
+> [AZURE.TIP]特別重要的是下列有關＜[*暫時性錯誤*＞錯誤一節](#bkmk_connection_errors)。
 
 
 
@@ -53,13 +53,13 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 - 伺服器 <Azure_instance> 上的資料庫 <db_name> 目前無法使用。請稍後重試連接。如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 <session_id>
 
-- 伺服器 <Azure_instance> 上的資料庫 <db_name> 目前無法使用。請稍後重試連接。如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 <session_id>。(Microsoft SQL Server, 錯誤: 40613)
+- 伺服器 <Azure_instance> 上的資料庫 <db_name> 目前無法使用。請稍後重試連接。如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 <session_id>。(Microsoft SQL Server，錯誤：40613)
 
 - 遠端主機已強制關閉現有的連接。
 
 - System.Data.Entity.Core.EntityCommandExecutionException: 執行命令定義時發生錯誤。詳細資訊請參閱內部例外狀況。---> System.Data.SqlClient.SqlException: 從伺服器接收結果時發生傳輸層級錯誤。(提供者: 工作階段提供者, 錯誤: 19 - 無法使用實際連線)
 
-暫時性錯誤應該會提示您的用戶端應用程式執行設計用來重試操作的*重試邏輯*。如需重試邏輯的程式碼範例，請參閱：
+暫時性錯誤應該會提示您的用戶端應用程式，執行設計用來重試操作的*重試邏輯*。如需重試邏輯的程式碼範例，請參閱：
 
 
 - [SQL Database 的用戶端開發和快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
@@ -74,13 +74,13 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 | ---: | ---: | :--- |
 | 4060 | 16 | 無法開啟登入所要求的資料庫 "%.&#x2a;ls"。登入失敗。 |
 |40197|17|服務處理您的要求時發生錯誤。請再試一次。錯誤代碼 %d。<br/><br/>當服務因為軟體或硬體升級、硬體故障或任何其他容錯移轉問題而關閉時，您會收到這個錯誤。內嵌在錯誤 40197 訊息中的錯誤代碼 (%d) 提供發生的失敗或容錯移轉種類的其他資訊。內嵌在錯誤 40197 訊息中錯誤代碼的一些範例包括包括 40020、40143、40166 和 40540。<br/><br/>重新連接至 SQL Database 伺服器會將您自動連接至狀況良好的資料庫副本。您的應用程式必須攔截錯誤 40197、記錄訊息中內嵌的錯誤碼 (%d) 以進行疑難排解，並嘗試重新連接到 SQL Database 直到資源可供使用，並再次建立您的連線。|
-|40501|20|服務目前忙碌中。在 10 秒後重試要求。事件識別碼：%ls。代碼: %d。<br/><br/>*請注意：*如需詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-resource-limits.md)。
+|40501|20|服務目前忙碌中。在 10 秒後重試要求。事件識別碼：%ls。代碼：%d。<br/><br/>*請注意：*如需詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-resource-limits.md)。
 |40613|17|資料庫 '%.&#x2a;ls' (在伺服器 '%.&#x2a;ls' 上) 目前無法使用。請稍後重試連接。如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 '%.&#x2a;ls'。|
 |49918|16|無法處理要求。沒有足夠的資源來處理要求。<br/><br/>服務目前忙碌中。請稍後再重試要求。 |
 |49919|16|無法處理建立或更新要求。有太多訂用帳戶 "%ld" 的建立或更新作業正在進行中。<br/><br/>服務正忙於處理您的訂用帳戶或伺服器的多個建立或更新要求。要求目前已封鎖以求資源最佳化。查詢 [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看暫止的作業。等待直到暫止的建立或更新要求已完成，或刪除您其中一個暫止要求，稍後再重試您的要求。 |
 |49920|16|無法處理要求。太多訂用帳戶 "%ld" 的作業正在進行中。<br/><br/>服務正忙於處理此訂用帳戶的多個要求。要求目前已封鎖以求資源最佳化。查詢 [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看作業狀態。等候直到暫止的要求已完成，或刪除您其中一個暫止要求，稍後再重試您的要求。 |
 
-**附註：**同盟錯誤 10053 和 10054 也應該要包含在您的重試邏輯中。
+**附註：**錯誤 10053 和 10054 也應該要包含在您的重試邏輯中。
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
@@ -146,47 +146,6 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 資源限制](sql-database-resource-limits.md)。
 
 
-<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
-
-## 同盟錯誤
-
-
-下表涵蓋使用同盟時可能會遇到的錯誤。
-
-
-> [AZURE.IMPORTANT]目前實作的「同盟」將與 Web 和 Business 服務層一起被淘汰。Azure SQL Database 的版本 V12 不支援 Web 和 Business 服務層。
-> 
-> Elastic Scale 功能的設計可以最少的力氣建立分區化應用程式。
-> 
-> 如需 Elastic Scale 的詳細資訊，請參閱 [Azure SQL Database Elastic Scale 主題](sql-database-elastic-scale-documentation-map.md)。請考慮部署自訂分區化解決方案，以將延展性、彈性和效能最大化。如需自訂分區化的詳細資訊，請參閱[彈性資料庫功能概觀](sql-database-elastic-scale-introduction.md)。
-
-
-|錯誤號碼|嚴重性|說明|緩和|
-|---:|---:|:---|:---|
-|266|16|多重陳述式交易內不允許 <statement> 陳述式|請檢查連接上的 `@@trancount` 是 0，然後再發出陳述式。|
-|2072|16|資料庫 '%.&#x2a;ls' 不存在|請檢查 `sys.databases` 的資料庫狀態，然後再發出 `USE FEDERATION`。|
-|2209|16|%s 在 ‘%ls’ 附近發生語法錯誤|在同盟成員中建立資料表時只能使用 `FEDERATED ON`。|
-|2714|16|在資料庫中已經有一個名為 ‘%.&#x2a;ls’ 的物件|同盟名稱已經存在。|
-|10054, 10053|20|從伺服器接收結果時發生傳輸層級錯誤。您的主機電腦中的軟體已中止建立的連接|在您的應用程式中實作重試邏輯。|
-|40530|15|<statement> 必須是批次中唯一的陳述式|請確定批次中沒有其他陳述式|
-|40604|16|無法 `CREATE DATABASE` 因為它會超過伺服器的配額|展開伺服器資料庫計數配額|
-|45000|16|<statement> 作業失敗。指定的同盟名稱 <federation_name> 無效|Federation\_name 不符合同盟名稱規則或者不是有效的識別項|
-|45001|16|<statement> 作業失敗。指定的同盟名稱不存在|同盟名稱不存在|
-|45002|16|<statement> 作業失敗。指定的同盟索引鍵名稱 <distribution_name> 無效|不存在或無效的同盟索引鍵|
-|45004|16|<statement> 作業失敗。同盟索引鍵 <distribution_name> 和同盟 <federation_name> 的指定值無效|`USE FEDERATION`：使用位於同盟索引鍵資料類型網域中的界限值，或非 NULL 的界限值。<br/><br/>`ALTER FEDERATION SPLIT`：使用非現有分割點的同盟索引鍵網域中的有效值。<br/><br/>`ALTER FEDERATION DROP`：使用已經是分割點的同盟索引鍵網域中的有效值。|
-|45005|16|當成員識別碼為 <member_id> 的同盟 <federation_name> 上有另一個同盟作業正在進行時，不能執行 <statement>。|等候並行作業完成。|
-|45006|16|<statement> 作業失敗。同盟成員中不允許參考同盟資料表的參考資料表中的外部索引鍵關聯性|不支援。|
-|45007|16|<statement> 作業失敗。同盟資料表之間的外部索引鍵關聯性必須包含同盟索引鍵資料行。|不支援|
-|45008|16|<statement> 作業失敗。同盟索引鍵資料類型與資料行資料類型不符|不支援。|
-|45009|16|<statement> 作業失敗。篩選連接不支援此作業|不支援。|
-|45010|16|<statement> 作業失敗。無法更新同盟索引鍵|不支援。|
-|45011|16|<statement> 作業失敗。無法更新同盟索引鍵結構描述|不支援。|
-|45012|16|為同盟索引鍵指定的值無效|值必須在連接所處理的範圍內。<br/><br/>如果經過篩選，則為指定的同盟索引鍵值。<br/><br/>如果未篩選，則為同盟成員所涵蓋的範圍。|
-|45013|16|此 SID 已經存在於不同使用者名稱下|同盟成員中使用者的 SID 是從同盟根目錄中相同使用者帳戶的 SID 複製。在某些情況下，SID 可能已在使用中。|
-|45014|16|%ls 在 %ls 上不受支援|不支援的作業。|
-|45022|16|<statement> 作業失敗。同盟索引鍵 <distribution_name> 和同盟 <federation_name> 已有指定的界限值。|指定已經是界限值的值。|
-|45023|16|<statement> 作業失敗。同盟索引鍵 <distribution_name> 和同盟 <federation_name> 沒有指定界限值。|指定已經不是界限值的值。|
-
 
 <a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
 
@@ -228,7 +187,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40528|16|無法在這個版本的 SQL Server 中將使用者對應到憑證、非對稱金鑰或 Windows 登入。|
 |40529|16|模擬內容中的內建函數 '%.&#x2a;ls' 在這個版本的 SQL Server 中不受支援。|
 |40532|11|無法開啟登入所要求的伺服器 "%.&#x2a;ls"。登入失敗。|
-|40553|16|已終止工作階段，因為過度使用記憶體。請嘗試修改查詢以處理較少的資料列。<br/><br/>*請注意：*減少 Transact-SQL 程式碼中的 `ORDER BY` 和 `GROUP BY` 的作業數目，有助於降低查詢的記憶體需求。|
+|40553|16|已終止工作階段，因為過度使用記憶體。請嘗試修改查詢以處理較少的資料列。<br/><br/>*請注意：*減少您 Transact-SQL 程式碼中的 `ORDER BY` 和 `GROUP BY` 的作業數目，有助於降低查詢的記憶體需求。|
 |40604|16|無法 CREATE/ALTER DATABASE，因為它會超過伺服器的配額。|
 |40606|16|附加資料庫在這個版本的 SQL Server 中不受支援。|
 |40607|16|Windows 登入在這個版本的 SQL Server 中不受支援。|
@@ -244,13 +203,13 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40632|16|密碼驗證失敗。因為密碼不夠複雜，密碼不符合原則需求。|
 |40636|16|無法在此作業中使用保留的資料庫名稱 '%.&#x2a;ls'。|
 |40638|16|無效的訂用帳戶識別碼 <subscription-id>。訂用帳戶不存在。|
-|40639|16|要求不符合結構描述: <schema error>。|
+|40639|16|要求不符合結構描述：<schema error>。|
 |40640|20|伺服器發生非預期的例外狀況。|
 |40641|16|指定的位置無效。|
 |40642|17|伺服器目前太過忙碌。請稍後再試一次。|
 |40643|16|指定的 x-ms-version 標頭值無效。|
 |40644|14|無法授權存取指定的訂用帳戶。|
-|40645|16|伺服器名稱 <servername> 不能是空白或 null。它可以只由小寫字母 'a'-'z'、數字 0-9 和連字號組成。連字號不得在名稱的開頭或結尾。|
+|40645|16|Servername <servername> 不能是空白或 Null。它可以只由小寫字母 'a'-'z'、數字 0-9 和連字號組成。連字號不得在名稱的開頭或結尾。|
 |40646|16|訂用帳戶 ID 不能空白。|
 |40647|16|訂用帳戶 <subscription-id> 沒有伺服器的伺服器名稱。|
 |40648|17|已經執行太多要求。請稍後重試。|
@@ -268,4 +227,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 一般限制與方針](sql-database-general-limitations.md)
 - [Azure SQL Database 資源限制](sql-database-resource-limits.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

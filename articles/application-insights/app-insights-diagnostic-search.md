@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中使用診斷搜尋
@@ -36,6 +36,9 @@
 「診斷搜尋」的主體是遙測項目的清單 - 伺服器要求、頁面檢視、您編寫的自訂事件等等。在清單上方是摘要圖表，顯示一般時間的事件計數。
 
 事件出現在計量瀏覽器之前，通常會顯示在診斷搜尋中。雖然刀鋒視窗會定期自行重新整理，如果您在等待特定事件，您可以按一下 [重新整理]。
+
+
+> [AZURE.NOTE]如果您的應用程式會產生大量遙測 (且您使用的是 ASP.NET SDK 版本 2.0.0-beta3 或較新)，調適性取樣模型會自動藉由僅傳送事件代表性片段，以減少傳送到入口網站的量。不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣](app-insights-sampling.md)。
 
 
 ## 檢查個別項目
@@ -137,7 +140,7 @@ New Delay|w d|new<br/>delay<br/>n* AND d*
 範例查詢 | 效果 
 ---|---
 slow|在日期範圍中尋找欄位含有詞彙 "slow" 的所有事件
-database??|比對 database01、databaseAB、...<br/>? 不允許出現在搜尋詞彙的開頭。
+database??|比對 database01、databaseAB、...<br/>不允許 ? 出現在搜尋詞彙的開頭。
 database*|比對 database、database01、databaseNNNN<br/>* 不允許出現在搜尋詞彙的開頭
 apple AND banana|尋找同時含有這些詞彙的事件。請使用大寫 "AND"，而不是 "and"。
 apple OR banana<br/>apple banana|尋找含有任一詞彙的事件。請使用 "OR"，而不是 "or"。</br/>簡短格式。
@@ -200,4 +203,4 @@ app* AND banana -(grape pear)|邏輯運算子和括號。
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

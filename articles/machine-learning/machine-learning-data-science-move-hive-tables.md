@@ -128,23 +128,9 @@ Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲�
 
 *https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor*
 
-。請注意，系統將要求您輸入 Hadoop 叢集認證以進行登入。或者，您可以[使用 PowerShell 提交 Hive 工作](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)。
+。請注意，系統將要求您輸入 Hadoop 叢集認證以進行登入。
 
-
-## 如何提交 Hive 查詢 (舊)
-
-本文件說明在 Azure 中，將 Hive 查詢提交至 HDInsight 服務所管理的 Hadoop 叢集的各種方式。(舊的簡介 - 併入 TBD)
-
-
-Hive 查詢可以從 Hadoop 叢集前端節點上的 Hadoop 命令列主控台提交。若要執行這個動作，請登入 Hadoop 叢集的前端節點、開啟 Hadoop 命令列主控台，然後從該處提交 Hive 查詢。如需執行這個動作的相關指示，請參閱[在進階分析程序中將 Hive 查詢提交至 HDInsight Hadoop 叢集](machine-learning-data-science-process-hive-tables.md)。
-
-使用者也可以透過下列方式來使用查詢主控台 (Hive 編輯器)：在 Web 瀏覽器中輸入 URL
-
-https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor
-
-。請注意，系統將提示您輸入 Hadoop 叢集認證來登入，因此您應該有這些認證。
-
-或者，您可以[使用 PowerShell 提交 Hive 工作](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)。
+或者，您可以[使用 PowerShell 執行 Hive 查詢](../hdinsight/hdinsight-hadoop-use-hive-powershell.md)。
 
 
 ## <a name="create-tables"></a>建立 Hive 資料庫和資料表
@@ -169,10 +155,10 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 以下是使用者需要插入的欄位和其他設定的說明：
 
 - **&#60;資料庫名稱>**：使用者要建立之資料庫的名稱。如果使用者只想要使用預設資料庫，則可省略 *create database...* 查詢。 
-- **&#60;資料表名稱>**：使用者想要在指定資料庫內建立之資料表的名稱。如果使用者想要使用預設資料庫，可透過 *&#60;資料表明稱>* 直接參考資料表，而不需要使用 &#60;資料庫名稱>。
+- **&#60;資料表名稱>**：使用者想要在指定資料庫內建立之資料表的名稱。如果使用者想要使用預設資料庫，可透過 *&#60;資料表名稱>* 直接參考資料表，而不需要使用 &#60;資料庫名稱>。
 - **&#60;欄位分隔符號>**：上傳至 Hive 資料表的資料檔中分隔欄位的分隔符號。 
 - **&#60;資料行分隔符號>**：用來分隔資料檔中各行的分隔符號。 
-- **&#60;儲存體位置>**：用來儲存 Hive 資料表資料的 Azure 儲存體位置。如果使用者未指定 *LOCATION &#60;s儲存體位置>*，資料庫和資料表預設會儲存在 Hive 叢集之預設容器的 *hive/warehouse/* 目錄中。如果使用者想要指定儲存體位置，儲存體位置必須位於資料庫和資料表的預設容器內。這個位置必須是叢集之預設容器的相對位置，其格式為 *'wasb:///&#60;directory 1>/'* 或 *'wasb:///&#60;directory 1>/&#60;directory 2>/'* 等。執行查詢之後，系統會在預設容器內建立相對目錄。 
+- **&#60;儲存體位置>**：用來儲存 Hive 資料表資料的 Azure 儲存體位置。如果使用者未指定 *LOCATION &#60;儲存體位置>*，資料庫和資料表預設會儲存在 Hive 叢集之預設容器的 *hive/warehouse/* 目錄中。如果使用者想要指定儲存體位置，儲存體位置必須位於資料庫和資料表的預設容器內。這個位置必須是叢集之預設容器的相對位置，其格式為 *'wasb:///&#60;directory 1>/'* 或 *'wasb:///&#60;directory 1>/&#60;directory 2>/'* 等。執行查詢之後，系統會在預設容器內建立相對目錄。 
 - **TBLPROPERTIES("skip.header.line.count"="1")**：如果資料檔具有標頭行，使用者就必須在 *create table* 查詢的**結尾**處加入這個屬性。否則，載入的標頭行將做為資料表的記錄。如果資料檔不含標頭行，則可在查詢中省略此設定。 
 
 ## <a name="load-data"></a>將資料載入至 Hive 資料表
@@ -264,4 +250,4 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
 最後一節將討論使用者可以微調的參數，如此即可改善 Hive 查詢的效能。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

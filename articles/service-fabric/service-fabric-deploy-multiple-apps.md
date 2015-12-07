@@ -3,7 +3,7 @@
    description="如何封裝多個應用程式以部署至 Azure Service Fabric 叢集的逐步解說"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager=""
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 
-# 部署多個現有的應用程式
+# 部署多個自訂應用程式
 
 本文說明如何使用 Service Fabric 封裝工具預覽版 (可從 http://aka.ms/servicefabricpacktool 取得) 將多個應用程式封裝並部署至 Service Fabric。
 
@@ -194,8 +194,8 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 在本教學課程中，您已看到如何輕鬆地將兩個現有應用程式封裝成一個 Service Fabric 應用程式並將其部署到 Service Fabric，以便讓它能夠從一些 Service Fabric 功能 (例如高可用性和健康情況系統整合) 獲益。
 
-如需詳細資訊，請參閱下列主題：
+## 後續步驟
 
-[Service Fabric 封裝格式 ](service-fabric-deploy-existing-app.md)
+了解如何[手動封裝單一應用程式](service-fabric-deploy-existing-app.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

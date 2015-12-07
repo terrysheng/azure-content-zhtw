@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # 自動向 Azure Active Directory 註冊加入網域的 Windows 裝置
@@ -34,7 +34,7 @@
 4. 在 [發佈轉換規則] 索引標籤上，選取 [新增規則]。
 5. 從 [宣告規則] 範本下拉式方塊中，選取 [使用自訂規則傳送宣告]。選取 [下一步]。
 6. 在 [宣告規則名稱:] 文字方塊中，輸入「驗證方法宣告規則」。
-7. 在 [宣告規則:] 文字方塊中，輸入下列宣告規則****
+7. 在 [宣告規則:] 文字方塊中，輸入下列宣告規則：
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
@@ -43,7 +43,7 @@
 
 設定其他 Azure Active Directory 信賴憑證者信任驗證類別參考
 -----------------------------------------------------------------------------------------------------
-9. 在您的同盟伺服器上，開啟 Windows PowerShell 命令視窗並輸入：
+在您的同盟伺服器上，開啟 Windows PowerShell 命令視窗並輸入：
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
@@ -52,21 +52,32 @@
 
 AD FS 全域驗證原則
 -----------------------------------------------------------------------------
-1. 設定 AD FS 全域主要驗證原則以允許內部網路使用 Windows 整合式驗證 (這是預設值)。
+設定 AD FS 全域主要驗證原則以允許內部網路使用 Windows 整合式驗證 (這是預設值)。
 
 
 Internet Explorer 設定
 ------------------------------------------------------------------------------
-1. 在您的 Windows 裝置的 Internet Explorer 中，對「近端內部網路」安全性區域進行下列設定：
-    * 如果只有一個憑證時，不提示用戶端憑證選取：**啟用**
-    * 允許指令碼：**啟用**
-    * 只在近端內部網路區域自動登入：**核取**
+在您的 Windows 裝置的 Internet Explorer 中，對「近端內部網路」安全性區域進行下列設定：
+
+- 如果只有一個憑證時，不提示用戶端憑證選取：**啟用**
+- 允許指令碼：**啟用**
+- 只在內部網路區域自動登入：**核取**
 
 這些是 Internet Explorer 近端內部網路安全性區域的預設設定。在 Internet Explorer 中，您可以瀏覽至 [網際網路選項] > [安全性] > [近端內部網路] > [自訂層級]，檢視或管理這些設定。您也可以使用 Active Directory 群組原則進行這些設定。
 
 網路連線
 -------------------------------------------------------------
 加入網域的 Windows 裝置必須連線到 AD FS 與 Active Directory 網域控制站，才能自動向 Azure AD 註冊。這通常表示電腦必須連接到公司網路。這可能包括有線連線、Wi-Fi 連線、DirectAccess 或 VPN。
+
+## 設定 Azure Active Directory 裝置註冊探索
+Windows 7 和 Windows 8.1 裝置會藉由結合使用者帳戶名稱與知名裝置註冊伺服器名稱，探索裝置註冊伺服器。您必須建立 DNS CNAME 記錄，該記錄指向與您的 Azure Active Directory 裝置註冊服務相關聯的 A 記錄。CNAME 記錄必須使用知名的前置詞 **enterpriseregistration**，其後面接著貴組織的使用者帳戶所使用的 UPN 尾碼。如果您的組織使用多個 UPN 尾碼，則必須在 DNS 中建立多個 CNAME 記錄。
+
+例如，如果您在貴組織使用兩個名為 @contoso.com 和 @region.contoso.com 的 UPN 尾碼，您將建立下列 DNS 記錄。
+
+| 項目 | 類型 | 位址 |
+|-------------------------------------------|-------|------------------------------------|
+| enterpriseregistration.contoso.com | CNAME | enterpriseregistration.windows.net |
+| enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
 ##為加入網域的 Windows 7 和 Windows 8.1 裝置設定自動註冊裝置
 
@@ -83,6 +94,12 @@ Internet Explorer 設定
 
 如果公司使用行動裝置和傳統裝置，或使用 Office365、Azure AD 或其他 Microsoft 服務，則應該使用 Azure AD 裝置註冊服務在 Azure AD 中註冊裝置。如果您的公司不使用行動裝置，也不使用任何 Microsoft 服務，例如 Office365、Azure AD 或 Microsoft Intune，而只是裝載內部部署應用程式，您可以選擇使用 AD FS 在 Active Directory 中註冊裝置。
 
-您可以在[這裡](https://technet.microsoft.com/zh-TW/library/dn486831.aspx)進一步了解使用 AD FS 部署裝置註冊。
+您可以在[這裡](https://technet.microsoft.com/library/dn486831.aspx)進一步了解使用 AD FS 部署裝置註冊。
 
-<!---HONumber=Oct15_HO3-->
+## 其他主題
+
+- [Azure Active Directory 裝置註冊概觀](active-directory-conditional-access-device-registration-overview.md)
+- [為加入網域的 Windows 7 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [為加入網域的 Windows 8.1 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -24,9 +24,9 @@
 
 自 2015 年 11 月 20 日當週起，**Azure 資料目錄**已新增下列功能：
 
-- 能夠在 **Azure 資料目錄**入口網站中檢視和複製適用於 SQL Server (包括 Azure SQL Database) 資料來源的連接字串。使用者可以在適用於 SQL Server 資料表、檢視或資料庫的連接資訊中按一下 [檢視連接字串] 連結，查看用來連接到資料來源的 ADO.NET、ODBC、OLEDB 及 JDBC 連接字串。
+- 能夠在 **Azure 資料目錄**入口網站中檢視和複製適用於 SQL Server (包括 Azure SQL Database) 和 Oracle 資料來源的連接字串。使用者可以在適用於 SQL Server 或 Oracle 資料表、檢視或資料庫的連接資訊中按一下 [檢視連接字串] 連結，查看用來連接到資料來源的連接字串。已針對 SQL Server 資料來源提供 ADO.NET、ODBC、OLEDB 及 JDBC 連接字串。已針對 Oracle 資料來源提供 ODBC 與 OLEDB 連接字串。
 - 支援在註冊 Teradata 資料表和檢視時納入資料設定檔。
-- 針對 SQL Server (包含 Azure SQL DB 和 Azure SQL 資料倉儲) 與 SQL Server Analysis Services 資料來源支援「在 Power BI Desktop 中開啟」。
+- 針對 SQL Server (包含 Azure SQL DB 和 Azure SQL 資料倉儲)、SQL Server Analysis Services、Azure 儲存體，以及 HDFS 來源支援「在 Power BI Desktop 中開啟」。  
 
 > [AZURE.NOTE]「在 Power BI Desktop 中開啟」需要安裝目前的 Power BI Desktop 應用程式版本。如果您在使用此功能時遇到問題或發生錯誤，請確定您已從 [PowerBI.com](https://powerbi.com) 取得最新的 Power BI Desktop 版本。
 
@@ -147,4 +147,4 @@
 - 僅限標準版：將擁有者新增至資料資產時，**Azure 資料目錄**現在可同時支援將使用者帳戶和安全性群組做為擁有者。若要將安全性群組加入並使其成為所選資料資產的擁有者，您可以輸入群組的顯示名稱或群組的 UPN 電子郵件地址 (如果有的話)。
 - 支援 Azure Blob 儲存體的資料來源。使用者現在可以註冊並探索 Azure 儲存體 Blob 和目錄。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -58,7 +58,7 @@ UnmonitoredManual 在每次於升級網域上升級之後需要手動介入，�
 
 [資料序列化](service-fabric-application-upgrade-data-serialization.md)
 
-[進階主題](service-fabric-application-upgrade-advanced.md)
+[手動升級及使用差異封裝進行升級](service-fabric-application-upgrade-advanced.md)
 
 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -67,4 +67,4 @@ UnmonitoredManual 在每次於升級網域上升級之後需要手動介入，�
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

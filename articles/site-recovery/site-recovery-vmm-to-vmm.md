@@ -40,7 +40,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 ### VMM 先決條件
 - 您至少需要一個 VMM 伺服器。
-- VMM 伺服器應至少執行附帶最新累計更新的 System Center 2012 SP1。 
+- VMM 伺服器應至少執行附帶最新累計更新的 System Center 2012 SP1。
 - 任何包含您想要保護之虛擬機器的 VMM 伺服器都必須執行 Azure Site Recovery 提供者。它會在部署 Azure Site Recovery 期間安裝。
 - 如果您想要利用單一 VMM 伺服器設定保護，您必須在伺服器上設定至少兩個雲端。
 - 如果您想要利用兩部 VMM 伺服器部署保護，每部伺服器都必須至少有一個雲端設定在您想要保護的主要 VMM 伺服器上，一個雲端要設定在您想要用於保護和復原的次要 VMM 伺服器上
@@ -48,9 +48,9 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 - 您想要保護的來源雲端必須包含下列項目：
 	- 一或多個 VMM 主機群組。
 	- 每個主機群組中的一或多個 Hyper-V 主機伺服器。
-	- 主機伺服器上的一或多個虛擬機器。 
+	- 主機伺服器上的一或多個虛擬機器。
 - 深入了解設定 VMM 雲端：
-	- 在[使用 System Center 2012 R2 VMM 的私人雲端新功能](http://go.microsoft.com/fwlink/?LinkId=324952)和 [VMM 2012 和雲端](http://go.microsoft.com/fwlink/?LinkId=324956)中進一步了解私人 VMM 雲端。 
+	- 在[使用 System Center 2012 R2 VMM 的私人雲端新功能](http://go.microsoft.com/fwlink/?LinkId=324952)和 [VMM 2012 和雲端](http://go.microsoft.com/fwlink/?LinkId=324956)中進一步了解私人 VMM 雲端。
 	- 深入了解[設定 VMM 雲端網狀架構](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
 	- 在您備妥雲端網狀架構元素之後，[在 VMM 中建立私人雲端](http://go.microsoft.com/fwlink/?LinkId=324953)與[逐步解說：使用 System Center 2012 SP1 VMM 建立私人雲端](http://go.microsoft.com/fwlink/?LinkId=324954)中瞭解建立私人雲端。
 
@@ -167,22 +167,24 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 8. 按 [下一步]，完成此程序。註冊後，Azure Site Recovery 即可從 VMM 伺服器擷取中繼資料。此伺服器會顯示在保存庫中 [伺服器] 頁面的 [VMM 伺服器] 索引標籤上。
 
 >[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來在適用於 Windows Server 2012 R2 的伺服器核心上安裝提供者
->
->1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
->2. 停止 System Center Virtual Machine Manager 服務
->3. 從命令提示字元使用**系統管理員**權限執行下列命令，來解壓縮提供者安裝程式 
->
+
+1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
+1. 停止 System Center Virtual Machine Manager 服務
+1. 從命令提示字元使用**系統管理員**權限執行下列命令，來解壓縮提供者安裝程式
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
->4. 執行下列命令來安裝提供者
->
+1. 執行下列命令來安裝提供者
+
 		C:\ASR> setupdr.exe /i
->5. 執行下列命令來登錄提供者
->
+1. 執行下列命令來登錄提供者
+
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
- ####命令列安裝參數清單####
->
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
+
+    
+#### 命令列安裝參數清單
+
  - **/Credentials**：必要參數，用來指定註冊機碼檔案所在的位置  
  - **/FriendlyName**：對於 Hyper-V 主機伺服器名稱的必要參數，該伺服器會出現在 Azure Site Recovery 入口網站中。
  - **/EncryptionEnabled**：如果您需要在 Azure 中以靜止的方式為虛擬機器加密，則必須只能在 VMM 到 Azure 案例中使用這個選用參數。請確定您提供的檔案名稱具有 **.pfx** 副檔名。
@@ -198,7 +200,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 ![發佈的雲端](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudsList.png)
 
 1. 在 [快速啟動] 頁面上，按一下 [設定 VMM 雲端的保護]。
-2. 在 [VMM 雲端] 索引標籤上，選取您要設定的雲端，並移至 [設定] 索引標籤。 
+2. 在 [VMM 雲端] 索引標籤上，選取您要設定的雲端，並移至 [設定] 索引標籤。
 3. 在 [目標] 中，選取 [VMM]。
 4. 在 [目標位置] 中，選取網站上負責對您要用於復原之雲端進行管理的 VMM 伺服器。
 4. 在 [目標雲端] 中，選取要作為來源雲端中虛擬機器容錯移轉目標的雲端。請注意：
@@ -225,7 +227,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 您必須執行下列動作，以準備進行初始複寫離線：
 
-- 在來源伺服器上，您會指定要從中匯出資料的路徑位置。在匯出路徑上指派 NTFS 和共用權限的完整控制權給 VMM 服務。在目標伺服器上，您會指定要從中匯入資料的路徑位置。在這個匯入路徑上指派相同的權限。 
+- 在來源伺服器上，您會指定要從中匯出資料的路徑位置。在匯出路徑上指派 NTFS 和共用權限的完整控制權給 VMM 服務。在目標伺服器上，您會指定要從中匯入資料的路徑位置。在這個匯入路徑上指派相同的權限。
 - 如果共用匯入或匯出路徑，請在共用所在的遠端桌面上，指派系統管理員、進階使用者、列印操作員或伺服器操作員群組成員資格給 VMM 伺服器帳戶。
 - 如果您使用任何執行身分帳戶加入主機，請在匯入和匯出路徑上指派讀取和寫入權限給 VMM 中的執行身分帳戶。
 - 匯入和匯出共用不得位於任何做為 Hyper-V 主機伺服器的電腦，因為 Hyper-V 不支援回送設定。
@@ -237,10 +239,10 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 	5. 按一下 [使用任何驗證通訊協定]。
 	6. 按一下 [加入] > [使用者和電腦]。
 	7. 輸入裝載匯出路徑的電腦名稱 > [確定]。從可用服務的清單中，按住 CTRL 鍵並按一下 [cifs] > [確定]。為裝載匯入路徑的電腦名稱重複動作。視需要為其他 Hyper-V 主機伺服器重複動作。
-	
+
 ## 步驟 5：設定網路對應
 1. 在 [快速入門] 頁面上，按一下 [對應網路]。
-2. 選取您想要從其中對應網路的來源 VMM 伺服器，然後選取對應網路的目標 VMM 伺服器。隨即會顯示來源網路的清單和與其相關聯的目標網路。目前尚未對應的網路會顯示空白值。 
+2. 選取您想要從其中對應網路的來源 VMM 伺服器，然後選取對應網路的目標 VMM 伺服器。隨即會顯示來源網路的清單和與其相關聯的目標網路。目前尚未對應的網路會顯示空白值。
 3. 在 [來源上的網路] > [對應] 中選取網路。服務會偵測目標伺服器上的 VM 網路並加以顯示。按一下來源和目標網路名稱旁邊的資訊圖示，以檢視每個網路的子網路。
 
 	![設定網路對應](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_NetworkMapping1.png)
@@ -268,7 +270,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 ## 步驟 7：啟用虛擬機器保護
 正確設定伺服器、雲端和網路後，您就可以對雲端中的虛擬機器啟用保護。
 
-1. 在虛擬機器所在雲端中的 [虛擬機器] 索引標籤上，按一下 [啟用保護] > [加入虛擬機器]。 
+1. 在虛擬機器所在雲端中的 [虛擬機器] 索引標籤上，按一下 [啟用保護] > [加入虛擬機器]。
 2. 從雲端中所有虛擬機器的清單，選取您要保護的虛擬機器。
 
 
@@ -344,7 +346,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 - **作用**：向服務註冊伺服器，如此可以保護虛擬機器
 - **收集的資訊**：註冊之後，服務會從指定提供災害復原的 VMM 伺服器，收集、處理及傳輸管理憑證資訊，使用 VMM 伺服器的服務名稱以及 VMM 伺服器上虛擬機器的名稱。
-- **資訊的用途**： 
+- **資訊的用途**：
 	- 管理憑證—用來協助識別及驗證已註冊的 VMM 伺服器，以便存取服務。服務會使用憑證的公開金鑰部分來保護 token，只有已註冊的 VMM 伺服器可以獲得其存取權。伺服器必須使用此 token 獲得服務功能的存取權。
 	- VMM 伺服器的名稱—要識別雲端所在之適當 VMM 伺服器並與其通訊時，VMM 伺服器名稱是必要項目。
 	- VMM 伺服器中的雲端名稱—使用如下所述之服務雲端配對/取消配對功能時，雲端名稱為必要項目。當您決定配對您在主要資料中心的雲端與另一個在復原資料中心的雲端時，復原資料中心的所有雲端名稱都會出現。
@@ -397,4 +399,4 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
 
 - **選擇**：這是服務不可或缺的一部分，而且無法關閉。如果您不想將此資訊傳送給服務，請勿使用此服務。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

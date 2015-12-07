@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="使用 Azure Active Directory 裝置註冊設定內部部署條件式存取 | Microsoft Azure"
 	description="在 Windows Server 2012 R2 中使用 Active Directory Federation Service (AD FS) 啟用內部部署應用程式之條件式存取的逐步指南。"
@@ -14,8 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
+
 
 # 使用 Azure Active Directory 裝置註冊設定內部部署條件式存取
 
@@ -46,7 +46,7 @@
 * Windows Server 2012 R2 Web Application Proxy Microsoft Azure Active Directory Connect (Azure AD Connect)。[在此下載 Azure AD Connect](http://www.microsoft.com/zh-TW/download/details.aspx?id=47594)。
 * 已驗證的網域。 
 
-此版本中的已知問題
+此版本已知的問題
 -------------------------------------------------------------------------------
 * 以條件式存取原則為基礎的裝置需要從 Azure Active Directory 裝置物件寫回至 Active Directory。裝置物件可能需要 3 小時才能寫回至 Active Directory
 * iOS 7 裝置一律會提示使用者在用戶端憑證驗證期間選取憑證。 
@@ -75,8 +75,7 @@
 | 若要讓裝置加入工作場所，請在 Azure Active Directory 租用戶中啟用裝置註冊。根據預設，服務不會啟用多因素驗證。不過，建議在註冊裝置時使用多因素驗證。在 ADRS 中啟用多因素驗證之前，請確定已為多因素驗證提供者設定 AD FS。 | [啟用 Azure Active Directory 裝置註冊](active-directory-conditional-access-device-registration-overview.md) |
 | 裝置會尋找已知的 DNS 記錄來探索您的 Azure Active Directory 裝置註冊服務。您必須設定您的公司 DNS，讓裝置能夠探索您的 Azure Active Directory 裝置註冊服務。 | [設定 Azure Active Directory 裝置註冊探索](active-directory-conditional-access-device-registration-overview.md) |
 
-##第 2 部分：部署和設定 Windows Server 2012 R2 Active Directory Federation Services，以及設定與 Azure Active Directory 的同盟關係
-
+##第 2 部分：部署和設定 Windows Server 2012 R2 Active Directory Federation Services，以及設定與 Azure AD 的同盟關係
 
 | 工作 | 參考 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
@@ -91,7 +90,7 @@
 | 完成「在 Azure AD Connect 中啟用裝置回寫」的第 2 部分。完成時，回到這份指南。 | [在 Azure AD Connect 中啟用裝置回寫](#升級您的 Active Directory 網域服務結構描述) |
 	 
 
-##[選擇性]第 4 部分：啟用 Multi-Factor Authentication
+##[選擇性] 第 4 部分：啟用 Multi-Factor Authentication
 
 強烈建議您設定 Multi-Factor Authentication 的其中一個選項。如果您想要求 MFA，請參閱[選擇合適的多重因素安全性解決方案](multi-factor-authentication-get-started.md)。它包含每個解決方案的描述，以及可協助您設定您所選解決方案的連結。
 
@@ -150,8 +149,8 @@
 ### 在 AD FS 中啟用裝置驗證
 
 1. 在您的同盟伺服器上，開啟 AD FS 管理主控台並瀏覽至 [AD FS] > [驗證原則]。
-2. 從 [動作] 窗格選取 **[編輯全域主要驗證...]**。
-3. 檢查 [啟用裝置驗證]，然後選取 **[確定]**。
+2. 從 [動作] 窗格選取 [編輯全域主要驗證...]。
+3. 檢查 [啟用裝置驗證]，然後選取 [確定]。
 4. 根據預設，AD FS 會定期從 Active Directory 移除未使用的裝置。使用 Azure Active Directory 裝置註冊時，您必須停用這項工作，以便在 Azure 中管理裝置。
 
 
@@ -212,7 +211,7 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 9. 選取 [完成]，然後選取 [套用]。
 10. 移除任何比您剛才建立之規則更寬鬆的規則。例如，移除預設 [允許所有使用者存取] 規則。
 
-您的應用程式現在已設定為只有在使用者來自他們已註冊並加入工作場所的裝置時才允許存取。如需進階的存取原則，請參閱[透過多因素存取控制管理風險](https://technet.microsoft.com/zh-TW/library/dn280949.aspx)。
+您的應用程式現在已設定為只有在使用者來自他們已註冊並加入工作場所的裝置時才允許存取。如需進階的存取原則，請參閱[透過多因素存取控制管理風險](https://technet.microsoft.com/library/dn280949.aspx)。
 
 接下來，您將為應用程式設定自訂錯誤訊息。錯誤訊息會讓使用者知道，在允許他們存取應用程式之前，他們必須將裝置加入到工作場所。您可以使用自訂 HTML 和 Windows PowerShell 建立自訂應用程式拒絕存取訊息。
 
@@ -228,14 +227,14 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 將這個 iOS 裝置加入至您的工作場所。
 
 
-**如果您使用 Windows 8.1 裝置**，您可以移至 **[電腦設定]** > [網路] > [工作場所] 即可加入您的裝置。
+**如果您使用 Windows 8.1 裝置**，您可以移至 [電腦設定] > [網路] > [工作場所] 即可加入您的裝置。
 
 
-其中的「**信賴憑證者信任名稱**」是 AD FS 中應用程式信賴憑證者信任物件的名稱。其中的 **yourdomain.com** 是您利用 Azure Active Directory 設定的網域名稱。例如 contoso.com。請務必從您傳遞給 **Set-AdfsRelyingPartyWebContent** Cmdlet 的 html 內容移除任何分行符號 (如果有的話)。
+其中的「信賴憑證者信任名稱」是 AD FS 中應用程式信賴憑證者信任物件的名稱。其中的 **yourdomain.com** 是您利用 Azure Active Directory 設定的網域名稱。例如 contoso.com。請務必從您傳遞給 **Set-AdfsRelyingPartyWebContent** Cmdlet 的 html 內容移除任何分行符號 (如果有的話)。
 
 
 現在當使用者從未使用 Azure Active Directory 裝置註冊服務註冊的裝置存取您的應用程式時，使用者會看到類似下面螢幕擷取畫面所示的頁面。
 
 ![使用者尚未向 Azure AD 註冊其裝置時的錯誤螢幕擷取畫面](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

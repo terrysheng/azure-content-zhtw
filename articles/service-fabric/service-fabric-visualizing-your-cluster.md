@@ -32,13 +32,19 @@
 
 ![Service Fabric 總管叢集儀表板][sfx-cluster-dashboard]
 
-叢集包含兩個樹狀子目錄：一個用於應用程式，另一個用於節點。
+### 叢集對應
+
+Service Fabric 叢集中的節點是跨容錯網域和升級網域的 2 個維度資料格配置，以確保您的應用程式在發生硬體失敗及應用程式升級時可維持在可用狀態。您可以使用「叢集對應」檢視目前叢集的配置方式。
+
+![Service Fabric 總管叢集對應][sfx-cluster-map]
 
 ### 檢視應用程式和服務
 
+叢集包含兩個樹狀子目錄：一個用於應用程式，另一個用於節點。
+
 應用程式檢視可讓您瀏覽 Service Fabric 的邏輯階層：應用程式、服務、資料分割，以及複本。
 
-在以下範例中，應用程式 **MyApp** 是由兩個服務 **MyStatefulService** 與 **WebSvcService** 組成。由於 **MyStatefulService** 可設定狀態，因此它包含一個具有一個主要複本和兩個次要複本的資料分割。對比之下，WebSvcService 則無狀態，只包含單一執行個體。
+在以下範例中，應用程式 **MyApp** 是由兩個服務 **MyStatefulService** 與 **WebService** 組成。由於 **MyStatefulService** 可設定狀態，因此它包含一個具有一個主要複本和兩個次要複本的資料分割。對比之下，WebSvcService 則無狀態，只包含單一執行個體。
 
 ![Service Fabric 總管應用程式檢視][sfx-application-tree]
 
@@ -70,9 +76,11 @@
 
 ### 探索遠端叢集的 Service Fabric 總管端點
 
-您可以從 Service Fabric 入口網站探索您的叢集端點。若要連線到指定之叢集的「Service Fabric 總管」，只要透過連接埠 19007 連線到該端點即可：
+若要連線到指定之叢集的「Service Fabric 總管」，只需要將您的瀏覽器指向：
 
-http://&lt;your-cluster-endpoint&gt;:19007
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+
+Azure 入口網站的叢集基本資訊窗格中也會提供完整 URL。
 
 ### 連線到安全的叢集
 
@@ -87,14 +95,10 @@ http://&lt;your-cluster-endpoint&gt;:19007
 - [使用 PowerShell 部署 Service Fabric 應用程式](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
-[clustermap]: ./media/service-fabric-visualizing-your-cluster/clustermap.png
-[connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
-[replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
-[servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

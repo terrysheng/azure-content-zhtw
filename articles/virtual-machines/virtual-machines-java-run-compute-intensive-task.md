@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="robmcm"/>
 
 # 如何在虛擬機器上以 Java 執行大量運算工作
@@ -48,7 +48,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 ## 建立虛擬機器
 
-1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 入口網站](https://manage.windowsazure.com)。
 2. 依序按一下 [新增]、[運算]、[虛擬機器] 及 [從組件庫]。
 3. 在 [虛擬機器映像選取] 對話方塊中，選取 [JDK 7 Windows Server 2012]。請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
 4. 按 [下一步]。
@@ -71,7 +71,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 ## 從遠端登入虛擬機器
 
-1. 登入[管理入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 入口網站](https://manage.windowsazure.com)。
 2. 按一下 [虛擬機器]。
 3. 按一下要登入的虛擬機器名稱。
 4. 按一下 [連接]。
@@ -85,13 +85,13 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 建立服務命名空間：
 
-1.  登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
-2.  在管理入口網站左下方的瀏覽窗格中，按一下 [服務匯流排、存取控制和快取]。
-3.  在管理入口網站的左上方窗格中，按一下 [服務匯流排] 節點，然後按一下 [新增] 按鈕。![Service Bus Node screenshot][svc_bus_node]
+1.  登入 [Azure 入口網站](https://manage.windowsazure.com)。
+2.  在 Azure 入口網站左下方的瀏覽窗格中，按一下 [**服務匯流排、存取控制和快取**]。
+3.  在 Azure 入口網站的左上方窗格中，按一下 [**服務匯流排**] 節點，然後按一下 [**新增**] 按鈕。![Service Bus Node screenshot][svc_bus_node]
 4.  在 [建立新的服務命名空間] 對話方塊中輸入一個**命名空間**，然後確認它是唯一的，再按一下 [檢查可用性] 按鈕。![Create a New Namespace screenshot][create_namespace]
 5.  確定命名空間名稱可用之後，選擇要裝載命名空間的國家或地區，然後按一下 [建立命名空間] 按鈕。  
 
-    然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續下一個步驟。
+    然後，您建立的命名空間就會出現在 Azure 入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續下一個步驟。
 
 ## 取得命名空間的預設管理認證
 
@@ -520,4 +520,4 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

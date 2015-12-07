@@ -62,7 +62,6 @@ Azure Data Factory 編輯器是 Azure Preview 入口網站中的簡易型 Web �
 2. 右側的編輯器畫布會顯示 JSON 範本，讓您建立計算連結服務。執行下列動作：
 	1. 如果是**隨需 HDInsight 叢集**，請指定下列屬性的值： 
 		1. 在 **clusterSize** 屬性中，指定您希望 Data Factory 服務在執行階段建立的 HDInsight 叢集大小。 
-		2. 在 **jobsContainer** 屬性中，指定您想用來儲存叢集記錄檔的預設 Blob 容器名稱。
 		3. 在 **timeToLive** 屬性中，指定刪除 HDInsight 叢集之前允許的閒置時間。例如：00:05:00 表示叢集閒置 5 分鐘後，就應該刪除叢集。
 		4. 在 **version** 屬性中，指定叢集的 HDInsight 版本 (預設值：version 3.1)。
 		5. 在 **linkedServiceName** 屬性中，指定要與 HDInsight 叢集相關聯的 Azure 儲存體連結服務。 
@@ -221,4 +220,4 @@ Azure Data Factory 編輯器是 Azure Preview 入口網站中的簡易型 Web �
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

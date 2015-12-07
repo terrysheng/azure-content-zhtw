@@ -72,6 +72,6 @@ Azure 的智慧型引擎如果發現必要的使用模式，將會對資料庫�
 備份儲存體與自動資料庫備份相關聯，可用於時間點復原及異地復原。Microsoft Azure SQL Database 提供的備份儲存體可高達 200% 的最大可佈建資料庫儲存體，且不須支付額外費用。例如，如果您擁有可佈建 DB 大小為 250GB 的標準 DB 執行個體，您將免費獲得 500GB 的備份儲存體。若您的資料庫超過所提供的備份儲存體，您可以連絡 Azure 支援部門，選擇縮短保留期限，或是以標準讀取存取地理備援儲存體 (RA-GRS) 費率，另購額外的備份儲存體。如需 RA-GRS 計費的詳細資訊，請參閱儲存體價格詳細資料。
 
 ## 我正從 Web/Business 移到新的服務層，我應該知道什麼？
-Azure SQL Web 和 Business 資料庫現已淘汰。基本、標準、高階和彈性層取代淘汰 Web 和商務資料庫。我們提供額外的常見問題集，在此過渡期應該有所幫助。[Web 和 Business 版本終止常見問題集](sql-database-web-business-faq.md)
+Azure SQL Web 和 Business 資料庫現已淘汰。基本、標準、高階和彈性層取代淘汰 Web 和商務資料庫。我們提供額外的常見問題集，在此過渡期應該有所幫助。[Web 和 Business 版本終止常見問題集](sql-database-web-business-sunset-faq.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

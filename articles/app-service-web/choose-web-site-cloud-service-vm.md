@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/10/2015"
+	ms.date="11/19/2015"
 	ms.author="tdykstra"/>
 
 # Azure App Service、雲端服務與虛擬機器之比較
@@ -153,11 +153,11 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
 支援 WebMatrix|X||X|
 存取服務匯流排、儲存體、SQL Database 等服務。|X|X|X|
 裝載多層式架構的 Web 或 Web 服務層|X|X|X|
-裝載多層式架構的中間層|X|X|X|App Service Web 應用程式可以輕易裝載 REST API 中間層，而 [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 功能可以裝載背景處理工作。您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。預覽 [API 應用程式](../app-service-api/app-service-api-apps-why-best-platform/)功能提供了更多裝載 REST 服務的功能。
+裝載多層式架構的中間層|X|X|X|App Service Web 應用程式可以輕易裝載 REST API 中間層，而 [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 功能可以裝載背景處理工作。您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。預覽 [API 應用程式](../app-service-api/app-service-api-apps-why-best-platform.md)功能提供了更多裝載 REST 服務的功能。
 整合 MySQL 即服務的支援|X|X|X|雲端服務可透過 ClearDB 的供應項目來整合 MySQL 即服務，而不需要在管理入口網站工作流程中進行。
 支援 ASP.NET、傳統 ASP、Node.js、PHP、Python|X|X|X|
 向外延展至多個執行個體而不重新部署|X|X|X|「虛擬機器」可向外延展至多個執行個體，但這些機器上執行的服務必須設計成應付這個向外延展情況。您必須設定負載平衡器來將要求路由傳送到各機器，並建立同質群組，以避免在維護或硬體故障時所有執行個體同時重新啟動。
-支援 SSL|X|X|X|在 App Service Web 應用程式中，只有基本和標準模式才支援自訂網域名稱的 SSL。如需 Web 應用程式使用 SSL 的相關資訊，請參閱＜[設定 Azure 網站的 SSL 憑證](../app-service-web/web-sites-configure-ssl-certificate/)＞。
+支援 SSL|X|X|X|在 App Service Web 應用程式中，只有基本和標準模式才支援自訂網域名稱的 SSL。如需 Web 應用程式使用 SSL 的相關資訊，請參閱＜[設定 Azure 網站的 SSL 憑證](../app-service-web/web-sites-configure-ssl-certificate.md)＞。
 整合 Visual Studio|X|X|X|
 遠端偵錯|X|X|X|
 利用 TFS 來部署程式碼|X|X|X|
@@ -204,4 +204,4 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
   [儲存體]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

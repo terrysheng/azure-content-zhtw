@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/03/2015"
+	ms.date="11/19/2015"
 	ms.author="meetb"/>
 
 
@@ -33,195 +33,143 @@
 用戶端開發電腦上必須有下列軟體項目。
 
 
--  Node.js - [0\.8.9 版 (32 位元版本)](http://blog.nodejs.org/2012/09/11/node-v0-8-9-stable/)。捲動並按一下適用於 32 位元 x86 的 Window Installer 下載連結，而不是 Windows x64 Installer 64 位元。
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/)，適用於 x86 或 x64 的安裝程式。 
-- [Visual C++ 2010](https://app.vssps.visualstudio.com/profile/review?download=true&family=VisualStudioCExpress&release=VisualStudio2010&type=web&slcid=0x409&context=eyJwZSI6MSwicGMiOjEsImljIjoxLCJhbyI6MCwiYW0iOjEsIm9wIjpudWxsLCJhZCI6bnVsbCwiZmEiOjAsImF1IjpudWxsLCJjdiI6OTY4OTg2MzU1LCJmcyI6MCwic3UiOjAsImVyIjoxfQ2) - Microsoft 免費提供的 Express 版。
-- SQL Server Native Client 11.0 - 以 [SQL Server 2012 功能套件](http://www.microsoft.com/download/details.aspx?id=29065)中的 Microsoft SQL Server 2012 Native Client 提供。
+-  [Node.js](https://nodejs.org/en/download/) - 按一下 Windows Installer，並下載適當的 msi 安裝程式。下載後，請執行 msi 來安裝 Node.js 
 
 
 ### 安裝必要的模組
 
-在您達成需求後，請確定您是在 Node.js 版本 0.8.9 上。您可以從您的命令列終端機，使用下列命令：node -v.。<br>在 **cmd.exe** 命令列視窗中，瀏覽至您的專案目錄，例如：C:\\NodeJSSQLProject。請依照顯示的順序輸入下列命令。
+將您的電腦設定為使用**節點**，開啟 open cmd.exe 並巡覽至您打算建立 Node.js 專案的目錄，接著輸入下列命令。
+
 
 	npm init
-	npm install msnodesql
+	npm install tedious
 
-接著瀏覽至 node\_modules\\msnodesql 資料夾，並執行 **msnodesql 0.2.1-v0.8 ia32** 可執行檔。請遵循安裝精靈的步驟，並在完成時叫按一下 [完成]。此時您應已安裝 Node.js SQL Server 驅動程式。請依照後續步驟以取得連接字串，然後您應能從 Node.js 應用程式連接到 Azure SQL DB。
 
-### 建立資料庫並擷取您的連接字串
- 
-請參閱[快速入門主題](sql-database-get-started.md)，以了解如何建立範例資料庫及擷取連接字串。請務必遵循該指南以建立 **AdventureWorks 資料庫範本**。以下所示的範例僅適用於 **AdventureWorks 結構描述**。
+**npm init** 會建立節點專案。若要在專案建立期間保留預設值，請按 Enter 鍵直到專案建立為止。現在您會在專案目錄中看到 **package.json** 檔案。
+
+
+### 建立 AdventureWorks 資料庫
+
+
+本主題中的程式碼範例必須使用 **AdventureWorks** 測試資料庫。如果還沒有這個資料庫，請參閱[開始使用 SQL Database](sql-database-get-started.md)。請務必遵循該指南以建立 **AdventureWorks 資料庫範本**。以下所示的範例僅適用於 **AdventureWorks 結構描述**。
 
 
 ## 連接到您的 SQL Database
 
+[new Connection](http://pekim.github.io/tedious/api-connection.html) 函式可用來連接到 SQL Database。
 
-- 將下列程式碼複製到您的專案目錄中的 .js 檔案。
-
-
-		var http = require('http');
-		var sql = require('msnodesql');
-		var http = require('http');
-		var fs = require('fs');
-		var useTrustedConnection = false;
-		var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-		(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-		"Database={AdventureWorks};"
-		sql.open(conn_str, function (err, conn) {
-		    if (err) {
-		        console.log("Error opening the connection!");
-		        return;
-		    }
-		    else
-		        console.log("Successfuly connected");
-		});	
-
-
-- 現在發出下列命令來執行您的 .js 檔案。
-
-
-		node index.js
-
-
-## 執行 SQL SELECT 陳述式
-
-
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
-	
-	
-	    conn.queryRaw("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function (err, results) {
-	        if (err) {
-	            console.log("Error running query1!");
-	            return;
-	        }
-	        for (var i = 0; i < results.rows.length; i++) {
-	            console.log(results.rows[i]);
-	        }
-	    });
+	var Connection = require('tedious').Connection;
+	var config = {
+		userName: 'yourusername',
+		password: 'yourpassword',
+		server: 'yourserver.database.windows.net',
+		// If you are on Microsoft Azure, you need this:
+		options: {encrypt: true, database: 'AdventureWorks'}
+	};
+	var connection = new Connection(config);
+	connection.on('connect', function(err) {
+	// If no error, then good to proceed.
+		console.log("Connected");
 	});
 
 
-## 插入資料列、傳遞參數及擷取產生的主索引鍵
+## 執行 SQL SELECT
 
 
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
-	
-	
-	    conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express', 'SQLEXPRESS', 0, 0, CURRENT_TIMESTAMP)", function (err, results) {
-	        if (err) {
-	            console.log("Error running query!");
-	            return;
-	        }
-	        for (var i = 0; i < results.rows.length; i++) {
-	            console.log("Product ID Inserted : "+results.rows[i]);
-	        }
-	    });
+所有 SQL 陳述式都會使用 [new Request()](http://pekim.github.io/tedious/api-request.html) 函式來執行。如果陳述式傳回資料列 (例如 SELECT 陳述式)，您可以使用 [request.on()](http://pekim.github.io/tedious/api-request.html) 函式擷取這些資料列。如果沒有資料列，[request.on()](http://pekim.github.io/tedious/api-request.html) 函式會傳回空白清單。
+
+
+	var Connection = require('tedious').Connection;
+	var config = {
+		userName: 'yourusername',
+		password: 'yourpassword',
+		server: 'yourserver.database.windows.net',
+		// When you connect to Azure SQL Database, you need these next options.
+		options: {encrypt: true, database: 'AdventureWorks'}
+	};
+	var connection = new Connection(config);
+	connection.on('connect', function(err) {
+		// If no error, then good to proceed.
+		console.log("Connected");
+		executeStatement();
 	});
-
-
-## 交易
-
-
-**conn.beginTransactions** 方法無法在 Azure SQL Database 中運作。相反地，請遵循下列程式碼範例，以在 SQL Database 中執行交易。
-
-
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
 	
+	var Request = require('tedious').Request;
+	var TYPES = require('tedious').TYPES;
 	
-	    conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New ', 'SQLEXPRESS New', 1, 1, CURRENT_TIMESTAMP)", function (err, results) {
-	        if (err) {
-	            console.log("Error running query!");
-	            return;
-	        }
-	        for (var i = 0; i < results.rows.length; i++) {
-	            console.log("Product ID Inserted : "+results.rows[i]);
-	        }
-	    });
-	    
-	    conn.queryRaw("ROLLBACK TRANSACTION; ", function (err, results) {
-            	if (err) {
-        		console.log("Rollback failed");
-        		return;
-        	}
-    	    });
+	function executeStatement() {
+		request = new Request("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function(err) {
+	  	if (err) {
+	   		console.log(err);} 
+		});
+		var result = "";
+		request.on('row', function(columns) {
+		    columns.forEach(function(column) {
+		      if (column.value === null) {
+		        console.log('NULL');
+		      } else {
+		        result+= column.value + " ";
+		      }
+		    });
+		    console.log(result);
+		    result ="";
+		});
+	
+		request.on('done', function(rowCount, more) {
+		console.log(rowCount + ' rows returned');
+		});
+		connection.execSql(request);
+	}
+
+
+## 插入資料列、套用參數及擷取產生的主索引鍵
+
+
+在 SQL Database 中，[IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) 屬性和 [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) 物件可用來自動產生[主索引鍵](https://msdn.microsoft.com/library/ms179610.aspx)值。在這個範例中，您將了解如何執行 INSERT 陳述式、安全地傳遞透過 SQL 插入保護的參數，以及擷取自動產生的主索引鍵值。
+
+
+本節中的程式碼範例會將參數套用至 SQL INSERT 陳述式。所產生的主索引鍵值會透過程式來擷取。
+
+
+	var Connection = require('tedious').Connection;
+	var config = {
+		userName: 'yourusername',
+		password: 'yourpassword',
+		server: 'yourserver.database.windows.net',
+		// If you are on Azure SQL Database, you need these next options.
+		options: {encrypt: true, database: 'AdventureWorks'}
+	};
+	var connection = new Connection(config);
+	connection.on('connect', function(err) {
+		// If no error, then good to proceed.
+		console.log("Connected");
+		executeStatement1();
 	});
-
-
-## 預存程序
-
-
-您必須先擁有或建立不輸入任何參數的預存程序，這個程式碼範例才能運作。您可以使用 SQL Server Management Studio (SSMS.exe) 等工具建立預存程序。
-
-
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
-		
-	    conn.query("exec NameOfStoredProcedure", function (err, results) {
-	    	if (err) {
-			console.log("Error running query8!");
-			return;
-		}
-	    });
-	});
+	
+	var Request = require('tedious').Request
+	var TYPES = require('tedious').TYPES;
+	
+	function executeStatement1() {
+		request = new Request("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP);", function(err) {
+		 if (err) {
+		 	console.log(err);} 
+		});
+		request.addParameter('Name', TYPES.NVarChar,'SQL Server Express 2014');
+		request.addParameter('Number', TYPES.NVarChar , 'SQLEXPRESS2014');
+		request.addParameter('Cost', TYPES.Int, 11);
+		request.addParameter('Price', TYPES.Int,11);
+		request.on('row', function(columns) {
+		    columns.forEach(function(column) {
+		      if (column.value === null) {
+		        console.log('NULL');
+		      } else {
+		        console.log("Product id of inserted item is " + column.value);
+		      }
+		    });
+		});		
+		connection.execSql(request);
+	}
 
  
-## 後續步驟
 
-如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

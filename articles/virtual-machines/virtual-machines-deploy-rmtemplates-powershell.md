@@ -20,7 +20,7 @@
 # 使用 Azure 資源管理員和 PowerShell 部署以及管理虛擬機器
 
 > [AZURE.SELECTOR]
-- [Preview Portal](virtual-machines-windows-tutorial.md)
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
 - [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -376,4 +376,4 @@
 
 [虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

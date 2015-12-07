@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="11/23/2015"
    ms.author="tedway; neerajkh"/>
 
 # Multi-Geo 說明文件
 
-目前，所有 Azure 機器學習服務的資產都裝載於美國中南部 (SCUS) Azure 區域。本文將說明如何在其他 Azure 區域中建立工作區及發佈 Web 服務。
+本文將說明如何在其他 Azure 區域中建立工作區及發佈 Web 服務。
 
 ## 建立工作區
 
@@ -57,4 +57,4 @@
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

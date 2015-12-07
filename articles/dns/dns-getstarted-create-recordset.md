@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="Adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
@@ -60,7 +60,7 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 
 建立記錄集，並指派給變數 $rs：
 
-	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 記錄集在 DNS 區域 'contoso.com' 中有相對記錄名稱 'www'，因此記錄的完整名稱為 'www.contoso.com'。記錄類型為 'A'，TTL 為 60 秒。
 
@@ -72,21 +72,21 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 
 使用在步驟 1 建立記錄集時所指派的 $rs 變數，將 IPv4 A 記錄加入至 "www" 記錄集：
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
-使用 Add-AzureDnsRecordConfig 將記錄加入至記錄集是離線作業。只有本機變數 $rs 會更新。
+使用 Add-AzureRmDnsRecordConfig 將記錄加入至記錄集是離線作業。只有本機變數 $rs 會更新。
 
 ### 步驟 3
-認可對記錄集所做的變更。使用 Set-AzureDnsRecordSet 將記錄集的變更上傳到 Azure DNS：
+認可對記錄集所做的變更。使用 Set-AzureRmDnsRecordSet 將記錄集的變更上傳到 Azure DNS：
 
 
-	Set-AzureDnsRecordSet -RecordSet $rs
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-變更已完成。您可以使用 Get-AzureDnsRecordSet，從 Azure DNS 擷取記錄集。
+變更已完成。您可以使用 Get-AzureRmDnsRecordSet，從 Azure DNS 擷取記錄集。
 
 
-	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -117,6 +117,7 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 
 
 ## 後續步驟
+
 [如何管理 DNS 區域](dns-operations-dnszones.md)
 
 [如何管理 DNS 記錄](dns-operations-recordsets.md)<BR>
@@ -124,4 +125,4 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

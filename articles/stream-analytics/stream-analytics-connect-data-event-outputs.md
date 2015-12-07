@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="建立串流分析輸出 |Microsoft Azure" 
+	pageTitle="連接串流分析輸出 | Microsoft Azure" 
 	description="了解如何連線以及設定輸出目標，以制定串流分析解決方案。" 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -16,7 +16,7 @@
 	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
-# 建立串流分析輸出
+# 連接串流分析輸出目標
 
 ## 了解串流分析輸出 ##
 ---
@@ -262,7 +262,7 @@ Azure 的串流分析提供儲存和檢視工作輸出的七種不同方法。SQ
 - [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
 - [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 
@@ -306,4 +306,4 @@ Azure 的串流分析提供儲存和檢視工作輸出的七種不同方法。SQ
 [graphic37]: ./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png
 [graphic38]: ./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

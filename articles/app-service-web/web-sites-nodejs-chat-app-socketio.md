@@ -3,9 +3,9 @@
 	description="示範在裝載於 Azure 的 node.js Web 應用程式中使用 socket.io 的教學課程。"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
 
 # 在 Azure App Service 中使用 Socket.IO 建立 Node.js 聊天應用程式
 
-Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時通訊。此外，它還能支援遞補其他適用於舊版瀏覽器的傳輸 (例如長輪詢)。本教學課程將逐步引導您裝載 Socket.IO 型聊天應用程式以做為 Azure Web 應用程式，並示範如何使用 [Azure Redis 快取](http://azure.microsoft.com/documentation/services/cache)為應用程式[調整規模](#scale-out)。如需 Socket.IO 的詳細資訊，請參閱 [http://socket.io/][socketio]。
+Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時通訊。此外，它還能支援遞補其他適用於舊版瀏覽器的傳輸 (例如長輪詢)。本教學課程將逐步引導您裝載 Socket.IO 型聊天應用程式以做為 Azure Web 應用程式，並示範如何使用 [Azure Redis 快取](/documentation/services/cache)為應用程式[調整規模](#scale-out)。如需 Socket.IO 的詳細資訊，請參閱 [http://socket.io/][socketio]。
 
 > [AZURE.NOTE]此工作中的程序適用於 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。對於雲端服務，請參閱<a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式</a>。
 
@@ -119,7 +119,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 ###建立 Redis 快取
 
-執行[在 Azure Redis 快取中建立快取](https://azure.microsoft.com/zh-TW/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache)中的步驟以建立新的快取。
+執行[在 Azure Redis 快取中建立快取](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache)中的步驟以建立新的快取。
 
 > [AZURE.NOTE]儲存快取的__主機名稱__和__主要金鑰__，因為後續步驟將會需要這些項目。
 
@@ -285,4 +285,4 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

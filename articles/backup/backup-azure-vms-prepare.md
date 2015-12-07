@@ -181,6 +181,10 @@ VM 代理程式已存在於從 Azure 資源庫建立的 VM 中。不過，從內
   - **Linux**：由 Azure 背書的散發套件清單可以在[這裡](../virtual-machines-linux-endorsed-distributions.md)取得。只要 VM 代理程式可以在虛擬機器上使用，其他「攜帶您自己的 Linux」散發套件也應該可以運作。
   - **Windows Server**：不支援比 Windows Server 2008 R2 更舊的版本。
 - 只能透過 PowerShell 支援還原屬於多 DC 組態的網域控制站 VM。進一步了解[還原多 DC 網域控制站](backup-azure-restore-vms.md#restoring-domain-controller-vms)
+- 僅支援透過 PowerShell 還原具有以下特殊網路組態的虛擬機器。使用 UI 中的還原工作流程所建立的 VM 在完成還原作業之後將不會具有這些網路組態。若要深入了解，請參閱[還原具有特殊網路組態的 VM](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations)。 
+	- 負載平衡器組態底下的虛擬機器 (內部與外部)
+	- 具有多個保留的 IP 的虛擬機器
+	- 具有多個 NIC 的虛擬機器
 
 ## 有疑問嗎？
 若您有問題，或希望我們加入任何功能，請[傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
@@ -191,4 +195,4 @@ VM 代理程式已存在於從 Azure 資源庫建立的 VM 中。不過，從內
 - [備份虛擬機器](backup-azure-vms.md)
 - [管理虛擬機器備份](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

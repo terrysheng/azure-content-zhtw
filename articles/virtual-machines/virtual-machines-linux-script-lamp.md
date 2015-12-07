@@ -110,4 +110,4 @@ script-vm VM 需要安裝 Azure CLI，並且與 Azure 之間具有正常運作�
 
 [Azure 上的 Linux 和開放原始碼運算](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

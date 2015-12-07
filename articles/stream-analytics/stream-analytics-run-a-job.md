@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="執行工作 | Microsoft Azure" 
-	description="執行工作學習路徑區段。"
+	description="執行串流分析工作 | 學習路徑區段。"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 執行工作
+# 如何執行串流分析工作
 
 當已指定工作輸入、查詢及輸出時，即可開始串流分析工作。
 
@@ -53,4 +53,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

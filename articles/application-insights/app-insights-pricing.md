@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # 管理 Application Insights 的定價和配額
@@ -94,6 +94,7 @@
 
 如果您遇到節流限制，以下是您可以執行的一些事項：
 
+* 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。
 * 藉由[編輯 ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)，關閉您不需要的集合模組。例如，您可能會決定效能計數器或相依性資料是不必要的。
 * 預先彙總度量。如果您在應用程式中呼叫 TrackMetric，您可以使用接受批次測量之平均及標準差計算的多載來減少流量。或者您可以使用[預先彙總套件](https://www.myget.org/gallery/applicationinsights-sdk-labs)。 
 
@@ -135,4 +136,4 @@ Application Insights 費用會加到您的 Azure 帳單中。您可以在 Azure 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

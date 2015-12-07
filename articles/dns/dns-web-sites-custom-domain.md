@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/23/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 # 在自訂網域中建立 Web 應用程式的 DNS 記錄
@@ -32,7 +32,7 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
  
 建立 A 記錄，並指派給變數 $rs
 	
-	PS C:\>$rs=New-AzureDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
+	PS C:\>$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
 
 ### 步驟 2
 
@@ -40,13 +40,13 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
 > [AZURE.NOTE]若要尋找 Web 應用程式的 IP 位址，請依照[在 Azure App Service 中設定自訂網域名稱](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)中的步驟進行
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
 ### 步驟 3
 
-認可對記錄集所做的變更。使用 Set-AzureDnsRecordSet 將記錄集的變更上傳到 Azure DNS：
+認可對記錄集所做的變更。使用 Set-AzureRMDnsRecordSet 將記錄集的變更上傳到 Azure DNS：
 
-	Set-AzureDnsRecordSet -RecordSet $rs
+	Set-AzureRMDnsRecordSet -RecordSet $rs
 
 ## 新增自訂網域的 CNAME 記錄
 
@@ -56,7 +56,7 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
 開啟 powershell 並建立新的 CNAME 記錄集，然後指派給變數 $rs：
 
-	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+	PS C:\> $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -75,7 +75,7 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
 使用先前指派的變數 "$rs"，您可以使用下列 PowerShell 命令來建立 Web 應用程式 contoso.azurewebsites.net 的別名。
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -88,9 +88,9 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
 ### 步驟 3
 
-使用 Set-AzureDnsRecordSet Cmdlet 確認所做的變更：
+使用 Set-AzureRMDnsRecordSet Cmdlet 確認所做的變更：
 
-	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:\>Set-AzureRMDnsRecordSet -RecordSet $rs
 
 您可以使用 nslookup 來驗證由查詢 "www.contoso.com" 正確建立的記錄，如下所示：
 
@@ -111,13 +111,13 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
 ## 建立 Web Apps 的 awverify 記錄 (僅限 A 記錄)
 
-如果您決定使用 Web 應用程式的 A 記錄，您必須通過驗證程序，才能允許 Azure 確保您擁有自訂網域。此驗證步驟可透過建立名為 "awverify" 的特殊 CNAME 記錄來完成。
+如果您決定使用 Web 應用程式的 A 記錄，您必須通過驗證程序，才能確保您擁有自訂網域。此驗證步驟可透過建立名為 "awverify" 的特殊 CNAME 記錄來完成。
 
 在下列範例中將會建立 contoso.com 的 "awverify" 記錄，以驗證自訂網域的擁有權：
 
 ### 步驟 1
 
-	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
+	PS C:\> $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -133,7 +133,7 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
 建立記錄集 awverify 之後，您必須對 awverify.contoso.azurewebsites.net 指派 CNAME 記錄集別名，如下列命令所示：
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -146,9 +146,9 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
 ### 步驟 3
 
-使用 Set-AzureDnsRecordSet Cmdlet 確認所做的變更，如下列命令所示：
+使用 Set-AzureRMDnsRecordSet Cmdlet 確認所做的變更，如下列命令所示：
 
-	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:\>Set-AzureRMDnsRecordSet -RecordSet $rs
 
 現在您可以繼續依照[設定 App Service 的自訂網域名稱](../web-sites-custom-domain-name)中的步驟進行，以設定 Web 應用程式使用自訂網域。
 
@@ -165,4 +165,4 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

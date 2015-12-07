@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="cephalin"/>
 
 # 使用混合式連線從 Azure App Service 內的 Web 應用程式連線至內部部署 SQL Server
@@ -139,7 +139,7 @@
 <a name="CreateHC"></a>
 ## C.建立混合式連線和 BizTalk 服務 ##
 
-1. 回到入口網站中，向下捲動 Web 應用程式刀鋒視窗，然後按一下 [網路功能狀態] > [設定混合式連線端點]。
+1. 返回入口網站，移至設定並按一下 [網路] > [設定混合式連接端點]。
 
 	![Hybrid connections][CreateHCHCIcon]
 
@@ -151,7 +151,7 @@
 	- 針對 [連接埠]，輸入 1433 (SQL Server 的預設連接埠)。
 	- 按一下 [BizTalk 服務] > [新增 BizTalk 服務]，然後輸入 BizTalk 服務的名稱。
 
-	![Create a hybrid connection][TwinCreateHCBlades]
+	![建立混合式連線][TwinCreateHCBlades]
 
 5. 按兩次 [確定]。
 
@@ -206,7 +206,7 @@
 
 	- 如果您要連接到指定的執行個體而非預設執行個體 (例如 YourServer\\SQLEXPRESS)，您必須將 SQL Server 設定成使用靜態連接埠。如需設定靜態連接埠的相關資訊，請參閱[如何將 SQL Server 設定成在特定連接埠上接聽](http://support.microsoft.com/kb/823938)。根據預設，指定的執行個體會使用 UDP 和動態連接埠，而混合式連線並不加以支援。
 
-	- 建議您指定連接埠 (依預設為 1433，如範例所示) 和連接字串，以確定您的本機 SQL Server 會啟用 TCP 並使用正確的連接埠。
+	- 建議您在連接字串上指定連接埠 (依預設為 1433，如範例所示)，以確定您的本機 SQL Server 會啟用 TCP 並使用正確的連接埠。
 
 	- 請務必使用 SQL Server 驗證進行連接，以在您的連接字串中指定使用者識別碼和密碼。
 
@@ -363,4 +363,4 @@
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="11/19/2015" 
 	ms.author="tomfitz"/>
 
 # 建立 PHP-SQL Web 應用程式並使用 Git 部署至 Azure App Service
 
-本教學課程會示範如何在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中建立連線到 Azure SQL Database 的 PHP Web 應用程式，以及如何使用 Git 來部署它。本教學課程假設您的電腦上已安裝 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098)、Web 伺服器和 [Git][install-git]。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP-SQL Web 應用程式。
+本教學課程會示範如何在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中建立連線到 Azure SQL Database 的 PHP Web 應用程式，以及如何使用 Git 來部署它。本教學課程假設您的電腦上已安裝 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098)，和 [Git][install-git]。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP-SQL Web 應用程式。
 
-> [AZURE.NOTE]您可以使用 [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 來安裝和設定 PHP、SQL Server Express、適用於 SQL Server for PHP 的 Microsoft 驅動程式和 Internet Information Services (IIS)。
+> [AZURE.NOTE]您可以使用 [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 來安裝和設定 PHP、SQL Server Express，和 Microsoft Drivers for SQL Server for PHP。
 
 您將了解：
 
@@ -41,15 +41,15 @@
 
 1. 登入 [Azure 預覽入口網站](https://portal.azure.com/)。
 
-2. 按一下 [Marketplace] 圖示，或按一下儀表板左下方的 [新增] 圖示，選取 [Web + 行動]，然後選取底部的 [Azure Marketplace] 以開啟 Azure Marketplace。
+2. 按一下儀表板左上方的 [新增] 圖示開啟 Azure Marketplace，然後按一下 Marketplace 旁的 [全選] 並選取 [Web + 行動]。
 	
-3. 在 Marketplace 中，選取 [Web Apps]。
+3. 在 Marketplace 中，選取 [Web + 行動]。
 
 4. 按一下 [Web 應用程式 + SQL] 圖示。
 
 5. 讀取 Web 應用程式 + SQL 應用程式的描述之後，選取 [建立]。
 
-6. 按一下每個部分 ([**資源群組**]、[**Web 應用程式**]、[**資料庫**] 以及 [**訂用帳戶**])，然後輸入或選取必填欄位的值：
+6. 按一下每個部分 ([資源群組]、[Web 應用程式]、[資料庫] 以及 [訂用帳戶])，然後輸入或選取必填欄位的值：
 	
 	- 輸入您選擇的 URL 名稱	
 	- 設定資料庫伺服器認證
@@ -65,15 +65,15 @@
 
 	![Web 應用程式的資源群組](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 
-5. 按一下 [設定連續部署**]**** > [選擇來源]**。選取 [本機 Git 儲存機制]，按一下 [確定]。
+5. 在 [設定] 中按一下 [繼續部署] > [設定必要設定]。選取 [本機 Git 儲存機制]，按一下 [確定]。
 
 	![where is your source code](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
 
-	如果您從未設定 Git 儲存機制，則必須提供使用者名稱和密碼。若要這樣做，請按一下 Web 應用程式刀鋒視窗中的 [設定部署認證]。
+	如果您從未設定 Git 儲存機制，則必須提供使用者名稱和密碼。若要這樣做，請按一下 Web 應用程式刀鋒視窗中的 [設定] > [部署認證]。
 
 	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 
-6. [設定連續部署] 會變成 [找不到部署]。按一下以查看稍後部署 PHP 應用程式時需要使用的 Git 遠端 URL。
+6. 在 [設定] 中按一下 [屬性] 以查看稍後部署 PHP 應用程式時需要使用的 Git 遠端 URL。
 
 ##取得 SQL Database 連線資訊
 
@@ -81,7 +81,7 @@
 
 1. 回到資源群組分頁，按一下 SQL 資料庫的圖示。
 
-2. 在 SQL 資料庫的分頁中，按一下 [屬性]，然後按一下 [顯示資料庫連接字串]。
+2. 在 SQL 資料庫刀鋒視窗中，按一下 [設定] > [屬性]，然後按一下 [顯示資料庫連線字串]。
 
 	![檢視資料庫屬性](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
@@ -94,7 +94,7 @@
 * **index.php**：顯示註冊表單，以及內含註冊者資訊的資料表。
 * **createtable.php**：為應用程式建立 SQL 資料表。只會使用一次此檔案。
 
-若要在本機執行應用程式，請遵循下列步驟。請注意，這些步驟假設您的本機電腦上已設定 PHP、SQL Server Express 和 Web 伺服器，且您已啟用 [SQL Server 的 PDO 延伸模組][pdo-sqlsrv]。
+若要在本機執行應用程式，請遵循下列步驟。請注意，這些步驟假設您的本機電腦上已設定 PHP、SQL Server Express，且您已啟用 [SQL Server 的 PDO 延伸模組][pdo-sqlsrv]。
 
 1. 建立名為 `registration` 的 SQL Server 資料庫。您可以從 `sqlcmd` 命令提示字元中使用下列命令來建立此資料庫：
 
@@ -103,7 +103,7 @@
 		2> GO	
 
 
-2. 在 Web 伺服器的根目錄中，建立名為 `registration` 的資料夾，並於其中建立兩個檔案，一個名為 `createtable.php`，另一個名為 `index.php`。
+2. 在應用程式根目錄中建立兩個檔案，一個名為 `createtable.php`，另一個名為 `index.php`。
 
 3. 在文字編輯器或 IDE 中開啟 `createtable.php` 檔案，加入下列程式碼。此程式碼將會在 `registration` 資料庫中用於建立 `registration_tbl` 資料表。
 
@@ -132,7 +132,11 @@
 
 	請注意，您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 SQL Server 使用者名稱和密碼。
 
-4. 開啟網頁瀏覽器並瀏覽至 ****http://localhost/registration/createtable.php**。這會在資料庫中建立 `registration_tbl` 資料表。
+4. 在終端機中，於應用程式的根目錄輸入下列命令：
+
+		php -S localhost:8000
+
+4. 開啟網頁瀏覽器並瀏覽至 ****http://localhost:8000/createtable.php**。這會在資料庫中建立 `registration_tbl` 資料表。
 
 5. 在文字編輯器或 IDE 中開啟 **index.php** 檔案，加入頁面的基本 HTML 和 CSS 程式碼 (稍後的步驟中將加入 PHP 程式碼)。
 
@@ -228,7 +232,7 @@
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-您現在可以瀏覽至 ****http://localhost/registration/index.php** 測試應用程式。
+您現在可以瀏覽至 ****http://localhost:8000/index.php** 測試應用程式。
 
 ##發行您的應用程式
 
@@ -292,4 +296,4 @@
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

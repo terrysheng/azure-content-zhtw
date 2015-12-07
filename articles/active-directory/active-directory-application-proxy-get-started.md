@@ -3,8 +3,8 @@
 	description="涵蓋如何使用 Azure AD 應用程式 Proxy 為您的內部部署應用程式提供安全的遠端存取。"
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="msStevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/09/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # 如何為內部部署應用程式提供安全的遠端存取
 
@@ -61,4 +61,4 @@ Azure AD 應用程式 Proxy 為使用 IWA 的應用程式或宣告感知應用�
 * [以組織方式註冊 Azure](../sign-up-organization.md)
 * [Azure 身分識別](../fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

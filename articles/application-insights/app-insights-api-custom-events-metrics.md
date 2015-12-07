@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -118,149 +118,6 @@ TelemetryClient 具備執行緒安全。
 ![鑽研事件](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 按一下任何發生以查看詳細資料。
-
-## <a name="properties"></a>使用屬性來篩選、搜尋和分割您的資料
-
-您可以將屬性和測量結果附加至您的事件 (同時還有度量，頁面檢視、例外狀況和其他的遙測資料)。
-
-**屬性**是可在使用情況報告中用來篩選遙測的字串值。例如，如果您的應用程式提供數個遊戲，則您可以將遊戲的名稱附加至每個事件，以了解哪些遊戲較受歡迎。
-
-字串長度有 1k 的限制。(如果您想要傳送大量的資料區塊，請使用訊息參數 [TrackTrace](#track-trace)。)
-
-**度量**是可以用圖表方式呈現的數值。例如，您可能想要查看玩家達到的分數是否逐漸增加。圖表可以依據隨事件傳送的屬性分割，讓您可以針對不同遊戲取得個別或堆疊圖表。
-
-度量值應該 > = 0，才能正確顯示。
-
-
-有一些[屬性、屬性值和度量的數目限制](#limits)可供您使用。
-
-
-*JavaScript*
-
-    appInsights.trackEvent
-      ("WinGame",
-         // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
-
-    appInsights.trackPageView
-        ("page name", "http://fabrikam.com/pageurl.html",
-          // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
-          
-
-*C#*
-
-    // Set up some properties and metrics:
-    var properties = new Dictionary <string, string> 
-       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
-    var metrics = new Dictionary <string, double>
-       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
-
-    // Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics);
-
-
-*VB*
-
-    ' Set up some properties:
-    Dim properties = New Dictionary (Of String, String)
-    properties.Add("game", currentGame.Name)
-    properties.Add("difficulty", currentGame.Difficulty)
-
-    Dim metrics = New Dictionary (Of String, Double)
-    metrics.Add("Score", currentGame.Score)
-    metrics.Add("Opponents", currentGame.OpponentCount)
-
-    ' Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics)
-
-
-*Java*
-    
-    Map<String, String> properties = new HashMap<String, String>();
-    properties.put("game", currentGame.getName());
-    properties.put("difficulty", currentGame.getDifficulty());
-    
-    Map<String, Double> metrics = new HashMap<String, Double>();
-    metrics.put("Score", currentGame.getScore());
-    metrics.put("Opponents", currentGame.getOpponentCount());
-    
-    telemetry.trackEvent("WinGame", properties, metrics);
-
-
-> [AZURE.NOTE]切勿在屬性中記錄個人識別資訊。
-
-**如果您使用度量**，請開啟 [計量瀏覽器]，然後從自訂群組中選取度量：
-
-![開啟計量瀏覽器，選取圖表，並選取度量](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
-
-如果您的度量並未出現，或自訂標題不存在，請關閉選取的刀鋒視窗，稍後再試。有時候度量經由管線彙總時可能需要一個小時。
-
-**如果您使用屬性和度量**，依據屬性分割度量：
-
-
-![設定群組，然後在 [群組依據] 底下選取屬性](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
-
-
-
-**在「診斷搜尋」中**，您可以檢視事件個別發生次數的屬性和度量。
-
-
-![選取執行個體，然後選取 [...]](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
-
-
-使用 [搜尋] 欄位來查看具有特定屬性值的事件出現次數。
-
-
-![將詞彙輸入 [搜尋] 中](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
-
-[深入了解搜尋運算式][diagnostic]。
-
-#### 設定屬性和度量的替代方式
-
-如果更加方便，您可以收集個別物件中事件的參數：
-
-    var event = new EventTelemetry();
-
-    event.Name = "WinGame";
-    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
-    event.Properties["game"] = currentGame.Name;
-    event.Properties["difficulty"] = currentGame.Difficulty;
-    event.Metrics["Score"] = currentGame.Score;
-    event.Metrics["Opponents"] = currentGame.Opponents.Length;
-
-    telemetry.TrackEvent(event);
-
-
-
-#### <a name="timed"></a>計時事件
-
-有時候您想要繪製執行某些動作耗費多少時間的圖表。例如，您可能想要知道使用者在遊戲中思考選項時花費多少時間。這是使用測量參數的實用範例。
-
-
-*C#*
-
-    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-    // ... perform the timed action ...
-
-    stopwatch.Stop();
-
-    var metrics = new Dictionary <string, double>
-       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
-
-    // Set up some properties:
-    var properties = new Dictionary <string, string> 
-       {{"signalSource", currentSignalSource.Name}};
-
-    // Send the event:
-    telemetry.TrackEvent("SignalProcessed", properties, metrics);
 
 
 
@@ -444,6 +301,21 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
 
 
+
+## 排清資料
+
+通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
+
+*C#*
+
+    telemetry.Flush();
+
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+請注意記憶體內部通道的函式是非同步的，但如果您選擇使用[永續性通道](app-insights-windows-desktop.md#persistence-channel)，則是同步的。
+
+
 ## 通過驗證的使用者
 
 在 Web app 中，預設是透過 Cookie 來識別使用者。如果使用者從不同的電腦或瀏覽器存取您的 app 或刪除 Cookie，就可能多次計算他們。
@@ -481,14 +353,158 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-在[計量瀏覽器](app-insights-metrics-explorer.md)中，您可以建立計算**已驗證的使用者**和**使用者帳戶**的圖表。
+在[計量瀏覽器](app-insights-metrics-explorer.md)中，您可以建立計算「使用者 (已驗證)」和「使用者帳戶」的圖表。
 
 您也可以[搜尋][diagnostic]含有特定使用者名稱和帳戶的用戶端資料點。
 
+## <a name="properties"></a>使用屬性來篩選、搜尋和分割您的資料
 
-## <a name="defaults"></a>設定已選取自訂遙測的預設值
+您可以將屬性和測量結果附加至您的事件 (同時還有度量，頁面檢視、例外狀況和其他的遙測資料)。
 
-如果您只想為您撰寫的一些自訂事件設定預設屬性值，您可以在 TelemetryClient 中設定它們。它們會附加至從該用戶端傳送的每個遙測項目。
+**屬性**是可在使用情況報告中用來篩選遙測的字串值。例如，如果您的應用程式提供數個遊戲，則您可以將遊戲的名稱附加至每個事件，以了解哪些遊戲較受歡迎。
+
+字串長度有 1k 的限制。(如果您想要傳送大量的資料區塊，請使用訊息參數 [TrackTrace](#track-trace)。)
+
+**度量**是可以用圖表方式呈現的數值。例如，您可能想要查看玩家達到的分數是否逐漸增加。圖表可以依據隨事件傳送的屬性分割，讓您可以針對不同遊戲取得個別或堆疊圖表。
+
+度量值應該 > = 0，才能正確顯示。
+
+
+有一些[屬性、屬性值和度量的數目限制](#limits)可供您使用。
+
+
+*JavaScript*
+
+    appInsights.trackEvent
+      ("WinGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+
+    appInsights.trackPageView
+        ("page name", "http://fabrikam.com/pageurl.html",
+          // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+          
+
+*C#*
+
+    // Set up some properties and metrics:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var metrics = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("WinGame", properties, metrics);
+
+
+*VB*
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim metrics = New Dictionary (Of String, Double)
+    metrics.Add("Score", currentGame.Score)
+    metrics.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("WinGame", properties, metrics)
+
+
+*Java*
+    
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("game", currentGame.getName());
+    properties.put("difficulty", currentGame.getDifficulty());
+    
+    Map<String, Double> metrics = new HashMap<String, Double>();
+    metrics.put("Score", currentGame.getScore());
+    metrics.put("Opponents", currentGame.getOpponentCount());
+    
+    telemetry.trackEvent("WinGame", properties, metrics);
+
+
+> [AZURE.NOTE]切勿在屬性中記錄個人識別資訊。
+
+**如果您使用度量**，請開啟 [計量瀏覽器]，然後從自訂群組中選取度量：
+
+![開啟計量瀏覽器，選取圖表，並選取度量](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+
+如果您的計量並未出現，或自訂標題不存在，請關閉選取的刀鋒視窗，稍後再試。有時候度量經由管線彙總時可能需要一個小時。
+
+**如果您使用屬性和度量**，依據屬性分割度量：
+
+
+![設定群組，然後在 [群組依據] 底下選取屬性](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
+
+
+
+**在「診斷搜尋」中**，您可以檢視事件個別發生次數的屬性和度量。
+
+
+![選取執行個體，然後選取 [...]](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
+
+
+使用 [搜尋] 欄位來查看具有特定屬性值的事件出現次數。
+
+
+![將詞彙輸入 [搜尋] 中](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
+
+[深入了解搜尋運算式][diagnostic]。
+
+#### 設定屬性和度量的替代方式
+
+如果更加方便，您可以收集個別物件中事件的參數：
+
+    var event = new EventTelemetry();
+
+    event.Name = "WinGame";
+    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
+    event.Properties["game"] = currentGame.Name;
+    event.Properties["difficulty"] = currentGame.Difficulty;
+    event.Metrics["Score"] = currentGame.Score;
+    event.Metrics["Opponents"] = currentGame.Opponents.Length;
+
+    telemetry.TrackEvent(event);
+
+
+
+#### <a name="timed"></a>計時事件
+
+有時候您想要繪製執行某些動作耗費多少時間的圖表。例如，您可能想要知道使用者在遊戲中思考選項時花費多少時間。這是使用測量參數的實用範例。
+
+
+*C#*
+
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+    // ... perform the timed action ...
+
+    stopwatch.Stop();
+
+    var metrics = new Dictionary <string, double>
+       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"signalSource", currentSignalSource.Name}};
+
+    // Send the event:
+    telemetry.TrackEvent("SignalProcessed", properties, metrics);
+
+
+
+## <a name="defaults"></a>自訂定遙測的預設屬性
+
+如果您想為您撰寫的一些自訂事件設定預設屬性值，您可以在 TelemetryClient 中設定它們。它們會附加至從該用戶端傳送的每個遙測項目。
 
 *C#*
 
@@ -525,23 +541,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 **針對 JavaScript Web 用戶端**，[請使用 JavaScript 遙測初始設定式](#js-initializer)。
 
-
-
-## 排清資料
-
-通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
-
-*C#*
-
-    telemetry.Flush();
-
-    // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
-
-請注意記憶體內部通道的函式是非同步的，但如果您選擇使用[永續性通道](app-insights-windows-desktop.md#persistence-channel)，則是同步的。
-
-
-
+若要將屬性加到所有遙測，且包括來自標準集合模組中的資料，請[建立遙測起始設定式](app-insights-api-filtering-sampling.md#add-properties)。
 
 
 ## 取樣、篩選及處理遙測資料 
@@ -549,7 +549,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 您可以撰寫程式碼，在從 SDK 傳送遙測資料前加以處理。處理包括從標準遙測模組 (如 HTTP 要求收集和相依性收集) 的資料。
 
 * [新增屬性](app-insights-api-filtering-sampling.md#add-properties)至遙測 - 例如，版本號碼或從其他屬性計算而來的值。
-* [取樣](app-insights-api-filtering-sampling.md#sampling)可減少從您的應用程式傳送到入口網站的資料量，但不會影響顯示的度量，而且藉由在相關項目 (如例外狀況、要求和頁面檢視) 之間瀏覽，並不會影響您診斷問題的能力。
+* [取樣](app-insights-api-filtering-sampling.md#sampling)可減少從您的應用程式傳送到入口網站的資料量，但不會影響顯示的計量，而且藉由在相關項目 (如例外狀況、要求和頁面檢視) 之間瀏覽，並不會影響您診斷問題的能力。
 * [篩選](app-insights-api-filtering-sampling.md#filtering)也會減少數量。您可控制要傳送或捨棄的項目，但是您必須考量這對您的度量的影響。視您捨棄項目的方式而定，您可能會喪失在相關項目之間瀏覽的能力。
 
 [深入了解](app-insights-api-filtering-sampling.md)
@@ -557,7 +557,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 ## 停用遙測
 
-若要**動態停止和開始**收集及傳輸遙測資料：
+若要「動態停止和開始」收集及傳輸遙測資料：
 
 *C#*
 
@@ -568,7 +568,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-若要**停用選取的標準收集器** (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config][config] 中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
+若要「停用選取的標準收集器」 (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config][config] 中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
 
 ## <a name="debug"></a>開發人員模式
 
@@ -724,4 +724,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

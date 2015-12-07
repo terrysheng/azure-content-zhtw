@@ -62,8 +62,10 @@ Microsoft 也會變更 Premium 資料庫的資料庫複製體驗。先前由於 
 
 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
+[Web 和 Business 價格](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
+
 [服務層](sql-database-service-tiers.md)
 
 [將 SQL Database Web/Business 資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

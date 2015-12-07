@@ -3,7 +3,7 @@
 	description="了解如何對裝載 Azure Node.js 應用程式的虛擬機器啟用遠端桌面存取。" 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 # 在 Azure 中啟用遠端桌面
@@ -116,4 +116,4 @@
   [搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

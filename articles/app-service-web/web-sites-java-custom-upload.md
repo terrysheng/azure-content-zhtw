@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="11/19/2015" 
 	ms.author="robmcm"/>
 
 # 將自訂 Java Web 應用程式上傳至 Azure
@@ -257,4 +257,4 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -74,11 +74,10 @@ ms.service="virtual-machines"
 * [將工作送出至 Azure 的 HPC Pack 叢集](virtual-machines-hpcpack-cluster-submit-jobs.md)
 
 
-
 ## 將背景工作角色節點加入 HPC Pack 叢集
 
 
-* [使用 HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)
+* [使用 HPC Pack 將量擴大到 Azure 背景工作執行個體](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [教學課程：在 Azure 中使用 HPC Pack 設定混合式叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
@@ -86,11 +85,16 @@ ms.service="virtual-machines"
 
 * [增加及縮減 HPC Pack 叢集中的 Azure 運算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
+## 與 Azure Batch 整合 
+
+* [使用 HPC Pack 將量擴大到 Azure Batch](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## 建立 MPI 工作負載的 RDMA 叢集
 
 * [使用 HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式](virtual-machines-windows-hpcpack-cluster-rdma.md)
 
+* [教學課程：在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 OpenFOAM](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

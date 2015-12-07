@@ -125,7 +125,7 @@ $scope.logout = function () {
 };
 ...
 ```
-- 您也可以在應用程式的 UI 中顯示使用者資訊。Adal 服務已經加入至 `userDataCtrl` 控制器，您現在可以在相關聯檢視 `App/Scripts/UserData.html` 中存取 `userInfo` 物件：
+- 您也可以在應用程式的 UI 中顯示使用者資訊。Adal 服務已經加入至 `userDataCtrl` 控制器，您現在可以在相關聯檢視 `App/Views/UserData.html` 中存取 `userInfo` 物件：
 
 ```js
 <p>{{userInfo.userName}}</p>
@@ -151,4 +151,4 @@ Aaal.js 可讓您輕鬆地將這些常見的身分識別功能全部納入您的
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

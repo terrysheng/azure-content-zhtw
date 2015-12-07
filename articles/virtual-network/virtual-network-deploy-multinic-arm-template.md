@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 # 使用範本部署多個 NIC VM
@@ -223,20 +223,11 @@
 
 若要使用 PowerShell 部署您下載的範本，請依照下列步驟執行。
 
-1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
-2. 執行 **Switch-AzureMode** Cmdlet，以切換為資源管理員模式，如下所示。
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-		Switch-AzureMode AzureResourceManager
+3. 執行 **New-AzureRmResourceGroup** Cmdlet 以使用範本建立資源群組。
 
-	此為上述命令的預期輸出內容：
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]Switch-AzureMode Cmdlet 即將被汰除。屆時將重新命名所有的資源管理員 Cmdlet。
-
-3. 執行 **New-AzureResourceGroup** Cmdlet 以使用範本建立資源群組。
-
-		New-AzureResourceGroup -Name IaaSStory-Backend -Location uswest `
+		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
 
@@ -269,8 +260,8 @@
 
 若要使用 Azure CLI 部署範本，請依照下列步驟執行。
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
-2. 執行 **azure config mode** 命令以切換至資源管理員模式，如下所示。
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
+2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
 
 		azure config mode arm
 
@@ -278,7 +269,7 @@
 
 		info:    New mode is arm
 
-3. 開啟[參數檔案](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json)，選取其內容，然後在您的電腦中將它儲存至檔案。對於此範例，我們將參數檔案儲存為 *parameters.json*。
+3. 開啟[參數檔案](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json)，選取其內容，然後在您的電腦中將它儲存至檔案。在此範例中，我們將參數檔案儲存為 *parameters.json*。
 
 4. 執行 **azure group deployment create** Cmdlet，以使用先前下載並修改的範本和參數檔案部署新的 VNet。輸出後顯示的清單可說明所使用的參數。
 
@@ -301,4 +292,4 @@
 		data:
 		info:    group create command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

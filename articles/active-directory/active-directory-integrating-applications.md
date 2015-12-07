@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="11/24/2015"
    ms.author="mbaldwin" />
 
 # 整合應用程式與 Azure Active Directory
@@ -349,6 +349,6 @@ Web 應用程式可提供使用者的註冊體驗。如果您已提供註冊體�
 
 - 了解[Azure Active Directory 應用程式資訊清單](active-directory-application-manifest.md)相關資訊
 
-- 請瀏覽 [Active Directory 開發人員指南] (active-directory-developer's guide.md)
+- 請瀏覽 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

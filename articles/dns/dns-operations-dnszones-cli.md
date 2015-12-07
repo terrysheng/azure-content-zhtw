@@ -23,7 +23,8 @@
 - [PowerShell](dns-operations-dnszones.md)
 
 本指南說明如何管理 DNS 區域。有助於了解管理 DNS 區域所需執行的作業序列。
-
+ 
+ 
 ## 建立新的 DNS 區域
 
 若要建立新的 DNS 區域來裝載您的網域，請使用 `azure network dns zone create`：
@@ -76,4 +77,4 @@
 
 [使用 .NET SDK 自動化作業](dns-sdk.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

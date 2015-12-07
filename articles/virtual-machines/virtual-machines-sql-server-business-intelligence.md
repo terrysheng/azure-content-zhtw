@@ -41,7 +41,7 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
 
 ![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) 下列 PowerShell 指令碼會傳回 ImageName 中包含 “SQL-Server” 的 Azure 映像的清單：
 
-	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Microsoft Azure Management Portal
+	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure portal.
 	
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -425,10 +425,10 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [在混合式環境中使用 Power BI](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [透過 Microsoft SQL Server Connect 提交意見及連絡資訊](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### 社群內容
 
 - [使用 PowerShell 管理 Azure SQL Database](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

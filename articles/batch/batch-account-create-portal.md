@@ -76,7 +76,7 @@ Batch 帳戶 URL 會出現在 [**Essentials**] 中。此為格式 `https://<acco
 
 ## 後續步驟
 
-* 若要深入了解 Batch 概念，請參閱 [Azure Batch 的 API 基本概念](batch-api-basics.md)。
+* 如需有關 Batch 概念的詳細資訊，請參閱 [Azure Batch 功能概觀](batch-api-basics.md)。
 
 * 使用 [Batch .NET 用戶端程式庫](batch-dotnet-get-started.md) 開始開發您的第一個應用程式。
 
@@ -84,4 +84,4 @@ Batch 帳戶 URL 會出現在 [**Essentials**] 中。此為格式 `https://<acco
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

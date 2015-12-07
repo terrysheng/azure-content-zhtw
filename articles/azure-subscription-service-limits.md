@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/17/2015"
 	ms.author="jroth"/>
 
 # Azure 訂閱和服務限制、配額與限制
@@ -30,9 +30,10 @@
 
 在以下的限制中，已加入了新資料表，以反映在使用 Azure 資源管理員時的限制方面的任何差異。例如，有**訂用帳戶限制**資料表和**訂用帳戶限制 - Azure 資源管理員**資料表。當某個限制同時適用於這兩個案例時，只會顯示在第一個資料表中。除非另有說明，限制在所有區域中全域適用。
 
-> [AZURE.NOTE] 請務必強調 Azure 資源群組中資源的配額是基於您的訂閱可以存取的每一區域，而不是每一訂閱 (服務管理配額則是)。讓我們以核心配額為例。如果您需要要求增加配額以支援核心，您必須決定您想要在哪些區域中使用多少個核心，然後提出 Azure 資源群組核心配額的特定要求，以取得您想要的數量和區域。因此，如果您需要在西歐使用 30 個核心以在該處執行應用程式，您應該在西歐特別要求 30 個核心。但是您在任何其他區域中的核心配額將不會增加 -- 僅西歐會有 30 個核心配額。
-<!-- -->
-因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。請參閱[移難排解部署問題](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)，以取得探索您特定區域目前的配額的其他說明。
+> [AZURE.NOTE]請務必強調 Azure 資源群組中資源的配額是基於您的訂閱可以存取的每一區域，而不是每一訂閱 (服務管理配額則是)。讓我們以核心配額為例。如果您需要要求增加配額以支援核心，您必須決定您想要在哪些區域中使用多少個核心，然後提出 Azure 資源群組核心配額的特定要求，以取得您想要的數量和區域。因此，如果您需要在西歐使用 30 個核心以在該處執行應用程式，您應該在西歐特別要求 30 個核心。但是您在任何其他區域中的核心配額將不會增加 -- 僅西歐會有 30 個核心配額。<!-- --> 因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。請參閱[移難排解部署問題](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)，以取得探索您特定區域目前的配額的其他說明。
+
+
+## 特定服務的限制
 
 - [Active Directory](#active-directory-limits)
 - [API 管理](#api-management-limits)
@@ -48,7 +49,7 @@
 - [Data Factory](#data-factory-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
-- [IoT 中樞](#iot-hub-limits)
+- [IoT 中心](#iot-hub-limits)
 - [金鑰保存庫](#key-vault-limits)
 - [媒體服務](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
@@ -116,19 +117,27 @@
 
 ### 儲存體限制
 
-#### 標準儲存體限制
+如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)。
+
+#### 儲存體服務限制
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)。
+#### 虛擬機器磁碟限制 
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-#### 進階儲存體限制
+如需其他詳細資訊，請參閱[虛擬機器大小](../articles/virtual-machines/virtual-machines-size-specs.md)。
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
+**標準儲存體帳戶**
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
-#### 存放裝置 - Azure 資源管理員
+**進階儲存體帳戶**
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
+
+#### 儲存體資源提供者限制
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -171,7 +180,7 @@
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-如需 Azure 搜尋服務限制的其他詳細資訊，請參閱[限制和條件約束](https://msdn.microsoft.com/library/azure/dn798934.aspx)。
+如需進一步瞭解共用服務的上限，或金鑰、要求和回應的限制明細，請參閱 [Azure 搜尋服務中的服務限制](search/search-limits-quotas-capacity.md)。
 
 ### 媒體服務限制
 
@@ -262,4 +271,4 @@
 
 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

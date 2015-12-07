@@ -17,7 +17,7 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. 按一下 [認證]，然後按一下 [新增認證] -> [API 金鑰]。
+5. 按一下 [**認證**]，然後按一下 [**新增認證**] -> [**API 金鑰**]。
 
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
@@ -34,4 +34,4 @@
 
 	您將使用此 API 金鑰值，讓 Azure 能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

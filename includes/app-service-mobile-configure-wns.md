@@ -1,6 +1,8 @@
 
-1. Log on to the [Azure Portal](https://portal.azure.com/), select **Browse** > **Mobile App** > your app > **Push notification services** > **Windows (WNS)**.
+1. 登入 [Azure 入口網站](https://portal.azure.com/)，選取 [**瀏覽**] > [**行動應用程式**] > 您的應用程式 > [**推播通知服務**] > [**Windows (WNS)**]。
 
-2. Enter the **Security key** (client secret) and **Package SID** that you obtained from the Live Services site, then click **Save**.
+2. 輸入您從線上服務網站取得的**安全性金鑰** (用戶端密碼) 和**封裝 SID**，然後按一下 [**儲存**]。
 
-Your Mobile App backend is now configured to work with WNS.
+您的行動應用程式後端現在已設定成使用 WNS。
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/20/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Azure SQL Database 安全性方針和限制
@@ -109,4 +109,6 @@ GO
 
 [管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)
 
-<!---HONumber=Nov15_HO3-->
+[SQL Server Database Engine 和 Azure SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -3,9 +3,9 @@
 	description="指導如何使用 WebMatrix 開發 Node.js 應用程式並部署至 Azure App Service Web Apps 的教學課程。" 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # 使用 WebMatrix 來建立 Node.js Web 應用程式並部署至 Azure。
 
-本教學課程說明如何使用 WebMatrix 開發 Node.js 應用程式並部署至 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps。WebMatrix 是 Microsoft 提供的免費 Web 開發工具，包含網站或 Web 應用程式開發所需的一切。WebMatrix 包含一些功能讓您輕鬆地使用 Node.js，包括程式碼自動完成、預先建立的範本，以及 Jade、LESS 和 CoffeeScript 的編輯器支援。深入了解 [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)。
+本教學課程說明如何使用 WebMatrix 開發 Node.js 應用程式並部署至 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps。WebMatrix 是 Microsoft 提供的免費 Web 開發工具，包含網站或 Web 應用程式開發所需的一切。WebMatrix 包含一些功能讓您輕鬆地使用 Node.js，包括程式碼自動完成、預先建立的範本，以及 Jade、LESS 和 CoffeeScript 的編輯器支援。深入了解 [WebMatrix](https://www.microsoft.com/web/webmatrix/)。
 
 完成本指南後，您將會有一個在 Azure App Service 中執行的 Node.js Web 應用程式。
  
@@ -81,11 +81,11 @@
 
 您可以輕鬆地修改和重新發行應用程式。以下，您將在 **index.jade** 檔案中簡單地變更標題，然後重新發行應用程式。
 
-1. 在 WebMatrix 中，選取 [檔案]，然後展開 **views** 資料夾。按兩下以開啟 **index.jade** 檔案。
+1. 在 WebMatrix 中，選取 [檔案]，然後展開 [views] 資料夾。按兩下以開啟 **index.jade** 檔案。
 
 	![webmatrix viewing index.jade][webmatrix-modify-index]
 
-2. 將第二行變成：
+2. 將段落行變更為：
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
@@ -126,4 +126,4 @@
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

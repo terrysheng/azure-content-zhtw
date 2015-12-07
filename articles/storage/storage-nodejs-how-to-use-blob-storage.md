@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例是以 Node.js 撰寫的。"
 	services="storage"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
@@ -378,4 +378,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API 參考]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

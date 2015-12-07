@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # 如何設定 App Service 應用程式以使用 Microsoft 帳戶登入
@@ -25,19 +25,18 @@
 本主題說明如何設定 Azure App Service，以使用 Microsoft 帳戶作為驗證提供者。
 
 
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]本主題示範 App Service 驗證/授權功能的用法。這會取代大部分應用程式的 App Service 閘道器。整個主題中使用閘道器所產生的差異都列在注意事項中。
 
 
 ## <a name="register"> </a>使用 Microsoft 帳戶註冊您的應用程式
 
-1. 登入 [Azure 管理入口網站]，並瀏覽至您的應用程式。複製您的 **URL**。您將使用此 URL 設定您的 Microsoft 帳戶應用程式。
+1. 登入 [Azure 管理入口網站]，然後瀏覽至您的應用程式。複製您的 **URL**。您將使用此 URL 設定您的 Microsoft 帳戶應用程式。
 
 2. 瀏覽到 Microsoft 帳戶開發人員中心的 [我的應用程式]頁面，並視需要使用您的 Microsoft 帳戶登入。
 
 4. 按一下 [建立應用程式]、然後輸入 [應用程式名稱]，並按一下 [I accept]。
 
-5. 按一下 [**API 設定**]。針對 [**行動或桌面用戶端應用程式**]，選取 [**是**]。在 [**重新導向 URL**] 欄位中輸入您應用程式的**重新導向 URL**，然後按一下 [**儲存**]。您的重新導向 URI 是您的應用程式 URL 加上路徑 _/.auth/login/microsoftaccount/callback_。例如：`https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`。請確實使用 HTTPS 配置。
+5. 按一下 [**API 設定**]。針對 [**行動或桌面用戶端應用程式**]，選取 [**是**]。在 [重新導向 URL] 欄位中輸入您應用程式的**重新導向 URL**，然後按一下 [儲存]。您的重新導向 URI 是您的應用程式 URL 加上路徑 _/.auth/login/microsoftaccount/callback_。例如：`https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`。請確實使用 HTTPS 配置。
 
 	![][0]
 
@@ -53,20 +52,20 @@
 
 ## <a name="secrets"> </a>將 Microsoft 帳戶資訊新增至應用程式
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Microsoft Account**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]如果您使用 App Service 閘道器，請忽略此章節，並改為在入口網站中瀏覽至您的閘道器。依序選取 [設定]、[身分識別]，[Microsoft 帳戶]。貼入您之前取得的值，然後按一下 [儲存]。
 
 
-7. 回到 [Azure 管理入口網站]，並瀏覽至應用程式。依序按一下 [**設定**] 及 [**驗證/授權**]。
+7. 回到 [Azure 管理入口網站]，並瀏覽至應用程式。依序按一下 [設定] 及 [驗證/授權]。
 
-8. 如果 [驗證/授權] 功能未啟用，請切換到 [**開**]。
+8. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
 
-9. 按一下 [**Microsoft 帳戶**]。貼上先前取得的應用程式識別碼與應用程式密碼值，然後選擇性啟用應用程式需要的任何範圍。然後按一下 [確定]。
+9. 按一下 [Microsoft 帳戶]。貼上先前取得的應用程式識別碼與應用程式密碼值，然後選擇性啟用應用程式需要的任何範圍。然後按一下 [確定]。
 
     ![][1]
 	
-11. 根據預設，App Service 提供登入但不限制存取您的網站內容和 API，這是應用程式程式碼的責任。如果您想要網站完全受到 Microsoft 帳戶登入的保護，請將 [**要求未經驗證時所採取的動作**] 下拉式清單變更成使用 [** Microsoft 帳戶**] 選項。這會要求對所有要求進行驗證，系統會將未經驗證的要求重新導向至使用 Microsoft 帳戶登入。
+	App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。您必須在應用程式程式碼中授權使用者。
+
+17. (選擇性) 若要限制只有透過 Microsoft 帳戶授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Microsoft 帳戶]。這會要求所有的要求都經過驗證，且所有未經驗證的要求會重新導向至 Microsoft 帳戶以進行驗證。
 
 11. 按一下 [儲存]。
 
@@ -91,4 +90,4 @@
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure 管理入口網站]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

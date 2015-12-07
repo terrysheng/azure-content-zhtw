@@ -28,7 +28,7 @@
 
 首先，我們來看一下透過範本進行標記。[此範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)將標記置於下列資源上：運算 (虛擬機器)、儲存體 (儲存體帳戶) 和網路 (公用 IP 位址、虛擬網路和網路介面)。
 
-按一下[範本連結](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) 中的 [部署至 Azure] 按鈕。這會瀏覽至 [Azure 預覽入口網站](http://portal.azure.com/)，以便您部署此範本。
+按一下[範本連結](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) 中的 [部署至 Azure] 按鈕。這會瀏覽至 [Azure Preview 入口網站](http://portal.azure.com/)，以便您部署此範本。
 
 ![使用標記的簡單部署](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -47,7 +47,7 @@
 
 接著，在 [編輯參數] 區段中，您可以填寫標記的值。
 
-![在 Azure 入口網站中編輯標記](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
+![在 Azure Preview 入口網站中編輯標記](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
 按一下 [建立]，使用您的標記值來部署此範本。
 
@@ -58,15 +58,15 @@
 
 選取標記圖示以檢視您的標記：
 
-![Azure 入口網站中的標記圖示](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
+![Azure Preview 入口網站中的標記圖示](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
 
 透過入口網站定義自己的索引鍵/值組，以加入新標記並加以儲存。
 
-![在 Azure 入口網站中新增標記](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
+![在 Azure Preview 入口網站中新增標記](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
 
 新標籤現在應出現在您的資源的標記清單中。
 
-![Azure 入口網站中儲存的新標記](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
+![Azure Preview 入口網站中的已存新標記](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
 
 
 ## 使用 PowerShell 來標記
@@ -157,17 +157,17 @@
 
 透過「Azure 資源管理員」在「運算」、「網路」及「儲存體」資源上放置的標記，將會填入[帳務入口網站](https://account.windowsazure.com/)中您的使用情況詳細資料中。
 
-按一下 [下載使用情況詳細資料]，以檢視您訂用帳戶中的使用情況詳細資料。
+按一下 [**下載使用情況詳細資料**]，以檢視您訂用帳戶中的使用情況詳細資料。
 
-![Azure 入口網站中的使用量詳細資料](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
+![Azure Preview 入口網站中的使用量詳細資料](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
-選取您的帳單和 [版本 2] 使用情況詳細資料：
+選取您的帳單和 [**版本 2**] 使用情況詳細資料：
 
-![Azure 入口網站中的版本 2 預覽使用量詳細資料](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Azure Preview 入口網站中的版本 2 預覽使用量詳細資料](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
-從使用情況詳細資料中，您可以在 [標記] 資料行中看到所有標記：
+從使用情況詳細資料中，您可以在 [**標記**] 資料行中看到所有標記：
 
-![Azure 入口網站中的標記資料行](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
+![Azure Preview 入口網站中的標記欄](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
 藉由分析這些標記和使用量，組織將可對其耗用資料產生新的見解。
 
@@ -190,4 +190,4 @@
 [了解 Azure 帳單]: ../billing-understand-your-bill.md
 [深入瞭解 Microsoft Azure 資源耗用量]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

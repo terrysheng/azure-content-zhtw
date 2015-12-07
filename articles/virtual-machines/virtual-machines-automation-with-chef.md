@@ -204,7 +204,7 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 > [AZURE.NOTE]透過命令列，我還打算使用 -tcp-endpoints 參數將端點網路篩選器規則自動化。我已經開放連接埠 80 和 3389 以供網頁和 RDP 工作階段存取。
 
-執行命令後，前往 Azure 入口網站，您會看到已經開始佈建您的機器。
+執行命令後，前往 Azure Preview 入口網站，您會看到已經開始佈建您的機器。
 
 ![][13]
 
@@ -239,4 +239,4 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

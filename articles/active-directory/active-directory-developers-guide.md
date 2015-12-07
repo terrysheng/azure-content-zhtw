@@ -31,6 +31,8 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 1. [Azure Active Directory 圖形 API](active-directory-graph-api.md)：使用「Azure Active Directory 圖形 API」，以程式設計方式透過 REST API 端點存取 Azure Active Directory。
 
+    > [AZURE.IMPORTANT]Azure AD Graph API 功能也透過 [Microsoft Graph](https://graph.microsoft.io/) 提供使用，Microsoft Graph 是一個統一的 API，包含了來自其他 Microsoft 服務 (例如 Outlook、OneDrive、OneNote、Planner 和 Office Graph) 的 API，並可透過單一端點與使用單一存取權杖進行存取。
+
 1. [Azure Active Directory 驗證程式庫](active-directory-authentication-libraries.md)：使用 Azure 驗證程式庫輕鬆地驗證使用者以取得存取權杖。
 
 
@@ -80,20 +82,20 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 這些文章提供 REST 和驗證程式庫 API、通訊協定、錯誤、程式碼範例和端點的基礎參考。
 
 ###  支援
-- [標記的問題](http://stackoverflow.com/questions/tagged/azure-active-directory)：在堆疊溢位上搜尋 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 和 [adal](http://stackoverflow.com/questions/tagged/adal) 標記，以尋找 Azure Active Directory 解決方案。
+- [標記的問題](http://stackoverflow.com/questions/tagged/azure-active-directory)：在 Stack Overflow 上搜尋 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 和 [adal](http://stackoverflow.com/questions/tagged/adal) 標記，以尋找 Azure Active Directory 解決方案。
 
 ### 代碼
 
-- [Azure Active Directory 開放原始碼程式庫](http://github.com/AzureAD)：尋找程式庫原始碼的最簡單方式是使用我們的[程式庫清單](active-directory-authentication-libraries.md)。
+- [Azure Active Directory 開放原始碼程式庫](http://github.com/AzureAD)：尋找程式庫原始碼的最簡單方式，即是使用我們的[程式庫清單](active-directory-authentication-libraries.md)。
 
 - [Azure Active Directory 範例](http://github.com/AzureADSamples)：瀏覽範例清單的最簡單方式是使用[程式碼範例索引](active-directory-code-samples.md)。
 
 
 ### Graph API
 
-- [圖形 API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)：Azure Active Directory 圖形 API 的 REST 參考。[檢視互動式圖形 API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
+- [Graph API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)：Azure Active Directory 圖形 API 的 REST 參考。[檢視互動式 Graph API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-- [圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)：OAuth 2.0 權限範圍，用來控制 app 對租用戶中的目錄資料有何種存取權。
+- [Graph API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)：OAuth 2.0 權限範圍，用來控制應用程式對租用戶中的目錄資料有何存取權。
 
 
 ### 驗證通訊協定
@@ -109,7 +111,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [WS-同盟 1.2 通訊協定參考](https://msdn.microsoft.com/library/azure/dn903702.aspx)：Web 服務同盟 1.2 版規格中所指定的 WS-同盟 1.2 通訊協定。
 
-- [支援的權杖與宣告類型](active-directory-token-and-claims.md)：您可以使用本指南來了解及評估 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告。
+- [支援的權杖與宣告類型](active-directory-token-and-claims.md)：您可以使用此指南來了解及評估 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告。
 
 ## 影片
 
@@ -130,12 +132,12 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 ## 社交
 
-- [Active Directory 小組部落格](http://blogs.technet.com/b/ad/)：Azure Active Directory 領域的最新發展。
+- [Active Directory 團隊部落格](http://blogs.technet.com/b/ad/)：Azure Active Directory 領域的最新發展。
 
-- [Azure Active Directory Graph小組部落格](http://blogs.msdn.com/b/aadgraphteam)︰圖形 API 專屬的 Azure Active Directory 資訊。
+- [Azure Active Directory Graph 團隊部落格](http://blogs.msdn.com/b/aadgraphteam)︰Graph API 專屬的 Azure Active Directory 資訊。
 
 - [雲端識別](http://www.cloudidentity.net)：一位 Azure Active Directory 重要 PM 對於「身分識別管理即服務」的見解。
 
 - [Twitter 上的 Azure Active Directory](https://twitter.com/azuread)：140 個字元以內的 Azure Active Directory 公告。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

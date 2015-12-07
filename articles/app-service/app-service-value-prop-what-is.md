@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="什麼是 Azure 應用程式服務" 
 	description="了解為何 Azure 應用程式服務是 Web 和行動應用程式開發的最佳平台。" 
+	keywords="App Service, Azure App Service, App Service 成本, 級別, 可調整, 應用程式部署, Azure 應用程式部署"
 	services="app-service" 
 	documentationCenter="" 
 	authors="omarkmsft" 
@@ -59,4 +60,4 @@ Azure 應用程式著重於 Web 和行動應用程式的快速開發以及商務
 立即免費[建立新的應用程式](http://go.microsoft.com/fwlink/?LinkId=523751)。不需要信用卡，無需承諾和繁複程序。
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

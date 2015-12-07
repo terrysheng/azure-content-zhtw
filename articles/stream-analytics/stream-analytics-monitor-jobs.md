@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -175,7 +175,7 @@
 - [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
 - [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

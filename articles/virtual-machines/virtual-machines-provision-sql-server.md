@@ -21,7 +21,7 @@
 # 在 Azure 中佈建 SQL Server 虛擬機器
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-provision-sql-server.md)
+- [Azure portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## 概觀
@@ -32,18 +32,18 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 在本教學課程中，您將：
 
-* [連接到 Azure 管理入口網站並從組件庫佈建虛擬機器](#Provision)
+* [連接到 Azure 入口網站並從組件庫佈建虛擬機器](#Provision)
 * [使用遠端桌面開啟虛擬機器並完成設定](#RemoteDesktop)
 * [完成在另一部電腦上使用 SQL Server Management Studio 連接到虛擬機器的組態步驟](#SSMS)
 * [後續步驟](#Optional)
 
->[AZURE.NOTE]本文說明如何使用現有的 Azure 管理入口網站佈建 SQL Server VM。不過，也可以在[新的入口網站](https://manage.windowsazure.com)建立及管理 SQL Server VM。新的入口網站有一些優點，例如預設使用進階儲存體，以及其他選項，例如自動修補、自動備份及 AlwaysOn 組態。後續內容會提供逐步指示。
+>[AZURE.NOTE]本文說明如何使用現有的入口網站佈建 SQL Server VM。不過，也可以在[新的入口網站](https://manage.windowsazure.com)建立及管理 SQL Server VM。新的入口網站有一些優點，例如預設使用進階儲存體，以及其他選項，例如自動修補、自動備份及 AlwaysOn 組態。後續內容會提供逐步指示。
 
 ##<a id="Provision">從資源庫佈建 SQL Server 虛擬機器</a>
 
-1. 使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+1. 使用您的帳戶登入 [Azure 入口網站](http://manage.windowsazure.com)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-2. 在 Azure 管理入口網站中，依序按一下網頁左下角的 [+NEW]、[運算]、[虛擬機器] 和 [從組件庫]。
+2. 在 Azure 入口網站中，依序按一下網頁左下角的 [**+NEW**]、[**運算**]、[**虛擬機器**] 和 [**從資源庫**]。
 
 3. 在 [選擇映像] 頁面上，按一下 [SQL SERVER]。然後選取 SQL Server 映像。按一下頁面右下方的 [下一步] 箭頭。
 
@@ -77,7 +77,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	- 在 [雲端服務] 方塊中，選擇 [Create a new cloud service]。
 	- 在 [Cloud Service DNS Name] 方塊中，提供選擇之 DNS 名稱的第一個部分，使其形成 **TESTNAME.cloudapp.net** 格式的名稱 
 	- 如果您有多個訂用帳戶可供選擇，請選取 [訂用帳戶]。此選擇會決定可使用哪些 **儲存體帳戶**。
-	- 在 [REGION/AFFINITY GROUP/VIRTUAL NETWORK] 方塊中，選取代管這個虛擬映像的所在區域。
+- 在 [REGION/AFFINITY GROUP/VIRTUAL NETWORK] 方塊中，選取代管這個虛擬映像的所在區域。
 	- 在 [儲存體帳戶] 中，可以自動產生帳戶，或從清單中選取一個帳戶。變更 [訂用帳戶] 以查看更多帳戶。 
 	- 在 [可用性設定組] 方塊中，選取 [(無)]。
 	- 閱讀及接受法律條款。
@@ -155,4 +155,4 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

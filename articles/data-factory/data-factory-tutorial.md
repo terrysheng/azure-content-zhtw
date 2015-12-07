@@ -238,7 +238,6 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 1. 按一下命令列中的 [新增計算]，然後選取功能表中的 [隨選 HDInsight 叢集]。
 2. 在 JSON 指令碼中，執行下列動作： 
 	1. 在 **clusterSize** 屬性中，指定 HDInsight 叢集的大小。
-	2. 在 **jobsContainer** 屬性中，指定要儲存叢集記錄檔的預設容器名稱。基於本教學課程的目的，請指定 **adfjobscontainer**。
 	3. 在 **timeToLive** 屬性中，指定客戶閒置多久之後會被刪除。 
 	4. 在 **version** 屬性中，指定您要使用的 HDInsight 版本。如果您排除此屬性，則會使用最新版本。  
 	5. 在 **linkedServiceName** 中，指定您在「開始使用」教學課程中建立的 **HDInsightStorageLinkedService**。 
@@ -248,7 +247,6 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 				    "properties": {
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
-		    	    "jobsContainer": "adfjobscontainer",
 		    	    "timeToLive": "00:05:00",
 		    	    "version": "3.1",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"
@@ -526,4 +524,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

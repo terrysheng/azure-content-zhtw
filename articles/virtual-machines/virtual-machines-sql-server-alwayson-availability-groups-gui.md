@@ -19,7 +19,7 @@
 # 在 Azure VM (GUI) 中設定 AlwaysOn 可用性群組
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Azure portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
@@ -192,7 +192,7 @@
 
 ## 建立 SQL Server VM
 
-接下來，建立三個 VM，包括 WSFC 叢集節點和兩個 SQL Server VM。為了逐一建立每個 VM，請回到 Azure 入口網站，依序按一下 [新增]、[運算]、[虛擬機器] 和 [從資源庫]。然後使用下表中的範本建立 VM。
+接下來，建立三個 VM，包括 WSFC 叢集節點和兩個 SQL Server VM。為了逐一建立每個 VM，請回到 Azure 入口網站，依序按一下 [**新增**]、[**計算**]、[**虛擬機器**] 和 [**從資源庫**]。然後使用下表中的範本建立 VM。
 
 |Page|VM1|VM2|VM3|
 |---|---|---|---|
@@ -217,7 +217,7 @@
 
 	![變更 VM 慣用的 DNS 伺服器](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784629.png)
 
-1. 在命令列上按一下 **變更此連接的設定** (視您的視窗大小而定，可能需按一下雙向右箭頭才能看到此命令)。
+1. 在命令列上按一下 [變更此連接的設定] (視您的視窗大小而定，可能需按一下雙向右箭頭才能看到此命令)。
 
 1. 選取 [網際網路通訊協定第 4 版 (TCP/IPv4)]，然後按一下 [內容]。
 
@@ -343,7 +343,7 @@
 
 1. 在 [新增節點精靈] 中，按 [下一步]。在 [輸入伺服器名稱] 中輸入伺服器名稱，然後按一下 [新增]，於 [選取伺服器] 頁面上，將 **ContosoSQL2** 和 **ContosoWSFCNode** 新增至清單。完成之後，按 [下一步]。
 
-1. 在 [**驗證警告**] 頁面上，按一下 [**否**] \(實際操作時，請執行驗證測試)。然後按 [下一步]。
+1. 在 [驗證警告] 頁面上，按一下 [否] (實際操作時，請執行驗證測試)。然後按 [下一步]。
 
 1. 在 [確認] 頁面中按 [下一步]，以新增節點。
 
@@ -544,4 +544,4 @@
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

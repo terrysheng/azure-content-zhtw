@@ -48,7 +48,7 @@
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以在入口網站「Active Directory」區段中應用程式的 [用戶端識別碼] 欄位內尋找應用程式識別碼。
+	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以前往 Azure Preview 入口網站的「Active Directory」區段，在應用程式的 [用戶端識別碼] 欄位內找到應用程式識別碼。
 
 3. 將 {application-id} 取代成您剛才記錄的識別碼，然後建立應用程式的服務主體：
 
@@ -86,16 +86,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 1.	開啟您建立之專案的 Program.cs 檔案，然後將下列 using 陳述式加入至檔案的頂端：
 
-        using Microsoft.Azure;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure.Management.Resources;
-		using Microsoft.Azure.Management.Resources.Models;
-		using Microsoft.Azure.Management.Storage;
-		using Microsoft.Azure.Management.Storage.Models;
-		using Microsoft.Azure.Management.Network;
-		using Microsoft.Azure.Management.Network.Models;
-		using Microsoft.Azure.Management.Compute;
-		using Microsoft.Azure.Management.Compute.Models;
+    使用 Microsoft.Azure；使用 Microsoft.IdentityModel.Clients.ActiveDirectory；使用 Microsoft.Azure.Management.Resources；使用 Microsoft.Azure.Management.Resources.Models；使用 Microsoft.Azure.Management.Storage；使用 Microsoft.Azure.Management.Storage.Models；使用 Microsoft.Azure.Management.Network；使用 Microsoft.Azure.Management.Network.Models；使用 Microsoft.Azure.Management.Compute；使用 Microsoft.Azure.Management.Compute.Models；
 
 
 2. 將下列方法加入至 Program 類別，以取得建立認證所需的權杖：
@@ -349,7 +340,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 2.	將下列程式碼加入至 Main 方法，以呼叫您剛才加入的方法：
 
 		CreateVirtualMachine(credential);
-        Console.ReadLine();
+    Console.ReadLine();
 
 ##步驟 5：加入程式碼以刪除資源
 
@@ -384,4 +375,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

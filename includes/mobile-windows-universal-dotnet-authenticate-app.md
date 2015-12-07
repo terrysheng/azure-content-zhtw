@@ -1,5 +1,5 @@
 
-1. Open the shared project file MainPage.cs and add the following code snippet to the MainPage class:
+1. 開啟共用專案檔案 MainPage.cs，然後將下列程式碼片段新增至 MainPage 類別：
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -32,13 +32,13 @@
             return success;
         }
 
-    This code authenticates the user with a Facebook login. If you are using an identity provider other than Facebook, change the value of **MobileServiceAuthenticationProvider** above to the value for your provider.
+    此程式碼會使用 Facebook 登入來驗證使用者。如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 **MobileServiceAuthenticationProvider** 值變更成您提供者。
 
-3. Comment-out or delete the call to the **RefreshTodoItems** method in the existing **OnNavigatedTo** method override.
+3. 將現有 **OnNavigatedTo** 方法覆寫中的 **RefreshTodoItems** 方法呼叫註解化或刪除。
 
-	This prevents the data from being loaded before the user is authenticated. Next, you will add a **Sign in** button to the app that triggers authentication.
+	如此能避免在使用者通過驗證之前載入資料。接下來，將 [登入] 按鈕新增至觸發驗證的應用程式。
 
-4. Add the following code snippet to the MainPage class:
+4. 將下列程式碼片段新增至 MainPage 類別：
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -52,17 +52,17 @@
             }
         }
 		
-5. In the Windows Store app project, open the MainPage.xaml project file and add the following **Button** element just before the element that defines the **Save** button:
+5. 在 Windows 市集應用程式專案中，開啟 MainPage.xaml 專案檔案，並將以下 **Button** 元素新增至定義 **Save** 按鈕的元素前方：
 
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. In the Windows Phone Store app project, add the following **Button** element in the **ContentPanel**, after the **TextBox** element:
+6. 在 Windows Phone 市集應用程式專案中，於 **TextBlock** 元素後方的 **ContentPanel** 新增下列 **Button** 元素：
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
         	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-8. Open the shared App.xaml.cs project file and add the following code:
+8. 開啟共用的 App.xaml.cs 專案檔案，並新增下列程式碼：
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -79,12 +79,14 @@
             base.OnActivated(args);
         }
 
-	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
+	如果 **OnActivated** 方法已存在，只要新增 `#if...#endif` 程式碼區塊即可。
 
-9. Press the F5 key to run the Windows Store app, click the **Sign in** button, and sign into the app with your chosen identity provider. 
+9. 按 F5 鍵以執行 Windows 市集應用程式、按一下 **Sign in** 按鈕，然後以您選擇的身分識別提供者登入應用程式。
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query your backend and make updates to data.
+   	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢後端並更新資料。
 
-10. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.  
+10. 以滑鼠右鍵按一下 Windows Phone 市集應用程式專案、按一下 [設定為啟始專案]，然後重複上一個步驟以驗證 Windows Phone 市集應用程式是否也能正常運作。
 
  
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -26,6 +26,7 @@
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
 U-SQL | 分散式查詢 | 1 | 保留 | [@edmacauley](https://github.com/edmacauley) |
 U-SQL | 在 WASB 與 ADLS 之間移動資料 | 1 | Pending | TBD | Ye Xing (ml)
+U-SQL | UDO 模型的單位測試指導方針 | 1 | Pending | TBD | [@ddobric](https://github.com/ddobric) 
 U-SQL | 正在處理 JSON | 2 | Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 服務 | 與 Curl 互動 | 3 |Pending |[@mumian](https://github.com/mumian)
 U-SQL | 資料分割資料表 |1 | 處理中 | [@edmacauley](https://github.com/edmacauley) | 
@@ -45,7 +46,7 @@ U-SQL | 文法鐵路圖 | 1 | 進行中，使用 [這個項目](http://bottlecap
 
 領域 |主題 | location
 ------------- | ------------- | -------------- 
-服務 | 使用 ARM 範本與其他 Azure 服務協調資料湖分析的部署 | [位置](https://azure.microsoft.com/zh-TW/documentation/articles/data-lake-analytics-manage-use-powershell/)
+服務 | 使用 ARM 範本與其他 Azure 服務協調資料湖分析的部署 | [位置](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## 如何在待處理項目上提供意見反應
 有幾個選項可以在待處理項目上提供意見反應：
@@ -54,4 +55,4 @@ U-SQL | 文法鐵路圖 | 1 | 進行中，使用 [這個項目](http://bottlecap
 * 在 [Azure 內容儲存機制](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md) 中提交這份文件的提取要求
 * 傳送電子郵件給 [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

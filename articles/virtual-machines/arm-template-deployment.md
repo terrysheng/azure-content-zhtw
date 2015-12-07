@@ -48,7 +48,7 @@
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以在入口網站「Active Directory」區段中應用程式的 [用戶端識別碼] 欄位內尋找應用程式識別碼。
+	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以前往 Azure Preview 入口網站的「Active Directory」區段，在應用程式的 [用戶端識別碼] 欄位內找到應用程式識別碼。
 
 3. 將 {application-id} 取代成您剛才記錄的識別碼，然後建立應用程式的服務主體：
 
@@ -447,4 +447,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

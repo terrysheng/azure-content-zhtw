@@ -16,51 +16,43 @@
 	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-#Windows 通用 app Reach SDK 整合
+# Windows 通用 app Reach SDK 整合
 
 依照本指南進行之前，您必須先遵循 [Windows 通用 Engagement SDK 整合](mobile-engagement-windows-store-integrate-engagement.md)文件中所述的整合程序。
 
-##將 Engagement Reach SDK 內嵌至您的 Windows 通用專案
+## 將 Engagement Reach SDK 內嵌至您的 Windows 通用專案
 
 您不需要新增任何項目。`EngagementReach` 的參考和資源已在您的專案中。
 
 > [AZURE.TIP]您可以自定專案的 `Resources` 資料夾中的影像，尤其是品牌圖示 (預設為 Engagement 的圖示)。在跨平台 app 上，您也可以移動共用專案上的 `Resources` 資料夾，以便在應用程式間共用其內容；但因為 `Resources\EngagementConfiguration.xml` 檔案和平台相依，所以您必須將它保留在預設位置。
 
-##啟用 Windows 通知服務
+## 啟用 Windows 通知服務
+
+### 僅 Windows 8.x 和 Windows Phone 8.1
 
 若要在 `Application UI` 上的 `Package.appxmanifest` 檔案中使用 **Windows 通知服務** (簡稱 WNS)，請在左邊 bot 方塊中的 `All Image Assets` 上按一下。請在 `Notifications` 中方塊的右邊，將 `toast capable` 從 `(not set)` 變更為 `(Yes)`。
 
-此外，您必須將您的應用程式與您的 Microsoft 帳戶以及 Engagement 平台同步。因此您需要建立一個帳戶或登入 [windows 開發人員中心](https://dev.windows.com)。然後，建立新的應用程式，並且尋找 SID 和秘密金鑰。在 Engagement 前端中，繼續應用程式的 `native push` 設定，並貼上您的認證。接下來，在您的專案上按一下滑鼠右鍵，依序選取 `store` 和 `Associate App with the Store...`。您只需要在同步處理之前選取您建立的應用程式。
+### 所有平台
 
-##初始化 Engagement Reach SDK
+您必須將您的應用程式與您的 Microsoft 帳戶以及 Engagement 平台同步。因此您需要建立一個帳戶或登入 [Windows 開發人員中心](https://dev.windows.com)。然後，建立新的應用程式，並且尋找 SID 和秘密金鑰。在 Engagement 前端中，繼續應用程式的 `native push` 設定，並貼上您的認證。接下來，在您的專案上按一下滑鼠右鍵，依序選取 `store` 和 `Associate App with the Store...`。您只需要在同步處理之前選取您建立的應用程式。
+
+## 初始化 Engagement Reach SDK
 
 修改 `App.xaml.cs`：
 
--   新增至您的 `using` 陳述式：
+-   在 `InitEngagement` 方法中，將 `EngagementReach.Instance.Init` 插入 `EngagementAgent.Instance.Init` 後方：
 
-		using Microsoft.Azure.Engagement;
-
--   在 `OnLaunched` 中，將 `EngagementReach.Instance.Init` 插入 `EngagementAgent.Instance.Init` 後方：
-
-		protected override void OnLaunched(LaunchActivatedEventArgs args)
+		private void InitEngagement(IActivatedEventArgs e)
 		{
-		  EngagementAgent.Instance.Init(args);
-		  EngagementReach.Instance.Init(args);
-		}
-
--   如果您想要在您的應用程式由命令、其他應用程式或自訂配置啟動時啟用 Engagement Reach，請覆寫 `OnActivated` 方法：
-
-		protected override void OnActivated(IActivatedEventArgs args)
-		{
-		  EngagementAgent.Instance.Init(args);
-		  EngagementReach.Instance.Init(args);
+		  EngagementAgent.Instance.Init(e);
+		  EngagementReach.Instance.Init(e);
 		}
 
 	`EngagementReach.Instance.Init` 會在專用的執行緒中執行。您不必自行進行此作業。
 
-> [AZURE.TIP]您可以在 `<channelName></channelName>` 上專案的 `Resources\EngagementConfiguration.xml` 檔案中，指定您應用程式的 WNS 推送通道之名稱。根據預設，Engagement 會依 appId 建立名稱。您不需要自行指定名稱，除非您打算於 Engagement 之外使用該推播通道。
+> [AZURE.NOTE]如果您在應用程式的其他地方使用推播通知，則您必須與 Engagement Reach [共用推播通道](#push-channel-sharing)。
 
-##整合
+## 整合
 
 Engagment 提供兩種方式實作 Reach 通知和宣告：「重疊整合」和「Web 檢視」整合。
 
@@ -80,7 +72,7 @@ Engagement 提供通知和宣告顯示的重疊。
 
 -   新增至命名空間宣告：
 
-			xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
 -   以 `engagement:EngagementPageOverlay` 取代 `engagement:EngagementPage`：
 
@@ -100,7 +92,7 @@ Engagement 提供通知和宣告顯示的重疊。
 		    <!-- layout -->
 		</engagement:EngagementPageOverlay>
 
-> **有適用於 8.1 的 EngagementPageOverlay：**
+> **有適用於 8.1+ 的 EngagementPageOverlay：**
 
 		<engagement:EngagementPageOverlay 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
@@ -161,22 +153,31 @@ Engagement 重疊會使用它在 xaml 檔案中找到的第一個 “Grid”元�
 
 若要顯示 Engagement 內容，您需要在要顯示通知和宣告的每個頁面整合這兩個 xaml WebView。因此請將此程式碼新增至您的 xaml 檔案：
 
-			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" ScriptNotify="scriptEvent" Height="64" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" ScriptNotify="scriptEvent" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
+			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
-> **針對 8.1 整合：**
+> **8.1+ 整合：**
 
 			<engagement:EngagementPage
 			    xmlns:engagement="using:Microsoft.Azure.Engagement">
 			    <Grid>
-			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" ScriptNotify="scriptEvent" Height="64" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed" ScriptNotify="scriptEvent" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
-			      <!-- layout -->
+			      <!-- Your layout -->
+			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 			    </Grid>
 			</engagement:EngagementPage>
 
 您的關聯 .cs 檔案看起來會像這樣：
 
+    using Microsoft.Azure.Engagement;
+    using System;
+    using Windows.ApplicationModel.Core;
+    using Windows.UI.ViewManagement;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Navigation;
+
+    namespace My.Namespace.Example
+    {
 			/// <summary>
 			/// An empty page that can be used on its own or navigated to within a Frame.
 			/// </summary>
@@ -186,36 +187,48 @@ Engagement 重疊會使用它在 xaml 檔案中找到的第一個 “Grid”元�
 			  {
 			    this.InitializeComponent();
 			
-			   /* Set your webview elements to the correct size */
+			    /* Set your webview elements to the correct size. */
 			    SetWebView(width, height);
-			
-			    Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
 			  }
 			
 			  #region to implement
-			  /* Allow webview script to notify system */
-			  private void scriptEvent(object sender, NotifyEventArgs e)
-			  {
-			  }
-			
-			  /* When page is left ensure to detach SizeChanged handler */
+              /* Attach events when page is navigated. */
+              protected override void OnNavigatedTo(NavigationEventArgs e)
+              {
+                /* Update the webview when the app window is resized. */
+                Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
+
+                /* Update the webview when the app/status bar is resized. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
+    #endif
+                base.OnNavigatedTo(e);
+              }
+
+			  /* When page is left ensure to detach SizeChanged handler. */
 			  protected override void OnNavigatedFrom(NavigationEventArgs e)
 			  {
 			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
+    #endif
 			    base.OnNavigatedFrom(e);
 			  }
-			
-			  /* "width" is the current width of your application display */
-			  double width = Window.Current.Bounds.Width;
-			
-			  /* "height" is the current height of your application display */
-			  double height = Window.Current.Bounds.Height;
+			  
+			  /* "width" and "height" are the current size of your application display. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+    #else
+			  double width =  Window.Current.Bounds.Width;
+			  double height =  Window.Current.Bounds.Height;
+    #endif
 			
 			  /// <summary>
-			  /// Set your webview elements to the correct size
+			  /// Set your webview elements to the correct size.
 			  /// </summary>
-			  /// <param name="width">The width of your current display</param>
-			  /// <param name="height">The height of your current display</param>
+			  /// <param name="width">The width of your current display.</param>
+			  /// <param name="height">The height of your current display.</param>
 			  private void SetWebView(double width, double height)
 			  {
 			    #pragma warning disable 4014
@@ -229,24 +242,41 @@ Engagement 重疊會使用它在 xaml 檔案中找到的第一個 “Grid”元�
 			  }
 			
 			  /// <summary>
-			  /// Handler that take the Windows.Current.SizeChanged and indicate that webview have to be resized
+			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
 			  /// </summary>
-			  /// <param name="sender">Original event trigger</param>
-			  /// <param name="e">Window Size Changed Event argument</param>
+			  /// <param name="sender">Original event trigger.</param>
+			  /// <param name="e">Window Size Changed Event arguments.</param>
 			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
 			  {
 			    double width = e.Size.Width;
 			    double height = e.Size.Height;
 			
-			    /* Set your webview elements to the correct size */
+			    /* Set your webview elements to the correct size. */
 			    SetWebView(width, height);
 			  }
+
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
+			  /// <summary>
+			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
+			  /// </summary>
+			  /// <param name="sender">The related application view.</param>
+			  /// <param name="e">Related event arguments.</param>
+			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
+			  {
+			    double width = sender.VisibleBounds.Width;
+			    double height = sender.VisibleBounds.Height;
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+    #endif
 			  #endregion
 			}
+    }
 
 > 這項實作的內嵌 WebView 會在裝置的螢幕旋轉時重新調整大小。
 
-##處理資料推送 (選擇性)
+## 處理資料推送 (選擇性)
 
 如果您希望您的應用程式接收 Reach 資料推送，您必須實作 EngagementReach 類別的兩個事件：
 
@@ -269,7 +299,7 @@ Engagement 重疊會使用它在 xaml 檔案中找到的第一個 “Grid”元�
 
 > [AZURE.WARNING]Engagement 無法接收單一資料推送的多個回饋。如果計畫在單一事件上設定多個處理常式，請留意回饋將與最後一個傳送的對應。在此情況下，我們建議一律傳回相同的值，避免在前端有令人困惑的回饋。
 
-##自訂 UI (選擇性)
+## 自訂 UI (選擇性)
 
 ### 第一步
 
@@ -377,9 +407,38 @@ NotfificationHTML 是 `ms-appx-web:///Resources/EngagementNotification.html`。�
 
 > [AZURE.TIP]每個處理常式都是由 UI 執行緒呼叫。在使用 MessageBox 或 UI 相關的項目時您不必擔心。
 
-##自訂配置秘訣
+##<a id="push-channel-sharing"></a> 推播通道共用
 
-我們提供使用自訂配置。您可以從 Engagement 前端傳送您 Engagement 應用程式使用的不同類型之 URI。如果裝置上沒有安裝預設的應用程式，預設配置 (例如，由 Windows 管理 `http, ftp, ...`) 便會出現視窗提示。可以使用像應用程式配置的其他配置。此外，您可以在您的應用程式中使用自訂配置。
+如果您在應用程式中將推播通知用於其他目的，則您必須使用 Engagement SDK 的推播通道共用功能。這是為了避免遺失推播。
+
+- 您可以對 Engagement Reach 初始化提供自己的推播通道。SDK 將會使用它而不是要求新的。
+
+使用您在 `App.xaml.cs` 檔案之 `InitEngagement` 方法中的推播通道更新 Engagement Reach 初始化：
+    
+    /* Your own push channel logic... */
+    var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    
+    /*...Engagement initialization */
+    EngagementAgent.Instance.Init(e);
+	EngagementReach.Instance.Init(e,pushChannel);
+
+- 或者，如果您只是想在 Reach 初始化之後使用推播通道，那麼您可以在 Engagement Reach 上設定回呼，以在 SDK 建立推播通到之後立即取得它。
+
+在 Reach 初始化「之後」的任何地方設定回呼：
+
+    /* Set action on the SDK push channel. */
+    EngagementReach.Instance.SetActionOnPushChannel((PushNotificationChannel channel) => 
+    {
+      /* The forwarded channel can be null if its creation fails for any reason. */
+      if (channel != null)
+      {
+		/* Your own push channel logic... */
+      });
+	}
+
+## 自訂配置秘訣
+
+我們提供使用自訂配置。您可以從 Engagement 前端傳送您 Engagement 應用程式使用的不同類型之 URI。如果裝置上沒有安裝預設的應用程式，預設配置 (例如，由 Windows 管理 `http, ftp, ...`) 便會出現視窗提示。您也可以在您的應用程式中使用自訂配置。
 
 若要在您的應用程式中設定自訂配置，最簡單的方式就是開啟 `Package.appxmanifest`，然後進入 `Declarations` 面板。在 [可用宣告] 捲動方塊中選取 `Protocol` 並將它新增。以您想要的新通訊協定名稱來編輯 `Name` 欄位。
 
@@ -410,4 +469,4 @@ NotfificationHTML 是 `ms-appx-web:///Resources/EngagementNotification.html`。�
 			  #endregion
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

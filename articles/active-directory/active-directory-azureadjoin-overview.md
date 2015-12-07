@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能| Microsoft Azure" 
-	description="說明 Azure AD Join 的主題。" 
+	description="提供 Windows 10 裝置如何利用 Azure AD Join 在 Azure Active Directory 上登錄的詳細概觀。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # 透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能
@@ -68,6 +68,7 @@ Azure AD Join 的目標對象是雲端優先/僅限雲端的企業 (通常是不
 | 從桌面到工作 App/網站/資源的 SSO，在使用 Azure AD 進行驗證的內部部署和 cloudApps 中 | 在企業目錄中自動登錄 (Azure AD) 以及在 MDM 中自動註冊。(Azure AD Premium 功能) | 使用此工作帳戶跨 App 提供 SSO 且登入網站/資源 |
 | 使用者可以新增其個人 MSA 來存取個人的圖片/檔案，而不會影響到企業資料 (漫遊設定會持續使用工作帳戶來運作)。MSA 帳戶會啟用 SSO，且不再啟用裝置漫遊設定。 | Winlogon 上的自助式密碼重設 (SSPR，能夠重設忘記的密碼) (您需要 AzureAD Premium 才能執行此動作) | 為企業提供市集前端/區段的存取權，讓使用者可以在其個人裝置上取得並使用 LoB App。 | |
 
+
 ## 其他資訊
 * [適合企業使用的 Windows 10：使用裝置工作的方式](active-directory-azureadjoin-windows10-devices-overview.md)
 * [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
@@ -76,4 +77,4 @@ Azure AD Join 的目標對象是雲端優先/僅限雲端的企業 (通常是不
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

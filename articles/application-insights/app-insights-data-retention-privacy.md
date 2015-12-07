@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights 中的資料收集、保留和儲存 
@@ -62,7 +62,12 @@ Application Insights SDK 以及與應用程式合併的代理程式會將資料�
 *如何知道應用程式正在傳送多少資料點？*
 
 * 開啟 [設定/配額與定價] 查看 [資料數量] 圖表。
-* 或在 [計量瀏覽器] 中，新增新的圖表，然後選取 [資料點數量] 做為其計量。切換群組，並依 [**資料類型**] 分組。
+* 或在 [計量瀏覽器] 中，新增新的圖表，然後選取 [資料點數量] 做為其計量。切換群組，並依 [資料類型] 分組。
+
+*如何減少我的應用程式傳送的資料量？*
+
+* 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。
+* [關閉不需要的遙測收集器](app-insights-configuration-with-applicationinsights-config.md)。
 
 
 #### 資料保留多久？ 
@@ -250,4 +255,4 @@ SDK 診斷 | 追蹤訊息或例外狀況
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

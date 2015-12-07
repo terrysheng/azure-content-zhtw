@@ -41,7 +41,7 @@
 
 	![顯示重設 SSH 設定的螢幕擷取畫面](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. 「重新啟動」虛擬機器。從 [Azure Preview 入口網站](https://portal.azure.com)，依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重新啟動]。從 [Azure 管理入口網站](https://manage.windowsazure.com)，開啟 [虛擬機器] > [執行個體]，然後按一下 [重新啟動]。
+2. 「重新啟動」虛擬機器。從 [Azure Preview 入口網站](https://portal.azure.com)，依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重新啟動]。從 [Azure 入口網站](https://manage.windowsazure.com)，開啟 [**虛擬機器**] > [**執行個體**]，然後按一下 [**重新啟動**]。
 
 3. [「調整」虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
 
@@ -174,9 +174,9 @@
 
 ### 疑難排解之前的步驟
 
-首先，在 Azure 入口網站中檢查虛擬機器的狀態。
+首先，在入口網站中檢查虛擬機器的狀態。
 
-在 [Azure 管理入口網站](https://manage.windowsazure.com)中，針對傳統部署模型中的虛擬機器︰
+在 [Azure 入口網站](https://manage.windowsazure.com)中，針對傳統部署模型中的虛擬機器︰
 
 1. 按一下 [虛擬機器] > [VM 名稱]。
 2. 按一下 VM 的 [儀表板] 檢查其狀態。
@@ -287,4 +287,4 @@
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

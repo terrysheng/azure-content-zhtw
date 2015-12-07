@@ -50,7 +50,7 @@
 1. 按照[此處](virtual-machines-windows-tutorial-classic-portal.md)所提供的指示，建立 Windows Server 2012 R2 資料中心散發套件的 Azure 虛擬機器。
 
 1. 指示 Azure 將連接埠 80 的流量從 Web 導向虛擬機器上的連接埠 80：
- - 在 Azure 入口網站中瀏覽至新建立的虛擬機器，並按一下 [端點] 索引標籤。
+ - 在 Azure 入口網站中瀏覽至新建立的虛擬機器，並按一下 [**端點**] 索引標籤。
  - 按一下畫面底部的 [新增] 按鈕。![新增端點](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
  - 開啟 [TCP] 通訊協定的 [公用連接埠 80]，比照 [私人連接埠 80]。![][port80]
@@ -184,4 +184,4 @@
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

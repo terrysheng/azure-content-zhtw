@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Azure Active Directory 裝置註冊概觀
@@ -77,6 +77,10 @@ Windows 7 和 Windows 8.1 裝置會藉由結合使用者帳戶名稱與知名裝
 
 ## 其他主題
 
-您可以向 Azure AD 裝置註冊註冊 Windows 7 和 Windows 8.1 加入網域的裝置。下列主題提供有關在 Windows 7 和 Windows 8.1 裝置上設定裝置註冊所需之先決條件和步驟的詳細資訊。自動向 Azure Active Directory 註冊加入網域的 Windows 裝置
+您可以向 Azure AD 裝置註冊註冊 Windows 7 和 Windows 8.1 加入網域的裝置。下列主題提供有關在 Windows 7 和 Windows 8.1 裝置上設定裝置註冊所需之先決條件和步驟的詳細資訊。
 
-<!---HONumber=Oct15_HO3-->
+- [自動向 Azure Active Directory 註冊加入網域的 Windows 裝置](active-directory-conditional-access-automatic-device-registration.md) 
+- [為加入網域的 Windows 7 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [為加入網域的 Windows 8.1 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+<!---HONumber=AcomDC_1125_2015-->

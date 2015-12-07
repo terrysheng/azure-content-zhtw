@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure Preview Portal](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure preview portal](virtual-machines-linux-tutorial-portal-rm.md)
 
 <br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
@@ -130,4 +130,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

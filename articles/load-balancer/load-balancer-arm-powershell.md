@@ -109,7 +109,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
->[AZURE.NOTE]公用 IP 位址網域名稱標籤屬性會是負載平衡器的 FQDN。
+>[AZURE.NOTE]公用 IP 位址網域名稱標籤屬性會是負載平衡器之 FQDN 的前置詞。
 
 ## 建立前端 IP 集區和後端位址集區
 
@@ -242,7 +242,7 @@ PS C:\> $backendnic1
 
 使用 Add-AzureVMNetworkInterface 命令將 NIC 指派給虛擬機器。
 
-您可以在以下文件中找到建立虛擬機器並指派給的 NIC 的逐步解說：[利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)的選項 4 或 5。
+您可以在以下文件中找到建立虛擬機器並指派給 NIC 的逐步解說：[使用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)的選項 4 或 5。
 
 ## 更新現有負載平衡器
 
@@ -255,7 +255,7 @@ PS C:\> $backendnic1
 
 ### 步驟 2
 
-在下列範例中，您會使用前端的連接埠 81 和後端集區的連接埠 8181，將新的輸入 NAT 規則新增現有的負載平衡器
+在下列範例中，您會使用前端的連接埠 81 和後端集區的連接埠 8181，將新的輸入 NAT 規則加入現有的負載平衡器
 
 	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 
@@ -282,4 +282,4 @@ PS C:\> $backendnic1
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -51,8 +51,7 @@ C# 中對應的具類型用戶端類型如下：
 下列程式碼將建立用來存取行動應用程式後端的 `MobileServiceClient` 物件。
 
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL", "", "");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 在上述程式碼中，以行動應用程式後端 URL 取代 `MOBILE_APP_URL`，這位於 Azure Preview 入口網站的 [行動應用程式] 刀鋒視窗中。
 
@@ -343,13 +342,15 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 
         MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 
+請注意，所有的標記都將因安全性而移除。若要在安裝中將標記新增至安裝或範本，請參閱[使用 Azure Mobile Apps 的 .NET 後端伺服器SDK]。
+
 若要利用這些已註冊的範本傳送通知，請使用[通知中樞 API](https://msdn.microsoft.com/library/azure/dn495101.aspx)。
 
 ##<a name="optimisticconcurrency"></a>作法：使用開放式並行存取
 
 在部分案例中，兩個或多個用戶端可能會同時對相同項目寫入變更。在沒有偵測到任何衝突的情況下，最後寫入將覆寫任何先前的更新，即使這不是您想要的結果。*開放式並行存取控制項*會假設每筆交易都可以認可，因此不會使用任何資源鎖定。在認可交易之前，開放式並行存取控制項會驗證沒有其他交易已修改此資料。如果資料已修改，則會復原認可的交易。
 
-Mobile Apps 支援開放式並行存取控制項，方法是使用 `__version` 系統屬性資料行來追蹤對每個項目的變更，該資料行是針對行動應用程式後端中的每個資料表所定義的。每當更新記錄時，Mobile Apps 會將該筆記錄的 `__version` 屬性設定為新值。在每次更新要求期間，要求所提供的該筆記錄 `__version` 屬性會與伺服器上該筆記錄的相同屬性進行比對。如果隨著要求傳遞的版本與後端不符，則用戶端程式庫會引發 `MobileServicePreconditionFailedException<T>`。例外狀況所提供的類型是來自包含該筆記錄伺服器版本的後端記錄。接著應用程式可以使用此資訊，來判斷是否要針對後端的正確 `__version` 值來執行更新要求以認可變更。
+Mobile Apps 支援開放式並行存取控制項，方法是使用 `__version` 系統屬性資料行來追蹤對每個項目的變更，該資料行是針對行動應用程式後端中的每個資料表所定義的。每當更新記錄時，Mobile Apps 會將該筆記錄的 `__version` 屬性設定為新值。在每次更新要求期間，要求所提供的該筆記錄 `__version` 屬性會與伺服器上該筆記錄的相同屬性進行比對。如果隨著要求傳遞的版本與後端不符，則用戶端程式庫會引發 `MobileServicePreconditionFailedException<T>`。例外狀況所提供的類型是來自包含該筆記錄伺服器版本的後端記錄。接著應用程式可以使用此資訊，來決定是否要針對後端的正確 `__version` 值來執行更新要求以認可變更。
 
 為了要啟用開放式並行存取，應用程式在 `__version` 系統屬性的資料表類別上定義了資料行。下列定義提供了範例。
 
@@ -461,14 +462,14 @@ Mobile Apps 支援開放式並行存取控制項，方法是使用 `__version` �
 		lb.ItemsSource = items;
 
 
-若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>`上使用 `ToCollection` extension method若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
+若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>` 上使用 `ToCollection` 擴充方法。若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 當您使用藉由呼叫 `ToCollectionAsync` 或 `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。此集合有分頁感知功能，例如，控制項可要求集合「載入更多項目」，集合便會為此控制項執行此動作。此時，控制項會在未涉及使用者程式碼的情況下啟動流程。不過，因為集合會從網路中載入資料，因此載入有時候可能會失敗。若要處理這類失敗，您可以覆寫 `MobileServiceIncrementalLoadingCollection` 上的 `OnException` 方法，以處理呼叫控制項執行的 `LoadMoreItemsAsync` 時，所造成的例外狀況。
 
-最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述[選取特定資料欄](#selecting)一節中的指引，以選取要在 UI 中顯示的特定資料欄。
+最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述＜[選取特定資料欄](#selecting)＞一節中的指引，以選取要在 UI 中顯示的特定資料欄。
 
 <!--- We want to just point to the authentication topic when it's done
 ##<a name="authentication"></a>How to: Authenticate users
@@ -722,6 +723,7 @@ Mobile Apps 用戶端程式庫使用 Json.NET 在用戶端上將 JSON 回應轉�
 
 <!-- URLs. -->
 [Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[使用 Azure Mobile Apps 的 .NET 後端伺服器SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
@@ -741,4 +743,4 @@ Mobile Apps 用戶端程式庫使用 Json.NET 在用戶端上將 JSON 回應轉�
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -286,14 +286,14 @@ HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用�
 * 建立可在叢集中的每個節點上一秒顯示數字 1 到 10 的殼層指令碼，加以執行並立即顯示節點的輸出。
 
     ```
-    > clusrun /interleaved echo "for i in {1..10}; do echo \"\$i\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 >[AZURE.NOTE]您可能需要在 **clusrun** 命令中使用逸出字元。如此範例所示，在命令視窗中使用 ^ 來逸出 ">" 符號。
 
 ## 後續步驟
 
-* 嘗試在叢集上執行 Linux 工作負載。如需範例，請參閱[在 Azure 中的 Linux 運算節點以 Microsoft HPC Pack 執行 NAMD](virtual-machines-linux-cluster-hpcpack-namd.md)。
+* 嘗試在叢集上執行 Linux 工作負載。如需範例，請參閱[在 Azure 中的 Linux 運算節點以 Microsoft HPC Pack 執行 NAMD](virtual-machines-linux-cluster-hpcpack-namd.md)或[在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 OpenFOAM](virtual-machines-linux-cluster-hpcpack-openfoam.md)。
 
 * 嘗試將叢集相應增加至大量節點，或部署大小 [A8 或 A9](virtual-machines-a8-a9-a10-a11-specs.md) 運算節點以執行 MPI 工作負載。
 
@@ -313,4 +313,4 @@ HPC Pack **clusrun** 工具可透過 [命令] 視窗或 HPC 叢集管理員用�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

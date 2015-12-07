@@ -279,9 +279,7 @@
 8.	在最上層的下拉式清單中選取 [**下階使用者物件**]。
 9.	在顯示的 [**權限項目**] 對話方塊中，勾選 [**重設密碼**]、[**變更密碼**]、[`lockoutTime` 的**寫入權限**] 和 [`pwdLastSet` 的**寫入權限**] 的方塊。
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	然後在所有開啟的對話方塊中按一下 [**套用/確定**]。
 
@@ -308,7 +306,7 @@
 ## 密碼重設文件的連結
 以下是所有 Azure AD 密碼重設文件頁面的連結：
 
-* [**重設自己的密碼**](active-directory-passwords-update-your-own-password) - 了解身為系統使用者如何重設或變更自己的密碼
+* [**重設自己的密碼**](active-directory-passwords-update-your-own-password.md) - 了解身為系統使用者如何重設或變更自己的密碼
 * [**運作方式**](active-directory-passwords-how-it-works.md) - 了解六個不同的服務元件及其功能
 * [**自訂**](active-directory-passwords-customize.md) - 了解如何依照組織的需求自訂外觀和服務行為
 * [**最佳作法**](active-directory-passwords-best-practices.md) - 了解如何快速部署且有效管理組織的密碼
@@ -352,4 +350,4 @@
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

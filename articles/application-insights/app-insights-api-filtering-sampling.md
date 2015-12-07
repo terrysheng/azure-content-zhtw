@@ -24,41 +24,38 @@
 目前這些功能適用於 ASP.NET SDK。
 
 * [取樣](#sampling)可減少遙測的量而不會影響統計資料。它可將相關資料點寶持放在一起，因此您診斷問題時，能夠在資料點之間瀏覽。在入口網站中將乘以總計數，以補償取樣。
+ * 固定取樣率可讓您決定傳送事件的百分比。
+ * 調適性取樣 (預設的 ASP.NET SDK 從 2.0.0-beta3) 會根據您遙測的量自動調整取樣率。您可以設定目標量。
 * [篩選](#filtering)可讓您先在 SDK 中選取或修改遙測，再將遙測傳送到伺服器。例如，您可以從傀儡程式中排除要求來減少遙測量。和取樣相比，這是減少流量更基本的方法。它可讓您更充分掌握傳輸內容，但是您必須注意，它會影響統計資料 (例如，若您要篩選所有成功的要求)。
 * [加入屬性](#add-properties)至從應用程式傳送出來的任何遙測，包括從標準模組傳送出來的遙測。例如，您可以新增計算好的值，或是用來在入口網站中篩選資料的版本號碼。
-* [SDK API](app-insights-api-custom-events-metrics.md) 可用來傳送自訂事件和度量。
+* [SDK API](app-insights-api-custom-events-metrics.md) 可用來傳送自訂事件和計量。
 
 開始之前：
 
 * 在應用程式中安裝 [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md)。手動安裝 NuGet 封裝並選取最新的*發行前版本*。
-* 請嘗試 [Application Insights API](app-insights-api-custom-events-metrics.md)。 
+* 試用 [Application Insights API](app-insights-api-custom-events-metrics.md)。 
 
 
 ## 取樣
 
 *這項功能處於 Beta 版。*
 
-減少流量同時保留準確的統計資料所建議的方式。篩選器會選取相關的項目，使得您可以瀏覽診斷中的項目。事件計數會在計量瀏覽器中調整，以補償所篩選的項目。
+[取樣](app-insights-sampling.md)是減少流量同時保留準確的統計資料所建議的方式。篩選器會選取相關的項目，使得您可以瀏覽診斷中的項目。事件計數會在計量瀏覽器中調整，以補償所篩選的項目。
 
-1. 將您專案的 NuGet 封裝更新為最新的 Application Insights *發行前版本*。以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。 
+* 建議使用調適性取樣。它會自動調整取樣百分比，以達到特定的要求量。目前僅供 ASP.NET 伺服器端遙測使用。  
+* 固定取樣率也可供使用。由您指定取樣百分比。可供 ASP.NET Web 應用程式程式碼和 JavaScript Web 頁面使用。用戶端和伺服器會同步處理它們的取樣，讓您可以在 [搜尋] 終於相關的頁面檢視和要求之間瀏覽。
 
-2. 將這個程式碼片段加入 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)：
+### 啟用取樣
 
-```XML
+**更新專案的 NuGet** 套件至最新的 Application Insights「預先發行」版本：以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+您可以針對下列項目，在 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中調整演算法所針對最大的遙測率：
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10, 1 (=100/100), 0.1 (=100/1000) ... -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
 
-```
+### 用戶端端取樣
 
-
-若要取樣源自網頁的資料，請在您插入 (通常是如 \_Layout.cshtml 的主要頁面) 的 [Application Insights 程式碼片段](app-insights-javascript.md)中放置額外的程式碼行：
+若要取得源自網頁固定取樣率的資料，請在您插入 (通常是如 \_Layout.cshtml 的主要頁面) 的 [Application Insights 程式碼片段](app-insights-javascript.md)中放置額外的程式碼行：
 
 *JavaScript*
 
@@ -72,10 +69,8 @@
 	}); 
 ```
 
-* 設定等於 100/N 的百分比 (在這些範例中為 10)，其中 N 是整數，例如 50 (=100/2)、33.33 (=100/3)、25 (=100/4) 或 10 (=100/10)。 
-* 若有許多資料，您可使用非常低的抽樣率，例如 0.1。
-* 如果您同時在網頁和伺服器中設定取樣，請確定在兩端中設定相同的取樣百分比。
-* 用戶端和伺服器端會協調以選取相關的項目。
+* 設定等於 100/N 的百分比 (在這個範例中為 10)，其中 N 是整數，例如 50 (=100/2)、33.33 (=100/3)、25 (=100/4) 或 10 (=100/10)。 
+* 如果您在伺服器端啟用[固定取樣率](app-insights-sampling.md)，用戶端和伺服器會同步處理它們的取樣，讓您可以在 [搜尋] 終於相關的頁面檢視和要求之間瀏覽。
 
 [深入了解取樣](app-insights-sampling.md)。
 
@@ -91,7 +86,7 @@
 
 ### 建立遙測處理器
 
-1. 將 Application Insights SDK 更新為最新版本 (2.0.0-beta2 或更新版本)。在 Visual Studio 方案總管中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。在 [NuGet 封裝管理員] 中，核取 [Include Prerelease]，然後搜尋 Microsoft.ApplicationInsights.Web。
+1. 將 Application Insights SDK 更新為最新版本 (2.0.0-beta2 或更新版本)。在 Visual Studio 方案總管中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。在 [NuGet 套件管理員] 中，選取 [包含發行前版本] 核取方塊，然後搜尋 Microsoft.ApplicationInsights.Web。
 
 1. 若要建立篩選器，請實作 ITelemetryProcessor。這是遙測模組、遙測初始設定式和遙測通道之類的另一個擴充點。
 
@@ -162,9 +157,9 @@
 > [AZURE.WARNING]仔細地將 .config 檔案中的類型名稱和任何屬性名稱與程式碼中的類別和屬性名稱做比對。如果 .config 檔案參考不存在的類型或屬性，SDK 可能無法傳送任何遙測，而且不會產生任何訊息。
 
  
-**或者**，您也可以在程式碼中初始化篩選。在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
+或者，您也可以在程式碼中初始化篩選。在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
 
-    ```C#
+```C#
 
     var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -174,7 +169,7 @@
 
     builder.Build();
 
-    ```
+```
 
 在這個點之後建立的 TelemetryClients 會使用您的處理器。
 
@@ -409,4 +404,4 @@ public void Process(ITelemetry item)
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

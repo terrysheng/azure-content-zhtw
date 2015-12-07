@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # 在組織中設定 Azure AD Join
@@ -48,11 +48,10 @@
 - 使用者可在個人裝置上將工作帳戶新增至 Windows 
 
 ## 其他資訊
-
 * [適合企業使用的 Windows 10：使用裝置工作的方式](active-directory-azureadjoin-windows10-devices-overview.md)
 * [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
 * [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

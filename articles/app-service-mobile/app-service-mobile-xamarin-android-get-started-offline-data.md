@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/22/2015"
     ms.author="wesmc"/>
 
 # 啟用您 Xamarin.Android 行動應用程式的離線同步處理
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 
@@ -42,12 +40,14 @@
 
 * 必須先初始化本機存放區，才可以執行資料表作業。當 `ToDoActivity.OnCreate()` 執行 `ToDoActivity.InitLocalStoreAsync()` 時會初始化本機存放區資料庫。這會使用 Azure 行動應用程式用戶端 SDK 所提供之 `MobileServiceSQLiteStore` 類別，建立新的本機 SQLite 資料庫。 
  
-	`DefineTable` 方法會在本機存放區中建立與給定類型中的欄位相符的資料表，在此案例中為 `ToDoItem`。該類型不必包含遠端資料庫中的所有資料行。可以只儲存資料行的子集。// ToDoActivity.cs
+	`DefineTable` 方法會在本機存放區中建立與給定類型中的欄位相符的資料表，在此案例中為 `ToDoItem`。該類型不必包含遠端資料庫中的所有資料行。可以只儲存資料行的子集。
 
+		// ToDoActivity.cs
         private async Task InitLocalStoreAsync()
         {
             // new code to initialize the SQLite store
-            string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
+            string path = Path.Combine(System.Environment
+				.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
 
             if (!File.Exists(path))
             {
@@ -58,7 +58,8 @@
             store.DefineTable<ToDoItem>();
 
             // Uses the default conflict handler, which fails on conflict
-            // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
+            // To use a different conflict handler, pass a parameter to InitializeAsync. 
+			// For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 
@@ -69,11 +70,10 @@
 
 	每當重新整理 todoitem 清單或是已新增或完成 todoitem 時，提供的程式碼會呼叫 `ToDoActivity.SyncAsync()` 來進行同步處理。因此，它會在每次本機變更執行同步處理內容推送和同步處理資料表提取之後同步處理。不過，請務必了解，如果針對具有內容追蹤之擱置中本機更新的資料表執行提取，該提取作業將會先自動觸發內容推送。因此，在這些情況下 (重新整理、加入和完成項目) 您可以省略明確 `PushAsync` 呼叫。它是多餘的。
 
-    在提供的程式碼中，遠端 `TodoItem` 資料表中的所有記錄都會進行查詢，但是也可能透過將查詢識別碼與查詢傳遞至 `PushAsync` 來篩選記錄。如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]中的*增量同步處理*一節。
+    在提供的程式碼中，遠端 `TodoItem` 資料表中的所有記錄都會進行查詢，但是也可能透過將查詢識別碼與查詢傳遞至 `PushAsync` 來篩選記錄。如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]中的＜增量同步處理＞一節。
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
 -->	// ToDoActivity.cs
-
         private async Task SyncAsync()
         {
 			try {
@@ -95,11 +95,11 @@
 
 在本節中，您將透過使用無效的後端應用程式 URL，修改用戶端應用程式來模擬離線案例。當您新增或變更資料項目時，這些變更會存放在本機存放區，但不會同步處理到後端資料存放區，直到重新建立連線為止。
 
-1. 在 `ToDoActivity.cs` 的頂端，變更 `applicationURL` 和 `gatewayURL` 的初始設定，以指向無效的 URL：
+1. 在 `ToDoActivity.cs` 的頂端，變更 `applicationURL` 的初始設定，以指向無效的 URL：
 
-        const string applicationURL = @"https://your-service.azurewebsites.xxx/"; 
-        const string gatewayURL = @"https://your-gateway.azurewebsites.xxx";
+        const string applicationURL = @"https://your-service.azurewebsites.fail/"; 
 
+	請注意，當應用程式也使用驗證時，這會導致登入失敗。您也可以透過停用裝置的 WiFi 和行動電話通訊網路，或使用飛航模式來示範離線行為。
 
 2. 更新 `ToDoActivity.SyncAsync`，這樣一來會假設您已是離線狀態而攔截並忽略 `MobileServicePushFailedException`。
 
@@ -135,7 +135,7 @@
 
 在本節中，您會將應用程式重新連接到行動後端，而模擬回到線上狀態的應用程式。當您執行重新整理動作時，資料將會同步處理至您的行動後端中。
 
-1. 開啟 `ToDoActivity.cs`。更正 `applicationURL` 和 `gatewayURL`，以指向正確的 URL。
+1. 開啟 `ToDoActivity.cs`。更正 `applicationURL` 以指向正確的 URL。
 
 2. 重新建置並執行應用程式。應用程式嘗試於啟動後與 Azure 行動應用程式後端同步處理。請確認沒有出現任何例外狀況對話方塊。
 
@@ -147,7 +147,7 @@
 
 * [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
+* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure Mobile Apps 中的方式)
 
 <!-- ##Summary
 
@@ -174,4 +174,4 @@
 
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

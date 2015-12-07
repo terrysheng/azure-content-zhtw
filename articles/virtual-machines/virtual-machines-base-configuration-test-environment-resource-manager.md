@@ -108,7 +108,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/DC1-TestLab-ADDSDisk.vhd"
 	Add-AzureRMVMDataDisk -VM $vm -Name ADDS-Data -DiskSizeInGB 20 -VhdUri $vhdURI  -CreateOption empty
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC1." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC1."
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName DC1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -118,7 +118,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 
 接著，連接到 DC1 虛擬機器。
 
-1.	在 Azure Preview 入口網站的左窗格中，按一下 [瀏覽全部]，按一下 [瀏覽] 清單中的 [虛擬機器]，然後按一下 [DC1] 虛擬機器。  
+1.	在 Azure Preview 入口網站的左窗格中，按一下 [**瀏覽全部**]，再按一下 [**瀏覽**] 清單中的 [**虛擬機器**]，然後按一下 [**DC1**] 虛擬機器。  
 2.	在 [DC1] 窗格中按一下 [連接]。
 3.	出現提示時，開啟下載的 DC1.rdp 檔案。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
@@ -130,7 +130,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] \([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -147,7 +147,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 
 DC1 重新啟動之後，重新連接到 DC1 的虛擬機器。
 
-1.	在 Azure Preview 入口網站的左窗格中，按一下 [瀏覽全部]，按一下 [瀏覽] 清單中的 [虛擬機器]，然後按一下 [DC1] 虛擬機器。
+1.	在 Azure Preview 入口網站的左窗格中，按一下 [瀏覽全部]，再按一下 [瀏覽] 清單中的 [虛擬機器]，然後按一下 [DC1] 虛擬機器。
 2.	在 [DC1] 窗格中按一下 [連接]。
 3.	提示開啟 DC1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
@@ -187,7 +187,7 @@ APP1 提供網頁和檔案共用服務。
 	$nic = New-AzureRMNetworkInterface -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 	$vm=New-AzureRMVMConfig -VMName APP1 -VMSize Standard_A1
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for APP1." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for APP1."
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName APP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -236,10 +236,10 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	$nic = New-AzureRMNetworkInterface -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 	$vm=New-AzureRMVMConfig -VMName CLIENT1 -VMSize Standard_A1
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for CLIENT1." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for CLIENT1."
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName CLIENT1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id	
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/CLIENT1-TestLab-OSDisk.vhd"
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name CLIENT1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
@@ -310,4 +310,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

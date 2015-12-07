@@ -1,7 +1,7 @@
 <properties
 	pageTitle="使用 Azure CLI 搭配資源管理員 | Microsoft Azure"
 	description="了解如何使用適用於 Mac、Linux 和 Windows 的 Azure CLI，在 Azure 資源管理員模式中使用 CLI 管理 Azure 資源。"
-	services="virtual-machines,mobile-services,cloud-services"
+	services="virtual-machines,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="danlep"/>
 
 # 搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員
@@ -45,16 +45,16 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 
 - 一個 Azure 帳戶 ([在此取得免費試用](http://azure.microsoft.com/pricing/free-trial/))
 - [安裝 Azure CLI](../xplat-cli-install.md)
-- [設定 Azure CLI](../xplat-cli-connect.md) 以使用 Azure Active Directory 身分識別或服務主體
+
 
 一旦您擁有帳戶並已安裝 Azure CLI，您必須
 
-- 輸入 `azure config mode arm` 切換至資源管理員模式。
-- 輸入 `azure login` 來登入您的 Azure 帳戶，並依照提示使用您工作或學校的身分識別
+- [設定 Azure CLI](../xplat-cli-connect.md)，以便使用公司或學校帳戶，或是 Microsoft 帳戶身分識別 
+- 輸入 `azure config mode arm` 切換至資源管理員模式
 
 
-## azure account：用來管理帳戶資訊及發佈設定
-此工具會使用您的 Azure 訂閱資訊來連線至您的帳戶。您可以從 Azure 入口網站取得這些資訊 (在發佈設定檔中，本文將有說明)。您可以匯入發佈設定檔，作為這個工具後續作業所使用的持續性本機組態設定。您的發佈設定只需匯入一次即可。
+## azure account：用來管理帳戶資訊
+此工具會使用您的 Azure 訂閱資訊來連線至您的帳戶。
 
 **列出匯入的訂用帳戶**
 
@@ -1760,4 +1760,4 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

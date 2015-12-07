@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="11/05/2015"
+  ms.date="11/23/2015"
   ms.author="andrl"/>
 
 # 社群入口網站
@@ -45,6 +45,14 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 在 [Github](https://github.com/mingaliu/DocumentDBStudio) 上了解相關資訊。
 
 
+### DoQmentDB
+
+*由 Ariel Mashraki 撰寫*
+
+DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB 的頂端提供類似 MongoDB 的階層。
+
+在 [Github](https://github.com/a8m/doqmentdb) 和 [npm](https://www.npmjs.com/package/doqmentdb) 上了解相關資訊。
+
 <br/><br/>
 
 *在 [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories) 上尋找更多開放原始碼 DocumentDB 專案。*
@@ -62,6 +70,16 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 <br/>
 
 **社群貼文：**
+
+* [**資料點 - 當 Aurelia 遇上 DocumentDB：媒人之旅**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *由 Julie Lerman 撰寫*
+
+* [**基礎結構即程式碼與連續部署 Node.js + Azure DocumentDB 方案**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *由 Thiago Almedia 撰寫*
+
+* [**為何 DocumentDb 對某些專案而言確實有其商業價值**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) - *由 Samuel Uresin 撰寫*
+
+* [**Azure DocumentDB の開発ことはじめ - Client クラスの開発（1/2）**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *由 Atsushi Yokohama 撰寫*
+
+* [**Azure DocumentDB を使うときに知っておきたいいくつかのこと**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *由 Atsushi Yokohama 撰寫*
 
 * [**在 Azure DocumentDB 中處理 RequestRateTooLarge 錯誤及測試效能**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *由 Azim Uddin 撰寫*
 
@@ -89,7 +107,6 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 
 | 活動名稱 | 位置 | 日期 | Hashtag |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [Integration User Group](http://www.integrationusergroup.com/) | Webinar | 2015 年 11 月 9 日 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | 加拿大魁北克省蒙特婁 | 2015 年 12 月 1 日 | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
 
 *您要舉辦活動嗎？ [告訴我們](mailto:askdocdb@microsoft.com)如何提供協助！*
@@ -98,6 +115,7 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 
 | 活動名稱 | 位置 | 日期 | 記錄 |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [聚會：SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | 美國華盛頓州西雅圖 | 2015 年 11 月 12 日 | n/a |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | 美國華盛頓州西雅圖 | 2015 年 10 月 27-30 日 | n/a |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | 美國俄亥俄州哥倫布 | 2015 年 10 月 23 日 | n/a |
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | 保加利亞索菲亞 | 2015 年 10 月 10 日 | n/a |
@@ -125,6 +143,7 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 
 | 顯示 | 日期 | 劇集 |
 | ------------------------------------------- | ------------------ | ------- |
+| Integration User Group | 2015 年 11 月 9 日 | [適用於醫療保健整合的 Azure DocumentDB – 第 2 部分](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Integration User Group | 2015 年 10 月 5 日 | [適用於醫療保健整合的 Azure DocumentDB](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | DX Italy - #TecHeroes | 2015 年 10 月 2 日 | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
 | Microsoft Cloud 節目 - 播客 | 2015 年 9 月 30 日 | [099 集 - 與 Andrew Liu 暢談 Azure DocumentDB](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
@@ -186,7 +205,7 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 
 | | |
 | -------------------------------------------------------- | --- |
-|![小組](./media/documentdb-community/documentdb-team.png) | 您需要技術協助嗎？ 有任何疑問嗎？ 想知道 NoSQL 是否適合您嗎？<br/><br/>您可以[安排直接與 DocumentDB 工程小組進的 1 對 1 交談](http://www.askdocdb.com/)。<br/><br/>您也可以傳送[電子郵件](mailto:askdocdb@microsoft.com)給我們或在 [@DocumentDB](https://twitter.com/DocumentDB) 推文給我們。 |
+|![小組](./media/documentdb-community/documentdb-team.png) | 您需要技術協助嗎？ 有任何疑問嗎？ 想知道 NoSQL 是否適合您嗎？<br/><br/>您可以[安排直接與 DocumentDB 工程小組進行 1 對 1 交談](http://www.askdocdb.com/)。<br/><br/>您也可以傳送[電子郵件](mailto:askdocdb@microsoft.com)給我們或在 [@DocumentDB](https://twitter.com/DocumentDB) 推文給我們。 |
 
 
 <br/><br/>
@@ -215,4 +234,18 @@ Microsoft Azure DocumentDB 服務的用戶端管理檢視器/總管。
 | Hadoop 連接器 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 資料移轉工具 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 下載中心](http://www.microsoft.com/zh-TW/download/details.aspx?id=46436) |
 
-<!---HONumber=Nov15_HO3-->
+<hr/>
+
+## DocumentDB 精靈
+
+<hr/>
+
+DocumentDB 精靈是社群領導者，他們是在協助其他人充分利用他們在 Azure DocumentDB 上之經驗的最佳典範。他們和社群及 DocumentDB 小組分享了他們超乎常人的熱情、實用的知識以及技術專長。
+
+| | | | |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Allan Mitchell](https://twitter.com/allansqlis) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Jen Stirrup](https://twitter.com/jenstirrup) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Lenni Lobel](https://twitter.com/lennilobel) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Mihail Mateev](https://twitter.com/mihailmateev)|
+
+想要成為 DocumentDB 精靈？ 由於是否能成為 DocumentDB 精靈並沒有任何評斷基準，因此我們會針對部分條件來評估，包括被提名人在線上論壇 (例如 StackOverflow 和 MSDN；Wiki 和線上內容；會議和使用者群組；播客；網站；部落格和社群媒體；以及文章與書籍) 中提供之貢獻所產生的影響。您可以[寄送電子郵件給我們](mailto:askdocdb@microsoft.com)來提名自己或其他人。
+
+<!---HONumber=AcomDC_1125_2015-->

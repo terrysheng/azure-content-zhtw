@@ -18,6 +18,12 @@
 
 #Windows Phone Silverlight SDK 版本資訊
 
+##3\.1.0 (11/20/2015)
+*MicrosoftAzure.MobileEngagement* Nuget 套件 **v3.2.0** 的一部分。
+
+-   修正初始化之後立即要求裝置 ID 時發生的當機。
+-   主控台記錄檔改善。
+
 ##3\.0.0 (2015/04/03)
 
 -   預設通知圖示已更新。
@@ -31,4 +37,4 @@
 -   增強安全性。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="在 Azure 入口網站中建立 VM 的 FQDN | Microsoft Azure"
+   pageTitle="在 Azure Preview 入口網站中建立 VM 的 FQDN | Microsoft Azure"
    description="了解如何在 Azure Preview 入口網站中為基於資源管理員的虛擬機器建立完整格式的網域名稱或 FQDN。"
    services="virtual-machines"
    documentationCenter=""
@@ -54,4 +54,4 @@
 
     您可以立即使用這個 DNS 名稱從遠端連線到虛擬機器。例如，連接到具有完整網域名稱 `testdnslabel.eastus.cloudapp.azure.com` 和使用者名稱 `adminuser` 的 Linux 虛擬機器時使用 `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

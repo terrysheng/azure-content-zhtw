@@ -3,9 +3,9 @@
 	description="了解如何搭配使用 Azure App Service 中的 Web 應用程式和 io.js。" 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="felixrieseberg" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson" />
+	ms.date="11/20/2015"
+	ms.author="robmcm" />
 
 # 如何搭配使用 io.js 和 Azure App Service Web Apps
 
@@ -27,7 +27,7 @@
 
 部署 Node.js 應用程式時，App Service Web Apps 會執行一些小型命令，以確保會正確設定環境。使用部署指令碼，可自訂此程序來加入 io.js 的下載和組態。
 
-[Io.js 部署指令碼]可在 GitHub 上取得。若要在 Web 應用程式上啟用 io.js，只要將 **.deployment**、**deploy.cmd** 和 **IISNode.yml** 複製到應用程式資料夾的根目錄，以及部署至 Web Apps。
+[Io.js 部署指令碼](https://github.com/felixrieseberg/iojs-azure)可在 GitHub 上取得。若要在 Web 應用程式上啟用 io.js，只要將 **.deployment**、**deploy.cmd** 和 **IISNode.yml** 複製到應用程式資料夾的根目錄，以及部署至 Web Apps。
 
 第一個檔案 **.deployment** 會在部署時指示 Web Apps 執行 **deploy.cmd**。此指令碼會針對 Node.js 應用程式執行所有一般步驟，但也會下載最新版的 io.js。最後，**IISNode.yml** 會設定 Web Apps 使用剛才下載的 io.js 二進位檔，而不是預先安裝的 Node.js 二進位檔。
 
@@ -58,7 +58,7 @@
 [io.js]: https://iojs.org
 [io.js 散發]: https://iojs.org/dist/
 [GitHub 上的 io.js]: https://github.com/iojs/io.js
-[Io.js 部署指令碼]: https://github.com/felixrieseberg/iojs-azure
+[io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

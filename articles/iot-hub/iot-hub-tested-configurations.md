@@ -92,7 +92,7 @@ Azure IoT 程式庫已在下列作業系統平台上測試：
 
 ## CSharp
 
-[適用於 .NET 的 Microsoft Azure IoT 裝置 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/readme.md) 已經過下列組態測試：
+[適用於 .NET 的 Microsoft Azure IoT 裝置 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md) 已經過下列組態測試：
 
 |作業系統平台| 版本|通訊協定|
 |:---------|:----------:|:----------:|
@@ -130,4 +130,4 @@ Azure IoT 程式庫已在下列作業系統平台上測試：
 
 在[這裡](http://azure.com/iotdev)深入了解使用** IoT 裝置的認證**開發解決方案的相關資訊。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -28,9 +28,9 @@
 
 ### 在單一 VM 上部署 SQL Server 執行個體
 
-在註冊訂用帳戶之後，若要在 Azure 中部署 SQL Server 虛擬機器，最簡單的方式就是[在 Azure 管理入口網站中佈建 SQL Server 機器資源庫映像](virtual-machines-provision-sql-server.md)。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。
+在註冊訂用帳戶之後，若要在 Azure 中部署 SQL Server 虛擬機器，最簡單的方式就是[在 Azure 入口網站中佈建 SQL Server 機器資源庫映像](virtual-machines-provision-sql-server.md)。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。
 
->[AZURE.NOTE]使用[新的入口網站](https://manage.windowsazure.com)佈建及管理 SQL Server 虛擬機器。預設使用進階儲存體，並提供自動化修補、自動化備份及 AlwaysOn 組態。
+>[AZURE.NOTE]使用 Azure Preview 入口網站佈建及管理 SQL Server 虛擬機器。預設使用進階儲存體，並提供自動化修補、自動化備份及 AlwaysOn 組態。
 
 下表提供虛擬機器資源庫中的可用 SQL Server 映像比較。
 
@@ -48,7 +48,7 @@
 
 除了這些預先設定的映像之外，您也可以在不預先安裝 SQL Server 的狀況下，[建立 Azure 虛擬機器](virtual-machines-windows-tutorial.md)。您可以安裝任何您擁有授權的 SQL Server 執行個體。將您的授權移轉至 Azure，以使用 [Azure 上透過軟體保證的授權流動性](http://azure.microsoft.com/pricing/license-mobility/)，在 Azure 虛擬機器中執行 SQL Server。在此案例中，您只需支付與虛擬機器相關聯的 Azure 計算和儲存體[成本](http://azure.microsoft.com/pricing/details/virtual-machines)。
 
-為判斷 SQL Server 映像的最佳虛擬機器組態設定，請檢閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)。針對生產環境的工作負載，建議的 SQL Server Enterprise Edition 的虛擬機器大小至少為 **DS3**，Standard Edition 的虛擬機器大小至少為 **DS2**。
+為判斷 SQL Server 映像的最佳虛擬機器組態設定，請檢閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)。針對生產環境的工作負載，建議的 SQL Server Enterprise Edition 的虛擬機器大小至少為 **DS3**，Standard Edition 的虛擬機器大小至少為 **DS2**。
 
 除了檢閱效能最佳作法、 其他初始工作還包括：
 
@@ -61,7 +61,7 @@
 
 ## 高可用性
 
-如果您需要高可用性，請考慮設定 SQL Server AlwaysOn 可用性群組。這牽涉到虛擬網路中多個 Azure VM。Azure Preview 入口網站有一個範本，己經有您需要的設定。如需詳細資訊，請參閱 [Microsoft Azure 入口網站組件庫提供的 SQL Server AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。
+如果您需要高可用性，請考慮設定 SQL Server AlwaysOn 可用性群組。這牽涉到虛擬網路中多個 Azure VM。Azure Preview 入口網站有一個範本，己經有您需要的設定。如需詳細資訊，請參閱 [ Azure 資源庫提供的 SQL Server AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。
 
 如果您想要手動設定可用性群組和相關聯的接聽程式，請參閱下列文章：
 
@@ -112,7 +112,7 @@
 |Data Quality Services|已安裝 (僅限 SQL Server 2012 或更新版本)|
 |Master Data Services|已安裝 (僅限 SQL Server 2012 或更新版本)。需要[其他組態和元件](https://msdn.microsoft.com/library/ee633752.aspx)
 |PowerPivot for SharePoint|可用 (僅限 SQL Server 2012 或更新版本)。需要其他組態和元件 (包括 SharePoint)|
-|Distributed Replay Client|可用 (僅限 SQL Server 2012 或更新版本)，但未安裝。請參閱[從平台提供之 SQL Server 映像執行 SQL Server 安裝](#run-sql-server-setup-from-the-platform-provided-sql-server-image)|
+|Distributed Replay Client|可用 (僅限 SQL Server 2012 或更新版本)，但未安裝。請參閱〈[從平台提供之 SQL Server 映像執行 SQL Server 安裝](#run-sql-server-setup-from-the-platform-provided-sql-server-image)〉|
 |工具|所有工具，包括 SQL Server Management Studio、SQL Server 組態管理員、Business Intelligence Development Studio、SQL Server 安裝程式、用戶端工具連接性、用戶端工具 SDK 和 SQL 用戶端連接性 SDK，以及升級和移轉工具，例如資料層應用程式 (DAC)、備份、還原、附加及卸離|
 |SQL Server 線上叢書|已安裝，但需要使用說明檢視器的組態|
 
@@ -138,7 +138,7 @@
 
 如果您使用平台提供的 SQL Server 映像來建立虛擬機器，可以在以下位置找到儲存在虛擬機器上的 SQL Server 安裝程式媒體：**C:\\SqlServer\_SQLMajorVersion.SQLMinorVersion\_Full** 目錄。您可以從這個目錄執行安裝程式，以執行任何安裝程式的動作，包括新增或移除功能、加入新的執行個體，或在磁碟空間允許的情況下修復執行個體。
 
->[AZURE.NOTE]Azure 入口網站上提供多個 SQL Server 映像版本。如果 SQL Server 平台提供的映像版本是在 2014 年 5 月 15 日或之後發行，則預設會包含產品金鑰。如果您用來佈建虛擬機器的平台提供 SQL Server 映像是在此日期之前發行，則該 VM 沒有包含產品金鑰。我們建議您在佈建新 VM 時，最佳做法是一律選取最新的映像版本。
+>[AZURE.NOTE]Azure 提供多個 SQL Server 映像版本。如果 SQL Server 平台提供的映像版本是在 2014 年 5 月 15 日或之後發行，則預設會包含產品金鑰。如果您用來佈建虛擬機器的平台提供 SQL Server 映像是在此日期之前發行，則該 VM 沒有包含產品金鑰。我們建議您在佈建新 VM 時，最佳做法是一律選取最新的映像版本。
 
 ## 資源
 
@@ -148,4 +148,4 @@
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure 虛擬機器](virtual-machines-about.md) 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

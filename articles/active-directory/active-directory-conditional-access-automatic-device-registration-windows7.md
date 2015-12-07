@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # 為加入網域的 Windows 7 裝置設定自動註冊裝置
@@ -52,4 +52,12 @@ Windows 7 的裝置註冊是[可下載的 MSI 套件](https://connect.microsoft.
 
 Windows 7 電腦上的 Windows 事件記錄檔會顯示與「加入工作場所」相關的訊息。您可以找到「加入工作場所」成功及失敗事件的訊息。事件記錄檔可以在 [事件檢視器] 的 [應用程式及服務記錄檔] > [Microsoft 加入工作場所] 下找到。
 
-<!---HONumber=Nov15_HO1-->
+## 其他主題
+
+- [Azure Active Directory 裝置註冊概觀](active-directory-conditional-access-device-registration-overview.md)
+- [自動向 Azure Active Directory 註冊加入網域的 Windows 裝置](active-directory-conditional-access-automatic-device-registration.md)
+- [為加入網域的 Windows 8.1 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+ 
+
+<!---HONumber=AcomDC_1125_2015-->

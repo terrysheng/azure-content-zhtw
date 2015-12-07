@@ -216,13 +216,15 @@ Service Fabric 將所有百分比轉譯為健康狀態評估的實體實際數�
 
 ## 後續步驟
 
-[升級教學課程](service-fabric-application-upgrade-tutorial.md)
+[使用 Visual Studio 進行 Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
+
+[使用 PowerShell 進行 Service Fabric 應用程式升級](service-fabric-application-upgrade-powershell.md)
 
 [升級參數](service-fabric-application-upgrade-parameters.md)
 
-[進階主題](service-fabric-application-upgrade-advanced.md)
+[手動升級及使用差異封裝進行升級](service-fabric-application-upgrade-advanced.md)
 
 [資料序列化](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

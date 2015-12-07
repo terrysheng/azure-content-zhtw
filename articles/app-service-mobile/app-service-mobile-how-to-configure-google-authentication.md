@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # 如何設定 App Service 應用程式以使用 Google 登入
@@ -24,29 +24,27 @@
 
 本主題說明如何設定 Azure App Service，以使用 Google 做為驗證提供者。
 
-若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。
+若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302)。
 
-
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]本主題示範 App Service 驗證/授權功能的用法。這會取代大部分應用程式的 App Service 閘道器。整個主題中使用閘道器所產生的差異都列在注意事項中。
 
 
 ## <a name="register"> </a>向 Google 註冊您的應用程式
 
-1. 登入 [Azure 管理入口網站]，並瀏覽至您的應用程式。複製您的 **URL**。您將使用此 URI 設定您的 Google 應用程式。
+1. 登入 [Azure 管理入口網站]，然後瀏覽至您的應用程式。複製您的 **URL**。您將使用此 URI 設定您的 Google 應用程式。
  
 2. 瀏覽至 [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) (英文) 網站，以您的 Google 帳戶認證登入，按一下 [Create Project]，提供「專案名稱」，然後按一下 [Create]。
 
-3. 在左側的導覽列中按一下 [**API & Auth**]，然後在 [**社交平台類 API**] 下按一下 [**Google + API**] > [**啟用 API**]。
+3. 在左側的導覽列中按一下 [API & Auth]，然後在 [Social APIs] 底下按一下 [Google + API] > [啟用 API]。
 
-4. 按一下 [**API & Auth**] > [**認證**] > [**OAuth 同意畫面**]，然後選取您的**電子郵件地址**，輸入**產品名稱**，再按一下 [**儲存**]。
+4. 按一下 [API & Auth] > [認證] > [OAuth 同意畫面]，然後選取您的**電子郵件地址**，輸入**產品名稱**，再按一下 [儲存]。
 
-5. 在 [**認證**] 索引標籤中，按一下 [**新增認證**] > [**OAuth 2.0 用戶端識別碼**]，然後選取 [**Web 應用程式**]。
+5. 在 [認證] 索引標籤中，按一下 [新增認證] > [OAuth 2.0 用戶端識別碼]，然後選取 [Web 應用程式]。
 
-6. 將您先前複製的 App Service **URL** 貼到 [**授權 JavaScript 來源**]，然後將您先前複製的**重新導向 URI** 貼到 [**授權重新導向 URI**]。您的重新導向 URI 是應用程式加上路徑 _/.auth/login/facebook/callback_ 的 URL。例如：`https://contoso.azurewebsites.net/.auth/login/google/callback`。請確實使用 HTTPS 配置。然後按一下 [**建立**]。
+6. 將您先前複製的 App Service **URL** 貼到 [授權 JavaScript 來源]，然後將您先前複製的**重新導向 URI** 貼到 [授權重新導向 URI]。重新導向 URI 是您的應用程式 URL 加上路徑 _/.auth/login/google/callback_。例如：`https://contoso.azurewebsites.net/.auth/login/google/callback`。請確實使用 HTTPS 配置。然後按一下 [建立]。
 
 
-	> [AZURE.NOTE]如果您使用的是 App Service 閘道，而不是App Service 驗證 / 授權功能，重新導向 URL 則會改用閘道 URL 加上 _/signin-googl_ 路徑。
+	> [AZURE.NOTE]如果您使用的是 App Service 閘道器，而不是App Service 驗證/授權功能，重新導向 URL 會改用閘道器 URL 加上 _/signin-google_ 路徑。
 
 
 7. 在下一個畫面上，記下用戶端識別碼和用戶端密碼的值。
@@ -57,20 +55,20 @@
 
 ## <a name="secrets"> </a>將 Google 資訊新增至應用程式
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Google**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]如果您使用 App Service 閘道器，請忽略此章節，並改為在入口網站中瀏覽至您的閘道器。依序選取 [設定]、[身分識別]，[Google]。貼入您之前取得的值，然後按一下 [儲存]。
 
 
-8. 回到 [Azure 管理入口網站]，並瀏覽至應用程式。依序按一下 [**設定**] 及 [**驗證/授權**]。
+8. 回到 [Azure 管理入口網站]，並瀏覽至應用程式。依序按一下 [設定] 及 [驗證/授權]。
 
-9. 如果 [驗證/授權] 功能未啟用，請切換到 [**開**]。
+9. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
 
-10. 按一下 **Google**。貼上先前取得的應用程式識別碼與應用程式密碼值，然後選擇性啟用應用程式需要的任何範圍。然後按一下 [確定]。
+10. 按一下 [Google]。貼上先前取得的應用程式識別碼與應用程式密碼值，然後選擇性啟用應用程式需要的任何範圍。然後按一下 [確定]。
 
     ![][1]
-	
-11. 根據預設，App Service 提供登入但不限制存取您的網站內容和 API，這是應用程式程式碼的責任。如果您想要網站完全受到 Google 登入的保護，請將 [**要求未經驗證時所採取的動作**] 下拉式清單變更成使用 [**Google**] 選項。這會要求所有要求都經過驗證，未經驗證的要求會重新導向至使用 Google 登入。
+
+	App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。您必須在應用程式程式碼中授權使用者。
+
+17. (選擇性) 若要限制只有透過 Google 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Google]。這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Google 以進行驗證。
 
 12. 按一下 [儲存]。
 
@@ -95,4 +93,4 @@
 [Azure 管理入口網站]: https://portal.azure.com/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

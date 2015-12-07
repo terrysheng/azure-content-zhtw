@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/18/2015"
 	ms.author="tarcher"/>
 
 # 如何在 Azure App Service 中偵錯 Node.js Web 應用程式
@@ -63,7 +63,7 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 	npm install azure-cli -g
 
-安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱 [如何使用 Azure 命令列工具] 文章的＜如何下載和匯入發佈設定＞一節。
+安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱＜**如何使用 Azure 命令列工具**＞的＜[如何下載和匯入發行設定](../xplat-cli-connect)＞一節。
 
 ###FTP
 
@@ -73,7 +73,7 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 儀表板中傳回的 FTP URL 是 **LogFiles** 目錄，內含下列子目錄：
 
-* [部署方法] - 如果您使用 Git 之類的部署方法，則會建立相同名稱的目錄，其中含有與部署相關的資訊。
+* [部署方法](web-sites-deploy) - 如果您使用 Git 之類的部署方法，則會建立相同名稱的目錄，其中含有與部署相關的資訊。
 
 * nodejs - 從應用程式的所有執行個體擷取的 stdout 和 stderr 資訊 (當 loggingEnabled 為 true 時)。
 
@@ -89,7 +89,7 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 * LogFiles
 
-	* [部署方法] - 如果您使用 Git 之類的部署方法，則會建立相同名稱的目錄，其中含有與部署相關的資訊。
+	* [部署方法](web-sites-deploy) - 如果您使用 Git 之類的部署方法，則會建立相同名稱的目錄，其中含有與部署相關的資訊。
 
 	* nodejs - 從應用程式的所有執行個體擷取的 stdout 和 stderr 資訊 (當 loggingEnabled 為 true 時)。
 
@@ -106,7 +106,7 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 本文中，您學到如何啟用和存取 Azure 的診斷資訊。此資訊有助於了解應用程式發生的問題，但也可能指出您使用的模組有問題，或 App Service Web Apps 使用的 Node.js 版本和部署環境中使用的版本不同。
 
-如需有關在 Azure 上使用模組的詳細資訊，請參閱＜[在 Azure 應用程式中使用 Node.js 模組]＞(英文)。
+如需有關在 Azure 上使用模組的詳細資訊，請參閱＜[在 Azure 應用程式中使用 Node.js 模組](../nodejs-use-node-modules-azure-apps)＞(英文)。
 
 如需有關為應用程式指定 Node.js 版本的詳細資訊，請參閱＜[在 Azure 應用程式中指定 Node.js 版本]＞(英文)。
 
@@ -121,10 +121,10 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
 [How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
-[在 Azure 應用程式中使用 Node.js 模組]: ../nodejs-use-node-modules-azure-apps.md
+[Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [在 Azure 應用程式中指定 Node.js 版本]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

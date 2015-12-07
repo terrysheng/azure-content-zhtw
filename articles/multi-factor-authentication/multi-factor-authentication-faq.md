@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication 常見問題集" 
-	description="Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外，需要再利用其他方法驗證您的身份的驗證方法。它可以為使用者登入和交易提供額外層級的安全性。" 
+	description="提供關於 Azure Multi-Factor Authentication (MFA) 常見問題與答案清單。MFA 是除了使用使用者名稱與密碼之外，需要再利用其他方法驗證您的身份的驗證方法。它可以為使用者登入和交易提供額外層級的安全性。" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/20/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 常見問題集
@@ -125,6 +125,12 @@ Azure Multi-Factor Authentication 服務會透過簡訊彙總工具傳送簡訊�
 
 在某些國家/地區 (例如美國和加拿大) 簡訊驗證更為可靠。我們鼓勵在使用 Azure Multi-Factor Authentication 時遭遇簡訊接收困難的使用者，改為選取行動應用程式或電話通話方法。行動應用程式很理想，因為行動應用程式通知可透過行動電話和 Wi-Fi 連接接收，而即使裝置完全沒有訊號時，也會顯示行動應用程式密碼。Azure Authenticator 應用程式適用於 [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50)、[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 和 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)。
 
+**問：可以使用硬體權杖搭配 Azure MFA 伺服器嗎？**
+
+如果您使用 Azure MFA 伺服器，可以匯入協力廠商 OATH TOTP 權杖並用於 MFA。目前我們支援以較舊的 PSKC 格式匯入協力廠商 OATH TOTP 權杖，Gemalto 可產生它們的權杖，並支援以 CSV 格式匯入權杖。當以 CSV 格式匯入權杖時，CSV 檔案必須包含序號、Base32 格式的秘密金鑰及時間間隔 (通常是 30 秒)。
+
+所以，如果 ActiveIdentity 權杖是 OATH TOTP 權杖，而您可以將秘密金鑰檔案放入可匯入至 Azure MFA 伺服器的CSV 檔案，那麼您就可以使用它們。OATH 可搭配 AD FS 使用、在用戶端系統可以處理 Access Challenge 回應時搭配 RADIUS，和搭配 IIS 表單型驗證。
+
 
 ## 錯誤數
 
@@ -143,6 +149,6 @@ Azure Multi-Factor Authentication 服務會透過簡訊彙總工具傳送簡訊�
 
 目前，其他安全性驗證僅可使用於您可透過瀏覽器存取的應用程式/服務。本機電腦上安裝的非瀏覽器應用程式 (也稱為豐富型用戶端應用程式，例如 Windows Powershell) 不適用於需要其他安全性驗證的帳戶。在此情況下，您可能會看到應用程式產生錯誤 0x800434D4L。
 
-此種情況的因應措施是使用不同的使用者帳戶進行系統管理相關作業和非系統管理作業。您稍後可以連結系統管理帳戶與非系統管理帳戶之間的信箱，以便使用非系統管理帳戶登入 Outlook。如需詳細資訊，請參閱 [讓系統管理員能夠開啟及檢視使用者信箱的內容] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)。
+此種情況的因應措施是使用不同的使用者帳戶進行系統管理相關作業和非系統管理作業。您稍後可以連結系統管理帳戶與非系統管理帳戶之間的信箱，以便使用非系統管理帳戶登入 Outlook。如需詳細資訊，請參閱[讓系統管理員能夠開啟及檢視使用者信箱的內容](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

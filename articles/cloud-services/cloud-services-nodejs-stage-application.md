@@ -3,7 +3,7 @@
 	description="了解如何將 Azure 應用程式部署至預備環境，然後使用虛擬 IP (VIP) 交換來部署至生產環境。" 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 
@@ -75,4 +75,4 @@
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [如何在 Azure 中交換 VIP 將服務升級部署至生產環境]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

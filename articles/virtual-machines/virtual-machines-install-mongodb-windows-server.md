@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
 
-[MongoDB][MongoDB] 是受歡迎的高效能開放原始碼 NoSQL 資料庫。您可以使用 [Azure 入口網站][AzureManagementPortal]，利用傳統部署模型從映像庫建立一個執行 Windows Server 的虛擬機器。然後在虛擬機器上安裝及設定 MongoDB 資料庫。
+[MongoDB][MongoDB] 是受歡迎的高效能開放原始碼 NoSQL 資料庫。您可以使用 [Azure 入口網站][AzurePortal]，利用傳統部署模型從映像庫建立一個執行 Windows Server 的虛擬機器。然後在虛擬機器上安裝及設定 MongoDB 資料庫。
 
 
 ## 建立執行 Windows Server 的虛擬機器
@@ -49,6 +49,6 @@
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
-[AzureManagementPortal]: http://manage.windowsazure.com
+[AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

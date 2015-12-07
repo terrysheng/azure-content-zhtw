@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/18/2015"
+   ms.date="11/19/2015"
    ms.author="juliako"/>
 
 # Azure SDK for .NET 2.8
@@ -35,8 +35,7 @@
 
 ###已知問題
 
-Azure.NET SDK 2.8 可讓您建立 .NET 4.5.2 雲端服務套件。不過，.NET 4.5.2 Framework 要到 2016 年 1 月的客體作業系統版本，才會安裝在預設的客體作業系統映像上。在這之前，可以透過獨立的客體作業系統版本 November 2015-02 取得 .NET 4.5.2 Framework。請參閱 [Azure 客體作業系統版本與 SDK 相容性矩陣](http://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/)頁面以追蹤該映像何時發行。一旦 November 2015-02 映像發行，您便可選擇透過更新您的雲端服務組態檔 (.cscfg) 來使用該映像。在服務組態檔中，將 ServiceConfiguration 項目的 osVersion 屬性設定為字串 "WA-GUEST-OS-4.26\_201511-02"。
-
+Azure.NET SDK 2.8 可讓您建立 .NET 4.5.2 雲端服務套件。不過，.NET 4.5.2 Framework 要到 2016 年 1 月的客體作業系統版本，才會安裝在預設的客體作業系統映像上。在這之前，可以透過獨立的客體作業系統版本 November 2015-02 取得 .NET 4.5.2 Framework。請參閱 [Azure 客體作業系統版本與 SDK 相容性矩陣](http://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/)頁面以追蹤該映像何時發行。一旦 November 2015-02 映像發行，您便可選擇透過更新您的雲端服務組態檔 (.cscfg) 來使用該映像。在服務組態檔中，將 ServiceConfiguration 項目的 osVersion 屬性設定為字串 "WA-GUEST-OS-4.26\_201511-02"。如果您選擇加入以使用此映像，那麼您將不會再收到客體 OS 的自動更新。若要取得自動更新，osVersion 必須設為 “*”，且 .NET 4.5.2 將只能在 2016 年 1 月透過自動更新取得。
 
 ##Azure Data Factory
 
@@ -57,15 +56,6 @@ Azure 資源群組專案提供的 PowerShell 指令碼在這個版本中已更�
 
 2\.8 SDK 需要 1.0 版的 Azure PowerShell Cmdlet。所有其他版本的 SDK 則需要 0.9.8 版的 Azure PowerShell Cmdlet。 如需詳細資訊，請參閱[此部落格](http://go.microsoft.com/fwlink/?LinkID=623011)。
 
-##Azure HDInsight 工具
-
-新更新包括：
-
-- 您可以透過 HiveServer2 在叢集中執行 Hive 查詢，而且幾乎不需要額外支出，並可即時查看工作記錄檔。
-- 使用新的 Hive 工作執行檢視，您可以深入探究您的工作、尋找更多詳細資料和識別潛在的問題。
-
-如需詳細資訊，請參閱 [Azure SDK 2.8 for Visual Studio 2013 and Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)。
-
 ##Web 工具擴充功能
 
 ###已知問題
@@ -75,11 +65,22 @@ Azure 資源群組專案提供的 PowerShell 指令碼在這個版本中已更�
 - 非生產環境 (例如 Azure China 或 Azure Stack 客戶) 的 App Service 相關雲端與伺服器總管筆勢無效。對於這些受影響區域中的客戶，從 Azure 入口網站下載發行設定檔就能發行。未來版本將為 Azure China 或 Azure Stack 客戶修復筆勢，例如「連結偵錯工具」和「檢視資料流記錄」。 
 - 客戶在建立 App Service 時，若要部署的目標 App Insights 執行個體位於美國東部以外的區域，他們可能會看到錯誤。在這些情況下，在入口網站建立 App Service 和下載發行設定檔就能發行。 
 
+##Azure HDInsight 工具
 
+###新的更新
+
+- 您可以透過 HiveServer2 在叢集中執行 Hive 查詢，而且幾乎不需要額外支出，並可即時查看工作記錄檔。
+- 使用新的 Hive 工作執行檢視，您可以深入探究您的工作、尋找更多詳細資料和識別潛在的問題。
+
+如需詳細資訊，請參閱[適用於 Visual Studio 2013 和 Visual Studio 2015 的 Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)。
+
+##其他更新
+
+如需其他更新，請參閱 [Azure SDK 2.8 公告文章](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)。
 ##另請參閱
 
 [Azure SDK 2.8 公告文章](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)
 
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

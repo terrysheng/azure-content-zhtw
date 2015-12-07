@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="11/19/2015" 
 	ms.author="tomfitz"/>
 
 # 將資源移動到新的資源群組或訂用帳戶
@@ -28,7 +28,7 @@
 
 1. 您無法變更資源的位置。移動資源只會將它移動到新的資源群組。新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
 2. 您要將資源移動到其中的目的地資源群組，只應包含與該資源共用相同應用程式生命週期的資源。
-3. 若使用 Azure PowerShell，請確定您使用最新版本。**Move-AzureResource** 命令經常更新。若要更新您的版本，執行 Microsoft Web Platform Installer 並檢查是否有新的版本可用(如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell](powershell-install-configure.md))。
+3. 若使用 Azure PowerShell，請確定您使用最新版本。**Move-AzureRmResource** 命令經常更新。若要更新您的版本，執行 Microsoft Web Platform Installer 並檢查是否有新的版本可用(如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell](powershell-install-configure.md))。
 4. 移動作業可能需要一段時間來完成，且作業期間您的 PowerShell 提示字元會等候直到作業完成。
 5. 當移動資源時，會在作業期間鎖定來源群組和目標群組。群組上的寫入和刪除作業將會封鎖，直到移動完成。
 
@@ -39,15 +39,20 @@
 目前支援移動到新資源群組與訂用帳戶的服務有：
 
 - API 管理
-- Azure DocumentDB
-- Azure 搜尋
-- Azure Web Apps (有部分[限制](app-service-web/app-service-move-resources.md))
+- 自動化
+- 批次
 - Data Factory
+- DocumentDB
+- HDInsight 叢集
 - 金鑰保存庫
+- Logic Apps
 - Mobile Engagement
+- 通知中樞
 - Operational Insights
 - Redis 快取
+- 搜尋
 - SQL Database
+- Web Apps (有部分[限制](app-service-web/app-service-move-resources.md))
 
 支援移動到新資源群組，但不支援移動到新訂用帳戶的服務有：
 
@@ -73,12 +78,13 @@
 
 第一個範例顯示如何將某個資源移動到新的資源群組。
 
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 
 第二個範例顯示如何將多個資源移動到新的資源群組。
 
-    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
     PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 若要移動到新的訂用帳戶，請包含 **DestinationSubscriptionId** 參數的值。
@@ -97,4 +103,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

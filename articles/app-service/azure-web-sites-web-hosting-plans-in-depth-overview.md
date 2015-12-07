@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure App Service 方案深入概觀" 
 	description="了解 Azure App Service 之應用程式服務方案的運作方式，以及在管理經驗上帶來的效益。" 
+	keywords="App Service, Azure App Service, 級別, 可調整, App Service方案, App Service 成本"
 	services="app-service" 
 	documentationCenter="" 
 	authors="btardif" 
@@ -56,7 +57,7 @@
   
  ![][createASP]
 
-若要建立新的 App Service 方案，請按一下 [**+ 新建**]，輸入 **App Service 方案**名稱並選取適當**位置**。按一下 [**定價層**]，為服務選取適當的定價層。選取 [**檢視全部**] 檢視其他價格選項，例如[**免費**] 和 [**共用**]。選取定價層後，請按一下 [**選取**] 按鈕。
+若要建立新的 App Service 方案，請按一下 [+ 新建]，輸入 **App Service 方案**名稱並選取適當**位置**。按一下 [定價層]，為服務選取適當的定價層。選取 [檢視全部] 檢視其他價格選項，例如 [免費] 和 [共用]。選取定價層後，請按一下 [選取] 按鈕。
  
 ## 將應用程式移到不同的應用程式服務方案
 
@@ -100,4 +101,4 @@
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

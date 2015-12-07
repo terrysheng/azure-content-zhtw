@@ -123,7 +123,7 @@ Azure 通知中樞提供一種易用、多平台、向外延展的推播基礎�
 Mobile Apps 開發人員可以使用下列流程來利用通知中樞：
 
 1. 擷取裝置 PNS 控制代碼
-2. 透過便利的 Mobile Apps Client SDK 註冊 API，使用通知中樞註冊裝置和[範本](optional)
+2. 透過便利的 Mobile Apps Client SDK 註冊 API，使用通知中樞註冊裝置和[範本]
     + 請注意，Mobile Apps 會基於安全性考量，去除註冊上的所有標籤。直接從後端使用通知中樞，將標籤關聯至裝置。
 3. 從 App 後端使用通知中樞傳送通知
 
@@ -161,8 +161,8 @@ Mobile Apps 開發人員可以使用下列流程來利用通知中樞：
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [App Service Mobile Apps]: https://azure.microsoft.com/zh-TW/documentation/articles/app-service-mobile-value-prop/
-  [templates]: https://msdn.microsoft.com/zh-TW/library/azure/dn530748.aspx
+  [範本]: https://msdn.microsoft.com/zh-TW/library/azure/dn530748.aspx
   [Azure 入口網站]: https://portal.azure.com
   [標記]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

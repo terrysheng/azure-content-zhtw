@@ -34,7 +34,7 @@
 
 這些基本步驟可協助解決使用傳統部署模型所建立之虛擬機器中最常見的遠端桌面連線失敗。在執行每個步驟之後，請嘗試重新連接至 VM。
 
-- 從 [Azure 入口網站](https://portal.azure.com)重設遠端桌面服務以修正 RDP 伺服器的啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重設遠端存取]。
+- 從 [Azure Preview 入口網站](https://portal.azure.com)重設遠端桌面服務以修正 RDP 伺服器的啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重設遠端存取]。
 
     ![顯示重設 RDP 設定的螢幕擷取畫面](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -89,7 +89,7 @@
 
 原因：遠端桌面角色的 120 天授權寬限期已過期，您需要安裝授權。
 
-做為因應措施，請從 Azure 入口網站儲存 RDP 檔案的本機複本，並在 Windows PowerShell 命令提示字元執行該命令來連接。
+做為因應措施，請從入口網站儲存 RDP 檔案的本機複本，並在 Windows PowerShell 命令提示字元執行該命令來連接。
 
 		mstsc <File name>.RDP /admin
 
@@ -107,7 +107,7 @@
 可能的解決方案：
 
 - 如果您位於組織內部網路，請確保您的電腦能存取並傳送 HTTPS 流量給 Proxy 伺服器。
-- 如果您使用本機儲存的 RDP 檔案，請嘗試使用 Azure 入口網站所產生的檔案。如此可確保您的虛擬機器或雲端服務和虛擬機器的端點連接埠有正確的 DNS 名稱。以下是由 Azure 入口網站產生的 RDP 檔案範例：
+- 如果您使用本機儲存的 RDP 檔案，請嘗試使用入口網站所產生的檔案。如此可確保您的虛擬機器或雲端服務和虛擬機器的端點連接埠有正確的 DNS 名稱。以下是由入口網站產生的 RDP 檔案範例：
 
 		full address:s:tailspin-azdatatier.cloudapp.net:55919
 		prompt for credentials:i:1
@@ -169,4 +169,4 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

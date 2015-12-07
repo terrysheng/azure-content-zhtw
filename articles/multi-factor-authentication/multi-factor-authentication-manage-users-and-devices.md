@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # 管理雲端中 Azure Multi-Factor Authentication 的使用者設定
@@ -80,4 +80,4 @@
 <li>在頂端按一下 [使用者]。</li>
 <li>在頁面底部，按一下 [管理 Multi-Factor Auth]。這會開啟 Multi-Factor Authentication 頁面。<li>尋找要管理的使用者，並在名稱旁的方塊中打勾。您可能需要在頂端變更檢視。</li> <li>這會在右側顯示 [**管理使用者設定**] 連結。按一下此按鈕。</li> <li>勾選 [還原所有暫停之裝置上的 Multi-Factor Authentication]。</li> ![刪除應用程式密碼](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>按一下 [儲存]。</li> <li>按一下 [關閉]。</li>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

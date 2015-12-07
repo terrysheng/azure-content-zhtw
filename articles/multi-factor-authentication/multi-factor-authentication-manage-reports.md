@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 中的報告
@@ -50,4 +50,4 @@ Azure Multi-Factor Authentication 提供數個供您和貴組織使用的報告�
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

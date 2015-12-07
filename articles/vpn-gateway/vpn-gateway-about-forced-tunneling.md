@@ -1,4 +1,4 @@
-<properties pageTitle="針對 Microsoft Azure VPN 閘道設定強制通道 | Microsoft Azure" description="如果您擁有使用跨單位 VPN 閘道的虛擬網路，您可以重新導向或「強制」所有網際網路繫結流量傳回內部部署位置。" services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
+<properties pageTitle="針對使用 PowerShell | Microsoft Azure 的 VPN 閘道設定強制通道" description="如果您擁有使用跨單位 VPN 閘道的虛擬網路，您可以重新導向或「強制」所有網際網路繫結流量傳回內部部署位置。本文適用於使用傳統部署模型所建立的 VPN 閘道 " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -10,9 +10,9 @@
 
 # 設定強制通道
 
-本文適用於使用傳統部署模型所建立的 VNet 和 VPN 閘道。當有可用於為使用資源管理員模型建立的 VNet 和 VPN 閘道設定強制通道的指示可用時，我們將會在此頁面頂端新增連結。
+本文適用於使用傳統部署模型所建立的 VNet 和 VPN 閘道。如果您想要針對使用資源管理員部署模型所建立的 VNet 和 VPN 閘道設定強制通道，請參閱[針對使用 PowerShell 和 Azure 資源管理員設定強制通道](vpn-gateway-forced-tunneling-rm.md)。
 
->[AZURE.NOTE]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## 有關強制通道
 
@@ -44,7 +44,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 - 強制通道必須與具有動態路由 VPN 閘道 (非靜態閘道) 的 VNet 相關聯。您需要在連接到虛擬網路的內部部署本機網站間設定「預設網站」。
 
-- 請注意，ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。請參閱《[ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)》以取得詳細資訊。
+- 請注意，ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。請參閱 [ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)以取得詳細資訊。
 
 ## 組態概觀
 
@@ -153,11 +153,4 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-## 後續步驟
-
-
-如需有關使用者定義的路由的詳細資訊，請參閱[使用者定義的路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)。
-
-如需有關保護網路流量的詳細資訊，請參閱[什麼是網路安全性群組](../virtual-network/virtual-networks-nsg.md)。請注意，您永遠都不應該將網路安全性群組套用至 Azure VNet 閘道子網路。
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

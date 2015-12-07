@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
 
 #  Application Insights 中的取樣
@@ -20,47 +20,67 @@
 *Application Insights 目前僅供預覽。*
 
 
-取樣是 Application Insights 中的選項，可讓您收集和儲存縮小的一組遙測，同時保有應用程式資料統計的正確分析。您通常會使用它來減少流量並避免[節流](app-insights-pricing.md#data-rate)。篩選資料的方式會允許相關的項目通過，使得您可以利用一組縮小的資料執行診斷調查。用戶端和伺服器端會自動協調以篩選相關的項目。在入口網站中呈現度量計數時，就會重新正規化以考慮取樣，以將對統計資料帶來的任何影響降至最低。
+取樣是 Application Insights 中的功能，可讓您收集和儲存縮小的一組遙測，同時保有應用程式資料統計的正確分析。它會減少流量，並且協助避免[節流](app-insights-pricing.md#data-rate)。篩選資料的方式會允許相關的項目通過，讓您可以在執行診斷調查時於項目之間瀏覽。在入口網站中呈現度量計數時，就會重新正規化以考慮取樣，以將對統計資料帶來的任何影響降至最低。
 
+Application Insights SDK 中針對 ASP.NET 2.0.0 版 beta3 或更新版本預設會啟用調適性取樣。取樣目前為 Beta 版，因此在未來可能有所變更。
 
-取樣目前為 Beta 版，因此在未來可能有所變更。
+有兩個替代取樣模組：
 
-## 設定您的應用程式的取樣
+* 調適性取樣會自動調整取樣百分比，以達到特定的要求量。目前僅供 ASP.NET 伺服器端遙測使用。  
+* 固定取樣率也可供使用。由您指定取樣百分比。可供 ASP.NET Web 應用程式程式碼和 JavaScript Web 頁面使用。用戶端和伺服器會同步處理它們的取樣，讓您可以在 [搜尋] 終於相關的頁面檢視和要求之間瀏覽。
 
-取樣目前可供 ASP.NET SDK 或[任何網頁](#other-web-pages)使用。
+## 啟用調適性取樣
 
-### ASP.NET 伺服器
+**更新專案的 NuGet** 套件至最新的 Application Insights *預先發行*版本：以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。
 
-1. 將您專案的 NuGet 封裝更新為 Application Insights 的最新「發行前」版本。以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。 
+在 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中，您可以調整 `AdaptiveSamplingTelemetryProcessor` 節點中的參數數目。顯示的數字是預設值：
 
-2. 將此程式碼片段新增至 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)：
+* `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
 
-```XML
+    調整演算法對於**單一伺服器主機**的目標速率。如果 Web 應用程式在許多主機上執行，您會想要減少此值，以保持在您的 Application Insights 入口網站的流量目標速率內。
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+* `<EvaluationInterval>00:00:15</EvaluationInterval>`
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    目前遙測速率的間隔已重新評估。評估是以移動平均來執行。如果您的遙測會突然暴增，您可能想要縮短此間隔。
 
-```
+* `<SamplingPercentageDecreaseTimeout>00:02:00</SamplingPercentageDecreaseTimeout>`
 
-> [AZURE.NOTE]針對取樣百分比，選擇接近 100/N 的百分比，其中 N 是整數。目前取樣並不支援其他值。
+    當取樣百分比值變更時，多久之後我們可以降低取樣百分比，以擷取較少的資料。
+
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+
+    當取樣百分比值變更時，多久之後我們可以增加取樣百分比，以擷取較多的資料。
+
+* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+
+    隨著取樣百分比改變，我們可以設定的最小值是多少。
+
+* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+
+    隨著取樣百分比改變，我們可以設定的最大值是多少。
+
+* `<MovingAverageRatio>0.25</MovingAverageRatio>`
+
+    在計算移動平均時，指派給最新的值的權數。使用等於或小於 1 的值。較小的值會讓演算法不易受突然的變更影響。
+
+* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+
+    當應用程式剛開始時指派的值。不要在偵錯時減少此值。
 
 <a name="other-web-pages"></a>
-### 具有 JavaScript 的網頁
+## 具有 JavaScript 的網頁的取樣
 
-您可以從任何伺服器設定要取樣的網頁。針對 ASP.NET 伺服器，設定用戶端和伺服器端。
+您可以從任何伺服器設定固定取樣率的網頁。
 
-當您[設定 Application Insights 的網頁](app-insights-javascript.md)時，請修改您從 Application Insights 入口網站取得的程式碼片段。(在 ASP.NET 中，您會在 \_Layout.cshtml 中找到它。) 在檢測金鑰之前插入類似 `samplingPercentage: 10,` 的一行：
+當您[設定 Application Insights 的網頁](app-insights-javascript.md)時，請修改您從 Application Insights 入口網站取得的程式碼片段。(在 ASP.NET 應用程式中，程式碼片段通常會出現在 \_Layout.cshtml。) 在檢測金鑰之前插入類似 `samplingPercentage: 10,` 的一行：
 
     <script>
 	var appInsights= ... 
 	}({ 
 
+
+    // Value must be 100/N where N is an integer.
+    // Valid examples: 50, 25, 20, 10, 5, 1, 0.1, ...
 	samplingPercentage: 10, 
 
 	instrumentationKey:...
@@ -70,15 +90,52 @@
 	appInsights.trackPageView(); 
 	</script> 
 
-確定您在 JavaScript 中提供與伺服器端相同的取樣百分比。
+針對取樣百分比，選擇接近 100/N 的百分比，其中 N 是整數。目前取樣並不支援其他值。
 
-[深入了解 API](app-insights-api-custom-events-metrics.md)
+如果您在伺服器啟用固定取樣率，用戶端和伺服器會同步處理，讓您可以在 [搜尋] 終於相關的頁面檢視和要求之間瀏覽。
+
+
+## 在伺服器啟用固定取樣率
+
+1. **將您專案的 NuGet 封裝更新**為 Application Insights 的最新「發行前」版本。以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。 
+
+2. **停用調適性取樣**：在 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中，移除或註解化 `AdaptiveSamplingTelemetryProcessor` 節點。
+
+    ```xml
+
+    <TelemetryProcessors>
+    <!-- Disabled adaptive sampling:
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    -->
+    
+
+    ```
+
+2. **啟用固定取樣率模組。** 將此程式碼片段新增至 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)：
+
+    ```XML
+
+    <TelemetryProcessors>
+     <Add  Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+      <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+      <SamplingPercentage>10</SamplingPercentage>
+      </Add>
+    </TelemetryProcessors>
+
+    ```
+
+> [AZURE.NOTE]針對取樣百分比，選擇接近 100/N 的百分比，其中 N 是整數。目前取樣並不支援其他值。
+
 
 
 ### 替代方法：在伺服器程式碼中設定取樣
 
 
-除了在 .config 檔中設定取樣參數之外，您還可以使用程式碼。這樣做可讓您開啟或關閉取樣。
+除了在 .config 檔中設定取樣參數之外，您還可以使用程式碼。
 
 *C#*
 
@@ -86,26 +143,42 @@
 
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
 
-    // It's recommended to set SamplingPercentage in the .config file instead.
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.UseSampling(10.0); // percentage
 
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
 
 ```
 
+([深入了解遙測處理器](app-insights-api-filtering-sampling/#filtering)。)
 
 ## 何時使用取樣？
+
+如果您使用 ASP.NET SDK 版本 2.0.0-beta3 或更新版本，調適性取樣會自動啟用。
 
 對大多數小型和中型大小應用程式，您不需要取樣。最有用的診斷資訊和最準確的統計資料會是透過收集所有使用者活動的資料取得。
 
  
-您會使用取樣的主要原因是：
-
+取樣的主要優點如下：
 
 * 當您的應用程式在短時間間隔傳送非常高比率的遙測時，Application Insights 服務會將資料點卸除 (「節流」)。 
-* 您想要保持在定價層的資料點[配額](app-insights-pricing.md)內。 
+* 保持在定價層的資料點[配額](app-insights-pricing.md)內。 
 * 若要從收集的遙測降低網路流量。 
+
+### 固定或調適性取樣？
+
+如果是下列情形，則使用固定取樣率：
+
+* 您想要同步處理用戶端與伺服器之間的取樣，因此，當您在[搜尋](app-insights-diagnostic-search.md)中調查事件時，您可以在用戶端與伺服器的相關事件之間調查，例如頁面檢視和 http 要求。
+* 您對於您的應用程式的適當取樣百分比有信心。應該夠高以取得精確的度量，但是低於超過價格配額和節流限制的取樣率。 
+* 您不是在偵錯您的應用程式。當您按 F5 鍵並且嘗試您的應用程式的幾個頁面時，您可能會想要查看所有遙測。
+
+否則，建議使用調適性取樣。
 
 ## 取樣運作方式？
 
@@ -120,6 +193,10 @@ SDK 會決定要卸除的遙測項目以及要保留哪些。取樣決策會根�
 近似值的精確度絕大部分取決於設定的取樣百分比。此外，對於處理大量使用者的通常類似要求的應用程式，其精確度會增加。相反地，對於不處理大量負載的應用程式，就不需要取樣，因為這些應用程式通常可以傳送遙測同時保持在配額內，而不會因節流造成資料遺失。
 
 請注意，Application Insights 不會對度量和工作階段遙測類型取樣，因為這些類型的有效位數減少可能高度讓人困擾。
+
+### 調適性取樣
+
+調適性取樣會新增元件，該元件會監視 SDK 的目前傳輸速率，並調整取樣百分比，以嘗試保持在目標最大速率。調整會定期重新計算，並且根據外寄傳輸速率的移動平均。
 
 ## 取樣與 JavaScript SDK
 
@@ -140,11 +217,15 @@ SDK 會決定要卸除的遙測項目以及要保留哪些。取樣決策會根�
 
 *取樣百分比會隨著時間變更嗎？*
 
- * 在現今的實作中，在應用程式啟動設定之後，您通常不會變更取樣百分比。雖然您可以控制取樣百分比執行階段，沒有任何方式可判斷哪一個取樣百分比最佳且會在節流邏輯發動之前或在達到每月的資料量配額之前收集「僅適當的資料量」。未來版本的 Application Insights SDK 會包含自適性取樣，該取樣將根據目前觀察到的遙測量和其他因素快速上下調整取樣百分比。 
+ * 是的，調適性取樣會根據目前觀察到的遙測量，逐漸變更取樣百分比。
 
-*如何知道哪個取樣百分比最適合我的應用程式？*
+*是否可以找出調適性取樣使用的取樣率？*
 
-* 今天您必須猜測。分析 AI 中您目前的遙測使用量、觀察與節流相關的資料卸除，並估計所收集之遙測的量。這三項輸入與所選定價層，可對您可能想要減少收集的遙測量提出建議。不過，遙測量模式中的偏移可能會使以最佳方式設定的取樣百分比無效 (例如您的使用者數目增加)。實作時，自適性取樣將根據觀察的遙測量，自動控制取樣百分比至其最佳的層級。
+ * 目前版本不支援。
+
+*如果我使用固定取樣率，如何知道哪個取樣百分比最適合我的應用程式？*
+
+* 今天您必須猜測。分析 AI 中您目前的遙測使用量、觀察與節流相關的資料卸除，並估計所收集之遙測的量。這三項輸入與所選定價層，可對您可能想要減少收集的遙測量提出建議。不過，遙測量模式中的偏移可能會使以最佳方式設定的取樣百分比無效 (例如您的使用者數目增加)。
 
 *如果將取樣百分比設定成太低會發生什麼事？*
 
@@ -156,12 +237,10 @@ SDK 會決定要卸除的遙測項目以及要保留哪些。取樣決策會根�
 
 *我可以在何種平台上使用取樣？*
 
-* 目前取樣可供任何網頁使用，並且供 .NET Web 應用程式的用戶端和伺服器端使用。
+* 目前，調適性取樣適用於 ASP.NET Web Apps 的伺服器端 (裝載在 Azure 或您自己的伺服器上)。固定取樣率可供任何網頁使用，並且供 .NET Web 應用程式的用戶端和伺服器端使用。
 
-*可以對裝置應用程式 (Windows Phone、iOS、Android 或桌面應用程式) 使用取樣嗎？*
+*我一律想要看見特定罕見的事件。我要如何讓它們通過取樣模組？*
 
-* 否，目前不支援對裝置應用程式進行取樣。 
+ * 使用個別 TelemetryConfiguration 建立單獨的 TelemetryClient 執行個體。使用該執行個體來傳送您的罕見的事件。
 
->>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

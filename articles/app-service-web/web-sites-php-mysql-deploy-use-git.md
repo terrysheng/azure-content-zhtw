@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="11/19/2015"
 	ms.author="tomfitz"/>
 
 #在 Azure 應用程式服務中建立 PHP-MySQL Web 應用程式並使用 Git 部署
@@ -27,7 +27,7 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-本教學課程說明如何建立 PHP-MySQL Web 應用程式，以及如何使用 Git 將其部署至 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。您會使用 [PHP][install-php]、MySQL 命令列工具 ([MySQL][install-mysql] 的一部分)、Web 伺服器，以及安裝在您的電腦上的 [Git][install-git]。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。看完本指南後，您將擁有可在 Azure 上執行的 PHP/MySQL Web 應用程式。
+本教學課程說明如何建立 PHP-MySQL Web 應用程式，以及如何使用 Git 將其部署至 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。您會使用 [PHP][install-php]、MySQL 命令列工具 ([MySQL][install-mysql] 的一部分)，以及安裝在您的電腦上的 [Git][install-git]。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。看完本指南後，您將擁有可在 Azure 上執行的 PHP/MySQL Web 應用程式。
 
 您將了解：
 
@@ -40,9 +40,8 @@
 
 ##設定開發環境
 
-本教學課程假設您已經具備 [PHP][install-php]、MySQL 命令列工具 ([MySQL][install-mysql] 的一項工具)、Web 伺服器，以及安裝在您的電腦上的 [Git][install-git]。
+本教學課程假設您已經具備 [PHP][install-php]、MySQL 命令列工具 ([MySQL][install-mysql] 的一項工具)，以及安裝在您的電腦上的 [Git][install-git]。
 
-> [AZURE.NOTE]如果您是在 Windows 電腦上執行本教學課程，則您可以安裝 <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Azure SDK for PHP</a> 來設定電腦使用 PHP 並自動設定 IIS (Windows 內建的 Web 伺服器)。
 
 ##<a id="create-web-site-and-set-up-git"></a>建立 Web 應用程式並設定 Git 發佈
 
@@ -51,9 +50,9 @@
 1. 登入 [Azure 入口網站][management-portal]。
 2. 按一下 [新增] 圖示。
 
-3. 依序按一下 [Web + 行動]、[Azure Marketplace]。
+3. 按一下 [Marketplace] 旁的 [查看全部]。
 
-4. 依序按一下 [Web 應用程式] 和 [Web 應用程式 + MySQL]。然後按一下 [建立]。
+4. 依序按一下 [Web + 行動] 和 [Web 應用程式 + MySQL]。然後按一下 [建立]。
 
 4. 輸入資源群組的有效名稱。
 
@@ -67,9 +66,9 @@
 
 	![建立新的 MySQL 資料庫][new-mysql-db]
 
-7. 建立 Web 應用程式之後，您將會看到新的資源群組。按一下 Web 應用程式名稱以進行設定。
+7. 建立 Web 應用程式之後，您將會看到新的 Web 應用程式刀鋒視窗。
 
-7. 按一下 [設定連續部署]。
+7. 在 [設定] 中按一下 [繼續部署]，然後按一下 [設定必要設定]。
 
 	![設定 Git 發佈][setup-publishing]
 
@@ -91,7 +90,7 @@
 
 	![選取資料庫][select-database]
 
-2. 從資料庫摘要中，選取 [屬性]。
+2. 從資料庫的 [設定] 中選取 [屬性]。
 
     ![選取屬性][select-properties]
 
@@ -107,7 +106,7 @@
 
 * **index.php**：顯示註冊表單，以及內含註冊者資訊的資料表。
 
-若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假設您具有 PHP、MySQL 命令列工具 (MySQL 的一部分)，以及一部在本機電腦上設定的 Web 伺服器，而且您已經啟用了 [MySQL 的 PDO 延伸功能][pdo-mysql]。
+若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假設您已經在本機電腦上設定 PHP 和 MySQL 命令列工具 (MySQL 的一部分)，且您已經啟用 [MySQL 的 PDO 延伸功能][pdo-mysql]。
 
 1. 使用您先前擷取的 `Data Source`、`User Id`、`Password` 和 `Database` 值，連線到遠端 MySQL 伺服器：
 
@@ -119,9 +118,9 @@
 
 3. 貼上下列 `CREATE TABLE` 命令，以在您的資料庫中建立 `registration_tbl` 資料表：
 
-		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
+		CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. 在 Web 伺服器的根目錄中，建立名為 `registration` 的資料夾，然後在其中建立一個名為 `index.php` 的檔案。
+4. 在本機應用程式資料夾的根目錄中建立 **index.php** 檔案。
 
 5. 在文字編輯器或 IDE 中開啟 **index.php** 檔案並加入下列程式碼，然後完成具有 `//TODO:` 註解的必要變更。
 
@@ -210,7 +209,11 @@
 		</body>
 		</html>
 
-您現在可以瀏覽至 ****http://localhost/registration/index.php** 測試應用程式。
+4.  在終端機中，移至您的應用程式資料夾並輸入以下命令：
+
+		php -S localhost:8000
+
+您現在可以瀏覽至 ****http://localhost:8000/** 測試應用程式。
 
 
 ##發佈您的應用程式
@@ -300,4 +303,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,32 +13,35 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/20/2015" 
 	ms.author="mahender"/>
 
 # 如何設定 App Service 應用程式使用 Azure Active Directory 登入
+
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 本主題說明如何設定 Azure 應用程式服務，以使用 Azure Active Directory 做為驗證提供者。
 
-
-	> [AZURE.NOTE] This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. If using the gateway, please see the [alternative method]. Differences that apply to using the gateway are called out in notes throughout that section.
+> [AZURE.NOTE]本主題示範 App Service 驗證/授權功能的用法。這會取代大部分應用程式的 App Service 閘道器。如果使用閘道器，請參閱[另一種方法]。該小節中使用閘道器所產生的差異都列在注意事項中。
 
 
 ## <a name="express"> </a>使用快速設定設定 Azure Active Directory
 
-13. 在 [Azure 管理入口網站]，瀏覽至您的應用程式。按一下 [設定]，然後按一下 [驗證/授權]。
+13. 在 [Azure 管理入口網站]中，瀏覽至您的應用程式。依序按一下 [設定] 及 [驗證/授權]。
 
 14. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
 
 15. 按一下 [Azure Active Directory]，然後按一下 [管理模式] 下方的 [快速]。
 
-16. 按一下 [確定] 在 Azure Active Directory 中註冊應用程式。這樣會建立新的註冊。如果您想改為選擇現有的註冊，按一下 [選取現有的應用程式]，然後在您的租用戶內搜尋先前建立的註冊的名稱。按一下註冊以選取它，然後按一下 [確定]。然後在 Azure Active Directory 設定刀鋒視窗上按一下 [確定]。
+16. 按一下 [確定] 以在 Azure Active Directory 中註冊應用程式。這樣會建立新的註冊。如果您想改為選擇現有的註冊，請按一下 [選取現有的應用程式]，然後在您的租用戶內搜尋先前建立之註冊的名稱。按一下註冊以選取它，然後按一下 [確定]。然後在 Azure Active Directory 設定刀鋒視窗上按一下 [確定]。
 
     ![][0]
 	
-16. 根據預設，App Service 提供登入但不限制存取網站內容和 API，這是應用程式程式碼的責任。如果您想要站台完全受到 Azure Active Directory 登入的保護，請將 [要求未經驗證時所採取的動作] 下拉式清單變更成使用 [Azure Active Directory] 選項。這會要求所有要求都經過驗證，未經驗證的要求會重新導向至使用 Azure Active Directory 登入。
+	App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。您必須在應用程式程式碼中授權使用者。
+
+17. (選擇性) 若要限制只有透過 Azure Active Directory 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Azure Active Directory]。這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Azure Active Directory 以進行驗證。
 
 17. 按一下 [儲存]。
 
@@ -63,12 +66,12 @@
 
 7. 在 [登入 URL] 方塊中，貼上您之前複製的應用程式 URL。在 [應用程式識別碼 URI] 方塊中輸入相同的 URL。接著，按一下以繼續。
 
-8. 新增應用程式之後，按一下 [設定] 索引標籤。將 [單一登入] 下的 [回覆 URL] 編輯成您的應用程式的 URL，並加上 _/.auth/login/aad/callback_ 路徑。例如：`https://contoso.azurewebsites.net/.auth/login/aad/callback`。請確實使用 HTTPS 配置。
+8. 新增應用程式之後，按一下 [設定] 索引標籤。將 [單一登入] 下的 [回覆 URL] 編輯成您應用程式的 URL，並加上 _/.auth/login/aad/callback_ 路徑。例如：`https://contoso.azurewebsites.net/.auth/login/aad/callback`。請確實使用 HTTPS 配置。
 
     ![][3]
 	
 	
-	> [AZURE.NOTE]如果您使用的是 App Service 閘道器，而不是App Service 驗證 / 授權功能，回覆 URL 會改用閘道器 URL 加上 _/signin-aad_ 路徑。
+	> [AZURE.NOTE]如果您使用的是 App Service 閘道器，而不是App Service 驗證/授權功能，回覆 URL 會改用閘道器 URL 加上 _/signin-aad_ 路徑。
 
 
 9. 按一下 [儲存]。然後，複製應用程式的 [**用戶端識別碼**]。稍後您會設定您的應用程式使用此資訊。
@@ -79,12 +82,10 @@
 
 ### <a name="secrets"> </a>將 Azure Active Directory 資訊新增至應用程式
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Azure Active Directory**. Paste in the ClientID and add the tenant ID to the **Allowed Tenants** list. Click **Save**.
+> [AZURE.NOTE]如果您使用 App Service 閘道器，請忽略此章節，並改為在入口網站中瀏覽至您的閘道器。依序選取 [設定]、[身分識別]，[Azure Active Directory]。貼入 ClientID 並將租用戶識別碼新增至 [允許的租用戶] 清單。按一下 [儲存]。
 
 
-13. 回到[預覽 Azure 管理入口網站]，並瀏覽至應用程式。按一下 [設定]，然後按一下 [驗證/授權]。
+13. 回到[預覽 Azure 管理入口網站]，並瀏覽至應用程式。依序按一下 [設定] 及 [驗證/授權]。
 
 14. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
 
@@ -92,7 +93,9 @@
 
     ![][1]
 	
-16. 根據預設，App Service 提供登入但不限制存取網站內容和 API，這是應用程式程式碼的責任。如果您想要站台完全受到 Azure Active Directory 登入的保護，請將 [要求未經驗證時所採取的動作] 下拉式清單變更成使用 [Azure Active Directory] 選項。這會要求所有要求都經過驗證，未經驗證的要求會重新導向至使用 Azure Active Directory 登入。
+	App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。您必須在應用程式程式碼中授權使用者。
+
+17. (選擇性) 若要限制只有透過 Azure Active Directory 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Azure Active Directory]。這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Azure Active Directory 以進行驗證。
 
 17. 按一下 [儲存]。
 
@@ -114,6 +117,6 @@
 [預覽 Azure 管理入口網站]: https://portal.azure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
-[alternative method]: #advanced
+[另一種方法]: #advanced
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

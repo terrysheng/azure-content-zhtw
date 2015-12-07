@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。如果您正在尋找 Azure 傳統部署模型，請參閱[開始使用傳統部署建立網際網路面向的負載平衡器](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。您也可以[了解如何使用傳統部署建立網際網路面向的負載平衡器](load-balancer-get-started-internet-classic-portal.md)
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -143,12 +143,7 @@
 	
 	
 
-**-g** - 資源群組
-**-l** - 負載平衡器集的名稱
-**-n** - 健全狀況探查的名稱
-**-p** - 健全狀況探查所使用的通訊協定
-**-i** - 探查間隔 (秒)
-**-c** - 檢查的數目
+**-g** - 資源群組 **-l** - 負載平衡器集的名稱 **-n** - 健全狀況探查的名稱 **-p** - 健全狀況探查所使用的通訊協定 **-i** - 探查間隔 (秒) **-c** - 檢查的數目
 
 ### 步驟 4
 
@@ -314,14 +309,7 @@
 
 參數：
 
-**-g** - 資源群組名稱<br>
-**-l** - 負載平衡器名稱<BR>
-**-n** - 負載平衡器規則名稱<BR>
-**-p** - 通訊協定<BR>
-**-f** - 前端連接埠<BR>
-**-b** - 後端連接埠<BR>
-**-t** - 前端集區名稱<BR>
-**-b** - 後端集區名稱<BR>
+**-g** - 資源群組名稱<br> **-l** - 負載平衡器名稱<BR> **-n** - 負載平衡器規則名稱<BR> **-p** - 通訊協定<BR> **-f** - 前端連接埠<BR> **-b** - 後端連接埠<BR> **-t** - 前端集區名稱<BR> **-b** - 後端集區名稱<BR>
 
 ## 刪除負載平衡器 
 
@@ -340,4 +328,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

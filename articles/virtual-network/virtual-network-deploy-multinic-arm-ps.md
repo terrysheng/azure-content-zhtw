@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 #使用 PowerShell 部署多個 NIC VM
@@ -43,17 +43,19 @@
 
 ## 部署後端 VM
 
-後端 VM 有賴於建立下面列出的資源。
+後端 VM 有賴於建立下列資源。
 
-- **資料磁碟的儲存體帳戶**。為取得更好的效能，資料庫伺服器上的資料磁碟將會使用需要進階儲存體帳戶的固態硬碟 (SSD) 技術。請確定 Azure 的部署位置，以支援進階儲存體。
+- **資料磁碟的儲存體帳戶**。為取得更佳的效能，資料庫伺服器上的資料磁碟會使用需要進階儲存體帳戶的固態硬碟 (SSD) 技術。請確定 Azure 的部署位置，以支援進階儲存體。
 - **NIC**。每部 VM 都會有兩個 NIC，一個用於資料庫存取，另一個用於管理。
-- **可用性設定組**。所有的資料庫伺服器都會加入單一的可用性設定組，確保在維護期間至少會有一部 VM 啟動並執行。  
+- **可用性設定組**。所有的資料庫伺服器都會加入單一的可用性設定組，確保在維護期間至少有一部 VM 啟動並執行。  
 
 ### 步驟 1：啟動指令碼
 
-[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.ps1)可以下載所使用之完整的 PowerShell 指令碼。請遵循下列步驟來變更指令碼來讓指令碼在環境中運作。
+[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.ps1)可以下載所使用之完整的 PowerShell 指令碼。請遵循下列步驟來變更要在環境中工作的指令碼。
 
-1. 根據上述[必要條件](#Prerequisites)中已部署的現有資源群組來變更下列變數的值。
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
+1. 根據前文[必要條件](#Prerequisites)中已部署的現有資源群組，變更下列變數值。
 
 		$existingRGName        = "IaaSStory"
 		$location              = "West US"
@@ -81,10 +83,10 @@
 
 3. 擷取部署所需的現有資源。
 
-		$vnet                  = Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
+		$vnet                  = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
 		$backendSubnet         = $vnet.Subnets|?{$_.Name -eq $backendSubnetName}
-		$remoteAccessNSG       = Get-AzureNetworkSecurityGroup -Name $remoteAccessNSGName -ResourceGroupName $existingRGName
-		$stdStorageAccount     = Get-AzureStorageAccount -Name $stdStorageAccountName -ResourceGroupName $existingRGName
+		$remoteAccessNSG       = Get-AzureRmNetworkSecurityGroup -Name $remoteAccessNSGName -ResourceGroupName $existingRGName
+		$stdStorageAccount     = Get-AzureRmStorageAccount -Name $stdStorageAccountName -ResourceGroupName $existingRGName
 
 ### 步驟 2：為 VM 建立必要的資源
 
@@ -92,16 +94,16 @@
 
 1. 建立新的資源群組。
 
-		New-AzureResourceGroup -Name $backendRGName -Location $location
+		New-AzureRmResourceGroup -Name $backendRGName -Location $location
 
 2. 在上述建立的資源群組中建立新的進階儲存體帳戶。
 
-		$prmStorageAccount = New-AzureStorageAccount -Name $prmStorageAccountName `
+		$prmStorageAccount = New-AzureRmStorageAccount -Name $prmStorageAccountName `
 			-ResourceGroupName $backendRGName -Type Premium_LRS -Location $location
 
 3. 建立新的可用性設定組。
 
-		$avSet = New-AzureAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
+		$avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
 
 4. 取得每部 VM 要使用的本機系統管理員帳戶認證。
 
@@ -119,55 +121,55 @@
 		
 		    $nic1Name = $nicNamePrefix + $suffixNumber + "-DA"
 		    $ipAddress1 = $ipAddressPrefix + ($suffixNumber + 3)
-		    $nic1 = New-AzureNetworkInterface -Name $nic1Name -ResourceGroupName $backendRGName `
+		    $nic1 = New-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $backendRGName `
 				-Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress1
 
 3. 建立用於遠端存取的 NIC。請注意，此 NIC 與 NSG 關聯的方式。
 
 		    $nic2Name = $nicNamePrefix + $suffixNumber + "-RA"
 		    $ipAddress2 = $ipAddressPrefix + (53 + $suffixNumber)
-		    $nic2 = New-AzureNetworkInterface -Name $nic2Name -ResourceGroupName $backendRGName `
+		    $nic2 = New-AzureRmNetworkInterface -Name $nic2Name -ResourceGroupName $backendRGName `
 				-Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress2 `
 				-NetworkSecurityGroupId $remoteAccessNSG.Id
 
 4. 建立 `vmConfig` 物件。
 
 		    $vmName = $vmNamePrefix + $suffixNumber
-		    $vmConfig = New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
+		    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
 
 5. 每部 VM 建立兩個資料磁碟。請注意，資料磁碟位於稍早建立的進階儲存體帳戶中。
 
 		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
-		    Add-AzureVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
+		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
 				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
 		
 		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
 		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
-		    Add-AzureVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
+		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
 
 6. 設定作業系統，以及要用於 VM 的映像。
 		    
-		    $vmConfig = Set-AzureVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-		    $vmConfig = Set-AzureVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
+		    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+		    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
 
 7. 將上述建立的兩個 NIC 加到 `vmConfig` 物件。
 
-		    $vmConfig = Add-AzureVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
-		    $vmConfig = Add-AzureVMNetworkInterface -VM $vmConfig -Id $nic2.Id
+		    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
+		    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic2.Id
 
 8. 建立作業系統磁碟並建立 VM。請注意，`}` 會結束 `for` 迴圈。
 
 		    $osDiskName = $vmName + "-" + $osDiskSuffix
 		    $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
-		    $vmConfig = Set-AzureVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
-		    New-AzureVM -VM $vmConfig -ResourceGroupName $backendRGName -Location $location
+		    $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
+		    New-AzureRmVM -VM $vmConfig -ResourceGroupName $backendRGName -Location $location
 		}
 
 ### 步驟 4：執行指令碼
 
-現在您已根據需求下載並變更了指令碼，請執行指令碼來建立具有多個 NIC 的後端資料庫 VM。
+既然您已根據需求下載並變更指令碼，請執行指令碼來建立有多個 NIC 的後端資料庫 VM。
 
 1. 儲存您的指令碼，並從 **PowerShell** 命令提示字元或 **PowerShell ISE** 執行。您會看到初始的輸出，如下所示。
 
@@ -182,7 +184,7 @@
 		                    
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/IaaSStory-Backend
 
-2. 幾分鐘後，填寫認證提示並按一下 [確定]。以下的輸出代表單一 VM。請注意，整個程序花費 8 分鐘完成。
+2. 幾分鐘後，填寫認證提示並按一下 [**確定**]。以下的輸出代表單一 VM。請注意，整個程序花費 8 分鐘完成。
 
 		ResourceGroupName            : 
 		Id                           : 
@@ -306,4 +308,4 @@
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## 使用 node.js 將裝置資料傳送到遠端監視方案
+## 建置並執行 node.js 範例解決方案
 
 1. 若要複製 *Microsoft Azure IoT SDK* GitHub 儲存機制，並將 *Microsoft Azure IoT 裝置 SDK for Node.js* 安裝至您的桌面環境，請遵循[準備您的開發環境][lnk-github-prepare]指示。
 
@@ -61,4 +61,4 @@
 [lnk-node-installers]: https://nodejs.org/download/
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

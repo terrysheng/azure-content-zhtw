@@ -20,7 +20,7 @@
 # 在 Azure 中建立 SQL Server 虛擬機器 (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-provision-sql-server.md)
+- [Azure portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## 概觀
@@ -170,8 +170,8 @@
 
 在許多情況下下，下一個步驟是將資料庫移轉到這個新的 SQL Server VM。如需資料庫移轉的指引，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](virtual-machines-migrate-onpremises-database.md)。
 
-如果您還想了解如何從 Azure 管理入口網站執行這些步驟，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
+如果您還想了解如何從 Azure 入口網站執行這些步驟，請參閱[在 Azure 中佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
 
 除了上述資源，我們也建議您檢閱[在 Azure 虛擬機器中執行 SQL Server 的其他相關主題](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

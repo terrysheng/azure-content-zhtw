@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/23/2015" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -27,7 +27,7 @@ Cortana 分析程序 (CAP) 是一種系統化的資料科學方法，可列出�
 
 此程序是**反覆執行的**：對於模型能有新的和現有的了解或精確調整，可發展出、同時也有賴於先前依序完成的修改步驟。現有的組織開發和專案規劃程序**可輕易調整**，以使用 CAP 定義的步驟順序。
 
-程序中的步驟已在 [CAP 學習途徑](https://azure.microsoft.com/zh-TW/documentation/learning-paths/cortana-analytics-process/)中以圖表和連結方式呈現，如下所述。
+程序中的步驟已在 [CAP 學習途徑](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中以圖表和連結方式呈現，如下所述。
 
 ## 準備步驟 
 
@@ -83,7 +83,7 @@ Cortana 分析程序的分析環境包含數個元件：
 
 ## 摘要和後續步驟
 
-[Cortana 分析程序](https://azure.microsoft.com/zh-TW/documentation/learning-paths/cortana-analytics-process/)會模型化為一系列反覆執行的步驟，以針對使用進階分析來建置智慧型應用程式所需的工作**提供指引**。每個步驟也會提供詳細資訊，說明如何使用各種不同的 Microsoft 技術來完成工作。
+[Cortana 分析程序](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)會模型化為一系列反覆執行的步驟，以針對使用進階分析來建置智慧型應用程式所需的工作**提供指引**。每個步驟也會提供詳細資訊，說明如何使用各種不同的 Microsoft 技術來完成工作。
 
 雖然 CAP 並未指定特定類型的**文件**成品，但最好能夠記錄資料瀏覽、模型化和評估的結果，並儲存相關的程式碼，使分析可以在必要時反覆執行。這也可讓您在處理牽涉到類似資料和預測工作的其他應用程式時，能夠重複使用分析工作。
 
@@ -91,4 +91,4 @@ Cortana 分析程序的分析環境包含數個元件：
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

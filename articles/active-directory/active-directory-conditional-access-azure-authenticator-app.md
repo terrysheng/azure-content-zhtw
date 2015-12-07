@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # 適用於 Android 的 Azure Authenticator
@@ -112,4 +112,4 @@ IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行�
 
 如果您看到 [金鑰存放區錯誤]，這可能是因為您未使用 PIN 設定鎖定畫面。若要解決這個問題，請將 Azure Authenticator 應用程式解除安裝、設定鎖定螢幕的 PIN，以及重新安裝應用程式。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

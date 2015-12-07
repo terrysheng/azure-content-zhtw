@@ -1,8 +1,9 @@
-**Virtual machine disks: per disk limits**
+**虛擬機器磁碟：每一磁碟限制**
 
- VM Tier | Basic Tier VM | Standard Tier VM
+ VM 層 | 基本層 VM | 標準層 VM
 ---|---|---
-Disk size | 1023 GB | 1023 GB
-Max 8 KB IOPS per persistent disk | 300 | 500
-Max number of highly utilized disks | 66 | 40
+磁碟大小 | 1023 GB | 1023 GB
+每一永久性磁碟最多 8 KB IOPS | 300 | 500
+高度使用的磁碟數量上限 | 66 | 40
 
+<!---HONumber=AcomDC_1125_2015-->

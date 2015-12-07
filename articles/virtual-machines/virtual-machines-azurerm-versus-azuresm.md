@@ -71,9 +71,9 @@ Azure Resource Manager 可讓您輕鬆運用預先建立的應用程式範本，
 
 您可以利用我們專為開發和部署到平台而設計的工具，開始使用 Azure 範本。
 
-### Azure 入口網站
+### Azure Preview 入口網站
 
-Azure 入口網站會繼續允許使用者同時部署虛擬機器和虛擬機器 (預覽)。Azure 入口網站也允許部署自訂的範本。
+Azure Preview 入口網站將繼續提供同時以傳統部署模式來部署虛擬機器，以及以資源管理員部署模式來部署虛擬機器的選項。Azure Preview 入口網站也允許部署自訂的範本。
 
 ### Azure PowerShell
 
@@ -118,4 +118,4 @@ Azure 命令列介面 (Azure CLI) 有兩種部署模式 - **AzureServiceManageme
 
 一組完整的入門範本可在 [Azure 資源管理員快速入門範本](http://azure.microsoft.com/documentation/templates/)中找到。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

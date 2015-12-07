@@ -64,7 +64,7 @@
 |D11|2|
 |D12|4|
 |D13|8|
-|D14|16|
+|D14|8|
 |DS1|1|
 |DS2|2|
 |DS3|4|
@@ -81,12 +81,12 @@
 |D11\_v2|2|
 |D12\_v2|4|
 |D13\_v2|8|
-|D14\_v2|16|
+|D14\_v2|8|
 |G1|1|
 |G2|2|
 |G3|4|
 |G4|8|
-|G5|16|
+|G5|8|
 |所有的其他大小|1|
 
 ## 網路安全性群組 (NSG)
@@ -265,4 +265,4 @@
 - 部署[在資源管理員部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-arm-template)。
 - 部署[在傳統部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-classic-ps)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

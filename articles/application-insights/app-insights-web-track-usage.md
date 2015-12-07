@@ -26,25 +26,9 @@ Visual Studio Application Insights 提供兩種使用情況追蹤層級：
 
 ## 設定
 
-Web 應用程式的使用情況資料來自用戶端瀏覽器。
+在 [Azure 入口網站](https://portal.azure.com)中開啟 Application Insights 資源按一下 [瀏覽器載入頁面] 圖表，並按照設定指示操作。
 
-#### 設定 Application Insights 資源 
-
-Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程式遙測資料的位置。您可能已在 [ASP.NET][greenbrown] 或 [J2EE][java] 設定一個資源來顯示應用程式伺服器端的資料。如果還沒，您可以立即設定。
-
-通常來說，用來顯示 Web 用戶端使用情況資料的資源最好與用來顯示伺服器資料的資源相同。如此一來，您就可以輕易地相互關聯這兩端的診斷和度量資料。因此，如果您已經有資源，請跳至下一個步驟。
-
-#### 在網頁中插入程式碼
-
-在 [Azure 入口網站][portal]的資源中，開啟 [快速入門] 來取得用來監視網頁的程式碼片段。
-
-![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
-
-將程式碼放入主版頁面，例如 (在 .NET 中) \_Layout.cshtml，或放入 include 檔案中，以確定它包含在您的所有頁面中。
-
-程式碼片段包含可識別資源的檢測金鑰 (iKey)。若要將資料傳送至不同資源，例如在測試期間，您只需要取代 iKey 即可。
-
-在偵錯模式發行或使用網頁，來產生一些遙測資料。
+[深入了解](app-insights-javascript.md)
 
 
 ## 我的 Web 應用程式的熱門程度為何？
@@ -53,7 +37,7 @@ Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **使用者：**圖表的一段時間範圍內不同作用中使用者的計數。 
+* **使用者：**圖表的時間範圍內不同作用中使用者的計數。 
 * **工作階段：**使用中工作階段計數
 * **頁面檢視** 計算對 trackPageView() 呼叫的數目，通常在每個網頁中呼叫一次。
 
@@ -112,12 +96,12 @@ Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程
 
 每個使用者工作階段都會與唯一的使用者識別碼相關聯。
 
-根據預設，會放置 cookie 來識別使用者。使用多個瀏覽器或裝置的使用者將會計算一次以上。(但是請參閱[通過驗證的使用者](#authenticated-users))
+根據預設，會放置 cookie 來識別使用者。使用多個瀏覽器或裝置的使用者將會計算一次以上。(但是請參閱[驗證的使用者](#authenticated-users))
 
 
 特定間隔期間的**使用者計數**度量的定義是，在此間隔期間具有記錄活動的唯一使用者數目。因此，當您設定的時間範圍資料粒度小於一小時左右，具有長工作階段的使用者可能會計算多次。
 
-**新使用者**會計算應用程式的第一個工作階段發生在此間隔期間的使用者。如果使用依使用者和 Cookie 進行計算的預設方法，則這也會包括已清除其 Cookie 或是使用新裝置或瀏覽器第一次存取您的 App 的使用者。![從 [使用量] 刀鋒視窗中，按一下 [使用者] 圖表，即可檢查新的使用者。](./media/app-insights-web-track-usage/031-dual.png)
+**新使用者**會計算應用程式的第一個工作階段發生在此間隔期間的使用者。如果使用以 Cookie 計算使用者的預設方法，則這也會包括已清除其 Cookie 或是使用新裝置或瀏覽器第一次存取您的 App 的使用者。![從 [使用量] 刀鋒視窗中，按一下 [使用者] 圖表，即可檢查新的使用者。](./media/app-insights-web-track-usage/031-dual.png)
 
 ### 通過驗證的使用者
 
@@ -135,7 +119,7 @@ Application Insights 資源是 Microsoft Azure 中用來分析和顯示應用程
 使用者及帳戶識別碼不得包含空格或字元 `,;=|`
 
 
-在 [計量瀏覽器](app-insights-metrics-explorer.md) 中，您可以建立 [經過驗證的使用者] 和 [帳戶] 的圖表。
+在 [計量瀏覽器][](app-insights-metrics-explorer.md) 中，您可以建立 [驗證的使用者] 和 [帳戶] 的圖表。
 
 ## 綜合流量
 
@@ -391,4 +375,4 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

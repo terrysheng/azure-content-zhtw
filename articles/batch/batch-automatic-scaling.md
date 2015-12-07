@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="08/26/2015"
-	ms.author="davidmu"/>
+	ms.date="11/18/2015"
+	ms.author="davidmu;marsma"/>
 
 # 自動調整 Azure Batch 集區中的運算節點
 
-自動調整 Azure Batch 集區中的運算節點就是動態調整應用程式所使用的處理能力。調整方式很容易，可節省時間與金錢。若要深入了解運算節點和集區，請參閱 [Azure Batch 技術概觀](batch-technical-overview.md)。
+自動調整 Azure Batch 集區中的運算節點就是動態調整應用程式所使用的處理能力。調整方式很容易，可節省時間與金錢。若要深入了解計算節點和集區，請參閱 [Azure Batch 基本知識](batch-technical-overview.md)。
 
 當集區上啟用自動調整且集區有相關聯的公式時，就會進行自動調整。公式用來決定處理應用程式所需的運算節點的數目。使用定期收集的範例時，集區中可用的運算節點數目會根據相關聯的公式，每隔 15 分鐘調整一次。
 
@@ -336,15 +336,15 @@
 
 上表中所述的某些函式可以接受清單做為引數。逗號分隔清單是 *double* 和 *doubleVec* 的任意組合。例如：
 
-	doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?
+`doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-評估之前，*doubleVecList* 值會轉換成單一的 *doubleVec*。例如，如果 v = [1,2,3]，則呼叫 avg(v) 相當於呼叫 avg(1,2,3)，而呼叫 avg(v, 7) 相當於呼叫 avg(1,2,3,7)。
+評估之前，*doubleVecList* 值會轉換成單一的 *doubleVec*。例如，如果 `v = [1,2,3]`，則呼叫 `avg(v)` 相當於呼叫 `avg(1,2,3)`，而呼叫 `avg(v, 7)` 相當於呼叫 `avg(1,2,3,7)`。
 
 ### 取得範例資料
 
 上述系統定義的變數是可提供方法來存取相關聯資料的物件。例如，下列運算式顯示取得最後五分鐘的 CPU 使用量的要求：
 
-	$CPUPercent.GetSample(TimeInterval_Minute*5)
+`$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
 這些方法可以用來取得範例資料。
 
@@ -359,15 +359,17 @@
   </tr>
   <tr>
     <td>GetSample()</td>
-    <td><p>傳回資料向量範例。例如：</p>
+    <td><p>傳回資料向量範例。
+	<p>一個樣本有 30 秒的度量資料。換句話說，每 30 秒取得樣本，但如下所述，從收集樣本到可用於公式之間會延遲。因此，並非一段指定時間內的所有樣本都可供公式評估。
         <ul>
-          <li><p><b>doubleVec GetSample(double count)</b>：指定最近範例中所需範例的數目。</p>
-				  <p>一個範例值得 5 秒的度量資料。GetSample(1) 會傳回最後一個可用的範例，但是您不得對 $CPUPercent 之類的度量使用這個函式，因為您無法得知收集範例的時間。此範例可能是最新的，也可能因為系統問題，是更舊的。最好使用如下所示的時間間隔。</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>：指定收集範例資料的時間範圍，並選擇性地指定必須在要求的範圍內的範例百分比。</p>
-          <p>如果 CPU Percent 歷程記錄中有最後十分鐘的所有範例，則 $CPUPercent.GetSample(TimeInterval\_Minute*10) 應該會傳回 200 個範例。如果最新的歷程記錄仍不存在，則只會傳回 180 個範例。</p>
-					<p>$CPUPercent.GetSample (TimeInterval\_Minute\ * 10，80) 成功，且 $CPUPercent.GetSample(TimeInterval_Minute*10,95) 失敗。</p></li>
+          <li><p><b>doubleVec GetSample(double count)</b>：指定要從最近收集的樣本中取得的樣本數。</p>
+				  <p>Getsample (1) 會傳回最後一個可用的樣本。不過，這不適用於 $CPUPercent 之類的計量，因為不可能知道 <em>何時</em>收集到樣本 (樣本可能是很新)，或因為系統問題 (樣本可能很舊)。在此情況下，最好使用如下所示的時間間隔。</p></li>
+          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>：指定收集樣本資料的時間範圍，並選擇性地指定在要求的時間範圍內必須可用的樣本數百分比。</p>
+          <p>如果 CPUPercent 歷程記錄中有最後十分鐘的所有樣本，則 <em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> 會傳回 20 個樣本。不過，如果最後一分鐘的歷程記錄無法使用，則只會傳回 18 個樣本，在此情況下：<br/>
+		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> 會失敗，因為只有 90% 的樣本可用，但是<br/>
+		  &#160;&#160;&#160;&#160;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> 會成功。</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>：使用開始時間和結束時間指定收集資料的時間範圍。</p></li></ul>
-		  <p>請注意，收集到範例與公式可使用範例之間會有所延遲。使用 GetSample 方法時，必須考慮這一點。請參閱下面的 GetSamplePercent。</td>
+		  <p>如上所述，從收集樣本到可用於公式之間會延遲。使用 <em>GetSample</em> 方法時必須考量此因素 - 請參閱下方的 <em>GetSamplePercent</em>。</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -387,7 +389,7 @@
 
 ### 度量
 
-您可以在定義公式時使用資源和工作**度量**，這些度量可用來管理集區中的運算節點。
+您可以在定義公式時使用資源和工作**度量**，這些度量可用來管理集區中的計算節點。
 
 <table>
   <tr>
@@ -443,7 +445,7 @@
 
 	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
 
-現在將專用運算節點的目標數目設定為**上限** 400 個：
+現在將專用計算節點的目標數目設定為**上限** 400 個：
 
 	$TargetDedicated = min(400, $TotalNodes)
 
@@ -463,7 +465,7 @@
 
 > [AZURE.NOTE]如果您使用上述其中一項技術在建立集區時設定自動調整，則建立時不會 (且不可以) 指定集區的 *targetDedicated* 參數。也請注意，如果您想要對已啟用自動調整的集區手動調整大小 (例如使用 [BatchClient.PoolOperations.ResizePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx))，則必須先在集區停用自動調整，然後調整集區的大小。
 
-下列程式碼片段顯示如何使用 [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 程式庫建立啟用自動調整的 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx)，其公式在星期一將節點目標數目設定為 5，在一週的其他每天設定為 1。在程式碼片段中，"myBatchClient" 是適當初始化的 [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx) 執行個體：
+下列程式碼片段顯示如何使用 [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 程式庫建立啟用自動調整的 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx)，其公式在星期一將節點目標數目設定為 5，在一週的其他每天設定為 1。在程式碼片段中，"myBatchClient" 是適當初始化的 [BatchClient 執行個體](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx))：
 
 		CloudPool pool myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
 		pool.AutoScaleEnabled = true;
@@ -472,7 +474,7 @@
 
 ## 集區建立之後啟用自動調整
 
-如果您已經使用 *targetDedicated* 參數設定具有指定運算節點數目的集區，則您稍後可以更新現有的集區以自動調整。使用以下其中一種方式執行這項操作：
+如果您已經使用 *targetDedicated* 參數設定具有指定計算節點數目的集區，則您稍後可以更新現有的集區以自動調整。使用以下其中一種方式執行這項操作：
 
 - [BatchClient.PoolOperations.EnableAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.enableautoscale.aspx)：這個 .NET 方法需要現有集區的識別碼，以及要套用至集區的自動調整公式。
 - [在集區上啟用自動調整](https://msdn.microsoft.com/library/azure/dn820173.aspx)：這個 REST API 要求需要 URI 中現有集區的識別碼，以及要求主體中的自動調整公式。
@@ -599,17 +601,43 @@
 		// Keep the nodes active until the tasks finish
 		$NodeDeallocationOption = taskcompletion;
 
+### 範例 4
+
+此範例示範自動調整公式在初始期間將集區大小設為一定的節點數目，然後在初始期間經過之後，再根據執行中和作用中的工作數目來調整集區大小。
+
+```
+string now = DateTime.UtcNow.ToString("r");
+string formula = string.Format(@"
+
+	$TargetDedicated = {1};
+	lifespan         = time() - time(""{0}"");
+	span             = TimeInterval_Minute * 60;
+	startup          = TimeInterval_Minute * 10;
+	ratio            = 50;
+
+	$TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+	", now, 4);
+```
+
+上述程式碼片段中的公式具有下列特性：
+
+- 將初始的集區大小設為 4 個節點
+- 在集區生命週期的最初 10 分鐘內不調整集區大小
+- 10 分鐘後，取得過去 60 分鐘內執行中和作用中工作數目的最大值
+  - 如果這兩個值都是 0 (表示過去 60 分鐘沒有執行或作用中的工作)，集區大小就設為 0
+  - 如果其中一個值大於零，則不進行任何變更
+
 ## 後續步驟
 
 1. 您可能需要存取運算節點，才能完整評估您應用程式的效率。若要使用遠端存取，必須將使用者帳戶新增至您想要存取的節點，而且必須擷取該節點的 RDP 檔案。
     - 使用以下其中一種方式新增使用者帳戶：
-        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx)：此 PowerShell Cmdlet 會採用集區名稱、運算節點名稱、帳戶名稱和密碼做為參數。
-        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx)：此 .NET 方法會建立 [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) 類別的執行個體，其中可設定運算節點的帳戶名稱和密碼，然後在執行個體上呼叫 [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx)，在該節點上建立使用者。
-        * [將使用者帳戶加入至節點](https://msdn.microsoft.com/library/dn820137.aspx)：集區的名稱與運算節點是在 URI 中指定，而帳戶名稱和密碼則會傳送到這個 REST API 要求的要求主體中的節點。
+        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx)：此 PowerShell Cmdlet 會採用集區名稱、計算節點名稱、帳戶名稱和密碼做為參數。
+        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx)：此 .NET 方法會建立 [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) 類別的執行個體，其中可設定計算節點的帳戶名稱和密碼，然後在執行個體上呼叫 [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx)，在該節點上建立使用者。
+        * [將使用者帳戶加入至節點](https://msdn.microsoft.com/library/dn820137.aspx)：集區的名稱與計算節點是在 URI 中指定，而帳戶名稱和密碼則會傳送到這個 REST API 要求的要求主體中的節點。
     - 取得 RDP 檔案：
         * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx)：這個 .NET 方法需要集區的識別碼、節點識別碼，以及要建立之 RDP 檔案的名稱。
-        * [從節點取得遠端桌面通訊協定檔案](https://msdn.microsoft.com/library/dn820120.aspx)：這個 REST API 要求需要集區的名稱和運算節點的名稱。回應會包含 RDP 檔案的內容。
-        * [Get AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx)：此 PowerShell Cmdlet 會從指定的運算節點取得 RDP 檔案，並將其儲存至指定的檔案位置或資料流。
-2.	有些應用程式會產生可能難以處理的大量資料。解決這個問題的其中一種方式是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
+        * [從節點取得遠端桌面通訊協定檔案](https://msdn.microsoft.com/library/dn820120.aspx)：這個 REST API 要求需要集區的名稱和計算節點的名稱。回應會包含 RDP 檔案的內容。
+        * [Get AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx)：此 PowerShell Cmdlet 會從指定的計算節點取得 RDP 檔案，並將其儲存至指定的檔案位置或串流。
+2.	有些應用程式會產生可能難以處理的大量資料。解決方法之一是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

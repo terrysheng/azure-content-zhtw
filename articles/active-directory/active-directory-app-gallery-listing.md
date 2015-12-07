@@ -33,7 +33,7 @@
 
 * 提供可由 Azure AD 小組搭配您的應用程式來測試整合的測試租用戶或帳戶的認證。  
 
-* 提供有關 Azure AD 小組如何使用 [Azure AD 同意架構](https://azure.microsoft.com/zh-TW/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework)登入並連接 Azure AD 執行個體到您的應用程式的指示。
+* 提供有關 Azure AD 小組如何使用 [Azure AD 同意架構](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework)登入並連接 Azure AD 執行個體到您的應用程式的指示。
 
 * 提供 Azure AD 小組搭配您的應用程式測試單一登入所需的任何進一步指示。
 
@@ -65,11 +65,11 @@
 
 ##SAML 整合
 
-使用[這些指示來新增自訂應用程式](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)，支援 SAML 2.0 的任何應用程式都可直接與 Azure AD 租用戶整合。一旦您測試過應用程式可與 Azure AD 整合後，請將下列資訊傳送至 <waadpartners@microsoft.com>。
+使用[這些指示來新增自訂應用程式](active-directory-saas-custom-apps.md)，支援 SAML 2.0 的任何應用程式都可直接與 Azure AD 租用戶整合。一旦您測試過應用程式可與 Azure AD 整合後，請將下列資訊傳送至 <waadpartners@microsoft.com>。
 
 * 提供可由 Azure AD 小組搭配您的應用程式來測試整合的測試租用戶或帳戶的認證。  
 
-* 提供您的應用程式的 SAML 登入 URL、簽發者 URL (實體 ID) 和回覆 URL (判斷提示取用者服務) 的值，如[此處](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)所述。如果您通常會提供這些值做為一個 SAML 中繼資料檔的一部分，也請一併傳送該檔案。
+* 提供您的應用程式的 SAML 登入 URL、簽發者 URL (實體 ID) 和回覆 URL (判斷提示取用者服務) 的值，如[此處](active-directory-saas-custom-apps.md)所述。如果您通常會提供這些值做為一個 SAML 中繼資料檔的一部分，也請一併傳送該檔案。
 
 * 提供如何在使用 SAML 2.0 的應用程式中設定 Azure AD 做為身分識別提供者的簡短描述。如果您的應用程式支援透過自助系統管理入口網站來設定 Azure AD 做為身分識別提供者，請確認以上提供的認證包含執行這項設定所需的能力。
 
@@ -89,7 +89,7 @@
 > 
 > 客戶前往註冊和 (或) 購買應用程式的應用程式註冊 URL：
 > 
-> 選擇要為您的應用程式列出的最多三個類別 (如需可用的類別，請參閱 [Azure Active Directory Marketplace](https://azure.microsoft.com/zh-TW/marketplace/active-directory/))：
+> 選擇要為您的應用程式列出的最多三個類別 (如需可用的類別，請參閱 [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))：
 > 
 > 附加應用程式小型圖示 (PNG 檔案、45px x 45px、背景純色)：
 > 
@@ -97,4 +97,4 @@
 > 
 > 附加應用程式標誌 (PNG 檔案、150px x 122px、透明背景色彩)：
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

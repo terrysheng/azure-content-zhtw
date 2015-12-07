@@ -3,7 +3,7 @@
 	description="設定資料科學虛擬機器"
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun"  />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/23/2015"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Azure 中的資料科學虛擬機器
@@ -34,10 +34,10 @@
 
 * [將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用](machine-learning-data-science-setup-sql-server-virtual-machine.md)示範如何針對可用來儲存資料的 SQL 資料庫情況，使用 IPython Notebook 和其他用來進行資料科學的工具來佈建 Azure SQL 虛擬機器。
 
-在完成佈建並設定之後，這些虛擬機器就已經準備好用來做為 IPython Notebook 伺服器，以用於進行資料探索和處理，以及其他需要與 Azure Machine Learning 和雲端資料科學程序一起使用的工作。[學習指南：Azure 中的進階資料處理](machine-learning-data-science-advanced-data-processing.md)中說明了資料科學程序的後續步驟，其中可能包含將資料移至 SQL Server 或 HDInsight，並在其中處理資料與取樣，做為透過 Azure 學習機器服務從資料學習的準備。
+在完成佈建並設定之後，這些虛擬機器就已經準備好用來做為 IPython Notebook 伺服器，以用於進行資料探索和處理，以及其他需要與 Azure Machine Learning 和 Cortana 分析程序 (CAP) 一起使用的工作。[CAP 學習途徑](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中說明了資料科學程序的後續步驟，其中可能包含將資料移至 SQL Server 或 HDInsight，並在其中處理資料與取樣，做為透過 Azure 學習機器服務從資料學習的準備。
 
 
 > [AZURE.NOTE]Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費**」。若要確保未使用虛擬機器時不會被計費，其在 [Azure 管理入口網站](http://manage.windowsazure.com/)中的狀態必須是**已停止 (已取消配置)**。如需逐步指示或如何取消配置虛擬機器的相關資訊，請參閱[關閉並取消配置未使用的虛擬機器](machine-learning-data-science-setup-virtual-machine.md#shutdown)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

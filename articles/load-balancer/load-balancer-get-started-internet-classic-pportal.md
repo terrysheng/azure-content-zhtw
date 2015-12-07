@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="開始使用 Preview 入口網站在傳統部署模型中建立網際網路面向的負載平衡器 | Microsoft Azure"
+   pageTitle="開始使用預覽入口網站在傳統部署模型中建立網際網路面向的負載平衡器 | Microsoft Azure"
    description="了解如何使用預覽入口網站在傳統部署模型中建立網際網路面向的負載平衡器"
    services="load-balancer"
    documentationCenter="na"
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括傳統部署模型。您也可以[了解如何使用 Azure 資源管理員建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps)。
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括傳統部署模型。您也可以[了解如何使用 Azure 資源管理員建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)。
 
  
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -66,4 +66,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

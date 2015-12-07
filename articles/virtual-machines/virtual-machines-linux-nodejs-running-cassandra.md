@@ -1,4 +1,4 @@
-<properties pageTitle="使用 Azure 上的 Linux 執行 Cassandra | Microsoft Azure" description="如何從 Node.js App 在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集" services="virtual-machines" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="" azure-service-management"/>
+<properties pageTitle="使用 Azure 上的 Linux 來執行 Cassandra | Microsoft Azure" description="如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集" services="virtual-machines" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor="" azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -6,8 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 # 在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取 
@@ -111,7 +111,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Mcrosoft Azure 入口網站](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/zh-tw/) </td><td>14.04 LTS</td></tr>
 </table>
 
 由於下載 JRE 時需要手動接受 Oracle 授權，為了簡化部署，請將所有必要的軟體下載到桌面，稍後上傳到我們要建立來做為叢集部署初期使用的 Ubuntu 範本映像。
@@ -124,7 +124,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 在佈建階段，Azure 需要 PEM 或 DER 編碼的 X509 公用金鑰。請參考如何在 Azure 上使用 SSH 搭配 Linux (英文) 上的指示來產生公用/私密金鑰組。如果您計劃在 Windows 或 Linux 上使用 putty.exe 做為 SSH 用戶端，您必須使用 puttygen.exe，將 PEM 編碼的 RSA 私密金鑰轉換為 PPK 格式。如需此操作的指示，請參閱上述網頁。
 
 ####步驟 2：建立 Ubuntu 範本 VM
-若要建立範本 VM，請登入 azure.microsoft.com 入口網站，並使用下列順序：依序按一下 [新增]、[計算]、[虛擬機器]、[從組件庫]、[UBUNTU]、[Ubuntu Server 14.04 LTS]，然後按一下向右箭號。如需說明如何建立 Linux VM 的教學課程，請參閱建立執行 Linux 的虛擬機器 (英文)。
+若要建立範本 VM，請登入 Azure 入口網站，並使用下列順序：依序按一下 [新增]、[計算]、[虛擬機器]、[從資源庫]、[UBUNTU]、[Ubuntu Server 14.04 LTS]，然後按一下向右箭號。如需說明如何建立 Linux VM 的教學課程，請參閱建立執行 Linux 的虛擬機器 (英文)。
 
 在 [虛擬機器設定] 的第 1 個畫面上輸入下列資訊：
 
@@ -288,13 +288,12 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 確定已反白顯示虛擬機器，然後按一下底部命令列中的 [關機] 連結。
 
 #####3：擷取映像
-確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。在下一個畫面中，指定 映像名稱 \(例如 hk-cas-2-08-ub-14-04-2014071\)、適當的 映像描述，然後按一下「確認」記號以完成擷取程序。
+確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。在下一個畫面中，指定 [映像名稱] (例如 hk-cas-2-08-ub-14-04-2014071)、適當的 [映像描述]，然後按一下「確認」記號以完成擷取程序。
 
 這需要幾秒鐘的時間，然後您應該就可以在映像庫的 [我的映像] 區段中找到映像。成功擷取映像之後，來源 VM 就會自動刪除。
 
 ##單一區域部署程序
-**步驟 1：建立虛擬網路**
-登入管理入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在管理入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
+**步驟 1：建立虛擬網路**登入 Azure 入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在 Azure 入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
 
 <table>
 <tr><th>VM 屬性名稱</th><th>值</th><th>備註</th></tr>
@@ -318,8 +317,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 
 透過網路安全性群組可保護「資料」與 Web 子網路，但這已超出本文的討論範圍。
 
-**步驟 2：佈建虛擬網路**
-使用先前建立的映像，我們將在雲端伺服器 “hk-c-svc-west” 中建立下列虛擬機器，並將它們繫結到個別的子網路，如下所示：
+**步驟 2：佈建虛擬網路**使用先前建立的映像，我們將在雲端伺服器 “hk-c-svc-west” 中建立下列虛擬機器，並將它們繫結到個別的子網路，如下所示：
 
 <table>
 <tr><th>機器名稱    </th><th>子網路	</th><th>IP 位址	</th><th>可用性集合</th><th>DC/機架</th><th>是否為種子？</th></tr>
@@ -342,7 +340,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 3.	將內部負載平衡器加入雲端服務，並將它附加到「資料」子網路
 4.	對先前建立的每個 VM，透過連線到先前建立之內部負載平衡器的負載平衡集，新增 thrift 流量的負載平衡端點
 
-您可以使用 Azure 管理入口網站執行上述程序；使用 Windows 電腦 (如果您沒有 Windows 電腦的存取權，則使用 Azure 上的 VM)，使用下列 PowerShell 指令碼自動佈建所有 8 個 VM。
+您可以使用 Azure 入口網站執行上述程序；使用 Windows 電腦 (如果您沒有 Windows 電腦的存取權，則使用 Azure 上的 VM)，使用下列 PowerShell 指令碼自動佈建所有 8 個 VM。
 
 **清單 1：佈建虛擬機器的 PowerShell 指令碼**
 		
@@ -461,7 +459,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 我們將運用已經完成的單一區域部署，然後重複相同程序安裝第二個區域。單一和多重區域部署之間的主要差異在於區域間通訊的 VPN 通道設定。我們將從網路安裝開始、佈建 VM 以及設定 Cassandra。
 
 ###步驟 1：在第 2 個區域建立虛擬網路
-登入管理入口網站，並使用表格中的屬性建立虛擬網路。如需此程序的詳細步驟，請參閱[在管理入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
+登入 Azure 入口網站，並使用表格中的屬性建立虛擬網路。如需此程序的詳細步驟，請參閱[在 Azure 入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
 
 <table>
 <tr><th>屬性名稱    </th><th>值	</th><th>備註</th></tr>
@@ -490,7 +488,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 
 
 ###步驟 3：將「區域」網路對應至個別 VNET
-從服務管理入口網站中，選取每個 vnet、按一下 [設定]，選取 [連線到區域網路]，並根據下列詳細資料選取區域網路：
+從 Azure 入口網站中，選取每個 VNet、按一下 [設定]，勾選 [連線到區域網路]，並根據下列詳細資料選取區域網路：
 
 
 | 虛擬網路 | 區域網路 |
@@ -511,12 +509,10 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 </table>
 
 ###步驟 6：更新共用金鑰
-使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]： 
-Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK 
-Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
+使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]：Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
 ###步驟 6：建立 VNET 對 VNET 連線
-從 Azure 服務管理入口網站中，使用兩個虛擬網路的 [儀表板] 功能表建立閘道對閘道的連線。使用底部工具列的 [連線] 功能表項目。請稍候幾分鐘，儀表板應該會以圖形方式顯示連線詳細資料。
+從 Azure 入口網站中，使用兩個虛擬網路的 [儀表板] 功能表建立閘道對閘道的連線。使用底部工具列的 [連線] 功能表項目。請稍候幾分鐘，儀表板應該會以圖形方式顯示連線詳細資料。
 
 ###步驟 7：在第 2 個區域中建立虛擬機器 
 依照在第 1 個區域中部署所述的下列相同步驟，建立 Ubuntu 映像，或者將映像 VHD 檔案複製到位於第 2 個區域的 Azure 儲存體帳戶，然後建立映像。使用此映像，並在新的雲端服務 hk-c-svc-east-us 建立下列虛擬機器清單：
@@ -539,11 +535,8 @@ Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-
 ###步驟 8：在每個 VM 上設定 Cassandra
 登入 VM 並執行下列項目：
 
-1. 編輯 $CASS\_HOME/conf/cassandra-rackdc.properties，以下列格式指定資料中心和機架內容：
-    dc =EASTUS
-    rack =rack1
-2. 編輯 cassandra.yaml 設定種子節點： 
-    種子："10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
+1. 編輯 $CASS\_HOME/conf/cassandra-rackdc.properties，以下列格式指定資料中心和機架內容：dc =EASTUS rack =rack1
+2. 編輯 cassandra.yaml 設定種子節點：種子："10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 ###步驟 9：啟動 Cassandra
 登入每個 VM，執行下列命令在背景啟動 Cassandra：$CASS\_HOME/bin/cassandra
 
@@ -699,4 +692,4 @@ Microsoft Azure 是一個富彈性的平台，可以執行 Microsoft 與開放�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

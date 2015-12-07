@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中探索度量
@@ -67,6 +67,8 @@
 ## 計量瀏覽器
 
 按一下 [概觀] 刀鋒視窗上的任何圖表，可查看更詳細的一組相關圖表和格線。您可以編輯這些圖表和格線，以著重在感興趣的詳細資料。
+
+或者，您也可以按一下概觀刀鋒視窗頂端的 [計量瀏覽器] 按鈕。
 
 例如，逐一點選 Web 應用程式的「失敗的要求」圖表：
 
@@ -157,7 +159,7 @@
 
 ![選擇 [我的最愛]](./media/app-insights-metrics-explorer/21-favorite-save.png)
 
-若要再次查看刀鋒視窗，請**前往 [概觀] 刀鋒視窗**，並開啟 [我的最愛]：
+若要再次查看分頁，請**前往 [概觀] 分頁**，並開啟 [我的最愛]：
 
 ![在 [概觀] 刀鋒視窗中，選擇 [我的最愛]](./media/app-insights-metrics-explorer/22-favorite-get.png)
 
@@ -212,4 +214,4 @@
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

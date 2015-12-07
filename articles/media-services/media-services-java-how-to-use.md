@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/19/2015" 
 	ms.author="robmcm"/>
 
 #如何搭配使用媒體服務和 Java
@@ -272,4 +272,4 @@
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

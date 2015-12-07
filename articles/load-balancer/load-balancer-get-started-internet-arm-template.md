@@ -1,6 +1,6 @@
 <properties 
    pageTitle="使用範本在資源管理員中建立網際網路面向的負載平衡器 | Microsoft Azure"
-   description="了解如何使用範本在資源管理員中建立網際網路面向的負載平衡器"
+   description="了解如何使用 ARM 範本在資源管理員中建立網際網路面向的負載平衡器"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-# 使用範本建立網際網路面向的負載平衡器
+# 開始使用 ARM 範本建立網際網路面向的負載平衡器
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。如果您正在尋找 Azure 傳統部署模型，請參閱[開始使用傳統部署建立網際網路面向的負載平衡器](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。您也可以[了解如何使用傳統部署模型建立網際網路面向的負載平衡器](load-balancer-get-started-internet-classic-portal.md)
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -71,4 +71,4 @@
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

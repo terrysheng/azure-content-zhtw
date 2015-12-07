@@ -1,14 +1,14 @@
 
-1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs library for sending notifications from your backend.
+1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [**管理 NuGet 封裝**]，搜尋 `Microsoft.Azure.NotificationHubs`，然後按一下 [**安裝**]。這會安裝通知中樞程式庫，以便從後端傳送通知。
 
-3. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statements:
+3. 在伺服器專案中，開啟 [**控制器**] > **TodoItemController.cs**，並新增下列 using 陳述式：
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
 	
 
-2. In the **PostTodoItem** method, add the following code after the call to **InsertAsync**:  
+2. 在 **PostTodoItem** 方法中，於呼叫 **InsertAsync** 之後新增下列程式碼：
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -44,4 +44,6 @@
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    This code tells the notification hub to send a a template notification to all template registrations that contain "messageParam". The string will be inserted in the place of messageParam across each PNS that has a registration using "messageParam". This allows you to send the notification to APNS, GCM, WNS, or any other PNS.
+    此程式碼會指示通知中樞，將範本通知傳送至所有包含「messageParam」的範本註冊。字串會在每個具有「messageParam」註冊的 PNS 間插入並取代 messageParam。這可讓您將通知傳送給 APNS、GCM、WNS 或任何其他 PNS。
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -19,7 +19,7 @@
 # 在 Azure VM 中設定 AlwaysOn 可用性群組 (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Azure portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
@@ -631,4 +631,4 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高�
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

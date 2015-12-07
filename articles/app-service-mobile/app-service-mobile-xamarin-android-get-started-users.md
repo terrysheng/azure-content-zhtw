@@ -18,9 +18,7 @@
 
 # 將驗證新增至 Xamarin.Android 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 本主題說明如何從用戶端應用程式驗證行動應用程式的使用者。在本教學課程中，您會使用 Azure 行動應用程式所支援的身分識別提供者將驗證新增至快速入門專案。在行動應用程式中成功驗證並授權之後，就會顯示使用者識別碼值。
 
@@ -34,49 +32,68 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="4">
-<li><p>在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。</p>
-   
-   	<p>這是因為應用程式嘗試以未驗證的使用者身分存取您的行動應用程式程式碼。<em>TodoItem</em> 資料表現在需要驗證。</p></li>
-</ol>
+在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。這是因為應用程式嘗試以未驗證的使用者身分存取您的行動應用程式程式碼。*TodoItem* 資料表現在需要驗證。
 
 接下來，您將會更新用戶端應用程式，利用已驗證的使用者身分來要求行動應用程式後端的資源。
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
-1. 將下列屬性新增至 **TodoActivity** 類別：
+應用程式已更新，要求使用者在資料顯示前點選 [登入] 按鈕並驗證。
 
-			private MobileServiceUser user;
+1. 將下列程式碼加入 **TodoActivity** 類別：
 
-2. 將下列方法加入 **TodoActivity** 類別：
-
-	        private async Task Authenticate()
-	        {
+	    // Define a authenticated user.
+	    private MobileServiceUser user;
+	    private async Task<bool> Authenticate()
+	    {
+	            var success = false;
 	            try
 	            {
-	                user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.Facebook);
-	                CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
+	                // Sign in with Facebook login using a server-managed flow.
+	                user = await client.LoginAsync(this,
+	                    MobileServiceAuthenticationProvider.Facebook);
+	                CreateAndShowDialog(string.Format("you are now logged in - {0}",
+	                    user.UserId), "Logged in!");
+	
+	                success = true;
 	            }
 	            catch (Exception ex)
 	            {
 	                CreateAndShowDialog(ex, "Authentication failed");
 	            }
-	        }
+	            return success;
+	    }
 
-    這會建立新方法來驗證使用者。上述範例程式碼中的使用者是使用 Facebook 登入進行驗證。對話方塊會在驗證後用來顯示使用者識別碼。
+        [Java.Interop.Export()]
+        public async void LoginUser(View view)
+        {
+            // Load data only after authentication succeeds.
+            if (await Authenticate())
+            {
+                //Hide the button after authentication succeeds. 
+                FindViewById<Button>(Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
+
+                // Load the data.
+                OnRefreshItemsSelected();
+            }
+        }
+
+    這會建立一個新方法以驗證使用者，以及建立新 [登入] 按鈕的方法處理常式。上述範例程式碼中的使用者是使用 Facebook 登入進行驗證。對話方塊會在驗證後用來顯示使用者識別碼。
 
     > [AZURE.NOTE]如果您使用的身分識別提供者不是 Facebook，請將傳遞給上述 **LoginAsync** 的值變更為下列其中之一：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
 
-3. 在 **onCreate** 方法中，在具現化 `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
+3. 在 **OnCreate** 方法中，刪除或註解下列程式碼行：
 
-		// Create the Mobile Service Client instance, using the provided
-		// Mobile Service URL, Gateway URL and key
-		client = new MobileServiceClient (applicationURL, gatewayURL, applicationKey);
-		
-		await Authenticate(); // Added for authentication
+		OnRefreshItemsSelected ();
 
-	此呼叫會啟動驗證程序再非同步等候它。
+4. 在 Activity\_To\_Do.axml 檔案中，在現有的*AddItem* 按鈕之前加入下列 *LoginUser* 按鈕定義：
 
+      	<Button
+            android:id="@+id/buttonLoginUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="LoginUser"
+            android:text="@string/login_button_text" />
 
 4. 在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案，並使用您選擇的身分識別提供者登入。
 
@@ -84,12 +101,8 @@
 
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-
 [建立 Xamarin.Android 應用程式教學課程]: app-service-mobile-xamarin-android-get-started.md
-
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

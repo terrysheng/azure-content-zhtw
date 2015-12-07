@@ -104,9 +104,9 @@
 
 ## 步驟 2：在 Azure 中建立儲存體帳戶 ##
 
-必須要有 Azure 中的儲存體帳戶才能上傳 .vhd 檔案，以在 Azure 中用來建立虛擬機器。您可以使用 Azure 管理入口網站來建立儲存體帳戶。
+必須要有 Azure 中的儲存體帳戶才能上傳 .vhd 檔案，以在 Azure 中用來建立虛擬機器。您可以使用 Azure 入口網站來建立儲存體帳戶。
 
-1. 登入 Azure 管理入口網站。
+1. 登入 Azure 入口網站。
 
 2. 按一下命令列上的 [新增]。
 
@@ -181,7 +181,7 @@
 
 ## 步驟 4：上傳 .vhd 檔案 ##
 
-在上傳 .vhd 檔案時，您可以將 .vhd 檔案放在 Blob 儲存體中的任一處。在下列命令範例中，**BlobStorageURL** 是您在步驟 2 中建立之儲存體帳戶的 URL，**YourImagesFolder** 則是您要用來儲存映像之 Blob 儲存體中的容器。**VHDName** 是管理入口網站中用來識別虛擬硬碟的顯示標籤。**PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱。
+在上傳 .vhd 檔案時，您可以將 .vhd 檔案放在 Blob 儲存體中的任一處。在下列命令範例中，**BlobStorageURL** 是您在步驟 2 中建立之儲存體帳戶的 URL，**YourImagesFolder** 則是您要用來儲存映像之 Blob 儲存體中的容器。**VHDName** 是 Azure 入口網站中，用來識別虛擬硬碟的顯示標籤。**PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱。
 
 
 1. 從您在上一個步驟使用的 Azure PowerShell 視窗中，輸入：
@@ -197,7 +197,7 @@
 
     **重要**：現在請使用 Linux 做為作業系統類型，因為目前的 Azure PowerShell 版本只接受 "Linux" 或 "Windows" 做為參數。
 
-2. 完成前面的步驟之後，當您在 Azure 管理入口網站上選擇 [映像] 索引標籤時，將會列出新的映像。
+2. 完成前面的步驟之後，當您在 Azure 入口網站上選擇 [**映像**] 索引標籤時，將會列出新的映像。
 
     ![新增映像](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
 
@@ -209,4 +209,4 @@
 
 	![azure 中的 freebsd 映像](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

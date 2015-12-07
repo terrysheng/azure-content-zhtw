@@ -44,6 +44,8 @@
 
 ### /overlay 資料夾
 
+- `EngagementBaseOverlay.cs`：`Announcement` 和 `Notification` 重疊使用的基底程式碼。
+
 - `EngagementOverlayAnnouncement.xaml`：`Announcement` xaml 設計。
 
 - `EngagementOverlayAnnouncement.xaml.cs`：`EngagementOverlayAnnouncement.xaml` 已連結的程式碼。
@@ -55,4 +57,4 @@
 - `EngagementPageOverlay.cs`：`Overlay` 宣告和通知顯示的程式碼。
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="建立及上傳 Red Hat Enterprise Linux VHD 以在 Azure 中使用" 
-	description="了解如何建立及上傳包含 RedHat Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" 
+	description="了解如何建立及上傳包含 Red Hat Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="SuperScottz" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/23/2015" 
 	ms.author="mingzhan"/>
 
 
-# 準備執行 Azure 的 RedHat 型虛擬機器
-在本文中，您將學習如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure 中使用。本文中涵蓋的 RHEL 版本為 6.6、6.7、7.0 和 7.1，而本文中涵蓋的預備 Hypervisor 為 Hyper-V、KVM 和 VMWare。
+# 準備執行 Azure 的 Red Hat 型虛擬機器
+在本文中，您將學習如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure 中使用。本文中涵蓋的 RHEL 版本為 6.7 和 7.1，而本文中涵蓋的預備 Hypervisor 為 Hyper-V、KVM 和 VMWare。
 
 
 
@@ -40,7 +40,7 @@
 - 使用 qemu-img 將磁碟映像轉換成 VHD 格式時，請注意 qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。這個問題將於即將推出的 qemu-img 版本中獲得修正。目前建議使用 qemu-img 2.2.0 版或更低版本。
 
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
 1.	在 Hyper-V 管理員中，選取虛擬機器。
 
@@ -134,7 +134,7 @@
 
 16.	在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 
@@ -214,9 +214,9 @@
 
 
 ##從 KVM 準備映像 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
-1.	從 Red Hat 網站下載 RHEL 6.6/6.7 的 KVM 映像。
+1.	從 Red Hat 網站下載 RHEL 6.7 的 KVM 映像。
 
 2.	設定根密碼
 
@@ -325,26 +325,19 @@
 
 18.	將 qcow2 映像轉換成 vhd 格式：先將映像轉換成原始格式：
          
-         # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
-    確定原始映像的大小 為 1 MB，否則將大小四捨五入為 1 MB：
+         # qemu-img convert -f qcow2 –O raw rhel-6.7.qcow2 rhel-6.7.raw
+    確定原始映像的大小符合 1 MB；若非如此，則總大小必須符合 1MB: # MB=$((1024*1024)) # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \\ gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}') # rounded\_size=$((($size/$MB + 1)*$MB))
 
-         # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
-                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-         # rounded_size=$((($size/$MB + 1)*$MB))
-
-         # qemu-img resize rhel-6.6.raw $rounded_size
+         # qemu-img resize rhel-6.7.raw $rounded_size
 
     將原始磁碟轉換成固定大小的 vhd：
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
-
- 
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.0/7.1
+###RHEL 7.1
 
-1.	從 Red Hat 網站下載 RHEL 7.0 的 KVM 映像。
+1.	從 Red Hat 網站下載 RHEL 7.1 的 KVM 映像。
 
 2.	設定根密碼
 
@@ -458,20 +451,20 @@
 
     先將映像轉換成原始格式：
 
-         # qemu-img convert -f qcow2 –O raw rhel-7.0.qcow2 rhel-7.0.raw
+         # qemu-img convert -f qcow2 –O raw rhel-7.1.qcow2 rhel-7.1.raw
 
     確定原始映像的大小 為 1 MB，否則將大小四捨五入為 1 MB：
 
          # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+         # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
                   gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
          # rounded_size=$((($size/$MB + 1)*$MB))
 
-         # qemu-img resize rhel-7.0.raw $rounded_size
+         # qemu-img resize rhel-7.1.raw $rounded_size
 
     將原始磁碟轉換成固定大小的 vhd：
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##從 VMWare 準備映像
@@ -482,9 +475,9 @@
 
 - 請勿在作業系統磁碟上設定交換磁碟分割。您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。您可以在以下步驟中找到與此有關的詳細資訊。
 
-- 建立虛擬硬碟時，請選取 [將虛擬磁碟儲存為單一檔案]。
+- 建立虛擬硬碟時，請選取 [**將虛擬磁碟儲存為單一檔案**]。
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 1.	執行下列命令以解除安裝 NetworkManager：
 
          # sudo rpm -e --nodeps NetworkManager
@@ -571,23 +564,21 @@
 
     先將映像轉換成原始格式：
 
-        # qemu-img convert -f vmdk –O raw rhel-6.6.vmdk rhel-6.6.raw
+        # qemu-img convert -f vmdk –O raw rhel-6.7.vmdk rhel-6.7.raw
 
     確定原始映像的大小 為 1 MB，否則將大小四捨五入為 1 MB：
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
         # rounded_size=$((($size/$MB + 1)*$MB))
-
-        # qemu-img resize rhel-6.6.raw $rounded_size
+        # qemu-img resize rhel-6.7.raw $rounded_size
 
     將原始磁碟轉換成固定大小的 vhd：
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1.	在 /etc/sysconfig/ 目錄中，建立名為 **network**、且包含下列文字的檔案：
 
@@ -675,24 +666,23 @@
 
     先將映像轉換成原始格式：
 
-        # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
+        # qemu-img convert -f vmdk –O raw rhel-7.1.vmdk rhel-7.1.raw
 
     確定原始映像的大小 為 1 MB，否則將大小四捨五入為 1 MB：
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
         # rounded_size=$((($size/$MB + 1)*$MB))
-
-        # qemu-img resize rhel-7.0.raw $rounded_size
+        # qemu-img resize rhel-7.1.raw $rounded_size
 
     將原始磁碟轉換成固定大小的 vhd：
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##自動從使用 kickstart 檔案的 ISO 準備
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1.	使用以下內容建立 kickstart 檔案，並儲存此檔案。如需有關 kickstart 安裝的詳細資訊，請參閱 [Kickstart 安裝指南](https://access.redhat.com/documentation/zh-TW/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)。
 
@@ -808,44 +798,36 @@
 
 2.	將 kickstart 檔案放在可從安裝系統存取的位置。
  
-3.	在 Hyper-V 管理員中建立新的 VM。在 [連接虛擬硬碟] 頁面上，選取 [稍後連接虛擬硬碟]，並完成 [新增虛擬機器精靈]。
+3.	在 Hyper-V 管理員中建立新的 VM。在 [**連接虛擬硬碟**] 頁面上，選取 [**稍後連接虛擬硬碟**]，並完成 [新增虛擬機器精靈]。
 
 4.	開啟 VM 設定：
 
-    a.將新的虛擬硬碟連接到 VM，務必選取 [VHD 格式] 和 [固定大小]。
+    a.將新的虛擬硬碟連接到 VM，務必選取 [**VHD 格式**] 和 [**固定大小**]。
     
     b.將安裝 ISO 連接到 DVD 光碟機。
 
     c.將 BIOS 設定成從 CD 開機。
 
-5.	啟動 VM，當安裝指南出現時，請按 **Tab** 以設定開機選項。
+5.	啟動 VM，當安裝指南出現時，請按 **Tab** 鍵以設定開機選項。
 
 6.	在開機選項結尾輸入 `inst.ks=<the location of the Kickstart file>`，然後按 **Enter** 鍵。
 
 7.	等待安裝完成，當它完成時，VM 將會關閉自動。您現在可以將 Linux VHD 上傳至 Azure。
 
-##已知問題：
-當您在 Hyper-V 和 Azure 中使用 RHEL 6.6、7.0 和 7.1 時，有 2 個已知的問題。
+##已知問題
+當您在 Hyper-V 和 Azure 中使用 RHEL 7.1 時，存在已知的問題。
 
-###問題 1：佈建逾時
-這個問題可能發生在 Hyper-V 和 Azure 中啟動 RHEL 期間。這比較常見於 RHEL 6.6。
+###問題：磁碟 I/O 凍結 
 
-附買回利率：
-
-問題會間歇發生。最常重現於具有單一 vCPU 的 VM，而且較常發生於較忙碌的伺服器上。
-
-
-###問題 2：磁碟 I/O 凍結 
-
-這個問題可能發生在 Hyper-V 和 Azure 中 RHEL 6.6、7.0 和 7.1 的頻繁儲存磁碟 I/O 活動期間。
+這個問題可能發生在 Hyper-V 和 Azure 中 RHEL 7.1 的頻繁儲存磁碟 I/O 活動期間。
 
 附買回利率：
 
-此問題會間歇發生，不過在 Hyper-V 和 Azure 中比較常發於頻繁的磁碟 I/O 作業期間。
+此問題會間歇發生，不過在 Hyper-V 和 Azure 中比較常發於頻繁儲存磁碟 I/O 作業期間。
 
     
-[AZURE.NOTE]Red Hat 已解決這 2 個已知問題。若要安裝相關聯的修正程式，您可以執行下列命令：
+[AZURE.NOTE]Red Hat 已經解決這個已知的問題。若要安裝相關聯的修正程式，請執行下列命令：
 
     # sudo yum update
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

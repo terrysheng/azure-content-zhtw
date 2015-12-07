@@ -3,7 +3,7 @@
 	description="Azure ML Recommendation 範例應用程式" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -89,4 +89,4 @@
 範例應用程式並非預期在實際執行環境中執行。目錄中提供的資料太小，而且它將不會提供有意義的建議模型。提供資料基於示範目的。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

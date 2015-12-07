@@ -24,7 +24,7 @@
 
 ##在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器
 
-1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
+1. 登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
 
 2. 按一下 [Marketplace]，按一下 [計算]，然後在搜尋方塊中輸入 Oracle。
 
@@ -52,7 +52,7 @@
 
 ##若要在 Azure 中設定您的 Oracle WebLogic Server 12c 虛擬機器
 
-1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
+1. 登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
 
 2.	按一下 [虛擬機器]。
 
@@ -107,7 +107,7 @@
 ##在 Azure 中於 Oracle WebLogic Server 12c 虛擬機器上安裝應用程式
 1.	仍然登入您的虛擬機器，複製在 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 本機可用的 shoppingcart.war 範例。例如，建立名為 **c:\\mywar** 的資料夾，然後將位於 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war 的 WAR 儲存至 **c:\\mywar**。
 
-2.	開啟 [WebLogic Server 管理主控台]，http://localhost:7001/console。出現提示時，請提供您的 WebLogic 使用者名稱與密碼。
+2.	開啟 [WebLogic Server 管理主控台] (http://localhost:7001/console)。出現提示時，請提供您的 WebLogic 使用者名稱與密碼。
 
 3.	在 [WebLogic Server 管理主控台] 中，依序按一下 [鎖定與編輯]、[部署] 及 [安裝]。
 
@@ -129,7 +129,7 @@
 
 10.	為虛擬機器建立端點：
 
-	1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
+	1. 登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
 
 	2.	按一下 [瀏覽]
 
@@ -161,7 +161,7 @@
 
 	2.	按一下 [Windows 開始]，輸入「具有進階安全性的 Windows 防火牆」，然後按一下 [具有進階安全性的 Windows 防火牆] 圖示。這會開啟 [具有進階安全性的 Windows 防火牆] 管理主控台。
 
-	3.	在防火牆管理主控台中，按一下左邊窗格內的 \[輸入規則] (如果您沒有看到 [輸入規則]，請展開左邊窗格內的最上層節點)，然後按一下右邊窗格內的 [新增規則]。
+	3.	在防火牆管理主控台中，按一下左邊窗格內的 [輸入規則] (如果您沒有看到 [輸入規則]，請展開左邊窗格內的最上層節點)，然後按一下右邊窗格內的 [新增規則]。
 
 	4.	對於 [規則類型]，請選取 [連接埠]，然後按 [下一步]。
 
@@ -173,7 +173,7 @@
 
 	8.	指定規則的名稱並選擇性指定描述，然後按一下 [完成]。
 
-12.	若要查看在網際網路上執行的購物車應用程式，請開啟瀏覽器並連線至格式為 `http://<<unique_domain_name>>/shoppingcart` 的 URL。(您可以在 [Azure 入口網站](https://ms.portal.azure.com/)中按一下 [虛擬機器]，然後選取用來執行 Oracle WebLogic Server 的虛擬機器，以決定 <<*unique\_domain\_name*>> 的值。)
+12.	若要查看在網際網路上執行的購物車應用程式，請開啟瀏覽器並連線至格式為 `http://<<unique_domain_name>>/shoppingcart` 的 URL。(您可以在 [Azure Preview 入口網站](https://ms.portal.azure.com/)中按一下 [**虛擬機器**]，然後選取用來執行 Oracle WebLogic Server 的虛擬機器，以決定 <<*unique\_domain\_name*>> 的值)。
 
 
 ##其他資源
@@ -187,4 +187,4 @@
 
 -	[適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

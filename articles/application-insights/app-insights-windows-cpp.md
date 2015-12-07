@@ -1,4 +1,4 @@
-<properties pageTitle="Application Insights for C++ apps" description="Analyze usage and performance of your C++ app with Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
+<properties pageTitle="適用於 C++ 應用程式的 Application Insights" description="使用 Application Insights 分析 C++ 應用程式的使用量和效能。" services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
 
 <tags 
     ms.service="application-insights" 
@@ -6,7 +6,7 @@
     ms.tgt_pltfrm="universal" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="11/17/2015" 
     ms.author="crystk"/>
 
 # C++ 應用程式的 Application Insights
@@ -140,4 +140,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

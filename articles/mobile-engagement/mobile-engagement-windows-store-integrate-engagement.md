@@ -16,7 +16,7 @@
 	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-#Windows 通用 app Engagement SDK 整合
+# Windows 通用 app Engagement SDK 整合
 
 > [AZURE.SELECTOR] 
 - [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md) 
@@ -28,22 +28,40 @@
 
 下列步驟便足以啟用計算使用者、工作階段、活動、當機和技術相關的所有統計資料需要的記錄檔之報告。用來計算其他統計資料 (例如事件、錯誤及工作) 所需的記錄檔報告必須使用 Engagement API 來手動完成 (請參閱[如何在 Windows 通用 app 中使用進階的 Mobile Engagement 標記 API](mobile-engagement-windows-store-use-engagement-api.md))，因為這些是應用程式相依的統計資料。
 
-##支援的版本
+## 支援的版本
 
-適用於 Windows 通用 app 的 Mobile Engagement SDK 只能整合至目標為以下作業系統的 Windows 執行階段應用程式：
+適用於 Windows 通用 app 的 Mobile Engagement SDK 只能整合至目標為以下作業系統的 Windows 執行階段和通用 Windows 平台應用程式：
 
 -   Windows 8
 -   Windows 8.1
 -   Windows Phone 8.1
+-   Windows 10 (桌上型電腦和行動裝置系列)
 
-> [AZURE.NOTE]如果您的目標是 Windows Phone 8.1 Silverlight，請參閱 [Windows Phone Silverlight 整合程序](mobile-engagement-windows-phone-integrate-engagement.md)。
+> [AZURE.NOTE]如果您是以 Windows Phone Silverlight 為目標，則請參考 [Windows Phone Silverlight 整合程序](mobile-engagement-windows-phone-integrate-engagement.md)。
 
+## 安裝 Mobile Engagement 跨平台 app SDK
 
-##安裝 Mobile Engagement 跨平台 app SDK
+### 所有平台
 
 提供適用於 Windows 通用 app 的 Mobile Engagement SDK 時會使用稱為 *MicrosoftAzure.MobileEngagement* 的 Nuget 封裝。您可以從 Visual Studio Nuget 封裝管理員安裝該封裝。
 
-##新增功能
+### Windows 8.x 和 Windows Phone 8.1
+
+NuGet 會自動在您的應用程式專案根目錄 `Resources` 資料夾中部署 SDK 資源。
+
+### Windows 10 通用 Windows 平台應用程式
+
+NuGet 目前還不會自動在您的 UWP 應用程式部署 SDK 資源。您必須手動執行，直到 NuGet 重新引進資源部署：
+
+1.  開啟 [檔案總管]。
+2.  瀏覽至以下位置 (**x.x.x** 是您安裝的 Engagement 版本): *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x**\\content\\win81*
+3.  從檔案總管將 [Resources] 資料夾拖放到您的專案在 Visual Studio 中的根目錄。
+4.  在 Visual Studio 中，選取您的專案並啟動 [方案總管] 上方的 [顯示所有檔案] 圖示。
+5.  部分檔案未包含在專案中。若要將它們一次匯入，請在 [Resources] 資料夾上按一下滑鼠右鍵，[從專案移除] 然後再次在 [Resources] 資料夾上按一次滑鼠右鍵，[加入至專案] 以重新包含整個資料夾。所有來自 [Resources] 資料夾的檔案現在已經包含在您的專案中。
+
+擷取的 Engagement 套件也可以在 *$(Solutiondir)\\Packages* 或如您的 *NuGet.config* 檔案中定義的位置找到。
+
+## 新增功能
 
 Engagement SDK 需要一些 Windows SDK 的功能以正常運作。
 
@@ -51,7 +69,7 @@ Engagement SDK 需要一些 Windows SDK 的功能以正常運作。
 
 -   `Internet (Client)`
 
-##初始化 Engagement SDK
+## 初始化 Engagement SDK
 
 ### Engagement 組態
 
@@ -66,20 +84,13 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
           /* Engagement configuration. */
           EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 
-        #if WINDOWS_PHONE_APP
-          /* Connection string for my Windows Phone App. */
-          engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #else
           /* Connection string for my Windows Store App. */
           engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #endif
 
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
 您應用程式的連接字串會顯示在 Azure 入口網站。
-
-> [AZURE.WARNING]您不需要使用條件式編譯的符號 `WINDOWS_PHONE_APP` 來定義獨立 Windows 執行階段應用程式的不同組態，因為您僅有一個平台。
 
 ### Engagement 初始化
 
@@ -91,31 +102,34 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
 
 		using Microsoft.Azure.Engagement;
 
--   在 `OnLaunched` 方法中插入 `EngagementAgent.Instance.Init`：
+-   定義一個方法以針對所有呼叫一次共用 Engagement 初始化：
 
-		protected override void OnLaunched(LaunchActivatedEventArgs args)
-		{
-		  EngagementAgent.Instance.Init(args);
+        private void InitEngagement(IActivatedEventArgs e)
+        {
+          EngagementAgent.Instance.Init(e);
 		
 		  // or
 		
-		  EngagementAgent.Instance.Init(args, engagementConfiguration);
+		  EngagementAgent.Instance.Init(e, engagementConfiguration);
+        }
+        
+-   呼叫 `OnLaunched` 方法中的 `InitEngagement`：
+
+		protected override void OnLaunched(LaunchActivatedEventArgs e)
+		{
+          InitEngagement(e);
 		}
 
--   當您的應用程式使用自訂配置、其他應用程式或命令列啟動時，會呼叫 `OnActivated` 方法。啟動您的應用程式時也需要初始化 Engagement 代理程式。若要這樣做，請覆寫 `OnActivated` 方法：
+-   當您的應用程式使用自訂配置、其他應用程式或命令列啟動時，會呼叫 `OnActivated` 方法。您也需要在您的應用程式啟動時初始化 Engagement SDK。若要這樣做，請覆寫 `OnActivated` 方法：
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
-		  EngagementAgent.Instance.Init(args);
-		
-		  // or
-		
-		  EngagementAgent.Instance.Init(args, engagementConfiguration);
+          InitEngagement(args);
 		}
 
 > [AZURE.IMPORTANT]我們強烈地建議您不要在應用程式的其他地方新增 Engagement 初始化。
 
-##基本報告
+## 基本報告
 
 ### 建議使用的方法：多載您的 `Page` 類別
 
@@ -220,9 +234,9 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
 
 > [AZURE.IMPORTANT]請確定您正確地結束工作階段。
 > 
-> 應用程式關閉時，Windows 通用 SDK 會自動呼叫 `EndActivity` 方法。因此，「**強烈**」建議每當使用者的活動變更時便叫呼叫 `StartActivity` 方法，並且「**絕對不要**」呼叫 `EndActivity` 方法，此方法會傳送至 Engagement 伺服器，目前的使用者已離開應用程式，這會影響所有應用程式記錄檔。
+> 應用程式關閉時，Windows 通用 SDK 會自動呼叫 `EndActivity` 方法。因此，「強烈」建議每當使用者的活動變更時便叫呼叫 `StartActivity` 方法，並且「絕對不要」呼叫 `EndActivity` 方法，此方法會傳送至 Engagement 伺服器，目前的使用者已離開應用程式，這會影響所有應用程式記錄檔。
 
-##進階報告
+## 進階報告
 
 (選擇性) 您可以報告應用程式的特定事件、錯誤和工作；若要這樣做，請使用 `EngagementAgent` 類別中找到的其他方法。Engagement API 允許使用所有 Engagement 的進階功能。
 
@@ -271,4 +285,4 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

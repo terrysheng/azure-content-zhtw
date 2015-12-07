@@ -22,6 +22,126 @@
 
 如果您有錯過幾個版本的 SDK，您必須遵循幾個步驟。例如，如果您要從 0.10.1 移轉到 0.11.0 您必須先遵循「從 0.9.0 到 0.10.1」的程序，然後「從 0.10.1 到 0.11.0」的程序。
 
+##從 3.1.0 到 3.2.0
+
+### 資源
+此步驟僅涉及自訂資源。如果您已自訂透過 SDK (html、影像、重疊) 提供的資源，則您必須先備份這些資源，然後在已升級的資源上升級和重新套用您的自訂。
+
+### Web 檢視整合
+部分改善以符合此版本中引進的其他裝置版型規格。確認您的 Web 檢視符合下列條件：
+
+在您的 XAML page () 中：
+
+			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
+
+且在您相關聯的 .cs 檔案中：
+
+    using Microsoft.Azure.Engagement;
+    using System;
+    using Windows.ApplicationModel.Core;
+    using Windows.UI.ViewManagement;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Navigation;
+
+    namespace My.Namespace.Example
+    {
+			/// <summary>
+			/// An empty page that can be used on its own or navigated to within a Frame.
+			/// </summary>
+			public sealed partial class ExampleEngagementReachPage : EngagementPage
+			{
+			  public ExampleEngagementReachPage()
+			  {
+			    this.InitializeComponent();
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+			
+			  #region to implement
+              /* Attach events when page is navigated. */
+              protected override void OnNavigatedTo(NavigationEventArgs e)
+              {
+                /* Update the webview when the app window is resized. */
+                Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
+
+                /* Update the webview when the app/status bar is resized. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
+    #endif
+                base.OnNavigatedTo(e);
+              }
+
+			  /* When page is left ensure to detach SizeChanged handler. */
+			  protected override void OnNavigatedFrom(NavigationEventArgs e)
+			  {
+			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
+    #endif
+			    base.OnNavigatedFrom(e);
+			  }
+			  
+			  /* "width" and "height" are the current size of your application display. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+    #else
+			  double width =  Window.Current.Bounds.Width;
+			  double height =  Window.Current.Bounds.Height;
+    #endif
+			
+			  /// <summary>
+			  /// Set your webview elements to the correct size.
+			  /// </summary>
+			  /// <param name="width">The width of your current display.</param>
+			  /// <param name="height">The height of your current display.</param>
+			  private void SetWebView(double width, double height)
+			  {
+			    #pragma warning disable 4014
+			    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+			            () =>
+			            {
+			              this.engagement_notification_content.Width = width;
+			              this.engagement_announcement_content.Width = width;
+			              this.engagement_announcement_content.Height = height;
+			            });
+			  }
+			
+			  /// <summary>
+			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
+			  /// </summary>
+			  /// <param name="sender">Original event trigger.</param>
+			  /// <param name="e">Window Size Changed Event arguments.</param>
+			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+			  {
+			    double width = e.Size.Width;
+			    double height = e.Size.Height;
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
+			  /// <summary>
+			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
+			  /// </summary>
+			  /// <param name="sender">The related application view.</param>
+			  /// <param name="e">Related event arguments.</param>
+			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
+			  {
+			    double width = sender.VisibleBounds.Width;
+			    double height = sender.VisibleBounds.Height;
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+    #endif
+			  #endregion
+			}
+    }
+
 ##從 2.0.0 到 3.0.0
 
 ### 資源
@@ -169,4 +289,4 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

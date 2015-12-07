@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="加入輸出 | Microsoft Azure" 
-	description="加入輸出學習路徑區段。"
+	description="在串流分析工作加入輸出 | 學習路徑區段。"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 加入輸出
+# 如何在串流分析工作中**加入輸出**
 
 Azure 串流分析工作可以連接到一或多個輸出，這會定義現有資料接收器的連接。當您的資料流分析工作處理和轉換傳入的資料時，輸出事件串流會寫入工作的輸出中。
 
@@ -24,11 +24,11 @@ Azure 串流分析工作可以連接到一或多個輸出，這會定義現有�
 
 若要將輸入加入至串流分析工作：
 
-1. 在 Azure 入口網站中，按一下 [輸出]，然後按一下串流分析工作的 [加入輸出]。
+1. 在 Azure 入口網站中，按一下 [**輸出**]，然後按一下串流分析工作的 [**加入輸出**]。
 
     ![加入輸出](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
 
-    在 Azure Preview 入口網站中，按一下串流分析工作的 [輸出] 圖格。
+    在 Azure Preview 入口網站中，按一下串流分析工作的 [**輸出**] 圖格。
 
     ![Azure 入口網站加入輸出](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
@@ -38,7 +38,7 @@ Azure 串流分析工作可以連接到一或多個輸出，這會定義現有�
 
     ![Azure Preview 入口網站中選擇資料類型](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
-3. 在 [輸出別名] 方塊中，替這個輸出取一個好記的名稱。此名稱稍後可在作業查詢中用作指稱輸出。
+3. 在 [**輸出別名**] 方塊中，替此輸出取一個好記的名稱。此名稱稍後可在作業查詢中用作指稱輸出。
     
     填寫其餘必要的連接屬性，以連接到輸出。這些欄位會因輸出類型而有所不同，其詳細定義在這裡。
 
@@ -46,7 +46,7 @@ Azure 串流分析工作可以連接到一或多個輸出，這會定義現有�
 
 4. 取決於輸出類型，您可能需要指定資料序列化或格式化的方式。每個輸出類型的特定序列化設定值記載於此。
 
-    填寫其餘必要的連接屬性，以連接到資料來源。這些欄位會因輸入類型和來源類型而有所不同，其詳細定義在[這裡](stream-analytics-create-a-job.md)。
+    填寫其餘必要的連接屬性，以連接到資料來源。這些欄位會因輸入類型和來源類型而有所不同，詳細定義請見[此處](stream-analytics-create-a-job.md)。
 
     ![加入事件中樞](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)
 
@@ -63,4 +63,4 @@ Azure 串流分析工作可以連接到一或多個輸出，這會定義現有�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

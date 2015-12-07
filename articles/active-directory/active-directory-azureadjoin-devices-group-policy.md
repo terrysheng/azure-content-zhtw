@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="將已加入網域的裝置連接到 Azure AD 以體驗 Windows 10 | Microsoft Azure" 
-	description="本主題說明系統管理員應如何設定群組原則，使裝置成為企業網路中已加入網域的裝置。" 
+	description="說明系統管理員應如何設定群組原則，使裝置成為企業網路中已加入網域的裝置。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -8,13 +8,10 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article"
+
+	ms.date="11/19/2015" 
+
 	ms.author="femila"/>
 
 # 將已加入網域的裝置連接到 Azure AD 以體驗 Windows 10
@@ -53,14 +50,16 @@
 
 ## 部署指示
 
-1. 部署 Azure Active Directory Connect：Azure AD Connect 可讓內部部署的電腦佈建為雲端中的裝置物件。若要部署 Azure AD Connect，請參閱「使用 Azure AD Connect 啟用目錄的混合式管理」。
 
+## 步驟 1：部署 Azure Active Directory Connect
 
-如果您先前是依照 [Azure AD Connect 的自訂安裝](https://azure.microsoft.com/zh-TW/documentation/articles/active-directory-aadconnect-get-started-custom/) (不是快速安裝) 操作，您必須遵循如下所述的**在內部部署 Active Directory 中建立服務連接點 (SCP)** 程序。
+Azure AD Connect 可讓內部部署電腦佈建為雲端中的裝置物件。若要部署 Azure AD Connect，請參閱「使用 Azure AD Connect 啟用目錄的混合式管理」。
 
-如果您在安裝 Azure AD Connect 之前已有 Azure AD 的同盟組態 (例如，如果您先前已部署 Active Directory Federation Service (AD FS))，則必須遵循下方的**設定 AD FS 宣告規則**程序。
+ - 如果您先前是依照 [Azure AD Connect 的自訂安裝](https://azure.microsoft.com/zh-TW/documentation/articles/active-directory-aadconnect-get-started-custom/) (不是快速安裝) 操作，您必須遵循如下所述的**在內部部署 Active Directory 中建立服務連接點 (SCP)** 程序。
+ - 如果您在安裝 Azure AD Connect 之前已有 Azure AD 的同盟組態 (例如，如果您先前已部署 Active Directory Federation Service (AD FS))，則必須遵循下方的**設定 AD FS 宣告規則**程序。
 
 ### 在內部部署 Active Directory 中建立服務連接點 (SCP)
+
 使用 Azure 裝置註冊服務進行自動註冊時，加入網域的裝置將使用此物件探索 Azure AD 租用戶資訊。請在 Azure AD Connect 伺服器上執行下列 PowerShell 命令：
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
@@ -69,7 +68,7 @@
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
->[AZURE.NOTE]請將 [*connector account name*] 取代為作為 AD 連接器帳戶的網域帳戶。
+>[AZURE.NOTE]請將 [連接器帳戶名稱] 取代為作為 AD 連接器帳戶的網域帳戶。
 
 >[AZURE.NOTE]Get-Credential 快顯視窗顯示時輸入的認證使用者名稱必須採用 **user@example.com* 格式
 
@@ -112,7 +111,9 @@
 
 >[AZURE.NOTE]Windows 10 電腦將會使用 Windows 整合式驗證，對 AD FS 所裝載的作用中 WS-Trust 端點進行驗證。您必須確定此端點已啟用。如果您使用 Web 驗證 Proxy，則也必須確定此端點已透過 Proxy 發佈。若要進行此確認，您可以檢查 adfs/services/trust/13/windowstransport 在 AD FS 管理主控台中的 [服務] > [端點] 下是否顯示為已啟用。
 
-## 透過 Active Directory 中的群組原則設定自動裝置註冊
+
+## 步驟 2：透過 Active Directory 中的群組原則設定自動裝置註冊
+
 您可以使用 Active Directory 群組原則，設定讓加入網域的 Windows 10 裝置自動向 Azure AD 註冊。若要這麼做，請參閱下列逐步指示：
 
 1. 	開啟 [伺服器管理員] 並瀏覽至 [工具] > [群組原則管理]。
@@ -126,7 +127,7 @@
  - AD 中將放置加入網域的 Windows 10 電腦的特定組織單位 (OU)。
  - 加入網域而會向 Azure AD 自動註冊的 Windows 10 電腦所屬的特定安全性群組。
  
->[AZURE.NOTE]此群組原則範本在 Windows 10 中已重新命名。如果您從 Windows 10 電腦執行群組原則工具，原則將會顯示為：<br> **註冊加入網域的電腦為裝置**，且原則將會位於下列位置之下：<br> ***電腦設定/原則/系統管理範本 /Windows 元件/裝置註冊***
+>[AZURE.NOTE]此群組原則範本在 Windows 10 中已重新命名。如果您從 Windows 10 電腦執行群組原則工具，原則將會顯示為：<br> [註冊加入網域的電腦為裝置]，且原則將會位於下列位置之下：<br> 電腦設定/原則/系統管理範本 /Windows 元件/裝置註冊
 
  
 ## 其他資訊
@@ -136,4 +137,4 @@
 * [將已加入網域的裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

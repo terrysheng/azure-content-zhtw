@@ -60,7 +60,7 @@ Service Fabric 監視輪流升級可以讓應用程式系統管理員設定 Serv
 ```
 
 
-現在，在 Visual Studio 中只選取 **ActorService** 專案，然後按一下滑鼠右鍵並選取 [建置] 來建置專案 (如果您選取 [全部重建]，則可能也必須在 **VisualObjects.WebService** 和 VisualObjects.Common 專案的 *ServiceManifest.xml* 以及在 *ApplicationManifest.xml* 中更新其版本，因為程式碼已發生變更)。現在，讓我們在 [VisualObjectsApplication] 上按一下滑鼠右鍵，選取 [Service Fabric] 功能表，然後選擇 [封裝]，來封裝已更新的應用程式。這應該會建立可部署的應用程式套件。更新的應用程式已準備好進行部署。
+現在建置專案，方法是只選取 **ActorService** 專案，然後以滑鼠右鍵按一下並選取 Visual Studio 中的組建 (如果您選取全部重新建置，您可能必須在其 *ServiceManifest.xml* 和 *ApplicationManifest.xml* 中更新其他專案的版本，因為程式碼已變更)。現在，讓我們在 [VisualObjectsApplication] 上按一下滑鼠右鍵，選取 [Service Fabric] 功能表，然後選擇 [封裝]，來封裝已更新的應用程式。這應該會建立可部署的應用程式套件。更新的應用程式已準備好進行部署。
 
 
 ## 步驟 3：決定健康狀態原則並升級參數
@@ -125,4 +125,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 參考[疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)中的步驟，以修正應用程式升級中常見的問題。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

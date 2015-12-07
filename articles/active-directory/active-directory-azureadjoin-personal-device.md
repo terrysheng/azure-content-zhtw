@@ -1,20 +1,21 @@
+
+
 <properties 
 	pageTitle="將個人裝置加入至您的組織 | Microsoft Azure" 
-	description="此主題說明使用者如何將他們的個人 Windows 10 電腦註冊至其公司網路，並提供 BYOD 案例的部署步驟。" 
+	description="說明使用者如何將他們的個人 Windows 10 電腦註冊至其公司網路，並提供 BYOD 案例的部署步驟。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # 將個人裝置加入至您的組織
@@ -39,4 +40,4 @@
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

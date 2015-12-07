@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="開始使用 SQL 資料倉儲透明資料加密 (TDE) 入口網站| Microsoft Azure" 
-	description="開始使用 SQL 資料倉儲透明資料加密 (TDE) 入口網站" 
+	pageTitle="開始使用 SQL 資料倉儲中的透明資料加密 (TDE) | Microsoft Azure" 
+	description="開始使用 SQL 資料倉儲中的透明資料加密 (TDE)" 
 	services="sql-data-warehouse" 
 	documentationCenter="" 
 	authors="twounder" 
-	manager="" 
+	manager="barbkess" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="11/20/2015" 
 	ms.author="twounder"/>
  
-# 開始使用透明資料加密 (TDE)
+# 開始使用 SQL 資料倉儲中的透明資料加密 (TDE)
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
@@ -49,7 +49,7 @@ TDE 會使用稱為資料庫加密金鑰的對稱金鑰來加密整個資料庫�
 
 
 <!--Anchors-->
-[透明資料加密 (TDE)]: https://msdn.microsoft.com/zh-TW/library/bb934049.aspx
+[透明資料加密 (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
@@ -61,4 +61,4 @@ TDE 會使用稱為資料庫加密金鑰的對稱金鑰來加密整個資料庫�
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

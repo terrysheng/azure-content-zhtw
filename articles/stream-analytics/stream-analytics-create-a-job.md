@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="建立工作 | Microsoft Azure" 
-	description="建立工作學習路徑區段。"
+	description="建立串流分析工作 | 學習路徑區段。"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# 建立工作
+# 建立串流分析工作
 
 Azure 串流分析中的最上層資源就是串流分析工作。其包含一或多個輸入資料來源、一個表示資料轉換的查詢，以及一或多個用來寫入結果的輸出目標。
 
@@ -60,4 +60,4 @@ Azure 串流分析中的最上層資源就是串流分析工作。其包含一�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

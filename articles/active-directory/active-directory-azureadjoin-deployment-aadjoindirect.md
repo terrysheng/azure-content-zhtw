@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="適用於 Azure AD Join 的使用案例和部署考量| Microsoft Azure" 
-	description="說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join 的主題。其中也會討論使用 Azure AD Join 時出現的各種真實案例。" 
+	description="說明系統管理員如何為其使用者 (員工、學生、其他使用者) 設定 Azure AD Join。其中也會討論使用 Azure AD Join 時出現的各種真實案例。" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # 適用於 Azure AD Join 的使用案例和部署考量 
@@ -24,9 +24,7 @@
 --------------------------------------------------------
 如果您目前是在雲端為貴公司操作和管理身分識別，或者即將轉向雲端，則可從 Azure AD Join 獲益。您可以使用在 Azure AD 中建立的帳戶來登入 Windows 10。透過[初次執行體驗 (FRX) 程序](active-directory-azureadjoin-user-frx.md)或透過[設定經驗](active-directory-azureadjoin-user-upgrade.md)加入 Azure AD，您的使用者可將其電腦加入 Azure AD。您的使用者現在可以在瀏覽器或 Office 應用程式中，享有其雲端資源 (例如 Office 365) 的 SSO 存取權。
 
-案例 2：教育機構
-----------------------------------------------------------------------------------
-教育機構通常有兩種使用者類型：教職員和學生。教職成員會被視為組織中較長期的成員，因此需要為他們建立內部部署帳戶。但學生是組織中期限較短的成員，因而可在 Azure AD 中進行管理，如此一來，就能將目錄範圍推送至雲端，而不是內部部署。這些學生現在可以使用其 Azure AD 帳戶登入 Windows，並在 Office 應用程式中取得 Office 365 資源的存取權。
+案例 2：教育機構 ---------------------------------------------------------------------------------- 教育機構通常有兩種使用者類型：教職員和學生。教職成員會被視為組織中較長期的成員，因此需要為他們建立內部部署帳戶。但學生是組織中期限較短的成員，因而可在 Azure AD 中進行管理，如此一來，就能將目錄範圍推送至雲端，而不是內部部署。這些學生現在可以使用其 Azure AD 帳戶登入 Windows，並在 Office 應用程式中取得 Office 365 資源的存取權。
 
 案例 3：零售業
 ---------------------------------------------------------------------------------------
@@ -92,4 +90,4 @@
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

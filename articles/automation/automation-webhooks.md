@@ -3,7 +3,7 @@
    description="可讓用戶端透過 HTTP 呼叫在 Azure 自動化中啟動 Runbook 的 Webhook。本文說明如何建立 Webhook，以及如何進行呼叫以啟動 Runbook。"
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -255,4 +255,4 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 - [檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job.md)
 - [使用 Azure 自動化對 Azure 警示採取動作](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

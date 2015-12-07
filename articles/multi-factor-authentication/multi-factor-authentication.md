@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="什麼是 Azure Multi-Factor Authentication？" 
+	pageTitle="什麼是 Azure Multi-Factor Authentication？ | Microsoft Azure" 
 	description="Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外，需要再利用其他方法驗證您的身份的驗證方法。它可以為使用者登入和交易提供額外層級的安全性。" 
+	keywords="MFA 簡介, mfa 概觀"
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="11/20/2015" 
 	ms.author="billmath"/>
 
 # 什麼是 Azure Multi-Factor Authentication？
@@ -127,7 +128,7 @@ Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 和 E
 
 如果您是 Office 365 使用者或 Azure 訂閱者，並且想要充分利用 Azure Multi-Factor Authentication 提供的其他功能，請繼續閱讀。
 
-如果您沒有任何上述任何產品，此時若要開始使用 Azure Multi-Factor Authentication，首先您需要 Azure 訂用帳戶或 [Azure 試用版訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有任何上述任何產品，若要開始使用 Azure Multi-Factor Authentication，首先您需要 Azure 訂用帳戶或 [Azure 試用版訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
 
 使用 Azure Multi-Factor Authentication 時有兩個可用的計費選項：
 
@@ -136,7 +137,7 @@ Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 和 E
 
 如需定價詳細資料，請參閱 [Azure MFA 定價](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)。
 
-選擇最適合組織的模式。接下來，若要開始請參閱[開始使用](multi-factor-authentication-get-started.md)
+選擇最適合組織的模式。接下來，若要開始使用，請參閱[開始使用](multi-factor-authentication-get-started.md)
 
 ## 選擇合適的多重因素安全性解決方案
 
@@ -204,4 +205,4 @@ MFA 報告 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

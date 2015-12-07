@@ -1,5 +1,5 @@
 <properties
-   pageTitle="在 Azure Service Fabric 中部署現有的應用程式 | Microsoft Azure"
+   pageTitle="在 Azure Service Fabric 中部署自訂應用程式 | Microsoft Azure"
    description="逐步解說如何封裝現有的應用程式，使其可以部署在 Azure Service Fabric 叢集上"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-# 將現有的應用程式部署至 Service Fabric
+# 將自訂應用程式部署至 Service Fabric
 
 您可以在 Service Fabric 中執行任何類型的現有應用程式，例如 Node.js、Java 或原生應用程式。Service Fabric 會將這些應用程式視為無狀態服務，並根據可用性和其他度量，將它們放在叢集的節點上。這篇文章說明如何將現有的應用程式封裝並部署至 Service Fabric 叢集。
 
-## 在 Service Fabric 中執行現有應用程式的優點
+## 在 Service Fabric 中執行自訂應用程式的優點
 
 在 Service Fabric 叢集中執行應用程式有幾項優點：
 
@@ -46,7 +46,6 @@
 
   服務資訊清單描述服務的元件。其中包含一些資料，例如服務的名稱和類型 (Service Fabric 用來管理服務的資訊)、其程式碼、組態和資料元件，加上一些在服務部署後可用來設定服務的額外參數。我們不會詳細說明服務資訊清單中所有可用的不同參數，但我們將會說明在 Service Fabric 上執行現有應用程式所需的子集
 
-如需有關 Service Fabric 封裝格式的詳細資訊，請參閱[這裡](service-fabric-develop-your-service-index.md)。
 
 ## 應用程式封裝檔案結構
 為了將應用程式部署至 Service Fabric，應用程式必須遵循預先定義的目錄結構。以下是該結構的範例。
@@ -79,7 +78,7 @@
 - 更新服務資訊清單檔
 - 更新應用程式資訊清單
 
->[AZURE.NOTE]：我們提供可讓您自動建立 ApplicationPackage 的封裝工具。此工具目前為預覽狀態。您可以在[這裡](http://aka.ms/servicefabricpacktool)找到詳細資訊。
+>[AZURE.NOTE]：我們提供可讓您自動建立 ApplicationPackage 的封裝工具。此工具目前為預覽狀態。您可以從[這裡](http://aka.ms/servicefabricpacktool)下載。
 
 ### 建立封裝目錄結構
 您可以如上所述開始建立目錄結構。
@@ -275,8 +274,8 @@ Service Fabric 服務可以各種「組態」部署，例如它可部署為單�
 ## 後續步驟
 在本文中，您已經學會如何封裝現有的應用程式並部署至 Service Fabric。接下來，您可以閱讀這個主題的其他內容。
 
-- [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication) 上封裝和部署現有應用程式的範例，包括封裝工具的預先發行版本
-- [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication) 上封裝多個應用程式的範例
-- 如何開始[使用 Visual Studio 建立第一個 Service Fabric 應用程式](service-fabric-create-your-first-application-in-visual-studio.md)
+- 在 [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication) 上封裝和部署自訂應用程式的範例，包括封裝工具預先發行版本的連結。
+- 了解如何[部署多個自訂應用程式](service-fabric-deploy-multiple-apps.md)。
+- 如何開始[使用 Visual Studio 建立第一個 Service Fabric 應用程式](service-fabric-create-your-first-application-in-visual-studio.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

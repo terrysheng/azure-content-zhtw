@@ -15,21 +15,23 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="08/24/2015"
+      ms.date="11/17/2015"
       ms.author="v-jibran@microsoft.com"/>
 
 # Azure AD Graph API 的快速入門
 
-Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。應用程式可以使用 Graph API，來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。例如，您可以使用 Graph API，來建立新的使用者、檢視或更新使用者的內容、變更使用者的密碼、檢查群組成員資格以取得角色型存取、停用或刪除使用者。如需 Graph API 功能和應用程式案例的詳細資訊，請參閱 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD Graph API 的先決條件](https://msdn.microsoft.com/library/azure/hh974464.aspx)。
+Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。應用程式可以使用 Graph API，來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。例如，您可以使用 Graph API，來建立新的使用者、檢視或更新使用者的內容、變更使用者的密碼、檢查群組成員資格以取得角色型存取、停用或刪除使用者。如需 Graph API 功能和應用程式案例的詳細資訊，請參閱 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD Graph API 的先決條件](https://msdn.microsoft.com/zh-TW/library/hh974476(Azure.100).aspx)。
+
+> [AZURE.IMPORTANT]Azure AD Graph API 功能也透過 [Microsoft Graph](https://graph.microsoft.io/) 提供使用，Microsoft Graph 是一個統一的 API，包含了來自其他 Microsoft 服務 (例如 Outlook、OneDrive、OneNote、Planner 和 Office Graph) 的 API，並可透過單一端點與使用單一存取權杖進行存取。
 
 ## 如何建構 Graph API URL
 
 在 Graph API 中，若要存取您想要據以執行 CRUD 作業的目錄資料和物件 (亦即，資源或實體)，可使用以開放式資料 (OData) 通訊協定為基礎的 URL。Graph API 中使用的 URL 是由下列四個主要部分所組成：服務根目錄、租用戶識別碼、資源路徑和查詢字串選項：`https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`。在下列 URL 中取得範例：`https://graph.windows.net/contoso.com/groups?api-version=1.5`。
 
 - **服務根目錄**：在 Azure AD Graph API 中，服務根目錄一律為 https://graph.windows.net。
-- **租用戶識別碼**：這可以是已驗證 (已註冊) 的網域名稱，在上述範例中為 contoso.com。它也可以是租用戶物件識別碼，或是 “myorganiztion” 或 “me” 別名。如需詳細資訊，請參閱[在 Graph API 中將實體和作業定址](https://msdn.microsoft.com/library/azure/dn424880.aspx))。
+- **租用戶識別碼**：這可以是已驗證 (已註冊) 的網域名稱，在上述範例中為 contoso.com。它也可以是租用戶物件識別碼，或是 “myorganiztion” 或 “me” 別名。如需詳細資訊，請參閱[在 Graph API 中將實體和作業定址](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview))。
 - **資源路徑**：URL 的這個部分會識別要互動的資源 (使用者、群組、特定的使用者或特定的群組等)。 在上述範例中，它是將該資源集定址的頂層「群組」。您也可以為特定的實體定址，例如，“users/{objectId}” 或 “users/userPrincipalName”。
-- **查詢參數**：? 會將資源路徑區段從查詢參數區段中分隔出來。在 Graph API 中，所有要求上都需要 “api-version” 查詢參數。Graph API 也支援下列 OData 查詢選項：**$filter**、**$orderby**、**$expand**、**$top** 和 **$format**。目前不支援下列查詢選項：**$count**、**$inlinecount** 和 **$skip**。如需詳細資訊，請參閱 [Azure AD Graph API 中支援的查詢、篩選和分頁選項](https://msdn.microsoft.com/library/azure/dn727074.aspx)。
+- **查詢參數**：? 會將資源路徑區段從查詢參數區段中分隔出來。在 Graph API 中，所有要求上都需要 “api-version” 查詢參數。Graph API 也支援下列 OData 查詢選項：**$filter**、**$orderby**、**$expand**、**$top** 和 **$format**。目前不支援下列查詢選項：**$count**、**$inlinecount** 和 **$skip**。如需詳細資訊，請參閱 [Azure AD Graph API 中支援的查詢、篩選和分頁選項](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options)。
 
 ## Graph API 版本
 
@@ -40,7 +42,7 @@ Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程�
 * 2013-11-08 版
 * 2013-04-05 版
 
-您可以在 “api-version” 查詢參數中指定 Graph API 要求的版本。如果是 1.5 版，您可以使用數字版本值；api-version=1.5。如果是先前版本，您可以使用遵守 YYYY-MM-DD 格式的日期字串；例如，api-version=2013-11-08。如果是預覽功能，請使用字串 "beta"；例如，api-version=beta。如需 Graph API 版本間差異的詳細資訊，請參閱 [Azure AD Graph API 版本設定](https://msdn.microsoft.com/library/azure/dn835125.aspx)。
+您可以在 “api-version” 查詢參數中指定 Graph API 要求的版本。如果是 1.5 版，您可以使用數字版本值；api-version=1.5。如果是先前版本，您可以使用遵守 YYYY-MM-DD 格式的日期字串；例如，api-version=2013-11-08。如果是預覽功能，請使用字串 "beta"；例如，api-version=beta。如需 Graph API 版本間差異的詳細資訊，請參閱 [Azure AD Graph API 版本設定](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning)。
 
 ## Graph API 中繼資料
 
@@ -48,7 +50,7 @@ Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程�
 
 ## 常用查詢
 
-[Azure AD Graph API 常用查詢](https://msdn.microsoft.com/library/azure/jj126255.aspx)會列出可與 Azure AD Graph 搭配使用的常用查詢，包括可用來存取目錄中最上層資源的查詢，以及在目錄中執行作業的查詢。
+[Azure AD Graph API 常用查詢](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries)會列出可與 Azure AD Graph 搭配使用的常用查詢，包括可用來存取目錄中最上層資源的查詢，以及在目錄中執行作業的查詢。
 
 例如，`https://graph.windows.net/contoso.com/tenantDetails?api-version=1.5` 會傳回目錄 contoso.com 的公司資訊。
 
@@ -89,7 +91,7 @@ Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程�
 **撰寫和執行查詢**：請完成下列步驟。
 
 1. 開啟 Fiddler Web 偵錯工具，然後切換到 [編輯器] 索引標籤。
-2. 由於您想要建立新的安全性群組，因此，請從下拉式功能表中選取 [Post] 做為 HTTP 方法。如需有關群組物件的作業與權限詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)內的[群組](https://msdn.microsoft.com/library/azure/hh974486.aspx)。
+2. 由於您想要建立新的安全性群組，因此，請從下拉式功能表中選取 [Post] 做為 HTTP 方法。如需有關群組物件的作業與權限詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)內的[群組](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity)。
 3. 在 [Post] 旁邊的欄位中，輸入下列內容做為要求 URL：`https://graph.windows.net/mytenantdomain/groups?api-version=1.5`。
 
     > [AZURE.NOTE]您必須使用自己的 Azure AD目錄網域名稱來取代 mytenantdomain。
@@ -115,7 +117,7 @@ Content-Type: application/json
         }
 ```
 
-    如需建立群組的詳細資訊，請參閱[建立群組](https://msdn.microsoft.com/library/azure/dn151614.aspx)。
+    如需建立群組的詳細資訊，請參閱[建立群組](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#CreateGroup)。
 
 如需 Graph 所公開的 Azure AD 實體和類型詳細資訊，以及可使用 Graph 在其上執行的作業相關資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
@@ -123,4 +125,4 @@ Content-Type: application/json
 
 深入了解 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

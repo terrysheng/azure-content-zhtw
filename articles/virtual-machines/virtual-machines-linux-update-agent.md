@@ -90,15 +90,19 @@
 
   針對大部分的 Linux，請使用
 
-      #sudo cp waagent /usr/sbin
+    #sudo cp waagent /usr/sbin
 
   針對 CoreOS，請使用：
 
     #sudo cp waagent /usr/share/oem/bin/
 
+  如果是新安裝 Azure Linux 代理程式，請執行下列動作：
+ 
+    #sudo /usr/sbin/waagent -install -verbose
+
 ###如需 2.1.x 版本，使用：
 
-您可能需要先安裝套件 `setuptools`，請參閱[這裡](https://pypi.python.org/pypi/setuptools)。接著執行如下：
+您可能需要先安裝套件 `setuptools`，請參閱[此處](https://pypi.python.org/pypi/setuptools)。接著執行如下：
 
     #sudo python setup.py install
 
@@ -126,4 +130,4 @@
 
 如需有關 Azure Linux 代理程式的詳細資訊，請參閱 [Azure Linux 代理程式讀我檔案](https://github.com/Azure/WALinuxAgent)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

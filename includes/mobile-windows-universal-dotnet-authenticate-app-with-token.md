@@ -1,10 +1,10 @@
 
-1. In the MainPage.xaml.cs project file, add the following **using** statements:
+1. 在 MainPage.xaml.cs 專案檔中，新增下列 **using** 陳述式：
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
 
-2. Replace the **AuthenticateAsync** method with the following code:
+2. 使用下列程式碼來取代 **AuthenticateAsync** 方法：
 
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -71,10 +71,12 @@
             return success;
         }
 
-	In this version of **AuthenticateAsync**, the app tries to use credentials stored in the **PasswordVault** to access the service. A regular sign-in is also performed when there is no stored credential.
+	在這個版本的 **AuthenticateAsync** 中，應用程式會嘗試使用已儲存於 **PasswordVault** 中的認證來存取服務。如果沒有儲存任何認證，也會執行一般登入。
 
-	>[AZURE.NOTE]A cached token may be expired, and token expiration can also occur after authentication when the app is in use. To learn how to determine if a token is expired, see [Check for expired authentication tokens](http://aka.ms/jww5vp). For a solution to handling authorization errors related to expiring tokens, see the post [Caching and handling expired tokens in Azure Mobile Services managed SDK]( hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+	>[AZURE.NOTE]快取權杖可能會過期，且權杖也可能會在應用程式使用期間經驗證之後到期。若要瞭解如何判斷權杖是否過期，請參閱[檢查是否有過期的驗證權杖](http://aka.ms/jww5vp) (英文)。如需處理與權杖到期相關之授權錯誤的方案，請參閱下列文章：[在 Azure 行動服務管理的 SDK 中快取和處理到期的權杖](hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx) (英文)。
 
-3. Restart the app twice.
+3. 重新啟動應用程式兩次。
 
-	Notice that on the first start-up, sign-in with the provider is again required. However, on the second restart the cached credentials are used and sign-in is bypassed. 
+	請注意，第一次啟動時，需要再次使用該提供者登入。不過，在第二次重新啟動時，可以使用快取的認證，並略過登入。
+
+<!---HONumber=AcomDC_1125_2015-->

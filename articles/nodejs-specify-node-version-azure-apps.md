@@ -1,10 +1,20 @@
-<properties pageTitle="指定 Node.js 版本" description="了解如何指定 Azure 網站和雲端服務所使用的 Node.js 版本" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+<properties
+	pageTitle="指定 Node.js 版本"
+	description="了解如何指定 Azure 網站和雲端服務所使用的 Node.js 版本"
+	services=""
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
-
-
-
-
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # 在 Azure 應用程式中指定 Node.js 版本
 
@@ -12,13 +22,7 @@
 
 ##預設版本
 
-Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否則會使用最新的版本。目前包含下列版本：
-
-- 4\.x.x：4.0.0
-- 0\.12.x：0.12.6、0.12.3、0.12.2、0.12.0
-- 0\.10.x：0.10.32、0.10.31、0.10.29、0.10.28、10.26、0.10.24、0.10.21、0.10.18、0.10.5
-- 0\.8.x：0.8.28、0.8.27、0.8.26、0.8.19、0.8.2
-- 0\.6.x：0.6.20、0.6.17
+Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否則會使用最新的版本。
 
 > [AZURE.NOTE]如果您要將應用程式裝載在 Azure 雲端服務 (Web 或背景工作角色) 中，而且這是您第一次部署應用程式，只要您安裝在部署環境中的 Node.js 版本符合 Azure 上提供的其中一個預設版本，Azure 就會嘗試使用這個版本。
 
@@ -98,4 +102,4 @@ Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否�
 [使用模組]: nodejs-use-node-modules-azure-apps.md
 [建置並部署 Node.js 網站]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

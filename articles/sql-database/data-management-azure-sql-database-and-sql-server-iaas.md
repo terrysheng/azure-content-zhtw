@@ -59,7 +59,7 @@ Microsoft Azure 對於雲端中的 SQL Server 有兩個選項：
 
 ##<a name="close"></a>仔細看看 Azure SQL Database 和 Azure VM 中的 SQL Server
 
-**Microsoft Azure SQL Database (Azure SQL Database)** 是託管在 Azure 雲端的關聯式資料庫即服務，其產業類別屬於*軟體即服務 (SaaS)*和*平台即服務 (PaaS)* 。Azure SQL Database 會建立在 Microsoft 所擁有、代管及維護的標準化硬體和軟體上。有了 SQL 資料庫，您可以使用內建的特色與功能在服務上直接開發。使用 SQL 資料庫時，您可以隨用隨付，並使用擴大或向外延展選項以取得更強大的功能。
+**Microsoft Azure SQL Database (Azure SQL Database)** 是託管在 Azure 雲端的關聯式資料庫即服務，其產業類別屬於*軟體即服務 (SaaS)* 和 *平台即服務 (PaaS)* 。Azure SQL Database 會建立在 Microsoft 所擁有、代管及維護的標準化硬體和軟體上。有了 SQL 資料庫，您可以使用內建的特色與功能在服務上直接開發。使用 SQL 資料庫時，您可以隨用隨付，並使用擴大或向外延展選項以取得更強大的功能。
 
 **Azure 虛擬機器 (VM) 中的 SQL Server** 屬於*基礎結構即服務 (IaaS)* 產業類別，可讓您在雲端的虛擬機器中執行 SQL Server。類似於 Azure SQL Database，它會建立在 Microsoft 所擁有、代管及維護的標準化硬體上。使用 VM 中的 SQL Server 時，您可以在 Azure 中使用自己的 SQL Server 授權，或使用 Azure 入口網站中其中一個預先設定的 SQL Server 映像。
 

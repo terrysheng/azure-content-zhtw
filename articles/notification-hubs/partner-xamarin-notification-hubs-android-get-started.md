@@ -115,7 +115,7 @@
 
 	- **GoogleProjectNumber**：在 Google 開發人員入口網站上，從您的應用程式概觀取得此專案編號值。當您在入口網站上建立應用程式時，您可以提早記下這個值。
 	- **接聽連接字串**：在 Azure 入口網站的儀表板上，按一下 [檢視連接字串]。複製此值的 *DefaultListenSharedAccessSignature* 連線字串。
-	- **中樞名稱**：這是您在 Azure 入口網站的中樞名稱。例如，*mynotificationhub2*。
+	- **中樞名稱**：這是您在 Azure 入口網站的中樞名稱。例如， *mynotificationhub2* 。
 
 	為您的 Xamarin 專案建立 **Constants.cs** 類別，並定義類別中的下列常數值。以您的值取代預留位置。
 

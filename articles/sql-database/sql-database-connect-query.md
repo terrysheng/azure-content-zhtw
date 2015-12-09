@@ -43,7 +43,7 @@
  - 在數分鐘內[建立示範資料庫](sql-database-get-started.md)。
 
 
-- Visual Studio 2013 Update 4 (或更新版本)。Microsoft 現在*免費*提供 Visual Studio Community。
+- Visual Studio 2013 Update 4 (或更新版本)。Microsoft 現在 *免費* 提供 Visual Studio Community。
  - [Visual Studio Community，下載](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [免費 Visual Studio 的更多選項](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
  - 或是讓本主題中稍後的[步驟](#InstallVSForFree)描述 [Azure 入口網站](http://portal.azure.com/)如何引導您安裝 Visual Studio。
@@ -324,7 +324,8 @@ namespace ConnectAndQuery_Example
 
 
 
-如需詳細資訊，請參閱：<br/> [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
+如需詳細資訊，請參閱：<br/>
+[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
 
 
 

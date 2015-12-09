@@ -86,7 +86,9 @@
 
 **使用 HBase Shell**
 
->[AZURE.NOTE]以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 1.開啟 PuTTY。請參閱文章開頭所列的必要條件。2.如果您在建立期間，於建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
+>[AZURE.NOTE] 以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md)
+1.開啟 **PuTTY**。請參閱文章開頭所列的必要條件。
+2.如果您在佈建期間建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -201,8 +203,8 @@ HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請�
 
   此命令中使用的參數如下：
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this is a GET request.
+    * **-u** - 用來驗證要求的使用者名稱和密碼。
+    * **-G** - 指出這是 GET 要求。
 
 2. 使用下列命令列出現有的 HBase 資料表：
 

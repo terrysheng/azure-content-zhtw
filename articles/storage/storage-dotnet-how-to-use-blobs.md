@@ -23,7 +23,7 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。儲存體用戶端程式庫是一個 SDK，可簡化與 Blob 儲存體 REST API 的互動。本指南所涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除** Blob，完成所需時間約一小時。如果您想要觀看「開始使用影片」，請參閱 [Azure 儲存體的五分鐘簡介](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/)或是可以閱讀[在五分鐘內開始使用 Azure 儲存體](storage-getting-started-guide.md)。
+本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。儲存體用戶端程式庫是一個 SDK，可簡化與 Blob 儲存體 REST API 的互動。本指南所涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除** Blob，完成所需時間約一小時。如果您想要觀看「開始使用影片」，請參閱[儲存體的五分鐘簡介](https://azure.microsoft.com/zh-TW/documentation/videos/azure-storage-5-minute-overview/)，或閱讀[在五分鐘內開始使用儲存體](https://azure.microsoft.com/zh-TW/documentation/articles/storage-getting-started-guide/)指南。
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 

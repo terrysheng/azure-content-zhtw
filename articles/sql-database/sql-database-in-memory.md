@@ -92,7 +92,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 ## A.安裝 In-Memory OLTP 範例
 
-在 [Azure 入口網站](http://portal.azure.com/)中按幾下滑鼠，即可建立 AdventureWorksLT [V12] 範例資料庫。本節中的步驟說明如何擴充 AdventureWorksLT 資料庫：
+在 [Azure Preview 入口網站](http://portal.azure.com/)中按幾下滑鼠，即可建立 AdventureWorksLT [V12] 範例資料庫。本節中的步驟說明如何擴充 AdventureWorksLT 資料庫：
 
 - 記憶體內資料表。
 - 原生編譯預存程序。
@@ -100,7 +100,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 #### 安裝步驟
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，在 V12 伺服器上建立高階資料庫。將 [來源] 設定為 AdventureWorksLT [V12] 範例資料庫。
+1. 在 [Azure Preview 入口網站](http://portal.azure.com/)中，在 V12 伺服器上建立 Premium 資料庫。將 [來源] 設定為 AdventureWorksLT [V12] 範例資料庫。
  - 如需詳細指示，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
 
 2. 使用 SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx) 連接到資料庫。
@@ -276,7 +276,8 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 若要執行上述的 ostress.exe 命令列：
 
 
-1. 在 SSMS 中執行下列命令來重設資料庫資料內容，以刪除先前執行插入的所有資料：```
+1. 在 SSMS 中執行下列命令來重設資料庫資料內容，以刪除先前執行插入的所有資料：
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -301,7 +302,8 @@ EXECUTE Demo.usp_DemoReset;
 在獲得 \_inmem 執行的結果之後，請針對 \_ondisk 執行回合執行下列步驟：
 
 
-1. 在 SSMS 中執行下列命令來重設資料庫，以刪除先前執行插入的所有資料：```
+1. 在 SSMS 中執行下列命令來重設資料庫，以刪除先前執行插入的所有資料：
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 

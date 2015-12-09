@@ -122,7 +122,7 @@
 
 	![動作](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE][授權] 按鈕會使用 OAUTH 安全性來連接到 Twitter 之類的 SaaS 服務。關於 OAUTH 的詳細資訊，請參閱 [OAUTH 安全性](app-service-logic-oauth-security.md)。
+	> [AZURE.NOTE] [授權] 按鈕會使用 OAUTH 安全性來連接到 Twitter 之類的 SaaS 服務。關於 OAUTH 的詳細資訊，請參閱 [OAUTH 安全性](app-service-logic-oauth-security.md)。
 
 3. 按一下 [搜尋推文]，接著在 [**指定查詢**] 中輸入類似 `#MicrosoftAzure` 的內容，然後按一下綠色核取符號。
 
@@ -188,4 +188,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

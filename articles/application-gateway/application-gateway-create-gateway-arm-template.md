@@ -193,9 +193,9 @@
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n (或 --name)**。新資源群組的名稱。在本文案例中為 *appgatewayRG*。
+**-n (或 --name)**。新資源群組的名稱。在本文案例中為 *appgatewayRG* 。
 
-**-l (或 --location)**。將會在當中建立新資源群組的 Azure 區域。在本文案例中為 *Eastus*。
+**-l (或 --location)**。將會在當中建立新資源群組的 Azure 區域。在本文案例中為 *Eastus* 。
 
 4. 執行 **azure group deployment create** Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的 VNet。輸出後顯示的清單可說明所使用的參數。
 

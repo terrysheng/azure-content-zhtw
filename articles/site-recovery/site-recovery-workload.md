@@ -39,7 +39,20 @@ Site Recovery 整合了 Microsoft 應用程式，包括 SharePoint、Exchange、
 
 Site Recovery 複寫技術與虛擬機器中執行的任何應用程式相容。此外，我們已經與其他應用程式產品小組合作完成其他測試，以進一步支援每個應用程式。
 
-**工作負載** | <p>**複寫 Hyper-V VM**</p><p>**(至次要網站)**</p> | <p>**複寫 Hyper-V VM**</p><p>**(至 Azure)**</p> | <p>**複寫 VMware VM**</p><p>**(至次要網站)**</p> | <p>**複寫 VMware VM**</p><p>**(至 Azure)****</p>---|---|---|---|---Active Directory、DNS | Y | Y | Y | Y Web 應用程式 (IIS、SQL) | Y | Y | Y | Y SCOM | Y | Y | Y | Y Sharepoint | Y | Y | Y | Y <p>SAP</p><p>複寫 SAP 非叢集至 Azure 網站</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) Exchange (非 DAG) | Y | 即將推出 | Y | Y 遠端桌面/VDI | Y | Y | Y | N/A <p>Linux</p><p>(作業系統和應用程式)</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) Dynamics AX | Y | Y | Y | Y Dynamics CRM | Y | 即將推出 | 即將推出 Oracle | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) Windows 檔案伺服器 | Y | Y | Y | Y
+**工作負載** | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 Hyper-V 虛擬機器**</p><p>**(至 Azure)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至次要網站)**</p> | <p>**複寫 VMware 虛擬機器**</p><p>**(至 Azure)****</p>
+---|---|---|---|---
+Active Directory、DNS | Y | Y | Y | Y
+Web 應用程式 (IIS、SQL) | Y | Y | Y | Y
+SCOM | Y | Y | Y | Y
+Sharepoint | Y | Y | Y | Y
+<p>SAP</p><p>複寫 SAP 非叢集至 Azure 網站</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試)
+Exchange (非 DAG) | Y | 即將推出 | Y | Y
+遠端桌面/VDI | Y | Y | Y | N/A
+<p>Linux</p><p>(作業系統和應用程式)</p> | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試)
+Dynamics AX | Y | Y | Y | Y
+Dynamics CRM | Y | 即將推出 | 即將推出
+Oracle | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試) | Y (由 Microsoft 測試)
+Windows 檔案伺服器 | Y | Y | Y | Y
 
 ##保護 Active Directory 和 DNS
 

@@ -72,7 +72,7 @@
 
 ##<a id="Config"></a> 步驟 3：設定您的應用程式組態
 
-在您慣用的文字編輯器中開啟 *config.js*。
+在您慣用的文字編輯器中開啟 *config.js* 。
 
 接著，建立一個名為 *config* 的空白物件，將屬性 *config.endpoint* 和 *config.authKey* 設定為您的 DocumentDB 端點和授權金鑰。您可以在 [Azure 入口網站](https://portal.azure.com)找到這兩個設定。
 
@@ -83,7 +83,7 @@
     config.endpoint = "https://YOUR_ENDPOINT_URI.documents.azure.com:443/";
     config.authKey = "oqTveZeWlbtnJQ2yMj23HOAViIr0ya****YOUR_AUTHORIZATION_KEY****ysadfbUV+wUdxwDAZlCfcVzWp0PQg==";
 
-現在將*資料庫識別碼*、*集合識別碼*，和 *JSON 文件*加入至您的 *config* 物件中。在您設定 *config.endpoint* 和 *config.authKey* 屬性的位置之下，加入下列程式碼。如果您已經有想要儲存於資料庫中的資料，就可以使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)，而不用加入文件定義。
+現在將 *資料庫識別碼* 、 *集合識別碼* ，和 *JSON 文件* 加入至您的 *config* 物件中。在您設定 *config.endpoint* 和 *config.authKey* 屬性的位置之下，加入下列程式碼。如果您已經有想要儲存於資料庫中的資料，就可以使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)，而不用加入文件定義。
 
     config.dbDefinition = {"id": "FamilyRegistry"};
     config.collDefinition = {"id": "FamilyCollection"};
@@ -163,7 +163,7 @@
 
     config.docsDefinitions = documents;
 
-資料庫、集合和文件定義會作為您 DocumentDB 的*資料庫識別碼*、*集合識別碼*和文件資料。
+資料庫、集合和文件定義會作為您 DocumentDB 的 *資料庫識別碼* 、 *集合識別碼* 和文件資料。
 
 最後，匯出您的 *config* 物件，如此就可以在 *app.js* 檔案中參考它。
 
@@ -183,7 +183,7 @@
 現在既然您已連接到 DocumentDB 帳戶，讓我們看看如何使用 DocumentDB 資源。
 
 ## 步驟 5：建立節點資料庫
-可以使用 **DocumentClient** 類別的 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式來建立[資料庫](documentdb-resources.md#databases)。資料庫是分割給多個集合之文件儲存體的邏輯容器。以 *config* 物件中指定的 *id*，在 app.js 檔案中加入建立新資料庫的函式。我們會先檢查確定具有相同 *FamilyRegistry* 識別碼的資料庫不存在。如果存在，我們會傳回該資料庫，而不會建立新資料庫。
+可以使用 **DocumentClient** 類別的 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式來建立[資料庫](documentdb-resources.md#databases)。資料庫是分割給多個集合之文件儲存體的邏輯容器。以 *config* 物件中指定的 *id* ，在 app.js 檔案中加入建立新資料庫的函式。我們會先檢查確定具有相同 *FamilyRegistry* 識別碼的資料庫不存在。如果存在，我們會傳回該資料庫，而不會建立新資料庫。
 
     var getOrCreateDatabase = function(callback) {
         var querySpec = {
@@ -214,7 +214,7 @@
 
 > [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
 
-可以使用 **DocumentClient** 類別的 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。以 *config* 物件中指定的 *id*，在 app.js 檔案中加入建立新集合的函式。同樣地，我們會檢查確定具有相同 *FamilyCollection* 識別碼的集合不存在。如果存在，我們會傳回該集合，而不會建立新集合。
+可以使用 **DocumentClient** 類別的 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。以 *config* 物件中指定的 *id* ，在 app.js 檔案中加入建立新集合的函式。同樣地，我們會檢查確定具有相同 *FamilyCollection* 識別碼的集合不存在。如果存在，我們會傳回該集合，而不會建立新集合。
 
     var getOrCreateCollection = function(callback) {
 

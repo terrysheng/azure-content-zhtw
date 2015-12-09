@@ -46,21 +46,21 @@
 
 本快速入門會顯示下列工作。
 
-1.  建立媒體服務帳戶 (使用 Azure 入口網站)。
+1.  建立媒體服務帳戶 (使用 Azure 傳統入口網站)。
 2.  設定串流端點 (使用入口網站)。
 3.  建立和設定 Visual Studio 專案。
 5.  連線到媒體服務帳戶。
 6.  建立新資產並上傳視訊檔案。
 7.  將來源檔案編碼為一組調適性位元速率 MP4 檔案。
-8.  發佈資產並取得串流和漸進式下載 URL。  
+8.  發佈資產並取得串流和漸進式下載 URL。
 9.  播放您的內容。
 
 
 ##使用入口網站建立媒體服務帳戶
 
-1. 在 Azure 入口網站中，依序按一下 [新增]、[媒體服務] 和 [快速建立]。
+1. 在 Azure 傳統入口網站中，依序按一下 [新增]、[媒體服務] 和 [快速建立]。
 
-	![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. 在 [名稱] 中，輸入新帳戶的名稱。媒體服務帳戶名稱是全部小寫且不含空格的數字或字母，而且長度是 3 到 24 個字元。
 
@@ -72,15 +72,15 @@
 
 6. 按一下表單底部的 [快速建立]。
 
-	您可以在視窗底端的訊息區域監視程序的狀態。
+您可以在視窗底端的訊息區域監視程序的狀態。
 
-	成功建立帳戶之後，狀態會變更為 [作用中]。
+當您成功建立帳戶之後，該狀態會變更成 [作用中]。
 
-	在頁面底部會顯示 [管理金鑰] 按鈕。當您按一下此按鈕時，會顯示對話方塊，其中具有媒體服務帳戶名稱和主要和次要金鑰。您將需要帳戶名稱和主要金鑰資訊，以便以程式設計方式存取媒體服務帳戶。
+在頁面底部會顯示 [管理金鑰] 按鈕。當您按一下此按鈕時，會顯示對話方塊，其中具有媒體服務帳戶名稱和主要和次要金鑰。您將需要帳戶名稱和主要金鑰資訊，以便以程式設計方式存取媒體服務帳戶。
 
-	![Media Services Page](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
+![Media Services Page](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
 
-	當您按兩下帳戶名稱時，預設會顯示 [快速入門] 頁面。此頁面可讓您執行一些在入口網站的其他頁面也可以執行的管理工作。例如，您可以從此頁面上傳視訊檔案，也可以從 [內容] 頁面上傳視訊檔案。
+當您按兩下帳戶名稱時，預設會顯示 [快速入門] 頁面。此頁面可讓您執行一些在入口網站的其他頁面也可以執行的管理工作。例如，您可以從此頁面上傳視訊檔案，也可以從 [內容] 頁面上傳視訊檔案。
 
 ##使用入口網站設定串流端點
 
@@ -90,7 +90,7 @@
 
 若要利用動態封裝，您需要執行下列動作：
 
-- 將夾層 (來源) 檔案編碼或轉碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (本教學課程稍後會示範編碼步驟)、  
+- 將夾層 (來源) 檔案編碼或轉碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (本教學課程稍後會示範編碼步驟)、
 - 為您計畫從該處傳遞內容的**串流端點**至少取得一個串流單元。
 
 使用動態封裝，您只需要以單一儲存格式儲存及播放檔案，媒體服務會根據來自用戶端的要求建置及傳遞適當的回應。
@@ -101,17 +101,17 @@
 
 2. 選取 [串流端點] 頁面。然後，按一下您要修改的串流端點。
 
-3. 若要指定串流單元數目，請按一下 [調整] 索引標籤，然後移動 [保留容量] 滑動軸。
+3. 若要指定串流單元數目，請按一下 [級別] 索引標籤，然後移動 [保留容量] 滑桿。
 
-	![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
-4. 請按 [儲存] 以儲存變更。
+4. 按下 [儲存] 來儲存變更。
 
-	配置任何新的單元需要大約 20 分鐘的時間才能完成。
+配置任何新的單元需要大約 20 分鐘的時間才能完成。
 
-	>[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
-	>
-	> 計算成本時會使用 24 小時內指定的最大單元數。如需價格詳細資料的相關資訊，請參閱[媒體服務價格詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
+>[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
+>
+> 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
 
 
 
@@ -119,20 +119,20 @@
 
 1. 在 Visual Studio 2013、Visual Studio 2012 或 Visual Studio 2010 SP1 中，建立新的 C# 主控台應用程式。輸入 [名稱]、[位置] 和 [方案名稱]，然後按一下 [確定]。
 
-2. 使用 [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) Nuget 封裝來安裝 **Azure Media Services .NET SDK 延伸模組**。Media Services .NET SDK 延伸模組是一組延伸方法和協助程式函數，能夠簡化您的程式碼，並輕鬆地以媒體服務開發。安裝這個封裝，也會安裝 **Media Services .NET SDK**，並新增所有其他必要相依性。
+2. 使用 [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) Nuget 封裝來安裝 **Azure 媒體服務 .NET SDK 延伸模組**。Media Services .NET SDK 延伸模組是一組延伸方法和協助程式函數，能夠簡化您的程式碼，並輕鬆地以媒體服務開發。安裝這個封裝，也會安裝 **Media Services .NET SDK**，並新增所有其他必要相依性。
 
-3. 加入 System.Configuration 組件的參考。此組件包含用來存取組態檔 (例如，App.config) 的 **System.Configuration.ConfigurationManager** 類別。
+3. 加入 System.Configuration 組件的參考。此組件包含用來存取組態檔 (例如 App.config) 的 **System.Configuration.ConfigurationManager** 類別。
 
-4. 開啟 App.config 檔案 (如果尚未新增，則預設會將檔案新增至您的專案)，並將 *appSettings* 區段新增至此檔案。設定 Azure 媒體服務帳戶名稱和帳戶金鑰的值 (如下列範例所示)。若要取得帳戶名稱和金鑰資訊，請開啟 Azure 入口網站，並選取媒體服務帳戶，然後按一下 [管理金鑰] 按鈕。
+4. 開啟 App.config 檔案 (如果尚未新增，則預設會將檔案新增至您的專案)，並將 *appSettings* 區段新增至此檔案。設定 Azure 媒體服務帳戶名稱和帳戶金鑰的值 (如下列範例所示)。若要取得帳戶名稱和金鑰資訊，請開啟 Azure 傳統入口網站，並選取媒體服務帳戶，然後按一下 [管理金鑰] 按鈕。
 
-		<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
-		  
-		</configuration>
+	 <pre><code>
+&lt;configuration>
+    &lt;appSettings>
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+    &lt;/appSettings>
+&lt;/configuration>
+</code></pre>
 
 5. 在 Program.cs 檔案的開頭，使用下列程式碼來覆寫現有的 **using** 陳述式。
 
@@ -153,9 +153,9 @@
 
 搭配使用媒體服務與 .NET 時，您必須將 **CloudMediaContext** 類別用於大部分的媒體服務程式設計工作：連線到媒體服務帳戶；建立、更新、存取和刪除下列物件：資產、資產檔案、工作、存取原則、定位器等。
 
-將預設 Program 類別覆寫為下列程式碼。此程式碼示範如何讀取 App.config 檔案中的連線值以及如何建立 **CloudMediaContext** 物件來連線到媒體服務。如需連線到媒體服務的詳細資訊，請參閱使用 [Media Services SDK for .NET 連線到媒體服務](http://msdn.microsoft.com/library/azure/jj129571.aspx)。
+將預設 Program 類別覆寫為下列程式碼。此程式碼示範如何讀取 App.config 檔案中的連線值，以及如何建立 **CloudMediaContext** 物件來連線到媒體服務。如需連線到媒體服務的詳細資訊，請參閱 [使用 Media Services SDK for .NET 連線到媒體服務](http://msdn.microsoft.com/library/azure/jj129571.aspx)。
 
-**Main** 函數會呼叫未來將在此區段中定義的方法。
+**Main** 函式會呼叫未來將在此區段中定義的方法。
 
     class Program
     {
@@ -206,20 +206,20 @@
 
 ##建立新資產並上傳視訊檔案
 
-在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。**資產**實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式字幕檔案 (以及這些檔案的相關中繼資料)。 上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。資產中的檔案稱為**資產檔案**。
+在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。**資產**實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌，及隱藏式字幕檔案 (以及這些檔案的相關中繼資料)。 上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。資產中的檔案稱為**資產檔案**。
 
 下面所定義的 **UploadFile** 方法會呼叫 **CreateFromFile** (定義於 .NET SDK 延伸模組中)。**CreateFromFile** 會建立要在其中上傳所指定來源檔案的新資產。
 
 **CreateFromFile** 方法會採用 **AssetCreationOptions**，以讓您指定下列其中一個資產建立選項：
 
 - **None** - 不使用加密。這是預設值。請注意，使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。
-- **StorageEncrypted** - 使用此選項，使用進階加密標準 (AES) 256 位元加密對您的純文字內容進行本機加密，然後會將它上傳到已靜止加密儲存的 Azure 儲存體。以儲存體加密保護的資產會自動解除加密並在編碼前放置在加密的檔案系統中，並且會在上傳為新輸出資產之前選擇性地重新編碼。儲存體加密的主要使用案例是讓您可以使用強式加密來保護磁碟中靜止的高品質輸入媒體檔。
-- **CommonEncryptionProtected** - 如果您要上傳已經使用一般加密或 PlayReady DRM (例如使用 PlayReady DRM 保護的 Smooth Streaming) 加密及保護的內容，請使用這個選項。
-- **EnvelopeEncryptionProtected** – 如果您要上傳使用 AES 加密的 HLS，請使用這個選項。請注意，檔案必須已由 Transform Manager 編碼和加密。
+- **StorageEncrypted**：請使用此選項來利用進階加密標準 (AES) 256 位元加密，對您的純文字內容進行本機加密，然後會將它上傳到已靜止加密儲存的 Azure 儲存體。以儲存體加密保護的資產會自動解除加密並在編碼前放置在加密的檔案系統中，並且會在上傳為新輸出資產之前選擇性地重新編碼。儲存體加密的主要使用案例是讓您可以使用強式加密來保護磁碟中靜止的高品質輸入媒體檔。
+- **CommonEncryptionProtected**：如果您要上傳已經使用一般加密或 PlayReady DRM (例如使用 PlayReady DRM 保護的 Smooth Streaming) 加密及保護的內容，請使用這個選項。
+- **EnvelopeEncryptionProtected**：如果您要上傳使用 AES 加密的 HLS，請使用這個選項。請注意，檔案必須已由 Transform Manager 編碼和加密。
 
 **CreateFromFile** 方法也可讓您指定回呼，以報告檔案的上傳進度。
 
-下列範例指定 **None** 做為資產選項。
+在下列範例中，我們將資產選項指定為 **None**。
 
 將下列方法新增至 Program 類別。
 
@@ -447,4 +447,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

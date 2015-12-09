@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Site Recovery 網路對應 | Microsoft Azure"
-	description="Azure Site Recovery 可將內部部署上虛擬機器和實體伺服器的複寫、容錯移轉及復原協調至 Azure 或次要內部部署站台。"
+	pageTitle="準備網路對應以使用 Azure Site Recovery 在 VMM 保護 Hyper-V 虛擬機器 | Microsoft Azure"
+	description="設定網路對應以用來將 Hyper-V 虛擬機器從內部部署資料中心複寫到 Azure 或次要網站。"
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,48 +13,36 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
+	ms.date="12/01/2015"
 	ms.author="raynew"/>
 
 
-# Azure Site Recovery 網路對應
+# 準備網路對應以使用 Azure Site Recovery 在 VMM 保護 Hyper-V 虛擬機器
 
+Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與嚴重損壞修復 (BCDR) 策略做出貢獻。
 
-Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與嚴重損壞修復 (BCDR) 策略做出貢獻。了解 [Site Recovery 概觀](site-recovery-overview.md)中可能的部署案例。
+本文說明網路對應，它能協助您在使用 Site Recovery 複寫位於 VMM 雲端中兩個內部部署資料中心之間，或是內部部署資料中心和 Azure 之間的 Hyper-V 虛擬機器時，以將網路設定設定成最佳狀態。請注意，如果您是複寫沒有 VMM 雲端的 Hyper-V VM，或是複寫 VMware VM 或實體伺服器，則本文無關聯。
 
+如果您在閱讀本文後有任何問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) (英文)。
 
-## 本文內容
-
-網路對應是部署 VMM 和 Site Recovery 時的重要元素。它會以最佳方式將複寫的虛擬機器放在目標 Hyper-V 主機伺服器上，並確保複寫的虛擬機器會在容錯移轉後連線到適當的網路。本文說明網路對應並提供幾個範例，以協助您了解網路對應的運作方式。
-
-
-若有任何問題，請造訪 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) (英文)。
 
 ## 概觀
 
-您設定網路對應的方式取決於您的 Site Recovery 部署案例。
+當使用 Hyper-V 複本或 SAN 複寫來部署 Azure Site Recovery 將 Hyper-V 虛擬機器複寫到 Azure 或次要資料中心時，會使用網路對應。
 
-
-
-- **內部部署至內部部署 VMM 伺服器** — 網路對應會對應來源 VMM 伺服器上的 VM 網路與目標 VMM 伺服器上的 VM 網路，以便：
+- **在 VMM 雲端中兩個內部部署資料中心之間複寫 Hyper-V 虛擬機器**—網路對應會在來源 VMM 伺服器上的 VM 網路與目標 VMM 伺服器上的 VM 網路之間對應，以執行下列動作：
 
 	- **在容錯移轉之後連線虛擬機器** — 可確保虛擬機器將在容錯移轉之後，連線到適當的網路。複本虛擬機器將會連線至對應到來源網路的目標網路。
 	- **將複本虛擬機器放在主機伺服器上** — 以最佳方式將複本虛擬機器放在 Hyper-V 主機伺服器上。複本虛擬機器將會放在可以存取對應的 VM 網路的主機上。
 	- **無網路對應** — 如果您沒有設定網路對應，複本虛擬機器將不會在容錯移轉後連線到 VM 網路。
 
-- **內部部署 VMM 伺服器至 Azure** — 網路對應會對應來源 VMM 伺服器上的 VM 網路與目標 VMM 伺服器上的 VM 網路，以便：
+- **將內部部署 VMM 雲端中的 Hyper-V 虛擬機器複寫到 Azure**—網路對應會在來源 VMM 伺服器和目標 Azure 網路上的 VM 網路之間對應，以執行下列動作:
 	- **在容錯移轉之後連線虛擬機器** — 在相同網路上容錯移轉的所有機器都可以彼此連線，無論它們隸屬於哪個復原計畫都一樣。
 	- **網路閘道** — 如果目標 Azure 網路上已設定網路閘道，則虛擬機器可以連線到其他內部部署虛擬機器。
 	- **無網路對應** — 如果您未設定網路對應，則只有在相同復原計畫中容錯移轉的虛擬機器，才能在容錯移轉到 Azure 之後彼此連線。
 
-## VM 網路
 
-VMM 邏輯網路提供實體網路基礎結構的抽象檢視。VM 網路提供網路介面，讓虛擬機器可以連線到邏輯網路。邏輯網路至少需要一個 VM 網路。當您將虛擬機器放在雲端中保護時，必須連線至 VM 網路，且此網路已連結到與雲端相關聯的邏輯網路。深入了解：
-
-- [邏輯網路 (第 1 部分)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
-- [VMM 2012 SP1 中的虛擬網路](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
-
-## 範例
+## 網路對應範例
 
 您可以在兩部 VMM 伺服器的 VM 網路之間設定網路對應，如果兩個站台由相同的伺服器管理，則可以在單一 VMM 伺服器上設定網路對應。正確設定對應並啟用複寫時，位於主要位置的虛擬機器將會連線至網路，且其位於目標位置的複本將會連線到其對應的網路。
 
@@ -133,6 +121,6 @@ VMNetwork1-Chicago 的網路對應已變更。 | VM-1 現在會連線到對應�
 
 ## 後續步驟
 
-既然您已經更了解網路對應，請開始閱讀[最佳作法](site-recovery-best-practices.md)以準備部署。
+既然您已經更了解網路對應，[請開始部署 Site Recovery](site-recovery-best-practices.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

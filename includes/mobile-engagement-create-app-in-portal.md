@@ -19,10 +19,8 @@
 
 5. 按一下 [連線資訊] 來顯示要置入您行動應用程式中 SDK 整合的連線設定。
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png)
-
-6. 複製 [連接字串]：在您的應用程式程式碼中，以及從您的 App 與 Mobile Engagement 連接時 ，將需要此來識別這個 App。
+6. 複製 [連接字串]：在您的應用程式程式碼中，以及從您的 app 與 Mobile Engagement 連接時 ，將需要此來識別這個 app。
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

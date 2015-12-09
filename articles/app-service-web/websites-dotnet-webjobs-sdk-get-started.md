@@ -24,7 +24,7 @@
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
-## <a id="prerequisites"></a>先決條件
+## <a id="prerequisites"></a>必要條件
 
 本教學課程假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 專案。
 
@@ -291,7 +291,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 ### 設定 Web 應用程式來使用您的 Azure SQL Database 和儲存體帳戶。
 
-[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets) (英文) 會是安全性最佳作法。Azure 提供實作上述最佳做法的方式：您可以在 Azure 環境中設定連接字串和其他設定值，當應用程式在 Azure 中執行時，ASP.NET 組態 API 便會自動挑選這些值。您也可以使用 [伺服器總管]、入口網站、Windows PowerShell 或跨平台命令列介面，在 Azure 中設定這些值。如需詳細資訊，請參閱[應用程式字串與連接字串的運作方式](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。
+[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets) (英文) 會是安全性最佳作法。Azure 提供實作上述最佳做法的方式：您可以在 Azure 環境中設定連接字串和其他設定值，當應用程式在 Azure 中執行時，ASP.NET 組態 API 便會自動挑選這些值。您可以使用 [伺服器總管]、Azure 入口網站、Windows PowerShell，或跨平台的命令列介面，在 Azure 中設定這些值。如需詳細資訊，請參閱[應用程式字串與連接字串的運作方式](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。
 
 在本節中，您會使用 [伺服器總管] 在 Azure 中設定連接字串值。
 
@@ -327,11 +327,11 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 11.	在幾秒後重新整理頁面，縮圖便會隨即出現。
 
-	如果未出現縮圖，您可能必須等候一分鐘左右，讓 WebJob 重新啟動。如果在一段時間後當您重新整理頁面時仍未看到縮圖，WebJob 可能未自動啟動。在此情況下，移至 [Azure 入口網站](https://manage.windowsazure.com)頁面中 Web 應用程式的 [WebJobs] 索引標籤，然後按一下 [啟動]。
+	如果未出現縮圖，您可能必須等候一分鐘左右，讓 WebJob 重新啟動。如果在一段時間後當您重新整理頁面時仍未看到縮圖，WebJob 可能未自動啟動。如果是這樣，請前往[傳統入口網站](https://manage.windowsazure.com)頁面中您 Web 應用程式的 [WebJobs] 索引標籤，然後按一下 [啟動]。
 
 ### 檢視 WebJobs SDK 儀表板
 
-1. 在 [Azure 入口網站](https://manage.windowsazure.com)中，選取您的 Web 應用程式。
+1. 在 [傳統入口網站](https://manage.windowsazure.com)中，選取您的 Web 應用程式。
 
 2. 按一下 [WebJobs] 索引標籤。
 
@@ -349,7 +349,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	此頁面上的 [轉送函數] 按鈕會造成 WebJobs SDK 架構再次呼叫此函數，這可提供您一個機會來變更首先傳送至函數的資料。
 
->[AZURE.NOTE]當您完成測試時，請刪除 Web 應用程式和 SQL Database 執行個體。Web 應用程式是免費提供的，但 SQL Database 執行個體和儲存體帳戶則會累算費用 (由於是小規模，因此將收取基本費用)。另外，如果您持續執行 Web 應用程式，那麼，找到您 URL 的任何人都可以建立和檢視廣告。在 Azure 入口網站中，移至 Web 應用程式的 [儀表板] 索引標籤，然後按一下頁面底端的 [刪除] 按鈕。您可以接著勾選核取方塊，以同時刪除 SQL Database 執行個體。如果您只想暫時避免他人存取 Web 應用程式，請改為按一下 [停止]。在此情況下，將會繼續累算 SQL Database 和儲存體帳戶的費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
+>[AZURE.NOTE]當您完成測試時，請刪除 Web 應用程式和 SQL Database 執行個體。Web 應用程式是免費提供的，但 SQL Database 執行個體和儲存體帳戶則會累算費用 (由於是小規模，因此將收取基本費用)。另外，如果您持續執行 Web 應用程式，那麼，找到您 URL 的任何人都可以建立和檢視廣告。請在傳統入口網站中，前往您 Web 應用程式的 [儀表板] 索引標籤，然後按一下頁面底部的 [刪除] 按鈕。您可以接著勾選核取方塊，以同時刪除 SQL Database 執行個體。如果您只想暫時避免他人存取 Web 應用程式，請改為按一下 [停止]。在此情況下，將會繼續累算 SQL Database 和儲存體帳戶的費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
 
 ## <a id="create"></a>從頭開始建立應用程式
 
@@ -373,7 +373,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	![新增專案](./media/websites-dotnet-webjobs-sdk-get-started/newproject.png)
 
-5. 在 [新增 ASP.NET 專案] 對話方塊中，選擇 MVC 範本，並清除在 [Microsoft Azure] 底下的 [Host in the cloud] 核取方塊。
+5. 在 [New ASP.NET Project] 對話方塊中，選擇 MVC 範本，並清除在 [Microsoft Azure] 底下的 [Host in the cloud] 核取方塊。
 
 	選取 [託管於雲端]，可讓 Visual Studio 自動建立新的 Azure Web 應用程式與 SQL Database。由於您稍早已建立這些項目，您現在無需在建立專案時執行此作業。如果您要建立一個新的，請勾選此核取方塊。您接下來可以使用稍早部署應用程式的相同方法，來設定新的 Web 應用程式和 SQL Database。
 
@@ -783,7 +783,7 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 
 ## 後續步驟
 
-在本教學課程中，您看到使用 WebJobs SDK 進行後端處理的簡單多層次應用程式。本節提供進一步了解 ASP.NET 多層式應用程式和 WebJobs 的一些建議。
+在本教學課程中，您看到使用 WebJobs SDK 進行後端處理的簡單多層次應用程式。如要進一步了解 ASP.NET 多層式應用程式和 WebJobs，請參考本節所提供的一些建議。
 
 ### 遺漏的功能
 
@@ -803,7 +803,7 @@ WebJob 會在 Web 應用程式的內容中執行，且無法單獨調整。例�
 
 ### 在 WebJobs 外部使用 WebJobs SDK
 
-使用 WebJobs SDK 的程式無需在 Azure 的 WebJob 中執行。它可以在本機執行，也可以在如雲端服務背景工作角色或 Windows 服務等其他環境中執行。不過，您僅能透過 Azure Web 應用程式來存取 WebJobs SDK 儀表板。若要使用儀表板，您必須連線 Web 應用程式與正在使用的儲存體帳戶，方法是在 Azure 入口網站的 [設定] 索引標籤上設定 AzureWebJobsDashboard 連接字串。然後，您可以使用下列 URL 來進入儀表板：
+使用 WebJobs SDK 的程式無需在 Azure 的 WebJob 中執行。它可以在本機執行，也可以在如雲端服務背景工作角色或 Windows 服務等其他環境中執行。不過，您僅能透過 Azure Web 應用程式來存取 WebJobs SDK 儀表板。若要使用儀表板，您必須將 Web 應用程式連線到您所使用的儲存體帳戶，方法是在傳統入口網站的 [設定] 索引標籤上設定 AzureWebJobsDashboard 連接字串。然後，您可以使用下列 URL 來進入儀表板：
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -813,4 +813,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 如需詳細資訊，請參閱 [Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?LinkId=390226)。
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

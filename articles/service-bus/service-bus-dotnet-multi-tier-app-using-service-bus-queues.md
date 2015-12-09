@@ -87,13 +87,13 @@
 
 下一步是建立服務命名空間，並取得共用存取簽章 (SAS) 金鑰。命名空間會為每個透過服務匯流排公開的應用程式提供應用程式界限。建立服務命名空間時，系統會產生 SAS 金鑰。命名空間與 SAS 金鑰的結合提供一個認證，供服務匯流排驗證對應用程式的存取權。
 
-### 使用 Azure 入口網站設定命名空間
+### 使用 Azure 傳統入口網站設定命名空間：
 
-1.  登入 [Azure 入口網站][]。
+1.  登入 [Azure 傳統入口網站][]。
 
-2.  在 Azure 入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
+2.  在入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 
-3.  在 Azure 入口網站的下方窗格中，按一下 [建立]。
+3.  在入口網站的下方窗格中，按一下 [建立]。
 
     ![][6]
 
@@ -153,7 +153,7 @@
 
 6.  在 [方案總管] 中，於 [參考] 上按一下滑鼠右鍵，然後按一下 [管理 NuGet 封裝] 或 [加入程式庫套件參考]。
 
-7.  選取對話方塊左邊的 [線上]。搜尋「服務匯流排」並選取 [Microsoft Azure 服務匯流排] 項目。然後完成安裝並關閉此對話方塊。
+7.  選取對話方塊左邊的 [線上]。搜尋「**服務匯流排**」並選取 [Microsoft Azure 服務匯流排] 項目。然後完成安裝並關閉此對話方塊。
 
     ![][13]
 
@@ -235,7 +235,7 @@
 
 4.  從 [建置] 功能表中，按一下 [建置方案] 來測試您的工作到目前為止是否正確無誤。
 
-5.  現在，為先前建立的 **Submit()** 方法建立檢視。在 **Submit()** 方法內按一下滑鼠右鍵，然後選擇 [加入檢視]。
+5.  現在，您將為先前建立的 **Submit()** 方法建立檢視。在 **Submit()** 方法內按一下滑鼠右鍵，然後選擇 [加入檢視]。
 
     ![][14]
 
@@ -245,7 +245,7 @@
 
 7.  按一下 [新增]。
 
-8.  現在，變更您的應用程式的顯示名稱。在 [方案總管] 中，按兩下 **Views\\Shared\\_Layout.cshtml** 檔案以在 Visual Studio 編輯器中加以開啟。
+8.  現在，變更您的應用程式的顯示名稱。在 [方案總管] 中，按兩下 **Views\\Shared\\\_Layout.cshtml** 檔案以在 Visual Studio 編輯器中加以開啟。
 
 9.  將所有出現的 **My ASP.NET Application** 取代為 **LITWARE'S Products**。
 
@@ -263,13 +263,13 @@
 
 ### 撰寫增程式碼以提交項目給服務匯流排佇列
 
-現在，將新增程式碼以提交項目給佇列。首先，您會建立一個類別，並使其包含服務匯流排佇列連接資訊。接著，從 Global.aspx.cs 初始化您的連線。最後，更新稍早在 HomeController.cs 建立的提交程式碼，以將項目實際提交給服務匯流排佇列。
+現在，您將新增程式碼以提交項目給佇列。首先，您將建立一個類別，並使其包含服務匯流排佇列連接資訊。Then, you will initialize your connection from Global.aspx.cs.最後，您將更新稍早在 HomeController.cs 建立的提交程式碼，以將項目實際提交給服務匯流排佇列。
 
 1.  在 [方案總管] 中，於 [FrontendWebRole] 上按一下滑鼠右鍵 (在專案而非角色上按一下滑鼠右鍵)。按一下 [加入]，然後按一下 [類別]。
 
 2.  將類別命名為 QueueConnector.cs。按一下 [加入] 以建立類別。
 
-3.  現在，加入可封裝連線資訊、並初始化與服務匯流排佇列連線的程式碼。在 QueueConnector.cs 中，加入下列程式碼，並在 [命名空間] (您的服務命名空間) 和 [yourKey]，也就是您稍早從 [Azure 入口網站][Azure portal]中取得的 SAS 金鑰中輸入值。
+3.  現在，加入可封裝連線資訊、並初始化與服務匯流排佇列連線的程式碼。在 QueueConnector.cs 中，加入下列程式碼，並在 [命名空間] (您的服務命名空間) 和 [yourKey] (也就是您稍早從 [Azure 傳統入口網站][]中取得的 SAS 金鑰) 中輸入值。
 
         using System;
         using System.Collections.Generic;
@@ -286,7 +286,7 @@
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Azure portal.
+                // Obtain these values from the portal.
                 public const string Namespace = "your service bus namespace";
 
                 // The name of your queue.
@@ -510,8 +510,7 @@
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Azure portal]: http://manage.windowsazure.com
-  [Azure 入口網站]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -545,4 +544,4 @@
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

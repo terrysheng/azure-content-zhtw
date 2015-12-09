@@ -40,12 +40,12 @@ HDInsight Getting Started Gallery 在 HDInsight 中執行範例應用程式，�
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-可透過瀏覽至 http://<YourHDInsightClusterName>.azurehdinsight.net/ 或從 Azure Preview 入口網站存取儀表板。
+您可以藉由瀏覽至 http://<YourHDInsightClusterName>.azurehdinsight.net/，或是從 Azure 入口網站來存取儀表板。
 
 **從 Getting Started Gallery 執行範例**
 
-1. 登入 [Azure Preview 入口網站][azure.portal]。
-2. 從左方功能表按一下 [瀏覽]，然後依序按一下 [HDInsight 叢集] 和您的叢集名稱。
+1. 登入 [Azure 入口網站][azure.portal]。
+2. 在左側功能表中按一下 [瀏覽]，然後依序按一下 [HDInsight 叢集] 和您的叢集名稱。
 3. 從頂端功能表按一下 [儀表板]。
 4. 輸入 HTTP 使用者 (又稱為叢集使用者) 的使用者名稱和密碼。
 6. 按一下頁面頂端的 [Getting Started Gallery]。
@@ -68,4 +68,4 @@ HDInsight Getting Started Gallery 在 HDInsight 中執行範例應用程式，�
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

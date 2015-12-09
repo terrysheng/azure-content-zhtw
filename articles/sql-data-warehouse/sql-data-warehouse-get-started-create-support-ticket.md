@@ -22,7 +22,7 @@
 
 ## 如何建立支援票證
 
-1. 開啟 [Azure 入口網站][]。 
+1. 開啟 [Azure 傳統入口網站][]。 
 2. 在 [首頁] 畫面上，按一下 [說明 + 支援] 磚。
 
     ![說明 + 支援](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -78,10 +78,10 @@
 
 <!-- External links -->
 
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 傳統入口網站]: https://portal.azure.com/
 [Azure 支援計劃]: http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [Microsoft Premier 線上入口網站]: https://premier.microsoft.com/
 [堆疊溢位]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 資料倉儲 MSDN 論壇上]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

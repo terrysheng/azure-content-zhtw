@@ -42,10 +42,10 @@
 
 在此步驟中，您會使用 Azure PowerShell 建立名為 ADFTutorialDataFactoryPSH 的 Azure Data Factory。
 
-1. 開啟 Azure PowerShell 並執行下列命令。將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果關閉後再重新開啟，則需要重新執行這些命令。
-	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure Preview 入口網站的使用者名稱和密碼。  
+1. 開啟 Azure PowerShell 並執行下列命令。將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果您關閉並重新開啟，則需要再次執行這些命令。
+	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
 	- 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
-	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在預覽入口網站中使用的相同。
+	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
 2. 切換至 AzureResourceManager 模式，因為 Azure Data Factory Cmdlet 在此模式中可供使用。
 
 		Switch-AzureMode AzureResourceManager
@@ -109,7 +109,7 @@
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -121,7 +121,7 @@
 
 	屬性 | 說明
 	-------- | -----------
-	版本 | 指定所建立之 HDInsight 的版本為 3.1。
+	版本 | 指定所建立的 HDInsight 版本為 3.2。
 	ClusterSize | 建立一個單一節點的 HDInsight 叢集。
 	TimeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
 	linkedServiceName | 指定將用來儲存 HDInsight 產生之記錄檔的儲存體帳戶
@@ -272,4 +272,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

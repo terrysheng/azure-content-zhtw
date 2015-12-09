@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # 在 Java Web 專案中開始使用 Application Insights
@@ -106,7 +106,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 
 手動加入 SDK：
 
-1. 下載 [Java 適用的 Application Insights SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)。
+1. 下載 [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)。
 2. 從 ZIP 檔案解壓縮二進位檔案，然後加入您的專案。
 
 ### 問題...
@@ -267,7 +267,7 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 會自動收集未處理的例外狀況：
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![向下捲動，並按一下 [失敗] 磚](./media/app-insights-java-get-started/21-exceptions.png)
 
 若要收集其他例外狀況的資料，您有兩個選項：
 
@@ -364,11 +364,13 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 ## 可用性 Web 測試
 
-Application Insights 可讓您定期測試網站，以檢查網站運作中且正常回應。若要設定，請在 [概觀] 刀鋒視窗上逐一點選空白 Web 測試圖表，並提供您的公用 URL。
+Application Insights 可讓您定期測試網站，以檢查網站運作中且正常回應。[若要設定][availability]，請向下捲動來按一下 [可用性]。
+
+![向下捲動，並依序按一下 [可用性]、[加入 Web 測試]](./media/app-insights-java-get-started/31-config-web-test.png)
 
 您將取得回應時間的圖表，以及若網站關閉還會取得電子郵件通知。
 
-![Web 測試範例](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![Web 測試範例](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [深入了解 Web 測試的可用性。][availability]
 
@@ -396,4 +398,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

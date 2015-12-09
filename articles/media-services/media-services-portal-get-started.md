@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Azure 入口網站傳遞點播內容入門 | Microsoft Azure"
-	description="本教學課程會逐步完成使用 Azure 入口網站實作含 Azure 媒體服務的點播視訊 (VoD) 內容傳遞應用程式。"
+	pageTitle="開始使用 Azure 傳統入口網站來傳遞點播內容 | Microsoft Azure"
+	description="本教學課程將逐步引導您使用 Azure 傳統入口網站，藉由 Azure 媒體服務來實作點播視訊 (VoD) 內容傳遞應用程式。"
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -17,13 +17,13 @@
 	ms.author="juliako"/>
 
 
-# 使用 Azure 入口網站傳遞點播內容入門
+# 開始使用 Azure 傳統入口網站來傳遞點播內容
 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
-本教學課程將逐步引導您透過 Azure 入口網站實作點播視訊 (VoD) 內容傳遞應用程式。
+本教學課程將逐步引導您透過 Azure 傳統入口網站實作基本的點播視訊 (VoD) 內容傳遞應用程式。
 
 > [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
 
@@ -39,7 +39,7 @@
 
 ## 建立 Azure 媒體服務帳戶
 
-1. 在 [Azure 入口網站](https://manage.windowsazure.com/)中，依序按一下 [新增]、[媒體服務] 和 [快速建立]。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，依序按一下 [新增]、[媒體服務] 和 [快速建立]。
 
 	![Media Services Quick Create](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
@@ -77,9 +77,9 @@
 
 使用動態封裝，您只需要以單一儲存格式儲存及播放檔案，媒體服務會根據來自用戶端的要求建置及傳遞適當的回應。
 
-若要變更串流保留單元的數目，請執行下列動作：
+若要變更串流保留單元數目，請執行下列動作：
 
-1. 在 [Azure 入口網站](https://manage.windowsazure.com/)中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
 
 2. 選取 [串流端點] 頁面。然後，按一下您要修改的串流端點。
 
@@ -93,12 +93,12 @@
 
 	>[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
 	>
-	> 計算成本時會使用 24 小時內指定的最大單元數。如需價格詳細資料的相關資訊，請參閱[媒體服務價格詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
+	> 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
 
 ## 上傳內容
 
 
-1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)中，按一下 [媒體服務]，然後按一下媒體服務帳戶名稱。
+1. 在 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)中，按一下 [媒體服務]，然後按一下媒體服務帳戶名稱。
 2. 選取 [內容] 頁面。
 3. 按一下頁面或入口網站底部的 [上傳] 按鈕。
 4. 在 [上傳內容] 對話方塊中，瀏覽到想要的資產檔案。按一下檔案，然後按一下 [開啟] 或按 Enter 鍵。
@@ -137,7 +137,7 @@
 
 ### 編碼
 
-本章節描述您可以採取的步驟，以使用 Azure 入口網站，透過 Azure 媒體編碼器編碼您的內容。
+本章說明當您要使用 Azure 傳統入口網站來透過 Azure 媒體編碼器為您的內容編碼時，可以採取的步驟。
 
 1.  選取您想要編碼的檔案。如果支援此檔案類型的編碼，[內容] 頁面底部的 [處理] 按鈕將會啟用。
 4. 在 [處理] 對話方塊中，選取 **[Azure 媒體編碼器]**處理器。
@@ -172,7 +172,7 @@
 
 如要想提供 URL 給使用者，讓使用者可以利用這個 URL 來傳送或下載內容，請您先建立定位器來發佈您的資產。定位器可以存取資產中所含的檔案。媒體服務支援兩種類型的定位器：OnDemandOrigin 定位器，用於串流媒體 (例如，MPEG DASH、HLS 或 Smooth Streaming) 和存取簽章 (SAS) 定位器，用來下載媒體檔案。
 
-當您使用 Azure 入口網站發佈您的資產時，會為您建立定位器並提供 OnDemand 形式 URL (如果您的資產包含.ism 檔案) 或 SAS URL。
+當您使用 Azure 傳統入口網站發佈您的資產時，系統會為您建立定位器，並提供 OnDemand 式的 URL (如果您的資產包含 .ism 檔案) 或 SAS URL。
 
 SAS URL 具有下列格式。
 
@@ -209,7 +209,7 @@ SAS URL 具有下列格式。
 
 ## 從入口網站播放內容
 
-Azure 入口網站提供內容播放程式，您可用來測試您的視訊。
+Azure 傳統入口網站提供內容播放程式，可讓您用來測試視訊。
 
 按一下想要的視訊，然後按一下入口網站底部的 [播放] 按鈕。
 
@@ -244,7 +244,7 @@ Azure 入口網站提供內容播放程式，您可用來測試您的視訊。
 
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 <!-- Images -->
@@ -260,4 +260,4 @@ Azure 入口網站提供內容播放程式，您可用來測試您的視訊。
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

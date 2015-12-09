@@ -87,7 +87,7 @@
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "AzureStorageLinkedService1"
@@ -99,7 +99,7 @@
 	
 	屬性 | 說明
 	-------- | -----------
-	版本 | 指定所建立之 HDInsight 的版本為 3.1。 
+	版本 | 指定所建立的 HDInsight 版本為 3.2。 
 	ClusterSize | 建立一個單一節點的 HDInsight 叢集。 
 	TimeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
 	linkedServiceName | 指定將用來儲存 HDInsight 產生之記錄檔的儲存體帳戶
@@ -236,11 +236,11 @@
 2. 選取左窗格中的 [更新]，然後選取 [Visual Studio 組件庫]。
 3. 選取 [Visual Studio 的 Azure Data Factory 工具] 並按一下 [更新]。如果您看不到此項目，代表您已經有最新版本的工具。 
 
-如需如何使用 Azure Preview 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-monitor-manage-pipelines.md)。
+如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-monitor-manage-pipelines.md)。
  
 
 ## 後續步驟
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](data-factory-get-started.md)。
   
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

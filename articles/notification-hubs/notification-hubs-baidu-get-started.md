@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="11/03/2015"
+	ms.date="11/25/2015"
 	ms.author="wesmc"/>
 
 # 透過百度開始使用通知中樞
@@ -187,7 +187,7 @@
 
     ![][26]
 
-5. 下載並解壓縮[行動服務 Android SDK]，開啟 **notificationhubs** 資料夾，將 **notification-hubs-x.y.jar** 檔案複製到 Eclipse 專案的 **libs** 資料夾，然後重新整理 *libs* 資料夾。
+5. 從 [Bintray 上之 Notification-Hubs-Android-SDK](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4) 的 [Files] 索引標籤下載 notification-hubs-0.4.jar 檔案。新增檔案到您 Eclipse 專案的 **libs** 資料夾中，然後重新整理 *libs* 資料夾。
 
 6. 下載並解壓縮[百度推播 Android SDK]，開啟 **libs** 資料夾，然後將 **pushservice-x.y.z** jar 檔案以及 **armeabi** 和 **mips** 資料夾複製到 Android 應用程式的 **libs** 資料夾。
 
@@ -503,4 +503,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [百度入口網站]: http://www.baidu.com/
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

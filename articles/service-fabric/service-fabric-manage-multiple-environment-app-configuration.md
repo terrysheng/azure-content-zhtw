@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/25/2015"
    ms.author="seanmck"/>
 
 # 管理多個環境的應用程式參數
@@ -55,11 +55,12 @@ DefaultValue 屬性指定當指定的環境缺少更特定的參數時所要使�
 
 >[AZURE.NOTE]並非所有的服務執行個體參數都適用於每個環境組態。在上述範例中，已針對服務的所有執行個體明確定義服務資料分割配置的 LowKey 和 HighKey 值，因為資料分割範圍是資料網域 (而不是環境) 的函數。
 
+
 ### 每個環境的服務組態設定
 
 [Service Fabric 應用程式模型](service-fabric-application-model.md)可讓服務包含組態封裝，內含可在執行階段讀取的自訂關鍵值組。在應用程式資訊清單中指定 `ConfigOverride`，也可依照環境區分這些設定的值。
 
-假設您在 `Stateful1` 服務的服務資訊清單中有下列設定：
+假設您在 `Stateful1` 服務的 Config\\Settings.xml 中有下列設定：
 
 
     <Section Name="MyConfigSection">
@@ -81,6 +82,7 @@ DefaultValue 屬性指定當指定的環境缺少更特定的參數時所要使�
 接著可依照環境設定此參數，如上所示：在應用程式資訊清單的參數區段中加以宣告，並在應用程式參數檔案中指定環境特有的值。
 
 >[AZURE.NOTE]在服務組態設定的情況下，有三個地方可以設定索引鍵的值：服務組態封裝、應用程式資訊清單和應用程式參數檔案。Service Fabric 將一律先從應用程式參數檔案 (若已指定) 進行選擇，然後從應用程式資訊清單選擇，最後再從組態封裝選擇。
+
 
 ### 應用程式參數檔案
 
@@ -127,4 +129,4 @@ Service Fabric 應用程式專案可以包含一或多個應用程式參數檔�
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

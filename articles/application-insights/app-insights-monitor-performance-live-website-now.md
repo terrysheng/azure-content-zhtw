@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/25/2015"
 	ms.author="awills"/>
 
 
@@ -120,7 +120,7 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
 您也可以篩選圖表，以查看特定的相依性、類型或效能值區。按一下 [篩選器]。
 
-#### 效能計數器
+## 效能計數器
 
 (不適用於 Azure Web 應用程式。) 在 [概觀] 刀鋒視窗中按一下 [伺服器]，以查看伺服器效能計數器的圖表，例如 CPU 佔用和記憶體使用量。
 
@@ -128,11 +128,15 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
 您也可以[變更由 SDK 報告的效能計數器設定](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)。
 
-#### 例外狀況
+## 例外狀況
 
 ![逐一點選伺服器例外狀況圖表](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
 
 您可以鑽研過去七天的特定例外狀況，並取得堆疊追蹤和內容資料。
+
+## 取樣
+
+如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。[深入了解取樣](app-insights-sampling.md)。
 
 
 ## 疑難排解
@@ -164,15 +168,15 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 ### 沒有遙測資料？
 
   * 使用您的網站來產生一些資料。
-  * 等候幾分鐘讓資料抵達，然後按一下 [重新整理]。
-  * 開啟 [診斷搜尋] \([搜尋] 磚) 以查看個別事件。彙總資料在圖表中出現之前，事件通常會顯示在 [診斷搜尋] 中。
+  * 等幾分鐘來讓資料抵達，然後按一下 [重新整理]。
+  * 開啟 [診斷搜尋] ([搜尋] 磚) 以查看個別事件。彙總資料在圖表中出現之前，事件通常會顯示在 [診斷搜尋] 中。
   * 開啟狀態監視器，然後選取左窗格中的應用程式。檢查 [設定通知] 區段中是否有任何關於此應用程式的診斷訊息：
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * 請確定伺服器防火牆允許上列連接埠的連出流量。
   * 如果您在伺服器上看到有關「權限不足」的訊息，請嘗試下列操作：
-    * 在 IIS 管理員中，選取應用程式集區，開啟 [進階設定]，並記下 [處理序模型] 下的身分識別。
+    * 在 IIS 管理員中，選取應用程式集區、開啟 [進階設定]，並記下 [處理序模型] 下的身分識別。
     * 在電腦的管理控制台中，將此身分識別加入至效能監試器使用者群組。
   * 如果您的伺服器上已安裝 MMA/SCOM，某些版本可能會發生衝突。解除安裝 SCOM 和狀態監視器，重新安裝最新版本。
   * 請參閱[疑難排解][qna]。
@@ -211,9 +215,9 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

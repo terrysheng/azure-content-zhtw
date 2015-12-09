@@ -1,6 +1,6 @@
 <properties
    pageTitle="設定可以並存的 ExpressRoute 和站對站 VPN 連線 | Microsoft Azure"
-   description="本教學課程會引導您設定可以並存的 ExpressRoute 和站對站 VPN 連線。"
+   description="本文會引導您設定可以並存的 ExpressRoute 和站對站 VPN 連線。"
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc"/>
 
 # 設定 ExpressRoute 和站對站 VPN 連線並存於 VNet
@@ -29,8 +29,9 @@
 
 - **不支援傳輸路由：**您無法在透過站對站 VPN 連線的區域網路，以及透過 ExpressRoute 連線的區域網路之間，進行路由傳送 (透過 Azure)。
 - **不支援點對站：**您無法對連線到 ExpressRoute 的相同 VNet 啟用點對站 VPN 連線。點對站 VPN 和 ExpressRoute 不能並存在相同的 VNet。
+- **無法啟用站對站 VPN 閘道上的強制通道：**您可以只「強迫」所有網際網路繫結流量透過 ExpressRoute 回到您的內部部署網路。 
 - **僅限標準或高效能閘道器：**ExpressRoute 閘道和站對站 VPN 閘道都必須使用標準或高效能閘道器。如需閘道 SKU 的相關資訊，請參閱[閘道 SKU](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
-- **靜態路由需求：**如果您的區域網路連線到 ExpressRoute 和站對站 VPN，您的區域網路中必須設定靜態路由，才能將站對站 VPN 連線路由傳送到公用網際網路。
+- **靜態路由需求：**如果您的區域網路連線到 ExpressRoute 和站對站 VPN，您必須在區域網路中設定靜態路由，才能將站對站 VPN 連線路由傳送到公用網際網路。
 - **必須先設定 ExpressRoute 閘道：**您必須先建立 ExpressRoute 閘道，才能新增站對站 VPN 閘道。
 
 ## 設定站對站 VPN 作為 ExpressRoute 的容錯移轉路徑
@@ -53,11 +54,11 @@
 
 - **建立新的虛擬網路以及並存的連線：**
 	
-	如果您還沒有虛擬網路，這個程序將會引導您建立新的虛擬網路，並建立新的 ExpressRoute 和站對站 VPN 連線。若要設定，請依照**建立具有 ExpressRoute 和站對站連線能力的新虛擬網路**一節的步驟執行。
+	如果您還沒有虛擬網路，這個程序將會引導您建立新的虛擬網路，並建立新的 ExpressRoute 和站對站 VPN 連線。若要設定，請依照＜**建立具有 ExpressRoute 和站對站連線能力的新虛擬網路**＞一節的步驟執行。
 
 - **設定現有的虛擬網路讓連線並存：**
 
-	您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。**為您現有的虛擬網路設定並存的連線**一節將會引導您刪除閘道器，然後建立新的 ExpressRoute 和站對站 VPN 連線。請注意，建立新的連線時，您必須以非常特定的順序來完成這些步驟。請勿使用其他文章中的指示建立閘道器和連線。
+	您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。＜**為您現有的虛擬網路設定並存的連線**＞一節將會引導您刪除閘道器，然後建立新的 ExpressRoute 和站對站 VPN 連線。請注意，建立新的連線時，您必須以非常特定的順序來完成這些步驟。請勿使用其他文章中的指示建立閘道器和連線。
 
 	在此程序中，建立可以並存的連線將會要求您刪除閘道器，然後設定新的閘道器。這表示當您刪除和重新建立閘道器與連線時，將會有跨設備連線的停機時間，但您不需要將任何 VM 或服務移轉至新的虛擬網路。您的 VM 和服務仍能透過負載平衡器對外通訊，而您能夠在這兩者設定為這樣做時進行閘道器設定。
 
@@ -66,9 +67,9 @@
 
 此程序會引導您建立 VNet，並建立將並存的站對站和 ExpressRoute 連線。
 
-1. 請確認您擁有最新版本的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 一節下載並安裝最新版本的 PowerShell Cmdlet。
+1. 請確認您擁有最新版本的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
 
-2. 建立虛擬網路的結構描述。如需關於使用網路組態檔的詳細資訊，請參閱[使用網路組態檔設定虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)。如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
+2. 建立虛擬網路的結構描述。如需關於使用網路組態檔的詳細資訊，請參閱[使用網路組態檔設定虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
 
 	當您建立結構描述時，請務必使用下列值：
 
@@ -102,7 +103,7 @@
 
 		Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
 
-4. 建立 ExpressRoute 閘道器。請務必將 GatewaySKU 指定為 *Standard* 或 *HighPerformance*，並將 GatewayType 指定為 *DynamicRouting*。
+4. 建立 ExpressRoute 閘道器。請務必將 GatewaySKU 指定為「Standard」或「HighPerformance」，並將 GatewayType 指定為 「DynamicRouting」。
 
 	使用以下範例，將該值替換為您自己的值。
 
@@ -112,11 +113,11 @@
 
 		New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
 
-6. 接下來，建立站對站 VPN 閘道。GatewaySKU 必須是 *Standard* 或 *HighPerformance*，且 GatewayType 必須是 *DynamicRouting*。
+6. 接下來，建立站對站 VPN 閘道。GatewaySKU 必須是「Standard」或「HighPerformance」，且 GatewayType 必須是「DynamicRouting」。
 
 		New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
 
-	若要擷取虛擬網路閘道設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。
+	若要擷取虛擬網路閘道設定 (包括閘道識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。
 
 		Get-AzureVirtualNetworkGateway
 
@@ -141,7 +142,7 @@
 
 7. 建立本機的站台 VPN 閘道實體。此命令不會設定內部部署 VPN 閘道。相反地，它可讓您提供本機閘道器設定 (例如公用 IP 與內部位址空間)，使 Azure VPN 閘道能夠與其連線。
 
-	> [AZURE.IMPORTANT]未在 Netcfg 中定義站對站 VPN 的本機站台。您必須改為使用此 Cmdlet 來指定本機站台參數。您無法使用管理入口網站或 Netcfg 檔來定義參數。
+	> [AZURE.IMPORTANT]未在 Netcfg 中定義站對站 VPN 的本機站台。您必須改為使用此 Cmdlet 來指定本機站台參數。您無法使用 Azure 傳統入口網站或 Netcfg 檔來定義參數。
 
 	使用下列範例，將該值替換為您自己的值。
 
@@ -150,7 +151,7 @@
 	> [AZURE.NOTE]如果您的區域網路有多個路由，您可以將它們全部放在陣列中傳遞。$MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
 
-	若要抓取虛擬網路閘道器設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。請參閱下列範例。
+	若要擷取虛擬網路閘道器的設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。請參閱下列範例。
 
 		Get-AzureLocalNetworkGateway
 
@@ -167,7 +168,7 @@
 
 9. 將 Azure 上的站對站 VPN 閘道連結至本機閘道器。
 
-	在此範例中，connectedEntityId 是本機的閘道器識別碼，您可以透過執行 `Get-AzureLocalNetworkGateway` 找到此識別碼。您可以使用 `Get-AzureVirtualNetworkGateway` Cmdlet 尋找 virtualNetworkGatewayId。完成這個步驟之後，區域網路和 Azure 之間的連線 (透過站對站 VPN 連線) 便會建立。
+	在此範例中，connectedEntityId 是本機閘道器識別碼，您可以透過執行 `Get-AzureLocalNetworkGateway` 找到此識別碼。您可以使用 `Get-AzureVirtualNetworkGateway` Cmdlet 來尋找 virtualNetworkGatewayId。完成這個步驟之後，區域網路和 Azure 之間的連線 (透過站對站 VPN 連線) 便會建立。
 
 
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
@@ -176,7 +177,7 @@
 
 如果您現有的虛擬網路已透過 ExpressRoute 或站對站 VPN 連線進行連線，則為了啟用這兩個連線以連接到現有虛擬網路，您必須先刪除現有閘道器。這表示當您進行此設定時，本機設備將會與使用該閘道器的虛擬網路中斷連線。
 
-**開始設定之前：**請確認您的虛擬網路中有足夠的 IP 位址，才能夠增加閘道器子網路的大小。
+**開始設定之前：**請確認您的虛擬網路有足夠的 IP 位址，讓您能夠增加閘道器子網路的大小。
 
 1. 下載最新版的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
 
@@ -188,7 +189,7 @@
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
 
-3. 編輯網路組態檔結構描述，讓閘道器子網路是 /27 或更短的首碼 (例如 /26 或 /25)。請參閱下列範例。如需關於使用網路組態檔的詳細資訊，請參閱[使用網路組態檔設定虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)。如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
+3. 編輯網路組態檔結構描述，讓閘道器子網路是 /27 或更短的首碼 (例如 /26 或 /25)。請參閱下列範例。如需關於使用網路組態檔的詳細資訊，請參閱[使用網路組態檔設定虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -204,10 +205,10 @@
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. 此時，您必須使用沒有閘道器的 VNet。如果要建立新的閘道器並完成連線，您可以繼續進行[建立具有 ExpressRoute 和站對站連線能力的新虛擬網路](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity)一文的**步驟 3**。
+5. 此時，您必須使用沒有閘道器的 VNet。若要建立新的閘道器並完成連線，請繼續進行本文的＜[建立具有 ExpressRoute 和站對站連線能力的新虛擬網路](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity)＞一節中的**步驟 3**。
 
 ## 後續步驟
 
-如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)
+如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -30,7 +30,7 @@
 
 ## 將 API 應用程式設為可公開存取
 
-在 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，選取 API 應用程式。按一下命令列中的 [**設定**] 按鈕。在 [**應用程式設定**] 刀鋒視窗中，將 [**存取層級**] 變更為 [**公用 (匿名)**]。
+在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，選取 [API 應用程式]。按一下命令列中的 [**設定**] 按鈕。在 [**應用程式設定**] 刀鋒視窗中，將 [**存取層級**] 變更為 [**公用 (匿名)**]。
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
@@ -93,7 +93,6 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

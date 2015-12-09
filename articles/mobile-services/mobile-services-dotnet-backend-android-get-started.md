@@ -20,6 +20,10 @@
 
 # <a name="getting-started"> </a>開始使用行動服務
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -67,7 +71,7 @@
 
 在本節中，您將建立與行動服務連線的新 Android 應用程式。
 
-1. 在[管理入口網站]中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
+1. 在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Android]，並展開 [Create a new Android app]。
 
@@ -88,7 +92,7 @@
 
 * [將推播通知新增至您的應用程式] <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
-* [在您的 App 中新增驗證] <br/>了解如何將後端資料的存取權限制為已註冊 App 的特定使用者。
+* [在您的應用程式中新增驗證功能] <br/>了解如何只讓特定的已註冊應用程式使用者存取您的後端資料。
 
 * [行動服務 .NET 後端疑難排解]<br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
@@ -118,12 +122,12 @@
 <!-- URLs. -->
 [Get started (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
 [將推播通知新增至您的應用程式]: mobile-services-dotnet-backend-android-get-started-push.md
-[在您的 App 中新增驗證]: mobile-services-dotnet-backend-android-get-started-auth.md
+[在您的應用程式中新增驗證功能]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

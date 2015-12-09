@@ -78,9 +78,9 @@
 
 > [AZURE.IMPORTANT]若要完成此 NoSQL 教學課程，請務必加入上述的相依性。
 
-接著，儲存 DocumentDB 帳戶端點以及主要或次要存取金鑰 (可於 [Azure Preview 入口網站](https://portal.azure.com)中找到)。
+接著，儲存 DocumentDB 帳戶端點以及主要或次要存取金鑰 (可於 [Azure 入口網站](https://portal.azure.com)中找到)。
 
-![顯示 DocumentDB 帳戶的 Azure Preview 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
+![顯示 DocumentDB 帳戶的 Azure 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
@@ -480,4 +480,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

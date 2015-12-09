@@ -1,12 +1,12 @@
 <properties
-	pageTitle="管理 Azure AD 目錄"
+	pageTitle="管理 Azure AD 目錄 | Microsoft Azure"
 	description="本主題說明 Azure AD 租用戶是什麼，以及如何管理 Azure AD 目錄。"
 	services="active-directory"
 	documentationCenter=""
-	authors="Markusvi"
+	authors="markusvi"
 	writer="markvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="12/01/2015"
 	ms.author="markvi"/>
 
 # 管理 Azure AD 目錄
@@ -145,4 +145,4 @@ Azure AD 需要符合特定條件才能刪除目錄。這可降低刪除目錄�
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

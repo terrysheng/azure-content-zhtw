@@ -59,7 +59,7 @@
 
 ## 使用 Azure Data Factory
 
-既然已設定所有片段，我們就可以瀏覽至您在 Azure Preview 入口網站的 Azure Data Factory 執行個體，開始設定管線您可以移至 [Azure 入口網站](portal.azure.com)，並從左側功能表中選取您的 Data Factory 來完成此作業。
+既然已設定所有項目，我們就可以瀏覽至您在 Azure 入口網站的 Azure Data Factory 執行個體，開始設定管線。您可以移至 [Azure 傳統入口網站](portal.azure.com)，並從左側功能表中選取您的 Data Factory 來完成此作業。
 
 從這裡將有三個步驟來設定 Azure Data Factory 管線，以將資料傳送到您的資料倉儲：連結您的服務、定義您的資料集，以及建立您的管線。
 
@@ -206,4 +206,4 @@
 	}
 	
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/09/2015"
+	ms.date="12/01/2015"
 	ms.author="jeffreyg"/>
 
 # SQL Database 教學課程：使用範例資料和 Azure 入口網站在幾分鐘內建立 SQL database
@@ -27,7 +27,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-本 SQL Database 教學課程示範如何在 Azure Preview 入口網站中使用範例資料，在短短幾分鐘內建立第一個 SQL Database。您將學習如何：
+本 SQL Database 教學課程示範如何在 Azure 入口網站中使用範例資料，在短短幾分鐘內建立第一個 SQL 資料庫。您將學習如何：
 
 - 建立伺服器以裝載您建立的資料庫，然後為其設定防火牆規則。
 - 從 AdventureWorks 範例中建立 SQL Database，其中包含您可以處理的資料
@@ -37,7 +37,7 @@
 > [AZURE.NOTE]本 SQL Database 教學課程涵蓋如何使用雲端、Azure SQL Database 中的 Microsoft 關聯性資料庫管理服務設定資料庫。另一個選項是在 Azure 虛擬機器上執行 SQL Server。請參閱[了解 Azure SQL Database 和 Azure VM 中的 SQL Server](data-management-azure-sql-database-and-sql-server-iaas.md) 以進行快速比較，或者您可以參閱[佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)以開始使用虛擬機器。
 
 ## 步驟 1：登入並開始設定 SQL Database
-1. 登入 [Azure Preview 入口網站](http://portal.azure.com/)。
+1. 登入 [Azure 入口網站](http://portal.azure.com/)。
 2. 按一下 [新增] > [資料 + 儲存體] > [SQL Database]。
 
 	![SQL Database 教學課程：建立新的 SQL Database。](./media/sql-database-get-started/create-db.png)
@@ -49,13 +49,13 @@
 ## 步驟 2：選擇伺服器設定
 Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝載多個資料庫。設定資料庫時，您也可以建立並設定將裝載該資料庫的伺服器，或者可以使用先前建立的伺服器。我們將設定新的伺服器。
 
-1. 請輸入資料庫的 [名稱] \(我們使用 **AdventureWorks**)。我們稍後再回頭討論其他資料庫設定。
+1. 請輸入資料庫的 [名稱] (我們使用 **AdventureWorks**)。我們稍後再回頭討論其他資料庫設定。
 2. 在 [伺服器] 下方，按一下 [設定必要的設定]，然後按一下 [建立新的伺服器]。
 
 	![為您的資料庫命名](./media/sql-database-get-started/name-and-newserver.png)
 
 3. 在 [新伺服器] 刀鋒視窗中，輸入整個 Azure 中唯一且容易記住的 [伺服器名稱]。稍後當您連接並使用資料庫時，將需要此名稱。
-4. 輸入容易記住的 [伺服器管理員登入] \(我們使用 **AdventureAdmin**)。接著輸入安全的 [密碼]，並在 [確認密碼] 欄位中再次輸入。
+4. 輸入容易記住的 [伺服器管理員登入] (我們使用 **AdventureAdmin**)。接著輸入安全的 [密碼]，並在 [確認密碼] 中再次輸入。
 
 	![新的資料庫伺服器設定](./media/sql-database-get-started/get-started-serversettings.png)
 
@@ -117,4 +117,4 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 - 如果您想要進一步了解如何將內部部署的 SQL Server 資料庫移動至 Azure，請參閱[將資料庫移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

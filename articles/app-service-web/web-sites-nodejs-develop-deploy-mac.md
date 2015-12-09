@@ -30,7 +30,7 @@
 
 您將了解：
 
-* 如何使用 Azure Preview 入口網站在 Azure App Service 中建立 Web 應用程式
+* 如何使用 Azure 入口網站在 Azure App Service 中建立 Web 應用程式
 * 如何藉由推送至 Web 應用程式的 Git 儲存機制，將 Node.js 應用程式部署到 Web 應用程式。
 
 已完成的應用程式會將簡短的「hello world」字串寫入至瀏覽器。
@@ -39,7 +39,7 @@
 
 如需教學課程，以及具有更複雜的 Node.js 應用程式的範例程式碼，或如需有關如何在 Azure 中使用 Node.js 的其他主題，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](/zh-TW/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或是[申請免費試用](/zh-TW/pricing/free-trial/?WT.mc_id=A261C142F)。
+> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 Visual Studio 訂閱者權益](/zh-TW/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，或是[申請免費試用](/zh-TW/pricing/free-trial/?WT.mc_id=A261C142F)。
 >
 > 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
 
@@ -49,9 +49,9 @@
 
 [Git](http://git-scm.com/%20target="_blank) 是一個您可用來部署 Azure 網站的分散式版本控制系統。您將會在本機 Git 儲存機制中儲存您為 Web 應用程式撰寫的程式碼，並藉由發送至遠端儲存機制，將您的程式碼部署至 Azure。此部署方法是 App Service Web Apps 的功能。
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 按一下入口網站左上方的 [+新增] 圖示。
+2. 按一下 Azure 入口網站左上方的 **+新增**圖示。
 
 3. 按一下 [Web + 行動]，然後按一下 [Web 應用程式]。
 
@@ -65,7 +65,7 @@
 
 6. 選取 [資源群組] 或建立新的資源群組。
 
-	如需資源群組的詳細資訊，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
+	如需資源群組的詳細資訊，請參閱[使用 Azure 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
 
 7. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
 
@@ -224,4 +224,4 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

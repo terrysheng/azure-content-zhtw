@@ -38,7 +38,7 @@
 ### 收集 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰
 您需要有 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰，才能進行這個教學課程。請依照下面的指示，記下 Azure 儲存體帳戶的**帳戶名稱**和**帳戶金鑰**：
 
-1. 登入 [Azure Preview 入口網站][azure-preview-portal]。
+1. 登入 [Azure 入口網站][azure-portal]。
 2. 按一下左邊的 [瀏覽] 中樞，然後選取 [儲存體帳戶]。
 3. 在 [**儲存體帳戶**] 刀鋒視窗中，選取您想要在本教學課程中使用的 [**Azure 儲存體帳戶**]。
 4. 在 [**儲存體**] 刀鋒視窗中，按一下 [**金鑰**] 磚。
@@ -49,7 +49,7 @@
 ### 收集 Azure SQL Database 的伺服器名稱、資料庫名稱和使用者帳戶
 您需要有 Azure SQL 伺服器、資料庫和使用者的名稱，才能進行這個教學課程。遵循下面的指示，記下 Azure SQL Database 的**伺服器**、**資料庫**和**使用者**名稱：
 
-1. 在 **Azure Preview 入口網站**中，按一下左邊的 [瀏覽]，然後選取 [SQL Database]。
+1. 在 **Azure 入口網站**中，按一下左邊的 [瀏覽]，然後選取 [SQL Database]。
 2. 在 [**SQL Database**] 刀鋒視窗中，選取您想要在本教學課程中使用的**資料庫**。記下**資料庫名稱**。  
 3. 在 [**SQL Database**] 刀鋒視窗中，按一下 [**屬性**]。
 4. 記下 [伺服器名稱] 和 [伺服器系統管理員登入] 的值。
@@ -88,22 +88,22 @@
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**如果您的電腦上已安裝 SQL Server 2012/2014：**請依照[使用 SQL Server Management Studio 管理 Azure SQL Database 中的步驟 2：連線到 SQL Database][sql-management-studio] 一文中的指示，連線到您的 Azure SQL Server 並執行 SQL 指令碼。請注意，本文使用發行管理入口網站 http://manage.windowsazure.com) (非預覽入口網站 http://portal.azure.com)) 設定 Azure SQL Server 的防火牆。
+	**如果您的電腦上已安裝 SQL Server 2012/2014：**請依照[使用 SQL Server Management Studio 管理 Azure SQL Database 中的步驟 2：連線到 SQL Database][sql-management-studio] 一文中的指示，連線到您的 Azure SQL Server 並執行 SQL 指令碼。請注意，本文使用 [Azure 傳統入口網站](http://manage.windowsazure.com) (而非 [Azure 入口網站](http://portal.azure.com)) 來設定 Azure SQL Server 的防火牆。
 
-	**如果您的電腦上已安裝 Visual Studio 2013：**在 [Azure Preview 入口網站](http://portal.azure.com)中，按一下左邊的 [瀏覽] 中樞、按一下 [SQL Server]、選取您的資料庫，然後按一下工具列上的 [在 Visual Studio 中開啟] 按鈕，連線到您的 Azure SQL Server 並執行指令碼。如果不允許您的用戶端存取 Azure SQL Server，則需要將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。請參閱上文的步驟，為 Azure SQL Server 設定防火牆。
+	**如果您的電腦上已安裝 Visual Studio 2013：**在 [Azure 入口網站](http://portal.azure.com)中，按一下左邊的 [瀏覽] 中樞、按一下 [SQL Server]、選取您的資料庫，然後按一下工具列上的 [在 Visual Studio 中開啟] 按鈕，以便連線到您的 Azure SQL Server 並執行指令碼。如果不允許您的用戶端存取 Azure SQL Server，則必須將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。請參閱上文的步驟，為 Azure SQL Server 設定防火牆。
 
 
 執行下列動作：
 
-- 按一下頂端的[使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)連結，使用 Data Factory 編輯器 (這是 Azure 入口網站的一部分) 執行教學課程。
+- 按一下頂端的[使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)連結，藉由使用 Data Factory 編輯器 (這是 Azure 傳統入口網站的一部分) 來執行教學課程。
 - 按一下頂端的[使用 PowerShell](data-factory-monitor-manage-using-powershell.md) 連結，使用 Azure PowerShell 執行教學課程。
-- 按一下頂端的[使用 Visual Studio](data-factory-get-started-using-vs.md) 連結以使用 Visual Studio 2013 執行本教學課程。
+- 按一下頂端的[使用 Visual Studio](data-factory-get-started-using-vs.md) 連結，藉由使用 Visual Studio 2013 來執行教學課程。
  
 
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -111,4 +111,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

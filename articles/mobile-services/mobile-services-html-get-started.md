@@ -48,7 +48,7 @@
 	您可以使用任何網頁伺服器來裝載應用程式，但是這些網頁伺服器需受所下載的指令碼支援。
 
 + 支援 HTML5 的網頁瀏覽器。
-+ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)。 
++ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)。 
 
 
 ## <a name="create-new-service"> </a>建立新的行動服務
@@ -57,11 +57,11 @@
 
 ## 建立新的 HTML 應用程式
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。
+當您建立自己的行動服務之後，就可以依照 Azure 傳統入口網站中簡單的快速入門，來建立新的應用程式或修改現有的應用程式，以便連線到您的行動服務。
 
 在本節中，您將建立連線至您行動服務的新 HTML 應用程式。
 
-1.  在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
+1.  在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 
 2. 在 [快速入門] 索引標籤中，按一下 [Choose platform] 下的 [Windows]，然後展開 [Create a new HTML app]。
@@ -106,9 +106,9 @@
 
    	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在應用程式的第二欄。
 
-	> [AZURE.NOTE]您可以檢閱造成存取您行動服務來進行查詢和插入資料的程式碼，該程式碼位於 page.js 檔案中。
+	> [AZURE.NOTE]您可以檢視會存取您的行動服務來查詢及插入資料的程式碼 (位於 page.js 檔案中)。
 
-4. 回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
+4. 回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
    	![][11]
 
@@ -119,7 +119,7 @@
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* **[將驗證新增至 App]**了解如何向身分識別提供者驗證 App 的使用者。
+* **[在您的應用程式中新增驗證功能]** 了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
 * **[行動服務 HTML/JavaScript 作法概念參考]**深入了解如何搭配使用行動服務與 HTML/JavaScript
 
@@ -145,13 +145,13 @@
 
 
 <!-- URLs. -->
-[將驗證新增至 App]: mobile-services-html-get-started-users.md
+[在您的應用程式中新增驗證功能]: mobile-services-html-get-started-users.md
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [最新版本的 Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [行動服務 HTML/JavaScript 作法概念參考]: mobile-services-html-how-to-use-client-library.md
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="將自己的網域名稱新增至 Azure AD | Microsoft Azure"
-	description="本主題說明如何將專屬網域名稱新增至 Azure AD 以及相關資訊。"
+	pageTitle="將您自己的網域名稱新增至 Azure Active Directory | Microsoft Azure"
+	description="說明如何將您自己的網域名稱新增至 Azure Active Directory (Azure AD)，以及其他相關資訊。"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/16/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# 將您自己的網域名稱新增至 Azure AD
+# 將您自己的網域名稱新增至 Azure Active Directory
 
-註冊 Microsoft 雲端服務時，會向您發出具有下列格式的網域名稱：contoso.onmicrosoft.com。您可以繼續使用該初始網域名稱，也可以將專屬自訂網域名稱新增至雲端服務。本主題說明如何新增專屬網域名稱和相關資訊。
+註冊 Microsoft 雲端服務時，會向您發出具有下列格式的網域名稱：contoso.onmicrosoft.com。您可以繼續使用該初始網域名稱，也可以將專屬自訂網域名稱新增至雲端服務。本主題說明如何將您自己的網域名稱和相關資訊新增至 Azure Active Directory (Azure AD)。
 
 Office 365 使用者可能對以下相關主題有興趣：
 
@@ -38,9 +38,9 @@ Office 365 使用者可能對以下相關主題有興趣：
 
 如果您的組織已經有自訂網域名稱，則系統管理員可以將它新增至 Azure AD 目錄，以與所有已訂閱的 Microsoft Online 服務搭配使用。將網域名稱新增至 Azure AD 之後，即可開始將網域名稱與各種雲端服務產生關聯。
 
-使用下列方式，最多可以將 900 個網域名稱新增至 Azure AD 租用戶：
+使用下列其中一種方式，即可將最多 900 個網域名稱新增至 Azure AD 目錄：
 
-- Azure 管理入口網站、Office 365 入口網站或 Microsoft Intune 入口網站。
+- Azure 傳統入口網站、Office 365 入口網站或 Microsoft Intune 入口網站。
 - 適用於 Windows PowerShell 的 Azure Active Directory 模組。如需可用於此作業之 Cmdlet 的詳細資訊，請參閱[在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx)。
 
 您必須已註冊網域名稱，以及擁有網域名稱註冊機構所需的登入認證 (例如，Go Daddy 或 Register.com)。
@@ -51,13 +51,13 @@ Office 365 使用者可能對以下相關主題有興趣：
 
 > [AZURE.NOTE]是否使用 Office 365？ 設定網域之後，就可以開始建立電子郵件地址、Lync Online 帳戶，以及使用自訂網域名稱的通訊群組清單。您也可以將網域名稱用於裝載於 SharePoint Online 的公開網站。
 
-- [使用 Azure 管理入口網站新增和驗證網域](#add-and-verify-a-domain-using-the-azure-management-portal)
+- [使用 Azure 傳統入口網站新增和驗證網域](#add-and-verify-a-domain-using-the-azure-management-portal)
 - [編輯雲端服務的 DNS 記錄](#edit-dns-records-for-your-cloud-services)
 - [驗證任何網域名稱註冊機構上的網域](#verify-a-domain-at-any-domain-name-registrar)
 
-### 使用 Azure 管理入口網站新增和驗證網域
+### 使用 Azure 傳統入口網站新增和驗證網域
 
-1. 在入口網站中，按一下 [**Active Directory**]，然後按一下您的組織目錄的名稱。您可以執行下列其中一項：
+1. 在 Azure 傳統入口網站中，按一下 [Active Directory]，然後按一下您的組織目錄的名稱。您可以執行下列其中一項：
     1. 在預設 [目錄] 頁面上，按一下 **[改善使用者登入經驗]** 區段中的 [**新增網域**]。
 2. 按一下 [**網域**]，然後按一下 [**新增客戶網域**] 或 [**新增**] 按鈕。
 2. 在 [**新增網域**] 頁面上，輸入您想要新增的網域名稱，並執行下列其中一項：
@@ -79,7 +79,7 @@ Office 365 使用者可能對以下相關主題有興趣：
 
 如果您剛剛完成 [**新增網域**] 精靈，請按一下 [**設定 DNS 記錄**]。否則，請遵循下列步驟。
 
-1. 在入口網站的左窗格中，按一下 [**網域**]。
+1. 在 Azure 傳統入口網站的左窗格中，按一下 [網域]。
 2. 根據您使用的入口網站，按一下您想要設定的網域名稱，然後按一下 [**DNS 設定**] 或 [**檢視 DNS 設定**]。[**DNS 設定**] 頁面會列出雲端服務的 DNS 記錄。
 
     如果您想要設定 [DNS 設定] 索引標籤上看不到的服務，請驗證網域服務選項，確定您已針對此網域名稱選擇該服務。若要變更設定 (例如，新增 Lync Online)，請參閱＜指定要與網域搭配使用的服務＞。
@@ -110,9 +110,9 @@ Office 365 使用者可能對以下相關主題有興趣：
 
 4. 從表格中，複製或記錄 [**目的地或指向位址**] 資訊。
 
-如果您是使用管理入口網站：
+如果您是使用 Azure 傳統入口網站：
 
-1. 在入口網站中，按一下 [**Active Directory**]，並按一下目錄的名稱，然後按一下 [**網域**]。
+1. 在 Azure 傳統入口網站中，按一下 [Active Directory]，按一下您目錄的名稱，然後案一下 [網域]。
 2. 在 [**網域**] 頁面的網域名稱清單中，按一下您想要驗證的網域，然後按一下 [**驗證**]。
 2. 在 [**驗證**] 頁面的 [**記錄類型**] 下拉式清單中，選擇 [**TXT 記錄**] 或 [**MX 記錄**]。
 3. 複製或記錄其下的資訊。
@@ -143,7 +143,7 @@ Office 365 具有 [[常見網域註冊機構的特定指示](https://support.off
 
 您為網域所建立的記錄順利傳播至 DNS 系統之後，請執行下列動作完成驗證含 Azure AD 的網域。
 
-1. 在入口網站中，按一下 [**網域**]。
+1. 在 Azure 傳統入口網站的 Azure Active Directory 中，按一下 [網域]。
 2. 在 [**網域**] 清單中，尋找您要驗證的網域，然後根據您使用的入口網站，按一下 [**按一下以驗證網域**] 或 [**驗證**]。
 3. 遵循提供的指示來完成驗證程序。
     - 如果網域驗證成功，將會通知您：已將網域新增至帳戶。
@@ -157,7 +157,7 @@ Office 365 具有 [[常見網域註冊機構的特定指示](https://support.off
 
 將網域名稱新增至 Azure AD 之後，即可變更在建立新使用者帳戶時應該顯示為預設值的網域名稱。若要這樣做，請遵循下列步驟。
 
-1. 在入口網站頁面的左上角，按一下您的組織名稱。
+1. 在 Azure 傳統入口網站的左上角，按一下您的組織名稱。
 2. 按一下 [**編輯**]。
 3. 選擇新的預設網域名稱 (例如所新增的自訂網域名稱)。
 
@@ -173,7 +173,7 @@ Office 365 具有 [[常見網域註冊機構的特定指示](https://support.off
 
 移除網域名稱：
 
-1. 在入口網站頁面的左窗格中，按一下 [**網域**]。
+1. 在 Azure 傳統入口網站中 Azure AD 的左窗格上，按一下的 [網域]。
 2. 在 [**網域**] 頁面上，選取您想要移除的網域名稱，然後按一下 [**移除網域**]。
 3. 在 [**移除網域**] 頁面上，按一下 [**是**]。
 
@@ -197,7 +197,7 @@ Office 365 具有 [[常見網域註冊機構的特定指示](https://support.off
 
 ### 我無法驗證我的網域名稱。如何找到錯誤所在？
 
-追蹤問題的一種方法是使用網域疑難排解精靈。若要啟動精靈，請執行下列動作：在雲端服務入口網站的 [系統管理] 頁面上，按一下 [**網域**]，然後按兩下您想要驗證的網域名稱。然後，在 [**疑難排解**] 下，按一下 [**疑難排解網域**]。
+追蹤問題的一種方法是使用網域疑難排解精靈。若要啟動精靈，請執行下列動作：在 Azure 傳統入口網站的 [系統管理] 頁面上，按一下 [網域]，然後按兩下您想要驗證的網域名稱。然後，在 [**疑難排解**] 下，按一下 [**疑難排解網域**]。
 
 疑難排解精靈會要求您提供處在驗證程序哪個位置的資訊，接著提供可協助您完成驗證的相關資訊。
 
@@ -212,4 +212,4 @@ Office 365 具有 [[常見網域註冊機構的特定指示](https://support.off
 - [以組織身分註冊 Azure](sign-up-organization.md)
 - [在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

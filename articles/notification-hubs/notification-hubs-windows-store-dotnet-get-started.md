@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/23/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Windows 市集應用程式的通知中樞
@@ -37,7 +37,7 @@
 
 本教學課程需要下列各項：
 
-+ Microsoft Visual Studio Express 2013 for Windows (含 Update 2)<br/>若要建立通用應用程式專案，則必須具備這個版本的 Visual Studio。如果您要建立 Windows 市集應用程式，您需要 Visual Studio 2012 Express for Windows 8。
++ Microsoft Visual Studio Express 2013 for Windows (含 Update 2) 或更新版本 <br/> 若要建立通用應用程式專案，則必須具備這個版本的 Visual Studio。如果您要建立 Windows 市集應用程式，您需要 Visual Studio 2012 Express for Windows 8。
 
 + 有效的 Windows 市集帳戶
 
@@ -283,4 +283,4 @@
 [磚目錄]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [徽章概觀]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

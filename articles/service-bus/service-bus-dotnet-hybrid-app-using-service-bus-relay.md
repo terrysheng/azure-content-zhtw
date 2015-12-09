@@ -73,15 +73,15 @@
 
 若要開始在 Azure 中使用服務匯流排功能，首先必須建立服務命名空間。命名空間提供範圍容器，可在應用程式內定址服務匯流排資源。
 
-您可以使用 [Azure 入口網站][]或 Visual Studio 伺服器總管，來管理命名空間和服務匯流排訊息實體，但是只能從入口網站內建立新的命名空間。
+您可以使用 [Azure 傳統入口網站][]或 Visual Studio 伺服器總管，來管理命名空間和服務匯流排訊息實體，但是只能從入口網站內建立新的命名空間。
 
-### 若要使用入口網站建立服務命名空間：
+### 使用 Azure 傳統入口網站建立命名空間：
 
-1.  登入 [Azure 入口網站][]。
+1.  登入 [Azure 傳統入口網站][]。
 
-2.  在 Azure 入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
+2.  在入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 
-3.  在 Azure 入口網站的下方窗格中，按一下 [建立]。
+3.  在入口網站的下方窗格中，按一下 [建立]。
 
     ![][5]
 
@@ -95,7 +95,7 @@
 
 	![][38]
 
-您所建立的命名空間會出現在 Azure 入口網站，不過啟動可能需要花一些時間。等到狀態變成 [作用中] 之後再繼續。
+您所建立的命名空間會出現在 Azure 傳統入口網站，不過啟動可能需要花一些時間。等到狀態變成 [作用中] 之後再繼續。
 
 ## 取得命名空間的預設管理認證
 
@@ -247,7 +247,7 @@
             }
         }
 
-13. 在 [方案總管] 中，按兩下 **App.config** 檔案，以在 Visual Studio 編輯器中開啟它。請以下列 XML 程式碼取代 **&lt;system.ServiceModel&gt;** 的內容。請務必以服務命名空間的名稱取代 *yourServiceNamespace*，並以您先前從 Azure 入口網站擷取到的 SAS 金鑰取代 *yourKey*：
+13. 在 [方案總管] 中，按兩下 **App.config** 檔案，以在 Visual Studio 編輯器中開啟它。請以下列 XML 程式碼取代 **&lt;system.ServiceModel&gt;** 的內容。請務必以服務命名空間的名稱取代 *yourServiceNamespace*，並以您先前從 Azure 傳統入口網站擷取到的 SAS 金鑰取代 *yourKey*：
 
         <system.serviceModel>
           <extensions>
@@ -541,7 +541,7 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
 
 下列步驟示範如何停止並刪除應用程式。
 
-1.  登入 [Azure 入口網站]，按一下 [雲端服務]，然後按一下服務名稱。
+1.  登入 [Azure 傳統入口網站][]，按一下 [雲端服務]，然後按一下服務名稱。
 
 2.  按一下 [儀表板] 索引標籤，然後按一下 [停止] 以暫停應用程式。只需按一下 [啟動]，即可重新啟動它。按一下 [刪除]，可從 Azure 完全移除應用程式，移除後便再也無法還原。
 
@@ -563,7 +563,7 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
   [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
-  [Azure 入口網站]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
 
@@ -610,4 +610,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

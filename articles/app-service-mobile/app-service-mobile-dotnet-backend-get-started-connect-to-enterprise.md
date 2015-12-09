@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="06/19/2015"
+	ms.date="12/03/2015"
 	ms.author="mahender"/>
 
 # 將您的行動應用程式連接到 SaaS API
@@ -32,7 +32,7 @@
 ## <a name="configure-permissions"></a>針對 SharePoint 的委派存取設定您的應用程式
 根據預設，您從 AAD 取得的權杖僅具有有限權限。若要存取第三方資源或 SaaS 應用程式 (例如 SharePoint Online)，您必須明確允許此類存取。
 
-1. 在 **Azure 管理入口網站**的 [Azure 管理入口網站](https://manage.windowsazure.com/) 區段中，選取您的租用戶。導覽至您為 App Service 建立的 Web 應用程式。
+1. 在 [Azure 傳統入口網站]的 [Active Directory] 區段中，選取您的租用戶。導覽至您為 App Service 建立的 Web 應用程式。
 
 2. 在 [設定] 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [Office 365 SharePoint Online]，然後授與 [編輯或刪除使用者的檔案] 委派權限。然後按一下 [儲存]。
 
@@ -42,13 +42,13 @@
 
 ## <a name="store-credentials"></a>將 SharePoint 資訊新增至您的行動應用程式
 
-若要呼叫 SharePoint，您必須指定行動應用程式需要聯繫到的端點。您還必須能夠證明應用程式服務的身分識別。此動作須使用用戶端識別碼和用戶端密碼的配對來完成。您已在 AAD 登入設定期間取得並儲存應用程式服務的用戶端識別碼。因為這些都是機密的認證，所以您不應將其以純文字儲存在程式碼中。相對地，您將設定這些值為行動應用程式程式碼網站的應用程式設定。
+若要呼叫 SharePoint，您必須指定行動應用程式需要聯繫到的端點。您還必須能夠證明應用程式服務的身分識別。此動作須使用用戶端識別碼和用戶端密碼的配對來完成。您已在 AAD 登入設定期間取得並儲存應用程式服務的用戶端識別碼。因為這些都是機密的認證，所以您不應將其以純文字儲存在程式碼中。相反地，您應該將這些值設定為行動應用程式後端的應用程式設定。
 
 1. 返回租用戶的 [AAD 應用程式] 索引標籤，然後為您的應用程式服務選取 Web 應用程式。
 
 2. 在 [設定] 下，向下捲動至 [金鑰]。您將產生新的索引鍵來取得用戶端密碼。請注意，在您建立金鑰並退出頁面後，即無法再從入口網站存取此金鑰。您必須在建立後，將此值複製並儲存在安全的位置中。選取金鑰的持續時間，然後按一下 [儲存]，並將產生的值複製到他處。
 
-3. 在 [管理入口網站] 的 [行動應用程式程式碼] 區段中，導覽至 [設定] 索引標籤，然後向下捲動至 [應用程式設定]。在此處您可以提供金鑰值組，以便參考所需的認證。
+3. 在 [Azure 入口網站](https://portal.azure.com/)中您行動應用程式的後端，按一下 [所有設定] > [應用程式設定]，然後向下捲動到 [應用程式設定]。在此處您可以提供金鑰值組，以便參考所需的認證。
 
 * 將 SP\_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式將是 `https://login.windows.net/contoso.onmicrosoft.com`。
 
@@ -183,9 +183,9 @@
 
 <!-- URLs. -->
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/zh-TW/sharepoint/
 [Azure Active Directory 驗證程式庫單一登入]: app-service-mobile-ios-aad-sso.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

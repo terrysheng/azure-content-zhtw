@@ -25,11 +25,11 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-本教學課程說明如何使用 [Azure Preview 入口網站](https://portal.azure.com/)，[在 Azure App Service 中建立 Java Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)。Azure Preview 入口網站是可用來管理 Azure 資源的 Web 介面。
+本教學課程說明如何利用 [Azure 入口網站](https://portal.azure.com/)[在 Azure App Service 中建立 Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)。Azure 入口網站是可用來管理 Azure 資源的 Web 介面。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益][]或是[申請免費試用][]。
+> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 Visual Studio 訂閱者權益][]，或是[申請免費試用][]。
 >
-> 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service][]。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
+> 如果您想在註冊 Azure 帳戶之前先開始使用 Azure App Service，請前往[試用 App Service][]。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
 
 ## Java 應用程式選項
 
@@ -41,7 +41,7 @@
  
 1. 建立應用程式，然後設定 [應用程式設定]。
 
-	App Service 提供數個 Tomcat 或 Jetty 版本 (包含預設組態)。如果您將託管的應用程式會使用其中一個內建版本，這就是設定 Web 容器的最簡單方法，但是它缺乏其他方法中的設定功能。採用這個方法，您會在入口網站中建立應用程式，然後移至應用程式的 [應用程式設定] 刀鋒視窗來選擇您的 Java 版本以及所需的 Java Web 容器。當您使用這個方法時，應用程式會從背景工作角色用來裝載應用程式的本機硬碟機執行，而不會佔用租用戶的磁碟空間。當您使用此模型時，您沒有在這部分的檔案系統中編輯檔案的權限，這表示您不能進行像是設定 *server.xml* 檔案或將程式庫檔案放在 */lib* 資料夾中的作業。如需詳細資訊，請參閱本教學課程後面的[建立及設定 Java Web 應用程式](#appsettings)一節。
+	App Service 提供數個 Tomcat 或 Jetty 版本 (包含預設組態)。如果您將託管的應用程式會使用其中一個內建版本，這就是設定 Web 容器的最簡單方法，但是它缺乏其他方法中的設定功能。而這個方法就是您在 Azure 入口網站中建立應用程式，然後前往應用程式的 [應用程式設定] 刀鋒視窗來選擇您的 Java 版本及所需的 Java Web 容器。當您使用這個方法時，應用程式會從背景工作角色用來裝載應用程式的本機硬碟機執行，而不會佔用租用戶的磁碟空間。當您使用此模型時，您沒有在這部分的檔案系統中編輯檔案的權限，這表示您不能進行像是設定 *server.xml* 檔案或將程式庫檔案放在 */lib* 資料夾中的作業。如需詳細資訊，請參閱本教學課程後面的[建立及設定 Java Web 應用程式](#appsettings)一節。
   
 3. 建立應用程式，然後手動複製並編輯組態檔
 
@@ -52,23 +52,23 @@
 	* 您想要自行從頭設定 Web 容器。 
 	* 您想要使用 App Service 所不支援的 Java 版本並自行將它上傳。
 
-	這類情況下，您可以使用入口網站建立應用程式，然後以手動方式提供適當的執行階段檔案。在此情況下，會針對您的 App Service 計畫的儲存空間配額計算檔案。如需詳細資訊，請參閱[將自訂 Java Web 應用程式上傳至 Azure](https://acom-sandbox.azurewebsites.net/zh-TW/documentation/articles/web-sites-java-custom-upload/)。
+	對於這種案例來說，您可以使用 Azure 入口網站建立應用程式，然後以手動提供適當的執行階段檔案。在此情況下，會針對您的 App Service 計畫的儲存空間配額計算檔案。如需詳細資訊，請參閱[將自訂 Java Web 應用程式上傳至 Azure](https://acom-sandbox.azurewebsites.net/zh-TW/documentation/articles/web-sites-java-custom-upload/)。
 
 ## <a name="marketplace"></a>使用來自 Azure Marketplace 的 Java 範本
 
 本節說明如何使用 Azure Marketplace 來建立 Java Web 應用程式。相同的一般流程也可以用來建立 Java 型行動或 API 應用程式。
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 按一下 [新增] > [Marketplace]。
+2. 依序按一下 [新增] > [Marketplace]。
 
 	![](./media/web-sites-java-get-started/newmarketplace.png)
 
 3. 按一下 [Web + 行動]。
 
-	您可能必須向左捲動，才能看到 [Marketplace] 刀鋒視窗，在這裡您可以選取 [Web + 行動]。
+	您可能必須向左捲動才能看到 [Marketplace] 刀鋒視窗，讓您能選取 [Web + 行動]。
 
-4. 在 [搜尋] 文字方塊中輸入 Java 應用程式伺服器名稱，例如 **Apache Tomcat** 或 **Jetty**，然後按 Enter 鍵。
+4. 在搜尋文字方塊中輸入 Java 應用程式伺服器的名稱，例如 **Apache Tomcat** 或 **Jetty**，然後按下 Enter 鍵。
 
 5. 在搜尋結果中，按一下 Java 應用程式伺服器。
 
@@ -82,11 +82,11 @@
 
 	此名稱在 azurewebsites.net 網域中必須是唯一的，因為 Web 應用程式的 URL 將是 {name}.azurewebsites.net。如果您輸入的名稱不是唯一的，紅色驚嘆號會出現在文字方塊中。
 
-8. 選取 [資源群組] 或建立新的資源群組。
+8. 選取 [資源群組]，或建立新的資源群組。
 
-	如需資源群組的詳細資訊，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
+	如需資源群組的詳細資訊，請參閱[使用 Azure 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
 
-9. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
+9. 選取 [App Service 方案/位置]，或是建立新的 App Service 方案/位置。
 
 	如需 App Service 方案的詳細資訊，請參閱 [Azure App Service 方案概觀](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -96,13 +96,13 @@
 
 	Azure 很快 (通常不到一分鐘) 就會完成建立新的 Web 應用程式。
 
-11. 按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
+11. 依序按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
 
-12. 按一下 [URL] 瀏覽至新網站。
+12. 按一下 [URL] 來瀏覽至新網站。
 
 	![](./media/web-sites-java-get-started/jettyurl.png)
 
-	Tomcat 隨附一組預設頁面，所以如果選擇 Tomcat，您會看到類似下列範例的頁面。
+	Tomcat 會隨附一組預設頁面，所以如果選擇 Tomcat，您會看到類似下列範例的頁面。
 
 	![使用 Apache Tomcat 的 Web 應用程式](./media/web-sites-java-get-started/tomcat.png)
 
@@ -110,15 +110,15 @@
 
 	![使用 Jetty 的 Web 應用程式](./media/web-sites-java-get-started/jetty.png)
 
-現在，您已建立含有應用程式容器的 Web 應用程式，如需如何將應用程式上傳至該 Web 應用程式的相關資訊，請參閱[後續步驟](#next-steps)一節。
+現在，您已建立含有應用程式容器的 Web 應用程式，如需了解如何將應用程式上傳至該 Web 應用程式，請參閱＜[後續步驟](#next-steps)＞一節。
 
 ## <a name="portal"></a>建立及設定 Java Web 應用程式
 
 本節說明如何建立 Web 應用程式，並使用入口網站的 [應用程式設定] 刀鋒視窗針對 Java 進行設定。
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 按一下 [新增] > [Web + 行動] > [Web 應用程式]。
+2. 依序按一下 [新增] > [Web + 行動] > [Web 應用程式]。
 
 	![](./media/web-sites-java-get-started/newwebapp.png)
 
@@ -126,11 +126,11 @@
 
 	此名稱在 azurewebsites.net 網域中必須是唯一的，因為 Web 應用程式的 URL 將是 {name}.azurewebsites.net。如果您輸入的名稱不是唯一的，紅色驚嘆號會出現在文字方塊中。
 
-5. 選取 [資源群組] 或建立新的資源群組。
+5. 選取 [資源群組]，或建立新的資源群組。
 
-	如需資源群組的詳細資訊，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
+	如需資源群組的詳細資訊，請參閱[使用 Azure 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
 
-6. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
+6. 選取 [App Service 方案/位置]，或是建立新的 App Service 方案/位置。
 
 	如需 App Service 方案的詳細資訊，請參閱 [Azure App Service 方案概觀](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -138,7 +138,7 @@
 
 	![](./media/web-sites-java-get-started/newwebapp2.png)
  
-8. 建立 Web 應用程式後，按一下 [Web Apps] > [{您的 Web 應用程式}。
+8. 建立 Web 應用程式後，依序按一下 [Web Apps] > [{您的 Web 應用程式}]。
  
 	![](./media/web-sites-java-get-started/selectwebapp.png)
 
@@ -156,24 +156,24 @@
 
 13. 按一下 [儲存]。
 
-	幾分鐘內，您的 Web 應用程式即會變成 Java 型 Web 應用程式並設定成使用您選取的 Web 容器。
+	幾分鐘之後，您的 Web 應用程式就會變成 Java 型的 Web 應用程式，並已設定成使用您選取的 Web 容器。
 
-14. 按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
+14. 依序按一下 [Web 應用程式] > [{您的新 Web 應用程式}]。
 
-15. 按一下 [URL] 瀏覽至新網站。
+15. 按一下 [URL] 來瀏覽至新網站。
 
 	網頁會確認您已建立 Java 型 Web 應用程式。
 
 ## 後續步驟
 
-此時，在 Azure App Service 中，您會擁有在 Web 應用程式中執行的 Java 應用程式伺服器。若要將您自己的程式碼部署至網頁，請參閱[將應用程式或網頁新增至 Java Web 應用程式](web-sites-java-add-app.md)。
+此時，在 Azure App Service 中，您會擁有在 Web 應用程式中執行的 Java 應用程式伺服器。若要將您自己的程式碼部署至 Web 應用程式，請參閱[將應用程式或網頁新增至 Java Web 應用程式](web-sites-java-add-app.md)。
 
 如需在 Azure 中開發 Java 應用程式的詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
 <!-- External Links -->
-[啟用自己的 MSDN 訂戶權益]: http://go.microsoft.com/fwlink/?LinkId=623901
+[啟用自己的 Visual Studio 訂閱者權益]: http://go.microsoft.com/fwlink/?LinkId=623901
 [申請免費試用]: http://go.microsoft.com/fwlink/?LinkId=623901
 
 [試用 App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

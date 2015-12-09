@@ -28,4 +28,4 @@ Microsoft 為裝置 devOps 提供兩種解決方案：適用於 devOps 工作流
 * [開始使用 Application Insights for iOS](https://github.com/Microsoft/ApplicationInsights-iOS)。
 * [開始使用 HockeyApp for Android](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

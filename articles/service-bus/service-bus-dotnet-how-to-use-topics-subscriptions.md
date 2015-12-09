@@ -54,7 +54,7 @@
 
 ### 在使用雲端服務時設定連接字串
 
-服務組態機制為 Azure 雲端服務專案所獨有，可讓您從 Azure 入口網站動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (****.csdef**) 檔案中加入 `Setting` 標籤，如下個範例所示。
+服務組態機制為 Azure 雲端服務專案所獨有，可讓您從 [Azure 傳統入口網站][]動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (****.csdef**) 檔案中加入 `Setting` 標籤，如下個範例所示。
 
 ```
 <ServiceDefinition name="Azure1">
@@ -83,7 +83,7 @@
 </ServiceConfiguration>
 ```
 
-使用從 Azure 入口網站擷取的共用存取簽章 (SAS) 金鑰名稱和金鑰值，如上一節所述。
+使用從 Azure 傳統入口網站擷取的共用存取簽章 (SAS) 金鑰名稱和金鑰值，如上一節所述。
 
 ### 在使用 Azure 網站或 Azure 虛擬機器時設定連接字串
 
@@ -98,7 +98,7 @@
 </configuration>
 ```
 
-使用從 Azure 入口網站擷取的 SAS 名稱和金鑰值，如上一節所述。
+使用從 Azure 傳統入口網站擷取的 SAS 名稱和金鑰值，如上一節所述。
 
 ## 建立主題
 
@@ -317,7 +317,7 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 -   建立一個可行的應用程式，往返傳送或接收服務匯流排佇列的訊息：[服務匯流排代理傳訊 .NET 教學課程][]。
 -   服務匯流排範例：從 [Azure 範例][]下載，或參閱[概觀](service-bus-samples.md)。
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -327,4 +327,4 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [服務匯流排代理傳訊 .NET 教學課程]: service-bus-brokered-tutorial-dotnet.md
   [Azure 範例]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -38,7 +38,7 @@
 
 * 已安裝 [Xcode] v7.0 或更新版本，以及 [Xamarin Studio] 的 Mac。如果您打算在 Windows 電腦上使用 Visual Studio 建置您的應用程式，您仍會需要存取已加入網路的 Mac 才能這麼做。
  
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)，即可在 App Service 中立即建立短期入門行動應用程式。不需要信用卡；無需承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶之前先開始使用 Azure App Service，請前往[試用 App Service](https://tryappservice.azure.com/?appServiceName=mobile)，讓您能立刻在 App Service 中建立短期的入門行動應用程式。不需要信用卡；無需承諾。
 
 ## 建立新的 Azure 行動應用程式後端
 
@@ -84,7 +84,7 @@
 
 	![][8]
 
-###(選擇性) 執行 iOS 專案
+##(選擇性) 執行 iOS 專案
 
 這一節適用於對 iOS 裝置執行 Xamarin iOS 專案。如果未使用 iOS 裝置，可以略過這一節。
 
@@ -107,7 +107,7 @@
 
 > [AZURE.NOTE]您將會看到在您方案的可攜式類別庫專案的 TodoItemManager.cs C# 檔案中，存取行動應用程式後端的程式碼。
 
-###(選擇性) 執行 Android 專案
+##(選擇性) 執行 Android 專案
 
 這一節適用於對 Android 裝置執行 Xamarin Adroid 專案。如果未使用 Android 裝置，可以略過這一節。
 
@@ -131,7 +131,7 @@
 > [AZURE.NOTE]您將會看到在您方案的可攜式類別庫專案的 TodoItemManager.cs C# 檔案中，存取行動應用程式後端的程式碼。
 
 
-###(選擇性) 執行 Windows 專案
+##(選擇性) 執行 Windows 專案
 
 
 這一節適用於對 Windows 裝置執行 WinApp 專案。如果未使用 Windows 裝置，可以略過這一節。
@@ -179,4 +179,4 @@
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

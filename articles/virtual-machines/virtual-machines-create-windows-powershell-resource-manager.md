@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md)。
 
-這個主題描述如何使用 Azure 資源管理員和 PowerShell 快速建立 Windows Azure 虛擬機器。
+這個主題描述如何使用 Azure 資源管理員和 PowerShell 快速建立 Microsoft Azure 虛擬機器。
 
 ## 建立 Windows 虛擬機器
 
@@ -137,4 +137,4 @@
 
 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO3--->

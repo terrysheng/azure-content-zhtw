@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # 部署內部部署 StorSimple 裝置
@@ -72,7 +72,7 @@
 | **設定和註冊裝置** | Data 0 網路設定 | Data 0 IP 位址：</br>子網路遮罩：</br>閘道器：</br>主要 DNS 伺服器：</br>主要 NTP 伺服器：</br>Web proxy 伺服器 IP/FQDN (選用)：</br>Web proxy 連接埠：| |
 | | 裝置系統管理員密碼 | 密碼必須介於 8 到 15 個字元之間，包含小寫字母、大寫字母、數字和特殊字元。 | |
 | | StorSimple Snapshot Manager 密碼 | 密碼必須是 14 或 15 個字元，包含小寫字母、大寫字母、數字和特殊字元。| |
-| | 服務註冊金鑰 | 此金鑰是從 Azure 入口網站產生。 | |
+| | 服務註冊金鑰 | 此金鑰是從 Azure 傳統入口網站產生。 | |
 | | 服務資料加密金鑰 | 當裝置透過 Windows PowerShell for StorSimple 註冊管理服務時會建立此金鑰。複製這個金鑰，並將它儲存在安全的位置。| |
 | | | | |
 | **完成最小裝置設定** | 裝置的易記名稱 | 這是裝置的描述性名稱。 | |
@@ -164,13 +164,14 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 > [AZURE.IMPORTANT]如果您並未啟用服務自動建立儲存體帳戶，您將必須在成功建立服務後，至少建立一個儲存體帳戶。當您建立磁碟區容器時，將會使用此儲存體帳戶。
 >
-> 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#configure-a-new-storage-account-for-the-service)以取得詳細指示。如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
+> 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#configure-a-new-storage-account-for-the-service)以取得詳細指示。
+> 如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
 
 ## 步驟 2：取得服務註冊金鑰
 
 當 StorSimple Manager 服務啟動後處於執行中時，您就必須取得服務註冊金鑰。這個金鑰是用來註冊和將 StorSimple 裝置與服務連接。
 
-請在 Azure 入口網站中執行下列步驟。
+請在 Azure 傳統入口網站中執行下列步驟。
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -191,7 +192,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 - 至少在一個網路介面上啟用 iSCSI。
 - 針對兩個控制器指派固定的 IP 位址。
 
-請在 Azure 入口網站中執行下列步驟以完成最小量裝置設定。
+請在 Azure 傳統入口網站中執行下列步驟以完成最小量裝置設定。
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup.md)]
 
@@ -202,13 +203,13 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 磁碟區容器具有其中所含之所有磁碟區的儲存體帳戶、頻寬及加密設定。您必須建立磁碟區容器，才能開始在 StorSimple 裝置上佈建磁碟區。
 
-請在 Azure 入口網站中執行下列步驟以建立磁碟區容器。
+請在 Azure 傳統入口網站中執行下列步驟以建立磁碟區容器。
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## 步驟 6：建立磁碟區
 
-建立磁碟區容器之後，您就可以為伺服器在 StorSimple 裝置上佈建存放磁碟區。請在 Azure 入口網站中執行下列步驟以建立磁碟區。
+建立磁碟區容器之後，您就可以為伺服器在 StorSimple 裝置上佈建存放磁碟區。請在 Azure 傳統入口網站中執行下列步驟以建立磁碟區。
 
 > [AZURE.IMPORTANT]StorSimple Manager 只能建立精簡佈建的磁碟區。您無法建立完整或部分佈建的磁碟機。
 
@@ -230,7 +231,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 備份可提供磁碟區的時間點保護，並改善復原能力，同時讓還原時間降至最低。您可以在 StorSimple 裝置上進行兩種備份類型： 本機快照與雲端快照。每一種備份類型都可以是 [排程] 或 [手動]。
 
-請在 Azure 入口網站中執行下列步驟，以建立排程備份。
+請在 Azure 傳統入口網站中執行下列步驟，以建立排程備份。
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -242,7 +243,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)以取得逐步指示。
 
-請在 Azure 入口網站上的 [**StorSimple Manager 服務**] 頁面，執行下列步驟。
+請在 Azure 傳統入口網站上的 [StorSimple Manager 服務] 頁面，執行下列步驟。
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
@@ -279,7 +280,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 ## 建立手動備份
 
-請在 Azure 入口網站中執行下列步驟，以針對 StorSimple 裝置上的單一磁碟區建立隨選手動備份。
+請在 Azure 傳統入口網站中執行下列步驟，以針對 StorSimple 裝置上的單一磁碟區建立隨選手動備份。
 
 [AZURE.INCLUDE [建立手動備份](../../includes/storsimple-create-manual-backup.md)]
 
@@ -290,4 +291,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 - 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

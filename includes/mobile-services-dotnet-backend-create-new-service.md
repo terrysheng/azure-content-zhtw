@@ -1,7 +1,7 @@
 
 依照下列步驟即可建立新的行動服務。
 
-1.	登入[管理入口網站](https://manage.windowsazure.com/)。在導覽窗格的底端，按一下 **[新增]**。展開 **[計算]** 和 **[行動服務]**，然後按一下 **[建立]**。
+1.	登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。在導覽窗格的底端，按一下 **[新增]**。展開 **[計算]** 和 **[行動服務]**，然後按一下 **[建立]**。
 	
 	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
 
@@ -20,4 +20,4 @@
 
 您現在已經建立可供行動應用程式使用的新行動服務。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

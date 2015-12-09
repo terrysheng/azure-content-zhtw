@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/18/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # 管理 Azure 流量管理員設定檔
@@ -85,4 +85,4 @@
 
 [疑難排解流量管理員的已降級狀態](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

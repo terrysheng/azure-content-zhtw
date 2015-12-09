@@ -22,7 +22,7 @@
 
 我們使用 [NodeJS](https://nodejs.org)、NPM、[Sublime Text 3](http://www.sublimetext.com/3) 及 Windows 8.1 上的 Windows PowerShell 來開發和測試此代碼。
 
-若要執行此範例，必須要有 Azure 搜尋服務，而您可以在 [Azure 入口網站](https://portal.azure.com)註冊該服務。
+若要執行此範例，必須要有 Azure 搜尋服務，而您可以在 [Azure 傳統入口網站](https://portal.azure.com)註冊該服務。
 
 > [AZURE.TIP]請在 [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198) 下載本教學課程所需的原始程式碼。
 
@@ -36,9 +36,9 @@
 
 ## 建立服務
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 傳統入口網站](https://portal.azure.com)。
 
-2. 在動態工具列中，依序按一下 [新增] > [資料 + 儲存體] > [搜尋]。
+2. 在動態工具列中，按一下 [新增] > [資料 + 儲存體] > [搜尋]。
 
      ![][1]
 
@@ -147,4 +147,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,11 +1,11 @@
-<!--author=alkohli last changed: 11/16/15-->
+<!--author=alkohli last changed: 12/1/15-->
 
 
 #### 建立新服務
 
-1. 使用您的 Microsoft 帳戶認證登入 Azure 入口網站，URL 如下：[http://azure.microsoft.com/](http://azure.microsoft.com/)。
+1. 使用您的 Microsoft 帳戶認證登入 Azure 傳統入口網站，URL 如下：[http://azure.microsoft.com/](http://azure.microsoft.com/)。
 
-2. 在 Azure 入口網站中，按一下 [新增] > [資料服務] > [StorSimple Manager] > [快速建立]。
+2. 在 Azure 傳統入口網站中，按一下 [新增] > [資料服務] > [StorSimple Manager] > [快速建立]。
 
 3. 在顯示的表單中，執行下列動作：
   1. 為服務提供唯一的 [名稱]。這是可以用來識別服務的易記名稱。名稱長度可介於 2 到 50 個字元之間，且可以是字母、數字和連字號。名稱必須以字母或數字為開頭或結尾。
@@ -28,4 +28,4 @@
 
 若要觀看影片示範如何建立新的 StorSimple Manager 服務，請按一下[這裡](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

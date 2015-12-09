@@ -35,9 +35,9 @@
 
 ## 建立新的 Windows 市集應用程式
 
-建立行動服務之後，您可以依照管理入口網站中的簡單快速入門來建立新的 Windows Store 8.1 JavaScript app 以連線至您的行動服務。
+當您建立自己的行動服務之後，就可以依照 Azure 傳統入口網站中簡單的快速入門，來建立新的 Windows Store 8.1 JavaScript 應用程式，以便連線到您的行動服務。
 
-1.  在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
+1.  在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 
 2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Windows]，並展開 [Create a new Windows Store app]。
@@ -64,14 +64,14 @@
 
 4. (選用) 再執行一次 app，並注意，從先前步驟中儲存的資料，會在應用程式啟動後從行動服務載入。
  
-4. 回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
+4. 回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
    	如此可讓您瀏覽由應用程式插入資料表中的資料。
 
 >[AZURE.NOTE]您可以檢閱造成存取您行動服務來進行查詢和插入資料的程式碼，該程式碼位於 default.js 檔案中。
 
 ## 後續步驟
-既然您已完成快速入門，接著應了解如何使用 [HTML/JavaScript 的行動服務用戶端](mobile-services-html-how-to-use-client-library.md)。
+您已經完成快速入門，接下來請了解如何使用 [HTML/JavaScript 的行動服務用戶端](mobile-services-html-how-to-use-client-library.md)。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -86,6 +86,6 @@
 <!-- URLs. -->
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

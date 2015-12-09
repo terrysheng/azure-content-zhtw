@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SQL Server AlwaysOn 搭配 Azure 資源管理員範本 | Microsoft Azure"
-	description="使用資源管理員範本和 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署支援 SQL Server AlwaysOn 的五部伺服器。"
+	description="使用資源管理員範本和 Azure 入口網站、Azure PowerShell 或 Azure CLI，輕鬆部署支援 SQL Server AlwaysOn 的五部伺服器。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -25,18 +25,18 @@
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
-您可以使用 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 來執行範本。
+您可以使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 來執行範本。
 
-## Azure Preview 入口網站
+## Azure 入口網站
 
-若要使用 Azure 資源管理員範本和 Azure Preview 入口網站部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json)。
+若要使用 Azure 資源管理員範本和 Azure 入口網站部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json)。
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
 1.	在 [範本] 窗格中，按一下 [儲存]。
 2.	按一下 [參數]。在 [參數] 窗格中輸入新值、從允許的值選取，或接受預設值，然後按一下 [確定]。
 3.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
-4.	按一下 [資源群組]，然後選取現有的資源群組。或者，按一下 [或建立新的]，為此工作負載建立新的資源群組。
+4.	按一下 [資源群組]，然後選取現有的資源群組。或者按一下 [或建立新的]，為此工作負載建立新的資源群組。
 5.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
 6.	如有需要，按一下 [法律條款]，檢閱使用範本的條款和合約。
 7.	按一下 [建立]。
@@ -107,4 +107,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

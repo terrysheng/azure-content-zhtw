@@ -54,7 +54,7 @@
 
 ### 在使用雲端服務時設定連接字串
 
-服務組態機制為 Azure 雲端服務專案所獨有，可讓您從 Azure 入口網站動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (.csdef) 檔案中加入 `Setting` 標籤，如下個範例所示。
+服務組態機制為 Azure 雲端服務專案所獨有，可讓您從 [Azure 傳統入口網站][]動態變更組態設定，而無需重新部署應用程式。例如，在您的服務定義 (*.csdef) 檔案中加入 `Setting` 標籤，如下個範例所示。
 
 ```
 <ServiceDefinition name="Azure1">
@@ -82,7 +82,7 @@
 </ServiceConfiguration>
 ```
 
-使用從 Azure 入口網站擷取的共用存取簽章 (SAS) 金鑰名稱和金鑰值，如上一節所述。
+使用從 Azure 傳統入口網站擷取的共用存取簽章 (SAS) 金鑰名稱和金鑰值，如上一節所述。
 
 ### 在使用網站或 Azure 虛擬機器時設定連接字串
 
@@ -97,7 +97,7 @@
 </configuration>
 ```
 
-使用從 Azure 入口網站擷取的 SAS 名稱和金鑰值，如上一節所述。
+使用從 Azure 傳統入口網站擷取的 SAS 名稱和金鑰值，如上一節所述。
 
 ## 建立佇列
 
@@ -183,7 +183,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-服務匯流排佇列支援 [256 KB 的訊息大小上限](service-bus-quotas.md) (包含標準和自訂應用程式屬性的標頭可以容納 64 KB 的大小上限)。佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。此佇列大小會在建立時定義，上限是 5 GB。如果啟用分割，上限會更高。如需詳細資訊，請參閱[分割傳訊實體](service-bus-partitioning.md)。
+服務匯流排佇列[最多可支援 256 KB 的訊息大小](service-bus-quotas.md) (包含標準和自訂應用程式屬性的標頭可以容納 64 KB 的大小上限)。佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。此佇列大小會在建立時定義，上限是 5 GB。如果啟用分割，上限會更高。如需詳細資訊，請參閱[分割傳訊實體](service-bus-partitioning.md)。
 
 ## 如何從佇列接收訊息
 
@@ -243,10 +243,10 @@ Client.OnMessage((message) =>
 了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
 
 -   請參閱[佇列、主題和訂用帳戶][]中的服務匯流排傳訊實體。
--   建立一個可行的應用程式，往返傳送或接收服務匯流排佇列的訊息：[服務匯流排代理傳訊 .NET 教學課程][]。
+-   使用[服務匯流排代理傳訊 .NET 教學課程][]，建立一個可行的應用程式，往返傳送或接收服務匯流排佇列的訊息。
 -   從 [Azure 範例][]下載服務匯流排範例，或參閱[服務匯流排範例概觀][]。
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
   [服務匯流排代理傳訊 .NET 教學課程]: service-bus-brokered-tutorial-dotnet.md
@@ -259,4 +259,4 @@ Client.OnMessage((message) =>
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

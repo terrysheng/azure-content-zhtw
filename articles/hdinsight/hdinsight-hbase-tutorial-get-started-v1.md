@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HBase 教學課程：開始在 Hadoop 中使用 HBase |Microsoft Azure"
 	description="遵循本 HBase 教學課程，開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase。使用 Hive 從 HBase Shell 建立資料表並加以查詢。"
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+	keywords="apache hbase,hbase,hbase shell,hbase 教學課程"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 
 
 # HBase 教學課程：開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase
 
-了解如何在 HDInsight 中使用 Hive 佈建 HBase 叢集，建立 HBase 資料表，以及查詢資料表。如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
+了解如何使用 Hive 在 HDInsight 中建立 HBase 叢集、建立 HBase 資料表，以及查詢資料表。如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
@@ -43,11 +43,11 @@
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - 具有 Visual Studio 2013 的**工作站**：如需相關指示，請參閱[安裝 Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx)。
 
-## 佈建 HBase 叢集
+## 建立 HBase 資料表
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**使用 Azure 入口網站佈建 HBase 叢集**
+**使用 Azure 入口網站建立 HBase 叢集**
 
 
 1. 登入 [Azure 入口網站][azure-management-portal]。
@@ -56,15 +56,15 @@
 	>[AZURE.NOTE]您也可以使用 [自訂建立] 選項。
 3. 輸入 [**叢集名稱**]、[**叢集大小**]、[叢集使用者密碼] 和 [**儲存體帳戶**]。
 
-	![在 HDInsight 中佈建 HBase 叢集][img-hdinsight-hbase-cluster-quick-create]
+	![在 HDInsight 中建立 HBase 叢集][img-hdinsight-hbase-cluster-quick-create]
 
 	預設 HTTP 使用者名稱為 admin。您可以使用 [自訂建立] 選項來自訂名稱。
 
-	使用預設 HBase 佈建程序時需有 Azure 儲存體帳戶。請參閱[建立 Azure 儲存體帳戶][azure-create-storageaccount]來建立帳戶。[自訂建立] 選項可讓您透過叢集佈建程序建立儲存體帳戶。
+	您必須擁有 Azure 儲存體帳戶，才能使用預設的 HBase 建立程序。請參閱[建立 Azure 儲存體帳戶][azure-create-storageaccount]來建立帳戶。[自訂建立] 選項可讓您透過叢集建立程序，來建立儲存體帳戶。
 
-	> [AZURE.WARNING]如需 HBase 服務的高可用性，您必須佈建包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
+	> [AZURE.WARNING]若要讓 HBase 服務擁有高可用性，您必須建立包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
 
-	> 如果正在學習 HBase 時，請務必選擇 1 做為叢集大小，並在每次使用叢集後予以刪除，以降低成本。
+	> 若仍處於 HBase 的學習階段，請務必選擇 1 做為叢集大小，並在每次使用叢集後予以刪除，以降低成本。
 
 4. 按一下右下角 **[建立 HDInsight 叢集]** 以建立 HBase 叢集。
 
@@ -81,7 +81,7 @@
 
 ![hdinsight hbase bigtable 資料][img-hbase-sample-data-bigtable]
 
-在您完成下一個程序後，就會更有意義。
+下一個程序完成後，您對此會有更深的理解。
 
 
 **使用 HBase Shell**
@@ -179,7 +179,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 2. 按一下左窗格中的 [HDInsight]。您會看見叢集清單，包括先前在本教學課程中建立的叢集。
 3. 按一下要執行 Hive 工作的叢集名稱。
 4. 按一下位於頁面底部的 [查詢主控台]，以開啟叢集儀表板。其會在不同瀏覽器索引標籤中開啟網頁。
-5. 輸入 Hadoop 使用者帳戶的使用者名稱和密碼。預設使用者名稱為 **admin**，密碼則是您在佈建程序中輸入的密碼。隨即開啟新的瀏覽器索引標籤。
+5. 輸入 Hadoop 使用者帳戶的使用者名稱和密碼。預設使用者名稱為 **admin**，密碼則是您在建立程序中輸入的密碼。隨即開啟新的瀏覽器索引標籤。
 6. 按一下頁面頂端的 [Hive 編輯器]。Hive 編輯器外觀如下：
 
 	![HDInsight 叢集儀表板。][img-hdinsight-hbase-hive-editor]
@@ -329,12 +329,12 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 
 
 ## 後續步驟
-在 HDInsight 的本 HBase 教學課程中，您已了解如何佈建 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
+在 HDInsight 的本 HBase 教學課程中，您已了解如何建立 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
 
 若要深入了解，請參閱：
 
 - [HDInsight HBase 概觀][hdinsight-hbase-overview]：HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
-- [在 Azure 虛擬網路上佈建 HBase 叢集][hdinsight-hbase-provision-vnet]：由於 HBase 叢集已與虛擬網路整合，因此能夠部署到和應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。
+- [在 Azure 虛擬網路上建立 HBase 叢集][hdinsight-hbase-provision-vnet]：由於虛擬網路的整合，現在您能夠把 HBase 叢集部署到應用程式所在的虛擬網路中，讓應用程式能夠直接與 HBase 進行通訊。
 - [設定 HDInsight 中的 HBase 複寫](hdinsight-hbase-geo-replication.md)：了解如何跨兩個 Azure 資料中心設定 HBase 複寫。
 - [利用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]：了解如何使用 HDInsight 之 Hadoop 叢集中的 HBase，執行巨量資料的即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
 
@@ -365,4 +365,4 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

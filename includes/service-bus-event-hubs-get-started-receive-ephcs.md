@@ -4,7 +4,7 @@
 
 若要使用 [EventProcessorHost]，您必須擁有 [Azure 儲存體帳戶]：
 
-1. 登入 [Azure 入口網站]，並按一下畫面底部的 [新增]。
+1. 登入 [Azure 傳統入口網站][]，並按一下畫面底部的 [新增]。
 
 2. 依序按一下 [**資料服務**]、[**儲存體**] 和 [**快速建立**]，然後輸入儲存體帳戶的名稱。選取您所需的區域，然後按一下 [**建立儲存體帳戶**]。
 
@@ -42,8 +42,7 @@
 
 	接著，將該類別的主體取代為下列程式碼：
 
-	```
-	class SimpleEventProcessor : IEventProcessor
+		class SimpleEventProcessor : IEventProcessor
 	    {
 	        Stopwatch checkpointStopWatch;
 
@@ -81,8 +80,7 @@
                 this.checkpointStopWatch.Restart();
             }
 	    }
-	}
-    ````
+	} ````
 
 	**EventProcessorHost** 會呼叫這個類別來處理接收自事件中樞的事件。請注意，`SimpleEventProcessor` 類別會使用馬錶定期在 **EventProcessorHost** 內容上呼叫檢查點方法。這可確保重新啟動接收者時，遺失的處理工作不超過五分鐘。
 
@@ -124,7 +122,7 @@
 [擴充事件處理]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Azure 儲存體帳戶]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure 入口網站]: http://manage.windowsazure.com
+[Azure 傳統入口網站]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -133,4 +131,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

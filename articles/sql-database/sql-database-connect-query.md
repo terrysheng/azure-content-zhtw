@@ -46,7 +46,7 @@
 - Visual Studio 2013 Update 4 (或更新版本)。Microsoft 現在 *免費* 提供 Visual Studio Community。
  - [Visual Studio Community，下載](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [免費 Visual Studio 的更多選項](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - 或是讓本主題中稍後的[步驟](#InstallVSForFree)描述 [Azure Preview 入口網站](http://portal.azure.com/)如何引導您安裝 Visual Studio。
+ - 或是讓本主題中稍後的[步驟](#InstallVSForFree)描述 [Azure 入口網站](http://portal.azure.com/)如何引導您安裝 Visual Studio。
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@
 如果您需要安裝 Visual Studio，您可以：
 
 - 將瀏覽器瀏覽至提供免費下載及其他選項的 Visual Studio 網頁以免費安裝 Visual Studio Community。或
-- 讓 [Azure Preview 入口網站](http://portal.azure.com/)引導您下載網頁，將於稍後描述。
+- 讓 [Azure 入口網站](http://portal.azure.com/)引導您下載網頁，將於稍後描述。
 
 
-### 透過 Azure Preview 入口網站的 Visual Studio
+### 透過 Azure 入口網站的 Visual Studio
 
 
-1. 透過 [Azure Preview 入口網站](http://portal.azure.com/)登入，其位於 http://portal.azure.com/。
+1. 透過 [Azure 入口網站](http://portal.azure.com/)登入，位於 http://portal.azure.com/。
 
 2. 按一下 [全部瀏覽] > [SQL Database]。刀鋒視窗會開啟該資料庫的搜尋。
 
@@ -127,7 +127,7 @@
 ## 步驟 4：取得連接字串
 
 
-使用 [Azure Preview 入口網站](http://portal.azure.com/)來複製連接到 SQL Database 所需的連接字串。
+使用 [Azure 入口網站](http://portal.azure.com/)來複製連接到 SQL 資料庫所需的連接字串。
 
 您的第一次使用會將 Visual Studio 連接到您的 Azure SQL Database **AdventureWorksLT** 資料庫。
 
@@ -316,7 +316,7 @@ namespace ConnectAndQuery_Example
 在用戶端電腦的 IP 位址加入 SQL Database 防火牆之前，您的用戶端 C# 程式無法連接到 SQL Database。您的程式將會失敗並出現一個好用的錯誤訊息，陳述必要的 IP 位址。
 
 
-您可以使用 [Azure Preview 入口網站](http://portal.azure.com/)新增 IP 位址。
+您可以使用 [Azure 入口網站](http://portal.azure.com/)新增 IP 位址。
 
 
 
@@ -359,4 +359,4 @@ namespace ConnectAndQuery_Example
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

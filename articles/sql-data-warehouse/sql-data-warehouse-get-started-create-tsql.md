@@ -20,7 +20,7 @@
 #使用 TSQL 建立 SQL 資料倉儲 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-TSQL.md)
 - [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
 
@@ -28,7 +28,7 @@
 
 - Azure 訂用帳戶。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
 - 。如需免費的 Visual Studio，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
-- V12 SQL Server。您將需要 V12 SQL Server 來建立 SQL 資料倉儲。如果您沒有可用的 V12 SQL Server，則建議您在 Preview 入口網站中建立，這樣您就可以在新的伺服器上建立您的 SQL 資料倉儲。
+- V12 SQL Server。您將需要 V12 SQL Server 來建立 SQL 資料倉儲。如果您沒有可用的 V12 SQL Server，則建議您在入口網站中建立，這樣您就可以在新的伺服器上建立您的 SQL 資料倉儲。
 
 本文不會涵蓋如何使用 Visual Studio 正確設定與連接。如需如何進行的完整說明，請參閱[連接及查詢][]文件。若要開始，您必須開啟 Visual Studio 中的 SQL Server 物件總管，並連接到您將用來建立 SQL 資料倉儲的伺服器一旦您這麼做，您就能針對「主要」資料庫執行下列命令來建立 SQL 資料倉儲：
 
@@ -76,4 +76,4 @@ SERVICE\_OBJECTIVE 會指出您的執行個體起始的 DWU 數量，並接受�
 [載入範例資料]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [價格頁面]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

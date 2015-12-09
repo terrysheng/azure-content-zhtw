@@ -18,13 +18,18 @@
 
 # <a name="getting-started"> </a>開始使用行動服務
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]如果您是使用 Microsoft Azure 進行行動開發的新手，請參閱[開始使用 Azure Mobile Apps](app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md) 而非 Azure 行動服務；Mobile Apps 可讓您有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
+>[AZURE.TIP]如果您是使用 Microsoft Azure 進行行動開發的新手，[請從 Azure Mobile Apps 開始](app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md)，而非 Azure 行動服務，因為 Mobile Apps 能讓您擁有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
 
 本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Xamarin Android 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單_待辦事項_應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本]。
 
->[AZURE.NOTE]本主題將說明如何使用 Azure 管理入口網站建立新的行動服務專案。使用 Visual Studio 2013 Update 2，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱[快速入門：新增行動服務 (.NET 後端)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
+>[AZURE.NOTE]本主題將說明如何使用 Azure 傳統入口網站建立新的行動服務專案。使用 Visual Studio 2013 Update 2，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱[快速入門：新增行動服務 (.NET 後端)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
 
 以下是完成應用程式的螢幕擷取畫面：
 
@@ -40,11 +45,11 @@
 
 ## 建立新的 Xamarin Android 應用程式
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。
+當您建立自己的行動服務之後，就可以依照 Azure 傳統入口網站中簡單的快速入門，來建立新的應用程式或修改現有的應用程式，以便連線到您的行動服務。
 
 在本節中，您將為行動服務下載新的 Xamarin Android 應用程式和服務專案。
 
-1. 在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
+1. 在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Xamarin]，並展開 [Create a new Xamarin app]。
 
@@ -125,7 +130,7 @@
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [JavaScript 後端版本]: mobile-services-android-get-started.md
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
@@ -134,4 +139,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

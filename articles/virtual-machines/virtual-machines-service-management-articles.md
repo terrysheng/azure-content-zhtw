@@ -24,7 +24,7 @@
 
 ## 開始使用
 
-[在 Azure 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial-classic-portal.md)
+[在 Azure 傳統入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial-classic-portal.md)
 
 [在 Azure 中建立一個執行 Windows 的自訂虛擬機器](virtual-machines-windows-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [服務管理 REST API 參考](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

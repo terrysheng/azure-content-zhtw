@@ -497,7 +497,6 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -519,4 +518,4 @@ Azure 提供了資料庫服務，可從 Django 應用程式輕鬆使用。從 Dj
 [Python Tools for Visual Studio 說明文件]: http://aka.ms/ptvsdocs
 [Django 說明文件]: https://www.djangoproject.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

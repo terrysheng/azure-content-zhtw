@@ -31,7 +31,7 @@
 
 若要開啟 Power BI 並連接到您的 AdventureWorksDW 資料庫：
 
-1. 登入 [Azure Preview 入口網站][]。
+1. 登入 [Azure 入口網站][]。
 2. 按一下 [SQL 資料庫]，並選擇您的 AdventureWorks SQL 資料倉儲資料庫。 
 
     ![尋找您的資料庫][1]
@@ -106,9 +106,9 @@
 [開發]: ./sql-data-warehouse-overview-develop.md
 [載入]: ./sql-data-warehouse-overview-load.md
 [手動載入範例資料]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Azure Preview 入口網站]: https://portal.azure.com/
+[Azure 入口網站]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

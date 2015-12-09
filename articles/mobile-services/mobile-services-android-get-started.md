@@ -18,6 +18,10 @@
 
 # 開始使用適用於 Android 的行動服務 (JavaScript 後端)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
@@ -34,11 +38,11 @@
 
 ## 必要條件
 
-完成本教學課程需要 [Android Developer Tools](https://developer.android.com/sdk/index.html)，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。需要 Android 4.2 或以上的版本。
+若要完成本教學課程，您需要 [Android Developer Tools](https://developer.android.com/sdk/index.html)，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。需要 Android 4.2 或以上的版本。
 
 下載的快速入門專案包含 Azure Mobile Services SDK for Android。
 
-> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。
+> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。
 
 
 ## 建立新的行動服務
@@ -51,7 +55,7 @@
 
 在本節中，您將建立與行動服務連線的新 Android 應用程式。
 
-1.  在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
+1.  在 Azure 傳統入口網站中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Android]，並展開 [Create a new Android app]。
 
@@ -66,7 +70,7 @@
 4. 按一下 [Create TodoItem table] 以建立儲存應用程式資料的資料表。
 
 
-5. 按下 [下載] 按鈕，立即下載您的應用程式。
+5. 現在，按下 [下載] 按鈕來下載您的應用程式。
 
 ## 執行您的 Android 應用程式
 
@@ -96,6 +100,4 @@
 [開始使用推播通知]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Management Portal]: https://manage.windowsazure.com/
-
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@
 
 「事件中樞」是一種服務，可處理來自連接裝置和應用程式的大量事件資料。收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網 (IoT)) 的重要元件。
 
-本教學課程示範如何使用 Azure 入口網站來建立「事件中樞」。另外也會示範如何使用以 C# 撰寫的主控台應用程式將訊息收集到「事件中樞」，以及如何使用 C# [事件處理器主機]程式庫平行擷取訊息。
+本教學課程示範如何使用 Azure 傳統入口網站來建立事件中樞。另外也會示範如何使用以 C# 撰寫的主控台應用程式將訊息收集到「事件中樞」，以及如何使用 C# [事件處理器主機]程式庫平行擷取訊息。
 
 若要完成本教學課程，您需要下列項目：
 
@@ -34,7 +34,7 @@
 
 ## 建立事件中心
 
-1. 登入 [Azure 入口網站]，並按一下畫面底部的 [新增]。
+1. 登入 [Azure 傳統入口網站][]，並按一下畫面底部的 [新增]。
 
 2. 請依序按一下 [應用程式服務]、[服務匯流排]、[事件中樞]、[快速建立]。
 
@@ -100,7 +100,7 @@
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [事件處理器主機]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [事件中心概觀]: event-hubs-overview.md
 [使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -108,4 +108,4 @@
 [佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

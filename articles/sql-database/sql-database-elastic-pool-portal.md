@@ -11,21 +11,21 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/06/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# 在 Azure Preview 入口網站中建立 SQL Database 的可調整彈性資料庫集區
+# 在 Azure 入口網站中建立 SQL 資料庫的可調整彈性資料庫集區
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-本文將說明如何使用 Azure Preview 入口網站建立可調整的[彈性資料庫集區](sql-database-elastic-pool.md)。具有彈性資料庫集區的 SQL Database 組態可簡化多個資料庫的系統管理及資源共用。
+本文將說明如何使用 Azure 入口網站建立可調整的[彈性資料庫集區](sql-database-elastic-pool.md)。具有彈性資料庫集區的 SQL Database 組態可簡化多個資料庫的系統管理及資源共用。
 
 > [AZURE.NOTE]彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server.md)。
 
@@ -38,7 +38,7 @@
 將新的集區加入至伺服器，以建立彈性資料庫集區。您可以將多個集區加入至伺服器，但可以與每個集區相關聯的伺服器只有一 (1) 部。此外，可以將伺服器上的所有或部分資料庫加入至集區。
 
 
-在 [Azure Preview 入口網站](https://ms.portal.azure.com/)，按一下 [SQL 伺服器]，再按一下主控您要加入集區之資料庫的伺服器，然後按一下 [加入集區]。
+在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [SQL 伺服器]，再按一下主控您要加入集區之資料庫的伺服器，然後按一下 [加入集區]。
 
 ![將集區加入伺服器](./media/sql-database-elastic-pool-portal/elastic-pool-add-pool.png)
 
@@ -202,4 +202,4 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

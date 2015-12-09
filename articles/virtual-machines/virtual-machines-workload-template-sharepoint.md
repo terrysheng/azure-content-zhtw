@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 ARM 範本部署 SharePoint 伺服器陣列 | Microsoft Azure"
-	description="使用資源管理員範本和 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署一個包含 3 部或 9 部伺服器的 SharePoint 伺服器陣列。"
+	description="使用資源管理員範本和 Azure 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署一個包含 3 部或 9 部伺服器的 SharePoint 伺服器陣列。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -29,13 +29,13 @@
 
 ![](./media/virtual-machines-workload-template-sharepoint/three-server-sharepoint-farm.png)
 
-您可以使用 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 來執行範本。
+您可以使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 來執行範本。
 
-> [AZURE.NOTE]您也可以在 Azure Preview 入口網站的 Azure Marketplace 中使用 [SharePoint 2013 非 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)項目建立這個組態。
+> [AZURE.NOTE]您也可以在 Azure 入口網站的 Azure Marketplace 中使用 [SharePoint 2013 非 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)項目建立這個組態。
 
-### Azure Preview 入口網站
+### Azure 入口網站
 
-若要使用資源管理員範本和 Azure Preview 入口網站來部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json)。
+若要使用資源管理員範本和 Azure 入口網站來部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json)。
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -103,11 +103,11 @@
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]您也可以在 Azure Preview 入口網站的 Azure Marketplace 中使用 [SharePoint 2013 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/)項目建立這個組態。
+> [AZURE.NOTE]您也可以在 Azure 入口網站的 Azure Marketplace 中使用 [SharePoint 2013 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/)項目建立這個組態。
 
-### Azure Preview 入口網站
+### Azure 入口網站
 
-若要使用資源管理員範本和 Azure Preview 入口網站來部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json)。
+若要使用資源管理員範本和 Azure 入口網站來部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json)。
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -186,4 +186,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

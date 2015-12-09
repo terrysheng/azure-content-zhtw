@@ -63,7 +63,7 @@
 
 	- **[account-name]**：您先前建立的儲存體帳戶的名稱。
 
-	- **[account-key]**：儲存體帳戶的主索引鍵。您可以從 Azure Preview 入口網站的 [儲存體] 頁面中找到主索引鍵。
+	- **[account-key]**：儲存體帳戶的主索引鍵。您可以從 Azure 入口網站的 [儲存體] 頁面中找到主索引鍵。
 
 2. 儲存 App.config 檔案。
 
@@ -208,7 +208,7 @@
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	使用與 Batch 帳戶相關聯的值取代加上括號的值，您可在 [Azure Preview 入口網站](https://portal.azure.com)找到這些值。若要找出這些值，請登入 [Azure Preview 入口網站](https://portal.azure.com)，然後遵循下列指示進行：
+	將括號中的值用與您 Batch 帳戶相關聯的值來取代，您可在 [Azure 入口網站](https://portal.azure.com)找到這些值。若要找出這些值，請登入 [Azure 入口網站](https://portal.azure.com)，然後遵循下列指示進行：
 
 	- **[account-name]** - 按一下 [Batch 帳戶]，選取您稍早建立的 Batch 帳戶
 	- **[account-url]** - 在 Batch 帳戶刀鋒視窗中，按一下 [屬性] > [URL]
@@ -487,7 +487,7 @@
 			Task status: Completed
 			Task start: 7/17/2015 8:31:57 PM
 
-8. 此時您可以進入 Azure Preview 入口網站，查看所建立的資源。若要刪除資源，按下 Enter，直到程式完成為止。
+8. 此時您可以進入 Azure 入口網站，查看所建立的資源。若要刪除資源，按下 Enter，直到程式完成為止。
 
 ## 後續步驟
 
@@ -495,4 +495,4 @@
 
 2. 有些應用程式會產生可能難以處理的大量資料。解決方法之一是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

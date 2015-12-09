@@ -14,13 +14,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/20/2015"
+   ms.date="11/30/2015"
    ms.author="cherylmc"/>
 
 # 使用 PowerShell 建立具有站對站 VPN 連線的虛擬網路
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-site-to-site-create.md)
+- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 本文將逐步引導您使用 Azure 資源管理員部署模型建立虛擬網路以及內部部署網路的站對站 VPN 連線。您可以使用上方的索引標籤，選取部署模型和部署工具的文章。
@@ -37,37 +37,31 @@
 	
 - Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-- Azure PowerShell 0.9.8 Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 Windows PowerShell 區段下載並安裝此版本。雖然您可以使用這些步驟 (稍微修改 Cmdlet) PowerShell 1.0 Preview 搭配，但是本文章是針對 0.9.8 所撰寫。
-
-**關於使用這些步驟與 Azure PowerShell 1.0 Preview 搭配**
-
-	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
+- Azure PowerShell Cmdlet (1.0 或更新版本)。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 Windows PowerShell 區段下載並安裝此版本。
 	
-
 
 ## 1\.連線至您的訂用帳戶 
 
 
-開啟 PowerShell 主控台並連接到您的帳戶。
+請確定您切換為 PowerShell 模式以使用資源管理員 Cmdlet。如需詳細資訊，請參閱[搭配使用 Windows PowerShell 與資源管理員](../powershell-azure-resource-manager.md)。
 
-**注意：**以下指示是根據 0.9.8 版的 Azure PowerShell Cmdlet。
+開啟 PowerShell 主控台並連接到您的帳戶。使用下列範例來協助您連接：
 
-使用下列範例來協助您連接：
+		    Login-AzureRmAccount
 
-		Add-AzureAccount
+檢查帳戶的訂用帳戶。
 
-如果您有多個訂用帳戶，請使用 *Select-AzureSubscription* 以連接至您想要使用的訂用帳戶。
+		    Get-AzureRmSubscription 
 
-		Select-AzureSubscription "yoursubscription"
+指定您要使用的訂用帳戶。
 
-接下來，切換至 Azure 資源管理員模式。
-		
-		Switch-AzureMode -Name AzureResourceManager
+		    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
 
 ## 2\.建立虛擬網路和閘道器子網路
 
-- 如果已有具備閘道器子網路的虛擬網路，您可以往前跳至**步驟 3 - 新增您的本機站台**。 
-- 如果您已有虛擬網路且想要將閘道器子網路新增至您的 VNet，請參閱[將閘道器子網路新增至 VNet](#gatewaysubnet)。
+- 如果已有具備閘道子網路的虛擬網路，您可以往前跳至**步驟 3 - 新增您的本機網站**。 
+- 如果您已有虛擬網路且想要將閘道子網路新增至您的 VNet，請參閱[將閘道子網路新增至 VNet](#gatewaysubnet)。
 
 ### 建立虛擬網路和閘道器子網路
 
@@ -76,32 +70,32 @@
 首先，建立資源群組：
 
 	
-		New-AzureResourceGroup -Name testrg -Location 'West US'
+		New-AzureRmResourceGroup -Name testrg -Location 'West US'
 
 接著，建立您的虛擬網路。請確認您指定的位址空間沒有與您在內部部署網路上所擁有的任何位址空間重疊。
 
 下列範例會建立一個名為 *testvnet* 的虛擬網路和兩個子網路：一個名為 *GatewaySubnet*，另一個名為 *Subnet1*。請務必建立一個特別命名為 *GatewaySubnet* 的子網路。如果您將它命名為其他名稱，您的連線設定將會失敗。
 
-		$subnet1 = New-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
-		$subnet2 = New-AzureVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
-		New-AzureVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
+		$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
+		$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
+		New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="gatewaysubnet"></a>將閘道器子網路新增至 VNet (選用)
+### <a name="gatewaysubnet"></a>將閘道子網路新增至 VNet (選用)
 
 只有在您要將閘道器子網路新增至 VNet 時才需要此步驟。
 
 如果您已有現有的虛擬網路，而且想要加入閘道器子網路，您可以使用下面範例來建立閘道器子網路。請務必將閘道器子網路命名為 'GatewaySubnet'。如果您將檔案命名為其他名字，您將建立子網路，但它不會被 Azure 視為閘道器子網路。
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName testrg -Name testvnet
-		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+		Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 
 現在，設定組態。
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ## 3\.新增您的本機站台
 
-在虛擬網路中，*本機站台*通常是指您的內部部署位置。您將會賦予該網站 Azure 可以參考它的名稱。
+在虛擬網路中，「本機網站」通常是指您的內部部署位置。您將會賦予該網站 Azure 可以參考它的名稱。
 
 您也會指定本機站台的位址空間前置詞。Azure 會使用您指定的 IP 位址前置詞來識別要傳送至本機站台的流量。這表示您必須指定您要與本機站台相關聯的每個位址前置詞。如果您的內部部署網路變更，您可以輕鬆地更新這些前置詞。
 
@@ -112,11 +106,11 @@
 
 新增具有單一位址首碼的本機站台：
 
-		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+		New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 
 新增具有多個位址首碼的本機站台：
 
-		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+		New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
 
 ### 修改本機站台的 IP 位址首碼
 
@@ -129,16 +123,16 @@
 
 使用下列 PowerShell 範例。此位址的配置方法必須為「動態」。
 
-		$gwpip= New-AzurePublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
+		$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
 ## 5\.建立閘道器 IP 位址組態
 
 閘道器組態定義要使用的子網路和公用 IP 位址。使用以下的範例來建立閘道器組態。
 
 
-		$vnet = Get-AzureVirtualNetwork -Name testvnet -ResourceGroupName testrg
-		$subnet = Get-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-		$gwipconfig = New-AzureVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+		$vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
+		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
 ## 6\.建立閘道器
 
@@ -146,10 +140,10 @@
 
 輸入下列值：
 
-- 閘道器類型為 *Vpn*。
-- VpnType 可以是 RouteBased* (在某些文件中稱為動態閘道器)，或以*原則為基礎* (在某些文件中稱為靜態閘道器)。如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。 	
+- 閘道類型為 *Vpn*。
+- VpnType 可以是 RouteBased* (在某些文件中稱為動態閘道)，或以「原則為基礎」(在某些文件中稱為靜態閘道)。如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。 	
 
-		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 ## 7\.設定 VPN 裝置
 
@@ -157,26 +151,26 @@
 
 若要尋找虛擬網路閘道的公用 IP 位址，請使用下面範例：
 
-	Get-AzurePublicIpAddress -Name gwpip -ResourceGroupName testrg
+	Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
 ## 8\.建立 VPN 連線
 
 接下來，在虛擬網路閘道與 VPN 裝置之間建立站對站 VPN 連線。請務必取代為您自己的值。共用的金鑰必須符合您用於 VPN 裝置設定的值。
 
-		$gateway1 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-		New-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 過一會兒，連接將會建立。
 
 ## 9\.驗證 VPN 連線
 
-此時，Preview 入口網站中不會顯示使用資源管理員建立的站對站 VPN 連線。不過，您可以使用 *Get-AzureVirtualNetworkGatewayConnection –Debug* 確認您的連線是否成功。在未來，我們將具備其 cmdlet，以及在 Preview 入口網站中檢視連線的能力。
+此時，Preview 入口網站中不會顯示使用資源管理員建立的站對站 VPN 連線。不過，您可以使用 *Get-AzureRmVirtualNetworkGatewayConnection –Debug* 確認您的連線是否成功。在未來，我們將具備其 cmdlet，以及在 Preview 入口網站中檢視連線的能力。
 
-您可以使用下列 cmdlet 範例，設定符合您自己的值。出現提示時，選取 [A] 才能執行「全部」。
+您可以使用下列 cmdlet 範例，設定符合您自己的值。出現提示時，請選取 [A] 以執行「全部」。
 
-		Get-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
+		Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
  完成此 cmdlet 之後，請捲動以檢視值。在下列範例中，連接狀態會顯示為 [已連接]，且您可以看見輸入和輸出位元組。
 
@@ -215,16 +209,16 @@
 ### 新增或移除沒有 VPN 閘道連線的首碼
 
 
-- 若要「新增」其他位址首碼到您建立的本機站台，但還沒有 VPN 閘道連線，請使用下列範例。
+- 若要**新增**其他位址首碼到您建立的本機站台，但還沒有 VPN 閘道連線，請使用下列範例。
 
-		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 
-- 若要從沒有 VPN 連線的本機站台「移除」位址首碼，請使用以下範例。省略您不再需要的首碼。此範例中不再需要首碼 20.0.0.0/24 (來自先前的範例)，因此我們將更新本機站台，並排除該首碼。
+- 若要從沒有 VPN 連線的本機站台**移除**位址首碼，請使用以下範例。省略您不再需要的首碼。此範例中不再需要首碼 20.0.0.0/24 (來自先前的範例)，因此我們將更新本機站台，並排除該首碼。
 
-		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+		local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
 ### 新增或移除有 VPN 閘道連線的首碼
 
@@ -238,20 +232,20 @@
 您可以使用下列範例當做指導方針。
 
 
-		$gateway1 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-		remove-AzureVirtualNetworkGatewayConnection -Name vnetgw1 -ResourceGroupName testrg
+		remove-AzureRmVirtualNetworkGatewayConnection -Name vnetgw1 -ResourceGroupName testrg
 
-		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 	
 
-		New-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## 後續步驟
 
-將虛擬機器新增至虛擬網路。[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)
+將虛擬機器新增至虛擬網路。[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

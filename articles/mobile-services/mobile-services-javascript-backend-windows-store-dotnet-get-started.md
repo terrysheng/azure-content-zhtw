@@ -43,7 +43,7 @@
 
 在本節中，您將建立與行動服務連線的新通用 Windows 應用程式。
 
-1.  在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
+1.  在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 
 2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Windows]，並展開 [Create a new Windows Store app]。
@@ -69,11 +69,11 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [開始使用離線資料同步] 了解如何使用離線資料同步，讓您的 App 更穩健及具備回應力。
+* [開始使用離線資料同步] 了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
 
-* [將驗證新增至行動服務 App][Get started with authentication] 了解如何向身分識別提供者驗證 App 的使用者。
+* [在您的行動服務應用程式中新增驗證功能 ][Get started with authentication] 了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
-* [將推播通知新增至您的App][Get started with push notifications] 了解如何將非常基本的推播通知傳送至 App。
+* [將推播通知新增至您的應用程式][Get started with push notifications] 了解如何將非常基本的推播通知傳送至應用程式。
 
 * [如何使用.NET 用戶端程式庫](mobile-services-windows-dotnet-how-to-use-client-library.md) 了解如何查詢行動服務、處理資料，以及存取自訂 API。
 
@@ -95,7 +95,7 @@
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

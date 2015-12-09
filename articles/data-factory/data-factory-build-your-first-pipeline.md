@@ -25,12 +25,12 @@
 
 本文可協助您開始建置您的第一個 Azure Data Factory。
 
-> [AZURE.NOTE]本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文。
+> [AZURE.NOTE] 本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文。
 
 ## 教學課程概觀
 本教學課程將帶您進行使用管線建置您的第一個 Data Factory 所需的步驟。您將會建立管線，並從頭開始指定所有需要的資源。
 
-如果您想快速地探索 Data Factory 的各種功能，而不從頭開始建立，可以使用我們在 Azure Preview 入口網站中所提供的範例。如需如何使用 Azure Preview 入口網站部署基於使用案例的範例，請參閱 [Azure Data Factory 更新：簡化的範例部署](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/)
+如果您想快速地探索 Data Factory 的各種功能，但不想從頭開始建立資料處理站，您可以使用我們在 Azure 入口網站中提供的範例。如需如何使用 Azure 入口網站部署使用案例式的範例，請參閱 [Azure Data Factory 更新：簡化的範例部署](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/)
 
 ## 必要條件
 開始進行本教學課程之前，您必須具備下列條件：
@@ -153,7 +153,7 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]上述命令會在您的 Azure Blob 儲存體建立名為 **script** 的容器，並從您的本機磁碟複製 **partitionweblogs.hql** 檔案到該 Blob 容器。
+		> [AZURE.NOTE] 上述命令會在您的 Azure Blob 儲存體建立名為 **script** 的容器，並從您的本機磁碟複製 **partitionweblogs.hql** 檔案到該 Blob 容器。
 	>
 	5. 檔案成功上傳之後，您會看見下列來自 AzCopy 的輸出。
 	
@@ -168,8 +168,8 @@ Hive 指令碼執行後，其結果將會儲存在 Azure blob 儲存體容器：
 
 執行下列動作：
 
-- 按一下頂端的[使用 Data Factory 編輯器](data-factory-build-your-first-pipeline-using-editor.md)連結，使用 Data Factory 編輯器 (這是 Azure 入口網站的一部分) 執行教學課程。
+- 按一下頂端的[使用 Data Factory 編輯器](data-factory-build-your-first-pipeline-using-editor.md)連結，藉由使用 Data Factory 編輯器 (這是 Azure 傳統入口網站的一部分) 來執行教學課程。
 - 按一下頂端的[使用 PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) 連結，使用 Azure PowerShell 執行教學課程。
 - 按一下頂端的[使用 Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) 連結以使用 Visual Studio 執行本教學課程。 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

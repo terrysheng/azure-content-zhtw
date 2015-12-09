@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>開始使用行動服務
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -44,11 +49,11 @@
 
 ## 建立新的 Xamarin.iOS 應用程式
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。
+當您建立自己的行動服務之後，就可以依照 Azure 傳統入口網站中簡單的快速入門，來建立新的應用程式或修改現有的應用程式，以便連線到您的行動服務。
 
 在本節中，您將建立可連接到您行動服務的新 Xamarin.iOS 應用程式。
 
-1.  在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
+1.  在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Xamarin.iOS]，並展開 [Create a new Xamarin.iOS app]。
 
@@ -86,7 +91,7 @@
 
 	> [AZURE.NOTE]您可以檢閱存取行動服務以查詢與插入資料的程式碼，您可在 TodoService.cs C# 檔案中找到此程式碼。
 
-4. 回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
+4. 回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
 	![][11]
 
@@ -98,14 +103,14 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [開始使用離線資料同步] 了解快速入門如何使用離線資料同步，讓 App 更穩健及具備回應力。
+* [開始使用離線資料同步] 了解如何快速開始使用離線資料同步功能，來讓應用程式的反應更快，且更健全。
 
-* [開始使用驗證] 了解如何向身分識別提供者驗證 App 的使用者。
+* [開始使用驗證] 了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
-* [開始使用推播通知] 了解如何將極為基本的推播通知傳送到 App。
+* [開始使用推播通知] 了解如何將非常基本的推播通知傳送至應用程式。
 
-* [如如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端](partner-xamarin-mobile-services-how-to-use-client-library.md) 了解如何查詢行動服務、處理資料，以及存取自訂 API。
-  
+* [如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端](partner-xamarin-mobile-services-how-to-use-client-library.md) 了解如何查詢行動服務、處理資料，以及存取自訂 API。
+
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -134,6 +139,6 @@
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

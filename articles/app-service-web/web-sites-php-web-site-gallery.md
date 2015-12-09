@@ -1,6 +1,6 @@
 <properties
 	pageTitle="在 Azure 應用程式服務中建立 WordPress Web 應用程式 | Microsoft Azure"
-	description="了解如何對 WordPress 部落格使用 Azure Preview 入口網站建立新的 Azure Web 應用程式。"
+	description="了解如何使用 Azure 入口網站為 WordPress 部落格建立新的 Azure Web 應用程式。"
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -30,15 +30,15 @@
 * 如何在 Azure App Service 建立以範本為基礎的 Web 應用程式。
 * 如何為新的 Web 應用程式和 MySQL 資料庫設定 Azure App Service 設定。
 
-Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟體計劃所開發的各種熱門 Web 應用程式。Web 應用程式組建在廣泛的熱門架構上，例如本 WordPress 範例中的 [PHP](/develop/nodejs/)、[.NET](/develop/net/)、[Node.js](/develop/nodejs/)、[Java](/develop/java/) 和 [Python](/develop/python/) 等等。若要從 Azure Marketplace 建立 Web 應用程式，您需要的唯一軟體就是用於 [AAzure Preview 入口網站](https://portal.azure.com/)的瀏覽器。
+Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟體計劃所開發的各種熱門 Web 應用程式。Web 應用程式組建在廣泛的熱門架構上，例如本 WordPress 範例中的 [PHP](/develop/nodejs/)、[.NET](/develop/net/)、[Node.js](/develop/nodejs/)、[Java](/develop/java/) 和 [Python](/develop/python/) 等等。若要從 Azure Marketplace 建立 Web 應用程式，您唯一需要的軟體就是用於 [Azure 入口網站](https://portal.azure.com/)的瀏覽器。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](/zh-TW/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)或是[申請免費試用](/zh-TW/pricing/free-trial/?WT.mc_id=A261C142F)。
+> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 Visual Studio 訂閱者權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，或是[申請免費試用](/zh-TW/pricing/free-trial/?WT.mc_id=A261C142F)。
 >
 > 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
 
 ## 選取 WordPress 和設定 Azure App Service
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 2. 按一下 [新增]。
 	
@@ -60,7 +60,7 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 
 5. 選取 [資源群組] 或建立新的資源群組。
 
-	如需資源群組的詳細資訊，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
+	如需資源群組的詳細資訊，請參閱[使用 Azure 入口網站管理您的 Azure 資源](../resource-group-portal.md)。
 
 5. 選取 [App Service 方案/位置]，或建立新的 App Service 方案/位置。
 
@@ -88,7 +88,7 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 
 ## 啟動和管理 WordPress Web 應用程式
 	
-7. 完成建立 Web 應用程式時，請在入口網站中瀏覽至您已建立應用程式的資源群組，然後您可以看到 Web 應用程式和資料庫。
+7. 當您完成建立 Web 應用程式時，請在 Azure 入口網站中瀏覽至您在其中建立應用程式的資源群組，然後您就能看到 Web 應用程式和資料庫。
 
 	具有燈泡圖示的額外資源是 [Application Insights](/services/application-insights/)，它會提供 Web 應用程式的監視服務。
 
@@ -118,10 +118,9 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱[瀏覽 Preview 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)。
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

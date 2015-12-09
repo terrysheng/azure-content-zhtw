@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Apache Storm 教學課程：開始使用 Storm | Microsoft Azure"
 	description="在 HDInsight 上使用 Apache Storm 和 Storm Starter 範例，開始分析巨量資料。了解如何使用 Storm 即時處理資料。"
-	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+	keywords="apache storm,apache storm 教學課程,巨量資料分析,storm 入門"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -23,13 +23,13 @@
 
 Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運算系統。在 Microsoft Azure HDInsight 的 Storm 中，您可以建立雲端式 Storm 叢集，來執行即時的巨量資料分析。
 
-[AZURE.INCLUDE [Preview 入口網站](../../includes/hdinsight-azure-preview-portal.md)]
+[AZURE.INCLUDE [入口網站](../../includes/hdinsight-azure-preview-portal.md)]
 
 * [Apache Storm 教學課程：在 HDInsight 上使用 Storm Starter 範例開始分析巨量資料](hdinsight-apache-storm-tutorial-get-started-v1.md)
 
    
 
-> [AZURE.NOTE]本文中的步驟會建立以 Windows 為基礎的 HDInsight 叢集。如需在 HDInsight 叢集上建立 Linux 之 Storm 的步驟，請參閱 [Apache Storm 教學課程：在 HDInsight 上藉由資料分析開始使用 Storm Starter 範例](hdinsight-apache-storm-tutorial-get-started-linux.md)
+> [AZURE.NOTE]本文中的步驟會建立以 Windows 為基礎的 HDInsight 叢集。如需在 HDInsight 叢集上建立以 Linux 為基礎之 Storm 的步驟，請參閱 [Apache Storm 教學課程：在 HDInsight 上藉由資料分析開始使用 Storm Starter 範例](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
 ## 必要條件
 
@@ -41,19 +41,19 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄檔和拓撲。請使用以下步驟，來建立可與您的叢集搭配使用的 Azure 儲存體帳戶：
 
-1. 登入 [Azure Preview 入口網站][preview-portal]。
+1. 登入 [Azure 入口網站][preview-portal]。
 
 2. 依序選取 [新增]、[資料分析] 和 [HDInsight]。
 
-	![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
+	![在 Azure 入口網站中建立新的叢集](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. 輸入 [叢集名稱]，然後針對 [叢集類型] 選取 [Storm]。如果該叢集可供使用，[叢集名稱] 旁就會出現綠色勾號。
+3. 輸入 [叢集名稱]，然後在 [叢集類型] 選取 [Storm]。如果該 [叢集名稱] 可用，它旁邊就會出現綠色核取記號。
 
 	![叢集名稱、叢集類型及 OS 類型](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
 4. 如果您有多個訂用帳戶，請選取 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
 
-5. 針對 [資源群組]，您可以選取此項目以查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者選取 [建立新群組]，然後輸入新資源群組的名稱。出現綠色勾號即表示新群組的名稱可供使用。
+5. 對於 [資源群組]，您可以選取此項目來查看現有資源群組的清單，然後選取其中一個來建立叢集。或者選取 [建立新群組]，然後輸入新資源群組的名稱。出現綠色勾號即表示新群組的名稱可供使用。
 
 	> [AZURE.NOTE]如果有任何可用的資源群組，此項目即會預設為現有資源群組的其中一個群組。
 
@@ -61,41 +61,41 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 	![叢集認證刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
 
-6. 針對 [資料來源]，您可以選取此項目，藉此選擇現有資料來源，或建立一個新的資料來源。
+6. 對於 [資料來源]，您可以選取此項目來選擇現有的資料來源，或建立一個新的資料來源。
 
 	![資料來源刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
 
-	您目前可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。請使用下列資訊來了解 [資料來源] 刀鋒視窗上的項目。
+	您目前可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。請使用下列步驟來了解 [資料來源] 刀鋒視窗上的項目。
 
 	- __選取方法__：將此設為 [來自所有訂用帳戶]，即可瀏覽您訂用帳戶的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
 
-	- __建立新項目__：這可用來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可供使用，就會出現綠色勾號。
+	- __建立新項目__：可用來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可供使用，就會出現綠色勾號。
 
 	- __選擇預設容器__：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
 
-	- __位置__：儲存體帳戶所在地或將建立的地理區域。
+	- __位置__：儲存體帳戶所在或將會建立在的地理區域。
 
 		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
 
-	- __選取__：用來儲存資料來源組態。
+	- __選取__：可用來儲存資料來源組態。
 
-7. 選取 [節點定價層] 會顯示將針對此叢集建立之節點的相關資訊。背景工作角色節點數目預設會設為 __4__。請將此值設為 __1__，因為這樣就足以供本教學課程使用，也能減少叢集成本。該叢集的預估成本將顯示於此刀鋒視窗的底部。
+7. 選取 [節點定價層] 來顯示將針對此叢集建立之節點的相關資訊。根據預設，背景工作角色節點的數目會是 __4__。請將此值設為 __1__，因為這樣就足以供本教學課程使用，也能減少叢集成本。該叢集的預估成本將顯示於此刀鋒視窗的底部。
 
 	![節點定價層刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
 
-	使用 [選取] 按鈕來儲存 [節點定價層] 資訊。
+	請使用 [選取] 按鈕來儲存 [節點定價層] 資訊。
 
-8. 選取 [選用設定]。此刀鋒視窗可讓您選取叢集的版本，以及設定其他選擇性設定，例如聯結__虛擬網路__或設定__外部中繼存放區__，用來保存 Hive 和 Oozie 的資料。
+8. 選取 [選用組態]。此刀鋒視窗可讓您選取叢集的版本，以及設定其他選用的設定，例如聯結__虛擬網路__，或設定__外部中繼存放區__來保存 Hive 和 Oozie 的資料。
 
 	![選用設定刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
-9. 請確定已選取 [釘選到開始面板]，然後選取 [建立]。這會建立叢集，並將該叢集磚加入到您 Azure 入口網站的開始面板。該圖示表示該叢集正在佈建中，並會在佈建完成之後變更為顯示 HDInsight 圖示。
+9. 確認已選取 [釘選到「開始面板」]，然後選取 [建立]。這會建立叢集，並將該叢集磚加入到您 Azure 入口網站的開始面板。該圖示表示該叢集正在佈建中，並會在佈建完成之後變更為顯示 HDInsight 圖示。
 
 	| 佈建期間 | 佈建完成 |
 	| ------------------ | --------------------- |
 	| ![在開始面板上佈建指示器](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的圖格或頁面左邊的 [通知] 項目，檢查佈建進度。
+	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來檢查佈建進度。
 
 ## 在 HDInsight 上執行 Storm Starter 範例
 
@@ -105,17 +105,17 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 ### <a id="connect"></a>連接至儀表板
 
-儀表板位於 **https://&lt;clustername>.azurehdinsight.net//**，其中 **clustername** 是叢集的名稱。您也可以尋找儀表板的連結，方法是從「開始面板」中選取叢集，然後在此刀鋒視窗頂端選取 [儀表板] 連結。
+儀表板位於 **https://&lt;clustername>.azurehdinsight.net//**，其中 **clustername** 是叢集的名稱。您也可以尋找儀表板的連結，方法是從「開始面板」選取叢集，然後在刀鋒視窗頂端選取 [儀表板] 連結。
 
 ![含 Storm 儀表板連結的 Azure 入口網站](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
 
-> [AZURE.NOTE]連線至儀表板時，系統會提示您輸入使用者名稱和密碼。這是您建立叢集時使用的管理員名稱 (**admin**) 和密碼。
+> [AZURE.NOTE]連線至儀表板時，系統會提示您輸入使用者名稱和密碼。這是您建立叢集時使用的系統管理員名稱 (**admin**) 和密碼。
 
 載入 Storm 儀表板後，您會看到 [提交拓撲] (Submit Topology) 表單。
 
 ![利用 Storm 儀表板提交 Storm Starter 拓撲。](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
-[提交拓撲] 表單可用於上傳含有 Storm 拓撲的 .jar 檔案並加以執行。它也包含數個與叢集一併提供的基本範例。
+[提交拓撲] 表單可用於上傳並執行含有 Storm 拓撲的 .jar 檔案。它也包含數個與叢集一併提供的基本範例。
 
 ### <a id="run">從 GitHub 的 Storm Starter 專案執行 word-count 範例
 
@@ -123,14 +123,14 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 請使用以下步驟執行 Storm Starter 範例：
 
-1. 選取 [Jar 檔案] 下拉式清單中的 [StormStarter - WordCount]。此時會使用此範例的參數填入 [類別名稱] 和 [其他參數] 欄位。
+1. 選取 [Jar 檔案] 下拉式清單中的 [StormStarter - WordCount]。此時 [類別名稱] 和 [其他參數] 欄位會填入此範例的參數。
 
 	![在 Storm 儀表板上選取的 Storm Starter WordCount。](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
 	* **類別名稱**：提交拓撲的 .jar 檔案中的類別。
 	* **其他參數**：拓撲需要的所有參數。在此範例中，此欄位用於讓提交的拓撲有易記名稱。
 
-2. 按一下 [提交]。[結果] 欄位稍後會顯示用於提交工作的命令，以及命令的結果。[錯誤] 欄位會顯示提交拓撲時發生的所有錯誤。
+2. 按一下 [提交]。隨後，[結果] 欄位會顯示用來提交工作的命令，以及該命令的結果。[錯誤] 欄位會顯示提交拓撲時所發生的任何錯誤。
 
 	![Storm Starter WordCount 的提交按鈕和結果。](./media/hdinsight-apache-storm-tutorial-get-started/submit-results.png)
 
@@ -203,11 +203,11 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
-	您可以在此資料中看到 **seven** 這個字已出現過 1,493,957 次。這就是啟動拓撲後，該字所出現的次數。
+	您可以在此資料中看到 **seven** 一字已出現 1,493,957 次。這就是啟動拓撲後，該字所出現的次數。
 
 ### 停止拓撲
 
-返回 word-count 拓撲的 [拓撲摘要] 頁面，然後選取 [拓撲動作] 區段中的 [終止] 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，便不會再顯示拓撲。
+請返回 word-count 拓撲的 [拓撲摘要] 頁面，然後選取 [拓撲動作] 區段中的 [終止] 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，就不會再看到拓撲。
 
 ## 摘要
 
@@ -245,4 +245,4 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

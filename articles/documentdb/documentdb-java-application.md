@@ -52,7 +52,7 @@
 1. 如果您還沒有資料庫帳戶，請依照[建立資料庫帳戶](documentdb-create-account.md)中的指示建立一個帳戶。如果您已經擁有帳戶，請繼續執行步驟 2。
 2. 使用 [金鑰] 刀鋒視窗 (如下圖所示)，將端點 [URI] 和 [主要金鑰] 複製到剪貼簿，並將它們保存在隨手可得的地方，因為我們將在接下來要建立的 Web 應用程式中使用這些值。
 
-![建立 DocumentDB 帳戶 – 資料庫教學課程。顯示 DocumentDB 帳戶的 Azure Preview 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][1]
+![建立 DocumentDB 帳戶 – 資料庫教學課程。顯示 DocumentDB 帳戶的 Azure 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][1]
 
 
 ##<a id="CreateJSP"></a>步驟 2：建立 Java JSP 應用程式
@@ -786,4 +786,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

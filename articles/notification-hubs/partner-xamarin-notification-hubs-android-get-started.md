@@ -16,7 +16,7 @@
 	ms.date="11/17/2015"
 	ms.author="wesmc"/>
 
-# 開始使用通知中心
+# 開始使用適用於 Android 應用程式的通知中樞
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -26,7 +26,16 @@
 
 本教學課程示範使用通知中樞的簡單廣播案例。
 
-##先決條件
+
+## 開始之前
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+您可以在[此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid)的 GitHub 上找到本教學課程的完整程式碼。
+
+
+
+##必要條件
 
 本教學課程需要下列各項：
 
@@ -514,4 +523,4 @@
 [Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
 [Azure 訊息元件]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

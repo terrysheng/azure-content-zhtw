@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/16/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # 部署和管理 Azure 中的 StorSimple 虛擬裝置
@@ -55,7 +55,7 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 - 虛擬裝置會透過您的 Microsoft Azure 訂用帳戶受到保護。這表示，如果您使用的是虛擬裝置，而您的 Azure 訂用帳戶遭到洩漏，則儲存在虛擬裝置上的資料也會受到影響。
 
-- 用來對儲存在 Azure StorSimple 中的資料加密的憑證公開金鑰，會安全地在 Microsoft Azure 入口網站中供人使用，而私密金鑰則會保留在 StorSimple 裝置中。在 StorSimple 虛擬裝置上，公開和私密金鑰都會儲存於 Azure 中。
+- 用來對儲存在 Azure StorSimple 中的資料加密的憑證公開金鑰，會安全地在 Azure 傳統入口網站中供人使用，而私密金鑰則會保留在 StorSimple 裝置中。在 StorSimple 虛擬裝置上，公開和私密金鑰都會儲存於 Azure 中。
 
 - 虛擬裝置會裝載於 Microsoft Azure 資料中心。
 
@@ -94,7 +94,7 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 開始之前，請確定您擁有下列資訊：
 
-- 您擁有的 Azure 入口網站帳戶具有存取認證。
+- 您擁有的 Azure 傳統入口網站帳戶具有存取認證。
 
 - 您擁有 Azure 儲存體帳戶存取認證。
 
@@ -115,7 +115,7 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 執行下列步驟來建立 StorSimple 虛擬裝置。
 
-1.  在 Azure 入口網站中，請至 **StorSimple Manager** 服務。
+1.  在 Azure 傳統入口網站中，移至 **StorSimple Manager** 服務。
 
 2. 移至 [裝置] 頁面。
 
@@ -286,7 +286,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 執行下列步驟，在虛擬裝置上建立公用端點。
 
-1. 登入 Azure 入口網站。
+1. 登入 Azure 傳統入口網站。
 
 - 按一下 [虛擬機器]，然後選取想要用來做為虛擬裝置的虛擬機器。
 
@@ -370,7 +370,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 ### 關閉 StorSimple 虛擬裝置
 
-1. 登入 Azure 入口網站。
+1. 登入 Azure 傳統入口網站。
 
 2. 按一下 [虛擬機器]，然後選取虛擬裝置。
 
@@ -378,7 +378,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 ### 刪除 StorSimple 虛擬裝置
 
-1. 登入 Azure 入口網站。
+1. 登入 Azure 傳統入口網站。
 
 - 按一下 [虛擬機器]，然後選取虛擬裝置。
 
@@ -389,4 +389,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 若要管理您的虛擬裝置，請參閱[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)中的工作流程詳細清單。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

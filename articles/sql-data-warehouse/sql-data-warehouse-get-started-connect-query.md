@@ -36,7 +36,7 @@
 
 若要連接至您的資料庫，需要包含您想連接之資料庫的伺服器完整名稱 (****servername**.database.windows.net*)。
 
-1. 移至 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至您想連接的資料庫。
 3. 找出完整的伺服器名稱 (我們將在下列步驟中使用此名稱)：
 
@@ -91,4 +91,4 @@
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

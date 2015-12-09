@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="教學課程：使用 Data Factory 編輯器建立具有複製活動的管線" 
-	description="在本教學課程中，您將使用 Azure 入口網站中的 Data Factory 編輯器，建立具有複製活動的 Azure Data Factory 管線。" 
+	description="在本教學課程中，您將使用 Azure 傳統入口網站中的 Data Factory 編輯器，來建立具有複製活動的 Azure Data Factory 管線。" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -34,13 +34,13 @@
 [步驟 2：建立連結服務](#CreateLinkedServices) | 在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 會連結 Azure 儲存體，而 AzureSqlLinkedService 會將 Azure SQL Database 連結至 ADFTutorialDataFactory。管線的輸入資料位於 Azure Blob 儲存體的 Blob 容器中，輸出資料則儲存在 Azure SQL Database 的資料表中。因此，您可以將這兩個資料存放區以連結服務的形式新增至 Data Factory。      
 [步驟 3：建立輸入和輸出資料表](#CreateInputAndOutputDataSets) | 在上一個步驟中，您所建立的連結服務參照含有輸入/輸出資料的資料存放區。在此步驟中，您將定義兩個 Data Factory 資料表：**EmpTableFromBlob** 和 **EmpSQLTable**，它們分別代表儲存在資料存放區的輸入/輸出資料。您將針對 EmpTableFromBlob，指定所含 Blob 具有來源資料的 Blob 容器，而針對 EmpSQLTable 指定可儲存輸出資料的 SQL 資料表。您也將指定其他屬性 (例如資料結構、資料可用性等)。 
 [步驟 4：建立和執行管線](#CreateAndRunAPipeline) | 在此步驟中，您將在 ADFTutorialDataFactory 中建立名為 **ADFTutorialPipeline** 的管線。管線會有一個複製活動，將輸入資料從 Azure Blob 複製到輸出 Azure SQL 資料表。
-[步驟 5：監視配量和管線](#MonitorDataSetsAndPipeline) | 在此步驟中，您將使用 Azure Preview 入口網站來監視輸入和輸出資料表的配量。
+[步驟 5：監視配量和管線](#MonitorDataSetsAndPipeline) | 在此步驟中，您將使用 Azure 入口網站來監視輸入和輸出資料表的配量。
  
 
 ## <a name="CreateDataFactory"></a>步驟 1：建立 Azure Data Factory
-在此步驟中，您會使用 Azure Preview 入口網站建立名為 **ADFTutorialDataFactory** 的 Azure Data Factory。
+在此步驟中，您會使用 Azure 入口網站來建立名為 **ADFTutorialDataFactory** 的 Azure Data Factory。
 
-1.	登入 [Azure Preview 入口網站][azure-preview-portal]之後，請按一下左下角的 [新增]，並選取 [建立] 刀鋒視窗中的 [資料分析]，然後按一下 [資料分析] 刀鋒視窗中的 [Data Factory]。 
+1.	登入 [Azure 入口網站][azure-portal]之後，請按一下左下角的 [新增]，並選取 [建立] 刀鋒視窗中的 [資料分析]，然後按一下 [資料分析] 刀鋒視窗中的 [Data Factory]。 
 
 	![新增->DataFactory][image-data-factory-new-datafactory-menu]
 
@@ -310,9 +310,9 @@
  
 
 ## <a name="MonitorDataSetsAndPipeline"></a>步驟 5：監視資料集和管線
-在此步驟中，您將使用 Azure 入口網站來監視 Azure Data Factory 的運作情形。您也可以使用 PowerShell Cmdlet 來監視資料集和管線。如需關於使用 Cmdlet 進行監視的詳細資料，請參閱[使用 PowerShell Cmdlet 監視和管理 Data Factory][monitor-manage-using-powershell]。
+在此步驟中，您將使用 Azure 傳統入口網站來監視 Azure Data Factory 的運作情形。您也可以使用 PowerShell Cmdlet 來監視資料集和管線。如需關於使用 Cmdlet 進行監視的詳細資料，請參閱[使用 PowerShell Cmdlet 監視和管理 Data Factory][monitor-manage-using-powershell]。
 
-1. 如果尚未開啟 [Azure 入口網站 (預覽)][azure-preview-portal]，請瀏覽至該網站。 
+1. 如果您尚未開啟 [Azure 傳統入口網站 (預覽)][azure-portal]，請瀏覽至該網站。 
 2. 如果 **ADFTutorialDataFactory** 的刀鋒視窗未開啟，請按一下 [開始面板] 上的 [ADFTutorialDataFactory] 予以開啟。 
 3. 您應該會看到您在此分頁上建立之資料表和管線的計數和名稱。
 
@@ -371,7 +371,7 @@
 
 
 ## 摘要 
-在本教學課程中，您已建立要將資料從 Azure Blob 複製到 Azure SQL 資料庫的 Azure Data Factory。您已使用 Azure Preview 入口網站建立 Data Factory、連結服務、資料表和管線。以下是您在本教學課程中執行的高階步驟：
+在本教學課程中，您已建立要將資料從 Azure Blob 複製到 Azure SQL 資料庫的 Azure Data Factory。您已使用 Azure 入口網站建立 Data Factory、連結服務、資料表和管線。以下是您在本教學課程中執行的高階步驟：
 
 1.	建立 Azure **Data Factory**。
 2.	建立將資料存放區和計算連結到 Data Factory 的連結服務 (稱為連結服務)。
@@ -393,7 +393,7 @@
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
 [data-factory-naming-rules]: https://msdn.microsoft.com/library/azure/dn835027.aspx
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
@@ -488,8 +488,6 @@
 
 [image-data-factory-create-resource-group]: ./media/data-factory-get-started-using-editor/CreateNewResourceGroup.png
 
-[image-data-factory-preview-storage-key]: ./media/data-factory-get-started-using-editor/PreviewPortalStorageKey.png
-
 [image-data-factory-database-connection-string]: ./media/data-factory-get-started-using-editor/DatabaseConnectionString.png
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-get-started-using-editor/NewDataFactoryMenu.png
@@ -501,4 +499,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

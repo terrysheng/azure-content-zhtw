@@ -54,7 +54,7 @@ Batch 也可以執行平行計算 (最後加上歸納步驟)，以及其他更�
 
 + **Azure 帳戶和訂用帳戶** -如果您沒有這類帳戶，可以啟用自己的 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或是申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-+ **Batch 帳戶** - 您在進行 Batch API 呼叫時，會使用 Batch 帳戶的名稱和 URL 以及存取金鑰做為認證。所有 Batch 資源 (如計算節點、集區、工作) 都與 Batch 帳戶相關聯。使用 [Azure Preview 入口網站](batch-account-create-portal.md)是建立 Batch 帳戶及管理帳戶存取金鑰的其中一種方式。
++ **Batch 帳戶** - 您在進行 Batch API 呼叫時，會使用 Batch 帳戶的名稱和 URL 以及存取金鑰做為認證。所有 Batch 資源 (如計算節點、集區、工作) 都與 Batch 帳戶相關聯。要建立 Batch 帳戶及管理該帳戶存取金鑰的其中一種方式，就是使用 [Azure 入口網站](batch-account-create-portal.md)。
 
 + **儲存體帳戶** – 對於大部分的 Batch 案例，您需要有 Azure 儲存體帳戶來儲存資料輸入和輸出以及在計算節點上執行的指令碼或可執行檔。若要建立儲存體帳戶，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。
 
@@ -103,4 +103,4 @@ Batch API 的常見案例包括相應放大本質平行工作，例如計算節�
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

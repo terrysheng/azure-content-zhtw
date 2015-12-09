@@ -26,7 +26,7 @@
 
 ## 建立媒體服務帳戶
 
-使用 Azure 入口網站、.NET SDK 或 REST API 以建立 Azure 媒體服務帳戶。
+使用 Azure 傳統入口網站、.NET SDK 或 REST API 來建立 Azure 媒體服務帳戶。
 
 <a id="setup_dev_env"></a>
 ## 設定開發環境  
@@ -51,4 +51,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

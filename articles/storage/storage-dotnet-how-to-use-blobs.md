@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/11/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。儲存體用戶端程式庫是一個 SDK，可簡化與 Blob 儲存體 REST API 的互動。本指南所涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除** Blob，完成所需時間約一小時。如果您想要觀看「開始使用影片」，請參閱[儲存體的五分鐘簡介](https://azure.microsoft.com/zh-TW/documentation/videos/azure-storage-5-minute-overview/)，或閱讀[在五分鐘內開始使用儲存體](https://azure.microsoft.com/zh-TW/documentation/articles/storage-getting-started-guide/)指南。
+本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。儲存體用戶端程式庫是一個 SDK，可簡化與 Blob 儲存體 REST API 的互動。本指南所涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除** Blob，完成所需時間約一小時。如果您想要觀看「開始使用影片」，請參閱 [Azure 儲存體的五分鐘簡介](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/)或是可以閱讀[在五分鐘內開始使用 Azure 儲存體](storage-getting-started-guide.md)。
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -359,11 +359,10 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

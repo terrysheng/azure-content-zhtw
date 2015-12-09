@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/10/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Redis 快取
@@ -30,9 +30,9 @@ Microsoft Azure Redis 快取有下列階層：
 
 -	**基本** - 單一節點。多種大小，最高為 53 GB。
 -	**標準** – 兩個節點 (主要/從屬)。多種大小，最高為 53 GB。99.9% SLA。
--	**Premium** – 目前只能預覽。兩個節點的主要/從屬，具有最多 10 個分區。從 6 GB 到 530 GB 的多種大小 (如需詳細資訊，請與我們連絡)。所有標準層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。在預覽期間沒有 SLA。
+-	**進階** – 兩個節點的主要/從屬，最多具有 10 個分區。從 6 GB 到 530 GB 的多種大小 (如需詳細資訊，請與我們連絡)。所有標準層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。99.9% SLA。
 
-每一個階層都有不同的功能和定價。如需價格的相關資訊，請參閱 [快取價格詳細資料][]。
+每一個階層都有不同的功能和定價。如需價格的相關資訊，請參閱[快取價格詳細資料][]。
 
 本指南說明如何使用採用 C# 程式碼的 [StackExchange.Redis][] 用戶端。涵蓋的案例包括**建立和設定快取**、**設定快取用戶端**，以及**加入和移除快取中的物件**。如需使用 Azure Redis 快取的詳細資訊，請參閱[後續步驟][]一節。
 
@@ -51,7 +51,7 @@ Microsoft Azure Redis 快取有下列階層：
 
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE]如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用][]。
+>[AZURE.NOTE]如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
 
 在 [新增 Redis 快取] 分頁中，指定所需的快取組態。
 
@@ -62,9 +62,9 @@ Microsoft Azure Redis 快取有下列階層：
 -	在 [資源群組] 中，選取或建立快取的資源群組。如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][]。 
 -	使用 [位置] 來指定管理快取所在的地理位置。為獲得最佳效能，Microsoft 強烈建議您在與快取用戶端應用程式相同的區域中建立快取。
 -	使用 [價格層] 來選取需要的快取大小和功能。
--	**Redis 叢集**可讓您建立大於 53 GB 的快取，以及將資料分散於多個 Redis 節點。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md)。
--	**Redis 持續性**可讓您將您的快取保存至 Azure 儲存體帳戶。如需設定永續性的相關指示，請參閱[如何設定高階 Azure Redis Cache 的永續性](cache-how-to-premium-persistence.md)。
--	**虛擬網路**藉由將您的快取存取權限制於指定的 Azure 虛擬網路內的用戶端，以提供增強的安全性和隔離。您可以使用 VNet 的所有功能，例如子網路、存取控制原則和其他功能，進一步限制對 Redis 的存取權。如需詳細資訊，請參閱[如何設定高階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)。
+-	**Redis 叢集**可讓您建立大於 53 GB 的快取，以及將資料分散於多個 Redis 節點。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md)。
+-	**Redis 持續性**可讓您將您的快取保存至 Azure 儲存體帳戶。如需設定永續性的相關指示，請參閱[如何設定進階 Azure Redis Cache 的永續性](cache-how-to-premium-persistence.md)。
+-	**虛擬網路**藉由將您的快取存取權限制於指定的 Azure 虛擬網路內的用戶端，以提供增強的安全性和隔離。您可以使用 VNet 的所有功能，例如子網路、存取控制原則和其他功能，進一步限制對 Redis 的存取權。如需詳細資訊，請參閱[如何設定進階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)。
 -	使用 [診斷] 來指定快取度量的儲存體帳戶。如需有關設定和檢視快取度量的詳細資訊，請參閱[如何監視 Azure Redis 快取](cache-how-to-monitor.md)。
 
 一旦設定了新的快取選項，請按一下 [建立新快取]。建立快取可能需要數分鐘的時間。若要檢查狀態，您可以監視開始面板上的進度。在建立了快取之後，新快取的狀態會是「執行中」，而且準備好與預設設定搭配使用。
@@ -126,7 +126,7 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
 >[AZURE.IMPORTANT]警告：請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，我會以原始程式碼來呈現認證內容。如需如何儲存認證的相關資訊，請參閱[應用程式字串與連接字串的運作方式][]。
 
-如果您不想使用 SSL，請設定 `ssl=false` 或省略`ssl` 參數。
+如果您不想使用 SSL，請設定 `ssl=false` 或省略 `ssl` 參數。
 
 >[AZURE.NOTE]預設會為新快取停用非 SSL 連接埠。如需啟用非 SSL 連接埠的指示，請參閱[存取連接埠](cache-configure.md#access-ports)。
 
@@ -329,4 +329,4 @@ Azure Redis 快取可以快取 .NET 物件及基本資料類型，但必須先�
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

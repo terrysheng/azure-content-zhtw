@@ -26,11 +26,11 @@
 
 2 個。您只可以在一個訂用帳戶中建立 2 個免費 Bing 地圖 API。根據預設，遠端監視解決方案會隨著免費 Bing 地圖 API 一起佈建。因此，您只可以在一個訂用帳戶中最多佈建 2 個遠端監視方案。
 
-### 在 Azure Preview 入口網站中刪除資源群組，與在 azureiotsuite.com 中對預先設定的方案按一下刪除之間的差異為何？
+### 在 Azure 入口網站中刪除資源群組，與在 azureiotsuite.com 中對預先設定解決方案按一下 [刪除] 之間的差異為何？
 
 - 如果您在 [azureiotsuite.com][lnk-azureiotsuite] 中刪除預先設定的方案，則會刪除在建立預先設定的方案時所佈建的所有資源；如果您新增了其他資源到資源群組，這些資源也會一併刪除。 
 
-- 如果您在 [Azure Preview 入口網站中][lnk-azure-portal]刪除資源群組，您只能刪除該資源群組中的資源；您也需要在 [Azure 管理入口網站][lnk-classic-portal]中刪除與預先設定的方案相關聯的 Azure Active Directory 應用程式。
+- 如果您在 [Azure 入口網站中][lnk-azure-portal]刪除資源群組，您只刪除了該資源群組中的資源；您也必須在 [Azure 傳統入口網站][lnk-classic-portal]中刪除與預先設定解決方案相關聯的 Azure Active Directory 應用程式。
 
 ### 如何刪除 AAD 租用戶？
 
@@ -42,4 +42,4 @@
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

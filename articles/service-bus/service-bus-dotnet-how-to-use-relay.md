@@ -39,11 +39,11 @@
 
 建立服務命名空間：
 
-1.  登入 [Azure 入口網站][]。
+1.  登入 [Azure 傳統入口網站][]。
 
-2.  在 Azure 入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
+2.  在入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 
-3.  在 Azure 入口網站的下方窗格中，按一下 [建立]。
+3.  在入口網站的下方窗格中，按一下 [建立]。
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -59,7 +59,7 @@
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	您建立的命名空間就會出現在 Azure 入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後再繼續。
+	您建立的命名空間就會出現在入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後再繼續。
 
 ## 取得命名空間的預設管理認證
 
@@ -273,9 +273,9 @@ using (var ch = cf.CreateChannel())
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Azure 入口網站]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   [使用服務匯流排的共用存取簽章驗證]: service-bus-shared-access-signature-authentication.md
   [Azure 範例]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [服務匯流排範例概觀]: service-bus-samples.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

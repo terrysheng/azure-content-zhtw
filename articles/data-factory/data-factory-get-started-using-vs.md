@@ -234,6 +234,6 @@
 2. 選取左窗格中的 [更新]，然後選取 [Visual Studio 組件庫]。
 4. 選取 [Visual Studio 的 Azure Data Factory 工具] 並按一下 [更新]。如果您看不到此項目，代表您已經有最新版本的工具。 
 
-如需如何使用 Azure Preview 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)。
+如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

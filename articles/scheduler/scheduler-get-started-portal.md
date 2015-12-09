@@ -19,7 +19,7 @@
 
 ## 使用 Azure 入口網站設定排程器，可以快速且輕鬆地建立工作
 
-若要完成本教學課程，您需要一個已啟用 Azure 排程器功能的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+若要完成本教學課程，您需要一個已啟用 Azure 排程器功能的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## 開始使用
 
@@ -261,4 +261,4 @@ Azure 排程器會實作以數個條件為基礎的配額。本節列出配額�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

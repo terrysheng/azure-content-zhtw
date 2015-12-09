@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Azure Site Recovery：效能和調整測試：內部部署至內部部署"
-	description="本文討論在內部部署至內部部署中使用 Azure Site Recovery 複寫的效能影響的測試。"
-	services="site-recovery"
+	pageTitle="Azure Site Recovery：內部部署對內部部署 Hyper-V 複寫的效能測試和調整結果"
+	description="本文提供使用 Azure Site Recovery 針對內部部署對內部部署複寫進行效能測試的相關資訊。"
+	services="site-recovery" 
 	documentationCenter=""
-	authors="csilauraa"
+	authors="rayne-wiselman"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -13,24 +13,25 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
-	ms.author="lauraa"/>
+	ms.date="12/01/2015"
+	ms.author="raynew"/>
 
-# 效能和調整測試：內部部署至內部部署
+# Azure Site Recovery：內部部署對內部部署 Hyper-V 複寫的效能測試和調整結果
 
-Microsoft Azure Site Recovery 協調並管理您主要資料中心到另一個位置的複寫，以便在計劃性和非計劃性中斷時，備份和復原您的資料。您可以將位於 System Center Virtual Machine Manager (VMM) 的內部部署私人雲端備份到另一個內部部署位置，或 Microsoft Azure 儲存體。若要執行複寫，VMM 會使用 Hyper-V 複本，這是內建在 Windows Server 2012 和 Windows Server 2012 R2 的 Hyper-V 中的複寫機制。它提供兩個主控伺服器之間的 Hyper-V 虛擬機器的非同步複寫。您可以複寫能夠在 Hyper-V 中虛擬化的任何伺服器工作負載。複寫透過任何一般 IP 型的網路運作，Hyper-V 複本則可搭配獨立式伺服器、容錯移轉叢集，或是兩者混合運作。
+您可以使用 Microsoft Azure Site Recovery 來協調和管理將虛擬機器與實體伺服器複寫至 Azure 或次要資料中心的複寫作業。本文提供我們在兩個內部部署資料中心之間複寫 Hyper-V 虛擬機器時所執行之效能測試的結果。
 
-本主題討論在內部部署至內部部署中使用 Azure Site Recovery 複寫的效能影響的測試。它會提供在測試中使用的參數和組態設定的詳細資訊，並顯示測試部署步驟以及提供的詳細測試結果。
 
-## 測試目標
 
-目標是檢查 Azure Site Recovery 在穩定狀態複寫期間的執行情況。當虛擬機器已完成初始複寫，且正在同步處理差異變更時，就會發生穩定狀態複寫。請務必使用穩定狀態測量效能，因為除非發生非預期的中斷，否則它是大多數虛擬機器維持的狀態。
+## 概觀
 
-## 執行測試部署
+測試目標是檢查 Azure Site Recovery 在穩定狀態複寫期間的執行情況。當虛擬機器已完成初始複寫，且正在同步處理差異變更時，就會發生穩定狀態複寫。請務必使用穩定狀態測量效能，因為除非發生非預期的中斷，否則它是大多數虛擬機器維持的狀態。
 
-測試部署是由兩個內部部署站台所組成，且每個都有一個 VMM 伺服器。這兩個 VMM 伺服器都會在 Azure Site Recovery 保存庫中註冊。此測試部署通常屬於總公司/分公司部署，以總公司做為主要站台，而分公司做為次要或復原站台。
 
-### 測試部署步驟
+測試部署是由兩個內部部署網站所組成，且每個網站都有一個 VMM 伺服器。此測試部署通常屬於總公司/分公司部署，以總公司做為主要站台，而分公司做為次要或復原站台。
+
+### 我們執行的動作
+
+以下是我們在測試階段中所執行的動作：
 
 1. 使用 VMM 範本建立虛擬機器。
 
@@ -104,9 +105,9 @@ Hyper-V 複本會使用復原伺服器上的少量記憶體來最佳化儲存作
 
 ### 結論
 
-結果會清楚地顯示搭配 Hyper-V 複本的 Azure Site Recovery 透過最小的負荷，就可以為大型叢集妥善調整。Azure Site Recovery 提供簡單的部署、複寫、管理和監視功能。Hyper-V 複本提供成功調整複寫所需的基礎結構。為規劃最佳的部署，建議您下載 [Hyper-V Replica Capacity Planner](https://www.microsoft.com/zh-TW/download/details.aspx?id=39057)。
+結果會清楚地顯示搭配 Hyper-V 複本的 Azure Site Recovery 透過最小的負荷，就可以為大型叢集妥善調整。Azure Site Recovery 提供簡單的部署、複寫、管理和監視功能。Hyper-V 複本提供成功調整複寫所需的基礎結構。為規劃最佳的部署，建議您下載 [Hyper-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057)。
 
-## 測試部署環境
+## 測試環境詳細資料
 
 ### 主要站台
 
@@ -194,24 +195,13 @@ Hyper-V 複本會使用復原伺服器上的少量記憶體來最佳化儲存作
 
 |度量|計數器|
 |---|---|
-|CPU|\\Processor(\_Total)\\% 處理器時間|
-|可用的記憶體|\\記憶體\\可用的 MB|
-|IOPS|\\PhysicalDisk(\_Total)\\每秒的磁碟傳輸數|
-|每秒的 VM 讀取 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置 (<VHD>)\\每秒的讀取作業數|
-|每秒的 VM 寫入 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
-|VM 讀取輸送量|\\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
-|VM 讀取輸送量|\\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
+|CPU|\\Processor(\_Total)\\% 處理器時間| |可用的記憶體|\\記憶體\\可用的 MB| |IOPS|\\PhysicalDisk(\_Total)\\每秒的磁碟傳輸數| |每秒的 VM 讀取 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |每秒的 VM 寫入 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |VM 讀取輸送量|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |VM 讀取輸送量|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
 
 
 ## 後續步驟
 
-若要開始部署 ASR：
-
-- [設定內部部署 VMM 站台和 Azure 之間的保護](site-recovery-vmm-to-azure.md)
-- [設定內部部署 Hyper-V 站台和 Azure 之間的保護](site-recovery-hyper-v-site-to-azure.md)
 - [設定兩個內部部署 VMM 站台之間的保護](site-recovery-vmm-to-vmm.md)
-- [利用 SAN 設定兩個內部部署 VMM 站台之間的保護](site-recovery-vmm-san.md)
-- [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
+
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

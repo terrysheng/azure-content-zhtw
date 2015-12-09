@@ -20,7 +20,7 @@
 # 使用 Transact-SQL (TSQL) 建立 SQL 資料倉儲資料庫
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -32,7 +32,7 @@
 
 - Azure 訂用帳戶。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
 - 。如需免費的 Visual Studio，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
-- V12 邏輯 SQL Server。您將需要 V12 SQL Server 來建立 SQL 資料倉儲。如果您沒有 V12 邏輯 SQL Server，[Azure Preview 入口網站教學課程][]會為您示範如何建立。
+- V12 邏輯 SQL Server。您將需要 V12 SQL Server 來建立 SQL 資料倉儲。如果您沒有 V12 邏輯 SQL 伺服器，[Azure 入口網站教學課程][]會為您示範如何建立。
 
 ## 使用 Visual Studio 建立資料庫
 
@@ -53,7 +53,7 @@ SERVICE\_OBJECTIVE 會指出您的執行個體起始的 DWU 數目，並接受�
 ## 後續步驟
 您的 SQL 資料倉儲完成佈建之後，您可以[載入範例資料][]或查看如何[開發][]、[載入][]，或[移轉][]。
 
-[Azure Preview 入口網站教學課程]: ./sql-data-warehouse-get-started-provision.md
+[Azure 入口網站教學課程]: ./sql-data-warehouse-get-started-provision.md
 [連接及查詢]: ./sql-data-warehouse-get-started-connect.md
 [移轉]: ./sql-data-warehouse-overview-migrate.md
 [開發]: ./sql-data-warehouse-overview-develop.md
@@ -61,4 +61,4 @@ SERVICE\_OBJECTIVE 會指出您的執行個體起始的 DWU 數目，並接受�
 [載入範例資料]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [價格頁面]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

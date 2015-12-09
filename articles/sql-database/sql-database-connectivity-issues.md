@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/17/2015"
+	ms.date="11/30/2015"
 	ms.author="genemi"/>
 
 
@@ -134,17 +134,53 @@
 ## 連接：連接字串
 
 
-連接到 Azure SQL Database 所需的連接字串和連接到 Microsoft SQL Server 的字串稍有不同。您可以從 [Azure Preview 入口網站](http://portal.azure.com/)複製資料庫的連接字串。
+連接到 Azure SQL Database 所需的連接字串和連接到 Microsoft SQL Server 的字串稍有不同。您可以從 [Azure 入口網站](http://portal.azure.com/)複製資料庫的連接字串。
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 
-#### 30 秒的連接逾時
+### 進行連線重試的.NET SqlConnection 參數
 
 
-透過網際網路連接比透過私人網路較不穩定。因此，我們建議在您的連接字串中：將 [連接逾時] 參數設為[30] 秒 (而不是 15 秒)。
+如果您的用戶端程式利用 .NET Framework 類別 **System.Data.SqlClient.SqlConnection** 連接到 Azure SQL Database，您應該使用 .NET 4.5.1 或更新版本，如此一來就可以利用它的連線重試功能。此功能的詳細資料在[這裡](http://go.microsoft.com/fwlink/?linkid=393996)。
+
+
+<!--
+2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
+-->
+
+
+當您為 **SqlConnection** 物件建立[連接字串](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)時，您應該調整下列參數的值：
+
+- ConnectRetryCount &nbsp;&nbsp;*(預設值為 0。範圍是 0 到 255)。*
+- ConnectRetryInterval &nbsp;&nbsp;*(預設值為 1 秒。範圍是 1 到 60)。*
+- Connection Timeout &nbsp;&nbsp;*(預設值為 15 秒。範圍是 0 到 2147483647)*
+
+
+具體來說，您選擇的值應該會讓下列等式成立：
+
+- Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
+
+例如，如果計數 = 3，且間隔 = 10 秒，則連線時，僅 29 秒的逾時將無法給予系統充足的時間以進行第三次及最後一次的重試：29 < 3 * 10。
+
+
+#### 連接與命令
+
+
+**ConnectRetryCount** 和 **ConnectRetryInterval** 參數讓您的 **SqlConnection** 物件可重試連接作業，而不需告知或中斷您的程式，例如將控制權傳回您的程式。可能會在以下情況中發生重試：
+
+- mySqlConnection.Open 方法呼叫
+- mySqlConnection.Execute 方法呼叫
+
+有一些微妙的差異。當執行「查詢」時若發生暫時性錯誤，您的 **SqlConnection** 物件將不會重試連接作業，且絕對不會重試查詢。不過，在傳送您的查詢以供執行之前，**SqlConnection** 會先快速檢查連接。如果快速檢查偵測到連接問題，**SqlConnection** 會重試連接作業。如果重試成功，就會傳送您的查詢以供執行。
+
+
+#### 是否應該將 ConnectRetryCount 與應用程式重試邏輯結合？
+
+假設您的應用程式有健全的自訂重試邏輯。它可能會重試連接作業 4 次。如果您將 **ConnectRetryInterval** 和 **ConnectRetryCount** =3 加入到連接字串，您會將重試次數增加為 4 * 3 = 12 次重試。您可能不會想要這麼多的重試次數。
+
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
@@ -152,7 +188,7 @@
 ## 連接：IP 位址
 
 
-您必須設定 SQL Database 伺服器，以接受來自裝載您的用戶端程式之電腦的通訊。您可以透過 [Azure Preview 入口網站](http://portal.azure.com/)編輯防火牆設定來執行此動作。
+您必須設定 SQL Database 伺服器，以接受來自裝載您的用戶端程式之電腦的通訊。您可以透過 [Azure 入口網站](http://portal.azure.com/)編輯防火牆設定來執行此動作。
 
 
 如果您忘了設定 IP 位址，您的程式將會失敗並出現一個好用的錯誤訊息，陳述必要的 IP 位址。
@@ -161,7 +197,7 @@
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-如需詳細資訊，請參閱：[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
+如需詳細資訊，請參閱：[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -184,7 +220,7 @@
 7. &gt; 新增規則
 
 
-如果您的用戶端程式裝載在 Azure 虛擬機器 (VM) 上，您應該閱讀：<br/>[1433 以外供 ADO.NET 4.5 和 SQL Database 第12 版使用的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
+如果您的用戶端程式裝載在 Azure 虛擬機器 (VM) 上，您應該閱讀：<br/>[1433 以外供 ADO.NET 4.5 和 SQL Database V12 使用的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
 如需設定連接埠及 IP 位址的背景資訊，請參閱：[Azure SQL Database 防火牆](sql-database-firewall-configure.md)
@@ -264,7 +300,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 您的用戶端可以記錄其遇到的所有錯誤來協助診斷。您可以使記錄項目與 Azure SQL Database 本身內部記錄的錯誤資料相互關聯。
 
 
-Enterprise Library 6 (EntLib60) 提供 .NET 管理旳類別來協助記錄：- [5 - 如掉落記錄一樣容易：使用記錄應用程式區塊](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6 (EntLib60) 提供 .NET 管理的類別來協助記錄：- [5 - 輕而易舉：使用記錄應用程式區塊](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
@@ -277,14 +313,14 @@ Enterprise Library 6 (EntLib60) 提供 .NET 管理旳類別來協助記錄：- [
 
 | 記錄查詢 | 說明 |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [Sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視提供個別事件的相關資訊，包括可能導致暫時性錯誤或連線失敗的一些事件。<br/><br/>理想的情況下，您可以使 **start\_time** 或 **end\_time** 值與用戶端應用程時式何時遇到問題的相關資訊相互關聯。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [Sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視提供個別事件的相關資訊，包括可能導致暫時性錯誤或連線失敗的一些事件。<br/><br/>理想的情況下，您可以使 **start\_time** 或 **end\_time** 值與用戶端應用程式何時遇到問題的相關資訊相互關聯。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | [Sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視針對其他診斷提供事件類型的彙總計數。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
 
 
 ### 診斷：在 SQL Database 記錄中搜尋問題事件
 
 
-您可以在 Azure SQL Database 的記錄中搜尋有關問題事件的項目。在 **master** 資料庫中嘗試下列 Transact-SQL SELECT陳述式：
+您可以在 Azure SQL Database 的記錄中搜尋有關問題事件的項目。在 **master** 資料庫中嘗試下列 Transact-SQL SELECT 陳述式：
 
 
 ```
@@ -331,7 +367,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 Azure SQL Database 服務。您可以找出 EntLib60 可以協助的每個區域專用的主題，方法為首先造訪：- [Enterprise Library 6 – 2013年 4 月](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 Azure SQL Database 服務。您可以找出 EntLib60 可以協助的每個區域專用主題，請先造訪：- [Enterprise Library 6 – 2013 年 4 月](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
 處理暫時性錯誤的重試邏輯是 EntLib60 可以協助的一個區域：- [4 - 堅持不懈是一切成功的祕密：使用暫時性錯誤處理應用程式區塊](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
@@ -348,7 +384,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 下列 EntLib60 類別特別有助於重試邏輯。這些全部都在命名空間 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 中，或進一步位於其下：
 
-*在命名空間 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 中：*
+在命名空間 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 中：
 
 - **RetryPolicy** 類別
  - **ExecuteAction** 方法
@@ -373,11 +409,11 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 以下是 EntLib60 相關資訊的連結：
 
-- 免費的[書籍下載：Microsoft Enterprise Library 第 2 版的開發人員指南](http://www.microsoft.com/download/details.aspx?id=41145)
+- 免費的[書籍下載：Microsoft Enterprise Library 開發人員指南第 2 版](http://www.microsoft.com/download/details.aspx?id=41145)
 
 - 最佳作法：[重試一般指引](best-practices-retry-general.md)深入探討重試邏輯。
 
-- 可在 NuGet 下載 [Enterprise 程式庫 - 暫時性錯誤處理應用程式區塊 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
+- 可在 NuGet 下載 [Enterprise Library - 暫時性錯誤處理應用程式區塊 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
 
 ### EntLib60：記錄區塊
@@ -392,7 +428,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 - 記錄區塊可彙總來自記錄目的地的記錄功能，使應用程式程式碼能夠一致，而不必理會目標記錄存放區的的位置和類型。
 
 
-如需詳細資料，請參閱：[5 - 如掉落記錄一樣容易：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
+如需詳細資料，請參閱：[5 - 輕而易舉：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 
 ### EntLib60 IsTransient 方法的原始程式碼
@@ -400,7 +436,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 接下來，**IsTransient** 方法的 C# 原始程式碼來自 **SqlDatabaseTransientErrorDetectionStrategy** 類別。原始程式碼將釐清哪些錯誤會被視為暫時性並值得重試 (從 2013 年 4 月起)。
 
-為了強調可調性，已從此副本移除許多 **//comment** 行。
+為了強調可讀性，已從此複本移除許多 **//comment** 行。
 
 
 ```
@@ -476,6 +512,6 @@ public bool IsTransient(Exception ex)
 - [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
-- [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，可將新增重試行為的工作簡化為幾乎一切事物。](https://pypi.python.org/pypi/retrying)
+- [*Retrying* 是 Apache 2.0 授權的一般用途重試程式庫，以 **Python** 撰寫，可將加入重試行為的工作簡化為幾乎一切事物。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

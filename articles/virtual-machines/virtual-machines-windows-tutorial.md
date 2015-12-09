@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器 | Microsoft Azure"
-	description="了解如何使用 Azure Preview 入口網站中的 Azure Marketplace，建立執行 Windows 的 Azure VM 或虛擬電腦"
+	pageTitle="在 Azure 入口網站中建立執行 Windows 的虛擬機器 | Microsoft Azure"
+	description="了解如何使用 Azure 入口網站中的 Azure Marketplace，建立執行 Windows 的 Azure VM 或虛擬電腦"
 	keywords="azure vm,建立虛擬機器,虛擬電腦,設定虛擬機器"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,17 +17,17 @@
 	ms.date="08/14/2015"
 	ms.author="cynthn"/>
 
-# 在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器#
+# 在 Azure 入口網站中建立執行 Windows 的虛擬機器#
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](virtual-machines-windows-tutorial.md)
-- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure portal](virtual-machines-windows-tutorial.md)
+- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 <br>
 
-本教學課程示範在 Azure Preview 入口網站中建立 Azure 虛擬機器有多麼容易，只需數分鐘。我們將使用 Windows Server 2012 R2 資料中心映像做為範例來建立虛擬機器，但這只是 Azure 提供之眾多映像的其中一個。您的映像選擇取決於訂用帳戶。例如，桌面映像可能可供 MSDN 訂閱者使用。
+本教學課程示範在 Azure 入口網站中建立 Azure 虛擬機器有多麼容易，只需數分鐘。我們將使用 Windows Server 2012 R2 資料中心映像做為範例來建立虛擬機器，但這只是 Azure 提供之眾多映像的其中一個。您的映像選擇取決於訂用帳戶。例如，桌面映像可能可供 MSDN 訂閱者使用。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。如需資源管理員的詳細資料，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
 
@@ -43,7 +43,7 @@
 
 ## 選取虛擬機器映像
 
-1. 登入 Azure Preview 入口網站。
+1. 登入 Azure 入口網站。
 
 2. 在 [中樞] 功能表上，依序按一下 [新增] > [計算] > [Windows Server 2012 R2 資料中心]。
 
@@ -87,7 +87,7 @@
 
 >[AZURE.NOTE]如需要求和疑難排解提示，請參閱[透過 RDP 或 SSH 連接至 Azure 虛擬機器](https://msdn.microsoft.com/library/azure/dn535788.aspx)。
 
-1. 如果您未曾執行過這項操作，請登入 Azure Preview 入口網站。
+1. 如果您尚未登入 Azure 入口網站，請先登入。
 
 2. 在 [開始面板] 上按一下虛擬機器。如果您需要尋找它，請按一下 [全部瀏覽] > [最近]，或 [全部瀏覽] > [虛擬機器]。然後從清單中選取您的虛擬機器。
 
@@ -110,4 +110,4 @@
 * 使用 Azure PowerShell 和 Azure CLI [尋找並選取虛擬機器映像](resource-groups-vm-searching.md)。
 * 使用 [Azure 資源管理員](virtual-machines-how-to-automate-azure-resource-manager.md)和 [Azure 資源管理員範本](http://azure.microsoft.com/documentation/templates/)，自動部署和管理虛擬機器和工作負載。
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

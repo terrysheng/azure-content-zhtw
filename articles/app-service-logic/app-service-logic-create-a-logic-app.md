@@ -21,7 +21,7 @@
 | 快速參考 |
 | --------------- |
 | [Logic Apps 定義語言](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Logic Apps 連接器文件](https://azure.microsoft.com/zh-TW/documentation/articles/app-service-logic-connectors-list/) |
+| [Logic Apps 連接器文件](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurelogicapps) |
 
 本主題只花幾分鐘就能示範如何開始使用 [App Services Logic Apps](app-service-logic-what-are-logic-apps.md)。我們將逐步解說可將一組您感興趣的推文傳送到 Dropbox 資料夾的工作流程。
@@ -188,4 +188,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

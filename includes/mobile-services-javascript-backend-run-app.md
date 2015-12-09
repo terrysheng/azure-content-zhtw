@@ -13,10 +13,10 @@
 
 	請注意，從先前步驟中儲存的資料，會在應用程式啟動後從行動服務載入。
  
-4. 回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
+4. 回到 [Azure 傳統入口網站](https://manage.windowsazure.com/)，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
    	如此可讓您瀏覽由應用程式插入資料表中的資料。
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

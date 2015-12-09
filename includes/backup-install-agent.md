@@ -1,6 +1,6 @@
 ## 下載、安裝和註冊 Azure 備份代理程式
 
-建立 Azure 備份保存庫之後，您的每個內部部署伺服器 (Windows Server、Windows 用戶端或 Data Protection Manager 伺服器) 上應該安裝代理程式，以便讓您將資料和應用程式備份至 Azure。
+建立 Azure 備份保存庫之後，您的每部 Windows 電腦 (Windows Server、Windows 用戶端、System Center Data Protection Manager 伺服器，或 Azure 備份伺服器電腦) 上應該安裝代理程式，以便讓您將資料和應用程式備份至 Azure。
 
 1. 登入[管理入口網站](https://manage.windowsazure.com/)
 
@@ -48,4 +48,4 @@
 
     ![設定 Azure 備份](./media/backup-install-agent/configure.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

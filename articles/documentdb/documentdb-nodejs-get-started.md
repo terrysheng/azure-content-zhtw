@@ -74,9 +74,9 @@
 
 在您慣用的文字編輯器中開啟 *config.js*。
 
-接著，建立一個名為 *config* 的空白物件，將屬性 *config.endpoint* 和 *config.authKey* 設定為您的 DocumentDB 端點和授權金鑰。您可以在 [Azure Preview 入口網站](https://portal.azure.com)找到這兩個設定。
+接著，建立一個名為 *config* 的空白物件，將屬性 *config.endpoint* 和 *config.authKey* 設定為您的 DocumentDB 端點和授權金鑰。您可以在 [Azure 入口網站](https://portal.azure.com)找到這兩個設定。
 
-![顯示 DocumentDB 帳戶的 Azure Preview 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
+![顯示 DocumentDB 帳戶的 Azure 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
 
     var config = {}
 
@@ -442,4 +442,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

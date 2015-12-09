@@ -37,7 +37,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ## 啟用 Web Apps Memcache 填充碼
 
-若要設定 Memcache 填充碼，您必須建立三個應用程式設定。這可以使用各種不同的方法來達成，包括 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)、[舊的入口網站][3]、[Azure PowerShell Cmdlet][5]，或是 [Azure 命令列介面][5]。基於這篇文章的目的，我將使用 [Azure 入口網站][4]來設定應用程式設定。下列值可擷取自 Redis 快取執行個體的 [設定] 刀鋒視窗。
+若要設定 Memcache 填充碼，您必須建立三個應用程式設定。而您有各種不同的方法來達成這目標，包括 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)、[傳統入口網站][3]、[Azure PowerShell Cmdlet][5]，或是 [Azure 命令列介面][5]。基於這篇文章的目的，我將使用 [Azure 入口網站][4]來設定應用程式設定。下列值可擷取自 Redis 快取執行個體的 [設定] 刀鋒視窗。
 
 ![Azure Redis 快取設定刀鋒視窗](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -180,7 +180,6 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [0]: http://bit.ly/1F0m3tw
@@ -198,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

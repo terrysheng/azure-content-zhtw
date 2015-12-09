@@ -1,12 +1,10 @@
-本節說明如何使用 Mobile Engagement 的即時監視功能來檢查您的應用程式是否連線至 Mobile Engagement 後端。
+本節說明如何使用 Mobile Engagement 的即時監視功能將您的 app 連線至 Mobile Engagement 後端。
 
-1. 瀏覽至您的 Mobile Engagement 入口網站。確認您正位在用於此專案的 App 內，然後按一下底部的 [接洽] 按鈕：
+1. 在您的 **Azure Mobile Engagement** 帳戶中，確定您選取的是要在 **Mobile Engagement** 入口網站中監視和管理的 app。按一下底部的 [Engage] 按鈕瀏覽至 Mobile Engagement 入口網站。 
 
 	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. 您將在 Mobile Engagement 入口網站登陸。在這裡按一下 [監視器] 索引標籤。
-	 
-	![](./media/mobile-engagement-connect-app-with-monitor/click-monitor-tab.png)
+2. 您將在 Mobile Engagement 入口網站登陸。如果未選取 [監視] 索引標籤，按一下 [監視]。
 
 3. 監視器可以即時顯示將會啟動您 App 的任何裝置。
 	 
@@ -14,4 +12,4 @@
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -50,7 +50,7 @@
 
 在本節中，您將建立連接到行動服務的新 PhoneGap 應用程式。
 
-1.  在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
+1.  在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 2. 在 [快速入門] 索引標籤中，按一下 [選擇平台] 下的 [PhoneGap]，然後展開 [Create a new PhoneGap app]。
 
@@ -111,7 +111,7 @@
 
 	> [AZURE.IMPORTANT]如果使用 PhoneGap 工具重新建置主要專案，將會覆寫此平台專案的變更。因此，請依照下一節中的說明，在專案的根 www 目錄中進行變更。
 
-4. 回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+4. 回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -153,11 +153,11 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* **[將驗證新增至 App]**了解如何向身分識別提供者驗證 App 的使用者。  
+* **[在您的應用程式中新增驗證功能]** 了解如何利用身分識別提供者來驗證您應用程式的使用者。  
 
-* **[將推播通知新增至 App](https://msdn.microsoft.com/magazine/dn879353.aspx)**了解如何註冊及傳送推播通知至 App。
+* **[將推播通知新增至您的應用程式](https://msdn.microsoft.com/magazine/dn879353.aspx)** 了解如何註冊使用推播通知，以及將推播通知傳送至應用程式。
 
-* **[行動服務 HTML/JavaScript 作法概念參考](mobile-services-html-how-to-use-client-library.md)** 深入了解如何使用 JavaScript 用戶端程式庫，來存取資料、呼叫自訂 API，以及執行驗證。
+* **[行動服務 HTML/JavaScript 作法概念參考](mobile-services-html-how-to-use-client-library.md)** 深入了解如何使用 JavaScript 用戶端程式庫來存取資料、呼叫自訂 API，以及執行驗證。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -169,11 +169,11 @@
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[將驗證新增至 App]: mobile-services-html-get-started-users.md
+[在您的應用程式中新增驗證功能]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -131,7 +131,7 @@
 
 Azure 雲端服務是應用程式將執行所在的環境。
 
-1. 在瀏覽器中，開啟 [Azure 入口網站](http://manage.windowsazure.com)。
+1. 在瀏覽器中，開啟 [Azure 傳統入口網站](http://manage.windowsazure.com)。
 
 2. 按一下 [**新增] > [運算] > [雲端服務] > [快速建立**]。
 
@@ -153,7 +153,7 @@ Azure 雲端服務是應用程式將執行所在的環境。
 
 應用程式在雲端中執行時，將會使用雲端式資料庫。
 
-1. 在 [Azure 入口網站](http://manage.windowsazure.com)中，按一下 [**新增] > [資料服務] > [SQL Database] > [快速建立**]。
+1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，依序按一下 [新增] > [資料服務] > [SQL Database] > [快速建立]。
 
 1. 在 [**資料庫名稱**] 方塊中，輸入 *contosoads*。
 
@@ -189,7 +189,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 在真實世界應用程式中，您一般會為應用程式資料與記錄資料建立不同的帳戶，以及為測試資料與生產資料建立不同的帳戶。針對本教學課程，您將只會使用一個帳戶。
 
-1. 在 [Azure 入口網站](http://manage.windowsazure.com)中，按一下 [**新增] > [資料服務] > [儲存體] > [快速建立**]。
+1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，依序按一下 [新增] > [資料服務] > [儲存體] > [快速建立]。
 
 4. 在 **URL** 方塊中，輸入 URL 前置詞。
 
@@ -228,7 +228,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	將檔案保持開啟以供編輯。
 
-2. 在 [Azure 入口網站](http://manage.windowsazure.com)中，依序按一下左側窗格中的 [**SQL Database**]、您在本教學課程中建立的資料庫、[**儀表板**] 索引標籤，和 [**顯示連接字串**]。
+2. 在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，依序按一下左側窗格中的 [SQL Database]、您在本教學課程中建立的資料庫、[儀表板] 索引標籤，和 [顯示連接字串]。
 
 	![Show connection strings](./media/cloud-services-dotnet-get-started/showcs.png)
 
@@ -236,7 +236,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	![連接字串](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. 在 *Web.Release.config* 轉換檔中，刪除 `{connectionstring}`，並將 Azure 入口網站中的 ADO.NET 連接字串貼至其位置。
+4. 在 *Web.Release.config* 轉換檔中，刪除 `{connectionstring}`，並將 Azure 傳統入口網站中的 ADO.NET 連接字串貼至其位置。
 
 5. 將您貼入 *Web.Release.config* 轉換檔的連接字串中的 `{your_password_here}` 替換成您為新的 SQL 資料庫建立的密碼。
 
@@ -345,7 +345,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 9. 您可以透過建立、檢視和編輯一些廣告來測試應用程式，正如同您在本機執行應用程式一般。
 
->[AZURE.NOTE]完成測試後，請刪除或停止雲端服務。即使您未使用雲端服務，因為已為其保留虛擬機器資源，因此仍會累積費用。如果您讓它保持執行，找到您 URL 的任何人都可以建立和檢視廣告。在 [Azure 入口網站](http://manage.windowsazure.com)中，移至您雲端服務的 [**儀表板**] 索引標籤，然後按一下頁面底部的 [**刪除**] 按鈕。如果您只想暫時避免他們存取網站，請改為按一下 [**停止**]。在那個情況下，將持續累積費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
+>[AZURE.NOTE]完成測試後，請刪除或停止雲端服務。即使您未使用雲端服務，因為已為其保留虛擬機器資源，因此仍會累積費用。如果您讓它保持執行，找到您 URL 的任何人都可以建立和檢視廣告。在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，移至您雲端服務的 [儀表板] 索引標籤，然後按一下頁面底部的 [刪除] 按鈕。如果您只想暫時避免他們存取網站，請改為按一下 [**停止**]。在那個情況下，將持續累積費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
 
 ## 從頭開始建立應用程式
 
@@ -813,4 +813,4 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [如何管理雲端服務](cloud-services-how-to-manage.md)
 * [Azure 儲存體](/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,52 +14,58 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/16/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 
 
-# HBase 教學課程：開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase
+# HBase 教學課程：開始在 HDInsight (Linux) 中搭配 Hadoop 使用 Apache HBase
 
-了解如何在 HDInsight 中使用 Hive 佈建 HBase 叢集，建立 HBase 資料表，以及查詢資料表。如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
+[AZURE.INCLUDE [HBase 選取器](../../includes/hdinsight-hbase-selector.md)]
 
-> [AZURE.NOTE]本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需以 Windows 為基礎之叢集的資訊，請參閱 [在 HDInsight 中開始使用 Apache HBase 搭配 Hadoop (Windows)。
 
-##必要條件
+了解如何使用 Hive 在 HDInsight 中建立 HBase 叢集、建立 HBase 資料表，以及查詢資料表。如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
+
+> [AZURE.NOTE]本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需以 Windows 為基礎之叢集的資訊，請參閱[ 開始在 HDInsight (Windows) 中搭配 Hadoop 使用 Apache HBase](hdinsight-hbase-tutorial-get-started.md)。
+
+###必要條件
 
 開始進行本 HBase 教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - 適用於 Windows 用戶端的 PuTTY 和 PuTTYGen。您可從下列位置取得這些公用程式：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
-- [curl](http://curl.haxx.se/download.html)。
+- [cURL](http://curl.haxx.se/download.html)。
 
-## 佈建 HBase 叢集
+## 建立 HBase 資料表
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**使用 Azure Preview 入口網站佈建 HBase 叢集**
+**如何使用 Azure Preview 入口網站建立 HBase 叢集**
 
 
-1. 登入 [Azure Preview 入口網站][azure-portal]。
-2. 按一下左上角的 [新增]，再按 [資料 + 分析]、[HDInsight]。
+1. 登入 [Azure 預覽入口網站][azure-portal]。
+2. 按一下左上角的 [新增]，再依序按一下 [資料 + 分析]、[HDInsight]。
 3. 輸入下列值：
 
-	- **叢集名稱**：輸入識別此叢集的名稱。
-	- **叢集類型**：選取 [HBase]。
-	- **叢集作業系統**：選取 [Ubuntu]。
-	- **版本**：選取您想要使用的叢集版本。如需不同的 HDInsight 版本中隨附內容的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
-    - **訂用帳戶**：如果您有多個 Azure 訂用帳戶，請選取您要用於此叢集的訂用帳戶。
-	- **資源群組**：加入或選取 Azure 資源群組。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
-	- **認證**。輸入 HTTP Web 服務使用者的密碼。預設的使用者名稱為 **admin**。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。建議使用公開金鑰的方法。如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
+
+	- **叢集名稱**：請輸入可識別此叢集的名稱。
+	- **叢集類型**：請選取 [HBase]。
+	- **叢集作業系統**：請選取 [Linux]。如需建立以 Windows 為基礎的叢集，請參閱 [HBase 教學課程：開始在 HDInsight (Windows) 中搭配 Hadoop 使用 Apache HBase](hdinsight-hbase-tutorial-get-started.md)。
+	- **版本**：請選取 HBase 的版本。
+	- **訂用帳戶**：請選取要用來建立此叢集的 Azure 訂用帳戶。
+	- **資源群組**：請建立新的 Azure 資源群組，或選取現有的資源群組。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+	- **認證**。輸入 HTTP Web 服務使用者的密碼。預設的使用者名稱為 **admin**。您也必須輸入 [SSH 使用者名稱]，然後輸入會用來驗證 SSH 使用者的 [密碼] 或 [公開金鑰]。建議使用公開金鑰的方法。如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
 
 		- [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md) 按一下 [選取] 以儲存變更。
-	- **資料來源**：選取現有的 Azure 儲存體帳戶或建立新的帳戶，這要用來做為該叢集的預設檔案系統。儲存體帳戶位置決定叢集位置。HDInsight 叢集和相依的 Azure 儲存體帳戶必須位於相同的資料中心。**預設容器**的預設名稱為叢集名稱。  
-	- **節點定價層**：選取 HBase 叢集的區域伺服器數目。
+	- **資料來源**：請建立新的 Azure 儲存體帳戶，或選取現有的 Azure 儲存體帳戶，來做為叢集的預設檔案系統。預設儲存體帳戶的位置，會決定叢集的位置。預設儲存體帳戶和叢集必須位於同一個資料中心。
+	- **節點定價層**：請選取 HBase 叢集的區域伺服器數目。
 
-		> [AZURE.WARNING]如需 HBase 服務的高可用性，您必須佈建包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
+		> [AZURE.WARNING]若要讓 HBase 服務擁有高可用性，您必須建立包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
 
-	- **選擇性組態**：選取叢集版本、設定 Azure 虛擬網路、設定指令碼動作，以及加入其他儲存體帳戶。
+		> 若仍處於 HBase 的學習階段，請務必選擇 1 做為叢集大小，並在每次使用叢集後予以刪除，以降低成本。
+
+	- **選用組態**：請設定 Azure 虛擬網路、設定指令碼動作，以及新增其他的儲存體帳戶。
 
 4. 按一下 [建立]。
 
@@ -80,7 +86,7 @@
 
 **使用 HBase Shell**
 
->[AZURE.NOTE]以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 1.開啟 **PuTTY**。請參閱文章開頭所列的必要條件。2.如果您在佈建期間建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
+>[AZURE.NOTE]以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 1.開啟 PuTTY。請參閱文章開頭所列的必要條件。2.如果您在建立期間，於建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -144,7 +150,7 @@ HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請�
 
 > [AZURE.NOTE]此程序會使用您在上一個程序中建立的連絡人 HBase 資料表。
 
-1. 開啟 **PuTTY**，連線到叢集。請參閱先前程序中的指示。
+1. 開啟 **PuTTY**，然後連線到叢集。請參閱先前程序中的指示。
 3. 執行下列命令，將資料檔案轉換成 StoreFiles 並存放在 Dimporttsv.bulk.output 所指定的相對路徑：
 
 		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
@@ -162,7 +168,7 @@ HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請�
 您可以使用 Hive 查詢 HBase 資料表中的資料。本節將建立對應至 HBase 資料表的 Hive 資料表，並用以查詢您 HBase 資料表中的資料。
 
 
-1. 開啟 **PuTTY**，連線到叢集。請參閱先前程序中的指示。
+1. 開啟 **PuTTY**，然後連線到叢集。請參閱先前程序中的指示。
 2. 開啟 Hive 殼層。
 
 	hive
@@ -183,7 +189,7 @@ HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請�
 >
 > 在本節的所有命令中，將 **USERNAME** 取代為用來驗證叢集的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。將 **CLUSTERNAME** 取代為您叢集的名稱。
 >
-> 透過[基本驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
+> REST API 的安全是透過[基本驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護的。您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
 
 1. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集：
 
@@ -225,21 +231,21 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 **建立 SSH 通道工作階段**
 
 1. 開啟 **PuTTY**。  
-2. 如果您在佈建期間建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
+2. 如果您在建立期間，於建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
 
 	在 [**類別**] 中，依序展開 [**連接**] 和 [**SSH**]，然後選取 [**驗證**]。最後，按一下 [**瀏覽**]，然後選取內含私密金鑰的 .ppk 檔案。
 
 3. 在 [**類別**] 中，按一下 [**工作階段**]。
 4. 從您 PuTTY 工作階段螢幕的基本選項，輸入下列值：
 
-	- **主機名稱**：在 [主機名稱 (或 IP 位址)] 欄位中輸入您 HDInsight 伺服器的 SSH 位址。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，*mycluster-ssh.azurehdinsight.net*。
+	- **主機名稱**：請在 [主機名稱] (或 [IP 位址]) 欄位中，輸入您 HDInsight 伺服器的 SSH 位址。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，*mycluster-ssh.azurehdinsight.net*。
 	- **連接埠**：22。前端節點 0 上的 ssh 連接埠為 22。  
-5. 在對話方塊左側的 [類別] 區段中，依序展開 [連接] 和 [SSH]，最後按一下 [通道]。
+5. 在對話方塊左側的 [類別] 區段中，依序展開 [連線] 和 [SSH]，最後按一下 [通道]。
 6. 在 [控制 SSH 連接埠轉送的選項] 表單中提供下列資訊：
 
 	- **來源連接埠** - 您想要轉送之用戶端上的連接埠。例如 9876。
 	- **動態** - 啟用動態 SOCKS Proxy 路由。
-7. 按一下 [加入] 來加入設定。
+7. 按一下 [新增] 來新增設定。
 8. 按一下對話方塊底部的 [開啟] 來開啟 SSH 連線。
 9. 出現提示時，使用 SSH 帳戶登入伺服器。這會建立 SSH 工作階段，並啟用通道。
 
@@ -248,7 +254,7 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 1. 瀏覽至 https://<ClusterName>.azurehdinsight.net/。
 2. 輸入您的叢集使用者帳戶認證兩次。
 3. 從左側功能表中，按一下 [zookeeper]。
-4. 從 [摘要] 清單按一下三個 **ZooKeeper 伺服器**連結中的其中一個。
+4. 從 [摘要] 清單中，按一下三個 **ZooKeeper 伺服器**連結中的一個。
 5. 複製**主機名稱**。例如，zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net。
 
 **設定用戶端程式 (Firefox) 並檢查叢集狀態**
@@ -257,13 +263,13 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 2. 按一下 [開啟功能表] 按鈕。
 3. 按一下 [選項]。
 4. 依序按一下 [進階]、[網路] 及 [設定]。
-5. 選取 [手動 Proxy 設定]。
+5. 選取 [手動 Proxy 組態]。
 6. 輸入下列值：
 
 	- **Socks 主機**：localhost
-	- **Port**：使用與您在 Putty SSH 通道中設定的相同連接埠。例如 9876。
-	- **SOCKS v5**：(選取)
-	- **遠端 DNS**：(選取)
+	- **Port**：請使用您在 Putty SSH 通道中所設定的連接埠。例如 9876。
+	- **SOCKS v5**：(已選取)
+	- **遠端 DNS**：(已選取)
 7. 按一下 [確定] 儲存變更。
 8. 瀏覽至 http://<TheFQDN of a ZooKeeper>:60010/master-status
 
@@ -272,7 +278,7 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 
 ## 後續步驟
-在 HDInsight 的本 HBase 教學課程中，您已了解如何佈建 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
+在 HDInsight 的本 HBase 教學課程中，您已了解如何建立 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
 
 若要深入了解，請參閱：
 
@@ -306,4 +312,4 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

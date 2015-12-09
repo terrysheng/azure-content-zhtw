@@ -135,13 +135,14 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 
 請參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
 
+> [AZURE.NOTE]如果您的應用程式會產生大量遙測 (且您使用的是 ASP.NET SDK 版本 2.0.0-beta3 或較新)，調適性取樣模型會自動藉由僅傳送事件代表性片段，以減少傳送到入口網站的量。不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣](app-insights-sampling.md)。
 
 
 ## 5\.加入相依性追蹤 (和 IIS 效能計數器)
 
 SDK 需要一些協助，才能取得某些資料的存取權。特別是，您需要這個額外步驟才能自動測量您的應用程式對資料庫、REST API 和其他外部元件的呼叫。這些相依性度量對於協助您診斷效能問題的價值難以衡量。
 
-如果您在自己的 IIS 伺服器上執行，這個步驟也可讓系統效能計數器顯示於[計量瀏覽器](app-insights-metrics-explorer.md)。
+如果您在自己的 IIS 伺服器上執行，這個步驟也能讓系統效能計數器顯示在[計量瀏覽器](app-insights-metrics-explorer.md)中。
 
 #### 如果您的應用程式是在您的 IIS 伺服器中執行
 
@@ -149,7 +150,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 您可能需要[在防火牆中開啟額外的傳出連接埠](app-insights-monitor-performance-live-website-now.md#troubleshooting)。
 
-此步驟也可啟用[效能計數器報告](app-insights-web-monitor-performance.md#system-performance-counters)，例如 CPU、記憶體、網路佔用。
+此步驟也可啟用[效能計數器報告](app-insights-web-monitor-performance.md#system-performance-counters)，例如 CPU、記憶體、網路佔用量。
 
 #### 如果您的 app 是 Azure Web 應用程式
 
@@ -160,7 +161,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 #### 如果是 Azure 雲端服務專案
 
-[將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md)
+[請將指令碼新增至網頁和背景工作角色](app-insights-cloudservices.md)。
 
 
 
@@ -180,7 +181,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 ## 追蹤應用程式版本
 
-請確定 `buildinfo.config` 是由您的 MS 建置程序所產生。在您的 .csproj 檔案中加入：
+請確定 `buildinfo.config` 是藉由您的 MSBuild 處理序所產生。在您的 .csproj 檔案中加入：
 
 ```XML
 
@@ -189,7 +190,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
     </PropertyGroup> 
 ```
 
-當它有組建資訊時，Application Insights Web 模組會自動加入**應用程式版本**做為遙測的每個項目的屬性。如此可讓您在執行[診斷搜尋][diagnostic]或[探索計量][metrics]時，依據版本來篩選。
+當它有組建資訊時，Application Insights Web 模組會自動新增**應用程式版本**，做為每個遙測項目的屬性。如此可讓您在執行[診斷搜尋][diagnostic]或在[探索度量][metrics]時，依據版本來篩選。
 
 但請注意，組建版本號碼只能由 MS 組建產生，不是 Visual Studio 中的開發人員組建產生。
 
@@ -205,7 +206,7 @@ SDK 需要一些協助，才能取得某些資料的存取權。特別是，您�
 
 我們在這份文件的開頭提過，我們會告訴您如何以手動方式建立 Application Insights 資源，然後再安裝 SDK。我們相信這可以協助您了解該程序的兩個部分。但對於 ASP.NET 應用程式 (以及其他許多應用程式) 而言，還有更快速的自動化方式。
 
-您需要有 [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 Update 3 或更新版本)，以及 [Microsoft Azure](http://azure.com) 中的帳戶。
+您需要 [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 Update 3 或更新版本)，以及 [Microsoft Azure](http://azure.com) 的帳戶。
 
 #### 對於新專案
 
@@ -220,7 +221,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 #### ... 對於現有專案
 
-在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。
+以滑鼠右鍵按一下 [方案總管] 中的專案，然後選擇 [加入 Application Insights]。
 
 ![Choose Add Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -268,4 +269,4 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

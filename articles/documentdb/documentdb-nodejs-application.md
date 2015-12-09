@@ -42,13 +42,13 @@
 
 是否沒有時間完成本教學課程，只是想要取得完整的解決方案？ 沒有問題，您可以從 [GitHub][] 取得完整的範例解決方案。
 
-## <a name="_Toc395783176"></a>先決條件
+## <a name="_Toc395783176"></a>必要條件
 
 > [AZURE.TIP]本 Node.js 教學課程假設您先前已有些許使用 Node.js 和 Azure 網站的經驗。
 
 在依照本文中的指示進行之前，您應先確定備妥下列項目：
 
-- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
+- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
 - [Node.js][] v0.10.29 版或更高版本。
 - [Express 產生器](http://www.expressjs.com/starter/generator.html) (您可以透過 `npm install express-generator -g` 進行安裝)
 - [Git][]。
@@ -61,9 +61,9 @@
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>步驟 2：學習如何建立新的 Node.js 應用程式
+## <a name="_Toc395783178"></a>步驟 2：了解如何建立新的 Node.js 應用程式
 
-現在讓我們學習使用 [Express](http://expressjs.com/) 架構，建立基本的 Hello World Node.js 專案。
+現在，我們來了解如何使用 [Express](http://expressjs.com/) 架構來建立基本的 Hello World Node.js 專案。
 
 1. 開啟您偏好的終端機。
 
@@ -396,7 +396,7 @@
 		
 		module.exports = config;
 
-3. 在 **config.js** 檔案中，使用在 [Microsoft Azure Preview 入口網站](http://portal.azure.com) DocumentDB 帳戶的 [金鑰] 刀鋒視窗上找到的值來更新 [主機] 和 [AUTH\_KEY] 的值：
+3. 在 **config.js** 檔案中，使用在 [Microsoft Azure 入口網站](http://portal.azure.com)上 DocumentDB 帳戶的 [金鑰] 刀鋒視窗中的值，來更新 HOST 和 AUTH\_KEY 的值：
 
 4. 儲存並關閉 **config.js** 檔案。
  
@@ -457,7 +457,7 @@
 
 
 
-	這個程式碼實際上會指示 **Jade** 引擎呈現我們應用程式的部分 HTML，並建立稱為 **content** 的 **block**，我們可以在其中提供內容頁面的配置。儲存並關閉此 **layout.jade** 檔案。
+	這段程式碼實際上會指示 **Jade** 引擎轉譯出我們應用程式的部分 HTML，並建立稱為 **content** 的**區塊**，讓我們能在其中提供內容頁面的配置。儲存並關閉此 **layout.jade** 檔案。
 
 4. 現在，開啟 **index.jade** 檔案 (應用程式即將使用的檢視)，並將檔案中的內容取代為下列內容；
 
@@ -569,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

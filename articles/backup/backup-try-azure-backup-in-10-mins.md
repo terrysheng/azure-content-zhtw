@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="11/26/2015" ms.author="aashishr"; "jimpark"/>
 
 # 開始使用 Azure 備份
 安裝 Azure 備份非常容易，而下列的示範影片將會協助您開始著手。
@@ -46,4 +46,4 @@
 - [備份 Windows 伺服器](backup-azure-backup-windows-server.md)
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

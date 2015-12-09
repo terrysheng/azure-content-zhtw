@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 DocumentDB Document Explorer 檢視、編輯、建立和上傳 JSON 文件 | Microsoft Azure"
-	description="深入了解 DocumentDB Document Explorer 是一項 Azure Preview 入口網站工具，可用來檢視、編輯、建立和上傳使用 DocumentDB 的 JSON 文件。"
+	description="深入了解 DocumentDB Document Explorer，它是一種 Azure 入口網站的工具，可用來檢視、編輯、建立和上傳使用 DocumentDB 的 JSON 文件。"
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -18,7 +18,7 @@
 
 # 使用 DocumentDB Document Explorer 檢視、編輯、建立和上傳 JSON 文件 #
 
-本篇文章提供了 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Document Explorer 的概觀，它是一項 Azure Preview 入口網站工具，可讓您檢視、編輯、建立和上傳使用 DocumentDB 的 JSON 文件。
+本篇文章提供 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Document Explorer 的概觀，它是一種 Azure 入口網站的工具，可讓您檢視、編輯、建立和上傳使用 DocumentDB 的 JSON 文件。
 
 完成本教學課程後，您將能夠回答下列問題：
 
@@ -145,4 +145,4 @@ Document Explorer 支援大量擷取一或多個現有 JSON 文件。
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

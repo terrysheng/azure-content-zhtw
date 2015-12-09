@@ -24,41 +24,41 @@
 
 本逐步解說示範如何使用 Visual Studio 的 SQL Server Data Tools 在短時間內連接到 Azure SQL 資料倉儲資料庫。一旦連線，您將執行簡單的查詢。
 
-## 先決條件
+## 必要條件
 
-+ SQL 資料倉儲中的 AdventureWorksDW 範例資料庫若要建立此資料庫，請參閱[建立 SQL 資料倉儲資料庫](sql-data-warehouse-get-started-create.md)。 
++ SQL 資料倉儲中的 AdventureWorksDW 範例資料庫。若要建立此資料庫，請參閱[建立 SQL 資料倉儲資料庫](sql-data-warehouse-get-started-create.md)。 
 + Visual Studio 的 SQL Server Data Tools。如需安裝指示和選項，請參閱[安裝 Visual Studio 和/或 SSDT](sql-data-warehouse-install-visual-studio.md)
 
 ## 步驟 1：尋找完整的 Azure SQL 伺服器名稱
 
 您的資料庫會與 Azure SQL 伺服器相關聯。若要連接至您的資料庫，您需要伺服器的完整名稱 (**servername**.database.windows.net*)。
 
-若要尋找完整的伺服器名稱：
+若要尋找完整的伺服器名稱。
 
-1. 移至 [Azure Preview 入口網站](https://portal.azure.com)。
-2. 按一下 [SQL Database]，再按一下您想要連接的資料庫。此範例使用 AdventureWorksDW 範例資料庫。
+1. 移至 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下 [SQL 資料庫]，再按一下您想要連接的資料庫。此範例使用 AdventureWorksDW 範例資料庫。
 3. 找出完整的伺服器名稱。
 
     ![完整伺服器名稱][1]
 
-## 步驟 2：連接到您的 SQL Database
+## 步驟 2：連接到您的 SQL 資料庫
 
 1. 開啟 Visual Studio。
 2. 開啟 [SQL Server 物件總管]。若要這麼做，請選取 [檢視] > [SQL Server 物件總管]。
  
     ![SQL Server 物件總管][2]
 
-3. 按一下 [新增 SQL Server] 圖示。
+3. 按一下 [加入 SQL Server] 圖示。
 
-    ![新增 SQL Server][3]
+    ![加入 SQL Server][3]
 
 1. 填寫 [連線到伺服器] 視窗中的欄位。
 
-    ![連接到伺服器][4]
+    ![連線到伺服器][4]
 
     - **伺服器名稱**。輸入我們先前找到的*伺服器名稱*。
     - **驗證**。選取 [SQL Server 驗證]。
-    - **登入**和**密碼**。輸入 Azure SQL Database 的登入和密碼。
+    - **登入**和**密碼**。輸入 Azure SQL 伺服器的登入和密碼。
     - 按一下 [連接]。
 
 1. 若要瀏覽，請展開您的 Azure SQL 伺服器。您可以檢視與伺服器相關聯的資料庫。展開 AdventureWorksDW 以查看範例資料庫中的資料表。
@@ -108,4 +108,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

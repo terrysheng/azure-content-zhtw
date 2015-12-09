@@ -18,13 +18,18 @@
 
 # <a name="getting-started"> </a>開始使用行動服務和 Sencha Touch
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##概觀
 
-本教學課程展示如何將 Azure 行動服務運用在 Sencha Touch 應用程式中。您將使用 Sencha Touch 來建立簡易的「待辦事項」App，該 App 會使用您透過管理入口網站定義的行動服務。本教學課程的目標觀眾為瞭解 JavaScript 及熟悉 Sencha Touch 架構的中級到進階 Web 應用程式開發人員。
+本教學課程展示如何將 Azure 行動服務運用在 Sencha Touch 應用程式中。您將使用 Sencha Touch 來建立簡易的「待辦事項」應用程式，該應用程式會使用您透過 Azure 傳統入口網站定義的行動服務。本教學課程的目標觀眾為瞭解 JavaScript 及熟悉 Sencha Touch 架構的中級到進階 Web 應用程式開發人員。
 
 如果您想要觀看影片，此片段播放的步驟與本教學課程相同。在影片中，Arthur Kay 會說明如何組建使用 Azure 行動服務後端的 Sencha Touch 應用程式。
 
@@ -50,9 +55,9 @@
 
 ##建立 TodoItem 資料表
 
-建立行動服務之後，您可以依照管理入口網站中的簡單快速入門來建立行動服務使用的新資料庫資料表。
+當您建立自己的行動服務之後，就可以依照 Azure 傳統入口網站中簡單的快速入門，來建立行動服務使用的新資料庫資料表。
 
-1. 在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
+1. 在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [HTML]，並展開 [Create a new HTML app]。
 
@@ -64,10 +69,10 @@
 
 3. 按一下 [Create TodoItems table] 以建立儲存應用程式資料的資料表。
 
-	> [AZURE.NOTE]請勿從管理入口網站下載 HTML 應用程式。反之，我們會在以下小節中手動建立 Sencha Touch 應用程式。
+	> [AZURE.NOTE]請勿從 Azure 傳統入口網站下載 HTML 應用程式。反之，我們會在以下小節中手動建立 Sencha Touch 應用程式。
 
 
-1. 記下管理入口網站中的 [appKey] 和 [appUrl]。您會在本教學指南的其他小節用到它們。
+1. 記下 Azure 傳統入口網站中的 **appKey** 和 **appUrl**。您會在本教學指南的其他小節用到它們。
 
     ![app key](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
@@ -101,7 +106,7 @@
 
         $ cd /path/to/application
 	    $ mv /download-location/azure.zip .
-    	$ unzip azure.zip  
+    	$ unzip azure.zip
 
     如此能建立含有整個套件來源、範例及文件的 **azure** 目錄。來源將位於 **azure/src** 目錄中。
 
@@ -678,7 +683,7 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 
     如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。
 
-  5. 回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 表格。
+  5. 回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
     ![Todo Items table](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
@@ -702,7 +707,7 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 ##其他資源
 
   * [下載 Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
-  * [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure) (英文)
+  * [Sencha Touch Extensions for Azure (英文)](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
 
 ##摘要
@@ -717,4 +722,6 @@ Sencha Touch Extension for Azure 套件備有此處簡述的範例，其位於 B
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Nov15_HO3-->
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
+
+<!---HONumber=AcomDC_1203_2015-->

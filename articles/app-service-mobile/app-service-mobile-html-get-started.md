@@ -19,11 +19,9 @@
 
 #建立 HTML 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT]Mobile Apps 目前不支援本主題，因為 HTML/JavaScript 應用程式的快速入門已暫時從 Azure 入口網站移除。我們計劃在不久的將來將它加回來。在我們完成 Mobile Apps 預覽版的同時，感謝您的耐心等候。
+>[AZURE.IMPORTANT]Mobile Apps 目前不支援本主題，因為 HTML/JavaScript 應用程式的快速入門已暫時從 Azure 入口網站移除。我們計劃在不久的將來將它加回來。感謝您耐心配合。
 
 ##概觀
 
@@ -43,7 +41,7 @@
 
 * [Visual Studio Community 2013] 或更新版本。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)，即可在 App Service 中立即建立短期入門行動應用程式。不需要信用卡；無需承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶之前先開始使用 Azure App Service，請前往[試用 App Service](https://tryappservice.azure.com/?appServiceName=mobile)，讓您能立刻在 App Service 中建立短期的入門行動應用程式。不需要信用卡；無需承諾。
 
 ##建立新的行動應用程式後端
 
@@ -127,4 +125,4 @@
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

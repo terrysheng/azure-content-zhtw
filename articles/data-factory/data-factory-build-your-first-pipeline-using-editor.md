@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 Data Factory 編輯器建置您的第一個 Azure Data Factory 管線。"
-	description="在本教學課程中，您將使用 Azure 入口網站中的 Data Factory 編輯器，建立範例 Azure Data Factory 管線。"
+	description="在本教學課程中，您將使用 Azure 傳統入口網站中的 Data Factory 編輯器，建立範例 Azure Data Factory 管線。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# 使用 Data Factory 編輯器 (Azure 入口網站) 建置您的第一個 Azure Data Factory 管線。
+# 使用 Data Factory 編輯器 (Azure 傳統入口網站) 建置您的第一個 Azure Data Factory 管線
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -24,7 +24,7 @@
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
 
-在本文中，您將了解如何使用 [Azure Preview 入口網站](https://portal.azure.com/)來建立您的第一個管線。本教學課程包含下列步驟：
+在本文中，您將了解如何使用 [Azure 入口網站](https://portal.azure.com/)來建立您的第一個管線。本教學課程包含下列步驟：
 
 1.	建立 Data Factory
 2.	建立連結服務 (資料存放區、計算) 和資料集
@@ -36,7 +36,7 @@
 
 ## 步驟 1：建立 Data Factory
 
-1.	登入 [Azure Preview 入口網站](http://portal.azure.com/)之後，執行下列動作：
+1.	登入 [Azure 入口網站](http://portal.azure.com/)之後，執行下列動作：
 	1.	按一下左側功能表的 [新增]。 
 	2.	按一下 [建立] 刀鋒視窗中的 [資料分析]。
 	3.	按一下 [資料分析] 刀鋒視窗上的 [Data Factory]。
@@ -60,7 +60,7 @@
 		![建立資源群組](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.	選取資源群組之後，請確認您使用的是要在其中建立 Data Factory 的正確訂用帳戶。
 5.	按一下 [新增 Data Factory] 刀鋒視窗上的 [建立]。
-6.	您會看到 Data Factory 建立在 Azure Preview 入口網站的 [開始面板] 中，如下所示：   
+6.	您會看到 Data Factory 建立在 Azure 入口網站的 [開始面板] 中，如下所示：   
 
 	![建立 Data Factory 狀態](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. 恭喜！ 您已成功建立您的第一個 Data Factroy。在 Data Factory 成功建立後，您會看到 Data Factory 頁面，顯示 Data Factory 的內容。 	
@@ -99,7 +99,7 @@
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -111,7 +111,7 @@
 	
 	屬性 | 說明
 	-------- | -----------
-	版本 | 指定所建立之 HDInsight 的版本為 3.1。 
+	版本 | 指定所建立的 HDInsight 版本為 3.2。 
 	ClusterSize | 建立一個單一節點的 HDInsight 叢集。 
 	TimeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
 	linkedServiceName | 指定將用來儲存 HDInsight 產生之記錄檔的儲存體帳戶
@@ -233,4 +233,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](./data-factory-get-started.md)。
   
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

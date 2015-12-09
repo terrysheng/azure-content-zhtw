@@ -244,7 +244,6 @@
 - 如需可用 API 的完整詳細資訊，請檢視佇列服務參考文件：
     - [Storage Client Library for .NET 參考資料](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [REST API 參考資料](http://msdn.microsoft.com/library/azure/dd179355)
-- 請參閱[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/library/azure/gg433040.aspx)，深入了解可使用 Azure 儲存體執行的更多進階工作。
 - 了解如何使用 [Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/)，來簡化您撰寫以使用 Azure 儲存體的程式碼。
 - 如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
     - 使用[資料表儲存體](storage-dotnet-how-to-use-tables.md)儲存結構化資料。 
@@ -255,7 +254,6 @@
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -263,4 +261,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

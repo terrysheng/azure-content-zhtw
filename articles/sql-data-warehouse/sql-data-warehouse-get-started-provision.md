@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure Preview 入口網站中建立 SQL 資料倉儲資料庫 | Microsoft Azure"
-	description="了解如何在 Azure Preview 入口網站中建立 Azure SQL 資料倉儲"
+	pageTitle="在 Azure 入口網站中建立 SQL 資料倉儲資料庫 | Microsoft Azure"
+	description="了解如何在 Azure 入口網站中建立 Azure SQL 資料倉儲"
 	services="sql-data-warehouse"
 	documentationCenter="NA"
 	authors="barbkess"
@@ -19,11 +19,11 @@
 # 建立 SQL 資料倉儲
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-本教學課程示範如何使用 Azure Preview 入口網站，在短短幾分鐘內建立 Azure SQL 資料倉儲資料庫。
+本教學課程示範如何使用 Azure 入口網站，在短短幾分鐘內建立 Azure SQL 資料倉儲資料庫。
 
 在本教學課程中，您將：
 
@@ -34,7 +34,7 @@
 
 ## 步驟 1︰登入並開始使用
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 按一下 [新增] > [資料 + 儲存體] > [SQL 資料倉儲]。
 
@@ -49,12 +49,7 @@
 
 在 SQL Database 和 SQL 資料倉儲中，每個資料庫都會指派給一部伺服器，而每部伺服器會指派給一個地理位置。此伺服器稱為邏輯 SQL Server。
 
-> [AZURE.NOTE]<a name="note"></a>邏輯 SQL Server︰
-  >
-  > + 提供一致的方式在相同的地理位置設定多個資料庫。
-  > + 不是內部部署伺服器的實體硬體。它是服務軟體的一部分。這就是為什麼我們將它稱為邏輯伺服器。
-  > + 可以裝載多個資料庫，而不會影響其效能。
-  > + 在其名稱中使用小寫 *s*。SQL **s**erver 是 Azure 邏輯伺服器，而 SQL **S**erver 則是 Microsoft 的內部部署資料庫產品。
+> [AZURE.NOTE]<a name="note"></a>邏輯 SQL Server︰ > > + 提供一致的方式在相同的地理位置設定多個資料庫。> + 不是內部部署伺服器的實體硬體。它是服務軟體的一部分。這就是為什麼我們將它稱為邏輯伺服器。 > + 可以裝載多個資料庫，而不會影響其效能。 > + 在其名稱中使用小寫 *s*。SQL **s**erver 是 Azure 邏輯伺服器，而 SQL **S**erver 則是 Microsoft 的內部部署資料庫產品。
 
 1. 按一下 [伺服器] > [建立新伺服器]。伺服器不會收取費用。如果您已經有想要使用的 V12 邏輯 SQL 伺服器，請選擇現有的伺服器，然後移至下一個步驟。 
 
@@ -99,7 +94,7 @@
 
 1. 按一下 [建立] 來建立您的 SQL 資料倉儲資料庫。
 
-1. 等候幾分鐘的時間，您的資料庫就會準備就緒。完成之後，您應該會回到 [Azure Preview 入口網站](https://portal.azure.com)。請注意，您的 SQL 資料倉儲資料庫已加入儀表板。
+1. 等候幾分鐘的時間，您的資料庫就會準備就緒。完成之後，您應該會回到 [Azure 入口網站](https://portal.azure.com)。請注意，您的 SQL 資料倉儲資料庫已加入儀表板。
 
     ![入口網站檢視](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -130,4 +125,4 @@
 
 既然您已建立 SQL 資料倉儲的範例資料庫，表示已準備好[連接](./sql-data-warehouse-get-started-connect.md)到您的資料庫。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

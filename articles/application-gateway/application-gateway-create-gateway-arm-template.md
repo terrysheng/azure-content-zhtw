@@ -237,7 +237,7 @@
 
 
 ### 步驟 1 
-使用[按一下即部署應用程式閘道](https://azure.microsoft.com/zh-TW/documentation/templates/101-application-gateway-public-ip/)連結，會將您重新導向至應用程式閘道的入口網站範本頁面。
+使用「[按一下來部署應用程式閘道](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/)」連結，會將您重新導向至應用程式閘道的入口網站範本頁面。
 
 
 ### 步驟 2 
@@ -273,4 +273,4 @@
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -36,7 +36,7 @@ AAD 角色控制在預先設定的方案中佈建預先設定的方案以及管�
 
 您可於[在 Azure AD 中指派管理員角色][lnk-aad-admin]中找到有關 AAD 中管理員角色的詳細資訊，但本文主要著重於預先設定的方案所使用的 [全域管理員] 和 [網域使用者/成員] 角色。
 
-**全域管理員：**每一個 AAD 租用戶可以有許多全域管理員。當您建立 AAD 租用戶時，您會預設為該租用戶的全域管理員。全域管理員可以佈建預先設定的方案，並獲得其 AAD 租用戶的應用程式內部的 [管理員] 角色。不過，如果相同的 AAD 租用戶中有其他使用者建立應用程式，則全域管理員的預設角色會是 [隱含唯讀]。全域管理員可以使用 [Azure 管理入口網站][lnk-classic-portal]來指派應用程式的角色。
+**全域管理員：**每一個 AAD 租用戶可以有許多全域管理員。當您建立 AAD 租用戶時，您會預設為該租用戶的全域管理員。全域管理員可以佈建預先設定的方案，並獲得其 AAD 租用戶的應用程式內部的 [管理員] 角色。不過，如果相同的 AAD 租用戶中有其他使用者建立應用程式，則全域管理員的預設角色會是 [隱含唯讀]。全域管理員可以使用 [Azure 傳統入口網站][lnk-classic-portal]來指派應用程式的角色。
 
 **網域使用者/成員：**每一個 AAD 租用戶可以有許多網域使用者/成員。網域使用者可以透過 [azureiotsuite.com][lnk-azureiotsuite] 網站佈建預先設定的方案。他們針對其佈建的應用程式所獲得的預設角色為 [管理員]。他們可以使用 [azure-iot-solution][lnk-github-repo] 儲存機制中的 build.cmd 指令碼建立應用程式，但他們所獲得的預設角色為 [隱含唯讀]，因為他們沒有指派角色的權限。如果 AAD 租用戶中有其他使用者建立應用程式，他們預設會獲得該應用程式的 [隱含唯讀] 角色。他們無法指派應用程式的角色；因此無法新增應用程式 (即使是由他們所佈建) 的使用者或使用者角色。
 
@@ -69,7 +69,7 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AD 租用戶的能
 
 您必須是 AAD 全域管理員才能變更使用者的角色：
 
-1. 移至 [Azure 管理入口網站][lnk-classic-portal]
+1. 前往 [Azure 傳統入口網站][lnk-classic-portal]。
 
 2. 選取 [**Active Directory**]
 
@@ -91,7 +91,7 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AD 租用戶的能
 
 ### 我是服務管理員，我想要變更我的訂用帳戶與特定 AAD 租用戶之間的目錄對應。我要怎麼做？
 
-1. 移至 [Azure 管理入口網站][lnk-classic-portal]，按一下左側服務清單中的 [設定]。
+1. 前往 [Azure 傳統入口網站][lnk-classic-portal]，然後按一下左側服務清單中的 [設定]。
 
 2. 選取您要變更目錄對應的訂用帳戶。
 
@@ -145,4 +145,4 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AD 租用戶的能
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

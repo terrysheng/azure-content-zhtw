@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="11/29/2015"
    	ms.author="nitinme"/>
 
 # Hadoop 教學課程：在 Linux 上開始在 HDInsight 中搭配使用 Hadoop 與 Hive
@@ -23,7 +23,7 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-本文件為您示範如何建立以 Linux 為基礎的 Hadoop 叢集、使用安全殼層 (SSH) 連線到叢集，然後對叢集隨附的範例資料執行 Hive 查詢，在 Linux 上快速地開始使用 Azure HDInsight。
+本文件為您示範如何建立以 Linux 為基礎的 Hadoop 叢集、使用安全殼層 (SSH) 連線到叢集，然後對叢集隨附的範例資料執行 Hive 查詢，以便在 Linux 上快速地開始使用 Azure HDInsight。
 
 > [AZURE.NOTE]如果您是 Hadoop 和巨量資料的新使用者，您可以進一步了解這些術語：[Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084)、[MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086)、[Hadoop 分散式檔案系統 (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) 及 [Hive](http://go.microsoft.com/fwlink/?LinkId=510085)。若要了解 HDInsight 如何在 Azure 中啟用 Hadoop，請參閱 [HDInsight 中 Hadoop 的簡介](hdinsight-hadoop-introduction.md)。
 
@@ -51,10 +51,10 @@
 
 請使用下列步驟建立新的叢集：
 
-1. 登入 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
 2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
 
-    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
+    ![在 Azure 入口網站中建立新的叢集](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "在 Azure 入口網站中建立新的叢集")
 
 3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Ubuntu]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
@@ -172,7 +172,7 @@
 	- **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
 	- **SELECT** - 選擇其資料欄 t4 包含值 [ERROR] 的所有資料列計數。
 
-	>[AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。捨棄外部資料表並 *不* 會刪除資料，只會刪除資料表定義。
+	>[AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。捨棄外部資料表並*不*會刪除資料，只會刪除資料表定義。
 
 	這會傳回下列輸出：
 
@@ -228,9 +228,9 @@
 
 	傳回的資料應該會全都對應至 [ERROR] 記錄檔。
 
-## <a name="nextsteps"></a>後續步驟
+## <a name="nextsteps"></a>接續步驟
 
-在本文件中，您已經學會如何使用 Azure Preview 入口網站、使用 SSH 連線到叢集，以及如何執行基本的 Hive 查詢，建立以 Linux 為基礎的 HDInsight 叢集。
+在本文件中，您已經學會如何使用 Azure 入口網站建立以 Linux 為基礎的 HDInsight 叢集、如何使用 SSH 連線到叢集，以及如何執行基本的 Hive 查詢，。
 
 若要深入了解如何使用 HDInsight 分析資料，請參閱下列主題：
 
@@ -283,4 +283,4 @@
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

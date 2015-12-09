@@ -23,13 +23,13 @@
 
 Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案共用。檔案儲存體現已公開推出，並同時支援 SMB 2.1 和 SMB 3.0。
 
-您可以使用 Azure Preview 入口網站、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。此外，由於檔案共用為 SMB 共用，因此您可以透過熟悉的標準檔案系統 API 存取它們。
+您可以使用 [Azure 入口網站](portal.azure.com)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。此外，由於檔案共用為 SMB 共用，因此您可以透過熟悉的標準檔案系統 API 存取它們。
 
 在 Azure 中執行的應用程式可以從 Azure 虛擬機器輕鬆地掛接檔案共用。而有了最新版本的檔案儲存體，您也可以從支援 SMB 3.0 的內部部署應用程式掛接檔案共用。
 
 檔案儲存體是使用與 Blob、資料表和佇列儲存體相同的技術建置，因此檔案儲存體能夠運用現有的可用性、持續性、延展性和建置於 Azure 儲存體平台內的異地備援。
 
-如需搭配 Linux 使用檔案儲存體的詳細資訊，請參閱[如何搭配使用 Azure 檔案儲存體與 Linux](storage-how-to-use-files-linux.md)。
+如需搭配 Linux 使用檔案儲存體的詳細資訊，請參閱[如何搭配 Linux 使用 Azure 檔案儲存體](storage-how-to-use-files-linux.md)。
 
 如需檔案儲存體延展性目標的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts)。
 
@@ -58,14 +58,14 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
 
 所有儲存體帳戶現在可支援檔案儲存體，因此您可以使用現有的儲存體帳戶，也可以建立新的儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立、管理或刪除儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)。
 
-## 使用 Azure Preview 入口網站來管理檔案共用
+## 使用 Azure 入口網站來管理檔案共用
 
-[Azure Preview 入口網站](https://ms.portal.azure.com/)提供使用者介面，讓客戶管理檔案儲存體。從預覽入口網站，您可以：
+[Azure 入口網站](portal.azure.com)提供使用者介面，讓客戶管理檔案儲存體。從預覽入口網站，您可以：
 
 - 上傳檔案至檔案共用和從檔案共用下載檔案
 - 監視每個檔案共用的實際使用狀況
 - 調整共用大小配額
-- 取得用來從檔案共用掛接 Windows 用戶端的 `net use` 命令 
+- 取得用來從 Windows 用戶端掛接檔案共用的 `net use` 命令 
 
 ## 使用 PowerShell 管理檔案共用
 
@@ -81,7 +81,7 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
 
 ### 建立儲存體帳戶和金鑰的內容
 
-現在，請建立儲存體帳戶內容。內容包含儲存體帳戶名稱和帳戶金鑰。如需從 Azure 入口網站複製帳戶金鑰的指示，請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+現在，請建立儲存體帳戶內容。內容包含儲存體帳戶名稱和帳戶金鑰。如需從 [Azure 入口網站](portal.azure.com)複製帳戶金鑰的指示，請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 
 使用下列範例中的儲存體帳戶名稱和金鑰來取代 `storage-account-name` 和 `storage-account-key`。
 
@@ -138,7 +138,7 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
 - 在不同區域的 Azure 虛擬機器 (僅限 SMB 3.0)
 - 內部部署用戶端應用程式 (僅限 SMB 3.0) 
 
-當用戶端存取檔案儲存體，使用的 SMB 版本取決於作業系統所支援的 SMB 版本。下表提供 Windows 用戶端支援的摘要。如需詳細資訊，請參閱< Which version of the SMB protocol blog post>。
+當用戶端存取檔案儲存體，使用的 SMB 版本取決於作業系統所支援的 SMB 版本。下表提供 Windows 用戶端支援的摘要。如需詳細資訊，請參閱 << Which version of the SMB protocol blog post>>。
 
 | Windows 用戶端 | SMB 版本支援 |
 |------------------------|----------------------|
@@ -237,7 +237,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 您可以使用 `Microsoft.WindowsAzure.CloudConfigurationManager` 類別或 `System.Configuration.ConfigurationManager ` 類別，從 app.config 檔案中擷取所儲存的認證。Microsoft Azure Configuration Manager 套件包含 `Microsoft.WindowsAzure.CloudConfigurationManager` 類別，並且可在 [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 上使用。
 
-此處的範例說明如何使用 `CloudConfigurationManager` 類別來擷取認證，並將他們包含在 `CloudStorageAccount` 類別中。在 program.cs 的 `Main()` 方法中新增下列程式碼。
+此處的範例說明如何使用 `CloudConfigurationManager` 類別來擷取認證，並將他們包含在 `CloudStorageAccount` 類別中。在 program.cs 的 `Main()` 方法中加入下列程式碼。
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
@@ -469,7 +469,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料，您可以追蹤要求及診斷問題。
 
-您可以從 Azure 入口網站為檔案儲存體啟用度量。您也可以透過 REST API 或儲存體用戶端程式庫中的其中一個同類工具來呼叫設定檔案服務屬性作業，以程式設計方式啟用度量。
+您可以從 [Azure 入口網站](portal.azure.com)啟用檔案儲存體的度量。您也可以透過 REST API 或儲存體用戶端程式庫中的其中一個同類工具來呼叫設定檔案服務屬性作業，以程式設計方式啟用度量。
 
 ## 檔案儲存體常見問題集
 
@@ -481,7 +481,7 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 2. **Azure 檔案共用可公開在網際網路顯示，或只可從 Azure 取得？**
  
-	只要已開啟連接埠 445 (TCP 輸出) 並且您的用戶端支援 SMB 3.0 通訊協定 (*例如*：Windows 8 或 Windows Server 2012)，即可透過網際網路使用檔案共用。
+	只要已開啟連接埠 445 (TCP 輸出) 且您的用戶端支援 SMB 3.0 通訊協定 (例如：Windows 8 或 Windows Server 2012)，即可透過網際網路使用檔案共用。
 
 3. **Azure 虛擬機器和檔案共用之間的網路流量，會計算為向訂用帳戶收費的外部頻寬嗎？**
 
@@ -519,7 +519,7 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 	如果是透過 SMB 掛接檔案共用，則您對權限沒有此層級的控制。不過，您可以透過 REST API 或用戶端程式庫來建立共用存取簽章 (SAS)，以達到此目的。
 
-12. **嘗試解壓縮檔案到檔案儲存體時，我的效能很緩慢。我該怎麼辦？**
+12. **嘗試將檔案解壓縮到檔案儲存體時，執行速度很緩慢。我該怎麼辦？**
 
 	若要將大量檔案傳輸到檔案儲存體，我們建議您使用 AzCopy、Azure Powershell (Windows) 或 Azure CLI (Linux/Unix)，因為這些工具已針對網路傳輸最佳化。
 
@@ -550,4 +550,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

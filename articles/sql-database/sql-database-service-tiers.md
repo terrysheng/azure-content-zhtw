@@ -34,7 +34,7 @@
 >[AZURE.NOTE]Web 和商務版本正逐漸遭到淘汰。了解如何[升級 Web 和商務版本](sql-database-upgrade-new-service-tiers.md)。如果您打算繼續使用 Web 和商務版本，請閱讀[終止常見問題集](http://azure.microsoft.com/pricing/details/sql-database/web-business/)。
 
 ### 單一資料庫服務層和效能等級
-單一資料庫的每個服務層內有多個效能層級，您可以彈性選擇最符合您工作負載需求的層級。如果您需要相應增加或相應減少，可以很輕鬆地在 Azure 入口網站中變更資料庫層，您的應用程式完全不需要停機。如需詳細資訊，請參閱[變更資料庫服務層和效能層級](sql-database-scale-up.md)。
+單一資料庫的每個服務層內有多個效能層級，您可以彈性選擇最符合您工作負載需求的層級。如果您需要相應增加或相應減少，可以很輕鬆地在 Azure 傳統入口網站中變更資料庫層，您的應用程式完全不需要停機。如需詳細資訊，請參閱[變更資料庫服務層和效能層級](sql-database-scale-up.md)。
 
 此處所列的效能特性會套用至使用 [SQL Database V12](sql-database-v12-whats-new.md) 建立的資料庫。如果 Azure 中的基礎硬體裝載了多個 SQL Database，您的資料庫仍然一定會有一組資源，且個別資料庫的預期效能特性不會受到影響。
 
@@ -63,11 +63,11 @@
 ## 監視資料庫效能
 監視 SQL Database 的效能，必須從監視您選擇之資料庫效能層級相關的資源使用率開始。此相關資料以下列方式公開：
 
-1.	Microsoft Azure 管理入口網站。
+1.	Microsoft Azure 傳統入口網站。
 
 2.	使用者資料庫，以及包含使用者資料庫之伺服器主資料庫中的動態管理檢視。
 
-在 [Azure Preview 入口網站](https://portal.azure.com/)中，您可以透過選取資料庫，並按一下 [監視] 圖表，監視單一資料庫的使用率。如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。新增下列度量：
+在 [Azure 入口網站](https://portal.azure.com/)中，您可以透過選取資料庫，並按一下 [監視] 圖表，監視單一資料庫的使用率。如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。新增下列度量：
 
 - CPU 百分比
 - DTU 百分比
@@ -96,4 +96,4 @@
 如果您認識了 SQL Database 各個層，可以[免費試用](http://azure.microsoft.com/pricing/free-trial/)親身體驗，然後了解[如何建立您的第一個 SQL Database](sql-database-get-started.md)！
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

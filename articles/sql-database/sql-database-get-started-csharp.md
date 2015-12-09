@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="09/01/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # 試用 SQL Database：透過 SQL Database Library for .NET 使用 C&#x23; 建立 SQL Database 
@@ -22,7 +22,7 @@
 **單一資料庫**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -45,7 +45,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 若要完成這篇文章中的步驟，您需要下列項目︰
 
 - Azure 訂用帳戶。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
-- 如需免費的 Visual Studio，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
+- 。如需免費的 Visual Studio，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
 
 
 ## 安裝必要的程式庫
@@ -63,7 +63,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 [Azure 資源管理員 REST API](https://msdn.microsoft.com/library/azure/dn948464.aspx) 使用 Azure Active Directory 進行驗證。
 
-若要根據目前的使用者驗證您的用戶端應用程式，您必須先在與訂用帳戶 (已在其下建立 Azure 資源) 相關聯的 AAD 網域中註冊您的應用程式。如果您的 Azure 訂用帳戶是以 Microsoft 帳戶而不是工作或學校帳戶建立的，您便已經有預設 AAD 網域。您可以在 [Azure 入口網站](https://manage.windowsazure.com/)中完成應用程式註冊。
+若要根據目前的使用者驗證您的用戶端應用程式，您必須先在與訂用帳戶 (已在其下建立 Azure 資源) 相關聯的 AAD 網域中註冊您的應用程式。如果您的 Azure 訂用帳戶是以 Microsoft 帳戶而不是工作或學校帳戶建立的，您便已經有預設 AAD 網域。您可以在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中完成應用程式註冊。
 
 若要建立新的應用程式並且在正確的 Active Directory 中註冊，請執行下列動作：
 
@@ -93,7 +93,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
     ![新增 SQL C# 應用程式的重新導向 URL。][8]
 
-7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] \(您在程式碼中需要用戶端識別碼)。
+7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] (您在程式碼中需要用戶端識別碼)。
 
     ![取得 SQL C# 應用程式的用戶端識別碼。][9]
 
@@ -113,7 +113,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 您的程式碼需要網域名稱。可以輕易地識別正確的網域名稱的方式是：
 
-1. 移至 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 將滑鼠停留在右上角的名稱，並記下出現在快顯視窗的網域。
 
     ![識別網域名稱。][3]
@@ -436,4 +436,4 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

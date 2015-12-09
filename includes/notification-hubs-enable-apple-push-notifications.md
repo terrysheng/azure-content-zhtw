@@ -6,7 +6,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
 產生憑證簽署要求 (CSR) 檔案，這將由 Apple 用來產生簽署的推播憑證。
 
-1. 在您的 Mac 上，執行「鑰匙圈存取」工具。它可從 Launch Pad 上的 [**公用程式**] 資料夾或 [**其他**] 資料夾開啟。
+1. 在您的 Mac 上，執行「鑰匙圈存取」工具。它可從 Launch Pad 上的 [公用程式] 資料夾或 [其他] 資料夾開啟。
 
 2. 按一下 [Keychain Access]，並展開 [Certificate Assistant]，然後按一下 [Request a Certificate from a Certificate Authority...]。
 
@@ -135,4 +135,4 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="使用 Azure 入口網站建立具有站對站 VPN 連線的虛擬網路 | Microsoft Azure"
+   pageTitle="使用 Azure 傳統入口網站建立具有站對站 VPN 連線的虛擬網路 | Microsoft Azure"
    description="使用傳統部署模型，針對跨部署與混合式組態建立虛擬網路與站台對站台 VPN 連線。"
    services="vpn-gateway"
    documentationCenter=""
@@ -17,10 +17,10 @@
    ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
-# 使用 Azure 入口網站建立具有站對站 VPN 連線的虛擬網路
+# 使用 Azure 傳統入口網站建立具有站對站 VPN 連線的虛擬網路
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-site-to-site-create.md)
+- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 本文將逐步引導您建立虛擬網路以及內部部署網路的站對站 VPN 連線。本文適用於傳統部署模型。
@@ -43,7 +43,7 @@
 
 ## 建立虛擬網路
 
-1. 登入 **Azure 入口網站**。
+1. 登入 **Azure 傳統入口網站**。
 
 2. 按一下螢幕左下角的 [新增]。在導覽窗格中依序按一下 [網路服務] 和 [虛擬網路]。按一下 [**自訂建立**] 開始組態精靈。
 
@@ -84,13 +84,13 @@
 - **新增子網路**：包括起始 IP 和位址計數。不需要其他子網路，但是您可以為將擁有靜態 DIP 的 VM 建立個別的子網路。或者，您可以讓您的 VM 位於與其他角色執行個體不同的子網路中。
 - **新增閘道子網路**：按一下以新增閘道子網路。閘道器子網路僅用於虛擬網路閘道，而且為這個組態的必要項目。
 
-按一下頁面底部的核取記號，然後您的虛擬網路即會開始建立。完成時，您將在 Azure 入口網站的 [網路] 頁面上看到 [狀態] 下列出 [已建立]建立了 VNet 之後，您便可設定虛擬網路閘道。
+按一下頁面底部的核取記號，然後您的虛擬網路即會開始建立。完成時，您將在 Azure 傳統入口網站的 [網路] 頁面上看到 [狀態] 下列出 [已建立]。建立了 VNet 之後，您便可設定虛擬網路閘道。
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## 設定虛擬網路閘道
 
-接著，您將設定虛擬網路閘道器，以便建立安全的站對站 VPN 連線。請參閱[在 Azure 入口網站中設定虛擬網路閘道器](vpn-gateway-configure-vpn-gateway-mp.md)。
+接著，您將設定虛擬網路閘道器，以便建立安全的站對站 VPN 連線。請參閱[在 Azure 傳統入口網站中設定虛擬網路閘道](vpn-gateway-configure-vpn-gateway-mp.md)。
 
 ## 後續步驟
 
@@ -102,4 +102,4 @@
 
 如果您想要使用 Azure 資源管理員模式，設定在傳統虛擬網路與所建立的虛擬網路之間的連線，請參閱[將傳統 VNet 連線至 Azure 資源管理員 VNet](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

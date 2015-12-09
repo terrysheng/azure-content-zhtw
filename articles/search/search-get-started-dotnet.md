@@ -20,9 +20,9 @@
 
 了解如何在 Visual Studio 2013 或更高版本中建置自訂 .NET 搜尋應用程式，並使用 Azure 搜尋服務 (Microsoft Azure 上的雲端託管搜尋服務) 提供搜尋體驗。本教學課程使用 [Azure 搜尋服務 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 為此練習中所用的物件和作業建置類別，還使用了 Azure 搜尋服務 REST API。
 
-若要執行此範例，必須要有 Azure 搜尋服務，而您可以在 [Azure 入口網站](https://portal.azure.com)註冊該服務。
+若要執行此範例，必須要有 Azure 搜尋服務，而您可以在 [Azure 傳統入口網站](https://portal.azure.com)註冊該服務。
 
-> [AZURE.TIP]請到 [Azure 搜尋服務 .NET 範例](http://go.microsoft.com/fwlink/p/?LinkId=530196)下載本教學課程所需的原始程式碼。在[如何從 .NET 應用程式使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)了解如何設定連線並傳送要求。
+> [AZURE.TIP]請到 [Azure 搜尋服務 .NET 範例](http://go.microsoft.com/fwlink/p/?LinkId=530196)下載本教學課程所需的原始程式碼。在[如何從 .NET 應用程式使用 Azure 搜尋](search-howto-dotnet-sdk.md)了解如何設定連線並傳送要求。
 
 ## 關於資料
 
@@ -34,9 +34,9 @@
 
 ## 建立 Azure 搜尋服務
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 傳統入口網站](https://portal.azure.com)。
 
-2. 在動態工具列中，依序按一下 [新增] > [資料 + 儲存體] > [搜尋]。
+2. 在動態工具列中，按一下 [新增] > [資料 + 儲存體] > [搜尋]。
 
      ![][1]
 
@@ -794,4 +794,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -113,7 +113,7 @@
 
 接下來，您必須為這個新的連接字串新增應用程式設定，以便能夠從 Azure 使用。
 
-1. 回到 [Azure 入口網站]，在行動應用程式的 Web 應用程式後端程式碼中，按一下 [**所有設定**] > [**應用程式設定**]。
+1. 回到 [Azure 入口網站]，在行動應用程式的 Web 應用程式後端程式碼中，按一下 [所有設定] > [應用程式設定]。
 
 3. 在 [**Web 應用程式設定**] 刀鋒視窗中，向下捲動至 [**連接字串**]，然後以 `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>` 之類的值新增名稱為 `OnPremisesDBConnection` 的新 **SQL Server** 連接字串。
 
@@ -159,7 +159,7 @@
 
 <!-- Links -->
 [Azure 入口網站]: https://portal.azure.com/
-[Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
+[Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

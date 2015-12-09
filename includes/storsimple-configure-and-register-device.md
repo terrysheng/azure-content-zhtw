@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/17/15-->
+<!--author=alkohli last changed: 12/01/15-->
 
 
 #### 設定和註冊裝置
@@ -61,7 +61,7 @@
 
 13. 結束序列主控台。
 
-14. 返回管理入口網站，並完成下列步驟：
+14. 返回 Azure 傳統入口網站，並完成下列步驟：
   1. 按兩下 StorSimple Manager 服務以存取 [快速入門] 頁面。
   2. 按一下 [檢視連接的裝置]。
   3. 在 [裝置] 頁面上，藉由查閱狀態來確認裝置已成功連接到服務。裝置狀態應該是 [線上]。如果裝置狀態為 [離線]，請等待數分鐘，讓裝置上線。
@@ -76,4 +76,4 @@
 
 若要觀看影片示範如何使用 Windows PowerShell for StorSimple 設定和註冊裝置，請按一下[這裡](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

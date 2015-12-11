@@ -31,7 +31,8 @@
 暫時性錯誤是根本原因很快就自行解決的錯誤。當 Azure 系統快速地將硬體資源轉移到負載平衡更好的各種工作負載時，偶爾會發生暫時性錯誤。在此重新設定時間範圍期間，與 Azure SQL Database的連接可能會失去。
 
 
-如果用戶端程式使用 ADO.NET，系統會擲回 **SqlException**，告知您的程式發生暫時性錯誤。**數目**屬性可以與主題頂端附近的暫時性錯誤清單進行比較：[SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)。
+如果用戶端程式使用 ADO.NET，系統會擲回 **SqlException**，告知您的程式發生暫時性錯誤。**數目**屬性可以與主題頂端附近的暫時性錯誤清單進行比較：
+[SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)。
 
 
 ### 連接與命令
@@ -84,7 +85,7 @@
 
 我們建議您在您第一次重試前延遲 5 秒鐘。在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
 
-在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找使用 ADO.NET 之用戶端的封鎖期間討論。
+在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找使用 ADO.NET 之用戶端的 *封鎖期間* 討論。
 
 您也可能想要設定程式在自行終止之前的重試次數上限。
 
@@ -108,25 +109,40 @@
 ### 中斷與網路連接以進行測試
 
 
-您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。錯誤將是：- **SqlException.Number** = 11001 - 訊息：「沒有這類已知的主機」
+您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。錯誤將是：
+- **SqlException.Number** = 11001
+- 訊息：「沒有這類已知的主機」
 
 
 第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連接。
 
 
-若要使這個動作可行，請從網路拔除電腦，再啟動您的程式。然後，您的程式會辨識執行階段參數，其會導致程式：1.暫時將 11001 加入至其錯誤清單，視為暫時性。2.如往常般嘗試其第一個連接。3.在攔截到錯誤之後，請從清單中移除 11001。4.顯示一則訊息，告訴使用者將電腦插入網路中。- 使用 **Console.ReadLine** 方法或含 [確定] 按鈕的對話方塊，暫停進一步執行。將電腦插入網路中之後。使用者按下 Enter 鍵。5.重新嘗試連接，預期成功。
+若要使這個動作可行，請從網路拔除電腦，再啟動您的程式。然後，您的程式會辨識執行階段參數，其會導致程式：
+1. 暫時將 11001 加入至其錯誤清單，視為暫時性。
+2. 如往常般嘗試其第一個連接。
+3. 在攔截到錯誤之後，請從清單中移除 11001。
+4. 顯示一則訊息，告訴使用者將電腦插入網路中。
+ - 使用 **Console.ReadLine** 方法或含 [確定] 按鈕的對話方塊，暫停進一步執行。將電腦插入網路中之後。使用者按下 Enter 鍵。
+5. 重新嘗試連接，預期成功。
 
 
 ### 連接時拼錯資料庫名稱以進行測試
 
 
-在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。錯誤將為：- **SqlException.Number** = 18456 - 訊息：「使用者 'WRONG\_MyUserName' 登入失敗。」
+在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。錯誤將為：
+- **SqlException.Number** = 18456
+- 訊息：「使用者 'WRONG\_MyUserName' 登入失敗。」
 
 
 第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連接。
 
 
-若要使這個動作可行，您的程式會辨識執行階段參數，其會導致程式：1.暫時將 18456 加入至其錯誤清單，視為暫時性。2.故意將 'WRONG\_' 加入至使用者名稱。3.在攔截到錯誤之後，請從清單中移除 18456。4.從使用者名稱中移除 'WRONG\_'。5.重新嘗試連接，預期成功。
+若要使這個動作可行，您的程式會辨識執行階段參數，其會導致程式：
+1. 暫時將 18456 加入至其錯誤清單，視為暫時性。
+2. 故意將 'WRONG\_' 加入至使用者名稱。
+3. 在攔截到錯誤之後，請從清單中移除 18456。
+4. 從使用者名稱中移除 'WRONG\_'。
+5. 重新嘗試連接，預期成功。
 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
@@ -197,7 +213,8 @@
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-如需詳細資訊，請參閱：[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
+如需詳細資訊，請參閱：
+[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -223,7 +240,8 @@
 如果您的用戶端程式裝載在 Azure 虛擬機器 (VM) 上，您應該閱讀：<br/>[1433 以外供 ADO.NET 4.5 和 SQL Database V12 使用的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
-如需設定連接埠及 IP 位址的背景資訊，請參閱：[Azure SQL Database 防火牆](sql-database-firewall-configure.md)
+如需設定連接埠及 IP 位址的背景資訊，請參閱：
+[Azure SQL Database 防火牆](sql-database-firewall-configure.md)
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
@@ -234,13 +252,16 @@
 如果您的程式使用類似 **System.Data.SqlClient.SqlConnection** 的 ADO.NET 類別來連接到 Azure SQL Database，建議您使用.NET Framework 4.5 版或更新的版本。
 
 
-ADO.NET 4.5：- 新增 TDS 7.4 通訊協定的支援。這包括不在 4.0 內的連接增強功能。- 支援連接集區。這包括提供給您的程式的連接物件是否運作的有效驗證。
+ADO.NET 4.5：
+- 新增 TDS 7.4 通訊協定的支援。這包括不在 4.0 內的連接增強功能。
+- 支援連接集區。這包括提供給您的程式的連接物件是否運作的有效驗證。
 
 
 當您從連接集區使用連接物件時，建議您的程式若未立即使用連接，則暫時關閉它。重新開啟連接比建立新的連接更便宜。
 
 
-如果您是使用 ADO.NET 4.0 或更舊版本，建議您升級到最新的 ADO.NET。- 從 2015年 7 月開始，您可以[下載 ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)。
+如果您是使用 ADO.NET 4.0 或更舊版本，建議您升級到最新的 ADO.NET。
+- 從 2015年 7 月開始，您可以[下載 ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)。
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -251,7 +272,9 @@ ADO.NET 4.5：- 新增 TDS 7.4 通訊協定的支援。這包括不在 4.0 內�
 如果您的程式無法連接到 Azure SQL Database，有一個診斷選項將嘗試與公用程式連接。理想的情況下，此公用程式會使用您的程式使用的同一程式庫來連接。
 
 
-在任何 Windows 電腦上，您可以試用這些公用程式：- SQL Server Management Studio (ssms.exe)，其使用 ADO.NET 來連接。- sqlcmd.exe，其使用 [ODBC](http://msdn.microsoft.com/library/jj730308.aspx) 來連接。
+在任何 Windows 電腦上，您可以試用這些公用程式：
+- SQL Server Management Studio (ssms.exe)，其使用 ADO.NET 來連接。
+- sqlcmd.exe，其使用 [ODBC](http://msdn.microsoft.com/library/jj730308.aspx) 來連接。
 
 
 一旦完成連接，就會測試簡短的 SQL SELECT 查詢是否可以運作。
@@ -265,7 +288,10 @@ ADO.NET 4.5：- 新增 TDS 7.4 通訊協定的支援。這包括不在 4.0 內�
 假設您懷疑連接嘗試由於連接埠問題而失敗。在您的電腦上，您可以執行報告連接埠組態的公用程式。
 
 
-在 Linux 上，下列公用程式可能很有用：- `netstat -nap` - `nmap -sS -O 127.0.0.1` - (將範例值變更為您的 IP 位址)。
+在 Linux 上，下列公用程式可能很有用：
+- `netstat -nap`
+- `nmap -sS -O 127.0.0.1`
+ - (將範例值變更為您的 IP 位址)。
 
 
 在 Windows 上，[PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) 公用程式可能很有用。以下是在 Azure SQL Database 伺服器上查詢連接埠情況，以及在膝上型電腦上執行的的範例執行：
@@ -300,7 +326,8 @@ TCP port 1433 (ms-sql-s service): LISTENING
 您的用戶端可以記錄其遇到的所有錯誤來協助診斷。您可以使記錄項目與 Azure SQL Database 本身內部記錄的錯誤資料相互關聯。
 
 
-Enterprise Library 6 (EntLib60) 提供 .NET 管理的類別來協助記錄：- [5 - 輕而易舉：使用記錄應用程式區塊](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6 (EntLib60) 提供 .NET 管理的類別來協助記錄：
+- [5 - 輕而易舉：使用記錄應用程式區塊](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
@@ -367,13 +394,16 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 Azure SQL Database 服務。您可以找出 EntLib60 可以協助的每個區域專用主題，請先造訪：- [Enterprise Library 6 – 2013 年 4 月](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
+Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 Azure SQL Database 服務。您可以找出 EntLib60 可以協助的每個區域專用主題，請先造訪：
+- [Enterprise Library 6 – 2013 年 4 月](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
-處理暫時性錯誤的重試邏輯是 EntLib60 可以協助的一個區域：- [4 - 堅持不懈是一切成功的祕密：使用暫時性錯誤處理應用程式區塊](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+處理暫時性錯誤的重試邏輯是 EntLib60 可以協助的一個區域：
+- [4 - 堅持不懈是一切成功的祕密：使用暫時性錯誤處理應用程式區塊](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-在其重試邏輯中使用 EntLib60 的簡短 C# 程式碼範例位於：- [程式碼範例：來自 Enterprise Library 6 的重試邏輯，在 C# 中用於連接到 SQL Database](sql-database-develop-entlib-csharp-retry-windows.md)
+在其重試邏輯中使用 EntLib60 的簡短 C# 程式碼範例位於：
+- [程式碼範例：來自 Enterprise Library 6 的重試邏輯，在 C# 中用於連接到 SQL Database](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 > [AZURE.NOTE]EntLib60 的原始程式碼已可公開[下載](http://go.microsoft.com/fwlink/p/?LinkID=290898)。Microsoft 不打算對 EntLib 做進一步的功能或維護更新。
@@ -428,7 +458,8 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 - 記錄區塊可彙總來自記錄目的地的記錄功能，使應用程式程式碼能夠一致，而不必理會目標記錄存放區的的位置和類型。
 
 
-如需詳細資料，請參閱：[5 - 輕而易舉：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
+如需詳細資料，請參閱：
+[5 - 輕而易舉：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 
 ### EntLib60 IsTransient 方法的原始程式碼
@@ -514,4 +545,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* 是 Apache 2.0 授權的一般用途重試程式庫，以 **Python** 撰寫，可將加入重試行為的工作簡化為幾乎一切事物。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

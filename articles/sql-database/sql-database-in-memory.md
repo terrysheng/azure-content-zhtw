@@ -69,7 +69,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 公開上市 (GA)：
 
-- 磁碟上的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
+- *磁碟上* 的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
 
 
 預覽：
@@ -133,7 +133,8 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 
 結果為 **0** 表示不支援 In-Memory，而 1 表示提供支援。若要診斷此問題：
 
-- 確保資料庫建立於 In-Memory OLTP 功能可用於預覽版本之後。
+- 確保資料庫建立於 In-Memory OLTP 功能
+- 可用於預覽版本之後。
 - 確保資料庫位於「高階」服務層。
 
 
@@ -201,7 +202,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 本節顯示 ostress.exe 命令列中內嵌的 T-SQL 指令碼。此指令碼會使用您稍早安裝的 T-SQL 指令碼所建立的項目。
 
 
-下列指令碼會在下列記憶體最佳化資料表中插入有 5 個細項的範例銷售訂單：
+下列指令碼會在下列記憶體最佳化 *資料表* 中插入有 5 個細項的範例銷售訂單：
 
 - SalesLT.SalesOrderHeader\_inmem
 - SalesLT.SalesOrderDetail\_inmem
@@ -262,7 +263,7 @@ whereas for SQL 2016+
 ### 先執行 \_inmem 壓力工作負載
 
 
-您可以使用 RML 命令提示字元 視窗來執行 ostress.exe 命令列。命令列參數會將 ostress 導向至：
+您可以使用 *RML 命令提示字元* 視窗來執行 ostress.exe 命令列。命令列參數會將 ostress 導向至：
 
 - 同時執行 100 個連線 (-n100)。
 - 每個連線會執行 T-SQL 指令碼 50 次 (-r50)。
@@ -357,9 +358,9 @@ EXECUTE Demo.usp_DemoReset;
 #### 重要資料表和資料行存放區索引
 
 
-- dbo.FactResellerSalesXL\_CCI 是具有叢集式**資料行存放區**索引的資料表，已在「資料」層級進一步壓縮。
+- dbo.FactResellerSalesXL\_CCI 是具有叢集式**資料行存放區**索引的資料表，已在 *「資料」* 層級進一步壓縮。
 
-- dbo.FactResellerSalesXL\_PageCompressed 是具有對等一般叢集式索引的資料表，只會在「頁面」層級壓縮。
+- dbo.FactResellerSalesXL\_PageCompressed 是具有對等一般叢集式索引的資料表，只會在 *「頁面」* 層級壓縮。
 
 
 #### 用來比較資料行存放區索引的重要查詢
@@ -456,7 +457,7 @@ Azure SQL Database 中的 In-Memory OLTP 功能[於 2015 年 10 月 28 日進入
 
 在公開上市 (GA) 前的預覽階段期間，只對下列資料庫支援 In-Memory OLTP：
 
-- 在「進階」服務層的資料庫。
+- 在 *「進階」* 服務層的資料庫。
 
 - 在 In-Memory OLTP 功能生效後建立的資料庫。
  - 如果從 In-Memory OLTP 功能生效前建立的資料庫還原，則新的資料庫無法支援 In-memory OLTP。
@@ -527,4 +528,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - [監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md) (適用於 In-Memory OLTP)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

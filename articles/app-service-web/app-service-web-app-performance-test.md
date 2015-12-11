@@ -70,7 +70,9 @@
 
 	![完成的效能測試會顯示結果，包括失敗的要求][TestDone]
 	
-歡迎您提供的意見反應。如有疑問或問題，請與我們連絡︰<vsoloadtest@microsoft.com>
+歡迎您提供的意見反應。如有疑問或問題，請與我們連絡
+
+<vsoloadtest@microsoft.com>
 
 ##	問答集
 
@@ -112,4 +114,4 @@
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

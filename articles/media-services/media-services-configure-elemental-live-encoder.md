@@ -58,7 +58,8 @@
 
 	 請確定已選取 [立即啟動新通道]。
  
-3. 按一下 [建立通道]。![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
+3. 按一下 [建立通道]。  
+	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
 >[AZURE.NOTE]通道約需 20 分鐘的時間即可啟動。
 
@@ -127,9 +128,10 @@
 
 	如需額外的備援，請對次要輸入 URL 重複這些步驟，方法是為 UDP/TS 串流建立個別的「輸出」索引標籤。
 	
-7. 按一下 [建立] (如果已建立新事件) 或 [更新] (如果是編輯原有的事件)，然後繼續啟動編碼器。
+7. 按一下 \[建立] (如果已建立新事件) 或 \[更新] (如果是編輯原有的事件)，然後繼續啟動編碼器。
 
->[AZURE.IMPORTANT]在您在 Elemental Live Web 介面上按一下 [開始] 之前，您**必須**確保通道已就緒。此外，請確保不要讓通道處於就緒狀態而無任何事件超過 15 分鐘。
+>[AZURE.IMPORTANT]在您在 Elemental Live Web 介面上按一下 [開始] 之前，您**必須**確保通道已就緒。
+>此外，請確保不要讓通道處於就緒狀態而無任何事件超過 15 分鐘。
 
 在串流已經執行了 30 秒後，導覽回 AMSE 工具和測試播放。
 
@@ -156,7 +158,7 @@
 	注意：建立程式時所使用的時間會比建立通道時更少。
  
 5. 一旦程式執行，請在程式上按一下滑鼠右鍵並瀏覽至 [播放程式]，然後選取 [使用 Azure 媒體播放器] 確認播放。
-6. 一經確認，再次以滑鼠右鍵按一下該程式並選取 [複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
+6. 一經確認，再次以滑鼠右鍵按一下該程式並選取 \[複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
 
 串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。
 
@@ -173,4 +175,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

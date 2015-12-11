@@ -106,4 +106,4 @@ Azure 搜尋服務所執行的所有資料相關作業，都會從索引取用�
 <!--Image References-->
 [1]: ./media/search-what-is-an-index/search-JSON-indexSchema.png
 
-<!-----HONumber=AcomDC_1125_2015-->
+<!------HONumber=AcomDC_1125_2015-->

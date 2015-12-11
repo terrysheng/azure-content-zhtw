@@ -74,7 +74,7 @@
 了解以上事項之後，請繼續進行。
 
  1. 在您的 Mac 或 Windows 電腦上，於瀏覽器視窗中開啟 [Azure 入口網站]。
- 2. 在行動應用程式的設定刀鋒視窗上，按一下 [開始使用] (在 [行動] 之下) > [Xamarin.Forms]。在步驟 3 中，按一下 [建立新的應用程式] (如果尚未選取的話)。接著按一下 [下載] 按鈕。
+ 2. 在行動應用程式的設定刀鋒視窗上，按一下 [開始使用] (在 [行動] 之下) > [Xamarin.Forms]。在步驟 3 中，按一下 \[建立新的應用程式] (如果尚未選取的話)。接著按一下 [下載] 按鈕。
 
     這會下載包含連線到您行動應用程式之用戶端應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
@@ -105,7 +105,8 @@
 
 如此會傳送 POST 要求到 Azure 中代管的新行動應用程式後端。要求中的資料會插入 TodoItem 資料表中。行動應用程式後端會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 
-> [AZURE.NOTE]您將會看到在您方案的可攜式類別庫專案的 TodoItemManager.cs C# 檔案中，存取行動應用程式後端的程式碼。
+> [AZURE.NOTE]
+> 您將會看到在您方案的可攜式類別庫專案的 TodoItemManager.cs C# 檔案中，存取行動應用程式後端的程式碼。
 
 ##(選擇性) 執行 Android 專案
 
@@ -128,7 +129,8 @@
 
 如此會傳送 POST 要求到 Azure 中代管的新行動應用程式後端。要求中的資料會插入 TodoItem 資料表中。行動應用程式後端會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 
-> [AZURE.NOTE]您將會看到在您方案的可攜式類別庫專案的 TodoItemManager.cs C# 檔案中，存取行動應用程式後端的程式碼。
+> [AZURE.NOTE]
+> 您將會看到在您方案的可攜式類別庫專案的 TodoItemManager.cs C# 檔案中，存取行動應用程式後端的程式碼。
 
 
 ##(選擇性) 執行 Windows 專案
@@ -149,7 +151,8 @@
 
 ![][12]
 	
-> [AZURE.NOTE]您將會看到在您方案的可攜式類別庫專案的 TodoItemManager.cs C# 檔案中，存取行動應用程式後端的程式碼。
+> [AZURE.NOTE]
+> 您將會看到在您方案的可攜式類別庫專案的 TodoItemManager.cs C# 檔案中，存取行動應用程式後端的程式碼。
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
@@ -179,4 +182,4 @@
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1203_2015--->

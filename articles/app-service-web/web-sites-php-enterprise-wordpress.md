@@ -128,7 +128,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 3. 在 Web Apps 上登入 WordPress 網站，然後依序按一下 [外掛程式] -> [新增]。搜尋與安裝 [WordPress Importer] 外掛程式。
 
-4. 在安裝匯入工具外掛程式後，依序按一下 [工具] -> [匯入]，然後選取 [WordPress] 以使用 WordPress 匯入工具外掛程式。
+4. 在安裝匯入工具外掛程式後，依序按一下 [工具] -> [匯入]，然後選取 \[WordPress] 以使用 WordPress 匯入工具外掛程式。
 
 5. 在 [Import WordPress] 頁面上，按一下 [選擇檔案]。瀏覽至從現有 WordPress 網站匯出的 WXR 檔案，然後選擇 [Upload file and import]。
 
@@ -161,7 +161,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 4. 在 Azure 入口網站中建立新的 Web 應用程式，並發佈 WordPress 備份。
 
-	1. 在 [Azure Preview 入口網站][mgmtportal]中建立包含資料庫的新 Web 應用程式，方法是使用 [新增] -> [Web + Mobile] -> [Azure Marketplace] -> [Web 應用程式] -> [Web 應用程式 + SQL] (或 [Web 應用程式 + MySQL]) -> [建立]。設定所有必要的設定，來建立空的 Web 應用程式。
+	1. 在 [Azure Preview 入口網站][mgmtportal]中建立包含資料庫的新 Web 應用程式，方法是使用 [新增] -> [Web + Mobile] -> [Azure Marketplace] -> [Web 應用程式] -> \[Web 應用程式 + SQL] (或 [Web 應用程式 + MySQL]) -> [建立]。設定所有必要的設定，來建立空的 Web 應用程式。
 
 	2. 在您的 WordPress 備份中，尋找 **wp-config.php** 檔案，並在編輯器中開啟該檔案。使用新 MySQL 資料庫的資訊來取代下列項目。
 
@@ -283,4 +283,4 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

@@ -54,4 +54,4 @@
 
 - 附加磁碟來儲存資料。您可以附加空的磁碟和含有資料的磁碟。如需指示，請參閱[連接資料磁碟教學課程](storage-windows-attach-disk.md)。
 
-<!-----HONumber=Nov15_HO3-->
+<!------HONumber=Nov15_HO3-->

@@ -89,7 +89,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
-請注意，*網路連接*時間通常低於您所預期的時間，因為它是從瀏覽器到伺服器之所有要求的平均值。許多個別要求的連接時間為 0，因為已經有與伺服器的作用中連線。
+請注意， *網路連接* 時間通常低於您所預期的時間，因為它是從瀏覽器到伺服器之所有要求的平均值。許多個別要求的連接時間為 0，因為已經有與伺服器的作用中連線。
 
 
 ### 依據頁面的效能
@@ -187,4 +187,4 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 * [自訂事件和計量](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

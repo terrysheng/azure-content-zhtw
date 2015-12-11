@@ -36,7 +36,7 @@ ms.service="virtual-machines"
 
 * **Azure CLI 指令碼** - 如同本文中其他部分的步驟所示，請使用適用於 Mac、Linux 和 Windows 的 [Azure 命令列介面](../xplat-cli-install.md) (CLI)，建置虛擬網路部署的指令碼和其他必要元件以建立 Linux 叢集。傳統 (服務管理) 部署模式中的 CLI 將循序建立叢集節點，因此如果您正在部署許多運算節點，則可能需要花費幾分鐘才能完成部署。
 
-* **Azure 資源管理員範本** - 藉由建立簡單的「Azure 資源管理員」JSON 範本檔案並執行「資源管理員」的 Azure CLI 命令，或藉由使用 Azure Preview 入口網站，可部署多個 A8 和 A9 Linux VM，以及定義虛擬網路、靜態 IP 位址、DNS 設定和其他資源，以建立可利用 RDMA 網路來執行 MPI 工作負載的運算叢集。您可以[建立自己的範本](../resource-group-authoring-templates.md)，或檢查 [Azure 快速入門範本][](https://azure.microsoft.com/documentation/templates/) 頁面，取得由 Microsoft 或社群貢獻的範本以部署想要的方案。資源管理員範本通常會提供最快速且最可靠的方式來部署 Linux 叢集。
+* **Azure 資源管理員範本** - 藉由建立簡單的「Azure 資源管理員」JSON 範本檔案並執行「資源管理員」的 Azure CLI 命令，或藉由使用 Azure Preview 入口網站，可部署多個 A8 和 A9 Linux VM，以及定義虛擬網路、靜態 IP 位址、DNS 設定和其他資源，以建立可利用 RDMA 網路來執行 MPI 工作負載的運算叢集。您可以[建立自己的範本](../resource-group-authoring-templates.md)，或檢查 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/) 頁面，取得由 Microsoft 或社群貢獻的範本以部署想要的方案。資源管理員範本通常會提供最快速且最可靠的方式來部署 Linux 叢集。
 
 ## Azure 服務管理中使用 Azure CLI 指令碼的部署
 
@@ -370,4 +370,4 @@ cluster12
 
 * 如需 Intel MPI 的指引，請參閱 [Intel MPI Library 文件](https://software.intel.com/zh-TW/articles/intel-mpi-library-documentation/)。
 
-<!----HONumber=Nov15_HO3-->
+<!-----HONumber=Nov15_HO3-->

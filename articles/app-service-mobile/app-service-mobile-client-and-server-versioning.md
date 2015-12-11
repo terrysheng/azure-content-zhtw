@@ -56,7 +56,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | [行動服務用戶端] | 確定 | 錯誤* |
 | [Mobile Apps 用戶端] | 錯誤* | 確定 |
 
-* 這可以藉由指定 **MS\_SkipVersionCheck** 控制。
+\* 這可以藉由指定 **MS\_SkipVersionCheck** 控制。
 
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
@@ -82,7 +82,8 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 | 伺服器平台 | 版本 | 接受的版本標頭 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* 版本 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **** 沒有版本標頭 ** | |Node.js | (即將推出) | **沒有版本標頭** |
+| .NET | [WindowsAzure.MobileServices.Backend.* 版本 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **沒有版本標頭** |
+|Node.js | (即將推出) | **沒有版本標頭** |
 
 <!-- TODO: add Node npm version -->
 
@@ -141,4 +142,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [將行動服務移轉至 Azure App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

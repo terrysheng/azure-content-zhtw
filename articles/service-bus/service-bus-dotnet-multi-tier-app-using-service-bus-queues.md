@@ -269,7 +269,7 @@
 
 2.  將類別命名為 QueueConnector.cs。按一下 [加入] 以建立類別。
 
-3.  現在，加入可封裝連線資訊、並初始化與服務匯流排佇列連線的程式碼。在 QueueConnector.cs 中，加入下列程式碼，並在 [命名空間] (您的服務命名空間) 和 [yourKey] (也就是您稍早從 [Azure 傳統入口網站][]中取得的 SAS 金鑰) 中輸入值。
+3.  現在，加入可封裝連線資訊、並初始化與服務匯流排佇列連線的程式碼。在 QueueConnector.cs 中，加入下列程式碼，並在 [命名空間] \(您的服務命名空間) 和 [yourKey] \(也就是您稍早從 [Azure 傳統入口網站]\(http://manage.windowsazure.com) 中取得的 SAS 金鑰) 中輸入值。
 
         using System;
         using System.Collections.Generic;

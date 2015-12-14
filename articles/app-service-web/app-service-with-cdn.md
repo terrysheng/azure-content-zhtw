@@ -38,7 +38,9 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 -	使用中的 [Microsoft Azure 帳戶](http://azure.microsoft.com/account/)
 -	Visual Studio 2013 (含 [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))
 
-> [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請 Azure 帳戶](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web App。+ 您可以[啟用 Visual Studio 訂用帳戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 Visual Studio 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
+> [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：
+> + 您可以[免費申請 Azure 帳戶](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web App。
+> + 您可以[啟用 Visual Studio 訂用帳戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 Visual Studio 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
 
 ## 部署具有整合式 CDN 端點的 Azure Web 應用程式 ##
 
@@ -92,7 +94,7 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 
 	![](media/app-service-with-cdn/11-access-success.png)
 
-1. 接下來，試著存取 ASP.NET 專案中的 **~/Content/bootstrap.css** 檔案。在瀏覽器視窗中，瀏覽至 **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**。在我的設定中，此 URL 為：
+1. 接下來，試著存取 ASP.NET 專案中的 **\~/Content/bootstrap.css** 檔案。在瀏覽器視窗中，瀏覽至 **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**。在我的設定中，此 URL 為：
 
 		http://az673227.vo.msecnd.net/Content/bootstrap.css
 
@@ -131,7 +133,7 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
       ...
     </system.webServer>
 
-這樣做時，Azure Web 應用程式中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\\Content* 資料夾，並將內容改成下列 XML：
+這樣做時，Azure Web 應用程式中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\Content* 資料夾，並將內容改成下列 XML：
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -142,7 +144,7 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 	  </system.webServer>
 	</configuration>
 
-此設定會將 *\\Content* 資料夾中的所有靜態檔案快取 15 天。
+此設定會將 *\Content* 資料夾中的所有靜態檔案快取 15 天。
 
 如需有關如何設定 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)。
 
@@ -267,7 +269,7 @@ Azure App Service 可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/
 
 	![](media/app-service-with-cdn/cdn-7-configureview.PNG)
 
-4. 開啟新的 *Views\\MemeGenerator\\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
+4. 開啟新的 *Views\MemeGenerator\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
 
 		<h2>Meme Generator</h2>
 		

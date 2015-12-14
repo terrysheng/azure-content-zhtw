@@ -228,7 +228,7 @@ Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫
  
 若要確認 Azure AD 系統管理員已正確設定，請使用 Azure AD 系統管理員帳戶連線到「主要」資料庫。若要佈建以 Azure AD 為基礎的自主資料庫使用者 (而非擁有資料庫的伺服器系統管理員)，請連接到具有資料庫存取權之 Azure AD 身分識別的資料庫。
 
-> [AZURE.IMPORTANT][SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 支援 Azure Active Directory 驗證。
+> [AZURE.IMPORTANT] [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 支援 Azure Active Directory 驗證。
 
 #### 使用 Active Directory 整合式驗證進行連接 
 
@@ -327,4 +327,4 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

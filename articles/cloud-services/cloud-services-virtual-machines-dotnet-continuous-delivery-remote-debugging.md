@@ -41,7 +41,7 @@
 4. 如[如何安裝及設定 Azure PowerShell](powershell-install-configure.md) 中所述安裝 Azure Powershell (0.7.4 版或更新版本)
 5. 執行下列指令碼來啟用 RemoteDebug 延伸模組。將路徑和個人資料替換成您自己的路徑和個人資料，例如您的訂用帳戶、服務名稱和指紋。
 
-	>[AZURE.NOTE]此指令碼是針對 Visual Studio 2015 所設計。如果您是使用 Visual Studio 2013，請使用「RemoteDebugVS2013」設定 ReferenceName 和 ExtensionName。
+	>[AZURE.NOTE] 此指令碼是針對 Visual Studio 2015 所設計。如果您是使用 Visual Studio 2013，請使用「RemoteDebugVS2013」設定 ReferenceName 和 ExtensionName。
 
 	<pre>
 Add-AzureAccount

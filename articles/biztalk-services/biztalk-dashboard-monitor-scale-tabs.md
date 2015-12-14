@@ -28,20 +28,23 @@
 這樣會開啟新視窗並顯示下列索引標籤。本主題說明這些索引標籤。
 
 ## 快速入門 (![快速啟動][QuickStart])
-部分 BizTalk 服務版本可能並未提供下列所有選項。<table border="1"> <tr> <td><strong>取得工具</strong></td>
+部分 BizTalk 服務版本可能並未提供下列所有選項。
+<table border="1">
+    <tr>
+        <td><strong>取得工具</strong></td>
 
-        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        <td>下載 BizTalk 服務 SDK，將 Visual Studio 專案範本安裝到內部部署開發電腦上。 這些範本會建立 <strong>BizTalk 服務</strong> (橋接)，以及可部署至 BizTalk 服務的 <strong>BizTalk 服務成品</strong> (轉換) Visual Studio 專案。
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">如何開始使用 Azure BizTalk 服務 SDK</a> 和<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589"> 安裝 Azure BizTalk 服務 SDK</a> 列出開始進行的步驟。
         </td>
     </tr>
 
     <tr>
-        <td><strong>Create partner agreements</strong></td>
+        <td><strong>建立夥伴合約</strong></td>
 
-        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
+        <td>開啟裝載於 Azure 的 Azure BizTalk 服務入口網站，以加入夥伴並建立 X12、AS2 和 EDIFACT EDI 協議。
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>列出開始進行的步驟。
         </td>
     </tr>
 
@@ -233,14 +236,17 @@
 
 ##### 在圖表中移除或顯示度量：
 1. 選取 [**監視**] 索引標籤。
-2. 選取工作列中的 [加入度量]：![選取 [新增度量]][AddMetrics]
+2. 選取工作列中的 [加入度量]：  
+![選取 [新增度量]][AddMetrics]
 3. 勾選您要顯示的效能度量。
 4. 選取勾選記號以回到 [**監視**] 索引標籤。
 5. 選取度量旁邊的圓圈，將該度量的值顯示在圖表中。  
 
-	例如，[CPU 使用率] 度量呈現灰色，其輸出不會出現在圖表中：![CPU 使用量度量呈現灰色][GrayedMetric]
+	例如，[CPU 使用率] 度量呈現灰色，其輸出不會出現在圖表中：  
+![CPU 使用量度量呈現灰色][GrayedMetric]
 
-	選取灰色的圓圈以啟用 [CPU 使用率] 度量，將其輸出顯示在圖表中：![CPU 使用量度量已啟用][EnabledMetric]
+	選取灰色的圓圈以啟用 [CPU 使用率] 度量，將其輸出顯示在圖表中：  
+![CPU 使用量度量已啟用][EnabledMetric]
 
 6. 若要從顯示圖表和清單中移除度量，請選取工作列中的 [**移除度量**]。若要將度量加回到清單中，請選取工作列的 [加入度量]，勾選度量，然後選取勾選記號以回到 [監視] 索引標籤。選取灰色圓圈以啟用度量。
 

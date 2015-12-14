@@ -18,7 +18,9 @@
 
 # 傳送跨平台通知給特定使用者
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 本主題說明如何從您的行動後端，將通知傳送給特定使用者的所有註冊裝置。其中將介紹[範本]；範本可讓用戶端應用程式在註冊時能夠指定裝載格式和變數預留位置。從伺服器傳送範本通知時，通知中樞會將其導向到每個具有這些預留位置的平台，啟用跨平台通知。
 
@@ -102,4 +104,4 @@
 [開始使用推播通知]: app-service-mobile-xamarin-ios-get-started-push.md
 [範本]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

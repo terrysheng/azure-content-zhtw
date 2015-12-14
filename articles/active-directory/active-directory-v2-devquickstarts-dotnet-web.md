@@ -20,9 +20,13 @@
 
 有了 v2.0 應用程式模型，您就可以快速地將驗證加入 Web 應用程式，同時支援個人 Microsoft 帳戶以及工作或學校帳戶。在 ASP.NET Web 應用程式中，您可以使用隨附於 .NET Framework 4.5 的 Microsoft OWIN 中介軟體來完成此項作業。
 
-  >[AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+  >[AZURE.NOTE]
+    此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
- 現在，我們將使用 OWIN 來執行下列作業：- 使用 Azure AD 和 v2.0 應用程式模型將使用者登入應用程式。- 顯示使用者的部分相關資訊。- 將使用者登出應用程式。
+ 現在，我們將使用 OWIN 來執行下列作業：
+- 使用 Azure AD 和 v2.0 應用程式模型將使用者登入應用程式。
+- 顯示使用者的部分相關資訊。
+- 將使用者登出應用程式。
 
 為執行此作業，您必須執行下列動作：
 
@@ -114,7 +118,11 @@ Your app is now properly configured to communicate with the v2.0 endpoint using 
 - You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
 
 ```C#
-[Authorize] public ActionResult About() { ... ```
+[Authorize]
+public ActionResult About()
+{
+  ...
+```
 
 -	您也可以使用 OWIN 從程式碼中直接發出驗證要求。開啟 `Controllers\AccountController.cs`。在 SignIn() 和 SignOut() 動作中，將分別發出 OpenID Connect 挑戰和登出要求。
 
@@ -201,6 +209,8 @@ public ActionResult About()
 
 [使用 v2.0 應用程式模型保護 Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-如需其他資源，請查看：- [應用程式模型 2.0 版預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+如需其他資源，請查看：
+- [應用程式模型 2.0 版預覽 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=AcomDC_1203_2015-->

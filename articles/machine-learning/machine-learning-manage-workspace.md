@@ -54,7 +54,7 @@
 - **使用量概觀**顯示工作區正在使用的 Azure 儲存體。
 - **快速概覽**提供工作區資訊和實用連結的摘要。
 
-> [AZURE.NOTE][**登入 ML Studio**] 連結會使用目前登入的 Microsoft 帳戶來開啟 Machine Learning Studio。您用來登入 Azure 傳統入口網站以建立工作區的 Microsoft 帳戶，不會自動具備開啟該工作區的權限。若要開啟工作區，您必須使用定義為工作區擁有者的 Microsoft 帳戶登入，或者您需要收到來自擁有者的邀請，才能加入工作區。
+> [AZURE.NOTE] [**登入 ML Studio**] 連結會使用目前登入的 Microsoft 帳戶來開啟 Machine Learning Studio。您用來登入 Azure 傳統入口網站以建立工作區的 Microsoft 帳戶，不會自動具備開啟該工作區的權限。若要開啟工作區，您必須使用定義為工作區擁有者的 Microsoft 帳戶登入，或者您需要收到來自擁有者的邀請，才能加入工作區。
 
 
 ## 授與或暫停使用者的存取權 ##
@@ -94,4 +94,4 @@ Web 服務可能會有一個或多個定義的端點。
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

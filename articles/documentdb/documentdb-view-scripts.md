@@ -56,7 +56,7 @@
 	![[指令碼總管] 的螢幕擷取畫面和篩選結果](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT][指令碼總管] 篩選功能只會從***目前***載入的指令碼集篩選，不會自動重新整理目前選取的集合。
+	> [AZURE.IMPORTANT] [指令碼總管] 篩選功能只會從***目前***載入的指令碼集篩選，不會自動重新整理目前選取的集合。
 
 5. 若要重新整理 [指令碼總管] 所載入的指令碼清單，您只需要按一下刀鋒視窗頂端的 **[重新整理]** 命令即可。
 
@@ -106,4 +106,4 @@
 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

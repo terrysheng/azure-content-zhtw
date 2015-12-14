@@ -65,7 +65,7 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 命令執行了下列步驟 (如果想要的話，可以改為[手動執行](app-insights-start-monitoring-app-health-usage.md))：
 
-* 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的*檢測金鑰*。
+* 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的 *檢測金鑰* 。
 * 將 Application Insights Web SDK NuGet 封裝加入您的專案。若要在 Visual Studio 中看到它，請以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
 * 將檢測金鑰放在 `ApplicationInsights.config` 中。
 

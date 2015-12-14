@@ -26,7 +26,7 @@
 		};
 
 
-> [AZURE.NOTE][Express.js 程式庫](http://go.microsoft.com/fwlink/p/?LinkId=309046) 會實作提供給自訂 API 函式的 [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) 和 [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) 物件。
+> [AZURE.NOTE] [Express.js 程式庫](http://go.microsoft.com/fwlink/p/?LinkId=309046) 會實作提供給自訂 API 函式的 [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) 和 [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) 物件。
 
 <!-- Anchors. -->
 
@@ -35,4 +35,4 @@
 <!-- URLs. -->
 [mssql 物件]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

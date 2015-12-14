@@ -79,7 +79,7 @@ ms.service="virtual-machines"
 
 節點新增並啟動之後，即可供您用來執行叢集工作。
 
-如果您在部署 Azure 節點時遇到問題，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點時的疑難排解] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx)。
+如果您在部署 Azure 節點時遇到問題，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點時的疑難排解](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx)。
 
 ## 後續步驟
 

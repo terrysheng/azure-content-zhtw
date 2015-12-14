@@ -42,7 +42,7 @@ Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 ### <a id="Verbs"></a>Twilio 動詞
 API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。
 
-以下是 Twilio 動詞清單。請透過 [Twilio Markup Language documentation][http://www.twilio.com/docs/api/twiml] 了解其他動詞和功能。
+以下是 Twilio 動詞清單。請透過 [Twilio Markup Language documentation](http://www.twilio.com/docs/api/twiml) 了解其他動詞和功能。
 
 * **&lt;Dial&gt;**：使撥號者接通另一支電話。
 * **&lt;Gather&gt;**：收集電話按鍵上輸入的號碼。
@@ -268,4 +268,4 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

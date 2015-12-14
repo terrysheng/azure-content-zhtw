@@ -81,8 +81,9 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
-4.  建立郵件並指派 [收件者]、[寄件者]、[主旨] 和內容值。這顯示在[如何：建立電子郵件](#bkmk_HowToCreateEmail)一節中。
-5.  透過 *javax.mail.Transport* 物件傳送郵件。這顯示在 [如何：傳送電子郵件][如何：傳送電子郵件]一節中。
+4.  建立郵件並指派 [收件者]、[寄件者]、[主旨] 
+和內容值。這顯示在[如何：建立電子郵件](#bkmk_HowToCreateEmail)一節中。
+5.  透過 *javax.mail.Transport* 物件傳送郵件。這顯示在 [如何：傳送電子郵件](如何：傳送電子郵件)一節中。
 
 ## 如何：建立電子郵件
 
@@ -205,4 +206,4 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
   [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
   [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

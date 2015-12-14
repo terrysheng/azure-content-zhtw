@@ -78,15 +78,17 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 - **Azure SQL Database**。您必須設定 SQL Database Server 的防火牆規則，以允許從您的工作站加以存取。如需關於建立 Azure SQL Database 和設定防火牆的指示，請參閱[開始使用 Azure SQL Database][sqldatabase-get-started]。本文會提供 Windows PowerShell 指令碼，以建立本教學課程所需的 Azure SQL Database 資料表。
 
 	<table border = "1">
-<tr><th>SQL Database 屬性</th><th>Windows PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
-<tr><td>SQL Database 伺服器名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出至其中的 SQL Database 伺服器。</td></tr>
-<tr><td>SQL Database 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Database 登入名稱。</td></tr>
-<tr><td>SQL Database 登入密碼</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL Database 登入密碼。</td></tr>
-<tr><td>SQL Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出至其中的 Azure SQL Database。</td></tr>
-</table>> [AZURE.NOTE]根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure 入口網站中加以啟用。如需建立 SQL Database 和設定防火牆規則的相關指示，請參閱 [建立及設定 SQL Database][sqldatabase-create-configure]。
+	<tr><th>SQL Database 屬性</th><th>Windows PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
+	<tr><td>SQL Database 伺服器名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出至其中的 SQL Database 伺服器。</td></tr>
+	<tr><td>SQL Database 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Database 登入名稱。</td></tr>
+	<tr><td>SQL Database 登入密碼</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL Database 登入密碼。</td></tr>
+	<tr><td>SQL Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出至其中的 Azure SQL Database。</td></tr>
+	</table>
+
+	> [AZURE.NOTE]根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure 入口網站中加以啟用。如需建立 SQL Database 和設定防火牆規則的相關指示，請參閱 [建立及設定 SQL Database](sqldatabase-create-configure)。
 
 
-> [AZURE.NOTE]在資料表中填入值。這將有助於本教學課程的執行。
+> [AZURE.NOTE] 在資料表中填入值。這將有助於本教學課程的執行。
 
 
 ##<a id="defineworkflow"></a>定義 Oozie 工作流程和相關的 HiveQL 指令碼
@@ -734,4 +736,4 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

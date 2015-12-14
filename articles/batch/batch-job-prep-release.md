@@ -41,7 +41,7 @@ Azure Batch 工作通常在執行之前需要某種形式的安裝，同樣地�
 
 工作準備任務只會在排定執行任務的節點上執行。這可避免未指派任務的節點執行不必要的準備任務，進而節省資料傳輸費用 (舉例)。當工作的任務數目小於集區中的節點數目，或是[並行的任務執行](batch-parallel-node-tasks.md)已啟用，便適用於這種情況，如果任務計數小於可能的並行任務總數，留下一些閒置節點。
 
-> [AZURE.NOTE][JobPreparationTask][net_job_prep_cloudjob] 和 [CloudPool.StartTask][pool_starttask] 的不同之處在於，JobPreparationTask 在每個工作開始時執行，而 StartTask 只在計算節點第一次加入集區或重新啟動時執行。
+> [AZURE.NOTE] [JobPreparationTask](net_job_prep_cloudjob) 和 [CloudPool.StartTask](pool_starttask) 的不同之處在於，JobPreparationTask 在每個工作開始時執行，而 StartTask 只在計算節點第一次加入集區或重新啟動時執行。
 
 ## 工作解除任務
 
@@ -179,4 +179,4 @@ Sample complete, hit ENTER to exit...
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

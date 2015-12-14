@@ -25,7 +25,9 @@
 
 1. 登入 Azure 入口網站 [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal)。
 
-2. 按一下 [+新增] 加入新的資源範本。在 Marketplace 的 [全部] 之下搜尋我們的範本 - 名稱為 [Service Fabric 叢集] (您可藉由進入最上層類別 - Marketplace > 來瀏覽至 [全部]，然後在 [全部] 之下搜尋 "Fabric" 並且按 Enter 鍵 - 有時候自動篩選會無法運作，所以務必**按 Enter 鍵**) ![SearchforServiceFabricClusterTemplate][SearchforServiceFabricClusterTemplate]
+2. 按一下 [+新增] 加入新的資源範本。在 Marketplace 的 [全部] 之下搜尋我們的範本 - 名稱為 [Service Fabric 叢集]
+(您可藉由進入最上層類別 - Marketplace > 來瀏覽至 [全部]，然後在 [全部] 之下搜尋 "Fabric" 並且按 Enter 鍵 - 有時候自動篩選會無法運作，所以務必**按 Enter 鍵**)  
+    ![SearchforServiceFabricClusterTemplate][SearchforServiceFabricClusterTemplate]
 
 3. 從清單中選取 [Service Fabric 叢集]
 4. 瀏覽至 [Service Fabric 叢集] 刀鋒視窗，然後按一下 [建立] 並提供叢集的詳細資料
@@ -54,7 +56,7 @@
 
   	![CreateNodeType][CreateNodeType]
 
-9. **應用程式連接埠** - 如果您打算將應用程式立即部署到叢集，則新增您要對此節點類型 (或您已建立的 nodeType) 上的應用程式開放的連接埠。您稍後可以將連接埠新增至節點類型，方法是修改與此節點類型相關聯的負載平衡器 (您需要新增探查，然後將此探查新增至負載平衡器規則)。立即這麼做，因為入口網站自動化功能會將所需的探查和規則新增至 LB，所以比較容易一些。
+9. **應用程式連接埠** - 如果您打算將應用程式立即部署到叢集，則新增您要對此節點類型 (或您已建立的 nodeType) 上的應用程式開放的連接埠。您稍後可以將連接埠新增至節點類型，方法是修改與此節點類型相關聯的負載平衡器 (您需要新增探查，然後將此探查新增至負載平衡器規則)。立即這麼做，因為入口網站自動化功能會將所需的探查和規則新增至 LB，所以比較容易一些。 
 	1. 您可以在服務資訊清單中尋找屬於應用程式封裝的應用程式連接埠。移至每個應用程式，開啟服務資訊清單，並記下您的應用程式與外界溝通時所需的「輸入」端點。
 	2. 在 [應用程式輸入端點] 欄位中新增所有的連接埠 (以逗號分隔)。TCP 用戶端連接端點 - 預設值為 19000，因此您不需要指定它們。比方說，我的應用程式需要開放連接埠 "83"。您將會在您的應用程式封裝中的 servicemanifest.xml (可能有一個以上的 servicemanifest.xml) 中找到此連接埠。
 
@@ -71,7 +73,7 @@
 
 此時，Service Fabric 只支援透過 x509 憑證保護叢集。開始此程序前，您必須將憑證上傳至 KeyVault。如需作法的詳細資訊，請參閱 [Service Fabric 叢集安全性](service-fabric-cluster-security.md)。
 
-您可選擇是否保護您的叢集，但強烈建議您這麼做。如果您選擇不要保護叢集，您需要將 [安全性模式] 切換為 [無]。
+您可選擇是否保護您的叢集，但強烈建議您這麼做。如果您選擇不要保護叢集，您需要將 [安全性模式] 切換為 [無]。   
 
 有關安全性考量及作法的詳細資訊，請參閱 [Service Fabric 叢集安全性](service-fabric-cluster-security.md)
 
@@ -92,7 +94,7 @@
 這是一個進階選項，可讓您變更 Service Fabric 叢集的預設設定。建議您**不要變更**預設值，除非您確定您的應用程式和/或叢集必定具備該選項。
 
 ## 完成叢集建立
-按一下 [摘要]，可以查看您所提供的組態或下載將用來部署叢集的 ARM 範本。在您提供必要的設定之後，將會啟用 [建立] 按鈕，您即可啟動叢集建立程序。
+按一下 [摘要]，可以查看您所提供的組態或下載將用來部署叢集的 ARM 範本。在您提供必要的設定之後，將會啟用 [建立] 按鈕，您即可啟動叢集建立程序。 
  
 
 您可以在 [通知] 中看到進度 (按一下螢幕右側狀態列附近的「鈴鐺」圖示)。如果您已在建立叢集時按一下 [釘選到「開始面板」]，您會看到 [部署 Service Fabric 叢集] 釘選到開始面板
@@ -178,11 +180,14 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -A
 Register your application type with service fabric.
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount" ````
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
+````
 
 在您剛才註冊的應用程式類型上建立新的執行個體。
 
-```powershell New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0 ````
+```powershell
+New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
+````
 
 現在開啟您所選的瀏覽器並連接到應用程式正在接聽的端點。對我的範例應用程式 count 而言，URL 如下所示。
 
@@ -208,4 +213,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

@@ -72,9 +72,12 @@ ATOM Pub 的延伸模組，其中每個項目代表結果集的一個資料列�
 > [AZURE.TIP]如果您看不到該篇文章，請按一下 [其他版本] 下拉式清單並選取一個版本。
 
 ### EDM - 項目資料模型
-- 概觀：[http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink] [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- 預覽：[http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink] [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- 資料類型：[http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink] [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+- 概觀：[http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx](OverviewLink)
+[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- 預覽：[http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx](PreviewLink)
+[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- 資料類型：[http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx](DataTypesLink)
+[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 下圖顯示從用戶端輸入 OData 陳述式 (呼叫內容提供者的 Web 服務) 到取回結果/資料的詳細流程 (從左至右)：
 
@@ -298,4 +301,4 @@ CSDL 的範例如下：(複製下列範例 CSDL 並貼至 XML 編輯器，然後
 - 如果您有興趣檢閱範例，請閱讀[資料服務 OData 對應範例](marketplace-publishing-data-service-creation-odata-mapping-examples.md)一文，來查看範例程式碼，並了解程式碼語法與內容。
 - 若要傳回用來將資料服務發佈至 Azure Marketplace 的指定路徑，請閱讀[資料服務發佈指南](marketplace-publishing-data-service-creation.md)一文。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

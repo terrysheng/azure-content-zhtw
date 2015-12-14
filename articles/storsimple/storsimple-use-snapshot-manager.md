@@ -120,7 +120,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 - [**說明**] 欄說明如何使用 [**動作**] 功能表或 [動作] 窗格上的每個動作，並解釋其用途。
 
->[AZURE.NOTE][**動作**] 窗格和 [**動作**] 功能表包含其他選項，例如 [**檢視**]、[**從這裡開啟新視窗**]、[**重新整理**]、[**匯出清單**]，以及 [**說明**]。這些選項可當做 MMC 一部分來使用，並不是 StorSimple Snapshot Manager 專用的。下表包含這些選項的說明。
+>[AZURE.NOTE] [**動作**] 窗格和 [**動作**] 功能表包含其他選項，例如 [**檢視**]、[**從這裡開啟新視窗**]、[**重新整理**]、[**匯出清單**]，以及 [**說明**]。這些選項可當做 MMC 一部分來使用，並不是 StorSimple Snapshot Manager 專用的。下表包含這些選項的說明。
  
 | 動作 | 瀏覽 | 說明 |
 |:--------|:------------|:-------------|
@@ -541,4 +541,4 @@ StorSimple Snapshot Manager 可啟用 Windows 作業系統和 Microsoft Manageme
 - 了解如何[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 - 了解如何[使用 StorSimple Snapshot Manager 來連接和管理裝置](storsimple-snapshot-manager-manage-devices.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

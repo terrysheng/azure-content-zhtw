@@ -25,12 +25,12 @@
 
 1. 登入 Azure 入口網站 [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal)。
 
-2. 按一下 [+新增] 加入新的資源範本。在 Marketplace 的 [全部] 之下搜尋我們的範本 - 名稱為 [Service Fabric 叢集]
+2. 按一下 [+新增] 加入新的資源範本。在 Marketplace 的 [全部] 之下搜尋我們的範本 - 名稱為 \[Service Fabric 叢集]
 (您可藉由進入最上層類別 - Marketplace > 來瀏覽至 [全部]，然後在 [全部] 之下搜尋 "Fabric" 並且按 Enter 鍵 - 有時候自動篩選會無法運作，所以務必**按 Enter 鍵**)  
     ![SearchforServiceFabricClusterTemplate][SearchforServiceFabricClusterTemplate]
 
-3. 從清單中選取 [Service Fabric 叢集]
-4. 瀏覽至 [Service Fabric 叢集] 刀鋒視窗，然後按一下 [建立] 並提供叢集的詳細資料
+3. 從清單中選取 \[Service Fabric 叢集]
+4. 瀏覽至 \[Service Fabric 叢集] 刀鋒視窗，然後按一下 [建立] 並提供叢集的詳細資料
 5. 建立**新的資源群組 (RG)** - 讓它與叢集名稱相同 - 但最好還是稍後進行尋找。當您嘗試變更您的部署和/或刪除您的叢集時，特別有用。
 
   	注意：雖然您可以決定使用現有的資源群組，但最好是建立新的資源群組。這可讓刪除您不需要的叢集變得非常簡單
@@ -213,4 +213,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->

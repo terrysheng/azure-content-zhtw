@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/16/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,7 +22,7 @@
 **單一資料庫**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-copy.md)
+- [Azure Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [SQL](sql-database-copy-transact-sql.md)
 
@@ -103,4 +103,4 @@
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務儀表板
@@ -45,9 +45,9 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 
 ## 檢視或重新產生服務註冊金鑰
 
-服務註冊金鑰用於向 StorSimple Manager 服務註冊 Microsoft Azure StorSimple 裝置，之後裝置就會出現在 Microsoft Azure 管理入口網站中，讓您採取進一步的管理動作。金鑰是在第一個裝置上建立，然後與其餘裝置共用。
+服務註冊金鑰用於向 StorSimple Manager 服務註冊 Microsoft Azure StorSimple 裝置，之後裝置就會出現在Azure 傳統入口網站中，讓您採取進一步的管理動作。金鑰是在第一個裝置上建立，然後與其餘裝置共用。
 
-按一下 [**註冊金鑰**] \(在頁面底部) 會開啟 [**服務註冊金鑰**] 對話方塊，您可以在此處將目前的服務註冊金鑰複製到剪貼簿，或重新產生服務註冊金鑰。
+按一下 [**註冊金鑰**] (在頁面底部) 會開啟 [**服務註冊金鑰**] 對話方塊，您可以在此處將目前的服務註冊金鑰複製到剪貼簿，或重新產生服務註冊金鑰。
 
 重新產生金鑰並不會影響先前註冊的裝置：只會影響重新產生金鑰之後，才向服務註冊的裝置。
 
@@ -59,7 +59,7 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 
 變更服務資料加密金鑰分成 3 個步驟：
 
-1. 使用管理入口網站，授權裝置來變更服務資料加密金鑰。
+1. 使用 Azure 傳統入口網站，授權裝置來變更服務資料加密金鑰。
 2. 使用 Windows PowerShell for StorSimple，起始服務資料加密金鑰變更。
 3. 如果您有一個以上的 StorSimple 裝置，請在其他裝置上更新服務資料加密金鑰。
 
@@ -78,4 +78,4 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 
 - 深入了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

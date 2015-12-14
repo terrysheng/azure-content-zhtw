@@ -28,9 +28,9 @@
 
 >[AZURE.NOTE]新的 [Premium 層](cache-premium-tier-intro.md)中有可用的 ARM 範本。
 >
->-    [建立具有叢集的 Premium Redis 快取](https://azure.microsoft.com/zh-TW/documentation/templates/201-redis-premium-cluster-diagnostics/)
->-    [建立具有資料永續性的 Premium Redis 快取](https://azure.microsoft.com/zh-TW/documentation/templates/201-redis-premium-persistence/)
->-    [建立具有 VNet 和選擇性叢集的 Premium Redis 快取](https://azure.microsoft.com/zh-TW/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+>-    [建立具有叢集的 Premium Redis 快取](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+>-    [建立具有資料永續性的 Premium Redis 快取](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
+>-    [建立具有 VNet 和選擇性叢集的 Premium Redis 快取](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 >
 >若要檢查最新的範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)並搜尋 `Redis Cache`。
 
@@ -137,4 +137,4 @@ Redics 快取的位置。針對最佳效能，使用要與快取搭配使用之�
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

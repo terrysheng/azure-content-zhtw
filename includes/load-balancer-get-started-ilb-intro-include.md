@@ -1,7 +1,6 @@
 
-Azure Internal Load Balancing (ILB) provides network load balancing between virtual machines that reside inside a cloud service, a virtual network with a regional scope. An internal load balancer acts as a security boundary not allowing direct access to the virtual machines behind this type of load balancer from Internet.
+Azure 內部負載平衡 (ILB) 可在位於雲端服務或虛擬網路 (具有區域範圍) 中的虛擬機器之間提供網路負載平衡。內部負載平衡器是一種安全性界限，不允許從網際網路直接存取具備這種類型的負載平衡器虛擬機器。
 
-For information about the use and configuration of virtual networks with a regional scope, see [Regional Virtual Networks](virtual-networks-migrate-to-regional-vnet.md). Existing virtual networks that have been configured for an affinity group cannot use ILB.
+如需使用和設定具有區域範圍之虛擬網路的相關資訊，請參閱[區域虛擬網路](virtual-networks-migrate-to-regional-vnet.md)。已針對同質群組設定的現有虛擬網路無法使用 ILB。
 
-
-
+<!---HONumber=AcomDC_1203_2015-->

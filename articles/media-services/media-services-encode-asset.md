@@ -34,7 +34,7 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 媒體服務支援本文中所描述的下列隨選編碼器：
 
 - **Media Encoder Standard**
-- **Azure 媒體編碼器** 
+- **Azure 媒體編碼器**
 - **Media Encoder Premium 工作流程**
 
 本文概略敘述隨選媒體編碼器，並提供文章連結以提供更詳細資訊。本主題也提供各種編碼器的比較。
@@ -45,7 +45,7 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
 ###概觀
 
-建議使用 Media Encoder Standard 編碼器。不過，此編碼器目前沒有透過 Azure 入口網站公開。
+建議使用 Media Encoder Standard 編碼器。不過，此編碼器目前沒有透過 Azure 傳統入口網站公開。
 
 相較於 Azure 媒體編碼器，此編碼器支援更多的輸入和輸出格式和轉碼器。其他優點包括：
 
@@ -265,4 +265,4 @@ Windows Media 音訊|否|是|是
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

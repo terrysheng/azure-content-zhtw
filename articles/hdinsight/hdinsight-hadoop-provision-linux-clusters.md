@@ -158,7 +158,7 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
 > [AZURE.IMPORTANT]如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
 
-使用 Azure Preview 入口網站設定叢集時，節點大小會透過 [節點定價層] 刀鋒視窗公開，也會顯示與不同節點大小相關聯的成本。
+使用 Azure 入口網站設定叢集時，節點大小會透過 [節點定價層] 刀鋒視窗公開，也會顯示與不同節點大小相關聯的成本。
 
 > [AZURE.IMPORTANT]建立叢集後就開始計費，只有在刪除叢集時才會停止計費。如需價格的詳細資訊，請參閱 [HDInsight 價格詳細資料](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
@@ -197,7 +197,7 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 >
 > 目前 (2015/8/25) 在 Azure 虛擬網路中只能佈建一個以 Linux 為基礎的叢集。
 >
-> 您不能在 Linux 的 HDInsight 使用 v1 (傳統) Azure 虛擬網路。虛擬網路必須是 v2 (Azure 資源管理員)，才能在 Azure Preview 入口網站中的 HDInsight 叢集建立程序期間列出來做為選項，或者在以 Azure CLI 或 Azure PowerShell 建立叢集時使用。
+> 您不能在 Linux 的 HDInsight 使用 v1 (傳統) Azure 虛擬網路。虛擬網路必須是 v2 (Azure 資源管理員)，才能在 Azure 入口網站中的 HDInsight 叢集建立程序期間列出來做為選項，或者在以 Azure CLI 或 Azure PowerShell 建立叢集時使用。
 >
 > 如果您在 v1 網路上有資源，而想要讓這些資源可透過虛擬網路直接存取 HDInsight，請參閱[將傳統 VNet 連接到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)，以取得如何將 v2 虛擬網路連接到 v1 虛擬網路的相關資訊。一旦建立此連線之後，您便可以在 v2 虛擬網路中建立 HDInsight 叢集。
 
@@ -227,7 +227,7 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
 | 使用此選項可建立叢集... | 使用網頁瀏覽器... | 使用命令列 | 使用 REST API | 使用 SDK | 從 Linux、Mac OS X 或 Unix | 從 Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
-| [Azure Preview 入口網站](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
+| [Azure 入口網站](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
@@ -280,6 +280,6 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
 [img-hdi-cluster]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.png
 
-  [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
+[89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

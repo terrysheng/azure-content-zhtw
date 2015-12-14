@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="rajram"/>
    
 # 開始使用 Azure 儲存體 Blob 連接器並將它加入您的邏輯應用程式 
@@ -104,4 +104,4 @@ Blob 寫入內容 | 輸入要上傳之 Blob 的內容和屬性。
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

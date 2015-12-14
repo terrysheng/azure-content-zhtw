@@ -89,7 +89,7 @@
 
 您可以用下列方式之一定義註冊到資料表作業的伺服器指令碼：
 
-+ 使用 [Azure 管理入口網站][Management Portal]。可在指定資料表的 [指令碼] 索引標籤中存取資料表作業的指令碼。以下為註冊到 `TodoItem` 資料表之插入指令碼的預設程式碼。您可用自己的自訂業務邏輯覆寫此程式碼。
++ 在 [Azure 傳統入口網站]中。可在指定資料表的 [指令碼] 索引標籤中存取資料表作業的指令碼。以下為註冊到 `TodoItem` 資料表之插入指令碼的預設程式碼。您可用自己的自訂業務邏輯覆寫此程式碼。
 
 	![1][1]
 	
@@ -336,7 +336,7 @@
 
 您可以用下列方式之一，定義註冊到自訂 API 端點中 HTTP 方法的伺服器指令碼：
 
-+ 使用 [Azure 管理入口網站][Management Portal]。在 [API] 索引標籤中建立及修改自訂 API 指令碼。伺服器指令碼位於指定自訂 API 的 [指令碼] 索引標籤下。以下是 POST 要求對 `CompleteAll` 自訂 API 端點叫用的指令碼。 
++ 在 [Azure 傳統入口網站]中。在 [API] 索引標籤中建立及修改自訂 API 指令碼。伺服器指令碼位於指定自訂 API 的 [指令碼] 索引標籤下。以下是 POST 要求對 `CompleteAll` 自訂 API 端點叫用的指令碼。 
 
 	![2][2]
 	
@@ -443,17 +443,17 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 ##<a name="scheduler-scripts"></a>工作排程器
 
-行動服務可讓您定義伺服器指令碼是要當做按照固定排程執行的工作，或是從管理入口網站視需要執行。排程工作對於執行定期工作來說很實用，例如清除資料表資料、批次處理。如需詳細資訊，請參閱[排程作業]。
+行動服務可讓您定義伺服器指令碼是要當做按照固定排程執行的工作，或是從 Azure 傳統入口網站。排程工作對於執行定期工作來說很實用，例如清除資料表資料、批次處理。如需詳細資訊，請參閱[排程作業]。
 
 註冊到排程工作的指令碼有一個主要函數，其名稱與排程的工作相同。由於排程的指令碼不是由 HTTP 要求叫用，因此伺服器執行階段沒有內容可傳遞，函數不帶參數。和其他種類的指令碼一樣，您可以有子常式函數、需要共用模組。如需詳細資訊，請參閱[原始檔控制、共用程式碼及協助程式函數]。
 
 ###<a name="scheduler-scripts"></a>作法：定義排程工作指令碼
 
-可將伺服器指令碼指派至行動服務排程器中定義的工作。這些指令碼屬於該工作，會依照工作的排程執行。(您也可以使用[管理入口網站]視需要執行工作。) 定義排程工作的指令碼沒有參數，因為行動服務不會傳遞任何資料給它；它就像 JavaScript 的一般函數一樣執行，且不會與行動服務直接互動。
+可將伺服器指令碼指派至行動服務排程器中定義的工作。這些指令碼屬於該工作，會依照工作的排程執行。(您也可以使用 [Azure 傳統入口網站]視需要執行工作。) 定義排程工作的指令碼沒有參數，因為行動服務不會傳遞任何資料給它；它就像 JavaScript 的一般函數一樣執行，且不會與行動服務直接互動。
 
 以下列方式之一定義排程工作：
 
-+ 在 [Azure 管理入口網站][Management Portal] 上排程器的 [指令碼] 索引標籤中：
++ 在 [Azure 傳統入口網站] 上排程器的 [指令碼] 索引標籤中：
 
 	![3][3]
 
@@ -924,7 +924,7 @@ Stream|不支援
 
 若要寫入記錄檔，使用全域 [console 物件]。使用 **log** 或 **info** 函數記錄資訊層級的警告。**warning** 和 **error** 函數會各自記錄其層級的資訊 (在記錄檔中呼叫層級)。
 
-> [AZURE.NOTE]若要檢視行動服務的記錄檔，請登入[管理入口網站](https://manage.windowsazure.com/)，選取您的行動服務，然後選擇 [記錄檔] 索引標籤。
+> [AZURE.NOTE]若要檢視行動服務的記錄檔，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，選取您的行動服務，然後選擇 [記錄檔] 索引標籤。
 
 您也可以使用 [console 物件]的登入函數，使用參數將您的訊息格式化。以下範例提供 JSON 物件做為訊息字串的參數：
 
@@ -1026,8 +1026,7 @@ Stream|不支援
 [驗證資料]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
 [修改要求]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
 [修改回應]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
-[Management Portal]: https://manage.windowsazure.com/
-[管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [排程作業]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [使用伺服器指令碼驗證及修改行動服務中的資料]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [用於管理 zure 行動服務的命令]: ../virtual-machines-command-line-tools.md#Mobile_Scripts
@@ -1058,4 +1057,4 @@ Stream|不支援
 [Azure 行動服務對 package.json 的支援]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

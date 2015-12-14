@@ -1,7 +1,7 @@
 <properties
-	pageTitle="HDInsight 中的 Hadoop 是什麼：雲端巨量資料分析 | Microsoft Azure"
-	description="雲端上的 HDInsight 中 Hadoop 元件的簡介。深入了解 HDInsight 如何使用 Hadoop 叢集以管理、分析及報告巨量資料。"
-	keywords="巨量資料,巨量資料分析,hadoop,hadoop 簡介,什麼是 hadoop"
+	pageTitle="雲端中的 Hadoop 是什麼？ HDInsight 簡介 |Microsoft Azure"
+	description="雲端中的 Hadoop 是什麼？HDInsight 如何管理 Hadoop？ 簡介 Hadoop 元件與巨量資料分析。"
+	keywords="巨量資料分析、Hadoop 簡介、Hadoop 是什麼、雲端中的 Hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -14,56 +14,52 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/03/2015"
+   ms.date="12/02/2015"
    ms.author="cgronlun"/>
 
 
-# HDInsight 中的 Hadoop 簡介：雲端中的巨量資料分析和處理
+# 雲端中的 Hadoop 是什麼？ 新引進 HDInsight 的 Hadoop 元件可用於執行巨量資料分析
 
-取得 Hadoop、其生態系統以及 Azure HDInsight 中的巨量資料的簡介：HDInsight 中的 Hadoop 是什麼、Hadoop 元件有哪些、常見術語及巨量資料分析的案例？ 同時深入了解在 HDInsight 中使用 Hadoop 的 Hadoop 教學課程、文件及資源。
+取得 Hadoop、其生態系統以及 Azure HDInsight 中的巨量資料的簡介：HDInsight 中的 Hadoop 是什麼、Hadoop 元件有哪些、常見術語及巨量資料分析的案例？ 此外也能進一步了解如何在 HDInsight 中使用雲端 Hadoop 的 Hadoop 教學課程、文件及資源。
 
-## HDInsight 中的 Hadoop 是什麼？
+## HDInsight 中的雲端 Hadoop 是什麼?
 
-Azure HDInsight 在雲端部署和佈建 Apache Hadoop 叢集，提供軟體架構來管理、分析和報告具高可靠性和可用性的巨量資料。HDInsight 使用 **HortonWorks Data Platform (HDP)** Hadoop 散發。Hadoop 通常是指元件的整個 Hadoop 生態系統，其中包含 Storm 和 HBase 叢集，以及 Hadoop 範疇內的其他技術。如需詳細資訊，請參閱下面的 [HDInsight 上的 Hadoop 生態系統概觀](#overview)。
+Azure HDInsight 在雲端部署和佈建受管理的 Apache Hadoop 叢集，藉此提供軟體架構來管理、分析和報告具高可靠性和可用性的巨量資料。HDInsight 使用 **HortonWorks Data Platform (HDP)** Hadoop 散發。Hadoop 通常是指元件的整個 Hadoop 生態系統中的元件，包括 Apache HBase、Apache Spark 和 Apache Storm，以及 Hadoop 範疇內的其他技術。如需詳細資訊，請參閱下面的 [HDInsight 上的 Hadoop 生態系統概觀](#overview)。
 
 
 ## 什麼是巨量資料？
-巨量資料是指以越來越多數量、越來越快的速度及越來越多不同的非結構化格式和可變語義內容所收集的資料。
+巨量資料是收集量快速增加、收集速度愈來愈快，並以各種非結構化格式與可變語義內容持續成長的資料。
 
 巨量資料是指任何極為龐大的數位資訊，包括 Twitter 摘要中的文字、來自工業設備的感應器資訊，以及客戶在線上型錄瀏覽和購物的相關資訊。巨量資料可以屬於過去 (亦即儲存的資料) 或即時 (亦即直接從來源串流而來)。
 
-若要讓巨量資料轉變為可化為行動的情報或認知，不僅必須提出正確的問題，並收集與問題相關的資料，而且資料必須可存取、經過整理和分析，然後以實用的形式呈現。這就是 HDInsight 中的 Hadoop 上巨量資料的用途。
+為能讓巨量資料轉化可以讓您制定出相應動作的情報或剖析資訊，您不僅須收集相關的資料，還須提出正確的問題，而這些資料還要能夠存取、清除、分析，然後以有用的形式呈現。這就是 HDInsight 中的 Hadoop 上巨量資料的用途。
 
 
 ## <a name="overview"></a>HDInsight 上的 Hadoop 生態系統概觀
 
-HDInsight 是 Microsoft Azure 上快速擴充 Apache Hadoop 技術堆疊的雲端實作，是巨量資料分析的進階方案。它包含 Storm、HBase、Pig、Hive、Sqoop、Oozie、Ambari 等的實作。HDInsight 也與商業智慧 (BI) 工具整合，例如 Excel、SQL Server Analysis Services 和 SQL Server Reporting Services。
+HDInsight 是實作在 Microsoft Azure 上的雲端服務，可快速擴充 Apache Hadoop 技術堆疊，是巨量資料分析的全方位解決方案。其包含 Apache Spark、HBase、Storm、Pig、Hive、Sqoop、Oozie、Ambari 等實作。HDInsight 同時結合了商業智慧 (BI) 工具，例如 Excel、SQL Server Analysis Services 和 SQL Server Reporting Services。
 
-### Linux 和 Windows 叢集
+### Linux 上的叢集
 
-Azure HDInsight 會使用 **Linux** 或 **Windows** 做為基礎作業系統，在雲端上部署或佈建 Hadoop 叢集。
+Azure HDInsight 在 **Linux** 雲端中部署及佈建了 Hadoop 叢集。如需詳細資訊，請參閱下表。
 
-* **Linux 上的 HDInsight** - Ubuntu 上的 Hadoop 叢集。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。
-
-* **Windows 上的 HDInsight** - Windows Server 上的 Hadoop 叢集。如果您熟悉 Windows、想要從現有以 Windows 為基礎的 Hadoop 方案移轉，或想要在叢集上使用 .NET 或其他僅限 Windows 的技術，則使用此選項。
-
-下表比較兩者差異：
-
-類別 | Linux 上的 Hadoop | Windows 上的 Hadoop
----------| -------------------| --------------------
-**叢集作業系統** | Ubuntu 12.04 長期支援 (LTS) | Windows Server 2012 R2
-**叢集類型** | Hadoop、HBase、Storm | Hadoop、HBase、Storm
-**部署** | Azure Preview 入口網站、Azure CLI、Azure PowerShell | Azure 入口網站、Azure Preview 入口網站、Azure CLI、Azure PowerShell、HDInsight .NET SDK
-**叢集 UI** | Ambari | 叢集儀表板
-**遠端存取** | 安全殼層 (SSH)、REST API、ODBC、JDBC | 遠端桌面通訊協定 (RDP)、REST API、ODBC、JDBC
+類別 | Linux 上的 Hadoop
+---------| -------------------
+**叢集作業系統** | Ubuntu 12.04 長期支援 (LTS)
+**叢集類型** | Hadoop、Spark、HBase、Storm
+**部署** | Azure 入口網站、Azure CLI、Azure PowerShell
+**叢集 UI** | Ambari
+**遠端存取** | 安全殼層 (SSH)、REST API、ODBC、JDBC
 
 
 
-### Hadoop、HBase、Storm、Spark 及自訂的叢集
+### Hadoop、HBase、Spark、Storm 及自訂叢集
 
-HDInsight 會提供 Hadoop、HBase 或 Storm 的叢集組態。或者，您可以[使用指令碼動作自訂叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+HDInsight 提供 Apache Hadoop、 Spark、HBase 或 Storm 的叢集設定。您也可以選擇[使用指令碼動作自訂叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 * **Hadoop** ("Query" 工作負載)：使用 [HDFS](#HDFS) 提供可靠的資料儲存，以及提供簡單的 [MapReduce](#mapreduce) 程式設計模型以平行處理和分析資料。
+
+* **<a target="_blank" href="http://spark.apache.org/">Apache Spark</a>**：一種平行處理架構，可支援記憶體內的處理，大幅提升巨量資料分析應用程式、SQL 之 Spark 工作、串流資料與機器學習的效能。請參閱[概觀：HDInsight 的 Apache Spark 是什麼？](hdinsight-apache-spark-overview.md)
 
 * **<a target="_blank" href="http://hbase.apache.org/">HBase</a>** ("NoSQL" 工作負載)：建置於 Hadoop 上的 Apache NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性 - 可能是數十億的資料列乘以數十億的資料行。請參閱＜[HDInsight 上的 HBase 概觀](hdinsight-hbase-overview.md)＞。
 
@@ -71,31 +67,25 @@ HDInsight 會提供 Hadoop、HBase 或 Storm 的叢集組態。或者，您可�
 
 #### 範例自訂指令碼
 
-指令碼動作是在叢集佈建期間執行的指令碼，而且可用來在叢集上安裝其他元件。在以 Windows 為基礎的 HDInsight 叢集上，這些都是 PowerShell 指令碼。在 Linux 的叢集上，這些都是 Bash 指令碼。
+指令碼動作是在叢集佈建期間執行的指令碼，可用於在叢集上安裝其他元件。在 Linux 的叢集上，這些都是 Bash 指令碼。
 
-HDInsight 小組所提供的範例指令碼如下：
+下列指令碼範例由 HDInsight 小組提供：
 
-* [Hue](hdinsight-hadoop-hue-linux.md)
+* [色調](hdinsight-hadoop-hue-linux.md)：一組 Web 應用程式，可用來與叢集互動。僅限於 Linux 叢集。
 
-	> [AZURE.NOTE]色調指令碼僅適用於以 Linux 為基礎的叢集。
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md)：物品與人員間之模型關聯性的圖形處理。
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [R](hdinsight-hadoop-r-scripts-linux.md)：一種開放原始碼語言與環境，可在機器學習中用於統計計算。
 
-* [R](hdinsight-hadoop-r-scripts-linux.md)
+* [Solr](hdinsight-hadoop-solr-install-linux.md)：一種企業級搜尋平台，可對資料進行全文檢索搜尋。
 
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
+如需如何開發自有指令碼動作的資訊，請參閱[使用 HDInsight 開發指令碼動作](hdinsight-hadoop-script-actions-linux.md)。
 
-* [Spark](hdinsight-hadoop-spark-install-linux.md)
+## Hadoop 元件與公用程式是什麼？
 
-如需開發您自己的指令碼動作相關資訊，請參閱[使用 HDInsight 進行指令碼動作開發](hdinsight-hadoop-script-actions-linux.md)。
-
-## Hadoop 元件有哪些？
-
-除了前述的所有組態以外，下列個別元件也包含在 HDInsight 叢集上。
+HDInsight 叢集包含下列元件及公用程式。
 
 * **[Ambari](#ambari)**：叢集佈建、管理和監視。
-
-	> [AZURE.NOTE]僅提供 Ambari REST API 的子集給以 Windows 為基礎的 HDInsight 叢集。
 
 * **[Avro](#avro)** (Microsoft .NET Library for Avro)：Microsoft.NET 環境的資料序列化。
 
@@ -194,35 +184,22 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 
 ## <a id="resources"></a>深入了解巨量資料分析、Hadoop 和 HDInsight 的實用資源
 
-使用以下的資源，建置 HDInsight 上的 Hadoop 和巨量資料分析的簡介。
+得利於將 Hadoop 引進雲端中，以致能夠分析下列資源的巨量資料。
 
 
-### Linux 上的 HDInsight
+### HDInsight 的 Hadoop 文件
 
 * [HDInsight 文件](http://azure.microsoft.com/documentation/services/hdinsight/)：Azure HDInsight 的文件頁面，其中包含文章、視訊和其他資源的連結。
 
 * [開始使用 Linux 上的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)：在 Linux 上佈建 HDInsight Hadoop 叢集以及執行範例 Hive 查詢的快速入門教學課程。
 
-* [開始使用 HDInsight 上以 Linux 為基礎的 Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)：佈建 HDInsight 叢集上的 Storm 和執行 Storm 拓撲範例的快速入門教學課程。
+* [開始使用 Linux 版的 Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)：佈建 Storm on HDInsight 叢集與執行 Storm 拓撲範例的快速入門教學課程。
 
 * [在 Linux 上佈建 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)：了解如何透過 Azure 入口網站、Azure CLI 或 Azure PowerShell 在 Linux 上佈建 HDInsight Hadoop 叢集。
 
 * [在 Linux 上使用 HDInsight](hdinsight-hadoop-linux-information.md)：取得使用 Azure 上佈建之 Hadoop Linux 叢集的一些快速提示。
 
 * [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)：了解如何使用 Ambari Web 或 Ambari REST API，在 HDInsight 叢集上監視及管理以 Linux 為基礎的 Hadoop。
-
-
-### Windows 上的 HDInsight
-
-* [HDInsight 文件](http://azure.microsoft.com/documentation/services/hdinsight/)：Azure HDInsight 的文件頁面，其中包含文章、視訊和其他資源的連結。
-
-* [HDInsight 學習圖](hdinsight-learn-map.md)：HDInsight 的 Hadoop 文件導覽說明。
-
-* [開始使用 Azure HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)：在 HDInsight 中使用 Hadoop 的快速入門教學課程。
-
-* [執行 HDInsight 範例](hdinsight-run-samples.md)：對於如何執行 HDInsight 提供的範例進行解說的教學課程。
-
-* [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx)：HDinsight SDK 的參考文件。
 
 
 ### Apache Hadoop
@@ -235,9 +212,9 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 
 ### Azure 上的 SQL Database
 
-* [Azure SQL Database](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx)：SQL Database 的 MSDN 文件。
+* [Azure SQL Database](/documentation/services/sql-database/)：SQL Database 的文件、教學課程及影片。
 
-* [SQL Database 管理入口網站](https://msdn.microsoft.com/library/azure/dn771027.aspx)：在雲端管理 SQL Database 的輕量型使用簡便的資料庫管理工具。
+* [Azure 入口網站上的 SQL Database](sql-database-manage-portal.md)：簡單易學的輕量型資料管理工具，可在雲端中用來管理 SQL Database。
 
 * [SQL Database 的大膽嘗試](http://msftdbprodsamples.codeplex.com/releases/view/37304)：SQL Database 範例資料庫的下載頁面。
 
@@ -273,4 +250,4 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

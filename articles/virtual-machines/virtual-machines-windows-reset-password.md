@@ -22,16 +22,16 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
 
-如果您因為忘記密碼或遠端桌面服務組態有問題，而無法連線至 Windows 虛擬機器，請使用 Azure Preview 入口網站或 VMAccess 延伸模組，來重設本機系統管理員密碼或重設遠端桌面服務組態。
+如果您因為忘記密碼或遠端桌面服務組態有問題，而無法連線至 Windows 虛擬機器，請使用 Azure 入口網站或 VMAccess 延伸模組，來重設本機系統管理員密碼或重設遠端桌面服務組態。
 
-## Azure Preview 入口網站
+## Azure 入口網站
 
-若要在 [Azure Preview 入口網站](https://portal.azure.com)中重設遠端桌面服務，可依序按一下 [**全部瀏覽**] > [**虛擬機器 (傳統)**] > *您的 Windows 虛擬機器* > [**重設遠端存取**]。下列頁面隨即出現。
+若要在 [Azure 入口網站](https://portal.azure.com)中重設遠端桌面服務，可依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重設遠端存取]。下列頁面隨即出現。
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-若要在 [Azure Preview 入口網站](https://portal.azure.com)中重設本機系統管理員帳戶的名稱和密碼，可依序按一下 [**全部瀏覽**] > [**虛擬機器 (傳統)**] > *您的 Windows 虛擬機器* > [**所有設定**] > [**密碼重設**]。下列頁面隨即出現。
+若要在 [Azure 入口網站](https://portal.azure.com)中重設本機系統管理員帳戶的名稱和密碼，可依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [所有設定] > [密碼重設]。下列頁面隨即出現。
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -114,4 +114,4 @@ VMAccess 延伸項目會在虛擬機器上執行這兩個命令：
 
 [疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -58,7 +58,7 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
 ###建立 Active Directory 服務
 
-1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 
 2. 向下捲動左側導覽窗格，然後按一下 [**Active Directory**]。
 
@@ -204,4 +204,4 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

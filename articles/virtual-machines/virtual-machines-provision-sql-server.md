@@ -21,7 +21,7 @@
 # 在 Azure 中佈建 SQL Server 虛擬機器
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-provision-sql-server.md)
+- [Azure classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## 概觀
@@ -32,7 +32,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 在本教學課程中，您將：
 
-* [連接到 Azure 入口網站並從組件庫佈建虛擬機器](#Provision)
+* [連接到 Azure 傳統入口網站並從組件庫佈建虛擬機器](#Provision)
 * [使用遠端桌面開啟虛擬機器並完成設定](#RemoteDesktop)
 * [完成在另一部電腦上使用 SQL Server Management Studio 連接到虛擬機器的組態步驟](#SSMS)
 * [後續步驟](#Optional)
@@ -41,9 +41,9 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 ##<a id="Provision">從資源庫佈建 SQL Server 虛擬機器</a>
 
-1. 使用您的帳戶登入 [Azure 入口網站](http://manage.windowsazure.com)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+1. 使用您的帳戶登入 [Azure 傳統入口網站](http://manage.windowsazure.com)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
-2. 在 Azure 入口網站中，依序按一下網頁左下角的 [**+NEW**]、[**運算**]、[**虛擬機器**] 和 [**從資源庫**]。
+2. 在 Azure 傳統入口網站中，依序按一下網頁左下角的 [+新增]、[計算]、[虛擬機器] 和 [從資源庫]。
 
 3. 在 [選擇映像] 頁面上，按一下 [SQL SERVER]。然後選取 SQL Server 映像。按一下頁面右下方的 [下一步] 箭頭。
 
@@ -155,4 +155,4 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

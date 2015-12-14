@@ -22,40 +22,39 @@
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 - [Elemental Live](media-services-configure-elemental-live-encoder.md)
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
-- [FMLE](media-services-configure-fmle-live-encoder.md) 
+- [FMLE](media-services-configure-fmle-live-encoder.md)
 
 本主題示範如何設定 [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) 即時編碼器，藉此將單一位元速率的即時串流傳送到已啟用即時編碼的 AMS 通道。如需詳細資訊，請參閱[使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
-本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。此工具只會在 Windows 電腦上執行。如果您是使用 Mac 或 Linux，請使用 Azure 管理入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program)。
+本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。此工具只會在 Windows 電腦上執行。如果您是用 Mac 或 Linux，請使用 Azure 傳統入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program)。
 
 
 ##必要條件
 
 - [建立 Azure 媒體服務帳戶](media-services-create-account.md)
-- 請確定執行的串流端點至少有一個配置的串流單位。如需詳細資訊，請參閱[在媒體服務帳戶中管理串流端點](media-services-manage-origins.md) 
-- 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。 
+- 請確定執行的串流端點至少有一個配置的串流單位。如需詳細資訊，請參閱[在媒體服務帳戶中管理串流端點](media-services-manage-origins.md)
+- 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 - 啟動工具並連接到您的 AMS 帳戶。
 
 ##秘訣
 
-- 請盡可能使用實體的有線網際網路連線。 
-- 判斷頻寬需求的一項法則是將串流位元速率加倍。雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。  
+- 請盡可能使用實體的有線網際網路連線。
+- 判斷頻寬需求的一項法則是將串流位元速率加倍。雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
 - 使用軟體型編碼器時，請關閉任何不必要的程式。
 
 
 ## 建立通道
 
-1.  在 AMSE 工具中，瀏覽至 [Live] 索引標籤，然後在通道區域內按一下滑鼠右鍵。從功能表選取 [建立通道...]。  
+1.  在 AMSE 工具中，瀏覽至 [Live] 索引標籤，然後在通道區域內按一下滑鼠右鍵。從功能表選取 [建立通道...]。
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
 2. 指定通道名稱，描述欄位為選填。在 [通道設定] 下，對 [即時編碼] 選項選取 [標準]，並將輸入通訊協定設為 [RTMP]。您可以將所有其他設定保留現狀。
 
 
-	 請確定已選取 [立即啟動新通道]。
- 
-3. 按一下 [建立通道]。  
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+請確定已選取 [立即啟動新通道]。
+
+3. 按一下 [建立通道]。![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 >[AZURE.NOTE]通道約需 20 分鐘的時間即可啟動。
 
@@ -67,7 +66,7 @@
 
 在本教學課程中，我們會使用下列輸出設定。本章節的其餘部分將詳細說明組態步驟。
 
-**視訊**：
+**影片**：
  
 - 轉碼器：H.264 
 - 設定檔：高 (層級 4.0) 
@@ -122,7 +121,7 @@
 
 7. 取得通道的輸入 URL，才能將它指派給 Wirecast 的 **RTMP 端點**。
 	
-	瀏覽回 AMSE 工具，並檢查通道的完成狀態。一旦狀態已經從**啟動中**變更為**執行中**，您便可取得輸入 URL。
+	瀏覽回 AMSE 工具，並檢查通道的完成狀態。一旦狀態已經從**正在啟動**變更為**正在執行**，您便可取得輸入 URL。
 	  
 	通道執行時，以滑鼠右鍵按一下通道名稱，向下瀏覽讓滑鼠游標停留在 [複製輸入 URL 到剪貼簿]，然後選取 [主要輸入 URL]。
 	
@@ -139,8 +138,7 @@
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
->[AZURE.IMPORTANT]在您按一下 [資料流] 之前，**必須**確保通道已就緒。
->此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
+>[AZURE.IMPORTANT]在您按一下 [資料流] 之前，**必須**確保通道已就緒。此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
 
 ##測試播放
   
@@ -154,7 +152,7 @@
 
 ##建立程式
 
-1. 一旦確認通道播放沒問題後，請建立程式。在 AMSE 工具的 [Live] 索引標籤下，在程式區域內按一下滑鼠右鍵，並選取 [建立新的程式]。  
+1. 一旦確認通道播放沒問題後，請建立程式。在 AMSE 工具的 [Live] 索引標籤下，於程式區域內按一下滑鼠右鍵，並選取 [建立新的程式]。  
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 
@@ -164,8 +162,8 @@
   
 	注意：建立程式時所使用的時間會比建立通道時更少。
  
-5. 一旦程式執行，請在程式上按一下滑鼠右鍵，並瀏覽至 [播放程式]，然後選取 [使用 Azure 媒體播放器] 確認播放。
-6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 \[複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
+5. 一旦程式開始執行，請在程式上按一下滑鼠右鍵，並瀏覽至 [播放程式]，然後選取 [使用 Azure 媒體播放器] 確認播放。
+6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 [複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
 
 串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。
 
@@ -182,4 +180,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

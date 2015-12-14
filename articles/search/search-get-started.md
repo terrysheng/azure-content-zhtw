@@ -35,7 +35,7 @@ Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋�
 
 訂戶可自動且免費地存取共用的多租用戶搜尋服務，此服務可用於學習、概念證明測試或是小型開發搜尋專案。請使用下列步驟註冊免費版本。
 
-1. 使用您現有的訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。請注意，此 URL 會引導您前往預覽入口網站。您必須使用預覽入口網站。 
+1. 使用您現有的訂用帳戶登入 [Azure 傳統入口網站](https://portal.azure.com)。請注意，此 URL 會引導您前往入口網站。您必須使用入口網站。 
 
 2. 按一下頁面頂端的 [**新增**]。
  
@@ -78,7 +78,7 @@ Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋�
 
 **步驟 1 - 建立定價層設為標準的新服務**
 
-1. 使用您現有的訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。 
+1. 使用您現有的訂用帳戶登入 [Azure 傳統入口網站](https://portal.azure.com)。 
 
 2. 按一下頁面底部的 [新增]。
 
@@ -310,7 +310,7 @@ Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋�
 
 如果您需要複習如何尋找設定頁面，請依循以下步驟尋找服務儀表板。
 
-1.	使用您現有的訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。 
+1.	使用您現有的訂用帳戶登入 [Azure 傳統入口網站](https://portal.azure.com)。 
 2.	按一下 [**首頁**]，然後按一下搜尋服務的磚。
 
  	![][22]
@@ -378,4 +378,4 @@ Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋�
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

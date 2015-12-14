@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [簡介](../../includes/custom-dns-web-site-intro.md)]
 
-如果您已透過 Azure App Service Web Apps 購買網域，請參考<a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">購買 Web Apps 網域</a>文章的最後一個步驟。
+如果您已透過 Azure App Service Web Apps 購買網域，請參考[購買 Web Apps 網域](custom-dns-web-site-buydomains-web-app.md)的最後一個步驟。
 
 本文提供搭配使用直接從 [GoDaddy](https://godaddy.com) 購買的自訂網域名稱與 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 的相關指示。
 
@@ -67,7 +67,7 @@
 5. 按一下 [加入另一個]。
 6. 選取 [CNAME] 做為記錄類型，然後將 [主機] 值指定為 [awverify]，並將 [指向] 值指定為 [awverify.&lt;您的 Web 應用程式名稱&gt;.azurewebsites.net]。
 
-	> [AZURE.NOTE]Azure 會使用 CNAME 記錄來驗證您擁有 A 記錄或第一筆 CNAME 記錄所述的網域。一旦網域對應至 Azurepreview 入口網站中的 Web 應用程式，即可移除 [awverify] 項目。
+	> [AZURE.NOTE]Azure 會使用 CNAME 記錄來驗證您擁有 A 記錄或第一筆 CNAME 記錄所述的網域。一旦網域對應至 Azure 入口網站中的 Web 應用程式，即可移除 [awverify] 項目。
 
 5. 當您完成新增或修改記錄時，請按一下 [完成] 以儲存變更。
 
@@ -80,6 +80,5 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

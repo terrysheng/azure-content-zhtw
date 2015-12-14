@@ -17,14 +17,14 @@
 	ms.date="11/19/2015"
 	ms.author="larryfr"/>
 
-# 使用 Azure Preview 入口網站管理 HDInsight 上的 Hadoop 叢集
+# 使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集
 
 [AZURE.INCLUDE [選取器](../../includes/hdinsight-portal-management-selector.md)]
 
 
-使用 [Azure Preview 入口網站][preview-portal]，您可以佈建和管理 Azure HDInsight 中的 Linux 型 Hadoop 叢集。
+使用 [Azure 入口網站][preview-portal]，您可以佈建和管理 Azure HDInsight 中的 Linux 型 Hadoop 叢集。
 
-> [AZURE.NOTE]此文件中的步驟是針對 Linux 型 Hadoop 叢集。如需使用 Windows 型叢集的相關資訊，請參閱[使用 Azure Preview 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-management-portal.md)。
+> [AZURE.NOTE]此文件中的步驟是針對 Linux 型 Hadoop 叢集。如需使用 Windows 型叢集的相關資訊，請參閱[使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-management-portal.md)。
 
 
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
@@ -47,11 +47,11 @@
 
 您可以使用下列步驟，從 Azure 入口網站佈建 HDInsight 叢集：
 
-1. 登入 [Azure Preview 入口網站][preview-portal]。
+1. 登入 [Azure 入口網站][preview-portal]。
 
 2. 依序選取 [新增]、[資料分析] 和 [HDInsight]。
 
-	![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
+	![在 Azure 入口網站中建立新的叢集](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
 
 3. 輸入 [叢集名稱]，然後選取您要建立的 [叢集類型]。如果該叢集可用，__叢集名稱__旁會出現綠色核取記號。
 
@@ -115,7 +115,7 @@
 		>
 		> 目前 (8/25/2015) 有一項限制，只有一個以 Linux 為基礎的 HDInsight 叢集可存在於 Azure 虛擬網路。
         >
-        > 您不能搭配 Linux 的 HDInsight 使用 v1 (傳統) Azure 虛擬網路。虛擬網路必須是 v2 (Azure 資源管理員)，才能在 Azure Preview 入口網站中的 HDInsight 叢集建立程序期間列出來做為選項，或者在以 Azure CLI 或 Azure PowerShell 建立叢集時使用。
+        > 您不能在 Linux 的 HDInsight 使用 v1 (傳統) Azure 虛擬網路。虛擬網路必須是 v2 (Azure 資源管理員)，才能在 Azure 入口網站中的 HDInsight 叢集建立程序期間列出來做為選項，或者在以 Azure CLI 或 Azure PowerShell 建立叢集時使用。
         >
         > 如果您在 v1 網路上有資源，而想要讓這些資源可透過虛擬網路直接存取 HDInsight，請參閱[將傳統 VNet 連接到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)，以取得如何將 v2 虛擬網路連接到 v1 虛擬網路的相關資訊。一旦建立此連線之後，您便可以在 v2 虛擬網路中建立 HDInsight 叢集。
 
@@ -137,7 +137,7 @@
 
 ## 管理叢集
 
-從 Azure Preview 入口網站中選取叢集將會顯示叢集的基本資訊，例如名稱、資源群組、作業系統和叢集儀表板 URL (用來存取適用於 Linux 叢集的 Ambari Web )。
+從 Azure 入口網站中選取叢集將會顯示叢集的基本資訊，例如名稱、資源群組、作業系統和叢集儀表板 URL (用來存取適用於 Linux 叢集的 Ambari Web )。
 
 ![叢集詳細資料](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
@@ -157,7 +157,7 @@
 
 * __使用者 (![使用者圖示](./media/hdinsight-administer-use-portal-linux/users.png))__：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 
-	> [AZURE.IMPORTANT]這「只」會影響 Azure Preview 入口網站中對此叢集的存取和權限，而不會影響哪些使用者可連線至 HDInsight 叢集或將工作提交至其上。
+	> [AZURE.IMPORTANT]這_只_會影響在 Azure 入口網站對此叢集的存取和權限，對於連線到 HDInsight 叢集或將工作提交到 HDInsight 叢集的使用者沒有影響。
 
 * __標記 (![標記圖示](./media/hdinsight-administer-use-portal-linux/tags.png))__：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
@@ -193,4 +193,4 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

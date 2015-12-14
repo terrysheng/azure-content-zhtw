@@ -125,7 +125,7 @@
 
 ### 安裝 Service Fabric SDK
 
-安裝 [Service Fabric SDK](https://azure.microsoft.com/zh-TW/campaigns/service-fabric/)。
+安裝 [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/)。
 
 ### 註冊 Service Fabric SDK 的 NuGet 存放庫
 
@@ -339,4 +339,4 @@
 
 若要深入了解與 Service Fabric 應用程式的連續整合，請閱讀下列文章。- [建置文件首頁](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [部署組建代理程式](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [建立和設定組建定義](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

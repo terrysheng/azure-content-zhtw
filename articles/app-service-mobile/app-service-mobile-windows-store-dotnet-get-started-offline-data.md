@@ -18,9 +18,7 @@
 
 # 啟用 Windows 應用程式離線同步處理
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 
@@ -36,7 +34,7 @@
 
 * 執行於 Windows 8.1 的 Visual Studio 2013。
 * 完成[建立 Windows 應用程式][create a windows app]。
-* [Azure 行動服務 SQLite Store 版本 2.0.0-beta2][sqlite store nuget]
+* [Azure 行動服務 SQLite Store][sqlite store nuget]
 * [SQLite for Windows 8.1](http://www.sqlite.org/downloads)
 
 ## 更新用戶端應用程式以支援離線功能
@@ -48,15 +46,11 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
     * **Windows 8.1 執行階段：**安裝 [SQLite for Windows 8.1]。
     * **Windows Phone 8.1：**安裝 [SQLite for Windows Phone 8.1]。
 
-    >[AZURE.NOTE]如果您要使用 Internet Explorer，當您按一下安裝 SQLite 的連結時，系統會提示您下載 .zip 檔案格式的 .vsix。請以 .vsix 副檔名將此檔案儲存至您的硬碟，而不要使用 .zip。在 Windows 檔案總管中按兩下此 .vsix 檔案，以執行安裝。
+    >[AZURE.NOTE]這些指示也適用於 Windows 10 UAP 專案，但您應改為安裝 [SQLite for Windows 10]。
 
-2. 在 Visual Studio 中，開啟您在[建立 Windows 應用程式]教學課程中完成的專案。安裝適用於 Windows 8.1 執行階段和 Windows Phone 8.1 專案的 **WindowsAzure.MobileServices.SQLiteStore** NuGet 封裝。
+2. 在 Visual Studio 中，開啟您在[建立 Windows 應用程式]教學課程中完成的專案。安裝適用於 Windows 8.1 執行階段和 Windows Phone 8.1 專案的 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 封裝。將 NuGet 參考同時新增至 Windows Store 8.1 和 Windows Phone 8.1 專案。
 
-    在 [方案總管] 中以滑鼠右鍵按一下方案然後按一下 [管理方案的 NuGet 封裝] 以執行 NuGet 封裝管理員。在 [線上] 索引標籤中，選取頂端下拉式清單中的「包含含發行前版本」選項。搜尋 **SQLiteStore** 以安裝 `WindowsAzure.MobileServices.SQLiteStore` 的 2.0.0-beta。
-
-    然後，將 NuGet 參考同時新增至 Windows Store 8.1 和 Windows Phone 8.1 專案。
-
-    >[AZURE.NOTE]如果安裝在您已安裝的 SQLite 版本以外建立了其他的參考，您會收到編譯錯誤。您應該透過移除您專案中**參考**節點內的重複項目，來解決這個錯誤。
+    >[AZURE.NOTE]如果安裝在您已安裝的 SQLite 版本以外建立了其他的參考，您會收到編譯錯誤。您應該透過移除您專案中 [參考] 節點內的重複項目，來解決這個錯誤。
 
 3. 在方案總管中，以滑鼠右鍵按一下 Windows 8.1 執行階段和 Windows Phone 8.1 平台專案的 [參考]，並確定有 SQLite 的參考位於 [擴充功能] 區段中。
 
@@ -77,7 +71,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
         using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
 
-6. 在 MainPage.cs 中，註解將 `todoTable` 初始化為 `IMobileServiceTable` 的程式碼行。取消註解將 `todoTable` 初始化為 `IMobileServiceSyncTable` 的程式碼行：
+6. 在 MainPage.cs 中，把將 `todoTable` 初始化為 `IMobileServiceTable` 的程式碼行註解化。取消註解將 `todoTable` 初始化為 `IMobileServiceSyncTable` 的程式碼行：
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
@@ -192,15 +186,15 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 2. 按 **F5** 以建置並執行應用程式。請注意，應用程式啟動後同步處理無法重新整理。
 3. 輸入一些新的 todo 項目，然後為每個項目按一下 [儲存]。對於包含 `PushResult.Status=CancelledByNetworkError` 的每個項目，推送都會失敗。新的 todo 項目在可推送至行動應用程式後端之前，都只會存留在本機存放區中。 
  
-	您可以隱藏 `PushResult.Status=CancelledByNetworkError` 的例外狀況對話方塊，用戶端應用程式會如同連線到行動應用程式後端一樣，順暢地支援所有建立、讀取、更新、刪除 (CRUD) 作業。
+	您可以隱藏 `PushResult.Status=CancelledByNetworkError` 的例外狀況對話方塊，用戶端應用程式會如同連接到行動應用程式後端一樣，順暢地支援所有建立、讀取、更新、刪除 (CRUD) 作業。
 
 4. 關閉應用程式並重新加以開啟，以驗證您所建立的新項目持續存留於本機存放區中。
 
-5. 在 Visual Studio 中，開啟 [伺服器總管]。巡覽至 [Azure]-> [SQL Database] 中您的資料庫。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。現在您可以瀏覽至您的 SQL Database 資料表和其內容。確認後端資料庫中的資料沒有變更。
+5. (選擇性) 在 Visual Studio 中，開啟 [伺服器總管]。瀏覽至 [Azure]-> [SQL Database] 中的資料庫。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。現在您可以瀏覽至您的 SQL Database 資料表和其內容。確認後端資料庫中的資料沒有變更。
 
 6. (選擇性) 使用 REST 工具 (例如 Fiddler 或 Postman) 來查詢您的行動後端 (使用表單 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 中的 GET 查詢)。
 
-## <a name="update-online-app"></a>更新應用程式以重新連線您的行動應用程式後端
+## <a name="update-online-app"></a>更新應用程式以重新連接您的行動應用程式後端
 
 在本節中，您會將應用程式重新連接至行動應用程式後端。您將藉此模擬應用程式在行動應用程式後端中，從離線狀態恢復為線上狀態的情境。當您第一次執行應用程式時，`OnNavigatedTo` 事件處理常式會呼叫 `InitLocalStoreAsync`。接著會呼叫 `SyncAsync` 來同步處理您的本機存放區與後端資料庫。因此，應用程式會嘗試於開機時同步處理。
 
@@ -269,13 +263,13 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 [Azure 行動應用程式中的離線資料同步處理]: ../app-service-mobile-offline-data-sync.md
 [create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
 [建立 Windows 應用程式]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[sqlite for windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[sqlite for windows phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
+[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 
-[azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/2.0.0-beta
+[sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
  
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday：Azure 行動服務中離線啟用的應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

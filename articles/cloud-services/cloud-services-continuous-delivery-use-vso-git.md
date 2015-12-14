@@ -20,11 +20,10 @@
 
 您可以使用 Visual Studio Team Services 的 Team 專案託管原始程式碼的 Git 儲存機制，並在每次將認可推送至儲存機制時，自動建置該機制並部署至 Azure Web 應用程式或雲端服務。
 
-您需要安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 [www.visualstudio.com](http://www.visualstudio.com) 選擇 **免費開始用** 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
+您需要安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 **www.visualstudio.com** 選擇 [免費開始用][](http://www.visualstudio.com) 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
 
 
-> [AZURE.NOTE]您需要 Visual Studio Team Services 帳戶，才能完成本教學課程：
-> 您可以[開啟免費的 Visual Studio Team Services 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
+> [AZURE.NOTE]您需要 Visual Studio Team Services 帳戶，才能完成本教學課程：您可以[開啟免費的 Visual Studio Team Services 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=512979)。
 
 若要使用 Visual Studio Team Services 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行。
 
@@ -60,7 +59,7 @@
 
 ## 步驟 3：將專案連接至 Azure
 
-1. 現在，您在 Visual Studio Team Services 中有一個 Git 儲存機制，裡面還有一些原始程式碼，您可以準備將 Git 儲存機制連接至 Azure。在 [Azure 管理入口網站](http://manage.windowsazure.com)中，選取您的雲端服務或 Web 應用程式，或選取左下方的 + 圖示並選擇 [雲端服務] 或 [Web 應用程式]，然後選取 [快速建立]，建立新的雲端服務或 Web 應用程式。
+1. 現在，您在 Visual Studio Team Services 中有一個 Git 儲存機制，裡面還有一些原始程式碼，您可以準備將 Git 儲存機制連接至 Azure。在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，選取您的雲端服務或 Web 應用程式，或選取左下方的 + 圖示並選擇 [雲端服務] 或 [Web 應用程式]，然後選取 [快速建立]，建立新的雲端服務或 Web 應用程式。
 
 	![][9]
 
@@ -153,7 +152,7 @@
 
 	![][29]
 
-1. 在 [Azure 管理入口網站](http://manage.windowsazure.com)中，選取預備環境之後，您可以在 [部署] 索引標籤上檢視相關聯的部署。
+1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，選取預備環境之後，您可以在 [部署] 索引標籤上檢視相關聯的部署。
 
 	![][30]
 
@@ -173,13 +172,13 @@
 
 ## 步驟 5：重新部署舊版組建
 
-此為選用步驟。在 Azure 管理入口網站中，選擇先前的部署，然後選擇 [重新部署]，將網站倒回到更早的簽入。請注意，這會在 TFS 中觸發新的組建，並在部署歷程記錄中建立新的項目。
+此為選用步驟。在 Azure 傳統入口網站中，選擇先前的部署，然後選擇 [重新部署]，將網站倒回到更早的簽入。請注意，這會在 TFS 中觸發新的組建，並在部署歷程記錄中建立新的項目。
 
 ![][34]
 
 ## 步驟 6：變更生產部署
 
-準備就緒後，您可以在 Azure 管理入口網站中選擇 [交換] 按鈕，將預備環境升級至生產環境。新部署的預備環境會升級至「生產」，而先前的生產環境 (若有的話) 會變成預備環境。「作用中」部署可能與生產和預備環境不同，但最近組建的部署歷程記錄都一樣，與環境無關。
+準備就緒後，您可以在 Azure 傳統入口網站中選擇 [交換] 按鈕，將預備環境升級至生產環境。新部署的預備環境會升級至「生產」，而先前的生產環境 (若有的話) 會變成預備環境。「作用中」部署可能與生產和預備環境不同，但最近組建的部署歷程記錄都一樣，與環境無關。
 
 ![][35]
 
@@ -273,4 +272,4 @@
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="開始使用 SQL Database 動態資料遮罩 (Azure 入口網站)"
-   description="如何開始在 Azure 入口網站中使用 SQL 資料庫動態資料遮罩"
+   pageTitle="開始使用 SQL Database 動態資料遮罩 (Azure 傳統入口網站)"
+   description="如何開始在 Azure 傳統入口網站中使用 SQL 資料庫動態資料遮罩"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -16,10 +16,10 @@
    ms.date="10/20/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
-# 開始使用 SQL Database 動態資料遮罩 (Azure 入口網站)
+# 開始使用 SQL Database 動態資料遮罩 (Azure 傳統入口網站)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Preview portal](sql-database-dynamic-data-masking-get-started.md)
+- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 
 ## 概觀
 
@@ -31,10 +31,10 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 ## SQL Database 動態資料遮罩的基本概念
 
-您在 Azure 入口網站中的資料庫 [稽核與安全性] 索引標籤下，設定動態資料遮罩原則。
+您在 Azure 傳統入口網站中的資料庫 [稽核與安全性] 索引標籤下，設定動態資料遮罩原則。
 
 
-> [AZURE.NOTE]若要在 Azure Preview 入口網站中設定動態資料遮罩，請參閱[開始使用 SQL Database 動態資料遮罩 (Azure Preview 入口網站)](sql-database-dynamic-data-masking-get-started.md)。
+> [AZURE.NOTE]若要在 Azure 入口網站中設定動態資料遮罩，請參閱[開始使用 SQL Database 動態資料遮罩 (Azure 入口網站)](sql-database-dynamic-data-masking-get-started.md)。
 
 
 ### 動態資料遮罩權限
@@ -61,9 +61,9 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 <a name="Anchor1"></a>
 
-## 使用 Azure 入口網站為您的資料庫設定動態資料遮罩
+## 使用 Azure 傳統入口網站為您的資料庫設定動態資料遮罩
 
-1. 啟動 Azure 入口網站，位址是 [https://manage.windowsazure.com](https://manage.windowsazure.com)。
+1. 啟動 Azure 傳統入口網站，位址是[https://manage.windowsazure.com](https://manage.windowsazure.com)。
 
 2. 按一下要遮罩處理的資料庫，然後按一下 [稽核與安全性] 索引標籤。
 
@@ -96,4 +96,4 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 請參閱 [Azure SQL Database 的作業](https://msdn.microsoft.com/library/dn505719.aspx)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

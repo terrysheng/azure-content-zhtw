@@ -78,7 +78,7 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 
 以下是權杖服務模式的主要步驟：
 
-1. 為您的 IoT 中樞建立具備 **DeviceConnect** 權限的 [IoT 中樞共用存取原則][lnk-devguide-security]。您可以在[預覽入口網站][lnk-preview-portal]中或以程式設計方式建立此原則。權杖服務會使用此原則簽署它所建立的權杖。
+1. 為您的 IoT 中樞建立具備 **DeviceConnect** 權限的 [IoT 中樞共用存取原則][lnk-devguide-security]。您可以在 [Azure 入口網站][lnk-portal]中或以程式設計方式建立此原則。權杖服務會使用此原則簽署它所建立的權杖。
 2. 當裝置需要存取 IoT 中樞時，它會向您的權杖服務要求已簽署的權杖。裝置可以使用您的自訂裝置身分識別登錄/驗證配置來進行驗證，以判斷權杖服務用來建立權杖的裝置身分識別。
 3. 權杖服務會傳回根據 [IoT 中樞開發人員指南 - 安全性][lnk-devguide-security]所建立的權杖，使用 `/devices/{deviceId}` 做為 `resourceURI`，`deviceId` 做為要驗證的裝置。權杖服務會使用共用存取原則來建構權杖。
 4. 裝置直接透過 IoT 中心使用權杖。
@@ -112,11 +112,11 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
-[lnk-preview-portal]: https://portal.azure.com
+[lnk-portal]: https://portal.azure.com
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

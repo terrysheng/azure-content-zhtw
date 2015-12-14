@@ -5,6 +5,7 @@
 
 		using Gcm.Client;
 		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
 
 6. 在 **using** 陳述式與 **namespace** 宣告之間新增下列權限要求：
 
@@ -26,7 +27,7 @@
 	        Categories = new string[] { "@PACKAGE_NAME@" })]
 	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
         Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
+        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
 	        // Set the Google app ID.
 	        public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
@@ -49,36 +50,46 @@
 
 	>[AZURE.NOTE]**GcmServiceBase** 類別實作 **OnRegistered()**、**OnUnRegistered()**、**OnMessage()** 及 **OnError()** 方法。您必須覆寫 **PushHandlerService** 類別中的這些方法。
 
-5. 在 **ToDoBroadcastReceiver** 類別中，加入下列可覆寫 **OnRegistered** 事件處理常式的程式碼。
+5. 在 **PushHandlerService** 類別中加入下列程式碼，以覆寫 **OnRegistered** 事件處理常式。
 
         protected override void OnRegistered(Context context, string registrationId)
         {
             System.Diagnostics.Debug.WriteLine("The device has been registered with GCM.", "Success!");
-            
+
             // Get the MobileServiceClient from the current activity instance.
-            MobileServiceClient client = ToDoActivity.CurrentActivity.CurrentClient;           
+            MobileServiceClient client = ToDoActivity.CurrentActivity.CurrentClient;
             var push = client.GetPush();
 
-            List<string> tags = null;
+            // Define a message body for GCM.
+            const string templateBodyGCM = "{"data":{"message":"$(messageParam)"}}";
 
-            //// (Optional) Uncomment to add tags to the registration.
-            //var tags = new List<string>() { "myTag" }; // create tags if you want
+            // Define the template registration as JSON.
+            JObject templates = new JObject();
+            templates["genericMessage"] = new JObject
+            {
+              {"body", templateBodyGCM }
+            };
 
             try
             {
                 // Make sure we run the registration on the same thread as the activity, 
                 // to avoid threading errors.
                 ToDoActivity.CurrentActivity.RunOnUiThread(
-                    async () => await push.RegisterNativeAsync(registrationId, tags));
+
+                    // Register the template with Notification Hubs.
+                    async () => await push.RegisterAsync(registrationId, templates));
+                
+                System.Diagnostics.Debug.WriteLine(
+                    string.Format("Push Installation Id", push.InstallationId.ToString()));
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(
-                    string.Format("Error with Azure push registration: {0}", ex.Message));                
+                    string.Format("Error with Azure push registration: {0}", ex.Message));
             }
         }
 
-	此方法使用傳回的 GCM 註冊識別碼，向 Azure 註冊以取得推送通知。
+	此方法使用傳回的 GCM 註冊識別碼，向 Azure 註冊以取得推送通知。只能在建立註冊之後加入標記。如需詳細資訊，請參閱[做法：將標記新增至裝置安裝以啟用發送到標記](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)。
 
 10. 以下列程式碼覆寫 **PushHandlerService** 中的 **OnMessage** 方法：
 
@@ -116,7 +127,7 @@
             }
         }
 
-12. 加入下列方法覆寫編譯專案所需的 **OnUnRegistered()** 與 **OnError()**。
+12. 使用下列程式碼覆寫 **onunregistered ()** 和 **onerror ()** 方法。
 
         protected override void OnUnRegistered(Context context, string registrationId)
         {
@@ -129,4 +140,4 @@
                 string.Format("Error occurred in the notification: {0}.", errorId));
         }
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -25,9 +25,9 @@ Azure REST API 可讓您對裝載於 Azure 平台的服務執行管理作業，�
 
 > [AZURE.IMPORTANT]本文件中的步驟使用 HDInsight 叢集的背景工作節點預設數目 (4)。如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
 >
-> 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 價格](https://azure.microsoft.com/pricing/details/hdinsight/)。
+> 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
-##先決條件
+##必要條件
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
@@ -37,7 +37,7 @@ Azure REST API 可讓您對裝載於 Azure 平台的服務執行管理作業，�
 
 - __cURL__。此公用程式由封裝管理系統提供，也可以從 [http://curl.haxx.se/](http://curl.haxx.se/) 下載。
 
-    > [AZURE.NOTE]如果您使用 PowerShell 執行本文件中的命令，您必須先移除依預設建立的 `curl` 別名。當您從 PowerShell 提示字元使用 `curl` 命令時，此別名會使用 PowerShell Cmdlet Invoke-WebRequest，而不是 cURL，造成本文件中使用的許多命令傳回錯誤。
+    > [AZURE.NOTE]如果您使用 PowerShell 執行本文件中的命令，您必須先移除依預設建立的 `curl` 別名。當您從 PowerShell 提示字元使用 `curl` 命令時，此別名會使用 PowerShell Cmdlet 的 Invoke-WebRequest，而不是 cURL，造成本文件中使用的許多命令傳回錯誤。
     > 
     > 如果要移除此別名，請從 PowerShell 提示字元執行下列命令：
     >
@@ -259,7 +259,7 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 ##登入您的 Azure 訂用帳戶
 
-依照[從 Azure 命令列介面 (Azure CLI) 連線到 Azure 訂用帳戶](xplat-cli-connect.md)中記載的步驟，使用 __login__ 方法連線到您的訂用帳戶。
+依照[從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶](xplat-cli-connect.md)中記載的步驟，使用 __login__ 方法連線到您的訂用帳戶。
 
 ##建立服務主體
 
@@ -274,7 +274,7 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 > * 應用程式 ID - 建立服務主體時傳回
 > * 服務主體的密碼 - 建立服務主體時使用
 
-執行[使用 Azure 資源管理員驗證服務主體](https://azure.microsoft.com/zh-TW/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli)文件的_使用密碼驗證服務主體 - Azure CLI_ 一節中的步驟。這會建立新的服務主體，可用來驗證叢集建立要求。
+執行[使用 Azure 資源管理員驗證服務主體](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli)文件中＜使用密碼驗證服務主體 - Azure CLI＞一節的步驟。這會建立新的服務主體，可用來驗證叢集建立要求。
 
 ##取得驗證權杖
 
@@ -340,9 +340,9 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 ###Hadoop 叢集
 
-* 〈[搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)〉
+* [〈搭配 HDInsight 使用 Hivet〉](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
-* 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
+* [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
 
 ###HBase 叢集
 
@@ -355,4 +355,4 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

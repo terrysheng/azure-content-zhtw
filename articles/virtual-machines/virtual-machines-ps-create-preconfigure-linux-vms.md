@@ -159,7 +159,7 @@
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-雲端服務的簡短名稱出現於 Azure 入口網站內的 Azure 雲端服務清單，或出現於 Azure Preview 入口網站的資源群組清單中。
+雲端服務的簡短名稱出現於 Azure 傳統入口網站內的 Azure 雲端服務清單，或出現於 Azure 入口網站的資源群組清單中。
 
 **選項 2**：在現有的雲端服務和虛擬網路中建立虛擬機器。
 
@@ -178,7 +178,7 @@
 如果您想要重複使用命令集，可以：
 
 - 將此命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
-- 在 Azure 入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook。
+- 在 Azure 傳統入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook
 
 ## <a id="examples"></a>範例
 
@@ -280,4 +280,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

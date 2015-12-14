@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/24/2015"
    ms.author="bwren" />
 
 # Azure 自動化中的 Runbook 輸出與訊息
@@ -168,4 +168,4 @@ Windows PowerShell 使用[喜好設定變數](http://technet.microsoft.com/libra
 - [追蹤 Runbook 工作](automation-runbook-execution.md)
 - [子 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

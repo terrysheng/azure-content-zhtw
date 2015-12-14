@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2015"
+	ms.date="12/01/2015"
 	ms.author="genli"/>
 
 # 如何取消 Azure 訂用帳戶
@@ -30,4 +30,4 @@
 4. 選取 [**是，取消我的訂用帳戶**]。</br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. 按一下 ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png)，關閉對話視窗並返回您的訂用帳戶頁面。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

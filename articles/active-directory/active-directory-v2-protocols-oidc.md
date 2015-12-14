@@ -212,4 +212,4 @@ error=access_denied
 
 ![OpenId Connect 區隔線](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -218,8 +218,8 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 [適用於 Java 的 Azure 儲存體 SDK]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-[Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

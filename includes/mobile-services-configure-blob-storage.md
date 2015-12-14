@@ -2,13 +2,13 @@
 
 0. 如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶](../storage/storage-create-storage-account.md)。
 
-1. 在管理入口網站中，按一下 [儲存體]、儲存體帳戶和 [管理金鑰]。
+1. 在[ Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下 [儲存體]、[儲存體帳戶]和 [管理金鑰]。
 
 2. 請記下 [儲存體帳戶名稱] 和 [存取金鑰]。
 
    	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
 
-3. 在行動服務中，按一下 [設定] 索引標籤，向下捲動至 應用程式設定，並輸入您從儲存體帳戶取得之下列各項的 [名稱] 和 [值] 組，然後按一下 [儲存]。
+3. 在行動服務中，按一下 [設定] 索引標籤，向下捲動至 [應用程式設定]，並輸入您從儲存體帳戶取得之下列各項的 [名稱] 和 [值] 組，然後按一下 [儲存]。
 
 	+ `STORAGE_ACCOUNT_NAME`
 	+ `STORAGE_ACCOUNT_ACCESS_KEY`
@@ -17,7 +17,7 @@
 
 	儲存體帳戶存取金鑰會以加密方式儲存在應用程式設定中。您可以在執行期間從任何伺服器指令碼存取此金鑰。如需詳細資訊，請參閱[應用程式設定]。
 
-4. 在 [設定] 索引標籤中，請確定[動態結構描述](http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7)已啟用。您需要啟用動態結構描述，才能將新資料行加入 TodoItem 資料表。請避免在任何實際執行服務中啟用動態結構描述。
+4. 在 [設定] 索引標籤中，請確定已啟用[動態結構描述](http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7)。您需要啟用動態結構描述，才能將新資料行加入 TodoItem 資料表。請避免在任何實際執行服務中啟用動態結構描述。
 
 4. 按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
@@ -91,4 +91,4 @@
 <!-- URLs. -->
 [應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

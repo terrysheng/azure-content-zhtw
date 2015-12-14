@@ -138,9 +138,9 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 
 只能在叢集建立期間選取前端節點的大小。前端節點的預設大小是 **A3**，提供 4 個核心、7 GB 記憶體和 285 GB 的本機儲存體。您可以在 [HDInsight 定價頁面](http://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單，包括個別的核心、記憶體和本機儲存體。
 
-建立新的叢集時，您可以指定該節點的大小。下列提供如何使用 [Azure Preview 入口網站][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小的相關資訊：
+建立新的叢集時，您可以指定該節點的大小。下列提供如何使用 [Azure 入口網站][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小的相關資訊：
 
-* **Azure Preview 入口網站**：建立新叢集時，會提供您設定該叢集前端和資料 (背景工作角色) 節點大小的選項 (定價層)：
+* **Azure 入口網站**：建立新叢集時，會提供您設定該叢集前端和資料 (背景工作角色) 節點大小的選項 (定價層)：
 
 	![可選取節點大小的 [叢集映像建立精靈]](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -166,4 +166,4 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

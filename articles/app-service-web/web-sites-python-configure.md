@@ -36,11 +36,11 @@ Azure Marketplace 包含 Bottle、Django 和 Flask 架構的範本。如果您�
 - [利用 Flask 建立 Web 應用程式](web-sites-python-create-deploy-flask-app.md)
 
 
-## 在 Azure Preview 入口網站中建立 Web 應用程式
+## 在 Azure 入口網站上建立 Web 應用程式
 
-本教學課程假設定有現有的 Azure 訂用帳戶，而且能夠存取 Azure Preview 入口網站。
+本教學課程假設定有現有的 Azure 訂用帳戶，而且能夠存取 Azure 入口網站。
 
-如果您還沒有 Web 應用程式，則可以從 [Azure Preview 入口網站](https://portal.azure.com)建立。按一下左下角的 [新增] 按鈕，然後按一下 [Web + 行動] > [Web 應用程式]。
+如果您還沒有 Web 應用程式，則可以從 [Azure 入口網站](https://portal.azure.com)建立。按一下左下角的 [新增] 按鈕，然後按一下 [Web + 行動] > [Web 應用程式]。
 
 ## Git 發行
 
@@ -378,7 +378,6 @@ Python 3.4 的 `web.config` 範例：
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -386,4 +385,4 @@ Python 3.4 的 `web.config` 範例：
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

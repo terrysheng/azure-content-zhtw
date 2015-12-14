@@ -25,7 +25,7 @@
 - 排名最前面的 DTU 取用查詢，進行微調有可能會改善效能。 
 - 向下鑽研查詢詳細資料的功能。
 
-> [AZURE.NOTE]「查詢效能深入解析」目前為預覽狀態，只在 [Azure Preview 入口網站](https://portal.azure.com/)中提供。
+> [AZURE.NOTE]「查詢效能深入解析」目前為預覽狀態，只在 [Azure 入口網站](https://portal.azure.com/)中提供。
 
 
 
@@ -62,7 +62,7 @@
 
 ## 檢閱排名最前面的 DTU 取用查詢
 
-在 [Preview 入口網站](https://portal.azure.com)中執行下列動作︰
+在[入口網站](https://portal.azure.com)中執行下列動作。
 
 1. 瀏覽至 SQL Database 並按一下 [查詢效能深入解析]。 
 
@@ -109,4 +109,4 @@
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

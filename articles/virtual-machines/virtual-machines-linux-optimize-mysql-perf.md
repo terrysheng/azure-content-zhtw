@@ -38,11 +38,11 @@ Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進�
 本文假設您已經建立 Linux 虛擬機器並已安裝及設定 MYSQL 。如需開始使用的詳細資訊，請參閱「如何在 Azure 上安裝 MySQL」。
 
 ###在 Azure 上設定 RAID
-下列步驟說明如何使用 Azure 入口網站，在 Azure 上建立 RAID。您也可以使用 Windows PowerShell 指令碼設定 RAID。在此範例中，我們將設定具有 4 個磁碟的 RAID 0。
+下列步驟說明如何使用 Azure 傳統入口網站，在 Azure 上建立 RAID。您也可以使用 Windows PowerShell 指令碼設定 RAID。在此範例中，我們將設定具有 4 個磁碟的 RAID 0。
 
 ####步驟 1：將資料磁碟新增至您的虛擬機器  
 
-在 Azure 入口網站的 [虛擬機器] 頁面上，按一下您要新增資料磁碟的虛擬機器。在此範例中，虛擬機器是 mysqlnode1。
+在 Azure 傳統入口網站的 [虛擬機器] 頁面上，按一下您要新增資料磁碟的虛擬機器。在此範例中，虛擬機器是 mysqlnode1。
 
 ![][1]
 
@@ -348,4 +348,4 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

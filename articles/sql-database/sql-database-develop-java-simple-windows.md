@@ -58,7 +58,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 ## SQL Database 的連接字串
 
 
-這個程式碼範例使用連接字串建立 `Connection` 物件。您可以使用 [Azure Preview 入口網站](http://portal.azure.com/)尋找連接字串。如需尋找連接字串的詳細資訊，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
+這個程式碼範例使用連接字串建立 `Connection` 物件。您可以使用 [Azure 入口網站](http://portal.azure.com/)尋找連接字串。如需尋找連接字串的詳細資訊，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
 
 
 > [AZURE.NOTE]JTDS JDBC 驅動程式：如果您使用 JTDS JDBC 驅動程式，則您必須在連接字串的 URL 加入 "ssl=require"，然後您需要設定 JVM 的下列選項 "-Djsse.enableCBCProtection=false"。此 JVM 選項會停用安全性漏洞修正程式，因此請確定您了解會涉及到哪些風險，才能設定此選項。
@@ -230,4 +230,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

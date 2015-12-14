@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # 使用 Azure PowerShell 管理 Azure 資料湖分析
@@ -26,36 +26,56 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱 [取得 Azure 免費試用版]https://azure.microsoft.com/zh-TW/pricing/free-trial/)
-- **Azure PowerShell 1.0 或更新版本**。請參閱[安裝和設定 Azure PowerShell](../install-configure-powershell.md)。安裝 Azure PowerShell 1.0 或更新版本後，您應執行下列 Cmdlet 安裝 Azure 資料湖分析模組。
+- **Azure 訂用帳戶**。請參閱 [取得 Azure 免費試用]https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+
+
+<!-- ################################ -->
+<!-- ################################ -->
+
+
+##請安裝 Azure PowerShell 1.0 以上版本。
+
+首先，您必須先解除安裝 0.9x 版本。
+
+若要檢視已安裝的 PowerShell 版本：
+
+	Get-Module *azure*
 	
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
+若要解除安裝較舊的版本，請在控制台中執行 [程式和功能]。
 
-	如需 **AzureRM.DataLakeStore** 模組的詳細資訊，請參閱 [PowerShell 資源庫](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore)。如需 **AzureRM.DataLakeAnalytics** 模組的詳細資訊，請參閱 [PowerShell 資源庫](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics)。
+共有兩個安裝 Azure PowerShell 的主要選項。
 
-	如果您是第一次建立資料湖帳戶，請執行：
+- [PowerShell 資源庫](https://www.powershellgallery.com/)。從提高權限的 PowerShell ISE 或提高權限的 Windows PowerShell 主控台執行下列命令：
 
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	若要連接到 Azure，請使用下列 Cmdlet：
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
 		
-**列出 Cmdlet**：
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	如需詳細資訊，請參閱 [PowerShell 資源庫](https://www.powershellgallery.com/)。
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps)。如果您已安裝 Azure PowerShell 0.9.x，系統將提示您解除安裝 0.9.x。如果您是從 PowerShell 資源庫安裝 Azure PowerShell 模組，必須在安裝安裝程式之前先移除模組，以確保 Azure PowerShell 環境保持一致。如需指示，請參閱[透過 WebPI 安裝 Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+
+WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想要從 PowerShell 資源庫進行安裝，這會是取得最新和最優異的 Azure PowerShell 功能之首要管道。
+
+**若要列出 Cmdlet**：
 
 	Get-Command *Azure*DataLakeAnalytics*
 
-<!-- ################################ -->
-<!-- ################################ -->
+**若要連接到 Azure，請使用下列 Cmdlet**：
 
-
-
-<!-- ################################ -->
-<!-- ################################ -->
+	Login-AzureRmAccount
+	Get-AzureRmSubscription  # for finding the Azure Subscription ID
+	Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+	
 ## 管理帳戶
 
 您必須擁有資料湖分析帳戶，才能執行任何資料湖分析工作。與 Azure HDInsight 不同的是，分析帳戶未執行工作時，您無需支付該帳戶的費用。您只需支付執行工作時的費用。如需詳細資訊，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
@@ -90,7 +110,7 @@
 		-ResourceGroupName $resourceGroupName `
 		-Name $dataLakeAnalyticsAccountName  
 
-您也可以使用 Azure 資源群組範本。用於建立資料湖分析帳戶與相依資料湖存放區帳戶的範本位於[附錄 A](#appendix-a) 中。將範本儲存成 .json 範本的檔案，然後使用下列 PowerShell 指令碼呼叫該範本：
+您也可以使用 Azure 資源群組範本。該範本可用於建立資料湖分析帳戶與相依資料湖存放區帳戶，它位於[附錄 A](#appendix-a) 中。將範本儲存成 .json 範本的檔案，然後使用下列 PowerShell 指令碼呼叫該範本：
 
 
 	$AzureSubscriptionID = "<Your Azure Subscription ID>"
@@ -151,7 +171,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 	
 	Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
 
-刪除分析帳戶不會刪除相依的資料湖儲存體帳戶。下列範例會刪除資料湖分析帳戶和預設的資料湖儲存體帳戶
+刪除分析帳戶不會刪除相依的資料湖儲存體帳戶。下列範例會刪除資料湖分析帳戶和預設的資料湖存放區帳戶
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -171,14 +191,14 @@ Cmdlet 將傳回 **True** 或 **False**。
 
 當您建立分析帳戶時，必須指定 Azure 資料湖儲存體帳戶作為預設的儲存體帳戶。預設的資料湖存放區帳戶是用來儲存工作中繼資料與工作稽核記錄。建立分析帳戶後，就可以新增其他資料湖儲存體帳戶和/或 Azure 儲存體帳戶。
 
-### 尋找預設的資料湖儲存體帳戶
+### 尋找預設的資料湖存放區帳戶
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
 
-### 新增其他 Azure Blob 儲存體帳戶
+### 新增其他的 Azure Blob 儲存體帳戶
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -187,7 +207,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 	
 	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -AccountName $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
-### 新增其他資料湖存放區帳戶
+### 新增其他的資料湖存放區帳戶
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -272,7 +292,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 
 ## 管理目錄項目
 
-U-SQL 目錄用於建構資料和程式碼，讓 U-SQL 指令碼可以共用它們。目錄可以讓 Azure 資料湖中的資料具有最高效能。如需詳細資訊，請參閱[使用 U-SQL 目錄](data-lake-analytics-use-u-sql-catalog.md)。
+U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用它們。目錄可以讓 Azure 資料湖中的資料具有可能的最高效能。如需詳細資訊，請參閱[使用 U-SQL 目錄](data-lake-analytics-use-u-sql-catalog.md)。
 
 ###列出目錄項目
 
@@ -345,14 +365,14 @@ U-SQL 目錄用於建構資料和程式碼，讓 U-SQL 指令碼可以共用它�
 
 ![Azure 資料湖分析帳戶與儲存體](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-資料湖分析帳戶和相依儲存體帳戶必須位在同一個 Azure 資料中心內。但 ARM 群組可位在不同的資料中心內。
+資料湖分析帳戶和相依儲存體帳戶必須位於同一個 Azure 資料中心。但 ARM 群組可位在不同的資料中心內。
 
 ##另請參閱 
 
-- [Microsoft Azure 資料湖分析的概觀](data-lake-analytics-overview.md)
-- [使用 Azure Preview 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
-- [使用 Azure Preview 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
-- [使用 Azure Preview 入口網站監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Microsoft Azure 資料湖分析概觀](data-lake-analytics-overview.md)
+- [使用 Azure 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
+- [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
+- [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##附錄 A - 資料湖分析 ARM 範本
 
@@ -411,4 +431,4 @@ U-SQL 目錄用於建構資料和程式碼，讓 U-SQL 指令碼可以共用它�
 		}
 	}
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

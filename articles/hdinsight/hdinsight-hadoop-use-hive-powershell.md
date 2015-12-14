@@ -31,7 +31,7 @@
 若要完成這篇文章中的步驟，您需要下列項目。
 
 - **Azure HDInsight (HDInsight 上的 Hadoop) 叢集 (Windows 型或 Linux 型)**
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)。
 
 ##使用 Azure PowerShell 執行 Hive 查詢
 
@@ -184,4 +184,4 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Hiv
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

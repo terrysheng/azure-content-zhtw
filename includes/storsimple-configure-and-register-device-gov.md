@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 12/01/15-->
 
 ### 設定和註冊裝置
 
@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    您應該會看到下列版本：
-    - HcsSoftwareVersion：6.3.9600.17491
-    - CisAgentVersion：1.0.9037.0
-    - MdsAgentVersion：26.0.4696.1433
+    您應該會看到下列版本：- HcsSoftwareVersion：6.3.9600.17491 - CisAgentVersion：1.0.9037.0 - MdsAgentVersion：26.0.4696.1433
  
 9. 執行下列 Cmdlet 以確認已正確套用韌體更新：
 
@@ -90,7 +87,7 @@
 
      韌體狀態應該是 **UpToDate**。
 
-10. 執行下列 Cmdlet，將裝置指向 Microsoft Azure Government 入口網站 (因為預設指向公用 Azure 管理入口網站)。這樣會重新啟動兩個控制器。建議您使用兩個 PuTTY 工作階段以同時連線至兩個控制器，這樣您就可以看見每個控制器是何時重新啟動。
+10. 執行下列 Cmdlet，將裝置指向 Microsoft Azure Government 入口網站 (因為預設指向公用 Azure 傳統入口網站)。這樣會重新啟動兩個控制器。建議您使用兩個 PuTTY 工作階段以同時連線至兩個控制器，這樣您就可以看見每個控制器是何時重新啟動。
 
      `Set-CloudPlatform -AzureGovt_US`
 
@@ -124,17 +121,17 @@
 
 16. 結束序列主控台。
 
-17. 返回 Government 入口網站，並完成下列步驟：
+17. 返回 Azure Government 入口網站，並完成下列步驟：
   1. 按兩下 StorSimple Manager 服務以存取 [快速入門] 頁面。
   2. 按一下 [檢視連接的裝置]。
   3. 在 [裝置] 頁面上，藉由查閱狀態來確認裝置已成功連接到服務。裝置狀態應該是 [線上]。
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        如果裝置狀態為 [離線]，請等待數分鐘，讓裝置上線。 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        若裝置經數分鐘後仍舊離線，您便需要確認您的防火牆網路設置是否與 [StorSimple 裝置的網路需求](https://msdn.microsoft.com/library/dn772371.aspx) 說明相同。若您沒有 HTTP 1.1 支援，請檢查及確保 9354 連接埠為開啟狀態並允許輸出通訊。此連接埠是供 StorSimple 管理員服務及 StorSimple 裝置間進行通訊之用。
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

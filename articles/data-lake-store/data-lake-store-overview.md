@@ -20,7 +20,7 @@
 
 Azure 資料湖存放區是容納巨量資料分析工作負載的企業級超大規模存放庫。Azure 資料湖可讓您在單一位置擷取任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
 
-> [AZURE.TIP]使用[資料湖存放區學習路徑](https://azure.microsoft.com/zh-TW/documentation/learning-paths/data-lake-store-self-guided-training/)開始探索 Azure 資料湖存放區服務。
+> [AZURE.TIP]使用[資料湖存放區學習路徑](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/)開始探索 Azure 資料湖存放區服務。
 
 使用 WebHDFS 相容的 REST API，可以從 Hadoop (HDInsight 叢集所提供) 存取 Azure 資料湖存放區。它專為預存資料分析而設計，並針對資料分析案例而調整效能。根據預設，它包含真實企業使用案例不可或缺的所有企業級功能：安全性、管理性、延展性、可靠性和可用性。
 
@@ -79,11 +79,11 @@ Azure 資料湖存放區會使用 Azure Active Directory 進行驗證，並使�
 
 ## 如何開始使用 Azure 資料湖存放區？
 
-請參閱[透過 Azure Preview 入口網站開始使用資料湖存放區](data-lake-store-get-started-portal.md)，了解如何使用 Azure Preview 入口網站佈建資料湖存放區。佈建 Azure 資料湖存放區後，您即可了解如何搭配資料湖存放區使用巨量資料產品，例如 Azure 資料湖分析或 Azure HDInsight。您也可以建立 .NET 應用程式，進而建立 Azure 資料湖存放區帳戶和執行各項作業，例如上傳資料、下載資料等。
+請參閱[透過 Azure 入口網站開始使用資料湖存放區](data-lake-store-get-started-portal.md)，了解如何使用 Azure 入口網站佈建資料湖存放區。佈建 Azure 資料湖存放區後，您即可了解如何搭配資料湖存放區使用巨量資料產品，例如 Azure 資料湖分析或 Azure HDInsight。您也可以建立 .NET 應用程式，進而建立 Azure 資料湖存放區帳戶和執行各項作業，例如上傳資料、下載資料等。
 
 - [開始使用 Azure 資料湖分析](data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [使用 .NET SDK 開始使用 Azure 資料湖存放區](data-lake-store-get-started-net-sdk.md)
   
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

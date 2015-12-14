@@ -41,12 +41,12 @@ Azure Machine Learning 有兩種類型的服務：
 如需 Azure 機器學習 Web 服務的詳細資訊，請參閱[部署 Azure 機器學習 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
 
 ## 取得 Azure Machine Learning 授權金鑰 ##
-您可以從 ML Web 服務取得 Web 服務 API 金鑰。您可以從 Microsoft Azure Machine Learning Studio 或 Azure 管理入口網站取得該金鑰。
+您可以從 ML Web 服務取得 Web 服務 API 金鑰。您可以從 Microsoft Azure Machine Learning Studio 或 Azure 傳統入口網站取得該金鑰。
 ### Microsoft Azure Machine Learning Studio ###
 1. 在 Microsoft Azure Machine Learning Studio 中，按一下左側的 [Web 服務]。
 2. 按一下某個 Web 服務。[API 金鑰] 位於 [儀表板] 索引標籤上。
 
-### Azure 管理入口網站 ###
+### Azure 傳統入口網站 ###
 
 1. 按一下左側的 [機器學習]。
 2. 按一下工作區。
@@ -103,4 +103,4 @@ Azure Machine Learning 有兩種類型的服務：
 2. 使用來自 Web 服務的金鑰指派 apikey。請了解如何取得 Azure ML 授權金鑰。
 3. 使用要求 URI 指派 serviceUri。請了解如何取得要求 URI。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

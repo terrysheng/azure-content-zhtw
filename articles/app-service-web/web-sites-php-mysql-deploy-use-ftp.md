@@ -46,7 +46,7 @@
 請遵循以下步驟來建立 Web 應用程式與 MySQL 資料庫：
 
 1. 登入 [Azure 入口網站][management-portal]。
-2. 按一下入口網站左下方的 [+ 新增] 圖示。
+2. 按一下 Azure 入口網站左下方的 [新增] 圖示。
 
 	![Create New Azure Web Site][new-website]
 
@@ -300,4 +300,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

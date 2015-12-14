@@ -18,6 +18,11 @@
 
 # 將推播通知新增至行動服務應用程式
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ##概觀
@@ -155,7 +160,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
     記下匯出憑證的檔案名稱和位置。
 
-2. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+2. 登入 [Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
     ![][18]
 
@@ -275,9 +280,9 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 您的應用程式現在已更新為支援推播通知。
 
-## <a name="update-scripts"></a>在管理入口網站中更新已註冊的插入指令碼
+## <a name="update-scripts"></a>在 Azure 傳統入口網站中更新已註冊的插入指令碼
 
-1. 在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+1. 在 [Azure 傳統入口網站]中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
     ![][21]
 
@@ -392,10 +397,10 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [Xamarin 裝置佈建]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [apns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

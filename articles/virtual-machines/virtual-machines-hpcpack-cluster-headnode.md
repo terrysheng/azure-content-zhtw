@@ -1,6 +1,6 @@
 <properties
  pageTitle="在 Azure VM 中建立 HPC Pack 前端節點 | Microsoft Azure"
- description="了解如何使用 Azure 入口網站和傳統部署模型，在 Azure VM 中建立 Microsoft HPC Pack 前端節點。"
+ description="了解如何使用 Azure 傳統入口網站和傳統部署模型，在 Azure VM 中建立 Microsoft HPC Pack 前端節點。"
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -42,7 +42,7 @@ ms.service="virtual-machines"
 以下是建立 HPC Pack 前端節點的 Azure VM 的高階步驟。您可以在 Azure 傳統 (服務管理) 部署模型中使用各種 Azure 工具來執行這些步驟。
 
 
-1. 如果您打算建立前端節點 VM 的 VNet，請參閱[使用 Azure Preview 入口網站建立虛擬網路 (傳統)](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md)。
+1. 如果您打算建立前端節點 VM 的 VNet，請參閱[使用 Azure 入口網站建立虛擬網路 (傳統)](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md)。
 
     **考量**
 
@@ -58,7 +58,7 @@ ms.service="virtual-machines"
 
     * 如需簡單的概念證明部署，您可以省略此步驟，並稍後將前端節點 VM 升級為網域控制站。
 
-3. 在 Azure 入口網站或 Azure Preview 入口網站中，從 [Azure Marketplace] 中選取 HPC Pack 2012 R2 映像來建立傳統 VM。(請參閱[這裡](virtual-machines-windows-tutorial-classic-portal.md)的 Azure 入口網站步驟。)
+3. 在 Azure 傳統入口網站或 Azure 入口網站中，從 [Azure Marketplace] 中選取 HPC Pack 2012 R2 映像來建立傳統 VM。(請參閱[這裡](virtual-machines-windows-tutorial-classic-portal.md)的 Azure 傳統入口網站步驟。)
 
     **考量**
 
@@ -102,4 +102,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

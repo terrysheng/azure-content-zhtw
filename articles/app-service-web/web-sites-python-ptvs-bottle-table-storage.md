@@ -69,11 +69,9 @@
 
 1.  登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 按一下入口網站左上方的 [新增] 圖示，然後按 [資料+儲存體] > [儲存體帳戶]。按一下 [建立] 按鈕，接著為儲存體帳戶指定唯一名稱，並為它建立新的[資源群組](../resource-group-overview.md)。
+2. 按一下入口網站左上方的 [新增] 圖示，然後按一下 [資料+儲存體] > [儲存體帳戶]。按一下 [建立] 按鈕，接著為儲存體帳戶指定唯一名稱，並為它建立新的[資源群組](../resource-group-overview.md)。
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	建立儲存體帳戶後，[通知] 按鈕便會閃爍綠色 [成功]，儲存體帳戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->建立儲存體帳戶後，[通知] 按鈕便會閃爍綠色 [成功]，儲存體帳戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -189,7 +187,6 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[瀏覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -217,4 +214,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

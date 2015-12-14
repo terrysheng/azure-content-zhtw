@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="建置使用資料表儲存體的 .NET 後端行動服務 | Azure 行動服務" 
-	description="了解如何搭配 .NET 後端行動服務使用 Azure 資料表儲存體。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="建置使用資料表儲存體的 .NET 後端行動服務 | Azure 行動服務"
+	description="了解如何搭配 .NET 後端行動服務使用 Azure 資料表儲存體。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # 建置使用資料表儲存體的 .NET 後端行動服務
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 本主題說明如何在 .NET 後端行動服務中使用非關聯式資料存放區。在本教學課程中，您將修改 Azure 行動服務快速入門專案，以使用 Azure 資料表儲存體而非預設 Azure SQL Database 資料存放區。
 
@@ -36,10 +41,10 @@
 
 3. 如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶](../storage-create-storage-account.md)。
 
-4. 在管理入口網站中，按一下 [儲存體]、儲存體帳戶和 [管理金鑰]。
+4. 在[ Azure 傳統入口網站]中，按一下 [儲存體]、[儲存體帳戶]和 [管理金鑰]。
 
 5. 請記下 [儲存體帳戶名稱] 和 [存取金鑰]。
- 
+
 6. 在您的行動服務中，按一下 [設定] 索引標籤、向下捲動至 [連接字串]，然後輸入新的連接字串 (其 [名稱] 為 `StorageConnectionString`，其 [值] 為您的儲存體帳戶連接字串且格式如下)。
 
 		DefaultEndpointsProtocol=https;AccountName=<ACCOUNT_NAME>;AccountKey=<ACCESS_KEY>;
@@ -83,12 +88,12 @@
         {
             base.Initialize(controllerContext);
 
-            // Create a new Azure Storage domain manager using the stored 
+            // Create a new Azure Storage domain manager using the stored
             // connection string and the name of the table exposed by the controller.
             string connectionStringName = "StorageConnectionString";
             var tableName = controllerContext.ControllerDescriptor.ControllerName.ToLowerInvariant();
-            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName, 
-                tableName, Request, Services);          
+            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName,
+                tableName, Request, Services);
         }
 
 	這會使用儲存體帳戶連接字串，為要求的控制站建立新的儲存體網域管理員。
@@ -99,7 +104,7 @@
         {
             // Call QueryAsync, passing the supplied query options.
             return DomainManager.QueryAsync(options);
-        } 
+        }
 
 	不同於 SQL Database，此版本不會傳回 IQueryable<TEntity>，因此以繫結至結果，但無法在查詢中進一步編寫。
 
@@ -119,8 +124,8 @@
 
 ## <a name="test-application"></a>測試應用程式
 
-1. (選用) 重新發佈您的行動服務 .NET 後端專案。 
-	
+1. (選用) 重新發佈您的行動服務 .NET 後端專案。
+
 	您也可先在本機測試您的行動服務，再將 .NET 後端專案發佈至 Azure。不論在本機或在 Azure 中測試，行動服務都會使用 Azure 資料表儲存體。
 
 4. 執行連接到您的行動服務的快速入門用戶端應用程式。
@@ -128,16 +133,16 @@
 	請注意，您看不見您先前使用快速入門教學課程加入的項目。這是因為資料表存放區目前是空的。
 
 5. 加入新項目以產生資料庫變更。
- 
+
 	除了您的資料現在儲存在非關聯式存放區而不是 SQL Database 中，應用程式和行動服務的行為應如同以往。
 
 ##後續步驟
 
 您現在已看到搭配使用資料表儲存體與 .NET 後端是多麼簡單，請考慮瀏覽某些其他後端儲存體選項：
 
-+ [使用混合式連接來連接到內部部署 SQL Server](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>混合式連接可讓您的行動服務安全地連接到內部部署資產。因此，您可以藉由混合式連線讓行動用戶端使用 Azure 存取內部部署資料。支援的資產包括任何可在靜態 TCP 連接埠上執行的資源，例如 Microsoft SQL Server、MySQL、HTTP Web API 和大部分的自訂 Web 服務。
++ [使用混合式連接連接到內部部署 SQL Server](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>混合式連接可讓您的行動服務安全地連接到內部部署資產。因此，您可以藉由混合式連線讓行動用戶端使用 Azure 存取內部部署資料。支援的資產包括任何可在靜態 TCP 連接埠上執行的資源，例如 Microsoft SQL Server、MySQL、HTTP Web API 和大部分的自訂 Web 服務。
 
-+ [使用行動服務將影像上傳至 Azure 儲存體](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>示範如何擴充 TodoList 範例專案，讓您能將影像從 App 上傳至 Azure Blob 儲存體。
++ [使用行動服務將影像上傳至 Azure 儲存體](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>示範如何擴充 TodoList 範例專案，讓您將影像從您的應用程式上傳至 Azure Blob 儲存體。
 
 <!-- Anchors. -->
 [Create a non-relational store]: #create-store
@@ -150,9 +155,8 @@
 
 <!-- URLs. -->
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[ Azure 傳統入口網站]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

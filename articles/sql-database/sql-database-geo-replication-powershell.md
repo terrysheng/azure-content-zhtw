@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/10/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # 使用 PowerShell 為 Azure SQL Database 設定異地複寫
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-geo-replication-portal.md)
+- [Azure portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
@@ -36,7 +36,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 若要設定異地複寫，您需要下列項目：
 
-- Azure 訂用帳戶。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
+- Azure 訂閱。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
 - Azure SQL Database - 您想要複寫到不同地理區域的主要資料庫。
 - Azure PowerShell 1.0 Preview。依照[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，即可以下載並安裝 Azure PowerShell 模組。
 
@@ -123,7 +123,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 ## 移除次要資料庫
 
-使用 **Remove-AzureRmSqlDatabaseSecondary** Cmdlet 以永久終止次要資料庫與其主要資料庫之間的複寫關係。關聯性終止之後，次要資料庫會成為讀寫資料庫。如果與次要資料庫的連線中斷，命令將會成功，但次要資料庫必須等到連線恢復後才會變成可讀寫。如需詳細資訊，請參閱 [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) 和[服務層](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/)。
+使用 **Remove-AzureRmSqlDatabaseSecondary** Cmdlet 以永久終止次要資料庫與其主要資料庫之間的複寫關係。關聯性終止之後，次要資料庫會成為讀寫資料庫。如果與次要資料庫的連線中斷，命令將會成功，但次要資料庫必須等到連線恢復後才會變成可讀寫。如需詳細資訊，請參閱 [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) 和[服務層](sql-database-service-tiers.md)。
 
 這個 Cmdlet 會取代用於複寫的 Stop-AzureSqlDatabaseCopy。
 
@@ -218,4 +218,4 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 - [業務續航力概觀](sql-database-business-continuity.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -32,7 +32,7 @@
 
 增加叢集中的背景工作節點數目，即可運用更多平行執行的對應器和歸納器。在 HDInsight 中您有兩種方法可相應放大：
 
-- 在佈建階段，您可以使用 Azure 預覽入口網站、Azure PowerShell 或跨平台命令列介面，指定背景工作節點的數目。如需詳細資訊，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。下列畫面顯示 Azure 預覽入口網站上的背景工作節點組態：
+- 在佈建階段，您可以使用 Azure 入口網站、Azure PowerShell 或跨平台命令列介面指定背景工作節點的數目。如需詳細資訊，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)。下列畫面顯示 Azure 入口網站上的工作者節點組態：
 
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 
@@ -226,4 +226,4 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
    	pageTitle="使用入口網站在 HDInsight 中的 Linux 上建立 Hadoop、HBase 或 Storm 叢集 | Microsoft Azure"
-   	description="了解如何在適用於 HDInsight 的 Linux 上，使用 Web 瀏覽器和 Azure Preview 入口網站，來建立 Hadoop、HBase 或 Storm 叢集。"
+   	description="了解如何在適用於 HDInsight 的 Linux 上，使用 Web 瀏覽器和 Azure 入口網站，來建立 Hadoop、HBase 或 Storm 叢集。"
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -18,25 +18,25 @@
    	ms.author="nitinme"/>
 
 
-#使用 Azure Preview 入口網站在 HDInsight 上建立 Linux 架構的叢集
+#使用 Azure 入口網站建立 HDInsight 上的 Linux 型叢集
 
 [AZURE.INCLUDE [選取器](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Azure Preview 入口網站是 Web 架構的管理工具，可用來管理裝載於 Microsoft Azure 雲端中的服務和資源。利用本文件中的資訊，使用 Preview 入口網站和您的 Web 瀏覽器來建立 Linux 架構的新 HDInsight 叢集
+Azure 入口網站是 Web 架構的管理工具，可用來管理裝載於 Microsoft Azure 雲端中的服務和資源。利用本文件中的資訊，使用入口網站和您的 Web 瀏覽器來建立 Linux 架構的新 HDInsight 叢集
 
 ##必要條件
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- __現代 Web 瀏覽器__。Azure Preview 入口網站會使用 HTML5 和 Javascript，而且可能無法在舊版 Web 瀏覽器中正確運作。
+- __現代 Web 瀏覽器__。Azure 入口網站會使用 HTML5 和 Javascript，而且可能無法在舊版 Web 瀏覽器中正確運作。
 
 ##建立叢集
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
 
-    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
+    ![在 Azure 入口網站中建立新的叢集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "在 Azure 入口網站中建立新的叢集")
 
 3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Ubuntu]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
@@ -144,7 +144,7 @@ Azure Preview 入口網站是 Web 架構的管理工具，可用來管理裝載�
 
 	* **使用者** (![使用者圖示](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png))：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 
-		> [AZURE.IMPORTANT]這「只」會影響 Azure Preview 入口網站中對此叢集的存取和權限，而不會影響哪些使用者可連線至 HDInsight 叢集或將工作提交至其上。
+		> [AZURE.IMPORTANT]這_只_會影響在 Azure 入口網站對此叢集的存取和權限，對於連線到 HDInsight 叢集或將工作提交到 HDInsight 叢集的使用者沒有影響。
 
 	* **標記** (![標記圖示](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
@@ -169,4 +169,4 @@ Azure Preview 入口網站是 Web 架構的管理工具，可用來管理裝載�
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python.md)
 * [使用 Storm on HDInsight 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

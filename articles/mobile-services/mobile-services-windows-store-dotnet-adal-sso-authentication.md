@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -85,7 +90,7 @@
 
 ###建立原生應用程式註冊
 
-1. 導覽至 **Azure 管理入口網站**中的 [Active Directory]，然後按一下您的目錄。
+1. 導覽至 [Azure 傳統入口網站]中的 Active Directory，然後按一下您的目錄。
 
     ![][7]
 
@@ -162,7 +167,7 @@
             }
         }
 
-6. 在上述 `AuthenticateAsync` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代成您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+6. 在上述 `AuthenticateAsync` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 替換為您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 傳統入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
 7. 在上述 `AuthenticateAsync` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 替換為您行動服務的「應用程式識別碼 URI」。如果您依照[如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼 URI 應類似於 https://todolist.azure-mobile.net/login/aad。
 
@@ -184,7 +189,7 @@
 ##使用驗證測試用戶端
 
 1. 在 Visual Studio 中，執行用戶端應用程式。
-2. 您會看見登入 Azure Active Directory 的提示。  
+2. 您會看見登入 Azure Active Directory 的提示。
 3. 應用程式會驗證並傳回 todo 項目。
 
     ![][15]
@@ -211,9 +216,8 @@
 
 <!-- URLs. -->
 [如何向 Azure Active Directory 註冊]: mobile-services-how-to-register-active-directory-authentication.md
-[Active Directory]: https://manage.windowsazure.com/
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 開發人員中心儀表板]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

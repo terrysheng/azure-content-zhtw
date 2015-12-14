@@ -41,7 +41,7 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 
 本主題說明如何自訂 HDInsight 叢集以安裝 Spark。
 
-## 使用 Azure Preview 入口網站安裝 Spark
+## 使用 Azure 入口網站安裝 Spark
 
 您可以從唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1)。根據您建立的 HDInsight 叢集版本，此指令碼可安裝 Spark 1.2.0 或 Spark 1.0.2。
 
@@ -86,7 +86,7 @@ Spark 提供以 Scala、Python 及 Java 撰寫的 API。您也可以使用互動
 ###<a name="sparkshell"></a>使用 Spark 殼層來執行互動式查詢
 請執行下列步驟以從互動式 Spark 殼層執行 Spark 查詢。在本節中，我們將對 HDInsight 叢集上預設提供的範例資料檔案 (/example/data/gutenberg/davinci.txt) 執行 Spark 查詢。
 
-1. 從 Azure 入口網站，針對您所建立且已安裝 Spark 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
+1. 從 Azure 入口網站，針對您所建立且已安裝 Spark 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱[使用 RDP 連接至 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)。
 
 2. 在遠端桌面通訊協定 (RDP) 工作階段中，從桌面開啟 Hadoop 命令列 (從桌面捷徑)，然後瀏覽至 Spark 的安裝位置；例如 **C:\\apps\\dist\\spark-1.2.0**。
 
@@ -120,7 +120,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 
 >[AZURE.NOTE]下面的範例是針對 **Spark 1.2.0** 所建立，若您在建立 HDInsight 3.2 叢集時執行指令碼動作，便會安裝 Spark 1.2.0。
 
-1. 從 Azure 入口網站，針對您所建立且已安裝 Spark 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
+1. 從 Azure 入口網站，針對您所建立且已安裝 Spark 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱[使用 RDP 連接至 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)。
 
 2. 在 RDP 工作階段中，從桌面開啟 Hadoop 命令列 (從桌面捷徑)，然後瀏覽至 Spark 的安裝位置；例如 **C:\\apps\\dist\\spark-1.2.0**。
 
@@ -317,4 +317,4 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 
 
-1. 登入 Azure 管理入口網站，按一下 [行動服務]，然後選取您的行動服務。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，按一下 [行動服務]，接著選取您的行動服務。
 
 2. 按一下 [API] 索引標籤，然後按一下 [建立]。這樣做會顯示 [Create a new custom API] 對話方塊。
 
@@ -26,7 +26,7 @@
 		};
 
 
-> [AZURE.NOTE][Express.js](http://go.microsoft.com/fwlink/p/?LinkId=309046) 程式庫會實作提供給自訂 API 函式的 [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) 和 [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) 物件。
+> [AZURE.NOTE][Express.js 程式庫](http://go.microsoft.com/fwlink/p/?LinkId=309046) 會實作提供給自訂 API 函式的 [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) 和 [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) 物件。
 
 <!-- Anchors. -->
 
@@ -35,4 +35,4 @@
 <!-- URLs. -->
 [mssql 物件]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

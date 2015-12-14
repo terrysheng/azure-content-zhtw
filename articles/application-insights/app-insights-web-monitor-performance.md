@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # 監視 Web 應用程式的效能 (英文)
@@ -134,18 +134,24 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 如果您想要，也可以撰寫程式碼來達到相同效果：
 
-    var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
-    perfCollector.Initialize(TelemetryConfiguration.Active);
-    TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+此外，如果您想要收集效能計數器並將其推送到 Application Insights，可以使用下列程式碼片段：
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
 ### 例外狀況計數
 
-「例外狀況率和例外狀況度量之間的差異為何？」
+*「例外狀況率和例外狀況度量之間的差異為何？」*
 
-* 「例外狀況率」是系統效能計數器。CLR 會計算所有擲回之已處理和未處理的例外狀況，並依據間隔的長度將總數分割為取樣間隔。Application Insights SDK 會收集此結果並將它傳送至入口網站。
-* 「例外狀況」是在圖表的取樣間隔中由入口網站接收之 TrackException 報告的計數。它只包含您程式碼中撰寫 TrackException 呼叫所在位置的已處理例外狀況，並且不包含所有的[未處理例外狀況](app-insights-asp-net-exceptions.md)。 
+* *例外狀況率*是系統效能計數器。CLR 會計算所有擲回之已處理和未處理的例外狀況，並依據間隔的長度將總數分割為取樣間隔。Application Insights SDK 會收集此結果並將它傳送至入口網站。
+* *例外狀況*是在圖表的取樣間隔中由入口網站接收之 TrackException 報告的計數。它只包含您程式碼中撰寫 TrackException 呼叫所在位置的已處理例外狀況，並且不包含所有的[未處理例外狀況](app-insights-asp-net-exceptions.md)。 
 
 ## 設定警示
 
@@ -185,7 +191,7 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
@@ -193,4 +199,4 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

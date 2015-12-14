@@ -8,14 +8,14 @@
 
    	這會傳送新項目以插入至行動服務。
 
-    您可以重新啟動應用程式，以確認變更持續存留至 Azure 中的資料庫。您也可以使用 Azure 管理入口網站來檢查資料庫：後續的兩個步驟將執行此動作以檢視您資料庫中的變更。
+    您可以重新啟動應用程式，以確認變更持續存留至 Azure 中的資料庫。您也可以使用 Azure 傳統入口網站來檢查資料庫：後續的兩個步驟將執行此動作以檢視您資料庫中的變更。
 
 
-4. 在 Azure 管理入口網站中，對您行動服務的相關資料庫按一下 [管理]。
+4. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，對您行動服務的相關資料庫按一下 [管理]。
 
     ![](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png)
 
-5. 在管理入口網站中執行查詢，以檢視 Windows 市集應用程式所做的變更。您的查詢會與下列查詢類似，但使用您的資料庫名稱，而非 `todolist`。
+5. 在傳統入口網站中執行查詢，以檢視 Windows 市集應用程式所做的變更。您的查詢會與下列查詢類似，但使用您的資料庫名稱，而非 `todolist`。
 
         SELECT * FROM [todolist].[todoitems]
 
@@ -23,4 +23,4 @@
 
 Android 的**開始使用資料**教學課程到此結束。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

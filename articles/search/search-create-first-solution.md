@@ -70,7 +70,7 @@
 
 > [AZURE.NOTE]如果出現包含「金鑰 'attachdbfilename' 的值無效」的錯誤，或是其他資料庫附加錯誤，表示可能有 UAC 衝突發生。根據此示範的用途，請執行下列動作來因應這些錯誤：將方案複製到可存取已驗證使用者的新資料夾或現有資料夾 (例如 Temp)。使用 [**以系統管理員身分執行**] 啟動 Visual Studio。開啟方案、建置方案，然後按 **F5** 來建立索引。
 
-若要驗證索引建立和文件上傳是否成功，請移至 [Azure 管理入口網站](https://portal.azure.com)中的搜尋服務儀表板。在 [Usage] 中，索引計數應該會增加一個，而您應有 294 個文件，資料庫中的每項產品各一個。
+若要驗證索引建立和文件上傳是否成功，請移至 [Azure 傳統入口網站](https://portal.azure.com)中的搜尋服務儀表板。在 [Usage] 中，索引計數應該會增加一個，而您應有 294 個文件，資料庫中的每項產品各一個。
 
 按一下 [索引] 磚以顯示索引清單。索引清單會列出新索引和文件計數。請注意，您最多可在免費定價層具有三個索引。如果已有三個索引，您必須刪除一個，以釋出空間給任何新的索引。
 
@@ -206,4 +206,4 @@
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

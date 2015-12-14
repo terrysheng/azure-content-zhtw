@@ -53,7 +53,7 @@
 
 3. 建立程式。
 
-	使用 Azure 管理入口網站時，建立程式也會建立資產。
+	使用 Azure 傳統入口網站時，建立程式也會建立資產。
 
 	使用 .NET SDK 或 REST 時，您必須建立資產並指定要在建立程式時使用此資產。 
 1. 發行與程式相關聯的資產。   
@@ -157,7 +157,7 @@
 
 通道開始內嵌資料後，您就可以預覽您的資料流。
 
-請注意，無論指定的輸入類型為何，預覽資料流目前只能利用 Fragmented MP4 (Smooth Streaming) 格式傳遞。您可以使用 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 播放器測試 Smooth Stream。您也可以使用 Azure 管理入口網站中架設的播放程式來查看您的資料流。
+請注意，無論指定的輸入類型為何，預覽資料流目前只能利用 Fragmented MP4 (Smooth Streaming) 格式傳遞。您可以使用 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 播放器測試 Smooth Stream。您也可以使用裝載於 Azure 傳統入口網站中的播放器來檢視您的串流。
 
 
 ####允許的 IP 位址
@@ -269,4 +269,4 @@ SCTE-35|數位訊號系統，用來提示廣告插入。下游接收端會使用
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

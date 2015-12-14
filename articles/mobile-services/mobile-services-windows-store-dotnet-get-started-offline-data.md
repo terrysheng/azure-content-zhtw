@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="在您的通用 Windows 應用程式中使用離線資料 | Microsoft Azure" 
-	description="了解如何使用 Azure 行動服務快取及同步通用 Windows 應用程式中的離線資料。" 
-	documentationCenter="mobile-services" 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="在您的通用 Windows 應用程式中使用離線資料 | Microsoft Azure"
+	description="了解如何使用 Azure 行動服務快取及同步通用 Windows 應用程式中的離線資料。"
+	documentationCenter="mobile-services"
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/06/2015"
 	ms.author="donnam"/>
 
 # 在行動服務中使用離線資料同步
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -26,11 +31,11 @@
 
 > [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
-在本教學課程中，您會更新[開始使用行動服務]教學課程中的通用應用程式專案，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
+在本教學課程中，您會更新[開始使用行動服務]教學課程中的通用應用程式專案，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 [Azure 傳統入口網站]，以檢視執行應用程式時對資料所做的變更。
 
 >[AZURE.NOTE]本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 Windows 市集應用程式中的資料。如果這是您第一次接觸行動服務，您應該先完成[開始使用行動服務]教學課程。
 
-##必要條件 
+##必要條件
 
 本教學課程需要下列各項：
 
@@ -39,7 +44,7 @@
 * [Azure 行動服務 SDK 1.3.0 版 (或更新版本)][Mobile Services SDK Nuget]
 * [Azure 行動服務 SQLite Store 1.0.0 版 (或更新版本)][SQLite store nuget]
 * [SQLite for Windows 8.1](http://www.sqlite.org/download.html)
-* 一個 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。 
+* 一個 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。
 
 ## <a name="enable-offline-app"></a>更新應用程式以支援離線功能
 
@@ -47,7 +52,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 >[AZURE.NOTE]您可以略過本節，直接從行動服務的 GitHub 範例儲存機制取得已具有離線支援的範例專案。具有離線支援的範例專案位於這裡：[TodoList 離線範例]。
 
-1. 安裝適用於 Windows 8.1 和 Windows Phone 8.1 的 SQLite Runtime。 
+1. 安裝適用於 Windows 8.1 和 Windows Phone 8.1 的 SQLite Runtime。
 
     * **Windows 8.1 執行階段：**安裝 [SQLite for Windows 8.1]。
     * **Windows Phone 8.1：**安裝 [SQLite for Windows Phone 8.1]。
@@ -211,7 +216,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 2. 按 **F5** 鍵，以重新建置與執行應用程式。請注意，雖然應用程式此時已連接到行動服務，但資料看起來仍會與離線狀態下相同。這是因為此應用程式一律會使用指向本機存放區的 `IMobileServiceSyncTable`。
 
-3. 登入 Microsoft Azure 管理入口網站，並檢視您的行動服務的資料庫。如果您的行動服務使用 JavaScript 後端，則您可以從行動服務的 [資料] 索引標籤瀏覽資料。
+3. 登入 [Azure 傳統入口網站]，並檢視您的行動服務資料庫。如果您的行動服務使用 JavaScript 後端，則您可以從行動服務的 [資料] 索引標籤瀏覽資料。
 
     如果您將 .NET 後端用於行動服務，請在 Visual Studio 中移至 [伺服器總管] -> [Azure] -> [SQL 資料庫]。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。
 
@@ -232,7 +237,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 6. 再按一次 [重新整理] 按鈕，以呼叫 `SyncAsync`。`SyncAsync` 會同時呼叫推送和提取，但在此案例中，我們可能已移除 `PushAsync` 的呼叫。這是因為**提取一律會先執行推送**。這是為了確保本機存放區中的所有資料表和關聯性都保持一致。
 
     ![][10]
-  
+
 
 ##摘要
 
@@ -276,6 +281,6 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
- 
+[Azure 傳統入口網站]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

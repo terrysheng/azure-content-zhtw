@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="將行動服務新增至現有的通用 Windows 市集應用程式 | Microsoft Azure" 
-	description="了解如何開始使用行動服務在 Windows Store 應用程式中使用資料。" 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="將行動服務新增至現有的通用 Windows 市集應用程式 | Microsoft Azure"
+	description="了解如何開始使用行動服務在 Windows Store 應用程式中使用資料。"
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/10/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/10/2015"
 	ms.author="glenga"/>
 
 # 將行動服務新增至現有的應用程式
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -35,7 +40,7 @@
 若要完成此教學課程，您需要下列項目：
 
 * 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F)。
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 或更新版本)。 
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 或更新版本)。
 
 ##下載 GetStartedWithData 專案
 
@@ -47,11 +52,11 @@
 
 &nbsp;&nbsp;7.在 [解決方案總管] 中，於 [GetStartedWithData.Shared] 專案資料夾中開啟 App.xaml.cs 程式碼檔案，並注意在 Windows 市集應用程式條件式編譯區塊裡，新增至 **App** 類別的全新靜態欄位，如以下範例所示：
 
-	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient
 	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
 	        "https://todolist.azure-mobile.net/",
 	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		
+
 
 &nbsp;&nbsp;此程式碼使用 [MobileServiceClient ](http://go.microsoft.com/fwlink/p/?LinkId=302030)類別的執行個體，藉此提供對應用程式中新行動服務的存取權。用戶端是利用提供新行動服務的 URI 和應用程式金鑰來建立。應用程式中的所有頁面都可以使用此靜態資料行。
 
@@ -86,7 +91,7 @@
 ##檢視儲存在 SQL Database 裡的資料
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../../includes/mobile-services-dotnet-backend-view-sql-data.md)]
- 
+
 本教學課程到此結束。
 
 ##後續步驟
@@ -111,14 +116,11 @@
 [開始使用驗證]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [開始使用推播通知]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[開始使用離線資料同步]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

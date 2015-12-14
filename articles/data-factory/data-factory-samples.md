@@ -18,8 +18,8 @@
 
 # Azure Data Factory - 範例
 
-## Azure 入口網站中的範例
-您可以在 Azure 入口網站中使用 [範例管線] 刀鋒視窗，來快速部署、檢閱及測試 Azure Data Factory 範例。
+## Azure 傳統入口網站中的範例。
+您可以在 Azure 傳統入口網站中使用 [範例管線] 刀鋒視窗，來快速部署、檢閱及測試 Azure Data Factory 範例。
 
 1. 建立新的 Data Factory，或開啟現有的 Data Factory。如需建立 Data Factory 的步驟，請參閱 [開始使用 Azure Data Factory][data-factory-get-started]。
 2. 在 Data Factory 的 [DATA FACTORY] 刀鋒視窗中，按一下 [範例管線] 磚。
@@ -57,4 +57,4 @@
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

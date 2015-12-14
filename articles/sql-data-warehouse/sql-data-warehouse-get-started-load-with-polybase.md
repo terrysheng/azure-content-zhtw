@@ -72,7 +72,7 @@
 
 若要尋找您的 Blob 服務端點：
 
-1. 從 Azure 入口網站選取 [瀏覽] > [儲存體帳戶]。
+1. 從 Azure 傳統入口網站選取 [瀏覽] > [儲存體帳戶]。
 2. 按一下您要使用的儲存體帳戶。
 3. 在儲存體帳戶刀鋒視窗中，按一下 [Blob]。
 
@@ -282,4 +282,4 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [建立資料庫範圍認證 (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

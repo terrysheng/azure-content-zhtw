@@ -69,7 +69,7 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-應用程式的連接字串會顯示在 Azure 管理入口網站中。
+應用程式的連接字串會顯示在 Azure 傳統入口網站中。
 
 ### Engagement 初始化
 
@@ -247,4 +247,4 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
 > [AZURE.WARNING]高載閾值無法設定為小於一秒的時間間隔。如果您嘗試這樣做，SDK 會顯示含錯誤訊息的追蹤，並且會自動重設為預設值 (0 秒)。這樣會觸發 SDK 以即時的方式報告記錄檔。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

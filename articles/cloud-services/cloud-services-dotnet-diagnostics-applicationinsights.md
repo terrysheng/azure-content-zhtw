@@ -32,7 +32,7 @@
 
 ![角色設計工具會將診斷資料傳送至 Application Insights][2]
 
-3) 在快顯的對話方塊中選取您想要傳送 Azure 診斷資料給它的 Application Insights 資源。對話方塊可讓您從您的訂用帳戶中選取現有的 Application Insights 資源，或是為 Application Insights 資源手動指定檢測金鑰。如果您沒有現有的 Application Insights 資源，可以透過按一下 [建立新的資源] 連結建立一個，這樣會開啟連結至 Azure 入口網站的瀏覽器視窗，在該處可以建立 Application Insights 資源。如需建立 Application Insights 資源的詳細資訊，請參閱[建立新的 Application Insights 資源](app-insights-create-new-resource.md)。
+3) 在快顯的對話方塊中選取您想要傳送 Azure 診斷資料給它的 Application Insights 資源。對話方塊可讓您從您的訂用帳戶中選取現有的 Application Insights 資源，或是為 Application Insights 資源手動指定檢測金鑰。如果您沒有現有的 Application Insights 資源，可以透過按一下 [建立新的資源] 連結建立一個，這樣會開啟連結至 Azure 傳統入口網站的瀏覽器視窗，在該處可以建立 Application Insights 資源。如需建立 Application Insights 資源的詳細資訊，請參閱[建立新的 Application Insights 資源](app-insights-create-new-resource.md)。
 
 ![選取 Application Insights 資源][3]
 
@@ -57,17 +57,17 @@ Azure 診斷遙測會顯示在為您的雲端服務設定的 Application Insight
 
 若要在 Application Insights 中檢視 Azure 診斷資料：
 
-- 使用[計量瀏覽器](https://azure.microsoft.com/documentation/articles/app-insights-metrics-explorer/)以視覺化方式檢視任何自訂的效能計數器，或是不同類型的 Windows 事件記錄檔事件的計數。
+- 使用[計量瀏覽器](../application-insights/app-insights-metrics-explorer.md)以視覺化方式檢視任何自訂的效能計數器，或是不同類型的 Windows 事件記錄檔事件的計數。
 
 ![[計量瀏覽器] 中的自訂計量][5]
 
-- 使用[搜尋](https://azure.microsoft.com/documentation/articles/app-insights-diagnostic-search/)在各種 Azure 診斷傳送的追蹤記錄檔中搜尋。例如，如果您的角色中有未處理的例外狀況造成該角色當機和回收，該資訊會顯示在 [Windows 事件記錄檔] 的 [應用程式] 通道。您可以使用搜尋功能來查看 Windows 事件記錄檔錯誤並取得例外狀況的完整堆疊追蹤，讓您尋找問題的根本原因。 
+- 使用[搜尋](../application-insights/app-insights-diagnostic-search.md)在各種 Azure 診斷傳送的追蹤記錄檔中搜尋。例如，如果您的角色中有未處理的例外狀況造成該角色當機和回收，該資訊會顯示在 [Windows 事件記錄檔] 的 [應用程式] 通道。您可以使用搜尋功能來查看 Windows 事件記錄檔錯誤並取得例外狀況的完整堆疊追蹤，讓您尋找問題的根本原因。 
 
 ![搜尋追蹤][6]
 
 ## 後續步驟
 
-- [將 Application Insights SDK 加入您的雲端服務](https://azure.microsoft.com/documentation/articles/app-insights-cloudservices/)，從您的應用程式傳送有關要求、例外狀況、相依性及任何自訂遙測的資料。與 Azure 診斷資料結合，您可以在相同的 Application Insight 資源中取得應用程式和系統的完整檢視。  
+- [將 Application Insights SDK 加入您的雲端服務](../application-insights/app-insights-cloudservices.md)，從您的應用程式傳送有關要求、例外狀況、相依性及任何自訂遙測的資料。與 Azure 診斷資料結合，您可以在相同的 Application Insight 資源中取得應用程式和系統的完整檢視。  
 
 
 <!--Image references-->
@@ -78,4 +78,4 @@ Azure 診斷遙測會顯示在為您的雲端服務設定的 Application Insight
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

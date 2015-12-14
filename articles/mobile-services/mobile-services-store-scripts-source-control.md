@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015" 
+	ms.date="09/15/2015"
 	ms.author="ggailey777"/>
 
 # 在原始檔控制中儲存行動服務專案程式碼
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -36,8 +41,7 @@
 
 	安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git]。
 
-	> [AZURE.NOTE]
-	> 在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
+	> [AZURE.NOTE]在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
 
 2. 開啟命令列，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 **[終端機]** 應用程式來存取命令列。
 
@@ -94,7 +98,7 @@
 
 	您應會看到一連串命令，指出已將認可部署到行動服務。
 
-6. 回到管理入口網站，依序按一下 [資料] 索引標籤、[TodoItem] 資料表及 [指令碼]，然後選取 [插入] 作業。請注意，顯示的插入作業指令碼會與您剛才上傳至儲存機制的 JavaScript 程式碼相同。
+6. 回到 [Azure 傳統入口網站]，依序按一下 [資料] 索引標籤、[TodoItem] 資料表及 [指令碼]，然後選取 [插入] 作業。請注意，顯示的插入作業指令碼會與您剛才上傳至儲存機制的 JavaScript 程式碼相同。
 
 ##<a name="use-npm"></a>在伺服器指令碼中運用共用程式碼和 Node.js 模組
 
@@ -131,8 +135,7 @@
 
 現在，您已完成本教學課程，您知道如何在原始檔控制中儲存指令碼。請考慮了解更多有關使用伺服器指令碼和自訂 API 的詳細資料：
 
-+ [在行動服務中使用伺服器指令碼]
-	<br/>說明如何使用伺服器指令碼、工作排程器和自訂 API。
++ [在行動服務中使用伺服器指令碼] <br/>說明如何使用伺服器指令碼、工作排程器和自訂 API。
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -151,9 +154,8 @@
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [開始使用行動服務]: mobile-services-ios-get-started.md
 [在行動服務中使用伺服器指令碼]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [模組]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

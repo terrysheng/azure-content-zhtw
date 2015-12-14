@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="調整由 Azure SQL Database 支援的行動服務 | Microsoft Azure" 
-	description="了解如何診斷和修正 SQL Database 支援的行動服務中出現的延展性問題" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="調整由 Azure SQL Database 支援的行動服務 | Microsoft Azure"
+	description="了解如何診斷和修正 SQL Database 支援的行動服務中出現的延展性問題"
+	services="mobile-services"
+	documentationCenter=""
+	authors="lindydonna"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/08/2015"
 	ms.author="donnam;ricksal"/>
 
 # 調整由 Azure SQL Database 支援的行動服務
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控後端的應用程式，將資料儲存在 SQL 資料庫中。隨著應用程式的成長，您只需在入口網站中修改調整設定以增加更多計算和網路容量，即可調整您的服務執行個體。但是，要對支援服務的 SQL 資料庫進行調整，必須仰賴主動式規劃和監視，因為服務將會承受更多負載。本文將逐步引導您執行一組最佳作法，以確保 SQL 支援的行動服務能夠維持絕佳效能。
 
@@ -32,14 +37,14 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 <a name="Diagnosing"></a>
 ## 診斷問題
 
-如果您懷疑行動服務有負載過大的問題，首先您應在 **Azure 管理入口網站**中查看您的服務的 [儀表板][][] 索引標籤。應確認的事項如下：
+如果您懷疑行動服務有負載過大的問題，首先您應在 [Azure 傳統入口網站]中查看您服務的 [儀表板] 索引標籤。應確認的事項如下：
 
 - 您的使用計量 (包括 [API 呼叫] 和 [使用中裝置] 計量) 未超出配額
-- [端點監視] 狀態指出服務已啟動 (只有在服務使用標準層且 [端點監視] 已啟用時才適用) 
+- [端點監視] 狀態指出服務已啟動 (只有在服務使用標準層且 [端點監視] 已啟用時才適用)
 
 前述若有任一項條件不符，請考慮在 [調整] 索引標籤上修改您的調整設定。如果仍無法解決問題，您可以進一步調查問題是否來自於 Azure SQL Database。後續幾節將說明幾種診斷可能錯誤的不同方法。
 
-### 選擇正確的 SQL Database 層 
+### 選擇正確的 SQL Database 層
 
 請務必了解可供您使用的不同資料庫層，以確保您已根據應用程式的需求選擇了正確的層。Azure SQL Database 提供兩種不同的資料庫版本和三個不同的服務層：
 
@@ -50,9 +55,9 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 若要將使用 Web 和 Business Edition 的行動服務轉換成基本、標準和高階服務層，請遵循下列步驟。
 
-1. 啟動 [Azure 管理入口網站][]。
+1. 開啟 [Azure 傳統入口網站]。
 2. 在工具列中選取 [+新增]，然後選取 [資料服務]、[SQL 資料庫]、[快速建立]。
-3. 輸入資料庫名稱，然後在 [伺服器] 欄位中選取 [New SQL database server]。這將會建立使用新的基本、標準或階服務層的伺服器。 
+3. 輸入資料庫名稱，然後在 [伺服器] 欄位中選取 [New SQL database server]。這將會建立使用新的基本、標準或階服務層的伺服器。
 4. 填入其餘欄位，然後選取 [建立 SQL 資料庫]。這將會建立使用 Basic 層的 100MB 資料庫。
 5. 設定您的行動服務以使用您剛剛建立的資料庫。巡覽至該服務的 [設定] 索引標籤，並在工具列中選取 [變更資料庫]。在下一個畫面上，在 [SQL 資料庫] 欄位中選取 [Use an existing SQL database]，然後選取 [下一步]。在下一個畫面上確實選取您在步驟 5 中建立的資料庫，然後選取 [確定]。
 
@@ -68,27 +73,27 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 在您熟悉不同的資料庫層之後，我們即可探索資料庫效能度量，以利分析各層以內和之間的調整。
 
-1. 啟動 [Azure 管理入口網站][]。
+1. 開啟 [Azure 傳統入口網站]。
 2. 在 [行動服務] 索引標籤上，選取您想要使用的服務。
 3. 選取 [設定] 索引標籤。
 4. 在 [資料庫設定] 區段中，選取 [SQL 資料庫] 名稱。這會導覽至入口網站中的 [Azure SQL Database] 索引標籤。
 5. 導覽至 [監視] 索引標籤
 6. 使用 [新增度量] 按鈕，確定相關度量皆會顯示。請納入下列項目
     - *CPU 百分比* (僅適用於 Basic/Standard/Premium 層)
-    - *實體資料讀取百分比* (僅適用於 Basic/Standard/Premium 層) 
+    - *實體資料讀取百分比* (僅適用於 Basic/Standard/Premium 層)
     - *記錄寫入百分比* (僅適用於 Basic/Standard/Premium 層)
-    - *儲存體* 
-7. 在您的服務發生問題的期間查看度量。 
+    - *儲存體*
+7. 在您的服務發生問題的期間查看度量。
 
-    ![Azure Management Portal - SQL Database Metrics][PortalSqlMetrics]
+    ![Azure 傳統入口網站 - SQL Database 度量][PortalSqlMetrics]
 
 如有任何度量長時間超過 80% 使用率，則可能表示效能有問題。如需關於了解資料庫使用率的詳細資訊，請參閱[了解資源使用情形](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource)。
 
-如果度量指出您的資料庫造成高使用率，請考慮以 [scaling up the database to a higher service tier] 作為第一個因應步驟。若要立即解決問題，請考慮使用資料庫的 [調整] 索引標籤向上擴充您的資料庫。這樣會增加您的費用。![Azure Management Portal - SQL Database Scale][PortalSqlScale]
+如果度量指出您的資料庫造成高使用率，請考慮以 [scaling up the database to a higher service tier] 作為第一個因應步驟。若要立即解決問題，請考慮使用資料庫的 [調整] 索引標籤向上擴充您的資料庫。這樣會增加您的費用。![Azure 傳統入口網站 - SQL Database 調整][PortalSqlScale]
 
 請儘快考慮使用下列進一步的因應步驟：
 
-- **調整您的資料庫。** 通常在完成資料庫最佳化後即可降低資料庫使用率，而無須再調整至更高層。 
+- **調整您的資料庫。** 通常在完成資料庫最佳化後即可降低資料庫使用率，而無須再調整至更高層。
 - **考量您的服務架構。** 您的服務負載長期來看很可能未平均分佈，而包含高度需求的「尖峰」。與其向上擴充資料庫以處理尖峰，而使其在低需求期間變得使用率偏低，一般常會選擇調整服務架構以避免此類尖峰，或在不產生資料庫叫用的情況下加以處理。
 
 本文的其他小節包含可協助您實作這些因應措施的適當指引。
@@ -100,9 +105,9 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 1. 導覽至要設定警示之資料庫的 [監視] 索引標籤
 2. 確定相關度量皆已顯示，如上一節所說明
-3. 選取您想要設定警示的度量，並選取 [新增規則] ![Azure Management Portal - SQL Alert][PortalSqlAddAlert]
-4. 提供警示的名稱和描述 ![Azure Management Portal - SQL Alert Name and Description][PortalSqlAddAlert2]
-5. 指定要作為警示臨界值的值。請考慮使用 **80%**，以容許有時間可做因應。也請務必指定主動監視的電子郵件地址。![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
+3. 選取您想要設定警示的度量，並選取 [新增規則] ![Azure 傳統入口網站 - SQL 警示][PortalSqlAddAlert]
+4. 提供警示的名稱和描述 ![Azure 傳統入口網站 -SQL 警示名稱與描述][PortalSqlAddAlert2]
+5. 指定要作為警示臨界值的值。請考慮使用 **80%**，以容許有時間可做因應。也請務必指定主動監視的電子郵件地址。![Azure 傳統入口網站 - SQL 警示臨界值和電子郵件][PortalSqlAddAlert3]
 
 如需診斷 SQL 問題的詳細資訊，請參閱本文結尾處的[進階診斷](#AdvancedDiagnosing)。
 
@@ -125,7 +130,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 - 考慮在經常用於述詞 (例如 WHERE 子句) 和聯結條件中的資料行內新增索引，同時權衡下列資料庫考量事項。
 - 撰寫可在單一陳述式中盡可能插入或修改最多資料列的查詢，而不使用多個查詢來更新相同資料列。在只有一個陳述式時，資料庫引擎較能最佳化它對索引的維護情形。
-	
+
 #### 資料庫考量
 
 資料表上若有大量的索引，將會影響 INSERT、UPDATE、DELETE 和 MERGE 陳述式的效能，因為當資料表中的資料變更時，所有索引都必須適當地調整。
@@ -143,7 +148,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 若要為 JavaScript 後端中的資料行設定索引，請執行下列動作：
 
-1. 在 [Azure 管理入口網站][]中開啟您的行動服務。
+1. 在 [Azure 傳統入口網站]中，開啟您的行動服務。
 2. 按一下 [資料] 索引標籤。
 3. 選取您要修改的資料表。
 4. 按一下 [資料行] 索引標籤。
@@ -164,7 +169,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 		[Index]
         public bool Complete { get; set; }
     }
-		 
+
 如需索引的詳細資訊，請參閱 [Entity Framework 中的索引註解][]。如需最佳化索引的相關秘訣，請參閱本文後端的[進階索引](#AdvancedIndexing)。
 
 <a name="Schema"></a>
@@ -173,7 +178,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 以下是為您的物件選擇資料類型 (接著會轉譯為 SQL 資料庫的結構描述) 時應注意的幾個問題。調整結構描述通常可以大幅提升效能，因為 SQL 具有自訂的最佳化方式，可為不同的資料類型處理索引和儲存工作：
 
 - **使用隨附的識別碼資料行**。每個行動服務資料表都附有設定為主要索引鍵的預設識別碼資料行，且資料行上都設有索引。您無須建立其他識別碼資料行。
-- **在您的模型中使用正確的資料類型。** 如果您知道模型的特定屬性將是數值或布林值，請務必在您的模型中將其定義為該形式，而不要定義為字串。在 JavaScript 後端中，請使用 `true` (不要使用`"true"`) 和 `5` (不要使用 `"5"`) 之類的文字。在 .NET 後端中，當您宣告模型的屬性時請使用 `int` 和 `bool` 類型。這會讓 SQL 為這些類型建立正確的結構描述，而使查詢更具效益。  
+- **在您的模型中使用正確的資料類型。** 如果您知道模型的特定屬性將是數值或布林值，請務必在您的模型中將其定義為該形式，而不要定義為字串。在 JavaScript 後端中，請使用 `true` (不要使用`"true"`) 和 `5` (不要使用 `"5"`) 之類的文字。在 .NET 後端中，當您宣告模型的屬性時請使用 `int` 和 `bool` 類型。這會讓 SQL 為這些類型建立正確的結構描述，而使查詢更具效益。
 
 <a name="Query"></a>
 ## 查詢設計
@@ -185,7 +190,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
     - 請勿在您的行動服務程式碼中執行聯結。使用 JavaScript 後端時請注意，[資料表物件](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx)並不會處理聯結。請務必直接使用 [mssql 物件](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx)，以確保聯結會在資料庫中執行。如需詳細資訊，請參閱[聯結關聯式資料表](mobile-services-how-to-use-server-scripts.md#joins)。透過 LINQ 使用 .NET 後端和查詢時，Entity Framework 會自動在資料庫層級上處理節。
 - **實作分頁。** 查詢資料庫有時可能會導致大量記錄傳回至用戶端。若要盡可能減少作業的大小和延遲，請考慮實作分頁。
     - 根據預設，您的行動服務會將任何傳入查詢的頁面大小限定為 50，而您可以手動要求提高到 1,000 筆記錄。如需詳細資訊，請參閱 [Windows 市集](mobile-services-windows-dotnet-how-to-use-client-library.md#paging)、[iOS](mobile-services-ios-how-to-use-client-library.md#paging)、[Android](mobile-services-android-how-to-use-client-library.md#paging)、[HTML/JavaScript](mobile-services-html-how-to-use-client-library/#paging) 和 [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging) 的「以分頁方式傳回資料」。
-    - 從行動服務程式碼發出的查詢並沒有預設頁面大小。如果您的應用程式未實作分頁，或將其視為防護措施，請考慮將預設限制套用至您的查詢。在 JavaScript 後端中，請在**查詢物件**上使用 [take](http://msdn.microsoft.com/library/azure/jj613353.aspx) 運算子。如果您使用 .NET 後端，請考慮以 [Take 方法](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) 作為 LINQ 查詢的一部分。  
+    - 從行動服務程式碼發出的查詢並沒有預設頁面大小。如果您的應用程式未實作分頁，或將其視為防護措施，請考慮將預設限制套用至您的查詢。在 JavaScript 後端中，請在**查詢物件**上使用 [take](http://msdn.microsoft.com/library/azure/jj613353.aspx) 運算子。如果您使用 .NET 後端，請考慮以 [Take 方法](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) 作為 LINQ 查詢的一部分。
 
 如需改善查詢設計的詳細資訊，請參閱本文結尾處的[進階查詢設計](#AdvancedQuery)。
 
@@ -203,16 +208,16 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 本節說明一些進階的診斷工作，或許有助於處理目前的步驟無法完全解決的問題。
 
 ### 必要條件
-若要執行本節中的某些診斷工作，您必須存取 SQL 資料庫的管理工具 (例如 **SQL Server Management Studio**) 或 **Azure 管理入口網站**的內建管理功能。
+若要執行本節中的某些診斷工作，您必須存取 SQL 資料庫的管理工具 (例如 **SQL Server Management Studio**) 或 **Azure 傳統入口網站**的內建管理功能。
 
 SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個 [基本 A0] (先前稱為「超小型」) 執行個體即應夠用。
 
-Azure 管理入口網站提供內建的管理功能，雖然功能有限，但不需本機安裝即可使用。
+Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但不需本機安裝即可使用。
 
 下列步驟將引導您針對支援行動服務的 SQL 資料庫取得連線資訊，然後使用前述兩項工具之一來連接。您可以選擇您想用的任一工具。
 
-#### 取得 SQL 連線資訊 
-1. 啟動 [Azure 管理入口網站][]。
+#### 取得 SQL 連線資訊
+1. 開啟 [Azure 傳統入口網站]。
 2. 在 [行動服務] 索引標籤上，選取您想要使用的服務。
 3. 選取 [設定] 索引標籤。
 4. 在 [資料庫設定] 區段中，選取 [SQL 資料庫] 名稱。這會導覽至入口網站中的 [Azure SQL Database] 索引標籤。
@@ -234,7 +239,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 5. 您現在應已連線。
 
 #### SQL Database 管理入口網站
-1. 在您資料庫的 [Azure SQL Database] 索引標籤上，選取 [管理] 按鈕 
+1. 在您資料庫的 [Azure SQL Database] 索引標籤上，選取 [管理] 按鈕
 2. 使用下列值來設定連線
     - 伺服器：*應預設為正確值*
     - 資料庫：*保留為空白*
@@ -242,12 +247,12 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
     - 密碼：*您在建立伺服器時選擇的密碼*
 3. 您現在應已連線。
 
-    ![Azure Management Portal - SQL Database][PortalSqlManagement]
+    ![Azure 傳統入口網站 - SQL Database][PortalSqlManagement]
 
 <a name="AdvancedDiagnosing" />
 ### 進階診斷
 
-許多診斷工作都可直接在 [Azure 管理入口網站] 中輕易完成，但有些進階診斷工作則只能透過 [SQL Server Management Studio] 或 [SQL Database 管理入口網站] 來執行。我們將利用動態管理檢視的功能，這是一組會以資料庫的相關診斷資訊自動填入的檢視。本節將提供一組可用來對這些檢視執行以檢查各種度量的查詢。如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]。
+許多診斷工作都可直接在 [Azure 傳統入口網站] 中輕易完成，但有些進階診斷工作則只能透過 [SQL Server Management Studio] 或 [SQL Database 管理入口網站] 來執行。我們將利用動態管理檢視的功能，這是一組會以資料庫的相關診斷資訊自動填入的檢視。本節將提供一組可用來對這些檢視執行以檢查各種度量的查詢。如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]。
 
 完成上一節中的步驟而連接到您在 SQL Server Management Studio 中的資料庫後，請在 [物件總管] 中選取您的資料庫。展開 [檢視]，[系統檢視] 會顯現管理檢視清單。若要執行下方的查詢，請選取 [新增查詢]，而您先前已在 [物件總管] 中選取您的資料庫，請在貼上查詢後選取 [執行]。
 
@@ -263,11 +268,11 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 #### 進階度量
 
-如果您使用 Basic、Standard 和 Premium 等層，則管理入口網站會使特定度量可供使用。但如果使用 Web 和 Business 層，則只有儲存體度量可透過入口網站使用。所幸無論您使用的層為何，都可以使用 **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 管理檢視輕鬆取得這些度量和其他度量。請考量下列查詢：
+如果您使用 Basic、Standard 和 Premium 等層，則 Azure 傳統入口網站會使特定度量可供使用。但如果使用 Web 和 Business 層，則只有儲存體度量可透過入口網站使用。所幸無論您使用的層為何，都可以使用 **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 管理檢視輕鬆取得這些度量和其他度量。請考量下列查詢：
 
-    SELECT TOP 10 * 
-    FROM sys.resource_stats 
-    WHERE database_name = 'todoitem_db' 
+    SELECT TOP 10 *
+    FROM sys.resource_stats
+    WHERE database_name = 'todoitem_db'
     ORDER BY start_time DESC
 
 > [AZURE.NOTE]請在伺服器的 **master** 資料庫上執行此查詢，**sys.resource\_stats** 檢視只會出現在該資料庫上。
@@ -278,7 +283,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 檢視包含連線相關事件的詳細資料。
 
-    select * from sys.event_log 
+    select * from sys.event_log
     where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
@@ -306,7 +311,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 - 縮窄 - 使用小型資料類型，或屬於少量縮窄資料行的[複合索引鍵][Primary and Foreign Key Constraints]
 - 唯一，或接近唯一
 - 靜態 - 值不常變更
-- 持續增加 
+- 持續增加
 - (選用) 固定寬度
 - (選用) 非 null
 
@@ -316,8 +321,8 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 叢集索引對於執行下列工作的查詢最具效益：
 
-- 使用 BETWEEN、>、>=、< 和 <= 等運算子，傳回某個範圍內的值。 
-	- 在使用叢集索引找到具有第一個值的資料列後，具有後續索引值的資料列必定會在相鄰的位置。 
+- 使用 BETWEEN、>、>=、< 和 <= 等運算子，傳回某個範圍內的值。
+	- 在使用叢集索引找到具有第一個值的資料列後，具有後續索引值的資料列必定會在相鄰的位置。
 - 使用 JOIN 子句；這些通常是外部索引鍵資料行。
 - 使用 ORDER BY 或 GROUP BY 子句。
 	- 在資料行上以 ORDER BY 或 GROUP BY 子句指定的索引可讓 Database Engine 無須排序資料，因為資料列已有排序。這可以改善查詢效能。
@@ -342,7 +347,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 - [建立叢集索引][]
 - [建立唯一索引][]
 
-#### 尋找前 N 個遺漏索引 
+#### 尋找前 N 個遺漏索引
 您可以在動態管理檢視上撰寫 SQL 查詢，以通知您與個別查詢的資源使用情形有關的詳細資訊，或引導您找出所應新增的索引。下列查詢會決定哪 10 個遺漏的索引會為使用者查詢產生最高的預期累積改進 (採用遞減順序)。
 
     SELECT TOP 10 *
@@ -352,9 +357,9 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 下列範例查詢會在這些資料表間執行聯結，以取得應屬於各個遺漏索引的資料行清單，並計算「索引效益」以判斷是否應考慮使用給定的索引：
 
-    SELECT * from 
+    SELECT * from
     (
-        SELECT 
+        SELECT
         (user_seeks+user_scans) * avg_total_user_cost * (avg_user_impact * 0.01) AS index_advantage, migs.*
         FROM sys.dm_db_missing_index_group_stats migs
     ) AS migs_adv,
@@ -369,7 +374,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]和[遺漏索引動態管理檢視](sys-missing-index-stats)。
 
 <a name="AdvancedQuery" />
-### 進階查詢設計 
+### 進階查詢設計
 
 一般而言，要診斷出哪些查詢對資料庫而言的成本最高，並不是容易的事。
 
@@ -377,15 +382,15 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 下列範例會傳回以平均 CPU 時間排名的前五個查詢的相關資訊。此範例會根據查詢雜湊來彙總查詢，使在邏輯上等同的查詢依其累積資源耗用量進行分組。
 
-	SELECT TOP 5 query_stats.query_hash AS "Query Hash", 
+	SELECT TOP 5 query_stats.query_hash AS "Query Hash",
 	    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
 	    MIN(query_stats.statement_text) AS "Statement Text"
-	FROM 
-	    (SELECT QS.*, 
+	FROM
+	    (SELECT QS.*,
 	    SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-	    ((CASE statement_end_offset 
+	    ((CASE statement_end_offset
 	        WHEN -1 THEN DATALENGTH(st.text)
-	        ELSE QS.statement_end_offset END 
+	        ELSE QS.statement_end_offset END
 	            - QS.statement_start_offset)/2) + 1) AS statement_text
 	     FROM sys.dm_exec_query_stats AS QS
 	     CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
@@ -426,6 +431,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 - [Code First 資料註解][]
 
 <!-- IMAGES -->
+
 [SSMS]: ./media/mobile-services-sql-scale-guidance/1.png
 [PortalSqlManagement]: ./media/mobile-services-sql-scale-guidance/2.png
 [PortalSqlMetrics]: ./media/mobile-services-sql-scale-guidance/3.png
@@ -443,8 +449,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 <!-- LINKS -->
 
-[]: http://manage.windowsazure.com
-[Azure 管理入口網站]: http://manage.windowsazure.com
+[Azure 傳統入口網站]: http://manage.windowsazure.com
 
 [Azure SQL Database 文件]: http://azure.microsoft.com/documentation/services/sql-database/
 [Managing SQL Database using SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
@@ -474,6 +479,5 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 <!-- BLOG LINKS -->
 [該索引鍵的成本為何？]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

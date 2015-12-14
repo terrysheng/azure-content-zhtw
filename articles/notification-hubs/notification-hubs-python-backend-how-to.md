@@ -3,7 +3,7 @@
 	description="了解如何透過 Python 後端使用 Azure 通知中樞。" 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777"
 	manager="dwrede" 
 	editor=""/>
 
@@ -42,6 +42,7 @@
 
 例如，若要建立用戶端：
 
+	isDebug = True
 	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 	
 傳送 Windows 快顯通知：
@@ -390,4 +391,4 @@
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

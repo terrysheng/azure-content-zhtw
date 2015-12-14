@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 # 開發、測試和生產環境適用的不同 Application Insights 資源
@@ -20,7 +20,7 @@
 
 若要避免混合來自應用程式的偵錯、測試和生產版本的遙測，請建立個別 [Application Insights][start] 資源，以接收來自每個版本的資料。
 
-從您的應用程式收到的資料會由 Microsoft Azure 儲存及處理在 Application Insights 資源中。每項資源均由檢測金鑰識別。 在應用程式中，該金鑰會提供給 Application Insights SDK，使它可以將所收集的資料傳送到正確的資源。可以在程式碼或在 ApplicationInsights.config 中提供金鑰。藉由變更 SDK 中的金鑰，您可以將資料導向不同資源。
+從您的應用程式收到的資料會由 Microsoft Azure 儲存及處理在 Application Insights*資源*中。每項資源均由*檢測金鑰*識別。 在應用程式中，該金鑰會提供給 Application Insights SDK，使它可以將所收集的資料傳送到正確的資源。可以在程式碼或在 ApplicationInsights.config 中提供金鑰。藉由變更 SDK 中的金鑰，您可以將資料導向不同資源。
 
 
 ## 建立 Application Insights 資源
@@ -28,7 +28,7 @@
 
 在 [portal.azure.com](https://portal.azure.com) 中新增 Application Insights 資源：
 
-![按一下 [新增]，然後按一下 [Application Insights]](./media/app-insights-create-new-resource/01-new.png)
+![按一下 [新增]，然後按一下 [Application Insights]](./media/app-insights-separate-resources/01-new.png)
 
 
 * **應用程式類型**會影響您在 [概觀] 刀鋒視窗中看到的內容，以及[計量瀏覽器][metrics]中提供的屬性。如果沒有看到您的應用程式類型，請針對網頁選擇其中一個 Web 類型，針對其他裝置則選擇其中一個手機類型。
@@ -46,7 +46,7 @@
 
 檢測金鑰會識別您所建立的資源。
 
-![按一下 [基本功能]，按一下 [檢測金鑰]，CTRL+C](./media/app-insights-create-new-resource/02-props.png)
+![按一下 [基本功能]，按一下 [檢測金鑰]，CTRL+C](./media/app-insights-separate-resources/02-props.png)
 
 您將需要您的應用程式會將資料傳送至其中的所有資源的檢測金鑰。
 
@@ -98,4 +98,4 @@ iKey 也會用在您的應用程式網頁中，在[您從快速啟動刀鋒視�
 
  
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

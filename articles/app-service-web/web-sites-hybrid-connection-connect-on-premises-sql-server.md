@@ -22,9 +22,9 @@
 
 在本教學課程中，您將了解如何在 [Azure 預覽](http://go.microsoft.com/fwlink/?LinkId=529715)中建立 App Service Web 應用程式、使用新的「混合式連線」功能將 Web 應用程式連接到您的本機內部部署 SQL Server 資料庫、建立將使用混合式連線的簡易 ASP.NET 應用程式，以及將應用程式部署至 App Service Web 應用程式。Azure 上已完成的 Web 應用程式會將使用者認證儲存在內部部署的成員資格資料庫中。本教學課程假設您沒有使用 Azure 或 ASP.NET 的經驗。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 >
->「混合式連線」功能的 Web Apps 部分僅適用於 [Azure 預覽入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
+>「混合式連線」功能的 Web Apps 部分僅適用於 [Azure 入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
 
 ## 必要條件 ##
 
@@ -116,11 +116,11 @@
 	![MembershipDB created][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
-## B.在 Azure 預覽入口網站中建立 Web 應用程式 ##
+## B.在 Azure 入口網站中建立 Web 應用程式 ##
 
-> [AZURE.NOTE]如果您已在 Azure 預覽入口網站中建立要用於此教學課程的 Web 應用程式，您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)繼續作業。
+> [AZURE.NOTE]如果您已在 Azure 入口網站中建立要用於此教學課程的 Web 應用程式，您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)繼續作業。
 
-1. 在 [Azure 預覽入口網站][](https://portal.azure.com) 中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。
 
 	![New button][New]
 
@@ -239,7 +239,7 @@
 
 ### 發行 Web 應用程式 ###
 
-1. 您可以在 Azure 預覽入口網站中下載 App Service Web 應用程式的發行設定檔。在您 Web 應用程式的分頁上，按一下 [取得發行設定檔]，然後將檔案儲存至您的電腦。
+1. 您可以在 Azure 入口網站中下載 App Service Web 應用程式的發行設定檔。在您 Web 應用程式的分頁上，按一下 [取得發行設定檔]，然後將檔案儲存至您的電腦。
 
 	![Download publish profile][PortalDownloadPublishProfile]
 
@@ -363,4 +363,4 @@
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

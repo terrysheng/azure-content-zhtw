@@ -23,7 +23,7 @@
 
     6. 按一下 [下載]。指定或**瀏覽**至您想要儲存下載項目的本機位置。更新將會下載到所選位置的 **StorSimple Update 1.2 Appliance Update 套件組合** (KB3063418) 資料夾中。資料夾也可以複製到裝置可連線的網路共用位置。
     
-	此程序說明如何將軟體裝置更新安裝為 Hotfix、從 Microsoft Update 伺服器安裝磁碟韌體更新，以及從 Azure 入口網站安裝 LSI 驅動程式和 Windows 更新。不過您可以選擇將軟體、驅動程式和磁碟韌體更新皆安裝為 Hotfix。您接著會需要下載 StorSimple 1.2 SAS 控制器更新 (KB3043005) 和 StorSimple 1.2 磁碟韌體更新 (KB3063416) 並複製到相同的共用資料夾。若要將磁碟韌體更新安裝為 Hotfix，請遵循下列指示：[透過 Windows PowerShell for StorSimple 安裝維護模式 Hotfix](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple)。
+	此程序說明如何將軟體裝置更新安裝為 Hotfix、從 Microsoft Update 伺服器安裝磁碟韌體更新，以及從 Azure 傳統入口網站安裝 LSI 驅動程式和 Windows 更新。不過您可以選擇將軟體、驅動程式和磁碟韌體更新皆安裝為 Hotfix。您接著會需要下載 StorSimple 1.2 SAS 控制器更新 (KB3043005) 和 StorSimple 1.2 磁碟韌體更新 (KB3063416) 並複製到相同的共用資料夾。若要將磁碟韌體更新安裝為 Hotfix，請遵循下列指示：[透過 Windows PowerShell for StorSimple 安裝維護模式 Hotfix](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple)。
     
 	> [AZURE.NOTE]Hotfix 必須可同時從兩個控制器偵測任何來自對等控制器的潛在錯誤訊息。
             
@@ -101,7 +101,7 @@
     
 9. 您現在將安裝干擾性磁碟韌體更新，這需要約 30 到 45 分鐘的時間來完成。您可以藉由連接至裝置序列主控台，以選擇在預計的維護視窗中安裝這些更新。若要安裝磁碟韌體更新，請遵循[透過 Windows PowerShell for StorSimple 安裝維護模式更新](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)中的指示。
 
-10. 在磁碟韌體更新已成功套用且裝置已結束維護模式後，返回 Azure 入口網站。維護模式更新在 24 小時內不會更新至入口網站。您可能需要等待，之後才能從 Azure 入口網站套用其餘的非干擾性升級。
+10. 在磁碟韌體更新已成功套用且裝置已結束維護模式後，返回 Azure 傳統入口網站。維護模式更新在 24 小時內不會更新至入口網站。您可能需要等待，之後才能從 Azure 傳統入口網站套用其餘的非干擾性升級。
 
 11. 當您準備好要套用更新時，瀏覽至**維護**頁面，然後在頁面底部按一下 [掃描更新]。您會在有可用的更新時收到通知，包括驅動程式和 Windows 更新。按一下 [安裝更新] 開始安裝程序。成功安裝所有更新之後就完成了。
 
@@ -112,4 +112,4 @@
  
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

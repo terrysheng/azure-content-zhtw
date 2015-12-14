@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD 報告：開始使用"
+   pageTitle="Azure Active Directory 報告：開始使用 | Microsoft Azure"
    description="在 Azure Active Directory 報告列出各種可用的報告"
    services="active-directory"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="12/01/2015"
    ms.author="curtand;kenhoff"/>
 
-# 開始使用 Azure AD 報告
+# 開始使用 Azure Active Directory 報告
 
 ## 內容
 
-Azure Active Directory 包括您的目錄的安全性、活動和稽核報告。以下是包含的報告清單：
+Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽核報告。以下是包含的報告清單：
 
 ### 安全性報告
 
@@ -61,7 +61,7 @@ Azure Active Directory 包括您的目錄的安全性、活動和稽核報告。
 
 - 首先，使用者會經過驗證 (成功或失敗)，結果會儲存在 Azure Active Directory 服務資料庫。
 - 每隔一段固定時間，就會處理所有最近的登入。此時，我們的安全性和異常活動演算法會搜尋所有最近的登入找出是否有可疑的活動。
-- 處理之後，就會寫入報告、快取報告，然後在 Azure 管理入口網站中提供報告。
+- 處理之後，就會寫入報告、快取報告，然後在 Azure 傳統入口網站中提供報告。
 
 ### 報告產生時間
 
@@ -78,9 +78,9 @@ Azure Active Directory 包括您的目錄的安全性、活動和稽核報告。
 ## 開始使用
 
 
-### 登入 Azure 管理入口網站
+### 登入 Azure 傳統入口網站
 
-首先，您必須以全域或相容性管理員身分登入 [Azure 管理入口網站](https://manage.windowsazure.com)。您也必須是 Azure 訂用帳戶服務管理員或共同管理員，或使用「存取 Azure AD」的 Azure 訂用帳戶。
+首先，您必須以全域或相容性管理員身分登入 [Azure 傳統入口網站中提供報告。入口網站](https://manage.windowsazure.com)。您也必須是 Azure 訂用帳戶服務管理員或共同管理員，或使用「存取 Azure AD」的 Azure 訂用帳戶。
 
 ### 瀏覽至報告
 
@@ -156,4 +156,4 @@ Azure Active Directory 包括您的目錄的安全性、活動和稽核報告。
 
 > [AZURE.TIP]如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

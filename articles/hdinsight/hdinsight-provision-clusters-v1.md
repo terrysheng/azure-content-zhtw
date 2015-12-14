@@ -1,6 +1,6 @@
 <properties 
    pageTitle="在 HDInsight 中自訂佈建 Hadoop 叢集 |Microsoft Azure" 
-   description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 .NET SDK 自訂佈建 Azure HDInsight 的叢集。" 
+   description="了解如何使用 Azure 傳統入口網站、Azure PowerShell、命令列或 .NET SDK 自訂佈建適用於 Azure HDInsight 的叢集。" 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -113,7 +113,7 @@
 
 	HDInsight 叢集可讓您在佈建期間設定兩個使用者帳戶：
 
-	- HTTP 使用者。預設使用者名稱是在 Azure 入口網站上使用基本組態的 admin。
+	- HTTP 使用者。使用 Azure 傳統入口網站的基本組態時，預設的使用者名稱為 admin。
 	- RDP 使用者 (Windows 叢集)：用來連線到使用 RDP 的叢集。當您建立帳戶時，必須將到期日設為從今天算起的 90 天內。 
 	- SSH 使用者 (Linux 叢集)：用來連線到使用 SSH 的叢集。叢集建立之後，您便可以依照[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md) 中的步驟建立其他 SSH 使用者帳戶。
   
@@ -199,7 +199,7 @@
 
 ### 使用指令碼動作來自訂叢集
 
-您可以在佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼可透過**指令碼動作**叫用，指令碼動作是一個組態選項，其可從 Azure 入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。
+您可以在佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼可透過 [**指令碼動作**] 叫用。指令碼動作為組態選項，於 Azure 傳統入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 提供。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。
 
 
 ### 使用 Azure 虛擬網路
@@ -233,18 +233,18 @@
 
 ## 佈建工具
 
-- Azure 入口網站
+- Azure 傳統入口網站
 - Azure PowerShell
 - .NET SDK
 - CLI
 
-### 使用 Azure 入口網站
+### 使用 Azure 傳統入口網站
 
 您可以參考 [基本組態選項] 和 [進階組態選項] 以取得有關欄位的說明。
 
 **使用自訂建立選項建立 HDInsight 叢集**
 
-1. 登入 [Azure 入口網站][azure-management-portal]。
+1. 登入 [Azure 傳統入口網站][azure-management-portal]。
 2. 按一下頁面底部的 [+新增]，然後依序按一下 [資料服務]、[HDInsight]、[自訂建立]。
 3. 在 [叢集詳細資料] 頁面上，輸入或選擇下列值：
 
@@ -374,7 +374,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
 
-	>[AZURE.NOTE]$hadoopUserName 和 $hadoopUserPassword 命令用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連接到叢集並執行工作。如果從 Azure 入口網站使用快速建立選項佈建叢集，則預設 Hadoop 使用者名稱是 "admin"。請不要將此帳戶與遠端桌面通訊協定 (RDP) 使用者帳戶相混淆。RDP 使用者帳戶必須與 Hadoop 使用者帳戶不同。如需詳細資訊，請參閱 [使用 Azure 管理入口網站管理 HDInsight 中的 Hadoop 叢集][hdinsight-admin-portal]。
+	>[AZURE.NOTE]$hadoopUserName 和 $hadoopUserPassword 命令用來建立叢集的 Hadoop 使用者帳戶。您將使用此帳戶來連接到叢集並執行工作。如果您從 Azure 傳統入口網站使用 [快速建立] 選項佈建叢集，預設的 Hadoop 使用者名稱將為「admin」。請不要將此帳戶與遠端桌面通訊協定 (RDP) 使用者帳戶相混淆。RDP 使用者帳戶必須與 Hadoop 使用者帳戶不同。如需詳細資訊，請參閱 [使用 Azure 傳統入口網站管理 HDInsight 中的 Hadoop 叢集][hdinsight-admin-portal]。
 
 	叢集佈建可能需要幾分鐘的時間才會完成。
 
@@ -513,7 +513,7 @@ Azure CLI 可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您
 
 1.	瀏覽至 **www.nodejs.org**。
 2.	按一下 [安裝]，並依照指示使用預設設定。
-3.	從您的工作站開啟 命令提示字元 (或是 *Azure 命令提示字元*或 *VS2012 開發人員命令提示字元*)。
+3.	從您的工作站開啟 [命令提示字元] (或是 *Azure 命令提示字元*或 *VS2012 開發人員命令提示字元*)。
 4.	在命令提示字元視窗中執行下列命令：
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
@@ -574,7 +574,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 	出現位置提示時，請選取可佈建 HDInsight 叢集的位置。儲存體必須與 HDInsight 叢集位於相同的位置。目前只有「東亞」、「東南亞」、「北歐」、「西歐」、「美國東部」、「美國西部」、「美國中北部」和「美國中南部」等區域可以代管 HDInsight 叢集。
 
-如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account.md)。
+如需有關使用 Azure 傳統入口網站建立 Azure 儲存體帳戶的資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account.md)。
 
 如果您已經有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，則可使用下列命令來擷取資訊：
 
@@ -587,7 +587,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-如需使用 Azure 入口網站取得資訊的詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account.md)的*如何：檢視、複製及重新產生儲存體存取金鑰*一節。
+使用 Azure 傳統入口網站取得資訊的詳細資訊請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account.md)的＜*作法：檢視、複製及重新產生儲存體存取金鑰*＞一節。
 
 HDInsight 叢集同時要求儲存體帳戶內含有容器。如果您所提供的儲存體帳戶沒有容器，則 *azure hdinsight cluster create* 命令會提示您輸入容器名稱並建立容器。不過，如果您想要預先建立容器，您可以使用下列命令：
 
@@ -810,4 +810,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

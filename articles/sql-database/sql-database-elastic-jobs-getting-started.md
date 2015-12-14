@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh; ddove" />
 
 # 開始使用彈性資料庫工作
@@ -33,15 +33,15 @@ Azure SQL database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 	![命令提示字元][1]
 
-2.  在命令視窗中，輸入 "1"，然後按 **Enter**。這會建立分區對應管理員，並加入兩個分區到伺服器。然後輸入 "3"，然後按 **Enter**；重複此動作四次。這會在您的分區中插入範例資料列。
+2.  在命令視窗中，輸入 "1"，然後按 **Enter**。這會建立分區對應管理員，並加入兩個分區到伺服器。接著輸入 "3"，然後按 **Enter**；重複此動作四次。這會在您的分區中插入範例資料列。
 
-3.  [Azure Preview 入口網站](https://portal.azure.com)應該在 v12 伺服器中顯示三個新的資料庫：
+3.  [Azure 入口網站](https://portal.azure.com)應該在 v12 伺服器中顯示三個新的資料庫：
 
 	![Visual Studio 確認][2]
 
 	目前，我們將建立自訂資料庫集合，反映分區對應中的所有資料庫。這可讓我們建立和執行工作，跨分區新增新資料表。
 
-現在在這裡我們通常會建立分區對應目標，使用 **New-AzureSqlJobTarget** Cmdlet。分區對應管理員資料庫必須設定為資料庫目標，然後將特定分區對應指定為目標。相反地，我們列舉伺服器中的所有資料庫，並且將資料庫新增至 master 資料庫除外的新的自訂集合。
+在這裡我們通常會建立分區對應目標，使用 **New-AzureSqlJobTarget** Cmdlet。分區對應管理員資料庫必須設定為資料庫目標，然後將特定分區對應指定為目標。相反地，我們列舉伺服器中的所有資料庫，並且將資料庫新增至 master 資料庫除外的新的自訂集合。
 
 ##建立自訂集合並將伺服器中的所有資料庫新增至 master 除外的自訂集合目標。
 
@@ -379,7 +379,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。如果
 
 ## 使用工作觸發程序建立工作執行的排程
 
-下列 PowerShell 指令碼可以用來建立重複排程。這個指令碼使用分鐘的間隔，但是 New-AzureSqlJobSchedule 也支援 -DayInterval、-HourInterval、-MonthInterval 和 -WeekInterval 參數。您可以藉由傳遞 -OneTime，建立僅執行一次的排程。
+下列 PowerShell 指令碼可以用來建立重複排程。這個指令碼使用分鐘間隔，但是 New-AzureSqlJobSchedule 也支援 -DayInterval、-HourInterval、-MonthInterval 和 -WeekInterval 參數。您可以藉由傳遞 -OneTime，建立僅執行一次的排程。
 
 建立新的排程：
 
@@ -447,4 +447,4 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。如果
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

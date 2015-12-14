@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric 應用程式部署"
+   pageTitle="Service Fabric 應用程式部署 | Microsoft Azure"
    description="如何部署和移除 Service Fabric 中的應用程式"
    services="service-fabric"
    documentationCenter=".net"
@@ -18,19 +18,19 @@
 
 # 部署應用程式
 
-一旦[應用程式類型已封裝][10]，即可準備好部署至 Service Fabric 叢集。部署涉及下列三個步驟：
+[應用程式類型封裝][10]後，隨即準備好部署至 Azure Service Fabric 叢集。部署涉及下列三個步驟：
 
 1. 上傳應用程式封裝
 2. 註冊應用程式類型
 3. 建立應用程式執行個體
 
->[AZURE.NOTE]如果您使用 Visual Studio 來部署和偵錯本機開發叢集上的應用程式，則下述所有步驟會透過叫用在應用程式專案的 Scripts 資料夾中所找到之 PowerShell 指令碼來自動處理。本文章提供背景執行這些指令碼的說明，以便您可以在 Visual Studio 之外執行相同的作業。
+>[AZURE.NOTE]如果您使用 Visual Studio 部署和偵錯您本機開發叢集上的應用程式，則下面所述的所有步驟都會透過應用程式專案的 [指令碼] 資料夾中的 PowerShell 指令碼自動處理。本文章提供背景執行這些指令碼的說明，以便您可以在 Visual Studio 之外執行相同的作業。
 
 ## 上傳應用程式封裝
 
-上傳應用程式封裝會將它放在一個可由內部 Service Fabric 元件存取的位置，並可透過 PowerShell 來執行。執行本文章中的任何 PowerShell 命令之前，請一律先使用 **Connect-ServiceFabricCluster** 連接至 Service Fabric 叢集。
+上傳應用程式封裝會將它放在一個可由內部 Service Fabric 元件存取的位置。您可以使用 PowerShell 執行上傳。執行本文中的任何 PowerShell 命令之前，請一律透過使用 **Connect-ServiceFabricCluster** 連接至 Service Fabric 叢集的方式啟動。
 
-假設您有一個稱為 *MyApplicationType* 資料夾，其中包含必要的應用程式資訊清單、服務資訊清單和程式碼/組態/資料封裝，則 **Copy-ServiceFabricApplicationPackage** 命令將上傳封裝。例如：
+假設您有一個名為 [*MyApplicationType*] 的資料夾，其中包含必要的應用程式資訊清單、服務資訊清單，以及程式碼/組態/資料封裝。**Copy-ServiceFabricApplicationPackage** 命令會上傳封裝。例如：
 
 ~~~
 PS D:\temp> dir
@@ -67,7 +67,7 @@ PS D:\temp>
 
 ## 註冊應用程式封裝
 
-註冊應用程式封裝，讓應用程式類型和應用程式資訊清單中宣告的版本可供使用。系統會讀取在上一個步驟中所上傳的封裝，請確認封裝 (相當於本機執行 **Test-ServiceFabricApplicationPackage**)、處理封裝內容，然後將處理過的封裝複製至內部系統位置。
+註冊應用程式套件，讓應用程式類型和應用程式資訊清單中宣告的版本可供使用。系統會讀取在上一個步驟中所上傳的封裝，請確認封裝 (相當於本機執行 **Test-ServiceFabricApplicationPackage**)、處理封裝內容，然後將處理過的封裝複製至內部系統位置。
 
 ~~~
 PS D:\temp> Register-ServiceFabricApplicationType MyApplicationType
@@ -82,13 +82,13 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-**Register-ServiceFabricApplicationType** 命令僅在應用程式封裝已由系統成功複製之後才會傳回。此作業所需時間取決於應用程式封裝的內容。**-TimeoutSec** 參數可在必要時用來提供較長的逾時 (預設逾時為 60 秒)。
+**Register-ServiceFabricApplicationType** 命令只有在系統成功複製應用程式封裝之後才會傳回。此作業所需時間取決於應用程式封裝的內容。如有需要，**-TimeoutSec** 參數可用來提供較長的逾時時間。(預設逾時值為 60 秒。)
 
 **Get-ServiceFabricApplicationType** 命令會列出所有成功註冊的應用程式類型版本。
 
 ## 建立應用程式
 
-透過 **New-ServiceFabricApplication** 命令，應用程式可以使用已成功註冊的任何應用程式類型版本來進行具現化。每個應用程式名稱的開頭必須為 *fabric:* 配置，並且是每個應用程式執行個體的唯一名稱。若目標應用程式類型的應用程式資訊清單中已定義任何預設服務，則這些服務也會一併建立。
+您可以使用任何已透過 **New-ServiceFabricApplication** 命令成功註冊的應用程式類型版本具現化應用程式。每個應用程式名稱的開頭必須為 *fabric:* 配置，並且是每個應用程式執行個體的唯一名稱。如果已在目標應用程式類型的應用程式資訊清單中定義預設服務，則這些服務也會一併建立。
 
 ~~~
 PS D:\temp> New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1
@@ -128,7 +128,7 @@ PS D:\temp>
 
 ## 移除應用程式
 
-當您不再需要應用程式執行個體時，可以使用 **Remove-ServiceFabricApplication** 命令來永久移除。這也會自動移除屬於應用程式的所有服務，同時永久移除所有服務狀態。此作業無法回復，且應用程式狀態無法復原。
+當不再需要應用程式執行個體時，您可以使用 **Remove-ServiceFabricApplication** 命令將其永久移除。此命令會自動移除屬於應用程式的所有服務，以及永久移除所有服務狀態。此作業無法回復，且應用程式狀態無法復原。
 
 ~~~
 PS D:\temp> Remove-ServiceFabricApplication fabric:/MyApp
@@ -142,7 +142,7 @@ PS D:\temp> Get-ServiceFabricApplication
 PS D:\temp>
 ~~~
 
-當您不再需要特定應用程式類型版本時，應使用 **Unregister-ServiceFabricApplicationType** 命令來取消註冊。正在取消註冊的未使用類型，會釋放映像存放區上該類型應用程式封裝內容所使用的儲存空間。只要沒有對應的應用程式進行具現化，或擱置中的應用程式升級進行參考，則應用程式類型即可取消註冊。
+當不再需要應用程式類型的特定版本時，請使用 **Unregister-ServiceFabricApplicationType** 命令將該版本取消註冊。取消註冊未使用類型會釋放映像存放區上該類型應用程式封裝內容所使用的儲存空間。只要沒有對應的應用程式針對應用程式類型進行具現化，且沒有擱置中的應用程式升級進行參考該類性，便可取消註冊該應用程式類型。
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationType
@@ -185,7 +185,7 @@ TODO [Upgrade applications][11]
 
 ### Copy-ServiceFabricApplicationPackage 要求 ImageStoreConnectionString
 
-Service Fabric SDK 環境應已正確設定預設值。但若有需要，針對所有命令的 ImageStoreConnectionString 應符合由 Service Fabric 叢集所使用的值，您可以使用 **Get-ServiceFabricClusterManifest** 命令，在擷取的叢集資訊清單中找到該值：
+Service Fabric SDK 環境應已正確設定預設值。但若有需要，所有命令的 ImageStoreConnectionString都應符合 Service Fabric 叢集正在使用的值。您可以在透過 **Get-ServiceFabricClusterManifest** 命令擷取的叢集資訊清單中找到此值：
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -224,6 +224,5 @@ PS D:\temp>
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 1. 依照[如何使用 Azure Active Directory 設定行動應用程式]主題，向 Azure Active Directory 租用戶註冊您的行動裝置應用程式後端。
 
-2. 瀏覽至 [Azure 管理入口網站]中的 **Active Directory**
+2. 請瀏覽至 [Azure 傳統入口網站]中的 Active Directory
 
    ![](./media/app-service-mobile-adal-register-app/app-service-navigate-aad.png)
 
@@ -24,7 +24,7 @@
 
 您的應用程式現在已設定於 AAD 中，因此使用者可以使用 AAD 單一登入來登入。
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [如何使用 Azure Active Directory 設定行動應用程式]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

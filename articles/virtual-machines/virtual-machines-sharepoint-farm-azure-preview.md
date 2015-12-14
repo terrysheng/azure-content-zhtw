@@ -1,6 +1,6 @@
 <properties
 	pageTitle="建立 SharePoint 伺服器陣列 | Microsoft Azure"
-	description="透過 Azure Preview 入口網站的 Marketplace，快速建立新的基本或高可用性 SharePoint Server 2013 伺服器陣列。"
+	description="透過 Azure 入口網站的 Marketplace，快速建立新的基本或高可用性 SharePoint Server 2013 伺服器陣列。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統模型。
 
-透過 Microsoft Azure Preview 入口網站的 Marketplace，您可以快速建立預先設定的 SharePoint Server 2013 伺服器陣列。當您在開發和測試環境中需要基本或高可用性 SharePoint 伺服器陣列時，或是您要評估將 SharePoint Server 2013 做為組織的共同作業方案時，這將可為您省下許多時間。
+透過 Microsoft Azure 入口網站的 Marketplace，您可以快速建立預先設定的 SharePoint Server 2013 伺服器陣列。當您在開發和測試環境中需要基本或高可用性 SharePoint 伺服器陣列時，或是您要評估將 SharePoint Server 2013 做為組織的共同作業方案時，這將可為您省下許多時間。
 
-> [AZURE.NOTE]Azure Preview 入口網站的 Azure Marketplace 中的 **SharePoint 伺服器陣列**項目已移除。
+> [AZURE.NOTE]Azure 入口網站的 Azure Marketplace 中的 **SharePoint 伺服器陣列**項目已移除。
 
 基本的 SharePoint 伺服器陣列由這個組態中的三部虛擬機器所組成。
 
@@ -59,7 +59,7 @@
 
 在「管理中心 SharePoint」網站中，您可以設定「我的網站」、SharePoint 應用程式和其他功能。如需詳細資訊，請參閱[設定 SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx)。
 
-> [AZURE.NOTE]Azure Preview 入口網站會在具有網際網路對向網站空間的純雲端虛擬網路中，同時建立這兩種伺服器陣列。沒有任何站對站 VPN 或 ExpressRoute 連線會連回您的組織網路。
+> [AZURE.NOTE]Azure 入口網站會在具有網際網路對向網站空間的純雲端虛擬網路中，同時建立這兩種伺服器陣列。沒有任何站對站 VPN 或 ExpressRoute 連線會連回您的組織網路。
 
 ## 其他資源
 
@@ -69,4 +69,4 @@
 
 [適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

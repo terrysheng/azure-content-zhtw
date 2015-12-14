@@ -22,4 +22,4 @@
 
 	如需詳細資訊，請參閱[如何使用 Azure Mobile Apps Node.js SDK](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md) 中的[需經過驗證才可存取資料表](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

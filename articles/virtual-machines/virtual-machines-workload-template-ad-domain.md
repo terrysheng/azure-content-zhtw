@@ -1,6 +1,6 @@
 <properties
 	pageTitle="高可用性的 Active Directory Domain 服務 ARM 範本 | Microsoft Azure"
-	description="使用資源管理員範本和 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署兩部伺服器做為 Active Directory 網域服務網域控制站。"
+	description="使用資源管理員範本和 Azure 入口網站、Azure PowerShell 或 Azure CLI 輕鬆部署兩部伺服器做為 Active Directory 網域服務網域控制站。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -26,11 +26,11 @@
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
 
-您可以使用 Azure Preview 入口網站、Azure PowerShell 或 Azure CLI 來執行範本。
+您可以使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 來執行範本。
 
-## Azure Preview 入口網站
+## Azure 入口網站
 
-若要使用資源管理員範本和 Azure Preview 入口網站來部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json)。
+若要使用資源管理員範本和 Azure 入口網站來部署此工作負載，請按一下[這裡](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json)。
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
@@ -108,4 +108,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

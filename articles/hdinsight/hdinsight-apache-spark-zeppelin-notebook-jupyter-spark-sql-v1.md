@@ -39,14 +39,14 @@
 
 **建立 Azure 儲存體帳戶**
 
-1. 登入 [Azure 入口網站][azure-management-portal]。
+1. 登入 [Azure 傳統入口網站][azure-management-portal]。
 2. 按一下在左下角的 [**新增**]，然後輸入如圖所示的值。
 
-	![Azure 入口網站，您可以在此入口網站中使用「快速建立」設定新的儲存體帳戶。](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Azure 入口網站，您可以在此入口網站中使用「快速建立」設定新的儲存體帳戶。")
+	![Azure 傳統入口網站，您可以在此使用「快速建立」來設定新的儲存體帳戶](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Azure 傳統入口網站，您可以在此使用「快速建立」來設定新的儲存體帳戶")
 
 >[AZURE.NOTE]請務必在支援叢集的位置建立您的儲存體帳戶。
 
-從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 **主要存取金鑰** (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
+從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
 	
 ##<a name="provision"></a>佈建 HDInsight Spark 叢集
 
@@ -57,7 +57,7 @@
 
 **佈建 Spark 叢集**
 
-1. 登入 [Azure 入口網站][azure-management-portal]。 
+1. 登入 [Azure 傳統入口網站][azure-management-portal]。 
 
 2. 按一下在左下角的 [**新增**]，然後輸入如圖所示的值。
 
@@ -70,7 +70,7 @@
 
 >[AZURE.NOTE]叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Zeppelin 後，您可以根據 **Zeppelin HVAC tutorial** 名稱來找到本 Notebook。
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
@@ -156,7 +156,7 @@
 
 >[AZURE.NOTE]叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Jupyter 後，您可以根據 **HVACTutorial.ipynb** 名稱來找到本 Notebook。
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
@@ -260,4 +260,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

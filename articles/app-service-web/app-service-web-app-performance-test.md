@@ -20,7 +20,7 @@
 
 在您啟動 Web 應用程式或將更新部署至生產環境之前，請先檢查該應用程式的效能。如此一來，您即可更妥善地評估您的應用程式是否已準備好發行。對您的應用程式更具信心，其可在尖峰使用期間或在您下一波推式行銷時處理流量。
 
-在公開預覽期間，您可以在 Azure Preview 入口網站中免費測試您的應用程式的效能。這些測試會模擬您的應用程式在特定期間內的使用者負載並測量您的應用程式的回應。例如，您的測試結果會顯示您的應用程式對指定數量的使用者的回應速度。也會顯示多少要求失敗，這可能表示您的應用程式有問題。
+在公開預覽期間，您可以在 Azure 入口網站中免費測試您的應用程式的效能。這些測試會模擬您的應用程式在特定期間內的使用者負載並測量您的應用程式的回應。例如，您的測試結果會顯示您的應用程式對指定數量的使用者的回應速度。也會顯示多少要求失敗，這可能表示您的應用程式有問題。
 
 ![尋找您的 Web 應用程式中的效能問題][TestOverview]
 
@@ -34,7 +34,7 @@
 
 ## 設定和執行效能測試
 
-0.	登入 [Azure Preview 入口網站][AzurePortal]。若要使用您所擁有的 Visual Studio Team Services 帳戶，請以帳戶擁有者的身分登入。
+0.	登入 [Azure 入口網站][AzurePortal]。若要使用您所擁有的 Visual Studio Team Services 帳戶，請以帳戶擁有者的身分登入。
 
 0.	移至您的 Web 應用程式。
 
@@ -70,15 +70,13 @@
 
 	![完成的效能測試會顯示結果，包括失敗的要求][TestDone]
 	
-歡迎您提供的意見反應。如有疑問或問題，請與我們連絡
-
-<vsoloadtest@microsoft.com>
+歡迎您提供的意見反應。如有疑問或問題，請與我們連絡︰<vsoloadtest@microsoft.com>
 
 ##	問答集
 
 #### 問：我可持續執行測試的時間是否有所限制？ 
 
-答：是，您最多可以在 Azure Preview 入口網站中執行一小時的測試。
+答：是，您最多可以在 Azure 入口網站中執行一小時的測試。
 
 #### 問：我可執行效能測試的時間有多少？ 
 
@@ -86,7 +84,7 @@
 
 #### 問：哪裡可以檢查到目前為止我已使用多少 VUM？
 
-答：您可以在 Azure Preview 入口網站中檢查此數量。
+答：您可以在 Azure 入口網站中檢查此數量。
 
 ![移至 VSTS 帳戶][VSTSAccount]
 
@@ -114,4 +112,4 @@
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

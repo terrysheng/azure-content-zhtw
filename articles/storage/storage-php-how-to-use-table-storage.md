@@ -466,13 +466,11 @@
 
 了解 Azure 資料表服務的基礎概念之後，請參考下列連結以深入了解更複雜的儲存工作。
 
-- 請參閱 MSDN 參考資料：[Azure 儲存體](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
+- 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)。
 
 如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx
 
@@ -480,4 +478,4 @@
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

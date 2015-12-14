@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="10/23/2015"
+    ms.date="11/30/2015"
     ms.author="sdanie" />
 
 # 從受管理的快取服務移轉至 Azure Redis 快取
@@ -41,11 +41,11 @@ Azure 受管理的快取服務與 Azure Redis 快取類似，但兩者在實作�
 
 |受管理的快取服務功能|受管理的快取服務支援|Azure Redis 快取支援|
 |---|---|---|
-|具名快取|會設定預設快取，而在標準版和進階版快取服務中，還可以視需要額外設定多達 9 個具名快取。|Azure Redis 快取具有 16 個可供用來對具名快取實作類似功能的資料庫。如需詳細資訊，請參閱[預設 Redis 伺服器設定](cache-configure.md#default-redis-server-configuration)。|
-|高可用性|在標準版和進階版快取服務中，會針對快取中的項目提供高可用性。如果因為失敗而導致項目遺失，快取中的項目仍有備份複本可供使用。次要快取的寫入作業是以同步方式進行。|標準版和進階版快取服務有提供高可用性，其具有雙節點的主要/複本設定 (進階版快取的每個分區都有主要/複本配對)。複本的寫入作業是以非同步方式進行。如需詳細資訊，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/zh-TW/pricing/details/cache/)。|
+|具名快取|會設定預設快取，而在標準版和進階版快取服務中，還可以視需要額外設定多達 9 個具名快取。|Azure Redis 快取具有 16 個可供用來對具名快取實作類似功能的資料庫。如需詳細資訊，請參閱[預設 Redis 伺服器組態](cache-configure.md#default-redis-server-configuration)。|
+|高可用性|在標準版和進階版快取服務中，會針對快取中的項目提供高可用性。如果因為失敗而導致項目遺失，快取中的項目仍有備份複本可供使用。次要快取的寫入作業是以同步方式進行。|標準版和進階版快取服務有提供高可用性，其具有雙節點的主要/複本設定 (進階版快取的每個分區都有主要/複本配對)。複本的寫入作業是以非同步方式進行。如需詳細資訊，請參閱 [Azure Redis 快取定價](https://azure.microsoft.com/pricing/details/cache/)。|
 |通知|當具名快取上發生各種快取作業時，允許用戶端接收非同步通知。|用戶端應用程式可以使用 Redis 發行/訂閱或 [Keyspace 通知](cache-configure.md#keyspace-notifications-advanced-settings)來達成和通知類似的功能。|
 |本機快取|在用戶端本機上儲存快取物件的複本，以利快速存取。|用戶端應用程式必須使用字典或類似的資料結構來實作這項功能。|
-|收回原則|無或 LRU。預設原則是 LRU。|Azure Redis 快取支援下列收回原則：volatile-lru、allkeys-lru、volatile-random、allkeys-random、volatile-ttl、noeviction。預設原則是 volatile-lru。如需詳細資訊，請參閱[預設 Redis 伺服器設定](cache-configure.md#default-redis-server-configuration)。|
+|收回原則|無或 LRU。預設原則是 LRU。|Azure Redis 快取支援下列收回原則：volatile-lru、allkeys-lru、volatile-random、allkeys-random、volatile-ttl、noeviction。預設原則是 volatile-lru。如需詳細資訊，請參閱[預設 Redis 伺服器組態](cache-configure.md#default-redis-server-configuration)。|
 |到期原則|預設的到期原則為 [絕對]，預設的到期間隔為 10 分鐘。另外也提供 [滑動] 和 [永不] 原則。|依預設，快取中的項目不會到期，但可以使用快取集多載，對每筆寫入作業設定到期時間。如需詳細資訊，請參閱[從快取加入和擷取物件](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)。|
 |區域和標記|區域是快取項目的子群組。區域也支援以稱為標記的額外描述性字串，來為快取項目加上註解。區域支援對該區域內的任何標記項目執行搜尋作業的能力。區域內的所有項目都位於單一快取叢集節點內。|Redis 快取是由單一節點所組成 (除非已啟用 Redis 叢集)，因此不適用受管理的快取服務區域的概念。Redis 支援在擷取索引鍵時執行搜尋和萬用字元作業，讓描述性標記可以內嵌在索引鍵名稱內並於稍後用來擷取項目。如需使用 Redis 實作標記解決方案的範例，請參閱[使用 Redis 實作快取標記](http://stackify.com/implementing-cache-tagging-redis/)。|
 |序列化|受管理的快取支援 NetDataContractSerializer 和 BinaryFormatter，也支援使用自訂序列化程式。預設值為 NetDataContractSerializer。|由用戶端應用程式負責先將 .NET 物件序列化再將它們放入快取中，至於要選擇使用哪個序列化程式則由用戶端應用程式的開發人員決定。如需詳細資訊和範例程式碼，請參閱[在快取中使用 .NET 物件](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)。|
@@ -56,7 +56,7 @@ Microsoft Azure Redis 快取有下列階層：
 
 -	**基本** - 單一節點。多種大小，最高為 53 GB。
 -	**標準** – 兩個節點 (主要/從屬)。多種大小，最高為 53 GB。99.9% SLA。
--	**進階** – 目前為預覽狀態。兩個節點的主要/從屬，具有最多 10 個分區。從 6 GB 到 530 GB 的多種大小 (如需詳細資訊，請與我們連絡)。所有標準層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。在預覽期間沒有 SLA。
+-	**進階** – 兩個節點的主要/從屬，最多具有 10 個分區。從 6 GB 到 530 GB 的多種大小 (如需詳細資訊，請與我們連絡)。所有「標準」層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。99.9% SLA。
 
 每一個階層都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料](https://azure.microsoft.com/pricing/details/cache/)。
 
@@ -135,7 +135,7 @@ StackExchange.Redis 快取用戶端的 API 類似受管理的快取服務。本�
 
 ### 使用 ConnectionMultiplexer 類別連接到快取
 
-在受管理的快取服務中，快取連線是由 `DataCacheFactory` 和 `DataCache` 類別負責處理。在 Azure Redis 快取中，這些連線則是由 `ConnectionMultiplexer` 類別進行管理。
+在受管理的快取服務中，快取連線是由 `DataCacheFactory` 和 `DataCache` 類別負責處理。在 Azure Redis 快取中，這些連接則是由 `ConnectionMultiplexer` 類別進行管理。
 
 請在您要用來存取快取的檔案頂端加入下列 using 陳述式。
 
@@ -145,7 +145,7 @@ StackExchange.Redis 快取用戶端的 API 類似受管理的快取服務。本�
 
 >[AZURE.NOTE]請注意，StackExchange.Redis 用戶端需要 .NET Framework 4 或更高版本。
 
-若要連接至 Azure Redis 快取執行個體，請呼叫靜態 `ConnectionMultiplexer.Connect` 方法並傳入端點和金鑰。在您的應用程式中共用 `ConnectionMultiplexer` 執行個體的其中一種方法，就是擁有可傳回已連接執行個體的靜態屬性，類似下列範例。這會提供安全執行緒方式，只初始化單一已連接的 `ConnectionMultiplexer` 執行個體。在此範例中，`abortConnect` 已設為 false，這表示即使無法建立與快取的連線，呼叫也會成功。`ConnectionMultiplexer` 的主要功能之一，就是一旦網路問題或其他原因獲得解決，它就會自動恢復與快取的連線。
+若要連接至 Azure Redis 快取執行個體，請呼叫靜態 `ConnectionMultiplexer.Connect` 方法並傳入端點和金鑰。在您的應用程式中共用 `ConnectionMultiplexer` 執行個體的其中一種方法，就是擁有可傳回已連接執行個體的靜態屬性，類似下列範例。這會提供安全執行緒方式，只初始化單一已連接的 `ConnectionMultiplexer` 執行個體。在此範例中，`abortConnect` 已設為 false，這表示即使無法建立與快取的連接，呼叫也會成功。`ConnectionMultiplexer` 的主要功能之一，就是一旦網路問題或其他原因獲得解決，它就會自動恢復與快取的連接。
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -162,7 +162,7 @@ StackExchange.Redis 快取用戶端的 API 類似受管理的快取服務。本�
 
 快取端點、金鑰和連接埠可自您快取執行個體的 [Redis 快取] 刀鋒視窗取得。如需詳細資訊，請參閱 [Redis 快取屬性](cache-configure.md#properties)。
 
-一旦建立連線，即會透過呼叫 `ConnectionMultiplexer.GetDatabase` 方法傳回 Redis 快取資料庫的參考。透過 `GetDatabase` 方法傳回的物件是輕量型傳遞物件，而且不需要儲存。
+一旦建立連接，即會透過呼叫 `ConnectionMultiplexer.GetDatabase` 方法傳回 Redis 快取資料庫的參考。透過 `GetDatabase` 方法傳回的物件是輕量型傳遞物件，而且不需要儲存。
 
 	IDatabase cache = Connection.GetDatabase();
 	
@@ -195,4 +195,4 @@ Azure Redis 快取有適用於 ASP.NET 工作階段狀態和頁面輸出快取�
 
 瀏覽 [Azure Redis 快取文件](https://azure.microsoft.com/documentation/services/cache/)中的教學課程、範例、影片及其他資訊。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

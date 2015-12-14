@@ -36,7 +36,7 @@ Contoso 的目標是要根據遊戲使用者的遊戲歷程記錄設定檔識別
 
 這個簡單的使用案例可以當做您如何使用 Azure Data Factory 擷取、準備、轉換、分析和發佈資料的範例。
 
-![端對端工作流程](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) 上圖說明部署資料管線之後，它們會如何出現在 Azure 入口網站 UI 中。
+![端對端工作流程](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) 上圖說明部署資料管線之後，它們會如何出現在 Azure 傳統入口網站 UI 中。
 
 1.	**PartitionGameLogsPipeline** 從 Blob 儲存體讀取原始遊戲事件，並根據年、月和日建立分割區。
 2.	**EnrichGameLogsPipeline** 聯結分割的遊戲事件與地區代碼參考資料，並將 IP 位址對應到相對應的地理位置來充實資料。
@@ -48,4 +48,4 @@ Contoso 的目標是要根據遊戲使用者的遊戲歷程記錄設定檔識別
 
 藉由最佳化其使用者設定檔分析並將其與企業目標對齊，遊戲公司可以快速收集使用模式，並且為其所有不同的遊戲產品分析其行銷活動的效益。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

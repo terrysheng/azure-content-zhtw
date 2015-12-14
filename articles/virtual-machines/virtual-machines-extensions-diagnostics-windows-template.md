@@ -72,7 +72,7 @@ Azure 診斷延伸模組提供以 Windows 為基礎的 Azure 虛擬機器上的�
    
 *publisher* 屬性具有值 **Microsoft.Azure.Diagnostics**，*type* 屬性具有值 **IaaSDiagnostics**，唯一識別 Azure 診斷延伸模組。
 
-*name* 屬性的值可用來參考資源群組中的延伸模組。特別將其設為 **Microsoft.Insights.VMDiagnosticsSettings**，可以讓它輕易地由 Azure 入口網站識別，確保監視圖表會在 Azure 入口網站中正確顯示。
+*name* 屬性的值可用來參考資源群組中的延伸模組。特別將其設為 **Microsoft.Insights.VMDiagnosticsSettings**，可以讓它輕易地由 Azure 傳統入口網站識別，確保監視圖表會在 Azure 傳統入口網站中正確顯示。
 
 *TypeHandlerVersion* 會指定您想要使用的延伸模組的版本。將 *autoUpgradeMinorVersion* 次要版本設為 **true** 可確保您獲得可用的最新延伸模組次要版本。強烈建議您一律將 *autoUpgradeMinorVersion* 設為永遠為 **true**，讓您永遠可以使用具有所有新功能和錯誤修正的可用最新診斷延伸模組。
 
@@ -119,7 +119,7 @@ Azure 診斷延伸模組提供以 Windows 為基礎的 Azure 虛擬機器上的�
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": ""><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-上述組態中的度量定義 xml 節點是重要的組態元素，因為它定義如何彙總和儲存稍早在 *PerformanceCounter* 節點中的 xml 定義的效能計數器。這些度量是驅動 Azure Preview 入口網站中圖表和警示的元素，所以如果您想要查看入口網站中的監視資料，務必納入組態中。
+上述組態中的度量定義 xml 節點是重要的組態元素，因為它定義如何彙總和儲存稍早在 *PerformanceCounter* 節點中的 xml 定義的效能計數器。這些度量是驅動 Azure 入口網站中圖表和警示的元素，所以如果您想要查看入口網站中的監視資料，務必納入組態中。
 
 以下是度量定義的 xml 的範本：
 
@@ -165,4 +165,4 @@ MetricAggregation 值 *PT1H* 和 *PT1M* 表示超過一分鐘的彙總和超過�
 - 使用 [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) 或 [Azure 命令列](virtual-machines-deploy-rmtemplates-powershell.md)部署資源管理員範本
 - 深入了解[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

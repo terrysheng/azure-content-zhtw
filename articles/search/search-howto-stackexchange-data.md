@@ -18,7 +18,7 @@
 
 # 如何使用 Azure 搜尋服務來搜尋 StackExchange 資料
 
-本文逐步解說一些可透過 [Azure 搜尋服務](https://azure.microsoft.com/zh-TW/services/search/)完成的核心全文檢索搜尋功能。文中運用 Stack Exchange [提供](https://archive.org/details/stackexchange)給 Creative Commons 使用並包含下列[出處標示](http://blog.stackoverflow.com/2009/06/attribution-required/)的資料。
+本文逐步解說一些可透過 [Azure 搜尋服務](https://azure.microsoft.com/services/search/)完成的核心全文檢索搜尋功能。文中運用 Stack Exchange [提供](https://archive.org/details/stackexchange)給 Creative Commons 使用並包含下列[出處標示](http://blog.stackoverflow.com/2009/06/attribution-required/)的資料。
 
 ## 開始使用
 
@@ -104,9 +104,9 @@ Brent 已藉由示範如何將資料預備至 SQL Database，進行了很多困�
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-一旦完成，您就可以使用 [Azure 入口網站](https://portal.azure.com)從上述 Azure SQL 檢視「匯入資料」，然後根據此檢視中的欄位結構描述建立 Azure 搜尋服務索引。如果您想要使用我所預備的 Azure SQL Database，以下是您可以使用的唯讀連接字串：
+一旦完成，您就可以使用 [Azure 傳統入口網站](https://portal.azure.com)從上述 Azure SQL 檢視「匯入資料」，然後根據此檢視中的欄位結構描述建立 Azure 搜尋服務索引。如果您想要使用我所預備的 Azure SQL Database，以下是您可以使用的唯讀連接字串：
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

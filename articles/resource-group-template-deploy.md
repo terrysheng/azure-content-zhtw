@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
 
-本主題說明如何使用 Azure 資源管理員範本，將您的應用程式部署至 Azure。它會說明如何使用 Azure PowerShell、Azure CLI、REST API 或 Microsoft Azure Preview 入口網站部署您的應用程式。
+本主題說明如何使用 Azure 資源管理員範本，將您的應用程式部署至 Azure。它會說明如何使用 Azure PowerShell、Azure CLI、REST API 或 Azure 入口網站部署您的應用程式。
 
 如需資源管理員的簡介，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。若要了解如何建立範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 
@@ -32,17 +32,7 @@
 
 1. 登入您的 Azure 帳戶。提供您的認證之後，命令會傳回您的帳戶的相關資訊。
 
-    早於 Azure PowerShell 1.0 Preview：
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-        ...
-        PS C:\> Add-AzureAccount
-
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-    Azure PowerShell 1.0 Preview：
+    Azure PowerShell 1.0：
 
          PS C:\> Login-AzureRmAccount
 
@@ -219,13 +209,13 @@
 
 如需透過資源群組使用 Visual Studio 的簡介，請參閱[透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-## 使用 Preview 入口網站部署
+## 使用入口網站部署
 
-您知道嗎？ Azure 資源管理員範本支援所有經由[預覽入口網站](https://portal.azure.com/)建立的應用程式！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。只要選取 [**新增**] 圖示，您即可進入透過 Azure 資源管理員部署應用程式的程序。
+您知道嗎？ Azure 資源管理員範本支援所有經由[入口網站](https://portal.azure.com/)建立的應用程式！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。只要選取**新增**圖示，您即可進入透過 Azure 資源管理員部署應用程式的程序。
 
 ![新增](./media/resource-group-template-deploy/new.png)
 
-如需關於搭配 Azure 資源管理員使用入口網站的詳細資訊，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](azure-portal/resource-group-portal.md)。
+如需關於搭配 Azure 資源管理員使用入口網站的詳細資訊，請參閱[使用 Azure 入口網站來管理您的 Azure 資源](azure-portal/resource-group-portal.md)。
 
 
 ## 參數檔案
@@ -259,4 +249,4 @@
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/29/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # StorSimple 裝置部署問題的疑難排解
@@ -53,7 +53,7 @@
  
     > [AZURE.IMPORTANT]密碼是在註冊之前收集，但只有在您成功註冊裝置之後才會套用。如果套用密碼失敗，系統將提示您再次提供密碼，直到收集到所需的密碼 (符合複雜性需求) 為止。
 
-4. 註冊裝置：最後一個步驟是使用在 Microsoft Azure 中執行的 StorSimple Manager 服務來註冊裝置。註冊會要求您從 Azure 管理入口網站[取得服務註冊金鑰](storsimple-manage-service.md#get-the-service-registration-key)，並在安裝精靈中提供該金鑰。成功註冊裝置之後，即會為您提供服務資料加密金鑰。請務必將此加密金鑰保留在安全的位置，因為在向服務註冊所有後續裝置時都需用到它。
+4. 註冊裝置：最後一個步驟是使用在 Microsoft Azure 中執行的 StorSimple Manager 服務來註冊裝置。註冊會要求您從 Azure 傳統入口網站[取得服務註冊金鑰](storsimple-manage-service.md#get-the-service-registration-key)，並在安裝精靈中提供該金鑰。成功註冊裝置之後，即會為您提供服務資料加密金鑰。請務必將此加密金鑰保留在安全的位置，因為在向服務註冊所有後續裝置時都需用到它。
 
 ## 裝置部署期間的常見錯誤
 
@@ -119,7 +119,7 @@
 
 > [AZURE.IMPORTANT]一般而言，如果嘗試套用密碼失敗，則此軟體會重複嘗試收集密碼，直到成功為止。有時會無法套用密碼，但很罕見。在此情況下，您可以註冊裝置並繼續進行，但密碼將不會變更。您將不會收到哪一個密碼未變更的指示：裝置系統管理員密碼或 StorSimple Snapshot Manager 密碼。如果發生這種情況，建議您變更這兩個密碼。
 
-您可以從 StorSimple Manager 服務的管理入口網站重設密碼。如需詳細資訊，請參閱：
+您可以透過 StorSimple Manager 服務重設 Azure 傳統入口網站的密碼。如需詳細資訊，請移至：
 
 - [變更裝置系統管理員密碼](storsimple-change-passwords.md#change-the-device-administrator-password)。
 - [變更 StorSimple Snapshot Manager 密碼](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)。
@@ -380,7 +380,7 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 
 **範例輸出 – 執行 StorSimple 版本的離線裝置 (2014 年 7 月)**
 
-這個範例是來自管理入口網站中狀態為 [離線] 的裝置。
+這個範例是來自 Azure 傳統入口網站中狀態為 [離線] 的裝置。
 
      Checking device state: Success 
      Device is registered successfully 
@@ -577,4 +577,4 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

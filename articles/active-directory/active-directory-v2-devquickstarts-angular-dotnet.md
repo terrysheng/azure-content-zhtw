@@ -217,7 +217,7 @@ return $http.get('/api/tasks');
 ...
 ```
 
-恭喜！ 您的 Azure AD 整合式單一頁面應用程式現在已完成。下台鞠躬。它可以驗證使用者、使用 OpenID Connect 安全地呼叫其後端 REST API，以及取得使用者的基本資訊。根據預設，它支援來自 Azure AD 具有個人 Microsoft 帳戶或工作/學校帳戶的任何使用者。執行應用程式，並且在瀏覽器中瀏覽至 `https://localhost:44326/`。使用個人 Microsoft 帳戶或工作/學校帳戶登入。將工作新增至使用者待辦事項清單，然後登出。嘗試使用其他類型的帳戶登入。如果您需要 Azure AD 租用戶以建立工作/學校使用者，[在這裡了解如何取得](active-directory-howto-tenant.md) (免費)。
+恭喜！ 您的 Azure AD 整合式單一頁面應用程式現在已完成。佩服吧！它可以驗證使用者、使用 OpenID Connect 安全地呼叫其後端 REST API，以及取得使用者的基本資訊。根據預設，它支援來自 Azure AD 具有個人 Microsoft 帳戶或工作/學校帳戶的任何使用者。執行應用程式，並且在瀏覽器中瀏覽至 `https://localhost:44326/`。使用個人 Microsoft 帳戶或工作/學校帳戶登入。將工作新增至使用者待辦事項清單，然後登出。嘗試使用其他類型的帳戶登入。如果您需要 Azure AD 租用戶以建立工作/學校使用者，[在這裡了解如何取得](active-directory-howto-tenant.md) (免費)。
 
 若要繼續了解應用程式模型 v2.0 預覽，請返回我們的 [v2.0 開發人員指南](active-directory-appmodel-v2-overview.md)。如需其他資源，請參閱：
 
@@ -225,4 +225,4 @@ return $http.get('/api/tasks');
 - [堆疊溢位上的 Azure AD >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

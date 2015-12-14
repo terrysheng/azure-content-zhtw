@@ -53,7 +53,7 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
 	- 如果 SQL 資料倉儲資料庫是在與此資料流分析工作相同的訂用帳戶中，則請選取 [使用目前訂用帳戶的 SQL Database]。
 	- 如果您的資料庫是在不同的訂用帳戶中，請選取 [使用其他訂用帳戶的 SQL Database]。
 - 資料庫：指定目的地資料庫的名稱。
-- 伺服器名稱：為您剛指定的資料庫指定伺服器名稱。您可以使用 Azure 入口網站進行搜尋。
+- 伺服器名稱：為您剛指定的資料庫指定伺服器名稱。您可以使用 Azure 傳統入口網站進行搜尋。
 
 ![][server-name]
 
@@ -96,4 +96,4 @@ Azure 串流分析是完全受管理的服務，可用來對雲端中的串流�
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

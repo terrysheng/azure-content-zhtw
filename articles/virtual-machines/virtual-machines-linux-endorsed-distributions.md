@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/01/2015"
 	ms.author="szark"/>
 
 
@@ -37,12 +37,13 @@ Azure Linux 代理程式已預先安裝於 Azure 組件庫映像上，而且通�
 
 配送映像|版本|驅動程式|代理程式
 ---|---|---|---
-Canonical Ubuntu|Ubuntu 12.04、14.04、15.04 和 15.10|在核心中|封裝：在「walinuxagent」下的儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-OpenLogic 的 CentOS |CentOS 6.3+、7.0+| CentOS 6.3：[LIS 下載](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +：在核心中|封裝：在<a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">「WALinuxAgent」下的 OpenLogic 儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Ubuntu|Ubuntu 12.04、14.04、15.04 和 15.10|在核心中|封裝：在「walinuxagent」下方的儲存機制中 <p><p>來源：[GitHub](https://github.com/Azure/WALinuxAgent)
+OpenLogic 的 CentOS |CentOS 6.3+、7.0+| CentOS 6.3：[LIS 下載](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +：在核心中|封裝：在<a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">「WALinuxAgent」下的 OpenLogic 儲存機制中<p><p>來源：[GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |在核心中|來源：[GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4+、7.0+|在核心中|封裝：在「WALinuxAgent」下的儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 SUSE Linux Enterprise |SLES 11 SP3 +、SLES 12 + 和 <p><p> SLES for SAP 11.3+ |在核心中|封裝：在「WALinuxAgent」下的[雲端：工具](https://build.opensuse.org/project/show/Cloud:Tools)儲存機制中<p><p>來源：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |openSUSE 13.1+|在核心中|封裝：在「WALinuxAgent」下的[雲端：工具](https://build.opensuse.org/project/show/Cloud:Tools)儲存機制中<p><p>原始程式碼：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|在核心中|封裝：在「WALinuxAgent」下的[雲端：工具](https://build.opensuse.org/project/show/Cloud:Tools)儲存機制中<p><p>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent)
+Credativ 的 Debian |Debian 7.9+、8.2+|在核心中|封裝：在「waagent」下的儲存機制中<p><p>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent)
 
 ## 合作夥伴
 
@@ -79,4 +80,9 @@ Oracle 的策略是提供公用與私人雲端適用的各種解決方案，同�
 
 Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算提供優異可靠性與安全性的平台。SUSE 彈性的 Linux 平台可與 Azure 雲端服務緊密整合，提供容易管理的雲端環境。隨著 SUSE Linux Enterprise Server 有 1,800 多家獨立軟體廠商提供 9,200 多個認證應用程式，SUSE 可確保資料中心內所執行受支援的工作負載可以安心部署於 Azure 上。
 
-<!---HONumber=Nov15_HO4-->
+### Credativ
+[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+
+Credativ 是一家獨立的顧問和服務公司，專長為透過使用免費的軟體開發和實作專業解決方案。我們是居領導地位的開放原始碼專家，獲得國際認可，有許多 IT 部門使用我們的支援。Credativ 與 Microsoft 合作，目前正在為 Debian 8 (Jessie) 與 Debian 7 之前的版本 (Wheezy) 準備對應的 Debian 映像，這些映像是專門針對在 Azure 上執行而設計，可輕鬆地透過此平台管理。Credativ 也透過其「開放原始碼支援中心」支援 Debian 映像的長期維護與更新。
+
+<!---HONumber=AcomDC_1203_2015-->

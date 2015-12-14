@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/01/2015"
 	ms.author="jgao"/>
 
 #在 HDInsight 上使用 Hadoop 分析航班延誤資料
@@ -51,7 +51,7 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。H
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)。
 
 **本教學課程中使用的檔案**
 
@@ -70,7 +70,7 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。H
 
 ##建立叢集和執行 Hive/Sqoop 工作
 
-Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的方法是建立工作的叢集，並於工作完成之後刪除工作。下列指令碼涵蓋整個程序。如需有關建立 HDInsight 叢集和執行 Hive 工作的詳細資訊，請參閱[在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision]和[在 HDInsight 上使用 Hive][hdinsight-use-hive]。
+Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的方法是建立工作的叢集，並於工作完成之後刪除工作。下列指令碼涵蓋整個程序。如需有關建立 HDInsight 叢集和執行 Hive 工作的詳細資訊，請參閱[在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision]和[搭配 HDInsight 使用 Hive][hdinsight-use-hive]。
 
 **使用 Azure PowerShell 執行 Hive 查詢**
 
@@ -708,7 +708,7 @@ HiveQL 指令碼將執行下列作業：
 * [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
 * [在 HDInsight 上使用 Oozie][hdinsight-use-oozie]
 * [搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]
-* [搭配使用 Pig 與 HDInsight][hdinsight-use-pig]
+* [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 * [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 * [開發 HDInsight 的 C# Hadoop 串流程式][hdinsight-develop-streaming]
 
@@ -742,4 +742,4 @@ HiveQL 指令碼將執行下列作業：
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

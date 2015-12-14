@@ -67,6 +67,58 @@ Application Insights SDK 中針對 ASP.NET 2.0.0 版 beta3 或更新版本預設
 
     當應用程式剛開始時指派的值。不要在偵錯時減少此值。
 
+### 替代方法：在程式碼中設定調適性取樣
+
+除了在 .config 檔中調整取樣之外，您還可以使用程式碼。這可讓您指定在每次取樣率重新評估時叫用的回呼函式。例如，您可以使用這個方法來找出使用中的取樣率。
+
+移除 .config 檔案中的 `AdaptiveSamplingTelemetryProcessor` 節點。
+
+
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
+
+    var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
+
+    // Optional: here you can adjust the settings from their defaults.
+
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    
+    builder.UseAdaptiveSampling(
+         adaptiveSamplingSettings,
+
+        // Callback on rate re-evaluation:
+        (double afterSamplingTelemetryItemRatePerSecond,
+         double currentSamplingPercentage,
+         double newSamplingPercentage,
+         bool isSamplingPercentageChanged,
+         SamplingPercentageEstimatorSettings s
+        ) =>
+        {
+          if (isSamplingPercentageChanged)
+          {
+             // Report the sampling rate.
+             telemetryClient.TrackMetric("samplingPercentage", newSamplingPercentage);
+          }
+      });
+
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
+
+```
+
+([深入了解遙測處理器](app-insights-api-filtering-sampling.md#filtering)。)
+
+
 <a name="other-web-pages"></a>
 ## 具有 JavaScript 的網頁的取樣
 
@@ -132,7 +184,7 @@ Application Insights SDK 中針對 ASP.NET 2.0.0 版 beta3 或更新版本預設
 
 
 
-### 替代方法：在伺服器程式碼中設定取樣
+### 替代方法：在伺服器程式碼中啟用固定取樣率
 
 
 除了在 .config 檔中設定取樣參數之外，您還可以使用程式碼。
@@ -155,7 +207,7 @@ Application Insights SDK 中針對 ASP.NET 2.0.0 版 beta3 或更新版本預設
 
 ```
 
-([深入了解遙測處理器](app-insights-api-filtering-sampling/#filtering)。)
+([深入了解遙測處理器](app-insights-api-filtering-sampling.md#filtering)。)
 
 ## 何時使用取樣？
 
@@ -174,7 +226,7 @@ Application Insights SDK 中針對 ASP.NET 2.0.0 版 beta3 或更新版本預設
 
 如果是下列情形，則使用固定取樣率：
 
-* 您想要同步處理用戶端與伺服器之間的取樣，因此，當您在[搜尋](app-insights-diagnostic-search.md)中調查事件時，您可以在用戶端與伺服器的相關事件之間調查，例如頁面檢視和 http 要求。
+* 您想要同步處理用戶端與伺服器之間的取樣，因此，當您在[搜尋](app-insights-diagnostic-search.md)中調查事件時，您可以在用戶端與伺服器的相關事件之間調查，例如頁面檢視和 HTTP 要求。
 * 您對於您的應用程式的適當取樣百分比有信心。應該夠高以取得精確的度量，但是低於超過價格配額和節流限制的取樣率。 
 * 您不是在偵錯您的應用程式。當您按 F5 鍵並且嘗試您的應用程式的幾個頁面時，您可能會想要查看所有遙測。
 
@@ -221,11 +273,13 @@ SDK 會決定要卸除的遙測項目以及要保留哪些。取樣決策會根�
 
 *是否可以找出調適性取樣使用的取樣率？*
 
- * 目前版本不支援。
+ * 是 - 使用程式碼方法來設定調適性取樣；您可以提供取得取樣率的回呼。
 
 *如果我使用固定取樣率，如何知道哪個取樣百分比最適合我的應用程式？*
 
-* 今天您必須猜測。分析 AI 中您目前的遙測使用量、觀察與節流相關的資料卸除，並估計所收集之遙測的量。這三項輸入與所選定價層，可對您可能想要減少收集的遙測量提出建議。不過，遙測量模式中的偏移可能會使以最佳方式設定的取樣百分比無效 (例如您的使用者數目增加)。
+* 開始使用調適性取樣的其中一個方法，就是找出它選擇的取樣率 (請參閱上一個問題)，然後再切換為使用該取樣率的固定取樣率。 
+
+    否則，您就必須猜測。分析 AI 中您目前的遙測使用量、觀察目前的節流，並估計所收集之遙測的量。這三項輸入與所選定價層，可對您可能想要減少收集的遙測量提出建議。不過，使用者數目的增加或遙測量的其他某些變化可能會讓您的評估失效。
 
 *如果將取樣百分比設定成太低會發生什麼事？*
 
@@ -241,6 +295,6 @@ SDK 會決定要卸除的遙測項目以及要保留哪些。取樣決策會根�
 
 *我一律想要看見特定罕見的事件。我要如何讓它們通過取樣模組？*
 
- * 使用個別 TelemetryConfiguration 建立單獨的 TelemetryClient 執行個體。使用該執行個體來傳送您的罕見的事件。
+ * 使用新的 TelemetryConfiguration (非預設使用中的組態) 初始化個別的 TelemetryClient 執行個體。使用該執行個體來傳送您的罕見的事件。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

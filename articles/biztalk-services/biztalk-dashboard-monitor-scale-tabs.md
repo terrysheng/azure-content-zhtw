@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="BizTalk 服務中的儀表板、監視、調整、設定和混合式連線 | Microsoft Azure" 
-	description="深入了解控制項，以及在 BizTalk 服務中的 [管理入口網站] 索引標籤上監視效能：儀表板、監視、調整、設定和混合式連線。MABS，WABS" 
+	description="深入了解控制項，以及監視 BizTalk 服務的傳統入口網站索引標籤的效能：儀表板、監視、級別、設定和混合式連接。MABS，WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,28 +23,25 @@
 
 在您建立 BizTalk 服務和部署應用程式之後，您可以變更某些 BizTalk 服務設定和監視應用程式效能。
 
-在您開啟 Azure 管理入口網站時，會自動進入 [**所有項目**] 索引標籤。若要檢視 BizTalk 服務，請在 [**所有項目**] 索引標籤中選取 BizTalk 服務，或選取 [**BIZTALK 服務**] 索引標籤，然後選取您的 BizTalk 服務名稱。
+當您開啟 Azure 傳統入口網站時，會自動進入 [**所有項目**] 索引標籤。若要檢視 BizTalk 服務，請在 [**所有項目**] 索引標籤中選取 BizTalk 服務，或選取 [**BIZTALK 服務**] 索引標籤，然後選取您的 BizTalk 服務名稱。
 
 這樣會開啟新視窗並顯示下列索引標籤。本主題說明這些索引標籤。
 
 ## 快速入門 (![快速啟動][QuickStart])
-部分 BizTalk 服務版本可能並未提供下列所有選項。
-<table border="1">
-    <tr>
-        <td><strong>取得工具</strong></td>
+部分 BizTalk 服務版本可能並未提供下列所有選項。<table border="1"> <tr> <td><strong>取得工具</strong></td>
 
-        <td>下載 BizTalk 服務 SDK，將 Visual Studio 專案範本安裝到內部部署開發電腦上。 這些範本會建立 <strong>BizTalk 服務</strong> (橋接)，以及可部署至 BizTalk 服務的 <strong>BizTalk 服務成品</strong> (轉換) Visual Studio 專案。
+        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">如何開始使用 Azure BizTalk 服務 SDK</a> 和<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589"> 安裝 Azure BizTalk 服務 SDK</a> 列出開始進行的步驟。
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
 
     <tr>
-        <td><strong>建立夥伴合約</strong></td>
+        <td><strong>Create partner agreements</strong></td>
 
-        <td>開啟裝載於 Azure 的 Azure BizTalk 服務入口網站，以加入夥伴並建立 X12、AS2 和 EDIFACT EDI 協議。
+        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>列出開始進行的步驟。
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
     </tr>
 
@@ -72,7 +69,7 @@
 <td>Access Control 命名空間的<strong>連線資訊</strong></td>
 <td>選取 [連線資訊] 時會顯示 [Access Control 命名空間]、[預設核發者] 和 [預設金鑰]。您可以複製這些值。
 <br/><br/>
-您也可以開啟存取控制管理入口網站。<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">建立存取控制命名空間</a>提供了存取控制管理入口網站的詳細資訊。</td>
+您也可以開啟存取控制入口網站。<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">建立存取控制命名空間</a>提供了存取控制入口網站的詳細資訊。</td>
 </tr>
 
 <tr>
@@ -83,9 +80,9 @@
 <br/><br/>
 <ol>
 <li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。選取次要金鑰。這時，BizTalk 服務就會開始使用次要金鑰。</li>
-<li>在 Azure 管理入口網站中，選取儲存體帳戶並 [重新產生] 主要金鑰。記住，BizTalk 服務現在使用次要金鑰。</li>
+<li>在 Azure 傳統入口網站中，選取您的儲存體帳戶並重新產生主要金鑰。記住，BizTalk 服務現在使用次要金鑰。</li>
 <li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。現在，選取主要金鑰。這是您重新產生的新主要金鑰。</li>
-<li>在 Azure 管理入口網站中，選取儲存體帳戶並 [重新產生] 次要金鑰。</li>
+<li>在 Azure 傳統入口網站中，選取您的儲存體帳戶並重新產生次要金鑰。</li>
 </ol>
 <br/>
 此程序稱為「換用金鑰」。目的是讓使用者在主要金鑰和次要金鑰之間切換，而不會中斷 BizTalk 服務。</td>
@@ -170,7 +167,7 @@
 </tr>
 <tr>
 <td><strong>訂用帳戶名稱</strong></td>
-<td>列出裝載 BizTalk 服務的訂用帳戶名稱。訂用帳戶掌管對 Azure 管理入口網站的存取權。</td>
+<td>列出裝載 BizTalk 服務的訂用帳戶名稱。訂用帳戶掌管對 Azure 傳統入口網站的存取權。</td>
 </tr>
 <tr>
 <td><strong>訂用帳戶識別碼</strong></td>
@@ -178,7 +175,7 @@
 </tr>
 </table>
 
-[BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)，列出建立 BizTalk 服務的步驟。
+[BizTalk 服務：使用 Azure 傳統入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)列出建立 BizTalk 服務的步驟。
 
 
 ##### 工作列中的管理、連線資訊、同步金鑰和刪除：
@@ -197,9 +194,9 @@
 <td>Access Control 命名空間的<strong>連線資訊</strong></td>
 <td>顯示 Access Control 命名空間、預設核發者和預設金鑰值，供您複製。
 <br/><br/>
-您也可以開啟存取控制管理入口網站。此存取控制管理入口網站與使用左導覽窗格中的 [Active Directory] 選項一樣。
+您也可以開啟存取控制入口網站。此存取控制入口網站的功用就與使用左側導覽窗格中的 [Active Directory] 選項一樣。
 <br/><br/>
-＜<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">管理 ACS 命名空間</a>＞提供存取控制管理入口網站的詳細資訊。</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">管理您的 ACS 命名空間</a>提供存取控制入口網站的詳細資訊。</td>
 </tr>
 <tr>
 <td>儲存體帳戶內的<strong>同步金鑰</strong></td>
@@ -209,9 +206,9 @@
 <br/><br/>
 <ol>
 <li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。選取次要金鑰。這時，BizTalk 服務就會開始使用次要金鑰。</li>
-<li>在 Azure 管理入口網站中，選取儲存體帳戶並 [重新產生] 主要金鑰。記住，BizTalk 服務現在使用次要金鑰。</li>
+<li>在 Azure 傳統入口網站中，選取您的儲存體帳戶並重新產生主要金鑰。記住，BizTalk 服務現在使用次要金鑰。</li>
 <li>選取 BizTalk 服務，再選取 [同步金鑰]<strong></strong>。現在，選取主要金鑰。這是您重新產生的新主要金鑰。</li>
-<li>在 Azure 管理入口網站中，選取儲存體帳戶並 [重新產生] 次要金鑰。</li>
+<li>在 Azure 傳統入口網站中，選取您的儲存體帳戶並重新產生次要金鑰。</li>
 </ol>
 <br/>
 此程序稱為「換用金鑰」。目的是讓使用者在主要金鑰和次要金鑰之間切換，而不會中斷 BizTalk 服務。</td>
@@ -236,17 +233,14 @@
 
 ##### 在圖表中移除或顯示度量：
 1. 選取 [**監視**] 索引標籤。
-2. 選取工作列中的 [**加入度量**]：  
-![選取 [新增度量]][AddMetrics]
+2. 選取工作列中的 [加入度量]：![選取 [新增度量]][AddMetrics]
 3. 勾選您要顯示的效能度量。
 4. 選取勾選記號以回到 [**監視**] 索引標籤。
-5. 選取度量旁邊的圓圈，將該度量的值顯示在圖表中。
+5. 選取度量旁邊的圓圈，將該度量的值顯示在圖表中。  
 
-	例如，[CPU 使用率] 度量呈現灰色，其輸出不會出現在圖表中：  
-![CPU 使用量度量呈現灰色][GrayedMetric]
+	例如，[CPU 使用率] 度量呈現灰色，其輸出不會出現在圖表中：![CPU 使用量度量呈現灰色][GrayedMetric]
 
-	選取灰色的圓圈以啟用 [CPU 使用率] 度量，將其輸出顯示在圖表中：
-![CPU 使用量度量已啟用][EnabledMetric]
+	選取灰色的圓圈以啟用 [CPU 使用率] 度量，將其輸出顯示在圖表中：![CPU 使用量度量已啟用][EnabledMetric]
 
 6. 若要從顯示圖表和清單中移除度量，請選取工作列中的 [**移除度量**]。若要將度量加回到清單中，請選取工作列的 [加入度量]，勾選度量，然後選取勾選記號以回到 [監視] 索引標籤。選取灰色圓圈以啟用度量。
 
@@ -335,7 +329,7 @@
 
 
 ## <a name="HybridConnections"></a>混合式連線
-混合式連線可將 Azure 應用程式 (例如網站或行動服務) 連線到使用靜態 TCP 連接埠的內部部署資源，例如 SQL Server、MySQL、HTTP Web API 及大部分的自訂 Web 服務。您可以在 Azure 管理入口網站的 BizTalk 服務內管理混合式連線。
+混合式連線可將 Azure 應用程式 (例如網站或行動服務) 連線到使用靜態 TCP 連接埠的內部部署資源，例如 SQL Server、MySQL、HTTP Web API 及大部分的自訂 Web 服務。您可以在 Azure 傳統入口網站內的 BizTalk 服務中管理混合式連接。
 
 若要在 Azure 網站中建立混合式連線，請參閱「[混合式連線：將 Azure 網站連接至內部部署資源](http://go.microsoft.com/fwlink/p/?LinkId=397538)」。
 
@@ -355,7 +349,7 @@
 ## 另請參閱
 - [混合式連線](integration-hybrid-connection-overview.md)  
 - [BizTalk 服務：開發人員、基本、標準和高級版本圖表](biztalk-editions-feature-chart.md)  
-- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](biztalk-provision-services.md)  
+- [BizTalk 服務：使用 Azure 傳統入口網站進行佈建](biztalk-provision-services.md)  
 - [BizTalk 服務：BizTalk 服務狀態圖](biztalk-service-state-chart.md)  
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
@@ -365,4 +359,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

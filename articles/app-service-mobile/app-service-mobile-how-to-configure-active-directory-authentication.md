@@ -29,7 +29,7 @@
 
 ## <a name="express"> </a>使用快速設定設定 Azure Active Directory
 
-13. 在 [Azure 管理入口網站]中，瀏覽至您的應用程式。依序按一下 [設定] 及 [驗證/授權]。
+13. 在 [Azure 入口網站]中，瀏覽到您的應用程式。依序按一下 [**設定**] 及 [**驗證/授權**]。
 
 14. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
 
@@ -52,9 +52,9 @@
 
 ### <a name="register"> </a>向 Azure Active Directory 註冊您的應用程式
 
-1. 登入[預覽 Azure 管理入口網站]，並瀏覽至您的應用程式。複製您的 **URL**。您將使用此資訊設定 Azure Active Directory 應用程式。
+1. 登入 [Azure 入口網站]，並瀏覽到您的應用程式。複製您的 **URL**。您將使用此資訊設定 Azure Active Directory 應用程式。
 
-3. 登入 [Azure 管理入口網站]，然後導覽至 [**Active Directory**]。
+3. 登入 [Azure 傳統入口網站]，並瀏覽到 **Active Directory**。
 
     ![][2]
 
@@ -85,9 +85,9 @@
 > [AZURE.NOTE]如果您使用 App Service 閘道器，請忽略此章節，並改為在入口網站中瀏覽至您的閘道器。依序選取 [設定]、[身分識別]，[Azure Active Directory]。貼入 ClientID 並將租用戶識別碼新增至 [允許的租用戶] 清單。按一下 [儲存]。
 
 
-13. 回到[預覽 Azure 管理入口網站]，並瀏覽至應用程式。依序按一下 [設定] 及 [驗證/授權]。
+13. 回到 [Azure 入口網站]，並瀏覽到您的應用程式。依序按一下 [**設定**] 及 [**驗證/授權**]。
 
-14. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
+14. 如果 [驗證/授權] 功能未啟用，請切換到 [**開啟**]。
 
 15. 按一下 [Azure Active Directory]，然後按一下 [管理模式] 下方的 [進階]。貼入您先前取得的用戶端識別碼和簽發者 URL 值。然後按一下 [確定]。
 
@@ -100,6 +100,30 @@
 17. 按一下 [儲存]。
 
 現在，您已可在應用程式中使用 Azure Active Directory 進行驗證。
+
+## (選擇性步驟) 設定原生用戶端應用程式
+
+Azure Active Directory 也可讓您註冊更能控制權限對應的原生用戶端。若您想要使用 **Active Directory Authentication Library** 等程式庫執行登入，您會需要該功能。
+
+1. 請瀏覽到 [Azure 傳統入口網站]中的 **Active Directory**
+
+2. 選取您的目錄，然後選取頂端的 [**應用程式**] 索引標籤。按一下底部的 [**新增**]，以建立新的應用程式註冊。
+
+3. 按一下 [Add an application my organization is developing]。
+
+4. 在 [新增應用程式精靈] 中，輸入應用程式的 [名稱]，然後按一下 [原生用戶端應用程式] 類型。接著，按一下以繼續。
+
+5. 在 [**重新導向 URI**] 方塊中，請使用 HTTPS 配置輸入您網站的 _/.auth/login/done_ 端點。此值應與 \__https://contoso.azurewebsites.net/.auth/login/done_ 類似。
+
+6. 新增原生應用程式之後，按一下 [**設定**] 索引標籤。請找到**用戶端識別碼**並記下該值。
+
+7. 將頁面向下捲動至 [**其他應用程式的權限**] 區段，然後按一下 [**新增應用程式**]。
+
+8. 搜尋先前註冊的 Web 應用程式，再按一下加號圖示。然後按一下核取標記以關閉對話方塊。
+
+9. 在您剛才加入的新項目上，開啟 [**委派的權限**] 下拉式清單，然後選取 [**存取 (appName)**]。然後按一下 [儲存]。
+
+您現在已設定了可以存取您 App Service 應用程式的原生用戶端應用程式。
 
 ## <a name="related-content"> </a>相關內容
 
@@ -114,9 +138,9 @@
 
 <!-- URLs. -->
 
-[預覽 Azure 管理入口網站]: https://portal.azure.com/
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 入口網站]: https://portal.azure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [另一種方法]: #advanced
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

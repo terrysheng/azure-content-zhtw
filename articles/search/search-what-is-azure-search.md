@@ -29,7 +29,7 @@ Azure 搜尋服務是 API 型服務，適用於知道如何使用 Web 服務和 
 
 Azure 搜尋服務是 [PaaS 服務](https://wikipedia.org/wiki/Platform_as_a_service)，可將伺服器和基礎結構管理委託給 Microsoft，留下您只需填入搜尋資料的立即可用服務，然後可從您的應用程式存取此服務。根據設定服務的方式，您將使用與其他 Azure 搜尋服務訂閱者共用的搜尋服務，或提供只供您服務使用之專用資源的標準定價層。標準搜尋是可調整的，其選項可滿足由於儲存體或查詢負載而增加的需求。
 
-Azure 搜尋服務會將您的資料儲存在可以透過全文檢索查詢搜尋的索引中。您可以在 Azure 入口網站，或使用用戶端程式庫或 REST API 以程式設計方式建立這些索引的結構描述。一旦定義結構描述之後，您就可以將資料上傳至 Azure 搜尋服務，接著編製索引。
+Azure 搜尋服務會將您的資料儲存在可以透過全文檢索查詢搜尋的索引中。您可以在 Azure 傳統入口網站，或使用用戶端程式庫或 REST API 以程式設計方式建立這些索引的結構描述。一旦定義結構描述之後，您就可以將資料上傳至 Azure 搜尋服務，接著編製索引。
 
 您可以使用發送或提取模型，將資料上傳至索引。提取模型是透過可以針對需要或排定的更新而設定的索引子提供的 (請參閱[索引子作業 (Azure 搜尋服務 REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx))，可讓您輕鬆地從 Azure DocumentDB、Azure SQL Database 或裝載於 Azure VM 的 SQL Server 擷取資料和資料變更。發送模式是透過用於將更新的文件傳送到索引的 SDK 或 REST API 提供的。只要資料具有 JSON 格式，您幾乎可以從任何資料集發送資料。如需載入資料的指引，請參閱[新增、更新或刪除文件](https://msdn.microsoft.com/library/azure/dn798930.aspx)或[如何使用 .NET SDK](search-howto-dotnet-sdk.md)。
 
@@ -131,4 +131,4 @@ REST API 由 HTTP 要求和回應組成，其內容以 JSON 格式表示。有�
 
 [如何在 .NET 中使用 Azure 搜尋](search-howto-dotnet-sdk.md) [開始使用 Azure 搜尋 .NET](search-get-started-dotnet.md) [Azure 搜尋：教學課程、影片示範和範例](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

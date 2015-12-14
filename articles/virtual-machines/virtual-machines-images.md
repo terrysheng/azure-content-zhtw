@@ -35,7 +35,7 @@ Azure 會使用映像透過作業系統提供新的虛擬機器。一個映像�
 
 ## 使用映像
 
-您可以使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)，或使用 Azure PowerShell 模組來管理您的 Azure 訂用帳戶可使用的映像。您也可以使用 Azure 入口網站進行部分映像工作，但命令列則提供您更多選項。
+您可以使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)，或使用 Azure PowerShell 模組來管理您的 Azure 訂用帳戶可使用的映像。您也可以使用 Azure 傳統入口網站進行部分映像工作，但命令列則提供您更多選項。
 
 關於如何透過資源管理員部署使用這些工具，如需更多的資訊，請參閱[使用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](resource-groups-vm-searching.md)。
 
@@ -59,4 +59,4 @@ Azure 會使用映像透過作業系統提供新的虛擬機器。一個映像�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

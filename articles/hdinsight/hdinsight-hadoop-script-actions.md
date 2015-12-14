@@ -92,7 +92,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 **安裝 Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
 - **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
 
-您可以從 Azure 預覽入口網站、Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
+您可以從 Azure 入口網站、Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
 
 > [AZURE.NOTE]範例指令碼只能與 HDInsight 叢集版本 3.1 或更高版本搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](../hdinsight-component-versioning/)。
 
@@ -202,7 +202,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 ### 傳遞參數到 Add-AzureRmHDInsightScriptAction Cmdlet
 
-若要將多個參數傳遞至 Add-AzureRmHDInsightScriptAction Cmdlet，您必須先格式化字串值以包含指令碼的所有參數。例如：
+若要將多個參數傳遞至 Add-AzureRmHDInsightScriptAction cmdlet，您必須先格式化字串值以包含指令碼的所有參數。例如：
 
 	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
@@ -351,4 +351,4 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

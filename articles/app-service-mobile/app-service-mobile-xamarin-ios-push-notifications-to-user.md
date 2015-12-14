@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="12/01/2015"
 	ms.author="yuaxu"/>
 
 # 傳送跨平台通知給特定使用者
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-本主題說明如何從您的行動後端，將通知傳送給特定使用者的所有註冊裝置。其中將介紹[範本]的概念；範本可讓用戶端應用程式在註冊時能夠指定裝載格式和變數預留位置。然後，這些預留位置會傳送到每個平台，而啟用跨平台通知。
+本主題說明如何從您的行動後端，將通知傳送給特定使用者的所有註冊裝置。其中將介紹[範本]；範本可讓用戶端應用程式在註冊時能夠指定裝載格式和變數預留位置。從伺服器傳送範本通知時，通知中樞會將其導向到每個具有這些預留位置的平台，啟用跨平台通知。
 
 > [AZURE.NOTE]若要啟用跨平台用戶端的推播功能，您必須先為要啟用的每個平台完成本教學課程。您只需要為共用相同行動後端的用戶端執行一次[行動後端更新](#backend)。
  
@@ -58,20 +56,7 @@
         }
         ...
 
-2. 在 **AppDelegate.cs** 中，將 **RegisteredForRemoteNotifications** 中的 **RegisterAsync** 呼叫取代為下列內容，以使用範本：
 
-        // delete await push.RegisterAsync (deviceToken);
-        
-        var notificationTemplate = "{"aps": {"alert":"$(message)"}}";
-
-        JObject templateBody = new JObject();
-        templateBody["body"] = notificationTemplate;
-
-        JObject templates = new JObject();
-        templates["testApnsTemplate"] = templateBody;
-
-        // register with templates
-        await push.RegisterAsync (deviceToken, templates);
 
 ##<a name="backend"></a>更新您的服務後端以傳送通知給特定使用者
 
@@ -92,11 +77,14 @@
             ServiceUser authenticatedUser = this.User as ServiceUser;
             string userTag = "_UserId:" + authenticatedUser.Id;
 
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
+            // Sending the message so that all template registrations that contain "messageParam"
+            // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+            Dictionary<string,string> templateParams = new Dictionary<string,string>();
+            templateParams["messageParam"] = item.Text + " was added to the list.";
 
             try
             {
-                await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
+                await Hub.SendTemplateNotificationAsync(templateParams, userTag);
             }
             catch (System.Exception ex)
             {
@@ -112,6 +100,6 @@
 <!-- URLs. -->
 [開始使用驗證]: app-service-mobile-xamarin-ios-get-started-users.md
 [開始使用推播通知]: app-service-mobile-xamarin-ios-get-started-push.md
-[範本]: https://msdn.microsoft.com/zh-TW/library/dn530748.aspx
+[範本]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

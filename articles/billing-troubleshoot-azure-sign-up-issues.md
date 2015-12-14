@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Azure 註冊問題疑難排解
 本文針對註冊 Azure 時可能發生的問題，協助您對常見的原因進行疑難排解。
@@ -60,4 +60,4 @@ Azure 服務條款協議限制任何從未使用過 Azure 的使用者只能啟�
 ## 仍然無法註冊？
 如果仍然發生註冊問題，或您的問題已超出本文的範圍，請[連絡 Azure 支援](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)以取得支援。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

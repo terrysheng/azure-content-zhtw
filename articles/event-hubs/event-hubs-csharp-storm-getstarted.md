@@ -38,7 +38,7 @@
 
 ## 建立事件中心
 
-1. 登入 [Azure 入口網站]，並按一下畫面底部的 [新增]。
+1. 登入 [Azure 傳統入口網站][]，並按一下畫面底部的 [新增]。
 
 2. 依序按一下 [**應用程式服務**]、[**服務匯流排**]、[**事件中樞**] 及 [**快速建立**]。
 
@@ -105,7 +105,7 @@
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [事件中樞概觀]: event-hubs-overview.md
 [使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -113,4 +113,4 @@
 [佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

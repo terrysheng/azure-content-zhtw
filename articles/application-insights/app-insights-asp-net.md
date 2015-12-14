@@ -65,7 +65,7 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 命令執行了下列步驟 (如果想要的話，可以改為[手動執行](app-insights-start-monitoring-app-health-usage.md))：
 
-* 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的 *檢測金鑰* 。
+* 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的*檢測金鑰*。
 * 將 Application Insights Web SDK NuGet 封裝加入您的專案。若要在 Visual Studio 中看到它，請以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
 * 將檢測金鑰放在 `ApplicationInsights.config` 中。
 
@@ -123,6 +123,8 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
 
+> [AZURE.NOTE]如果您的應用程式會產生大量遙測 (且您使用的是 ASP.NET SDK 版本 2.0.0-beta3 或較新)，調適性取樣模型會自動藉由僅傳送事件代表性片段，以減少傳送到入口網站的量。不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣](app-insights-sampling.md)。
+
 ## 後續步驟
 
 - [使用者和頁面資料](../article/application-insights/app-insights-asp-net-client.md#selector1)
@@ -168,4 +170,4 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
  
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

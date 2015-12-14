@@ -17,15 +17,15 @@
 # 使用 PowerShell 建立和管理 SQL Database 彈性資料庫工作 (預覽)
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [Azure Classic Portal](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
 
-適用於**彈性資料庫工作** (預覽版) 的 PowerShell API 可讓您定義一組資料庫，然後針對這組資料庫執行指令碼。本文將說明如何使用 PowerShell 指令碼建立和管理**彈性資料庫工作**。請參閱[彈性工作概觀](sql-database-elastic-jobs-overview.md)。
+適用於**彈性資料庫工作** (預覽版) 的 PowerShell API 可讓您定義一組資料庫，然後針對這組資料庫執行指令碼。本文將說明如何使用 Powershell Cmdlet 建立和管理**彈性資料庫工作**。請參閱[彈性工作概觀](sql-database-elastic-jobs-overview.md)。
 
 ## 必要條件
-* Azure 訂用帳戶。如需免費試用，請參閱[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)。
+* Azure 訂閱。如需免費試用，請參閱[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)。
 * 一組使用彈性資料庫工具所建立的資料庫。請參閱[開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
 * Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 * **彈性資料庫工作** PowerShell 封裝：請參閱[安裝彈性資料庫工作](sql-database-elastic-jobs-service-installation.md)
@@ -190,16 +190,16 @@
 </table>
 
 ## 支援的彈性資料庫工作群組類型
-工作可以跨資料庫群組執行 Transact-SQL (T-SQL) 指令碼或 DACPAC 的應用程式。當提交工作以跨資料庫群組執行時，工作將會「展開」為子工作，每個子工作針對群組中的單一資料庫執行要求的動作。
+工作可以跨資料庫群組執行 Transact-SQL (T-SQL) 指令碼或 DACPAC 的應用程式。將提交工作是跨資料庫群組執行時，工作會「展開」子工作，由每個子工作針對群組中的單一資料庫執行要求的動作。
  
 您可以建立兩種群組：
 
-* [分區對應](sql-database-elastic-scale-shard-map-management.md)群組：當提交工作以分區對應為目標時，工作會先查詢分區對應來判斷其目前的分區集，然後為分區對應中的每個分區建立子工作。
+* [分區對應](sql-database-elastic-scale-shard-map-management.md)群組：當提交工作是以分區對應為目標時，工作會先查詢分區對應來判斷其目前的分區集，然後為分區對應中的每個分區建立子工作。
 * 自訂集合群組：一組自訂定義的資料庫。當工作以自訂集合為目標時，它會為目前在自訂集合中的每個資料庫建立子工作。
 
 ## 設定彈性資料庫工作連接
 
-使用工作 API 之前，必須設定工作*控制資料庫*的連接。執行此 Cmdlet 會顯示認證視窗，要求提供安裝彈性資料庫工作時所建立的使用者名稱和密碼。本主題中提供的所有範例都假設已經執行第一個步驟。
+使用工作 API 之前，必須設定工作「控制資料庫」的連接。執行此 Cmdlet 會顯示認證視窗，要求提供安裝彈性資料庫工作時所建立的使用者名稱和密碼。本主題中提供的所有範例都假設已經執行第一個步驟。
 
 開啟彈性資料庫工作的連線：
 
@@ -207,16 +207,16 @@
 
 ## 彈性資料庫工作內的已加密認證
 
-資料庫認證可以插入至工作*控制資料庫*，而且密碼會加密。必須儲存認證，稍後才能執行工作 (使用工作排程)。
+資料庫認證可以插入至工作的「控制資料庫」，而且密碼會加密。必須儲存認證，稍後才能執行工作 (使用工作排程)。
  
-加密是透過建立為安裝指令碼一部分的憑證來運作。安裝指令碼會建立憑證並將其上傳至 Azure 雲端服務，以解密已儲存的加密密碼。Azure 雲端服務稍後會在工作*控制資料庫*內儲存公開金鑰，讓 PowerShell API 或 Azure 入口網站介面加密提供的密碼，而不需要在本機安裝憑證。
+加密是透過建立為安裝指令碼一部分的憑證來運作。安裝指令碼會建立憑證並將其上傳至 Azure 雲端服務，以解密已儲存的加密密碼。Azure 雲端服務稍後會在工作的「控制資料庫」內儲存公開金鑰，讓 PowerShell API 或 Azure 傳統入口網站介面加密提供的密碼，而不需要在本機安裝憑證。
  
 認證密碼會加密，以防範對彈性資料庫工作物件只具有唯讀存取權的使用者。但對於彈性資料庫工作物件具有讀寫存取權的惡意使用者，有可能會擷取密碼。認證是設計為跨工作執行重複使用。當建立連線時，認證會傳遞至目標資料庫。用於每個認證的目標資料庫目前沒有限制，惡意使用者可以為他掌控之下的資料庫加入資料庫目標。該使用者接著就可以針對此資料庫啟動工作，取得認證的密碼。
 
 彈性資料庫工作的安全性最佳作法包括：
 
 * 將 API 的使用限制為受信任的個人。
-* 認證應該具有執行工作作業所需的最低權限。如需詳細資訊，請參閱這篇[授權和權限](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN 文章。
+* 認證應該具有執行工作作業所需的最低權限。如需詳細資訊，請參閱 [SQL Server 中的授權和權限](https://msdn.microsoft.com/library/bb669084.aspx)這篇 MSDN 文章。
 
 ### 建立跨資料庫執行工作的加密認證
 
@@ -248,11 +248,11 @@
 
 2.  在命令視窗中，輸入 "1"，然後按 **Enter**。這會建立分區對應管理員，並加入兩個分區到伺服器。接著輸入 "3"，然後按 **Enter**；重複此動作四次。這會在您的分區中插入範例資料列。
   
-3.  [Azure Preview 入口網站](https://portal.azure.com)應該會在 v12 伺服器中顯示三個新的資料庫：
+3.  [Azure 入口網站](https://portal.azure.com)應該會在您的 v12 伺服器中顯示三個新的資料庫：
 
 	![Visual Studio 確認][2]
 
-使用 [**New-AzureSqlJobTarget Cmdlet**](https://msdn.microsoft.com/library/mt346063.aspx) 建立分區對應目標。分區對應管理員資料庫必須設定為資料庫目標，然後特定分區對應必須指定為目標。
+使用 [**New-AzureSqlJobTarget Cmdlet**](https://msdn.microsoft.com/library/mt346063.aspx) 建立分區對應目標。您必須將分區對應管理員資料庫設為資料庫目標，然後將特定分區對應指定為目標。
 
 	$shardMapCredentialName = "{Credential Name}"
 	$shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
@@ -264,7 +264,7 @@
 
 ## 針對跨資料庫執行建立 T-SQL 指令碼
 
-建立要執行的 T-SQL 指令碼時，強烈建議建置為具有[等冪性質](https://en.wikipedia.org/wiki/Idempotence)且失敗時迅速恢復。每當執行發生失敗時，不論失敗的分類，彈性資料庫工作將重試執行指令碼。
+建立要執行的 T-SQL 指令碼時，強烈建議將其建置為[等冪性質](https://en.wikipedia.org/wiki/Idempotence)且失敗時迅速恢復。每當執行發生失敗時，不論失敗的分類，彈性資料庫工作將重試執行指令碼。
 
 使用 [**New-AzureSqlJobContent Cmdlet**](https://msdn.microsoft.com/library/mt346085.aspx) 建立並儲存要執行的指令碼，並且設定 **-ContentName** 和 **-CommandText** 參數。
 
@@ -419,7 +419,7 @@
 
 ## 擷取工作作業執行內的失敗
 
-**JobTaskExecution 物件**包括作業生命週期的屬性和訊息屬性。如果工作作業執行失敗，生命週期屬性將設為*失敗*，且訊息屬性將設為產生的例外狀況訊息和其堆疊。如果工作不成功，務必檢視指定作業不成功的工作作業的詳細資料。
+**JobTaskExecution 物件**包括作業生命週期的屬性和訊息屬性。如果工作作業執行失敗，生命週期屬性將設為「失敗」，且訊息屬性將設為產生的例外狀況訊息和其堆疊。如果工作不成功，務必檢視指定作業不成功的工作作業的詳細資料。
 
 	$jobExecutionId = "{Job Execution Id}"
 	$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
@@ -491,7 +491,7 @@
 
 彈性資料庫工作有兩種不同的方式可以執行取消作業：
 
-1. 取消目前正在執行的作業：如果在作業正在執行時偵測到取消，將會在目前正在執行的作業層面內嘗試取消。例如：當嘗試取消時，如果有長時間執行查詢目前正在執行，將會嘗試取消查詢。
+1. 取消目前正在執行的作業：如果作業正在執行時偵測到取消，將會在目前正在執行的作業層面內嘗試取消。例如：當嘗試取消時，如果有長時間執行查詢目前正在執行，將會嘗試取消查詢。
 2. 取消作業重試：如果控制執行緒在啟動作業執行之前偵測到取消，控制執行緒會避免啟動作業，並且將要求宣告為已取消。
 
 如果針對父工作要求工作取消，則會對父工作和其所有子工作執行取消要求。
@@ -551,7 +551,7 @@
 
 ### 建立工作以跨自訂資料庫集合目標執行指令碼
 
-使用 [**New-AzureSqlJob**](https://msdn.microsoft.com/library/mt346078.aspx) Cmdlet 以針對自訂資料庫集合目標所定義一組資料庫建立工作。彈性資料庫工作會將工作展開成多個子工作，每個子工作對應至與自訂資料庫集合目標相關聯的資料庫，並且確保指令碼會針對每個資料庫執行。再次重申，很重要的是指令碼具有等冪處理重試的彈性。
+使用 [**New-AzureSqlJob**](https://msdn.microsoft.com/library/mt346078.aspx) Cmdlet 以針對自訂資料庫集合目標所定義的一組資料庫建立工作。彈性資料庫工作會將工作展開成多個子工作，每個子工作對應至與自訂資料庫集合目標相關聯的資料庫，並且確保指令碼會針對每個資料庫執行。再次重申，很重要的是指令碼具有等冪處理重試的彈性。
 
 	$jobName = "{Job Name}"
 	$scriptName = "{Script Name}"
@@ -563,9 +563,9 @@
 
 ## 跨資料庫的資料集合
 
-您可以使用工作來跨一組資料庫執行查詢，並將結果傳送至特定的資料表。可以在事實之後查詢資料表，以查看每個資料庫的查詢結果。這提供以非同步方式來跨許多資料庫執行查詢。嘗試失敗時自動經由重試來處理。
+您可以使用工作來跨一組資料庫執行查詢，並將結果傳送至特定的資料表。可以在事實之後查詢資料表，以查看每個資料庫的查詢結果。這麼做即可以非同步方式執行跨許多資料庫的查詢。嘗試失敗時自動經由重試來處理。
 
-如果指定的目的地資料表尚未存在，則會自動建立。新的資料表符合傳回的結果集的結構描述。如果指令碼執行傳回多個結果集，彈性資料庫工作只會將第一個結果集傳送至目的地資料表。
+如果指定的目的地資料表尚未存在，則會自動建立。新的資料表符合傳回的結果集的結構描述。如果指令碼傳回多個結果集，彈性資料庫工作只會將第一個結果集傳送至目的地資料表。
 
 下列 PowerShell 指令碼會執行指令碼，並將結果收集至指定的資料表。此指令碼假設已建立一個會輸出單一結果集的 T-SQL 指令碼，也假設已建立自訂資料庫集合目標。
 
@@ -694,4 +694,4 @@
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

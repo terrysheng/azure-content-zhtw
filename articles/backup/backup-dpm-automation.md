@@ -7,7 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # 使用 PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
@@ -87,16 +87,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 選項 | 詳細資料 | 預設值 |
 | ---- | ----- | ----- |
-| /q | 無訊息安裝 | - |
-| /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | 選擇加入 Microsoft Update | - |
-| /nu | 安裝完成後不要檢查更新 | - |
-| /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - |
-| /ph | Proxy 主機位址 | - |
-| /po | Proxy 主機連接埠號碼 | - |
-| /pu | Proxy 主機使用者名稱 | - |
-| /pw | Proxy 密碼 | - |
+| /q | 無訊息安裝 | - | | /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | 選擇加入 Microsoft Update | - | | /nu | 安裝完成後不要檢查更新 | - | | /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - | | /ph | Proxy 主機位址 | - | | /po | Proxy 主機連接埠號碼 | - | | /pu | Proxy 主機使用者名稱 | - | | /pw | Proxy 密碼 | - |
 
 ### 向 Azure 備份服務進行註冊
 在可註冊 Azure 備份服務之前，您必須確定已符合[先決條件](backup-azure-dpm-introduction.md)。您必須：
@@ -104,7 +95,7 @@ PS C:\> MARSAgentInstaller.exe /?
 - 具備有效的 Azure 訂用帳戶
 - 具備備份保存庫
 
-若要下載保存庫認證，請在 Azure PowerShell 主控台中執行**Get-AzureBackupVaultCredentials**，並將其儲存在方便的位置，例如 *C:\\Downloads*。
+若要下載保存庫認證，請在 Azure PowerShell 主控台中執行 **Get-AzureBackupVaultCredentials**，並將其儲存在方便的位置，例如 *C:\\Downloads*。
 
 ```
 PS C:\> $credspath = "C:"
@@ -157,7 +148,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-在上述範例中，臨時區域將在 PowerShell 物件 ```$setting``` 中設定為 *C:\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
+在上述範例中，臨時區域將在 PowerShell 物件 ```$setting``` 中設定為 *C:\\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
 
 
 ### 加密設定
@@ -225,7 +216,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 視需要重複此步驟，直到您已加入所有選取的資料來源至保護群組中為止。您也可以從只有一個資料來源開始，並完成建立保護群組的工作流程，然後稍後將更多的資料來源加入至保護群組。
 
 ### 選取資料保護方式
-資料來源加入至保護群組之後，下一步是使用 [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) Cmdlet 指定保護方法。此範例中，將為本機磁碟和雲端備份設定保護群組。您也必須使用 [Add-DPMChildDatasource](https://technet.microsoft.com/zh-TW/library/hh881732.aspx) Cmdlet 搭配 -Online 旗標，指定您想要在雲端中保護的資料來源。
+資料來源加入至保護群組之後，下一步是使用 [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) Cmdlet 指定保護方法。此範例中，將為本機磁碟和雲端備份設定保護群組。您也必須使用 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732.aspx) Cmdlet 搭配 -Online 旗標，指定您想要在雲端中保護的資料來源。
 
 ```
 PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
@@ -280,7 +271,7 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### 變更 DPM 複本和復原點磁碟區的大小
-您也可以變更 DPM 複本磁碟區以及陰影複製磁碟區的大小，方法是使用 [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/zh-TW/library/hh881618(v=sc.20).aspx) Cmdlet，如下列範例所示：Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
+您也可以變更 DPM 複本磁碟區以及陰影複製磁碟區的大小，方法是使用 [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) Cmdlet，如下列範例所示：Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### 將變更認可到保護群組
 最後，需要先認可變更，DPM 才可以根據每個新保護群組組態進行備份。這是使用 [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) Cmdlet 來完成。
@@ -319,6 +310,7 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 命令可以很容易地針對任何資料來源類型擴充。
 
 ## 後續步驟
-如需 DPM 的 Azure 備份詳細資訊，請參閱 [DPM 備份簡介](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+- 如需 DPM 的 Azure 備份詳細資訊，請參閱 [DPM 備份簡介](backup-azure-dpm-introduction.md)
+
+<!---HONumber=AcomDC_1203_2015-->

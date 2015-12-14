@@ -31,13 +31,13 @@
 
 ## <a name="CreateHybridConnection"></a>建立混合式連線
 
-使用 Web Apps **或** BizTalk 服務可以在 Azure 管理入口網站中建立「混合式連線」。
+使用 Web Apps **或** BizTalk 服務可以在 Azure 入口網站中建立「混合式連線」。
 
 **若要使用 Web Apps 建立「混合式連線」**，請參閱「[將 Azure Web Apps 連接到內部部署資源](../web-sites-hybrid-connection-get-started.md)」(英文)。
 
 **若要在 BizTalk 服務中建立「混合式連線」**：
 
-1. 登入 [Azure 管理入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
+1. 登入 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
 2. 在左側瀏覽窗格中，選取 [**BizTalk 服務**]，然後選取您的 BizTalk 服務。 
 
 	如果您沒有現有的 BizTalk 服務，您可以[建立 BizTalk 服務](biztalk-provision-services.md)。
@@ -70,7 +70,7 @@
 
 建立混合式連線之後，請在內部部署資源上安裝混合式連線管理員。您可從 Azure Web Apps 或 BizTalk 服務下載此程式。BizTalk 服務步驟：
 
-1. 登入 [Azure 管理入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
+1. 登入 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
 2. 在左側瀏覽窗格中，選取 [**BizTalk 服務**]，然後選取您的 BizTalk 服務。 
 3. 選取 [混合式連線] 索引標籤：![混合式連線索引標籤][HybridConnectionTab]
 4. 在工作列中，選取 [內部部署設定]：![On-Premises Setup][HCOnPremSetup]
@@ -112,14 +112,14 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 #### 複製/重新產生混合式連線字串
 
-1. 登入 [Azure 管理入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
+1. 登入 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
 2. 在左側瀏覽窗格中，選取 [**BizTalk 服務**]，然後選取您的 BizTalk 服務。 
 3. 選取 [混合式連線] 索引標籤：![混合式連線索引標籤][HybridConnectionTab]
 4. 選取 [混合式連線]。在工作列中，選取 [管理連線]：![管理選項][HCManageConnection]
 
 	[管理連線] 會列出應用程式和內部部署連接字串。您可以複製連接字串，或重新產生連接字串所使用的存取金鑰。
 
-	如果您選取 [重新產生]，連接字串所使用的共用存取金鑰便會變更。執行下列動作：在 Azure 管理入口網站中，選取 Azure 應用程式中的 [同步金鑰]。重新執行 [內部部署設定]。重新執行內部部署設定時，內部部署資源會自動設定為使用已更新的主要連接字串。
+	如果您選取 [重新產生]，連接字串所使用的共用存取金鑰便會變更。執行下列動作：在 Azure 傳統入口網站中，選取 Azure 應用程式中的 [同步金鑰]。重新執行 [內部部署設定]。重新執行內部部署設定時，內部部署資源會自動設定為使用已更新的主要連接字串。
 
 
 #### 使用群組原則來控制混合式連線使用的內部部署資源
@@ -143,11 +143,11 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## 另請參閱
 
-[用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx) [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md) [使用 Azure 管理入口網站建立 BizTalk 服務](biztalk-provision-services.md) [BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)
+[用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx) [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md) [使用 Azure 傳統入口網站建立 BizTalk 服務](biztalk-provision-services.md) [BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

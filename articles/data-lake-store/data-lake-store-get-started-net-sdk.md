@@ -29,7 +29,7 @@
 ## 必要條件
 
 * Visual Studio 2013 或 2015。以下指示使用 Visual Studio 2015。
-* **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+* **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 針對資料湖存放區公開預覽**啟用您的 Azure 訂用帳戶**。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 
 ## 建立 .NET 應用程式
@@ -223,4 +223,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

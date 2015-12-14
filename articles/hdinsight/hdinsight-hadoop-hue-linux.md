@@ -34,7 +34,7 @@
 
 ## 使用指令碼動作安裝色調
 
-[https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) 指令碼動作是用來在 HDInsight 叢集上安裝色調。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用指令碼的指示。
+[https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) 指令碼動作是用來在 HDInsight 叢集上安裝色調。本節提供有關如何在使用 Azure 傳統入口網站佈建叢集時使用指令碼的指示。
 
 > [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
@@ -48,12 +48,12 @@
 
 	* __名稱__：輸入指令碼動作的易記名稱。
 	* __指令碼 URI__：https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
-	* __HEAD__：勾選此選項。
-	* __WORKER__：將此選項保留空白。
+	* __前端__：勾選此選項。
+	* __背景工作角色__：將此選項保留空白。
 	* __ZOOKEEPER__：將此選項保留空白。
 	* __參數__：指令碼預期 **cluster admin password** 是參數。這是您在佈建叢集時指定的密碼。同時提供密碼時的重要考量：
 		* 如果叢集的使用者名稱是 "admin"，則您只需要在單引號內指定密碼即可。
-		* 如果叢集的使用者名稱是 "admin" 以外的任何名稱，您必須將參數指定為 `-u [username] [password in single quotes]`
+		* 如果叢集的使用者名稱是 "admin" 以外的任何名稱，您必須將參數指定為 `-u [username] [password in single quotes]`。
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 
@@ -81,7 +81,7 @@
 
 ### 執行 HIVE 查詢
 
-1. 從色調入口網站中，按一下 [查詢編輯器]，然後按一下 [Hive] 以開啟 Hive 編輯器。
+1. 從色調入口網站中，按一下 [查詢編輯器]，然後按一下 [Hive] 開啟 Hive 編輯器。
 
 	![使用 Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "使用 Hive")
 
@@ -99,9 +99,9 @@
 
 	![使用檔案瀏覽器](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "使用檔案瀏覽器")
 
-3. 以滑鼠右鍵按一下檔案或資料夾，以查看可用的作業。使用右邊的 [上傳] 按鈕，將檔案上傳至目前的目錄。使用 [新增] 按鈕以建立新的檔案或目錄。
+3. 以滑鼠右鍵按一下檔案或資料夾，以查看可用的作業。使用右邊的 [上傳] 按鈕，將檔案上傳至目前的目錄。使用 [新增] 按鈕建立新的檔案或目錄。
 
-> [AZURE.NOTE]色調檔案瀏覽器只會顯示與 HDInsight 叢集相關聯的預設容器的內容。已與叢集相關聯的任何額外儲存體帳戶/容器將無法使用檔案瀏覽器存取。不過，與叢集相關聯的其他容器一律可供 Hive 工作存取。例如，如果您在 Hive 編輯器中輸入命令 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net`，您也可以看到其他容器的內容。在這個命令中，**newcontainer** 不是與叢集相關聯的預設容器。
+> [AZURE.NOTE]色調檔案瀏覽器只會顯示與 HDInsight 叢集相關聯的預設容器的內容。已與叢集相關聯的任何額外儲存體帳戶/容器將無法使用檔案瀏覽器存取。不過，與叢集相關聯的其他容器一律可供 Hive 工作存取。例如，如果您在 Hive 編輯器中輸入 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` 命令，則您也可以看到其他容器的內容。在這個命令中，**newcontainer** 不是與叢集相關聯的預設容器。
 
 ## 重要考量︰
 
@@ -137,4 +137,4 @@
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

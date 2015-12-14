@@ -22,7 +22,7 @@
 
 您可以使用下列三種方式，在 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web 應用程式的 WebJob 中執行程式或指令碼：依需求、連續或根據排程。使用 WebJob 不會產生額外的費用。
 
-本文說明如何使用 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)來部署 WebJob。如需如何使用 Visual Studio 或連續傳遞程序進行部署的相關資訊，請參閱[如何將 Azure WebJob 部署至 Web 應用程式](websites-dotnet-deploy-webjobs.md)。
+本文說明如何使用 [Azure 入口網站](https://portal.azure.com)來部署 WebJob。如需如何使用 Visual Studio 或連續傳遞程序進行部署的相關資訊，請參閱[如何將 Azure WebJob 部署至 Web 應用程式](websites-dotnet-deploy-webjobs.md)。
 
 Azure WebJobs SDK 能簡化許多 WebJobs 程式設計工作。如需詳細資訊，請參閱[什麼是 WebJobs SDK](websites-dotnet-webjobs-sdk.md)。
 
@@ -104,9 +104,9 @@ CRON 運算式由 6 個欄位組成: `{second} {minute} {hour} {day} {month} {da
 
 以下的替代技術會使用 Azure 排程器。在此情況下，您的 WebJob 對排程一無所知。反而是 Azure 排程器會被設定為依排程觸發 WebJob。
 
-Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入該功能之前，您可以使用[舊的入口網站](http://manage.windowsazure.com)來執行這個動作。
+Azure 入口網站尚未具備建立排程 WebJob 的能力，但在加入該功能之前，您可以使用[傳統入口網站](http://manage.windowsazure.com)來執行這個動作。
 
-1. 在[舊的入口網站](http://manage.windowsazure.com)中，移至 WebJob 頁面，然後按一下 [**新增**]。
+1. 在[傳統入口網站](http://manage.windowsazure.com)中，移至 WebJob 頁面，然後按一下 [新增]。
 
 1. 在 [**如何執行**] 方塊中選擇 [**依排程執行**]。
 	
@@ -152,7 +152,7 @@ Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入
 	
 ### <a name="Scheduler"></a>排程工作和 Azure 排程器
 
-您可以在[舊的入口網站](http://manage.windowsazure.com)的 Azure 排程器頁面中，進一步設定排程工作。
+您可以在[傳統入口網站](http://manage.windowsazure.com)的 Azure 排程器頁面中，進一步設定排程工作。
 
 1.	在 [WebJobs] 頁面中，按一下工作的 [排程] 連結以瀏覽至 Azure 排程器入口網站頁面。 
 	
@@ -239,4 +239,4 @@ Azure 管理入口網站尚未具備建立排程 WebJob 的能力，但在加入
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

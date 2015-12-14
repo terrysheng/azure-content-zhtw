@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015" 
+	ms.date="12/01/2015" 
 	ms.author="robmcm"/>
 
 # 如何使用 Java 的 Blob 儲存體
@@ -46,7 +46,7 @@
 
 ## 設定 Azure 儲存體連接字串
 
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 *AccountName* 和 *AccountKey* 值要使用您儲存體帳戶的名稱，以及在 Azure 入口網站中針對該儲存體帳戶而列出的主要存取金鑰)。下列範例將示範如何宣告靜態欄位來存放連接字串。
+Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 *AccountName* 和 *AccountKey* 值要使用您儲存體帳戶的名稱，以及在 [Azure 入口網站](portal.azure.com)中針對該儲存體帳戶而列出的主要存取金鑰)。下列範例將示範如何宣告靜態欄位來存放連接字串。
 
     // Define the connection-string with your values
     public static final String storageConnectionString =
@@ -54,7 +54,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
-在 Microsoft Azure 的角色內執行的應用程式中，此字串可以儲存在服務組態檔 *ServiceConfiguration.cscfg* 裡，且可以藉由呼叫 **RoleEnvironment.getConfigurationSettings** 方法來存取。以下是從服務組態檔中名為 **StorageConnectionString** 的 *Setting* 元素取得連接字串的範例。
+在 Microsoft Azure 的角色內執行的應用程式中，此字串可以儲存在服務組態檔 *ServiceConfiguration.cscfg* 裡，且可以藉由呼叫 **RoleEnvironment.getConfigurationSettings** 方法來存取。以下是從服務組態檔中名為 **StorageConnectionString** 的 Setting 元素取得連接字串的範例。
 
     // Retrieve storage account from connection-string.
     String storageConnectionString =
@@ -264,7 +264,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-[Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

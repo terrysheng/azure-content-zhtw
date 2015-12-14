@@ -201,7 +201,7 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 ## ServicePackage.cspkg
 若要將應用程式部署為 Azure 中的雲端服務，您必須先使用適當的格式封裝應用程式。您可以使用 **CSPack** 命令列工具 (隨 [Azure SDK](http://azure.microsoft.com/downloads/) 安裝) 做為 Visual Studio 的替代方案，以建立封裝檔案。
 
-**CSPack** 會使用服務定義檔和服務組態檔的內容，定義封裝的內容。**CSPack** 會產生應用程式封裝檔案 (.cspkg)，您可以使用 [Azure 管理入口網站](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service)，將其上傳至 Azure。根據預設，封裝的名稱為 `[ServiceDefinitionFileName].cspkg`，但是您可以使用 **CSPack** 的 `/out` 選項指定不同的名稱。
+**CSPack** 會使用服務定義檔和服務組態檔的內容，定義封裝的內容。**CSPack** 會產生應用程式封裝檔案 (.cspkg)，您可以使用 [Azure 傳統入口網站](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service)，將其上傳至 Azure。根據預設，封裝的名稱為 `[ServiceDefinitionFileName].cspkg`，但是您可以使用 **CSPack** 的 `/out` 選項指定不同的名稱。
 
 ###### CSPack 工具的位置 (在 Windows 上)
 | SDK 版本 | Path |
@@ -270,4 +270,4 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

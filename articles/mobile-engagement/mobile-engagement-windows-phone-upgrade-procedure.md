@@ -122,7 +122,7 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 		/* Initialize Engagement angent with above configuration. */
 		EngagementAgent.Instance.Init(engagementConfiguration);
 
-應用程式的連接字串會顯示在 Azure 管理入口網站中。
+應用程式的連接字串會顯示在 Azure 傳統入口網站中。
 
 ### 項目名稱變更
 
@@ -142,4 +142,4 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

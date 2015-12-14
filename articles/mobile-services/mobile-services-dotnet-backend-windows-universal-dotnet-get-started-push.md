@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="將推播通知新增至通用 Windows 8.1 應用程式 | Microsoft Azure" 
-	description="了解如何使用 Azure 通知中樞從 .NET 後端行動服務傳送推播通知給通用 Windows 8.1 應用程式。" 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="將推播通知新增至通用 Windows 8.1 應用程式 | Microsoft Azure"
+	description="了解如何使用 Azure 通知中樞從 .NET 後端行動服務傳送推播通知給通用 Windows 8.1 應用程式。"
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/11/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/11/2015"
 	ms.author="glenga"/>
 
 # 將推播通知新增至行動服務應用程式
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -26,19 +31,19 @@
 若要完成此教學課程，您需要下列項目：
 
 * 有效的 [Microsoft 市集帳戶](http://go.microsoft.com/fwlink/p/?LinkId=280045)。
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>。 
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>。
 
 ##<a id="register"></a>針對推播通知註冊應用程式
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-&nbsp;&nbsp;6.瀏覽至 `\Services\MobileServices\your_service_name` 專案資料夾、開啟產生的 push.register.cs 程式碼檔案，然後檢查用來向通知中樞註冊裝置通道 URL 的 **UploadChannel** 方法。
- 
+&nbsp;&nbsp;6.瀏覽至 [`\Services\MobileServices\your_service_name`] 專案資料夾並開啟產生的 push.register.cs 程式碼檔案，然後檢查用來將裝置通道 URL 向通知中心註冊的 **UploadChannel** 方法。
+
 &nbsp;&nbsp;7.開啟 shared App.xaml.cs 程式碼檔案，並注意新的 **UploadChannel** 方法呼叫已經新增到 **OnLaunched** 事件處理常式。這可確保在每次啟動應用程式時嘗試註冊裝置。
 
-&nbsp;&nbsp;8.重複上述步驟將推播通知新增至 Windows Phone 市集 App 專案，然後在共用的 App.xaml.cs 檔案中，移除額外的 **UploadChannel** 呼叫以及剩餘的 `#if...#endif` 條件式包裝函式。這兩個專案現在都會共用 **UploadChannel** 的單一呼叫。
+&nbsp;&nbsp;8.重複上述步驟將推播通知新增至 Windows Phone 市集應用程式專案，然後從共用 App.xaml.cs 檔案中移除額外的 **UploadChannel** 呼叫與剩餘的 `#if...#endif` 條件式包裝函式。這兩個專案現在都會共用 **UploadChannel** 的單一呼叫。
 
-> [AZURE.NOTE]您可以將使用 `#if...#endif` 包裝的 [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 定義統一為未包裝的單一定義，以供這兩個 App 版本使用，藉此簡化產生的程式碼。
+> [AZURE.NOTE]您可以將使用 `#if...#endif` 包裝的 [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。
 
 現在應用程式已經啟用了推播通知，您必須更新行動服務以傳送推播通知。
 
@@ -66,7 +71,7 @@
 		"http://localhost:4584"
 	);
 
-&nbsp;&nbsp;透過這個 [MobileServiceClient]，App 將連接到本機服務，而非 Azure 上代管的版本。當您想要改為在 Azure 中代管的行動服務上執行應用程式時，請換為原來的 [MobileServiceClient] 定義。
+&nbsp;&nbsp;透過這個 [MobileServiceClient]，應用程式將連接到本機服務，而非 Azure 上代管的版本。當您想要改為在 Azure 中代管的行動服務上執行應用程式時，請換為原來的 [MobileServiceClient] 定義。
 
 ##<a id="test"></a>在應用程式中測試推播通知
 
@@ -107,4 +112,4 @@
 [如何使用 Azure 行動服務的 .NET 用戶端]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

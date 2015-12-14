@@ -368,7 +368,7 @@
 	此外， Start 也支援特殊的巨集 (即 {Best})，它會嘗試判斷第一個「 有趣 」的內容畫面。附註：(Start 設為 {Best} 時，會忽略 Step 與 Range)
 	
 	- 預設值：Start:{Best}
-- 必須明確地提供每個影像格式的輸出格式：Jpg/Png/BmpFormat。提供時，AMS 會比對 JpgVideo 與 JpgFormat，依此類推。OutputFormat 引進了新的影像轉碼器特定巨集 (即 {Index})，必須針對影像輸出格式提供一次 (只需一次)。
+- 必須明確地提供每個影像格式的輸出格式：Jpg/Png/BmpFormat。顯示時，AMS 會讓 JpgVideo 與 JpgFormat 相符，依此類推。OutputFormat 引進了新的影像轉碼器特定巨集 (即 {Index})，必須針對影像輸出格式提供一次 (只需一次)。
 
 
 ##媒體服務學習路徑
@@ -383,4 +383,4 @@
 
 [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

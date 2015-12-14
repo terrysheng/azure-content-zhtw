@@ -44,4 +44,4 @@ Azure Active Directory 會強制執行條件式存取原則，以確保 Office 3
 
 答：在現階段，Office365 服務的條件式存取受限於裝置上的豐富應用程式。我們已規劃將條件式存取原則延伸到從瀏覽器存取服務的使用者。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

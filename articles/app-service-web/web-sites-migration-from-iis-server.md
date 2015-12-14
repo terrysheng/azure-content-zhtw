@@ -123,7 +123,7 @@
  
 20.	按一下 Azure Web 應用程式的連結，確認已成功移轉。
 
-21. 您現在可以管理 Azure App Service 中移轉的 Web 應用程式。若要執行這個動作，請登入 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
+21. 您現在可以管理 Azure App Service 中移轉的 Web 應用程式。若要執行這個動作，請登入 [Azure 入口網站](https://portal.azure.com)。
 
 22. 在 Azure 入口網站中，開啟 Web Apps 分頁，以查看您移轉的網站 (顯示為 Web 應用程式)，然後按一下任一個網站，以便開始管理 Web 應用程式，例如，設定連續發行、建立備份、自動調整，以及監視使用量或效能。
 
@@ -133,7 +133,6 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

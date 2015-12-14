@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/28/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # 在執行 CentOS 的 StorSimple 主機上設定 MPIO
@@ -163,9 +163,9 @@ multipath.conf 有五個區段：
 
 您的 StorSimple 裝置應該︰
 
-- 至少有兩個介面已啟用 iSCSI。若要確認這兩個介面已在 StorSimple 裝置上啟用 iSCSI，請在 StorSimple 裝置的管理入口網站中執行下列步驟︰
+- 至少有兩個介面已啟用 iSCSI。若要確認這兩個介面已在 StorSimple 裝置上啟用 iSCSI，請在 StorSimple 裝置的 Azure 傳統入口網站中執行下列步驟︰
 
-	1. 登入 StorSimple 裝置的管理入口網站。
+	1. 登入 StorSimple 裝置的傳統入口網站。
 
 	1. 選取 StorSimple Manager 服務，按一下 [裝置]，然後選擇該特定 StorSimple 裝置。按一下 [設定] 並驗證網路介面設定。下面顯示的螢幕擷取畫面包含已啟用 iSCSI 的兩個網路介面。以下 DATA 2 和 DATA 3 兩個 10 GbE 介面都已啟用 iSCSI。
 	
@@ -339,10 +339,10 @@ multipath.conf 有五個區段：
 	    		Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
 
 
-		如果您在此只看到一個主機介面和兩個路徑，您必須在主機上針對 iSCSI 啟用這兩個介面。您可以遵循 [Linux 文件中的詳細指示](https://access.redhat.com/documentation/zh-TW/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)。
+		如果您在此只看到一個主機介面和兩個路徑，您必須在主機上針對 iSCSI 啟用這兩個介面。您可以遵循 [Linux 文件中的詳細指示](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)。
 
 	
-	1. 磁碟區會從 StorSimple 裝置公開至 CentOS 伺服器。如需詳細資訊，請參閱[步驟 6：建立磁碟區](https://sandboxmsdnstage.redmond.corp.microsoft.com/zh-TW/library/azure/dn772357.aspx) (透過 StorSimple 裝置上的管理入口網站)。
+	1. 磁碟區會從 StorSimple 裝置公開至 CentOS 伺服器。如需詳細資訊，請參閱[步驟 6：建立磁碟區](storsimple-deployment-walkthrough.md#step-6-create-a-volume) (透過 StorSimple 裝置上的 Azure 傳統入口網站)。
 
 	1. 驗證可用的路徑。輸入：
 
@@ -459,7 +459,7 @@ multipath.conf 有五個區段：
     dm-3 devnode blacklisted, unmonitored
 
 
-如需詳細資訊，請參閱如何[對多重路徑使用疑難排解互動式命令](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html)。
+如需詳細資訊，移至[對多重路徑使用疑難排解互動式命令](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html)。
 
 ## 有用的命令清單
 
@@ -475,4 +475,4 @@ multipath.conf 有五個區段：
 - [在 CentOS 上設定 MPIO](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 訓練指南](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

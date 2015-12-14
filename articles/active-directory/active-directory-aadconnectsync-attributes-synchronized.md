@@ -400,7 +400,7 @@ Windows 10 已加入網域的電腦 (裝置) 會將某些屬性同步處理至 A
 | displayName | X| |
 | ms-DS-CreatorSID | X| 也稱為 registeredOwnerReference。|
 | objectGUID | X| 也稱為 deviceID。|
-| objectSID | X| 也稱為 omPremisesSecurityIdentifier。|
+| objectSID | X| 也稱為 onPremisesSecurityIdentifier。|
 | operatingSystem | X| 也稱為 deviceOSType。|
 | operatingSystemVersion | X| 也稱為 deviceOSVersion。|
 | userCertificate | X| |
@@ -435,4 +435,4 @@ Windows 10 已加入網域的電腦 (裝置) 會將某些屬性同步處理至 A
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

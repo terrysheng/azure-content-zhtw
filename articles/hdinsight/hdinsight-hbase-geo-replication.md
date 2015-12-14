@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # 在 HDInsight 中設定 HBase 地理複寫
@@ -67,7 +67,7 @@
 
 在[設定兩個 Azure 虛擬網路之間的 VPN 連線][hdinsight-hbase-replication-vnet]中，您已在歐洲資料中心建立了一個虛擬網路，也在美國資料中心建立了一個虛擬網路。兩個虛擬網路透過 VPN 連線。在這個工作階段中，您將在每個虛擬網路中佈建 HBase 叢集。稍後在本教學課程中，您將會讓其中一個 HBase 叢集複寫其他 HBase 叢集。
 
-Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例如，將 *hbase.replication* 設為 *true*。佈建叢集之後，如果您設定組態檔中的值，您將會在叢集重新安裝映像之後遺失設定。如需詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集][hdinsight-provision]。利用自訂選項來佈建 HDInsight 叢集的其中一個選項是使用 Azure PowerShell。
+Azure 傳統入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例如，將 *hbase.replication* 設為 *true*。佈建叢集之後，如果您設定組態檔中的值，您將會在叢集重新安裝映像之後遺失設定。如需詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集][hdinsight-provision]。利用自訂選項來佈建 HDInsight 叢集的其中一個選項是使用 Azure PowerShell。
 
 
 **在 Contoso-VNet-EU 中佈建 HBase 叢集**
@@ -156,7 +156,7 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 
 **尋找兩個 HBase 叢集的網域尾碼**
 
-1. RDP 到 **Contoso-HBase-EU**。如需相關指示，請參閱[使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集][hdinsight-manage-portal]。實際上它是叢集的 headnode0。
+1. RDP 到 **Contoso-HBase-EU**。如需相關指示，請參閱[使用 Azure 傳統入口網站管理 HDInsight 中的 Hadoop 叢集][hdinsight-manage-portal]。實際上它是叢集的 headnode0。
 2. 開啟 Windows PowerShell 主控台或命令提示字元。
 3. 執行 **ipconfig**，並記下**連線專用 DNS 尾碼**。
 4. 請不要關閉 RDP 工作階段。您稍後需要它測試網域名稱解析。
@@ -311,4 +311,4 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,11 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 
 # 開始使用 Azure AD 報告 API
+
+## 報告文章
+
+ - [報告 API](active-directory-reporting-api-getting-started.md)
+ - [稽核事件](active-directory-reporting-audit-events.md)
+ - [保留](active-directory-reporting-retention.md)
+ - [預覽](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [回填](active-directory-reporting-backfill.md)
+ - [延遲](active-directory-reporting-latencies.md)
+ - [「未知動作」事件](active-directory-reporting-unknown-actor.md)
 
 Azure Active Directory 提供各種活動、安全性與稽核報告。此資料可以透過 Azure 入口網站取用，但是在其他許多應用程式 (例如 SIEM 系統、稽核和商業智慧工具) 中也可能非常有用。
 
@@ -168,4 +179,4 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 - 如需稽核報告的詳細資訊，請參閱 [Azure AD 稽核報告事件](active-directory-reporting-audit-events.md)
 - 如需圖形 API REST 服務的詳細資訊，請參閱 [Azure AD 報告和事件 (預覽)](https://msdn.microsoft.com/library/azure/mt126081.aspx)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

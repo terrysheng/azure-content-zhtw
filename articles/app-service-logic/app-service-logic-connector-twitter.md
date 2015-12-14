@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="sameerch"/>
 
 
@@ -59,22 +59,15 @@ Twitter 連接器提供下列觸發程序和動作：
 ## 在邏輯應用程式中使用 Twitter 連接器
 建立 API 應用程式之後，您即可使用 Twitter 連接器做為 Logic Apps 的觸發程序或動作。作法：
 
-1.	建立新的邏輯應用程式，或開啟現有邏輯應用程式：
-	![][2]
-2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具：
-	![][3]
-3.	Twitter 連接器會列在右邊。選取它，以自動將其加入邏輯應用程式：
-	![][4]
-4.	選取 [授權]、輸入 Twitter 認證，然後選取 [授權應用程式]：
-	![][5]
+1.	建立新的邏輯應用程式，或開啟現有邏輯應用程式：![][2]
+2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具：![][3]
+3.	Twitter 連接器會列在右邊。選取它，以自動將其加入邏輯應用程式：![][4]
+4.	選取 [授權]、輸入 Twitter 認證，然後選取 [授權應用程式]：![][5]
 
 
-您現在可以設定 Twitter 連接器，以建置您的工作流程。您可以在流程的其他動作中使用從 Twitter 觸發程序所擷取的推文：
-	![][6]
+您現在可以設定 Twitter 連接器，以建置您的工作流程。您可以在流程的其他動作中使用從 Twitter 觸發程序所擷取的推文：![][6]
 
-您可以採用類似方式在工作流程中使用 Twitter 動作。選取 Twitter 動作，並設定該動作的輸入：
-	![][7] 
-	![][8]
+您可以採用類似方式在工作流程中使用 Twitter 動作。選取 Twitter 動作，並設定該動作的輸入：![][7] ![][8]
 
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
@@ -97,4 +90,4 @@ Twitter 連接器提供下列觸發程序和動作：
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

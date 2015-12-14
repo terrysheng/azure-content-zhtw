@@ -1,6 +1,6 @@
 <properties
    pageTitle="開始使用 SQL Database 威脅偵測"
-   description="如何開始在 Azure Preview 入口網站中使用 SQL Database 威脅偵測"
+   description="如何開始在 Azure 入口網站中使用 SQL Database 威脅偵測"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -30,9 +30,9 @@
 
 ## 設定資料庫的威脅偵測
 
-1. 啟動 Azure Preview 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+1. 啟動 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
 
-2. 瀏覽至您要監視的 SQL Database 的組態刀鋒視窗。在 [設定] 刀鋒視窗中，選取 [稽核和威脅偵測]。
+2. 瀏覽至您要監視的 SQL Database 的組態刀鋒視窗。在 [設定] 刀鋒視窗中，選取 [**稽核和威脅偵測**]。
 
 	![導覽窗格][1]
 
@@ -44,7 +44,7 @@
 
 5. 設定在偵測到異常資料庫活動時將收到安全性警示的電子郵件清單。
 
-6. 在 [稽核和威脅偵測] 組態刀鋒視窗中按一下 [儲存]，以儲存新的或更新的稽核和威脅偵測原則。
+6. 在 [**稽核和威脅偵測**] 組態刀鋒視窗中按一下 [**儲存**]，以儲存新的或更新的稽核和威脅偵測原則。
 
 	![導覽窗格][3]
 
@@ -89,4 +89,4 @@
 [8]: ./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
 [9]: ./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

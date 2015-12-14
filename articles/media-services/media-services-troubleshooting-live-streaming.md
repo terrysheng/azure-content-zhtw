@@ -65,7 +65,7 @@
 
 	**疑難排解步驟**：瀏覽到 AMSE 工具的 [資料流端點] 索引標籤，確認執行中的資料流端點有伴隨的資料流單位。
 	
->[AZURE.NOTE]如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 管理入口網站提交支援票證。
+>[AZURE.NOTE]如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 傳統入口網站提交支援票證。
 
 ##媒體服務學習路徑
 
@@ -75,4 +75,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

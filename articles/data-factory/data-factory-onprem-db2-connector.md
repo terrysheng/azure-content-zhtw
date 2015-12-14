@@ -235,7 +235,7 @@ IBM 回報了在 Windows 8 上安裝 IBM DB2 Data Server Driver 的相關已知�
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- | 
-| tableName | DB2 資料庫執行個體中連結服務所參照的資料表名稱。 | 是 |
+| tableName | DB2 資料庫執行個體中連結服務所參照的資料表名稱。 | 否 (如果已指定 **RelationalSource** 的 **query**) |
 
 ## DB2 複製活動類型屬性
 
@@ -248,7 +248,7 @@ IBM 回報了在 Windows 8 上安裝 IBM DB2 Data Server Driver 的相關已知�
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------- | -------------- |
-| query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 否 |
+| query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 否 (如果已指定 **dataset** 的 **tableName**)|
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -309,4 +309,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

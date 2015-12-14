@@ -65,8 +65,7 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
 		GO
 
-	Id 是可唯一識別的，而 datetimestamp 資料行是產生對應識別碼的日期和時間。
-	![範例資料](./media/data-factory-stored-proc-activity/sample-data.png)
+	Id 是可唯一識別的，而 datetimestamp 資料行是產生對應識別碼的日期和時間。![範例資料](./media/data-factory-stored-proc-activity/sample-data.png)
 
 2. 建立下列**預存程序**，將資料插入 **sampletable**。
 
@@ -81,7 +80,7 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 	> [AZURE.IMPORTANT]參數 (在此範例中是 DateTime) 的**名稱**和**大小寫**必須與下列管線/活動 JSON 中指定的參數相符。在預存程序定義中，請務必使用 **@** 做為參數前置詞。
 	
 ### 建立 Data Factory  
-4. 登入 [Azure Preview 入口網站](http://portal.azure.com/)之後，執行下列動作：
+4. 登入 [Azure 入口網站](http://portal.azure.com/)之後，執行下列動作：
 	1.	按一下左側功能表的 [新增]。 
 	2.	按一下 [建立] 刀鋒視窗中的 [資料分析]。
 	3.	按一下 [資料分析] 刀鋒視窗上的 [Data Factory]。
@@ -93,14 +92,14 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 	4.	按一下 [確定]。
 4.	選取資源群組之後，請確認您使用的是要在其中建立 Data Factory 的正確訂用帳戶。
 5.	按一下 [新增 Data Factory] 刀鋒視窗上的 [建立]。
-6.	您將會看到 Data Factory 建立於 Azure Preview 入口網站的 [開始面板] 中。在 Data Factory 成功建立後，您會看到 Data Factory 頁面，顯示 Data Factory 的內容。
+6.	您會看到 Data Factory 建立在 Azure 入口網站的 [開始面板] 中。在 Data Factory 成功建立後，您會看到 Data Factory 頁面，顯示 Data Factory 的內容。
 
 ### 建立 Azure SQL 連結服務  
 建立 Data Factory 之後，您可以建立 Azure SQL 連結的服務，將 Azure SQL Database 連結到 Data Factory。這是包含 sampletable 資料表和 sp\_sample 預存程序的資料庫。
 
 7.	在適用於 **SProcDF** 的 [DATA FACTORY] 刀鋒視窗中，按一下 [製作和部署]。這會啟動 Data Factory 編輯器。 
 2.	在命令列上按一下 [新增資料儲存區]，然後選擇 [Azure SQL]。您應該會在編輯器中看到用來建立 Azure SQL 連結服務的 JSON 指令碼。 
-4. 使用您的 Azure SQL Database 伺服器名稱來取代 **servername**、使用您在其中建立資料表和預存程序的資料庫來取代 **databasename**、使用有權存取資料庫的使用者帳戶來取代 **username@servername**，以及使用該使用者帳戶的密碼來取代 **password**。
+4. 使用您的 Azure SQL Database 伺服器名稱來取代 **servername**、使用您在其中建立資料表和預存程序的資料庫來取代 **databasename**、使用有權存取資料庫的使用者帳戶來取代 ****username@servername**，以及使用該使用者帳戶的密碼來取代 **password**。
 5. 按一下命令列的 [部署]，部署連結服務。
 
 ### 建立輸出資料表
@@ -199,4 +198,4 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 		}
 	}
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

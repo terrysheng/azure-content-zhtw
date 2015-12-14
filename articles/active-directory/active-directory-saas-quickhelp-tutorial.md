@@ -3,8 +3,8 @@
 	description="了解如何設定 Azure Active Directory 與 QuickHelp 之間的單一登入。"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/06/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 QuickHelp 整合
@@ -40,7 +40,7 @@
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
-- 除非必要，否則您不應使用生產環境。
+- 除非必要，否則您不應使用生產環境，。
 - 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。 
 
  
@@ -77,7 +77,7 @@
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[建立 QuickHelp 測試使用者](#creating-a-quickhelp-test-user)** - 使 QuickHelp 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
 5. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
+5. **[測試單一登入](#testing-single-sign-on)** - 驗證設定是否能運作。
 
 ### 設定 Azure AD 單一登入
 
@@ -117,11 +117,11 @@
 
     b.若要上傳您下載的 Azure 中繼資料檔案，請按一下 [瀏覽]、瀏覽至該檔案，然後按一下 [上傳中繼資料]。
 
-    d.在 [電子郵件] 文字方塊中，輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**
+    d.在 [電子郵件] 文字方塊中，輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
 
-    e.在 [名字] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    e.在 [名字] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**。
 
-    f.在 [姓氏] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+    f.在 [姓氏] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**。
 
     g.在 [動作列] 中，按一下 [儲存]。
 
@@ -194,11 +194,11 @@ QuickHelp 支援 Just-in-Time 佈建。這表示如果需要，會在 QuickHelp 
 
 **若要將 Britta Simon 指派到 QuickHelp，請執行以下步驟：**
 
-1. 在 Azure 入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br> <br>![指派使用者][201]<br>
+1. 在 Azure 入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![指派使用者][201] <br>
 
 2. 在應用程式清單中，選取 [QuickHelp]。<br><br>![指派使用者][202] <br>
 
-1. 在頂端功能表中，按一下 [使用者]。<br> <br>![指派使用者][203]<br>
+1. 在頂端功能表中，按一下 [使用者]。<br><br>![指派使用者][203] <br>
 
 1. 在 [使用者] 清單中，選取 [Britta Simon]。
 
@@ -208,7 +208,7 @@ QuickHelp 支援 Just-in-Time 佈建。這表示如果需要，會在 QuickHelp 
 
 ### 測試單一登入
 
-本節目標是使用存取面板來測試您的 Azure AD 單一登入組態。<br> 當您在存取面板中按一下 [QuickHelp] 磚時，應該會自動登入您的 QuickHelp 應用程式。
+本節目標是使用存取面板測試您的 Azure AD 單一登入組態。<br> 當您在存取面板中按一下 [QuickHelp] 磚時，應該會自動登入您的 QuickHelp 應用程式。
 
 
 ## 其他資源
@@ -255,4 +255,4 @@ QuickHelp 支援 Just-in-Time 佈建。這表示如果需要，會在 QuickHelp 
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

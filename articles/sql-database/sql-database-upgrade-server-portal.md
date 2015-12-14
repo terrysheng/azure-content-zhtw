@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Azure Preview 入口網站升級至 Azure SQL Database V12 | Microsoft Azure" 
-	description="說明如何使用 Azure Preview 入口網站升級至 Azure SQL Database V12，包括如何升級 Web 和商務資料庫，以及如何將 V11 伺服器的資料庫直接移轉至彈性資料庫集區來升級 V11 伺服器。" 
+	pageTitle="使用 Azure 入口網站升級至 Azure SQL Database V12 | Microsoft Azure" 
+	description="說明如何使用 Azure 入口網站升級至 Azure SQL Database V12，包括如何升級 Web 和商務資料庫，以及如何將 V11 伺服器的資料庫直接移轉至彈性資料庫集區來升級 V11 伺服器。" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,15 +13,15 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/11/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein"/>
 
 
-# 使用 Azure Preview 入口網站升級至 Azure SQL Database V12
+# 使用 Azure 入口網站升級至 Azure SQL Database V12
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -47,15 +47,15 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 ## 準備升級
 
 - **升級所有 Web 和商務資料庫**：請參閱下面的[升級所有 Web 和商務資料庫](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases)一節，或使用 [PowerShell 來升級資料庫和伺服器](sql-database-upgrade-server-powershell.md)。
-- **檢閱和暫停異地複寫**：如果您的 Azure SQL 資料庫已針對異地複寫做設定，您應該記錄其目前的設定並[停止異地複寫](sql-database-geo-replication-portal.md#remove-secondary-database)。在升級完成之後，請重新設定資料庫的異地複寫。
+- **檢閱和暫停異地複寫**：如果您的 Azure SQL Database 已針對異地複寫做設定，您應該記錄其目前的設定並[停止異地複寫](sql-database-geo-replication-portal.md#remove-secondary-database)。在升級完成之後，請重新設定資料庫的異地複寫。
 - **如果您的用戶端位於 Azure VM 上，請開啟這些連接埠**：如果您的用戶端在 Azure 虛擬機器 (VM) 上執行，而用戶端程式連線到 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請參閱 [SQL Database V12 的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
 
 ## 開始升級
 
-1. 在 [Azure Preview 入口網站](http://portal.azure.com/)中，瀏覽至您想要升級的伺服器，方法是選取 [瀏覽全部] > [SQL Server]，然後選取所需的伺服器。
-2. 選取 [最新版 SQL Database Update]，然後選取 [升級這部伺服器]。
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您想要升級的伺服器，方法是選取 [瀏覽全部] > [SQL Server]，然後選取所需的伺服器。
+2. 選取 [**最新的 SQL Database 更新**]，然後選取 [**升級此伺服器**]。
 
       ![升級伺服器][1]
 
@@ -65,13 +65,13 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 為了協助您完成升級，SQL Database 服務建議為每個資料庫選擇適當的服務層和效能層級 (定價層)。服務會透過分析您資料庫過去的使用情況，建議最適合用於執行您現有資料庫工作負載的層。
     
-3. 在**升級這部伺服器**刀鋒視窗中，選取每個要檢閱的資料庫，然後選取建議的定價層來進行升級。您隨時都可以瀏覽各種可用的定價層，並選取最符合您環境的選項。
+3. 在 [**升級此伺服器**] 刀鋒視窗中，選取每個要檢閱的資料庫，然後選取建議的定價層來進行升級。您隨時都可以瀏覽各種可用的定價層，並選取最符合您環境的選項。
 
 
      ![資料庫][2]
 
 
-7. 按一下建議的層之後，您會看到 [選擇定價層] 刀鋒視窗，您可以在此視窗選取一個層，然後按一下 [選取] 按鈕來變更為該層。為每個 Web 或商務資料庫選取新的層。
+7. 按一下建議的層之後，您會看到 [**選擇定價層**] 刀鋒視窗，您可以在此視窗選取一個層，然後按一下 [**選取**] 按鈕來變更為該層。為每個 Web 或商務資料庫選取新的層。
 
     請特別注意，SQL Database 不會鎖定至任何特定的服務層級或效能等級，因此當您的資料庫需求變更時，您可以在可用的服務層級和效能等級之間輕鬆進行變更。事實上，基本、標準和高階 SQL Database 是以小時計費，您可以在 24 小時內向上或向下調整每個資料庫 4 次。
 
@@ -93,13 +93,13 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
     在實際轉換到新的效能層級時，資料庫連線可能會暫時中斷一小段時間 (通常以秒計算)。若應用程式對於連線終止出現暫時性的錯誤處理 (重試邏輯)，在升級結束時連線將不會中斷。
 
-5. 升級作業完成之後，[最新版更新] 刀鋒視窗將會顯示 [已啟用]。
+5. 升級作業完成之後，[**最新更新**] 刀鋒視窗將會顯示 [**已啟用**]。
 
     ![已啟用 V12][5]
 
 ## 將資料庫移至彈性資料庫集區
 
-在 [Azure Preview 入口網站](https://ms.portal.azure.com/)中，瀏覽至 V12 伺服器並按一下 [新增集區]。
+在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至 V12 伺服器並按一下 [新增集區]。
 
 -或-
 
@@ -107,7 +107,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 ![將集區加入伺服器][7]
    
-請依照[建立彈性的資料庫集區](sql-database-elastic-pool.md)一文中的說明來完成集區建立。
+請依照[建立彈性資料庫集區](sql-database-elastic-pool.md)一文中的說明來完成集區建立。
 
 ## 在升級至 SQL Database V12 後監視資料庫
 
@@ -137,7 +137,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 
 
-**警示：**在「Azure 入口網站」中設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。您可以在「Azure 入口網站」中為各種效能計量 (例如 DTU、CPU、IO 及記錄檔) 設定資料庫警示。請瀏覽至您的資料庫，然後在 [設定] 刀鋒視窗中，選取 [警示規則]。
+**警示：**在 Azure 入口網站中設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。您可以在 Azure 入口網站中為各種效能計量 (例如 DTU、CPU、IO 及記錄檔) 設定資料庫警示。請瀏覽至您的資料庫，然後在 [**設定**] 刀鋒視窗中，選取 [**警示規則**]。
 
 例如，您可以設定若過去 5 分鐘的平均 DTU 百分比值超出 75% 則發出「 DTU 百分比 」電子郵件警示。若要深入了解如何設定警示通知，請參閱[接收警示通知](insights-receive-alert-notifications.md)。
 
@@ -168,4 +168,4 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

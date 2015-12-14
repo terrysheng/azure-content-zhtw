@@ -42,7 +42,7 @@
 
     > [AZURE.NOTE]用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些密碼，或與您的應用程式一起散發密碼。
 
-11. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+11. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，按一下 [行動服務]，然後按一下您的應用程式。
 
    	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
@@ -54,6 +54,5 @@
 
 <!-- URLs. -->
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Azure 管理入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

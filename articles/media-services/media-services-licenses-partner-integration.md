@@ -45,6 +45,6 @@ Microsoft Azure 媒體服務可讓您提供受 Widevine DRM 保護的 MPEG-DASH�
 
 [使用 PlayReady 和/或 Widevine 動態一般加密](media-services-protect-with-drm.md)
 
-[Mingfei 的部落格](https://azure.microsoft.com/zh-TW/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
+[Mingfei 的部落格](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

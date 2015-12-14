@@ -1,27 +1,32 @@
-<properties 
-	pageTitle="從命令列管理行動服務 | Microsoft Azure" 
-	description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。" 
-	services="mobile-services" 
-	documentationCenter="Mobile" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="從命令列管理行動服務 | Microsoft Azure"
+	description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。"
+	services="mobile-services"
+	documentationCenter="Mobile"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
-# 使用命令列工具將行動服務自動化 
+# 使用命令列工具將行動服務自動化
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##概觀
 
 本主題將示範如何使用 Azure 命令列工具將 Azure 行動服務的建立和管理自動化。本主題將示範如何安裝並開始使用命令列工具，來執行重要的行動服務。
- 
+
 這些個別的命令結合為一個指令碼或批次檔後，即可將行動服務的建立、確認和刪除程序自動化。
 
 本主題涵蓋 Azure 命令列工具支援的一些常用管理工作。如需詳細資訊，請參閱 [Azure 命令列工具文件][reference-docs]。
@@ -42,11 +47,11 @@
 
 ##如何下載和匯入發行設定
 
-若要開始進行，您必須先下載並匯入發行設定。接著您可以使用工具來建立和管理 Azure 服務。若要下載發行設定，請使用 `account download` 命令：
+若要開始進行，您必須先下載並匯入發行設定。接著您可以使用工具來建立和管理 Azure 服務。若要下載發佈設定，請使用 `account download` 命令：
 
 	azure account download
 
-這樣會開啟預設瀏覽器，並提示您登入管理入口網站。登入之後，就會下載您的 `.publishsettings` 檔案。請記下此儲存的檔案位置。
+這會開啟您的預設瀏覽器，提示您登入 Azure 傳統入口網站。登入之後，就會下載您的 `.publishsettings` 檔案。請記下此儲存的檔案位置。
 
 接下來，執行下列命令，並將 `<path-to-settings-file>` 改為 `.publishsettings` 檔案的路徑，以匯入 `.publishsettings` 檔案：
 
@@ -104,9 +109,9 @@
 
 	azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-下表顯示指令碼權限值與 [Azure 管理入口網站]中之權限值的比較。
+下表顯示指令碼權限值與 [Azure 傳統入口網站]中之權限值的比較。
 
-|指令碼值|管理入口網站值| |========|========| |`public`|所有人| |`application`(預設值)|具有應用程式金鑰的任何人| |`user`|僅限通過驗證的使用者| |`admin`|僅限指令碼和管理員|
+|指令碼值|入口網站值| |========|========| |`public`|所有人| |`application`(預設值)|具有應用程式金鑰的任何人| |`user`|僅限通過驗證的使用者| |`admin`|僅限指令碼和管理員|
 
 如果指定的資料表已存在，`mobile table create` 命令將失敗。在您的自動化指令碼中，您應該嘗試先刪除再重新建立資料表。
 
@@ -140,7 +145,7 @@
 
 	function insert(item, user, request) {
 	    ...
-	} 
+	}
 
 如需關於註冊指令碼的詳細資訊，請參閱[行動服務伺服器指令碼參照]。
 
@@ -173,7 +178,7 @@
 <!-- URLs. -->
 [行動服務伺服器指令碼參照]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
@@ -182,6 +187,4 @@
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

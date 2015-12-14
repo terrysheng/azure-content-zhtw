@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 # Microsoft Azure 儲存體效能與延展性檢查清單
@@ -30,8 +30,6 @@
 -	Blob
 -	資料表
 -	佇列  
-
-Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經實證做法。
 
 |完成|	領域|	類別|	問題
 |----|------|-----------|-----------
@@ -117,7 +115,7 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 與任何網路使用方式一樣，請留意導致錯誤和封包遺失的網路狀況將會減慢有效的輸送量。使用 WireShark 或 NetMon 可能有助於診斷此問題。
 
 #####有用資源
-如需虛擬機器大小與所配置頻寬的詳細資訊，請參閱[虛擬機器大小](../virtual-machines/virtual-machines-size-specs.md)。
+如需虛擬機器大小與所配置頻寬的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)。
 
 ####<a name="subheading4"></a>位置
 在任何分散式環境中，將用戶端放置於伺服器附近可提供最佳的效能。若要以最低的延遲時間存取 Azure 儲存體，對用戶端而言的最佳位置是在同一個 Azure 區域內。例如，如果您擁有使用 Azure 儲存體的 Azure 網站，您應將這兩者置於單一區域內 (例如，美國西部或東南亞)。這可降低延遲和成本 — 本文撰寫期間，在單一區域內的頻寬使用量是免費的。
@@ -139,7 +137,7 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 ####有用資源
 如需 SAS 的詳細資訊，請參閱[共用存取簽章：第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1/)。
 
-如需 CORS 的詳細資訊，請參閱[跨原始資源共用 (CORS) 支援 Azure 儲存體服務](http://msdn.microsoft.com/library/azure/dn535601.aspx)。
+如需 CORS 的詳細資訊，請參閱 [Azure 儲存體服務的跨原始資源共用 (CORS) 支援](http://msdn.microsoft.com/library/azure/dn535601.aspx)。
 
 ###快取
 ####<a name="subheading7"></a>取得資料
@@ -149,7 +147,7 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 
 組態、查詢和其他持續被應用程式使用的資料是進行快取的最佳候選對象。
 
-如需如何使用 .NET 來取得 Blob 屬性，以找出最後修改日期的範例，請參閱[設定和擷取屬性及中繼資料](storage-properties-metadata.md)。如需條件式下載的詳細資訊，請參閱[指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/library/azure/dd179371.aspx)。
+如需如何使用 .NET 來取得 Blob 屬性，以找出最後修改日期的範例，請參閱[設定和擷取屬性及中繼資料](storage-properties-metadata.md)。如需條件式下載的詳細資訊，請參閱[有條件地重新整理 Blob 的本機複本](http://msdn.microsoft.com/library/azure/dd179371.aspx)。
 
 ####<a name="subheading8"></a>以批次方式上傳資料
 在某些應用程式案例中，您可以在本機彙總資料，然後以批次方式將它定期上傳，而非立即上傳每一份資料。例如，Web 應用程式可保留活動記錄檔︰應用程式可以在每次活動發生時，以資料表實體的格式 (這需要許多儲存體作業) 將每個活動的詳細資料上傳到 Blob，或可以將活動詳細資料儲存到本機記錄檔，然後以使用分隔符號的檔案格式將所有活動詳細資料定期上傳到 Blob。如果每筆記錄項目的大小是 1KB，您可以在單一 “Put Blob” 交易中上傳上千筆記錄項目 (您可以在單一交易中上傳的 Blob 大小上限為 64MB)。當然，如果本機電腦在上傳前當機，您可能會失去一些記錄資料：應用程式開發人員必須針對用戶端裝置的可能性進行設計，或上傳失敗。如果必須上傳活動資料以取得 Timespan (而不是只是單一活動)，則我們建議選擇 Blob 勝過資料表。
@@ -166,14 +164,14 @@ Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經�
 
 若是其他程式設計語言，請參閱該語言的文件以確定如何設定連線限制。
 
-如需詳細資訊，請參閱 [Web 服務：並行連線](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx)部落格文章。
+如需詳細資訊，請參閱 [Web 服務：並行連線](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx) (Web Services: Concurrent Connections) 部落格文章。
 
 ####<a name="subheading10"></a>如果使用同步程式碼搭配 Async Task，則提高 ThreadPool 的執行緒數量下限
 此程式碼將提高執行緒集合的執行緒數量下限：
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-如需詳細資訊，請參閱 [ThreadPool.SetMinThreads 方法](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx))。
+如需詳細資訊，請參閱 [ThreadPool.SetMinThreads 方法] (http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx))。
 
 ####<a name="subheading11"></a>充分運用 .NET 4.5 記憶體回收
 在用戶端應用程式中使用 .NET 4.5 或更新版本，以便在伺服器記憶體回收中充分運用效能改善。
@@ -265,7 +263,7 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 ####<a name="subheading25"></a>使用 JSON
 自儲存體服務版本 2013-08-15 開始，資料表服務支援使用 JSON (而非以 XML 為基礎的 AtomPub 格式) 來轉換資料表資料。這可降低約 75% 的裝載大小，並可大幅提高您的應用程式效能。
 
-如需詳細資訊，請參閱 [Microsoft Azure 資料表：JSON 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx)文章和[表格服務作業的裝載格式](http://msdn.microsoft.com/library/azure/dn535600.aspx)。
+如需詳細資訊，請參閱 [Microsoft Azure 資料表：JSON 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) (Microsoft Azure Tables: Introducing JSON) 和 [表格服務作業的裝載格式](http://msdn.microsoft.com/library/azure/dn535600.aspx)。
 
 ####<a name="subheading26"></a>關閉 Nagle
 在不同的 TCP/IP 網路中已廣泛採用 Nagle 的演算法，來作為提高網路效能的方法。不過，它並非是所有情況下的最佳作法 (例如高互動式環境)。在 Azure 儲存體中，Nagle 的演算法對於資料表和佇列服務要求的效能有負面的影響，可以的話您應將它停用。
@@ -384,4 +382,4 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。我們鼓勵每位應用程式開發人員根據上述的每個做法來評估他們的應用程式，並考慮照著建議去做，為其使用 Azure 儲存體的應用程式取得最佳效能。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

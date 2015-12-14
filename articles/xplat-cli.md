@@ -22,7 +22,7 @@
 - [PowerShell](powershell-install-configure.md)
 - [Azure CLI](xplat-cli-install.md)
 
-Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。Azure CLI 與 Azure 管理入口網站上提供的功能大多相同，例如管理網站、虛擬機器、行動服務、SQL Database 與 Azure 平台提供的其他各項服務等。
+Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。Azure CLI 與 Azure 入口網站上提供的功能大多相同，例如管理網站、虛擬機器、行動服務、SQL Database 與 Azure 平台提供的其他各項服務等。
 
 Azure CLI 是以 JavaScript 所撰寫，而且需要 Node.js。它是使用 Azure SDK for Node.js 實作，並在 Apache 2.0 授權下發佈。專案儲存機制位於 [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli)。
 
@@ -281,4 +281,4 @@ Azure CLI 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

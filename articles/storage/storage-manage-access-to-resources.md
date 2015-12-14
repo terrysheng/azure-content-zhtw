@@ -38,13 +38,13 @@
 
 您可以利用下列方式設定容器權限：
 
-- 從 [Azure 管理入口網站](https://manage.windowsazure.com/)。
+- 從 [Azure 入口網站](portal.azure.com)
 - 使用儲存體用戶端程式庫或 REST API 以程式設計方式設定。
 - 使用 PowerShell 設定。若要深入了解如何從 Azure PowerShell 設定容器權限，請參閱[使用 Azure PowerShell 與 Azure 儲存體](storage-powershell-guide-full#how-to-manage-azure-blobs)。
 
 ### 從 Azure 入口網站設定容器權限
 
-若要從 Azure 入口網站設定容器權限，請遵循下列步驟：
+若要從 [Azure 入口網站](portal.azure.com)設定容器權限，請遵循下列步驟：
 
 1. 瀏覽至儲存體帳戶的儀表板。
 2. 從清單中選取容器名稱。請注意，您必須按一下 [名稱] 欄右側，才能選取容器名稱。按一下名稱向下切入到容器，以顯示其Blob。
@@ -155,4 +155,4 @@
 - [共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)
 - [使用共用存取簽章來委派存取權](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

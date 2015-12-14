@@ -28,11 +28,11 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
  >[AZURE.NOTE]SQL Server 2012 SP2 Enterprise 的映像**不包含資料磁碟**。您必須新增和 (或) 連接一或多個虛擬硬碟來儲存資料。當您建立 Azure 虛擬機器時，它會有一個作業系統的磁碟對應至 C 磁碟機，還有一個暫存磁碟對應至 D 磁碟機。請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
 
 
-##<a name="Provision"></a>連線到 Azure 管理入口網站並佈建 SQL Server 虛擬機器
+##<a name="Provision"></a>連線到 Azure 傳統入口網站並佈建 SQL Server 虛擬機器
 
-1.  使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com/)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://www.windowsazure.com/pricing/free-trial/)。
+1.  使用您的帳戶登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://www.windowsazure.com/pricing/free-trial/)。
 
-2.  在 Azure 管理入口網站中，依序按一下網頁左下角的 [**+NEW**]、[**運算**]、[**虛擬機器**] 和 [**從組件庫**]。
+2.  在 Azure 傳統入口網站中，依序按一下網頁左下角的 [+新增]、[計算]、[虛擬機器] 和 [從資源庫]。
 
 3.  在「**建立虛擬機器**」頁面上，根據您的資料需求選取包含 SQL Server 的虛擬機器映像，然後按一下頁面右下角的 [下一步] 箭號。如需 Azure 支援之 SQL Server 映像的最新資訊，請參閱 [Azure 虛擬機器中的 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294720) 文件集內的[開始使用 Azure 虛擬機器中的 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294719) 主題。
 
@@ -111,8 +111,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	+ 適用於 IPython Notebook 伺服器遠端連線
 	+ 擷取 IPython Notebook 範例和 SQL 指令碼
 	+ 下載並安裝實用的資料科學 Python 封裝
-	+ 下載並安裝 Azure 工具，例如 AzCopy 和 Azure 儲存體總管  
-<br>
+	+ 下載並安裝 Azure 工具，例如 AzCopy 和 Azure 儲存體總管<br>
 - 您可以使用 `https://<virtual_machine_DNS_name>:<port>` 格式的 URL，從任何本機或遠端瀏覽器存取並執行 IPython Notebook，URL 格式中的 port 是您佈建虛擬機器時選取的 IPython 公用連接埠。
 - IPython Notebook 伺服器正以背景服務形式執行，而且將在您重新啟動虛擬機器時自動重新啟動。
 
@@ -200,11 +199,11 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 5.  在 [密碼] 方塊中，輸入新使用者的密碼。在 [確認密碼] 方塊中再次輸入密碼。
 
-6.  若要強制執行複雜性和強制性密碼原則選項，請選取 \[強制執行密碼原則] (建議)。此為選取 SQL Server 驗證時的預設選項。
+6.  若要強制執行複雜性和強制性密碼原則選項，請選取 [強制執行密碼原則] (建議)。此為選取 SQL Server 驗證時的預設選項。
 
-7.  若要強制執行逾期密碼原則選項，請選取 \[強制執行密碼逾期] (建議)。您必須選取強制執行密碼原則才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
+7.  若要強制執行逾期密碼原則選項，請選取 [強制執行密碼逾期] (建議)。您必須選取強制執行密碼原則才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
 
-8.  若要強制使用者在首次登入後建立新密碼，請選取 \[使用者必須在下次登入時變更密碼] (如果此登入是供其他使用者使用，建議您選取此選項。如果此登入是供您自己使用，請勿選取此選項。) 您必須選取強制執行密碼逾期才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
+8.  若要強制使用者在首次登入後建立新密碼，請選取 [使用者必須在下次登入時變更密碼] (如果此登入是供其他使用者使用，建議您選取此選項。如果此登入是供您自己使用，請勿選取此選項。) 您必須選取強制執行密碼逾期才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
 
 9.  在 [預設資料庫] 清單中，選取登入的預設資料庫。**master** 是此選項的預設值。如果您尚未建立使用者資料庫，請保留 [master] 的設定。
 
@@ -224,9 +223,9 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 若要從另一部電腦連接 SQL Server Database Engine，您必須知道虛擬機器的網域名稱系統 (DNS) 名稱。(這是網際網路用來識別虛擬機器的名稱。您可以使用 IP 位址，不過當 Azure 因備援或維護而移動資源時，IP 位址可能會改變。DNS 名稱是穩定的，因為它可以重新導向新的 IP 位址。)
 
-1.  在 Azure 管理入口網站 (或前一個步驟) 中選取 [**虛擬機器**]。
+1.  在 Azure 傳統入口網站 (或前一個步驟) 中選取 [虛擬機器]。
 
-2.  在「**虛擬機器執行個體**」頁面的 [**DNS 名稱**] 欄中，尋找並複製前方加上 **http://** 的虛擬機器 DNS 名稱。(使用者介面可能無法顯示完整名稱，不過您可以在名稱上按一下滑鼠右鍵，然後選擇複製。)
+2.  在「**虛擬機器執行個體**」頁面的 [**DNS 名稱**] 欄中，尋找並複製前方加上 ****http://** 的虛擬機器 DNS 名稱。(使用者介面可能無法顯示完整名稱，不過您可以在名稱上按一下滑鼠右鍵，然後選擇複製。)
 
 ##<a name="cde"></a>從另一台電腦連接到 Database Engine
 
@@ -260,11 +259,11 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費**」。為了確保未使用虛擬機器時不會被計費，您必須將虛擬機器的狀態設為 [**已停止 (已解除配置)**]。
 
-> [AZURE.NOTE]從 VM 內部關閉虛擬機器 (使用 Windows 電源選項) 時，雖然 VM 已停止，但仍然處於已配置狀態。為了確保您不會繼續被計費，請一律在「[Azure 管理入口網站](http://manage.windowsazure.com/)」中停止虛擬機器。您也可以藉由呼叫 ShutdownRoleOperation 搭配相當於 "StoppedDeallocated" 的 "PostShutdownAction"，透過 Powershell 來停止 VM。
+> [AZURE.NOTE]從 VM 內部關閉虛擬機器 (使用 Windows 電源選項) 時，雖然 VM 已停止，但仍然處於已配置狀態。為了確保您不會繼續被計費，請一律在[Azure 傳統入口網站](http://manage.windowsazure.com/)中停止虛擬機器。您也可以藉由呼叫 ShutdownRoleOperation 搭配相當於 "StoppedDeallocated" 的 "PostShutdownAction"，透過 Powershell 來停止 VM。
 
 關閉及取消配置虛擬機器：
 
-1. 使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com/)。  
+1. 使用您的帳戶登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)。  
 
 2. 從左側導覽列選取 [**虛擬機器**]。
 
@@ -274,7 +273,7 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 
 ![VM 關閉][15]
 
-虛擬機器將會取消配置，但不是刪除。您隨時都可從 Azure 管理入口網站重新啟動您的虛擬機器。
+虛擬機器將會取消配置，但不是刪除。您隨時都可從 Azure 傳統入口網站重新啟動您的虛擬機器。
 
 ## 您的 Azure SQL Server VM 已準備好可供使用：下一步是什麼？
 
@@ -299,4 +298,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD 如何運作？"
-	description="Azure AD 會在雲端中建立您的身分識別景象。它可以連接到您的內部部署身分識別系統或單獨使用。"
+	pageTitle="Azure Active Directory 如何運作？| Microsoft Azure"
+	description="Azure Active Directory 會在雲端中建立您的身分識別景象。它可以連接到您的內部部署身分識別系統或單獨使用。"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
 
 
 # Azure Active Directory 如何運作？
 
-
 ###本主題的其他文章
 [什麼是 Azure AD？](active-directory-whatis.md)<br> [運作方式](active-directory-works.md)<br> [入門](active-directory-get-started.md)<br> [後續步驟](active-directory-next-steps.md)<br> [深入了解](active-directory-learn-map.md)
 
 
-Azure AD 會在雲端中建立您的身分識別景象。它可以連接到您的內部部署身分識別系統或單獨使用。
+Azure Active Directory (Azure AD) 會在雲端中建立您的身分識別景象。它可以連接到您的內部部署身分識別系統或單獨使用。
 
 您可以將 Azure AD 中的帳戶視為您的驅動程式在雲端的授權：這是您在線上存取服務的唯一識別碼。如此一來，Azure AD 的作用就好像您在雲端取得這些驅動程式授權的專屬私人登錄器。它可讓身分識別使用於雲端的任何地方，並改善存取內部部署資源之使用者的行動力。
 
@@ -49,4 +48,4 @@ Azure AD 支援數個最常用的驗證和授權通訊協定。[深入了解 Azu
 * [以組織身分註冊 Azure](sign-up-organization.md)
 * [Azure 身分識別](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

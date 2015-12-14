@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務管理存取控制記錄
@@ -48,13 +48,13 @@
 
    - 在 Windows 主機上啟動 Microsoft iSCSI 啟動器。
    - 在 [iSCSI 啟動器屬性] 視窗的 [設定] 索引標籤上，選取並複製 [啟動器名稱] 欄位的字串。
-   - 在管理入口網站的 ACR 表格上的 [**iSCSI 啟動器名稱**] 欄位中貼上此字串。
+   - 在 Azure 傳統入口網站的 ACR 表格上的 [iSCSI 啟動器名稱] 欄位中貼上此字串。
 
 4. 按一下 [**儲存**] 以儲存新建立的 ACR。表格式清單會更新以反映此新增。
 
 ## 編輯存取控制記錄
 
-您可以使用管理入口網站中的 [**設定**] 頁面，以編輯 ACR。
+您可以使用 Azure 傳統入口網站中的 [設定] 頁面編輯 ACR。
 
 > [AZURE.NOTE]您只能修改目前未在使用中的 ACR。若要編輯與目前正在使用中的磁碟區相關聯的 ACR，您必須先讓磁碟區離線。
 
@@ -72,7 +72,7 @@
 
 ## 刪除存取控制記錄
 
-您可以使用管理入口網站中的 [**設定**] 頁面，以刪除 ACR。
+您可以使用 Azure 傳統入口網站中的 [設定] 頁面刪除 ACR。
 
 > [AZURE.NOTE]您只能刪除目前未在使用中的 ACR。若要刪除與目前正在使用中的磁碟區相關聯的 ACR，您必須先讓磁碟區離線。
 
@@ -94,4 +94,4 @@
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

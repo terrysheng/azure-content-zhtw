@@ -20,7 +20,7 @@
 
 ## 概觀
 
-一旦[建立實驗室](devtest-lab-create-lab.md)之後，您就可以從 VM 範本清單中[將 VM 加入該實驗室](devtest-lab-add-vm-with-artifacts.md)。在本文中，您將了解如何上傳和設定虛擬硬碟 (VHD) 映像檔，以做為可用來建立您 VM 的範本。如果您不熟悉 VHD 映像，請參閱[建立並上傳 Windows Server VHD 到 Azure](https://azure.microsoft.com/zh-TW/documentation/articles/virtual-machines-create-upload-vhd-windows-server/) 一文，以了解如何建立 VHD 映像。一旦建立或取得 VHD 映像的存取權之後，本文將逐步帶領您上傳映像，並從中建立範本。
+一旦[建立實驗室](devtest-lab-create-lab.md)之後，您就可以從 VM 範本清單中[將 VM 加入該實驗室](devtest-lab-add-vm-with-artifacts.md)。在本文中，您將了解如何上傳和設定虛擬硬碟 (VHD) 映像檔，以做為可用來建立您 VM 的範本。如果您不熟悉 VHD 映像，請參閱[建立並上傳 Windows Server VHD 到 Azure](../virtual-machines-create-upload-vhd-windows-server.md) 一文，了解如何建立 VHD 映像。一旦建立或取得 VHD 映像的存取權之後，本文將逐步帶領您上傳映像，並從中建立範本。
 
 ## 建立 VM 範本
 
@@ -86,4 +86,4 @@
 
 一旦加入要在建立 VM 時使用的 VM 範本之後，下一個步驟就是[將 VM 加入研發/測試實驗室](devtest-lab-add-vm-with-artifacts)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

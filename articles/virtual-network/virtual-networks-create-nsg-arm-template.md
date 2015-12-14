@@ -181,4 +181,4 @@
 	- **-f (或 --template-file)**。ARM 範本檔案的路徑。
 	- **-e (或 --parameters-file)**。ARM 參數檔案的路徑。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

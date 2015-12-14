@@ -54,7 +54,7 @@
 
 Azure App Service 可讓您將設定資訊以「應用程式設定」與「連接字串」的形式，儲存為 Web Apps 執行階段環境的一部分。這些值會在執行階段，透過大多數程式設計語言的*環境變數*，來向您的應用程式公開。若是 .NET 應用程式，則這些值會在執行階段加入您的 .NET 組態。
 
-**應用程式設定**與**連接字串**可使用 [Azure Preview 入口網站](http://portal.azure.com)或公用程式 (例如 PowerShell 或 Azure CLI) 進行設定。
+「應用程式設定」與「連接字串」可使用 [Azure 入口網站](http://portal.azure.com)或公用程式 (例如 PowerShell 或 Azure CLI) 進行設定。
 
 如需應用程式設定和連接字串的詳細資訊，請參閱[設定 Web 應用程式](web-sites-configure.md)。
 
@@ -62,7 +62,7 @@ Azure App Service 可讓您將設定資訊以「應用程式設定」與「連�
 
 Azure 針對 Web 應用程式的檔案系統，提供透過 **FTPS** 的安全 FTP 存取權限。這可讓您以安全的方式存取 Web 應用程式上的應用程式程式碼及診斷記錄。您 Web 應用程式的 FTPS 連結具有下列步驟：
 
-1. 開啟 [Azure Preview 入口網站](http://portal.azure.com)。
+1. 開啟 [Azure 入口網站](http://portal.azure.com)。
 2. 選取 [全部瀏覽]。
 3. 從 [瀏覽] 刀鋒視窗中，選取 [Web Apps]。
 4. 從 [Web Apps] 刀鋒視窗中，選取所需的 Web 應用程式。
@@ -85,7 +85,4 @@ Azure 針對 Web 應用程式的檔案系統，提供透過 **FTPS** 的安全 F
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

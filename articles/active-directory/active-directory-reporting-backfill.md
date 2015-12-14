@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory 報告保留原則
+
+## 報告文章
+
+ - [報告 API](active-directory-reporting-api-getting-started.md)
+ - [稽核事件](active-directory-reporting-audit-events.md)
+ - [保留](active-directory-reporting-retention.md)
+ - [預覽](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [回填](active-directory-reporting-backfill.md)
+ - [延遲](active-directory-reporting-latencies.md)
+ - [「未知動作」事件](active-directory-reporting-unknown-actor.md)
 
 選擇報告的目錄之後，報告就會回填特定天數的資料，如此處所示。
 
@@ -46,4 +57,4 @@ RMS 使用量 | 0 天
 RMS 裝置使用量 | 0 天
 啟用 RMS 的應用程式使用量 | 0 天
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@
 
 Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案共用。檔案儲存體現已公開推出，並同時支援 SMB 3.0 和 SMB 2.1。
 
-您可以使用 Azure Preview 入口網站、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。此外，由於檔案共用為 SMB 共用，因此您可以透過熟悉的標準檔案系統 API 存取它們。
+您可以使用 [Azure 入口網站](portal.azure.com)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。此外，由於檔案共用為 SMB 共用，因此您可以透過熟悉的標準檔案系統 API 存取它們。
 
 在 Azure 中執行的應用程式可以從 Azure 虛擬機器輕鬆地掛接檔案共用。有了最新版本的檔案儲存體後，您也可以從支援 SMB 3.0 的內部部署應用程式掛接檔案共用。
 
@@ -91,7 +91,7 @@ Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案
 
 ## 管理檔案共用 ##
 
-[Azure Preview 入口網站](https://portal.azure.com/)現在提供可管理 Azure 檔案儲存體的使用者介面。您可以從網路瀏覽器執行下列動作：
+[Azure 入口網站](portal.azure.com)提供可管理 Azure 檔案儲存體的使用者介面。您可以從網路瀏覽器執行下列動作：
 
 - 上傳檔案至檔案共用以及從檔案共用下載檔案。
 - 監視每個檔案共用的實際使用狀況。
@@ -102,7 +102,7 @@ Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案
 
 ## 使用檔案儲存體開發 ##
 
-身為開發人員，您可以使用 [Azure Storage Client Library for Java](https://github.com/azure/azure-storage-java) 建置具有檔案儲存體的應用程式。如需程式碼範例，請參閱[如何使用 Java 的檔案儲存體](storage-java-how-to-use-file-storage.md)。
+身為開發人員，您可以使用 [Azure Storage Client Library for Java](https://github.com/azure/azure-storage-java) 建立具有檔案儲存體的應用程式。如需程式碼範例，請參閱[如何使用 Java 的檔案儲存體](storage-java-how-to-use-file-storage.md)。
 
 您也可以使用 [Azure Storage Client Library for Node.js](https://github.com/Azure/azure-storage-node) 針對檔案儲存體進行開發。
 
@@ -110,7 +110,7 @@ Azure 檔案儲存體可使用標準的 SMB 通訊協定，在雲端提供檔案
 
 Linux 使用者，歡迎您提供相關資訊！
 
-Linux 使用者群組的 Azure 檔案儲存體提供論壇，讓您在 Linux 上評估並採用檔案儲存體的同時分享意見。請寄電子郵件給要加入使用者群組的 [Azure 檔案儲存體 Linux 使用者](mailto:azurefileslinuxusers@microsoft.com)。
+Linux 使用者群組的 Azure 檔案儲存體提供論壇，讓您在 Linux 上評估並採用檔案儲存體的同時分享意見。請寄電子郵件至 [Azure 檔案儲存體 Linux 使用者](mailto:azurefileslinuxusers@microsoft.com)加入使用者的群組。
 
 ## 後續步驟
 
@@ -137,4 +137,4 @@ Linux 使用者群組的 Azure 檔案儲存體提供論壇，讓您在 Linux 上
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

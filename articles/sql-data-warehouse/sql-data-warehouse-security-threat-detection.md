@@ -30,7 +30,7 @@
 
 ## 設定資料庫的威脅偵測
 
-1. 啟動 Azure Preview 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+1. 啟動 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
 
 2. 瀏覽至您要監視的 SQL 資料倉儲的組態刀鋒視窗。在 [設定] 刀鋒視窗中，選取 [**稽核和威脅偵測**]。
 
@@ -55,7 +55,7 @@
 
 	![導覽窗格][4]
 
-2. 在電子郵件中，按一下 [Azure SQL 稽核記錄檔] 連結會啟動 Azure 入口網站，並顯示可疑事件前後的相關稽核記錄。
+2. 在電子郵件中，按一下 [Azure SQL 稽核記錄檔] 連結會啟動 Azure 傳統入口網站，並顯示可疑事件前後的相關稽核記錄。
 
 	![導覽窗格][5]
 
@@ -89,4 +89,4 @@
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

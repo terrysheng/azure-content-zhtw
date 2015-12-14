@@ -1,6 +1,6 @@
 <properties
 	pageTitle="建立 Azure Batch 帳戶 | Microsoft Azure"
-	description="了解如何在 Azure Preview 入口網站中建立 Azure Batch 帳戶，以在雲端中執行大規模的平行工作負載"
+	description="了解如何在 Azure 入口網站中建立 Azure Batch 帳戶，以在雲端中執行大規模的平行工作負載"
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,19 +18,19 @@
 
 
 
-# 在 Azure Preview 入口網站中建立和管理 Azure Batch 帳戶
+# 在 Azure 入口網站中建立和管理 Azure Batch 帳戶
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-本文將說明如何使用 [Azure Preview 入口網站](https://portal.azure.com)來建立和管理 Azure Batch 帳戶以及帳戶金鑰的設定。您需要 Batch 帳戶 URL 和相關聯的存取金鑰以驗證所有 Batch API 要求。將 Batch 工作負載的所有 Batch 資源 (例如集區、工作 (job) 和工作 (task)) 與特定 Batch 帳戶產生關聯。
+本文將說明如何使用 [Azure 入口網站](https://portal.azure.com)來建立和管理 Azure Batch 帳戶以及帳戶金鑰的設定。您需要 Batch 帳戶 URL 和相關聯的存取金鑰以驗證所有 Batch API 要求。將 Batch 工作負載的所有 Batch 資源 (例如集區、工作 (job) 和工作 (task)) 與特定 Batch 帳戶產生關聯。
 
 >[AZURE.NOTE]目前預覽入口網站支援 Batch 帳戶管理和檢視一些帳戶資源的功能。完整的 Batch 功能可以透過 Batch API 讓開發人員使用。
 
 ## 建立批次帳戶：
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 按一下 [**新增**] > [**計算**] > [**Batch 服務**]。
 
@@ -84,4 +84,4 @@ Batch 帳戶 URL 會出現在 [**Essentials**] 中。此為格式 `https://<acco
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

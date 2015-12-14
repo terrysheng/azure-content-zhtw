@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect 同步：了解使用者和連絡人 | Microsoft Azure"
+	pageTitle="Azure AD Connect 同步處理：了解使用者和連絡人 | Microsoft Azure"
 	description="說明 Azure AD Connect 同步處理中的使用者和連絡人。"
 	services="active-directory"
 	documentationCenter=""
@@ -56,4 +56,4 @@
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

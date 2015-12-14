@@ -25,7 +25,7 @@
 
 ## 驗證：使用者名稱、密碼和 SSH 金鑰
 
-使用 Azure 入口網站來建立 Linux 虛擬機器時，系統會要求您提供使用者名稱、密碼或 SSH 公開金鑰。在 Azure 上部署 Linux 虛擬機器的使用者名稱選擇受到下列限制：不允許使用已存在於虛擬機器中的系統帳戶名稱 (UID <100)，例如 'root'。
+使用 Azure 傳統入口網站來建立 Linux 虛擬機器時，系統會要求您提供使用者名稱、密碼或 SSH 公開金鑰。在 Azure 上部署 Linux 虛擬機器的使用者名稱選擇受到下列限制：不允許使用已存在於虛擬機器中的系統帳戶名稱 (UID <100)，例如 'root'。
 
 
  - 請參閱[建立執行 Linux 的虛擬機器](virtual-machines-linux-tutorial.md)
@@ -45,7 +45,7 @@
 
 ## 防火牆設定
 
-Azure 提供輸入封包篩選器，可限制只能連線至 Azure 入口網站中指定的連接埠。預設允許的連接埠只有 SSH。您可以在 Azure 入口網站中設定端點，以開放存取 Linux 虛擬機器上的其他連接埠：
+Azure 提供輸入封包篩選器，可限制只能連線至 Azure 傳統入口網站中指定的連接埠。預設允許的連接埠只有 SSH。您可以在 Azure 傳統入口網站中設定端點，以開放存取 Linux 虛擬機器上的其他連接埠：
 
  - 請參閱：[如何設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)
 
@@ -81,7 +81,7 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 
 2. 關閉虛擬機器。
 
-3. 按一下 Azure 入口網站中的 [*擷取*] 或使用 Powershell 或 CLI 工具，將虛擬機器擷取為映像。
+3. 按一下 Azure 傳統入口網站中的 [擷取] 或使用 Powershell 或 CLI 工具，將虛擬機器擷取為映像。
 
  - 請參閱：[如何擷取 Linux 虛擬機器作為範本使用](virtual-machines-linux-capture-image.md)
 
@@ -99,4 +99,4 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 
  - **另請參閱：** [在 Linux 上設定軟體 RAID](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

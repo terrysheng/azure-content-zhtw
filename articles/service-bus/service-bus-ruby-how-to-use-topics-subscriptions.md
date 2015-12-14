@@ -56,7 +56,7 @@
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]如果您登入 [Azure 入口網站](http://manage.windowsazure.com/)並瀏覽至您服務匯流排命名空間的連線資訊，也可以找到此金鑰。
+> [AZURE.NOTE]如果您登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)並瀏覽至您服務匯流排命名空間的連線資訊，也可以找到此金鑰。
 
 ## 建立 Ruby 應用程式
 
@@ -199,7 +199,7 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## 如何刪除主題和訂閱
 
-主題和訂用帳戶是持續性的，您必須透過 [Azure 入口網站](https://manage.windowsazure.com)或程式設計明確地加以刪除。下列範例說明如何刪除名為 "test-topic" 的主題：
+主題和訂用帳戶是持續性的，您必須透 過[Azure 傳統入口網站](https://manage.windowsazure.com)或程式設計明確地加以刪除。下列範例說明如何刪除名為 "test-topic" 的主題：
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -216,4 +216,4 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 -	請瀏覽 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 存放庫。
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

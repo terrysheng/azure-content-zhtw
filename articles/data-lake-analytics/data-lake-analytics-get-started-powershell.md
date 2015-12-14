@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # 教學課程：透過 Azure PowerShell 開始使用 Azure 資料湖分析
@@ -22,7 +22,7 @@
 
 了解如何透過 Azure PowerShell 建立 Azure 資料湖分析帳戶、在 [U-SQL](data-lake-analytics-u-sql-get-started.md) 中定義資料湖分析工作，以及將工作提交至資料湖分析帳戶。如需有關資料湖分析的詳細資訊，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-在本教學課程中，您將會開發一個工作，以讀取定位鍵分隔值 (TSV) 檔案，並將該檔案轉換為逗號分隔值 (CSV) 檔案。若要使用其他支援的工具進行同一個教學課程，請按一下此區段最上方的索引標籤。
+在本教學課程中，您將會開發一個工作以讀取定位鍵分隔值 (TSV) 檔案，並將該檔案轉換為逗點分隔值 (CSV) 檔案。若要使用其他支援的工具進行同一個教學課程，請按一下此區段最上方的索引標籤。
 
 **基本資料湖分析程序：**
 
@@ -38,24 +38,8 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
-- **Azure PowerShell 1.0 或更新版本**。請參閱[安裝和設定 Azure PowerShell](../install-configure-powershell.md)。安裝 Azure PowerShell 1.0 或更新版本後，您應執行下列 Cmdlet 安裝 Azure 資料湖分析模組。
-
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
-
-	如需 **AzureRM.DataLakeStore** 模組的詳細資訊，請參閱 [PowerShell 資源庫](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore)。如需 **AzureRM.DataLakeAnalytics** 模組的詳細資訊，請參閱 [PowerShell 資源庫](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics)。
-
-	如果您是第一次建立資料湖帳戶，請執行：
-
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	若要連接到 Azure，請使用下列 Cmdlet：
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater)。
 
 ##建立資料湖分析帳戶
 
@@ -151,7 +135,7 @@
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]Azure Preview 入口網站的使用者介面，可讓使用者將資料檔案範例複製到預設的資料湖存放區帳戶。如需相關指示，請參閱[使用 Azure Preview 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account)。
+>[AZURE.NOTE]Azure 入口網站的使用者介面，可讓使用者將資料檔案範例複製到預設的資料湖存放區帳戶。如需相關指示，請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account)。
 
 資料湖分析也可存取 Azure Blob 儲存體。如需有關上傳資料至 Azure Blob 儲存體的資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 儲存體](storage-powershell-guide-full.md)。
 
@@ -230,7 +214,7 @@
 - 若要了解更複雜的查詢，請參閱[使用 Azure 資料湖分析分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
 - 若要開始開發 U-SQL 應用程式，請參閱[使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 - 若要了解 U-SQL，請參閱[開始使用 Azure 資料湖分析 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)。
-- 若是管理工作，請參閱[使用 Azure Preview 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
+- 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

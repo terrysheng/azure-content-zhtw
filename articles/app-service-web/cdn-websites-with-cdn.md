@@ -41,9 +41,7 @@
 -	使用中的 [Microsoft Azure 帳戶](/account/)
 -	Visual Studio 2013 (含 [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))
 
-> [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：
-> + 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。
-> + 您可以[啟用 MSDN 訂用帳戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
+> [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。+ 您可以[啟用 Visual Studio 訂用帳戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 Visual Studio 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
 >
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -70,24 +68,22 @@
 
 8. 假設您尚未在 Azure 中建立應用程式服務，Visual Studio 可協助您建立它。在 [**設定 Microsoft Azure 網站**] 對話方塊中，請確定您的網站名稱是唯一的。然後按一下 **[確定]**。
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. 建立 ASP.NET 應用程式之後，在 [Web 發佈活動] 窗格中按一下 [**將 `<app name>` 立即發佈至此網站**]，將它發佈至 Azure。按一下 [**發佈**] 完成程序。
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	當發佈完成時，您會在瀏覽器中看到您已發佈的 Web 應用程式。
 
-1. 若要建立 CDN 端點，請登入 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
+1. 若要建立 CDN 端點，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 按一下 [新增] > [應用程式服務] > [CDN] > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE]建立 CDN 端點之後，Azure 入口網站會顯示其 URL 及與它整合的原始網域。不過，需要花費一些時間，新的 CDN 端點的組態才能完全傳播到所有 CDN 節點位置。
+	> [AZURE.NOTE]建立 CDN 端點之後，Azure 傳統入口網站會顯示其 URL 及與它整合的原始網域。不過，需要花費一些時間，新的 CDN 端點的組態才能完全傳播到所有 CDN 節點位置。
 
-3. 回到 Azure 入口網站，在 [CDN] 索引標籤中，按一下您剛建立的 CDN 端點的名稱。
+3. 回到 Azure 傳統入口網站，在 [CDN] 索引標籤中，按一下您剛建立的 CDN 端點的名稱。
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
@@ -509,27 +505,8 @@
 4. 重新發佈至 Azure Web 應用程式並存取首頁。
 5. 檢視頁面的 HTML 程式碼。您應該會發現類似下方的插入指令碼：    
 	
-	```
-	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -542,11 +519,11 @@
 	...
 	```
 
-	請注意，為 CSS 套件組合插入的指令碼仍在下列行中包含 `CdnFallbackExpression` 屬性的出錯殘留部分：
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	但因為 || 運算式的開頭部分一定會傳回 true (緊鄰的上一行)，所以 document.write() 函數永遠不會執行。
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. 若要測試後援指令碼是否可運作，請回到 CDN 端點的儀表板，按一下 [**停用端點**]。
 
@@ -566,4 +543,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

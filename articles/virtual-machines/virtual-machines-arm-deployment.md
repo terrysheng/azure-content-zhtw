@@ -48,7 +48,7 @@
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以前往 Azure Preview 入口網站的「Active Directory」區段，在應用程式的 [用戶端識別碼] 欄位內找到應用程式識別碼。
+	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以在 Azure 入口網站「Active Directory」區段中應用程式的 [用戶端識別碼] 欄位內尋找應用程式識別碼。
 
 3. 將 {application-id} 取代成您剛才記錄的識別碼，然後建立應用程式的服務主體：
 
@@ -369,10 +369,10 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 2.	傳回每個狀態碼之後，按下 **Enter** 以建立每個資源。建立虛擬機器之後，請執行下一個步驟，再按 Enter 以刪除所有資源。
 
-	此主控台應用程式從開始到完成的完整執行應該需要 5 分鐘左右。在您按下 Enter 以開始刪除資源之前，可能需要幾分鐘時間，先確認 Azure Preview 入口網站中建立的資源，然後再刪除。
+	此主控台應用程式從開始到完成的完整執行應該需要 5 分鐘左右。在您按下 Enter 以開始刪除資源之前，可能需要幾分鐘時間，先確認 Azure 入口網站中建立的資源，然後再刪除。
 
-3. 瀏覽至 Azure Preview 入口網站中的稽核記錄，以查看資源的狀態：
+3. 瀏覽至 Azure 入口網站中的稽核記錄，以查看資源的狀態：
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

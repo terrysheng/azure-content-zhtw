@@ -102,6 +102,12 @@
         }
     }
 
+您也可以使用 [deployment()](resource-group-template-functions.md/#deployment) 取得目前範本的基本 base URL，用來取得相同位置中其他範本的 URL。如果您的範本位置變更 (可能是版本不同所造成)，或您想要避免在範本檔案中寫入程式碼 URL，這十分實用。
+
+    "variables": {
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+    }
+
 ## 從連結的範本傳回值
 
 如果您需要從連結的範本將值傳遞給主要範本，您可以在連結範本的 **outputs** 區段中建立一個值。如需範例，請參閱[在 Azure 資源管理員範本中共用狀態](best-practices-resource-manager-state.md)。
@@ -110,4 +116,4 @@
 - [撰寫範本](./resource-group-authoring-templates.md)
 - [部署範本](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

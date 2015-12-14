@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
 # 如何使用適用於 Azure Mobile Apps 的 iOS 用戶端程式庫
@@ -22,15 +22,19 @@
  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-本指南說明如何使用最新的 [Azure Mobile Apps iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409) 來執行一般案例。如果您不熟悉 Azure Mobile Apps，請先完成 [Azure Mobile Apps 快速入門]來建立後端、建立資料表及下載預先建置的 iOS Xcode 專案。在本指南中，我們會著重於用戶端 iOS SDK。若要深入了解後端的 .NET 伺服器端 SDK，請參閱[使用 .NET 後端](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+本指南說明如何使用最新的 [Azure Mobile Apps iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409) 執行一般案例。如果您是 Azure Mobile Apps 的新手，請先完成 [Azure Mobile Apps 快速入門]以建立後端、建立資料表及下載預先建置的 iOS Xcode 專案。在本指南中，我們會著重於用戶端 iOS SDK。若要深入了解後端的 .NET 伺服器端 SDK，請參閱[使用 .NET 後端](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+
+## 參考文件
+
+iOS 用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps iOS 用戶端參考資料](http://azure.github.io/azure-mobile-services/iOS/v3/)。
 
 ##<a name="Setup"></a>設定和必要條件
 
-本指南假設您已建立包含資料表的後端。本指南假設資料表的結構描述與這些教學課程中的資料表相同。本指南也假設在您的程式碼中，參考了 `WindowsAzureMobileServices.framework` 並匯入 `WindowsAzureMobileServices/WindowsAzureMobileServices.h`。
+本指南假設您已建立包含資料表的後端。本指南假設資料表的結構描述與這些教學課程中的資料表相同。本指南也假設您在程式碼中，參考了 `WindowsAzureMobileServices.framework` 並匯入了 `WindowsAzureMobileServices/WindowsAzureMobileServices.h`。
 
 ##<a name="create-client"></a>作法：建立用戶端
 
-若要在專案中存取 Azure Mobile Apps 後端，請建立 `MSClient`。將 `AppUrl` 取代為 App URL。您可以將 `gatewayURLString` 和 `applicationKey` 保留空白。如果您設定驗證的閘道，請將 `gatewayURLString` 填入閘道 URL。
+若要在專案中存取 Azure Mobile Apps 後端，請建立 `MSClient`。以應用程式 URL 取代 `AppUrl`。您可以將 `gatewayURLString` 和 `applicationKey` 留白。如果您設定驗證的閘道器，請將 `gatewayURLString` 填入閘道器 URL。
 
 ```
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
@@ -191,6 +195,21 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 進行刪除時，至少必須設定 `id` 屬性。
 
+##<a name="templates"></a>作法：註冊推送範本以傳送跨平台通知
+
+若要註冊範本，只要在用戶端應用程式中透過 **client.push registerDeviceToken** 方法傳遞範本即可。
+
+        [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
+        	...
+        }];
+
+您的範本類型將為 NSDictionary，並且可能包含多個下列格式的範本：
+
+        NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
+
+請注意，所有的標記都將因安全性而移除。若要在安裝中將標記新增至安裝或範本，請參閱[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)。
+
+若要利用這些已註冊的範本傳送通知，請使用[通知中樞 API](https://msdn.microsoft.com/library/azure/dn495101.aspx)。
 
 ##<a name="errors"></a>作法：處理錯誤
 
@@ -249,4 +268,4 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [衝突處理常式]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

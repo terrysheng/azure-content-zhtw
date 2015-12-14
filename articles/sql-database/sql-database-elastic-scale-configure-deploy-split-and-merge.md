@@ -1,11 +1,11 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="彈性資料庫分割-合併工具教學課程 | Microsoft Azure"
 	description="使用彈性資料庫工具來分割及合併"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database"  
+	documentationCenter=""
+	authors="sidneyh"
 	manager="jeffreyg"
-	authors="sidneyh"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh" />
 
 # 彈性資料庫分割合併工具教學課程
@@ -33,9 +33,9 @@
 
     ![允許的服務][1]
 
-3. 建立要用於診斷輸出的 Azure 儲存體帳戶。移至 Azure Preview 入口網站。在左列中，按一下 [**新增**]，按一下 [**資料 + 儲存體**]，然後按一下 [**儲存體**]。
+3. 建立要用於診斷輸出的 Azure 儲存體帳戶。移至 Azure 入口網站。在左列中，按一下 [**新增**]，按一下 [**資料 + 儲存體**]，然後按一下 [**儲存體**]。
 
-4. 建立將包含分割合併服務的 Azure 雲端服務。移至 Azure Preview 入口網站。在左列中，按一下 [**新增**]，然後按一下 [**計算**]、[**雲端服務**] 和 [**建立**]。
+4. 建立將包含分割合併服務的 Azure 雲端服務。移至 Azure 入口網站。在左列中，按一下 [**新增**]，然後按一下 [**計算**]、[**雲端服務**] 和 [**建立**]。
 
 
 ## 設定分割-合併服務
@@ -60,7 +60,7 @@
 ### 設定安全性
 如需有關設定服務安全性的詳細指示，請參閱[分割合併安全性設定](sql-database-elastic-scale-split-merge-security-configuration.md)。
 
-為了執行適當的簡單測試部署以完成本教學課程，將會執行一組最基本的設定步驟，讓服務啟動並執行。這些步驟只會啟用一個電腦/帳戶來與服務通訊。
+為了執行簡單的測試部署以完成本教學課程，將會執行一組最基本的設定步驟，讓服務啟動並執行。這些步驟只會啟用一個電腦/帳戶來與服務通訊。
 
 ### 建立自我簽署憑證
 
@@ -91,7 +91,7 @@
 
 ### 將 PFX 檔案上傳至雲端服務
 
-移至 [Azure Preview 入口網站](https://portal.azure.com)。
+移至 [Azure 入口網站](https://portal.azure.com)。
 
 1. 選取 [雲端服務]。
 2. 選取您先前為分割/合併服務建立的雲端服務。
@@ -154,7 +154,7 @@ Web 角色：
 
 ### 使用網頁瀏覽器連接
 
-決定分割合併服務的 Web 端點。您可以在 Azure 管理入口網站中找到此端點，請移至雲端服務的 [儀表板]，查看右邊的 [網站 URL]。將 ****http://** 取代為 ****https://**，因為預設安全性設定會停用 HTTP 端點。在瀏覽器中載入此 URL 的網頁。
+決定分割合併服務的 Web 端點。您可以在 Azure 傳統入口網站中找到此端點，請移至雲端服務的 [儀表板]，查看右邊的 [網站 URL]。將 ****http://** 取代為 ****https://**，因為預設安全性設定會停用 HTTP 端點。在瀏覽器中載入此 URL 的網頁。
 
 ### 使用 PowerShell 指令碼進行測試
 
@@ -334,4 +334,4 @@ Web 角色：
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

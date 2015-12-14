@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/16/2015"
+   ms.date="12/01/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務管理儲存體帳戶
@@ -113,7 +113,7 @@
 
 一般而言，應用程式只使用其中一個金鑰來存取您的資料。經過一段時間之後，您可以讓應用程式切換為使用第二個金鑰。在您將應用程式切換至次要金鑰之後，可以淘汰第一個金鑰，然後產生新的金鑰。這種使用兩個金鑰的方式可讓您的應用程式存取資料，卻不會產生任何停機時間。
 
-儲存體帳戶金鑰一律以加密的格式儲存在服務中。不過，您可以透過 StorSimple Manager 服務來重設。服務可為相同訂用帳戶中的所有儲存體帳戶取得主要金鑰與次要金鑰，包括儲存體服務中建立的帳戶以及 StorSimple Manager 服務初次建立時產生的預設儲存體帳戶。StorSimple Manager 服務將一律從 Azure 入口網站取得這些金鑰，再以加密的方式儲存。
+儲存體帳戶金鑰一律以加密的格式儲存在服務中。不過，您可以透過 StorSimple Manager 服務來重設。服務可為相同訂用帳戶中的所有儲存體帳戶取得主要金鑰與次要金鑰，包括儲存體服務中建立的帳戶以及 StorSimple Manager 服務初次建立時產生的預設儲存體帳戶。StorSimple Manager 服務將一律從 Azure 傳統入口網站取得這些金鑰，再以加密的方式儲存。
 
 ## 替換工作流程
 
@@ -151,4 +151,4 @@ Microsoft Azure 系統管理員可以直接存取儲存體帳戶 (透過 Microso
 - 深入了解 [StorSimple 安全性](storsimple-security.md)。
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

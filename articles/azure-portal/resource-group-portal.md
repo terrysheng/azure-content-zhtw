@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Azure Preview 入口網站管理 Azure 資源 | Microsoft Azure" 
+	pageTitle="使用 Azure 入口網站管理 Azure 資源 | Microsoft Azure" 
 	description="將多個資源分組為邏輯群組，使該邏輯群組成為所含之資源的生命週期界限。" 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 
-# 使用 Azure Preview 入口網站管理 Azure 資源
+# 使用 Azure 入口網站管理 Azure 資源
 
 ## 簡介
 
-過去在 Microsoft Azure 中管理資源 (例如資料庫伺服器、資料庫或 Web 應用程式) 時，您必須逐一對每項資源執行作業。如果您有某個應用程式是由多項資源所組成，您必須將變更手動調節至應用程式基礎結構。在 Azure Preview 入口網站中，您可以使用 Azure 資源管理員建立資源群組，以同時部署和管理某個應用程式中的所有資源。
+過去在 Microsoft Azure 中管理資源 (例如資料庫伺服器、資料庫或 Web 應用程式) 時，您必須逐一對每項資源執行作業。如果您有某個應用程式是由多項資源所組成，您必須將變更手動調節至應用程式基礎結構。在 Azure 入口網站中，您可以利用 Azure 資源管理員建立資源群組，以同時部署和管理某個應用程式中的所有資源。
 
 一般而言，一個資源群組包含一個特定應用程式的相關資源。例如，一個群組可能會包含一個代管公用網站的 Web 應用程式、一個儲存網站所使用之關聯式資料的 SQL Database，和一個儲存非關聯式資產的儲存體帳戶。資源群組中的每項資源應共用相同的存留期。如需資源管理員的詳細資訊，請參閱[資源管理員概觀](../resource-group-overview.md)。
 
-本主題簡單說明如何在 Azure Preview 入口網站中使用資源群組。目前不是每個服務都支援 Preview 入口網站或資源管理員。針對這些服務，您必須使用[入口網站](https://manage.windowsazure.com)。如需每個服務的狀態，請參閱[資源管理員對於服務、區域和 API 版本的支援](resource-manager-supported-services.md)
+本主題簡單說明如何在 Azure 入口網站內使用資源群組。目前並非所有服務都支援入口網站或資源管理員。針對這些服務，您必須使用[傳統入口網站](https://manage.windowsazure.com)。如需每個服務之狀態的相關資訊，請參閱[資源管理員對於服務、區域和 API 版本的支援](resource-manager-supported-services.md)
 
 ## 建立資源群組和資源
 
-如果您需要建立空的資源群組，您可以選取 [新增]、[管理] 和 [資源群組]。
+如果您需要建立空的資源群組，可以選取 [**新增**]、[**管理**] 和 [**資源群組**]。
 
 ![建立空的資源群組](./media/resource-group-portal/create-empty-group.png)
 
@@ -43,7 +43,7 @@
 
 ## 瀏覽資源群組
 
-按一下 [全部瀏覽] 和 [資源群組]，即可瀏覽所有資源群組。
+按一下 [**全部瀏覽**] 和 [**資源群組**]，即可瀏覽所有資源群組。
 
 ![瀏覽資源群組](./media/resource-group-portal/browse-groups.png)
 
@@ -91,7 +91,7 @@
 
 ## 檢視稽核記錄檔
 
-稽核記錄檔不只包含部署作業，還包含對您的訂用帳戶中的資源進行的所有管理作業。例如，您可以在稽核記錄檔中查看貴組織中的某個人停止應用程式的時間。若要查看稽核記錄檔，請選取 [全部瀏覽] 和 [稽核記錄檔]。
+稽核記錄檔不只包含部署作業，還包含對您的訂用帳戶中的資源進行的所有管理作業。例如，您可以在稽核記錄檔中查看貴組織中的某個人停止應用程式的時間。若要查看稽核記錄檔，請選取 [**全部瀏覽**] 和 [**稽核記錄檔**]。
 
 ![瀏覽稽核記錄檔](./media/resource-group-portal/browse-audit-logs.png)
 
@@ -101,7 +101,7 @@
 
 選取任何作業，您可以看到更多詳細資訊，包括哪個使用者執行此作業。
 
-選取 [篩選]，即可篩選稽核記錄檔中所顯示的內容。
+選取 [**篩選**]，即可篩選稽核記錄檔中的內容。
 
 ![篩選記錄檔](./media/resource-group-portal/filter-logs.png)
 
@@ -125,17 +125,17 @@
 
 ## 標記資源
 
-您可以將標籤套用至資源群組和資源，以便以邏輯方式組織您的資產。如需透過 Preview 入口網站使用標記的詳細資訊，請參閱[使用標記來組織您的 Azure 資源](../resource-group-using-tags.md)。
+您可以將標籤套用至資源群組和資源，以便以邏輯方式組織您的資產。如需有關透過入口網站使用標記的資訊，請參閱[使用標記來組織您的 Azure 資源](../resource-group-using-tags.md)。
 
 ## 部署自訂範本
 
-如果您想要執行部署，但不使用 Marketplace 中中的任何範本，您可建立自訂範本以定義您的解決方案的基礎結構。如需範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
+如果您想要執行部署，但不使用 Marketplace 中中的任何範本，您可建立自訂範本以定義您的解決方案的基礎結構。如需有關範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
-若要透過 Preview 入口網站部署自訂的範本，請選取 [新增]、[Marketplace] 和 [所有項目]。
+若要透過入口網站部署自訂的範本，請選取 [**新增**]、[**Marketplace**] 和 [**所有項目**]。
 
 ![尋找範本部署](./media/resource-group-portal/launch-template.png)
 
-搜尋 [範本部署]，然後從傳回的清單中選取。
+搜尋**範本部署**，然後從傳回的清單中選取。
 
 ![搜尋範本部署](./media/resource-group-portal/search-template.png)
 
@@ -147,11 +147,11 @@
 開始使用
 
 - 如需資源管理員中的概念簡介，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。  
-- 如需部署資源時使用 Azure PowerShell 的簡介，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
-- 如需部署資源時使用 Azure CLI 的簡介，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](../xplat-cli-azure-resource-manager.md)。 
+- 如需部署資源時使用 Azure PowerShell 的簡介，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](../powershell-azure-resource-manager.md)。
+- 如需部署資源時使用 Azure CLI 的簡介，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理](../xplat-cli-azure-resource-manager.md)。 
   
 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

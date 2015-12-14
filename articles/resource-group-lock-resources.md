@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員來鎖定資源
@@ -22,7 +22,7 @@
 
 「Azure 資源管理員」透過資源管理鎖，提供限制在資源上執行作業的能力。鎖定是會在特定領域強制執行鎖定層級的原則。範圍可以是訂用帳戶、資源群組或資源。鎖定層級會識別原則的強制類型，目前有兩種值 – **CanNotDelete** 與 **ReadOnly**。**CanNotDelete** 表示經過授權的使用者仍然可以讀取和修改資源，但它們不能刪除任何受限制的資源。**ReadOnly** 表示經過授權的使用者只能從資源讀取，但無法修改或刪除任何受限制的資源。
 
-鎖定不同於使用以角色為基礎的存取控制來指派使用者權限以執行特定動作。若要深入了解為使用者與角色設定權限，請參閱[預覽入口網站中的角色型存取控制](role-based-access-control-configure.md)與[管理及稽核對資源的存取](resource-group-rbac.md)。不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制，而您一般僅在有限間套用限制鎖定。
+鎖定不同於使用以角色為基礎的存取控制來指派使用者權限以執行特定動作。若要深入了解為使用者與角色設定權限，請參閱[入口網站中的角色型存取控制](role-based-access-control-configure.md)與[管理及稽核對資源的存取](resource-group-rbac.md)。不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制，而您一般僅在有限間套用限制鎖定。
 
 ## 常見案例
 
@@ -108,4 +108,4 @@ Azure PowerShell 針對使用中的鎖定提供其他命令，例如 **Set-Azure
 - 若要變更資源所在的資源群組，請參閱[將資源移至新的資源群組](resource-group-move-resources.md)
 - 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。如需詳細資訊，請參閱[使用原則來管理資源和控制存取](resource-manager-policy.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

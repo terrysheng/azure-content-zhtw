@@ -37,7 +37,7 @@
 
 請注意，本文件假設 SQL 命令是從 SQL Server Management Studio 或 Visual Studio 資料庫總管中執行。
 
-> [AZURE.TIP]或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/zh-TW/services/data-factory/) 建立並排程管線，以將資料移至 Azure 上的 SQL Server VM。如需詳細資訊，請參閱[使用 Azure Data Factory 複製資料 (複製活動)](../data-factory/data-factory-copy-activity.md)。
+> [AZURE.TIP]或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 建立並排程管線，以將資料移至 Azure 上的 SQL Server VM。如需詳細資訊，請參閱[使用 Azure Data Factory 複製資料 (複製活動)](../data-factory/data-factory-copy-activity.md)。
 
 
 ## <a name="prereqs"></a>必要條件
@@ -223,4 +223,4 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

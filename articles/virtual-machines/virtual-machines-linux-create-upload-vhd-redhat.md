@@ -18,7 +18,7 @@
 
 
 # 準備執行 Azure 的 Red Hat 型虛擬機器
-在本文中，您將學習如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure 中使用。本文中涵蓋的 RHEL 版本為 6.7 和 7.1，而本文中涵蓋的預備 Hypervisor 為 Hyper-V、KVM 和 VMWare。
+在本文中，您將學習如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure 中使用。本文中涵蓋的 RHEL 版本為 6.7 和 7.1，而本文中涵蓋的預備 Hypervisor 為 Hyper-V、KVM 和 VMWare。如需參加 Red Hat 雲端存取方案之資格需求的詳細資訊，請參閱 [Red Hat 雲端存取網站](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)。
 
 
 
@@ -112,7 +112,7 @@
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    **注意**：如果 NetworkManager 和 NetworkManager-gnome 套件沒有如步驟 2 所述遭到移除，則在安裝 WALinuxAgent 套件時會將這兩個套件移除。
+    **注意**：如果 NetworkManager 和 NetworkManager-gnome 封裝沒有如步驟 2 所述遭到移除，則在安裝 WALinuxAgent 封裝時會移除這兩個封裝。
 
 13.	請不要在 OS 磁碟上建立交換空間。Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是暫存磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
@@ -475,7 +475,7 @@
 
 - 請勿在作業系統磁碟上設定交換磁碟分割。您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。您可以在以下步驟中找到與此有關的詳細資訊。
 
-- 建立虛擬硬碟時，請選取 [**將虛擬磁碟儲存為單一檔案**]。
+- 建立虛擬硬碟時，請選取 [將虛擬磁碟儲存為單一檔案]。
 
 ###RHEL 6.7
 1.	執行下列命令以解除安裝 NetworkManager：
@@ -484,12 +484,12 @@
 
     **注意：**如果尚未安裝封裝，此命令將會失敗，並出現錯誤訊息。這是預期行為。
 
-2.	在 /etc/sysconfig/ 目錄中，建立名為 **network**、且包含下列文字的檔案：
+2.	在 /etc/sysconfig/ 目錄中，建立名為 **network** 且包含下列文字的檔案：
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-3.	在 /etc/sysconfig/network-scripts/ 目錄中，建立名為 **ifcfg-eth0**、且包含下列文字的檔案：
+3.	在 /etc/sysconfig/network-scripts/ 目錄中，建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
 
         DEVICE=eth0
         ONBOOT=yes
@@ -580,12 +580,12 @@
 
 ###RHEL 7.1
 
-1.	在 /etc/sysconfig/ 目錄中，建立名為 **network**、且包含下列文字的檔案：
+1.	在 /etc/sysconfig/ 目錄中，建立名為 **network** 且包含下列文字的檔案：
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-2.	在 /etc/sysconfig/network-scripts/ 目錄中，建立名為 **ifcfg-eth0**、且包含下列文字的檔案：
+2.	在 /etc/sysconfig/network-scripts/ 目錄中，建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
 
         DEVICE=eth0
         ONBOOT=yes
@@ -798,11 +798,11 @@
 
 2.	將 kickstart 檔案放在可從安裝系統存取的位置。
  
-3.	在 Hyper-V 管理員中建立新的 VM。在 [**連接虛擬硬碟**] 頁面上，選取 [**稍後連接虛擬硬碟**]，並完成 [新增虛擬機器精靈]。
+3.	在 Hyper-V 管理員中建立新的 VM。在 [連線虛擬硬碟] 頁面上，選取 [稍後連接虛擬硬碟]，並完成 [新增虛擬機器精靈]。
 
 4.	開啟 VM 設定：
 
-    a.將新的虛擬硬碟連接到 VM，務必選取 [**VHD 格式**] 和 [**固定大小**]。
+    a.將新的虛擬硬碟連接到 VM，務必選取 [VHD 格式] 和 [固定大小]。
     
     b.將安裝 ISO 連接到 DVD 光碟機。
 
@@ -830,4 +830,4 @@
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

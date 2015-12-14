@@ -17,14 +17,14 @@
 	ms.author="ddove;sidneyh"/>
 
 # 安裝彈性資料庫工作概觀
-[**彈性資料庫工作**](sql-database-elastic-jobs-overview.md)可以透過 PowerShell 或是透過 Azure 入口網站安裝。只在安裝 PowerShell 封裝時，才會取得存取權，使用 PowerShell API 來建立和管理工作。此外，PowerShell API 目前比入口網站提供更多的功能。
+[**彈性資料庫工作**](sql-database-elastic-jobs-overview.md)可以透過 PowerShell 或是透過 Azure 傳統入口網站安裝。只在安裝 PowerShell 封裝時，才會取得存取權，使用 PowerShell API 來建立和管理工作。此外，PowerShell API 目前比入口網站提供更多的功能。
 
 如果您已從現有的**彈性資料庫集區**透過入口網站安裝**彈性資料庫工作**，最新的 Powershell 預覽包括升級現有安裝的指令碼。強烈建議將安裝升級至最新的**彈性資料庫工作**元件，以利用透過 PowerShell API 公開的新功能。
 
 ## 必要條件
 * Azure 訂用帳戶。如需免費試用版，請參閱[免費試用版](http://azure.microsoft.com/pricing/free-trial/)。
 * Azure PowerShell 版本 >= 0.8.16。透過 [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376) 安裝最新版本 (0.9.5)。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
-* [NuGet 命令列公用程式](https://nuget.org/nuget.exe)用來安裝彈性資料庫工作封裝。如需詳細資訊，請參閱 http://docs.nuget.org/docs/start-here/installing-nuget。
+* [NuGet 命令列公用程式](https://nuget.org/nuget.exe)可用來安裝彈性資料庫工作封裝。如需詳細資訊，請參閱 http://docs.nuget.org/docs/start-here/installing-nuget。
 
 ## 下載並匯入彈性資料庫工作 PowerShell 封裝
 1. 啟動 Microsoft Azure PowerShell 命令視窗，並瀏覽至您下載 NuGet 命令列公用程式 (nuget.exe) 的目錄。
@@ -33,7 +33,7 @@
 
 		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-    **彈性資料庫工作**檔案會放在名為 **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** (其中 *x.x.xxxx.x* 反映版本號碼) 的資料夾的本機目錄中。PowerShell Cmdlet (包括必要的用戶端.dll 檔) 位於 **tools\\ElasticDatabaseJobs** 子目錄中，而要安裝、升級和解除安裝的 PowerShell 指令碼也位於 **tools** 子目錄中。
+    **彈性資料庫工作**檔案會放在名為 **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** (其中 *x.x.xxxx.x* 反映版本號碼) 的資料夾的本機目錄中。PowerShell Cmdlet (包括必要的用戶端 .dll 檔) 位於 **tools\\ElasticDatabaseJobs** 子目錄中，而要安裝、升級和解除安裝的 PowerShell 指令碼也位於 **tools** 子目錄中。
 
 3. 例如，輸入 cd tools，瀏覽至 Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x 資料夾下的 tools 子目錄：
 
@@ -49,7 +49,7 @@
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
-2.	執行.\\InstallElasticDatabaseJobs.ps1 PowerShell 指令碼，並提供其所要求之變數的值。此指令碼將依[彈性資料庫工作元件和訂價](sql-database-elastic-jobs-overview/#components-and-pricing)所述建立元件，以及將 Azure 雲端服務設定為適當地使用相依元件。
+2.	執行.\\InstallElasticDatabaseJobs.ps1 PowerShell 指令碼，並提供其所要求之變數的值。此指令碼將依[彈性資料庫工作元件和定價](sql-database-elastic-jobs-overview/#components-and-pricing)所述建立元件，以及將 Azure 雲端服務設定為適當地使用相依元件。
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
@@ -155,8 +155,8 @@
 
 **預估完成時間：**10 分鐘。
 
-1. 從彈性資料庫集區的儀表板檢視，透過 [Azure Preview 入口網站](https://ms.portal.azure.com/#)，按一下 [建立工作]。
-2. 如果您是第一次建立工作，則必須安裝**彈性資料庫工作**，方法是按一下 [預覽條款]。 
+1. 從彈性資料庫集區的儀表板檢視，透過 [Azure 入口網站](https://ms.portal.azure.com/#)，按一下 [建立工作]。
+2. 如果您是第一次建立工作，則必須安裝**彈性資料庫工作**，方法是按一下 [預覽條款]， 
 3. 然後按一下核取方塊接受條款。
 4. 在 [安裝服務] 檢視中，按一下 [工作認證]。
 
@@ -178,7 +178,7 @@
 
 ## 後續步驟
 
-確保已在群組的每個資料庫上建立對指令碼具有適當權限的認證。如需詳細資訊，請參閱[如何將使用者新增至我的資料庫群組中的所有資料庫](sql-database-elastic-jobs-add-logins-to-dbs.md)。請參閱[建立及管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)以開始。
+確保已在群組的每個資料庫上建立對指令碼具有適當權限的認證。如需詳細資訊，請參閱[如何將使用者新增至我的資料庫群組中的所有資料庫](sql-database-elastic-jobs-add-logins-to-dbs.md)。請參閱[建立及管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)以開始進行。
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
@@ -187,4 +187,4 @@
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

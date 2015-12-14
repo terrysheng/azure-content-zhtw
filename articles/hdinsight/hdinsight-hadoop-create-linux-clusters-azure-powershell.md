@@ -1,9 +1,9 @@
 <properties
-   	pageTitle="在 HDInsight 中使用 Azure CLI 在 Linux 上建立 Hadoop、HBase 或 Storm 叢集 | Microsoft Azure"
-   	description="了解如何使用 Azure CLI 在適用於 HDInsight 的 Linux 上建立 Hadoop、HBase 或 Storm 叢集。"
+   	pageTitle="在 HDInsight 中使用 Azure PowerShell 在 Linux 上建立 Hadoop、HBase 或 Storm 叢集 | Microsoft Azure"
+   	description="了解如何使用 Azure PowerShell 在適用於 HDInsight 的 Linux 上建立 Hadoop、HBase 或 Storm 叢集。"
    	services="hdinsight"
    	documentationCenter=""
-   	authors="nitinme"
+   	authors="mumian"
    	manager="paulettm"
    	editor="cgronlun"
 	tags="azure-portal"/>
@@ -25,11 +25,12 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 > [AZURE.NOTE]Azure PowerShell 僅適用於 Windows 用戶端。如果您使用 Linux、Unix 或 Mac OS X 用戶端，請參閱 [使用 Azure CLI 建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-cluster-azure-cli.md)，以取得使用 Azure CLI 建立叢集的資訊。
 
-##必要條件
+###必要條件
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 - __Azure PowerSHell__。如需設定工作站以執行 HDInsight Windows Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。如需搭配使用 Azure PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)。如需 HDInsight Windows PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/dn858087.aspx)。
+
 
 ##建立叢集
 
@@ -127,4 +128,4 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python.md)
 * [使用 Storm on HDInsight 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

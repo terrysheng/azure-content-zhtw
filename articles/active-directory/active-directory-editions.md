@@ -28,7 +28,7 @@ Azure Active Directory 是一項可在雲端中為您的員工、合作夥伴和
 Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比較表中說明。
 
 
-> [AZURE.NOTE]這兩種版本的詳細價格請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/zh-TW/pricing/details/active-directory/)。<br>目前在中國不支援 Azure Active Directory Premium 和 Azure Active Directory Basic。請透過 Azure Active Directory 論壇與我們連絡以取得詳細資訊
+> [AZURE.NOTE]這兩種版本的詳細價格請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。<br>目前在中國不支援 Azure Active Directory Premium 和 Azure Active Directory Basic。請透過 Azure Active Directory 論壇與我們連絡以取得詳細資訊
 
 
 - **Azure Active Directory Basic** - 針對具有雲端優先需求的任務背景工作角色設計，此版本提供以雲端為中心的應用程式存取和自助身分識別管理解決方案。有了 Azure Active Directory 的 Basic 版本，您可獲得生產力增強和成本節約功能，例如：群組式存取管理、雲端應用程式的自助式密碼重設、Azure Active Directory 應用程式 Proxy (以使用 Azure Active Directory 發佈內部部署 Web 應用程式)，全都由可獲得 99.9% 運作時間的企業級 SLA 支援。
@@ -65,7 +65,7 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 | | [雲端使用者的自助式密碼重設](active-directory-passwords.md)| 隨附於 Office 365 訂用帳戶 [4]| ![勾選][12]| ![勾選][12]|
 | | [應用程式 Proxy：內部部署 Web 應用程式的安全遠端存取和 SSO](active-directory-application-proxy-get-started.md)| | ![勾選][12]| ![勾選][12]|
 | | [以群組為基礎的應用程式存取管理和佈建](active-directory-accessmanagement-group-saasapps.md)| | ![勾選][12]| ![勾選][12]|
-| | [高可用性 SLA 運作時間 (99.9%)](https://azure.microsoft.com/zh-TW/support/legal/sla/)| Microsoft Online Services SLA [5]| ![勾選][12]| ![勾選][12]|
+| | [高可用性 SLA 運作時間 (99.9%)](https://azure.microsoft.com/support/legal/sla/)| Microsoft Online Services SLA [5]| ![勾選][12]| ![勾選][12]|
 | **僅限高階功能**| [進階應用程式使用情況報告](active-directory-view-access-usage-reports.md)| | | ![勾選][12]|
 | | [雲端使用者的自助群組管理] (Azure AD 中使用者的自助群組管理)| | | ![勾選][12]|
 | | [包含內部部署寫回功能的自助式密碼重設](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![勾選][12]|
@@ -102,4 +102,4 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

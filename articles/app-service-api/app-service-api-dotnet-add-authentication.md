@@ -18,6 +18,8 @@
 
 # 保護 API 應用程式：新增 Azure Active Directory 或社交提供者驗證
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 概觀
 
 本教學課程示範如何保護 API 應用程式，如此一來，只有經過驗證的使用者才可加以存取。本教學課程也將提供您可用於 ASP.NET API 的程式碼，以便擷取已登入使用者的相關資訊。
@@ -272,4 +274,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure 預覽入口網站]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

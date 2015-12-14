@@ -91,9 +91,9 @@
 
 ### 設定事件中樞
 
-事件中樞是此範例的資料來源。請使用下列步驟建立新的事件中樞。
+事件中樞是此範例的資料來源。請使用下列步驟建立新的事件中心。
 
-1. 前往 [Azure 入口網站](https://manage.windowsazure.com)，依序選取 [新增 | 服務匯流排 | 事件中樞 | 自訂建立]。
+1. 從 [Azure 傳統入口網站](https://manage.windowsazure.com)選取 [新增] > [服務匯流排] > [事件中樞] > [自訂建立]。
 
 2. 在 [新增事件中樞] 對話方塊中，輸入 [事件中樞名稱]，選取要建立中樞的 [區域]，然後建立新的命名空間或選取現有的命名空間。最後，按一下箭頭以繼續。
 
@@ -113,7 +113,7 @@
 
 ### 建立 Storm on HDInsight 叢集
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com/)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 
 2. 按一下左窗格的 [HDInsight]，然後按一下頁面左下角的 [+新增]。
 
@@ -288,7 +288,7 @@
 
 如果您打算透過此範例使用 HBase，您必須建立內含 Storm on HDInsight 叢集和 HBase on HDInsight 叢集的 Azure 虛擬網路。
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 
 2. 依序按一下頁面底部的 [+新增]、[網路服務]、[虛擬網路] 及 [快速建立]。
 
@@ -324,7 +324,7 @@
 
 ### 在虛擬網路上建立 Storm 及 HBase 叢集
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com/)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 
 2. 按一下左窗格的 [HDInsight]，然後按一下頁面左下角的 [+新增]。
 
@@ -422,4 +422,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

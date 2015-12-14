@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/21/2015"
+   ms.date="11/30/2015"
    ms.author="mfussell"/>
 
 # Service Fabric 應用程式案例
@@ -55,9 +55,11 @@ Azure 中的 Service Fabric 平台適用於下列應用程式和服務的類別�
 
 另請參閱下列主題：
 
+[Microservices 詳細說明](service-fabric-overview-microservices.md)
+
 [定義和管理服務狀態](service-fabric-concepts-state.md)
 
-[服務的可用性](service-fabric-concepts-availability-services.md)
+[服務的可用性](service-fabric-availability-services.md)
 
 [Service Fabric 服務的延展性](service-fabric-concepts-scalability.md)
 
@@ -68,4 +70,4 @@ Azure 中的 Service Fabric 平台適用於下列應用程式和服務的類別�
  
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

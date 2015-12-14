@@ -66,7 +66,7 @@
 
 ### 選項 1：建立儲存體帳戶
 
-1. 登入 Azure 入口網站。
+1. 登入 Azure 傳統入口網站。
 
 2. 按一下命令列上的 [新增]。
 
@@ -98,11 +98,11 @@
 
 	![容器名稱](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [AZURE.NOTE]容器預設為私人，且只能由帳戶擁有者存取。若要允許對容器中的 Blob 進行公開讀取存取，但不允許存取容器屬性和中繼資料，請使用 [公用 Blob] 選項。若要允許對容器和 Blob 進行完整的公開讀取存取，請使用 [公開容器] 選項。
+	> [AZURE.NOTE]容器預設為私人，且只能由帳戶擁有者存取。若要允許對容器中的 Blob 進行公開讀取存取，但不允許存取容器屬性和中繼資料，請使用 [**公用 Blob**] 選項。若要允許對容器和 Blob 進行完整的公開讀取存取，請使用 [**公開容器**] 選項。
 
 ### 選項 2：取得儲存體帳戶資訊
 
-1.	登入 Azure 入口網站。
+1.	登入 Azure 傳統入口網站。
 
 2.	從導覽窗格中，按一下 [儲存體]。
 
@@ -150,7 +150,7 @@
 
 	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
 
-	其中：- **BlobStorageURL** 是儲存體帳戶的 URL - **YourImagesFolder** 是 Blob 儲存體內您想要在其中儲存映像的容器 - **VHDName** 是您想要 Azure 入口網站顯示以識別虛擬硬碟的名稱 - **PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱
+	其中： - **BlobStorageURL** 是儲存體帳戶的 URL - **YourImagesFolder** 是您想要在其中儲存映像之 Blob 儲存體內的容器 - **VHDName** 是您想要 Azure 傳統入口網站顯示以識別虛擬硬碟的名稱 - **PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱
 
 	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
 
@@ -158,11 +158,11 @@
 
 ## 步驟 5：將映像加入至您的自訂映像清單
 
-> [AZURE.TIP]若要使用 Azure PowerShell (而不使用 Azure 入口網站) 來加入映像，請使用 **Add-AzureVMImage** Cmdlet。例如：
+> [AZURE.TIP]若要使用 Azure PowerShell (而不使用 Azure 傳統入口網站) 來加入映像，請使用 **Add-AzureVMImage** Cmdlet。例如：
 
 >	`Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>`
 
-1. 在 Azure 入口網站的 [所有項目] 底下，按一下 [虛擬機器]。
+1. 在 Azure 傳統入口網站的 [**所有項目**] 下方按一下 [**虛擬機器**]。
 
 2. 在 [虛擬機器] 下，按一下 [映像]。
 
@@ -192,7 +192,7 @@
 
 	![從自訂映像建立 VM](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]如果在您嘗試建立 VM 時發生錯誤，並出現錯誤訊息「VHD https://XXXXX... 具有不受支援的虛擬大小 YYYY 位元組。大小必須是整數 (以 MB 為單位)」，這表示您的 VHD 不是整數 MB，且必須是固定大小的 VHD。請嘗試使用 **Add-AzureVMImage** PowerShell Cmdlet (而不要使用 Azure 入口網站) 來加入映像 (請參閱上面的步驟 5)。Azure Cmdlet 可確保 VHD 會符合 Azure 需求。
+	> [AZURE.TIP]如果在您嘗試建立 VM 時發生錯誤，並出現錯誤訊息「VHD https://XXXXX... 具有不受支援的虛擬大小 YYYY 位元組。大小必須是整數 (以 MB 為單位)」，這表示您的 VHD 不是整數 MB，且必須是固定大小的 VHD。請嘗試使用 **Add-AzureVMImage** PowerShell Cmdlet (而不要使用 Azure 傳統入口網站) 來加入映像 (請參閱上面的步驟 5)。Azure Cmdlet 可確保 VHD 會符合 Azure 需求。
 
 ## 後續步驟 ##
 
@@ -203,4 +203,4 @@
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

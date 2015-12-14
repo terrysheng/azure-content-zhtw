@@ -33,9 +33,9 @@
 
 ## <a id="update-scripts"></a>更新後端指令碼以傳送推播通知
 
-* 在管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**]。在 [TodoItem] 中，按一下 [指令碼] 索引標籤，然後選取 [插入]。這會顯示 [TodoItem] 資料表中發生插入時所叫用的函數。
+* 在 [Azure 傳入口網站]中，按一下 [資料] 索引標籤，再按一下 [TodoItem]。在 [TodoItem] 中，按一下 [指令碼] 索引標籤，然後選取 [插入]。這會顯示 [TodoItem] 資料表中發生插入時所叫用的函數。
 
-* 使用下列程式碼來取代 insert 函數，然後按一下 [**儲存**]：如此即會註冊新的 insert 指令碼，該指令碼會使用 [apns 物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收推播通知。
+* 使用下列程式碼來取代 insert 函數，然後按一下 [儲存]。如此即會註冊新的 insert 指令碼，該指令碼會使用 [apns 物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收推播通知。
 
 
 ```
@@ -106,7 +106,7 @@
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [開始使用行動服務]: mobile-services-ios-get-started.md
 [Get started with authentication]: mobile-services-ios-get-started-users.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 傳入口網站]: https://manage.windowsazure.com/
 [apns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -117,4 +117,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

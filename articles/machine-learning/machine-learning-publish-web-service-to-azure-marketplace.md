@@ -37,7 +37,7 @@ Azure Marketplace 可讓您發行 Azure Machine Learning Web 服務，作為供�
  如果您尚未這樣做，請查看這個[逐步解說](machine-learning-walkthrough-5-publish-web-service.md)。
 
 ###步驟 2：將服務部署至實際執行環境中，並取得 API 金鑰與 OData 端點資訊###
-1. 從 [[Azure 管理入口網站](http://manage.windowsazure.com)]，從左側的導覽列中選取 [**機器學習服務**] 選項，並選取您的工作區。 
+1. 從 [Azure 傳統入口網站](http://manage.windowsazure.com)，從左側的導覽列中選取 [機器學習服務] 選項，並選取您的工作區。 
 
 2. 按一下 [**Web 服務**] 索引標籤，並選取您想要發佈到 Marketplace 的 Web 服務。
 
@@ -84,7 +84,7 @@ Azure Marketplace 可讓您發行 Azure Machine Learning Web 服務，作為供�
 
 	![Azure Marketplace][image2]
 
-9.	從 Azure 管理入口網站取得 Web 服務 URL 和 API 金鑰，如以上的步驟 2 所述。
+9.	從 Azure 傳統入口網站取得 Web 服務 URL 和 API 金鑰，如以上的步驟 2 所述。
 
 10.	在 [Marketplace 資料服務] 設定對話方塊中，將 OData 端點位址貼入 [**服務 URL**] 文字方塊。
 
@@ -109,4 +109,4 @@ Azure Marketplace 可讓您發行 Azure Machine Learning Web 服務，作為供�
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

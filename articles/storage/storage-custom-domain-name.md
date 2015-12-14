@@ -28,7 +28,7 @@
 
 將自訂網域指向儲存體帳戶之 Blob 端點的方法有兩種。最簡單的方法是建立 CNAME 記錄，以將自訂網域和子網域對應至 Blob 端點。CNAME 記錄是將來源網域對應至目的地網域的 DNS 功能。在這種情況下，來源網域是您的自訂網域和子網域 (請注意，子網域一律是必要的項目)。目的地網域是 Blob 服務端點。
 
-然而，在進行將自訂網域對應至 Blob 端點時，會由於您在 Azure 管理入口網站中註冊網域而導致網域短暫地停擺。如果自訂網域目前要支援不得發生停機時間之服務等級協定 (SLA) 的應用程式，您可以使用 Azure **asverify** 子網域來提供中繼註冊步驟，因此使用者可以在 DNS 對應發生時存取網域。
+然而，在進行將自訂網域對應至 Blob 端點時，會由於您在 [Azure 傳統入口網站](manage.windowsazure.com)中註冊網域而導致網域短暫地停擺。如果自訂網域目前要支援不得發生停機時間之服務等級協定 (SLA) 的應用程式，您可以使用 Azure **asverify** 子網域來提供中繼註冊步驟，因此使用者可以在 DNS 對應發生時存取網域。
 
 下表展示的範例 URL 可用來存取名為 **mystorageaccount** 之儲存體帳戶中的 Blob 資料。針對儲存體帳戶註冊的自訂網域為 **www.contoso.com**：
 
@@ -48,7 +48,7 @@ Blob|**預設 URL：** http://mystorageaccount.blob.core.windows.net/mycontainer
 
 各註冊機構指定 CNAME 記錄的方法都很類似，只是稍微不同，但概念都一樣。請注意，許多基本網域註冊套件並未提供 DNS 組態，因此您可能需要先升級網域註冊套件，然後再建立 CNAME 記錄。
 
-1.  在 Azure 管理入口網站中，瀏覽至 [儲存體] 索引標籤。
+1.  在 [Azure 傳統入口網站](manage.windowsazure.com)中，瀏覽至 [儲存體] 索引標籤。
 
 2.  在 [儲存體] 索引標籤中，按一下要對應自訂網域的儲存體帳戶名稱。
 
@@ -74,7 +74,7 @@ Blob|**預設 URL：** http://mystorageaccount.blob.core.windows.net/mycontainer
 
 asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前加上 **asverify**，代表您允許 Azure 在不修改網域之 DNS 記錄的情況下認可自訂網域。一旦修改網域的 DNS 記錄，它將能在沒有停機時間的情況下對應至 Blob 端點。
 
-1.  在 Azure 管理入口網站中，瀏覽至 [儲存體] 索引標籤。
+1.  在 [Azure 傳統入口網站](manage.windowsazure.com)中，瀏覽至 [儲存體] 索引標籤。
 
 2.  在 [儲存體] 索引標籤中，按一下要對應自訂網域的儲存體帳戶名稱。
 
@@ -117,4 +117,4 @@ asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前�
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">如何將 CDN 內容對應至自訂網域</a>
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

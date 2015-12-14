@@ -25,7 +25,7 @@
 
 Azure SQL Database 服務唯有透過 TCP 通訊埠 1433 才能使用。若要從您的電腦存取 SQL Database，請務必確認您的防火牆允許 TCP 連接埠 1433 上的傳出 TCP 通訊。連接程序當中，從 Azure 虛擬機器的連接會被重新導向到不同的 IP 位址和連接埠，針對每個背景工作角色都是唯一。連接埠號碼的範圍從 11000 到 11999。
 
-在您第一次連接到 Azure SQL Database 伺服器之前，必須先使用 [Azure 入口網站](https://portal.azure.com) 或 [Azure 平台管理入口網站](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard)設定 Azure SQL Database 防火牆。您必須建立伺服器層級的防火牆設定，讓您的電腦或 Azure 可以嘗試連接到 Azure SQL Database 伺服器。此外，如果您想要控制 Azure SQL Database 伺服器中特定資料庫的存取，請針對個別資料庫建立資料庫層級的防火牆規則。如需詳細資訊，請參閱 [Azure SQL Database 防火牆](sql-database-firewall-configure.md)。
+在您第一次連接到 Azure SQL Database 伺服器之前，必須先使用 [Azure 傳統入口網站](https://portal.azure.com) 或 [Azure 平台管理入口網站](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard)設定 Azure SQL Database 防火牆。您必須建立伺服器層級的防火牆設定，讓您的電腦或 Azure 可以嘗試連接到 Azure SQL Database 伺服器。此外，如果您想要控制 Azure SQL Database 伺服器中特定資料庫的存取，請針對個別資料庫建立資料庫層級的防火牆規則。如需詳細資訊，請參閱 [Azure SQL Database 防火牆](sql-database-firewall-configure.md)。
 
 ## 連接加密和憑證驗證
 
@@ -111,4 +111,4 @@ GO
 
 [SQL Server Database Engine 和 Azure SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

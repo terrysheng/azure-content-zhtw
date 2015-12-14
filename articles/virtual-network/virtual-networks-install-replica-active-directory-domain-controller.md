@@ -23,7 +23,7 @@
 
 您也可能對以下相關主題有興趣：
 
-- 您可以在 Azure 虛擬網路上選擇性安裝新的 Active Directory 樹系。如需相關步驟，請參閱[在 Azure 虛擬網路上安裝新的 Active Directory 樹系](../active-directory-new-forest-virtual-machine.md)。
+-  您可以在 Azure 虛擬網路上選擇性安裝新的 Active Directory 樹系。如需相關步驟，請參閱[在 Azure 虛擬網路上安裝新的 Active Directory 樹系](../active-directory-new-forest-virtual-machine.md)。
 -  如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱[在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針](https://msdn.microsoft.com/library/azure/jj156090.aspx) (英文)。
 
 
@@ -121,4 +121,4 @@
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

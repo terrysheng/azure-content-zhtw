@@ -35,7 +35,7 @@ DevOps 領域中有許多工具可協助處理持續整合管線中的各個點�
 
 [apt get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 這類封裝管理員在 Linux 領域中相當知名，但在 Windows 領域中沒有那麼出名。[Chocolatey](https://chocolatey.org/) 就是如此，Scott Hanselman 的[部落格](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)對此主題有深入介紹。簡單的說，Chocolatey 可讓您使用命令列，從封裝的中央儲存機制將封裝安裝到 Windows 系統。您可以建立和管理您自己的儲存機制，而 Chocolatey 可以從您指定的任何數量的儲存機制來安裝封裝。
 
-預期狀態設定 (DSC) ([概觀](https://technet.microsoft.com/zh-TW/library/dn249912.aspx)) 是一個 PowerShell 工具，可讓您為電腦宣告您想要的組態。例如，您可以說「我想要安裝 Chocolatey、我想要安裝 IIS、我想要開啟連接埠 80、我想要安裝網站 1.0.0 版」。 DSC 本機組態管理員 (LCM) 會實作該組態。DSC 提取伺服器有一個儲存機制保存您電腦的組態。每台電腦上的 LCM 會定期檢查電腦的組態是否符合已儲存的組態。它可能報告狀態，也可能嘗試讓電腦回復到符合已儲存的組態。您可以編輯提取伺服器上儲存的組態，讓一台電腦或一群電腦符合已變更的組態。
+預期狀態設定 (DSC) ([概觀](https://technet.microsoft.com/library/dn249912.aspx)) 是一個 PowerShell 工具，可讓您為電腦宣告您想要的組態。例如，您可以說「我想要安裝 Chocolatey、我想要安裝 IIS、我想要開啟連接埠 80、我想要安裝網站 1.0.0 版」。 DSC 本機組態管理員 (LCM) 會實作該組態。DSC 提取伺服器有一個儲存機制保存您電腦的組態。每台電腦上的 LCM 會定期檢查電腦的組態是否符合已儲存的組態。它可能報告狀態，也可能嘗試讓電腦回復到符合已儲存的組態。您可以編輯提取伺服器上儲存的組態，讓一台電腦或一群電腦符合已變更的組態。
 
 Azure 自動化是 Microsoft Azure 中的受管理服務，可讓您使用 Runbook、節點、認證、資源以及排程和全域變數之類的資產，將各種工作自動化。Azure 自動化 DSC 將此自動化功能擴大包含 PowerShell DSC 工具。以下提供清楚的[概觀](automation-dsc-overview.md)。
 
@@ -75,7 +75,7 @@ PowerShell 資源庫會自動將 DSC 資源安裝到您的 Azure 自動化帳戶
 
 ![PowerShell 資源庫範例](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
-還有手動方法。適用於 Windows 電腦的 PowerShell 整合模組的資料夾結構，與 Azure 自動化所需的資料夾結構稍有不同。您需要稍微調整一下。但並不難，每個資源只需要進行一次 (除非您將來想要升級。) 如需關於撰寫 PowerShell 整合模組的詳細資訊，請參閱下列文章：[撰寫 Azure 自動化的整合模組](https://azure.microsoft.com/zh-TW/blog/authoring-integration-modules-for-azure-automation/)
+還有手動方法。適用於 Windows 電腦的 PowerShell 整合模組的資料夾結構，與 Azure 自動化所需的資料夾結構稍有不同。您需要稍微調整一下。但並不難，每個資源只需要進行一次 (除非您將來想要升級。) 如需關於撰寫 PowerShell 整合模組的詳細資訊，請參閱下列文章：[撰寫 Azure 自動化的整合模組](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   將您需要的模組安裝在工作站，如下所示：
     -   安裝 [Windows Management Framework v5](http://aka.ms/wmf5latest) 
@@ -187,4 +187,4 @@ PowerShell 資源庫中的 cChoco DSC 資源版本的原始檔並不是最新的
 - [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 - [上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

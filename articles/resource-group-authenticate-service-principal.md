@@ -142,7 +142,7 @@
 
 1. 針對這兩種方法，從您的憑證建立 X509Certificate 物件並擷取金鑰值。使用憑證的路徑以及該憑證的密碼。
 
-        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
+        $cert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate -ArgumentList @("C:\certificates\examplecert.pfx", "yourpassword")
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
 2. 如果使用金鑰認證，請建立金鑰認證物件並將其值設為上一個步驟中的 `$keyValue`。
@@ -312,4 +312,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

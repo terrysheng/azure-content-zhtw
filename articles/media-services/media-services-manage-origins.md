@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="如何管理媒體服務帳戶中的串流端點" 
-	description="本主題說明如何使用 Azure 管理入口網站管理串流端點。" 
+	description="本主題說明如何使用 Azure 傳統入口網站管理串流端點。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -30,22 +30,22 @@
 
 請注意，只有 StreamingEndpoint 處於執行中狀態時，才會向您收取費用。
 
-本主題簡介串流端點提供的主要功能。本主題也會示範如何使用 Azure 管理入口網站來管理串流端點。
+本主題簡介串流端點提供的主要功能。本主題也會示範如何使用 Azure 傳統入口網站來管理串流端點。
 
 
-##新增及刪除串流端點 
+##新增及刪除串流端點
 
-您可以利用 .NET SDK、 REST API 或 Azure 管理入口網站來新增或移除串流端點。
+您可以利用 .NET SDK、 REST API 或 Azure 傳統入口網站來新增或移除串流端點。
 
-若要使用入口網站來新增或移除串流端點，以執行下列作業：
+若要使用 Azure 傳統入口網站來新增或移除串流端點，以執行下列作業：
 
-1. 在[管理入口網站](https://manage.windowsazure.com/)中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
-2. 選取 [串流端點] 頁面。 
-3. 按一下頁面底部的 [新增] 或 [刪除] 按鈕。請注意，預設串流端點不可刪除。 
-4. 按一下 [啟動] 按鈕以啟動串流端點。 
-5. 按一下串流端點的名稱加以設定。   
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
+2. 選取 [串流端點] 頁面。
+3. 按一下頁面底部的 [新增] 或 [刪除] 按鈕。請注意，預設串流端點不可刪除。
+4. 按一下 [啟動] 按鈕以啟動串流端點。
+5. 按一下串流端點的名稱加以設定。
 
-	![串流端點頁面][streaming-endpoint]
+![串流端點頁面][streaming-endpoint]
 
 
 根據預設，您可以建立兩個串流端點。如果您需要更多串流端點，請參閱[配額和限制](media-services-quotas-and-limitations.md)。
@@ -54,7 +54,7 @@
 
 串流單位提供您可以以 200 Mbps 為增量購買的專用流出容量和目前包含[動態封裝功能](media-services-dynamic-packaging-overview.md)的其他功能。依預設，串流是以共用執行個體模型來設定，可與其他所有使用者共用伺服器資源 (例如，運算、流出容量等)。若要改善串流的輸送量，建議購買串流單位。
 
-您可以利用 .NET SDK、REST API 或 Azure 管理入口網站進行調整。
+您可以利用 .NET SDK、REST API 或 Azure 傳統入口網站進行調整。
 
 若要利用入口網站來變更串流單位數目，請執行下列動作：
 
@@ -82,7 +82,7 @@
 
 如需這些屬性的詳細資訊，請參閱 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx)。
 
-您可以利用 .NET SDK、REST API 或 Azure 管理入口網站設定這些屬性。
+您可以利用 .NET SDK、REST API 或 Azure 傳統入口網站設定這些屬性。
 
 若要利用入口網站來變更串流單位數目，請執行下列動作：
 
@@ -149,4 +149,4 @@
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

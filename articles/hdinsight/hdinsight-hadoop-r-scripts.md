@@ -39,11 +39,11 @@ R 與 Azure Blob 儲存體 (WASB) 相容，因此便可在 HDInsight 上使用 R
 
 ## 安裝 R
 
-您可以從 Azure 儲存體中的唯讀 Blob，取得用以在 HDInsight 叢集上安裝 R 的[範例指令碼](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)。本節提供有關如何在使用 Azure Preview 入口網站建立叢集時使用範例指令碼的指示。
+您可以從 Azure 儲存體中的唯讀 Blob，取得用以在 HDInsight 叢集上安裝 R 的[範例指令碼](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)。本節提供有關如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
 
 > [AZURE.NOTE]範例指令碼是在 HDInsight 叢集版本 3.1 中所推出。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](../hdinsight-component-versioning/)。
 
-1. 若您透過預覽入口網站建立 HDInsight 叢集，請按一下 [選擇性組態]，然後按一下 [指令碼動作]。
+1. 若您透過入口網站建立 HDInsight 叢集，請按一下 [選擇性組態]，然後按一下 [指令碼動作]。
 2. 在 [指令碼動作] 頁面上，輸入下列值：
 
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "使用指令碼動作以自訂叢集")
@@ -65,7 +65,7 @@ R 與 Azure Blob 儲存體 (WASB) 相容，因此便可在 HDInsight 上使用 R
 ## 執行 R 指令碼
 本節說明如何使用 HDInsight 在 Hadoop 叢集上執行 R 指令碼。
 
-1. **建立與叢集的遠端桌面連線**：從預覽入口網站，針對您所建立且已安裝 R 的叢集啟用遠端桌面，然後連接至叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
+1. **建立與叢集的遠端桌面連線**：從入口網站，針對您所建立且已安裝 R 的叢集啟用遠端桌面，然後連線到叢集。如需指示，請參閱[使用 RDP 連接至 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)。
 
 2. **開啟 R 主控台**：R 安裝會在前端節點的桌面上放置 R 主控台的連結。按一下該連結以開啟 R 主控台。
 
@@ -113,4 +113,4 @@ R 與 Azure Blob 儲存體 (WASB) 相容，因此便可在 HDInsight 上使用 R
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

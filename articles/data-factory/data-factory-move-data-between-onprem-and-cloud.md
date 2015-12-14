@@ -40,14 +40,14 @@
 7.	您應該將您的資料來源視為內部部署資料來源 (亦即在防火牆後面)，即使您使用 **ExpressRoute** 和**使用閘道器**建立服務與資料來源之間的連接也一樣。 
 
 ## 閘道器安裝 - 先決條件
-1.	支援的作業系統版本包括 Windows 7、Windows 8/8.1、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。
+1.	支援的**作業系統**版本包括 Windows 7、Windows 8/8.1、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。
 2.	建議閘道器電腦的「組態」至少為 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
 3.	如果主機電腦休眠，閘道器即無法回應資料要求。因此，安裝閘道器之前，請先在電腦上設定適當的「電源計劃」。如果電腦已設定為休眠，安裝閘道器時會提示訊息。
 
 因為複製活動執行會以特定的頻率發生，在電腦上的資源使用量 (CPU、記憶體) 也會遵循與尖峰和閒置時間相同的模式。資源使用率也仰賴要移動的資料量。當多個複製工作正在進行中時，您將觀察到資源使用量會在尖峰時段增加。雖然上述情況是組態下限，根據資料移動的特定負載，您的組態最好還是要具備比上述組態下限還要多的資源。
 
 ## 安裝
-資料管理閘道的安裝方式為從 Microsoft 下載中心下載 MSI 安裝套件。MSI 也可用來將現有的資料管理閘道升級至最新的版本，並保留所有設定。您可以遵循以下的逐步解說，以從 Azure 入口網站尋找連至 MSI 套件的連結。
+資料管理閘道的安裝方式為從 Microsoft 下載中心下載 MSI 安裝套件。MSI 也可用來將現有的資料管理閘道升級至最新的版本，並保留所有設定。您可以遵循以下的逐步解說，以從 Azure 傳統入口網站尋找連結至 MSI 封裝的連結。
 
 ### 安裝最佳作法：
 1.	為閘道器設定主機電腦上的電源計劃，使電腦不休眠。如果主機電腦休眠，閘道器即無法回應資料要求。
@@ -85,9 +85,9 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 在本逐步解說中，您可以使用將資料從內部部署 SQL Server 資料庫移至 Azure Blob 的管線，來建立一個 Data Factory。
 
 ### 步驟 1：建立 Azure Data Factory
-在此步驟中，您可以使用 Azure 管理入口網站來建立名為 **ADFTutorialOnPremDF** 的 Azure Data Factory 執行個體。您也可以使用 Azure Data Factory Cmdlet 來建立 Data Factory。
+在這個步驟中，您可以使用 Azure 傳統入口網站來建立名為 **ADFTutorialOnPremDF** 的 Azure Data Factory 執行個體。您也可以使用 Azure Data Factory Cmdlet 來建立 Data Factory。
 
-1.	登入 [Azure Preview 入口網站](https://portal.azure.com)之後，從左下角按一下 [**新增**]、在 [**建立**] 刀鋒視窗選取 [**資料分析**]，然後在 [**資料分析**] 刀鋒視窗上按一下 **Data Factory**。
+1.	登入 [Azure 入口網站](https://portal.azure.com)之後，請按一下左下角的 [新增]，並選取 [建立] 刀鋒視窗中的 [資料分析]，然後按一下 [資料分析] 刀鋒視窗中的 [Data Factory]。
 
 	![新增->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)
   
@@ -124,7 +124,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 
 	![[建立閘道器] 刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
-3. 在 [**設定**] 刀鋒視窗中，按一下 [**直接安裝在此電腦上**]。這會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。
+3. 在 [**設定**] 分頁中，按一下 [**直接安裝在此電腦上**]。這會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。
 
 	> [AZURE.NOTE]請使用 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。
 
@@ -138,26 +138,26 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 
 	>[AZURE.NOTE]您必須是本機電腦上的系統管理員，才能成功安裝和設定「資料管理閘道」。您可以將其他使用者加入至資料管理閘道使用者本機 Windows 群組。此群組的成員可以使用「資料管理閘道組態管理員」工具來設定閘道器。
 
-5. 請等候幾分鐘，然後在電腦上啟動**資料管理閘道器組態管理員**應用程式。在 [**搜尋**] 視窗中，輸入**資料管理閘道器**以存取此公用程式。您也可以在資料夾 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 中找到可執行檔 **ConfigManager.exe**：
+5. 請等候幾分鐘，然後在電腦上啟動 [資料管理閘道器組態管理員] 應用程式。在 [搜尋] 視窗中，輸入**資料管理閘道器**以存取這個公用程式。您也可以在資料夾 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 中找到可執行檔 **ConfigManager.exe**
 
 	![閘道器組態管理員](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 
 6. 請稍候，待這些值設定完成，如下所示：
-	1. [**狀態**] 設為 [**已啟動**]。
+	1. [狀態] 設定為 [已啟動]。
 	2. [閘道器名稱] 設定為 **adftutorialgateway**。
 	3. [執行個體名稱] 設定為 **adftutorialgateway**。
-	4. [**註冊**] 設為 [**已註冊**]。
-	5. 底部的狀態列會顯示 [已連接到資料管理閘道器雲端服務] 和一個綠色的核取記號。
+	4. [註冊] 設定為 [已註冊]。
+	5. 底部的狀態列會顯示 [已連接到資料管理閘道雲端服務] 和一個綠色的核取記號。
 
-8. 切換至 [憑證] 索引標籤。此索引標籤上指定的憑證可用來加密/解密您在入口網站指定之內部部署資料存放區的認證。按一下 [**變更**] 改為使用您自己的憑證。根據預設，閘道器會使用由 Data Factory 服務自動產生的憑證。
+8. 切換至 [憑證] 索引標籤。此索引標籤上指定的憑證可用來加密/解密您在入口網站指定之內部部署資料存放區的認證。按一下 [變更] 改為使用您自己的憑證。根據預設，閘道器會使用由 Data Factory 服務自動產生的憑證。
 
 	![閘道器憑證組態](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 9. (選擇性) 切換至 [診斷] 索引標籤，如果您想啟用詳細資訊記錄功能，以便用來排解閘道器的任何疑難問題，請勾選 [啟用詳細資訊記錄以進行疑難排解] 選項。在 [應用程式及服務記錄檔] -> [資料管理閘道器] 節點之下的 [事件檢視器] 中可找到記錄資訊。 
 
-	![診斷索引標籤](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
+	![[診斷] 索引標籤](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
 	您也可以使用此頁面來對使用閘道器的內部部署資料來源**測試連線**。
-10. 在 Azure 入口網站中，依序在 [設定] 刀鋒視窗和 [新增資料閘道器] 刀鋒視窗中，按一下 [確定]。
+10. 在 Azure 傳統入口網站中，依序在 [設定] 刀鋒視窗和 [新增資料閘道器] 刀鋒視窗中，按一下 [確定]。
 6. 左側的樹狀檢視中，[資料閘道器] 下方應該會顯示 **adftutorialgateway**。如果按一下，應該會看到相關聯的 JSON。 
 	
 
@@ -165,14 +165,14 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **SqlServerLinkedService****SqlServerLinkedService** 連結內部部署 SQL Server 資料庫，而 **StorageLinkedService** 連結服務則將 Azure Blob 存放區連結至 Data Factory。稍後在本逐步解說中，您將建立可將內部部署 SQL Server 資料庫的資料複製到 Azure Blob 存放區的管線。
 
 #### 在內部部署 SQL Server 資料庫中新增連結服務
-1.	在 [Data Factory 編輯器] 中，按一下工具列上的 [新增資料存放區]，選取 [SQL Server]。 
+1.	在 [Data Factory 編輯器] 中，按一下工具列上的 [新增資料存放區]，然後選取 [SQL Server]。 
 
 	![新增 SQL Server 連結服務](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png) 
 3.	在 [JSON 編輯器] 中，執行下列動作： 
 	1. 為 **gatewayName** 指定 **adftutorialgateway**。	
 	2. 如果您使用 Windows 驗證：
 		1. 在 **connectionString** 中： 
-			1. 將 **Integrated Security** 設為 **true**。
+			1. 將 **Integrated Security** 設定為 **true**。
 			2. 指定資料庫的**伺服器名稱**和**資料庫名稱**。 
 			2. 移除 **User ID** 和 **Password**。 
 		3. 為 **userName** 和 **password** 屬性指定使用者名稱和密碼。
@@ -208,7 +208,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 在此步驟中，您會建立代表複製作業的輸入和輸出資料的輸入和輸出資料集 (內部部署 SQL Server 資料庫 => Azure Blob 儲存體)。在建立資料集或資料表 (矩形資料集) 之前，您必須執行下列動作 (清單後列有詳細步驟)：
 
 - 在您新增為 Data Factory 連結服務的 SQL Server 資料庫中，建立名為 **emp** 的資料表，並在資料表中插入幾個範例項目。
-- 在您新增至 Data Factory 作為連結服務的 Azure Blob 儲存體帳戶中，建立名為 **adftutorial** 的 Blob 容器。
+- 在您加入 Data Factory 作為連結服務的 Azure Blob 儲存體帳戶中，建立名為 **adftutorial** 的 Blob 容器。
 
 ### 準備用於教學課程的內部部署 SQL Server
 
@@ -263,10 +263,10 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 
 	請注意：
 	
-	- **type** 設為 **SqlServerTable**。
+	- **type** 設定為 **SqlServerTable**。
 	- **tableName** 設定為 **emp**。
 	- **linkedServiceName** 設定為 **OnPremSqlLinkedService** (您已在步驟 2 中建立此連結服務)。
-	- 針對並非由 Azure Data Factory 中另一個管線所產生的輸入資料表，您必須將 **external** 設為 **true**。它代表輸入資料產生於 Azure Data Factory 服務外部。您可以使用 **Policy** 區段中的 **externalData** 元素，選擇性地指定任何外部資料原則。    
+	- 針對並非由 Azure Data Factory 中另一個管線所產生的輸入資料表，您必須將 **external** 設定為 **true**。它代表輸入資料產生於 Azure Data Factory 服務外部。您可以使用 **Policy** 區段中的 **externalData** 元素，選擇性地指定任何外部資料原則。    
 
 	如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考][json-script-reference]。
 
@@ -299,10 +299,10 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
   
 	請注意：
 	
-	- **type** 設為 **AzureBlob**。
+	- **type** 設定為 **AzureBlob**。
 	- **linkedServiceName** 設定為 **StorageLinkedService** (您已在步驟 2 中建立此連結服務)。
 	- **folderPath** 設定為 **adftutorial/outfromonpremdf**，其中 outfromonpremdf 是 adftutorial 容器中的資料夾。您只需要建立 **adftutorial** 容器。
-	- **availability** 設定為**每小時**，且 (**frequency** 設定為 **小時**，**interval** 設定為 **1**)。Data Factory 服務會每小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。 
+	- **availability** 設定為**每小時**，且 (**frequency** 設定為**小時**，**interval** 設定為 **1**)。Data Factory 服務會每小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。 
 
 	如果您沒有指定**輸入資料表**的 **fileName**，則輸入資料夾 (**folderPath**) 中的所有檔案/Blob 都會視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱 [教學課程][adf-tutorial] 中的範例檔案。
  
@@ -382,10 +382,10 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 
 	請注意：
  
-	- 在 activities 區段中，只會有 **type** 設為 **Copy** 的活動。
+	- 在 activities 區段中，只會有 **type** 設定為 **Copy** 的活動。
 	- 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
-	- 在 **transformation** 區段中，**SqlSource** 被指定為**來源類型**，**BlobSink** 指定為**接收類型**。
-	- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
+	- 在 **transformation** 區段中，將 **SqlSource** 指定為**來源類型**，並將 **BlobSink** 指定為**接收類型**。
+- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
 
 	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
@@ -402,7 +402,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 **恭喜！** 您已成功建立 Azure Data Factory、連結服務、資料表和管線，以及排定的管線。
 
 #### 在圖表檢視中檢視 Data Factory 
-1. 在「Azure Preview 入口網站」中，在 **ADFTutorialOnPremDF** Data Factory 的首頁上按一下 [圖表] 磚：
+1. 在 **Azure 入口網站**中，按一下 **ADFTutorialOnPremDF** Data Factory 首頁上的 [圖表] 磚：
 
 	![圖表連結](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
@@ -413,9 +413,9 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 	您可以將管線和資料表放大、縮小、放大到 100%、縮放至適當比例和自動定位，以及顯示歷程資訊 (反白顯示所選取項目的上游和下游項目)。您可以按兩下物件 (輸入/輸出資料表或管線) 查看其屬性。
 
 ### 步驟 6：監視資料集和管線
-在此步驟中，您將使用 Azure 入口網站來監視 Azure Data Factory 的運作情形。您也可以使用 PowerShell Cmdlet 來監視資料集和管線。如需有關監視的詳細資訊，請參閱[監視和管理管線](monitor-manage-pipelines.md)。
+在這個步驟中，您將使用 Azure 傳統入口網站來監視 Azure Data Factory 的運作情形。您也可以使用 PowerShell Cmdlet 來監視資料集和管線。如需監視的詳細資料，請參閱[監視和管理管線](monitor-manage-pipelines.md)。
 
-1. 瀏覽至「Azure Preview 入口網站」(如果您已關閉它)
+1. 巡覽至 **Azure 入口網站** (如果您已關閉它)
 2. 如果 [**ADFTutorialOnPremDF**] 刀鋒視窗尚未開啟，請按一下**開始面板**上的 [**ADFTutorialOnPremDF**] 以開啟此刀鋒視窗。
 3. 您應該會看到您在此刀鋒視窗上建立之資料表和管線的**計數**和**名稱**。
 
@@ -454,7 +454,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 
 11. 按一下 **X** 關閉所有刀鋒視窗，直到您
 12. 回到 **ADFTutorialOnPremDF** 的起始刀鋒視窗為止。
-14. (選擇性步驟) 依序按一下 [管線] 及 [ADFTutorialOnPremDF]，然後深入檢視輸入資料表 (**已使用**) 或輸出資料表 (**已產生**)。
+14. (選擇性) 依序按一下 [管線] 及 [ADFTutorialOnPremDF]，然後深入檢視輸入資料表 (**已使用**) 或輸出資料表 (**已產生**)。
 15. 使用「Azure 儲存體總管」之類的工具來驗證輸出。
 
 	![Azure 儲存體總管](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
@@ -464,11 +464,11 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 
 2. 在入口網站中，瀏覽至 **Data Factory 首頁**，然後按一下 [連結服務] 磚。 
 
-	![資料閘道器連結](./media/data-factory-move-data-between-onprem-and-cloud/DataGatewaysLink.png) 
+	![資料閘道連結](./media/data-factory-move-data-between-onprem-and-cloud/DataGatewaysLink.png) 
 3. 在 [連結服務] 刀鋒視窗的 [資料閘道器] 區段中選取您的閘道器。
 	
 	![[連結服務] 刀鋒視窗與所選取的閘道器](./media/data-factory-move-data-between-onprem-and-cloud/LinkedServiceBladeWithGateway.png)
-4. 在 [資料閘道器道] 刀鋒視窗中，按一下 [下載並安裝資料閘道器]。
+4. 在 [資料閘道器] 刀鋒視窗中，按一下 [下載並安裝資料閘道器]。
 	
 	![下載閘道器連結](./media/data-factory-move-data-between-onprem-and-cloud/DownloadGatewayLink.png) 
 5. 在 [設定] 刀鋒視窗中，按一下 [下載並安裝資料閘道器]，並遵循指示將資料閘道器安裝在電腦上。 
@@ -477,29 +477,29 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 6. 讓 [Microsoft 資料管理閘道器組態管理員]保持開啟。 
  
 	![組態管理員](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)	
-7. 在入口網站的 [設定] 刀鋒視窗中，按一下命令列上的 [重新建立索引鍵]，再按一下警告訊息中的 [是]。按一下索引鍵文字旁的**複製按鈕**，將索引鍵複製到剪貼簿。請注意，一旦重新建立索引鍵，舊電腦上的閘道器便會停止運作。  
+7. 在入口網站的 [設定] 刀鋒視窗中，按一下命令列上的 [重新建立金鑰]，然後按一下警告訊息中的 [是]。按一下金鑰文字旁的**複製按鈕**，將金鑰複製到剪貼簿。請注意，一旦重新建立索引鍵，舊電腦上的閘道器便會停止運作。  
 	
 	![重新建立索引鍵](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
 	 
-8. 將**索引鍵**貼到電腦上 [資料管理閘道器組態管理員] 裡 [註冊閘道器] 頁面的文字方塊中。(選擇性步驟) 按一下 [顯示閘道器索引鍵] 核取方塊，查看索引鍵文字。
+8. 將**金鑰**貼到電腦上 [資料管理閘道器組態管理員] 之 [註冊閘道器] 頁面的文字方塊中。(選擇性) 按一下 [顯示閘道器金鑰] 核取方塊以查看金鑰文字。
  
-	![複製索引鍵與註冊](./media/data-factory-move-data-between-onprem-and-cloud/CopyKeyAndRegister.png)
+	![複製金鑰與註冊](./media/data-factory-move-data-between-onprem-and-cloud/CopyKeyAndRegister.png)
 9. 按一下 [註冊] 透過雲端服務註冊閘道器。
 10. 在 [指定憑證] 頁面上，按一下 [瀏覽]，以選取舊閘道器所使用的憑證，輸入**密碼**，然後按一下 [完成]。 
  
 	![指定憑證](./media/data-factory-move-data-between-onprem-and-cloud/SpecifyCertificate.png)
 
-	您可以執行下列步驟從舊閘道器中匯出憑證：啟動舊電腦上的資料管理閘道器組態管理員，切換到 [憑證] 索引標籤，按一下 [匯出] 按鈕，然後遵循指示進行。 
-10. 成功註冊閘道器後，閘道器組態管理員的首頁上的 [註冊] 應會設為 [已註冊]，[狀態] 會設為 [已啟動]。 
+	您可以執行下列步驟從舊閘道器中匯出憑證：啟動舊電腦上的 [資料管理閘道器組態管理員]，切換到 [憑證] 索引標籤，按一下 [匯出] 按鈕，然後遵循指示進行。 
+10. 成功註冊閘道器後，閘道器組態管理員首頁上的 [註冊] 應會設定為 [已註冊]，[狀態] 會設定為 [已啟動]。 
 
 ## 設定認證和安全性
 
 您也可以使用 [連結服務] 刀鋒視窗而不是使用 [Data Factory 編輯器] 建立 SQL Server 連結服務。
  
 3.	在 Data Factory 首頁上，按一下 [連結服務] 磚。 
-4.	在 [連結服務] 刀鋒視窗中，從命令列按一下 [新增資料存放區]。 
+4.	在 [連結服務] 刀鋒視窗中，按一下命令列上的 [新增資料存放區]。 
 4.	輸入 **SqlServerLinkedService** 作為**名稱**。 
-2.	按一下 [類型] 旁的箭頭，然後選取 [SQL Server]。
+2.	按一下 [類型] 旁的箭號，然後選取 [SQL Server]。
 
 	![建立新的資料存放區](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
 3.	您可以在 [類型] 設定下進行更多設定。
@@ -507,32 +507,27 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 
 	![SQL Server 設定](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
 4.	在 [伺服器] 設定中輸入資料庫伺服器的名稱。
-5.	在 [資料庫] 設定中輸入資料庫名稱。
+5.	在 [資料庫] 設定中輸入資料庫的名稱。
 6.	按一下 [認證] 旁的箭號。
 
 	![認證刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
-7.	在 [認證] 刀鋒視窗中，按一下 [按一下這裡以設定認證]。
+7.	在 [認證] 刀鋒視窗中，按一下 [按一下這裡設定認證]。
 8.	在 [設定認證] 對話方塊中，執行下列動作：
 
-	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-	1.	在 [驗證] 中選取您想要 Data Factory 服務用來連接到資料庫的驗證。 
-	2.	在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。 
-	3.	在 [密碼] 設定中輸入使用者的密碼。  
-	4.	按一下 [確定] 關閉對話方塊。  
+	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1.選取您要 Data Factory 服務用來連接到資料庫的**驗證**。2.在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。3.在 [密碼] 設定中輸入使用者的密碼。4.按一下 [確定] 關閉對話方塊。 
 4. 按一下 [確定] 關閉 [認證] 刀鋒視窗。 
 5. 按一下 [新增資料存放區] 刀鋒視窗中的 [確定]。 	
-6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。
-	![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。如果應用程式無法連接閘道器電腦，它將不允許您設定資料來源的認證，以及測試資料來源的連接。
 
-當您使用從 Azure 入口網站啟動的「設定認證」應用程式，設定內部部署資料來源的認證時，入口網站會利用閘道器電腦上，您在「資料管理閘道」組態管理員的 [認證] 索引標籤中指定的憑證，來加密認證。
+當您使用從 Azure 傳統入口網站啟動的「設定認證」應用程式，設定內部部署資料來源的認證時，入口網站會利用您在閘道器電腦上 [資料管理閘道器組態管理員] 的 [認證] 索引標籤中指定的憑證，來加密認證。
 
-若您要尋找可加密認證的 API 式方法，可以使用 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) PowerShell Cmdlet 加密認證。此 cmdlet 會使用閘道器設定用來加密認證的憑證。您可以加密此 Cmdlet 傳回的認證，並將其新增至 JSON 檔案 (您將搭配 [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) Cmdlet 使用的檔案，或在入口網站之 Data Factory 編輯器的 JSON 程式碼片段中使用的檔案) 中 connectionString 的 EncryptedCredential 元素中。
+如果您要尋找以 API 為基礎的方法來加密認證，可以使用 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) PowerShell Cmdlet 來加密認證。此 cmdlet 會使用閘道器設定用來加密認證的憑證。您可以加密這個 Cmdlet 傳回的認證，並將其加入 JSON 檔案 (您將搭配 [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) Cmdlet 使用的檔案，或在入口網站之 Data Factory 編輯器的 JSON 程式碼片段中使用的檔案) 之 connectionString 的 EncryptedCredential 元素中。
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
-**請注意：**若您使用「設定認證」應用程式，它會如上方所示，在連接服務中自動設定加密的認證。
+**請注意：**如果您使用「設定認證」應用程式，它會如上方所示，在連結服務中自動設定加密的認證。
 
 設定認證只能使用 Data Factory 編輯器，沒有其他方法。如果您使用編輯器建立 SQL Server 連結服務，並且以純文字輸入認證，認證就會使用 Data Factory 服務所擁有的憑證加密，而不使用閘道器設定要使用的憑證。雖然這種方法在某些情況下可能快一點，但也比較不安全。因此，建議您只在開發/測試用途才採用此方法。
 
@@ -578,13 +573,13 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. 在 Azure PowerShell 中，切換到資料夾：**C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如下列命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
+4. 在 Azure PowerShell 中，切換到資料夾：**C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript**，然後執行與區域變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如下列命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
-5. 您可以使用 **Get-AzureDataFactoryGateway** Cmdlet 取得 Data Factory 中的閘道器清單。當 [狀態] 顯示為 [線上] 時，表示您的閘道器已就緒可供使用。
+5. 您可以使用 **Get-AzureDataFactoryGateway** Cmdlet 取得 Data Factory 中的閘道器器清單。當 [狀態] 顯示為 [線上] 時，表示您的閘道器已就緒可供使用。
 
 		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
@@ -594,10 +589,9 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 ## 使用資料管理閘道進行複製的資料流
 當您使用資料管線中的複製活動，將內部部署資料擷取至雲端以進行進一步的處理，或者匯出雲端中的結果資料回到內部部署資料存放區，複製活動都會在內部使用閘道器將資料從內部部署資料來源傳輸回雲端，反之亦然。
 
-利用資料閘道器進行複製步驟的高層級資料流和摘要如下：
-![使用閘道器的資料流](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+利用資料閘道器進行複製的高層級資料流和步驟摘要如下：![使用閘道器的資料流](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
-1.	資料開發人員會使用 [Azure 入口網站](http://portal.azure.com)或 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx)，為 Azure Data Factory 建立新的閘道器。 
+1.	資料開發人員會使用 [Azure 傳統入口網站](http://portal.azure.com)或 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx)，為 Azure Data Factory 建立新的閘道器。 
 2.	資料開發人員會使用「連結服務」面板，透過閘道器定義內部部署資料存放區的新連結服務。在設定連結服務資料的過程中，開發人員會使用設定認證應用程式指定驗證類型和認證，如逐步解說所示。設定認證應用程式對話方塊將會與資料存放區進行通訊以測試要儲存認證的連線與閘道器。
 3.	在雲端中儲存認證之前，閘道器會利用與閘道器 (由資料開發人員提供) 相關聯的憑證加密認證。
 4.	資料處理站移動服務會和閘道器進行通訊，以透過使用共用 Azure 服務匯流排佇列的控制通道，進行工作的排程和管理。必須開始複製活動工作時，資料處理站會將要求和認證資訊一起排入佇列。輪詢佇列之後，閘道器隨即啟動。
@@ -612,10 +606,10 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 	2.	使用 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) powershell commandlet: a。如果您使用 powershell 命令來加密認證，而且您最後不想閘道器安裝程式在 Windows 防火牆中開啟輸入連接埠，您可以在安裝期間使用下列命令即可辦到：
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
-3.	若使用**設定認證**應用程式，您必須在能夠連接至資料管理閘道器的電腦上加以啟動，才能設定資料來源的認證，並測試資料來源的連接情形。
+3.	如果使用**設定認證**應用程式，您必須在能夠連接至資料管理閘道器的電腦上加以啟動，才能設定資料來源的認證，並測試資料來源的連接情形。
 4.	在內部部署 SQL Server 資料庫和 Azure SQL Database 之間往返複製資料時，請確定下列各項：	
 	- 	閘道器電腦上的防火牆允許從 **TCP** 連接埠 **1433** 連出的 TCP 通訊。
-	- 	進行 [Azure SQL 防火牆設定](https://msdn.microsoft.com/library/azure/jj553530.aspx)，將**閘道器電腦的 IP 位址**加入 [允許的 IP 位址]。
+	- 	進行 [Azure SQL 防火牆設定](https://msdn.microsoft.com/library/azure/jj553530.aspx)，將**閘道器電腦的 IP 位址**加入 [允許的 IP 位址] 中。
 5.	當複製資料至/從內部部署 SQL Server 至任何目的地，而且閘道器和 SQL Server 電腦不同時，請執行下列動作：在 SQL Server 電腦上[設定 Windows 防火牆](https://msdn.microsoft.com/library/ms175043.aspx)，讓閘道器可以透過 SQL Server 執行個體所接聽的連接埠存取資料庫。在預設執行個體中，這是連接埠 1433。
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

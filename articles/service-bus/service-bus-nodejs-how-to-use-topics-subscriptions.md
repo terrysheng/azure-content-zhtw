@@ -69,7 +69,7 @@ Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVIC
 
 如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務][]。
 
-如需在 Azure 網站的 Azure 入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
+如需在 Azure 網站的 [Azure 傳統入口網站][]中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
 
 ## 建立主題
 
@@ -292,7 +292,7 @@ for (i = 0;i < 5;i++) {
 
 ## 刪除主題和訂用帳戶
 
-主題和訂用帳戶是持續性的，您必須透過 Azure 入口網站或程式設計明確地加以刪除。下列範例示範如何刪除名為 `MyTopic` 的主題：
+主題和訂用帳戶是持續性的，您必須透 過[Azure 傳統入口網站][]或程式設計明確地加以刪除。下列範例示範如何刪除名為 `MyTopic` 的主題：
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -317,7 +317,7 @@ for (i = 0;i < 5;i++) {
 -   造訪 GitHub 上的 [Azure SDK for Node][] (英文) 儲存機制。
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [使用儲存體的 Node.js Web 應用程式]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

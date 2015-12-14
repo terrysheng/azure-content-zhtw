@@ -28,7 +28,7 @@ Azure 搜尋服務是託管的雲端搜尋服務，讓提供絕佳的搜尋體�
 
 若要設定 Azure SQL 索引子，您可以呼叫 [Azure 搜尋服務 REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173) 以建立和管理**索引子**及**資料來源**。
 
-您也可以使用 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 的 [索引子類別](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx)，或 [Azure 入口網站](https://portal.azure.com) 的 [匯入資料精靈]，建立並排程索引子。
+您也可以使用 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 的 [索引子類別](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx)，或 [Azure 傳統入口網站](https://portal.azure.com) 的 [匯入資料精靈]，建立並排程索引子。
 
 **資料來源**能指定哪項資料要編製索引、存取資料需要哪些認證，以及哪些政策能讓 Azure 搜尋服務有效識別資料變更 (新增、修改或刪除的資料列)。資料來源會被定義為獨立的資源，因此可供多個索引子使用。
 
@@ -66,7 +66,7 @@ Azure 搜尋服務是託管的雲端搜尋服務，讓提供絕佳的搜尋體�
 	}
 
 
-您可以從 [Azure 入口網站](https://portal.azure.com)取得連接字串；使用 `ADO.NET connection string` 選項。
+您可以從 [Azure 傳統入口網站](https://portal.azure.com)取得連接字串；使用 `ADO.NET connection string` 選項。
 
 然後，建立目標 Azure 搜尋服務索引 (如果您尚未建立)。您可以從 [Azure 入口網站 UI](https://portal.azure.com) 或使用[建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。確保您的目標索引結構敘述與來源資料表結構敘述相容。請參閱下列資料表，對應 SQL 及 Azure 搜尋服務間的資料類型。
 
@@ -279,4 +279,4 @@ Azure 搜尋服務是託管的雲端搜尋服務，讓提供絕佳的搜尋體�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

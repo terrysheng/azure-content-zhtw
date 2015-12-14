@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # 從 Azure 入口網站設定 Service Fabric 叢集
@@ -25,12 +25,10 @@
 
 1. 登入 Azure 入口網站 [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal)。
 
-2. 按一下 [+新增] 加入新的資源範本。在 Marketplace 的 [全部] 之下搜尋我們的範本 - 名稱為 \[Service Fabric 叢集]
-(您可藉由進入最上層類別 - Marketplace > 來瀏覽至 [全部]，然後在 [全部] 之下搜尋 "Fabric" 並且按 Enter 鍵 - 有時候自動篩選會無法運作，所以務必**按 Enter 鍵**)  
-    ![SearchforServiceFabricClusterTemplate][SearchforServiceFabricClusterTemplate]
+2. 按一下 [+新增] 加入新的資源範本。在 Marketplace 的 [全部] 之下搜尋我們的範本 - 名稱為 [Service Fabric 叢集] (您可藉由進入最上層類別 - Marketplace > 來瀏覽至 [全部]，然後在 [全部] 之下搜尋 "Fabric" 並且按 Enter 鍵 - 有時候自動篩選會無法運作，所以務必**按 Enter 鍵**) ![SearchforServiceFabricClusterTemplate][SearchforServiceFabricClusterTemplate]
 
-3. 從清單中選取 \[Service Fabric 叢集]
-4. 瀏覽至 \[Service Fabric 叢集] 刀鋒視窗，然後按一下 [建立] 並提供叢集的詳細資料
+3. 從清單中選取 [Service Fabric 叢集]
+4. 瀏覽至 [Service Fabric 叢集] 刀鋒視窗，然後按一下 [建立] 並提供叢集的詳細資料
 5. 建立**新的資源群組 (RG)** - 讓它與叢集名稱相同 - 但最好還是稍後進行尋找。當您嘗試變更您的部署和/或刪除您的叢集時，特別有用。
 
   	注意：雖然您可以決定使用現有的資源群組，但最好是建立新的資源群組。這可讓刪除您不需要的叢集變得非常簡單
@@ -38,12 +36,12 @@
  	 ![CreateRG][CreateRG]
 
 
-6. 請務必選取您要部署叢集的 [訂用帳戶] \(尤其在您有多個訂用帳戶時)。
+6. 請務必選取您要部署叢集的 [訂用帳戶] (尤其在您有多個訂用帳戶時)。
 
-7. 從下拉式清單中選取**位置** (如果您想要建立於其他位置，否則會預設為 \[美國西部]\)
+7. 從下拉式清單中選取**位置** (如果您想要建立於其他位置，否則會預設為 [美國西部])
 
 8. 設定您的 [節點類型]。節點類型可以視為雲端服務中的「角色」對等項目。其可定義 VM 大小、VM 數目及其屬性。您的叢集可以有一個以上的節點類型。唯一的條件約束是您需至少有一個節點類型 (您在入口網站中定義的主要或第一個節點類型) 有至少 5 部 VM。
-	1. 選取您需要的 VM 大小/定價層 (預設值為 \[D4 標準]\，如果您即將使用此叢集來測試您的應用程式，也可以選取 D2 或任何較小的 VM)	
+	1. 選取您需要的 VM 大小/定價層 (預設值為 [D4 標準]，如果您即將使用此叢集來測試您的應用程式，也可以選取 D2 或任何較小的 VM)	
 	2. 選擇 VM 數目。您稍後可以相應增加或減少節點類型中的 VM 數目，但主要或第一個節點類型必須至少有 5 部 VM
 	3. 選擇節點類型的名稱 (長度為 1 到 12 個字元，只能包含字母和數字)	
 	4. 選擇 VM 遠端桌面的使用者名稱和密碼
@@ -56,7 +54,7 @@
 
   	![CreateNodeType][CreateNodeType]
 
-9. **應用程式連接埠** - 如果您打算將應用程式立即部署到叢集，則新增您要對此節點類型 (或您已建立的 nodeType) 上的應用程式開放的連接埠。您稍後可以將連接埠新增至節點類型，方法是修改與此節點類型相關聯的負載平衡器 (您需要新增探查，然後將此探查新增至負載平衡器規則)。立即這麼做，因為入口網站自動化功能會將所需的探查和規則新增至 LB，所以比較容易一些。 
+9. **應用程式連接埠** - 如果您打算將應用程式立即部署到叢集，則新增您要對此節點類型 (或您已建立的 nodeType) 上的應用程式開放的連接埠。您稍後可以將連接埠新增至節點類型，方法是修改與此節點類型相關聯的負載平衡器 (您需要新增探查，然後將此探查新增至負載平衡器規則)。立即這麼做，因為入口網站自動化功能會將所需的探查和規則新增至 LB，所以比較容易一些。
 	1. 您可以在服務資訊清單中尋找屬於應用程式封裝的應用程式連接埠。移至每個應用程式，開啟服務資訊清單，並記下您的應用程式與外界溝通時所需的「輸入」端點。
 	2. 在 [應用程式輸入端點] 欄位中新增所有的連接埠 (以逗號分隔)。TCP 用戶端連接端點 - 預設值為 19000，因此您不需要指定它們。比方說，我的應用程式需要開放連接埠 "83"。您將會在您的應用程式封裝中的 servicemanifest.xml (可能有一個以上的 servicemanifest.xml) 中找到此連接埠。
 
@@ -66,14 +64,14 @@
 
 
 
-1. **選擇性：放置屬性** - 您不需載此新增任何組態，"NodeTypeName" 的預設放置屬性是由系統所加入。如果您的應用程式需要更多屬性，則可選擇加入更多屬性。 
+10. **選擇性：放置屬性** - 您不需載此新增任何組態，"NodeTypeName" 的預設放置屬性是由系統所加入。如果您的應用程式需要更多屬性，則可選擇加入更多屬性。 
 
   
 ## 安全性組態
 
 此時，Service Fabric 只支援透過 x509 憑證保護叢集。開始此程序前，您必須將憑證上傳至 KeyVault。如需作法的詳細資訊，請參閱 [Service Fabric 叢集安全性](service-fabric-cluster-security.md)。
 
-您可選擇是否保護您的叢集，但強烈建議您這麼做。如果您選擇不要保護叢集，您需要將 [安全性模式] 切換為 [無]。   
+您可選擇是否保護您的叢集，但強烈建議您這麼做。如果您選擇不要保護叢集，您需要將 [安全性模式] 切換為 [無]。
 
 有關安全性考量及作法的詳細資訊，請參閱 [Service Fabric 叢集安全性](service-fabric-cluster-security.md)
 
@@ -180,14 +178,11 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -A
 Register your application type with service fabric.
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
-````
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount" ````
 
 在您剛才註冊的應用程式類型上建立新的執行個體。
 
-```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
-````
+```powershell New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0 ````
 
 現在開啟您所選的瀏覽器並連接到應用程式正在接聽的端點。對我的範例應用程式 count 而言，URL 如下所示。
 
@@ -197,7 +192,7 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-- [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)
+- [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)。
 - [Service Fabric 叢集安全性](service-fabric-cluster-security.md)
 - [Service Fabric 健康狀態模型簡介](service-fabric-health-introduction.md)
 
@@ -213,4 +208,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!-------HONumber=Nov15_HO4---->
+<!---HONumber=AcomDC_1203_2015-->

@@ -65,7 +65,7 @@ Azure Marketplace 提供受歡迎網站內容管理系統 (CMS) 的範本，例�
 
 透過使用自動調整功能自動地進行調整、使用 Azure Redis 快取功能進行快取、使用 WebJobs 執行背景工作，還有使用 Azure 流量管理員維持高可用性，最佳化 .COM 網站。
 
-App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作負載多寡，都能符合您 .COM 網站的需求。透過 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)以手動方式、透過[服務管理 API] 或 [PowerShell 指令碼處理]以程式設計方式，或是使用「自動調整」功能自動地將您的網站相應放大。在「標準」主控方案中，「自動調整」可讓您依據 CPU 使用量相應放大網站。如需最佳做法，請參閱 [Troy Hunt] 的[我所學到關於使用 Azure 快速調整 Web 應用程式的 10 件事]。
+App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作負載多寡，都能符合您 .COM 網站的需求。透過 [Azure 入口網站](https://portal.azure.com)以手動方式、透過[服務管理 API] 或 [PowerShell 指令碼處理]以程式設計方式，或是使用「自動調整」功能自動地將您的網站向外調整。在「標準」主控方案中，「自動調整」可讓您依據 CPU 使用量相應放大網站。如需最佳做法，請參閱 [Troy Hunt] 的[我所學到關於使用 Azure 快速調整 Web 應用程式的 10 件事]。
 
 使用 [Azure Redis 快取]加速您網站的回應速度。使用此功能，可從後端資料庫以及 [ASP.NET 工作階段狀態]與[輸出快取]等其他項目快取資料。
 
@@ -75,7 +75,7 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 
 使用 Azure 或協力廠商工具掌握最新的網站效能。收到重大網站事件的警示。使用 Application Insight 或使用 HDInsight 的 Web 記錄分析，取得使用者深入觀點。
 
-在 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)的 Web 應用程式刀鋒視窗中，[快速瀏覽]網站目前效能標準與資源配額。如需應用程式的可用性、效能和使用方式的全方位檢視，請使用 [Azure Application Insights] 以取得快速和強大的疑難排解、診斷和使用方式的深入觀點。或者，使用像是 [New Relic] 的協力廠商工具，提供您網站的進階監視資料。
+在 [Azure 入口網站](https://portal.azure.com)的 Web 應用程式刀鋒視窗中，[快速瀏覽]網站目前效能標準與資源配額。如需應用程式的可用性、效能和使用方式的全方位檢視，請使用 [Azure Application Insights] 以取得快速和強大的疑難排解、診斷和使用方式的深入觀點。或者，使用像是 [New Relic] 的協力廠商工具，提供您網站的進階監視資料。
 
 在「標準」主控方案中，可監視網站回應能力，還可在網站毫無回應時，收到電子郵件通知。如需詳細資訊，請參閱[作法：在 Azure 中接收警示通知及管理警示規則]。
 
@@ -137,4 +137,4 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

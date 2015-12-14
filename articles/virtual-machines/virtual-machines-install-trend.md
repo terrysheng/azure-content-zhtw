@@ -31,9 +31,9 @@
 
 ## 在新的虛擬機器上安裝 Deep Security 代理程式
 
-當您使用 [從主機庫] 選項建立虛擬機器時，[Azure 入口網站](http://manage.windowsazure.com)可讓您安裝 VM 代理程式和 Trend Micro 安全性擴充功能。如果您打算建立單一虛擬機器，使用此方法可輕易地新增 Trend Micro 的防護。
+當您使用 [從主機庫] 選項建立虛擬機器時，[Azure 傳統入口網站](http://manage.windowsazure.com)可讓您安裝 VM 代理程式和 Trend Micro 安全性擴充功能。如果您打算建立單一虛擬機器，使用此方法可輕易地新增 Trend Micro 的防護。
 
-此 [From Gallery] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Trend Micro 安全性延伸模組。如需一般指示，請參閱[在 Azure 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial-classic-portal.md)。當您進入精靈的最後一個頁面時，請執行下列動作：
+此 [From Gallery] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Trend Micro 安全性延伸模組。如需一般指示，請參閱[在 Azure 傳統入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial-classic-portal.md)。當您進入精靈的最後一個頁面時，請執行下列動作：
 
 1.	在 [VM 代理程式] 下，勾選 [安裝 VM 代理程式]。
 
@@ -87,4 +87,4 @@
 [如何登入執行 Windows Server 的虛擬機器]: virtual-machines-log-on-windows-server.md
 [Azure VM 延伸模組與功能]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

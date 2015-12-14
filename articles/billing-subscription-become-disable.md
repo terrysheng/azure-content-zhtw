@@ -32,6 +32,6 @@
 
 ### Azure 訂用帳戶已取消
 
-若要重新啟用訂用帳戶，您必須建立支援票證。若要建立支援票來證重新啟用 Azure 訂用帳戶，請參閱文章[如何針對 Azure 計費和訂用帳戶問題建立支援票證？](../billing-create-billing-support-ticket.md)。
+若要重新啟用訂用帳戶，您必須建立支援票證。若要建立支援票來證重新啟用 Azure 訂用帳戶，請參閱文章[如何針對 Azure 計費和訂用帳戶問題建立支援票證](../billing-how-to-create-billing-support-ticket.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

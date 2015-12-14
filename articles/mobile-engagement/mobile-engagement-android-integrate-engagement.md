@@ -1,42 +1,42 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK 整合" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK 整合"
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 #如何在 Android 上整合 Engagement
 
-> [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+> [AZURE.SELECTOR]
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 此程序描述在您的 Android 應用程式中啟動 Engagement 分析和監視功能的最簡單方法。
 
 > [AZURE.IMPORTANT]最低 Android SDK API 層級必須是 10 或更高版本 (Android 2.3.3 或更高版本)。
- 
+
 下列步驟足以啟動計算使用者、工作階段、活動、當機和技術相關之所有統計資料所需的記錄檔報表。用來計算事件、錯誤及工作等其他統計資料所需的記錄檔報告必須使用 Engagement API 手動完成 (請參閱[如何在 Android 中使用進階的 Mobile Engagement 標記 API](mobile-engagement-android-use-engagement-api.md))，因為這些是與應用程式相依的統計資料。
 
 ##將 Engagement SDK 和服務嵌入至您的 Android 專案
 
-從[這裡](http://go.microsoft.com/?linkid=9863935&clcid=0x409)下載 Android SDK，取得 `mobile-engagement-VERSION.jar` 並將它們放入 Android 專案的 `libs` 資料夾 (如果 libs 資料夾尚不存在，請建立此資料夾)。
+從[這裡](https://aka.ms/vq9mfn)下載 Android SDK，取得 `mobile-engagement-VERSION.jar` 並將它們放入 Android 專案的 `libs` 資料夾 (如果 libs 資料夾尚不存在，請建立此資料夾)。
 
 > [AZURE.IMPORTANT]如果您使用 ProGuard 建立應用程式封裝，您需要保留一些類別。您可以使用下列組態程式碼片段：
 >
-> 
+>
 			-keep public class * extends android.os.IInterface
 			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 			<methods>;
@@ -77,7 +77,7 @@
 			 {
 			   if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
 			     return;
-			
+
 			   ... Your code...
 			 }
 
@@ -94,10 +94,10 @@
 **沒有 Engagement：**
 
 			package com.company.myapp;
-			
+
 			import android.app.Activity;
 			import android.os.Bundle;
-			
+
 			public class MyApp extends Activity
 			{
 			  @Override
@@ -111,10 +111,10 @@
 **有 Engagement：**
 
 			package com.company.myapp;
-			
+
 			import com.microsoft.azure.engagement.activity.EngagementActivity;
 			import android.os.Bundle;
-			
+
 			public class MyApp extends EngagementActivity
 			{
 			  @Override
@@ -148,7 +148,7 @@
 			    String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
 			    EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
 			  }
-			
+
 			  @Override
 			  protected void onPause()
 			  {
@@ -270,7 +270,7 @@
     public void onCreate(Bundle savedInstanceState)
     {
       /* Other code... */
-    
+
       /* Request permissions */
       requestPermissions();
     }
@@ -288,7 +288,7 @@
          */
         if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
           requestPermissions(new String[] { android.Manifest.permission.ACCESS_FINE_LOCATION }, 0);
-    
+
         /* Only if you want to keep features using external storage */
         if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
           requestPermissions(new String[] { android.Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1);
@@ -380,6 +380,5 @@ Engagement 在喜好設定檔案內會一律使用 `engagement:key` 布林值機
 
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

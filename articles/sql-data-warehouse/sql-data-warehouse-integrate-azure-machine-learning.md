@@ -43,7 +43,7 @@ Azure 機器學習服務是一項完全受管理的預測性分析服務，您�
 選取 [讀取器] 模組並填寫屬性窗格。
 
 1. 選取 Azure SQL Database 做為資料來源。
-2. 資料庫伺服器名稱：輸入伺服器名稱。您可以使用 [Azure 入口網站][]進行搜尋。
+2. 資料庫伺服器名稱：輸入伺服器名稱。您可以使用 [Azure 傳統入口網站][]進行搜尋。
 
 ![][server_name]
 
@@ -101,7 +101,7 @@ FROM dbo.DimProduct;
 選取 [寫入器] 模組並填寫屬性窗格。
 
 1. 選取 Azure SQL Database 做為資料目的地。
-2. 資料庫伺服器名稱：輸入伺服器名稱。您可以使用 [Azure 入口網站][]進行搜尋。 
+2. 資料庫伺服器名稱：輸入伺服器名稱。您可以使用 [Azure 傳統入口網站][]進行搜尋。 
 3. 資料庫名稱：輸入您剛指定的伺服器上的資料庫名稱。 
 4. 伺服器使用者帳戶名稱：輸入具有資料庫寫入權限的帳戶的使用者名稱。 
 5. 伺服器使用者帳戶名稱：提供指定之使用者帳戶的密碼。
@@ -141,7 +141,7 @@ FROM dbo.DimProduct;
 [建立實驗教學課程]: https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-create-experiment/
 [Azure 上的機器學習服務簡介]: https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 傳統入口網站]: https://portal.azure.com/
 
 <!--MSDN references-->
 
@@ -149,4 +149,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

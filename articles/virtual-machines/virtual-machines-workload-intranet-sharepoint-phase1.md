@@ -82,16 +82,16 @@
 
 > [AZURE.NOTE]此程序將逐步引導您使用網站間 VPN 連線來建立虛擬網路。如需針對網站間連線使用 ExpressRoute 的相關資訊，請參閱 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)。
 
-建立 Azure 虛擬網路之後，Azure 入口網站將會決定下列資訊：
+建立 Azure 虛擬網路之後，Azure 傳統入口網站將會決定下列資訊：
 
 - 適用於您虛擬網路之 Azure VPN 閘道的公用 IPv4 位址。
 - 適用於網站間 VPN 連線的網際網路通訊協定安全性 (IPsec) 預先共用金鑰。
 
-若要在建立虛擬網路之後，於 Azure 入口網站中查看這些設定，請依序按一下 [**網路**]、虛擬網路的名稱，以及 [**儀表板**] 功能表選項。
+若要在建立虛擬網路之後，於 Azure 入口網站中查看這些設定，請依序按一下 [網路]、虛擬網路的名稱，以及 [儀表板] 功能表選項。
 
-其次，您要設定虛擬網路閘道來建立安全的網站間 VPN 連線。如需相關指示，請參閱[在 Azure 入口網站中設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)。
+其次，您要設定虛擬網路閘道來建立安全的網站間 VPN 連線。如需相關指示，請參閱[在 Azure 傳統入口網站中設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)。
 
-接下來，在新的虛擬網路與內部部署 VPN 裝置之間建立網站間 VPN 連線。如需詳細資訊，請參閱[在 Azure 入口網站中設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)來取得相關指示。
+接下來，在新的虛擬網路與內部部署 VPN 裝置之間建立網站間 VPN 連線。如需詳細資訊，請參閱[在 Azure 傳統入口網站中設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)來取得相關指示。
 
 接著，確定可從您的內部部署網路連線到虛擬網路的位址空間。這通常是藉由將對應到虛擬網路位址空間的路由新增到您的 VPN 裝置，然後將該路由公告至組織網路中路由基礎結構的剩餘部分。與您的 IT 部門合作來決定如何執行這個動作。
 
@@ -173,4 +173,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

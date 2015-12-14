@@ -22,7 +22,7 @@ Azure 搜尋服務是 Microsoft Azure 上的雲端託管搜尋服務。此服務
 
 ##各版本的主要功能以及發行日期
 
-我們會透過 [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)、[.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216) 或 [Azure 入口網站](https://portal.azure.com)的服務儀表板單獨或共同發佈各種功能。
+我們會透過 [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)、[.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216) 或 [Azure 傳統入口網站](https://portal.azure.com)的服務儀表板單獨或共同發佈各種功能。
 
 .NET 程式庫和 REST API 都有多種版本。如果我們推出新的功能，舊的 API 仍會保持正常運作。若要瞭解版本政策的詳細資訊，請造訪[搜尋服務版本](https://msdn.microsoft.com/library/azure/dn864560.aspx)。
 
@@ -87,7 +87,7 @@ Azure 搜尋服務是 Microsoft Azure 上的雲端託管搜尋服務。此服務
 
 - 新增 [Lucene 語言分析器](search-api-2014-10-20-preview.md)，讓您能夠為 Lucene 發布的自訂語言分析器提供多語言支援。 
 
-- 為了建置索引，目前已在 [Azure 管理入口網站](https://portal.azure.com)中導入工具支援，其中包括設定檔評分。
+- 為了建置索引，目前已在 [Azure 傳統入口網站](https://portal.azure.com)中導入工具支援，其中包括設定檔評分。
 
 ##Api 版本 2014-07-31 預覽版本
 **發行日期：2014 年 8 月 21日**
@@ -100,7 +100,7 @@ Azure 搜尋服務是 Microsoft Azure 上的雲端託管搜尋服務。此服務
 
 - 地理空間支援一開始就已推出，透過 Azure 搜尋服務最早包含的 `Edm.GeographyPoint` 資料類型提供服務。
 
-- 在 [Azure 管理入口網站](https://portal.azure.com)預覽版本中的佈建。Azure 搜尋服務是新版入口網站所提供的少數服務中的其中一項服務。
+- 在 [Azure 傳統入口網站](https://portal.azure.com)預覽版本中的佈建。Azure 搜尋服務是新版入口網站所提供的少數服務中的其中一項服務。
 
 ##管理 API 版本 2015-08-19
 **發行日期：2015 年 9 月 11 日**
@@ -125,4 +125,4 @@ Azure 搜尋服務是 Microsoft Azure 上的雲端託管搜尋服務。此服務
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

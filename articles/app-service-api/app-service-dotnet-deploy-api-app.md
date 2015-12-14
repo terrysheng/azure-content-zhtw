@@ -18,6 +18,8 @@
 
 # 在 Azure App Service 中部署 API 應用程式 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 概觀
 
 在本教學課程中，您會將[前一個教學課程](app-service-dotnet-create-api-app.md)中建立的 Web API 專案部署到新的 [API 應用程式](app-service-api-apps-why-best-platform.md)。您會使用 Visual Studio，在 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中建立 API 應用程式資源，並將您的 Web API 程式碼部署到 Azure API 應用程式。
@@ -30,13 +32,13 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
  
 ## <a id="provision"></a>在 Azure 中建立 API 應用程式 
 
-在此區段中，您將使用 Visual Studio [發行 Web 精靈] 在 Azure 中建立 API 應用程式。指示您輸入 API 應用程式名稱時，請輸入 *ContactsList*。
+在此區段中，您將使用 Visual Studio **發佈 Web** 精靈在 Azure 中建立 API 應用程式。指示您輸入 API 應用程式名稱時，請輸入 *ContactsList*。
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
 ## <a id="deploy"></a>將您的程式碼部署到新的 Azure API 應用程式
 
-您可使用同一個 [發行 Web 精靈] 將程式碼部署到新的 API 應用程式。
+您可使用同一個**發佈 Web** 精靈將程式碼部署到新的 API 應用程式。
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
@@ -54,13 +56,13 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 
 3. 將 "/swagger" 新增至瀏覽器位址列中的 URL 結尾。
 
-4. 在顯示的 Swagger 頁面中，按一下 **[連絡人] > [取得] > [立即試用]**。
+4. 在顯示的 Swagger 頁面中，按一下 [連絡人] > [取得] > [立即試用]。
 
 	![立即試用](./media/app-service-dotnet-deploy-api-app/swaggerui.png)
 
 ## 在入口網站中檢視 API 定義
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com)中，移回所部署之 API 應用程式的 [**API 應用程式**] 刀鋒視窗。
+1. 在 [Azure Preview 入口網站](https://portal.azure.com)中，移回所部署之 API 應用程式的 [API 應用程式] 刀鋒視窗。
 
 4. 按一下 [**API 定義**]。
  
@@ -107,7 +109,7 @@ API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以�
 
 9. 按一下 [**預覽**] 索引標籤
 
-10. 按一下 [**開始預覽**] 以查看哪些檔案要複製到 Azure。
+10. 按一下 [開始預覽] 以查看哪些檔案要複製到 Azure。
 
 	![發佈 Web 對話方塊](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 
@@ -127,4 +129,4 @@ API 應用程式為 Web 應用程式，具有裝載 API 之額外功能，這表
 
 如需 API Apps 功能的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -35,7 +35,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 3.0 及 2.1 版叢集�
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)。
 
 
 - (選擇性) [cURL][curl]。若要安裝此項目，請參閱 [cURL 版本和下載][curl-download]。
@@ -147,7 +147,7 @@ HDInsight 叢集名稱|$clusterName||您的 HDInsight 叢集名稱。
 
 現在，您已了解如何使用 Ambari 監視 API。若要深入了解，請參閱：
 
-- [使用 Azure 預覽入口網站管理 HDInsight 叢集][hdinsight-admin-portal]
+- [使用 Azure 入口網站管理 HDInsight 叢集][hdinsight-admin-portal]
 - [使用 Azure PowerShell 管理 HDInsight 叢集][hdinsight-admin-powershell]
 - [使用命令列介面管理 HDInsight 叢集][hdinsight-admin-cli]
 - [HDInsight 文件][hdinsight-documentation]
@@ -175,4 +175,4 @@ HDInsight 叢集名稱|$clusterName||您的 HDInsight 叢集名稱。
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -95,7 +95,4 @@
 [將驗證新增至您的應用程式]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [將推播通知新增至您的應用程式]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -68,7 +68,7 @@
 前面提過，DocumentDB 主要金鑰可提供 DocumentDB 帳戶內所有資源的完整系統管理存取權，而唯讀金鑰可提供帳戶內所有資源的讀取權限。下列程式碼片段說明如何使用 DocumentDB 帳戶端點和主要金鑰來具現化 DocumentClient，並建立新的資料庫。
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure Management Portal on the DocumentDB Account Blade under "Keys".
+    //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
 	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -163,4 +163,4 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
 - 若要了解如何建構 DocumentDB 授權權杖，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

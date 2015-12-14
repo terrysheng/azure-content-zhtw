@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="運用 Azure Preview 入口網站開始使用 Azure 資料湖分析 | Azure" 
-   description="了解如何使用 Azure Preview 入口網站建立資料湖分析帳戶、使用 U-SQL 建立資料湖分析工作，以及提交工作。" 
+   pageTitle="使用 Azure 入口網站開始使用 Azure 資料湖分析 | Azure" 
+   description="了解如何使用 Azure 入口網站建立資料湖分析帳戶、使用 U-SQL 建立資料湖分析工作，以及提交工作。" 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,19 +16,19 @@
    ms.date="10/22/2015"
    ms.author="jgao"/>
 
-# 教學課程：運用 Azure Preview 入口網站開始使用 Azure 資料湖分析
+# 教學課程：使用 Azure 入口網站開始使用 Azure 資料湖分析
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-了解如何使用 Azure Preview 入口網站建立 Azure 資料湖分析帳戶、在 [U-SQL](data-lake-analytics-u-sql-get-started.md) 中定義資料湖分析工作，以及將工作提交至資料湖分析帳戶。如需有關資料湖分析的詳細資訊，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
+了解如何使用 Azure 入口網站建立 Azure 資料湖分析帳戶、在 [U-SQL](data-lake-analytics-u-sql-get-started.md) 中定義資料湖分析工作，以及將工作提交至資料湖分析帳戶。如需有關資料湖分析的詳細資訊，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-在本教學課程中，您將會開發一個工作以讀取定位鍵分隔值 (TSV) 檔案，並將該檔案轉換為逗點分隔值 (CSV) 檔案。若要使用其他支援的工具進行同一個教學課程，請按一下此區段頂端的索引標籤。當第一個工作成功完成時，您便可開始使用 U SQL 撰寫更複雜的資料轉換。
+在本教學課程中，您將會開發一個工作以讀取定位鍵分隔值 (TSV) 檔案，並將該檔案轉換為逗點分隔值 (CSV) 檔案。若要使用其他支援的工具進行同一個教學課程，請按一下此區段最上方的索引標籤。當第一個工作成功完成時，您便可開始使用 U SQL 撰寫更複雜的資料轉換。
 
-**基本的資料湖分析程序：**
+**基本資料湖分析程序：**
 
 ![Azure 資料湖分析程序流程圖](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
 
-1. 建立一個資料湖分析帳戶。
+1. 建立資料湖分析帳戶。
 2. 準備來源資料。資料湖分析工作可從 Azure 資料湖存放區帳戶或 Azure Blob 儲存體帳戶讀取資料。在本範例中，我們將從 Azure 資料湖存放區進行讀取。  
 3. 開發 U SQL 指令碼。
 4. 將工作 (U-SQL 指令碼) 提交至資料湖分析帳戶。此工作會讀取來源資料、依照 U-SQL 指令碼中的指示處理資料，然後將輸出儲存至資料湖存放區帳戶或 Blob 儲存體帳戶。
@@ -37,7 +37,7 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ##建立資料湖分析帳戶
 
@@ -47,16 +47,16 @@
 
 **建立資料湖分析帳戶**
 
-1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
+1. 登入新的 [Azure 傳統入口網站](https://portal.azure.com)。
 2. 依序按一下 [新增]、[資料 + 分析] 及 [資料湖分析]。
 6. 輸入或選取下列項目：
 
     ![Azure 資料湖分析入口網站刀鋒視窗](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
 	- **名稱**：為分析帳戶命名。
-	- **資料湖存放區**：每個資料湖分析帳戶均具有相依的資料湖存放區帳戶。資料湖分析帳戶和相依的資料湖儲存區帳戶必須位於相同的 Azure 資料中心。請依照指示建立新的資料湖儲存區帳戶，或選取現有的帳戶。
+	- **資料湖存放區**：每個資料湖分析帳戶均具有相依的資料湖存放區帳戶。資料湖分析帳戶和相依的資料湖存放區帳戶必須位於相同的 Azure 資料中心。請依照指示來建立新的資料湖存放區帳戶，或選取現有的帳戶。
 	- **訂用帳戶**：選擇用於分析帳戶的 Azure 訂用帳戶。
-	- **資源群組**。選取現有的 Azure 資源群組，或建立一個新的群組。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。 
+	- **資源群組**。選取現有的 Azure 資源群組，或建立一個新的群組。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源作為群組使用。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。 
 	- **位置**。針對資料湖分析帳戶選取 Azure 資料中心。 
 7. 選取 [釘選到開始面板]。這是遵循本教學課程的必要項目。
 8. 按一下 [建立]。它會帶領您前往入口網站「開始面板」。新的磚會新增至「開始面板」，且具有顯示 [部署 Azure 資料湖分析] 的標籤。建立資料湖分析帳戶需要幾分鐘的時間。當帳戶建立時，入口網站就會在其中的新刀鋒視窗上開啟帳戶。
@@ -68,13 +68,13 @@
 
 ##準備來源資料
 
-在本教學課程中，您將處理一些搜尋記錄檔。該搜尋記錄檔可以儲存在資料湖存放區或 Azure Blob 儲存體中。
+在本教學課程中，您將會處理一些搜尋記錄檔。搜尋記錄檔可以儲存在資料湖存放區或 Azure Blob 儲存體中。
 
-Azure Preview 入口網站會提供使用者介面，可將範例資料檔案複製到預設的資料湖帳戶，其中包括搜尋記錄檔案。
+Azure 入口網站會提供使用者介面，可將範例資料檔案複製到預設的資料湖帳戶，其中包括搜尋記錄檔案。
 
 **複製範例資料檔案**
 
-1. 從 Azure Preview 入口網站，按一下左上角的 [Microsoft Azure]。
+1. 從 Azure 入口網站中，按一下左上角的 [Microsoft Azure]。
 2. 按一下具有您資料湖分析帳戶名稱的磚。該建立帳戶時它便已釘選在此處。若帳戶尚未釘選，請參閱[從入口網站開啟資料湖分析帳戶](data-lake-analytics-manage-use-portal.md#access-adla-account)以開啟帳戶。
 3. 展開 [程式集] 窗格，並按一下 [探索範例工作]。這會開啟另一個名為 [範例工作] 的刀鋒視窗。
 4. 按一下 [複製範例資料]，然後再按一下 [確定] 來確認。
@@ -128,7 +128,7 @@ Azure Preview 入口網站會提供使用者介面，可將範例資料檔案複
 
 	此 U-SQL 指令碼會使用 **Extractors.Tsv()** 讀取來源資料檔案，然後使用 **Outputters.Csv()** 建立 csv 檔案。
     
-    除非您將來源檔案複製到不同的位置，否則請勿修改這兩個路徑。資料湖分析將建立輸出資料夾 (如果沒有的話)。在此情況中，我們會使用簡單且相對的路徑。
+    除非您將來源檔案複製到其他位置，否則請勿修改這兩個路徑。資料湖分析將建立輸出資料夾 (若尚未建立)。在此情況中，我們會使用簡單且相對的路徑。
 	
 	使用儲存在預設資料湖帳戶中檔案的相對路徑，是比較容易的方法。您也可以使用絕對路徑。例如
     
@@ -158,8 +158,8 @@ Azure Preview 入口網站會提供使用者介面，可將範例資料檔案複
 - 若要了解更複雜的查詢，請參閱[使用 Azure 資料湖分析來分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
 - 若要開始開發 U-SQL 應用程式，請參閱[使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 - 若要了解 U-SQL，請參閱[開始使用 Azure 資料湖分析 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)。
-- 針對管理工作，請參閱[使用 Azure Preview 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
-- 若要取得資料湖分析概覽，請參閱 [Azure 資料湖分析概覽](data-lake-analytics-overview.md)。
-- 若要使用其他工具檢視同一個教學課程，請按一下頁面頂端的索引標籤選取器。
+- 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
+- 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
+- 若要使用其他工具檢視同一個教學課程，請按一下頁面最上方的索引標籤選取器。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

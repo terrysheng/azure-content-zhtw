@@ -41,7 +41,7 @@ Azure 提供您可以用來[快速開始使用 Jupyter](http://blogs.technet.com
 
 按照[此處][portal-vm-linux]提供的指示來建立 *Ubuntu* 散發套件的虛擬機器。本教學課程使用 Ubuntu Server 14.04 LTS。我們假設預設使用者名稱是 *azureuser*。
 
-部署虛擬機器之後，我們需要開啟關於網路安全性群組的安全性規則。從 Azure Preview 入口網站移至 [**網路安全性群組**]，然後開啟對應到您 VM 的安全性群組索引標籤。您必須使用下列設定來新增輸入安全性規則：針對通訊協定輸入 **TCP**、針對來源 (公用) 連接埠輸入 *****，以及針對目的地 (私人) 連接埠輸入 **9999** 。
+部署虛擬機器之後，我們需要開啟關於網路安全性群組的安全性規則。從 Azure 入口網站移至 [網路安全性群組]，然後開啟對應到您 VM 的安全性群組索引標籤。您必須使用下列設定來新增輸入安全性規則：針對通訊協定輸入 **TCP**、針對來源 (公用) 連接埠輸入 *****，以及針對目的地 (私人) 連接埠輸入 **9999** 。
 
 ![螢幕擷取畫面](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
 
@@ -199,4 +199,4 @@ Jupyter Notebook 可為互動存取 Azure 上 Python 生態系統的功能提供
 [儲存機制]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

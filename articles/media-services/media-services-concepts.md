@@ -146,7 +146,7 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 ###PlayReady DRM 授權和 AES 清除金鑰傳遞服務
 
-媒體服務提供一種服務，將 PlayReady 授權和 AES 純文字金鑰傳遞給授權用戶端。若要設定您授權和金鑰的授權和驗證原則，才能使用 Azure 管理入口網站、REST API 或 Media Services SDK for .NET。
+媒體服務提供一種服務，將 PlayReady 授權和 AES 純文字金鑰傳遞給授權用戶端。若要設定您授權和金鑰的授權和驗證原則，才能使用 Azure 傳統入口網站、REST API 或 Media Services SDK for .NET。
 
 請注意，如果您是使用入口網站，則可以設定一個 AES 原則 (將會套用到所有 AES 加密內容) 以及一個 PlayReady 原則 (將會套用到所有 PlayReady 加密內容)。如果您想要進一步控制組態，請使用 Media Services SDK for .NET。
 
@@ -249,4 +249,4 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來檢視和管理 StorSimple 警示
@@ -151,7 +151,7 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 	視裝置本機層上的資料量，雲端連線中斷後的數小時內仍會持續寫入。寫入速度會逐漸緩慢，最終會於雲端連線中斷數小時後失敗。
 
  
-- **雲端中的資料**：大部份的雲端連線錯誤會傳回錯誤。只要連線還原時，IO 就會繼續進行，使用者無需自行連線磁碟區。但在罕見情況下，有可能會需要使用者介入，透過 Azure 入口網站連線磁碟區。
+- **雲端中的資料**：大部份的雲端連線錯誤會傳回錯誤。只要連線還原時，IO 就會繼續進行，使用者無需自行連線磁碟區。但在罕見情況下，有可能會需要使用者介入，透過 Azure 傳統入口網站連線磁碟區。
  
 - **進行中的雲端快照**：會在 4、5 個小時內多次重新嘗試作業，若連線未還原，雲端快照將會失敗。
 
@@ -234,4 +234,4 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 - 深入了解 [StorSimple 錯誤](storsimple-troubleshoot-operational-device.md)。
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

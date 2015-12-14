@@ -21,7 +21,7 @@
 | 快速參考 |
 | --------------- |
 | [Logic Apps 定義語言](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Logic Apps 連接器文件](https://azure.microsoft.com/zh-TW/documentation/articles/app-service-logic-connectors-list/) |
+| [Logic Apps 連接器文件](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurelogicapps) |
 
 Azure App Service 是專為專業開發人員提供的完全受管理的 PaaS (平台即服務)，能夠輕鬆地建置 Web、行動和整合應用程式。Logic Apps 是此套件的一部分，可讓任何技術使用者或開發人員透過容易使用的視覺化設計工具，將商務程序執行和工作流程自動化。
@@ -75,4 +75,4 @@ Logic Apps 可讓開發人員設計從觸發程序啟動的工作流程，然後
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

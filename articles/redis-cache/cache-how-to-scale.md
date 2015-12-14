@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # 如何調整 Azure Redis 快取
@@ -111,7 +111,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 **標準**快取調整至較大的大小時，通常會保留所有資料。將**標準**快取縮小為較小大小時，根據調整時快取中與新大小相關的資料量，資料可能會遺失。如果縮小時遺失資料，則會使用 [allkeys-lru](http://redis.io/topics/lru-cache) 收回原則來收回金鑰。
 
-請注意，標準快取有 99.9% SLA 的可用性時，則資料遺失沒有 SLA。
+請注意，標準和進階快取有 99.9% SLA 的可用性時，則資料遺失沒有 SLA。
 
 ## 是否可以在調整期間使用我的快取
 
@@ -155,4 +155,4 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

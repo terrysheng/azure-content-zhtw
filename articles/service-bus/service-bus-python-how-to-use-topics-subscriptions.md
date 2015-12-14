@@ -43,7 +43,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-您可以從 [Azure 入口網站][] [連接資訊] 視窗取得 SAS 金鑰名稱和值。
+您可以從 [Azure 傳統入口網站][] [連接資訊] 視窗取得 SAS 金鑰名稱和值。
 
 ```
 bus_service.create_topic('mytopic')
@@ -157,7 +157,7 @@ msg.delete()
 
 ## 刪除主題和訂用帳戶
 
-主題和訂用帳戶是持續性的，您必須透過 Azure 入口網站或程式設計明確地加以刪除。下列範例示範如何刪除名為 `mytopic` 的主題：
+主題和訂用帳戶是持續性的，您必須透 過[Azure 傳統入口網站][]或程式設計明確地加以刪除。下列範例示範如何刪除名為 `mytopic` 的主題：
 
 ```
 bus_service.delete_topic('mytopic')
@@ -176,10 +176,10 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 -   請參閱[佇列、主題和訂用帳戶][]。
 -   [SqlFilter.SqlExpression][] 的參考資料。
 
-[Azure 入口網站]: http://manage.windowsazure.com
+[Azure 傳統入口網站]: http://manage.windowsazure.com
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
 [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Azure 佇列與服務匯流排佇列]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

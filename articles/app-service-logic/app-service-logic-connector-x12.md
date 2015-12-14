@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="rajram"/>
 
 # 開始使用 BizTalk X12 API 應用程式並將它加入您的邏輯應用程式
@@ -83,4 +83,4 @@ X12 連接器可用做觸發程序或動作。
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

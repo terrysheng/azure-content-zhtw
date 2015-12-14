@@ -106,10 +106,10 @@
 2. 針對每一個虛擬機器，選取：
 	- 您想要的區域
 	- [Windows] 類型
-	- [標準] 定價層
+	- **標準**定價層
 	- 上表中的預設大小或您想要的大小來做為 [執行個體大小]
 
-> [AZURE.NOTE]「Azure 價格計算機」並未納入兩個執行 SQL Server 2014 Enterprise 之虛擬機器的額外 SQL Server 授權費用。如需詳細資訊，請參閱[虛擬機器定價-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
+> [AZURE.NOTE]「Azure 價格計算機」並未納入兩個執行 SQL Server 2014 Enterprise 之虛擬機器的額外 SQL Server 授權費用。如需詳細資訊，請參閱[虛擬機器價格-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
 
 ### 部署階段
 
@@ -117,7 +117,7 @@
 
 - 第 1 階段：設定 Azure。
 
-	使用 Azure 入口網站和 Azure PowerShell 建立儲存體帳戶、雲端服務和跨單位虛擬網路。如需詳細的設定步驟，請參閱＜[第 1 階段](virtual-machines-workload-intranet-sharepoint-phase1.md)＞。
+	使用 Azure 傳統入口網站和 Azure PowerShell 建立儲存體帳戶、雲端服務和跨單位虛擬網路。如需詳細的設定步驟，請參閱＜[第 1 階段](virtual-machines-workload-intranet-sharepoint-phase1.md)＞。
 
 - 第 2 階段：設定網域控制站。
 
@@ -153,4 +153,4 @@
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

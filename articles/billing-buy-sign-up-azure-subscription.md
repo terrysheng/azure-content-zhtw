@@ -25,7 +25,7 @@
 
 >[AZURE.NOTE]您的電話號碼和信用卡資料只會用於身分識別驗證。雖然不會向您的信用卡收費，但 Microsoft 會預扣最小額度的金額，以驗證信用卡是否有效。此預扣的金額將會在 3-5 個工作天內返還 (依您的財務機構原則而定)。
 
-1. 開啟 [Azure 免費試用頁面](https://azure.microsoft.com/zh-TW/pricing/free-trial/)，然後選取 [**立即試用**]。
+1. 開啟 [Azure 免費試用頁面](https://azure.microsoft.com/pricing/free-trial/)，然後選取 [立即試用]。
 2. 使用您的 Microsoft 帳戶或學校/工作帳戶登入。
 3. 在 [**關於您**] 區段中，輸入您的個人資訊。![個人資訊的螢幕擷取畫面](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
@@ -61,4 +61,4 @@
 2. 輸入產品金鑰，然後選取合約選項。</br>![OSA 金鑰](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. 選取 [**啟用**]。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

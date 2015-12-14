@@ -24,7 +24,7 @@
 
 **相關文章**
 
-- [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install.md)：使用 Azure Preview 入口網站安裝 Giraph
+- [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install.md)：使用 Azure 入口網站安裝 Giraph
 - [在 HDInsight Hadoop 叢集上安裝 Giraph (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [在 HDInsight 叢集中建立 Hadoop](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
 - [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集的一般資訊。
@@ -171,7 +171,7 @@
 
 ## 另請參閱
 
-- [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install.md)：使用 Azure Preview 入口網站安裝 Giraph
+- [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install.md)：使用 Azure 入口網站安裝 Giraph
 - [在 HDInsight Hadoop 叢集上安裝 Giraph (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [在 HDInsight 叢集中建立 Hadoop](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
 - [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集的一般資訊。
@@ -190,4 +190,4 @@
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,11 @@
 
 # 將驗證加入現有的 Azure 行動服務應用程式
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入快速入門專案。本教學課程以[行動服務快速入門教學課程]為基礎，您必須先完成該教學課程。
@@ -58,10 +63,8 @@
 [行動服務快速入門教學課程]: mobile-services-dotnet-backend-ios-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

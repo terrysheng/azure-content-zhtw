@@ -22,7 +22,7 @@
 
 Azure 提供內建診斷功能，可協助對 [App Service Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)進行偵錯。本文將說明如何啟用診斷記錄，並在您的應用程式中加入檢測設備，以及如何存取 Azure 所記錄的資訊。
 
-本文使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure](web-sites-dotnet-troubleshoot-visual-studio.md)。
+本文使用 [Azure 入口網站](https://portal.azure.com)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -50,7 +50,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 ## <a name="enablediag"></a>如何啟用診斷
 
-若要在 [Azure Preview 入口網站](https://portal.azure.com)中啟用診斷，請移至 Web 應用程式的刀鋒視窗，然後依序按一下 [設定] > [診斷記錄]。
+若要在 [Azure 入口網站](https://portal.azure.com)中啟用診斷，請移至 Web 應用程式的刀鋒視窗，然後依序按一下 [設定] > [診斷記錄]。
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![記錄部分](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -59,9 +59,9 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 > [AZURE.NOTE]與變更 web.config 檔案的作法不同之處在於啟用應用程式診斷或是變更診斷記錄層級，而不會回收在其中執行應用程式的應用程式網域。
 
-在 [Azure 入口網站](https://manage.windowsazure.com) Web 應用程式 [設定] 索引標籤中，您可以針對 [Web 伺服器記錄] 選取 [儲存體] 或 [檔案系統]。選取 [儲存] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。[網站診斷] 的其他所有記錄 都只會寫入檔案系統。
+在[傳統入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤中，您可以針對 [Web 伺服器記錄] 選取 [儲存體] 或 [檔案系統]。選取 [儲存] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。[網站診斷] 的其他所有記錄 都只會寫入檔案系統。
 
-[Azure 入口網站](https://manage.windowsazure.com) Web 應用程式 [設定] 索引標籤也有其他應用程式診斷的設定：
+[傳統入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤也有其他應用程式診斷的設定：
 
 * **檔案系統** - 將應用程式診斷資訊儲存至 Web 應用程式檔案系統。這些檔案可透過 FTP 存取，或是使用 Azure PowerShell 或 Azure 命令列介面 (Azure CLI) 下載為 Zip 封存。
 * **資料表儲存體** - 會將應用程式診斷資訊儲存至指定的 Azure 儲存體帳戶與資料表名稱。
@@ -99,7 +99,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 ### FTP
 
-若要使用 FTP 存取診斷資訊，請瀏覽 [Azure 入口網站](https://manage.windowsazure.com)中您 Web 應用程式的 [儀表板]。在 [Quick Glance] 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。[Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
+若要使用 FTP 存取診斷資訊，請在[傳統入口網站](https://manage.windowsazure.com)中造訪您 Web 應用程式的 [儀表板]。在 [Quick Glance] 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。[Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
 
 > [AZURE.NOTE]如果未設定的 [部署/FTP 使用者] 項目，或是您忘記此使用者的密碼，您可以使用 [儀表板] 的 [快速概覽] 區段中**重設部署認證**連結來建立新的使用者名稱和密碼。
 
@@ -132,7 +132,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 2. 將追蹤接聽項封裝新增至專案。
  * 以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。選取 `Microsoft.ApplicationInsights.TraceListener` [深入了解](../application-insights/app-insights-asp-net-trace-logs.md)
 3. 上傳您的專案並執行，以產生記錄資料。
-4. 在 [Azure Preview 入口網站](http://portal.azure.com/) 中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。您將會看到您的記錄資料，以及要求、使用情況及其他遙測。有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。[深入了解](../application-insights/app-insights-diagnostic-search.md)
+4. 在 [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。您將會看到您的記錄資料，以及要求、使用情況及其他遙測。有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。[深入了解](../application-insights/app-insights-diagnostic-search.md)
 
 [深入了解使用 Application Insights 的效能追蹤](../insights-perf-analytics.md)
 
@@ -212,7 +212,7 @@ Timestamp|事件發生的日期與時間
 EventTickCount|事件發生的日期與時間 (刻度格式，精準度更高)
 ApplicationName|Web 應用程式名稱
 等級|事件層級 (例如，錯誤、警告、資訊)
-EventId|這個事件的事件識別碼<p><p>如果沒有指定，預設為 0。
+EventId|如果沒有指定<p><p>這個事件的事件識別碼，則預設為 0
 InstanceId|發生事件的 Web 應用程式執行個體
 Pid|處理序識別碼
 Tid|產生事件的執行緒之執行緒識別碼
@@ -229,7 +229,7 @@ Level|事件層級 (例如，錯誤、警告、資訊)
 ApplicationName|Web 應用程式名稱
 InstanceId|發生事件的 Web 應用程式執行個體
 EventTickCount|事件發生的日期與時間 (刻度格式，精準度更高)
-EventId|這個事件的事件識別碼<p><p>如果沒有指定，預設為 0。
+EventId|如果沒有指定<p><p>這個事件的事件識別碼，則預設為 0
 Pid|處理序識別碼
 Tid|產生事件的執行緒之執行緒識別碼
 訊息|事件詳細資訊訊息
@@ -259,7 +259,7 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 
 ##<a name="nextsteps"></a> 後續步驟
 
-- [如何監視 Web 應用程式](/zh-TW/manage/services/web-sites/how-to-monitor-websites/)
+- [如何監視 Web 應用程式](/manage/services/web-sites/how-to-monitor-websites/)
 - [在 Visual Studio 中疑難排解 Azure Web App](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [在 HDInsight 中分析 Web 應用程式記錄](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -270,4 +270,4 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

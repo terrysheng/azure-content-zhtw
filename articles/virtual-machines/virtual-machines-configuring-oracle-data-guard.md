@@ -31,7 +31,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 
 - 您已經使用 Windows Server 上提供 Oracle Enterprise Edition 映像的相同平台，在 Azure 中建立兩部虛擬機器 (VM)。如需相關資訊，請參閱[在 Azure 中建立 Oracle Database 12c 虛擬機器](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md)和 [Azure 虛擬機器](http://azure.microsoft.com/documentation/services/virtual-machines/)。請確定虛擬機器都位於[相同的雲端服務](virtual-machines-load-balance.md)和相同的[虛擬網路](azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續的私人 IP 位址互相存取。此外，建議您將 VM 放在相同的[可用性設定組](virtual-machines-manage-availability.md)中，讓 Azure 可將其放置於不同的容錯網域和升級網域。請注意，Oracle Data Guard 僅適用於 Oracle Database Enterprise Edition。每部機器必須至少有 2 GB 的記憶體和 5 GB 的磁碟空間。如需平台上所提供 VM 大小的最新資訊，請參閱[適用於 Azure 的虛擬機器大小](http://msdn.microsoft.com/library/dn197896.aspx)。如果您的 VM 需要額外的磁碟區，則可連接其他磁碟。如需相關資訊，請參閱[如何將資料磁碟連接至虛擬機器](storage-windows-attach-disk.md)。
 
-- 您已在 Azure 入口網站上，針對主要 VM 將虛擬機器名稱設定為 “Machine1”，並針對待命 VM 將虛擬機器名稱設定為 “Machine2”。
+- 您已在 Azure 傳統入口網站上，針對主要 VM 將虛擬機器名稱設定為 “Machine1”，並針對待命 VM 將虛擬機器名稱設定為 “Machine2”。
 
 - 您已經設定 **ORACLE\_HOME** 環境變數，以指向主要和待命虛擬機器中的同一個 oracle 根安裝路徑，例如 `C:\OracleDatabase\product\11.2.0\dbhome_1\database`。
 
@@ -313,7 +313,7 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 ##建立實體的待命資料庫
 本節著重於您必須在 Machine2 中執行以準備實體待命資料庫的步驟。
 
-首先，您需要透過 Azure 入口網站，使用遠端桌面功能連至 Machine2。
+首先，您需要透過 Azure 傳統入口網站，使用遠端桌面功能連至 Machine2。
 
 然後，在待命伺服器 (Machine2) 上，建立待命資料庫所需的所有資料夾，例如 C:\\<YourLocalFolder>\\TEST。遵循此教學課程的同時，請確定資料夾結構符合 Machine1 上的資料夾結構，以保留所有必要的檔案，例如 controlfile、datafiles、redologfiles、udump、bdump 和 cdump 檔案。此外，在 Machine2 中定義 ORACLE\_HOME 和 ORACLE\_BASE 環境變數。如果沒有，可使用 [環境變數] 對話方塊，將其定義為環境變數。若要存取此對話方塊，可在 [控制台] 中按兩下 [系統] 圖示，來啟動 [系統] 公用程式；然後按一下 [進階] 索引標籤並選擇 [環境變數]。按一下 [系統變數] 底下的 [新增] 按鈕來設定環境變數。設定環境變數之後，您需要關閉現有的 Windows 命令提示字元，然後開啟新的命令提示字元來查看變更。
 
@@ -625,4 +625,4 @@ Oracle Data Guard 支援 Oracle 資料庫的資料保護和嚴重損壞修復。
 ##其他資源
 [適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # Windows 裝置適用的 Application Insights 的疑難排解和問答集
@@ -25,7 +25,7 @@
 
 *我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。*
 
-* 請稍等片刻，然後按一下 [重新整理]。重新整理目前不是自動的。
+* 請稍等片刻，然後按一下 [重新整理]。
 * 檢查您已在 ApplicationInsights.config 檔案中定義檢測金鑰，且該金鑰與 Application Insights 入口網站中的金鑰相同。若要查看金鑰，請按一下 [概觀] 刀鋒視窗上的 [Essentials]。
 * 確定您的應用程式[要求連出網路存取](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx)。
 * 模擬器或測試裝置與 Application Insights 入口網站之間有防火牆嗎？ 您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
@@ -40,7 +40,11 @@
 
 ## 我要如何將 Application Insights 加入至通用應用程式？
 
-手動將 NuGet 封裝加入至方案中的每個裝置專案。請參閱[開始使用 - 通用應用程式][universal]。
+如果您要在 Visual Studio 2015 建立新解決方案，只需在新的專案對話方塊中選取 [加入 Application Insights] 即可。如此一來，會從所有目標類型將遙測傳送到相同的 Application Insights 資源。
+
+如果您已建立通用的應用程式解決方案，請在每個主要專案上按一下右鍵，再選取 [加入 Application Insights]。
+
+
 
 ## 停用遙測
 
@@ -120,4 +124,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -20,7 +20,7 @@
 
 ## 概觀
 
-本教學課程示範如何使用 Visual Studio 工具，協助偵錯在 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中執行的 Web 應用程式，方法是以[偵錯模式](http://www.visualstudio.com/zh-TW/get-started/debug-your-app-vs.aspx)從遠端執行，或者檢視應用程式記錄與 Web 伺服器記錄。
+本教學課程示範如何使用 Visual Studio 工具，協助偵錯在 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中執行的 Web 應用程式，方法是以[偵錯模式](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)從遠端執行，或者檢視應用程式記錄與 Web 伺服器記錄。
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -71,7 +71,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
    
 	如需此視窗中 [應用程式設定] 與 [連接字串] 方塊的詳細資訊，請參閱 [Azure Web Apps：應用程式設定與連接字串如何運作](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)。
 
-	若您想要執行無法在此視窗中完成的 Web 應用程式管理工作，請按一下 [在管理入口網站中開啟]，以開啟 Azure Preview 入口網站的瀏覽器視窗。如需詳細資訊，請參閱[如何設定 Web 應用程式](/zh-TW/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)。
+	若您想要執行無法在此視窗中完成的 Web 應用程式管理工作，請按一下 [在管理入口網站中開啟]，以開啟 Azure 傳統入口網站的瀏覽器視窗。如需詳細資訊，請參閱[如何設定 Web 應用程式](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)。
 
 ## <a name="remoteview"></a>在伺服器總管中存取 Web 應用程式檔案
 
@@ -156,7 +156,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 6. 針對 Visual Studio 2012 含 Update 4 或更新版本：<a id="vs2012"></a>
 
-	* 在 Azure 管理入口網站中，針對您的 Web 應用程式移至 [設定] > [應用程式設定]，然後向下捲動至 [偵錯] 區段。
+	* 在 Azure 傳統入口網站中，針對您的 Web 應用程式移至 [設定] > [應用程式設定]，然後向下捲動至 [偵錯] 區段。
 
 	* 將 [遠端偵錯] 設為 [開啟]，然後將 [遠端 Visual Studio 版本] 設為 [2012]。
 
@@ -166,7 +166,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 	* 選取 [顯示所有使用者的處理序]。
 
-	* 當系統提示您輸入認證時，請輸入具有將內容部署至 Web 應用程式權限的使用者名稱與密碼。若要取得這些認證，請前往管理入口網站中 Web 應用程式的 [儀表板] 索引標籤，然後按一下 [下載發行設定檔]。在文字編輯器中開啟檔案，這時您會在第一個出現的 **userName=** 與 **userPWD=** 的後面看到使用者名稱與密碼。
+	* 當系統提示您輸入認證時，請輸入具有將內容部署至 Web 應用程式權限的使用者名稱與密碼。若要取得這些認證，請前往傳統入口網站中 Web 應用程式的 [儀表板] 索引標籤，然後按一下 [下載發行設定檔]。在文字編輯器中開啟檔案，這時您會在第一個出現的 **userName=** 與 **userPWD=** 的後面看到使用者名稱與密碼。
 
 	* 當 [可使用的處理序] 資料表中顯示處理序時，選取 [w3wp.exe]，然後按下 [附加]。
 
@@ -475,9 +475,9 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 	![輸出視窗中的 Web 伺服器記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-根據預設，當您第一次使用 Visual Studio 啟用 Web 伺服器記錄時，Azure 會將記錄寫入檔案系統。做為替代方式，您可以使用管理入口網站來指定應該將 Web 伺服器記錄寫入儲存體帳戶中的某個 Blob 容器。如需詳細資訊，請參閱**如何設定網站**中的[網站診斷](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)小節。
+根據預設，當您第一次使用 Visual Studio 啟用 Web 伺服器記錄時，Azure 會將記錄寫入檔案系統。作為替代方式，您可以使用傳統入口網站來指定應該將 Web 伺服器記錄寫入儲存體帳戶中的某個 Blob 容器。如需詳細資訊，請參閱**如何設定網站**中的[網站診斷](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)小節。
 
-如果您使用管理入口網站對 Azure 儲存體帳戶啟用 Web 伺服器記錄功能，然後在 Visual Studio 中停用記錄功能，當您在 Visual Studio 中重新啟用記錄功能時，將會還原您的儲存體帳戶設定。
+如果您使用傳統入口網站對 Azure 儲存體帳戶啟用 Web 伺服器記錄功能，然後在 Visual Studio 中停用記錄功能，當您在 Visual Studio 中重新啟用記錄功能時，將會還原您的儲存體帳戶設定。
 
 ## <a name="detailederrorlogs"></a>檢視詳細的錯誤訊息記錄
 
@@ -527,7 +527,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 ## <a name="storagelogs"></a>檢視儲存體記錄
 
-應用程式追蹤記錄也可以傳送至 Azure 儲存體帳戶，以便您在 Visual Studio 中加以檢視。若要這麼做，請建立一個儲存體帳戶，並在管理入口網站中啟用儲存體記錄，然後透過 [Azure Web 應用程式] 視窗的 [記錄] 索引標籤來檢視它們。
+應用程式追蹤記錄也可以傳送至 Azure 儲存體帳戶，以便您在 Visual Studio 中加以檢視。若要這麼做，請建立一個儲存體帳戶，並在傳統入口網站中啟用儲存體記錄，然後透過 [Azure Web 應用程式] 視窗的 [記錄] 索引標籤來檢視它們。
 
 您可以將記錄傳送至以下任意或所有目的地 (共三個)：
 
@@ -567,13 +567,11 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 1. 在 Visual Studio 的 [Azure Web 應用程式] 視窗中，按一下 [記錄] 索引標籤，然後按一下 [設定管理入口網站中的記錄]。
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![設定記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	![設定記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+	這會在傳統入口網站中開啟您 Web 應用程式的 [設定] 索引標籤。
 
-	這會在 Azure 入口網站中開啟您 Web 應用程式的 [設定] 索引標籤。
-
-2. 在入口網站的 [設定] 索引標籤中，向下捲動至應用程式診斷區段，然後將 [Application Logging (Table Storage)] 變更為 [開啟]。
+2. 在傳統入口網站的 [設定] 索引標籤中，向下捲動至應用程式診斷區段，然後將 [應用程式記錄 (表格儲存體)] 變更為 [開啟]。
 
 3. 將 [記錄層級] 變更為 [資訊]。
 
@@ -587,7 +585,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 6. 在 [Manage table storage for application diagnostics] 方塊中，按一下核取方塊以關閉該方塊。
 
-6. 在入口網站的 [設定] 索引標籤中，按一下 [儲存]。
+6. 在傳統入口網站的 [設定] 索引標籤中，按一下 [儲存]。
 
 7. 在顯示應用程式 Web 應用程式的瀏覽器視窗中，依序按一下 [首頁]、[關於] 和 [連絡人]。
 
@@ -639,13 +637,13 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 
 2. 在 Visual Studio 中，於 [Azure Web 應用程式] 視窗的 [組態] 索引標籤中按一下 [在管理入口網站中開啟]。
 
-3. 在適用於您 Web 應用程式的 Azure Preview 入口網站刀鋒視窗中，按一下 [設定 ] > [部署認證]，然後輸入新的使用者名稱和密碼。
+3. 在適用於您 Web 應用程式的 Azure 入口網站 (https://portal.azure.com) 刀鋒視窗中，按一下 [設定 ] > [部署認證]，然後輸入新的使用者名稱和密碼。
 
 	![新的 FTP 使用者名稱與密碼](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
 	****當您登入時，必須使用此完整使用者名稱搭配 Web 應用程式名稱前置詞。例如，若您輸入使用者名稱 "myid"，而網站為 "myexample"，則會登入為 "myexample\\myid"。
 
-5. 在新的瀏覽器視窗中，前往您 Web 應用程式之 [Web 應用程式] 入口網站刀鋒視窗中 [FTP 主機名稱] 或 [FTPS 主機名稱] 下方所示的 URL。
+5. 在新的瀏覽器視窗中，前往您 Web 應用程式之 [Web 應用程式] 刀鋒視窗的 [FTP 主機名稱] 或 [FTPS 主機名稱] 下方所示的 URL。
 
 6. 使用您先前建立的 FTP 認證登入 (包括該使用者名稱的 Web 應用程式名稱前置詞)。
 
@@ -763,4 +761,4 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤](http://www.iis.net/lear
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

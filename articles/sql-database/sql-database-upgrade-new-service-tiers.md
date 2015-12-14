@@ -31,9 +31,9 @@ Azure SQL [Web 和 Business 資料庫即將淘汰](sql-database-web-business-sun
 
 根據您的特定環境，此服務可能會建議您升級部分或所有資料庫到[彈性資料庫集區](sql-database-elastic-pool.md)。
 
-若要查看已停用資料庫的建議的服務層，您可以使用 [Azure Preview 入口網站](https://portal.azure.com) 或 PowerShell。如需逐步指示，請參閱：
+若要查看已停用資料庫的建議服務層，您可以使用 [Azure 入口網站](https://portal.azure.com)或 PowerShell。如需逐步指示，請參閱：
 
-- [升級至 SQL Database V12 (Azure Preview 入口網站)](sql-database-v12-upgrade.md)
+- [升級至 SQL Database V12 (Azure 入口網站)](sql-database-v12-upgrade.md)
 - [升級至 SQL Database V12 (PowerShell)](sql-database-upgrade-server.md)
 
 
@@ -89,7 +89,7 @@ Azure SQL [Web 和 Business 資料庫即將淘汰](sql-database-web-business-sun
 
 | 文章 | 說明 |
 |:--|:--|
-|[Azure SQL Database 服務層和效能層級](sql-database-service-tiers.md)| 各服務層的概觀、度量和功能 (以及如何在管理入口網站中使用 DMV 監視資料庫使用量)。 |
+|[Azure SQL Database 服務層和效能層級](sql-database-service-tiers.md)| 各服務層的概觀、度量和功能 (以及如何在傳統入口網站中使用 DMV 監視資料庫使用量)。 |
 |[Azure SQL Database 商務持續性](sql-database-business-continuity.md)|不同服務層可用的商務持續性及災害復原功能 (時間點還原、異地還原、異地複寫) 的詳細資料。|
 |[SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)|不同服務層和效能層級的詳細定價資訊。|
 
@@ -101,21 +101,21 @@ Azure SQL [Web 和 Business 資料庫即將淘汰](sql-database-web-business-sun
 
 ## 2\.依據歷史資源使用量判斷可接受的效能層級
 
-Azure SQL Database 服務會在管理入口網站和 [系統檢視] 中公開資訊，以針對您現有的 Web 或 Business 資料庫建議相當的新服務層和效能層級。
+Azure SQL Database 服務會在傳統入口網站和系統檢視中公開資訊，以針對您現有的 Web 或 Business 資料庫建議相當的新服務層和效能層級。
 
 由於 Web 和 Business 資料庫沒有關聯之任何保證的 DTU/資源限制，我們是以 S2 效能層級資料庫可用的資源數量將百分比值標準化。任何特定間隔的資料庫平均 DTU 百分比耗用量，均可計算為該間隔內最高的 CPU、IO 和記錄檔使用量百分比值。
 
 
-使用 Azure Preview 入口網站，取得高階的 DTU 百分比使用量概觀，然後使用系統檢視向下切入至詳細資料。
+使用 Azure 入口網站，取得 DTU 百分比使用量的概覽，然後使用系統檢視深入至詳細資料。
 
-當您將伺服器升級至 Azure SQL Database V12 時，您也可以使用 Azure Preview 入口網站來檢視針對您的 Web 或 Business 資料庫所建議的服務層。
+當您將伺服器升級至 Azure SQL Database V12 時，您也可以使用 Azure 入口網站來檢視針對您的 Web 或 Business 資料庫而建議的服務層。
 
-### 如何在 Azure Preview 入口網站中檢視建議的服務層
+### 如何在 Azure 入口網站中檢視建議的服務層
 Azure 入口網站會在將伺服器升級至 SQL Database V12 的程序中，針對您的 Web 或 Business 資料庫建議適當的服務層。此建議是以資料庫資源耗用量之歷程記錄分析為依據。
 
 **新的管理入口網站**
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)，並瀏覽至包含 Web 或 Business 資料庫的伺服器。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，並瀏覽至包含 Web 或 Business 資料庫的伺服器。
 2. 按一下伺服器刀鋒視窗中的 [最新更新] 部分。
 3. 按一下 [升級此伺服器]。
 
@@ -127,9 +127,9 @@ Azure 入口網站會在將伺服器升級至 SQL Database V12 的程序中，�
 管理入口網站可讓您深入了解現有 Web 或 Business 資料庫的 DTU 消耗。在目前的 Azure 入口網站中可取得 DTU 資訊。
 
 
-**管理入口網站**
+**傳統入口網站**
 
-1. 登入[管理入口網站](https://manage.windowsazure.com)並瀏覽至現有的 Web 或 Business 資料庫。
+1. 登入[傳統入口網站](https://manage.windowsazure.com)並瀏覽至現有的 Web 或 Business 資料庫。
 2. 按一下 [監視] 索引標籤。
 3. 按一下 [新增度量]。
 4. 選取 [DTU 百分比]，然後按一下底部的核取記號進行確認。
@@ -253,7 +253,7 @@ Web 和 Business 資料庫沒有針對任何個別資料庫保留特定數量的
 
 | 管理工具 | 變更資料庫的服務層和效能層級|
 | :---| :---|
-| [Azure 管理入口網站](https://manage.windowsazure.com) | 按一下資料庫 [儀表板] 頁面上的 [調整] 索引標籤。 |
+| [Azure 傳統入口網站](https://manage.windowsazure.com) | 按一下資料庫 [儀表板] 頁面上的 [調整] 索引標籤。 |
 | [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | 使用 [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) Cmdlet。 |
 | [REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) | 使用 [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) 命令。|
 | [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | 使用 [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx) 陳述式。 |
@@ -272,7 +272,7 @@ Azure SQL Database 在您目前資料庫所在邏輯伺服器的 master 資料�
     and o.major_resource_id = '<database_name>'
     ORDER BY o.last_modify_time DESC;
 
-如果您是使用管理入口網站升級，入口網站中也會有關於作業的通知。
+如果您是使用傳統入口網站進行升級，入口網站中也會有關於作業的通知。
 
 ## 7\.在升級後監視資料庫
 將 Web/Business 資料庫升級至新服務層後，建議您主動監視資料庫，以確保應用程式達到所需的執行效能，並且視需要最佳化使用方式。建議您使用下列的額外步驟來監視資料庫。
@@ -293,7 +293,7 @@ Azure SQL Database 在您目前資料庫所在邏輯伺服器的 master 資料�
 其他[文件](http://msdn.microsoft.com/library/dn800981.aspx)包含如何使用此 DMV 的詳細資料。[Azure SQL Database 效能指南](http://msdn.microsoft.com/library/azure/dn369873.aspx)涵蓋如何監視和調整您的應用程式。
 
 
-- **警示：**在 Azure 管理入口網站設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。在 Azure 管理入口網站中，可以為各種效能度量 (如 DTU、CPU、IO 和記錄檔) 設定資料庫警示。 
+- **警示：**在 Azure 傳統入口網站中設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。您可以在 Azure 傳統入口網站中為各種效能計量 (例如 DTU、CPU、IO 及記錄檔) 設定資料庫警示。 
 
 	例如，您可以設定若過去 5 分鐘的平均 DTU 百分比值超出 75% 則發出「 DTU 百分比 」電子郵件警示。若要深入了解如何設定警示通知，請參閱[接收警示通知](insights-receive-alert-notifications.md)。
 
@@ -317,4 +317,4 @@ Azure SQL Database 服務提供遙測資料和工具，可用於評估您的 Web
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

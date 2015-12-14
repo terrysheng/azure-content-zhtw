@@ -22,18 +22,18 @@
 # 如何設定雲端服務
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-configure.md)
-- [Azure Preview Portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Azure portal](cloud-services-how-to-configure-portal.md)
 
-您可以在 Azure 管理入口網站中設定雲端服務的最常用設定。或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
+您可以在 Azure 傳統入口網站中設定雲端服務的最常用設定。或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
 
-Azure 管理入口網站也可讓您[啟用 Azure 雲端服務中角色的遠端桌面連線](cloud-services-role-enable-remote-desktop.md)。
+Azure 傳統入口網站也可讓您[啟用 Azure 雲端服務中角色的遠端桌面連線](cloud-services-role-enable-remote-desktop.md)。
 
 每個角色至少必須有兩個角色執行個體，Azure 才能確保服務在組態更新期間有 99.95% 的可用性。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。如需詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。
 
 ## 變更雲端服務
 
-1. 在 [Azure 入口網站](http://manage.windowsazure.com/)中，依序按一下 [雲端服務]、雲端服務的名稱及 [設定]。
+1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com/)中，依序按一下 [雲端服務]、雲端服務的名稱及 [設定]。
 
     ![Configuration Page](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
     
@@ -43,11 +43,9 @@ Azure 管理入口網站也可讓您[啟用 Azure 雲端服務中角色的遠端
 
 3. 針對服務角色 (依角色分組)，您可以更新下列設定：
     
-    >**設定**  
-    >修改服務組態檔 (.cscfg) 之 *ConfigurationSettings* 元素中所指定的其他組態設定值。
+    >**設定** 修改服務組態檔 (.cscfg) 之 *ConfigurationSettings* 元素中所指定的其他組態設定值。
     >
-    >**憑證**  
-    >變更要在角色之 SSL 加密中使用的憑證指紋。若要變更憑證，您必須先上傳新的憑證 (在 [憑證] 頁面上)。然後，更新角色設定中所顯示憑證字串中的指紋。
+    >**憑證** 變更要在角色之 SSL 加密中使用的憑證指紋。若要變更憑證，您必須先上傳新的憑證 (在 [憑證] 頁面上)。然後，更新角色設定中所顯示憑證字串中的指紋。
 
 4. 在 [作業系統] 中，您可以變更角色執行個體的作業系統系列或版本，或選擇 [自動] 以啟用自動更新目前的作業系統版本。作業系統設定會套用於 Web 角色和背景工作角色，但不影響虛擬機器。
 
@@ -77,7 +75,7 @@ Azure 管理入口網站也可讓您[啟用 Azure 雲端服務中角色的遠端
     
         除非每個角色都定義至少兩個執行個體，否則 Azure 無法保證雲端服務在服務組態更新期間至少有 99.95% 的可用性。如需詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。
     
-    4. 按一下 [確定] \(勾選記號)。
+    4. 按一下 [確定] (勾選記號)。
 
 
 ## 後續步驟
@@ -88,4 +86,4 @@ Azure 管理入口網站也可讓您[啟用 Azure 雲端服務中角色的遠端
 * [啟用 Azure 雲端服務中角色的遠端桌面連線](cloud-services-role-enable-remote-desktop.md)
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 設計概念 |Microsoft Azure"
+   pageTitle="Azure AD Connect：設計概念 |Microsoft Azure"
    description="本主題詳細說明特定的實作設計領域"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect 的設計概念
@@ -69,4 +69,4 @@ sourceAnchor 屬性會區分大小寫。"JohnDoe" 與 "johndoe" 是不同的值�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

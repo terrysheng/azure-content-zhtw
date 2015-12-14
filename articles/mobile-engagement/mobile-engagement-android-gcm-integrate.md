@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK 整合" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK 整合"
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 #如何整合 GCM 與 Mobile Engagement
@@ -24,16 +24,11 @@
 
 ##簡介
 
-整合 GCM 可在即使應用程式未執行時，也能推播應用程式。
+整合 GCM 可讓您推播應用程式。
 
-GCM 實際上不會傳送任何促銷活動資料，它只是告知應用程式去擷取 Engagement 推播的背景信號。如果在收到 GCM 推播時應用程式未執行，則會觸發連線至 Engagement 伺服器以便擷取推播，Engagement 連線會保留大約一分鐘時間，以備使用者因應推播而啟動應用程式。
+推送到 GCM 裝載的 SDK 一律包含資料物件中的 `azme` 金鑰。因此，如果您在應用程式中因為其他目的使用 GCM，可以根據該金鑰篩選推送。
 
-以下資訊供您參考：Engagement 只使用 [Send-to-Sync] 訊息搭配 `engagement.tickle` 摺疊機碼。
-
-> [AZURE.IMPORTANT]執行 Android 2.2 或更高版本的裝置已安裝 Google Play 並已啟用 Google 背景連線，才能由 GCM 喚醒；不過，您仍可將這段程式碼安全地整合至舊版 Android SDK 以及不支援 GCM 的裝置 (只使用對應方式)。如果應用程式無法由 GCM 喚醒，則會在下次啟動應用程式時收到 Engagement 通知。
-
-
-> [AZURE.WARNING]如果在設定 Engagement SDK 使用 GCM 時，是由您自己的用戶端程式碼管理 C2DM 註冊識別碼，則會發生註冊識別碼衝突，因此請只在您自己的程式碼不使用 C2DM 時才在 Engagement 中使用 GCM。
+> [AZURE.IMPORTANT]只有執行 Android 2.2 或更高版本，且已安裝 Google Play 並已啟用 Google 背景連線的裝置，才能使用 GCM 推播；不過，您仍可將這段程式碼安全地整合不支援 GCM 的裝置 (只使用對應方式)。
 
 ##註冊 GCM 並啟用 GCM 服務
 
@@ -74,7 +69,7 @@ GCM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			  </intent-filter>
 			</receiver>
-			
+
 			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			  <intent-filter>
 			    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -115,12 +110,9 @@ GCM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 現在請閱讀＜如何在 Android 上測試 Engagement 整合＞，確認您的整合。
 
 
-[Send-to-Sync]: http://developer.android.com/google/gcm/adv.html#collapsible
 [<http://developer.android.com/guide/google/gcm/gs.html>]: http://developer.android.com/guide/google/gcm/gs.html
 [Google Developers Console]: https://cloud.google.com/console
 [GCM 用戶端程式庫]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Google 開發人員主控台]: https://cloud.google.com/console
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

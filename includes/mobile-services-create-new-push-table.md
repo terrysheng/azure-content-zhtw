@@ -1,5 +1,5 @@
 
-1. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，按一下 [行動服務]，然後按一下您的應用程式。
 
 	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
 
@@ -17,7 +17,4 @@
 
 接下來，您將會修改應用程式以啟用推播通知。
 
-<!-- URLs -->
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

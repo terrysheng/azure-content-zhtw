@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="使用 SendGrid 傳送電子郵件 | Microsoft Azure" 
-	description="了解如何使用 SendGrid 服務，從 Azure 行動服務應用程式傳送電子郵件。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="Erikre" 
-	manager="sendgrid" 
+<properties
+	pageTitle="使用 SendGrid 傳送電子郵件 | Microsoft Azure"
+	description="了解如何使用 SendGrid 服務，從 Azure 行動服務應用程式傳送電子郵件。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="Erikre"
+	manager="sendgrid"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="Erikre"/>
 
 
 # 使用 SendGrid 從行動服務傳送電子郵件
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 本主題示範如何將電子郵件功能新增至您的行動服務。在本教學課程中，您將新增伺服器端程式碼以使用 SendGrid 傳送電子郵件。完成後，行動服務就會在每次插入記錄時傳送電子郵件。
 
@@ -37,14 +42,14 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
 ## <a name="add-script"></a>註冊傳送電子郵件的新指令碼
 
-1. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。
+1. 登入 [Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-2. 在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+2. 在 Azure 傳統入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
 	![][1]
 
 3. 在 [todoitem] 中，按一下 [指令碼] 索引標籤，然後選取 [插入]。
-   
+
 	![][2]
 
 	這會顯示 [TodoItem] 資料表中發生插入時所叫用的函數。
@@ -52,8 +57,8 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 4. 使用下列程式碼來取代插入函數：
 
         var SendGrid = require('sendgrid').SendGrid;
-        
-        function insert(item, user, request) {    
+
+        function insert(item, user, request) {
             request.execute({
                 success: function() {
                     // After the record has been inserted, send the response immediately to the client
@@ -64,8 +69,8 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
             });
 
             function sendEmail(item) {
-                var sendgrid = new SendGrid('**username**', '**password**');       
-                
+                var sendgrid = new SendGrid('**username**', '**password**');
+
                 sendgrid.send({
                     to: '**email-address**',
                     from: '**from-address**',
@@ -94,7 +99,7 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
 ## <a name="insert-data"></a>插入測試資料以接收電子郵件
 
-1. 在用戶端應用程式專案中，執行快速入門應用程式。 
+1. 在用戶端應用程式專案中，執行快速入門應用程式。
 
 	本主題示範的是 Windows 市集版本的快速入門。
 
@@ -130,10 +135,8 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 [開始使用行動服務]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
 [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

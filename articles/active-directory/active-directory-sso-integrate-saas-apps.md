@@ -1,8 +1,8 @@
 <properties
     pageTitle="整合 Azure Active Directory 單一登入與 SaaS 應用程式 | Microsoft Azure"
-    description="在 Azure Active Directory 中啟用 SaaS 應用程式的單一登入驗證和使用者佈建集中式存取管理。如何將 Azure AD 與 SaaS 應用程式整合的概觀。"
+    description="在 Azure Active Directory 中啟用 SaaS 應用程式的單一登入驗證和使用者佈建集中式存取管理。如何將 Azure Active Directory 與 SaaS 應用程式整合的概觀。"
     services="active-directory"
-	keywords="將 Azure AD 與 SaaS 應用程式整合在一起"
+	  keywords="將 Azure AD 與 SaaS 應用程式整合在一起"
     documentationCenter=""
     authors="curtand"
     manager="stevenpo"
@@ -14,14 +14,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/20/2015"
+      ms.date="12/01/2015"
       ms.author="curtand"/>
 
-# 整合 Azure Active Directory (Azure AD) 單一登入與 SaaS 應用程式  
+# 整合 Azure Active Directory 單一登入與 SaaS 應用程式  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-若要開始為將於組織部署的應用程式設定單一登入，您將使用 Azure Active Directory 中的現有目錄。您可以使用從 Microsoft Azure、Office 365 或 Windows Intune 取得的 Azure AD 目錄。如果您有兩個以上的項目，請參閱[管理 Azure AD 目錄](active-directory-administer.md)來判斷要使用哪一個。
+若要開始為將於組織部署的應用程式設定單一登入，您將使用 Azure Active Directory (Azure AD) 中的現有目錄。您可以使用從 Microsoft Azure、Office 365 或 Windows Intune 取得的 Azure AD 目錄。如果您有兩個以上的項目，請參閱[管理 Azure AD 目錄](active-directory-administer.md)來判斷要使用哪一個。
 
 ## 驗證
 
@@ -41,7 +41,7 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 
 ## 已使用中的應用程式的其他考量
 
-為組織已使用的應用程式設定單一登入是與為新應用程式建立新帳戶不同的程序。有幾個基本步驟包括：將應用程式中的使用者身分識別對應到 Azure Active Directory (AD) 身分識別，以及了解整合之後使用者如何體驗登入應用程式。
+為組織已使用的應用程式設定單一登入是與為新應用程式建立新帳戶不同的程序。有幾個基本步驟包括：將應用程式中的使用者身分識別對應到 Azure AD 身分識別，以及了解整合之後使用者如何體驗登入應用程式。
 
 > [AZURE.NOTE]若要為現有的應用程式設定 SSO，您必須在 Azure AD 和 SaaS 應用程式同時具有全域系統管理員權限。
 
@@ -62,10 +62,10 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 ## 後續步驟
 
 
-對於您在應用程式庫中找到的 SaaS 應用程式，Azure Active Directory 提供一些[有關如何整合 SaaS 應用程式的教學課程](active-directory-saas-tutorial-list.md)。
+對於您在應用程式庫中找到的 SaaS 應用程式，Azure AD 提供一些[有關如何整合 SaaS 應用程式的教學課程](active-directory-saas-tutorial-list.md)。
 
-如果應用程式不在應用程式庫中，您可以[將應用程式新增至 Azure Active Directory 應用程式庫做為自訂應用程式](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)。
+如果應用程式不在應用程式庫中，您可以[將應用程式新增至 Azure AD 應用程式庫做為自訂應用程式](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)。
 
 Azure.com 文件庫中還有更多關於這些議題的詳細資訊，請先閱讀[什麼是應用程式存取與單一登入搭配 Azure Active Directory](active-directory-appssoaccess-whatis.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

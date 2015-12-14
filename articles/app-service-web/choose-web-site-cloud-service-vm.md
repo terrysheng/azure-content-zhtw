@@ -50,7 +50,7 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。部署和管理
 
 ### <a id="onprem"></a>我需要一個具有背景處理和資料庫後端的 Web 前端，以執行與內部部署資源整合的商業應用程式。
 
-Azure App Service 是複雜商業應用程式的絕佳解決方案。您開發的應用程式將能夠在負載平衡平台上自動調整、採用 Active Directory 來保護，以及連接到內部部署資源。它可讓您透過世界級的管理入口網站和 API 來輕鬆管理應用程式，並利用應用程式洞察工具來深入了解客戶如何使用應用程式。[Webjobs][] 功能可讓您在 Web 層執行背景程序和工作，而混合式連線和 [VNET 功能](../fundamentals-introduction-to-azure.md#networking/)可讓您輕鬆地連回到內部部署資源。Azure App Service 為 Web 應用程式提供三個 9 的 SLA，可讓您：
+Azure App Service 是複雜商業應用程式的絕佳解決方案。您開發的應用程式將能夠在負載平衡平台上自動調整、採用 Active Directory 來保護，以及連接到內部部署資源。它可讓您透過世界級的入口網站和 API 來輕鬆管理應用程式，並利用應用程式洞察工具來深入了解客戶如何使用應用程式。[Webjobs][] 功能可讓您在 Web 層執行背景程序和工作，而混合式連線和 [VNET 功能](../fundamentals-introduction-to-azure.md#networking/)可讓您輕鬆地連回到內部部署資源。Azure App Service 為 Web 應用程式提供三個 9 的 SLA，可讓您：
 
 * 在自我修復、自動修補的雲端平台上可靠地執行應用程式。
 * 在全球的資料中心網路上自動調整。
@@ -71,7 +71,7 @@ Azure App Service 是裝載公司網站的絕佳解決方案。它可讓 Web 應
 
 ### <a id="iis6"></a> 我有一個在 Windows Server 2003 上執行的 IIS6 應用程式。
 
-Azure App Service 可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相關的基礎結構成本。Microsoft 建立[簡單易用的移轉工具和詳細的移轉指引](https://www.movemetowebsites.net/)，可讓您檢查相容性和識別任何需要進行的變更。與 Visual Studio、TFS 和一般 CMS 工具整合，讓您輕鬆地將 IIS6 應用程式直接部署到雲端。部署之後，Azure 管理入口網站提供健全的管理工具，可讓您依需要而縮小規模來管理成本，或擴大規模來符合需求。移轉工具可讓您：
+Azure App Service 可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相關的基礎結構成本。Microsoft 建立[簡單易用的移轉工具和詳細的移轉指引](https://www.movemetowebsites.net/)，可讓您檢查相容性和識別任何需要進行的變更。與 Visual Studio、TFS 和一般 CMS 工具整合，讓您輕鬆地將 IIS6 應用程式直接部署到雲端。部署之後，Azure 入口網站提供健全的管理工具，可讓您依需要而縮小規模來管理成本，或擴大規模來符合需求。移轉工具可讓您：
 
 * 快速又輕鬆地將舊式的 Windows Server 2003 Web 應用程式移轉至雲端。
 * 選擇將連接的 SQL 資料庫留在內部部署，以建立混合式應用程式。
@@ -154,7 +154,7 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
 存取服務匯流排、儲存體、SQL Database 等服務。|X|X|X|
 裝載多層式架構的 Web 或 Web 服務層|X|X|X|
 裝載多層式架構的中間層|X|X|X|App Service Web 應用程式可以輕易裝載 REST API 中間層，而 [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 功能可以裝載背景處理工作。您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。預覽 [API 應用程式](../app-service-api/app-service-api-apps-why-best-platform.md)功能提供了更多裝載 REST 服務的功能。
-整合 MySQL 即服務的支援|X|X|X|雲端服務可透過 ClearDB 的供應項目來整合 MySQL 即服務，而不需要在管理入口網站工作流程中進行。
+整合 MySQL 即服務的支援|X|X|X|雲端服務可透過 ClearDB 的供應項目來整合 MySQL 即服務，而不需要在 Azure 入口網站工作流程中進行。
 支援 ASP.NET、傳統 ASP、Node.js、PHP、Python|X|X|X|
 向外延展至多個執行個體而不重新部署|X|X|X|「虛擬機器」可向外延展至多個執行個體，但這些機器上執行的服務必須設計成應付這個向外延展情況。您必須設定負載平衡器來將要求路由傳送到各機器，並建立同質群組，以避免在維護或硬體故障時所有執行個體同時重新啟動。
 支援 SSL|X|X|X|在 App Service Web 應用程式中，只有基本和標準模式才支援自訂網域名稱的 SSL。如需 Web 應用程式使用 SSL 的相關資訊，請參閱＜[設定 Azure 網站的 SSL 憑證](../app-service-web/web-sites-configure-ssl-certificate.md)＞。
@@ -204,4 +204,4 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
   [儲存體]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

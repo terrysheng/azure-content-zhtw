@@ -34,11 +34,11 @@
 
 開始使用 Linux 映像建立 Azure VM。
 
-若要建立 VM，您可以透過 Azure 入口網站或 Azure 命令列介面 (CLI)。
+若要建立 VM，您可以透過 Azure 傳統入口網站或 Azure 命令列介面 (CLI)。
 
 ### Azure 管理入口網站
 
-1. 登入 [Azure 入口網站](http://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](http://manage.windowsazure.com)
 2. 按一下 [新增] > [計算] > [虛擬機器] > [快速建立]。選取 Linux 映像。
 3. 輸入密碼。
 
@@ -97,7 +97,7 @@
 
 ## 新增端點。
 
-1. 移至 [Azure 入口網站][management-portal]並選取您的 VM。
+1. 移至 [Azure 傳統入口網站][management-portal]並選取您的 VM。
 
 	![虛擬機器清單][vmlist]
 
@@ -175,4 +175,4 @@
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

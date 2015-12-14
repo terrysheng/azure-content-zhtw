@@ -24,7 +24,7 @@
 
 「連線安全性」是指如何使用防火牆規則和連線加密，限制和保護資料庫的連線。
 
-伺服器和資料庫兩者都可使用防火牆規則，拒絕來自未明確設為允許清單的 IP 位址的連線嘗試。若要允許應用程式或用戶端機器的公用 IP 位址，嘗試連線至新的資料庫，您必須先使用 Azure 管理入口網站、REST API 或 PowerShell 建立伺服器層級的防火牆規則。最好的作法是，您應該盡可能限制允許穿透您伺服器防火牆的 IP 位址範圍。如需詳細資訊，請參閱 [Azure SQL Database 防火牆][]。
+伺服器和資料庫兩者都可使用防火牆規則，拒絕來自未明確設為允許清單的 IP 位址的連線嘗試。若要允許應用程式或用戶端機器的公用 IP 位址，嘗試連線至新的資料庫，您必須先使用 Azure 傳統入口網站、REST API 或 PowerShell 建立伺服器層級的防火牆規則。最好的作法是，您應該盡可能限制允許穿透您伺服器防火牆的 IP 位址範圍。如需詳細資訊，請參閱 [Azure SQL Database 防火牆][]。
 
 
 ## 驗證
@@ -72,7 +72,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 - 細微的[權限][]可讓您控制您可以對資料庫中個別資料行、資料表、檢視、程序和其他物件執行哪些作業。
 - [預存程序][]可用來限制對資料庫可採取的動作。
 
-要從 Azure 管理入口網站或使用 Azure 資源管理員 API 管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。如需有關此主題的詳細資訊，請參閱 [Azure Preview 入口網站中的角色型存取控制][]。
+要從 Azure 傳統入口網站或使用 Azure 資源管理員 API 管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。如需有關此主題的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制][]。
 
 
 
@@ -87,7 +87,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-您也可以從 [Azure 入口網站][]中的資料庫設定，啟用透明資料加密。
+您也可以從 [Azure 傳統入口網站][]中的資料庫設定，啟用透明資料加密。
 
 
 
@@ -114,9 +114,9 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [預存程序]: https://msdn.microsoft.com/library/ms190782.aspx
 [透明資料加密]: http://go.microsoft.com/fwlink/?LinkId=526242
 [開始使用 Azure Database 稽核]: sql-database-auditing-get-started.md
-[Azure 入口網站]: https://portal.azure.com/
+[Azure 傳統入口網站]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Azure Preview 入口網站中的角色型存取控制]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
+[Azure 入口網站中的角色型存取控制]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

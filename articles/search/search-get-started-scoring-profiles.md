@@ -46,8 +46,8 @@
 ## 編輯 app.config
 
 1. 將檔案解壓縮之後，請在 Visual Studio 中開啟解決方案以編輯組態檔。
-1. 在 [方案總管] 中，按兩下 **app.config**。此檔案會指定服務端點以及用來驗證要求的 `api-key`。您可以從管理入口網站取得這些值。
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在 [方案總管] 中，按兩下 **app.config**。此檔案會指定服務端點以及用來驗證要求的 `api-key`。您可以從傳統入口網站取得這些值。
+1. 登入 [Azure 傳統入口網站](https://portal.azure.com)。
 1. 移至 Azure Search 的服務儀表板。
 1. 按一下 [**屬性**] 磚來複製服務 URL
 1. 按一下 [**金鑰**] 磚來複製服務 `api-key`。
@@ -126,4 +126,4 @@
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

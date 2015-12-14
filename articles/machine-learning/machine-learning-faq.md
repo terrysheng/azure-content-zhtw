@@ -93,8 +93,9 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **可以從 Amazon S3 讀取資料嗎？**
 
-如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。
-<!--<SEE CLOUD DS PROCESS>-->
+如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。<!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **有內建的影像輸入功能嗎？**
 
@@ -211,13 +212,13 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 
 **如何監控部署在實際執行環境中的 Web 服務？**
 
-在預測模型放入實際執行環境中之後，您可以從 Azure 入口網站加以監控。每個已部署的服務都有其本身的儀表板，您可以在此處檢視該服務的監控資訊。
+在預測模型放入實際執行環境中之後，您可以從 Azure 傳統入口網站加以監控。每個已部署的服務都有其本身的儀表板，您可以在此處檢視該服務的監控資訊。
 
 **是否有哪個位置，可讓我查看我的 RRS/BES 輸出？**
 
 針對 RRS，通常您可在 Web 服務回應查看此結果。您可以也將資料寫入 Blob。BES 的輸出預設會寫入至 Blob。您也可以使用寫入器模組將輸出寫入資料庫或資料表。
 
- ** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
+ **** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
 
 ## 延展性
 
@@ -265,7 +266,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **根據預設，哪些人可以存取部署在實際執行環境之 Web 服務的 HTTP 端點？ 如何限制對此端點的存取？**
 
-部署 Web 服務之後，我們會建立該服務的預設端點。會將該預設端點部署到生產環境，並且可使用其 API 金鑰呼叫。其他端點可以從 Azure 入口網站，或以程式設計方式使用 Web 服務管理 API 加入自己的索引鍵。必須要有存取金鑰，才能呼叫實際執行和預備環境中的 Web 服務。如需詳細資訊，請參閱[連線到 Machine Learning Web 服務](machine-learning-connect-to-azure-machine-learning-web-service.md)。
+部署 Web 服務之後，我們會建立該服務的預設端點。會將該預設端點部署到生產環境，並且可使用其 API 金鑰呼叫。其他端點可以從 Azure 傳統入口網站，或以程式設計方式使用 Web 服務管理 API 加入自己的索引鍵。必須要有存取金鑰，才能呼叫實際執行和預備環境中的 Web 服務。如需詳細資訊，請參閱[連線到 Machine Learning Web 服務](machine-learning-connect-to-azure-machine-learning-web-service.md)。
 
 
 **如果找不到我的儲存體帳戶，會發生什麼情況？**
@@ -277,7 +278,7 @@ Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能�
 
 **如果我的儲存體帳戶存取金鑰未同步，會發生什麼情況？** Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能在執行工作流程時儲存中繼資料。此儲存體帳戶是在建立工作區時提供給 Machine Learning Studio，並且存取金鑰會與該工作區相關聯。建立工作區之後，如果變更存取金鑰，該工作區不再能存取儲存體帳戶，工作區會停止運作，並且該工作區中的所有實驗將會失敗。
 
-如果您變更了儲存體帳戶存取金鑰，請確保在 Azure 入口網站中的工作區設定中重新同步處理存取金鑰
+如果您變更了儲存體帳戶存取金鑰，請確保在 Azure 傳統入口網站中的工作區設定中重新同步處理存取金鑰
 
 
 ## Azure Marketplace
@@ -309,4 +310,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

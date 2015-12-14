@@ -13,10 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory 稽核報告事件
+
+## 報告文章
+
+ - [報告 API](active-directory-reporting-api-getting-started.md)
+ - [稽核事件](active-directory-reporting-audit-events.md)
+ - [保留](active-directory-reporting-retention.md)
+ - [預覽](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [回填](active-directory-reporting-backfill.md)
+ - [延遲](active-directory-reporting-latencies.md)
+ - [「未知動作」事件](active-directory-reporting-unknown-actor.md)
+
 Azure Active Directory 稽核報告可協助客戶識別其 Azure Active Directory 中發生的特殊權限動作。特殊權限動作包括提高權限變更 (例如，角色建立或密碼重設)、原則設定變更 (例如密碼原則) 或目錄設定變更 (例如，網域同盟設定變更)。報告會提供的稽核記錄包括事件名稱、執行動作的執行者、受變更影響的目標資源，以及日期和時間 (UTC)。客戶能透過 [Azure 管理入口網站](https://manage.windowsazure.com/)擷取其 Azure Active Directory 的稽核事件清單，如[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)中所述。
 
 
@@ -119,4 +131,4 @@ TelephoneNumber | 使用者的電話號碼。
 
 稽核記錄是許多標準規定的必要控制項。對於使用 Azure Active Directory 稽核報告以符合其標準規定的客戶，建議客戶提交一份本說明主題的副本 (連同客戶匯出的稽核報告副本)，協助說明報告的詳細資料。如果稽核人員想要了解 Azure 目前符合的法規，請將稽核人員導向至 Microsoft Azure 信任中心的[規範](http://azure.microsoft.com/support/trust-center/compliance/)頁面。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

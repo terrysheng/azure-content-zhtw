@@ -19,6 +19,11 @@
 
 # 處理行動服務中的離線資料同步衝突
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 本主題將說明在使用 Azure 行動服務的離線功能時，應如何同步處理資料及處理衝突。本教學課程是以[開始使用離線資料]教學課程為基礎。
@@ -139,4 +144,4 @@
 [開始使用離線資料]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

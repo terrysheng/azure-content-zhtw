@@ -18,6 +18,11 @@
 
 # 在行動服務中的使用者服務端授權
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
@@ -34,7 +39,7 @@
 
 	>[AZURE.NOTE]若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 [Code First 移轉](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)。
 
-2. 在 Visual Studio 中，展開 Controllers 資料夾，開啟 **TodoItemController.cs**，並新增下列 using 陳述式：
+2. 在 Visual Studio 中，展開 Controllers 資料夾，開啟 TodoItemController.cs，並新增下列 using 陳述式：
 
 		using Microsoft.Azure.Mobile.Server.Security;
 
@@ -79,4 +84,4 @@
 <!-- URLs. -->
 [將驗證新增至現有的行動服務應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

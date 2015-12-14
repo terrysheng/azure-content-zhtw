@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/03/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect︰版本發行歷程記錄
@@ -27,8 +27,18 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 - 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.0.9131.0
+發行時間︰2015 年 12 月
+
+**已修正的問題：**
+
+- 您變更 AD DS 中的密碼時，密碼同步可能會無法作用，但在您設定密碼時將可作用。
+- 如果您有 Proxy 伺服器，在安裝期間或於組態頁面上進行升級時，向 Azure AD 進行驗證可能會失敗。
+- 若您並非 SQL 中的 SA，從有完整 SQL 伺服器的舊版 Azure AD Connect 更新將會失敗。
+- 從有遠端 SQL 伺服器的舊版 Azure AD Connect 更新時，將顯示錯誤訊息「無法存取 ADSync SQL Database」。
+
 ## 1\.0.9125.0
-發行日期：2015 年 11 月
+發行時間：2015 年 11 月
 
 **新功能︰**
 
@@ -39,12 +49,12 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 
 **新的預覽功能：**
 
-- [適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)。
-- 支援[Azure AD 網域服務](active-directory-ds-getting-started.md)密碼同步處理
+- [適用於同步的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)。
+- 支援 [Azure AD 網域服務](active-directory-ds-getting-started.md)密碼同步處理。
 
 **新的支援案例：**
 
-- 支援多個內部部署的 Exchange 組織。如需詳細資訊，請參閱[內含多個 Active Directory 樹系的混合式部署](https://technet.microsoft.com/zh-TW/library/jj873754.aspx)。
+- 支援多個內部部署的 Exchange 組織。詳細資訊請參閱[內含多個 Active Directory 樹系的混合式部署](https://technet.microsoft.com/library/jj873754.aspx)。
 
 **已修正的問題：**
 
@@ -83,7 +93,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 
 **已移除的預覽功能：**
 
-- 根據預覽客戶的意見，[使用者回寫](active-directory-aadconnect-feature-preview.md#user-writeback)預覽功能已暫時移除。當我們處理所提供的意見反應之後，未來將會重新加入它。
+- 根據預覽版客戶的意見反應，已暫時移除 [[使用者回寫](active-directory-aadconnect-feature-preview.md#user-writeback)] 預覽功能。當我們處理所提供的意見反應之後，未來將會重新加入它。
 
 ## 1\.0.8641.0
 發行日期：2015 年 6 月
@@ -98,7 +108,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 - 可以[設定 ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 - 可以[從 DirSync 升級](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-- 導入[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)
+- 引入[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)
 
 **新的預覽功能：**
 
@@ -199,4 +209,4 @@ AD 帳戶必須獲得其他權限，才能讀取來自 AD 的密碼雜湊。要�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

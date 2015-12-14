@@ -18,6 +18,8 @@
 
 # 從 .NET 用戶端使用 Azure App Service 中的內部 API 應用程式 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 概觀
 
 本教學課程示範如何撰寫 ASP.NET [API 應用程式](app-service-api-apps-why-best-platform.md)的程式碼，以呼叫針對 [**內部**] 存取層級設定的另一個 API 應用程式。這兩個 API 應用程式必須在相同的資源群組中。相同的程式碼可用來從[行動裝置應用程式](../app-service-mobile/app-service-mobile-value-prop-preview.md)呼叫內部 API 應用程式。
@@ -265,4 +267,4 @@ App Service SDK 取決於 Swagger API 定義來產生用戶端類別。如果您
 如需 App Service 中驗證的相關資訊，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

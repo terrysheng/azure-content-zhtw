@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/30/2015"
 	ms.author="wesmc"/>
 
 # Azure 行動應用程式中的離線資料同步處理
@@ -126,4 +126,4 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 [Xamarin Android：啟用離線同步處理]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1：啟用離線同步處理]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -56,7 +56,7 @@
 
 ### 變更資料庫一致性層級
 
-1.  在 [Azure Preview 入口網站](https://portal.azure.com/)的動態工具列，按一下 [DocumentDB 帳戶]。
+1.  在 [Azure 入口網站](https://portal.azure.com/)的動態工具列，按一下 [DocumentDB 帳戶]。
 
 2. 在 [DocumentDB 帳戶] 刀鋒視窗中，選取要修改的資料庫帳戶。
 
@@ -88,4 +88,4 @@
 -	Werner Vogels。再論最終一致。[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

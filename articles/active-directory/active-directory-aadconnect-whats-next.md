@@ -1,5 +1,5 @@
 <properties
-	pageTitle="管理 Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect：接下來的步驟，以及如何管理 Azure AD Connect | Microsoft Azure"
 	description="了解如何針對 Azure AD Connect 擴充預設組態和作業工作。"
 	services="active-directory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="10/01/2015"
 	ms.author="billmath"/>
 
-# 管理 Azure AD Connect
+# 接下來的步驟，以及如何管理 Azure AD Connect
 以下這些進階的選擇性主題可讓您自訂 Azure Active Directory Connect，以符合您組織的需要和需求。
 
 ## 指派授權給 Azure AD Premium 和 Enterprise Mobility 使用者
@@ -69,4 +69,4 @@
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

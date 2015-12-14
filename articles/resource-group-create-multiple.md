@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # 在 Azure 資源管理員中建立資源的多個執行個體
@@ -151,9 +151,52 @@
 	    "outputs": {}
     }
 
+## 在巢狀資源使用迴圈
+
+您無法為巢狀資源使用複製迴圈。如果您需要為一個資源 (您通常該資源定義為另一個資源中的巢狀資源) 建立多個執行個體，您必須改為將該資源建立為最上層資源，並透過 **type** 和 **name** 屬性定義該資源與父資源的關聯性。
+
+例如，假設您通常將資料集定義為 Data Factory 中的巢狀資源。
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+        "resources": [
+        {
+            "type": "datasets",
+            "name": "[variables('dataSetName')]",
+            "dependsOn": [
+                "[variables('dataFactoryName')]"
+            ],
+            ...
+        }
+    }]
+    
+若要建立資料集的多個執行個體，您必須變更您的範本，如下所示。請注意到，完整類型和名稱都包含了該 Data Factory 的名稱。
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.DataFactory/datafactories/datasets",
+        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "dependsOn": [
+            "[variables('dataFactoryName')]"
+        ],
+        "copy": { 
+            "name": "datasetcopy", 
+            "count": "[parameters('count')]" 
+        } 
+        ...
+    }]
+
 ## 後續步驟
-- 若要了解範本的區段，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
+- 若要了解範本區段的相關資訊，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
 - 如需可以在範本中使用的函式清單，請參閱 [Azure 資源管理員範本函式](./resource-group-template-functions.md)。
 - 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

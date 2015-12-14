@@ -92,7 +92,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 使用 CoreOS、Docker 和 **Fleet** 的優勢在於，這很容易以高可用性的方式執行服務。在此範例中，您將部署一個服務，此服務由執行 Nginx Web 伺服器的三個完全相同的容器所組成。這些容器將在此叢集的三個 VM 中執行。此範例和[以 Fleet 啟動容器]的範例類似，並且使用 [Nginx Docker 中樞映像]。
 
->[AZURE.IMPORTANT]若要執行高可用性的 Web 伺服器，您將需要在虛擬機器上設定負載平衡的 HTTP 端點 (公用連接埠 80、私人連接埠 80)。您可以在建立 CoreOS 叢集後透過 Azure 入口網站或 **Azure VM 端點** 命令執行這項動作。如需詳細資訊，請參閱[設定負載平衡集]。
+>[AZURE.IMPORTANT]若要執行高可用性的 Web 伺服器，您將需要在虛擬機器上設定負載平衡的 HTTP 端點 (公用連接埠 80、私人連接埠 80)。您可以在建立 CoreOS 叢集後透過 Azure 傳統入口網站或 **Azure VM 端點** 命令執行這項動作。如需詳細資訊，請參閱[設定負載平衡集]。
 
 在用戶端電腦上，請使用您最愛的文字編輯器來建立 **systemd** 範本單位檔案，名為 nginx@.service。您將使用此簡易範本來啟動三個個別的執行個體，名為 nginx@1.service、nginx@2.service 和 nginx@3.service：
 
@@ -192,4 +192,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 [Nginx Docker 中樞映像]: https://hub.docker.com/_/nginx/
 [Azure 上的 Linux 和開放原始碼運算]: virtual-machines-linux-opensource.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

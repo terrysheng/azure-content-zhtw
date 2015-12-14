@@ -38,7 +38,7 @@
 
 本教學課程是以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。
 
-##在管理入口網站中更新已註冊的插入指令碼
+##在 Azure 傳統入口網站中更新已註冊的插入指令碼
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
@@ -79,12 +79,10 @@
 [Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [行動服務伺服器指令碼參考]: mobile-services-how-to-use-server-scripts.md
 [開始使用行動服務]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [行動服務 .NET 作法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

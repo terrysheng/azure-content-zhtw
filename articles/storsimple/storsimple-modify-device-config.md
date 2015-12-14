@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/15/2015"
-   ms.author="v-sharos@microsoft.com"/>
+   ms.date="12/02/2015"
+   ms.author="v-sharos"/>
 
 # 使用 StorSimple Manager 服務來修改 StorSimple 裝置組態。
 
 ## 概觀 
 
-管理入口網站 [**設定**] 頁面包含所有裝置參數，可讓您重新設定 StorSimple Manager 服務所管理的 StorSimple 裝置。本教學課程說明如何使用 [**設定**] 頁面來執行下列的裝置層級工作：
+Azure 傳統入口網站 [設定]頁面包含所有裝置參數，可讓您重新設定 StorSimple Manager 服務所管理的 StorSimple 裝置。本教學課程說明如何使用 [**設定**] 頁面來執行下列的裝置層級工作：
 
 - 修改裝置設定 
 - 修改時間設定 
@@ -39,15 +39,15 @@
 - **0991003** – 表示特定產品。
 - **G44HT** – 最後 5 位數會以遞增方式來建立唯一的序號。這可能不是連續的組合。
 
-您可以使用管理入口網站來變更裝置名稱，並將它指派為您所選擇的唯一易記名稱。易記名稱可以包含任何字元，且長度上限為 64 個字元。
+您可以使用 Azure 傳統入口網站來變更裝置名稱，並將它指派為您所選擇的唯一易記名稱。易記名稱可以包含任何字元，且長度上限為 64 個字元。
 
 您也可以指定裝置描述。裝置描述通常有助於識別擁有者和裝置的實體位置。[描述] 欄位不得超過 256 個字元。
  
 ## 修改時間設定
 
-您的裝置必須同步時間才能驗證雲端儲存空間服務提供者。從下拉式清單選取您的時區，並指定最多兩個網路時間通訊協定 (NTP) 伺服器。當您使用 Windows PowerShell for StorSimple 來設定您的裝置時，需要指定主要 NTP 伺服器。您可以指定預設 Windows Server **time.windows.com** 作為 NTP 伺服器。您可以透過管理入口網站來檢視主要 NTP 伺服器組態，但是您必須使用 Windows PowerShell 介面來進行變更。
+您的裝置必須同步時間才能驗證雲端儲存空間服務提供者。從下拉式清單選取您的時區，並指定最多兩個網路時間通訊協定 (NTP) 伺服器。當您使用 Windows PowerShell for StorSimple 來設定您的裝置時，需要指定主要 NTP 伺服器。您可以指定預設 Windows Server **time.windows.com** 作為 NTP 伺服器。您可以透過 Azure 傳統入口網站來檢視主要 NTP 伺服器組態，但是您必須使用 Windows PowerShell 介面來進行變更。
 
-次要 NTP 伺服器組態為選擇性。您可以使用管理入口網站來設定次要 NTP 伺服器。
+次要 NTP 伺服器組態為選擇性。您可以使用傳統入口網站來設定次要 NTP 伺服器。
 
 設定 NTP 伺服器時，請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。指定公用 NTP 伺服器時，您必須確定網路防火牆和其他安全性裝置皆設定為允許 NTP 流量傳入及傳出外部網路。若不允許雙向 NTP 流量，您必須使用內部 NTP 伺服器 (Windows 網域控制器會提供這個函式)。如果您的裝置無法同步時間，它可能無法與您的雲端儲存空間提供者進行通訊。
 
@@ -61,7 +61,7 @@
 
 當您的裝置嘗試與雲端儲存空間服務提供者通訊時，系統會使用 DNS 伺服器。如需高可用性，您必須在初始裝置部署期間設定主要和次要 DNS 伺服器。若要重新設定主要 DNS 伺服器，您必須在 StorSimple 裝置上使用 Windows PowerShell 介面。
 
-若要修改次要 DNS 伺服器，您可以使用管理入口網站。
+若要修改次要 DNS 伺服器，您可以使用 Azure 傳統入口網站。
 
 <!-- If a secondary DNS server is not configured, you will not be able to create volume containers or provision volumes on the device.-->
 
@@ -102,7 +102,7 @@ DATA 0 依預設已啟用雲端功能。設定 DATA 0 時，您也需要設定�
 
 - **固定 IP 位址** – 僅當您設定 DATA 0 介面時才能使用此欄位。對於更新或疑難排解裝置等作業，您可能需要直接連線到裝置控制器。固定 IP 位址可用來存取裝置上的主動和被動控制器。
 
-您可以透過管理入口網站重新設定控制器 0 及控制器 1。
+您可以透過 Azure 傳統入口網站重新設定控制器 0 及控制器 1。
 
 >[AZURE.NOTE]
 >
@@ -129,4 +129,4 @@ DATA 0 依預設已啟用雲端功能。設定 DATA 0 時，您也需要設定�
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
      
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

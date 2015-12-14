@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -39,7 +39,7 @@ Azure BizTalk 服務使用服務匯流排簽發者名稱和簽發者金鑰，以
 
 ### 複製與貼上存取控制簽發者名稱和簽發者金鑰
 
-1. 登入 [Azure 管理入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
+1. 登入 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
 2. 在左導覽窗格中，選取 [**BizTalk 服務**]。
 3. 選取 BizTalk 服務。 
 4. 在工作列選取 [**連線資訊**]。這時會列出存取控制命名空間、預設簽發者 (簽發者名稱) 和預設金鑰 (簽發者金鑰)，供您複製和貼上。  
@@ -49,7 +49,7 @@ Azure BizTalk 服務使用服務匯流排簽發者名稱和簽發者金鑰，以
 
 您也可選取 [**開啟 ACS 管理入口網站]** 來擷取存取控制值：
 
-1. 登入 [Azure 管理入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
+1. 登入 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
 2. 在左導覽窗格中，選取 [**BizTalk 服務**]。
 3. 選取 BizTalk 服務。
 4. 選取 [連接資訊] 按鈕，然後選取 [**開啟 ACS 管理入口網站**]。
@@ -67,13 +67,11 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 
 ### 擷取服務匯流排簽發者名稱和簽發者金鑰
 
-1. 登入 [Azure 管理入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
+1. 登入 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
 2. 在左導覽窗格中，選取 [**服務匯流排**]。
 3. 選取您的命名空間。在工作列中，選取 [**連線資訊**]。這會顯示 [**預設簽發者**] (簽發者名稱) 和 [**預設金鑰**] (簽發者金鑰)。您可以複製這些值。  
 
-總結：  
-簽發者名稱 = 預設簽發者  
-簽發者金鑰 = 預設金鑰
+總結：簽發者名稱 = 預設簽發者 簽發者金鑰 = 預設金鑰
 
 ## 下一步
 其他 Azure BizTalk 服務主題：
@@ -87,11 +85,11 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 ## 另請參閱
 -  [做法：使用 ACS 管理服務來設定服務身分識別](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 - [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk 服務：使用 Azure 傳統入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 - [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

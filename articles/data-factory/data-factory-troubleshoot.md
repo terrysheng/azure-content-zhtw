@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # 資料處理站的疑難排解
-您可以使用 Azure 入口網站 (或) Azure PowerShell Cmdlet 對 Azure 資料處理站進行疑難排解。本主題逐步解說如何使用 Azure 入口網站來對您使用資料處理站時遇到的錯誤進行快速疑難排解。
+您可以使用 Azure 傳統入口網站 (或) Azure PowerShell Cmdlet 來對 Azure Data Factory 問題進行疑難排解。本主題逐步解說如何使用 Azure 傳統入口網站來對您使用 Data Factory 時遇到的錯誤進行快速疑難排解。
 
 ## 問題：無法執行 Data Factory Cmdlet
 若要解決這個問題，請將 Azure 模式切換至 **AzureResourceManager**：
@@ -31,23 +31,23 @@
 
 1. Add-AzureAccount - 使用正確的使用者識別碼和密碼
 2. Get-AzureSubscription - 檢視帳戶的所有訂用帳戶。 
-3. Select-AzureSubscription <subscription name> - 選取正確的訂用帳戶。請使用您在 Azure Preview 入口網站上用來建立 Data Factory 的相同帳戶。
+3. Select-AzureSubscription <subscription name> - 選取正確的訂用帳戶。請使用您在 Azure 入口網站上用來建立 Data Factory 的相同帳戶。
 
-## 問題：無法從 Azure 入口網站啟動資料閘道快速安裝
+## 問題：無法從 Azure 傳統入口網站啟動資料閘道快速安裝
 資料閘道的快速安裝需要有 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。如果無法啟動快速安裝，您可以
 
 1. 如果在其他瀏覽器中失敗，請切換至 Internet Explorer。或
 2. 使用入口網站中相同刀鋒視窗上顯示的 [手動安裝] 連結進行安裝，然後複製畫面上提供的金鑰，並在資料管理閘道組態就緒時貼上。如果沒有啟動，請檢查開始功能表中的 [Microsoft 資料管理閘道]，並在啟動時貼上金鑰。 
 
 
-## 問題：無法從 Azure 入口網站啟動認證管理員
-當透過 Azure 入口網站來設定或更新 SQL Server 連結服務時，將會啟動認證管理員應用程式以確保安全性。這需要 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。如果在其他瀏覽器中失敗，您可以切換至 Internet Explorer。
+## 問題：無法從 Azure 傳統入口網站啟動認證管理員
+當透過 Azure 傳統入口網站來設定或更新 SQL Server 連結服務時，將會啟動認證管理員應用程式以確保安全性。這需要 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。如果在其他瀏覽器中失敗，您可以切換至 Internet Explorer。
 
 ## 問題：無法連線到內部部署 SQL Server 
 確認已安裝閘道的機器可連接到 SQL Server。在安裝閘道失敗的電腦上，您可以
 
 1. Ping 已安裝 SQL Server 的電腦。或
-2. 使用您在 Azure 入口網站使用 SQL Server Management Studio (SSMS) 指定的認證，嘗試連接到 SQL Server 執行個體。
+2. 使用您在 Azure 傳統入口網站以 SQL Server Management Studio (SSMS) 指定的認證，嘗試連接到 SQL Server 執行個體。
 
 
 ## 問題：輸入配量一直處於 PendingExecution 或 PendingValidation 狀態
@@ -92,7 +92,7 @@
 ## 問題：混合式複製作業失敗
 若要了解更多詳細資料：
 
-1. 在已安裝閘道的電腦上，啟動 [資料管理閘道組態管理員]。確認 [閘道名稱] 設定為「Azure 入口網站」上的邏輯閘道名稱，[閘道金鑰狀態] 為 [已註冊]，而 [服務狀態] 為 [已啟動]。 
+1. 在已安裝閘道的電腦上，啟動 [資料管理閘道組態管理員]。確認 [閘道名稱] 設定為 [Azure 傳統入口網站]上的邏輯閘道名稱，[閘道金鑰狀態] 為 [已註冊]，而 [服務狀態] 為 [已啟動]。 
 2. 啟動 [事件檢視器]。展開 [應用程式及服務記錄檔]，按一下 [資料管理閘道]。查看是否有任何與資料管理閘道相關的錯誤。 
 
 ## 問題：隨選 HDInsight 佈建失敗，發生錯誤
@@ -110,11 +110,11 @@
 ## 問題：自訂活動失敗
 在 Azure Data Factory 中使用自訂活動時 (管線活動類型 CustomActivity)，自訂應用程式會在 HDInsight 的指定連結服務中，以僅限 Map 串流 MapReduce 工作的形式執行。
 
-自訂活動執行時，Azure Data Factory 能夠從 HDInsight 叢集擷取該輸出，並儲存在 Azure Blob 儲存體帳戶中的 *adfjobs* 儲存體容器。如果發生錯誤，您可以在失敗發生後，閱讀 **stderr** 輸出文字檔中的文字。您可以在 Web 瀏覽器中從 Azure 入口網站本身存取和讀取這些檔案，或使用儲存體總管工具，直接存取保留在 Azure Blob 儲存體內儲存體容器中的檔案。
+自訂活動執行時，Azure Data Factory 能夠從 HDInsight 叢集擷取該輸出，並儲存在 Azure Blob 儲存體帳戶中的 *adfjobs* 儲存體容器。如果發生錯誤，您可以在失敗發生後，閱讀 **stderr** 輸出文字檔中的文字。您可以在 Web 瀏覽器中從 Azure 傳統入口網站本身存取和讀取這些檔案，或使用儲存體總管工具，直接存取保留在 Azure Blob 儲存體內儲存體容器中的檔案。
 
 若要列舉並讀取特定自訂活動的記錄，您可以依照本頁稍後說明的其中一個逐步解說。簡言之：
 
-1.  在 Azure 入口網站中，[瀏覽] 找出您的 Data Factory。
+1.  在 Azure 傳統入口網站的 [瀏覽] 中找出您的 Data Factory。
 2.  使用 [圖表] 按鈕來檢視 Data Factory 圖表，然後按一下含有自訂活動的特定 [管線] 後面的 [資料集] 資料表。 
 3.  在 [**資料表**] 刀鋒視窗中，根據想要調查的時間範圍，在 [**問題配量**] 中按一下您有興趣的配量。
 4.  詳細 [**資料配量**] 刀鋒視窗會出現，其中可能列出配量的多個**活動執行**。按一下清單中的 [活動]。 
@@ -168,7 +168,7 @@
 
 
 ## <a name="copywalkthrough"></a> 逐步解說：對資料複製的錯誤進行疑難排解
-在本逐步解說中，您將從＜開始使用資料處理站＞文章裡的教學課程中引用一個錯誤，然後了解如何使用 Azure 入口網站對錯誤進行疑難排解。
+在本逐步解說中，您將從＜開始使用資料處理站＞一文中的教學課程來引用一個錯誤，然後了解如何使用 Azure 傳統入口網站對錯誤進行疑難排解。
 
 ### 必要條件
 1. 完成[開始使用 Azure Data Factory][adfgetstarted]文章中的教學課程。
@@ -182,9 +182,9 @@
 	以目前日期取代 **StartDateTime** 值，並以隔天日期取代 **EndDateTime** 值。
 
 
-### 使用 Azure 預覽入口網站對錯誤進行疑難排解
+### 使用 Azure 入口網站對錯誤進行疑難排解
 
-1.	登入 [Azure Preview 入口網站][azure-preview-portal]。 
+1.	登入 [Azure 入口網站][azure-portal]。 
 2.	按一下「開始面板」上的 [ADFTutorialDataFactory]。如果您在「開始面板」上沒有看見 Data Factory 連結，請按一下 [瀏覽] 中樞，然後按一下 [所有項目]。按一下 [**瀏覽**] 刀鋒視窗中的 **Data Factory…**，然後按一下 **ADFTutorialDataFactory**。
 3.	請注意，您會看見 [發生錯誤] 顯示在 [資料集] 磚上。按一下 [發生錯誤]。您應該會看到 [**發生錯誤的資料集**] 刀鋒視窗。
 
@@ -267,10 +267,10 @@
  
 
 ## <a name="pighivewalkthrough"></a> 逐步解說：疑難排解 Hive/Pig 處理錯誤
-本逐步解說提供搭配 Azure 預覽入口網站和 Azure PowerShell 使用 Hive/Pig 處理對錯誤進行疑難排解。
+本逐步解說提供搭配 Azure 入口網站和 Azure PowerShell 使用 Hive/Pig 處理對錯誤進行疑難排解。
 
 
-### 逐步解說：使用 Azure 入口網站對 Pig/Hive 處理的錯誤進行疑難排解
+### 逐步解說：使用 Azure 傳統入口網站對 Pig/Hive 處理的錯誤進行疑難排解
 在此案例中，因為 HDInsight 叢集中 Hive 處理失敗，資料集處於錯誤狀態。
 
 1. 在 [DATA FACTORY] 首頁，按一下 [資料集] 磚上的 [發生錯誤]。
@@ -359,7 +359,7 @@
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 
@@ -382,4 +382,4 @@
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Azure 入口網站建立 Oracle 資料庫 VM |Microsoft Azure"
-	description="了解如何使用傳統部署模型和 Azure Preview 入口網站建立內含 Oracle 資料庫的虛擬機器"
+	pageTitle="使用 Azure 傳統入口網站建立 Oracle 資料庫 VM |Microsoft Azure"
+	description="了解如何使用傳統部署模型和 Azure 入口網站建立內含 Oracle 資料庫的虛擬機器"
 	services="virtual-machines"
 	authors="bbenz"
 	documentationCenter=""
@@ -24,7 +24,7 @@
 
 ##在 Azure 中建立 Oracle 資料庫 VM
 
-1.	登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
+1.	登入 [Azure 入口網站](https://ms.portal.azure.com/)。
 
 2.	按一下 [Marketplace]，接著按一下 [運算]，然後在搜尋方塊中輸入 **Oracle**。
 
@@ -57,7 +57,7 @@
 
 ##在 Azure 中使用 Oracle 資料庫 VM 建立您的資料庫
 
-1.	登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
+1.	登入 [Azure 入口網站](https://ms.portal.azure.com/)。
 
 2.	按一下 [虛擬機器]。
 
@@ -149,7 +149,7 @@
 
 ### 建立連接埠 1521 的公用端點
 
-1.	登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
+1.	登入 [Azure 入口網站](https://ms.portal.azure.com/)。
 
 2.	按一下 [瀏覽]。
 
@@ -176,9 +176,9 @@
 10. 按一下 [確定]。
 
 ##啟用 Oracle Database Enterprise Manager 遠端存取
-如果您想要啟用遠端存取 Oracle Database Enterprise Manager 的功能，可在防火牆中開啟連接埠 5500，並在 Azure 入口網站中針對 5500 建立虛擬機器端點 (使用稍早開啟連接埠 1521 以及針對 1521 建立端點的步驟)。接著，若要從遠端電腦執行 Oracle Enterprise Manager，可在瀏覽器開啟格式為 `http://<<unique_domain_name>>:5500/em` 的 URL。
+如果您想要啟用遠端存取 Oracle Database Enterprise Manager 的功能，可在防火牆中開啟連接埠 5500，並在 Azure 傳統入口網站中針對 5500 建立虛擬機器端點 (使用稍早開啟連接埠 1521 以及針對 1521 建立端點的步驟)。接著，若要從遠端電腦執行 Oracle Enterprise Manager，可在瀏覽器開啟格式為 `http://<<unique_domain_name>>:5500/em` 的 URL。
 
-> [AZURE.NOTE]您可以在 [Azure 入口網站](https://ms.portal.azure.com/)中按一下 [虛擬機器]，然後選取用來執行 Orable 資料庫的虛擬機器，以決定 *<<unique\_domain\_name>>* 的值。
+> [AZURE.NOTE]您可以在 [Azure 傳統入口網站](https://ms.portal.azure.com/)中按一下 [虛擬機器]，然後選取用來執行 Orable 資料庫的虛擬機器，以決定 *<<unique\_domain\_name>>* 的值。
 
 ##設定常用選項和進階選項套件組合
 如果您選擇 [Oracle Database 包含常用選項] 或 [Oracle Database 包含進階選項套件組合]，則下一個步驟是在您的 Oracle 安裝中設定附加元件功能。由於設定會根據您對於每個個別元件的需求而截然不同，因此，請參閱 Oracle 文件，以取得在 Windows 上設定這些功能的相關指示。
@@ -200,4 +200,4 @@
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

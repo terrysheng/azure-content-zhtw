@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="mahender"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -90,7 +95,7 @@
         }
 
 
-6. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 替換為您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+6. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 替換為您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 傳統入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
 7. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 替換為您行動服務的「應用程式識別碼 URI」。如果您依照[如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼 URI 應類似於 https://todolist.azure-mobile.net/login/aad。
 
@@ -106,7 +111,7 @@
 ##使用驗證測試用戶端
 
 1. 從 [產品] 功能表中按一下 [執行]，以啟動應用程式
-2. 您會看見登入 Azure Active Directory 的提示。  
+2. 您會看見登入 Azure Active Directory 的提示。
 3. 應用程式會驗證並傳回 todo 項目。
 
    ![](./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png)
@@ -116,7 +121,7 @@
 <!-- URLs. -->
 [開始使用行動服務]: mobile-services-dotnet-backend-ios-get-started.md
 [如何向 Azure Active Directory 註冊]: mobile-services-how-to-register-active-directory-authentication.md
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

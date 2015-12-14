@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/29/2015" 
 	ms.author="nitinme"/>
 
 # 使用指令碼動作來自訂 HDInsight 叢集
@@ -29,7 +29,7 @@ HDInsight 提供一個稱為 [指令碼動作] 的組態選項，可叫用自訂
 > 
 > 可以免費使用指令碼動作做為標準 Azure HDInsight 訂用帳戶的一部分。
 
-您也可以使用多種其他方法來自訂 HDInsight 叢集，例如包括額外的 Azure 儲存體帳戶、變更 Hadoop 組態檔 (core-site.xml、hive-site.xml 等)，或是將共用程式庫 (例如 Hive、Oozie) 加入至叢集中的共同位置。這些自訂可以透過 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 入口網站來完成。如需詳細資訊，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop 叢集][hdinsight-provision-cluster]。
+您也可以使用多種其他方法來自訂 HDInsight 叢集，例如包括額外的 Azure 儲存體帳戶、變更 Hadoop 組態檔 (core-site.xml、hive-site.xml 等)，或是將共用程式庫 (例如 Hive、Oozie) 加入至叢集中的共同位置。這些自訂可以透過 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 傳統入口網站來完成。如需詳細資訊，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop 叢集][hdinsight-provision-cluster]。
 
 ## 叢集佈建程序中的指令碼動作
 
@@ -48,7 +48,7 @@ HDInsight 提供一個稱為 [指令碼動作] 的組態選項，可叫用自訂
 
 ## 呼叫指令碼動作指令碼
 
-從 Azure 入口網站、Azure PowerShell 或 HDInsight.NET SDK，可以使用指令碼動作指令碼。
+從 Azure 傳統入口網站、Azure PowerShell 或 HDInsight.NET SDK，可以使用指令碼動作指令碼。
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
@@ -61,7 +61,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 
 
-**從 Azure 入口網站**
+**從 Azure 傳統入口網站**。
 
 1. 依照[使用自訂選項佈建叢集](hdinsight-provision-clusters.md#portal)所述，使用**自訂建立**選項開始佈建叢集。 
 2. 在精靈的 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**] 以提供有關指令碼動作的詳細資料，如下所示：
@@ -139,7 +139,7 @@ Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用以 Hadoop �
 
 HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
-- **內建元件** - 這些元件預先安裝在 HDInsight 叢集上，並且提供叢集的核心功能。例如，YARN ResourceManager、Hive 查詢語言 (HiveQL) 及 Mahout 程式庫都屬於這個類別。叢集元件的完整清單可於 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">HDInsight 所提供 Hadoop 叢集版本的新功能</a>中取得。
+- **內建元件** - 這些元件預先安裝在 HDInsight 叢集上，並且提供叢集的核心功能。例如，YARN ResourceManager、Hive 查詢語言 (HiveQL) 及 Mahout 程式庫都屬於這個類別。叢集元件的完整清單可於 [HDInsight 所提供 Hadoop 叢集版本的新功能](hdinsight-component-versioning.md)中取得。
 - **自訂元件** - 身為叢集使用者的您可以安裝社群中可用或是您建立的任何元件，或者在工作負載中使用。
 
 內建元件受到完整支援，且 Microsoft 支援服務將會協助釐清與解決這些元件的相關問題。
@@ -176,4 +176,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "叢集佈建期間的階段"
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

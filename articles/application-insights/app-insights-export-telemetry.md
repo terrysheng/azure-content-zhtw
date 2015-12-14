@@ -75,11 +75,13 @@
 
 該資料也包含您曾設定之[可用性 Web 測試](app-insights-monitor-web-app-availability.md)的任何結果。
 
+> [AZURE.NOTE]**取樣** 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。[深入了解取樣。](app-insights-sampling.md)
+
 ## <a name="get"></a> 檢查資料
 
-您可以直接在入口網站中檢查儲存體。按一下 [**瀏覽**]、選取您的儲存體帳戶，然後開啟 [**容器**]。
+您可以直接在入口網站中檢查儲存體。按一下 [瀏覽]、選取您的儲存體帳戶，然後開啟 [容器]。
 
-若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [**檢視**]、[**雲端總管**]。(如果您沒有該功能表命令，則必須安裝 Azure SDK：開啟 [**新增專案**] 對話方塊，展開 [Visual C#]/[Cloud]，然後選擇 [**取得 Microsoft Azure SDK for .NET**]。)
+若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [檢視]、[雲端總管]。(如果您沒有該功能表命令，則必須安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 [Visual C#]/[Cloud]，然後選擇 [取得 Microsoft Azure SDK for .NET]。)
 
 當您開啟 Blob 存放區時，您會看到含有一組 Blob 檔案的容器。衍生自您 Application Insights 的資源名稱、其檢測金鑰、遙測-類型/日期/時間之每個檔案的 URI。(資源名稱全部小寫，而檢測金鑰會省略連字號。)
 
@@ -208,4 +210,4 @@
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

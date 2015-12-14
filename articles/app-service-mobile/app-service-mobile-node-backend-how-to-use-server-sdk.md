@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/02/2015"
 	ms.author="adrianhall"/>
 
 # 如何使用 Azure Mobile Apps Node.js SDK
 
 本文提供詳細的資訊及範例，說明如何在 Azure App Service Mobile Apps 中使用 Node.js 後端。
 
-> [AZURE.NOTE]此 SDK 目前為預覽狀態。因此，不建議您在生產環境中使用此 SDK。這份文件中的範例使用 [azure-mobile-apps] 的 v2.0.0-alpha6。
+> [AZURE.NOTE]此 SDK 目前為預覽狀態。因此，不建議您在生產環境中使用此 SDK。本文件中的範例使用 v2.0.0-beta1 的 [azure-mobile-apps]。
 
 ## <a name="Introduction"></a>簡介
 
@@ -98,7 +98,7 @@ Visual Studio 2015 需要延伸模組才能在 IDE 內開發 Node.js 應用程�
 
 5. 以滑鼠右鍵按一下 **npm** 節點，然後選取 [安裝新的 npm 封裝...]。
 
-6. 在建立第一個 Node.js 應用程式時，您必須重新整理 npm 目錄 - 按一下 [重新整理]。
+6. 建立第一個 Node.js 應用程式時，您可能必須重新整理 npm 目錄。如有必要，系統將提示您 - 按一下 [**重新整理**]。
 
 7. 在搜尋方塊中輸入 _azure-mobile-apps_。按一下 **azure-mobile-apps 2.0.0** 封裝，然後按一下 [安裝封裝]。
 
@@ -211,8 +211,8 @@ azure-mobile-apps Node.js Server SDK 提供將儲存在 SQL Azure 中的資料�
 Azure Mobile Apps AzureMobile Apps Node SDK 提供三種現成可用的資料提供選項：SDK 提供三種現成可用的資料提供選項：
 
 - 使用**記憶體**驅動程式，可提供非持續性的範例存放區
-- 使用 **sql** 驅動程式，可提供適用於開發的 SQL Express 資料存放區
-- 使用 **sql** 驅動程式，可提供適用於生產的 SQL Azure 資料存放區
+- 使用 **mssql** 驅動程式，可提供可供開發使用的 SQL Express 資料存放區
+- 使用 **mssql** 驅動程式，可提供可供生產使用的 SQL Azure 資料存放區
 
 Azure Mobile Apps Node.js SDK 會使用 [mssql Node.js 封裝]來建立及使用 SQL Express 和 SQL Azure 的連線。要使用此封裝，您必須在 SQL Express 執行個體上啟用 TCP 連線。
 
@@ -222,23 +222,40 @@ Azure Mobile Apps Node.js SDK 會使用 [mssql Node.js 封裝]來建立及使用
 
 2. 執行 SQL Server 2014 組態管理員。
 
-  a.在左側的樹狀結構功能表中，展開 [SQL Server 網路組態] 節點。b.按一下 [SQLEXPRESS 的通訊協定]。c.以滑鼠右鍵按一下 [TCP/IP]，然後選取 [啟用]。在快顯對話方塊中按一下 [確定]。d.以滑鼠右鍵按一下 [TCP/IP]，然後選取 [內容]。e.按一下 [IP 位址] 索引標籤。f.尋找 **IPAll** 節點。在 [TCP 連接埠] 欄位中，輸入 **1433**。
-
-  ![設定 SQL Express 的 TCP/IP][3]
-
-  g.按一下 [確定]。在快顯對話方塊中按一下 [確定]。h.在左側的樹狀結構功能表中，按一下 [SQL Server 服務]。i.以滑鼠右鍵按一下 [SQL Server (SQLEXPRESS)]，然後選取 [重新啟動]。j.關閉 SQL Server 2014 組態管理員。
+  1. 在左側的樹狀結構功能表中，展開 [**SQL Server 網路組態**] 節點。
+  2. 按一下 [**SQLEXPRESS 的通訊協定**]。
+  3. 以滑鼠右鍵按一下 [**TCP/IP**]，然後選取 [**啟用**]。在快顯對話方塊中按一下 [**確定**]。
+  4. 以滑鼠右鍵按一下 [**TCP/IP**]，然後選取 [**內容**]。
+  5. 按一下 [**IP 位址**] 索引標籤。
+  6. 尋找 **IPAll** 節點。在 [**TCP 連接埠**] 欄位中，輸入 **1433**。
+  
+	 	 ![Configure SQL Express for TCP/IP][3]
+  7. 按一下 [**確定**]。在快顯對話方塊中按一下 [**確定**]。
+  8. 在左側的樹狀結構功能表中，按一下 [**SQL Server 服務**]。
+  9. 以滑鼠右鍵按一下 [**SQL Server (SQLEXPRESS)**]，然後選取 [**重新啟動**]。
+  10. 關閉 SQL Server 2014 組態管理員。
 
 3. 建立「執行 SQL Server 2014 Management Studio」並連接到您的本機 SQL Express 執行個體
 
-  a.以滑鼠右鍵按一下您在 [物件總管] 中的執行個體，然後選取 [屬性]。b.選取 [安全性] 頁面。c.確定已選取 [SQL Server 及 Windows 驗證模式]。d.按一下 [確定]。
+  1. 以滑鼠右鍵按一下您在 [物件總管] 中的執行個體，然後選取 [**屬性**]。
+  2. 選取 [**安全性**] 頁面。
+  3. 確定已選取 [**SQL Server 及 Windows 驗證模式**]。
+  4. 按一下 [**確定**]
 
-  ![設定 SQL Express 驗證][4]
+  		![Configure SQL Express Authentication][4]
 
-  e.在 [物件總管] 中展開 [安全性] > [登入]。f.以滑鼠右鍵按一下 [登入]，然後選取 [新增登入...]。g.輸入登入名稱。選取 [SQL Server 驗證]。輸入密碼，然後在 [確認密碼] 中輸入相同的密碼。請注意，密碼必須符合 Windows 複雜性需求。h.按一下 [確定]。
+  5. 在 [物件總管] 中展開 [**安全性**] > [**登入**]
+  6. 以滑鼠右鍵按一下 [**登入**]，然後選取 [**新增登入...**]
+  7. 輸入登入名稱。選取 [SQL Server 驗證]。輸入密碼，然後在 [**確認密碼**] 中輸入相同的密碼。請注意，密碼必須符合 Windows 複雜性需求。
+  8. 按一下 [**確定**]
 
-  ![將新的使用者新增至 SQL Express][5]
+  		![Add a new user to SQL Express][5]
 
-  i.以滑鼠右鍵按一下新的登入，然後選取 [屬性]。j.選取 [伺服器角色] 頁面。k.核取 **dbcreator** 伺服器角色旁的方塊。l.按一下 [確定]。m.關閉 SQL Server 2015 Management Studio
+  9. 以滑鼠右鍵按一下新的登入，然後選取 [**屬性**]。
+  10. 選取 [**伺服器角色**] 頁面
+  11. 核取 **dbcreator** 伺服器角色旁的方塊。
+  12. 按一下 [**確定**]
+  13. 關閉 SQL Server 2015 Management Studio
 
 請確實記下您選取的使用者名稱和密碼。您可能需要根據您特定的資料庫需求指派其他伺服器角色或權限。
 
@@ -248,22 +265,22 @@ Node.js 應用程式會讀取 **SQLCONNSTR\_MS\_TableConnectionString** 環境�
 
 請注意，您必須透過 TCP/IP 連線存取資料庫，並提供連線的使用者名稱和密碼。
 
-### <a name="howto-config-localdev"></a>設定本機開發的專案
+### <a name="howto-config-localdev"></a>設定專案以在本機上進行開發
 
-Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 JavaScript 檔案。您不應使用此檔案在生產環境中設定 Azure Mobile Apps SDK - 請改用 [Azure 入口網站]中的 [應用程式設定]。_azureMobile.js_ 檔案應會匯出組態物件。最常見的設定如下：
+Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 JavaScript 檔案。您不應使用此檔案在生產環境中設定 Azure Mobile Apps SDK，請改用 [Azure 入口網站]中的 [應用程式設定]。_azureMobile.js_ 檔案應會匯出組態物件。最常見的設定如下：
 
 - 資料庫設定
 - 診斷記錄設定
 - 替代 CORS 設定
 
-以下是實作前述資料庫設定的範例 _azureMobile.js_ 檔案：
+以下是實作上述資料庫設定的 _azureMobile.js_ 檔案範例：
 
     module.exports = {
         cors: {
             origins: [ 'localhost' ]
         },
         data: {
-            provider: 'sql',
+            provider: 'mssql',
             server: '127.0.0.1',
             database: 'mytestdatabase',
             user: 'azuremobile',
@@ -276,47 +293,47 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 建議您將 _azureMobile.js_ 新增至您的 _.gitignore_ 檔案 (或其他原始程式碼控制忽略檔案)，以防止密碼儲存在雲端中。請一律在 [Azure 入口網站]內的 [應用程式設定] 中設定生產設定。
 
-### <a name="howto-use-sqlazure"></a>以 SQL Azure 作為生產資料存放區
+### <a name="howto-use-sqlazure"></a>將 SQL Azure 作為您的生產資料存放區
 
-<!-- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
+<!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
 無論是何種 Azure App Service 應用程式類型，以 SQL Azure 作為資料存放區的程序都是相同的。如果您尚未執行，請依照下列步驟建立新的行動應用程式後端。
 
 1. 登入 [Azure 入口網站]。
 
-2. 在視窗左上方，依序按一下 [+新增] 按鈕 > [Web + 行動] > [行動應用程式]，然後命名您的行動應用程式後端。
+2. 在視窗左上方，依序按一下 [**+新增**] 按鈕 > [**Web + 行動**] > [**行動應用程式**]，然後為您的行動應用程式後端命名。
 
-3. 在 [資源群組] 方塊中，輸入與您應用程式相同的名稱。
+3. 在 [**資源群組**] 方塊中，輸入與您應用程式相同的名稱。
 
-4. 系統將會選取預設應用程式服務方案。如果您想要變更 App Service 方案，可以依序按一下 [App Service 方案] > [+ 建立新方案]。為新的應用程式服務方案命名，並選取適當位置。按一下 [定價層]，並選取適當的服務定價層。選取 [檢視全部] 檢視其他價格選項，例如 [免費] 和 [共用]。選取定價層後，請按一下 [選取] 按鈕。返回 [App Service 方案] 刀鋒視窗，按一下 [確定]。
+4. 系統將會選取預設應用程式服務方案。若您想要變更 App Service 方案，請按一下 [App Service 方案] > [**+ 建立新方案**]。為新的應用程式服務方案命名，並選取適當位置。按一下 [定價層]，並選取適當的服務定價層。選取 [**檢視全部**] 檢視更多價格選項，例如 [**免費**] 和 [**共用**]。選取定價層後，按一下 [**選取**] 按鈕。回到 [**App Service 方案**] 刀鋒視窗，然後按一下 [**確定**]。
 
-5. 按一下 [建立]。如此即會建立您稍後將部署伺服器專案的行動應用程式後端。佈建行動應用程式後端可能需要幾分鐘。行動應用程式後端佈建完畢後，入口網站將會開啟行動應用程式後端的 [設定] 刀鋒視窗。
+5. 按一下 [建立]。如此即會建立您稍後將部署伺服器專案的行動應用程式後端。佈建行動應用程式後端可能需要幾分鐘。行動應用程式後端佈建完畢後，入口網站會開啟行動應用程式後端的 [**設定**] 刀鋒視窗。
 
 行動應用程式後端建立後，您可以選擇將現有的 SQL Azure 資料庫連接到您的行動應用程式後端，或建立新的 SQL Azure 資料庫。在此「操作方法」中，您將建立新的 SQL Database。
 
-> [AZURE.NOTE]如果您在新行動應用程式後端的相同位置中已有資料庫，可以改為選擇 [使用現有的資料庫]，然後選取該資料庫。不建議您使用位在不同位置的資料庫，因為這會需要額外的頻寬成本和產生更高的延遲。
+> [AZURE.NOTE]若您在相同位置後端已有作為新行動應用程式後端的資料庫，可以改選 [**使用現有的資料庫**]，然後選取該資料庫。不建議您使用位在不同位置的資料庫，因為這會需要額外的頻寬成本和產生更高的延遲。
 
-6. 在新的行動應用程式後端中，依序按一下 [設定] > [行動應用程式] > [資料] > [+新增]。
+6. 在新的行動應用程式後端中，依序按一下 [**設定**] > [**行動應用程式**] > [**資料**] > [**+新增**]。
 
-7. 在 [新增資料連接] 刀鋒視窗中，依序按一下 [SQL Database - 設定必要設定] > [建立新的資料庫]。在 [名稱] 欄位中輸入新資料庫的名稱。
+7. 在 [**新增資料連接**] 刀鋒視窗中，依序按一下 [**SQL Database - 設定必要設定**] > [**建立新的資料庫**]。在 [**名稱**] 欄位中輸入新資料庫的名稱。
 
-8. 按一下 [伺服器]。在 [新增伺服器] 刀鋒視窗中，於 [伺服器名稱] 欄位輸入唯一的伺服器名稱，然後提供合適的**伺服器系統管理員登入**和**密碼**。確定已核取 [允許 Azure 服務存取伺服器]。按一下 [確定]。
+8. 按一下 [**伺服器**]。在 [**新增伺服器**] 刀鋒視窗中，於 [**伺服器名稱**] 欄位中輸入唯一的伺服器名稱，然後提供合適的**伺服器系統管理員登入**和**密碼**。確定已勾選 [**允許 Azure 服務存取伺服器**]。按一下 [**確定**]。
 
 	![建立 SQL Azure Database][6]
 
-9. 在 [新增資料庫] 刀鋒視窗中，按一下 [確定]。
+9. 在 [**新增資料庫**] 刀鋒視窗中，按一下 [**確定**]。
 
-10. 返回 [新增資料連接] 刀鋒視窗，選取 [連接字串]，輸入您建立資料庫時提供的登入與密碼。如果您使用現有的資料庫，請提供該資料庫的登入認證。輸入之後，按一下 [確定]。
+10. 返回 [**新增資料連接**] 刀鋒視窗，選取 [**連接字串**]，輸入您建立資料庫時提供的登入與密碼。如果您使用現有的資料庫，請提供該資料庫的登入認證。輸入完成後，按一下 [**確定**]。
 
-11. 再次返回 [新增資料連接] 刀鋒視窗，按一下 [確定] 以建立資料庫。
+11. 再次返回 [**新增資料連接**] 刀鋒視窗，按一下 [**確定**] 以建立資料庫。
 
-<!-- END OF ALTERNATE INCLUDE -->
+<!--- END OF ALTERNATE INCLUDE -->
 
-建立資料庫可能需要幾分鐘的時間。使用 [通知] 區域監視部署的進度。在資料庫成功部署之前，請勿繼續進行。成功部署後，將會在您行動後端的 [應用程式設定] 中建立 SQL Azure 資料庫執行個體的連接字串。您可以在 [設定] > [應用程式設定] > [連接字串] 中看到此應用程式設定。
+建立資料庫可能需要幾分鐘的時間。透過 [**通知**] 區域監視部署的進度。在資料庫成功部署之前，請勿繼續進行。成功部署後，將會在您行動後端的 [應用程式設定] 中建立 SQL Azure 資料庫執行個體的連接字串。您可以在 [**設定**] > [**應用程式設定**] > [**連接字串**] 中看到此應用程式設定。
 
 ### <a name="howto-tables-auth"></a>需經過驗證才可存取資料表
 
-如果您想要對資料表端點使用 App Service 驗證，您必須先在 [Azure 入口網站]中設定 App Service 驗證。如需關於在 Azure App Service 中設定驗證的詳細資訊，請參閱您要使用的身分識別提供者所提供的組態指南：
+若您想要對資料表端點使用 App Service 驗證，您必須先在 [Azure 入口網站]中設定 App Service 驗證。如需關於在 Azure App Service 中設定驗證的詳細資訊，請參閱您要使用的身分識別提供者所提供的組態指南：
 
 - [如何設定 Azure Active Directory 驗證]
 - [如何設定 Facebook 驗證]
@@ -346,20 +363,20 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 存取屬性接受三種值
 
-  - *匿名* 表示允許用戶端應用程式未經驗證就可讀取資料
-  - *已驗證* 表示用戶端應用程式必須透過要求傳送有效的驗證權杖
-  - *已停用* 表示此資料表目前已停用
+  - *匿名*表示允許用戶端應用程式未經驗證就可讀取資料
+  - *已驗證*表示用戶端應用程式必須透過要求傳送有效的驗證權杖
+  - *已停用*表示此資料表目前已停用
 
 如果未定義存取屬性，則會允許未經驗證的存取。
 
-### <a name="howto-tables-disabled"></a>停用對特定資料表作業的存取
+### <a name="howto-tables-disabled"></a>停用對特定資料表作業的存取權
 
 除了會出現在資料表上以外，存取屬性也可用來控制個別作業。共有四種作業：
 
-  - *讀取* 是對資料表的 RESTful GET 作業
-  - *插入* 是對資料表的 RESTful POST 作業
-  - *更新* 是對資料表的 RESTful PATCH 作業
-  - *刪除* 是對資料表的 RESTful DELETE 作業
+  - *讀取*是在資料表上執行的 RESTful GET 作業
+  - *插入*是在資料表上執行的 RESTful POST 作業
+  - *更新*是在資料表上執行的 RESTful PATCH 作業
+  - *刪除*是在資料表上執行的 RESTful DELETE 作業
 
 比方說，您可能會想要提供未經驗證的唯讀資料表。這可由以下資料表定義來提供：
 
@@ -412,7 +429,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
     context.query.where('myfield eq ?', 'value');
 
-### <a name="howto-tables-softdelete"></a>設定資料表的虛刪除
+### <a name="howto-tables-softdelete"></a>設定資料表上的虛刪除
 
 虛刪除並不會實際刪除記錄。它會將已刪除的資料行設定為 true，而將記錄標示為已在資料庫中刪除。Azure Mobile Apps SDK 會自動從結果中移除已虛刪除的記錄，除非 Mobile Client SDK 使用 IncludeDeleted()。若要為資料表設定虛刪除，請在資料表定義檔中設定 softDelete 屬性。可能的範例如下：
 
@@ -473,7 +490,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 除了透過 /tables 端點的資料存取 API 以外，Azure Mobile Apps 也可提供自訂 API 涵蓋範圍。自訂 API 會以類似於資料表定義的方法定義，並且可存取所有相同功能，包括驗證。
 
-如果您想要對自訂 API 使用 App Service 驗證，您必須先在 [Azure 入口網站]中設定 App Service 驗證。如需關於在 Azure App Service 中設定驗證的詳細資訊，請參閱您要使用的身分識別提供者所提供的組態指南：
+若您想要對自訂 API 使用 App Service 驗證，您必須先在 [Azure 入口網站]中設定 App Service 驗證。如需關於在 Azure App Service 中設定驗證的詳細資訊，請參閱您要使用的身分識別提供者所提供的組態指南：
 
 - [如何設定 Azure Active Directory 驗證]
 - [如何設定 Facebook 驗證]
@@ -485,9 +502,9 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 定義自訂 API 的方法與資料表 API 很類似。
 
-1. 建立 **api** 目錄
-2. 在 **api** 目錄中建立 API 定義 JavaScript 檔案。
-3. 使用匯入方法將 **api** 目錄匯入。
+1. 建立 **API** 目錄
+2. 在 **API** 目錄中建立 API 定義 JavaScript 檔案。
+3. 使用匯入方法將 **API** 目錄匯入。
 
 以下是根據我們先前使用的基本應用程式範例所做的原型 API 定義。
 
@@ -506,7 +523,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 	// Start listening on HTTP
 	app.listen(process.env.PORT || 3000);
 
-我們來使用一個簡單的 API，透過 _Date.now()_ 方法傳回伺服器日期。以下是 api/date.js 檔案：
+現在使用一個可透過 _Date.now()_ 方法傳回伺服器日期的簡單 API。以下是 api/date.js 檔案：
 
 	var api = {
 		get: function (req, res, next) {
@@ -517,9 +534,9 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 	module.exports = api;
 
-每個參數都是標準 RESTful 動詞之一 - GET、POST、PATCH 或 DELETE。此方法是會傳回必要輸出的標準 [ExpressJS Middleware] 函式。
+每個參數都是標準 RESTful 動詞之一 - GET、POST、PATCH 或 DELETE。此方法是會傳送必要輸出的標準 [ExpressJS Middleware] 函式。
 
-### <a name="howto-customapi-auth"></a>需經過驗證才可存取自訂 API
+### <a name="howto-customapi-auth"></a>需經過驗證才能存取自訂 API
 
 Azure Mobile Apps SDK 對於資料表端點和自訂 API 會使用相同的方式實作驗證。若要將驗證新增至前一節中所開發的 API，請新增 **access** 屬性：
 
@@ -559,7 +576,7 @@ Azure App Service 提供數個適用於 Node.js 應用程式的偵錯和疑難�
 
 ### <a name="howto-diagnostic-logs"></a>寫入至 Azure Mobile Apps 診斷記錄檔
 
-Node.js 應用程式可存取多種不同的診斷記錄工具。在內部，Azure Mobile Apps Node.js SDK 會使用 [Winston] 進行診斷記錄。啟用偵錯模式，或是在 [Azure 入口網站]中將 **MS\_DebugMode** 應用程式設定設為 true，即會自動啟用此功能。產生的記錄檔會出現在 [Azure 入口網站]上的 [診斷記錄檔] 中。
+Node.js 應用程式可存取多種不同的診斷記錄工具。在內部，Azure Mobile Apps Node.js SDK 會使用 [Winston] 進行診斷記錄。啟用偵錯模式，或是在 [Azure 入口網站]中將 **MS\_DebugMode** 應用程式設定設為 true，即會自動啟用此功能。產生的記錄檔會顯示在 [Azure 入口網站]上的診斷記錄檔中。
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -607,4 +624,4 @@ Node.js 應用程式可存取多種不同的診斷記錄工具。在內部，Azu
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

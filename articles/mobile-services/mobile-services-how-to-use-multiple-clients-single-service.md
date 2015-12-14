@@ -7,7 +7,7 @@
 	manager="dwrede"
 	editor="mollybos"/>
 <tags
-	ms.service="mobile-services" 
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
@@ -16,6 +16,11 @@
 	ms.author="glenga"/>
 
 # 從單一行動服務支援多重裝置平台
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 使用 Azure 行動服務來進行行動應用程式開發的最大好處之一，是能夠使用單一後端服務，在多重用戶端平台上支援您的應用程式。行動服務提供適用於所有主要裝置平台的原生用戶端程式庫，可讓您使用單一後端服務或跨平台開發人員工具來開發應用程式時，更加輕鬆。本主題討論使用單一行動服務後端時，讓您的應用程式在多重用戶端平台上執行所需的考量。
 
@@ -145,7 +150,6 @@
 
 
 <!-- URLs -->
-[Azure Management portal]: https://manage.windowsazure.com
 [Azure 通知中心]: /develop/net/how-to-guides/service-bus-notification-hubs/
 [SSO Windows Store]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [SSO Windows Phone]: /develop/mobile/tutorials/single-sign-on-wp8/
@@ -171,4 +175,4 @@
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

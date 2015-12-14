@@ -34,7 +34,7 @@ U-SQL 資料庫包含：
 ## 管理目錄
 每個 Azure 資料湖分析帳戶有與其相關聯的預設 Azure 資料湖存放區帳戶。這個資料湖存放區帳戶稱為預設資料湖存放區帳戶。U-SQL 目錄會儲存在 /catalog 資料夾底下的預設資料湖存放區帳戶。不要刪除 /catalog 資料夾中的任何檔案。
 
-### 使用 Azure Preview 入口網站
+### 使用 Azure 入口網站
 
 請參閱[使用入口網站管理資料湖分析](data-lake-analytics-use-portal.md#view-u-sql-catalog)
 
@@ -64,7 +64,7 @@ U-SQL 資料庫包含：
 ## 另請參閱
 
 - 開始使用
-    - [使用 Azure Preview 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
+    - [使用 Azure 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
     - [使用 Azure PowerShell 開始使用資料湖分析](data-lake-analytics-get-started-powershell.md)
     - [使用 Azure .NET SDK 開始使用資料湖分析](data-lake-analytics-get-started-net-sdk.md)
     - [使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
@@ -76,12 +76,12 @@ U-SQL 資料庫包含：
     - [針對資料湖分析工作開發 U-SQL 使用者定義運算子](data-lake-analtyics-u-sql-user-defined-operators.md)
 
 - 管理
-    - [使用 Azure Preview 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
+    - [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
     - [使用 Azure PowerShell 管理 Azure 資料湖分析](data-lake-analytics-use-powershell.md)
-    - [使用 Azure Preview 入口網站監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - 端對端教學課程
     - [使用 Azure 資料湖分析互動式教學課程](data-lake-analytics-use-interactive-tutorials.md)
     - [使用 Azure 資料湖分析來分析網站記錄](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

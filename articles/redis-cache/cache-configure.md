@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/09/2015"
+   ms.date="12/01/2015"
    ms.author="sdanie" />
 
 # 如何設定 Azure Redis 快取
 
 本主題描述如何檢視並更新您的 Azure Redis 快取執行個體的組態，並涵蓋 Azure Redis 快取執行個體的預設 Redis 伺服器組態。
 
->[AZURE.NOTE]Azure Redis Cache 高階層目前只能預覽。在預覽期間，只能在建立快取的過程中設定高階功能。如需使用高階快取功能的詳細資訊，請參閱[如何設定高階 Azure Redis Cache 的永續性](cache-how-to-premium-persistence.md)、[如何設定高階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)，以及[如何設定高階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)。
+>[AZURE.NOTE]如需設定及使用高階快取功能的詳細資訊，請參閱[如何設定高階 Azure Redis Cache 的持續性](cache-how-to-premium-persistence.md)、[如何設定高階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)，以及[如何設定高階 Azure Redis Cache 的虛擬網路支援](cache-how-to-premium-vnet.md)。
 
 ## 設定 Redis 快取設定
 
@@ -102,11 +102,27 @@
 
 如需詳細資訊，請參閱 [Redis Keyspace 通知](http://redis.io/topics/notifications) (英文)。如需範例程式碼，請參閱 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例中的 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 檔案。
 
+## Redis 資料持續性
+
+按一下 [Redis 資料持續性] 可加以啟用、停用，或設定高階快取的資料持續性。
+
+![Redis 資料持續性](./media/cache-configure/redis-cache-persistence-settings.png)
+
+若要啟用 Redis 持續性，請按一下 [已啟用] 來啟用 RDB (Redis 資料庫) 備份。若要停用 Redis 持續性，請按一下 [已停用]。
+
+若要設定備份間隔，請選取下拉式清單中的 [備份頻率。選項包括 [15 分鐘]、[30 分鐘]、[60 分鐘]、[6 小時]、[12 小時] 及 [24 小]時。在先前的備份作業成功完成後，此間隔便會開始倒數計時，時間過後就會起始新的備份。
+
+按一下 [儲存體帳戶] 選取要使用的儲存體帳戶，然後從 [儲存體金鑰] 下拉式清單中選擇 [主要金鑰] 或 [次要金鑰]。您必須選擇與快取相同區域的儲存體帳戶，建議選取 [進階儲存體] 帳戶，因為進儲存體的輸送量較高。不管任何時候，只要重新產生了持續性帳戶的儲存體金鑰，您就必須從 [儲存體金鑰] 下拉式清單中重新選擇所需的金鑰。
+
+按一下 [確定] 以儲存持續性組態。
+
+>[AZURE.IMPORTANT]Redis 資料持續性僅適用於高階快取。
+
 ## 使用者和標記
 
 ![Redis 快取使用者和標記](./media/cache-configure/IC808320.png)
 
-[使用者] 區段會在預覽入口網站中提供角色型存取控制 (RBAC) 的支援，以協助組織輕鬆又準確地滿足其存取管理需求。如需詳細資訊，請參閱 [Azure 預覽入口網站中的角色型存取控制](http://go.microsoft.com/fwlink/?LinkId=512803)。
+[使用者] 區段會在預覽入口網站中提供角色型存取控制 (RBAC) 的支援，以協助組織輕鬆又準確地滿足其存取管理需求。如需詳細資訊，請參閱 [Azure Preview 入口網站中的角色型存取控制](http://go.microsoft.com/fwlink/?LinkId=512803)。
 
 [標記] 區段可協助您組織資源。如需詳細資訊，請參閱[使用標記來組織您的 Azure 資源](../resource-group-using-tags.md)。
 
@@ -163,14 +179,14 @@
 
 ## Redis 主控台
 
-您可以使用 [Redis 主控台] \(可供標準和高階快取使用) 安全地發出命令給您的 Azure Redis Cache 執行個體。
+您可以使用 [Redis 主控台] (可供標準和高階快取使用) 安全地發出命令給您的 Azure Redis Cache 執行個體。
 
 >[AZURE.IMPORTANT]Redis 主控台無法使用 VNET 或叢集。
 >
->-	[VNET](cache-how-to-premium-vnet.md) -如果您的快取是 VNET 的一部分，只有在 VNET 中的用戶端可以存取快取。Redis 主控台使用的 redis cli.exe 用戶端裝載於不屬於您 VNET 的 VM 上，因此主控台無法連接到您的快取。
->-	[叢集](cache-how-to-premium-clustering.md) -Redis 主控台使用目前不支援叢集的 redis cli.exe 用戶端。在 GitHub 中，使用 `-c` 切換啟用 Redis 存放庫[不穩定](http://redis.io/download)分支內的 redis-cli 公用程式時，公用程式會實作基礎支援。如需詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) ([http://redis.io](http://redis.io))。
+>-	[VNET](cache-how-to-premium-vnet.md) - 如果您的快取是 VNET 的一部分，只有在 VNET 中的用戶端可以存取快取。Redis 主控台使用的 redis cli.exe 用戶端裝載於不屬於您 VNET 的 VM 上，因此主控台無法連接到您的快取。
+>-	[叢集](cache-how-to-premium-clustering.md) - Redis 主控台使用目前不支援叢集的 redis cli.exe 用戶端。在 GitHub 中，使用 `-c` 切換啟用 Redis 存放庫[不穩定](http://redis.io/download)分支內的 redis-cli 公用程式時，公用程式會實作基礎支援。如需詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) ([http://redis.io](http://redis.io))。
 
-若要存取 Redis 主控台，請從 **[Redis 快取]** 刀鋒視窗按一下 **[主控台]**。
+若要存取 Redis 主控台，請從 [Redis 快取] 刀鋒視窗按一下 [主控台]。
 
 ![Redis 主控台](./media/cache-configure/redis-console-menu.png)
 
@@ -183,4 +199,4 @@
 ## 後續步驟
 -	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-#開始在預覽入口網站中建立網際網路面向的負載平衡器 (傳統)
+# 開始在預覽入口網站中建立網際網路面向的負載平衡器 (傳統)
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,7 +30,7 @@
 
 
 
-## 使用 Preview 入口網站建立負載平衡器端點	
+## 開始使用 Preview 入口網站建立負載平衡器端點	
 
 若要從 Preview 入口網站建立網際網路面向的負載平衡器 (傳統) 部署模型，請依照下列步驟。
 
@@ -66,4 +66,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -40,7 +40,7 @@ Azure 會將映像儲存在 [我的映像] 之下。這個位置與您已上傳�
 
 ##擷取虛擬機器
 
-1. 在 [Azure 入口網站](http://manage.windowsazure.com)中，[連接] 至虛擬機器。如需指示，請參閱[如何登入執行 Windows Server 的虛擬機器][]。
+1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，**連線**到虛擬機器。如需指示，請參閱[如何登入執行 Windows Server 的虛擬機器][]。
 
 2.	以系統管理員身分開啟 [命令提示字元] 視窗。
 
@@ -56,9 +56,9 @@ Azure 會將映像儲存在 [我的映像] 之下。這個位置與您已上傳�
 
 	![執行 Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep 會將虛擬機器關機，這會將 Azure 入口網站中虛擬機器的狀態變更為 [已停止]。
+7.	Sysprep 會將虛擬機器關機，並會在 Azure 傳統入口網站中，將虛擬機器的狀態變更為 [**已停止**]。
 
-8.	在 Azure 入口網站中，按一下 [虛擬機器]，然後選取您想要擷取的虛擬機器。
+8.	在 Azure 傳統入口網站中，按一下 [**虛擬機器**] 並選取您想要擷取的虛擬機器。
 
 9.	按一下命令列上的 [擷取]。
 
@@ -68,7 +68,7 @@ Azure 會將映像儲存在 [我的映像] 之下。這個位置與您已上傳�
 
 10.	在 [映像名稱] 中輸入新映像的名稱。
 
-11.	將 Windows Server 映像新增到自訂映像組合之前，必須先如前述步驗所指示，執行 Sysprep 將它一般化。按一下 [我已經在虛擬機器上執行 Sysprep] 來表示您已這麼做。
+11.	將 Windows Server 映像新增到自訂映像組合之前，必須先如前述步驗所指示，執行 Sysprep 將它一般化。按一下 [**我已經在虛擬機器上執行 Sysprep**] 來表示您已這麼做。
 
 12.	按一下打勾記號以擷取映像。新映像現在會出現在 [映像] 下。
 
@@ -76,7 +76,7 @@ Azure 會將映像儲存在 [我的映像] 之下。這個位置與您已上傳�
 
 ##後續步驟
 
-映像已準備好用來建立虛擬機器。若要這麼做，您將需要使用 [從資源庫] 功能表項目並選取您剛建立的映像，來建立虛擬機器。如需指示，請參閱[從映像建立虛擬機器](virtual-machines-create-custom.md)。
+映像已準備好用來建立虛擬機器。若要這麼做，您將需要使用 [**從資源庫**] 功能表項目並選取您剛建立的映像，來建立虛擬機器。如需指示，請參閱[從映像建立虛擬機器](virtual-machines-create-custom.md)。
 
 
 
@@ -90,4 +90,4 @@ Azure 會將映像儲存在 [我的映像] 之下。這個位置與您已上傳�
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

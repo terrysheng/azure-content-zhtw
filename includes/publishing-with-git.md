@@ -58,7 +58,7 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
 
 請執行下列步驟來啟用 Web 應用程式的 Git 儲存機制。
 
-1. 登入 [Azure 預覽入口網站]。
+1. 登入 [Azure 入口網站]。
 
 2. 在 Web 應用程式的刀鋒視窗中，向下捲動至 [**部署**] 區段，然後按一下 [**設定連續部署**]。依序按一下 [**選擇來源**]、[**本機 Git 儲存機制**] 以及 [**確定**]。
 
@@ -138,13 +138,13 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
 
 1. 先將您的 Web 應用程式檔案放入將用於連續部署的所選儲存機制中。
 
-2. 在入口網站的 Web 應用程式的刀鋒視窗中，向下捲動至 [**部署**] 區段，然後按一下 [**設定連續部署**]。例如，按一下 [**選擇來源**]，然後按一下 **GitHub**。
+2. 在入口網站的 Web 應用程式的刀鋒視窗中，向下捲動至 [部署] 區段，然後按一下 [設定連續部署]。例如，按一下 [**選擇來源**]，然後按一下 **GitHub**。
 
 	![](./media/publishing-with-git/azure6-setup-github.png)
 	
 2. 在 [**連續部署**] 刀鋒視窗中，按一下 [**授權**]，然後按一下 [**授權**]。Azure 入口網站會將您重新導向到儲存機制網站以完成授權程序。
 
-4. 完成後，請回到 Azure 入口網站，並按一下 [**授權**] 刀鋒視窗中的 [**確定**]。
+4. 完成後，請回到 Azure 入口網站，並按一下 [授權] 刀鋒視窗中的 [確定]。
 
 5. 在 [**連續部署**] 刀鋒視窗中，選擇您想要從其中部署的組織、專案和分支。完成後，按一下 [**確定**]。
   
@@ -269,10 +269,9 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Azure Developer Center]: http://azure.microsoft.com/develop/overview/
-[Azure 預覽入口網站]: https://portal.azure.com
+[Azure 入口網站]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [如何使用適用於 Azure 的 PowerShell]: ../articles/install-configure-powershell.md
@@ -298,4 +297,4 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 [使用 Dropbox 分享 Git 儲存機制]: https://gist.github.com/trey/2722927
 [使用 Visual Studio Online 持續傳遞至 Azure]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

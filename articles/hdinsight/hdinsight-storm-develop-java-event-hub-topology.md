@@ -263,7 +263,7 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
 
 事件中樞是此範例的資料來源。請使用下列步驟建立新的事件中心。
 
-1. 從 [Azure 入口網站](https://manage.windowsazure.com)選取 [新增] > [服務匯流排] > [事件中樞] > [自訂建立]。
+1. 從 [Azure 傳統入口網站](https://manage.windowsazure.com)選取 [新增] > [服務匯流排] > [事件中樞] > [自訂建立]。
 
 2. 在 [加入新的事件中樞] 畫面中輸入 [事件中樞名稱]、選取要建立中樞的 [區域]，然後建立新的命名空間或選取現有的命名空間。按一下 [箭頭] 以繼續。
 
@@ -476,4 +476,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

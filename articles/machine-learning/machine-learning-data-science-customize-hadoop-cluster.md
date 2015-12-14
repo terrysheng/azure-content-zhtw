@@ -29,7 +29,7 @@
 
 ## <a name="customize"></a>自訂 Azure HDInsight Hadoop 叢集
 
-若要建立自訂 HDInsight Hadoop 叢集，使用者需要登入 [**Azure 管理入口網站**](https://manage.windowsazure.com/)，按一下左下角的 [新增]，然後選取 [資料服務] -> [HDINSIGHT] -> [自訂建立]，以顯示 [叢集詳細資料] 視窗。
+若要建立自訂 HDInsight Hadoop 叢集，使用者需要登入 [**Azure 傳統入口網站**](https://manage.windowsazure.com/)，按一下左下角的 [新增]，然後選取 [資料服務] -> [HDINSIGHT] -> [自訂建立]，以顯示 [叢集詳細資料] 視窗。
 
 ![建立工作區][1]
 
@@ -39,7 +39,7 @@
 
 在組態頁面 2 上，輸入 [資料節點] 的數目，選取 [區域/虛擬網路]，然後選取 [前端節點] 和 [資料節點] 的大小。按一下箭號，以前往下一個設定頁面。
 
->[AZURE.NOTE][區域/虛擬網路] 必須與即將用於 HDInsight Hadoop 叢集的儲存體帳戶區域相同。否則，在第四個組態頁面中，使用者想要使用的儲存體帳戶將出現在 [帳戶名稱] 下拉式清單中。
+>[AZURE.NOTE] [區域/虛擬網路] 必須與即將用於 HDInsight Hadoop 叢集的儲存體帳戶區域相同。否則，在第四個組態頁面中，使用者想要使用的儲存體帳戶將出現在 [帳戶名稱] 下拉式清單中。
 
 ![建立工作區][3]
 
@@ -68,7 +68,7 @@
 
 使用者必須先在 Azure 中啟用 Hadoop 叢集的遠端存取，才能透過 RDP 存取 Hadoop 叢集的前端節點。
 
-1. 登入 [**Azure 管理入口網站**](https://manage.windowsazure.com/)，選取左側的 [HDInsight]，從叢集清單中選取您的 Hadoop 叢集，按一下 [設定] 索引標籤，然後按一下頁面底部的 [啟用遠端] 圖示。
+1. 登入 [**Azure 傳統入口網站**](https://manage.windowsazure.com/)，選取左側的 [HDInsight]，從叢集清單中選取您的 Hadoop 叢集，按一下 [設定] 索引標籤，然後按一下頁面底部的 [啟用遠端] 圖示。
 	
 	![建立工作區][7]
 
@@ -102,4 +102,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

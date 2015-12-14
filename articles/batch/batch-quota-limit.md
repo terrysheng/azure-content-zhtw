@@ -41,7 +41,7 @@ Batch 帳戶 (每一區域的每一訂用帳戶)|1|50
 
 ## 檢視 Batch 配額
 
-在 [Azure Preview 入口網站](https://portal.azure.com)中檢視您的 Batch 帳戶配額。
+在 [Azure 入口網站](https://portal.azure.com)中檢視您的 Batch 帳戶配額。
 
 1. 在預覽入口網站中按一下 [Batch 帳戶]，然後按一下您的 Batch 帳戶的名稱。
 
@@ -53,7 +53,7 @@ Batch 帳戶 (每一區域的每一訂用帳戶)|1|50
 
 ## 增加配額
 
-使用下列步驟在 Azure Preview 入口網站中要求配額增加 (您也可以在 [Azure 入口網站](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)中要求增加)。
+使用下列步驟在 Azure 入口網站中要求配額增加 (您也可以在 [Azure 傳統入口網站](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)中要求增加)。
 
 1. 在預覽入口網站的儀表板中，按一下 [說明 + 支援]。
 
@@ -95,4 +95,4 @@ Azure 支援會與您連絡。完成要求需要花費最多 2 個工作天。
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

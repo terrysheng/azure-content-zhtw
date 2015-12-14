@@ -21,7 +21,7 @@
 
 本節說明如何使用 Azure 虛擬機器建立 CentOS Linux VM，以及如何下載、建置和安裝 Apache Qpid Proton-C 程式庫以及 Python 和 PHP 語言繫結。完成這些步驟之後，您可以執行本指南隨附的 Python 和 PHP 範例。
 
-第一個步驟是使用 [Azure 入口網站][]執行。下列螢幕擷取畫面顯示如何建立名為 "scott-centos" 的 CentOS VM：
+第一個步驟是使用 [Azure 傳統入口網站][]執行。下列螢幕擷取畫面顯示如何建立名為 "scott-centos" 的 CentOS VM：
 
 ![Azure Linux VM 上的 Proton][0]
 
@@ -29,7 +29,7 @@
 
 ![Azure Linux VM 上的 Proton][1]
 
-為了登入電腦，您必須知道 SSH 的端點連接埠。您可以從入口網站取得此值，方法是選取新建立的 VM，然後按一下 [端點] 索引標籤。下列螢幕擷取畫面顯示這部電腦的公開 SSH 連接埠為 57146。
+為了登入電腦，您必須知道 SSH 的端點連接埠。您可以從 [Azure 傳統入口網站][]取得此值，方法是選取新建立的 VM，然後按一下 [端點] 索引標籤。下列螢幕擷取畫面顯示這部電腦的公開 SSH 連接埠為 57146。
 
 ![Azure Linux VM 上的 Proton][2]
 
@@ -37,7 +37,7 @@
 
 ![Azure Linux VM 上的 Proton][3]
 
-針對 Python 和 PHP 應用程式，此範例會使用 Apache 的 Proton 用戶端程式庫。這些程式庫可從 [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html) 下載。散發套件中的讀我檔案說明安裝相依性和建置 Proton 所需的步驟。以下是步驟的摘要：
+針對 Python 和 PHP 應用程式，此範例會使用 Apache 的 Proton 用戶端程式庫。可從 [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html) 下載這些程式庫。散發套件中的讀我檔案說明安裝相依性和建置 Proton 所需的步驟。以下是步驟的摘要：
 
 1.  編輯 yum 設定檔 (/etc/yum.conf) 並且將排除更新核心標頭 (# exclude=kernel*) 註解排除。這是安裝 gcc 編譯器的必要動作。
 
@@ -112,6 +112,6 @@
 [2]: ./media/service-bus-amqp-apache/amqp-apache-3.png
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
-[Azure 入口網站]: http://manage.windowsazure.com
+[Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

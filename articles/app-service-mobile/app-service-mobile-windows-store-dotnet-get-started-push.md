@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="11/25/2015" 
 	ms.author="glenga"/>
 
 # 新增推播通知至 Windows 執行階段 8.1 通用 app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -48,7 +46,7 @@
 [AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
 
-##設定行動應用程式以傳送推播要求
+##設定後端來傳送推播通知
 
 [AZURE.INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
@@ -57,50 +55,7 @@
 
 現在應用程式已經啟用了推播通知，您必須更新應用程式後端以傳送推播通知。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 封裝]，搜尋 `Microsoft.Azure.NotificationHubs`，然後按一下 [安裝]。這會安裝通知中樞用戶端程式庫。
-
-2. 在伺服器專案中開啟 [控制器] > **TodoItemController.cs**，並新增下列 Using 陳述式：
-
-		using System.Collections.Generic;
-		using Microsoft.Azure.NotificationHubs;
-		using Microsoft.Azure.Mobile.Server.Config;
-
-3. 在 **PostTodoItem** 方法中，於呼叫 **InsertAsync** 之後新增下列程式碼：
-
-        // Get the settings for the server project.
-        HttpConfiguration config = this.Configuration;
-        MobileAppSettingsDictionary settings = 
-			this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
-        
-        // Get the Notification Hubs credentials for the Mobile App.
-        string notificationHubName = settings.NotificationHubName;
-        string notificationHubConnection = settings
-            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-        // Create a new Notification Hub client.
-        NotificationHubClient hub = NotificationHubClient
-        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-
-		// Define a WNS payload
-		var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" 
-                                + item.Text + @"</text></binding></visual></toast>";
-
-        try
-        {
-			// Send the push notification and log the results.
-            var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-
-            // Write the success result to the logs.
-            config.Services.GetTraceWriter().Info(result.State.ToString());
-        }
-        catch (System.Exception ex)
-        {
-            // Write the failure result to the logs.
-            config.Services.GetTraceWriter()
-                .Error(ex.Message, null, "Push.SendAsync Error");
-        }
-
-    此程式碼會告訴通知中樞在插入新項目之後傳送推播通知。
+[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 
 ## <a name="publish-the-service"></a>將行動後端發佈至 Azure
@@ -149,10 +104,14 @@
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
+##後續步驟
+
+最後，[將跨平台通知傳送給特定使用者](app-service-mobile-windows-store-dotnet-push-notifications-to-users.md)教學課程會示範如何將推播通知傳送給任何裝置平台上，所有屬於特定已驗證使用者的裝置註冊。
+
 ##<a id="more"></a>更多資訊
 
-* 範本可讓您彈性地傳送跨平台推播和當地語系化推播。[如何針對 Azure Mobile Apps 使用受管理的用戶端](app-service-mobile-dotnet-how-to-use-client-library.md)示範如何註冊範本。
-* 標記可讓您使用推播鎖定區隔的客戶。[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 示範如何在安裝裝置時加入標記。
+* 範本可讓您彈性地傳送跨平台推播和當地語系化推播。[如何針對 Azure Mobile Apps 使用受管理的用戶端](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications)示範如何註冊範本。
+* 標記可讓您使用推播鎖定區隔的客戶。[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) 示範如何在安裝裝置時加入標記。
 
 <!-- Anchors. -->
 
@@ -161,4 +120,4 @@
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

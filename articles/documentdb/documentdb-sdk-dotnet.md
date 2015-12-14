@@ -112,4 +112,4 @@ Microsoft 將至少在 SDK 停用之前 **12 個月**提供通知，以供順利
 
 若要深入了解 DocumentDB，請參閱 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 服務頁面。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

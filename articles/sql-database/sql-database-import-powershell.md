@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/13/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # 使用 PowerShell 匯入 BACPAC 檔案以建立新的 Azure SQL Database
@@ -21,7 +21,7 @@
 **單一資料庫**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-import.md)
+- [Azure portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
 
@@ -74,7 +74,7 @@ BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需�
     $DatabaseName = "databasename"
 
 
-下列變數是來自您 BACPAC 所在的儲存體帳戶。在 [Azure Preview 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶以取得這些值。您可以在儲存體帳戶的刀鋒視窗中，依序按一下 [**所有設定**] 與 [**金鑰**]，以找到主要便捷鍵。
+下列變數是來自您 BACPAC 所在的儲存體帳戶。在 [Azure 入口網站](https://portal.azure.com)中，瀏覽您的儲存體帳戶以取得這些值。您可以在儲存體帳戶的刀鋒視窗中，依序按一下 [**所有設定**] 與 [**金鑰**]，以找到主要便捷鍵。
 
 Blob 名稱是您想要用來建立資料庫之現有的 .bacpac 檔案名稱。您需要包含 .bacpac 副檔名。
 
@@ -152,4 +152,4 @@ Blob 名稱是您想要用來建立資料庫之現有的 .bacpac 檔案名稱。
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

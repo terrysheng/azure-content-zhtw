@@ -1,6 +1,6 @@
 <properties
 	pageTitle="建立自訂虛擬機器 | Microsoft Azure"
-	description="了解如何使用傳統的部署模型從 Azure 入口網站建立自訂虛擬機器。"
+	description="了解如何使用傳統的部署模型從 Azure 傳統入口網站建立自訂虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -36,4 +36,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

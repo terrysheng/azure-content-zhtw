@@ -54,7 +54,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 ##<a name="deploy"></a>部署 WebJobs
 
 * [如何使用 Visual Studio 部署 Azure WebJob](websites-dotnet-deploy-webjobs.md)
-* [如何使用 Azure 管理入口網站部署 WebJobs](web-sites-create-web-jobs.md)
+* [如何使用 Azure 入口網站部署 WebJobs](web-sites-create-web-jobs.md)
 * [啟用 Azure WebJobs 的命令列或連續傳遞](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [使用 WebJobs 將 .NET 主控台應用程式部署至 Azure 的 Git](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [將 F# WebJob 部署至 Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx) (英文)
@@ -66,7 +66,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 ##<a name="schedule"></a>排程 WebJob
 
 * [[新增 Azure WebJob] 對話方塊](websites-dotnet-deploy-webjobs.md#configure) (英文)
-* [在 Azure 管理入口網站中建立排定的 WebJob](web-sites-create-web-jobs.md#CreateScheduled)
+* [在 Azure 入口網站中建立排定的 WebJob](web-sites-create-web-jobs.md#CreateScheduled)
 * [將排程器工作連結至 WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html) (英文)
 * [使用 cron 運算式排程 Azure WebJob](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/) (英文)
 
@@ -142,4 +142,4 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

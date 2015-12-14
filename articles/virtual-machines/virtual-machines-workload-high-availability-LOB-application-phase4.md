@@ -108,7 +108,7 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure Preview 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連接] 按鈕將無法使用。
+> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連接] 按鈕將無法使用。
 
 使用您選擇的遠端桌面用戶端，並建立每個 Web 伺服器虛擬機器的遠端桌面連接。使用其內部網路 DNS 或電腦名稱，以及本機系統管理員帳戶的認證。
 
@@ -162,4 +162,4 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 [Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

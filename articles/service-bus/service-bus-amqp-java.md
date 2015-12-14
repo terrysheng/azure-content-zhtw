@@ -82,11 +82,11 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 
 | 名稱 | 意義 | | | | |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | 從 Azure 入口網站取得的服務匯流排命名空間。 | | | | |
-| `[username]` | 從 Azure 入口網站取得的服務匯流排發行者名稱。 | | | | |
-| `[password]` | 從 Azure 入口網站取得的服務匯流排發行者金鑰，為 URL 編碼格式。 | | | | |
+| `[namespace]` | 從 [Azure 傳統入口網站][]取得的服務匯流排命名空間。 | | | | |
+| `[username]` | 從 [Azure 傳統入口網站][]取得的服務匯流排發行者名稱。 | | | | |
+| `[password]` | 從 [Azure 傳統入口網站][]取得的 URL 編碼格式的服務匯流排發行者金鑰。 | | | | |
 
-> [AZURE.NOTE]您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 提供實用的 URL 編碼公用程式。
+> [AZURE.NOTE]您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 中提供實用的 URL 編碼公用程式。
 
 例如，如果從入口網站取得的資訊如下：
 
@@ -95,7 +95,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 | 發行者名稱： | owner |
 | 發行者金鑰： | abcdefg |
 
-為了定義名為 `SBCONNECTIONFACTORY` 的 **ConnectionFactory**，組態字串如下：
+為了定義名為 `SBCONNECTIONFACTORY` 的 **ConnectionFactory**，我們提供下列組態字串：
 
 ```
 connectionfactory.SBCONNECTIONFACTORY = amqps://owner:abcdefg@test.servicebus.windows.net
@@ -114,7 +114,7 @@ topic.[jndi_name] = [physical_name]
 
 | 名稱 | 意義 |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `[jndi\_name]` | 目的地的邏輯名稱。Java 應用程式中使用 JNDI `IntialContext.lookup()` 方法解析這個名稱。 |
+| `[jndi\_name]` | 目的地的邏輯名稱。我們已使用 JNDI `IntialContext.lookup()` 方法在 Java 應用程式中解析此名稱。 |
 | `[physical\name]` | 應用程式傳送或接收訊息的服務匯流排實體名稱。 |
 
 請注意：
@@ -122,7 +122,7 @@ topic.[jndi_name] = [physical_name]
 - `[physical\name]` 值可以是服務匯流排佇列或主題。
 - 從服務匯流排主題訂用帳戶收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂用帳戶時，將建立訂用帳戶名稱。
 - 也可以將服務匯流排主題訂用帳戶視為 JMS 佇列。這種方法有幾個好處：相同的接收者程式碼可用於佇列和主題訂用帳戶，而屬性檔中的所有位址資訊 (主題和訂用帳戶名稱) 都外部化。
-- 若要將服務匯流排主題訂用帳戶視為 JMS 佇列，屬性檔案中的項目格式應該為：`queue.[jndi\_name] = [topic\_name]/Subscriptions/[subscription\_name]`。|
+- 若要將服務匯流排主題訂用帳戶視為 JMS 佇列，屬性檔案中的項目格式應為：`queue.[jndi\_name] = [topic\_name]/Subscriptions/[subscription\_name]`。|
 
 若要定義名為 "TOPIC" 的邏輯 JMS 目的地來對應至名為 "topic1" 的服務匯流排主題，屬性檔中的項目應該如下:
 
@@ -132,7 +132,7 @@ topic.TOPIC = topic1
 
 ### 使用 JMS 傳送訊息
 
-下列程式碼示範如何將訊息傳送至服務匯流排主題。其中假設前一節所述的 **servicebus.properties** 組態檔中定義 `SBCONNECTIONFACTORY` 和 `TOPIC`。
+下列程式碼示範如何將訊息傳送至服務匯流排主題。當中假設 `SBCONNECTIONFACTORY` 和 `TOPIC` 在前一節所述的 **servicebus.properties** 組態檔中進行定義。
 
 ```
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -153,7 +153,7 @@ producer.send(message);
 
 ### 使用 JMS 接收訊息
 
-下列程式碼示範`how`從服務匯流排主題訂用帳戶接收訊息。其中假設前一節所述的 **servicebus.properties** 組態檔中定義 `SBCONNECTIONFACTORY` 和 TOPIC。也假設訂用帳戶名稱為 `subscription1`。
+下列程式碼示範 `how` 從服務匯流排主題訂用帳戶收到訊息。當中假設 `SBCONNECTIONFACTORY` 和 TOPIC 在前一節所述的 **servicebus.properties** 組態檔中進行定義。也假設訂用帳戶名稱為 `subscription1`。
 
 ```
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -176,21 +176,21 @@ Message message = messageConsumer.receive();
 
 JMS 規格定義如何撰寫 API 方法和應用程式碼的例外狀況合約來處理這類例外狀況。以下是有關例外狀況處理的一些其他考慮事項：
 
--   使用 **connection.setExceptionListener** 向 JMS 連接註冊 **ExceptionListener**。這樣可透過非同步方式向用戶端通知問題。此通知對於只取用訊息的連接特別重要，因為它們沒有其他方法可得知連接已失敗。如果基礎 AMQP 連接、工作階段或連結發生問題，則會呼叫 **ExceptionListener**。在此情況下，應用程式應該從頭重新建立 **JMS Connection**、**Session**、**MessageProducer** 和 **MessageConsumer** 物件。
+-   使用 **connection.setExceptionListener** 向 JMS 連接註冊 **ExceptionListener**。這樣可透過非同步方式向用戶端通知問題。此通知對於只取用訊息的連接特別重要，因為它們沒有其他方法可得知連接已失敗。如果基礎 AMQP 連接、工作階段或連結發生問題，將呼叫 **ExceptionListener**。在此情況下，應用程式應該從頭重新建立 **JMS Connection**、**Session**、**MessageProducer** 和 **MessageConsumer** 物件。
 
--   若要確認訊息已成功從 **MessageProducer** 傳送至服務匯流排實體，請確定應用程式已設定 **qpid.sync\_publish** 系統屬性。若要這樣做，您可以在啟動應用程式時，在命令列設定 **-Dqpid.sync\_publish=true** Java VM 選項。設定此選項可在接獲確認服務匯流排已收到訊息之前，不要讓程式庫從傳送呼叫返回。如果傳送作業期間發生問題，則會引發 **JMSException**。有兩個可能的原因：
-	1. 如果問題是出在服務匯流排拒絕已傳送的特定訊息，則會引發 **MessageRejectedException** 例外狀況。這個錯誤可能是暫時性，或由於訊息的某些問題而引起。建議是動作是以某種後退邏輯來多次重試作業。如果問題持續發生，就應該放棄訊息並在本機記錄錯誤。在此情況下，不需要重新建立 **JMS Connection**、**Session** 或 **MessageProducer** 物件。 
-	2. 如果問題是出在服務匯流排關閉 AMQP 連結，則會引發 **InvalidDestinationException** 例外狀況。這可能是因為暫時性問題或已刪除訊息實體。在任一情況下，應該重新建立 **JMS Connection**、**Session** 和 **MessageProducer** 物件。如果錯誤狀況是暫時性，此作業最終還是會成功。如果已刪除實體，則為永久失敗。
+-   若要確認訊息已成功從 **MessageProducer** 傳送至服務匯流排實體，請確定已透過 **qpid.sync\_publish** 系統屬性集設定該應用程式。作法是啟動應用程式時，透過在命令列上設定的 **-Dqpid.sync\_publish=true** Java VM 選項來啟動程式。設定此選項可在接獲確認服務匯流排已收到訊息之前，不要讓程式庫從傳送呼叫返回。如果傳送作業期間發生問題，將引發 **JMSException**。有兩個可能的原因：
+	1. 如果問題是因為服務匯流排拒絕讓特定訊息進行傳送而造成的，便會引發 **MessageRejectedException** 例外狀況。這個錯誤可能是暫時性，或由於訊息的某些問題而引起。建議是動作是以某種後退邏輯來多次重試作業。如果問題持續發生，就應該放棄訊息並在本機記錄錯誤。在此情況下，不需要重新建立 **JMS Connection**、**Session** 或 **MessageProducer** 物件。 
+	2. 如果問題是因為服務匯流排關閉 AMQP 連結而造成的，將引發 **InvalidDestinationException** 例外狀況。這可能是因為暫時性問題或已刪除訊息實體。無論是哪一種狀況，都應該重新建立 **JMS Connection**、**Session** 及 **MessageProducer** 物件。如果錯誤狀況是暫時性，此作業最終還是會成功。如果已刪除實體，則為永久失敗。
 
 ## 在 .NET 與 JMS 之間傳訊
 
 ### 訊息主體
 
-JMS 定義五種不同的訊息類型：**BytesMessage**、**MapMessage**、**ObjectMessage**、**StreamMessage** 和 **TextMessage**。服務匯流排 .NET API 只有一種訊息類型：[BrokeredMessage][]。
+JMS 可定義五種不同的訊息類型：**BytesMessage**、**MapMessage**、**ObjectMessage**、**StreamMessage** 和 **TextMessage**。服務匯流排 .NET API 只有一種訊息類型：[BrokeredMessage][]。
 
 #### JMS 至服務匯流排 .NET API
 
-下列各節顯示如何從 .NET 取用每一種 JMS 訊息類型的訊息。尚未包含 **ObjectMessage** 範例，因為 **ObjectMessage** 的主體包含採用 Java 程式設計語言的可序列化物件，而 .NET 應用程式無法解譯此物件。
+下列各節顯示如何從 .NET 取用每一種 JMS 訊息類型的訊息。尚未包含 **ObjectMessage** 範例，因為 **ObjectMessage** 的主體包含採用 Java 程式設計語言中的可序列化物件，但 .NET 應用程式無法解譯此物件。
 
 ##### BytesMessage
 
@@ -250,11 +250,11 @@ Console.WriteLine("Text: " + message.GetBody<String>());
 
 #### 服務匯流排 .NET API 至 JMS
 
-下列各節以每一種不同的 JMS 訊息類型示範 .NET 應用程式如何建立 JMS 中接收的訊息。尚未包含 **ObjectMessage** 範例，因為 **ObjectMessage** 的主體包含採用 Java 程式設計語言的可序列化物件，而 .NET 應用程式無法解譯此物件。
+下列各節以每一種不同的 JMS 訊息類型示範 .NET 應用程式如何建立 JMS 中接收的訊息。尚未包含 **ObjectMessage** 範例，因為 **ObjectMessage** 的主體包含採用 Java 程式設計語言中的可序列化物件，但 .NET 應用程式無法解譯此物件。
 
 ##### BytesMessage
 
-下列程式碼示範如何在 .NET 中建立 [BrokeredMessage][] 物件，然後由 JMS 用戶端以 **BytesMessage** 形式接收。
+下列程式碼示範如何在 .NET 中建立 [BrokeredMessage][] 物件 (以 **BytesMessage** 形式傳送給 JMS 用戶端)。
 
 ```
 byte[] bytes = { 33, 12, 45, 33, 12, 45, 33, 12, 45, 33, 12, 45 };
@@ -263,7 +263,7 @@ message = new BrokeredMessage(bytes);
 
 ##### StreamMessage
 
-下列程式碼示範如何在 .NET 中建立 [BrokeredMessage][] 物件，然後由 JMS 用戶端以 **StreamMessage** 形式接收。
+下列程式碼示範如何在 .NET 中建立 [BrokeredMessage][] 物件 (以 **StreamMessage** 形式傳送給 JMS 用戶端)。
 
 ```
 List<Object> list = new List<Object>();
@@ -297,7 +297,7 @@ message.setIntProperty("TestInt", 100);
 message.setStringProperty("TestString", "Service Bus");
 ```
 
-在服務匯流排 .NET API 中，訊息應用程式屬性位於 [BrokeredMessage][] 的 [屬性] 集合中。下列程式碼示範如何讀取從 JMS 用戶端接收之訊息的應用程式屬性。
+在服務匯流排 .NET API 中，訊息應用程式屬性包含在 [BrokeredMessage][] 的**屬性**集合中。下列程式碼示範如何讀取從 JMS 用戶端接收之訊息的應用程式屬性。
 
 ```
 if (message.Properties.Keys.Count > 0)
@@ -322,7 +322,7 @@ if (message.Properties.Keys.Count > 0)
 | Boolean | 布林 |
 | String | 字串 |
 
-[BrokeredMessage][] 類型支援下列類型的應用程式屬性︰**byte**、**sbyte**、**char**、**short**、**ushort**、**int**、**uint**、**long**、**ulong**、**float**、**double**、**decimal**、**bool**、**Guid**、**string**、**Uri**、**DateTime**、**DateTimeOffset** 和 **TimeSpan**。下列 .NET 程式碼示範如何使用每一個屬性類型來設定 [BrokeredMessage][] 物件的屬性。
+[BrokeredMessage][] 類型支援下列類型的應用程式屬性︰**byte**、**sbyte**、**char**、**short**、**ushort**、**int**、**uint**、**long**、**ulong**、**float**、**double**、**decimal**、**bool**、**Guid**、**string**、**Uri**、**DateTime**、**DateTimeOffset** 和 **TimeSpan**。下列 .NET 程式碼示範如何使用每一個屬性類型設定 [BrokeredMessage][] 物件的屬性。
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -384,7 +384,7 @@ while (propertyNames.hasMoreElements())
 
 JMS over AMQP 1.0 和服務匯流排一起使用時有下列限制：
 
--   每個工作階段僅允許一個 **MessageProducer** 或 **MessageConsumer**。如果您想要在應用程式中建立多個 **MessageProducer** 或 **MessageConsumer** 物件，請分別建立專用的工作階段。
+-   每工作階段僅允許一個 **MessageProducer** 或 **MessageConsumer**。如果您想要在應用程式中建立多個 **MessageProducer** 或 **MessageConsumer** 物件，請分別建立專用的工作階段。
 
 -   目前不支援可變更的主題訂用帳戶。
 
@@ -408,5 +408,6 @@ JMS over AMQP 1.0 和服務匯流排一起使用時有下列限制：
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
+[Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

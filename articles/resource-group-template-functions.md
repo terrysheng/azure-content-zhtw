@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/12/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員範本函數
@@ -78,26 +78,44 @@
 
 傳回目前部署作業的相關資訊。
 
-傳回部署的相關資訊做為具有下列屬性的物件：
+此運算式會傳回部署期間所傳遞的物件。視部署物件是以連結或內嵌物件形式傳遞，所傳回物件中的屬性將有所不同。部署物件以內嵌形式傳遞時 (例如使用 Azure PowerShell 中的 **TemplateFile** 參數指向本機檔案時)，所傳回的物件為下列格式：
 
     {
-      "name": "",
-      "properties": {
-        "template": {},
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-      }
+        "name": "",
+        "properties": {
+            "template": {
+                "$schema": "",
+                "contentVersion": "",
+                "resources": [
+                ],
+                "outputs": {}
+            },
+            "parameters": {},
+            "mode": "",
+            "provisioningState": ""
+        }
     }
 
-下列範例顯示如何在輸出區段中傳回部署資訊。
+部署物件以連結形式傳遞時 (例如使用 **-TemplateUri** 參數指向遠端檔案時)，所傳回的物件為下列格式：
 
-    "outputs": {
-      "exampleOutput": {
-        "value": "[deployment()]",
-        "type" : "object"
-      }
+    {
+        "name": "",
+        "properties": {
+            "templateLink": {
+                "uri": "",
+                "contentVersion": ""
+            },
+            "mode": "",
+            "provisioningState": ""
+        }
     }
+
+下列範例說如何根據上層範本 URI，使用部署() 連結至另一個範本。
+
+    "variables": {  
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+    }  
+
 
 ## div
 
@@ -131,9 +149,25 @@
 
 ## length
 
-**length(array)**
+**length(array or string)**
 
-傳回陣列中的元素數目。通常，用來指定建立資源時的反覆項目數目。如需使用此函數的範例，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
+傳回陣列中的元素數量或字串中的字元數量。建立資源時，您可在陣列中使用此函式指定反覆運算的數量。下列範例中，參數 **siteNames** 會參考在建立網站時要使用的名稱陣列。
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+如需有關在此陣列中使用函式的詳細資訊，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
+
+或者，您可以使用字串：
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
 
 ## listKeys
 
@@ -268,7 +302,7 @@
 
 **reference** 函數會從執行階段狀態衍生其值，因此不能用在 variables 區段中。它可以用於範本的 outputs 區段中。
 
-如果在相同的範本內佈建所參考的資源，則可使用 reference 運算式來隱含宣告一個資源相依於另一個資源。您也不需要使用 **dependsOn** 屬性。所參考的資源完成部署之前不會評估運算式。
+如果在相同的範本內佈建所參考的資源，則可使用 reference 運算式來隱含宣告一個資源相依於另一個資源。您不需要同時使用 **dependsOn** 屬性。所參考的資源完成部署之前不會評估運算式。
 
     "outputs": {
       "siteUri": {
@@ -559,9 +593,11 @@
 | baseUri | 是 | 基底 uri 的字串。
 | relativeUri | 是 | 要加入至基底 uri 字串的相對 uri 字串。
 
-下列範例示範如何在範本連結中建立絕對 URI：結果為 ****http://contoso.com/resources/nested/azuredeploy.json**。
+**baseUri** 參數的值可包含特定檔案，但在建構 URI 時，只會使用基底路徑。例如，將 ****http://contoso.com/resources/azuredeploy.json** 作為 baseUri 參數形式傳遞會產生 ****http://contoso.com/resources/** 的基底 URI。
 
-    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+下列範例顯示如何根據上層範本的值建構巢狀範本的連結。
+
+    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
 
 ## 變數
@@ -576,9 +612,9 @@
 
 
 ## 後續步驟
-- 如需 Azure 資源管理員範本中各節的說明，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
-- 若要合併多個範本，請參閱[搭配使用連結的範本與 Azure 資源管理員](resource-group-linked-templates.md)
-- 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)
-- 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
+- 如需有關 Azure 資源管理員範本的各區段說明，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
+- 若要合併多個範本，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
+- 若要依指定的次數重複建立資源類型，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)
+- 若要了解如何部署已建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

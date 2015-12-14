@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # 開啟或關閉您的 StorSimple 裝置 
@@ -189,11 +189,11 @@ StorSimple 8600 型同時具有主要機箱和 EBOD 機箱。這需要使用纜�
 
 ### 具有主要機箱的裝置 <a name="8100a"> 
 
-目前沒有方法從管理入口網站關閉執行中的 StorSimple 裝置。關閉它的唯一方式是使用 Windows PowerShell for StorSimple。若要以有條理的方式關閉裝置，請進入 Windows PowerShell for StorSimple 並依照下列步驟進行。
+目前沒有方法從 Azure 傳統入口網站關閉執行中的 StorSimple 裝置。關閉它的唯一方式是使用 Windows PowerShell for StorSimple。若要以有條理的方式關閉裝置，請進入 Windows PowerShell for StorSimple 並依照下列步驟進行。
 
 >[AZURE.IMPORTANT]請勿使用裝置背面的電源按鈕關閉執行中的裝置。
 >
->關閉裝置之前，請確定所有的裝置元件狀態良好。在管理入口網站中，瀏覽至 [裝置] > [維護] > [硬體狀態]，並確認所有的元件狀態是綠色的。這只適用於狀態良好的系統。如果系統正在關閉中以更換故障的元件，您會在 [硬體狀態] 中看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
+>關閉裝置之前，請確定所有的裝置元件狀態良好。在 Azure 傳統入口網站中，瀏覽至 [裝置] > [維護] > [硬體狀態]，並確認所有的元件狀態是綠色的。這只適用於狀態良好的系統。如果系統正在關閉中以更換故障的元件，您會在 [硬體狀態] 中看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
 
 透過裝置序列主控台或 Windows PowerShell 遠端處理，您可以連線至 Windows PowerShell for StorSimple。在您進入 Windows PowerShell for StorSimple 之後，執行下列步驟以關閉執行中的裝置。
 
@@ -225,7 +225,7 @@ StorSimple 8600 型同時具有主要機箱和 EBOD 機箱。這需要使用纜�
 
 ### 具有 EBOD 機箱的裝置<a name="8600a">
 
->[AZURE.IMPORTANT]關閉主要機箱和 EBOD 機箱之前，請確定所有裝置元件狀態良好。在管理入口網站中，瀏覽至 [裝置] > [維護] > [硬體狀態]，並確認所有的元件狀態良好。
+>[AZURE.IMPORTANT]關閉主要機箱和 EBOD 機箱之前，請確定所有裝置元件狀態良好。在 Azure 傳統入口網站中，瀏覽至 [裝置] > [維護] > [硬體狀態]，並確認所有的元件狀態是綠色的。
 
 #### 若要關閉具有 EBOD 機箱的執行中裝置
 
@@ -241,4 +241,4 @@ StorSimple 8600 型同時具有主要機箱和 EBOD 機箱。這需要使用纜�
 
 如果您在開啟或關閉 StorSimple 裝置時發生問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

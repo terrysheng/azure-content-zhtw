@@ -26,7 +26,7 @@
 
 > [AZURE.IMPORTANT]這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
 >    
-> 如果您使用 Azure PowerShell 1.0 Preview，您必須使用[這裡](https://msdn.microsoft.com/library/dn820234.aspx)所記載的 Cmdlet。例如，使用 New-AzureRMDataFactory，而非使用 New-AzureDataFactory。
+> 若您使用 Azure PowerShell 1.0 Preview，您必須使用[這裡](https://msdn.microsoft.com/library/dn820234.aspx)所記載的 Cmdlet。例如，使用 New-AzureRMDataFactory，而非使用 New-AzureDataFactory。
 
 ## 必要條件
 
@@ -44,7 +44,7 @@
 2. [步驟 2：為內部部署 SQL Server 建立連結的服務](#OnPremStep2)。在此步驟中，您會先在內部部署 SQL Server 電腦上建立資料庫和資料表，然後建立連結的服務：**OnPremSqlLinkedService**。
 3. [步驟 3：建立資料表和管線](#OnPremStep3)。在此步驟中，您將建立資料表 **MarketingCampaignEffectivenessOnPremSQLTable** 和管線 **EgressDataToOnPremPipeline**。 
 
-4. [步驟 4：監視管線和檢視結果](#OnPremStep4)。在此步驟中，您將使用 Azure 入口網站來監視管線、資料表和資料配量。
+4. [步驟 4：監視管線和檢視結果](#OnPremStep4)。在此步驟中，您將使用 Azure 傳統入口網站監視管線、資料表和資料配量。
 
 
 ## <a name="OnPremStep1"></a>步驟 1：建立資料管理閘道
@@ -55,7 +55,7 @@
 
 如果您有可以使用的現有資料閘道，請略過此步驟。
 
-1.	建立邏輯資料閘道。在 **Azure Preview 入口網站**中，按一下 **DATA FACTROY** 刀鋒視窗上的 [**連結服務**]。
+1.	建立邏輯資料閘道。在 **Azure 入口網站**中，按一下 [DATA FACTROY] 刀鋒視窗上的 [連結服務]。
 2.	按一下命令列上的 [**新增 (+) 資料閘道**]。  
 3.	在 [**新增資料閘道**] 分頁中，按一下 [**建立**]。
 4.	在 [**建立**] 分頁中，輸入 **MyGateway** 做為資料閘道的 [**名稱**]。
@@ -101,7 +101,7 @@
 
 ### 建立連結的服務
 
-1.	在 **Azure Preview 入口網站**中，按一下 **LogProcessingFactory** 的 **DATA FACTORY** 刀鋒視窗上的 [**連結服務**] 磚。
+1.	在 **Azure 入口網站**中，按一下 **LogProcessingFactory** 的 [DATA FACTORY] 刀鋒視窗上的 [連結服務] 磚。
 2.	在 [**連結服務**] 刀鋒視窗中，按一下 [**新增 (+) 資料存放區**]。
 3.	在 [新增資料存放區] 刀鋒視窗中，針對 [名稱] 輸入 **OnPremSqlLinkedService**。 
 4.	按一下 [**類型 (需要設定)**]，然後選取 [**SQL Server**]。您現在應該會在 [**新增資料存放區**] 刀鋒視窗中看到 [**資料閘道**]、[**伺服器**]、[**資料庫**]，以及 [**認證**] 設定。 
@@ -158,7 +158,7 @@
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -174,4 +174,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

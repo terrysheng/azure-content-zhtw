@@ -205,7 +205,7 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 
 	這會停用 IIS WebSockets 模組，其中包含它自己的 WebSockets 實作，而且會與 Node.js 特定 WebSocket 模組 (例如 Socket.IO) 衝突。如果此行不存在，或設定為 `true`，這可能是您應用程式的 WebSocket 傳輸無法運作的原因。
 
-	通常 Node.js 應用程式並不包含 **web.config** 檔案，因此 Azure 網站會在部署 Node.js 應用程式時自動建立此一檔案。由於此檔案是在伺服器上自動產生的，因此您必須在網站使用 FTP 或 FTPS URL 才能檢視此檔案。您可以在 Azure 管理入口網站中選取您的網站，再選取 [儀表板] 連結，以找出該網站的 FTP 和 FTPS URL。URL 會顯示在 [快速概覽] 區段。
+	通常 Node.js 應用程式並不包含 **web.config** 檔案，因此 Azure 網站會在部署 Node.js 應用程式時自動建立此一檔案。由於此檔案是在伺服器上自動產生的，因此您必須在網站使用 FTP 或 FTPS URL 才能檢視此檔案。您可以在傳統入口網站中選取您的 Web 應用程式，再選取 [儀表板] 連結，以找出該網站的 FTP 和 FTPS URL。URL 會顯示在 [快速概覽] 區段。
 
 	> [AZURE.NOTE]如果您的應用程式並未提供 **web.config** 檔案，那麼此一檔案只會由 Azure 網站來產生。如果您在應用程式專案的根目錄中提供 **web.config** 檔案，Azure Web Apps 將會使用此檔案。
 
@@ -285,4 +285,4 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -36,9 +36,9 @@ Microsoft Azure StorSimple 解決方案包含四個彼此互動的主要元件�
 
 ## StorSimple Manager 服務保護
 
-StorSimple Manager 服務是裝載於 Microsoft Azure 的管理服務，可用來管理您組織所採購的所有 StorSimple 裝置。您可以使用您的組織認證，透過網頁瀏覽器登入 Azure 入口網站來存取 StorSimple Manager 服務。
+StorSimple Manager 服務是裝載於 Microsoft Azure 的管理服務，可用來管理您組織所採購的所有 StorSimple 裝置。您可以使用您的組織認證，透過網頁瀏覽器登入 Azure 傳統入口網站來存取 StorSimple Manager 服務。
 
-若要存取 StorSimple Manager 服務，您的組織需有內含 StorSimple 的 Azure 訂閱。您的訂閱可控管您在 Azure 入口網站的存取功能。如果您的組織沒有 Azure 訂用帳戶，但您想要了解更多相關資訊，請參閱[以組織身分註冊 Azure](../sign-up-organization.md)。
+若要存取 StorSimple Manager 服務，您的組織需有內含 StorSimple 的 Azure 訂閱。您的訂用帳戶可控管您在 Azure 傳統入口網站的存取功能。如果您的組織沒有 Azure 訂用帳戶，但您想要了解更多相關資訊，請參閱[以組織身分註冊 Azure](../sign-up-organization.md)。
 
 因為 StorSimple Manager 服務裝載於 Azure 中，所以它會受到 Azure 安全性功能的保護。如需有關 Microsoft Azure 所提供的安全性功能的詳細資訊，請移至 [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/security/)。
 
@@ -46,7 +46,7 @@ StorSimple Manager 服務是裝載於 Microsoft Azure 的管理服務，可用�
 
 StorSimple 裝置是包含固態硬碟 (SSD) 和硬碟 (HDD) 的內部部署混合式存放裝置，提供備援控制器和自動容錯移轉功能。控制器可管理儲存體分層、將目前使用的 (或熱) 資料放在本機儲存體 (在 StorSimple 裝置或在內部部署伺服器中)，而將不常使用的資料移到雲端。
 
-只有已授權的 StorSimple 裝置才能加入您在 Azure 訂閱中建立的 StorSimple Manager 服務。若要授權裝置，您必須提供服務註冊金鑰才能向 StorSimple Manager 服務註冊該裝置。服務註冊金鑰是在 Azure 入口網站中產生的 128 位元隨機金鑰。
+只有已授權的 StorSimple 裝置才能加入您在 Azure 訂閱中建立的 StorSimple Manager 服務。若要授權裝置，您必須提供服務註冊金鑰才能向 StorSimple Manager 服務註冊該裝置。服務註冊金鑰是在 Azure 傳統入口網站中產生的 128 位元隨機金鑰。
 
 ![服務註冊金鑰](./media/storsimple-security/ServiceRegistrationKey.png)
 
@@ -131,7 +131,7 @@ StorSimple Snapshot Manager 密碼必須是 14 到 15 個字元，且必須包�
 
 ## 保護流經服務的資料
 
-StorSimple Manager 服務的主要目的是管理和設定 StorSimple 裝置。StorSimple Manager 服務可在 Microsoft Azure 中執行。您可以使用 Azure 入口網站來輸入裝置設定資料，接著 Microsoft Azure 會使用 StorSimple Manager 服務將資料傳送到裝置。StorSimple 使用非對稱金鑰組的系統，可協助確保即使 Azure 服務遭到入侵，也不會導致儲存的資訊洩漏。
+StorSimple Manager 服務的主要目的是管理和設定 StorSimple 裝置。StorSimple Manager 服務可在 Microsoft Azure 中執行。您可以使用 Azure 傳統入口網站來輸入裝置組態資料，接著 Microsoft Azure 會使用 StorSimple Manager 服務將資料傳送到裝置。StorSimple 使用非對稱金鑰組的系統，可協助確保即使 Azure 服務遭到入侵，也不會導致儲存的資訊洩漏。
 
 ![傳輸中的資料加密](./media/storsimple-security/DataEncryption.png)
 
@@ -183,7 +183,7 @@ StorSimple 裝置會根據使用頻率，將資料儲存在本機階層和雲端
 建議您按照這些最佳作法進行金鑰輪替：
 
 - 請時常輪替儲存體帳戶金鑰，以確保未經授權的使用者無法存取您的儲存體帳戶。
-- Azure 系統管理員應該使用 Azure 入口網站的 [儲存體] 區段來直接存取儲存體帳戶，以定期變更或重新產生主要或次要金鑰。
+- Azure 系統管理員應該使用 Azure 傳統入口網站的 [儲存體] 區段來直接存取儲存體帳戶，以定期變更或重新產生主要或次要金鑰。
 
 
 ## 透過加密保護資料安全
@@ -192,8 +192,8 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 | 演算法 | 金鑰長度 | 通訊協定/應用程式/註解 |
 | --------- | ---------- | ------------------------------- |
-| RSA | 2048 | Azure 入口網站會使用 RSA PKCS 1 v1.5 來加密傳送至裝置的組態資料：例如儲存體帳戶認證、StorSimple 裝置組態，以及雲端儲存體加密金鑰。 |
-| AES | 256 | AES 搭配 CBC 可用來先加密服務資料加密金鑰的公開部分，然後才將該金鑰從 StorSimple 裝置傳送到 Azure 入口網站。StorSimple 裝置也會用它來加密資料，之後才將資料傳送至雲端儲存體帳戶。 |
+| RSA | 2048 | Azure 傳統入口網站會使用 RSA PKCS 1 v1.5 來加密傳送至裝置的組態資料：例如儲存體帳戶認證、StorSimple 裝置組態，以及雲端儲存體加密金鑰。 |
+| AES | 256 | AES 搭配 CBC 可用來先加密服務資料加密金鑰的公開部分，然後才將該金鑰從 StorSimple 裝置傳送到 Azure 傳統入口網站。StorSimple 裝置也會用它來加密資料，之後才將資料傳送至雲端儲存體帳戶。 |
 
 
 ## StorSimple 虛擬裝置安全性
@@ -269,4 +269,4 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 [部署您的 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

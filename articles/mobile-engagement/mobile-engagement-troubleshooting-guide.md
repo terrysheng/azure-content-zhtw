@@ -29,7 +29,7 @@
 2. 您使用的是最新版的平台 SDK。 
 3. 同時在實際裝置和模擬器上進行測試，因為有些問題是只有模擬器才有的。 
 4. 您並未達到 Mobile Engagement 的任何限制/節流，其相關內容記載在[這裡](azure-subscription-service-limits.md)。
-5. 如果您無法連接到 Mobile Engagement 服務後端，或發現未能持續載入資料，則請檢查[這裡](https://azure.microsoft.com/zh-TW/status/)，確定目前沒有發生服務事件
+5. 如果您無法連接到 Mobile Engagement 服務後端，或發現未能持續載入資料，則請檢查[這裡](https://azure.microsoft.com/status/)，確定目前沒有發生服務事件
 
 ## 「監視」問題
 
@@ -118,4 +118,4 @@
 	- Mobile Engagement SDK 版本 (例如 Android SDK v2.1.0)
 	- 附有確切錯誤訊息與狀況的錯誤詳細資料
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

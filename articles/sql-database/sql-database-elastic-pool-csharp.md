@@ -14,13 +14,13 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="11/06/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # C&#x23; 資料庫開發：為 SQL 資料庫建立和設定彈性資料庫集區
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -29,8 +29,7 @@
 
 > [AZURE.NOTE]彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server.md)。
 
-範例使用的是[適用於 .NET 的 Azure SQL Database 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)。
-為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
+範例使用的是[適用於 .NET 的 Azure SQL Database 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)。為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
 
 「適用於 .NET 的 Azure SQL Database 程式庫」提供 [Azure 資源管理員](resource-group-overview.md)式 API，此 API 包裝了[資源管理員式 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)。此用戶端程式庫遵循資源管理員式用戶端程式庫的常見模式。「資源管理員」需要資源群組，並且使用 [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) 來進行驗證。
 
@@ -57,7 +56,7 @@
 
 [Azure 資源管理員 REST API](https://msdn.microsoft.com/library/azure/dn948464.aspx) 會使用 Azure Active Directory 來進行驗證，而不是使用先前「Azure 服務管理 REST API」所使用的憑證。
 
-若要根據目前的使用者驗證您的用戶端應用程式，您必須先在與訂用帳戶 (已在其下建立 Azure 資源) 相關聯的 AAD 網域中註冊您的應用程式。如果您的 Azure 訂用帳戶是以 Microsoft 帳戶而不是工作或學校帳戶建立的，您便已經有預設 AAD 網域。您可以在[管理入口網站](https://manage.windowsazure.com/)中完成應用程式註冊。
+若要根據目前的使用者驗證您的用戶端應用程式，您必須先在與訂用帳戶 (已在其下建立 Azure 資源) 相關聯的 AAD 網域中註冊您的應用程式。如果您的 Azure 訂用帳戶是以 Microsoft 帳戶而不是工作或學校帳戶建立的，您便已經有預設 AAD 網域。您可以在[傳統入口網站](https://manage.windowsazure.com/)中完成應用程式註冊。
 
 若要建立新的應用程式並且在正確的 Active Directory 中註冊，請執行下列動作：
 
@@ -87,7 +86,7 @@
 
     ![新增應用程式][8]
 
-7. 完成應用程式建立，按一下 [設定]，然後複製 \[用戶端識別碼] (您的程式碼中將需要此用戶端識別碼)。
+7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] (您的程式碼中將需要此用戶端識別碼)。
 
     ![取得用戶端識別碼][9]
 
@@ -107,7 +106,7 @@
 
 您的程式碼需要網域名稱。可以輕易地識別正確的網域名稱的方式是：
 
-1. 移至 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 將滑鼠停留在右上角的名稱，並記下出現在快顯視窗的網域。以您帳戶的值取代下方程式碼片段中的 **domain.onmicrosoft.com**。
 
     ![識別網域名稱][3]
@@ -586,4 +585,4 @@
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -23,7 +23,7 @@
 
 本主題提供將 Microsoft Azure 虛擬機器中 SQL Server 的效能最佳化的最佳作法。在 Azure 虛擬機器中執行 SQL Server 時，我們建議您繼續使用相同的資料庫效能微調選項，這些選項適用於內部部署伺服器環境中的 SQL Server。不過，公用雲端中關聯式資料庫的效能優劣取決於許多因素，例如虛擬機器的大小和資料磁碟的組態。
 
-建立 SQL Server 映像時可考慮使用 Azure Preview 入口網站，以善用各項功能 (例如預設使用進階儲存體) 以及其他選項 (例如自動修補、自動備份和 AlwaysOn 組態)。
+建立 SQL Server 映像時可考慮使用 Azure 入口網站，以善用各項功能 (例如預設使用進階儲存體) 以及其他選項 (例如自動修補、自動備份和 AlwaysOn 組態)。
 
 本文的主題為如何讓 Azure VM 上的 SQL Server 達到最佳效能。如果您的工作負載需求較低，可能就不需要採用下列每一項最佳化條件。評估以下建議時，請考慮您的效能需求和工作負載模式。
 
@@ -133,4 +133,4 @@
 
 請檢閱 [Azure 虛擬機器上 SQL Server 的概觀](virtual-machines-sql-server-infrastructure-services.md)中的其他 SQL Server 虛擬機器主題。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

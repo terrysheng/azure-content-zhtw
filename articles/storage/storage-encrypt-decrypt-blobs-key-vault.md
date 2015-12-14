@@ -167,7 +167,7 @@
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-以下是目前 Azure 入口網站的螢幕擷取畫面，其中使用用戶端加密與金鑰保存庫中儲存的金鑰來加密 blob。**KeyId** 屬性是金鑰保存庫中做為 KEK 的金鑰的 URI。**EncryptedKey** 屬性包含 CEK 的加密版本。
+以下是目前 [Azure 傳統入口網站](manage.windowsazure.com)的螢幕擷取畫面，其中使用用戶端加密與金鑰保存庫中儲存的金鑰來加密 blob。**KeyId** 屬性是金鑰保存庫中做為 KEK 的金鑰的 URI。**EncryptedKey** 屬性包含 CEK 的加密版本。
 
 ![此螢幕擷取畫面顯示包含加密中繼資料的 Blob 中繼資料][1]
 
@@ -235,4 +235,4 @@ RSA 金鑰的私密金鑰保留在保存庫金鑰中，為了進行解密，從�
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

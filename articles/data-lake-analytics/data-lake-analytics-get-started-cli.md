@@ -38,7 +38,7 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - **Azure CLI**。請參閱[安裝和設定 Azure CLI](xplat-cli.md)。
 	- 下載並安裝[Azure CLI 工具](https://github.com/MicrosoftBigData/AzureDataLake/releases)的**發行前版本**，才能完成這個示範。
 - 使用下列命令進行**驗證**：
@@ -95,7 +95,7 @@
 
 在本教學課程中，您將會處理一些搜尋記錄檔。搜尋記錄檔可以儲存在資料湖存放區或 Azure Blob 儲存體中。
 
-Azure Preview 入口網站會提供使用者介面，可將範例資料檔案複製到預設的資料湖帳戶，其中包括搜尋記錄檔案。若要將資料上傳至預設資料湖存放區帳戶，請參閱[準備來源資料](data-lake-analytics-get-started-portal.md#prepare-source-data)。
+Azure 入口網站會提供使用者介面，可將範例資料檔案複製到預設的資料湖帳戶，其中包括搜尋記錄檔案。若要將資料上傳至預設資料湖存放區帳戶，請參閱[準備來源資料](data-lake-analytics-get-started-portal.md#prepare-source-data)。
 
 若要使用 CLI 上傳檔案，請使用下列命令：
 
@@ -166,7 +166,7 @@ Azure Preview 入口網站會提供使用者介面，可將範例資料檔案複
 - 若要了解更複雜的查詢，請參閱[使用 Azure 資料湖分析分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
 - 若要開始開發 U-SQL 應用程式，請參閱[使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 - 若要了解 U-SQL，請參閱[開始使用 Azure 資料湖分析 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)。
-- 針對管理工作，請參閱[使用 Azure Preview 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
+- 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

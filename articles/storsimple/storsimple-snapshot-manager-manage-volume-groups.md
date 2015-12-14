@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來建立和管理磁碟區群組
@@ -52,9 +52,9 @@
 名稱 | [名稱] 資料行包含磁碟區群組的名稱。
 應用程式 | [應用程式] 資料行會顯示 Windows 主機上目前已安裝且正在執行的 VSS 寫入器數目。
 已選取 | [已選取] 資料行會顯示磁碟區群組中所包含的磁碟區數目。零 (0) 表示沒有任何應用程式與磁碟區群組中的磁碟區相關聯。
-已匯入 | [已匯入] 資料行會顯示已匯入的磁碟區數目。當設定為 **True** 時，此資料行會指出已從 Microsoft Azure 管理入口網站匯入磁碟區群組，而不是在 StorSimple Snapshot Manager 中建立它。
+已匯入 | [已匯入] 資料行會顯示已匯入的磁碟區數目。當設定為 **True** 時，此資料行會指出已從 Azure 傳統入口網站匯入磁碟區群組，而不是在 StorSimple Snapshot Manager 中建立它。
  
->[AZURE.NOTE]StorSimple Snapshot Manager 磁碟區群組也會顯示在 Azure 管理入口網站的 [備份原則] 索引標籤上。
+>[AZURE.NOTE]StorSimple Snapshot Manager 磁碟區群組也會顯示在 Azure 傳統入口網站的 [備份原則] 索引標籤上。
  
 ## 建立磁碟區群組
 
@@ -147,4 +147,4 @@
 - 了解如何[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 - 了解如何[使用 StorSimple Snapshot Manager 建立和管理備份原則](storsimple-snapshot-manager-manage-backup-policies.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

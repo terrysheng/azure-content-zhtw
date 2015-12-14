@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/01/2015" 
 	ms.author="spelluru"/>
 
 # 資料移動活動
@@ -109,4 +109,4 @@
 
 以複製活動而言，**typeProperties** 區段會根據來源和接收的類型而有所不同。以上所列的每個資料存放區特定頁面都會記錄這些資料存放區類型專屬的屬性。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

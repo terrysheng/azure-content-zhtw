@@ -15,13 +15,13 @@
 	+ **存取權杖**
 	+ **存取權杖密碼**
 
-4. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。
+4. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，按一下 [行動服務]，然後按一下您的應用程式。
 
 5. 按一下 [身分識別] 索引標籤，輸入從 Twitter 取得的 [消費者金鑰] 和 [消費者密碼] 值，然後按 [儲存]。
 
 	![](./media/mobile-services-register-twitter-access/mobile-identity-tab-twitter-only.png)
 
-2. 按一下 [設定] 索引標籤，向下捲動至 **應用程式設定**，並輸入您從 Twitter 網站取得之下列各項的 [名稱] 和 [值] 組，然後按 [儲存]。
+2. 按一下 [設定] 索引標籤，向下捲動至 [應用程式設定]，並輸入您從 Twitter 網站取得之下列各項的 [名稱] 和 [值] 組，然後按 [儲存]。
 
 	+ `TWITTER_ACCESS_TOKEN`
 	+ `TWITTER_ACCESS_TOKEN_SECRET`
@@ -32,9 +32,8 @@
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Azure 管理入口網站]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [應用程式設定]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

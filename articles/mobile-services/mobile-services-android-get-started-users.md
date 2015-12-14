@@ -18,6 +18,10 @@
 
 # 將驗證加入至行動服務 Android 應用程式 (JavaScript 後端)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 ## 摘要
@@ -99,13 +103,7 @@
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[開始使用行動服務]: /develop/mobile/tutorials/get-started-android
-[Add Mobile Services to an existing app]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
-[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
-[使用指令碼授權使用者]: /develop/mobile/tutorials/authorize-users-in-scripts-android
+[開始使用行動服務]: mobile-services-android-get-started.md
+[使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

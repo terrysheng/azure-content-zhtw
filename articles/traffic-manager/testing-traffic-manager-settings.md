@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # 測試流量管理員設定
@@ -52,9 +52,9 @@
 
 您可以找到免費的 Web 型 DNS 查閱和挖掘服務。其中部分提供您從不同位置檢查 DNS 名稱解析的能力。例如，搜尋 “DNS lookup” 相關資料。另一個選項是使用協力廠商解決方案 (如 Gomez 或 Keynote)，確認您的設定檔正如預期般分配流量。
 
-## 另請參閱
+## 後續步驟
 
 [關於流量管理員流量路由方法](../about-traffic-manager-balancing-methods.md) [Traffic Manager](../traffic-manager.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

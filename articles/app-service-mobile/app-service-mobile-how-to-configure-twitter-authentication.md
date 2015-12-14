@@ -33,7 +33,7 @@
 ## <a name="register"> </a>向 Twitter 註冊您的應用程式
 
 
-1. 登入 [Azure 管理入口網站]，然後瀏覽至您的應用程式。複製您的 **URL**。您將使用此 URL 設定您的 Twitter 應用程式。
+1. 登入 [Azure 入口網站]，然後瀏覽到您的應用程式。複製您的 **URL**。您將使用此 URL 設定您的 Twitter 應用程式。
 
 2. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [**建立新的應用程式**]。
 
@@ -55,7 +55,7 @@
 > [AZURE.NOTE]如果您使用 App Service 閘道器，請忽略此章節，並改為在入口網站中瀏覽至您的閘道器。依序選取 [設定]、[身分識別]，[Twitter]。貼入您之前取得的值，然後按一下 [儲存]。
 
 
-13. 回到 [Azure 管理入口網站]，並瀏覽至應用程式。依序按一下 [設定] 及 [驗證/授權]。
+13. 請回到 [Azure 入口網站]，並瀏覽到您的應用程式。依序按一下 [設定] 及 [驗證/授權]。
 
 14. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
 
@@ -85,7 +85,7 @@
 <!-- URLs. -->
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Azure 管理入口網站]: https://portal.azure.com/
+[Azure 入口網站]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -250,4 +250,4 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
 最後一節將討論使用者可以微調的參數，如此即可改善 Hive 查詢的效能。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

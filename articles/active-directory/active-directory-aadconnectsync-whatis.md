@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD Connect 同步處理自訂選項 | Microsoft Azure"
-	description="說明如何自訂 Azure AD Connect 同步處理。"
+	pageTitle="Azure AD Connect 同步處理：了解及自訂同步處理 | Microsoft Azure"
+	description="說明 Azure AD Connect 同步處理如何運作及如何自訂。"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -17,7 +17,7 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect 同步處理：自訂同步處理選項
+# Azure AD Connect 同步處理：了解及自訂同步處理
 
 Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理) 是 Azure AD Connect 的主要元件，負責與在您內部部署環境和雲端中 Azure AD 間同步處理身分識別資料相關的所有操作。從同步處理觀點來看，Azure AD Connect 同步處理是 DirSync、Azure AD 同步，以及已設定 Azure Active Directory 連接器之 Forefront Identity Manager 的後續版本。
 
@@ -45,4 +45,4 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

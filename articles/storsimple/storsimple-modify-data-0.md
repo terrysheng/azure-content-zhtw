@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/02/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # 修改 StorSimple 裝置上的 DATA 0 網路介面設定
@@ -41,7 +41,7 @@ Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5�
 
 3. 安裝精靈將會出現以協助您設定裝置的 DATA 0 介面。提供 IP 位址、閘道器和網路遮罩的新值。
 
-> [AZURE.NOTE]固定控制器 IP 必須在 Azure 管理入口網站透過 StorSimple 裝置的 [**設定**] 頁面重新設定。如需詳細資訊，請移至[修改網路介面](storsimple-modify-device-config.md#modify-network-interfaces)。
+> [AZURE.NOTE]固定控制器 IP 必須在 Azure 傳統入口網站透過 StorSimple 裝置的 [設定] 頁面重新設定。如需詳細資訊，請移至[修改網路介面](storsimple-modify-device-config.md#modify-network-interfaces)。
 
 
 ## 透過 Set-HcsNetInterface cmdlet 修改 DATA 0 網路設定
@@ -69,6 +69,7 @@ Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5�
 
 ## 後續步驟
 
-若要設定 DATA 0 以外的網路介面，您可以使用[管理入口網站中的設定頁面](storsimple-modify-device-config.md)。如果您在設定您的網路介面時遇到任何問題，請參閱[疑難排解部署問題](storsimple-troubleshoot-deployment.md)。
+- 若要設定 DATA 0 以外的網路介面，您可以使用 [Azure 傳統入口網站中的設定頁面](storsimple-modify-device-config.md)。 
+- 如果您在設定您的網路介面時遇到任何問題，請參閱[疑難排解部署問題](storsimple-troubleshoot-deployment.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

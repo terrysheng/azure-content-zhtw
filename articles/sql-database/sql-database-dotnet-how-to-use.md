@@ -39,11 +39,11 @@ SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服
 
 ## 建立及設定 SQL Database
 
-接著建立及設定資料庫和伺服器。在 Azure 管理入口網站中，經過修訂的工作流程可讓您先建立資料庫，然後再進行伺服器佈建。
+接著建立及設定資料庫和伺服器。在 Azure 傳統入口網站中，經過修訂的工作流程可讓您先建立資料庫，然後再進行伺服器佈建。
 
 **建立資料庫執行個體和邏輯伺服器：**
 
-1. 登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](http://manage.windowsazure.com)。
 
 2. 按一下頁面底部的 [**新增**]。
 
@@ -77,7 +77,7 @@ SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服
 
 12. 選擇區域。區域可決定伺服器的地理位置。您無法輕易地切換區域，所以請選擇一個適合此伺服器的區域。選擇一個最靠近您的位置。將 Azure 應用程式和資料庫放在相同區域，可節省對外頻寬的成本並縮短資料延遲。
 
-13. 請務必將 [允許 Azure 服務存取伺服器] 選項保持為選取狀態，以便使用 SQL Database 適用的管理入口網站、儲存體服務和 Azure 上的其他服務連接此資料庫。
+13. 請務必將 [允許 Azure 服務存取伺服器] 選項保持為選取狀態，以便使用 SQL Database 適用的傳統入口網站、儲存體服務和 Azure 上的其他服務連接此資料庫。
 
 14. 完成時，請按一下頁面底部的核取記號。
 
@@ -211,4 +211,4 @@ Entity Framework 可讓開發人員對概念式的應用程式模型進行程式
 既然您了解連接到 SQL Database 的基本概念，請參閱[開發：作法主題 (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

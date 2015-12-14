@@ -31,7 +31,7 @@ PHP 5.5 和 PHP 5.6 版本同樣可供使用，但預設並未啟用。若要更
 
 ### Azure 入口網站
 
-1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中瀏覽至您的 Web 應用程式，然後按一下 [設定] 按鈕。
+1. 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的 Web 應用程式，然後按一下 [設定] 按鈕。
 
 	![Web 應用程式設定][settings-button]
 
@@ -161,7 +161,6 @@ Zend 擴充功能也支援使用 **PHP\_ZENDEXTENSIONS** 索引鍵。若要啟�
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [免費試用]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -182,4 +181,4 @@ Zend 擴充功能也支援使用 **PHP\_ZENDEXTENSIONS** 索引鍵。若要啟�
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

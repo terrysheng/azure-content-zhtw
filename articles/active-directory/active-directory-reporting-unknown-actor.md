@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory 報告「未知的執行者」事件| Microsoft Azure"
+   pageTitle="Azure Active Directory 報告「未知的動作」| Microsoft Azure"
    description="說明 Azure Active Directory 報告中的「未知的執行者」事件"
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
-# Azure Active Directory 報告「未知的執行者」事件
+# Azure Active Directory 報告「未知的動作」事件
+
+## 報告文章
+
+ - [報告 API](active-directory-reporting-api-getting-started.md)
+ - [稽核事件](active-directory-reporting-audit-events.md)
+ - [保留](active-directory-reporting-retention.md)
+ - [預覽](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [回填](active-directory-reporting-backfill.md)
+ - [延遲](active-directory-reporting-latencies.md)
+ - [「未知動作」事件](active-directory-reporting-unknown-actor.md)
 
 在極少數情況下，您可能會在 Azure AD 報告的 [執行者] 或 [使用者] 欄位中看見不尋常的值。這是預期的行為，而且由下列兩個事件的其中一個所造成：
 
@@ -38,4 +49,4 @@
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

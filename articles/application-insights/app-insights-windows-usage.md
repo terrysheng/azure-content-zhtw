@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 #  使用 Application Insights 監視 Windows 市集和 Windows Phone 應用程式中的使用量
@@ -153,4 +153,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -28,11 +28,11 @@
 
 > [AZURE.NOTE]如果管理員已提供給您使用者名稱與密碼，很有可能您已經有工作或學校識別碼 (有時稱做「組織識別碼」)。如果是這樣，您可以立即開始使用您的 Azure 帳戶來存取需要該帳戶的 Azure資源。如果您發現無法使用這些資源，您可能需要返回本文以尋求協助。如需詳細資訊，請參閱[您可以用來登入的帳戶](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts)及 [Azure 訂用帳戶與 Azure AD 的關係](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir)。
 
-步驟很簡單。您必須在 Azure 入口網站中找到您已註冊的身分識別、找出您的預設 Azure Active Directory 網域，然後以 Azure 共同管理員的身分新增網域的新使用者。
+步驟很簡單。您必須在 Azure 傳統入口網站中找到您已註冊的身分識別、找出您的預設 Azure Active Directory 網域，然後以 Azure 共同管理員的身分新增網域的新使用者。
 
-## 在 Azure 入口網站中找到您的預設目錄
+## 在 Azure 傳統入口網站中找到您的預設目錄
 
-一開始先使用您個人的 Microsoft 帳戶身分識別登入 [Azure 入口網站](https://manage.windowsazure.com)。登入後，向下捲動左側的藍色面板，然後按一下 [ACTIVE DIRECTORY]。
+一開始先使用您個人的 Microsoft 帳戶身分識別登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。登入後，向下捲動左側的藍色面板，然後按一下 [ACTIVE DIRECTORY]。
 
 ![Azure Active Directory](./media/resource-group-create-work-id-from-personal/azureactivedirectorywidget.png)
 
@@ -144,4 +144,4 @@
     data:
     info:    group create command OK
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

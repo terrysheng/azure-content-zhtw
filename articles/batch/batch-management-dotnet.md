@@ -20,7 +20,7 @@
 # 使用 Batch Management .NET 管理 Azure Batch 帳戶和配額
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
 透過使用 [Batch Management .NET][api_mgmt_net] 程式庫來自動化 Batch 帳戶的建立、刪除、金鑰管理和配額探索，可降低 Azure Batch 應用程式中的維護負擔。
@@ -30,7 +30,7 @@
 - **檢查帳戶配額**並採取反復試驗的猜測，判斷哪一個 Batch 帳戶有哪些限制。藉由開始作業、建立集區或加入計算節點之前檢查您的帳戶配額，您可以主動地調整建立計算資源的位置或時機。您可以決定在帳戶中配置其他資源之前，哪些帳戶需要增加配額。
 - 藉由在同一個應用程式中利用 Batch Management .NET、[Azure Active Directory][aad_about] 和 [Azure 資源管理員][resman_overview]，**結合其他 Azure 服務的功能**可獲得完整功能的管理體驗。使用這些功能和其 API，您可以提供順暢的驗證體驗、建立和刪除資源群組，以及上面所述的功能，以獲得端對端管理解決方案。
 
-> [AZURE.NOTE]雖然這篇文章著重在以程式設計方式管理 Batch 帳戶、金鑰和配額，您可以使用 [Azure Preview 入口網站][azure_portal]執行許多活動。如需詳細資訊，請參閱[在 Azure Preview 入口網站中建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)和 [Azure Batch 服務的配額和限制](batch-quota-limit.md)。
+> [AZURE.NOTE]雖然這篇文章著重在以程式設計方式管理 Batch 帳戶、金鑰和配額，您可以使用 [Azure 入口網站][azure_portal]執行許多活動。如需詳細資訊，請參閱[在 Azure 入口網站中建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)和 [Azure Batch 服務的配額和限制](batch-quota-limit.md)。
 
 ## 建立和刪除 Batch 帳戶
 
@@ -119,7 +119,7 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT]雖然 Azure 訂用帳戶和服務有預設配額，這許多限制都可以透過在 [Azure Preview 入口網站][azure_portal]中提出要求來提高。例如，請參閱 [Azure Batch 服務的配額和限制](batch-quota-limit.md)以取得增加您的 Batch 帳戶配額的指示。
+> [AZURE.IMPORTANT]雖然 Azure 訂用帳戶和服務有預設配額，這許多限制都可以透過在 [Azure 入口網站][azure_portal]中提出要求來提高。例如，請參閱 [Azure Batch 服務的配額和限制](batch-quota-limit.md)以取得增加您的 Batch 帳戶配額的指示。
 
 ## Batch Management .NET、AAD 和資源管理員
 
@@ -133,7 +133,7 @@ Azure 本身會使用 Azure Active Directory (AAD) 來驗證其客戶、服務�
 
 ### 資源管理員
 
-使用 Batch Management .NET 程式庫建立 Batch 帳戶時，您通常會在[資源群組][resman_overview]內建立帳戶。您可以以程式設計方式使用可在 [資源管理員 .NET][resman_api] 程式庫內找到的 [ResourceManagementClient][resman_client] 來建立資源群組，或您可以使用 [Azure Preview 入口網站][azure_portal]將帳戶加入至您先前建立的現有資源群組。
+使用 Batch Management .NET 程式庫建立 Batch 帳戶時，您通常會在[資源群組][resman_overview]內建立帳戶。您可以以程式設計方式使用可在 [資源管理員 .NET][resman_api] 程式庫內找到的 [ResourceManagementClient][resman_client] 來建立資源群組，或您可以使用 [Azure 入口網站][azure_portal]將帳戶加入至您先前建立的現有資源群組。
 
 ## <a name="sample"></a>GitHub 上的範例專案
 
@@ -159,9 +159,9 @@ Azure 本身會使用 Azure Active Directory (AAD) 來驗證其客戶、服務�
   - 刪除新建立的帳戶
 7. 刪除資源群組
 
-刪除新建立的 Batch 帳戶和資源群組之前，您可以在 [Azure Preview 入口網站][azure_portal]中檢查這兩者：
+刪除新建立的 Batch 帳戶和資源群組之前，您可以在 [Azure 入口網站][azure_portal]中檢查這兩者：
 
-![顯示資源群組和 Batch 帳戶的 Azure Preview 入口網站][1] <br /> *顯示新的資源群組和 Batch 帳戶的 Azure Preview 入口網站*
+![顯示資源群組和 Batch 帳戶的 Azure 入口網站][1] <br /> *顯示新的資源群組和 Batch 帳戶的 Azure 入口網站*
 
 [aad_about]: ../active-directory/active-directory-whatis.md "什麼是 Azure Active Directory？"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
@@ -190,4 +190,4 @@ Azure 本身會使用 Azure Active Directory (AAD) 來驗證其客戶、服務�
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

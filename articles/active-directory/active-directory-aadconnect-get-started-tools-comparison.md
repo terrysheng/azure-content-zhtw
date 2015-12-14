@@ -1,5 +1,5 @@
 <properties
-	pageTitle="目錄整合工具比較 | Microsoft Azure"
+	pageTitle="Azure AD Connect：目錄整合工具比較 | Microsoft Azure"
 	description="本頁面將會為您提供比較各種目錄整合工具的完整資料表。"
 	services="active-directory"
 	documentationCenter=""
@@ -91,4 +91,4 @@
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="使用行動服務 (Windows 市集) 中的虛刪除 | Microsoft Azure" 
-	description="了解如何在您的應用程式中使用 Azure 行動服務的虛刪除功能" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="使用行動服務 (Windows 市集) 中的虛刪除 | Microsoft Azure"
+	description="了解如何在您的應用程式中使用 Azure 行動服務的虛刪除功能"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="wesmc"/>
 
 # 使用行動服務中的虛刪除
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##概觀
 
@@ -44,7 +49,7 @@
 下列步驟將引導您為 .NET 後端行動服務啟用虛刪除。
 
 1. 在 Visual Studio 中，開啟您的 .NET 後端行動服務專案。
-2. 以滑鼠右鍵按一下.NET 後端專案，然後按一下 [管理 NuGet 套件]。 
+2. 以滑鼠右鍵按一下.NET 後端專案，然後按一下 [管理 NuGet 套件]。
 3. 在套件管理員對話方塊中，按一下更新下方的 **Nuget.org**，然後安裝 [Microsoft Azure 行動服務 .NET 後端](http://go.microsoft.com/fwlink/?LinkId=513165) NuGet 套件的 1.0.402 版或更新版本。
 3. 在 Visual Studio 的 [方案總管] 中，展開您 .NET 後端專案下方的 [控制器] 節點，然後開啟您的控制器來源。例如 *TodoItemController.cs*。
 4. 在控制器的 `Initialize()` 方法中，將 `enableSoftDelete: true` 參數傳至 EntityDomainManager 建構函式。
@@ -65,7 +70,7 @@
 
 若要在 JavaScript 後端中的現有資料表上啟用虛刪除：
 
-1. 在[管理入口網站]中，按一下您的行動服務。然後按一下 [資料] 索引標籤。
+1. 在 [Azure 傳統入口網站]中，按一下您的行動服務。然後按一下 [資料] 索引標籤。
 2. 在資料頁面上，點選所需的資料表。然後，在命令列中按一下 [啟用虛刪除] 按鈕。如果資料表已啟用虛刪除，此按鈕將不會出現，但您可以按一下資料表的 [瀏覽] 或 [資料行] 索引標籤，以檢視 *\_\_deleted* 資料行。
 
     ![][0]
@@ -82,23 +87,23 @@
     public class SampleJob : ScheduledJob
     {
         private MobileService1Context context;
-     
-        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
             CancellationToken cancellationToken)
         {
             base.Initialize(scheduledJobDescriptor, cancellationToken);
             context = new MobileService1Context();
         }
-     
+
         public override Task ExecuteAsync()
         {
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
-     
+
             var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
             context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
-     
+
             return Task.FromResult(true);
         }
     }
@@ -113,12 +118,12 @@
 您可以使用資料表指令碼，為 JavaScript 後端行動服務的虛刪除功能新增邏輯。
 
 若要偵測取消刪除要求，請在您的更新資料表指令碼中使用 "undelete" 屬性：
-    
+
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
 若要在指令碼的查詢結果中納入已刪除的記錄，請將 "includeDeleted" 參數設為 true：
-    
+
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
         success: function (results) {
@@ -158,9 +163,6 @@
 <!-- URLs. -->
 [SQL 位元類型]: http://msdn.microsoft.com/library/ms177603.aspx
 [行動服務的離線資料同步]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

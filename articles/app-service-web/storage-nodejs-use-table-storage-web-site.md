@@ -500,8 +500,7 @@
 
 	此命令會啟動瀏覽器並瀏覽至下載頁面。若出現提示，請使用與您的 Azure 訂用帳戶相關聯的帳戶登入。
 
-	<!-- ![The download page][download-publishing-settings] -->
-	檔案下載會自動開始；如果沒有，您可以按一下頁面頂端的連結，以手動下載檔案。儲存檔案，並記下檔案路徑。
+	<!-- ![The download page][download-publishing-settings] -->檔案下載會自動開始；如果沒有，您可以按一下頁面頂端的連結，以手動下載檔案。儲存檔案，並記下檔案路徑。
 
 2. 輸入下列命令以匯入設定：
 
@@ -600,7 +599,6 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [在 Azure App Service 中建置和部署 Node.js Web 應用程式]: web-sites-nodejs-develop-deploy-mac.md
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
@@ -641,4 +639,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

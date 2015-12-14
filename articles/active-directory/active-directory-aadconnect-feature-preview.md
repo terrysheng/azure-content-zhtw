@@ -1,5 +1,5 @@
 <properties
-   pageTitle="預覽中的 Azure AD Connect 功能 | Microsoft Azure"
+   pageTitle="Azure AD Connect：預覽中的功能 | Microsoft Azure"
    description="本主題詳細描述 Azure AD Connect 中位於預覽的功能。"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 # 有關預覽中之功能的其他詳細資料
@@ -60,4 +60,4 @@ Office 365 群組的詳細資訊可在[這裡](http://aka.ms/O365g)找到。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="將推播通知新增至 Xamarin Android 應用程式 | Microsoft Azure" 
-	description="了解如何使用 Google Cloud Messaging，為使用 Azure 行動服務和 Azure 通知中樞的 Xamarin.Android 應用程式設定推播通知。" 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="將推播通知新增至 Xamarin Android 應用程式 | Microsoft Azure"
+	description="了解如何使用 Google Cloud Messaging，為使用 Azure 行動服務和 Azure 通知中樞的 Xamarin.Android 應用程式設定推播通知。"
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/16/2015"
 	ms.author="glenga"/>
 
 # 將推播通知新增至行動服務應用程式
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -40,7 +45,7 @@
 
 ##<a id="update-scripts"></a>更新註冊的插入指令碼以傳送通知
 
->[AZURE.TIP]下列步驟示範如何在 Azure 管理入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
+>[AZURE.TIP]下列步驟示範如何在 Azure 傳統入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -81,6 +86,5 @@
 [Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure 行動服務]: http://components.xamarin.com/view/azure-mobile-services/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

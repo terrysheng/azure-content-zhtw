@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何設定雲端服務 (Preview 入口網站) | Microsoft Azure" 
-	description="了解如何在 Azure 中設定雲端服務。了解更新雲端服務組態和設定角色執行個體的遠端存取。這些範例使用 Azure Preview 入口網站。" 
+	pageTitle="如何設定雲端服務 | Microsoft Azure" 
+	description="了解如何在 Azure 中設定雲端服務。了解更新雲端服務組態和設定角色執行個體的遠端存取。這些範例使用 Azure 入口網站。" 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -22,10 +22,10 @@
 # 如何設定雲端服務
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-configure.md)
-- [Azure Preview Portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Azure portal](cloud-services-how-to-configure-portal.md)
 
-您可以在 Azure 管理入口網站中設定雲端服務的最常用設定。或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
+您可以在 Azure 入口網站中設定雲端服務的最常用設定。或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
 
 您也可以對雲端服務中執行的一個或所有角色啟用遠端桌面連線。遠端桌面可讓您存取執行中應用程式的桌面，然後疑難排解和診斷問題。即使您未在應用程式開發期間對服務定義檔 (.csdef) 設定遠端桌面，還是可以對您的角色啟用遠端桌面連線。您不需要重新部署應用程式，就可以啟用遠端桌面連線。
 
@@ -33,7 +33,7 @@
 
 ## 變更雲端服務
 
-1. 在 [Azure Preview 入口網站](http://portal.azure.com/)，瀏覽至您的雲端服務。
+1. 在 [Azure 入口網站](http://portal.azure.com/)，瀏覽至您的雲端服務。
 
 2. 按一下**設定**圖示或 [**基本功能/所有設定**] 連結，開啟 [**設定**] 刀鋒視窗。
 
@@ -53,13 +53,13 @@
     
     ![雲端服務執行個體按鈕](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
->[AZURE.NOTE]您無法使用 **Azure Preview 入口網站**來變更用於雲端服務的作業系統，只能透過[非預覽入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file)有詳細說明。
+>[AZURE.NOTE]您無法使用 **Azure 入口網站**來變更用於雲端服務的作業系統，只能透過 [Azure 傳統入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file)有詳細說明。
 
 ## 更新雲端服務組態檔
 
 1. 首先，下載現有的雲端服務組態檔 (.cscfg)。
 
-    1. 在 [Azure Preview 入口網站](http://portal.azure.com/)，瀏覽至您的雲端服務。
+    1. 在 [Azure 入口網站](http://portal.azure.com/)，瀏覽至您的雲端服務。
 
     2. 按一下**設定**圖示或 [**基本功能/所有設定**] 連結，開啟 [**設定**] 刀鋒視窗。
 
@@ -85,7 +85,7 @@
 
 ## 設定對角色執行個體的遠端存取
 
-您無法使用 **Azure Preview 入口網站**設定遠端存取，只能透過[非預覽入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-role-enable-remote-desktop.md)有相關描述。
+您無法使用 **Azure 入口網站**設定遠端存取，只能透過 [Azure 傳統入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-role-enable-remote-desktop.md)有相關描述。
 			
 ## 後續步驟
 
@@ -94,4 +94,4 @@
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -36,7 +36,7 @@
 
 ## 建立事件中心
 
-1. 登入 [Azure 入口網站]，並按一下畫面底部的 [新增]。
+1. 登入 [Azure 傳統入口網站][]，並按一下畫面底部的 [新增]。
 
 2. 依序按一下 [應用程式服務]、[服務匯流排]、[事件中心]、[快速建立]。
 
@@ -100,7 +100,7 @@
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [事件中樞概觀]: event-hubs-overview.md
 
@@ -110,4 +110,4 @@
 [在 Storm 和 HDInsight 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

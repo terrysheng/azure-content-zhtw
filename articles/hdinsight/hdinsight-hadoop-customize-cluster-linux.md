@@ -42,7 +42,7 @@ HDInsight 提供一個稱為「**指令碼動作**」的組態選項，此指令
 
 ## 範例指令碼動作指令碼
 
-從 Azure Preview 入口網站、Azure PowerShell 或 HDInsight.NET SDK，可以使用指令碼動作指令碼。本文說明如何從入口網站使用指令碼動作。若要了解如何使用 PowerShell 和.NET SDK 以使用指令碼動作，請查看下表所列的範例。
+從 Azure 入口網站、Azure PowerShell 或 HDInsight .NET SDK，可以使用指令碼動作指令碼。本文說明如何從入口網站使用指令碼動作。若要了解如何使用 PowerShell 和.NET SDK 以使用指令碼動作，請查看下表所列的範例。
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
@@ -54,7 +54,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 **安裝 Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。請參閱[在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)。
 **安裝 Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。請參閱[在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。
 
-## 從 Azure Preview 入口網站使用指令碼動作
+## 從 Azure 入口網站使用指令碼動作
 
 1. 依[在 HDInsight 建立 Hadoop 叢集](hdinsight-provision-clusters.md#portal)中的描述開始建立叢集。
 
@@ -512,12 +512,9 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 	![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	在其下，記錄檔會個別針對前端節點、背景工作節點和 Zookeeper 節點進行組織。範例如：
-	* **Headnode** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **Worker node** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **Zookeeper node** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	在其下，記錄檔會個別針對前端節點、背景工作節點和 Zookeeper 節點進行組織。範例如：* **Headnode** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` * **Worker node** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` * **Zookeeper node** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* 對應主機的所有 stdout 和 stderr 都會上傳至儲存體帳戶。每個指令碼動作分別有一個 **output-*.txt** 和  **errors-\*.txt** 。output-*.txt 檔案包含在主機上執行之指令碼的 URI 相關資訊。例如
+* 對應主機的所有 stdout 和 stderr 都會上傳至儲存體帳戶。每個指令碼動作分別有一個 **output-*.txt** 和 **errors-*.txt**。output-*.txt 檔案包含在主機上執行之指令碼的 URI 相關資訊。例如
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -568,4 +565,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

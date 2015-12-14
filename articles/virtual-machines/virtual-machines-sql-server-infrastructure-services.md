@@ -28,9 +28,9 @@
 
 ### 在單一 VM 上部署 SQL Server 執行個體
 
-在註冊訂用帳戶之後，若要在 Azure 中部署 SQL Server 虛擬機器，最簡單的方式就是[在 Azure 入口網站中佈建 SQL Server 機器資源庫映像](virtual-machines-provision-sql-server.md)。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。
+在註冊訂用帳戶之後，若要在 Azure 中部署 SQL Server 虛擬機器，最簡單的方式就是[在 Azure 傳統入口網站中佈建 SQL Server 機器資源庫映像](virtual-machines-provision-sql-server.md)。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。
 
->[AZURE.NOTE]使用 Azure Preview 入口網站佈建及管理 SQL Server 虛擬機器。預設使用進階儲存體，並提供自動化修補、自動化備份及 AlwaysOn 組態。
+>[AZURE.NOTE]使用 Azure 入口網站佈建及管理 SQL Server 虛擬機器。預設使用進階儲存體，並提供自動化修補、自動化備份及 AlwaysOn 組態。
 
 下表提供虛擬機器資源庫中的可用 SQL Server 映像比較。
 
@@ -61,7 +61,7 @@
 
 ## 高可用性
 
-如果您需要高可用性，請考慮設定 SQL Server AlwaysOn 可用性群組。這牽涉到虛擬網路中多個 Azure VM。Azure Preview 入口網站有一個範本，己經有您需要的設定。如需詳細資訊，請參閱 [ Azure 資源庫提供的 SQL Server AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。
+如果您需要高可用性，請考慮設定 SQL Server AlwaysOn 可用性群組。這牽涉到虛擬網路中多個 Azure VM。Azure 入口網站有一個範本，己經有您需要的設定。如需詳細資訊，請參閱 [ Azure 資源庫提供的 SQL Server AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。
 
 如果您想要手動設定可用性群組和相關聯的接聽程式，請參閱下列文章：
 
@@ -148,4 +148,4 @@
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure 虛擬機器](virtual-machines-about.md) 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

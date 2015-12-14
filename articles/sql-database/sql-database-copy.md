@@ -22,11 +22,11 @@
 **單一資料庫**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-copy.md)
+- [Azure Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [SQL](sql-database-copy-transact-sql.md)
 
-下列步驟說明如何利用 [Azure Preview 入口網站](https://portal.azure.com)複製 Azure SQL Database。資料庫複製作業會建立新的 SQL Database。副本是您在同一部伺服器或不同伺服器上建立的資料庫快照備份。
+下列步驟說明如何利用 [Azure 入口網站](https://portal.azure.com)複製 SQL database。資料庫複製作業會建立新的 SQL Database。副本是您在同一部伺服器或不同伺服器上建立的資料庫快照備份。
 
 > [AZURE.NOTE]Azure SQL Database 會自動為每個使用者資料庫建立並維護可供還原的備份。如需詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
@@ -47,7 +47,7 @@
 
 針對您要複製的資料庫開啟 SQL Database 刀鋒視窗：
 
-1.	移至 [Azure Preview 入口網站](https://portal.azure.com)。
+1.	移至 [Azure 入口網站](https://portal.azure.com)。
 2.	移至您要複製的資料庫：瀏覽 > SQL Database
 3.	在 SQL Database 刀鋒視窗中，按一下 [複製] 以開啟 [複製] 刀鋒視窗：
 
@@ -101,4 +101,4 @@
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

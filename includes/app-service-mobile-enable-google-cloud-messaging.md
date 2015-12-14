@@ -1,18 +1,19 @@
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials, and then click **Select a project**, then **Create a project**.
+1. 導覽至 [Google 雲端主控台](https://console.developers.google.com/project)，並使用 Google 帳戶認證登入，然後按一下 [選取專案] 和 [建立專案]。
 
-2. Enter a project name, accept the terms of service, and click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
+2. 輸入專案名稱，接受服務條款，然後按一下 [建立]。如果有要求，請執行簡訊驗證，再重新按一下 [建立]。
 
-3. Make a note of the project number in the **Projects** section. 
+3. 記下 [專案] 區段中的專案號碼。
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+	在本教學課程的稍後內容中，您會設定這個值作為用戶端中的 PROJECT\_ID 變數。
 
-4. Click **Enable and manage APIs** under **User Google APIs** and click **Cloud Messaging for Android**. Then on the next page click **Enable API**. 
+4. 按一下 [使用者 Google API] 下的[啟動和管理 API]，再按一下[Android 雲端訊息]。接著在下一頁按一下 [啟用 API]。
 
-5. Click **Credentials**, and then click **Add Credential**->**API Key** 
+5. 按一下 [認證]，然後按一下 [新增認證] -> [API 金鑰]。
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+6. 在 [Create a new key] 中，按一下 [伺服器金鑰]。在下一個視窗中，按一下 [建立]。
 
-7. Make a note of the **API KEY** value.
+7. 記下 [API 金鑰] 的值。
 
-	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+	您將使用此 API 金鑰值，讓 Azure 能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。
 
+<!---HONumber=AcomDC_1203_2015-->

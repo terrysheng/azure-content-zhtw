@@ -26,7 +26,7 @@
 
 ## 開始使用服務匯流排
 
-本指南假設您已經有服務匯流排命名空間，其中包含名稱為「**queue1**」的佇列。如果沒有，您可以使用 [Azure 入口網站](http://manage.windowsazure.com)建立命名空間和佇列。如需有關如何建立服務匯流排命名空間和佇列的相關詳細資訊，請參閱[如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)。
+本指南假設您已經有服務匯流排命名空間，其中包含名稱為「**queue1**」的佇列。如果沒有，您可以使用 [Azure 傳統入口網站](http://manage.windowsazure.com)建立命名空間和佇列。如需有關如何建立服務匯流排命名空間和佇列的相關詳細資訊，請參閱[如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)。
 
 ### 下載 AMQP 1.0 JMS 用戶端程式庫
 
@@ -332,4 +332,4 @@ exit
 * [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

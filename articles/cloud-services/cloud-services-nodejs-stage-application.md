@@ -34,7 +34,7 @@
     Publish-AzureServiceProject -Slot staging
     ```
 
-2.  登入 [Azure 管理入口網站]，選取 [雲端服務]。當雲端服務已建立且 [預備] 欄狀態更新為 [正在執行] 之後，按一下服務名稱。
+2.  登入 [Azure 傳統入口網站]，並選取 [雲端服務]。當雲端服務已建立且 [預備] 欄狀態更新為 [正在執行] 之後，按一下服務名稱。
 
 	![portal displaying a running service][cloud-service]
 
@@ -54,7 +54,7 @@
 
 > [AZURE.NOTE]此步驟假設您已將應用程式部署至生產環境，也已預備應用程式的升級版本。
 
-1.  登入 [Azure 管理入口網站]，按一下 [雲端服務]，然後選取服務名稱。
+1.  登入 [Azure 傳統入口網站]，按一下 [雲端服務]，然後選取服務名稱。
 
 2.  從 [儀表板] 中，選取 [預備]，然後按一下頁面底部的 [交換]。這樣會開啟 [VIP 交換] 對話方塊。
 
@@ -68,11 +68,11 @@
 
 - [如何在 Azure 中交換 VIP 將服務升級部署至生產環境]
 
-[Azure 管理入口網站]: http://manage.windowsazure.com
+[Azure 傳統入口網站]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [如何在 Azure 中交換 VIP 將服務升級部署至生產環境]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -40,7 +40,7 @@ Azure HDInsight 提供完全受管理的 Spark 服務。在 HDInsight 上使用 
 
 | 功能 | 說明 |
 |-------------------------------------|-------------------|
-| 輕鬆佈建 | 您可以使用 Azure 管理入口網站、Azure PowerShell 或 HDInsight .NET SDK，在幾分鐘之內於 HDInsight 上佈建新的 Spark 叢集。請參閱[在 HDInsight 中佈建 Spark 叢集](hdinsight-apache-spark-provision-clusters.md) |
+| 輕鬆佈建 | 您可以使用 Azure 傳統入口網站、Azure PowerShell 或 HDInsight .NET SDK，在幾分鐘之內於 HDInsight 上佈建新的 Spark 叢集。請參閱[在 HDInsight 中佈建 Spark 叢集](hdinsight-apache-spark-provision-clusters.md) |
 | 容易使用 | HDInsight 叢集中的 Spark 包含預先設定的 Zeppelin 和 Jupyter Notebook。您可以使用它們來進行互動式的資料處理和視覺化。這些 Notebook 的 URL 是 https://CLUSTERNAME.azurehdinsight.net/zeppelin 和 https://CLUSTERNAME.azurehdinsight.net/jupyter。將 __CLUSTERNAME__ 取代為 HDInsight 叢集的名稱。|
 | REST API | HDInsight 中的 Spark 包含 Spark 作業伺服器，它是讓使用者從遠端提交及監視執行中工作的 REST API 伺服器。 |
 | 並行查詢 | HDInsight 中的 Spark 支援並行查詢。它能讓一位使用者執行多個查詢，或讓不同的使用者執行多個查詢，以及讓應用程式共用相同的叢集資源。 |
@@ -100,4 +100,4 @@ HDInsight 中的 Spark 另提供 [ODBC 驅動程式](http://go.microsoft.com/fwl
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 管理原則參考文件
@@ -34,6 +34,11 @@
 	-	[控制流程][] - 根據布林值[運算式][]的評估結果，有條件地套用原則陳述式。
 	-	[轉寄要求][] - 將要求轉寄給後端服務。
 	-	[記錄至事件中樞][] - 將指定格式的訊息傳送給[記錄器](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger)實體所定義的訊息目標。
+	-	[傳回回應](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - 中止管線執行並將特定回應直接傳給呼叫者。
+	-	[傳送單向要求](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - 將要求傳送給特定的 URL，無需等待回應。
+	-	[傳送要求](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - 將要求傳送給特定 URL。
+	-	[設定要求方法](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - 允許您變更要求的 HTTP 方法。
+	-	[設定狀態碼](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - 將 HTTP 狀態碼變更為特定值。
 	-	[設定變數][] - 保存具名 [context][] 變數中的值，供日後存取使用。
 -	[驗證原則][]
 	-	[使用基本驗證進行驗證][] - 使用基本驗證來驗證後端服務。
@@ -109,4 +114,4 @@
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

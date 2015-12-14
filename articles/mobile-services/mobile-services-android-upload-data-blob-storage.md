@@ -18,6 +18,10 @@
 
 # 將影像從 Android 裝置上傳至 Azure 儲存體
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 本主題說明如何啟用 Android Azure 行動服務應用程式，以便將影像上傳至 Azure 儲存體。
@@ -31,7 +35,7 @@
 
 本教學課程還需要下列各項：
 
-+ [Azure 儲存體帳戶](../storage-create-storage-account.md)
++ [Azure 儲存體帳戶](../storage-create-storage-account.md)。
 + 內建相機的 Android 裝置
 
 ## 應用程式的運作方式
@@ -50,7 +54,7 @@
 ## 程式碼範例
 [這裡](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages)是此應用程式中已完成的用戶端原始程式碼部分。若要執行此程式碼，您必須完成本教學課程的行動服務後端組件。
 
-## 在管理入口網站中更新已註冊的插入指令碼
+## 在 Azure 傳統入口網站中更新已註冊的插入指令碼
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
@@ -59,14 +63,14 @@
 
 ### 參照 Azure 儲存體 Android 用戶端程式庫
 
-1. 若要將參考加入至程式庫 (位於 [應用程式] > **build.gradle** 檔案)，請在 `dependencies` 區段中加入這一行：
+1. 若要將參考加入程式庫，請在位於 [**應用程式**] > **build.gradle** 檔案中，於 `dependencies` 區段加入這一行：
 
 		compile 'com.microsoft.azure.android:azure-storage-android:0.6.0@aar'
 
 
 2. 將 `minSdkVersion` 值變更為 15 (相機 API 所需)。
 
-3. 按一下 [同步處理專案與 Gradle 檔案] 圖示。
+3. 按 [**同步處理專案與 Gradle 檔案**] 圖示。
 
 ### 更新相機和儲存體的資訊清單檔案
 
@@ -83,12 +87,12 @@
 
 ### 更新新使用者介面的資源檔案
 
-1. 在 [值] 目錄的 **strings.xml** 檔案中加入下列內容，以新增新按鈕的標題：
+1. 在*值*目錄的 **strings.xml** 檔案中加入下列內容，以新增新按鈕的標題：
 
 	    <string name="preview_button_text">Take Photo</string>
 	    <string name="upload_button_text">Upload</string>
 
-2. 在 **res = > layout** 資料夾的 **activity\_to\_do.xml** 檔案中，在 [新增] 按鈕的現有程式碼之前加入此程式碼。
+2. 在 **res = > layout** 資料夾的 **activity\_to\_do.xml** 檔案中，於 [**新增**] 按鈕的現有程式碼之前加入此程式碼。
 
          <Button
              android:id="@+id/buttonPreview"
@@ -97,7 +101,7 @@
              android:onClick="takePicture"
              android:text="@string/preview_button_text" />
 
-3. 以下列程式碼取代 [新增] 按鈕項目：
+3. 以下列程式碼取代 [**新增**] 按鈕項目：
 
          <Button
              android:id="@+id/buttonUpload"
@@ -125,7 +129,7 @@
 	        return image;
 	    }
 
-5. 加入此程式碼以啟動 Android 相機應用程式。接著您就可以拍照，確定照片令您滿意後，請按下 [儲存]，該照片就會儲存在您剛才建立的檔案中。
+5. 加入此程式碼以啟動 Android 相機應用程式。接著您就可以拍照，確定照片令您滿意後，請按 [**儲存**]，該照片就會儲存在您剛才建立的檔案中。
 
 		// Run an Intent to start up the Android camera
 	    static final int REQUEST_TAKE_PHOTO = 1;
@@ -155,7 +159,7 @@
 ### 加入程式碼以將相片檔案上傳至 Blob 儲存體
 
 
-1. 首先，我們先將此程式碼加入至 **ToDoItem.java**，為 `ToDoItem` 物件新增一些新的中繼資料欄位。
+1. 首先，我們先新增一些中繼資料欄位至 `ToDoItem` 物件，方法是將此程式碼加入至 **ToDoItem.java**。
 
 		/**
 	     *  imageUri - points to location in storage where photo will go
@@ -286,7 +290,7 @@
 	    }
 
 
-4. 在 **ToDoActivity.java** 檔案中，以上傳影像的下列程式碼取代 **ToDoActivity.java** 中的 **addItem** 方法。
+4. 在 **ToDoActivity.java** 檔案中，以下面上傳影像的程式碼取代 **ToDoActivity.java** 中的 **addItem** 方法。
 
 	    /**
 	     * Add a new item
@@ -361,17 +365,17 @@
 
 ## 測試上傳影像
 
-1. 在 Android Studio 中按下 [執行]。在對話方塊中，選擇要使用的裝置。
+1. 在 Android Studio 中按 [**執行**]。在對話方塊中，選擇要使用的裝置。
 
-2. 應用程式 UI 出現後，在標示為 [加入 ToDo 項目] 的文字方塊中輸入文字。
+2. 應用程式 UI 出現後，在標示為 [**新增待辦事項**] 的文字方塊中輸入文字。
 
-3. 按 [拍照]。相機應用程式啟動後，請拍攝相片。按下核取記號以接受拍攝的相片。
+3. 按 [**拍照**]。相機應用程式啟動後，請拍攝相片。按下核取記號以接受拍攝的相片。
 
-4. 按 [上傳]。如往常一樣注意 ToDoItem 加入至清單中的方式。
+4. 按 [**上傳**]。如往常一樣注意 ToDoItem 加入至清單中的方式。
 
-5. 在 Microsoft Azure 入口網站中，前往您的儲存體帳戶並按一下 [容器] 索引標籤，然後在清單中按一下您的容器名稱。
+5. 在 Azure 傳統入口網站中，移至您的儲存體帳戶並按 [**容器**] 索引標籤，然後在清單中按您的容器名稱。
 
-6. 已上傳的 Blob 檔案清單會隨即出現。選取任一項目，然後按 [下載]。
+6. 已上傳的 Blob 檔案清單會隨即出現。選取任一項目，然後按 [**下載**]。
 
 7. 瀏覽器視窗會隨即顯示您所上傳的影像。
 
@@ -416,10 +420,10 @@
 [行動服務伺服器指令碼參考]: mobile-services-how-to-use-server-scripts.md
 [開始使用行動服務]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [行動服務 .NET 作法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

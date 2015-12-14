@@ -163,7 +163,7 @@ Azure 入口網站儀表板是您第一次登入入口網站的首頁。在儀�
 
 開啟診斷搜尋：
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Open diagnostic search](./media/app-insights-portal/01-open-Diagnostic.png)
 
 開啟 [篩選器] 分頁並選擇要查看的事件類型。(如果之後想要還原您所開啟分頁的篩選器，請按一下 [重設]。)
 
@@ -205,4 +205,4 @@ Azure 入口網站儀表板是您第一次登入入口網站的首頁。在儀�
 
 如果儲存時使用「相對」時間範圍，重新開啟的分頁會具有最新資料。如果儲存時使用「絕對」時間範圍，則會每次都看到相同資料。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

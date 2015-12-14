@@ -21,7 +21,7 @@
 
 本文可協助您疑難排解 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 所託管之 Web 應用程式的 HTTP 502/503 錯誤。
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。
+若您對本文中的任何步驟有需要進一步協助的地方，請連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專家。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。
 
 ## 徵狀
 
@@ -33,7 +33,7 @@
 
 -	要求耗費過長的時間
 -	應用程式的記憶體/CPU 使用率過高
--	應用程式因例外狀況導致損毀。
+-	應用程式因例外狀況導致損毀
 
 ## 疑難排解步驟
 
@@ -50,11 +50,11 @@
 
 ####	追蹤服務健全狀況
 
-每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。您可以在 [Azure Preview 入口網站](https://portal.azure.com/)上追蹤服務健全狀況。如需詳細資訊，請參閱[追蹤服務健全狀況](insights-service-health.md)。
+每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。您可以在 [Azure 入口網站](https://portal.azure.com/)上追蹤服務健全狀況。如需詳細資訊，請參閱[追蹤服務健全狀況](insights-service-health.md)。
 
 ####	監視 Web 應用程式
 
-此選項可讓您了解應用程式是否有任何問題。在 Web 應用程式刀鋒視窗中，按一下 [要求和錯誤] 磚。[度量] 刀鋒視窗將顯示所有可以加入的計量。
+此選項可讓您了解應用程式是否有任何問題。在 Web 應用程式刀鋒視窗中，按一下 [**要求和錯誤**] 磚。[**度量**] 刀鋒視窗將顯示所有可以加入的計量。
 
 某些您可能想用以監視 Web 應用程式的計量為
 
@@ -82,7 +82,7 @@ Azure App Service 支援入口網站提供三個不同的索引標籤，支援�
 
 1.	觀察目前的行為
 2.	藉由收集診斷資訊與執行內建分析器進行分析
-3.	減輕
+3.	減輕問題
 
 若問題現在正好發生，請按一下 [分析] > [診斷] > [立即診斷]，將為您建立診斷工作階段，該工作階段會收集 HTTP 記錄檔、事件檢視器記錄檔、記憶體傾印、PHP 錯誤記錄檔和 PHP 處理序報告。
 
@@ -125,17 +125,17 @@ Kudu 的另一項實用功能是，如果應用程式擲回第一次例外狀況
 
 ####	使用 AutoHeal
 
-AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。在大部分情況下，回收處理序是從問題中復原的最快方式。雖然您永遠可以從 Azure Preview 入口網站中直接重新啟動 Web 應用程式，AutoHeal 會自動為您完成。您只需要在 Web 應用程式的根目錄 web.config 中加入某些觸發程序。請注意，即使您的應用程式並非 .Net，這些設定的運作方式仍相同。
+AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。在大部分情況下，回收處理序是從問題中復原的最快方式。雖然您永遠可以從 Azure 入口網站中直接重新啟動 Web 應用程式，AutoHeal 會自動為您完成。您只需要在 Web 應用程式的根目錄 web.config 中加入某些觸發程序。請注意，即使您的應用程式並非 .Net，這些設定的運作方式仍相同。
 
 如需詳細資訊，請參閱[自動修復 Azure 網站](/blog/auto-healing-windows-azure-web-sites/)。
 
 
 ####	重新啟動 Web 應用程式
 
-若要從一次性問題中復原，這通常是最簡單的方式。在 [Azure Preview 入口網站](https://portal.azure.com)上的 Web 應用程式刀鋒視窗中有提供停止或重新啟動應用程式的選項。
+若要從一次性問題中復原，這通常是最簡單的方式。在 [Azure 入口網站](https://portal.azure.com)上的 Web 應用程式刀鋒視窗中有提供停止或重新啟動應用程式的選項。
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 您也可以使用 Azure Powershell 管理 Web 應用程式。如需詳細資訊，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](powershell-azure-resource-manager.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

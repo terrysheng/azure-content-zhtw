@@ -25,7 +25,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 
 ## 簡介和必要條件
 
-如果有一或多個競爭取用者，佇列會採取先進先出 (FIFO) 訊息傳遞機制。FIFO 表示通常預期由接收者依訊息加入佇列的時間順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。使用佇列的主要優點是達成應用程式元件的 *「時脈解離」* ︰換句話說，產生者和取用者不需同時傳送和接收訊息，因為訊息會長期儲存在佇列中。相關的優點是 *「負載調節」* ，這可讓產生者和取用者以不同的速率傳送和接收訊息。
+如果有一或多個競爭取用者，佇列會採取先進先出 (FIFO) 訊息傳遞機制。FIFO 表示通常預期由接收者依訊息加入佇列的時間順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。使用佇列的主要優點是達成應用程式元件的「時脈解離」︰換句話說，產生者和取用者不需同時傳送和接收訊息，因為訊息會長期儲存在佇列中。相關的優點是「負載調節」，這可讓產生者和取用者以不同的速率傳送和接收訊息。
 
 以下是您在開始本教學課程之前所應遵循的一些管理和先決步驟。第一步是建立服務命名空間，並取得共用存取簽章 (SAS) 金鑰。服務命名空間會為每個透過服務匯流排公開的應用程式提供應用程式界限。建立服務命名空間時，系統會自動產生 SAS 金鑰。服務命名空間與 SAS 金鑰的結合提供了一個認證，以供服務匯流排驗證對應用程式的存取權。
 
@@ -33,23 +33,23 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 
 1. 若要建立服務命名空間，請依照[作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh690931.aspx)中簡述的步驟。
 
-1. 在 Azure 入口網站的主視窗中，按一下您在上一個步驟中建立的命名空間名稱。
+1. 在 [Azure 傳統入口網站][]的主視窗中，按一下您在上一個步驟中建立的命名空間名稱。
 
 1. 按一下 [設定]。
 
 1. 在 [共用存取簽章] 區段中，記下與 **RootManagerSharedAccessKey** 原則相關聯的主要金鑰，或是將它複製到剪貼簿。您稍後會在本教學課程中使用此值。
 
-下一步是建立 Visual Studio 專案並撰寫兩個協助程式函式，將以逗號分隔的訊息清單載入強型別 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [清單](https://msdn.microsoft.com/library/6sh2ey19.aspx) 物件。
+下一步是建立 Visual Studio 專案並撰寫兩個協助程式函式，將以逗號分隔的訊息清單載入強類型的 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) 物件。
 
 ### 建立 Visual Studio 專案
 
 1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 [開始] 功能表中的程式，然後按一下 [以系統管理員身分執行]。
 
-1. 這會建立新的主控台應用程式專案。按一下 [檔案] 功能表，選取 [新增]，然後按一下 [專案]。在 [新增專案] 對話方塊中，按一下 \[Visual C#] (如果 [Visual C#] 未出現，請查看 [其他語言] 下方)，按一下 [主控台應用程式] 範本，並將它命名為 **QueueSample**。使用預設 [位置]。按一下 [確定] 以建立專案。
+1. 這會建立新的主控台應用程式專案。按一下 [檔案] 功能表，選取 [新增]，然後按一下 [專案]。在 [新增專案] 對話方塊中，按一下 [Visual C#] (如果 [Visual C#] 未出現，請查看 [其他語言] 下方)，按一下 [主控台應用程式] 範本，並將它命名為 **QueueSample**。使用預設 [位置]。按一下 [確定] 以建立專案。
 
 1. 使用 NuGet 封裝管理員將服務匯流排程式庫新增至您的專案︰
 	1. 在 [方案總管] 中，以滑鼠右鍵按一下專案資料夾並按一下 [管理 NuGet 封裝]。
-	2. 在 [管理 Nuget 封裝] 對話方塊中，線上搜尋 [服務匯流排，然後按一下 [安裝]。<br />
+	2. 在 [管理 Nuget 封裝] 對話方塊中，線上搜尋**服務匯流排**，然後按一下 [安裝]。<br />
 1. 在 [方案總管] 中，按兩下 Program.cs 檔案，以在 Visual Studio 編輯器中開啟它。將命名空間名稱從 `QueueSample` 的預設名稱變更為 `Microsoft.ServiceBus.Samples`。
 
 	```
@@ -98,7 +98,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 
 ### 建立可剖析訊息清單的函式
 
-1. 在 `Main()` 方法前面，宣告兩個變數：其中一個變數的類型為 **DataTable**，以在 Data.csv 中包含訊息清單。另一個變數的類型應為清單物件，其型別強制為 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx)。後者是教學課程中的後續步驟將使用的代理訊息清單。
+1. 在 `Main()` 方法前面，宣告兩個變數：其中一個變數的類型為 **DataTable**，以在 Data.csv 中包含訊息清單。另一個變數的類型應為 List 物件，其類型強制為 [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx)。後者是教學課程中的後續步驟將使用的代理訊息清單。
 
 	```
 	namespace Microsoft.ServiceBus.Samples
@@ -106,11 +106,11 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	    publicclass Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList;
 	```
 
-1. 在 `Main()` 之外，定義 `ParseCSV()` 方法，以剖析 Data.csv 中的訊息清單並將訊息載入 [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx) 資料表，如下所示。此方法會傳回 **DataTable** 物件。
+1. 在 `Main()` 之外，定義 `ParseCSV()` 方法，以剖析 Data.csv 中的訊息清單，並將訊息載入 [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx) 資料表，如下所示。此方法會傳回 **DataTable** 物件。
 
 	```
 	static DataTable ParseCSVFile()
@@ -161,7 +161,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 
 ### 建立可載入訊息清單的函式
 
-1. 在 `Main()` 之外，定義 `GenerateMessages()` 方法，以採用 `ParseCSVFile()` 所傳回的 **DataTable** 物件，並將此資料表載入代理訊息的強型別清單中。此方法會接著傳回 [清單] 物件，如下列範例所示。 
+1. 在 `Main()` 之外，定義 `GenerateMessages()` 方法，以採用 `ParseCSVFile()` 所傳回的 **DataTable** 物件，並將此資料表載入代理訊息的強類型清單中。此方法會接著傳回 **List** 物件，如下列範例所示。 
 
 	```
 	static List<BrokeredMessage> GenerateMessages(DataTable issues)
@@ -169,7 +169,8 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	    // Instantiate the brokered list object
 	    List<BrokeredMessage> result = new List<BrokeredMessage>();
 	
-	    // Iterate through the table and create a brokered message for each rowforeach (DataRow item in issues.Rows)
+	    // Iterate through the table and create a brokered message for each row
+	    foreach (DataRow item in issues.Rows)
 	    {
 	        BrokeredMessage message = new BrokeredMessage();
 	        foreach (DataColumn property in issues.Columns)
@@ -182,7 +183,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	}
 	```
 
-1. 在 `Main()` 中，緊接在對 `ParseCSVFile()` 的呼叫下面，加入可呼叫 `GenerateMessages()` 方法的陳述式 (以 `ParseCSVFile()` 的傳回值作為引數)︰
+1. 在 `Main()` 中，緊接在 `ParseCSVFile()` 呼叫下面，加入可呼叫 `GenerateMessages()` 方法的陳述式 (以 `ParseCSVFile()` 的傳回值作為引數)︰
 
 	```
 	public static void Main(string[] args)
@@ -227,7 +228,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	}
 	```
 
-1. 在 `Main()` 中，緊接在對 `GenerateMessages()` 的呼叫下面，加入可呼叫 `CollectUserInput()` 方法的陳述式︰
+1. 在 `Main()` 中，緊接在 `GenerateMessages()` 呼叫下面，加入可呼叫 `CollectUserInput()` 方法的陳述式︰
 
 	```
 	public static void Main(string[] args)
@@ -266,7 +267,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	}
 	```
 
-1. 下一步是使用 [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) 物件建立 SA 認證。建立方法會採用在 `CollectUserInput()` 方法中取得的 SA 金鑰名稱和值。將下列程式碼新增至 `Queue()` 方法：
+1. 下一步是使用 [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) 物件建立 SAS 認證。建立方法會採用在 `CollectUserInput()` 方法中取得的 SAS 金鑰名稱和值。將下列程式碼新增至 `Queue()` 方法：
 
 	```
 	staticvoid Queue()
@@ -405,7 +406,7 @@ namespace Microsoft.ServiceBus.Samples
 	myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
 	```
 
-1. 在 `Queue()` 方法中，建立傳訊工廠物件並以新建立的服務匯流排 URI 作為引數。將下列程式碼直接加在最後一個步驟中新增的管理作業之後：
+1. 在 `Queue()` 方法中，建立傳訊 factory 物件，並以新建立的服務匯流排 URI 作為引數。將下列程式碼直接加在最後一個步驟中新增的管理作業之後：
 
 	```
 	MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
@@ -464,7 +465,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### 呼叫 `Queue()` 方法
 
-最後一個步驟是加入可從 `Main()` 呼叫 `Queue()` 方法的陳述式︰在 Main() 的結尾新增下列醒目提示的程式碼行：
+最後一個步驟是加入可從 `Main()` 呼叫 `Queue()` 方法的陳述式。在 Main() 的結尾新增下列醒目提示的程式碼行：
 	
 	```
 	public static void Main(string[] args)
@@ -629,9 +630,9 @@ namespace Microsoft.ServiceBus.Samples
 
 ### 執行 QueueSample 應用程式
 
-1. 執行應用程式之前，您必須確定您已建立服務命名空間並取得 SAS 金鑰，如[簡介和必要條件](#introduction-and-prerequisites)所述。
+1. 執行應用程式之前，您必須確定您已建立服務命名空間，並取得 SAS 金鑰，如[簡介和必要條件](#introduction-and-prerequisites)所述。
 
-1. 開啟瀏覽器並移至 [Azure 入口網站](http://manage.windowsazure.com)。
+1. 開啟瀏覽器並移至 [Azure 傳統入口網站][]。
 
 1. 按一下左側樹狀目錄中的 [服務匯流排]。
 
@@ -649,4 +650,6 @@ namespace Microsoft.ServiceBus.Samples
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 - [服務匯流排架構](service-bus-architecture.md)
 
-<!----HONumber=Nov15_HO4-->
+[Azure 傳統入口網站]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

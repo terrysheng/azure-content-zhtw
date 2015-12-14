@@ -1,5 +1,5 @@
 <properties
-	pageTitle="自訂 Azure AD Connect 安裝 | Microsoft Azure"
+	pageTitle="Azure AD Connect：自訂安裝 | Microsoft Azure"
 	description="這份文件詳述了 Azure AD Connect 的自訂安裝選項。"
 	services="active-directory"
 	documentationCenter=""
@@ -51,7 +51,7 @@ SQL Server 名稱 | 可讓您指定 SQL Server 名稱和執行個體名稱。如
 
 
 ## 使用者登入
-安裝必要的元件後，系統會要求您指定使用者要使用的單一登入方法。下表提供可用選項的簡短說明。
+安裝必要的元件後，系統會要求您指定使用者要使用的單一登入方法。下表提供可用選項的簡短說明。如需登入方法的完整說明，請參閱[使用者登入](active-directory-aadconnect-user-signin.md)。
 
 ![使用者登入](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
@@ -59,7 +59,7 @@ SQL Server 名稱 | 可讓您指定 SQL Server 名稱和執行個體名稱。如
 
 單一登入選項 | 說明
 ------------- | ------------- |
-密碼同步處理 |使用者將能夠使用與登入內部部署網路時所用的相同密碼登入 Microsoft 雲端服務 (如 Office 365、Dynamics CRM 和 Windows InTune)。使用者密碼會透過密碼雜湊同步至 Azure，並在雲端中進行驗證。如需詳細資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。
+密碼同步處理 |使用者將能夠使用與登入內部部署網路時所用的相同密碼登入 Microsoft 雲端服務 (如 Office 365、Dynamics CRM 和 Windows InTune)。使用者密碼會透過密碼雜湊同步至 Azure，並在雲端中進行驗證。詳細資訊請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。
 與 AD FS 同盟|使用者將能夠使用與登入內部部署網路時所用的相同密碼登入 Microsoft 雲端服務 (如 Office 365、Dynamics CRM 和 Windows InTune)。系統會將使用者重新導向至他們的內部部署 AD FS 執行個體以進行登入，並在內部部署中完成驗證。
 請勿設定| 不會安裝和設定任何功能。如果您已經有協力廠商的同盟伺服器或另一個現有的適當方案，請選擇此選項。
 
@@ -98,7 +98,7 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 
 - **UserPrincipalName**：屬性 userPrincipalName 是使用者登入 Azure AD 和 Office 365 時會使用的屬性。使用的網域 (也稱為 UPN 尾碼)，應該會在同步處理使用者前於 Azure AD 中進行驗證。強烈建議保留預設屬性 userPrincipalName。如果此屬性不可路由傳送且無法驗證，則可以選取另一個屬性，例如選取 email 做為保存登入 ID 的屬性。這就是所謂的**替代 ID**。替代 ID 屬性值必須遵循 RFC822 標準。替代 ID 可以搭配密碼單一登入 (SSO) 和同盟 SSO 做為登入解決方案使用。
 
->[AZURE.WARNING]使用替代 ID 會與所有 Office 365 工作負載不相容。如需詳細資訊，請參閱[設定替代登入 ID](https://technet.microsoft.com/library/dn659436.aspx)。
+>[AZURE.WARNING]使用替代 ID 會與所有 Office 365 工作負載不相容。如需詳細資訊，請參閱[設定替代的登入 ID](https://technet.microsoft.com/library/dn659436.aspx)。
 
 
 
@@ -119,13 +119,13 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 
 選用功能 | 說明
 -------------------    | ------------- |
-Exchange 混合部署 |「Exchange 混合部署」功能透過將一組特定[屬性](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback)從 Azure AD 同步處理回內部部署目錄，以允許 Exchange 信箱同時存在於內部部署和 Azure 中。
+Exchange 混合部署 |[Exchange 混合部署] 功能透過將一組特定[屬性](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback)從 Azure AD 同步處理回內部部署目錄，以允許 Exchange 信箱同時存在於內部部署和 Azure 中。
 Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性篩選，可將這組同步處理的屬性調整為精靈後續頁面上的特定一組屬性。這會在精靈中開啟兩個額外的組態頁面。  
-密碼同步處理 | 如果您選取同盟做為登入解決方案，您可以啟用此選項。密碼同步處理可做為備份選項。如需詳細資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。
-密碼回寫|透過啟用密碼回寫，使用 Azure AD 所產生的密碼變更會回寫至內部部署目錄。如需詳細資訊，請參閱[密碼管理入門](active-directory-passwords-getting-started.md)。
-群組回寫 |如果您使用 **Office 365 中的群組**功能，可以在內部部署的 Active Directory 中使用這些群做為通訊群組。只有當您內部部署的 Active Directory 中已經有 Exchange 時，才能使用此選項。如需詳細資訊，請參閱[群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback)。
-裝置回寫 | 在條件式存取情況下，可讓您將 Azure AD 中的裝置物件回寫到內部部署的 Active Directory。如需詳細資訊，請參閱[在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)
-目錄擴充屬性同步處理|透過啟用目錄擴充屬性同步處理，指定的其他屬性將會同步處理至 Azure AD。如需詳細資訊，請參閱[目錄擴充](active-directory-aadconnect-feature-preview.md#directory-extensions)。
+密碼同步處理 | 如果您選取同盟做為登入解決方案，您可以啟用此選項。密碼同步處理可做為備份選項。如需其他資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。
+密碼回寫|透過啟用密碼回寫，使用 Azure AD 所產生的密碼變更會回寫至內部部署目錄。如需其他資訊，請參閱[密碼管理入門](active-directory-passwords-getting-started.md)。
+群組回寫 |如果您使用 [**Office 365 中的群組**] 功能，就可以在內部部署的 Active Directory 中將這些群組作為通訊群組。只有當您內部部署的 Active Directory 中已經有 Exchange 時，才能使用此選項。如需其他資訊，請參閱[群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback)。
+裝置回寫 | 在條件式存取情況下，可讓您將 Azure AD 中的裝置物件回寫到內部部署的 Active Directory。如需其他資訊，請參閱[在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)
+目錄擴充屬性同步處理|透過啟用目錄擴充屬性同步處理，指定的其他屬性將會同步處理至 Azure AD。如需其他資訊，請參閱[目錄擴充](active-directory-aadconnect-feature-preview.md#directory-extensions)。
 
 ### Azure AD 應用程式和屬性篩選
 如果您想限制哪些屬性可以同步處理到 Azure AD，請先選取您使用的服務，如果您設定此頁面，則必須重新執行安裝精靈以明確選取任何新服務。
@@ -141,7 +141,7 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 
 ![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
-如需詳細資訊，請參閱[目錄擴充](active-directory-aadconnect-feature-preview.md#directory-extensions)。
+如需其他資訊，請參閱[目錄擴充](active-directory-aadconnect-feature-preview.md#directory-extensions)。
 
 ## 設定與 AD FS 同盟
 只要簡單按幾下，即可使用 Azure AD Connect 設定 AD FS。以下是進行設定前的所需項目。
@@ -225,7 +225,7 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 在預備模式中，可以對同步處理引擎進行所需的變更，並檢閱要匯出的項目。當此組態看起來設定良好時，請再次執行安裝精靈，並停用預備模式。這麼做可將資料匯出至 Azure AD。同時請務必停用其他伺服器，如此才能只讓一部伺服器主動匯出。
 
- 如需詳細資訊，請參閱[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)。
+ 如需其他資訊，請參閱[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)。
 
 ### 驗證同盟組態
 
@@ -242,8 +242,10 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 
 ## 後續步驟
+安裝完成之後，請先登出 Windows 再重新登入，才能使用 Synchronization Service Manager 或同步處理規則編輯器。
+
 安裝了 Azure AD Connect 之後，您可以[驗證安裝和指派授權](active-directory-aadconnect-whats-next.md)。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

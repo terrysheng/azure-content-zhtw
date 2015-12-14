@@ -276,7 +276,7 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 
 如果指定的索引編製原則包含 /* (所有路徑) 的空間索引，則表示集合中可找到的所有點均已編製索引，能進行有效率的空間查詢 (ST\_WITHIN 和 ST\_DISTANCE)。空間索引沒有整數位數值，且一律使用預設的整數位數值。
 
-以下 JSON 片段顯示已啟用空間索引的索引編製原則，也就是為文件中可找到的所有 GeoJSON 點編製索引，以用於空間查詢。如果您要使用 Azure Preview 入口網站修改索引編製原則，可以為索引編製原則指定以下 JSON，藉此啟用集合的空間索引編製。
+以下 JSON 片段顯示已啟用空間索引的索引編製原則，也就是為文件中可找到的所有 GeoJSON 點編製索引，以用於空間查詢。如果您要使用 Azure 入口網站修改索引編製原則，可以為索引編製原則指定以下 JSON，藉此啟用集合的空間索引編製。
 
 **集合的索引編製原則 JSON (已啟用空間)**
 
@@ -355,4 +355,4 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 - 深入了解 [DocumentDB 查詢](documentdb-sql-query.md)
 - 深入了解 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

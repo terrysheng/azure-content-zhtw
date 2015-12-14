@@ -15,11 +15,11 @@
 
     ![使用頻寬範本 1 建立磁碟區容器](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png)
 
-3. 如果您指定 [**選取頻寬範本**]，請從現有頻寬範本的下拉式清單中選擇。檢閱排程設定，然後按一下勾號圖示 ![核取圖示](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png)。
+3. 如果您指定「選取頻寬範本」，請從現有頻寬範本的下拉式清單中選擇。檢閱排程設定，然後按一下勾號圖示 ![核取圖示](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png)。
 
     ![使用頻寬範本 2 建立磁碟區容器](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png)
 
 將會儲存磁碟區容器，新建立的磁碟區容器將列於 [**磁碟區容器**] 頁面上。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

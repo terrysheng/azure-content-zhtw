@@ -77,7 +77,7 @@ Debian 是 Linux 及以 dpkg 和 apt-get 封裝管理為基礎之開放原始碼
 CentOS Linux 散發版本是一個穩定、可預測、容易管理且可重製的平台，其衍生自 Red Hat Enterprise Linux (RHEL) 的原始碼。
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [映像庫](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [映像庫](http://azure.microsoft.com/marketplace/partners/OpenLogic/)
 3. [做法：針對 Azure 準備自訂 CentOS 型 VM](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [部落格：如何部署 OpenLogic 提供的 CentOS VM 映像](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [做法：安裝 Apache Qpid Proton-C for AMQP 和服務匯流排](http://msdn.microsoft.com/library/azure/dn235560.aspx)
@@ -96,7 +96,7 @@ CentOS Linux 散發版本是一個穩定、可預測、容易管理且可重製�
 
 CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂的純計算。
 
-10. [映像庫](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [映像庫](http://azure.microsoft.com/marketplace/partners/coreos/)  
 11. [做法：在 Azure 上使用 CoreOS](virtual-machines-linux-coreos-how-to.md)
 12. [做法：開始在 Azure 上的 CoreOS 使用 Fleet 和 Docker](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [部落格：TechEd Europe -- Windows Docker 用戶端和 Linux 容器](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -121,7 +121,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 1. [基本概念：Azure 命令列介面 (Azure CLI)](../xplat-cli-install.md)
 4. [基本概念：憑證的使用和管理](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [基本概念：選取 Linux 使用者名稱](virtual-machines-linux-usernames.md)
-6. [基本概念：使用 Azure 入口網站登入 Linux VM](virtual-machines-linux-how-to-log-on.md)
+6. [基本概念：使用 Azure 傳統入口網站登入 Linux VM](virtual-machines-linux-how-to-log-on.md)
 7. [基本概念：SSH](virtual-machines-linux-use-ssh-key.md)
 8. [基本概念：如何重設 Linux 的密碼或 SSH 屬性](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [基本概念：使用 Root](virtual-machines-linux-use-root-privileges.md)
@@ -150,7 +150,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 
 1. [映像](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
 2. [做法：搭配使用 Java 的服務匯流排與 AMQP 1.0](http://msdn.microsoft.com/library/azure/jj841073.aspx)
-3. [做法：使用 Azure 入口網站在 Linux 上設定 Tomcat7](virtual-machines-linux-setup-tomcat7-linux.md)
+3. [做法：使用 Azure 傳統入口網站在 Linux 上設定 Tomcat7](virtual-machines-linux-setup-tomcat7-linux.md)
 4. [影片：適用於服務管理的 Azure Java SDK](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
 5. [部落格：開始使用 Java 的 Azure 管理程式庫](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
 5. [GitHub 儲存機制：適用於 Eclipse with Java 的 Azure 工具組](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
@@ -263,7 +263,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 1. Docker
 	- [Azure 上 Linux 的 Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)
 	- [透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組](virtual-machines-docker-with-../xplat-cli-install.md)
-	- [從 Azure Preview 入口網站使用 Docker VM 延伸模組](virtual-machines-docker-with-portal.md)
+	- [使用 Azure 入口網站中的Docker VM 擴充程式](virtual-machines-docker-with-portal.md)
 	- [在 Azure Marketplace 中快速開始使用 Docker](virtual-machines-docker-ubuntu-quickstart.md)
 	- [如何在 Azure 上使用 docker-machine](virtual-machines-docker-machine.md)
 	- [如何在 Azure 上搭配 swarm 使用 docker](virtual-machines-docker-swarm.md)
@@ -311,4 +311,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

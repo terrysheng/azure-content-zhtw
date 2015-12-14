@@ -73,7 +73,7 @@
 
 2. 在使用 Visual Studio 部署解決方案期間，選擇「設定遠端桌面連線...」。如需關於設定遠端桌面連線的詳細資訊，請參閱[搭配使用遠端桌面與 Azure 角色](https://msdn.microsoft.com/library/gg443832.aspx)。
 
-3. 在 Microsoft Azure 管理入口網站中，在執行個體的顯示狀態為 [就緒] 時，按一下其中一個角色執行個體。
+3. 在 Microsoft Azure 傳統入口網站中，執行個體的顯示狀態為 [就緒] 時，按一下其中一個角色執行個體。
 
 4. 在功能區的 [遠端存取] 區域中，按一下 [連接] 圖示
 
@@ -165,4 +165,4 @@
 
 檢視更多雲端服務的[疑難排解文章](..\?tag=top-support-issue&service=cloud-services)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

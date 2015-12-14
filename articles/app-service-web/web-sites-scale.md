@@ -24,14 +24,13 @@
 
 調升 Azure Web 應用程式規模牽涉到兩個相關動作：將 App Service 方案模式變更為較高的服務層級，以及在切換為較高的服務層級後設定特定設定。本文章涵蓋以上兩個主題。較高的服務層級 (如 [標準] 和 [高階] 模式) 能讓您以更健全、更彈性的方式決定 Azure 中的資源使用情況。
 
-模式的變更和設定可在管理入口網站的 [調整] 索引標籤中輕易完成。您可以視需要擴大或縮小。這些變更只需幾秒鐘便能完成套用，且影響範圍遍及 App Service 方案內的所有 Web 應用程式。您不需要變更程式碼或重新部署應用程式。
+這些調整設定只需幾秒鐘便能套用，且影響範圍遍及 App Service 方案內的所有 Web 應用程式。您不需要變更程式碼或重新部署應用程式。
 
 如需 App Service 方案的相關資訊，請參閱[什麼是 App Service 方案？](../web-sites-web-hosting-plan-overview.md)和 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。如需各 App Service 方案定價資訊及功能的詳細資訊，請參閱 [App Service 定價詳細資料](/pricing/details/web-sites/)。
 
 > [AZURE.NOTE]將 Web 應用程式從 [免費] 模式切換為 [基本]、[標準] 或 [高階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂訂用帳戶][azuresubscriptions]。
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## 調整為共用或基本模式
 <!-- ===================================== -->
 
@@ -51,8 +50,7 @@
 	
 	當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## 調整為標準或高階模式
 <!-- ================================= -->
 
@@ -91,7 +89,7 @@
 	
 	![設定第一個自動調整規則][SetFirstRule]
 	
-	>[AZURE.NOTE][回復期間] 設定會指定在前次調整動作之後，此規則要再次執行調整前所應等待的時間。
+	>[AZURE.NOTE] [回復期間] 設定會指定在前次調整動作之後，此規則要再次執行調整前所應等待的時間。
 	
 6. 按一下 [新增相應增加規則]**/**，然後設定第二項規則，方法是將 [條件] 設為 [大於]、[臨界值] 設為 **90** (%)、[經歷時間] 設為 **1** (分鐘)、[相應增加值] 設為 **3** (執行個體)，並將 [回復期間] 設為 **1** (分鐘)。
 	
@@ -176,7 +174,6 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
@@ -201,4 +198,4 @@
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

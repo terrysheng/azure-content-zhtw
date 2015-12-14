@@ -1,6 +1,6 @@
 <properties
-   pageTitle="新增和管理多個 Azure AD 目錄 | Microsoft Azure"
-   description="新增和管理 Azure AD 目錄的指示和最佳作法，說明目錄為完全獨立的資源"
+   pageTitle="新增和管理多個 Azure Active Directory 目錄 | Microsoft Azure"
+   description="新增和管理 Azure Active Directory 目錄的指示和最佳作法，說明目錄為完全獨立的資源"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="12/01/2015"
    ms.author="curtand"/>
 
-# 新增和管理多個 Azure AD 目錄
+# 新增和管理多個 Azure Active Directory 目錄
 
-在 Azure AD 目錄中，每個目錄都是完全獨立的資源：對等、全功能，且在邏輯上獨立於您管理的其他目錄。目錄之間沒有任何父子關聯性。目錄之間的這項獨立性包括資源獨立性、系統管理獨立性和同步處理獨立性。
+在 Azure Active Directory (Azure AD) 目錄中，每個目錄都是完全獨立的資源：對等、全功能，且在邏輯上獨立於您管理的其他目錄。目錄之間沒有任何父子關聯性。目錄之間的這項獨立性包括資源獨立性、系統管理獨立性和同步處理獨立性。
 
 ##資源獨立性
 
@@ -34,10 +34,10 @@
 
 ##新增 Azure AD 目錄
 
-若要在 Azure 管理入口網站中新增 Azure AD 目錄，請選取左邊的 Active Directory 延伸模組，然後點選 [新增]。
+若要在 Azure 傳統入口網站中新增 Azure AD 目錄，請選取左邊的 Azure Active Directory 延伸模組，然後點選 [新增]。
 
 > [AZURE.NOTE]與其他 Azure 資源不同，您的目錄不是 Azure 訂用帳戶的子資源。如果您取消或允許 Azure 訂用帳戶到期，則還是可以使用 Azure PowerShell、Azure Graph API 或其他介面 (例如 Office 365 系統管理中心) 存取目錄資料。您也可以關聯另一個訂用帳戶與目錄。
 
 如需 Azure AD 授權問題和最佳作法的一般概觀，請參閱[什麼是 Azure Active Directory 授權？](active-directory-licensing-what-is.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

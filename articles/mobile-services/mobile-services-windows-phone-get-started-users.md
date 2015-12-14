@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="開始使用驗證 (Windows Phone) | Microsoft Azure" 
-	description="了解如何使用行動服務透過眾多識別提供者驗證 Windows Phone 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="開始使用驗證 (Windows Phone) | Microsoft Azure"
+	description="了解如何使用行動服務透過眾多識別提供者驗證 Windows Phone 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
 # 在您的行動服務應用程式中新增驗證
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users-legacy](../../includes/mobile-services-selector-get-started-users-legacy.md)]
 
@@ -41,7 +46,7 @@ Nick Harris 也在下列這段影片中示範了本教學課程：
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-&nbsp;&nbsp;3.在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[將行動服務新增至現有 App](mobile-services-windows-phone-get-started-data.md) 教學課程時所建立的專案。
+&nbsp;&nbsp;3.在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[將行動服務新增至現有應用程式](mobile-services-windows-phone-get-started-data.md)教學課程時所建立的專案。
 
 &nbsp;&nbsp;4.按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 *TodoItem* 資料表現在需要驗證。
 
@@ -76,7 +81,5 @@ Nick Harris 也在下列這段影片中示範了本教學課程：
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [將行動服務新增至現有的應用程式]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

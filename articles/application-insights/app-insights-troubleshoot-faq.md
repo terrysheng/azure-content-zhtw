@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # 疑難排解與問題：ASP.NET 的 Application Insights
@@ -152,6 +152,17 @@
 + 確定 Internet Explorer 並非以相容性模式顯示您的網站。
 + 若要確認資料確實傳送至 dc.services.visualstudio.com，請使用瀏覽器的偵錯功能 (部分瀏覽器是使用 F12 鍵，然後選擇 [網路])。
 
+#### 我曾經看到資料，但是已停止
+
+* 檢查[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
+* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價配置](http://azure.microsoft.com/pricing/details/application-insights/)。
+
+
+#### 我並沒有看到預期的所有資料
+
+* **取樣** 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。您可以加以停用。[深入了解取樣。](app-insights-sampling.md)
+
+
 #### <a name="q08"></a>我可以使用 Application Insights 來監視內部網路 Web 伺服器嗎？
 
 是，如果您的伺服器可以傳送資料至公用網際網路，您可以監視健全狀況和使用量。請開啟防火牆的 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com 和 f5.services.visualstudio.com。
@@ -161,11 +172,6 @@
 #### 我可以監視無法存取公用網際網路的內部網路 Web 伺服器嗎？
 
 您必須安排可以將 https POST 呼叫轉送至 dc.services.visualstudio.com 的 Proxy
-
-#### 我曾經看到資料，但是已停止
-
-* 檢查[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
-* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價配置](http://azure.microsoft.com/pricing/details/application-insights/)。
 
 ## 狀態監視器無法運作
 
@@ -216,7 +222,7 @@
 <tr><th>您應該會看到</th><th>如何取得</th><th>取得原因</th></tr>
 <tr><td>可用性圖表</td><td><a href="../app-insights-monitor-web-app-availability/">Web 測試</a></td><td>知道您的 Web 應用程式已啟動</td></tr>
 <tr><td>伺服器應用程式效能：回應時間...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">將 Application Insights 加入至專案</a><br/>或 <br/><a href="../app-insights-monitor-performance-live-website-now/">在伺服器上安裝 AI 狀態監視器</a> (或撰寫您自己的程式碼以<a href="../app-insights-api-custom-events-metrics/#track-dependency">追蹤相依性</a>)</td><td>偵測效能問題</td></tr>
+</td><td><a href="../app-insights-asp-net/">將 Application Insights 加入至專案</a><br/>或 <br/><a href="../app-insights-monitor-performance-live-website-now/">在伺服器上安裝 AI 狀態監視器</a> (或撰寫您自己的程式碼以<a href="../app-insights-api-custom-events-metrics/#track-dependency">追蹤相依性</a>)</td><td>偵測效能問題</td></tr>
 <tr><td>相依性遙測</td><td><a href="../app-insights-monitor-performance-live-website-now/">在伺服器上安裝 AI 狀態監視器</a></td><td>診斷資料庫或其他外部元件的問題</td></tr>
 <tr><td>取得例外狀況的堆疊追蹤</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">在程式碼中插入 TrackException 呼叫</a> (但部分會自動報告)</td><td>偵測並診斷例外狀況</td></tr>
 <tr><td>搜尋記錄追蹤</td><td><a href="../app-insights-search-diagnostic-logs/">加入記錄配接器</a></td><td>診斷例外狀況、效能問題</td></tr>
@@ -246,4 +252,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

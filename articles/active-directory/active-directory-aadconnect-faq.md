@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect 常見問題集 |Microsoft Azure"
+	pageTitle="Azure AD Connect：常見問題集 |Microsoft Azure"
 	description="此頁面包含有關 Azure AD Connect 的常見問題集。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/02/2015"
 	ms.author="billmath"/>
 
-# Azure Active Directory Connect 常見問題集
+# Azure AD Connect 常見問題集
 
 ## 一般安裝
 **問：如果 Azure AD 全域管理員已啟用 2FA，安裝是否能夠運作？**
@@ -90,4 +90,4 @@
 
 - 使用此連結透過 Azure 入口網站取得支援。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

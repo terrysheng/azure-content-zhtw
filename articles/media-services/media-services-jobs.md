@@ -33,7 +33,7 @@
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
 
-##建立工作 (Job) 
+##建立工作 (Job)
 
 工作 (Job) 是一個實體，其中包含一組工作 (Task，例如編碼或編製索引) 的相關中繼資料。每一項工作 (Task) 會對輸入資產執行不可部分完成的作業。如需如何建立編碼工作 (Job) 的範例，請參閱：
 
@@ -43,22 +43,22 @@
 
 [AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
 
-##編碼 
+##編碼
 
-使用 **Azure 管理入口網站**、**.NET** 或 **REST API**，以 **Azure Media Encoder** 進行編碼。
- 
+使用 **Azure 傳統入口網站**、**.NET** 或 **REST API**，以 Azure 媒體編碼器進行編碼。
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ##監視工作進度
 
-使用 **Azure 管理入口網站**、**.NET** 或 **REST API** 監視工作進度。
+使用 **Azure 傳統入口網站**、**.NET** 或 **REST API** 監視工作進度。
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
 ##相關連結
 
 [配額和限制](media-services-quotas-and-limitations.md) – 說明使用的配額和媒體服務編碼器的限制
- 
+
 
 ##媒體服務學習路徑
 
@@ -68,4 +68,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

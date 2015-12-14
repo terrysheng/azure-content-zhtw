@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,10 +23,10 @@
 **單一資料庫**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-import.md)
+- [Azure portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-本文提供使用 [Azure Preview 入口網站](https://portal.azure.com) 自 BACPAC 檔案建立新的 Azure SQL Database 的說明。
+本文提供使用 [Azure 入口網站](https://portal.azure.com) 自 BACPAC 檔案建立新的 Azure SQL Database 的說明。
 
 BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需詳細資訊，請參閱[資料層應用程式](https://msdn.microsoft.com/library/ee210546.aspx)中的備份封裝 (.bacpac)。
 
@@ -47,7 +47,7 @@ BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需�
 
 開啟您要匯入資料庫的 SQL Server 刀鋒視窗：
 
-1.	移至 [Azure Preview 入口網站](https://portal.azure.com)。
+1.	移至 [Azure 入口網站](https://portal.azure.com)。
 2.	按一下 [全部瀏覽]。
 3.	按一下 [SQL Server]。
 2.	按一下伺服器，以將資料庫還原至該伺服器。
@@ -110,4 +110,4 @@ BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需�
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

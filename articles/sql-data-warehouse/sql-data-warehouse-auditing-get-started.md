@@ -59,7 +59,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 ##<a id="subheading-2"></a>設定資料庫的稽核
 
-1. 啟動 <a href="https://portal.azure.com" target="_blank">Azure Preview 入口網站</a>。
+1. 啟動 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>。
 
 2. 瀏覽至您要稽核的 SQL 資料倉儲資料庫 / SQL Server 組態刀鋒視窗。在最上層按一下 [設定] 按鈕，然後在 [設定] 刀鋒視窗選取 [稽核]。
 
@@ -102,7 +102,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 
 ##<a id="subheading-4">生產環境中的使用方式作法</a>
-本節的說明與以上的畫面截圖有關。可以使用 <a href="https://portal.azure.com" target="_blank">Azure Preview 入口網站</a>或<a href= "https://manage.windowsazure.com/" target="_bank">傳統的 Azure 入口網站</a>。
+本節的說明與以上的畫面截圖有關。可以使用 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>或<a href= "https://manage.windowsazure.com/" target="_bank">Azure 傳統入口網站</a>。
  
 
 ##<a id="subheading-5"></a>儲存體金鑰重新產生
@@ -141,4 +141,4 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

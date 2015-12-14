@@ -71,7 +71,7 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 
 6. **建立新的雲端服務和儲存體帳戶**
 
-    請使用 Azure 入口網站來建立雲端服務和儲存體帳戶，以在有計算密集型執行個體可用的區域中進行部署。(請勿將雲端服務和儲存體帳戶與用於其他部署的現有同質群組產生關聯。)
+    使用 Azure 傳統入口網站建立雲端服務和儲存體帳戶，以在可使用大量運算執行個體的區域中進行部署。(請勿將雲端服務和儲存體帳戶與用於其他部署的現有同質群組產生關聯。)
 
 7. **建立 Azure 節點範本**
 
@@ -246,4 +246,4 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

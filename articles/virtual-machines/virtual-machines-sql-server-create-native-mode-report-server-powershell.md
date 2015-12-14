@@ -31,7 +31,7 @@
 
 - **Azure 訂用帳戶**：確認您的 Azure 訂用帳戶中可用的核心數量。若要建立建議的 VM 大小 **A3**，將需要 **4** 個可用的核心。若您採用 **A2** 的 VM 大小，則需要 **2** 個可用的核心。
 	
-	- 若要確認訂用帳戶的核心限制，請在 Azure 入口網站中按一下左窗格中的 [設定]，然後按一下上層功能表中的 [使用方式]。
+	- 若要確認訂用帳戶的核心限制，請在 Azure 傳統入口網站中按一下左窗格中的 [設定]，然後按一下上層功能表中的 [使用方式]。
 	
 	- 若要增加核心配額，請連絡 [Azure 支援](http://azure.microsoft.com/support/options/)。如需 VM 大小的資訊，請參閱 [Azure 的虛擬機器大小](virtual-machines-size-specs.md)。
 
@@ -43,7 +43,7 @@
 
 ## 步驟 1：佈建 Azure 虛擬機器
 
-1. 瀏覽至 Azure 入口網站。
+1. 瀏覽到 Azure 傳統入口網站。
 
 1. 按一下左窗格中的 [虛擬機器]。
 
@@ -143,7 +143,7 @@
 
 1. 若要信任本機 VM 的憑證根 CA，請將憑證新增至 [信任的根憑證授權單位]。以下是所需步驟的摘要。如需有關如何信任 CA 的詳細步驟，請參閱[安裝伺服器憑證](https://technet.microsoft.com/library/cc740068)。
 
-	1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
+	1. 在 Azure 傳統入口網站中選取 VM，然後按一下 [連接]。根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
 	
 		![連接至 Azure 虛擬機器](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) 請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。
 	
@@ -193,7 +193,7 @@
 
 若要使用 Windows PowerShell 指令碼設定報表伺服器，請完成下列步驟。設定包括 HTTP 而非 HTTPS：
 
-1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
+1. 在 Azure 傳統入口網站中選取 VM，然後按一下 [連接]。根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
 
 	![連接至 Azure 虛擬機器](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) 請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。
 
@@ -334,7 +334,7 @@
 
 若要使用 Windows PowerShell 設定報表伺服器，請完成下列步驟。設定包括 HTTP 而非 HTTPS。
 
-1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
+1. 在 Azure 傳統入口網站中選取 VM，然後按一下 [連接]。根據您的瀏覽器設定，可能會提示您儲存 .rdp 檔案以連接至 VM。
 
 	![連接至 Azure 虛擬機器](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) 請使用您建立 VM 時所設定的使用者 VM 名稱、使用者名稱和密碼。
 
@@ -557,11 +557,11 @@
 
 如果您不想執行 PowerShell 指令碼設定報表伺服器，請遵循本節的步驟，使用 Reporting Services 原生模式組態管理員設定報表伺服器。
 
-1. 在 Azure 入口網站中選取 VM，然後按一下 [連接]。請使用您建立 VM 時所設定的使用者名稱和密碼。
+1. 在 Azure 傳統入口網站中選取 VM，然後按一下 [連接]。請使用您建立 VM 時所設定的使用者名稱和密碼。
 
 	![連接至 Azure 虛擬機器](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif)
 
-1. 執行 Windows Update 並安裝 VM 的更新。如果需要重新啟動 VM，請重新啟動 VM，並從 Azure 入口網站重新連接到 VM。
+1. 執行 Windows Update 並安裝 VM 的更新。如果需要重新啟動 VM，請重新啟動 VM，並從 Azure 傳統入口網站重新連接到 VM。
 
 1. 在 VM 的 [開始] 功能表中，鍵入 **Reporting Services**，並開啟 [Reporting Services 組態管理員]。
 
@@ -633,7 +633,7 @@
 
 		http://localhost/Reports
 
-- 從本機電腦瀏覽至 VM 上的**遠端**報告管理員。視需要更新下列範例中的 DNS 名稱。如果系統提示輸入密碼，請使用您佈建 VM 時所建立的系統管理員認證。使用者名稱的格式是 [網域]\[使用者名稱]，其中的網域是 VM 電腦名稱，例如 ssrsnativecloud\\testuser。如果您不是使用 HTTP**S**，請移除 URL 中的 **s**。如需有關如何在 VM 上建立其他使用者的資訊，請參閱下一節。
+- 從本機電腦瀏覽至 VM 上的**遠端**報告管理員。視需要更新下列範例中的 DNS 名稱。如果系統提示輸入密碼，請使用您佈建 VM 時所建立的系統管理員認證。使用者名稱的格式是 [網域][使用者名稱]，其中的網域是 VM 電腦名稱，例如 ssrsnativecloud\\testuser。如果您不是使用 HTTP**S**，請移除 URL 中的 **s**。如需有關如何在 VM 上建立其他使用者的資訊，請參閱下一節。
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -683,7 +683,7 @@
 
 ## 在不使用 VM 時將成本降至最低
 
->[AZURE.NOTE]若要在不使用 Azure 虛擬機器時將費用降至最低，請從 Azure 入口網站關閉 VM。如果您使用 VM 內的 Windows 電源選項關閉 VM，則仍需針對 VM 支付相同金額。為了降低費用，您必須在 Azure 入口網站關閉 VM。如果您不再需要 VM，請記得刪除 VM 和相關聯的 .vhd 檔案，以節省儲存空間費用。如需詳細資訊，請參閱[虛擬機器價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines)的「常見問題集」一節。
+>[AZURE.NOTE]若要在不使用 Azure 虛擬機器時將費用降至最低，請從 Azure 傳統入口網站關閉 VM。如果您使用 VM 內的 Windows 電源選項關閉 VM，則仍需針對 VM 支付相同金額。為了降低費用，您必須在 Azure 傳統入口網站關閉 VM。如果您不再需要 VM，請記得刪除 VM 和相關聯的 .vhd 檔案，以節省儲存空間費用。如需詳細資訊，請參閱[虛擬機器價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines)的「常見問題集」一節。
 
 ## 相關資訊
 
@@ -705,4 +705,4 @@
 
 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

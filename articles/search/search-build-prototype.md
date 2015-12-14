@@ -44,7 +44,7 @@
 
 ## 在您的系統上測試原型方案
 
-1. [在 Azure 入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)
+1. [在 Azure 傳統入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
     您可以將共用 (免費) 版本的服務加入至任何現有的 Azure 訂用帳戶。共用的服務通常用於原型。請記住共用的服務總計可提供 50 MB 的資料或 10,000 份文件，看哪一個先到。此外，資料與文件最多可以分散到 3 個索引。
 
@@ -133,4 +133,4 @@
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

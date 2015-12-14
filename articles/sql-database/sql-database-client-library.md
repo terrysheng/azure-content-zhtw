@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/25/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # 使用 C&#x23; 建立和管理 SQL Database
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
+- [Azure Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -55,7 +55,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 [Azure 資源管理員 REST API](https://msdn.microsoft.com/library/azure/dn948464.aspx) 使用 Azure Active Directory 進行驗證，而不是先前的 Azure 服務管理 REST API 所使用的憑證。
 
-若要根據目前的使用者驗證您的用戶端應用程式，您必須先在與訂用帳戶 (已在其下建立 Azure 資源) 相關聯的 AAD 網域中註冊您的應用程式。如果您的 Azure 訂用帳戶是以 Microsoft 帳戶而不是工作或學校帳戶建立的，您便已經有預設 AAD 網域。您可以在[管理入口網站](https://manage.windowsazure.com/)中完成註冊應用程式。
+若要根據目前的使用者驗證您的用戶端應用程式，您必須先在與訂用帳戶 (已在其下建立 Azure 資源) 相關聯的 AAD 網域中註冊您的應用程式。如果您的 Azure 訂用帳戶是以 Microsoft 帳戶而不是工作或學校帳戶建立的，您便已經有預設 AAD 網域。您可以在[傳統入口網站](https://manage.windowsazure.com/)中完成應用程式註冊。
 
 若要建立新的應用程式並且在正確的 Active Directory 中註冊，請執行下列動作：
 
@@ -105,7 +105,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 您的程式碼需要網域名稱。可以輕易地識別正確的網域名稱的方式是：
 
-1. 移至 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 將滑鼠停留在右上角的名稱，並記下出現在快顯視窗的網域。
 
     ![識別網域名稱][3]
@@ -798,4 +798,4 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

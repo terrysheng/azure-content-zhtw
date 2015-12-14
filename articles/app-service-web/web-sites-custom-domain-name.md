@@ -35,13 +35,13 @@
 
 ## 概觀
 
-您如果還沒有註冊外部網域名稱 (不是 *.azurewebsites.net)，要設定自訂網域最簡單的方法，是直接到 [Azure Preview 入口網站](https://portal.azure.com) 購買。這個程序可讓您直接在入口網站中管理您的 Web 應用程式的網域名稱，而不必到 GoDaddy 等第三方網站管理名稱。此外，不論您的 Web 應用程式是否使用 [Azure 流量管理員](web-sites-traffic-manager-custom-domain-name.md)，在 Web 應用程式中設定網域名稱的程序也大幅簡化。如需詳細資訊，請參閱[在 Azure App Service 中購買和設定自訂網域名稱](custom-dns-web-site-buydomains-web-app.md)。
+您如果還沒有註冊外部網域名稱 (不是 *.azurewebsites.net)，要設定自訂網域最簡單的方法，是直接到 [Azure 入口網站](https://portal.azure.com) 購買。這個程序可讓您直接在入口網站中管理您的 Web 應用程式的網域名稱，而不必到 GoDaddy 等第三方網站管理名稱。此外，不論您的 Web 應用程式是否使用 [Azure 流量管理員](web-sites-traffic-manager-custom-domain-name.md)，在 Web 應用程式中設定網域名稱的程序也大幅簡化。如需詳細資訊，請參閱[在 Azure App Service 中購買和設定自訂網域名稱](custom-dns-web-site-buydomains-web-app.md)。
 
 如果您已有網域名稱，或您想要保留來自其他網域註冊機構的網域，以下是產生 Web 應用程式的自訂網域名稱的一般步驟 (請參閱 [GoDaddy.com 的專屬指示](web-sites-godaddy-custom-domain-name.md))：
 
 1. 保留您的網域名稱。本文不包含此流程。有許多網域註冊機構可供選擇。當您註冊時，這些網站會逐步引導您進行此流程。
 1. 建立 DNS 記錄，將網域對應至您的 Azure Web 應用程式。
-1. 將網域名稱新增至 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中。
+1. 將網域名稱新增至 [Azure 入口網站](https://portal.azure.com)中。
 
 在這基本大綱中，有一些需要注意的特定情況：
 
@@ -110,7 +110,7 @@
 假設自訂網域名稱為 'contoso.com'，則會建立以下記錄：
 
 - **contoso.com**，對應至 168.62.48.183。
-- **contoso.azurewebsites.net**，對應至 **www.contoso.com**。
+- 對應至 **contoso.azurewebsites.net** 的 **www.contoso.com**。
 
 >[AZURE.NOTE]您可以使用 Azure DNS 來裝載 web 應用程式所需的網域記錄。若要在 Azure DNS 設定您的自訂網域，並建立您的記錄，請參閱[建立 Web 應用程式的自訂 DNS 記錄](../dns-web-sites-custom-domain)。
 
@@ -128,7 +128,7 @@
 
 [AZURE.INCLUDE [模式](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 確認 DNS 傳播
 
@@ -144,7 +144,6 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Anchors. -->
 [Overview]: #overview
@@ -156,4 +155,4 @@
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -29,4 +29,4 @@
 - 使用 Hive 查詢來瀏覽 **Hive 資料表**資料。
 - 使用 AML 模組來瀏覽 **Azure Machine Learning (AML) Studio** 資料。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

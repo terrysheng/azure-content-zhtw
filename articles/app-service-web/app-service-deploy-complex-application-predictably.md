@@ -58,7 +58,7 @@
 
 ### Azure 資源總管 ###
 
-此[預覽工具](https://resources.azure.com)可讓您瀏覽您的訂用帳戶與個別資源中所有資源群組的 JSON 定義。 在此工具中，您可以編輯資源的 JSON 定義、刪除整個階層的資源，以及建立新的資源。此工具中立即可用的資訊對於範本撰寫十分有用，因為它會顯示您需要針對特定類型的資源所設定的屬性、正確值等。您甚至可以在 [Azure 預覽入口網站](https://portal.azure.com)中建立資源群組，然後在總管工具中檢查其 JSON 定義，協助您建立資源群組的樣本。
+此[預覽工具](https://resources.azure.com)可讓您瀏覽您的訂用帳戶與個別資源中所有資源群組的 JSON 定義。 在此工具中，您可以編輯資源的 JSON 定義、刪除整個階層的資源，以及建立新的資源。此工具中立即可用的資訊對於範本撰寫十分有用，因為它會顯示您需要針對特定類型的資源所設定的屬性、正確值等。您甚至可以在 [Azure 入口網站](https://portal.azure.com)中建立資源群組，然後在總管工具中檢查其 JSON 定義，協助您建立資源群組的樣本。
 
 ### 部署至 Azure 按鈕 ###
 
@@ -82,7 +82,7 @@
 
 	在您第一次瀏覽至 UI 時，UI 會比較慢，因為應用程式剛剛啟動，但確信它是功能完整的應用程式。
 
-5.	回到 [部署] 頁面，並按一下 [**管理**] 連結，以在 Azure 預覽入口網站中查看新的應用程式。
+5.	回到 [部署] 頁面，並按一下 [管理] 連結，以在 Azure 入口網站中查看新的應用程式。
 
 6.	在 [**Essentials**] 下拉式清單中，按一下 [資源群組] 連結。也請注意 Web 應用程式已連線至 [**外部專案**] 下的 GitHub 儲存機制。
 
@@ -188,11 +188,11 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 
 請注意，在 `dependsOn` 項目，除了 Web 應用程式資源本身之外，`sourcecontrols/web` 也與 `config/appsettings` 和 `config/connectionstrings` 相依。原因是設定 `sourcecontrols/web` 之後，Azure 部署程序會自動嘗試部署、建置和啟動應用程式碼。因此，插入此相依性有助於確定在執行應用程式碼之前，應用程式可以存取所需的應用程式設定和連接字串。[TODO: 需要確認這是否為 true。]
 
->[AZURE.NOTE]也請注意，`IsManualIntegration` 設為 `true`。這個屬性是本教學課程中的必要屬性，因為您實際上未擁有 GitHub 儲存機制，因此無法實際將從 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (即，將自動儲存機制更新推送至 Azure) 設定持續發佈的權限授與 Azure。只有在之前已在 [Azure 預覽入口網站](https://portal.azure.com)中設定過擁有者的 GitHub 認證時，才能使用所指定儲存機制的預設值 `false`。換句話說，如果您之前已使用使用者認證來設定 [Azure 預覽入口網站](https://portal.azure.com)中任何應用程式的 GitHub 或 BitBucket 原始檔控制，則 Azure 會記住認證，並在未來從 GitHub 或 BitBucket 部署任何應用程式時使用它們。不過，如果您還沒有這麼做，則 Azure 資源管理員嘗試設定 Web 應用程式的原始檔控制設定時，JSON 範本的部署會失敗。因為它無法使用儲存機制擁有者的認證登入 GitHub 或 BitBucket。
+>[AZURE.NOTE]也請注意，`IsManualIntegration` 設為 `true`。這個屬性是本教學課程中的必要屬性，因為您實際上未擁有 GitHub 儲存機制，因此無法實際將從 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (即，將自動儲存機制更新推送至 Azure) 設定持續發佈的權限授與 Azure。只有在之前已在 [Azure 預覽入口網站](https://portal.azure.com)中設定過擁有者的 GitHub 認證時，才能使用所指定儲存機制的預設值 `false`。換句話說，如果您之前已使用使用者認證來設定 [Azure 入口網站](https://portal.azure.com)中任何應用程式的 GitHub 或 BitBucket 原始檔控制，則 Azure 會記住認證，並在未來從 GitHub 或 BitBucket 部署任何應用程式時使用它們。不過，如果您還沒有這麼做，則 Azure 資源管理員嘗試設定 Web 應用程式的原始檔控制設定時，JSON 範本的部署會失敗。因為它無法使用儲存機制擁有者的認證登入 GitHub 或 BitBucket。
 
 ## 比較具有已部署資源群組的 JSON 範本 ##
 
-您可以在這裡瀏覽[預覽入口網站](https://portal.azure.com)中的所有 Web 應用程式刀鋒視窗，但還有另一個工具十分有用。移至 [Azure 資源總管](https://resources.azure.com)預覽工具，其可提供訂用帳戶中所有資源群組的 JSON 呈現，因為它們實際存在於 Azure 後端。您也可以看到 Azure 中資源群組的 JSON 階層如何與用來建立它的範本檔案中的階層對應。
+您可以在這裡瀏覽 [Azure 入口網站](https://portal.azure.com)中的所有 Web 應用程式刀鋒視窗，但還有另一個工具十分有用。移至 [Azure 資源總管](https://resources.azure.com)預覽工具，其可提供訂用帳戶中所有資源群組的 JSON 呈現，因為它們實際存在於 Azure 後端。您也可以看到 Azure 中資源群組的 JSON 階層如何與用來建立它的範本檔案中的階層對應。
 
 例如，移至 [Azure 資源總管](https://resources.azure.com)工具並展開總管中的節點時，可以看到資源群組以及收集在其個別資源型別下方的根層級資源。
 
@@ -268,7 +268,7 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 	
 16.	按一下 [**部署**]。如果您選取 [**儲存密碼**]，則會將密碼**以純文字**形式儲存至參數檔。否則，系統會在部署過程要求您輸入資料庫密碼。
 
-這樣就大功告成了！ 現在，您只需要移至[預覽入口網站](https://portal.azure.com)和 [Azure 資源總管](https://resources.azure.com)工具，即可查看已加入 JSON 已部署應用程式中的新警示和自動調整設定。
+這樣就大功告成了！ 現在，您只需要移至 [Azure 入口網站](https://portal.azure.com)和 [Azure 資源總管](https://resources.azure.com)工具，即可查看已加入 JSON 已部署應用程式中的新警示和自動調整設定。
 
 您在本節中的步驟主要是完成下列作業：
 
@@ -305,4 +305,4 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

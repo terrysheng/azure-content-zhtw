@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/29/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # 在 HDinsight 中搭配 HBase 叢集使用 Phoenix 和 SQuirreL  
@@ -29,7 +29,7 @@
 開始使用 SQLLine 之前，您必須具備下列項目：
 
 - **HDInsight 中的 HBase 叢集**。如需有關佈建 HBase 叢集的資訊，請參閱[開始使用 HDInsight 中的 Apache HBase][hdinsight-hbase-get-started]。
-- **透過遠端桌面通訊協定連接到 HBase 叢集**。如需相關指示，請參閱[使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集][hdinsight-manage-portal]。
+- **透過遠端桌面通訊協定連接到 HBase 叢集**。如需相關指示，請參閱[使用 Azure 傳統入口網站管理 HDInsight 中的 Hadoop 叢集][hdinsight-manage-portal]。
 
 **找出主機名稱**
 
@@ -116,7 +116,7 @@
 
 **設定點對站連線**
 
-1. 登入 [Azure 入口網站][azure-portal]。
+1. 登入 [Azure 傳統入口網站][azure-portal]。
 2. 在左側按一下 [**網路**]。
 3. 按一下您已建立的虛擬網路 (請參閱[在 Azure 虛擬網路上佈建 HBase 叢集][hdinsight-hbase-provision-vnet])。
 4. 按一下頂端的 [**設定**]。
@@ -129,7 +129,7 @@
 
 **建立動態路由閘道**
 
-1. 從 Azure 入口網站中，按一下頁面頂端的 [**儀表板**]。
+1. 從 Azure 傳統入口網站中，按一下頁面頂端的 [儀表板]。
 2. 按一下頁面底部的 [**建立閘道**]。
 3. 按一下 [**是**] 以確認。請等候建立閘道。
 4. 按一下頂端的 [**儀表板**]。您會看到虛擬網路的視覺化圖表：
@@ -147,7 +147,7 @@
 
 1. 從您的工作站，開啟命令提示字元視窗。
 2. 瀏覽至 [Visual Studio 工具] 資料夾。 
-3. 下面範例中的下列命令將在您工作站上的個人憑證存放區中建立與安裝根憑證，並建立您稍後將上傳至 Azure 入口網站的相對應 .cer 檔案。 
+3. 下面範例中的下列命令將在您工作站上的個人憑證存放區中建立與安裝根憑證，並建立您稍後將上傳至 Azure 傳統入口網站的相對應 .cer 檔案。 
 
 		makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
@@ -171,9 +171,9 @@
 
 	您想要連接到虛擬網路的每一部電腦都必須安裝用戶端憑證。建議您最好針對要連接到虛擬網路的每部電腦建立唯一的用戶端憑證。若要匯出用戶端憑證，請使用 certmgr.msc。
 
-**將根憑證上傳至 Azure 入口網站**
+**將根憑證上傳到 Azure 傳統入口網站**
 
-1. 從 Azure 入口網站，按一下左邊的 [**網路**]。
+1. 從 Azure 傳統入口網站，按一下左邊的 [網路]。
 2. 按一下 HBase 叢集部署所在的虛擬網路。
 3. 按一下頂端的 [**憑證**]。
 4. 按一下底部的 [**上傳**]，並指定您已在前一個程序中建立的根憑證檔案。請等到憑證匯入。
@@ -306,4 +306,4 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

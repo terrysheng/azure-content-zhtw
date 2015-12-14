@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 # 在 HDInsight 中使用 Hive 分析 Twitter 資料
@@ -34,41 +34,14 @@
 
 	執行 Windows PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
-		Add-AzureAccount
+		Login-AzureRmAccount
 
 	如果您有多個 Azure 訂用帳戶，請使用下列 Cmdlet 設定目前的訂用帳戶：
 
-		Select-AzureSubscription <AzureSubscriptionName>
-
+		Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
 
 
 - **Azure HDInsight 叢集**。如需叢集佈建的指示，請參閱[開始使用 HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集][hdinsight-provision]。稍後在教學課程中會用到此叢集名稱。
-
-**了解 HDInsight 儲存體**
-
-HDInsight 會使用 Azure Blob 儲存體來儲存資料。Azure Blob 儲存體 是 Microsoft 實作的 Hadoop 分散式檔案系統 (HDFS)。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
-
-當您佈建 HDInsight 叢集時，會將一個 Blob 儲存體容器指定為預設檔案系統，如同在 HDFS 中一般。除了此容器以外，您也可以在佈建過程中，從相同的 Azure 儲存體帳戶或不同的 Azure 儲存體帳戶新增容器。如需有關新增儲存體帳戶的詳細資訊，請參閱[佈建 HDInsight 叢集][hdinsight-provision]。
-
-> [AZURE.NOTE]為簡化本教學課程中使用的 Windows PowerShell 指令碼，所有檔案都儲存在位於 */tutorials/twitter* 的預設檔案系統容器中。根據預設，此容器的名稱會與 HDInsight 叢集名稱相同。如果您選擇使用不同的容器來儲存這些檔案，請相應地更新指令碼。
-
-Azure Blob 儲存體語法：
-
-	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
-
-> [AZURE.NOTE]HDInsight 叢集 3.0 版僅支援 **wasb://* 語法。HDInsight 2.1 和 1.6 的叢集支援舊的 **asv://* 語法，但其在 HDInsight 3.0 叢集中不受支援，且未來的版本也不會予以支援。
-
-> Azure Blob 儲存體路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
-
-儲存在預設檔案系統容器中的檔案，可使用下列任一統一資源識別元 (URI) 從 HDInsight 存取。這些 URI 使用 tweets.txt 作為範例。
-
-	wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/twitter/tweets.txt
-	wasb:///tutorials/twitter/tweets.txt
-	/tutorials/twitter/tweets.txt
-
-如果您要直接從儲存體帳戶存取檔案，檔案的Blob 名稱為：
-
-	tutorials/twitter/tweets.txt
 
 下表列出本教學課程中使用的檔案：
 
@@ -111,7 +84,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 8. 按一下位於頁面右上角的 [**測試 OAuth**]。
 9. 記下**消費者金鑰**、**消費者密碼**、**存取權杖**和**存取權杖密碼**。稍後在教學課程中會用到這些值。
 
-在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。如需 .NET C#範例，請參閱[使用 HDInsight 中的 HBase 分析即時的 Twitter 情緒][hdinsight-hbase-twitter-sentiment]。另一項常用來發出 Web 服務呼叫的工具，是 [*Curl*][curl]。Curl 可從[這裡][curl-download]下載取得。
+在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。如需 .NET C# 範例，請參閱[使用 HDInsight 中的 HBase 分析即時的 Twitter 情緒][hdinsight-hbase-twitter-sentiment]。另一項常用來發出 Web 服務呼叫的工具，是 [*Curl*][curl]。Curl 可從[這裡][curl-download]下載取得。
 
 >[AZURE.NOTE]在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
 
@@ -144,14 +117,15 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 
 		#region - Create a block blob object for writing tweets into Blob storage
 		Write-Host "Get the default storage account name and Blob container name using the cluster name ..." -ForegroundColor Green
-		$myCluster = Get-AzureHDInsightCluster -Name $clusterName
-		$storageAccountName = $myCluster.DefaultStorageAccount.StorageAccountName.Replace(".blob.core.windows.net", "")
-		$containerName = $myCluster.DefaultStorageAccount.StorageContainerName
+		$myCluster = Get-AzureRmHDInsightCluster -Name $clusterName
+		$resourceGroupName = $myCluster.ResourceGroup
+		$storageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
+		$containerName = $myCluster.DefaultStorageContainer
 		Write-Host "`tThe storage account name is $storageAccountName." -ForegroundColor Yellow
 		Write-Host "`tThe blob container name is $containerName." -ForegroundColor Yellow
 
 		Write-Host "Define the Azure storage connection string ..." -ForegroundColor Green
-		$storageAccountKey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName |  %{ $_.Key1 }
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$storageAccountKey"
 		Write-Host "`tThe connection string is $storageConnectionString." -ForegroundColor Yellow
 
@@ -250,10 +224,10 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 變數|說明
 ---|---
 $clusterName|這是您要執行應用程式的 HDInsight 叢集名稱。
-$oauth_consumer_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式**消費者金鑰**。
-$oauth_consumer_secret|這是您先前記下的 Twitter 應用程式**消費者密碼**。
-$oauth_token|這是您先前記下的 Twitter 應用程式**存取權杖**。
-$oauth_token_secret|這是您先前記下的 Twitter 應用程式**存取權杖密碼**。
+$oauth\_consumer\_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式**消費者金鑰**。
+$oauth\_consumer\_secret|這是您先前記下的 Twitter 應用程式**消費者密碼**。
+$oauth\_token|這是您先前記下的 Twitter 應用程式**存取權杖**。
+$oauth\_token\_secret|這是您先前記下的 Twitter 應用程式**存取權杖密碼**。
 $destBlobName|這是輸出 Blob 名稱。預設值為 **tutorials/twitter/data/tweets.txt**。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。
 $trackString|Web 服務會傳回這些關鍵字的相關推文。預設值為 **Azure, Cloud, HDInsight**。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。
 $lineMax|此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。
@@ -287,22 +261,23 @@ HiveQL 指令碼將執行下列作業：
 2. 將下列指令碼複製到指令碼窗格中：
 
 		#region - variables and constants
-		$clusterName = "<HDInsightClusterName>" # Enter your HDInsight cluster name
-
+		$clusterName = "<Existing HDInsight Cluster Name>" # Enter your HDInsight cluster name
+		$subscriptionID = "<Azure Subscription ID>"
+		
 		$sourceDataPath = "/tutorials/twitter/data"
 		$outputPath = "/tutorials/twitter/output"
 		$hqlScriptFile = "tutorials/twitter/twitter.hql"
-
+		
 		$hqlStatements = @"
 		set hive.exec.dynamic.partition = true;
 		set hive.exec.dynamic.partition.mode = nonstrict;
-
+		
 		DROP TABLE tweets_raw;
 		CREATE EXTERNAL TABLE tweets_raw (
 			json_response STRING
 		)
 		STORED AS TEXTFILE LOCATION '$sourceDataPath';
-
+		
 		DROP TABLE tweets;
 		CREATE TABLE tweets
 		(
@@ -337,7 +312,7 @@ HiveQL 指令碼將執行下列作業：
 			profile_image_url STRING,
 			json_response STRING
 		);
-
+		
 		FROM tweets_raw
 		INSERT OVERWRITE TABLE tweets
 		SELECT
@@ -346,7 +321,7 @@ HiveQL 指令碼將執行下列作業：
 			concat(substr (get_json_object(json_response, '$.created_at'),1,10),' ',
 			substr (get_json_object(json_response, '$.created_at'),27,4)),
 			substr (get_json_object(json_response, '$.created_at'),27,4),
-			case substr (get_json_object(json_response,	'$.created_at'),5,3)
+			case substr (get_json_object(json_response, '$.created_at'),5,3)
 				when "Jan" then "01"
 				when "Feb" then "02"
 				when "Mar" then "03"
@@ -395,7 +370,7 @@ HiveQL 指令碼將執行下列作業：
 			get_json_object(json_response, '$.user.profile_image_url'),
 			json_response
 		WHERE (length(json_response) > 500);
-
+		
 		INSERT OVERWRITE DIRECTORY '$outputPath'
 		SELECT name, screen_name, count(1) as cc
 			FROM tweets
@@ -404,51 +379,63 @@ HiveQL 指令碼將執行下列作業：
 			ORDER BY cc DESC LIMIT 10;
 		"@
 		#endregion
-
+		
 		#region - Connect to Azure subscription
 		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-		Add-AzureAccount
+		
+		Try{
+			Get-AzureRmSubscription
+		}
+		Catch{
+			Login-AzureRmAccount
+		}
+		
+		Select-AzureRmSubscription -SubscriptionId $subscriptionID
+		
 		#endregion
-
+		
 		#region - Create a block blob object for writing the Hive script file
 		Write-Host "Get the default storage account name and container name based on the cluster name ..." -ForegroundColor Green
-		$myCluster = Get-AzureHDInsightCluster -Name $clusterName
-		$storageAccountName = $myCluster.DefaultStorageAccount.StorageAccountName.Replace(".blob.core.windows.net", "")
-		$containerName = $myCluster.DefaultStorageAccount.StorageContainerName
-		Write-Host "`tThe storage account name is $storageAccountName." -ForegroundColor Yellow
-		Write-Host "`tThe blob container name is $containerName." -ForegroundColor Yellow
-
+		$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+		$resourceGroupName = $myCluster.ResourceGroup
+		$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
+		$defaultBlobContainerName = $myCluster.DefaultStorageContainer
+		Write-Host "`tThe storage account name is $defaultStorageAccountName." -ForegroundColor Yellow
+		Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
+		
 		Write-Host "Define the connection string ..." -ForegroundColor Green
-		$storageAccountKey = get-azurestoragekey $storageAccountName | %{$_.Primary}
-		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$storageAccountKey"
-
+		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName | %{$_.key1}
+		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
+		
 		Write-Host "Create block blob objects referencing the hql script file" -ForegroundColor Green
 		$storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
 		$storageClient = $storageAccount.CreateCloudBlobClient();
-		$storageContainer = $storageClient.GetContainerReference($containerName)
+		$storageContainer = $storageClient.GetContainerReference($defaultBlobContainerName)
 		$hqlScriptBlob = $storageContainer.GetBlockBlobReference($hqlScriptFile)
-
+		
 		Write-Host "Define a MemoryStream and a StreamWriter for writing ... " -ForegroundColor Green
 		$memStream = New-Object System.IO.MemoryStream
 		$writeStream = New-Object System.IO.StreamWriter $memStream
 		$writeStream.Writeline($hqlStatements)
 		#endregion
-
+		
 		#region - Write the Hive script file to Blob storage
 		Write-Host "Write to the destination blob ... " -ForegroundColor Green
 		$writeStream.Flush()
 		$memStream.Seek(0, "Begin")
 		$hqlScriptBlob.UploadFromStream($memStream)
 		#endregion
-
+		
 		Write-Host "Completed!" -ForegroundColor Green
 
+		
 
 4. 設定指令碼中的前兩個變數：
 
 變數|說明
 ---|---
-$clusterName|#提供您要在其中執行 Hive 工作的 HDInsight 叢集名稱
+$clusterName|# 提供您要在其中執行 Hive 工作的 HDInsight 叢集名稱
+$subscriptionID|輸入您的 Azure 訂用帳戶識別碼。
 $sourceDataPath|Hive 查詢將從中讀取資料的 Azure Blob 儲存體位置。您無須變更此變數。
 $outputPath|Hive 查詢將輸出結果的 Azure Blob 儲存體位置。您無須變更此變數。
 $hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更此變數。
@@ -470,23 +457,38 @@ $hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更�
 >[AZURE.NOTE]若要使用您在上兩節中上傳的推文和 HiveQL 指令碼，請將 $hqlScriptFile 設定為 "/tutorials/twitter/twitter.hql"。若要使用已為您上傳至公用 Blob 的檔案，請將 $hqlScriptFile 設定為 "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"。
 
 	#region variables and constants
-	$clusterName = "<HDInsightClusterName>"
-
+	$clusterName = "<Existing Azure HDInsight Cluster Name>"
+	$httpUserName = "admin"
+	$httpUserPassword = "<HDInsight Cluster HTTP User Password>"
+	
 	#use one of the following
 	$hqlScriptFile = "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
 	$hqlScriptFile = "/tutorials/twitter/twitter.hql"
-
+	
 	$statusFolder = "/tutorials/twitter/jobstatus"
 	#endregion
-
+	
+	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+	$resourceGroupName = $myCluster.ResourceGroup
+	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	
+	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
+	
+	
 	#region - Invoke Hive
 	Write-Host "Invoke Hive ... " -ForegroundColor Green
-	Use-AzureHDInsightCluster $clusterName
-	$response = Invoke-Hive -file $hqlScriptFile -StatusFolder $statusFolder -OutVariable $outVariable
-
+	
+	# Create the HDInsight cluster
+	$pw = ConvertTo-SecureString -String $httpUserPassword -AsPlainText -Force
+	$httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
+	
+	Use-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $httpCredential 
+	$response = Invoke-AzureRmHDInsightHiveJob -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -file $hqlScriptFile -StatusFolder $statusFolder #-OutVariable $outVariable
+	
 	Write-Host "Display the standard error log ... " -ForegroundColor Green
 	$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace ‘\s*$’ -replace ‘.*\s’
-	Get-AzureHDInsightJobOutput -cluster $clusterName -JobId $jobID -StandardError
+	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -StandardError
 	#endregion
 
 ### 查看結果
@@ -494,29 +496,31 @@ $hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更�
 使用下列 Windows PowerShell 指令碼可查看 Hive 工作輸出。您必須設定前兩個變數。
 
 	#region variables and constants
-	$clusterName = "<HDInsightClusterName>"
-
+	$clusterName = "<Existing Azure HDInsight Cluster Name>"
+	
 	$blob = "tutorials/twitter/output/000000_0" # The name of the blob to be downloaded.
 	#engregion
-
+	
 	#region - Create an Azure storage context object
 	Write-Host "Get the default storage account name and container name based on the cluster name ..." -ForegroundColor Green
-	$myCluster = Get-AzureHDInsightCluster -Name $clusterName
-	$storageAccountName = $myCluster.DefaultStorageAccount.StorageAccountName.Replace(".blob.core.windows.net", "")
-	$containerName = $myCluster.DefaultStorageAccount.StorageContainerName
-	Write-Host "`tThe storage account name is $storageAccountName." -ForegroundColor Yellow
-	Write-Host "`tThe blob container name is $containerName." -ForegroundColor Yellow
-
+	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+	$resourceGroupName = $myCluster.ResourceGroup
+	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
+	
+	Write-Host "`tThe storage account name is $defaultStorageAccountName." -ForegroundColor Yellow
+	Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
+	
 	Write-Host "Create a context object ... " -ForegroundColor Green
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
 	#endregion
-
+	
 	#region - Download blob and display blob
 	Write-Host "Download the blob ..." -ForegroundColor Green
 	cd $HOME
-	Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
-
+	Get-AzureStorageBlobContent -Container $defaultBlobContainerName -Blob $blob -Context $storageContext -Force
+	
 	Write-Host "Display the output ..." -ForegroundColor Green
 	Write-Host "==================================" -ForegroundColor Green
 	cat "./$blob"
@@ -561,4 +565,4 @@ $hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更�
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

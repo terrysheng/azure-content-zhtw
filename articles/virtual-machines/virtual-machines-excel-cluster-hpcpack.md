@@ -39,15 +39,15 @@
 
 ## 步驟 1.在 Azure 中設定 HPC Pack 叢集
 
-我們將說明設定叢集的兩種方式：第一，使用 Azure 快速入門範本和 Azure Preview 入口網站；第二，使用 Azure PowerShell 部署指令碼。
+我們將說明設定叢集的兩種方式：第一，使用 Azure 快速入門範本和 Azure 入口網站；第二，使用 Azure PowerShell 部署指令碼。
 
 
 ### 使用快速入門範本
-使用 Azure 快速入門範本在 Azure Preview 入口網站中快速、輕鬆地部署 HPC Pack 叢集。在 Preview 入口網站中開啟範本時，您會看到一個可供您輸入叢集設定的簡單 UI。步驟如下：
+使用 Azure 快速入門範本在 Azure 入口網站中快速、輕鬆地部署 HPC Pack 叢集。在 Preview 入口網站中開啟範本時，您會看到一個可供您輸入叢集設定的簡單 UI。步驟如下：
 
 1. 造訪 [在 GitHub 上建立 HPC 叢集範本頁面](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)。您可根據意願檢視範本和原始碼的相關資訊。
 
-2. 按一下 [部署至 Azure]，以在 Azure Preview 入口網站中利用範本開始部署。
+2. 按一下 [部署至 Azure]，以在 Azure 入口網站中利用範本開始部署。
 
     ![將範本部署到 Azure][github]
 
@@ -81,7 +81,7 @@
 
 3.	當部署完成時 (通常需要約 30 分鐘)，從叢集前端節點匯出叢集憑證檔。在稍後的步驟中，此公開憑證將在用戶端電腦上匯入以提供安全 HTTP 繫結的伺服器端驗證。
 
-    a.從 Azure Preview 入口網站透過「遠端桌面」連線到前端節點。
+    a.從 Azure 入口網站透過「遠端桌面」連線到前端節點。
 
      ![連接至前端節點][connect]
 
@@ -347,7 +347,7 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 
 ### 使用 NetTcp 繫結
 
-若要使用 NetTcp 繫結，組態就像是連接至內部部署叢集。您必須開啟幾個前端節點 VM 上的端點。在 Azure 入口網站中執行下列動作。
+若要使用 NetTcp 繫結，組態就像是連接至內部部署叢集。您必須開啟幾個前端節點 VM 上的端點。在 Azure 傳統入口網站中執行下列動作。
 
 
 1. 停止 VM。
@@ -381,4 +381,4 @@ SOA 用戶端應用程式不需要變更，除了將標頭名稱改變為 IaaS �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

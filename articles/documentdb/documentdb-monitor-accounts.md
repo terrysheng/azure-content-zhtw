@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Azure Preview 入口網站 | Microsoft Azure 監視 DocumentDB 帳戶" 
+	pageTitle="使用 Azure 入口網站 | Microsoft Azure 監視 DocumentDB 帳戶" 
 	description="了解如何監視 DocumentDB 帳戶的效能度量 (如要求和伺服器錯誤) 和使用量度量 (如儲存體耗用量)。" 
 	services="documentdb" 
 	documentationCenter="" 
@@ -18,10 +18,10 @@
 
 # 監視 DocumentDB 帳戶 
 
-您可以在 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)監視 DocumentDB 帳戶。每一個 DocumentDB 帳戶都有效能度量 (例如要求和伺服器錯誤) 和使用量度量 (例如儲存體耗用量) 可供使用。
+您可以在 [Microsoft Azure 入口網站](https://portal.azure.com/)監視 DocumentDB 帳戶。每一個 DocumentDB 帳戶都有效能度量 (例如要求和伺服器錯誤) 和使用量度量 (例如儲存體耗用量) 可供使用。
 
 ## 如何：檢視 DocumentDB 帳戶的效能度量
-1.	在 [Azure Preview 入口網站](https://portal.azure.com/) 中，按一下 [**瀏覽**]、[**DocumentDB 帳戶**]，然後按一下您想要檢視效能度量的 DocumentDB 帳戶名稱。
+1.	在 [Azure 入口網站](https://portal.azure.com/) 中，按一下 [瀏覽]、[DocumentDB 帳戶]，然後按一下您想要檢視效能度量的 DocumentDB 帳戶名稱。
 2.	在 [監視] 透鏡內，依預設可以看到：
 	*	當日的要求總數。
 	*	當日的每秒平均要求數 
@@ -48,7 +48,7 @@
 
 
 ## 建立並排效能度量圖表
-Azure Preview 入口網站可讓您建立並排度量圖表。
+Azure 入口網站可讓您建立並排度量圖表。
 
 1.	首先，在您要複製並修改的圖表上按一下滑鼠右鍵，然後選取 [**自訂**]。 
 
@@ -62,7 +62,7 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 現在，您可以將此組件視為其他任何度量組件，並自訂該組件中顯示的度量和時間範圍。如此一來，您可以同時看到兩個不同的度量圖表並排出現。![[要求總數] 圖表和全新 [要求總數] 前一個小時圖表的螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb8.png)
 
 ## 檢視 DocumentDB 帳戶的使用量度量
-1.	在 [Azure Preview 入口網站](https://portal.azure.com/)中，按一下 [瀏覽]、[DocumentDB 帳戶]，然後按一下您要查看其使用量度量的 DocumentDB 帳戶名稱。
+1.	在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [瀏覽]、[DocumentDB 帳戶]，然後按一下您要查看其使用量度量的 DocumentDB 帳戶名稱。
 2.	在 [**使用量**] 透鏡內，依預設可以檢視下列：
 	*	針對目前計費週期的 DocumentDB 帳戶日期所預估的成本。
 	*	帳戶內耗用的儲存體。
@@ -73,7 +73,7 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 	![[使用量] 透鏡的螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb9.png)
  
 ## 設定 DocumentDB 帳戶的效能度量警示
-1.	在 [Azure Preview 入口網站](https://portal.azure.com/)中，按一下 [全部瀏覽]，再按一下 [DocumentDB 帳戶]，然後按一下您想要設定效能度量警示的 DocumentDB 帳戶名稱。
+1.	在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [全部瀏覽]，再按一下 [DocumentDB 帳戶]，然後按一下您想要設定效能度量警示的 DocumentDB 帳戶名稱。
 2.	在 [**作業**] 透鏡內，按一下 [**警示規則**] 組件。![已選取警示規則組件的 [作業] 透鏡螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb10.png)
 
 3.	在 [警示規則] 刀鋒視窗中，按一下 [新增警示]。![包含反白顯示 [新增警示] 按鈕的 [警示規則] 刀鋒視窗螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb11.png)
@@ -90,4 +90,4 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 若要深入了解 DocumentDB 容量，請參閱[管理 DocumentDB 容量](documentdb-manage.md)。
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

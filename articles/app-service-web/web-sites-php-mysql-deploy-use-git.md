@@ -31,7 +31,7 @@
 
 您將了解：
 
-* 如何使用 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)建立 Web 應用程式和 MySQL 資料庫。由於預設會在 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 上啟用 PHP，因此您不需要執行任何特殊步驟就能執行 PHP 程式碼。
+* 如何使用 [Azure 入口網站](https://portal.azure.com)建立 Web 應用程式和 MySQL 資料庫。由於預設會在 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 上啟用 PHP，因此您不需要執行任何特殊步驟就能執行 PHP 程式碼。
 * 如何使用 Git 來發行與重新發行應用程式到 Azure。
 
 依照本教學課程進行，您將使用 PHP 建置一個簡易的註冊 Web 應用程式。此應用程式將裝載於 Web Apps 中。完成之應用程式的螢幕擷取畫面如下：
@@ -153,7 +153,7 @@
 		<?php
 			// DB connection info
 			//TODO: Update the values for $host, $user, $pwd, and $db
-			//using the values you retrieved earlier from the portal.
+			//using the values you retrieved earlier from the Azure Portal.
 			$host = "value of Data Source";
 			$user = "value of User Id";
 			$pwd = "value of Password";
@@ -220,9 +220,9 @@
 
 當您在本機完成應用程式測試之後，可以使用 Git 將其發佈至 Web Apps。您將初始化本機 Git 儲存機制並發行該應用程式。
 
-> [AZURE.NOTE]這些步驟與上述＜建立 Web 應用程式並設定 Git 發行＞小節結尾處的入口網站中所示的步驟相同。
+> [AZURE.NOTE]這些步驟與上述「建立 Web 應用程式並設定 Git 發行」小節結尾處的 Azure 入口網站中所示的步驟相同。
 
-1. (選用) 如果您忘記或是錯置了 Git 遠端儲存機制 URL，請瀏覽至入口網站上的 Web 應用程式內容。
+1. (選用) 如果您忘記或是錯置了 Git 遠端儲存機制 URL，請瀏覽至 Azure 入口網站上的 Web 應用程式內容。
 
 1. 開啟 GitBash (如果 Git 位於您的 `PATH`，則為終端機)，將目錄變更為應用程式的根目錄，並執行下列命令：
 
@@ -269,7 +269,6 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
@@ -303,4 +302,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

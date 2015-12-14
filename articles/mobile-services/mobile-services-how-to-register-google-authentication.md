@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="註冊 Google 驗證 | Microsoft Azure" 
-	description="了解如何在 Azure 行動服務中註冊您的應用程式以使用 Google 進行驗證。" 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="註冊 Google 驗證 | Microsoft Azure"
+	description="了解如何在 Azure 行動服務中註冊您的應用程式以使用 Google 進行驗證。"
+	services="mobile-services"
+	documentationCenter="android"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/15/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/15/2015"
 	ms.author="glenga"/>
 
 # 在行動服務中註冊您的應用程式以進行 Google 登入
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
 
@@ -34,10 +39,10 @@
 
 6. 在 [認證] 索引標籤中，按一下 [新增認證] > [OAuth 2.0 用戶端識別碼]，然後選取 [Web 應用程式]。
 
-7. 在 [**授權的 JavaScript 來源**] 中輸入您的行動服務 URL、使用下列其中一種 URL 格式取代 [**授權重新導向 URI**] 中所產生的 URL，然後按一下 [**建立用戶端識別碼**]：
- 
+7. 在 [授權的 JavaScript 來源] 中輸入您的行動服務 URL、使用下列其中一種 URL 格式取代 [授權重新導向 URI] 中所產生的 URL，然後按一下 [建立用戶端識別碼]：
+
 	+ **.NET 後端**：`https://<mobile_service>.azure-mobile.net/signin-google`
-	+ **JavaScript 後端**：`https://<mobile_service>.azure-mobile.net/login/google` 
+	+ **JavaScript 後端**：`https://<mobile_service>.azure-mobile.net/login/google`
 
 	 >[AZURE.NOTE]請確定針對您的行動服務後端類型使用正確的重新導向 URL 路徑格式。若格式不正確，驗證將不會成功。
 
@@ -56,7 +61,4 @@
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-[Azure Management Portal]: https://manage.windowsazure.com/
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

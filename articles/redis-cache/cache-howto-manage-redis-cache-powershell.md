@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple"
-   ms.date="08/26/2015"
+   ms.date="12/02/2015"
    ms.author="riande"/>
 
 # 使用 Azure PowerShell 管理 Azure Redis 快取
+
+> [AZURE.SELECTOR]
+- [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+- [Azure CLI](cache-manage-cli.md)
 
 本主題說明如何建立、更新和刪除 Azure Redis 快取。
 
@@ -42,23 +46,22 @@
 
 下列指令碼示範如何建立、更新和刪除 Azure Redis 快取。
 
-		# Azure Redis Cache operations require mode set to AzureResourceManager.
-		Switch-AzureMode AzureResourceManager
+		
 		$VerbosePreference = "Continue"
 
-	        # Create a new cache with date string to make name unique. 
-		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm')) 
+    	# Create a new cache with date string to make name unique.
+		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm'))
 		$location = "West US"
 		$resourceGroupName = "Default-Web-WestUS"
-
+		
 		$movieCache = New-AzureRedisCache -Location $location -Name $cacheName  -ResourceGroupName $resourceGroupName -Size 250MB -Sku Basic
-
+		
 		# Wait until the Cache service is provisioned.
-
+		
 		for ($i = 0; $i -le 60; $i++)
 		{
 		    Start-Sleep -s 30
-			$cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
+		    $cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
 		    if ([string]::Compare("succeeded", $cacheGet[0].ProvisioningState, $True) -eq 0)
 		    {
 		        break
@@ -68,31 +71,32 @@
 		        exit
 		    }
 		}
-
+		
 		# Update the access keys.
-
+		
 		Write-Verbose "PrimaryKey: $($movieCache.PrimaryKey)"
 		New-AzureRedisCacheKey -KeyType "Primary" -Name $cacheName  -ResourceGroupName $resourceGroupName -Force
 		$cacheKeys = Get-AzureRedisCacheKey -ResourceGroupName $resourceGroupName  -Name $cacheName
 		Write-Verbose "PrimaryKey: $($cacheKeys.PrimaryKey)"
-
+		
 		# Use Set-AzureRedisCache to set Redis cache updatable parameters.
 		# Set the memory policy to Least Recently Used.
-
-		Set-AzureRedisCache -MaxMemoryPolicy AllKeysLRU -Name $cacheName -ResourceGroupName $resourceGroupName
-
+		
+		Set-AzureRedisCache -Name $cacheName -ResourceGroupName $resourceGroupName -RedisConfiguration @{"maxmemory-policy" = "AllKeys-LRU"}
+		
 		# Delete the cache.
-
+		
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force
 
 ## 後續步驟
 
 若要深入了解如何將 Windows PowerShell 與 Azure 搭配使用，請參閱下列資源：
 
+- [MSDN 上的 Azure Redis Cache Cmdlet 文件](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Azure 資源管理員 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765)：深入了解在 AzureResourceManager 模組中使用 Cmdlet。
 - [使用資源群組以管理您的 Azure 資源](../azure-portal/resource-group-portal.md)：了解在 Azure Preview 入口網站中建立和管理資源群組。
 - [Azure 部落格](http://blogs.msdn.com/windowsazure)：深入了解 Azure 的新功能。
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - ["Hey, Scripting Guy!" 部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

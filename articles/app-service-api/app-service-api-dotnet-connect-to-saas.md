@@ -18,11 +18,13 @@
 
 # 從 Azure App Service 中的 ASP.NET API 應用程式連接至 SaaS 平台
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 概觀
 
-本教學課程示範如何設定及撰寫 [API 應用程式](app-service-api-apps-why-best-platform.md)程式碼，其使用 [App Service API App SDK for .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/) 連接至[軟體代管服務 (SaaS) 平台](../app-service/app-service-authentication-overview.md#obotosaas)。本教學課程也會示範如何使用 [App Service SDK for .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService) 從 .NET 用戶端呼叫 API 應用程式。在本教學課程結尾，您將擁有 .NET 主控台應用程式用戶端，可呼叫在 Azure App Service 執行的 .NET API 應用程式。API 應用程式會呼叫 Dropbox API，並傳回使用者 Dropbox 帳戶中的檔案和資料夾清單。
+本教學課程示範如何撰寫及設定 [API 應用程式](app-service-api-apps-why-best-platform.md)的程式碼，其使用 [App Service API App SDK for .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/) 連接至[軟體即服務 (SaaS) 平台](../app-service/app-service-authentication-overview.md#obotosaas)。本教學課程也會示範如何使用 [App Service SDK for .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService) 從 .NET 用戶端呼叫 API 應用程式。在本教學課程結尾，您將擁有 .NET 主控台應用程式用戶端，可呼叫在 Azure App Service 執行的 .NET API 應用程式。API 應用程式會呼叫 Dropbox API，並傳回使用者 Dropbox 帳戶中的檔案和資料夾清單。
 
-您可以呼叫預先封裝的[連接器 API 應用程式](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md)，做為撰寫程式碼以直接從自訂 API 應用程式呼叫 SaaS API 的替代方式。如需如何執行這項作業的相關資訊，請參閱[部署及設定 SaaS 連接器 API 應用程式](app-service-api-connnect-your-app-to-saas-connector.md)。
+撰寫可直接從自訂 API 應用程式呼叫 SaaS API 之程式碼的替代方式為，呼叫預先封裝的[連接器 API 應用程式](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md)。如需有關如何執行這項作業的資訊，請參閱[部署及設定 SaaS 連接器 API 應用程式](app-service-api-connnect-your-app-to-saas-connector.md)。
 
 本教學課程將逐步引導您完成下列步驟：
 
@@ -42,19 +44,19 @@
 
 * 您已完成[建立 API 應用程式](app-service-dotnet-create-api-app.md)和[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)教學課程。
   
-* 您已經對進行驗證的 Azure App Service 閘道架構有基本了解 (如 [API 應用程式和行動應用程式的驗證](app-service-authentication-overview.md)所示)。
+* 您已經對進行驗證的 Azure App Service 閘道器架構有基本了解 (相關資訊如 [API 應用程式與行動應用程式的驗證](app-service-authentication-overview.md)所述)。
 
-* 您知道如何使用 Azure 預覽入口網站中的 API 應用程式 (如[如何巡覽至 API 應用程式和閘道刀鋒視窗](app-service-api-manage-in-portal.md#navigate)所述)。
+* 您已知道如何使用 Azure Preview 入口網站中的 API 應用程式 (相關資訊如 [如何巡覽至 API 應用程式和閘道刀鋒視窗](app-service-api-manage-in-portal.md#navigate)所述)。
 
 ## 建立 API 應用程式專案
  
-指示您輸入專案的名稱時，請輸入 *SimpleDropbox*。
+當指示要求您為專案輸入名稱時，請輸入 *SimpleDropbox*。
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
 ## 設定 *apiapp.json* 檔案
 
-為了讓 API 應用程式對 SaaS 平台進行傳出呼叫，SaaS 平台必須指定於 *apiapp.json* 檔案中。
+為了讓 API 應用程式對 SaaS 平台發出傳出呼叫，必須在 *apiapp.json* 檔案中指定 SaaS 平台。
 
 1. 請如此處所示，開啟 *apiapp.json* 檔案並加入 `authentication` 屬性 (您也必須在前面的屬性後加入逗號)：
 
@@ -96,7 +98,7 @@
 
 * 它可讓 API 應用程式從閘道擷取 SaaS 提供者的存取 Token，以用於呼叫 SaaS 提供者的 API。
 
-`authentication` 屬性是陣列，但此預覽版本不支援指定多個提供者。
+`authentication` 屬性是一種陣列，但此預覽版本不支援指定多個提供者。
 
 如需所支援平台的清單，請參閱[取得使用者的同意以存取其他 SaaS 平台](../app-service/app-service-authentication-overview.md#obotosaas)。
 
@@ -113,11 +115,11 @@
 
 ## 加入呼叫 Dropbox 的程式碼
 
-1. 在 SimpleDropbox 專案中，安裝 [DropboxRestAPI](https://www.nuget.org/packages/DropboxRestAPI) NuGet 套件。
+1. 在 SimpleDropbox 專案中，安裝 [DropboxRestAPI](https://www.nuget.org/packages/DropboxRestAPI) NuGet 封裝。
 
-	* 在 [工具] 功能表中按一下 [Nuget 套件管理員] > [封裝管理員主控台]。
+	* 從 [**工具**] 功能表中按一下 **[NuGet 封裝管理員] > [封裝管理員主控台]**。
 
-	* 在 [封裝管理員主控台] 視窗中，輸入這個命令：
+	* 在 [**封裝管理員主控台**] 視窗中，輸入此命令：
 	 
 			install-package DropboxRestAPI  
 
@@ -169,13 +171,13 @@
 
 ## 在 Azure 中建立 API 應用程式
 
-在此區段中，您將使用 Visual Studio [發行 Web 精靈] 在 Azure 中建立 API 應用程式。指示您輸入 API 應用程式的名稱時，請輸入 *SimpleDropbox*。
+在此區段中，您將使用 Visual Studio **發佈 Web** 精靈在 Azure 中建立 API 應用程式。指示要求您為 API 應用程式輸入名稱時，請輸入 *SimpleDropbox*。
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
 ## 部署程式碼
 
-您可使用同一個 [發行 Web 精靈] 將程式碼部署到新的 API 應用程式。
+您可使用同一個**發佈 Web** 精靈將程式碼部署到新的 API 應用程式。
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
@@ -205,7 +207,7 @@
 
 下列步驟參考 Dropbox 連接器 API 應用程式，但程序和 UI 也適用於您將在本教學課程中建立的 SimpleDropbox API 應用程式。
 
-> **注意：**如果您在 SimpleDropbox API 應用程式的 [驗證] 刀鋒視窗上沒有看到 Dropbox 用戶端識別碼和用戶端密碼的欄位 (如螢幕擷取畫面中所示)，請確定在將 API 應用程式專案部署至 API 應用程式之後，已依指示重新啟動閘道。先前部署 *apiapp.json* 檔案之 `authentication` 屬性中的 "dropbox" 值會觸發入口網站顯示這些欄位。
+> **注意：**若您在 SimpleDropbox API 應用程式的 [**驗證**] 刀鋒視窗上沒有看到 Dropbox 用戶端識別碼和用戶端密碼的欄位 (如螢幕擷取畫面中所示)，請確認您將 API 應用程式專案部署至 API 應用程式之後，是否有依照指示重新啟動閘道器。您先前部署的 *apiapp.json* 檔案之 `authentication` 屬性中的「dropbox」值會觸發入口網站顯示這些欄位。
 
 [AZURE.INCLUDE [app-service-api-exchange-dropbox-settings](../../includes/app-service-api-exchange-dropbox-settings.md)]
 
@@ -219,9 +221,9 @@
 
 2. 設定對 System.Windows.Forms 的參考。
  
-	* 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [加入參考]。
+	* 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**參考**]，然後按一下 [**加入參考**]。
 
-	* 選取 [System.Windows.Forms] 左側的核取方塊，然後按一下 [確定]。
+	* 選取 [**System.Windows.Forms**] 左側的核取方塊，然後按一下 [**確定**]。
 	 
 	![](./media/app-service-api-dotnet-connect-to-saas/setref.png)
 
@@ -340,7 +342,7 @@
 
 1. 將 {閘道 URL} 取代為您閘道的實際 URL。
  
-	您可以從入口網站的 [閘道] 刀鋒視窗中取得閘道 URL。
+	您可以從入口網站中的 [**閘道**] 刀鋒視窗取得閘道 URL。
 
 	![](./media/app-service-api-dotnet-connect-to-saas/gwurl.png)
 
@@ -370,9 +372,9 @@
 
 其他注意事項：
 
-* `Main` 方法上的 `STAThread` 屬性是 Web 瀏覽器控制項的必要項目，而且與設定或呼叫 API 應用程式無關。
+* `Main` 方法上的 `STAThread` 屬性是網頁瀏覽器控制項的必要項目，而且與設定或呼叫 API 應用程式無關。
 
-* 針對 Azure Active Directory，顯示的閘道登入 URL 結束於 `/aad`。
+* 針對 Azure Active Directory，所顯示的閘道器登入 URL 結尾為 `/aad`。
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
@@ -383,7 +385,7 @@
 	* "google"
 <br/><br/>
 
-* `GetConsentLinkAsync()` 方法的第二個參數是回呼 URL，而同意伺服器會在使用者登入 Dropbox 並同意存取使用者帳戶之後，重新導向至該回呼 URL。
+* `GetConsentLinkAsync()` 方法的第二個參數是回呼 URL，而同意伺服器會在使用者登入 Dropbox 並同意存取其帳戶之後，重新導向至該回呼 URL。
 
 		var gatewayConsentLink = appServiceClient.GetConsentLinkAsync("SimpleDropbox", GATEWAY_URL).Result;
 
@@ -419,37 +421,37 @@
 * [HTTP 錯誤 400 而非 Dropbox 登入頁面](#400)
 * [呼叫 API 應用程式時的 HTTP 錯誤 403](#403)
 
-### <a id="405"></a> 閘道登入後的 HTTP 錯誤 405
+### <a id="405"></a> 閘道器登入後發生的 HTTP 錯誤 405
 
 如果您在程式碼呼叫 GetConsentLinkAsync 時收到 HTTP 錯誤 405，請確認您針對閘道 URL 使用 https:// 而非 http://。
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-收到錯誤 405「不允許方法」，因為用戶端嘗試進行非 SSL HTTP POST 要求。閘道器會重新導向至 *https://*，而重新導向將導致 GET 要求。擷取同意連結的 URL 只接受 POST 要求。
+收到錯誤訊息「405 不允許方法」，因為用戶端嘗試進行非 SSL HTTP POST 要求。閘道器會重新導向至 **https://*，而該重新導向動作將導致發出 GET 要求。擷取同意連結的 URL 只接受 POST 要求。
 
-### <a id="400"></a>HTTP 錯誤 400 而非 Dropbox 登入頁面
+### <a id="400"></a>出現 HTTP 錯誤 400 而非 Dropbox 登入頁面
 
-請確定您在 API 應用程式的 [驗證] 刀鋒視窗中有正確的 [用戶端識別碼]，並確定沒有任何開頭或結尾空格。
+請確認您在 API 應用程式的 [**驗證**] 刀鋒視窗是否輸入正確的 [**用戶端識別碼**]，並且開頭或結尾沒有任何空格。
 
-### <a id="403"></a> 呼叫 API 應用程式時的 HTTP 錯誤 403
+### <a id="403"></a> 呼叫 API 應用程式時發生 HTTP 錯誤 403
 
-* 請確定 API 應用程式的 [存取層級] 設為 [公用 (已驗證)]，而非 [內部]。
+* 請確認 API 應用程式的 [**存取層級**] 是否設為 [**公用 (已驗證)**]，而非 [**內部**]。
 
-* 請確定您在 API 應用程式的 [驗證] 刀鋒視窗中有正確的 [用戶端機密]，並確定沒有任何開頭或結尾空格。
+* 請確認您在 API 應用程式的 [**驗證**] 刀鋒視窗是否輸入正確的 [**用戶端密碼**]，並且開頭或結尾沒有任何空格。
 
 Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 
 	https://sd1aeb4ae60b7cb4f3d966dfa43b6607f30.azurewebsites.net/?error=RmFpbGVkIHRvIGV4Y2hhbmdlIGNvZGUgZm9yIHRva2VuLiBEZXRhaWxzOiB7ImVycm9yX2Rlc2NyaXB0aW9uIjogIkludmFsaWQgY2xpZW50X2lkIG9yIGNsaWVudF9zZWNyZXQiLCAiZXJyb3IiOiAiaW52YWxpZF9jbGllbnQifQ%3d%3d
 
-如果您從 `error` 查詢字串值的結尾移除 %3d%3d，這會是有效的 base64 編碼字串。解碼字串以取得錯誤訊息：
+從 `error` 查詢字串值的結尾移除 %3d%3d，便成為有效的 base64 編碼字串。解碼字串以取得錯誤訊息：
 
 	Failed to exchange code for token. Details: {"error_description": "Invalid client_id or client_secret", "error": "invalid_client"}
 
 ## 後續步驟
 
-您已了解如何為連接至 SaaS 平台的 API 應用程式編寫程式碼及進行設定。如需如何處理 API 應用程式中驗證之其他教學課程的連結，請參閱 [API 應用程式和行動應用程式的驗證 - 後續步驟](../app-service/app-service-authentication-overview.md#next-steps)。
+您已了解如何為連接至 SaaS 平台的 API 應用程式編寫程式碼及進行設定。如需如何處理 API 應用程式中的驗證作業之其他教學課程的連結，請參閱 [API 應用程式和行動應用程式的驗證 - 後續步驟](../app-service/app-service-authentication-overview.md#next-steps)。
 
-[Azure 預覽入口網站]: https://portal.azure.com/
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

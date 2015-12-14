@@ -30,7 +30,7 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - **啟用您的 Azure 訂用帳戶** 以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 - **Azure PowerShell 1.0 或更新版本**。如需指示，請參閱 [安裝並設定 Azure PowerShell](../install-configure-powershell.md)。
 
@@ -141,4 +141,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

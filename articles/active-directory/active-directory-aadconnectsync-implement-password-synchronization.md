@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect 同步處理 - 實作密碼同步處理 | Microsoft Azure"
+	pageTitle="Azure AD Connect 同步處理：實作密碼同步處理 | Microsoft Azure"
 	description="提供您所需的資訊，以了解密碼同步處理的運作方式，及如何在您的環境中啟用此功能。"
 	services="active-directory"
 	documentationCenter=""
@@ -160,4 +160,4 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

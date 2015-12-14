@@ -30,17 +30,17 @@
 
 
 -  全球 Azure 儲存體端點的輸出網路連線。這包括位於與 App Service 環境相同區域中的端點，以及位於**其他** Azure 區域的儲存體端點。Azure 儲存體端點在下列 DNS 網域之下解析：*windows.net*、*windows.net*、*queue.core.windows.net* 和 *file.core.windows.net*。  
--  位於與 App Service 環境相同區域中的 SQL DB 端點的輸出網路連線。SQl DB 端點在以下網域之下解析：*database.windows.net*。
+-  位於與 App Service 環境相同區域中的 SQL DB 端點的輸出網路連接。SQl DB 端點在以下網域之下解析：*database.windows.net*。
 -  Azure 管理平面端點 (ASM 和 ARM 端點) 的輸出網路連線。這包括 *management.core.windows.net* 和 *management.azure.com* 的輸出連線。 
 -  將網路連線輸出到 *ocsp.msocsp.com*。需要此連線才能支援 SSL 功能。
 -  虛擬網路的 DNS 設定必須能夠解析前面幾點所提到的所有端點和網域。如果無法解析這些端點，App Service 環境建立嘗試將會失敗，而且現有的 App Service 環境會標示為狀況不良。
 -  如果 VPN 閘道的另一端有自訂 DNS 伺服器存在，則必須可從包含 App Service 環境的子網路連接該 DNS 伺服器。 
--  輸出網路路徑不可經過內部公司 Proxy，也不可使用強制通道傳送至內部部署。這麼會變更來自 App Service 環境的輸出網路流量的有效 NAT 位址。變更 App Service 環境之輸出網路流量的 NAT 位址會導致上述眾多端點的連線失敗。這會導致 App Service 環境建立嘗試失敗，而之前狀況良好的 App Service 環境會標示為狀況不良。  
+-  輸出網路路徑不可經過內部公司 Proxy，也不可使用強制通道傳送至內部部署。這麼會變更來自 App Service 環境的輸出網路流量的有效 NAT 位址。變更 App Service 環境之輸出網路流量的 NAT 位址會導致上述眾多端點的連接失敗。這會導致 App Service 環境建立嘗試失敗，而之前狀況良好的 App Service 環境會標示為狀況不良。  
 -  按照本[文章][requiredports]所述，您必須允許「App Service 環境」之必要連接埠的輸入網路存取。
 
-確定已針對虛擬網路設定及維護有效的 DNS 基礎結構，即可符合 DNS 需求。如果 DNS 設定在建立 App Service 環境之後因為任何原因而變更，開發人員可以強制 App Service 環境挑選新的 DNS 組態。使用位於[新的管理入口網站][NewPortal]中 App Service 環境管理刀鋒視窗頂端的 [重新啟動] 圖示觸發輪流環境重新開機，會導致環境挑選新的 DNS 設定。
+確定已針對虛擬網路設定及維護有效的 DNS 基礎結構，即可符合 DNS 需求。如果 DNS 設定在建立 App Service 環境之後因為任何原因而變更，開發人員可以強制 App Service 環境挑選新的 DNS 組態。使用位於 [Azure 入口網站][NewPortal]中 [App Service 環境管理] 刀鋒視窗頂端的 [重新啟動] 圖示觸發輪流環境重新開機，會導致環境挑選新的 DNS 組態。
 
-在 App Service 環境的子網路上設定[網路安全性群組][NetworkSecurityGroups]以允許必要存取權，即可符合輸入網路存取的需求，如本[文章][requiredports]所述。
+在「App Service 環境」的子網路上設定[網路安全性群組][NetworkSecurityGroups]以允許必要存取權，即可符合輸入網路存取的需求，如本[文章][requiredports]所述。
 
 ## 啟用 App Service 環境的輸出網路連線##
 新建立的 ExpressRoute 循環預設會通告允許輸出網際網路連線的預設路由。使用此組態，App Service 環境將可以連接至其他 Azure 端點。
@@ -71,7 +71,7 @@
 1. 從 [Azure 下載頁面][AzureDownloads]安裝最新 Azure Powershell (日期為 2015 年 6 月或更新版本)。在 [命令列工具] 的 [Windows Powershell] 下，有一個 [安裝] 連結可安裝最新的 Powershell Cmdlet。
 
 2. 建議您建立唯一的子網路，以專供 App Service 環境使用。這可確保套用至子網路的 UDR 只會開啟 App Service 環境的輸出流量。
-3. **重要事項**：除非已經進行下列設定步驟，否則不要部署 App Service 環境。這可確保輸出網路連線可用，再嘗試部署 App Service 環境。
+3. **重要事項**：除非已經進行下列組態步驟，否則不要部署 App Service 環境。這可確保輸出網路連線可用，再嘗試部署 App Service 環境。
 
 **步驟 1：建立具名路由表**
 
@@ -137,4 +137,4 @@
 
 <!-- IMAGES -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

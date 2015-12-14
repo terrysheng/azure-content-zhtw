@@ -33,7 +33,7 @@ Azure 服務匯流排會採用多個訊息代理人來處理訊息，並採用�
 
 若要搭配 Microsoft Azure 服務匯流排使用分割的佇列和主題，請使用 Azure SDK 2.2 版或更新版本，或在您的 HTTP 要求中指定 `api-version=2013-10`。
 
-您可以建立 1、2、3、4 或 5 GB 大小的服務匯流排佇列及主題 (預設值為 1 GB)。啟用分割時，服務匯流排會為您指定的每 GB 建立 16 個資料分割。因此，如果您建立 5 GB 大小的佇列，每 GB 有 16 個資料分割，則佇列大小上限會變成 (5 * 16) = 80 GB。您可以在 [Azure 入口網站][]上檢視分割的佇列或主題項目，藉此查看其大小上限。
+您可以建立 1、2、3、4 或 5 GB 大小的服務匯流排佇列及主題 (預設值為 1 GB)。啟用分割時，服務匯流排會為您指定的每 GB 建立 16 個資料分割。因此，如果您建立 5 GB 大小的佇列，每 GB 有 16 個資料分割，則佇列大小上限會變成 (5 * 16) = 80 GB。您可以在 [Azure 傳統入口網站][]上檢視分割的佇列或主題項目，藉此查看其大小上限。
 
 有多種方式可以建立分割的佇列或主題。當您從應用程式建立佇列或主題時，您可以分別將 [QueueDescription.EnablePartitioning][] 或 [TopicDescription.EnablePartitioning][] 屬性設為 **true** 來啟用佇列或主題的分割。這些屬性必須在建立佇列或主題時設定。您不可以在現有的佇列或主題上變更這些屬性。例如：
 
@@ -45,7 +45,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-或者，您可以在 Visual Studio 或 [Azure 入口網站][]中建立分割的佇列或主題。當您在入口網站建立新的佇列或主題時，請在佇列或主題是窗的 [設定] 索引標籤中檢查 [啟用分割] 選項。在 Visual Studio 中，按一下 [新增佇列] 或 [新增主題] 對話方塊中的 [啟用分割] 核取方塊。
+或者，您可以在 Visual Studio 或 [Azure 傳統入口網站][]中建立分割的佇列或主題。當您在入口網站建立新的佇列或主題時，請在佇列或主題是窗的 [設定] 索引標籤中檢查 [啟用分割] 選項。在 Visual Studio 中，按一下 [新增佇列] 或 [新增主題] 對話方塊中的 [啟用分割] 核取方塊。
 
 ## 分割索引鍵的用途
 
@@ -128,7 +128,7 @@ Azure 服務匯流排支援從分割實體自動轉送訊息、自動轉送訊�
 請參閱 AMQP 1.0 對服務匯流排分割佇列和主題的支援的討論 (即將推出！) 以深入了解分割的訊息實體。
 
   [服務匯流排架構]: service-bus-architecture.md
-  [Azure 入口網站]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
@@ -144,4 +144,4 @@ Azure 服務匯流排支援從分割實體自動轉送訊息、自動轉送訊�
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

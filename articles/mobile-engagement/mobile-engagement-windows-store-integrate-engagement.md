@@ -90,7 +90,7 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-您應用程式的連接字串會顯示在 Azure 入口網站。
+應用程式的連接字串會顯示在 Azure 傳統入口網站中。
 
 ### Engagement 初始化
 
@@ -285,4 +285,4 @@ Engagement 組態會集中在您專案的 `Resources\EngagementConfiguration.xml
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

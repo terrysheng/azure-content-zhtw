@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/07/2015"
+	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
 # 透過 HDInsight Emulator (Hadoop 沙箱) 開始使用 Hadoop 生態系統
@@ -37,8 +37,7 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 
 - HDInsight Emulator 需要 64 位元版本 Windows。必須滿足下列其中一項需求：
 
-	- Windows 7 Service Pack 1
-	- Windows Server 2008 R2 Service Pack 1
+	- Windows 10
 	- Windows 8
 	- Windows Server 2012
 
@@ -118,7 +117,7 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 			<value>*</value>
 		</property>
 
-3. 當 Visual Studio 嘗試連接到 WebHCat 服務時，您可能會收到錯誤 (「錯誤：找不到工作 job\_XXXX\_0001」)。若是如此，您必須重新啟動 WebHCat 服務，然後再試一次。若要重新啟動 WebHCat 服務，請啟動 [**服務**] MMC、以滑鼠右鍵按一下 **Apache Hadoop Templeton** (這是 WebHCat 服務的舊名稱)，然後按一下 [**重新啟動**]。
+3. 當 Visual Studio 嘗試連接到 WebHCat 服務時，您可能會收到錯誤 (「錯誤：找不到工作 job\_XXXX\_0001」)。若是如此，您必須重新啟動 WebHCat 服務，然後再試一次。若要重新啟動 WebHCat 服務，請啟動 [**服務**] MMC、以滑鼠右鍵按一下 [**Apache Hadoop Templeton**] (這是 WebHCat 服務的舊名稱)，然後按一下 [**重新啟動**]。
 
 ##<a name="runwordcount"></a>字數統計 MapReduce 教學課程
 
@@ -397,13 +396,13 @@ HDInsight Emulator 使用 HDFS 做為預設檔案系統。不過，Azure HDInsig
 
 **建立容器**
 
-1. 登入 [Azure 預覽入口網站](https://ms.portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
 2. 按一下左側的 [新增]，然後依序按一下 [資料 + 儲存體] 和 [儲存體]。
 3. 在 [儲存體帳戶] 刀鋒視窗中設定屬性，如底下的擷取畫面所示。
 	
 	![建立儲存體帳戶](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
 
-	選取 [釘選到「開始面板」]，然後按一下 [建立]。
+	選取 [釘選到開始面板]，然後按一下 [建立]。
 4. 建立儲存體帳戶之後，從新的儲存體帳戶刀鋒視窗，按一下 [容器] 以開啟容器刀鋒視窗，然後按一下 [新增]。
 5. 輸入容器的名稱，然後按一下 [選取]。
 
@@ -498,4 +497,4 @@ HDInsight Emulator 也支援部分 Azure PowerShell Cmdlet。這些 Cmdlet 包�
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

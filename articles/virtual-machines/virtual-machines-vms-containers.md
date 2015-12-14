@@ -129,7 +129,7 @@ Azure 提供您建立在虛擬機器上的絕佳雲端解決方案，虛擬機�
 
 最近，Azure 發行了 [Azure 資源管理](virtual-machines-azurerm-versus-azuresm.md) REST API，以及更新的 PowerShell 和 Azure CLI 工具可輕鬆使用。您可以使用 [Azure 資源管理員範本](../resource-group-authoring-templates.md)，搭配使用下列的 Azure 資源管理 API，來部署、修改或重新部署整個應用程式拓撲：
 
-- [使用範本的 Azure Preview 入口網站](https://github.com/Azure/azure-quickstart-templates)&mdash;提示：使用 [DeployToAzure] 按鈕
+- [使用範本的 Azure 入口網站](https://github.com/Azure/azure-quickstart-templates)&mdash;提示：使用 [DeployToAzure] 按鈕
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 - [Azure Powershell 模組](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -187,7 +187,7 @@ Microsoft Azure 上的 Docker：
 - [Azure 上 Linux 的 Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)
 - [Azure Docker VM 延伸模組使用者指南](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli-install.md)
-- [從 Azure Preview 入口網站使用 Docker VM 延伸模組](virtual-machines-docker-with-portal.md)
+- [使用 Azure 入口網站中的Docker VM 擴充程式](virtual-machines-docker-with-portal.md)
 - [在 Azure Marketplace 中快速開始使用 Docker](virtual-machines-docker-ubuntu-quickstart.md)
 - [如何在 Azure 上使用 docker-machine](virtual-machines-docker-machine.md)
 - [如何在 Azure 上搭配 swarm 使用 docker](virtual-machines-docker-swarm.md)
@@ -240,4 +240,4 @@ Linux 散發套件和 Azure 範例：
 [微服務]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

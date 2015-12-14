@@ -34,7 +34,7 @@ Azure 儲存體總管是一個免費的 Windows 型工具，可用以檢查及�
 
 本文件假設您擁有 Azure 訂用帳戶、儲存體帳戶和該帳戶的對應儲存體金鑰。上傳/下載資料之前，您必須知道 Azure 儲存體帳戶名稱和帳戶金鑰。
 
-- 若要設定 Azure 訂用帳戶，請參閱[免費試用一個月](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- 若要設定 Azure 訂用帳戶，請參閱[免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
 - 如需建立儲存體帳戶的指示，以及取得帳戶和金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)。
 
 
@@ -55,4 +55,4 @@ Azure 儲存體總管是一個免費的 Windows 型工具，可用以檢查及�
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

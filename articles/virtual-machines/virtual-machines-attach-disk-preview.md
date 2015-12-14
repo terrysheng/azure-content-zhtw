@@ -1,6 +1,6 @@
 <properties
 	pageTitle="連接資料磁碟 | Microsoft Azure"
-	description="如何在 Azure 預覽入口網站中，使用資源管理員部署模型，將新的或現有的資料磁碟連接至 VM。"
+	description="如何在 Azure 入口網站中，使用資源管理員部署模型，將新的或現有的資料磁碟連接至 VM。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,11 +17,11 @@
 	ms.date="09/14/2015"
 	ms.author="cynthn"/>
 
-# 如何在 Azure Preview 入口網站連接資料磁碟
+# 如何在 Azure 入口網站連接資料磁碟
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](storage-windows-attach-disk.md)。
 
-本文將說明如何透過 Azure Preview入口網站將新的和現有的磁碟連接至虛擬機器。這麼做之前，請先檢閱下列提示：
+本文將說明如何透過 Azure入口網站將新的和現有的磁碟連接至虛擬機器。這麼做之前，請先檢閱下列提示：
 
 - 虛擬機器的大小會控制您可以連接的資料磁碟數目。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
 - 若要使用進階儲存體，您需要 DS 系列或 GS 系列的虛擬機器。您可以使用進階或標準儲存體帳戶的磁碟搭配這些虛擬機器。僅特定地區可用進階儲存體。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage-preview-portal.md)。
@@ -31,7 +31,7 @@
 
 ## 尋找虛擬機器
 
-1. 登入 Azure Preview 入口網站。
+1. 登入 Azure 入口網站。
 
 2. 在 [中樞] 功能表上，按一下 [瀏覽]。
 
@@ -79,8 +79,8 @@
 
 新增磁碟之後，您必須準備將它用於虛擬機器的作業系統：
 
-- 針對 Linux，請參閱這篇[文章](virtual-machines-linux-how-to-attach-disk.md)中的＜做法：在 Linux 中初始化新的資料磁碟＞。
-- 針對 Windows，請參閱這篇[文章](storage-windows-attach-disk.md)中的＜做法：在 Windows Server 中初始化新的資料磁碟＞。
+- 針對 Linux，請參閱這篇[文章](virtual-machines-linux-how-to-attach-disk.md)中的「做法：在 Linux 中初始化新的資料磁碟」。
+- 針對 Windows，請參閱這篇[文章](storage-windows-attach-disk.md)中的「做法：在 Windows Server 中初始化新的資料磁碟」。
 
 ## 其他資源
 
@@ -90,4 +90,4 @@
 
 [關於 Azure 儲存體帳戶]: ../storage-whatis-account/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

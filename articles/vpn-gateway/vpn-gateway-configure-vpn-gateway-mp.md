@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="設定 Azure 入口網站中的 VPN 閘道 | Microsoft Azure"
+   pageTitle="設定 Azure 傳統入口網站中的 VPN 閘道 | Microsoft Azure"
    description="此文章將逐步引導您設定虛擬網路 VPN 閘道，以及將 VPN 閘道路由類型從靜態變更為動態或從動態變更為靜態。"
    services="vpn-gateway"
    documentationCenter="na"
@@ -17,17 +17,17 @@
    ms.date="10/21/2015"
    ms.author="cherylmc" />
 
-# 設定 Azure 入口網站中的 VPN 閘道
+# 設定 Azure 傳統入口網站中的 VPN 閘道
 
 >[AZURE.NOTE]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
 
-本文章是針對傳統部署模型與 Azure 入口網站 (而非 Preview Portal) 所撰寫。此時，如果您想要使用入口網站為傳統部署模型設定 VPN 閘道，您必須使用 Azure 入口網站。
+本文章是針對傳統部署模型與 Azure 傳統入口網站 (而非 Azure Portal) 所撰寫。此時，如果您想要使用入口網站為傳統部署模型設定 VPN 閘道，您必須使用 Azure 傳統入口網站。
 
 如果您想要在 Azure 和內部部署位置之間建立安全的跨單位連接，您將需要設定 VPN 閘道。閘道有不同的類型，而您將建立的閘道類型取決於您的網路設計計劃，以及您想要使用的內部部署 VPN 裝置。例如，某些連線選項，例如點對站台連接，則需要動態路由閘道。如果您想要將閘道設定為同時支援點對站台 (P2S) 連線和站台對站台 (S2S) 連接，則您將必須設定動態路由閘道，即使站台對站台可以使用其中一種閘道路由類型進行設定。此外，您必須確定要用於站台對站台連線的裝置將支援所要建立的閘道類型。請參閱〈[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)〉。
 
 ## 組態概觀
 
-以下程序將逐步引導您在 Azure 入口網站中設定 VPN 閘道。這些步驟適用於使用服務管理模式建立並且會顯示在 Azure 入口網站中的 VNet 閘道。這些不是 Preview 入口網站或使用資源管理員模式設定 VNet 的使用步驟。在[使用 Azure 資源管理員和 PowerShell 建立具有站對站連線的虛擬網路](vpn-gateway-create-site-to-site-rm-powershell.md)中，您可以找到為使用資源管理員模式建立之虛擬網路建立 VNet 閘道的相關資訊。
+以下程序將逐步引導您在 Azure 傳統入口網站中設定 VPN 閘道。這些步驟適用於使用服務管理模式建立並且會顯示在 Azure 傳統入口網站中的 VNet 閘道。這些不是 Preview 入口網站或使用資源管理員模式設定 VNet 的使用步驟。在[使用 Azure 資源管理員和 PowerShell 建立具有站對站連線的虛擬網路](vpn-gateway-create-site-to-site-rm-powershell.md)中，您可以找到為使用資源管理員模式建立之虛擬網路建立 VNet 閘道的相關資訊。
 
 設定您的閘道之前，您必須先建立虛擬網路。如需針對跨單位連線建立虛擬網路的步驟，請參閱[設定虛擬網路與站對站 VPN 連線](vpn-gateway-site-to-site-create.md)，或[設定虛擬網路與點對站 VPN 連線](vpn-gateway-point-to-site-create.md)。然後，使用下方步驟來設定 VPN 閘道，並收集您設定 VPN 裝置所需的資訊。
 
@@ -43,7 +43,7 @@
 
 ## 建立 VPN 閘道
 
-1. 在 Azure 入口網站的 [網路] 頁面上，確認您的虛擬網路的狀態欄為 [已建立]。
+1. 在 Azure 傳統入口網站的 [網路] 頁面上，確認您的虛擬網路的狀態欄為 [已建立]。
 
 1. 在 [**名稱**] 資料行中，按一下虛擬網路的名稱。
 
@@ -157,4 +157,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

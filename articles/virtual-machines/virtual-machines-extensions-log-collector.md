@@ -92,7 +92,7 @@
 
 您可以依照下列兩個步驟之一，將 AzureLogCollector 新增至所選角色的一或多個雲端服務或虛擬機器執行個體，這會在每個 VM 上觸發收集的執行，並將收集到的檔案傳送至指定的 Azure 帳戶。
 
-## 將 AzureLogCollector 新增為服務延伸模組
+## 新增為服務延伸模組
 
 1. 依照指示將 Azure PowerShell 連接到您的訂用帳戶。
 
@@ -186,7 +186,7 @@
       {字串名稱、字串位置、字串 SearchPattern、布林遞迴}
              
             
-## 將 AzureLogCollector 新增為 VM 延伸模組
+## 新增為 VM 延伸模組
 
 依照指示將 Azure PowerShell 連接到您的訂用帳戶。
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 現在，您可以從一個非常簡單的位置檢查或複製您的記錄檔。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

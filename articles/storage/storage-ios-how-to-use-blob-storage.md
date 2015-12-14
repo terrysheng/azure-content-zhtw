@@ -72,11 +72,11 @@
 
 > [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ]您的帳戶名稱和帳戶金鑰 (會提供對相關儲存體帳戶的完整讀取/寫入權限) 將會分送給下載您的應用程式的每個人。這並**不是**的實作方式，因為您的金鑰有可能遭到不受信任的用戶端破壞。
 
-使用共用金鑰驗證時，您將會建立「連接字串」。 連接字串包含：
+使用共用金鑰驗證時，您將會建立連接字串。連接字串包含：
 
-- **DefaultEndpointsProtocol** - 您可以選擇 http 或 https。不過，強烈建議您使用 https。
+- **DefaultEndpointsProtocol** - 您可以選擇 HTTP 或 HTTPS。不過，強烈建議您使用 HTTPS。
 - **帳戶名稱** - 您儲存體帳戶的名稱。
-- **帳戶金鑰** - 如果使用[管理入口網站](manage.windowsazure.com)，您只要按一下*管理存取金鑰*即可找到它。如果您使用[預覽入口網站](portal.azure.com)，您可以按一下 [金鑰] 圖示來尋找這項資訊。
+- **帳戶金鑰** - 如果您正在使用 [Azure 入口網站](portal.azure.com)，請瀏覽至儲存體帳戶並按一下 [金鑰] 圖示來找出這項資訊。如果您正在使用 [Azure 傳統入口網站](manage.windowsazure.com)，請在入口網站中瀏覽至儲存體帳戶，然後按一下 [管理存取金鑰]。 
 
 它您的應用程式中會呈現如下：
 
@@ -137,7 +137,7 @@
         }];
     }
 
-您可以查看[入口網站](portal.azure.com)或任何[儲存體總管](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)，並驗證 *newcontainer* 位於儲存體帳戶的容器清單中，以確認運作正常。
+您可以查看 [Azure 入口網站](portal.azure.com)或任何[儲存體總管](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)，並驗證 *newcontainer* 位於儲存體帳戶的容器清單中，以確認運作正常。
 
 ## 設定容器權限
 依預設會針對 [私人] 存取設定容器的權限。不過，容器會提供幾個不同的容器存取選項：
@@ -202,7 +202,7 @@
          }];
      }
 
-您可以查看[入口網站](portal.azure.com)或任何[儲存體總管](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)，並驗證容器 *containerpublic* 包含 Blob *sampleblob*，以確認運作正常。在此範例中我們使用公用容器，所以您也可以移至 Blob URI 來確認運作是否正常：
+您可以查看 [Azure 入口網站](portal.azure.com)或任何[儲存體總管](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)，並驗證容器 *containerpublic* 包含 Blob *sampleblob*，以確認運作正常。在此範例中我們使用公用容器，所以您也可以移至 Blob URI 來確認運作是否正常：
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -352,10 +352,10 @@
 - [Azure 儲存體 REST API]
 - [Azure 儲存體團隊部落格]
 
-如果您有關於此程式庫的問題，歡迎您貼文到我們的 [MSDN Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/zh-TW/home?forum=windowsazuredata)或[堆疊溢位](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)。如果您有 Azure 儲存體功能方面的建議，請貼文到 [Azure 儲存體意見反應](http://feedback.azure.com/forums/217298-storage)。
+如果您有關於此程式庫的問題，歡迎您貼文到我們的 [MSDN Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata)或[堆疊溢位](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)。如果您有 Azure 儲存體功能方面的建議，請貼文到 [Azure 儲存體意見反應](http://feedback.azure.com/forums/217298-storage)。
 
 [Azure 儲存體 iOS 程式庫]: https://github.com/azure/azure-storage-ios
-[Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

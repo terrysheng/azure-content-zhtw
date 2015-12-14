@@ -83,7 +83,7 @@ VM 調整集可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/li
 
 	PaaS v1 背景工作角色雖然在平台/執行階段支援方面有所限制 (僅限 Windows 平台映像)，但也包含像是 VIP 交換、可設定的升級設定、執行階段/應用程式部署的特定設定等服務，但這些服務_尚未_成為 VM 調整集內的可用項目，或將在其他較高階的 PaaS 服務 (如 Service Fabric) 中提供。了解這一點之後，您可以將 VM 調整集視為支援 PaaS 的基礎結構。亦即PaaS 解決方案 (如 Service Fabric) 或叢集管理員 (如 Mesos) 可以建置在 VM 調整集之上，作為可調整的計算層。
 
-	以下 Mesos 叢集範例會在與獨立 VM 相同的 VNET 中部署 VM 調整集。獨立 VM 是 Mesos 主機，而 VM 調整集則代表一組從屬節點：[https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)。未來的 [Azure 容器服務](https://azure.microsoft.com/zh-TW/blog/azure-container-service-now-and-the-future/)版本將根據 VM 調整集，為此案例部署更複雜/強化的版本。
+	以下 Mesos 叢集範例會在與獨立 VM 相同的 VNET 中部署 VM 調整集。獨立 VM 是 Mesos 主機，而 VM 調整集則代表一組從屬節點：[https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)。未來的 [Azure 容器服務](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/)版本將根據 VM 調整集，為此案例部署更複雜/強化的版本。
 
 ## VM 調整集的效能和調整指南
 
@@ -153,4 +153,4 @@ VM 調整集可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/li
 
 **答：** 是。VM 調整集是隱含的可用性設定組，具有 3 個 FD 和 5 個 UD。您不需要在 virtualMachineProfile 下進行任何設定。在未來的版本中，VM 調整集有可能跨越多個租用戶，但目前調整集只是單一可用性設定組。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

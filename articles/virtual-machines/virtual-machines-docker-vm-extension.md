@@ -31,7 +31,7 @@
 若要立刻建立具有 Docker 功能的 VM，請參閱：
 
 + [如何透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組]
-+ [如何搭配使用 Docker VM 擴充程式與 Azure 入口網站]
++ [如何搭配使用 Docker VM 擴充程式與 Azure 傳統入口網站]
 + [如何快速地開始使用 Azure Marketplace 中的 Docker]
 
 若要深入了解延伸模組及其運作方式，請參閱 [Docker 延伸模組使用者指南](https://github.com/Azure/azure-docker-extension/blob/master/README.md)。
@@ -69,7 +69,7 @@ Docker VM 擴充程式是個元件，它會安裝在您所建立的 VM 執行個
 若要立刻建立具有 Docker 功能的 VM，請參閱：
 
 + [如何透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組]
-+ [如何搭配使用 Docker VM 擴充程式與 Azure 入口網站]
++ [如何搭配使用 Docker VM 擴充程式與 Azure 傳統入口網站]
 
 ## Linux 及 Windows 的虛擬機器擴充程式
 [Azure 的 Docker VM 擴充程式](https://github.com/Azure/azure-docker-extension/blob/master/README.md)只是眾多提供特殊行為的 VM 延伸模組之一，還有許多正在開發中。例如，許多 [Linux VM 代理程式延伸模組](virtual-machines-linux-agent-user-guide.md)功能可讓您修改和管理虛擬機器，包括安全性功能、核心和網路功能等。例如，VMAccess 延伸模組可讓您重設管理員密碼或 SSH 金鑰。
@@ -78,10 +78,10 @@ Docker VM 擴充程式是個元件，它會安裝在您所建立的 VM 執行個
 
 <!--Anchors-->
 [如何透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[如何搭配使用 Docker VM 擴充程式與 Azure 入口網站]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[如何搭配使用 Docker VM 擴充程式與 Azure 傳統入口網站]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 [如何快速地開始使用 Azure Marketplace 中的 Docker]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
 [Docker 和 Linux 容器]: #Docker-and-Linux-Containers
 [如何搭配使用 Docker VM 延伸模組與 Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Linux 及 Windows 的虛擬機器延伸模組]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

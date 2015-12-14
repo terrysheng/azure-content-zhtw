@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="12/02/2015"
     ms.author="wesmc"/>
 
 # 啟用 Xamarin iOS 行動應用程式的離線同步處理
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 
@@ -93,10 +91,9 @@
 
 在本節中，您將透過使用無效的後端應用程式 URL，修改用戶端專案來模擬離線案例。當您新增或變更資料項目時，這些變更會存放在本機存放區，但不會同步處理到後端資料存放區，直到重新建立連線為止。
 
-1. 在 `QSTodoService.cs` 的頂端，變更 `applicationURL` 和 `gatewayURL` 的初始設定，以指向無效的 URL：
+1. 在 `QSTodoService.cs` 的頂端，變更 `applicationURL` 的初始設定，以指向無效的 URL：
 
         const string applicationURL = @"https://your-service.azurewebsites.xxx/"; 
-        const string gatewayURL = @"https://your-gateway.azurewebsites.xxx";
 
 
 2. 針對 `QSTodoService.SyncAsync` 中的類別 `Exception` 新增其他 `catch`，可將例外狀況訊息寫入主控台。
@@ -124,9 +121,9 @@
 
 5. (選擇性) 使用 Visual Studio 檢視您的 Azure SQL Database 資料表，以查看後端資料庫中的資料並無變更。
 
-   在 Visual Studio 中，開啟 [伺服器總管]。瀏覽至 **Azure**->**SQL Database** 中您的資料庫。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。現在您可以瀏覽至您的 SQL Database 資料表和其內容。
+	在 Visual Studio 中，開啟 [伺服器總管]。瀏覽至 **Azure**->**SQL Database** 中您的資料庫。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。現在您可以瀏覽至您的 SQL Database 資料表和其內容。
 
-6. (選擇性) 使用 REST 工具 (例如 Fiddler 或 Postman) 來查詢您的行動後端 (使用表單 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 中的 GET 查詢)。 
+6. (選擇性) 使用 REST 工具 (例如 Fiddler 或 Postman) 來查詢您的行動後端 (使用表單 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 中的 GET 查詢)。
 
 ## 更新用戶端應用程式，重新連接您的行動後端
 
@@ -144,7 +141,7 @@
 
 * [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
+* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure Mobile Apps 中的方式)
 
 <!-- ##Summary
 
@@ -171,4 +168,4 @@
  
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

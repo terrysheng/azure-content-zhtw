@@ -50,7 +50,7 @@ Hadoop 叢集的標準實作通常包含單一前端節點。HDInsight 會透過
 
 
 ## 檢查使用中的前端節點服務狀態
-若要判斷出作用中的前端節點及其執行的服務狀態，您必須使用遠端桌面通訊協定 (RDP) 連接到 Hadoop 叢集。如需 RDP 指示，請參閱[使用 Azure 預覽入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)。一旦遠端進入叢集後，按兩下位於桌面上的 **Hadoop 服務可用 ** 圖示，以取得執行 Namenode、Jobtracker、Templeton、Oozieservice、Metastore 和 Hiveserver2 服務的前端節點狀態，或在 HDI 3.0 中，取得執行 Namenode、Resource Manager、History Server、Templeton、Oozieservice、Metastore 和 Hiveserver2 服務的前端節點狀態。
+若要判斷出作用中的前端節點及其執行的服務狀態，您必須使用遠端桌面通訊協定 (RDP) 連接到 Hadoop 叢集。如需 RDP 指示，請參閱[使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)。一旦遠端進入叢集後，按兩下位於桌面上的 **Hadoop 服務可用 ** 圖示，以取得執行 Namenode、Jobtracker、Templeton、Oozieservice、Metastore 和 Hiveserver2 服務的前端節點狀態，或在 HDI 3.0 中，取得執行 Namenode、Resource Manager、History Server、Templeton、Oozieservice、Metastore 和 Hiveserver2 服務的前端節點狀態。
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -106,4 +106,4 @@ SDK 的情況十分類似。使用 SDK 建立與佈建叢集的說明已記錄�
 - [使用 RDP 連接到 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)
 - [使用 HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

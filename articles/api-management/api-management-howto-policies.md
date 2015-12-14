@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 
@@ -28,7 +28,7 @@
 如果原則不另行指定，則可以在任何 API 管理原則中，使用原則運算式做為屬性值或文字值。某些原則是以原則運算式為基礎，例如[控制流程][]和[設定變數][]原則。如需詳細資訊，請參閱[進階原則][]和[原則運算式][]。
 
 ## <a name="scopes"> </a>如何設定原則
-原則可以整體設定，或在[產品][]、[API][] 或[操作][]的範圍上設定。若要設定原則，請瀏覽至發行者入口網站的原則編輯器。
+原則可以整體設定，或在[產品][]、[API][] 或[操作][]的範圍上設定。若要設定原則，請瀏覽至發佈者入口網站的原則編輯器。
 
 ![Policies menu][policies-menu]
 
@@ -36,7 +36,7 @@
 
 ![Policies editor][policies-editor]
 
-若要開始設定原則，您必須先選取要套用原則的範圍。以下的螢幕擷取畫面中選取了 Starter 產品。請注意，原則名稱旁邊的正方形符號表示此層級上已套用原則。
+若要開始設定原則，您必須先選取要套用原則的範圍。在以下的螢幕擷取畫面中，已選取**簡易版**產品。請注意，原則名稱旁邊的正方形符號表示此層級上已套用原則。
 
 ![Scope][policies-scope]
 
@@ -48,17 +48,17 @@
 
 ![Edit][policies-edit]
 
-原則定義是一份簡單的 XML 文件，描述一連串輸入和輸出陳述式。可直接在定義視窗中編輯 XML。右邊提供陳述式的清單，而適用於目前範圍的陳述式會啟用並反白，如以上螢幕擷取畫面中的 [限制呼叫速率] 陳述式所示。
+原則定義是一份簡單的 XML 文件，描述一連串輸入和輸出陳述式。可直接在定義視窗中編輯 XML。右邊提供陳述式的清單，而且會啟用並醒目提示適用於目前範圍的陳述式，如以上螢幕擷取畫面中的 **Limit Call Rate** 陳述式所示。
 
 按一下已啟用的陳述式會在定義檢視中的游標位置上加入適當的 XML。
 
 [原則參考文件][]中提供原則陳述式及其設定的完整清單。
 
-例如，若要加入新的陳述式以限制只有指定的 IP 位址才能傳入要求，請將游標移至 "inbound" XML 元素的內容之內，然後按一下 [Restrict caller IPs] 陳述式。
+例如，若要加入新的陳述式以限制接收指定 IP 位址的傳入要求，請將游標移至 `inbound`XML 元素的內容當中，然後按一下 **Restrict caller IPs** 陳述式。
 
 ![Restriction policies][policies-restrict]
 
-這樣會將 XML 片段加入至 "inbound" 元素，以提供如何設定陳述式的指引。
+這會將 XML 程式碼片段新增至提供設定陳述式之指引的 `inbound` 元素。
 
 	<ip-filter action="allow | forbid">
 		<address>address</address>
@@ -73,24 +73,42 @@
 
 ![Save][policies-save]
 
-完成設定原則的陳述式時，按一下 [儲存]，變更會立即傳播至 API 管理閘道。
+設定完原則陳述式後，按一下 [**儲存**]，所作的變更便會立即傳播至 API 管理閘道器。
 
 ##<a name="sections"> </a>了解原則組態
 
-原則是針對要求和回應而依序執行的一連串陳述式。組態會適當地劃分成輸入 (要求) 和輸出 (原則)，如下列組態所示。
+原則是針對要求和回應而依序執行的一連串陳述式。系統會將組態適當地劃分為 `inbound`、`backend`、`outbound` 和 `on-error` 區段，如下列組態所示。
 
 	<policies>
-		<inbound>
-			<!-- statements to be applied to the request go here -->
-		</inbound>
-		<outbound>
-			<!-- statements to be applied to the response go here -->
-		</outbound>
-	</policies>
+	  <inbound>
+	    <!-- statements to be applied to the request go here -->
+	  </inbound>
+	  <backend>
+	    <!-- statements to be applied before the request is forwarded to 
+	         the backend service go here -->
+	  </backend>
+	  <outbound>
+	    <!-- statements to be applied to the response go here -->
+	  </outbound>
+	  <on-error>
+	    <!-- statements to be applied if there is an error condition go here -->
+	  </on-error>
+	</policies> 
 
-因為原則可以在不同層級上指定 (全域、產品、api 和操作)，所以組態可讓您相對於父系原則，指定此定義的陳述式的執行順序。
+若在處理要求期間發生錯誤，便會略過 `inbound`、`backend` 或 `outbound` 區段中的所有剩餘步驟，且執行程序會跳至 `on-error` 區段中的陳述式。將原則陳述式置於 `on-error` 區段中，您即可使用 `context.LastError` 屬性檢閱錯誤、使用 `set-body` 原則檢查和自訂錯誤回應，以及設定錯誤發生時採取的動作。會出現內建步驟的錯誤碼和處理原則陳述式期間可能會發生之錯誤的錯誤碼。如需詳細資訊，請參閱 [API 管理原則中的錯誤處理方式](https://msdn.microsoft.com/library/azure/mt629506.aspx)。
 
-例如，如果您在全域層級有一個原則，還有一個為 API 設定的原則，則每當使用該特定的 API 時 - 兩個原則都會套用。API 管理可透過 base 元素來指定組合式原則陳述式的固定順序。
+由於可在不同層級指定原則可於 (全域、產品、API 和作業)，因此組態可讓您針對父原則，指定原則定義的陳述式執行順序。
+
+系統會以下列順序評估原則範圍。
+
+1. 全域範圍
+2. 產品範圍
+3. API 範圍
+4. 作業範圍
+
+系統會根據 `base` 元素的位置 (若有的話)，評估其中的陳述式。
+
+例如，若您在全域層級中有一個原則，還有一個為 API 設定的原則，則每次使用該特定 API 時，皆會套用這兩個原則。API 管理可透過 base 元素來指定組合式原則陳述式的固定順序。
 
 	<policies>
     	<inbound>
@@ -100,9 +118,11 @@
     	</inbound>
 	</policies>
 
-在上述的原則定義範例中，cross-domain 陳述式會在任何更高的原則之前執行，而這些原則後面又接著 find-and-replace 原則。
+在上述的原則定義範例中，`cross-domain` 陳述式會在任何更高層級的原則執行之前執行，而這些原則後面又接著 `find-and-replace` 原則。
 
-注意：全域原則沒有父系原則，在全域原則中使用 `<base>` 項目沒有任何作用。
+若原則陳述式中重覆出現相同的原則，將套用最近評估的原則。您可以藉此覆寫在較高範圍定義的原則。若要在原則編輯器中查看位於目前範圍的原則，請按一下 [**重新計算所選取範圍的有效原則**]。
+
+請注意：全域原則沒有父原則，因此在全域原則中使用 `<base>` 元素無法發揮任何作用。
 
 ## 後續步驟
 
@@ -128,4 +148,4 @@
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

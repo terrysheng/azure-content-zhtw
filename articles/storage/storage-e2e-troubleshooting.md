@@ -12,10 +12,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 # 使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解 
+
+[AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## 概觀
 
@@ -34,11 +36,9 @@
 
 	- **儲存體記錄**可將對 Azure 儲存體服務的每項要求記錄至伺服器端記錄檔。記錄檔可追蹤每項要求的詳細資料，包括執行的作業、作業的狀態及延遲資訊。如需 Storage Analytics 寫入記錄檔的要求和回應資料詳細資訊，請參閱 [Storage Analytics 記錄檔格式](http://msdn.microsoft.com/library/azure/hh343259.aspx)。
 
-- **Azure 管理入口網站**。您可以在入口網站中設定儲存體帳戶的度量和記錄。您也可以檢視圖表和圖形 (其中顯示應用程式在一段時間內的執行狀況)，並在入口網站中設定警示，以通知應用程式是否對指定的度量以超乎預期的方式執行。
+- **Azure 入口網站**。您可以在 [Azure 入口網站](portal.azure.com)中設定儲存體帳戶的度量和記錄。您也可以檢視圖表和圖形 (其中顯示應用程式在一段時間內的執行狀況)，並設定警示，通知應用程式是否對指定的度量以超乎預期的方式執行。
 	
-	本教學課程示範如何使用 [Azure 管理入口網站](https://manage.windowsazure.com/)監控儲存體帳戶。如需在入口網站中進行設定和監控的相關資訊，請參閱[如何監控儲存體帳戶](storage-monitor-storage-account.md)。
-
-	您也可以使用 [Azure 預覽入口網站](https://portal.azure.com/)來取得最新體驗，但請注意，它仍是預覽版本。
+	如需在 Azure 入口網站中進行設定和監控的相關資訊，請參閱[如何監控儲存體帳戶](storage-monitor-storage-account.md)。
 
 - **AzCopy**：Azure 儲存體的伺服器記錄檔會儲存為 Blob，因此您可以使用 AzCopy，將記錄檔 Blob 複製到本機目錄，以便使用 Microsoft Message Analyzer 分析。如需 AzCopy 詳細資訊，請參閱[如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md)。
 
@@ -46,7 +46,7 @@
 
 ## 關於範例案例
 
-在本教學課程中，我們將檢驗一個案例，其中的 Azure 儲存體度量表示應用程式呼叫 Azure 儲存體的成功率很低。低百分比成功速率度量 (在 Azure 入口網站和度量資料表中顯示為 **PercentSuccess**) 會追蹤成功的作業，但是會傳回大於 299 的 HTTP 狀態碼。在伺服器端的儲存體記錄檔中，這些作業會加上 **ClientOtherErrors** 的交易狀態記錄下來。如需低成功百分比度量的詳細資訊，請參閱[度量顯示低 PercentSuccess 或分析記錄檔項目的交易狀態為 ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)。
+在本教學課程中，我們將檢驗一個案例，其中的 Azure 儲存體度量表示應用程式呼叫 Azure 儲存體的成功率很低。低百分比成功速率度量 (在 [Azure 入口網站](portal.azure.com)和度量資料表中顯示為 **PercentSuccess**) 會追蹤成功的作業，但是會傳回大於 299 的 HTTP 狀態碼。在伺服器端的儲存體記錄檔中，這些作業會加上 **ClientOtherErrors** 的交易狀態記錄下來。如需低成功百分比度量的詳細資訊，請參閱[度量顯示低 PercentSuccess 或分析記錄檔項目的交易狀態為 ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)。
 
 Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功能的一部分。但是在某些情況下，這些錯誤表示您可能可以最佳化您的用戶端應用程式，以改善效能。
 
@@ -88,15 +88,15 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 ### 設定伺服器端記錄和度量
 
-首先，我們必須設定 Azure 儲存體記錄和度量，如此我們才有用戶端應用程式提供的資料可分析。您可以用各種方式設定記錄檔和度量 - 透過 Azure 管理入口網站，使用 PowerShell，或以程式設計的方式。如需設定記錄和度量的詳細資訊，請參閱 MSDN 上的[啟用儲存體度量和檢視度量資料](http://msdn.microsoft.com/library/azure/dn782843.aspx)和[啟用儲存體記錄和存取記錄檔資料](http://msdn.microsoft.com/library/azure/dn782840.aspx)。
+首先，我們必須設定 Azure 儲存體記錄和度量，如此我們才有用戶端應用程式提供的資料可分析。您可以用各種方式設定記錄和度量 - 透過 [Azure 入口網站](portal.azure.com)，或使用 PowerShell，或以程式設計的方式。如需設定記錄和度量的詳細資訊，請參閱 MSDN 上的[啟用儲存體度量和檢視度量資料](http://msdn.microsoft.com/library/azure/dn782843.aspx)和[啟用儲存體記錄和存取記錄檔資料](http://msdn.microsoft.com/library/azure/dn782840.aspx)。
 
-**透過管理入口網站**
+**透過 Azure 入口網站**
 
-若要使用入口網站設定儲存體帳戶的記錄和度量，請依照[如何監控儲存體帳戶](storage-monitor-storage-account.md)上的指示執行。
+若要使用 [Azure 入口網站](portal.azure.com)設定儲存體帳戶的記錄和度量，請依照[如何監控儲存體帳戶](storage-monitor-storage-account.md)上的指示執行。
 
-> [AZURE.NOTE]不可能使用 Azure 管理入口網站設定分鐘度量。不過，我們建議您不要為了本教學課程的目的，以及為了調查您的應用程式的效能問題，而設定這類度量。您可以使用 PowerShell (如下所示)，或以程式設計方式，或透過 Azure 預覽入口網站設定分鐘度量。
+> [AZURE.NOTE]無法使用 Azure 入口網站設定分鐘度量。不過，我們建議您不要為了本教學課程的目的，以及為了調查您的應用程式的效能問題，而設定這類度量。您可以使用 PowerShell (如下所示)，或以程式設計方式使用儲存體用戶端程式庫，來設定分鐘度量。
 >
-> 請注意，Azure 管理入口網站無法顯示分鐘度量，只能顯示每小時度量。
+> 請注意，Azure 入口網站無法顯示分鐘度量，只能顯示每小時度量。
 
 **透過 PowerShell**
 
@@ -168,23 +168,15 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 如需詳細資訊，請參閱 Technet 上的[使用網路追蹤功能](http://technet.microsoft.com/library/jj674819.aspx)。
 
-## 在入口網站中檢閱度量資料
+## 在 Azure 入口網站中檢閱度量資料
 
-一旦您的應用程式已執行了一段時間，您即可檢閱入口網站中顯示的度量圖表，以觀察您的服務的執行狀況。首先，我們會將 [成功百分比] 度量新增至 [監控] 頁面：
+一旦您的應用程式執行了一段時間，您即可檢閱 [Azure 入口網站](portal.azure.com)中顯示的度量圖表，以觀察您服務的執行狀況。首先，瀏覽至您在 Azure 入口網站中的儲存體帳戶，然後加入**成功百分比**度量的圖表。
 
-1. 瀏覽至管理入口網站中您的儲存體帳戶的 [儀表板]，然後選取 [監控] 以檢視監控頁面。
-2. 按一下 [新增度量] 以顯示 [選擇度量] 對話方塊。
-3. 向下捲動以尋找 [成功百分比] 群組，加以展開，然後選取 [彙總]，如下圖所示。此度量會彙總所有 Blob 作業的成功百分比資料。
-
-![選擇度量](./media/storage-e2e-troubleshooting/choose-metrics-portal-1.png)
-
-在入口網站中，您會立即在監控圖表中看到 [成功百分比]，以及您所新增的其他度量 (圖表上一次最多可顯示六個度量)。在下圖中，您可以看到百分比成功率稍微低於 100%，這就是我們接下來將透過在 Message Analyzer 分析中記錄檔來調查的案例：
-
-![入口網站中的度量圖表](./media/storage-e2e-troubleshooting/portal-metrics-chart-1.png)
+在 Azure 入口網站中，您會立即在監控圖表中看到**成功百分比**，以及您所新增的其他度量。而我們接下來將分析 Message Analyzer 中的記錄檔，也就是百分比成功率稍微低於 100% 的記錄。
 
 如需將度量新增至 [監控] 頁面的詳細資訊，請參閱[作法︰將度量新增至度量表](storage-monitor-storage-account.md#addmonitoringmetrics)。
 
-> [AZURE.NOTE]在您啟用儲存體度量之後，度量資料可能需要一些時間才會出現在入口網站中。這是因為過了這個小時，前一個小時的每小時度量才會顯示在入口網站中。此外，分鐘度量目前不會顯示在入口網站中。因此視您啟用度量的時間而定，有可能需要兩個小時才看得見度量資料。
+> [AZURE.NOTE]在您啟用儲存體度量之後，度量資料可能需要一些時間才會出現在 Azure 入口網站中。這是因為過了這個小時，前一個小時的每小時度量才會顯示在 Azure 入口網站中。此外，分鐘度量目前不會顯示在 Azure 入口網站中。因此視您啟用度量的時間而定，有可能需要兩個小時才看得見度量資料。
 
 ## 使用 AzCopy 將伺服器記錄檔複製到本機目錄
 
@@ -364,4 +356,4 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

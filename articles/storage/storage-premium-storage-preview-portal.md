@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -35,7 +35,7 @@ Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的�
 
 - 若要使用 Premium 儲存體，您必須有 Premium 儲存體帳戶。若要了解如何建立 Premium 儲存體帳戶，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
-- Premium 儲存體目前只在 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)提供，可透過下列 SDK 程式庫存取：2014 年 2 月 14 日版或更新版本的 [儲存體 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx)、2014 年 10 月 1 日版或更新版本的[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)，以及 0.8.10 版或更新版本的 [Azure PowerShell](../install-configure-powershell.md)。
+- Premium 儲存體只在 [Azure 入口網站](portal.azure.com)提供，可透過下列 SDK 程式庫存取：2014 年 2 月 14 日版或更新版本的 [儲存體 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx)、2014 年 10 月 1 日版或更新版本的[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)，以及 0.8.10 版或更新版本的 [Azure PowerShell](../install-configure-powershell.md)。
 
 - 如需目前支援進階儲存體的地區清單，請參閱[依地區的 Azure 服務](http://azure.microsoft.com/regions/#services)。
 
@@ -61,7 +61,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 
 如需有關將現有虛擬機器移轉到「進階儲存體」的資訊，請參閱＜[移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)＞。
 
-為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。若要這樣做，您可以使用 [Microsoft Azure Preview 入口網站](https://portal.azure.com/)、[Azure PowerShell](../install-configure-powershell.md) 或[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
+為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。若要這樣做，您可以使用 [Azure 入口網站](portal.azure.com)、[Azure PowerShell](../install-configure-powershell.md) 或[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
 ### 重要事項：
 
@@ -201,7 +201,7 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 	- 如果您使用 **XFS**，請使用掛接選項 "nobarrier" 停用阻礙 (若要啟用阻礙，請使用 "barrier" 選項)
 
 - 對於快取設定為 "ReadWrite" 的 Premium 儲存體磁碟，則應該啟用阻礙以持續寫入。
-- 對於要在 VM 重新開機後保存的磁碟機標籤，您必須以參考磁碟的 UUID 更新 /etc/fstab。另請參閱＜[如何將資料磁碟連接至 Linux 虛擬機器](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-how-to-attach-disk)＞。
+- 對於要在 VM 重新開機後保存的磁碟機標籤，您必須以參考磁碟的 UUID 更新 /etc/fstab。另請參閱[如何將資料磁碟連接至 Linux 虛擬機器](../virtual-machines/virtual-machines-linux-how-to-attach-disk)
 
 以下是我們驗證能使用 Premium 儲存體的 Linux 散發套件。我們建議您升級 VM 到至少其中一個版本 (或更新版本)，以便獲得 Premium 儲存體較佳的效能和穩定性。此外，部分版本需要最新的 LIS (適用於 Microsoft Azure 的 Linux Integration Services v4.0)。請依照下面提供的連結進行下載及安裝。當我們完成其他驗證後，將繼續在清單中新增更多映像。請注意，我們的驗證顯示效能依映像而有所不同，而且也取決於工作負載特性和映像上的設定。不同的映像已針對不同種類的工作負載進行調整。<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>發佈</strong></td> <td><strong>版本</strong></td> <td><strong>支援的核心</strong></td> <td><strong>支援的映像</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-zh-TW-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-zh-TW-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-zh-TW-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-zh-TW-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> 需要 LIS 4.0 </a> </br> *請參閱下方附註 </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> 建議使用 LIS 4.0 </a> <br/> *請參閱下方附註 </td> </tr>
 
@@ -250,11 +250,7 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 
 本節說明如何使用 Azure Preview 入口網站建立 Premium 儲存體帳戶。
 
-1.	登入 [Azure 預覽入口網站](https://portal.azure.com/)。如果您還沒有訂閱，請參考[免費試用](http://azure.microsoft.com/pricing/free-trial/)優惠。
-
-
-    > [AZURE.NOTE]如果您登入 Azure 管理入口網站，請按一下入口網站右上角的使用者帳戶名稱。然後按一下 [切換至新的入口網站]。
-
+1.	登入 [Azure 入口網站](portal.azure.com)。如果您還沒有訂閱，請參考[免費試用](http://azure.microsoft.com/pricing/free-trial/)優惠。
 
 2.	在 [中心] 功能表上，按一下 [新增]。
 
@@ -335,9 +331,8 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [建立執行 Windows 的虛擬機器](../virtual-machines-windows-tutorial-azure-preview.md)
 - [Azure 的虛擬機器和雲端服務大小](../virtual-machines/virtual-machines-size-specs.md)
 - [儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
-- [MSDN 參考](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 
 
-1. 在管理入口網站中，按一下 **[資料]** 索引標籤，然後按一下 **[註冊]** 資料表。 
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下 [資料] 索引標籤，然後按一下 [註冊] 資料表。 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
@@ -28,4 +28,4 @@
 
    這會註冊新的 insert 指令碼，此指令碼會將註冊資訊儲存在新資料表中。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

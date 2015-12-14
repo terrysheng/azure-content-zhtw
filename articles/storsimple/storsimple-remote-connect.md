@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # 遠端連接至 StorSimple 裝置
@@ -37,9 +37,9 @@
 
 透過 HTTP 工作階段連線至 Windows PowerShell for StorSimple 的安全性，比透過 StorSimple 裝置的序列主控台連線更高。雖然這不是最安全的方法，但在受信任的網路上是可接受的做法。
 
-您可以使用 Azure 入口網站或序列主控台來設定遠端管理。選擇下列程序之一：
+您可以使用 Azure 傳統入口網站或序列主控台來設定遠端管理。選擇下列程序之一：
 
-- [使用 Azure 入口網站來啟用透過 HTTP 的遠端管理](#use-the-azure-portal-to-enable-remote-management-over-http)
+- [使用 Azure 傳統入口網站來啟用透過 HTTP 的遠端管理](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
 
 - [使用序列主控台啟用透過 HTTP 的遠端管理](#use-the-serial-console-to-enable-remote-management-over-http)
 
@@ -47,11 +47,11 @@
 
 - [準備遠端連線的用戶端](#prepare-the-client-for-remote-connection)
 
-### 使用 Azure 入口網站來啟用透過 HTTP 的遠端管理 
+### 使用 Azure 傳統入口網站來啟用透過 HTTP 的遠端管理 
 
-在 Azure 入口網站中執行下列步驟以啟用透過 HTTP 的遠端管理。
+在 Azure 傳統入口網站中執行下列步驟以啟用透過 HTTP 的遠端管理。
 
-#### 透過 Azure 入口網站啟用遠端管理
+#### 透過 Azure 傳統入口網站啟用遠端管理
 
 1. 針對您的裝置存取 [**裝置**] > [**設定**]。
 
@@ -122,9 +122,9 @@
 
 透過 HTTPS 工作階段連線到 Windows PowerShell for StorSimple，是從遠端連線至 Microsoft Azure StorSimple 裝置最安全且建議的方法。下列程序說明如何設定序列主控台和用戶端電腦，讓您可以使用 HTTPS 連線到 Windows PowerShell for StorSimple。
 
-您可以使用 Azure 入口網站或序列主控台來設定遠端管理。選擇下列程序之一：
+您可以使用 Azure 傳統入口網站或序列主控台來設定遠端管理。選擇下列程序之一：
 
-- [使用 Azure 入口網站來啟用透過 HTTPS 的遠端管理](#use-the-azure-portal-to-enable-remote-management-over-https)
+- [使用 Azure 傳統入口網站來啟用透過 HTTPS 的遠端管理](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
 
 - [使用序列主控台啟用透過 HTTPS 的遠端管理](#use-the-serial-console-to-enable-remote-management-over-https)
 
@@ -134,11 +134,11 @@
 
 - [從遠端主機連線至裝置](#connect-to-the-device-from-the-remote-host)
 
-### 使用 Azure 入口網站來啟用透過 HTTPS 的遠端管理
+### 使用 Azure 傳統入口網站來啟用透過 HTTPS 的遠端管理
 
-在 Azure 入口網站中執行下列步驟以啟用透過 HTTPS 的遠端管理。
+在 Azure 傳統入口網站中執行下列步驟以啟用透過 HTTPS 的遠端管理。
 
-#### 從 Azure 入口網站來啟用透過 HTTPS 的遠端管理
+#### 從 Azure 傳統入口網站來啟用透過 HTTPS 的遠端管理
 
 1. 針對您的裝置存取 [**裝置**] > [**設定**]。
 
@@ -272,4 +272,4 @@
 
 - 深入了解[使用 StorSimple Manager 服務來管理您的 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

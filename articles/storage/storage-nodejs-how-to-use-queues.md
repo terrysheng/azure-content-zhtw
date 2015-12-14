@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="12/01/2015" 
 	ms.author="robmcm"/>
 
 
@@ -66,7 +66,7 @@
 
 Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則在呼叫 **createQueueService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
+如需在 Azure 網站的 [Azure 入口網站](portal.azure.com)中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]
 
 ## 作法：建立佇列
 
@@ -82,7 +82,7 @@ Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_AC
 	  }
 	});
 
-如果建立佇列， `result` 為 true。如果佇列已存在，則 `result` 為 false。
+如果建立佇列，`result` 為 true。如果佇列已存在，則 `result` 為 false。
 
 ### 篩選器
 
@@ -149,8 +149,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 > [AZURE.NOTE]依預設，訊息只會隱藏 30 秒，之後又會被其他用戶端看見。您可以使用具有 **getMessages** 的 `options.visibilityTimeout` 指定其他值。
 
-> [AZURE.NOTE]
-> 當佇列中沒有任何訊息時，使用 **getMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
+> [AZURE.NOTE]當佇列中沒有任何訊息時，使用 **getMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
 
 ## 作法：變更佇列訊息的內容
 
@@ -310,13 +309,12 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
--   請參閱 MSDN 參考資料：[儲存和存取在 Azure 中的資料][]。
 -   造訪 [Azure 儲存體團隊部落格][] (英文)。
 -   請造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: ../web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [使用儲存體的 Node.js Web 應用程式]: ../storage-nodejs-use-table-storage-web-site.md
@@ -329,9 +327,8 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   
   
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [儲存和存取在 Azure 中的資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
- [使用 WebMatrix 的網站]: ../web-sites-nodejs-use-webmatrix.md
+  [使用 WebMatrix 的網站]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

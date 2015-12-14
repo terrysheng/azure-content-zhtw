@@ -26,25 +26,25 @@ Azure 串流分析工作可連接到一或多個輸入，這會定義現有資�
 
 若要將輸入加入串流分析工作中：
 
-1. 在 Azure 入口網站中按一下 [**輸入**]，然後按一下串流分析工作的 [**加入輸入**]。
+1. 在 Azure 傳統入口網站中按一下 [輸入]，然後按一下串流分析工作的 [加入輸入]。
 
     ![加入輸入](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
 
-    在 Azure Preview 入口網站中，按一下串流分析工作的 [**輸入**] 圖格。
+    在 Azure 入口網站中，按一下串流分析工作的 [輸入] 圖格。
 
-    ![在 Azure Preview 入口網站加入輸入](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
+    ![在 Azure 入口網站加入輸入](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
 
 2. 指定輸入類型：**資料流**或**參考資料**。
 
     ![加入資料](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)
 
-    ![在 Azure Preview 入口網站加入資料](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)
+    ![在 Azure 入口網站加入資料](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)
 
 3. 如果要建立資料流輸入，請指定輸入的來源類型。由於目前僅支援 Blob 儲存體，因此在參考資料建立期間可以省略此步驟。
 
     ![加入資料流](./media/stream-analytics-add-inputs/3-stream-analytics-add-inputs.png)
 
-    ![在 Azure Preview 入口網站加入資料流](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)
+    ![加入資料流入口網站](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)
 
 4. 在 [輸入別名] 方塊中，替這個輸出取一個易記的名稱。此名稱稍後將在作業查詢中用作指稱輸入。
 
@@ -58,13 +58,13 @@ Azure 串流分析工作可連接到一或多個輸入，這會定義現有資�
 
     ![資料序列化設定](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)
 
-    ![Azure Preview 入口網站資料序列化設定](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)
+    ![Azure 入口網站資料序列化設定](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)
 
 6. 完成建立輸入之後，串流分析會確認其是否可以連接到輸入來源。您可以在 [通知中樞] 中檢視測試連接作業的狀態。
 
     ![測試連接](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)
 
-    ![Azure Preview 入口網站測試連線](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
+    ![Azure 入口網站測試連線](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
 ## 取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
@@ -77,4 +77,4 @@ Azure 串流分析工作可連接到一或多個輸入，這會定義現有資�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -3,7 +3,7 @@
 ### 建立使用者
 
 
-1. 在 [Azure 管理入口網站] 中，瀏覽至您先前完成「將驗證加入至應用程式」教學課程時所設定驗證的目錄。
+1. 在 [Azure 管理入口網站][](https://manage.windowsazure.com) 中，瀏覽至您先前完成「將驗證加入至應用程式」教學課程時所設定驗證的目錄。
 2. 按一下頁面頂端的 [使用者]。然後按一下底部的 [新增使用者] 按鈕。 
 3. 完成新增使用者對話方塊，以建立名為 **Bob** 的使用者。記下該使用者的暫時密碼。 
 4. 建立名為 **Dave** 的另一位使用者。記下該使用者的暫時密碼。
@@ -37,4 +37,4 @@
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

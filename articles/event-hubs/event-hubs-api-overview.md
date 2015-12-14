@@ -87,8 +87,8 @@ await client.SendAsync(data);
 // Create the Event Hub client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
-// Get the default subscriber group
-EventHubSubscriberGroup defaultSubscriberGroup = eventHubClient.GetDefaultSubscriberGroup();
+// Get the default consumer group
+EventHubConsumerGroup defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
 
 // All messages
 EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index);
@@ -188,4 +188,4 @@ public class SimpleEventProcessor : IEventProcessor
 - [服務匯流排和事件中樞 .NET API 參考](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [事件處理器主機 API 參考](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

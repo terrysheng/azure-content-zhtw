@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc;ricksal"/>
 
 # 行動服務 .NET 後端的疑難排解
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 使用行動服務進行開發通常是簡單輕鬆的工作，但即便如此，有時可能還是會出錯。本教學課程將提供相關技術，協助您排解行動服務 .NET 後端可能發生的常見問題。
 
@@ -36,7 +41,7 @@
 1. 首先，在 **Visual Studio 2013 Update 2** 或更新版本中開啟行動服務伺服器專案。如果您尚無此專案，可以依序選取 [檔案]、[新增]、[專案]，然後依序選取 [雲端] 節點和 [Microsoft Azure 行動服務] 範本，以建立專案。
 2. 點按 **F5**，以建置並執行專案。在開始頁面上，選取 [立即試用]。
 
-    >[AZURE.NOTE]如果是在本機主控服務，則在按一下連結後將會導向至下一頁。但如果是在雲端中主控，則系統會提示您提供一組認證。這是為了確保讓未經授權的使用者無法存取您 API 和裝載的相關資訊。若要檢視頁面，您必須使用**空白使用者名稱**，並以您的**應用程式金鑰**作為密碼，來進行登入。您可以導覽至行動服務的 [儀表板] 索引標籤，並選取 [管理金鑰]，在 [Azure 管理入口網站] 中取得應用程式金鑰。
+    >[AZURE.NOTE]如果是在本機主控服務，則在按一下連結後將會導向至下一頁。但如果是在雲端中主控，則系統會提示您提供一組認證。這是為了確保讓未經授權的使用者無法存取您 API 和裝載的相關資訊。若要檢視頁面，您必須使用**空白使用者名稱**，並以您的**應用程式金鑰**作為密碼，來進行登入。您可以導覽至行動服務的 [儀表板] 索引標籤，並選取 [管理金鑰]，在 [Azure 傳統入口網站] 中取得應用程式金鑰。
     >
     > ![Authentication prompt to access help page][HelpPageAuth]
 
@@ -68,7 +73,7 @@
 
     ![Configure symbol loading][SymbolLoading]
 
-3. 在左側選取 [**符號**] 節點，並使用 URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public) 將參考新增至 (SymbolSource)[http://symbolsource.org] 伺服器。行動服務 .NET 後端的符號會以最新的版本啟用。
+3. 在左側選取 [符號] 節點，並使用 URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public) 將參考新增至 (SymbolSource)[http://symbolsource.org] 伺服器。行動服務 .NET 後端的符號會以最新的版本啟用。
 
     ![Configure symbol server][SymbolServer]
 
@@ -107,9 +112,9 @@
 
 ![Logs in Visual Studio Server Explorer][LogsServerExplorer]
 
-相同的記錄也可從行動服務之 [記錄] 索引標籤上的 [Azure 管理入口網站] 中取得。
+相同的記錄也可從行動服務之 [記錄] 索引標籤上的 [Azure 傳統入口網站] 中取得。
 
-![Logs in Azure Management Portal][LogsPortal]
+![登入 Azure 傳統入口網站][LogsPortal]
 
 <a name="AssemblyResolution"></a>
 ## 偵錯雲端組件解析
@@ -154,4 +159,4 @@
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

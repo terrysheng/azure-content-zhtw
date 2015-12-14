@@ -13,29 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # 資源管理員對於服務、區域和 API 版本的支援
 
-Azure 資源管理員提供一種新方式來部署和管理組成應用程式的服務。
-大部分但並非所有的服務都支援資源管理員，有些服務僅部分支援資源管理員。Microsoft 會針對每個服務啟用資源管理員，這對於未來的解決方案而言很重要，但在支援一致化之前，您需要了解每個服務的目前狀態。本主題提供支援 Azure 資源管理員的資源提供者清單。
+Azure 資源管理員提供一種新方式來部署和管理組成應用程式的服務。大部分但並非所有的服務都支援資源管理員，有些服務僅部分支援資源管理員。Microsoft 會針對每個服務啟用資源管理員，這對於未來的解決方案而言很重要，但在支援一致化之前，您需要了解每個服務的目前狀態。本主題提供支援 Azure 資源管理員的資源提供者清單。
 
 部署資源時，您也需要知道哪些區域支援這些資源，以及哪些 API 版本適用於資源。[支援區域](#supported-regions)一節說明如何找出哪些區域適用於您的訂用帳戶和資源。[支援的 API 版本](#supported-api-versions)一節說明如何判斷您可以使用哪些 API 版本。
 
-下表列出哪些服務可透過資源管理員支援部署和管理，哪些則否。標題為**移動資源**的欄表示這種類型的資源是否可以移至新的資源群組和新的訂用帳戶。標題為 **Preview入口網站**的欄表示您是否可以透過 Preview 入口網站建立服務。
+下表列出哪些服務可透過資源管理員支援部署和管理，哪些則否。標題為**移動資源**的欄表示這種類型的資源是否可以移至新的資源群組和新的訂用帳戶。標題為**入口網站**的欄表示您是否可以透過 [Azure 入口網站](https://portal.azure.com)建立服務。
 
 
 ## 計算
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | 虛擬機器 | 是 | 是，許多選項 | 否 | [建立 VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | 批次 | 是 | [是 (僅限傳統)](https://portal.azure.com/#create/Microsoft.BatchAccount) | 是 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics 週期服務 | 是 | 否 | | | |
-| 虛擬機器 (傳統) | 有限 | 是，許多選項 | 部分 (請參閱下文) | - | - |
-| 遠端應用程式 | 否 | 否 | - | - | - |
-| Service Fabric | 否 | 否 | - | - | - |
+| 虛擬機器 (傳統) | 有限 | 是，許多選項 | 部分 (請參閱下文) | - | - | | 遠端應用程式 | 否 | 否 | - | - | - | | Service Fabric | 否 | 否 | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
@@ -43,7 +40,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 ## 網路
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | 應用程式閘道 | 是 | | | | |
 | DNS | 是 | | | [建立 DNS 區域](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
@@ -54,7 +51,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 ## 資料與儲存體
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
 | DocumentDB | 是 | [是](https://portal.azure.com/#create/Microsoft.DocumentDB) | 是 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
 | 儲存體 | 是 | [是](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | 否 | [建立儲存體](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [儲存體帳戶](resource-manager-template-storage.md) |
@@ -62,12 +59,11 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | SQL Database | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | 搜尋 | 是 | [是](https://portal.azure.com/#create/Microsoft.Search) | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL 資料倉儲 | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | 否 | 否 | - | - | - |
-| 受管理快取 | 否 | 否 | - | - | - |
+| StorSimple | 否 | 否 | - | - | - | | 受管理快取 | 否 | 否 | - | - | - |
 
 ## Web 與行動
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | API 管理 | 是 | 否 | 是 | [建立 API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
 | API 應用程式 | 是 | [是](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
@@ -83,18 +79,17 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 ## Analytics
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | 事件中心 | 是 | 否 | | [建立事件中樞](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
 | 串流分析 | 是 | [是](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | 是 | [是](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | 是 | | |
 | Data Factory | 是 | [是](https://portal.azure.com/#create/Microsoft.DataFactory) | 是 | [建立 Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| 機器學習服務 | 否 | 否 | - | - | - |
-| 資料目錄 | 否 | 否 | - | - | - |
+| 機器學習服務 | 否 | 否 | - | - | - | | 資料目錄 | 否 | 否 | - | - | - |
 
 ## 媒體與 CDN
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | CDN | 是 (預覽) | 否 | | | |
 | 媒體服務 | 否 | 否 | | | |
@@ -102,24 +97,21 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 ## 混合式整合
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk 服務 | 是 | 否 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | 服務匯流排 | 是 | 否 | | [服務匯流排 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| 備份 | 否 | 否 | - | - | - |
-| Site Recovery | 否 | 否 | - | - | - |
+| 備份 | 否 | 否 | - | - | - | | Site Recovery | 否 | 否 | - | - | - |
 
 ## 身分識別與存取管理 
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | 否 | 否 | - | - | - |
-| Azure Actice Directory B2C | 否 | 否 | - | - | - |
-| Multi-Factor Authentication | 否 | 否 | - | - | - |
+| Azure Active Directory | 否 | 否 | - | - | - | | Azure Actice Directory B2C | 否 | 否 | - | - | - | | Multi-Factor Authentication | 否 | 否 | - | - | - |
 
 ## 開發人員服務 
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
 | Application Insights | 是 | [是](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | 否 | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing 地圖 | 是 | [是](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
@@ -127,7 +119,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 ## 管理 
 
-| 服務 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | 自動化 | 是 | [是](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | 是 | | |
 | 金鑰保存庫 | 是 | 否 | 是 | [金鑰保存庫 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
@@ -137,7 +129,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 ## 資源管理員
 
-| 功能 | 已啟用資源管理員 | 預覽入口網站 | 移動資源 | REST API | 結構描述 |
+| 功能 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | Authorization | 是 | N/A | N/A | [管理鎖定](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[角色型存取控制](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [資源鎖定](resource-manager-template-lock.md)<br />[角色指派](resource-manager-template-role.md) |
 | 資源 | 是 | N/A | N/A | [Linked resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [資源連結](resource-manager-template-links.md) |
@@ -147,15 +139,15 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 部署資源時，通常需要指定資源的區域。所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。這些限制可能與您所在國家/地區的稅務問題有關，或者與由您的訂用帳戶管理員所放置，只能使用特定區域的原則結果有關。
 
-若要取得所有 Azure 服務之所有支援區域的完整清單，請參閱[依地區提供的服務](https://azure.microsoft.com/regions/#services)。不過，這份清單可能包含您的或訂用帳戶不支援的區域。您可以藉由執行下列其中一個命令，來判斷您的訂用帳戶支援之特定資源類型的區域。
+若要取得所有 Azure 服務所有支援區域的完整清單，請參閱[依地區提供的服務](https://azure.microsoft.com/regions/#services)。不過，這份清單可能包含您的訂用帳戶不支援的區域。您可以藉由執行下列其中一個命令，來判斷您的訂用帳戶支援之特定資源類型的區域。
 
 ### REST API
 
-若要探索哪些區域可供您的或訂用帳戶中的特定資源類型使用，請使用[列出所有資源提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。
+若要探索哪些區域可供您的訂用帳戶中特定資源類型使用，請使用[列出所有資源提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。
 
 ### PowerShell
 
-下列範例示範如何使用 Azure PowerShell 1.0 Preview 來取得支援網站的區域。如需 1.0 Preview 版本的詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)
+下列範例示範如何使用 Azure PowerShell 1.0 版來取得支援網站的區域。如需 1.0 版的詳細資訊，請參閱 [Azure PowerShell 1.0 版](https://azure.microsoft.com/blog/azps-1-0/)
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -207,7 +199,7 @@ Azure PowerShell 0.9.8 請使用下列命令：
 
 ### PowerShell
 
-下列範例示範如何使用 Azure PowerShell 1.0 Preview 來取得特定資源類型可用的 API 版本。
+下列範例示範如何使用 Azure PowerShell 1.0 版來取得特定資源類型可用的 API 版本。
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     
@@ -241,4 +233,4 @@ Azure PowerShell 0.9.8 請使用：
 - 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

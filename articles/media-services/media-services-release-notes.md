@@ -84,7 +84,7 @@ Azure 媒體服務現在在雲端提供 Google Widevine 授權傳遞服務。如
 
 ##<a id="oct_changes_15"></a>2015 年 10 月版本
 
-Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、印度西部、印度南部和印度中部。您現在可以使用 Azure 管理入口網站[建立媒體服務帳戶](media-services-create-account.md#create-a-media-services-account-using-quick-create)，並執行[這裡](https://azure.microsoft.com/documentation/services/media-services/)所述的各種工作。不過，這些資料中心不會啟用即時編碼。此外，並非所有類型的編碼保留單元都可用於這些資料中心。
+Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、印度西部、印度南部和印度中部。您現在可以使用 Azure 傳統入口網站[來建立媒體服務帳戶](media-services-create-account.md#create-a-media-services-account-using-quick-create)，以及執行[這裡](https://azure.microsoft.com/documentation/services/media-services/)所述的各種工作。不過，這些資料中心不會啟用即時編碼。此外，並非所有類型的編碼保留單元都可用於這些資料中心。
 
 - 巴西南部：只可以使用標準和基本編碼保留單元
 - 印度西部、印度南部和印度中部：只可以使用基本編碼保留單元
@@ -275,15 +275,15 @@ Media Services SDK for .NET 目前的版本為 3.0.0.7。
 ### <a id="sept_14_breaking_changes"></a>重大變更
 
 * **原始來源**已重新命名為 [StreamingEndpoint]。
-* 使用 **Azure 管理入口網站**編碼並發行 MP4 檔案的預設行為已有所變更。 
+* 使用 **Azure 傳統入口網站**編碼並發行 MP4 檔案的預設行為已有所變更。
 
-	過去，在使用管理入口網站發佈單一檔案 MP4 視訊資產時，會建立 SAS URL (SAS URL 可讓您從 Blob 儲存體下載視訊)。現在，當您使用管理入口網站編碼並發佈單一檔案 MP4 視訊資產時，產生的 URL 會指向 Azure 媒體服務串流端點。這項變更並不會影響未由 Azure 媒體服務編碼、而直接上傳至媒體服務並發佈的 MP4 視訊。
-	
-	現在，您有下列兩個選項可以解決問題。
-	
-	* 啟用串流單元，並使用動態封裝功能將 .mp4 資產串流處理為 Smooth Streaming 簡報。
-	
-	* 建立 SAS URL 以下載 (或累進播放) .mp4。如需如何建立 SAS 定位器的詳細資訊，請參閱[傳遞內容]。
+過去，在使用 Azure 傳統入口網站發佈單一檔案 MP4 視訊資產時，會建立 SAS URL (SAS URL 可讓您從 Blob 儲存體下載視訊)。現在，當您使用 Azure 傳統入口網站編碼並發佈單一檔案 MP4 視訊資產時，產生的 URL 會指向 Azure 媒體服務串流端點。這項變更並不會影響未由 Azure 媒體服務編碼、而直接上傳至媒體服務並發佈的 MP4 視訊。
+
+現在，您有下列兩個選項可以解決問題。
+
+* 啟用串流單元，並使用動態封裝功能將 .mp4 資產串流處理為 Smooth Streaming 簡報。
+
+* 建立 SAS URL 以下載 (或累進播放) .mp4。如需如何建立 SAS 定位器的詳細資訊，請參閱[傳遞內容]。
 
 
 ### <a id="sept_14_GA_changes"></a>GA 版本中的新功能/案例
@@ -602,7 +602,7 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [Preview features]: http://azure.microsoft.com/services/preview/
 [媒體服務 PlayReady 授權範本概觀]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [串流儲存體加密內容]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [動態封裝]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin 的部落格]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [使用 PlayReady 保護 Smooth Stream]: http://msdn.microsoft.com/library/azure/dn189154.aspx
@@ -621,4 +621,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

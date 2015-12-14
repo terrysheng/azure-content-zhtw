@@ -3,7 +3,7 @@
    description="本文介紹從裝載於 Azure 上的服務產生、收集和分析安全性記錄檔。它的適用對象為 IT 專業人員和安全性分析師，他們每天都在處理資訊資產管理，包括那些負責其組織安全性和法規工作的人員。"
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="TerryLanfear"
+   authors="nayak-mahesh"
    manager="msStevenPo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="11/30/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Microsoft Azure 安全性和稽核記錄管理
@@ -614,4 +614,4 @@ Azure Active Directory (Azure AD) 包含一組安全性、使用方式與稽核�
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

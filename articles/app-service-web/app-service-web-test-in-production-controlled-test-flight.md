@@ -48,7 +48,7 @@
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。+ 您可以[啟用 MSDN 訂用帳戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
+> [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。+ 您可以[啟用 Visual Studio 訂用帳戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 Visual Studio 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
 >
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
@@ -56,7 +56,7 @@
 
 >[AZURE.NOTE]本教學課程中使用的指令碼會自動從 GitHub 儲存機制設定連續發行。這需要您的 GitHub 認證已儲存在 Azure 中，否則，嘗試設定 Web 應用程式的原始檔控制設定時，指令碼部署會失敗。
 >
->若要在 Azure 中儲存您的 GitHub 認證，請在 [Azure Preview 入口網站](https://portal.azure.com)中建立 Web 應用程式，並[設定 GitHub 部署](web-sites-publish-source-control.md#Step7)。您只需要做一次這個動作。
+>若要在 Azure 中儲存您的 GitHub 認證，請在 [Azure 入口網站](https://portal.azure.com)中建立 Web 應用程式，並[設定 GitHub 部署](web-sites-publish-source-control.md#Step7)。您只需要做一次這個動作。
 
 在一般 DevOps 案例中，應用程式是在 Azure 中即時執行，而且您想要透過連續發行對它進行變更。在此案例中，您會將已開發及測試的範本部署至生產環境。
 
@@ -84,7 +84,7 @@
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
 7.	指令碼完成時，請返回瀏覽至前端的位址 (http://ToDoApp*&lt;your_suffix>*.azurewebsites.net/)，以查看在生產環境中執行的應用程式。
-5.	登入 [Azure Preview 入口網站](https://portal.azure.com)，並查看建立的內容。
+5.	登入 [Azure 入口網站](https://portal.azure.com)，並查看建立的內容。
 
 	您應可在相同的資源群組中看到兩個 Web 應用程式，其中一個的名稱具有 `Api` 後置詞。如果您查看資源群組檢視，則也會看到 SQL Database 和伺服器、App Service 方案以及 Web 應用程式的預備位置。瀏覽不同的資源，並將其與 *&lt;repository\_root>*\\ARMTemplates\\ProdAndStage.json 比較，以查看其在範本中的設定方式。
 
@@ -97,7 +97,7 @@
 5. 在 Visual Studio 中開啟 *&lt;repository\_root>*\\src\\MultiChannelToDo.sln。
 6. 以滑鼠右鍵按一下解決方案 > [管理解決方案的 NuGet 套件] > [還原]，以還原所有的 Nuget 套件。
 6. 以滑鼠右鍵按一下 [MultiChannelToDo.Web] > [新增 Application Insights 遙測] > [設定設定值] > [將資源群組變更為 ToDoApp*&lt;your\_suffix>*] > [將 Application Insights 新增至專案]。
-7. 在 Azure Preview 入口網站中，開啟 **MultiChannelToDo.Web** Application Insight 資源的刀鋒視窗。接著，在 [應用程式健全狀況] 部分中，按一下 [了解如何收集瀏覽器頁面載入資料] > [複製程式碼]。
+7. 在 Azure 入口網站中，開啟 **MultiChannelToDo.Web** Application Insight 資源的刀鋒視窗。接著，在 [應用程式健全狀況] 部分中，按一下 [了解如何收集瀏覽器頁面載入資料] > [複製程式碼]。
 7. 將複製的 JS 檢測程式碼新增至 *&lt;repository\_root>*\\src\\MultiChannelToDo.Web\\app\\Index.cshtml，放在右 `<heading>` 標記前面。它應包含您的 Application Insight 資源的唯一檢測金鑰。
 
         <script type="text/javascript">
@@ -375,4 +375,4 @@ Azure App Service 可讓中小型企業輕鬆地在生產環境中測試其客�
 -	[Azure PowerShell](powershell-install-configure.md)
 -	[專案 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -81,7 +81,7 @@ Azure 自動化中的 Runbook 是以 Windows PowerShell 或 Windows PowerShell �
 
 ## Azure 自動化與其他自動化工具如何產生關聯？
 
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) 旨在自動化私人雲端中的管理工作。它會安裝在您的本機資料中心，做為 [Windows Azure 套件](https://www.microsoft.com/zh-TW/server-cloud/)的元件。SMA 和 Azure 自動化使用以 Windows PowerShell 和 Windows PowerShell 工作流程為基礎的相同 Runbook 格式，但 SMA 不支援[圖形化 Runbook](automation-graphical-authoring-intro.md)。
+[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) 旨在自動化私人雲端中的管理工作。它會安裝在您的本機資料中心，做為 [Microsoft Azure 套件](https://www.microsoft.com/zh-TW/server-cloud/)的元件。SMA 和 Azure 自動化使用以 Windows PowerShell 和 Windows PowerShell 工作流程為基礎的相同 Runbook 格式，但 SMA 不支援[圖形化 Runbook](automation-graphical-authoring-intro.md)。
 
 [System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) 旨在自動化內部部署資源。它會使用與 Azure 自動化和服務管理自動化不同的 Runbook 格式，並具有圖形化介面，用來建立 Runbook，而不需要編寫任何指令碼。其 Runbook 是由來自專門為 Orchestrator 編寫的整合套件的活動組成。
 
@@ -92,7 +92,7 @@ Azure 自動化中的 Runbook 是以 Windows PowerShell 或 Windows PowerShell �
 
 * **Azure 自動化程式庫**是您目前的所在位置。本文件庫中的文章提供完整的文件，說明如何設定和管理 Azure 自動化，以及撰寫自己的 Runbook。 
 * [Azure PowerShell Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 提供使用 Windows PowerShell 自動執行 Azure 作業的資訊。Runbook 會使用這些 Cmdlet 來處理 Azure 資源。 
-* [管理部落格](https://azure.microsoft.com/zh-TW/blog/tag/azure-automation/)提供 Azure 自動化的最新資訊，以及 Microsoft 的其他管理技術。您應該訂閱此部落格，隨時掌握 Azure 自動化團隊的最新消息。 
+* [管理部落格](https://azure.microsoft.com/blog/tag/azure-automation/)提供 Azure 自動化的最新資訊，以及 Microsoft 的其他管理技術。您應該訂閱此部落格，隨時掌握 Azure 自動化團隊的最新消息。 
 * [自動化論壇](http://go.microsoft.com/fwlink/p/?LinkId=390561)可讓您張貼有關要由 Microsoft 和自動化社群解決的 Azure 自動化問題。 
 * [Azure 自動化 Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx) 提供自動執行管理工作的資訊。它包含各種 Cmdlet 來管理自動化帳戶、資產、Runbook、DSC。
 
@@ -101,4 +101,4 @@ Azure 自動化中的 Runbook 是以 Windows PowerShell 或 Windows PowerShell �
 
 **請不吝提供意見！** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

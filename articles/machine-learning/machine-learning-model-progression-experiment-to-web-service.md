@@ -39,7 +39,7 @@
 
 ### 訓練實驗
 
-***訓練實驗***是 Machine Learning Studio 中的初始實驗畫布。訓練實驗的目的是要提供您開發、測試、逐一查看和最終定型機器學習模型的位置。尋求最佳的解決方案時，您甚至可以同時定型多個模型，但是一旦完成實驗，您將選取單一定型的模型，並從實驗消除其餘部分。如需開發預測性分析實驗的範例，請參閱[在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)。
+***訓練實驗***是 Machine Learning Studio 中的初始實驗畫布。訓練實驗的目的是要提供您開發、測試、逐一查看和最終定型機器學習模型的位置。尋求最佳的解決方案時，您甚至可以同時定型多個模型，但是一旦完成實驗，您將選取單一定型的模型，並從實驗消除其餘部分。如需開發預測性分析實驗的範例，請參閱[在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](machine-learning-walkthrough-develop-predictive-solution.md)。
 
 ### 預測性實驗
 
@@ -57,11 +57,11 @@
 
 在此轉換程序中不會捨棄訓練實驗。程序完成時您在 Studio 中將有兩個索引標籤：一個用於訓練實驗，而一個用於預測性實驗。以此方式，在部署您的 Web 服務之前，您可以對訓練實驗進行變更，並重建預測性實驗。或者您可以儲存一份訓練實驗，以開始另一行的實驗。
 
->[AZURE.NOTE]按一下 [設定 Web 服務] 時，會開始自動化的程序，將訓練實驗轉換為預測性實驗，而且這在大部分的情況下可正常運作。但如果訓練實驗很複雜 (例如，聯結在一起的定型有多個路徑)，您可能會想要手動進行這項轉換。如需如何進行此轉換程序工作的詳細資料，請參閱[將機器學習服務訓練實驗轉換成預測性實驗](https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/)。
+>[AZURE.NOTE]按一下 [設定 Web 服務] 時，會開始自動化的程序，將訓練實驗轉換為預測性實驗，而且這在大部分的情況下可正常運作。但如果訓練實驗很複雜 (例如，聯結在一起的定型有多個路徑)，您可能會想要手動進行這項轉換。如需如何進行此轉換程序工作的詳細資料，請參閱[將機器學習服務訓練實驗轉換成預測性實驗](machine-learning-convert-training-experiment-to-scoring-experiment.md)。
 
 ### Web 服務
 
-一旦認為您的預測性實驗就緒，您會按一下 [部署 Web 服務]，藉由將它部署為 ***Azure Web 服務***讓模型實際運作。使用者現在可以使用 Web 服務 REST API 將資料傳送至您的模型中並收回結果。如需如何進行此動作的詳細資料，請參閱[如何使用已從機器學習實驗部署的 Azure Machine Learning Web 服務](https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-consume-web-services/)。
+一旦認為您的預測性實驗就緒，您會按一下 [部署 Web 服務]，藉由將它部署為 ***Azure Web 服務***讓模型實際運作。使用者現在可以使用 Web 服務 REST API 將資料傳送至您的模型中並收回結果。如需如何進行此動作的詳細資料，請參閱[如何使用已從機器學習實驗部署的 Azure Machine Learning Web 服務](machine-learning-consume-web-services.md)。
 
 一旦您部署 Web 服務，預測性實驗和 Web 服務會保持連線，而在可以在兩者間往返：
 
@@ -69,8 +69,8 @@
 | ------------------- | --------------- | ---------------------- |
 |Studio 中的實驗畫布|**前往 Web 服務**|Studio 中的 Web 服務組態|
 |Studio 中的 Web 服務組態|**檢視最新版本**|Studio 中的實驗畫布|
-|Studio 中的 Web 服務組態|**管理端點...**|Azure 入口網站中的端點管理|
-|Azure 入口網站中的端點管理|**在 Studio 中編輯**|Studio 中的實驗畫布|
+|Studio 中的 Web 服務組態|**管理端點...**|Azure 傳統入口網站中的端點管理|
+|Azure 傳統入口網站中的端點管理|**在 Studio 中編輯**|Studio 中的實驗畫布|
 
 ![](media\machine-learning-model-progression-experiment-to-web-service\connections-between-experiment-and-web-service.png)
 
@@ -134,7 +134,7 @@
 
 如果您想要保留您的機器學習模型，但您想要以新的資料重新定型，您有兩個選擇：
 
-1.  **Web 服務執行時重新定型模型** - 如果您想要在預測性 Web 服務執行時重新定型模型，您可以藉由對訓練實驗進行幾個修改，使它成為***重新訓練實驗***，然後可以將它部署為***重新定型 Web* 服務**。如需如何執行這項操作的指示，請參閱[以程式設計方式重新定型機器學習服務模型](https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-retrain-models-programmatically/)。
+1.  **Web 服務執行時重新定型模型** - 如果您想要在預測性 Web 服務執行時重新定型模型，您可以藉由對訓練實驗進行幾個修改，使它成為***重新訓練實驗***，然後可以將它部署為***重新定型 Web* 服務**。如需如何執行這項操作的指示，請參閱[以程式設計方式重新定型機器學習服務模型](machine-learning-retrain-models-programmatically.md)。
 
 2.  **返回原始訓練實驗並使用不同的定型資料來開發您的模型** - 您的預測性實驗連結至 Web 服務，但訓練實驗未以這種方式直接連結。如果您修改原始的訓練實驗，並按一下 [設定 Web 服務]，它會建立*新*預測性實驗，部署時將會建立*新* Web 服務。它不只是更新原始的 Web 服務。
 
@@ -148,16 +148,16 @@
 
 如需這個程序的詳細資訊，請參閱下列文章：
 
--   轉換實驗 - [將機器學習服務訓練實驗轉換成預測性實驗](https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/)
+-   轉換實驗 - [將機器學習服務訓練實驗轉換成預測性實驗](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 
--   部署 Web 服務 - [部署 Azure Machine Learning Web 服務](https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-publish-a-machine-learning-web-service/)
+-   部署 Web 服務 - [部署 Azure Machine Learning Web 服務](machine-learning-publish-a-machine-learning-web-service.md)
 
--   重新定型模型 - [以程式設計方式重新定型機器學習服務模型](https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-retrain-models-programmatically/)
+-   重新定型模型 - [以程式設計方式重新定型機器學習服務模型](machine-learning-retrain-models-programmatically.md)
 
 如需整個程序的範例，請參閱：
 
--   [機器學習教學課程：在 Azure Machine Learning Studio 中建立您的第一個實驗](https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-create-experiment/)
+-   [機器學習教學課程：在 Azure Machine Learning Studio 中建立您的第一個實驗](machine-learning-create-experiment.md)
 
--   [逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](https://azure.microsoft.com/zh-TW/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)
+-   [逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測分析解決方案](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

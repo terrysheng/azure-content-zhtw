@@ -37,7 +37,7 @@
 
 ## 準備就緒
 
-在您能搭配 Azure 資源群組使用 Azure CLI 前，您必須備妥正確的 Azure CLI 版本以及 Azure 帳戶。如果您沒有 Azure CLIM，請[安裝它](xplat-cli-install.md)。
+在您能夠搭配 Azure 資源群組使用 Azure CLI 之前，必須備妥正確的 Azure CLI 版本以及 Azure 帳戶。如果您沒有 Azure CLIM，請[安裝它](xplat-cli-install.md)。
 
 ### 將 Azure CLI 版本更新為 0.9.0 或更新版本
 
@@ -58,7 +58,7 @@
 
 現在，輸入 `azure login` 並遵循提示來進行 Azure 帳戶的互動式登入體驗，[以互動方式登入您的 Azure 帳戶](../xplat-cli-connect.md#use-the-log-in-method)。
 
-> [AZURE.NOTE]如果您有公司或學校識別碼，而且知道尚未啟用雙重要素驗證，則您也可以使用 `azure login -u` 以及公司或學校識別碼，在沒有互動式工作階段的情況下進行登入。如果沒有公司或學校識別碼，您可以[從個人 Microsoft 帳戶建立公司或學校識別碼](resource-group-create-work-id-from-personal.md)，使用相同方式來登入。
+> [AZURE.NOTE]如果您有公司或學校識別碼，而且知道尚未啟用雙因素驗證，則您**也**可以使用 `azure login -u` 再加上公司或學校識別碼，在*沒有*互動式工作階段的情況下進行登入。如果沒有公司或學校識別碼，您可以[從個人 Microsoft 帳戶建立公司或學校識別碼](resource-group-create-work-id-from-personal.md)，使用相同方式來登入。
 
 您的帳戶可能會有一個以上的訂閱帳戶。您可以輸入 `azure account list`，即可列出訂閱帳戶，如以下所示：
 
@@ -85,9 +85,9 @@
 
 ## 了解 Azure 資源範本和資源群組
 
-大部分的應用程式在建立時會使用不同資源類型的組合 (例如一或多個 VM 和儲存體帳戶、SQL 資料庫、虛擬網路或內容傳遞網路)。預設 Azure 服務管理 API 和 Azure 入口網站可使用 service-by-service 方法代表這些項目。這個方法會要求您部署和個別管理個別服務 (或尋找執行這項作業的其他工具)，而不是做為部署的單一邏輯單元。
+大部分的應用程式在建立時會使用不同資源類型的組合 (例如一或多個 VM 和儲存體帳戶、SQL 資料庫、虛擬網路或內容傳遞網路)。預設 Azure 服務管理 API 和 Azure 傳統入口網站可使用 service-by-service 方法代表這些項目。這個方法會要求您部署和個別管理個別服務 (或尋找執行這項作業的其他工具)，而不是做為部署的單一邏輯單元。
 
-不過，您可以利用「Azure 資源管理員範本」，將這些不同的資源宣告為一個邏輯部署單元，然後就能進行部署和管理。請不要以命令方式告訴 Azure 逐一部署命令，您應該在 JSON 檔案描述整個部署過程 -- 所有資源和相關設定以及部署參數 -- 然後告訴 Azure 將這些資源視為一個群組加以部署。
+不過，您可以利用 *Azure 資源管理員範本*，將這些不同的資源宣告為一個邏輯部署單元，然後就能進行部署和管理。請不要以命令方式告訴 Azure 逐一部署命令，您應該在 JSON 檔案描述整個部署過程 -- 所有資源和相關設定以及部署參數 -- 然後告訴 Azure 將這些資源視為一個群組加以部署。
 
 然後您可以使用 Azure CLI 資源管理命令執行以下動作，即可管理群組的資源整體生命週期：
 
@@ -1301,4 +1301,4 @@
 
 如需您可使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

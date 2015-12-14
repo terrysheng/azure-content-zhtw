@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/18/2015"
+   ms.date="12/01/2015"
    ms.author="juliako"/>
 
 
@@ -58,9 +58,9 @@
 
 - **角色中快取**已更新為使用 **Microsoft Azure 儲存體 SDK** 4.3 版本。過去，**角色中快取**一直是使用 Azure 儲存體 SDK 1.7 版本。
 
-	使用 Azure SDK 2.5 或更低版本的客戶應該更新到 Azure SDK 2.6，並移至新的 Azure 儲存體 SDK 版本。請注意，我們將於 2015 年 12 月 9 日移除 Azure 儲存體 2011-08-18 版本。如需詳細資訊，請閱讀[本公告](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/)。
+	使用 Azure SDK 2.5 或更低版本的客戶應該更新到 Azure SDK 2.6，並移至新的 Azure 儲存體 SDK 版本。
 
-	如需詳細資訊，請參閱 [Azure 快取的角色中快取](https://msdn.microsoft.com/library/azure/dn386103.aspx)。
+	目前 Azure 儲存體版本 2011-08-18 己預計於 2016 年 8 月 1 日移除。任何將角色中快取從 Azure SDK 2.5 或較低版本移轉到 Azure SDK 2.6 的作業都必須在這個時間前完成。如需 Azure 儲存體版本 2011-08-18 停用的詳細資訊，請參閱 [Microsoft Azure 儲存體服務版本移除更新：延期到 2016 年](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)。
 
 ##Azure App Service 工具
 
@@ -106,4 +106,4 @@ Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄�
 
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

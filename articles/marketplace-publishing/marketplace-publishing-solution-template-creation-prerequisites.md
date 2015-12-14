@@ -22,10 +22,10 @@
 ## 開發建置組塊
 您必須決定解決方案的建置組塊，才能在發佈入口網站上繼續使用解決方案範本。以下是一些可協助您進行的文件連結：
 
-1. [設計 Azure 資源管理員範本的最佳做法](https://azure.microsoft.com/zh-TW/documentation/articles/best-practices-resource-manager-design-templates/)
-2. [編寫 Azure 資源管理員範本](https://azure.microsoft.com/zh-TW/documentation/articles/resource-group-authoring-templates/)
+1. [設計 Azure 資源管理員範本的最佳做法](../best-practices-resource-manager-design-templates.md)
+2. [編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)
 3. Azure 快速入門範本：
-  - [https://azure.microsoft.com/zh-TW/documentation/templates/](https://azure.microsoft.com/zh-TW/documentation/templates/)
+  - [https://azure.microsoft.com/zh-TW/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## 後續步驟
@@ -34,4 +34,4 @@
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

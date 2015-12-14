@@ -133,15 +133,13 @@
 
 了解資料表儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作：
 
--   請參閱 MSDN 參考資料：[Azure 儲存體][]。
+-   請參閱 MSDN 參考資料 [Azure 儲存體][]。
 -   造訪 [Azure 儲存體團隊部落格][] (英文)。
 
 如需詳細資訊，另請參閱 [Python 開發人員中心](/develop/python/)。
 
-
-[Azure 儲存體]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
 [Python Azure 儲存體封裝]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 
-1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com/)，按一下 [行動服務]，然後按一下您的應用程式。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，按一下 [行動服務]，然後按一下您的應用程式。
 
 2. 按一下 [推播] 索引標籤，輸入前一個程序中從 GCM 取得的 [API Key] 值，然後按一下 [儲存]。
 
@@ -9,4 +9,4 @@
 
 您的行動服務和應用程式現在都已完成設定，而可與 GCM 和通知中樞搭配使用。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -29,7 +29,7 @@
 
 **相關文章**
 
-- [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install.md)：使用 Azure Preview 入口網站在 HDInsight 叢集上安裝 Solr
+- [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install.md)：使用 Azure 入口網站在 HDInsight 叢集上安裝 Solr
 - [在 HDInsight Hadoop 叢集上安裝和使用 Solr (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [在 HDInsight 建立 Hadoop 叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊
 - [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集的一般資訊
@@ -37,7 +37,7 @@
 
 ## 什麼是 Solr？
 
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> 是可對資料執行強大全文搜尋作業的企業搜尋平台。Hadoop 可儲存和管理大量資料，而 Apache Solr 則是提供搜尋功能以便快速擷取資料。
+[Apache Solr](http://lucene.apache.org/solr/features.html) 是可對資料執行強大全文搜尋作業的企業搜尋平台。Hadoop 可儲存和管理大量資料，而 Apache Solr 則是提供搜尋功能以便快速擷取資料。
 
 ## 使用入口網站安裝 Solr
 
@@ -68,7 +68,7 @@
 
 您必須從以某些資料檔案編製 Solr 的索引來開始。然後，您可以使用 Solr 來對已編製索引的資料執行搜尋查詢。執行下列步驟以在 HDInsight 叢集中使用 Solr：
 
-1. **使用遠端桌面通訊協定 (RDP) 遠端登入到已安裝 Solr 的 HDInsight 叢集**。從 Azure 入口網站，針對您所建立且已安裝 Solr 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
+1. **使用遠端桌面通訊協定 (RDP) 遠端登入到已安裝 Solr 的 HDInsight 叢集**。從 Azure 入口網站，針對您所建立且已安裝 Solr 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱[使用 RDP 連接至 HDInsight 叢集](hdinsight-administer-use-management-portal.md#rdp)。
 
 2. **上傳資料檔案以對 Solr 編製索引**。在對 Solr 編製索引時，會在其中放置可能需要搜尋的文件。若要對 Solr 編製索引，請使用 RDP 遠端登入到叢集、瀏覽至桌面、開啟 Hadoop 命令列，然後瀏覽至 **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**。執行以下命令：
 	
@@ -180,7 +180,7 @@
 
 ## 另請參閱
 
-- [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install.md)：使用 Azure Preview 入口網站在 HDInsight 叢集上安裝 Solr
+- [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install.md)：使用 Azure 入口網站在 HDInsight 叢集上安裝 Solr
 - [在 HDInsight Hadoop 叢集上安裝和使用 Solr (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [在 HDInsight 建立 Hadoop 叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊
 - [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集的一般資訊
@@ -196,4 +196,4 @@
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

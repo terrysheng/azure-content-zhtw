@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中探索 .NET 追蹤記錄  
@@ -79,6 +79,7 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。例如，
 * 尋找與相同使用者要求相關的其他遙測 (也就是使用相同的 OperationId) 
 * 將此頁面的組態儲存為我的最愛
 
+> [AZURE.NOTE]**取樣** 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。[深入了解取樣。](app-insights-sampling.md)
 
 ## 後續步驟
 
@@ -104,6 +105,10 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。例如，
 
 每個應用程式每秒最多 500 個事件。事件會保留七天。
 
+### 我沒看到一些預期的記錄項目
+
+如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。[深入了解取樣。](app-insights-sampling.md)
+
 ## <a name="add"></a>接續步驟
 
 * [設定可用性和回應性測試][availability]
@@ -124,4 +129,4 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。例如，
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

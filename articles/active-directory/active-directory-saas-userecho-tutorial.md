@@ -3,8 +3,8 @@
 	description="了解如何設定 Azure Active Directory 與 UserEcho 之間的單一登入。"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 UserEcho 整合
@@ -40,7 +40,7 @@
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
-- 除非必要，否則您不應使用生產環境。
+- 除非必要，否則您不應使用生產環境，。
 - 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。 
 
  
@@ -52,7 +52,7 @@
 
 
 ## 從資源庫加入 UserEcho
-若要設定 UserEcho 與 Azure AD 整合，您需要從資源庫將 UserEcho 加入到受管理的 SaaS 應用程式清單。
+若要設定 UserEcho 與 Azure AD 整合，您需要從資源庫將 UserEcho 加入受管理的 SaaS 應用程式清單中。
 
 **若要從資源庫加入 UserEcho，請執行下列步驟：**
 
@@ -60,11 +60,11 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要開啟應用程式檢視，可在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2]<br>
+3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2]<br>
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **UserEcho**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_01.png)<br>
-7. 在結果窗格中，選取 [UserEcho]，然後按一下 [完成] 來加入應用程式。<br><br>
+7. 在結果窗格中，選取 [UserEcho]，然後按一下 [完成] 以加入應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_02.png)<br>
 
 ##  設定並測試 Azure AD 單一登入
 本節目標是說明如何以名為 "Britta Simon" 的測試使用者為基礎，使用 UserEcho 來設定及測試 Azure AD 單一登入。
@@ -88,9 +88,9 @@
 
 **若要使用 UserEcho 設定 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure AD 入口網站的 **UserEcho** 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][6] <br>
+1. 在 Azure AD 入口網站的 [UserEcho] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][6] <br>
 
-2. 在 [要如何讓使用者登入 UserEcho] 頁面上，選取 [Azure AD 單一登入]，然後按 [下一步]。<br><br> ![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png) <br>
+2. 在 [要如何讓使用者登入 UserEcho] 頁面上，選取 [Azure AD 單一登入]，然後按一下 [下一步]。<br><br> ![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png) <br>
 
 3. 在 [設定應用程式設定] 對話方塊頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_04.png) <br>
 
@@ -120,16 +120,16 @@
 
     a.在 [已啟用 SAML] 選取 [是]。
 
-    b.在 Azure 入口網站的 [設定在 UserEcho 單一登入] 對話方塊頁面上，複製**單一登入服務 URL** 值，並將它貼上。在記事本中開啟您下載的憑證，複製內容，然後貼到 [SAML SSO URL] 文字方塊。
+    b.在 Azure 入口網站的 [設定在 UserEcho 單一登入] 對話方塊頁面上，複製 [單一登入服務 URL] 值，並將它貼上。在記事本中開啟下載的憑證，複製其內容，然後貼到 [SAML SSO URL] 文字方塊中。
 
-    c.在 Azure 入口網站的 [設定在 UserEcho 單一登入] 對話方塊頁面上，複製**遠端登出 URL** 值，在記事本中開啟您下載的憑證，複製內容，然後貼到 [遠端登出 URL] 文字方塊。
+    c.在 Azure 入口網站的 [設定在 UserEcho 單一登入] 對話方塊頁面上，複製 [遠端登出 URL] 值。在記事本中開啟下載的憑證，複製其內容，然後貼到 [遠端登出 URL] 文字方塊中。
 
     d.在記事本中開啟下載的憑證，複製其內容，然後貼到 [X.509 憑證] 文字方塊中。
 
     e.按一下 [儲存]。
 
 
-6. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按 [下一步]。<br><br>![Azure AD 單一登入][10]<br>
+6. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [下一步]。<br><br>![Azure AD 單一登入][10]<br>
 
 7. 在 [單一登入確認] 頁面上，按一下 [完成]。<br><br>![Azure AD 單一登入][11]
 
@@ -145,9 +145,9 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要顯示使用者清單，請在頂端功能表中，按一下 [使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png) <br>
+3. 若要顯示使用者清單，請按一下頂端功能表中的 [使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png) <br>
  
-4. 若要開啟 [加入使用者] 對話方塊，請按一下底部工具列上的 [加入使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png) <br>
+4. 若要開啟 [加入使用者] 對話方塊，請按一下底部工具列中的 [加入使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png) <br>
 
 5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/create_aaduser_05.png) <br>
 
@@ -171,7 +171,7 @@
  
 8. 在 [取得暫時密碼] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png) <br>
   
-    a.請記下**新密碼**的值。
+    a.記下 [新密碼] 的值。
 
     b.按一下 [完成]。
 
@@ -181,13 +181,13 @@
 
 本節目標是在 UserEcho 中建立名為 Britta Simon 的使用者。
 
-**若要在 UserEcho 中建立名為 Britta Simon 的使用者，請執行以下步驟：**
+**若要在 UserEcho 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
 
 1. 以系統管理員身分登入您的 UserEcho 公司網站。
 
 1. 在頂端工具列中，按一下您的使用者名稱以展開功能表，然後按一下 [設定]。<br><br>![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
 
-1. 按一下 [使用者]，展開 [使用者] 區段。<br><br>![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png) <br>
+1. 按一下 [使用者] 以展開 [使用者] 區段。<br><br>![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png) <br>
 
 1. 按一下 [使用者]。<br><br>![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_11.png) <br>
 
@@ -210,13 +210,13 @@
 
 本節目標是授與 Britta Simon 對 UserEcho 的存取權，讓她能夠使用 Azure 單一登入。<br><br>![指派使用者][200] <br>
 
-**若要將 Britta Simon 指派到 UserEcho，請執行以下步驟：**
+**若要將 Britta Simon 指派到 UserEcho，請執行下列步驟：**
 
-1. 在 Azure 入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![指派使用者][201] <br>
+1. 在 Azure 入口網站上，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![指派使用者][201] <br>
 
-2. 在應用程式清單中，選取 **UserEcho**。<br><br>![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png) <br>
+2. 在應用程式清單中，選取 [UserEcho]。<br><br>![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png) <br>
 
-1. 在頂端功能表中，按一下 [使用者]。<br> <br>![指派使用者][203]<br>
+1. 在頂端功能表中，按一下 [使用者]。<br><br>![指派使用者][203] <br>
 
 1. 在 [使用者] 清單中，選取 [Britta Simon]。
 
@@ -226,7 +226,7 @@
 
 ### 測試單一登入
 
-本節目標是使用存取面板來測試您的 Azure AD 單一登入組態。<br> 當您在存取面板中按一下 UserEcho 磚時，應該會自動登入您的 UserEcho 應用程式。
+本節目標是使用存取面板測試您的 Azure AD 單一登入設定。<br> 當您在存取面板中按一下 [UserEcho] 磚時，應該會自動登入您的 UserEcho 應用程式。
 
 
 ## 其他資源
@@ -253,4 +253,4 @@
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

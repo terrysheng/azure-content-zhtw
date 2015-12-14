@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 
@@ -33,13 +33,13 @@
 - 解密並編輯支援封裝
 
 
-## 在管理入口網站中建立支援封裝
+## 在 Azure 傳統入口網站中建立支援封裝
 
-若要對您使用 StorSimple Manager 服務時可能遇到的任何問題進行疑難排解，您可以在管理入口網站中透過此服務的 [**維護**] 頁面，建立支援封裝並上傳至 Microsoft 支援服務網站。您必須提供支援密碼才能上傳。支援工程師透過電子郵件提供支援密碼給您。現在已建立未加密、已壓縮的支援封裝 (.cab 檔案)。然後，支援工程師只要從支援網站上出示密碼，即可擷取此封裝。
+若要對您使用 StorSimple Manager 服務時可能遇到的任何問題進行疑難排解，您可以在 Azure 傳統入口網站中透過此服務的 [維護] 頁面，建立支援封裝並上傳至 Microsoft 支援服務網站。您必須提供支援密碼才能上傳。支援工程師透過電子郵件提供支援密碼給您。現在已建立未加密、已壓縮的支援封裝 (.cab 檔案)。然後，支援工程師只要從支援網站上出示密碼，即可擷取此封裝。
 
-在管理入口網站中執行下列步驟，以建立支援封裝：
+在 Azure 傳統入口網站中執行下列步驟，以建立支援封裝：
 
-#### 在管理入口網站中建立支援封裝
+#### 在 Azure 傳統入口網站中建立支援封裝
 
 1. 瀏覽至 **[裝置] > [維護]**。
 
@@ -123,7 +123,7 @@
 
 在產生支援封裝之後，您可能需要編輯封裝來移除記錄檔中的客戶特定資訊，例如磁碟區名稱、裝置 IP 位址和備份名稱。
 
-> [AZURE.IMPORTANT]您只能編輯透過 Windows PowerShell for StorSimple 產生的支援封裝。您無法編輯在管理入口網站中以 StorSimple Manager 服務建立的封裝。
+> [AZURE.IMPORTANT]您只能編輯透過 Windows PowerShell for StorSimple 產生的支援封裝。您無法編輯在 Azure 傳統入口網站中以 StorSimple Manager 服務建立的封裝。
 
 將支援封裝上傳至 Microsoft 支援網站之前，若要編輯支援封裝，您必須解密支援封裝、編輯檔案，然後再次加密。執行下列步驟來編輯支援封裝：
 
@@ -199,4 +199,4 @@
 - 了解如何[使用支援封裝和裝置記錄對裝置部署進行疑難排解](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)。 
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Application Insights 中 ASP.NET 的記錄檔、例外狀況和自訂診斷
@@ -34,6 +34,11 @@
 ![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
 
 詳細資料會因應用程式類型而異。您可以逐一點選所有個別事件，以取得更多詳細資料。
+
+## 取樣 
+
+如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。[深入了解取樣。](app-insights-sampling.md)
+
 
 ##<a name="events"></a>自訂事件
 
@@ -271,6 +276,11 @@ VB
 
 每個應用程式每秒最多 500 個事件。事件會保留七天。
 
+### 有些事件或追蹤沒有顯示出來
+
+如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。[深入了解取樣。](app-insights-sampling.md)
+
+
 ## <a name="add"></a>接續步驟
 
 * [設定可用性和回應性測試][availability]
@@ -285,7 +295,7 @@ VB
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-web-failures-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -295,4 +305,4 @@ VB
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
 # BizTalk 服務：備份與還原
 
-Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Azure 管理入口網站來備份和還原 BizTalk 服務。
+Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Azure 傳統入口網站來備份和還原 BizTalk 服務。
 
 您也可以使用 [BizTalk 服務 REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584) 來備份 BizTalk 服務。
 
@@ -29,7 +29,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 	**注意事項**：混合式連線無法備份，與版本無關。
 
-- 使用 Azure 管理入口網站可建立隨選備份或排定備份。
+- 使用 Azure 傳統入口網站可建立隨選備份或排定備份。
 
 - 備份內容可以還原至相同的 BizTalk 服務，或還原至新的 BizTalk 服務。若要使用相同名稱來還原 BizTalk 服務，必須刪除現有的 BizTalk 服務，且名稱必須可用。刪除 BizTalk 服務之後，可能需要較長的時間，才能使用相同的名稱。如果無法等待相同的名稱可用，請還原至新的 BizTalk 服務。
 
@@ -48,14 +48,14 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 ## 建立備份
 
-您隨時都可以建立備份，完全決由掌控。本節列出使用 Azure 管理入口網站建立備份的步驟，內容包括：
+您隨時都可以建立備份，完全決由掌控。本節列出使用 Azure 傳統入口網站建立備份的步驟，內容包括：
 
 [隨選備份](#backupnow)
 
 [排定備份](#backupschedule)
 
 #### <a name="backupnow"></a>隨選備份
-1. 在 Azure 管理入口網站上，選取 [**BizTalk 服務**]，然後選取要備份的 BizTalk 服務。
+1. 在 Azure 傳統入口網站上，選取 [BizTalk 服務]，然後選取要備份的 BizTalk 服務。
 2. 在 [**儀表板**] 索引標籤中，選取頁面底部的 [**備份**]。
 3. 輸入備份名稱。例如，輸入 *myBizTalkService*BU*Date*。
 4. 選擇 Blob 儲存體帳戶，然後選取勾選記號開始備份。
@@ -64,7 +64,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 #### <a name="backupschedule"></a>排定備份
 
-1. 在 Azure 管理入口網站上，選取 [**BizTalk 服務**]，選取您要排定備份的 BizTalk 服務名稱，然後選取 [**設定**] 索引標籤。
+1. 在 Azure 傳統入口網站上，選取 [BizTalk 服務]，選取您要排定備份的 BizTalk 服務名稱，然後選取 [設定] 索引標籤。
 2. 將 [備份狀態] 設為 [自動]。 
 3. 選取要儲存備份的 [儲存體帳戶]，輸入建立備份的 [頻率] 以及備份的保留時間 ([保留天數])：
 
@@ -86,7 +86,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 ## 還原
 
-您可以從 Azure 管理入口網站或從[還原 BizTalk 服務 REST API](http://go.microsoft.com/fwlink/p/?LinkID=325582) 來還原備份。本節列出使用管理入口網站進行還原的步驟。
+您可以從 Azure 傳統入口網站或從[還原 BizTalk 服務 REST API](http://go.microsoft.com/fwlink/p/?LinkID=325582) 來還原備份。本節列出使用傳統入口網站進行還原的步驟。
 
 #### 還原備份之前
 
@@ -96,7 +96,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 #### Restore a backup
 
-1. 在 Azure 管理入口網站上，選取 [新增] > App Service > [BizTalk 服務] > [還原]：
+1. 在 Azure 傳統入口網站上，選取 [新增] > [應用程式服務] > [BizTalk 服務] > [還原]：
 
 	![還原備份][Restore]
 
@@ -119,7 +119,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 7. 選取勾選記號以啟動還原。
 
-順利完成還原時，在 Azure 管理入口網站的 BizTalk 伺服器頁面上，新的 BizTalk 服務將以暫止狀態列出。
+順利完成還原時，在 Azure 傳統入口網站的 BizTalk 伺服器頁面上，新的 BizTalk 服務將以暫止狀態列出。
 
 
 
@@ -135,7 +135,7 @@ BizTalk 服務永遠還原成**暫止**狀態。在此狀態下，您可以在�
 
 - 在剛還原的 BizTalk 服務環境上，建議設定自動備份。
 
-若要在 Azure 管理入口網站上啟動 BizTalk 服務，請選取已還原的 BizTalk 服務，然後在工作列中選取 [**繼續**]。
+若要在 Azure 傳統入口網站上啟動 BizTalk 服務，請選取已還原的 BizTalk 服務，然後在工作列中選取 [繼續]。
 
 
 
@@ -214,13 +214,13 @@ BizTalk 服務永遠還原成**暫止**狀態。在此狀態下，您可以在�
 
 ## 下一步
 
-若要在 Azure 管理入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)。
+若要在 Azure 傳統入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 傳統入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)。
 
 ## 另請參閱
 - [備份 BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 - [從備份還原 BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 - [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-- [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+- [BizTalk 服務：使用 Azure 傳統入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 - [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 - [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 - [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)
@@ -233,4 +233,4 @@ BizTalk 服務永遠還原成**暫止**狀態。在此狀態下，您可以在�
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

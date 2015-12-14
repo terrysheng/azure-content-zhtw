@@ -131,7 +131,7 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 
 我們將藉由此處介紹的 Order By 支援擴充未來的服務更新。我們正在著手開發以下新增功能，並且會根據您的意見反應排定這些改善功能的發行順序：
 
-- 動態索引編製原則：支援在集合建立後以及在 Azure 入口網站中修改索引編製原則
+- 動態索引編製原則：支援在集合建立後以及在 Azure 傳統入口網站中修改索引編製原則
 - 支援複合索引以提升 Order By 和針對多重屬性之 Order By 的效率。
 
 ## 常見問題集
@@ -177,4 +177,4 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 * [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

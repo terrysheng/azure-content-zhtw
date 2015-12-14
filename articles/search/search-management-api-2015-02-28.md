@@ -39,7 +39,7 @@ Azure 搜尋服務管理 REST API 為 Azure 資源管理員的擴充功能並且
 
 記載於[開始使用 Azure 搜尋管理 REST API](http://go.microsoft.com/fwlink/p/?linkID=516968) 的範例應用程式，示範對於每種類型作業的驗證技術。使用 Active Directory 來設定用戶端應用程式的指示包含於「開始使用」中。
 
-Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀取者角色。根據預設，所有服務管理員都是擁有者角色的成員。如需詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control-configure.md)。
+Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀取者角色。根據預設，所有服務管理員都是擁有者角色的成員。如需詳細資訊，請參閱 [Azure 傳統入口網站中的角色型存取控制](../role-based-access-control-configure.md)。
 
 
 ### API 的摘要 ##
@@ -812,4 +812,4 @@ Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀�
 
 無。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

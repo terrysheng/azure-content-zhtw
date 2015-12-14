@@ -20,7 +20,7 @@
 
 本主題說明如何將自訂 Java Web 應用程式上傳至 [Azure App Service] Web Apps。內容包括適用於任何 Java 網站或 Web 應用程式的資訊，以及針對特定應用程式的一些範例。
 
-請注意，如同[在 Azure App Service 中建立 Java Web 應用程式](web-sites-java-get-started.md)中的說明一樣，Azure 提供了使用 Azure 預覽入口網站的組態 UI 和 Azure Marketplace 來建立 Java Web 應用程式的方法。本教學課程適用於您不打算使用入口網站組態 UI 或 Azure Marketplace 的案例。
+請注意，如同[在 Azure App Service 中建立 Java Web 應用程式](web-sites-java-get-started.md)中的說明一樣，Azure 提供了使用 Azure 入口網站的組態 UI 和 Azure Marketplace 來建立 Java Web 應用程式的方法。本教學課程適用於您不打算使用 Azure 入口網站組態 UI 或 Azure Marketplace 的案例。
 
 ## 組態方針
 
@@ -257,4 +257,4 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

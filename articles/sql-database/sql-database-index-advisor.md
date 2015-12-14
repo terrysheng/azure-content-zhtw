@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # SQL Database 索引顧問
@@ -22,12 +22,12 @@ Azure SQL Database 索引顧問會建議新的索引給現有 SQL Database 來�
 
 此 SQL Database 服務會分析 SQL Database 的資源使用歷程記錄來評估索引效能，並建議最適合執行資料庫一般工作負載的索引。
 
-索引顧問會建議應該建立哪些索引，讓索引管理更輕鬆。在 V12 伺服器中，只要在 [Azure Preview 入口網站](https://portal.azure.com/)按幾下，索引顧問也可以建立並驗證索引。建立索引之後，此 SQL Database 服務會分析資料庫工作負載的效能，並提供新索引帶來何種影響的詳細資料。如果分析判斷所建議的索引不利於效能，則會自動還原索引。
+索引顧問會建議應該建立哪些索引，讓索引管理更輕鬆。在 V12 伺服器中，只要在 [Azure 入口網站](https://portal.azure.com/)按幾下，索引顧問也可以建立並驗證索引。建立索引之後，此 SQL Database 服務會分析資料庫工作負載的效能，並提供新索引帶來何種影響的詳細資料。如果分析判斷所建議的索引不利於效能，則會自動還原索引。
 
 索引顧問可節省您調整資料庫效能的時間。
 
 
-> [AZURE.NOTE]索引顧問目前為預覽狀態，只在 [Azure Preview 入口網站](https://portal.azure.com/)中提供。
+> [AZURE.NOTE]索引顧問目前為預覽狀態，只在 [Azure 入口網站](https://portal.azure.com/)中提供。
 
 
 ## 預覽版本注意事項
@@ -57,11 +57,11 @@ Azure SQL Database 索引顧問會建議新的索引給現有 SQL Database 來�
 
 ## 檢閱建議的索引
 
-索引顧問會在 [Azure Preview 入口網站](https://portal.azure.com/)的 [資料庫] 刀鋒視窗上提供索引建議清單。針對選取的資料庫中的每個資料表，將會顯示精選的建議，表示在其中建立新索引可能提高效能。
+索引顧問會在 [Azure 入口網站](https://portal.azure.com/)的 [資料庫] 刀鋒視窗上提供索引建議清單。針對選取的資料庫中的每個資料表，將會顯示精選的建議，表示在其中建立新索引可能提高效能。
 
 ### 若要檢閱目前可用的索引建議：
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下左側功能表中的 [瀏覽]。
 3. 按一下 [瀏覽] 刀鋒視窗中的 [SQL Database]。
 4. 在 [**SQL Database**] 刀鋒視窗中，按一下您想要檢閱建議索引的資料庫。
@@ -171,4 +171,4 @@ Azure SQL Database 索引顧問會建議新的索引給現有 SQL Database 來�
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

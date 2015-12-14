@@ -12,12 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
 # 使用現有的 SQL Database 和行動服務 .NET 後端建置服務
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 行動服務 .NET 後端可方便您運用現有的資產來建置行動服務。在內部部署或雲端中使用現有 SQL Database (可能已有其他應用程式正在使用)，讓現有資料可供行動用戶端使用，是特別有趣的案例之一。在此情況下，資料庫模型 (或*結構描述*) 必須保持不變，現有的方案才能繼續運作。
 
@@ -26,7 +31,7 @@
 
 在本教學課程中，我們將使用以您的行動服務建立的資料庫，但不會使用已建立的預設模型。我們將手動建立任意模型，以代表您可能會有的現有應用程式。如需如何改為連接到內部部署資料庫的完整相關資訊，請參閱[使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server](mobile-services-dotnet-backend-hybrid-connections-get-started.md)。
 
-1. 首先，請在 **Visual Studio 2013 Update 2** 中建立行動服務伺服器專案，或使用您可以在服務的 [行動服務] 索引標籤上 (在 [Azure 管理入口網站](http://manage.windowsazure.com)中) 下載的快速入門專案。基於本教學課程的用途，我們假設您的伺服器專案名稱是 **ShoppingService**。
+1. 首先，請在 **Visual Studio 2013 Update 2** 中建立行動服務伺服器專案，或使用您可以在服務的 [行動服務] 索引標籤上 (在 [Azure 傳統入口網站](http://manage.windowsazure.com)中) 下載的快速入門專案。基於本教學課程的用途，我們假設您的伺服器專案名稱是 **ShoppingService**。
 
 2. 在 **Models** 資料夾中建立 **Customer.cs** 檔案，然後使用下列實作方式。您必須將 **System.ComponentModel.DataAnnotations** 的組件參考新增至您的專案。
 
@@ -614,4 +619,4 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
 
 您可在此時建置用來存取服務的用戶端應用程式，以執行下一個步驟。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

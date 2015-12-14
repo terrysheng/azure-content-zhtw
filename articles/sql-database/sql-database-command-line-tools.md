@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="sstein; vinsonyu"/>
+	ms.date="12/01/2015" 
+	ms.author="sstein"/>
 
 # 使用 PowerShell 管理 Azure SQL Database
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -36,7 +36,7 @@
 
 ## 設定您的認證
 
-若要針對 Azure 訂用帳戶執行 PowerShell Cmdlet，您必須先建立至 Azure 帳戶的存取權。執行以下項目，然後您會看到要輸入認證的登入畫面。請使用與登入 Azure 入口網站相同的電子郵件和密碼。
+若要針對 Azure 訂用帳戶執行 PowerShell Cmdlet，您必須先建立至 Azure 帳戶的存取權。執行以下項目，然後您會看到要輸入認證的登入畫面。請使用與登入 Azure 傳統入口網站相同的電子郵件和密碼。
 
 	Add-AzureAccount
 
@@ -115,7 +115,7 @@
 如果您將再次建立這些 Azure SQL 資源或類似的資源，您可以：
 
 - 將這個命令集儲存為 PowerShell 指令碼檔案 (*.ps1)
-- 在 Azure 管理入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook 
+- 在 Azure 傳統入口網站的 [自動化] 區段中，將這個命令集儲存為 Azure 自動化 Runbook 
 
 ## 後續步驟
 
@@ -131,4 +131,4 @@
 
 - [Azure SQL Database Cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

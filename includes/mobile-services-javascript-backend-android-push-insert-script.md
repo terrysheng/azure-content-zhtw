@@ -1,5 +1,5 @@
 
-1. 在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。 
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。 
  
 2. 在 [todoitem] 中，按一下 [指令碼] 索引標籤，然後選取 [插入]。
    
@@ -37,4 +37,4 @@
 
    	如此即會註冊新的 insert 指令碼，該指令碼會在插入成功之後，使用 [gcm 物件](http://go.microsoft.com/fwlink/p/?LinkId=282645)將推播通知傳送給所有已註冊的裝置。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

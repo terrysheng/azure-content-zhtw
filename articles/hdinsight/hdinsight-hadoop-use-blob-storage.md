@@ -60,7 +60,7 @@ Hadoop 支援預設檔案系統的概念。預設檔案系統意指預設配置�
 
 	> [AZURE.NOTE]> 公用容器可讓您取得該容器中所有可用的 Blob 清單，並取得容器中繼資料。公用 Blob 只在您知道確切的 URL 時才可讓您存取 Blob。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">限制對容器和 Blob 的存取</a>。
 
-- **儲存體帳戶中未連線至叢集的私人容器：**除非在提交 WebHCat 工作時定義儲存體帳戶，否則不能存取容器中的 Blob。稍後在本文中會加以說明。
+- **儲存體帳戶中未連接至叢集的私人容器：**除非在提交 WebHCat 工作時定義儲存體帳戶，否則不能存取容器中的 Blob。稍後在本文中會加以說明。
 
 
 建立程序及其金鑰中定義的儲存體帳戶會儲存在叢集節點的 %HADOOP\_HOME%/conf/core-site.xml 中。HDInsight 的預設行為是使用 core-site.xml 檔案中定義的儲存體帳戶。因為叢集前端節點 (主要) 有可能會隨時重新安裝映像或進行移轉，屆時將會遺失對這些檔案所做的任何變更，所以我們不建議您編輯 core-site.xml 檔案。
@@ -78,7 +78,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 * **資料封存：**將資料儲存在 Azure Blob 儲存體中，可安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 * **資料儲存成本：**長期將資料儲存在 DFS 中的成本高於將資料儲存在 Azure Blob 儲存體中，因為運算叢集的成本高於 Azure Blob 儲存容器的成本。此外，因為不需要每次產生運算叢集時都重新載入資料，也能節省資料載入成本。
 * **彈性向外延展：**雖然HDFS 提供向外延展的檔案系統，但延展程度取決於您建立給叢集的節點數目。變更延展程度較為複雜，可改用 Azure Blob 儲存體自動提供的彈性延展功能。
-* **異地複寫：**Azure Blob 儲存容器可以進行異地複寫。雖然這樣可支援地理位置復原和資料備援，但容錯移轉至異地複寫的位置會嚴重影響效能，且可能產生額外的成本。因此，只有在資料的價值大於額外成本時，才建議您明智地選擇地理區域複寫。
+* **異地複寫：**Azure Blob 儲存體可以進行異地複寫。雖然這樣可支援地理位置復原和資料備援，但容錯移轉至異地複寫的位置會嚴重影響效能，且可能產生額外的成本。因此，只有在資料的價值大於額外成本時，才建議您明智地選擇地理區域複寫。
 
 某些 MapReduce 工作和封裝可能會產生中繼結果，但您並不真的想要將這些結果儲存在 Azure Blob 儲存體中。在此情況下，您仍可選擇將資料儲存在本機 HDFS。事實上，在 Hive 工作和其他程序中，HDInsight 會使用 DFS 來儲存許多這些中繼結果。
 
@@ -94,9 +94,9 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 預設 Blob 容器會儲存叢集特定資訊，例如工作歷程記錄和記錄檔。不要與多個 HDInsight 叢集共用預設 Blob 容器。這可能會損毀工作歷程記錄，而叢集將會行為異常。建議您為每個叢集使用不同的容器，並在所有相關叢集的部署中指定的連結儲存體帳戶 (而不是預設儲存體帳戶) 上放置共用的資料。如需如何設定連結儲存體帳戶的詳細資訊，請參閱[建立 HDInsight 叢集][hdinsight-creation]。不過，在刪除原始的 HDInsight 叢集後，您可以重複使用預設儲存容器。至於 HBase 叢集，您可以利用被刪除的 HBase 叢集使用的預設 Blob 儲存容器來建立一個新的 HBase 叢集，藉此實際保留 HBase 資料表結構描述和資料。
 
 
-### 使用 Azure Preview 入口網站
+### 使用 Azure 入口網站
 
-從預覽入口網站建立 HDInsight 叢集時，您可以選擇使用現有的儲存體帳戶或建立新的儲存體帳戶：
+從入口網站建立 HDInsight 叢集時，您可以選擇使用現有的儲存體帳戶或建立新的儲存體帳戶：
 
 ![hdinsight hadoop 建立資料來源](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
@@ -297,4 +297,4 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

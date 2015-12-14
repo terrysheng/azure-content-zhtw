@@ -58,13 +58,13 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 若要取得這些值，請執行下列動作：
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com/)。
+1. 登入 [Azure 入口網站](portal.azure.com)。
 
-2. 瀏覽到您要使用的儲存體帳戶。
+2. 瀏覽至儲存體帳戶。
 
-3. 按一下導覽窗格底部的 [管理金鑰]。
+3. 在 [設定] 刀鋒視窗中，選取 [金鑰]。
 
-4. 在快顯對話方塊中，您將會看到儲存體帳戶名稱、主要存取金鑰和次要存取金鑰。如需存取金鑰，您可使用主要存取金鑰或次要存取金鑰。
+4. 複製所需的存取金鑰值。
 
 ## 建立資料表
 
@@ -154,8 +154,7 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 請遵循下列連結以深入了解更複雜的儲存體工作：
 
-- MSDN 參考：[Azure 儲存體](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub 上的 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 存放庫
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -16,12 +16,12 @@
  
 # .NET 適用的 Application Insights SDK 的版本資訊
 
-[Application Insights SDK for .NET](app-insights-start-monitoring-app-health-usage.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](http://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
+[Application Insights SDK for .NET](app-insights-asp-net.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](http://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
 
 
 #### 若要在應用程式中安裝 SDK
 
-See [Get started with Application Insights for .NET](app-insights-start-monitoring-app-health-usage.md).
+See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
 #### 升級至最新的 SDK 
 
@@ -32,15 +32,20 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * 與舊的複本比較 ApplicationInsights.config。您看到的變更大部分是因為我們移除了部分模組，並讓其他的模組可參數化。恢復您對舊檔案做的任何自訂。
 * 重建您的方案。
 
+
+## 2\.0.0-beta3 版
+
+- [調適性取樣](app-insights-sampling.md)
+
 ## 版本 2.0.0-beta2
-- 新增對 ITelemetryProcessor 的支援，而且可以透過程式碼或組態設定。[在 SDK 中啟用自訂篩選](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
-- 已移除內容初始設定式。改用 [遙測初始設定式](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)。
-- 已更新 .Net framework 4.6 適用的 Application Insights 
+- 新增對 ITelemetryProcessor 的支援，而且可以透過程式碼或組態設定。[在 SDK 中啟用自訂篩選](app-insights-api-telemetry-processors/#telemetry-processors)
+- 已移除內容初始設定式。請改用[遙測初始設定式](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)。
+- 已更新適用於 .Net framework 4.6 的 Application Insights。 
 - 自訂的事件名稱現在最多可包含 512 個字元。
 - 屬性 ```OperationContext.Name``` 已重新命名為 ```RootName```。
 - 屬性 ```RequestTelemetry.Id``` 已移除。
 - 建立新的 RequestTelemetry 時，不會初始化 RequestTelemetry 的屬性 ```Id``` 和 ```Context.Operation.Id```。
-- ```RequestTelemetry.Name``` 不會再初始化。將改用 ```RequestTelemetry.Context.Operation.Name```。
+- 不會再將 ```RequestTelemetry.Name``` 初始化。將改用 ```RequestTelemetry.Context.Operation.Name```。
 - 在要求監視中，回應碼 401 是一般驗證信號交換的一部分，並會導致成功的要求。
 - 修正從 UI 執行緒初始化 InMemoryChannel (預設通道) 時的 UI 執行緒鎖定。這會修正 WPF 應用程式的 UI 凍結問題。
  
@@ -49,36 +54,36 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 - 備援屬性 ```RequestTelemetry.ID``` 現在只是 ```RequestTelemetry.Operation.Id``` 的 Proxy。
 - 新介面 ```ISupportSampling``` 及其透過大部分資料項目類型的明確實作。
 - DependencyTelemetry 上的 ```Count``` 屬性已標示為過時。請改用 ```SamplingPercentage```。
-- 已引進新的 ```CloudContext```，並將屬性 ```RoleName``` 和 ```RoleInstance``` 從 ```DeviceContext``` 移至其中。
-- ```UserContext``` 上用來指定驗證使用者身分識別的新屬性 ```AuthenticatedUserId```。
-- 已新增 `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`，`Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`，用來初始化 Javascript SDK 所設定的已驗證使用者內容。
+- 已引入新的 ```CloudContext```，並將屬性 ```RoleName``` 和 ```RoleInstance``` 從 ```DeviceContext``` 移至其中。
+- ```UserContext``` 上用來指定已驗證使用者身分識別的新屬性 ```AuthenticatedUserId```。
+- 已新增 `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`、`Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`，可依照 Javascript SDK 的設定初始化驗證的使用者內容。
 - 已新增 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` 和固定的取樣率支援，作為它的實作。
-- 已新增 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`，允許使用一組 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` 建立 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`。
+- 已新增 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`，可允許使用一組 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` 建立 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`。
 
 ## 1\.2 版
 
-- 在 ASP.NET 程式庫沒有相依性的遙測初始設定式會從 `Microsoft.ApplicationInsights.Web` 移動至新的相依性 NuGet `Microsoft.ApplicationInsights.WindowsServer`
+- 在 ASP.NET 程式庫上沒有相依性的遙測初始設定式已從 `Microsoft.ApplicationInsights.Web` 移至新的相依性 NuGet `Microsoft.ApplicationInsights.WindowsServer`
 - 在 `Microsoft.AI.Web.dll` 上的 `Microsoft.ApplicationInsights.Web.dll` 已重新命名
-- 在 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel` 上的 `Microsoft.ApplicationInsights.Web.TelemetryChannel` NuGet 已重新命名。在 `Microsoft.AI.ServerTelemetryChannel.dll` 上的 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 組件已重新命名。在 `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` 上的 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 類別已重新命名。
-- 所有屬於 Web SDK 一部分的命名空間已變更為排除 `Extensibility` 組件。其中包含所有 ApplicationInsights.config 中的遙測初始設定式和 web.config 中的 `ApplicationInsightsWebTracking` 模組。
+- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel` 上的 `Microsoft.ApplicationInsights.Web.TelemetryChannel` NuGet 已重新命名。`Microsoft.AI.ServerTelemetryChannel.dll` 上的 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 組件已重新命名。`Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` 上的 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 類別已重新命名。
+- 所有屬於 Web SDK 一部分的命名空間已變更以排除 `Extensibility` 組件。其中包含 ApplicationInsights.config 中的所有遙測初始設定式，和 web.config 中的 `ApplicationInsightsWebTracking` 模組。
 - 如果執行緒上沒有 HttpContext.Current，則使用執行階段檢測代理程式 (透過狀態監視器或 Azure 網站的延伸模組來啟用) 所收集的相依性將不會標示為非同步。
-- `DependencyTrackingTelemetryModule` 的屬性`SamplingRatio` 不會執行任何動作且會標記為過時。
+- `DependencyTrackingTelemetryModule` 的屬性`SamplingRatio` 不會執行任何動作且將被標記為過時。
 - 在 `Microsoft.AI.PerfCounterCollector` 上的 `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` 組件已重新命名
 - Web 角色和裝置 SDK 中的數個輕微錯誤修正
 
 
 ## 1\.1 版
 
-- 加入了新遙測類型 `DependencyTelemetry`，它可以用來傳送來自應用程式的相依性呼叫 (如 SQL、HTTP 呼叫等) 的相關資訊。
-- 加入了新多載方法 `TelemetryClient.TrackDependency`，可讓您傳送呼叫相依性的相關資訊。
+- 已新增遙測類型 `DependencyTelemetry`，可以用來傳送來自應用程式之相依性呼叫 (如 SQL、HTTP 呼叫等) 的相關資訊。
+- 已新增多載方法 `TelemetryClient.TrackDependency`，可讓您傳送相依性呼叫的相關資訊。
 - 修正了使用 TelemetryConfiguration.CreateDefault 時診斷模組擲回的 NullReferenceException 模組。
 
 ## 1\.0 版
 
-- 已將遙測初始設定式和遙測模組從不同子命名空間移至根 `Microsoft.ApplicationInsights.Extensibility.Web` 命名空間。
-- 已從遙測初始設定式和遙測模組的名稱移除 "Web" 前置詞，因為它已經包含在 `Microsoft.ApplicationInsights.Extensibility.Web` 命名空間名稱中。
-- 已從 `Microsoft.ApplicationInsights` 組件將 `DeviceContextInitializer` 移動到 `Microsoft.ApplicationInsights.Extensibility.Web` 組件，並轉換為 `ITelemetryInitializer`。
-- 將命名空間和組件的名稱從 `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` 變更為 `Microsoft.ApplicationInsights.Extensibility.DependencyCollector`，以獲得與 NuGet 封裝名稱的一致性。
+- 已將遙測初始設定式和遙測模組從另一個子命名空間移至根 `Microsoft.ApplicationInsights.Extensibility.Web` 命名空間。
+- 已從遙測初始設定式和遙測模組的名稱中移除「Web」前置詞，因為它已經包含在 `Microsoft.ApplicationInsights.Extensibility.Web` 命名空間名稱中。
+- 已從 `Microsoft.ApplicationInsights` 組件將 `DeviceContextInitializer` 移至 `Microsoft.ApplicationInsights.Extensibility.Web` 組件，並轉換為 `ITelemetryInitializer`。
+- 將命名空間和組件的名稱從 `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` 變更為 `Microsoft.ApplicationInsights.Extensibility.DependencyCollector`，以維持與 NuGet 封裝名稱的一致性。
 - 將 `RemoteDependencyModule` 重新命名為 `DependencyTrackingTelemetryModule`。
 - 將 `CustomPerformanceCounterCollectionRequest` 重新命名為 `PerformanceCounterCollectionRequest`。
 
@@ -109,4 +114,4 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

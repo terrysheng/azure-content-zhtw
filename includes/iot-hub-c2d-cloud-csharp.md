@@ -18,7 +18,7 @@
 
 		using Microsoft.Azure.Devices;
 
-5. 將下列欄位加入至 **Program** 類別，並將預留位置的值替換為 IoT 中心名稱，以及[開始使用 IoT 中心] 中的 IoT 中心連接字串：
+5. 將下列欄位加入至 **Program** 類別，並將預留位置的值替換為[開始使用 IoT 中樞] 中的 IoT 中樞連接字串：
 
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -96,10 +96,11 @@
 [Azure IoT - 服務 SDK NuGet 封裝]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [暫時性錯誤處理]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
 [開始使用 IoT 中心]: iot-hub-csharp-csharp-getstarted.md
+[開始使用 IoT 中樞]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
 [20]: ./media/iot-hub-c2d-cloud-csharp/create-identity-csharp1.png
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

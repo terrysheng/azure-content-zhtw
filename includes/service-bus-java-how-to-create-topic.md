@@ -16,11 +16,11 @@
 
 建立服務命名空間：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 傳統入口網站][]。
 
-2.  在管理入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
+2.  在入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 
-3.  在管理入口網站的下方窗格中，按一下 [**建立**]。![][0]
+3.  在入口網站的下方窗格中，按一下 [建立]。![][0]
 
 4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。![][2]
 
@@ -35,7 +35,7 @@
 
 ## 取得命名空間的預設管理認證
 
-若要在新的命名空間上執行管理作業，例如建立主題或訂用帳戶，您必須取得命名空間的管理認證。您可以從 Azure 管理入口網站取得這些認證。
+若要在新的命名空間上執行管理作業，例如建立主題或訂用帳戶，您必須取得命名空間的管理認證。您可以從入口網站取得這些認證。
 
 ### 從入口網站取得管理認證
 
@@ -48,7 +48,7 @@
 4.  記下主要金鑰，或將它複製到剪貼簿。
 
 
-  [Azure 管理入口網站]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
   [0]: ./media/service-bus-java-how-to-create-topic/sb-queues-13.png
   [2]: ./media/service-bus-java-how-to-create-topic/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-create-topic/sb-queues-09.png
@@ -57,4 +57,4 @@
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

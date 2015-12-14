@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="在行動服務中使用離線資料 (Xamarin iOS) | Microsoft Azure" 
-	description="了解如何使用 Azure 行動服務快處和徒步 Xamarin iOS 應用程式中的離線資料" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	editor="wesmc" 
-	manager="dwrede" 
+<properties
+	pageTitle="在行動服務中使用離線資料 (Xamarin iOS) | Microsoft Azure"
+	description="了解如何使用 Azure 行動服務快處和徒步 Xamarin iOS 應用程式中的離線資料"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	editor="wesmc"
+	manager="dwrede"
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
 	ms.date="11/02/2015"
 	ms.author="donnam"/>
 
 # 在行動服務中使用離線資料同步
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -42,7 +47,7 @@
 本教學課程需要下列各項：
 
 * 附有 [Xamarin 延伸]**或** [Xamarin Studio] 的 Visual Studio (在 OS X 上)
-* XCode 4.5 和 iOS 6.0 (或更新版本) 
+* XCode 4.5 和 iOS 6.0 (或更新版本)
 * 完成[開始使用行動服務]教學課程
 
 ## <a name="review-offline"></a>檢閱行動服務同步處理程式碼
@@ -145,9 +150,9 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 2. 重新建置並執行應用程式。請注意，雖然應用程式此時已連接到行動服務，但資料看起來仍會與離線狀態下相同。這是因為此應用程式一律會使用指向本機存放區的 `IMobileServiceSyncTable`。
 
-3. 登入 Microsoft Azure 管理入口網站，並檢視您的行動服務的資料庫。如果您的服務使用 JavaScript 後端，則您可以從行動服務的 [資料] 索引標籤瀏覽資料。
+3. 登入 [Azure 傳統入口網站]，並檢視您的行動服務資料庫。如果您的服務使用 JavaScript 後端，則您可以從行動服務的 [資料] 索引標籤瀏覽資料。
 
-    如果您將 .NET 後端用於行動服務，請在 Visual Studio 中移至 [伺服器總管] -> [Azure] -> [SQL 資料庫]。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。
+    如果您將 .NET 後端用於行動服務，請在 Visual Studio 中移至 [伺服器總管] > [Azure] > [SQL 資料庫]。在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。
 
     請注意，資料並*未* 與資料庫和本機存放區進行同步處理。
 
@@ -180,6 +185,6 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin 延伸]: http://xamarin.com/visual-studio
- 
+[Azure 傳統入口網站]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -41,7 +41,7 @@
 
     >[AZURE.NOTE]用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些密碼，或與您的應用程式一起散發密碼。
 
-10. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+10. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，按一下 [行動服務]，然後按一下您的應用程式。
 
 11. 按一下 [身分識別] 索引標籤，輸入您在步驟 4 中從 WNS 取得的 [用戶端密碼] 和 [封裝 SID] 值，然後按一下 [儲存]。
 
@@ -60,6 +60,5 @@
 <!-- URLs. -->
 [開始使用行動服務]: /develop/mobile/tutorials/get-started/#create-new-service
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Azure 管理入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

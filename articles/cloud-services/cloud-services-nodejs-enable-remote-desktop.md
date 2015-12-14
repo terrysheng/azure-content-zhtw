@@ -58,9 +58,9 @@
 
 發佈更新的服務定義後，您可以連接至角色執行個體。
 
-1.  在 [Azure 管理入口網站]中，選取 [**雲端服務**]，然後選取您的服務。
+1.  在 [Azure 傳統入口網站]中，選取 [雲端服務]，然後選取您的服務。
 
-	![azure management portal][cloud-services]
+	![Azure 傳統入口網站][cloud-services]
 
 2.  按一下 [執行個體]，然後按一下 [生產] 或 [執行]，以檢視服務的執行個體。選取執行個體，然後按一下頁面底部的 [連接]。
 
@@ -102,7 +102,7 @@
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[Azure 管理入口網站]: http://manage.windowsazure.com
+[Azure 傳統入口網站]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
@@ -116,4 +116,4 @@
   [搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

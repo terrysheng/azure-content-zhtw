@@ -1,6 +1,6 @@
 <properties
 	pageTitle="登入 Windows Server VM | Microsoft Azure"
-	description="了解如何使用 Azure Preview 入口網站和資源管理員部署模型登入 Windows Server VM。"
+	description="了解如何使用 Azure 入口網站和資源管理員部署模型登入 Windows Server VM。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -21,11 +21,11 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-log-on-windows-server.md)。
 
-您會使用 Azure Preview 入口網站中的 [連接] 按鈕啟動「遠端桌面」工作階段。首先您要連接至虛擬機器，然後登入。
+您會使用 Azure 入口網站中的 [連線] 按鈕啟動「遠端桌面」工作階段。首先您要連接至虛擬機器，然後登入。
 
 ## 連接至虛擬機器
 
-1. 如果您未曾執行過這項操作，請登入 [Azure Preview 入口網站](https://portal.azure.com/)。
+1. 如果您尚未登入 [Azure 入口網站](https://portal.azure.com/)，請先登入。
 
 2.	在 [中樞] 功能表上，按一下 [**瀏覽**]。
 
@@ -47,4 +47,4 @@
 
 如果有關登入的秘訣沒有幫助，或者不是您所需要的，請參閱[疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)。本文會逐步帶領您診斷及解決常見的問題。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

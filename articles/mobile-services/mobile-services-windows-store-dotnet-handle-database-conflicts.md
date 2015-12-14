@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="使用開放式並行存取處理資料庫寫入衝突 (Windows 市集) | Microsoft Azure" 
-	description="了解如何處理伺服器與 Windows 市集應用程式之間的資料庫寫入衝突。" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="使用開放式並行存取處理資料庫寫入衝突 (Windows 市集) | Microsoft Azure"
+	description="了解如何處理伺服器與 Windows 市集應用程式之間的資料庫寫入衝突。"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 # 處理資料庫寫入衝突
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 
 
@@ -32,10 +37,10 @@
 本教學課程需要下列各項
 
 + Microsoft Visual Studio 2013 或更新版本。
-+ 本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。 
++ 本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。
 + [Azure 帳戶]
 + Azure 行動服務 NuGet 封裝 1.1.0 或更新版本。若要取得最新版本，請遵循下列步驟：
-	1. 在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 封裝]。 
+	1. 在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 封裝]。
 
 		![][19]
 
@@ -44,7 +49,7 @@
 		![][20]
 
 
- 
+
 
 ##更新應用程式以允許更新
 
@@ -85,7 +90,7 @@
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -94,7 +99,7 @@
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
@@ -111,18 +116,18 @@
 
 		public class TodoItem
 		{
-			public string Id { get; set; }			
+			public string Id { get; set; }
 			[JsonProperty(PropertyName = "text")]
-			public string Text { get; set; }			
+			public string Text { get; set; }
 			[JsonProperty(PropertyName = "complete")]
-			public bool Complete { get; set; }			
+			public bool Complete { get; set; }
 			[JsonProperty(PropertyName = "__version")]
 			public string Version { set; get; }
 		}
 
 	> [AZURE.NOTE]使用不具型別的資料表時，開放式並行存取的啟用方式，是在資料表的 SystemProperties 中新增 Version 旗標。
 	>
-	>````` 
+	>`````
 	//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
@@ -132,7 +137,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -145,7 +150,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 if (exception is MobileServicePreconditionFailedException)
@@ -168,27 +173,27 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
         {
             //Ask user to choose the resolution between versions
-            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n", 
-                                                        serverItem.Text, localItem.Text), 
+            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n",
+                                                        serverItem.Text, localItem.Text),
                                                         "CONFLICT DETECTED - Select a resolution:");
             UICommand localBtn = new UICommand("Commit Local Text");
             UICommand ServerBtn = new UICommand("Leave Server Text");
             msgDialog.Commands.Add(localBtn);
-            msgDialog.Commands.Add(ServerBtn);			
+            msgDialog.Commands.Add(ServerBtn);
             localBtn.Invoked = async (IUICommand command) =>
             {
-                // To resolve the conflict, update the version of the 
+                // To resolve the conflict, update the version of the
                 // item being committed. Otherwise, you will keep
                 // catching a MobileServicePreConditionFailedException.
-                localItem.Version = serverItem.Version;				
-                // Updating recursively here just in case another 
+                localItem.Version = serverItem.Version;
+                // Updating recursively here just in case another
                 // change happened while the user was making a decision
                 await UpdateToDoItem(localItem);
-            };			
+            };
             ServerBtn.Invoked = async (IUICommand command) =>
             {
 				RefreshTodoItems();
-            };			
+            };
             await msgDialog.ShowAsync();
         }
 
@@ -218,7 +223,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 5. 將封裝資料夾 "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test" 複製到第二部機器。在該機器上開啟封裝資料夾，以滑鼠右鍵按一下 **Add-AppDevPackage.ps1** PowerShell 指令碼，然後按一下 [用 PowerShell 執行]，如下所示。依照提示安裝應用程式。
 
 	![][12]
-  
+
 5. 按一下 [偵錯]->[開始偵錯]，在 Visual Studio 中執行應用程式的執行個體 1。在第二部機器的 [開始] 畫面上按一下向下箭頭，以依名稱檢視應用程式。接著，按一下 **todolist** 應用程式，以執行應用程式的執行個體 2。
 
 	應用程式執行個體 1 ![][2]
@@ -227,7 +232,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 6. 在應用程式的執行個體 1 中，將最後一個項目的文字更新為 **Test Write 1**，然後按一下另一個文字方塊，使 `LostFocus` 事件處理常式更新資料庫。其範例如下列螢幕擷取畫面所示。
-	
+
 	應用程式執行個體 1 ![][3]
 
 	應用程式執行個體 2 ![][2]
@@ -255,7 +260,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 下列步驟將引導您新增伺服器更新指令碼並加以測試。
 
-1. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。 
+1. 登入 [Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
    	![][7]
 
@@ -269,8 +274,8 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 4. 以下列函數取代現有的指令碼，然後按一下 [儲存]。
 
-		function update(item, user, request) { 
-			request.execute({ 
+		function update(item, user, request) {
+			request.execute({
 				conflict: function (serverRecord) {
 					// Only committing changes if the item is not completed.
 					if (serverRecord.complete === false) {
@@ -282,8 +287,8 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 						request.respond(statusCodes.FORBIDDEN, 'The item is already completed.');
 					}
 				}
-			}); 
-		}   
+			});
+		}
 5. 在兩部機器上執行 **todolist** 應用程式。變更執行個體 2 中最後一個項目的 TodoItem `text`。接著，按一下另一個文字方塊，使 `LostFocus` 事件處理常式更新資料庫。
 
 	應用程式執行個體 1 ![][4]
@@ -321,7 +326,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 * [將驗證新增至您的應用程式] <br/>了解如何驗證應用程式的使用者。
 
 * [將推播通知新增至您的應用程式] <br/>了解如何使用行動服務將非常基本的推播通知傳送到應用程式。
- 
+
 
 
 <!-- Images. -->
@@ -358,12 +363,10 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [將驗證新增至您的應用程式]: /develop/mobile/tutorials/get-started-with-users-dotnet
 [將推播通知新增至您的應用程式]: /develop/mobile/tutorials/get-started-with-push-dotnet
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [系統屬性]: http://go.microsoft.com/fwlink/?LinkId=331143
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

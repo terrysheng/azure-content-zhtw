@@ -16,7 +16,7 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# 使用 Azure Preview 入口網站開始使用 Azure 資料湖分析
+# 使用 Azure 入口網站開始使用 Azure 資料湖分析
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-get-started-portal.md)
@@ -24,19 +24,19 @@
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
 
-了解如何使用 Azure Preview 入口網站建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱 [Azure 資料湖存放區概觀](data-lake-store-overview.md)。
+了解如何使用 Azure 入口網站建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱 [Azure 資料湖存放區概觀](data-lake-store-overview.md)。
 
 ## 必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="signup"></a>啟用您的 Azure 訂用帳戶以使用資料湖存放區公開預覽版
 
 您必須先要求啟用您的 Azure 訂用帳戶以使用資料湖存放區公開預覽版。依照下列步驟執行。
 
-1. 登入新的 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下 [新增]，然後依序按一下 [資料 + 儲存體] 和 [Azure 資料湖存放區]。
 3. 在 [新增資料湖存放區] 刀鋒視窗中，按一下 [註冊使用預覽版]。閱讀資訊，然後按一下 [**確定**]。您的訂用帳戶已啟用公開預覽版之後，您會收到一封電子郵件。
 
@@ -44,7 +44,7 @@
 
 ## 建立 Azure 資料湖存放區帳戶
 
-1. 登入新的 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
 
 2. 按一下 [新增]，然後依序按一下 [資料 + 儲存體] 和 [Azure 資料湖存放區]。讀取 [Azure 資料湖存放區] 刀鋒視窗中的資訊，然後按一下刀鋒視窗左上角的 [建立]。
 
@@ -133,4 +133,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

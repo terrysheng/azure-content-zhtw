@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect - 使用者登入 | Microsoft Azure"
+	pageTitle="Azure AD Connect：使用者登入 | Microsoft Azure"
 	description="Azure AD Connect 使用者登入 (用於自訂設定)。"
 	services="active-directory"
 	documentationCenter=""
@@ -63,4 +63,8 @@ Azure AD Connect 可讓使用者使用同一組密碼登入雲端和內部部署
 	- Active Directory 整合功能，例如軟帳戶鎖定或 AD 密碼及工作時數原則
 	- 使用裝置註冊、Azure AD 聯結或 Intune MDM 原則有條件存取內部部署和雲端資源
 
-<!---HONumber=Oct15_HO3-->
+
+## 後續步驟
+深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
+
+<!---HONumber=AcomDC_1203_2015-->

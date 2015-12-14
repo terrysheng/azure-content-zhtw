@@ -26,7 +26,7 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - **Azure CLI**。請參閱[安裝和設定 Azure CLI](xplat-cli.md)。
 	- 下載並安裝 [Azure CLI 工具](https://github.com/MicrosoftBigData/AzureDataLake/releases)的**發行前版本**，才能完成這個示範。
 - 使用下列命令進行**驗證**：
@@ -210,8 +210,8 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 ##另請參閱 
 
 - [Microsoft Azure 資料湖分析概觀](data-lake-analytics-overview.md)
-- [使用 Azure Preview 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
-- [使用 Azure Preview 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
-- [使用 Azure Preview 入口網站監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [使用 Azure 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
+- [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
+- [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

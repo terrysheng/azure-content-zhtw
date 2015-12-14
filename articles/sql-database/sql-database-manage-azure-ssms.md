@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -34,7 +34,7 @@
 
 若要連線到 SQL Database，您需要知道 Azure 上的伺服器名稱。您可能需要登入入口網站才能取得此資訊。
 
-1.  登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
+1.  登入 [Azure 傳統入口網站](http://manage.windowsazure.com)。
 
 2.  在左窗格中，按一下 [SQL Database]。
 
@@ -192,4 +192,4 @@ SQL Database 支援數種動態管理檢視，您可用他們來監視個別資�
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

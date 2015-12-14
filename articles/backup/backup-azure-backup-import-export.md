@@ -6,7 +6,7 @@
    authors="aashishr"
    manager="shreeshd"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="11/25/2015" ms.author="aashishr"; "jimpark"/>
 
 # 在 Azure 備份中離線備份工作流程
 
@@ -27,7 +27,7 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 7. 從[這裡](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)將 Azure 匯入/匯出工具下載至 SATA 磁碟機寫入器所連接的電腦上。
 
 ## 工作流程
-本章節提供的資訊可讓您完成**離線備份**工作流程，以便將您的資料傳遞至 Azure 資料中心，並上傳至 Azure 儲存體。若您有關於匯入服務或處理程序任何層面的問題，請參閱[上方](../storage-import-export-service.md)參考的匯入服務概觀。
+本章節提供的資訊可讓您完成**離線備份**工作流程，以便將您的資料傳遞至 Azure 資料中心，並上傳至 Azure 儲存體。若您有關於匯入服務或處理程序任何層面的問題，請參閱上方的[匯入服務概觀](../storage-import-export-service.md)參考文件。
 
 ### 初始離線備份
 
@@ -108,4 +108,4 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 - 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](../storage-import-export-service.md)。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份[常見問題集](backup-azure-backup-faq.md)的＜離線備份＞章節
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

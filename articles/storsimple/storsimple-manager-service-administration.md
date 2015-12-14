@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple Manager 服務管理 | Microsoft Azure"
-   description="了解如何使用 Azure 管理入口網站中的 StorSimple Manager 服務管理 StorSimple 裝置。"
+   description="了解如何使用 Azure 傳統入口網站中的 StorSimple Manager 服務管理 StorSimple 裝置。"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務管理 StorSimple 裝置
@@ -30,13 +30,13 @@
 
 ## 和 StorSimple Manager 服務的連接
 
-StorSimple Manager 服務可在 Microsoft Azure 中執行，並且連接至多個 StorSimple 裝置。您可以使用在瀏覽器中執行的中央 Microsoft Azure 管理入口網站來管理這些裝置。若要連接道 StorSimple Manager 服務，請執行下列動作。
+StorSimple Manager 服務可在 Microsoft Azure 中執行，並且連接至多個 StorSimple 裝置。您可以使用在瀏覽器中執行的中央 Microsoft Azure 傳統入口網站來管理這些裝置。若要連接道 StorSimple Manager 服務，請執行下列動作。
 
 #### 連接至此服務
 
 1. 瀏覽至 [http://azure.microsoft.com](http://azure.microsoft.com/)
 
-1. 使用您的 Microsoft 帳戶認證，登入 Microsoft Azure 管理入口網站 (位於窗格右上角)。
+1. 使用您的 Microsoft 帳戶認證，登入 Microsoft Azure 傳統入口網站 (位於窗格右上角)。
 
 1. 向下捲動左方瀏覽窗格以存取 StorSimple Manager 服務。
 
@@ -57,11 +57,7 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |登陸頁面|服務層級頁面|裝置層級頁面|裝置層級頁面|
 |---|---|---|---|
 |StorSimple Manager 服務|服務儀表板|裝置儀表板||
-||裝置 →|監視器|| 
-||備份目錄|磁碟區容器→|磁碟區| 
-||設定 (服務)|備份原則|| 
-||工作|設定 (裝置)|| 
-||警示|維護||
+||裝置 →|監視器| ||備份目錄|磁碟區容器→|磁碟區| ||設定 (服務)|備份原則|| ||工作|設定 (裝置)| ||警示|維護|
 
 ![提供的影片](./media/storsimple-manager-service-administration/Video_icon.png) **提供的影片**
 
@@ -105,7 +101,6 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |建立支援封裝|StorSimple Manager 服務 → 裝置 → 維護|[建立及管理支援封裝](storsimple-create-manage-support-package.md)|
 |安裝軟體更新|StorSimple Manager 服務 → 裝置 → 維護|[更新您的裝置](storsimple-update-device.md)|
 
-![提供的影片](./media/storsimple-manager-service-administration/Video_icon.png)**提供的影片**
 
 ##後續步驟
 如果您遇到與 StorSimple 裝置的日常作業或其中任何硬體元件的任何問題，請參閱：
@@ -117,4 +112,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 -  [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

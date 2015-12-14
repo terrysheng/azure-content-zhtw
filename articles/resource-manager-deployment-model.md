@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # 了解資源管理員部署和傳統部署
@@ -42,19 +42,19 @@
 
 - 透過下列其中一個方法建立：
 
-  - [預覽入口網站](https://portal.azure.com/)。
+  - [Azure 入口網站](https://portal.azure.com/)。
 
-        ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - 對於早於 1.0 Preview 的 Azure PowerShell 版本，這些命令會堑 **AzureResourceManager** 模式中執行。
+  - 對於比 Azure PowerShell 1.0 版還舊的版本，這些命令會在 **AzureResourceManager** 模式中執行。
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - 對於 Azure PowerShell 1.0 Preview，請使用資源管理員版本的命令。這些命令的格式為 *verb-AzureRm*，如下所示。
+  - 對於 Azure PowerShell 1.0 版，請使用資源管理員版本的命令。這些命令的格式為 *verb-AzureRm*，如下所示。
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -73,19 +73,19 @@
 
 - 透過下列其中一個方法建立：
 
-  - [Azure 入口網站](https://manage.windowsazure.com)
+  - [傳統入口網站](https://manage.windowsazure.com)
 
-        ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - 對於早於 1.0 Preview 的 Azure PowerShell 版本，命令會在 **AzureServiceManagement** 模式中執行 (這是預設模式，因此如果未特意切換至 AzureResourceManager，您就會在 AzureServiceManagement 模式中執行)。
+  - 對於比 Azure PowerShell 1.0 版還舊的版本，命令會在 **AzureServiceManagement** 模式中執行 (這是預設模式，因此如果未特意切換至 AzureResourceManager，您就會在 AzureServiceManagement 模式中執行)。
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - 對於 Azure PowerShell 1.0 Preview，請使用服務管理版本的命令。這些命令名稱的格式**不是** *verb-AzureRm*，如下所示。
+  - 對於 Azure PowerShell 1.0 版，請使用服務管理版本的命令。這些命令名稱的格式**不是** *verb-AzureRm*，如下所示。
 
             PS C:\> Get-AzureDeployment
 
@@ -95,7 +95,7 @@
 
     ![傳統類型](./media/resource-manager-deployment-model/classic-type.png)
 
-您仍然可以使用預覽入口網站來管理透過傳統部署所建立的資源。
+您仍然可以使用入口網站來管理透過傳統部署所建立的資源。
 
 ## 使用資源管理員及資源群組的優點
 
@@ -159,7 +159,7 @@
 
 從傳統部署轉換至資源管理員時，如需對等 Azure CLI 命令的清單，請參閱 [VM 作業的對等資源管理員和服務管理命令](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md)。
 
-如需轉換計算、儲存和網路資源的詳細資訊，請參閱 [Azure 資源管理員提供的 Azure 計算、網路和儲存提供者](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
+如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員提供的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
 
 若要了解從不同部署模型連接虛擬網路，請參閱[將傳統 VNet 連接到新的 VNet](./virtual-network/virtual-networks-arm-asm-s2s.md)。
 
@@ -168,4 +168,4 @@
 - 若要了解如何建立宣告式部署範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要查看部署範本的命令，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

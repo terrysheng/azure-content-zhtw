@@ -78,11 +78,11 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 
 **建立 Azure 儲存體帳戶**
 
-1. 登入 [Azure 管理入口網站][azure-classic-portal]。
+1. 登入 [Azure 傳統入口網站][azure-classic-portal]。
 	
-	> [AZURE.NOTE]Azure 管理入口網站目前支援 Azure HDInsight，雖然 Azure DocumentDB 僅存在於 Microsoft Azure 入口網站中。
+	> [AZURE.NOTE]Azure 傳統入口網站目前支援 Azure HDInsight，雖然 Azure DocumentDB 僅存在於 Microsoft Azure 入口網站中。
 
-2. 按一下左下角的 [**+ 新增**]，並指向 [**資料服務**]，接著指向 [**儲存體**]，然後按一下 [**快速建立**]。![Azure 入口網站，您可以在此入口網站中使用「快速建立」設定新的儲存體帳戶。][image-storageaccount-quickcreate]
+2. 按一下左下角的 [+ 新增]，並指向 [資料服務]，接著指向 [儲存體]，然後按一下 [快速建立]。![Azure 傳統入口網站，您可以在此使用「快速建立」來設定新的儲存體帳戶。][image-storageaccount-quickcreate]
 
 3. 輸入 [**URL**]，並依序選取 [**位置**] 和 [**複寫**] 值，然後按一下 [**建立儲存體帳戶**]。不支援同質群組。
 	
@@ -93,9 +93,9 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 4. 等候新儲存體帳戶的 [**狀態**] 變更為 [**線上**]。
 
 ## <a name="ProvisionHDInsight"></a>步驟 2：建立自訂的 HDInsight 叢集。
-本教學課程會使用 Azure 管理入口網站的指令碼動作，來自訂您的 HDInsight 叢集。在本教學課程中，我們將使用 Azure 管理入口網站來建立自訂的叢集。如需有關如何使用 PowerShell 指令程式或 HDInsight .NET SDK 的指示，請參閱[使用指令碼動作來自訂 HDInsight 叢集][hdinsight-custom-provision]一文。
+本教學課程會使用 Azure 傳統入口網站的指令碼動作，來自訂您的 HDInsight 叢集。在本教學課程中，我們將使用 Azure 傳統入口網站來建立自訂的叢集。如需有關如何使用 PowerShell 指令程式或 HDInsight .NET SDK 的指示，請參閱[使用指令碼動作來自訂 HDInsight 叢集][hdinsight-custom-provision]一文。
 
-1. 登入 [Azure 管理入口網站][azure-classic-portal]。您可能已經在先前步驟中登入。
+1. 登入 [Azure 傳統入口網站][azure-classic-portal]。您可能已經在先前步驟中登入。
 
 2. 按一下頁面底部的 [**+新增**]，然後依序按一下 [**資料服務**]、[**HDInsight**]、[**自訂建立**]。
 
@@ -155,7 +155,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 		<td>指定儲存體帳戶上的預設容器作為 HDInsight 叢集的預設檔案系統使用。如果您在 [<strong>儲存體帳戶</strong>] 欄位中選擇了 [<strong>使用現有儲存體</strong>]，且該帳戶中沒有現有的容器，則系統便會依預設建立容器，容器名稱會與叢集名稱相同。如果已有使用叢集名稱的容器存在，則會為容器名稱加上序號。
     </td></tr>
 	<tr><td>其他儲存體帳戶</td>
-		<td>HDInsight 支援多個儲存帳號。叢集可使用的其他儲存體帳戶並沒有數量上的限制。但如果您使用 Azure 入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外新增一個 [儲存體帳戶] 頁面，您可在此指定帳戶資訊。</td></tr>
+		<td>HDInsight 支援多個儲存帳號。叢集可使用的其他儲存體帳戶並沒有數量上的限制。但如果您使用 Azure 傳統入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外新增一個 [儲存體帳戶] 頁面，您可在此指定帳戶資訊。</td></tr>
 </table>按一下向右箭頭。
 
 7. 若要在建立叢集時自訂您的叢集，請在 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**] 以提供有關您將執行的 PowerShell 指令碼詳細資料。PowerShell 指令碼會在叢集建立期間，將 DocumentDB Hadoop 連接器安裝到您的 HDInsight 叢集。
@@ -181,7 +181,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 
 1. 安裝 Azure PowerShell。您可以在[這裡][powershell-install-configure]找到指示。
 
-	> [AZURE.NOTE]或者，您可以使用 HDInsight 的線上 Hive 編輯器 (僅限 Hive 查詢)。若要這樣做，請登入 [Azure 管理入口網站][azure-classic-portal]，按一下左側窗格中的 **HDInsight** 以檢視您的 HDInsight 叢集清單。按一下您要執行 Hive 查詢的叢集，然後按一下 [**查詢主控台**]。
+	> [AZURE.NOTE]或者，您可以使用 HDInsight 的線上 Hive 編輯器 (僅限 Hive 查詢)。若要這樣做，請登入 [Azure 傳統入口網站][azure-classic-portal]，按一下左側窗格中的 **HDInsight** 以檢視您的 HDInsight 叢集清單。按一下您要執行 Hive 查詢的叢集，然後按一下 [**查詢主控台**]。
 
 2. 開啟 Azure PowerShell 整合式指令碼環境：
 	- 在執行 Windows 8 或 Windows Server 2012 或更新版本的電腦上，您可以使用內建搜尋。在 [開始] 畫面中，輸入 **powershell ise**，並按一下 **Enter** 鍵。 
@@ -280,7 +280,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 
 9. **執行**新的指令碼！ **按一下**綠色的執行按鈕。
 
-10. 查看結果。登入 [Azure Preview 入口網站][azure-portal]。
+10. 查看結果。登入 [Azure 入口網站][azure-portal]。
 	1. 按一下左側面板上的 [<strong>瀏覽</strong>]。</br>
 	2. 按一下 [瀏覽] 面板右上方的 [<strong>所有項目</strong>]。</br>
 	3. 尋找並按一下 [<strong>DocumentDB 帳戶</strong>]。</br>
@@ -362,7 +362,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 		
 9. **執行**新的指令碼！ **按一下**綠色的執行按鈕。
 
-10. 查看結果。登入 [Azure Preview 入口網站][azure-portal]。
+10. 查看結果。登入 [Azure 入口網站][azure-portal]。
 	1. 按一下左側面板上的 [<strong>瀏覽</strong>]。</br>
 	2. 按一下 [瀏覽] 面板右上方的 [<strong>所有項目</strong>]。</br>
 	3. 尋找並按一下 [<strong>DocumentDB 帳戶</strong>]。</br>
@@ -405,7 +405,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 
 5. **執行**新的指令碼！ **按一下**綠色的執行按鈕。
 
-6. 查看結果。登入 [Azure Preview 入口網站][azure-portal]。
+6. 查看結果。登入 [Azure 入口網站][azure-portal]。
 	1. 按一下左側面板上的 [<strong>瀏覽</strong>]。
 	2. 按一下 [瀏覽] 面板右上方的 [<strong>所有項目</strong>]。
 	3. 尋找並按一下 [<strong>DocumentDB 帳戶</strong>]。
@@ -470,4 +470,4 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

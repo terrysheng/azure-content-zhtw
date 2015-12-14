@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="監視和管理 Azure Data Factory 管線" 
-	description="了解如何使用 Azure Management Portal 和 Azure PowerShell 監控並管理您建立的 Azure 資料處理站和管線。" 
+	description="瞭解如何使用 Azure 傳統入口網站和 Azure PowerShell 監視並管理您建立的 Azure 資料處理站和管線。" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -22,10 +22,10 @@ Data Factory 服務提供一個可靠且完整的儲存、處理和資料移動�
 本文描述如何監視、管理和偵錯您的管線。同時也會提供如何建立警示和取得失敗通知的詳細資訊。
 
 ## 了解管線和活動狀態
-您可以使用 Azure Preview 入口網站，以圖表檢視您的 Data Factory、檢視管線中的活動、檢視輸入與輸出資料集等。本節也提供配量從某個狀態轉換至另一個狀態的方法。
+您可使用 Azure 入口網站，以圖表檢視您的 Data Factory、檢視管線中的活動、檢視輸入與輸出資料集等。本節也提供配量從某個狀態轉換至另一個狀態的方法。
 
 ### 瀏覽至您的 Data Factory
-1.	登入 [Azure Preview 入口網站](http://portal.azure.com)。
+1.	登入 [[Azure 入口網站](http://portal.azure.com)]。
 2.	按一下 [全部瀏覽]，選取 [資料處理站]。
 	
 	![全部瀏覽 -> 資料處理站](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -69,10 +69,10 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 
 <table>
 <tr>
-	<th align="left">State</th><th align="left">子狀態</th><th align="left">說明</th>
+	<th align="left">狀況</th><th align="left">子狀態</th><th align="left">說明</th>
 </tr>
 <tr>
-	<td rowspan="8">Waiting</td><td>ScheduleTime</td><td>尚未到達執行配量的時間。</td>
+	<td rowspan="8">等候</td><td>ScheduleTime</td><td>尚未到達執行配量的時間。</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>上游相依項目尚未就緒。</td>
@@ -90,12 +90,13 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 <td>Retry</td><td>將重試活動執行。</td>
 </tr>
 <tr>
-<td>Validation</td><td>驗證尚未啟動。</td>
+<td>驗證</td><td>驗證尚未啟動。</td>
 </tr>
 <tr>
 <td>ValidationRetry</td><td>正在等待重試驗證。</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>驗證進行中。</td>
 </tr>
 <td></td>
@@ -108,7 +109,7 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 <td>Canceled</td><td>被使用者動作取消。</td>
 </tr>
 <tr>
-<td>Validation</td><td>驗證失敗。</td>
+<td>驗證</td><td>驗證失敗。</td>
 </tr>
 <tr>
 <td></td><td>無法產生和/或驗證配量。</td>
@@ -125,19 +126,19 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 
 
 
-按一下 [最近更新的配量] 刀鋒視窗中的配量項目，就可以檢視有關配量的詳細資料。
+按一下 [**最近更新的配量**] 刀鋒視窗中的配量項目，即可檢視有關配量的詳細資訊。
 
 ![配量的詳細資料](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
-如果已經執行多次配量，您會在 [活動回合] 清單中看到多個資料列。
+若已多次執行配量，則您會在 [**活動執行**] 清單中看到多個資料列。
 
 ![配量的活動執行](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
 
-您可以按一下 [活動回合] 清單中的執行項目，檢視有關活動執行的詳細資料。這會展示所有記錄檔，且如果有錯誤訊息的話，也會一併展示。這個方法非常實用，您可以檢視和偵錯記錄檔而不必離開您的 Data Factory。
+您可按一下 [**活動執行**] 清單中的執行項目，檢視有關活動執行的詳細資訊。這會展示所有記錄檔，且如果有錯誤訊息的話，也會一併展示。這個方法非常實用，您可以檢視和偵錯記錄檔而不必離開您的 Data Factory。
 
 ![活動執行詳細資料](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-如果配量不是處於 **Ready** 狀態，您可以在 [未就緒的上游配量] 清單中看到未就緒且阻礙目前配量執行的上游配量。當您的配量處於 **Waiting** 狀態且您想要了解配量等候的上游相依項目時，此做法相當有用。
+若配量不是處於 [**就緒**] 狀態，您可以在 [**未就緒的上游配量**] 清單中看到未就緒且阻礙目前配量執行的上游配量。當您的配量處於 [**等候**] 狀態且您想要了解配量等候的上游相依項目時，此做法相當有用。
 
 ![尚未就緒的上游配量](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -148,9 +149,9 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 
 Data Factory 內的資料集狀態轉換流程有下列階段：等候中 -> 進行中/進行中 (驗證中) -> 就緒/失敗
 
-處於 **Waiting** 狀態的配量在執行前，會先開始進行符合前置條件的動作。接著活動開始執行，配量進入 **In-Progress** 狀態。活動執行可能成功或失敗，配量會根據成功與否進入 **Ready** 或 **Failed** 狀態。
+處於 [**等候**] 狀態的配量在執行前，會先開始進行符合前置條件的動作。接著活動開始執行，配量進入 [**進行中**] 狀態。活動執行可能成功或失敗，配量會根據成功與否進入 [**就緒**] 或 [**失敗**] 狀態。
 
-使用者可以重設配量，就能從 **Ready** 或 **Failed** 狀態返回 **Waiting** 狀態。使用者也可以將配量狀態標記為 **Skip**，這會防止活動執行且不會處理該配量。
+使用者可重設配量，以從 [**就緒**] 或 [**失敗**] 狀態返回 [**等候**] 狀態。使用者也可以將配量狀態標記為 [**略過**]，這會防止活動執行且不會處理該配量。
 
 
 ## 管理管線
@@ -181,26 +182,26 @@ Data Factory 內的資料集狀態轉換流程有下列階段：等候中 -> 進
 
 
 ## 偵錯管線
-Azure Data Factory 透過 Azure 入口網站和 Azure PowerShell 提供許多功能，可用來偵錯和疑難排解管線。
+Azure Data Factory 透過 Azure 傳統入口網站和 Azure PowerShell 提供許多功能，可用來偵錯和疑難排解管線。
 
 ### 尋找管線中的錯誤
 如果管線中的活動執行失敗，管線所產生的資料集會因為該失敗而處於錯誤狀態。您可以使用下列方法，在 Azure Data Factory 中偵錯和疑難排解錯誤。
 
-#### 使用 Azure 入口網站偵錯錯誤：
+#### 使用 Azure 傳統入口網站執行偵錯：
 
-1.	在 Data Factory 首頁的 [資料集] 磚上按一下 [有錯誤]。
+1.	在 Data Factory 首頁，按一下 [**資料集**] 磚上的 [**發生錯誤**]。
 	
 	![發生錯誤的資料集磚](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
-2.	在 [出現錯誤的資料集] 刀鋒視窗中，按一下您感興趣的資料表。
+2.	在 [**出現錯誤的資料集**] 刀鋒視窗中，按一下您感興趣的資料表。
 
 	![[發生錯誤的資料集] 刀鋒視窗](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	在 [資料表] 刀鋒視窗中，按一下 [狀態] 設為 [失敗] 的問題配量。
+3.	在 [**資料表**] 刀鋒視窗中，按一下 [**狀態**] 設為 [**失敗**] 的問題配量。
 
 	![含有問題配量的資料表刀鋒視窗](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-4.	在 [資料配量] 刀鋒視窗中，按一下失敗的活動執行。
+4.	在 [**資料配量**] 刀鋒視窗中，按一下失敗的活動執行。
 	
 	![發生錯誤的資料配量](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-5.	在 [活動回合詳細資料] 刀鋒視窗中，您可以下載與 HDInsight 處理相關聯的檔案。按一下 Status/stderr 中的 [下載] 以下載包含錯誤詳細資料的錯誤記錄檔。
+5.	在 [**活動執行詳細資料**] 刀鋒視窗中，您可以下載與 HDInsight 處理相關聯的檔案。按一下 Status/stderr 中的 [下載] 以下載包含錯誤詳細資料的錯誤記錄檔。
 
 	![含有錯誤的活動執行詳細資料刀鋒視窗](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)
 
@@ -209,7 +210,7 @@ Azure Data Factory 透過 Azure 入口網站和 Azure PowerShell 提供許多功
 2.	切換至 **AzureResourceManager** 模式，因為 Data Factory Cmdlet 只可在此模式中使用。
 
 		switch-azuremode AzureResourceManager
-3.	執行 **Get-AzureDataFactorySlice** 命令來查看配量及其狀態。您應該會看到有以下狀態的配量：**失敗**。
+3.	執行 **Get-AzureDataFactorySlice** 命令來查看配量及其狀態。您應該會看到有以下狀態的配量：[**失敗**]。
 
 		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
@@ -262,13 +263,13 @@ Azure Data Factory 透過 Azure 入口網站和 Azure PowerShell 提供許多功
 
 ## 重新執行管線中的失敗
 
-### 使用 Azure 入口網站
+### 使用 Azure 傳統入口網站
 
-一旦您疑難排解和偵錯管線中的失敗，就可以瀏覽到錯誤配量並按一下命令列上的 [執行] 按鈕，重新執行失敗。
+一旦您疑難排解和偵錯管線中的失敗，您可以瀏覽到錯誤配量並按一下命令列上的 [**執行**] 按鈕，重新執行失敗。
 
 ![重新執行失敗的配量](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
-萬一原則失敗而導致配量驗證失敗 (例如：沒有可用資料)，您可以修正失敗並重新驗證，方法是按一下命令列上的 [驗證] 按鈕。![修正錯誤並進行驗證](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+萬一原則失敗而導致配量驗證失敗 (例如：沒有可用資料)，您可以修正失敗並重新驗證，方法是按一下命令列上的 [**驗證**] 按鈕。![修正錯誤並進行驗證](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### 使用 Azure PowerShell
 
@@ -276,7 +277,7 @@ Azure Data Factory 透過 Azure 入口網站和 Azure PowerShell 提供許多功
 
 	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
-**範例：**下列範例會在 Azure Data Factory 'WikiADF' 將資料表 'DAWikiAggregatedData' 的所有配量狀態都設為 'PendingExecution'。
+**範例：**下列範例會在 Azure Data Factory 'WikiADF' 將 'DAWikiAggregatedData' 資料表的所有配量狀態都設為 'PendingExecution'。
 
 **附註：**UpdateType 設為 UpstreamInPipeline，表示資料表和做為管線中活動的輸入資料表使用的所有相依 (上游) 資料表，其所有配量的狀態都設為 "PendingExecution"。此參數的另一個可能值為 "Individual"。
 
@@ -345,11 +346,11 @@ Azure 事件可讓您深入了解 Azure 資源的情況。當建立、更新或�
 
 作業名稱 | 狀態 | 子狀態
 -------------- | ------ | ----------
-RunStarted | Started | Starting
+RunStarted | 已啟動 | 啟動中
 RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
 SliceOnTime | In Progress | Ontime
 SliceDelayed | In Progress | Late
-OnDemandClusterCreateStarted | Started
+OnDemandClusterCreateStarted | 已啟動
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
 
@@ -391,26 +392,44 @@ OnDemandClusterDeleted | Succeeded
 
 
 #### 使用者事件疑難排解
-您可以看到按一下 [作業] 磚後所產生的所有事件，而且也可以在 [事件] 刀鋒視窗中針對這些作業設定顯示警示：
-
-![作業](./media/data-factory-monitor-manage-pipelines/operations.png)
-
-若要查看使用 PowerShell 的警示設定，您可以執行下列命令，並查看所有建立的警示。這會顯示針對資源類型為 **microsoft.insights/alertrules** 的度量和事件所設定的所有警示。
-
-	Get-AzureResourceGroup -Name $resourceGroupName
-
-	ResourceGroupName : mdwevent
-	Location          : westus
-	ProvisioningState : Succeeded
-	Resources         :
-                    Name                  Type                                 Location
-                    ====================  ===================================  ========
-                    abhieventtest1        Microsoft.DataFactory/dataFactories  westus
-                    abhieventtest2        Microsoft.DataFactory/dataFactories  westus
-                    FailedValidationRuns  microsoft.insights/alertrules        eastus
 
 
-如果您在入口網站刀鋒視窗上看到產生警示的事件但沒有收到電子郵件通知，請檢查指定的電子郵件地址是否設定為接收來自外部寄件者的電子郵件。警示的電子郵件可能遭到您的電子郵件設定封鎖。
+- 您可以看到按一下 [**作業**] 磚後所產生的所有事件，而且也可以在 [**事件**] 刀鋒視窗中針對這些作業設定顯示警示：
+
+	![作業](./media/data-factory-monitor-manage-pipelines/operations.png)
+
+
+- 如需可用於新增/取得/移除警示的 PowerShell Cmdlet 資訊，請參閱 [Azure Insight Cmdlet](https://msdn.microsoft.com/library/mt282452.aspx) 一文。以下是一些關於使用 **Get AlertRule** Cmdlet 的範例：
+
+		PS C:\> Get-AlertRule -res $resourceGroup
+	
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+				Location   : West US
+				Name       : FailedExecutionRunsWest3
+	
+		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+
+	執行下列 get-help 命令，以查看關於 Get-AlertRule Cmdlet 的詳細資訊和範例。
+
+		get-help Get-AlertRule -detailed 
+		get-help Get-AlertRule -examples
+
+
+- 如果您在入口網站刀鋒視窗上看到產生警示的事件但沒有收到電子郵件通知，請檢查指定的電子郵件地址是否設定為接收來自外部寄件者的電子郵件。警示的電子郵件可能遭到您的電子郵件設定封鎖。
 
 ### 度量的警示
 Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對您 Data Factory 配量的下列度量進行監視和建立警示。
@@ -423,9 +442,9 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 #### 啟用度量：
 若要啟用度量，請從 Data Factory 的刀鋒視窗按一下下列選項：
 
-[監視] -> [度量] -> [診斷設定] -> [診斷]
+[**監視**] -> [**度量**] -> [**診斷設定**] -> [**診斷**]
 
-在 [診斷] 刀鋒視窗中，按一下 [開啟]，然後選取儲存體帳戶並儲存。
+在 [**診斷**] 刀鋒視窗中，按一下 [**啟用**]，然後選取儲存體帳戶並儲存。
 
 ![啟用度量](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -434,9 +453,9 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 
 ### 設定度量警示：
 
-若要設定度量警示，請從 Data Factory 刀鋒視窗按一下下列選項：[監視] -> [度量] -> [加入警示] -> [加入警示規則]。
+若要設定度量警示，請從 Data Factory 刀鋒視窗按一下下列選項：[**監視**] -> [**度量**] -> [**新增警示**] -> [**新增警示規則**]。
 
-填入警示規則的詳細資料、指定電子郵件並按一下 [確定]。
+填入警示規則的詳細資訊、指定電子郵件並按一下 [**確定**]。
 
 
 ![設定度量警示](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -497,9 +516,7 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
  
 以適當的值取代上述範例中的 subscriptionId、resourceGroupName、和 dataFactoryName。
 
-*metricName* 目前支援 2 個值：
-- FailedRuns
-- SuccessfulRuns
+*metricName* 目前支援 2 個值：- FailedRuns - SuccessfulRuns
 
 **部署警示：**
 
@@ -523,4 +540,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 	Parameters        :
 	Outputs           
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

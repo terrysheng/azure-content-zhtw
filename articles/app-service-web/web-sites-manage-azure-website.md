@@ -35,7 +35,7 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
 ### 組態
 
-使用 [Azure 預覽入口網站](https://portal.azure.com/)來設定各種組態選項。如需詳細資料，請參閱[在 Azure App Service 中設定 Web 應用程式](web-sites-configure.md)。以下是簡短的檢查清單：
+使用 [Azure 入口網站](https://portal.azure.com/)來設定各種組態選項。如需詳細資料，請參閱[在 Azure App Service 中設定 Web 應用程式](web-sites-configure.md)。以下是簡短的檢查清單：
 
 - 視需要選取 .NET、PHP、Java 或 Python 的**執行階段版本**。
 - 如果您的 Web 應用程式使用 WebSocket 通訊協定，請啟用 **WebSockets**。(這包括使用 [ASP.NET SignalR](http://www.asp.net/signalr) (英文) 或 [socket.io](web-sites-nodejs-chat-app-socketio.md) 的應用程式)。
@@ -57,16 +57,16 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
 當 Web 應用程式執行時，您會想要確認 Web 應用程式是否可供使用，以及是否能根據使用者流量而調整。您可能也需要疑難排解錯誤。
 
-### 監視
+### 監控
 
-- 您可以透過 Azure 預覽入口網站來[新增效能度量](web-sites-monitor.md) (如 CPU 使用率和用戶端要求數目)。
+- 您可以透過 Azure 入口網站來[新增效能度量](web-sites-monitor.md) (如 CPU 使用率和用戶端要求數目)。
 - 如需深入探索，請使用 New Relic 來監視及管理效能。請參閱[在 Azure App Service 中的 .NET Web 應用程式使用 New Relic 應用程式效能管理](store-new-relic-web-sites-dotnet-application-performance-management.md)。
 - [調整 Web 應用程式](web-sites-scale.md)以因應流量變化。您可以根據階層來調整 VM 的數目和/或 VM 執行個體的大小。在標準和高階階層中，您還可以設定自動調整，使 Web 應用程式得以按照固定排程或根據負載自動調整。  
  
 ### 備份
 
 - 設定 Web 應用程式的[自動備份](web-sites-backup.md)。透過[本視訊](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/)深入了解備份。
-- 深入了解 Azure SQL Database 中的[資料庫復原](https://azure.microsoft.com/zh-TW/documentation/articles/sql-database-business-continuity/)選項。
+- 深入了解 Azure SQL Database 中的[資料庫復原](../sql-database-business-continuity.md)選項。
 
 ### 疑難排解
 
@@ -103,4 +103,4 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
   
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

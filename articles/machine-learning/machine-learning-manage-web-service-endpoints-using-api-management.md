@@ -42,7 +42,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 
 ##建立 API 管理執行個體
 
-以下是使用 API 管理來管理您的 AzureML Web 服務的步驟。首先建立服務執行個體。登入[管理入口網站](https://manage.windowsazure.com/)，然後按一下 [新增] > [應用程式服務] > [API 管理] > [建立]。
+以下是使用 API 管理來管理您的 AzureML Web 服務的步驟。首先建立服務執行個體。登入 [傳統入口網站](https://manage.windowsazure.com/)，然後按一下 [新增] > [應用程式服務] > [API 管理] > [建立]。
 
 ![建立執行個體](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-instance.png)
 
@@ -60,11 +60,11 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 
 建立服務執行個體之後，下一個步驟是建立 API。API 包含可自用戶端應用程式叫用的一組作業。API 作業會代理到現有的 Web 服務。本指南會建立代理現有 AzureML RRS 和 BES Web 服務的 API。
 
-API 是透過您經由 Azure 管理入口網站存取的 API 發行者入口網站來建立和設定。若要連線到發行者入口網站，請選取您的服務執行個體。
+API 是透過您經由 Azure 傳統入口網站存取的 API 發行者入口網站來建立和設定。若要連線到發行者入口網站，請選取您的服務執行個體。
 
 ![選取服務執行個體](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-service-instance.png)
 
-在 Azure 入口網站中，按一下您的 API 管理服務中的 [管理]。
+在 Azure 傳統入口網站中，按一下您的 API 管理服務中的 [管理]。
 
 ![管理服務](./media/machine-learning-manage-web-service-endpoints-using-api-management/manage-service.png)
 
@@ -116,7 +116,7 @@ API 是透過您經由 Azure 管理入口網站存取的 API 發行者入口網�
 
 ##透過開發人員入口網站呼叫作業
 
-您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。在這個指南步驟中，您會呼叫加入 [AzureML 示範 API] 的 [RRS 執行] 方法。從管理入口網站右上方的功能表按一下 [開發人員入口網站]。
+您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。在這個指南步驟中，您會呼叫加入 [AzureML 示範 API] 的 [RRS 執行] 方法。從傳統入口網站右上角的功能表中，按一下 [開發人員入口網站]。
 
 ![開發人員入口網站](./media/machine-learning-manage-web-service-endpoints-using-api-management/developer-portal.png)
 
@@ -384,4 +384,4 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

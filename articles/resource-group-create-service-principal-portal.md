@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # 使用入口網站建立 Active Directory 應用程式和服務主體
@@ -111,7 +111,7 @@
 
 ![選取使用者](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-如需管理使用者、應用程式與角色的詳細資訊，請參閱[使用 Azure 管理入口網站管理存取權](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal)。
+如需透過入口網站將使用者和應用程式指派給角色的詳細資訊，請參閱[使用 Azure 管理入口網站管理存取權](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal)。
 
 ## 以程式碼取得存取權杖
 
@@ -162,4 +162,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

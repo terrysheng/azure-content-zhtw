@@ -17,6 +17,11 @@
 	ms.author="wesmc"/>
 
 # 將推播通知新增至 Xamarin.Forms 應用程式
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ##概觀
@@ -49,9 +54,9 @@
 
 若要能夠在新行動服務中儲存應用程式資料，您必須先建立新的資料表。
 
-1. 在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
+1. 在 Azure 傳統入口網站中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
-2. 按一下 **[資料]** 索引標籤，然後按一下 **[建立]**。
+2. 按一下 [資料] 索引標籤，然後按一下 [建立]。
 
     ![][123]
 
@@ -77,16 +82,16 @@
 
 ## <a name="download-starter-sample"></a>下載並設定入門範例
 我們會將推播通知新增至現有範例。
-  
+
 1. 下載下列範例：[Xamarin.Forms Azure 推播通知入門範例]。
 
-2. 在管理入口網站中按一下 [行動服務]，然後按一下行動服務。按一下 [儀表板] 索引標籤並記下 [網站 URL]。然後按一下 [管理金鑰]，然後記下 [應用程式金鑰]。當您從應用程式程式碼存取行動服務時，您將會用到這些值。
+2. 在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。按一下 [儀表板] 索引標籤並記下 [網站 URL]。然後按一下 [管理金鑰]，然後記下 [應用程式金鑰]。當您從應用程式程式碼存取行動服務時，您將會用到這些值。
 
-3. 在方案的 **ToDoAzure(Portable)** 專案中，開啟 **Constants.cs** 檔案中，以您在上一個步驟中取得的網站 URL 和應用程式金鑰取代 `ApplicationURL` 和 `ApplicationKey`。
+3. 在方案的 **ToDoAzure(Portable)** 專案中，開啟 **Constants.cs** 檔案，以您在上一個步驟中取得的網站 URL 和應用程式金鑰取代 `ApplicationURL` 和 `ApplicationKey`。
 
 ## <a name="iOS"></a>將推播通知新增至 Xamarin.Forms.iOS 應用程式
 
-您將使用 Apple Push Notification 服務 (APNS)，將推播通知加入至 iOS 應用程式。您需要作用中的 Google 帳戶和 [Google Cloud Messaging 用戶端元件]。
+您將使用 Apple Push Notification 服務 (APNS)，將推播通知加入至 iOS 應用程式。您需要作用中的 Google 帳戶和 [Google 雲端通訊用戶端元件]。
 
 >[AZURE.IMPORTANT]基於 Apple Push Notification 服務 (APNS) 需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
@@ -214,7 +219,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
     記下匯出憑證的檔案名稱和位置。
 
-2. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+2. 登入 [Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
     ![][18]
 
@@ -232,7 +237,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 ### <a name="configure-app"></a>設定您的 Xamarin.iOS 應用程式
 
-1. 在 Xamarin.Studio 或 Visual Studio 中，開啟 **Info.plist**，然後使用您稍早建立的識別碼更新 [**套件組合識別碼**]。
+1. 在 Xamarin.Studio 或 Visual Studio 中，開啟 **Info.plist**，然後使用您稍早建立的識別碼更新**套件組合識別碼**。
 
     ![][121]
 
@@ -264,14 +269,14 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
             global::Xamarin.Forms.Forms.Init();
             instance = this;
             CurrentPlatform.Init();
-            
+
             todoItemManager = new ToDoItemManager();
             App.SetTodoItemManager(todoItemManager);
 
 
             UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
-            
+
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
@@ -289,7 +294,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
             // Register for push with Mobile Services
             IEnumerable<string> tag = new List<string>() { "uniqueTag" };
-            
+
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
@@ -317,9 +322,9 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 您的應用程式現在已更新為支援推播通知。
 
-### <a name="update-scripts"></a>在管理入口網站中更新已註冊的插入指令碼
+### <a name="update-scripts"></a>在 Azure 傳統入口網站中更新已註冊的插入指令碼
 
-1. 在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+1. 在 Azure 傳統入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
     ![][21]
 
@@ -334,26 +339,26 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
           function insert(item, user, request) {
           // Execute the request and send notifications.
              request.execute({
-             success: function() {                      
+             success: function() {
               // Create a template-based payload.
-              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';
 
               // Write the default response and send a notification
-              // to all platforms.            
-              push.send(null, payload, {               
+              // to all platforms.
+              push.send(null, payload, {
                   success: function(pushResponse){
                   console.log("Sent push:", pushResponse);
                   // Send the default response.
                   request.respond();
-                  },              
+                  },
                   error: function (pushResponse) {
                       console.log("Error Sending push:", pushResponse);
                        // Send the an error response.
                       request.respond(500, { error: pushResponse });
-                      }           
-               });                 
+                      }
+               });
               }
-           });   
+           });
           }
 
     如此即會註冊新的插入指令碼，該指令碼會將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
@@ -366,7 +371,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
    >[AZURE.NOTE]您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
-2. 在應用程式中，按一下 [**新增**] 按鈕、新增工作標題，然後按一下 [**儲存**] 按鈕。 
+2. 在應用程式中，按一下 [新增] 按鈕、新增工作標題，然後按一下 [儲存] 按鈕。
 
 3. 確認您已接收到通知，然後按一下 [確定] 以關閉通知。
 
@@ -375,7 +380,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 ## <a name="Android"></a>將推播通知新增至 Xamarin.Forms.Android 應用程式
 
-您會使用 Google Cloud Messaging (GCM) 服務將推播通知新增至 Android 應用程式。您需要作用中的 Google 帳戶和 [Google Cloud Messaging 用戶端元件]。
+您會使用 Google Cloud Messaging (GCM) 服務將推播通知新增至 Android 應用程式。您需要作用中的 Google 帳戶和 [Google 雲端通訊用戶端元件]。
 
 ###<a id="register"></a>啟用 Google Cloud Messaging
 
@@ -387,9 +392,9 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 ###<a id="update-scripts"></a>更新註冊的插入指令碼以傳送通知
 
->[AZURE.NOTE]下列步驟示範如何在 Azure 管理入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
+>[AZURE.NOTE]下列步驟示範如何在 Azure 傳統入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
 
-在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+在 [Azure 傳統入口網站]中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
    ![][21]
 
@@ -404,26 +409,26 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
           function insert(item, user, request) {
           // Execute the request and send notifications.
              request.execute({
-             success: function() {                      
+             success: function() {
               // Create a template-based payload.
-              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';
 
               // Write the default response and send a notification
-              // to all platforms.            
-              push.send(null, payload, {               
+              // to all platforms.
+              push.send(null, payload, {
                   success: function(pushResponse){
                   console.log("Sent push:", pushResponse);
                   // Send the default response.
                   request.respond();
-                  },              
+                  },
                   error: function (pushResponse) {
                       console.log("Error Sending push:", pushResponse);
                        // Send the an error response.
                       request.respond(500, { error: pushResponse });
-                      }           
-               });                 
+                      }
+               });
               }
-           });   
+           });
           }
 
 
@@ -434,7 +439,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 ###<a id="configure-app"></a>設定用於推播通知的現有專案
 
-1. 在 [方案] 檢視中，展開 Xamarin.Android 應用程式中的 [元件] 資料夾，並確認已安裝 Azure 行動服務封裝。 
+1. 在 [方案] 檢視中，展開 Xamarin.Android 應用程式中的 [元件] 資料夾，並確認已安裝 Azure 行動服務封裝。
 
 2. 在 [元件] 資料夾上按一下滑鼠右鍵，按一下 [取得更多元件...]，搜尋 [Google Cloud Messaging 用戶端] 元件，然後將它新增至專案。
 
@@ -443,8 +448,8 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 		using Gcm.Client;
 
 
-4.	在 **MainActivity** 類別中，在呼叫 **LoadApplication** 方法之後，將下列程式碼加入至 **OnCreate** 方法：
-            
+4.	在 **MainActivity** 類別中，於呼叫 **LoadApplication** 方法之後，將下列程式碼加入 **OnCreate** 方法：
+
             try
             {
                 // Check to ensure everything's setup right
@@ -468,9 +473,9 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 ###<a id="add-push"></a>將推播通知程式碼新增至應用程式
 
-5. 在ToDoAzure.Droid 專案中，建立名為 `GcmService` 的新類別。
+5. 在 ToDoAzure.Droid 專案中，建立名為 `GcmService` 的新類別。
 
-5. 在 **GcmService** 中新增下列 using 陳述式：
+5. 在 **GcmService** 類別中新增下列 using 陳述式：
 
 		using Gcm.Client;
 		using Microsoft.WindowsAzure.MobileServices;
@@ -487,7 +492,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 
 7. 在 **GcmService.cs** 專案檔案中，新增下列類別：
- 
+
         [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
@@ -495,7 +500,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
         public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
         {
-        
+
             public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
 
         }
@@ -503,7 +508,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 	在上述程式碼中，您必須使用在 Google 開發人員入口網站佈建您的應用程式時由 Google 指派給您的專案編號來取代 _`<PROJECT_NUMBER>`_。
 
 8. 在 GcmService.cs 專案檔案中，加入下列可定義 **GcmService** 類別的程式碼：
- 
+
          [Service]
          public class GcmService : GcmServiceBase
          {
@@ -528,7 +533,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
             createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
 
             MobileServiceClient client =  MainActivity.DefaultService.todoItemManager.GetClient;
-            
+
             var push = client.GetPush();
 
             MainActivity.DefaultService.RunOnUiThread(() => Register(push, null));
@@ -627,11 +632,11 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 > [AZURE.IMPORTANT]若要接收推播通知，您必須在您的 Android 虛擬裝置上設定 Google 帳戶 (在模擬器中，瀏覽到 [設定]，並按一下 [新增帳戶])。另外，確定模擬器已連線到網際網路。
 
 1. 從 [工具] 中，按一下 [Open Android Emulator Manager]，選取您的裝置，然後按一下 [Edit]。
-    
+
     ![][125]
 
 2. 在 [Target] 中選取 [Google API]，然後按一下 [OK]。
-    
+
     ![][126]
 
 3. 在頂端工具列上，按一下 [執行]，然後選取您的應用程式。這將啟動模擬器，並執行應用程式。
@@ -657,7 +662,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
         using Microsoft.Phone.Notification;
 
 3. 新增下列程式碼至 App.xaml.cs：
-	
+
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
         private void AcquirePushChannel()
@@ -696,7 +701,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 	這會確使在每次載入頁面時都會要求註冊。在您的應用程式中，您可能只想定期進行此註冊，以確保註冊是最新的。
 
 5. 按 **F5** 鍵以執行應用程式。包含註冊金鑰的快顯對話方塊隨即顯示。
-  
+
 6.	在 [方案總管] 中展開 [屬性]，開啟 WMAppManifest.xml 檔案，按一下 [功能] 索引標籤，確定已核取 **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** 功能。
 
    	![在 VS 中啟用通知](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
@@ -707,7 +712,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 最後，您必須在 TodoItem 資料表上更新對插入作業註冊的指令碼，以傳送通知。
 
-1. 在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+1. 在 [Azure 傳統入口網站]中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
     ![][21]
 
@@ -718,30 +723,30 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
     這會顯示 [TodoItem] 資料表中發生插入時所叫用的函數。
 
 3. 使用下列程式碼來取代 insert 函數，然後按一下 **[儲存]**：
-          
+
           function insert(item, user, request) {
           // Execute the request and send notifications.
              request.execute({
-             success: function() {                      
+             success: function() {
               // Create a template-based payload.
-              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';
 
               // Write the default response and send a notification
-              // to all platforms.            
-              push.send(null, payload, {               
+              // to all platforms.
+              push.send(null, payload, {
                   success: function(pushResponse){
                   console.log("Sent push:", pushResponse);
                   // Send the default response.
                   request.respond();
-                  },              
+                  },
                   error: function (pushResponse) {
                       console.log("Error Sending push:", pushResponse);
                        // Send the an error response.
                       request.respond(500, { error: pushResponse });
-                      }           
-               });                 
+                      }
+               });
               }
-           });   
+           });
           }
 
 
@@ -766,7 +771,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 	![接收到快顯通知](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-quickstart-push5-wp8.png)
 
 	>[AZURE.NOTE]如果您仍在應用程式中，就不會收到該通知。若要在應用程式作用中的情況下，接收快顯通知，您必須處理 [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) 事件。
-   
+
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
@@ -836,14 +841,14 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [Xamarin 裝置佈建]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 [Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
+[Google 雲端通訊用戶端元件]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Forms Azure 推播通知入門範例]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [完整的 Xamarin.Forms Azure 推播通知範例]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

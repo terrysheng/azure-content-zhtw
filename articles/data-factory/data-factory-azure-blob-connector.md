@@ -369,7 +369,7 @@
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
 | 類型 | 類型屬性必須設為：**AzureStorage** | 是 |
-| connectionString | 針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。您可以從 Azure 入口網站取得 Azure 儲存體的 connectionString。 | 是 |
+| connectionString | 針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。您可以從 Azure 傳統入口網站取得 Azure 儲存體的 connectionString。 | 是 |
 
 ## Azure Blob 資料集類型屬性
 
@@ -505,4 +505,4 @@ false | mergeFiles | <p>針對具有下列結構的來源資料夾 Folder1：</p
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

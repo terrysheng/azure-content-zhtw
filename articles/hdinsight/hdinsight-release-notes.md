@@ -14,11 +14,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/01/2015"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight 上 Hadoop 元件的版本資訊
+
+## HDInsight 2015/11/30 版本的附註
+
+使用此版本部署的 HDInsight 叢集的完整版本號碼：
+
+* HDInsight (Windows) 2.1.10.757.1923908 (HDP 1.3.12.0-01795 - 未變更)
+* HDInsight (Windows) 3.0.6.757.1923908 (HDP 2.0.13.0-2117 - 未變更)
+* HDInsight (Windows) 3.1.4.757.1923908 (HDP 2.1.15.0-2374 - 未變更)
+* HDInsight (Windows) 3.2.7.757.1923908 (HDP 2.2.7.1-34)
+* HDInsight (Linux) 3.2.1000.0.6392801 (HDP 2.2.7.1-34)
+* SDK 1.5.8
+
+此版本包含下列更新。
+
+| 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 所有 HDInsight 叢集的已更新 HDInsight 版本和 HDInsight 3.2 叢集的 HDP 版本 (Windows 和 Linux) | 在此版本中，HDInsight 和 HDP 版本均已更新 | 服務 | 全部| N/A
+
 
 ## HDInsight 2015/10/20 版本的附註
 
@@ -36,7 +54,7 @@
 | 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | 變更為 HDP 2.2 的預設版本 HDP | HDInsight Windows 叢集的預設版本變更為 HDP 2.2。HDInsight 版本 3.2 (HDP 2.2) 自 2015 年 2 月已在公開上市。這項變更只會在使用 Azure 入口網站、PowerShell Cmdlet 或 SDK 叢集佈建的同時未進行明確選擇時，翻轉預設叢集版本。 | 服務 | 全部| N/A |
-|變更 VM 名稱格式以在單一虛擬網路中的 Linux 叢集上部署多個 HDInsight。 | 在這個版本中已加入在單一虛擬網路中部署多個 HDInsight Linux 叢集的支援。其中，叢集的虛擬機器名稱的格式已從 headnode*、workernode* 和 zookeepernode* 分別變更為 hn*、wn* 和 zk*。不建議採取虛擬機器名稱格式的直接相依性，因為這樣會受限於變更。請使用本機機器或 Ambari API 上的 "hostname -f" 以判斷主機清單和元件到主機的對應。您可以在 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 和 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md) 找到更多資訊。 | 服務 | Linux 上的 HDInsight 叢集 | N/A |
+|變更 VM 名稱格式以在單一虛擬網路中的 Linux 叢集上部署多個 HDInsight。 | 在這個版本中已加入在單一虛擬網路中部署多個 HDInsight Linux 叢集的支援。其中，叢集的虛擬機器名稱的格式已從 headnode*、workernode* 和 zookeepernode* 分別變更為 hn*、wn* 和 zk*。不建議採取虛擬機器名稱格式的直接相依性，因為這樣會受限於變更。請使用本機機器或 Ambari API 上的 "hostname -f" 以判斷主機清單和元件到主機的對應。您可以在 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) 和 [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md) 中找到更多資訊。 | 服務 | Linux 上的 HDInsight 叢集 | N/A |
 | 組態變更 | 對於 HDInsight 3.1 叢集，現在會啟用下列組態：<ul><li>tez.yarn.ats.enabled 和 yarn.log.server.url。這可讓應用程式時間軸伺服器和記錄伺服器能夠提供記錄檔。</li></ul>對於 HDInsight 3.2 叢集，已經修改下列組態：<ul><li>mapreduce.fileoutputcommitter.algorithm.version 已設為 2。這樣就可以使用 FileOutputCommitter 的 V2 版本。</li></ul> | 服務 | 全部 | N/A |
 
 
@@ -633,7 +651,7 @@
 
 <tr>
 <td>HDInsight 3.2 叢集</td>
-<td>HDInsight 3.2 叢集提供 Hadoop 2.6/HDP2.2。它包含對所有開放原始碼元件的重大更新。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">HDInsight 的新功能</a>和 <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 版本資訊</a>。</td>
+<td>HDInsight 3.2 叢集提供 Hadoop 2.6/HDP2.2。它包含對所有開放原始碼元件的重大更新。如需詳細資料，請參閱 HDInsight 的新功能和 <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 版本資訊</a>。</td>
 <td>開放原始碼軟體</td>
 <td>全部</td>
 <td>N/A</td>
@@ -641,7 +659,7 @@
 
 <tr>
 <td>Linux 上的 HDInsight (預覽)</td>
-<td>叢集可以部署在 Ubuntu Linux 上執行。如需詳細資料，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-get-started/" target ="_blank">開始在 Linux 上使用 HDInsight</a>。</td>
+<td>叢集可以部署在 Ubuntu Linux 上執行。如需詳細資料，請參閱＜開始在 Linux 上使用 HDInsight＞。</td>
 <td>服務</td>
 <td>Hadoop</td>
 <td>N/A</td>
@@ -649,7 +667,7 @@
 
 <tr>
 <td>Storm 公開上市</td>
-<td>Apache Storm 叢集已公開上市。如需詳細資料，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/" target="_blank">開始在 HDInsight 中使用 Storm</a>。</td>
+<td>Apache Storm 叢集已公開上市。如需詳細資料，請參閱＜開始在 HDInsight 中使用 Storm＞。</td>
 <td>服務</td>
 <td>Storm</td>
 <td>N/A</td>
@@ -665,7 +683,7 @@
 
 <tr>
 <td>叢集縮放</td>
-<td>您可以針對執行中的 HDInsight 叢集變更資料節點的數目，而不必刪除或重建它。目前只有 Hadoop 查詢和 Apache Storm 叢集類型有此功能，但很快就會提供對 Apache HBase 叢集類型的支援。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-cluster-scaling/" target="_blank">HDInsight 中的叢集縮放</a>。</td>
+<td>您可以針對執行中的 HDInsight 叢集變更資料節點的數目，而不必刪除或重建它。目前只有 Hadoop 查詢和 Apache Storm 叢集類型有此功能，但很快就會提供對 Apache HBase 叢集類型的支援。如需詳細資訊，請參閱＜管理 HDInsight 叢集＞。</td>
 <td>服務</td>
 <td>Hadoop、Storm</td>
 <td>N/A</td>
@@ -673,7 +691,7 @@
 
 <tr>
 <td>Visual Studio 工具</td>
-<td>除了 Apache Storm 的完整工具，Visual Studio 中的 Apache Hive 工具也已更新到包含陳述式完成、本機驗證和改進的偵錯支援。如需詳細資訊，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">開始使用 HDInsight Tools for Visual Studio</a>。</td>
+<td>除了 Apache Storm 的完整工具，Visual Studio 中的 Apache Hive 工具也已更新到包含陳述式完成、本機驗證和改進的偵錯支援。如需詳細資訊，請參閱＜開始使用 HDInsight Tools for Visual Studio＞。</td>
 <td>工具</td>
 <td>Hadoop</td>
 <td>N/A</td>
@@ -681,7 +699,7 @@
 
 <tr>
 <td>適用於 DocumentDB 的 Hadoop Connector </td>
-<td>使用適用於 DocumentDB 的 Hadoop Connector，您可以針對儲存在 DocumentDB 集合之間或資料庫帳戶之間的無結構描述 JSON 文件，執行複雜的彙總、分析與操作。如需詳細資訊和教學課程，請參閱<a href="http://azure.microsoft.com/documentation/articles/documentdb-run-hadoop-with-hdinsight/" target="_blank">使用 DocumentDB 和 HDInsight 執行 Hadoop 工作</a>。</td>
+<td>使用適用於 DocumentDB 的 Hadoop Connector，您可以針對儲存在 DocumentDB 集合之間或資料庫帳戶之間的無結構描述 JSON 文件，執行複雜的彙總、分析與操作。如需詳細資訊和教學課程，請參閱＜使用 DocumentDB 和 HDInsight 執行 Hadoop 工作＞。</td>
 <td>服務</td>
 <td>Hadoop</td>
 <td>N/A</td>
@@ -880,8 +898,8 @@ Apache Mahout 是 Apache Hadoop 的機器學習庫。Mahout 包含用來處理�
 </tr>
 
 <tr>
-<td><a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">叢集自訂公開上市</a></td>
-<td><p>自訂可讓您使用 Apache Hadoop 生態系統可用的專案來自訂 Azure HDInsight 叢集。有了這項新功能，您可以實驗並部署 Hadoop 專案至 Azure HDInsight。這是透過 **指令碼動作** 功能而啟用，它可以使用自訂指令碼，任意修改 Hadoop 叢集。此自訂可在所有類型的 HDInsight 叢集上使用，包括 Hadoop、HBase 和 Storm。為了示範此功能的威力，我們已記錄下安裝熱門 <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>、<a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>、<a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a> 和 <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> 模組的程序。此版本也加入讓客戶透過 Azure 入口網站指定自訂指令碼動作的功能、提供關於如何使用協助程式方法建置自訂指令碼動作的方針和最佳實務作法，以及提供如何測試指令碼動作的方針。</p></td>
+<td><a href = "hdinsight-hadoop-customize-cluster.md" target="_blank">叢集自訂公開上市</a></td>
+<td><p>自訂可讓您使用 Apache Hadoop 生態系統可用的專案來自訂 Azure HDInsight 叢集。有了這項新功能，您可以實驗並部署 Hadoop 專案至 Azure HDInsight。這是透過 **指令碼動作** 功能而啟用，它可以使用自訂指令碼，任意修改 Hadoop 叢集。此自訂可在所有類型的 HDInsight 叢集上使用，包括 Hadoop、HBase 和 Storm。為了示範此功能的威力，我們已記錄下安裝熱門 <a href = "hdinsight-hadoop-spark-install.md" target="_blank">Spark</a>、<a href = "hdinsight-hadoop-r-scripts.md" target="_blank">R</a>、<a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a> 和 <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a> 模組的程序。此版本也加入讓客戶透過 Azure 入口網站指定自訂指令碼動作的功能、提供關於如何使用協助程式方法建置自訂指令碼動作的方針和最佳實務作法，以及提供如何測試指令碼動作的方針。</p></td>
 <td>功能公開上市</td>
 <td>全部</td>
 <td>N/A</td>
@@ -1117,7 +1135,7 @@ Apache Mahout 是 Apache Hadoop 的機器學習庫。Mahout 包含用來處理�
 
 關於 Azure PowerShell 和 HDInsight SDK 的錯誤訊息：「叢集未設定 HTTP 服務存取」：
 
-* 此錯誤是已知的[相容性問題](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)，起因可能是 HDInsight 或 Azure PoweShell 版本和叢集版本的差異。在 8/15 或之後建立的叢集支援佈建到虛擬網路的這項新功能。但舊版的 HDInsight SDK 或 Azure PowerShell 無法正確解譯此功能。結果造成某些工作提交作業失敗。如果您使用 HDInsight SDK API 或 Azure PowerShell Cmdlet (**Use-AzureHDInsightCluster** 或 **Invoke-Hive**) 來提交工作，這些作業可能會失敗並傳回錯誤訊息「叢集 <clustername> 未設定 HTTP 服務存取。」 或者 (根據作業而定) 傳回其他錯誤訊息，例如「無法連接到叢集」。
+* 此錯誤是已知的[相容性問題](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)，起因可能是 HDInsight 或 Azure PoweShell 版本和叢集版本的差異。在 8/15 或之後建立的叢集支援佈建到虛擬網路的這項新功能。但舊版的 HDInsight SDK 或 Azure PowerShell 無法正確解譯此功能。結果造成某些工作提交作業失敗。如果您使用 HDInsight SDK API 或 Azure PowerShell Cmdlet (**Use-AzureRmHDInsightCluster** 或 **Invoke-AzureRmHDInsightHiveJob**) 來提交工作，這些作業可能會失敗並傳回錯誤訊息「叢集<clustername>未設定 HTTP 服務存取。」 或者 (根據作業而定) 傳回其他錯誤訊息，例如「無法連接到叢集」。
 
 * 最新版的 HDInsight SDK 和 Azure PowerShell 中已解決這些相容性問題。建議將 HDInsight SDK 更新到 1.3.1.6 版或更新版本，並將 Azure PowerShell 工具更新到 0.8.8 版或更新版本。您可以從 [](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 取得最新的 HDInsight SDK，並從[如何安裝和設定 Azure PowerShell](../powershell-install-configure/) 取得 Azure PowerShell 工具。
 
@@ -1138,7 +1156,7 @@ Apache Mahout 是 Apache Hadoop 的機器學習庫。Mahout 包含用來處理�
 	* 此變更解決了某些 Hive 查詢因為記憶體限制較低而發生的下列錯誤：「容器超過實體記憶體限制」。
 	* 若要還原成舊的預設值，您可以在建立叢集時使用下列命令以透過 Azure PowerShell 將此組態值設為 512：
 
-		Add-AzureHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
+		Add-AzureRmHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
 
 
 * Zookeeper 角色的主機名稱已變更為 *zookeeper*。這會影響叢集內的名稱解析，但不影響外部 REST API。如果您有元件使用 *zookeepernode* 主機名稱，則必須更新元件以改用新名稱。三個 zookeeper 節點的新名稱如下：
@@ -1149,7 +1167,7 @@ Apache Mahout 是 Apache Hadoop 的機器學習庫。Mahout 包含用來處理�
 
 ## 2014/8/15 之前所建立之叢集的附註
 
-因為 Azure PowerShell 或 HDInsight SDK 的版本與叢集版本不同，而可能遇到 Azure PowerShell 或 HDInsight SDK 錯誤訊息：「HTTP 服務存取未設定叢集 <clustername>」(或者根據作業而定，可能遇到其他錯誤訊息，例如「*無法連接到叢集*」)。在 8/15 或之後建立的叢集支援佈建到虛擬網路的這項新功能。舊版的 Azure PowerShell 或 HDInsight SDK 無法正確解譯此功能，導致工作提交作業失敗。如果您使用 HDInsight SDK API 或 Azure PowerShell Cmdlet (例如 Use-AzureHDInsightCluster 或 Invoke-AzureHDInsightHiveJob) 來提交工作，這些作業可能失敗並傳回上述其中一個錯誤訊息。
+因為 Azure PowerShell 或 HDInsight SDK 的版本與叢集版本不同，而可能遇到 Azure PowerShell 或 HDInsight SDK 錯誤訊息：「HTTP 服務存取未設定叢集 <clustername>」(或者根據作業而定，可能遇到其他錯誤訊息，例如「*無法連接到叢集*」)。在 8/15 或之後建立的叢集支援佈建到虛擬網路的這項新功能。舊版的 Azure PowerShell 或 HDInsight SDK 無法正確解譯此功能，導致工作提交作業失敗。如果您使用 HDInsight SDK API 或 Azure PowerShell Cmdlet (例如 Use-AzureRmHDInsightCluster 或 Invoke-AzureRmHDInsightHiveJob) 來提交工作，這些作業可能會失敗並傳回上述其中一個錯誤訊息。
 
 最新版的 HDInsight SDK 和 Azure PowerShell 中已解決這些相容性問題。建議將 HDInsight SDK 更新到 1.3.1.6 版或更新版本，並將 Azure PowerShell 工具更新到 0.8.8 版或更新版本。您可以從 [NuGet][nuget-link] 存取最新的 HDInsight SDK。您可以使用 [Microsoft Web Platform Installer][webpi-link] 存取 Azure PowerShell 工具。
 
@@ -1160,7 +1178,7 @@ Apache Mahout 是 Apache Hadoop 的機器學習庫。Mahout 包含用來處理�
 	* 東亞
 	* 美國中北部
 	* 美國中南部
-* 正在將 HDInsight 1.6 版 (HDP 1.1 和 Hadoop 1.0.3) 和 HDInsight 2.1 版 (HDP1.3 和 Hadoop 1.2) 從 Azure 入口網站移除。您可以繼續使用 Azure PowerShell Cmdlet [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 或使用 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx) 來建立這些版本的 Hadoop 叢集。如需詳細資訊，請參閱 [HDInsight 所提供叢集版本的新功能](../hdinsight-component-versioning/)頁面。
+* 正在將 HDInsight 1.6 版 (HDP 1.1 和 Hadoop 1.0.3) 和 HDInsight 2.1 版 (HDP1.3 和 Hadoop 1.2) 從 Azure 入口網站移除。您可以繼續使用 Azure PowerShell Cmdlet、[New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 或使用 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx) 來建立這些版本的 Hadoop 叢集。如需詳細資訊，請參閱 [HDInsight 所提供叢集版本的新功能](../hdinsight-component-versioning/)頁面。
 * 此版本中的 Hortonworks Data Platform (HDP) 變更：
 
 <table border="1"> <tr><th>HDP</th><th>變更</th></tr> <tr><td>HDP 1.3 / HDI 2.1</td><td>未變更</td></tr> <tr><td>HDP 2.0 / HDI 3.0</td><td>未變更</td></tr> <tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
@@ -1366,4 +1384,4 @@ SQL Server 的 Java 資料庫連接 (JDBC) 驅動程式僅供 HDInsight 內部�
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

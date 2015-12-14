@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -140,7 +140,7 @@ Azure SQL Database 中的彈性資料庫集區可讓 SaaS ISV 將一組資料庫
 
 STA 和 DMV 為調整彈性資料庫集區的大小提供不同的工具選項和功能。無論使用何種工具選項，大小估計值應該僅用於彈性資料庫集區的初步評估與建立。一旦建立集區，則應該準確地監視其資源使用狀況，並視需要增加和減少進行調整集區的效能設定。
 
-**STA**<br>STA 是[預覽入口網站](https://portal.azure.com)中的內建工具，它會自動評估現有的 SQL Database 伺服器中資料庫的歷程記錄資源使用量，並建議適當的彈性資料庫集區設定。如需詳細資訊，請參閱[彈性資料庫集區定價層建議](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)。
+**STA**<br>STA 是 [Azure 入口網站](https://portal.azure.com)中的內建工具，它會自動評估現有的 SQL Database 伺服器中資料庫的歷程記錄資源使用量，並建議適當的彈性資料庫集區設定。如需詳細資訊，請參閱[彈性資料庫集區定價層建議](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)。
 
 **DMV 調整大小工具**<br>DMV 調整大小工具是以 PowerShell 指令碼形式來提供，可讓您自訂伺服器中現有資料庫之彈性資料庫集區的調整大小估計值。
 
@@ -160,7 +160,7 @@ STA 和 DMV 為調整彈性資料庫集區的大小提供不同的工具選項�
 
 STA 會評估資料庫的使用量歷程記錄，並在比使用單一資料庫的效能層級更符合成本效益時，建議您使用彈性資料庫集區。如果建議使用集區，工具會提供建議的資料庫的清單，以及建議的集區 eDTU 數量和每個彈性資料庫的最小/最大 eDTU 設定。為了讓資料庫被視為集區的候選項目，它必須存在至少 7 天。
 
-STA 是在加入彈性資料庫集區至現有的伺服器時，於預覽入口網站中提供。如果有該伺服器彈性資料庫集區的建議，它們會顯示在 [彈性資料庫集區] 建立頁面中。客戶可以隨時變更建議的設定，以建立自己的彈性資料庫集區群組。
+STA 是在加入彈性資料庫集區至現有的伺服器時，於入口網站中提供。如果有該伺服器彈性資料庫集區的建議，它們會顯示在 [彈性資料庫集區] 建立頁面中。客戶可以隨時變更建議的設定，以建立自己的彈性資料庫集區群組。
 
 如需詳細資訊，請參閱[彈性資料庫集區定價層建議](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)
 
@@ -435,4 +435,4 @@ STA 是在加入彈性資料庫集區至現有的伺服器時，於預覽入口�
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

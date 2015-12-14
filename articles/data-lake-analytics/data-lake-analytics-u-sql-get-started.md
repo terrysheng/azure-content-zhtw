@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/26/2015"
+   ms.date="11/30/2015"
    ms.author="jgao"/>
 
 # 教學課程：開始使用 Azure 資料湖分析 U-SQL 語言
@@ -30,8 +30,8 @@ select 子句內部是型別系統和運算式語言，在這裡面述詞等項�
 
 **必要條件**
 
-- **已安裝 Visual C++ 的 Visual Studio 2015、Visual Studio 2013 更新 4 或 Visual Studio 2012** 
-- **Microsoft Azure SDK for .NET 2.5 版或更新版本**。使用 [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 來進行安裝。
+- **已安裝 Visual Studio 2015、Visual Studio 2013 更新 4，或具有 Visual C++ 的 Visual Studio 2012** 
+- **Microsoft Azure SDK for .NET 2.7 版或更新版本**。使用 [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 進行安裝。
 - **[適用於 Visual Studio 的資料湖工具](http://aka.ms/adltoolsvs)**。 
 	
 	安裝適用於 Visual Studio 的資料湖工具之後，您會在 Visual Studio 中看到 [資料湖]功能表：
@@ -40,13 +40,13 @@ select 子句內部是型別系統和運算式語言，在這裡面述詞等項�
 
 - **對於資料湖分析和適用於 Visual Studio 的資料湖工具有基本的認識**。若要開始使用，請參閱：
  
-	- [使用 Azure Preview 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)。
+	- [使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)。
 	- [使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 
 - **資料湖分析帳戶**。請參閱[建立 Azure 資料湖 (ADL) 分析帳戶](data-lake-analytics-get-started-portal.md#create_adl_analytics_account)。
 - **將範例資料上傳到資料湖分析帳戶**。請參閱[將 SearchLog.tsv 上傳到預設資料湖儲存體帳戶](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account)。
 
-	資料湖工具不支援建立資料湖分析帳戶。因此您必須使用 Azure Preview 入口網站、Azure PowerShell、.NET SDK 或 Azure CLI 建立帳戶。若要執行資料湖分析工作，您需要一些資料。即使資料湖工具支援上傳資料，您將使用入口網站來上傳範例資料，以方便遵循本教學課程。
+	資料湖工具不支援建立資料湖分析帳戶。因此您必須使用 Azure 入口網站、Azure PowerShell、.NET SDK 或 Azure CLI 建立帳戶。若要執行資料湖分析工作，您需要一些資料。即使資料湖工具支援上傳資料，您將使用入口網站來上傳範例資料，以方便遵循本教學課程。
 
 ## 從 Visual Studio 連接至 Azure
 
@@ -62,7 +62,7 @@ select 子句內部是型別系統和運算式語言，在這裡面述詞等項�
 **瀏覽您的資料湖分析帳戶**
 
 1. 從 Visual Studio 中，按 **CTRL+ALT+S**，開啟 [伺服器總管]。
-2. 從 [伺服器總管] 中，展開 [Azure]，然後展開 [資料湖分析]。如果有資料湖分析帳戶，您就會看到其清單。您無法從 Visual Studio 建立資料湖分析帳戶。若要建立帳戶，請參閱[使用 Azure Preview 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)或[使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-get-started-powershell.md)。
+2. 從 [伺服器總管] 中，展開 [Azure]，然後展開 [資料湖分析]。如果有資料湖分析帳戶，您就會看到其清單。您無法從 Visual Studio 建立資料湖分析帳戶。若要建立帳戶，請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)或[使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-get-started-powershell.md)。
 
 
 ## 開發您的第一個 U-SQL 指令碼 
@@ -141,11 +141,11 @@ select 子句內部是型別系統和運算式語言，在這裡面述詞等項�
     
         adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    您必須使用絕對路徑，才能存取所連結儲存體帳戶中的檔案。儲存在連結 Azure 儲存體帳戶中的檔案語法為：
+    您必須使用絕對路徑，才能存取所連結儲存體帳戶中的檔案。儲存在連結 Azure 儲存體帳戶中之檔案的語法是：
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]目前不支援具有公用 Blob 或公用容器存取權的 Azure Blob 容器。
+    >[AZURE.NOTE]目前不支援具有公用 Blob 或公用容器存取權限的 Azure Blob 容器。
 
 ## 使用純量變數
 
@@ -492,13 +492,13 @@ U-SQL 與關聯式資料庫資料表類似，可讓您使用預先定義的結�
 - [Microsoft Azure 資料湖分析概觀](data-lake-analytics-overview.md)
 - [使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
 - [針對 Azure 資料湖分析工作使用 U-SQL 視窗函式](data-lake-analytics-use-window-functions.md)
-- [使用 Azure Preview 入口網站監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## 讓我們知道您的想法
 
 - [建議新的文件集待處理項目](data-lake-analytics-documentation-backlog.md)
-- [提交功能要求](http://aka.ms/adlafeedback)
+- [提交要求功能](http://aka.ms/adlafeedback)
 - [在論壇上取得協助](http://aka.ms/adlaforums)
-- [提供關於 U-SQL 的意見](http://aka.ms/usqldiscuss)
+- [提供關於 U-SQL 的意見反應](http://aka.ms/usqldiscuss)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

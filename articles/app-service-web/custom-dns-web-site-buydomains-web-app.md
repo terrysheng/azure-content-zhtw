@@ -41,14 +41,14 @@
 
 > [AZURE.NOTE]請不要嘗試使用沒有與作用中信用卡相關聯的訂用帳戶購買網域。這可能會導致您的訂用帳戶被停用。
 
-如果您的 Web 應用程式沒有一個網域名稱，您可以輕鬆地在 [Azure 管理入口網站](https://portal.azure.com)購買一個。在購買程序期間，您可以選擇將 WWW 和根網域的 DNS 記錄自動對應到您的 Web 應用程式。您也可以在 Azure 入口網站管理您的網域權限。
+如果您的 Web 應用程式沒有網域名稱，您可以輕鬆地在 [Azure 入口網站](https://portal.azure.com)購買一個。在購買程序期間，您可以選擇將 WWW 和根網域的 DNS 記錄自動對應到您的 Web 應用程式。您也可以在 Azure 入口網站管理您的網域權限。
 
 
 使用下列步驟購買網域名稱，並將其指派給您的 Web 應用程式。
 
-1. 在瀏覽器中開啟 [Azure 管理入口網站](https://portal.azure.com)。
+1. 在瀏覽器中，開啟 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在 [**Web 應用程式**] 索引標籤中，按一下您 Web 應用程式的名稱，並選取 [**設定**]，然後選取 [**自訂網域和 SSL**]。
+2. 在 [**Web Apps**] 索引標籤中，按一下您 Web 應用程式的名稱，並選取 [**設定**]，然後選取 [**自訂網域和 SSL**]。
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
@@ -98,4 +98,4 @@
 此時，您應該能夠在瀏覽器中輸入自訂網域名稱，並且能成功移至您的 Web 應用程式。
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

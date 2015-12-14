@@ -45,7 +45,7 @@
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-其中的 `[namespace]` 和 `SharedAccessKey` 是從 Azure 入口網站取得。如需詳細資訊，請參閱[如何使用服務匯流排佇列][] (英文)。
+其中的 `[namespace]` 和 `SharedAccessKey` 是從 [Azure 傳統入口網站][]取得。如需詳細資訊，請參閱[如何使用服務匯流排佇列][] (英文)。
 
 使用 AMQP 時，在連接字串中附加 `;TransportType=Amqp`。此標記法會通知用戶端程式庫使用 AMQP 1.0 連線到服務匯流排。
 
@@ -161,7 +161,7 @@
 
 -   **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval**︰如果傳輸可分批進行，這個值會決定用於傳送配置的延遲上限。預設由傳送者/接收者繼承。個別的傳送者/接收者可以覆寫預設值 (20 毫秒)。
 
--   **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity**︰控制是否透過 SSL 連線建立 AMQP 連線。預設值是 **true**。
+-   **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity**︰控制是否透過 SSL 連線建立 AMQP 連線。預設值為 **true**。
 
 ## 後續步驟
 
@@ -199,8 +199,9 @@
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
+[Azure 傳統入口網站]: http://manage.windowsazure.com
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [適用於服務匯流排分割的佇列和主題的 AMQP 1.0 支援]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

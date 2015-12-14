@@ -34,7 +34,7 @@
 
 - 非生產的位置無法使用調整規模。
 
-- 非生產位置不支援連結的資源管理。只有在 [Azure 預覽入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，您才能藉由暫時將非生產位置移到其他 App Service 方案模式，來避免這種對生產位置的潛在影響。請注意，非生產位置必須先再次與生產位置共用相同模式，您才能交換這兩個位置。
+- 非生產位置不支援連結的資源管理。只有在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，您才能藉由暫時將非生產位置移到其他 App Service 方案模式，來避免這種對生產位置的潛在影響。請注意，非生產位置必須先再次與生產位置共用相同模式，您才能交換這兩個位置。
 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -44,7 +44,7 @@
 
 Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟用多個部署位置。
 
-1. 在 [Azure 預覽入口網站](https://portal.azure.com/)中，開啟 Web 應用程式的刀鋒視窗。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 Web 應用程式的刀鋒視窗。
 2. 按一下 [部署位置]。然後，在 [部署位置] 刀鋒視窗中，按一下 [加入位置]。
 
 	![新增部署位置][QGAddNewDeploymentSlot]
@@ -242,7 +242,6 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -260,4 +259,4 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

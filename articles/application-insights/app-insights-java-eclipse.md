@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # 在 Eclipse 中利用 Java 開始使用 Application Insights
@@ -99,7 +99,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 #### 檢視用戶端資料
 
-開啟您已更新的網頁，並使用它們。等待一、兩分鐘，然後回到 Application Insights，並重新整理使用量刀鋒視窗。
+開啟您已更新的網頁，並使用它們。等待一、兩分鐘，然後回到 Application Insights，並開啟 [使用量] 刀鋒視窗。(從 [概觀] 刀鋒視窗上，向下捲動並按一下 [自使用量]。)
 
 頁面檢視、使用者和工作階段度量將出現在 [使用量] 刀鋒視窗上：
 
@@ -129,7 +129,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 會自動收集未處理的例外狀況：
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![](./media/app-insights-java-eclipse/21-exceptions.png)
 
 若要收集其他例外狀況的資料，您有兩個選項：
 
@@ -144,10 +144,10 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 ## 效能計數器
 
-按一下 [伺服器] 磚，您就會看到一些效能計數器。
+在您的 [概觀] 刀鋒視窗中，向下捲動並按一下 [伺服器] 並排顯示。您會看到一些效能計數器。
 
 
-![](./media/app-insights-java-get-started/11-perf-counters.png)
+![向下捲動，按一下 [伺服器] 磚](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### 自訂效能計數器集合
 
@@ -198,7 +198,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 您的效能計數器會在[計量瀏覽器][metrics]中以自訂度量的形式顯示。
 
-![](./media/app-insights-java-get-started/12-custom-perfs.png)
+![](./media/app-insights-java-eclipse/12-custom-perfs.png)
 
 
 ### Unix 效能計數器
@@ -207,7 +207,9 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 ## 可用性 Web 測試
 
-Application Insights 可讓您定期測試網站，以檢查網站運作中且正常回應。若要設定，請在 [概觀] 刀鋒視窗上逐一點選空白 Web 測試圖表，並提供您的公用 URL。
+Application Insights 可讓您定期測試網站，以檢查網站運作中且正常回應。[若要設定][availability]，請向下捲動來按一下 [可用性]。
+
+![向下捲動，並依序按一下 [可用性]、[加入 Web 測試]](./media/app-insights-java-eclipse/31-config-web-test.png)
 
 您將取得回應時間的圖表，以及若網站關閉還會取得電子郵件通知。
 
@@ -258,4 +260,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

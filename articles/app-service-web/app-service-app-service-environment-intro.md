@@ -84,7 +84,6 @@ App Service 環境是由前端計算資源集區，以及一到三個背景工�
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [AppServicePlan]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[Azure preview portal]: http://portal.azure.com
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [WebApps]: http://azure.microsoft.com/documentation/articles/app-service-web-overview/
@@ -105,4 +104,4 @@ App Service 環境是由前端計算資源集區，以及一到三個背景工�
 
 <!-- IMAGES -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

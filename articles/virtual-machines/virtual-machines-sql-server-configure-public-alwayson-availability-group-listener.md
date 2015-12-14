@@ -81,7 +81,7 @@
 
 [AZURE.INCLUDE [防火牆](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. 對於外部負載平衡，您必須取得包含複本之雲端服務的公用虛擬 IP 位址。登入 Azure 入口網站。巡覽至包含可用性群組 VM 的雲端服務。開啟**儀表板**檢視。 
+1. 對於外部負載平衡，您必須取得包含複本之雲端服務的公用虛擬 IP 位址。登入 Azure 傳統入口網站。巡覽至包含可用性群組 VM 的雲端服務。開啟**儀表板**檢視。 
 
 3. 記下 [**公用虛擬 IP (VIP) 位址**] 下方顯示的位址。如果您的解決方案跨越多個 VNet，請針對包含主控複本之 VM 的每個雲端服務重複此步驟。
 
@@ -130,4 +130,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

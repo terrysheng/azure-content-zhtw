@@ -43,7 +43,7 @@
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-您必須使用行動服務的應用程式 URL 來取代預留位置 `AppUrl`，並使用應用程式金鑰來取代 `AppKey`，您可以從 [Azure 入口網站](http://manage.windowsazure.com/)取得此金鑰。
+您必須使用行動服務的應用程式 URL 來取代預留位置 `AppUrl`，並使用應用程式金鑰來取代 `AppKey`，您可以從 [Azure 傳統入口網站](http://manage.windowsazure.com/)取得此金鑰。
 
 >[AZURE.IMPORTANT]應用程式金鑰是用來針對行動服務篩選出隨機要求，它會隨應用程式一起發送。因為此金鑰並未加密，所以並不安全。若要真正保護行動服務資料的安全，您必須改在允許存取之前驗證使用者。如需詳細資訊，請參閱[作法：驗證使用者](#authentication)。
 
@@ -504,7 +504,7 @@
 	// Start the sign-in process.
 	authenticate();
 
-這會初始化 Live Connect 用戶端、將新的登入要求傳送至 Microsoft 帳戶、將傳回的驗證權杖傳送至行動服務，然後顯示登入使用者的相關資訊。此 App 會等到驗證成功後才啟動。<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+這會初始化 Live Connect 用戶端、將新的登入要求傳送至 Microsoft 帳戶、將傳回的驗證權杖傳送至行動服務，然後顯示登入使用者的相關資訊。此應用程式會等到驗證成功後才啟動。<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -624,7 +624,7 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 
 ##<a name="hostnames"></a>作法：使用跨原始資源共用
 
-若要控制允許哪些網站與您的行動服務互動，以及傳送要求至您的行動服務，請務必將您用來代管行動服務的網站主機名稱，加入跨原始資源共用 (Cross-Origin Resource Sharing，CORS) 白名單。如果是 JavaScript 後端行動服務，您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)中的 [設定] 索引標籤上設定允許清單。需要的話可使用萬用字元。依預設，新的行動服務會指示瀏覽器只允許來自 `localhost` 的存取，而跨原始資源共用 (CORS) 可讓在外部主機名稱的瀏覽器中執行的 JavaScript 程式碼與您的行動服務互動。WinJS 應用程式不需要此組態。
+若要控制允許哪些網站與您的行動服務互動，以及傳送要求至您的行動服務，請務必將您用來代管行動服務的網站主機名稱，加入跨原始資源共用 (Cross-Origin Resource Sharing，CORS) 白名單。如果是 JavaScript 後端行動服務，您可以在 [Azure 傳統入口網站](https://manage.windowsazure.com)中的 [設定] 索引標籤上設定允許清單。需要的話可使用萬用字元。依預設，新的行動服務會指示瀏覽器只允許來自 `localhost` 的存取，而跨原始資源共用 (CORS) 可讓在外部主機名稱的瀏覽器中執行的 JavaScript 程式碼與您的行動服務互動。WinJS 應用程式不需要此組態。
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -665,4 +665,4 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

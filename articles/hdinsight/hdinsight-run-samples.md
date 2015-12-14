@@ -46,7 +46,7 @@
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - **HDInsight 叢集**。如需可建立此類叢集之各種方式的指示，請參閱[在 HDInsight 中使用 Hadoop 叢集](hdinsight-provision-clusters.md)。
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)。
 
 ## 字數統計 - Java 
 
@@ -998,4 +998,4 @@ wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][streamreader] 物�
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

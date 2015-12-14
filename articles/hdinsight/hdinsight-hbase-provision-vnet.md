@@ -60,7 +60,7 @@ Azure 資源管理員可讓您將應用程式中的資源做為群組使用。�
 
 **建立資源群組**
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下 [新增]、[管理]，然後按一下 [資源群組]。
 3. 輸入或選取下列值：
 
@@ -74,7 +74,7 @@ Azure 資源管理員可讓您將應用程式中的資源做為群組使用。�
 
 **使用 Azure 入口網站建立虛擬網路**
 
-1. 登入 [Preview 入口網站](https://portal.azure.com)。
+1. 登入[入口網站](https://portal.azure.com)。
 2. 依序按一下 [新增]、[網路] 和 [虛擬網路]。
 3. 如果您要使用的是以 Windows 為基礎的 HDInsight 叢集，請在 [選取部署模型] 中選取 [傳統]；如果要使用的是以 Linux 為基礎的 HDInsight 叢集，請選取 [資源管理員]。最後，按一下 [建立]。
 
@@ -115,10 +115,10 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 **建立 HDInsight 叢集**
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
 
-    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
+    ![在 Azure 入口網站中建立新的叢集](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "在 Azure 入口網站中建立新的叢集")
 
 3. 輸入或選取下列值：
 
@@ -389,4 +389,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

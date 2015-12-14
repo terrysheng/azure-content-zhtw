@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用 Azure 管理入口網站透過 Azure 媒體服務管理媒體內容" 
+	pageTitle="如何使用 Azure 傳統入口網站透過 Azure 媒體服務管理媒體內容" 
 	description="了解如何在 Azure 媒體服務中管理您的媒體內容。這包括：上傳、索引、編碼、加密，以及發佈。" 
 	services="media-services" 
 	documentationCenter="" 
@@ -17,10 +17,10 @@
 	ms.author="juliako"/>
 
 
-# 使用 Azure Management Portal 利用 Azure 媒體服務管理內容
+# 使用 Azure 傳統入口網站透過 Azure 媒體服務管理內容
 
 
-本主題說明如何使用 Azure 管理入口網站在媒體服務帳戶中管理媒體內容。
+本主題示範如何使用 Azure 傳統入口網站在媒體服務帳戶中管理媒體內容。
 
 本主題示範如何直接從入口網站執行下列內容作業：
 
@@ -33,13 +33,13 @@
 - 播放內容
 
 
-##<a id="upload"></a>做法：上傳內容 
+##<a id="upload"></a>做法：上傳內容
 
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 
-1. 在[管理入口網站](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)中按一下 [媒體服務]，然後按一下媒體服務帳戶名稱。
+1. 在 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)中，按一下 [媒體服務]，然後按一下媒體服務帳戶名稱。
 2. 選取 [內容] 頁面。 
 3. 按一下頁面或入口網站底部的 [上傳] 按鈕。 
 4. 在 [Upload content] 對話方塊中，瀏覽到想要的資產檔案。按一下檔案，然後按一下 [開啟] 或按 **Enter** 鍵。
@@ -63,16 +63,16 @@
 - [.NET](media-services-index-content.md)
 - [Portal](media-services-manage-content.md#index)
 
-Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以使用管理入口網站並遵循以下所示的步驟，來編製內容的索引。不過，如果您想要更充分掌控哪些檔案和如何執行索引工作，可以使用適用於 .NET 或 REST API 的媒體服務 SDK。如需詳細資訊，請參閱[使用 Azure Media Indexer 編製媒體檔案的索引](media-services-index-content.md)。
+Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以使用 Azure 傳統入口網站，並遵循以下所示的步驟，來編製內容的索引。不過，如果您想要更充分掌控哪些檔案和如何執行索引工作，可以使用適用於 .NET 或 REST API 的媒體服務 SDK。如需詳細資訊，請參閱[使用 Azure Media Indexer 編製媒體檔案的索引](media-services-index-content.md)。
 
-下列步驟示範如何使用管理入口網站來編製內容索引。
+下列步驟示範如何使用 Azure 傳統入口網站來編製內容索引。
 
 1. 選取您想要編製索引的檔案。如果支援此檔案類型的索引，[內容] 頁面上底部的 [處理] 按鈕將會啟用。
 1. 按下 [處理] 按鈕。
 2. 在**處理**對話方塊選擇 **Azure Media Indexer** 處理器。
 3. 然後，在 [處理] 對話方塊，填寫輸入媒體檔案的詳細**標題**和**描述**資訊。
-	
-	![Process][process]
+
+![Process][process]
 
 ##<a id="encode"></a>做法：編碼內容
 
@@ -96,36 +96,33 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
 請注意，除了能夠使用動態封裝功能，隨選串流保留單元提供您專用傳出功能，此功能可以以 200 Mbps 為增量來購買。依預設，隨選串流是以共用執行個體模型來設定，可與其他所有使用者共用伺服器資源 (例如，運算、流出容量等)。若要改進隨選串流輸送量，建議購買隨選串流保留單元。
 
-本章節描述您可以採取的步驟，以使用管理入口網站，透過 Azure Media Encoder 編碼您的內容。
+本節說明當您要使用 Azure 傳統入口網站來透過 Azure 媒體編碼器為您的內容編碼時，可以採取的步驟。
 
 1.  選取您想要編碼的檔案。如果支援此檔案類型的編碼，[內容] 頁面底部的 [處理] 按鈕將會啟用。
 4. 在 [處理] 對話方塊選取 [Azure 媒體編碼器] 處理器。
 5. 選擇其中一種**編碼組態**。
 
-	![Process2][process2]
-
-		
-	[Azure 媒體編碼器的工作預設字串](https://msdn.microsoft.com/library/azure/dn619392.aspx)主題說明**彈性資料流預設 (動態封裝)**、**漸進式下載預設**、**彈性資料流的舊版預設值**等類別各代表什麼意思。
+![Process2][process2]
 
 
-	**其他**組態如下所述：
+[Azure 媒體編碼器的工作預設字串](https://msdn.microsoft.com/library/azure/dn619392.aspx)主題說明**彈性資料流預設 (動態封裝)**、**漸進式下載預設**、**彈性資料流的舊版預設值**等類別各代表什麼意思。
 
-	+ **使用 PlayReady 內容保護進行編碼**。此預設格式會產生以 PlayReady 內容保護編碼的資產。  
-	
-	
-		依預設會使用媒體服務 PlayReady 授權服務。若要指定其他可讓用戶端從中取得授權以播放 PlayReady 加密內容的服務，請使用 REST 或媒體服務 .NET SDK API。如需詳細資訊，請參閱[使用靜態加密保護您的內容]()，並在媒體編碼程式預設中設定 **licenseAcquisitionUrl** 屬性。或者，您可以使用動態加密，並依照**使用 PlayReady 動態加密和授權傳遞服務**來設定 [PlayReadyLicenseAcquisitionUrl](http://go.microsoft.com/fwlink/?LinkId=507720) 屬性。 
-	+ **在 PC/Mac 上播放 (透過 Flash/Silverlight)**。此預設會產生具有下列特性的 Smooth Streaming 資產：使用 AAC 編碼的 44.1 kHz 16 位元/樣本立體音訊 CBR (96 kbps)，以及使用 H.264 主要設定檔編碼的 720p 視訊 CBR (6 位元速率，範圍從 3400 kbps 到 400 kbps)，與兩秒 GOP。
-	+ **透過 HTML5 播放 (IE/Chrome/Safari)**。此預設會產生具有下列特性的單一 MP4 檔案：使用 AAC 編碼的 44.1 kHz 16 位元/樣本立體音訊 CBR (128 kbps)，以及使用 H.264 主要設定檔編碼的 720p 視訊 CBR (4500 kbps)。
-	+ **在 iOS 裝置和 PC/Mac 上播放**。此預設格式會產生特性與 Smooth Streaming 資產 (如上所述) 相同、但是其格式可以用來將 Apple HLS 資料流傳遞至 iOS 裝置的資產。 
+
+**其他**組態如下所述：
+
++ **使用 PlayReady 內容保護進行編碼**。此預設格式會產生以 PlayReady 內容保護編碼的資產。
+
+
+依預設會使用媒體服務 PlayReady 授權服務。若要指定其他可讓用戶端從中取得授權以播放 PlayReady 加密內容的服務，請使用 REST 或媒體服務 .NET SDK API。如需詳細資訊，請參閱[使用靜態加密保護您的內容]()，並在媒體編碼程式預設中設定 **licenseAcquisitionUrl** 屬性。或者，您可以使用動態加密，並依照[使用 PlayReady 動態加密和授權傳遞服務](http://go.microsoft.com/fwlink/?LinkId=507720)來設定 **PlayReadyLicenseAcquisitionUrl** 屬性。+ **在 PC/Mac 上播放 (透過 Flash/Silverlight)**。此預設會產生具有下列特性的 Smooth Streaming 資產：使用 AAC 編碼的 44.1 kHz 16 位元/樣本立體音訊 CBR (96 kbps)，以及使用 H.264 主要設定檔編碼的 720p 視訊 CBR (6 位元速率，範圍從 3400 kbps 到 400 kbps)，與兩秒 GOP。+ **透過 HTML5 播放 (IE/Chrome/Safari)**。此預設會產生具有下列特性的單一 MP4 檔案：使用 AAC 編碼的 44.1 kHz 16 位元/樣本立體音訊 CBR (128 kbps)，以及使用 H.264 主要設定檔編碼的 720p 視訊 CBR (4500 kbps)。+ **在 iOS 裝置和 PC/Mac 上播放**。此預設格式會產生特性與 Smooth Streaming 資產 (如上所述) 相同、但是其格式可以用來將 Apple HLS 資料流傳遞至 iOS 裝置的資產。
 
 5. 接著，輸入想要的好記輸出內容名稱或接受預設值。然後，按一下核取按鈕以啟動編碼作業，而您可以在入口網站底部追蹤進度。
 6. 按下 [確定]。
 
-	編碼完成之後，[內容] 頁面會包含編碼的檔案。
+編碼完成之後，[內容] 頁面會包含編碼的檔案。
 
-	若要檢視編碼工作的進度，請切換到 [工作] 頁面。
+若要檢視編碼工作的進度，請切換到 [工作] 頁面。
 
-	如果編碼完成之後檔案大小值未更新，請按 [Sync Metadata] 按鈕。這樣會以儲存體中的實際檔案大小同步處理輸出資產檔案大小，並重新整理 [內容] 頁面上的值。
+如果編碼完成之後檔案大小值未更新，請按 [Sync Metadata] 按鈕。這樣會以儲存體中的實際檔案大小同步處理輸出資產檔案大小，並重新整理 [內容] 頁面上的值。
 
 ##<a id="encrypt"></a>做法：加密內容
 
@@ -159,7 +156,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
 如要想提供 URL 給使用者，讓使用者可以利用這個 URL 來傳送或下載內容，請您先建立定位器來發佈您的資產。定位器可以存取資產中所含的檔案。媒體服務支援兩種類型的定位器：OnDemandOrigin 定位器，用於串流媒體 (例如，MPEG DASH、HLS 或 Smooth Streaming) 和存取簽章 (SAS) 定位器，用來下載媒體檔案。
 
-當您使用 Azure 管理入口網站發佈您的資產時，會為您建立定位器並提供 OnDemantOrigin 形式 URL (如果您的資產包含.ism 檔案) 或 SAS URL。
+當您使用 Azure 傳統入口網站發佈您的資產時，系統會為您建立定位器，並提供 OnDemantOrigin 式的 URL (如果您的資產包含 .ism 檔案) 或 SAS URL。
 
 SAS URL 具有下列格式：
 
@@ -196,7 +193,7 @@ SAS URL 具有下列格式：
 
 ## 做法：從入口網站播放內容
 
-**Azure 管理入口網站**提供內容播放程式，您可用來測試您的視訊。
+**Azure 傳統入口網站**提供內容播放程式，可讓您用來測試視訊。
 
 按一下想要的視訊，然後按一下入口網站底部的 [播放] 按鈕。
  
@@ -231,4 +228,4 @@ SAS URL 具有下列格式：
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

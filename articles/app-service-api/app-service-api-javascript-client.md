@@ -18,6 +18,8 @@
 
 # 利用 HTML 和 JavaScript 取用 Azure API 應用程式
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 概觀
 
 本文說明如何在 [Azure App Service](/documentation/services/app-service/) 中建立 [API 應用程式](app-service-api-apps-why-best-platform.md)的 HTML 和 JavaScript 用戶端。本文假設您已具備 HTML 和 JavaScript 的知識，並將使用 [AngularJS](https://angularjs.org/) JavaScript 架構對 API 應用程式進行 REST 呼叫。
@@ -54,7 +56,7 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 	![閘道應用程式設定](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. 新增 **MS_CrossDomainOrigins** 應用程式設定。讓此設定的值成為您要提供 API 應用程式存取權的 HTTP 主機清單 (以逗號分隔)。如果您要提供多部主機的存取權，則可將 *appSetting* 的值設定為類似下列的程式碼。
+1. 新增 **MS\_CrossDomainOrigins** 應用程式設定。讓此設定的值成為您要提供 API 應用程式存取權的 HTTP 主機清單 (以逗號分隔)。如果您要提供多部主機的存取權，則可將 *appSetting* 的值設定為類似下列的程式碼。
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -80,7 +82,7 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. 開啟 *App_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。
+1. 開啟 *App\_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。
 
 		config.EnableCors();
 
@@ -369,6 +371,6 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 此範例示範如何使用 AngularJS 做為 JavaScript 平台，以供存取 API 應用程式後端。您可以將 REST 存取功能變更為使用任何其他 JavaScript 架構。
 
-此範例顯示對 API 應用程式的未經驗證存取權。如需 App Service 中驗證的相關資訊，請參閱 [API 應用程式與行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
+此範例顯示對 API 應用程式的未經驗證存取權。如需 App Service 中驗證的相關資訊，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

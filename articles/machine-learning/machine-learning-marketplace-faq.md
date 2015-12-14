@@ -40,9 +40,9 @@
 
 在 Marketplace 的 [探索這個資料集] 頁面上取用您的 Web 服務時，該服務的一個或多個輸入參數可能超過長度限制。您可以透過 HTTP POST 方法，使用較長的輸入長度呼叫服務。例如，請參閱[使用 R 在 Machine Learning 上建置並發佈至 Marketplace 的範例解決方案](machine-learning-r-csharp-web-service-examples.md)。
 
-**4.為什麼 Azure 管理入口網站之 [存放區] 的 [API 總管] 索引標籤中未顯示任何項目？**
+**4.為什麼 Azure 傳統入口網站之 [存放區] 的 [API 總管] 索引標籤中未顯示任何項目？**
 
-這是 Azure Marketplace 管理入口網站的已知問題。小組正著手解決這個問題。
+這是 Azure 傳統入口網站 Marketplace 的已知問題。小組正著手解決這個問題。
 
 
 ##透過 Azure Machine Learning 在 Marketplace 上發佈的相關問題
@@ -77,4 +77,4 @@ Marketplace Web 服務目前不支援批次輸入模式。
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="在 HDInsight 中佈建 Apache Spark 叢集 | Microsoft Azure"
-   description="了解如何使用 Azure 入口網站、Azure PowerShell、命令列或 HDInsight .NET SDK 佈建 Azure HDInsight 的 Spark 叢集。"
+   description="了解如何使用 Azure 傳統入口網站、Azure PowerShell、命令列或 HDInsight .NET SDK 為 Azure HDInsight 佈建 Spark 叢集。"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -21,7 +21,7 @@
 
 在大部分的情況下，您可以使用[開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md) 所述的快速建立方法佈建 Spark 叢集。在某些情況下，您可能想要佈建自訂叢集。比方說，您可能會想要連接外部中繼資料存放區，讓 Hive 中繼資料的持續性超越叢集存留期，或是可能會想要使用額外的儲存體來搭配叢集。
 
-對於這類案例和其他案例，本文章提供如何使用 Azure 入口網站、Azure PowerShell 或 HDInsight .NET SDK，在 HDInsight 上佈建自訂 Spark 叢集的指示。
+對於這類案例及其他案例，本文提供如何使用 Azure 傳統入口網站、Azure PowerShell 或 HDInsight .NET SDK，在 HDInsight 上佈建自訂 Spark 叢集的指示。
 
 
 **必要條件：**
@@ -46,7 +46,7 @@ Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可�
 
 ### 叢集自訂
 
-您可以在佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼可透過**指令碼動作**叫用，指令碼動作是一個組態選項，其可從 Azure 入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-customize-cluster]。
+您可以在佈建期間使用指令碼來安裝其他元件或自訂組態。這類指令碼可透過**指令碼動作**叫用。指令碼動作為設定選項，可從 Azure 傳統入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 中使用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-customize-cluster]。
 
 
 ###虛擬網路
@@ -75,116 +75,116 @@ Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可�
 >
 > 強烈建議您一個叢集只指定一個子網路。
 
-##使用 Azure Preview 入口網站
+##使用 Azure 入口網站
 
 HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心上必須要有 Azure 儲存體帳戶，才能夠建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-hadoop-use-blob-storage.md)。如需建立 Azure 儲存帳號的詳細資訊，請參閱[如何建立儲存帳號][azure-create-storageaccount]。
 
 **使用自訂建立選項建立 HDInsight 叢集**
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
 
-    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
+    ![在 Azure 入口網站中建立新叢集](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "在 Azure 入口網站中建立新叢集")
 
-3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Spark]，然後從 [叢集作業系統] 下拉式清單中選取 [Windows Server 2012 R2 資料中心]。如果該叢集可用，其名稱旁會出現綠色核取記號。
+3. 輸入 [叢集名稱]，再為 [叢集類型] 選取 [Spark]，然後從 [叢集作業系統] 下拉式清單中選取 [Windows Server 2012 R2 資料中心]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
 	![輸入叢集名稱和類型](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.2.png "輸入叢集名稱和類型")
 
-4. 如果您有多個訂用帳戶，可按一下 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
+4. 若您有多個訂用帳戶，可按一下 [訂用帳戶] 項目選取叢集所要使用的 Azure 訂用帳戶。
 
-5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
+5. 按一下 [資源群組] 查看現有資源群組的清單，然後從中選取一個建立叢集。您也可以按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
 	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
-6. 按一下 [認證]，然後輸入 [叢集登入使用者名稱] 和 [叢集登入密碼]。如果您想要在叢集節點上啟用遠端桌面，請在 [啟用遠端桌面] 按一下 [是]。如果叢集的遠端桌面存取過期，請選取日期並提供遠端桌面使用者的使用者名稱/密碼。按一下底部的 [選取] 以儲存認證組態。
+6. 按一下 [認證]，然後輸入 [叢集登入使用者名稱] 和 [叢集登入密碼]。若您想要啟用叢集節點上的遠端桌面功能，請為 [啟用遠端桌面] 按一下 [是]。如果叢集的遠端桌面存取過期，請選取日期並提供遠端桌面使用者的使用者名稱/密碼。按一下底部的 [選取]，以儲存認證組態。
 
 	![提供叢集認證](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.3.png "提供叢集認證")
 
-7. 按一下 [資料來源] 來選擇該叢集的現有資料來源，或建立一個新的資料來源。
+7. 按一下 [資料來源] 為該叢集選擇現有資料來源，或是建立新的資料來源。
 
 	![資料來源刀鋒視窗](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.4.png "提供資料來源組態")
 
-	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。使用下列步驟來了解 [資料來源] 刀鋒視窗上的項目。
+	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。使用下列步驟了解 [資料來源] 刀鋒視窗上的項目。
 
-	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
+	- **選取方法**：將此設為 [來自所有訂用帳戶]，可瀏覽您所有訂用帳戶中的儲存體帳戶。若想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
 
-	- **選取儲存體帳戶 / 建立新的帳戶**：按一下 [選取儲存體帳戶]，瀏覽並選取您要與叢集產生關聯的現有儲存體帳戶。或者按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+	- **選取儲存體帳戶/建立新的帳戶**：按一下 [選取儲存體帳戶]，以瀏覽並選取要與叢集相關聯的現有儲存體帳戶。您也可以按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
 
-	- **選擇預設容器**：使用此選項來輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
+	- **選擇預設容器**：使用此選項可輸入叢集所要使用之預設容器的名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
 
-	- **位置**：儲存體帳戶所在或將建立的地理區域。
+	- **位置**：儲存體帳戶所在的地理區，或要建立儲存體帳戶的所在位置。
 
 		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
 
-	按一下 [選取] 以儲存資料來源組態。
+	按一下 [選取]，以儲存資料來源組態。
 
-8. 按一下 [節點定價層]，來顯示將針對此叢集建立的節點相關資訊。設定該叢集所需的背景工作節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
+8. 按一下 [節點定價層]，以顯示所要建立之叢集節點的相關資訊。設定該叢集所需的背景工作節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
 
 	![節點定價層刀鋒視窗](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.5.png "指定叢集節點的數目")
 
-	按一下 [選取] 以儲存節點價格組態。
+	按一下 [選取]，以儲存節點定價設定態。
 
-9. 按一下 [選擇性組態] 來選取叢集版本，以及設定其他選擇性設定，例如，新增 [虛擬網路]、設定 [外部中繼存放區] 來保存 Hive 和 Oozie 的資料、使用 [指令碼動作] 來自訂要安裝自訂元件的叢集，或是針對叢集使用其他儲存體帳戶。
+9. 按一下 [選擇性組態]，以選取叢集版本。此外也請設定其他選擇性設定，例如加入 [虛擬網路]；設定 [外部中繼存放區] 來保存 Hive 和 Oozie 的資料；使用 [指令碼動作] 自訂要安裝自訂元件的叢集；或是為叢集使用其他儲存體帳戶。
 
-	* 按一下 [HDInsight 版本] 下拉式清單，然後選取您想要用於該叢集的版本。如需詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
+	* 按一下 [HDInsight 版本] 下拉式清單，然後選取叢集所要使用的版本。如需詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
 
-	* 按一下[虛擬網路] 提供組態詳細資料來設定叢集做為虛擬網路的一部分。在 [虛擬網路] 刀鋒視窗中按一下 [虛擬網路]，然後按一下您想要使用的網路。同樣地，選取該網路的 [子網路]，然後按一下 [選取] 儲存虛擬網路組態。
+	* 按一下[虛擬網路] 提供設定詳細資料，以將叢集設定為虛擬網路的一部分。在 [虛擬網路] 刀鋒視窗中按一下 [虛擬網路]，然後按一下所要使用的網路。同樣地，選取該網路的 [子網路]，然後按一下 [選取]，以儲存虛擬網路設定。
 
 		![虛擬網路刀鋒視窗](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.6.png "指定虛擬網路詳細資料")
 
-	* 按一下 [外部中繼存放區] 來指定您想要用來儲存與叢集相關聯之 Hive 和 Oozie 中繼資料的 SQL 資料庫。
+	* 按一下 [外部中繼存放區] 指定用於儲存與叢集相關聯之 Hive 和 Oozie 中繼資料的 SQL 資料庫。
 
 		![自訂中繼存放區刀鋒視窗](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.7.png "指定外部中繼存放區")
 
-		針對 [使用 Hive 現有的 SQL DB] 中繼資料按一下 [是]、選取 SQL 資料庫，然後提供該資料庫的使用者名稱/密碼。如果您想要**使用 Oozie 中繼資料現有的 SQL DB**，請重複執行這些步驟。按一下 [選取]，直到您回到 [選擇性組態] 刀鋒視窗。
+		為 [使用 Hive 現有的 SQL DB] 中繼資料按一下 [是]，接著選取 SQL 資料庫，然後提供該資料庫的使用者名稱/密碼。若要**對現有的 SQL DB 使用 Oozie 中繼資料**，請重複執行這些步驟。請連接按一下 [選取]，直到您返回 [選擇性組態] 刀鋒視窗為止。
 
 		>[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
 
-	* 如果您想要在建立叢集時使用自訂指令碼加以自訂，請按一下 [指令碼動作]。如需指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。請在 [指令碼動作] 刀鋒視窗上提供如螢幕擷取畫面所示的詳細資料。
+	* 若要在建立叢集時，使用自訂指令碼自訂叢集，請按一下 [指令碼動作]。如需指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。請在 [指令碼動作] 刀鋒視窗上提供如螢幕擷取畫面所示的詳細資料。
 
 		![指令碼動作刀鋒視窗](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.8.png "指定指令碼動作")
 
-		按一下 [選取] 儲存指令碼動作的組態變更。
+		按一下 [選取] 儲存指令碼動作的設定變更。
 
-	* 按一下 [Azure 儲存體金鑰] 來指定與該叢集相關聯的其他儲存體帳戶。在 [Azure 儲存體金鑰] 刀鋒視窗中，按一下 [新增儲存體金鑰]，然後選取現有的儲存體帳戶或建立新的帳戶。
+	* 按一下 [Azure 儲存體金鑰]，以指定該叢集所關聯的其他儲存體帳戶。在 [Azure 儲存體金鑰] 刀鋒視窗中，按一下 [新增儲存體金鑰]，然後選取現有的儲存體帳戶或建立新的帳戶。
 
 		![其他儲存體刀鋒視窗](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.9.png "指定其他儲存體帳戶")
 
-		按一下 [選取]，直到您回到 [新的 HDInsight 叢集] 刀鋒視窗。
+		連續按一下 [選取]，直到您返回 [新的 HDInsight 叢集] 刀鋒視窗為止。
 
-10. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到開始面板]，然後按一下 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
+10. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到「開始面板」]，然後按一下 [建立]。這會建立叢集，並將該叢集磚加入您 Azure 傳統入口網站的「開始面板」中。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
 
 	| 佈建期間 | 佈建完成 |
 	| ------------------ | --------------------- |
 	| ![「開始面板」上的佈建指示器](./media/hdinsight-apache-spark-provision-clusters/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-apache-spark-provision-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的磚或頁面左邊的 [通知] 項目，檢查佈建處理序。
+	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的磚或頁面左邊的 [通知] 項目檢查佈建處理序。
 
 11. 佈建完成後，在「開始面板」按一下該叢集磚，以啟動叢集刀鋒視窗。此叢集刀鋒視窗提供該叢集的基本資訊，如名稱、其所屬的資源群組、位置、作業系統、叢集儀表板 URL 等。
 
 	![叢集刀鋒視窗](./media/hdinsight-apache-spark-provision-clusters/HDI.Cluster.Blade.png "叢集屬性")
 
-	使用下列資訊，了解在刀鋒視窗頂端，以及 [程式集] 和 [快速連結] 區段中的圖示：
+	使用下列資訊了解刀鋒視窗頂端及 [程式集] 和 [快速連結] 區段中的圖示：
 
-	* [設定] 和 [所有設定]：顯示該叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
+	* **設定**和**所有設定**：顯示叢集的 [設定] 刀鋒視窗，而您可以從中存取叢集的詳細設定資訊。
 
-	* [儀表板] 和 [URL]：這些是存取叢集儀表板 (也就是在叢集上執行工作之 Web 入口網站) 的所有方法。
+	* **儀表板**和 **URL**：所有可以用於存取叢集儀表板 (亦即對叢集執行工作的 Web 入口網站) 的方法盡在其中。
 
-	* [遠端桌面]：可讓您在叢集節點上啟用/停用遠端桌面。
+	* **遠端桌面**：這可讓您對叢集節點啟用/停用遠端桌面。
 
-	* [調整叢集]：可讓您變更此叢集的背景工作節點數目。
+	* **調整叢集**：這可讓您變更此叢集的背景工作節點數。
 
-	* [刪除]：刪除 HDInsight 叢集。
+	* **刪除**：刪除 HDInsight 叢集。
 
-	* [快速入門] (![雲和雷電圖示 = 快速入門](./media/hdinsight-apache-spark-provision-clusters/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
+	* **快速入門** (![雲和雷電圖示 = 快速入門](./media/hdinsight-apache-spark-provision-clusters/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
 
-	* [使用者] (![使用者圖示](./media/hdinsight-apache-spark-provision-clusters/users.png))：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
+	* **使用者** (![使用者圖示](./media/hdinsight-apache-spark-provision-clusters/users.png))：這可讓您為 Azure 訂用帳戶上之其他使用者設定此叢集的_入口網站管理_權限。
 
-		> [AZURE.IMPORTANT]這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將工作提交至其上的使用者則沒有作用。
+		> [AZURE.IMPORTANT]這_只_會影響在 Azure 入口網站對此叢集的存取和權限，對於連線到 HDInsight 叢集或將工作提交到 HDInsight 叢集的使用者沒有影響。
 
-	* [標記] (![標記圖示](./media/hdinsight-apache-spark-provision-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可能會建立名為 __project__ 的索引鍵，然後針對與特定專案相關聯的所有服務使用通用值。
+	* **標記** (![標記圖示](./media/hdinsight-apache-spark-provision-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可以建立名為 __project__ 的索引鍵，再對所有關聯到特定專案的服務使用通用值。
 
-	* [叢集儀表板]：啟動叢集儀表板刀鋒視窗，您可以從中啟動叢集儀表板本身，或啟動 Zeppelin 和 Jupyter Notebook。
+	* **叢集儀表板**：啟動叢集儀表板刀鋒視窗，以從中啟動叢集儀表板本身，或啟動 Zeppelin 和 Jupyter Notebook。
 
 
 ## 使用 Azure PowerShell
@@ -195,7 +195,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 	-ClusterType Spark
 
-## 使用 ARM 型 HDInsight .NET SDK
+## 使用搭載 ARM 的 HDInsight .NET SDK
 
 請參閱[建立 HDInsight 叢集](hdinsight-provision-clusters.md#create-using-the-hdinsight-net-sdk)。
 
@@ -245,4 +245,4 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

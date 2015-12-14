@@ -33,7 +33,7 @@ Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平�
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - **啟用您的 Azure 訂用帳戶**以使用資料湖存放區公開預覽版。請參閱[指示](data-lake-store-get-started-portal.md#signup)。 
 - **Azure CLI** - 請參閱 [安裝及設定 Azure CLI](../xplat-cli-install.md) 以取得安裝和設定資訊。在安裝 CLI 之後，請務必重新啟動您的電腦。
 
@@ -192,4 +192,4 @@ Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平�
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

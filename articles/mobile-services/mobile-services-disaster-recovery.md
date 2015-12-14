@@ -18,6 +18,10 @@
 
 # 發生災害時回復行動服務
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 使用 Azure 行動服務來部署應用程式時，您可以利用內建的功能，在發生可用性問題的情況下確保業務續航力，例如伺服器故障、網路中斷、資料遺失和大規模的設備損失，如果您是部署傳統的內部部署解決方案，則必須設計、實作和管理許多容錯和基礎結構功能，但使用 Azure 行動服務來部署應用程式，就能直接享受這些功能。Azure 可緩和絕大部分可能的失敗後果，且成本低廉。
 
 ## <a name="prepare"></a>對可能的災害預做準備
@@ -25,7 +29,7 @@
 為了在發生可用性問題的情況下輕鬆回復，您可以事先預做準備：
 
 + **備份 Azure 行動服務 SQL Database 中的資料** 行動服務應用程式的資料會儲存在 Azure SQL Database 中。建議您依照＜[Windows Azure SQL Database 的業務續航力]＞中的指示來備份資料。
-+ **備份行動服務指令碼** 建議您將行動服務指令碼儲存在原始檔控制系統中，例如 [Team Foundation Service] 或 [GitHub]，而不要只依賴行動服務本身的複本。您可以透過 Azure 入口網站，使用行動服務[原始檔控制功能]，或[使用 Azure CLI] 來下載指令碼。請注意入口網站中標示為 [預覽] 的功能，因為不保證可回復這些指令碼，可能需要從您自己的原始檔控制來源中回復指令碼。
++ **備份行動服務指令碼** 建議您將行動服務指令碼儲存在原始檔控制系統中，例如 [Team Foundation Service] 或 [GitHub]，而不要只依賴行動服務本身的複本。您可以透過 Azure 傳統入口網站，使用行動服務[原始檔控制功能]，或[使用 Azure CLI] 下載指令碼。請密切注意 Azure 傳統入口網站中標示為 [預覽] 的功能，因為不保證可復原這些指令碼，您可能需要透過您自己的原始檔控制來源回復原指令碼。
 + **保留次要行動服務** 如果行動服務發生可用性問題，您可能必須將其重新部署到替代的 Azure 區域。為了確保容量可用 (例如在遺失整個區域的罕見情況下)，建議您在替代區域中建立次要行動服務，並將模式設定為與主要服務的模式相同或更高(如果主要服務處於基本模式，您可以將次要服務設為基本或標準。但是如果主要服務為標準，則次要服務也必須是標準)。
 
 ## <a name="watch"></a>監看問題的徵兆
@@ -33,8 +37,8 @@
 這些情況指出可能需要進行回復作業的問題：
 
 + 連線至行動服務的應用程式已經很久沒有與服務進行通訊。
-+ 行動服務狀態在 **Azure 入口網站**中會顯示為 [狀況不良][]。
-+ 在 Azure 入口網站中，行動服務的每個索引標籤頂端會顯示 [狀況不良] 旗幟，且管理作業會產生錯誤訊息。
++ 行動服務狀態在 **Azure 傳統入口網站**中顯示為 [[狀況不良]]。
++ 在 Azure 傳統入口網站中，行動服務的每個索引標籤頂端會顯示 [**狀況不良**] 橫幅，且會出現管理作業程序錯誤訊息。
 + [Azure 服務儀表板]指出發生可用性問題。
 
 ## <a name="recover"></a>從災害中回復
@@ -45,7 +49,7 @@
 
 在中斷之後回復行動服務：
 
-1. 在 Azure 入口網站中，請確定所報告的服務狀態為 [狀況不良]。
+1. 請在 Azure 傳統入口網站中，確定您的服務狀態回報為 [**狀況不良**]。
 
 2. 如果您已保留次要行動服務，則可以略過此步驟。
 
@@ -70,17 +74,17 @@
 		info:    Migration complete. It may take 30 minutes for DNS to resolve to the migrated site.
 		info:    mobile migrate command OK
 
-    > [AZURE.NOTE]指令完成後可能需要經過一些時間，才能在入口網站中看到變更。
+    > [AZURE.NOTE]命令執行完後可能需要一些時間，才能在 Azure 傳統入口網站中看到變更。
 
 5. 與原始檔控制中的原始版本比較，以確認所有指令碼都已正確回復。在大部分情況下，指令碼會自動回復而不會遺失資料，但如果您發現有不一致之處，則可以手動回復該指令碼。
 
 6. 請確定回復後的服務開始與 Azure SQL Database 進行通訊。回復命令會回復行動服務，但會保留原始資料庫的連線。如果主要 Azure 區域中的問題也影響到資料庫，則已回復的服務可能仍然無法正確執行。您可以利用 Azure 服務儀表板來檢查特定區域的資料庫狀態。如果原始資料庫未執行時，您可以回復它：
 	+ 依照＜[Windows Azure SQL Database 的業務續航力]＞中的說明，將 Azure SQL Database 回復到您剛回復行動服務的 Azure 區域。
-	+ 在 Azure 入口網站中，在行動服務的 [設定] 索引標籤上選擇 [變更資料庫]，然後選取剛回復的資料庫。
+	+ 在 Azure 傳統入口網站中，行動服務的 [**設定**] 索引標籤上選擇 [變更資料庫]，然後選取剛復原的資料庫。
 
 7. 您的行動服務現已裝載於不同的實體位置。您將需要更新您的發佈和/或 git 認證，以允許更新您執行中的網站。
 	+ 如果您使用 **.NET 後端**，請如[發行行動服務](mobile-services-dotnet-backend-windows-store-dotnet-get-started/#publish-your-mobile-service)所述，重新設定您的發行設定檔。這會更新您的發行詳細資訊，以指向新的服務位置。
-	+ 如果您使用 **Javascript 後端**並透過入口網站來管理您的服務，則不需要採取任何額外的動作。
+	+ 如果您使用 **Javascript 後端**並透過 Azure 傳統入口網站來管理您的服務，便不需要採取任何額外的動作。
 	+ 如果您使用 **Javascript 後端**並透過節點來管理您的服務，請更新 git 遠端以指向新的儲存機制。若要這麼做，請從您的 git 遠端移除 .git 檔案路徑：
 
 		1. 尋找您目前的原點遠端：git remote -v origin https://myservice.scm.azure-mobile.net/myservice.git (fetch) origin https://myservice.scm.azure-mobile.net/myservice.git (push)
@@ -99,9 +103,8 @@
 
 [原始檔控制功能]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [使用 Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
-[]: http://manage.windowsazure.com/
+[狀況不良]: http://manage.windowsazure.com/
 [Azure 服務儀表板]: http://www.windowsazure.com/support/service-dashboard/
 [使用 Azure CLI 來自動化行動服務]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

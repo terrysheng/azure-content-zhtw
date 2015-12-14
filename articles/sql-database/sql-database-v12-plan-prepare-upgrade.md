@@ -24,7 +24,7 @@
 本主題描述將 Azure SQL Database 從 V11 版升級至 V12 版必須執行的規劃和準備。
 
 
-全新的 [Azure Preview 入口網站](http://portal.azure.com/)可支援您升級至 V12。
+全新的[ Azure 入口網站](http://portal.azure.com/)可協助您升級至 V12。
 
 
 下表列出 V12 的其他說明主題。
@@ -91,7 +91,7 @@ V12 不支援 Web 和商務服務定價層級。
 如果您的 V11 Azure SQL Database 是 Web 或商務資料庫，升級程序會提供將資料庫切換到支援之服務層的選項。升級會建議適合您資料庫之工作負載歷程記錄的服務層。不過，您可以選擇任何您喜歡之支援的服務層。
 
 
-開始升級之前，您可以透過將您的 V11 資料庫切離 Web 和商務服務層，以減少升級期間的必要步驟。您可以使用新的 [Azure Preview 入口網站](http://portal.azure.com/)來執行這項工作。
+開始升級之前，您可以透過將您的 V11 資料庫切離 Web 和商務服務層，以減少升級期間的必要步驟。您可以使用新 [Azure 入口網站](http://portal.azure.com/)來執行這項工作。
 
 
 如果您不確定要切換到哪個服務層，「標準」層的 S2 層級會是實用的初始選擇。較低層的資源會比 Web 和商務層來得少。
@@ -127,17 +127,17 @@ V12 不支援 Web 和商務服務定價層級。
 有三個 Azure 的入口網站，每個入口網站都有不同的 SQL Database V12 功能。
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)<br/>此 Azure Preview 入口網站是全新的，仍處於預覽狀態。此入口網站還未完全公開上市 (GA)。此入口網站：
+- [http://portal.azure.com/](http://portal.azure.com/)<br/>此 Azure 入口網站是全新的，仍處於預覽狀態。此入口網站還未完全公開上市 (GA)。此入口網站：
  - 可以管理您的 V12 伺服器和資料庫。
  - 可以將 V11 資料庫升級至 V12。
 
 
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>此 Azure 入口網站可能會逐漸被淘汰。此入口網站：
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>此 Azure 傳統入口網站可能會逐漸被淘汰。此入口網站：
  - 可以管理您的 V12 伺服器和資料庫。
  - *無法*將 V11 資料庫升級至 V12。
 
 
-- (http://*yourservername*.database.windows.net)<br/>Azure SQL Database 管理入口網站：
+- http://*yourservername*.database.windows.net)<br/>Azure SQL Database 傳統入口網站：
  - 「無法」管理 V12 伺服器。
 
 
@@ -152,7 +152,7 @@ V12 不支援 Web 和商務服務定價層級。
 您可以改為使用 [Visual Studio Community 2013](https://www.visualstudio.com/zh-TW/news/vs2013-community-vs.aspx/) 連線，這是 VS2013 免費且功能完整的版本。
 
 
-您可以在較舊的 Azure 入口網站的 [資料庫] 頁面上，按一下 [在 Visual Studio 中開啟] 在電腦上啟動 VS2013，來連線至您的 Azure SQL Database。
+您可以在較舊的 Azure 傳統入口網站的 [資料庫] 頁面上，按一下 [在 Visual Studio 中開啟] 在電腦上啟動 VS2013，來連線至您的 Azure SQL Database。
 
 
 如需另一個替代方式，您可以使用 SQL Server Management Studio (SSMS) 2014 與 [CU6](http://support.microsoft.com/kb/3031047/) 來連線至 Azure SQL Database。此部落格文章包含更多詳細資料：<br/>[Azure SQL Database 的用戶端工具更新](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/)。
@@ -184,7 +184,7 @@ V12 不支援 Web 和商務服務定價層級。
 ### 在升級至 V12 *之後*匯出和匯入
 
 
-您可以使用 [Azure Preview 入口網站](http://portal.azure.com/)匯出或匯入 V12 資料庫。或者，您可以使用任何下列工具進行匯出或匯入：
+您可以使用 [Azure 入口網站](http://portal.azure.com/)匯出或匯入 V12 資料庫。或者，您可以使用任何下列工具進行匯出或匯入：
 
 
 - SQL Server Management Studio (SSMS)
@@ -254,4 +254,4 @@ Stop- Cmdlet 表示取消，不是暫停。升級一旦停止就沒有任何方�
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

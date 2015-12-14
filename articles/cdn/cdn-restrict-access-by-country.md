@@ -3,7 +3,7 @@
 	description="當使用者要求您的內容時，預設會提供內容，不論使用者從哪裡提出這項要求。在某些情況下，您可能想要依國家 (地區) 限制存取您的內容。本主題說明如何使用 **國家 (地區) 篩選** 功能設定服務，以依國家 (地區) 允許或封鎖存取。" 
 	services="cdn" 
 	documentationCenter=".NET" 
-	authors="juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 #依國家 (地區) 限制存取您的內容
 
@@ -49,8 +49,8 @@
 
 例如，封鎖 /Photos/Strasbourg/ 的規則會篩選檔案，包括：
 
-	http://az123456.vo.msecnd.net/Photos/Strasbourg/1000.jpg. 
-	http://az123456.vo.msecnd.net/Photos/Strasbourg/Cathedral/1000.jpg. 
+	http://az123456.azureedge.net/Photos/Strasbourg/1000.jpg
+	http://az123456.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
 
 
 ##國碼
@@ -65,4 +65,4 @@
 - 會將相對路徑相關聯的國家 (地區) 篩選組態，遞迴地套用到該路徑。
 - 只有一個規則可套用至相同的相對路徑，您無法建立指向相同之相對路徑的多個國家 (地區) 篩選。不過，一個資料夾可有多個國家 (地區) 篩選。這是因為國家 (地區) 篩選的遞迴本質。換句話說，可以將不同的國家 (地區) 篩選指派給先前設定之資料夾的子資料夾。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

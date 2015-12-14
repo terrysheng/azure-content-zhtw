@@ -76,7 +76,7 @@
 		
 3. **建立 ExpressRoute 線路。**
 
-	如果您在建立您的 ExpressRoute 線路之前還沒有資源群組，您必須先建立一個。您可以執行下列命令來這麼做。
+	若您在建立您的 ExpressRoute 線路之前還沒有資源群組，您必須先建立一個。您可以執行下列命令來這麼做。
 
 		New-AzureRmResourceGroup -Name “ExpressRouteResourceGroup” -Location "West US"
 
@@ -88,7 +88,7 @@
 
 	請確定您指定正確的 SKU 層和 SKU 系列。
  
-	 - SKU 層會判斷 ExpressRoute 標準或 ExpressRoute 高階附加元件是否啟用。您可以指定 [標準] 來取得標準 SKU 或 [高階] 來取得高階附加元件
+	 - SKU 層會判斷 ExpressRoute 標準或 ExpressRoute 高階附加元件是否啟用。您可以指定 [*標準*] 來取得標準 SKU 或 [*進階*] 來取得進階附加元件
 	 - SKU 系列決定計費類型。您可以針對計量付費數據傳輸方案和無限行動數據方案選取 *metereddata* 和 *unlimiteddata"。**注意：**建立線路之後您將無法變更計費類型。
 
 	回應會包含服務金鑰。您可以執行下列命令來取得所有參數的詳細描述：
@@ -127,7 +127,7 @@
 		Peerings                         : []
 
 
-	您可以使用 *Get-AzureRmExpressRouteCircuit* Cmdlet，隨時擷取這項資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。*ServiceKey* 欄位會列出您的服務金鑰。
+	您可以使用 *Get-AzureRmExpressRouteCircuit* Cmdlet，隨時擷取這項資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。*[ServiceKey]* 欄位會列出您的服務金鑰。
 
 		Get-AzureRmExpressRouteCircuit
 
@@ -219,7 +219,7 @@
 
 7. **將 VNet 連結到 ExpressRoute 線路。**
 
-	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 線路連結到 VNet](expressroute-howto-linkvnet-arm.md)，取得逐步指示。如果您需要為 ExpressRoute 建立虛擬網路，請參閱[為 ExpressRoute 建立虛擬網路](expressroute-howto-createvnet-classic.md)中的相關指示。
+	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 線路連結到 VNet](expressroute-howto-linkvnet-arm.md)，取得逐步指示。若您需要為 ExpressRoute 建立虛擬網路，請參閱[為 ExpressRoute 建立虛擬網路](expressroute-howto-createvnet-classic.md)中的相關指示。
 
 ##  取得 ExpressRoute 線路的狀態
 
@@ -349,13 +349,12 @@
 
 請注意，您必須取消連結 ExpressRoute 的所有虛擬網路，此作業才會成功。如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 
-如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成「正在停用」。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
+若已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成 [*正在停用*]。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
 
-如果服務提供者在您執行上述 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為「未佈建」)，我們將會取消佈建線路並停止向您收費。
+若服務提供者在您執行上述 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為 [*未佈建*])，我們將會取消佈建線路並停止向您收費。
 
 ## 後續步驟
 
 - [設定路由](expressroute-howto-routing-arm.md)
-- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md) 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

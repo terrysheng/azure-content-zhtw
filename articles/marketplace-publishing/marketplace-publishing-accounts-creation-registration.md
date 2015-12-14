@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="11/17/2015"
    ms.author="hascipio"/>
 
 # 建立 Microsoft 賣方帳戶
@@ -155,16 +155,11 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 
   >[AZURE.TIP]如需參與原則的說明，請參閱 [Azure 網站](http://azure.microsoft.com/support/legal/marketplace/participation-policies/)。
 
-  > 如果在完成賣方註冊時發生問題，請記錄支援票證，如下所示：
-  1. 連絡[支援人員](http://go.microsoft.com/fwlink?LinkId=272975)
-  2. 選擇 [賣方儀表板註冊和您的帳戶]
-  3. 選擇 [註冊開發人員帳戶]
-  4. 選擇連絡**方法**
+  > 如果在完成賣方註冊時發生問題，請記錄支援票證，如下所示：1.連絡[支援人員](http://go.microsoft.com/fwlink?LinkId=272975)。2.選擇 [賣方儀表板註冊和您的帳戶]。3.選擇 [註冊開發人員帳戶]。4.選擇連絡方法。
 
 ### 「銷售來源」國家/地區
 
-> [AZURE.WARNING]
-如果要在 Microsoft Azure Marketplace 上銷售服務，您的註冊實體必須是其中一個經過核准的「銷售來源」國家/地區。這項限制是基於付款和稅務理由。我們正積極在不久的將來擴充這份國家/地區清單，所以敬請密切注意。如需完整清單，請參閱本文件的第 1 節 b 項 ([http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833))。
+> [AZURE.WARNING]如果要在 Azure Marketplace 上銷售服務，您的註冊實體必須是其中一個經過核准的「銷售來源」國家/地區。這項限制是基於付款和稅務理由。我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。如需完整清單，請參閱 [Microsoft Azure Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)的第 1 節 b 項。
 
 
 
@@ -172,12 +167,7 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 ## 後續步驟
 現在已建立並註冊您的帳戶，請按一下您想要發佈至 Azure Marketplace 的構件類型 (虛擬機器、開發人員服務、資料服務或解決方案範本)。請參閱下列其中一份文件，了解如何發佈您自己的供應項目：
 
-|| 虛擬機器映像 |開發人員服務 | 資料服務 | 解決方案範本 |
-|----|-----|-----|-----|-----|
-|**步驟 2：建立您的供應項目** |[一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)|
-|| [VM 映像技術性必要條件][link-single-vm-prereq] | 開發人員服務技術性必要條件 | 資料服務技術性必要條件 | [解決方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [VM 映像發佈指南][link-single-vm] | 開發人員服務發佈指南 | 資料服務發佈指南 | [解決方案範本發佈指南](marketplace-publishing-solution-template-creation.md) |
-|| [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] |
+|| 虛擬機器映像 |開發人員服務 | 資料服務 | 解決方案範本 | |----|-----|-----|-----|-----| |**步驟 2：建立您的優惠** |[一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| || [VM 映像技術性必要條件][link-single-vm-prereq] | 開發人員服務技術性必要條件 | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [解決方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) | || [VM 映像發佈指南][link-single-vm] | 開發人員服務發佈指南 | [資料服務發佈指南](marketplace-publishing-data-service-creation.md) | [解決方案範本發佈指南](marketplace-publishing-solution-template-creation.md) | || [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] |
 
 ## 另請參閱
 - [使用者入門：如何將優惠發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -209,4 +199,4 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

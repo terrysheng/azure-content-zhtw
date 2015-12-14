@@ -41,7 +41,7 @@
 
 >[AZURE.NOTE]此處的步驟假設您已有[非生產部署位置](web-sites-staged-publishing.md)，而且所需的 Web 應用程式內容[已部署](web-sites-publish-source-control.md)給它。
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在 Web 應用程式的刀鋒視窗中，按一下 [設定] > [流量路由]。![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. 選取您要將流量路由傳送到的位置，以及您所需的總流量百分比，然後按一下 [儲存]。
 
@@ -86,4 +86,4 @@
 -   [敏捷式軟體開發 (Agile Software Development) 與 Azure App Service](app-service-agile-software-development.md)
 -	[為 Web 應用程式有效地使用 DevOps 環境](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,4 @@
-
 <!--author=SharS last changed: 9/15/15-->
-
 
 #### 若要建立自訂備份原則
 
@@ -42,4 +40,4 @@
 
     ![自訂備份原則](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

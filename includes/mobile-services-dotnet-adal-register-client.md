@@ -1,6 +1,6 @@
 ## <a name="register-app-aad"></a>向 Azure Active Directory 註冊您的用戶端應用程式
 
-1. 導覽至 **Azure 管理入口網站**中的 [Active Directory]，然後按一下您的目錄。
+1. 導覽至 [Azure 傳統入口網站](https://manage.windowsazure.com/)中的 Active Directory，然後按一下您的目錄。
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
 
@@ -28,7 +28,4 @@
 
 已在 AAD 中設定您的行動服務接收來自應用程式的單一登入。
 
-
-[Active Directory]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

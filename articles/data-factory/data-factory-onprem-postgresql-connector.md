@@ -233,7 +233,7 @@ gatewayName | Data Factory 服務應該用來連接到內部部署 PostgreSQL �
 
 屬性 | 說明 | 必要
 -------- | ----------- | --------
-tableName | PostgreSQL 資料庫執行個體中連結服務所參照的資料表名稱。 | 是 
+tableName | PostgreSQL 資料庫執行個體中連結服務所參照的資料表名稱。 | 否 (如果已指定 **RelationalSource** 的 **query**) 
 
 ## PostgreSQL 複製活動類型屬性
 
@@ -245,13 +245,13 @@ tableName | PostgreSQL 資料庫執行個體中連結服務所參照的資料表
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 否
+query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 否 (如果已指定 **dataset** 的 **tableName**)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## PostgreSQL 的類型對應
 
-如同[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行自動類型轉換，將來源類型轉換成接收類型：
+如[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行從來源類型轉換成接收類型的自動類型轉換：
 
 1. 從原生來源類型轉換成 .NET 類型
 1. 從 .NET 類型轉換成原生接收類型
@@ -306,4 +306,4 @@ serial | serial4 | Int32
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

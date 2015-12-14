@@ -38,7 +38,7 @@
 **Framework 版本**。如果您的應用程式使用下列任何 Framework，請設定下列選項：
 
 - **.NET Framework**：設定 .NET framework 版本。 
-- **PHP**：設定 PHP 版本，或設為 **[關閉] **以停用 PHP。
+- **PHP**：設定 PHP 版本，或設為 **[關閉]** 以停用 PHP。
 - **Java**：選取 Java 版本，或設為 [**關閉**] 以停用 Java 。使用 [**Web 容器**] 選項來選擇 Tomcat 或 Jetty 版本。
 - **Python**：選取 Python 版本，或設為 [**關閉**] 以停用 Python.
 
@@ -66,7 +66,7 @@
 
 - 如果是 .NET 應用程式，這些設定就會在執行階段插入 .NET 設定 `AppSettings`，並覆寫現有的設定。 
 
-- PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING_ 前置詞。這兩個變數都包含相同的值。
+- PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING\_ 前置詞。這兩個變數都包含相同的值。
 
 ### 連接字串
 
@@ -76,10 +76,10 @@
 
 如果是 PHP、Python、Java 及 Node 應用程式，您可以在執行階段將這些設定視為環境變數使用，並加上連線類型前置詞。環境變數首碼如以下所示：
 
-- SQL Server：SQLCONNSTR_
-- MySQL：MYSQLCONNSTR_
-- SQL 資料庫：SQLAZURECONNSTR_
-- 自訂：CUSTOMCONNSTR_
+- SQL Server：SQLCONNSTR\_
+- MySQL：MYSQLCONNSTR\_
+- SQL 資料庫：SQLAZURECONNSTR\_
+- 自訂：CUSTOMCONNSTR\_
 
 例如，如果 MySql 連接字串命名為 `connectionstring1`，則可透過環境變數 `MYSQLCONNSTR_connectionString1` 加以存取。
 
@@ -132,7 +132,7 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 ![](./media/web-sites-configure/configure03.png)
 
 
-完整的 FTP 使用者名稱為 「app\username」，其中 *app* 部分為您 Web 應用程式的名稱。username 則列於 Web 應用程式刀鋒視窗的 **Essentials** 部分。
+完整的 FTP 使用者名稱為 「app\\username」，其中 *app* 部分為您 Web 應用程式的名稱。username 則列於 Web 應用程式刀鋒視窗的 **Essentials** 部分。
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -175,7 +175,6 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

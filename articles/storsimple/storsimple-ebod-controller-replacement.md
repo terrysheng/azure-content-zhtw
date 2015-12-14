@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # 更換 StorSimple 裝置上的 EBOD 控制器
@@ -38,7 +38,7 @@
 
 #### 若要取下 EBOD 模組
 
-1. 開啟管理入口網站。
+1. 開啟 Azure 傳統入口網站。
 
 2. 導覽至 [**裝置**] > [**維護**] > [**硬體狀態**]，並確認作用中 EBOD 控制器模組的 LED 狀態為綠色，而故障的 EBOD 控制器模組的 LED 為紅色。
 
@@ -107,4 +107,4 @@
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

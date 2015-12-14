@@ -18,6 +18,6 @@
 
 # Azure AD 網域服務 *(預覽)*
 
-若要了解可以使用 Azure 服務的區域，請參閱[依區域提供的服務](https://azure.microsoft.com/zh-TW/regions/#services)。
+若要了解可以使用 Azure 服務的區域，請參閱[依區域提供的服務](https://azure.microsoft.com/regions/#services)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

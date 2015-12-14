@@ -19,6 +19,11 @@
 
 # 如何對 .NET 後端行動服務進行資料模型變更
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 本主題說明如何使用 Entity Framework Code First 移轉對現有的 Azure SQL Database 進行資料模型變更，以避免遺失現有的資料。此程序假設您已將 .NET 後端專案發佈至 Azure、您的資料庫中目前已有資料，且遠端與本機資料模型仍保持同步。本主題同時說明 Azure 行動服務實作的預設 Code First 初始設定式，開發期間將會用到這些初始設定式。當您不必保有現有的資料時，這些初始設定式可讓您輕鬆地進行結構描述變更，而不需要使用 Code First 移轉。
 
 >[AZURE.NOTE]要在 SQL Database 中的資料表上當作前置詞的結構描述名稱，已由 web.config 檔案中的 MS\_MobileServiceName 應用程式設定加以定義。當您從入口網站下載入門專案後，此值已設為行動服務名稱。當您的結構描述名稱符合行動服務時，多個行動服務即可安全地共用同一個資料庫執行個體。
@@ -41,7 +46,7 @@ Visual Studio 可讓您輕鬆地建立新的資料表控制器，向用戶端應
 
 這兩個初始設定式會從資料庫中，刪除行動服務所用結構描述中的所有資料表、檢視、函式和程序。
 
-+ **ClearDatabaseSchemaIfModelChanges** <br/> 只有在 Code First 偵測到資料模型變更時，才會刪除結構描述物件。從 [Azure 管理入口網站]下載之 .NET 後端專案中的預設初始設定式便是繼承自這個基底類別。
++ **ClearDatabaseSchemaIfModelChanges** <br/> 只有在 Code First 偵測到資料模型變更時，才會刪除結構描述物件。從 [Azure 傳統入口網站]下載之 .NET 後端專案中的預設初始設定式便是繼承自這個基底類別。
 
 + **ClearDatabaseSchemaAlways**：<br/>每次存取資料模型都會刪除結構描述物件。這個基底類別可用來重設資料庫，而不需要進行資料模型變更。
 
@@ -109,7 +114,7 @@ Visual Studio 可讓您輕鬆地建立新的資料表控制器，向用戶端應
 
 10. 將行動服務重新發佈至 Azure，然後執行用戶端應用程式以存取資料，並驗證資料確實載入且未發生錯誤。
 
-13. (選用) 在 [Azure 管理入口網站]中選取您的行動服務，按一下 [設定] > [SQL Database]。這會導覽至您行動服務資料庫的 SQL Database 頁面。
+13. (選用) 在 [Azure 傳統入口網站]中選取您的行動服務，按一下 [設定] > [SQL Database]。這會導覽至您行動服務資料庫的 SQL Database 頁面。
 
 14. (選用) 按一下 [管理]、登入您的 SQL Database 伺服器，然後按一下 [設計]，並驗證結構描述已在 Azure 中進行變更。
 
@@ -122,7 +127,7 @@ Visual Studio 可讓您輕鬆地建立新的資料表控制器，向用戶端應
         AutomaticMigrationsEnabled = false;
         SetSqlGenerator("System.Data.SqlClient", new EntityTableSqlGenerator());
     }
-    
+
 ##<a name="seeding"></a>在移轉中植入資料
 
 您可以讓「移轉」在移轉執行時新增種子資料至資料庫。**組態**類別具有可覆寫的 **Seed** 方法，可用來插入或更新資料。在啟用「移轉」時，Configuration.cs 程式碼檔案會新增至 Migrations 資料夾。下列範例示範如何覆寫 [Seed] 方法，以將資料植入 **TodoItems** 資料表中。移轉至最新版本後，會呼叫 [Seed] 方法。
@@ -169,11 +174,11 @@ Visual Studio 可讓您輕鬆地建立新的資料表控制器，向用戶端應
 <!-- URLs -->
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
 [Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 [TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

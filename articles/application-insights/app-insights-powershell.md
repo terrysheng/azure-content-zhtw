@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # 使用 PowerShell 建立 Application Insights 資源
@@ -76,7 +76,7 @@
 
 2. 開啟 [Azure 資源管理員](https://resources.azure.com/)。向下導覽訂用帳戶、resourceGroups、元件，直到您的應用程式資源。
 
-    ![](./media/app-insights-create-powershell/01.png)
+    ![](./media/app-insights-powershell/01.png)
 
     *元件*是用來顯示應用程式的基本 Application Insights 資源。相關聯的警示規則和可用性 Web 測試有個別的資源。
 
@@ -288,4 +288,4 @@ Azure 應以嚴格的順序設定資源。為確保一項設定完成後再開�
 
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

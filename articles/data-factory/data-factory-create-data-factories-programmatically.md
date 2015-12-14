@@ -261,7 +261,7 @@
 
 	
 
-12. 將 **Main** 方法所使用的下列 Helper 方法加入 **Program** 類別中。此方法會顯示一個對話方塊，讓您提供登入 Azure 入口網站的**使用者名稱**和**密碼**。
+12. 將 **Main** 方法所使用的下列 Helper 方法加入 **Program** 類別中。此方法會顯示一個對話方塊，讓您提供登入 Azure 傳統入口網站的**使用者名稱**和**密碼**。
  
 		public static string GetAuthorizationHeader()
         {
@@ -371,7 +371,7 @@
 		Jane, Doe
 	 
 17. 按一下功能表上的 [偵錯] -> [開始偵錯]，執行範例。當您看到 [取得資料配量的執行詳細資料]，請等待數分鐘再按 **ENTER**。
-18. 使用 Azure Preview 入口網站確認 Data Factory：**APITutorialFactory** 是使用下列成品所建立： 
+18. 使用 Azure 入口網站確認 Data Factory：**APITutorialFactory** 是使用下列成品所建立： 
 	- 連結服務：**LinkedService\_AzureStorage** 
 	- 資料集：**DatasetBlobSource** 和 **DatasetBlobDestination**。
 	- 管線：**PipelineBlobSample** 
@@ -392,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

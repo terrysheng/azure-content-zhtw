@@ -50,7 +50,7 @@
 
 #### 追蹤服務健全狀況
 
-每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。您可以在 [Azure Preview 入口網站](https://portal.azure.com/)上追蹤服務健全狀況。如需詳細資訊，請參閱[追蹤服務健全狀況](insights-service-health.md)。
+每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。您可以在 [Azure 入口網站](https://portal.azure.com/)上追蹤服務健全狀況。如需詳細資訊，請參閱[追蹤服務健全狀況](insights-service-health.md)。
 
 #### 監視 Web 應用程式
 
@@ -174,16 +174,16 @@ Kudu 的另一項實用功能是，如果應用程式擲回第一次例外狀況
 
 ####	使用 AutoHeal
 
-AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。在大部分情況下，回收處理序是從問題中復原的最快方式。雖然您永遠可以從 Azure Preview 入口網站中直接重新啟動 Web 應用程式，AutoHeal 會自動為您完成。您只需要在 Web 應用程式的根目錄 web.config 中加入某些觸發程序。請注意，即使您的應用程式並非 .Net，這些設定的運作方式仍相同。
+AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。在大部分情況下，回收處理序是從問題中復原的最快方式。雖然您永遠可以從 Azure 入口網站中直接重新啟動 Web 應用程式，AutoHeal 會自動為您完成。您只需要在 Web 應用程式的根目錄 web.config 中加入某些觸發程序。請注意，即使您的應用程式並非 .Net，這些設定的運作方式仍相同。
 
 如需詳細資訊，請參閱[自動修復 Azure 網站](/blog/auto-healing-windows-azure-web-sites/)。
 
 ####	重新啟動 Web 應用程式
 
-若要從一次性問題中復原，這通常是最簡單的方式。在 [Azure Preview 入口網站](https://portal.azure.com)上的 Web 應用程式刀鋒視窗中有提供停止或重新啟動應用程式的選項。
+若要從一次性問題中復原，這通常是最簡單的方式。在 [Azure 入口網站](https://portal.azure.com)上的 Web 應用程式刀鋒視窗中有提供停止或重新啟動應用程式的選項。
 
  ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 您也可以使用 Azure Powershell 管理 Web 應用程式。如需詳細資訊，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](powershell-azure-resource-manager.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

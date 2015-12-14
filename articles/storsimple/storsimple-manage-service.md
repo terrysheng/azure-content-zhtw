@@ -1,6 +1,6 @@
 <properties 
    pageTitle="部署 StorSimple Manager 服務 | Microsoft Azure"
-   description="說明如何在 Azure 入口網站中建立和刪除 StorSimple Manager 服務，並說明如何管理服務註冊金鑰。"
+   description="說明如何在 Azure 傳統入口網站中建立和刪除 StorSimple Manager 服務，並說明如何管理服務註冊金鑰。"
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/01/2015"
    ms.author="v-sharos" />
 
 # 部署 StorSimple Manager 服務
 
 ## 概觀
 
-StorSimple Manager 服務可在 Microsoft Azure 中執行，並且連接至多個 StorSimple 裝置。建立服務之後，您可以使用服務從在瀏覽器中執行的 Microsoft Azure 入口網站管理這些裝置。這可讓您從單一集中位置監視連線至 StorSimple Manager 服務的所有裝置，所以可以盡可能降低管理負擔。
+StorSimple Manager 服務可在 Microsoft Azure 中執行，並且連接至多個 StorSimple 裝置。建立服務之後，您可以使用服務從在瀏覽器中執行的 Microsoft Azure 傳統入口網站管理這些裝置。這可讓您從單一集中位置監視連線至 StorSimple Manager 服務的所有裝置，所以可以盡可能降低管理負擔。
 
 StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您可用來管理您的 StorSimple 儲存體裝置。針對每個 StorSimple Manager 服務，下列資訊會顯示在 StorSimple Manager 頁面上：
 
@@ -115,4 +115,4 @@ StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您�
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -58,7 +58,7 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 
 - 支援記憶體內部[資料行存放區索引](http://msdn.microsoft.com/library/gg492153.aspx)。
 - 利用 [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx) 相關增強功能，[依據資料列進行資料表分割](http://msdn.microsoft.com/library/ms187802.aspx)
-- 可使用動態管理檢視 [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) 來協助監視和調整效能。
+- 可使用動態管理檢視 [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) 來協助監視和調整效能。
 
 
 ### 可靠的效能
@@ -132,7 +132,7 @@ V12 提供大幅改進的復原點目標 (RPO) 與預估復原時間 (ERT)：
 查看您是否已經具備執行較早版本 SQL Database 服務的資料庫或邏輯伺服器的一個簡單方法是執行下列動作：
 
 
-1. 移至 [Azure 預覽入口網站](http://portal.azure.com/)。
+1. 移至 [Azure 入口網站](http://portal.azure.com/)。
 2. 按一下 [瀏覽]。
 3. 按一下 [SQL Server]。
 4. 您的伺服器或資料庫旁邊的圖示會告知詳情：
@@ -161,4 +161,4 @@ V12 資料庫只能裝載在 V12 邏輯伺服器上。而 V12 只可以裝載 V1
 
 [Microsoft Azure 預覽專用的使用補充條款](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

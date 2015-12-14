@@ -24,7 +24,7 @@
 
 您將了解：
 
-* 如何使用 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)建立 Azure Web 應用程式和 SQL Database。由於預設會在 App Service Web Apps 上啟用 PHP，因此您不需要執行任何特殊步驟就能執行 PHP 程式碼。
+* 如何使用 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)建立 Azure Web 應用程式和 SQL Database。由於預設會在 App Service Web Apps 上啟用 PHP，因此您不需要執行任何特殊步驟就能執行 PHP 程式碼。
 * 如何使用 Git 來發行與重新發行應用程式到 Azure。
  
 依照本教學課程進行，您將使用 PHP 建置一個簡易的註冊網頁應用程式。該應用程式將在 Azure 網站中託管。完成之應用程式的螢幕擷取畫面如下：
@@ -39,7 +39,7 @@
 
 請遵循以下步驟來建立 Azure Web 應用程式與 SQL Database：
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 2. 按一下儀表板左上方的 [新增] 圖示開啟 Azure Marketplace，然後按一下 Marketplace 旁的 [全選] 並選取 [Web + 行動]。
 	
@@ -284,7 +284,6 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從入口網站變更為預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -296,4 +295,4 @@
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

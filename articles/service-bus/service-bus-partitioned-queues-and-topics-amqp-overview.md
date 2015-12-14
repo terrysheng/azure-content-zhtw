@@ -34,7 +34,7 @@ Azure 服務匯流排現在針對服務匯流排**分割的佇列和主題**，�
 
 ### 建立分割的佇列
 
-您可以使用 Azure 傳統入口網站和服務匯流排 SDK 建立分割的佇列。要建立分割的佇列，請在 [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx) 執行個體中將 [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) 屬性設為 **true**。下列程式碼示範如何使用服務匯流排 SDK 建立分割的佇列。
+您可以使用 [Azure 傳統入口網站][]和服務匯流排 SDK 建立分割的佇列。要建立分割的佇列，請在 [QueueDescription ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx)執行個體中將[ EnablePartitioning ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx)屬性設為 **true**。下列程式碼示範如何使用服務匯流排 SDK 建立分割的佇列。
  
 ```
 // Create partitioned queue
@@ -72,7 +72,7 @@ receivedMessage.Complete();
 
 ### 建立分割的主題
 
-您可以透過 Azure 傳統入口網站和服務匯流排 SDK 建立分割的主題。若要建立分割的主題，請在 [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) 執行個體中將[EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) 屬性設為 **true**。下列程式碼示範如何使用服務匯流排 SDK 建立分割的主題。
+您可以透過 [Azure 傳統入口網站][]和服務匯流排 SDK 建立分割的主題。若要建立分割的主題，請在 [TopicDescription ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx)執行個體中將 [EnablePartitioning ](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx)屬性設為 **true**。下列程式碼示範如何使用服務匯流排 SDK 建立分割的主題。
 	
 ```
 // Create partitioned topic
@@ -116,4 +116,6 @@ receivedMessage.Complete();
 *    [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [如何透過服務匯流排 .NET API 使用 AMQP 1.0](service-bus-dotnet-advanced-message-queuing.md)
 
-<!---HONumber=Nov15_HO3-->
+[Azure 傳統入口網站]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

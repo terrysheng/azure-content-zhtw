@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015" 
+	ms.date="12/01/2015" 
 	ms.author="robmcm"/>
 
 # 搭配 Blob 儲存體的內部部署應用程式
@@ -364,7 +364,6 @@
   [如何使用 Java 的 Blob 儲存體服務]: storage-java-how-to-use-blob-storage.md
   [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
   [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-  [Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

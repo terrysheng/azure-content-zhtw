@@ -27,11 +27,11 @@
 
 1. 如需如何建立服務命名空間的完整資訊，請參閱[管理服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh690928.aspx)一節中的[作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh690931.aspx)主題。
 
-1. 在 Azure 入口網站的主視窗中，按一下您在上一個步驟中建立的命名空間名稱。
+1. 在 [Azure 傳統入口網站][]的主視窗中，按一下您在上一個步驟中建立的命名空間名稱。
 
 1. 按一下 [設定] 索引標籤。
 
-1. 在 [共用存取金鑰] 區段中，記下與 **RootManageSharedAccessKey** 原則相關聯的 [主要金鑰]，或是將它複製到剪貼簿。您稍後會在本教學課程中使用此值。
+1. 在 [**共用存取金鑰產生器**] 區段中，記下與 **RootManageSharedAccessKey** 原則相關聯的 [**主要金鑰**]，或是將它複製到剪貼簿。您稍後會在本教學課程中使用此值。
 
 ## 建立主控台用戶端
 
@@ -55,9 +55,9 @@
 
 ### 建立主控台應用程式
 
-1. 以系統管理員身分啟動 Visual Studio：以滑鼠右鍵按一下 [開始] 功能表中的程式，然後按一下 [以系統管理員身分執行]。
+1. 以系統管理員身分啟動 Visual Studio：以滑鼠右鍵按一下 [**開始**] 功能表中的程式，然後按一下 [**以系統管理員身分執行**]。
 
-1. 這會建立新的主控台應用程式專案。依序按一下 [檔案] 功能表、[新增] 和 [專案]。在 [新增專案] 對話方塊中，按一下 **Visual C#** (如果 **Visual C#** 未出現，請在 [其他語言] 中尋找)，選取 [主控台應用程式] 範本，並將它命名為 **Microsoft.ServiceBus.Samples**。使用預設位置。按一下 [確定] 以建立專案。
+1. 這會建立新的主控台應用程式專案。依序按一下 [**檔案**] 功能表、[**新增**] 和 [**專案**]。在 [**新增專案**] 對話方塊中，按一下 **Visual C#** (如果 **Visual C#** 未出現，請在 [**其他語言**] 中尋找)，選取 [**主控台應用程式**] 範本，並將它命名為 **Microsoft.ServiceBus.Samples**。使用預設位置。按一下 [確定] 以建立專案。
 
 1. 在 Program.cs 中，確定您的 `using` 陳述式如下所示：
 
@@ -221,7 +221,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 	}
 	```
 
-1. 標準代理訊息屬性會放在 `BrokerProperties` HTTP 標頭中。代理人屬性必須以 JSON 格式進行序列化。若要指定 30 秒的 **TimeToLive** 值，以及將訊息標籤 "M1" 新增至訊息，請將下列程式碼直接加在前一個範例所示的 `webClient.UploadData()` 呼叫前面：
+1. 標準代理訊息屬性會放在 `BrokerProperties` HTTP 標頭中。代理人屬性必須以 JSON 格式進行序列化。若要指定 30 秒的 **TimeToLive** 值，並將訊息標籤 "M1" 新增至訊息，請將下列程式碼直接加在前一個範例所示的 `webClient.UploadData()` 呼叫前面：
 
 	```
 	// Add brokered message properties "TimeToLive" and "Label"
@@ -377,7 +377,7 @@ private static string FormatXml(string inputXml)
 
 ## 建置並執行應用程式
 
-您現在可以建置並執行應用程式。在 Visual Studio 的 [建置] 功能表中，按一下 [建置方案] 或按 F6 鍵。
+您現在可以建置並執行應用程式。在 Visual Studio 的 [**建置**] 功能表中，按一下 [**建置方案**] 或按 F6 鍵。
 
 ### 執行應用程式
 
@@ -629,4 +629,6 @@ namespace Microsoft.ServiceBus.Samples
 - [Azure 服務匯流排基本概念](fundamentals-service-bus-hybrid-solutions.md)
 - [服務匯流排轉送 REST 教學課程](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Oct15_HO3-->
+[Azure 傳統入口網站]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

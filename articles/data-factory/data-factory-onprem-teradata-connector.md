@@ -241,7 +241,7 @@ gatewayName | Data Factory 服務應該用來連接到內部部署 Teradata 資�
 
 屬性 | 說明 | 必要
 -------- | ----------- | --------
-tableName | Teradata 資料庫執行個體中連結服務所參照的資料表名稱。 | 是 
+tableName | Teradata 資料庫執行個體中連結服務所參照的資料表名稱。 | 否 (如果已指定 **RelationalSource** 的 **query**) 
 
 ## Teradata 複製活動類型屬性
 
@@ -253,7 +253,7 @@ tableName | Teradata 資料庫執行個體中連結服務所參照的資料表�
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 否
+query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 否 (如果已指定 **dataset** 的 **tableName**)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -312,4 +312,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

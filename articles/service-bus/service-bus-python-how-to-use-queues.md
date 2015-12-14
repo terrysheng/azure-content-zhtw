@@ -44,7 +44,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-SAS 金鑰名稱和值的值可以在 [Azure 入口網站][]連接資訊中找到，或者在 [伺服器總管] 中選取服務匯流排命名空間時於 Visual Studio [屬性] 視窗中找到 (如上一節所示)。
+SAS 金鑰名稱和值的值可以在 [Azure 傳統入口網站][]連接資訊中找到，或者在 [伺服器總管] 中選取服務匯流排命名空間時於 Visual Studio [屬性] 視窗中找到 (如上一節所示)。
 
 ```
 bus_service.create_queue('taskqueue')
@@ -109,10 +109,10 @@ msg.delete()
 
 -   請參閱[佇列、主題和訂用帳戶][]。
 
-[Azure 入口網站]: http://manage.windowsazure.com
+[Azure 傳統入口網站]: http://manage.windowsazure.com
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
 [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
 [Azure 佇列與服務匯流排佇列]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

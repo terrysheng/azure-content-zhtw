@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
+	ms.date="11/30/2015"
 	ms.author="jroth" />
 
 # 在 Azure VM (GUI) 中設定 AlwaysOn 可用性群組
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
@@ -29,7 +29,7 @@
 
 本端對端教學課程將示範如何透過在 Azure 虛擬機器上執行的 SQL Server AlwaysOn 實作可用性群組。
 
->[AZURE.NOTE]在 Azure 管理入口網站中，提供具有接聽程式的 AlwaysOn 可用性群組專用的新資源庫設定。這可自動設定 AlwaysOn 可用性群組所需的所有項目。如需詳細資訊，請參閱 [Microsoft Azure 入口網站資源庫提供的 SQL Server AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。若要使用 PowerShell，請參閱[使用 PowerShell 設定 Azure 中的 AlwaysOn 可用性群組](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)中，相同案例的教學課程。
+>[AZURE.NOTE]在 Azure 管理入口網站中，提供具有接聽程式的 AlwaysOn 可用性群組專用的新資源庫設定。這可自動設定 AlwaysOn 可用性群組所需的所有項目。如需詳細資訊，請參閱 [Microsoft Azure 傳統入口網站資源庫提供的 SQL Server AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。若要使用 PowerShell，請參閱[使用 PowerShell 設定 Azure 中的 AlwaysOn 可用性群組](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)中，相同案例的教學課程。
 
 在本教學課程結束時，您 Azure 中的 SQL Server AlwaysOn 解決方案將包含下列項目：
 
@@ -61,7 +61,7 @@
 
 ## 建立虛擬網路和網域控制站伺服器
 
-一開始先建立新的 Azure 試用帳戶。完成帳戶設定，系統會將您導向 Azure 入口網站的主畫面。
+一開始先建立新的 Azure 試用帳戶。完成帳戶設定，系統會將您導向 Azure 傳統入口網站的主畫面。
 
 1. 如下方所示，按一下頁面左下角的 [新增] 按鈕。
 
@@ -88,11 +88,11 @@
 	|Page|設定|
 |---|---|
 |選取虛擬機器作業系統|Windows Server 2012 R2 Datacenter|
-|虛擬機器組態|**版本發行日期** = (最新)<br/>**虛擬機器名稱** = ContosoDC<br/>**層** = 基本<br/>**大小** = A2 (2 核心)<br/>**新使用者名稱** = AzureAdmin<br/>**新密碼**= Contoso!000<br/>**確認** = Contoso!000|
+|虛擬機器組態|**版本發行日期** = (最新)<br/>**虛擬機器名稱** = ContosoDC<br/>**層** = 標準<br/>**大小** = A2 (2 核心)<br/>**新使用者名稱** = AzureAdmin<br/>**新密碼**= Contoso!000<br/>**確認** = Contoso!000|
 |虛擬機器組態|**雲端服務** = 建立新的雲端服務<br/>**雲端服務 DNS 名稱** = 唯一的雲端服務名稱<br/>**DNS 名稱** = 唯一的名稱 (例如：ContosoDC123)<br/>**區域/同質群組/虛擬網路** = ContosoNET<br/>**虛擬網路子網路** = 後端 (10.10.2.0/24)<br/>**儲存體帳戶** = 使用自動產生的儲存體帳戶<br/>**可用性集合** = (無)|
 |虛擬機器選項|使用預設值|
 
-新的 VM 設定完畢後，請等候系統佈建 VM。此程序需要一些時間才能完成，如果您按一下 Azure 入口網站中的 [虛擬機器] 索引標籤，您會看到 ContosoDC 的循環狀態從 [啟動中 (佈建中)] 變成 [停止]、[啟動中]、[執行中 (佈建中)]，最後 [執行中]。
+新的 VM 設定完畢後，請等候系統佈建 VM。此程序需要一些時間才能完成，如果您按一下 Azure 傳統入口網站中的 [虛擬機器] 索引標籤，您會看到 ContosoDC 的循環狀態從 [啟動中 (佈建中)] 變成 [停止]、[啟動中]、[執行中 (佈建中)]，最後 [執行中]。
 
 現在已成功佈建 DC 伺服器。接下來，您將在這個 DC 伺服器上設定 Active Directory 網域。
 
@@ -192,16 +192,20 @@
 
 ## 建立 SQL Server VM
 
-接下來，建立三個 VM，包括 WSFC 叢集節點和兩個 SQL Server VM。為了逐一建立每個 VM，請回到 Azure 入口網站，依序按一下 [**新增**]、[**計算**]、[**虛擬機器**] 和 [**從資源庫**]。然後使用下表中的範本建立 VM。
+接下來，建立三個 VM，包括 WSFC 叢集節點和兩個 SQL Server VM。為了逐一建立每個 VM，請回到 Azure 傳統入口網站，依序按一下 [**新增**]、[**計算**]、[**虛擬機器**] 和 [**從資源庫**]。然後使用下表中的範本建立 VM。
 
 |Page|VM1|VM2|VM3|
 |---|---|---|---|
 |選取虛擬機器作業系統|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 RTM Enterprise**|**SQL Server 2014 RTM Enterprise**|
-|虛擬機器組態|**版本發行日期** = (最新)<br/>**虛擬機器名稱** = ContosoWSFCNode<br/>**層** = 基本<br/>**大小** = A2 (2 核心)<br/>**新的使用者名稱** = AzureAdmin<br/>**新密碼** = Contoso!000<br/>**確認** = Contoso!000|**版本發行日期** = (最新)<br/>**虛擬機器名稱** = = ContosoSQL1<br/>**層** = 基本<br/>**大小** = A3 (4 核心)<br/>**新的使用者名稱** = AzureAdmin<br/>**新密碼** = Contoso!000<br/>**確認** = Contoso!000|**版本發行日期** = (最新)<br/>**虛擬機器名稱** = = ContosoSQL2<br/>**層** = 基本<br/>**大小** = A3 (4 核心)<br/>**新的使用者名稱** = AzureAdmin<br/>**新密碼** = Contoso!000<br/>**確認** = Contoso!000|
+|虛擬機器組態|**版本發行日期** = (最新)<br/>**虛擬機器名稱** = ContosoWSFCNode<br/>**層** = 標準<br/>**大小** = A2 (2 核心)<br/>**新的使用者名稱** = AzureAdmin<br/>**新密碼** = Contoso!000<br/>**確認** = Contoso!000|**版本發行日期** = (最新)<br/>**虛擬機器名稱** = ContosoSQL1<br/>**層** = 標準<br/>**大小** = A3 (4 核心)<br/>**新的使用者名稱** = AzureAdmin<br/>**新密碼** = Contoso!000<br/>**確認** = Contoso!000|**版本發行日期** = (最新)<br/>**虛擬機器名稱** = ContosoSQL2<br/>**層** = 標準<br/>**大小** = A3 (4 核心)<br/>**新的使用者名稱** = AzureAdmin<br/>**新密碼** = Contoso!000<br/>**確認** = Contoso!000|
 |虛擬機器組態|**雲端服務** = 先前建立的唯一雲端服務 DNS 名稱 (例如：ContosoDC123)<br/>**區域/同質群組/虛擬網路** = ContosoNET<br/>**虛擬網路子網路** = 後端 (10.10.2.0/24)<br/>**儲存體帳戶** = 使用自動產生的儲存體帳戶<br/>**可用性集合** = 建立可用性集合<br/>**可用性集合名稱** = SQLHADR|**雲端服務** = 先前建立的唯一雲端服務 DNS 名稱 (例如：ContosoDC123)<br/>**區域/同質群組/虛擬網路** = ContosoNET<br/>**虛擬網路子網路** = 後端 (10.10.2.0/24)<br/>**儲存體帳戶** = 使用自動產生的儲存體帳戶<br/>**可用性集合名稱** = SQLHADR (也可以在虛擬機器建立後，再設定可用性集合。三部虛擬機器都必須指派至 SQLHADR 可用性集合)。|**雲端服務** = 先前建立的唯一雲端服務 DNS 名稱 (例如：ContosoDC123)<br/>**區域/同質群組/虛擬網路** = ContosoNET<br/>**虛擬網路子網路** = 後端 (10.10.2.0/24)<br/>**儲存體帳戶** = 使用自動產生的儲存體帳戶<br/>**可用性集合名稱** = SQLHADR (也可以在虛擬機器建立後，再設定可用性集合。三部虛擬機器都必須指派至 SQLHADR 可用性集合)。|
 |虛擬機器選項|使用預設值|使用預設值|使用預設值|
 
-完整佈建三個 VM，您必須將它們加入 **corp.contoso.com** 網域，並將 CORP\\Install 管理權限授與給這些虛擬機器。若要這樣做，請針對每個 VM 執行下列步驟。
+<br/>
+
+>[AZURE.NOTE]先前的設定建議標準層虛擬機器，因為基本層機器不支援後續建立可用性群組接聽程式所需的負載平衡端點。此外，此處建議的機器大小是為了在 Azure VM 中測試可用性群組。為獲得生產工作負載的最佳效能，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)中關於 SQL Server 機器大小和組態的建議。
+
+完整佈建三個 VM 後，您必須將它們加入 **corp.contoso.com** 網域，並將 CORP\\Install 管理權限授與給這些虛擬機器。若要這樣做，請針對每個 VM 執行下列步驟。
 
 1. 首先，變更慣用的 DNS 伺服器位址。然後在清單中選取 VM，並按一下 [連接] 按鈕，將每個 VM 的遠端桌面 (RDP) 檔案下載至您的本機目錄。若要選取 VM，請如下方所示，在資料列中第一個儲存格以外的任何地方按一下。
 
@@ -217,7 +221,7 @@
 
 	![變更 VM 慣用的 DNS 伺服器](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784629.png)
 
-1. 在命令列上按一下 變更此連接的設定 (視您的視窗大小而定，可能需按一下雙向右箭頭才能看到此命令)。
+1. 在命令列上按一下 [變更此連接的設定] (視您的視窗大小而定，可能需按一下雙向右箭頭才能看到此命令)。
 
 1. 選取 [網際網路通訊協定第 4 版 (TCP/IPv4)]，然後按一下 [內容]。
 
@@ -544,4 +548,4 @@
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -36,7 +36,7 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 本文件假設您擁有 Azure 訂用帳戶、儲存體帳戶和該帳戶的對應儲存體金鑰。上傳/下載資料之前，您必須知道 Azure 儲存體帳戶名稱和帳戶金鑰。
 
-- 若要設定 Azure 訂用帳戶，請參閱[免費試用一個月](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- 若要設定 Azure 訂用帳戶，請參閱[免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
 - 如需建立儲存體帳戶以及取得帳戶和金鑰資訊的指示，請參閱[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)。
 
 ## 將檔案上傳至 Azure Blob
@@ -71,4 +71,4 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 > [AZURE.TIP]1.上傳檔案時，/S 將以遞迴方式上傳檔案。如果沒有這個參數，將不會上傳子目錄中的任何檔案。2.下載檔案時，/S 將以遞迴方式搜尋容器，直到下載了指定目錄及其子目錄中的所有檔案，或指定目錄及其子目錄中所有符合指定模式的所有檔案為止。3.您無法使用 /Source 參數來指定要下載的特定 Blob 檔案。若要下載特定檔案，請使用 /Pattern 參數指定要下載的 Blob 檔案名稱。/S 參數可用來讓 AzCopy 以遞迴方式尋找檔案名稱模式。若未提供模式參數，AzCopy 將下載該目錄中的所有檔案。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

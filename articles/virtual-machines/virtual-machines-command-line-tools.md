@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md)。
 
-本文說明如何在服務管理模式 (asm 模式) 下使用 Azure CLI，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫、透過 Azure PowerShell 以及使用 Azure 入口網站，來執行其中許多相同的工作。使用 Azure 服務搭配服務管理模式，在概念上類似於建立和管理個別 Azure 概念和服務的思考模式，例如網站、虛擬機器、虛擬網路、儲存體等等。
+本文說明如何在服務管理模式 (asm 模式) 下使用 Azure CLI，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫，透過 Azure PowerShell 以及使用 Azure 傳統入口網站，執行其中許多相同的工作。使用 Azure 服務搭配服務管理模式，在概念上類似於建立和管理個別 Azure 概念和服務的思考模式，例如網站、虛擬機器、虛擬網路、儲存體等等。
 
 > [AZURE.NOTE]若要開始這麼做，請先[安裝 Azure CLI](../xplat-cli-install.md)，並[登入以使用與您帳戶相關聯的 Azure 資源](../xplat-cli-connect.md)。
 
@@ -42,11 +42,11 @@
 >[AZURE.NOTE]Azure 資源管理員模式與 Azure 服務管理模式是互斥的。亦即，任一模式所建立的資源，將無法由另一種模式來管理。
 
 ## 管理帳戶資訊及發佈設定
-此工具會使用您的 Azure 訂閱資訊來連線至您的帳戶。您可以從 Azure 入口網站取得這些資訊 (在發佈設定檔中，本文將有說明)。您可以匯入發佈設定檔，作為這個工具後續作業所使用的持續性本機組態設定。您的發佈設定只需匯入一次即可。
+此工具會使用您的 Azure 訂閱資訊來連線至您的帳戶。您可以從 Azure 傳統入口網站取得這些資訊 (在發佈設定檔中，本文將有說明)。您可以匯入發佈設定檔，作為這個工具後續作業所使用的持續性本機組態設定。您的發佈設定只需匯入一次即可。
 
 **account download [options]**
 
-此命令會啟動瀏覽器來從 Azure 入口網站下載 .publishsettings 檔。
+此命令會啟動瀏覽器來從 Azure 傳統入口網站下載 .publishsettings 檔。
 
 	~$ azure account download
 	info:   Executing command account download
@@ -192,13 +192,13 @@ This command creates a new affinity group
 
 ![Azure Technical Diagram](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** 會在 Blob 儲存體 (也就是圖中的 e:\) 建立磁碟機；**attach** 會將已建立但未連接的磁碟連接至虛擬機器。
+**create-new** 會在 Blob 儲存體 (也就是圖中的 e:\\) 建立磁碟機；**attach** 會將已建立但未連接的磁碟連接至虛擬機器。
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
 此命令會建立新的 Azure 虛擬機器。依預設，每個虛擬機器 (VM) 都是建立於專屬的雲端服務中；不過，您可以透過本文所述的 -c 選項，指定應該將虛擬機器加入現有的雲端服務。
 
-如同 Azure 入口網站，vm create 命令只會在生產部署環境中建立虛擬機器。沒有在雲端服務的預備部署環境中建立虛擬機器的選項。如果您的訂閱沒有現有的 Azure 儲存體帳戶，這個命令會建立一個帳戶。
+如同 Azure 傳統入口網站，vm create 命令只會在生產部署環境中建立虛擬機器。沒有在雲端服務的預備部署環境中建立虛擬機器的選項。如果您的訂閱沒有現有的 Azure 儲存體帳戶，這個命令會建立一個帳戶。
 
 您可以透過 --location 參數指定位置，或透過 --affinity-group 參數指定同質群組。如果都不提供，系統會提示您從有效位置清單中提供一個位置。
 
@@ -210,7 +210,7 @@ This command creates a new affinity group
 
 此命令可支援下列選用參數：
 
-**-c, --connect** 於主機服務中已建立的部署內建立虛擬機器。如果使用這個選項時並未加上 -vmname，則會自動產生新虛擬機器的名稱。<br /> **-n, --vm-name** 指定虛擬機器的名稱。此參數預設使用主機服務名稱。如果未指定 -vmname，則會以 &lt;service-name>&lt;id> 格式產生新虛擬機器的名稱，其中 &lt;id> 是服務中現有虛擬機器的編號加 1。例如，如果您使用這個命令將新的虛擬機器加入至已有一個虛擬機器的主機服務 MyService，則新虛擬機器的名稱會是 MyService2。<br /> **-u, --blob-url** 指定要在其中建立虛擬機器系統磁碟的目標 Blob 儲存體 URL。<br /> **-z, --vm-size** 指定虛擬機器的大小。有效值為："ExtraSmall"、"Small"、"Medium"、"Large"、"ExtraLarge"、"A5"、"A6"、"A7"、"A8"、"A9"、"A10"、"A11"、"Basic\_A0"、"Basic\_A1"、"Basic\_A2"、"Basic\_A3"、"Basic\_A4"、"Standard\_D1"、"Standard\_D2"、"Standard\_D3"、"Standard\_D4"、"Standard\_D11"、"Standard\_D12"、"Standard\_D13"、"Standard\_D14"、"Standard\_DS1"、"Standard\_DS2"、"Standard\_DS3"、"Standard\_DS4"、"Standard\_DS11"、"Standard\_DS12"、"Standard\_DS13"、"Standard\_DS14"、"Standard\_G1"、"Standard\_G2"、"Standard\_G3"、"Standard\_G4"、"Standard\_G55"。預設值為 "Small"。<br /> **-r** 將 RDP 連線功能新增至 Windows 虛擬機器。<br /> **-e, --ssh** 將 SSH 連線功能新增至 Windows 虛擬機器。<br /> **-t, --ssh-cert** 指定 SSH 憑證。<br /> **-s** 訂用帳戶 <br /> **-o, --community** 所指定的影像為社群影像 <br /> **-w** 虛擬網路名稱 <br/> **-l, --location** 指定位置 (例如，「美國中北部」)。<br /> **-a, --affinity-group** 指定同質群組。<br /> **-w, --virtual-network-name** 指定要將虛擬機器新增到的虛擬網路。若要設定和管理虛擬網路，可以從 Azure 入口網站進行。<br /> **-b, --subnet-names** 指定要對虛擬機器指派的子網路名稱。
+**-c, --connect** 於主機服務中已建立的部署內建立虛擬機器。如果使用這個選項時並未加上 -vmname，則會自動產生新虛擬機器的名稱。<br /> **-n, --vm-name** 指定虛擬機器的名稱。此參數預設使用主機服務名稱。如果未指定 -vmname，則會以 &lt;service-name>&lt;id> 格式產生新虛擬機器的名稱，其中 &lt;id> 是服務中現有虛擬機器的編號加 1。例如，如果您使用這個命令將新的虛擬機器加入至已有一個虛擬機器的主機服務 MyService，則新虛擬機器的名稱會是 MyService2。<br /> **-u, --blob-url** 指定要在其中建立虛擬機器系統磁碟的目標 Blob 儲存體 URL。<br /> **-z, --vm-size** 指定虛擬機器的大小。有效值為："ExtraSmall"、"Small"、"Medium"、"Large"、"ExtraLarge"、"A5"、"A6"、"A7"、"A8"、"A9"、"A10"、"A11"、"Basic\_A0"、"Basic\_A1"、"Basic\_A2"、"Basic\_A3"、"Basic\_A4"、"Standard\_D1"、"Standard\_D2"、"Standard\_D3"、"Standard\_D4"、"Standard\_D11"、"Standard\_D12"、"Standard\_D13"、"Standard\_D14"、"Standard\_DS1"、"Standard\_DS2"、"Standard\_DS3"、"Standard\_DS4"、"Standard\_DS11"、"Standard\_DS12"、"Standard\_DS13"、"Standard\_DS14"、"Standard\_G1"、"Standard\_G2"、"Standard\_G3"、"Standard\_G4"、"Standard\_G55"。預設值為 "Small"。<br /> **-r** 將 RDP 連線功能新增至 Windows 虛擬機器。<br /> **-e, --ssh** 將 SSH 連線功能新增至 Windows 虛擬機器。<br /> **-t, --ssh-cert** 指定 SSH 憑證。<br /> **-s** 訂用帳戶 <br /> **-o, --community** 所指定的影像為社群影像 <br /> **-w** 虛擬網路名稱 <br/> **-l, --location** 指定位置 (例如，「美國中北部」)。<br /> **-a, --affinity-group** 指定同質群組。<br /> **-w, --virtual-network-name** 指定要將虛擬機器新增到的虛擬網路。若要設定和管理虛擬網路，可以從 Azure 傳統入口網站進行。<br /> **-b, --subnet-names** 指定要對虛擬機器指派的子網路名稱。
 
 在此範例中，MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-zh-TW-30GB 是由平台所提供的映像。如需作業系統映像的詳細資訊，請參閱 vm image list。
 
@@ -2350,4 +2350,4 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

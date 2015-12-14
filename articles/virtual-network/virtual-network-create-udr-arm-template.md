@@ -392,4 +392,4 @@
 
 >[AZURE.TIP]如果看不到所有資源，請執行 **azure group deployment show** 命令，以確保部署的佈建狀態為*成功*。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

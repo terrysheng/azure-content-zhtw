@@ -2,7 +2,7 @@
 
 接下來，您將建立新的行動服務來取代記憶體內部資料儲存區清單。依照下列步驟即可建立新的行動服務。
 
-1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com/)。 
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。 
 2.	在導覽窗格的底端，按一下 **[新增]**。
 
 	![plus-new](./media/mobile-services-create-new-service-data/plus-new.png)
@@ -33,4 +33,4 @@
 
 您現在已經建立可供行動應用程式使用的新行動服務。接下來，您將新增要用來儲存應用程式資料的資料表。應用程式將使用此資料表來取代記憶體內部收集。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

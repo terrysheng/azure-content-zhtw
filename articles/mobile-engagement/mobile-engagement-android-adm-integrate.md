@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK 整合" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK 整合"
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 
@@ -25,11 +25,11 @@
 
 ##簡介
 
-整合 ADM 可在即使應用程式未執行時，也能推播應用程式。
+整合 ADM 可在目標為 Amazon Android 裝置時推送。
 
-ADM 實際上不會傳送任何促銷活動資料，它只是告知應用程式去擷取 Engagement 推播的背景信號。如果在收到 ADM 推播時應用程式未執行，則會觸發連線至 Engagement 伺服器以便擷取推播，Engagement 連線會保留大約一分鐘時間，以備使用者因應推播而啟動應用程式。
+推送到 ADM 裝載的 SDK 一律包含 `azme` 資料物件中的金鑰。因此，如果您在應用程式中因為其他目的使用 ADM，可以根據該金鑰篩選推送。
 
-> [AZURE.IMPORTANT]Amazon Device Messaging 只支援執行 Android 4.0.3 或更新版本的 Amazon Kindle 裝置；不過，您仍可將這段程式碼安全地整合至其他裝置。如果應用程式無法由 ADM 喚醒，則會在下次啟動應用程式時收到 Engagement 通知。
+> [AZURE.IMPORTANT]Amazon Device Messaging 只支援執行 Android 4.0.3 或更新版本的 Amazon Kindle 裝置；不過，您仍可將這段程式碼安全地整合至其他裝置。
 
 ##註冊 ADM
 
@@ -65,7 +65,7 @@ ADM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 		<amazon:enable-feature
 		   android:name="com.amazon.device.messaging"
 		   android:required="false"/>
-		
+
 		<meta-data android:name="engagement:adm:register" android:value="true" />
 
 -   加入 amazon 標記後，如果您的專案建置目標低於 Android 2.1，可能會出現建置錯誤。您必須使用 **Android 2.1+** 建置目標 (別擔心，您仍可將 `minSdkVersion` 設為 4)。
@@ -83,7 +83,7 @@ ADM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 		    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
 		  </intent-filter>
 		</receiver>
-		
+
 		 <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
 		   android:permission="com.amazon.device.messaging.permission.SEND">
 		  <intent-filter>
@@ -111,6 +111,5 @@ ADM 實際上不會傳送任何促銷活動資料，它只是告知應用程式�
 [ADM 用戶端程式庫]: https://developer.amazon.com/sdk/adm/setup.html
 [整合的 ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [此程序]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

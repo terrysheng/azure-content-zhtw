@@ -270,10 +270,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
 按一下清單的標題或 **...** (省略符號)，查看更長的配量清單。按一下工具列上的 [篩選] 以篩選配量。
  
-您仍然可以按一下 [資料配量 (依配量時間)] 磚，檢視依配量時間排序的配量。這些集合中的配量會依配量時間排序。例如，如果是以小時排程，則配量為：
-- 4/4/2015 5pm 進行中
-- 4/4/2015 4pm 失敗
-- 4/4/2015 3pm 失敗
+您仍然可以按一下 [資料配量 (依配量時間)] 磚，檢視依配量時間排序的配量。這些集合中的配量會依配量時間排序。例如，如果是以小時排程，則配量為：- 4/4/2015 5pm 進行中 - 4/4/2015 4pm 失敗 - 4/4/2015 3pm 失敗
 
 但是，如果重新執行較舊的配量，即使這可能是使用者最感興趣的配量，也不會顯示在此清單頂端。
 
@@ -295,7 +292,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 ## Data Factory 2015/2/27 版本的注意事項
 
 ### 新的改進功能
-- **Azure Data Factory 編輯器**。Data Factory 編輯器是 Azure Preview 入口網站的一部分，可讓您建立、編輯及部署 JSON 檔案，此檔案定義連結服務、資料集和管線。編輯器的主要目標是提供快速又輕巧的使用者介面 (UI)，讓您不需要安裝 Azure PowerShell 或學習使用 PowerShell Cmdlet，即可建立 Azure Data Factory 成品。如需 Data Factory 編輯器的快速概觀和影片，請參閱 [Azure Data Factory 編輯器 - 輕量型 Web 編輯器][adf-editor-blog]部落格文章。如需編輯器的詳細概觀，請參閱 [Data Factory 編輯器][adf-editor]文章。          
+- **Azure Data Factory 編輯器**。Data Factory 編輯器是 Azure 入口網站的一部分，可讓您建立、編輯及部署 JSON 檔案，此檔案定義連結服務、資料集和管線。編輯器的主要目標是提供快速又輕巧的使用者介面 (UI)，讓您不需要安裝 Azure PowerShell 或學習使用 PowerShell Cmdlet，即可建立 Azure Data Factory 成品。如需 Data Factory 編輯器的快速概觀和影片，請參閱 [Azure Data Factory 編輯器 - 輕量型 Web 編輯器][adf-editor-blog]部落格文章。如需編輯器的詳細概觀，請參閱 [Data Factory 編輯器][adf-editor]文章。          
 
 ### 變更
 
@@ -316,7 +313,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 - Azure Machine Learning 整合
 	- 這一版的 Azure Data Factory 服務可讓您使用 **AzureMLLinkedService** 和 **AzureMLBatchScoringActivity** 將 Azure Data Factory 與 Azure Machine Learning (ML) 整合。如需詳細資訊，請參閱[使用 Data Factory 和 Azure Machine Learning 建立預測管線][adf-azure-ml]。 
 - 提供閘道器版本狀態
-	- 如果有比目前安裝之版本還要新的閘道器，「Azure Preview 入口網站」和 Get-AzureDataFactoryGateway Cmdlet 的輸出中就會顯示 "NewVersionAvailable" 狀態。。您可以接著依照入口網站程序下載新的安裝檔案 (.msi)，然後執行它來安裝最新的閘道器。不需要進行其他設定。
+	- 如果有比目前安裝之版本還要新的閘道器，「Azure 入口網站」和 Get-AzureDataFactoryGateway Cmdlet 的輸出中就會顯示 "NewVersionAvailable" 狀態。。您可以接著依照入口網站程序下載新的安裝檔案 (.msi)，然後執行它來安裝最新的閘道器。不需要進行其他設定。
 
 ### 變更
 
@@ -357,4 +354,4 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,11 @@
 
 # 如何使用適用於 Azure 行動服務的 iOS 用戶端程式庫
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 本指南說明如何使用適用於 Azure 行動服務 [iOS SDK] 執行一般案例。如果您不熟悉行動服務，請先完成[行動服務快速入門]來設定您的帳戶、建立資料表，以及建立行動服務。
@@ -328,4 +333,4 @@ Azure 行動服務支援兩個驗證工作流程：
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [衝突處理常式]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

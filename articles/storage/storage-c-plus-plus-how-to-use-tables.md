@@ -46,7 +46,7 @@
 	#include "was/table.h"
 
 ## 設定 Azure 儲存體連接字串  
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。執行用戶端應用程式時，您必須提供下列格式的儲存體連接字串。使用您的儲存體帳戶名稱和儲存體存取金鑰，來輸入 Azure 入口網站中所列的儲存體帳戶的 *AccountName* 和 *AccountKey* 值。如需有關儲存體帳戶和存取金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。本範例將示範如何宣告靜態欄位來存放連接字串：
+Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。執行用戶端應用程式時，您必須提供下列格式的儲存體連接字串。使用您的儲存體帳戶名稱和儲存體存取金鑰，來輸入 [Azure 入口網站](portal.azure.com)中所列的儲存體帳戶的 AccountName 和 AccountKey 值。如需有關儲存體帳戶和存取金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。本範例將示範如何宣告靜態欄位來存放連接字串：
 
 	// Define the connection string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
@@ -414,4 +414,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 -	[Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

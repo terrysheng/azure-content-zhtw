@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # 當我嘗試註冊 Azure 時，我的信用卡不被接受
 本文討論使用信用卡或轉帳卡時造成註冊問題的常見原因。
@@ -64,4 +64,4 @@ Azure 免費試用優惠僅限於啟用免費試用一次。
 ## 連絡 Azure 支援
 如果您在遵循這些疑難排解步驟之後仍有註冊問題，請連絡 [Azure 支援](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

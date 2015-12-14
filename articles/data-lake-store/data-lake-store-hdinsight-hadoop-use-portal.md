@@ -1,6 +1,6 @@
 <properties 
    pageTitle="使用入口網站佈建 HDInsight Hadoop 叢集與 Azure 資料湖存放區 |Azure" 
-   description="使用 Azure Preview 入口網站設定和使用 HDInsight Hadoop 叢集與 Azure 資料湖存放區" 
+   description="使用 Azure 入口網站設定和使用 HDInsight Hadoop 叢集與 Azure 資料湖存放區" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -16,21 +16,21 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# 使用 Azure Preview 入口網站佈建 HDInsight 叢集與資料湖存放區
+# 使用 Azure 入口網站佈建 HDInsight 叢集與資料湖存放區
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-了解如何使用 Azure Preview 入口網站設定 HDInsight 叢集 (Hadoop、HBase 或 Storm) 以使用 Azure 資料湖存放區。此版本的一些重要考量：
+了解如何使用 Azure 入口網站設定 HDInsight 叢集 (Hadoop、HBase 或 Storm) 以使用 Azure 資料湖存放區。此版本的一些重要考量：
 
 * * **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
 
 * **對於 HBase 叢集 (Windows 和 Linux)**，您可以使用資料湖存放區做為預設儲存體或額外的儲存體。
 
 
-在本文中，我們佈建 Hadoop 叢集與資料湖存放區做為額外的儲存體。使用 Azure Preview 入口網站以設定 HDInsight 來搭配資料湖存放區使用，包含下列步驟：
+在本文中，我們佈建 Hadoop 叢集與資料湖存放區做為額外的儲存體。使用 Azure 入口網站以設定 HDInsight 來搭配資料湖存放區使用，包含下列步驟：
 
 * 建立具有 Azure Active Directory 服務主體驗證的 HDInsight 叢集
 * 使用相同的服務主體設定資料湖存放區存取
@@ -40,7 +40,7 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - **啟用您的 Azure 訂用帳戶**以使用資料湖存放區公開預覽版。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 
 
@@ -48,7 +48,7 @@
 
 在本節中，您會建立 HDInsight Hadoop 叢集，它使用資料湖存放區做為額外的儲存體。在此版本中，對於 Hadoop 叢集，資料湖存放區只能做為叢集的額外儲存體。預設儲存體仍是 Azure 儲存體 Blob (WASB)。所以，我們要先建立叢集所需的儲存體帳戶和儲存體容器。
 
-1. 登入新的 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
 
 2. 請依照[在 HDInsight 中建立 Hadoop 叢集](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal)中的步驟，開始佈建 HDInsight 叢集。
  
@@ -83,9 +83,9 @@
 
 ## <a name="acl"></a>設定服務主體以存取資料湖存放區檔案系統
 
-1. 登入新的 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
 
-2. 如果您沒有資料湖存放區帳戶，請建立一個。遵循[使用 Azure Preview 入口網站開始使用 Azure 資料湖存放區](data-lake-store-get-started-portal.md)的指示。
+2. 如果您沒有資料湖存放區帳戶，請建立一個。遵循[使用 Azure 入口網站開始使用 Azure 資料湖存放區](data-lake-store-get-started-portal.md)的指示。
 
 	如果您已經擁有資料湖存放區帳戶，可從左窗格中依序按一下 [瀏覽] 和 [資料湖存放區]，然後按一下您要授與存取權的帳戶名稱。
 
@@ -167,7 +167,7 @@
 
 一旦您已設定 HDInsight 叢集使用資料湖存放區，您可以使用 HDFS 殼層命令來存取存放區。
 
-1. 登入新的 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
 
 2. 按一下 [瀏覽]，然後依序按一下 [HDInsight 叢集] 和您建立的 HDInsight 叢集。
 
@@ -207,4 +207,4 @@
 [makecert]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

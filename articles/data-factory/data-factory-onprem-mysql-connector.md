@@ -238,7 +238,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| tableName | MySQL 資料庫執行個體中連結服務所參照的資料表名稱。 | 是 | 
+| tableName | MySQL 資料庫執行個體中連結服務所參照的資料表名稱。 | 否 (如果已指定 **RelationalSource** 的 **query**) | 
 
 ## MySQL 複製活動類型屬性
 
@@ -250,7 +250,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
-| query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 是 | 
+| query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 否 (如果已指定 **dataset** 的 **tableName**) | 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -310,4 +310,4 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

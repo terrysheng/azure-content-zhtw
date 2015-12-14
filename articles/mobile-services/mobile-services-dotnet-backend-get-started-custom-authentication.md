@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="開始使用自訂驗證 | Microsoft Azure" 
-	description="了解如何藉由使用者名稱及密碼驗證使用者。" 
-	documentationCenter="Mobile" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="開始使用自訂驗證 | Microsoft Azure"
+	description="了解如何藉由使用者名稱及密碼驗證使用者。"
+	documentationCenter="Mobile"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="mahender"/>
 
 # 開始使用自訂驗證
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ## 概觀
 本主題說明如何簽發您自己的行動服務驗證權杖，以在 Azure 行動服務 .NET 後端中驗證使用者。在本教學課程中，您會使用應用程式的自訂使用者名稱和密碼，將驗證新增至快速入門專案。
@@ -35,7 +40,7 @@
 
 2. 新增下列 `using` 陳述式：
 
-		using Microsoft.WindowsAzure.Mobile.Service;  
+		using Microsoft.WindowsAzure.Mobile.Service;
 
 3. 以下列程式碼取代類別定義：
 
@@ -45,7 +50,7 @@
 	        public byte[] Salt { get; set; }
 	        public byte[] SaltedAndHashedPassword { get; set; }
 	    }
-    
+
     這代表新「帳戶」資料表中的一行資料列，其中含有使用者名稱，以及該使用者的 Salt 和安全儲存密碼。
 
 2. 在 **Models** 資料夾下，您會看見以行動服務名稱命名的 **DbContext** 衍生類別。請開啟您的內容並加入下列程式碼，將帳戶資料表新增至您的資料模型：
@@ -53,7 +58,7 @@
         public DbSet<Account> Accounts { get; set; }
 
 	>[AZURE.NOTE]本教學課程中的程式碼片段使用 `todoContext` 做為內容名稱。您必須更新專案內容的程式碼片段。接著，您將設定使用這項資料所需的安全性功能。
- 
+
 5. 建立名為 `CustomLoginProviderUtils` 的類別，然後新增下列 `using` 陳述式：
 
 		using System.Security.Cryptography;
@@ -113,14 +118,14 @@
 		using <my_project_namespace>.Models;
 
 	在上方程式碼中，以您專案的命名空間取代預留位置。
- 
+
 4. 以下列程式碼取代類別定義：
 
 	    [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 	    public class CustomRegistrationController : ApiController
 	    {
 	        public ApiServices Services { get; set; }
-	
+
 	        // POST api/CustomRegistration
 	        public HttpResponseMessage Post(RegistrationRequest registrationRequest)
 	        {
@@ -132,7 +137,7 @@
 	            {
 	                return this.Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid password (at least 8 chars required)");
 	            }
-	
+
 	            todoContext context = new todoContext();
 	            Account account = context.Accounts.Where(a => a.Username == registrationRequest.username).SingleOrDefault();
 	            if (account != null)
@@ -154,7 +159,7 @@
 	                return this.Request.CreateResponse(HttpStatusCode.Created);
 	            }
 	        }
-	    }   
+	    }
 
     請記得要以 **DbContext** 專案的名稱取代 *todoContext* 變數。請注意，此控制器會使用以下屬性允許此端點的所有流量：
 
@@ -164,7 +169,7 @@
 
 ## 建立 LoginProvider
 
-**LoginProvider** 是行動服務驗證管線中的基礎建構之一。在本節中，您將建立自己的 `CustomLoginProvider`。它並不會像內建提供者一樣插入管線中，但會為您提供方便的功能。如果您使用 Visual Studio 2013，您可能需要安裝 `WindowsAzure.MobileServices.Backend.Security` Nuget 封裝將參考新增至 `LoginProvider` 類別。
+**LoginProvider** 是行動服務驗證管線中的基礎建構之一。在本節中，您將建立自己的 `CustomLoginProvider`。它並不會像內建提供者一樣插入管線中，但會為您提供方便的功能。如果您使用 Visual Studio 2013，您可能需要安裝 `WindowsAzure.MobileServices.Backend.Security` Nuget 封裝，以便將參考新增至 `LoginProvider` 類別。
 
 1. 請建立衍生自 **LoginProvider** 的新類別 `CustomLoginProvider`，並新增下列 `using` 陳述式：
 
@@ -173,7 +178,7 @@
 		using Newtonsoft.Json.Linq;
 		using Owin;
 		using System.Security.Claims;
- 
+
 3. 以下列程式碼取代 **CustomLoginProvider** 類別定義：
 
         public class CustomLoginProvider : LoginProvider
@@ -250,12 +255,12 @@
         }
 
 	此方法會將 [ClaimsIdentity] 轉譯為在驗證權杖發行階段使用的 [ProviderCredentials] 物件。此時，您可以再次以此方法擷取任何其他宣告。
-	
+
 6. 在 **ConfigOptions** 建立之後開啟 App\_Start 資料夾中的 WebApiConfig.cs 專案檔案及下列程式碼行：
-		
+
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
-	
+
 
 ## 建立登入端點
 
@@ -277,7 +282,7 @@
 	    {
 	        public string UserId { get; set; }
 	        public string MobileServiceAuthenticationToken { get; set; }
-	
+
 	    }
 
 	此類別代表以使用者識別碼和驗證權杖成功登入。請注意，此類別和用戶端的 MobileServiceUser 類別具有相同形式，所以此類別能夠輕易地將登入回應傳給強型別用戶端。
@@ -290,13 +295,13 @@
 		using <my_project_namespace>.Models;
 
 3. 以下列程式碼取代 **CustomLoginController** 類別定義：
- 
+
 	    [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 	    public class CustomLoginController : ApiController
 	    {
 	        public ApiServices Services { get; set; }
 	        public IServiceTokenHandler handler { get; set; }
-	
+
 	        // POST api/CustomLogin
 	        public HttpResponseMessage Post(LoginRequest loginRequest)
 	        {
@@ -307,7 +312,7 @@
 	            {
 	                byte[] incoming = CustomLoginProviderUtils
 	                    .hash(loginRequest.password, account.Salt);
-	
+
 	                if (CustomLoginProviderUtils.slowEquals(incoming, account.SaltedAndHashedPassword))
 	                {
 	                    ClaimsIdentity claimsIdentity = new ClaimsIdentity();
@@ -342,7 +347,7 @@
 
 您必須在用戶端應用程式中開發自訂登入畫面，此畫面會擷取使用者名稱和密碼的，並將這些資訊以 JSON 裝載的形式傳送至註冊和登入端點。要完成此教學課程，您只需使用行動服務 .NET 後端的內建測試用戶端。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案，然後依序按一下 [偵錯] 和 [開始新執行個體]。  
+1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案，然後依序按一下 [偵錯] 和 [開始新執行個體]。
 
 	這麼做會啟動行動服務後端專案的新偵錯執行個體。成功啟動服務之後，您會看到說明「此行動服務已啟動且在執行中」的起始頁。
 
@@ -389,13 +394,13 @@
 2. 在用戶端程式庫的 **MobileServiceClient** 上使用適當的 **invokeApi** 方法，以呼叫 **CustomRegistration** 端點，藉此在訊息本文中傳遞於執行階段提供的使用者名稱和密碼。
 
 	如果您在「帳戶」資料表中保留了使用者登入資訊，則您只需要呼叫 **CustomRegistration** 端點一次，即可建立指定使用者的帳戶。如需如何在各種支援的用戶端平台上呼叫自訂 API 的範例，請參閱 [Azure 行動服務中的自訂 API – 用戶端 SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx) 文章 (英文)。
-	 
+
 	> [AZURE.IMPORTANT]由於這個佈建使用者的步驟只會發生一次，因此您可以考慮以某種頻外方式建立使用者帳戶。若是公用註冊端點，您應該也要考慮實作以簡訊或電子郵件為基礎的驗證程序，或是其他保護措施，以避免產生詐騙帳戶。您可以使用 Twilio 透過行動服務傳送手機簡訊。您也可以使用 SendGrid 透過行動服務傳送電子郵件。如需使用 SendGrid 的詳細資訊，請參閱[使用 SendGrid 透過行動服務傳送電子郵件](store-sendgrid-mobile-services-send-email-scripts.md)。
-	
+
 3. 再次使用適當的 **invokeApi** 方法，但這次改為呼叫 **CustomLogin** 端點，藉此在訊息本文中傳遞於執行階段提供的使用者名稱和密碼。
 
 	這次您必須在成功登入後，擷取回應物件中傳回的 *userId* 和 *authenticationToken* 值。
-	
+
 4. 使用傳回的 *userId* 和 *authenticationToken* 值建立新的 **MobileServiceUser** 物件，並將該物件設為 **MobileServiceClient** 執行個體的目前使用者，如[將驗證加入現有應用程式](mobile-services-dotnet-backend-ios-get-started-users.md)主題中所示。因為 CustomLogin 的結果與 **MobileServiceUser** 物件具有相同形式，所以您應該能夠直接轉換結果。
 
 本教學課程到此完成。
@@ -418,6 +423,5 @@
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

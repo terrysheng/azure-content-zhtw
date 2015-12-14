@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 # 在 Azure 入口網站中監視儲存體帳戶
 
 ## 概觀
 
-您可以從 Azure 入口網站監視儲存體帳戶。當您設定要透過入口網站來監視的儲存體帳戶時，Azure 儲存體會使用[儲存體分析](http://msdn.microsoft.com/library/azure/hh343270.aspx)來追蹤您的帳戶的度量和記錄要求資料。
+您可以從 [Azure 入口網站](portal.azure.com)監視儲存體帳戶。當您設定要透過入口網站來監視的儲存體帳戶時，Azure 儲存體會使用[儲存體分析](http://msdn.microsoft.com/library/azure/hh343270.aspx)來追蹤您的帳戶的度量和記錄要求資料。
 
-> [AZURE.NOTE]在 Azure 入口網站中查看監視資料會有額外的成本。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">儲存體分析及計費</a>。<br />
+> [AZURE.NOTE]在 [Azure 入口網站](portal.azure.com)中查看監視資料會有額外的成本。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">儲存體分析及計費</a>。<br />
 
-> Azure 檔案儲存體目前支援儲存體分析度量，但還不支援記錄。您可以透過 [Azure Preview 入口網站](https://ms.portal.azure.com)啟用 Azure 檔案儲存體度量。
+> Azure 檔案儲存體目前支援儲存體分析度量，但還不支援記錄。您可以透過 [Azure 入口網站](portal.azure.com)啟用 Azure 檔案儲存體度量。
 
-> 如需使用儲存體分析和其他工具來識別、診斷及疑難排解 Azure 儲存體相關問題的深入指南，請參閱[監視、診斷及疑難排解 Microsoft Azure 儲存體](../storage-monitoring-diagnosing-troubleshooting/)。
+> 如需使用儲存體分析和其他工具來識別、診斷及疑難排解 Azure 儲存體相關問題的深入指南，請參閱[監視、診斷及疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)。
 
 
 ## 如何：設定儲存體帳戶的監視
 
-1. 在 [Azure 管理入口網站](https://manage.windowsazure.com/)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1. 在 [Azure 入口網站](portal.azure.com)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2. 按一下 [設定]，然後向下捲動到 Blob、資料表及佇列服務的 [監視] 設定。
 
@@ -55,7 +55,7 @@
 
 在設定儲存體帳戶的監視之前，不會收集任何監視資料，且儀表板和 [監視] 頁面上的度量圖表為空白。
 
-設定監視等級與保留原則之後，您可以在 Azure 入口網站選擇要監視哪些可用的度量，以及在度量圖表上繪製哪些度量。每個監視等級會顯示一組預設的度量。您可以使用 [Add Metrics] 從度量清單新增或移除度量。
+設定監視等級與保留原則之後，您可以在 [Azure 入口網站](portal.azure.com)選擇要監視哪些可用的度量，以及在度量圖表上繪製哪些度量。每個監視等級會顯示一組預設的度量。您可以使用 [Add Metrics] 從度量清單新增或移除度量。
 
 度量存放在儲存體帳戶中的四個資料表：$MetricsTransactionsBlob、$MetricsTransactionsTable、$MetricsTransactionsQueue 及 $MetricsCapacityBlob。如需詳細資訊，請參閱[關於儲存體分析度量](http://msdn.microsoft.com/library/azure/hh343258.aspx)。
 
@@ -64,7 +64,7 @@
 
 在儀表板上，您可以從九個可用度量中選擇最多六個度量，繪製在度量圖表上。針對每個服務 (Blob、資料表和佇列)，可以使用「可用性」、「成功百分比」和「要求總數」等度量。對於最小或詳細資訊監視，儀表板上的可用度量相同。
 
-1. 在 [Azure 入口網站](https://manage.windowsazure.com/)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1. 在 [Azure 入口網站](portal.azure.com)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2. 若要變更圖表上繪製的度量，請採取下列其中一個動作：
 
@@ -92,7 +92,7 @@
 ## 做法：將計量新增至計量表
 
 
-1. 在 [Azure 入口網站](https://manage.windowsazure.com/)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1. 在 [Azure 入口網站](portal.azure.com)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2. 按一下 [監視]。
 
@@ -113,14 +113,14 @@
 	![AddMetricsScrollbar](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
 
 
-5. 按一下度量旁邊的向下箭頭，展開可以包含該度量的操作清單。選取要在 Azure 入口網站的度量表中檢視的每個操作。
+5. 按一下度量旁邊的向下箭頭，展開可以包含該度量的操作清單。選取要在 [Azure 入口網站](portal.azure.com)的度量表中檢視的每個操作。
 
 	在下圖中，已展開 AUTHORIZATION ERROR PERCENTAGE 度量。
 
 	![ExpandCollapse](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
 
 
-6. 選取所有服務的度量後，按一下 [確定] \(核取記號) 更新監視組態。選取的度量隨即新增到度量表。
+6. 選取所有服務的度量後，按一下 [確定] (核取記號) 更新監視組態。選取的度量隨即新增到度量表。
 
 7. 若要從資料表刪除度量，請按一下度量加以選取，然後按一下 [刪除度量]。
 
@@ -140,7 +140,7 @@
 
 針對儲存體帳戶能使用的每個儲存服務 (Blob、資料表和佇列)，您可以儲存「讀取要求」、「寫入要求」及/或「刪除要求」的診斷記錄檔，也可以設定每個服務的資料保留原則。
 
-1. 在 [Azure 入口網站](https://manage.windowsazure.com/)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1. 在 [Azure 入口網站](portal.azure.com)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2. 按一下 [設定]，然後使用鍵盤上的向下箭頭，向下捲動到 [記錄]。
 
@@ -157,4 +157,4 @@
 
 診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/library/azure/hh343262.aspx)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

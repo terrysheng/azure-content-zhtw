@@ -17,26 +17,35 @@
    ms.author="sumukhs"/>
 
 # 設定具狀態可靠的服務
-您可以針對應用程式中的每個服務，藉由變更在 Visual Studio 封裝根目錄 "Config" 資料夾下產生的 "settings.xml" 檔案來修改具狀態可靠的服務之預設組態。
+可設定狀態的可靠服務，其預設組態可以透過組態封裝 (組態)，或在服務實作 (程式碼) 中加以修改。
 
-Service Fabric 執行階段會在建立基礎執行階段元件時，在 "settings.xml" 檔案中尋找預先定義的區段名稱，並使用組態值。
++ **組態** - 您可以藉由變更在 Visual Studio 封裝的根目錄 "Config" 資料夾下，為應用程式中的每個服務產生的 "settings.xml" 檔案，來透過組態封裝完成組態。
++ **程式碼** - 您可以覆寫 StatefulService.CreateReliableStateManager，並使用 ReliableStateManagerConfiguration 物件搭配適當的選項設定建立 ReliableStateManager，來透過程式碼完成組態。
 
-> [AZURE.NOTE]請**不要**刪除/修改在 Visual Studio 方案中產生之 "settings.xml" 檔案中的下列組態區段名稱。
+根據預設，Service Fabric 執行階段會在建立基礎執行階段元件時，於 "settings.xml" 檔案中尋找預先定義的區段名稱，並使用組態值。
+
+> [AZURE.NOTE]請**不要**刪除在 Visual Studio 方案中產生之 "settings.xml" 檔案中的下列組態區段名稱，除非您打算透過程式碼設定服務。設定 ReliableStateManager 時，重新命名組態封裝或區段名稱將需要變更程式碼。
+
 
 ## 複寫器安全性組態
 複寫器安全性組態用來保護在複寫期間使用的通訊通道。這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。依預設，空白的安全性組態區段不會啟用複寫安全性。
 
-### 區段名稱
+### 預設區段名稱
 ReplicatorSecurityConfig
+
+> [AZURE.NOTE]若要變更此區段名稱，請在建立此服務的 ReliableStateManager 時，將 replicatorSecuritySectionName 參數覆寫至 ReliableStateManagerConfiguration 建構函式。
+
 
 ## 複寫器組態
 複寫器組態用來設定複寫器，負責藉由複寫和保存在本機的狀態，讓具狀態之可靠的服務狀態非常可靠。預設組態由 Visual Studio 範本所產生，且應該已經足夠。本節說明可用於微調複寫器的其他組態。
 
-### 區段名稱
+### 預設區段名稱
 ReplicatorConfig
 
-### 組態名稱
+> [AZURE.NOTE]若要變更此區段名稱，請在建立此服務的 ReliableStateManager 時，將 replicatorSettingsSectionName 參數覆寫至 ReliableStateManagerConfiguration 建構函式。
 
+
+### 組態名稱
 |名稱|單位|預設值|備註|
 |----|----|-------------|-------|
 |BatchAcknowledgementInterval|秒|0\.05|次要複寫器收到作業後，將通知傳回給主要複寫器前所等待的時間間隔。任何要在此間隔內傳送給作業處理的其他通知，會集中以一個回應傳送。|
@@ -50,8 +59,22 @@ ReplicatorConfig
 |SharedLogId|guid|""|指定用於識別此複本共用記錄檔的唯一 GUID。服務通常不應使用此設定，不過如果指定了 SharedLogId，則也必須指定 SharedLogPath。|
 |SharedLogPath|完整路徑名稱|""|指定建立此複本共用記錄檔的完整路徑。服務通常不應使用此設定，不過如果指定了 SharedLogPath，則也必須指定 SharedLogId。|
 
-## 範例組態檔
 
+## 透過程式碼的範例組態
+```csharp
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(
+        new ReliableStateManagerConfiguration(
+            new ReliableStateManagerReplicatorSettings
+            {
+                RetryInterval = TimeSpan.FromSeconds(3)
+            }));
+}
+```
+
+
+## 範例組態檔
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -72,6 +95,7 @@ ReplicatorConfig
 </Settings>
 ```
 
+
 ## 備註
 BatchAcknowledgementInterval 會控制複寫延遲性。值為 '0' 時延遲可能性最低，但代價是降低輸送量 (隨著必須傳送與處理的通知訊息增加，每個訊息包含的通知會變少)。BatchAcknowledgementInterval 的值越大，整體複寫輸送量越高，代價是作業延遲變高。這會直接轉換成交易認可的延遲。
 
@@ -83,4 +107,4 @@ MaxRecordSizeInKB 定義複寫器可以寫入記錄檔的記錄大小上限。�
 
 SharedLogId 和 SharedLogPath 設定永遠會一起使用，並允許服務使用與節點預設共用記錄檔不同的共用記錄檔。如需最佳效率，請儘可能讓所有服務指定相同的共用記錄檔。共用記錄檔應該放在共用記錄檔專用的磁碟上，以減少磁頭移動爭用情形。預期它只會在極少數的情況下需要變更。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

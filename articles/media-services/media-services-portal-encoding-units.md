@@ -1,5 +1,5 @@
 <properties
-	pageTitle="如何使用 Azure 入口網站調整媒體處理"
+	pageTitle="如何使用 Azure 傳統入口網站調整媒體處理"
 	description="了解如何指定要佈建給帳戶的隨選串流保留單元和編碼保留單元，以調整媒體服務。"
 	services="media-services"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# 如何使用 Azure 入口網站調整媒體處理
+# 如何使用 Azure 傳統入口網站調整媒體處理
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -35,7 +35,7 @@
 
 若要變更保留單元類型以及編碼保留單元數目，請執行下列動作：
 
-1. 在[管理入口網站](https://manage.windowsazure.com/)中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
 
 2. 選取**編碼**頁面。
 
@@ -69,4 +69,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

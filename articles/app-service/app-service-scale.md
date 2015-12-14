@@ -28,7 +28,7 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 
 最後，如果您想要使用的專用的 [App Service 環境](app-service-app-service-environment-intro.md)，調整的運作方式會有所不同。如需詳細資訊，請參閱[在 App Service 環境中調整 Web Apps](app-service-web-scale-a-web-app-in-an-app-service-environment.md)。
 
-> [AZURE.NOTE] 從 [免費] 模式切換為 [基本]、[標準] 或 [高階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
+> [AZURE.NOTE] 從 [免費] 模式切換為 [基本]、[標準] 或 [進階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
 
 <a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
@@ -117,7 +117,6 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
@@ -131,4 +130,4 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

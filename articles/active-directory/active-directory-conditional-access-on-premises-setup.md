@@ -237,4 +237,4 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 
 ![使用者尚未向 Azure AD 註冊其裝置時的錯誤螢幕擷取畫面](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

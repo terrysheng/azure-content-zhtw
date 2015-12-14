@@ -16,7 +16,7 @@
    ms.date="11/10/2015"
    ms.author="andkjell"/>
 
-# 了解預設組態
+# Azure AD Connect 同步處理：了解預設組態
 
 本文將引導您完成 Azure AD Connect 同步處理的預設組態。其目的是讓讀者了解組態模型 (名為宣告式佈建) 在實際範例中的運作情形。本文假設您已使用安裝精靈安裝並設定 Azure AD Sync。
 
@@ -150,4 +150,4 @@ NULL
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

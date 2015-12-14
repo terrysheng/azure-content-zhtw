@@ -187,7 +187,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 - 服務匯流排會強制執行佇列大小限制。佇列大小上限是在建立佇列時指定的，而且可以具有 1 到 80 GB 之間的值。如果達到在建立佇列時所設定的佇列大小值，其他內送訊息將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。如需服務匯流排中配額的詳細資訊，請參閱[服務匯流排配額](service-bus-quotas.md)。
 
-- 您可以建立 1、2、3、4 或 5 GB 大小的服務匯流排佇列 (預設值為 1 GB)。啟用分割時 (這是預設值)，服務匯流排會為您指定的每 GB 建立 16 個資料分割。因此，如果您建立 5 GB 大小的佇列，每 GB 有 16 個資料分割，則佇列大小上限會變成 (5 * 16) = 80 GB。您可以在 Azure 入口網站上檢視分割的佇列或主題項目，藉此查看其大小上限。
+- 您可以建立 1、2、3、4 或 5 GB 大小的服務匯流排佇列 (預設值為 1 GB)。啟用分割時 (這是預設值)，服務匯流排會為您指定的每 GB 建立 16 個資料分割。因此，如果您建立 5 GB 大小的佇列，每 GB 有 16 個資料分割，則佇列大小上限會變成 (5 * 16) = 80 GB。您可以在 [Azure 傳統入口網站][]上檢視分割的佇列或主題項目，藉此查看其大小上限。
 
 - 使用 Azure 佇列時，如果訊息內容不是 XML 安全內容，則必須經過 **Base64** 編碼。如果您對訊息進行 **Base64** 編碼，使用者裝載最多可為 48 KB，而非 64 KB。
 
@@ -195,7 +195,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 - 當用戶端透過 TCP 通訊協定與服務匯流排佇列通訊時，單一服務匯流排佇列的並行連接數目上限會限制為 100。這個數目是在傳送者和接收者之間共用的。如果達到這個配額，其他連接的後續要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。這項限制不會加諸於使用 REST API 連接至佇列的用戶端。
 
-- 如果您的單一服務匯流排服務命名空間需要超過 10,000 個佇列，您可以連絡 Azure 支援小組並要求增加。若要讓服務匯流排擴充到超過 10,000 個佇列，您也可以使用 Azure 入口網站來建立其他命名空間。
+- 如果您的單一服務匯流排服務命名空間需要超過 10,000 個佇列，您可以連絡 Azure 支援小組並要求增加。若要讓服務匯流排擴充到超過 10,000 個佇列，您也可以使用 [Azure 傳統入口網站][]來建立其他命名空間。
 
 ## 管理和作業
 
@@ -288,7 +288,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 - 由於支援長期輪詢，因此在需要低度延遲傳遞的情況下使用服務匯流排佇列可能會符合成本效益。
 
->[AZURE.NOTE]所有成本都可能會變更。上表反映撰寫本文時的目前定價，不包括目前可能適用的任何促銷優惠方案。如需 Azure 的最新定價資訊，請參閱 [Azure 定價](http://azure.microsoft.com/pricing/)頁面。如需服務匯流排定價的詳細資訊，請參閱[服務匯流排定價](http://azure.microsoft.com/pricing/details/service-bus/)。
+>[AZURE.NOTE]所有成本都可能會變更。上表反映撰寫本文時的目前定價，不包括目前可能適用的任何促銷優惠方案。如需 Azure 的最新定價資訊，請參閱 [Azure 定價](http://azure.microsoft.com/pricing/)頁面。如需服務匯流排定價的詳細資訊，請參閱[服務匯流排價格](http://azure.microsoft.com/pricing/details/service-bus/)。
 
 ## 結論
 
@@ -309,6 +309,9 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 - [Azure 儲存體架構](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [使用 Azure 中的佇列服務](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [了解 Azure 儲存體計費 - 頻寬、交易和容量](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+
+
+[Azure 傳統入口網站]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

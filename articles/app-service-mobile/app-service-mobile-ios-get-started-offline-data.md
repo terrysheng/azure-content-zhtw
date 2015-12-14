@@ -13,26 +13,24 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="12/01/2015"
 	ms.author="krisragh"/>
 
 # 啟用 iOS 行動應用程式的離線同步處理
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 
 本教學課程說明 iOS 之 Azure Mobile Apps 的離線同步功能。離線同步處理可讓使用者與行動應用程式進行互動 - 檢視、新增或修改資料 - 即使沒有網路連線也可行。變更會儲存在本機資料庫中︰裝置上線後，這些變更就會與遠端後端進行同步處理。
 
-如果這是您第一次接觸 Azure Mobile Apps，您應先完成[建立 iOS 應用程式]教學課程。如果您不要使用下載的快速入門伺服器專案，必須將資料存取擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+如果這是您第一次接觸 Azure Mobile Apps，請先完成[建立 iOS 應用程式]教學課程。如果您不要使用下載的快速入門伺服器專案，必須將資料存取擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 若要深入了解離線同步處理功能，請參閱 [Azure Mobile Apps 中的離線資料同步處理]主題。
 
 ## <a name="review-sync"></a>檢閱用戶端同步程式碼 
 
-您針對[建立 iOS 應用程式]教學課程下載的用戶端專案，已經包含了使用以本機核心資料為基礎的資料庫支援離線同步處理的程式碼。這一節是已包含在教學課程程式碼中的內容摘要。如需此功能的概念性概觀，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
+您在[建立 iOS 應用程式]教學課程中下載的用戶端專案，已經包含了使用本機核心資料式資料庫支援離線同步處理的程式碼。這一節是已包含在教學課程程式碼中的內容摘要。如需此功能的概念性概觀，請參閱 [Azure Mobile Apps中的離線資料同步]。
 
 Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網路時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您可初始化 `MSClient` 的同步處理內容以及參考本機存放區。接著，請透過 `MSSyncTable` 介面參考您的資料表。
 
@@ -88,7 +86,7 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
     `pullWithQuery` 方法可讓您指定查詢，以篩選您想要擷取的記錄。在此範例中，查詢只會擷取遠端 `TodoItem` 資料表中的所有記錄。
 
-    `pullWithQuery` 的第二個參數是用於*增量同步處理* 的查詢識別碼。增量同步處理會使用記錄的 `UpdatedAt` 時間戳記 (在本機存放區中稱為 `ms_updatedAt`)，僅擷取自上次同步處理後修改的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。若選擇不要增量同步處理，請傳遞 `nil` 做為查詢識別碼。請注意這可能是潛在效率不佳，因為它會擷取每項提取作業的所有記錄。
+    `pullWithQuery` 的第二個參數是用於*增量同步處理* 的查詢識別碼。增量同步處理會使用記錄的 `UpdatedAt` 時間戳記 (在本機存放區中稱為 `updatedAt`)，僅擷取自上次同步處理後修改的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。若選擇不要增量同步處理，請傳遞 `nil` 做為查詢識別碼。請注意這可能是潛在效率不佳，因為它會擷取每項提取作業的所有記錄。
 
 	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
@@ -105,9 +103,9 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
       * MS\_TableOperations：用於追蹤需要與伺服器同步的項目
       * MS\_TableOperationErrors：用於追蹤在離線同步處理期間發生的任何錯誤
       * MS\_TableConfig：用於追蹤所有提取作業的最後一次同步處理作業的上次更新時間
-      * TodoItem：用來儲存 todo 項目。系統資料行 **ms\_createdAt**、**ms\_updatedAt** 和 **ms\_version** 為選擇性系統屬性。
+      * TodoItem：用來儲存 todo 項目。系統資料行 **createdAt**、**updatedAt** 和 **version** 為可選擇性使用的系統屬性。
 
->[AZURE.NOTE]Azure Mobile Apps SDK 會保留以 "**`ms_`**" 開頭的資料行名稱。您不得在系統資料行以外的任何項目上使用此前置詞，否則會在使用遠端後端時修改您的資料行名稱。
+>[AZURE.NOTE]Azure Mobile Apps SDK 會保留開頭為「**``**」的資料行名稱。您不得在系統資料行以外的任何項目上使用此前置詞，否則會在使用遠端後端時修改您的資料行名稱。
 
 - 使用離線同步功能時，您必須先定義系統資料表，如下所示。
 
@@ -150,17 +148,16 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
     ### 資料表
 
-    ![][defining-core-data-todoitem-entity]
-
     **TodoItem**
-
 
     | 屬性 | 類型 | 注意 |
     |-----------   |  ------ | -------------------------------------------------------|
     | id | 字串 (標示為必要) | 遠端存放區中的主索引鍵 |
     | 完成 | Boolean | todo 項目欄位 |
     | 文字 | String | todo 項目欄位 |
-    | ms\_createdAt | Date | (選用) 對應至 \_\_createdAt 系統屬性 | | ms\_updatedAt | 日期 | (選用) 對應至 \_\_updatedAt 系統屬性 | | ms\_version | 字串 | (選用) 用於偵測衝突，對應至 \_\_version |
+    | 建立時間 | 日期 | (選擇性步驟) 對應至 createdAt 系統屬性 |
+    | 更新時間 | 日期 | (選擇性步驟) 對應至 updatedAt 系統屬性 |
+    | 版本 | String | (選擇性步驟) 用來偵測衝突，對應至版本 |
 
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
@@ -183,20 +180,22 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
 ## <a name="test-app"></a>測試應用程式
 
+在本節中，將連接至無效的 URL，以模擬離線情況。當您新增資料項目時，這些項目會存放在本機核心資料存放區，但不會同步到行動後端。
 
-在本節中，您將會關閉模擬器的 Wi-Fi 以建立離線案例。當您新增資料項目時，這些項目會存放在本機核心資料存放區，但不會同步到行動後端。
+1. 將 **QSTodoService.m** 中的行動應用程式 URL 變更為無效的 URL，然後再次執行該應用程式：
 
-1. 關閉 iOS 模擬器的 Wi-Fi。
+        self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
 
 2. 新增 todo 項目或完成某些項目。結束模擬器 (或強制關閉應用程式)，然後重新啟動。確認您的變更已保存下來。
 
 3. 檢視遠端 TodoItem 資料表的內容：
-   - 若為 JavaScript 後端，移至管理入口網站，然後按一下 [資料] 索引標籤以檢視 `TodoItem` 資料表的內容。
-   - 若為 .NET 後端，使用 SQL 工具 (如 SQL Server Management Studio) 或 REST 用戶端 (如 Fiddler 或 Postman) 檢視資料表內容。
+
+    + 若為 Node.js 後端，請移至 [Azure 入口網站](https://portal.azure.com/)，在您的行動應用程式後端中按一下 [**簡單資料表**] > [**TodoItem**]，檢視 `TodoItem` 資料表的內容。
+   	+ 若為 .NET 後端，請使用 SQL 工具 (例如 SQL Server Management Studio) 或 REST 用戶端 (例如 Fiddler 或 Postman) 檢視資料表內容。
 
     請確認新項目*尚未* 同步處理到伺服器：
 
-4. 開啟 iOS 模擬器的 Wi-Fi，然後藉由下拉項目清單來執行重新整理動作。您會看到進度微調按鈕和「同步中...」文字。
+4. 請將 **QSTodoService.m** 中的 URL 變更回正確的 URL，然後重新執行應用程式。將項目清單往下拉，執行重新整理動作。您會看到進度微調按鈕和「同步中...」文字。
 
 5. 再次檢視 TodoItem 資料。新的和變更的 TodoItems 現在應該會出現。
 
@@ -231,13 +230,14 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
 * [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure 行動應用程式中的方式)
+* [雲端報導︰Azure 行動服務中的離線同步] (注意︰影片裡是使用行動服務，但離線同步的運作方式與在 Azur Mobile Apps 的中運作方式類似)
 
 <!-- URLs. -->
 
 
 [建立 iOS 應用程式]: ../app-service-mobile-ios-get-started.md
 [Azure Mobile Apps 中的離線資料同步處理]: ../app-service-mobile-offline-data-sync.md
+[Azure Mobile Apps中的離線資料同步]: ../app-service-mobile-offline-data-sync.md
 [Azure 行動應用程式中的離線資料同步處理]: ../app-service-mobile-offline-data-sync.md
 
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
@@ -245,8 +245,8 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[雲端報導︰Azure 行動服務中的離線同步]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

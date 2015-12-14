@@ -26,7 +26,7 @@
 
 指令碼動作是在佈建期間在叢集節點上執行的 Bash 指令碼。指令碼動作是依據根權限來執行，並具有叢集節點的完整存取權限。
 
-您可以在使用 __Azure Preview 入口網站__、__Azure PowerShell__ 或 __HDInsight .NET SDK__ 佈建叢集時，使用指令碼動作。
+您可以在使用 __Azure 入口網站__、__Azure PowerShell__ 或 __HDInsight .NET SDK__ 佈建叢集時，使用指令碼動作。
 
 如需使用指令碼動作自訂叢集的逐步解說，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
@@ -83,7 +83,7 @@
 
     hadoop fs -copyFromLocal /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 
-### <a name="bPS7"></a>將資訊寫入至 STDOUT 和 STDERR
+### <a name="bPS7"></a>將資訊寫入 STDOUT 和 STDERR
 
 寫入 STDOUT 和 STDERR 的資訊會記錄起來，可以在使用 Ambari Web UI 佈建叢集之後檢視。
 
@@ -97,7 +97,7 @@
 
 這會將傳送到 STDOUT (1，這是預設值，因此未在此處列出) 的資訊重新導向至 STDERR (2)。如需 IO 重新導向的詳細資訊，請參閱 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)。
 
-如需檢視指令碼動作記錄的資訊的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)。
+如需檢視指令碼動作記錄之資訊的詳細資訊，請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)。
 
 ###<a name="bps8"></a>將檔案儲存為具有 LF 行尾結束符號的 ASCII
 
@@ -108,7 +108,7 @@ Bash 指令碼應該儲存為 ASCII 格式，該格式以 LF 做為行尾結束�
 
 ## <a name="helpermethods"></a>自訂指令碼的協助程式方法
 
-指令碼動作協助程式方法是您在撰寫字訂指令碼時可以使用的公用程式。這些協助程式方法是在 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 中定義，並且可以使用以下方式包含至您的指令碼中：
+指令碼動作協助程式方法是您在撰寫字訂指令碼時可以使用的公用程式。這些協助程式方法會定義在 [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) 中，並且可以使用以下方式包含至您的指令碼中：
 
     # Import the helper method module.
     wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
@@ -131,7 +131,7 @@ Bash 指令碼應該儲存為 ASCII 格式，該格式以 LF 做為行尾結束�
 
 在某些情況下，您的指令碼可能需要參數。例如，您可能需要叢集的系統管理員密碼，以從 Ambari REST API 擷取資訊。
 
-傳遞至指令碼的參數稱為「位置參數」，並且指派給 `$1` 做為第一個參數，指派給 `$2` 做為第二個參數，依此類推。`$0` 包含指令碼本身的名稱。
+傳遞至指令碼的參數稱為「位置參數」，並且指派至 `$1` 作為第一個參數，指派至 `$2` 作為第二個參數，依此類推。`$0` 包含指令碼本身的名稱。
 
 傳遞至指令碼做為參數的值應該加上單引號 (')，以便傳遞的值會被視為常值，並且不會給予特殊處理方式以包含如 '!' 的字元。
 
@@ -183,7 +183,7 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您�
 - [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)
 - [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)  
 
-> [AZURE.NOTE]以上的連結文件是針對以 Linux 為基礎的 HDInsight 叢集。對於使用以 Windows 為基礎的 HDInsight 的指令碼，請參閱 [使用 HDInsight 開發指令碼動作 (Windows)](hdinsight-hadoop-script-actions.md) 或使用每篇文章頂端的可用連結。
+> [AZURE.NOTE]以上的連結文件是針對以 Linux 為基礎的 HDInsight 叢集。對於使用以 Windows 為基礎的 HDInsight 的指令碼，請參閱[使用 HDInsight 開發指令碼動作 (Windows)](hdinsight-hadoop-script-actions.md) 或使用每篇文章頂端的可用連結。
 
 ##疑難排解
 
@@ -191,11 +191,11 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您�
 
 __錯誤__：`$'\r': command not found`。有時候後面接續 `syntax error: unexpected end of file`。
 
-_原因_：這個錯誤的原因是指令碼中以 CRLF 做為行尾結束符號。Unix 系統預期只有 LF 當做行尾結束符號。
+原因：這個錯誤的原因是指令碼中以 CRLF 作為行尾結束符號。Unix 系統預期只有 LF 當做行尾結束符號。
 
 此問題最常發生在於 Windows 環境中撰寫指令碼時，因為 CRLF 是 Windows 上許多文字編輯器中常見的行尾結束符號。
 
-_解決方式_：如果您的文字編輯器提供選項，請選取 Unix 格式或 LF 做為行尾結束符號。您也可以在 Unix 系統上使用下列命令，將 CRLF 變更為 LF：
+解決方式：如果您的文字編輯器提供選項，請選取 Unix 格式或 LF 作為行尾結束符號。您也可以在 Unix 系統上使用下列命令，將 CRLF 變更為 LF：
 
 > [AZURE.NOTE]下列命令大致相當於將 CRLF 行尾結束符號變更為 LF。根據您的系統上可用的公用程式，選取其中一個。
 
@@ -208,9 +208,9 @@ _解決方式_：如果您的文字編輯器提供選項，請選取 Unix 格式
 
 __錯誤__：`line 1: #!/usr/bin/env: No such file or directory`。
 
-_原因_：指令碼儲存為具有位元組順序標記 (BOM) 的 UTF-8 時，就會發生這個錯誤。
+原因：指令碼儲存為具有位元組順序標記 (BOM) 的 UTF-8 時，就會發生這個錯誤。
 
-_解決方式_：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。您也可以在 Linux 或 Unix 系統上使用下列命令，以建立不具有 BOM 的新檔案：
+解決方式：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。您也可以在 Linux 或 Unix 系統上使用下列命令，以建立不具有 BOM 的新檔案：
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
@@ -220,4 +220,4 @@ _解決方式_：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。您也�
 
 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

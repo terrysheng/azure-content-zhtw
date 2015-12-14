@@ -85,15 +85,15 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 在建立以 Linux 為基礎的 HDInsight 叢集時，您必須提供先前建立的公開金鑰。從 Linux、Unix 或 OS X 用戶端有兩種方式可供建立 HDInsight 叢集：
 
-* **Azure Preview 入口網站** - 使用網頁型入口網站來建立叢集。
+* **Azure 入口網站** - 使用網頁型入口網站來建立叢集。
 
 * **適用於 Mac、Linux 和 Windows 的 Azure CLI** - 使用命令列命令建立叢集。
 
 這兩種方法都需要密碼或公開金鑰。如需建立以 Linux 為基礎的 HDInsight 叢集的完整資訊，請參閱[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-###Azure Preview 入口網站
+###Azure 入口網站
 
-使用 [Azure Preview 入口網站][preview-portal]來建立以 Linux 為基礎的 HDInsight 叢集時，您必須輸入 [**SSH 使用者名稱**]，然後選取以輸入 [**密碼**] 或 [**SSH 公開金鑰**]。
+使用 [Azure 入口網站][preview-portal]來建立以 Linux 為基礎的 HDInsight 叢集時，您必須輸入 **SSH 使用者名稱**，然後選擇輸入**密碼**或 **SSH 公開金鑰**。
 
 如果您選取 [**SSH 公開金鑰**]，則可以將公開金鑰 (位於副檔名為 **.pub** 的檔案中) 貼入 [__SSH 公開金鑰__] 欄位，或選取 [__選取檔案__] 以瀏覽和選取公開金鑰檔案。
 
@@ -238,4 +238,4 @@ SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsi
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

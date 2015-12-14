@@ -18,6 +18,8 @@
 
 # 在 Azure 應用程式服務中驗證 API 應用程式和行動應用程式
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 概觀
 
 本文說明 [API 應用程式](../app-service-api/app-service-api-apps-why-best-platform.md)和[行動應用程式](../app-service-mobile/app-service-mobile-value-prop-preview.md)的內建驗證功能。
@@ -214,4 +216,4 @@ Azure 應用程式服務提供內建的驗證服務，可實作 [OAuth 2.0](#oau
 
 * [在行動應用程式中取得存取權杖和呼叫 SharePoint API](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -757,23 +757,21 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 1. 移至 [伺服器] 下的 [組態伺服器] 頁面
 2. 按一下組態伺服器的名稱並移至 [伺服器詳細資料]。
-3. 在 [處理序伺服器] 清單中，按一下您要修改的伺服器旁的 [變更處理序伺服器]。
-	![變更處理序伺服器 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
-4. 在 [變更處理序伺服器] 對話方塊中，於 [目標處理序伺服器] 中選取新伺服器，然後選取您想要複寫到新伺服器的虛擬機器。按一下伺服器名稱旁的資訊圖示，以取得其相關資訊，包括可用空間、使用的記憶體。隨即顯示將每個選取的虛擬機器複寫到新的處理序伺服器所需的平均空間，協助您進行負載的判斷。
-	![變更處理序伺服器 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+3. 在 [處理序伺服器] 清單中，按一下您要修改的伺服器旁的 [變更處理序伺服器]。![變更處理序伺服器 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
+4. 在 [變更處理序伺服器] 對話方塊中，於 [目標處理序伺服器] 中選取新伺服器，然後選取您想要複寫到新伺服器的虛擬機器。按一下伺服器名稱旁的資訊圖示，以取得其相關資訊，包括可用空間、使用的記憶體。隨即顯示將每個選取的虛擬機器複寫到新的處理序伺服器所需的平均空間，協助您進行負載的判斷。![變更處理序伺服器 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
 5. 按一下核取記號以開始複寫到新處理序伺服器。如果從某個重要的處理序伺服器中移除所有虛擬機器，儀表板中應該不會再顯示重大警告。
 
 
 ## 第三方廠商軟體注意事項和資訊
 
-Do Not Translate or Localize
+無須翻譯或當地語系化
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+Microsoft 產品或服務中執行的軟體和韌體根據或整合以下列出專案中的資料 (以下合稱「 第三方廠商程式碼」)。Microsoft 不是原始的第三方廠商程式碼作者。Microsoft 收到這類第三方廠商程式碼所根據之原始著作權標示及授權如下所示。
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
+區段 A 中的資訊是關於以下所列專案的第三方廠商程式碼元件。這類授權和資訊之提供僅供參考用途。Microsoft 根據其產品或服務之軟體授權條款，將此第三方廠商程式碼重新授權給您。
 
-The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
+區段 B 中的資訊是關於 Microsoft 根據原始的授權條款提供給您的第三方廠商程式碼元件。
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+完整的檔案可在 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=529428)取得。Microsoft 保留未在此處明確授與的所有權利，無論是隱含、禁止反悔或其他方式皆然。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

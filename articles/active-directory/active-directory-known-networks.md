@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="已知的網路" 
+	pageTitle="已知網路 | Microsoft Azure" 
 	description="藉由設定已知的網路，您可以避免貴組織擁有的 IP 位址包含在「從多個地理區域登入」和「從具有可疑活動的 IP 位址登入」報告中。" 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="markvi"/>
 
 # 已知的網路
@@ -56,4 +56,4 @@
 * [從具有可疑活動的 IP 位址登入](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [從多個地理區域登入](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

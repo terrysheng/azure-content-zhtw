@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="11/30/2015" 
 	ms.author="awills"/>
 
 # 自訂事件和度量的 Application Insights API 
@@ -104,22 +104,26 @@ TelemetryClient 具備執行緒安全。
 
     telemetry.trackEvent("WinGame");
 
-這裡的 "WinGame" 是出現在 Application Insights 入口網站的名稱。在 [概觀] 刀鋒視窗上，按一下 [自訂事件] 磚：
+這裡的 "WinGame" 是出現在 Application Insights 入口網站的名稱。
 
-![在 portal.azure.com 中瀏覽至您的應用程式資源](./media/app-insights-api-custom-events-metrics/01-custom.png)
+若要查看事件計數，請開啟 [[計量瀏覽器](app-insights-metrics-explorer.md)] 刀鋒視窗、新增圖表，然後再選取 [事件]。
+
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
+
+若要比較不同事件的計數，請將圖表類型設為 [方格]，並依事件名稱進行分組：
+
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
-此圖表依事件名稱分組，讓您可以查看最重要事件的相對貢獻。若要控制圖表狀況，請選取圖表並使用群組控制項。
-
-![選取圖表，並設定群組](./media/app-insights-api-custom-events-metrics/02-segment.png)
-
-從圖表下方的清單中，選取事件名稱。逐一點選以查看事件的個別發生次數。
+在方格中逐一點選事件名稱，以查看該事件的個別發生次數。
 
 ![鑽研事件](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 按一下任何發生以查看詳細資料。
 
+若要在「搜尋」或「計量瀏覽器」中專注查看特定事件，請將刀鋒視窗篩選器設為您感興趣的事件名稱：
 
+![開啟 [篩選器]，展開 [事件名稱]，然後選取一或多個值](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## 追蹤度量
 
@@ -248,9 +252,9 @@ TelemetryClient 具備執行緒安全。
 
 SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 TrackException。
 
-* ASP.NET：[撰寫程式碼來攔截例外狀況](app-insights-asp-net-exceptions.md)
-* J2EE：[自動攔截到例外狀況](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Windows 應用程式：[自動攔截到損毀](app-insights-windows-crashes.md)
+* ASP.NET：[撰寫程式碼以攔截例外狀況](app-insights-asp-net-exceptions.md)
+* J2EE：[自動攔截例外狀況](app-insights-java-get-started.md#exceptions-and-request-failures)
+* Windows 應用程式：[自動攔截損毀](app-insights-windows-crashes.md)
 * JavaScript：自動攔截。如果您想要停用自動收集，請在您插入網頁的程式碼片段中加入一行：
 
     ```
@@ -296,7 +300,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
             }
 ```
 
-請記住，伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫，例如資料庫和 REST API。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
+請記住，伺服器 SDK 包含[相依性模組](app-insights-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫 (例如資料庫和 REST API)。您必須在伺服器上安裝代理程式才能讓模組正常運作。如果您想要追蹤不會由自動化追蹤攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
 
 若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
 
@@ -313,7 +317,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-請注意記憶體內部通道的函式是非同步的，但如果您選擇使用[永續性通道](app-insights-windows-desktop.md#persistence-channel)，則是同步的。
+請注意，記憶體內部通道的函式為非同步，但如果您選擇使用[永續性通道](app-insights-windows-desktop.md#persistence-channel)則其為同步。
 
 
 ## 通過驗證的使用者
@@ -353,9 +357,9 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-在[計量瀏覽器](app-insights-metrics-explorer.md)中，您可以建立計算「使用者 (已驗證)」和「使用者帳戶」的圖表。
+在 [[計量瀏覽器](app-insights-metrics-explorer.md)] 中，您可建立計算**已驗證的使用者**和**使用者帳戶**的圖表。
 
-您也可以[搜尋][diagnostic]含有特定使用者名稱和帳戶的用戶端資料點。
+您亦可[搜尋][diagnostic]具特定使用者名稱和帳戶的用戶端資料點。
 
 ## <a name="properties"></a>使用屬性來篩選、搜尋和分割您的資料
 
@@ -438,7 +442,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 ![開啟計量瀏覽器，選取圖表，並選取度量](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-如果您的計量並未出現，或自訂標題不存在，請關閉選取的刀鋒視窗，稍後再試。有時候度量經由管線彙總時可能需要一個小時。
+*若未顯示您的計量或 [自訂] 標題不存在，請關閉選取的刀鋒視窗並於稍後重試。*有時候度量經由管線彙總時可能需要一個小時。
 
 **如果您使用屬性和度量**，依據屬性分割度量：
 
@@ -502,7 +506,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 
 
-## <a name="defaults"></a>自訂定遙測的預設屬性
+## <a name="defaults"></a>自訂遙測資料的預設屬性
 
 如果您想為您撰寫的一些自訂事件設定預設屬性值，您可以在 TelemetryClient 中設定它們。它們會附加至從該用戶端傳送的每個遙測項目。
 
@@ -541,14 +545,14 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 **針對 JavaScript Web 用戶端**，[請使用 JavaScript 遙測初始設定式](#js-initializer)。
 
-若要將屬性加到所有遙測，且包括來自標準集合模組中的資料，請[建立遙測起始設定式](app-insights-api-filtering-sampling.md#add-properties)。
+**若要將屬性新增至所有遙測資料**，並包括來自標準集合模組的資料，請[建立遙測初始設定式](app-insights-api-filtering-sampling.md#add-properties)。
 
 
 ## 取樣、篩選及處理遙測資料 
 
 您可以撰寫程式碼，在從 SDK 傳送遙測資料前加以處理。處理包括從標準遙測模組 (如 HTTP 要求收集和相依性收集) 的資料。
 
-* [新增屬性](app-insights-api-filtering-sampling.md#add-properties)至遙測 - 例如，版本號碼或從其他屬性計算而來的值。
+* [新增屬性](app-insights-api-filtering-sampling.md#add-properties)至遙測資料 - 例如版本號碼或從其他屬性計算得出的值。
 * [取樣](app-insights-api-filtering-sampling.md#sampling)可減少從您的應用程式傳送到入口網站的資料量，但不會影響顯示的計量，而且藉由在相關項目 (如例外狀況、要求和頁面檢視) 之間瀏覽，並不會影響您診斷問題的能力。
 * [篩選](app-insights-api-filtering-sampling.md#filtering)也會減少數量。您可控制要傳送或捨棄的項目，但是您必須考量這對您的度量的影響。視您捨棄項目的方式而定，您可能會喪失在相關項目之間瀏覽的能力。
 
@@ -557,7 +561,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 ## 停用遙測
 
-若要「動態停止和開始」收集及傳輸遙測資料：
+**動態停止和開始**收集及傳輸遙測資料：
 
 *C#*
 
@@ -568,7 +572,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-若要「停用選取的標準收集器」 (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config][config] 中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
+若要**停用選取的標準收集器** (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config][config] 中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
 
 ## <a name="debug"></a>開發人員模式
 
@@ -644,26 +648,34 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 * **位置** 識別裝置的地理位置。
 * **作業** 在 Web 應用程式中，目前的 HTTP 要求。在其他應用程式類型中，您可以設定以將事件群組在一起。
  * **識別碼**：產生的值，與不同事件相互關聯，如此當您在 [診斷搜尋] 中檢查任何事件時，您可以發現「相關項目」
- * **名稱**：識別項，通常是 HTTP 要求的 URL。 
+ * **名稱**：識別碼，通常是 HTTP 要求的 URL。 
  * **SyntheticSource**：如果不為 null 或空白，這個字串表示要求的來源已被識別為傀儡程式或 Web 測試。根據預設，會從計量瀏覽器的計算中排除。
 * **屬性** 與所有遙測資料一起傳送的屬性。可以在個別 Track* 呼叫中覆寫。
 * **工作階段** 識別使用者的工作階段。識別碼會設為產生的值，當使用者一段時間沒有作用時會變更。
-* **使用者**：使用者資訊。 
+* **使用者** 使用者資訊。 
 
 
 
 ## 限制
 
-每一個應用程式都有一些度量和事件的數目限制。
+每個應用程式 (亦即每個檢測金鑰) 都有一些度量和事件的數目限制。
 
-1. 每個檢測金鑰 (也就是每個應用程式) 每秒最多 500 個遙測資料點。這包括 SDK 模組傳送的標準遙測，和您的程式碼傳送的自訂事件、度量和其他遙測。
+1. 個別套用至每個檢測金鑰的每秒最大速率。若超過限制，則系統會捨棄部分資料。
+ * 針對 TrackTrace 呼叫與已擷取記錄資料的每秒資料點數量上限為 500 個。(針對免費定價層則為每秒 100 個。)
+ * 針對依我們模組或 TrackException 呼叫擷取的例外狀況，每秒資料點數量上限為 50 個。 
+ * 針對其他所有資料 (包括依 SDK 模組傳送的標準遙測，以及依您程式碼傳送的自訂事件、度量和其他遙測資料)，則每秒資料點數量上限為 500 個。(針對免費定價層則為每秒 100 個。)
+1. 每月總計資料數量 (取決於您的[定價層](app-insights-pricing.md))。
 1.	您的應用程式具有最多 200 個唯一度量名稱和 200 個唯一屬性名稱。度量包括透過 TrackMetric 傳送的資料，以及其他資料類型上的測量，例如事件。每個檢測金鑰的度量和屬性名稱是全域的，不只限於資料類型。
 2.	只有在每個屬性具有少於 100 個唯一值時，屬性才能用於篩選和分組依據。唯一值超過 100 之後，屬性仍可用於搜尋與篩選，但無法用於篩選器。
 3.	標準屬性，例如要求名稱和網頁 URL 會限制為每週 1000 個唯一值。超過 1000 個唯一值之後，額外值都會標示為「其他值」。原始值仍然可以用於全文檢索搜尋和篩選。
 
-* *問：資料保留多久？*
+*如何避免達到資料速率限制？*
 
-    請參閱[資料保留和隱私權][data]。
+* 安裝最新的 SDK 以使用[取樣](app-insights-sampling.md)。
+
+*資料保留多久？*
+
+* 請參閱[資料保留和隱私權][data]。
 
 
 ## 參考文件
@@ -715,7 +727,7 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -724,4 +736,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

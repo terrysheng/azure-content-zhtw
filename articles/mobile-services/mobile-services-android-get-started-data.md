@@ -18,12 +18,14 @@
 
 # 將行動服務新增至現有的 Android 應用程式(JavaScript 後端)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 ## 摘要
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>本主題說明如何使用 Azure 行動服務，將持續性資料新增至 Android 應用程式。在本教學課程中，您將下載可在記憶體中儲存資料的應用程式、建立新的行動服務、整合此應用程式與行動服務，以便在 Azure 行動服務中 (而非在本機) 儲存和更新資料，然後使用 Azure 管理入口網站來檢視執行應用程式所產生的資料變更。</p>
+<p>本主題說明如何使用 Azure 行動服務，將持續性資料新增至 Android 應用程式。在本教學課程中，您將下載可在記憶體中儲存資料的應用程式、建立新的行動服務、整合此應用程式與行動服務，以便在 Azure 行動服務中 (而非在本機) 儲存和更新資料，然後使用 Azure 傳統入口網站來檢視執行應用程式所產生的資料變更。</p>
 
 </div>
 
@@ -47,7 +49,7 @@
 
 ## 範例程式碼
 
-若要檢視完整的原始程式碼，請前往<a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">這裡</a>。
+若要檢視已完成的原始程式碼，請前往<a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">這裡</a>。
 
 ## 下載 GetStartedWithData 專案
 
@@ -59,7 +61,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code.md)]
 
-## 在管理入口網站中建立新的行動服務
+## 在 Azure 傳統入口網站中，建立新的行動服務。
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -84,7 +86,7 @@
 
    	這會傳送新項目以插入至行動服務。
 
-3. 在[管理入口網站]中按一下 [行動服務]，然後按一下您的行動服務。
+3. 在 [Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
 4. 按一下 [資料] 索引標籤，然後按一下 [瀏覽]。
 
@@ -108,19 +110,15 @@ Android 的**開始使用資料**教學課程到此結束。
 
 接下來，可考慮進入下列其中一個教學課程，這些教學課程都是以您在本教學課程中建立的 GetStartedWithData 應用程式為基礎：
 
-* [使用指令檔驗證與修改資料]
-  <br/>深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
+* [使用指令檔驗證與修改資料] <br/>深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
-* [使用分頁縮小查詢範圍]
-  <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
+* [使用分頁縮小查詢範圍] <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料系列後，可試著閱讀這些另外的 Android 教學課程：
 
-* [開始使用驗證] 
-	<br/>了解如何驗證應用程式的使用者。
+* [開始使用驗證] <br/>了解如何驗證應用程式的使用者。
 
-* [開始使用推送通知] 
-  <br/>了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
+* [開始使用推送通知] <br/>了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app
@@ -147,10 +145,9 @@ Android 的**開始使用資料**教學課程到此結束。
 [開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-android
 [開始使用推送通知]: /develop/mobile/tutorials/get-started-with-push-android
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Azure 行動服務 Android SDK]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

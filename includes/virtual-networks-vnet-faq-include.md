@@ -205,7 +205,7 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。Azure
 
 ### 當我建立 VM 之後 MAC 位址會保持相同的狀態嗎？
 
-否。VM 的 MAC 位址可能會基於不同的原因而變更。如果 VM 放置於 \[已停止] (解除配置) 狀態，則當您變更 VM 大小，或是主機伺服器沒有服務修復或規劃性維護時，將不會保留 MAC 位址。
+否，只有在 VM 的狀態為已停止 (已重新分配) 時才會變更。如果您變更 VM 大小、重新開機或有服務修復或規劃了主機伺服器維護等情況，就會保留 MAC 位址。
 
 ### 我可以從 VNet 中的 VM 連線到網際網路嗎？
 
@@ -222,7 +222,7 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。Azure
 是。您可以使用 ASE (App Service 環境) 在 VNet 中部署 Web Apps。除此之外，如果您已針對 VNet 設定點對站台，則 Web Apps 可以安全地連線並存取 Azure VNet 中的資源。如需詳細資訊，請參閱下列主題：
 
 
-- [在 App Service 環境中建立 Web Apps](https://azure.microsoft.com/zh-TW/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+- [在 App Service 環境中建立 Web Apps](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
 - [Web Apps 虛擬網路整合](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
@@ -266,4 +266,4 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 
 是。您可以針對各種平台使用 PowerShell 和命令列工具。如需詳細資訊，請參閱[這裡](http://go.microsoft.com/fwlink/?LinkId=317721)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

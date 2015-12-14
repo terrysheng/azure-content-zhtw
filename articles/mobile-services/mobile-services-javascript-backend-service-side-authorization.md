@@ -28,7 +28,7 @@
 
 ## <a name="register-scripts"></a>註冊指令碼
 
-1. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+1. 登入[Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的應用程式。按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
 2. 按一下 [**指令碼**]，選取 [**插入**] 作業，將現有指令碼取代為下列函數，然後按一下 [**儲存**]。
 
@@ -67,7 +67,7 @@
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [將驗證新增至現有的行動服務應用程式]: /develop/mobile/tutorials/get-started-with-users-ios
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

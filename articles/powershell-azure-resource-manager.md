@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tomfitz"/>
 
 # 搭配使用 Azure PowerShell 與 Azure 資源管理員
@@ -34,9 +34,7 @@ Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建�
   + 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。除非您明確變更您的設定且同意付費，否則我們將不會從您的信用卡收取任何費用。
   
   + 您可以[啟用 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
-- Azure PowerShell
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+- Azure PowerShell 1.0。如需有關此版本以及如何安裝的資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 本教學課程是專為 PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx) (英文)。
 
@@ -75,7 +73,7 @@ Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建�
 	Get-AzureRmADGroupMember               Get a group members.
 	...
 
-如需取得完整的 Cmdlet 說明，請輸入下列格式的命令：
+To get full help for a cmdlet, type a command with the format:
 
 	Get-Help <cmdlet-name> -Full
   
@@ -83,7 +81,7 @@ Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建�
 
 在使用您的解決方案之前，您必須登入您的帳戶。
 
-若要登入您的 Azure 帳戶，請使用 **Login-AzureRmAccount** Cmdlet。在 1.0 Preview 之前的 Azure PowerShell 版本中，使用 **Add-AzureAccount** 命令。
+若要登入您的 Azure 帳戶，請使用 **Login-AzureRmAccount** Cmdlet。
 
     PS C:\> Login-AzureRmAccount
 
@@ -97,7 +95,7 @@ cmdlet 會提示您 Azure 帳戶的登入認證。登入之後，它會下載您
 
 部署資源時您必須指定想要託管資源的位置。並非每個區域都支援每種資源類型。在部署您的 Web 應用程式和 SQL Database 之前，您必須了解哪些區域支援這些類型。資源群組可以包含位於不同區域的資源；不過，您應該盡可能在相同的位置建立資源以最佳化效能。尤其，您會想要確定您的資料庫與存取資料庫的應用程式位於相同的位置。
 
-若要取得支援各種資源類型的位置，您必須使用 **Get-AzureRmResourceProvider** Cmdlet。首先，讓我們看看此命令傳回的項目：
+若要取得支援所有資源類型的位置，您將需要使用 **Get-AzureRmResourceProvider** Cmdlet。首先，讓我們看看此命令傳回的項目：
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -108,7 +106,7 @@ cmdlet 會提示您 Azure 帳戶的登入認證。登入之後，它會下載您
     Microsoft.Batch                 Registered        {batchAccounts}
     ...
 
-ProviderNamespace 表示相關資源類型的集合。這些命名空間通常都能與您想要在 Azure 中建立的服務搭配得宜。如果您想要使用已列為 [已取消註冊] 的資源提供者，您可以藉由執行 **Register-AzureRmResourceProvider** Cmdlet 並指定要註冊的提供者命名空間，註冊該資源提供者。您將在本教學課程使用的資源提供者很有可能已經針對您的訂用帳戶註冊。
+ProviderNamespace 表示相關資源類型的集合。這些命名空間通常都能與您想要在 Azure 中建立的服務搭配得宜。如果您想要使用已列為 [**已取消註冊**] 的資源提供者，您可以透過執行 **Register-AzureRmResourceProvider** Cmdlet，並指定要註冊的提供者命名空間，為該資源提供者註冊。您將在本教學課程使用的資源提供者很有可能已經針對您的訂用帳戶註冊。
 
 您可以藉由指定該命名空間以取得提供者的詳細資訊：
 
@@ -160,7 +158,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
     West Europe
     Brazil South
 
-看來這些資源可用於許多區域。此主題中，我們將使用「美國西部」，但是您可以指定任何支援的區域。
+看來這些資源可用於許多區域。在此主題中，我們將使用**美國西部**，但您可以指定任何支援的區域。
 
 ## 建立資源群組
 
@@ -214,7 +212,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 
 ## 建立您的範本
 
-本主題不會顯示如何建立您的範本或討論範本的結構。如需詳細資訊，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。您將要部署的範本如下所示：請注意，範本會使用您在上一節擷取的 API 版本。為了確保所有資源都位於相同區域中，我們使用範本運算式 **resourceGroup().location** 以使用資源群組的位置。
+本主題不會顯示如何建立您的範本或討論範本的結構。如需詳細資訊，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。您將要部署的範本如下所示：請注意，範本會使用您在上一節擷取的 API 版本。為了確保所有資源都位於相同區域中，我們將使用範本運算式 **resourceGroup().location** 以使用資源群組的位置。
 
 另請注意參數區段。這個區段會定義您在部署資源時可以提供的值。您會在本教學課程中稍後使用這些值。
 
@@ -382,7 +380,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 
 建立資源群組之後，您可以使用資源管理員模組中的 Cmdlet，來管理您的資源群組。
 
-- 若要取得訂用帳戶中的所有資源群組，請使用 **Get-AzureRmResourceGroup** Cmdlet：
+- 若要取得您訂用帳戶中的所有資源群組，請使用 **Get-AzureRmResourceGroup** Cmdlet：
 
 		PS C:\>Get-AzureRmResourceGroup
 
@@ -394,9 +392,9 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 		
 		...
 
-- 若要取得資源群組中的資源，請使用 **Get-AzureRmResource** Cmdlet 及其 ResourceGroupName 參數。在沒有使用參數的情況下，Get-AzureRmResource 會取得 Azure 訂用帳戶中的所有資源。
+- 若要取得您資源群組中的資源，請使用 **Get-AzureRmResource** Cmdlet 及其 **ResourceGroupNameContains** 參數。在沒有使用參數的情況下，Find-AzureRmResource 可取得您 Azure 訂用帳戶中的所有資源。
 
-		PS C:\> Get-AzureRmResource -ResourceGroupName TestRG1
+		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
 		Name              : exampleserver
                 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
@@ -412,11 +410,11 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 
 ## 新增至資源群組
 
-若要將資源新增至資源群組，您可以使用 **New-AzureRmResource** Cmdlet。不過，以這種方式新增資源可能會造成未來的混淆，因為新的資源不存在於您的範本。如果您重新部署舊範本，則會部署不完整的解決方案。如果您經常部署，您會發現將新的資源新增至您的範本並重新部署它更方便且更可靠。
+若要將資源新增至資源群組，可以使用 **New-AzureRmResource** Cmdlet。不過，以這種方式新增資源可能會造成未來的混淆，因為新的資源不存在於您的範本。如果您重新部署舊範本，則會部署不完整的解決方案。如果您經常部署，您會發現將新的資源新增至您的範本並重新部署它更方便且更可靠。
 
 ## 移動資源
 
-您可以將現有的資源移動到新的資源群組。如需範例，請參閱[將資源移動到新的資源群組或訂用帳戶](resource-group-move-resources.md)。
+您可以將現有的資源移動到新的資源群組。如需範例，請參閱[將資源移至新的資源群組或訂用帳戶](resource-group-move-resources.md)。
 
 ## 刪除資源群組
 
@@ -439,8 +437,8 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 ## 後續步驟
 
 - 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
-- 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)。
+- 若要了解部署範本的相關資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)。
 - 如需部署專案的詳細範例，請參閱[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)。
 - 若要了解如何疑難排解失敗的部署，請參閱[在 Azure 中疑難排解資源群組部署](./virtual-machines/resource-group-deploy-debug.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

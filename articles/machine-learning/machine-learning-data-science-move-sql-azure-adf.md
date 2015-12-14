@@ -49,7 +49,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 * 存取 **Azure SQL Database**。如果您必須設定 Azure SQL Database，[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md) 一文中提供如何佈建 Azure SQL Database 之新執行個體的相關資訊。
 * 已在本機上安裝和設定 **Azure PowerShell**。如需指示，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
-> [AZURE.NOTE]此程序會使用 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
+> [AZURE.NOTE]此程序會使用 [Azure 入口網站](https://ms.portal.azure.com/)。
 
 ##<a name="upload-data"></a>將資料上傳至您的內部部署 SQL Server
 
@@ -60,7 +60,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 
 ##<a name="create-adf"></a> 建立 Azure Data Factory
 
-用於建立新 Azure Data Factory 的指示及 [Azure Preview 入口網站](https://ms.portal.azure.com/)中的資源群組，已在[這裡](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory)提供。將新的 ADF 執行個體命名為 *adfdsp*，並將建立的資源群組命名為 *adfdsprg*。
+用於建立新 Azure Data Factory 的指示及 [Azure 入口網站](https://ms.portal.azure.com/)中的資源群組，已在[這裡](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory)提供。將新的 ADF 執行個體命名為 *adfdsp*，並將建立的資源群組命名為 *adfdsprg*。
 
 ## 安裝和設定資料管理閘道
 
@@ -81,13 +81,13 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 
 
 ###<a name="adf-linked-service-onprem-sql"></a>內部部署 SQL Server 資料庫的連結服務
-若要為內部部署 SQL Server 建立連結服務，請在 Azure 入口網站的 ADF 登陸頁面上，按一下 [資料存放區]，選取 [SQL]，然後輸入內部部署 SQL Server 使用者名稱和密碼的認證。您必須以**完整伺服器名稱 + 反斜線 + 執行個體名稱 (伺服器名稱\\執行個體名稱) 格式**輸入伺服器名稱。將連結服務命名為 *adfonpremsql*。
+若要為內部部署 SQL Server 建立連結服務，請在 Azure 傳統入口網站的 ADF 登陸頁面上，按一下 [資料存放區]，選取 [SQL]，然後輸入內部部署 SQL Server 的「使用者名稱」和「密碼」認證。您必須以**完整伺服器名稱 + 反斜線 + 執行個體名稱 (伺服器名稱\\執行個體名稱) 格式**輸入伺服器名稱。將連結服務命名為 *adfonpremsql*。
 
 ###<a name="adf-linked-service-blob-store"></a>Blob 的連結服務
-若要為 Azure Blob 儲存體帳戶建立連結服務，請在 Azure 入口網站的 ADF 登陸頁面上，按一下 [資料存放區]，選取 [Azure 儲存體帳戶]，然後輸入 Azure Blob 儲存體帳戶金鑰和容器名稱。將連結服務命名為 *adfds*。
+若要為 Azure Blob 儲存體帳戶建立連結服務，請在 Azure 傳統入口網站的 ADF 登陸頁面上，按一下 [資料存放區]，選取 [Azure 儲存體帳戶]，然後輸入 Azure Blob 儲存體帳戶的金鑰和容器名稱。將連結服務命名為 *adfds*。
 
 ###<a name="adf-linked-service-azure-sql"></a>Azure SQL Database 的連結服務
-若要為 Azure SQL Database 建立連結服務，請在 Azure 入口網站的 ADF 登陸頁面上，按一下 [資料存放區]，選取 [Azure SQL]，然後輸入 Azure SQL Database 使用者名稱和密碼的認證。使用者名稱必須指定為 **user@servername*。
+若要為 Azure SQL Database 建立連結服務，請在 Azure 傳統入口網站的 ADF 登陸頁面上，按一下 [資料存放區]，選取 [Azure SQL]，然後輸入 Azure SQL Database 的「使用者名稱」和「密碼」認證。使用者名稱必須指定為 **user@servername*。
 
 
 ##<a name="adf-tables"></a>定義和建立資料表以指定存取資料集的方式
@@ -107,7 +107,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 2. [Blob 資料表](#adf-table-blob-store)
 3. [SQL Azure 資料表](#adf-table-azure-sql)
 
-> [AZURE.NOTE]下列程序會使用 Azure PowerShell 來定義和建立 ADF 活動。但是，這些工作也可以透過 Azure Preview 入口網站來完成。如需詳細資料，請參閱[建立輸入和輸出資料集](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets)。
+> [AZURE.NOTE]下列程序會使用 Azure PowerShell 來定義和建立 ADF 活動。但是，這些工作也可以透過 Azure 入口網站來完成。如需詳細資料，請參閱[建立輸入和輸出資料集](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets)。
 
 ###<a name="adf-table-onprem-sql"></a>SQL 內部部署資料表
 
@@ -211,7 +211,7 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 * 指令碼假設**管線名稱**為 *AMLDSProcessPipeline*。
 * 此外請注意，我們會設定管線週期以每日執行，並使用預設的作業執行時間 (12 am UTC)。
 
-> [AZURE.NOTE]下列程序會使用 Azure PowerShell 來定義和建立 ADF 管線。但是，此工作也可以透過 Azure Preview 入口網站來完成。如需詳細資料，請參閱[建立和執行管線](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)。
+> [AZURE.NOTE]下列程序會使用 Azure PowerShell 來定義和建立 ADF 管線。但是，此工作也可以透過 Azure 入口網站來完成。如需詳細資料，請參閱[建立和執行管線](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)。
 
 使用上面提供的資料表定義，將 ADF 的管線定義指定為：
 
@@ -286,7 +286,7 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 
 	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-確認您可以在 Azure 入口網站的 ADF 上看見管線，如下所示 (當您按一下圖表時)
+確認您可以在 Azure 傳統入口網站的 ADF 上看見管線，如下所示 (當您按一下圖表時)。
 
 ![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
@@ -301,4 +301,4 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 
 請注意，我們尚未運用 ADF 提供的功能，以遞增方式輸送資料。如需關於如何執行此功能和 ADF 提供之其他功能的詳細資料，請參閱 [ADF 文件](http://azure.microsoft.com/services/data-factory/)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

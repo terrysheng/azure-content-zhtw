@@ -50,7 +50,7 @@
 ## 使用 Mahout 來執行建立建議的命令
 
 - 將 data\\movie\_usage.txt 檔案上傳至「Azure Blob 儲存體」。 
-- 建立 HDInsight 執行個體 (啟用「遠端桌面」)，並透過「遠端桌面」(可從「Azure 入口網站」使用) 連線到電腦。
+- 建立 HDInsight 執行個體 (啟用「遠端桌面」)，並透過「遠端桌面」(可從「Azure 傳統入口網站」使用) 連線到電腦。
 - 從 HDInsight 電腦，開啟「Hadoop 命令列」。
 - 切換至 c:\\apps\\dist 底下的 Mahout bin 目錄。我的看起來如下，但您可能得到更新版的 Mahout C:\\apps\\dist\\mahout-1.0.0.2.3.3.0-2992\\bin
 - 執行下列命令列，其中以您的「Azure 儲存體」詳細資料 (您放置 movie\_usage.txt 檔案的位置) 取代 [CONTAINER] 和 [STORAGEACT]：
@@ -81,4 +81,4 @@
 
 如需有關此資料的授權詳細資訊，請參閱此頁面：http://files.grouplens.org/datasets/hetrec2011/hetrec2011-movielens-readme.txt
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

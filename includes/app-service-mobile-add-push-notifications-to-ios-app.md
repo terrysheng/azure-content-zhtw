@@ -1,12 +1,12 @@
 
-* In **QSAppDelegate.m**, import the iOS SDK and **QSTodoService.h**:
+* 在 **QSAppDelegate.m** 中，匯入 iOS SDK 和 **QSTodoService.h**：
 
 ```
         #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
         #import "QSTodoService.h"
 ```
 
-* In `didFinishLaunchingWithOptions` in **QSAppDelegate.m**, insert the following lines right before `return YES;`:
+* 在 **qsappdelegate.m** 的 `didFinishLaunchingWithOptions` 中，於 `return YES;` 之前插入下列幾行：
 
 ```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -14,7 +14,7 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
 ```
 
-* In **QSAppDelegate.m**, add the following handler methods. Your app is now updated to support push notifications. Note that UIAlertView is deprecated in iOS9 and the following targets iOS9.
+* 在 **QSAppDelegate.m** 中，新增下列處理常式方法。您的應用程式現在已更新為支援推播通知。請注意，UIAlertView 在 iOS9 中已被取代，下列項目適用於 iOS9。
 
 ```
         // Registration with APNs is successful
@@ -82,3 +82,5 @@
 
         }
 ```
+
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@ DocumentDB 是一種適用於巨量資料解決方案的 NoSQL 文件資料庫�
 若要快速了解此 JSON 資料庫並實際觀看其運作方式，請遵循這三個步驟：
 
 1. 請觀看兩分鐘的[什麼是 DocumentDB？](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/)影片，當中會介紹使用 DocumentDB 的優點。
-2. 請觀看三分鐘的[在 Azure 上建立 DocumentDB](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 影片，當中會重點說明如何透過 Azure Preview 入口網站開始使用 DocumentDB。
+2. 請觀看三分鐘的[在 Azure 上建立 DocumentDB](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 影片，當中會重點說明如何透過 Azure 入口網站開始使用 DocumentDB。
 3. 請瀏覽[查詢遊樂場](http://www.documentdb.com/sql/demo)，您可以在其中逐步執行不同的活動，以了解 DocumentDB 中可用的豐富查詢功能。接著，請前往 [沙箱] 索引標籤，執行您自訂的 SQL 查詢並實驗 DocumentDB。
 
 然後，回到這篇文章，我們將進行深入探討，讓您在此找到下列問題的答案：
@@ -99,7 +99,7 @@ DocumentDB 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰寫的
 在 DocumentDB 內執行 JavaScript 的作法是仿造自關聯式資料庫系統所支援的概念，以 JavaScript 做為 Transact-SQL 的新式取代項目。所有 JavaScript 邏輯都是以隔離的快照在環境 ACID 交易內執行。在執行期間，如果 JavaScript 擲回例外狀況，則會中止整個交易。
 
 ## 後續步驟
-如果您已經有 Azure 帳戶，可以透過[建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)，開始使用 [Azure Preview 入口網站](https://portal.azure.com/#gallery/Microsoft.DocumentDB)中的 DocumentDB。
+如果您已經有 Azure 帳戶，可以透過[建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)，開始使用 [Azure 入口網站](https://portal.azure.com/#gallery/Microsoft.DocumentDB)中的 DocumentDB。
 
 若您沒有 Azure 帳戶，您可以：
 
@@ -112,4 +112,4 @@ DocumentDB 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰寫的
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

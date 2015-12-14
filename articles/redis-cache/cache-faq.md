@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -29,7 +29,7 @@
 -	**記憶體**：基本層和標準層提供 250 MB – 53 GB。高階層可提供多達 530 GB，[要求](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)時可提供更多。如需詳細資訊，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/pricing/details/cache/)。
 -	**網路效能**：如果您的工作負載需要高輸送量，高階層提供的頻寬大於標準或基本層。此外，因為每一層內有裝載快取的基礎 VM，較大型快取還有更大頻寬。如需詳細資訊，請參閱下列表格。
 -	**輸送量**：高階層提供最大的可用輸送量。如果快取伺服器或用戶端達到頻寬限制，您會在用戶端上收到逾時。如需詳細資訊，請參閱下列表格。
--	**高可用性/SLA**：Azure Redis 快取在大部分 (至少 99.9%) 的情況下保證提供標準/高階 (高階層在預覽期間過後才有 SLA) 的快取。若要深入了解我們的 SLA，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/pricing/details/cache/)。SLA 的範圍僅涵蓋與快取端點的連線。SLA 未涵蓋資料遺失防護。建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。
+-	**高可用性/SLA**：Azure Redis Cache 保證標準/進階快取的可用性時間不低於 99.9%。若要深入了解我們的 SLA，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)。SLA 的範圍僅涵蓋與快取端點的連線。SLA 未涵蓋資料遺失防護。建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。
 -	**Redis 資料永續性**：高階層可讓您將快取資料保存在 Azure 儲存體帳戶。在基本/標準快取中，所有資料都只儲存在記憶體中。如果基礎結構發生問題，資料可能會遺失。建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。Azure Redis 快取在 Redis 永續性中提供 RDB 和 AOF (即將推出) 選項。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的永續性](cache-how-to-premium-persistence.md)。
 -	**Redis 叢集**：如果您想建立大於 53 GB 的快取或想跨多個 Redis 節點共用資料，可以使用高階層中的 Redis 叢集。每個節點均包含一個主要/複本快取組以提供高可用性。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md)。
 -	**增強的安全性和網路隔離**：Azure 虛擬網路 (VNET) 部署可為您的 Azure Redis 快取、子網路、存取控制原則和其他功能提供增強的安全性和隔離模式。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)。
@@ -204,7 +204,7 @@ Azure 快取目前有三個提供項目：
 
 
 ### Azure Redis 快取
-Azure Redis 快取已正式提供，大小最多 53 GB 和可用性 SLA 99.9%。新的[高階層](cache-premium-tier.md)處於預覽階段，提供高達 530 GB 的大小並且支援叢集、VNET 和持續性。
+Azure Redis 快取已正式提供，大小最多 53 GB 和可用性 SLA 99.9%。新的[進行層級](cache-premium-tier.md)處於預覽階段，提供高達 530 GB 的大小並且支援叢集、VNET 和持續性，包括 99.9% 的 SLA。
 
 Azure Redis Cache 可以讓客戶使用 Microsoft 所管理的安全、專用 Redis 快取。使用這項提供項目，您可以利用 Redis 提供的豐富功能集和生態系統，並使用 Microsoft 提供的可靠託管及監控服務。
 
@@ -220,4 +220,4 @@ Redis 成功的另一個重要層面是建置健全、有活力的開放原始�
 ### 角色中快取
 如果您使用 In-Role Cache 自我裝載，您可以繼續這麼做。因為 In-Role Cache 是一種自我裝載的軟體元件，而不是 Microsoft 託管服務，所以它不提供任何 SLA。In-Role Cache 使用者可以選擇移轉至 Azure Redis 快取，來運用它的豐富功能集並取得 SLA。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

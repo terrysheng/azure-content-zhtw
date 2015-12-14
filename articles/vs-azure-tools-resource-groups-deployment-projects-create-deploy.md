@@ -17,7 +17,7 @@
 
 # 建立和部署 Azure 資源群組部署專案
 
-安裝 Azure SDK 2.6 之後可在 Visual Studio 中使用 **Azure 資源群組**部署專案範本。Azure 資源群組專案可讓您將多個相關的 Azure 資源分組在一起，並在單一部署作業中將其發佈。Azure 資源群組專案會使用一項稱為 **Azure 資源管理員**的技術執行其工作。**Azure 資源管理員**是一項 REST API 服務，可讓您定義 Azure 資源群組，其包含多個通常會一起使用並具有類似生命週期的 Azure 資源。藉由使用資源群組，您可以利用單一函數呼叫在一個群組中的所有資源上運作，而不需為每個個別資源呼叫不同的函數。若要深入了解 Azure 資源群組，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](resource-group-portal.md)。如需更詳細的端對端 Azure 資源群組部署案例資訊，請參閱 [Visual Studio 的 Azure 資源群組](https://azure.microsoft.com/zh-TW/blog/azure-resource-manager-2-5-for-visual-studio/)。
+安裝 Azure SDK 2.6 之後可在 Visual Studio 中使用 **Azure 資源群組**部署專案範本。Azure 資源群組專案可讓您將多個相關的 Azure 資源分組在一起，並在單一部署作業中將其發佈。Azure 資源群組專案會使用一項稱為 **Azure 資源管理員**的技術執行其工作。**Azure 資源管理員**是一項 REST API 服務，可讓您定義 Azure 資源群組，其包含多個通常會一起使用並具有類似生命週期的 Azure 資源。藉由使用資源群組，您可以利用單一函數呼叫在一個群組中的所有資源上運作，而不需為每個個別資源呼叫不同的函數。若要深入了解 Azure 資源群組，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](resource-group-portal.md)。如需更詳細的端對端 Azure 資源群組部署案例資訊，請參閱 [Visual Studio 的 Azure 資源群組](https://azure.microsoft.com/blog/azure-resource-manager-2-5-for-visual-studio/)。
 
 Azure 資源群組專案包含 Azure 資源管理員 JSON 範本，可定義部署到資源群組的項目。如需詳細資訊，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 
@@ -195,4 +195,4 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
 若要了解如何將資源新增至 Visual Studio 中的 Azure 資源群組，請參閱[將資源新增至 Azure 資源群組](vs-azure-tools-resource-group-adding-resources.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

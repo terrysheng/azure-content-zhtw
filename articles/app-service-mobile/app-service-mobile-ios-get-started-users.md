@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
-# Azure Mobile Apps 的 iOS 驗證
+# 將驗證新增至您的 iOS 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入 [iOS 快速入門]專案。本教學課程以 [iOS 快速入門]教學課程為基礎，您必須先完成該教學課程。如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
@@ -43,7 +41,7 @@
 
 [iOS 快速入門]: app-service-mobile-ios-get-started.md
 
-[Azure Management Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

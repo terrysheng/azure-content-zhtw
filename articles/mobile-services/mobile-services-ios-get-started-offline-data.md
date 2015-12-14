@@ -18,6 +18,11 @@
 
 # 開始使用行動服務中的離線資料同步
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 使用離線同步可讓您即便在沒有網路連線的情況下，也能檢視、新增或修改行動應用程式中的資料。在本教學課程中，您將會了解應用程式如何在本機離線資料庫中自動儲存變更，並且在回復連線時同步這些變更。
@@ -196,7 +201,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 3. 檢視遠端 TodoItem 資料表的內容。請確認新項目_尚未_同步處理到伺服器。
 
-   - 若為 JavaScript 後端，移至管理入口網站，然後按一下 [資料] 索引標籤以檢視 `TodoItem` 資料表的內容。
+   - 若為 JavaScript 後端，請移至 [Azure 傳統入口網站](http://manage.windowsazure.com)，然後按一下 [資料] 索引標籤以檢視 `TodoItem` 資料表的內容。
    - 若為 .NET 後端，使用 SQL 工具 (如 SQL Server Management Studio) 或 REST 用戶端 (如 Fiddler 或 Postman) 檢視資料表內容。
 
 4. 開啟 iOS 模擬器的 Wi-Fi。接著，拉下項目清單，以執行重新整理動作。您會看到進度微調按鈕和「同步中...」文字。
@@ -270,4 +275,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 [行動服務快速入門教學課程]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

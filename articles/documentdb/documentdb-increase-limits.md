@@ -47,7 +47,7 @@
 ##<a id="RequestQuotaIncrease"></a> 要求配額調整
 下列步驟說明如何要求配額調整。
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com)中，按一下 [**瀏覽**]，然後按一下 [**說明 + 支援**]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [瀏覽]，然後按一下 [說明 + 支援]。
 
 	![啟動說明和支援的螢幕擷取畫面](media/documentdb-increase-limits/helpsupport.png)
 
@@ -75,4 +75,4 @@
 ##<a name="NextSteps"></a> 後續步驟
 - 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

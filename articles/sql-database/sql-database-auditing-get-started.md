@@ -29,9 +29,9 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 
 ##<a id="subheading-1"></a>Azure SQL Database 稽核基本概念
 
-下節描述使用「Azure Preview 入口網站」進行稽核的設定。您也可以[使用傳統的 Azure 入口網站設定資料庫的稽核]。
+下節描述使用 Azure 入口網站進行稽核的設定。您也可以[使用 Azure 傳統入口網站設定資料庫的稽核]。
 
-「SQL Database 稽核」可讓您：
+SQL Database 稽核可讓您：
 
 - **保留**所選事件的稽核記錄。您可以定義要稽核的資料庫動作類別。
 - **報告**資料庫活動。您可以使用預先設定的報告和儀表板，以便快速開始使用活動和事件報告。
@@ -62,7 +62,7 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 
 ##<a id="subheading-2"></a>設定資料庫的稽核
 
-1. 啟動 [Azure Preview 入口網站](https://portal.azure.com)，網址為 https://portal.azure.com。或者，您也可以啟動[傳統的 Azure 入口網站](https://manage.windowsazure.com/)，網址為 https://manage.windowsazure.com/。請參閱下列詳細資訊。
+1. 啟動 [Azure 入口網站](https://portal.azure.com)，網址是 https://portal.azure.com。或者，您也可以啟動 [Azure 傳統入口網站](https://manage.windowsazure.com/)，網址是 https://manage.windowsazure.com/。請參閱下列詳細資訊。
 
 2. 瀏覽至您想要稽核的 SQL Database / SQL Server 設定刀鋒視窗。在 [設定] 刀鋒視窗中，選取 [稽核和威脅偵測]。
 
@@ -99,9 +99,9 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 ![導覽窗格][4]
 
 
-##<a id="subheading-4"></a>使用傳統的 Azure 入口網站設定資料庫的稽核
+##<a id="subheading-4"></a>使用 Azure 傳統入口網站設定資料庫的稽核
 
-1. 啟動[傳統的 Azure 入口網站](https://manage.windowsazure.com/)，網址為 https://manage.windowsazure.com/。
+1. 啟動 [Azure 傳統入口網站](https://manage.windowsazure.com/)，網址是 https://manage.windowsazure.com/。
 
 2. 按一下要稽核的 SQL Database / SQL Server，然後按一下 [稽核與安全性] 索引標籤。
 
@@ -123,7 +123,7 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 
 
 ##<a id="subheading-5">生產環境中的使用方式作法</a>
-本節的說明與以上的畫面截圖有關。可以使用 [Azure Preview 入口網站](https://portal.azure.com)或[傳統的 Azure 入口網站](https://manage.windowsazure.com/)。
+本節的說明與以上的畫面截圖有關。可以使用 [Azure 入口網站](https://portal.azure.com)或 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 
 
 ##<a id="subheading-6"></a>儲存體金鑰重新產生
@@ -131,13 +131,13 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 在生產中，您可能會定期重新整理儲存體金鑰。重新整理金鑰時，您需要重新儲存稽核原則。程序如下：
 
 
-1. 在稽核組態刀鋒視窗中，將 [儲存體存取金鑰] 從 [主要] 切換成 [次要]，然後按一下 [儲存]。
+1. 在 [稽核組態] 刀鋒視窗中，將 [儲存體存取金鑰] 從 [主要] 切換成 [次要]，然後按一下 [儲存]。
 
 	![][8]
 
 2. 進入 [儲存體組態] 刀鋒視窗，並**重新產生「主要存取金鑰」** 。
 
-3. 返回稽核組態刀鋒視窗，將 [儲存體存取金鑰] 從 [次要] 切換成 [主要]，然後按一下 [儲存]。
+3. 返回 [稽核組態] 刀鋒視窗，將 [儲存體存取金鑰] 從 [次要] 切換成 [主要]，然後按一下 [儲存]。
 
 4. 返回儲存體 UI 並**重新產生**「次要存取金鑰」 (為下一個金鑰重新整理週期做準備)。
   
@@ -159,7 +159,7 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 [Azure SQL Database 稽核基本概念]: #subheading-1
 [設定資料庫的稽核]: #subheading-2
 [分析稽核記錄和報告]: #subheading-3
-[使用傳統的 Azure 入口網站設定資料庫的稽核]: #subheading-4
+[使用 Azure 傳統入口網站設定資料庫的稽核]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7
@@ -178,4 +178,4 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -27,9 +27,9 @@ Azure 提供建立虛擬機器的不同方式，因為虛擬機器適用於不�
 
 ## 工具選項
 
-### GUI：Azure Preview 入口網站
+### GUI：Azure 入口網站
 
-Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器的簡單方法，特別是在您剛開始使用 Azure 時。使用 Azure Preview 入口網站來建立虛擬機器：
+Azure 傳統入口網站的圖形化使用者介面是用來嘗試設定虛擬機器的簡單方法，特別是在您剛開始使用 Azure 時。使用 Azure 入口網站來建立虛擬機器。
 
 [建立執行 Windows 的虛擬機器][]
 
@@ -79,4 +79,4 @@ Azure 入口網站的圖形化使用者介面是用來嘗試設定虛擬機器�
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

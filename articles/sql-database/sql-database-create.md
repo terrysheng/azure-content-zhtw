@@ -30,7 +30,7 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
 | 建立資料庫 | 螢幕擷取畫面 |
 | :--- | :--- |
-| 1\.登入 [http://portal.azure.com/](http://portal.azure.com/)。 | ![新的 Azure 入口網站][1] |
+| 1\.登入 [http://portal.azure.com/](http://portal.azure.com/)。 | ![全新 Azure 傳統入口網站][1] |
 | 2\.在頁面下方的左側，按一下 [新增]。 | ![起始新的服務][2]|
 | 3\.按一下 [SQL Database]。| ![可選取的不同服務][3] |
 | 4\.[SQL Database] 刀鋒視窗隨即開啟。在 [名稱] 欄位中，指定資料庫名稱。 | ![為資料庫命名][4] |
@@ -66,4 +66,4 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,7 +18,7 @@
 
 
 #開始使用 Azure SQL 資料同步 (預覽)
-在本教學課程中，您將了解使用 Azure 管理入口網站的 Azure SQL 資料同步基本概念。
+在本教學課程中，您將了解使用 Azure 傳統入口網站的 Azure SQL 資料同步基本概念。
 
 本教學課程假設學員只有最少的 SQL Server 和 Azure SQL Database 使用經驗。在本教學課程中，您將建立已完全設定的混合 (SQL Server 和 SQL Database 案例) 同步群組，並依照您設定的排程進行同步。
 
@@ -26,7 +26,7 @@
 
 ## 步驟 1：連接到 Azure SQL Database
 
-1. 登入[管理入口網站](http://manage.windowsazure.com)。
+1. 登入[傳統入口網站](http://manage.windowsazure.com)。
 
 2. 按一下左窗格中的 [SQL DATABASES]。
 
@@ -72,7 +72,7 @@
 
 1. 	返回 [新增 SQL 資料同步代理程式] 精靈。
 2.	給予代理程式有意義的名稱。
-3.	從下拉式清單中選取 [區域] \(資料中心) 以裝載此代理程式。
+3.	從下拉式清單中選取 [區域] (資料中心) 以裝載此代理程式。
 4.	從下拉式清單中選取 [訂閱] 以裝載此代理程式。
 5.	按一下向右箭頭。
 
@@ -90,7 +90,7 @@
 <a id="StartNewSGWizard"></a>
 ### 步驟 4a：啟動新增同步群組精靈
 
-1.	返回[管理入口網站](http://manage.windowsazure.com)。
+1.	返回[傳統入口網站](http://manage.windowsazure.com)。
 2.	按一下 [SQL DATABASE]。
 3.	按一下頁面底部的 [加入同步]，然後選取下拉式清單中的 [新增同步群組]。
 
@@ -103,7 +103,7 @@
 
 
 1.	為同步群組輸入有意義的名稱。
-2.	從下拉式清單中選取 [區域] \(資料中心) 以裝載此同步群組。
+2.	從下拉式清單中選取 [區域] (資料中心) 以裝載此同步群組。
 3. 按一下向右箭頭。
 
 	![Image3](./media/sql-database-get-started-sql-data-sync/NewSyncGroupName-Figure3.PNG)
@@ -155,7 +155,7 @@
 
 Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果您也想篩選資料欄，僅只同步具有特定值 (例如，年齡 >=65) 的資料列，請使用 Azure 的 SQL 資料同步入口網站以及「選取要同步的資料表、資料欄和資料列」的文件，以定義要同步的資料。
 
-1.	返回[管理入口網站](http://manage.windowsazure.com)。
+1.	返回[傳統入口網站](http://manage.windowsazure.com)。
 2.	按一下 [SQL DATABASE]。
 3.	按一下 [同步] 索引標籤。
 4.	按一下此同步群組的名稱。
@@ -176,7 +176,7 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 
 按一下 [資料同步] 登陸頁面底部的 [同步]，一律可以同步處理同步群組。如果您要同步群組依照排程進行同步處理，請設定該同步群組。
 
-1.	返回[管理入口網站](http://manage.windowsazure.com)。
+1.	返回[傳統入口網站](http://manage.windowsazure.com)。
 2.	按一下 [SQL DATABASE]。
 3.	按一下 [同步] 索引標籤。
 4.	按一下此同步群組的名稱。
@@ -202,4 +202,4 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

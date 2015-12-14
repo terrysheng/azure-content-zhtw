@@ -21,15 +21,15 @@
 
 本主題列舉的錯誤訊息可協助 Azure HDInsight 的 Hadoop 使用者了解，他們在使用 Azure PowerShell 來管理服務時可能遭遇的錯誤狀況，並建議一些步驟供他們從錯誤中回復。
 
-使用 Azure 預覽入口網站管理 HDinsight 叢集時也可能會看到其中某些錯誤訊息。但由於此情況下可能採取的補救動作有其限制，您可能看到的其他錯誤訊息比較不詳細。在很顯然有緩和措施的情況下，則會提供其他錯誤訊息。舉例來說，如果違反參數的限制，則輸入值的方塊右上角會彈出訊息。以下是要求太多資料節點的例子。補救方法是將數量減少到 33 以下的允許值。
+使用 Azure 入口網站管理 HDinsight 叢集時也可能會看到其中某些錯誤訊息。但由於此情況下可能採取的補救動作有其限制，您可能看到的其他錯誤訊息比較不詳細。在很顯然有緩和措施的情況下，則會提供其他錯誤訊息。舉例來說，如果違反參數的限制，則輸入值的方塊右上角會彈出訊息。以下是要求太多資料節點的例子。補救方法是將數量減少到 33 以下的允許值。
 
-![HDInsight 預覽入口網站錯誤訊息][image-hdi-debugging-error-messages-portal]
+![HDInsight 入口網站錯誤訊息][image-hdi-debugging-error-messages-portal]
 
-若發生了 Azure HDInsight 特定的錯誤，最好是能夠了解錯誤的相關資訊。請參閱 [HDInsight 錯誤碼](#hdi-error-codes)，以了解不同的錯誤碼，以及如何修正這些錯誤。在某些情況下，您可能想要存取 Hadoop 記錄本身。您可以從 Azure Preview 入口網站直接執行此動作。
+若發生了 Azure HDInsight 特定的錯誤，最好是能夠了解錯誤的相關資訊。請參閱 [HDInsight 錯誤碼](#hdi-error-codes)，以了解不同的錯誤碼，以及如何修正這些錯誤。在某些情況下，您可能想要存取 Hadoop 記錄本身。您可以直接從 Azure 入口網站進行。
 
 ## 檢視叢集健康情況和工作記錄檔
 
-* **存取 Hadoop UI**。從 Azure Preview 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。
+* **存取 Hadoop UI**。從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。
 
 	![啟動叢集儀表板](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
   
@@ -37,7 +37,7 @@
 
 	![啟動 Hadoop UI](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-* **存取 Yarn UI**。從 Azure Preview 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [YARN UI]。
+* **存取 Yarn UI**。從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [YARN UI]。
 
 	您可以使用 YARN UI 來執行下列動作：
 
@@ -49,11 +49,11 @@
 
 	* **監視工作狀態**。從左窗格展開 [叢集]，然後按一下 [應用程式] 以列出叢集中的所有工作。如果您想要查看處於特定狀態 (例如，新增、已提交、執行中等狀態) 的工作，可按一下[應用程式] 底下的適當連結。您可以進一步按一下工作名稱來深入了解該工作，例如包含輸出、記錄等相關資訊。
 
-* **存取 HBase UI**。從 Azure Preview 入口網站中，按一下 HDInsight HBase 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [HBase UI]。
+* **存取 HBase UI**。從 Azure 入口網站中，按一下 HDInsight HBase 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [HBase UI]。
 
 ## <a id="hdi-error-codes"></a>HDInsight 錯誤碼
 
-使用者可能會在 Azure PowerShell 或 Preview 入口網站中遇到的錯誤，會按照名稱的字母順序列出。錯誤會依次連結到[錯誤的描述與緩和](#discription-mitigation-errors)一節中的項目，其會針對錯誤提供下列資訊：
+使用者可能會在 Azure PowerShell 或入口網站中遇到的錯誤，會按照名稱的字母順序列出。錯誤會依次連結到[錯誤的描述與緩和](#discription-mitigation-errors)一節中的項目，其會針對錯誤提供下列資訊：
 
 - **描述**：使用者看見的錯誤訊息
 - **緩和**：可採取以便從錯誤中回復的步驟。
@@ -129,7 +129,7 @@
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 - **描述**：叢集名稱 *yourClusterName* 無法使用。請挑選其他名稱。  
-- **緩和**：使用者應該指定唯一且尚不存在的叢集名稱，然後重試。如果使用者正在使用預覽入口網站，當建立步驟中已使用叢集名稱時，UI 會通知使用者。
+- **緩和**：使用者應該指定唯一且尚不存在的叢集名稱，然後重試。如果使用者在使用入口網站，當建立步驟中已使用叢集名稱時，UI 會通知使用者。
 
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
@@ -258,7 +258,7 @@
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 - **描述**：儲存體帳戶 *yourStorageAccountName* 位於區域 *currentRegionName* 中。必須與叢集區域 *yourClusterRegionName* 相同。  
-- **緩和**：請指定您的叢集所在相同區域中的儲存體帳戶，或者，如果您的資料已在儲存帳戶中，請在現有儲存體帳戶所在的相同區域中建立新的叢集。如果您正在使用預覽入口網站，UI 會事先通知此問題。
+- **緩和**：請指定您的叢集所在相同區域中的儲存體帳戶，或者，如果您的資料已在儲存帳戶中，請在現有儲存體帳戶所在的相同區域中建立新的叢集。如果您在使用入口網站，UI 會事先通知此問題。
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 - **描述**：指定的訂用帳戶識別碼 *yourSubscriptionId* 並未使用。  
@@ -300,4 +300,4 @@
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

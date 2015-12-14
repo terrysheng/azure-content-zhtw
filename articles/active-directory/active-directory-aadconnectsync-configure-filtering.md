@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect 同步處理設定篩選 | Microsoft Azure"
+	pageTitle="Azure AD Connect 同步處理：設定篩選 | Microsoft Azure"
 	description="說明如何在 Azure AD Connect 同步處理中設定篩選。"
 	services="active-directory"
 	documentationCenter=""
@@ -281,4 +281,4 @@
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

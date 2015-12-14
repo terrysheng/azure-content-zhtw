@@ -18,25 +18,27 @@
 
 # 使用混合式連線從 Azure App Service 內的 API 應用程式連線至內部部署 SQL Server
 
-「混合式連線」可將 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) API 應用程式連接到使用靜態 TCP 連接埠的內部部署資源。支援的資源包括 Microsoft SQL Server、MySQL、HTTP Web API、行動服務和大部分的自訂 Web 服務。
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
-在此教學課程中，您將學習如何在使用新的「混合式連線」連線至本機內部部署 SQL Server 資料庫的 [Azure Preview](http://go.microsoft.com/fwlink/?LinkId=529715)中建立 App Service API 應用程式。本教學課程假設您沒有使用 Azure 或 SQL Server 的經驗。
+混合式連接可將 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) API 應用程式連接到使用靜態 TCP 連接埠的內部部署資源。支援的資源包括 Microsoft SQL Server、MySQL、HTTP Web API、行動服務和大部分的自訂 Web 服務。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+在此教學課程中，您將學到如何在使用新的混合式連接連接至本機內部部署 SQL Server 資料庫的 [Azure Preview](http://go.microsoft.com/fwlink/?LinkId=529715) 中建立 App Service API 應用程式。本教學課程假設您沒有使用 Azure 或 SQL Server 的經驗。
+
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 必要條件
 
 若要完成本教學課程，您將需要下列產品。所有產品都有免費版本可使用，因此您可以免費進行 Azure 解決方案開發。
 
-- **Azure 訂用帳戶** - 如需免費訂閱，請參閱 [Azure 免費試用](/pricing/free-trial/)。 
+- **Azure 訂閱** - 如需免費訂閱，請參閱 [Azure 免費試用](/pricing/free-trial/)。 
 
 - **Visual Studio** - 若要下載 Visual Studio 2013 或 Visual Studio 2015 的免費試用版，請參閱 [Visual Studio 下載](http://www.visualstudio.com/downloads/download-visual-studio-vs)。在繼續之前安裝其中一種。(本教學課程中是使用 Visual Studio 2013 的螢幕擷取畫面)
 
-- **SQL Server 2014 Express with Tools** - 請在 [Microsoft Web Platform Database 頁面](https://www.microsoft.com/zh-TW/download/details.aspx?id=42299)下載免費的 Microsoft SQL Server Express。在本教學課程稍後，您會看到如何[安裝 SQL Server](#InstallSQLDB) 以確保正確設定。
+- **SQL Server 2014 Express with Tools** - 請在 [Microsoft Web Platform Database 頁面](https://www.microsoft.com/zh-TW/download/details.aspx?id=42299)下載免費的 Microsoft SQL Server Express。在本教學課程後半部，將介紹如何[安裝 SQL Server](#InstallSQLDB) 以確保正確設定。
 
 - **SQL Server Management Studio Express** - 此項目隨附於前述的 SQL Server 2014 Express with Tools 下載中，但您必須個別加以安裝，您可以從 [SQL Server Express 下載頁面](https://www.microsoft.com/zh-TW/download/details.aspx?id=42299)加以下載並安裝。
 
-本教學課程假設您具有 Azure 訂用帳戶、您已安裝 Visual Studio 2013，並且已安裝或啟用 .NET Framework 3.5。本教學課程將說明如何在可與 Azure 混合式連線功能妥善搭配運作的組態中安裝 SQL Server 2014 Express (使用靜態 TCP 連接埠的預設執行個體)。在開始本教學課程之前，如果您尚未安裝 SQL Server，請先從前述位置下載 (但不要安裝) SQL Server 2014 Express with Tools。
+本教學課程假設您具有 Azure 訂閱、您已安裝 Visual Studio 2013，並且已安裝或啟用 .NET Framework 3.5。本教學課程將說明如何在可與 Azure 混合式連線功能妥善搭配運作的組態中安裝 SQL Server 2014 Express (使用靜態 TCP 連接埠的預設執行個體)。在開始本教學課程之前，如果您尚未安裝 SQL Server，請先從前述位置下載 (但不要安裝) SQL Server 2014 Express with Tools。
 
 ### 注意事項
 若要透過混合式連線使用內部部署 SQL Server 或 SQL Server Express 資料庫，必須在靜態連接埠上啟用 TCP/IP。SQL Server 上的預設執行個體會使用靜態連接埠 1433，但指定的執行個體則否。
@@ -80,21 +82,21 @@
 
 1. 若要安裝 SQL Server Express，請下載 **SQLEXPRWT\_x64\_ENU.exe** (64 位元版本) 或 **SQLEXPR\_x86\_ENU.exe** (32 位元版本) 檔案，並將其解壓縮至您要的資料夾。 
 
-2. 在您解壓縮 SQL Server Express 安裝檔案後，執行 **setup.exe**。
+2. 解壓縮 SQL Server Express 安裝檔案後，請執行 **setup.exe**。
 
-3. 當 [SQL Server 安裝中心] 顯示時，選擇 [新增 SQL Server 獨立安裝或將功能加入至現有安裝]。
+3. [**SQL Server 安裝中心**] 顯示時，請選擇 [**新增 SQL Server 獨立安裝或將功能加入至現有安裝**]。
 
 	![SQL Server 安裝中心](./media/app-service-api-hybrid-on-premises-sql-server/sql-server-installation-center.png)
 
 4. 遵循指示接受預設選項和設定，直到您進入 [執行個體組態] 頁面。
 	
-5. 在 [執行個體組態] 頁面上，選擇 [預設執行個體]，然後按 [下一步]。
+5. 在 [**執行個體組態**] 頁面上，選擇 [**預設執行個體**]，然後按一下 [**下一步**]。
 	
 	![執行個體組態](./media/app-service-api-hybrid-on-premises-sql-server/instance-configuration.png)
 	
 	SQL Server 的預設執行個體會在靜態連接埠 1433 上接聽來自 SQL Server 用戶端的要求，而這正是混合式連線功能的需求。指定的執行個體會使用動態連接埠和 UDP，而混合式連線並不加以支援。
 	
-6. 接受 [伺服器組態] 頁面上的預設值，然後按 [下一步]。
+6. 接受 [**伺服器組態**] 頁面上的預設值，然後按一下 [**下一步**]。
 	
 7. 在 [資料庫引擎組態] 頁面上的 [驗證模式] 下，選擇 [混合模式 (SQL Server 驗證和 Windows 驗證)]，並提供密碼。
 	
@@ -104,7 +106,7 @@
 	
 8. 逐步完成精靈的其餘部分 - 接受預設值以完成安裝。
 
-9. 關閉 [SQL Server 安裝中心] 對話方塊。
+9. 關閉 [**SQL Server 安裝中心**] 對話方塊。
 
 ### 啟用 TCP/IP
 若要啟用 TCP/IP，您必須使用您在安裝 SQL Server Express 時所安裝的 SQL Server 組態管理員。請先執行[為 SQL Server 啟用 TCP/IP 網路通訊協定](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx)中的步驟，再繼續作業。
@@ -112,27 +114,27 @@
 <a name="CreateSQLDB"></a>
 ### 在內部部署中建立 SQL Server 資料庫
 
-1. 在 [SQL Server Management Studio] 中，連接到您剛剛安裝的 SQL Server。針對 [**伺服器類型**]，選擇 [**資料庫引擎**]。對於 [伺服器名稱]，您可以使用 **localhost** 或您要使用之電腦的名稱。選擇 [SQL Server 驗證]，然後以您先前建立的 `sa` 使用者名稱和密碼登入。
+1. 在 **SQL Server Management Studio** 中，連接到您剛安裝的 SQL Server。針對 [**伺服器類型**]，選擇 [**資料庫引擎**]。對於 [伺服器名稱]，您可以使用 **localhost** 或您要使用之電腦的名稱。選擇 [**SQL Server 驗證**]，然後以您先前建立的 `sa` 使用者名稱和密碼登入。
 
 	![連接到伺服器](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
-	如果 [連線到伺服器] 對話方塊未自動出現，請導覽至左窗格中的 [物件總管]，依序按一下 [連接] 和 [資料庫引擎]。
+	如果 [**連線到伺服器**] 對話方塊未自動出現，請瀏覽至左窗格中的 [**物件總管**]，依序按一下 [**連接**] 和 [**資料庫引擎**]。
 	
 2. 若要使用 SQL Server Management Studio 建立新資料庫，請在 [物件總管] 中以滑鼠右鍵按一下 [資料庫]，然後按一下 [**New Database**]。
 	
 	![建立新的資料庫功能表](./media/app-service-api-hybrid-on-premises-sql-server/new-database-menu.png)
 	
-3. 在 [新增資料庫] 對話方塊中，輸入 `LocalDatabase` 做為資料庫名稱，然後按一下 [確定]。
+3. 在 [**新增資料庫**] 對話方塊中，輸入 `LocalDatabase` 作為資料庫名稱，然後按一下 [**確定**]。
 	
 	![建立新的資料庫](./media/app-service-api-hybrid-on-premises-sql-server/new-database.png)
 	
 ### 建立並填入 SQL Server 資料表
 
-1. 在 SQL Server Management Studio 的 [物件總管] 中，展開 `LocalDatabase` 項目。
+1. 在 **SQL Server Management Studio** 中的 [**物件總管**]，展開 `LocalDatabase` 項目。
 
 	![展開的資料庫](./media/app-service-api-hybrid-on-premises-sql-server/local-database-expanded.png)
 
-2. 以滑鼠右鍵按一下 [資料表] 並選取操作功能表中的 [資料表...] 選項。
+2. 以滑鼠右鍵按一下 [**資料表**] 並選取內容功能表中的 [**資料表...**] 選項。
 
 	![新的資料表功能表](./media/app-service-api-hybrid-on-premises-sql-server/new-table-menu.png)
 
@@ -140,11 +142,11 @@
 
 	![新的資料表資料行](./media/app-service-api-hybrid-on-premises-sql-server/table-def.png)
 
-4. 按下 **&lt;Ctrl>S** 來儲存新的資料表定義。系統將提示您輸入資料表名稱。輸入 `Speakers` 並按 [確定]。
+4. 按 **&lt;Ctrl>S** 以儲存新的資料表定義。系統將提示您輸入資料表名稱。輸入 `Speakers` 並按 [**確定**]。
 
 	![儲存新的資料表](./media/app-service-api-hybrid-on-premises-sql-server/save-new-table.png)
 
-5. 在 [物件總管] 中，以滑鼠右鍵按一下新建立的 `Speakers` 資料表，然後選取操作功能表中的 [編輯前 200 個資料列]。
+5. 在 [**物件總管**] 中，以滑鼠右鍵按一下新建立的 `Speakers` 資料表，然後選取內容功能表中的 [**編輯前 200 個資料列**]。
 
 	![編輯前 200 個資料列](./media/app-service-api-hybrid-on-premises-sql-server/edit-top-200-rows.png)
 
@@ -156,25 +158,25 @@
 
 本節將引導您逐步建立示範 API 應用程式。
 
-1. 開啟 Visual Studio 2013，然後選取 [檔案] > [新增] > [專案]。 
+1. 開啟 Visual Studio 2013，然後選取 **[檔案] > [新增] > [專案]**。 
 
-2. 選取 [Visual C#] > [Web] > [ASP.NET Web 應用程式] 範本、清除 [將 Application Insights 加入至專案] 選項、將專案命名為 *SpeakersList*，然後按一下 [確定]。
+2. 選取 **[Visual C#] > [Web] > [ASP.NET Web 應用程式]** 範本，取消選取 [**將 Application Insights 加入專案**] 選項，再將專案命名為 *SpeakersList*，然後按一下 [**確定**]。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-project.png)
 
-3. 在 [新增 ASP.NET 專案] 對話方塊上，選取 [Azure API 應用程式] 專案範本，然後按一下 [確定]。
+3. 在 [**新增 ASP.NET 專案**] 對話方塊上，選取 [**Azure API 應用程式**] 專案範本，然後按一下 [**確定**]。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-project-api-app.png)
 
-4. 在 [方案總管] 中，以滑鼠右鍵按一下 [模型] 資料夾，然後選取 [新增] > [類別...] 操作功能表選項。
+4. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**模型**] 資料夾，然後選取 **[新增] > [類別...]** 內容功能表選項。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-menu.png)
 
-5. 將新檔案命名為 *Speaker.cs*，然後按一下 [新增]。
+5. 將新檔案命名為 *Speaker.cs*，然後按一下 [**新增**]。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-class.png)
 
-6. 將 `Speaker.cs` 檔案的整個內容取代為下列程式碼。
+6. 以下列程式碼取代 `Speaker.cs` 檔案的所有內容。
 
 		namespace SpeakersList.Models
 		{
@@ -186,21 +188,21 @@
 			}
 		}
 
-7. 在 [方案總管] 中，以滑鼠右鍵按一下 [控制器] 資料夾，然後選取 [新增] > [控制器...] 操作功能表選項。
+7. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**控制器**] 資料夾，然後選取 **[新增] > [控制器...]** 內容功能表選項。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-controller.png)
 
-8. 在 [新增 Scaffold] 對話方塊中，選取 [Web API 2 控制器 - 空白] 選項，然後按一下 [新增]。
+8. 在 [**新增 Scaffold**] 對話方塊中，選取 [**Web API 2 控制器 - 空的**] 選項，然後按一下 [**新增**]。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/add-scaffold.png)
 
-9. 將控制器命名為 **SpeakersController** 並按一下 [新增]。
+9. 將控制器命名為 **SpeakersController** 並按一下 [**新增**]。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/add-controller-name.png)
 
-10. 將 `SpeakersController.cs` 檔案中的程式碼取代為下列程式碼。請務必在 `connectionString` 中為 &lt;serverName> 與 &lt;password> 預留位置指定您自己的值。&lt;serverName> 值是 SQL Server 所在位置的機器名稱，而 &lt;password> 值則是當您安裝與設定 SQL Server 時所設定的值
+10. 以下列程式碼取代 `SpeakersController.cs` 檔案中的程式碼。請務必在 `connectionString` 中為 &lt;serverName> 與 &lt;password> 預留位置指定您自己的值。&lt;serverName> 值是 SQL Server 所在位置的機器名稱，而 &lt;password> 值則是當您安裝與設定 SQL Server 時所設定的值
 
-	> [AZURE.NOTE]下列程式碼片段包含密碼資訊。這麼做是為了簡化示範。在實際生產環境中，您不應該在程式碼中儲存認證。相反地，請參閱[將密碼 (和其他機密資料) 部署到 ASP.NET 和 Azure 的最佳做法](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)。
+	> [AZURE.NOTE]下列程式碼片段包含密碼資訊。這麼做是為了簡化示範。在實際生產環境中，您不應該在程式碼中儲存認證。相反地，請參閱[將密碼 (和其他機密資料) 部署至 ASP.NET 和 Azure 的最佳做法](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)。
 
 		using System;
 		using System.Collections.Generic;
@@ -292,7 +294,7 @@
 
 ### 測試 API 應用程式
 
-1. 若要檢視 API 測試頁，可透過 **&lt;Ctrl>F5** 在本機執行應用程式。您應該會看到類似下列影像的錯誤。
+1. 若要檢視 API 測試頁面，可透過 **&lt;Ctrl>F5** 在本機執行應用程式。您應該會看到類似下列影像的錯誤。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/error-forbidden.png)
 
@@ -300,11 +302,11 @@
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/swagger-ui.png)
 
-3. 按一下 [Speakers] 區段加以展開。
+3. 按一下 [**Speakers**] 區段將其展開。
 
-4. 按一下 [GET /api/speakers] 以展開該區段。
+4. 按一下 [**GET /api/speakers**] 以展開該區段。
 
-5. 按一下 [Try it out!] 來檢視您先前輸入資料庫的資料。
+5. 按一下 [**Try it out!**] 檢視您之前輸入資料庫的資料。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/try-it-out.png)
 
@@ -320,7 +322,7 @@
 
 	![專案發佈功能表選項](./media/app-service-api-hybrid-on-premises-sql-server/publish-web.png)
 
-3. 按一下 [新增] 在您的 Azure 訂用帳戶中佈建新的 API 應用程式。
+3. 按一下 [**新增**] 在 Azure 訂用帳戶中佈建新的 API 應用程式。
 
 	![選取現有的 API 服務對話方塊](./media/app-service-api-hybrid-on-premises-sql-server/publish-to-existing-api-app.png)
 
@@ -328,20 +330,20 @@
 
 	- 在 [**API 應用程式名稱**] 之下，輸入應用程式的名稱。 
 	- 如果您有多個 Azure 訂用帳戶，請選取您要使用的訂用帳戶。
-	- 在 [App Service 方案] 下，從現有的 App Service 方案選取，或選取 [建立新的 App Service 方案] 並輸入新方案的名稱。 
+	- 在 [**App Service 方案**] 下方，從現有的 App Service 方案中選取，或選取 [**建立新的 App Service 方案**] 並輸入新方案的名稱。 
 	- 在 [**資源群組**] 之下，從現有的資源群組進行選取，或選取 [**建立新的資源群組**] 並輸入名稱。此名稱必須是唯一的。請考慮使用應用程式名稱做為前置詞並附加一些個人資訊，例如 Microsoft ID (不含 @ 符號)。  
-	- 在 [**存取層級**] 之下，選取 [**可供任何人使用**]。此選項可讓您的 API 完全公開，這在本教學課程沒有問題。稍後您可以透過 [Azure 預覽入口網站](https://portal.azure.com)限制存取。
+	- 在 [**存取層級**] 之下，選取 [**可供任何人使用**]。此選項可讓您的 API 完全公開，這在本教學課程沒有問題。稍後您可以透過 [Azure Preview 入口網站](https://portal.azure.com)限制存取。
 	- 選取區域。
 
-	按一下 [確定] 以在您的訂用帳戶中建立 API 應用程式。
+	按一下 [**確定**] 以在您的訂用帳戶中建立 API 應用程式。
 
 	![設定 Microsoft Azure Web 應用程式對話方塊](./media/app-service-api-hybrid-on-premises-sql-server/publish-new-api-app.png)
 
-5. 此程序可能會花費幾分鐘，因此 Visual Studio 會顯示一個對話方塊，通知您此程序已起始。按一下確認對話方塊上的 [確定]。
+5. 此程序可能會花費幾分鐘，因此 Visual Studio 會顯示一個對話方塊，通知您此程序已起始。按一下確認對話方塊上的 [**確定**]。
 
 	![已開始建立 API 服務確認訊息](./media/app-service-api-hybrid-on-premises-sql-server/create-api-app-confirmation.png)
 
-6. 當佈建程序在您的 Azure 訂用帳戶中建立資源群組和 API 應用程式時，Visual Studio 會在 [Azure App Service 活動] 視窗中顯示進度。
+6. 當佈建程序在您的 Azure 訂用帳戶中建立資源群組和 API 應用程式時，Visual Studio 會在 [**Azure App Service 活動**] 視窗中顯示進度。
 
 	![透過 Azure App Service 活動視窗的狀態通知](./media/app-service-api-hybrid-on-premises-sql-server/app-service-activity.png)
 
@@ -349,39 +351,39 @@
 
 	![部署 API 應用程式](./media/app-service-api-hybrid-on-premises-sql-server/publish2.png)
 
-[Azure App Service 活動] 視窗會顯示部署進度，並在發佈程序完成時指示。
+[**Azure App Service 活動**] 視窗會顯示部署進度，並在發佈程序完成時表示完成。
 
 ## 建立混合式連線和 BizTalk 服務 ##
 
 1. 在瀏覽器中導覽至 [Azure 預覽入口網站](https://portal.azure.com)。 
 
-2. 按一下左側的 [瀏覽全部] 選項。
+2. 按一下左側的 [**全部瀏覽**] 選項。
 
-3. 在 [瀏覽] 刀鋒視窗中，選取 [API 應用程式]。
+3. 在 [**瀏覽**] 刀鋒視窗中，選取 [**API Apps**]。
 
-4. 在 [API 應用程式] 刀鋒視窗中，找到您的 API 應用程式並按一下它。
+4. 在 **[API Apps]** 刀鋒視窗中，找到您的 API 應用程式並按一下。
 
-5. 在您的 API 應用程式的刀鋒視窗中，按一下 [API 應用程式主機] 底下的值。
+5. 在您 API 應用程式的刀鋒視窗中，按一下 [**API 應用程式主機**] 下方的值。
  
 	![API 應用程式刀鋒視窗](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
-6. 當 [API 主控處理程序] 刀鋒視窗顯示時，向下捲動至 [網路] 區段並按一下 [混合式連線]。
+6. 當 [**API 應用程式主機**] 刀鋒視窗顯示時，向下捲動至 [**網路**] 區段並按一下 [**混合式連線**]。
 	
 	![混合式連線](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
-7. 在 [混合式連接] 刀鋒視窗上，按一下 [新增] > [新增混合式連線]。
+7. 在 [**混合式連線**] 刀鋒視窗上，按一下 [**新增**] > [**新增混合式連線**]。
 	
 8. 在 [建立混合式連線分頁] 上：
 	- 在 [名稱] 中，提供連線的名稱。
 	- 針對 [主機名稱]，輸入您的 SQL Server 主機電腦的電腦名稱。
-	- 針對 [連接埠]，輸入 `1433` (SQL Server 的預設連接埠)。
+	- 針對 [**連接埠**]，輸入 `1433` (SQL Server 的預設連接埠)。
 	- 按一下 [Biz Talk 服務] 並輸入 BizTalk 服務的名稱。
 	
 	![建立混合式連線](./media/app-service-api-hybrid-on-premises-sql-server/create-biztalk-service.png)
 		
 9. 按兩次 [確定]。
 
-	程序完成時，[通知] 區域會閃爍綠色 [成功]，而且 [混合式連線] 刀鋒視窗會顯示新的混合式連線，且狀態為 [未連線]。
+	程序完成時，[**通知**] 區域會閃爍綠色 [**成功**]，而且 [**混合式連線**] 刀鋒視窗會顯示新的混合式連線，其狀態為 [**未連線**]。
 	
 	![已建立混合式連線](./media/app-service-api-hybrid-on-premises-sql-server/hybrid-not-connected-yet.png)
 	
@@ -397,15 +399,15 @@
 <a name="CreateASPNET"></a>
 ## 在 Azure 上測試已完成的 API 應用程式
 
-1. 在 Azure Preview 入口網站中，回到 API 主控處理程序刀鋒視窗，並按一下 [URL] 底下的值。
+1. 在 Azure Preview 入口網站中，回到 [API 應用程式主機] 刀鋒視窗，並按一下 [**URL**] 下方的值。
 	
-2. 當您的瀏覽器顯示 API 應用程式的主控頁面時，請將 `/swagger` 附加至您瀏覽器網址列中的 URL，並按一下 **&lt;Enter>**。
+2. 當您的瀏覽器中顯示 API 應用程式的主機頁面時，請將 `/swagger` 附加至您瀏覽器網址列中的 URL，並按一下 **&lt;Enter>**。
 	
-3. 按一下 [Speakers] 區段加以展開。
+3. 按一下 [**Speakers**] 區段將其展開。
 
-4. 按一下 [GET /api/speakers] 以展開該區段。
+4. 按一下 [**GET /api/speakers**] 以展開該區段。
 
-5. 按一下 [Try it out!] 來檢視您先前輸入資料庫的資料。
+5. 按一下 [**Try it out!**] 檢視您之前輸入資料庫的資料。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/try-it-out-azure.png)
 	
@@ -430,4 +432,4 @@
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

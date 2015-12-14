@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用快速設定開始使用 Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect：開始使用快速設定 | Microsoft Azure"
 	description="了解如何下載、安裝和執行 Azure AD Connect 的安裝精靈。"
 	services="active-directory"
 	documentationCenter=""
@@ -49,7 +49,7 @@
 	- 在 [準備好設定] 頁面上，您可以選擇取消核取 [設定一完成，即開始同步處理程序] 核取方塊。如果這麼做，精靈會設定同步處理但會停用該工作而不執行，直到您在 [工作排程器] 將它重新啟用。一旦啟用工作，每隔三小時就會執行同步處理。
 	- 此外，您也可以選擇核取對應 [Exchange 混合式部署] 的核取方塊，以設定同步處理服務。如果您不打算在雲端和內部部署設定 Exchange 信箱，則不需要此設定。![歡迎使用 Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)<br>
 8. 當安裝完成時，按一下 [結束]。
-
+9. 安裝完成之後，請先登出 Windows 再重新登入，才能使用 同步處理服務管理器或同步處理規則編輯器。
 
 <br> <br>
 
@@ -63,4 +63,4 @@
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

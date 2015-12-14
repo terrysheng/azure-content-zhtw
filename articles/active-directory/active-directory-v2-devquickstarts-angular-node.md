@@ -237,4 +237,4 @@ node server.js
 - [堆疊溢位上的 Azure AD >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

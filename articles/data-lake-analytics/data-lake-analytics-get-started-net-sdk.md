@@ -34,7 +34,7 @@
 3. 開發 U SQL 指令碼。
 4. 將工作 (U-SQL 指令碼) 提交至資料湖分析帳戶。此工作會讀取來源資料、依照 U-SQL 指令碼中的指示處理資料，然後將輸出儲存至資料湖存放區帳戶或 Blob 儲存體帳戶。
 
-##先決條件
+##必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
@@ -43,7 +43,7 @@
 - **[Visual Studio 適用的資料湖工具](http://aka.ms/adltoolsvs)**。 
 - **資料湖分析帳戶**。請參閱[建立 Azure 資料湖分析帳戶](data-lake-analytics-get-started-portal.md#create_adl_analytics_account)。
 
-	資料湖工具不支援建立資料湖分析帳戶。因此您必須使用 Azure Preview 入口網站、Azure PowerShell、.NET SDK 或 Azure CLI 建立帳戶。
+	資料湖工具不支援建立資料湖分析帳戶。因此您必須使用 Azure 入口網站、Azure PowerShell、.NET SDK 或 Azure CLI 建立帳戶。
 
 ##建立主控台應用程式
 
@@ -51,7 +51,7 @@
 
 系統已將搜尋記錄檔範例複製到公用 Azure Blob 容器。在應用程式中，您會將該檔案下載至您的工作站，然後將檔案上傳到預設的資料湖存放區帳戶。
 
-**建立應用程式**
+**若要建立應用程式**
 
 1. 開啟 Visual Studio。
 2. 建立 C# 主控台應用程式。
@@ -252,7 +252,7 @@
 - 若要了解更複雜的查詢，請參閱[使用 Azure 資料湖分析分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
 - 若要開始開發 U-SQL 應用程式，請參閱[使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 - 若要了解 U-SQL，請參閱[開始使用 Azure 資料湖分析 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)。
-- 若是管理工作，請參閱[使用 Azure Preview 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
+- 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

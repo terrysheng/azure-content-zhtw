@@ -1,6 +1,6 @@
 <properties
-   pageTitle="開始使用 SQL Database 動態資料遮罩 (Azure Preview 入口網站)"
-   description="如何開始在 Azure Preview 入口網站中使用 SQL 資料庫動態資料遮罩"
+   pageTitle="開始使用 SQL Database 動態資料遮罩 (Azure 入口網站)"
+   description="如何開始在 Azure 入口網站中使用 SQL 資料庫動態資料遮罩"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -17,10 +17,10 @@
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
-# 開始使用 SQL Database 動態資料遮罩 (Azure Preview 入口網站)
+# 開始使用 SQL Database 動態資料遮罩 (Azure 入口網站)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
+- [Dynamic Data Masking - Azure Classic Portal](sql-database-dynamic-data-masking-get-started-portal.md)
 
 ## 概觀
 
@@ -32,7 +32,7 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 ## SQL Database 動態資料遮罩的基本概念
 
-如需在 Azure Preview 入口網站中建立動態資料遮罩原則，請在您的 SQL Database 設定刀鋒視窗或設定刀鋒視窗中，選取 [動態資料遮罩] 作業。
+如需在 Azure 入口網站中建立動態資料遮罩原則，請在您的 SQL Database 設定刀鋒視窗或設定刀鋒視窗中，選取 [動態資料遮罩] 作業。
 
 
 ### 動態資料遮罩權限
@@ -62,9 +62,9 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 DDM 建議引擎會將您資料庫中的特定欄位標示為潛在敏感性欄位，而這類欄位可能適合進行遮罩處理。在入口網站的 [動態資料遮罩] 刀鋒視窗中，您會看到您的資料庫的建議資料行。您只需要對一或多個資料行按一下 [新增遮罩]，然後按一下 [儲存]，以便對這些欄位套用遮罩。
 
-## 使用 Azure Preview 入口網站為您的資料庫設定動態資料遮罩
+## 使用 Azure 入口網站為您的資料庫設定動態資料遮罩
 
-1. 啟動 Azure Preview 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+1. 啟動 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
 
 2. 導覽至您要遮罩處理的敏感性資料所在資料庫的設定刀鋒視窗。
 
@@ -109,4 +109,4 @@ DDM 建議引擎會將您資料庫中的特定欄位標示為潛在敏感性欄�
 
 請參閱 [Azure SQL Database 的作業](https://msdn.microsoft.com/library/dn505719.aspx)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

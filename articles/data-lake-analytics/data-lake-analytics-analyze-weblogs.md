@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/09/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # 教學課程：使用 Azure 資料湖分析來分析網站記錄
@@ -34,12 +34,12 @@
 
 - **對於資料湖分析和適用於 Visual Studio 的資料湖工具有基本的認識**。若要開始使用，請參閱：
  
-	- [使用 Azure Preview 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)。
+	- [使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)。
 	- [使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 
 - **資料湖分析帳戶。** 請參閱[建立 Azure 資料湖分析帳戶](data-lake-analytics-get-started-portal.md#create_adl_analytics_account)。
 
-	資料湖工具不支援建立資料湖分析帳戶。因此您必須使用 Azure Preview 入口網站、Azure PowerShell、.NET SDK 或 Azure CLI 建立帳戶。 
+	資料湖工具不支援建立資料湖分析帳戶。因此您必須使用 Azure 入口網站、Azure PowerShell、.NET SDK 或 Azure CLI 建立帳戶。 
 - **將範例資料上傳到資料湖分析帳戶**。 請參閱[將 SearchLog.tsv 上傳到預設資料湖儲存體帳戶](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account)。
 
     若要執行資料湖分析工作，您需要一些資料。即使資料湖工具支援上傳資料，您將使用入口網站來上傳範例資料，以方便遵循本教學課程。
@@ -58,7 +58,7 @@
 **瀏覽您的資料湖分析帳戶**
 
 1. 從 Visual Studio 中，按 **CTRL+ALT+S**，開啟 [伺服器總管]。
-2. 從 [伺服器總管] 中，展開 [Azure]，然後展開 [資料湖分析]。如果有資料湖分析帳戶，您就會看到其清單。您無法從 Visual Studio 建立資料湖分析帳戶。若要建立帳戶，請參閱[使用 Azure Preview 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)或[使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-analytics-get-started-powershell.md)。
+2. 從 [伺服器總管] 中，展開 [Azure]，然後展開 [資料湖分析]。如果有資料湖分析帳戶，您就會看到其清單。您無法從 Visual Studio 建立資料湖分析帳戶。若要建立帳戶，請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)或[使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-analytics-get-started-powershell.md)。
 
 ## 開發 U-SQL 應用程式 
 
@@ -192,7 +192,7 @@ U-SQL 應用程式基本上是 U-SQL 指令碼。若要深入了解 U-SQL，請�
 
 若要使用不同的工具開始使用資料湖分析，請參閱：
 
-- [使用 Azure Preview 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
+- [使用 Azure 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
 - [使用 Azure PowerShell 開始使用資料湖分析](data-lake-analytics-get-started-powershell.md)
 - [使用 .NET SDK 開始使用資料湖分析](data-lake-analytics-get-started-net-sdk.md)
 
@@ -202,4 +202,4 @@ U-SQL 應用程式基本上是 U-SQL 指令碼。若要深入了解 U-SQL，請�
 - [開始使用 Azure 資料湖分析 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)
 - [針對資料湖分析工作開發 U-SQL 使用者定義運算子](data-lake-analytics-u-sql-user-defined-operators.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

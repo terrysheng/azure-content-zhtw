@@ -28,7 +28,7 @@
 
 ## 建立虛擬網路
 
-您可以使用 Azure 入口網站或 Powershell 在 Azure 中建立虛擬網路。在本教學課程中，我們將使用 Powershell。若要使用 Azure 入口網站建立虛擬網路，請參閱「[建立虛擬網路](../create-virtual-network.md)」。
+您可以使用 Azure 傳統入口網站或 Powershell 在 Azure 中建立虛擬網路。在本教學課程中，我們將使用 Powershell。若要使用 Azure 傳統入口網站建立虛擬網路，請參閱「[建立虛擬網路](../create-virtual-network.md)」。
 
     #Create Virtual Network
 
@@ -147,4 +147,4 @@
 希望您覺得這個做法很實用！
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

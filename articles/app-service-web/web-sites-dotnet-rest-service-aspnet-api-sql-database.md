@@ -740,7 +740,6 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -811,4 +810,4 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

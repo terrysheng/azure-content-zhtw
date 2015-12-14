@@ -59,7 +59,7 @@
 
 首先，您會建立 TestLab Azure 虛擬網路，以架設基本設定的公司網路子網路。
 
-1.	在 [Azure 入口網站](https://manage.windowsazure.com)的工作列上，按一下 **[新增] > [網路服務] > [虛擬網路] > [自訂建立]**。
+1.	在 [Azure 傳統入口網站](https://manage.windowsazure.com)的工作列上，按一下 [新增] > [網路服務] > [虛擬網路] > [自訂建立]。
 2.	在 [虛擬網路詳細資料] 頁面中的 [名稱] 中，輸入 **TestLab**。
 3.	在 [位置] 中，選取適當的區域。
 4.	按 [下一步] 箭頭。
@@ -126,7 +126,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 
 接著，連接到 DC1 虛擬機器。
 
-1.	在 Azure 入口網站的左窗格中，按一下 [**虛擬機器**]，然後在 DC1 虛擬機器的 [**狀態**] 欄中，按一下 [**已啟動**]。  
+1.	在 Azure 傳統入口網站的左窗格中，按一下左側窗格的 [虛擬機器]，然後在 DC1 虛擬機器的 [狀態] 欄中，按一下 [已啟動]。  
 2.	在工作列上，按一下 [連接]。
 3.	提示開啟 DC1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
@@ -155,7 +155,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 
 DC1 重新啟動之後，重新連接到 DC1 的虛擬機器。
 
-1.	在 Azure 入口網站的 [虛擬機器] 頁面上，按一下 DC1 虛擬機器 [**狀態**] 欄中的 [**執行**]。
+1.	在 Azure 傳統入口網站的 [虛擬機器] 頁面上，按一下 DC1 虛擬機器 [狀態] 欄中的 [執行]。
 2.	在工作列上，按一下 [連接]。
 3.	提示開啟 DC1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
@@ -288,4 +288,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

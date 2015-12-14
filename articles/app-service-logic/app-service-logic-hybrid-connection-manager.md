@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2015" 
+	ms.date="11/30/2015" 
 	ms.author="mandia"/>
 
 # 使用混合式連線管理員連線至 Azure App Service 中的內部部署連接器
@@ -133,4 +133,4 @@ TCP 連接埠 | 理由
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

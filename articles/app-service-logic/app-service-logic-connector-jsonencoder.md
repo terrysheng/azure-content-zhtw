@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="11/25/2015"
    ms.author="rajram"/>
 
 # 開始使用 BizTalk JSON 編碼器並將它加入您的邏輯應用程式 
@@ -68,4 +68,4 @@ BizTalk JSON 編碼器解碼器連接器協助您的應用程式在 JSON 和 XML
 <!--Links -->
 [建立邏輯應用程式]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

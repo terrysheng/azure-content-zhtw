@@ -62,7 +62,7 @@
 
 透過使用自動調整規模自動調整、使用 Azure Redis Cache 執行快取、使用 WebJobs 執行背景工作，以及使用 Azure 流量管理員維持高可用性，以最佳化您的企業營運應用程式。
 
-App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作負載多寡，都能符合您企業營運應用程式的需求。透過 [Azure 管理入口網站]以手動方式、透過[服務管理 API] 或 [PowerShell 指令碼]以程式設計方式，或透過「自動調整規模」功能自動地將您的 Web 應用程式相應放大。在「標準」層中，「自動調整規模」可讓您依據 CPU 使用量自動相應放大 Web 應用程式。如需最佳做法，請參閱 [Troy Hunt] 的[我所學到關於使用 Azure 快速調整 Web 應用程式的 10 件事]。
+App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作負載多寡，都能符合您企業營運應用程式的需求。透過 [Azure 入口網站]以手動方式、透過[服務管理 API] 或 [PowerShell 指令碼處理]以程式設計方式，或是使用「自動調整」功能自動地將您的 Web 應用程式向外調整。在「標準」層中，「自動調整規模」可讓您依據 CPU 使用量自動相應放大 Web 應用程式。如需最佳做法，請參閱 [Troy Hunt] 的[我所學到關於使用 Azure 快速調整 Web 應用程式的 10 件事]。
 
 使用 [Azure Redis Cache] 加速您 Web 應用程式的回應速度。使用此功能，可從後端資料庫以及 [ASP.NET 工作階段狀態]與[輸出快取]等其他項目快取資料。
 
@@ -72,7 +72,7 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 
 使用 Azure 或協力廠商工具，掌握關於您 Web 應用程式效能的最新資訊。接收重要 Web 應用程式事件的警示。使用 Application Insight 或使用 HDInsight 的 Web 記錄分析，取得使用者深入觀點。
 
-在 [Azure 預覽入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)的 Web 應用程式刀鋒視窗中，[快速瀏覽] Web 應用程式目前效能標準與資源配額。如需應用程式的可用性、效能和使用方式的全方位檢視，請使用 [Azure Application Insights] 以取得快速和強大的疑難排解、診斷和使用方式的深入觀點。或者，使用像是 [New Relic] 的協力廠商工具，提供您 Web 應用程式的進階監視資料。
+在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)的 Web 應用程式刀鋒視窗中，[快速瀏覽] Web 應用程式目前效能標準與資源配額。如需應用程式的可用性、效能和使用方式的全方位檢視，請使用 [Azure Application Insights] 以取得快速和強大的疑難排解、診斷和使用方式的深入觀點。或者，使用像是 [New Relic] 的協力廠商工具，提供您 Web 應用程式的進階監視資料。
 
 在「標準」層中，每當您的應用程式沒有回應時，監視應用程式回應便會收到電子郵件通知。如需詳細資訊，請參閱[作法：在 Azure 中接收警示通知及管理警示規則]。
 
@@ -108,9 +108,9 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 [Azure 虛擬網路]: web-sites-integrate-with-vnet.md
 
 [相應增加與放大]: web-sites-scale.md
-[Azure 管理入口網站]: http://manage.windowsazure.com/
+[Azure 入口網站]: http://portal.azure.com/
 [服務管理 API]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
-[PowerShell 指令碼]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[PowerShell 指令碼處理]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]: https://twitter.com/troyhunt
 [我所學到關於使用 Azure 快速調整 Web 應用程式的 10 件事]: http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Azure Redis Cache]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
@@ -124,4 +124,4 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

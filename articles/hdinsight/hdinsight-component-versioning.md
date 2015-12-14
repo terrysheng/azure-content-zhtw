@@ -52,7 +52,7 @@ Apache Spark|1\.3.1|||
 
 ### 建立 HDInsight 叢集時選取版本
 
-在透過 HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 建立叢集時，您可以在 Azure 預覽入口網站中使用 [選擇性組態] 刀鋒視窗上的 [HDInsight 版本] 下拉式清單，選擇 HDInsight Hadoop 的叢集版本。
+在透過 HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 建立叢集時，您可以在 Azure 入口網站中使用 [選擇性組態] 刀鋒視窗上的 [HDInsight 版本] 下拉式清單，選擇 HDInsight Hadoop 的叢集版本。
 
 ##功能要點
 一些 HDInsight 平台的突出功能包括：
@@ -66,7 +66,7 @@ Apache Spark|1\.3.1|||
 
 - **Storm** - Azure HDInsight 上的 Storm 現在可供使用，只要一些點擊動作，就可以在幾分鐘內快速、輕易地部署即時分析。Azure HDInsight 上的 Apache Storm 是 Apache Hadoop 生態系統中的開放原始碼專案，提供能夠可靠地處理數百萬事件之分析平台的存取權。現在 Hadoop 使用者可以在事件發生時獲得深入見解，也能夠獲得過去發生之事件的深入見解。Microsoft 也提供與 Visual Studio 的內建整合，讓開發人員輕易地與 Storm 互動。您現在可以從 Visual Studio 開發、部署及偵錯 Storm 拓撲。
 
-- **Linux 上的 HDInsight** - Azure HDInsight 提供建立 Hadoop 叢集的選項，該叢集在 Linux (Ubuntu) 虛擬機器 (VM) 上執行。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。您可以使用 Azure Preview 入口網站、Azure CLI 或 HDInsight .NET SDK (僅限 Windows)，從執行 Windows 或 Linux 的用戶端電腦，在 Linux 上建立 HDInsight 叢集。
+- **Linux 上的 HDInsight** - Azure HDInsight 提供建立 Hadoop 叢集的選項，該叢集在 Linux (Ubuntu) 虛擬機器 (VM) 上執行。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，則可以使用此選項。您可以使用 Azure 入口網站、Azure CLI 或 HDInsight .NET SDK (僅限 Windows)，從執行 Windows 或 Linux 的用戶端電腦，在 Linux 上建立 HDInsight 叢集。
 
 - **其他 VM 大小** - HDInsight 叢集現在有更多 VM 類型和大小可用。HDInsight 叢集現在可以利用針對一般用途建置的 A2 到 A7 大小；特色為固態硬碟 (SSD) 和處理器速度更快 60% 的 D 系列節點；以及具有 InfiniBand 支援可快速進行網路連線的 A8 和 A9 大小。Azure HDInsight 上的 Apache HBase 客戶可以從 D 系列更大的記憶體組態獲得效能增加的優點。Azure HDInsight 上的 Apache Storm 客戶可以獲得額外記憶體的優點，用來載入更大的參考資料集，以及更快的 CPU 可用於更高的輸送量。
 
@@ -101,9 +101,9 @@ Apache Spark|1\.3.1|||
 下表列出目前可用的 HDInsight 版本、它們使用的相對應 Hortonworks Data Platform 版本及其發行日期。另外也會提供其支援到期日和淘汰日期 (已知道的話)。請注意：
 
 * 依預設，系統會為 HDInsight 2.1 和更新版本部署搭配兩個前端節點的高可用性叢集。HDInsight 1.6 叢集並不適用。
-* 特定版本的支援到期後，其可能無法透過 Azure 預覽入口網站取得。下表指出可在 Azure 入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
+* 在特定版本的支援到期後，您可能無法透過 Azure 入口網站取得。下表指出可在 Azure 傳統入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
 
-HDInsight 版本|HDP 版本|高可用性|發行日期|可在 Azure 入口網站上取得|支援到期日|淘汰日期
+HDInsight 版本|HDP 版本|高可用性|發行日期|可在 Azure 傳統入口網站取得|支援到期日|淘汰日期
 ---|---|---|---|---|---|---
 HDI 3.2|HDP 2.2|是|2015/2/18|是||
 HDI 3.1|HDP 2.1|是|2014/6/24|是||
@@ -118,7 +118,7 @@ HDI 1.6|HDP 1.1|否|10/28/2013|否|04/26/2014|05/31/2015
 SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。如果 HDInsight 叢集版本的 [支援到期日] 超過目前日期，則表示該叢集不在「支援期間」。上表中可找到支援的 HDInsight 叢集版本清單。特定 HDInsight X (在較新的 X+1 版本推出後) 版本的支援到期日計算方式會以下列較晚的時間為準：
 
 - 公式 1：將 HDInsight 叢集 X 版發行日期加上 180 天。
-- 公式 2：將 HDInsight 叢集 X+1 版 (X 之後的後續版本) 在預覽入口網站中可用的日期加上 90 天。
+- 公式 2：將 HDInsight 叢集 X+1 版日期加上 90 天 (X 之後的後續版本) 可用於入口網站。
 
 [**淘汰日期**] 是指在此日期之後便無法在 HDInsight 上建立叢集版本。
 
@@ -162,4 +162,4 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

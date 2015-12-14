@@ -30,7 +30,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 
 - [媒體服務 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - 其中一個可用的用戶端 SDK：[Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services)、[Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)、[Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media)、[Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
-- 現有工具：[Azure 管理入口網站](http://manage.windowsazure.com/)或 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)。
+- 現有工具：[Azure 傳統入口網站](http://manage.windowsazure.com/)或 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)。
 
 
 ##媒體服務學習路徑
@@ -50,7 +50,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 若要開始使用 Azure 媒體服務，您應該具備下列項目：
  
 3. 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](azure.microsoft.com)。
-2. Azure 媒體服務帳戶。使用 Azure 管理入口網站、.NET 或 REST API 建立 Azure 媒體服務帳戶。如需詳細資訊，請參閱[建立帳戶](media-services-create-account.md)。
+2. Azure 媒體服務帳戶。使用 Azure 傳統入口網站、.NET 或 REST API 建立 Azure 媒體服務帳戶。如需詳細資訊，請參閱[建立帳戶](media-services-create-account.md)。
 3. (選擇性) 設定開發環境。針對開發環境選擇 .NET 或 REST API。如需詳細資訊，請參閱[設定環境](media-services-dotnet-how-to-use.md)。 
 
 	此外，請了解如何以程式設計方式[連線](media-services-dotnet-connect_programmatically.md)。
@@ -231,4 +231,4 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -55,7 +55,7 @@
 
 Azure AD Connect 可讓內部部署電腦佈建為雲端中的裝置物件。若要部署 Azure AD Connect，請參閱「使用 Azure AD Connect 啟用目錄的混合式管理」。
 
- - 如果您先前是依照 [Azure AD Connect 的自訂安裝](https://azure.microsoft.com/zh-TW/documentation/articles/active-directory-aadconnect-get-started-custom/) (不是快速安裝) 操作，您必須遵循如下所述的**在內部部署 Active Directory 中建立服務連接點 (SCP)** 程序。
+ - 如果您先前是依照 [Azure AD Connect 的自訂安裝](active-directory-aadconnect-get-started-custom.md) (不是快速安裝) 操作，您必須遵循如下所述的**在內部部署 Active Directory 中建立服務連接點 (SCP)** 程序。
  - 如果您在安裝 Azure AD Connect 之前已有 Azure AD 的同盟組態 (例如，如果您先前已部署 Active Directory Federation Service (AD FS))，則必須遵循下方的**設定 AD FS 宣告規則**程序。
 
 ### 在內部部署 Active Directory 中建立服務連接點 (SCP)
@@ -137,4 +137,4 @@ Azure AD Connect 可讓內部部署電腦佈建為雲端中的裝置物件。若
 * [將已加入網域的裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

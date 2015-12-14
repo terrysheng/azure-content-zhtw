@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015" 
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
 # 如何使用行動服務的 Android 用戶端程式庫
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
@@ -55,7 +59,7 @@
 				"AppKey", 			// replace with the Application Key
 				this)
 
-在上述程式碼中，請以行動服務 URL 和應用程式金鑰依序取代 `MobileServiceUrl` 和 `AppKey`。這兩個項目都可從管理入口網站取得，只要選取您的行動服務，再按一下 [儀表板] 即可。
+在上述程式碼中，請以行動服務 URL 和應用程式金鑰依序取代 `MobileServiceUrl` 和 `AppKey`。您可在 Azure 傳統入口網站上找到這兩項資訊，方法是選取您的行動服務，然後按一下 [儀表板]。
 
 ##<a name="instantiating"></a>作法：建立資料表參考
 
@@ -133,7 +137,7 @@
                     final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
-                		Log.i(TAG, "Read object with ID " + item.id);  
+                		Log.i(TAG, "Read object with ID " + item.id);
 					}
                 } catch (Exception exception) {
                     createAndShowDialog(exception, "Error");
@@ -371,7 +375,7 @@
 	}
 
 
-下列程式碼將說明另一種執行方式。此方式會指定要刪除之資料列的 ID 欄位值 (假設等於 "2FA404AB-E458-44CD-BC1B-3BC847EF0902")，以刪除 ToDoItem 資料表中的現有項目。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至服務的 Azure 行動服務入口網站，按一下 [資料] 並複製您想要測試的識別碼。
+下列程式碼將說明另一種執行方式。此方式會指定要刪除之資料列的 ID 欄位值 (假設等於 "2FA404AB-E458-44CD-BC1B-3BC847EF0902")，以刪除 ToDoItem 資料表中的現有項目。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至 Azure 傳統入口網站，按一下 [資料] 並複製您想要測試的識別碼。
 
     public void deleteItem(View view) {
 
@@ -396,7 +400,7 @@
     }
 
 ##<a name="lookup"></a>作法：查閱特定項目
-有時候，您會想要依據 *id* 來查閱特定項目；此方式不像查詢通常會產生符合某個條件的項目集合。下列程式碼說明如何執行此作業，假設 *id* 值為 `0380BAFB-BCFF-443C-B7D5-30199F730335`。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至服務的 Azure 行動服務入口網站，按一下 [資料] 索引標籤並複製您想要測試的識別碼。
+有時候，您會想要依據 *id* 來查閱特定項目；此方式不像查詢通常會產生符合某個條件的項目集合。下列程式碼說明如何執行此作業，假設 *id* 值為 `0380BAFB-BCFF-443C-B7D5-30199F730335`。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至 Azure 傳統入口網站，按一下 [資料] 索引標籤並複製您想要測試的識別碼。
 
     /**
      * Lookup specific item from table and UI
@@ -651,7 +655,7 @@
 
 ##<a name="custom-api"></a>作法：呼叫自訂 API
 
-自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[如何：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
+自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[作法：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
 
 [AZURE.INCLUDE [mobile-services-android-call-custom-api](../../includes/mobile-services-android-call-custom-api.md)]
 
@@ -679,7 +683,7 @@
 
 您可以設定資料表的權限，以限定只有已驗證的使用者才能存取特定作業。您也可以使用已驗證的使用者 ID 來修改要求。
 
-前兩項工作可使用 [Azure 管理入口網站](https://manage.windowsazure.com/)來完成。如需詳細資訊，請參閱[開始使用驗證](http://go.microsoft.com/fwlink/p/?LinkId=296316) (英文)。
+前兩項工作可使用 [Azure 傳統理入口網站](https://manage.windowsazure.com/)來完成。如需詳細資訊，請參閱[開始使用驗證](http://go.microsoft.com/fwlink/p/?LinkId=296316) (英文)。
 
 ### <a name="caching"></a>作法：將驗證碼新增至您的應用程式
 
@@ -933,4 +937,4 @@
 [開始使用行動服務]: mobile-services-android-get-started.md
 [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

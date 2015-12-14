@@ -128,4 +128,4 @@ Web 上有改善您的伺服器回應和頁面載入時間的完整建議，因�
 * [搜尋總管](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

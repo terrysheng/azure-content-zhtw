@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Azure AD Connect - 從 Windows Azure AD 同步作業工具 (DirSync) 升級 | Microsoft Azure"
+   pageTitle="Azure AD Connect：從 Windows Azure AD 同步作業工具 (DirSync) 升級 | Microsoft Azure"
    description="了解如何從 DirSync 升級至 Azure AD Connect。本文說明如何將目前 Windows Azure AD 同步作業工具 (DirSync) 升級至 Azure AD Connect 的步驟。"
    services="active-directory"
    documentationCenter=""
@@ -13,15 +13,15 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="shoatman;billmath"/>
 
-# 將 Windows Azure Active Directory 同步作業 (DirSync) 升級至 Azure Active Directory Connect (Azure AD Connect)
+# 將 Windows Azure Active Directory 同步作業 (DirSync) 升級至 Azure AD Connect
 
 下列文件將協助您將現有的 DirSync 安裝升級至 Azure AD Connect。
 
 ## 相關文件
-如果您尚未閱讀[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md) 上的文件，下表提供相關主題的連結。在開始從 DirSync 升級之前，您需要閱讀以粗體顯示的前兩個主題。
+如果您尚未閱讀[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)上的文件，下表提供相關主題的連結。在開始從 DirSync 升級之前，您需要閱讀以粗體顯示的前兩個主題。
 
 | 主題 | |
 | --------- | --------- |
@@ -53,7 +53,7 @@
 下列組態變更受到 DirSync 支援，將會升級：
 
 - 網域和 OU 篩選
-- 替代識別碼 (UPN)
+- 替代 ID (UPN)
 - 密碼同步和 Exchange 混合式設定
 - 您的樹系/網域與 Azure AD 設定
 
@@ -61,7 +61,7 @@
 
 ![已封鎖升級](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-在這些情況下，建議您在[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)安裝 Azure AD Connect 伺服器，並確認舊的 DirSync 及新的 Azure AD Connect 組態。使用自訂組態重新套用任何變更，如 [Azure AD Connect 同步處理自訂組態](active-directory-aadconnectsync-whatis.md)中所述。
+在這些情況下，建議您在[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)安裝新的 Azure AD Connect 伺服器，並確認舊的 DirSync 及新的 Azure AD Connect 設定。使用自訂組態重新套用任何變更，如 [Azure AD Connect 同步處理自訂組態](active-directory-aadconnectsync-whatis.md)中所述。
 
 
 - 不支援的 DirSync 變更，例如移除屬性和使用自訂延伸模組 DLL
@@ -69,7 +69,7 @@
 
 DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將在升級期間重設。
 
-### 從 DirSync 升級至 Azure AD Connect 的高階步驟。
+### 從 DirSync 升級至 Azure AD Connect 的高階步驟
 
 1. 歡迎使用 Azure AD Connect
 2. 目前 DirSync 組態的分析
@@ -87,16 +87,16 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 
 ## 就地升級
 
-1. 啟動 Azure AD Connect Installer (MSI)。
+1. 啟動 Azure AD Connect 安裝程式 (MSI)。
 2. 檢閱並同意授權條款和隱私權注意事項。![歡迎使用 Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)
-3. 按 [下一步] 以開始分析現有的 DirSync 安裝。![分析現有目錄同步作業安裝](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
+3. 按一下 [下一步] 以開始分析現有的 DirSync 安裝。![分析現有目錄同步作業安裝](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)
 4. 分析完成時，我們將提出如何繼續的建議。  
     - 如果您使用 SQL Server Express 並且具有少於 5 萬個物件，則會顯示以下畫面：![分析已完成，準備好從 DirSync 升級](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)
-    - 如果您針對 DirSync 使用完整的 SQL Server，您會看到此頁面：![分析已完成，準備好從 DirSync 升級](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)<BR/>系統會顯示有關 DirSync 所使用之現有 SQL Server 資料庫伺服器的資訊。如果需要，請進行適當的調整。按 [下一步] 繼續安裝。
-    - 如果您有超過 5 萬個物件，您會看到此畫面：![分析已完成，準備好從 DirSync 升級](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)<BR/>若要繼續進行就地升級，請按一下訊息旁的核取方塊：[繼續在此電腦上升級 DirSync]。 若要改為執行[平行部署](#parallel-deployment)，請匯出 DirSync 組態設定並且移至新的伺服器。
+    - 如果您針對 DirSync 使用完整的 SQL Server，您會看到這個頁面：![分析已完成，準備好從 DirSync 升級](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)<BR/> 系統會顯示有關 DirSync 所使用之現有 SQL Server 資料庫伺服器的資訊。如果需要，請進行適當的調整。按一下 [下一步] 繼續安裝。
+    - 如果您有超過 5 萬個物件，您會改為看到這個畫面：![分析已完成，準備好從 DirSync 升級](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)<BR/> 若要繼續進行就地升級，請按一下這個訊息旁的核取方塊：[繼續升級此電腦上的 DirSync]。 若要改為執行[平行部署](#parallel-deployment)，請匯出 DirSync 組態設定並將其移至新的伺服器。
 5. 提供您目前用來連線到 Azure AD 之帳戶的密碼。必須是 DirSync 目前使用的帳戶。![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)
 6. 提供 Active Directory 的企業系統管理員帳戶。![輸入您的 ADDS 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
-7. 您現在已經可以進行設定。當您按一下 [升級] 時，系統將會解除安裝 DirSync，而 Azure AD Connect 將會完成設定並開始同步處理。![可以進行設定](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
+7. 您現在已經可以進行設定。當您按一下 [升級] 時，系統將會解除安裝 DirSync，而 Azure AD Connect 將會完成設定並開始同步處理。![準備設定](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
 
 
 ## 平行部署
@@ -104,7 +104,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 ### 匯出 DirSync 組態
 **平行部署超過 5 萬個物件**
 
-如果您擁有超過 5 萬個物件，則 Azure AD Connect 安裝會建議進行平行部署。
+如果您有超過 5 萬個物件，則 Azure AD Connect 安裝會建議進行平行部署。
 
 將會顯示與下面類似的畫面：
 
@@ -121,7 +121,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 如果您具有少於 5 萬個物件，但是仍然想要執行平行部署，則執行下列動作：
 
 1. 執行 Azure AD Connect Installer (MSI)。
-2. 當您看到「歡迎使用 Azure AD Connect」畫面時，請按一下視窗右上角的 "X" 結束安裝精靈。
+2. 當您看到 [歡迎使用 Azure AD Connect] 畫面時，請按一下視窗右上角的 "X" 結束安裝精靈。
 3. 開啟命令提示字元。
 4. 從 Azure AD Connect 的安裝位置 (預設值：C:\\Program Files\\Microsoft Azure Active Directory Connect)，執行下列命令：`AzureADConnect.exe /ForceExport`。
 5. 按一下 [匯出設定] 按鈕。在不同的伺服器上安裝 Azure AD Connect 時，會匯入這些設定，以將目前 DirSync 中的任何設定移轉到新的 Azure AD Connect 安裝。
@@ -135,23 +135,23 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 在新的伺服器上安裝 Azure AD Connect 時，假設您想要執行 Azure AD Connect 的全新安裝。因為您想要使用 DirSync 組態，所以有一些額外步驟：
 
 1. 執行 Azure AD Connect Installer (MSI)。
-2. 當您看到「歡迎使用 Azure AD Connect」畫面時，請按一下視窗右上角的 "X" 結束安裝精靈。
+2. 當您看到 [歡迎使用 Azure AD Connect] 畫面時，請按一下視窗右上角的 "X" 結束安裝精靈。
 3. 開啟命令提示字元。
-4. 從 Azure AD Connect 的安裝位置 (預設值：C:\\Program Files\\Microsoft Azure Active Directory Connect)，執行下列命令：`AzureADConnect.exe /migrate`。Azure AD Connect 安裝精靈會啟動，對您顯示下列畫面：![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
+4. 從 Azure AD Connect 的安裝位置 (預設值：C:\\Program Files\\Microsoft Azure Active Directory Connect)，執行下列命令：`AzureADConnect.exe /migrate`。[Azure AD Connect 安裝精靈] 會啟動，對您顯示下列畫面：![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
 5. 選取從 DirSync 安裝所匯出的設定檔案。
 6. 設定任何進階選項，包括：
     - Azure AD Connect 的自訂安裝位置。
 	- 現有 SQL Server 執行個體 (預設值：Azure AD Connect 會安裝 SQL Server 2012 Express)。請勿使用相同的資料庫執行個體做為您的 DirSync 伺服器。
-	- 用來連線到 SQL Server 的服務帳戶 (如果您的 SQL Server 資料庫位於遠端，則此帳戶必須是網域服務帳戶)。這些選項可以在此畫面上看到：![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
+	- 用來連接到 SQL Server 的服務帳戶 (如果您的 SQL Server 資料庫位於遠端，則這個帳戶必須是網域服務帳戶)。您可以在這個畫面上看到下列選項：![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. 按 [下一步]。
-8. 在 [準備好設定] 頁面上，保持核取 [設定一完成，即開始同步處理程序]。伺服器將處於[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)，讓變更不會在此階段匯出至 Azure AD。
+8. 在 [準備設定] 頁面上，保持核取 [設定一完成，即開始同步處理程序]。伺服器將處於[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)，讓變更不會在此階段匯出至 Azure AD。
 9. 按一下 [Install]。
 
 >[AZURE.NOTE]將會開始 Windows Server Active Directory 和 Azure Active Directory 之間的同步處理作業，但沒有變更會匯出到 Azure AD。一次只能有一個作用中的同步處理工具匯出變更。這稱為[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)。
 
 ### 確認 Azure AD Connect 已準備好開始同步處理
 
-若要確認 Azure AD Connect 是否已準備好接收 DirSync，您必須從 [開始] 畫面的 [Azure AD Connect] 群組中開啟 [Synchronization Service Manager]。
+若要確認 Azure AD Connect 是否已準備好接收 DirSync，您必須從 [開始] 功能表的 [Azure AD Connect] 群組中開啟 [同步處理服務管理器]。
 
 在應用程式內，您必須檢視 [作業] 索引標籤。在此索引標籤上，您想要確認已完成下列作業：
 
@@ -164,7 +164,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 
 檢閱這些作業的結果，並確定沒有任何錯誤。
 
-如果您想要查看並檢查哪些變更即將匯出到 Azure AD，則了解如何在[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)下驗證組態。進行必要的組態變更，直到看不到非預期的任何項目。
+如果您想要查看並檢查哪些變更即將匯出到 Azure AD，請閱讀如何在[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)下驗證設定。進行必要的組態變更，直到看不到非預期的任何項目。
 
 這 4 項作業完成之後，沒有任何錯誤，您對即將匯出的變更感到滿意，即準備好解除安裝 DirSync，並啟用 Azure AD Connect 同步處理。完成以下兩個步驟來完成移轉。
 
@@ -177,18 +177,18 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 解除安裝 DirSync 之後，沒有任何作用中的伺服器會匯出至 Azure AD。您在內部部署 Active Directory 中的任何變更繼續同步至 Azure AD 之前，必須完成下一個步驟。
 
 ### 啟用 Azure AD Connect (新伺服器)
-安裝之後，重新開啟 Azure AD Connect 時，您可以進行其他組態變更。從 [開始] 功能表或桌面上的捷徑啟動 **Azure AD Connect**。請確定您未嘗試重新執行安裝 MSI。
+安裝之後，重新開啟 Azure AD Connect 時，您可以進行其他設定變更。從 [開始] 功能表或桌面上的捷徑啟動 **Azure AD Connect**。請確定您未嘗試重新執行安裝 MSI。
 
 您應該會看見下列內容：
 
 ![其他工作](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AdditionalTasks.png)
 
-- 選取 [設定預備模式]
+- 選取 [設定預備模式]。
 - 取消核取 [啟用預備模式] 核取方塊，即會關閉預備。
 
 ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)
 
-- 按 [下一步] 按鈕。
+- 按一下 [下一步] 按鈕
 - 在 [確認] 頁面中按一下 [安裝] 按鈕。
 
 Azure AD Connect 現在是您的作用中伺服器。
@@ -198,4 +198,4 @@ Azure AD Connect 現在是您的作用中伺服器。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

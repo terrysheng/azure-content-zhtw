@@ -19,7 +19,7 @@
 
 ## 概觀
 
-Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。它提供許多與 Azure 管理入口網站相同的功能，以及豐富的資料存取功能。
+Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。它提供許多與 [Azure 入口網站](portal.azure.com)相同的功能，以及豐富的資料存取功能。
 
 在本指南中，我們將探討如何使用 [Azure 命令列介面 (Azure CLI)](../xplat-cli-install.md) 搭配 Azure 儲存體執行各種開發和管理工作。建議您在使用本指南之前，先下載並安裝或升級至最新的 Azure CLI。
 
@@ -169,7 +169,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。如需詳細資訊，請�
 
 ## 建立和管理檔案共用
 
-Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用儲存體。Microsoft Azure 虛擬機器和雲端服務，以及內部部署應用程式，可以透過掛接共用，共用檔案資料。您可以透過 Azure CLI 管理檔案共用和檔案資料。如需 Azure 檔案儲存體的詳細資訊，請參閱 [Azure 檔案儲存體如何搭配 Windows](storage-dotnet-how-to-use-files) 或 [Azure 檔案儲存體如何搭配 Linux](storage-how-to-use-files-linux.md)。
+Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用儲存體。Microsoft Azure 虛擬機器和雲端服務，以及內部部署應用程式，可以透過掛接共用，共用檔案資料。您可以透過 Azure CLI 管理檔案共用和檔案資料。如需 Azure 檔案儲存體的詳細資訊，請參閱 [如何搭配 Windows 使用 Azure 檔案儲存體](storage-dotnet-how-to-use-files)或 [如何搭配 Linux 使用 Azure 檔案儲存體](storage-how-to-use-files-linux.md)。
 
 ### 建立檔案共用
 
@@ -222,4 +222,4 @@ Azure 檔案共用是 Azure 中的 SMB 檔案共用。所有目錄和檔案都�
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

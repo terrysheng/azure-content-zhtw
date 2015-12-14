@@ -34,7 +34,7 @@
 
 這些基本步驟可協助解決使用傳統部署模型所建立之虛擬機器中最常見的遠端桌面連線失敗。在執行每個步驟之後，請嘗試重新連接至 VM。
 
-- 從 [Azure Preview 入口網站](https://portal.azure.com)重設遠端桌面服務以修正 RDP 伺服器的啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重設遠端存取]。
+- 從 [Azure 入口網站](https://portal.azure.com)重設遠端桌面服務以修正 RDP 伺服器的啟動問題。<br> 依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重設遠端存取]。
 
     ![顯示重設 RDP 設定的螢幕擷取畫面](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -169,4 +169,4 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/28/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # 設定兩個 Azure 虛擬網路之間的 DNS
@@ -98,7 +98,7 @@
 
 ##設定兩個虛擬機器的靜態 IP 位址
 
-DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 入口網站中完成。您將使用 Azure PowerShell。
+DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 傳統入口網站中完成。您將使用 Azure PowerShell。
 
 **設定兩個虛擬機器的靜態 IP 位址**
 
@@ -120,7 +120,7 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 入口網站中�
 
 **新增 Contoso-DNS-EU 的 DNS 伺服器角色**
 
-1.	從 Azure 入口網站，按一下左側的 [**虛擬機器**]。 
+1.	從 Azure 傳統入口網站，按一下左側的 [虛擬機器]。 
 2.	按一下 [**Contoso-DNS-EU**]。
 3.	按一下上方的 [**儀表板**]。
 4.	按一下底部的 [**連接**]，並依照指示透過 RDP 連接到虛擬機器。
@@ -142,7 +142,7 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 入口網站中�
 
 **註冊兩個 DNS 伺服器**
 
-1.	從 Azure 入口網站，依序按一下 [**新增**]、[**網路服務**]、[**虛擬網路**]、[**註冊 DNS 伺服器**]。
+1.	從 Azure 傳統入口網站，依序按一下 [新增]、[網路服務]、[虛擬網路]、[註冊 DNS 伺服器]。
 2.	輸入：
 	- **名稱**：Contoso-DNS-EU
 	- **DNS 伺服器 IP 位址**：10.1.0.4 – 此 IP 位址必須符合 DNS 伺服器的虛擬機器 IP 位址。
@@ -153,7 +153,7 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 入口網站中�
 
 **將兩個 DNS 伺服器指派給兩個虛擬網路**
 
-1.	按一下管理入口網站左側窗格的 [**網路**]。
+1.	按一下傳統入口網站左側窗格的 [網路]。
 2.	按一下 [**Contoso-VNet-EU**]。
 3.	按一下 [**設定**]。
 4.	在 [**DNS 伺服器**] 區段中選取 [**Contoso-DNS-EU**]。
@@ -164,7 +164,7 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 入口網站中�
 
 **重新啟動虛擬機器**
 
-1. 從 Azure 入口網站，按一下左側的 [**虛擬機器**]。
+1. 從 Azure 傳統入口網站，按一下左側的 [虛擬機器]。
 2. 按一下 [**Contoso-DNS-EU**]。
 3. 按一下上方的 [**儀表板**]。
 4. 按一下底部的 [**重新啟動**]。
@@ -220,4 +220,4 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 入口網站中�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

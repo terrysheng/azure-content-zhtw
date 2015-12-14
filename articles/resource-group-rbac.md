@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="11/28/2015"
    ms.author="tomfitz"/>
 
 # 管理資源的存取
@@ -26,10 +26,21 @@
 
 以下是幾個角色型存取控制的相關重要概念供您了解：
 
-1. 主體 - 被授與權限的實體，例如使用者、安全性群組或應用程式。
-2. 角色 - 一組允許的動作
-3. 範圍 - 角色套用的層級，例如訂用帳戶、資源群組或資源。
-3. 角色指派 - 將主體加入到角色並設定範圍的程序。
+1. 主體 - 被授與權限的實體，例如 Azure Active Directory 使用者、安全性群組或應用程式。
+2. 角色 - 一組允許和排除的動作。
+3. 動作 - 對資源執行的動作 (例如讀取、建立)。 
+4. 範圍 - 角色套用的層級，例如訂用帳戶、資源群組或資源。
+5. 角色指派 - 將主體與角色建立關聯並設定範圍的程序。
+
+您可以取得一份使用 Azure 跨平台 (xPlat) CLI 工具或 Azure PowerShell 模組時所支援的**動作**清單。
+
+如果是 Azure 跨平台 CLI 工具，請使用下列命令來列出所有資源提供者的**所有**動作。
+
+    azure provider operations show --operationSearchString '*';
+
+如果您使用 Azure 資源管理員 PowerShell 模組 (AzureRm)，請使用下列命令來列出**所有**資源提供者的**所有**動作。
+
+    Get-AzureRmProviderOperation -OperationSearchString *;
 
 ## 角色範例
 若要了解 RBAC 的概念，我們來看一些常見的角色定義範例：
@@ -62,7 +73,7 @@
 
 
 ### 檢視可用的角色
-若要檢視所有可供訂用帳戶使用的角色，請執行 **Get-AzureRoleDefinition** 命令。
+若要檢視所有可供訂用帳戶使用的角色，請執行 **Get-AzureRmRoleDefinition** 命令。
 
     PS C:\> Get-AzureRmRoleDefinition
     
@@ -87,7 +98,7 @@
     ...
 
 ### 授與「讀取者」權限給訂用帳戶的群組。
-1. 執行 **Get-AzureRmRoleDefinition** 命令時，提供角色名稱以檢閱「讀者」角色定義。檢查允許的動作是否是您要指派的動作。
+1. 執行 **Get-AzureRmRoleDefinition** 命令時，提供角色名稱以檢閱「讀取者」角色定義。檢查允許的動作是否是您要指派的動作。
 
         PS C:\> Get-AzureRmRoleDefinition Reader
    
@@ -134,7 +145,7 @@
 
 
 ###列出資源群組的稽核記錄檔。
-若要取得資源群組的稽核記錄檔，請執行 **Get AzureRmLog** 命令 (或 **Get-azureresourcegrouplog**，適用於 1.0 Preview 之前的 Azure PowerShell 版本)。
+若要取得資源群組的稽核記錄檔，請執行 **Get-AzureRmLog** 命令 (或 **Get-AzureResourceGroupLog**，其適用於 1.0 Preview 之前的 Azure PowerShell 版本)。
 
       PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
@@ -263,10 +274,10 @@
 ## 後續步驟
 
 - 若要深入了解角色型存取控制，請參閱 [Microsoft Azure 入口網站中的角色型存取控制](role-based-access-control-configure.md)。
-- 若要深入了解使用服務主體以管理訂用帳戶中應用程式的存取，請參閱[透過 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)和[使用 Azure 傳統入口網站建立新的 Azure 服務主體](../resource-group-create-service-principal-portal.md)。
-- 若要深入了解稽核您組織中的作業，請參閱[使用資源管理員稽核作業](resource-group-audit.md)。
+- 若要深入了解使用服務主體，以管理您訂用帳戶中的應用程式存取，請參閱[透過 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)和[使用 Azure 傳統入口網站建立新的 Azure 服務主體](../resource-group-create-service-principal-portal.md)。
+- 若要深入了解您組織中的稽核作業，請參閱[使用資源管理員來稽核作業](resource-group-audit.md)。
 - 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。如需詳細資訊，請參閱[使用原則來管理資源和控制存取](resource-manager-policy.md)。
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

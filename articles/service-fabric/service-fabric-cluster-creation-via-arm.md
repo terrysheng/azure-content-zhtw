@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # 使用 ARM 範本設定 Service Fabric 叢集
@@ -37,7 +37,7 @@
 
 ## 建立自訂 ARM 範本
 
-2. 您必須在此處選擇 
+2. 您有兩種選擇 
 	1. 您可以從 [github 上的 Azure 快速入門範本庫](https://github.com/Azure/azure-quickstart-templates)取得範例範本，並對其進行變更。
 	2. 登入 Azure 入口網站，然後使用 Service Fabric 入口網站頁面來產生可供您自訂的範本。此做法的程序說明如下。
 3. 登入「Azure 入口網站」[http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal)。
@@ -45,7 +45,7 @@
 
 ## 使用 Azure PS 將 ARM 範本部署到 Azure
 
-如需有關此做法的詳細指引，請參閱[使用 PS 部署 ARM 範本](https://azure.microsoft.com/zh-TW/documentation/articles/resource-group-template-deploy/)。
+如需有關此做法的詳細指引，請參閱[使用 PS 部署 ARM 範本](resource-group-template-deploy.md)。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
@@ -56,4 +56,4 @@
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="啟用 Azure 入口網站中的儲存體度量 | Microsoft Azure" 
+	pageTitle="在 Azure 入口網站中啟用儲存體計量功能 | Microsoft Azure" 
 	description="如何啟用 Blob、佇列、表格和檔案服務的儲存體度量" 
 	services="storage" 
 	documentationCenter="" 
@@ -13,42 +13,44 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
-# 啟用儲存體度量和檢視度量資料
+# 啟用 Azure 儲存體計量和檢視計量資料
 
-根據預設，儲存體服務未啟用 [儲存體度量]。您可以使用 Azure 管理入口網站、Windows PowerShell，或以程式設計方式透過儲存體 API，來啟用監視。
+[AZURE.INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
+
+## 概觀
+
+根據預設，儲存體服務未啟用 [儲存體度量]。您可以透過 [Azure 入口網站](portal.azure.com)或 Windows PowerShell 啟用監視功能，或透過儲存體用戶端程式庫以程式設計方式啟用。
 
 當您啟用儲存體度量時，必須選擇資料的保留期限：這段期間會決定儲存體服務用來保存度量的時間長度，以及該空間儲存它們所需的費用。一般而言，您應該針對每分鐘度量使用比每小時度量還短的保留期限，因為每分鐘度量明顯需要額外的空間。您應該選擇保留期限，讓您擁有足夠的時間來分析資料，並下載任何您想要保留以供離線分析或報告使用的度量。請記住，您還是必須支付從儲存體帳戶下載度量資料的費用。
 
-## 如何使用 Azure 管理入口網站啟用儲存體度量
+## 如何使用 Azure 入口網站啟用計量功能
 
-在 Azure 管理入口網站中，您可以使用儲存體帳戶的 [設定] 頁面來控制儲存體度量。如需監視，您可以針對每個 Blob、資料表和佇列設定層級和保留期限 (以天為單位)。在各個案例中，層級會是下列其中一項：
+依照下列步驟在 [Azure 入口網站](portal.azure.com)中啟用計量功能：
 
+1. 瀏覽至儲存體帳戶。 
+1. 開啟 [**設定**] 刀鋒視窗，然後選取 [**診斷**]。
+1. 確定 [**狀態**] 設為 [**開啟**]。
+1. 選取您要監視之服務的計量。
+2. 指定保留原則，以表示要保留計量與記錄資料的時間。
 
-- 關閉 - 這表示不會收集任何度量。
+請注意，[Azure 入口網站](portal.azure.com)目前無法讓您在儲存體帳戶中設定每分鐘計量功能；您必須使用 PowerShell 或以程式設計方式啟用每分鐘計量功能。
 
-- 最小 - 儲存體度量會收集一組針對 Blob、資料表與佇列服務彙總的基本度量 (例如，輸入流量/輸出流量、可用性、延遲和成功百分比)。
-
-- 詳細資訊 - 除了服務層級度量之外，儲存體度量會收集一組完整的度量，其中包含每個儲存體 API 作業的相同度量。詳細資訊度量可供進一步分析在應用程式運作期間發生的問題。
-
-請注意，管理入口網站目前無法讓您在儲存體帳戶中設定每分鐘度量；您必須使用 PowerShell 或以程式設計方式來啟用每分鐘度量。
-
-
-## 如何使用 PowerShell 啟用儲存體度量
+## 如何使用 PowerShell 啟用計量功能
 
 您可以在本機電腦上使用 PowerShell 來設定儲存體帳戶中的儲存體度量，做法是使用 Azure PowerShell Cmdlet Get-AzureStorageServiceMetricsProperty 來擷取目前的設定，並使用 Cmdlet Set-AzureStorageServiceMetricsProperty 來變更目前的設定。
 
 控制儲存體度量的 Cmdlet 會使用下列參數：
 
-- MetricsType 的可能值為 Hour 和 Minute。
+- MetricsType：可能值為 Hour 和 Minute。
 
-- ServiceType 的可能值為 Blob、Queue 及 Table。
+- ServiceType：可能值為 Blob、Queue 及 Table。
 
-- MetricsLevel 的可能值為 None (相當於管理入口網站中的「關閉」)、Service (相當於管理入口網站中的「最小」)，以及 ServiceAndApi (相當於管理入口網站中的「詳細資訊」)。
+- MetricsLevel：可能值為 None、服務，以及 ServiceAndApi。
 
-例如，下列命令會在您的預設儲存體帳戶中，為 Blob 服務開啟每分鐘度量，並將保留期限設為五天：
+例如，下列命令會在您的預設儲存體帳戶中，為 Blob 服務開啟每分鐘計量功能，並將保留期間設為五天：
 
 `Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 
@@ -60,34 +62,44 @@
 
 ## 如何以程式設計方式啟用儲存體度量
 
-除了使用 Azure 管理入口網站或 Azure PowerShell Cmdlet 來控制儲存體度量，您也可以使用其中一個 Azure 儲存體 API。例如，如果您使用的是 .NET 語言，就可以使用儲存體用戶端程式庫。
+下列 C# 程式碼片段示範如何使用 .NET 的儲存體用戶端程式庫，為 Blob 服務啟用計量和記錄功能：
 
-類別 CloudBlobClient、CloudQueueClient 及 CloudTableClient 全都具備像是 SetServiceProperties 和 SetServicePropertiesAsync 的方法，可取得 ServiceProperties 物件做為參數。您可以使用 ServiceProperties 物件來設定儲存體度量。例如，下列 C# 程式碼片段示範如何變更每小時佇列度量的度量層級和保留天數：
+	// Parse connection string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    var storageAccount = CloudStorageAccount.Parse(connStr);
-    var queueClient = storageAccount.CreateCloudQueueClient();
-    var serviceProperties = queueClient.GetServiceProperties();
-     
-    serviceProperties.HourMetrics.MetricsLevel = MetricsLevel.Service;
-    serviceProperties.HourMetrics.RetentionDays = 10;
-     
-    queueClient.SetServiceProperties(serviceProperties);
+    // Create service client for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+    // Enable Storage Analytics logging and set retention policy to 10 days. 
+    ServiceProperties properties = new ServiceProperties();
+    properties.Logging.LoggingOperations = LoggingOperations.All;
+    properties.Logging.RetentionDays = 10;
+    properties.Logging.Version = "1.0";
+
+    // Configure service properties for metrics. Both metrics and logging must be set at the same time.
+    properties.HourMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
+    properties.HourMetrics.RetentionDays = 10;
+    properties.HourMetrics.Version = "1.0";
+
+    properties.MinuteMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
+    properties.MinuteMetrics.RetentionDays = 10;
+    properties.MinuteMetrics.Version = "1.0";
+
+    // Set the default service version to be used for anonymous requests.
+    properties.DefaultServiceVersion = "2015-04-05";
+
+    // Set the service properties.
+    blobClient.SetServiceProperties(properties);
+
     
 ## 檢視儲存體度量
 
-設定要監視儲存體帳戶的儲存體度量後，它會在您儲存體帳戶的一組已知資料表中記錄度量。您可以在管理入口網站中使用您儲存體帳戶的 [監視] 頁面，當它們出現在圖表上時，檢視每小時度量。在管理入口網站的這個頁面上，您可以：
+在您設定儲存體分析計量監視您的儲存體帳戶後，儲存體分析會將計量記錄在您儲存體帳戶中一組已知資料表中。您可以在 [Azure 入口網站](portal.azure.com)中將圖表設定為檢視每小時計量：
 
-- 選取要在圖表上繪製哪些度量 (可用的度量選項將根據您在 [設定] 頁面上，為服務選擇的是詳細資訊或最小監視而定)。
-
-
-- 為圖表上顯示的度量選取時間範圍。
-
-
-- 選擇使用絕對或相對比例來繪製度量。
-
-
-- 設定電子郵件警示，在特定的度量達到特定值時通知您。
-
+1. 在 [Azure 入口網站](portal.azure.com)中瀏覽至您的儲存體帳戶。
+2. 在 [**監視**] 區段中，按一下 [**新增磚**] 以新增圖表。在 [**磚庫**] 中選取您要檢視的計量，並將它拖曳至 [**監視**] 區段。
+3. 若要編輯要在圖表中顯示的計量，請按一下 [**編輯**] 連結。您可以透過選取或取消選取計量，來新增或移除個別的計量。
+4. 編輯完計量後，按一下 [**儲存**]。
 
 如果要下載長期儲存體的度量，或在本機加以分析，您必須使用工具或撰寫程式碼來讀取資料表。您必須下載每分鐘度量以進行分析。如果您在儲存體帳戶中列出所有資料表，則資料表就不會出現，但您可以直接依名稱存取它們。有許多協力廠商儲存體瀏覽工具可以感知這些資料表，讓您能夠直接檢視它們 (如需可用工具清單，請參閱部落格文章 [Microsoft Azure 儲存體總管](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx))。
 
@@ -122,7 +134,7 @@
 
 上述範例資料會為單一分鐘 (從上午 11:00 開始) 顯示所有記錄，因此 QueryEntities 要求的數目加上 QueryEntity 要求的數目再加上 UpdateEntity 要求的數目最多七個，也就是 user:All 資料列上顯示的總數。同樣地，您可以藉由計算 ((143.8 * 5) + 3 + 9)/7，在 user:All 資料列上衍生平均的端對端延遲 104.4286。
 
-您應該考慮在管理入口網站的 [監視] 頁面上設定警示，讓儲存體度量可自動通知您儲存體服務行為的任何重要變更。如果您使用儲存體總管工具來下載這個度量資料 (以分隔的格式)，就可以使用 Microsoft Excel 來分析資料。如需可用儲存體總管工具的清單，請參閱部落格文章 [Microsoft Azure 儲存體總管](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)。
+您應該考慮在 [Azure 入口網站](portal.azure.com)的 [監視] 頁面上設定警示，讓儲存體計量可自動通知您儲存體服務行為的所有重要變更。如果您使用儲存體總管工具下載這個計量資料 (以分隔的格式)，就可以使用 Microsoft Excel 分析資料。如需可用儲存體總管工具的清單，請參閱部落格文章 [Microsoft Azure 儲存體總管](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)。
 
 
 
@@ -192,4 +204,4 @@
 [啟用儲存體記錄和存取記錄檔資料](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

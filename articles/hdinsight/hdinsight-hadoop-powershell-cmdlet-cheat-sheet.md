@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/29/2015" 
 	ms.author="nitinme"/>
 
 
@@ -34,4 +34,4 @@ Microsoft Azure HDInsight 提供 PowerShell Cmdlet，對叢集執行 Hadoop 工�
 
 * [HDInsight 的學習途徑](http://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -59,7 +59,7 @@ Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執�
 
 ## 佈建程序
 
-Azure 中的映像庫會提供預先配置的可用虛擬機器清單。使用者可將 SharePoint Server、SQL Server、Windows Server 和其他 ISO/VHD 發佈至映像庫。為簡化虛擬機器的建立作業，系統會建立基礎映像，並將其發佈至映像庫。授權使用者可使用這些映像產生所需的虛擬機器。如需詳細資訊，請移至[在 Azure 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial-classic-portal.md)。圖 1 顯示使用 Azure 入口網站建立虛擬機器的基本步驟。
+Azure 中的映像庫會提供預先配置的可用虛擬機器清單。使用者可將 SharePoint Server、SQL Server、Windows Server 和其他 ISO/VHD 發佈至映像庫。為簡化虛擬機器的建立作業，系統會建立基礎映像，並將其發佈至映像庫。授權使用者可使用這些映像產生所需的虛擬機器。如需詳細資訊，請移至[在 Azure 傳統入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial-classic-portal.md)。圖 1 顯示使用 Azure 傳統入口網站建立虛擬機器的基本步驟。
 
 ![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
 
@@ -67,7 +67,7 @@ Azure 中的映像庫會提供預先配置的可用虛擬機器清單。使用�
 
 使用者也可在 Azure 管理入口網站上傳已執行過 Sysprep 的映像。如需詳細資訊，請移至[建立 Windows Server VHD 並上傳至 Azure](virtual-machines-create-upload-vhd-windows-server.md)。圖 2 顯示上傳映像以建立 VM 的基本步驟。
 
-在 Azure 入口網站上，使用者也可以上傳在已經執行 SysPrep 工具的映像。如需詳細資訊，請移至[建立 Windows Server VHD 並上傳至 Azure](virtual-machines-create-upload-vhd-windows-server.md)。圖 2 顯示上傳映像以建立虛擬機器的基本步驟。
+在 Azure 傳統入口網站上，使用者也可以上傳已在其上執行 SysPrep 工具的映像。如需詳細資訊，請移至[建立 Windows Server VHD 並上傳至 Azure](virtual-machines-create-upload-vhd-windows-server.md)。圖 2 顯示上傳映像以建立虛擬機器的基本步驟。
 
 ![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
 
@@ -77,8 +77,8 @@ Azure 中的映像庫會提供預先配置的可用虛擬機器清單。使用�
 
 您可以使用傳統的部署模型執行下列步驟，將 SharePoint 2010 部署在 Azure 中：
 
-1. 透過您的 Azure 訂用帳戶登入 [Azure 入口網站](http://manage.windowsazure.com/)。如果您沒有 Azure 帳戶，請[註冊 Azure 的免費試用版](http://azure.microsoft.com/pricing/free-trial/)。
-2. 若要建立採用基礎作業系統的虛擬機器，請在 Azure 入口網站上，依序按一下 [新增] > [運算] > [虛擬機器] > [從資源庫]。
+1. 透過您的 Azure 訂用帳戶登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)。如果您沒有 Azure 帳戶，請[註冊 Azure 的免費試用版](http://azure.microsoft.com/pricing/free-trial/)。
+2. 若要建立採用基礎作業系統的虛擬機器，請在 Azure 傳統入口網站上，依序按一下 [新增] > [計算] > [虛擬機器] > [從資源庫]。
 3. [選擇映像] 對話方塊隨即出現。按一下 [Windows Server 2008 R2 SP1] 平台映像，然後按一下向右箭頭。
 4. [虛擬機器設定] 對話方塊隨即出現。請提供下列資訊：
 	- 輸入 [虛擬機器名稱] 。
@@ -131,7 +131,7 @@ Azure 中的映像庫會提供預先配置的可用虛擬機器清單。使用�
 
 若要確認 SharePoint 組態，登入 SharePoint Server，然後使用「管理中心」。
 
-> [AZURE.NOTE]請務必設定 Azure 入口網站端點的安全性，並在虛擬機器的 Windows 防火牆中設定輸入連接埠。接著，請以系統管理員認證開啟 Windows PowerShell 工作階段，以確認您可以對其中一個 SharePoint 應用程式伺服器啟動遠端 Windows PowerShell 工作階段。
+> [AZURE.NOTE]請務必設定 Azure 傳統入口網站端點的安全性，並在虛擬機器的 Windows 防火牆中設定輸入連接埠。接著，請以系統管理員認證開啟 Windows PowerShell 工作階段，以確認您可以對其中一個 SharePoint 應用程式伺服器啟動遠端 Windows PowerShell 工作階段。
 
 ### 建立及上傳虛擬硬碟
 
@@ -157,7 +157,7 @@ Azure 中的映像庫會提供預先配置的可用虛擬機器清單。使用�
 
 若要在 Azure 上實作 SharePoint 開發與測試環境，請執行下列步驟：
 
-1. 佈建：首先，請使用 Azure 虛擬網路佈建內部部署與 Azure 之間的 VPN 連線。(由於此處不會使用 Active Directory，因此需要有 VPN 通道。) 如需詳細資訊，請移至[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。接著，使用 Azure 入口網站透過映像庫中儲存的映像佈建新的虛擬機器。
+1. 佈建：首先，請使用 Azure 虛擬網路佈建內部部署與 Azure 之間的 VPN 連線。(由於此處不會使用 Active Directory，因此需要有 VPN 通道。) 如需詳細資訊，請移至[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。接著，使用 Azure 傳統入口網站透過映像庫中儲存的映像佈建新的虛擬機器。
 	- 您可以將內部部署的 SharePoint 開發與測試虛擬機器上傳至您的 Azure 儲存體帳戶，並透過映像庫參照這些虛擬機器，以建置必要的環境。
 	- 您可以使用 SQL Server 2012 映像，而不使用 Windows Server 2008 R2 SP1 映像。如需詳細資訊，請移至[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
 
@@ -169,11 +169,11 @@ Azure 中的映像庫會提供預先配置的可用虛擬機器清單。使用�
 	- 使用 SQL Server Data Tools 和 Visual Studio，建立現有內部部署應用程式和資料庫的部署封裝。
 	- 使用這些封裝，將應用程式和資料庫部署在 Azure 虛擬機器上。
 4. 部署 SharePoint 應用程式和資料庫：
-	- 設定 Azure 入口網站端點的安全性，並在虛擬機器的 Windows 防火牆中設定輸入連接埠。
+	- 設定 Azure 傳統入口網站端點的安全性，並在虛擬機器的 Windows 防火牆中設定輸入連接埠。
 	- 使用在步驟 3 中建立的部署封裝和指令碼，將 SharePoint 應用程式和資料庫部署至 Azure 虛擬機器。
 - 測試已部署的應用程式和資料庫。
 5. 管理虛擬機器：
-	- 使用 Azure 入口網站監視虛擬機器。
+	- 使用 Azure 傳統入口網站監視虛擬機器。
 	- 使用 Visual Studio 和 SQL Server Management Studio 監視應用程式。
 	- 您也可以使用 Microsoft System Center Operations Manager 之類的內部部署管理軟體來監視及管理虛擬機器。
 
@@ -197,13 +197,13 @@ Azure 基礎結構中的虛擬機器經驗證可有效與其他 Microsoft 產品
 
 1. 部署 Active Directory：在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署虛擬機器 (和某些實體機器) 上的部署。如需差異的詳細資訊，以及相關指引和其他注意事項，請移至[在 Azure 虛擬機器上部署 Active Directory 的指導方針](http://msdn.microsoft.com/library/jj156090)。若要在 Azure 中部署 Active Directory：
 	- 定義及建立可讓虛擬機器指派至特定子網路的虛擬網路。
-	- 使用 Azure 入口網站，在 Azure 中的新虛擬機器上建立及部署網域控制站。您也可以參照 Windows PowerShell 指令碼，使用 Azure 虛擬機器和 Azure 虛擬網路在雲端中部署獨立網域。如需在 Azure 虛擬網路的虛擬機器上建立新 Active Directory 樹系的詳細資訊，請移至[在 Azure 中安裝新的 Active Directory 樹系](active-directory-new-forest-virtual-machine.md)。
-2. 佈建虛擬機器：使用 Azure 入口網站透過映像庫中儲存的映像佈建新的虛擬機器。
+	- 使用 Azure 傳統入口網站，在 Azure 中的新虛擬機器上建立及部署網域控制站。您也可以參照 Windows PowerShell 指令碼，使用 Azure 虛擬機器和 Azure 虛擬網路在雲端中部署獨立網域。如需在 Azure 虛擬網路的虛擬機器上建立新 Active Directory 樹系的詳細資訊，請移至[在 Azure 中安裝新的 Active Directory 樹系](active-directory-new-forest-virtual-machine.md)。
+2. 佈建虛擬機器：使用 Azure 傳統入口網站透過映像庫中儲存的映像佈建新的虛擬機器。
 3. 部署 SharePoint 伺服器陣列。
-	- 使用 Azure 入口網站設定負載平衡。設定虛擬機器端點，選取要對現有端點的流量進行負載平衡的選項，然後指定負載平衡虛擬機器的名稱。
+	- 使用 Azure 傳統入口網站設定負載平衡。設定虛擬機器端點，選取要對現有端點的流量進行負載平衡的選項，然後指定負載平衡虛擬機器的名稱。
 	- 在現有的 SharePoint 伺服器陣列中新增其他前端 Web 虛擬機器，以因應額外流量。
 3. 管理虛擬機器：
-	- 使用 Azure 入口網站監視虛擬機器。
+	- 使用 Azure 傳統入口網站監視虛擬機器。
 	- 使用「管理中心」監視 SharePoint 伺服器陣列。
 
 ### 案例 3：擴充以因應更多 BI 服務的伺服器陣列
@@ -224,16 +224,16 @@ Azure 基礎結構中的虛擬機器經驗證可有效與其他 Microsoft 產品
 
 1. 佈建：
 	- 使用 Azure 虛擬網路，佈建內部部署與 Azure 之間的 VPN 連線。如需詳細資訊，請移至[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
-	- 使用 Azure 入口網站透過映像庫中儲存的映像佈建新的虛擬機器。您可以將 SharePoint Server 或 SQL Server BI 工作負載映像上傳至映像庫，且任何授權使用者皆可選用這些 BI 元件虛擬機器來建置擴充的環境。
+	- 使用 Azure 傳統入口網站透過映像庫中儲存的映像佈建新的虛擬機器。您可以將 SharePoint Server 或 SQL Server BI 工作負載映像上傳至映像庫，且任何授權使用者皆可選用這些 BI 元件虛擬機器來建置擴充的環境。
 2. 安裝：
 	- 如果您的組織沒有預先建置的 SharePoint Server 或 SQL Server BI 元件映像，請使用遠端桌面連線在虛擬機器上安裝 SharePoint Server 和 SQL Server。
 	- 如需有關安裝 SharePoint 的詳細資訊，請移至[使用 Windows PowerShell 安裝 SharePoint Server 2010](http://technet.microsoft.com/library/cc262839.aspx) 或 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/) (英文)。
 	- 如需安裝 SQL Server 的詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/library/ee210664.aspx)。
 3. 加入 BI 虛擬機器：
-	- 設定 Azure 入口網站端點的安全性，並在虛擬機器的 Windows 防火牆中設定輸入連接埠。
+	- 設定 Azure 傳統入口網站端點的安全性，並在虛擬機器的 Windows 防火牆中設定輸入連接埠。
 	- 將新建立的 BI 虛擬機器新增至現有的 SharePoint 或 SQL Server 伺服器陣列。
 4. 管理虛擬機器：
-	- 使用 Azure 入口網站監視虛擬機器。
+	- 使用 Azure 傳統入口網站監視虛擬機器。
 	- 使用「管理中心」監視 SharePoint 伺服器陣列。
 	- 使用 Microsoft System Center - Operations Manager 之類的內部部署管理軟體來監視及管理虛擬機器。
 
@@ -255,19 +255,19 @@ Azure 基礎結構中的虛擬機器經驗證可有效與其他 Microsoft 產品
 
 1. 部署 Active Directory：在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署虛擬機器 (和某些實體機器) 上的部署。如需差異的詳細資訊，以及相關指引和其他注意事項，請移至[在 Azure 虛擬機器上部署 Active Directory 的指導方針](http://msdn.microsoft.com/library/jj156090)。若要在 Azure 中部署 Active Directory：
 	- 定義及建立可讓虛擬機器指派至特定子網路的虛擬網路。
-	- 使用 Azure 入口網站，在 Azure 中的新虛擬機器上建立及部署網域控制站。
+	- 使用 Azure 傳統入口網站，在 Azure 中的新虛擬機器上建立及部署網域控制站。
 	- 如需在 Azure 虛擬網路的虛擬機器上建立新 Active Directory 樹系的詳細資訊，請移至[在 Azure 中安裝新的 Active Directory 樹系](active-directory-new-forest-virtual-machine)。
 2. 部署 SQL Server：
-	- 使用 Azure 入口網站透過映像庫中儲存的映像佈建新的虛擬機器。
+	- 使用 Azure 傳統入口網站透過映像庫中儲存的映像佈建新的虛擬機器。
 	- 在虛擬機器上設定 SQL Server。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/library/ee210664.aspx)。
 	- 將虛擬機器加入新建立的 Active Directory 網域中。
 3. 部署多伺服器 SharePoint 伺服器陣列：
 	- 建立虛擬網路。如需詳細資訊，請移至[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 	- 在部署 SharePoint 虛擬機器時，您必須為 SharePoint Server 提供子網路，如此，本機 Active Directory 方塊中的 DNS 位址在佈建期間才可供使用。
-	- 使用 Azure 入口網站來建立虛擬機器。
+	- 使用 Azure 傳統入口網站來建立虛擬機器。
 	- 在此虛擬機器上安裝 SharePoint Server，並產生可重複使用的映像。如需有關安裝 SharePoint Server 的詳細資訊，請移至[使用 Windows PowerShell 安裝及設定 SharePoint Server 2010](http://technet.microsoft.com/library/cc262839.aspx) 或 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/) (英文)。
 	- 使用 [Join-SharePointFarm](http://technet.microsoft.com/library/ff607979.aspx) 命令來設定要建立並連接到 SharePoint 伺服器陣列的 SharePoint 虛擬機器。
-	- 使用 Azure 入口網站設定負載平衡：設定虛擬機器端點，選取要對現有端點的流量進行負載平衡的選項，然後指定負載平衡虛擬機器的名稱。
+	- 使用 Azure 傳統入口網站設定負載平衡：設定虛擬機器端點，選取要對現有端點的流量進行負載平衡的選項，然後指定負載平衡虛擬機器的名稱。
 4. 透過 System Center 管理 SharePoint 伺服器陣列：
 	- 使用 Operations Manager 代理程式和新的 Azure Integration Pack，將您的內部部署 System Center 連接到 Azure 虛擬機器。
 	- 使用內部部署 App Controller 和 Orchestrator 執行管理功能。
@@ -288,4 +288,4 @@ Azure 虛擬機器可用來執行完整而連續的 SharePoint 部署。Azure �
 
 [在 Azure 中測試 SharePoint Server 2016 IT 預覽版](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

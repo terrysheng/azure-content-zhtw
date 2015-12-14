@@ -13,16 +13,21 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015" 
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
 # 如何針對 Azure 行動服務使用受管理的用戶端程式庫
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-##概觀 
+##概觀
 
-本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure 行動服務使用受管理的用戶端程式庫，來執行一般案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮先完成[行動服務快速入門](mobile-services-dotnet-backend-xamarin-ios-get-started.md)教學課程。
+本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure 行動服務使用受管理的用戶端程式庫，來執行一般案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，請考慮先完成[行動服務快速入門](mobile-services-dotnet-backend-xamarin-ios-get-started.md)教學課程。
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -44,7 +49,7 @@
 		public bool Complete { get; set; }
 	}
 
-請注意 [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) 是用來定義用戶端類型與資料表之間PropertyName 對應之間的對應。
+請注意 [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) 是用來定義用戶端類型與資料表之間 PropertyName 對應之間的對應。
 
 當 JavaScript 後端行動服務中啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件為基礎，自動產生新的資料行。如需詳細資訊，請參閱[動態結構描述](http://go.microsoft.com/fwlink/?LinkId=296271)。在 .NET 後端行動服務中，資料表會在專案的資料模型中定義。
 
@@ -58,13 +63,13 @@
 		"AppKey"
 	);
 
-在上述程式碼中，請將 `AppUrl` 和 `AppKey` 依序取代為行動服務 URL 和應用程式金鑰。您可在 Azure 管理入口網站上找到這兩項資訊，方法是選取您的行動服務，然後按一下 [儀表板]。
+在上述程式碼中，請以行動服務 URL 和應用程式金鑰依序取代 `AppUrl` 和 `AppKey`。您可在 Azure 傳統入口網站上找到這兩項資訊，方法是選取您的行動服務，然後按一下 [儀表板]。
 
 >[AZURE.IMPORTANT]應用程式金鑰是用來針對行動服務篩選出隨機要求，它會隨應用程式一起發送。因為此金鑰並未加密，所以並不安全。若要真正保護行動服務資料的安全，您必須改在允許存取之前驗證使用者。如需詳細資訊，請參閱[作法：驗證使用者](#authentication)。
 
 ##<a name="instantiating"></a>作法：建立資料表參考
 
-只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫 `MobileServiceTable` 物件上的函數。透過在 `MobileServiceClient` 的執行個體上呼叫 [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) 方法來取得資料表的參考，如下所示：
+只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫 `MobileServiceTable` 物件上的函數。透過在 `MobileServiceClient` 的執行個體上呼叫 [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) 方法可取得資料表的參考，如下所示：
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -278,7 +283,7 @@
 
 ##<a name="#custom-api"></a>作法：呼叫自訂 API
 
-自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[做法：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
+自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需如何在您的行動服務中建立自訂 API 的範例，請參閱[作法：定義自訂 API 端點](mobile-services-dotnet-backend-define-custom-api.md)。
 
 若要呼叫自訂 API，您可以呼叫用戶端上的其中一個 [InvokeApiAsync] 方法多載。例如，下列程式碼字行會傳送 POST 要求至行動服務上的 **completeAll** API：
 
@@ -304,22 +309,22 @@
 	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 	}
 
-請注意，在此範例中，註冊中會包含兩個標記：如需有關 Windows 應用程式的詳細資訊，請參閱[新增推播通知給您的應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)。
+請注意，在此範例中，註冊中會包含兩個標記：如需有關 Windows 應用程式的詳細資訊，請參閱[將推播通知新增至應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)。
 
-Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 Android app 上的 Xamarin 應用程式，個別與 Apple Push Notification Service (APNS) 和 Google 雲端通訊 (GCM) 服務註冊。如需詳細資訊，請參閱**新增推播通知給您的應用程式** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push))。
+Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 Android app 上的 Xamarin 應用程式，個別與 Apple Push Notification Service (APNS) 和 Google 雲端通訊 (GCM) 服務註冊。如需詳細資訊，請參閱**將推播通知新增至應用程式** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push))。
 
 >[AZURE.NOTE]當您必須傳送通知給特定的已註冊使用者時，務必在註冊之前要求驗證，然後確認已授權該使用者註冊特定標記。例如，您必須檢查以確保使用者註冊的標記，不是其他人的使用者識別碼。如需詳細資訊，請參閱[傳送推播通知給已驗證的使用者](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md)。
 
-##<a name="pull-notifications"></a>如何：在 Windows 應用程式中使用定期通知
+##<a name="pull-notifications"></a>作法：在 Windows 應用程式中使用定期通知
 
-Windows 支援定期通知 (提取通知) 更新動態磚。透過啟用定期通知，Windows 將定期存取自訂 API 端點來更新 [開始] 功能表上的應用程式磚。若要使用定期通知，您必須[定義自訂 API](mobile-services-javascript-backend-define-custom-api.md) 以採用磚的特定格式傳回 XML 資料。如需詳細資訊，請參閱[定期通知](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx)。
+Windows 支援定期通知 (提取通知) 更新動態磚。透過啟用定期通知，Windows 將定期存取自訂 API 端點來更新 [開始] 功能表上的應用程式磚。若要使用定期通知，您必須[定義自訂 API](mobile-services-javascript-backend-define-custom-api.md)，該 API 可使用磚的特定格式傳回 XML 資料。如需詳細資訊，請參閱[定期通知](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx)。
 
-下列範例會開啟定期通知，以向「磚」自訂端點要求磚範本資料：
+下列範例會開啟定期通知，以向*磚*自訂端點要求磚範本資料：
 
     TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
         new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
         PeriodicUpdateRecurrence.Hour
-    ); 
+    );
 
 選取與您的資料更新頻率最相符的 [PeriodicUpdateRecurrance][](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) 值。
 
@@ -430,7 +435,7 @@ Windows 支援定期通知 (提取通知) 更新動態磚。透過啟用定期�
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Managed 執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。通用 Windows 8.1 應用程式可透過 `MobileServiceIncrementalLoadingCollection` 為此介面提供內建支援，以自動處理控制項的呼叫。若要在 Windows 應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列動作：
+受管理執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。透過 `MobileServiceIncrementalLoadingCollection` 可取得通用這個 Windows 8.1 應用程式介面的內建支援，該支援可自動處理來自控制項的呼叫。若要在 Windows 應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列動作：
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -440,14 +445,14 @@ Managed 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 		lb.ItemsSource = items;
 
 
-若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>` 上使用 `ToCollection` 擴充方法。若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
+若要在 Windows Phone 8 和 「Silverlight」應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>` 上使用 `ToCollection` 擴充方法。若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 當您使用藉由呼叫 `ToCollectionAsync` 或 `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。此集合有分頁感知功能，例如，控制項可要求集合「載入更多項目」，集合便會為此控制項執行此動作。此時，控制項會在未涉及使用者程式碼的情況下啟動流程。不過，因為集合會從網路中載入資料，因此載入有時候可能會失敗。若要處理這類失敗，您可以覆寫 `MobileServiceIncrementalLoadingCollection` 上的 `OnException` 方法，以處理呼叫控制項執行的 `LoadMoreItemsAsync` 時，所造成的例外狀況。
 
-最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述[選取特定資料欄](#selecting)一節中的指引，以選取要在 UI 中顯示的特定資料欄。
+最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述＜[選取特定資料欄](#selecting)＞一節中的指引，以選取要在 UI 中顯示的特定資料欄。
 
 ##<a name="authentication"></a>作法：驗證使用者
 
@@ -685,7 +690,7 @@ Managed 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -766,4 +771,4 @@ Managed 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 [Azure 行動服務用戶端 SDK 中的自訂 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

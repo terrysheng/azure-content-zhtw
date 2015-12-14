@@ -18,6 +18,8 @@
 
 # 在 Azure App Service 中部署及設定 SaaS 連接器 API 應用程式
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 概觀
 
 本教學課程顯示如何在 [Azure App Service](/documentation/services/app-service/) 安裝、設定和測試[軟體即服務 (SaaS) 連接器](../app-service-logic-what-are-bizTalk-api-apps.md)，以便可用程式呼叫它，例如從行動應用程式呼叫它。SaaS 連接器是一種 [API 應用程式](app-service-api-apps-why-best-platform.md)，可簡化與 SaaS 平台 (例如 Office 365、Salesforce、Facebook 和 Dropbox) 的互動。若要建立自訂的 .NET API 應用程式而不使用預先封裝的連接器，請參閱[從 ASP.NET API 應用程式連線到 SaaS 平台](app-service-api-dotnet-connect-to-saas.md)。
@@ -37,7 +39,7 @@
 
 ## 安裝 Dropbox 連接器
 
-1. 請移至 [Azure Preview 入口網站]首頁，然後按一下 [**Marketplace**]。
+1. 請移至 [Azure 預覽入口網站]首頁，然後按一下 [**Marketplace**]。
 
 	![Azure 預覽入口網站中的 Marketplace](./media/app-service-api-connnect-your-app-to-saas-connector/marketplace.png)
 
@@ -69,7 +71,7 @@
 
 	Azure App Service 會建立一個資源群組，而且在資源群組中，它會建立一個 Dropbox 連接器 API 應用程式，以及一個*閘道* Web 應用程式。閘道的功能就是管理如何存取資源群組中的所有 API 應用程式。
 
-	您可以按一下 Azure Preview 入口網站首頁上的 [**通知**，來檢查資源的建立進度。
+	您可以按一下 Azure 預覽入口網站首頁上的 [**通知**，來檢查資源的建立進度。
 
 3. 當 Azure 完成連接器的建立時，請按一下 [**瀏覽 > 資源群組 > DropboxRG**]。
  
@@ -123,7 +125,7 @@
 
     	http://[gatewayurl]/login/[providername]
 
-	您可以在 [Azure Preview 入口網站]從 [**閘道**] 分頁中取得閘道 URL。(若要前往 [**閘道**] 分頁，請按一下 [**資源群組**] 分頁上顯示之圖表中的閘道。)
+	您可以在 [Azure 預覽入口網站]從 [**閘道**] 分頁中取得閘道 URL。(若要前往 [**閘道**] 分頁，請按一下 [**資源群組**] 分頁上顯示之圖表中的閘道。)
 
 	![閘道 URL](./media/app-service-api-connnect-your-app-to-saas-connector/gatewayurl.png)
 
@@ -179,7 +181,7 @@
 
 	![針對同意的 URL 傳送](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	回應包括一個 URL，用來起始利用 Dropbox 登入使用者的程序(如果您看到錯誤回應，指出雖然已將 Get 方法下拉式清單設定為 [**Post**]，但是不支援該方法，請確定您的閘道 URL 是 HTTPS，而非 HTTP)。
+	回應包括一個 URL，用來起始利用 Dropbox 登入使用者的程序(如果您看到錯誤回應，指出雖然已將 Get 方法下拉式清單設定為 [Post]，但是不支援該方法，請確定您的閘道 URL 是 HTTPS，而非 HTTP)。
 
 	![同意的 URL](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
@@ -203,7 +205,7 @@ Azure 現在正為您管理三個驗證權杖：
 
 在下列步驟中，您會向 Dropbox 連接器提出 Get 要求，以查看 Dropbox 帳戶中的檔案。因為您可以使用瀏覽器視窗提出 Get 要求，而且因為您的瀏覽器視窗已有 zumo 權杖在 Cookie 中，所以您必須做的一切就是移至 URL，並取回 Dropbox 資料。
 
-1. 在已開啟 Azure Preview 入口網站的瀏覽器視窗中，移回 Dropbox 連接器的 [**API 應用程式**] 分頁。 
+1. 在已開啟 Azure 預覽入口網站的瀏覽器視窗中，移回 Dropbox 連接器的 [**API 應用程式**] 分頁。 
 
 2. 複製 API 應用程式的 URL。
  
@@ -232,8 +234,8 @@ Azure 現在正為您管理三個驗證權杖：
 * [使用連接器](../app-service-logic/app-service-logic-connectors-list.md)
 * [API 應用程式與行動裝置應用程式的驗證](../app-service/app-service-authentication-overview.md)  
 
-[Azure Preview 入口網站]: https://portal.azure.com/
+[Azure 預覽入口網站]: https://portal.azure.com/
 [Azure 入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

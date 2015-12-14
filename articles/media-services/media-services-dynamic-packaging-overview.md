@@ -60,13 +60,13 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 如需如何上傳與編碼資產的相關資訊，請參閱下列文章：
 
 
-使用 **Azure 管理入口網站**、**.NET** 或 **REST API** 上傳檔案。
+使用 **Azure 傳統入口網站**、**.NET** 或 **REST API** 上傳檔案。
 
-[AZURE.INCLUDE [媒體-服務-選取器-上傳-檔案](../../includes/media-services-selector-upload-files.md)]
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-使用 **Azure 管理入口網站**、**.NET** 或 **REST API**，以 **Azure Media Encoder** 進行編碼。
+使用 **Azure 傳統入口網站**、**.NET** 或 **REST API**，以 Azure 媒體編碼器進行編碼。
 
-[AZURE.INCLUDE [媒體-服務-選取器-編碼](../../includes/media-services-selector-encode.md)]
+[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 
 ###上傳現有的自動調整位元速率集，並使用 Media Packager 加以驗證
@@ -85,7 +85,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 [AZURE.INCLUDE [媒體-服務-選取器-資產-傳遞-原則](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-使用 **Azure 管理入口網站**或 **.NET** (藉由建立定位器) 發行資產。
+使用 **Azure 傳統入口網站**或 **.NET** (藉由建立定位器) 發行資產。
 
 [AZURE.INCLUDE [媒體-服務-選取器-發行](../../includes/media-services-selector-publish.md)]
 
@@ -105,4 +105,4 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

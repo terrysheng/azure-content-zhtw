@@ -1,22 +1,26 @@
-<properties 
-	pageTitle="將驗證新增至 Universal Windows 8.1 應用程式 | Microsoft Azure" 
-	description="了解如何使用行動服務透過眾多識別提供者 (包括 Google、Facebook、Twitter 和 Microsoft) 驗證 Universal Windows 8.1 應用程式的使用者。" 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="將驗證新增至 Universal Windows 8.1 應用程式 | Microsoft Azure"
+	description="了解如何使用行動服務透過眾多識別提供者 (包括 Google、Facebook、Twitter 和 Microsoft) 驗證 Universal Windows 8.1 應用程式的使用者。"
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/23/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/23/2015"
 	ms.author="glenga"/>
 
-# 在您的行動服務應用程式中新增驗證 
+# 在您的行動服務應用程式中新增驗證
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -42,11 +46,11 @@
 
 &nbsp;&nbsp;7.在共用專案中，開啟 App.xaml.cs 專案檔案並找到 [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 的定義，然後確保該定義已設定為連接至 Azure 中執行的行動服務。
 
->[AZURE.NOTE]當您使用 Visual Studio 工具將您的應用程式連接到行動服務時，此工具會分別針對個別用戶端平台需要產生共兩組 **MobileServiceClient** 定義。這時您可以順勢將使用 `#if...#endif` 包裝的 **MobileServiceClient** 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。如果您是從 Azure 管理入口網站下載快速入門應用程式，則不需要這麼做。
+>[AZURE.NOTE]當您使用 Visual Studio 工具將您的應用程式連接到行動服務時，此工具會分別針對個別用戶端平台需要產生共兩組 **MobileServiceClient** 定義。這時您可以順勢將使用 `#if...#endif` 包裝的 **MobileServiceClient** 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。如果您是從 [Azure 傳統入口網站]下載快速入門應用程式，則不需要這麼做。
 
 &nbsp;&nbsp;8.按 F5 鍵執行 Windows 市集應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。
-   
-&nbsp;&nbsp;發生此情況是因為 App 嘗試以未驗證的使用者身分來存取行動服務，但 *TodoItem* 資料表現在需要驗證。
+
+&nbsp;&nbsp;發生此情況是因為 App 嘗試以未驗證的使用者身分來存取行動服務，但 TodoItem 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
@@ -71,7 +75,7 @@
 
 ##另請參閱
 
-+ [增強型使用者功能](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> 您可藉由呼叫 .NET 後端中的 **ServiceUser.GetIdentitiesAsync()** 方法，來取得由行動服務中的身分識別提供者所維護的其他使用者資料。 
++ [增強型使用者功能](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> 您可藉由呼叫 .NET 後端中的 **ServiceUser.GetIdentitiesAsync()** 方法，來取得由行動服務中的身分識別提供者所維護的其他使用者資料。
 
 + [行動服務 .NET 作法概念參考資料]<br/>深入了解如何搭配 .NET 用戶端使用行動服務。
 
@@ -95,9 +99,8 @@
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [行動服務 .NET 作法概念參考資料]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
- 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -51,9 +51,9 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 	- 「Azure SQL Database」- 伺服器、資料庫、使用者名稱和密碼。
 	- 「Azure HDInsight 叢集」- HDInsight 叢集的名稱、使用者名稱、密碼，以及與此叢集相關聯的 Azure 儲存體的帳戶名稱和帳戶金鑰。如果您想要使用隨選 HDInsight 叢集，而不是您自己的 HDInsight 叢集，則可以略過此步驟。  
 8. 啟動 **Azure PowerShell** 並執行下列命令。保持開啟 Azure PowerShell。如果您關閉並重新開啟，則需要再次執行這些命令。
-	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure Preview 入口網站的使用者名稱和密碼。  
+	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
 	- 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
-	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在「Azure Preview 入口網站」中使用的相同。
+	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
 	
 
 ## 概觀
@@ -101,7 +101,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [步驟 6：監視管線和資料配量](#MainStep6)。在此步驟中，您將使用 Azure 入口網站來監視管線、資料表和資料配量。
+6. [步驟 6：監視管線和資料配量](#MainStep6)。在此步驟中，您將使用 Azure 傳統入口網站監視管線、資料表和資料配量。
 
 ## <a name="MainStep1"></a> 步驟 1：上傳範例資料和指令碼
 在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程叫用的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL Database (名為 **MarketingCampaigns**)、資料表、使用者定義型別和預存程序。
@@ -122,7 +122,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 	
 	或者，您可以使用資料夾 C:\\ADFWalkthrough\\Scripts 中的檔案，將 pig/hive 指令碼與範例檔案上傳至 Blob 儲存體中的 adfwalkthrough 容器，並在 MarketingCamapaigns Azure SQL 資料庫中建立 MarketingCampaignEffectiveness 資料表。
    
-2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，請使用 **Azure 管理入口網站**，或在 master 資料庫上使用 **sp\_set\_firewall\_rule**，為您電腦的 IP 位址建立防火牆規則。可能需要五分鐘的時間，這項變更才會生效。請參閱[設定 Azure SQL 的防火牆規則][azure-sql-firewall]。
+2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，請使用 [Azure 傳統入口網站](http://manage.windowsazure.com)，或 master 資料庫上的 **sp\_set\_firewall\_rule**，為您電腦的 IP 位址建立防火牆規則。可能需要五分鐘的時間，這項變更才會生效。請參閱[設定 Azure SQL 的防火牆規則][azure-sql-firewall]。
 4. 在 Azure PowerShell 中，瀏覽至您解壓縮範例的位置 (例如：**C:\\ADFWalkthrough**)
 5. 執行 **uploadSampleDataAndScripts.ps1** 
 6. 一旦指令碼執行成功，您會看到下列項目：
@@ -160,7 +160,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 ## <a name="MainStep2"></a> 步驟 2：建立 Azure Data Factory
 在此步驟中，您會建立名為 **LogProcessingFactory** 的 Azure Data Factory。
 
-1.	登入 [Azure Preview 入口網站][azure-preview-portal]後，按一下位於左下角的 [**新增**]，然後在 [**新增**] 刀鋒視窗上按一下 **Data Factory**。 
+1.	登入 [Azure 入口網站][azure-portal]後，按一下位於左下角的 [新增]，然後在 [新增] 刀鋒視窗上按一下 [Data Factory]。 
 
 	![新增->DataFactory][image-data-factory-new-datafactory-menu]
 	
@@ -178,7 +178,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 	
 		![建立資源群組][image-data-factory-tutorial-create-resourcegroup]
 7. 選取 [**ADF**] 做為 [**資源群組名稱**]。  
-8.	在 [**新增 Data Factory**] 刀鋒視窗中，請注意，預設會選取 [**新增至開始面板**]。這會將連結加入開始面板上的 Data Factory (登入 Azure Preview 入口網站時會看見)。
+8.	在 [**新增 Data Factory**] 刀鋒視窗中，請注意，預設會選取 [**新增至開始面板**]。這會將連結加入「開始面板」上的 Data Factory (登入 Azure 入口網站時會看見)。
 
 	![[建立 Data Factory] 刀鋒視窗][image-data-factory-tutorial-create-datafactory]
 
@@ -197,7 +197,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
  
 ## <a name="MainStep3"></a> 步驟 3：建立連結服務
 
-> [AZURE.NOTE]本文使用 Azure PowerShell 建立連結服務、資料表和管線。若您想使用 Azure 入口網站 (特別是 Data Factory 編輯器) 執行此教學課程，請參閱[使用 Data Factory 編輯器執行教學課程][adftutorial-using-editor]。
+> [AZURE.NOTE]本文使用 Azure PowerShell 建立連結服務、資料表和管線。若您想使用 Azure 傳統入口網站 (特別是 Data Factory 編輯器) 執行此教學課程，請參閱[使用 Data Factory 編輯器執行教學課程][adftutorial-using-editor]。
 
 在此步驟中，您將建立下列連結服務：StorageLinkedService、AzureSqlLinkedService、HDInsightStorageLinkedService 和 HDInsightLinkedService。
 
@@ -236,16 +236,16 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 		
  		![Azure SQL 設定][image-data-factory-tutorial-azuresql-settings]
 
-		若要從 Azure 管理入口網站取得這些值：按一下 MarketingCampaigns 資料庫的 [檢視 SQL Database 連接字串]
+		若要從 [Azure 傳統入口網站](http://manage.windowsazure.com)取得這些值：按一下 MarketingCampaigns 資料庫的 [檢視 SQL Database] 連接字串
 
 		![Azure SQL Database 連接字串][image-data-factory-tutorial-azuresql-database-connection-string]
 
 12. 確認您看到您所建立的所有三個資料存放區：**StorageLinkedService**、**HDInsightStorageLinkedService** 和 **AzureSqlLinkedService**。
 13. 您必須建立另一個連結服務，但這是運算服務，專用於「Azure HDInsight 叢集」。入口網站尚不支援建立連結的運算服務。因此，您必須使用 Azure PowerShell 來建立此連結的服務。 
 14. 切換至 **Azure PowerShell** (如果已開啟) 或啟動 **Azure PowerShell**。如果您已經關閉並重新開啟 Azure PowerShell，您需要執行下列命令： 
-	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure Preview 入口網站的使用者名稱和密碼。  
+	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
 	- 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
-	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在「Azure Preview 入口網站」中使用的相同。 
+	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。 
 15. 切換至 **AzureResourceManager** 模式，因為 Azure Data Factory Cmdlet 可在此模式中使用。
 
 		Switch-AzureMode AzureResourceManager
@@ -296,7 +296,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
  
 上圖顯示的管線在中間資料列，而資料表在頂端和底部資料列。
 
-Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中，您必須使用 Azure PowerShell 來建立資料表。
+Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版本中，您必須使用 Azure PowerShell 來建立資料表。
 
 ### 建立資料表
 
@@ -324,7 +324,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 
 
-4. 在 **Azure Preview 入口網站**中，按一下 **LogProcessingFactory** 的 **DATA FACTORY** 刀鋒視窗中的 [**資料集**]，並確認您看到所有資料集 (資料表為矩形的資料集)。
+4. 在 **Azure 入口網站**中，按一下 **LogProcessingFactory** 的 [DATA FACTORY] 刀鋒視窗中的 [資料集]，並確認您看到所有資料集 (資料表為矩形的資料集)。
 
 	![所有資料集][image-data-factory-tutorial-datasets-all]
 
@@ -390,7 +390,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 			
 			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
-11. 在 **Azure Preview 入口網站**中，按一下 **LogProcessingFactory** 的 **DATA FACTORY** 刀鋒視窗中的 [**管線**] 磚 (不在管線的名稱上)，您應該會看到您所建立的管線。
+11. 在 **Azure 入口網站**中，按一下 **LogProcessingFactory** 的 [DATA FACTORY] 刀鋒視窗中的 [管線] 磚 (不在管線的名稱上)，您應該會看到您所建立的管線。
 
 	![所有管線][image-data-factory-tutorial-pipelines-all]
 
@@ -474,7 +474,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 [tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -562,4 +562,4 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,11 +18,16 @@
 
 # 在行動服務中為週期性工作排程
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-本主題將示範如何在管理入口網站中使用工作排程器功能，以根據您所定義的排程來，從而定義要執行的伺服器指令碼。在此情況下，指令碼會定期向遠端服務 (在此案例中為 Twitter) 查詢，並將結果儲存在新資料表中。可排定的其他一些定期工作包括：
+本主題將示範如何在 Azure 傳統入口網站中使用工作排程器功能，以根據您所定義的排程來定義要執行的伺服器指令碼。在此情況下，指令碼會定期向遠端服務 (在此案例中為 Twitter) 查詢，並將結果儲存在新資料表中。可排定的其他一些定期工作包括：
 
 + 封存老舊或重複的資料記錄。
 + 要求或儲存外部資料，例如推文、RSS 項目和位置資訊。
@@ -38,11 +43,11 @@
 
 接下來，您必須建立要儲存推文的新資料表。
 
-2. 在管理入口網站中，按一下行動服務的 [資料] 索引標籤，然後按一下 [建立]。
+2. 在 [Azure 傳統入口網站]中，按一下行動服務的 [資料] 索引標籤，然後按一下 [+建立]。
 
 3. 在 [資料表名稱] 中輸入 _Updates_，然後按一下核取按鈕。
 
-##<a name="add-job"></a>建立新的排定工作  
+##<a name="add-job"></a>建立新的排定工作
 
 現在，您可以建立可存取 Twitter 並將推文資料儲存於全新 Updates 資料表中的排定工作。
 
@@ -161,9 +166,9 @@
 <!-- URLs. -->
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

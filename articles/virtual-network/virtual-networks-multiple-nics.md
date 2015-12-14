@@ -72,12 +72,12 @@
 |DS11|2|
 |DS12|4|
 |DS13|8|
-|DS14|16|
+|DS14|8|
 |D1\_v2|1|
 |D2\_v2|2|
 |D3\_v2|4|
 |D4\_v2|8|
-|D5\_v2|16|
+|D5\_v2|8|
 |D11\_v2|2|
 |D12\_v2|4|
 |D13\_v2|8|
@@ -265,4 +265,4 @@
 - 部署[在資源管理員部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-arm-template)。
 - 部署[在傳統部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-classic-ps)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

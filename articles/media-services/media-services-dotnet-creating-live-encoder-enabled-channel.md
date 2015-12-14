@@ -39,27 +39,27 @@
 
 1. 將攝影機連接到電腦。啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 
-	此步驟也可以在您建立通道之後執行。
+此步驟也可以在您建立通道之後執行。
 
 1. 建立並啟動通道。
 
 1. 擷取通道內嵌 URL。
 
-	內嵌 URL 可供即時編碼器用來傳送串流到通道。
+內嵌 URL 可供即時編碼器用來傳送串流到通道。
 
 1. 擷取通道預覽 URL。
 
-	使用此 URL 來確認您的通道會正確接收即時串流。
+使用此 URL 來確認您的通道會正確接收即時串流。
 
 2. 建立資產。
 3. 如果您想要在播放期間動態加密資產，請執行下列動作：
-	1. 建立內容金鑰。
-	1. 設定內容金鑰的授權原則。
-	1. 設定資產傳遞原則 (供動態封裝和動態加密使用)。
+1. 建立內容金鑰。
+1. 設定內容金鑰的授權原則。
+1. 設定資產傳遞原則 (供動態封裝和動態加密使用)。
 3. 建立程式，並指定使用您所建立的資產。
 1. 藉由建立 OnDemand 定位器，發行與程式相關聯的資產。
 
-	請確定在您想串流內容的串流端點上至少有一個串流保留的單元。
+請確定在您想串流內容的串流端點上至少有一個串流保留的單元。
 
 1. 當您準備好開始串流和封存時，請啟動程式。
 2. 即時編碼器會收到啟動公告的信號 (選擇性)。公告會插入輸出串流中。
@@ -108,18 +108,12 @@
 ##連線到媒體服務
 您的最佳做法是使用 app.config 檔案來儲存媒體服務名稱和帳戶金鑰。
 
->[AZURE.NOTE]若要尋找名稱和金鑰值，請移至 Azure 入口網站，並選取您的媒體服務帳戶，然後按一下入口網站視窗底部的「管理金鑰」圖示。按一下每個文字方塊旁邊的圖示，會將值複製到系統剪貼簿。
+>[AZURE.NOTE]若要尋找名稱和金鑰值，請移至 Azure 傳統入口網站，並選取您的媒體服務帳戶，然後按一下入口網站視窗底部的「管理金鑰」圖示。按一下每個文字方塊旁邊的圖示，會將值複製到系統剪貼簿。
 
 將 [appSettings] 區段新增至 app.config 檔案，並設定媒體服務帳戶名稱和帳戶金鑰的值。
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 ##程式碼範例
@@ -522,4 +516,4 @@
 
 如果本主題未包含您預期的內容、缺少部分內容，或者提供了一些其他不符合您需求的方式，請在下方提供您使用 Disqus 執行緒的意見反應給我們。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

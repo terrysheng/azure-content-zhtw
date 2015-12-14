@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,10 +22,10 @@
 **單一資料庫**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-本文將說明如何使用 [Azure Preview 入口網站](https://portal.azure.com)變更您的 SQL Database 的服務層級和效能等級。
+本文將說明如何使用 [Azure 入口網站](https://portal.azure.com)變更您的 SQL Database 的服務層級和效能等級。
 
 使用[將 SQL Database Web/Business 資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)和 [Azure SQL Database 服務層和效能等級](sql-database-service-tiers.md)中的資訊，來判斷適合您 Azure SQL Database 的服務層和效能等級。
 
@@ -50,7 +50,7 @@
 
 開啟您想要相應增加或減少之資料庫的 [SQL Database] 刀鋒視窗：
 
-1.	移至 [Azure Preview 入口網站](https://portal.azure.com)。
+1.	移至 [Azure 入口網站](https://portal.azure.com)。
 2.	按一下 [全部瀏覽]。
 3.	按一下 [SQL Database]。
 2.	按一下您想要變更的資料庫。
@@ -98,4 +98,4 @@
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,4 +22,4 @@ SDK 在 12 個月的通知期後將會停用，屆時 DocumentDB 平台將不允
 
 我們建議您盡早升級至最新的 SDK。在 SDK 標記為停用之後，您有 12 個月的時間可以更新應用程式。如果您基於任何理由，而無法在此期間內完成應用程式更新，請在截止日前連絡 [DocumentDB 團隊](mailto:askdocdb@microsoft.com) 並要求協助。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -108,7 +108,7 @@ Web 應用程式中的此頁面會使用 PowerBI javascript 控制項 (請參閱
 - 檢視裝置的命令歷程記錄。
 
 ### 觀察雲端解決方案的行為
-您可以檢視已佈建的資源，方法是移至 [Azure Preview 入口網站](https://portal.azure.com)並瀏覽至具有您指定之解決方案名稱的資源群組。
+您可以檢視已佈建的資源，方法是移至 [Azure 入口網站](https://portal.azure.com)並瀏覽至具有您指定之解決方案名稱的資源群組。
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
@@ -144,4 +144,4 @@ Web 應用程式中的此頁面會使用 PowerBI javascript 控制項 (請參閱
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

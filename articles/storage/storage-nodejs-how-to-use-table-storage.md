@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="12/01/2015"
 	ms.author="robmcm"/>
 
 
@@ -71,7 +71,7 @@
 
 Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **TableService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站的 Azure 入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
+如需在 Azure 網站的 [Azure 入口網站](portal.azure.com)中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
 
 ## 建立資料表
 
@@ -110,9 +110,9 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 若要新增實體，請先建立一個定義實體屬性的物件。所有實體必須包含 **PartitionKey** 和 **RowKey**，這些是實體的唯一識別碼。
 
-* **PartitionKey** - 決定儲存實體的資料分割。
+* **PartitionKey** - 決定儲存實體的資料分割
 
-* **RowKey** - 在資料分割內唯一地識別實體。
+* **RowKey** - 在資料分割內唯一地識別實體
 
 **PartitionKey** 和 **RowKey** 都必須是字串值。如需詳細資訊，請參閱[了解表格服務資料模型](http://msdn.microsoft.com/library/azure/dd179338.aspx)。
 
@@ -125,7 +125,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
 	};
 
-> [AZURE.NOTE]每筆記錄還有 [**Timestamp**] 欄位，插入或更新實體時，Azure 會設定此欄位。
+> [AZURE.NOTE]每筆記錄還有 [Timestamp] 欄位，插入或更新實體時，Azure 會設定此欄位。
 
 您也可以使用 **entityGenerator** 來建立實體。下列範例使用 **entityGenerator** 建立相同的工作實體。
 
@@ -159,11 +159,11 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 有多種方法可以用來更新現有的實體：
 
-* **updateEntity** - 藉由取代來更新現有實體。
+* **updateEntity** - 藉由取代來更新現有實體
 
-* **mergeEntity** - 藉由將新的屬性值合併到現有實體來更新現有實體。
+* **mergeEntity** - 藉由將新的屬性值合併到現有實體來更新現有實體
 
-* **insertOrReplaceEntity** - 藉由取代來更新現有實體。如果實體不存在，將會插入新的實體。
+* **insertOrReplaceEntity** - 藉由取代來更新現有實體如果實體不存在，將會插入新的實體。
 
 * **insertOrMergeEntity** - 藉由將新的屬性值合併到現有實體來更新現有實體。如果實體不存在，將會插入新的實體。
 
@@ -223,7 +223,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 ### 處理批次作業
 
-若要檢查新增至批次的操作，您可以檢視 `operations` 的屬性。您也可以使用下列方法來處理操作：
+若要檢查新增至批次的操作，您可以檢視 `operations` 屬性。您也可以使用下列方法來處理操作：
 
 * **clear** - 清除批次中的所有操作
 
@@ -276,7 +276,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-如果作業成功，`result.entries` 將包含符合查詢的實體陣列。若查詢無法傳回所有實體，則 `result.continuationToken` 將為非 *Null*，並且可做為 **queryEntities** 的第三個參數來擷取更多結果。在初始查詢中，第三個參數請使用 *null*。
+如果作業成功，`result.entries` 將包含符合查詢的實體陣列。若查詢無法傳回所有實體，則 `result.continuationToken` 將為非 *Null*，並且可作為 **queryEntities** 的第三個參數來擷取更多結果。在初始查詢中，第三個參數請使用 *null*。
 
 ### 查詢實體屬性的子集
 
@@ -432,22 +432,20 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 
 如需詳細資訊，請參閱下列資源：
 
--   MSDN 參考資料：[儲存和存取在 Azure 中的資料][]。
 -   [Azure 儲存體團隊部落格][]。
--   GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
+-   GitHub 上的 [Azure Storage SDK for Node][] 儲存機制。
 -   [Node.js 開發人員中心](/develop/nodejs/)
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
   [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [儲存和存取在 Azure 中的資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [使用儲存體的 Node.js Web 應用程式]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

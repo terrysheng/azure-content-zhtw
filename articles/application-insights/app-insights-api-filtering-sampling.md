@@ -32,7 +32,7 @@
 
 開始之前：
 
-* 在應用程式中安裝 [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md)。手動安裝 NuGet 封裝並選取最新的*發行前版本*。
+* 在應用程式中安裝 [Application Insights SDK](app-insights-asp-net.md)。手動安裝 NuGet 封裝並選取最新的*發行前版本*。
 * 試用 [Application Insights API](app-insights-api-custom-events-metrics.md)。 
 
 
@@ -43,7 +43,7 @@
 [取樣](app-insights-sampling.md)是減少流量同時保留準確的統計資料所建議的方式。篩選器會選取相關的項目，使得您可以瀏覽診斷中的項目。事件計數會在計量瀏覽器中調整，以補償所篩選的項目。
 
 * 建議使用調適性取樣。它會自動調整取樣百分比，以達到特定的要求量。目前僅供 ASP.NET 伺服器端遙測使用。  
-* 固定取樣率也可供使用。由您指定取樣百分比。可供 ASP.NET Web 應用程式程式碼和 JavaScript Web 頁面使用。用戶端和伺服器會同步處理它們的取樣，讓您可以在 [搜尋] 終於相關的頁面檢視和要求之間瀏覽。
+* [固定取樣率](app-insights-sampling.md)也可供使用。由您指定取樣百分比。可供 ASP.NET Web 應用程式程式碼和 JavaScript Web 頁面使用。用戶端和伺服器會同步處理它們的取樣，讓您可以在 [搜尋] 終於相關的頁面檢視和要求之間瀏覽。
 
 ### 啟用取樣
 
@@ -395,7 +395,7 @@ public void Process(ITelemetry item)
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -404,4 +404,4 @@ public void Process(ITelemetry item)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

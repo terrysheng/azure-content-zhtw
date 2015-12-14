@@ -134,9 +134,9 @@
 如果您先前已設定備用電話，建議您在登入頁面出現提示時選取該電話，然後再試一次。如果您沒有設定其他方法，請要求您的管理員清除您的設定，讓您下次登入時，會再次出現[設定多重要素驗證](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again) 的提示。
 
 ##應用程式密碼無效
-首先，請確定您輸入的是正確的應用程式密碼。如果仍無法登入，請嘗試登入並[建立新的應用程式密碼](multi-factor-authentication-end-user-app-passwords)。如果還是無法登入，請要求管理員[刪除您現有的應用程式密碼](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords)，然後建立新的密碼並使用。
+首先，請確定您輸入的是正確的應用程式密碼。如果仍無法登入，請嘗試登入並 [建立新的應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)。如果還是無法登入，請要求管理員[刪除您現有的應用程式密碼](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords)，然後建立新的密碼並使用。
 
 ##如何清除舊裝置的 Azure 驗證資訊並移到新裝置？
 無論您是從裝置解除安裝應用程式，或是重新整理裝置，都不會移除後端的啟動功能。您應該使用[移至新裝置](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app)中所述的步驟。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -46,4 +46,6 @@
 
     此程式碼會指示通知中樞，將範本通知傳送至所有包含「messageParam」的範本註冊。字串會在每個具有「messageParam」註冊的 PNS 間插入並取代 messageParam。這可讓您將通知傳送給 APNS、GCM、WNS 或任何其他 PNS。
 
-<!---HONumber=AcomDC_1125_2015-->
+	如需通知中樞範本的詳細資訊，請參閱[範本](notification-hubs-templates.md)。
+
+<!---HONumber=AcomDC_1203_2015-->

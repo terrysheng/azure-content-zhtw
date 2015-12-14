@@ -24,7 +24,7 @@
 
 ##在 Azure 中建立 Oracle WebLogic Server 12c 與 Oracle Database 12c 虛擬機器
 
-1. 登入 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
 
 2.	依序按一下 [Marketplace] 和 [運算]，然後在搜尋方塊中輸入 **Oracle**。
 
@@ -46,7 +46,7 @@
 
 	c.此時請勿加入任何端點。
 
-9.	選擇或建立資源群組。如需詳細資訊，請參閱[使用 Azure Preview 入口網站管理 Azure 資源](resource-group-portal.md)。
+9.	選擇或建立資源群組。如需詳細資訊，請參閱[使用 Azure 入口網站管理 Azure 資源](resource-group-portal.md)。
 
 10. 選擇 [訂用帳戶]。
 
@@ -71,4 +71,4 @@
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

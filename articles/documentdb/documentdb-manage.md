@@ -19,7 +19,7 @@
 # 管理 DocumentDB 容量需求
 DocumentDB 是受到完整管理、可調整的文件導向 NoSQL 資料庫服務。有了 DocumentDB，您就不需要租用虛擬機器、部署軟體、監視資料庫或擔心災害復原。Microsoft 工程師會負責操作並持續監視 DocumentDB，提供世界級的可用性、效能和資料保護能力。
 
-若要開始使用 DocumentDB，請先透過 [Azure Preview 入口網站](https://portal.azure.com/)[建立資料庫帳戶](documentdb-create-account.md)。DocumentDB 是以固態硬碟 (SSD) 型儲存體和輸送量的單位來提供，這些單位是透過在您的資料庫帳戶內建立資料庫集合來佈建的。每個集合包含具有保留的輸送量的 10GB 資料庫儲存體。如果您的應用程式輸送量需求變更，您可以藉由為每個集合設定[效能層級](documentdb-performance-levels.md)來動態變更。
+若要開始使用 DocumentDB，請先透過 [Azure 入口網站](https://portal.azure.com/)[建立資料庫帳戶](documentdb-create-account.md)。DocumentDB 是以固態硬碟 (SSD) 型儲存體和輸送量的單位來提供，這些單位是透過在您的資料庫帳戶內建立資料庫集合來佈建的。每個集合包含具有保留的輸送量的 10GB 資料庫儲存體。如果您的應用程式輸送量需求變更，您可以藉由為每個集合設定[效能層級](documentdb-performance-levels.md)來動態變更。
 
 當您的應用程式超過一個或多個集合的效能等級時，要求將會依每個集合為基礎降低。這表示某些應用程式的要求可能會成功，而其他的可能受到節流控制。
 
@@ -32,9 +32,9 @@ DocumentDB 是受到完整管理、可調整的文件導向 NoSQL 資料庫服�
 利用 DocumentDB，您可以隨著需求調整應用程式，建立更多的集合及/或資料庫。Microsoft 中的各種第一方應用程式都是依消費者規模來使用 DocumentDB，建立極大的 DocumentDB 資料庫，每個資料庫各包含數千個具有好幾 TB 文件儲存體的集合。您可以新增或移除集合來擴充或縮減資料庫，以配合您的應用程式規模需求。
 
 ## 資料庫集合
-每個 DocumentDB 資料庫都可以包含一個或多個集合。集合做為文件儲存和處理之高度可用的資料分割。每個集合可以儲存具有異質結構描述的文件。DocumentDB 的自動索引和查詢功能可讓您輕鬆地篩選並擷取文件。集合可為文件儲存體和查詢執行提供適用範圍。集合也是其內含之所有文件的交易網域。集合的輸送量配置是根據其指定的效能層級。可以透過 Azure Preview 入口網站或其中一個 SDK 來動態調整。
+每個 DocumentDB 資料庫都可以包含一個或多個集合。集合做為文件儲存和處理之高度可用的資料分割。每個集合可以儲存具有異質結構描述的文件。DocumentDB 的自動索引和查詢功能可讓您輕鬆地篩選並擷取文件。集合可為文件儲存體和查詢執行提供適用範圍。集合也是其內含之所有文件的交易網域。集合的輸送量配置是根據其指定的效能層級。可以透過 Azure 入口網站或其中一個 SDK 來動態調整。
 
-您可以建立任何數目的集合，以符合應用程式的儲存體和輸送量規模需求。可以透過 [Azure Preview 入口網站](https://portal.azure.com/)或其中任何一個 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來建立集合。
+您可以建立任何數目的集合，以符合應用程式的儲存體和輸送量規模需求。可以透過 [Azure 入口網站](https://portal.azure.com/)或其中任何一個 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來建立集合。
 
 >[AZURE.NOTE]每個集合支援最多 10 GB 文件資料的儲存體。
  
@@ -62,9 +62,9 @@ DocumentDB 可供進行許多的資料庫作業，包括使用 UDF、預存程�
 查詢、預存程序和觸發程序會根據所執行作業的複雜度來耗用單位。開發應用程式時，請檢查要求費用標頭，進一步了解每項作業如何耗用要求單位容量。
 
 ## 一致性層級和輸送量的選擇
-預設一致性層級的選擇會影響輸送量和延遲。您可以用程式設計方式或透過 Azure Preview 入口網站來設定預設的一致性層級。您也可以覆寫個別要求的一致性層級。依預設，一致性層級是一種工作階段，可提供單純的讀取/寫入以及讀取您的寫入的保證。工作階段一致性對於以使用者為中心的應用程式非常有用，並且可以讓您在取捨一致性與效能時找到最佳平衡點。
+預設一致性層級的選擇會影響輸送量和延遲。您可以用程式設計方式或透過 Azure 入口網站來設定預設的一致性層級。您也可以覆寫個別要求的一致性層級。依預設，一致性層級是一種工作階段，可提供單純的讀取/寫入以及讀取您的寫入的保證。工作階段一致性對於以使用者為中心的應用程式非常有用，並且可以讓您在取捨一致性與效能時找到最佳平衡點。
 
-如需在 Azure Preview 入口網站上變更一致性層級的指示，請參閱[如何管理 DocumentDB 帳戶](documentdb-manage-account.md#consistency)。如需一致性層級的詳細資訊，請參閱[使用一致性層級](documentdb-consistency-levels.md)。
+如需在 Azure 入口網站上變更一致性層級的指示，請參閱[如何管理 DocumentDB 帳戶](documentdb-manage-account.md#consistency)。如需一致性層級的詳細資訊，請參閱[使用一致性層級](documentdb-consistency-levels.md)。
 
 ## 佈建的文件儲存體和索引額外負荷
 每建立一個集合，您就會佈建 10GB 的 SSD 型文件儲存體。10GB 的文件儲存體包含文件加上用於索引的儲存體。預設會將 DocumentDB 集合設定為自動將所有文件編製索引，而不明確要求任何次要索引或結構描述。根據使用 DocumentDB 的應用程式，一般索引額外負荷介於 2-20% 之間。DocumentDB 所使用的索引技術可確保無論屬性值為何，索引額外負荷都不會超過使用預設值之文件大小的 80% 以上。
@@ -72,9 +72,9 @@ DocumentDB 可供進行許多的資料庫作業，包括使用 UDF、預存程�
 依預設，DocumentDB 會自動將所有文件編製索引。不過，如果您想要微調索引額外負荷，您可以選擇排除特定文件，不要在插入或取代文件時對這些文件編製索引，如 [DocumentDB 編製索引原則](documentdb-indexing-policies.md)所述。您可以設定 DocumentDB 集合，排除對集合中的所有文件編製索引。您也可以設定 DocumentDB 集合，選擇只將 JSON 文件中具有萬用字元的特定屬性或路徑編製索引，如[設定集合的編製索引原則](documentdb-indexing-policies.md#configuring-the-indexing-policy-of-a-collection)所述。排除屬性或文件也可以改善寫入輸送量，也就是說，您會耗用較少的要求單位。
  
 ## 後續步驟
-如需在 Azure Preview 入口網站上監視效能層級的指示，請參閱[監視 DocumentDB 帳戶](documentdb-monitor-accounts.md)。
+如需在 Azure 入口網站上監視效能層級的指示，請參閱[監視 DocumentDB 帳戶](documentdb-monitor-accounts.md)。
 
 如需為集合選擇效能層級的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels)。
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -37,7 +37,7 @@ Azure AD Connect 同步處理是基於宣告式佈建而建立，Forefront Ident
 - 布林值以兩個常數表示：True、False。
 - 內建常數只以其名稱表示：NULL、CRLF、IgnoreThisFlow
 
-### Functions
+### 函式
 宣告式佈建會使用許多函式，來啟用轉換屬性值的可能性。這些函式可以是巢狀的，因此，來自某一個函式的結果會傳遞到另一個函式。
 
 函式也可以透過多重值屬性進行操作。在此情況下，函式將會在每個個別的值上進行操作，並將相同的函式套用到每個值。例如，`Trim([proxyAddresses])` 會在 proxyAddress 屬性中執行每個值的 Trim。
@@ -46,7 +46,7 @@ Azure AD Connect 同步處理是基於宣告式佈建而建立，Forefront Ident
 
 ### 參數
 
-參數是由連接器或使用 PowerShell 定義來設定這些項目的系統管理員所定義。參數通常會包含隨系統而不同的值，例如使用者所在的網域名稱。這些可用於屬性流程。
+參數是由連接器或由系統管理員使用 PowerShell 來設定這些項目而定義。參數通常會包含隨系統而不同的值，例如使用者所在的網域名稱。這些可用於屬性流程。
 
 Active Directory 連接器對於輸入同步處理規則提供下列參數：
 
@@ -55,7 +55,7 @@ Active Directory 連接器對於輸入同步處理規則提供下列參數：
 | Domain.Netbios | 目前正在匯入之網域的 NetBIOS 格式，例如 FABRIKAMSALES |
 | Domain.FQDN | 目前正在匯入之網域的 FQDN 格式，例如 sales.fabrikam.com |
 | Domain.LDAP | 目前正在匯入之網域的 LDAP 格式，例如 DC=sales,DC=fabrikam,DC=com |
-| Forest.Netbios | 目前正在匯入之樹系名稱的 NetBIOS 格式，例如 FABRIKAMCORP |
+| Forest.Netbios | 目前正在匯入之樹系名稱的 Netbios 格式，例如 FABRIKAMCORP |
 | Forest.FQDN | 目前正在匯入之樹系名稱的 FQDN 格式，例如 fabrikam.com |
 | Forest.LDAP | 目前正在匯入之樹系名稱的 LDAP 格式，例如 DC=fabrikam,DC=com |
 
@@ -131,4 +131,4 @@ Active Directory 中的某些屬性在結構描述中是多重值，但是在 [A
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

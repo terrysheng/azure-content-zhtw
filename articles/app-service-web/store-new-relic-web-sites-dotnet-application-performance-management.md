@@ -38,8 +38,7 @@ New Relic Standard 供 Azure 使用者免費使用。根據您所使用的網站
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱 2 週。
 
-使用 Azure Marketplace 註冊 New Relic
---
+使用 Azure Marketplace 註冊 New Relic --
 
 New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密整合。
 
@@ -47,7 +46,7 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 ## 步驟 1.建立 New Relic 帳戶
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)，然後按一下角落的 [**新增**]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下角落的 [新增]。
 3. 按一下 [開發人員服務] > [New Relic APM]。
 4. 指定下列各項來設定 New Relic 帳戶，然後按一下 [建立]。
 	- **Name**
@@ -63,7 +62,7 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 ## 步驟 2：設定 Web 應用程式的 New Relic 整合
 
-1. 在 [Azure 預覽入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
 2. 按一下刀鋒視窗頂端的 [...] 功能表，並選取**加入磚**。
 3. 在 [**監視**] 索引標籤上選取**應用程式摘要**，並將它拖曳到您想要讓磚出現在 Web 應用程式刀鋒視窗上的位置。
 4. 按一下 [完成] 以完成加入磚。
@@ -84,7 +83,7 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 檢視 New Relic 儀表板：
 
-2. 在 [Azure 預覽入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
+2. 在 [Azure 入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
 3. 按一下 [應用程式監視] > [應用程式名稱] > [在 New Relic 檢視]。
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -165,7 +164,6 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [vswebsite]: web-sites-dotnet-get-started.md
@@ -179,4 +177,4 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

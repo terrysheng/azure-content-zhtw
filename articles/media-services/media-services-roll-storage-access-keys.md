@@ -39,11 +39,11 @@
 
 更新媒體服務，開始使用次要儲存體存取金鑰。您可以使用下列兩種方法的其中一個，將重新產生的儲存體金鑰與媒體服務同步。
 
-- 使用 Azure 入口網站：選取您的媒體服務帳戶，然後按一下入口網站視窗底部的 [管理金鑰] 圖示。根據您想要為媒體服務同步的儲存體金鑰，選取同步處理主要金鑰或同步處理次要金鑰按鈕。在本案例中，使用次要金鑰。
+- 使用 Azure 傳統入口網站：選取您的媒體服務帳戶，然後按一下入口網站視窗底部的 [管理金鑰] 圖示。根據您想要為媒體服務同步的儲存體金鑰，選取同步處理主要金鑰或同步處理次要金鑰按鈕。在本案例中，使用次要金鑰。
 
 - 使用媒體服務管理 REST API。
 
-	下列程式碼範例示範如何建構 https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key 要求，以便透過媒體服務同步指定的儲存體金鑰。在本情況中，會使用次要儲存體金鑰。如需詳細資訊，請參閱[如何：使用媒體服務管理 REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx)。
+下列程式碼範例示範如何建構 https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key 要求，以便透過媒體服務同步指定的儲存體金鑰。在本情況中，會使用次要儲存體金鑰。如需詳細資訊，請參閱[作法：使用媒體服務管理 REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx)。
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -159,4 +159,4 @@
 
 我們想要向下列為建立此文件貢獻心力的人員致謝：Cenk Dingiloglu、Milan Gada、Seva Titov。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -233,7 +233,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 #### 若要使用隨選 HDInsight 叢集
 
-1. 在「Azure 入口網站」，按一下 Data Factory 首頁中的 [製作和部署]。
+1. 在 Azure 傳統入口網站，按一下 Data Factory 首頁中的 [製作和部署]。
 2. 在 Data Factory 編輯器中，從命令列按一下 [新增計算]，然後從功能表選取 [隨選 HDInsight 叢集]。
 2. 在 JSON 指令碼中，執行下列動作：
 	1. 在 **clusterSize** 屬性中，指定 HDInsight 叢集的大小。
@@ -248,7 +248,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 			    "typeProperties": {
 			      "clusterSize": "1",
 			      "timeToLive": "00:05:00",
-			      "version": "3.1",
+			      "version": "3.2",
 			      "linkedServiceName": "StorageLinkedService"
 			    }
 			  }
@@ -374,7 +374,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 	(Blob 位置), (Blob 的名稱), (Blob 中的行數), (執行活動的節點), (日期時間戳記)
 
-10.	使用 [Azure 入口網站][azure-preview-portal]或 Azure PowerShell Cmdlet 來監視您的 Data Factory、管線和資料集。在可從入口網站下載的記錄檔中 (尤其是 user-0.log)，您可以從程式碼中的 **ActivityLogger**，或使用 Cmdlet，以查看自訂活動的訊息。
+10.	使用 [Azure 傳統入口網站][azure-preview-portal]或 Azure PowerShell Cmdlet 來監視您的 Data Factory、管線和資料集。在可從入口網站下載的記錄檔中 (尤其是 user-0.log)，您可以從程式碼中的 **ActivityLogger**，或使用 Cmdlet，以查看自訂活動的訊息。
 
 	![從自訂活動下載記錄檔][image-data-factory-download-logs-from-custom-activity]
 
@@ -398,7 +398,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 以下是上一節所述的逐步解說中使用 Azure Batch 連結服務的高階步驟：
 
-1. 使用 Azure 管理入口網站建立 Azure Batch 帳戶。請參閱[建立和管理 Azure Batch 帳戶][batch-create-account]文章以取得指示。記下 Azure Batch 帳戶名稱和帳戶金鑰。
+1. 使用 [Azure 傳統入口網站](http://manage.windowsazure.com)建立 Azure Batch 帳戶。請參閱[建立和管理 Azure Batch 帳戶][batch-create-account]文章以取得指示。記下 Azure Batch 帳戶名稱和帳戶金鑰。
 
 	您也可以使用 [New-AzureBatchAccount][new-azure-batch-account] Cmdlet 建立 Azure Batch 帳戶。如需使用此 Cmdlet 的詳細指示，請參閱[使用 Azure PowerShell 管理 Azure Batch 帳戶][azure-batch-blog]。
 2. 建立 Azure Batch 集區。您可以下載、編譯並使用 [Azure Batch 總管工具][batch-explorer]的原始碼，或使用[適用於 .NET 的 Azure Batch 程式庫][batch-net-library]來建立 Azure Batch 集區。如需有關使用 Azure Batch 總管的逐步指示，請參閱 [Azure Batch 總管範例逐步解說][batch-explorer-walkthrough]。
@@ -421,7 +421,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 		  }
 		}
 
-	> [AZURE.IMPORTANT] [Azure Batch 帳戶刀鋒視窗] 的 **URL** 格式如下：accountname.region.batch.azure.com。針對 JSON 中的 **batchUri** 屬性，您必須從該 URL **移除「帳戶名稱」**，並針對 **accountName** JSON 屬性使用該**帳戶名稱**。
+	> [AZURE.IMPORTANT][Azure Batch 帳戶刀鋒視窗] 的 **URL** 格式如下：accountname.region.batch.azure.com。針對 JSON 中的 **batchUri** 屬性，您必須從該 URL **移除「帳戶名稱」**，並針對 **accountName** JSON 屬性使用該**帳戶名稱**。
 
 	針對 **poolName** 屬性，您也可以指定該集區的 ID，而非集區名稱。
 
@@ -474,4 +474,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

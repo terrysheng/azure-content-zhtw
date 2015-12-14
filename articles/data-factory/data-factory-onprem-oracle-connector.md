@@ -224,7 +224,7 @@ gatewayName | 將用來連接到內部部署 Oracle 伺服器的閘道器名稱 
 
 屬性 | 說明 | 必要
 -------- | ----------- | --------
-tableName | Oracle 資料庫中連結服務所參照的資料表名稱。 | 是
+tableName | Oracle 資料庫中連結服務所參照的資料表名稱。 | 否 (如果已指定 **SqlSource** 的 **oracleReaderQuery**)
 
 ## Oracle 複製活動類型屬性
 
@@ -234,12 +234,12 @@ tableName | Oracle 資料庫中連結服務所參照的資料表名稱。 | 是
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
-在複製活動的案例中，如果來源的類型為 SqlSource，則 typeProperties 區段有下列可用屬性：
+在複製活動的案例中，如果來源的類型為 **OracleSource**，則 **typeProperties **區段有下列可用屬性：
 
 屬性 | 說明 |允許的值 | 必要
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | 使用自訂查詢來讀取資料。 | SQL 查詢字串。 
-例如：select * from MyTable<p>若未指定，執行的 SQL 陳述式即為 select * from MyTable</p> | 否
+例如：select * from MyTable<p>若未指定，執行的 SQL 陳述式即為 select * from MyTable</p> | 否 (如果已指定 **dataset** 的 **tableName**)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -291,7 +291,7 @@ XML | String
 
 1. 如果您尚未安裝 .NET Provider for Oracle，請[安裝它](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html)，然後重試此案例。 
 2. 如果您即使在安裝提供者之後還是會收到錯誤訊息，請執行下列作業： 
-	1. 從資料夾開啟 .NET 2.0 的電腦組態：<system disk>: \\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config。
+	1. 從資料夾開啟 .NET 2.0 的電腦組態：<system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config。
 	2. 搜尋 **Oracle Data Provider for .NET**，而您應該能夠在 **system.data** -> **DbProviderFactories** 下方找到類似下列內容的項目：“<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
 2.	將此項目複製到下列 v4.0 資料夾中的 machine.config 檔案 : <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config，並將版本變更為 4.xxx.x.x。
 3.	執行 “gacutil /i [provider path]”，將 “<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” 安裝到全域組件快取 (GAC)。
@@ -300,4 +300,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

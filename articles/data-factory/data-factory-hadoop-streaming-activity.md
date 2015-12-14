@@ -40,7 +40,8 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
 	                        "<nameofthecluster>/example/apps/wc.exe",
 	                        "<nameofthecluster>/example/apps/cat.exe"
 	                    ],
-	                    "fileLinkedService": "StorageLinkedService"
+	                    "fileLinkedService": "StorageLinkedService",
+	                    "getDebugInfo": "Failure"
 	                },
 	                "outputs": [
 	                    {
@@ -78,6 +79,7 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
 7. 在 **filePaths** 區段中，指定對應程式和減壓器可執行檔的路徑。在 "adfsample/example/apps/wc.exe" 範例中，adfsample 是 blob 容器，example/apps 是資料夾，而 wc.exe 是可執行檔。
 8. 針對 **fileLinkedService** 屬性，指定代表 Azure 儲存體 (包含 filePaths 區段中指定的檔案) 的 Azure 儲存體連結服務。
 9. 針對 **arguments** 屬性，指定串流工作的引數。
+10. **getDebugInfo** 屬性是選擇性的元素。該屬性設定為 [失敗] 時，只能在執行失敗時下載記錄檔。當其設定為「所有」時，無論執行狀態為何，一律下載記錄檔。
 
 > [AZURE.NOTE]如範例所示，您必須為 Hadoop 串流活動的 **outputs** 屬性指定輸出資料集。這只是驅動管線排程所需的空資料集。您不需要為活動的 **input** 屬性指定任何輸入資料集。
 
@@ -190,4 +192,4 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
 	    }
 	}
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

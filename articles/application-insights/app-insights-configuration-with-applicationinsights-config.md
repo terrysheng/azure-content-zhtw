@@ -68,7 +68,7 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
 
 ### Web 要求追蹤
 
-報告 HTTP 要求的[回應時間和結果碼](app-insights-start-monitoring-app-health-usage.md)。
+報告 HTTP 要求的[回應時間和結果碼](app-insights-asp-net.md)。
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 封裝。
@@ -135,6 +135,29 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
 遙測處理器可以在遙測從 SDK 傳送至入口網站之前篩選並修改每個遙測項目。
 
 您可以[撰寫您自己的遙測處理器](app-insights-api-filtering-sampling.md#filtering)。
+
+
+#### 自適性取樣遙測處理器 (自 2.0.0-beta3 起)
+
+此選項預設為啟用狀態。如果您的應用程式傳送許多遙測，此處理器會移除其中一些遙測。
+
+```xml
+
+    <TelemetryProcessors>
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+參數會提供演算法嘗試要達成的目標。每個 SDK 執行個體都獨立運作，因此如果您的伺服器是數個機器的叢集，遙測的實際數量會隨之加乘。
+
+[深入了解取樣](app-insights-sampling.md)。
+
+
+
+#### 固定取樣遙測處理器 (自 2.0.0-beta1 起)
 
 還有一種標準的[取樣遙測處理器](app-insights-api-filtering-sampling.md#sampling) (自 2.0.1 起)：
 
@@ -256,10 +279,10 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

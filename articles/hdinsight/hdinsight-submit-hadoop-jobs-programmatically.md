@@ -31,8 +31,8 @@
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-* **Azure HDInsight 叢集**。相關指示請參閱[開始使用 HDInsight][hdinsight-get-started] 或[在 HDInsight 建立 Hadoop 叢集][hdinsight-provision]。
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **Azure HDInsight 叢集**。相關指示請參閱[開始使用 HDInsight][hdinsight-get-started] 或[在 HDInsight 建立 Hadoop 叢集][hdinsight-provision]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)。
 
 ##使用 PowerShell 提交 MapReduce 工作
 
@@ -266,4 +266,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

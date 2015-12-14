@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Azure Data Factory 編輯器
-Azure Data Factory 編輯器是 Azure Preview 入口網站中的簡易型 Web 編輯器，可讓您建立、編輯和部署所有 Azure Data Factory 實體的 JSON 檔案。這可讓您使用 Data Factory 服務隨附的 JSON 範本，建立連結服務、資料集和管線。如果您未使用過 PowerShell，這讓您不需要安裝和熟悉 Azure PowerShell，也能建立 Azure Data Factory。
+Azure Data Factory 編輯器是 Azure 入口網站中的簡易型 Web 編輯器，可讓您建立、編輯和部署所有 Azure Data Factory 實體的 JSON 檔案。這可讓您使用 Data Factory 服務隨附的 JSON 範本，建立連結服務、資料集和管線。如果您未使用過 PowerShell，這讓您不需要安裝和熟悉 Azure PowerShell，也能建立 Azure Data Factory。
 
 ## 啟動 Data Factory 編輯器
 若要啟動 Data Factory 編輯器，請按一下 Azure Data Factory 的 [**Data Factory**] 分頁上的 [**製作和部署**] 磚。
@@ -220,4 +220,4 @@ Azure Data Factory 編輯器是 Azure Preview 入口網站中的簡易型 Web �
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -90,9 +90,9 @@
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
 
-11. 資源群組佈建之後，您可以在 Azure 入口網站上看到群組中的所有資源。如以下螢幕擷取畫面所示，資源群組內有包含三個 VM 的虛擬網路，這些 VM 加入同一個可用性設定組。該群組也包含負載平衡器，其具有關聯的公用 IP。
+11. 資源群組佈建之後，您可以在 Azure 傳統入口網站上看到群組中的所有資源。如以下螢幕擷取畫面所示，資源群組內有包含三個 VM 的虛擬網路，這些 VM 加入同一個可用性設定組。該群組也包含負載平衡器，其具有關聯的公用 IP。
 
-  ![在 Azure 入口網站佈建的資源群組](media/virtual-machines-deis-cluster/resource-group.png)
+  ![在 Azure 傳統入口網站佈建的資源群組](media/virtual-machines-deis-cluster/resource-group.png)
 
 ## 安裝用戶端
 
@@ -113,7 +113,7 @@
 
         export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
 
-範本會定義傳入的 NAT 規則，將 2223 對應到執行個體 1、2224 對應到執行個體 2、2225 對應到執行個體 3。這會提供使用 deisctl 工具的備援。您可以在 Azure 入口網站檢查這些規則：
+範本會定義傳入的 NAT 規則，將 2223 對應到執行個體 1、2224 對應到執行個體 2、2225 對應到執行個體 3。這會提供使用 deisctl 工具的備援。您可以在 Azure 傳統入口網站檢查這些規則：
 
 ![負載平衡器上的 NAT 規則](media/virtual-machines-deis-cluster/nat-rules.png)
 
@@ -258,4 +258,4 @@
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

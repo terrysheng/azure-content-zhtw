@@ -106,7 +106,7 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 
 
 ##從 Windows 電腦連接 Linux VM
-在 Windows 電腦上，啟動遠端桌面用戶端、輸入 Linux VM DNS 名稱或移至 Azure 入口網站中您 VM 的 [`Dashboard`] 並按一下 [`Connect`] 以連接至您的 Linux VM，您將會看到以下登入視窗：
+在 Windows 電腦上，啟動遠端桌面用戶端、輸入 Linux VM DNS 名稱或移至 Azure 傳統入口網站中您 VM 的`Dashboard`，再按一下 `Connect` 以連接到您的 Linux VM，您將會看到以下登入視窗：
 
 ![image](./media/virtual-machines-linux-remote-desktop/no2.png)
 
@@ -116,4 +116,4 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 ##下一步
 如需使用 xrdp 的詳細資訊，您可以參考[這裡](http://www.xrdp.org/) (英文)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

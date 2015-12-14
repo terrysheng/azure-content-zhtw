@@ -39,7 +39,7 @@
 	- 示範帳戶會填入此教學課程中所顯示的火山資料。此示範帳戶未受限於任何 SLA，而是僅供示範之用。我們保留對此示範帳戶隨時進行修改的權利，包括 (但不限於) 終止帳戶、變更金鑰、限制存取權、變更和刪除資料，不事先通知或告知原因。 
 		- URL：https://analytics.documents.azure.com
 		- 唯讀金鑰：MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-	- 或者，若要建立您自己的帳戶，請參閱[使用 Azure Preview 入口網站建立 DocumentDB 資料庫帳戶](https://azure.microsoft.com/documentation/articles/documentdb-create-account/)。然後，若要取得類似於本教學課程所使用的範例火山資料 (但不包含 GeoJSON 區塊)，請參閱 [NOAA 網站](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)，然後使用 [DocumentDB 資料移轉工具](https://azure.microsoft.com/documentation/articles/documentdb-import-data/)匯入資料。
+	- 或者，若要建立您自己的帳戶，請參閱[使用 Azure 入口網站建立 DocumentDB 資料庫帳戶](https://azure.microsoft.com/documentation/articles/documentdb-create-account/)。然後，若要取得類似於本教學課程所使用的範例火山資料 (但不包含 GeoJSON 區塊)，請參閱 [NOAA 網站](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)，然後使用 [DocumentDB 資料移轉工具](https://azure.microsoft.com/documentation/articles/documentdb-import-data/)匯入資料。
 
 
 若要在 PowerBI.com 上共用您的報告，您必須有 PowerBI.com 中的帳戶。若要深入了解 Power BI for Free 和 Power BI Pro，請造訪 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)。
@@ -86,7 +86,7 @@
 
 	![Power BI Desktop 取得資料](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
-6. 依照下列方式指定您要從中擷取資料的 DocumentDB 帳戶端點 URL，然後按一下 [確定]。您可以從 Azure Preview 入口網站之 [金鑰] 刀鋒視窗的 [URI] 方塊中擷取 URL，或使用上面提供的示範帳戶資訊。如需詳細資訊，請參閱[金鑰](documentdb-manage-account.md#keys)。
+6. 依照下列方式指定您要從中擷取資料的 DocumentDB 帳戶端點 URL，然後按一下 [確定]。您可以從 Azure 入口網站之 [金鑰] 刀鋒視窗的 [URI] 方塊中擷取 URL，或使用上面提供的示範帳戶資訊。如需詳細資訊，請參閱[金鑰](documentdb-manage-account.md#keys)。
 
 
 	*注意。在本教學課程中，我們不會指定資料庫名稱、集合名稱或 SQL 陳述式，因為這些欄位是選用的。我們將使用「瀏覽器」來選取資料庫和集合，以識別資料來自何處。*
@@ -95,7 +95,7 @@
 
 7. 如果您是第一次連接到此端點，系統會提示您提供帳戶金鑰。輸入帳戶金鑰，然後按一下 [連接]。
 	
-	*注意。建議您在建置報告時使用唯讀金鑰。這樣可避免非必要地將主要金鑰暴露於潛在的安全性風險下。唯讀金鑰可從 Azure Preview 入口網站的 [唯讀金鑰] 刀鋒視窗取得，或使用上面提供的示範帳戶資訊取得。*
+	*注意。建議您在建置報告時使用唯讀金鑰。這樣可避免非必要地將主要金鑰暴露於潛在的安全性風險下。唯讀金鑰可從 Azure 入口網站的 [唯讀金鑰] 刀鋒視窗取得，或使用上面提供的示範帳戶資訊取得。*
 
     ![Power BI Desktop 帳戶金鑰](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
@@ -194,4 +194,4 @@
 - 若要深入了解 Power BI，請按一下 [這裡][](https://support.powerbi.com/knowledgebase)。
 - 若要深入了解 DocumentDB，請按一下[這裡](https://azure.microsoft.com/documentation/services/documentdb/)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

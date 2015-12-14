@@ -1,4 +1,4 @@
-1. 在 [Azure 管理入口網站]中，按一下新的行動服務或是其雲端圖示索引標籤，以移至概觀頁面。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下新的行動服務或是其雲端圖示索引標籤，以移至概觀頁面。
 
     ![](./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png)
 
@@ -19,11 +19,4 @@
 
     ![](./media/mobile-services-ios-download-service-locally/download-publish-profile.png)
 
-
-
-
-
-<!-- URLs. -->
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

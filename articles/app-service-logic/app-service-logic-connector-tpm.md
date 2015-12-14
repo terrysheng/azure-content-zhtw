@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="rajram"/>
 
 # 開始使用 BizTalk 交易夥伴管理並將它加入您的邏輯應用程式
@@ -39,4 +39,4 @@ TPM API 應用程式是 AS2 連接器、X12 API 應用程式和 EDIFACT API 應�
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

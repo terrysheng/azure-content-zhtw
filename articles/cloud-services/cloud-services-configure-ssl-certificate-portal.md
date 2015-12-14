@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="設定雲端服務 (Preview 入口網站) 的 SSL | Microsoft Azure" 
-	description="了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。這些範例使用 Azure Preview 入口網站。" 
+	pageTitle="設定雲端服務的 SSL | Microsoft Azure" 
+	description="了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。這些範例使用 Azure 入口網站。" 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -22,8 +22,8 @@
 # 在 Azure 設定應用程式的 SSL
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
@@ -153,8 +153,6 @@
       
     >建立與 GUID 型 URL 相同的一般名稱 (CN) (例如，**328187776e774ceda8fc57609d404462.cloudapp.net**) 的憑證、使用入口網站將該憑證新增至預備雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝應用程式，然後將預備部署更新為使用新的套件與 CSCFG 檔。
 
-[Azure Portal]: http://portal.azure.com/
-
 ## 後續步驟
 
 * [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
@@ -162,4 +160,4 @@
 * 設定[自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

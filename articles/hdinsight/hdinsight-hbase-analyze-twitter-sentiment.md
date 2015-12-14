@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="12/02/2015" 
 	ms.author="jgao"/>
 
 # 使用 HDInsight 中的 HBase 分析即時的 Twitter 情緒
@@ -75,11 +75,11 @@
 
 
 	<table border="1">
-	<tr><th>叢集屬性</th><th>說明</th></tr>
-	<tr><td>HBase 叢集名稱</td><td>您的 HDInsight HBase 叢集名稱。例如：https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>叢集使用者名稱</td><td>Hadoop 使用者帳戶名稱。預設 Hadoop 使用者名稱為 <strong>admin</strong>。</td></tr>
-	<tr><td>叢集使用者密碼</td><td>Hadoop 叢集使用者密碼。</td></tr>
-	</table>
+<tr><th>叢集屬性</th><th>說明</th></tr>
+<tr><td>HBase 叢集名稱</td><td>您的 HDInsight HBase 叢集名稱。例如：https://myhbase.azurehdinsight.net/</td></tr>
+<tr><td>叢集使用者名稱</td><td>Hadoop 使用者帳戶名稱。預設 Hadoop 使用者名稱為 <strong>admin</strong>。</td></tr>
+<tr><td>叢集使用者密碼</td><td>Hadoop 叢集使用者密碼。</td></tr>
+</table>
 
 - 安裝 Visual Studio 2013 的**工作站**。如需指示，請參閱[安裝 Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx)。
 
@@ -98,13 +98,11 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 3. 輸入 [名稱]、[描述] 和 [網站]。我們實際上不會用到 [網站] 欄位。因此您不必輸入有效的 URL。下表列出部分要使用的範例值：
 
 	<table border="1">
-	<tr><th>欄位</th><th>值</th></tr>
-	<tr><td>名稱</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>說明</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>網站</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]Twitter 應用程式名稱必須是唯一的名稱。
+<tr><th>欄位</th><th>值</th></tr>
+<tr><td>名稱</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>說明</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>網站</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]Twitter 應用程式名稱必須是唯一的名稱。
 
 4. 核取 [Yes, I agree]然後按一下 [Create your Twitter application]。
 5. 按一下 [權限] 索引標籤。預設權限為 [唯讀]。本教學課程使用預設值即可。 
@@ -220,7 +218,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
         const string HBASETABLENAME = "tweets_by_words";
 
         // Sentiment dictionary file and the punctuation characters
-        const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
+        const string DICTIONARYFILENAME = @"..\..\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
             ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
@@ -678,9 +676,9 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 	- **CLUSTERNAME**：HBase 叢集名稱，例如 *https://<HBaseClusterName>.azurehdinsight.net/*。 
     - **HADOOPUSERNAME**：HBase 叢集 Hadoop 使用者的使用者名稱。預設名稱為 *admin*。
     - **HADOOPUSERPASSWORD**：HBase 叢集 Hadoop 使用者密碼。
-    - **HBASETABLENAME** = "tweets_by_words";
+    - **HBASETABLENAME** = "tweets\_by\_words";
 
-	HBase 資料表名稱為 **"tweets_by_words";**。這些值必須符合在串流服務中傳送的值，如此一來，Web 應用程式才能從相同的 HBase 資料表讀取資料。
+	HBase 資料表名稱為 **"tweets\_by\_words";**。這些值必須符合在串流服務中傳送的值，如此一來，Web 應用程式才能從相同的 HBase 資料表讀取資料。
 
 
 
@@ -1177,7 +1175,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **修改 layout.cshtml**
 
-1. 在 **方案總管** 中，依序展開 [TweetSentimentWeb]、[Views] 及 [Shared]，然後按兩下 _[Layout.cshtml]。
+1. 在 [方案總管] 中，依序展開 **TweetSentimentWeb**、**Views** 及 **Shared**，然後按兩下 \__**Layout.cshtml**。
 2. 以下列內容取代原始內容：
 
 		<!DOCTYPE html>
@@ -1283,7 +1281,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 		using System.Web.Http;
 
-2. 將以下文字行新增至 **Application_Start()** 函數內：
+2. 將以下文字行新增至 **Application\_Start()** 函數內：
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1357,4 +1355,4 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

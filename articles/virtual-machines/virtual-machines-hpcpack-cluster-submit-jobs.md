@@ -26,7 +26,7 @@ ms.service="virtual-machines"
 
 ## 必要條件
 
-* **在 Azure VM 中部署的 HPC Pack 前端節點** - 您可以使用 [Azure 快速入門範本](https://azure.microsoft.com/zh-TW/documentation/templates/)或 [Azure PowerShell 指令碼](virtual-machines-hpcpack-cluster-powershell-script.md) 等自動化工具來部署前端節點和叢集，或是以內部部署叢集所使用的相同方式在 Azure 中手動部署叢集。您必須要有前端節點的 DNS 名稱和叢集系統管理員的認證，才能完成本文中的步驟。
+* **在 Azure VM 中部署的 HPC Pack 前端節點** - 您可以使用 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)或 [Azure PowerShell 指令碼](virtual-machines-hpcpack-cluster-powershell-script.md) 等自動化工具來部署前端節點和叢集，或是以內部部署叢集所使用的相同方式在 Azure 中手動部署叢集。您必須要有前端節點的 DNS 名稱和叢集系統管理員的認證，才能完成本文中的步驟。
 
     如果您以手動方式部署前端節點，請確定已在 VM 中設定 HTTPS 端點。若非如此，請加以設定。請參閱[如何設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)。
 
@@ -163,7 +163,7 @@ net start hpcscheduler
     ```
 2. 在出現的安全性對話方塊中，輸入 HPC 叢集系統管理員的網域認證。(您也可以在不同的角色中新增其他叢集使用者。如需詳細資訊，請參閱[管理叢集使用者](https://technet.microsoft.com/library/ff919335.aspx)。)
 
-    Web 入口網站會開啟並顯示工作清單檢視。
+    Web 入口網站會開啟並顯示作業清單檢視。
 
 3. 若要提交會從叢集傳回字串 "Hello World" 的範例工作，請按一下左側導覽列中的 [新增工作]。
 
@@ -183,4 +183,4 @@ net start hpcscheduler
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

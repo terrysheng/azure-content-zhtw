@@ -120,17 +120,17 @@ PowerShell 能夠只從備份還原 VM 磁碟，而不建立虛擬機器。在�
 
 為了完整重新建立虛擬機器後續還原磁碟，請依照以下步驟執行：
 
-1. 使用 [Azure 備份 PowerShell](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm) 從備份保存庫還原磁碟
+1. 使用 [Azure 備份 PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm) 從備份保存庫還原磁碟
 
 2. 使用 PowerShell Cmdlet 建立負載平衡器/多個 NIC/多個保留的 IP 所需的 VM 組態，並使用該組態建立具備想要之組態的 VM。
-	- 使用[內部負載平衡器](https://azure.microsoft.com/zh-TW/documentation/articles/load-balancer-internal-getstarted/)在雲端服務中建立 VM。
+	- 使用[內部負載平衡器](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)在雲端服務中建立 VM
 	- 建立 VM 來連線至[網際網路對向負載平衡器](https://azure.microsoft.com/zh-TW/documentation/articles/load-balancer-internet-getstarted)
-	- 建立具有[多個 NIC](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics) 的 VM
-	- 建立具有[多個保留的 IP](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)的 VM
+	- 建立具有[多個 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics) 的 VM
+	- 建立具有[多個保留的 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/) 的 VM
   
 
 ## 後續步驟
 - [錯誤疑難排解](backup-azure-vms-troubleshoot.md#restore)
 - [管理虛擬機器](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

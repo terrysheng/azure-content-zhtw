@@ -31,7 +31,7 @@ Azure Machine Learning 可讓您建置、測試以及部署預測性分析解決
 一旦您部署了 Web 服務，您可以：
 
 - 透過 Web 服務 API **[存取]**它
-- 透過 Azure 管理入口網站**[管理]**它，以及
+- 透過 Azure 傳統入口網站**[管理]**它，以及
 - 當您的模型變更時**[更新]**它
 
 [建立訓練實驗]: #create-a-training-experiment
@@ -76,7 +76,7 @@ Azure Machine Learning 可讓您建置、測試以及部署預測性分析解決
 
 ![測試 Web 服務](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-在 [**組態**] 索引標籤上，您可以變更服務的顯示名稱，並且給予說明。名稱和說明會顯示在 Azure 管理入口網站中，您在其中管理您的 Web 服務。您也可以為您的輸入資料、輸出資料及 Web 服務參數提供說明，方法是為**輸入結構描述**、**輸出結構描述**及 **WEB 服務參數**底下的每個資料行輸入字串。這些說明會用於為 Web 服務提供的範例程式碼文件。您也可以啟用記錄以診斷當您存取 Web 服務時看到的任何錯誤。
+在 [**組態**] 索引標籤上，您可以變更服務的顯示名稱，並且給予說明。名稱和說明會顯示在 Azure 傳統入口網站中，您在該入口網站中管理您的 Web 服務。您也可以為您的輸入資料、輸出資料及 Web 服務參數提供說明，方法是為**輸入結構描述**、**輸出結構描述**及 **WEB 服務參數**底下的每個資料行輸入字串。這些說明會用於為 Web 服務提供的範例程式碼文件。您也可以啟用記錄以診斷當您存取 Web 服務時看到的任何錯誤。
 
 如需詳細資訊，請參閱[為 Machine Learning Web 服務啟用記錄](machine-learning-web-services-logging.md)。
 
@@ -92,12 +92,11 @@ Azure Machine Learning 可讓您建置、測試以及部署預測性分析解決
 如需存取 Machine Learning Web 服務的詳細資訊，請參閱[如何使用已發佈的 Azure Machine Learning Web 服務](machine-learning-consume-web-services.md)。
 
 
-## 在 Azure 管理入口網站中管理 Web 服務
+## 在 Azure 傳統入口網站中管理 Web 服務
 
-在 Azure 管理入口網站中，您可以管理您的 Web 服務，方法是按一下 [**機器學習**] 服務，開啟您的機器學習工作區，然後從 [**WEB 服務**] 索引標籤開啟 Web 服務。您可以從這個頁面監視 Web 服務、更新及刪除它。您也可以為 Web 服務新增預設端點 (在您部署服務時建立) 之外的第二個端點。
+在 Azure 傳統入口網站中，您可以管理您的 Web 服務，方法是按一下 [**機器學習**] 服務，開啟您的機器學習工作區，然後從 [**WEB 服務**] 索引標籤開啟 Web 服務。您可以從這個頁面監視 Web 服務、更新及刪除它。您也可以為 Web 服務新增預設端點 (在您部署服務時建立) 之外的第二個端點。
 
-如需詳細資訊，請參閱[管理 Azure Machine Learning 工作區](machine-learning-manage-workspace.md)。
-<!-- When this article gets published, fix the link and uncomment
+如需詳細資訊，請參閱[管理 Azure Machine Learning 工作區](machine-learning-manage-workspace.md)。<!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
@@ -112,4 +111,4 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 更新 Web 服務的一個選擇是以程式設計方式重新定型模型。如需詳細資訊，請參閱[以程式設計方式重塑機器學習模型](machine-learning-retrain-models-programmatically.md)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

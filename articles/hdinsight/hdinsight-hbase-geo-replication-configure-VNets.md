@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # 設定兩個 Azure 虛擬網路之間的 VPN 連線  
@@ -71,7 +71,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 **建立北歐名為 Contoso-VNet-EU 的虛擬網路**
 
-1.	登入 [Azure 入口網站][azure-portal]。
+1.	登入 [Azure 傳統入口網站][azure-portal]。
 2.	依序按一下 [**新增**]、[**網路服務**]、[**虛擬網路**]、[**自訂建立**]。
 3.	輸入：
 
@@ -144,7 +144,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 **建立符合 Contoso-VNet-EU 網路位址空間、名為 Contoso-LNet-EU 的區域網路**
 
-1. 從 Azure 入口網站，依序按一下 [**新增**]、[**網路服務**]、[**虛擬網路**]、[**新增區域網路**]。
+1. 從 Azure 傳統入口網站，依序按一下 [新增]、[網路服務]、[虛擬網路]、[新增區域網路]。
 3. 輸入：
 
 	- **名稱**：Contoso-LNet-EU
@@ -175,7 +175,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 **將 Contoso-VNet-EU 站對站連線設定為 Contoso-LNet-US**
 
-1.	從 Azure 入口網站，按一下左側窗格上的 [**網路**]，
+1.	從 Azure 傳統入口網站，按一下左側窗格的 [網路]。
 2.	按一下 [**Contoso-VNet-EU**]。
 3.	按一下 **[設定]** 索引標籤。
 4.	核取 [**連線到區域網路**]。
@@ -187,7 +187,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 **建立 Contoso-VNet-EU 的 VPN 閘道**
 
-1.	從 Azure 入口網站，按一下 [**儀表板**] 索引標籤。
+1.	從 Azure 傳統入口網站，按一下 [儀表板] 索引標籤。
 4.	按一下頁面底部的 [**建立閘道**]，然後按一下 [**動態路由**]。
 5.	按一下 [**是**] 以確認。請注意，頁面上的閘道圖形會變更為黃色，並顯示 [正在建立閘道]。建立閘道通常需要大約 15 分鐘的時間。
 
@@ -205,7 +205,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 **設定 Contoso-LNet-EU 的 VPN 裝置 IP 位址**
 
-1.	從 Azure 入口網站，按一下左側窗格中的 [**網路**]。
+1.	從 Azure 傳統入口網站，按一下左側窗格中的 [網路]。
 2.	按一下上方的 [**區域網路**]。
 3.	按一下 [**Contoso-LNet-EU**]，然後按一下底部的 [**編輯**]。
 4.	更新 [**VPN 裝置 IP 位址**]。這是您從 Contoso-VNET-EU 的 [儀表板] 索引標籤中取得的位址。
@@ -218,7 +218,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 ###設定 VNet 閘道金鑰
 
-Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰無法在 Azure 入口網站中設定。您必須使用 PowerShell 或 .NET SDK。
+Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰無法在 Azure 傳統入口網站中設定。您必須使用 PowerShell 或 .NET SDK。
 
 **設定金鑰**
 
@@ -233,7 +233,7 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 
 ##檢查 VPN 連線 
 
-在沒有任何 VM 部署到 VNet 的情況下，您可以使用 Azure 入口網站上的虛擬網路視覺化圖表 VNet 儀表板頁面，來檢查連接狀態：
+在沒有任何 VM 部署到 VNet 的情況下，您可以使用 Azure 傳統入口網站上的虛擬網路視覺化圖表 VNet 儀表板頁面，來檢查連接狀態：
 
 ![HDInsight HBase 複寫虛擬網路 VPN 連線狀態][img-vpn-status]
   
@@ -270,4 +270,4 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

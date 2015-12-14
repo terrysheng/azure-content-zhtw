@@ -681,7 +681,7 @@
 
     Set-ClusterQuorum -NodeMajority  
 
-如需管理和設定叢集仲裁的詳細資訊，請參閱[設定和管理 Windows Server 2012 容錯移轉叢集中的仲裁](https://technet.microsoft.com/zh-TW/library/jj612870.aspx)。
+如需管理和設定叢集仲裁的詳細資訊，請參閱[設定和管理 Windows Server 2012 容錯移轉叢集中的仲裁](https://technet.microsoft.com/library/jj612870.aspx)。
 
 #### 步驟 6：擷取現有的端點和 ACL
     #GET Endpoint info
@@ -1084,7 +1084,7 @@
     Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
     
     
-    #STOP!!! CHECK in the Azure portal or Machine Endpoints through powershell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure classic portal or Machine Endpoints through powershell that these Endpoints are created!
     
     #SET ACLs or Azure Network Security Groups & Windows FWs 
      
@@ -1150,4 +1150,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -10,17 +10,15 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc"/>
 
 # 將推播通知新增至 Xamarin.Forms 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -62,39 +60,6 @@
 ##將已更新的伺服器專案部署至 Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
-
-## 更新可攜式類別庫專案 
-
-共用專案中定義的 `TodoItemManager` 類別包裝用戶端至行動應用程式後端的連接，以及我們想要對裝載於行動應用程式後端的資料表執行的作業。我們會公開用戶端連接，以便我們可以註冊推播通知。
-
-1. 在 Visual Studio 或 Xamarin Studio 中，開啟共用專案中的 TodoItemManager.cs。將下列靜態成員和存取子加入至 `TodoItemManager` 類別。當我們需要取得平台特定的 `Microsoft.WindowsAzure.MobileServices.Push` 物件時，我們將以此來存取 `MobileServiceClient`。 
-
-        static TodoItemManager defaultInstance = null;
-
-        public static TodoItemManager DefaultInstance
-        {
-            get
-            {
-                return defaultInstance;
-            }
-            private set
-            {
-                defaultInstance = value;
-            }
-        }
-
-		public MobileServiceClient CurrentClient
-		{
-			get { return client; }
-		}
-
-
-2. 在 `TodoItemManager` 類別的建構函式開頭，加入程式碼以初始化 `DefaultInstance`。
-
-        DefaultClient = this;
-
-
 
 
 ##(選擇性) 設定和執行 Android 專案
@@ -236,7 +201,7 @@
 		
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
 		
-            var push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 		
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
 		
@@ -381,7 +346,7 @@
 		using Newtonsoft.Json.Linq;
 
 
-2. 在 iOS 專案中，開啟 AppDelegate.cs 並更新 `FinishedLaunching`以支援遠端通知，如下所示。
+2. 在 iOS 專案中，開啟 AppDelegate.cs 並更新 `FinishedLaunching` 以支援遠端通知，如下所示。
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
@@ -422,7 +387,7 @@
                 };
 
             // Register for push with your mobile app
-            Push push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            Push push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
             push.RegisterAsync(deviceToken, templates);
         }
 
@@ -450,7 +415,7 @@
 
 1. 以滑鼠右鍵按一下 iOS 專案，然後按一下 [設定為起始專案]。
 
-2. 在 Visual Studio 中按 [執行] 按鈕或 **F5** 以建組專案，並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
+2. 在 Visual Studio 中按 [執行] 按鈕或 **F5** 以建置專案，並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
 	
 	> [AZURE.NOTE]您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
@@ -505,7 +470,7 @@
                   {"headers", headers} // Only needed for WNS & MPNS
                 };
 
-            await TodoItemManager.DefaultInstance.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
+            await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
 3. 在 App.xaml.cs 中，以 `async` 屬性更新 `OnLaunched` 事件處理常式，並呼叫 `InitNotificationsAsync`
@@ -572,10 +537,6 @@
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 
-
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

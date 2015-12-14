@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取
+
+> [AZURE.SELECTOR]
+- [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+- [Azure CLI](cache-manage-cli.md)
 
 Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。本文將說明如何使用 Azure CLI 建立並管理 Azure Redis 快取執行個體。
 
@@ -254,4 +258,4 @@ Azure CLI 是從任何平台管理 Azure 基礎結構的一個好方法。本文
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

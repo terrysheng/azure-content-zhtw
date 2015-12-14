@@ -30,9 +30,9 @@
 
 ## Azure 資源
 
-使用 Azure 資源管理員將一組「資源」(使用者管理的實體，例如虛擬機器、資料庫伺服器、資料庫或網站) 視為單一邏輯單位建立及管理，或視為「資源群組」建立及管理。
+使用 Azure 資源管理員將一組「資源」(使用者管理的實體，例如虛擬機器、資料庫伺服器、資料庫或網站) 做為單一邏輯單位建立及管理，或做為「資源群組」建立及管理。
 
-Azure 資源管理員的優點之一就是您可以用「宣告」的方式建立 Azure 資源：描述可在 JSON「範本」中部署的資源群組的結構與關係。範本會識別可在執行命令時內嵌的參數，或儲存於個別 JSON azuredeploy-parameters.json 檔案中的參數。如此一來，您只要提供不同的參數，就能使用相同的範本輕易建立新資源。例如，建立網站的範本將具有網站名稱的參數、網站將放置的區域，以及其他共同設定。
+Azure 資源管理員的優點之一就是您可以用「宣告」的方式建立 Azure 資源，亦即描述可在 JSON「範本」中部署的資源群組的結構與關係。範本會識別可在執行命令時內嵌的參數，或儲存於個別 JSON azuredeploy-parameters.json 檔案中的參數。如此一來，您只要提供不同的參數，就能使用相同的範本輕易建立新資源。例如，建立網站的範本將具有網站名稱的參數、網站將放置的區域，以及其他共同設定。
 
 使用範本修改或建立群組時，會建立_部署_，接著將其套用至群組。如需 Azure 資源管理員的詳細資訊，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
 
@@ -40,11 +40,11 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 ## 驗證
 
-若要透過 Azure CLI 使用 Azure 資源管理員，您必須使用公司或學校帳戶 (組織帳戶) 或 Microsoft 帳戶 (從 CLI 0.9.10 版開始) 向 Microsoft Azure 進行驗證。透過 .publishsettings 檔案安裝的憑證無法在此模式中進行驗證。
+若要透過 Azure CLI 使用 Azure 資源管理員，您必須使用公司或學校帳戶 (組織帳戶) 或 Microsoft 帳戶 (從 CLI 0.9.10 版開始) 讓 Microsoft Azure 進行驗證。透過 .publishsettings 檔案安裝的憑證無法在此模式中進行驗證。
 
-如需向 Microsoft Azure 進行驗證的詳細資訊，請參閱[從 Azure CLI 連線至 Azure 訂用帳戶](xplat-cli-connect.md)。
+如需 Microsoft Azure 驗證的詳細資訊，請參閱[從 Azure CLI 連線至 Azure 訂用帳戶](xplat-cli-connect.md)。
 
->[AZURE.NOTE]當您使用公司或學校帳戶 (由 Azure Active Directory 管理) 時，您也可以使用 Azure 角色式存取控制 (RBAC) 管理 Azure 資源的存取與使用。如需詳細資訊，請參閱[管理與稽核資源存取權](resource-group-rbac.md)。
+>[AZURE.NOTE]當您使用公司或學校帳戶 (這些帳戶由 Azure Active Directory 管理) 時，您也可以使用 Azure 角色型存取控制 (RBAC) 管理 Azure 資源的存取與使用。如需詳細資訊，請參閱[管理與稽核資源存取權](resource-group-rbac.md)。
 
 ## 設定 Azure 資源管理員模式
 
@@ -75,7 +75,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 ### 尋找和設定資源群組範本
 
-使用範本時，您可以[建立自己的範本](resource-group-authoring-templates.md)，或使用[範本資源庫](https://azure.microsoft.com/documentation/templates/)中的範本 (也可以在 [GitHub](https://github.com/Azure/azure-quickstart-templates) 上取得範本)。
+使用範本時，您可以[建立自己的範本](resource-group-authoring-templates.md)，或使用 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)中的範本 (也可以在 [GitHub](https://github.com/Azure/azure-quickstart-templates) 上取得範本)。
 
 建立新範本已超出本文的範圍，所以我們就從使用可在 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) 取得的 _101-simple-vm-from-image_ 範本著手。根據預設，這會在美國西部區域中具有單一子網路的新虛擬網路中建立單一 Ubuntu 4.04.2-LTS 虛擬機器。您只需要指定下列幾個參數即可使用此範本：
 
@@ -88,7 +88,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 1. 從 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) 將 azuredeploy.json 和 azuredeploy.parameters.json 檔案下載到本機電腦上的工作資料夾。
 
-2. 在文字編輯器中開啟 azuredeploy.parameters.json 檔案，然後輸入您的環境適用的參數值 (讓 **ubuntuOSVersion** 值保持不變)。
+2. 在文字編輯器中開啟 azuredeploy.parameters.json 檔案，然後輸入您的環境適用的參數值 (**ubuntuOSVersion** 值保持不變)。
 
 		{
 	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -112,11 +112,11 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 		  }
 		}
 	```
-3. 儲存 azuredeploy.parameters.json 檔案後，請使用下列命令以根據範本建立新資源群組。`-e` 選項會指定您在上一個步驟中修改的 azuredeploy.parameters.json 檔案。利用您要使用的群組名稱來取代 *testRG*，並利用您選擇的部署名稱來取代 *testDeploy*。位置應與您在範本參數檔案中指定的位置相同。
+3. 儲存 azuredeploy.parameters.json 檔案後，請使用下列命令以根據範本建立新資源群組。`-e` 選項會指定您在上一個步驟中修改的 azuredeploy.parameters.json 檔案。將 *testRG* 取代為您要使用的群組名稱，*testDeploy* 取代為您選擇的部署名稱。位置應與您在範本參數檔案中指定的位置相同。
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
 
-	上傳部署後，但在將部署套用至群組中的資源前，此命令將傳回 [確定]。
+	上傳部署之後及將部署套用至群組中的資源之前，此命令會傳回 [確定]。
 
 4. 若要檢查部署的狀態，請使用下列命令。
 
@@ -144,7 +144,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 		data:    ubuntuOSVersion        String        14.04.2-LTS
 		info:    group deployment show command OK
 
-	>[AZURE.NOTE]如果您認為您的設定不正確，並需要停止長期執行的部署，請使用下列命令。
+	>[AZURE.NOTE]如果您認為您的設定不正確，並需要停止長時間執行的部署，請使用下列命令。
 	>
 	> `azure group deployment stop "testRG" "testDeploy"`
 	>
@@ -158,12 +158,12 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 	此命令會傳回群組中資源的相關資訊。如果您有多個群組，可使用 `azure group list` 命令來擷取群組名稱清單，然後使用 `azure group show` 來檢視特定群組的詳細資料。
 
-您也可以直接使用 [GitHub](https://github.com/Azure/azure-quickstart-templates) 中的範本，而不需將範本下載到電腦。若要執行此動作，可在命令中使用 **--template-url** 選項，將 URL 傳遞至範本的 azuredeploy.json 檔。若要取得 URL，請以「原始」模式在 GitHub 上開啟 azuredeploy.json，然後複製出現在瀏覽器網址列中的 URL。接著，您可以使用類似下列的命令，直接使用此 URL 建立部署。
+您也可以直接使用 [GitHub](https://github.com/Azure/azure-quickstart-templates) 中的範本，而不需將範本下載到電腦。若要執行此動作，可在命令中使用 **--template-url** 選項，將 URL 傳遞至範本的 azuredeploy.json 檔。若要取得 URL，請以 [原始] 模式在 GitHub 上開啟 azuredeploy.json，然後複製出現在瀏覽器網址列中的 URL。接著，您可以使用類似下列的命令，直接使用此 URL 建立部署。
 
 	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
 系統會提示您輸入必要的範本參數。
 
-> [AZURE.NOTE]請務必以「原始」模式開啟 JSON 範本。瀏覽器網址列中出現的 URL，與一般模式中出現的不同。在 GitHub 上檢視檔案時，若要以「原始」模式開啟檔案，請按一下右上角的 [原始]。
+> [AZURE.NOTE]請務必以 [原始] 模式開啟 JSON 範本。瀏覽器網址列中出現的 URL，與一般模式中出現的不同。在 GitHub 上檢視檔案時，若要以 [原始] 模式開啟檔案，請按一下右上角的 [原始]。
 
 ## 使用資源
 
@@ -183,7 +183,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 	此命令會傳回虛擬機器的相關資訊。
 
-3. 檢視資源的詳細資料時，使用 `--json` 參數通常很實用。此參數可製作更具可讀性的輸出，其中部分值是巢狀結構或集合。下列範例示範如何以 JSON 文件傳回 **show** 命令的結果。
+3. 檢視資源的詳細資料時，建議使用 `--json` 參數，更加實用。此參數可製作更具可讀性的輸出，其中部分值是巢狀結構或集合。下列範例示範如何以 JSON 文件傳回 **show** 命令的結果。
 
 		azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
@@ -203,11 +203,11 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 ## 後續步驟
 
-* 如需透過 Azure PowerShell 使用 Azure 資源管理員的相關資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
-* 如需從 Azure Preview 入口網站使用 Azure 資源管理員的相關資訊，請參閱[使用資源群組管理 Azure 資源][psrm]。
+* 如需透過 Azure PowerShell 來使用 Azure 資源管理員的相關資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
+* 如需從 Azure 入口網站使用 Azure 資源管理員的相關資訊，請參閱[使用 Azure Preview 入口網站管理 Azure 資源][psrm]。
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

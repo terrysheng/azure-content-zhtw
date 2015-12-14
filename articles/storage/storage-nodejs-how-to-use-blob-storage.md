@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="12/01/2015"
 	ms.author="robmcm"/>
 
 
@@ -40,7 +40,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure-storage**。此命令的輸出類似下列程式碼範例。
 
@@ -67,7 +67,7 @@
 
 Azure 模組會讀取環境變數 `AZURE_STORAGE_ACCOUNT` 及 `AZURE_STORAGE_ACCESS_KEY`，或讀取 `AZURE_STORAGE_CONNECTION_STRING` 以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **createBlobService** 時必須指定帳戶資訊。
 
-如需在 Azure web 應用程式的 Azure 入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
+如需在 Azure web 應用程式的 [Azure 入口網站](portal.azure.com)中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
 
 ## 建立容器
 
@@ -115,7 +115,7 @@ Azure 模組會讀取環境變數 `AZURE_STORAGE_ACCOUNT` 及 `AZURE_STORAGE_ACC
 	  }
 	});
 
-result 包含操作的相關資訊，包括容器的目前 **ETag**。
+結果包含操作的相關資訊，包括容器的目前 **ETag**。
 
 ### 篩選器
 
@@ -195,7 +195,7 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 	  }
 	});
 
-`result` 包含 `entries` 集合，此集合是描述每個 Blob 的物件陣列。若無法傳回所有 Blob，`result` 也會提供 `continuationToken`，其可做為第二個參數來擷取更多項目。
+`result` 包含 `entries` 集合，此集合是描述每個 Blob 的物件陣列。若無法傳回所有 Blob，`result` 也會提供 `continuationToken`，其可作為第二個參數來擷取更多項目。
 
 ## 下載 Blob
 
@@ -268,7 +268,7 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 	  }
 	});
 
-**myblob** 的後續作業必須提供 `options.leaseId` 參數。租用識別碼會從 **acquireLease** 做為 `result.id` 傳回。
+**myblob** 的後續作業必須提供 `options.leaseId` 參數。租用識別碼會從 **acquireLease** 作為 `result.id` 傳回。
 
 > [AZURE.NOTE]依預設，租用期間無限制。若要指定有限期間 (15 到 60 秒)，您可以提供 `options.leaseDuration` 參數。
 
@@ -361,7 +361,6 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 如需詳細資訊，請參閱下列資源。
 
 -   [Azure Storage SDK for Node API 參考][]
--   MSDN 參考資料：[儲存和存取在 Azure 中的資料][]
 -   [Azure 儲存體團隊部落格][]
 -   GitHub 上的 [Azure Storage SDK for Node][] 儲存機制
 -   [Node.js 開發人員中心](/develop/nodejs/)
@@ -372,10 +371,9 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 [使用儲存體的 Node.js Web 應用程式]: ../storage-nodejs-use-table-storage-web-site.md
 [使用 WebMatrix 的 Web 應用程式]: ../web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure portal]: http://manage.windowsazure.com
+[Azure Portal]: portal.azure.com
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-[儲存和存取在 Azure 中的資料]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API 參考]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

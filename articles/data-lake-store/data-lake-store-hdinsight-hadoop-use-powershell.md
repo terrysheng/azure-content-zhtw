@@ -43,7 +43,7 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - **啟用您的 Azure 訂用帳戶**以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 - **Windows SDK**。您可以從[這裡](https://dev.windows.com/zh-TW/downloads)安裝。您使用它來建立安全性憑證。
 - **Azure PowerShell 1.0 或更新版本**。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。
@@ -96,7 +96,7 @@
 
 ## 設定資料湖存放區以角色為基礎的存取的驗證
 
-每一個 Azure 訂閱都與 Azure Active Directory 相關聯。透過 Azure 入口網站或是 Azure 資源管理員 API 來存取訂用帳戶資源的使用者與服務，都必須先向 Azure Active Directory 進行驗證。您可以在 Azure 資源上為 Azure 訂用帳戶和服務指派適當的角色，以授與其存取權限。對於服務，服務主體會識別 Azure Active Directory (AAD) 中的服務。本章節將說明如何將 Azure 資源 (您稍早建立的 Azure 資料湖存放區帳戶) 的存取權授與像是 HDInsight 的應用程式服務，方法是建立應用程式的服務主體，並透過 Azure PowerShell 將角色指派給它。
+每一個 Azure 訂閱都與 Azure Active Directory 相關聯。透過 Azure 傳統入口網站或是 Azure 資源管理員 API 來存取訂用帳戶資源的使用者與服務，都必須先向 Azure Active Directory 進行驗證。您可以在 Azure 資源上為 Azure 訂用帳戶和服務指派適當的角色，以授與其存取權限。對於服務，服務主體會識別 Azure Active Directory (AAD) 中的服務。本章節將說明如何將 Azure 資源 (您稍早建立的 Azure 資料湖存放區帳戶) 的存取權授與像是 HDInsight 的應用程式服務，方法是建立應用程式的服務主體，並透過 Azure PowerShell 將角色指派給它。
 
 若要設定 Azure 資料湖的 Active Directory 驗證，您必須執行下列工作。
 
@@ -265,7 +265,7 @@
 
 一旦您已設定 HDInsight 叢集使用資料湖存放區，您可以使用 HDFS 殼層命令來存取存放區。
 
-1. 登入新的 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
 
 2. 按一下 [瀏覽]，然後依序按一下 [HDInsight 叢集] 和您建立的 HDInsight 叢集。
 
@@ -294,4 +294,4 @@
 [makecert]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

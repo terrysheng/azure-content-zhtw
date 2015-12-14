@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="11/22/2015"
+ ms.date="11/25/2015"
  ms.author="danlep"/>
 
 # 在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 OpenFoam
@@ -114,7 +114,7 @@ Microsoft HPC Pack 提供功能來執行各種大規模 HPC 和平行應用程�
 
 2. 您可以使用標準的 Windows Server 程序在叢集的 Active Directory 網域中建立網域使用者帳戶。例如，在前端節點上使用 Active Directory 使用者和電腦工具。本文中的範例假設您建立名為 hpclab\\hpcuser 的網域使用者。
 
-3.	建立名為 C:\\cred.xml 的檔案，並且將 RSA 金鑰資料複製到其中。您可以在本文結尾處的「附錄」中找到此檔案的範例。
+3.	建立名為 C:\\cred.xml 的檔案，並且將 RSA 金鑰資料複製到其中。您可以在本文結尾處的範例檔案中找到此檔案的範例。
 
     ```
     <ExtendedData>
@@ -176,7 +176,7 @@ Microsoft HPC Pack 提供功能來執行各種大規模 HPC 和平行應用程�
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/intel/l_mpi_p_5.0.3.048.tgz -C /opt/intel/
     ```
 
-2.  若要以無訊息方式安裝 Intel MPI Library，請使用 silent.cfg 檔案。您可以在本文結尾處的「附錄」中找到此檔案的範例。將此檔案放在共用資料夾 /openfoam 中。如需 silent.cfg 檔案的詳細資訊，請參閱 [Intel MPI Library for Linux 安裝指南 - 無訊息安裝](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall)。
+2.  若要以無訊息方式安裝 Intel MPI Library，請使用 silent.cfg 檔案。您可以在本文結尾處的範例檔案中找到範例。將此檔案放在共用資料夾 /openfoam 中。如需 silent.cfg 檔案的詳細資訊，請參閱 [Intel MPI Library for Linux 安裝指南 - 無訊息安裝](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html#silentinstall)。
 
     >[AZURE.TIP]請確實將您的 silent.cfg 檔案儲存為具有 Linux 行尾結束符號 (只有 LF，不是 CR LF) 的文字檔。這可確保它在 Linux 節點上正常運作。
 
@@ -188,20 +188,20 @@ Microsoft HPC Pack 提供功能來執行各種大規模 HPC 和平行應用程�
     
 ### 設定 MPI
 
-若要進行測試，您應在 Linux 節點的 /etc/security/limits.conf 中加入以下幾行：
+若要進行測試，您應在每個 Linux 節點的 /etc/security/limits.conf 中加入以下幾行：
 
 ```
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 ```
 
-您可以藉由在 C:\\OpenFoam 中建立檔案 limits.conf (儲存具有 Linux 行尾結束符號的文字檔) 來執行此動作，並執行下列命令將其複製到 Linux 節點：
+更新 limits.conf 檔案之後，請重新啟動 Linux 節點。例如，使用下列 **clusrun** 命令。
 
 ```
-clusrun /nodegroup:LinuxNodes cp /openfoam/limits.conf /etc/security
+clusrun /nodegroup:LinuxNodes systemctl reboot
 ```
 
-更新 limits.confile 之後，請重新啟動 Linux 節點。重新啟動之後，請確定共用資料夾已掛接為 /openfoam。
+重新啟動之後，請確定共用資料夾已掛接為 /openfoam。
 
 ### 編譯和安裝 OpenFOAM
 
@@ -218,25 +218,33 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/limits.conf /etc/security
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
     ```
 
-2.  若要使用 Intel MPI Library 編譯 OpenFOAM，請先設定 Intel MPI 和 OpenFOAM 的某些環境變數。請使用名為 settings.sh 的 Bash 指令碼來執行此動作。您可以在本文結尾處的「附錄」中找到此檔案的範例。將此檔案 (使用 Linux 行尾結束符號儲存的) 放在共用資料夾 /openfoam 中。此檔案也包含您後續用來執行 OpenFOAM 工作的 MPI 和 OpenFOAM 執行階段的設定。
+2.  若要使用 Intel MPI Library 編譯 OpenFOAM，請先設定 Intel MPI 和 OpenFOAM 的某些環境變數。請使用名為 settings.sh 的 Bash 指令碼來執行此動作。您可以在本文結尾處的範例檔案中找到範例。將此檔案 (使用 Linux 行尾結束符號儲存的) 放在共用資料夾 /openfoam 中。此檔案也包含您後續用來執行 OpenFOAM 工作的 MPI 和 OpenFOAM 執行階段的設定。
 
-3. 安裝編譯 OpenFOAM 所需的相依封裝。根據您的 Linux 散發套件，您可能需要新增數個儲存機制，才能執行此動作。本文結尾處的「附錄」中列出了這些儲存機制和封裝。建議您透過 ssh 連接到每個 Linux 節點，以執行命令確認它們可正常執行。
+3. 安裝編譯 OpenFOAM 所需的相依封裝。根據您的 Linux 散發套件，您可能需要先新增儲存機制。執行類似下列的 **clusrun** 命令：
+
+    ```
+    clusrun /nodegroup:LinuxNodes zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ opensuse
+    
+    clusrun /nodegroup:LinuxNodes zypper -n --gpg-auto-import-keys install --repo opensuse --force-resolution -t pattern devel_C_C++
+    ```
+    
+    如有需要，ssh 連接到每個 Linux 節點，以執行命令確認它們可正常執行。
 
 4.  執行下列命令以編譯 OpenFOAM。編譯程序需要一些時間才能完成，且會在標準輸出中產生大量的記錄資訊，因此，請使用 **/interleaved** 選項顯示交錯的輸出。
 
     ```
     clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
     ```
-
->[AZURE.NOTE]命令中的 “`” 符號是 PowerShell 的逸出符號。“`&” 表示 “&” 是命令的一部分。
+    
+    >[AZURE.NOTE]命令中的 “`” 符號是 PowerShell 的逸出符號。“`&” 表示 “&” 是命令的一部分。
 
 ## 準備執行 OpenFOAM 工作
 
-現在，請準備執行名為 sloshingTank3D 的 MPI 工作，這是 2 個 Linux 節點上的 OpenFoam 範例之一。在此範例中，/opt/openfoam231 是 OpenFOAM 在 Linux 節點上的安裝路徑。
+現在，請準備執行名為 sloshingTank3D 的 MPI 工作，這是 2 個 Linux 節點上的 OpenFoam 範例之一。
 
 ### 設定執行階段環境
 
-在前端節點上的 Windows PowerShell 視窗中執行下列命令，以在所有 Linux 節點上設定 MPI 和 OpenFOAM 的執行階段環境。
+在前端節點上的 Windows PowerShell 視窗中執行下列命令，以在所有 Linux 節點上設定 MPI 和 OpenFOAM 的執行階段環境。(此命令僅適用於 SUSE Linux。)
 
 ```
 clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
@@ -305,7 +313,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     **Bash 指令碼包裝函式**
 
-    如果您有許多 Linux 節點，而您的工作只會在其中一些節點執行，則不應使用固定的主機檔案，因為您不知道哪些節點會配置給您的工作。在此情況下，請為 **mpirun** 撰寫 Bash 指令碼包裝函式，以自動建立主機檔案。您可以在本文結尾的「附錄」中找到名為 hpcimpirun.sh 的範例 Bash 指令碼包裝函式，並將其儲存為 /openfoam/hpcimpirun.sh。此範例指令碼會執行下列動作：
+    如果您有許多 Linux 節點，而您的工作只會在其中一些節點執行，則不應使用固定的主機檔案，因為您不知道哪些節點會配置給您的工作。在此情況下，請為 **mpirun** 撰寫 Bash 指令碼包裝函式，以自動建立主機檔案。您可以在本文結尾的範例檔案中找到名為 hpcimpirun.sh 的範例 Bash 指令碼包裝函式，並將其儲存為 /openfoam/hpcimpirun.sh。此範例指令碼會執行下列動作：
 
     1.	設定 **mpirun** 的環境變數，和透過 RDMA 網路執行 MPI 工作時所使用的某些附加命令參數。在此範例中，它會設定下列項目：
 
@@ -325,9 +333,9 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
         * `<Number of nodes>`：配置給此工作的節點數目。  
         
-        * `<Name of node_n_...>`：配置給此工作之每個節點的名稱。
+        * `<Name of node_n_...>`：配置給此工作的各節點名稱。
         
-        * `<Cores of node_n_...>`：配置給此工作之節點上的核心數目。
+        * `<Cores of node_n_...>`：配置給此工作的節點核心數目。
 
         例如，如果工作需要 2 個核心來執行，則 $CCP\_NODES\_CORES 會類似於：
         
@@ -337,7 +345,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
         
     3.	呼叫 **mpirun** 命令，並將 2 個參數附加到命令列。
 
-        * `--hostfile <hostfilepath>: <hostfilepath>` - 指令碼所建立之主機檔案的路徑
+        * `--hostfile <hostfilepath>: <hostfilepath>` - 指令碼所建立的主機檔案路徑
 
         * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` - HPC Pack 前端節點所設定的環境變數，會儲存配置給此工作的總核心數目。在此案例中，它指定 **mpirun** 的程序數目。
 
@@ -348,15 +356,15 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
 1. 連接至您的叢集前端節點並且啟動 HPC 叢集管理員。
 
-2. 在 [資源管理] 中，確定 Linux 運算計點處於 [線上] 狀態。如果不是，請選取它們然後按一下 [上線]。
+2. 在 [**資源管理**] 中，確定 Linux 計算節點處於 [**線上**] 狀態。如果不是，請選取這些節點，然後按一下 [**上線**]。
 
-3.  在 [工作管理] 中，按一下 [新增工作]。
+3.  在 [**工作管理**] 中，按一下 [**新增工作**]。
 
 4.  輸入工作的名稱，例如 _sloshingTank3D_。
 
     ![工作詳細資料][job_details]
 
-5.	在 [工作資源] 中，選取 [節點] 做為資源類型，並將 [最小值] 設為 2。在此範例中，這會在 2 個分別有 8 個核心的 Linux 節點上執行工作。
+5.	在 [**工作資源**] 中，選取 [節點] 做為資源類型，並將 [最小值] 設為 2。在此範例中，這會在 2 個分別有 8 個核心的 Linux 節點上執行工作。
 
     ![工作資源][job_resources]
 
@@ -364,17 +372,19 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     >[AZURE.NOTE]執行 `source /openfoam/settings.sh` 會設定 OpenFOAM 和 MPI 執行階段環境，因此下列每個作業會在 OpenFOAM 命令之前加以呼叫。
 
-    *   **作業 1**。執行 **decomposePar**，產生以平行方式執行 **interDyMFoam** 的資料檔案。
+    *   **工作 1**。執行 **decomposePar**，產生以平行方式執行 **interDyMFoam** 的資料檔案。
     
         *   將 1 個節點指派給作業
 
         *   **命令列** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
     
         *   **工作目錄** - /openfoam/sloshingTank3D
+        
+        請參閱下圖。以同樣的方式設定其餘的工作。
 
         ![作業 1 詳細資料][task_details1]
 
-    *   **作業 2**。以平行方式執行 **interDyMFoam**，以計算範例。
+    *   **工作 2**。以平行方式執行 **interDyMFoam**，以計算範例。
 
         *   將 2 個節點指派給作業
 
@@ -382,9 +392,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
         *   **工作目錄** - /openfoam/sloshingTank3D
 
-        ![作業 2 詳細資料][task_details2]
-
-    *   **作業 3**。執行 **reconstructPar**，以將每個 processor\_N\_ 目錄中的數組時間目錄合併為一組時間目錄。
+    *   **工作 3**。執行 **reconstructPar**，以將每個 processor\_N\_ 目錄中的數組時間目錄合併為一組時間目錄。
 
         *   將 1 個節點指派給作業
 
@@ -392,9 +400,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
         *   **工作目錄** - /openfoam/sloshingTank3D
 
-        ![作業 3 詳細資料][task_details3]
-
-    *   **作業 4**。以平行方式執行 **foamToEnsight**，以將 OpenFOAM 結果檔案轉換成 EnSight 格式，並將 EnSight 檔案放在案例目錄中名為 Ensight 的目錄內。
+    *   **工作 4**。以平行方式執行 **foamToEnsight**，以將 OpenFOAM 結果檔案轉換成 EnSight 格式，並將 EnSight 檔案放在案例目錄中名為 Ensight 的目錄內。
 
         *   將 2 個節點指派給作業
 
@@ -402,15 +408,13 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
         *   **工作目錄** - /openfoam/sloshingTank3D
 
-        ![作業 4 詳細資料][task_details4]
-
 6.	以遞增作業順序，將相依性新增至這些作業。
 
     ![作業相依性][task_dependencies]
 
-7.	按一下 [提交] 以執行此工作。
+7.	按一下 [**提交**] 以執行此工作。
 
-    根據預設，HPC Pack 會以您目前登入的使用者帳戶提交工作。按一下 [提交] 之後可能會出現一個對話方塊，提示您輸入使用者名稱和密碼。
+    根據預設，HPC Pack 會以您目前登入的使用者帳戶提交工作。按一下 [**提交**] 之後可能會出現一個對話方塊，提示您輸入使用者名稱和密碼。
 
     ![工作認證][creds]
 
@@ -451,20 +455,19 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![編輯 isosurface 色彩][isosurface_color]
 
-5.  在 [組件] 面板中選取 [圖表牆]，以從 [圖表牆] 建立 **Iso-volume**，然後按一下工具列中的 **Isosurfaces** 按鈕。
+5.  在 [**組件**] 面板中選取 [**圖表牆**]，以從 [**圖表牆**] 建立 **Iso-volume**，然後按一下工具列中的 **Isosurfaces** 按鈕。
 
-6.	在對話方塊中，選取 **Isovolume** 做為 [類型]，然後將 [Isovolume 範圍] 的最小值設為 0.5。按一下 [使用選取的組件建立]，以建立 isovolume。
+6.	在對話方塊中，選取 **Isovolume** 做為 [**類型**]，然後將 [**Isovolume 範圍**] 的最小值設為 0.5。按一下 [**使用選取的組件建立**]，以建立 isovolume。
 
 7.	為先前的步驟中建立的 **Iso\_volume\_part** 設定色彩。例如，將它設為深藍色。
 
-8.	設定 [圖表牆] 的色彩。例如，將它設為透明的白色。
+8.	設定 [**圖表牆**] 的色彩。例如，將它設為透明的白色。
 
-9. 現在，按一下 [播放] 以檢視模擬的結果。
+9. 現在，按一下 [**播放**] 以檢視模擬的結果。
 
     ![儲存槽結果][tank_result]
 
-
-## 附錄
+## 範例檔案
 
 
 ### 範例 cred.xml 檔案
@@ -576,27 +579,6 @@ source /opt/OpenFOAM/OpenFOAM-2.3.1/etc/bashrc
 export WM_MPLIB=INTELMPI
 ```
 
-### 在 Linux 節點上新增儲存機制和相依封裝的範例命令
-
-```
-sudo zypper ar ftp://ftp.muug.mb.ca/mirror/opensuse/factory-snapshot/repo/oss/ update1
-
-sudo zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ update2
-
-sudo zypper ar ftp://ftp.pbone.net/mirror/ftp.opensuse.org/factory-snapshot/repo/oss/ update3
-
-sudo zypper ar ftp://mirror.switch.ch/pool/4/mirror/opensuse/opensuse/distribution/13.2/repo/oss/ update4
-
-sudo zypper ar ftp://bo.mirror.garr.it/pub/1/opensuse/distribution/13.2/repo/oss/ update6
-
-sudo zypper ar ftp://ftp.pbone.net/mirror/ftp.opensuse.org/distribution/13.2/repo/oss/ update7
-
-sudo zypper ar ftp://ftp.icm.edu.pl/vol/rzm5/linux-opensuse/distribution/13.2/repo/oss/ update8
-
-sudo zypper install -t pattern devel_C_C++
-
-sudo zypper install cmake boost-devel gnuplot mpfr-devel openmpi-devel glu-devel  
-```
 
 ###範例 hpcimpirun.sh 指令碼
 
@@ -664,9 +646,6 @@ exit ${RTNSTS}
 [job_details]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_details.png
 [job_resources]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_resources.png
 [task_details1]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details1.png
-[task_details2]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details2.png
-[task_details3]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details3.png
-[task_details4]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_details4.png
 [task_dependencies]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/task_dependencies.png
 [creds]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/creds.png
 [heat_map]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/heat_map.png
@@ -676,4 +655,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

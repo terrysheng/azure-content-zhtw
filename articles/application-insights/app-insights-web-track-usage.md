@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # 使用 Application Insights 進行 Web 應用程式的使用量分析
@@ -119,7 +119,7 @@ Visual Studio Application Insights 提供兩種使用情況追蹤層級：
 使用者及帳戶識別碼不得包含空格或字元 `,;=|`
 
 
-在 [計量瀏覽器](app-insights-metrics-explorer.md) 中，您可以建立 [驗證的使用者] 和 [帳戶] 的圖表。
+在 [計量瀏覽器][](app-insights-metrics-explorer.md) 中，您可以建立 [驗證的使用者] 和 [帳戶] 的圖表。
 
 ## 綜合流量
 
@@ -367,7 +367,7 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
@@ -375,4 +375,4 @@ Application Insights 會努力試著自動判斷和分類綜合流量並適當�
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

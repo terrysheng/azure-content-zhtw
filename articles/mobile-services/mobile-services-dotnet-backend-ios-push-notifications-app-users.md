@@ -18,6 +18,11 @@
 
 # 傳送推播通知給已驗證的使用者
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 在本主題中，您將了解如何將推播通知傳送給 iOS 上已驗證的使用者。開始本教學課程之前，請先完成[開始使用驗證]和[開始使用推播通知]。
@@ -46,8 +51,6 @@
 <!-- URLs. -->
 [開始使用驗證]: mobile-services-dotnet-backend-ios-get-started-users.md
 [開始使用推播通知]: mobile-services-dotnet-backend-ios-get-started-push.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

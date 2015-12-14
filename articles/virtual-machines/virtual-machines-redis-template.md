@@ -348,7 +348,7 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
 
 部署期間以及部署結束之後，您可以檢查所有佈建期間所進行的要求，包括任何發生的錯誤。
 
-若要這樣做，請移至 [Azure Preview 入口網站](https://portal.azure.com)，然後執行下列動作：
+若要這麼做，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
 
 - 按一下左側導覽列中的 [瀏覽]，然後向下捲動並按一下 [資源群組]。
 - 選取剛建立的資源群組，會顯示 [資源群組] 刀鋒視窗。
@@ -670,4 +670,4 @@ $webclient.DownloadFile($url,$filePath)
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

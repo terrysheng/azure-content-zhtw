@@ -365,4 +365,4 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

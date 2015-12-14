@@ -44,7 +44,7 @@ Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適
 
 如需 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service]。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](https://tryappservice.azure.com/?appServiceName=mobile)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
@@ -52,9 +52,6 @@ Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [快速入門]: app-service-mobile-ios-get-started.md
 
-[Management Portal]: https://manage.windowsazure.com/
-[XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

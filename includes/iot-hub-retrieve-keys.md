@@ -1,8 +1,8 @@
-## Retrieve the IoT Hub keys
+## 擷取 IoT 中樞金鑰
 
-Display the authentication keys for the new IoT Hub.
+顯示新的 IoT 中心驗證金鑰。
 
-1. Add the following method to Program.cs:
+1. 將下列方法新增至 Program.cs：
 
     ```
     static void ShowIoTHubKeys(ResourceManagementClient client, string token)
@@ -11,7 +11,7 @@ Display the authentication keys for the new IoT Hub.
     }
     ```
 
-2. Add the following code to the **ShowIoTHubKeys** method to print the authentication keys to the console:
+2. 在 **ShowIoTHubKeys** 方法中加入下列程式碼以將驗證金鑰列印到主控台：
 
     ```
     client.HttpClient.DefaultRequestHeaders.Authorization = 
@@ -24,3 +24,5 @@ Display the authentication keys for the new IoT Hub.
     Console.WriteLine("Keys: {0}, 
         httpsRepsonse.Content.ReadAsStringAsync().Result);
     ```
+
+<!---HONumber=AcomDC_1203_2015-->

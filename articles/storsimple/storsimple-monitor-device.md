@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/05/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務監視 StorSimple 裝置 
@@ -21,7 +21,7 @@
 
 您可以使用 StorSimple Manager 服務來監視您的 StorSimple 解決方案中的特定裝置。您可以根據 I/O 效能、容量使用率、網路輸送量，以及裝置效能計量建立自訂圖表。
 
-若要檢視特定裝置的監視資訊，請在 Azure 入口網站中，選取 [StorSimple Manager 服務]，按一下 [**監視**] 索引標籤，然後從裝置清單中選取。[監視] 頁面包含下列資訊。
+若要檢視特定裝置的監視資訊，請在 Azure 傳統入口網站中，選取 [StorSimple Manager 服務]，按一下 [監視] 索引標籤，然後從裝置清單中選取。[監視] 頁面包含下列資訊。
 
 ## I/O 效能 
 
@@ -121,4 +121,4 @@
 
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

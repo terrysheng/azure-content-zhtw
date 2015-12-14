@@ -38,6 +38,7 @@ U-SQL | 文法鐵路圖 | 1 | 進行中，使用 [這個項目](http://bottlecap
 服務 | 保護資料湖分析中的工作、資料和資料表 |1| 進行中 | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
 服務 | 使用 Data Factory 將工作輸出移至 SQL 資料倉儲 |1 | 進行中 | [@mumian](https://github.com/mumian) | 
 工具 | 使用診斷工具 | 1 | Pending | [@mumian](https://github.com/mumian) | 
+U-SQL | 說明進行範圍型 JOIN 的技術 | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -46,13 +47,13 @@ U-SQL | 文法鐵路圖 | 1 | 進行中，使用 [這個項目](http://bottlecap
 
 領域 |主題 | location
 ------------- | ------------- | -------------- 
-服務 | 使用 ARM 範本與其他 Azure 服務協調資料湖分析的部署 | [位置](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
+服務 | 使用 ARM 範本與其他 Azure 服務協調資料湖分析的部署 | [位置](../data-lake-analytics-manage-use-powershell.md)
 
 ## 如何在待處理項目上提供意見反應
 有幾個選項可以在待處理項目上提供意見反應：
 
 * 在下方新增註解
 * 在 [Azure 內容儲存機制](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md) 中提交這份文件的提取要求
-* 傳送電子郵件給 [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
+* 傳送電子郵件到 microsoft.com 的 [adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -17,7 +17,7 @@
    ms.date="11/16/2015"
    ms.author="danlep"/>
 
-# 在 Azure 虛擬機器上開始使用 Docker 和 Compose 啟動多容器應用程式。
+# 在 Azure 虛擬機器上開始使用 Docker 和 Compose 定義並執行多容器應用程式
 
 本文說明如何開始使用 Docker 和 [Compose](http://github.com/docker/compose)，在 Azure 中的 Linux 虛擬機器上定義並執行複雜的應用程式。藉由 Compose (*Fig* 的後續版本)，您可使用簡單的文字檔，定義多個 Docker 容器所組成的應用程式。然後您可以透過可進行所有操作以便在 VM 上執行的單一命令，啟動您的應用程式。例如，本文將說明如何藉由後端 MariaDB SQL 資料庫快速設定 WordPress 部落格，但您也可以使用 Compose 來設定更複雜的應用程式。
 
@@ -49,10 +49,7 @@ $ chmod +x /usr/local/bin/docker-compose
 $ docker-compose --version
 ```
 
-您將看到類似的輸出 
-```
-docker-compose 1.3.2
-``` 
+您將看到類似 `docker-compose 1.4.1` 的輸出內容。
 
 
 ## 步驟 3：建立 docker-compose.yml 組態檔
@@ -61,36 +58,25 @@ docker-compose 1.3.2
 
 在 VM 上建立工作目錄，並使用您慣用的文字編輯器建立 `docker-compose.yml`。若要嘗試簡單的範例，請將下列文字複製到檔案。此組態會使用來自 [DockerHub 登錄](https://registry.hub.docker.com/_/wordpress/)的映像，安裝 WordPress (開放原始碼部落格和內容管理系統) 和連結的後端 MariaDB 資料庫。
 
- ```
- wordpress:
-  image: wordpress
-  links:
-    - db:mysql
-  ports:
-    - 8080:80
+ ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
 
-db:
-  image: mariadb
-  environment:
-    MYSQL_ROOT_PASSWORD: <your password>
+db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
 
 ```
 
 ## Step 4: Start the containers with Compose
 
-在您 VM 的工作目錄中，執行以下命令。
+In the working directory on your VM, simply run the following command.
 
 ```
 $ docker-compose up -d
 
 ```
 
-如此會啟動 `docker-compose.yml` 中指定的 Docker 容器。 您會看到類似以下的輸出：
+This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress\_db\_1...
-Creating wordpress\_wordpress\_1...
-```
+Creating wordpress\_db\_1...Creating wordpress\_wordpress\_1... ```
 
 >[AZURE.NOTE]請務必在啟動時使用 **-d** 選項，讓容器在背景持續執行。
 
@@ -128,4 +114,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

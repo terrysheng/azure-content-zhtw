@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來連接和管理 StorSimple 裝置
@@ -30,7 +30,7 @@
 
 | 結果資料行 |說明 |
 |:----------------|:--------------------| 
-| 名稱 | Microsoft Azure 管理入口網站中設定的裝置名稱|
+| 名稱 | Azure 傳統入口網站中設定的裝置名稱|
 | 模型 | 裝置的型號|
 | 版本 | 裝置上安裝的軟體版本 |
 | Status | 裝置是否可用 |
@@ -82,7 +82,7 @@
 
 3. 在 [**裝置**] 下拉式清單方塊中，選取裝置或虛擬裝置的 IP 位址。
 
-4. 在 [**密碼**] 文字方塊中，輸入您在 Azure 管理入口網站中為裝置建立的 StorSimple Snapshot Manager 密碼。按一下 [確定]。StorSimple Snapshot Manager 會搜尋您所識別的裝置。
+4. 在 [密碼] 文字方塊中，輸入您在 Azure 傳統入口網站中為裝置建立的 StorSimple Snapshot Manager 密碼。按一下 [確定]。StorSimple Snapshot Manager 會搜尋您所識別的裝置。
 
     - 如果裝置可用，StorSimple Snapshot Manager 會新增連接。 
 
@@ -190,11 +190,11 @@
 
 ## 變更過期的裝置密碼
 
-您必須輸入密碼，才能使用 StorSimple Snapshot Manager 驗證 StorSimple 裝置。當使用 Windows PowerShell 介面來設定裝置時，您可以設定此密碼。不過，密碼會過期。如果發生這種情況，您可以使用 Microsoft Azure 管理入口網站變更密碼。然後，因為在密碼過期之前，已在 StorSimple Snapshot Manager 設定裝置，所以您必須在 StorSimple Snapshot Manager 重新驗證裝置。
+您必須輸入密碼，才能使用 StorSimple Snapshot Manager 驗證 StorSimple 裝置。當使用 Windows PowerShell 介面來設定裝置時，您可以設定此密碼。不過，密碼會過期。如果發生這種情況，您可以使用 Azure 傳統入口網站變更密碼。然後，因為在密碼過期之前，已在 StorSimple Snapshot Manager 設定裝置，所以您必須在 StorSimple Snapshot Manager 重新驗證裝置。
 
 #### 若要變更過期的密碼
 
-1. 在 Azure 管理入口網站上，啟動 StorSimple Manager 服務。
+1. 在 Azure 傳統入口網站中，啟動 StorSimple Manager 服務。
 
 2. 對裝置按一下 [**裝置**] > [**設定**]。
 
@@ -263,4 +263,4 @@
 - 了解如何[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 - 了解如何[使用 StorSimple Snapshot Manager 來檢視和管理磁碟區](storsimple-snapshot-manager-manage-volumes.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

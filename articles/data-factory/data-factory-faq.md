@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="spelluru"/>
 
 # Azure 資料處理站-常見問題集
@@ -57,7 +57,7 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
   
 ### 客戶如何存取資料處理站？
 
-客戶可透過 [Azure Preview 入口網站][azure-preview-portal]存取 Data Factory。
+客戶可透過 [Azure 入口網站][azure-portal]存取 Data Factory。
 
 ### 什麼是資料處理站的區域可用性？
 
@@ -72,7 +72,7 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 
 您可以使用下列其中一項來撰寫/建立資料處理站：
 
-- **Azure Preview 入口網站**。Azure 預覽入口網站中的 Data Factory 刀鋒視窗提供豐富的使用者介面，讓您建立資料處理站和連結的服務。**Data Factory 編輯器**也是入口網站的一部分，讓您透過指定成品的 JSON 定義，輕鬆建立連結服務、資料表、資料集和管線。如需編輯器的概觀，請參閱 [Data Factory 編輯器][data-factory-editor]，如需使用入口網站/編輯器來建立和部署 Data Factory 的範例，請參閱[開始使用 Data Factory][datafactory-getstarted]。   
+- **Azure 入口網站**。Azure 入口網站中的 Data Factory 刀鋒視窗提供豐富的使用者介面，讓您建立資料處理站和連結的服務。**Data Factory 編輯器**也是入口網站的一部分，讓您透過指定成品的 JSON 定義，輕鬆建立連結服務、資料表、資料集和管線。如需編輯器的概觀，請參閱 [Data Factory 編輯器][data-factory-editor]，如需使用入口網站/編輯器來建立和部署 Data Factory 的範例，請參閱[開始使用 Data Factory][datafactory-getstarted]。   
 - **Azure PowerShell** (英文)。如果您是 PowerShell 使用者，而且想要使用 PowerShell，而不是入口網站 UI，則可以使用 Azure PowerShell 隨附的 Azure Data Factory Cmdlet 來建立和部署資料處理站。請參閱[使用 Azure PowerShell 建立和監視 Azure Data Factory][create-data-factory-using-powershell] 以取得簡單範例；以及[教學課程：使用 Data Factory 移動和處理記錄檔][adf-tutorial]，以取得使用 PowerShell Cmdlet 建立和部署 Data Factory 的進階範例。如需 Data Factory Cmdlet 的完整文件，請參閱 MSDN Library 上的 [Data Factory Cmdlet 參考][adf-powershell-reference]內容。  
 - **Visual Studio**。您也可以使用 Visual Studio，以程式設計方式建立、監視及管理 Data Factory。如需詳細資訊，請參閱〈[使用 Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory](data-factory-create-data-factories-programmatically)〉文章。  
 - **.NET 類別庫**。您可以使用 Data Factory .NET SDK，透過程式設計方式建立資料處理站。如需使用 .NET SDK 建立 Data Factory 的逐步解說，請參閱[使用 .NET SDK 建立、監視和管理 Data Factory][create-factory-using-dotnet-sdk]。如需 Data Factory .NET SDK 的完整文件，請參閱 [Data Factory 類別庫參考][msdn-class-library-reference]。  
@@ -168,7 +168,7 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
@@ -177,4 +177,4 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

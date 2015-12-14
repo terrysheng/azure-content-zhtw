@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="請將輸出資料複製到內部部署 SQL Server 資料庫 (Azure 入口網站)。" 
-	description="本逐步解說使用 Azure 入口網站中的 Data Factory 編輯器擴充教學課程，如此可讓管線將輸出資料複製到 SQL Server Database。"
+	pageTitle="請將輸出資料複製到內部部署 SQL Server 資料庫 (Azure 傳統入口網站)。" 
+	description="本逐步解說使用 Azure 傳統入口網站中的 Data Factory 編輯器擴充教學課程，如此可讓管線將輸出資料複製到 SQL Server Database。"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -51,7 +51,7 @@
 
 如果您有可以使用的現有資料閘道，請略過此步驟。
 
-1.	建立邏輯資料閘道。在 **Azure Preview 入口網站**中，按一下您的 Data Factory 的 [**DATA FACTORY**] 分頁上的 [**連結的服務**]。
+1.	建立邏輯資料閘道。在 **Azure 入口網站**中，按一下您 Data Factory 的 [DATA FACTORY] 刀鋒視窗上的 [連結的服務]。
 2.	按一下命令列上的 [**新增 (+) 資料閘道**]。  
 3.	在 [**新增資料閘道**] 分頁中，按一下 [**建立**]。
 4.	在 [**建立**] 分頁中，輸入 **MyGateway** 做為資料閘道的 [**名稱**]。
@@ -97,7 +97,7 @@
 
 ### 建立連結的服務
 
-1.	在 **Azure Preview 入口網站**中，按一下 **LogProcessingFactory** 的 [**DATA FACTORY**] 分頁上的 [**製作和部署**] 磚。
+1.	在 **Azure 入口網站**中，按一下 **LogProcessingFactory** 的 [DATA FACTORY] 刀鋒視窗上的 [製作和部署] 磚。
 2.	在 **Data Factory 編輯器**中，按一下工具列的 [**新增資料存放區**]，選取 [**內部部署 SQL Server 資料庫**]。
 3.	在 JSON 指令碼中，執行下列動作： 
 	1.	將 **<servername>** 取代為裝載 SQL Server 資料庫的伺服器名稱。
@@ -153,7 +153,7 @@
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -169,4 +169,4 @@
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

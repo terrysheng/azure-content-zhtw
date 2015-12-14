@@ -59,14 +59,18 @@ Application Insights SDK 以及與應用程式合併的代理程式會將資料�
 
 使用者與工作階段計數不會併入定價用途的配額。
 
+*如果應用程式超過每秒速率，會發生什麼事？*
+
+* 系統會每分鐘評估應用程式傳送的資料量。如果每秒速率超過每分鐘平均值，伺服器會拒絕部分要求。接著，部分版本的 SDK 會嘗試每數分鐘重新傳送突波；其他像是 JavaScript SDK 則會放棄遭到拒絕的資料。
+
 *如何知道應用程式正在傳送多少資料點？*
 
 * 開啟 [設定/配額與定價] 查看 [資料數量] 圖表。
-* 或在 [計量瀏覽器] 中，新增新的圖表，然後選取 [資料點數量] 做為其計量。切換群組，並依 [資料類型] 分組。
+* 或在 [計量瀏覽器] 中，新增新的圖表，然後選取 [資料點數量] 做為其計量。切換群組，並依 [**資料類型**] 分組。
 
 *如何減少我的應用程式傳送的資料量？*
 
-* 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。
+* 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。自 ASP.NET SDK 2.0.0-beta3 起，系統預設會啟用自適性取樣。
 * [關閉不需要的遙測收集器](app-insights-configuration-with-applicationinsights-config.md)。
 
 
@@ -245,7 +249,7 @@ SDK 診斷 | 追蹤訊息或例外狀況
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
@@ -255,4 +259,4 @@ SDK 診斷 | 追蹤訊息或例外狀況
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

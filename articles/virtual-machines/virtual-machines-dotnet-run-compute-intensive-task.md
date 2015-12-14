@@ -48,7 +48,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 ## 建立虛擬機器
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 按一下 [新增]。
 3. 按一下 [虛擬機器]。
 4. 按一下 [快速建立]。
@@ -57,11 +57,11 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 7. 在 [使用者名稱] 欄位中輸入系統管理員的名稱。請記住即將輸入的名稱和密碼，因為當您從遠端登入此虛擬機器時將需要用到它們。
 8. 在 [新密碼] 欄位中輸入密碼，然後在 [確認] 欄位中再輸入一次。
 9. 從 [位置] 下拉式清單中選取虛擬機器的資料中心位置。
-10. 按一下 [Create virtual machine]。您可以在 Azure 入口網站的 [虛擬機器] 區段中監控狀態。當狀態顯示為 [作用中] 時，您即可登入該虛擬機器。
+10. 按一下 [Create virtual machine]。您可以在 Azure 傳統入口網站的 [虛擬機器] 區段中監控狀態。當狀態顯示為 [作用中] 時，您即可登入該虛擬機器。
 
 ## 從遠端登入虛擬機器
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 按一下 [虛擬機器]。
 3. 按一下要登入的虛擬機器名稱。
 4. 按一下 [連接]。
@@ -73,9 +73,9 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 建立服務命名空間：
 
-1.  登入 [Azure 入口網站](https://manage.windowsazure.com)。
-2.  在 Azure 入口網站的左方導覽窗格中，按一下 [服務匯流排]。
-3.  在 Azure 入口網站的下方窗格中，按一下 [建立]。
+1.  登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+2.  在 Azure 傳統入口網站的左方導覽窗格中，按一下 [服務匯流排]。
+3.  在 Azure 傳統入口網站的下方窗格中，按一下 [建立]。
 
     ![Create new service bus][create_service_bus]
 4.  在 [建立命名空間] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用，因為該名稱必須是唯一名稱。
@@ -90,7 +90,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 	![Click create screenshot][click_create]
 
-然後，您建立的命名空間就會出現在 Azure 入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續下一個步驟。
+然後，您建立的命名空間就會出現在 Azure 傳統入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續下一個步驟。
 
 ## 取得命名空間的預設管理認證
 
@@ -539,7 +539,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 不論是求解器或用戶端應用程式，只要您想在正常完成之前就予以結束，都可以按 [Ctrl+C] 來結束應用程式。
 
 ## 使用 TSPSolver 建立和刪除佇列的替代方式
-除了使用 TSPSolver 建立或刪除佇列之外，您也可以使用 [Azure 入口網站](https://manage.windowsazure.com)來建立或刪除佇列。請造訪 Azure 入口網站的 [服務匯流排] 區段，存取用於建立或刪除佇列的使用者介面，以及擷取連接字串、發行者和存取金鑰。您也可以檢視服務匯流排佇列的儀表板，進而檢視連入和連出訊息的度量。
+除了使用 TSPSolver 建立或刪除佇列之外，您也可以使用 [Azure 傳統入口網站](https://manage.windowsazure.com)來建立或刪除佇列。請造訪 Azure 傳統入口網站的 [服務匯流排] 區段，存取用於建立或刪除佇列的使用者介面，以及擷取連接字串、發行者和存取金鑰。您也可以檢視服務匯流排佇列的儀表板，進而檢視連入和連出訊息的度量。
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
@@ -550,4 +550,4 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

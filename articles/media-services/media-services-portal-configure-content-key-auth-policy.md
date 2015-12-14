@@ -26,7 +26,7 @@
 
 Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady DRM 加密的內容。媒體服務也提供**金鑰\\授權傳遞服務**，用戶端可以從該處取得金鑰或授權，以便播放加密的內容。
 
-本主題示範如何使用 **Azure 管理入口網站**設定內容金鑰授權原則。金鑰稍後可以用來動態加密您的內容。請注意，目前您可以加密下列串流格式：HLS、MPEG DASH 和 Smooth Streaming。無法加密 HDS 串流格式，或漸進式下載。
+本主題示範如何使用 **Azure 傳統入口網站**設定內容金鑰授權原則。金鑰稍後可以用來動態加密您的內容。請注意，目前您可以加密下列串流格式：HLS、MPEG DASH 和 Smooth Streaming。無法加密 HDS 串流格式，或漸進式下載。
  
 當播放程式要求設定為動態加密的串流時，媒體服務會使用設定的金鑰，以 AES 或 PlayReady 加密來動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
@@ -95,7 +95,7 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
 
 ##後續步驟
-現在，您已設定內容金鑰的授權原則，請前往[作法：使用 Azure 管理入口網站來啟用加密](../media-services-manage-content#encrypt/)主題。
+現在，您已設定內容金鑰的授權原則，請前往[作法：使用 Azure 傳統入口網站來啟用加密](../media-services-manage-content#encrypt/)主題。
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -103,4 +103,4 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

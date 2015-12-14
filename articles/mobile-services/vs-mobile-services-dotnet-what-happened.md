@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="使用 Visual Studio 連接服務加入行動服務之後，我的 .NET 專案發生什麼狀況 | Microsoft Azure" 
-	description="描述使用連接服務加入 Azure 行動服務之後，您的 Visual Studio.NET 專案發生什麼狀況" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
+<properties
+	pageTitle="使用 Visual Studio 連接服務加入行動服務之後，我的 .NET 專案發生什麼狀況 | Microsoft Azure"
+	description="描述使用連接服務加入 Azure 行動服務之後，您的 Visual Studio.NET 專案發生什麼狀況"
+	services="mobile-services"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/17/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # 使用連接服務加入 Azure 行動服務之後，我的 Visual Studio.NET 專案發生什麼狀況？
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
@@ -30,7 +35,7 @@ Azure 行動服務 NuGet 封裝加入至專案。因此，下列 .NET 參考已�
 - **Microsoft.WindowsAzure.Mobile.Ext**
 - **Newtonsoft.Json**
 - **System.Net.Http.Extensions**
-- **System.Net.Http.Primitives** 
+- **System.Net.Http.Primitives**
 
 ## 行動服務的連接字串值
 
@@ -43,4 +48,4 @@ Azure 行動服務 NuGet 封裝加入至專案。因此，下列 .NET 參考已�
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

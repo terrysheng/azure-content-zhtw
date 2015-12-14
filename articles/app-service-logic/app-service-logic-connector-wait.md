@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="11/30/2015"
    ms.author="rajram"/>
 
 # 開始使用 Wait 連接器並將它加入您的邏輯應用程式
@@ -53,4 +53,4 @@ Wait 連接器可用作動作。它並沒有任何觸發程序。
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

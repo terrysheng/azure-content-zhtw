@@ -92,7 +92,7 @@ Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。Azure 
 - `Content-Type`：必要。請設為 `application/json`
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。其為服務的唯一字串值。**建立資料來源**要求必須包含管理員金鑰 (相對於查詢金鑰) 上所設的 `api-key` 標頭。 
  
-您也必須提供服務名稱才能建構要求 URL。您可透過 [Azure 管理入口網站](https://portal.azure.com/)的服務儀表板取得服務名稱與 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立搜尋服務](search-create-service-portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 [Azure 傳統入口網站](https://portal.azure.com/)的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立搜尋服務](search-create-service-portal.md)。
 
 <a name="CreateDataSourceRequestSyntax"></a> **要求本文的語法**
 
@@ -120,8 +120,8 @@ Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。Azure 
 	- `documentdb` - Azure DocumentDB
 - `credentials`：
 	- 必要的 `connectionString` 屬性可指定資料來源的連接字串。連接字串的格式依據資料來源類型而定： 
-		- 若是 Azure SQL，則通常為 SQL Server 連接字串。如果您是使用 Azure 管理入口網站來擷取連接字串，請使用 `ADO.NET connection string` 選項。
-		- 若是 DocumentDB，則連接字串必須為下列格式：`"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`。所有值都是必要的。您可在 [Azure 管理入口網站](https://portal.azure.com/)中找到所有值。   
+		- 若是 Azure SQL，則通常為 SQL Server 連接字串。如果您是使用 Azure 傳統入口網站來擷取連接字串，請使用 `ADO.NET connection string` 選項。
+		- 若是 DocumentDB，則連接字串必須為下列格式：`"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`。所有值都是必要的。您可在 [Azure 傳統入口網站](https://portal.azure.com/)中找到所有值。   
 		
 - `container`：
 	- 必要的 `name` 屬性可指定要編製索引的資料表、檢視表 (若為 Azure SQL 資料來源) 或集合 (若為 DocumentDB 資料來源)。 
@@ -776,4 +776,4 @@ Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。Azure 
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

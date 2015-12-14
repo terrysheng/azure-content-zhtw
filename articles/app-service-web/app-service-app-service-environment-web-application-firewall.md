@@ -35,7 +35,7 @@
 Barracuda 具有在 Azure 中於虛擬機器上部署其 WAF 的[詳細文章](https://techlib.barracuda.com/WAF/AzureDeploy)。但是，因為我們想要具有備援性，但不想要引進單一失敗點，所以您想要在遵循這些指示時將至少 2 個 WAF 執行個體 VM 部署至相同的雲端服務。
 
 ### 將端點加入雲端服務 ###
-雲端服務中有 2 個以上的 WAF VM 執行個體之後，即可使用 [Azure 管理入口網站](https://portal.azure.com)加入應用程式所使用的 HTTP 和 HTTPS 端點 (如下圖所示)。
+雲端服務中有 2 個以上的 WAF VM 執行個體之後，即可使用 [Azure 入口網站](https://portal.azure.com)加入應用程式所使用的 HTTP 和 HTTPS 端點 (如下圖所示)。
 
 ![設定端點][ConfigureEndpoint]
 
@@ -66,11 +66,11 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 > 附註：根據應用程式的設定方式與 App Service 環境中正在使用的功能，您需要轉送非 80 和 443 之 TCP 連接埠的流量 (例如，如果您為 Web 應用程式設定 IP SSL)。如需 App Service 環境中所使用網路連接埠的清單，請參閱[控制輸入流量文件](app-service-app-service-environment-control-inbound-traffic.md)的＜網路連接埠＞一節。
 
 ## 設定 Microsoft Azure 流量管理員 (選擇性) ##
-如果多個區域中都有您的應用程式，則您會想要使用 [Azure 流量管理員](traffic-manager.md)對它們進行負載平衡。若要這麼做，您可以使用流量管理員設定檔中 WAF 的雲端服務名稱在 [Azure 管理入口網站](https://manage.azure.com)中加入端點 (如下列影像所示)。
+如果多個區域中都有您的應用程式，則您會想要使用 [Azure 流量管理員](traffic-manager.md)對它們進行負載平衡。若要這麼做，您可以使用流量管理員設定檔中 WAF 的雲端服務名稱在 [Azure 傳統入口網站](https://manage.azure.com)中加入端點 (如下列影像所示)。
 
 ![流量管理員端點][TrafficManagerEndpoint]
 
-如果您的應用程式需要驗證，請確定您有某個資源不需要任何驗證，以讓流量管理員進行 Ping 處理確認應用程式是否可用。您可以在 [Azure 管理入口網站](https://manage.azure.com)的 [設定] 區段下設定 URL (如下所示)。
+如果您的應用程式需要驗證，請確定您有某個資源不需要任何驗證，以讓流量管理員進行 Ping 處理確認應用程式是否可用。您可以在 [Azure 傳統入口網站](https://manage.azure.com)的 [設定] 區段下設定 URL (如下所示)。
 
 ![設定流量管理員][ConfigureTrafficManager]
 
@@ -99,4 +99,4 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

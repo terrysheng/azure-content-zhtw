@@ -128,11 +128,11 @@
 
 	![範例待辦事項應用程式](./media/documentdb-create-documentdb-website/image2.png)
 
-7. 請繼續進行，並建立幾個工作，然後讓我們開啟 [Microsoft Azure Preview 入口網站](https://portal.azure.com)。
+7. 請繼續進行，並建立幾個工作，然後讓我們開啟 [Microsoft Azure 入口網站](https://portal.azure.com)。
 
 8. 選擇瀏覽資源群組，並選取我們部署期間建立的資源群組 (以上範例的 myDemoResourceGroup)。
 
-	![包含反白顯示 myDemoResourceGroup 的 Azure 入口網站的螢幕擷取畫面](./media/documentdb-create-documentdb-website/image3.png)
+	![包含反白顯示 myDemoResourceGroup 的 Azure 傳統入口網站的螢幕擷取畫面](./media/documentdb-create-documentdb-website/image3.png)
 9.  請注意 [摘要] 透鏡中的資源對應如何顯示我們所有的相關資源 (DocumentDB 帳戶、App Service Web 應用程式、監視)。
 
 	![[摘要] 透鏡的螢幕擷取畫面](./media/documentdb-create-documentdb-website/image4.png)
@@ -172,7 +172,7 @@
 	> [AZURE.TIP]請注意，系統會提示您輸入您的 Azure 帳戶使用者名稱和密碼做為執行指令碼的一部分。完整部署需要 10 到 15 分鐘才能完成。
 
 4. 部署輸出將非常類似第一個範本範例。
-5. 在我們開啟 Azure Preview 入口網站之前，讓我們先了解完成的範本部署：
+5. 在我們開啟 Azure 入口網站之前，讓我們先了解完成的範本部署：
 
 	- App Service Web 應用程式隨即建立。
 
@@ -182,14 +182,14 @@
 
 	- 	建立了一系列的預設監視規則。
 
-6. 讓我們開啟 [Azure Preview 入口網站](https://portal.azure.com)，並選擇瀏覽資源群組，然後選取我們在部署期間建立的資源群組 (在上面的範例中，是 myOtherDemoResourceGroup)。
+6. 讓我們開啟 [Azure 入口網站](https://portal.azure.com)，並選擇瀏覽資源群組，然後選取我們在部署期間建立的資源群組 (在上面的範例中，是 myOtherDemoResourceGroup)。
 7. 在 [摘要] 透鏡中，按一下剛部署的 Web 應用程式。
 
 	![包含反白顯示 myotherdocumentdbwebapp Web 應用程式的 [摘要] 透鏡的螢幕擷取畫面](./media/documentdb-create-documentdb-website/image6.png)
 8. 在 Web 應用程式刀鋒視窗中，依序按一下 [**所有設定**]、[**應用程式設定**]，並注意出現的 DocumentDB 端點和每個 DocumentDB 主要金鑰的應用程式設定。
 
 	![Web 應用程式、設定和應用程式設定刀鋒視窗的螢幕擷取畫面](./media/documentdb-create-documentdb-website/image7.png)
-9. 任意繼續瀏覽探索 Azure Preview 入口網站，或遵循其中一個 DocumentDB [範例](http://go.microsoft.com/fwlink/?LinkID=402386)來建立您自己的 DocumentDB 應用程式。
+9. 任意繼續瀏覽探索 Azure 入口網站，或遵循其中一個 DocumentDB [範例](http://go.microsoft.com/fwlink/?LinkID=402386)來建立您自己的 DocumentDB 應用程式。
 
 	
 	
@@ -205,9 +205,9 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[瀏覽 Azure 傳統入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

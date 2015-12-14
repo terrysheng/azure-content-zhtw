@@ -57,7 +57,7 @@ ms.service="virtual-machines"
 
 
 
-### 使用 Azure 入口網站手動部署
+### 使用 Azure 傳統入口網站手動部署
 
 
 
@@ -97,4 +97,4 @@ ms.service="virtual-machines"
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

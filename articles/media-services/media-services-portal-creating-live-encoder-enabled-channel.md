@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Azure 入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼" 
-	description="本教學課程將逐步引導您使用 Azure 入口網站建立通道，以接收單一位元速率即時串流，並將其編碼為多位元速率串流。" 
+	pageTitle="使用 Azure 傳統入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼" 
+	description="本教學課程將逐步引導您使用 Azure 傳統入口網站建立通道，以接收單一位元速率即時串流，並將其編碼為多位元速率串流。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#使用 Azure 入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼
+#使用 Azure 傳統入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -58,7 +58,7 @@
 
 ##本教學課程內容
 
-在本教學課程中，Azure 管理入口網站用來完成下列工作：
+在本教學課程中，Azure 傳統入口網站可用來完成下列工作：
 
 2.  設定串流端點。
 3.  建立啟用即可執行即時編碼的通道。
@@ -85,7 +85,7 @@
 
 若要變更串流保留單元數目，請執行下列動作：
 
-1. 在[管理入口網站](https://manage.windowsazure.com/)中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
 
 2. 選取 [串流端點] 頁面。然後，按一下您要修改的串流端點。
 
@@ -105,7 +105,7 @@
  
 ##建立通道
 
-1.	在[管理入口網站](http://manage.windowsazure.com/)中按一下 [媒體服務]，然後按一下媒體服務帳戶名稱。
+1.	在 [Azure 傳統入口網站](http://manage.windowsazure.com/)中，按一下 [媒體服務]，然後按一下媒體服務帳戶名稱。
 2.	選取 [通道] 頁面。
 3.	選取 [新增+] 以新增通道。
 
@@ -276,4 +276,4 @@
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

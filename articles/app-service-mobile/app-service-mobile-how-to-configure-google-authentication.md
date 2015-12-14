@@ -31,7 +31,7 @@
 
 ## <a name="register"> </a>向 Google 註冊您的應用程式
 
-1. 登入 [Azure 管理入口網站]，然後瀏覽至您的應用程式。複製您的 **URL**。您將使用此 URI 設定您的 Google 應用程式。
+1. 登入 [Azure 入口網站]，然後瀏覽到您的應用程式。複製您的 **URL**。您將使用此 URI 設定您的 Google 應用程式。
  
 2. 瀏覽至 [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) (英文) 網站，以您的 Google 帳戶認證登入，按一下 [Create Project]，提供「專案名稱」，然後按一下 [Create]。
 
@@ -58,7 +58,7 @@
 > [AZURE.NOTE]如果您使用 App Service 閘道器，請忽略此章節，並改為在入口網站中瀏覽至您的閘道器。依序選取 [設定]、[身分識別]，[Google]。貼入您之前取得的值，然後按一下 [儲存]。
 
 
-8. 回到 [Azure 管理入口網站]，並瀏覽至應用程式。依序按一下 [設定] 及 [驗證/授權]。
+8. 請回到 [Azure 入口網站]，並瀏覽到您的應用程式。依序按一下 [設定] 及 [驗證/授權]。
 
 9. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
 
@@ -90,7 +90,7 @@
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Azure 管理入口網站]: https://portal.azure.com/
+[Azure 入口網站]: https://portal.azure.com/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

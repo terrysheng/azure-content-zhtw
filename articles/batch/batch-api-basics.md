@@ -66,7 +66,7 @@
 
 ### <a name="account"></a>帳戶
 
-批次帳戶是批次服務內唯一識別的實體。所有處理都與 Batch 帳戶相關聯。當您使用 Batch 服務執行作業時，您需要帳戶名稱和帳戶金鑰。若要建立 Batch 帳戶，請查看[在 Azure Preview 入口網站中建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)。
+批次帳戶是批次服務內唯一識別的實體。所有處理都與 Batch 帳戶相關聯。當您使用 Batch 服務執行作業時，您需要帳戶名稱和帳戶金鑰。若要建立 Batch 帳戶，請查看[在 Azure 入口網站中建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)。
 
 ### <a name="computenode"></a>計算節點
 
@@ -354,4 +354,4 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

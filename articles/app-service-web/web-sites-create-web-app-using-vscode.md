@@ -139,11 +139,11 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 
 3. 關閉瀏覽器。在 [命令視窗] 中按 **Ctrl + C**，以關閉應用程式或關閉 [命令視窗]。
 
-## 在 Azure Preview 入口網站中建立 Web 應用程式
+## 在 Azure 入口網站中建立 Web 應用程式
 
-下列步驟將引導您在 Azure Preview 入口網站中建立 Web 應用程式。
+下列步驟將引導您在 Azure 入口網站中建立 Web 應用程式。
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 按一下入口網站左上角的 [新增]。
 
@@ -165,7 +165,7 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 
 Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式版本控制系統。您將會在本機 Git 儲存機制中儲存您為 Web 應用程式撰寫的程式碼，並藉由發送至遠端儲存機制，將您的程式碼部署至 Azure。
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 按一下 [瀏覽]。
 
@@ -258,7 +258,7 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* 在 Azure Preview 入口網站中，尋找您的 Web 應用程式的 Web 應用程式刀鋒視窗，然後按一下 [瀏覽]，以檢視您的應用程式。
+* 在 Azure 入口網站中，尋找您的 Web 應用程式的 Web 應用程式刀鋒視窗，然後按一下 [瀏覽]，以檢視您的應用程式。
 * 預設瀏覽器
 
 ![Azure Web 應用程式](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
@@ -266,4 +266,4 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 ## 摘要
 在本教學課程中，您學到如何在 VS Code 建立 Web 應用程式，並將其部署至 Azure。如需 VS Code 的詳細資訊，請參閱文章：[為什選擇 Visual Studio Code？](https://code.visualstudio.com/Docs/)。 如需 App Service Web Apps 的相關資訊，請參閱 [Web 應用程式概觀](app-service-web-overview.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

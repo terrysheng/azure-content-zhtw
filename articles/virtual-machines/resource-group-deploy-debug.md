@@ -22,7 +22,7 @@
 
 本主題主要著重於使用部署命令來排解部署疑難問題。如需使用稽核記錄檔來追蹤您的資源上所有作業的詳細資訊，請參閱[稽核作業與資源管理員](../resource-group-audit.md)。
 
-本主題說明如何透過 Azure PowerShell、Azure CLI 和 REST API 擷取疑難排解資訊。如需使用 Preview 入口網站來排解部署疑難問題的相關資訊，請參閱[使用 Azure Preview 入口網站管理 Azure 資源](../azure-portal/resource-group-portal.md)。
+本主題說明如何透過 Azure PowerShell、Azure CLI 和 REST API 擷取疑難排解資訊。如需使用 Preview 入口網站來排解部署疑難問題的相關資訊，請參閱[使用 Azure 入口網站管理 Azure 資源](../azure-portal/resource-group-portal.md)。
 
 本主題也說明了使用者遇到的常見錯誤的解決方案。
 
@@ -292,30 +292,12 @@
 
 在這些情況下，您應該移至入口網站，並提出支援問題，以針對您想要部署的區域提高配額。
 
-> [AZURE.NOTE]請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理員核心。如果您需要在任何具有存取權限的區域中部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理員核心。
-<!-- -->
-舉例來說，若要更明確地了解核心，您可以使用下列命令來檢查應該要求適當配額數目的區域，這個命令可以使用管線傳送到 **jq** 以進行 JSON 剖析。
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE]請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理員核心。如果您需要在任何具有存取權限的區域中部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理員核心。<!-- --> 舉例來說，若要更明確地了解核心，您可以使用下列命令來檢查應該要求適當配額數目的區域，這個命令可以使用管線傳送到 **jq** 以進行 JSON 剖析。 <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
 ## 檢查資源提供者註冊
 
-資源是由資源提供者所管理，並且可能啟用帳戶或訂用帳戶以便使用特定提供者。如果您可以使用某個提供者，則也必須註冊該提供者才能使用。Azure Preview 入口網站或正在使用的命令列介面會自動註冊大部分的提供者，但並非全部。
+資源是由資源提供者所管理，並且可能啟用帳戶或訂用帳戶以便使用特定提供者。如果您可以使用某個提供者，則也必須註冊該提供者才能使用。Azure 入口網站或正在使用的命令列介面會自動註冊大部分的提供者；但並非全部。
 
 ### PowerShell
 
@@ -434,4 +416,4 @@ PowerShell 有幾個基本命令來執行相同的程序。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

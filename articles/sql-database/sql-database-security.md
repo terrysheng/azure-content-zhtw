@@ -27,9 +27,9 @@
 
 「連線安全性」是指如何使用防火牆規則和連線加密，限制和保護資料庫的連線。
 
-伺服器和資料庫兩者都可使用防火牆規則，拒絕來自未明確設為允許清單的 IP 位址的連線嘗試。若要允許應用程式或用戶端機器的公用 IP 位址，嘗試連線至新的資料庫，您必須先使用 Azure 管理入口網站、REST API 或 PowerShell 建立伺服器層級的防火牆規則。最好的作法是，您應該盡可能限制允許穿透您伺服器防火牆的 IP 位址範圍。如需詳細資訊，請參閱 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/ee621782)。
+伺服器和資料庫兩者都可使用防火牆規則，拒絕來自未明確設為允許清單的 IP 位址的連線嘗試。若要允許應用程式或用戶端機器的公用 IP 位址，嘗試連線至新的資料庫，您必須先使用 Azure 傳統入口網站、REST API 或 PowerShell 建立伺服器層級的防火牆規則。最好的作法是，您應該盡可能限制允許穿透您伺服器防火牆的 IP 位址範圍。如需詳細資訊，請參閱 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/ee621782)。
 
-Azure SQL Database 的所有連線，也就是任何時候只要資料需要「傳輸」進出資料庫時，都需要加密 (SSL/TLS)。在您應用程式的連接字串中，您必須指定參數來加密連線，並且*不要*信任伺服器憑證 (這是為了如果您從 Azure 管理入口網站將連接字串複製出去)，否則連線將不會驗證伺服器的身分識別，也可能會遭受到「攔截」攻擊。例如對於 ADO.NET 驅動程式，這些連接字串參數是 **Encrypt=True** 和 **TrustServerCertificate=False**。如需詳細資訊，請參閱 [Azure SQL Database 連線加密和憑證驗證](https://msdn.microsoft.com/library/azure/ff394108#encryption)。
+Azure SQL Database 的所有連線，也就是任何時候只要資料需要「傳輸」進出資料庫時，都需要加密 (SSL/TLS)。在您應用程式的連接字串中，您必須指定參數來加密連線，並且*不要*信任伺服器憑證 (這是為了如果您從 Azure 傳統入口網站將連接字串複製出去)，否則連線將不會驗證伺服器的身分識別，也可能會遭受到「攔截」攻擊。例如對於 ADO.NET 驅動程式，這些連接字串參數是 **Encrypt=True** 和 **TrustServerCertificate=False**。如需詳細資訊，請參閱 [Azure SQL Database 連線加密和憑證驗證](https://msdn.microsoft.com/library/azure/ff394108#encryption)。
 
 
 ## 驗證
@@ -77,7 +77,7 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 * [資料遮罩](sql-database-dynamic-data-masking-get-started.md)可用來限制公開機密資料。
 * [預存程序](https://msdn.microsoft.com/library/ms190782)可用來限制對資料庫可採取的動作。
 
-要從 Azure 管理入口網站或使用 Azure 資源管理員 API 管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。如需有關此主題的詳細資訊，請參閱 [Azure Preview 入口網站中的角色型存取控制](../role-based-access-control-configure.md)。
+要從 Azure 傳統入口網站或使用 Azure 資源管理員 API 管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。如需有關此主題的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control-configure.md)。
 
 
 ## 加密
@@ -106,4 +106,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 除了上述可協助您的應用程式符合各種安全法規需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。如需詳細資訊，請參閱 [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](http://azure.microsoft.com/support/trust-center/services/)的最新清單。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

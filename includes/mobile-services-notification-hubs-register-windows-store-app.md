@@ -8,7 +8,7 @@
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png)
 
-   	這會為您的應用程式建立新的 Windows 市集註冊。
+   	This creates a new Windows Store registration for your app.
 
 3. 在 Visual Studio 中，開啟您完成**開始使用行動服務** (英文) 教學課程時所建立的專案。
 
@@ -24,7 +24,7 @@
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
 
-   	如此會將必要的 Windows 市集註冊資訊新增至應用程式資訊清單。
+   	This adds the required Windows Store registration information to the application manifest.
 
 7. (選用) 重複執行步驟 4-6，也會註冊通用 Windows 應用程式的 Windows Phone 市集專案。
 
@@ -42,7 +42,7 @@
 
     > [AZURE.NOTE]用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些密碼，或與您的應用程式一起散發密碼。
 
-11. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+11. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，按一下 [行動服務]，然後按一下您的應用程式。
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
@@ -57,6 +57,5 @@
 <!-- URLs. -->
 [Get started with Mobile Services]: ../articles/mobile-services-windows-store-get-started.md
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Azure 管理入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

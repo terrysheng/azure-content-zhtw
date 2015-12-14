@@ -52,7 +52,7 @@
 9. 在檔案底部找出 *ProgressFilter* 類別並取消註解。此類別會在 *MobileServiceClient* 執行網路作業時顯示 'loading' 指示。
 
 
-10. 在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
+10. 在 Azure 傳統入口網站中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 11. 按一下 [儀表板] 索引標籤並記下 [網站 URL]，然後按一下 [管理金鑰] 並記下 [應用程式金鑰]。
 
@@ -162,4 +162,4 @@
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

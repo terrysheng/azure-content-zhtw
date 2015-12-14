@@ -18,6 +18,8 @@
 
 # 從 .NET 用戶端使用 Azure App Service 中的 API 應用程式 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## 概觀
 
 此教學課程展示如何使用 App Service SDK 撰寫程式碼，以呼叫針對 [**公用 (匿名)**] 或 [**公用 (驗證)**] 存取層級設定的 [API 應用程式](app-service-api-apps-why-best-platform.md)。本文涵蓋以下範例案例：
@@ -205,4 +207,4 @@
 如需如何在 API 應用程式中使用驗證的相關資訊，請參閱 [Azure App Service 中 API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

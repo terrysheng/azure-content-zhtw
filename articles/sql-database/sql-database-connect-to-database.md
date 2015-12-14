@@ -30,7 +30,7 @@
 
 若要連接至您的資料庫，需要包含您想連接到的伺服器完整名稱 (****servername**.database.windows.net*)。
 
-1. 移至 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至您想連接的資料庫。
 3. 找出完整的伺服器名稱：
 
@@ -95,4 +95,4 @@
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

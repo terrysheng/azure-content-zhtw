@@ -73,7 +73,7 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a 
 
 	> [AZURE.NOTE]儲存體帳戶必須與 HDInsight 並存於資料中心內。儲存體帳戶類型不能是 ZRS，因為 ZRS 不支援資料表。
 
-	如需使用 Azure Preview 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]。
+	如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]。
 	
 	如果您已經有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，則可使用下列命令來擷取資訊：
 	
@@ -84,7 +84,7 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a 
 		-- Lists the keys for a Storage account
 		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
 
-	如需使用 Azure Preview 入口網站取得資訊的詳細資料，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]的＜檢視、複製及重新產生儲存體存取金鑰＞一節。
+	如需使用 Azure 入口網站取得資訊的詳細資訊，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]的「檢視、複製及重新產生儲存體存取金鑰」一節。
 
 - **(選擇性) 預設 Blob 容器**：如果容器不存在，**azure hdinsight cluster create** 命令會建立容器。如果您選擇預先建立容器，您可以使用下列命令：
 
@@ -160,7 +160,7 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a 
 ##後續步驟
 本文中，您學到如何執行不同的 HDInsight 叢集管理工作。若要深入了解，請參閱下列文章：
 
-* [使用 Azure 預覽入口網站管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]
 * [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 * [如何使用 Azure CLI][azure-command-line-tools]
@@ -182,4 +182,4 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中進行管理 (<a 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "列出和顯示叢集"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

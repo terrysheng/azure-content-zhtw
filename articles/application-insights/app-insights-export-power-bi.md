@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # 從 Application Insights 使用串流分析將資料傳送至 Power BI
@@ -40,9 +40,12 @@ Noam Ben Zeev 會示範我們在本文中的描述。
 
 > [AZURE.VIDEO export-to-power-bi-from-application-insights]
 
+
+**取樣** 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。[深入了解取樣。](app-insights-sampling.md)
+
 ## 使用 Application Insights 監視您的應用程式
 
-如果您還沒嘗試過，現在就是開始的好時機。Application Insights 可以監視許多平台上的任何裝置或 Web App，包含 Windows、iOS、Android、J2EE 等。[開始使用](app-insights-overview.md)。
+如果您還沒嘗試過，現在就是開始的好時機。Application Insights 可以監視許多平台上的任何裝置或 Web App，包含 Windows、iOS、Android、J2EE 等。[開始使用](app-insights-overview.md)
 
 ## 在 Azure 中建立儲存體
 
@@ -266,4 +269,4 @@ Noam Ben Zeev 會示範如何匯出至 Power BI。
 * [Application Insights](app-insights-overview.md)
 * [更多範例和逐步解說](app-insights-code-samples.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

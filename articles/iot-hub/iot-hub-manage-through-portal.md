@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="使用 Azure Preview 入口網站管理 IoT 中樞 | Microsoft Azure"
-	 description="如何透過 Azure Preview 入口網站建立和管理 Azure IoT 中樞的概觀"
+	 pageTitle="使用 Azure 入口網站管理 IoT 中樞 | Microsoft Azure"
+	 description="如何透過 Azure 入口網站建立和管理 Azure IoT 中樞的概觀"
 	 services="iot-hub"
 	 documentationCenter=""
 	 authors="nasing"
@@ -16,11 +16,11 @@
 	 ms.date="10/19/2015"
 	 ms.author="nasing"/>
 
-# 透過 Azure Preview 入口網站管理 IoT 中樞
+# 透過 Azure 入口網站管理 IoT 中樞
 
 ## 簡介
 
-本文描述如何透過 Azure Preview 入口網站開始使用 Azure IoT 中樞、如何尋找 IoT 中樞以及如何建立和管理 IoT 中樞。
+本文描述如何透過 Azure 入口網站開始使用 Azure IoT 中樞、如何尋找 IoT 中樞以及如何建立和管理 IoT 中樞。
 
 ## 哪裡可以找到 IoT 中樞
 
@@ -153,4 +153,4 @@ Azure IoT 中樞會自動顯示使用者帳戶所連結的訂用帳戶清單。�
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [何謂 Azure IoT 中樞？]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

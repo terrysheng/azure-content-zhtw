@@ -16,7 +16,7 @@
    ms.date="10/20/2015"
    ms.author="andkjell"/>
 
-# 防止意外刪除
+# Azure AD Connect 同步處理：防止意外刪除
 本主題說明 Azure AD Connect 中的防止意外刪除 (可防止意外刪除) 功能。
 
 安裝 Azure AD Connect 時，就會依預設啟用防止意外刪除的功能，並設定為不允許超過 500 個刪除項目的匯出。這項功能是專門用來保護您免於意外的組態變更及內部部署目錄的變更，因為這會影響大量的使用者。
@@ -48,4 +48,4 @@
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="12/01/2015"
 	ms.author="jgao"/>
 
 # 使用 Azure PowerShell 管理 HDInsight 上的 Hadoop 叢集
@@ -30,9 +30,39 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 開始閱讀本文之前，您必須符合下列必要條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
-	> [AZURE.NOTE]本文提供的 PowerShell 指令碼會使用 Azure 資源管理員模式。為確保範例適用於您，請使用 Microsoft Web Platform Installer 下載最新的 Azure PowerShell。
+##安裝 Azure PowerShell 1.0 或更新版本
+
+首先，您必須解除安裝 0.9x 版本。
+
+檢查已安裝的 PowerShell 版本：
+
+	Get-Module *azure*
+	
+若要解除安裝較舊的版本，請在控制台中執行 [程式和功能]。
+
+安裝 Azure PowerShell 有兩個主要選項。
+
+- [PowerShell 資源庫](https://www.powershellgallery.com/)。從提高權限的 PowerShell ISE 或提高權限的 Windows PowerShell 主控台中，執行下列命令：
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	如需詳細資訊，請參閱 [PowerShell 資源庫](https://www.powershellgallery.com/)。
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps)。若您已安裝 Azure PowerShell 0.9.x，系統將提示您解除安裝 0.9.x。若您從 PowerShell 資源庫安裝 Azure PowerShell 模組，安裝程式會要求在執行安裝前先移除模組，以確保提供一致的 Azure PowerShell 環境。如需指示，請參閱[透過 WebPI 安裝 Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+
+WebPI 每個月都會更新。PowerShell 資源庫會持續更新。若您想要透過 PowerShell 資源庫安裝，則此為取得最新最優異 Azure PowerShell 的首要管道。
 
 ##建立叢集
 
@@ -49,7 +79,7 @@ HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob �
 	Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
 	Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
 
-如果您多個 Azure 訂用帳戶時會呼叫 **Select-AzureRMSubscription**。
+若您有多個 Azure 訂用帳戶，則會呼叫 **Select-AzureRMSubscription**。
 	
 **建立新的資源群組**
 
@@ -64,7 +94,7 @@ HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob �
 [AZURE.INCLUDE [資料中心清單](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-如需使用 Azure Preview 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。
+如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。
 
 如果您已有儲存帳號，但不知道帳號名稱和帳號金鑰，您可以使用下列命令來擷取資訊：
 
@@ -73,7 +103,7 @@ HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob �
 	# List the keys for a Storage account
 	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-如需使用預覽入口網站取得資訊的詳細資料，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)的＜檢視、複製及重新產生儲存體存取金鑰＞一節。
+如需使用入口網站取得資訊的詳細資料，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)的「檢視、複製及重新產生儲存體存取金鑰」一節。
 
 **建立 Azure 儲存容器**
 
@@ -213,14 +243,14 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 >[AZURE.NOTE]透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
 
-這也可以透過預覽入口網站完成。請參閱[使用 Azure Preview 入口網站管理 HDInsight][hdinsight-admin-portal]。
+這也可以透過入口網站完成。請參閱[使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]。
 
 ##更新 HTTP 使用者認證
 
-與[授與/撤銷 HTTP 存取權](#grant/revoke-access)程序一樣。如果已授與叢集 HTTP 存取權，必須先將它撤銷。然後再使用新的 HTTP 使用者認證授與存取權。
+與[授與/撤銷 HTTP 存取權](#grant/revoke-access)程序一樣。若已授與叢集 HTTP 存取權，則必須先將其撤銷。然後再使用新的 HTTP 使用者認證授與存取權。
 
 
-##尋找預設儲存體帳戶
+##尋找預設的儲存體帳戶
 
 下列 Powershell 指令碼示範如何取得叢集的預設儲存體帳戶名稱和預設儲存體帳戶金鑰。
 
@@ -245,23 +275,23 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 ##提交工作
 
-**提交 MapReduce 工作**
+**提交 MapReduce 作業**
 
-請參閱 [在以 Windows 為基礎的 HDInsight 中執行 Hadoop MapReduce 範例](hdinsight-run-samples.md)。
+請參閱[在以 Windows 為基礎的 HDInsight 中執行 Hadoop MapReduce 範例](hdinsight-run-samples.md)。
 
-**提交 Hive 工作**
+**提交 Hive 作業**
 
 請參閱[使用 PowerShell 執行 Hive 查詢](hdinsight-hadoop-use-hive-powershell.md)。
 
-**提交 Pig 工作**
+**提交 Pig 作業**
 
-請參閱[使用 PowerShell 執行 Pig 工作](hdinsight-hadoop-use-pig-powershell.md)。
+請參閱[使用 PowerShell 執行 Pig 作業](hdinsight-hadoop-use-pig-powershell.md)。
 
-**提交 Sqoop 工作**
+**提交 Sqoop 作業**
 
 請參閱[在 HDInsight 上使用 Sqoop](hdinsight-use-sqoop.md)。
 
-**提交 Oozie 工作**
+**提交 Oozie 作業**
 
 請參閱[在 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](hdinsight-use-oozie.md)。
 
@@ -271,7 +301,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 ## 另請參閱
 * [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]
-* [使用 Azure 預覽入口網站管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]
 * [使用命令列介面管理 HDInsight][hdinsight-admin-cli]
 * [建立 HDInsight 叢集][hdinsight-provision]
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
@@ -302,4 +332,4 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -279,4 +279,4 @@ Application Insights SDK 可以報告應用程式對外部相依性的呼叫，�
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

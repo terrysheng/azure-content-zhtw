@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory 報告延遲
+
+## 報告文章
+
+ - [報告 API](active-directory-reporting-api-getting-started.md)
+ - [稽核事件](active-directory-reporting-audit-events.md)
+ - [保留](active-directory-reporting-retention.md)
+ - [預覽](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [回填](active-directory-reporting-backfill.md)
+ - [延遲](active-directory-reporting-latencies.md)
+ - [「未知動作」事件](active-directory-reporting-unknown-actor.md)
 
 報告 | 最小值 | 平均值 | 最大值
 ------------------------------------------------------- | -------- | ---------- | ----------
@@ -50,4 +61,4 @@ RMS 裝置使用量 | 2 小時 | 4 小時 | 8 小時
 **私人預覽報告** | | |
 所有使用者登入活動 | 2 小時 | 4 小時 | 8 小時
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

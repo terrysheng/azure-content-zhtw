@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="如何管理雲端服務 | Microsoft Azure" 
-	description="了解如何在 Azure 入口網站中管理雲端服務。" 
+	description="了解如何在 Azure 傳統入口網站中管理雲端服務。" 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -23,17 +23,17 @@
 # 如何管理雲端服務
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-manage.md)
-- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
+- [Azure portal](cloud-services-how-to-manage-portal.md)
 
-在 Azure 入口網站的 [**雲端服務**] 區域中，您可以更新服務角色或部署、將預備部署升級至生產部署、將資源連結至您的雲端服務 (以方便您查看資源依存性並將資源一起調整)，以及刪除雲端服務或部署。
+在 Azure 傳統入口網站的 [**雲端服務**] 區域中，您可以更新服務角色或部署、將預備部署提升至生產、將資源連結至您的雲端服務以便於查看資源相依性，並將資源一起調整，以及刪除雲端服務或部署。
 
 
 ## 作法：更新雲端服務角色或部署
 
 如果您需要更新雲端服務的應用程式程式碼，請使用儀表板上、[雲端服務] 頁面上或 [執行個體] 頁面上的 [更新]。您可以更新單一角色或所有角色。您將需要上傳新的服務套件和服務組態檔。
 
-1. 在 [Azure 入口網站](https://manage.windowsazure.com/)中，按一下儀表板上、[**雲端服務**] 頁面上或 [**執行個體**] 頁面上的 [**更新**]。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下儀表板上、[**雲端服務**] 頁面上或 [**執行個體**] 頁面上的 [**更新**]。
 
 	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -45,15 +45,15 @@
 
 5. 若要升級雲端服務中的所有角色，請在 [角色] 中選取 [全部]。若要執行單一角色更新，請選取您要更新的角色。即使您選取特定角色來更新，服務組態檔中的更新還是會套用至所有角色。
 
-6. 如果更新會造成角色數目或任何角色的大小變更，請選取 [如果角色大小或角色數目變更則允許更新] 核取方塊，讓更新能夠繼續。
+6. 如果更新會造成角色數目或任何角色的大小變更，請選取 [Allow update if role sizes or number of roles changes] 核取方塊，讓更新能夠繼續。
 
 	請注意，如果您變更角色的大小 (亦即，角色執行個體所裝載於之虛擬機器的大小) 或角色數目，則必須重新製作每個角色執行個體 (虛擬機器) 的映像，因而遺失本機資料。
 
-7. 如果有任何服務角色只有一個角色執行個體，請選取 [即使一或多個角色包含單一執行個體也一律更新] 核取方塊，讓升級能夠繼續。
+7. 如果有任何服務角色只有一個角色執行個體，請選取 [Update even if one or more role contain a single instance] 核取方塊，讓升級能夠繼續。
 
 	要讓 Azure 保證服務在雲端服務更新期間有 99.95% 的可用性，每個角色都至少必須有兩個角色執行個體 (虛擬機器)。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。
 
-8. 按一下 [確定] \(核取記號) 開始更新服務。
+8. 按一下 [確定] (核取記號) 開始更新服務。
 
 
 
@@ -63,7 +63,7 @@
 
 您可以在 [雲端服務] 頁面或儀表板交換部署。
 
-1. 在[管理入口網站](https://manage.windowsazure.com/)中，按一下 [雲端服務]。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下 [**雲端服務**]。
 
 2. 在雲端服務清單中，按一下雲端服務加以選取。
 
@@ -85,7 +85,7 @@
 
 您可以使用 [連結] 將新的或現有 SQL Database 執行個體或儲存體帳戶連結到您的雲端服務。然後，您便可以在 [調整] 頁面上調整資料庫以及使用該資料庫的雲端服務角色。(儲存體帳戶會在使用量增加時自動調整。) 如需詳細資訊，請參閱[如何調整雲端服務和連結的資源](cloud-services-how-to-scale.md) (英文)。
 
-您也可以在管理入口網站的 [資料庫] 節點中監視、管理和調整資料庫。
+您也可以在 Azure 傳統入口網站的**資料庫**節點中監視、管理和調整資料庫。
 
 在這種情況下，將資源「連結」並不會將您的應用程式連接到資源。如果您使用 [連結] 建立新的資料庫，則需要將連接字串新增至應用程式程式碼，然後升級雲端服務。如果您的應用程式使用連結的儲存體帳戶中的資源，您也需要新增連接字串。
 
@@ -93,25 +93,25 @@
 
 ### 將 SQL Database 執行個體連結到雲端服務
 
-1. 在[管理入口網站](http://manage.windowsazure.com/)中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
+1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com/)中，按一下 [**雲端服務**]。然後按一下雲端服務的名稱以開啟儀表板。
 
-2. 按一下 [連結的資源]。
+2. 按一下 [Linked Resources]。
 
-	[連結的資源] 頁面隨即開啟。
+	[Linked Resources] 頁面隨即開啟。
 
 	![LinkedResourcesPage](./media/cloud-services-how-to-manage/CloudServices_LinkedResourcesPage.png)
 
-3. 按一下 [連結資源] 或 [連結]。
+3. 按一下 [Link a Resource] 或 [連結]。
 
-	[連結資源] 精靈隨即啟動。
+	[Link Resource] 精靈隨即啟動。
 
 	![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
-4. 按一下 [建立新的資源] 或 [連結現有資源]。
+4. 按一下 [建立新的資源] 或 [Link an existing resource]。
 
-5. 選擇要連結的資源類型。在[管理入口網站](http://manage.windowsazure.com/)中，按一下 [SQL Database]。(預覽版管理入口網站不支援將儲存體帳戶連結到雲端服務。)
+5. 選擇要連結的資源類型。在 [Azure 傳統入口網站](http://manage.windowsazure.com/)中，按一下 [**SQL Database**]。(預覽版的 Azure 傳統入口網站不支援將儲存體帳戶連結到雲端服務)。
 
-6. 若要完成資料庫組態，請依照管理入口網站 [SQL Databases] 區域的說明指示執行。
+6. 若要完成資料庫組態，請依照 Azure 傳統入口網站中 [**SQL Database**] 區域的說明中的指示執行。
 
 	您可以在訊息區域中追蹤連結作業的進度。
 
@@ -121,13 +121,13 @@
 
 ### 取消連結已連結的資源
 
-1. 在[管理入口網站](http://manage.windowsazure.com/)中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
+1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com/)中，按一下 [**雲端服務**]。然後按一下雲端服務的名稱以開啟儀表板。
 
-2. 按一下 [連結的資源]，然後選取資源。
+2. 按一下 [Linked Resources]，然後選取資源。
 
 3. 按一下 [取消連結]。然後在確認提示處按一下 [是]。
 
-	取消連結 SQL Database 並不會影響資料庫或是應用程式與資料庫的連線。您還是可以在管理入口網站的 [SQL Databases] 區域中管理資料庫。
+	取消連結 SQL Database 並不會影響資料庫或是應用程式與資料庫的連線。您還是可以在 Azure 傳統入口網站的 [**SQL Database**] 區域中管理資料庫。
 
 
 
@@ -139,7 +139,7 @@
 
 使用下列程序，刪除部署或雲端服務。
 
-1. 在[管理入口網站](http://manage.windowsazure.com/)中，按一下 [雲端服務]。
+1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com/)中，按一下 [**雲端服務**]。
 
 2. 選取雲端服務，然後按一下 [刪除]。(若要選取雲端服務而不開啟儀表板，請在雲端服務項目中按一下名稱以外的任何位置。)
 
@@ -148,15 +148,13 @@
 	![Delete Menu](./media/cloud-services-how-to-manage/CloudServices_DeleteMenu.png)
 
 
-3. 若要刪除部署，請按一下 [刪除生產部署] 或 [刪除生產部署]。然後，在確認提示處按一下 [是]。
+3. 若要刪除部署，請按一下 [Delete production deployment] 或 [Delete staging deployment]。然後，在確認提示處按一下 [是]。
 
 4. 如果您計劃刪除雲端服務，請重複步驟 3 (如果需要) 來刪除另一個部署。
 
 5. 若要刪除雲端服務，請按一下 [刪除雲端服務]。然後，在確認提示處按一下 [是]。
 
-> [AZURE.NOTE]
-> 如果對雲端服務設定了詳細資訊監視，則當您刪除該雲端服務時，Azure 並不會從您的儲存體帳戶中刪除監視資料。您將需要手動刪除資料。如需關於何處可找到這些量值資料表的詳細資訊，請參閱<a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">如何監視雲端服務</a>中的＜作法：在管理入口網站外存取詳細資訊監視資料＞。
-
+> [AZURE.NOTE]如果對雲端服務設定了詳細資訊監視，則當您刪除該雲端服務時，Azure 並不會從您的儲存體帳戶中刪除監視資料。您將需要手動刪除資料。如需有關何處可找到這些計量資料表的詳細資訊，請參閱[如何監視雲端服務](cloud-services-how-to-monitor.md)中的＜作法：從 Azure 傳統入口網站外部存取詳細資訊監視資料＞。
 
 ## 後續步驟
 
@@ -165,4 +163,4 @@
 * 設定[自訂網域名稱](cloud-services-custom-domain-name.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

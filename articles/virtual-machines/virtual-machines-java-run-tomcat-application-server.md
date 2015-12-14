@@ -40,7 +40,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 
 ## 建立虛擬機器
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 依序按一下 [新增]、[運算]、[虛擬機器] 及 [從組件庫]。
 3. 在 [虛擬機器映像選取] 對話方塊中，選取 [JDK 7 Windows Server 2012]。請注意，如果您的舊版應用程式尚未準備好在 JDK 7 中運作，可以使用 [JDK 6 Windows Server 2012]。
 4. 按 [下一步]。
@@ -63,7 +63,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 
 ## 從遠端登入虛擬機器
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 按一下 [虛擬機器]。
 3. 按一下要登入的虛擬機器名稱。
 4. 在啟動虛擬機器後，頁面底部的快顯功能表可允許連接。
@@ -89,7 +89,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 若要從外部機器看見執行中的 Tomcat，您需要建立端點並開啟連接埠。
 
 ## 為虛擬機器建立端點
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 按一下 [虛擬機器]。
 3. 按一下執行 Java 應用程式伺服器之虛擬機器的名稱。
 4. 按一下 [端點]。
@@ -146,4 +146,4 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="擷取 Linux VM 作為範本使用 | Microsoft Azure"
-	description="了解如何擷取以 Azure 資源管理員部署模型建立之 Linux 型 Azure 虛擬機器 (VM) 的映像。"
+	description="了解如何擷取以 Azure 資源管理員部署模型建立之以 Linux 為主的 Azure 虛擬機器 (VM) 的映像。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-capture-image.md).
 
 
-本文說明如何使用 Azure 命令列介面 (CLI) 擷取執行 Linux 的 Azure 虛擬機器，以便用它做為 Azure 資源管理員範本來建立其他虛擬機器。此範本會指定 OS 磁碟和連結虛擬機器的資料磁碟。但不包含建立 Azure 資源管理員 VM 所需的虛擬網路資源，因此在大部分的情況下，您必須先個別設定這些資源，再建立另一部使用此範本的虛擬機器。
+本文說明如何使用 Azure 命令列介面 (CLI) 擷取執行 Linux 的 Azure 虛擬機器，以便用它作為 Azure 資源管理員範本來建立其他虛擬機器。此範本會指定 OS 磁碟和連結虛擬機器的資料磁碟。但不包含建立 Azure 資源管理員 VM 所需的虛擬網路資源，因此在大部分的情況下，您必須先個別設定這些資源，再建立另一部使用此範本的虛擬機器。
 
 ## 開始之前
 
@@ -37,7 +37,7 @@
 
 佈建並執行 VM 之後，您可能想要連接和掛接資料磁碟。請參閱[這裡](virtual-machines-linux-tutorial.md#attach-and-mount-a-disk)的指示。
 
-若要執行其他自訂作業，您需要使用您選擇的 SSH 用戶端來連接到 VM。如需詳細資訊，請參閱[使用 ssh 連接到 Azure Linux VM](virtual-machines-linux-tutorial-portal-rm.md#connect-to-your-azure-linux-vm-using-strongsshstrong)。
+若要執行其他自訂作業，您需要使用您選擇的 SSH 用戶端來連接到 VM。如需詳細資訊，請參閱[使用 SSH 連接到 Azure Linux VM](virtual-machines-linux-tutorial-portal-rm.md#connect-to-your-azure-linux-vm-using-strongsshstrong)。
 
 
 ## 擷取 VM
@@ -57,7 +57,7 @@
 	- 將主機名稱重設為 localhost.localdomain
 	- 刪除最後佈建的使用者帳戶 (取自於 /var/lib/waagent) 和相關聯的資料。
 
-	>[AZURE.NOTE]解除佈建會刪除檔案與資料，以將映象「一般化」。只在您想要擷取做為映像的 VM 上執行這個命令。這不能保證映像檔中的所有機密資訊都會清除完畢或適合轉散發給第三方。
+	>[AZURE.NOTE]解除佈建會刪除檔案與資料，以將映象「一般化」。只在您想要擷取作為映像的 VM 上執行這個命令。這不能保證映像檔中的所有機密資訊都會清除完畢或適合轉散發給第三方。
 
 3. 輸入 **y** 繼續。您可以加入 **-force** 參數，便不用進行此確認步驟。
 
@@ -176,7 +176,7 @@
 * 在相同或不同的虛擬網路中建立新的 NIC
 * 使用修改過的範本 JSON 檔案，在您設定虛擬網路的資源群組中建立部署
 
-如果您要在從映像建立 VM 時自動設定網路，請使用來自 GitHub 的 [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)。此範本會從自訂映像和必要的虛擬網路、公用 IP 位址和 NIC 資源建立 VM。如需在 Azure Preview 入口網站中使用範本的逐步解說，請參閱[如何從使用 ARM 範本的自訂映像建立虛擬機器](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)。
+如果您要在從映像建立 VM 時自動設定網路，請使用來自 GitHub 的 [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)。此範本會從自訂映像和必要的虛擬網路、公用 IP 位址和 NIC 資源建立 VM。如需在 Azure 入口網站中使用範本的逐步解說，請參閱[如何從使用 ARM 範本的自訂映像建立虛擬機器](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)。
 
 ## 使用 azure vm create 命令
 
@@ -200,4 +200,4 @@
 
 若要使用 CIL 管理 VM，請參閱[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-azure-cli.md)中的工作。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

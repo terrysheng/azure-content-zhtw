@@ -98,7 +98,7 @@
             }];
         }
 
-4. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 替換為您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+4. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 替換為您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 傳統入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
 5. 在前述 `loginAndGetData` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動應用程式的 [**應用程式識別碼 URI**]。如果您依照[如何向 Azure Active Directory 設定您的行動應用程式]主題的內容操作，您的應用程式識別碼 URI 應類似於 https://contosogateway.azurewebsites.net/login/aad。
 
@@ -118,9 +118,9 @@
 
 <!-- URLs. -->
 [如何向 Azure Active Directory 設定您的行動應用程式]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [開始使用行動應用程式]: app-service-mobile-ios-get-started.md
 [將驗證新增至您的應用程式]: app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

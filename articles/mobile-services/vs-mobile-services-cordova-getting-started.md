@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="開始使用 Cordova 行動服務專案 (Visual Studio 連接服務)" 
-	description="說明在使用 Visual Studio 連接服務將 Cordova 專案連接至 Azure 行動服務後，您可以採用的第一個步驟。" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
+<properties
+	pageTitle="開始使用 Cordova 行動服務專案 (Visual Studio 連接服務)"
+	description="說明在使用 Visual Studio 連接服務將 Cordova 專案連接至 Azure 行動服務後，您可以採用的第一個步驟。"
+	services="mobile-services"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/17/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # 開始使用行動服務 (Cordova 專案)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
@@ -47,7 +52,7 @@
         this.text = text;
         this.complete = false;
     }
-    
+
     var items = new Array();
     var insertTodoItem = function (todoItem) {
         todoTable.insert(todoItem).done(function (item) {
@@ -94,4 +99,4 @@
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

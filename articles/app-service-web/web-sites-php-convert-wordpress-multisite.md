@@ -54,7 +54,7 @@
 
 ![Network Setup Screen][wordpress-network-setup]
 
-本教學課程採用「子目錄」網站結構描述，因為這總是沒有問題，我們將於教學課程稍後設定每一個子網站的自訂網域。不過，如果您透過 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)來對應網域，並適當設定萬用字元 DNS，應該就能設定子網域安裝。
+本教學課程採用「子目錄」網站結構描述，因為這總是沒有問題，我們將於教學課程稍後設定每一個子網站的自訂網域。不過，如果您透過 [Azure 入口網站](https://portal.azure.com)來對應網域，並適當設定萬用字元 DNS，應該就能設定子網域安裝。
 
 如需子網域和子目錄設定兩者的詳細資訊，請參閱 WordPress Codex 上的＜[多網站網路的類型][wordpress-codex-types-of-networks]＞文章 (英文)。
 
@@ -138,7 +138,6 @@ Azure Web Apps 可讓您將不限數量的網域加入至 Web 應用程式。若
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
@@ -154,4 +153,4 @@ Azure Web Apps 可讓您將不限數量的網域加入至 Web 應用程式。若
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

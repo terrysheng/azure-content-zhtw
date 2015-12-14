@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # 將推播通知新增至行動服務應用程式
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+##概觀
+
 本主題說明如何使用 Azure 行動服務傳送推播通知至 Xamarin.Android 應用程式。在本教學課程中，您會使用 Google Cloud Messaging (GCM) 服務將推播通知新增至[開始使用行動服務]專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
-
-本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
-
-1. [啟用 Google Cloud Messaging](#register)
-2. [設定行動服務](#configure)
-3. [設定用於推播通知的專案](#configure-app)
-4. [將推播通知程式碼新增至應用程式](#add-push)
-5. [插入資料以接收通知](#test)
 
 本教學課程需要下列各項：
 
@@ -75,4 +74,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

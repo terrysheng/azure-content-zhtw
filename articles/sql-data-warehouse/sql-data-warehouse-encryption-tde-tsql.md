@@ -18,10 +18,10 @@
  
 # 開始使用透明資料加密 (TDE)
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-encryption-tde.md)
+- [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
-Azure SQL 資料倉儲透明資料加密 (TDE) 可對靜止的資料庫、相關聯的備份和交易記錄檔執行即時加密和解密，協助防止惡意活動的威脅，而不需變更應用程式。
+Azure SQL 資料倉儲透明資料加密 (TDE) 可在不需變更應用程式的情況下，對靜止的資料庫、相關聯的備份和交易記錄檔執行即時加密和解密，協助防止惡意活動的威脅。
 
 TDE 會使用稱為資料庫加密金鑰的對稱金鑰來加密整個資料庫的儲存體。在 SQL Database 中，資料庫加密金鑰是由內建伺服器憑證保護。內建伺服器憑證對每個 SQL Database 伺服器都是唯一的。Microsoft 至少每 90 天會自動替換這些憑證。如需 TDE 的一般描述，請參閱[透明資料加密 (TDE)]。
 
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

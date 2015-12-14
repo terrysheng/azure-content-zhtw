@@ -71,4 +71,12 @@
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=AcomDC_1125_2015-->
+## 後續步驟
+
+[開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
+
+[設定負載平衡器分配模式](load-balancer-distribution-mode.md)
+
+[設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
+
+<!---HONumber=AcomDC_1203_2015-->

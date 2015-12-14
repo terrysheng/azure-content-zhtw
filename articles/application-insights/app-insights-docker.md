@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="在 Application Insights 中監視 Docker 主機" 
-	description="Docker 主機效能計數器、事件和例外狀況可以與來自容器化應用程式的遙測一起顯示在 Application Insights 上。" 
+	pageTitle="在 Application Insights 中監視 Docker 應用程式" 
+	description="Docker 效能計數器、事件和例外狀況可以與來自容器化應用程式的遙測一起顯示在 Application Insights 上。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,56 +12,80 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="12/01/2015" 
 	ms.author="awills"/>
  
-# 在 Application Insights 中監視 Docker 主機
+# 在 Application Insights 中監視 Docker 應用程式
 
-[Docker](https://www.docker.com/) 主機的效能計數器和例外狀況報告可以在 Application Insights 上繪製成圖表。在您的主機的容器中安裝 [Application Insights](app-insights-overview.md) 應用程式，它會顯示主機的整體效能計數器，以及其他映像。
+[Docker](https://www.docker.com/) 容器的週期事件和效能計數器可以在 Application Insights 上繪製成圖表。在您的主機的容器中安裝 [Application Insights](app-insights-overview.md) 映像，它會顯示主機及其他映像的效能計數器。
 
 使用 Docker，您可以在完成所有相依性的輕量級容器中散發應用程式。它們會在執行 Docker 引擎的任何主機電腦上執行。
 
-Application Insights 可以監視您的 Docker 主機和容器的效能和活動。
+當您在 Docker 主機上執行 [Application Insights 映像](https://hub.docker.com/r/microsoft/applicationinsights/)時，可為您提供下列好處：
+
+* 主機上執行之所有容器的相關週期遙測 - 啟動、停止等。
+* 所有容器的效能計數器。CPU、記憶體、網路使用量等。
+* 如果您針對容器中執行的應用程式[安裝了 Application Insights SDK](app-insights-java-live.md)，這些應用程式的所有遙測會有用來識別容器和主機電腦的其他屬性。例如，如果您在多部主機上執行某個應用程式的多個執行個體，您可以輕鬆地依主機來篩選應用程式遙測。
 
 ![範例](./media/app-insights-docker/00.png)
 
-(當然，如果您在容器中擁有任何應用程式的來源，在每個項目上[安裝 Application Insights SDK](app-insights-java-live) 以取得詳細的效能記錄和使用狀況追蹤。)
 
-## 建立 Application Insights 資源
+## 設定您的 Application Insights 資源
 
-Application Insights 資源是您將在其中檢視和分析資料的位置。它裝載於 Microsoft Azure 入口網站。
+1. 登入 [Microsoft Azure 入口網站](https://azure.com)並開啟適用於您應用程式的 Application Insights 資源；或者[建立新的資源](app-insights-create-new-resource.md)。 
 
-1.	您將需要 [Microsoft Azure](https://azure.com) 訂用帳戶。(有隨用隨付的選項，如果您未使用服務就不必支付任何費用，而且您可以使用 Application Insights 的免費層。)
-2.	登入 [Azure 入口網站](https://portal.azure.com)，並建立新的 Application Insights 資源。選擇 [其他] 做為應用程式類型。(這個選項只會影響您看到的初始選取圖表，而且並不重要)。
+    *我應該使用哪種資源？* 如果您在主機上執行的應用程式是由其他人所開發，則您需要[建立新的 Application Insights 資源](app-insights-create-new-resource.md)。這是您檢視及分析遙測的位置(針對應用程式類型選取 [其他])。
 
-    ![範例](./media/app-insights-docker/01-new.png)
-3.	您可以使用 [瀏覽]、[所有]，永遠取得新的監視資源。但是您也可以選擇將您的應用程式的磚放在 [首頁] 儀表板，每當您移至入口網站時都會看到。
+    但如果您是應用程式的開發人員，我們希望您[將 Application Insights SDK 加入](app-insights-java-live.md)每個應用程式中。如果這些應用程式其實全部都是單一商務應用程式的元件，則您可能會設定所有應用程式將遙測資料傳送至一個資源，再使用該相同的資源來顯示 Docker 週期和效能資料。
 
-    立即開啟新資源。
-4.	新增 Docker 磚：選擇 [編輯]，然後選擇 [新增磚]，並且從資源庫拖曳 Docker 磚。它只會在一開始顯示空白圖表。
+    第三種情況是您已開發大部分應用程式，但想要使用不同的資源來顯示其遙測。在這種情況下，您可能也需要為 Docker 資料建立不同的資源。
+
+2.	新增 [Docker] 磚：選擇 [新增磚]，從資源庫拖曳 [Docker] 磚，然後按一下 [完成]。
 
     ![範例](./media/app-insights-docker/03.png)
 
-5. 開啟 [Essentials] 下拉式清單，然後複製檢測金鑰。您將會使用這個項目以告知 SDK 傳送遙測的位置。
+
+3. 按一下 [程式集] 下拉式清單，然後複製檢測金鑰。您將會使用這個項目以告知 SDK 傳送遙測的位置。
+
+
+    ![範例](./media/app-insights-docker/02-props.png)
 
 保持該瀏覽器視窗就緒，因為您稍後即會返回以查看您的遙測。
 
 
-## 在您的主機上安裝 Application Insights
+## 在您的主機上執行 Application Insights 監視器
  
-現在您有其他位置可以顯示遙測，您可以設定會收集並傳送它的應用程式。1.登入您的 Docker 主機。2.在 Docker 中樞搜尋 Microsoft Application Insights 映像，並將它加入至主機。3.設定檢測金鑰：
+當您有其他位置可顯示遙測之後，您可以設定收集和傳送遙測的容器化應用程式。
+
+1.	連接到您的 Docker 主機。 
+2.	在這個命令中編輯您的檢測金鑰，然後執行命令：
+ 
+    ```
 
     docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
+    ```
 
-4. 執行映像。
+每部 Docker 主機只需要一個 Application Insights 映像。如果您的應用程式部署在多部 Docker 主機上，請在每部主機上重複執行命令。
+
+## 更新應用程式
+
+如果使用 [Application Insights SDK for Java](app-insights-java-get-started.md) 檢測您的應用程式，請將下行加入您專案之 ApplicationInsights.xml 檔案中的 `<TelemetryInitializers>` 項目底下：
+
+```xml
+
+    <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
+```
+
+這會將容器和主機 ID 等 Docker 資訊，加入從您的應用程式送出的每個遙測項目中。
 
 ## 檢視遙測
 
 返回 Azure 入口網站中的 Application Insights 資源。
 
-您很快就會看到來自 Docker 容器的資料抵達，尤其是如果您在 Docker 引擎上有其他容器執行。
+點選 [Docker] 磚。
 
-逐一點選任何圖表以查看詳細資料。
+您很快就會看到來自 Docker 應用程式的資料抵達，尤其是如果您在 Docker 引擎上有其他容器執行。
+
 
 以下是一些您可以取得的檢視。
 
@@ -70,21 +94,43 @@ Application Insights 資源是您將在其中檢視和分析資料的位置。�
 
 ![範例](./media/app-insights-docker/10.png)
 
-按一下任何映像名稱以取得詳細資訊。若要自訂檢視，按一下任何圖表、方格標題，或使用 [新增圖表]。
+
+![範例](./media/app-insights-docker/11.png)
+
+
+
+按一下任何主機或映像名稱以取得更多詳細資料。
+
+
+
+若要自訂檢視，按一下任何圖表、方格標題，或使用 [新增圖表]。
 
 [深入了解計量瀏覽器](app-insights-metrics-explorer.md)。
 
-## 個別事件
+### Docker 容器事件
 
 
-![範例](./media/app-insights-docker/12.png)
+![範例](./media/app-insights-docker/13.png)
 
-若要調查個別事件，請按一下 [[搜尋](app-insights-diagnostic-search.md)]。搜尋和篩選以尋找您想要的事件。按一下任何事件以查看詳細資料。
+若要調查個別事件，請按一下 [搜尋][](app-insights-diagnostic-search.md)。搜尋和篩選以尋找您想要的事件。按一下任何事件以查看詳細資料。
  
-## 依據容器名稱的例外狀況
+### 依據容器名稱的例外狀況
  
 
 ![範例](./media/app-insights-docker/14.png)
+
+### 已加入應用程式遙測中的 Docker 內容
+
+從使用 AI SDK 檢測之應用程式送出的要求遙測，並以 Docker 內容擴充：
+
+![範例](./media/app-insights-docker/16.png)
+
+處理器時間和可用記憶體效能計數器，並依 Docker 容器名稱擴充和分組：
+
+
+![範例](./media/app-insights-docker/15.png)
+
+
 
 
 
@@ -100,4 +146,4 @@ Application Insights 資源是您將在其中檢視和分析資料的位置。�
 
 * 在應用程式中安裝 Application Insights SDK。針對下列項目深入了解：[Java Web Apps](app-insights-java-get-started.md)、[Windows Web Apps](app-insights-asp-net.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

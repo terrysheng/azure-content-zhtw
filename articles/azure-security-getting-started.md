@@ -45,15 +45,15 @@ Azure AD 可以作為組織的獨立式雲端目錄，或在您現有的內部�
 
 -   Azure AD 可啟用 SaaS 應用程式的 [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)，無論應用程式裝載於何處。有些應用程式會與 Azure AD 同盟，有些則使用密碼 SSO。同盟應用程式也支援使用者佈建和密碼儲存庫存。
 
--   對 [Azure 儲存體](https://azure.microsoft.com/zh-TW/services/storage/)的資料存取可透過驗證來控制。每個儲存體帳戶都有主要金鑰 ([儲存體帳戶金鑰](https://msdn.microsoft.com/library/azure/ee460785.aspx)，或 SAK) 和次要金鑰 ( [共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)，或 SAS)。
+-   對 [Azure 儲存體](https://azure.microsoft.com/services/storage/)的資料存取可透過驗證來控制。每個儲存體帳戶都有主要金鑰 ([儲存體帳戶金鑰](https://msdn.microsoft.com/library/azure/ee460785.aspx)，或 SAK) 和次要金鑰 ( [共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)，或 SAS)。
 
 -   Azure AD 可透過與內部部署目錄的同盟、同步和複寫提供「身分識別即服務」(使用 [Active Directory Federation Services](fundamentals-identity.md))。
 
 -   [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication.md) 是一種多因素驗證服務，需要使用者同時使用行動應用程式、通話或簡訊來驗證登入。它可與 Azure AD 搭配使用，以保護內部部署資源和 Azure MFA Server 的安全，它還可以使用 SDK 與自訂應用程式和目錄搭配使用。
 
--   [Azure AD 網域服務](https://azure.microsoft.com/zh-TW/services/active-directory-ds/)可讓您將 Azure 虛擬機器加入網域，而不需要部署網域控制站。使用者可以登入使用其公司的 Active Directory 認證登入這些虛擬機器，並使用群組原則管理加入網域的虛擬機器，以對您所有的 Azure 虛擬機器強制執行安全性基準。
+-   [Azure AD 網域服務](https://azure.microsoft.com/services/active-directory-ds/)可讓您將 Azure 虛擬機器加入網域，而不需要部署網域控制站。使用者可以登入使用其公司的 Active Directory 認證登入這些虛擬機器，並使用群組原則管理加入網域的虛擬機器，以對您所有的 Azure 虛擬機器強制執行安全性基準。
 
--   [Azure Active Directory B2C](https://azure.microsoft.com/zh-TW/services/active-directory-b2c/) 所提供的高可用性全域身分識別管理服務，可用於處理數億個身分識別的消費者端應用程式。此服務可跨行動及 Web 平台進行整合。可自訂的使用經驗讓您的消費者可以使用其現有的社交帳戶，或是建立新的認證來登入您所有的應用程式。
+-   [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 所提供的高可用性全域身分識別管理服務，可用於處理數億個身分識別的消費者端應用程式。此服務可跨行動及 Web 平台進行整合。可自訂的使用經驗讓您的消費者可以使用其現有的社交帳戶，或是建立新的認證來登入您所有的應用程式。
 
 ##資料存取控制與加密
 
@@ -107,7 +107,7 @@ Azure 會使用 Hypervisor 防火牆 (封包篩選器)；此防火牆會在 Hype
 
 維護區隔性，以防止部署與共用的多租用戶架構之間未經授權和非預期的資訊傳輸，是另一個重要的雲端安全性需求。
 
-Azure 會透過 VLAN 隔離、ACL、負載平衡器和 IP 篩選器，實作[網路存取控制](https://azure.microsoft.com/zh-TW/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)和隔離。輸入虛擬機器的外部流量會限定於您所定義的連接埠和通訊協定。實作網路篩選可防止假冒流量，並將傳入和傳出的流量限定於信任的平台元件。對於依預設拒絕流量的界限保護裝置，會實作流量原則。
+Azure 會透過 VLAN 隔離、ACL、負載平衡器和 IP 篩選器，實作[網路存取控制](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)和隔離。輸入虛擬機器的外部流量會限定於您所定義的連接埠和通訊協定。實作網路篩選可防止假冒流量，並將傳入和傳出的流量限定於信任的平台元件。對於依預設拒絕流量的界限保護裝置，會實作流量原則。
 
 ![Azure 中的 Microsoft Antimalware](./media/azure-security-getting-started\sec-azgsfig3.PNG)
 
@@ -133,7 +133,7 @@ Azure 說明中的[分散式和虛擬網路](http://download.microsoft.com/downl
 
 您的訂用帳戶可以包含多個隔離的私人網路 (並且包含防火牆、負載平衡及網路位址轉譯)。
 
-Azure 在每個 Azure 叢集中提供了三個以邏輯方式隔離流量的主要網路隔離層級。[虛擬區域網路](https://azure.microsoft.com/zh-TW/services/virtual-network/) (VLAN) 用來區隔客戶流量與其餘的 Azure 網路。從叢集外對 Azure 網路的存取，會受到負載平衡器的限制。
+Azure 在每個 Azure 叢集中提供了三個以邏輯方式隔離流量的主要網路隔離層級。[虛擬區域網路](https://azure.microsoft.com/services/virtual-network/) (VLAN) 會用來區隔客戶流量與其餘的 Azure 網路。從叢集外對 Azure 網路的存取，會受到負載平衡器的限制。
 
 進入和來自於 VM 的網路流量，必須通過 Hypervisor 虛擬交換器。根 OS 中的 IP 篩選器元件會隔離根 VM 與客體 VM，並且各個客體 VM 互相隔離。它會執行流量篩選，以限制租用戶的節點與公用網際網路 (根據客戶的服務組態) 之間的通訊，使其與其他租用戶隔離。
 
@@ -147,7 +147,7 @@ IP 篩選器有助於防止客體 VM：
 
 - 傳送或接收不當的廣播流量
 
-您可以將虛擬機器放在 [Azure 虛擬網路](https://azure.microsoft.com/zh-TW/documentation/services/virtual-network/)上。這些虛擬網路類似於您在內部部署環境中設定的網路，在此處它們通常會與虛擬交換器相關聯。連接到相同 Azure 虛擬網路的虛擬機器不需額外設定即可彼此通訊。您也可以選擇在 Azure 虛擬網路中設定不同的子網路。
+您可以將虛擬機器放在 [Azure 虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)上。這些虛擬網路類似於您在內部部署環境中設定的網路，在此處它們通常會與虛擬交換器相關聯。連接到相同 Azure 虛擬網路的虛擬機器不需額外設定即可彼此通訊。您也可以選擇在 Azure 虛擬網路中設定不同的子網路。
 
 您可以利用下列 Azure 虛擬網路技術來保護 Azure 虛擬網路上的通訊安全：
 
@@ -155,13 +155,13 @@ IP 篩選器有助於防止客體 VM：
 
 -   [**使用者定義的路由**](virtual-networks-udr-overview.md)。您可以透過虛擬應用裝置來控制封包的路由，方法是建立使用者定義的路由，為流向指定子網路的封包指定流向虛擬網路安全性應用裝置的下一個躍點。
 
--   [**IP 轉送**](virtual-networks-udr-overview.md)。虛擬網路應用裝置必須能夠接收未定址到本身的傳入流量。若要讓 VM 接收定址到其他目的地的流量，您必須針對 VM 啟用 IP 轉送。
+-   [**IP 轉送**](virtual-networks-udr-overview.md)。虛擬網路安全性應用裝置必須能夠接收未定址到其本身的傳入流量。若要讓 VM 接收定址到其他目的地的流量，您必須針對 VM 啟用 IP 轉送。
 
 -   [**強制通道**](vpn-gateway-about-forced-tunneling.md)。強制通道可讓您透過站對站 VPN 通道，重新導向或「強制」您在 Azure 虛擬網路中的虛擬機器所產生的所有網際網路繫結流量傳回內部部署位置，以便進行檢查和稽核。
 
 -   [**端點** ACL](virtual-machines-set-up-endpoints.md)。您可以定義端點 ACL，以控制哪些機器可以從網際網路對您 Azure 虛擬網路上的虛擬機器進行輸入連線。
 
--   [**合作夥伴網路安全性解決方案**](https://azure.microsoft.com/zh-TW/marketplace/)。您可以從 Azure Marketplace 存取許多合作夥伴網路安全性解決方案。
+-   [**合作夥伴網路安全性解決方案**](https://azure.microsoft.com/marketplace/)。您可以從 Azure Marketplace 存取許多合作夥伴網路安全性解決方案。
 
 ### Azure 如何實作虛擬網路和防火牆
 
@@ -183,15 +183,15 @@ IP 篩選器有助於防止客體 VM：
 
 儲存在雲端中的資料必須啟用足夠的保護措施，以防止入侵和維護傳輸時的機密性與完整性。這包括與組織的原則型、可稽核的身分識別和存取管理機制相連結的網路控制。
 
-內建的密碼編譯技術可讓您對部署內部與各部署間的通訊、Azure 區域之間的通訊，以及 Azure 對內部部署資料中心的通訊進行加密。系統管理員可透過[遠端桌面工作階段](virtual-machines-log-on-windows-server.md)、[遠端 Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) 來存取虛擬機器，且 [Azure 管理入口網站](https://azure.microsoft.com/zh-TW/overview/preview-portal/)一律會加密。
+內建的密碼編譯技術可讓您對部署內部與各部署間的通訊、Azure 區域之間的通訊，以及 Azure 對內部部署資料中心的通訊進行加密。系統管理員可透過[遠端桌面工作階段](virtual-machines-log-on-windows-server.md)、[遠端 Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) 來存取虛擬機器，且 [Azure 管理入口網站](https://azure.microsoft.com/overview/preview-portal/)一律會加密。
 
 為了讓您安全地將內部部署資料中心擴充到雲端，Azure 提供了[站對站 VPN](vpn-gateway-create-site-to-site-rm-powershell.md) 和[點對站 VPN](vpn-gateway-point-to-site-create.md)，以及具有 [ExpressRoute](expressroute-introduction.md) 的專用連結 (透過 VPN 的 Azure 虛擬網路連線會進行加密)。
 
 ### Azure 如何實作安全的遠端存取
 
-對 Azure 入口網站的連線一律必須經過驗證，且需要 SSL/TLS。您可以設定管理憑證來啟用安全管理。如 [SSTP](https://technet.microsoft.com/zh-TW/magazine/2007.06.cableguy.aspx) 和 [IPsec](https://en.wikipedia.org/wiki/IPsec) 的業界標準安全通訊協定受到完整支援。
+對 Azure 入口網站的連線一律必須經過驗證，且需要 SSL/TLS。您可以設定管理憑證來啟用安全管理。如 [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) 和 [IPsec](https://en.wikipedia.org/wiki/IPsec) 的業界標準安全通訊協定會受到完整支援。
 
-[Azure ExpressRoute](expressroute-introduction.md) 可讓您在 Azure 資料中心和內部部署或共置環境中的基礎結構之間建立私人連線。ExpressRoute 連線不會經過公用網際網路。相較於一般網際網路連結，這可以提供更可靠、更快速、延遲更短和更安全的連線。在某些情況下，使用 ExpressRoute 連線在內部部署裝置和 Azure 之間傳輸資料，可以產生重大的成本效益。
+[Azure ExpressRoute](expressroute-introduction.md) 可讓您在 Azure 資料中心和內部部署或共置環境中的基礎結構之間建立私人連接。ExpressRoute 連線不會經過公用網際網路。相較於一般網際網路連結，這可以提供更可靠、更快速、延遲更短和更安全的連接。在某些情況下，使用 ExpressRoute 連線在內部部署裝置和 Azure 之間傳輸資料，可以產生重大的成本效益。
 
 ##記錄和監視
 
@@ -209,7 +209,7 @@ Azure 系統管理員會透過對於記錄檔的存取經過驗證且受到控�
 
 Microsoft 會使用 Syslog 通訊協定從網路裝置收集記錄檔，並使用 Microsoft 稽核收集服務 (ACS) 從主機伺服器收集記錄檔。這些記錄檔會放入記錄資料庫中，並且在可疑事件發生時直接向 Microsoft 系統管理員產生警示。系統管理員可以存取並分析這些記錄檔。
 
-[Azure 診斷](https://msdn.microsoft.com/library/azure/gg433048.aspx)是一項 Azure 功能，可讓您收集來自 Azure 中執行之應用程式的診斷資料。這項診斷資料可用來進行偵錯和疑難排解、測量效能、監視資源使用量、流量分析和容量規劃以及稽核。收集到的診斷資料可以傳輸到 Azure 儲存體帳戶，以進行保存。傳輸可以是排程或隨選的。[Microsoft Azure 安全性和稽核記錄管理](azure-security-audit-log-management.md)提供如何收集這項資訊並執行分析的詳細資訊。
+[Azure 診斷](https://msdn.microsoft.com/library/azure/gg433048.aspx)是一項 Azure 功能，可讓您收集來自在 Azure 中執行之應用程式的診斷資料。這項診斷資料可用來進行偵錯和疑難排解、測量效能、監視資源使用量、流量分析和容量規劃以及稽核。收集到的診斷資料可以傳輸到 Azure 儲存體帳戶，以進行保存。傳輸可以是排程或隨選的。[Microsoft Azure 安全性和稽核記錄管理](azure-security-audit-log-management.md)提供如何收集這項資訊並執行分析的詳細資訊。
 
 ##威脅防護
 
@@ -233,7 +233,7 @@ Azure 有安全性控制可實作威脅防護功能，並協助客戶降低其�
 
 ##後續步驟
 
-[Azure 信任中心](https://azure.microsoft.com/zh-TW/support/trust-center/)
+[Azure 信任中心](https://azure.microsoft.com/support/trust-center/)
 
 [Azure 安全性小組部落格](http://blogs.msdn.com/b/azuresecurity/)
 
@@ -241,4 +241,4 @@ Azure 有安全性控制可實作威脅防護功能，並協助客戶降低其�
 
 [Active Directory 部落格](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

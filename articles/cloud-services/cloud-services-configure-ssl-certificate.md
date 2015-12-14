@@ -22,8 +22,8 @@
 # 在 Azure 設定應用程式的 SSL
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
@@ -33,7 +33,7 @@
 
 如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy.md)。
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
 
 
 ## 步驟 1：取得 SSL 憑證
@@ -44,7 +44,7 @@
 
 -   憑證必須包含私密金鑰。
 -   憑證必須是為了進行金鑰交換而建立，且可匯出成個人資訊交換檔 (.pfx)。
--   憑證的主體名稱必須符合用來存取雲端服務的網域。您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。您必須取得要在存取您的服務時使用的自訂網域名稱。當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，如果您的自訂網域名稱為 **contoso.com**，則您需向 CA 要求 **\*.contoso.com** 或 **www.contoso.com** 的憑證。
+-   憑證的主體名稱必須符合用來存取雲端服務的網域。您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。您必須取得要在存取您的服務時使用的自訂網域名稱。當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，如果您的自訂網域名稱為 **contoso.com**，則您需向 CA 要求 ****.contoso.com** 或 **www.contoso.com** 的憑證。
 -   憑證至少必須以 2048 位元加密。
 
 基於測試目的，您可以[建立](cloud-services-certs-create.md)並使用自我簽署憑證。自我簽署憑證不是由 CA 驗證，因此可以使用 cloudapp.net 網域做為網站 URL。例如，以下工作即使用自我簽署憑證，該憑證中使用的一般名稱 (CN) 為 **sslexample.cloudapp.net**。
@@ -114,9 +114,9 @@
 
 ## 步驟 3：上傳憑證
 
-您的部署套件已更新為使用該憑證，而且您已新增 HTTPS 端點。現在您可以利用管理入口網站將套件和憑證上傳至 Azure。
+您的部署套件已更新為使用該憑證，而且您已新增 HTTPS 端點。現在您可以利用 Azure 傳統入口網站將套件和憑證上傳至 Azure。
 
-1. 登入 [Azure 管理入口網站][]。 
+1. 登入 [Azure 傳統入口網站][]。 
 2. 按一下左邊瀏覽窗格的 [**雲端服務**]。
 3. 按一下所需的雲端服務。
 4. 按一下 [**憑證**] 索引標籤。
@@ -133,17 +133,17 @@
 
 您的部署已在 Azure 啟動並執行，現在您可以使用 HTTPS 來與其連線。
 
-1.  在管理入口網站中，選取您的部署，然後按一下 [網站 URL] 下的連結。
+1.  在 Azure 傳統入口網站中，選取您的部署，然後按一下 [網站 URL] 下的連結。
 
     ![判定網站 URL][2]
 
 2.  在網頁瀏覽器中，將連結修改為使用 **https** 而非 **http**，然後造訪網頁。
 
-    **Note：**如果使用自我簽署憑證，則當您在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，您將會看見憑證錯誤。使用信任的憑證授權單位所簽署的憑證，則不會有此問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
+    **：**如果使用自我簽署憑證，則當您在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，您將會看見憑證錯誤。使用信任的憑證授權單位所簽署的憑證，則不會有此問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
 
     ![SSL 範例網站][3]
 
-若要對預備部署而不是對生產部署使用 SSL，首先您需要判定要在預備部署中使用的 URL。請將您的雲端服務部署至預備環境，但不包括憑證或任何憑證資訊。一旦部署好，您就可以判定 GUID 型 URL (這會列在管理入口網站的 [網站 URL] 欄位中)。建立一般名稱 (CN) 等於 GUID 型 URL (例如，**32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**) 的憑證、使用管理入口網站將該憑證新增至預備的雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝套件，然後將預備部署更新為使用新的套件與 CSCFG 檔。
+若要對預備部署而不是對生產部署使用 SSL，首先您需要判定要在預備部署中使用的 URL。請將您的雲端服務部署至預備環境，但不包括憑證或任何憑證資訊。一旦部署好，您就可以判定 GUID 型 URL (這會列在 Azure 傳統入口網站的 [網站 URL] 欄位中)。建立一般名稱 (CN) 等於 GUID 型 URL (例如，**32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**) 的憑證、使用 Azure 傳統入口網站將該憑證新增至預備的雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝套件，然後將預備部署更新為使用新的套件與 CSCFG 檔。
 
 ## 後續步驟
 
@@ -153,11 +153,11 @@
 * [管理您的雲端服務](cloud-services-how-to-manage.md)。
 
 
-  [Azure 管理入口網站]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

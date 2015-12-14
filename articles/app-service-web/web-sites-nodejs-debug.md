@@ -46,7 +46,7 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 > [AZURE.NOTE]如果 Web 應用程式是以 Azure 命令列工具或 Azure PowerShell Cmdlets 建立，則會自動建立預設的 **IISNode.yml** 檔案。
 
-若要重新啟動 Web 應用程式，請在 [Azure 預覽入口網站](https://portal.azure.com) 中選取 Web 應用程式，然後按一下 [重新啟動] 按鈕：
+若要重新啟動 Web 應用程式，請在 [Azure 入口網站](https://portal.azure.com) 中選取 Web 應用程式，然後按一下 [重新啟動] 按鈕：
 
 ![restart button][restart-button]
 
@@ -67,7 +67,7 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 ###FTP
 
-若要透過 FTP 來存取診斷資訊，請造訪 [Azure 預覽入口網站](https://portal.azure.com)，選取您的 Web 應用程式，然後選取 [儀表板]。在快速連結區段中，[FTP DIAGNOSTIC LOGS] 和 [FTPS DIAGNOSTIC LOGS] 連結可讓您使用 FTP 通訊協定來存取記錄檔。
+若要透過 FTP 來存取診斷資訊，請造訪 [Azure 入口網站](https://portal.azure.com)，選取您的網站，然後選取 [儀表板]。在快速連結區段中，[FTP DIAGNOSTIC LOGS] 和 [FTPS DIAGNOSTIC LOGS] 連結可讓您使用 FTP 通訊協定來存取記錄檔。
 
 > [AZURE.NOTE]如果您先前沒有為 FTP 或部署設定使用者名稱和密碼，您可以從 [快速入門] 管理頁面中選取 [設定部署認證] 來設定。
 
@@ -114,7 +114,6 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -127,4 +126,4 @@ Azure 提供內建的診斷程式來協助偵錯 [Azure App Service](http://go.m
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

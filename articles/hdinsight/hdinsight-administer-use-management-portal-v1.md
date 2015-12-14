@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集 | Microsoft Azure"
+	pageTitle="使用 Azure 傳統入口網站管理 HDInsight 中的 Hadoop 叢集 | Microsoft Azure"
 	description="了解如何管理 HDInsight 服務。建立 HDInsight 叢集、開啟互動式 JavaScript 主控台，以及開啟 Hadoop 命令主控台。"
 	services="hdinsight"
 	documentationCenter=""
@@ -16,16 +16,16 @@
 	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
-# 使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
+# 使用 Azure 傳統入口網站管理 HDInsight 中的 Hadoop 叢集
 
-您可以使用 [Azure 入口網站](https://manage.windowsazure.com)在 Azure HDInsight 上佈建 Hadoop 叢集、變更 Hadoop 使用者密碼，以及啟用遠端桌面通訊協定 (RDP)，以便存取叢集上的 Hadoop 命令主控台。
+您可以使用 [Azure 傳統入口網站](https://manage.windowsazure.com)在 Azure HDInsight 中佈建 Hadoop 叢集、變更 Hadoop 使用者密碼，以及啟用遠端桌面通訊協定 (RDP)，以存取叢集上的 Hadoop 命令主控台。
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
-* [使用 Azure 預覽入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-management-portal.md)
+* [使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-management-portal.md)
 
 ## 用來管理 HDInsight 的其他工具
-除了 Azure 入口網站之外，還有其他工具可以用來管理 HDInsight。
+除了 Azure 傳統入口網站以外，還有其他工具可以用來管理 HDInsight。
 
 - 如需使用 Azure PowerShell 管理 HDInsight 的詳細資訊，請參閱[使用 Azure PowerShell 來管理 HDInsight](hdinsight-administer-use-powershell.md)。
 
@@ -41,7 +41,7 @@
 
 ##佈建 HDInsight 叢集
 
-您可以使用 [快速建立] 和 [自訂建立] 選項，從 Azure 入口網站佈建 HDInsight 叢集。如需相關指示的連結，請參閱：
+您可以使用 [快速建立] 或 [自訂建立] 選項，從 Azure 傳統入口網站佈建 HDInsight 叢集。如需相關指示的連結，請參閱：
 
 - [使用快速建立佈建叢集](../hdinsight-get-started.md#provision)
 - [使用自訂建立佈建叢集](hdinsight-provision-clusters.md#portal)
@@ -70,7 +70,7 @@ HDInsight 叢集可以有兩個使用者帳戶。HDInsight 叢集使用者帳戶
 
 **變更 HDInsight 叢集使用者名稱和密碼**
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com/)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 2. 按一下左窗格上的 [HDInsight]。您將會看到已部署的 HDInsight 叢集清單。
 3. 按一下想要重設使用者名稱和密碼的 HDInsight 叢集。
 4. 按一下頁面頂端的 [組態]。
@@ -87,7 +87,7 @@ HDInsight 叢集可以有兩個使用者帳戶。HDInsight 叢集使用者帳戶
 
 **啟用遠端桌面**
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com/)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 2. 按一下左窗格上的 [HDInsight]。您將會看到已部署的 HDInsight 叢集清單。
 3. 按一下想要連線的 HDInsight 叢集。
 4. 按一下頁面頂端的 [組態]。
@@ -105,7 +105,7 @@ HDInsight 叢集可以有兩個使用者帳戶。HDInsight 叢集使用者帳戶
 
 **使用 RDP 連線到叢集**
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com/)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 2. 按一下左窗格上的 [HDInsight]。您將會看到已部署的 HDInsight 叢集清單。
 3. 按一下想要連線的 HDInsight 叢集。
 4. 按一下頁面頂端的 [組態]。
@@ -121,7 +121,7 @@ HDInsight 叢集可以有兩個使用者帳戶。HDInsight 叢集使用者帳戶
 
 2. 瀏覽至憑證位置，以滑鼠右鍵按一下此憑證，按一下 [安裝憑證] 將憑證安裝到電腦的個人存放區。編輯憑證屬性，並為它指派一個更容易記住的名稱。
 
-3. 將憑證匯入 Azure 入口網站。在入口網站中，按一下頁面左下角的 [**設定**]，然後按一下 [**管理憑證**]。按一下頁面底部的 [**上傳**]，並遵照指示將您在前一個步驟中所建立的 .cer 檔案上傳。
+3. 將憑證匯入 Azure 傳統入口網站。在入口網站中，按一下頁面左下角的 [**設定**]，然後按一下 [**管理憑證**]。按一下頁面底部的 [**上傳**]，並遵照指示將您在前一個步驟中所建立的 .cer 檔案上傳。
 
 	![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
 
@@ -136,13 +136,13 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 - Oozie
 - Templeton
 
-預設會授與這些服務的存取權。您可以從 Azure 入口網站撤銷/授與存取權。
+預設會授與這些服務的存取權。您可以從 Azure 傳統入口網站撤銷/授與存取權。
 
 >[AZURE.NOTE]透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
 
 **授與/撤銷 HTTP Web 服務存取**
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com/)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 2. 按一下左窗格上的 [HDInsight]。您將會看到已部署的 HDInsight 叢集清單。
 3. 按一下想要設定的 HDInsight 叢集。
 4. 按一下頁面頂端的 [組態]。
@@ -158,7 +158,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 **開啟 Hadoop 命令列**
 
-1. 登入 [Azure 入口網站](https://manage.windowsazure.com/)。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 2. 按一下左窗格上的 [HDInsight]。將出現已部署的 Hadoop 叢集清單。
 3. 按一下想要連線的 HDInsight 叢集。
 3. 按一下頁面頂端的 [組態]。
@@ -185,7 +185,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 請參閱[在 HDInsight 中調整 Hadoop 叢集](hdinsight-hadoop-cluster-scaling.md)。
 
 ##後續步驟
-在本文中，您已了解如何使用 Azure 入口網站建立 HDInsight 叢集，以及如何開啟 Hadoop 命令列工具。若要深入了解，請參閱下列文章：
+透過本文，您已了解如何使用 Azure 傳統入口網站建立 HDInsight 叢集，以及如何開啟 Hadoop 命令列工具。若要深入了解，請參閱下列文章：
 
 * [使用 Azure PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)
 * [使用 Azure CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
@@ -198,4 +198,4 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Hadoop 命令列"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

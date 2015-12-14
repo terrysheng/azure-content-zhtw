@@ -19,6 +19,11 @@
 
 # 將推播通知新增至 iOS 應用程式和 .NET 後端
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 本主題說明如何新增推播通知給[快速入門專案](mobile-services-dotnet-backend-ios-get-started.md)，以讓行動服務在每次插入一筆記錄時傳送推播通知。您必須先完成[開始使用行動服務]。
@@ -31,7 +36,7 @@
 
 ##<a id="update-server"></a>更新後端程式碼以傳送推播通知
 
-* 開啟 Visual Studio 專案 > **Controllers** 資料夾 > **TodoItemController.cs** > `PostTodoItem` 方法。使用下列項目來取代此方法。在插入 todo 項目時，此程式碼會傳送推播通知 (含項目文字)。如果發生錯誤，程式碼會新增可透過入口網站的 [記錄] 區段檢視的錯誤記錄項目。
+* 開啟 Visual Studio 專案 > Controllers 資料夾 > TodoItemController.cs > 方法`PostTodoItem`。使用下列項目來取代此方法。在插入 todo 項目時，此程式碼會傳送推播通知 (含項目文字)。如果發生錯誤，程式碼會新增可透過入口網站的 [記錄] 區段檢視的錯誤記錄項目。
 
 
 ```
@@ -119,7 +124,6 @@
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [開始使用行動服務]: mobile-services-dotnet-backend-ios-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
@@ -128,4 +132,4 @@
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

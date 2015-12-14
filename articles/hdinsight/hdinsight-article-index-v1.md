@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 入口網站的 HDInsight 文章索引 | Microsoft Azure"
-   description="提供 Azure 入口網站上的 HDInsight 相關文章連結之索引頁。Microsoft 向您推薦適用於 HDInsight 上新的 Hadoop 叢集之 Azure Preview 入口網站。"
+   pageTitle="Azure 傳統入口網站的 HDInsight 文章索引 | Microsoft Azure"
+   description="提供 Azure 傳統入口網站上的 HDInsight 相關文章連結之索引頁面。Microsoft 向您推薦適用於 HDInsight 上新的 Hadoop 叢集之 Azure 入口網站。"
    services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
@@ -16,25 +16,25 @@
    ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
-# Azure 入口網站的 HDInsight 文章索引
+# Azure 傳統入口網站的 HDInsight 文章索引
 
-使用此索引頁面在 [Azure 入口網站](https://manage.windowsazure.com/)尋找涵蓋 HDInsight 的文件。Azure HDInsight 是開放原始碼 Hadoop 與 Hortonworks Data Platform 的雲端發佈點。
+使用此索引頁面在 [Azure 傳統入口網站](https://manage.windowsazure.com/)上尋找說明 HDInsight 相關資訊的文章。Azure HDInsight 是開放原始碼 Hadoop 與 Hortonworks Data Platform 的雲端發佈點。
 
 
-> [AZURE.IMPORTANT]此文件索引頁面適用於已經將解決方案部署至目前 Azure 入口網站的客戶。
+> [AZURE.IMPORTANT]此文件索引頁面適用於已經將解決方案部署至目前 Azure 傳統入口網站的客戶。
 >
-> Microsoft 建議您針對新的 HDInsight 叢集使用 **Azure Preview 入口網站**：
+> Microsoft 建議您針對新的 HDInsight 叢集使用 **Azure 入口網站**：
 >
-> * [移至 HDInsight Preview 入口網站的文件](/documentation/services/hdinsight/)
-> * [移至 Azure Preview 入口網站](https://portal.azure.com/)
+> * [移至 HDInsight 入口網站文件](/documentation/services/hdinsight/)
+> * [移至 Azure 入口網站](https://portal.azure.com/)
 >
-> 如需 Preview 入口網站之優點的說明，請參閱 [DevOps 近期的許多其他絕佳功能](/overview/preview-portal/)。
+> 如需入口網站優點的相關說明，請參閱 [DevOps 就是如此傑出](/overview/preview-portal/)。
 >
-> Azure 入口網站上的 HDInsight 在 2015 年 7 月之後將不再獲得升級，並由 Azure Preview 入口網站所取代。
+> Azure 傳統入口網站上的 HDInsight 在 2015 年 7 月之後將不再升級，並且由 Azure 入口網站取代。
 
 ## 開始使用
 
-如果您是 HDInsight 的 Hadoop 新手，請移至 [HDInsight 文件頁面](/documentation/services/hdinsight/)開始使用 Azure Preview 入口網站。
+如果您是 HDInsight 的 Hadoop 新手，請移至 [HDInsight 文件頁面](/documentation/services/hdinsight/)以開始使用 Azure 入口網站。
 
 ## Linux
 
@@ -81,7 +81,7 @@
 
 ## Apache Spark
 
-如需在 Azure Preview 入口網站中使用原生 Apache Spark 叢集的相關文件，請移至 [HDInsight 文件頁面](/documentation/services/hdinsight/)。
+如需在 Azure 入口網站中使用原生 Apache Spark 叢集的相關文章，請移至 [HDInsight 文件頁面](/documentation/services/hdinsight/)。
 
 * [概觀：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
 * [在 Hadoop 叢集上安裝和使用 Spark](hdinsight-hadoop-spark-install.md)
@@ -133,4 +133,4 @@
 * [解譯錯誤訊息](hdinsight-debug-jobs.md)
 * [在論壇上取得協助](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

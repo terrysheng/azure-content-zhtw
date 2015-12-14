@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用 PowerShell 升級至 Azure SQL Database V12 | Microsoft Azure" 
-	description="說明如何使用 Azure Preview 入口網站升級至 Azure SQL Database V12，包括如何升級 Web 和商務資料庫，以及如何將 V11 伺服器的資料庫直接移轉至彈性資料庫集區來升級 V11 伺服器。" 
+	description="說明如何使用 PowerShell 升級至 Azure SQL Database V12，包括如何升級 Web 和商務資料庫，以及如何將 V11 伺服器的資料庫直接移轉至彈性資料庫集區來升級 V11 伺服器。" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein"/>
 
 # 使用 PowerShell 升級至 Azure SQL Database V12
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -36,28 +36,28 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 此外，與升級至單一資料庫的個別效能等級 (定價層) 相比，移轉至[彈性資料庫集區](sql-database-elastic-pool.md)更符合成本效益。集區也可以簡化資料庫管理，因為您只需要管理集區的效能設定，而不需分開管理個別資料庫的效能等級。如果您的資料庫位於多部伺服器上，請考慮將它們移到相同的伺服器，並利用將它們放入集區所帶來的優點。
 
-只要遵循本文的步驟，您就可以輕鬆地從 V11 伺服器直接移轉至彈性資料庫集區。
+只要遵循本文的步驟，您就可以輕鬆地將資料庫從 V11 伺服器直接自動移轉至彈性資料庫集區。
 
 請注意，您的資料庫會維持在線上，並且在整個升級作業中都會繼續保持運作。在實際轉換到新的效能等級時，資料庫連線可能會暫時中斷一段非常短的時間，通常約 90 秒，但最長可達 5 分鐘。如果您的應用程式[對於連線終止有暫時性的錯誤處理方式](sql-database-connect-central-recommendations.md)，就足以在升級結束時防止連線中斷。
 
-升級至 SQL Database V12 後無法復原。在升級之後，無法將伺服器還原至 V11。
+升級至 SQL Database V12 後即無法復原。在升級之後，即無法將伺服器還原至 V11。
 
-升級至 V12 之後，[服務層級建議](sql-database-service-tier-advisor.md)和[彈性集區建議](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier)將不會立即可供使用，必須等到服務有時間評估您在新伺服器上的工作負載之後，才可供使用。V11 伺服器建議記錄不適用於 V12 伺服器，因此不會保留。
+升級至 V12 之後，將不會立即提供[服務層級建議](sql-database-service-tier-advisor.md)和[彈性集區建議](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier)，必須等到服務有時間評估您在新伺服器上的工作負載之後，才會提供。V11 伺服器建議記錄不適用於 V12 伺服器，因此不會保留。
 
 ## 準備升級
 
-- **升級所有 Web 和商務資料庫**：請參閱下面的＜[升級所有 Web 和商務資料庫](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases)＞一節，或使用 [PowerShell 來升級資料庫和伺服器](sql-database-upgrade-server-powershell.md)。
-- **檢閱和暫停異地複寫**：如果您的 Azure SQL Database 已針對異地複寫做設定，您應該記錄其目前的設定並[停止異地複寫](sql-database-geo-replication-portal.md#remove-secondary-database)。在升級完成之後，請重新設定異地複寫的資料庫。
-- **如果您的用戶端位於 Azure VM 上，請開啟這些連接埠**：如果在您的用戶端於 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請參閱＜[SQL Database V12 連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)＞。
+- **升級所有 Web 和商務資料庫**：請參閱下面的[升級所有 Web 和商務資料庫](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases)一節，或使用 [PowerShell 來升級資料庫和伺服器](sql-database-upgrade-server-powershell.md)。
+- **檢閱和暫停異地複寫**：如果您的 Azure SQL Database 已針對異地複寫做設定，您應該記錄其目前的設定並[停止異地複寫](sql-database-geo-replication-portal.md#remove-secondary-database)。在升級完成之後，請重新設定資料庫的異地複寫。
+- **如果您的用戶端位於 Azure VM 上，請開啟這些連接埠**：如果在您的用戶端於 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請參閱 [SQL Database V12 的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
 ## 必要條件 
 
 若要使用 PowerShell 將伺服器升級至 V12，您必須安裝 Azure PowerShell 並加以執行，然後視您可能需要的版本將其切換為資源管理員模式，才能存取 Azure 資源管理員 PowerShell Cmdlet。
 
-> [AZURE.IMPORTANT]從 Azure PowerShell 1.0 Preview 起，不再提供 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。本文中的範例使用新的 PowerShell 1.0 Preview 命名慣例。如需詳細資訊，請參閱＜[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)＞。
+> [AZURE.IMPORTANT]從 Azure PowerShell 1.0 Preview 起，不再提供 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。本文中的範例使用新的 PowerShell 1.0 Preview 命名慣例。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)。
 
-若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行，且由於 Switch-AzureMode 已移除，因此您應該執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 下載並安裝最新的Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行，且由於 Switch-AzureMode 已移除，因此您應該執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 來下載並安裝最新的 Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 
 ## 設定您的認證並選取您的訂用帳戶
@@ -82,7 +82,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
     $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
 
-如需詳細資訊，請參閱＜[Azure SQL Database 彈性資料庫集區建議](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)＞和＜[Azure SQL Database 定價層建議](sql-database-service-tier-advisor.md)＞。
+如需詳細資訊，請參閱 [Azure SQL Database 彈性資料庫集區建議](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)和 [Azure SQL Database 定價層建議](sql-database-service-tier-advisor.md)。
 
 
 
@@ -184,9 +184,9 @@ ElasticPoolCollection 和 DatabaseCollection 參數都是選擇性項目：
 
 
 
-**警示：**在 Azure 入口網站中設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。您可以在 Azure 入口網站中為各種效能計量 (例如 DTU、CPU、IO 及記錄) 設定資料庫警示。請瀏覽至您的資料庫，然後在 [**設定**] 刀鋒視窗中，選取 [**警示規則**]。
+**警示：**在 Azure 入口網站中設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。您可以在 Azure 入口網站中為各種效能計量 (例如 DTU、CPU、IO 及記錄檔) 設定資料庫警示。請瀏覽至您的資料庫，然後在 [**設定**] 刀鋒視窗中，選取 [**警示規則**]。
 
-例如，您可以設定若過去 5 分鐘的平均 DTU 百分比值超出 75% 則發出「 DTU 百分比 」電子郵件警示。若要深入了解如何設定警示通知，請參閱＜[接收警示通知](insights-receive-alert-notifications.md)＞。
+例如，您可以設定若過去 5 分鐘的平均 DTU 百分比值超出 75% 則發出「 DTU 百分比 」電子郵件警示。若要深入了解如何設定警示通知，請參閱[接收警示通知](insights-receive-alert-notifications.md)。
 
 
 
@@ -199,8 +199,8 @@ ElasticPoolCollection 和 DatabaseCollection 參數都是選擇性項目：
 
 ## 相關資訊
 
-- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
-- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
-- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
+- [Get-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

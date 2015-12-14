@@ -23,7 +23,7 @@
 
 您可以檢查效能計數器資料：1.直接在應用程式主機上，使用遠端桌面存取效能監視器工具。2.透過使用 Azure Management Pack 3 的 System Center Operations Manager。透過其他監視工具，存取已傳輸至 Azure 儲存體的診斷資料。如需詳細資訊，請參閱[在 Azure 儲存體中儲存和檢視診斷資料](https://msdn.microsoft.com/library/azure/hh411534.aspx)。
 
-如需在 [Azure 管理入口網站](http://manage.azure.com/)中監視應用程式效能的詳細資訊，請參閱[如何監視雲端服務](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/)。
+如需在 [Azure 傳統入口網站](http://manage.azure.com/)中監視應用程式效能的詳細資訊，請參閱[如何監視雲端服務](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/)。
 
 如需建立記錄及追蹤策略、使用診斷和其他技術進行疑難排解，以及將 Azure 應用程式最佳化的其他深入指引，請參閱[開發 Azure 應用程式的疑難排解最佳作法](https://msdn.microsoft.com/library/azure/hh771389.aspx) (英文)。
 
@@ -42,7 +42,7 @@ Azure 為 Windows Server、IIS 和 ASP.NET 堆疊提供了一小組可用的效�
 |.NET CLR 記憶體 (_全域_) |記憶體回收中的時間 % |記憶體效能計數器|
 |ASP.NET |應用程式重新啟動 |ASP.NET 的效能計數器|
 |ASP.NET |要求執行時間 |ASP.NET 的效能計數器|
-|ASP.NET |已中斷連線的要求 |ASP.NET 的效能計數器|
+|ASP.NET |中斷連接的要求 |ASP.NET 的效能計數器|
 |ASP.NET |背景工作角色處理序重新啟動 |ASP.NET 的效能計數器|
 |ASP.NET 應用程式 (__總計__)|要求總數 |ASP.NET 的效能計數器|
 |ASP.NET 應用程式 (__總計__)|要求/秒 |ASP.NET 的效能計數器|
@@ -50,12 +50,12 @@ Azure 為 Windows Server、IIS 和 ASP.NET 堆疊提供了一小組可用的效�
 |ASP.NET v4.0.30319 |要求等候時間 |ASP.NET 的效能計數器|
 |ASP.NET v4.0.30319 |目前的要求 |ASP.NET 的效能計數器|
 |ASP.NET v4.0.30319 |已排入佇列的要求 |ASP.NET 的效能計數器|
-|ASP.NET v4.0.30319 |被拒絕的要求 |ASP.NET 的效能計數器|
+|ASP.NET v4.0.30319 |遭拒絕的要求 |ASP.NET 的效能計數器|
 |記憶體 |可用的 MB |記憶體效能計數器|
 |記憶體 |認可的位元組 |記憶體效能計數器|
 |Processor(\_Total) |處理器時間 % |ASP.NET 的效能計數器| |TCPv4 |連線失敗 |TCP 物件| |TCPv4 |建立的連線 |TCP 物件| |TCPv4 |重設的連線 |TCP 物件| |TCPv4 |傳送的區段/秒 |TCP 物件| |網路介面(*) |接收的位元組/秒 |網路介面物件| |網路介面(*) |傳送的位元組/秒 |網路介面物件| |網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|接收的位元組/秒|網路介面物件| |網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|傳送的位元組/秒|網路介面物件| |網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|位元組總數/秒|網路介面物件|
 
-## 建立自訂效能計數器並新增至您的應用程式
+## 建立自訂效能計數器並加入您的應用程式中
 
 Azure 支援建立和修改 Web 角色和背景工作角色的自訂效能計數器。計數器可用來追蹤和監視應用程式特有的行為。您可以用更高權限，建立和刪除啟動工作、Web 角色或背景工作角色的自訂效能計數器類別和規範。
 
@@ -73,23 +73,23 @@ Azure 會快取效能計數器資料與其他診斷資訊。當角色執行個�
 
 >[AZURE.NOTE]視診斷代理程式的傳輸頻率和佇列延遲研定，儲存體帳戶中的最新效能計數器資料可能會過期幾分鐘。
 
-## 使用診斷組態檔啟用效能計數器
+## 使用診斷組態檔來啟用效能計數器
 
 使用下列程序在 Azure 應用程式中啟用效能計數器。
 
 ## 必要條件
 
-本節假設您已將診斷監視器匯入應用程式中，並已在 Visual Studio 方案中新增診斷組態檔 (SDK 2.4 和以下版本為 diagnostics.wadcfg，而 SDK 2.5 和以上版本為 diagnostics.wadcfgx)。如需詳細資訊，請參閱[在 Azure 雲端服務和虛擬機器中啟用診斷](./cloud-services-dotnet-diagnostics.md)中的步驟 1 和 2。
+本節假設您已將診斷監視器匯入應用程式中，並已將診斷組態檔加入 Visual Studio 方案中 (SDK 2.4 和以下版本為 diagnostics.wadcfg，而 SDK 2.5 和以上版本為 diagnostics.wadcfgx)。如需詳細資訊，請參閱[在 Azure 雲端服務和虛擬機器中啟用診斷](./cloud-services-dotnet-diagnostics.md)中的步驟 1 和 2。
 
 ## 步驟 1：收集和儲存來自效能計數器的資料
 
-將診斷檔案新增至 Visual Studio 方案後，您即可在 Azure 應用程式中進行效能計數器資料的收集和儲存設定。將效能計數器新增至診斷檔案，即可完成此動作。首先會在執行個體上收集診斷資料，包括效能計數器在內。這項資料後續會持續存留在 Azure 資料表服務的 WADPerformanceCountersTable 資料表中，因此您也須在應用程式中指定儲存體帳戶。如果您要使用計算模擬器在本機中測試應用程式，您也可以在儲存模擬器中本機儲存診斷資料。在儲存診斷資料之前，您必須先移至 [Azure 管理入口網站](http://manage.windowsazure.com/)，並建立儲存體帳戶。最佳作法是，將儲存體帳戶設定在與 Azure 應用程式相同的地理位置，以免支付外部頻寬成本，同時降低延遲。
+將診斷檔案加入 Visual Studio 方案中後，您即可在 Azure 應用程式中進行效能計數器資料的收集和儲存設定。將效能計數器加入診斷檔案中，即可完成此動作。首先會在執行個體上收集診斷資料，包括效能計數器在內。這項資料後續會持續存留在 Azure 資料表服務的 WADPerformanceCountersTable 資料表中，因此您也須在應用程式中指定儲存帳號。如果您要使用計算模擬器在本機中測試應用程式，您也可以在儲存模擬器中本機儲存診斷資料。在儲存診斷資料之前，您必須先移至 [Azure 傳統入口網站](http://manage.windowsazure.com/)，並建立儲存體帳戶。最佳作法是，將儲存帳號設定在與 Azure 應用程式相同的地理位置，以免支付外部頻寬成本，同時降低延遲。
 
-### 將效能計數器新增至診斷檔案
+### 將效能計數器加入診斷檔案中
 
 有許多計數器可供您使用。下列範例說明幾個建議用於 Web 和背景工作角色監視的效能計數器。
 
-開啟診斷檔案 (SDK 2.4 和以下版本開啟 diagnostics.wadcfg，而 SDK 2.5 和以上版本開啟 diagnostics.wadcfgx)，並將下列內容新增至 DiagnosticMonitorConfiguration 元素：
+開啟診斷檔案 (SDK 2.4 和以下版本為 diagnostics.wadcfg，而 SDK 2.5 和以上版本為 diagnostics.wadcfgx)，並將下列內容加入 DiagnosticMonitorConfiguration 元素中：
 
 ```
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
@@ -122,13 +122,13 @@ bufferQuotaInMB 屬性會指定可用於資料收集類型 (Azure 記錄、IIS �
 
 scheduledTransferPeriod 屬性會指定排程的資料傳輸所採用的間隔 (四捨五入至最接近的分鐘)。下列範例將此值設為 PT30M (30 分鐘)。將傳輸期間設為較小的值 (例如 1 分鐘)，將對生產環境中的應用程式效能造成不良影響，但在執行測試時可能有助於診斷的快速運作。排程的傳輸期間應大小適中，以確保執行個體上的診斷資料不會被覆寫，同時不會對應用程式的效能造成影響。
 
-counterSpecifier 屬性會指定要收集的效能計數器。sampleRate 屬性會指定對效能計數器取樣的頻率，在此案例中為 30 秒。
+counterSpecifier 屬性會指定要收集的效能計數器。sampleRate 屬性會指定對效能計數器取樣的頻率，在本例中為 30 秒。
 
-新增您要收集的效能計數器後，請將變更儲存至診斷檔案。接著，您必須指定將持續保存診斷資料的儲存體帳戶。
+加入您要收集的效能計數器後，請將變更儲存至診斷檔案。接著，您必須指定將持續保存診斷資料的儲存帳號。
 
-### 指定儲存體帳戶
+### 指定儲存帳號
 
-若要讓您的診斷資訊持續存留於 Azure 儲存體帳戶中，您必須在服務組態檔 (ServiceConfiguration.cscfg) 中指定連接字串。
+若要讓您的診斷資訊持續存留於 Azure 儲存帳號中，您必須在服務組態檔 (ServiceConfiguration.cscfg) 中指定連接字串。
 
 在 Azure SDK 2.5 中，儲存體帳戶可在 diagnostics.wadcfgx 檔案中指定。
 
@@ -136,7 +136,7 @@ counterSpecifier 屬性會指定要收集的效能計數器。sampleRate 屬性�
 
 若要設定連接字串：
 
-1. 使用您慣用的文字編輯器開啟 ServiceConfiguration.Cloud.cscfg 檔案，然後設定儲存體的連接字串。AccountName 和 AccountKey 值可在管理入口網站的儲存體帳戶儀表板中找到 (位於[管理金鑰] 下)。
+1. 使用您慣用的文字編輯器開啟 ServiceConfiguration.Cloud.cscfg 檔案，然後設定儲存體的連接字串。*AccountName* 和 *AccountKey* 值可在 Azure 傳統入口網站的儲存體帳戶儀表板中找到 (位於[管理金鑰] 下)。
 
     ```
     <ConfigurationSettings>
@@ -152,10 +152,10 @@ counterSpecifier 屬性會指定要收集的效能計數器。sampleRate 屬性�
       <Settingname="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true"/>
     </ConfigurationSettings>
     ```
-現在，連接字串已設定，您的應用程式將可在部署時，將診斷資料持續存留至您的儲存體帳戶中。
+現在，連接字串已設定，您的應用程式將可在部署時，將診斷資料持續存留至您的儲存帳號中。
 4. 儲存並建置您的專案，然後部署應用程式。
 
-## 步驟 2：(選用) 建立自訂效能計數器
+## 步驟 2：(選擇性) 建立自訂效能計數器
 
 除了預先定義的效能計數器以外，您也可以新增自訂效能計數器，以監視 Web 或背景工作角色。自訂效能計數器可用來追蹤及監視應用程式特定行為，並可藉由提高的權限在啟動工作、Web 角色或背景工作角色中建立或刪除。
 
@@ -170,7 +170,7 @@ Azure 診斷代理程式會在啟動一分鐘後從 .wadcfg 檔案重新整理�
     <RuntimeexecutionContext="elevated"/>
     ```
 3. 儲存檔案。
-4. 開啟診斷檔案 (SDK 2.4 和以下版本開啟 diagnostics.wadcfg，而 SDK 2.5 和以上版本開啟 diagnostics.wadcfgx)，並將下列內容新增至 DiagnosticMonitorConfiguration： 
+4. 開啟診斷檔案 (SDK 2.4 和以下版本為 diagnostics.wadcfg，而 SDK 2.5 和以上版本為 diagnostics.wadcfgx)，並將下列內容加入 DiagnosticMonitorConfiguration 中 
 
     ```
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
@@ -229,7 +229,7 @@ Azure 診斷監視器現在即會收集自訂效能計數器資料。
 
 ## 步驟 3：查詢效能計數器資料
 
-當應用程式完成部署並開始執行後，診斷監視器即會開始收集效能計數器，並將資料存留至 Azure 儲存體。您可以使用 Visual Studio 中的 [伺服器總管]、[Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/)或 Cerebrata 提供的 [Azure 診斷管理員](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)等工具，檢視 WADPerformanceCountersTable 資料表中的效能計數器資料。您也可以透過程式設計，使用 [C#](../storage/storage-dotnet-how-to-use-tables.d)、[Java](../storage/storage-java-how-to-use-table-storage.md)、[Node.js](../storage/storage-nodejs-how-to-use-table-storage.md)、[Python](../storage/storage-python-how-to-use-table-storage.md)、[Ruby](../storage/storage-ruby-how-to-use-table-storage.md) 或 [PHP](../storage/storage-php-how-to-use-table-storage.md) 來查詢資料表服務。
+當應用程式完成部署並開始執行後，診斷監視器即會開始收集效能計數器，並將資料存留至 Azure 儲存體。您可以使用 Visual Studio 中的伺服器總管、[Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/)或 Cerebrata 提供的 [Azure 診斷管理員](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)等工具，檢視 WADPerformanceCountersTable 資料表中的效能計數器資料。您也可以透過程式設計，使用 [C#](../storage/storage-dotnet-how-to-use-tables.d)、[Java](../storage/storage-java-how-to-use-table-storage.md)、[Node.js](../storage/storage-nodejs-how-to-use-table-storage.md)、[Python](../storage/storage-python-how-to-use-table-storage.md)、[Ruby](../storage/storage-ruby-how-to-use-table-storage.md) 或 [PHP](../storage/storage-php-how-to-use-table-storage.md) 來查詢表格服務。
 
 下列 C# 範例將說明對 WADPerformanceCountersTable 資料表的簡易查詢，並將診斷資料儲存至 CSV 檔案。效能計數器儲存至 CSV 檔案後，您可以使用 Microsoft Excel 或其他工具的圖表功能，將資料視覺化。請務必為 Azure SDK for .NET (2012 年 10 月或更新版本) 隨附的 Microsoft.WindowsAzure.Storage.dll 新增參考。此組件會安裝在 %Program Files%\\Microsoft SDKs\\Microsoft Azure.NET SDK\\version-num\\ref\\ 目錄中。
 
@@ -313,4 +313,4 @@ Azure 診斷監視器現在即會收集自訂效能計數器資料。
 
 [如何監視雲端服務](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/06/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # 使用 Application Insights 進行使用量分析
@@ -37,7 +37,7 @@ Application Insights 適用於獨立應用程式 (在 iOS、Android 和 Windows 
 
 ![開啟 [快速入門]，然後按一下 [取得程式碼來監視我的網頁]。將指令碼複製到您主版頁面的標頭。](./media/app-insights-overview-usage/02-monitor-web-page.png)
 
-您也可以將 Application Insights 加入至您的 [ASP.NET](app-insights-start-monitoring-app-health-usage.md) 或 [J2EE](app-insights-java-get-started.md) 伺服端程式碼，以便從用戶端和伺服器結合遙測。
+您也可以將 Application Insights 加入至您的 [ASP.NET](app-insights-asp-net.md) 或 [J2EE](app-insights-java-get-started.md) 伺服端程式碼，以便從用戶端和伺服器結合遙測。
 
 
 ### 執行您的專案並查看第一批結果
@@ -286,10 +286,6 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
-
-<!--Link references-->
-
-[start]: app-insights-overview.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

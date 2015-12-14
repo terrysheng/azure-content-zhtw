@@ -22,21 +22,21 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
-## 在 Azure Preview 入口網站中設定自動修補
+## 在 Azure 入口網站中設定自動修補
 
-建立新的 SQL Server 虛擬機器時，您可以透過 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409)設定自動修補。
+建立新的 SQL Server 虛擬機器時，您可以透過 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409)設定自動修補。
 
 >[AZURE.NOTE]自動修補相依於 SQL Server IaaS 代理程式。若要安裝並設定該代理程式，您必須要有在目標虛擬機器上執行的 Azure VM 代理程式。較新的虛擬機器資源庫映像預設會啟用此選項，但現有的 VM 上可能會遺失了 Azure VM 代理程式。如果您正在使用自己的 VM 映像，也需要安裝 SQL Server IaaS 代理程式。如需詳細資訊，請參閱 [VM 代理程式和延伸模組](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)。
 
-下列 Azure Preview 入口網站螢幕擷取畫面會顯示 [**選用組態**] | [**SQL 自動修補**] 下的選項。
+下列 Azure 入口網站螢幕擷取畫面顯示 [選用組態] | [SQL 自動修補] 下的選項。
 
-![Azure Preview 入口網站中的 SQL 自動修補](./media/virtual-machines-sql-server-automated-patching/IC778484.jpg)
+![Azure 入口網站中的 SQL 自動修補](./media/virtual-machines-sql-server-automated-patching/IC778484.jpg)
 
 針對現有的 SQL Server 2012 或 2014 虛擬機器，在虛擬機器屬性的 [**組態**] 區段中，選取 [**自動修補**] 設定。在 [**自動修補**] 視窗中，您可以啟用功能、設定維護排程和啟動時間，以及選擇維護時間範圍。如下列螢幕擷取畫面所示。
 
-![Azure Preview 入口網站中的自動修補組態](./media/virtual-machines-sql-server-automated-patching/IC792132.jpg)
+![Azure 入口網站中的自動修補設定](./media/virtual-machines-sql-server-automated-patching/IC792132.jpg)
 
->[AZURE.NOTE]當您第一次啟用自動修補時，Azure 會在背景中設定 SQL Server IaaS 代理程式。在此期間，Azure Preview 入口網站不會顯示已設定自動修補。請等候幾分鐘的時間來安裝及設定代理程式。之後，Azure Preview 入口網站將會反映新的設定。
+>[AZURE.NOTE]當您第一次啟用自動修補時，Azure 會在背景中設定 SQL Server IaaS 代理程式。在此期間，Azure 入口網站不會顯示已設定自動修補。請等候幾分鐘的時間來安裝及設定代理程式。之後，Azure 入口網站將會反映新的設定。
 
 ## 使用 PowerShell 設定自動修補
 
@@ -93,4 +93,4 @@ Azure 中的 SQL Server VM 相關功能為 [Azure 虛擬機器中的 SQL Server 
 
 請檢閱其他[在 Azure 虛擬機器中執行 SQL Server 的資源](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

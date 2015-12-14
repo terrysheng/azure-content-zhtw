@@ -34,7 +34,7 @@ TodoItem 類別可定義資料物件，您必須將相同屬性新增至此類�
 
 0. 如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶]。
 
-1. 在管理入口網站中，按一下 [儲存體]、儲存體帳戶和 [管理金鑰]。
+1. 在[ Azure 傳統入口網站中，按一下 [儲存體]、[儲存體帳戶]和 [管理金鑰]](https://manage.windowsazure.com/)。
 
 2. 請記下 [儲存體帳戶名稱] 和 [存取金鑰]。
  
@@ -132,4 +132,4 @@ TodoItem 類別可定義資料物件，您必須將相同屬性新增至此類�
 [如何建立儲存體帳戶]: ../articles/storage/storage-create-storage-account.md
 [應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="保護 Azure 資料湖儲存區的資料" 
+   pageTitle="保護 Azure 資料湖儲存區的資料 | Azure" 
    description="了解如何使用群組和存取控制清單來保護 Azure 資料湖儲存區中的資料" 
    services="data-lake-store" 
    documentationCenter="" 
@@ -28,11 +28,11 @@
 
 本文提供有關如何使用 Azure 入口網站執行上述工作的詳細指示。
 
-## 先決條件
+## 必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - **Azure 資料湖儲存區帳戶**。如需有關如何建立帳戶的詳細指示，請參閱[開始使用 Azure 資料湖儲存區](data-lake-store-get-started-portal.md)
 
 ## 在 Azure Active Directory 中建立安全性群組
@@ -76,7 +76,7 @@
 
 	若要新增未列出的群組/使用者，您可使用 [邀請] 圖示並指定使用者/群組的電子郵件位址來邀請。
 
-6. 按一下 [確定]。您會看見新增的安全性群組，如下所示：
+6. 按一下 [確定]。您會看見新增的安全性群組，如下所示。
 
 	![已新增的安全性群組](./media/data-lake-store-secure-data/adl.add.user.3.png "已新增的安全性群組")
 
@@ -90,11 +90,11 @@
 
 	![在資料湖儲存區帳戶中建立目錄](./media/data-lake-store-secure-data/adl.start.data.explorer.png "在資料湖帳戶中建立目錄")
 
-2. 在 [資料總管] 刀鋒視窗中，按一下帳戶的根，然後在 [帳戶] 刀鋒視窗中，按一下 [存取] 圖示。
+2. 在 [資料總管] 刀鋒視窗中，按一下帳戶的根目錄，然後在 [帳戶] 刀鋒視窗中，按一下 [存取] 圖示。
 
 	![設定資料湖檔案系統上的 ACL](./media/data-lake-store-secure-data/adl.acl.1.png "設定資料湖檔案系統上的 ACL")
 
-3. [存取] 刀鋒視窗會列出已指派給根的標準存取和自訂存取。按一下 [新增] 圖示以新增自訂層級的 ACL。
+3. [存取] 刀鋒視窗會列出已指派至根的標準存取和自訂存取。按一下 [新增] 圖示以新增自訂層級的 ACL。
 
 	![列出標準和自訂存取](./media/data-lake-store-secure-data/adl.acl.2.png "列出標準和自訂存取")
 
@@ -109,15 +109,15 @@
 
 5. 按一下 [選取權限]，選取您要指派給該群組的權限，然後按一下 [確定]。
 
-	![指派權限給群組](./media/data-lake-store-secure-data/adl.acl.4.png "指派權限給群組")
+	![將權限指派至群組](./media/data-lake-store-secure-data/adl.acl.4.png "將權限指派至群組")
 
 
 	>[AZURE.NOTE]您必須擁有「執行」權限才可列舉目錄，而且在提供資料唯讀存取給使用者或群組時也經常需要使用該權限。
 
 
-6. 在 [新增自訂存取] 刀鋒視窗中，按一下 [確定]。具有相關權限的新增群組現在將列在 [存取] 刀鋒視窗中。
+6. 在 [新增自訂存取] 刀鋒視窗中，按一下 [確定]。具有相關權限的新增群組現在會列在 [存取] 刀鋒視窗中。
 
-	![指派權限給群組](./media/data-lake-store-secure-data/adl.acl.5.png "指派權限給群組")
+	![將權限指派至群組](./media/data-lake-store-secure-data/adl.acl.5.png "指派權限給群組")
 
 	> [AZURE.IMPORTANT]在目前版本中，[自訂存取] 下僅可有 12 個項目。若要新增 12 位以上的使用者，您必須建立安全性群組、新增使用者至安全性群組，並且新增存取權限給該資料湖儲存區帳戶的安全性群組。
 
@@ -125,7 +125,7 @@
 
 ## 移除 Azure 資料湖儲存區帳戶的安全性群組
 
-當您從 Azure 資料湖儲存區帳戶移除安全性群組時，您僅變更使用 Azure Preview 入口網站和 Azure 資源管理員 API 的帳戶其管理作業的存取。
+當您從 Azure 資料湖儲存區帳戶移除安全性群組時，僅會變更使用 Azure 入口網站和 Azure 資源管理員 API 的帳戶上，其管理作業的存取。
 
 1. 在您的 [資料湖儲存區帳戶] 刀鋒視窗中，按一下 [使用者] 圖示。
 
@@ -135,11 +135,11 @@
 
 	![要移除的安全性群組](./media/data-lake-store-secure-data/adl.add.user.3.png "要移除的安全性群組")
 
-3. 在 [安全性群組] 刀鋒視窗中，按一下 [移除]。
+3. 在安全性群組的刀鋒視窗中，按一下 [移除]。
 
 	![已移除的安全性群組](./media/data-lake-store-secure-data/adl.remove.group.png "已移除的安全性群組")
 
-## 從 Azure 資料湖儲存區檔案系統中移除安全性群組 ACL
+## 從 Azure 資料湖儲存區檔案系統移除安全性群組 ACL
 
 當您從 Azure 資料湖儲存區檔案系統中移除安全性群組 ACL 時，會變更資料湖儲存區資料的存取。
 
@@ -147,11 +147,11 @@
 
 	![在資料湖帳戶中建立目錄](./media/data-lake-store-secure-data/adl.start.data.explorer.png "在資料湖帳戶中建立目錄")
 
-2. 在 [資料總管] 刀鋒視窗中，按一下帳戶的根，然後在 [帳戶] 刀鋒視窗中，按一下 [存取] 圖示。
+2. 在 [資料總管] 刀鋒視窗中，按一下帳戶的根目錄，然後在 [帳戶] 刀鋒視窗中，按一下 [存取] 圖示。
 
 	![設定資料湖檔案系統上的 ACL](./media/data-lake-store-secure-data/adl.acl.1.png "設定資料湖檔案系統上的 ACL")
 
-3. 從 [存取] 刀鋒視窗中的 [自訂存取] 區段，按一下您要移除的安全性群組。在 [自訂存取] 刀鋒視窗中，按一下 [移除]，然後按一下 [確認]。
+3. 從 [存取] 刀鋒視窗中的 [自訂存取] 區段，按一下您要移除的安全性群組。在 [自訂存取] 刀鋒視窗中，按一下 [移除]，然後按一下 [確定]。
 
 	![指派權限給群組](./media/data-lake-store-secure-data/adl.remove.acl.png "指派權限給群組")
 
@@ -159,9 +159,9 @@
 ## 另請參閱
 
 - [Azure 資料湖儲存區概觀](data-lake-store-overview.md)
-- [搭配使用 Azure 資料湖分析和資料湖儲存區](data-lake-analytics-get-started-portal.md)
-- [搭配使用 Azure HDInsight 和資料湖儲存區](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [運用 PowerShell 開始使用資料湖儲存區](data-lake-store-get-started-powershell.md)
-- [運用 .NET SDK 開始使用資料湖儲存區](data-lake-store-get-started-net-sdk.md)
+- [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
+- [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [使用 PowerShell 開始使用資料湖存放區](data-lake-store-get-started-powershell.md)
+- [使用 .NET SDK 開始使用資料湖存放區](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

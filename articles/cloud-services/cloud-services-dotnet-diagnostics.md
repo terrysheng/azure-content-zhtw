@@ -154,7 +154,7 @@ NET EventSource |您的程式碼使用 .NET <a href="http://msdn.microsoft.com/l
 4.	在 [**建立雲端服務和儲存體帳戶**] 對話方塊中，輸入一個 [**名稱**] (例如 "WadExample") 並選取一個區域或同質群組。
 5.	將 [環境] 設為 [預備]。
 6.	適當地修改其他任何**設定**，然後按一下 [發行]。
-7.	部署完成之後，請在 Azure 入口網站中確認您的雲端服務是否處於 [執行中] 狀態。
+7.	部署完成之後，請在 Azure 傳統入口網站中確認您的雲端服務是否處於 [執行中] 狀態。
 
 ### 步驟 4：建立您的診斷組態檔並安裝擴充功能
 1.	執行下列 PowerShell 命令，以下載公用組態檔結構描述定義：
@@ -511,4 +511,4 @@ EventSource|否|資料表|記錄您的程式碼使用 .NET EventSource 類別所
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

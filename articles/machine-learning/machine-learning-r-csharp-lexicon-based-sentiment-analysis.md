@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="12/01/2015" 
 	ms.author="pengxia"/>
 
 
@@ -153,4 +153,4 @@ Azure Machine Learning 中已建立新的空白實驗。下圖說明語彙型情
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

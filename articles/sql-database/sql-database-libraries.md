@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="pehteh"/>
 
 # SQL Database 和 SQL Server 的連線庫
@@ -68,4 +68,4 @@ Microsoft OLE DB Provider for DB2 Version 5.0 (資料提供者) 可讓您建立�
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

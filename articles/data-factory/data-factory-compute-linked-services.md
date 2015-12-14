@@ -33,7 +33,7 @@ Azure Data Factory 服務會自動建立隨選 HDInsight 叢集，以便處理�
 請注意下列有關隨選 HDInsight 連結服務的**重點**：
 
 - 您不會看到隨選 HDInsight 叢集建立在您的 Azure 訂用帳戶中；Azure Data Factory 服務會代表您管理隨選 HDInsight 叢集。
-- 在隨選 HDInsight 叢集上執行之工作的記錄檔會被複製到與 HDInsight 叢集相關聯的儲存體帳戶。您可以從 Azure 入口網站的 [**活動執行詳細資料**] 刀鋒視窗存取這些記錄檔。如需詳細資訊，請參閱[監視及管理管線](data-factory-monitor-manage-pipelines.md)一文。
+- 在隨選 HDInsight 叢集上執行之工作的記錄檔會被複製到與 HDInsight 叢集相關聯的儲存體帳戶。您可從 Azure 傳統入口網站的 [**活動執行詳細資料**] 刀鋒視窗存取這些記錄檔。如需詳細資訊，請參閱[監視及管理管線](data-factory-monitor-manage-pipelines.md)一文。
 - 只會針對 HDInsight 叢集啟動並執行工作的時間來向您收取費用。
 
 > [AZURE.IMPORTANT]通常會花費 **15 分鐘**以上的時間來佈建隨選 Azure HDInsight 叢集。
@@ -47,7 +47,7 @@ Azure Data Factory 服務會自動建立隨選 HDInsight 叢集，以便處理�
 	    "typeProperties": {
 	      "clusterSize": 4,
 	      "timeToLive": "00:05:00",
-	      "version": "3.1",
+	      "version": "3.2",
 		  "osType": "linux",
 	      "linkedServiceName": "MyBlobStore"
 	      "additionalLinkedServiceNames": [
@@ -65,17 +65,17 @@ Azure Data Factory 服務會自動建立隨選 HDInsight 叢集，以便處理�
 類型 | type 屬性應設為 **HDInsightOnDemand**。 | 是
 clusterSize | 隨選叢集的大小。指定您希望此隨選叢集中有多少個節點。 | 是
 timetolive | <p>隨選 HDInsight 叢集允許的閒置時間。指定如果叢集中沒有其他作用中工作，隨選 HDInsight 叢集在活動執行完成後會保持運作的時間長度。</p><p>例如，如果活動執行花費 6 分鐘，而 timetolive 設為 5 分鐘，則叢集會在 6 分鐘的活動執行處理後保持運作 5 分鐘。如果另一輪活動執行了 6 分鐘，則會由相同的叢集處理。</p><p>建立隨選 HDInsight 叢集是昂貴的作業 (可能需要一些時間)，所以視需要使用此設定，藉由重複使用隨選 HDInsight 叢集來改善 Data Factory 的效能。</p><p>如果您將 timetolive 值設為 0，則處理活動執行後便會刪除叢集。另一方面，如果您設定較高的值，叢集可能會有不必要的閒置而導致高成本。因此，請務必根據您的需求設定適當的值。</p><p>如果適當地設定 timetolive 屬性值，則多個管線可以共用相同的隨選 HDInsight 叢集執行個體</p> | 是
-版本 | HDInsight 叢集的版本 | 否
+版本 | HDInsight 叢集的版本。針對 Windows 叢集的預設值為 3.1，針對 Linux 叢集的預設值為 3.2。 | 否
 linkedServiceName | 隨選叢集用於儲存及處理資料的 Blob 存放區。 | 是
 additionalLinkedServiceNames | 指定 HDInsight 連結服務的其他儲存體帳戶，讓 Data Factory 服務代表您註冊它們。 | 否
-osType | 作業系統的類型。允許的值為：windows (預設值) 和 linux | 否
+osType | 作業系統的類型。允許的值為：Windows (預設值) 和 linux | 否
 
 ### 進階屬性
 
 您也可以針對隨選 HDInsight 叢集的細微組態指定下列屬性。
 
 屬性 | 說明 | 必要
--------- | ----------- | --------
+:-------- | :----------- | :--------
 coreConfiguration | 指定要建立之 HDInsight 叢集的核心組態參數 (如 core-site.xml 所示)。 | 否
 hBaseConfiguration | 指定 HDInsight 叢集的 HBase 組態參數 (hbase-site.xml)。 | 否
 hdfsConfiguration | 指定 HDInsight 叢集的 HDFS 組態參數 (hdfs-site.xml)。 | 否
@@ -94,7 +94,7 @@ yarnConfiguration | 指定 HDInsight 叢集的 Yarn 組態參數 (yarn-site.xml)
 	    "typeProperties": {
 	      "clusterSize": 16,
 	      "timeToLive": "01:30:00",
-	      "version": "3.1",
+	      "version": "3.2",
 	      "linkedServiceName": "adfods1",
 	      "coreConfiguration": {
 	        "templeton.mapper.memory.mb": "5000"
@@ -119,6 +119,27 @@ yarnConfiguration | 指定 HDInsight 叢集的 Yarn 組態參數 (yarn-site.xml)
 	    }
 	  }
 	}
+
+### 節點大小
+您可使用下列屬性指定前端、資料和的 zookeeper 節點的大小。
+
+屬性 | 說明 | 必要
+:-------- | :----------- | :--------
+headNodeSize | 指定前端節點的大小。預設值為：大。如需詳細資訊，請參閱下方**指定節點大小**一節。 | 否
+dataNodeSize | 指定資料節點的大小。預設值為：大 | 否
+zookeeperNodeSize | 指定 Zoo Keeper 節點的大小。預設值為：小 | 否
+ 
+#### 指定節點大小
+如需了解需為上方屬性指定的字串值，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md#size-tables)文章。值必須符合本文中參照的 **CMDLET 和 API**。如您在文中所見，若資料節點的大小設定為大 (預設值)，則記憶體大小為 7 GB，其可能不適用於您的案例。
+
+若您想要建立 D4 大小的前端節點和背景工作節點，則必須指定 **Standard\_D4** 作為 headNodeSize 和 dataNodeSize 屬性的值。
+
+	"headNodeSize": "Standard_D4",	
+	"dataNodeSize": "Standard_D4",
+
+若您為這些屬性指定錯誤的值，則可能會顯示下列**錯誤**：無法建立叢集。例外狀況：無法完成叢集建立作業。作業失敗 (錯誤代碼「400」)。叢集剩餘狀態：「錯誤」。訊息：「PreClusterCreationValidationFailure」。若顯示此錯誤，請確認您使用來自前述文章中資料表的 **CMDLET 和 API** 名稱。
+
+
 
 ## 自備運算環境
 
@@ -169,7 +190,7 @@ linkedServiceName | 此 HDInsight 叢集所使用之 Blob 儲存體的連結服�
 
 
 - [Azure Batch 基本知識](../batch/batch-technical-overview.md)，以取得 Azure Batch 服務的概觀。
-- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 管理入口網站](../batch/batch-account-create-portal.md)以使用 Azure 管理入口網站建立 Azure Batch 帳戶。如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)主題。
+- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 傳統入口網站](../batch/batch-account-create-portal.md)，以使用 Azure 傳統入口網站建立 Azure Batch 帳戶。如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) (英文) 主題。
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) Cmdlet 可建立 Azure Batch 集區。
 
 ### 範例
@@ -187,7 +208,7 @@ linkedServiceName | 此 HDInsight 叢集所使用之 Blob 儲存體的連結服�
 	  }
 	}
 
-將 "**.<region name**" 附加至您用於 **accountName** 屬性的批次帳戶名稱。範例：
+將「**.<region name**」附加至您用於 **accountName** 屬性的批次帳戶名稱。範例：
 
 			"accountName": "mybatchaccount.eastus"
 
@@ -234,7 +255,7 @@ apiKey | 已發佈的工作區模型的 API。 | 是
 
 
 ## Azure 資料湖分析連結服務
-您建立 **Azure 資料湖分析**連結服務，將 Azure 資料湖分析計算服務連結至 Azure Data Factory，再使用管線中的[資料湖分析 U-SQL 活動](data-factory-usql-activity.md)。
+您應建立 **Azure 資料湖分析**連結服務將 Azure 資料湖分析計算服務連結至 Azure Data Factory，然後再使用管線中的[資料湖分析 U-SQL 活動](data-factory-usql-activity.md)。
 
 下列範例提供 Azure 資料湖分析連結服務的 JSON 定義。
 
@@ -261,7 +282,7 @@ apiKey | 已發佈的工作區模型的 API。 | 是
 類型 | type 屬性應設為：**AzureDataLakeAnalytics**。 | 是
 accountName | Azure 資料湖分析帳戶名稱。 | 是
 dataLakeAnalyticsUri | Azure 資料湖分析 URI。 | 否
-authorization | 按一下 Data Factory 編輯器中的 [授權] 按鈕並且完成 OAuth 登入之後，會自動擷取授權碼。 | 是
+authorization | 按一下「Data Factory 編輯器」中的 [**授權**] 按鈕並完成 OAuth 登入後，即會自動擷取授權碼。 | 是
 subscriptionId | Azure 訂用帳戶識別碼 | 否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。
 resourceGroupName | Azure 資源群組名稱 | 否 (若未指定，便會使用 Data Factory 的資源群組)。
 sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階段識別碼都是唯一的，只能使用一次。這是在 Data Factory 編輯器中自動產生。 | 是
@@ -269,6 +290,6 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
 
 ## Azure SQL 連結服務
 
-您可以建立 Azure SQL 連結服務，並用它搭配[預存程序活動](data-factory-stored-proc-activity.md)叫用 Data Factory 管線中的預存程序。如需此連結服務的詳細資料，請參閱[Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)一文。
+您可建立 Azure SQL 連結服務，以用於搭配[預存程序活動](data-factory-stored-proc-activity.md)叫用 Data Factory 管線中的預存程序。如需此連結服務的詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)一文。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

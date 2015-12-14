@@ -236,7 +236,7 @@ require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### 設定預備環境
-假設您已經在 Azure 網站上執行您的 WordPress Web 應用程式，請登入 [Azure 管理預覽入口網站](http://portal.azure.com)並移至 WordPress Web 應用程式。如果沒有，您可以從 Marketplace 建立一個。若要深入了解，請按一下[這裡](web-sites-php-web-site-gallery)。按一下 [設定]-> [部署位置]-> [加入] 以建立具有 stage 名稱的部署位置。部署位置是與以上建立的主要的 Web 應用程式共用相同的資源的另一個 Web 應用程式。
+假設您已經在 Azure 網站上執行您的 WordPress Web 應用程式，請登入 [Azure 入口網站](http://portal.azure.com)並移至 WordPress Web 應用程式。如果沒有，您可以從 Marketplace 建立一個。若要深入了解，請按一下[這裡](web-sites-php-web-site-gallery)。按一下 [設定]-> [部署位置]-> [加入] 以建立具有 stage 名稱的部署位置。部署位置是與以上建立的主要的 Web 應用程式共用相同的資源的另一個 Web 應用程式。
 
 ![建立階段部署位置](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -278,7 +278,7 @@ require_once(ABSPATH . 'wp-settings.php');
 
 ![交換 WordPress 的變更的預覽](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]> 如果您有只需要推送檔案的案例 (沒有資料庫更新)，那麼請在執行交換之前，於 Azure Preview 入口網站的 Web 應用程式設定刀鋒視窗中**勾選**所有資料庫相關的 [應用程式設定] 和 [連接字串設定] 的 [位置設定]。在此情況下，DB\_NAME、DB\_HOST、DB\_PASSWORD、DB\_USER 預設連接字串設定在執行**交換**的時候應該不會顯示在預覽變更中。在此時，當您完成**交換**作業，WordPress Web 應用程式將**只會**有更新檔案。
+ >[AZURE.NOTE]> 如果您有只需要推送檔案的案例 (沒有資料庫更新)，那麼請在執行交換之前，於 Azure 入口網站的 Web 應用程式設定刀鋒視窗中**勾選**所有資料庫相關的 [應用程式設定] 和 [連接字串設定] 的 [位置設定]。在此情況下，DB\_NAME、DB\_HOST、DB\_PASSWORD、DB\_USER 預設連接字串設定在執行**交換**的時候應該不會顯示在預覽變更中。在此時，當您完成**交換**作業，WordPress Web 應用程式將**只會**有更新檔案。
 
 執行交換之前，這裡是生產 WordPress Web 應用程式 ![交換位置之前的生產 Web 應用程式](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -337,7 +337,7 @@ require_once(ABSPATH . 'wp-settings.php');
 
 ![將授權檔案拖放到 bin 資料夾下](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
-立即從[這裡](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/)下載 Courier2 套件。登入預備 Web 應用程式，假設是 http://umbracocms-site-stage.azurewebsites.net/umbraco，然後按一下 [開發人員] 功能表並選取 [封裝]。按一下 [安裝] 本機封裝
+從[這裡](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/)下載 Courier2 封裝。登入預備 Web 應用程式，假設是 http://umbracocms-site-stage.azurewebsites.net/umbraco，然後按一下 [開發人員] 功能表並選取 [封裝]。按一下 [安裝] 本機封裝
 
 ![Umbraco 套件安裝程式](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)
 
@@ -362,21 +362,14 @@ require_once(ABSPATH . 'wp-settings.php');
   </repositories>
  ```
 
-在 `<repositories>` 下，輸入生產網站 URL URL 和使用者資訊。 如果您使用預設的 Umbraco Membership 提供者，請在 <user> 區段中新增管理使用者的識別碼。 如果您使用自訂 Umbraco Membership 提供者，使用 `<login>`,`<password>` Courier2 模組相關知識連接到生產網站。 如需更多詳細資訊，請檢閱 [文件](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)了解 Courier 模組。
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-同樣地，在您的生產網站中安裝 Courier 模組，並將其設定為指向這裡顯示的相關 courier.config 檔案中的階段 Web 應用程式
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 在 Umbraco CMS Web 應用程式儀表板中的 Courier2 索引標籤上按一下，並選取位置。您應該會看到在 `courier.config` 中提及的儲存機制名稱。在生產和預備 Web 應用程式上執行這項操作。
 
@@ -414,7 +407,7 @@ Courier 將不會隨著從一個版本的 Umbraco CMS 升級至另一個版本�
 
 如需有關如何在本機升級 Web 應用程式的詳細資訊，請遵循[這裡](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general)提及的指導方針。
 
-一旦升級您的本機開發網站，將變更發佈至預備 Web 應用程式。測試您的應用程式，而如果一切看起來皆正常，請使用 [交換] 按鈕，將預備網站**交換**為生產 Web 應用程式。執行**交換**作業時，您可以檢視將在您的 Web 應用程式組態中受到影響的變更。利用這個**交換**作業，我們會交換 Web 應用程式和資料庫。這表示，交換後，實際執行 Web 應用程式現在會指向 umbraco-stage-db 資料庫，而預備 Web 應用程式會指向 umbraco-prod-db 資料庫。
+一旦升級您的本機開發網站，將變更發佈至預備 Web 應用程式。測試您的應用程式，而如果一切看起來皆正常，請使用 [交換] 按鈕，將預備網站**交換**為生產 Web 應用程式。執行**交換**作業時，您可以檢視將在您的 Web 應用程式組態中受到影響的變更。利用這個**交換**作業，我們會交換 Web Apps 和資料庫。這表示，交換後，實際執行 Web 應用程式現在會指向 umbraco-stage-db 資料庫，而預備 Web 應用程式會指向 umbraco-prod-db 資料庫。
 
 ![交換部署 Umbraco CMS 的預覽](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
@@ -429,4 +422,4 @@ Courier 將不會隨著從一個版本的 Umbraco CMS 升級至另一個版本�
 
 [封鎖對非生產部署位置的 Web 存取](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

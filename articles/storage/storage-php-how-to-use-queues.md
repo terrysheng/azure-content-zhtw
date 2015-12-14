@@ -375,14 +375,12 @@
 
 既然已了解 Azure 佇列儲存體的基本概念，請遵循下列連結以了解更複雜的儲存體工作。
 
-- 請參閱 MSDN 參考資料：[Azure 儲存體](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
+- 造訪[Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)。
 
 如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Management Portal]: http://manage.windowsazure.com/
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure Portal]: portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -121,7 +121,7 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 
 ##<a id="CreateIndex"></a>步驟 2：建立索引
 
-建立目標 Azure 搜尋服務索引 (如果您尚未建立)。您可以從 [Azure 入口網站 UI](../search-get-started.md#test-service-operations) 或使用[建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。
+建立目標 Azure 搜尋服務索引 (如果您尚未建立)。您可以從 [Azure 傳統入口網站 UI](../search-get-started.md#test-service-operations) 或使用[建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
  - 若要深入了解 Azure 搜尋服務，請按一下[這裡](/services/search/)。
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

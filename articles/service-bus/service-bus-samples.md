@@ -29,7 +29,7 @@
 
 ### 取得 Azure 服務匯流排的連接字串。
 
-1. 登入 [Azure 入口網站](http://manage.windowsazure.com)。
+1. 登入 [Azure 傳統入口網站](http://manage.windowsazure.com)。
 
 1. 在左側欄中，按一下 [服務匯流排]。
 
@@ -132,4 +132,4 @@
 - [服務匯流排架構](service-bus-architecture.md)
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

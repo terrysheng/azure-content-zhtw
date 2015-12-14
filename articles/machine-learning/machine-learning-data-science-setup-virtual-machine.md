@@ -26,7 +26,7 @@
 
 在 Azure 上建立虛擬機器的程序開始之前，您必須決定處理適用於其專案之資料所需的機器大小。比起較大型的機器，較小型的機器配備較少的記憶體和較少的 CPU 核心數目，但價格也較便宜。如需機器類型和價格清單，請參閱<a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">虛擬機器定價</a>頁面
 
-1. 登入 <a href="https://manage.windowsazure.com" target="_blank">Azure 入口網站</a>，然後按一下左上角的 [新增]。隨即會快顯一個視窗。依序選取 [計算] -> [虛擬機器] -> [從組件庫]。
+1. 登入 <a href="https://manage.windowsazure.com" target="_blank">Azure 傳統入口網站</a>，然後按一下左上角的 [新增]。隨即會快顯一個視窗。依序選取 [計算] -> [虛擬機器] -> [從組件庫]。
 
 	![建立工作區][24]
 
@@ -60,7 +60,7 @@
 
 如果您已遵循步驟 1 中的指示建立虛擬機器，則已經新增適用於 IPython Notebook 的端點，可略過此步驟。
 
-如果虛擬機器已經存在，而且您需要新增將在以下步驟 3 中安裝的 IPython Notebook 端點，請先登入 Azure 管理入口網站、選取虛擬機器，然後新增 IPython Notebook 伺服器的端點。下圖包含在將 IPython Notebook 的端點新增到 Windows 虛擬機器之後入口網站的螢幕擷取畫面。
+如果虛擬機器已經存在，而且您需要新增將在以下步驟 3 中安裝的 IPython Notebook 端點，請先登入 Azure 傳統入口網站、選取虛擬機器，然後新增 IPython Notebook 伺服器的端點。下圖包含在將 IPython Notebook 的端點新增到 Windows 虛擬機器之後入口網站的螢幕擷取畫面。
 
 ![建立工作區][17]
 
@@ -79,7 +79,7 @@
 ## <a name="access"></a>步驟 4：從網頁瀏覽器存取 IPython Notebook
 若要存取 IPython Notebook 伺服器，請開啟網頁瀏覽器，然後在 [URL] 文字方塊中輸入 *https://&#60;virtual 機器 DNS 名稱>:&#60;公用連接埠號碼>*。其中 *&#60;公用連接埠號碼>* 應該是您在加入 IPython Notebook 端點時所指定的連接埠號碼。
 
-在 Azure 管理入口網站中可找到 *&#60;虛擬機器 DNS 名稱>*。登入管理入口網站之後，按一下 [**虛擬機器**]，選取您建立的機器，然後選取 [**儀表板**]，DNS 名稱隨即顯示，如下所示：
+在 Azure 傳統入口網站中可找到 &#60;虛擬機器 DNS 名稱>。登入傳統入口網站之後，按一下 [虛擬機器]，選取您建立的機器，然後選取 [儀表板]，DNS 名稱隨即顯示，如下所示：
 
 ![建立工作區][19]
 
@@ -104,11 +104,11 @@ IPython Notebook 提供一種簡單的方式，讓使用者可將其本機電腦
 
 Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費**」。若要確保未使用虛擬機器時不會被計費，當它閒置時，其狀態必須是 [**已停止 (已取消配置)**]。
 
-> [AZURE.NOTE]如果您從 VM 內部關閉虛擬機器 (使用 Windows 電源選項)，雖然 VM 已停止，但仍然處於已配置狀態。若要確保您不會繼續被計費，請一律從 [Azure 管理入口網站](http://manage.windowsazure.com/)停止虛擬機器。您也可以藉由呼叫 **ShutdownRoleOperation** 搭配相當於 "StoppedDeallocated" 的 "PostShutdownAction"，透過 Powershell 來停止 VM。
+> [AZURE.NOTE]如果您從 VM 內部關閉虛擬機器 (使用 Windows 電源選項)，雖然 VM 已停止，但仍然處於已配置狀態。若要確保您不會繼續被計費，請一律從 [Azure 傳統入口網站](http://manage.windowsazure.com/)停止虛擬機器。您也可以藉由呼叫 **ShutdownRoleOperation** 搭配相當於 "StoppedDeallocated" 的 "PostShutdownAction"，透過 Powershell 來停止 VM。
 
 關閉及取消配置虛擬機器：
 
-1. 使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com/)。  
+1. 使用您的帳戶登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)。  
 
 2. 從左側導覽列選取 [**虛擬機器**]。
 
@@ -118,7 +118,7 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 
 ![VM 關閉][15]
 
-虛擬機器將會取消配置，但不是刪除。您隨時都可從 Azure 管理入口網站重新啟動您的虛擬機器。
+虛擬機器將會取消配置，但不是刪除。您隨時都可從 Azure 傳統入口網站重新啟動您的虛擬機器。
 
 ## 您的 Azure VM 已準備好可供使用：下一步是什麼？
 
@@ -143,4 +143,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

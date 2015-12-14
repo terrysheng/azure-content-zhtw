@@ -43,11 +43,11 @@
 
 **佈建 Spark 叢集**
 
-1. 登入 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
 
 2. 依序按一下 [新增]、[資料 + 分析] 及 [HDInsight]。
 
-    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
+    ![在 Azure 入口網站中建立新的叢集](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.CreateCluster.1.png "在 Azure 入口網站中建立新的叢集")
 
 3. 輸入 [叢集名稱]、針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式功能表中選取 [Windows Server 2012 R2 資料中心]。如果該叢集可用，叢集名稱旁就會出現綠色勾號。
 
@@ -104,7 +104,7 @@
 
 >[AZURE.NOTE]叢集上預設也會提供遵循以下指示所建立的 Notebook。啟動 Zeppelin 後，您可以根據 **Zeppelin HVAC tutorial** 名稱來找到本 Notebook。
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
@@ -189,7 +189,7 @@
 
 >[AZURE.NOTE]叢集上預設也會提供遵循以下指示所建立的 Notebook。啟動 Jupyter 後，您可以根據 **HVACTutorial.ipynb** 名稱來找到本 Notebook。
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
@@ -292,4 +292,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/17/2015" 
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # 開始使用行動服務 (.NET 專案)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
@@ -85,4 +90,4 @@
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

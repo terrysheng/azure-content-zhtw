@@ -68,17 +68,17 @@ Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVIC
 
 如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務][]。
 
-如需在 Azure 網站的 Azure 入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
+如需在 Azure 網站的 [Azure 傳統入口網站][]中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
 
 ## 建立佇列
 
-**ServiceBusService** 物件可讓您使用服務匯流排佇列。下列程式碼將建立 **ServiceBusService** 物件。請將程式碼新增至 **server.js** 檔案的頂端附近，放置在匯入 Azure 模組的陳述式後方：
+**ServiceBusService** 物件可讓您使用服務匯流排佇列。下列程式碼將建立 **ServiceBusService** 物件。請將程式碼新增至 **server.js** 檔案的頂端附近，放置在匯入 Azure 模型的陳述式後方：
 
 ```
 var serviceBusService = azure.createServiceBusService();
 ```
 
-呼叫 **ServiceBusService** 物件上的 **createQueueIfNotExists** 之後，會傳回指定的佇列 (如果存在) 或以指定的名稱建立新的佇列。下列程式碼使用 **createQueueIfNotExists** 建立或連接至名稱為 `myqueue` 的佇列：
+呼叫 **ServiceBusService** 物件上的 **createQueueIfNotExists** 之後，會傳回指定的佇列 (如果存在)，或以指定的名稱建立新的佇列。下列程式碼使用 **createQueueIfNotExists** 建立或連接至名稱為 `myqueue` 的佇列：
 
 ```
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -188,11 +188,11 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 若要深入了解，請參閱下列資源。
 
 -   [佇列、主題和訂用帳戶][]
--   GitHub 上的 [Azure SDK for Node][] 存放庫
+-   GitHub 上的 [Azure SDK for Node][] 儲存機制
 -   [Node.js 開發人員中心](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   
   [Node.js 雲端服務]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
@@ -202,4 +202,4 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
   [Azure 佇列與服務匯流排佇列]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

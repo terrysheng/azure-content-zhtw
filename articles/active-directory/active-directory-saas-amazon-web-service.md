@@ -60,15 +60,15 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![[應用程式]][2]<br>
+3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![應用程式][2]<br>
 
-4. 按一下頁面底部的 [新增]。<br><br>![[應用程式]][3]<br>
+4. 按一下頁面底部的 [新增]。<br><br>![應用程式][3]<br>
 
-5. 在 [欲執行動作] 對話方塊中，按一下 [從組件庫中新增應用程式]。<br><br>![[應用程式]][4]<br>
+5. 在 [欲執行動作] 對話方塊中，按一下 [從組件庫中新增應用程式]。<br><br>![應用程式][4]<br>
 
-6. 在搜尋方塊中，輸入 **Amazon Web Service (AWS)**。<br><br>![[應用程式]][5]<br>
+6. 在搜尋方塊中，輸入 **Amazon Web Service (AWS)**。<br><br>![應用程式][5]<br>
 
-7. 在結果窗格中，選取 [Amazon Web Service (AWS)]，然後按一下 [完成] 以新增應用程式。<br><br>![[應用程式]][6]<br>
+7. 在結果窗格中，選取 [Amazon Web Service (AWS)]，然後按一下 [完成] 以新增應用程式。<br><br>![應用程式][6]<br>
 
 
 
@@ -186,7 +186,7 @@
 
      a.在 [屬性名稱] 文字方塊中，輸入 ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**。
 
-     b.在 [屬性值] 文字方塊中，輸入 **mail**。
+     b.在 [屬性值] 文字方塊中，輸入 **userprincipalname**。
 
      c.按一下 [完成] 以關閉 [加入使用者屬性] 對話方塊。
 
@@ -249,7 +249,7 @@
 
 5. 在 [建立使用者] 對話方塊中，執行下列步驟：<br><br>![設定單一登入][30]<br>
 
-     a.在 [輸入使用者名稱] 文字方塊中，輸入 Brita Simon 在 Azure AD 中的使用者名稱。
+     a.在 [輸入使用者名稱] 文字方塊中，輸入 Brita Simon 在 Azure AD 中的使用者名稱 (userprincipalname)。
 
      b.按一下 [建立]。
 
@@ -320,4 +320,4 @@
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

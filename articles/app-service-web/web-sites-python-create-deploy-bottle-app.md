@@ -51,11 +51,11 @@
 您應該已經安裝 Python 與 Git，但請確定您擁有的是 Python 2.7 或 3.4。
 
 
-## 在 Azure Preview 入口網站上建立 Web 應用程式
+## 在 Azure 入口網站上建立 Web 應用程式
 
-建立應用程式的第一步是透過 [Azure Preview 入口網站](https://portal.azure.com)建立 Web 應用程式。
+建立應用程式的第一步是透過 [Azure 入口網站](https://portal.azure.com)建立 Web 應用程式。
 
-1. 登入 Azure Preview 入口網站，並按一下左下角的 [新增] 按鈕。 
+1. 登入 Azure 入口網站中，並按一下左下角的 [新增] 按鈕。 
 2. 按一下 [Web + 行動]。
 3. 在搜尋方塊中，輸入 "python"。
 4. 在搜尋結果中，選取 [Bottle]，然後按一下 [建立]。
@@ -132,7 +132,7 @@ Python 虛擬環境。如果 Web 應用程式上不存在相容的虛擬環境�
 
 ### 複製儲存機制
 
-首先，使用 Azure Preview 入口網站上提供的 URL 複製儲存機制。如需詳細資訊，請參閱[在 Azure App Service 中使用 GIT 連續部署](web-sites-publish-source-control.md)。
+首先，使用 Azure 入口網站上提供的 URL 複製儲存機制。如需詳細資訊，請參閱[在 Azure App Service 中使用 GIT 連續部署](web-sites-publish-source-control.md)。
 
 開啟包含在儲存機制根目錄中的方案檔 (.sln)。
 
@@ -144,7 +144,7 @@ Python 虛擬環境。如果 Web 應用程式上不存在相容的虛擬環境�
 
 - 請確定環境的名稱是 `env`。
 
-- 選取基礎解譯器。確認使用針對您 Web 應用程式選取的 Python 版本 (在 runtime.txt 中，或在 Azure Preview 入口網站中您 Web 應用程式的 [應用程式設定] 刀鋒視窗中) 相同的版本。
+- 選取基礎解譯器。確認使用針對您 Web 應用程式選取的 Python 版本 (在 runtime.txt 中，或在 Azure 入口網站中您的 Web 應用程式的 [應用程式設定] 分頁中) 相同的版本。
 
 - 確定已勾選下載並安裝封裝的選項。
 
@@ -199,7 +199,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 ### 複製儲存機制
 
-首先，使用 Azure Preview 入口網站上提供的 URL 複製儲存機制，並將 Azure 儲存機制加入為遠端。如需詳細資訊，請參閱[在 Azure App Service 中使用 GIT 連續部署](web-sites-publish-source-control.md)。
+首先，使用 Azure 入口網站上提供的 URL 複製儲存機制，並將 Azure 儲存機制加入為遠端。如需詳細資訊，請參閱[在 Azure App Service 中使用 GIT 連續部署](web-sites-publish-source-control.md)。
 
     git clone <repo-url>
     cd <repo-folder>
@@ -209,7 +209,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 我們要建立開發用途的新虛擬環境 (不加入至儲存機制)。Python 虛擬環境不可重置，因此每位使用該應用程式的開發人員都會在本機建立。
 
-確認使用針對您 Web 應用程式選取的 Python 版本 (在 runtime.txt 中，或在 Azure Preview 入口網站中您 Web 應用程式的 [應用程式設定] 刀鋒視窗中) 相同的版本。
+務必使用正確的 Python 版本；應與您為 Web 應用程式所選取的版本相同 (在 runtime.txt 中，或在 Azure 入口網站中您的 Web 應用程式的 [應用程式設定] 刀鋒視窗中) 相同的版本
 
 針對 Python 2.7：
 
@@ -278,7 +278,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 ### 複製儲存機制
 
-首先，使用 Azure Preview 入口網站上提供的 URL 複製儲存機制，並將 Azure 儲存機制加入為遠端。如需詳細資訊，請參閱[在 Azure App Service 中使用 GIT 連續部署](web-sites-publish-source-control.md)。
+首先，使用 Azure 入口網站上提供的 URL 複製儲存機制，並將 Azure 儲存機制加入為遠端。如需詳細資訊，請參閱[在 Azure App Service 中使用 GIT 連續部署](web-sites-publish-source-control.md)。
 
     git clone <repo-url>
     cd <repo-folder>
@@ -288,7 +288,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 我們要建立開發用途的新虛擬環境 (不加入至儲存機制)。Python 虛擬環境不可重置，因此每位使用該應用程式的開發人員都會在本機建立。
 
-確認使用針對您 Web 應用程式選取的 Python 版本 (在 runtime.txt 中，或在 Azure Preview 入口網站中您 Web 應用程式的 [應用程式設定] 刀鋒視窗內) 相同的版本。
+務必使用正確的 Python 版本；應與您為 Web 應用程式所選取的版本相同 (在 runtime.txt 中，或在 Azure 入口網站中您的 Web 應用程式的 [應用程式設定] 刀鋒視窗中) 相同的版本。
 
 針對 Python 2.7：
 
@@ -378,7 +378,6 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -399,4 +398,4 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 [Bottle 說明文件]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,15 +24,15 @@
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
 
 
-[開始使用 Azure Data Factory][adf-get-started] 教學課程示範如何使用 [Azure Preview 入口網站][azure-preview-portal]建立和監視 Azure Data Factory。在本教學課程中，您將使用 Azure PowerShell Cmdlet 來建立和監視 Azure Data Factory。在本教學課程中，您於 Data Factory 中建立的管線會將資料從 Azure Blob 複製到 Azure SQL Database。
+[開始使用 Azure Data Factory][adf-get-started] 教學課程會示範如何使用 [Azure 入口網站][azure-portal]建立和監視 Azure Data Factory。在本教學課程中，您將使用 Azure PowerShell Cmdlet 來建立和監視 Azure Data Factory。在本教學課程中，您於 Data Factory 中建立的管線會將資料從 Azure Blob 複製到 Azure SQL Database。
 
 > [AZURE.NOTE]這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
 >  
->  如果您使用 Azure PowerShell 1.0 Preview，您必須使用[這裡](https://msdn.microsoft.com/library/dn820234.aspx)所記載的 Cmdlet。例如，使用 New-AzureRMDataFactory，而非使用 New-AzureDataFactory。
+>  若您使用 Azure PowerShell 1.0 Preview，您必須使用[這裡](https://msdn.microsoft.com/library/dn820234.aspx)所記載的 Cmdlet。例如，使用 New-AzureRMDataFactory，而非使用 New-AzureDataFactory。
 
 
 
-##先決條件
+##必要條件
 除了「教學課程概觀」主題中所列的必要條件，您還需要在電腦上安裝 Azure PowerShell。如果還沒有安裝，請在電腦上下載並安裝 [Azure PowerShell][download-azure-powershell]。
 
 ##本教學課程內容
@@ -49,11 +49,11 @@
 ## <a name="CreateDataFactory"></a>步驟 1：建立 Azure Data Factory
 在此步驟中，您會使用 Azure PowerShell 建立名為 **ADFTutorialDataFactoryPSH** 的 Azure Data Factory。
 
-1. 啟動 **Azure PowerShell** 並執行下列命令。將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果關閉後再重新開啟，則需要重新執行這些命令。
-	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure Preview 入口網站的使用者名稱和密碼。  
+1. 啟動 **Azure PowerShell** 並執行下列命令。將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果您關閉並重新開啟，則需要再次執行這些命令。
+	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
 	- 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
-	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在「Azure Preview 入口網站」中使用的相同。 
-2. 切換至 **AzureResourceManager** 模式，因為此模式中可以使用 Azure Data Factory Cmdlet。
+	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。 
+2. 切換至 **AzureResourceManager** 模式，因為 Azure Data Factory Cmdlet 可在此模式中使用。
 
 		Switch-AzureMode AzureResourceManager 
 3. 執行以下命令，建立名為 **ADFTutorialResourceGroup** 的 Azure 資源群組。
@@ -170,7 +170,7 @@
 
 	如果您的電腦上已安裝 SQL Server 2014：請遵循[步驟 2：使用 SQL Server Management Studio 連接到管理 Azure SQL Database 的 SQL Database][sql-management-studio] 文章中的指示，連接到您的 Azure SQL Server，並執行 SQL 指令碼。
 
-	如果您的電腦上已安裝 Visual Studio 2013：請在 Azure Preview 入口網站中 ([http://portal.azure.com](http://portal.sazure.com))，依序按一下左側的 [瀏覽] 中樞、[SQL Server]，選取您的資料庫，然後按一下工具列上的 [在 Visual Studio 中開啟] 按鈕，以連接到您的 Azure SQL Server 並執行指令碼。如果不允許您的用戶端存取 Azure SQL Server，則必須將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。請參閱上文的步驟，設定 Azure SQL Server 的防火牆。
+	若您的電腦上已安裝 Visual Studio 2013：請在 Azure 入口網站中 ([http://portal.azure.com](http://portal.sazure.com))，依序按一下左側的 [**瀏覽**] 中樞、[**SQL Server**]，選取您的資料庫，然後按一下工具列上的 [**在 Visual Studio 中開啟**] 按鈕，以連接到您的 Azure SQL Server 並執行指令碼。如果不允許您的用戶端存取 Azure SQL Server，則必須將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。請參閱上文的步驟，設定 Azure SQL Server 的防火牆。
 		
 ### 建立輸入資料表 
 資料表是矩形的資料集，並具有的結構描述。在此步驟中，您將在 **StorageLinkedService** 連結服務所代表的 Azure 儲存體中，建立指向 Blob 容器的 **EmpBlobTable** 資料表。此 Blob 容器 (**adftutorial**) 包含的輸入資料位於 **emp.txt** 檔案中。
@@ -270,7 +270,7 @@
 
      請注意：
 	
-	* 資料集 **type** 設為 **AzureSQLTable**。
+	* 資料集 **type** 設為 **AzureSqlTable**。
 	* **linkedServiceName** 設為 **AzureSqlLinkedService**。
 	* **tablename** 設為 **emp**。
 	* 資料庫的 emp 資料表中有三個資料行 (**ID**、**FirstName** 和 **LastName**)，但 ID 是身分識別資料行，所以您在此處只需要指定 **FirstName** 和 **LastName**。
@@ -338,7 +338,7 @@
 
 	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
-	如果您未指定 **end** 屬性的值，則會以「開始 + 48 小時」來計算。若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
+	若您未指定 **end** 屬性的值，則會以「**開始 + 48 小時**」來計算。若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
 	
 	在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
 	
@@ -364,7 +364,7 @@
 
 	您應該會看到 24 個配量，從今天 12 AM 到隔天 12 AM，每小時各一個。
 	
-	第一個配量：
+	**第一個配量：**
 
 		ResourceGroupName : ADFTutorialResourceGroup
 		DataFactoryName   : ADFTutorialDataFactoryPSH
@@ -376,7 +376,7 @@
 		LatencyStatus     :
 		LongRetryCount    : 0
 
-	最後一個配量：
+	**最後一個配量：**
 
 		ResourceGroupName : ADFTutorialResourceGroup
 		DataFactoryName   : ADFTutorialDataFactoryPSH
@@ -426,7 +426,7 @@
 [data-factory-create-storage]: ../storage-create-storage-account.md
 
 [adf-get-started]: data-factory-get-started.md
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [download-azure-powershell]: ../powershell-install-configure.md
 [data-factory-introduction]: data-factory-introduction.md
 
@@ -435,4 +435,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

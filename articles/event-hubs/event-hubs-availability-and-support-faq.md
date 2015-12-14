@@ -33,7 +33,7 @@
 
 ## 事件中樞輸送量單位是什麼？
 
-事件中樞輸送量單位係由使用者透過 Azure 入口網站或事件中樞管理 API 明確選取。輸送量單位會套用到服務匯流排命名空間內的所有事件中樞，以及賦予命名空間下列功能的每個輸送量單位：
+事件中樞輸送量單位係由使用者透過 Azure 傳統入口網站或事件中樞管理 API 明確選取。輸送量單位會套用到服務匯流排命名空間內的所有事件中樞，以及賦予命名空間下列功能的每個輸送量單位：
 
 - 最高每秒 1MB 的輸入事件 (傳送到事件中樞的事件)，但不超過每秒 1000 個輸入事件、管理作業或控制 API 呼叫。
 
@@ -110,4 +110,4 @@
 [使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

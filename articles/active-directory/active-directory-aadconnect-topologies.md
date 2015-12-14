@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 的拓撲 | Microsoft Azure"
+   pageTitle="Azure AD Connect：支援的拓撲 | Microsoft Azure"
    description="本主題詳細說明 Azure AD Connect 的受支援和不受支援拓撲"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect 的拓撲
@@ -167,4 +167,4 @@ Azure AD 目錄在設計上是隔離的。它不支援將 Azure AD Connect 同�
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

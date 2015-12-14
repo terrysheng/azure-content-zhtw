@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/24/2015" 
 	ms.author="cephalin"/>
 
 #在 Azure App Service 中使用混合式連線存取內部部署資源
 
 您可以在 Azure App Service 上將 Web 應用程式連接到使用靜態 TCP 連接埠的任何內部部署資源，例如 SQL Server、MySQL、HTTP Web API、行動服務及最高程度的自訂 Web 服務。本文示範如何在 App Service 中的 Web 應用程式和內部部署的 SQL Server 資料庫之間建立混合式連線。
 
-> [AZURE.NOTE]「混合式連線」功能的 Web Apps 部分僅適用於 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
+> [AZURE.NOTE]「混合式連線」功能的 Web Apps 部分僅適用於 [Azure 入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
 
 ## 必要條件
 - Azure 訂閱。若要取得免費訂閱，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。 
@@ -32,20 +32,18 @@
 	- 必須能夠透過連接埠 5671 連線到 Azure
 	- 必須能夠連繫內部部署資源的 *hostname*:*portnumber*。 
 
-> [AZURE.NOTE] 本文中的步驟假設您使用將主控內部部署混合式連線代理程式之電腦中的瀏覽器。
+> [AZURE.NOTE]本文中的步驟假設您使用將主控內部部署混合式連線代理程式之電腦中的瀏覽器。
 
 
 ## 在 Azure 入口網站中建立 Web 應用程式 ##
 
-> [AZURE.NOTE] 如果您已在 Azure 預覽入口網站中建立本教學課程要使用的 Web 應用程式，則您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)，並從那裡開始操作。
+> [AZURE.NOTE]如果您已在 Azure 預覽入口網站中建立本教學課程要使用的 Web 應用程式，則您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)，並從那裡開始操作。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)左下角，依序按一下 [新增] > [Web + 行動] > [網站]。
-	
-	![New button][New]
+1. 在 [Azure 入口網站](https://portal.azure.com)左上角，依序按一下 [新增] > [Web + 行動] > [Web 應用程式]。
 	
 	![新 Web 應用程式][NewWebsite]
 	
-2. 在 [Web 應用程式] 分頁上，提供 URL，然後按一下 [建立]。
+2. 在 [Web 應用程式] 刀鋒視窗上，提供 URL，然後按一下 [建立]。
 	
 	![Website name][WebsiteCreationBlade]
 	
@@ -64,7 +62,7 @@
 <a name="CreateHC"></a>
 ## 建立混合式連線和 BizTalk 服務 ##
 
-1. 向下捲動 Web 應用程式的分頁，然後選擇 [混合式連線]。
+1. 在您的 [Web 應用程式] 刀鋒視窗中按一下 [所有設定] > [網路] > [設定混合式連接端點]。
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
@@ -77,11 +75,7 @@
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	在 [建立混合式連線分頁] 上：
-	- 在 [名稱] 中，提供連線的名稱。
-	- 在 [主機名稱] 中，輸入主控資源的內部部署電腦名稱。
-	- 在 [連接埠] 中，輸入內部部署資源使用的連接埠號碼 (若是 SQL Server 預設執行個體，請輸入 1433)。
-	- 按一下 [Biz Talk 服務]
+	在 [建立混合式連線分頁] 上：- 在 [名稱] 中，提供連線的名稱。- 在 [主機名稱] 中，輸入主控資源的內部部署電腦名稱。- 在 [連接埠] 中，輸入內部部署資源使用的連接埠號碼 (若是 SQL Server 預設執行個體，請輸入 1433)。- 按一下 [Biz Talk 服務]
 
 
 4. [建立 BizTalk 服務] 分頁隨即開啟。輸入 BizTalk 服務的名稱，然後按一下 [確定]。
@@ -97,16 +91,16 @@
 6. 當程序完成時，入口網站中的通知區域會通知您已成功建立連線。
 	<!-- TODO
 
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-	The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification]
-	-->
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
 7. 在 Web 應用程式的刀鋒視窗上，[混合式連線] 圖示現在會顯示已建立 1 個混合式連線。
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
@@ -116,7 +110,7 @@
 <a name="InstallHCM"></a>
 ## 安裝內部部署混合式連線管理員以完成連線 ##
 
-1. 在 Web 應用程式的分頁上，按一下 [混合式連線] 圖示。 
+1. 在 [Web 應用程式] 刀鋒視窗中按一下 [所有設定] > [網路] > [設定混合式連接端點]。 
 	
 	![Hybrid connections icon][HCIcon]
 	
@@ -158,7 +152,7 @@
 
 現在，您已完成混合式連線基礎結構，您可以使用它來建立混合式應用程式。
 
->[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 <a name="NextSteps"></a>
 ## 後續步驟 ##
@@ -183,7 +177,6 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[關於 Azure App Service 中網站和 Web 應用程式的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [New]: ./media/web-sites-hybrid-connection-get-started/B01New.png
@@ -211,4 +204,4 @@
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.date="11/30/2015"
 	ms.author="rajram"/>
 
 # 開始使用 FTP 連接器並將它加入您的邏輯應用程式
@@ -160,4 +160,4 @@ FTP 連接器支援下列動作︰
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

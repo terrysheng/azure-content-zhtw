@@ -5,7 +5,7 @@
 
 3. 在應用程式的 [Insert a TodoItem] 中輸入文字，然後按一下 [儲存]。
 
-   	Note that after the insert completes, the app receives a push notification from WNS.
+   	請注意插入完成之後，應用程式會收到 WNS 的推播通知。
 
 4. (選用) 在不同的用戶端裝置上重複執行步驟 1-3，並在登入時使用不同的帳戶。
 

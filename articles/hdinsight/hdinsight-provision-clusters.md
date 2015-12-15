@@ -50,7 +50,9 @@
 	
 - **作業系統**
 
-	您可以在下列兩個作業系統其中之一建立 HDInsight 叢集：- **Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)**：- **Linux 上的 HDInsight (Linux 版 Ubuntu 12.04 LTS) **：HDInsight 提供在 Azure 上設定 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的 Linux Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請設定 Linux 叢集。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-get-started.md)。
+	您可以在下列兩個作業系統其中之一建立 HDInsight 叢集：
+	- **Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)**：
+	- **Linux 上的 HDInsight (Linux 版 Ubuntu 12.04 LTS)**：HDInsight 提供在 Azure 上設定 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的 Linux Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請設定 Linux 叢集。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-get-started.md)。
 
 - **叢集類型**和**叢集大小 (亦稱為資料節點)**
 
@@ -345,13 +347,13 @@
 	* [**遠端桌面**]：可讓您在叢集節點上啟用/停用遠端桌面。
 	* [**級別叢集**]：可讓您變更此叢集的背景工作角色節點數目。
 	* [**刪除**]：刪除 HDInsight 叢集。
-	* [**快速入門**] (![雲和雷電圖示 = 快速入門](./media/hdinsight-provision-clusters/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
-	* [**使用者**] (![使用者圖示](./media/hdinsight-provision-clusters/users.png))：可讓您設定 Azure 訂用帳戶上，其他使用者對此叢集的_入口網站管理_權限。
+	* \[**快速入門**] (![雲和雷電圖示 = 快速入門](./media/hdinsight-provision-clusters/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
+	* \[**使用者**] (![使用者圖示](./media/hdinsight-provision-clusters/users.png))：可讓您設定 Azure 訂用帳戶上，其他使用者對此叢集的_入口網站管理_權限。
 	
 
 		> [AZURE.IMPORTANT]這_只會_影響在入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將工作提交至其上的使用者並沒有作用。
 		
-	* [**標記**] (![標記圖示](./media/hdinsight-provision-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可能會建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
+	* \[**標記**] (![標記圖示](./media/hdinsight-provision-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可能會建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
 ## 使用 ARM 範本建立
 

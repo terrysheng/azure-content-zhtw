@@ -47,7 +47,7 @@
 
 完成本教學課程是 Xamarin.Android app 所有其他通知中樞教學課程的先決條件。
 
-> [AZURE.IMPORTANT]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)。
+> [AZURE.IMPORTANT] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)。
 
 ##啟用 Google 雲端通訊
 
@@ -86,7 +86,7 @@
 
 	確定 [套件名稱] 的第一個字母是小寫。
 
-	> [AZURE.IMPORTANT]套件名稱的第一個字母必須是小寫。否則，當您在下文為推播通知註冊 **BroadcastReceiver** 和 **IntentFilter** 時，將收到應用程式資訊清單錯誤。
+	> [AZURE.IMPORTANT] 套件名稱的第一個字母必須是小寫。否則，當您在下文為推播通知註冊 **BroadcastReceiver** 和 **IntentFilter** 時，將收到應用程式資訊清單錯誤。
 
    	![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 
@@ -170,7 +170,7 @@
 
 4. 建立新類別 **MyBroadcastReceiver**。
 
-	> [AZURE.NOTE]我們將在下文中從頭逐步建立 **BroadcastReceiver** 類別。不過，手動建立 **MyBroadcastReceiver.cs** 之外的一個快速替代方式是參考可在 [NotificationHubs 範例][GitHub]隨附的範例 Xamarin.Android 專案中找到的 **GcmService.cs** 檔案。複製 **GcmService.cs** 之後再變更類別名稱，也是很好的開始。
+	> [AZURE.NOTE] 我們將在下文中從頭逐步建立 **BroadcastReceiver** 類別。不過，手動建立 **MyBroadcastReceiver.cs** 之外的一個快速替代方式是參考可在 [NotificationHubs 範例][GitHub]隨附的範例 Xamarin.Android 專案中找到的 **GcmService.cs** 檔案。複製 **GcmService.cs** 之後再變更類別名稱，也是很好的開始。
 
 5. 將下列 using 陳述式新增至 **MyBroadcastReceiver.cs** (請參閱稍早新增的元件和組件)：
 
@@ -261,7 +261,7 @@
 			}
 		}
 
-	> [AZURE.NOTE]在以上的 **OnRegistered()** 程式碼中，您應該發現能夠指定標籤來註冊特定傳訊通道。
+	> [AZURE.NOTE] 在以上的 **OnRegistered()** 程式碼中，您應該發現能夠指定標籤來註冊特定傳訊通道。
 
 10. 使用下列程式碼覆寫 **PushHandlerService** 中的 **OnMessage** 方法：
 
@@ -290,7 +290,7 @@
 
 11. 新增下列 **createNotification** 和 **dialogNotify** 方法至 **PushHandlerService**，以在接收到通知時通知使用者。
 
-	>[AZURE.NOTE]Android 5.0 版與更新版本中的通知設計，與先前版本有極大的不同。如果您在 Android 5.0 版或更新版本上進行測試，必須執行應用程式才能收到通知。如需詳細資訊，請參閱 [Android 通知](http://go.microsoft.com/fwlink/?LinkId=615880)。
+	>[AZURE.NOTE] Android 5.0 版與更新版本中的通知設計，與先前版本有極大的不同。如果您在 Android 5.0 版或更新版本上進行測試，必須執行應用程式才能收到通知。如需詳細資訊，請參閱 [Android 通知](http://go.microsoft.com/fwlink/?LinkId=615880)。
 
         void createNotification(string title, string desc)
         {
@@ -358,9 +358,9 @@
 
 如果您在模擬器中執行此應用程式，請務必使用支援 Google API 的 Android 虛擬裝置 (AVD)。
 
-> [AZURE.IMPORTANT]若要收到推播通知，您必須在 Android 虛擬裝置上設定 Google 帳戶(在模擬器中，瀏覽至 [設定]，然後按一下 [新增帳戶])。 另外，確定模擬器已連線到網際網路。
+> [AZURE.IMPORTANT] 若要收到推播通知，您必須在 Android 虛擬裝置上設定 Google 帳戶(在模擬器中，瀏覽至 [設定]，然後按一下 [新增帳戶])。 另外，確定模擬器已連線到網際網路。
 
->[AZURE.NOTE]Android 5.0 版與更新版本中的通知設計，與先前版本有極大的不同。如需詳細資訊，請參閱 [Android 通知](http://go.microsoft.com/fwlink/?LinkId=615880)。
+>[AZURE.NOTE] Android 5.0 版與更新版本中的通知設計，與先前版本有極大的不同。如需詳細資訊，請參閱 [Android 通知](http://go.microsoft.com/fwlink/?LinkId=615880)。
 
 
 1. 從 [工具] 中，按一下 [Open Android Emulator Manager]，選取您的裝置，然後按一下 [Edit]。

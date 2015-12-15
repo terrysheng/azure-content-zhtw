@@ -84,7 +84,7 @@
 1. 從 [Bintray 上之 Notification-Hubs-Android-SDK](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4) 的 [Files] 索引標籤下載 notification-hubs-0.4.jar 檔案。請亦將 [notifications-1.0.1.jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view) 下載至您專案的 **app\\libs** 目錄。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 **libs** 資料夾。
 
 
-    >[AZURE.NOTE]檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
+    > [AZURE.NOTE]檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
 
 2. 設定應用程式以從 GCM 取得註冊 ID，然後使用此值在通知中樞註冊此 app 執行個體。
 
@@ -118,7 +118,10 @@
 	    private static Boolean isVisible = false;
 
 
-	請務必更新三個預留位置：* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 傳統入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。* **HubName**：在 Azure 中針對您的中樞使用在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
+	請務必更新三個預留位置：
+	* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。
+	* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。
+	* **HubName**：在 Azure 中針對您的中樞顯示在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
 
 
 

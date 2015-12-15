@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="09/08/2015"
+	ms.date="12/08/2015"
 	ms.author="bwren"/>
 
 
@@ -146,4 +146,4 @@ Microsoft 和 Azure 自動化社群會提供範例 Runbook，協助您開始建�
 
 **請不吝提供意見。** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

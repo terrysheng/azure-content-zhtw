@@ -186,7 +186,7 @@
 ## 傳送通知
 
 
-在 Azure 入口網站中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在 app 中測試通知的接收。
+在 [Azure 傳統入口網站]中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在應用程式中測試通知的接收。
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png)
 
@@ -255,7 +255,7 @@
 
 若要使用行動服務傳送通知，請依照[開始使用行動服務]中的步驟進行，然後執行下列動作：
 
-1. 登入 [Azure 入口網站]，然後選取您的行動服務。
+1. 登入 [Azure 傳統入口網站]，然後選取您的行動服務。
 
 2. 選取頂端的 [排程器] 索引標籤。
 
@@ -314,7 +314,7 @@
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [開始使用行動服務]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS 的通知中樞作法]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
@@ -331,4 +331,4 @@
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

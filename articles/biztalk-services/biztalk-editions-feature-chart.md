@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="12/08/2015"
 	ms.author="mandia"/>
 
 
@@ -237,7 +237,10 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 
 #### 如何從 BizTalk 服務的某層移轉至另一層？
 
-使用備份與還原流程，從某層移轉至另一層。僅支援某些移轉路徑。請參閱 [BizTalk 服務：備份與還原](biztalk-backup-restore.md)，以取得支援的移轉路徑詳細資訊。
+免費版本無法移轉或「調高」到另一層，而且無法備份及還原到另一層。如果您需要另一層，請使用新的服務層建立新的 BizTalk 服務。必須在新的 BizTalk 服務中重建任何使用免費版本建立的成品 (包括混合式連線)。
+
+對於其餘的版本，使用備份與還原將您的成品從某一層移轉至另一層。例如，在標準層中備份成品，然後將它們還原至高階層。[BizTalk 服務：備份與還原](biztalk-backup-restore.md)說明支援的移轉路徑和備份的成品清單。請注意，混合式連線無法備份。備份及還原至新的服務層之後，您會重建混合式連線。
+
 
 #### 服務中是否包括 BizTalk 介面卡服務？ 如何接收軟體？
 
@@ -245,7 +248,7 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 
 ## 後續步驟
 
-若要在 Azure 入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)。
+若要在 Azure 入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197) (英文)。
 
 ## 其他資源
 - [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)<br/>
@@ -256,4 +259,4 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 - [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

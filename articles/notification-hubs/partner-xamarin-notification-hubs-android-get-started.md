@@ -114,8 +114,8 @@
 1. 收集您的 Android 應用程式和通知中樞的下列資訊：
 
 	- **GoogleProjectNumber**：在 Google 開發人員入口網站上，從您的應用程式概觀取得此專案編號值。當您在入口網站上建立應用程式時，您可以提早記下這個值。
-	- **接聽連接字串**：在 Azure 入口網站的儀表板上，按一下 [檢視連接字串]。複製此值的 *DefaultListenSharedAccessSignature* 連線字串。
-	- **中樞名稱**：這是您在 Azure 入口網站的中樞名稱。例如， *mynotificationhub2* 。
+	- **接聽連接字串**：在 [Azure 傳統入口網站]的儀表板上，按一下 [檢視連接字串]。複製此值的 *DefaultListenSharedAccessSignature* 連線字串。
+	- **中樞名稱**：這是您在 [Azure 傳統入口網站]的中樞名稱。例如，*mynotificationhub2*。
 
 	為您的 Xamarin 專案建立 **Constants.cs** 類別，並定義類別中的下列常數值。以您的值取代預留位置。
 
@@ -378,7 +378,7 @@
 ##從後端傳送通知
 
 
-在 Azure 入口網站中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在 app 中測試通知的接收。
+在 [Azure 傳統入口網站]中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在應用程式中測試通知的接收。
 
 ![][30]
 
@@ -418,7 +418,7 @@
 
         using Microsoft.Azure.NotificationHubs;
 
-5. 在 `Program` 類別中，新增下列方法：使用您的 *DefaultFullSharedAccessSignature* 連線字串和 Azure 入口網站的中樞名稱，來更新預留位置文字。
+5. 在 `Program` 類別中，新增下列方法：使用您的 *DefaultFullSharedAccessSignature* 連接字串和 [Azure 傳統入口網站]的中樞名稱，來更新預留位置文字。
 
         private static async void SendNotificationAsync()
         {
@@ -439,7 +439,7 @@
 
 1. 依照[開始使用行動服務]執行作業。
 
-1. 登入 [Azure 入口網站]，然後選取您的行動服務。
+1. 登入 [Azure 傳統入口網站]，然後選取您的行動服務。
 
 2. 選取頂端的 [排程器] 索引標籤。
 
@@ -507,7 +507,7 @@
 [開始使用行動服務]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [Android 的通知中樞作法]: http://msdn.microsoft.com/library/dn282661.aspx
@@ -523,4 +523,4 @@
 [Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
 [Azure 訊息元件]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

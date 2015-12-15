@@ -36,7 +36,7 @@
 
 完成本教學課程是 Windows Phone 8 應用程式所有其他通知中樞教學課程的先決條件。
 
-> [AZURE.NOTE]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F)。
+> [AZURE.NOTE]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F)。
 
 ##建立您的通知中樞
 
@@ -51,8 +51,7 @@
 
 現在已建立並設定您的中樞，以傳送未經驗證的 Windows Phone 通知。
 
-> [AZURE.NOTE]本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中樞支援 [MPNS 驗證模式](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx)。
-<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE]本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中樞可讓您上傳憑證，以支援 [MPNS 驗證模式](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)。
 
 ##將您的應用程式連接到通知中樞
 
@@ -190,7 +189,6 @@
 
 <!-- URLs. -->
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[Azure portal]: https://manage.windowsazure.com/
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [使用通知中心來推播通知給使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -199,4 +197,4 @@
 [磚目錄]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="11/16/2015"
+	ms.date="12/09/2015"
 	ms.author="juliako"/>
 
 
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-drm.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/) 授權保護的加密 MPEG DASH、Smooth Streaming 和 HTTP Live Streaming (HLS) 資料流。AMS 也可讓您傳遞包含 Widevine DRM 授權的加密 DASH 資料流。PlayReady 和 Widevine 是依照 Common Encryption (ISO/IEC 23001-7 CENC) 規格加密。您可以使用 [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從版本 3.5.1 開始) 或 REST API 來設定 AssetDeliveryConfiguration 以使用 Widevine。
 
@@ -182,7 +183,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 		using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
 		using Newtonsoft.Json;
-
+		
 		namespace DynamicEncryptionWithDRM
 		{
 		    class Program
@@ -261,7 +262,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		
 		            // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
 		            // Note that DASH works on IE 11 (via PlayReady), Edge (via PlayReady), Chrome (via Widevine).
-		             
+		
 		            string url = GetStreamingOriginLocator(encodedAsset);
 		            Console.WriteLine("Encrypted DASH URL: {0}/manifest(format=mpd-time-csf)", url);
 		
@@ -303,31 +304,45 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		        }
 		
 		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
+		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
 		        {
-		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
+		            // Declare a new job.
+		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+		            // Get a media processor reference, and pass to it the name of the 
+		            // processor to use for the specific task.
+		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
-		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-		                                    inputAsset.Name,
-		                                    encodingPreset));
+		            // Create a task with the encoding details, using a string preset.
+		            // In this case "H264 Multiple Bitrate 720p" preset is used.
+		            ITask task = job.Tasks.AddNew("My encoding task",
+		                processor,
+		                "H264 Multiple Bitrate 720p",
+		                TaskOptions.None);
 		
-		            var mediaProcessors =
-		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-		
-		            var latestMediaProcessor =
-		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-		
-		
-		
-		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-		            encodeTask.InputAssets.Add(inputAsset);
-		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
+		            // Specify the input asset to be encoded.
+		            task.InputAssets.Add(asset);
+		            // Add an output asset to contain the results of the job. 
+		            // This output is specified as AssetCreationOptions.None, which 
+		            // means the output asset is not encrypted. 
+		            task.OutputAssets.AddNew("Output asset",
+		                AssetCreationOptions.None);
 		
 		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
 		            job.Submit();
 		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
 		
 		            return job.OutputMediaAssets[0];
+		        }
+		
+		        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+		        {
+		            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+		            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+		
+		            if (processor == null)
+		                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+		
+		            return processor;
 		        }
 		
 		
@@ -356,14 +371,14 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		            // and create authorization policy          
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		            {
-		                new ContentKeyAuthorizationPolicyRestriction
-		                {
-		                    Name = "Open",
-		                    KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-		                    Requirements = null
-		                }
-		            };
+		                    {
+		                        new ContentKeyAuthorizationPolicyRestriction
+		                        {
+		                            Name = "Open",
+		                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+		                            Requirements = null
+		                        }
+		                    };
 		
 		            // Configure PlayReady and Widevine license templates.
 		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
@@ -376,8 +391,8 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		                        restrictions, PlayReadyLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicyOption WidevinePolicy =
-		                _context.ContentKeyAuthorizationPolicyOptions.Create("", 
-		                    ContentKeyDeliveryType.Widevine, 
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("",
+		                    ContentKeyDeliveryType.Widevine,
 		                    restrictions, WidevineLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
@@ -398,14 +413,14 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		            string tokenTemplateString = GenerateTokenRequirements();
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		            {
-		                new ContentKeyAuthorizationPolicyRestriction
-		                {
-		                    Name = "Token Authorization Policy",
-		                    KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-		                    Requirements = tokenTemplateString,
-		                }
-		            };
+		                    {
+		                        new ContentKeyAuthorizationPolicyRestriction
+		                        {
+		                            Name = "Token Authorization Policy",
+		                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+		                            Requirements = tokenTemplateString,
+		                        }
+		                    };
 		
 		            // Configure PlayReady and Widevine license templates.
 		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
@@ -504,13 +519,13 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		                allowed_track_types = AllowedTrackTypes.SD_HD,
 		                content_key_specs = new[]
 		                {
-		                    new ContentKeySpecs
-		                    {
-		                        required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-		                        security_level = 1,
-		                        track_type = "SD"
-		                    }
-		                },
+		                            new ContentKeySpecs
+		                            {
+		                                required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+		                                security_level = 1,
+		                                track_type = "SD"
+		                            }
+		                        },
 		                policy_overrides = new
 		                {
 		                    can_play = true,
@@ -530,8 +545,8 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
-		                    {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-		                    {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+		                            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+		                            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
 		
 		                };
 		
@@ -600,7 +615,6 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		    }
 		}
 
-
 ##媒體服務學習路徑
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -616,4 +630,4 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 
 [宣布在 Azure 媒體服務中推出 Google Widevine 授權傳遞服務公開預覽](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

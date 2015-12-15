@@ -289,8 +289,10 @@
 	![在 Azure 中即時使用您的 Java 連絡人 REST API](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
 	
 ## 後續步驟
-在這篇文章中，您從 Swagger JSON 檔案和一些利用 Swagger.io 編輯器建構的 Java 程式碼開始，然後您做的簡單變更和 Git 部署程序，讓您得到以 Java 撰寫的實用 API 應用程式。現在，您可以回到先前的部分，並深入了解 [Storage SDK for Java](../storage/storage-java-how-to-use-blob-storage.md) 來保存 JSON blob。或者，您可以使用 [Document DB Java SDK](../documentdb/documentdb-java-application.md) 來將您的連絡人資料儲存到 Azure Document DB。
+在這篇文章中，您從 Swagger JSON 檔案和一些利用 Swagger.io 編輯器建構的 Java 程式碼開始，然後您做的簡單變更和 Git 部署程序，讓您得到以 Java 撰寫的實用 API 應用程式。API Apps 入門系列中的下一個教學課程示範如何[使用 CORS 從 JavaScript 用戶端取用 API 應用程式](app-service-api-cors-consume-javascript.md)。
+
+為了根據此範例進行建置，您可以深入了解 [Storage SDK for Java](../storage/storage-java-how-to-use-blob-storage.md) 來保存 JSON blob。或者，您可以使用 [Document DB Java SDK](../documentdb/documentdb-java-application.md) 來將您的連絡人資料儲存到 Azure Document DB。
 
 如需有關在 Azure 中使用 Java 的詳細資訊，請參閱 [ 開發人員中心](/develop/java/)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

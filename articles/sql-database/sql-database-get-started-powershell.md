@@ -29,10 +29,8 @@
 
 了解如何建立新的 SQL Database 並使用 PowerShell Cmdlet 執行一般資料庫設定工作。
 
-> [AZURE.IMPORTANT]從 Azure PowerShell 1.0 Preview 起，不再提供 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。本文中的範例使用新的 PowerShell 1.0 Preview 命名慣例。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)。
 
-
-若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行中。由於 Switch-AzureMode 已移除，因此您應該執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 下載並安裝最新的Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行中。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 - 如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
 
@@ -43,35 +41,35 @@
 
 您必須先建立 Azure 帳戶的存取權，以便執行以下 Cmdlet，然後您會看到要輸入認證的登入畫面。請使用與登入 Azure 入口網站相同的電子郵件和密碼。
 
-	Add-AzureRMAccount
+	Add-AzureRmAccount
 
 成功登入後，您將會在畫面中看到一些資訊，包括用於登入的 ID 與可以存取的 Azure 訂用帳戶。
 
 
 ### 選取您的 Azure 訂用帳戶
 
-若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureRMSubscription** Cmdlet，然後複製結果集中所需的訂用帳戶資訊。當您的訂用帳戶執行了以下 Cmdlet 之後：
+若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID。您可以複製上一個步驟中的資訊，或者，如果您有多個訂用帳戶，則可以執行 **Get-AzureRmSubscription** Cmdlet，然後從結果集中複製所需的訂用帳戶資訊。當您的訂用帳戶執行了以下 Cmdlet 之後：
 
-	Select-AzureRMSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-成功執行 **Select-AzureRMSubscription** 之後，您會返回 PowerShell 提示字元。如果您有一個以上的訂用帳戶，您可以執行 **Get-AzureRMSubscription** 並確認您要使用的訂用帳戶顯示 **IsCurrent: True**。
+成功執行 **Select-AzureRmSubscription** 之後，您會返回 PowerShell 提示字元。如果您有一個以上的訂用帳戶，您可以執行 **Get-AzureRmSubscription** 並確認您要使用的訂用帳戶顯示 **IsCurrent: True**。
 
 ## 資料庫設定：建立資源群組、伺服器和防火牆規則
 
-現在您有權在您選取的 Azure 訂用帳戶下執行 Cmdlet，因此下一步是建立含有伺服器的資源群組，以在伺服器中建立資料庫。為了使用您選擇的任何有效位置，您可以編輯下一個命令。執行 **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** 以取得有效位置的清單。
+現在您有權在您選取的 Azure 訂用帳戶下執行 Cmdlet，因此下一步是建立含有伺服器的資源群組，以在伺服器中建立資料庫。為了使用您選擇的任何有效位置，您可以編輯下一個命令。執行 **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** 以取得有效位置的清單。
 
 執行下列命令以建立新的資源群組：
 
-	New-AzureRMResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
+	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
 
 成功建立新的資源群組之後，您會在畫面上看到包含 **ProvisioningState : Succeeded** 的資訊。
 
 
 ### 建立伺服器 
 
-SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRMSqlServer** 以建立新的伺服器。用您的伺服器名稱取代 ServerName。這必須是所有 Azure SQL Server 的唯一名稱，因此伺服器名稱若被佔用，您就會收到錯誤訊息。另外值得注意的是，此命令可能需要數分鐘才能完成。您可以編輯此命令以使用您選擇的任何有效位置，但您應該使用您在上一個步驟中建立資源群組時使用的相同位置。
+SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRmSqlServer** 以建立新的伺服器。用您的伺服器名稱取代 ServerName。這必須是所有 Azure SQL Server 的唯一名稱，因此伺服器名稱若被佔用，您就會收到錯誤訊息。另外值得注意的是，此命令可能需要數分鐘才能完成。您可以編輯此命令以使用您選擇的任何有效位置，但您應該使用您在上一個步驟中建立資源群組時使用的相同位置。
 
-	New-AzureRMSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
 當您執行此命令時，會隨即開啟向您詢問 [使用者名稱] 和 [密碼] 的視窗。這不是您的 Azure 認證，請輸入要用於新伺服器之系統管理員認證的使用者名稱和密碼。
 
@@ -81,7 +79,7 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 
 建立可存取伺服器的防火牆規則。執行以下命令，用對您電腦有效的值，取代開頭和結尾 IP 位址。
 
-	New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
+	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
 成功建立防火牆規則後，會出現規則詳細資料。
 
@@ -97,7 +95,7 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 下列命令會在具有 S1 效能層級的標準服務層建立新的 (空白) SQL Database︰
 
 
-	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
 
 
 成功建立資料庫後，會出現資料庫詳細資料。
@@ -119,16 +117,16 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
     $DatabasePerfomanceLevel = "S1"
     
     
-    Add-AzureRMAccount
-    Select-AzureRMSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
     
-    $ResourceGroup = New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
+    $ResourceGroup = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
     
-    $Server = New-AzureRMSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
+    $Server = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
     
-    $FirewallRule = New-AzureRMSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
+    $FirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
     
-    $SqlDatabase = New-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
+    $SqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
     
     $SqlDatabase
     
@@ -144,4 +142,4 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRM
 
 - [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

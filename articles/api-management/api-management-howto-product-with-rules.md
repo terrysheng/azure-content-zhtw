@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # 使用 Azure API 管理以頻率限制保護 API
@@ -28,7 +28,7 @@
 
 在本步驟中，您將建立不需核准訂閱的免費試用產品。
 
-若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [管理]。這會帶您前往 API 管理發佈者入口網站。
+若要開始，請在 Azure 傳統入口網站中，按一下您的 API 管理服務中的 [管理]。這會帶您前往 API 管理發行者入口網站。
 
 ![發佈者入口網站][api-management-management-console]
 
@@ -292,4 +292,4 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 [限制呼叫費率]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [設定使用量配額]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

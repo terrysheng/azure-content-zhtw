@@ -3,8 +3,8 @@
 	description="了解如何在 Azure 傳統入口網站中建立、管理或刪除儲存體帳戶。"
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # 關於 Azure 儲存體帳戶
@@ -172,4 +172,4 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 - 若要深入了解 Azure 儲存體，請參閱 [Azure.com](http://azure.microsoft.com/documentation/services/storage/) 的 Azure 儲存體文件。
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -143,7 +143,7 @@
 
     此程式碼會從 WNS 中擷取應用程式的通道 URI，然後向您的通知中樞註冊該通道 URI。
 
-    >[AZURE.NOTE]請一定要使用出現在入口網站 [**通知中心**] 索引標籤上的通知中心名稱，來取代 "hub name" 預留位置 (例如，上一個範例中的 **mynotificationhub2**)：另請使用在上一節中取得的 **DefaultListenSharedAccessSignature** 連線字串，來取代連線字串預留位置。
+    >[AZURE.NOTE]請務必使用出現在 [Azure 傳統入口網站] 的 [通知中樞] 索引標籤上的通知中樞名稱，來取代 "hub name" 預留位置 (例如，上一個範例中的 **mynotificationhub2**)：另請使用在上一節中取得的 **DefaultListenSharedAccessSignature** 連線字串，來取代連線字串預留位置。
 
 5. 在 App.xaml.cs 中的 **OnLaunched** 事件處理常式頂端，將下列呼叫新增至新 **InitNotificationsAsync** 方法：
 
@@ -171,7 +171,7 @@
 
 ##傳送通知 
 
-在 Azure 入口網站中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在 app 中測試通知的接收。
+在 [Azure 傳統入口網站]中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在應用程式中測試通知的接收。
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -228,7 +228,7 @@
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	請務必使用出現在入口網站 [通知中心] 索引標籤上的通知中心名稱，來取代 "hub name" 預留位置。此外，請將連接字串預留位置取代為您在＜設定通知中樞＞一節中取得，且名為 **DefaultFullSharedAccessSignature** 的連接字串。
+   	請務必使用出現在 [Azure 傳統入口網站] 的 [通知中樞] 索引標籤上的通知中樞名稱，來取代 "hub name" 預留位置。此外，請將連接字串預留位置取代為您在＜設定通知中樞＞一節中取得，且名為 **DefaultFullSharedAccessSignature** 的連接字串。
 
 	>[AZURE.NOTE]請確定您使用的連接字串具有 [完整] 存取權，而非 [接聽] 存取權。接聽存取權的字串沒有傳送通知的權限。
 
@@ -273,7 +273,7 @@
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Azure portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -283,4 +283,4 @@
 [磚目錄]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [徽章概觀]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

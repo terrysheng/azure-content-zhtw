@@ -66,7 +66,7 @@
 
 ##<a id="configure-hub"></a>設定通知中樞
 
-1. 登入 [Azure 入口網站]，並按一下畫面左下方的 [+新增]。
+1. 登入 [Azure 傳統入口網站]，並按一下畫面左下方的 [+新增]。
 
 2. 按一下 [應用程式服務] > [服務匯流排] > [通知中樞] > [快速建立]。為您的通知中心輸入名稱、選取所需的區域，然後按一下 [Create a new Notification Hub]。
 
@@ -368,20 +368,10 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 		  }
 		}
 
-	上述指令碼有下列的輸出：
-	- *window.onload* 定義 UI 上兩個按鈕的按鈕點擊事件 - 一個按鈕向 GCM 註冊，另一個在向 GCM 註冊後使用傳回的註冊識別碼向 Azure 通知中樞註冊。
-	- *updateLog* 函數會定義簡單的記錄函數。
-	- *registerWithGCM* 是第一個按鈕點擊處理常式，可向 GCM 進行 *chrome.gcm.register* 呼叫，以註冊此 Chrome 應用程式執行個體。
-	- *registerCallback* 是回呼函數，會在上述 GCM 註冊呼叫傳回時受到呼叫。
-	- *registerWithNH* 是第二個按鈕點擊處理常式，會向通知中樞進行註冊。它會取得使用者已指定的 *hubName* 和 *connectionString* 並製作通知中樞註冊 REST API 呼叫。
-	- *splitConnectionString* 和 *generateSaSToken* 都是建立 SaS 權杖的 Javascript 實作，必須在所有的 REST API 呼叫中傳送。相關資訊請見 - 如需詳細資訊，請參閱 [般概念](http://msdn.microsoft.com/library/dn495627.aspx) 
-	- *sendNHRegistrationRequest* 是發出 HTTP REST 呼叫的函數。
-	- *registrationPayload* 會定義註冊 xml 裝載。相關資訊請見 - [建立註冊 NH REST API]。我們會以接收自 GCM 的項目來更新其中的註冊識別碼。
-	- *client* 是我們用來發出 HTTP POST 要求的 *XMLHttpRequest* 執行個體。請注意，我們會使用 sasToken 更新 *Authorization* 標頭。成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
+	上述指令碼有以下輸出：- *window.onload* 會在 UI 上定義兩個按鈕的按鈕點擊事件。一個按鈕會向 GCM 註冊，另一個在向 GCM 註冊後會使用傳回的註冊識別碼向 Azure 通知中樞註冊。- *updateLog* 函數會定義簡單的記錄函數。- *registerWithGCM* 是第一個按鈕點擊處理常式，可向 GCM 進行 **chrome.gcm.register** 呼叫，以註冊此 Chrome 應用程式執行個體。- *registerCallback* 是回呼函數，會在上述 GCM 註冊呼叫傳回時受到呼叫。- *registerWithNH* 是第二個按鈕點擊處理常式，會向通知中樞註冊。它會取得 **hubName** 和 **connectionString** (使用者已指定) 並製作通知中樞註冊 REST API 呼叫。- *splitConnectionString* 和 *generateSaSToken* 都是建立 SaS 權杖的 Javascript 實作，必須在所有的 REST API 呼叫中傳送。如需詳細資訊，請參閱[常用概念](http://msdn.microsoft.com/library/dn495627.aspx)。- *sendNHRegistrationRequest* 函數會進行 HTTP REST 呼叫。- *registrationPayload* 會定義註冊 XML 承載。如需詳細資訊，請參閱[建立註冊 NH REST API]。我們會以接收自 GCM 的項目來更新其中的註冊識別碼。- *client* 是我們用來發出 HTTP POST 要求的 **XMLHttpRequest** 執行個體。請注意，我們會使用 **sasToken** 更新 **Authorization** 標頭。成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
 
 
-您應該會在結尾處看見下列資料夾檢視：
-   	![][21]
+您應該會在結尾處看見下列資料夾檢視：![][21]
 
 ###設定和測試 Chrome 應用程式
 
@@ -401,7 +391,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 
    	![][19]
 
-5. 輸入您先前從 Azure 入口網站取得的 [通知中樞名稱] 和 [DefaultListenSharedAccessSignature]，然後按一下 [向 Azure 通知中樞註冊]。您必須看見 **Notification Hub Registration succesful!** 訊息和註冊回應的詳細資料，其中包含 Azure 通知中樞註冊識別碼。
+5. 輸入您先前從 Azure 傳統入口網站取得的 [通知中樞名稱] 和 [DefaultListenSharedAccessSignature]，然後按一下 [向 Azure 通知中樞註冊]。您必須看見 **Notification Hub Registration succesful!** 訊息和註冊回應的詳細資料，其中包含 Azure 通知中樞註冊識別碼。
 
    	![][20]
 
@@ -481,7 +471,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 <!-- URLs. -->
 [Chrome 應用程式通知中樞範例]: http://google.com
 [Google 雲端主控台]: http://cloud.google.com/console
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [通知中樞概觀]: http://msdn.microsoft.com/library/jj927170.aspx
 [Chrome 應用程式概觀]: https://developer.chrome.com/apps/about_apps
 [Chrome 應用程式 GCM 範例]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
@@ -494,4 +484,4 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 [Azure 通知中樞通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 通知中樞即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

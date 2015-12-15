@@ -1,6 +1,6 @@
 
 
-1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com/)，並按一下畫面底部的 [+新增]。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，並按一下畫面底部的 [+新增]。
 
 2. 依序按一下 [App Services]、[服務匯流排]、[Notification Hub]、[快速建立]。
 
@@ -25,4 +25,4 @@
 
 	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

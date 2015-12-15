@@ -3,8 +3,8 @@
 	description="在 Azure 入口網站中建立新的儲存體帳戶、管理存取金鑰，或刪除儲存體帳戶。"
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # 關於 Azure 儲存體帳戶
@@ -59,7 +59,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 - 檔案服務：http://*mystorageaccount*.file.core.windows.net
 
-用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。例如，Blob 位址的格式可能如下：http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob* 。
+用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。例如，Blob 位址的格式可能如下：http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*。
 
 您也可以設定與儲存體帳戶搭配使用的自訂網域名稱。如需詳細資訊，請參閱[針對 Azure 儲存體帳戶中的 Blob 資料設定自訂網域名稱](storage-custom-domain-name.md)。
 
@@ -138,4 +138,4 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 - 若要深入了解 Azure 儲存體，請參閱 [Azure.com](http://azure.microsoft.com/documentation/services/storage/) 的 Azure 儲存體文件。
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

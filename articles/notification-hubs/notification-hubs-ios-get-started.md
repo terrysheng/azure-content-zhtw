@@ -157,7 +157,7 @@
 ## 傳送通知
 
 
-在 Azure 入口網站中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在 app 中測試通知的接收。
+在 [Azure 傳統入口網站]中透過通知中樞上的偵錯索引標籤 (如下列螢幕畫面所示) 來傳送通知，即可在應用程式中測試通知的接收。
 
 ![][30]
 
@@ -433,7 +433,7 @@
 11. 建置專案並確認一切正確無誤。
 
 
-> [AZURE.NOTE]如果您在 Xcode7 中遇到有關 Bitcode 支援的建置錯誤，您應該在 Xcode 中將 [建置設定] -> [啟用 Bitcode] \(ENABLE\_BITCODE) 變更為 'NO'。通知中樞 SDK 目前不支援 Bitcode。
+> [AZURE.NOTE]如果您在 Xcode7 中遇到有關 Bitcode 支援的建置錯誤，您應該在 Xcode 中將 [建置設定] -> [啟用 Bitcode] (ENABLE\_BITCODE) 變更為 'NO'。通知中樞 SDK 目前不支援 Bitcode。
 
 您可以在 Apple [本機和推播通知程式設計指南]中找到所有可能的通知承載。
 
@@ -446,7 +446,7 @@
 
 	![][33]
 
-2. 您可以從 Azure 入口網站傳送測試通知。如果您已在 App 中加入傳送通知的程式碼，在文字欄位中觸控以輸入通知訊息。接著，按下鍵盤上的 [傳送] 按鈕或檢視中的 [傳送通知] 按鈕，以傳送通知訊息。
+2. 您可以從 [Azure 傳統入口網站]傳送測試通知。如果您已在 App 中加入傳送通知的程式碼，在文字欄位中觸控以輸入通知訊息。接著，按下鍵盤上的 [傳送] 按鈕或檢視中的 [傳送通知] 按鈕，以傳送通知訊息。
 
 	![][34]
 
@@ -493,7 +493,7 @@
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure portal]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -504,4 +504,4 @@
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

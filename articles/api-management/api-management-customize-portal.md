@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # 在 Azure API 管理中自訂開發人員入口網站
@@ -24,7 +24,7 @@
 
 入口網站自訂的一個主要層面，便是將所有頁面頂端的文字以您的公司名稱或標誌取代。
 
-開發人員入口網站內的內容，是透過經 Azure 入口網站存取的發行者入口網站加以修改。若要存取 API 發行者入口網站，請在 Azure 入口網站中，針對您的 API 管理服務按一下 [管理]。
+開發人員入口網站內的內容，是透過經 Azure 傳統入口網站存取的發佈者入口網站加以修改。若要存取 API 發佈者入口網站，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。
 
 ![發行者入口網站][api-management-management-console]
 
@@ -85,7 +85,7 @@
 [Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -99,4 +99,4 @@
 [啟動程序]: http://getbootstrap.com/
 [變數較少]: http://getbootstrap.com/css/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

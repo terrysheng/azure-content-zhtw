@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/02/2015"
+	ms.date="12/08/2015"
 	ms.author="spelluru"/>
 
 # 使用 Azure PowerShell 建置您的第一個 Azure Data Factory 管線
@@ -30,33 +30,40 @@
 2.	建立連結服務 (資料存放區、運算) 和資料集。
 3.	建立管線。
 
-本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)一文。
+> [AZURE.IMPORTANT]本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)。
+> 
+> 這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考](https://msdn.microsoft.com/library/dn820234.aspx)。
 
-> [AZURE.IMPORTANT]執行本教學課程之前，請先閱讀[教學課程概觀](data-factory-build-your-first-pipeline.md)一文並完成必要條件步驟。
->   
-> 這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
->    
-> 如果您使用 Azure PowerShell 1.0 Preview，您必須使用[這裡](https://msdn.microsoft.com/library/dn820234.aspx)所記載的 Cmdlet。例如，使用 New-AzureRMDataFactory，而非使用 New-AzureDataFactory。
+## 必要條件
+除了「教學課程概觀」主題中所列的必要條件，您還需要安裝下列項目：
+
+- **Azure PowerShell** (英文)。按照[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 一文中的指示操作，在您的電腦上安裝最新版的 Azure PowerShell。 
+
+若您使用**版本 < 1.0** 的 Azure PowerShell，您必須使用[這裡][cmdlet-reference]所記載的 Cmdlet。您也必須在使用 Data Factory Cmdlet 之前，先執行下列命令：
+ 
+1. 開啟 Azure PowerShell 並執行下列命令。將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果您關閉並重新開啟，則需要再次執行這些命令。
+	1. 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。
+	2. 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
+	3. 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
+4. 切換至 AzureResourceManager 模式，因為 Azure Data Factory Cmdlet 可在此模式中使用：**Switch-AzureMode AzureResourceManager**。
+
 
 ## 步驟 1：建立 Data Factory
 
 在此步驟中，您會使用 Azure PowerShell 建立名為 ADFTutorialDataFactoryPSH 的 Azure Data Factory。
 
 1. 開啟 Azure PowerShell 並執行下列命令。將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果您關閉並重新開啟，則需要再次執行這些命令。
-	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
+	- 執行 **Login-AzureRmAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
 	- 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
-	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
-2. 切換至 AzureResourceManager 模式，因為 Azure Data Factory Cmdlet 在此模式中可供使用。
+	- 執行 **Select-AzureSubscription <Name of the subscription>** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
+3. 執行以下命令，建立名為 **ADFTutorialResourceGroup** 的 Azure 資源群組。
 
-		Switch-AzureMode AzureResourceManager
-3. 執行以下命令，建立名為「ADFTutorialResourceGroup」的 Azure 資源群組。
-
-		New-AzureResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
 	本教學課程的某些步驟假設您使用名為 ADFTutorialResourceGroup 的資源群組。如果使用不同的資源群組，您必須以該群組取代本教學課程中的 ADFTutorialResourceGroup。
-4. 執行 **New-AzureDataFactory** Cmdlet，建立名為 DataFactoryMyFirstPipelinePSH 的 Data Factory。  
+4. 執行 **New-AzureRmDataFactory** Cmdlet，建立名為 DataFactoryMyFirstPipelinePSH 的 Data Factory。  
 
-		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
+		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
 
 	> [AZURE.IMPORTANT]Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：「Data Factory 名稱 “DataFactoryMyFirstPipelinePSH” 無法使用」，請變更名稱 (例如 yournameADFTutorialDataFactoryPSH)。執行本教學課程中的步驟時，請使用此名稱來取代 ADFTutorialFactoryPSH。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
 	> 
@@ -84,19 +91,19 @@
 	使用您的 Azure 儲存體帳戶名稱取代**帳戶名稱**，並使用 Azure 儲存體帳戶的存取金鑰取代**帳戶金鑰**。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)。
 
 2.	在 Azure PowerShell 中，切換到 ADFGetStartedPSH 資料夾。
-3.	您可以使用 **New-AzureDataFactoryLinkedService** Cmdlet 建立連結服務。此 Cmdlet 和您在本教學課程中使用的其他 Data Factory Cmdlet，皆需要您將值傳給 *ResourceGroupName* 和 *DataFactoryName* 參數。或者，您可以使用 **Get-AzureDataFactory** 取得 **DataFactory** 物件，並傳遞此物件，就不需要在每次執行 Cmdlet 時輸入「ResourceGroupName」和「DataFactoryName」。執行以下命令，將 **Get-AzureDataFactory** Cmdlet 的輸出指派給 **$df** 變數。
+3.	您可以使用 **New-AzureRmDataFactoryLinkedService** Cmdlet 建立連結服務。此 Cmdlet 和您在本教學課程中使用的其他 Data Factory Cmdlet，皆需要您將值傳給 *ResourceGroupName* 和 *DataFactoryName* 參數。或者，您可以使用 **Get-AzureRmDataFactory** 取得 **DataFactory** 物件，並傳遞此物件，就不需要在每次執行 Cmdlet 時輸入 ResourceGroupName 和 DataFactoryName。執行以下命令，將 **Get-AzureRmDataFactory** Cmdlet 的輸出指派給 **$df** 變數。
 
-		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
-4.	現在，執行 **New-AzureDataFactoryLinkedService** Cmdlet 建立連結的 **StorageLinkedService** 服務。
+4.	現在，執行 **New-AzureRmDataFactoryLinkedService** Cmdlet 建立連結的 **StorageLinkedService** 服務。
 
-		New-AzureDataFactoryLinkedService $df -File .\StorageLinkedService.json
+		New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
-	如果您還沒執行 **Get-AzureDataFactory** Cmdlet 和指派輸出給 **$df** 變數，您就必須指定「ResourceGroupName」 和「DataFactoryName」參數的值，如下所示。
+	如果您還沒執行 **Get-AzureRmDataFactory** Cmdlet 和指派輸出給 **$df** 變數，您就必須指定「ResourceGroupName」 和「DataFactoryName」參數的值，如下所示。
 
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
 
-	如果您在教學課程途中關閉 Azure PowerShell，則下次啟動 Azure PowerShell 時必須執行 **Get-AzureDataFactory** Cmdlet，才能完成教學課程。
+	如果您在教學課程途中關閉 Azure PowerShell，則下次啟動 Azure PowerShell 時必須執行 **Get-AzureRmDataFactory** Cmdlet，才能完成教學課程。
 
 ### 建立 Azure HDInsight 連結服務
 現在，您將為用來執行 Hive 指令碼的隨選 HDInsight 叢集建立連結服務。
@@ -125,9 +132,9 @@
 	ClusterSize | 建立一個單一節點的 HDInsight 叢集。
 	TimeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
 	linkedServiceName | 指定將用來儲存 HDInsight 產生之記錄檔的儲存體帳戶
-2. 執行 **New-AzureDataFactoryLinkedService** Cmdlet 建立名為 HDInsightOnDemandLinkedService 的連結服務。
+2. 執行 **New-AzureRmDataFactoryLinkedService** Cmdlet 建立名為 HDInsightOnDemandLinkedService 的連結服務。
 
-		New-AzureDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
+		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 
 ### 建立輸出資料集
@@ -158,7 +165,7 @@
 
 2. 在 Azure PowerShell 中執行以下命令來建立 Data Factory 資料集。
 
-		New-AzureDataFactoryDataset $df -File .\OutputTable.json
+		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
 ## 步驟 3：建立您的第一個管線
 在此步驟中，您將建立您的第一個管線。
@@ -210,19 +217,19 @@
 	在活動 JSON 中，您指定 Hive 指令碼在透過連結的服務 – **HDInsightOnDemandLinkedService** 所指定的電腦上執行。
 2. 執行以下命令建立 Data Factory 資料表。
 
-		New-AzureDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
+		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. 恭喜，您已經成功使用 Azure PowerShell 建立您的第一個管線！
 
 ### <a name="MonitorDataSetsAndPipeline"></a>監視資料集和管線
 在此步驟中，您將使用 Azure PowerShell 來監視 Azure Data Factory 的運作情形。
 
-1.	執行 **Get-AzureDataFactory** 並指派輸出給 **$df** 變數。
+1.	執行 **Get-AzureRmDataFactory** 並指派輸出給 **$df** 變數。
 
-		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
-2.	執行 **Get-AzureDataFactorySlice**，以取得 **EmpSQLTable** (管線的輸出資料表) 所有配量的詳細資料。
+2.	執行 **Get-AzureRmDataFactorySlice**，以取得 **EmpSQLTable** (管線的輸出資料表) 所有配量的詳細資料。
 
-		Get-AzureDataFactorySlice $df -TableName AzureBlobOutput -StartDateTime 2014-01-01
+		Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2014-01-01
 
 	請注意，您在此處指定的 StartDateTime 與在管線 JSON 中指定的開始時間是相同的。您應該會看到如下所示的輸出。
 
@@ -236,9 +243,9 @@
 		LatencyStatus     :
 		LongRetryCount    : 0
 
-3.	執行 **Get-AzureDataFactoryRun**，以取得特定配量的活動執行詳細資料。
+3.	執行 **Get-AzureRmDataFactoryRun**，以取得特定配量的活動執行詳細資料。
 
-		Get-AzureDataFactoryRun $df -TableName AzureBlobOutput -StartDateTime 2014-01-01
+		Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2014-01-01
 
 	您應該會看到如下所示的輸出。
 
@@ -272,4 +279,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

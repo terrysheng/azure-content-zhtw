@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/23/2015"
+	ms.date="12/03/2015"
 	ms.author="sdanie"/>
 
 # 如何搭配使用 Azure Redis 快取與 Java
@@ -29,7 +29,7 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用 Redis 快取。�
 本主題說明如何搭配使用 Azure Redis 快取與 Java。
 
 
-## 先決條件
+## 必要條件
 
 [Jedis](https://github.com/xetorthio/jedis) - Redis 的 Java 用戶端
 
@@ -38,7 +38,7 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用 Redis 快取。�
 
 ## 在 Azure 上建立 Redis 快取
 
-在 [Azure Preview 入口網站](http://go.microsoft.com/fwlink/?LinkId=398536)中，依序按一下 [新增] 和 [資料 + 儲存體]，然後選取 [Redis 快取]。
+在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=398536)中，依序按一下 [新增] 和 [資料 + 儲存體]，然後選取 [Redis 快取]。
 
   ![][1]
 
@@ -47,7 +47,7 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用 Redis 快取。�
   ![][2]
 
 
-建立快取之後，請在 Preview 入口網站中按一下它，以檢視快取設定。按一下 [金鑰] 下方的連結，並複製主要金鑰。您需要有此金鑰才能驗證要求。
+建立快取之後，請在 Azure 入口網站中按一下它，以檢視快取設定。按一下 [金鑰] 下方的連結，並複製主要金鑰。您需要有此金鑰才能驗證要求。
 
   ![][4]
 
@@ -66,7 +66,7 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用 Redis 快取。�
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
 
-	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the preview portal */
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
 	public class App
 	{
 	  public static void main( String[] args )
@@ -93,4 +93,4 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用 Redis 快取。�
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -18,7 +18,7 @@
 
 # App Service API Apps - 變更的項目
 
-在 2015 年 11 月的 Connect () 事件中，有許多改進功能[宣告](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/)至 Azure App Service。這些改進功能包括 API Apps 的基礎變更，以進一步配合行動和 Web Apps、減少概念計數以及改善部署和執行階段效能。從 2015 年 11 月 30 日起，您使用 Azure 管理入口網站或最新的工具建立的新的 API 應用程式將會反映這些變更。本文說明這些變更，以及如何重新部署現有的應用程式，以充分利用功能。
+在 2015 年 11 月的 Connect () 事件中，[宣告](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/)了許多 Azure App Service 的改進功能。這些改進功能包括 API Apps 的基礎變更，以進一步配合行動和 Web Apps、減少概念計數以及改善部署和執行階段效能。從 2015 年 11 月 30 日起，您使用 Azure 管理入口網站或最新的工具建立的新的 API 應用程式將會反映這些變更。本文說明這些變更，以及如何重新部署現有的應用程式，以充分利用功能。
 
 
 > [AZURE.NOTE]API Apps 的初始預覽支援兩種主要案例：1) 自訂 API，以用於 Logic Apps 或您自己的用戶端和 2) Marketplace API (通常是 SaaS 連接器) 以用於 Logic Apps。本文說明第一個案例，自訂 API。對於 Marketplace API，改進的 Logic Apps 設計工具體驗和基本連線基礎將會在 2016 年初引入。現有的 Marketplace API 仍然可以在 Logic Apps 設計工具中使用。
@@ -125,4 +125,4 @@ Logic Apps 設計工具將會在 2016 年初新增與新的 API Apps 模型的�
 - [MSDN 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureAPIApps)
 - [堆疊溢位](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

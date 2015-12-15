@@ -237,7 +237,10 @@
 
     ![Postman Hitting Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-## 摘要
-此時您已使用 Node.js 成功建立並部署第一個 API 應用程式。您可以在這裡將程式碼加入至處理常式，以便在資料庫中或在 API 應用程式執行個體的磁碟上儲存資料。既然您已連接 [連續部署]，變更 API 應用程式功能並加以擴充，就如同變更您的程式碼並推送至 Git 儲存機制一樣容易。
+## 後續步驟
 
-<!---HONumber=AcomDC_1203_2015-->
+此時您已使用 Node.js 成功建立並部署第一個 API 應用程式。API Apps 入門系列中的下一個教學課程示範如何[使用 CORS 從 JavaScript 用戶端取用 API 應用程式](app-service-api-cors-consume-javascript.md)。
+
+為了根據此範例進行建置，您可以將程式碼加入至處理常式，以便在資料庫中或在 API 應用程式執行個體的磁碟上儲存資料。既然您已連接 [連續部署]，變更 API 應用程式功能並加以擴充，就如同變更您的程式碼並推送至 Git 儲存機制一樣容易。
+
+<!---HONumber=AcomDC_1210_2015-->

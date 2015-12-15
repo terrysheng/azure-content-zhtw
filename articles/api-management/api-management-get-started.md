@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # 在 Azure API 管理中管理您的第一個 API
@@ -61,7 +61,7 @@
 
 >[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
 
-使用 API 管理的第一個步驟是建立服務執行個體。登入 [Azure 入口網站][]，然後按一下 [新增] > [應用程式服務] > [API 管理] > [建立]。
+使用 API 管理的第一個步驟是建立服務執行個體。登入 [Azure 傳統入口網站][]，然後按一下 [新增] > [應用程式服務] > [API 管理] > [建立]。
 
 ![API Management new instance][api-management-create-instance-menu]
 
@@ -95,7 +95,7 @@ API 包含可自用戶端應用程式叫用的一組作業。API 作業會代理
 
 >[AZURE.NOTE]如需建立 API 和手動加入作業的指引，請參閱[如何建立 API](api-management-howto-create-apis.md) 和[如何將作業加入至 API](api-management-howto-add-operations.md)。
 
-API 是從發行者入口網站所設定，您可以透過 Azure 入口網站存取此入口網站。若要進入發行者入口網站，可在 Azure 入口網站，針對您的 API 管理服務按一下 [管理]。
+API 是從發佈者入口網站所設定，您可以透過 Azure 傳統入口網站存取此入口網站。若要存取發佈者入口網站，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。
 
 ![發行者入口網站][api-management-management-console]
 
@@ -206,7 +206,7 @@ API 區段有一些索引標籤。[摘要] 索引標籤會顯示 API 的基本�
 [開始使用進階 API 組態]: api-management-get-started-advanced.md
 [API 管理定價]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Azure 入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -243,4 +243,4 @@ API 區段有一些索引標籤。[摘要] 索引標籤會顯示 API 的基本�
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

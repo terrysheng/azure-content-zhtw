@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="12/08/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員概觀
@@ -65,7 +65,7 @@
 
 您不需要在單一的範本中定義整個基礎結構。通常的合理作法是將您的部署需求分成一組有目標及特定目的的範本。您可以輕鬆地將這些份本重複使用於不同的方案。若要部署特定的方案，您會建立連結所有必要範本的主版範本。如需詳細資訊，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)。
 
-您也可以使用範本進行基礎結構的更新。例如，您可以將新的資源新增至您的應用程式，並將組態規則新增至已部署的資源。如果此範本會指定建立新的資源，但該資源已經存在，Azure 資源管理員會執行更新，而不必建立新資產。Azure 資源管理員會將現有資產更新為和新資產相同的狀態。
+您也可以使用範本進行基礎結構的更新。例如，您可以將新的資源新增至您的應用程式，並將組態規則新增至已部署的資源。如果此範本會指定建立新的資源，但該資源已經存在，Azure 資源管理員會執行更新，而不必建立新資產。Azure 資源管理員會將現有資產更新為和新資產相同的狀態。或者，您可以指定資源管理員刪除範本中任何未指定的資源。若要了解部署時的各種選項，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
 您可以指定範本中的參數，以允許部署中的自訂和彈性。例如，您可以傳遞可修改測試環境部署的參數值。藉由指定參數，您可以將相同的部署範本用於所有的應用程式環境。
 
@@ -83,7 +83,7 @@
 
 如需如何建構您的範本的相關指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)。
 
-如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](solution-dev-test-environments-preview-portal.md)。
+如需將您的方案部署到不同的環境的指導，請參閱[在 Microsoft Azure 中開發和測試環境](solution-dev-test-environments-preview-portal.md)。
 
 ## 標記
 
@@ -136,4 +136,4 @@ Azure 資源管理員支援跨原始資源共用 (CORS)。利用 CORS，您可�
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

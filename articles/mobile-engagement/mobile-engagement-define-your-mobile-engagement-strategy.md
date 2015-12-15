@@ -116,8 +116,10 @@
 *使用案例：宣告性資料* 1.區隔警示新聞：收集宣告性資料，根據對象的喜好設定來區隔對象。它允許傳送特定對象真正有興趣的特定主題推送通知。2.根據登入狀態區隔對象。收集資料，以了解使用者是否連線，或是否建立帳戶。協助鎖定尚未登入的使用者，並傳送推播通知以吸引使用者進行轉換。![][2]
 
 ### 後續步驟
+
 - 請瀏覽 [Mobile Engagement 概念]，進一步了解 Mobile Engagement 基本概念。
-- 請瀏覽[最佳作法](mobile-engagement-getting-started-best-practices.md)以取得詳細資料
+- [建立 Azure Mobile Engagement 帳戶](mobile-engagement-create-account.md)。
+- 請瀏覽[最佳作法](mobile-engagement-getting-started-best-practices.md)以取得詳細資料。
 - 請瀏覽[遊戲應用程式案例](mobile-engagement-gaming-scenario.md)來了解如何使用範例遊戲應用程式實作 Mobile Engagement。 
 - 請瀏覽[媒體應用程式案例](mobile-engagement-media-scenario.md)來了解如何使用範例媒體應用程式實作 Mobile Engagement。 
 - 請瀏覽[教學課程] (英文)，進一步了解實作。
@@ -130,4 +132,4 @@
 [Mobile Engagement 概念]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [教學課程]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

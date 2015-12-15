@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="12/05/2015"  
 	ms.author="juliako"/>
 
 # 設定環境
@@ -23,6 +23,8 @@
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
+
+下列步驟說明使用 Azure 媒體服務進行開發時所需的必要條件。
 
 ## 建立媒體服務帳戶
 
@@ -51,4 +53,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

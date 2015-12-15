@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="12/10/2015" 
 	ms.author="billmath"/>
 
 # 開始在雲端中使用 Azure Multi-Factor Authentication
@@ -25,13 +25,13 @@
 既然我們已經決定要在雲端中使用 Multi-Factor Authentication，現在就讓我們開始吧！ 請注意，如果您使用 Multi-Factor Authentication for Office 365 或適用於 Azure 系統管理員的 Multi-Factor Authentication，可以跳到步驟 3。這份文件也說明
 
 
-1. **註冊 Azure 訂用帳戶**
+1. [註冊 Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)
 	- 如果您還沒有 Azure 訂用帳戶，可以免費註冊。如果您剛開始使用，並且正在摸索如何使用 Azure MFA，可以使用試用版訂用帳戶
-2. **建立 Multi-Factor Auth Provider，或將 Azure AD Premium 或 Enterprise Mobility Suite 授權指派給使用者**
+2. [建立 Multi-Factor Auth Provider[，或](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-top-users)將 Azure AD Premium 或 Enterprise Mobility Suite 授權指派給使用者](#creating-an-azure-multi-factor-auth-provider)
 	- 您需要建立 Azure Multi-Factor Auth Provider 並將它指派給目錄，或將授權指派給 Azure AD Premium 或 EMS 使用者。Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 中，因此也隨附於 Enterprise Mobility Suite 中。如果您擁有 Azure AD Premium 或 EMS，不需要建立多因素驗證提供者，而是要為 Azure AD Premium 或 EMS 使用者啟用 MFA。您需要將 Azure AD Premium 或 EMS 授權指派給使用者，系統管理員才可以透過管理入口網站將 MFA 指派給使用者。如需將授權指派給使用者的方式，請參閱後續小節。
-3. **為使用者開啟 Multi-Factor Authentication** 
+3. [為使用者開啟 Multi-Factor Authentication](#turn-on-multi-factor-authentication-for-users)
 	- 透過 Office 365 或 Azure 入口網站為使用者啟用 Azure MFA。如需操作方式的相關資訊，請參閱後續小節。
-4. **傳送電子郵件給使用者，通知他們有關 MFA 的資訊**
+4. [傳送電子郵件給使用者，通知他們有關 MFA 的資訊](#send-email-to-end-users)
 	- 當使用者開啟帳戶的 Multi-Factor Authentication 後，建議您傳送電子郵件給他們，以資通知。系統會提示使用者在下次登入時完成程序，因此這樣能讓他們做好心理準備。如需範例電子郵件範本，請參閱後續小節。
 
 
@@ -46,7 +46,7 @@
 
 1. 以系統管理員身分登入 Azure 入口網站。
 2. 在左側選取 [Active Directory]。
-3. 在 [Active Directory] 頁面頂端，選取 [Multi-Factor Authentication Provider]。接著，在底部按一下 [**新增**]。
+3. 在 [Active Directory] 頁面頂端，選取 [Multi-Factor Authentication Provider]。接著，在底部按一下 [新增]。
 4. 在 [應用程式服務] 下方選取 [作用中的驗證提供者]，然後選取 [快速建立]。
 5. 填寫下列欄位並選取 [建立]。
 	1. 名稱 – 作用中驗證提供者的名稱。
@@ -68,7 +68,7 @@
 
 如果您擁有 Azure AD Premium 或 Enterprise Mobility Suite，便不需要建立 Multi-Factor Auth Provider。您只需要將授權指派給使用者，接著就可以開始為使用者開啟 MFA。
 
-### 指派 Azure AD Premium 或 Enterprise Mobilitiy Suite 授權
+### 指派 Azure AD Premium 或 Enterprise Mobility Suite 授權
 --------------------------------------------------------------------------------
 <ol>
 
@@ -156,4 +156,4 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 ## 後續步驟
 既然您已在雲端設定 Multi-Factor Authentication，接下來可以前往[設定 Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md) 來繼續進行後續步驟。 您將會瞭解有關報告、詐騙警示、自訂語音訊息，以及 Azure Multi-Factor Authentication 提供之所有功能的相關資訊。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

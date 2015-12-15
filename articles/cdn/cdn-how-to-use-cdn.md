@@ -139,6 +139,7 @@ Azure 可讓您使用 HTTPS 呼叫從 CDN 擷取內容。這可讓您將 CDN 中
 
 - [如何啟用 Azure 內容傳遞網路](cdn-create-new-endpoint.md)
 - [Azure 內容傳遞網路 (CDN) 概觀](cdn-overview.md)
+- [清除 Azure CDN 端點](cdn-purge-endpoint.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

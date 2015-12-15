@@ -3,8 +3,8 @@
             description="在雲端中建立檔案共用並管理檔案內容。從 Azure VM 或內部部署應用程式掛接檔案共用。"
             services="storage"
             documentationCenter=".net"
-            authors="tamram"
-            manager="adinah"
+            authors="robinsh"
+            manager="carmonm"
             editor="" />
 
 <tags ms.service="storage"
@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="10/26/2015"
-      ms.author="tamram" />
+      ms.date="12/04/2015"
+      ms.author="robinsh" />
 
 # 如何搭配使用 Azure 檔案儲存體與 Windows
 
@@ -550,4 +550,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

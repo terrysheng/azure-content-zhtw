@@ -15,19 +15,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 
 # Apache Storm 教學課程：在 HDInsight 上使用 Storm Starter 範例開始分析巨量資料
 
 Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運算系統。在 Microsoft Azure HDInsight 的 Storm 中，您可以建立雲端式 Storm 叢集，來執行即時的巨量資料分析。
-
-[AZURE.INCLUDE [入口網站](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Apache Storm 教學課程：在 HDInsight 上使用 Storm Starter 範例開始分析巨量資料](hdinsight-apache-storm-tutorial-get-started-v1.md)
-
-   
 
 > [AZURE.NOTE]本文中的步驟會建立以 Windows 為基礎的 HDInsight 叢集。如需在 HDInsight 叢集上建立以 Linux 為基礎之 Storm 的步驟，請參閱 [Apache Storm 教學課程：在 HDInsight 上藉由資料分析開始使用 Storm Starter 範例](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
@@ -130,7 +124,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 	* **類別名稱**：提交拓撲的 .jar 檔案中的類別。
 	* **其他參數**：拓撲需要的所有參數。在此範例中，此欄位用於讓提交的拓撲有易記名稱。
 
-2. 按一下 [提交]。隨後，[結果] 欄位會顯示用來提交工作的命令，以及該命令的結果。[錯誤] 欄位會顯示提交拓撲時所發生的任何錯誤。
+2. 按一下 [提交]。隨後，[結果] 欄位會顯示用來提交作業的命令，以及該命令的結果。[錯誤] 欄位會顯示提交拓撲時所發生的任何錯誤。
 
 	![Storm Starter WordCount 的提交按鈕和結果。](./media/hdinsight-apache-storm-tutorial-get-started/submit-results.png)
 
@@ -146,7 +140,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 	在上方的頁面中，您會看到拓撲作用中的時間，以及使用的背景工作數、執行程式數和工作數。
 
-	> [AZURE.NOTE] [名稱] 欄含有稍早透過 [其他參數] 欄位提供的易記名稱。
+	> [AZURE.NOTE][名稱] 欄含有稍早透過 [其他參數] 欄位提供的易記名稱。
 
 4. 在 [拓撲摘要] 下，選取 [名稱] 欄中的 [wordcount] 項目。這會顯示拓撲的詳細資訊。
 
@@ -245,4 +239,4 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

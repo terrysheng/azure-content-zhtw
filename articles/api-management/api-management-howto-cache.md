@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # 新增快取以改善 Azure API 管理的效能
@@ -32,7 +32,7 @@
 
 >[AZURE.NOTE]每個「API 管理」服務執行個體皆隨附預先設定的範例 Echo API，可供您試驗與了解「API 管理」。如需詳細資訊，請參閱[開始使用 Azure API 管理][]。
 
-若要開始，請在「API 管理」服務的 Azure 入口網站中按一下 [管理]。這會帶您前往 API 管理發佈者入口網站。
+若要開始，請在 Azure 傳統入口網站中，按一下您的 API 管理服務中的 [管理]。這會帶您前往 API 管理發行者入口網站。
 
 ![發行者入口網站][api-management-management-console]
 
@@ -161,4 +161,4 @@
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

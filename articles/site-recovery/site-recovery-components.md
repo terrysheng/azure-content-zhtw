@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Site Recovery 如何運作？"
+	pageTitle="Site Recovery 如何運作？| Microsoft Azure"
 	description="本文提供 Site Recovery 架構的概觀"
 	services="site-recovery"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="12/07/2015"
 	ms.author="raynew"/>
 
 # Azure Site Recovery 如何運作？
@@ -43,7 +43,7 @@ Site Recovery 可以用在許多案例中，並可保護許多工作負載。
 
 **位置** | **您需要什麼** 
 --- | --- 
- 內部部署 | **處理序伺服器**：此伺服器會在將資料傳送至 Azure 之前，最佳化受保護的 VMware 虛擬機器或實體 Windows/Linux 機器中的資料。它還會處理用來保護機器的行動服務元件的推入安裝，並執行 VMWare 虛擬機器的自動探索。<br/><br/> **VMware vCenter 伺服器**：如果您要保護 VMware VM，則您需要 VMwave vCenter 伺服器管理您的 vSphere hypervisors<br/><br/> **ESX 伺服器**：如果您要保護 VMware VM，則您需要伺服器執行具有最新更新的 ESX/ESXi 版本 5.1 或 5.5。<br/><br/> **機器**：如果您要保護 VMware，您應該安裝並執行 VMware VM 與 VMware 工具。如果您要保護實體機器，它們應該執行支援的 Windows 或 Linux 作業系統。請參閱[支援的項目](site-recovery-vmware-to-azure/#before-you-start)。<br/><br/> **行動服務**：在您想要保護的機器上安裝以擷取變更，並傳送給處理序伺服器。<br/><br/>協力廠商元件：這項部署取決於一些[協力廠商元件](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt)。
+ 內部部署 | **處理序伺服器**：此伺服器會在將資料傳送至 Azure 之前，最佳化受保護的 VMware 虛擬機器或實體 Windows/Linux 機器中的資料。它還會處理用來保護機器的行動服務元件的推入安裝，並執行 VMWare 虛擬機器的自動探索。<br/><br/> **VMware vCenter 伺服器**：如果您要保護 VMware VM，則您需要 VMwave vCenter 伺服器管理您的 vSphere hypervisors<br/><br/> **ESX 伺服器**：如果您要保護 VMware VM，則您需要伺服器執行具有最新更新的 ESX/ESXi 版本 5.1 或 5.5。<br/><br/> **機器**：如果您要保護 VMware，您應該安裝並執行 VMware VM 與 VMware 工具。如果您要保護實體機器，它們應該執行支援的 Windows 或 Linux 作業系統。請參閱[支援的項目](site-recovery-vmware-to-azure.md/#before-you-start)。<br/><br/> **行動服務**：在您想要保護的機器上安裝以擷取變更，並傳送給處理序伺服器。<br/><br/>協力廠商元件：這項部署取決於一些[協力廠商元件](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt)。
 Azure | **設定伺服器**：標準 A3 Azure VM，可在 Azure 中的受保護機器、處理序伺服器與主要目標伺服器之間協調通訊。它會設定容錯移轉發生時的複寫和協調復原。<br/><br/>**主要目標伺服器**：Azure VM 使用在您的 Azure 儲存體帳戶之 Blob 儲存體上所建立的附加 VHD，從受保護機器保留複寫的資料。容錯回復主要目標伺服器會在內部部署執行，讓您可以將 Azure VM 容錯回復至 VMware VM。<br/><br/> **Site Recovery 保存庫**：至少一個 Azure Site Recovery 保存庫 (以 Site Recovery 服務的訂用帳戶設定)<br/><br/> **虛擬網路**：Azure 網路，設定伺服器與主要目標伺服器位於該網路，在與 Site Recovery 服務相同的訂用帳戶和區域中。<br/><br/> **Azure 儲存體**：用來儲存複寫資料的 Azure 儲存體帳戶。應該是標準異地備援或位於與 Site Recovery 訂用帳戶相同區域中的高階帳戶。
 
 
@@ -155,4 +155,4 @@ Azure | **Site Recovery 保存庫**：至少一個 Azure Site Recovery 保存庫
 
 [準備部署](site-recovery-best-practices.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

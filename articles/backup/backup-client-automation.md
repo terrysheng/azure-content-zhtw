@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/20/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # 使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
@@ -48,7 +55,7 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 
 ### 安裝 Azure 備份代理程式
-在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。您可以從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)或從備份保存庫的 [儀表板] 頁面取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\\Downloads*。
+在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。您可以從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)或從備份保存庫的 [儀表板] 頁面取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\\Downloads* 。
 
 若要安裝代理程式，請在已提升權限的 PowerShell 主控台中執行下列命令：
 
@@ -593,4 +600,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 - [Azure 備份的簡介](backup-configure-vault.md)
 - [備份 Windows 伺服器](backup-azure-backup-windows-server.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

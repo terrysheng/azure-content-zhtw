@@ -279,7 +279,9 @@ DataStax 是知名的業界領導者，他們根據 Apache Cassandra™ 來開�
 
 ## Datastax Enterprise 範本結構和檔案組織的導覽
 
-為了讓資源管理員範本的設計更加完善且可重複使用，您必須在部署 DataStax Enterprise 之類的複雜解決方案期間，考慮清楚如何安排一連串複雜但又彼此相關的工作。除了透過相關延伸模組執行指令碼之外，還可以利用 ARM **範本連結**和**資源迴圈**，這樣就能實作模組化方法，而實際上所有以複雜範本為基礎的部署都能重複使用此方法。<!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. --> 下一個圖表將說明在此部署中，從 GitHub 下載的所有檔案彼此間的關係。
+為了讓資源管理員範本的設計更加完善且可重複使用，您必須在部署 DataStax Enterprise 之類的複雜解決方案期間，考慮清楚如何安排一連串複雜但又彼此相關的工作。除了透過相關延伸模組執行指令碼之外，還可以利用 ARM **範本連結**和**資源迴圈**，這樣就能實作模組化方法，而實際上所有以複雜範本為基礎的部署都能重複使用此方法。
+<!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. -->
+下一個圖表將說明在此部署中，從 GitHub 下載的所有檔案彼此間的關係。
 
 ![datastax-enterprise-files](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
@@ -502,4 +504,4 @@ vm-disk-utils-0.1.sh 是 azure-quickstart-tempates github 儲存機制中 shared
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->

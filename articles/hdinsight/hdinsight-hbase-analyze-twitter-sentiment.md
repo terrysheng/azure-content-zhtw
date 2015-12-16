@@ -75,11 +75,11 @@
 
 
 	<table border="1">
-<tr><th>叢集屬性</th><th>說明</th></tr>
-<tr><td>HBase 叢集名稱</td><td>您的 HDInsight HBase 叢集名稱。例如：https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>叢集使用者名稱</td><td>Hadoop 使用者帳戶名稱。預設 Hadoop 使用者名稱為 <strong>admin</strong>。</td></tr>
-<tr><td>叢集使用者密碼</td><td>Hadoop 叢集使用者密碼。</td></tr>
-</table>
+	<tr><th>叢集屬性</th><th>說明</th></tr>
+	<tr><td>HBase 叢集名稱</td><td>您的 HDInsight HBase 叢集名稱。例如：https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>叢集使用者名稱</td><td>Hadoop 使用者帳戶名稱。預設 Hadoop 使用者名稱為 <strong>admin</strong>。</td></tr>
+	<tr><td>叢集使用者密碼</td><td>Hadoop 叢集使用者密碼。</td></tr>
+	</table>
 
 - 安裝 Visual Studio 2013 的**工作站**。如需指示，請參閱[安裝 Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx)。
 
@@ -98,11 +98,13 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 3. 輸入 [名稱]、[描述] 和 [網站]。我們實際上不會用到 [網站] 欄位。因此您不必輸入有效的 URL。下表列出部分要使用的範例值：
 
 	<table border="1">
-<tr><th>欄位</th><th>值</th></tr>
-<tr><td>名稱</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>說明</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>網站</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]Twitter 應用程式名稱必須是唯一的名稱。
+	<tr><th>欄位</th><th>值</th></tr>
+	<tr><td>名稱</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>說明</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>網站</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	</table>
+
+	> [AZURE.NOTE] Twitter 應用程式名稱必須是唯一的名稱。
 
 4. 核取 [Yes, I agree]然後按一下 [Create your Twitter application]。
 5. 按一下 [權限] 索引標籤。預設權限為 [唯讀]。本教學課程使用預設值即可。 
@@ -1355,4 +1357,4 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

@@ -135,7 +135,7 @@
 
 1.	在已登入虛擬機器的情況下，在 Windows 中按一下 [開始]，輸入「具有進階安全性的 Windows 防火牆」，然後按一下 [具有進階安全性的 Windows 防火牆] 圖示。這會開啟 [具有進階安全性的 Windows 防火牆] 管理主控台。
 
-2.	在防火牆管理主控台中，按一下左邊窗格內的 [輸入規則] (如果您沒有看到 [輸入規則]，請展開左邊窗格內的最上層節點)，然後按一下右邊窗格內的 [新增規則]。
+2.	在防火牆管理主控台中，按一下左邊窗格內的 \[輸入規則] (如果您沒有看到 [輸入規則]，請展開左邊窗格內的最上層節點)，然後按一下右邊窗格內的 [新增規則]。
 
 3.	針對 [規則類型]，選取 [連接埠]，然後按一下 [下一步]。
 
@@ -178,7 +178,7 @@
 ##啟用 Oracle Database Enterprise Manager 遠端存取
 如果您想要啟用遠端存取 Oracle Database Enterprise Manager 的功能，可在防火牆中開啟連接埠 5500，並在 Azure 傳統入口網站中針對 5500 建立虛擬機器端點 (使用稍早開啟連接埠 1521 以及針對 1521 建立端點的步驟)。接著，若要從遠端電腦執行 Oracle Enterprise Manager，可在瀏覽器開啟格式為 `http://<<unique_domain_name>>:5500/em` 的 URL。
 
-> [AZURE.NOTE]您可以在 [Azure 傳統入口網站](https://ms.portal.azure.com/)中按一下 [虛擬機器]，然後選取用來執行 Orable 資料庫的虛擬機器，以決定 *<<unique\_domain\_name>>* 的值。
+> [AZURE.NOTE]您可以在 [Azure 傳統入口網站](https://ms.portal.azure.com/)中按一下 [虛擬機器]，然後選取用來執行 Orable 資料庫的虛擬機器，以決定 *\<\<unique\_domain\_name\>\>* 的值。
 
 ##設定常用選項和進階選項套件組合
 如果您選擇 [Oracle Database 包含常用選項] 或 [Oracle Database 包含進階選項套件組合]，則下一個步驟是在您的 Oracle 安裝中設定附加元件功能。由於設定會根據您對於每個個別元件的需求而截然不同，因此，請參閱 Oracle 文件，以取得在 Windows 上設定這些功能的相關指示。
@@ -201,3 +201,4 @@
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
 <!---HONumber=AcomDC_1203_2015-->
+

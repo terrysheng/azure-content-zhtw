@@ -152,4 +152,4 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

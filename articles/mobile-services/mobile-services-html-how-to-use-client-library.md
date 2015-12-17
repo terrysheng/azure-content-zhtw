@@ -504,7 +504,8 @@
 	// Start the sign-in process.
 	authenticate();
 
-這會初始化 Live Connect 用戶端、將新的登入要求傳送至 Microsoft 帳戶、將傳回的驗證權杖傳送至行動服務，然後顯示登入使用者的相關資訊。此應用程式會等到驗證成功後才啟動。<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+這會初始化 Live Connect 用戶端、將新的登入要求傳送至 Microsoft 帳戶、將傳回的驗證權杖傳送至行動服務，然後顯示登入使用者的相關資訊。此應用程式會等到驗證成功後才啟動。
+<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -665,4 +666,4 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

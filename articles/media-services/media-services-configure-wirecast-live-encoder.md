@@ -32,29 +32,30 @@
 ##必要條件
 
 - [建立 Azure 媒體服務帳戶](media-services-create-account.md)
-- 請確定執行的串流端點至少有一個配置的串流單位。如需詳細資訊，請參閱[在媒體服務帳戶中管理串流端點](media-services-manage-origins.md)
-- 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
+- 請確定執行的串流端點至少有一個配置的串流單位。如需詳細資訊，請參閱[在媒體服務帳戶中管理串流端點](media-services-manage-origins.md) 
+- 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。 
 - 啟動工具並連接到您的 AMS 帳戶。
 
 ##秘訣
 
-- 請盡可能使用實體的有線網際網路連線。
-- 判斷頻寬需求的一項法則是將串流位元速率加倍。雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
+- 請盡可能使用實體的有線網際網路連線。 
+- 判斷頻寬需求的一項法則是將串流位元速率加倍。雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。  
 - 使用軟體型編碼器時，請關閉任何不必要的程式。
 
 
 ## 建立通道
 
-1.  在 AMSE 工具中，瀏覽至 [Live] 索引標籤，然後在通道區域內按一下滑鼠右鍵。從功能表選取 [建立通道...]。
+1.  在 AMSE 工具中，瀏覽至 [Live] 索引標籤，然後在通道區域內按一下滑鼠右鍵。從功能表選取 [建立通道...]。  
 
-![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
 2. 指定通道名稱，描述欄位為選填。在 [通道設定] 下，對 [即時編碼] 選項選取 [標準]，並將輸入通訊協定設為 [RTMP]。您可以將所有其他設定保留現狀。
 
 
-請確定已選取 [立即啟動新通道]。
-
-3. 按一下 [建立通道]。![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+	 請確定已選取 [立即啟動新通道]。
+ 
+3. 按一下 [建立通道]。  
+	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 >[AZURE.NOTE]通道約需 20 分鐘的時間即可啟動。
 
@@ -138,7 +139,8 @@
 
 	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
->[AZURE.IMPORTANT]在您按一下 [資料流] 之前，**必須**確保通道已就緒。此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
+>[AZURE.IMPORTANT]在您按一下 [資料流] 之前，**必須**確保通道已就緒。
+>此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
 
 ##測試播放
   
@@ -163,7 +165,7 @@
 	注意：建立程式時所使用的時間會比建立通道時更少。
  
 5. 一旦程式開始執行，請在程式上按一下滑鼠右鍵，並瀏覽至 [播放程式]，然後選取 [使用 Azure 媒體播放器] 確認播放。
-6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 [複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
+6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 \[複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
 
 串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。
 
@@ -180,4 +182,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

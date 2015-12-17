@@ -115,9 +115,7 @@
 5.	瀏覽器對話方塊隨即出現，並詢問「您想開啟或儲存來自 manage.windowsazure.com 的 ComputerName.rdp 嗎？」。 按一下 [開啟]。
 6.	在 [**遠端桌面連線**] 對話方塊中按一下 [**連線**]。
 7.	在 [**Windows 安全性**] 對話方塊中按一下 [**使用其他帳戶**]。
-8.	在 [**使用者名稱**] 中，輸入虛擬機器名稱以及使用該虛擬機器建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。  
-  
-使用下列格式：*ComputerName*\*LocalAdministratorAccountName*
+8.	在 [**使用者名稱**] 中，輸入虛擬機器名稱以及使用該虛擬機器建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。使用下列格式：*ComputerName*\\*LocalAdministratorAccountName*
 9.	在 [**密碼**] 中輸入本機系統管理員帳戶的密碼。
 10.	按一下 [確定]。
 11.	在 [**遠端桌面連線**] 對話方塊中按一下 [**是**]。新機器的桌面會顯示在遠端桌面工作階段視窗中。
@@ -250,4 +248,4 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 
 [Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-------HONumber=AcomDC_1203_2015-->

@@ -42,7 +42,7 @@
 
 ### 啟用 [啟動時保留資料] 屬性
 
-1. 在應用程式專案的捷徑功能表上，選擇 [屬性] (或選擇 **F4** 按鍵)。
+1. 在應用程式專案的捷徑功能表上，選擇 [屬性] \(或選擇 **F4** 按鍵)。
 1. 在 [屬性] 視窗中，將 [啟動時保留資料] 屬性設定為 [是]。
 
 	![設定 [啟動時保留資料] 屬性][preservedata]
@@ -97,4 +97,4 @@
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

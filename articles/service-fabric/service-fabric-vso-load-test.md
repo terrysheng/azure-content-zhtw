@@ -140,4 +140,4 @@ Visual Studio Online 負載測試提供 API，可讓您在 VSO 帳戶中管理�
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=Nov15_HO4--->

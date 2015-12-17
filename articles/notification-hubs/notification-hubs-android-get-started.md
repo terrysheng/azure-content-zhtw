@@ -84,7 +84,7 @@
 1. 從 [Bintray 上之 Notification-Hubs-Android-SDK](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4) 的 [Files] 索引標籤下載 notification-hubs-0.4.jar 檔案。請亦將 [notifications-1.0.1.jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view) 下載至您專案的 **app\\libs** 目錄。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 **libs** 資料夾。
 
 
-    > [AZURE.NOTE]檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
+    >[AZURE.NOTE]檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
 
 2. 設定應用程式以從 GCM 取得註冊 ID，然後使用此值在通知中樞註冊此 app 執行個體。
 
@@ -558,4 +558,4 @@
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

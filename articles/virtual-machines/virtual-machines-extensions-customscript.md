@@ -92,5 +92,5 @@ Windows 的自訂指令碼擴充功能可讓您在遠端 VM 上執行 PowerShell
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
 

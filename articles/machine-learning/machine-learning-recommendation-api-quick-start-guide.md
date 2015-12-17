@@ -84,11 +84,14 @@ Azure Machine Learning 建議 API 的服務根 URI 在[這裡。](https://api.da
 
 | HTTP 方法 | URI |
 |:--------|:--------|
-|POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
+|POST      |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值 |
+|	參數名稱	|	有效值						|
 |:--------			|:--------								|
-|	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：20 | | apiVersion | 1.0 | ||| | 要求主體 | 無 |
+|	modelName	|	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：20 |
+|	apiVersion		| 1.0 |
+|||
+| 要求主體 | 無 |
 
 
 **回應**：
@@ -134,12 +137,15 @@ OData XML
 
 | HTTP 方法 | URI |
 |:--------|:--------|
-|POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值 |
+|	參數名稱	|	有效值						|
 |:--------			|:--------								|
-|	modelId |	模型的唯一識別碼 (區分大小寫) |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 | | apiVersion | 1.0 | ||| | 要求主體 | 目錄資料。格式：<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>項目名稱</td><td>是</td><td>英數字元，最大長度 255</td><td>項目名稱</td></tr><tr><td>項目類別</td><td>是</td><td>英數字元，最大長度 255</td><td>這個項目所屬類別 (例如烹飪書籍、戲劇‧‧‧)</td></tr><tr><td>描述</td><td>否</td><td>英數字元，最大長度 4000</td><td>這個項目的描述</td></tr></table><br>檔案大小上限為 200 MB。<br><br>範例：<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+|	modelId	|	模型的唯一識別碼 (區分大小寫)  |
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 |
+| apiVersion | 1.0 |
+|||
+| 要求主體 | 目錄資料。格式：<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>項目名稱</td><td>是</td><td>英數字元，最大長度 255</td><td>項目名稱</td></tr><tr><td>項目類別</td><td>是</td><td>英數字元，最大長度 255</td><td>這個項目所屬類別 (例如烹飪書籍、戲劇‧‧‧)</td></tr><tr><td>描述</td><td>否</td><td>英數字元，最大長度 4000</td><td>這個項目的描述</td></tr></table><br>檔案大小上限為 200 MB。<br><br>範例：<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **回應**：
@@ -180,12 +186,15 @@ OData XML
 
 | HTTP 方法 | URI |
 |:--------|:--------|
-|POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值 |
+|	參數名稱	|	有效值						|
 |:--------			|:--------								|
-|	modelId |	模型的唯一識別碼 (區分大小寫) |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 | | apiVersion | 1.0 | ||| | 要求主體 | 使用狀況資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>英數字元</td><td>使用者的唯一識別碼</td></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限為 200 MB。<br><br>範例：<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+|	modelId	|	模型的唯一識別碼 (區分大小寫) |
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：50 |
+| apiVersion | 1.0 |
+|||
+| 要求主體 | 使用狀況資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>英數字元</td><td>使用者的唯一識別碼</td></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限為 200 MB。<br><br>範例：<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **回應**：
 
@@ -228,10 +237,11 @@ OData XML
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值 |
+|	參數名稱	|	有效值						|
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
-||| |要求本文| 您要傳送之每個事件的事件資料項目。您應該為相同的使用者或瀏覽器工作階段在 SessionId 欄位中傳送相同的識別碼。(請參閱下面的事件本文範例。)|
+|	apiVersion		| 1\.0 |
+|||
+|要求本文| 您要傳送之每個事件的事件資料項目。您應該為相同的使用者或瀏覽器工作階段在 SessionId 欄位中傳送相同的識別碼。(請參閱下面的事件本文範例。)|
 
 
 - 事件 'Click' 的範例：
@@ -314,14 +324,15 @@ OData XML
 
 | HTTP 方法 | URI |
 |:--------|:--------|
-|POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值 |
+|	參數名稱	|	有效值						|
 |:--------			|:--------								|
-| modelId |	模型的唯一識別碼 (區分大小寫) |
+| modelId |	模型的唯一識別碼 (區分大小寫)  |
 | userDescription | 目錄的文字識別碼。請注意，如果您使用空格，必須將其編碼改成 %20。請參閱上面的範例。<br>最大長度：50 |
 | apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+|||
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -387,15 +398,15 @@ OData XML
 
 | HTTP 方法 | URI |
 |:--------|:--------|
-|GET |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
 
 
 
-|	參數名稱 |	有效值 |
+|	參數名稱	|	有效值						|
 |:--------			|:--------								|
-|	modelId |	模型的唯一識別碼 (區分大小寫) |
-|	onlyLastBuild |	指出是要傳回模型的所有組建歷程記錄，還是只傳回最近一個組建的狀態。 |
-|	apiVersion |	1\.0 |
+|	modelId			|	模型的唯一識別碼 (區分大小寫)	|
+|	onlyLastBuild	|	指出是要傳回模型的所有組建歷程記錄，還是只傳回最近一個組建的狀態。	|
+|	apiVersion		|	1\.0									|
 
 
 **回應**：
@@ -462,11 +473,11 @@ OData XML
 
 | HTTP 方法 | URI |
 |:--------|:--------|
-|GET |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 
 
-|	參數名稱 |	有效值 |
+|	參數名稱	|	有效值						|
 |:--------			|:--------								|
 | modelId | 模型的唯一識別碼 (區分大小寫) |
 | itemIds | 要建議之項目的清單 (以逗號分隔)。<br>最大長度：1024 |
@@ -648,11 +659,12 @@ OData XML
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	參數名稱 |	有效值 |
+|	參數名稱	|	有效值						|
 |:--------			|:--------								|
 | id | 模型的唯一識別碼 (區分大小寫) |
 | apiVersion | 1\.0 |
-||||要求本文 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>請注意，XML 標記說明和 ActiveBuildId 是選擇性的。如果您不想設定 Description 或 ActiveBuildId，請移除整個標記。|
+|||
+|要求本文 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>請注意，XML 標記說明和 ActiveBuildId 是選擇性的。如果您不想設定 Description 或 ActiveBuildId，請移除整個標記。|
 
 **回應**：
 
@@ -673,4 +685,4 @@ OData XML
 這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實的人、事、物。本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。© 2014 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

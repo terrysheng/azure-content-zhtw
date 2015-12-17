@@ -27,7 +27,7 @@
 
   - *Monitored* 升級會自動進行升級和應用程式健康情況檢查。
 
-  - * UnmonitoredAuto* 升級會自動進行升級，但會略過應用程式健康情況檢查。
+  - *UnmonitoredAuto* 升級會自動進行升級，但會略過應用程式健康情況檢查。
 
   - 執行 *Manual* 升級時，您必須手動升級每個升級網域。
 
@@ -90,4 +90,4 @@ Service Fabric 應用程式中的每個服務都可以有自己的健康情況�
 ## 後續步驟
 如需有關部署應用程式的詳細資訊，請參閱[在 Azure Service Fabric 中部署現有的應用程式](service-fabric-deploy-existing-app.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

@@ -29,7 +29,8 @@
 
 > [AZURE.NOTE]彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server.md)。
 
-範例使用的是[適用於 .NET 的 Azure SQL Database 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)。為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
+範例使用的是[適用於 .NET 的 Azure SQL Database 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)。
+為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
 
 「適用於 .NET 的 Azure SQL Database 程式庫」提供 [Azure 資源管理員](resource-group-overview.md)式 API，此 API 包裝了[資源管理員式 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)。此用戶端程式庫遵循資源管理員式用戶端程式庫的常見模式。「資源管理員」需要資源群組，並且使用 [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) 來進行驗證。
 
@@ -86,7 +87,7 @@
 
     ![新增應用程式][8]
 
-7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] (您的程式碼中將需要此用戶端識別碼)。
+7. 完成應用程式建立，按一下 [設定]，然後複製 \[用戶端識別碼] (您的程式碼中將需要此用戶端識別碼)。
 
     ![取得用戶端識別碼][9]
 
@@ -585,4 +586,4 @@
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

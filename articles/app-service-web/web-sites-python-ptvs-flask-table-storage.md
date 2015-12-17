@@ -213,4 +213,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->

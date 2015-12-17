@@ -95,4 +95,4 @@
 [將驗證新增至您的應用程式]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [將推播通知新增至您的應用程式]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

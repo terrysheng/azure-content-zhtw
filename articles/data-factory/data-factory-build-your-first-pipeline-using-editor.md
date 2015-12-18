@@ -155,7 +155,7 @@
 ## 步驟 3：建立您的第一個管線
 在此步驟中，您將建立您的第一個管線。
 
-1. 在 [Data Factory 編輯器] 中，按一下 [**…**] (省略符號)，然後按一下 [新增管線]。
+1. 在 [Data Factory 編輯器] 中，按一下 \[**…**] (省略符號)，然後按一下 [新增管線]。
 	
 	![新增管線按鈕](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. 複製下列程式碼片段並貼到 Draft-1 視窗。

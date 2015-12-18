@@ -1210,4 +1210,4 @@ MPEG DASH 的串流 URL 具有下列格式：
 <!-- URLs. -->
   [Azure 傳統入口網站]: http://manage.windowsazure.com/
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->

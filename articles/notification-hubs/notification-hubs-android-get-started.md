@@ -21,7 +21,8 @@
 
 ##概觀
 
-本教學課程說明如何使用 Azure 通知中樞傳送推播通知到 Android 應用程式。您將建立可使用 Google Cloud Messaging (GCM) 接收推播通知的空白 Android app。完成時，您便能夠使用通知中樞，將推播通知廣播到所有執行您 app 的裝置。
+本教學課程說明如何使用 Azure 通知中樞傳送推播通知到 Android 應用程式。
+您將建立可使用 Google Cloud Messaging (GCM) 接收推播通知的空白 Android app。完成時，您便能夠使用通知中樞，將推播通知廣播到所有執行您 app 的裝置。
 
 本教學課程示範使用通知中樞的簡單廣播案例。請確定依照下一個教學課程的步驟進行，以查看如何使用通知中樞來處理特定使用者和裝置群組。
 
@@ -120,7 +121,7 @@
 
 	請務必更新三個預留位置：
 	* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。
-	* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。
+	* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 傳統入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。
 	* **HubName**：在 Azure 中針對您的中樞顯示在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
 
 
@@ -559,3 +560,5 @@
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
 <!----HONumber=AcomDC_1210_2015-->
+<!----Line 24: Add line break-->
+<!----Line 124: Update the strings to same as line 557 to fix missing hyperlink issue-->

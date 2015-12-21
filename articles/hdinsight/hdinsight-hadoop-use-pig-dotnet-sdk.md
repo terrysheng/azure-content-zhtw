@@ -43,7 +43,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 如需如何執行這項作業的指示，請參閱[建立自我簽署憑證](http://go.microsoft.com/fwlink/?LinkId=511138)。
 
-> [AZURE.NOTE] 建立憑證時，請一定要記下您使用的易記名稱，供稍後使用。
+> [AZURE.NOTE]建立憑證時，請一定要記下您使用的易記名稱，供稍後使用。
 
 ##<a id="subscriptionid"></a>尋找訂閱識別碼
 
@@ -60,9 +60,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 ##<a id="create"></a>建立應用程式
 
 1. 開啟 Visual Studio 2012 或 2013
-
 2. 從 [**檔案**] 功能表中，選取 [**新增**]，然後選取 [**專案**]。
-
 3. 對於新的專案，輸入或選取下列值。
 
 	<table>
@@ -83,11 +81,8 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 <th>SubmitPigJob</th>
 </tr>
 </table>
-
 4. 按一下 [確定] 以建立專案。
-
 5. 從 [**工具**] 功能表中，選取 [**程式庫封裝管理員**] 或 [**Nuget 封裝管理員**]，然後選取 [**封裝管理員主控台**]。
-
 6. 在主控台中執行下列命令，以安裝 .NET SDK 封裝。
 
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
@@ -160,7 +155,6 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
 
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
-[preview-portal]: https://portal.azure.com/
+* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md) [preview-portal]：https://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

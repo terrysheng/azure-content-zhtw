@@ -191,4 +191,4 @@ Azure RBAC 有適用於所有資源類型的三個基本角色：擁有者、參
 
 **誰可以檢視可用於在範圍中指派的自訂角色？** 可以在範圍中執行 `Microsoft.Authorization/roleDefinition/read` 作業的使用者，可以檢視可用於在該範圍中指派的 RBAC 角色。Azure RBAC 中的所有內建角色允許檢視可用於指派的角色。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

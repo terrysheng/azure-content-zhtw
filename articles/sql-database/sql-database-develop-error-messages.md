@@ -224,4 +224,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 一般限制與方針](sql-database-general-limitations.md)
 - [Azure SQL Database 資源限制](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

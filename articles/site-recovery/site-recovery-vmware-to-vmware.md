@@ -130,4 +130,4 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 
 若有任何問題，請造訪 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) (英文)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

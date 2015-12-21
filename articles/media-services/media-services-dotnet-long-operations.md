@@ -195,4 +195,4 @@ Media Services .NET SDK 提供能傳送要求並等候作業完成的 API (API �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

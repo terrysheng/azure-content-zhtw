@@ -231,4 +231,4 @@ Redis 成功的另一個重要層面是建置健全、有活力的開放原始�
 ### 角色中快取
 如果您使用 In-Role Cache 自我裝載，您可以繼續這麼做。因為 In-Role Cache 是一種自我裝載的軟體元件，而不是 Microsoft 託管服務，所以它不提供任何 SLA。In-Role Cache 使用者可以選擇移轉至 Azure Redis 快取，來運用它的豐富功能集並取得 SLA。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

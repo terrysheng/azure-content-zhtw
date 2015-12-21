@@ -69,4 +69,4 @@
 當 *Azure App Service 行動應用程式* 功能公開推出的時候，我們將提供從現有行動服務移轉至 App Service 的順暢體驗 (如果您選擇移轉的話)。在此同時，您即可開始探索 *App Service*，並遵循此 [教學課程](app-service-mobile-migrating-from-mobile-services.md)，將 *App Service* 運用於您現有的行動服務。
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

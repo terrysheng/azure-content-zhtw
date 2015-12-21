@@ -165,4 +165,4 @@ Mobile Apps 開發人員可以使用下列流程來利用通知中樞：
   [Azure 入口網站]: https://portal.azure.com
   [標記]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -403,4 +403,4 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

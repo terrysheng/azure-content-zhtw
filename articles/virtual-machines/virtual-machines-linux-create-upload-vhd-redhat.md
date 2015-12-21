@@ -834,4 +834,4 @@
 ## 後續步驟
 您現在可以開始在 Azure 中使用您的 Red Hat Enterprise Linux.vhd 建立新的 Azure 虛擬機器。如需已通過認證可執行 Red Hat Enterprise Linux 之 Hypervisor 的詳細資訊，請造訪 [Red Hat 網站](https://access.redhat.com/certified-hypervisors)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

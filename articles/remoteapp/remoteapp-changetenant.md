@@ -47,4 +47,4 @@ Azure RemoteApp 使用 Azure Active Directory (Azure AD) 以允許使用者存�
 
 您現在可以使用新的 Azure AD 租用戶來控制 Azure 訂用帳戶的存取權，以及在 Azure RemoteApp 中設定使用者存取權。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

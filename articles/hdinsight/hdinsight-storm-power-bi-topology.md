@@ -83,7 +83,7 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 1. 從 [**方案總管**]，以滑鼠右鍵按一下 **WordCount** 專案，然後選取 [**提交至 Storm on HDInsight**]。從 [**Storm 叢集**] 下拉式清單對話方塊選取 HDInsight 叢集。
 
-    > [AZURE.NOTE] [**Storm 叢集**] 下拉式清單可能需要幾秒鐘的時間來填入伺服器名稱。
+    > [AZURE.NOTE][**Storm 叢集**] 下拉式清單可能需要幾秒鐘的時間來填入伺服器名稱。
     >
     > 如果出現提示，請輸入您 Azure 訂閱的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
@@ -139,4 +139,4 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_1210_2015--->
+<!-------HONumber=AcomDC_1210_2015--->

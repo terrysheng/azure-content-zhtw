@@ -37,4 +37,4 @@
 ## 若要在虛擬 master 資料庫中建立高權限使用者的其他登入
 -使用 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 陳述式，並參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)的「管理登入」一節以獲得詳細資訊。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

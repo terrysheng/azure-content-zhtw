@@ -132,4 +132,4 @@
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure SQL Database Cmdlet](https://msdn.microsoft.com/library/azure/mt163521.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

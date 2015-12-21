@@ -362,4 +362,4 @@ Azure 搜尋服務會對每個文件 (blob) 編制索引，如下所示：
 
 如果您有功能要求或改進的想法，請在我們的 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search)與我們連絡。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

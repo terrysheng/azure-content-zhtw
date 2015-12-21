@@ -96,6 +96,7 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 <td>ValidationRetry</td><td>正在等待重試驗證。</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>驗證進行中。</td>
 </tr>
 <td></td>
@@ -322,7 +323,7 @@ Azure 事件可讓您深入了解 Azure 資源的情況。當建立、更新或�
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -358,7 +359,7 @@ OnDemandClusterDeleted | Succeeded
 #### 部署警示 
 若要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureResourceGroupDeployment**，如下列範例所示：
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 成功完成資源群組部署之後，您會看到下列訊息：
 
@@ -397,7 +398,7 @@ OnDemandClusterDeleted | Succeeded
 
 - 您可以看到按一下 [作業] 磚後所產生的所有事件，而且也可以在 [事件] 刀鋒視窗中針對這些作業設定顯示警示：
 
-![作業](./media/data-factory-monitor-manage-pipelines/operations.png)
+	![作業](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - 如需可用於新增/取得/移除警示的 PowerShell Cmdlet 資訊，請參閱 [Azure Insight Cmdlet](https://msdn.microsoft.com/library/mt282452.aspx) 一文。以下是一些關於使用 **Get AlertRule** Cmdlet 的範例：
@@ -544,9 +545,7 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
  
 以適當的值取代上述範例中的 subscriptionId、resourceGroupName、和 dataFactoryName。
 
-*metricName* 目前支援 2 個值：
-- FailedRuns
-- SuccessfulRuns
+*metricName* 目前支援 2 個值：- FailedRuns - SuccessfulRuns
 
 **部署警示：**
 
@@ -570,4 +569,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

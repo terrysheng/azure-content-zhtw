@@ -157,7 +157,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 資料表儲存體比較便宜，但您在評估任何會使用資料表服務的方案時，均應將容量使用量和交易數目的成本預估同時納入考量。不過，在許多情況下，儲存反正規化或重複的資料以改善方案的效能或延展性，也是可以採行的有效措施。如需有關價格的詳細資訊，請參閱 [Azure 儲存體定價](http://azure.microsoft.com/pricing/details/storage/)。
 
 ### 比較 Azure 資料表和 SQL Azure  
-如需 Azure SQL Database (關聯式資料庫服務) 與表格服務之間的比較，請參閱 MSDN 上的 [Azure 資料表儲存體和 Microsoft Azure SQL Database - 比較和對比](http://msdn.microsoft.com/library/azure/jj553018.aspx)。
+如需 Azure SQL Database (關聯式資料庫服務) 與表格服務之間的比較，請參閱 MSDN 上的 [Azure 資料表儲存體和 Windows Azure SQL Database - 比較和對比](http://msdn.microsoft.com/library/azure/jj553018.aspx)。
 
 ## 資料表設計指導方針  
 這些清單摘要了一些設計資料表時應牢記的重要方針，而本指南稍後將會逐一詳細說明。這些方針與您往常設計關聯式資料庫時遵循的方針非常不同。
@@ -209,18 +209,13 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 
 先前的章節＜[Azure 資料表服務概觀](#azure-table-service-overview)＞說明了某些對查詢設計有直接影響的重要 Azure 表格服務功能。這些功能產生了設計資料表服務查詢的一般指導方針。請注意，下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 MSDN 上的[查詢實體](http://msdn.microsoft.com/library/azure/dd179421.aspx)。
 
--	***點查詢***是使用上最有效率的查閱，建議用於高容量查閱或只能容許最低延遲的查閱。這類查詢使用索引尋找個別實體的效率極高，方法是同時指定 **PartitionKey** 和 **RowKey** 值。例如：
-$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
--	次佳的是***範圍查詢***，它使用 **PartitionKey**，並篩選特定範圍的 **RowKey** 值，以傳回多個實體。**PartitionKey** 值會識別特定的分割，而 **RowKey** 值會識別該分割中實體的子集。例如：
-$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
--	再其次是***分割掃描***，它使用 **PartitionKey**，並篩選另一個非索引鍵的，可傳回多個實體。**PartitionKey** 值會識別特定的分割，而屬性值會選取該分割中實體的子集。例如：
-$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
--	***資料表掃描***不包含 **PartitionKey**，且效率極差，因為它會依序在所有組成資料表的分割中搜尋是否有任何相符的實體。無論您的篩選是否使用 **RowKey**，它都會執行資料表掃描。例如：
-$filter=LastName eq 'Jones'  
+-	***點查詢***是使用上最有效率的查閱，建議用於高容量查閱或只能容許最低延遲的查閱。這類查詢使用索引尋找個別實體的效率極高，方法是同時指定 **PartitionKey** 和 **RowKey** 值。例如：$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
+-	次佳的是***範圍查詢***，它使用 **PartitionKey**，並篩選特定範圍的 **RowKey** 值，以傳回多個實體。**PartitionKey** 值會識別特定的分割，而 **RowKey** 值會識別該分割中實體的子集。例如：$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
+-	再其次是***分割掃描***，它使用 **PartitionKey**，並篩選另一個非索引鍵的，可傳回多個實體。**PartitionKey** 值會識別特定的分割，而屬性值會選取該分割中實體的子集。例如：$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
+-	***資料表掃描***不包含 **PartitionKey**，且效率極差，因為它會依序在所有組成資料表的分割中搜尋是否有任何相符的實體。無論您的篩選是否使用 **RowKey**，它都會執行資料表掃描。例如：$filter=LastName eq 'Jones'  
 -	傳回多個實體的查詢，在傳回時會以 **PartitionKey** 和 **RowKey** 順序排序。若要避免重新排序用戶端中的實體，請選擇定義最常見的排序次序的 **RowKey**。  
 
-請注意，使用 "**or**" 指定以 **RowKey** 值為基礎的篩選條件，會產生資料分割掃描且不被當作範圍查詢。因此，您應該避免會使用下列篩選條件的搜尋：例如
-$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')
+請注意，使用 "**or**" 指定以 **RowKey** 值為基礎的篩選條件，會產生資料分割掃描且不被當作範圍查詢。因此，您應該避免會使用下列篩選條件的搜尋：例如 $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')
 
 如需使用儲存體用戶端程式庫執行有效率查詢的用戶端程式碼範例，請參閱：
 
@@ -611,10 +606,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 **EmployeeIDs** 屬性包含姓氏儲存在 **RowKey** 中之員工的員工識別碼清單。
 
-下列步驟概述您在使用第二個選項並且要新增員工時所應遵循的程序。在此範例中，我們會新增在銷售部門中識別碼為 000152、且姓氏為 Jones 的員工：  
-1.	擷取具有 **PartitionKey** 值 "Sales" 和 **RowKey** 值 "Jones" 的索引實體。 儲存此實體的 ETag 以在步驟 2 中使用  
-2. 	建立實體群組交易 (也就是批次作業)，插入新的員工實體 (**PartitionKey** 值 "Sales" 和 **RowKey** 值 "000152")並更新索引實體 (**PartitionKey** 值 "Sales" 和 **RowKey** 值 "Jones")，方法是將新員工識別碼加入 EmployeeIDs 欄位中的清單。如需實體群組交易的詳細資訊，請參閱[實體群組交易](#entity-group-transactions)。 
-3.	如果實體群組交易因為開放式並行存取錯誤而失敗 (其他人剛修改過索引實體)，您就必須從步驟 1 重新執行。
+下列步驟概述您在使用第二個選項並且要新增員工時所應遵循的程序。在此範例中，我們會新增在銷售部門中識別碼為 000152、且姓氏為 Jones 的員工：1。擷取具有 **PartitionKey** 值 "Sales" 和 **RowKey** 值 "Jones" 的索引實體。 儲存此實體的 ETag 以在步驟 2. 2 中使用。建立實體群組交易 (也就是批次作業)，插入新的員工實體 (**PartitionKey** 值 "Sales" 和 **RowKey** 值 "000152")並更新索引實體 (**PartitionKey** 值 "Sales" 和 **RowKey** 值 "Jones")，方法是將新員工識別碼加入 EmployeeIDs 欄位中的清單。如需實體群組交易的詳細資訊，請參閱[實體群組交易](#entity-group-transactions)。3.如果實體群組交易因為開放式並行存取錯誤而失敗 (其他人剛修改過索引實體)，您就必須從步驟 1 重新執行。
 
 如果您使用第二個選項，您可以使用類似的方法來刪除某位員工。變更員工的姓氏會稍微複雜一點，因為您需要執行會更新三個實體的實體群組交易：員工實體、舊姓氏的索引實體，與新姓氏的索引實體。您必須先擷取每個實體才能進行變更，以擷取接著可以用來透過開放式並行存取執行更新的 ETag 值。
 
@@ -636,12 +628,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 #### 問題和考量  
 
-當您決定如何實作此模式時，請考慮下列幾點：  
--	此解決方案至少需要兩個查詢來擷取相符實體：一個用來查詢索引實體以取得 **RowKey** 值清單，然後查詢以擷取清單中的每個實體。  
--	假設個別實體的大小上限為 1 MB，解決方案中的選項 2 和選項 3 會假設任何給定姓氏的員工識別碼清單絕不會大於 1 MB。如果員工識別碼清單的大小可能大於 1 MB，請使用選項 1，並將索引資料儲存在 Blob 儲存體中。
--	如果您使用選項 2 (使用 EGT 處理新增和刪除員工以及變更員工姓氏的作業)，您必須評估交易量是否會接近給定資料分割中的延展性限制。如果會，您應考慮最終一致解決方案 (選項 1 或選項 3)，以使用佇列來處理更新要求，並讓您將索引實體儲存在與員工實體不同的個別資料分割中。  
--	此解決方案中的選項 2 會假設您想要依姓氏在某部門內進行查閱：例如，您要擷取銷售部門中姓氏為 Jones 的員工清單。如果您想要能夠查閱整個組織中姓氏為 Jones 的所有員工，請使用選項 1 或選項 3。  
--	您可以實作以佇列為基礎的解決方案，提供最終一致性 (如需詳細資訊，請參閱[最終一致的交易模式](#eventually-consistent-transactions-pattern))。
+當您決定如何實作此模式時，請考慮下列幾點：- 此解決方案至少需要兩個查詢來擷取相符實體：一個用來查詢索引實體以取得 **RowKey** 值清單，然後查詢以擷取清單中的每個實體。- 假設個別實體的大小上限為 1 MB，解決方案中的選項 2 和選項 3 會假設任何給定姓氏的員工識別碼清單絕不會大於 1 MB。如果員工識別碼清單的大小可能大於 1 MB，請使用選項 1，並將索引資料儲存在 Blob 儲存體中。如果您使用選項 2 (使用 EGT 處理新增和刪除員工以及變更員工姓氏的作業)，您必須評估交易量是否會接近給定資料分割中的延展性限制。如果會，您應考慮最終一致解決方案 (選項 1 或選項 3)，以使用佇列來處理更新要求，並讓您將索引實體儲存在與員工實體不同的個別資料分割中。- 此解決方案中的選項 2 會假設您想要依姓氏在某部門內進行查閱：例如，您要擷取銷售部門中姓氏為 Jones 的員工清單。如果您想要能夠查閱整個組織中姓氏為 Jones 的所有員工，請使用選項 1 或選項 3。-您可以實作以佇列為基礎的解決方案，提供最終一致性 (如需詳細資訊，請參閱[最終一致的交易模式](#eventually-consistent-transactions-pattern))。
 
 #### 使用此模式的時機  
 
@@ -649,11 +636,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 #### 相關的模式和指導方針  
 
-在實作此模式時，下列模式和指導方針也可能有所關聯：  
--	[複合索引鍵模式](#compound-key-pattern)  
--	[最終一致的交易模式](#eventually-consistent-transactions-pattern)  
--	[實體群組交易](#entity-group-transactions)  
--	[使用異質性實體類型](#working-with-heterogeneous-entity-types)  
+在實作此模式時，下列模式和指導方針也可能有所關聯：- [複合索引鍵模式](#compound-key-pattern) - [最終一致的交易模式](#eventually-consistent-transactions-pattern) - [實體群組交易](#entity-group-transactions) - [使用異質性實體類型](#working-with-heterogeneous-entity-types)
 
 ### 去正規化模式  
 
@@ -684,10 +667,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 如果您經常需要查閱相關資訊，請使用此模式。此模式可減少用戶端在擷取其所需資料時必須執行的查詢數目。
 
 #### 相關的模式和指導方針
-在實作此模式時，下列模式和指導方針也可能有所關聯：  
--	[複合索引鍵模式](#compound-key-pattern)  
--	[實體群組交易](#entity-group-transactions)  
--	[使用異質性實體類型](#working-with-heterogeneous-entity-types)
+在實作此模式時，下列模式和指導方針也可能有所關聯：- [複合索引鍵模式](#compound-key-pattern) - [實體群組交易](#entity-group-transactions) - [使用異質性實體類型](#working-with-heterogeneous-entity-types)
 
 ### 複合索引鍵模式  
 
@@ -839,9 +819,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid\_000123') and (RowKey lt
 
 #### 問題和考量  
 
-當您決定如何實作此模式時，請考慮下列幾點：  
--	如果您完整的資料數列並不適用於單一實體 (實體最多可以有 252 個屬性)，請使用替代資料存放區，例如 Blob。  
--	如果您有多個用戶端同時更新實體，您必須使用 **ETag** 實作開放式並行存取。如果您有許多用戶端，則預期應會有激烈的爭用情況。
+當您決定如何實作此模式時，請考慮下列幾點：-如果您完整的資料數列並不適用於單一實體 (實體最多可以有 252 個屬性)，請使用替代資料存放區，例如 Blob。-如果您有多個用戶端同時更新實體，您必須使用 **ETag** 實作開放式並行存取。如果您有許多用戶端，則預期應會有激烈的爭用情況。
 
 #### 使用此模式的時機  
 
@@ -1582,4 +1560,4 @@ Storage Analytics 會在內部緩衝處理記錄訊息，然後定期更新適�
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

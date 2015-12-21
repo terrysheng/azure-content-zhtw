@@ -20,9 +20,7 @@
 
 您已建立一個內建 API 應用程式。接下來呢？
 
-在 Azure 中，每個 API 應用程式都是裝載在 Azure 上的個別網站。因此，您可以輕鬆地查看提出多少要求，以及查看連接器使用多少資料。
-
-您也可以備份 API 應用程式、建立警示、啟用 Tinfoil 安全性，以及加入使用者和角色。
+在 Azure 中，每個 API 應用程式都是裝載在 Azure 上的個別網站。因此，您可以輕鬆地查看提出多少要求，以及查看連接器使用多少資料。您也可以備份 API 應用程式、建立警示、啟用 Tinfoil 安全性，以及加入使用者和角色。
 
 本主題說明一些管理 API 應用程式的不同選項。
 
@@ -55,9 +53,7 @@
 
 	![][apiapphost]
 
-3. 在 [API 應用程式主機] 刀鋒視窗中，選取 [設定]。
-4. 在 [設定] 刀鋒視窗中，選取 [應用程式設定]。
-5. 您的組態值會列在 [應用程式設定] 下： 
+3. 在 [API 應用程式主機] 刀鋒視窗中，選取 [設定]。在 [設定] 刀鋒視窗中，選取 [應用程式設定]。您的組態值會列在 [應用程式設定] 下：
 	
 	![][hostsettings]
 
@@ -68,7 +64,7 @@
 
 ![][hcsetup]
 
-Hybrid Connection Manager 可讓您連線至內部部署系統 (例如 SQL Server 或 SAP)。此混合式連線使用 Azure 服務匯流排連線並控制 Azure 資源與內部部署資源之間的安全性。
+Hybrid Connection Manager 可讓您連線至內部部署系統 (例如 SQL Server 或 SAP)。此混合式連線使用 Azure 服務匯流排連線，並控制 Azure 資源與內部部署資源之間的安全性。
 
 請參閱[在 Azure App Service 中使用混合連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
@@ -136,4 +132,4 @@ API 應用程式使用以角色為基礎的安全性。這些角色會套用至�
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -126,4 +126,4 @@ Azure 資訊安全中心是從 [Azure 入口網站](http://azure.microsoft.com/f
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

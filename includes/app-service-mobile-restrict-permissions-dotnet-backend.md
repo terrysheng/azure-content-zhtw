@@ -22,4 +22,4 @@
 
 	如需詳細資訊，請參閱[做法：存取資料表所需的驗證](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)。若要了解如何從您的網站下載快速入門程式碼專案，請參閱[做法：使用 Git 下載 Node.js 後端快速入門程式碼專案](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

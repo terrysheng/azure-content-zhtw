@@ -138,4 +138,4 @@ Polybase 易於使用，且可讓您透過使用相同的熟悉 T-SQL 命令運�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

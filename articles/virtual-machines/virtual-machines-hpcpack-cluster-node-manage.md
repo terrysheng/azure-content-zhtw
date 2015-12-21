@@ -179,4 +179,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * 如果您需要能根據叢集上目前的工作和任務的工作負載自動增加和縮減 Azure 運算資源的方法，請參閱[在 HPC Pack 叢集中增加和縮減 Azure 運算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

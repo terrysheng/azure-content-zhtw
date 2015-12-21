@@ -46,4 +46,4 @@ Azure RemoteApp 可讓使用者存取集中管理的 Windows 應用程式，這�
 - [Windows Server 2012 R2 原則](https://technet.microsoft.com/library/hh831791.aspx)。
 - [Office 2013 原則](https://technet.microsoft.com/library/cc178969.aspx) (包括[如何自訂 Office 工具列](https://technet.microsoft.com/library/cc179143.aspx))。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

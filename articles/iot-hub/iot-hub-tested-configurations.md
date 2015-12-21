@@ -144,4 +144,4 @@ Azure IoT 程式庫已在下列作業系統平台上測試：
 
 在[這裡](http://azure.com/iotdev)深入了解使用** IoT 裝置的認證**開發解決方案的相關資訊。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

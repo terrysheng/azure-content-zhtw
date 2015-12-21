@@ -709,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [Service Fabric 應用程式生命週期](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

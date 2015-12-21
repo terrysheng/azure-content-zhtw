@@ -480,4 +480,4 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 ## RBAC 主題
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

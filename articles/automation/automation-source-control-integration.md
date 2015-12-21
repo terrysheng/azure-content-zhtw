@@ -158,4 +158,4 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
 如需原始檔控制整合的詳細資訊，請參閱下列資源：- [Azure 自動化：Azure 自動化中的原始檔控制整合](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [選出您最愛的原始檔控制系統](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Azure 自動化：使用 Visual Studio Online 整合 Runbook 原始檔控制](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

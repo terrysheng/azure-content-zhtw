@@ -142,4 +142,4 @@
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

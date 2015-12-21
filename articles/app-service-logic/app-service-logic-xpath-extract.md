@@ -20,7 +20,7 @@
 
 BizTalk XPath 擷取連接器可協助您的應用程式根據指定的 XPath 查閱 XML 內容並從中擷取資料。
 
-##使用 BizTalk XPath 擷取程式
+## 使用 BizTalk XPath 擷取程式
 1. 若要使用 BizTalk Xpath 擷取程式，您必須先建立 BizTalk Xpath 擷取程式 API 應用程式的執行個體。在建立邏輯應用程式時進行內嵌，或從 Azure Marketplace 選取 BizTalk Xpath 擷取程式 API 應用程式，即可完成此作業。
 
 	>[AZURE.NOTE]沒有與 BizTalk Xpath 擷取程式相關聯的組態設定。
@@ -30,12 +30,12 @@ BizTalk XPath 擷取連接器可協助您的應用程式根據指定的 XPath �
 
 5. 選擇 [使用 XPath 擷取]。[使用 XPath 擷取] 會評估指定的輸入 XML 上的輸入 xpath 運算式：![BizTalk XPath 擷取程式輸入][2]
 
-參數|類型|參數說明
+	參數|類型|參數說明
 ---|---|---
 XPath|字串|查詢 xml 內的路徑。
 輸入 Xml|字串|輸入 Xml 內容。
 
-此動作會以字串形式傳回輸出 - 結果。結果包含 Xml 內查詢路徑的值。
+此動作會以字串形式傳回輸出 - 結果。結果包含 XML 內查詢路徑的值。
 
 <!-- References -->
 [1]: ./media/app-service-logic-xpath-extract/ChooseAction.PNG
@@ -44,4 +44,4 @@ XPath|字串|查詢 xml 內的路徑。
 <!-- Links -->
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

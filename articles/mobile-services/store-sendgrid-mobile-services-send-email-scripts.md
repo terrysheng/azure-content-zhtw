@@ -140,4 +140,4 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
 [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

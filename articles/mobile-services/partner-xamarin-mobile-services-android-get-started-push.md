@@ -87,4 +87,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure 行動服務]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

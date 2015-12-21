@@ -58,9 +58,7 @@ PolyBase 技術可讓您查詢和聯結多個來源的資料，且完全使用 T
 
 1. 檢查看看您是否已經有任何資料庫認證。方法是使用 sys.database\_credentials 系統檢視，而不是使用只會顯示伺服器認證的 sys.credentials。
 
-    ```
-    -- 檢查是否有現有的資料庫範圍認證。
-    SELECT * FROM sys.database\_credentials;
+    ``` -- Check for existing database-scoped credentials.SELECT * FROM sys.database\_credentials;
 
 3. 使用 [CREATE CREDENTIAL (Transact-SQL)][] 為您想要存取的每個 Azure 儲存體帳戶建立資料庫範圍認證。在此範例中，IDENTITY 是易記的認證名稱。它不會影響對 Azure 儲存體的驗證。SECRET 是您的 Azure 儲存體帳戶金鑰。
 
@@ -247,7 +245,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## 將資料匯出至 Azure Blob 儲存體
-這一節說明如何將資料從 SQL 資料倉儲匯出至 Azure blob 儲存體。此範例使用 CREATE EXTERNAL TABLE AS SELECT (高效能 TRANSACT-SQL 陳述式) 將資料從所有計算節點平行匯出。
+這一節說明如何將資料從 SQL 資料倉儲匯出至 Azure Blob 儲存體。此範例使用 CREATE EXTERNAL TABLE AS SELECT (高效能 Transact-SQL 陳述式) 將資料從所有計算節點平行匯出。
 
 下列範例會使用 dbo.Weblogs 資料表中的資料行定義和資料從 dbo 建立外部資料表 Weblogs2014。外部資料表定義會儲存在 SQL 資料倉儲中，而 SELECT 陳述式的結果會匯出至資料來源所指定的 blob 容器下的 "/archive/log2014/" 目錄。以指定的文字檔案格式匯出的資料。
 
@@ -359,4 +357,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

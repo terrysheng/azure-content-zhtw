@@ -146,4 +146,4 @@ Azure Marketplace 服務層必須負責監視每個查詢所取用的交易量 (
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

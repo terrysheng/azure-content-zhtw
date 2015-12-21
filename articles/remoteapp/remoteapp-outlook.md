@@ -31,4 +31,4 @@ Azure RemoteApp 支援 Microsoft Outlook O365。深入了解 [Office 在 Azure R
 
 Outlook 2016 有解決方案可以解決這個問題，方法是為 Exchange 2016 上裝載 (或裝載在 Office 365) 上的信箱提供新的線上搜尋體驗。這會對本機快取 (OST) 使用伺服器搜尋結果。在某些案例中，Outlook 可能會改回使用搜尋索引子，但是大部分的搜尋會使用線上模式。如果郵件搜尋是非常重要的案例，則 Azure RemoteApp 的建議是使用 Outlook 2016。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -62,4 +62,4 @@ Azure 服務端點會判斷您的應用程式是否已部署至全域 Azure 平�
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

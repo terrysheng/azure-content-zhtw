@@ -220,4 +220,4 @@
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS 的通知中心作法]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

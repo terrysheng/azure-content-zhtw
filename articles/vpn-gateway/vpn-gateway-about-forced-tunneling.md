@@ -157,4 +157,4 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -110,4 +110,4 @@
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Windows 市集的通知中心作法]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

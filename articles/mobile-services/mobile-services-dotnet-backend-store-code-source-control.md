@@ -10,7 +10,7 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="12/07/2015"
@@ -64,7 +64,7 @@
 
 ##<a name="deploy-scripts"></a>使用 Git 發佈專案
 
-1. 在 Visual Studio 2013 中建立新的 .NET 後端行動服務專案，或將現有的專案移到新的本機儲存機制。  
+1. 在 Visual Studio 2013 中建立新的 .NET 後端行動服務專案，或將現有的專案移到新的本機儲存機制。
 
 	如要快速測試，請下載行動服務快速入門專案並儲存到這個資料夾。
 
@@ -101,7 +101,6 @@
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [開始使用行動服務]: mobile-services-dotnet-backend-ios-get-started.md
-[Azure 管理入口網站]: https://manage.windowsazure.com/
 [如何對 .NET 後端行動服務進行資料模型變更]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

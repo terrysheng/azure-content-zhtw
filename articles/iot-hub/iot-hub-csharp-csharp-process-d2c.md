@@ -98,8 +98,7 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [服務匯流排佇列]: https://azure.microsoft.com/zh-TW/documentation/articles/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Transient Fault Handling]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
-[暫時性錯誤處理]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [IoT 中心指引 - 事件中樞相容性]: iot-hub-guidance.md#eventhubcompatible
 
@@ -110,7 +109,6 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 [使用 IoT 中心傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[處理裝置到雲端訊息]: iot-hub-csharp-csharp-process-d2c.md
 [從裝置上傳檔案]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT 中心概觀]: iot-hub-what-is-iot-hub.md
@@ -121,4 +119,4 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

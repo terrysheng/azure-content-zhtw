@@ -157,4 +157,4 @@ RecoveryManager 類別是[彈性資料庫用戶端程式庫](sql-database-elasti
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

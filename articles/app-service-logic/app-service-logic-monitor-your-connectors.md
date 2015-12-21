@@ -136,4 +136,4 @@ API 應用程式使用以角色為基礎的安全性。這些角色會套用至�
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

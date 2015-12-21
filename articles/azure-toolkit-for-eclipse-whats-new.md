@@ -317,4 +317,4 @@
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

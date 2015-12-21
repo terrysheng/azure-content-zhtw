@@ -402,4 +402,4 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

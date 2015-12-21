@@ -309,4 +309,4 @@ Azure Machine Learning 有不同的模組可以處理各種類型的分類。但
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

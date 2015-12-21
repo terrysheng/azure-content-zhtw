@@ -176,4 +176,4 @@
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

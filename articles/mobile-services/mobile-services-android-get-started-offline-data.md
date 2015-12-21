@@ -224,4 +224,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [行動服務快速啟動教學課程]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

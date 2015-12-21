@@ -520,4 +520,4 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

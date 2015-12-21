@@ -142,4 +142,4 @@ Microsoft Azure BizTalk 服務會定期更新以新增更多特性和功能。�
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

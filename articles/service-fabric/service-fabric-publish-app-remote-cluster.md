@@ -103,4 +103,4 @@ Visual Studio 發佈體驗已針對發佈至遠端叢集 (與您的其中一個 
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
 [4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

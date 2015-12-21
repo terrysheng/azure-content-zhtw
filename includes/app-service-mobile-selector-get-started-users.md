@@ -6,4 +6,4 @@
 - [Xamarin.Forms](../articles/app-service-mobile-xamarin-forms-get-started-users.md)
 - [Xamarin.iOS](../articles/app-service-mobile-xamarin-ios-get-started-users.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

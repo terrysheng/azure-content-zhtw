@@ -106,4 +106,4 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 查看 [Azure Redis 快取的 ASP.NET 輸出快取提供者](cache-asp.net-output-cache-provider.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

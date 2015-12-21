@@ -172,4 +172,4 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

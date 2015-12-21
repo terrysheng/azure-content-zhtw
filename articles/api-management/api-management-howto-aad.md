@@ -228,4 +228,4 @@
 
 [使用 Azure Active Directory 帳戶登入開發人員入口網站]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -215,4 +215,4 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 - [業務續航力概觀](sql-database-business-continuity.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

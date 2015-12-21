@@ -277,4 +277,4 @@ SQL Server Management Studio 中的 [將資料庫部署至 Microsoft Azure Datab
 
 - SQL Server Management Studio。您可以使用各種 Transact-SQL 命令 (例如 **ALTER DATABASE**) 修正 Management Studio 中的問題。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

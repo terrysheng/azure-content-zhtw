@@ -488,4 +488,4 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
 <!-- BLOG LINKS -->
 [該索引鍵的成本為何？]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

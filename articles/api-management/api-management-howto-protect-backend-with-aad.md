@@ -413,4 +413,4 @@ API 是從 API 發佈者入口網站所設定，您可以透過 Azure 傳統入�
 [建立 API 管理服務執行個體]: api-management-get-started.md#create-service-instance
 [管理您的第一個 API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

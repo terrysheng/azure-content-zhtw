@@ -95,4 +95,4 @@ Azure 支援會與您連絡。完成要求需要花費最多 2 個工作天。
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

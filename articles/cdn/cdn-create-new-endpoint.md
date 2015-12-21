@@ -101,4 +101,4 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

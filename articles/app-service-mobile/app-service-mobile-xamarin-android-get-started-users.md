@@ -110,4 +110,4 @@
 [建立 Xamarin.Android 應用程式教學課程]: app-service-mobile-xamarin-android-get-started.md
  
 
-<!---HONumber=AcomDC_1210_2015--->
+<!-------HONumber=AcomDC_1210_2015---->

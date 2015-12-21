@@ -35,4 +35,4 @@
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

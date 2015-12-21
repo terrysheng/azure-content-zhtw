@@ -69,4 +69,4 @@ Eclipse Toolkit 藉由將稱為應用程式要求路由 (ARR) 的特殊 IIS 模�
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

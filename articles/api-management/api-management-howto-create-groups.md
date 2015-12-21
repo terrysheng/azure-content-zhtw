@@ -111,4 +111,4 @@ API 管理具有下列不可變的系統群組。
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
 [使用 Azure Active Directory 相關租用戶中的外部群組]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

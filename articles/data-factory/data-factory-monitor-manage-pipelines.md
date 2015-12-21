@@ -570,4 +570,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

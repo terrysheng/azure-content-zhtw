@@ -145,4 +145,4 @@ SQL DB 中的彈性資料庫交易目前有下列限制：
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

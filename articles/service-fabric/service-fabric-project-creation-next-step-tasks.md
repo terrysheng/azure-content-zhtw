@@ -85,4 +85,4 @@ Service Fabric 可讓您為應用程式中的獨立服務進行獨立的版本�
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

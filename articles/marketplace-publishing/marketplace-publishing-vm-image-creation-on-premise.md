@@ -138,4 +138,4 @@
 - [建立 Marketplace 的虛擬機器映像](marketplace-publishing-vm-image-creation.md)
 - [設定 Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

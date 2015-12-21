@@ -237,4 +237,4 @@ Beeline 也可以用來執行包含 HiveQL 陳述式的檔案。使用下列步�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

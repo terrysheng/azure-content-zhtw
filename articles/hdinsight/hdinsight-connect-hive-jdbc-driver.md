@@ -72,4 +72,4 @@
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

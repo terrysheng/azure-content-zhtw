@@ -55,4 +55,4 @@ Azure RemoteApp 支援來自 Windows Server 2012 R2 映像的資料流 32 位元
 - 您應該針對多使用者、多處理器環境微調和平衡應用程式[執行緒使用量](https://msdn.microsoft.com/library/aa383520.aspx)。
 - 若要最佳化效能，讓應用程式[偵測](https://msdn.microsoft.com/library/aa380798.aspx)它們是否正在用戶端工作階段中執行是個好方法。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

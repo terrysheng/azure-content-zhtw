@@ -88,4 +88,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

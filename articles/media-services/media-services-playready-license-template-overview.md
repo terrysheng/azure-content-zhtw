@@ -311,4 +311,4 @@ XML 符合 PlayReady 授權範本 XML 結構描述，該結構描述是在 PlayR
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

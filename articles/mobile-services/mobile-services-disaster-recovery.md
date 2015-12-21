@@ -114,4 +114,4 @@
 [Azure 服務儀表板]: http://www.windowsazure.com/support/service-dashboard/
 [使用 Azure CLI 來自動化行動服務]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

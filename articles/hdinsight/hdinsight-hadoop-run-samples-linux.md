@@ -236,4 +236,4 @@ GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

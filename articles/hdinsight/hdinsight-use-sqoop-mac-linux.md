@@ -263,4 +263,4 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

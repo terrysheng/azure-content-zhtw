@@ -95,4 +95,4 @@ API 是在發行者入口網站中建立和設定。若要存取發佈者入口�
 [如何建立 API]: api-management-howto-create-apis.md
 [如何設定 API 設定]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

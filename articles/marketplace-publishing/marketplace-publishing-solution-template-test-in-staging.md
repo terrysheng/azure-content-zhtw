@@ -39,4 +39,4 @@
 
 如需所有發行者工作的指南，請參閱[快速入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

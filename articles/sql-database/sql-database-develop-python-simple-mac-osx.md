@@ -123,4 +123,4 @@
 
 如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

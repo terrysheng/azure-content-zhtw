@@ -82,4 +82,4 @@
 <!-- URLs -->
 [Android 快速入門]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!-------HONumber=AcomDC_1210_2015---->

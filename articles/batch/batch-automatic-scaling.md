@@ -646,4 +646,4 @@ string formula = string.Format(@"
         * [Get AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx)：此 PowerShell Cmdlet 會從指定的計算節點取得 RDP 檔案，並將其儲存至指定的檔案位置或串流。
 2.	有些應用程式會產生可能難以處理的大量資料。解決方法之一是透過[有效率的清單查詢](batch-efficient-list-queries.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

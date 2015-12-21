@@ -131,4 +131,4 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 > [AZURE.NOTE]某些 Ambari 功能已停用，因為這些功能是由 HDInsight 雲端服務所管理；例如，在叢集中新增或移除主機，或新增服務。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

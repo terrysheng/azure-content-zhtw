@@ -49,4 +49,4 @@ Azure IoT 中心的主要使用案例之一是從裝置收集遙測。基於這�
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [何謂 Azure IoT 中心？]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

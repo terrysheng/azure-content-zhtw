@@ -117,4 +117,4 @@
 [將廣播通知傳送給訂閱者]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [將範本型通知傳送給訂閱者]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -147,4 +147,4 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

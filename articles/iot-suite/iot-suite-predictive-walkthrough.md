@@ -123,4 +123,4 @@ Web 應用程式中的此頁面會使用 PowerBI JavaScript 控制項 (請參閱
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

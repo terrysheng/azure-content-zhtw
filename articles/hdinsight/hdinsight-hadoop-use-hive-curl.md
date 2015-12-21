@@ -187,4 +187,4 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

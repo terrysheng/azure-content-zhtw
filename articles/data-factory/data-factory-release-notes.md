@@ -357,4 +357,4 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

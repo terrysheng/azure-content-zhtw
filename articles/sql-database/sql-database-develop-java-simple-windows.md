@@ -228,4 +228,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

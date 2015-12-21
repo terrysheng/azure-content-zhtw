@@ -485,4 +485,4 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

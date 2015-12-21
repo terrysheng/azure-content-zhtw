@@ -115,4 +115,4 @@ Azure 流量管理員會在 Azure 傳統入口網站中顯示設定檔和端點�
 [疑難排解 Azure 流量管理員上的已降級狀態](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

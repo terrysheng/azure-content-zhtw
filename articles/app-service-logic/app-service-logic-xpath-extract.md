@@ -44,4 +44,4 @@ XPath|字串|查詢 xml 內的路徑。
 <!-- Links -->
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

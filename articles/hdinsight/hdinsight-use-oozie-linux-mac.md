@@ -721,4 +721,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -28,4 +28,4 @@
 
  >[AZURE.IMPORTANT]> - 所有使用者登入活動報告目前只能透過報告 API 提供。如需詳細資訊，請參閱[開始使用報告 API](active-directory-reporting-api-getting-started.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

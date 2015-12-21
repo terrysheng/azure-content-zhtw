@@ -101,4 +101,4 @@
 
 * [關於 Kerberos 限制委派](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

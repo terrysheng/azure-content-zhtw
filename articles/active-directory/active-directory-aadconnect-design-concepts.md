@@ -68,4 +68,4 @@ sourceAnchor 屬性會區分大小寫。"JohnDoe" 與 "johndoe" 是不同的值�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -277,4 +277,4 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 [App Service 定價]: https://azure.microsoft.com/zh-TW/pricing/details/app-service/
 [.NET 伺服器 SDK 概觀]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

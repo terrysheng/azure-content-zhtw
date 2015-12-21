@@ -102,4 +102,4 @@ IP 位址有兩種配置方法：*動態*或*靜態*。預設配置方法是*動
 
 [範本部署](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

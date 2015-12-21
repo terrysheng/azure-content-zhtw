@@ -393,4 +393,4 @@
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [適用於 .NET 的 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

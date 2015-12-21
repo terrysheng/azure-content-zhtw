@@ -106,4 +106,4 @@
 [開始使用行動服務]: mobile-services-android-get-started.md
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

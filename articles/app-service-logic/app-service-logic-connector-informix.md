@@ -273,4 +273,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

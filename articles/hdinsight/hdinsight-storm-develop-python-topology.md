@@ -345,4 +345,4 @@ __如果要建置 Uberjar 並部署至 HDInsight__，請使用下列步驟：
 * [如何使用 Python 串流處理 MapReduce 工作](hdinsight-hadoop-streaming-python.md)
 * [如何在 Pig 和 Hive 中使用 Python 使用者定義函數 (UDF)](hdinsight-python.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

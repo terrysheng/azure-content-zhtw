@@ -384,4 +384,4 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

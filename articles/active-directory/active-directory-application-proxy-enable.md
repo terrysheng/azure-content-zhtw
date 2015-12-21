@@ -91,4 +91,4 @@ Microsoft Azure Active Directory 應用程式 Proxy 可讓您在私人網路內�
 * [Azure 身分識別](fundamentals-identity.md)
 * [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

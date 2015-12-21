@@ -165,4 +165,4 @@
 [行動服務的離線資料同步]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -285,4 +285,4 @@
 
        在此程式碼中，除了使用 `ProgressFilter` 以外，還要使用 `RefreshTokenCacheFilter`。同時在 `onCreate` 期間，我們也想要載入權杖快取。因此將 `false` 傳入至 `authenticate` 方法。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

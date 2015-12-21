@@ -92,4 +92,4 @@
 | 概觀 | [存取面板簡介](active-directory-saas-access-panel-introduction.md) |
 | 作法 | [Azure Active Directory 存取面板 - EMS](http://blogs.msdn.com/b/haddy_el-haggan_blog/archive/2015/04/02/azure-active-directory-access-panel-ems.aspx) <br><br> [與 Azure Active Directory 整合](active-directory-how-to-integrate.md) |
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

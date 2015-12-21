@@ -351,4 +351,4 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

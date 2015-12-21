@@ -237,4 +237,4 @@ Azure 機器學習中也可存取 [Vowpal Wabbit](https://msdn.microsoft.com/lib
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

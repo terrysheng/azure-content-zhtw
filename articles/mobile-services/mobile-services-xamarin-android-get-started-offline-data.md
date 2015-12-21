@@ -176,4 +176,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [Azure 傳統入口網站]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

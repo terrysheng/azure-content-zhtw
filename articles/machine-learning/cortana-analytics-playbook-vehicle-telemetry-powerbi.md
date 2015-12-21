@@ -390,4 +390,4 @@ Power BI 中將會產生新的資料集。按一下 **ConnectedCarsRealtime** �
 
 恭喜！ 您已成功建立報報和儀表板，可取得車輛健全狀況和駕駛習慣的即時、預測和批次深入分析。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

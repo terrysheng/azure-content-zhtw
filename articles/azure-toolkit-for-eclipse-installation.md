@@ -87,4 +87,4 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

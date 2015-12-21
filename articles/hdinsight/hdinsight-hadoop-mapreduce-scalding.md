@@ -344,4 +344,4 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

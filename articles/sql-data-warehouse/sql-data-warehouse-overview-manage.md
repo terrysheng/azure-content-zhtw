@@ -48,4 +48,4 @@ SSDT 包含的 SQL Server 總管可讓您針對 SQL 資料倉儲資料庫視覺�
 <!--Other web references-->
 [Azure 傳統入口網站]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

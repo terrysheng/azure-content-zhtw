@@ -134,4 +134,4 @@ PNS 認證：當行動應用程式向平台的開發人員入口網站 (例如 A
 [NH - 度量範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [註冊匯出/匯入]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

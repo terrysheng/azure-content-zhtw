@@ -195,4 +195,4 @@ Azure Redis 快取有適用於 ASP.NET 工作階段狀態和頁面輸出快取�
 
 瀏覽 [Azure Redis 快取文件](https://azure.microsoft.com/documentation/services/cache/)中的教學課程、範例、影片及其他資訊。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

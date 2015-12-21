@@ -233,4 +233,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [模擬服務工作負載期間的失敗案例](service-fabric-testability-workload-tests.md)
    - [服務對服務間通訊的失敗案例](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

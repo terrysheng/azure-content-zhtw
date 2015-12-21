@@ -122,4 +122,4 @@ TelephoneNumber | 使用者的電話號碼。
 
 稽核記錄是許多標準規定的必要控制項。對於使用 Azure Active Directory 稽核報告以符合其標準規定的客戶，建議客戶提交一份本說明主題的副本 (連同客戶匯出的稽核報告副本)，協助說明報告的詳細資料。如果稽核人員想要了解 Azure 目前符合的法規，請將稽核人員導向至 Microsoft Azure 信任中心的[規範](http://azure.microsoft.com/support/trust-center/compliance/)頁面。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -452,4 +452,4 @@ FROM	sys.dm_pdw_wait_stats w
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

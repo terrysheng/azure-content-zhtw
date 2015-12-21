@@ -199,4 +199,4 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

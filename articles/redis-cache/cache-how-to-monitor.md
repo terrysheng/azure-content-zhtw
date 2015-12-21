@@ -259,4 +259,4 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

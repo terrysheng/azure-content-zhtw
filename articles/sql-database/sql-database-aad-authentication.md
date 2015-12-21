@@ -332,4 +332,4 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

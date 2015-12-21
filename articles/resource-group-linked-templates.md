@@ -116,4 +116,4 @@
 - [撰寫範本](./resource-group-authoring-templates.md)
 - [部署範本](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

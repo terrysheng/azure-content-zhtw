@@ -252,4 +252,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

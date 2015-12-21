@@ -292,4 +292,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

@@ -107,4 +107,4 @@ Redis 永續性是在 [**Redis 資料永續性**] 刀鋒視窗中所設定。若
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

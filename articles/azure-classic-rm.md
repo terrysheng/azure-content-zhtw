@@ -68,4 +68,4 @@ Azure 有兩個入口網站︰
 - 了解如何[設計範本](/best-practices-resource-manager-design-templates.md)。
 - 使用[最佳作法](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

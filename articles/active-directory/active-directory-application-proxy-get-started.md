@@ -61,4 +61,4 @@ Azure AD 應用程式 Proxy 針對使用整合式 Windows 驗證 (IWA)，或宣�
 * [以組織身分註冊 Azure](../sign-up-organization.md)
 * [Azure 身分識別](../fundamentals-identity.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

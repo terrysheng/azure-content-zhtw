@@ -123,4 +123,4 @@ POST 作業對於所有以計量為基礎的警示將會包含下列 JSON 承載
 
 [使用邏輯應用程式傳送訊息至 Azure 佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

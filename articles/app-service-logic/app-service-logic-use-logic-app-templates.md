@@ -44,4 +44,4 @@ BizTalk VETR (驗證、擷取、轉換、路由) 管線的組態，以及處理 
 選取其中一個範本之後，依照您建立自己的邏輯應用程式的方法完成部署。詳細步驟請參閱[建立邏輯應用程式](app-service-logic-create-a-logic-app.md)。
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

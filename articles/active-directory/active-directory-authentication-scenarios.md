@@ -467,4 +467,4 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

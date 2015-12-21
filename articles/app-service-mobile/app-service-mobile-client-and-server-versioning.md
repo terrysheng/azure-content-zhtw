@@ -142,4 +142,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [將行動服務移轉至 Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

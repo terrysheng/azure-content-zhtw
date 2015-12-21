@@ -138,4 +138,4 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-------HONumber=AcomDC_1210_2015--->

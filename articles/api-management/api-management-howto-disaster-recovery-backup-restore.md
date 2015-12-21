@@ -52,7 +52,7 @@
 
 ![新增權限][api-management-aad-permissions]
 
-按一下新增的 [Windows Azure 服務管理 API] 應用程式旁邊的 [委派權限]，核取 [存取 Azure 服務管理 (預覽)]，然後按一下 [儲存]。
+按一下新增的 [Microsoft Azure 服務管理 API] 應用程式旁邊的 [委派權限]，核取 [存取 Azure 服務管理 (預覽)]，然後按一下 [儲存]。
 
 ![新增權限][api-management-aad-delegated-permissions]
 

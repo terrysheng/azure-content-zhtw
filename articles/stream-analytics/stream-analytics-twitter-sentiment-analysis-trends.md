@@ -84,6 +84,8 @@
 
 3.	按一下左窗格中的 [STREAM ANALYTICS]，以列出 Stream Analytics 工作。
 
+	![Stream Analytics service icon](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+
 4.	新工作會以 [已建立] 的狀態列出。請注意，頁面底部的 [啟動] 按鈕會停用。您必須先設定工作輸入、輸出、查詢等項目，才能啟動工作。
 
 

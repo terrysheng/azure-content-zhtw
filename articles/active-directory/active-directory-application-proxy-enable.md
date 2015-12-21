@@ -58,7 +58,10 @@ Microsoft Azure Active Directory 應用程式 Proxy 可讓您在私人網路內�
 1. 在您準備的伺服器上執行 `AADApplicationProxyConnectorInstaller.exe` (請參閱前述的應用程式 Proxy 必要條件)。
 2. 依照精靈中的指示進行安裝。
 3. 在安裝期間，系統將提示您使用您 Azure AD 租用戶的應用程式 Proxy 註冊連接器。
-<p>- 為您提供 Azure AD 全域管理員認證。<p>- 請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。此外，您要是 Azure AD 租用戶的全域管理員。您的全域系統管理員租用戶可能與 Microsoft Azure 認證不同。<p>- 如果 [IE 增強式安全性設定] 在您要安裝 Azure AD 連接器所在的伺服器上設定為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定 [Internet Explorer 增強式安全性] 已關閉。<p>- 如果連接器註冊不成功，請參閱[疑難排解應用程式 Proxy](active-directory-application-proxy-troubleshoot.md)。
+<p>為您提供 Azure AD 全域管理員認證。
+- 請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。此外，您要是 Azure AD 租用戶的全域管理員。您的全域管理員租用戶可能不同於 Microsoft Azure 認證。
+- 如果 [IE 增強式安全性設定] 在您安裝 Azure AD 連接器所在的伺服器上設為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定 Internet Explorer 增強式安全性已關閉。
+- 如果連接器註冊不成功，請參閱「疑難排解應用程式 Proxy」。
 
 4. 安裝完成後，兩個新的服務會新增到您的伺服器中，如下所示。這些是允許連線的連接器服務，以及可定期檢查連接器新版本，並在需要時更新連接器的自動更新服務。按一下安裝視窗中的 [完成]，以完成安裝 ![應用程式 Proxy 連接器服務！](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
 5. 您現在已經準備好使用應用程式 Proxy 發佈應用程式。

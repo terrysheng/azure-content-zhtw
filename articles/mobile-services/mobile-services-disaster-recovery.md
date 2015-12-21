@@ -28,7 +28,7 @@
 
 為了在發生可用性問題的情況下輕鬆回復，您可以事先預做準備：
 
-+ **備份 Azure 行動服務 SQL Database 中的資料** 行動服務應用程式的資料會儲存在 Azure SQL Database 中。建議您依照＜[Windows Azure SQL Database 的業務續航力]＞中的指示來備份資料。
++ **備份 Azure 行動服務 SQL Database 中的資料** 行動服務應用程式的資料會儲存在 Azure SQL Database 中。建議您依照＜[Microsoft Azure SQL Database 的業務續航力]＞中的指示來備份資料。
 + **備份行動服務指令碼** 建議您將行動服務指令碼儲存在原始檔控制系統中，例如 [Team Foundation Service] 或 [GitHub]，而不要只依賴行動服務本身的複本。您可以透過 Azure 傳統入口網站，使用行動服務[原始檔控制功能]，或[使用 Azure CLI] 下載指令碼。請密切注意 Azure 傳統入口網站中標示為 [預覽] 的功能，因為不保證可復原這些指令碼，您可能需要透過您自己的原始檔控制來源回復原指令碼。
 + **保留次要行動服務** 如果行動服務發生可用性問題，您可能必須將其重新部署到替代的 Azure 區域。為了確保容量可用 (例如在遺失整個區域的罕見情況下)，建議您在替代區域中建立次要行動服務，並將模式設定為與主要服務的模式相同或更高(如果主要服務處於基本模式，您可以將次要服務設為基本或標準。但是如果主要服務為標準，則次要服務也必須是標準)。
 
@@ -79,7 +79,7 @@
 5. 與原始檔控制中的原始版本比較，以確認所有指令碼都已正確回復。在大部分情況下，指令碼會自動回復而不會遺失資料，但如果您發現有不一致之處，則可以手動回復該指令碼。
 
 6. 請確定回復後的服務開始與 Azure SQL Database 進行通訊。回復命令會回復行動服務，但會保留原始資料庫的連線。如果主要 Azure 區域中的問題也影響到資料庫，則已回復的服務可能仍然無法正確執行。您可以利用 Azure 服務儀表板來檢查特定區域的資料庫狀態。如果原始資料庫未執行時，您可以回復它：
-	+ 依照＜[Windows Azure SQL Database 的業務續航力]＞中的說明，將 Azure SQL Database 回復到您剛回復行動服務的 Azure 區域。
+	+ 依照＜[Microsoft Azure SQL Database 的業務續航力]＞中的說明，將 Azure SQL Database 回復到您剛回復行動服務的 Azure 區域。
 	+ 在 Azure 傳統入口網站中，行動服務的 [**設定**] 索引標籤上選擇 [變更資料庫]，然後選取剛復原的資料庫。
 
 7. 您的行動服務現已裝載於不同的實體位置。您將需要更新您的發佈和/或 git 認證，以允許更新您執行中的網站。
@@ -105,7 +105,7 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Windows Azure SQL Database 的業務續航力]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
+[Microsoft Azure SQL Database 的業務續航力]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 [Github]: https://github.com/
 [原始檔控制功能]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/

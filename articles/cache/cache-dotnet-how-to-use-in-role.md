@@ -100,7 +100,7 @@ In-Role Cache 會使用託管 Azure 雲端服務 (又稱託管服務) 中的角�
 
 快取大小由以下幾項共同決定：角色的虛擬機器大小、角色的執行個體計數，以及快取叢集是設定為專用角色還是共置角色快取叢集。
 
->本節提供如何設定快取大小的簡化概觀。如需快取大小和其他容量計劃考量的詳細資訊，請參閱 [Windows Azure 快取服務 (預覽) 容量規劃][]。
+>本節提供如何設定快取大小的簡化概觀。如需快取大小和其他容量計劃考量的詳細資訊，請參閱 [Microsoft Azure 快取服務 (預覽) 容量規劃][]。
 
 若要設定虛擬機器大小和角色執行個體數目，請在 [**方案總管**] 的角色屬性上按一下滑鼠右鍵，然後選擇 [**屬性**]。
 
@@ -120,7 +120,7 @@ VM 大小的記憶體總計如下：
 
 > 這些記憶體大小代表 VM 的可用記憶體總數，並由 OS、快取程序、快取資料和應用程式共用。如需設定虛擬機器大小的詳細資訊，請參閱[設定雲端服務的大小][]。請注意，特大型 VM 大小不支援快取。
 
-指定 [**共置角色**] 快取時，會以虛擬機器記憶體的指定百分比來決定快取大小。指定 [專用角色] 快取時，則會將虛擬機器的所有可用記憶體都用於快取。如果設定兩個角色執行個體，則會使用相加在一起的虛擬機器記憶體。這會構成快取叢集，可用快取記憶體會分配給多個角色執行個體，但以單一資源的樣貌呈現給快取的用戶端們。設定其他角色執行個體會以相同方式增加快取大小。若要決定佈建所需大小之快取的必要設定，您可以使用 [Windows Azure 快取服務 (預覽) 容量規劃][]中所含的容量規劃試算表。
+指定 [**共置角色**] 快取時，會以虛擬機器記憶體的指定百分比來決定快取大小。指定 [專用角色] 快取時，則會將虛擬機器的所有可用記憶體都用於快取。如果設定兩個角色執行個體，則會使用相加在一起的虛擬機器記憶體。這會構成快取叢集，可用快取記憶體會分配給多個角色執行個體，但以單一資源的樣貌呈現給快取的用戶端們。設定其他角色執行個體會以相同方式增加快取大小。若要決定佈建所需大小之快取的必要設定，您可以使用 [Microsoft Azure 快取服務 (預覽) 容量規劃][]中所含的容量規劃試算表。
 
 一旦設定了快取叢集，您可以設定快取用戶端，以允許存取快取。
 
@@ -184,7 +184,7 @@ NuGet 封裝也會將 **ClientDiagnosticLevel** 設定新增至 ServiceConfigura
       </ConfigurationSettings>
     </Role>
 
->角色中快取同時提供快取伺服器和快取用戶端診斷層級。診斷層級為單一設定，用來設定針對快取收集的診斷資訊層級。如需詳細資訊，請參閱[角色中快取疑難排解和診斷 (Windows Azure 快取)][]
+>角色中快取同時提供快取伺服器和快取用戶端診斷層級。診斷層級為單一設定，用來設定針對快取收集的診斷資訊層級。如需詳細資訊，請參閱[角色中快取疑難排解和診斷 (Microsoft Azure 快取)][]
 
 NuGet 套件也會新增下列組件的參考：
 
@@ -313,7 +313,7 @@ NuGet 套件也會新增下列組件的參考：
 
 若要對角色中快取啟用工作階段狀態提供者，請將指定的區段取消註解。預設快取是在提供的片段中指定。若要使用不同快取，請在 **cacheName** 屬性中指定所需的快取。
 
-如需使用快取服務工作階段狀態提供者的詳細資訊，請參閱 [Windows Azure 快取的工作階段狀態提供者][]。
+如需使用快取服務工作階段狀態提供者的詳細資訊，請參閱 [Microsoft Azure 快取的工作階段狀態提供者][]。
 
 <a name="store-page"></a>
 ## 做法：將 ASP.NET 頁面輸出快取儲存在快取中
@@ -343,7 +343,7 @@ NuGet 套件也會新增下列組件的參考：
 
 在此範例中，已快取的頁面資料會留在快取中 60 秒，而且會對每一個參數組合快取不同版本的頁面。如需可用選項的詳細資訊，請參閱 [@ OutputCache][]。
 
-如需對角色中快取使用輸出快取提供者的詳細資訊，請參閱 [Windows Azure Caching 的輸出快取提供者][]。
+如需對角色中快取使用輸出快取提供者的詳細資訊，請參閱 [Microsoft Azure Caching 的輸出快取提供者][]。
 
 <a name="next-steps"></a>
 ## 後續步驟
@@ -392,19 +392,19 @@ NuGet 套件也會新增下列組件的參考：
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[Windows Azure 快取服務 (預覽) 容量規劃]: http://go.microsoft.com/fwlink/?LinkId=252651
+[Microsoft Azure 快取服務 (預覽) 容量規劃]: http://go.microsoft.com/fwlink/?LinkId=252651
 [In-Role Cache 範例]: http://msdn.microsoft.com/library/jj189876.aspx
 [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
 [In-Role Cache]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
 [最大效能：利用 Azure 快取加速雲端服務應用程式]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
 [移轉至 In-Role Cache]: http://msdn.microsoft.com/library/hh914163.aspx
 [NuGet Package Manager 安裝]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Windows Azure Caching 的輸出快取提供者]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
+[Microsoft Azure Caching 的輸出快取提供者]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [@ OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [角色中快取概觀]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Windows Azure 快取的工作階段狀態提供者]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
+[Microsoft Azure 快取的工作階段狀態提供者]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
-[角色中快取疑難排解和診斷 (Windows Azure 快取)]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
+[角色中快取疑難排解和診斷 (Microsoft Azure 快取)]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 

@@ -186,7 +186,7 @@ Azure 即會建立並啟動命名空間。
 
 	Visual Studio 會使用命名空間的相關資訊，來連線至 ACS 管理入口網站，並取得命名空間的設定，包括身分識別提供者、領域及傳回 URL。
 
-8.	選取 [Windows Live ID] (Microsoft 帳戶)，並按一下 [確定]。
+8.	選取 [Windows Live ID] \(Microsoft 帳戶)，並按一下 [確定]。
 
 	![][5]
 
@@ -323,7 +323,7 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
 
 讓我們使用 ACS 管理入口網站來變更 MvcACS 應用程式的驗證。在此範例中，我們將新增 Google 作為 MvcACS 的身分識別提供者。
 
-1.	按一下 [識別提供者] (在導覽功能表中)，然後按一下 [新增]。
+1.	按一下 [識別提供者] \(在導覽功能表中)，然後按一下 [新增]。
 
 	![][13]
 

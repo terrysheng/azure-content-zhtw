@@ -18,7 +18,9 @@
 
 # 將驗證加入 Android 應用程式中
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 摘要
 
@@ -68,4 +70,4 @@
 <!-- URLs. -->
 [開始使用行動應用程式]: app-service-mobile-android-get-started.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!-------HONumber=AcomDC_1210_2015---->

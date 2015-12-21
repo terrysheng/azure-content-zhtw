@@ -1,10 +1,10 @@
-<properties
-	pageTitle="從通用 Windows 應用程式將影像上傳至 Azure Blob 儲存體 | Microsoft Azure"
-	description="了解如何使用 .NET 後端行動服務將影像上傳至 Azure Blob 儲存體，並從通用 Windows 應用程式存取影像。"
-	documentationCenter="windows"
-	authors="ggailey777"
-	services="mobile-services,storage"
-	manager="dwrede"
+<properties 
+	pageTitle="從通用 Windows 應用程式將影像上傳至 Azure Blob 儲存體 | Microsoft Azure" 
+	description="了解如何使用 .NET 後端行動服務將影像上傳至 Azure Blob 儲存體，並從通用 Windows 應用程式存取影像。" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	services="mobile-services,storage" 
+	manager="dwrede" 
 	editor=""/>
 
 
@@ -58,7 +58,7 @@
 + [行動服務 .NET 作法概念性參考](../mobile-services-windows-dotnet-how-to-use-client-library.md)
 
      深入了解如何搭配使用行動服務與 .NET
-
+ 
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="與 Microsoft Azure 應用程式服務中的內部部署 SAP 伺服器整合"
+	pageTitle="與 Azure 應用程式服務中的內部部署 SAP 伺服器整合 | Microsoft Azure"
 	description="了解如何與內部部署 SAP 伺服器整合"
 	authors="rajeshramabathiran"
 	manager="dwrede"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="sameerch"/>
 
 
@@ -40,15 +40,13 @@
 
 
 ## 建立新的 SAP 連接器
-1. 登入 Microsoft Azure 管理入口網站。
+1. 登入 Azure 入口網站。
 2. 選取 [**新增**]。
 3. 在 [建立] 分頁中，依序選取 [**計算**] > [**Azure Marketplace**]。
-4. 在 [Marketplace] 分頁中，選取 [**API 應用程式**]，並在搜尋列中搜尋 SAP：
-
-	![SAP 連接器 API 應用程式][2]
+4. 在 [Marketplace] 刀鋒視窗中，選取 [API 應用程式]，並在搜尋列中搜尋 SAP：![SAP 連接器 API 應用程式][2]
 5. 選取 Microsoft 所發佈的 **SAP 連接器**。
-6. 在 [SAP 連接器] 分頁中，選取 [**建立**]。
-7. 在開啟的新分頁中，輸入下列內容：
+6. 在 [SAP 連接器] 刀鋒視窗中，選取 [**建立**]。
+7. 在開啟的新分頁中，輸入下列內容：  
 	1. **位置** - 選擇您要部署連接器的地理位置
 	2. **訂閱** - 選擇您要建立此連接器的訂閱
 	3. **資源群組** - 選取或建立連接器所在的資源群組
@@ -71,7 +69,7 @@
 
 
 ## 安裝混合式接聽程式
-瀏覽至您透過 [**瀏覽**] > [**API 應用程式**] > [*連接器的名稱*] 所建立的 SAP 連接器
+瀏覽至您建立的 SAP 連接器：[瀏覽] > [API 應用程式] > [連接器的名稱]
 
 在 [連接器] 分頁中，請注意混合式連線的狀態為擱置中。選取 [混合式連線]。[混合式連線] 分頁便會隨即開啟：
 
@@ -93,8 +91,8 @@
 
 ![混合式連線管理員安裝已完成][7]
 
-## 驗證混合式連線
-瀏覽至您透過 [**瀏覽**] > [**API 應用程式**] > [*連接器的名稱*] 所建立的 SAP 連接器
+## 驗證混合式連接
+瀏覽至您建立的 SAP 連接器：[瀏覽] > [API 應用程式] > [連接器的名稱]
 
 在 [連接器] 分頁中，請注意混合式連線狀態為*已連接*：
 
@@ -102,7 +100,7 @@
 
 
 ## 在邏輯應用程式中使用 SAP 連接器
-建立 SAP 連接器之後，它便可以用於邏輯應用程式工作流程中。要這樣做，請透過 [新增] > [邏輯應用程式] > [建立] 來建立新的邏輯應用程式。輸入邏輯應用程式的中繼資料，包括資源群組。
+建立 SAP 連接器之後，它便可以用於邏輯應用程式工作流程中。要這樣做，請透過 [新增] > [Logic Apps] > [建立] 來建立新的邏輯應用程式。輸入邏輯應用程式的中繼資料，包括資源群組。
 
 選取 [觸發程序和動作]。[邏輯應用程式工作流程] 設計工具便會隨即開啟。
 
@@ -123,4 +121,4 @@
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

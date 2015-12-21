@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="08/18/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # 啟用 Azure 中角色執行個體的通訊
@@ -359,4 +359,4 @@ namespace WorkerRole1
 ## 後續步驟
 深入了解雲端服務[模型](cloud-services-model-and-package.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="透過 Azure PowerShell Cmdlet 監視和管理串流分析工作 | Microsoft Azure" 
 	description="了解如何透過 Azure PowerShell 和 Cmdlet 監視及管理串流分析工作。" 
-	keywords="Powershell 命令,azure powershell,azure powershell cmdlets,powershell command"	
+	keywords="azure powershell, azure powershell cmdlet, powershell 命令, powershell 指令碼"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,14 +14,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/17/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
 # 透過 Azure PowerShell Cmdlet 監視和管理串流分析工作
 
-了解如何透過可執行基本串流分析工作的 Azure PowerShell Cmdlet 監視和管理資料流分析資源。
-
+了解如何透過執行基本串流分析工作的 Azure PowerShell Cmdlet 及 PowerShell 指令碼，來監視及管理串流分析的資源。
 
 ## 執行 Azure PowerShell Cmdlet 進行串流分析的必要條件
 
@@ -290,4 +289,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

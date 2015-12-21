@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立及發行產品
@@ -22,7 +22,7 @@
 
 ## <a name="create-product"> </a>建立產品
 
-請在發行者入口網站新增和設定 API 的作業。若要存取發行者入口網站，請在 API 管理服務的 Azure 入口網站中按一下 [**管理**]。
+請在發行者入口網站新增和設定 API 的作業。若要存取發佈者入口網站，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。
 
 ![發行者入口網站][api-management-management-console]
 
@@ -148,4 +148,4 @@ API 管理中的產品可以是**開放**或**受保護**的。受保護產品�
 [如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶]: api-management-howto-create-groups.md
 [如何在 Azure API 管理中建立和設定進階產品設定]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

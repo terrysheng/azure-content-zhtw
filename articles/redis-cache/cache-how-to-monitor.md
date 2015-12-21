@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # 如何監視 Azure Redis 快取
@@ -24,11 +24,11 @@ Azure Redis 快取提供數個選項來監視您的快取執行個體。您可�
 
 快取度量是使用 Redis [INFO](http://redis.io/commands/info) 命令進行收集。如需用於每個快取度量之不同 INFO 命令的詳細資訊，請參閱[可用度量和報告間隔](#available-metrics-and-reporting-intervals)。
 
-若要檢視快取度量，請[瀏覽](cache-configure.md)至您在 [Azure Preview 入口網站](https://portal.azure.com)中的快取執行個體。您可以在 [Redis 快取] 分頁上存取 Azure Redis 快取執行個體的度量。
+若要檢視快取度量，請[瀏覽](cache-configure.md)至您在 [Azure 入口網站](https://portal.azure.com)中的快取執行個體。您可以在 [Redis 快取] 分頁上存取 Azure Redis 快取執行個體的度量。
 
 ![監視][redis-cache-monitor-overview]
 
->[AZURE.IMPORTANT]如果下列訊息顯示在 Preview 入口網站，請遵循[啟用快取診斷](#enable-cache-diagnostics)一節中的步驟以啟用快取診斷。
+>[AZURE.IMPORTANT]如果下列訊息顯示在 Azure 入口網站，請遵循[啟用快取診斷](#enable-cache-diagnostics)一節中的步驟以啟用快取診斷。
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
@@ -36,7 +36,7 @@ Azure Redis 快取提供數個選項來監視您的快取執行個體。您可�
 
 ## 啟用快取診斷
 
-Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此，您可以使用任何想要存取的工具，並直接處理資料。若要在 Azure 預覽入口網站中收集、儲存和顯示快取診斷，必須設定儲存體帳戶。相同區域和訂用帳戶中的快取會共用相同的診斷儲存體帳戶，在組態變更時，會套用至訂用帳戶中所有位於該區域的快取。
+Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此，您可以使用任何想要存取的工具，並直接處理資料。若要在 Azure 入口網站中收集、儲存和顯示快取診斷，必須設定儲存體帳戶。相同區域和訂用帳戶中的快取會共用相同的診斷儲存體帳戶，在組態變更時，會套用至訂用帳戶中所有位於該區域的快取。
 
 若要啟用和設定快取診斷，請瀏覽至您快取執行個體的 [Redis 快取] 分頁。如果尚未啟用診斷，則會顯示訊息，而非診斷圖表。
 
@@ -56,9 +56,9 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 >[AZURE.IMPORTANT]相同區域和訂用帳戶中的快取會共用相同的診斷儲存體帳戶，在組態變更時，會套用至訂用帳戶中所有位於該區域的快取。
 
-若要檢視預存度量，請檢查儲存體帳戶中名稱開頭為 `WADMetrics` 的資料表。如需在 Preview 入口網站外部存取預存度量的詳細資訊，請參閱[存取 Redis 快取監視資料](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)範例。
+若要檢視預存度量，請檢查儲存體帳戶中名稱開頭為 `WADMetrics` 的資料表。如需在 Azure 入口網站外部存取預存度量的詳細資訊，請參閱[存取 Redis 快取監視資料](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)範例。
 
->[AZURE.NOTE]只有儲存在所選取儲存體帳戶中的度量才會顯示在 Preview 入口網站中。如果您變更儲存體帳戶，則先前設定之儲存體帳戶中的資料仍然可供下載，但不會顯示在 Preview 入口網站中。
+>[AZURE.NOTE]只有儲存在所選取儲存體帳戶中的度量才會顯示在 Azure 入口網站中。如果您變更儲存體帳戶，則先前設定之儲存體帳戶中的資料仍然可供下載，但不會顯示在 Azure 入口網站中。
 
 ## 可用度量和報告間隔
 
@@ -259,4 +259,4 @@ Azure Redis 快取可讓您將診斷資料儲存在儲存體帳戶中，因此�
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

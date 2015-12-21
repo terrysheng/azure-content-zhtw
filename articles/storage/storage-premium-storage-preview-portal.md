@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram;selcint"/>
+	ms.date="12/04/2015"
+	ms.author="robinsh;selcint"/>
 
 
 # Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體
@@ -35,7 +35,7 @@ Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的�
 
 - 若要使用 Premium 儲存體，您必須有 Premium 儲存體帳戶。若要了解如何建立 Premium 儲存體帳戶，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
-- Premium 儲存體只在 [Azure 入口網站](portal.azure.com)提供，可透過下列 SDK 程式庫存取：2014 年 2 月 14 日版或更新版本的 [儲存體 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx)、2014 年 10 月 1 日版或更新版本的[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)，以及 0.8.10 版或更新版本的 [Azure PowerShell](../install-configure-powershell.md)。
+- 進階儲存體只在 [Azure 入口網站](portal.azure.com)提供，您可透過下列 SDK 程式庫來存取：2014 年 2 月 14 日版或更新版本的 [儲存體 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx)、2014 年 10 月 1 日版或更新版本的[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)，以及 0.8.10 版或更新版本的 [Azure PowerShell](../install-configure-powershell.md)。
 
 - 如需目前支援進階儲存體的地區清單，請參閱[依地區的 Azure 服務](http://azure.microsoft.com/regions/#services)。
 
@@ -61,7 +61,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 
 如需有關將現有虛擬機器移轉到「進階儲存體」的資訊，請參閱＜[移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)＞。
 
-為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。若要這樣做，您可以使用 [Azure 入口網站](portal.azure.com)、[Azure PowerShell](../install-configure-powershell.md) 或[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
+為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。方法是使用 [Azure 入口網站](portal.azure.com)、[Azure PowerShell](../install-configure-powershell.md) 或[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
 ### 重要事項：
 
@@ -335,4 +335,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

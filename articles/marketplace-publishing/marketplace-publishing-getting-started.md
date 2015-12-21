@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio" />
 
 # 如何將優惠發佈至 Azure Marketplace
@@ -58,7 +58,11 @@
 - [建立內部部署 VM 映像](marketplace-publishing-vm-image-creation-on-premise.md)
 - [在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](../virtual-machines-windows-tutorial/)
 
-**資料服務** - [資料服務 OData 對應](marketplace-publishing-data-service-creation-odata-mapping.md) - [資料服務 OData 對應節點](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) - [資料服務 OData 對應範例](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+**資料服務**
+
+- [資料服務 OData 對應](marketplace-publishing-data-service-creation-odata-mapping.md)
+- [資料服務 OData 對應節點](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
+- [資料服務 OData 對應範例](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
 [suppt-general]: marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]: marketplace-publishing-report-seller-insights.md
@@ -77,4 +81,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

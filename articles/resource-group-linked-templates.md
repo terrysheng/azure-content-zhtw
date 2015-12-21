@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
 # 透過 Azure 資源管理員使用連結的範本
@@ -102,7 +102,7 @@
         }
     }
 
-您也可以使用 [deployment()](resource-group-template-functions.md/#deployment) 取得目前範本的基本 base URL，用來取得相同位置中其他範本的 URL。如果您的範本位置變更 (可能是版本不同所造成)，或您想要避免在範本檔案中寫入程式碼 URL，這十分實用。
+您也可以使用 [deployment()](../resource-group-template-functions/#deployment) 取得目前範本的基底 URL，用來取得相同位置中其他範本的 URL。如果您的範本位置變更 (可能是版本不同所造成)，或您想要避免在範本檔案中使用硬式編碼 URL，這十分實用。
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
@@ -116,4 +116,4 @@
 - [撰寫範本](./resource-group-authoring-templates.md)
 - [部署範本](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -3,7 +3,7 @@
     description="了解如何使用 Visual Studio Online 對您的 Azure Service Fabric 應用程式進行壓力測試。"
     services="service-fabric"
     documentationCenter="na"
-    authors="cawa"
+    authors="cawams"
     manager="timlt"
     editor="" />
 
@@ -92,9 +92,7 @@
 1. 在 [測試混合] 區段中，選擇 [新增] 按鈕，然後選取您要包含在負載測試的測試。您可以使用 [散發] 資料行指定每一項測試的測試執行總計百分比。
 
 1. 在 [回合設定] 區段中，指定負載測試持續期間。
-
     >[AZURE.NOTE] [測試反覆項目] 選項只有當您使用 Visual Studio 在本機執行負載測試時才可以使用。
-
 
 1. 在 [回合設定] 的 [位置] 區段中，指定產生負載測試要求的位置。精靈可能會提示您登入 VSO 帳戶。使用您的 VSO 帳戶登入，然後選擇地理位置。完成時，選擇 [完成] 按鈕。
 
@@ -142,4 +140,4 @@ Visual Studio Online 負載測試提供 API，可讓您在 VSO 帳戶中管理�
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=Nov15_HO4--->
+<!---HONumber=AcomDC_1210_2015-->

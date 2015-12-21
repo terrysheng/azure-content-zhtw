@@ -14,17 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # 從 Swagger 2.0 API 定義註冊 API  
 許多組織已經有一些現有的 API，使用者可以在其應用程式內使用和取用這些 API。若要在您的應用程式中使用這些 API，您必須在 Azure 入口網站中「註冊」API。可以使用下列選項：
 
-- 註冊 [Microsoft 管理的 API 或 IT 管理的 API](powerapps-register-from-available-apis.md)
-- 註冊託管於[您 App Service 環境](powerapps-register-api-hosted-in-app-service.md)內的 API
-- 使用 Swagger 2.0 API 定義註冊 API
+- 註冊預先建置的 [Microsoft 管理的 API 或 IT 管理的 API](powerapps-register-from-available-apis.md)。
+- 註冊[您的 App Service 環境](powerapps-register-api-hosted-in-app-service.md)內裝載的 Web 應用程式、API 應用程式，以及行動應用程式。
+- 使用 Swagger 2.0 API 定義 (在本主題中) 註冊其中一個您自己的 Swagger API。
 
-本文將說明如何**註冊 Swagger 2.0 API 定義** (您使用現有 API 建立的)。
+本文將說明如何**使用 Swagger 2.0 API 定義註冊其中一個您自己的 API** (您從現有 API 建立的 Swagger 2.0 API 定義)。
 
 #### 開始使用的必要條件
 
@@ -52,18 +52,19 @@
 6. 在 [**API 定義 (Swagger 2.0)**] 中，上傳您的 Swagger 2.0 API 定義檔案：![][13]
 7. 選取 [**新增**] 以完成這些步驟。
 
-> [AZURE.TIP]註冊 API 時，您是向您的 App Service 環境註冊 API。API 置於 App Service 環境中之後，該 App Service 環境內的其他應用程式便能使用它。
+> [AZURE.TIP]註冊 API 時，您是向您的 App Service 環境註冊 API。一旦其在 App Service 環境中，相同 App Service 環境內的其他應用程式便能使用它。
 
 ## 摘要和後續步驟
 
 在本主題中，您已經了解如何從 Swagger 2.0 API 定義註冊 API。以下是一些讓您深入了解 PowerApps 的相關主題與資源：
 
-- [設定 API](powerapps-configure-apis.md)
-- [新增 API](powerapps-register-from-available-apis.md)
+- [設定 API 原則](powerapps-configure-apis.md)
+- [讓使用者存取 API](powerapps-manage-api-connection-user-access.md)
+- [開始在 PowerApps 中建立應用程式](https://powerapps.microsoft.com/tutorials/)
 
 <!--References-->
 [11]: ./media/powerapps-register-existing-api-from-api-definition/registered-apis-part.png
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

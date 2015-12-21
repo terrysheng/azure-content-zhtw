@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="將資源新增至 Azure 資源群組"
-   description="了解如何使用 Visual Studio 將資源加入 Azure 資源群組。"
+   pageTitle="使用 Visual Studio 編輯資源管理員範本 | Microsoft Azure"
+   description="了解如何使用 Visual Studio 將資源加入至 Azure 資源管理員範本。"
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# 將資源新增至 Azure 資源群組
+# 使用 Visual Studio 編輯資源管理員範本
 
-如果您需要將多個資源新增至資源群組，您可以在 Visual Studio 的 [JSON 大綱] 視窗中執行此作業。
+Visual Studio 可讓您針對資源群組編輯資源管理員範本。您可以透過 Visual Studio [JSON 大綱] 視窗，或直接使用範本語法對範本進行變更。
 
-## 將資源新增至資源群組
+## 透過 [JSON 大綱] 視窗將資源加入至資源群組
 
 ### 將資源新增至資源群組
 
@@ -51,14 +51,22 @@
 
 1. 如果有必須由您指定的任何參數，[編輯參數] 對話方塊隨即出現。輸入任何必要的值，然後選擇 [儲存] 按鈕。新的資源便會部署至 Azure 資源群組。
 
+## 編輯範本語法
+
+使用 Visual Studio，您也可以直接編輯範本。當您開始編輯範本中的值，您將會從編輯器取得您可以提供之可能值的協助。
+
+![編輯範本](./media/vs-azure-tools-resource-group-adding-resources/arm-edit-template.png)
+
+如需關於範本結構的詳細資訊，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
+
 ## 另請參閱
 
-[建立和部署 Azure 資源群組部署專案](http://go.microsoft.com/fwlink/p/?LinkID=623073)
+[透過 Visual Studio 建立與部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
 
-[Azure 資源管理員 Cmdlet](https://msdn.microsoft.com/library/dn654592.aspx)
+[Azure 資源管理員 Cmdlet](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
 [將 Windows PowerShell 與 Azure 資源管理員搭配使用](../powershell-azure-resource-manager/)
 
 [Channel 9 影片：Azure 資源管理員](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

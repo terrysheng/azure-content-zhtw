@@ -29,9 +29,9 @@
 
 若要完成此教學課程，您需要下列項目：
 
-* 具有已驗證電子郵件地址的 [Google 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=268302)
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* 完成[快速入門教學課程](../app-service-mobile-android-get-started.md)
+* 具有已驗證電子郵件地址的 [Google 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=268302)。
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) &mdash; Node.js 後端專案則不需要。
+* 完成[快速入門教學課程](../app-service-mobile-android-get-started.md)。
 
 ##<a name="create-hub"></a>建立通知中樞
 
@@ -41,7 +41,7 @@
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##設定行動應用程式後端以傳送推播要求
+##設定行動應用程式後端以傳送推送要求
 
 [AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
@@ -82,4 +82,4 @@
 <!-- URLs -->
 [Android 快速入門]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

@@ -24,12 +24,6 @@
  
 為了從 Azure Blob 將行銷活動有效性資料複製到內部部署 SQL Server，您需要使用與在第一個逐步解說中所使用的一組相同 Cmdlet 建立額外的內部部署連結的服務、資料表和管線。
 
-> [AZURE.IMPORTANT]這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
->    
-> 若您使用 Azure PowerShell 1.0 Preview，您必須使用[這裡](https://msdn.microsoft.com/library/dn820234.aspx)所記載的 Cmdlet。例如，使用 New-AzureRMDataFactory，而非使用 New-AzureDataFactory。
-
-## 必要條件
-
 在執行本文的逐步解說之前，您**必須**先執行[教學課程：使用 Data Factory 移動和處理記錄檔][datafactorytutorial]中的逐步解說。
 
 **(建議)** 檢閱和練習[讓您的管線處理內部部署資料][useonpremisesdatasources]文章中的逐步解說，以逐步演練建立管線，將資料從內部部署 SQL Server 移至 Azure Blob 存放區。
@@ -120,22 +114,22 @@
 ### 建立內部部署邏輯資料表
 
 1.	在 **Azure PowerShell** 中，切換至 **C:\\ADFWalkthrough\\OnPremises** 資料夾。 
-2.	使用 Cmdlet **New-AzureDataFactoryDataset** 來建立 **MarketingCampaignEffectivenessOnPremSQLTable.json** 的資料表，如下所示。
+2.	使用 Cmdlet **New-AzureRmDataFactoryDataset** 來建立 **MarketingCampaignEffectivenessOnPremSQLTable.json** 的資料表，如下所示。
 
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### 建立將資料從 Azure Blob 複製到 SQL Server 的管線
 
-1.	使用 Cmdlet **New-AzureDataFactoryPipeline** 來建立 **EgressDataToOnPremPipeline.json** 的管線，如下所示。
+1.	使用 Cmdlet **New-AzureRmDataFactoryPipeline** 來建立 **EgressDataToOnPremPipeline.json** 的管線，如下所示。
 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. 使用 Cmdlet **Set-AzureDataFactoryPipelineActivePeriod** 來指定 **EgressDataToOnPremPipeline** 的作用期間。
+2. 使用 Cmdlet **Set-AzureRmDataFactoryPipelineActivePeriod** 來指定 **EgressDataToOnPremPipeline** 的作用期間。
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	請按 **'Y'** 繼續進行。
 	
@@ -169,9 +163,11 @@
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

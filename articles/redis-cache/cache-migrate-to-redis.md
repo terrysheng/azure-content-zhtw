@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="11/30/2015"
+    ms.date="12/03/2015"
     ms.author="sdanie" />
 
 # 從受管理的快取服務移轉至 Azure Redis 快取
@@ -64,9 +64,9 @@ Microsoft Azure Redis 快取有下列階層：
 
 ## 建立快取
 
-Azure Redis 快取中的快取可以透過 [Azure Preview 入口網站](https://portal.azure.com)、ARM 範本、PowerShell 或 Azure CLI 來建立。
+Azure Redis 快取中的快取可以透過 [Azure 入口網站](https://portal.azure.com)、ARM 範本、PowerShell 或 Azure CLI 來建立。
 
--	若要在 Azure Preview 入口網站中建立快取，請參閱[建立快取](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)。
+-	若要在 Azure 入口網站中建立快取，請參閱[建立快取](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)。
 -	若要使用 ARM 範本建立快取，請參閱[使用範本建立 Redis 快取](cache-redis-cache-arm-provision.md)。
 -	若要使用 Azure PowerShell 建立快取，請參閱[使用 Azure PowerShell 管理 Azure Redis 快取](cache-howto-manage-redis-cache-powershell.md)。
 -	若要使用 Azure CLI 建立快取，請參閱[如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取](cache-manage-cli.md)。
@@ -84,7 +84,7 @@ Azure Redis 快取中的快取可以透過 [Azure Preview 入口網站](https://
 
 要將用戶端應用程式設定為使用 Azure Redis 快取，必須先解除安裝受管理的快取服務 NuGet 封裝，以便移除現有受管理的快取服務的設定和組件參考。
 
-若要解除安裝受管理的快取服務 NuGet 封裝，請在 [方案總管] 中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。選取 [已安裝的封裝] 節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 W**indowsAzure.Caching**。選取 [Windows Azure 快取 (Windows Azure Cache)] (或 [Windows Azure 快取 (Windows Azure Caching)]，視 NuGet 封裝的版本而定)，按一下 [解除安裝]，然後按一下 [關閉]。
+若要解除安裝受管理的快取服務 NuGet 封裝，請在 [方案總管] 中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。選取 [已安裝的封裝] 節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 W**indowsAzure.Caching**。選取 [Microsoft Azure 快取 (Microsoft Azure Cache)] (或 [Microsoft Azure 快取 (Microsoft Azure Caching)]，視 NuGet 封裝的版本而定)，按一下 [解除安裝]，然後按一下 [關閉]。
 
 ![解除安裝 Azure 受管理的快取服務 NuGet 封裝](./media/cache-migrate-to-redis/IC757666.jpg)
 
@@ -195,4 +195,4 @@ Azure Redis 快取有適用於 ASP.NET 工作階段狀態和頁面輸出快取�
 
 瀏覽 [Azure Redis 快取文件](https://azure.microsoft.com/documentation/services/cache/)中的教學課程、範例、影片及其他資訊。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

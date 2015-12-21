@@ -13,8 +13,8 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="07/28/2015" 
-	ms.author="luisca"/>
+	ms.date="12/08/2015" 
+	ms.author="pingf"/>
 
 
 # 機器學習異常偵測服務#
@@ -89,4 +89,4 @@ API 會對您的時間序列資料執行這些偵測器，然後傳回每個時�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

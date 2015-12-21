@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="antonba"/>
 
 # 如何委派使用者註冊和產品訂閱
@@ -117,7 +117,7 @@
 
 ## <a name="delegate-example-code"> </a> 範例程式碼 ##
 
-這些程式碼範例示範如何取得*委派驗證金鑰* (在 API 管理入口網站的 [委派] 畫面中設定)，以建立隨後用於驗證簽章的 HMAC，藉此證明所傳遞之 returnUrl 的有效性。相同的程式碼稍微修改一下後，也適用於 productId 和 userId。
+這些程式碼範例示範如何取得「委派驗證金鑰」 (在發行者入口網站的 [委派] 畫面中設定)，以建立隨後用於驗證簽章的 HMAC，藉此證明所傳遞之 returnUrl 的有效性。相同的程式碼稍微修改一下後，也適用於 productId 和 userId。
 
 **產生 returnUrl 雜湊的 C# 程式碼**
 
@@ -166,4 +166,4 @@
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

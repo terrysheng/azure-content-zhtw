@@ -1,6 +1,6 @@
 <properties
-   pageTitle="建立和部署 Azure 資源群組部署專案 | Microsoft Azure"
-   description="建立和部署 Azure 資源群組部署專案"
+   pageTitle="建立和部署 Azure 資源群組 Visual Studio 專案 | Microsoft Azure"
+   description="使用 Visual Studio 建立 Azure 資源群組專案，並將資源部署至 Azure。"
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# 建立和部署 Azure 資源群組部署專案
+# 透過 Visual Studio 建立與部署 Azure 資源群組
 
 安裝 Azure SDK 2.6 之後可在 Visual Studio 中使用 **Azure 資源群組**部署專案範本。Azure 資源群組專案可讓您將多個相關的 Azure 資源分組在一起，並在單一部署作業中將其發佈。Azure 資源群組專案會使用一項稱為 **Azure 資源管理員**的技術執行其工作。**Azure 資源管理員**是一項 REST API 服務，可讓您定義 Azure 資源群組，其包含多個通常會一起使用並具有類似生命週期的 Azure 資源。藉由使用資源群組，您可以利用單一函數呼叫在一個群組中的所有資源上運作，而不需為每個個別資源呼叫不同的函數。若要深入了解 Azure 資源群組，請參閱[使用 Azure Preview 入口網站管理您的 Azure 資源](resource-group-portal.md)。如需更詳細的端對端 Azure 資源群組部署案例資訊，請參閱 [Visual Studio 的 Azure 資源群組](https://azure.microsoft.com/blog/azure-resource-manager-2-5-for-visual-studio/)。
 
@@ -49,9 +49,10 @@ Azure 資源管理員有許多不同的資源提供者可供使用，可以用�
 
     |檔案名稱|說明|
     |---|---|
-    |Deploy-AzureResourceGroup.ps1|叫用 PowerShell 命令部署至 Azure 資源管理員的 PowerShell 指令碼。
-
-    **注意** Visual studio 會使用此 PowerShell 指令碼部署您的範本。您對這個指令碼進行的任何變更也會影響 Visual Studio 中的部署，因此請謹慎。| !WebSite.json|指定您想要部署至 Azure 資源管理員之所有詳細資料的組態檔。| |WebSite.param.dev.json|包含組態檔所需之特定值的參數檔案。| |AzCopy.exe|PowerShell 指令碼用來將檔案從本機儲存體置放路徑複製到儲存體帳戶容器的工具。只有在您設定部署專案以部署您的程式碼與範本時才會使用此工具。|
+    |Deploy-AzureResourceGroup.ps1|叫用 PowerShell 命令來部署至 Azure 資源管理員的 PowerShell 指令碼。<br />**注意**此 PowerShell 指令碼可供 Visual Studio 用來部署您的範本。對此指令碼所進行的任何變更也會影響 Visual Studio 中的部署，因此請務必小心。|
+    !WebSite.json|定義要部署至 Azure 之基礎結構的範本。|
+    |WebSite.param.dev.json|包含組態檔所需特定值的參數檔案。|
+    |AzCopy.exe|供 PowerShell 指令碼用來將檔案從本機儲存體置放路徑複製到儲存體帳戶容器的工具。只有在您設定部署專案以部署您的程式碼與範本時才會使用此工具。|
 
     所有的 Azure 資源群組部署專案都包含這四個基本檔案。其他專案可能包含其他檔案以支援其他功能。
 
@@ -193,6 +194,6 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
 ## 後續步驟
 
-若要了解如何將資源新增至 Visual Studio 中的 Azure 資源群組，請參閱[將資源新增至 Azure 資源群組](vs-azure-tools-resource-group-adding-resources.md)。
+若要了解如何將資源新增至 Visual Studio 中的 Azure 資源群組，請參閱[使用 Visual Studio 編輯資源管理員範本](vs-azure-tools-resource-group-adding-resources.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

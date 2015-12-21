@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料
@@ -54,4 +54,4 @@
 
 3. 依照網頁上提供的指示完成範例。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

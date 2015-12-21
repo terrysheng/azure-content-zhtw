@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mandia"/>
 
 
@@ -31,7 +31,7 @@
 
 ## <a name="CreateHybridConnection"></a>建立混合式連線
 
-使用 Web Apps **或** BizTalk 服務可以在 Azure 入口網站中建立「混合式連線」。
+使用 Web Apps **或** BizTalk 服務可以在 Azure 入口網站中建立「混合式連接」。
 
 **若要使用 Web Apps 建立「混合式連線」**，請參閱「[將 Azure Web Apps 連接到內部部署資源](../web-sites-hybrid-connection-get-started.md)」(英文)。
 
@@ -41,7 +41,7 @@
 2. 在左側瀏覽窗格中，選取 [**BizTalk 服務**]，然後選取您的 BizTalk 服務。 
 
 	如果您沒有現有的 BizTalk 服務，您可以[建立 BizTalk 服務](biztalk-provision-services.md)。
-3. 選取 [混合式連線] 索引標籤：![混合式連線索引標籤][HybridConnectionTab]
+3. 選取 [混合式連接] 索引標籤：![混合式連線索引標籤][HybridConnectionTab]
 
 4. 選取 [**建立混合式連接**]，或在工作列中選取 [**新增**] 按鈕。輸入以下資訊：
 
@@ -72,7 +72,7 @@
 
 1. 登入 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
 2. 在左側瀏覽窗格中，選取 [**BizTalk 服務**]，然後選取您的 BizTalk 服務。 
-3. 選取 [混合式連線] 索引標籤：![混合式連線索引標籤][HybridConnectionTab]
+3. 選取 [混合式連接] 索引標籤：![混合式連線索引標籤][HybridConnectionTab]
 4. 在工作列中，選取 [內部部署設定]：![On-Premises Setup][HCOnPremSetup]
 5. 選取 [**安裝和設定**]，在內部部署系統上執行或下載混合式連線管理員。 
 6. 選取核取記號來開始安裝。 
@@ -114,7 +114,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 1. 登入 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
 2. 在左側瀏覽窗格中，選取 [**BizTalk 服務**]，然後選取您的 BizTalk 服務。 
-3. 選取 [混合式連線] 索引標籤：![混合式連線索引標籤][HybridConnectionTab]
+3. 選取 [混合式連接] 索引標籤：![混合式連線索引標籤][HybridConnectionTab]
 4. 選取 [混合式連線]。在工作列中，選取 [管理連線]：![管理選項][HCManageConnection]
 
 	[管理連線] 會列出應用程式和內部部署連接字串。您可以複製連接字串，或重新產生連接字串所使用的存取金鑰。
@@ -150,4 +150,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

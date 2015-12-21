@@ -183,11 +183,11 @@
 
 
 [PowerShell 環境與 Azure 資源管理員]: ../powershell-azure-resource-manager.md
-[Azure 資源 Cmdlet]: https://msdn.microsoft.com/zh-TW/library/azure/dn757692.aspx
+[Azure 資源 Cmdlet]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [Azure CLI 環境]: ./xplat-cli-azure-resource-manager.md
 [Azure 資源管理員概觀]: ../resource-group-overview.md
 [使用標記來組織 Azure 資源]: ../resource-group-using-tags.md
 [了解 Azure 帳單]: ../billing-understand-your-bill.md
 [深入瞭解 Microsoft Azure 資源耗用量]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

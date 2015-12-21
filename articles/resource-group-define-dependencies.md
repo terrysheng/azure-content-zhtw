@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/07/2015"
    ms.author="mmercuri"/>
 
 # 定義 Azure 資源管理員範本中的相依性
@@ -49,6 +49,8 @@
 
 resources 屬性可讓您指定與所定義的資源相關的子資源。子資源僅能定義為 5 個層級的深度。請務必注意，在子資源與父資源之間並不會建立隱含的相依性。如果您需要在父資源之後部署子資源，您必須使用 dependsOn 屬性明確地敘述該相依性。
 
+每個父資源只接受特定的資源類型做為子資源。可接受的資源類型是在父資源的[範本結構描述](https://github.com/Azure/azure-resource-manager-schemas)中指定。子資源類型的名稱包含父資源類型的名稱，例如 **Microsoft.Web/sites/config** 和 **Microsoft.Web/sites/extensions** 兩者皆為 **Microsoft.Web/sites** 的子資源。
+
 ## reference 函式
 
 reference 函式可讓運算式從其他 JSON 名稱和值組或執行階段資源衍生其值。reference 運算式會隱含地宣告某個資源相依於另一個資源。以下 **propertyPath** 所代表的屬性是選擇性的，如果未指定，則參考資源。
@@ -64,4 +66,4 @@ reference 函式可讓運算式從其他 JSON 名稱和值組或執行階段資�
 - 若要了解如何建立 Azure 資源管理員範本，請參閱[撰寫範本](resource-group-authoring-templates.md)。 
 - 如需在範本中可用函式的清單，請參閱[範本函式](resource-group-template-functions.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

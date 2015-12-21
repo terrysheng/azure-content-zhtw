@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 將您的 SQL 程式碼移轉至 SQL 資料倉儲
@@ -34,8 +34,8 @@
 - output 子句
 - 內嵌使用者定義函數
 - 多重陳述式函式
+- [通用資料表運算式](#Common-table-expressions)
 - [遞迴通用資料表運算式 (CTE)](#Recursive-common-table-expressions-(CTE)
-- [透過 CTE 的更新](#Updates-through-CTEs)
 - CLR 函式和程序
 - $partition 函式
 - 資料表變數
@@ -52,13 +52,16 @@
 
 幸好這些限制大部分都可以克服。上面提及的相關開發文章中已提供說明。
 
+### 通用資料表運算式
+目前在 SQL 資料倉儲內實作的通用資料表運算式 (CTE) 具有下列功能和限制：
+
+**CTE 功能** + CTE 可以指定於 SELECT 陳述式中。+ CTE 可以指定於 CREATE VIEW 陳述式中。+ CTE 可以指定於 CREATE TABLE AS SELECT (CTAS) 陳述式中。+ CTE 可以指定於 CREATE REMOTE TABLE AS SELECT (CRTAS) 陳述式中。+ CTE 可以指定於 CREATE EXTERNAL TABLE AS SELECT (CETAS) 陳述式中。+ 遠端資料表可以參考自 CTE。+ 外部資料表可以參考自 CTE。+ CTE 中可以定義多個 CTE 查詢定義。
+
+**CTE 限制** + CTE 後面必須接著單一 SELECT 陳述式。INSERT、UPDATE、DELETE 和 MERGE 陳述式不受支援。+ 包含自身參考 (遞迴通用資料表運算式) 的通用資料表運算式不受支援 (請參閱下一節)。+ 不允許在 CTE 中指定多個 WITH 子句。例如，如果 CTE\_query\_definition 包含子查詢，這個子查詢就不能包含定義另一個 CTE 的巢狀 WITH 子句。+ ORDER BY 子句不能用於 CTE\_query\_definition 中，除非有指定 TOP 子句。+ 當某批次中的陳述式使用 CTE 時，它前面的陳述式後面必須接著分號。+ 在用於 sp\_prepare 所準備的陳述式時，CTE 的行為會與 PDW 中的其他 SELECT 陳述式相同。不過，如果 CTE 是做為 sp\_prepare 所準備之 CETAS 中的一部分時，就會因為針對 sp\_prepare 實作繫結的方式而導致其行為與 SQL Server 和其他 PDW 陳述式不同。如果參考 CTE 的 SELECT 使用不存在於 CTE 的錯誤資料行，sp\_prepare 將會通過而不會偵測到錯誤，但在 sp\_execute 期間則會擲回錯誤。
+
 ### 遞迴通用資料表運算式 (CTE)
 
-這是沒有快速修正的複雜案例。CTE 必須被細分並依序處理。您可以像往常一樣使用相當複雜的迴圈；當您逐一查看遞迴暫時查詢時填入暫存資料表。一旦暫存資料表填完之後，您可以將資料傳回做為單一結果集。類似的方法已被用來解決在[由含有 rollup / cube / grouping sets options 的子句組成的群組][]文章中的 `GROUP BY WITH CUBE`。
-
-### 透過 CTE 更新
-
-當 CTE 為非遞迴時，您可以重新撰寫查詢來使用子查詢。對於遞迴 CTE，您必須如上所述先建立結果集；然後將最終結果集加入目標資料表中並執行更新。
+這是複雜的移轉案例，最佳的程序是拆解 CTE 並以多個步驟進行處理。一般來說，您可以使用迴圈，並在逐一執行遞迴中間的查詢時填入暫存資料表。一旦暫存資料表填完之後，您可以將資料傳回做為單一結果集。類似的方法已被用來解決在[由含有 rollup / cube / grouping sets options 的子句組成的群組][]文章中的 `GROUP BY WITH CUBE`。
 
 ### 系統函數
 
@@ -114,4 +117,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

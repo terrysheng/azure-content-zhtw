@@ -43,8 +43,6 @@
 
 ### 下載 VHD
 知道 Blob URL 之後，您就可以使用 [Azure 入口網站](http://manage.windowsazure.com/)或 PowerShell 下載 VHD。  
-
-
 > [AZURE.NOTE]本指南建立時，新的 Microsoft Azure 入口網站還沒有下載 VHD 的功能。
 
 **透過目前的 [Azure 入口網站](http://manage.windowsazure.com/)下載作業系統 VHD**
@@ -140,4 +138,4 @@
 - [建立 Marketplace 的虛擬機器映像](marketplace-publishing-vm-image-creation.md)
 - [設定 Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!-----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

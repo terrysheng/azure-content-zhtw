@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # 如何將操作加入至 Azure API 管理中的 API
@@ -22,13 +22,13 @@
 
 ## <a name="add-operation"> </a>新增作業
 
-請在發行者入口網站新增和設定 API 的作業。若要存取發行者入口網站，請在 API 管理服務的 Azure 入口網站中按一下 [**管理**]。
+請在發行者入口網站新增和設定 API 的作業。若要存取發佈者入口網站，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。
 
 ![發行者入口網站][api-management-management-console]
 
 >如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
 
-在 API 管理入口網站中選取所需的 API，然後選取 [操作] 索引標籤。
+在發行者入口網站中選取所需的 API，然後選取 [操作] 索引標籤。
 
 ![Operations][api-management-operations]
 
@@ -164,4 +164,4 @@
 [如何建立和發佈產品]: api-management-howto-add-products.md
 [如何在 Azure API 管理中快取操作結果]: api-management-howto-cache.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

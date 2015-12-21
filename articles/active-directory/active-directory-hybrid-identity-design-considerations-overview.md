@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory 混合式身分識別設計考量概觀 | Microsoft Azure"
+	pageTitle="Azure Active Directory 混合式身分識別設計考量 - 概觀 | Microsoft Azure"
 	description="混合式身分識別設計考量指南的概觀和內容對應"
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/24/2015"
+	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
 # Azure Active Directory 混合式身分識別設計考量
@@ -55,4 +55,4 @@
 
                                                              
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

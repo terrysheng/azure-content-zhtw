@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取範例 
@@ -65,7 +65,7 @@
 
 ## 自訂監視範例
 
-[存取 Redis 快取監視資料](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)範例示範如何在 Azure Preview 入口網站外部存取 Azure Redis 快取的監視資料。
+[存取 Redis 快取監視資料](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)範例示範如何在 Azure 入口網站外部存取 Azure Redis 快取的監視資料。
 
 ## 使用 PHP 和 Redis 撰寫的 Twitter 風格複製品
 
@@ -75,4 +75,4 @@
 
 [頻寬監視器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor)範例可讓您監視用戶端上使用的頻寬。若要測量頻寬，請在快取用戶端電腦上執行這個範例、呼叫快取，並觀察頻寬監視器範例所報告的頻寬。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

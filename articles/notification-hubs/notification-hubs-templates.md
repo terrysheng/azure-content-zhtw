@@ -36,7 +36,7 @@
 
 傳送推播通知的標準方式是，針對要傳送的每個通知，傳送一個特定的承載給平台通知服務 (WNS、APNS)。例如，若要傳送警示給 APNS，則承載會是形式如下的 JSON 物件：
 
-	{“aps”: {“alert” : “Hello!” }}
+	{"aps": {"alert" : "Hello!" }}
 
 若要在「Windows 市集」應用程式上傳送類似的快顯通知訊息，則 XML 承載如下：
 
@@ -61,7 +61,7 @@
 
 iOS 用戶端 app 註冊的範本如下：
 
-	{“aps”:{“alert”:”$(message)”}}
+	{"aps": {"alert": "$(message)"}}
 
 對應的「Windows 市集」用戶端 app 範本是：
 
@@ -151,4 +151,4 @@ iOS 用戶端 app 註冊的範本如下：
 	  </visual>
 	</tile>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

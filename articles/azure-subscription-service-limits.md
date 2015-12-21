@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="12/03/2015"
 	ms.author="jroth"/>
 
 # Azure 訂閱和服務限制、配額與限制
@@ -22,7 +22,7 @@
 
 本文件說明一些最常見的 Microsoft Azure 限制。請注意，這目前未涵蓋所有 Azure 服務。這些限制將隨著時間擴展並更新以涵蓋更多平台。
 
-> [AZURE.NOTE]如果您想要將限制提升到**預設限制**以上，您可以[免費提出線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。您無法將限制提升到高於下表中所示的**上限**值。如果沒有**上限**欄，指定的資源即沒有可調整的限制。
+> [AZURE.NOTE] 如果您想要將限制提升到**預設限制**以上，您可以[免費提出線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。您無法將限制提升到高於下表中所示的**上限**值。如果沒有**上限**欄，指定的資源即沒有可調整的限制。
 
 ## 限制和 Azure 資源管理員
 
@@ -30,9 +30,10 @@
 
 在以下的限制中，已加入了新資料表，以反映在使用 Azure 資源管理員時的限制方面的任何差異。例如，有**訂用帳戶限制**資料表和**訂用帳戶限制 - Azure 資源管理員**資料表。當某個限制同時適用於這兩個案例時，只會顯示在第一個資料表中。除非另有說明，限制在所有區域中全域適用。
 
-> [AZURE.NOTE] 請務必強調 Azure 資源群組中資源的配額是基於您的訂閱可以存取的每一區域，而不是每一訂閱 (服務管理配額則是)。讓我們以核心配額為例。如果您需要要求增加配額以支援核心，您必須決定您想要在哪些區域中使用多少個核心，然後提出 Azure 資源群組核心配額的特定要求，以取得您想要的數量和區域。因此，如果您需要在西歐使用 30 個核心以在該處執行應用程式，您應該在西歐特別要求 30 個核心。但是您在任何其他區域中的核心配額將不會增加 -- 僅西歐會有 30 個核心配額。
-<!-- -->
-因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。請參閱[移難排解部署問題](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)，以取得探索您特定區域目前的配額的其他說明。
+> [AZURE.NOTE]請務必強調 Azure 資源群組中資源的配額是基於您的訂閱可以存取的每一區域，而不是每一訂閱 (服務管理配額則是)。讓我們以核心配額為例。如果您需要要求增加配額以支援核心，您必須決定您想要在哪些區域中使用多少個核心，然後提出 Azure 資源群組核心配額的特定要求，以取得您想要的數量和區域。因此，如果您需要在西歐使用 30 個核心以在該處執行應用程式，您應該在西歐特別要求 30 個核心。但是您在任何其他區域中的核心配額將不會增加 -- 僅西歐會有 30 個核心配額。<!-- --> 因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。請參閱[移難排解部署問題](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)，以取得探索您特定區域目前的配額的其他說明。
+
+
+## 特定服務的限制
 
 - [Active Directory](#active-directory-limits)
 - [API 管理](#api-management-limits)
@@ -177,9 +178,17 @@
 
 ### 搜尋限制
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+定價層會決定容量及您搜尋服務的限制。
 
-如需進一步瞭解共用服務的上限，或金鑰、要求和回應的限制明細，請參閱 [Azure 搜尋服務中的服務限制](search/search-limits-quotas-capacity.md)。
+####標準層級
+
+[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+
+####共用層級 (多租用戶服務的一部分，Azure 訂閱者可免費使用)
+
+[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
+
+若要深入了解金鑰、複寫磁碟分割組合、要求、回應，和如何達成不同工作負載之高可用性的限制，請參閱 [Azure 搜尋服務的限制](search/search-limits-quotas-capacity.md)。
 
 ### 媒體服務限制
 
@@ -270,4 +279,4 @@
 
 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

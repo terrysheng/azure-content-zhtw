@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/04/2015" 
 	ms.author="erikre"/>
 
 # 在 Visual Studio 程式碼中建立 ASP.NET 5 API 應用程式
@@ -94,8 +94,10 @@ yo aspnet
 
 	![Yoman - ASP.NET 5 產生器](./media/app-service-create-aspnet-api-app-using-vscode/01-yo-aspnet.png)
 
-5. 將新 ASP.NET API 應用程式的名稱設為 **ContactsList**。此名稱將用於本教學課程稍後提供的程式碼。<br>Yeoman 將建立名為 **ContactsList** 的新資料夾，以及新應用程式必要的檔案。
-6. 開啟 **Visual Studio 程式碼**。<br> 輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
+5. 將新 ASP.NET API 應用程式的名稱設為 **ContactsList**。此名稱將用於本教學課程稍後提供的程式碼。<br>
+	Yeoman 將建立名為 **ContactsList** 的新資料夾，以及新應用程式必要的檔案。
+6. 開啟 **Visual Studio 程式碼**。<br> 
+	輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
 7. 從 [**檔案**] 功能表中，選取 [**開啟資料夾**]，然後選取您 ASP.NET API 應用程式所在的資料夾。
 
 	![[選取資料夾] 對話方塊](./media/app-service-create-aspnet-api-app-using-vscode/02-open-folder.png)
@@ -453,4 +455,4 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

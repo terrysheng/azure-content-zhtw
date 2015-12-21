@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mandia"/>
 
 # 管理和監視內建 API 應用程式和連接器
@@ -55,7 +55,9 @@
 
 	![][apiapphost]
 
-3. 在 [API 應用程式主機] 刀鋒視窗中，選取 [設定]。在 [設定] 刀鋒視窗中，選取 [應用程式設定]。您的組態值會列在 [應用程式設定] 下：
+3. 在 [API 應用程式主機] 刀鋒視窗中，選取 [設定]。
+4. 在 [設定] 刀鋒視窗中，選取 [應用程式設定]。
+5. 您的組態值會列在 [應用程式設定] 下： 
 	
 	![][hostsettings]
 
@@ -66,7 +68,7 @@
 
 ![][hcsetup]
 
-Hybrid Connection Manager 可讓您連線至內部部署系統 (例如 SQL Server 或 SAP)。此混合式連線使用 Azure 服務匯流排連線，並控制 Azure 資源與內部部署資源之間的安全性。
+Hybrid Connection Manager 可讓您連線至內部部署系統 (例如 SQL Server 或 SAP)。此混合式連線使用 Azure 服務匯流排連線並控制 Azure 資源與內部部署資源之間的安全性。
 
 請參閱[在 Azure App Service 中使用混合連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
@@ -134,4 +136,4 @@ API 應用程式使用以角色為基礎的安全性。這些角色會套用至�
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

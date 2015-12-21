@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="在 Azure RemoteApp 中使用重新導向" 
-    description="了解如何在 RemoteApp 中設定和使用重新導向" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="在 Azure RemoteApp 中使用重新導向 | Microsoft Azure"
+    description="了解如何在 RemoteApp 中設定和使用重新導向"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/10/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # 在 Azure RemoteApp 中使用重新導向
@@ -36,7 +36,7 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 ## 還有其他哪些重新導向功能？
 預設會停用兩個重新導向選項：
 
-- 磁碟機重新導向 (磁碟機對應)：您本機電腦的磁碟機會與遠端作業階段中的磁碟機對應。這可讓您在遠端工作階段工作時，儲存或開啟本機磁碟機中的檔案。 
+- 磁碟機重新導向 (磁碟機對應)：您本機電腦的磁碟機會與遠端作業階段中的磁碟機對應。這可讓您在遠端工作階段工作時，儲存或開啟本機磁碟機中的檔案。
 - USB 重新導向：您可以在遠端工作階段期間使用與本機電腦連接的 USB 裝置。
 
 ## 在 RemoteApp 中變更重新導向設定
@@ -45,13 +45,13 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 接著使用和下面類似的命令來設定自訂 RDP 屬性：
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
-    
+
 (請注意，`n 是當成個別屬性之間的分隔符號使用)。
 
 若要取得已設定的自訂 RDP 屬性清單，請執行下列 Cmdlet。請注意，只會將自訂屬性顯示為輸出，而預設屬性則否：
 
-    Get-AzureRemoteAppCollection -CollectionName <collection name> 
- 
+    Get-AzureRemoteAppCollection -CollectionName <collection name>
+
 當您設定自訂屬性時，每次都要指定所有自訂屬性，不然就會將設定恢復成停用。
 
 ### 常見範例
@@ -72,7 +72,7 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 ## 變更 Windows 用戶端的 USB 重新導向設定
 
 如果您想要在與 RemoteApp 連線的電腦上使用 USB 重新導向，必須進行 2 個動作。1 - 您的系統管理員必須使用 Azure PowerShell 在集合層級啟用 USB 重新導向。2 - 在您想要使用 USB 重新導向的每個裝置上，都必須啟用允許重新導向的群組原則。每個想要使用 USB 重新導向的使用者都必須完成這個步驟。
-   
+
 > [AZURE.NOTE]只支援 Windows 電腦使用 Azure RemoteApp 提供 USB 重新導向。
 
 ### 為 RemoteApp 集合啟用 USB 重新導向
@@ -88,7 +88,7 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 2. 開啟 [電腦設定]\\[原則]\\[系統管理範本]\\[Windows 元件]\\[遠端桌面服務]\\[遠端桌面連線用戶端]\\[RemoteFX USB 裝置重新導向]。
 3. 按兩下 [允許 RDP 重新導向這部電腦中其他支援的 RemoteFX USB 裝置]。
 4. 選取 [已啟用]，然後在 [RemoteFX USB 重新導向存取權限] 中選取系統管理員與使用者。
-5. 以系統管理權限開啟命令提示字元，然後執行下列命令： 
+5. 以系統管理權限開啟命令提示字元，然後執行下列命令：
 
 		gpupdate /force
 6. 重新啟動電腦。
@@ -104,4 +104,4 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 7. 選取 [已啟用]，然後在 [RemoteFX USB 重新導向存取權限] 中選取系統管理員與使用者。
 8. 按一下 [確定]。  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

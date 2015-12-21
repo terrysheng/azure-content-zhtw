@@ -40,26 +40,26 @@
 
 這是 JSON 格式的資料集，包含以下結構描述。
 
-欄 | 說明 | 值 |  
-------- | ----------- | --------- | 
-VIN | 隨機產生的車輛識別號碼 | 這取自於一份含有 10,000 個隨機產生車輛識別號碼的主要清單 | 
-Outside temperature | 車輛行駛時的外部溫度 | 從 0-100 隨機產生的數字 | 
-Engine temperature | 車輛的引擎溫度 | 從 0-500 隨機產生的數字 | 
-速度 | 車輛行駛時的引擎速度 | 從 0-100 隨機產生的數字 | 
-Fuel | 車輛的燃油量 | 從 0-100 隨機產生的數字 (表示燃油量百分比) | 
-EngineOil | 車輛的機油量 | 從 0-100 隨機產生的數字 (表示機油量百分比) | 
-Tirepressure | 車輛的胎壓 | 從 0-50 隨機產生的數字 (表示胎壓位準百分比) | 
-Odometer | 車輛的里程表讀數 | 從 0-200000 隨機產生的數字 | 
-Accelerator\_pedal\_position | 車輛的油門踏板位置 | 從 0-100 隨機產生的數字 (表示油門位準百分比) | 
-Parking\_brake\_status | 指出車輛是否已停車 | True 或 False | 
-Headlamp\_status | 指出大燈是否打開 | True 或 False | 
-Brake\_pedal\_status | 指出是否踩下剎車踏板 | True 或 False | 
-Transmission\_gear\_position | 車輛的傳動齒輪位置 | 狀態：first、second、third、fourth、fifth、sixth、seventh、eighth | 
-Ignition\_status | 指出車輛在行駛中或已停車 | True 或 False | 
-Windshield\_wiper\_status | 指出擋風玻璃雨刷是否啟動 | True 或 False | 
-ABS | 指出 ABS 是否發揮作用 | True 或 False | 
-Timestamp | 建立資料點時的時間戳記 | 日期 | 
-City | 車輛的位置 | 此方案中有 4 個城市：Bellevue、Redmond、Sammamish、Seattle | 
+欄 | 說明 | 值   
+ ------- | ----------- | ---------  
+VIN | 隨機產生的車輛識別號碼 | 這取自於一份含有 10,000 個隨機產生車輛識別號碼的主要清單
+Outside temperature | 車輛行駛時的外部溫度 | 從 0-100 隨機產生的數字
+Engine temperature | 車輛的引擎溫度 | 從 0-500 隨機產生的數字
+速度 | 車輛行駛時的引擎速度 | 從 0-100 隨機產生的數字
+Fuel | 車輛的燃油量 | 從 0-100 隨機產生的數字 (表示燃油量百分比)
+EngineOil | 車輛的機油量 | 從 0-100 隨機產生的數字 (表示機油量百分比)
+Tirepressure | 車輛的胎壓 | 從 0-50 隨機產生的數字 (表示胎壓位準百分比)
+Odometer | 車輛的里程表讀數 | 從 0-200000 隨機產生的數字
+Accelerator\_pedal\_position | 車輛的油門踏板位置 | 從 0-100 隨機產生的數字 (表示油門位準百分比)
+Parking\_brake\_status | 指出車輛是否已停車 | True 或 False
+Headlamp\_status | 指出大燈是否打開 | True 或 False
+Brake\_pedal\_status | 指出是否踩下剎車踏板 | True 或 False
+Transmission\_gear\_position | 車輛的傳動齒輪位置 | 狀態：first、second、third、fourth、fifth、sixth、seventh、eighth
+Ignition\_status | 指出車輛在行駛中或已停車 | True 或 False
+Windshield\_wiper\_status | 指出擋風玻璃雨刷是否啟動 | True 或 False
+ABS | 指出 ABS 是否發揮作用 | True 或 False
+Timestamp | 建立資料點時的時間戳記 | 日期
+City | 車輛的位置 | 此方案中有 4 個城市：Bellevue、Redmond、Sammamish、Seattle
 
 
 車型參考資料集包含 VIN 至車型的對應。
@@ -696,4 +696,4 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 
 本文件包含車輛遙測資料分析方案的詳細探討。這以預測和動作示範即時和批次分析的 Lambda 架構模式。此模式適用於需要最忙碌路徑 (即時) 和不忙碌路徑 (批次) 分析的各種使用案例。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

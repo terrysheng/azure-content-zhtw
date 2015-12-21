@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -84,7 +84,7 @@
 <a name="cache-monitor"></a>
 ## 如何監視快取的健全狀況和效能？
 
-Microsoft Azure Redis 快取執行個體可以在 [Azure Preview 入口網站](https://portal.azure.com)中進行監視。您可以檢視度量、將度量圖表釘選到「開始面板」、自訂監視圖表的日期和時間範圍、新增和移除圖表中的度量，以及設定符合特定條件時的警示。這些工具可讓您監視 Azure Redis 快取執行個體的健全狀況，並協助您管理快取應用程式。如需監視快取的詳細資訊，請參閱[監視 Azure Redis 快取](https://msdn.microsoft.com/library/azure/dn763945.aspx)。
+Microsoft Azure Redis 快取執行個體可以在 [Azure 入口網站](https://portal.azure.com)中進行監視。您可以檢視度量、將度量圖表釘選到「開始面板」、自訂監視圖表的日期和時間範圍、新增和移除圖表中的度量，以及設定符合特定條件時的警示。這些工具可讓您監視 Azure Redis 快取執行個體的健全狀況，並協助您管理快取應用程式。如需監視快取的詳細資訊，請參閱[監視 Azure Redis 快取](https://msdn.microsoft.com/library/azure/dn763945.aspx)。
 
 <a name="cache-disconnect"></a>
 ## 我的用戶端為什麼中斷與快取的連線？
@@ -157,7 +157,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 <a name="cache-benchmarking"></a>
 ## 如何效能評定和測試我快取的效能？
 
--	[啟用快取診斷](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)，以[監視](https://msdn.microsoft.com/library/azure/dn763945.aspx)您快取的健全狀況。您可以在 Preview 入口網站中檢視度量，也可以使用您選擇的工具[下載並檢閱](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)它們。
+-	[啟用快取診斷](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)，以[監視](https://msdn.microsoft.com/library/azure/dn763945.aspx)您快取的健全狀況。您可以在 Azure 入口網站中檢視度量，也可以使用您選擇的工具[下載並檢閱](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)它們。
 -	您可以使用 redis-benchmark.exe 對 Redis 伺服器進行負載測試。
 	-	請確定負載測試用戶端與 Redis 快取位於相同的區域。
 -	使用 redis-cli.exe，並使用 INFO 命令來監視快取。
@@ -169,7 +169,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 
 您可以使用 [Redis 命令](http://redis.io/commands#)中列出的任何命令，但不包含 [Azure Redis 快取中不支援的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)中列出的命令。您有幾種方式可以執行 Redis 命令。
 
--	如果您有標準或高階快取，就可以使用 [Redis 主控台](cache-configure.md#redis-console)來執行 Redis 命令。這可提供在 Preview 入口網站中執行 Redis 命令的安全方式。
+-	如果您有標準或高階快取，就可以使用 [Redis 主控台](cache-configure.md#redis-console)來執行 Redis 命令。這可提供在 Azure 入口網站中執行 Redis 命令的安全方式。
 -	您也可以使用 Redis 命令列工具。若要使用那些工具，請執行下列步驟。
 	-	下載 [Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)。
 	-	使用 `redis-cli.exe` 連線至快取。使用-h 參數傳入快取端點，以及使用 -a 傳入索引鍵 (如下列範例所示)。
@@ -202,6 +202,17 @@ Azure 快取目前有三個提供項目：
 -	Azure 受管理的快取服務
 -	Azure In-Role Cache
 
+>[AZURE.IMPORTANT]我們現在宣布將在 2016 年 11 月 30 日淘汰「Azure 受管理的快取服務」和 Azure In-Role Cache。我們建議您移轉至 Azure Redis 快取以為這次淘汰做準備。
+>
+>自服務正式運作以來，Azure Redis 快取一直是 Azure 中建議的快取解決方案，而且它現在可在所有的 Azure 區域中使用，包括中國和美國政府。基於此原因，我們要宣佈即將淘汰受管理的快取服務和 In-Role Cache 服務。
+>
+>自 2015 年 11 月 30 日宣佈之後，現有的客戶最多仍可使用受管理的快取服務和 In-Role Cache 服務 12 個月，兩個服務終止的日期將在 2016 年 11 月 30 日結束。在這個日期之後，將會關閉受管理的快取服務，而且將不再支援 In-Role Cache 服務。
+>
+>我們將在 2016 年 2 月 1 日之後發行的第一個 Azure SDK 版本中撤除建立新的角色中快取的支援。客戶將可以開啟具有角色中快取的現有專案。
+>
+>在此期間，我們建議所有現有受管理的快取服務和 In-Role Cache 服務客戶移轉至 Azure Redis 快取。Azure Redis 快取提供更多功能以及更好的整體價值。如需有關移轉的詳細資訊，請瀏覽[從受管理的快取服務移轉至 Azure Redis 快取](cache-migrate-to-redis.md)文件網頁。
+>
+>如果您有任何問題，請[連絡我們](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933)。
 
 ### Azure Redis 快取
 Azure Redis 快取已正式提供，大小最多 53 GB 和可用性 SLA 99.9%。新的[進行層級](cache-premium-tier.md)處於預覽階段，提供高達 530 GB 的大小並且支援叢集、VNET 和持續性，包括 99.9% 的 SLA。
@@ -220,4 +231,4 @@ Redis 成功的另一個重要層面是建置健全、有活力的開放原始�
 ### 角色中快取
 如果您使用 In-Role Cache 自我裝載，您可以繼續這麼做。因為 In-Role Cache 是一種自我裝載的軟體元件，而不是 Microsoft 託管服務，所以它不提供任何 SLA。In-Role Cache 使用者可以選擇移轉至 Azure Redis 快取，來運用它的豐富功能集並取得 SLA。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

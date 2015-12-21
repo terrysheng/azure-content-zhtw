@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/28/2015" 
+    ms.date="12/04/2015" 
     ms.author="elizapo" />
 
 
@@ -27,6 +27,9 @@ Azure RemoteApp 跨越裝置和工作階段儲存使用者身分識別和自訂�
 每個 UPD 有 50GB 的永續性儲存體，並包含使用者資料和應用程式設定。
 
 請閱讀更多有關使用者設定檔資料的特殊資訊。
+
+>[AZURE.NOTE]必須停用 UPD 嗎？ 現在您可以那麼做了 - 詳細資料請查看 Pavithra 的部落格文章：[在 Azure RemoteApp 停用使用者設定檔磁碟 (UPD)](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) (英文)。
+
 
 ## 系統管理員如何取得資料？
 
@@ -47,6 +50,8 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 我們也建議您在 Outlook 中使用「快取」模式，並使用「伺服器/線上」模式進行搜尋。
 
+如需使用 Outlook 和 Azure RemoteApp 的詳細資訊，請查看[這篇文章](remoteapp-outlook.md)。
+
 ## 我們可以使用共用的資料解決方案嗎？
 是，Azure RemoteApp 支援使用共用的資料解決方案 - 尤其是商務用 OneDrive 和 Dropbox。不過請注意，不支援 OneDrive Consumer (個人版) 和 Box。
 
@@ -64,7 +69,7 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 ## 我可以存取使用者的 UPD (目前或已刪除的使用者) 嗎？
 
-是，如果您連絡 [Azure RemoteApp](mailto:remoteappforum@microsoft.com)，我們可以為您設定一個 URL 以存取資料。在存取到期前，您將有大約 10 小時的時間可從 UPD 下載任何資料或檔案。
+可以，如果您連絡 [Azure RemoteApp](mailto:remoteappforum@microsoft.com)，我們可以為您設定一個 URL 以存取資料。在存取到期前，您將有大約 10 小時的時間可從 UPD 下載任何資料或檔案。
 
 ## UPD 可離線使用嗎？
 
@@ -76,6 +81,14 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 ## 我可以停用 集合的 UPD 嗎？
 
 可以，您可以要求 Azure RemoteApp 停用訂用帳戶的 UPD，但無法自己執行該作業。這表示將會針對訂用帳戶中的所有集合停用 UPD。
+
+在下列情況您可能會希望停用 UPD：
+
+- 您需要使用者資料的完整存取權限和控制 (針對稽核和檢閱之目的，例如金融機構)。
+- 您有內部部署的第三方使用者設定檔管理解決方案，並想要加入網域的 Azure RemoteApp 部署繼續使用它們。這會需要將設定檔代理程式載入主要映像。 
+- 您不需要任何本機資料儲存空間，或者您的所有資料都在雲端 (例如商務用 OneDrive) 或檔案共用，並且想要使用 Azure RemoteApp 控制在本機的檔案儲存。
+
+如需詳細資訊，請參閱[在 Azure RemoteApp 停用使用者設定檔磁碟 (UPD)](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) (英文)。
 
 ## 我可以限制使用者不要將資料儲存到系統磁碟機嗎？
 
@@ -104,7 +117,7 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 ## 如何在 Azure RemoteApp 中執行啟動指令碼？
 
-如果您想要執行啟動指令碼，請從在您即將用於收集的範本映像中建立排定的工作著手。(在執行 sysprep *前* 這麼做。)
+如果您想要執行啟動指令碼，請從在您即將用於收集的範本映像中建立排定的工作著手。(請在執行 sysprep 「前」 這麼做。)
 
 ![建立系統工作](./media/remoteapp-upd/upd1.png)
 
@@ -126,4 +139,4 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 不行，Azure RemoteApp 不支援。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

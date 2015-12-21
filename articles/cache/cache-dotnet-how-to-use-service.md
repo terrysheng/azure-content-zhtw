@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure 受管理快取服務
 
 本指南示範如何開始使用 **Azure 受管理的快取服務**。這些範例均以 C# 程式碼撰寫，並使用 .NET API。涵蓋的案例包括**建立和設定快取**、**設定快取用戶端**、**新增和移除快取中的物件、將 ASP.NET 工作階段狀態儲存在快取中**，以及**使用快取啟用 ASP.NET 頁面輸出快取**。如需使用 Azure 快取的詳細資訊，請參閱[後續步驟][]一節。
 
->如需為應用程式選擇正確 Azure 快取提供項目的相關指引，請參閱[適合我的 Azure 快取提供項目][]。
+>[AZURE.IMPORTANT]我們現在宣布將在 2016 年 11 月 30 日淘汰「Azure 受管理的快取服務」和 Azure In-Role Cache。我們建議您移轉到 Azure Redis Cache 以為這次淘汰做準備。如需日期和移轉指南的詳細資訊，請參閱[我適合使用哪個 Azure 快取服務？](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 
 <a name="what-is"></a>
 ## 何謂 Azure 受管理快取服務？
@@ -59,7 +59,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 您可以使用 PowerShell Cmdlet，在受管理的快取服務中建立快取執行個體。
 
->一旦使用 PowerShell Cmdlet 來建立受管理的快取服務執行個體，就能在 [Azure 管理入口網站][]中檢視這些執行個體。
+>一旦使用 PowerShell Cmdlet 來建立受管理的快取服務執行個體，就能在 [Azure 傳統入口網站][]中檢視這些執行個體。
 
 若要建立受管理的快取服務執行個體，請開啟 Azure PowerShell 命令視窗。
 
@@ -91,7 +91,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 >如需建立快取時可使用之參數和值的完整清單，請參閱 [New-AzureManagedCache][] Cmdlet 文件。
 
-叫用 PowerShell Cmdlet 之後，可能需要數分鐘的時間建立快取。建立快取之後，您的新快取的狀態將是 `Running`，且適用於預設設定，還可透過 [Azure 管理入口網站][]檢視和設定。若要自訂快取的組態，請參閱下面的[設定快取][]一節。
+叫用 PowerShell Cmdlet 之後，可能需要數分鐘的時間建立快取。建立快取之後，您的新快取的狀態將是 `Running`，且適用於預設設定，還可透過 [Azure 傳統入口網站][]檢視和設定。若要自訂快取的組態，請參閱下面的[設定快取][]一節。
 
 您可以在 Azure PowerShell 視窗中監視建立進度。快取可供使用之後，[New-AzureManagedCache][] Cmdlet 會顯示快取資訊，如下列範例所示。
 
@@ -124,7 +124,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 <a name="enable-caching"></a>
 ## 設定快取
 
-管理入口網站中快取的 [**設定**] 索引標籤可供您設定快取的選項。每個快取都有**預設**具名快取，而且標準和高級快取提供項目最多支援 9 個額外的具名快取，總共可支援 10 個。每個具名快取都有自己的選項集，可讓您以高度彈性方式設定快取。
+Azure 傳統入口網站中快取的 [設定] 索引標籤可供您設定快取的選項。每個快取都有**預設**具名快取，而且標準和高級快取提供項目最多支援 9 個額外的具名快取，總共可支援 10 個。每個具名快取都有自己的選項集，可讓您以高度彈性方式設定快取。
 
 ![NamedCaches][NamedCaches]
 
@@ -142,27 +142,27 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 [**絕對**] 為預設到期原則，其 [**時間 (分鐘)**] 的預設設定為 10 分鐘。具名快取中每個項目的到期原則都是固定的，但是可對每個項目自訂 [時間 (分鐘)]，方法為使用 **Add** 和 **Put** 超載來採用逾時參數。
 
-如需收回和到期原則的詳細資訊，請參閱 [Windows Azure 快取服務 (預覽) 到期與收回][]。
+如需收回和到期原則的詳細資訊，請參閱 [Microsoft Azure 快取服務 (預覽) 到期與收回][]。
 
 ## 通知 ##
 
-快取通知可讓應用程式在快取叢集發生各種快取作業時，收到非同步通知。快取通知也提供使本機快取的物件自動失效的功能。如需詳細資訊，請參閱 [Windows Azure 快取服務 (預覽) 通知][]。
+快取通知可讓應用程式在快取叢集發生各種快取作業時，收到非同步通知。快取通知也提供使本機快取的物件自動失效的功能。如需詳細資訊，請參閱 [Microsoft Azure 快取服務 (預覽) 通知][]。
 
->標準和高級快取提供項目才會提供通知功能，基本快取提供項目並不會提供。如需詳細資訊，請參閱 [Windows Azure 快取服務 (預覽) 快取提供項目][]。
+>標準和高級快取提供項目才會提供通知功能，基本快取提供項目並不會提供。如需詳細資訊，請參閱 [Microsoft Azure 快取服務 (預覽) 快取提供項目][]。
 
 ## 高可用性 ##
 
 啟用高可用性時，會由每一個新增至快取的項目組成備份複本。如果項目的主要複本發生非預期的失敗，則仍有備份複本可用。
 
-依定義，使用高可用性時，每個快取項目所需的記憶體數量會翻倍。請在進行容量計劃時將此記憶體影響納入考量。如需詳細資訊，請參閱 [Windows Azure 快取服務 (預覽) 高可用性][]。
+依定義，使用高可用性時，每個快取項目所需的記憶體數量會翻倍。請在進行容量計劃時將此記憶體影響納入考量。如需詳細資訊，請參閱 [Microsoft Azure 快取服務 (預覽) 高可用性][]。
 
->高級快取提供項目才會提供高可用性功能，基本或標準快取提供項目並不會提供。如需詳細資訊，請參閱 [Windows Azure 快取服務 (預覽) 快取提供項目][]。
+>高級快取提供項目才會提供高可用性功能，基本或標準快取提供項目並不會提供。如需詳細資訊，請參閱 [Microsoft Azure 快取服務 (預覽) 快取提供項目][]。
 
 ## 收回 ##
 
 為了保持快取內可用的記憶體容量，因此會支援最近最少使用的 (LRU) 收回。當記憶體耗用量超出記憶體臨界值時，無論物件是否過期，都會從記憶體收回物件，直到記憶體壓力舒緩為止。依預設會啟用收回功能。如果停用收回功能，則在到達容量上限時，將不會從快取中收回項目，Put 和 Add 作業將會因此失敗。
 
-如需收回和到期原則的詳細資訊，請參閱 [Windows Azure 快取服務 (預覽) 到期與收回][]。
+如需收回和到期原則的詳細資訊，請參閱 [Microsoft Azure 快取服務 (預覽) 到期與收回][]。
 
 一旦設定了快取，您可以設定快取用戶端，以允許存取快取。
 
@@ -222,11 +222,11 @@ NuGet 封裝會將下列組態元素新增至應用程式的 web.config 或 app.
 
 在新增組態後，請在剛新增的組態中取代下列兩個項目。
 
-1. 將 **[Cache role name or Service Endpoint]** 取代為管理入口網站中儀表板上顯示的端點。
+1. 將 **[Cache role name or Service Endpoint]** 取代為 Azure 傳統入口網站中儀表板上顯示的端點。
 
 	![端點][Endpoint]
 
-2. 取消註解 securityProperties 區段，並將 **[Authentication Key]** 取代為驗證金鑰，您可在管理入口網站從快取儀表板按一下 [**管理金鑰**]，來找到此驗證金鑰。
+2. 取消註解 securityProperties 區段，並將 [Authentication Key] 取代為驗證金鑰，您可在 Azure 傳統入口網站從快取儀表板按一下 [管理金鑰]，來找到此驗證金鑰。
 
 	![AccessKeys][AccessKeys]
 
@@ -243,7 +243,7 @@ NuGet 封裝會將下列組態元素新增至應用程式的 web.config 或 app.
       </ConfigurationSettings>
     </Role>
 
->用戶端診斷層級會設定為每一個快取用戶端收集的快取診斷資訊的層級。如需詳細資訊，請參閱[關於 Windows Azure 快取服務 (預覽) 的 ClientDiagnosticLevel][]。
+>用戶端診斷層級會設定為每一個快取用戶端收集的快取診斷資訊的層級。如需詳細資訊，請參閱[關於 Microsoft Azure 快取服務 (預覽) 的 ClientDiagnosticLevel][]。
 
 NuGet 套件也會新增下列組件的參考：
 
@@ -331,7 +331,7 @@ NuGet 套件也會新增下列組件的參考：
 <a name="specify-expiration"></a>
 ## 做法：指定快取中物件的到期時間
 
-依預設，快取中的項目會在放入快取十分鐘後到期。您可在管理入口網站中快取的 [設定] 索引標籤上，於 [**時間 (分鐘)**] 設定中配置此值。
+依預設，快取中的項目會在放入快取十分鐘後到期。您可在 Azure 傳統入口網站中快取的 [設定] 索引標籤上，於 [**時間 (分鐘)**] 設定中配置此值。
 
 ![NamedCaches][NamedCaches]
 
@@ -402,7 +402,7 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 
 在此範例中，已快取的頁面資料會留在快取中 60 秒，而且會對每一個參數組合快取不同版本的頁面。如需可用選項的詳細資訊，請參閱 [@ OutputCache][]。
 
-如需對 Azure 快取使用輸出快取提供者的詳細資訊，請參閱[建立 Windows Azure 快取服務 (預覽) 頁面輸出快取提供者][]。
+如需對 Azure 快取使用輸出快取提供者的詳細資訊，請參閱[建立 Microsoft Azure 快取服務 (預覽) 頁面輸出快取提供者][]。
 
 <a name="next-steps"></a>
 ## 後續步驟
@@ -449,11 +449,11 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
   
    
 <!-- LINKS -->
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Azure 快取的工作階段狀態提供者]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[建立 Windows Azure 快取服務 (預覽) 頁面輸出快取提供者]: http://go.microsoft.com/fwlink/?LinkId=320837
+[建立 Microsoft Azure 快取服務 (預覽) 頁面輸出快取提供者]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
@@ -465,16 +465,15 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [Azure 受管理快取服務概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
 [受管理的快取服務]: http://go.microsoft.com/fwlink/?LinkId=320830
 [@ OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
-[關於 Windows Azure 快取服務 (預覽) 的 ClientDiagnosticLevel]: http://go.microsoft.com/fwlink/?LinkId=320839
+[關於 Microsoft Azure 快取服務 (預覽) 的 ClientDiagnosticLevel]: http://go.microsoft.com/fwlink/?LinkId=320839
 [NuGet Package Manager 安裝]: http://go.microsoft.com/fwlink/?LinkId=240311
 [快取定價詳細資料]: http://www.windowsazure.com/pricing/details/cache/
-[Management Portal]: https://manage.windowsazure.com/
-[Windows Azure 快取服務 (預覽) 快取提供項目]: http://go.microsoft.com/fwlink/?LinkId=317277
+[Microsoft Azure 快取服務 (預覽) 快取提供項目]: http://go.microsoft.com/fwlink/?LinkId=317277
 [快取提供項目]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
-[Windows Azure 快取服務 (預覽) 到期與收回]: http://go.microsoft.com/fwlink/?LinkId=317278
-[Windows Azure 快取服務 (預覽) 高可用性]: http://go.microsoft.com/fwlink/?LinkId=317329
-[Windows Azure 快取服務 (預覽) 通知]: http://go.microsoft.com/fwlink/?LinkId=317276
+[Microsoft Azure 快取服務 (預覽) 到期與收回]: http://go.microsoft.com/fwlink/?LinkId=317278
+[Microsoft Azure 快取服務 (預覽) 高可用性]: http://go.microsoft.com/fwlink/?LinkId=317329
+[Microsoft Azure 快取服務 (預覽) 通知]: http://go.microsoft.com/fwlink/?LinkId=317276
 [移轉至 Azure 受管理的快取服務]: http://go.microsoft.com/fwlink/?LinkId=317347
 [受管理的快取服務範例]: http://go.microsoft.com/fwlink/?LinkId=320840
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
@@ -483,7 +482,7 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[適合我的 Azure 快取提供項目]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

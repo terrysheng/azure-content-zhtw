@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="12/06/2015"
       ms.author="hascipio; avikova" />
 
 # 透過 CSDL 將現有的 Web 服務對應至 OData
@@ -72,12 +72,9 @@ ATOM Pub 的延伸模組，其中每個項目代表結果集的一個資料列�
 > [AZURE.TIP]如果您看不到該篇文章，請按一下 [其他版本] 下拉式清單並選取一個版本。
 
 ### EDM - 項目資料模型
-- 概觀：[http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx](OverviewLink)
-[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- 預覽：[http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx](PreviewLink)
-[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- 資料類型：[http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx](DataTypesLink)
-[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+- 概觀：[http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink] [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- 預覽：[http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink] [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- 資料類型：[http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink] [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 下圖顯示從用戶端輸入 OData 陳述式 (呼叫內容提供者的 Web 服務) 到取回結果/資料的詳細流程 (從左至右)：
 
@@ -123,7 +120,7 @@ CSDL 是說明 Web 服務的 XML 文法。規格本身分成 4 個主要元素�
 
 CSDL 的範例如下：(複製下列範例 CSDL 並貼至 XML 編輯器，然後進行變更以符合您的服務。然後在 [Azure Marketplace 發佈入口網站](https://publish.windowsazure.com)中建立您的服務時，貼至 [DataService] 索引標籤底下的 CSDL 對應)。
 
-**詞彙：**將 CSDL 詞彙關聯至[發佈入口網站](https://publish.windowsazure.com) UI (PPUI) 詞彙。- 將 PPUI 中的優惠「標題」關聯至 MyWebOffer - 將 PPUI 中的 MyCompany 關聯至公司名稱 [賣方儀表板](https://sellerdashboard.microsoft.com) UI - 您的 API 會關聯至 Web 或資料服務 (PPUI 中的方案)
+**詞彙：**將 CSDL 詞彙關聯至[發佈入口網站](https://publish.windowsazure.com) UI (PPUI) 詞彙。- 將 PPUI 中的優惠「標題」關聯至 MyWebOffer - 將 PPUI 中的 MyCompany 關聯至 [Microsoft 開發人員中心](http://dev.windows.com/registration?accountprogram=azure) UI 中的**發行者顯示名稱** UI - 您的 API 會關聯至 Web 或資料服務 (PPUI 中的方案)
 
 **階層：**公司 (內容提供者) 擁有具有方案 (即服務) 的優惠，可利用 API 來排列。
 
@@ -299,6 +296,6 @@ CSDL 的範例如下：(複製下列範例 CSDL 並貼至 XML 編輯器，然後
 ## 另請參閱
 - 如果您有興趣學習和了解特定節點及其參數，請閱讀[資料服務 OData 對應節點](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)一文，來了解定義和說明、範例，以及使用案例內容。
 - 如果您有興趣檢閱範例，請閱讀[資料服務 OData 對應範例](marketplace-publishing-data-service-creation-odata-mapping-examples.md)一文，來查看範例程式碼，並了解程式碼語法與內容。
-- 若要傳回用來將資料服務發佈至 Azure Marketplace 的指定路徑，請閱讀[資料服務發佈指南](marketplace-publishing-data-service-creation.md)一文。
+- 若要返回用於將資料服務發佈至 Azure Marketplace 的指定路徑，請閱讀[資料服務發佈指南](marketplace-publishing-data-service-creation.md)一文。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

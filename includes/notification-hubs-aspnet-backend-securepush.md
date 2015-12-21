@@ -1,7 +1,7 @@
 ## WebAPI 專案
 
 1. 在 Visual Studio 中，開啟您在 [通知使用者] 教學課程中所建立的 **AppBackend** 專案。
-2. 在 Notifications.cs 中，使用下列程式碼來取代整個 **Notifications** 類別。請確定使用通知中樞的連接字串 (包含完整存取權) 和中樞名稱來取代預留位置。您可以從 [Azure 管理入口網站](http://manage.windowsazure.com)取得這些值。此模組現會顯示即將傳送的不同安全通知。在完整的實作中，通知會儲存在資料庫中。為了本案例的方便起見，我們會將通知儲存在記憶體中。
+2. 在 Notifications.cs 中，使用下列程式碼來取代整個 **Notifications** 類別。請確定使用通知中樞的連接字串 (包含完整存取權) 和中樞名稱來取代預留位置。您可以從 [Azure 傳統入口網站](http://manage.windowsazure.com)取得這些值。此模組現會顯示即將傳送的不同安全通知。在完整的實作中，通知會儲存在資料庫中。為了本案例的方便起見，我們會將通知儲存在記憶體中。
 
 		public class Notification
 	    {
@@ -84,4 +84,4 @@
 
 24. 選取 Azure 網站作為您的發行目標。使用您的 Azure 帳戶登入，並選取現有或新的網站，記下 [連線] 索引標籤中的 [目的地 URL] 屬性。。我們後續將在本教學課程中參考此 URL 作為您的 *backend endpoint*。按一下 [發行]。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

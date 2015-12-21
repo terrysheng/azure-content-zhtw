@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="定義輸出 |Microsoft Azure" 
-	description="了解串流分析輸出" 
-	keywords="巨量資料分析,雲端服務,物聯網,受管理的服務,串流處理,資料流分析,資料流處理資料,big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
-	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+<properties
+	pageTitle="資料轉換輸出：儲存體的選項、分析 |Microsoft Azure"
+	description="了解將串流分析資料轉換輸出的目標，設為資料儲存體選項。還有，為分析結果使用 Power BI。"
+	keywords="資料轉換, 分析結果, 資料儲存體選項"
+	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="12/01/2015"
 	ms.author="jeffstok"/>
 
-# 了解串流分析輸出
+# 將串流分析資料轉換輸出的目標，設為分析工具及資料儲存體選項
 
-在撰寫串流分析工作時，該工作輸出的取用方式也須加以考量。資料轉換的取用者會如何檢視串流分析工作的結果？ 他們將使用哪些工具來分析輸出？ 需要資料保留或倉儲嗎？
+當您在編寫串流分析工作時，請考慮資料轉換輸出的取用方式。您要如何檢視串流分析工作的結果？ 您要使用哪些工具來顯示資料分析的結果？ 資料儲存體選項是必要的嗎？
 
-為了啟用各種應用程式模式，Azure 的串流分析提供儲存和檢視工作輸出的各種方法。針對資料倉儲和其他用途，這可提供易於檢視工作輸出的方式，也提供取用和儲存工作輸出的彈性。任何在作業中設定的輸出都必須在作業啟動及事件開始串流前存在。例如，如果您使用 Blob 儲存體做為輸出，那麼作業就不會自動建立儲存體帳戶。使用者必須在啟動 ASA 作業前建立儲存體帳戶。
+為了要啟用各種應用程式模式，Azure 串流分析針對儲存輸出及檢視分析結果提供了數種不同的選項。這讓您能輕鬆地檢視工作輸出，還讓您對於資料倉儲和其他用途之工作輸出的取用及儲存方式更有彈性。任何在工作中設定的輸出，都必須在工作開始之前，以及在事件開始運作之前就已經存在。例如，如果您把 Blob 儲存體當做輸出來使用，工作就不會自動建立儲存體帳戶。使用者必須在 Azure 串流分析工作開始之前建立儲存體帳戶。
 
 
 ## SQL Database ##
@@ -116,13 +116,13 @@
 | 格式 | 僅適用於 JSON 類型。分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。陣列會指定輸出將會格式化為 JSON 物件的陣列。 |
 ## Power BI
 
-可以使用 [Power BI](https://powerbi.microsoft.com/) 做為資料流分析工作的輸出，藉此為資料流分析使用者提供豐富的視覺體驗。這項功能可以用於可作業的儀表板、報告的產生及度量驅動的報告。
+您可以把 [Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。這項功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
 
-> [AZURE.NOTE]在此階段，Azure 入口網站不支援 Power BI 輸出的建立及設定。
+> [AZURE.NOTE]在此階段，Azure Preview 入口網站不支援 Power BI 輸出的建立及設定。
 
 ### 授權 Power BI 帳戶
 
-1.	在 Azure 傳統入口網站中選取 Power BI 做為輸出時，您將會收到提示授權現有的 Power BI 使用者或建立新的 Power BI 帳戶。  
+1.	在 Azure 管理入口網站中選取 Power BI 做為輸出時，您將會收到提示授權現有的 Power BI 使用者或建立新的 Power BI 帳戶。  
 
     ![授權 Power BI 使用者](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -267,4 +267,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

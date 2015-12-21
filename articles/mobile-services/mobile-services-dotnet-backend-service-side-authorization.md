@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="10/01/2015"
+	ms.date="12/09/2015"
 	ms.author="krisragh"/>
 
 # 在行動服務中的使用者服務端授權
@@ -41,7 +41,7 @@
 
 2. 在 Visual Studio 中，展開 Controllers 資料夾，開啟 TodoItemController.cs，並新增下列 using 陳述式：
 
-		using Microsoft.Azure.Mobile.Server.Security;
+		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
 3. 尋找 **PostTodoItem** 方法，並將下列程式碼新增至方法開頭。
 
@@ -84,4 +84,4 @@
 <!-- URLs. -->
 [將驗證新增至現有的行動服務應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

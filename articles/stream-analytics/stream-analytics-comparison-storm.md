@@ -1,7 +1,7 @@
 <properties
-	pageTitle="比較：Apache Storm 與Azure 串流分析 | Microsoft Azure"
-	description="了解如何使用串流分析來執行即時 Twitter 情感分析。從事件產生到即時儀表板資料的逐步指導。"
-	keywords="即時 twitter,人氣分析,社交媒體分析,社交媒體分析工具,real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	pageTitle="分析平台：Apache Storm 與串流分析之間的比較 | Microsoft Azure"
+	description="本文將透過 Apache Storm 與串流分析之間的比較，提供您選擇雲端分析平台的指引。了解功能和差異。"
+	keywords="分析平台, 分析平台, 雲端分析平台, storm 比較"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,15 +17,13 @@
 	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
-# Apache Storm 和 Azure 串流分析的比較 #
+# 協助您選擇串流分析平台：Apache Storm 與 Azure 串流分析之間的比較
 
-## 簡介 ##
+本文將透過 Apache Storm 與 Azure 串流分析之間的比較，提供您選擇雲端分析平台的指引。您必須了解串流分析和 Apache Storm 在做為 Azure HDInsight 中的管理服務時，兩者分別的價值主張，才能為您的商務使用案例選擇合適的解決方案。
 
-這份文件說明 Azure 串流分析和 Apache Storm 在 HDInsight 上做為受管理的服務時的置放位置。目標是要協助客戶了解這兩個服務的價值主張，並制定適合自己業務使用案例的決策。
+雖然這兩個分析平台都提供 PaaS 解決方案的優點，但它們之間還是有幾個重要的功能差異。我們在下面列出這兩個服務的功能及限制，以協助您選擇達成目標所需的方案。
 
-雖然兩者都提供 PaaS 解決方案的優點，但還有幾個主要的不同功能區分這兩個服務。我們認為列出這兩個服務的功能及限制可協助客戶選擇能達成其目標所需的解決方案。
-
-## 一般 ##
+## Storm 與串流分析的比較：一般功能 ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -132,13 +130,13 @@
                     針對 HDInsight 上的 Apache Storm，購買的單位是叢集，並根據叢集執行的時間收費，與部署的工作是各自獨立的。
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">如需進一步的價格資訊，請參閱這裡</a>。
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">如需進一步的價格資訊，請參閱這裡。</a>
                 </p>
             </td>
         </tr>
     </tbody>
 </table>
-## 編寫 ##
+## 每個分析平台的編寫功能 ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -262,7 +260,7 @@
         </tr>
     </tbody>
 </table>
-## 輸入和輸出 ##
+## 資料來源和輸出 ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -590,4 +588,4 @@
     </tbody>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

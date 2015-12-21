@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的資料永續性
@@ -33,7 +33,7 @@ Azure Redis 快取使用 [RDB 模型](http://redis.io/topics/persistence) (其�
 
 ## 建立高階快取
 
-若要建立快取並設定永續性，請登入 [Azure Preview 入口網站](https://portal.azure.com)，然後按一下 [**新增**] -> [**資料 + 儲存體**] > [**Redis 快取**]。
+若要建立快取並設定永續性，請登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [新增] -> [資料 + 儲存體] > [Redis 快取]。
 
 ![建立 Redis 快取][redis-cache-new-cache-menu]
 
@@ -107,4 +107,4 @@ Redis 永續性是在 [**Redis 資料永續性**] 刀鋒視窗中所設定。若
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

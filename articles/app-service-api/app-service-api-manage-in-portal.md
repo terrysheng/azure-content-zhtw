@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="12/04/2015" 
 	ms.author="tdykstra"/>
 
 # 管理 Azure App Service 中的 API 應用程式
@@ -46,7 +46,7 @@
 - 設定來自 API 應用程式的傳出呼叫驗證 - 按一下 **[設定] > [驗證]**。如果 API 應用程式呼叫需要驗證的外部服務，則會在此輸入必要的設定值。例如，Dropbox 連接器需要用戶端識別碼和用戶端密碼來存取 Dropbox 服務。
 - 設定 [RBAC](../role-based-access-control-configure.md) - 按一下 **[設定] > [使用者]**。您在此設定的使用者存取決定只有誰可以存取 API 應用程式特定功能。若要設定 Web 應用程式功能的 RBAC，使用 [**API 應用程式主機**] 刀鋒視窗。您通常會想要讓 API 應用程式和 API 應用程式主機的 RBAC 設定保持同步。如果您允許某人存取 API 應用程式，但不能存取 API 應用程式主機，他們將無法使用 [**API 應用程式**] 刀鋒視窗上實際屬於 API 應用程式主機的功能。
 - 檢視 API 定義 - 按一下 [摘要] 區段中的 [API 定義]，以查看 API 應用程式所公開的方法清單。
-- [安裝混合式連線管理員](../app-service-logic/app-service-logic-hybrid-connection-manager.md)。Hybrid Connection Manager 可讓您連線至內部部署系統 (例如 SQL Server 或 SAP)。此混合式連線使用 Azure 服務匯流排連線並控制 Azure 資源與內部部署資源之間的安全性。
+- [安裝混合式連接管理員](../app-service-logic/app-service-logic-hybrid-connection-manager.md)。Hybrid Connection Manager 可讓您連線至內部部署系統 (例如 SQL Server 或 SAP)。此混合式連線使用 Azure 服務匯流排連線並控制 Azure 資源與內部部署資源之間的安全性。
 
 ### 您可以在 API 應用程式刀鋒視窗和 API 應用程式主機刀鋒視窗上執行的工作 
 
@@ -136,4 +136,4 @@
 
 如需如何使用命令列管理 API 應用程式的相關資訊，請參閱文章左側 (在寬瀏覽器視窗上) 或文章頂端 (在窄瀏覽器視窗上) 出現之功能表的 [**自動化**] 區段中的文章。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

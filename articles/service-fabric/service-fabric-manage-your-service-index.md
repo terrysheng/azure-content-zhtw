@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="12/04/2015"
    ms.author="ryanwi"/>
 
 # 管理 Service Fabric 服務
@@ -26,15 +26,15 @@
 - [應用程式生命週期](service-fabric-application-lifecycle.md)
 - [服務資訊清單資源](service-fabric-service-manifest-resources.md)
 - [封裝應用程式](service-fabric-application-model.md)
-- [部屬與移除應用程式](service-fabric-deploy-remove-applications.md)
+- [部署與移除應用程式](service-fabric-deploy-remove-applications.md)
 - [部署現有的應用程式](service-fabric-deploy-existing-app.md)
+- [使用不同的安全性權限執行 Service Fabric 應用程式](service-fabric-application-runas-security.md)
 - [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)
 
 ## 升級應用程式
 請閱讀下文以了解如何升級應用程式：
 
 - [使用 Visual Studio 進行 Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
-- [使用 PowerShell 進行 Service Fabric 應用程式升級](service-fabric-application-upgrade-powershell.md)
 - [應用程式升級逐步解說](service-fabric-application-upgrade-tutorial.md)
 - [升級參數](service-fabric-application-upgrade-parameters.md)
 - [手動升級及使用差異封裝進行升級](service-fabric-application-upgrade-advanced.md)
@@ -48,6 +48,12 @@
 - [調整 Service Fabric 應用程式](service-fabric-concepts-scalability.md)
 
 ## 管理叢集
+- [在 Azure 入口網站中設定 Service Fabric 叢集](service-fabric-cluster-creation-via-portal.md)
+- [使用 ARM 範本設定 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)
+- [升級 Service Fabric 叢集](service-fabric-cluster-upgrade.md)
+- [保護 Service Fabric 叢集](service-fabric-cluster-security.md)
+- [在叢集中加入或移除 VM 來增加或縮減 Service Fabric 叢集規模](service-fabric-cluster-scale-up-down.md)
+- [部署 Service Fabric 叢集到 Windows 或 Linux](service-fabric-deploy-anywhere.md)
 - [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

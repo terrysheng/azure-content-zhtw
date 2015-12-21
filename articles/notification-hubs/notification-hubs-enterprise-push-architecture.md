@@ -213,7 +213,7 @@
 
 	![][3]
 
-	g.將工作設定為 [連續執行]，如此一來，當您登入 Azure 管理入口網站時，應能看見與以下範例相似的內容：
+	g.將工作設定為 [連續執行]，如此一來，當您登入 [Azure 傳統入口網站]時，應能看見與以下範例相似的內容：
 
 	![][4]
 
@@ -250,7 +250,7 @@
 
 	![][5]
 
-4. 這些訊息最初是傳送給受到 WebJob 中服務匯流排訂閱監視的服務匯流排主題。待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。在 Azure 管理入口網站中，當您前往 WebJob 的 [記錄檔] 連結時，可以瀏覽 WebJob 記錄檔來確認處理狀態：
+4. 這些訊息最初是傳送給受到 WebJob 中服務匯流排訂閱監視的服務匯流排主題。待服務匯流排主題接收到訊息後，它會建立通知並傳送給行動應用程式。在 [Azure 傳統入口網站]中，當您前往 WebJob 的 [記錄檔] 連結時，可以瀏覽 WebJob 記錄檔來確認處理狀態：
 
 	![][6]
 
@@ -269,5 +269,6 @@
 [服務匯流排發行/訂用帳戶程式撰寫]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [通知中樞 - Windows Universal 教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

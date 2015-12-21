@@ -62,7 +62,7 @@
 
 ## 使用匯出資料層應用程式判斷您的資料庫是否相容
 
-1. 確認您擁有 13.0.600.65 版或更新版本的 SQL Server Management Studio。新版的 Management Studio 會每月更新以維持與 Azure 傳統入口網站的更新同步。
+1. 確認您擁有 13.0.600.65 版或更新版本的 SQL Server Management Studio。新版的 Management Studio 會每月更新以維持與 Azure 入口網站的更新同步。
 
  	 >[AZURE.IMPORTANT]下載[最新](https://msdn.microsoft.com/library/mt238290.aspx)版本的 SQL Server Management Studio。建議您一律使用最新版本的 Management Studio。
 
@@ -98,9 +98,9 @@
 
 > [AZURE.WARNING]在使用任何一種方法移轉資料庫之前，請確定沒有任何作用中交易以確保移轉期間的交易一致性。有許多方法可以停止資料庫，從停用用戶端連接性到建立[資料庫快照集](https://msdn.microsoft.com/library/ms175876.aspx)。
 
-- 針對小型到中型資料庫，移轉[相容的](#determine-if-your-database-is-compatible) SQL Server 2005 或更新版本資料庫的步驟跟在 SQL Server Management Studio 中執行 [將資料庫部署到 Microsoft Azure Database 精靈][](#use-the-deploy-database-to-microsoft-azure-database-wizard) 一樣簡單。如果您有連線困難 (沒有連線能力、低頻寬或逾時問題)，您可以[使用 BACPAC 將 SQL Server Database 移轉到 Azure SQL Database](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database)。
-- 針對中型至大型資料庫或您有連線困難的情況，請[使用 BACPAC 將 SQL Server Database 移轉到 Azure SQL Database](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database)。利用此方法，您可使用 SQL Server Management Studio 將資料和結構描述匯出到 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 檔案 (儲存在本機或 Azure Blob)，然後將 BACPAC 檔案匯入您的 Azure SQL 執行個體。如果您將 BACPAC 儲存在 Azure Blob，您也可以從 [Azure 傳統入口網站](sql-database-import.md)或[使用 PowerShell](sql-database-import-powershell.md) 匯入 BACPAC 檔案。
-- 對於較大的資料庫，您可以分別移轉結構描述和資料，以達到最佳效能。使用此方法，建立[沒有資料的 BACPAC 檔案](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database)，並且將這個 BACPAC 匯入 Azure SQL Database。將結構描述匯入 Azure SQL Database 之後，即可使用 [BCP](https://msdn.microsoft.com/library/ms162802.aspx) 將資料擷取至一般檔案，然後將這些檔案匯入 Azure SQL Database。
+- 針對小型到中型資料庫，移轉[相容的](#determine-if-your-database-is-compatible) SQL Server 2005 或更新版本資料庫的步驟跟在 SQL Server Management Studio 中執行 [將資料庫部署到 Microsoft Azure Database 精靈][](#use-deploy-database-to-microsoft-azure-database-wizard) 一樣簡單。如果您有連線困難 (沒有連線能力、低頻寬或逾時問題)，您可以[使用 BACPAC 將 SQL Server Database 移轉到 Azure SQL Database](#use-a-bacpac-to-migrate-a-sql-server-database-to-azure-sql-database)。
+- 針對中型至大型資料庫或您有連線困難的情況，請[使用 BACPAC 將 SQL Server Database 移轉到 Azure SQL Database](#use-a-bacpac-to-migrate-a-sql-server-database-to-azure-sql-database)。利用此方法，您可使用 SQL Server Management Studio 將資料和結構描述匯出到 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 檔案 (儲存在本機或 Azure Blob)，然後將 BACPAC 檔案匯入您的 Azure SQL 執行個體。如果您將 BACPAC 儲存在 Azure Blob，您也可以從 [Azure 入口網站](sql-database-import.md)或[使用 PowerShell](sql-database-import-powershell.md) 匯入 BACPAC 檔案。
+- 對於較大的資料庫，您可以分別移轉結構描述和資料，以達到最佳效能。使用此方法，建立[沒有資料的 BACPAC 檔案](#use-a-bacpac-to-migrate-a-sql-server-database-to-azure-sql-database)，並且將這個 BACPAC 匯入 Azure SQL Database。將結構描述匯入 Azure SQL Database 之後，即可使用 [BCP](https://msdn.microsoft.com/library/ms162802.aspx) 將資料擷取至一般檔案，然後將這些檔案匯入 Azure SQL Database。
 
 	 ![SSMS 移轉圖表](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
@@ -127,7 +127,7 @@ SQL Server Management Studio 中的 [將資料庫部署至 Microsoft Azure Datab
 
 > [AZURE.NOTE]下列步驟假設您已[佈建](../sql-database-get-started.md) Azure SQL 邏輯執行個體並且手邊有連接資訊。
 
-1. 確認您擁有 13.0.600.65 版或更新版本的 SQL Server Management Studio。新版的 Management Studio 會每月更新以維持與 Azure 傳統入口網站的更新同步。
+1. 確認您擁有 13.0.600.65 版或更新版本的 SQL Server Management Studio。新版的 Management Studio 會每月更新以維持與 Azure 入口網站的更新同步。
 
 	 >[AZURE.IMPORTANT]下載[最新](https://msdn.microsoft.com/library/mt238290.aspx)版本的 SQL Server Management Studio。建議您一律使用最新版本的 Management Studio。
 
@@ -150,7 +150,7 @@ SQL Server Management Studio 中的 [將資料庫部署至 Microsoft Azure Datab
 
 6.	完成精靈以移轉資料庫。移轉時間取決資料庫部署的大小及複雜性，可能需要數分鐘到數小時。
 7.	使用 [物件總管] 時，請連接到 Azure SQL Database 伺服器中已移轉的資料庫。
-8.	使用 Azure 傳統入口網站時，請檢視您的資料庫和它的屬性。
+8.	使用 Azure 入口網站時，請檢視您的資料庫和它的屬性。
 
 ## 使用 BACPAC 將 SQL Server Database 移轉到 Azure SQL Database
 
@@ -163,14 +163,14 @@ SQL Server Management Studio 中的 [將資料庫部署至 Microsoft Azure Datab
 
 - [使用 SQL Server Management Studio 從 BACPAC 檔案匯入至 Azure SQL Database](#import-from-a-bacpac-file-into-azure-sql-database-using-sql-server-management-studio)
 - [使用 SqlPackage 從 BACPAC 檔案匯入至 Azure SQL Database](#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage)
-- [使用 Azure 傳統入口網站從 BACPAC 檔案匯入至 Azure SQL Database](sql-database-import.md)
+- [使用 Azure 入口網站從 BACPAC 檔案匯入至 Azure SQL Database](sql-database-import.md)
 - [使用 PowerShell 從 BACPAC 檔案匯入至 Azure SQL Database](sql-database-import-powershell.md)
 
 ## 使用 SQL Server Management Studio 將相容的 SQL Server Database 匯出到 BACPAC 檔案
 
 使用下列步驟來使用 Management Studio 將[相容](#determine-if-your-database-is-compatible) SQL Server Database 匯出到 BACPAC 檔案。
 
-1. 確認您擁有 13.0.600.65 版或更新版本的 SQL Server Management Studio。新版的 Management Studio 會每月更新以維持與 Azure 傳統入口網站的更新同步。
+1. 確認您擁有 13.0.600.65 版或更新版本的 SQL Server Management Studio。新版的 Management Studio 會每月更新以維持與 Azure 入口網站的更新同步。
 
 	 >[AZURE.IMPORTANT]下載[最新](https://msdn.microsoft.com/library/mt238290.aspx)版本的 SQL Server Management Studio。建議您一律使用最新版本的 Management Studio。
 
@@ -211,7 +211,7 @@ SQL Server Management Studio 中的 [將資料庫部署至 Microsoft Azure Datab
 
 > [AZURE.NOTE]下列步驟假設您已佈建 Azure SQL 邏輯執行個體並且手邊有連接資訊。
 
-1. 確認您擁有 13.0.600.65 版或更新版本的 SQL Server Management Studio。新版的 Management Studio 會每月更新以維持與 Azure 傳統入口網站的更新同步。
+1. 確認您擁有 13.0.600.65 版或更新版本的 SQL Server Management Studio。新版的 Management Studio 會每月更新以維持與 Azure 入口網站的更新同步。
 
 	> [AZURE.IMPORTANT]下載[最新](https://msdn.microsoft.com/library/mt238290.aspx)版本的 SQL Server Management Studio。建議您一律使用最新版本的 Management Studio。
 
@@ -235,7 +235,7 @@ SQL Server Management Studio 中的 [將資料庫部署至 Microsoft Azure Datab
 
 7. 使用 [物件總管] 時，請連接到 Azure SQL Database 伺服器中已移轉的資料庫。
 
-8.	使用 Azure 傳統入口網站時，請檢視您的資料庫和它的屬性。
+8.	使用 Azure 入口網站時，請檢視您的資料庫和它的屬性。
 
 ## 使用 SqlPackage 從 BACPAC 檔案匯入至 Azure SQL Database
 
@@ -277,4 +277,4 @@ SQL Server Management Studio 中的 [將資料庫部署至 Microsoft Azure Datab
 
 - SQL Server Management Studio。您可以使用各種 Transact-SQL 命令 (例如 **ALTER DATABASE**) 修正 Management Studio 中的問題。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

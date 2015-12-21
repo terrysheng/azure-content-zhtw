@@ -60,7 +60,7 @@
     ![設定刀鋒視窗](media/automation-source-control-integration/automation_02_SourceControlConfigure.png)
 
 
-5. 按一下 [確定] 後，原始檔控制整合現已針對您的自動化帳戶設定，而且應以您的 GitHub 資訊進行更新，您現在可按一下此部分來檢視所有原始檔控制同步處理工作歷程記錄。
+5. 按一下 [確定] 後，原始檔控制整合現已針對您的自動化帳戶設定，而且應以您的 GitHub 資訊進行更新。您現在可以按一下此部分來檢視所有原始檔控制同步處理工作歷程記錄。
 
     ![儲存機制的值](media/automation-source-control-integration/automation_03_RepoValues.png)
 
@@ -126,7 +126,7 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
 ### 將原始檔控制中的 Runbook 同步處理至 Azure 自動化 
 
-[Runbook 同步處理] 刀鋒視窗上的 [同步處理] 按鈕可讓您將儲存機制的 Runbook 資料夾路徑中的所有 Runbook 提取至您的自動化帳戶。相同的儲存機制可以同步處理至多個自動化帳戶。以下是同步處理 Runbook 的步驟：
+[儲存機制同步處理] 刀鋒視窗上的 [同步處理] 按鈕可讓您將儲存機制的 Runbook 資料夾路徑中的所有 Runbook 提取至您的自動化帳戶。相同的儲存機制可以同步處理至多個自動化帳戶。以下是同步處理 Runbook 的步驟：
 
 1. 從您設定原始檔控制的自動化帳戶，開啟 [原始檔控制整合/儲存機制同步處理] 刀鋒視窗並按一下 [同步處理]，然後在顯示一則確認訊息時，請按一下 [是] 繼續進行。  
 
@@ -142,7 +142,7 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
 ## 原始檔控制問題的疑難排解
 
-簽入或同步處理工作如有任何錯誤，工作狀態應為 [暫止] ，而您可以在工作刀鋒視窗中檢視更多錯誤詳細資訊。[所有記錄檔] 部分會顯示與該工作相關聯的所有 PowerShell 串流。這會提供協助您修正任何簽入或同步處理問題所需的細節。它也會顯示同步處理或簽入 Runbook 時發生的動作順序。
+簽入或同步處理工作如有任何錯誤，工作狀態應為 [暫止]，而您可以在工作刀鋒視窗中檢視更多錯誤詳細資訊。[所有記錄檔] 部分會顯示與該工作相關聯的所有 PowerShell 串流。這會提供協助您修正任何簽入或同步處理問題所需的細節。它也會顯示同步處理或簽入 Runbook 時發生的動作順序。
 
 ![AllLogs 映像](media/automation-source-control-integration/automation_13_AllLogs.png)
 
@@ -158,4 +158,4 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
 如需原始檔控制整合的詳細資訊，請參閱下列資源：- [Azure 自動化：Azure 自動化中的原始檔控制整合](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [選出您最愛的原始檔控制系統](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Azure 自動化：使用 Visual Studio Online 整合 Runbook 原始檔控制](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

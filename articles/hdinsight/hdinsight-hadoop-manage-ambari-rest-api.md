@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/27/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #使用 Ambari REST API 管理 HDInsight 叢集
@@ -25,7 +25,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 > [AZURE.NOTE]本文的資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。針對 Windows 型 HDInsight 叢集，只能透過 Ambari REST API 取得一部分的監視功能。請參閱[在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop](hdinsight-monitor-use-ambari-api.md)。
 
-##先決條件
+##必要條件
 
 * [cURL](http://curl.haxx.se/)：cURL 是跨平台公用程式，可以用來從命令列使用 REST API。在本文件中，它用來與 Ambari REST API 進行通訊。
 * [jq](https://stedolan.github.io/jq/)：jq 是跨平台命令列公用程式，可與 JSON 文件搭配使用。在這份文件中，它用來剖析從 Ambari REST API 傳回的 JSON 文件。
@@ -131,4 +131,4 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 > [AZURE.NOTE]某些 Ambari 功能已停用，因為這些功能是由 HDInsight 雲端服務所管理；例如，在叢集中新增或移除主機，或新增服務。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

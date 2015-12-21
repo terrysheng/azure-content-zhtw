@@ -28,7 +28,7 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]建議您先[執行移轉](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md)，然後再升級。如此一來，您就能夠在同一個 App Service 方案中放置兩個版本的應用程式，而不需支付額外成本。
+>[AZURE.TIP]建議您在升級之前，先[執行移轉](app-service-mobile-migrating-from-mobile-services.md)。如此一來，您就能夠在同一個 App Service 方案中放置兩個版本的應用程式，而不需支付額外成本。
 
 ###Mobile Apps .NET 伺服器 SDK 中的增強功能
 
@@ -199,7 +199,7 @@ Mobile Apps 用戶端 SDK 會使用新的系統屬性名稱，因此不需要對
 是否使用 CORS 的主要考量範疇是必須允許 `eTag` 和 `Location` 標頭，用戶端 SDK 才能正常運作。
 
 ### 推播通知
-對於推播，您可能會發現伺服器 SDK 中遺漏的主要項目是 PushRegistrationHandler 類別。註冊在行動應用程式中處理方式稍有不同，依預設會啟用不具標記的註冊。管理標記可使用自訂 API 來完成。如需詳細資訊，請參閱[註冊標記](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)的指示 。
+對於推播，您可能會發現伺服器 SDK 中遺漏的主要項目是 PushRegistrationHandler 類別。註冊在行動應用程式中處理方式稍有不同，依預設會啟用不具標記的註冊。管理標記可使用自訂 API 來完成。如需詳細資訊，請參閱[註冊標記](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)的指示。
 
 ### 排程的工作
 Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任何現有工作都必須個別升級。其中一個選項是在行動應用程式程式碼網站上建立排程 [Web 工作]。您也可以設定用來保存工作程式碼的控制器，並設定依預期的排程在端點上執行的 [Azure 排程器]。
@@ -271,11 +271,10 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure 排程器]: /zh-TW/documentation/services/scheduler/
 [Web 工作]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [如何使用 .NET 伺服器 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service 定價]: https://azure.microsoft.com/zh-TW/pricing/details/app-service/
 [.NET 伺服器 SDK 概觀]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

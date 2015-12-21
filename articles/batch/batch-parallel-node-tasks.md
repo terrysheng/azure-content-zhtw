@@ -106,7 +106,7 @@ Duration: 00:08:48.2423500
 
 ## Batch 總管熱圖
 
-[Batch 總管][batch_explorer]，其中一個 Azure Batch [範例應用程式][github_samples]，包含「熱圖」功能 ，提供工作執行的視覺效果。執行 [ParallelTasks][parallel_tasks_sample] 範例應用程式時，使用熱圖功能來輕易地視覺化每個節點上 平行工作的執行。
+[Batch 總管][batch_explorer]，其中一個 Azure Batch [範例應用程式][github_samples]，包含「熱圖」功能，提供工作執行的視覺化。執行 [ParallelTasks][parallel_tasks_sample] 範例應用程式時，使用熱圖功能來輕易地視覺化每個節點上平行工作的執行。
 
 ![Batch 總管熱圖][1]
 
@@ -117,7 +117,7 @@ Duration: 00:08:48.2423500
 [batch_explorer]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-[fill_type]: https://msdn.microsoft.com/zh-TW/library/microsoft.azure.batch.common.computenodefilltype.aspx
+[fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx
 [maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -127,4 +127,4 @@ Duration: 00:08:48.2423500
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

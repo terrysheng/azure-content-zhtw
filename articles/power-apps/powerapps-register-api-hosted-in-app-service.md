@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # 註冊 App Service 環境代管的 API
@@ -27,11 +27,11 @@ PowerApps 支援註冊託管於雲端或內部部署任何位置的 API，其功
 
 若要在應用程式中使用這些 API，您必須在 Azure 入口網站中「註冊」API。可以使用下列選項：
 
-- 註冊 [Microsoft 管理的 API 或 IT 管理的 API](powerapps-register-from-available-apis.md)。
-- 註冊 App Service 環境代管的 API。
-- 使用 [Swagger 2.0 API 定義](powerapps-register-existing-api-from-api-definition.md)來註冊 API。
+- 註冊預先建置的 [Microsoft 管理的 API 或 IT 管理的 API](powerapps-register-from-available-apis.md)。
+- 註冊您的 App Service 環境 (在本主題中) 內裝載的 Web 應用程式、API 應用程式，以及行動應用程式。
+- 使用 [Swagger 2.0 API 定義](powerapps-register-existing-api-from-api-definition.md)註冊其中一個您自己的 Swagger API。
 
-本文說明如何**註冊 App Service 環境代管的 API**。
+本文說明如何**註冊您的 App Service 環境內裝載的 Web 應用程式、API 應用程式，以及行動應用程式**。
 
 #### 開始使用的必要條件
 
@@ -67,8 +67,9 @@ API 部署至 App Service 環境之後，請使用下列步驟註冊：
 ## 摘要和後續步驟
 在本主題中，您已看到如何註冊 App Service 環境代管的 API。以下是一些讓您深入了解 PowerApps 的相關主題與資源：
 
-- [設定 API](../powerapps-configure-apis.md)
-- [加入新的 API](../powerapps-register-from-available-apis.md)
+- [設定 API 原則](powerapps-configure-apis.md)
+- [讓使用者存取 API](powerapps-manage-api-connection-user-access.md)
+- [開始在 PowerApps 中建立應用程式](https://powerapps.microsoft.com/tutorials/)
 
 <!--Reference-->
 [11]: ./media/powerapps-register-api-hosted-in-app-service/registered-apis-part.png
@@ -76,4 +77,4 @@ API 部署至 App Service 環境之後，請使用下列步驟註冊：
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

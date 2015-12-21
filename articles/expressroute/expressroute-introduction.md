@@ -63,7 +63,7 @@ Microsoft 採用業界標準動態路由通訊協定 (BGP)，在您的內部部�
 
 - Microsoft Azure 服務
 - Microsoft Office 365 服務
-- Microsoft CRM Online 服務 (敬請期待) 
+- Microsoft CRM Online 服務 
  
 您可以瀏覽 [ExpressRoute 常見問題集](expressroute-faqs.md)頁面，取得透過 ExpressRoute 所支援的服務的詳細清單。
 
@@ -75,15 +75,15 @@ Microsoft 採用業界標準動態路由通訊協定 (BGP)，在您的內部部�
 
 ### 使用 ExpressRoute Premium 附加元件從全球連線
 
-您可以啟用 ExpressRoute Premium 附加功能，將連線能力延伸到跨越地理政治的界限。例如，如果您在阿姆斯特丹透過 ExpressRoute 連接到 Microsoft，您就能夠存取全球所有區域裝載的所有 Microsoft 雲端服務 (不包括國家/地區雲端)。就像存取北歐和西歐區域一樣，您也可以存取部署在南美洲或澳大利亞的服務。
+您可以啟用 ExpressRoute Premium 附加功能，將連線能力延伸到跨越地理政治的界限。例如，如果您在阿姆斯特丹透過 ExpressRoute 連接到 Microsoft，您就能夠存取全球所有區域裝載的所有 Microsoft 雲端服務 (不包括國家雲端)。就像存取北歐和西歐區域一樣，您也可以存取部署在南美洲或澳大利亞的服務。
 
 ### 豐富的連線合作夥伴生態系統
 
 ExpressRoute 的連線提供者和 SI 合作夥伴生態系統持續成長茁壯。如需最新資訊，請參閱 [ExpressRoute 提供者和位置](expressroute-locations.md)一文。
 
-### 連線到國家/地區雲端
+### 連線到國家雲端
 
-Microsoft 為特殊的地理政治地區和客戶群提供隔離的雲端環境。如需國家/地區雲端和提供者的清單，請參閱 [ExpressRoute 提供者和位置](expressroute-locations.md)頁面。
+Microsoft 為特殊的地理政治地區和客戶群提供隔離的雲端環境。如需國家雲端和提供者的清單，請參閱 [ExpressRoute 提供者和位置](expressroute-locations.md)頁面。
 
 ### 支援的頻寬選項
 
@@ -110,7 +110,7 @@ Microsoft 為特殊的地理政治地區和客戶群提供隔離的雲端環境�
 - **已計量資料**。ExpressRoute 線路按月計費。所有輸入資料傳輸都免費。輸出資料傳輸依每 GB 資料傳輸計費。資料傳輸費率依區域而不同。
 - **ExpressRoute Premium 附加元件**。ExpressRoute Premium 是 ExpressRoute 線路上的附加元件。ExpressRoute Premium 附加元件提供下列功能： 
 	- Azure 公用和 Azure 私用對等的路由限制從 4,000 個路由提高到 10,000 個路由。
-	- 從全球連線到服務。任何區域中建立的 ExpressRoute 線路 (不包括國家/地區雲端) 能夠存取全球其他任何區域的資源。例如，透過在美國矽谷佈建的 ExpressRoute 線路，可存取在西歐建立的虛擬網路。
+	- 從全球連線到服務。任何區域中建立的 ExpressRoute 線路 (不包括國家雲端) 能夠存取全球其他任何區域的資源。例如，透過在美國矽谷佈建的 ExpressRoute 線路，可存取在西歐建立的虛擬網路。
 	- 每個 ExpressRoute 線路的 VNet 連結數目已從原本 10 個放寬限制，視線路的頻寬而定。
 
 ## 後續步驟
@@ -124,4 +124,4 @@ Microsoft 為特殊的地理政治地區和客戶群提供隔離的雲端環境�
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

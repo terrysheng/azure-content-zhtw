@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="08/04/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
 
 # 如何使用 Azure 排程器建立複雜的排程和進階週期  
@@ -178,24 +178,25 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 
 ## 另請參閱
  
+
  [排程器是什麼？](scheduler-intro.md)
  
- [排程器概念、術語及實體階層](scheduler-concepts-terms.md)
- 
- [在管理入口網站中開始使用排程器](scheduler-get-started-portal.md)
- 
+ [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)
+
+ [在 Azure 入口網站中開始使用排程器](scheduler-get-started-portal.md)
+
  [Azure 排程器的計劃和計費](scheduler-plans-billing.md)
- 
- [排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
- 
- [排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)
- 
- [排程器高可用性和可靠性](scheduler-high-availability-reliability.md)
- 
- [排程器限制、預設值和錯誤碼](scheduler-limits-defaults-errors.md)
- 
- [排程器輸出驗證](scheduler-outbound-authentication.md)
+
+ [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
+
+ [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)
+
+ [Azure 排程器高可用性和可靠性](scheduler-high-availability-reliability.md)
+
+ [Azure 排程器限制、預設值和錯誤碼](scheduler-limits-defaults-errors.md)
+
+ [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
  
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

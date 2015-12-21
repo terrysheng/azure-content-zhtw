@@ -20,6 +20,8 @@
 您可以使用 Azure 傳統入口網站 (或) Azure PowerShell Cmdlet 來對 Azure Data Factory 問題進行疑難排解。本主題逐步解說如何使用 Azure 傳統入口網站來對您使用 Data Factory 時遇到的錯誤進行快速疑難排解。
 
 ## 問題：無法執行 Data Factory Cmdlet
+如果您使用的是版本 < 1.0 的 Azure PowerShell 版本：
+ 
 若要解決這個問題，請將 Azure 模式切換至 **AzureResourceManager**：
 
 啟動 **Azure PowerShell**，並執行下列命令來切換至 **AzureResourceManager** 模式。Azure Data Factory Cmdlet 可在 **AzureResourceManager** 模式中使用。
@@ -54,7 +56,7 @@
 
 配量處於 **PendingExecution** 或 **PendingValidation** 狀態的原因有許多種，其中一種常見的原因是 **external** 屬性未設為 **true**。在 Azure Data Factory 範圍外產生的任何資料集，都應該標示 **external** 屬性。這表示資料在外部，且未由 Data Factory 內的任何管線所支持。一旦資料在個別的存放區可用，資料配量就會標示為 [就緒]。
 
-關於 **external** 屬性的用法，請參閱下列範例。當您將 external 設為 true 時，可以選擇性地指定**externalData***。
+關於 **external** 屬性的用法，請參閱下列範例。當您將 external 設為 true 時，可以選擇性地指定 **externalData***。
 
 如需此屬性的詳細資料，請參閱 [JSON 指令碼參考][json-scripting-reference]中的資料表主題。
 	
@@ -92,7 +94,7 @@
 ## 問題：混合式複製作業失敗
 若要了解更多詳細資料：
 
-1. 在已安裝閘道的電腦上，啟動 [資料管理閘道組態管理員]。確認 [閘道名稱] 設定為 [Azure 傳統入口網站]上的邏輯閘道名稱，[閘道金鑰狀態] 為 [已註冊]，而 [服務狀態] 為 [已啟動]。 
+1. 在已安裝閘道的電腦上，啟動 [資料管理閘道組態管理員]。確認 [閘道名稱] 設定為 [Azure 傳統入口網站] 上的邏輯閘道名稱，[閘道金鑰狀態] 為 [已註冊]，而 [服務狀態] 為 [已啟動]。 
 2. 啟動 [事件檢視器]。展開 [應用程式及服務記錄檔]，按一下 [資料管理閘道]。查看是否有任何與資料管理閘道相關的錯誤。 
 
 ## 問題：隨選 HDInsight 佈建失敗，發生錯誤
@@ -177,7 +179,7 @@
 4. 在 **Azure PowerShell** 中執行下列命令，以更新管線的活動期，讓管線嘗試將資料寫入已不存在的 **emp** 資料表。
 
          
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
 	以目前日期取代 **StartDateTime** 值，並以隔天日期取代 **EndDateTime** 值。
 
@@ -214,17 +216,12 @@
 
 ### 使用 Azure PowerShell Cmdlet 對錯誤進行疑難排解
 1.	啟動 **Azure PowerShell**。 
-2.	切換至 **AzureResourceManager** 模式，因為 Data Factory Cmdlet 只可在此模式中使用。
+3. 執行 Get-AzureRmDataFactorySlice 命令來查看配量及其狀態。您應該會看到有以下狀態的配量：Failed。	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-3. 執行 Get-AzureDataFactorySlice 命令來查看區塊和其狀態。您應該會看到有以下狀態的配量：Failed。
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	將 **StartDateTime** 取代為您在 **Set-AzureDataFactoryPipelineActivePeriod** 中指定的 StartDateTime 值。
+	將 **StartDateTime** 取代成您針對 **Set-AzureRmDataFactoryPipelineActivePeriod** 所指定的 StartDateTime 值。
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -237,9 +234,9 @@
 		LongRetryCount    		: 0
 
 	在輸出中，記下問題配量的 **Start** 時間 (**Status** 設為 **Failed** 的配量)。 
-4. 現在，執行 **Get-AzureDataFactoryRun** Cmdlet，以取得關於此配量之活動執行的詳細資料。
+4. 現在，執行 **Get-AzureRmDataFactoryRun** Cmdlet，以取得關於此配量之活動執行的詳細資料。
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	**StartDateTime** 的值是您在上一步記下的錯誤/問題配量 Start 時間。date-time 應該用雙引號括住。
 5. 您應該會看到關於此錯誤的詳細資料 (如下所示) 輸出：
@@ -296,17 +293,12 @@
     
 ### 逐步解說：使用 Azure PowerShell 對 Pig/Hive 處理的錯誤進行疑難排解
 1.	啟動 **Azure PowerShell**。 
-2.	切換至 **AzureResourceManager** 模式，因為 Data Factory Cmdlet 只可在此模式中使用。
+3. 執行 Get-AzureRmDataFactorySlice 命令來查看配量及其狀態。您應該會看到有以下狀態的配量：Failed。	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-3. 執行 Get-AzureDataFactorySlice 命令來查看區塊和其狀態。您應該會看到有以下狀態的配量：Failed。
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	將 **StartDateTime** 取代為您在 **Set-AzureDataFactoryPipelineActivePeriod** 中指定的 StartDateTime 值。
+	將 **StartDateTime** 取代成您針對 **Set-AzureRmDataFactoryPipelineActivePeriod** 所指定的 StartDateTime 值。
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory
@@ -320,9 +312,9 @@
 
 
 	在輸出中，記下問題配量的 **Start** 時間 (**Status** 設為 **Failed** 的配量)。 
-4. 現在，執行 **Get-AzureDataFactoryRun** Cmdlet，以取得關於此配量之活動執行的詳細資料。
+4. 現在，執行 **Get-AzureRmDataFactoryRun** Cmdlet，以取得關於此配量之活動執行的詳細資料。
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	**StartDateTime** 的值是您在上一步記下的錯誤/問題配量 Start 時間。date-time 應該用雙引號括住。
 5. 您應該會看到關於此錯誤的詳細資料 (如下所示) 輸出：
@@ -346,7 +338,7 @@
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. 您可以使用在上述輸出中看見的 ID 值，執行 **Save-AzureDataFactoryLog** Cmdlet，並在 Cmdlet 中使用 **-DownloadLogs** 選項來下載記錄檔。
+6. 您可以使用在上述輸出中看見的 ID 值，執行 **Save-AzureRmDataFactoryLog** Cmdlet，並在 Cmdlet 中使用 **-DownloadLogs** 選項來下載記錄檔。
 
 
 
@@ -382,4 +374,4 @@
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

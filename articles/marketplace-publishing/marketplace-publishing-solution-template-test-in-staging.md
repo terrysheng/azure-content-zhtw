@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio; v-divte" />
 
 # 在預備環境中測試您的解決方案範本供應項目
 預備環境代表將您的供應項目部署在私人的「沙箱」中，您可以在推送到生產環境之前在沙箱中測試與驗證其功能。供應項目會出現在預備環境中，就如同客戶已部署該項目一樣。您的供應項目必須經過認證才能推送至預備環境。
 
-預備供應項目之後，您可以在 [Azure Preview 入口網站](https://ms.portal.azure.com/)中檢視並測試供應項目。
+預備供應項目之後，您可以在 [Azure 入口網站](https://portal.azure.com/)中檢視並測試供應項目。
 
-請遵循下列步驟，將您的供應項目推送至預備環境並在 [Azure Preview 入口網站](https://ms.portal.azure.com/)中進行測試：
+請遵循下列步驟，將您的供應項目推送至預備環境並在 [Azure 入口網站](https://portal.azure.com/)中進行測試：
 
 1.	瀏覽至[發佈入口網站](https://publish.windowsazure.com) -> 選取 [解決方案範本] 索引標籤 -> 您的供應項目 -> [發佈] -> [推送至預備環境]。
 2.	提供您將用來預覽和測試供應項目的 Azure 訂用帳戶清單。
@@ -39,4 +39,4 @@
 
 如需所有發行者工作的指南，請參閱[快速入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

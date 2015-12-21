@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/10/2015"   
+	ms.date="12/05/2015"   
 	ms.author="juliako"/>
 
 
 # 使用 Azure Media Packager 完成靜態封裝工作
 
->[AZURE.NOTE]Windows Azure Media Packager 和 Windows Azure Media Encryptor 的生命週期將於 2016 年 3 月 1 日結束。屆時，這些元件將不再可用。格式轉換和加密功能將可透過動態封裝與動態加密進行。
+>[AZURE.NOTE]Microsoft Azure Media Packager 和 Microsoft Azure Media Encryptor 的生命週期將於 2016 年 3 月 1 日結束。屆時，這些元件將不再可用。格式轉換和加密功能將可透過動態封裝與動態加密進行。
 
 ## 概觀
 
@@ -1447,4 +1447,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

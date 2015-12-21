@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/08/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,11 +23,11 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 您也可以使用 [BizTalk 服務 REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584) 來備份 BizTalk 服務。
 
+> [AZURE.NOTE]混合式連接無法備份，與版本無關。您必須重新建立混合式連接。
+
 ## 開始之前
 
 - 備份與還原可能不適用於部分版本。請參閱「[BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)」(英文)。
-
-	**注意事項**：混合式連線無法備份，與版本無關。
 
 - 使用 Azure 傳統入口網站可建立隨選備份或排定備份。
 
@@ -65,7 +65,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 #### <a name="backupschedule"></a>排定備份
 
 1. 在 Azure 傳統入口網站上，選取 [BizTalk 服務]，選取您要排定備份的 BizTalk 服務名稱，然後選取 [設定] 索引標籤。
-2. 將 [備份狀態] 設為 [自動]。 
+2. 將 [**備份狀態**] 設為 [**自動**]。 
 3. 選取要儲存備份的 [儲存體帳戶]，輸入建立備份的 [頻率] 以及備份的保留時間 ([保留天數])：
 
 	![][AutomaticBU]
@@ -94,7 +94,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 - 將還原相同的 EDI Runtime 資料。EDI Runtime 備份中儲存控制編號。還原的控制編號從備份時間開始按順序編排。如果在上次備份之後處理訊息，則還原此備份內容會產生重複的控制編號。
 
-#### Restore a backup
+#### 還原備份
 
 1. 在 Azure 傳統入口網站上，選取 [新增] > [應用程式服務] > [BizTalk 服務] > [還原]：
 
@@ -214,7 +214,7 @@ BizTalk 服務永遠還原成**暫止**狀態。在此狀態下，您可以在�
 
 ## 下一步
 
-若要在 Azure 傳統入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 傳統入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)。
+若要在 Azure 傳統入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 傳統入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)。若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197) (英文)。
 
 ## 另請參閱
 - [備份 BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=325584)
@@ -233,4 +233,4 @@ BizTalk 服務永遠還原成**暫止**狀態。在此狀態下，您可以在�
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

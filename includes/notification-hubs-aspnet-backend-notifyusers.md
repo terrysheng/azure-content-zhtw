@@ -132,7 +132,7 @@
 
         using Microsoft.Azure.NotificationHubs;
 
-6. 以下列內容取代 `Notifications` 類別定義，並確定以通知中樞的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 管理入口網站](http://manage.windowsazure.com)取代) 取代兩個預留位置：
+6. 以下列內容取代 `Notifications` 類別定義，並確定以通知中樞的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 傳統入口網站](http://manage.windowsazure.com)取代) 取代兩個預留位置：
 
 		public class Notifications
         {
@@ -364,4 +364,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

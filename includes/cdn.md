@@ -14,7 +14,7 @@ Azure 內容傳遞網路 (CDN) 透過將計算執行個體 Blob 與靜態內容�
 -   讓離內容來源很遙遠、且所使用的應用程式需要在網際網路上歷經長途跋涉才能載入內容的使用者，享有更好的效能和使用者經驗
 -   大型的分散式規模可更妥善處理瞬間大量負載 (例如產品上市等活動的開頭)
 
-現有 CDN 客戶現在可以在 [Azure 管理入口網站]中使用 Azure CDN。CDN 是一項可用於您訂用帳戶的附加元件，且有自己的[計費方案]。
+現有 CDN 客戶現在可以在 [Azure 傳統入口網站]中使用 Azure CDN。CDN 是一項可用於您訂用帳戶的附加元件，且有自己的[計費方案]。
 
 <a id="Step1"> </a> <h2>步驟 1：建立儲存體帳戶</h2>
 
@@ -26,7 +26,7 @@ Azure 內容傳遞網路 (CDN) 透過將計算執行個體 Blob 與靜態內容�
 
 **為 Azure 訂用帳戶建立儲存體帳戶**
 
-1.  登入 [Azure 管理入口網站]。
+1.  登入 [Azure 傳統入口網站]。
 2.  按一下左下角的 [**新增**]。在 [**新增**] 對話方塊中，選取 [**資料服務**]，然後依序按一下 [**儲存體**] 和 [**快速建立**]。
 
     [建立儲存體帳戶] 對話方塊隨即出現。
@@ -43,9 +43,9 @@ Azure 內容傳遞網路 (CDN) 透過將計算執行個體 Blob 與靜態內容�
 
 	此值也用作這個儲存體帳戶在入口網站中的名稱，或用於透過程式設計方式存取此帳戶時。
 
-5.  從 [區域/同質群組] 下拉式清單中，選取儲存體帳戶的區域或同質群組。如果您希望儲存體服務位於與您目前使用的其他 Windows Azure 服務相同的資料中心，請選取同質群組而非區域。這麼做可改善效能，而且出口流量不會產生任何費用。
+5.  從 [區域/同質群組] 下拉式清單中，選取儲存體帳戶的區域或同質群組。如果您希望儲存體服務位於與您目前使用的其他 Microsoft Azure 服務相同的資料中心，請選取同質群組而非區域。這麼做可改善效能，而且出口流量不會產生任何費用。
 
-    **注意：**若要建立同質群組，請開啟管理入口網站的 [**設定**] 區域，並按一下 [**同質群組**]，然後按一下 [**新增同質群組**] 或 [**新增**]。您也可以使用 Windows Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱 [同質群組的相關作業]。
+    **注意：**若要建立同質群組，請開啟管理入口網站的 [**設定**] 區域，並按一下 [**同質群組**]，然後按一下 [**新增同質群組**] 或 [**新增**]。您也可以使用 Microsoft Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱 [同質群組的相關作業]。
 
 6. 從 [訂用帳戶] 下拉式清單中，選取將與儲存體帳戶搭配使用的訂用帳戶。
 7.  按一下 [建立儲存體帳戶]。建立儲存體帳戶的程序可能需要幾分鐘才能完成。
@@ -57,7 +57,7 @@ Azure 內容傳遞網路 (CDN) 透過將計算執行個體 Blob 與靜態內容�
 
 **為儲存體帳戶建立新的 CDN 端點**
 
-1. 在 [Azure 管理入口網站]的瀏覽窗格中，按一下 [CDN]。
+1. 在 [Azure 傳統入口網站]中的導覽窗格中，按一下 [CDN]。
 
 2. 在功能區中，按一下 [新增]。在 [新增] 對話方塊中，依序選取 [應用程式服務]、[CDN]、[快速建立]。
 
@@ -100,7 +100,7 @@ Azure 管理入口網站目前不支援立即清除內容的功能。如果您�
 
   [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
   [Azure CDN 節點位置]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-  [Azure 管理入口網站]: https://manage.windowsazure.com/
+  [Azure 傳統入口網站]: https://manage.windowsazure.com/
   [計費方案]: /pricing/calculator/?scenario=full
   [如何在 Azure 中建立同質群組]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
@@ -111,4 +111,4 @@ Azure 管理入口網站目前不支援立即清除內容的功能。如果您�
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

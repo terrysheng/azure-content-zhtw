@@ -3,8 +3,8 @@
 	description="在開發具效能的應用程式中使用 Azure 儲存體的實證做法檢查清單。"
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 # Microsoft Azure 儲存體效能與延展性檢查清單
 
@@ -171,7 +171,7 @@
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-如需詳細資訊，請參閱 [ThreadPool.SetMinThreads 方法] (http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx))。
+如需詳細資訊，請參閱 [ThreadPool.SetMinThreads 方法](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx))。
 
 ####<a name="subheading11"></a>充分運用 .NET 4.5 記憶體回收
 在用戶端應用程式中使用 .NET 4.5 或更新版本，以便在伺服器記憶體回收中充分運用效能改善。
@@ -382,4 +382,4 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。我們鼓勵每位應用程式開發人員根據上述的每個做法來評估他們的應用程式，並考慮照著建議去做，為其使用 Azure 儲存體的應用程式取得最佳效能。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

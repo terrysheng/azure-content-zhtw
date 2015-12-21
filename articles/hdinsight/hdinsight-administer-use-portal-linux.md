@@ -73,7 +73,7 @@
 
 	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows)
+	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 7. 針對 [資料來源]，您可以選取此項目，藉此選擇現有資料來源，或建立一個新的資料來源。
 
@@ -188,9 +188,9 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 * [使用 Azure CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
 * [佈建 HDInsight 叢集](hdinsight-provision-clusters.md)
 * [以程式設計方式提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [開始使用 Azure HDInsight](../hdinsight-get-started.md)
+* [開始使用 Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Azure HDInsight 提供 Hadoop 的什麼版本？](hdinsight-component-versioning.md)
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

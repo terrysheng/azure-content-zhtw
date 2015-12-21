@@ -29,20 +29,21 @@ ms.service="virtual-machines"
 
 * **Azure VM 中的 HPC Pack 叢集** - 使用 HPC Pack 2012 R2 Update 1 或更新版本，在傳統 (服務管理) 部署模型中建立 HPC Pack 叢集。例如，您可以使用 Azure Marketplace 中的 HPC Pack VM 映像和 Azure PowerShell 指令碼，將部署自動化。如需相關資訊和必要條件，請參閱[使用 HPC Pack IaaS 部署指令碼建立 HPC 叢集](virtual-machines-hpcpack-cluster-powershell-script.md)。
 
-* **Azure 管理憑證或發佈設定檔** - 您必須前端節點上執行下列其中一項：
+* **Azure 發佈設定檔或管理憑證** - 您必須前端節點上執行下列其中一項：
 
-    * **匯入 Azure 發佈設定檔**。若要這麼做，請在前端節點上執行下列 Azure PowerShell Cmdlet：```
-        Get-AzurePublishSettingsFile  
-Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
-        ```
+    * **匯入 Azure 發佈設定檔**。若要這麼做，請在前端節點上執行下列 Azure PowerShell Cmdlet：
+
+    ```
+    Get-AzurePublishSettingsFile 
+         
+    Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
+    ```
+    
     * **前端節點上設定 Azure 管理憑證**。如果您有 .cer 檔案，請在 CurrentUser\\My certificate store 中將其匯入，並為您的 Azure 環境 (AzureCloud 或 AzureChinaCloud) 執行下列 Azure PowerShell Cmdlet：
 
     ```
     Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
     ```
-
-
-
 
 ## 新增運算節點 VM
 
@@ -137,7 +138,7 @@ Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 
 * **Name** - 要啟動之叢集節點的名稱。支援萬用字元。參數集名稱是 Name。您無法同時指定 **Name** 和 **Node** 參數。
 
-* **Node** * 要啟動之節點的 HpcNode 物件，可透過 HPC PowerShell Cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) 取得。參數集名稱是 Node。您無法同時指定 **Name** 和 **Node** 參數。
+* **Node** - 要啟動之節點的 HpcNode 物件，可透過 HPC PowerShell Cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) 取得。參數集名稱是 Node。您無法同時指定 **Name** 和 **Node** 參數。
 
 ### 範例
 
@@ -178,4 +179,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * 如果您需要能根據叢集上目前的工作和任務的工作負載自動增加和縮減 Azure 運算資源的方法，請參閱[在 HPC Pack 叢集中增加和縮減 Azure 運算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

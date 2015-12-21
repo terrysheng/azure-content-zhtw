@@ -3,7 +3,7 @@
    description="提供客體作業系統系列 1 淘汰時間及如何自行判斷是否受影響等相關資訊" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 
 
@@ -37,7 +37,7 @@
 
 1. 雲端服務之 ServiceConfiguration.cscfg 檔案明確地指定 "osFamily = "1" 值。 
 2. 雲端服務之 ServiceConfiguration.cscfg 檔案未明確指定 osFamily 的值。在本案例中，系統目前使用預設值 "1" 。
-3. Azure 傳統入口網站列出您的客體作業系統系列值為「Windows Server 2008」。若要找出此值，請參閱[本文章](https://msdn.microsoft.com/library/azure/gg456325.aspx)。
+3. Azure 傳統入口網站列出您的客體作業系統系列值為「Windows Server 2008」。
 
 若要找出每個雲端服務執行的 OS 系列，您可以在 Azure PowerShell 中執行以下程式碼，但請先[設定 Azure PowerShell](../install-configure-powershell.md)。如需指令碼的其他詳細資料，請參閱「[Azure 客體 OS 系列 1 生命週期結束：2014 年 6 月](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)」(英文)
 
@@ -81,4 +81,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## 後續步驟
 檢閱最新的[客體作業系統版本](cloud-services-guestos-update-matrix.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

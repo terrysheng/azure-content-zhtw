@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="在 Microsoft Azure 應用程式服務中建立交易夥伴協議" 
+   pageTitle="在 Azure 應用程式服務中建立交易夥伴協議 | Microsoft Azure" 
    description="建立交易夥伴協議" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/01/2015"
+   ms.date="12/07/2015"
    ms.author="rajram"/>
 
 
@@ -73,9 +73,9 @@
 ![][3]
 
 <!--Image references-->
-[1]: ./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.jpg
-[2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg
-[3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
+[1]: ./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.png
+[2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.png
+[3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

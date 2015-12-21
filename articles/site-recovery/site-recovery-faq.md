@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Site Recovery：常見問題集" 
+	pageTitle="Site Recovery：常見問題集 | Microsoft Azure" 
 	description="本文討論 Azure Site Recovery 的相關熱門問題。" 
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -43,9 +43,9 @@ Site Recovery 可藉由協調及自動執行內部部署虛擬機器與實體伺
 
 請參閱下列主題中的 Hyper-V 主機伺服器先決條件：
 
-- [將 Hyper-V VM (不使用 VMM) 複寫至 Azure](site-recovery-hyper-v-site-to-azure/#before-you-start)
-- [將 Hyper-V VM (使用 VMM) 複寫至 Azure](site-recovery-vmm-to-azure/#before-you-start)
-- [將 Hyper-V VM 複寫至次要資料中心](site-recovery-vmm-to-vmm/#before-you-start)
+- [將 Hyper-V VM (不使用 VMM) 複寫至 Azure](site-recovery-hyper-v-site-to-azure.md/#before-you-start)
+- [將 Hyper-V VM (使用 VMM) 複寫至 Azure](site-recovery-vmm-to-azure.md/#before-you-start)
+- [將 Hyper-V VM 複寫至次要資料中心](site-recovery-vmm-to-vmm.md/#before-you-start)
 
 關於客體作業系統：
 
@@ -74,17 +74,17 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 
 ### 我可以保護哪些實體伺服器？
 
-您可以將執行 Windows 或 Linux 的實體伺服器複寫至 Azure 或次要站台來進行保護。如需作業系統需求，請參閱[我需要什麼？](site-recovery-vmware-to-azure/#what-do-i-need)。不論是將實體伺服器複寫至 Azure 還是次要站台，都適用相同的限制。
+您可以將執行 Windows 或 Linux 的實體伺服器複寫至 Azure 或次要站台來進行保護。如需作業系統需求，請參閱[我需要什麼？](site-recovery-vmware-to-azure.md/#what-do-i-need)。不論是將實體伺服器複寫至 Azure 還是次要站台，都適用相同的限制。
 
 請注意，如果您的內部部署伺服器當機，實體伺服器將會在 Azure 中以 VM 的身分執行。目前並不支援容錯回復到內部部署實體伺服器，但您可以容錯回復到在 Hyper-V 或 VMware 上執行的虛擬機器。
 
 ### 我可以保護哪些 VMware VM？
 
-針對此案例，您將需要一部 VMware vCenter 伺服器、一個 vSphere Hypervisor 以及幾個執行 VMware 工具的虛擬機器。如需實際的需求，請參閱 [我需要什麼？](site-recovery-vmware-to-azure/#what-do-i-need)。不論是將實體伺服器複寫至 Azure 還是次要站台，都適用相同的限制。
+針對此案例，您將需要一部 VMware vCenter 伺服器、一個 vSphere Hypervisor 以及幾個執行 VMware 工具的虛擬機器。如需實際的需求，請參閱 [我需要什麼？](site-recovery-vmware-to-azure.md/#what-do-i-need)。不論是將實體伺服器複寫至 Azure 還是次要站台，都適用相同的限制。
 
 ### 將虛擬機器複寫至 Azure 有任何先決條件嗎？
 
-您想要複寫至 Azure 的虛擬機器應該要符合 [Azure 需求](site-recovery-best-practices/#virtual-machines)。
+您想要複寫至 Azure 的虛擬機器應該要符合 [Azure 需求](site-recovery-best-practices.md/#virtual-machines)。
 
 ### 我可以將 Hyper-V 第 2 代虛擬機器複寫至 Azure 嗎？
 
@@ -127,7 +127,7 @@ Site Recovery 已經過 ISO 27001:2005 認證，並且正在完成其 HIPAA、DP
 
 ### 如果要複寫至 Azure，我需要哪一種儲存體帳戶？
 
-您將需要一個搭配[標準異地備援儲存體](../storage/storage-redundancy/#geo-redundant-storage)的儲存體帳戶。只有當您要將 VMware 虛擬機器或 Windows/Linux 實體伺服器複寫至 Azure 時，才支援使用[進階儲存體帳戶](../storage/storage-premium-storage-preview-portal/)。
+您將需要一個搭配[標準異地備援儲存體](../storage/storage-redundancy.md/#geo-redundant-storage)的儲存體帳戶。只有當您要將 VMware 虛擬機器或 Windows/Linux 實體伺服器複寫至 Azure 時，才支援使用[進階儲存體帳戶](../storage/storage-premium-storage-preview-portal/)。
 
 對標準本機備援儲存體的支援是在待處理項目中，請在[意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support)中傳送有關這項功能的意見反應。
 
@@ -154,7 +154,7 @@ Site Recovery 已經過 ISO 27001:2005 認證，並且正在完成其 HIPAA、DP
 
 ### 如果容錯移轉到 Azure，在容錯移轉之後，我要如何存取存取 Azure 虛擬機器？ 
 
-您可以透過安全的網際網路連線，或是如果您有的話，也可以透過站台對站台 VPN (或 Azure ExpressRoute)，存取 Azure VM。透過 VPN 連線的通訊會通向 VM 所在的 Azure 網路上的內部連接埠。透過網際網路的通訊會對應到 Azure 雲端服務上 VM 的公用端點。[閱讀更多資訊](site-recovery-network-design/#connectivity-after-failover)
+您可以透過安全的網際網路連線，或是如果您有的話，也可以透過站台對站台 VPN (或 Azure ExpressRoute)，存取 Azure VM。透過 VPN 連線的通訊會通向 VM 所在的 Azure 網路上的內部連接埠。透過網際網路的通訊會對應到 Azure 雲端服務上 VM 的公用端點。[閱讀更多資訊](site-recovery-network-design.md/#connectivity-after-failover)
 
 ### 如果我容錯移轉到 Azure，Azure 如何確定我的資料具有復原能力？
 
@@ -223,4 +223,4 @@ Azure 是針對服務復原能力而設計的。Site Recovery 已經設計成可
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

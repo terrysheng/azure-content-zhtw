@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="tomfitz"/>
 
 # 搭配使用 Azure PowerShell 與 Azure 資源管理員
@@ -338,7 +338,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 
     PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
 
-您指定資源群組和範本的位置。如果您的範本不是本機，可以使用 -TemplateUri 參數並指定範本的 URI。
+您指定資源群組和範本的位置。如果您的範本並非本機，可以使用 **-TemplateUri** 參數，並針對範本指定 URI。您可以將 **-Mode** 參數設為 **Incremental** 或 **Complete**。資源管理員預設會在部署期間執行累加式更新；因此，當您想要使用 **Incremental** 時不需要設定 **-Mode**。若要了解這些部署模式的差異，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
 ###動態範本參數
 
@@ -392,7 +392,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 		
 		...
 
-- 若要取得您資源群組中的資源，請使用 **Get-AzureRmResource** Cmdlet 及其 **ResourceGroupNameContains** 參數。在沒有使用參數的情況下，Find-AzureRmResource 可取得您 Azure 訂用帳戶中的所有資源。
+- 若要取得您資源群組中的資源，請使用 **Find-AzureRmResource** Cmdlet 及其 **ResourceGroupNameContains** 參數。在沒有使用參數的情況下，Find-AzureRmResource 可取得您 Azure 訂用帳戶中的所有資源。
 
 		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
@@ -418,7 +418,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 
 ## 刪除資源群組
 
-- 若要將資源從資源群組中刪除，請使用 **Remove-AzureRmResource** Cmdlet。此 Cmdlet 會刪除資源，但不會刪除資源群組。
+- 若要從資源群組中刪除資源，請使用 **Remove-AzureRmResource** Cmdlet。此 Cmdlet 會刪除資源，但不會刪除資源群組。
 
 	此命令會將 TestSite 網站從 TestRG 資源群組中移除。
 
@@ -441,4 +441,4 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 - 如需部署專案的詳細範例，請參閱[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)。
 - 若要了解如何疑難排解失敗的部署，請參閱[在 Azure 中疑難排解資源群組部署](./virtual-machines/resource-group-deploy-debug.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

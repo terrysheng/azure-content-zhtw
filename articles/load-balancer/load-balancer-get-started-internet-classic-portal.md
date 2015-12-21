@@ -1,6 +1,7 @@
+
 <properties 
-   pageTitle="開始使用 Azure 入口網站在傳統部署模型中建立網際網路面向的負載平衡器 | Microsoft Azure"
-   description="了解如何使用 Azure 入口網站在傳統部署模型中建立網際網路面向的負載平衡器"
+   pageTitle="開始使用 Azure 傳統入口網站在傳統部署模型中建立網際網路面向的負載平衡器 | Microsoft Azure"
+   description="了解如何使用 Azure 傳統入口網站在傳統部署模型中建立網際網路面向的負載平衡器"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,10 +15,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# 開始在 Azure 入口網站中建立網際網路面向的負載平衡器 (傳統)
+# 開始在 Azure 傳統入口網站中建立網際網路面向的負載平衡器 (傳統)
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -34,7 +35,7 @@
 
 **設定虛擬機器的負載平衡集合**
 
-1. 在 Azure 入口網站中，按一下 [**虛擬機器**]，然後按一下負載平衡集中虛擬機器的名稱。
+1. 在 Azure 傳統入口網站中，按一下 [虛擬機器]，然後按一下負載平衡集合中虛擬機器的名稱。
 2.	選取 [端點]，然後按一下 [新增]。
 
 4.	在 [將端點加入至虛擬機器] 頁面上，按一下向右箭頭。
@@ -66,4 +67,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

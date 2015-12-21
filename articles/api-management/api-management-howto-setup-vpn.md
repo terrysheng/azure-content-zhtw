@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/03/2015"
 	ms.author="antonba"/>
 
 # 如何在 Azure API 管理中設定 VPN 連線
@@ -22,9 +22,9 @@ API 管理的 VPN 支援可讓您將 API 管理閘道連接到 Azure 虛擬網�
 
 ## <a name="enable-vpn"> </a>啟用 VPN 連線
 
->VPN 連線僅供**進階**層使用。若要切換到它，請在 [[管理入口網站][]] 中開啟 API 管理服務，然後開啟 [**調整**] 索引標籤。在 [**一般**] 區段下選取進階層，然後按一下 [儲存]。
+>VPN 連線僅供**進階**層使用。若要切換到它，請在 [Azure 傳統入口網站][]中開啟 API 管理服務，然後開啟 [調整] 索引標籤。在 [**一般**] 區段下選取進階層，然後按一下 [儲存]。
 
-若要啟用 VPN 連線，請在 [[管理入口網站][]] 中開啟 API 管理服務，然後切換到 [**設定**] 索引標籤。
+若要啟用 VPN 連線，請在 [Azure 傳統入口網站][]中開啟 API 管理服務，然後切換到 [設定] 索引標籤。
 
 在 VPN 區段中，將 [**VPN 連線**] 切換為 [**開啟**]。
 
@@ -36,7 +36,7 @@ API 管理的 VPN 支援可讓您將 API 管理閘道連接到 Azure 虛擬網�
 
 ![選取 VPN][api-management-setup-vpn-select]
 
-按一下畫面底部的 [**儲存**]。更新時，您將無法透過 Azure 管理入口網站對 API 管理服務執行其他作業。服務閘道將保持可用，而執行時期呼叫應該不會受到影響。
+按一下畫面底部的 [**儲存**]。更新時，您將無法透過 Azure 傳統入口網站對 API 管理服務執行其他作業。服務閘道將保持可用，而執行時期呼叫應該不會受到影響。
 
 請注意，閘道的 VIP 位址將在每次啟用或停用 VPN 時變更。
 
@@ -50,8 +50,8 @@ API 管理的 VPN 支援可讓您將 API 管理閘道連接到 Azure 虛擬網�
 ## <a name="related-content"> </a>相關內容
 
 
- * [教學課程：建立站對站連線的跨單位虛擬網路][]
- * [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫][]
+* [教學課程：建立站對站連線的跨單位虛擬網路][]
+* [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -61,10 +61,9 @@ API 管理的 VPN 支援可讓您將 API 管理閘道連接到 Azure 虛擬網�
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[管理入口網站]: https://manage.windowsazure.com/
+[Azure 傳統入口網站]: https://manage.windowsazure.com/
 
 [教學課程：建立站對站連線的跨單位虛擬網路]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫]: api-management-howto-api-inspector.md
- 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

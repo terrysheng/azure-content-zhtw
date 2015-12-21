@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" 
 	description="了解如何在 Azure 入口網站中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。" 
-	authors="tamram" 
-	manager="adinah" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # 使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體
@@ -58,7 +58,7 @@
 5.	**工作數目：**一個客戶對於每一儲存體帳戶可以有多達 20 項作用中工作。
 6.	**工作的大小上限：**工作的大小是由使用的硬碟容量以及儲存體帳戶可儲存的資料數量上限所決定。每項工作可包含的硬碟不超過 10 個。
 
-  >[AZURE.IMPORTANT]此服務不支援隨附內建 USB 介面卡的外接式硬碟。請勿準備外部 HDD。您也無法使用外接盒內部的磁碟來匯入資料。使用 3.5 吋的 SATA II/III **內部** 硬碟。如果您無法將 SATA 磁碟直接連接到您的電腦，請使用外部 SATA 到 USB 介面卡。請參閱＜常見問題集＞一節中建議的介面卡清單。
+  >[AZURE.IMPORTANT]此服務不支援隨附內建 USB 介面卡的外接式硬碟。請勿準備外部 HDD。您也無法使用外接盒內部的磁碟來匯入資料。請使用 3.5 英吋的 SATA II/III「內部」硬碟。如果您無法將 SATA 磁碟直接連接到您的電腦，請使用外部 SATA 到 USB 介面卡。請參閱＜常見問題集＞一節中建議的介面卡清單。
 
 ## 在 Azure 入口網站中建立匯入工作##
 
@@ -96,7 +96,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	如果沒有追蹤號碼，請選擇 [一旦傳送套件，就會提供此匯入工作的傳送資訊]，然後完成匯入程序。
 
-7. 若要在寄出包裹之後輸入追蹤號碼，請在 [Azure 入口網站](portal.azure.com)中回到您的儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [傳送資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
+7. 若要在寄出包裹之後輸入追蹤號碼，請在 [Azure 入口網站](portal.azure.com)中回到您儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [出貨資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
 	
 	如果在建立作業的 2 個星期內沒有更新追蹤號碼，該工作會過期。
 
@@ -106,7 +106,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 建立匯出工作以通知匯入/匯出服務，您會將一或多個空磁碟機送到資料中心，以便將資料從儲存體帳戶匯出至磁碟機，然後再將這些磁碟機運送給您。
 
-1. 	若要建立匯出工作，請在 [Azure 入口網站](portal.azure.com)中瀏覽至儲存體帳戶，然後檢視 [儀表板]。在 [快速概覽] 之下，按一下 [建立匯出工作]，然後繼續執行精靈。
+1. 	若要建立匯出工作，請在 [Azure 入口網站](portal.azure.com)中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 [快速概覽] 之下，按一下 [建立匯出工作]，然後繼續執行精靈。
 
 2. 	在步驟 2，提供負責處理此匯出工作的人員連絡資訊。若想要儲存匯出工作的詳細資訊記錄資料，請核取 [Save the verbose log in my 'waimportexport' blob container] 選項。
 
@@ -136,9 +136,9 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	若您有追蹤號碼，請從清單中選取您的貨運公司，並輸入追蹤號碼。
 
-	如果沒有追蹤號碼，請選擇 [I will provide my shipping information for this export job once I have shipped my package]，然後完成匯出程序。
+	如果沒有追蹤號碼，請選擇 [寄送包裹之後，我會提供這個匯出工作的送貨資訊]，然後完成匯出程序。
 
-6. 若要在寄出包裹之後輸入追蹤號碼，請在 [Azure 入口網站](portal.azure.com)中回到您的儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [傳送資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
+6. 若要在寄出包裹之後輸入追蹤號碼，請在 [Azure 入口網站](portal.azure.com)中回到您儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [出貨資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
 	
 	如果在建立作業的 2 個星期內沒有更新追蹤號碼，該工作會過期。
 
@@ -163,7 +163,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 ## 檢視匯出工作的 BitLocker 金鑰 ##
 
-若為匯出工作，您可以檢視和複製服務為磁碟機產生的 BitLocker 金鑰，以便在您從 Azure 資料中心收到磁碟機時，將匯出的資料解密。在 [Azure 入口網站](portal.azure.com)中瀏覽至您的儲存體帳戶，然後按一下 [匯入/匯出] 索引標籤。從清單中選取您的匯出工作，然後按一下 [檢視金鑰] 按鈕。BitLocker 金鑰如下所示：
+若為匯出工作，您可以檢視和複製服務為磁碟機產生的 BitLocker 金鑰，以便在您從 Azure 資料中心收到磁碟機時，將匯出的資料解密。請在 [Azure 入口網站](portal.azure.com)中瀏覽至您的儲存體帳戶，然後按一下 [匯入/匯出] 索引標籤。從清單中選取您的匯出工作，然後按一下 [檢視金鑰] 按鈕。BitLocker 金鑰如下所示：
 
 ## 常見問題集 ##
 
@@ -218,7 +218,8 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 - 不會。所有磁碟機都必須針對 BitLocker 預作準備。
  
-**我需要在建立匯出作業時執行任何磁碟準備工作嗎？** - 不用，但建議先執行某些前置檢查。請使用 Azure 匯入/匯出工具的 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) 命令檢查所需的磁碟號碼。它可根據您要使用的磁碟機大小，協助您預覽所選取之 Blob 的磁碟機使用情況。也請檢查您可以對為了匯出工作而運送的硬碟讀取/寫入。
+**我需要在建立匯出作業時執行任何磁碟準備工作嗎？**
+- 不用，但建議先執行某些前置檢查。請使用 Azure 匯入/匯出工具的 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) 命令檢查所需的磁碟號碼。它可根據您要使用的磁碟機大小，協助您預覽所選取之 Blob 的磁碟機使用情況。也請檢查您可以對為了匯出工作而運送的硬碟讀取/寫入。
 
 ### 運送中
 
@@ -269,4 +270,4 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

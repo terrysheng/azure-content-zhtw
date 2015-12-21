@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="12/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -79,8 +79,6 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |49918|16|無法處理要求。沒有足夠的資源來處理要求。<br/><br/>服務目前忙碌中。請稍後再重試要求。 |
 |49919|16|無法處理建立或更新要求。有太多訂用帳戶 "%ld" 的建立或更新作業正在進行中。<br/><br/>服務正忙於處理您的訂用帳戶或伺服器的多個建立或更新要求。要求目前已封鎖以求資源最佳化。查詢 [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看暫止的作業。等待直到暫止的建立或更新要求已完成，或刪除您其中一個暫止要求，稍後再重試您的要求。 |
 |49920|16|無法處理要求。太多訂用帳戶 "%ld" 的作業正在進行中。<br/><br/>服務正忙於處理此訂用帳戶的多個要求。要求目前已封鎖以求資源最佳化。查詢 [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看作業狀態。等候直到暫止的要求已完成，或刪除您其中一個暫止要求，稍後再重試您的要求。 |
-
-**附註：**錯誤 10053 和 10054 也應該要包含在您的重試邏輯中。
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
@@ -218,8 +216,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40651|16|無法建立伺服器，因為訂用帳戶 <subscription-id> 已停用。|
 |40652|16|無法移動或建立伺服器。訂用帳戶 <subscription-id> 會超出伺服器配額。|
 |40671|17|閘道器與管理服務之間的通訊失敗。請稍後重試。|
-|45168|16|SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。錯誤訊息中指定的伺服器已超過最大並行連接數目。請稍後再試。|
-|45169|16|SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。請稍後再試。|
+|40852|16|無法開啟登入所要求的資料庫 '%.*ls' (在伺服器 '%.*ls' 上)。只允許使用已啟用安全性的連接字串存取資料庫。若要存取此資料庫，將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說，'server name'.database.windows.net 應修改為 'server name'.database.`secure`.windows.net.| |45168|16|SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。錯誤訊息中指定的伺服器已超過最大並行連接數目。請稍後再試。| |45169|16|SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。請稍後再試。|
 
 
 ## 相關連結
@@ -227,4 +224,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 一般限制與方針](sql-database-general-limitations.md)
 - [Azure SQL Database 資源限制](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

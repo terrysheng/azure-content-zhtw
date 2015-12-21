@@ -158,15 +158,14 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 
 ### 使用 PowerShell 佈建 Azure SQL Server 的 Azure AD 系統管理員 
 
-> [AZURE.IMPORTANT]自 Azure PowerShell 1.0 Preview 起，不再需要 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。本文中的範例使用新的 PowerShell 1.0 Preview 命名慣例。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)。
 
 
-若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行，且由於 Switch-AzureMode 已移除，因此您應該執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 來下載並安裝最新的 Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+若要執行 PowerShell Cmdlet，Azure PowerShell 必須已安裝且正在執行中。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 若要佈建 Azure AD 系統管理員，您必須執行下列 Azure PowerShell 命令：
 
-- Add-AzureAccount
-- Select-AzureSubscription
+- Add-AzureRmAccount
+- Select-AzureRmSubscription
 
 
 用來佈建和管理 Azure AD 系統管理員的 Cmdlet：
@@ -232,7 +231,7 @@ Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫
 
 ### 使用 SQL Server Management Studio 連接到使用者資料庫
  
-若要確認 Azure AD 系統管理員已正確設定，請使用 Azure AD 系統管理員帳戶連線到「主要」資料庫。若要佈建以 Azure AD 為基礎的自主資料庫使用者 (而非擁有資料庫的伺服器系統管理員)，請連接到具有資料庫存取權之 Azure AD 身分識別的資料庫。
+若要確認 Azure AD 系統管理員已正確設定，請使用 Azure AD 系統管理員帳戶連接到 **master** 資料庫。若要佈建以 Azure AD 為基礎的自主資料庫使用者 (而非擁有資料庫的伺服器系統管理員)，請連接到具有資料庫存取權之 Azure AD 身分識別的資料庫。
 
 > [AZURE.IMPORTANT] [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 支援 Azure Active Directory 驗證。
 
@@ -333,6 +332,4 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!----HONumber=AcomDC_1203_2015--->
-
-
+<!---HONumber=AcomDC_1210_2015-->

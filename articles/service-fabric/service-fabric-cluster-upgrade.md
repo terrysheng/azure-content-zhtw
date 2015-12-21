@@ -66,6 +66,8 @@ Microsoft 會維護在叢集中執行的 Fabric 程式碼和組態，而我們�
 
 ![CertificateUpgrade][CertificateUpgrade]
 
+**注意**：識別您想要用於叢集資源的憑證之前，需要完成下列步驟，否則不會使用新的憑證。1) 上傳新的憑證到金鑰保存庫 - 如需指示請參閱 [Service Fabric 安全性](service-fabric-cluster-security.md) - 從該文件中的步驟 2 開始。2) 更新所有組成叢集的「虛擬機器」，使憑證部署至其上。做法請參閱[這篇部落格文章](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx)。
+
 ### 應用程式連接埠
 
 您可以變更與節點類型相關聯的負載平衡器資源屬性來達成目的。您可以直接使用入口網站或 ARM PowerShell。
@@ -105,7 +107,7 @@ Microsoft 會維護在叢集中執行的 Fabric 程式碼和組態，而我們�
 
 ## 後續步驟
 
-- 了解如何[相應增加和相應減少您的叢集](service-fabric-cluster-scale-up-down.md)。
+- 了解如何[相應增加和相應減少您的叢集](service-fabric-cluster-scale-up-down.md)
 - 了解[應用程式升級](service-fabric-application-upgrade.md)
 
 <!--Image references-->
@@ -113,4 +115,4 @@ Microsoft 會維護在叢集中執行的 Fabric 程式碼和組態，而我們�
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

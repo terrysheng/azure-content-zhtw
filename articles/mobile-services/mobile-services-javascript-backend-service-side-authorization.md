@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="08/25/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
 # 在行動服務中的使用者服務端授權
@@ -28,7 +28,7 @@
 
 ## <a name="register-scripts"></a>註冊指令碼
 
-1. 登入[Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的應用程式。按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+1. 登入[Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的行動服務。按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
 2. 按一下 [**指令碼**]，選取 [**插入**] 作業，將現有指令碼取代為下列函數，然後按一下 [**儲存**]。
 
@@ -70,4 +70,4 @@
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

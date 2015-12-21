@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="串流分析簡介 | Microsoft Azure" 
-	description="了解 Azure 串流分析，一個可協助您即時分析物聯網 (IoT) 資料流的完全受管理雲端服務。" 
-	keywords="巨量資料分析,雲端服務,物聯網,受管理的服務,串流處理,資料流分析,資料流處理資料,big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	description="了解串流分析，這是可協助您即時分析物聯網 (IoT) 資料流的受管理服務。" 
+	keywords="分析服務, 受管理服務, 串流處理, 串流分析, 什麼是串流分析"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,11 +14,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# 什麼是 Azure 串流分析？
+# 什麼是串流分析？
 
 Azure 串流分析 (ASA) 是完全受管理、符合成本效益的即時事件處理引擎，可解除鎖定資料的深入見解。串流分析可讓您輕易地對串流自裝置、感應器、網站、社交媒體、應用程式、基礎結構系統和其他項目的資料設定即時分析計算。
 
@@ -53,4 +53,4 @@ Azure 串流分析 (ASA) 是完全受管理、符合成本效益的即時事件�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

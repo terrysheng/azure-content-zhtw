@@ -19,10 +19,6 @@
 # 教學課程：使用 Data Factory 移動及處理記錄檔 [PowerShell]
 本文章提供的端對端逐步解說，是有關使用 Azure Data Factory，將記錄檔的資料轉換成見解的記錄檔處理程序標準案例。
 
-> [AZURE.IMPORTANT]這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
->    
-> 如果您使用 Azure PowerShell 1.0 Preview，您必須使用[這裡](https://msdn.microsoft.com/library/dn820234.aspx)所記載的 Cmdlet。例如，使用 New-AzureRMDataFactory，而非使用 New-AzureDataFactory。
-
 ## 案例
 Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手持裝置與個人電腦 (PC)。每個遊戲都會產生大量記錄檔。Contoso 的目標是要收集和分析這些遊戲所產生的記錄檔以取得使用量資訊、識別向上銷售與交叉銷售機會、開發新的強大功能等，以改善業務並為客戶提供更好的經驗。
  
@@ -31,7 +27,20 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 ## 準備開始教學課程
 1.	請參閱 [Azure Data Factory 簡介][adfintroduction]，以取得 Azure Data Factory 的概觀並了解最高階的概念。
 2.	您必須擁有 Azure 訂閱，才能執行本教學課程。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
-3.	您必須在電腦上下載並安裝 [Azure PowerShell][download-azure-powershell]。 
+3.	您必須在電腦上下載並安裝 [Azure PowerShell][download-azure-powershell]。
+
+	這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考](https://msdn.microsoft.com/library/dn820234.aspx)。
+    
+	若您使用**版本 < 1.0** 的 Azure PowerShell，您必須使用[這裡][old-cmdlet-reference]所記載的 Cmdlet。您也必須在使用 Data Factory Cmdlet 之前，先執行下列命令：
+
+	1. 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。
+	2. 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
+	3. 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
+	
+	將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果您關閉並重新開啟，則需要再次執行這些命令。
+
+2. 切換至 AzureResourceManager 模式，因為 Azure Data Factory Cmdlet 可在此模式中使用：**Switch-AzureMode AzureResourceManager**。
+ 
 2.	(建議) 檢閱並練習[開始使用 Azure Data Factory][adfgetstarted] 文章中的教學課程，透過簡易教學課程來熟悉入口網站和 Cmdlet。
 3.	(建議) 檢閱並練習[搭配 Azure Data Factory 使用 Pig 和 Hive][usepigandhive] 文章中的逐步解說，經由逐步解說建立管線，將資料從內部部署資料來源移至 Azure Blob 存放區。
 4.	將 [ADFWalkthrough][adfwalkthrough-download] 檔案下載至 **C:\\ADFWalkthrough** 資料夾，**並保留資料夾結構**：
@@ -51,9 +60,9 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 	- 「Azure SQL Database」- 伺服器、資料庫、使用者名稱和密碼。
 	- 「Azure HDInsight 叢集」- HDInsight 叢集的名稱、使用者名稱、密碼，以及與此叢集相關聯的 Azure 儲存體的帳戶名稱和帳戶金鑰。如果您想要使用隨選 HDInsight 叢集，而不是您自己的 HDInsight 叢集，則可以略過此步驟。  
 8. 啟動 **Azure PowerShell** 並執行下列命令。保持開啟 Azure PowerShell。如果您關閉並重新開啟，則需要再次執行這些命令。
-	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
+	- 執行 **Login-AzureRmAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
 	- 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
-	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
+	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的訂用帳戶相同。
 	
 
 ## 概觀
@@ -160,99 +169,50 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 ## <a name="MainStep2"></a> 步驟 2：建立 Azure Data Factory
 在此步驟中，您會建立名為 **LogProcessingFactory** 的 Azure Data Factory。
 
-1.	登入 [Azure 入口網站][azure-portal]後，按一下位於左下角的 [新增]，然後在 [新增] 刀鋒視窗上按一下 [Data Factory]。 
+1. 切換至 **Azure PowerShell** (如果已開啟) 或啟動 **Azure PowerShell**。如果您已經關閉並重新開啟 Azure PowerShell，您需要執行下列命令： 
+	- 執行 **Login-AzureRmAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
+	- 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
+	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的訂用帳戶相同。 
 
-	![新增->DataFactory][image-data-factory-new-datafactory-menu]
-	
-	如果您在 [**新增**] 刀鋒視窗上沒看見 **Data Factory**，請向下捲動。
-	
-5. 在 [新增 Data Factory] 刀鋒視窗中，針對 [名稱] 輸入 **LogProcessingFactory**。
+2. 執行下列命令建立名為 **ADFTutorialResourceGroup** (如果您尚未建立) 的 Azure 資源群組。
 
-	![Data Factory 刀鋒視窗][image-data-factory-tutorial-new-datafactory-blade]
+		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-6. 如果您尚未建立名為 **ADF** 的 Azure 資源群組，請執行下列動作：
-	1. 按一下 [**資源群組名稱**]，然後按一下 [**建立新的資源群組**]。
-	
-		![[資源群組] 刀鋒視窗][image-data-factory-tutorial-resourcegroup-blade]
-	2. 在 [**建立資源群組**] 刀鋒視窗中，輸入 **ADF** 做為資源群組的名稱，然後按一下 [**確定**]。
-	
-		![建立資源群組][image-data-factory-tutorial-create-resourcegroup]
-7. 選取 [**ADF**] 做為 [**資源群組名稱**]。  
-8.	在 [**新增 Data Factory**] 刀鋒視窗中，請注意，預設會選取 [**新增至開始面板**]。這會將連結加入「開始面板」上的 Data Factory (登入 Azure 入口網站時會看見)。
+	本教學課程的某些步驟假設您使用名為 ADFTutorialResourceGroup 的資源群組。如果使用不同的資源群組，您必須以該群組取代本教學課程中的 ADFTutorialResourceGroup。
+4. 執行 **New-AzureRmDataFactory** Cmdlet，建立名為 DataFactoryMyFirstPipelinePSH 的 Data Factory。  
 
-	![[建立 Data Factory] 刀鋒視窗][image-data-factory-tutorial-create-datafactory]
+		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name LogProcessingFactory –Location "West US"
 
-9.	在 [**新增 Data Factory**] 刀鋒視窗中，按一下 [**建立**] 以建立 Data Factory。
-10.	建立 Data Factory 之後，您應該會看到 **DATA FACTORY** 刀鋒視窗的標題為 **LogProcessingFactory**。
+	> [AZURE.IMPORTANT]Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：**Data Factory 名稱 "LogProcessingFactory" 無法使用**，請變更名稱 (例如，yournameLogProcessingFactory)。執行本教學課程中的步驟時，請使用此名稱來取代 LogProcessingFactory。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
+	> 
+	> Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
 
-	![Data Factory 首頁][image-data-factory-tutorial-datafactory-homepage]
-
-	
-	如果未看見，請執行下列其中一項動作：
-
-	- 在**開始面板** (首頁) 按一下 **LogProcessingFactory**
-	- 在左側按一下 [**瀏覽**]、[**所有項目**]、**Data Factory**，然後按一下 Data Factory。
- 
-	Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：**Data Factory 名稱 "LogProcessingFactory" 無法使用**，請變更名稱 (例如，yournameLogProcessingFactory)。執行本教學課程中的步驟時，請使用此名稱來取代 LogProcessingFactory。
  
 ## <a name="MainStep3"></a> 步驟 3：建立連結服務
 
-> [AZURE.NOTE]本文使用 Azure PowerShell 建立連結服務、資料表和管線。若您想使用 Azure 傳統入口網站 (特別是 Data Factory 編輯器) 執行此教學課程，請參閱[使用 Data Factory 編輯器執行教學課程][adftutorial-using-editor]。
+> [AZURE.NOTE]本文使用 Azure PowerShell 建立連結服務、資料表和管線。若您想使用 Azure 入口網站 (特別是 Data Factory 編輯器) 執行此教學課程，請參閱[使用 Data Factory 編輯器執行教學課程][adftutorial-using-editor]。
 
 在此步驟中，您將建立下列連結服務：StorageLinkedService、AzureSqlLinkedService、HDInsightStorageLinkedService 和 HDInsightLinkedService。
 
+16. 在 Azure PowerShell 中，瀏覽至 **C:\\ADFWalkthrough** 中的 **LinkedServices** 子資料夾，或從您解壓縮檔案所在位置的資料夾。
+17. 使用下列命令，將 $df 變數設定為 Data Factory 的名稱。
 
-1.	在 [**LogProcessingFactory**] 刀鋒視窗中，按一下 [**連結服務**] 磚。
+		$df = “LogProcessingFactory”
+17. 在您喜好的編輯器中開啟 **StorageLinkedService.json**，輸入**帳戶名稱**和**帳戶金鑰**值，然後儲存檔案。
+17. 使用 Cmdlet **New-AzureRmDataFactoryLinkedService** 來建立連結服務，如下所示。 
 
-	![連結服務磚][image-data-factory-tutorial-linkedservice-tile]
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\StorageLinkedService.json
+	
+18. 在您喜好的編輯器中開啟 **StorageLinkedService.json**，輸入**帳戶名稱**和**帳戶金鑰**值，然後儲存檔案。
+19. 建立 **HDInsightStorageLinkedService**。
 
-2. 在 [**連結服務**] 刀鋒視窗中，從命令列按一下 [**+ 資料存放區**]。
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightStorageLinkedService.json
+ 
+19. 在您喜好的編輯器中開啟 **AzureSqlLinkedService.json**，輸入 **azure sql server** 名稱、**使用者名稱**和**密碼**值，然後儲存檔案。
+19. 使用 Cmdlet **New-AzureRmDataFactoryLinkedService** 來建立連結服務，如下所示。 
 
-	![連結服務 - 新增存放區][image-data-factory-tutorial-linkedservices-add-datstore]
-
-3. 在 [新增資料存放區] 刀鋒視窗中，針對 [名稱] 輸入 **StorageLinkedService**，按一下 [類型 (需要設定)]，然後選取 [Azure 儲存體帳戶]。
-
-	![資料存放區類型 - Azure 儲存體][image-data-factory-tutorial-datastoretype-azurestorage]
-
-4. 在 [**新增資料存放區**] 刀鋒視窗中，您會看到兩個新的欄位：[**帳戶名稱**] 和 [**帳戶金鑰**]。輸入您的 **Azure 儲存體帳戶**的帳戶名稱和帳戶金鑰。
-
-	![Azure 儲存體設定][image-data-factory-tutorial-azurestorage-settings]
-
-	您可以從入口網站取得您的 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰，如下所示：
-
-	![儲存體金鑰][image-data-factory-tutorial-storage-key]
-  
-5. 在 [新增資料存放區] 刀鋒視窗上按一下 [確定] 之後，您應該會看到 **StorageLinkedService** 出現在 [連結服務] 刀鋒視窗上 [資料存放區] 的清單中。檢查 [**通知**] 中樞 (左側) 中是否有任何訊息。
-
-	![[連結服務] 刀鋒視窗與儲存體][image-data-factory-tutorial-linkedservices-blade-storage]
-   
-6. 重複**步驟 2 到 5**，建立另一個名為 **HDInsightStorageLinkedService** 的連結服務。這是您的 HDInsight 叢集所使用的儲存體。
-7. 確認您看到 **StorageLinkedService** 和 **HDInsightStorageLinkedService** 出現在 [連結服務] 刀鋒視窗的清單中。
-8. 在 [**連結服務**] 刀鋒視窗中，從命令列按一下 [**新增 (+) 資料存放區**]。
-9. 輸入 **AzureSqlLinkedService** 做為名稱。
-10. 按一下 [**類型 (需要設定)**]，選取 [**Azure SQL Database**]。
-11. 現在，您應該會在 [**新增資料存放區**] 刀鋒視窗上看到下列額外的欄位。輸入 Azure SQL Database **伺服器**的名稱、**資料庫**名稱、**使用者名稱**和**密碼**，然後按一下 [**確定**]。
-	1. 輸入 **MarketingCampaigns** 做為 [**資料庫**]。這是您在步驟 1 中執行的指令碼所建立的 Azure SQL Database。您應該確認這些指令碼確實已建立此資料庫 (以避免有錯誤)。
-		
- 		![Azure SQL 設定][image-data-factory-tutorial-azuresql-settings]
-
-		若要從 [Azure 傳統入口網站](http://manage.windowsazure.com)取得這些值：按一下 MarketingCampaigns 資料庫的 [檢視 SQL Database] 連接字串
-
-		![Azure SQL Database 連接字串][image-data-factory-tutorial-azuresql-database-connection-string]
-
-12. 確認您看到您所建立的所有三個資料存放區：**StorageLinkedService**、**HDInsightStorageLinkedService** 和 **AzureSqlLinkedService**。
-13. 您必須建立另一個連結服務，但這是運算服務，專用於「Azure HDInsight 叢集」。入口網站尚不支援建立連結的運算服務。因此，您必須使用 Azure PowerShell 來建立此連結的服務。 
-14. 切換至 **Azure PowerShell** (如果已開啟) 或啟動 **Azure PowerShell**。如果您已經關閉並重新開啟 Azure PowerShell，您需要執行下列命令： 
-	- 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
-	- 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
-	- 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。 
-15. 切換至 **AzureResourceManager** 模式，因為 Azure Data Factory Cmdlet 可在此模式中使用。
-
-		Switch-AzureMode AzureResourceManager
-
-16. 瀏覽至 **C:\\ADFWalkthrough** 中的 **LinkedServices** 子資料夾，或從您解壓縮檔案所在位置的資料夾。
-17. 在您喜愛的編輯器中開啟 **HDInsightLinkedService.json**，並注意類型設為 **HDInsightOnDemandLinkedService**。
-
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\AzureSqlLinkedService.json
+19. 在您喜愛的編輯器中開啟 **HDInsightLinkedService.json**，並注意類型設為 **HDInsightOnDemandLinkedService**。
 
 	Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來產生輸出資料。您也可以使用自己的叢集執行相同作業。當您使用隨選 HDInsight 叢集時，系統會為每個配量建立叢集。然而，當您使用自己的 HDInsight 叢集時，叢集就可以立即處理配量。因此，在使用隨選叢集時，可能無法像使用自己的叢集那麼快看到輸出資料。基於範例的目的，讓我們使用隨選叢集。
 	
@@ -268,17 +228,13 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 		}
 		
 
-18. 使用下列命令，將 $df 變數設定為 Data Factory 的名稱。
 
-		$df = “LogProcessingFactory”
-19. 使用 Cmdlet **New-AzureDataFactoryLinkedService** 來建立連結服務，如下所示。開始使用儲存體帳戶：
+19. 使用 Cmdlet **New-AzureRmDataFactoryLinkedService** 來建立連結服務，如下所示。開始使用儲存體帳戶：
 
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightLinkedService.json
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightLinkedService.json
  
 	如果您對 ResourceGroupName、DataFactoryName 或 LinkedService 名稱使用不同的名稱，請在上述 Cmdlet 加以參考。另外，只在找不到檔案時，才提供連結的服務 JSON 檔案的完整檔案路徑。
-20. 您應該會在 [**連結服務**] 刀鋒視窗中看到所有四個連結服務，如下所示。如果 [連結服務] 刀鋒視窗未開啟，請在 **LogProcessingFactory** 的 [**DATA FACTORY**] 頁面中按一下 [連結服務]。可能需要幾秒鐘的時間，[連結的服務] 分頁才能重新整理。
 
-	![所有連結服務][image-data-factory-tutorial-linkedservices-all]
  
 
 ## <a name="MainStep4"></a> 步驟 4：建立資料表 
@@ -301,26 +257,26 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 ### 建立資料表
 
 1.	在 Azure PowerShell 中，從解壓縮範例的位置，瀏覽至 **Tables** 資料夾 (**C:\\ADFWalkthrough\\Tables**)。
-2.	使用 Cmdlet **New-AzureDataFactoryDataset**，針對 **RawGameEventsTable**.json 建立資料集，如下所示	
+2.	使用 Cmdlet **New-AzureRmDataFactoryDataset**，針對 **RawGameEventsTable**.json 建立資料集，如下所示	
 
 
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
 
 	如果您對 ResourceGroupName 和 DataFactoryName 使用不同的名稱，請在上述 Cmdlet 加以參考。另外，只在 Cmdlet 找不到檔案時，才提供資料表 JSON 檔案的完整檔案路徑。
 
 3. 重複上述步驟來建立下列資料表：
 		
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
 		
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
 
 
 
@@ -330,7 +286,7 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 
 	您也可以從 Azure PowerShell 使用下列命令：
 			
-		Get-AzureDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureRmDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
 
 	
 
@@ -351,29 +307,29 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 	**重要事項：**確認您已用您的儲存體帳戶名稱取代所有 <storageaccountname>。
  
 4.  在 **Azure PowerShell** 中，導覽至 **C:\\ADFWalkthrough** 資料夾的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
-5.  使用 Cmdlet **New-AzureDataFactoryPipeline**，針對 **PartitionGameLogspeline**.json 建立管線，如下所示	 
+5.  使用 Cmdlet **New-AzureRmDataFactoryPipeline**，針對 **PartitionGameLogspeline**.json 建立管線，如下所示	 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
 
 	如果您對 ResourceGroupName、DataFactoryName 或 Pipeline 名稱使用不同的名稱，請在上述 Cmdlet 加以參考。另外，提供管線 JSON 檔案的完整檔案路徑。
 6. 重複上述步驟來建立下列管線：
 	1. **EnrichGameLogsPipeline**
 			
-			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichGameLogsPipeline.json
+			New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichGameLogsPipeline.json
 
 	2. **AnalyzeMarketingCampaignPipeline**
 				
-			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\AnalyzeMarketingCampaignPipeline.json
+			New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\AnalyzeMarketingCampaignPipeline.json
 
-7. 使用 Cmdlet **Get-AzureDataFactoryPipeline** 來取得管線的清單。
+7. 使用 Cmdlet **Get-AzureRmDataFactoryPipeline** 來取得管線的清單。
 			
-		Get-AzureDataFactoryPipeline –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureRmDataFactoryPipeline –ResourceGroupName ADF –DataFactoryName $df
 
 8. 管線建立之後，您可以指定將發生資料處理的持續時間。藉由指定管線的作用期間，依據對每個 ADF 資料表所定義之可用性屬性，您會定義將處理資料配量的持續時間。
 
-若要指定管線的作用期間，您可以使用 Cmdlet Set-AzureDataFactoryPipelineActivePeriod。本逐步解說中，範例資料是從 05/01 到 05/05。使用 2014-05-01 做為 StartDateTime。EndDateTime 是選擇性的。
+若要指定管線的作用期間，您可以使用 Cmdlet Set-AzureRmDataFactoryPipelineActivePeriod。本逐步解說中，範例資料是從 05/01 到 05/05。使用 2014-05-01 做為 StartDateTime。EndDateTime 是選擇性的。
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name PartitionGameLogsPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name PartitionGameLogsPipeline
   
 9. 確認以設定管線的作用期間。
 			
@@ -384,11 +340,11 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 10. 重複上述的兩個步驟來設定下列管線的作用期間。
 	1. **EnrichGameLogsPipeline**
 			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z –EndDateTime 2014-05-05Z –Name EnrichGameLogsPipeline
+			Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z –EndDateTime 2014-05-05Z –Name EnrichGameLogsPipeline
 
 	2. **AnalyzeMarketingCampaignPipeline**
 			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
+			Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
 11. 在 **Azure 入口網站**中，按一下 **LogProcessingFactory** 的 [DATA FACTORY] 刀鋒視窗中的 [管線] 磚 (不在管線的名稱上)，您應該會看到您所建立的管線。
 
@@ -486,6 +442,8 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial-using-powershell/EndToEndWorkflow.png
 
@@ -562,4 +520,4 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>
 
 # 安全地從 App Service 環境連接到後端資源 #
@@ -21,7 +21,7 @@
 ## 概觀 ##
 由於 App Service 環境一律建立於區域傳統 "v1" [虛擬網路][virtualnetwork]的子網路，所以從 App Service 環境送至其他後端資源的輸出連線可以獨佔方式透過虛擬網路傳送。
 
-**附註：**在 "v2" 虛擬網路中，無法建立 App Service 環境。
+**注意：**在「v2」ARM 管理的虛擬網路中，無法建立 App Service 環境。
 
 例如，SQL Server 可能會在已鎖定連接埠 1433 的虛擬機器叢集上執行。此端點可能已納入 ACL，只允許從相同虛擬網路上的其他資源進行存取。
 
@@ -114,4 +114,4 @@
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

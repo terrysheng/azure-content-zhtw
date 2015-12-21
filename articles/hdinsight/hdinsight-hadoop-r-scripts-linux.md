@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 R
@@ -48,7 +48,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 | [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | R 與 C++ 整合。 |
 | [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | R 物件序列化/還原序列化為 JSON |
 | [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | 整數向量的位元運算函數。 |
-| [摘要] (建立 R 物件的密碼編譯雜湊摘要) | 建立 R 物件的密碼編譯雜湊摘要。 |
+| [digest](https://cran.r-project.org/web/packages/digest/index.html) | 建立 R 物件的密碼編譯雜湊摘要。 |
 | [函數](https://cran.r-project.org/web/packages/functional/index.html) | Curry、撰寫和其他較高順序函數 |
 | [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | 有彈性地重新建構及彙總資料。 |
 | [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | 一般字串作業的簡單、一致包裝函式。 |
@@ -101,6 +101,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
 
+
 	第一行會呼叫 RHadoop 程式庫 rmr2，用於 MapReduce 作業。
 
 	第二行會產生值 1 - 100，然後使用 `to.dfs` 將它們儲存到 Hadoop 檔案系統。
@@ -137,15 +138,13 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 
 - [在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark] 的指示，其中說明如何使用叢集自訂，以在 HDinsight Hadoop 叢集上安裝和使用 Spark。Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。
 
-- [在 HDInsight 叢集上安裝 Giraph](../hdinsight-hadoop-giraph-install)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
+- [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
 
-- [在 HDInsight 叢集上安裝 Solr](../hdinsight-hadoop-solr-install)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。Solr 可讓您對儲存的資料執行功能強大的搜尋作業。
+- [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。Solr 可讓您對儲存的資料執行功能強大的搜尋作業。
 
 - [在 HDInsight 叢集上安裝色調](hdinsight-hadoop-hue-linux.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝色調。色調是一組 Web 應用程式，用來與 Hadoop 叢集互動。
 
-[powershell-install-configure]: install-configure-powershell-linux.md
-[hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

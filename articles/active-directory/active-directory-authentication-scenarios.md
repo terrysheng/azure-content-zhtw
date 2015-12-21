@@ -204,7 +204,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 ### 單一頁面應用程式 (SPA)
 
 
-本節描述單一頁面應用程式的驗證，此應用程式使用 Azure AD 保護其 Web API 後端。單一頁面應用程式通常建構為一個在瀏覽器執行的 JavaScript 展示層 (前端)，以及一個在伺服器上執行並實作應用程式商務邏輯的 Web API 後端。在此案例中，當使用者登入時，JavaScript 前端使用 [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) 預覽和 OAuth 2.0 隱含授與通訊協定，從 Azure AD 取得的識別碼權杖 (id\_token)。權杖留在快取中，用戶端呼叫 Web API 後端時會將權杖附加至要求做為持有人權杖，並使用 OWIN 中介軟體來保護。
+本節描述單一頁面應用程式的驗證，此應用程式使用 Azure AD 保護其 Web API 後端。單一頁面應用程式通常建構為一個在瀏覽器執行的 JavaScript 展示層 (前端)，以及一個在伺服器上執行並實作應用程式商務邏輯的 Web API 後端。在此案例中，當使用者登入時，JavaScript 前端使用 [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) 和 OAuth 2.0 隱含授與通訊協定，從 Azure AD 取得的識別碼權杖 (id\_token)。權杖留在快取中，用戶端呼叫 Web API 後端時會將權杖附加至要求做為持有人權杖，並使用 OWIN 中介軟體來保護。
 
 
 #### 圖表
@@ -467,4 +467,4 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

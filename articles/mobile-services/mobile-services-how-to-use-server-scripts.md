@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ricksal"/>
 
 
@@ -289,7 +289,7 @@
 
 ###<a name="work-with-users"></a>作法：處理使用者
 
-在 Azure 行動服務中，您可以使用身分識別提供者來驗證使用者。如需詳細資訊，請參閱[開始使用驗證] (英文)。當已驗證使用者叫用資料表作業時，行動服務會使用 [user 物件]將使用者資訊提供給註冊的指令碼函數。**userId** 屬性可用於儲存及擷取使用者特定資訊。以下範例會根據已驗證使用者的 userId 設定項目的 owner 屬性：
+在 Azure 行動服務中，您可以使用身分識別提供者來驗證使用者。如需詳細資訊，請參閱[開始使用驗證] (英文)。當已驗證使用者叫用資料表作業時，行動服務會使用 [user 物件]將使用者資訊提供給註冊的指令碼函數。**userId** 屬性可用於儲存及擷取使用者特定資訊。以下範例會根據已驗證使用者的 **userId** 設定項目的 owner 屬性：
 
 	function insert(item, user, request) {
 	    item.owner = user.userId;
@@ -378,7 +378,7 @@
 
 在 Azure 行動服務中，您可以使用身分識別提供者來驗證使用者。如需詳細資訊，請參閱[開始使用驗證] (英文)。當已驗證使用者要求自訂 API 時，行動服務會使用 [user 物件]將有關使用者的資訊提供給自訂 API 程式碼。要從 [request 物件]的 user 屬性存取 [user 物件]。**userId** 屬性可用於儲存及擷取使用者特定資訊。
 
-以下的 **OrderPizza** 自訂 API 函數會根據已驗證使用者的 userId 設定項目的 owner 屬性：
+以下的 **OrderPizza** 自訂 API 函數會根據已驗證使用者的 **userId** 設定項目的 owner 屬性：
 
 		exports.post = function(request, response) {
 			var userTable = request.service.tables.getTable('user');
@@ -449,7 +449,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 ###<a name="scheduler-scripts"></a>作法：定義排程工作指令碼
 
-可將伺服器指令碼指派至行動服務排程器中定義的工作。這些指令碼屬於該工作，會依照工作的排程執行。(您也可以使用 [Azure 傳統入口網站]視需要執行工作。) 定義排程工作的指令碼沒有參數，因為行動服務不會傳遞任何資料給它；它就像 JavaScript 的一般函數一樣執行，且不會與行動服務直接互動。
+可將伺服器指令碼指派至行動服務排程器中定義的工作。這些指令碼屬於該工作，會依照工作的排程執行。(您也可以使用 [Azure 傳統入口網站]視需要執行工作)。 定義排程工作的指令碼沒有參數，因為行動服務不會傳遞任何資料給它；它就像 JavaScript 的一般函數一樣執行，且不會與行動服務直接互動。
 
 以下列方式之一定義排程工作：
 
@@ -1057,4 +1057,4 @@ Stream|不支援
 [Azure 行動服務對 package.json 的支援]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

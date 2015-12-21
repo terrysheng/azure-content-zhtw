@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用 Azure Machine Learning 批次執行活動建立預測管線 | Microsoft Azure" 
-	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線。" 
+	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="12/06/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure 機器學習服務活動建立預測管線   
@@ -623,4 +623,4 @@ AzureMLBatchExecution 活動不需要輸入 (如果不需要輸入相依性的�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

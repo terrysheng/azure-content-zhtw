@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 上使用 Hadoop 分析航班延誤資料
@@ -31,7 +31,7 @@
 
 - __HDInsight 叢集__。請參閱[在 Linux 上於 HDInsight 中搭配使用 Hadoop 與 Hive 入門](hdinsight-hadoop-linux-tutorial-get-started.md)，取得建立新的以 Linux 為基礎的 HDInsight 叢集的步驟。
 
-- __Azure SQL Database__。您會使用 Azure SQL Database 做為目的地資料存放區。如果您還沒有 SQL Database，請參閱[如何建立與設定 Azure SQL Database](../sql-database/sql-database-create-configure.md) 以建立一個。
+- __Azure SQL Database__。您會使用 Azure SQL Database 做為目的地資料存放區。如果您還沒有 SQL Database，請參閱[如何建立與設定 Azure SQL Database](../sql-database/sql-database-create.md) 以建立一個。
 
 - __Azure CLI__。如果您尚未安裝 Azure CLI，請參閱[安裝與設定 Azure CLI](../xplat-cli-install.md) 的詳細步驟。
 
@@ -63,7 +63,7 @@
 	
 	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows)
+	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 	
 3. 連線之後，請使用以下命令解壓縮 .zip 檔案：
 
@@ -285,7 +285,6 @@
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -305,4 +304,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,19 +1,20 @@
-<properties
-	pageTitle="從通用 Windows 應用程式將影像上傳至 Azure Blob 儲存體 | Microsoft Azure"
-	description="了解如何使用 .NET 後端行動服務將影像上傳至 Azure Blob 儲存體，並從通用 Windows 應用程式存取影像。"
-	documentationCenter="windows"
-	authors="ggailey777"
-	services="mobile-services,storage"
-	manager="dwrede"
+<properties 
+	pageTitle="從通用 Windows 應用程式將影像上傳至 Azure Blob 儲存體 | Microsoft Azure" 
+	description="了解如何使用 .NET 後端行動服務將影像上傳至 Azure Blob 儲存體，並從通用 Windows 應用程式存取影像。" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	services="mobile-services,storage" 
+	manager="dwrede" 
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/13/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/01/2015" 
 	ms.author="glenga"/>
 
 # 使用行動服務將影像上傳到 Azure 儲存體
@@ -57,7 +58,7 @@
 + [行動服務 .NET 作法概念性參考](../mobile-services-windows-dotnet-how-to-use-client-library.md)
 
      深入了解如何搭配使用行動服務與 .NET
-
+ 
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -74,4 +75,4 @@
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

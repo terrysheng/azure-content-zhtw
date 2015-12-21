@@ -24,7 +24,7 @@
 
 ##概觀 
 
-本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure App Service Mobile Apps 使用受管理的用戶端程式庫，來執行一般案例。如果您不熟悉 Mobile Apps，您應考慮先完成 [Mobile Apps 快速入門](app-service-mobile-windows-store-dotnet-get-started.md)教學課程。在本指南中，我們會著重於用戶端受管理的 SDK。若要深入了解 .NET 後端的伺服器端 SDK，請參閱[使用 .NET 後端](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure App Service Mobile Apps 使用受管理的用戶端程式庫，來執行一般案例。如果您不熟悉 Mobile Apps，您應考慮先完成 [Mobile Apps 快速入門](app-service-mobile-windows-store-dotnet-get-started.md)教學課程。在本指南中，我們會著重於用戶端受管理的 SDK。若要深入了解 Mobile Apps 的伺服器端 SDK，請參閱[使用 .NET 後端](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)或[如何使用 Node.js 後端 SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md)。
 
 ## 參考文件
 
@@ -50,6 +50,8 @@ C# 中對應的具類型用戶端類型如下：
 
 請注意，[JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) 是用來定義用戶端類型與資料表之間的 *PropertyName* 對應。
 
+若要了解如何在您的 Mobile Apps 後端建立新的資料表，請參閱[作法：定義資料表控制器](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET 後端) 或[使用動態結構描述定義資料表](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js 後端)。對於 Node.js 後端，您也可以使用 [Azure 入口網站](https://portal.azure.com)中的 [簡單資料表] 設定。
+
 ##<a name="create-client"></a>如何：建立行動應用程式用戶端
 
 下列程式碼將建立用來存取行動應用程式後端的 `MobileServiceClient` 物件。
@@ -60,7 +62,7 @@ C# 中對應的具類型用戶端類型如下：
 
 ##<a name="instantiating"></a>作法：建立資料表參考
 
-存取或修改後端資料表中資料的所有程式碼，都會在 `MobileServiceTable` 物件上呼叫函數。透過在 `MobileServiceClient` 的執行個體上呼叫 [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) 方法來取得資料表的參考，如下所示：
+存取或修改後端資料表中資料的所有程式碼，都會在 `MobileServiceTable` 物件上呼叫函數。透過在 `MobileServiceClient` 的執行個體上呼叫 [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) 方法可取得資料表的參考，如下所示：
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -306,7 +308,7 @@ Mobile Apps 用戶端可讓您向 Azure 通知中樞註冊推播通知。註冊�
 
 請注意，在此範例中，註冊中會包含兩個標記：如需 Windows 應用程式的詳細資訊，包括如何註冊範本，請參閱[將推播通知新增至您的應用程式](app-service-mobile-windows-store-dotnet-get-started-push.md)。
 
-Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 Android 應用程式上的應用程式，個別與 Apple Push Notification Service (APNS) 和 Google 雲端通訊 (GCM) 服務註冊。如需詳細資訊，請參閱**將推播通知新增至您的應用程式** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push))。
+Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 Android 應用程式上的應用程式，個別與 Apple Push Notification Service (APNS) 和 Google 雲端通訊 (GCM) 服務註冊。如需詳細資訊，請參閱**將推播通知新增至應用程式** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push))。
 
 ## 作法：註冊發送範本以傳送跨平台通知
 
@@ -451,7 +453,7 @@ Mobile Apps 支援開放式並行存取控制項，方法是使用 `__version` �
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-受管理執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。通用 Windows 8.1 應用程式可透過 `MobileServiceIncrementalLoadingCollection` 為這個介面提供內建支援，以自動處理控制項的呼叫。若要在 Windows 應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列動作：
+受管理執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。透過 `MobileServiceIncrementalLoadingCollection` 可取得通用這個 Windows 8.1 應用程式介面的內建支援，該支援可自動處理來自控制項的呼叫。若要在 Windows 應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列動作：
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -461,14 +463,14 @@ Mobile Apps 支援開放式並行存取控制項，方法是使用 `__version` �
 		lb.ItemsSource = items;
 
 
-若要在 Windows Phone 8 和 "Silverlight" 應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>` 上使用 `ToCollection` 擴充方法。若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
+若要在 Windows Phone 8 和 「Silverlight」應用程式上使用新的集合，請在 `IMobileServiceTableQuery<T>` 與 `IMobileServiceTable<T>` 上使用 `ToCollection` 擴充方法。若要實際載入資料，請呼叫 `LoadMoreItemsAsync()`。
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 當您使用藉由呼叫 `ToCollectionAsync` 或 `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。此集合有分頁感知功能，例如，控制項可要求集合「載入更多項目」，集合便會為此控制項執行此動作。此時，控制項會在未涉及使用者程式碼的情況下啟動流程。不過，因為集合會從網路中載入資料，因此載入有時候可能會失敗。若要處理這類失敗，您可以覆寫 `MobileServiceIncrementalLoadingCollection` 上的 `OnException` 方法，以處理呼叫控制項執行的 `LoadMoreItemsAsync` 時，所造成的例外狀況。
 
-最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述＜[選取特定資料行](#selecting)＞一節中的指引，以選取要在 UI 中顯示的特定資料行。
+最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述[選取特定資料欄](#selecting)一節中的指引，以選取要在 UI 中顯示的特定資料欄。
 
 ## <a name="package-sid"></a>如何：取得 Windows 市集封裝 SID
 
@@ -754,4 +756,4 @@ Mobile Apps 用戶端程式庫使用 Json.NET 在用戶端上將 JSON 回應轉�
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

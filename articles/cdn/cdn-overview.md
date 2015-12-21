@@ -20,7 +20,7 @@
 
 Azure 內容傳遞網路 (CDN) 會在策略性放置的位置上快取雲端服務所使用的 Azure Blob 和靜態內容，以提供將內容傳遞給使用者的最大頻寬。
 
-現有的 CDN 客戶現在可以透過 [Microsoft Azure 管理入口網站](https://portal.azure.com)管理您的 CDN 端點。
+現有的 CDN 客戶現在可以透過 [Microsoft Azure 入口網站](https://portal.azure.com)管理您的 CDN 端點。
 
 
 CDN 為開發人員提供一套全球解決方案，以在全球實體節點上快取內容來傳遞高頻寬內容。如需 CDN 節點位置的最新清單，請參閱「[Azure 內容傳遞網路 (CDN) POP 位置](cdn-pop-locations.md)」。
@@ -48,7 +48,7 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - [HTTPS 支援](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - 負載平衡
 - DDoS 保護
-- 快速清除
+- [快速清除](cdn-purge-endpoint.md)
 
  
 ## 進階功能
@@ -59,4 +59,4 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - [進階 HTTP 報告](cdn-advanced-http-reports.md)
 - [即時統計資料](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

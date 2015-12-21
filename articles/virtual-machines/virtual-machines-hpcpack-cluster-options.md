@@ -49,11 +49,13 @@ ms.service="virtual-machines"
 
 ### 教學課程
 
-* [教學課程：開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+* [教學課程：開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster-hpcpack.md)
 
-* [教學課程：在 Azure 中的 Linux 計算節點以 Microsoft HPC Pack 執行 NAMD](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
+* [教學課程：在 Azure 中的 Linux 計算節點以 Microsoft HPC Pack 執行 NAMD](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [教學課程：開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+* [教學課程：在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 OpenFOAM](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
+* [教學課程：開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載](virtual-machines-excel-cluster-hpcpack.md)
 
 
 
@@ -97,4 +99,4 @@ ms.service="virtual-machines"
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

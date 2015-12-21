@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="以程式設計方式監視串流分析的工作 | Microsoft Azure" 
-	description="了解如何以程式設計方式監視透過 REST API、Azure SDK 或 PowerShell 建立的串流分析工作。" 
+	description="了解如何以程式設計方式監視透過 REST API、Azure SDK 或 PowerShell 建立的串流分析工作。"
+	keywords=".net 監視, 工作監視, 監視應用程式"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# 以程式設計方式監視串流分析工作 
-本文示範如何為串流分析工作啟用監視。透過 REST API、Azure SDK 或 PowerShell 建立的串流分析工作預設不會啟用監視。您可以在 Azure 入口網站中，瀏覽到該工作的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用，或是按照本文中的步驟執行，將此程序自動化。串流分析工作的監視資料將會顯示在 Azure 入口網站的 [監視] 索引標籤中。
+# 以程式設計方式來建立串流分析工作監視
+ 本文示範如何為串流分析工作啟用監視。透過 REST API、Azure SDK 或 PowerShell 建立的串流分析工作預設不會啟用監視。您可以在 Azure 入口網站中，瀏覽到該工作的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用，或是按照本文中的步驟執行，將此程序自動化。串流分析工作的監視資料將會顯示在 Azure 入口網站的 [監視] 索引標籤中。
 
-![[監視工作] 索引標籤](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+![工作監視 [工作] 索引標籤](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
 ## 必要條件
 開始閱讀本文之前，您必須符合下列必要條件：
@@ -178,4 +179,4 @@
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

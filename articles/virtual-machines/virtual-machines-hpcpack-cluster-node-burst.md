@@ -27,7 +27,7 @@ ms.service="virtual-machines"
 
 >[AZURE.TIP]如果您使用 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)在 Azure 中建立叢集，則可以在自動化部署中包含 Azure 高載節點。
 
-本文中的步驟可協助您將 Azure 節點快速新增至雲端架構 HPC Pack 前端節點 VM，以測試或證明部署概念。此程序基本上相當於將雲端運算能力新增至內部部署 HPC Pack 叢集的「將量擴大到 Azure」程序。如需教學課程，請參閱[使用 Microsoft HPC Pack 設定混合式計算叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)。如需生產部署的詳細指引和考量，請參閱[使用 Microsoft HPC Pack 將量擴大到 Azure](http://go.microsoft.com/fwlink/p/?LinkID=200493)。
+本文中的步驟可協助您將 Azure 節點快速新增至雲端架構 HPC Pack 前端節點 VM，以測試或證明部署概念。此程序基本上相當於將雲端運算能力新增至內部部署 HPC Pack 叢集的「將量擴大到 Azure」程序。如需教學課程，請參閱[使用 Microsoft HPC Pack 設定混合式計算叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)。如需生產部署的詳細指引和考量，請參閱[使用 Microsoft HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)。
 
 如果您要使用 A8 或 A9 計算密集型執行個體大小，請參閱[關於 A8、A9、A10 和 A11 計算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)。
 
@@ -69,7 +69,7 @@ ms.service="virtual-machines"
 
 
 
-在此案例中新增及啟動 Azure 節點的步驟，通常與用於內部部署前端節點的步驟相同。如需詳細資訊，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點的步驟] 中的下列小節 ((https://technet.microsoft.com/library/gg481758(v=ws.10).aspx)：
+在此案例中新增及啟動 Azure 節點的步驟，通常與用於內部部署前端節點的步驟相同。如需詳細資訊，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點的步驟](https://technet.microsoft.com/library/gg481758(v=ws.10).aspx) 中的下列小節：
 
 * 建立 Azure 節點範本
 
@@ -83,9 +83,9 @@ ms.service="virtual-machines"
 
 ## 後續步驟
 
-* 如果您需要能根據叢集上工作和任務的目前工作負載自動增加和縮減 Azure 計算資源的方法，請參閱[在 HPC Pack 叢集中增加和縮減 Azure 計算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)。
+* 如果您需要能根據叢集上目前的工作和任務的工作負載自動增加和縮減 Azure 運算資源的方法，請參閱[在 HPC Pack 叢集中增加和縮減 Azure 運算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)。
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

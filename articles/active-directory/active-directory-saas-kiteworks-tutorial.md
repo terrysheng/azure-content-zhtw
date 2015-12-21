@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/04/2015"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - 您可以在 Azure AD 中控制可存取 Kiteworks 的人員 
 - 您可以讓使用者使用其 Azure AD 帳戶自動登入 Kiteworks (單一登入)
-- 您可以在 Azure Active Directory 入口網站集中管理您的帳戶。
+- 您可以在 Azure Active Directory 集中管理您的帳戶 
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
@@ -56,7 +56,7 @@
 
 **若要從資源庫新增 Kiteworks，請執行下列步驟：**
 
-1. 在 **Azure 管理入口網站**的左側瀏覽窗格中，按一下 [**Active Directory**]。<br><br> ![Active Directory][1]<br>
+1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格的 [Active Directory]。<br><br> ![Active Directory][1]<br>
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
@@ -81,29 +81,29 @@
 
 ### 設定 Azure AD 單一登入
 
-本節目標是在 Azure AD 入口網站中啟用 Azure AD 單一登入功能，並在您的 Kiteworks 應用程式中設定單一登入功能。在此程序中，您必須建立 base-64 編碼的憑證檔案。如果您不熟悉此程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+本節目標是在 Azure 傳統入口網站中啟用 Azure AD 單一登入功能，並在您的 Kiteworks 應用程式中設定單一登入功能。在此程序中，您必須建立 base-64 編碼的憑證檔案。如果您不熟悉此程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
-若要設定單一登入 Kiteworks，您需要登錄的網域。如果您沒有已註冊的網域，請透過 [support@flatterfiles.com](mailto:support@flatterfiles.com) 連絡 Kiteworks 支援小組。
+若要設定單一登入 Kiteworks，您需要登錄的網域。如果您沒有已註冊的網域，請連絡 Kiteworks 支援小組。
 
 
 
 **若要使用 Kiteworks 設定 Azure AD 單一登入功能，請執行下列步驟：**
 
-1. 在 Azure AD 入口網站的 **Kiteworks** 應用程式整合頁面上，按一下 [**設定單一登入**] 開啟 [**設定單一登入**] 對話方塊。<br><br> ![設定單一登入][6] <br>
+1. 在 Azure 傳統入口網站的 [Kiteworks] 應用程式整合頁面上，按一下 [設定單一登入] 開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][6] <br>
 
-2. 在**[您希望使用者如何登入 Kiteworks]** 頁面上，選取 [**Azure AD 單一登入**]，然後按一下 **[下一步]**。<br><br> ![設定單一登入](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_03.png) <br>
+2. 在 [要如何讓使用者登入 Kiteworks] 頁面上，選取 [Azure AD 單一登入]，然後按一下 **[下一步]**。<br><br> ![設定單一登入](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_03.png) <br>
 
-3. 在 [**設定應用程式設定**] 對話方塊頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_04.png) <br>
+3. 在 [設定應用程式設定] 對話方塊頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_04.png) <br>
 
 
-    a.在 [**登入 URL**] 文字方塊中，輸入使用者用來登入 Kiteworks 應用程式的 URL (例如：**https://fabrikam.kiteworks.com/*)。
+    a.在 [登入 URL] 文字方塊中，輸入使用者用來登入 Kiteworks 應用程式的 URL (例如：**https://fabrikam.kiteworks.com/*)。
 
     b.按 [下一步]。
  
  
-4. 在 [**在 Kiteworks 設定單一登入**] 頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_05.png) <br>
+4. 在 [在 Kiteworks 設定單一登入] 頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_05.png) <br>
 
-    a.按一下 [**下載憑證**]，然後將檔案儲存在您的電腦中。
+    a.按一下 [下載憑證]，然後將檔案儲存在您的電腦上。
 
     b.按 [下一步]。
 
@@ -122,38 +122,38 @@
 
     b.選取 [起始 AuthnRequest]。
 
-    c.在 Azure 入口網站中的 [**在 Kiteworks 設定單一登入**] 對話方塊頁面上，複製**實體識別碼**的值，然後貼到 [**IDP 實體識別碼**] 文字方塊中。
+    c.在 Azure 傳統入口網站中的 [在 Kiteworks 設定單一登入] 對話方塊頁面上，複製 [實體識別碼] 的值，然後貼到 [IDP 實體識別碼] 文字方塊中。
 
-    d.在 Azure 入口網站中的 [**在 Kiteworks 設定單一登入**] 對話方塊頁面上，複製**單一登入服務 URL** 的值，然後貼到 [**單一登入服務 URL**] 文字方塊中。
+    d.在 Azure 傳統入口網站中的 [在 Kiteworks 設定單一登入] 對話方塊頁面上，複製 [單一登入服務 URL] 的值，然後貼到 [單一登入服務 URL] 文字方塊中。
 
-    e.在 Azure 入口網站中的 [**在 Kiteworks 設定單一登入**] 對話方塊頁面上，複製**單一登出服務 URL** 的值，然後貼到 [**單一登出服務 URL**] 文字方塊中。
+    e.在 Azure 傳統入口網站中的 [在 Kiteworks 設定單一登入] 對話方塊頁面上，複製 [單一登出服務 URL] 的值，然後貼到 [單一登出服務 URL] 文字方塊中。
 
-    f.在記事本中開啟下載的憑證，複製其內容，然後貼到 [RSA 公開金鑰憑證] 文字方塊中。
+    f.在 [記事本] 中開啟下載的憑證，複製其內容，然後貼到 [RSA 公開金鑰憑證] 文字方塊中。
 
     g.按一下 [儲存]。
 
 
-6. 在 Azure AD 入口網站中，選取單一登入設定確認，然後按一下 [**下一步**]。<br><br>![Azure AD 單一登入][10]<br>
+6. 在 Azure 傳統入口網站中，選取單一登入設定確認，然後按一下 [下一步]。<br><br>![Azure AD 單一登入][10]<br>
 
-7. 在 [**單一登入確認**] 頁面上，按一下 [**完成**]。<br><br>![Azure AD 單一登入][11]
+7. 在 [單一登入確認] 頁面上，按一下 [完成]。<br><br>![Azure AD 單一登入][11]
 
 
 
 
 ### 建立 Azure AD 測試使用者
-本節目標是在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [**Britta Simon**]。<br><br>![建立 Azure AD 使用者][20]<br>
+本節目標是在 Azure 傳統入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 **Azure 管理入口網站**的左側瀏覽窗格中，按一下 [**Active Directory**]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_09.png) <br> 
+1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格的 [Active Directory]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_09.png) <br> 
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要顯示使用者清單，請在頂端功能表中按一下 [**使用者**]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_03.png) <br>
+3. 若要顯示使用者清單，請在頂端功能表中按一下 [使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_03.png) <br>
  
-4. 若要開啟 [**新增使用者**] 對話方塊，請按一下底部工具列上的 [**新增使用者**]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_04.png) <br>
+4. 若要開啟 [新增使用者] 對話方塊，請按一下底部工具列上的 [新增使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_04.png) <br>
 
-5. 在 [**告訴我們這位使用者**] 對話方塊頁面上，執行下列步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_05.png) <br>
+5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_05.png) <br>
 
     a.針對 [使用者類型]，選取 [您組織中的新使用者]。
 
@@ -161,7 +161,7 @@
 
     c.按 [下一步]。
 
-6.  在 [**使用者設定檔**] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_06.png) <br>
+6.  在 [使用者設定檔] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_06.png) <br>
  
     a.在 [**名字**] 文字方塊中，輸入 **Britta**。
 
@@ -171,9 +171,9 @@
 
     d.在 [**角色**] 清單中，選取 [**使用者**]。e.按 [下一步]。
 
-7. 在 [**取得暫時密碼**] 對話方塊頁面上，按一下 [**建立**]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_07.png) <br>
+7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_07.png) <br>
  
-8. 在 [**取得暫時密碼**] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_08.png) <br>
+8. 在 [取得暫時密碼] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_08.png) <br>
   
     a.請記下**新密碼**的值。
 
@@ -192,19 +192,19 @@
 
 ### 指派 Azure AD 測試使用者
 
-本節目標是授與 Britta Simon Kiteworks 的存取權，使她能夠使用 Azure 單一登入功能。<br><br>![指派使用者][200] <br>
+本節目標是授與 Britta Simon 對 Kiteworks 的存取權，使她能夠使用 Azure 單一登入功能。<br><br>![指派使用者][200] <br>
 
 **若要將 Britta Simon 指派到 Kiteworks，請執行下列步驟：**
 
-1. 在 Azure 入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [**應用程式**]。<br><br>![指派使用者][201] <br>
+1. 在 Azure 入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![指派使用者][201] <br>
 
-2. 在應用程式清單中，選取 [**Kiteworks**]。<br><br>![設定單一登入](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_50.png) <br>
+2. 在應用程式清單中，選取 [Kiteworks]。<br><br>![設定單一登入](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_50.png) <br>
 
-1. 在頂端功能表中，按一下 [**使用者**]。<br><br>![指派使用者][203] <br>
+1. 在頂端功能表中，按一下 [使用者]。<br><br>![指派使用者][203] <br>
 
-1. 在 [使用者] 清單中，選取 [**Britta Simon**]。
+1. 在 [使用者] 清單中，選取 [Britta Simon]。
 
-2. 在底部工具列中，按一下 [**指派**]。<br><br>![指派使用者][205]
+2. 在底部工具列中，按一下 [指派]。<br><br>![指派使用者][205]
 
 
 
@@ -237,4 +237,4 @@
 [204]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

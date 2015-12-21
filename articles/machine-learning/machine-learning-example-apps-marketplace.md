@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="luisca"/>
 
 # Azure Marketplace 中的 Machine Learning 應用程式
@@ -33,12 +33,6 @@ Azure Machine Learning 為資料科學家提供一個管道，可像智慧型手
 
 [快速入門指南](machine-learning-recommendation-api-quick-start-guide.md)
   
-##人氣組合##
-一個 API，可協助客戶在目錄中找到人氣組合的項目。使用客戶的購買歷程記錄在您的網站中新增「人氣組合」建議，並改善數位存放區中的轉換。
-
-[資料市場連結](https://datamarket.azure.com/dataset/amla/mba)
-
-[說明文件](machine-learning-apps-frequently-bought-together-api.md)
 
 ##異常偵測##
 一個 API，可在時間序列資料中找出異常事件 (例如，伺服器遙測或感應器為主的資料)。
@@ -63,4 +57,4 @@ Azure Machine Learning 為資料科學家提供一個管道，可像智慧型手
 
 [說明文件](https://churn.cloudapp.net/documentation)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

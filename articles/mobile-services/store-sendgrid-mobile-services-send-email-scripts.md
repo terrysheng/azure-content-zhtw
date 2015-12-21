@@ -7,13 +7,14 @@
 	manager="sendgrid"
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/31/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/30/2015" 
 	ms.author="Erikre"/>
 
 
@@ -42,7 +43,7 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
 ## <a name="add-script"></a>註冊傳送電子郵件的新指令碼
 
-1. 登入 [Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+1. 登入 [Azure 傳統入口網站]，按一下 [行動服務]，然後按一下您的行動服務。
 
 2. 在 Azure 傳統入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
@@ -139,4 +140,4 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
 [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

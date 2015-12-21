@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中設定通知和電子郵件範本
@@ -22,7 +22,7 @@ API 管理可讓您設定特定事件的通知，以及設定用來與 API 管�
 
 ## <a name="publisher-notifications"> </a>設定發行者通知
 
-若要設定通知，請在 API 管理服務的 Azure 入口網站中按一下 [**管理**]。這會帶您前往 API 管理發行者入口網站。
+若要設定通知，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。這會帶您前往 API 管理發行者入口網站。
 
 ![發行者入口網站][api-management-management-console]
 
@@ -54,7 +54,7 @@ API 管理可讓您設定特定事件的通知，以及設定用來與 API 管�
 
 設定通知收件者之後，按一下 [儲存]，套用已更新的通知收件者。
 
->如果您離開 [Publisher Notifications] 索引標籤，API 管理入口網站會警告有未儲存的變更。
+>如果您離開 [發行者通知] 索引標籤，發行者入口網站會警告有未儲存的變更。
 
 ## <a name="email-templates"> </a>設定電子郵件範本
 
@@ -114,4 +114,4 @@ API 管理可讓您設定特定事件的通知，以及設定用來與 API 管�
 [建立 API 管理服務執行個體]: api-management-get-started.md
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

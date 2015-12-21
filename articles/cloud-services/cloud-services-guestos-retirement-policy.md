@@ -3,7 +3,7 @@
    description="提供關於雲端服務使用之 Azure 客體作業系統的 Microsoft 支援事項資訊。" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 # Azure 客體作業系統可支援性和淘汰原則
-本頁面中的資訊涉及雲端服務背景工作和 Web 角色 (PaaS) 適用的 Azure 客體作業系統 ([客體 OS](https://msdn.microsoft.com/library/azure/ff729422.aspx))。這些資訊不適用於虛擬機器 (IaaS)。
+本頁面中的資訊涉及雲端服務背景工作和 Web 角色 (PaaS) 適用的 Azure 客體作業系統 ([客體 OS](cloud-services-guestos-update-matrix.md))。這些資訊不適用於虛擬機器 (IaaS)。
 
 Microsoft 已發佈[客體 OS 支援原則](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq)。您正在閱讀的頁面描述原則的實施方式。
 
@@ -81,13 +81,13 @@ Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不�
 
 1. 儘早規劃新系列的移轉。 
 2. 設定暫時性的測試部署，以測試在新系列上運作的雲端服務。 
-3. 將[客體 OS 版本](https://msdn.microsoft.com/library/azure/gg433101.aspx)設為「Automatic」([.CSCFG](https://msdn.microsoft.com/library/azure/gg456324.aspx) 檔案中的 osVersion=*)，新客體 OS 版本的移轉作業即能自動執行。
+3. 將客體 OS 版本設為 **Automatic** ([.CSCFG](cloud-services-model-and-package.md#cscfg) 檔案中的 osVersion=*)，新客體 OS 版本的移轉作業即能自動執行。
 
 **如果 Web 應用程式需要與 OS 更深入的整合，該怎麼辦？**
 
-如果 Web 應用程式架構與基礎作業系統之間需要更深入的相依性，您可以使用「[啟動工作](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)」之類的平台支援功能或我們未來可能會推出的其他擴充性機制。您也可以使用 [Azure 虛擬機器](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – 基礎結構即服務)，只不過您需要自行負責維護基礎作業系統。
+如果 Web 應用程式架構與基礎作業系統之間需要更深入的相依性，您可以使用「[啟動工作](cloud-services-startup-tasks.md)」之類的平台支援功能或我們未來可能會推出的其他擴充性機制。您也可以使用 [Azure 虛擬機器](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – 基礎結構即服務)，只不過您需要自行負責維護基礎作業系統。
  
 ## 後續步驟
 檢閱最新的[客體作業系統版本](cloud-services-guestos-update-matrix.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

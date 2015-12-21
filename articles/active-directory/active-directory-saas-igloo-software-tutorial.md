@@ -2,17 +2,17 @@
     pageTitle="教學課程：Azure Active Directory 與 Igloo Software 整合 | Microsoft Azure" 
     description="了解如何使用 Igloo Software 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="prasannas"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="12/04/2015" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Igloo Software 整合
   
@@ -37,7 +37,7 @@
 
 ###若要啟用 Igloo Software 的應用程式整合，請執行下列步驟：
 
-1.  在 Azure 管理入口網站的左方瀏覽窗格中，按一下 [Active Directory]。
+1.  在 Azure 傳統入口網站中，按一下左方瀏覽窗格的 [Active Directory]。
 
     ![Active Directory](./media/active-directory-saas-igloo-software-tutorial/IC700993.png "Active Directory")
 
@@ -59,7 +59,7 @@
 
     ![應用程式庫](./media/active-directory-saas-igloo-software-tutorial/IC783962.png "應用程式庫")
 
-7.  在結果窗格中，選取 **Igloo Software**，然後按一下 [完成] 以新增應用程式。
+7.  在結果窗格中，選取 [Igloo Software]，然後按一下 [完成] 以新增應用程式。
 
     ![Igloo](./media/active-directory-saas-igloo-software-tutorial/IC783963.png "Igloo")
 ##設定單一登入
@@ -68,11 +68,11 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 [Igloo Software] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure 傳統入口網站的 [Igloo Software] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-igloo-software-tutorial/IC783964.png "設定單一登入")
 
-2.  在 [您希望使用者如何登入 Igloo Software] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按一下 [下一步]。
+2.  在 [要如何讓使用者登入 Igloo Software] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按一下 [下一步]。
 
     ![Microsoft Azure AD 單一登入](./media/active-directory-saas-igloo-software-tutorial/IC783965.png "Microsoft Azure AD 單一登入")
 
@@ -90,7 +90,7 @@
 
     ![控制台](./media/active-directory-saas-igloo-software-tutorial/IC799949.png "控制台")
 
-7.  在 [成員] 索引標籤，按一下 [登入設定]。
+7.  在 [成員資格] 索引標籤中，按一下 [登入設定]。
 
     ![登入設定](./media/active-directory-saas-igloo-software-tutorial/IC783968.png "登入設定")
 
@@ -98,19 +98,19 @@
 
     ![SAML 設定](./media/active-directory-saas-igloo-software-tutorial/IC783969.png "SAML 設定")
 
-9.  在 [一般設定] 頁面上，執行下列步驟：
+9.  在 [一般設定] 區段，執行下列步驟：
 
     ![一般設定](./media/active-directory-saas-igloo-software-tutorial/IC783970.png "一般設定")
 
-    1.  在 [連接名稱] 文字方塊中，輸入您組態的自訂名稱。
-    2.  在 Azure 入口網站中的 [設定在 Igloo Software 單一登入] 對話方塊頁面上，複製 [遠端登入 URL] 值，然後將它貼至 [IdP 登入 URL] 文字方塊中。
-    3.  在 Azure 入口網站中的 [設定在 Igloo Software 單一登入] 對話方塊頁面上，複製 [遠端登出 URL] 值，然後將它貼至 [IdP 登出 URL] 文字方塊中。
-    4.  在 [登出回應與要求 HTTP 類型]，選取 [POST]。
+    1.  在 [連接名稱] 文字方塊中，輸入組態的自訂名稱。
+    2.  在 Azure 傳統入口網站中的 [設定在 Igloo Software 單一登入] 對話方塊頁面上，複製 [遠端登入 URL] 值，然後將它貼至 [IdP 登入 URL] 文字方塊中。
+    3.  在 Azure 傳統入口網站中的 [設定在 Igloo Software 單一登入] 對話方塊頁面上，複製 [遠端登出 URL] 值，然後將它貼至 [IdP 登出 URL] 文字方塊中。
+    4.  為 [登出回應與要求 HTTP 類型] 選取 [POST]。
     5.  從下載的憑證建立文字檔。
         
 		>[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  從您文字檔版本的憑證中移除第一行 (**) 和最後一行 (**)，複製剩下的憑證文字，然後貼到 [公開憑證] 文字方塊。
+    6.  從您文字檔版本的憑證中移除第一行和最後一行，複製剩下的憑證文字，然後貼到 [公開憑證] 文字方塊。
 
 10. 在 [回應與驗證設定]，執行以下步驟：
 
@@ -118,7 +118,7 @@
 
     1.  在 [身分識別提供者]，選取 [Microsoft ADFS]。
     2.  在 [識別元類型]，選取 [電子郵件地址]。
-    3.  在 [電子郵件屬性] 文字方塊中，輸入 **emailaddress**。
+    3.  在 [電子郵件屬性] 文字方塊中，輸入**電子郵件地址**。
     4.  在 [名字屬性] 文字方塊中，輸入**名字**。
     5.  在 [姓氏屬性] 文字方塊中，輸入**姓氏**。
 
@@ -130,7 +130,7 @@
     2.  在 [登入設定]，選取 [在「登入」畫面使用 SAML 按鈕]。
     3.  按一下 [儲存]。
 
-12. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+12. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-igloo-software-tutorial/IC783973.png "設定單一登入")
 ##設定使用者佈建
@@ -142,7 +142,7 @@
 
 ###若要指派使用者給 Igloo Software，請執行下列步驟：
 
-1.  在 Azure AD 入口網站中建立測試帳戶。
+1.  在 Azure 傳統入口網站中建立測試帳戶。
 
 2.  在 [Igloo Software] 應用程式整合頁面中，按一下 [指派使用者]。
 
@@ -154,4 +154,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

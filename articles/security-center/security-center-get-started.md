@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -22,19 +22,19 @@
 
 > [AZURE.NOTE]本文中的資訊適用於 Azure 資訊安全中心的預覽版本。這是使用範例部署的服務簡介。這不是逐步指南。
 
-## 何謂 Azure 資訊安全中心？
+## 什麼是 Azure 資訊安全中心？
 Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控制權，以預防、偵測並回應威脅。它提供您訂用帳戶之間的整合式安全性監視和原則管理，協助您偵測可能會忽略的威脅，且適用於廣泛的安全性解決方案生態系統。
 
 ## 必要條件
 
 若要開始使用 Azure 資訊安全中心，您必須有 Microsoft Azure 訂用帳戶。Azure 資訊安全中心已經由訂用帳戶啟用。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial)。
 
-Azure 資訊安全中心是從 [Microsoft Azure Preview 入口網站](http://azure.microsoft.com/features/azure-portal/)存取。如需詳細資訊，請參閱 [Azure Preview 入口網站文件](https://azure.microsoft.com/documentation/services/azure-portal/)。
+Azure 資訊安全中心是從 [Azure 入口網站](http://azure.microsoft.com/features/azure-portal/)存取。如需詳細資訊，請參閱[入口網站文件](https://azure.microsoft.com/documentation/services/azure-portal/)。
 
 
 ## 存取 Azure 資訊安全中心
 
-在 Azure 入口網站中，執行下列步驟來存取 Azure 資訊安全中心：
+在入口網站中，執行下列步驟來存取 Azure 資訊安全中心：
 
 1. 選取 [瀏覽] 並捲動至 [資訊安全中心] 選項。![][1]
 
@@ -103,4 +103,4 @@ Azure 資訊安全中心是從 [Microsoft Azure Preview 入口網站](http://azu
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

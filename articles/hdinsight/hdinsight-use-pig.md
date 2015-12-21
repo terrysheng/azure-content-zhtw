@@ -106,7 +106,7 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。請使用下表決�
 - [Azure 訂用帳戶連接管理員][connectionmanager]
 
 
-在[這裡][ssispack]深入了解適用於 SSIS 的 Azure Feature Pack。
+在[這裡][ssispack]深入瞭解適用於 SSIS 的 Azure Feature Pack。
 
 
 ##<a id="nextsteps"></a>接續步驟
@@ -122,9 +122,9 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。請使用下表決�
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/zh-TW/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/zh-TW/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/zh-TW/library/mt146770(v=sql.120).aspx
+[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -146,4 +146,4 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。請使用下表決�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

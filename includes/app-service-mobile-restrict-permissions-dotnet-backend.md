@@ -3,7 +3,7 @@
 
 + **Node.js 後端 (透過入口網站)**：  
 	
-	在行動應用程式的 [**設定**] 中，按一下 [**簡單資料表**]，然後選取您的資料表。按一下 [**變更權限**]，選取所有權限的 [**僅驗證存取**]，然後按一下 [**儲存**]。
+	在行動應用程式的 [**設定**] 中，按一下 [**簡單資料表**]，然後選取您的資料表。按一下 [變更權限]，選取所有權限的 [僅驗證存取]，然後按一下 [儲存]。
 
 + **.NET 後端 (C#)**：
 
@@ -20,6 +20,6 @@
 
         table.access = 'authenticated';
 
-	如需詳細資訊，請參閱[如何使用 Azure Mobile Apps Node.js SDK](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md) 中的[需經過驗證才可存取資料表](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)。
+	如需詳細資訊，請參閱[做法：存取資料表所需的驗證](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)。若要了解如何從您的網站下載快速入門程式碼專案，請參閱[做法：使用 Git 下載 Node.js 後端快速入門程式碼專案](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/23/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # 使用 Power BI (預覽) 視覺化 Apache Storm 拓撲的資料
@@ -55,9 +55,9 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 ## 註冊 Power BI 應用程式
 
-1. 請遵循 [Power BI 快速入門](https://msdn.microsoft.com/zh-TW/library/dn931989.aspx)中的步驟註冊 Power BI。
+1. 請遵循 [Power BI 快速入門](https://msdn.microsoft.com/library/dn931989.aspx)中的步驟註冊 Power BI。
 
-2. 請遵循[註冊應用程式](https://msdn.microsoft.com/zh-TW/library/dn877542.aspx)中的步驟來建立應用程式註冊。這會在存取 Power BI REST API 時使用。
+2. 請遵循[註冊應用程式](https://msdn.microsoft.com/library/dn877542.aspx)中的步驟來建立應用程式註冊。這會在存取 Power BI REST API 時使用。
 
     > [AZURE.IMPORTANT]儲存 **用戶端識別碼** 以進行應用程式註冊。
 
@@ -83,7 +83,7 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 1. 從 [**方案總管**]，以滑鼠右鍵按一下 **WordCount** 專案，然後選取 [**提交至 Storm on HDInsight**]。從 [**Storm 叢集**] 下拉式清單對話方塊選取 HDInsight 叢集。
 
-    > [AZURE.NOTE][**Storm 叢集**] 下拉式清單可能需要幾秒鐘的時間來填入伺服器名稱。
+    > [AZURE.NOTE] [**Storm 叢集**] 下拉式清單可能需要幾秒鐘的時間來填入伺服器名稱。
     >
     > 如果出現提示，請輸入您 Azure 訂閱的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
@@ -139,4 +139,4 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015--->

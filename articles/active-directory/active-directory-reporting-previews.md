@@ -13,21 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory 報告預覽
 
-## 報告文章
-
- - [報告 API](active-directory-reporting-api-getting-started.md)
- - [稽核事件](active-directory-reporting-audit-events.md)
- - [保留](active-directory-reporting-retention.md)
- - [預覽](active-directory-reporting-previews.md)
- - [Search](active-directory-reporting-search.md)
- - [回填](active-directory-reporting-backfill.md)
- - [延遲](active-directory-reporting-latencies.md)
- - [「未知動作」事件](active-directory-reporting-unknown-actor.md)
+*這份文件是 [Azure Active Directory 報告指南](active-directory-reporting-guide.md)的一部分。*
 
 報告 | Availability
 ------------------------------------------------------- | --------------------
@@ -63,4 +54,4 @@ RMS 裝置使用量 | 公開預覽
 **私人預覽報告** |
 所有使用者登入活動 | 私人預覽
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

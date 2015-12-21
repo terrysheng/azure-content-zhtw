@@ -7,35 +7,35 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Obtain the connection string from the Azure portal
+### 從 Azure 入口網站取得連接字串
 
 
-Use the [Azure preview portal](http://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database:
+使用 [Azure Preview 入口網站](http://portal.azure.com/)來取得用戶端程式與 Azure SQL Database 進行互動的所需的連接字串：
 
 
-1. Click **BROWSE** > **SQL databases**.
+1. 按一下 [瀏覽] > [SQL 資料庫]。
 
-    ![Select SQL][1-select-sql]
+    ![選取 SQL][1-select-sql]
 
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
+2. 在 [SQL 資料庫] 刀鋒視窗左上角附近的篩選文字方塊中輸入您的資料庫名稱。
 
-    ![Select Database][2-select-database]]
+    ![選取資料庫][2-select-database]]
 
-3. Click the row for your database.
+3. 按一下資料庫的資料列。
 
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering.
+4. 在刀鋒視窗顯示您的資料庫之後，為了閱讀方便您可以按一下標準最小化控制項來摺疊用於瀏覽和資料庫篩選的刀鋒視窗。
 
-5. On the blade for your database, click **Show database connection strings**.
+5. 在您資料庫的刀鋒視窗上，按一下 [顯示資料庫連接字串]。
 
-6. If you intend to use the JDBC connection library, copy the string labeled **JDBC**.
+6. 如果您想要使用 JDBC 連線庫，請複製標示為 **JDBC** 的字串。
 
-	![Copy the JDBC connection string for your database][3-get-connection-string]
+	![複製資料庫的 JDBC 連接字串][3-get-connection-string]
 
-7. Paste the connection string information into your client program code.  You will need to replace the {your_password_here} with your real password.
+7. 將連接字串資訊貼上您的用戶端程式碼。您必須使用您真正的密碼取代 {your\_password\_here}。
 
 
 
-For more information, see:<br/>[Connection Strings and Configuration Files](https://msdn.microsoft.com/library/ms378428.aspx).
+如需詳細資訊，請參閱<br/>[連接字串與組態檔](https://msdn.microsoft.com/library/ms378428.aspx)。
 
 
 
@@ -56,3 +56,5 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+
+<!---HONumber=AcomDC_1210_2015-->

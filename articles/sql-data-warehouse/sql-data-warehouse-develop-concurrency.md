@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]您最好在同時使用 Azure SQL Database 和 SQL 資料倉儲時，為主要資料庫的登入建立使用者。此層級有兩個可用的伺服器角色，需要登入才能在主要資料庫中擁有使用者以授與成員資格。這些角色為 `Loginmanager` 和 `dbmanager`。在 Azure SQL Database 和 SQL 資料倉儲中，這些角色會授與管理登入以及建立資料庫的權限。這與 SQL Server 有所不同。如需詳細資料，請參閱[在 Azure SQL Database 中管理資料庫和登入]一文。
+[AZURE.NOTE]您最好在同時使用 Azure SQL Database 和 SQL 資料倉儲時，為主要資料庫的登入建立使用者。此層級有兩個可用的伺服器角色，需要登入才能在主要資料庫中擁有使用者以授與成員資格。這些角色為 `Loginmanager` 和 `dbmanager`。在 Azure SQL Database 和 SQL 資料倉儲中，這些角色會授與管理登入以及建立資料庫的權限。這與 SQL Server 有所不同。如需詳細資料，請參閱[管理 Azure SQL Database 中的資料庫和登入]。
 
 一旦已建立登入，現在必須新增使用者帳戶。
 
@@ -448,8 +448,8 @@ FROM	sys.dm_pdw_wait_stats w
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[在 Azure SQL Database 中管理資料庫和登入]: https://msdn.microsoft.com/zh-TW/library/azure/ee336235.aspx
+[管理 Azure SQL Database 中的資料庫和登入]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

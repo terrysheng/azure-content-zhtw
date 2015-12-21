@@ -51,7 +51,7 @@
 | Cisco | ASR | IOS 15.1 (靜態)、IOS 15.2 (動態) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Cisco | ISR | IOS 15.0 (靜態)、IOS 15.1 (動態) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | CloudBridge MPX 裝置或 VPX 虛擬裝置 | N/A | [整合指示](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | 不相容 |
-| Dell SonicWALL | TZ 系列、NSA 系列、SuperMassive 系列、E 級 NSA 系列 | SonicOS 5.8.x、SonicOS 5.9.x、SonicOS 6.x | [組態指示](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | 不相容 |
+| Dell SonicWALL | TZ 系列、NSA 系列、SuperMassive 系列、E 級 NSA 系列 | SonicOS 5.8.x、[SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850)、[SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [指示 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [指示 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [指示 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [指示 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | BIG-IP 系列 | N/A | [組態指示](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | 不相容 |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [組態指示](http://docs.fortinet.com/fortigate/admin-guides) | [組態指示](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | SEIL 系列 | SEIL/X 4.60、SEIL/B1 4.60、SEIL/x86 3.20 | [組態指示](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | 不相容 |
@@ -91,7 +91,7 @@
 | &lt;SP\_AzureNetworkSubnetMask&gt; | 指定子網路遮罩。例如：255.255.0.0 |
 | &lt;SP\_OnPremisesNetworkIpRange&gt; | 指定內部部署範圍。例如：10.2.1.0 |
 | &lt;SP\_OnPremisesNetworkSubnetMask&gt; | 指定內部部署子網路遮罩。例如：255.255.255.0 |
-| &lt;SP\_AzureGatewayIpAddress&gt; | 此資訊專屬於您的虛擬網路，是 [管理入口網站] 中的 [**閘道器 IP 位址**]。 |
+| &lt;SP\_AzureGatewayIpAddress&gt; | 此資訊專屬於您的虛擬網路，位於管理入口網站中的 [閘道器 IP 位址]。 |
 | &lt;SP\_PresharedKey&gt; | 此資訊專屬於您的虛擬網路，是 [管理入口網站] 中的管理金鑰。 |
 
 
@@ -152,8 +152,8 @@
 ## 後續步驟
 
 
-若要深入了解 VPN 閘道，請參閱〈[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)〉。
+若要深入了解 VPN 閘道，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。
 
-若要設定站對站 VPN，請參閱〈[建立虛擬網路與站對站 VPN 連線](vpn-gateway-site-to-site-create.md)〉。
+若要設定站對站 VPN，請參閱[建立虛擬網路與站對站 VPN 連線](vpn-gateway-site-to-site-create.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

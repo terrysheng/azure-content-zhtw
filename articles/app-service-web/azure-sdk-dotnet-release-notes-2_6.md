@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="juliako"/>
 
 
@@ -60,7 +60,9 @@
 
 	使用 Azure SDK 2.5 或更低版本的客戶應該更新到 Azure SDK 2.6，並移至新的 Azure 儲存體 SDK 版本。
 
-	目前 Azure 儲存體版本 2011-08-18 己預計於 2016 年 8 月 1 日移除。任何將角色中快取從 Azure SDK 2.5 或較低版本移轉到 Azure SDK 2.6 的作業都必須在這個時間前完成。如需 Azure 儲存體版本 2011-08-18 停用的詳細資訊，請參閱 [Microsoft Azure 儲存體服務版本移除更新：延期到 2016 年](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)。
+	目前 Azure 儲存體版本 2011-08-18 己預計於 2016 年 8 月 1 日移除。任何將 In-Role Cache 從 Azure SDK 2.5 或較低版本移轉到 Azure SDK 2.6 的作業都必須在這個時間前完成。如需 版本 Azure 儲存體版本 2011-08-18 的詳細資訊，請參閱 [Microsoft Azure 儲存體服務版本移除更新：延期到 2016 年](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)。
+
+>[AZURE.IMPORTANT]我們現在宣布將在 2016 年 11 月 30 日淘汰「Azure 受管理的快取服務」和 Azure In-Role Cache。我們建議您移轉到 Azure Redis Cache 以為這次淘汰做準備。如需日期和移轉指南的詳細資訊，請參閱[我適合使用哪個 Azure 快取服務？](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 
 ##Azure App Service 工具
 
@@ -106,4 +108,4 @@ Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄�
 
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

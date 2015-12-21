@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 
@@ -39,11 +39,11 @@
 本教學課程有下列先決條件：
 
 -	使用中的 [Microsoft Azure 帳戶](/account/)
--	Visual Studio 2013 (含 [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))
+-	Visual Studio 2015 (含 [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))。如果您使用 Visual Studio，則步驟可能有差異。
 
 > [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：
-> + 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。> 
-> + 您可以[啟用 Visual Studio 訂用帳戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 Visual Studio 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
+> + 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。
+> + 您可以[啟用 MSDN 訂用帳戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
 >
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
@@ -51,31 +51,28 @@
 
 在本節中，您將在 Visual Studio 2013 中將預設 ASP.NET MVC 應用程式範本部署至 App Service，然後將它與新的 CDN 端點整合。請遵循下列指示：
 
-1. 在 Visual Studio 2013 中，從功能表列中移至 **[檔案] > [新增] > [專案] > [Web] > [ASP.NET Web 應用程式]**，以建立新的 ASP.NET Web 應用程式。命名並按一下 [確定]。
+1. 在 Visual Studio 2015 中，從功能表列中移至 [檔案] > [新增] > [專案] > [Web] > [ASP.NET Web 應用程式]，以建立新的 ASP.NET Web 應用程式。命名並按一下 [確定]。
 
 	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. 選取 [**MVC**]，然後按一下 [**管理訂閱**]。
+3. 選取 [**MVC**]，按一下 [**確定**]。
 
 	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. 按一下 [登入]。
+4. 如果尚未登入您的 Azure 帳戶，請按一下右上角的帳戶圖示，並按照對話方塊登入您的 Azure 帳戶。完成之後，設定在底下所顯示您的應用程式，設定然後按一下 [新增] 來為應用程式建立新的 App Service 計畫。
 
-	![](media/cdn-websites-with-cdn/3-manage-subscription.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-6. 在登入頁面中，使用您用來啟用 Azure 帳戶的 Microsoft 帳戶登入。
-7. 登入後，按一下 [**關閉**]。然後，按一下 [**確定**] 繼續。
+5. 在對話方塊中設定新的 App Service (如下所示)，然後按一下 [確定]。
 
-	![](media/cdn-websites-with-cdn/4-signed-in.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. 假設您尚未在 Azure 中建立應用程式服務，Visual Studio 可協助您建立它。在 [**設定 Microsoft Azure 網站**] 對話方塊中，請確定您的網站名稱是唯一的。然後按一下 **[確定]**。
+8. 按一下 [建立] 來建立 Web 應用程式。
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. 建立 ASP.NET 應用程式之後，在 [Web 發佈活動] 窗格中按一下 [**將 `<app name>` 立即發佈至此網站**]，將它發佈至 Azure。按一下 [**發佈**] 完成程序。
+9. 建立 ASP.NET 應用程式之後，在 [Azure App Service Activity] 窗格中按一下 [將 `<app name>` 立即發佈至此 Web 應用程式]，將它發佈至 Azure。按一下 [**發佈**] 完成程序。
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	當發佈完成時，您會在瀏覽器中看到您已發佈的 Web 應用程式。
@@ -382,7 +379,7 @@
 
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
                 "~/Scripts/modernizr-*"));
 
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
@@ -566,4 +563,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

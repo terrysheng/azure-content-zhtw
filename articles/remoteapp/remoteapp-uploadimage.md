@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="上傳 Azure RemoteApp 的自訂映像"
-    description="了解如何上傳 Azure RemoteApp 的自訂映像" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="ericorman" 
+<properties
+    pageTitle="上傳 Azure RemoteApp 的自訂映像 | Microsoft Azure"
+    description="了解如何上傳 Azure RemoteApp 的自訂映像"
+    services="remoteapp"
+    documentationCenter=""
+    authors="ericorman"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="ericor" />
 
 
@@ -32,7 +32,7 @@
 
 1.      開啟 Azure 管理入口網站，並瀏覽至 [RemoteApp] 頁面。
 2.      在 [範本映像] 索引標籤上，按一下頁面底部的 [上傳]。
-4.      為您的映像輸入一個易記名稱，並指定儲存體帳戶位置。請確定此位置會是與 RemoteApp 集合相同的位置或是您要建立 RemoteApp 集合的位置。 
+4.      為您的映像輸入一個易記名稱，並指定儲存體帳戶位置。請確定此位置會是與 RemoteApp 集合相同的位置或是您要建立 RemoteApp 集合的位置。
 5.      當系統出現提示時，請將指令碼下載到本機電腦。
 6.      將文字方塊中的命令參數複製到您的剪貼簿。
 7.      開啟提升權限的 Windows PowerShell 視窗。
@@ -47,9 +47,8 @@
 
 ## 常見問題
 
-- 請確定使用的是 Windows PowerShell，而不是 Azure PowerShell。您必須安裝 Azure PowerShell 模組，因為上傳過程中會需要某些特定模組。 
+- 請確定使用的是 Windows PowerShell，而不是 Azure PowerShell。您必須安裝 Azure PowerShell 模組，因為上傳過程中會需要某些特定模組。
 - 切勿更改指令碼，該指令碼已提供驗證，方便您使用。
 - 如果 vhd 檔案在上傳期間遭到鎖定，請將檔案複製或移動到新位置，並再次嘗試上傳。有些 Windows 程序可能會阻止上傳。  
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

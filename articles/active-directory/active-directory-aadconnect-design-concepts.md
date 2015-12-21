@@ -56,7 +56,6 @@ sourceAnchor 屬性會區分大小寫。"JohnDoe" 與 "johndoe" 是不同的值�
 
 另一個解決方案是挑選您知道不會變更的現有屬性。常用的屬性包括 **employeeID**。如果您考慮將含有字母的屬性，請確定屬性值的大小寫 (大寫與小寫) 沒機會變更。不該使用的不合適屬性包括使用者的姓名。結婚或離婚時，此名稱預計會變更，所以不適用於此屬性。這也就是不可能在 Azure AD Connect 安裝精靈中選取 **userPrincipalName**、**mail** 和 **targetAddress** 之類屬性的原因之一。這些屬性也會包含 @ 字元，而 sourceAnchor 中不允許此字元。
 
-
 ### 變更 sourceAnchor 屬性
 在 Azure AD 中建立物件並同步處理身分識別之後，無法變更 sourceAnchor 屬性值。
 
@@ -69,4 +68,4 @@ sourceAnchor 屬性會區分大小寫。"JohnDoe" 與 "johndoe" 是不同的值�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

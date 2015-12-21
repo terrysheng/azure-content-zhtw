@@ -126,14 +126,14 @@ Azure Site Recovery (ASR) 原生支援 SQL AlwaysOn。如果您已經建立 SQL 
 - 在內部部署 SQL Server 和在 Azure 中執行的 SQL Server 之間設定的 SQL 可用性群組
 - PowerShell 遠端應該在內部部署 SQL Server 上啟用。VMM 伺服器應該可以讓 PowerShell 遠端呼叫 SQL Server
 - 在內部部署 SQL Server 上，使用者帳戶應該加入 SQL 使用者群組，具有至少下列權限
-	- ALTER AVAILABILITY GROUP - [參考 1](https://msdn.microsoft.com/zh-TW/library/hh231018.aspx)、[參考 2](https://msdn.microsoft.com/zh-TW/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE - [參考 1](https://msdn.microsoft.com/zh-TW/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP - [參考 1](https://msdn.microsoft.com/library/hh231018.aspx)、[參考 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [參考 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - 執行身分帳戶應該在上一個步驟中針對帳戶在 VMM 伺服器上建立
 - SQL PS 模組應該安裝在內部部署執行和 Azure 虛擬機器上的 SQL Server
 - VM 代理程式應該安裝在 Azure 上執行的虛擬機器
 - NTAUTHORITY\\System 應該有在 Azure 中的虛擬機器上執行的 SQL Server 的下列權限
-	- ALTER AVAILABILITY GROUP - [參考 1](https://msdn.microsoft.com/zh-TW/library/hh231018.aspx)、[參考 2](https://msdn.microsoft.com/zh-TW/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE - [參考 1](https://msdn.microsoft.com/zh-TW/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP - [參考 1](https://msdn.microsoft.com/library/hh231018.aspx)、[參考 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [參考 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ##### 1\.加入 SQL Server
 
@@ -374,4 +374,4 @@ SQL 可用性群組可以複寫至 Azure 中的一或多個虛擬機器。當加
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

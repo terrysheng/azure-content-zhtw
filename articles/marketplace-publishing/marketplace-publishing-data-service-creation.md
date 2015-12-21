@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/24/2015"
+      ms.date="12/03/2015"
       ms.author="hascipio; avikova" />
 
 # 適用於 Azure Marketplace 的資料服務發佈指南
@@ -23,7 +23,7 @@
 
 移至 [https://publish.windowsazure.com](https://publish.windowsazure.com.)。
 
-**如果是第一次登入發佈入口網站，請使用與貴公司在賣方儀表板上註冊的賣方設定檔相同的帳戶** (稍後您可以在發佈入口網站中，將公司的任何員工新增為共同管理員)。您必須先接受發行者合約，然後才能開始在發佈入口網站中建立您的優惠。
+**如果是第一次登入發佈入口網站，請使用與貴公司在開發人員中心上註冊的賣方設定檔相同的帳戶** (稍後您可以在發佈入口網站中，將公司的任何員工新增為共同管理員)。
 
 如果這是第一次登入發佈入口網站，請按一下 [發佈資料服務] 磚。
 
@@ -146,4 +146,4 @@ Azure Marketplace 服務層必須負責監視每個查詢所取用的交易量 (
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # 如何將事件記錄到 Azure API 管理中的 Azure 事件中樞
@@ -24,7 +24,7 @@
 
 ## 建立 Azure 事件中樞
 
-若要建立新的事件中樞，請登入 [Azure 入口網站](https://manage.windowsazure.com)，按一下 [新增] -> [應用程式服務] -> [服務匯流排] -> [事件中樞] -> [快速建立]。輸入事件中樞名稱、區域，選取訂用帳戶，然後選取命名空間。如果您先前尚未建立命名空間，可以在 [命名空間] 文字方塊中輸入名稱加以建立。設定好所有屬性，按一下 [建立新的事件中樞] 建立事件中樞。
+若要建立新的事件中樞，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com)，按一下 [新增] -> [應用程式服務] -> [服務匯流排] -> [事件中樞] -> [快速建立]。輸入事件中樞名稱、區域，選取訂用帳戶，然後選取命名空間。如果您先前尚未建立命名空間，可以在 [命名空間] 文字方塊中輸入名稱加以建立。設定好所有屬性後，按一下 [建立新的事件中樞] 建立事件中樞。
 
 ![建立事件中樞][create-event-hub]
 
@@ -40,7 +40,7 @@
 
 ![Connection string][event-hub-dashboard]
 
-**Sending** 連接字串用於記錄事件，**Receiving** 連接字串則用於從事件中樞下載事件。
+**Sending** 連接字串用於記錄事件，**Receiving** 連接字串則用於從事件中樞下載事件時。
 
 ![Connection string][event-hub-connection-string]
 
@@ -48,7 +48,7 @@
 
 現在您已經有事件中樞，下一步是在 API 管理服務中設定[記錄器](https://msdn.microsoft.com/library/azure/mt592020.aspx)，以將事件記錄至事件中樞。
 
-使用 [API 管理 REST API](http://aka.ms/smapi) 來設定 API 管理記錄器。在第一次使用 REST API 之前，請先檢閱[必要條件](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites)，確定您已[啟用 REST API 的存取](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI)。
+可使用 [API 管理 REST API](http://aka.ms/smapi) 來設定 API 管理記錄器。在第一次使用 REST API 之前，請先檢閱[必要條件](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites)，確定您已[啟用 REST API 的存取](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI)。
 
 若要建立記錄器，請使用下列 URL 範本提出 HTTP PUT 要求。
 
@@ -69,7 +69,7 @@
       "type" : "AzureEventHub",
       "description" : "Sample logger description",
       "credentials" : {
-        "name" : "Name of the Event Hub from the Azure portal",
+        "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
         }
     }
@@ -86,9 +86,9 @@
 
 您在 API 管理中設定好記錄器後，便可設定 log-to-eventhubs 原則來記錄所需的事件。log-to-eventhubs 原則可用於輸入原則區段或輸出原則區段。
 
-若要設定原則，請登入 [Azure 入口網站](https://manage.windowsazure.com)，瀏覽您的 API 管理服務，然後按一下 [發佈者入口網站] 或 [管理]，以存取發佈者入口網站。
+若要設定原則，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com)，瀏覽您的 API 管理服務，然後按一下 [發佈者入口網站] 或 [管理]，以存取發佈者入口網站。
 
-![發佈者入口網站][publisher-portal]
+![發行者入口網站][publisher-portal]
 
 按一下左側 [API 管理] 功能表中的 [原則]，選取所需產品和 API，然後按一下 [新增原則]。在此範例中，我們將原則加入 **Unlimited** 產品中的 **Echo API**。
 
@@ -133,4 +133,4 @@
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

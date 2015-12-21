@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/02/2015"
 	ms.author="coreyp"/>
 
 # 如何安裝和設定 Azure PowerShell#
@@ -21,7 +21,7 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure CLI</a></div>
 
 ##什麼是 Azure PowerShell？#
-Azure PowerShell 是個模組，其提供各種 Cmdlet，讓您透過 Windows PowerShell 管理 Azure。您可以使用 Cmdlet 來建立、測試、部署和管理透過 Azure 平台傳遞的解決方案和服務。在大部分情況下，Cmdlet 可用於與 Azure 管理入口網站中相同的工作，例如建立和設定雲端服務、虛擬機器、虛擬網路和 Web Apps。
+Azure PowerShell 是一個模組，提供各種 Cmdlet，讓您透過 Windows PowerShell 管理 Azure。您可以使用 Cmdlet 來建立、測試、部署和管理透過 Azure 平台傳遞的解決方案和服務。在大部分情況下，Cmdlet 可用於與 Azure 管理入口網站中相同的工作，例如建立和設定雲端服務、虛擬機器、虛擬網路和 Web Apps。
 
 公開可用的存放庫上可下載模組與原始程式碼：
 
@@ -36,9 +36,9 @@ Azure PowerShell 是個模組，其提供各種 Cmdlet，讓您透過 Windows Po
 此模組會安裝 Azure PowerShell 的自訂主控台。您可以從標準 Windows PowerShell 主控台或 Azure PowerShell 主控台執行 Cmdlet。
 
 ## 步驟 3：連線
-Cmdlet 需要有您的訂閱，才能用來管理您的服務。您可以購買 Azure 訂用帳戶 (如果您還沒有的話)。如需相關指示，請參閱[開始使用 Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795)。
+Cmdlet 需要有您的訂閱，才能用來管理您的服務。您可以購買 Azure 訂用帳戶 (如果您還沒有的話)。如需指示，請參閱[如何購買 Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795)。
 
-1. 輸入 Add-AzureAccount
+1. 輸入 **Add-AzureAccount**
 
 2. 輸入與您帳戶相關聯的電子郵件地址和密碼。Azure 會驗證並儲存認證資訊，然後關閉視窗。
 
@@ -49,42 +49,27 @@ Cmdlet 需要有您的訂閱，才能用來管理您的服務。您可以購買 
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred
 
-	>
-	> [AZURE.NOTE] This non-interactive login method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
-	>
-	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
-	>
-	> 2. If no directory exists, select **Create your directory** and provide the requested information.
-	>
-	> 3. Select your directory and add a new user. This new user can sign in using a work or school account.
-	>
-	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
-	>
-	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
-	>
-	> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
-	>
-	>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
+> [AZURE.NOTE]此非互動式登入方法僅適用於公司或學校帳戶。公司或學校帳戶是由您的公司或學校所管理的使用者，並為您的公司或學校定義於 Azure Active Directory 執行個體中。如果您目前沒有公司或學校帳戶，而是使用 Microsoft 帳戶登入您的 Azure 訂閱，則您可以透過下列步驟輕鬆地建立帳戶。
 
+> 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)，然後按一下 [Active Directory]。
+
+> 2. 如果不存在任何目錄，請選取 [Create your directory] 並提供要求的資訊。
+
+> 3. 選取您的目錄並新增使用者。這個新的使用者可以使用公司或學校帳戶登入。在建立使用者期間，系統會提供您該使用者的電子郵件地址與臨時密碼。請儲存此資訊，在以下的步驟 5 將會用到。
+
+> 4. 從管理入口網站，選取 [設定]，然後選取 [管理員]。選取 [新增]，然後將新使用者新增為共同管理員。這麼做可讓公司或學校帳戶管理您的 Azure 訂閱。
+
+> 5. 最後，登出 Azure 入口網站，然後使用公司或學校帳戶重新登入。如果這是您第一次使用此帳戶登入，系統會提示您變更密碼。
+
+> 如需使用公司或學校帳戶註冊 Microsoft Azure 的詳細資訊，請參閱[以組織身分註冊 Microsoft Azure](sign-up-organization.md)。
 
 ### 檢視帳戶與訂閱詳細資料
 
 您可以有多個帳戶和訂閱供 Azure PowerShell 使用。您可以執行 **Add-AzureAccount** 多次來新增多個帳戶。
 
-若要取得可用的 Azure 帳戶，請輸入：
+若要顯示可用的 Azure 帳戶，請輸入 **Get-AzureAccount**。
 
-	Get-AzureAccount
-
-若要取得您的 Azure 訂閱，請輸入：
-
-	Get-AzureSubscription
-
-
-
-
-
-
-
+若要顯示您的 Azure 訂用帳戶，請輸入 **Get-AzureSubscription**。
 
 ## 步驟 4：測試<a id="Ex"></a>
 
@@ -143,4 +128,4 @@ Cmdlet 需要有您的訂閱，才能用來管理您的服務。您可以購買 
 - [MSDN 上的 Azure 論壇](http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

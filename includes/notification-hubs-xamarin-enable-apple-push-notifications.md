@@ -78,7 +78,7 @@
 
 10. 在 Keychain Access 中，以滑鼠右鍵按一下您剛剛在 [憑證] 類別中建立的新推播憑證。按一下 [匯出]、為檔案命名、選取 [.p12] 格式，然後按一下 [儲存]。
 
-	請記住匯出的 .p12 推播憑證的檔案名稱和位置。透過在 Azure 入口網站將它上傳，即可將它用來向 APNS 進行驗證。
+	請記住匯出的 .p12 推播憑證的檔案名稱和位置。透過在 Azure 傳統入口網站將它上傳，即可將它用來向 APNS 進行驗證。
 
 
 
@@ -110,4 +110,4 @@
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -23,7 +23,7 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 - 主動式異地複寫 [(部落格)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - 標準異地複寫 [(部落格)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - 異地還原 [(部落格)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- 新的異地複寫功能 [(部落格)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- 新的異地複寫功能 [(部落格)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 若要了解如何為嚴重損壞情況做準備，以及何時可復原資料庫，請瀏覽我們的[業務續航力的設計](sql-database-business-continuity-design.md)頁面。
 
@@ -131,4 +131,4 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 
 如果需要稽核才能存取您的資料庫，則您必須在資料庫復原之後啟用稽核。用戶端應用程式必須在 *.database.secure.windows.net 的模式中使用安全連接字串，才能有良好的稽核指標。如需詳細資訊，請參閱[開始使用 SQL 資料庫稽核](sql-database-auditing-get-started.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

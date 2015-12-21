@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Active Directory 與 API 管理保護 Web API 後端
@@ -30,7 +30,7 @@
 
 ## 建立 Azure AD 目錄
 
-若要使用 Azure Active Directory 保護您的 Web API 後端，您必須先具備 AAD 租用戶。在這段視訊中，使用名為 **APIMDemo** 的租用戶。若要建立 AAD 租用戶，請登入 [Azure 入口網站](https://manage.windowsazure.com)，按一下 [新增] -> [App Service] -> [Active Directory] -> [目錄] -> [自訂建立]。
+若要使用 Azure Active Directory 保護您的 Web API 後端，您必須先具備 AAD 租用戶。在這段視訊中，使用名為 **APIMDemo** 的租用戶。若要建立 AAD 租用戶，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com)，按一下 [新增] -> [應用程式服務] -> [Active Directory] -> [目錄] -> [自訂建立]。
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -143,14 +143,10 @@
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-    }
+HttpResponseMessage response = Request.CreateResponse(); response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml"); return response; } }
 
 
-按下 **F6** 來建置和驗證方案。
+按下 **F6** 來建置和驗證解決方案。
 
 ## 將專案發佈到 Azure
 
@@ -166,11 +162,11 @@
 
 ![應用程式][api-management-aad-backend-app]
 
-按一下要設定必要權限的應用程式名稱。瀏覽到 [設定] 索引標籤，向下捲動到 [其他應用程式的權限] 區段。按一下 [Windows Azure Active Directory] 旁邊的 [應用程式權限] 下拉式清單，核取 [讀取目錄資料] 的方塊，然後按一下 [儲存]。
+按一下要設定必要權限的應用程式名稱。瀏覽到 [設定] 索引標籤，向下捲動到 [其他應用程式的權限] 區段。按一下 [Microsoft Azure Active Directory] 旁邊的 [應用程式權限] 下拉式清單，核取 [讀取目錄資料] 的方塊，然後按一下 [儲存]。
 
 ![新增權限][api-management-aad-add-permissions]
 
->[AZURE.NOTE]如果 [Windows Azure Active Directory] 並未列在 [其他應用程式的權限] 之下，請按一下 [加入應用程式] 從清單將其加入。
+>[AZURE.NOTE]如果 [Microsoft Azure Active Directory] 並未列在 [其他應用程式的權限] 之下，請按一下 [加入應用程式] 從清單將其加入。
 
 請記下 [應用程式識別碼 URI] 供後續為 API 管理開發人員入口網站設定 Azure AD 應用程式的步驟時使用。
 
@@ -178,7 +174,7 @@
 
 ## 將 Web API 匯入 API 管理
 
-您必須在 API 發行者入口網站中設定 API，要存取此入口網站需經由 Azure 管理入口網站。若要存取發行者入口網站，請在 Azure 入口網站中，針對您的 API 管理服務按一下 [**管理**]。如果您尚未建立 API 管理服務執行個體，請參閱[管理您的第一個 API][] 教學課程中的[建立 API 管理服務執行個體][]。
+API 是從 API 發佈者入口網站所設定，您可以透過 Azure 傳統入口網站存取此入口網站。若要存取發佈者入口網站，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。如果您尚未建立 API 管理服務執行個體，請參閱[管理您的第一個 API][] 教學課程中的[建立 API 管理服務執行個體][]。
 
 ![發行者入口網站][api-management-management-console]
 
@@ -186,137 +182,7 @@
 
 以下列內容建立名為 `calcapi.json` 的檔案，然後將檔案儲存到您的電腦。確定 `host` 屬性指向您的 Web API 後端。在此範例中使用 `"host": "apimaaddemo.azurewebsites.net"`。
 
-	{
-	  "swagger": "2.0",
-	  "info": {
-		"title": "Calculator",
-		"description": "Arithmetics over HTTP!",
-		"version": "1.0"
-	  },
-	  "host": "apimaaddemo.azurewebsites.net",
-	  "basePath": "/api",
-	  "schemes": [
-		"http"
-	  ],
-	  "paths": {
-		"/add?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a sum of two numbers.",
-			"operationId": "Add two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>51</code>.",
-				"required": true,
-				"default": "51",
-				"enum": [
-				  "51"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>49</code>.",
-				"required": true,
-				"default": "49",
-				"enum": [
-				  "49"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/sub?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a difference between two numbers.",
-			"operationId": "Subtract two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>50</code>.",
-				"required": true,
-				"default": "50",
-				"enum": [
-				  "50"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/div?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a quotient of two numbers.",
-			"operationId": "Divide two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/mul?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a product of two numbers.",
-			"operationId": "Multiply two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>5</code>.",
-				"required": true,
-				"default": "5",
-				"enum": [
-				  "5"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		}
-	  }
-	}
+{ "swagger": "2.0", "info": { "title": "Calculator", "description": "Arithmetics over HTTP!", "version": "1.0" }, "host": "apimaaddemo.azurewebsites.net", "basePath": "/api", "schemes": [ "http" ], "paths": { "/add?a={a}&b={b}": { "get": { "description": "Responds with a sum of two numbers.", "operationId": "Add two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand.Default value is <code>51</code>.", "required": true, "default": "51", "enum": [ "51" ] }, { "name": "b", "in": "query", "description": "Second operand.Default value is <code>49</code>.", "required": true, "default": "49", "enum": [ "49" ] } ], "responses": {} } }, "/sub?a={a}&b={b}": { "get": { "description": "Responds with a difference between two numbers.", "operationId": "Subtract two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand.Default value is <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand.Default value is <code>50</code>.", "required": true, "default": "50", "enum": [ "50" ] } ], "responses": {} } }, "/div?a={a}&b={b}": { "get": { "description": "Responds with a quotient of two numbers.", "operationId": "Divide two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand.Default value is <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Second operand.Default value is <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] } ], "responses": {} } }, "/mul?a={a}&b={b}": { "get": { "description": "Responds with a product of two numbers.", "operationId": "Multiply two integers", "parameters": [ { "name": "a", "in": "query", "description": "First operand.Default value is <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] }, { "name": "b", "in": "query", "description": "Second operand.Default value is <code>5</code>.", "required": true, "default": "5", "enum": [ "5" ] } ], "responses": {} } } } }
 
 若要匯入計算機 API，請從左邊的 [**API 管理**] 功能表中按一下 [**API**]，然後按一下 [**匯入 API**]。
 
@@ -349,7 +215,7 @@
 
 ![試試看][api-management-dev-portal-try-it]
 
-按一下 [傳送]，注意回應狀態為 [401 Unauthorized]。
+按一下 [傳送]，注意回應狀態為 [401 未授權]。
 
 ![傳送][api-management-dev-portal-send-401]
 
@@ -373,7 +239,7 @@
 
 對 [登入 URL] 輸入您 API 管理服務的 URL，並且附加 `/signin`。在此範例中使用 ****https://contoso5.portal.azure-api.net/signin**。
 
-對 [App 識別碼 URL] 輸入您 API 管理服務的 URL，並且附加一些唯一字元。這些字元可以是任何想要的字元，在此範例中使用 ****https://contoso5.portal.azure-api.net/dp**。設定了想要的 [App 屬性] 之後，按一下核取記號以建立應用程式。
+對 [應用程式識別碼 URL] 輸入您 API 管理服務的 URL，並且附加一些唯一字元。這些字元可以是任何想要的字元，在此範例中使用 ****https://contoso5.portal.azure-api.net/dp**。設定了想要的 [應用程式屬性] 之後，按一下核取記號以建立應用程式。
 
 ![新增應用程式][api-management-aad-new-application-devportal-2]
 
@@ -547,4 +413,4 @@
 [建立 API 管理服務執行個體]: api-management-get-started.md#create-service-instance
 [管理您的第一個 API]: api-management-get-started.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

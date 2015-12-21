@@ -98,11 +98,14 @@
 
 本教學課程示範讓通用 Windows 應用程式專案能夠在行動服務中處理資料的基本概念。接著，請考慮閱讀下列其他主題：
 
-* [開始使用驗證] <br/>了解如何驗證應用程式的使用者。
+* [開始使用驗證]
+  <br/>了解如何驗證應用程式的使用者。
 
-* [開始使用推播通知] <br/>了解如何將非常基本的推播通知傳送到應用程式。
+* [開始使用推播通知]
+  <br/>了解如何將非常基本的推播通知傳送到應用程式。
 
-* [行動服務 C# 做法概念性參考](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>深入了解如何搭配 .NET使用行動服務。
+* [行動服務 C# 做法概念性參考](mobile-services-windows-dotnet-how-to-use-client-library.md)
+  <br/>深入了解如何搭配 .NET使用行動服務。
 
 
 <!-- Images. -->
@@ -116,11 +119,12 @@
 [開始使用驗證]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [開始使用推播通知]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[開始使用離線資料同步]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 <!---HONumber=AcomDC_1203_2015-->
+

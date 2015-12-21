@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="串流分析上的 Power BI 儀表板 | Microsoft Azure" 
 	description="使用即時串流 Power BI 儀表板來收集商業智慧及分析來自串流分析工作的大量資料。" 
-	keywords="商業智慧工具,Power BI,資料流處理資料,Power BI 儀表板,business intelligence tools,power bi,streaming data,power bi dashboard"	
+	keywords="分析儀表板, 即時儀表板"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,18 +14,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 	
-# Azure 串流分析與 Power BI：用於串流資料即時分析的即時儀表板
+# Azure 串流分析及 Power BI：適用於串流資料即時可見度的即時分析儀表板
 
-Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microsoft Power BI。了解如何使用 Azure 串流分析來分析大量串流資料，以及取得即時 Power BI 儀表板中的深度資訊。
+Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microsoft Power BI。了解如何使用 Azure 串流分析來分析大量串流資料，以及取得即時 Power BI 分析儀表板中的深度資訊。
 
 使用 [Microsoft Power BI](https://powerbi.com/) 來快速建置即時儀表板。[觀賞案例說明影片](https://www.youtube.com/watch?v=SGUpT-a99MA)。
 
-在此文章中了解如何使用 Power BI 做為 Azure 串流分析工作的輸出，來建立您自己的自訂商業智慧型工具。
+在這篇文章中，您將了解如何使用 Power BI 做為 Azure 串流分析工作的輸出，來建立您的自訂商業智慧型工具，以及如何利用即時儀表板。
 
-> [AZURE.NOTE]Power BI 輸出是 Azure 串流分析的預覽功能。在此階段，Azure 入口網站不支援 Power BI 輸出的建立及設定。
+> [AZURE.NOTE]Power BI 輸出是 Azure 串流分析的預覽功能。在此階段，Azure Preview 入口網站不支援 Power BI 輸出的建立及設定。
 
 ## 必要條件 ##
 
@@ -35,7 +35,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 ## 建立 Azure 串流分析工作 ##
 
-在 [Azure 傳統入口網站](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[串流分析]、[快速建立]。
+在 [Azure 入口網站][](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[Stream Analytics]、[快速建立]。
 
 指定下列值，然後按一下 [建立 Stream Analytics 工作]：
 
@@ -221,4 +221,4 @@ Power BI 同時採用了並行處理和輸送量條件約束，如下所述：[h
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

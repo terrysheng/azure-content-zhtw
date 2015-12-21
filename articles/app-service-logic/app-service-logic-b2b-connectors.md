@@ -76,7 +76,7 @@ TPM 執行個體 | 建立 AS2 連接器和 X12 或 EDIFACT API 應用程式時�
 下列步驟會建立 TPM 執行個體：
 
 1. 在 Azure 入口網站開始面板 (首頁) 中，選取 [**Marketplace**]。**API Apps** 會列出所有現有的 API Apps 和連接器。您也可以**搜尋**特定 B2B API Apps。
-2. 選取 [**BizTalk 交易夥伴管理**]。在新分頁中，選取 [**建立**]。 
+2. 選取 [**BizTalk 交易夥伴管理**]。在新刀鋒視窗中，選取 [**建立**]。 
 3. 輸入屬性： 
 
 	屬性 | 說明
@@ -98,7 +98,7 @@ App Service 方案 | 列出您的付款方案。如果需要增減資源，則�
 #### 建立 AS2 連接器
 
 1. 在 Azure 入口網站開始面板 (首頁) 中，選取 [**Marketplace**]。**API Apps** 會列出所有現有的 API Apps 和連接器。您也可以**搜尋**特定 B2B API Apps。
-2. 選取 [**AS2 連接器**]。在新分頁中，選取 [**建立**]。 
+2. 選取 [**AS2 連接器**]。在新刀鋒視窗中，選取 [**建立**]。 
 3. 輸入屬性： 
 
 	屬性 | 說明
@@ -127,7 +127,7 @@ TPM 執行個體名稱 | 輸入您先前建立的 **BizTalk 交易夥伴管理**
 #### 建立 X12 或 EDIFACT API Apps
 
 1. 在 Azure 入口網站開始面板 (首頁) 中，選取 [**Marketplace**]。**API Apps** 會列出所有現有的 API Apps 和連接器。您也可以**搜尋**特定 B2B API 應用程式。
-2. 選取 **BizTalk X12** 或 **BizTalk EDIFACT**。在新分頁中，選取 [**建立**]。 
+2. 選取 **BizTalk X12** 或 **BizTalk EDIFACT**。在新刀鋒視窗中，選取 [**建立**]。 
 3. 輸入屬性： 
 
 	屬性 | 說明
@@ -155,13 +155,13 @@ TPM 執行個體名稱 | 輸入您先前建立的 **BizTalk 交易夥伴管理**
 
 
 ## 新增夥伴、協議、憑證和結構描述 
-在 Azure 管理入口網站中，開啟您的 TPM API 應用程式。在 [**元件**] 區段中，新增夥伴、協議、憑證及結構描述。
+在 Azure 入口網站中，開啟您的 TPM API 應用程式。在 [**元件**] 區段中，新增夥伴、協議、憑證及結構描述。
 
 您也可以將協議加入至 AS2 連接器、X12 API Apps 及 EDIFACT API Apps。
 
 
 ## 監視 API Apps
-在 Azure 管理入口網站中，開啟您的 TPM API 應用程式。在 [**作業**] 區段中，您可以檢視不同的管理作業。例如，您可以：
+在 Azure 入口網站中，開啟您的 TPM API 應用程式。在 [**作業**] 區段中，您可以檢視不同的管理作業。例如，您可以：
 
 - 檢視資訊和錯誤事件
 - 檢視工作處理序 (w3wp) 的記憶體使用量和執行緒計數
@@ -206,4 +206,4 @@ Microsoft Azure App Service 會公開可使用這些 B2B API Apps 的不同應�
 
 [連接器和 API Apps 清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

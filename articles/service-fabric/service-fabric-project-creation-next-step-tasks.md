@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/16/2015"
+   ms.date="12/06/2015"
    ms.author="seanmck"/>
 
 # 您的 Service Fabric 應用程式和後續步驟
@@ -59,6 +59,10 @@ Service Fabric 提供與 ASP.NET 5 的整合，可建置您應用程式的 Web �
 ### 建立 Azure 叢集
 Service Fabric SDK 提供一個用於開發和測試的本機叢集。若要在 Azure 中建立叢集，請參閱[從 Azure 入口網站設定 Service Fabric 叢集][create-cluster-in-portal]。
 
+### 嘗試使用派對叢集部署到免費的 Azure
+
+如果您想要嘗試在 Azure 中部署管理應用程式，而不設定自己的叢集，您可以使用免費的[派對叢集服務](http://aka.ms/tryservicefabric)。
+
 ### 將應用程式發行至 Azure
 您可以直接從 Visual Studio 將應用程式發行至 Azure 叢集。若要瞭解做法，請參閱[將應用程式發行至 Azure][publish-app-to-azure]。
 
@@ -81,4 +85,4 @@ Service Fabric 可讓您為應用程式中的獨立服務進行獨立的版本�
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

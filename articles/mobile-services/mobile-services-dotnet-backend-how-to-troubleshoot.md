@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/01/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # 行動服務 .NET 後端的疑難排解
@@ -73,7 +73,7 @@
 
     ![Configure symbol loading][SymbolLoading]
 
-3. 在左側選取 [符號] 節點，並使用 URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public) 將參考新增至 (SymbolSource)[http://symbolsource.org] 伺服器。行動服務 .NET 後端的符號會以最新的版本啟用。
+3. 選取左側的 [符號] 節點，並使用 URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public) 將參考新增至 [SymbolSource] 伺服器。行動服務 .NET 後端的符號會以最新的版本啟用。
 
     ![Configure symbol server][SymbolServer]
 
@@ -159,4 +159,8 @@
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!-- Links -->
+[SymbolSource]: http://symbolsource.org
+
+<!---HONumber=AcomDC_1210_2015-->

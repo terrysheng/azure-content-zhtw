@@ -1,5 +1,5 @@
 <properties
-   pageTitle="使用 Powershell 在 Azure RemoteApp 中開始使用"
+   pageTitle="使用 Powershell 在 Azure RemoteApp 中開始使用 | Microsoft Azure"
    description="了解如何使用 Powershell 在 Azure RemoteApp 中開始使用"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="12/05/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -22,7 +22,7 @@
 =====================================
 
 
-## 取得 Cmdlet 
+## 取得 Cmdlet
 -------------
 先，我們需要在[這裡](http://go.microsoft.com/?linkid=9811175)下載 Azure Powershell Cmdlet，而 RemoteApp 包含在其中。
 
@@ -99,6 +99,5 @@ Other RemoteApp cmdlets:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

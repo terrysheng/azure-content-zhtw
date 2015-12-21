@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="luisca"/>
 
 #在 Azure Marketplace 中發佈和使用 Machine Learning 應用程式：常見問題集
@@ -77,4 +77,4 @@ Marketplace Web 服務目前不支援批次輸入模式。
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

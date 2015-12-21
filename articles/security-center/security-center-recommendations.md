@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -23,7 +23,7 @@
 > [AZURE.NOTE]本文件中的資訊適用於「Azure 資訊安全中心」的預覽版本。這是使用範例部署的服務簡介。這不是逐步指南。
 
 ## 什麼是 Azure 資訊安全中心？
-「Azure 資訊安全中心」針對 Azure 資源的安全性提供更深入的洞悉和更佳的控制，可協助您預防、偵測及回應威脅。它可在您的各個訂用帳戶之間提供整合式安全性監視和原則管理、協助偵測可能被忽略的威脅，並且適用於廣泛的安全性解決方案生態系統。
+Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控制權，以預防、偵測並回應威脅。它可在您的各個訂用帳戶之間提供整合式安全性監視和原則管理、協助偵測可能被忽略的威脅，並且適用於廣泛的安全性解決方案生態系統。
 
 ##什麼是安全性建議？
 「Azure 資訊安全中心」會定期分析您 Azure 資源的安全性狀態。當發現潛在的安全性弱點時，就會產生相關建議。這些建議會引導您完成設定所需控制項的程序。
@@ -138,4 +138,4 @@
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

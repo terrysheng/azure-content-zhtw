@@ -114,24 +114,11 @@
 |[本機深度支援向量機器](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|適用於大型特徵集|
 |[貝氏點機器](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**多類別分類**| | | | | |
-|[羅吉斯迴歸](https://msdn.microsoft.com/zh-TW/library/azure/dn905853.aspx)| |●|●|5| |
+|[羅吉斯迴歸](https://msdn.microsoft.com/library/azure/dn905853.aspx)| |●|●|5| |
 |[決策樹系](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[決策叢林](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|低記憶體使用量|
 |[類神經網路](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[一對多](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|請參閱選定之雙類別的屬性|
-|**迴歸**| | | | | |
-|[線性](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |●|●|4| |
-|[貝氏線性](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
-|[決策樹系](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
-|[促進式決策樹](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|高記憶體使用量|
-|[快速樹系分量](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|分佈而非點預測|
-|[類神經網路](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|技術上的對數線性，用於預測計數|
-|[序數](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|用於預測排名順序|
-|**異常偵測**| | | | | |
-|[支援向量機器](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|特別適用於大型特徵集|
-|[以 PCA 為基礎的異常偵測](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
-|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|叢集演算法|
+|[一對多](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|請參閱選定之雙類別的屬性| |**迴歸**| | | | | | |[線性](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |●|●|4| | |[貝氏線性](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[決策樹系](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[促進式決策樹](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|高記憶體使用量| |[快速樹系分量](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|分佈而非點預測| |[類神經網路](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|技術上的對數線性，用於預測計數| |[序數](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|用於預測排名順序| |**異常偵測**| | | | | | |[支援向量機器](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|特別適用於大型特徵集| |[以 PCA 為基礎的異常偵測](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|叢集演算法|
 
 
 **演算法屬性：**
@@ -156,7 +143,7 @@
 
 ![羅吉斯迴歸與只有一項特徵的雙類別資料][4]
 
-***羅吉斯迴歸與只有一項特徵的雙類別資料*** *：類別界限的點就是羅吉斯曲線接近這兩個類別的地方*
+***羅吉斯迴歸與只有一項特徵的雙類別資料****：類別界限的點就是羅吉斯曲線接近這兩個類別的地方*
 
 ### 樹、樹系和叢林
 
@@ -209,7 +196,7 @@
 
 ![以 PCA 為基礎的異常偵測][8]
 
-***以 PCA 為基礎的異常偵測*** *：大部分的資料均可分成舊式的散佈；而大幅偏離該散佈的點都是可疑之處*
+***以 PCA 為基礎的異常偵測****：大部分的資料均可分成舊式的散佈；而大幅偏離該散佈的點都是可疑之處*
 
 ![使用 K-means 分組的資料集][9]
 
@@ -237,4 +224,4 @@ Azure 機器學習中也可存取 [Vowpal Wabbit](https://msdn.microsoft.com/lib
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

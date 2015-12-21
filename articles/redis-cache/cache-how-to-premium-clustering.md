@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的 Redis 叢集
@@ -36,7 +36,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 在 Azure 中，Redis 叢集以主要/複本模型方式提供，其中的每個分區都有一個具複寫功能的主要/複本組，而複寫是由 Azure Redis 快取服務管理。
 
 ## 叢集
-叢集是在快取建立期間於 [**新的 Redis 快取**] 刀鋒視窗中所設定。若要建立快取，請登入 [Azure Preview 入口網站](https://portal.azure.com)，然後按一下 [**新增**] -> [**資料 + 儲存體**] -> [**Redis 快取**]。
+叢集是在快取建立期間於 [**新的 Redis 快取**] 刀鋒視窗中所設定。若要建立快取，請登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [新增] -> [資料 + 儲存體] -> [Redis 快取]。
 
 ![建立 Redis 快取][redis-cache-new-cache-menu]
 
@@ -166,4 +166,4 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mimig"/>
 
 
@@ -42,6 +42,9 @@ DocumentDB 是 NoSQL 文件導向的資料庫，以 JSON 格式儲存資料。Do
 ### DocumentDB 有哪些一般使用案例？  
 對於新的 Web 和行動應用程式，規模、效能和可查詢無結構描述的資料都很重要，DocumentDB 是不錯的選擇。DocumentDB 有助於快速開發，且支援應用程式資料模型的持續反覆運算。管理使用者產生之內容和資料的應用程式，就是 [DocumentDB 的常見使用案例](documentdb-use-cases.md)。
 
+### DocumentDB 是否符合 HIPAA 標準？
+DocumentDB 目前尚未符合 HIPAA 標準；但是，我們正在計畫讓它變成符合 HIPAA 標準的 Azure 服務。如需 Microsoft 與 HIPAA 的相關詳細資訊，請參閱 [HIPAA 和 HITECH Act](https://www.microsoft.com/zh-TW/TrustCenter/Compliance/HIPAA)。
+
 ### DocumentDB 的規模限制有哪些？
 DocumentDB 帳戶可以藉由加入集合，根據儲存體和輸送量來擴充。請參閱 [DocumentDB 限制](documentdb-limits.md)，以了解集合數目的服務配額。如果您需要更多集合，請[連絡支援服務](documentdb-increase-limits.md)來增加帳戶配額。
 
@@ -52,7 +55,7 @@ DocumentDB 帳戶可以藉由加入集合，根據儲存體和輸送量來擴充
 如果您不熟悉 Azure，可以註冊 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)，就能得到 30 天免費試用以及美金 200 元，讓您試用所有 Azure 服務。或者，如果您有 Visual Studio 訂用帳戶，就可以享有[免費的 Azure 信用額度每月美金 150 元](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可用於所有 Azure 服務。
 
 ### 如何取得 DocumentDB 的其他說明？
-如果您需要協助，請在 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) 和 [Azure DocumentDB MSDN 開發人員論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)聯繫我們，或者是和 [DocumentDB 工程小組安排一對一的談話](http://www.askdocdb.com/)。若想隨時知道最新的 DocumentDB 新聞和功能，請追蹤我們的 [Twitter](https://twitter.com/DocumentDB)。
+如果您需要協助，請在 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) 和 [Azure DocumentDB MSDN 開發人員論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)聯繫我們，或者是和 [DocumentDB 工程小組安排一對一的談話](http://www.askdocdb.com/)。若想隨時知道 DocumentDB 的最新消息和功能，請追蹤我們的 [Twitter](https://twitter.com/DocumentDB)。
 
 ## 設定 Microsoft Azure DocumentDB
 
@@ -112,4 +115,4 @@ DocumentDB 透過 JavaScript 預存程序和觸發程序，支援語言整合式
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -63,7 +63,7 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 
 4. **部署及設定 HPC Pack 2012 R2 前端節點**
 
-    從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=47755)下載最新的 HPC Pack 安裝套件。如需 Azure 高載部署準備工作的需求和指示，請參閱 [HPC Pack 快速入門指南](https://technet.microsoft.com/library/jj884144.aspx)和[使用 Microsoft HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)。
+    從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=49922)下載最新的 HPC Pack 安裝套件。如需 Azure 高載部署準備工作的需求和指示，請參閱 [HPC Pack 快速入門指南](https://technet.microsoft.com/library/jj884144.aspx)和[使用 Microsoft HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)。
 
 5. **在 Azure 訂用帳戶中設定管理憑證**
 
@@ -107,14 +107,14 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 
 ## 案例 2.在大量運算 VM 中部署運算節點 (IaaS)
 
-在此案例中，您會在加入 Azure 虛擬網路之 Active Directory 網域中的 VM 上部署 HPC Pack 前端節點和叢集運算節點 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)會將大部分的程序自動化，並提供彈性的部署選項，包括為叢集節點指定 A8 或 A9 VM 大小的功能。下列步驟將引導您使用此自動化的部署方法。或者，您可以使用 Azure 快速入門範本，透過「資源管理員」部署模型來部署叢集。為了進行測試部署，您也可以手動部署 Active Directory 網域、前端節點 VM、運算節點 VM，以及 Azure 中的 HPC Pack 叢集基礎結構的其他部分。請參閱[在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](virtual-machines-hpcpack-cluster-options.md)。
+在此案例中，您會在加入 Azure 虛擬網路之 Active Directory 網域中的 VM 上部署 HPC Pack 前端節點和叢集運算節點。 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)會將大部分的程序自動化，並提供彈性的部署選項，包括為叢集節點指定 A8 或 A9 VM 大小的功能。下列步驟將引導您使用此自動化的部署方法。或者，您可以使用 Azure 快速入門範本，透過「資源管理員」部署模型來部署叢集。為了進行測試部署，您也可以手動部署 Active Directory 網域、前端節點 VM、運算節點 VM，以及 Azure 中的 HPC Pack 叢集基礎結構的其他部分。請參閱[在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](virtual-machines-hpcpack-cluster-options.md)。
 
 ![Azure VM 中的叢集][iaas]
 
 
 1. **在用戶端電腦上執行 HPC Pack IaaS 部署指令碼，以建立叢集前端節點和運算節點 VM**
 
- 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=47755)下載 HPC Pack IaaS 部署指令碼套件。
+ 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=49922)下載 HPC Pack IaaS 部署指令碼套件。
 
  若要進行用戶端電腦的準備工作，請建立指令碼組態檔並執行指令碼；請參閱[使用 HPC Pack IaaS 部署指令碼建立 HPC 叢集](virtual-machines-hpcpack-cluster-powershell-script.md)。若要部署大小為 A8 和 A9 的運算節點，請參閱本文稍後的其他考量。
 
@@ -198,8 +198,12 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 
     在部署於 Azure VM 的 HPC Pack 叢集上，修改在步驟 2 中記下的命令。
 
-5. 工作完成後，若要檢視輸出 (在此案例中，是指工作之任務 1 的輸出)，請輸入下列命令：task view &lt;JobID&gt;.1
+5. 工作完成後，若要檢視輸出 (在此案例中，是指工作之任務 1 的輸出)，請輸入下列命令：
 
+    ```
+    task view &lt;JobID&gt;.1
+    ```
+    
   輸出會包含如下的輸送量結果。
 
   ![Ping pong 輸送量][pingpong2]
@@ -246,4 +250,4 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

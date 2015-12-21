@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/03/2015"
 	ms.author="yuaxu"/>
 
 # 將推播通知新增至行動服務應用程式
@@ -267,7 +267,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
             }
         }
 
-8. 在 **TodoListViewController** 中，修改 **OnAdd** 動作以取得儲存於 **AppDelegeate** 中的裝置權杖，然後將權杖儲存在即將新增的 **TodoItem** 中。
+8. 在 **QSTodoListViewController** 中，修改 **OnAdd** 動作以取得儲存於 **AppDelegeate** 中的裝置權杖，然後將權杖儲存在即將新增的 **TodoItem** 中。
 
         string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
 
@@ -403,4 +403,4 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

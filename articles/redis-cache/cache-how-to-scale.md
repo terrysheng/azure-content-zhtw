@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # 如何調整 Azure Redis 快取
 
->[AZURE.NOTE]Azure Redis 快取調整功能目前只能預覽。在預覽期間，您無法向上調整為 Premium 階層快取，或在其中調整，也無法向下調整。
+>[AZURE.NOTE]Azure Redis 快取調整功能目前只能預覽。在預覽期間，您無法向上調整為高階層次快取，或無法由此向下調整，但是您可以變更高階快取內的定價層。
 
-Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大小和功能的彈性。如果應用程式需求在建立快取之後變更，您可以使用 [Azure Preview 入口網站](https://portal.azure.com)中的 [變更定價層] 刀鋒視窗來調整快取大小。
+Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大小和功能的彈性。如果應用程式需求在建立快取之後變更，您可以使用 [Azure 入口網站](https://portal.azure.com)中的 [變更定價層] 刀鋒視窗來調整快取大小。
 
 ## 調整時機
 
@@ -36,7 +36,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 如果您判斷您的快取不再符合您應用程式的需求，則可以變更為您應用程式適用的較大或較小快取定價層。如需判斷要使用之快取定價層的詳細資訊，請參閱[我應該使用哪些 Redis 快取提供項目和大小](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
 
 ## 調整快取
-若要調整您的快取，在[預覽入口網站](https://portal.azure.com)中[瀏覽至快取](cache-configure.md#configure-redis-cache-settings)，然後依序按一下 [設定]、[定價層]。
+若要調整您的快取，在 [Azure 入口網站](https://portal.azure.com)中[瀏覽至快取](cache-configure.md#configure-redis-cache-settings)，然後依序按一下 [設定]、[定價層]。
 
 您也可以在 [Redis 快取] 刀鋒視窗中按一下 [標準層] 或 [基本層] 部分。
 
@@ -61,7 +61,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 ## 如何自動化調整作業
 
-除了調整預覽入口網站中的 Azure Redis 快取執行個體之外，您還可以使用 [Microsoft Azure 管理庫 (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/) 進行調整。若要調整您的快取，請呼叫 `IRedisOperations.CreateOrUpdate` 方法，並傳入 `RedisProperties.SKU.Capacity` 的新大小。
+除了調整 Azure 入口網站中的 Azure Redis 快取執行個體之外，您還可以使用 [Microsoft Azure 管理庫 (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/) 進行調整。若要調整您的快取，請呼叫 `IRedisOperations.CreateOrUpdate` 方法，並傳入 `RedisProperties.SKU.Capacity` 的新大小。
 
     static void Main(string[] args)
     {
@@ -89,7 +89,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 ## 可以向上調整為 Premium 快取，或在其中調整、向下調整嗎？
 
-在預覽期間，調整不適用於 **Premium** 快取。
+在預覽期間，您無法調整**高階**快取，但是您可以變更高階快取內的定價層。
 
 ## 調整之後，是否必須變更我的快取名稱或存取金鑰？
 
@@ -121,7 +121,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 ## 不支援的作業
 
-您無法向上調整為 **Premium** 快取，或在其中調整，也無法向下調整。
+您無法向上調整為**高階**快取，或由此向下調整。
 
 您無法從**標準**快取變更至**基本**快取。
 
@@ -137,7 +137,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 ## 如何分辨調整何時完成
 
-在 Preview 入口網站中，您可以看到調整作業進行中。調整完成時，快取的狀態會變更為 [執行中]。
+在 Azure 入口網站中，您可以看到調整作業進行中。調整完成時，快取的狀態會變更為 [執行中]。
 
 ## 為什麼這項功能只能預覽
 
@@ -155,4 +155,4 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

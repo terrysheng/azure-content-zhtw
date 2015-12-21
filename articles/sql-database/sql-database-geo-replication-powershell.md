@@ -38,10 +38,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 - Azure 訂閱。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
 - Azure SQL Database - 您想要複寫到不同地理區域的主要資料庫。
-- Azure PowerShell 1.0 Preview。依照[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，即可以下載並安裝 Azure PowerShell 模組。
-
-> [AZURE.IMPORTANT]從 Azure PowerShell 1.0 Preview 起，不再提供 Switch-AzureMode Cmdlet，且 Azure 資源管理員模組中的 Cmdlet 已重新命名。本文中的範例使用新的 PowerShell 1.0 Preview 命名慣例。如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch-AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)。
-
+- Azure PowerShell 1.0 或更新版本。依照[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，即可以下載並安裝 Azure PowerShell 模組。
 
 
 
@@ -77,7 +74,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 這個 Cmdlet 會將 **Start-AzureSqlDatabaseCopy** 取代為 **-IsContinuous** 參數。它會輸出可供其他 Cmdlet 用來清楚地識別特定複寫連結的 **AzureRmSqlDatabaseSecondary** 物件。建立次要資料庫並將其完全植入時，這個 Cmdlet 會傳回。視資料庫的大小而定，可能需要從數分鐘到數小時的時間。
 
-次要伺服器上的複寫資料庫會具備與主要伺服器上的資料庫相同的名稱，並且預設具有相同的服務層級。次要資料庫可以是可讀取或不可讀取，並且可以是單一資料庫或彈性資料庫。如需詳細資訊，請參閱 [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) 和[服務層](sql-database-service-tiers.md)。建立並植入次要複本之後，就會開始從主要資料庫將資料複寫到新的次要資料庫。下列步驟說明如何使用 PowerShell 完成這項工作，以使用單一資料庫或彈性資料庫來建立不可讀取和可讀取次要複本。
+次要伺服器上的複寫資料庫會具備與主要伺服器上的資料庫相同的名稱，並且預設具有相同的服務層級。次要資料庫可以是可讀取或不可讀取，並且可以是單一資料庫或彈性資料庫。如需詳細資訊，請參閱 [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) 和[服務層級](sql-database-service-tiers.md)。建立並植入次要複本之後，就會開始從主要資料庫將資料複寫到新的次要資料庫。下列步驟說明如何使用 PowerShell 完成這項工作，以使用單一資料庫或彈性資料庫來建立不可讀取和可讀取次要複本。
 
 如果夥伴資料庫已經存在 (例如，因為終止先前的異地複寫關聯性的緣故)，命令將會失敗。
 
@@ -123,7 +120,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 ## 移除次要資料庫
 
-使用 **Remove-AzureRmSqlDatabaseSecondary** Cmdlet 以永久終止次要資料庫與其主要資料庫之間的複寫關係。關聯性終止之後，次要資料庫會成為讀寫資料庫。如果與次要資料庫的連線中斷，命令將會成功，但次要資料庫必須等到連線恢復後才會變成可讀寫。如需詳細資訊，請參閱 [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) 和[服務層](sql-database-service-tiers.md)。
+使用 **Remove-AzureRmSqlDatabaseSecondary** Cmdlet 以永久終止次要資料庫與其主要資料庫之間的複寫關係。關聯性終止之後，次要資料庫會成為讀寫資料庫。如果與次要資料庫的連線中斷，命令將會成功，但次要資料庫必須等到連線恢復後才會變成可讀寫。如需詳細資訊，請參閱 [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) 和[服務層級](sql-database-service-tiers.md)。
 
 這個 Cmdlet 會取代用於複寫的 Stop-AzureSqlDatabaseCopy。
 
@@ -213,9 +210,9 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 ## 其他資源
 
-- [新異地複寫功能的要點](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [新異地複寫功能要點](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
 - [使用異地複寫設計業務持續性的雲端應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [業務續航力概觀](sql-database-business-continuity.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

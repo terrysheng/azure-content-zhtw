@@ -54,6 +54,7 @@ Azure 中的虛擬機器會執行根據您建立虛擬機器時所選擇映像�
 Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-endorsed-distributions.md))。下列文章會逐步引導您如何準備各種 Azure 支援的 Linux 散發套件：
 
 - **[CentOS 型散發套件](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES 和 openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
@@ -74,7 +75,7 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 最新的 Azure CLI 預設會進入「資源管理員」部署模型，因此請使用下列命令來確定您是在傳統部署模型中：
 
-		azure change mode asm  
+		azure config mode asm  
 
 接著，使用下列任一登入方法連接到您的 Azure 訂用帳戶。
 
@@ -164,11 +165,11 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 如需詳細資訊，請參閱 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)。
 
-> [AZURE.NOTE] [Azure Powershell 1.0 預覽版本](https://azure.microsoft.com/blog/azps-1-0-pre/)大幅變更了其處理傳統和資源管理員部署模型之 Cmdlet 的方式。本文尚未使用「預覽」版本。
+> [AZURE.NOTE][Azure Powershell 1.0 預覽版本](https://azure.microsoft.com/blog/azps-1-0-pre/)大幅變更了其處理傳統和資源管理員部署模型之 Cmdlet 的方式。本文尚未使用「預覽」版本。
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

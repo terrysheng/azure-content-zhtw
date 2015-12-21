@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/23/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # HDInsight 上 Apache Storm 的範例 Storm 拓撲及元件
@@ -45,7 +45,7 @@
 
 * [了解如何利用 Storm on HDInsight 部署和管理 Storm 拓撲][6eb0d3b8]
 
-  [2b8c3488]: ../hdinsight-storm-getting-started.md "了解如何在 HDInsight 叢集上建立 Storm 並使用 Storm 儀表板來部署範例拓撲。"
+  [2b8c3488]: hdinsight-apache-storm-tutorial-get-started-linux.md "了解如何在 HDInsight 叢集上建立 Storm 並使用 Storm 儀表板來部署範例拓撲。"
   [6eb0d3b8]: hdinsight-storm-deploy-monitor-topology.md "了解如何使用 web 型 Storm 儀表板和 Storm UI 或 HDInsight Tools for Visual Studio 部署和管理拓撲。"
   [16fce2d1]: hdinsight-storm-develop-csharp-visual-studio-topology.md "了解如何使用 HDInsight Tools for Visual Studio 建立 C# Storm 拓撲。"
   [5797064f]: hdinsight-storm-develop-java-topology.md "了解如何建立基本字數統計拓撲，以使用 Maven 在 Java 中建立 Storm 拓撲。"
@@ -60,4 +60,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "此專案包含 spout、bolt 和拓撲的範本，藉此和各種 Azure 服務進行互動，例如事件中心、DocumentDB 和 SQL Database。"
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

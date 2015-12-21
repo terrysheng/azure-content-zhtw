@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Azure RemoteApp 授權" 
-    description="了解 Azure RemoteApp 中的授權如何運作。" 
-    services="remoteapp" 
-    solutions="" documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Azure RemoteApp 授權 | Microsoft Azure"
+    description="了解 Azure RemoteApp 中的授權如何運作。"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -34,6 +34,5 @@ RemoteApp 不需要任何 Windows 授權或遠端桌面 CAL。您的訂用帳戶
 這很合理，對吧？ 您可以發佈您有權共用的任何應用程式。您必須確認您確實有權共用您的程式。
 
 請注意，您不能在雲端收藏中使用 CAL 或大量授權合約。您*可以*在混合式收藏中使用大量授權合約來啟用應用程式 (Office 除外)。您只需從大量授權媒體將它們安裝在範本映像上。請依照應用程式廠商提供的資訊，在遠端桌面環境中安裝授權。
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

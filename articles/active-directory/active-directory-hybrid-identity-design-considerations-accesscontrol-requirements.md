@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Active Directory 混合式身分識別設計考量 - 判斷存取控制需求|Microsoft Azure"
+	pageTitle="Azure Active Directory 混合式身分識別設計考量 - 判斷存取控制需求| Microsoft Azure"
 	description="說明身分識別的要件，以及針對混合式環境中的使用者識別資源的存取需求。"
 	documentationCenter=""
 	services="active-directory"
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
 # 判斷混合式身分識別解決方案的存取控制需求
@@ -69,4 +69,4 @@
 ## 另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

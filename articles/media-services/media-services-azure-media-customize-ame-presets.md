@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #藉由自訂工作預設來處理編碼工作 
@@ -518,4 +518,4 @@ Azure 媒體服務編碼器可讓您重疊影像 (jpg、bmp、gif、tif)、影�
 
 [Azure Media Encoder XML 結構描述](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

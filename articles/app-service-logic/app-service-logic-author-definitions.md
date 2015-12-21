@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="撰寫邏輯應用程式定義" 
-	description="了解如何撰寫邏輯應用程式的 JSON 定義。" 
+	pageTitle="撰寫邏輯應用程式定義 | Microsoft Azure" 
+	description="了解如何撰寫邏輯應用程式的 JSON 定義" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="12/07/2015"
 	ms.author="stepsic"/>
 	
-#撰寫邏輯應用程式定義
+# 撰寫邏輯應用程式定義
 本主題示範如何使用 [App Service Logic Apps](app-service-logic-what-are-logic-apps.md) 定義，這是一種簡單的宣告式 JSON 語言。請先看看[如何建立新的邏輯應用程式](../app-service-create-a-logic-app.md) (如果還沒看過)。您也可以閱讀 [MSDN 上關於此定義語言的完整參考資料](https://msdn.microsoft.com/library/azure/dn948512.aspx)。
 
 ## 清單上重複的幾個步驟
 
-常見的模式是先有一個步驟取得項目清單，接著有您想在清單上執行的兩個以上的一系列動作。
+常見的模式是先有一個步驟取得項目清單，接著有您想在清單上執行的兩個以上的一系列動作：
 
 ![逐一查看清單](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
-在此範例中有 3 個動作：
+在此範例中，有 3 個動作：
 
 1. 取得文章清單。這會傳回一個包含陣列的物件。
 
-2. 移至每個文章上某個連結屬性的動作，將傳回文章的實際位置。
+2. 此動作會移至每個文章上的連結屬性，並傳回文章的實際位置。
 
 3. 在第二個動作的所有結果中，逐一查看結果以下載實際文章的動作。
 
@@ -79,7 +79,7 @@
 
 ## 將清單中的項目對應至一些不同的組態
 
-接下來，假設我們想要根據屬性的值取得完全不同的內容。我們可以建立值與目的地的對應做為參數。
+接下來，假設我們想要根據屬性的值取得完全不同的內容。我們可以建立值與目的地的對應做為參數：
 
 ```
 {
@@ -234,14 +234,14 @@
 }
 ```
 
-您可以閱讀 [MSDN 上的邏輯應用程式類型動作](https://msdn.microsoft.com/zh-TW/library/azure/dn948511.aspx)。
+您可以閱讀 [MSDN 上的邏輯應用程式類型動作](https://msdn.microsoft.com/library/azure/dn948511.aspx)。
 
 >[AZURE.NOTE]邏輯應用程式設計工具不支援邏輯應用程式類型的動作，因此您必須手動編輯定義。
 
 
 ## 發生錯誤時的失敗處理步驟
 
-您通常想要撰寫*補救步驟* - 如果**且唯有當**一或多個呼叫失敗時執行的一些邏輯。在此範例中，我們從各種地方取得資料，但如果呼叫失敗，我想要在某處「張貼」訊息，方便稍後追蹤該失敗。
+您通常想要撰寫*補救步驟* — 如果**且唯有當**一或多個呼叫失敗時執行的一些邏輯。在此範例中，我們從各種地方取得資料，但如果呼叫失敗，我想要在某處 POST 訊息，方便稍後追蹤該失敗。：
 
 ```
 {
@@ -287,7 +287,7 @@
 }
 ```
 
-因為我在第一個步驟中逐一查看清單，所以我使用兩個條件。如果您只是有單一動作，您只需要一個條件 (第一個)。另外請注意，您可以在補救步驟中對失敗動作使用 *inputs* -- 在此我將失敗的 URL 傳給第二個步驟。
+因為我在第一個步驟中逐一查看清單，所以我使用兩個條件。如果您只是有單一動作，您只需要一個條件 (第一個)。另外請注意，您可以在補救步驟中使用已失敗動作的「輸入值」 — 在此我將失敗的 URL 傳給第二個步驟。
 
 ![補救](./media/app-service-logic-author-definitions/remediation.png)
 
@@ -723,4 +723,4 @@ Content-type: application/json
 
 如需有關建立及管理邏輯應用程式的所有可用選項，請參閱 [REST API 文件](https://msdn.microsoft.com/library/azure/dn948513.aspx)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

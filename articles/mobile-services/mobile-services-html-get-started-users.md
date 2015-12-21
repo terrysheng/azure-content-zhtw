@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # 在您的行動服務應用程式中新增驗證 
@@ -35,7 +35,7 @@
 
 3. 在應用程式目錄中，從 **server** 子資料夾啟動下列其中一個命令檔。
 
-	+ **.\\start-iisexpress.ps1** (Windows 電腦) 
+	+ **launch-windows** (Windows 電腦) 
 	+ **launch-mac.command** (Mac OS X 電腦)
 	+ **launch-linux.sh** (Linux 電腦)
 
@@ -135,4 +135,4 @@
 [行動服務 HTML/JavaScript 作法概念性參考]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -35,9 +35,9 @@ SQL DB 的彈性資料庫交易可讓應用程式對數個不同 SQL Database �
 
 ## 安裝和移轉
 
-我們更新 .NET 程式庫 System.Data.dll 和 System.Transactions.dll，以支援在 SQL DB 中執行彈性資料庫交易。DLL 確保必要時使用兩階段交易認可，以確保不可部分完成性。若要使用彈性資料庫交易來開始開發應用程式，請安裝 [.NET 4.6.1 候選版](http://blogs.msdn.com/b/dotnet/archive/2015/10/29/announcing-net-framework-4-6-1-rc.aspx)或更新版本的 .NET Framework。在舊版 .NET Framework 上執行時，交易無法升級為分散式交易，將會引發例外狀況。
+我們更新 .NET 程式庫 System.Data.dll 和 System.Transactions.dll，以支援在 SQL DB 中執行彈性資料庫交易。DLL 確保必要時使用兩階段交易認可，以確保不可部分完成性。若要使用彈性資料庫交易來開始開發應用程式，請安裝 [.NET Framework 4.6.1](https://www.microsoft.com/zh-TW/download/details.aspx?id=49981) 或更新版本。在舊版 .NET Framework 上執行時，交易無法升級為分散式交易，將會引發例外狀況。
 
-安裝之後，您就可以使用 System.Transactions 中的分散式交易 API 和 SQL DB 連接。如果現有的 MSDTC 應用程式已這些 API，只要在安裝候選版之後，以 .NET 4.6 為目標重建現有的應用程式即可。如果專案以 .NET 4.6 為目標，它們會自動使用候選版中更新的 DLL，而結合 SQL DB 連接的分散式交易 API 呼叫現在會成功。
+安裝之後，您就可以使用 System.Transactions 中的分散式交易 API 和 SQL DB 連接。如果您有使用這些 API 的現有 MSDTC 應用程式，只要在安裝 4.6.1 Framework 之後，為 .NET 4.6 重建現有的應用程式即可。如果專案以 .NET 4.6 為目標，它們會自動使用新 Framework 版本中更新的 DLL，而結合 SQL DB 連接的分散式交易 API 呼叫現在會成功。
 
 請記住，彈性資料庫交易不需要安裝 MSDTC。彈性資料庫交易直接由 SQL DB 管理。這可大幅簡化雲端案例，因為 MSDTC 的部署不需要使用分散式交易和 SQL DB。第 4 節更詳細地說明如何將彈性資料庫交易和必要的 .NET Framework 連同您的雲端應用程式一起部署到 Azure。
 
@@ -96,7 +96,7 @@ SQL DB 的彈性資料庫交易也支援協調分散式交易，您需要使用�
 
 ## 設定 Azure 背景工作角色
 
-您可以自動將彈性資料庫交易所需的 .NET 版本和程式庫安裝和部署至 Azure (到雲端服務中的客體 OS)。對於 Azure 背景工作角色，請使用啟動工作。[在雲端服務角色上安裝 .NET](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/) 中說明概念和步驟。
+您可以自動將彈性資料庫交易所需的 .NET 版本和程式庫安裝和部署至 Azure (到雲端服務中的客體 OS)。對於 Azure 背景工作角色，請使用啟動工作。[在雲端服務角色上安裝 .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md) 中說明概念和步驟。
 
 請注意，與 .NET 4.6 的安裝程式相比，.NET 4.6.1 的安裝程式在於 Azure 雲端服務上進行啟動程序時，需要更多的暫存儲存體。為了確保能夠順利安裝，您必須在 ServiceDefinition.csdef 檔案中，於啟動工作的 LocalResources 區段和環境設定中，增加 Azure 雲端服務的暫存儲存體，如以下範例所示：
 
@@ -140,9 +140,9 @@ SQL DB 中的彈性資料庫交易目前有下列限制：
 
 ## 詳細資訊
 
-您的 Azure 應用程式還未使用彈性資料庫功能嗎？ 請瀏覽我們的[文件導引圖](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/)。如有問題，請在 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)上與我們連絡，如需要求增加功能，請將這些功能新增至 [SQLSQL Database 意見反應論壇](http://feedback.azure.com/forums/217321-sql-database)。
+您的 Azure 應用程式還未使用彈性資料庫功能嗎？ 請瀏覽我們的[文件導引圖](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)。如有問題，請在 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)上與我們連絡，如需要求增加功能，請將這些功能新增至 [SQLSQL Database 意見反應論壇](http://feedback.azure.com/forums/217321-sql-database)。
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

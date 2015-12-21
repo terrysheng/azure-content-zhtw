@@ -40,7 +40,7 @@
 * Bing 應用程式 – 1 千萬部以上的裝置、每日傳送 3 百萬則通知
 
 ###4\.如何升級或降級我的通知中樞來變更服務層級？
-移至 [Azure 入口網站]，按一下 [服務匯流排]，然後依序按一下您的命名空間和通知中樞。在 [調整] 索引標籤下，您可以變更通知中樞服務層級。
+移至 [Azure 傳統入口網站]，按一下 [服務匯流排]，然後依序按一下您的命名空間和通知中樞。在 [調整] 索引標籤下，您可以變更通知中樞服務層級。
 
 ##設計與開發
 ###1\.支援哪些服務端平台？
@@ -104,16 +104,16 @@ PNS 認證：當行動應用程式向平台的開發人員入口網站 (例如 A
 若您沒有後端，則當應用程式在裝置上啟動時，它們將會在次要 NH 中執行新註冊，而最後次要 NH 將會有所有已註冊的使用中裝置，但缺點是裝置上的應用程式未開啟期間將不會收到通知。
 
 ###2\.是否有任何稽核記錄功能？
-所有通知中樞管理作業移至作業記錄，這公開於「Azure 管理入口網站」。
+所有通知中樞管理作業移至作業記錄，這公開於 [Azure 傳統入口網站]。
 
 ##監視和疑難排解
 ###1\.可用的疑難排解功能有哪些？
 「Azure 通知中樞」提供數個功能，可進行常見的疑難排解，特別是在已捨棄通知的最常見情節中。請參閱下列疑難排解白皮書中的詳細資料：[NH - 疑難排解]
 
 ###2\.可用的遙測功能有哪些？
-「Azure 通知中樞」可讓您在「Azure 管理入口網站」中檢視遙測資料。如需可用度量的詳細資料，請參閱 [NH - 度量]。請注意，成功的通知只表示通知已傳送到外部推播通知服務 (例如 Apple 的 APNS 與 Google 的 GCM 等)，接著由 PNS 負責將通知傳送給裝置，但 PNS 並未將那些度量公開給我們。它也提供以程式設計方式匯出遙測的功能 (在「標準」層次中)。如需詳細資料，請參閱此範例：[NH - 度量範例]
+「Azure 通知中樞」可讓您在 [Azure 傳統入口網站]中檢視遙測資料。如需可用度量的詳細資料，請參閱 [NH - 度量]。請注意，成功的通知只表示通知已傳送到外部推播通知服務 (例如 Apple 的 APNS 與 Google 的 GCM 等)，接著由 PNS 負責將通知傳送給裝置，但 PNS 並未將那些度量公開給我們。它也提供以程式設計方式匯出遙測的功能 (在「標準」層次中)。如需詳細資料，請參閱此範例：[NH - 度量範例]
 
-[Azure 入口網站]: https://manage.windowsazure.com
+[Azure 傳統入口網站]: https://manage.windowsazure.com
 [通知中樞定價]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [通知中樞 SLA]: http://azure.microsoft.com/support/legal/sla/
 [個案研究 - 索契]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -134,4 +134,4 @@ PNS 認證：當行動應用程式向平台的開發人員入口網站 (例如 A
 [NH - 度量範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [註冊匯出/匯入]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # 關於流量管理員監視
@@ -103,7 +103,7 @@ Azure 流量管理員會在 Azure 傳統入口網站中顯示設定檔和端點�
 
 1. 在您計畫要納入設定檔中的每個端點上建立具有相同名稱的檔案。
 2. 針對每個端點，使用網頁瀏覽器來測試檔案的存取權。URL 由特定端點 (雲端服務或網站) 的網域名稱、檔案的路徑和檔案名稱所組成。 
-3. 在 Azure 入口網站中的 [監視設定] 下，於 [相對路徑和檔案名稱] 欄位中，指定路徑和檔案名稱。
+3. 在 Azure 傳統入口網站中的 [監視設定] 下，於 [相對路徑和檔案名稱] 欄位中，指定路徑和檔案名稱。
 4. 當您完成變更組態時，請按一下頁面底部的 [儲存]。
 
 ## 另請參閱
@@ -115,4 +115,4 @@ Azure 流量管理員會在 Azure 傳統入口網站中顯示設定檔和端點�
 [疑難排解 Azure 流量管理員上的已降級狀態](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

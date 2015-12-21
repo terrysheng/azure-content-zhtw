@@ -50,9 +50,9 @@
 
 這將是邏輯應用程式用來對 Active Directory 進行驗證的項目。您只*需要*為您的目錄執行此動作一次；例如，您可以選擇讓您所有的邏輯應用程式使用相同的身分識別碼，儘管只要您願意，您也可以為每個邏輯應用程式建立唯一的身分識別碼。您可以在 UI 中執行這項操作，或使用 PowerShell。
 
-#### 使用 Azure 入口網站建立應用程式身分識別碼
+#### 使用 Azure 傳統入口網站建立應用程式身分識別碼
 
-1. 瀏覽至 [Azure 入口網站中的 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)，然後選取您要用於 Web 應用程式的目錄
+1. 瀏覽至 [Azure 傳統入口網站中的 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)，然後選取您要用於 Web 應用程式的目錄
 2. 按一下 [應用程式] 索引標籤。
 3. 在頁面底部的命令列中按一下 [新增]
 4. 為您的身分識別碼指定使用名稱，按 [下一步] 箭號
@@ -81,7 +81,7 @@
 
 此時，應用程式將會自動為您建立。在第 3 部分將需要此應用程式的用戶端識別碼，因此您將需要：
 
-1. 移至 [Azure 入口網站中的 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)，然後選取您的目錄。 
+1. 移至 [Azure 傳統入口網站中的 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)，然後選取您的目錄。 
 2. 在搜尋方塊中搜尋應用程式
 3. 在清單中加以點按
 4. 按一下 [設定] 索引標籤
@@ -91,7 +91,7 @@
 
 首先，您必須為 Web 應用程式建立應用程式。這應與用於邏輯應用程式的應用程式不同。首先請遵循第 1 部分中的前述步驟，但是現在對於 **HomePage** 和 **IdentifierUris**，請使用 Web 應用程式的實際 https://**URL**。
 
->[AZURE.NOTE]當您建立 Web 應用程式的應用程式時，您必須使用 [Azure 入口網站途徑](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)，因為 PowerShell Cmdlet 不會設定讓使用者登入網站的必要權限。
+>[AZURE.NOTE]當您建立 Web 應用程式的應用程式時，您必須使用 [Azure 傳統入口網站途徑](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)，因為 PowerShell Cmdlet 不會設定讓使用者登入網站的必要權限。
 
 在您具備用戶端識別碼和租用戶識別碼後，請在部署範本中納入下列項目做為 Web 應用程式的子資源：
 
@@ -170,4 +170,4 @@
 
 您仍然必須遵循前述步驟建立邏輯應用程式的應用程式身分識別碼，並用它來呼叫 API。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

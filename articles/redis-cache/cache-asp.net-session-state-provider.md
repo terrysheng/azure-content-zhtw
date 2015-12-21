@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/23/2015"
+   ms.date="12/03/2015"
    ms.author="sdanie" />
 
 # Azure Redis 快取的 ASP.NET 工作階段狀態提供者
@@ -59,7 +59,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 標示註解的區段可提供屬性的範例和每個屬性的範例設定。
 
-以來自 Microsoft Azure Preview 入口網站之快取刀鋒視窗的值來設定屬性，並視需要設定其他值。如需存取快取屬性的指示，請參閱[設定 Redis 快取設定](cache-configure.md#configure-redis-cache-settings)。
+以來自 Microsoft Azure 入口網站之快取刀鋒視窗的值來設定屬性，並視需要設定其他值。如需存取快取屬性的指示，請參閱[設定 Redis 快取設定](cache-configure.md#configure-redis-cache-settings)。
 
 -	**主機** – 指定您的快取端點。
 -	**連接埠** – 使用您的非 SSL 連接埠或 SSL 連接埠，依 ssl 設定而定。
@@ -104,6 +104,6 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 ## 後續步驟
 
-請查看 [Azure Redis 快取的 ASP.NET 輸出快取提供者](cache-asp.net-output-cache-provider.md)。
+查看 [Azure Redis 快取的 ASP.NET 輸出快取提供者](cache-asp.net-output-cache-provider.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

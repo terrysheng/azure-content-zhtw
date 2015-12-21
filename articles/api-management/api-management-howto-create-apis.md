@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立 API
@@ -24,7 +24,7 @@ API 管理中的 API 代表可供用戶端應用程式叫用的一組作業。�
 
 ## <a name="create-new-api"> </a>建立新的 API
 
-API 是在發行者入口網站中建立和設定。若要存取發行者入口網站，請在 API 管理服務的 Azure 入口網站中按一下 [**管理**]。
+API 是在發行者入口網站中建立和設定。若要存取發佈者入口網站，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。
 
 ![發行者入口網站][api-management-management-console]
 
@@ -40,7 +40,7 @@ API 是在發行者入口網站中建立和設定。若要存取發行者入口�
 
 以下欄位可用來設定新 API。
 
--	[Web API 名稱] 提供 API 的獨特描述性名稱。會顯示在開發人員和管理入口網站中。
+-	[Web API 名稱] 提供 API 的獨特描述性名稱。它會顯示在開發人員和發行者入口網站中。
 -	[Web 服務 URL] 會參考實作 API 的 HTTP 服務。API 管理則將要求轉送至此位址。
 -	[Web API URL 尾碼] 會附加到 API 管理服務的基礎 URL。基礎 URL 是 API 管理服務主控的所有 API 所共有。API 管理依尾碼來區分 API，因此，特定發行者的每一個 API 必須有唯一的尾碼。
 -	[**Web API URL 配置**] 決定可使用哪些通訊協定來存取 API。預設會指定 HTTPs。
@@ -98,4 +98,4 @@ API 是在發行者入口網站中建立和設定。若要存取發行者入口�
 [如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務]: api-management-howto-mutual-certificates.md
 [如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶]: api-management-howto-oauth2.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

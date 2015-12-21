@@ -1,23 +1,23 @@
 
-The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the backend Azure service every time that the app starts. Not only is this method inefficient, you can run into usage-related issues should many customers try to start you app at the same time. A better approach is to cache the authorization token returned by the Azure service and try to use this first before using a provider-based sign-in. 
+先前範例所示範的標準登入，在每次應用程式啟動時，皆需要用戶端連絡身分識別提供者和後端 Azure 服務。這個方法不只效率不彰，而且如果同時有許多用戶試圖啟用您的應用程式時，還可能遇到使用量相關的問題。更好的方法就是快取 Azure 服務傳回的授權權杖，然後嘗試在使用提供者形式登入前先使用此方法。
 
->[AZURE.NOTE]You can cache the token issued by the backend Azure service regardless of whether you are using client-managed or service-managed authentication. This tutorial uses service-managed authentication.
+>[AZURE.NOTE]無論您使用用戶端管理或服務管理驗證，皆可以快取後端 Azure 服務發行的權杖。本教學課程使用服務管理驗證。
 
 
-1. Open the ToDoActivity.java file and add the following import statements:
+1. 開啟 ToDoActivity.java 檔案，並新增下列 import 陳述式：
 
         import android.content.Context;
         import android.content.SharedPreferences;
         import android.content.SharedPreferences.Editor;
 
-2. Add the the following members to the `ToDoActivity` class.
+2. 在 `ToDoActivity` 類別中新增下列成員。
 
     	public static final String SHAREDPREFFILE = "temp";	
 	    public static final String USERIDPREF = "uid";	
     	public static final String TOKENPREF = "tkn";	
 
 
-3. In the ToDoActivity.java file, add the the following definition for the `cacheUserToken` method.
+3. 在 ToDoActivity.java 檔案中，新增下列 `cacheUserToken` 方法的定義。
  
     	private void cacheUserToken(MobileServiceUser user)
 	    {
@@ -28,12 +28,12 @@ The previous example showed a standard sign-in, which requires the client to con
 	        editor.commit();
     	}	
   
-    This method stores the user id and token in a preference file that is marked private. This should protect access to the cache so that other apps on the device do not have access to the token because the preference is sandboxed for the app. However, if someone gains access to the device, it is possible that they may gain access to the token cache through other means. 
+    此方法將使用者識別碼和權杖儲存在標示為私人的慣用檔案中。這可以保護快取的存取，如此一來裝置上的其他應用程式將無法存取權杖，因為應用程式的喜好設定已沙箱化。不過，如果有人取得裝置的存取權，他們有可能也可以透過其他方法取得權杖快取的存取權。
 
-    >[AZURE.NOTE]You can further protect the token with encryption if token access to your data is considered highly sensitive and someone may gain access to the device. However, a completely secure solution is beyond the scope of this tutorial and dependent on your security requirements.
+    >[AZURE.NOTE]如果使用權杖存取的資料十分敏感，而且有人可能可以取得裝置存取權，那麼您可以使用加密來進一步保護權杖。不過，完整的安全解決方案已超過本教學課程範圍，而且也須視您的安全性需求而定。
 
 
-4. In the ToDoActivity.java file, add the the following definition for the `loadUserTokenCache` method.
+4. 在 ToDoActivity.java 檔案中，新增下列 `loadUserTokenCache` 方法的定義。
 
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
@@ -54,7 +54,7 @@ The previous example showed a standard sign-in, which requires the client to con
 
 
 
-5. In the *ToDoActivity.java* file, replace the `authenticate` method with the following method which uses a token cache. Change the login provider if you want to use an account other than Google.
+5. 在 *ToDoActivity.java* 檔案中，將 `authenticate` 方法改為使用權杖快取的下列方法。如果您想要使用 Google 以外的帳戶，請變更登入提供者。
 
 		private void authenticate() {
 			// We first try to load a token cache if one exists.
@@ -85,7 +85,6 @@ The previous example showed a standard sign-in, which requires the client to con
 		    }
 		}
 
-6. Build the app and test authentication using a valid account. Run it at least twice. During the first run, you should receive a prompt to login and create the token cache. After that, each run will attempt to load the token cache for authentication and you should not be required to login.
+6. 使用有效的帳戶建置應用程式，並且測試驗證。至少執行 2 次此動作。第一次執行時，您應該會收到登入並建立權杖快取的提示。之後每次執行時，系統會試圖載入用於驗證的權杖快取，而您無須再次登入。
 
-
-
+<!---HONumber=AcomDC_1210_2015-->

@@ -18,7 +18,7 @@
 
 
 # 準備執行 Azure 的 Red Hat 型虛擬機器
-在本文中，您將學習如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure 中使用。本文中涵蓋的 RHEL 版本為 6.7 和 7.1，而本文中涵蓋的預備 Hypervisor 為 Hyper-V、KVM 和 VMWare。如需參加 Red Hat 雲端存取方案之資格需求的詳細資訊，請參閱 [Red Hat 雲端存取網站](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)。
+在本文中，您將學習如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure 中使用。本文中涵蓋的 RHEL 版本為 6.7、7.1 和 7.2，而本文中涵蓋的預備 Hypervisor 為 Hyper-V、KVM 和 VMWare。如需參加 Red Hat 雲端存取方案之資格需求的詳細資訊，請參閱 [Red Hat 雲端存取網站](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)與[在 Azure 上執行 RHEL](https://access.redhat.com/articles/1989673)。
 
 
 
@@ -134,9 +134,9 @@
 
 16.	在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1. 在 Hyper-V 管理員中，選取虛擬機器。
+1.  在 Hyper-V 管理員中，選取虛擬機器。
 
 2.	按一下 [連接] 以開啟虛擬機器的主控台視窗。
 
@@ -335,9 +335,9 @@
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1.	從 Red Hat 網站下載 RHEL 7.1 的 KVM 映像。
+1.	從 Red Hat web 網站下載 RHEL 7.1 (或 7.2) 的KVM 映像，我們將會使用 RHEL 7.1 做為此處的範例。
 
 2.	設定根密碼
 
@@ -578,7 +578,7 @@
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
 1.	在 /etc/sysconfig/ 目錄中，建立名為 **network** 且包含下列文字的檔案：
 
@@ -682,7 +682,7 @@
 
 
 ##自動從使用 kickstart 檔案的 ISO 準備
-###RHEL 7.1
+###RHEL 7.1/7.2
 
 1.	使用以下內容建立 kickstart 檔案，並儲存此檔案。如需有關 kickstart 安裝的詳細資訊，請參閱 [Kickstart 安裝指南](https://access.redhat.com/documentation/zh-TW/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)。
 
@@ -830,4 +830,8 @@
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1203_2015-->
+
+## 後續步驟
+您現在可以開始在 Azure 中使用您的 Red Hat Enterprise Linux.vhd 建立新的 Azure 虛擬機器。如需已通過認證可執行 Red Hat Enterprise Linux 之 Hypervisor 的詳細資訊，請造訪 [Red Hat 網站](https://access.redhat.com/certified-hypervisors)。
+
+<!---HONumber=AcomDC_1210_2015-->

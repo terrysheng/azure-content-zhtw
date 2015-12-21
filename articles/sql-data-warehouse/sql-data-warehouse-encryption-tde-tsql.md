@@ -66,11 +66,11 @@ FROM
 
  
 <!--Anchors-->
-[透明資料加密 (TDE)]: https://msdn.microsoft.com/zh-TW/library/bb934049.aspx
+[透明資料加密 (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

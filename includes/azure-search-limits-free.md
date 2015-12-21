@@ -1,16 +1,18 @@
-Object|Limit
+Object|限制
 ---|---
-Maximum number of indexes|3 per Search service
-Maximum number of fields per index|1000
-Maximum document count|10,000
-Maximum storage size|50 MB
-Maximum partitions|N/A
-Maximum replicas|N/A
-Maximum search units|N/A
-Maximum search services|N/A
-Maximum number of indexers|3
-Maximum number of datasources|3
-Maximum number of documents that can be indexed in a single indexer invocation|10,000
-Maximum indexer running time|3 minutes
-Maximum number of scoring profiles per index|16
-Maximum number of functions per profile|8
+索引數目上限|每個搜尋服務 3 個
+每個索引的欄位數目上限|1000
+文件計數上限|10,000
+儲存體大小上限|50 MB
+分割上限|N/A
+複本上限|N/A
+搜尋單位上限|N/A
+搜尋服務上限|N/A
+索引子數目上限|3
+資料來源數目上限|3
+可以在單一索引子引動過程中編製索引的文件數目上限|10,000
+最大索引子執行時間|3 分鐘
+每個索引的評分設定檔數目上限|16
+每個設定檔的函式數目上限|8
+
+<!---HONumber=AcomDC_1210_2015-->

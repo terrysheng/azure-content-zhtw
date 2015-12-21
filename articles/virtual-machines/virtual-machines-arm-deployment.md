@@ -85,8 +85,17 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 既然已經建立 Azure Active Directory 應用程式並安裝驗證程式庫，您要將應用程式資訊格式化成用來驗證對 Azure 資源管理員的要求的認證。執行下列動作：
 
 1.	開啟您建立之專案的 Program.cs 檔案，然後將下列 using 陳述式加入至檔案的頂端：
-
-    使用 Microsoft.Azure；使用 Microsoft.IdentityModel.Clients.ActiveDirectory；使用 Microsoft.Azure.Management.Resources；使用 Microsoft.Azure.Management.Resources.Models；使用 Microsoft.Azure.Management.Storage；使用 Microsoft.Azure.Management.Storage.Models；使用 Microsoft.Azure.Management.Network；使用 Microsoft.Azure.Management.Network.Models；使用 Microsoft.Azure.Management.Compute；使用 Microsoft.Azure.Management.Compute.Models；
+		
+		using Microsoft.Azure;
+		using Microsoft.IdentityModel.Clients.ActiveDirectory;
+		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.Resources.Models;
+		using Microsoft.Azure.Management.Storage;
+		using Microsoft.Azure.Management.Storage.Models;
+		using Microsoft.Azure.Management.Network;
+		using Microsoft.Azure.Management.Network.Models;
+		using Microsoft.Azure.Management.Compute;
+		using Microsoft.Azure.Management.Compute.Models;
 
 
 2. 將下列方法加入至 Program 類別，以取得建立認證所需的權杖：
@@ -375,4 +384,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

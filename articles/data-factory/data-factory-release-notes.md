@@ -257,7 +257,7 @@ Dataset | RelationTableLocation | RelationalTable
 **MergeFiles**：將來源資料夾的所有檔案合併為一個檔案。如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。
  
 ## 所有 HDInsight 活動的新 getDebugInfo 屬性
-HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：**getDebugInfo** 屬性。**getDebugInfo** 屬性是選擇性的元素。該屬性設定為**失敗**時，只能在執行失敗時下載記錄檔。當其設定為**所有**時，無論執行狀態為何，一律下載記錄檔。如果設定為**無**，則不會下載任何記錄檔。
+HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：**getDebugInfo** 屬性。**getDebugInfo** 屬性是選擇性的元素。該屬性設定為**失敗**時，只會在執行失敗時下載記錄檔。當其設定為**所有**時，無論執行狀態為何，一律下載記錄檔。如果設定為**無**，則不會下載任何記錄檔。
 
   
      
@@ -265,7 +265,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 ## Data Factory 2015/04/10 版本的注意事項
 現在，您會在 [資料表] 刀鋒視窗中看到 [最近更新的配量] 和 [最近失敗的配量] 清單。這些清單會依配量的更新時間排序。在下列情況中，配量的更新時間會變更。
 
--  您以手動方式更新配量的狀態，例如，使用 **Set-AzureDataFactorySliceStatus** (或) 在配量的 [配量] 刀鋒視窗上按一下 [執行]。
+-  您以手動方式更新配量的狀態，例如，使用 **Set-AzureRmDataFactorySliceStatus** (或) 在配量的 [配量] 刀鋒視窗上按一下 [執行]。
 -  配量因為執行而變更狀態 (例如，開始執行、執行結束但失敗、執行結束且成功等)。
 
 按一下清單的標題或 **...** (省略符號)，查看更長的配量清單。按一下工具列上的 [篩選] 以篩選配量。
@@ -304,7 +304,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 - **SqlSink** 支援新的屬性：**WriteBatchTimeout**。這個屬性可讓您彈性地設定在批次插入作業逾時之前，要等候多久讓作業完成。若要執行混合式複製 (複製作業涉及內部部署資料來源和雲端資料來源)，您必須有 1.4 版或更新版本的閘道器，才能使用這個屬性。 
 - SQL Server 連結服務現在支援 Windows 驗證。 
 	- 現在使用入口網站建立 SQL Server 連結服務時，可以選擇使用 Windows 驗證，並設定適當的認證。您需要具有 1.4 版或更新版本的閘道器。 
-	- 使用 Azure PowerShell 建立 SQL Server 連結服務時，您可以用純文字指定連接資訊，或使用更新的 [New-AzureDataFactoryEncryptValue Cmdlet][adf-encrypt-value-cmdlet] 來加密連接資訊；然後，在連結服務 JSON 承載的 Connection String 屬性中使用加密的字串。如需關於在 JSON 中定義連結服務的詳細資訊，請參閱[連結服務][adf-msdn-linked-services]。New-AzureDataFactoryEncryptValue Cmdlet 尚不支援加密功能。 
+	- 使用 Azure PowerShell 建立 SQL Server 連結服務時，您可以用純文字指定連接資訊，或使用更新的 [New-AzureRmDataFactoryEncryptValue cmdlet](https://msdn.microsoft.com/library/mt603802.aspx) 來加密連接資訊；然後，在連結服務 JSON 承載的 Connection String 屬性中使用加密的字串。New-AzureRmDataFactoryEncryptValue Cmdlet 尚不支援加密功能。 
 
 ## Data Factory 2014/12/11 版本的注意事項 ##
 
@@ -313,16 +313,16 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 - Azure Machine Learning 整合
 	- 這一版的 Azure Data Factory 服務可讓您使用 **AzureMLLinkedService** 和 **AzureMLBatchScoringActivity** 將 Azure Data Factory 與 Azure Machine Learning (ML) 整合。如需詳細資訊，請參閱[使用 Data Factory 和 Azure Machine Learning 建立預測管線][adf-azure-ml]。 
 - 提供閘道器版本狀態
-	- 如果有比目前安裝之版本還要新的閘道器，「Azure 入口網站」和 Get-AzureDataFactoryGateway Cmdlet 的輸出中就會顯示 "NewVersionAvailable" 狀態。。您可以接著依照入口網站程序下載新的安裝檔案 (.msi)，然後執行它來安裝最新的閘道器。不需要進行其他設定。
+	- 如果有比目前安裝之版本還要新的閘道器，「Azure 入口網站」和 Get-AzureRmDataFactoryGateway Cmdlet 的輸出中就會顯示 "NewVersionAvailable" 狀態。您可以接著依照入口網站程序下載新的安裝檔案 (.msi)，然後執行它來安裝最新的閘道器。不需要進行其他設定。
 
 ### 變更
 
 - 已移除 HdInsightOnDemandLinkedService 中的 JobsContainer。
-	- 在 HDInsightOnDemandLinkedService 的 JSON 定義中，您不再需要指定 **jobsContainer** 屬性。如果您有為隨選連結服務指定的屬性，則會忽略此屬性。您可以從連結服務的 JSON 定義中移除屬性，然後使用 New-AzureDataFactoryLinkedService Cmdlet 來更新連結服務的定義。
+	- 在 HDInsightOnDemandLinkedService 的 JSON 定義中，您不再需要指定 **jobsContainer** 屬性。如果您有為隨選連結服務指定的屬性，則會忽略此屬性。您可以從連結服務的 JSON 定義中移除屬性，然後使用 New-AzureRmDataFactoryLinkedService Cmdlet 來更新連結服務的定義。
 - HDInsightOnDemandLinkedService 的選擇性組態參數
 	- 此版本針對 HDInsightOnDemandLinked (隨選 HDInsight 叢集) 導入一些選擇性組態參數支援。如需詳細資訊，請參閱 [ClusterCreateParameters 屬性][on-demand-hdi-parameters]。
 - 已移除閘道器位置
-	- 透過入口網站或 PowerShell (New-AzureDataFactoryGateway) 建立 Azure Data Factory 閘道器時，您不再需要指定閘道器的位置。將會繼承 Data Factory 區域。同樣地，若要使用 JSON 來設定 SQL Server 連結服務，也不再需要 "gatewayLocation" 屬性。Data Factory .NET SDK 也已更新來反映這些變更。
+	- 透過入口網站或 PowerShell (New-AzureRmDataFactoryGateway) 建立 Azure Data Factory 閘道器時，您不再需要指定閘道器的位置。將會繼承 Data Factory 區域。同樣地，若要使用 JSON 來設定 SQL Server 連結服務，也不再需要 "gatewayLocation" 屬性。Data Factory .NET SDK 也已更新來反映這些變更。
 	- 如果您使用較舊版的 SDK 和 Azure PowerShell，則仍然必須提供位置設定。
  
      
@@ -354,4 +354,4 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

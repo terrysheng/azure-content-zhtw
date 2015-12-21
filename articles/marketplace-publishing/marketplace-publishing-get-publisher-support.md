@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="12/06/2015"
    ms.author="v-jeana; hascipio"/>
 
 
@@ -60,7 +60,7 @@ Microsoft 提供各式各樣的產品和服務支援。務必讓您的查詢能�
   - **管理客戶**
   - **管理供應項目**
   - **支出**
-  - **賣方儀表板**
+  - **開發人員中心**
   - **其他**
 
 ## 4\.要求支援
@@ -92,4 +92,4 @@ Microsoft 提供各式各樣的產品和服務支援。務必讓您的查詢能�
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

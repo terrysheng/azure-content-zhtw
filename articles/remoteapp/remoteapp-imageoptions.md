@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="建立 Azure RemoteApp 映像"
-    description="了解可用來建立 Azure RemoteApp 之映像的選項" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="建立 Azure RemoteApp 映像 | Microsoft Azure"
+    description="了解可用來建立 Azure RemoteApp 之映像的選項"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -30,6 +30,5 @@ Azure RemoteApp 使用映像保留與使用者共用的應用程式。若要使�
 - 您可以使用 RemoteApp 訂用帳戶中所含的其中一個[範本映像](remoteapp-images.md)。這些映像是由 RemoteApp 小組所建立和維護，並且包含一些可提供給您使用者的標準應用程式 (如 Office 套件)。請注意，只有 Office 365 Pro Plus 映像才能用於生產設定中。
 
 不論在何處取得映像或如何建立映像，您都會想要確定您了解[應用程式需求](remoteapp-appreqs.md)，確保您的應用程式在 RemoteApp 中運作良好。然後，下一步是建立[雲端](remoteapp-create-cloud-deployment.md)或[混合式](remoteapp-create-hybrid-deployment.md) 集合。
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

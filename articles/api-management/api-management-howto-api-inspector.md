@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫
@@ -34,7 +34,7 @@ API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解
 
 
 
-若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [**開發人員入口網站**]。您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。
+請在 Azure 傳統入口網站中的 API 管理服務按一下 [開發人員入口網站]您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。
 
 >如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理教學課程][]中的[建立 API 管理服務執行個體][]。
 
@@ -245,7 +245,7 @@ API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解
 [開始使用 Azure API 管理教學課程]: api-management-get-started.md
 [建立 API 管理服務執行個體]: api-management-get-started.md#create-service-instance
 [開始使用進階 API 組態]: api-management-get-started-advanced.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -261,4 +261,4 @@ API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

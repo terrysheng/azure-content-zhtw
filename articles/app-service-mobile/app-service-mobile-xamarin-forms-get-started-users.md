@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/30/2015" 
+	ms.date="12/07/2015" 
 	ms.author="wesmc"/>
 
 # 將驗證加入 Xamarin.Forms 應用程式中
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -40,7 +38,9 @@
 
 ##將驗證加入可攜式類別庫中 
 
-Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯示登入介面和快取資料。為了驗證 Xamarin Forms 專案，您將在可攜式類別庫中定義 `IAuthenticate` 介面。您想要支援的每個平台都可以在平台特定專案中實作這個介面。您會將程式碼加入驗證中，再對可攜式類別庫中受限制的資料表進行任何呼叫。
+Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯示登入介面和快取資料。為了驗證 Xamarin Forms 專案，您將在可攜式類別庫中定義 `IAuthenticate` 介面。您想要支援的每個平台都會在平台特定專案中實作這個介面。
+
+您也會更新可攜式類別庫中定義的使用者介面，並新增登入按鈕。使用者必須按一下此按鈕，才能在應用程式啟動後進行驗證。
 
 1. 在 Visual Studio 或 Xamarin Studio 中，從**可攜式**專案開啟 App.cs。將下列 `using` 陳述式加入檔案中。
 
@@ -67,22 +67,63 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 	
 			...
 
-4. 從**可攜式**專案開啟 TodoList.xaml.cs 並更新 `OnAppearing` 方法，以在嘗試重新整理資料表中的項目之前先進行驗證。
+
+4. 從**可攜式**專案開啟 TodoList.xaml.cs。將下列旗標加入至 `TodoList` 類別，表示使用者是否已驗證。
+
+        bool authenticated = false;
+
+
+5. 在 TodoList.xaml.cs 中更新 `OnAppearing` 方法，如此您只會在使用者驗證後重新整理項目。
 
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
+            // Set syncItems to true in order to synchronize the data on startup when running in offline mode
+            if (authenticated == true)
+                await RefreshItems(true, syncItems: false);
+        }
+
+6. 在 TodoList.xaml.cs 中，於 `TodoList` 類別的建構函式頂端定義下列登入按鈕並按一下處理常式...
+
+        public TodoList()
+        {
+            InitializeComponent();
+
+            manager = TodoItemManager.DefaultManager;
+
+            var loginButton = new Button
+            {
+                Text = "Login",
+                TextColor = Xamarin.Forms.Color.Black,
+                BackgroundColor = Xamarin.Forms.Color.Lime,
+            };
+            loginButton.Clicked += loginButton_Clicked;
+
+            Xamarin.Forms.StackLayout bp = buttonsPanel as StackLayout;
+            Xamarin.Forms.StackLayout bpParentStack = bp.Parent.Parent as StackLayout;
+
+            bpParentStack.Padding = new Xamarin.Forms.Thickness(10, 30, 10, 20);
+            bp.Orientation = StackOrientation.Vertical;
+            bp.Children.Add(loginButton);
+
+			...
+
+7. 在 TodoList.xaml.cs 中，針對登入按鈕按一下事件加入下列處理常式
+
+        async void loginButton_Clicked(object sender, EventArgs e)
+        {
             if (App.Authenticator != null)
-                await App.Authenticator.Authenticate();
+                authenticated = await App.Authenticator.Authenticate();
 
             // Set syncItems to true in order to synchronize the data on startup when running in offline mode
-            await RefreshItems(true, syncItems: false);
+            if (authenticated == true)
+                await RefreshItems(true, syncItems: false);
         }
 
 
-5. 儲存變更，並建置入口網站專案以驗證沒有錯誤。
+8. 儲存變更，並建置可攜式類別庫專案以驗證沒有錯誤。
 
 
 ##將驗證加入 Android 應用程式中
@@ -129,6 +170,16 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
             }
             return success;
         }
+
+        private void CreateAndShowDialog(String message, String title)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.SetMessage(message);
+            builder.SetTitle(title);
+            builder.Create().Show();
+        }
+
 
 6. 更新 `MainActivity` 類別的 `OnCreate` 方法以初始化驗證器，再載入應用程式。
 
@@ -177,6 +228,11 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
                 {
                     user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
                         MobileServiceAuthenticationProvider.Facebook);
+                    if (user != null)
+                    {
+                        UIAlertView avAlert = new UIAlertView("Authentication", "You are now logged in " + user.UserId, null, "OK", null);
+                        avAlert.Show();
+                    }
                 }
 
                 success = true;
@@ -191,7 +247,7 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 
 6. 更新 `AppDelegate` 類別的 `FinishedLaunching` 方法以初始化驗證器，再載入應用程式。
 
-        App.Init((IAuthenticate)this);
+        App.Init(this);
 
 		LoadApplication (new App ());
 
@@ -210,7 +266,7 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 
 2. 直接在偵錯工具中執行專案，以確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。由於您僅限授權使用者存取後端，因此會發生這個例外狀況。
 
-3. 接下來，開啟 WinApp 專案中的 MainPage.xaml.cs，然後加入下列 `using` 陳述式。以您的可攜式類別庫命名空間取代 <*Your portable class library namespace*>。
+3. 接下來，開啟 WinApp 專案中的 MainPage.xaml.cs，然後加入下列 `using` 陳述式。以您的可攜式類別庫命名空間取代 <*您的可攜式類別庫命名空間*>。
 
 		using Microsoft.WindowsAzure.MobileServices;
 		using System.Threading.Tasks;
@@ -237,9 +293,12 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
                 if (user == null)
                 {
                     user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-                    var messageDialog = new Windows.UI.Popups.MessageDialog(
-							string.Format("you are now logged in - {0}", user.UserId), "Authentication");
-                    messageDialog.ShowAsync();
+					if (user != null)
+					{
+	                    var messageDialog = new Windows.UI.Popups.MessageDialog(
+								string.Format("you are now logged in - {0}", user.UserId), "Authentication");
+	                    messageDialog.ShowAsync();
+					}
                 }
 
                 success = true;
@@ -252,15 +311,15 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
             return success;
         }
 
-6. 更新 `MainPage` 類別的建構函式以初始化驗證器，再載入應用程式。　以您的可攜式類別庫命名空間取代 <*Your portable class library namespace*>。
+6. 更新 `MainPage` 類別的建構函式以初始化驗證器，再載入應用程式。　以您的可攜式類別庫命名空間取代 <*您的可攜式類別庫命名空間*>。
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            <Your portable class library namespace>.App.Init((IAuthenticate)this);
+            <Your portable class library namespace>.App.Init(this);
             
-            LoadApplication(new WesmcMobileAppGaTest.App());
+            LoadApplication(new <Your portable class library namespace>.App());
         }
 
 
@@ -268,7 +327,93 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 7. 重新建置並執行應用程式。以您選擇的驗證提供者進行登入，並確認您是否能夠以驗證使用者身分存取資料表。
 
 
+##將驗證加入 Windows Phone 8.1 應用程式中
 
+在本節中，您將加入 WinPhone81 專案的驗證。如果未使用 Windows Phone 8.1 裝置，可以略過這一節。
+
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 **WinPhone81** 專案，然後按一下 [設定為啟始專案]。
+
+2. 直接在偵錯工具中執行專案，以確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。由於您僅限授權使用者存取後端，因此會發生這個例外狀況。
+
+
+3. 接下來，開啟 WinPhone81 專案中的 MainPage.xaml.cs，然後加入下列 `using` 陳述式。以您的可攜式類別庫命名空間取代 <*您的可攜式類別庫命名空間*>。
+
+		using Microsoft.WindowsAzure.MobileServices;
+		using System.Threading.Tasks;
+		using <Your portable class library namespace>;
+
+4. 更新 `MainPage` 類別以實作 `IAuthenticate` 介面。
+
+	    public sealed partial class MainPage : IAuthenticate
+
+
+5. 藉由加入以下所示的 `MobileServiceUser` 欄位和 `Authenticate` 方法來更新 `MainPage` 類別，以支援 `IAuthenticate` 介面。
+ 
+	如果您想要使用不同的 `MobileServiceAuthenticationProvider` 而不是 Facebook，請一併變更。
+
+        // Define a authenticated user.
+        private MobileServiceUser user;
+
+        public async Task<bool> Authenticate()
+        {
+            var success = false;
+            try
+            {
+                // Sign in with Facebook login using a server-managed flow.
+                if (user == null)
+                {
+                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+					if (user != null)
+					{
+	                    var messageDialog = new Windows.UI.Popups.MessageDialog(
+								string.Format("you are now logged in - {0}", user.UserId), "Authentication");
+	                    messageDialog.ShowAsync();
+					}
+                }
+
+                success = true;
+            }
+            catch (Exception ex)
+            {
+                var messageDialog = new Windows.UI.Popups.MessageDialog(ex.Message, "Authentication Failed");
+                messageDialog.ShowAsync();
+            }
+            return success;
+        }
+
+6. 更新 `MainPage` 類別的建構函式以初始化驗證器，再載入應用程式。　以您的可攜式類別庫命名空間取代 <*您的可攜式類別庫命名空間*>。
+
+        public MainPage()
+        {
+            this.InitializeComponent();
+
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+
+            <Your portable class library namespace>.App.Init(this);
+
+            LoadApplication(new <Your portable class library namespace>.App());
+        }
+
+7. 在 Windows Phone 上，您需要另外完成登入。開啟 App.xaml.cs 檔案，並將下列 `using` 陳述式和程式碼加入至 `App` 類別中的 `OnActivated` 處理常式。
+
+	```
+		using Microsoft.WindowsAzure.MobileServices;
+	```
+
+		protected override void OnActivated(IActivatedEventArgs args)
+		{
+		    base.OnActivated(args);
+		
+		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
+		    {
+		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
+		        client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
+		    }
+		}
+
+
+
+8. 重新建置並執行應用程式。以您選擇的驗證提供者進行登入，並確認您是否能夠以驗證使用者身分存取資料表。
 
 <!-- Images. -->
 
@@ -282,4 +427,4 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

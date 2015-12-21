@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="串流分析警示 | Microsoft Azure" 
+	pageTitle="在串流分析中設定查詢的警示 | Microsoft Azure" 
 	description="了解串流分析警示" 
-	keywords="巨量資料分析,雲端服務,物聯網,受管理的服務,串流處理,資料流分析,資料流處理資料,big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="設定警示"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,28 +14,28 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# 在 Azure 串流分析中設定警示
+# 設定 Azure 串流分析工作的警示
 
-## 監視頁面
+## 簡介：監視頁面
 
-您可以設定規則，以便在計量達到您所指定的條件時觸發警示。
+您可以設定會在計量達到您指定的條件時觸發的警示。
 
 例如，「如果過去 15 分鐘內的輸出事件 <100，則將電子郵件通知傳送給電子郵件識別碼：xyz@company.com”。
 
-可透過入口網站在計量上設定規則，或透過作業記錄檔資料以[程式設計方式](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)來設定規則。
+您可以透過入口網站來針對計量設定規則，或是透過作業記錄檔資料以[程式設計方式](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)來設定規則。
 
-## 透過 Azure 傳統入口網站設定警示
+## 透過 Azure 入口網站設定警示
 
-在 Azure 傳統入口網站中設定警示的方式有兩種：
+在 Azure 管理入口網站中設定警示的方式有兩種：
 
 1.	串流分析工作的 [監視] 索引標籤  
 2.	管理服務中的作業記錄檔  
 
-## 透過入口網站中工作的 [監視器] 索引標籤的警示
+## 透過入口網站中工作的 [監視] 索引標籤來設定警示
 
 1.	在 [監視] 索引標籤中選取計量，然後按一下儀表板底部的 [加入規則] 按鈕，並設定您的規則。  
 
@@ -49,9 +49,9 @@
 
     ![定義狀況](./media/stream-analytics-set-up-alerts/03-stream-analytics-set-up-alerts.png)
 
-## 透過作業記錄設定警示
+## 透過作業記錄檔來設定警示
 
-1.	移至 [Azure 傳統入口網站](https://manage.windowsazure.com)中管理服務的 [警示] 索引標籤。  
+1.	移至 [Azure 入口網站](https://manage.windowsazure.com)中管理服務的 [警示] 索引標籤。  
 2.	按一下 [加入規則]  
 
     ![準則](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)
@@ -60,19 +60,19 @@
 
     ![定義警示](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)
 
-## 在 Azure 口網站中設定警示 ##
+## 在 Azure Preview 入口網站中設定警示 ##
 
-在 Azure 入口網站中，瀏覽至您有興趣設定警示的串流分析工作，然後按一下 [監視] 區段。在開啟的 [度量] 刀鋒視窗中，按一下 [加入警示] 命令。
+在 Azure Preview 入口網站中，瀏覽至您有興趣設定警示的串流分析工作，然後按一下 [監視] 區段。在開啟的 [度量] 刀鋒視窗中，按一下 [加入警示] 命令。
 
-  ![Azure 入口網站設定](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
+  ![Azure Preview 入口網站設定](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
 
 您可以為您的警示規則命名，並選擇將會顯示在電子郵件通知的描述。
 
 當您選取 [計量] 時，您將會為計量選擇條件和閾值標準。
 
-  ![Azure 入口網站選取度量](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
+  ![Azure Preview 入口網站選取度量](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
 
-如需在 Azure 入口網站中設定警示的詳細資訊，請參閱[接收警示通知](./azure-portal/insights-receive-alert-notifications.md)。
+如需在 Azure Preview 入口網站中設定警示的詳細資訊，請參閱[接收警示通知](./azure-portal/insights-receive-alert-notifications.md)。
 
 ## 取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
@@ -85,4 +85,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

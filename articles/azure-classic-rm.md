@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/14/2015"
+   ms.date="12/07/2015"
    ms.author="telmos"/>
 
 # Azure 部署模型
@@ -68,4 +68,4 @@ Azure 有兩個入口網站︰
 - 了解如何[設計範本](/best-practices-resource-manager-design-templates.md)。
 - 使用[最佳作法](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

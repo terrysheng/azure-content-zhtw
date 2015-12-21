@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mandia"/>
 
 # 管理和監視內建 API 應用程式和連接器
 
 您已建立一個內建 API 應用程式。接下來呢？
 
-在 Azure 中，每個 API 應用程式都是裝載在 Azure 上的個別網站。因此，您可以輕鬆地查看提出多少要求，以及查看連接器使用多少資料。
-
-您也可以備份 API 應用程式、建立警示、啟用 Tinfoil 安全性，以及加入使用者和角色。
+在 Azure 中，每個 API 應用程式都是裝載在 Azure 上的個別網站。因此，您可以輕鬆地查看提出多少要求，以及查看連接器使用多少資料。您也可以備份 API 應用程式、建立警示、啟用 Tinfoil 安全性，以及加入使用者和角色。
 
 本主題說明一些管理 API 應用程式的不同選項。
 
@@ -134,4 +132,4 @@ API 應用程式使用以角色為基礎的安全性。這些角色會套用至�
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

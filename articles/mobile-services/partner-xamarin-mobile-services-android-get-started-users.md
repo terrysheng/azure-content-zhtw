@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="11/30/2015" 
 	ms.author="donnam"/>
 
 # 在您的行動服務應用程式中新增驗證
@@ -33,7 +33,7 @@
 2. [限制只有經驗證的使用者具有資料表的權限]
 3. [將驗證新增至應用程式]
 
-本教學課程會以行動服務快速入門為基礎。您也必須先完成 [開始使用行動服務] 教學課程。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。
 
 完成本教學課程需要有 Xamarin.Android 和 Android SDK 4.2 或更新版本。
 
@@ -47,9 +47,9 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. 在 Eclipse 中，開啟您完成教學課程 [開始使用行動服務] 時建立的專案。
+3. 在 Xamarin Studio 中，開啟您完成[開始使用行動服務] (英文) 教學課程時所建立的專案。
 
-4. 從 [執行] 功能表，按一下 [執行] 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
+4. 從 [執行] 功能表，按一下 [開始偵錯] 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
 	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
@@ -94,7 +94,7 @@
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
-            toDoTable = client.GetTable<ToDoItem>();
+            toDoTable = client.GetSyncTable<ToDoItem>();
 
             textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
@@ -112,7 +112,7 @@
 		await CreateTable();
 
 
-6. 從 [執行] 功能表，按一下 [執行] 來啟動應用程式，並以您選擇的身分識別提供者登入。
+6. 從 [執行] 功能表，按一下 [開始偵錯] 來啟動應用程式，並以您選擇的身分識別提供者登入。
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
@@ -138,7 +138,8 @@
 [15]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
+[開始使用行動服務]: partner-xamarin-mobile-services-android-get-started.md
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

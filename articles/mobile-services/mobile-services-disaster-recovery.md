@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/08/2015"
+	ms.date="11/30/2015"
 	ms.author="christopheranderson"/>
 
 # 發生災害時回復行動服務
@@ -83,11 +83,18 @@
 	+ 在 Azure 傳統入口網站中，行動服務的 [**設定**] 索引標籤上選擇 [變更資料庫]，然後選取剛復原的資料庫。
 
 7. 您的行動服務現已裝載於不同的實體位置。您將需要更新您的發佈和/或 git 認證，以允許更新您執行中的網站。
-	+ 如果您使用 **.NET 後端**，請如[發行行動服務](mobile-services-dotnet-backend-windows-store-dotnet-get-started/#publish-your-mobile-service)所述，重新設定您的發行設定檔。這會更新您的發行詳細資訊，以指向新的服務位置。
-	+ 如果您使用 **Javascript 後端**並透過 Azure 傳統入口網站來管理您的服務，便不需要採取任何額外的動作。
+
+	+ 如果您使用 **.NET 後端**，請如[發行行動服務](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md#publish-your-mobile-service)所述，重新設定您的發行設定檔。這會更新您的發行詳細資訊，以指向新的服務位置。
+	+ 如果您使用 **Javascript 後端**並透過入口網站來管理您的服務，則不需要採取任何額外的動作。
+
 	+ 如果您使用 **Javascript 後端**並透過節點來管理您的服務，請更新 git 遠端以指向新的儲存機制。若要這麼做，請從您的 git 遠端移除 .git 檔案路徑：
 
-		1. 尋找您目前的原點遠端：git remote -v origin https://myservice.scm.azure-mobile.net/myservice.git (fetch) origin https://myservice.scm.azure-mobile.net/myservice.git (push)
+		1. 尋找您目前的原始遠端：
+
+				git remote -v
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (fetch)
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (push)
+
 		3. 使用相同的 url 更新遠端，但不包含最終 .git 檔案路徑：git remote set-url origin https://myservice.scm.azure-mobile.net
 		4. 從原始端點提取以確認其運作正常。
 
@@ -100,11 +107,11 @@
 <!-- URLs. -->
 [Windows Azure SQL Database 的業務續航力]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
-
+[Github]: https://github.com/
 [原始檔控制功能]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [使用 Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [狀況不良]: http://manage.windowsazure.com/
 [Azure 服務儀表板]: http://www.windowsazure.com/support/service-dashboard/
 [使用 Azure CLI 來自動化行動服務]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

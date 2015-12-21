@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="12/03/2015"
 	ms.author="larryfr"/>
 
 # 搭配 HDInsight 中的 Hadoop 使用 Hive 和 HiveQL 來分析範例 Apache Log4j 檔案
@@ -129,10 +129,11 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 
 | 如果您想要...，請**使用此方法** | ...一個**互動式**殼層 | ...**批次**處理 | ...搭配此**叢集作業系統** | ...從此**用戶端作業系統** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [Hive 檢視](hdinsight-hadoop-use-hive-ambari-view.md) | ✔ | ✔ | Linux | 任何 (以瀏覽器為基礎) |
 | [Beeline 命令 (從 SSH 工作階段)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux、Unix、Mac OS X 或 Windows |
 | [Hive 命令 (從 SSH 工作階段)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux、Unix、Mac OS X 或 Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux 或 Windows | Linux、Unix、Mac OS X 或 Windows |
-| [查詢主控台](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | 瀏覽器型 |
+| [查詢主控台](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | 任何 (以瀏覽器為基礎) |
 | [HDInsight Tools for Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux 或 Windows | Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux 或 Windows | Windows |
 | [遠端桌面](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
@@ -146,7 +147,7 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 - [Azure 訂用帳戶連接管理員][connectionmanager]
 
 
-在[這裡][ssispack]深入了解適用於 SSIS 的 Azure Feature Pack。
+在[這裡][ssispack]深入瞭解適用於 SSIS 的 Azure Feature Pack。
 
 
 ##<a id="nextsteps"></a>接續步驟
@@ -155,7 +156,7 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 
 
 - [將資料上傳至 HDInsight][hdinsight-upload-data]
-- [搭配使用 Pig 與 HDInsight][hdinsight-use-pig]
+- [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 - [搭配 HDInsight 使用 MapReduce 工作][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
@@ -173,9 +174,9 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/zh-TW/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/zh-TW/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/zh-TW/library/mt146770(v=sql.120).aspx
+[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -200,4 +201,4 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -26,7 +26,7 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
 
 ##<a id="whatis"></a>什麼是 Azure 虛擬網路？
 
-[Azure 虛擬網路](/documentation/services/virtual-network/)可讓您建立安全、持續的網路，上面有您的解決方案所需的資源。虛擬網路可讓您：
+[Azure 虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)可讓您建立安全、持續的網路，上面有您的解決方案所需的資源。虛擬網路可讓您：
 
 * 在私人網路中將雲端資源連接在一起 (僅限雲端)。
 
@@ -58,7 +58,7 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
 
 如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)＞。
 
-> [AZURE.NOTE]您必須先建立 Azure 虛擬網路，再佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](/documentation/services/virtual-network/)＞。
+> [AZURE.NOTE]您必須先建立 Azure 虛擬網路，再佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](http://azure.microsoft.com/documentation/services/virtual-network/)＞。
 >
 > Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
 >
@@ -176,4 +176,4 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

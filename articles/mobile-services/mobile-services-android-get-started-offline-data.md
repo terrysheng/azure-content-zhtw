@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/06/2015"
 	ms.author="ricksal"/>
 
 # 在 Android 行動服務應用程式中加入離線資料同步
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [行動服務快速啟動教學課程]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

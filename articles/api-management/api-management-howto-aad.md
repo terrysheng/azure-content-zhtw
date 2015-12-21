@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用 Azure Active Directory 授權開發人員帳戶
@@ -26,7 +26,7 @@
 
 ## 如何使用 Azure Active Directory 授權開發人員帳戶
 
-若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [**管理**]。這會帶您前往 API 管理發行者入口網站。
+若要開始，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。這會帶您前往 API 管理發行者入口網站。
 
 ![發行者入口網站][api-management-management-console]
 
@@ -36,7 +36,7 @@
 
 ![外部身分識別][api-management-security-external-identities]
 
-按一下 [**Azure Active Directory**]。記下 [**重新導向 URL**]，然後切換到 Azure 入口網站中您的 Azure Active Directory。
+按一下 [**Azure Active Directory**]。記下 [重新導向 URL]，然後切換到 Azure 傳統入口網站中您的 Azure Active Directory。
 
 ![外部身分識別][api-management-security-aad-new]
 
@@ -228,4 +228,4 @@
 
 [使用 Azure Active Directory 帳戶登入開發人員入口網站]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

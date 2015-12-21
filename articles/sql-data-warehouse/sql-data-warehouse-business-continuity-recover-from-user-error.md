@@ -132,8 +132,8 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 [資料庫作業狀態]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [取得可還原的已卸除資料庫]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [列出可還原的已卸除資料庫]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/zh-TW/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

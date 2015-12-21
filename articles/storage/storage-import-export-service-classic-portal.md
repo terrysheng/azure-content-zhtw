@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" 
 	description="了解如何在 Azure 管理入口網站中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。" 
-	authors="tamram" 
-	manager="adinah" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # 使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體
@@ -58,7 +58,7 @@
 5.	**工作數目：**一個客戶對於每一儲存體帳戶可以有多達 20 項作用中工作。
 6.	**工作的大小上限：**工作的大小是由使用的硬碟容量以及儲存體帳戶可儲存的資料數量上限所決定。每項工作可包含的硬碟不超過 10 個。
 
-  >[AZURE.IMPORTANT]此服務不支援隨附內建 USB 介面卡的外接式硬碟。請勿準備外部 HDD。您也無法使用外接盒內部的磁碟來匯入資料。使用 3.5 吋的 SATA II/III **內部** 硬碟。如果您無法將 SATA 磁碟直接連接到您的電腦，請使用外部 SATA 到 USB 介面卡。請參閱＜常見問題集＞一節中建議的介面卡清單。
+  >[AZURE.IMPORTANT]此服務不支援隨附內建 USB 介面卡的外接式硬碟。請勿準備外部 HDD。您也無法使用外接盒內部的磁碟來匯入資料。請使用 3.5 英吋的 SATA II/III「內部」硬碟。如果您無法將 SATA 磁碟直接連接到您的電腦，請使用外部 SATA 到 USB 介面卡。請參閱＜常見問題集＞一節中建議的介面卡清單。
 
 ## 在管理入口網站中建立匯入工作##
 
@@ -275,4 +275,4 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

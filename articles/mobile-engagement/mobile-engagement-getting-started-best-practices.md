@@ -391,6 +391,7 @@ Mobile Engagement SDK 自動收集的當機資料，會報告應用程式未處�
 
 ## 後續步驟
 
+- [建立 Azure Mobile Engagement 帳戶](mobile-engagement-create-account.md)。
 - 請瀏覽[定義 Mobile Engagement 策略](mobile-engagement-define-your-mobile-engagement-strategy.md)，以深入了解如何定義您的 Mobile Engagement 策略。
 
 
@@ -403,4 +404,4 @@ Mobile Engagement SDK 自動收集的當機資料，會報告應用程式未處�
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -16,7 +16,7 @@
     ms.date="11/20/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/zh-TW/library/azure/hh694271.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
 # 適用於 Eclipse 的 Azure 工具組 #
 
@@ -28,9 +28,9 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 
 下列文章可協助您開始使用 Azure Toolkit for Eclipse：
 
-* [Azure Toolkit for Eclipse 的新功能][]
-* [安裝 Azure Toolkit for Eclipse][]
-* [在 Eclipse 中建立適用於 Azure 的 Hello World 應用程式][]
+* [適用於 Eclipse 的 Azure 工具組的新功能][]
+* [安裝適用於 Eclipse 的 Azure 工具組][]
+* [在 Eclipse 中為 Azure 建立 Hello World 應用程式][]
 * [在 Eclipse 中顯示 Azure Libraries for Java 封裝的 Javadoc 內容][]
 
 ## 進行 Azure 專案設定 ##
@@ -61,9 +61,9 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 
 ## 另請參閱 ##
 
-[安裝 Azure Toolkit for Eclipse][]
+[安裝適用於 Eclipse 的 Azure 工具組][]
 
-[在 Eclipse 中建立適用於 Azure 的 Hello World 應用程式][]
+[在 Eclipse 中為 Azure 建立 Hello World 應用程式][]
 
 [Azure Toolkit for Eclipse 的新功能][]
 
@@ -76,7 +76,7 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 [Azure 角色屬性]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure 服務端點]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 儲存體帳戶清單]: http://go.microsoft.com/fwlink/?LinkID=699528
-[在 Eclipse 中建立適用於 Azure 的 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
+[在 Eclipse 中為 Azure 建立 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
 [在 Eclipse 中偵錯 Azure 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699535
 [部署大型部署]: http://go.microsoft.com/fwlink/?LinkID=699536
 [在 Eclipse 中顯示 Azure Libraries for Java 封裝的 Javadoc 內容]: http://go.microsoft.com/fwlink/?LinkID=699537
@@ -87,10 +87,11 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 [如何使用專用快取]: http://go.microsoft.com/fwlink/?LinkID=699543
 [如何以 Eclipse 搭配 Azure 來使用 JMS 搭配 AMQP 1.0]: http://go.microsoft.com/fwlink/?LinkID=699544
 [如何使用 SSL 卸載]: http://go.microsoft.com/fwlink/?LinkID=699545
-[安裝 Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699546
+[安裝適用於 Eclipse 的 Azure 工具組]: http://go.microsoft.com/fwlink/?LinkID=699546
 [啟用工作階段同質]: http://go.microsoft.com/fwlink/?LinkID=699548
 [SSL 卸載]: http://go.microsoft.com/fwlink/?LinkID=699549
 [在 JSP 中使用 Azure 服務執行階段程式庫]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Azure Toolkit for Eclipse 的新功能]: http://go.microsoft.com/fwlink/?LinkID=699552
+[適用於 Eclipse 的 Azure 工具組的新功能]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

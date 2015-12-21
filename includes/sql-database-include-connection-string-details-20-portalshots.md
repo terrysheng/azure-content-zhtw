@@ -7,29 +7,29 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Obtain the connection string from the Azure portal
+### 從 Azure 入口網站取得連接字串
 
 
-Use the [Azure preview portal](http://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database:
+使用 [Azure Preview 入口網站](http://portal.azure.com/)來取得用戶端程式與 Azure SQL Database 進行互動的所需的連接字串：
 
 
-1. Click **BROWSE** > **SQL databases**.
+1. 按一下 [瀏覽] > [SQL 資料庫]。
 
-    ![Select SQL][1-select-sql]
+    ![選取 SQL][1-select-sql]
 
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
+2. 在 [SQL 資料庫] 刀鋒視窗左上角附近的篩選文字方塊中輸入您的資料庫名稱。
 
-    ![Select Database][2-select-database]]
+    ![選取資料庫][2-select-database]]
 
-3. Click the row for your database.
+3. 按一下資料庫的資料列。
 
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering.
+4. 在刀鋒視窗顯示您的資料庫之後，為了閱讀方便您可以按一下標準最小化控制項來摺疊用於瀏覽和資料庫篩選的刀鋒視窗。
 
-5. Make note of the **SQL database** name and the **Server name**.  The username will be yourusername@yourserver.
+5. 請記下 **SQL 資料庫**名稱和**伺服器名稱**。使用者名稱會是 yourusername@yourserver。
 
-	![Get Connection Details][3-get-connection-details]
+	![取得連線詳細資料][3-get-connection-details]
 
-7.  Paste the connection details into your client program code.  You will need to replace the {your_password_here} with your real password.
+7.  將連線詳細資料貼上您的用戶端程式碼。您必須使用您真正的密碼取代 {your\_password\_here}。
 
 
 <!--
@@ -55,3 +55,5 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+
+<!---HONumber=AcomDC_1210_2015-->

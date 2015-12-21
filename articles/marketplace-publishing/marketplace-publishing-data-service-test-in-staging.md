@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/24/2015"
+   ms.date="12/03/2015"
    ms.author="hascipio; avikova" />
 
 # 在預備環境中測試您的資料服務產品
-完成[在賣方儀表板中建立 Microsoft 賣方帳戶](marketplace-publishing-accounts-creation-registration.md)及[在發行入口網站中建立您的資料服務產品](marketplace-publishing-data-service-creation.md)這兩個步驟之後，您就可以開始準備在 Azure Marketplace 中銷售您的產品。本主題將逐步引導您執行第一個中繼步驟，稱為「預備環境」
+完成[建立 Microsoft 開發人員帳戶](marketplace-publishing-accounts-creation-registration.md)及[在發行入口網站中建立您的資料服務產品](marketplace-publishing-data-service-creation.md)這兩個步驟之後，您就可以開始準備在 Azure Marketplace 中銷售您的產品。本主題將逐步引導您執行第一個中繼步驟，稱為「預備環境」
 
 預備環境代表將您的供應項目部署在私人的「沙箱」中，您可以在推送到生產環境之前在沙箱中測試與驗證其功能。供應項目會出現在預備環境中，就如同客戶已部署該項目一樣。
 
@@ -86,4 +86,4 @@
 ## 另請參閱
 - [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

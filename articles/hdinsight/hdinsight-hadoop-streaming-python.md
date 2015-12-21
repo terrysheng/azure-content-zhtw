@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #開發適用於 HDInsight 的 Python 串流程式
@@ -23,7 +23,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 > [AZURE.NOTE]雖然本文件中的 Python 程式碼可以搭配以 Windows 為基礎的 HDInsight 叢集使用，這份文件中的步驟專門用於以 Linux 為基礎的叢集。
 
-本文是根據 Michael Noll 在 [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] (以 Python 撰寫 Hadoop MapReduce 程式) 所發佈的資訊和範例所撰寫而成。
+本文是根據 Michael Noll 在 [使用 Python 撰寫 Hadoop MapReduce 程式](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/)所發佈的資訊和範例撰寫而成。
 
 ##必要條件
 
@@ -205,4 +205,4 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

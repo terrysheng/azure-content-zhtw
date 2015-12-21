@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015"   
+	ms.date="12/09/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [目前的已知問題](#issues)
 - [REST API 版本歷程記錄](#rest_version_history)
+- [2015 年 12 月版本](#dec_changes_15)
 - [2015 年 11 月版本](#nov_changes_15)
 - [2015 年 10 月版本](#oct_changes_15)
 - [2015 年 9 月版本](#september_changes_15)
@@ -76,6 +77,19 @@ SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配
 
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
 
+##<a id="dec_changes_15"></a>2015 年 12 月版本
+
+Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/azure-sdk-for-php) 套件，其中包含 Microsoft Azure 媒體服務的更新與新功能。特別是 Azure Media Services SDK for PHP 現在支援最新的[內容保護](media-services-content-protection-overview.md)功能：在有和沒有權杖限制的情況下使用 AES 和 DRM (PlayReady 與 Widevine) 動態加密。它也支援調整[編碼單位](media-services-dotnet-encoding-units.md)大小。
+
+如需詳細資訊，請參閱：
+
+- [Microsoft Azure Media Services SDK for PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) 部落格。
+- 以下[程式碼範例](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可協助您快速上手：
+	- **vodworkflow\_aes.php**：這是一個 PHP 檔案，說明如何使用 AES-128 動態加密和金鑰傳遞服務。它是以[此](media-services-protect-with-aes128.md)文章中說明的 .NET 範例為依據。
+	- **vodworkflow\_aes.php**：這是一個 PHP 檔案，說明如何使用 PlayReady 動態加密和授權傳遞服務。它是以[此](media-services-protect-with-drm.md)文章中說明的 .NET 範例為依據。
+	- **scale\_encoding\_units.php**：這是一個 PHP 檔案，說明如何調編碼保留單位大小。
+
+
 ##<a id="nov_changes_15"></a>2015 年 11 月版本
 
 Azure 媒體服務現在在雲端提供 Google Widevine 授權傳遞服務。如需詳細資訊，請閱讀[本公告部落格](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。同時也參閱[本教學課程](media-services-protect-with-drm.md)和 [GitHub 儲存機制](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)。
@@ -105,11 +119,11 @@ Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、�
 	- 您現在可以使用 Apple HTTP Live Streaming (HLS) 格式搭配僅限音訊的篩選條件。這項更新可讓您在 URL 中指定 (audio-only=false) 來移除僅限音訊的曲目。
 	- 在定義您的資產篩選條件時，現在您可以結合多個 (最多 3 個) 篩選器到單一 URL 中。
 
-	如需詳細資訊，請參閱[此](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)部落格。
+	如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)。
 
 - AMS 現在支援 HLS v4 的 I-Frames。 I-Frames 支援最佳化向前快轉和倒轉的作業。根據預設，所有 HLS v4 輸出都包含 I-Frames 播放清單 (EXT-X-I-FRAME-STREAM-INF)。
  
-	如需詳細資訊，請參閱[此](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)部落格。
+	如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)。
 
 ##<a id="august_changes_15"></a>2015 年 8 月版本
 
@@ -621,4 +635,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

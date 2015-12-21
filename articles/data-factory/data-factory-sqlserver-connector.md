@@ -397,7 +397,7 @@
 | username | 如果您使用「Windows 驗證」，請指定使用者名稱。 | 否 |
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 | 否 |
 
-您可以使用 **New-AzureDataFactoryEncryptValue** Cmdlet 加密認證，並在連接字串中使用這些認證，如下列範例所示 (**EncryptedCredential** 屬性)：
+您可以使用 **New-AzureRmDataFactoryEncryptValue** Cmdlet 加密認證，並在連接字串中使用這些認證，如下列範例所示 (**EncryptedCredential** 屬性)：
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -505,35 +505,35 @@
 | SQL Server Database Engine 類型 | .NET Framework 類型 |
 | ------------------------------- | ------------------- |
 | bigint | Int64 |
-| binary | Byte |
+| binary | 位元組 |
 | bit | Boolean |
 | char | String、Char |
-| date | DateTime |
+| 日期 | DateTime |
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
-| FILESTREAM 屬性 (varbinary(max)) | Byte |
-| Float | Double |
-| image | Byte | 
+| 十進位 | 十進位 |
+| FILESTREAM 屬性 (varbinary(max)) | 位元組 |
+| Float | 兩倍 |
+| image | 位元組 | 
 | int | Int32 | 
-| money | Decimal |
+| money | 十進位 |
 | nchar | String、Char |
 | ntext | String、Char |
-| numeric | Decimal |
+| numeric | 十進位 |
 | nvarchar | String、Char |
-| real | Single |
-| rowversion | Byte |
+| real | 單一 |
+| rowversion | 位元組 |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimal | 
-| sql\_variant | Object * |
-| text | String、Char |
-| time | TimeSpan |
-| timestamp | Byte |
-| tinyint | Byte |
+| smallmoney | 十進位 | 
+| sql\_variant | 物件 * |
+| 文字 | String、Char |
+| 分析 | TimeSpan |
+| timestamp | 位元組 |
+| tinyint | 位元組 |
 | uniqueidentifier | Guid |
-| varbinary | Byte |
+| varbinary | 位元組 |
 | varchar | String、Char |
 | xml | Xml |
 
@@ -543,4 +543,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="12/04/2015"   
 	ms.author="juliako"/>
 
 #作法：檢查工作進度
@@ -437,4 +437,4 @@ Microsoft Azure 媒體服務能夠在處理媒體工作時，傳送通知訊息�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

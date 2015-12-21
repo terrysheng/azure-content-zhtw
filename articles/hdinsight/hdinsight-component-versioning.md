@@ -14,31 +14,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/03/2015"
 	ms.author="jgao"/>
 
 
 #HDInsight 所提供 Hadoop 叢集版本的新功能
 
 ##HDInsight 版本和 Hadoop 元件
-Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本選擇都會建立特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。下表列舉了與 HDInsight 叢集版本相關聯的元件版本。請注意，Azure HDInsight 目前所使用的預設叢集版本為 3.2 版，採用 HDP 2.2 (截至 11/19/2015 為止)。
+Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本選擇都會建立特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。下表列舉了與 HDInsight 叢集版本相關聯的元件版本。請注意，Azure HDInsight 目前所使用的預設叢集版本為 3.2 版，採用 HDP 2.2 (截止 2015/12/03 為止)。
 
 
-元件|HDInsight 3.2 版|HDInsight 3.1 版 (預設)|HDInsight 3.0 版|HDInsight 2.1 版
+元件|HDInsight 3.3 版 | HDInsight 3.2 版 (預設)|HDInsight 3.1 版 |HDInsight 3.0 版|
 ---|---|---|---|---
-Hortonworks Data Platform|2\.2|2\.1.7|2\.0|1\.3
-Apache Hadoop & YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
-Apache Tez|0\.5.2|0\.4.0||
-Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
-Apache Hive & HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
-Apache HBase (英文) |0\.98.4|0\.98.0||
-Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
-Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
-Apache Zookeeper|3\.4.6|3\.4.5|3\.4.5|
-Apache Storm|0\.9.3|0\.9.1||
-Apache Mahout|0\.9.0|0\.9.0||
-Apache Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
-Apache Spark|1\.3.1|||
+Hortonworks Data Platform|2\.3|2\.2|2\.1.7|2\.0|
+Apache Hadoop & YARN|2\.7.1|2\.6.0|2\.4.0|2\.2.0|
+Apache Tez|0\.7.0 | 0\.5.2|0\.4.0||
+Apache Pig|0\.15.0|0\.14.0|0\.12.1|0\.12.0|
+Apache Hive & HCatalog|1\.2.1|0\.14.0|0\.13.1|0\.12.0|
+Apache HBase (英文) |1\.1.1|0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.6|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.2.0|4\.1.0|4\.0.0|4\.0.0|
+Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
+Apache Storm|0\.10.0|0\.9.3|0\.9.1||
+Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
+Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
+Apache Spark|1\.3.1|1\.3.1|||
 
 
 **取得目前的元件版本資訊**
@@ -57,7 +57,7 @@ Apache Spark|1\.3.1|||
 ##功能要點
 一些 HDInsight 平台的突出功能包括：
 
-- **Spark** - Apache Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，以大幅提升巨量資料分析應用程式的效能。Spark 的記憶體內計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇 。
+- **Spark** - Apache Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。Spark 的記憶體內計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇 。
 
 	Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中繼階段寫入磁碟的方式，改善傳統的 MapReduce 架構。此外，Spark 與 Hadoop 分散式檔案系統 (HDFS) 和 Azure Blob 儲存體相容，因此可以輕鬆地透過 Spark 來處理現有的資料。
 
@@ -103,13 +103,14 @@ Apache Spark|1\.3.1|||
 * 依預設，系統會為 HDInsight 2.1 和更新版本部署搭配兩個前端節點的高可用性叢集。HDInsight 1.6 叢集並不適用。
 * 在特定版本的支援到期後，您可能無法透過 Azure 入口網站取得。下表指出可在 Azure 傳統入口網站上取得的版本。您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
 
-HDInsight 版本|HDP 版本|高可用性|發行日期|可在 Azure 傳統入口網站取得|支援到期日|淘汰日期
+HDInsight 版本|HDP 版本|高可用性|發行日期|可在 Azure 入口網站上取得|支援到期日|淘汰日期
 ---|---|---|---|---|---|---
+HDI 3.3|HDP 2.3|是|12/02/2015|是||
 HDI 3.2|HDP 2.2|是|2015/2/18|是||
 HDI 3.1|HDP 2.1|是|2014/6/24|是||
 HDI 3.0|HDP 2.0|是|02/11/2014|是|09/17/2014|06/30/2015
-HDI 2.1|HDP 1.3|是|10/28/2013|否|05/12/2014|05/31/2015
-HDI 1.6|HDP 1.1|否|10/28/2013|否|04/26/2014|05/31/2015
+HDI 2.1|HDP 1.3|是|10/28/2013|是|05/12/2014|05/31/2015
+HDI 1.6|HDP 1.1|否|10/28/2013|是|04/26/2014|05/31/2015
 
 **非預設叢集的部署**
 
@@ -126,12 +127,16 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 ## 與 HDInsight 版本相關聯的 Hortonworks 版本資訊##
 
-* HDInsight 叢集 3.2 版採用以 [Hortonworks Data Platform 2.2][hdp-2-2] 為基礎的 Hadoop 散發。
+* HDInsight 叢集 3.3 版採用以 [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) 為基礎的 Hadoop 散發。
+	* Apache Storm 版本資訊可從[這裡](https://storm.apache.org/2015/11/05/storm0100-released.html)取得。
+	* Apache Hive 版本資訊可從[這裡](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843)取得。
+
+* HDInsight 叢集 3.2 版採用以 [Hortonworks Data Platform 2.2][hdp-2-2] 為基礎的 Hadoop 散發。這是使用入口網站時所建立的**預設** Hadoop 叢集。
 
 	* 特定 Apache 元件的版本資訊 - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450)、[Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954)、[HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810)、[Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581)、[M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180)、[HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181)、[YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197)、[Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179)、[Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742)、[Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486)、[Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112)、[Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620)。
 
 
-* HDInsight 叢集 3.1 版採用以 [Hortonworks Data Platform 2.1.7][hdp-2-1-7] 為基礎的 Hadoop 散發。這是在 2014/11/7 之後使用入口網站時所建立的**預設** Hadoop 叢集。2014/11/7 前建立的 HDInsight 3.1 叢集以 [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 為基礎
+* HDInsight 叢集 3.1 版採用以 [Hortonworks Data Platform 2.1.7][hdp-2-1-7] 為基礎的 Hadoop 散發。在 2014/11/7 之前建立的 HDInsight 3.1 叢集是以 [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 為基礎。
 
 * HDInsight 叢集 3.0 版採用以 [Hortonworks Data Platform 2.0][hdp-2-0-8] 為基礎的 Hadoop 散發。
 
@@ -162,4 +167,4 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

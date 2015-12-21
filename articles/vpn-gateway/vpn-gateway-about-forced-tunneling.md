@@ -10,7 +10,11 @@
 
 # 設定強制通道
 
-本文適用於使用傳統部署模型所建立的 VNet 和 VPN 閘道。如果您想要針對使用資源管理員部署模型所建立的 VNet 和 VPN 閘道設定強制通道，請參閱[針對使用 PowerShell 和 Azure 資源管理員設定強制通道](vpn-gateway-forced-tunneling-rm.md)。
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+本文適用於使用傳統部署模型 (也稱為「服務管理」) 所建立的 VNet 和 VPN 閘道。如果您想要針對使用資源管理員部署模型所建立的 VNet 和 VPN 閘道設定強制通道，請參閱[針對使用 PowerShell 和 Azure 資源管理員設定強制通道](vpn-gateway-forced-tunneling-rm.md)。
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -32,11 +36,11 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 -  每個虛擬網路的子網路皆有內建的系統路由表。系統路由表具有下列 3 個路由群組：
 
-	- **本機 VNet 路由：**直接連接至相同虛擬網路中的目的地 VM
+	- **本機 VNet 路由：**直接連接到相同虛擬網路中的目的地 VM
 	
-	- **內部部署路由：**連接至 Azure VPN 閘道
+	- **內部部署路由：**連接到 Azure VPN 閘道
 	
-	- **預設路由：**直接連接至網際網路。請注意，系統將會卸除尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
+	- **預設路由：**直接連接到網際網路。請注意，系統將會卸除尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
 
 
 
@@ -44,13 +48,13 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 - 強制通道必須與具有動態路由 VPN 閘道 (非靜態閘道) 的 VNet 相關聯。您需要在連接到虛擬網路的內部部署本機網站間設定「預設網站」。
 
-- 請注意，ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。請參閱 [ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)以取得詳細資訊。
+- 請注意，ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。請參閱 [ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)，以取得詳細資訊。
 
 ## 組態概觀
 
 下方程序將協助您指定虛擬網路的強制通道。設定步驟會對應至下方的虛擬網路 Netcfg 檔範例。
 
-在此範例中，多層式 VNet 虛擬網路具有 3 個子網路：*前端*、*中層*，和*後端*子網路，包含 4 個跨單位連接：*DefaultSiteHQ*，以及 3 個*分支*。程序步驟會將 *DefaultSiteHQ* 設定為強制通道的預設網站連接，並設定*中層*和*後端*子網路以使用強制通道。
+在此範例中，"MultiTier-VNet" 虛擬網路具有 3 個子網路：「前端」、「中層」，和「後端」子網路，包含 4 個跨單位連線：*DefaultSiteHQ*，以及 3 個「分支」。程序步驟會將 *DefaultSiteHQ* 設定為強制通道的預設網站連接，並設定「中層」和「後端」子網路以使用強制通道。
 
 	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
@@ -153,4 +157,4 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

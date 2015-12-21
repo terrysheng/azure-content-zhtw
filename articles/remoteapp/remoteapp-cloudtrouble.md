@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="RemoteApp 雲端集合疑難排解 - 建立"
-    description="了解如何疑難排解 RemoteApp 雲端集合建立失敗" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="vkbucha" 
+<properties
+    pageTitle="RemoteApp 雲端集合疑難排解 - 建立 | Microsoft Azure"
+    description="了解如何疑難排解 RemoteApp 雲端集合建立失敗"
+    services="remoteapp"
+    documentationCenter=""
+    authors="vkbucha"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="11/04/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
     ms.author="vikbucha" />
 
 
@@ -32,7 +32,7 @@
 
 雲端集合通常會因為您在建立期間使用自訂映像而失敗。如果您看到上述其中一個錯誤，而且您正在使用自訂映像來建立集合，請檢查下列事項：
 
-- 確定上傳的自訂映像符合映像需求。 
+- 確定上傳的自訂映像符合映像需求。
 - 最常見的問題是映像的 Sysprep 處理不正確。  
 - 確認映像可以在 HYPER-V 內開機，或嘗試直接在 Azure 訂閱中使用映像建立 IAAS VM。如果 VM 無法開機且未啟動，則通常表示未正確準備自訂映像。請遵循＜如何為 RemoteApp 建立自訂範本映像＞來確認已建立自訂映像
 
@@ -41,6 +41,5 @@
 	PlatformImageTrialModeOnly
 
 如果看到這個錯誤，通常表示您已經升級至付費帳戶，但您正在嘗試使用 Microsoft 提供的映像，而該映像只在服務的試用模式期間有效。在此情況下，請嘗試再次建立您的雲端集合，但務必指定正確的映像。
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

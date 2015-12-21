@@ -37,7 +37,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure**，這應該會導致下列輸出：
 
@@ -67,15 +67,15 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-執行下列步驟，可從 Azure 管理入口網站取得連線 **connectionstring** 值：
+執行下列步驟，可從 [Azure 傳統入口網站]取得連線 **connectionstring** 值：
 
-1. 從 Azure 管理入口網站中選取 [服務匯流排]，然後選取包含通知中心的命名空間。
+1. 從 [Azure 傳統入口網站]中選取 [服務匯流排]，然後選取包含通知中樞的命名空間。
 
 2. 選取 [通知中心]，然後選取您要使用的中心。
 
 3. 從 [quick glance] 區段中選取 [檢視連接字串]，然後複製連接字串值。
 
-> [AZURE.NOTE] 您也可以使用 Azure PowerShell 所提供的 **Get-AzureSbNamespace** Cmdlet，或透過 Azure 命令列介面 (Azure CLI) 使用 **Azure Sb Namespace Show** 命令，來擷取連接字串。
+> [AZURE.NOTE]您也可以使用 Azure PowerShell 所提供的 **Get-AzureSbNamespace** Cmdlet，或透過 Azure 命令列介面 (Azure CLI) 使用 **Azure Sb Namespace Show** 命令，來擷取連接字串。
 
 </div>
 
@@ -197,7 +197,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
@@ -213,4 +213,4 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

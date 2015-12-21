@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/27/2015"
+   ms.date="12/03/2015"
    ms.author="larryfr"/>
 
 #使用 Ambari Web UI 管理 HDInsight 叢集
@@ -216,4 +216,12 @@ Ambari 提供許多警示，其可能狀態如下：
 
 3. 使用顯示的欄位修改組態，然後選取 [**儲存**]。或選取先前的組態，然後選取 [**設為現用**] 以回復到先前的設定。
 
-<!---HONumber=Nov15_HO1-->
+##Ambari 檢視
+
+Ambari 檢視可讓開發人員使用 [Ambari 檢視架構](https://cwiki.apache.org/confluence/display/AMBARI/Views) 將 UI 元素插入 Ambari Web UI 中。HDInsight 提供下列具有 Hadoop 叢集類型的檢視：
+
+* Yarn 佇列管理員：佇列管理員提供簡單的 UI 以用於檢視及修改 YARN 佇列。
+* Hive 檢視：Hive 檢視可讓您直接從網頁瀏覽器執行 Hive 查詢。您可以儲存查詢、檢視結果、將結果儲存至叢集存放區，或將結果下載到您本機系統。如需有關使用 Hive 檢視的詳細資訊，請參閱[在 HDInsight 上使用 Hive 檢視](hdinsight-hadoop-use-hive-ambari-view.md)。
+* Tez 檢視：Tez 檢視可讓您透過檢視 Tez 工作執行方式及工作使用哪些資源的相關資訊，更深入了解工作以及將工作最佳化。
+
+<!---HONumber=AcomDC_1210_2015-->

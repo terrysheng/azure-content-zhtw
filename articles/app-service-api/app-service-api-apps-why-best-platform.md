@@ -34,18 +34,18 @@ API Apps 提供下列功能：
 
 - **Visual Studio 整合** - Visual Studio 中的專用工具，可簡化建立、部署、使用、偵錯和管理 API Apps 的工作。如需詳細資訊，請參閱[發表 Azure SDK 2.8.1 for .NET](/blog/announcing-azure-sdk-2-8-1-for-net/)。
 
-- **與邏輯應用程式整合** - 您建立的 API 應用程式可供 [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) 使用。如需 API Apps 與 Logic Apps 整合方式有哪些持續變更的相關資訊，請參閱 [App Service API Apps - 變更的項目](app-service-api-whats-changed.md)。
+- **與邏輯應用程式整合** - 您建立的 API 應用程式可供 [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) 使用。請參閱[將您裝載在 App Service 上的自訂 API 與 Logic apps 一起使用](../app-service-logic/app-service-logic-custom-hosted-api.md)以了解方法。如需 API Apps 與 Logic Apps 整合方式有哪些持續變更的相關資訊，請參閱 [App Service API Apps - 變更的項目](app-service-api-whats-changed.md)。
 
 - **繼續使用現有的 API** - 您不必變更現有 API 的任何程式碼，就能利用 API Apps 功能，只要將程式碼部署至 API 應用程式即可。您的 API 可以使用 App Service 支援的任何語言或架構，包括 ASP.NET 和 C#、Java、PHP、Node.js 和 Python。
 
 此外，API Apps、Web Apps 以及 Mobile Apps 所提供的功能可彼此互換。這表示 API Apps 的執行個體可利用 Web Apps 與 Mobile Apps 提供的 Web 與行動開發及主控功能。反之亦然，例如您可以使用 Web 應用程式來裝載 API，同時仍可使用 Swagger 中繼資料執行用戶端程式碼產生，以及使用 CORS 進行跨網域瀏覽器存取。如需詳細資訊，請參閱 [Web Apps 概觀](../app-service-web/app-service-web-overview.md)與 [Mobile Apps 概觀](../app-service-mobile/app-service-mobile-value-prop.md)。
 
->[AZURE.NOTE]您可以使用 [Azure API 管理](../api-management/api-management-key-concepts.md)控制對 App Service API Apps 裝載之 API 的用戶端存取。雖然 API Apps 提供驗證服務，但有一些其他存取管理功能是它不提供而「API 管理」有提供的，例如端點合併和節流。
+>[AZURE.NOTE]您可以使用 [Azure API 管理](../api-management/api-management-key-concepts.md)來控制戶端存取 App Service API Apps 裝載的 API。雖然 API Apps 提供驗證服務，但有一些其他存取管理功能是它不提供而「API 管理」有提供的，例如端點合併和節流。
 
 ## API 應用程式概念 ##
 
-- **Swagger** - 一種說明和探索 RESTful API 的架構，依預設用於 API Apps。如需詳細資訊，請參閱 [http://swagger.io/](http://swagger.io/)。
-- **跨原始資源共用 (CORS)** -此機制可讓 JavaScript 在瀏覽器中執行，以呼叫裝載於非網頁載入來源網域上的 API。如需詳細資訊，請參閱[使用 CORS 從 JavaScript 取用 API 應用程式](app-service-api-cors-consume-javascript.md)。 
+- **Swagger** - 預設用於 API Apps 的架構，可說明和探索 RESTful API。如需詳細資訊，請參閱 [http://swagger.io/](http://swagger.io/)。
+- **跨原始資源共用 (CORS)** -此機制可讓在瀏覽器中執行的 JavaScript 呼叫裝載於非網頁載入來源網域上的 API。如需詳細資訊，請參閱[使用 CORS 從 JavaScript 取用 API 應用程式](app-service-api-cors-consume-javascript.md)。 
 - **觸發程序** - 一種 REST API，[邏輯應用程式](../app-service-logic/app-service-logic-what-are-logic-apps.md)可在符合特定條件時，呼叫它以初始化工作流程。例如，API 應用程式可以提供邏輯應用程式定期呼叫的方法，以在 Twitter 摘要中尋找特定詞組。如需詳細資訊，請參閱 [API 應用程式觸發程序](app-service-api-dotnet-triggers.md)。
 - **動作** - 一種 REST API，[邏輯應用程式](../app-service-logic/app-service-logic-what-are-logic-apps.md)可在工作流程已由觸發程序啟動之後，呼叫它以處理資料.例如，API 應用程式可以提供一種方法，供邏輯應用程式呼叫，以回應 Twitter 觸發程序找到的推文。動作是由 Swagger API 定義公開的 API 方法。
 
@@ -57,4 +57,4 @@ API Apps 提供下列功能：
 
 如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

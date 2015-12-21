@@ -1,7 +1,7 @@
 <properties
 	pageTitle="調整串流分析工作以增加輸送量 | Microsoft Azure"
 	description="了解如何透過設定輸入資料分割、微調查詢定義，及設定工作串流處理單元來調整串流分析工作。"
-	keywords="分析工作,資料流,資料流,analytics jobs,data stream,data streaming"
+	keywords="資料串流處理, 串流資料處理, 微調分析"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,22 +14,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
-# 調整 Azure 串流分析工作，以增加輸送量 #
+# 調整 Azure 串流分析工作，以提高串流資料處理的輸送量 #
 
-了解如何計算串流分析工作的「串流處理單元」，以及如何藉由設定輸入資料分割、微調查詢定義，及設定工作串流處理單元來調整串流分析工作。
+了解如何微調分析工作及計算串流分析的「串流處理單元」，以及如何藉由設定輸入資料分割、微調查詢定義，及設定工作串流處理單元來調整串流分析工作。
 
 ## 串流分析工作由哪些部分所組成？ ##
-Azure 串流分析工作定義包含輸入、查詢及輸出。輸入是工作從中讀取串流之處，查詢則是用來轉換輸入串流，而輸出是工作將工作結果傳送到的位置。
+串流分析工作的定義包含輸入、查詢及輸出。輸入是工作從中讀取串流之處，查詢則是用來轉換輸入串流，而輸出是工作將工作結果傳送到的位置。
 
 一個工作至少需要一個輸入來源來進行資料串流。資料流輸入來源可以儲存在 Azure 服務匯流排事件中樞或 Azure Blob 儲存體。如需詳細資訊，請參閱 [Azure 串流分析簡介](stream-analytics-introduction.md)、[開始使用 Azure 串流分析](stream-analytics-get-started.md)及 [Azure 串流分析開發人員指南](../stream-analytics-developer-guide.md)。
 
 ## 設定串流處理單位 ##
 串流處理單位 (SU) 代表執行 Azure 串流分析工作的資源和能力。SU 會根據 CPU、記憶體，以及讀寫率的混合量值，提供一個方式來描述相關的事件處理容量。每個串流處理單元會對應至約 1 MB/秒的輸送量。
 
-選擇特定工作所需的 SU 數量取決於輸入的磁碟分割設定以及針對工作定義的查詢。您可以使用 Azure 傳統入口網站，為工作選取串流處理單元的配額上限。在特定區域中，每個 Azure 訂用帳戶的所有分析工作預設最多有 50 個串流處理單元的配額。若要增加訂用帳戶的串流處理單元，請連絡 [Microsoft 支援服務](http://support.microsoft.com)。
+選擇特定工作所需的 SU 數量取決於輸入的磁碟分割設定以及針對工作定義的查詢。您可以使用 Azure 入口網站，為工作選取串流處理單元的配額上限。在特定區域中，每個 Azure 訂用帳戶的所有分析工作預設最多有 50 個串流處理單元的配額。若要增加訂用帳戶的串流處理單元，請連絡 [Microsoft 支援服務](http://support.microsoft.com)。
 
 工作可以使用的串流處理單元數目，取決於輸入的資料分割設定以及為工作定義的查詢。此外請注意，必須使用有效的串流處理單元的值。有效值從 1、3、6 開始，然後以 6 向上遞增，如下所示。
 
@@ -147,20 +147,20 @@ Azure 串流分析工作定義包含輸入、查詢及輸出。輸入是工作�
 
 **若要調整工作的串流處理單元**
 
-1. 登入[傳統入口網站](https://manage.windowsazure.com)。
+1. 登入[管理入口網站](https://manage.windowsazure.com)。
 2. 按一下左窗格中的 [串流分析]。
 3. 按一下您要調整的資料流分析工作。
 4. 按一下頁面頂端的 [調整]。
 
 ![Azure 串流分析的串流處理單元調整][img.stream.analytics.streaming.units.scale]
 
-在 Azure 入口網站的 [設定] 下可以調整設定：
+在 Azure Preview 入口網站的 [設定] 下可以調整設定：
 
-![Azure 入口網站的串流分析工作組態][img.stream.analytics.preview.portal.settings.scale]
+![Azure Preview 入口網站的串流分析工作組態][img.stream.analytics.preview.portal.settings.scale]
 
 ## 監視工作效能 ##
 
-使用傳統入口網站可讓您追蹤工作的輸送量 (事件數/秒)：
+使用管理入口網站可讓您追蹤工作的輸送量 (事件數/秒)：
 
 ![Azure 串流分析監視工作][img.stream.analytics.monitor.job]
 
@@ -265,4 +265,4 @@ Azure 串流分析工作定義包含輸入、查詢及輸出。輸入是工作�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

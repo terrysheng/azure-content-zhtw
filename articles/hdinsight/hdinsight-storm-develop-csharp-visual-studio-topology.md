@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 # 使用 Visual Studio 的 Hadoop 工具開發 Apache Storm on HDInsight 的 C# 拓撲
@@ -656,6 +656,6 @@ Context.Logger.Info("Component started");
 
 **Apache HBase on HDInsight**
 
--	[開始使用 HBase on HDInsight](../hdinsight-hbase-get-started.md)
+-	[開始使用 HBase on HDInsight](hdinsight-hbase-get-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

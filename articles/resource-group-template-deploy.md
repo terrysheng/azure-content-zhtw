@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/08/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
@@ -24,6 +24,21 @@
 
 使用範本部署應用程式時，您可以提供參數值，以自訂建立資源的方式。您可以透過內嵌方式或在參數檔案中指定這些參數的值。
 
+## 累加部署與完整部署
+
+資源管理員預設會將部署處理為資源群組的累加式更新。使用累加部署，資源管理員將：
+
+- **保留且不變更**現存於資源群組中但未在範本中指定的資源
+- **加入**在範本中指定但未存在於資源群組中的資源 
+- **不重新佈建**現存於資源群組，並在範本中以相同條件定義的資源
+
+透過 Azure PowerShell 或 REST API，您可以指定對資源群組的完整更新。Azure CLI 目前不支援完整部署。使用完整部署，資源管理員將：
+
+- **刪除**現存於資源群組中但未在範本中指定的資源
+- **加入**在範本中指定但未存在於資源群組中的資源 
+- **不重新佈建**現存於資源群組，並在範本中以相同條件定義的資源
+ 
+您可以透過 **Mode** 屬性指定部署類型。
 
 ## 使用 PowerShell 部署
 
@@ -45,7 +60,7 @@
 
         PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-3. 如果您沒有現有資源群組，請使用 **New-AzureRmResourceGroup** 命令建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。隨即傳回新資源群組的摘要。
+3. 如果您沒有現有的資源群組，請使用 **New-AzureRmResourceGroup** 命令建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。隨即傳回新資源群組的摘要。
 
         PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -59,7 +74,7 @@
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. 若要建立資源群組的新部署，請執行 **New-AzureRmResourceGroupDeployment** 命令，並提供必要的參數。參數會包含您部署的名稱、資源群組的名稱、您建立之範本的路徑或 URL，以及您的案例所需的任何其他參數。
+5. 若要建立資源群組的新部署，請執行 **New-AzureRmResourceGroupDeployment** 命令，並提供必要的參數。參數會包含您部署的名稱、資源群組的名稱、您建立之範本的路徑或 URL，以及您的案例所需的任何其他參數。沒有指定 **Mode** 參數，表示使用預設值 **Incremental**。
    
      您有下列選項可以用來提供參數值：
    
@@ -85,10 +100,18 @@
           Mode              : Incremental
           ...
 
+     若要執行完整部署，將 **Mode** 設為 **Complete**。
+
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          Confirm
+          Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
+          included in the template will be deleted.
+          [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
 6. 取得部署失敗的相關資訊。
 
         PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
-
+        
         
 ### 影片
 
@@ -180,7 +203,7 @@
              }
            }
    
-3. 建立新的資源群組部署。提供您的訂用帳戶識別碼、要部署之資源群組的名稱、部署的名稱，以及範本的位置。如需範本檔案的相關資訊，請參閱[參數檔案](./#parameter-file)。如需以 REST API 建立資源群組的相關詳細資訊，請參閱 [建立範本部署](https://msdn.microsoft.com/library/azure/dn790564.aspx)。
+3. 建立新的資源群組部署。提供您的訂用帳戶識別碼、要部署之資源群組的名稱、部署的名稱，以及範本的位置。如需範本檔案的相關資訊，請參閱[參數檔案](./#parameter-file)。如需以 REST API 建立資源群組的相關詳細資訊，請參閱 [建立範本部署](https://msdn.microsoft.com/library/azure/dn790564.aspx)。若要執行完整部署，將 **mode** 設為 **Complete**。
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -249,4 +272,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

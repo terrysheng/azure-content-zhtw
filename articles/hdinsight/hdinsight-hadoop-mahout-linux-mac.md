@@ -249,9 +249,9 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作�
 
 您現在已了解如何使用 Mahout，請繼續探索在 HDInsight 上使用資料的其他方法：
 
-* [搭配 HDInsight 使用 Hive](../hadoop-use-hive.md)
-* [搭配 HDInsight 使用 Pig](../hadoop-use-pig.md)
-* [搭配 HDInsight 使用 MapReduce](../hadoop-use-mapreduce.md)
+* [搭配 HDInsight 使用 Hive](hadoop-use-hive.md)
+* [搭配 HDInsight 使用 Pig](hadoop-use-pig.md)
+* [搭配 HDInsight 使用 MapReduce](hadoop-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
@@ -267,4 +267,4 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

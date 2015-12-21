@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Azure 媒體服務概念 
@@ -104,9 +104,11 @@ Blob 容器提供一組 blob。Blob 容器在媒體服務中是做為存取控�
 
 ##即時資料流
 
-###內部部署 (第三方) 即時編碼器
+在 Azure 媒體服務中，通道代表處理即時串流內容的管線。通道會以兩種方式之一收到即時輸入串流：
 
-內部部署即時編碼器 (或轉碼器) 會將從您的相機串流的音訊及/或視訊轉換為多位元速率 RTMP 或 Smooth Streaming 格式。接著轉碼器再將調適性位元速率 RTMP 或 Smooth Stream 推播至媒體服務通道。然後由媒體服務廣播即時事件。
+- 內部部署即時編碼器會傳送多位元速率 RTMP 或 Smooth Streaming (分散的 MP4) 到通道。您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：Elemental、Envivio、Cisco。下列即時編碼器會輸出 RTMP：Adobe Flash Live、Telestream Wirecast 和 Tricaster 轉錄器。內嵌的資料流可以通過通道，無需進一步的處理。接到要求時，媒體服務會傳遞串流給客戶。
+
+- 單一位元速率串流 (下列格式之一：RTP (MPEG-TS))、RTMP 或 Smooth Streaming (分散的 MP4)) 會傳送至通道來執行啟用的通道來以媒體服務執行即時編碼。通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。接到要求時，媒體服務會傳遞串流給客戶。
 
 ###通道
 
@@ -116,9 +118,6 @@ Blob 容器提供一組 blob。Blob 容器在媒體服務中是做為存取控�
 
 每個媒體服務帳戶可以包含多個通道、多個程式和多個 StreamingEndpoints。根據頻寬和安全性需求，StreamingEndpoint 服務可以專屬於一或多個通道。任何 StreamingEndpoint 可以從任何通道中提取。
 
-依預設，您最多可以在媒體服務帳戶中新增 5 個通道。如欲要求放寬限制，請參閱「[配額和限制](media-services-quotas-and-limitations.md)」。
-
-只有通道處於執行中狀態時，才會向您收取費用。
 
 ###程式 
 
@@ -128,39 +127,39 @@ ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最
 
 每個程式都與一個資產相關聯。若要發佈程式，您必須建立相關資產的定位器。擁有此定位器，可讓您建立可以提供給用戶端的串流 URL。
 
-通道支援最多三個同時執行的程式，因此您可以建立相同內送串流的多個封存。這可讓您視需要發佈和封存事件的不同部分。例如，您的商務需求是封存 6 小時的程式，但只廣播最後 10 分鐘。為了達成此目的，您必須建立兩個同時執行的程式。其中一個程式設定為封存 6 小時的事件，但是未發行該程式。另一個程式設定為封存 10 分鐘，並發佈此程式。
+通道支援最多三個同時執行的程式，因此您可以建立相同內送串流的多個封存。這可讓您視需要發佈和封存事件的不同部分。例如，您的商務需求是封存 6 小時的程式，但只廣播最後 10 分鐘。為了達成此目的，您必須建立兩個同時執行的程式。其中一個程式設定為封存 6 小時的事件，但是未發行該程式。另一個程式則設定為封存 10 分鐘，並發行程式。
+
+
+如需詳細資訊，請參閱：
+
+- [使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)
+- [使用通道，從內部部署編碼器接收多位元速率即時串流](media-services-manage-channels-overview.md)
+- [配額和限制](media-services-quotas-and-limitations.md)。  
 
 ##保護內容
 
 ###動態加密
 
-Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady DRM 所動態加密的內容。
+Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存、處理和傳遞時的安全。媒體服務可讓您傳遞利用進階加密標準 (AES) (使用 128 位元加密金鑰) 動態加密和使用 PlayReady 和/或 Widevine DRM 的一般加密 (CENC) 的內容。媒體服務也提供服務，傳遞 AES 金鑰和 PlayReady 授權給授權用戶端。Azure 媒體服務所提供的 Widevine 授權傳遞服務目前為預覽狀態。
 
 目前，您可以加密下列串流格式：HLS、MPEG DASH 和 Smooth Streaming。無法加密 HDS 串流格式，或漸進式下載。
 
 如果您想要媒體服務加密資產，則需要建立加密金鑰 (CommonEncryption 或 EnvelopeEncryption) 與資產的關聯，同時設定金鑰的授權原則。
 
-您也需要設定資產的傳遞原則。如果您想要串流處理儲存體加密的資產，請一定要透過設定資產傳遞原則來指定資產傳遞方式。
+如果您要串流儲存體加密資產，您必須設定資產的傳遞原則，以指定資產的傳遞方式。
 
-播放程式要求串流時，媒體服務便會使用 AES 或 PlayReady 加密，使用指定的金鑰動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
+播放程式要求串流時，媒體服務便會使用信封加密 (使用 AES) 或一般加密 (使用 PlayReady 或 Widevine)，並使用指定的金鑰動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
-###PlayReady DRM 授權和 AES 清除金鑰傳遞服務
-
-媒體服務提供一種服務，將 PlayReady 授權和 AES 純文字金鑰傳遞給授權用戶端。若要設定您授權和金鑰的授權和驗證原則，才能使用 Azure 傳統入口網站、REST API 或 Media Services SDK for .NET。
-
-請注意，如果您是使用入口網站，則可以設定一個 AES 原則 (將會套用到所有 AES 加密內容) 以及一個 PlayReady 原則 (將會套用到所有 PlayReady 加密內容)。如果您想要進一步控制組態，請使用 Media Services SDK for .NET。
-
-###PlayReady 授權範本
-
-媒體服務提供一種服務，來傳遞 PlayReady 授權。使用者播放程式 (例如 Silverlight) 嘗試播放 PlayReady 保護內容時，會將要求傳送到授權傳遞服務來取得授權。如果授權服務核准要求，就會發出傳送給用戶端並可用來解密和播放所指定內容的授權。
-
-授權包含您要 PlayReady DRM 執行階段在使用者嘗試播放受保護內容時強制執行的權限和限制。媒體服務提供可讓您設定 PlayReady 授權的 API。如需詳細資訊，請參閱[媒體服務 PlayReady 授權範本概觀](https://msdn.microsoft.com/library/azure/dn783459.aspx)。
 
 ###權杖限制
 
 內容金鑰授權原則可能會有一個或多個授權限制：Open、權杖限制或 IP 限制。token 限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。媒體服務支援簡單 Web 權杖 (SWT) 格式和 JSON Web 權杖 (JWT) 格式的權杖。媒體服務不提供安全權杖服務。您可以建立自訂 STS，或利用 Microsoft Azure ACS 來發行權杖。STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。如果權杖有效，且權杖中的宣告符合針對金鑰 (或授權) 所設定的宣告，媒體服務金鑰傳遞服務會將所要求的金鑰 (或授權) 傳回給用戶端。
 
 設定 token 限制原則時，您必須指定主要驗證金鑰、簽發者和對象參數。主要驗證金鑰包含簽署權杖使用的金鑰，簽發者是發行權杖的安全權杖服務。對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
+
+如需詳細資訊，請參閱下列文章。
+
+[保護內容概觀](media-services-content-protection-overview.md) [利用 AES-128 保護](media-services-protect-with-aes128.md) [利用 DRM 保護](media-services-protect-with-drm.md)
 
 ##傳遞
 
@@ -249,4 +248,4 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

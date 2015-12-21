@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="如何使用 Azure 傳統入口網站檢查工作進度" 
-	description="如何使用 Azure 傳統入口網站追蹤工作進度" 
+	description="了解如何使用 Azure 傳統入口網站追蹤工作進度。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/04/2015" 
 	ms.author="juliako"/>
 
 #作法：檢查工作進度
@@ -50,4 +50,4 @@
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

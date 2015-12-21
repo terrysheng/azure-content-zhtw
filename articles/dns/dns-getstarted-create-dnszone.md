@@ -32,37 +32,28 @@ Azure DNS 使用 Azure 資源管理員 (ARM)。針對 Azure PowerShell 1.0.0 與
 
 
 ### 步驟 1
+登入您的 Azure 帳戶 (系統會提示使用您的認證進行驗證)
 
-		PS C:\> Login-AzureRmAccount
-
-
+	PS C:\> Login-AzureRmAccount
 
 ### 步驟 2
+選擇其中一個要使用的 Azure 訂用帳戶。
 
-檢查帳戶的訂用帳戶
+	PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-		PS C:\> get-AzureRmSubscription 
+您可以使用 'Get-AzureRmSubscription' 列出可用的訂用帳戶。
 
-系統會提示使用您的認證進行驗證。<BR>
+### 步驟 3
+建立新的資源群組 (若使用現有的資源群組，請略過此步驟)。
 
-### 步驟 3 選擇其中一個要使用的 Azure 訂用帳戶。<BR>
+	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 
-
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Azure 資源管理員需要所有的資源群組指定一個位置。這用來作為該資源群組中資源的預設位置。然而，因為所有 DNS 資源是全球性，而非區域性，資源群組位置的選擇不會對 Azure DNS 造成影響。
 
 ### 步驟 4
-建立資源群組 (若使用現有的資源群組，請略過此步驟)<BR>
-
-		PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
-
-
-Azure 資源管理員需要所有的資源群組指定一個位置。這用來作為該資源群組中資源的預設位置。然而，因為所有 DNS 資源是全球性，而非區域性，資源群組位置的選擇不會對 Azure DNS 造成影響。<BR>
-
-### 步驟 5
-
 Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂用帳戶必須註冊為使用此資源提供者，您才能使用 Azure DNS。此為每個訂用帳戶的一次性作業。
 
-	PS c:> Register-AzureRmProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -90,7 +81,7 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 使用 New-AzureRmDnsZone cmdlet 建立 DNS 區域。在下列範例中，我們將在稱為 'MyResourceGroup' 的資源群組中建立稱為 'contoso.com' 的 DNS 區域：<BR>
 
-		PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 >[AZURE.NOTE]在 Azure DNS 中，指定的區域名稱結尾不能有 ‘.’。例如，指定為 'contoso.com'，而非 'contoso.com.'。<BR>
 
@@ -104,7 +95,7 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 若要檢視這些記錄，請使用 Get-AzureRmDnsRecordSet：
 
-		PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -149,11 +140,9 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
         		expire  = 604800 (7 days)
         		default TTL = 300 (5 mins)
 
-
 ## 後續步驟
-
 
 [開始建立記錄集與記錄](dns-getstarted-create-recordset.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -132,11 +132,11 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 您可以利用下列方式之一來重新執行配量：
 
 - 針對入口網站中的配量，在 [**資料配量**] 刀鋒視窗的命令列中按一下 [**執行**]。 
-- 在配量的狀態設為 **PendingExecution** 的情況下，執行 **Set-AzureDataFactorySliceStatus** Cmdlet。   
+- 在配量的狀態設為 **PendingExecution** 的情況下，執行 **Set-AzureRmDataFactorySliceStatus** Cmdlet。   
 	
-		Set-AzureDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
-如需 Cmdlet 的詳細資料，請參閱 [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status]。
+如需 Cmdlet 的詳細資料，請參閱 [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status]。
 
 ### 處理配量需要多久的時間？
 1. 在您 Data Factory 的 **Data Factory** 刀鋒視窗中，按一下 [**資料集**] 磚。
@@ -147,7 +147,7 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 6. 您應該會看到 [持續時間] 欄位與值。這是處理配量所需的時間。   
 
 ### 如何停止執行中配量？
-如果需要停止執行管線，可以使用 [Suspend-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn834939.aspx) Cmdlet。目前，擱置管線並不會停止正在進行的配量執行。一旦進行中的執行完成，就不會再挑選任何額外的配量。
+如果需要停止執行管線，可以使用 [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) Cmdlet。目前，擱置管線並不會停止正在進行的配量執行。一旦進行中的執行完成，就不會再挑選任何額外的配量。
 
 如果真的想要立即停止所有執行作業，唯一的方法就是刪除管線，然後再重新建立。如果您選擇刪除管線，則「不」需要刪除管線所使用的資料表和連結服務。
 
@@ -169,7 +169,7 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
+[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
@@ -177,4 +177,4 @@ Data Factory 可在美國西部和北歐地區使用。資料處理站所使用�
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

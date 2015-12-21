@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple"
-   ms.date="12/02/2015"
+   ms.date="12/03/2015"
    ms.author="riande"/>
 
 # 使用 Azure PowerShell 管理 Azure Redis 快取
@@ -94,9 +94,9 @@
 
 - [MSDN 上的 Azure Redis Cache Cmdlet 文件](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Azure 資源管理員 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765)：深入了解在 AzureResourceManager 模組中使用 Cmdlet。
-- [使用資源群組以管理您的 Azure 資源](../azure-portal/resource-group-portal.md)：了解在 Azure Preview 入口網站中建立和管理資源群組。
+- [使用資源群組以管理您的 Azure 資源](../azure-portal/resource-group-portal.md)：了解在 Azure 入口網站中建立和管理資源群組。
 - [Azure 部落格](http://blogs.msdn.com/windowsazure)：深入了解 Azure 的新功能。
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - ["Hey, Scripting Guy!" 部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

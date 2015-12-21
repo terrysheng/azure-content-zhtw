@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2015"
+	ms.date="12/05/2015"
 	ms.author="juliako"/>
 
 
@@ -64,7 +64,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-使用 **Azure 傳統入口網站**、**.NET** 或 **REST API**，以 Azure 媒體編碼器進行編碼。
+使用 **Azure 傳統入口網站**、**.NET** 或 **REST API**，以 **Azure 媒體編碼器**進行編碼。
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -105,4 +105,4 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

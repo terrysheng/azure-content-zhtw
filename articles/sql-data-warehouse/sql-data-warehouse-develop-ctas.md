@@ -17,7 +17,7 @@
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 在 SQL 資料倉儲中的 Create Table As Select (CTAS)
-Create table as select 或 CTAS 是最重要的可用 T-SQL 功能之一。這是根據 SELECT 陳述式的輸出建立新資料表的完全平行化作業。CTAS 是建立資料表複本最簡單快速的方法。您可以根據意願將它視為 SELECT..INTO 的增強版本。本文件提供 CTAS 的範例和最佳做法。
+Create table as select 或 CTAS 是最重要的可用 T-SQL 功能之一。該作業與根據 SELECT 陳述式的輸出來建立新資料表的作業完全平行。CTAS 是建立資料表複本最簡單快速的方法。您可以根據意願將它視為 SELECT..INTO 的增強版本。本文件提供 CTAS 的範例和最佳做法。
 
 ## 使用 CTAS 複製資料表
 
@@ -84,11 +84,11 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-> [AZURE.NOTE]Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱主題群組＜開發＞之中的[統計資料][]主題。
+> [AZURE.NOTE]Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱「開發」主題群組中的「[統計資料][]」主題。
 
 ## 使用 CTAS 解決不支援的功能
 
-CTAS 也可以用來解決以下數個不支援的功能。這通常可以證明是雙贏的情況，因為您的程式碼不但能夠相容，而且通常可以在 SQL 資料倉儲上更快速執行。這是完全平行化設計的結果。可以使用 CTAS 解決的案例包括：
+CTAS 也可以用來暫時解決以下幾個不支援的功能。這通常可以證明是雙贏的情況，因為您的程式碼不但能夠相容，而且通常可以在 SQL 資料倉儲上更快速執行。這是完全平行化設計的結果。可以使用 CTAS 解決的案例包括：
 
 - SELECT..INTO
 - ANSI JOINS on UPDATEs 
@@ -109,7 +109,7 @@ INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
 
-將其轉換為 CTAS 相當簡單：
+而將上述範例轉換到 CTAS 的方式相當簡單：
 
 ```
 CREATE TABLE #tmp_fct
@@ -169,7 +169,7 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-由於「SQL 資料倉儲」不支援在 UPDATE 陳述式的 FROM 子句中使用 ANSI 聯結，因此您無法在毫不變更此程式碼的情況下將它複製過去。
+由於 SQL 資料倉儲不支援在 UPDATE 陳述式的 FROM 子句中使用 ANSI 聯結，因此您無法在毫不變更此程式碼的情況下將它複製過去。
 
 您可以使用 CTAS 和隱含聯結的組合來取代此程式碼：
 
@@ -206,7 +206,7 @@ DROP TABLE CTAS_acs
 ```
 
 ## delete 陳述式的 ANSI 聯結取代
-有時候刪除資料的最佳方法是使用 CTAS。除了刪除資料以外，可以只選取您想要保留的資料。這對於使用 ANSI 聯結語法的 DELETE 陳述式尤其適用，因為「SQL 資料倉儲」不支援在 DELETE 陳述式的 FROM 子句中使用 ANSI 聯結。
+有時候刪除資料的最佳方法是使用 CTAS。除了刪除資料以外，可以只選取您想要保留的資料。這對於使用 ANSI 聯結語法的 DELETE 陳述式尤其適用，因為 SQL 資料倉儲不支援在 DELETE 陳述式的 FROM 子句中使用 ANSI 聯結。
 
 已轉換之 DELETE 陳述式的範例如下所示：
 
@@ -425,8 +425,8 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 [統計資料]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/zh-TW/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

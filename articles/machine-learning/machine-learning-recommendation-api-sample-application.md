@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="luisca"/>
 
 
@@ -58,6 +58,7 @@
 
 * Visual Studio 2013
 * 網際網路存取 
+* 訂閱建議 API (https://datamarket.azure.com/dataset/amla/recommendations)。
 
 ##Azure Machine Learning 範例 App 方案
 
@@ -89,4 +90,4 @@
 範例應用程式並非預期在實際執行環境中執行。目錄中提供的資料太小，而且它將不會提供有意義的建議模型。提供資料基於示範目的。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="12/04/2015"
    ms.author="nitinme"/>
 
 # 使用 Azure PowerShell 佈建 HDInsight 叢集與資料湖存放區
@@ -25,7 +25,7 @@
 
 了解如何使用 Azure PowerShell 設定 HDInsight 叢集 (Hadoop、HBase 或 Storm) 以使用 Azure 資料湖存放區。此版本的一些重要考量：
 
-* **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
+* * **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
 
 * **對於 HBase 叢集 (Windows 和 Linux)**，您可以使用資料湖存放區做為預設儲存體或額外的儲存體。
 
@@ -46,7 +46,38 @@
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - **啟用您的 Azure 訂用帳戶**以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 - **Windows SDK**。您可以從[這裡](https://dev.windows.com/zh-TW/downloads)安裝。您使用它來建立安全性憑證。
-- **Azure PowerShell 1.0 或更新版本**。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。
+
+
+##請安裝 Azure PowerShell 1.0 以上版本。
+
+一開始，您必須解除安裝 Azure PowerShell 的 0.9x 版本。若要檢查已安裝 PowerShell 的版本，請從 PowerShell 視窗執行下列命令：
+
+	Get-Module *azure*
+	
+若要解除安裝較舊的版本，請執行控制台中的 [程式和功能]，並移除早於 PowerShell 1.0 的已安裝版本。
+
+共有兩個安裝 Azure PowerShell 的主要選項。
+
+- [PowerShell 資源庫](https://www.powershellgallery.com/)。從提高權限的 PowerShell ISE 或提高權限的 Windows PowerShell 主控台執行下列命令：
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	如需詳細資訊，請參閱 [PowerShell 資源庫](https://www.powershellgallery.com/)。
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps)。如果您已安裝 Azure PowerShell 0.9.x，系統將提示您解除安裝 0.9.x。如果您是從 PowerShell 資源庫安裝 Azure PowerShell 模組，必須在安裝安裝程式之前先移除模組，以確保 Azure PowerShell 環境保持一致。如需指示，請參閱[透過 WebPI 安裝 Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+
+WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想要從 PowerShell 資源庫進行安裝，這會是取得最新和最優異的 Azure PowerShell 功能之首要管道。
  
 
 ## 建立 Azure 資料湖存放區
@@ -85,9 +116,9 @@
 
 		Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-	此輸出應為 **True**。
+	輸出應為 **True**。
 
-4. 將一些範例資料上傳至 Azure 資料湖。我們將在本文稍後使用這個項目來確認資料可以從 HDInsight 叢集存取。如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 存放庫](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
+4. 將一些範例資料上傳至 Azure 資料湖。我們將在本文稍後使用這個項目來確認資料可以從 HDInsight 叢集存取。如果您正在尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
 
 		
 		$myrootdir = "/"
@@ -128,7 +159,7 @@
 
 在這一節中，您將執行相關步驟來建立 Azure Active Directory 應用程式的服務主體、指派角色給服務主體，並藉由提供憑證驗證為服務主體。執行下列命令以在 Azure Active Directory 中建立應用程式。
 
-1. 在 PowerShell 主控台視窗中貼上下列 Cmdlet。請確定您針對 **-DisplayName** 屬性指定的值是唯一的。此外，**-HomePage** 和 **-IdentiferUris** 的值是預留位置值，不會驗證。 
+1. 在 PowerShell 主控台視窗中貼上下列 Cmdlet。請確定您針對 **-DisplayName** 屬性指定的值是唯一的。此外，**-HomePage** 和 **-IdentiferUris** 的值是預留位置值且不會驗證。 
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
 		
@@ -291,7 +322,7 @@
 
 * [入口網站：建立 HDInsight 叢集以使用資料湖存放區](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/zh-TW/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

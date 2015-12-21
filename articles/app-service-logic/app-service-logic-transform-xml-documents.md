@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="BizTalk 轉換" 
-	description="了解如何將 XML 文件轉換為不同的結構描述。" 
+	pageTitle="在 Logic Apps 中使用 BizTalk 轉換 | Microsoft Azure App Service" 
+	description="了解如何將 XML 文件轉換為不同的結構描述：" 
 	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="anuragdalmia"/>
 
-#BizTalk 轉換
+# BizTalk 轉換
 
 
 ## 概觀
@@ -45,11 +45,11 @@
 ## 建立及新增對應
 轉換或對應可使用 [Microsoft Azure BizTalk 服務 SDK](http://www.microsoft.com/download/details.aspx?id=39087) 建立於 Visual Studio 中，該 SDK 可免費下載取得。
 
-如需建立對應的說明，請參閱[在 Visual Studio 中建立對應](http://aka.ms/createamapinvs)。在對應建立並可用於生產環境後，您可以將對應 (.trfm 檔案) 新增至您在 Azure 管理入口網站中建立的 BizTalk 轉換 API 應用程式。
+如需建立對應的說明，請參閱[在 Visual Studio 中建立對應](http://aka.ms/createamapinvs)。在對應建立並可用於生產環境後，您可以將對應 (.trfm 檔案) 新增至您在 Azure 入口網站中建立的 BizTalk 轉換 API 應用程式。
 
-如果對應在上傳之後有所變更或修改，您可以上傳更新的對應，它會在轉換 API 應用程式中取代現有的對應。
+如果對應在上傳之後有所變更或修改，您可以上傳更新的對應，以取代轉換 API 應用程式中現有的對應。
 
-1.	在 Azure 管理入口網站上選取 [**瀏覽**] \(畫面的左側)，然後選取 [**API 應用程式**]。如果 [**API 應用程式**] 未顯示，請選取 [**全部**]，然後從可用的清單中選取 [**API 應用程式**]：
+1.	在 Azure 入口網站上選取 [瀏覽] (畫面的左側)，然後選取 [API 應用程式]。如果 [**API 應用程式**] 未顯示，請選取 [**全部**]，然後從可用的清單中選取 [**API 應用程式**]：
 
 	![][7]
 
@@ -116,4 +116,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -7,13 +7,14 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/15/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # 在行動服務中註冊您的應用程式以進行 Google 登入
@@ -33,13 +34,15 @@
 
 3. 瀏覽至 [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) (英文) 網站，以您的 Google 帳戶認證登入，按一下 [Create Project]，提供「專案名稱」，然後按一下 [Create]。
 
-4. 在左側的導覽列中按一下 [API & Auth]，然後在 [Social APIs] 底下按一下 [Google + API] > [啟用 API]。
+4. 在 [產品與服務] 下拉式清單中，按一下 [API 管理員]，然後在 [社交平台類 API] 底下，按一下 [Google+ API] > [啟用 API]。
 
-5. 按一下 [API & Auth] > [認證] > [OAuth 同意畫面]，然後選取您的**電子郵件地址**，輸入**產品名稱**，再按一下 [儲存]。
+5. 按一下 [認證] > [OAuth 同意畫面]，然後選取您的**電子郵件地址**，輸入**產品名稱**，再按一下 [儲存]。
 
 6. 在 [認證] 索引標籤中，按一下 [新增認證] > [OAuth 2.0 用戶端識別碼]，然後選取 [Web 應用程式]。
 
-7. 在 [授權的 JavaScript 來源] 中輸入您的行動服務 URL、使用下列其中一種 URL 格式取代 [授權重新導向 URI] 中所產生的 URL，然後按一下 [建立用戶端識別碼]：
+
+7. 在 [授權的 JavaScript 來源] 中輸入您的行動服務 URL、使用下列其中一種 URL 格式取代 [授權重新導向 URI] 中所產生的 URL，然後按一下 [建立]：
+ 
 
 	+ **.NET 後端**：`https://<mobile_service>.azure-mobile.net/signin-google`
 	+ **JavaScript 後端**：`https://<mobile_service>.azure-mobile.net/login/google`
@@ -61,4 +64,4 @@
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

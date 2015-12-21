@@ -41,7 +41,7 @@ ms.service="virtual-machines"
 
 如需詳細程序，請參閱[安裝 Microsoft HPC Pack Web 元件](http://technet.microsoft.com/library/hh314627.aspx)。
 
->[AZURE.TIP]如果您使用 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md) 之類的自動化方法來建立叢集，您可以選擇性地安裝 Web 元件並將其設定為部署的一部分。
+>[AZURE.TIP]如果您使用 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)來建立叢集，您可以選擇性地安裝 Web 元件並將其設定為部署的一部分。
 
 **安裝 Web 元件**
 
@@ -79,12 +79,12 @@ ms.service="virtual-machines"
 
     ```
     net stop hpcscheduler
-net start hpcscheduler
+    net start hpcscheduler
     ```
 
 ## 步驟 2：在內部部署電腦上安裝 HPC Pack 用戶端公用程式
 
-如果您尚未從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=328024)將相容版本的 HPC Pack 安裝程式檔案下載到用戶端電腦，並選擇 HPC Pack 用戶端公用程式的安裝選項，請於此時執行。
+如果您尚未這樣做，請從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=328024)下載相容版本的 HPC Pack 安裝程式檔案到用戶端電腦。當您開始安裝時，請選擇安裝 HPC Pack 用戶端公用程式。
 
 若要使用 HPC Pack 用戶端工具將工作提交至前端節點 VM，您也必須從前端節點匯出憑證，並將它安裝在用戶端電腦上。憑證須採用 .CER 格式。
 
@@ -94,7 +94,7 @@ net start hpcscheduler
 
 2. 在主控台樹狀目錄中，依序展開 [憑證 - 本機電腦]、[個人]，然後按一下 [憑證]。
 
-3. 找出您在[步驟 1：在前端節點上安裝及設定 Web 元件](#step-1:-install-and-configure-the-web-components-on-the-head-node)中為 HPC Pack Web 元件設定的憑證 (例如，名為 &lt;*HeadNodeDnsName*&gt;.cloudapp.net)。
+3. 找出您在[步驟 1：在前端節點上安裝及設定 Web 元件](#step-1:-install-and-configure-the-web-components-on-the-head-node)中為 HPC Pack Web 元件設定的憑證 (例如，名為 &lt;HeadNodeDnsName&gt;.cloudapp.net)。
 
 4. 在憑證上按一下滑鼠右鍵，按一下 [所有工作]，然後按一下 [匯出]。
 
@@ -133,6 +133,7 @@ net start hpcscheduler
     ```
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
     ```
+    
     >[AZURE.TIP]在排程器 URL 中請使用前端節點的完整 DNS 名稱，而不是 IP 位址。如果您指定 IP 位址，則會看到如下的錯誤：「伺服器憑證必須具有有效的信任鏈結，或放在受信任的根存放區」。
 
 3. 出現提示時，請輸入使用者名稱 (格式為 &lt;DomainName&gt;&lt;UserName&gt;) 和 HPC 叢集系統管理員或您所設定之其他叢集使用者的密碼。您可以選擇將認證儲存在本機，以供更多工作運用。
@@ -148,18 +149,20 @@ net start hpcscheduler
 
     b.按一下 [Windows 認證]，然後按一下 [新增一般認證]。
 
-    c.指定網際網路位址 https://&lt;*HeadNodeDnsName*&gt;.cloudapp.net/HpcScheduler，然後提供使用者名稱 (格式為 &lt;DomainName&gt;&lt;UserName&gt;) 和 HPC 叢集系統管理員或您所設定之其他叢集使用者的密碼。
+    c.指定網際網路位址 https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler，然後提供使用者名稱 (格式為 &lt;DomainName&gt;&lt;UserName&gt;) 和 HPC 叢集系統管理員或您所設定之其他叢集使用者的密碼。
 
 2. 在用戶端電腦上，啟動 [HPC 工作管理員]。
 
-3. 在 [選取前端節點] 對話方塊中，以 https://&lt;*HeadNodeDnsName*&gt;.cloudapp.net 的格式輸入 Azure 中的前端節點的 URL。
+3. 在 [選取前端節點] 對話方塊中，以 https://&lt;HeadNodeDnsName&gt;.cloudapp.net 的格式輸入 Azure 中的前端節點的 URL。
 
     [HPC 工作管理員] 隨即開啟，並顯示前端節點上的工作清單。
 
 **使用在前端節點上執行的 Web 入口網站**
 
-1. 在用戶端電腦上啟動網頁瀏覽器，並輸入下列位址：```
-    https://HeadNodeDnsName.cloudapp.net/HpcPortal
+1. 在用戶端電腦上啟動網頁瀏覽器，並輸入下列位址：
+
+    ```
+    https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
     ```
 2. 在出現的安全性對話方塊中，輸入 HPC 叢集系統管理員的網域認證。(您也可以在不同的角色中新增其他叢集使用者。如需詳細資訊，請參閱[管理叢集使用者](https://technet.microsoft.com/library/ff919335.aspx)。)
 
@@ -183,4 +186,4 @@ net start hpcscheduler
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

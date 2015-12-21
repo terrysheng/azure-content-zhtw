@@ -10,7 +10,11 @@
 
 # 使用 PowerShell 和 Azure 資源管理員設定強制通道
 
-本文適用於使用 Azure 資源管理員部署模型建立的 VNet 和 VPN 閘道。如果您想要使用服務管理部署模型來設定強制通道，請參閱[設定強制通道](vpn-gateway-about-forced-tunneling.md)。
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+本文適用於使用 Azure 資源管理員部署模型建立的 VNet 和 VPN 閘道。如果您想要為使用服務管理 (也稱為「傳統部署模型」) 建立的 VNets 設定強制通道，請參閱[設定強制通道](vpn-gateway-about-forced-tunneling.md)。
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -48,7 +52,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 下列程序可協助您建立資源群組和 VNet。然後，您將建立 VPN 閘道，並設定強制通道。
 
-在此範例中，多層式 VNet 虛擬網路具有 3 個子網路：*前端*、*中層*，和*後端*子網路，包含 4 個跨單位連接：*DefaultSiteHQ*，以及 3 個*分支*。程序步驟會將 *DefaultSiteHQ* 設定為強制通道的預設網站連接，並設定*中層*和*後端*子網路以使用強制通道。
+在此範例中，"MultiTier-VNet" 虛擬網路具有 3 個子網路：「前端」、「中層」，和「後端」子網路，包含 4 個跨單位連線：*DefaultSiteHQ*，以及 3 個「分支」。程序步驟會將 *DefaultSiteHQ* 設定為強制通道的預設網站連接，並設定「中層」和「後端」子網路以使用強制通道。
 
 	
 ### 開始之前
@@ -132,4 +136,4 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

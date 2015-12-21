@@ -22,7 +22,7 @@
 
 ## <a name="create-apis"> </a>如何建立 API
 
-API 管理中的 API 代表可供用戶端應用程式叫用的一組作業。新 API 是在 API 管理入口網站中建立。
+API 管理中的 API 代表可供用戶端應用程式叫用的一組作業。新的 API 是在發行者入口網站中建立。
 
 本指南示範如何在 API 管理中建立和設定新 API。
 
@@ -62,4 +62,4 @@ API 管理中的 API 代表可供用戶端應用程式叫用的一組作業。�
 [如何匯入具有作業之 API 的定義]: api-management-howto-import-api.md
 [如何建立和設定進階產品設定]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

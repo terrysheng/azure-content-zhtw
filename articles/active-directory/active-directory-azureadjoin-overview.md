@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/07/2015" 
 	ms.author="femila"/>
 
 # 透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能
@@ -66,7 +66,7 @@ Azure AD Join 的目標對象是雲端優先/僅限雲端的企業 (通常是不
 | 使用者使用工作認證登入 Windows (就像他們現在所做的動作) | 使用者可以使用 Azure AD 中管理的工作認證來登入 Windows。這會與下列三個案例中的公司裝置相關：組織沒有內部部署 AD (例如，小型企業)；組織未在 AD 中建立所有使用者帳戶 (例如，學生、顧問、季節性工作者)；無法加入 (內部部署) 網域的公司裝置，例如，執行 Mobile SKU 的手機或平板電腦。例如，攜帶前往工廠/零售現場的第二個裝置，適用於受管理和同盟組織的工作。 | 使用者使用其個人 MSA 認證登入 Windows (沒有改變) |
 | 使用者可以存取漫遊設定和 Windows 市集 – 這些服務可以使用工作帳戶來運作 (不需要個人 MSA)；要求組織將其內部部署 AD 連線到 Azure AD | 自助式設定 – 使用者可以透過他們的工作帳戶完整取得初次執行體驗 (FRX)，這可為佈建裝置的 IT 提供另一種方法 – 這兩種方法均受到支援。 | 非常輕易地新增要在 AD 或 Azure AD 中管理的工作帳戶 |
 | 從桌面到工作 App/網站/資源的 SSO，在使用 Azure AD 進行驗證的內部部署和 cloudApps 中 | 在企業目錄中自動登錄 (Azure AD) 以及在 MDM 中自動註冊。(Azure AD Premium 功能) | 使用此工作帳戶跨 App 提供 SSO 且登入網站/資源 |
-| 使用者可以新增其個人 MSA 來存取個人的圖片/檔案，而不會影響到企業資料 (漫遊設定會持續使用工作帳戶來運作)。MSA 帳戶會啟用 SSO，且不再啟用裝置漫遊設定。 | Winlogon 上的自助式密碼重設 (SSPR，能夠重設忘記的密碼) (您需要 AzureAD Premium 才能執行此動作) | 為企業提供市集前端/區段的存取權，讓使用者可以在其個人裝置上取得並使用 LoB App。 | |
+| 使用者可以新增其個人 MSA 來存取個人的圖片/檔案，而不會影響到企業資料 (漫遊設定會持續使用工作帳戶來運作)。MSA 帳戶會啟用 SSO，且不再啟用裝置漫遊設定。 | Winlogon 上的自助式密碼重設 (SSPR，能夠重設忘記的密碼) (您需要 AzureAD Premium 才能執行此動作) | 提供企業市集的存取權，讓使用者可以在他們的個人裝置上取得並使用 Lob 應用程式。 | |
 
 
 ## 其他資訊
@@ -77,4 +77,4 @@ Azure AD Join 的目標對象是雲端優先/僅限雲端的企業 (通常是不
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

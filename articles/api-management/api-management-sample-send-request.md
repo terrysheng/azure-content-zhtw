@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/03/2015"
    ms.author="v-darmi"/>
 
 
@@ -24,7 +24,7 @@ Azure API 管理服務中可用的原則可純粹根據連入要求、傳出回�
 我們先前曾討論過如何與[適用於記錄、監視及分析的 Azure 事件中樞服務](api-management-sample-logtoeventhub.md)互動的方式。在本文中，我們將示範可讓您與任何以 HTTP 為基礎之外部服務進行互動的原則。這些原則可用來觸發遠端事件，或用來擷取將以某種方式用於操作原始要求和回應的資訊。
 
 ## 傳送單向要求
-或許對要求來說，最簡單的外部互動是射後不理的樣式，讓外部服務能夠獲得某些種類之重要事件的通知。我們可以使用控制流程原則 <choose> 來偵測任何一種我們感興趣的狀況，接著，如果條件成立，我們就可以提出外部的 HTTP 要求。這可能是對傳訊系統 (例如 Hipchat 或 Slack) 的要求，也可能是對郵件 API (例如 SendGrid 或 MailChimp) 的要求，或者是針對某些像是 PagerDuty 的重大支援事件的要求。所有的這些傳訊系統都具有簡單的 HTTP API，可讓我們輕鬆叫用。
+或許對要求來說，最簡單的外部互動是射後不理的樣式，讓外部服務能夠獲得某些種類之重要事件的通知。我們可以使用控制流程原則 `choose` 來偵測任何一種我們感興趣的狀況，接著，如果條件成立，我們就可以使用 [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) 原則提出外部的 HTTP 要求。這可能是對傳訊系統 (例如 Hipchat 或 Slack) 的要求，也可能是對郵件 API (例如 SendGrid 或 MailChimp) 的要求，或者是針對某些像是 PagerDuty 的重大支援事件的要求。所有的這些傳訊系統都具有簡單的 HTTP API，可讓我們輕鬆叫用。
 
 ### 使用 Slack 提供警示
 下列範例示範如果 HTTP 回應狀態碼大於或等於 500，如何將訊息傳送至 Slack 聊天室。500 範圍錯誤表示我們的後端 API發生問題，而我們 API 的用戶端無法解決這類問題。通常我們需要進行某種形式的介入。
@@ -57,7 +57,7 @@ Slack 具有傳入 Web 攔截的概念。在設定傳入的 Web 攔截時，Slac
 ![Slack 的 Web 攔截](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### 「射後不理」 夠好嗎？
-使用要求的射後不理樣式有一些特定的權衡取捨。如果基於某些原因而導致要求失敗，則不會報告失敗。在此特殊情況下，無法保證具有次要失敗報告系統的複雜度，以及等待回應所需的其他效能成本。如果檢查回應很重要，則 `send-request` 原則是較好的選項。
+使用要求的射後不理樣式有一些特定的權衡取捨。如果基於某些原因而導致要求失敗，則不會報告失敗。在此特殊情況下，無法保證具有次要失敗報告系統的複雜度，以及等待回應所需的其他效能成本。如果檢查回應很重要，則 [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 原則是較好的選項。
 
 ## 傳送要求
 `send-request` 原則能夠使用外部服務來執行複雜的處理函式，並將資料傳回 API 管理服務，此服務可用來進一步處理原則。
@@ -66,7 +66,7 @@ Slack 具有傳入 Web 攔截的概念。在設定傳入的 Web 攔截時，Slac
 API 管理的主要功能是保護後端資源。如果您的 API 所使用的授權伺服器會建立 [JWT 權杖](http://jwt.io/) 做為其 OAuth2 流程的一部分，當 [Azure Active Directory](../active-directory/active-directory-aadconnect.md) 這樣做時，則您可以使用 `validate-jwt` 原則來驗證權杖的有效性。不過，某些授權伺服器會建立所謂的[參考權杖](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/)，其無法在不對授權伺服器進行回呼的情況下進行驗證。
 
 ### 將自我檢查標準化
-過去一直沒有標準化的方式可使用授權伺服器來驗證參考權杖。但是，IETF 最近發佈的提議標準 [RFC 7662](https://tools.ietf.org/html/rfc7662) 定義了資源伺服器如何驗證權杖的有效性。
+過去一直沒有標準化的方式可使用授權伺服器來驗證參考權杖。不過，IETF 最近發佈的提議標準 [RFC 7662](https://tools.ietf.org/html/rfc7662) 定義了資源伺服器如何驗證權杖的有效性。
 
 ### 擷取權杖
 第一個步驟是從授權標頭擷取權杖。標頭值應該使用 `Bearer` 授權配置、單一空格和授權權杖，按照每個 [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1) 進行格式化。不過，有一些情況需要省略授權配置。為了在剖析時說明這一點，我們會使用空格來分割標頭值，並從字串的傳回陣列中選取最後一個字串。這樣可為格式錯誤的授權標頭提供因應措施。
@@ -193,7 +193,7 @@ API 管理的主要功能是保護後端資源。如果您的 API 所使用的�
 
 ### 回應
 
-若要建構複合回應，我們可以使用 `return-response` 原則。`set-body` 元素可以使用運算式，來建構新的 `JObject` 以及內嵌為屬性的所有元件表示法。
+若要建構複合回應，我們可以使用 [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) 原則。`set-body` 元素可以使用運算式，來建構新的 `JObject` 以及內嵌為屬性的所有元件表示法。
 
     <return-response response-variable-name="existing response variable">
       <set-status code="200" reason="OK" />
@@ -264,4 +264,4 @@ API 管理的主要功能是保護後端資源。如果您的 API 所使用的�
 ## 摘要
 Azure API 管理服務提供彈性的原則，可以選擇性地套用到 HTTP 流量，並且能夠組合後端服務。不論您是否想要使用警示功能、確認、驗證功能或根據多個後端服務建立新的複合資源來增強您的 API 閘道器，`send-request` 及相關原則都會開啟各種可能性。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

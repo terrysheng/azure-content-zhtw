@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -42,7 +42,7 @@ Azure 資訊安全中心，提供 Azure 內建的威脅預防、偵測及回應�
 | | 建議停止目前攻擊及協助避免未來攻擊的方法 |
 
 ## 逐步解說介紹
-Azure 資訊安全中心是從 [Microsoft Azure Preview 入口網站](http://azure.microsoft.com/features/azure-portal/)存取。若要存取，請[登入 Azure Preview 入口網站](https://ms.portal.azure.com/)，選取 [瀏覽]，然後捲動至 [資訊安全中心] 選項，或選取之前釘選到 Azure Preview 入口網站儀表板的 [資訊安全中心] 磚。
+Azure 資訊安全中心是從 [Azure 入口網站](http://azure.microsoft.com/features/azure-portal/)存取。若要存取，請[登入入口網站](https://portal.azure.com)，選取 [瀏覽]，然後捲動至 [資訊安全中心] 選項，或選取之前釘選到入口網站儀表板的 [資訊安全中心] 磚。
 
 ![][1]
 
@@ -104,7 +104,7 @@ Azure 資訊安全中心會自動收集、分析和整合下列來源的記錄�
 ## 開始使用
 若要開始使用 Azure 資訊安全中心，您必須有 Microsoft Azure 訂用帳戶。Azure 資訊安全中心已經由 Azure 訂用帳戶啟用。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial)。
 
-Azure 資訊安全中心是從 [Microsoft Azure Preview 入口網站](http://azure.microsoft.com/features/azure-portal/)存取。如需詳細資訊，請參閱 [Azure Preview 入口網站文件](https://azure.microsoft.com/documentation/services/azure-portal/)。
+Azure 資訊安全中心是從 [Azure 入口網站](http://azure.microsoft.com/features/azure-portal/)存取。如需詳細資訊，請參閱[入口網站文件](https://azure.microsoft.com/documentation/services/azure-portal/)。
 
 [開始使用 Azure 資訊安全中心](security-center-get-started.md)會快速引導您認識 Azure 資訊安全中心的安全性監視和原則管理元件。
 
@@ -126,4 +126,4 @@ Azure 資訊安全中心是從 [Microsoft Azure Preview 入口網站](http://azu
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

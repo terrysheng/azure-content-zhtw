@@ -75,13 +75,15 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 ### 範例
 
-下列範例會使用組態檔 MyConfigFile.xml 建立新的 HPC Pack 叢集，並指定用來安裝叢集的系統管理認證。```
-New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
-<username> –AdminPassword <password>
+下列範例會使用組態檔 MyConfigFile.xml 建立新的 HPC Pack 叢集，並指定用來安裝叢集的系統管理認證。
+
 ```
+New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
+```
+
 ### 其他考量
 
-* 指令碼會使用 Azure Marketplace 中的 HPC Pack VM 映像來建立叢集前端節點。目前的映像是基於已安裝 HPC Pack 2012 R2 Update 2 的 Windows Server 2012 R2 Datacenter。
+* 指令碼會使用 Azure Marketplace 中的 HPC Pack VM 映像來建立叢集前端節點。目前的映像是基於已安裝 HPC Pack 2012 R2 Update 3 的 Windows Server 2012 R2 Datacenter。
 
 * 指令碼可選擇性地讓工作透過 HPC Pack Web 入口網站或 HPC Pack REST API 來提交。
 
@@ -386,8 +388,8 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
 
 * 嘗試在叢集上執行測試工作負載。如需範例，請參閱 HPC Pack [快速入門指南](https://technet.microsoft.com/library/jj884144)。
 
-* 如需使用指令碼來建立叢集並執行 HPC 工作負載的教學課程，請參閱[開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載](virtual-machines-excel-cluster-hpcpac)或[在 Azure 中的 Linux 運算節點以 Microsoft HPC Pack 執行 NAMD](virtual-machines-linux-cluster-hpcpack-namd.md)。
+* 如需使用指令碼來建立叢集並執行 HPC 工作負載的教學課程，請參閱[開始使用 Azure 中的 HPC Pack 叢集以執行 Excel 與 SOA 工作負載](virtual-machines-excel-cluster-hpcpac)、[在 Azure 中的 Linux 運算節點上搭配 Microsoft HPC Pack 執行 NAMD](virtual-machines-linux-cluster-hpcpack-namd.md)，或[在 Azure 中的 Linux 運算節點上搭配 Microsoft HPC Pack 執行OpenFOAM](virtual-machines-linux-cluster-hpcpack-openfoam.md)。
 
 * 嘗試以 HPC Pack 的工具啟動、停止、新增和移除您所建立之叢集中的運算節點。請參閱[在 Azure 中管理 HPC Pack 叢集的運算節點](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

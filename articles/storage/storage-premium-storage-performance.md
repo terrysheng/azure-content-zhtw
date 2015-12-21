@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure 進階儲存體：專為效能而設計 | Microsoft Azure"
-    description="使用 Azure 進階儲存體設計高效能應用程式。「進階儲存體」可為在「Azure 虛擬機器」上執行且需要大量 I/O 的工作負載提供高效能、低延遲的磁碟支援。"
+    description="使用 Azure 進階儲存體設計高效能應用程式。「進階儲存體」可針對在「Azure 虛擬機器」上執行且需要大量 I/O 的工作負載，提供高效能、低延遲的磁碟支援。"
     services="storage"
     documentationCenter="na"
     authors="ms-prkhad"
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/11/2015"
-    ms.author="tamram"/>
+    ms.date="12/04/2015"
+    ms.author="robinsh"/>
 
 # Azure 進階儲存體：專為高效能而設計
 
@@ -33,7 +33,7 @@
 
 我們特別針對進階儲存體提供這些指導方針，因為進階儲存體上執行的工作負載非常重視效能。我們在適當的地方都提供範例。針對在具有標準儲存體磁碟的 IaaS VM 上執行的應用程式，您也可以運用這些指導方針。
 
-開始之前，如果您不熟悉進階儲存體，請先閱讀[進階儲存體簡介](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/)一文和 [Azure 儲存體延展性和效能目標](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-premium-storage-accounts)。
+開始之前，如果您不熟悉進階儲存體，請先閱讀[進階儲存體簡介](storage-premium-storage-preview-portal.md)一文和 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)。
 
 ## 應用程式效能指標  
 我們使用效能指標來評估應用程式執行是否順暢，例如，應用程式多快處理使用者要求、應用程式在每個要求中處理多少資料、應用程式在一段特定時間內處理多少要求、使用者提交要求之後必須等候少久才獲得回應。這些效能指標的技術性術語包括 IOPS、輸送量或頻寬及延遲。
@@ -110,7 +110,7 @@ IOPS 是指應用程式在一秒內傳送到儲存體磁碟的要求數。輸入
 | **最大記憶體** | 順暢執行應用程式所需的記憶體數量 | % Committed Bytes in Use | Use vmstat |
 | **最大CPU** | 順暢執行應用程式所需的 CPU 數量 | % Processor time | %util |
 
-深入了解 [iostat](http://linuxcommand.org/man_pages/iostat1.html) 和 [PerfMon](https://msdn.microsoft.com/library/aa645516(v=vs.71).aspx)。
+深入了解 [iostat](http://linuxcommand.org/man_pages/iostat1.html) 和 [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx)。
 
 
 ## 最佳化應用程式效能  
@@ -177,7 +177,7 @@ IO 大小是其中一個很重要的因素。IO 大小是指應用程式所產�
 | Standard\_DS14 | 16 | 112 GB | 作業系統 = 1023 GB <br> 本機 SSD = 224 GB | 32 | 576 GB | 50,000 IOPS <br> 每秒 512 MB | 4,000 IOPS 和每秒 33 MB |
 | Standard\_GS5 | 32 | 448 GB | 作業系統 = 1023 GB <br> 本機 SSD = 896 GB | 64 | 4224 GB | 80,000 IOPS <br> 每秒 2,000 MB | 5,000 IOPS 和每秒 50 MB |
 
-若要檢視所有可用的 Azure VM 大小的完整清單，請參閱 [Azure 虛擬機器的大小](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/)。選擇可以符合並調整為期望的應用程式效能需求的 VM 大小。此外，選擇 VM 大小時，請將下列重要因素納入考量。
+若要檢視所有可用的 Azure VM 大小的完整清單，請參閱 [Azure 虛擬機器的大小](virtual-machines-size-specs.md)。選擇可以符合並調整為期望的應用程式效能需求的 VM 大小。此外，選擇 VM 大小時，請將下列重要因素納入考量。
 
 *調整限制* 每個 VM 和每個磁碟的最大 IOPS 限制都不同且各自獨立。請確定應用程式在 VM 及它連接的高階磁碟的限制內推動 IOPS。否則，應用程式效能會發生節流現象。
 
@@ -197,7 +197,7 @@ IO 大小是其中一個很重要的因素。IO 大小是指應用程式所產�
 | **每月的磁碟成本** | $1,638.40 (32 x 1 TB 磁碟) | $544.34 (4 x P30 磁碟) |
 | **每月的整體成本** | $3,208.98 | $1,544.34 |
 
-*Linux 散發版本* Azure 進階儲存體可讓執行 Windows 和 Linux 的 VM 達到相同層級的效能。我們支援許多種 Linux 散發版本，您可以在[這裡](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-endorsed-distributions/)看到完整清單。務必注意，針對不同類型的工作負載，不同的散發版本會更適合。根據執行工作負載的散發版本而定，您會看到不同層級的效能。請以您的應用程式來測試 Linux 散發版本，選擇最適合的散發版本。
+*Linux 散發版本* Azure 進階儲存體可讓執行 Windows 和 Linux 的 VM 達到相同層級的效能。我們支援許多種 Linux 散發版本，您可以在[這裡](virtual-machines-linux-endorsed-distributions.md)看到完整清單。務必注意，針對不同類型的工作負載，不同的散發版本會更適合。根據執行工作負載的散發版本而定，您會看到不同層級的效能。請以您的應用程式來測試 Linux 散發版本，選擇最適合的散發版本。
 
 搭配進階儲存體執行 Linux 時，請檢查所需驅動程式的最新更新，以確保達到較高效能。
 
@@ -263,13 +263,13 @@ Azure 進階儲存體目前提供三種磁碟大小。對於 IOPS、頻寬和儲
 
 重要事項：您可以使用伺服器管理員 UI，將一個等量磁碟區的總欄數最多設定為 8 個。當連接 8 個以上的磁碟時，請使用 PowerShell 來建立磁碟區。您可以使用 PowerShell 將欄數設定為等於磁碟數量。例如，如果單一等量磁碟區中有 16 個磁碟，請在 *New-VirtualDisk* PowerShell Cmdlet 的 *NumberOfColumns* 參數中指定 16 欄。
 
-在 Linux 上，請使用 MDADM 公用程式將磁碟串接在一起。有關在 Linux 上串接磁碟的詳細步驟，請參閱[在 Linux 上設定軟體 RAID](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-raid/)。
+在 Linux 上，請使用 MDADM 公用程式將磁碟串接在一起。有關在 Linux 上串接磁碟的詳細步驟，請參閱[在 Linux 上設定軟體 RAID](virtual-machines-linux-configure-raid.md)。
 
 *等量大小* 磁碟串接時一項重要設定是等量大小。等量大小或區塊大小是指應用程式在等量磁碟區上可定址的最小資料區塊。您設定的等量大小取決於應用程式的類型及其要求模式。如果您選擇錯誤的等量大小，可能會導致 IO 對齊錯錯，進而導致應用程式的效能降低。
 
 比方說，如果應用程式所產生的 IO 要求大於磁碟等量大小，儲存體系統會跨越等量單位界限，將此要求寫入多個磁碟上。在需要存取該資料時，必須跨越一個以上的等量單位來搜尋，才能完成要求。這種行為的累積效果可能會導致效能大幅降低。相反地，如果 IO 要求大小比等量大小更小，而且是隨機性質，IO 要求可能聚集在相同的磁碟上而造成瓶頸，最終導致 IO 效能降低。
 
-請根據應用程式執行的工作負載類型，選擇適當的等量大小。對於隨機小型 IO 要求，請使用較小的等量大小。對於大型循序 IO 要求，請使用較大的等量大小。針對您要在進階儲存體上執行的應用程式，請參考等量大小建議。對於 SQL Server 而言，請將 OLTP 工作負載的等量大小設定為 64KB，而資料倉儲工作負載則設定為 256KB。若要深入了解，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/#disks-and-performance-considerations)。
+請根據應用程式執行的工作負載類型，選擇適當的等量大小。對於隨機小型 IO 要求，請使用較小的等量大小。對於大型循序 IO 要求，請使用較大的等量大小。針對您要在進階儲存體上執行的應用程式，請參考等量大小建議。對於 SQL Server 而言，請將 OLTP 工作負載的等量大小設定為 64KB，而資料倉儲工作負載則設定為 256KB。若要深入了解，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations)。
 
 >**附註：**在 DS 系列 VM 上，最多可以串接 32 個進階儲存體磁碟，而在 GS 系列 VM 上，最多可以串接 64 個進階儲存體磁碟。
 
@@ -284,7 +284,7 @@ Azure 已將進階儲存體平台設計為大規模平行。因此，多執行�
 
 例如，假設使用 SQL Server 的應用程式正在同時執行大型查詢和索引作業。假設您希望索引作業的效能高於大型查詢。在這種情況下，您可以將索引作業的 MAXDOP 值設為高於查詢的 MAXDOP 值。如此一來，可供 SQL Server 利用來執行索引作業的處理器數目，就比專用於大型查詢的處理器數目更多。請記住，您不能控制 SQL Server 用於每個作業的執行緒數目。您可以控制專用於多執行緒處理的處理器數目上限。
 
-深入了解 SQL Server 中的 [平行處理原則的程度] (https://technet.microsoft.com/library/ms188611(v=sql.105).aspx)。在應用程式及其組態中找出會影響多執行緒處理的設定，以最佳化效能。
+深入了解 SQL Server 中的[平行處理原則的程度](https://technet.microsoft.com/library/ms188611.aspx)。在應用程式及其組態中找出會影響多執行緒處理的設定，以最佳化效能。
 
 ## 佇列深度  
 「佇列深度」或「佇列長度」或「佇列大小」是指系統中暫止的 IO 要求數目。佇列深度的值決定應用程式可以排隊的 IO 作業數目，將由儲存體磁碟來處理。它會影響我們在本文已討論過的所有三個應用程式效能指標，也就是 IOPS、輸送量和延遲。
@@ -315,7 +315,7 @@ Azure 進階儲存體會根據您選擇的 VM 大小和磁碟大小，佈建指�
 
 我們分別在 Windows 和 Linux 上使用一般效能評定工具 Iometer 和 FIO。這些工具會繁衍多個執行緒來模擬類似實際執行的工作負載，並測量系統效能。您也可以使用這些工具來設定參數，例如區塊大小和佇列深度，您通常無法在應用程式中變更這些參數。針對不同類型的應用程式工作負載，這可讓您在以高階磁碟佈建的高延展性 VM 上，更靈活地發揮最大效能。若要深入了解每個效能評定工具，請參閱 [Iometer](http://www.iometer.org/) 和 [FIO](http://freecode.com/projects/fio)。
 
-若要執行下列範例，請建立標準 DS14 VM，並將 11 個進階儲存體磁碟連接至 VM。在 11 磁碟中，以快取「無」來設定 10 個磁碟，並將它們串接成一個磁碟區，稱為 NoCacheWrites。在剩餘的磁碟上，將主機快取設定為「唯讀」，並使用此磁碟建立一個磁碟區，稱為 CacheReads。根據此設定，您可以看到標準 DS14 VM 發揮最大的讀取和寫入效能。如需有關以進階儲存體建立 DS14 VM 的詳細步驟，請移至[為虛擬機器資料磁碟建立和使用進階儲存體帳戶](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
+若要執行下列範例，請建立標準 DS14 VM，並將 11 個進階儲存體磁碟連接至 VM。在 11 磁碟中，以快取「無」來設定 10 個磁碟，並將它們串接成一個磁碟區，稱為 NoCacheWrites。在剩餘的磁碟上，將主機快取設定為「唯讀」，並使用此磁碟建立一個磁碟區，稱為 CacheReads。根據此設定，您可以看到標準 DS14 VM 發揮最大的讀取和寫入效能。如需有關以進階儲存體建立 DS14 VM 的詳細步驟，請移至[為虛擬機器資料磁碟建立和使用進階儲存體帳戶](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
 *準備快取* 設有「唯讀」主機快取的磁碟能夠提供高於磁碟限制的 IOPS。若要從主機快取獲得這種最高的讀取效能，您必須先準備此磁碟的快取。如此可確保效能評定工具在 CacheReads 磁碟區上推動的讀取 IO 實際上是命中快取，而非直接觸及磁碟。快取命中會讓已啟用快取的單一磁碟產生更多 IOPS。
 
@@ -365,7 +365,7 @@ Azure 進階儲存體會根據您選擇的 VM 大小和磁碟大小，佈建指�
 	|--------------------|---------------|------------------|----------|
 	| 準備快取磁碟 | CacheReads | RandomReads\_1MB | 2 小時 |
 
-準備快取磁碟之後，繼續執行下列的測試案例。若要執行 Iometer 測試，請對**每個**目標磁碟區使用至少三個背景工作執行緒。針對每個背景工作執行緒，請選取目標磁碟區，設定佇列深度，然後選取其中一個已儲存的測試規格，如下表所示，以執行對應的測試案例。表格也顯示執行這些測試時，預期的 IOPS 和輸送量結果。在所有案例中，都使用較小的 IO 大小 8 KB 和較高的佇列深度 128。
+準備快取磁碟之後，繼續執行下列的測試案例。若要執行 Iometer 測試，請對**每個**目標磁碟區使用至少三個背景工作角色執行緒。針對每個背景工作執行緒，請選取目標磁碟區，設定佇列深度，然後選取其中一個已儲存的測試規格，如下表所示，以執行對應的測試案例。表格也顯示執行這些測試時，預期的 IOPS 和輸送量結果。在所有案例中，都使用較小的 IO 大小 8 KB 和較高的佇列深度 128。
 
 | 測試案例 | 目標磁碟區 | 名稱 | 結果 |
 |--------------------|---------------|-------------------|--------------|
@@ -395,7 +395,7 @@ FIO 是 Linux VM 上用於儲存體效能評定的一項常用工具。它可以
 
 我們將在磁碟上使用四個背景工作執行緒來推動讀取作業，並使用四個背景工作執行緒來推動讀取作業。「寫入」背景工作角色會在 "nocache" 磁碟區上推動流量，此磁碟區有 10 個將快取設為「無」的磁碟。「讀取」背景工作角色會在 "readcache" 磁碟區上推動流量，此磁碟區有 1 個將快取設為「唯讀」的磁碟。
 
-*最大寫入 IOPS* 使用下列規格建立工作檔案，以產生最大寫入 IOPS。它命名為 "fiowrite.ini"。
+*最大寫入 IOPS* 使用下列規格建立作業檔案，以產生最大寫入 IOPS。它命名為 "fiowrite.ini"。
 
 ```
 [global]
@@ -427,7 +427,7 @@ directory=/mnt/nocache
 
 當測試執行時，您將能夠看到 VM 和高階磁碟產生的寫入 IOPS 數目。如下列範例所示，DS14 VM 產生最大寫入 IOPS 限制 50,000 IOPS。![](media/storage-premium-storage-performance/image11.png)
 
-*最大讀取 IOPS* 使用下列規格建立工作檔案，以產生最大讀取 IOPS。它命名為 "fioread.ini"。
+*最大讀取 IOPS* 使用下列規格建立作業檔案，以產生最大讀取 IOPS。它命名為 "fioread.ini"。
 
 ```
 [global]
@@ -463,7 +463,7 @@ directory=/mnt/readcache
 
 當測試執行時，您將能夠看到 VM 和高階磁碟產生的讀取 IOPS 數目。如下列範例所示，DS14 VM 產生超過 64,000 的讀取 IOPS。這是磁碟和快取效能的組合。![](media/storage-premium-storage-performance/image12.png)
 
-*最大讀取和寫入 IOPS* 使用下列規格建立工作檔案，以產生最大讀取和寫入 IOPS。它命名為 "fioreadwrite.ini"。
+*最大讀取和寫入 IOPS* 使用下列規格建立作業檔案，以產生最大讀取和寫入 IOPS。它命名為 "fioreadwrite.ini"。
 
 ```
 [global]
@@ -522,11 +522,12 @@ rate_iops=12500
 
 深入了解 Azure 進階儲存體：
 
-- [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/)  
+- [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)  
 
 若為 SQL Server 使用者，請參閱「SQL Server 的效能最佳作法」文章：
 
-- [Azure 虛擬機器中的 SQL Server 效能最佳作法](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
+- [Azure 虛擬機器中的 SQL Server 效能最佳作法 
+- ](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
 - [Azure 進階儲存體為 Azure VM 中的 SQL Server 提供最高效能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

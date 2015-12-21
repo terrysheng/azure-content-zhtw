@@ -46,9 +46,9 @@ Azure Service Fabric 叢集支援兩種連線：「非安全」連線和「x509 
 
 4.	[選擇性]：您可以編輯發行設定檔以指定安全的叢集連線。
 
-    由於您正手動編輯「發行設定檔」XML 檔案以指定憑證資訊，因此請務必記下憑證存放區名稱、存放區位置，以及憑證指紋。您將必須為憑證的存放區名稱和存放區位置提供這些值。如需詳細資訊，請參閱 [做法：擷取憑證的指紋] (https://msdn.microsoft.com/zh-TW/library/ms734695(v=vs.110).aspx)。
+    由於您正手動編輯「發行設定檔」XML 檔案以指定憑證資訊，因此請務必記下憑證存放區名稱、存放區位置，以及憑證指紋。您將必須為憑證的存放區名稱和存放區位置提供這些值。如需詳細資訊，請參閱 [做法：擷取憑證的指紋](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx)。
 
-    *ClusterConnectionParameters* 參數可讓您指定連線到 Service Fabric 叢集時要使用的 PowerShell 參數。有效的參數是 Connect-ServiceFabricCluster Cmdlet 所接受的任何參數。如需可用參數的清單，請參閱 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/zh-TW/library/mt125938.aspx)。
+    *ClusterConnectionParameters* 參數可讓您指定連線到 Service Fabric 叢集時要使用的 PowerShell 參數。有效的參數是 Connect-ServiceFabricCluster Cmdlet 所接受的任何參數。如需可用參數的清單，請參閱 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx)。
 
     如果要發行至遠端叢集，您需要指定該特定叢集的適當參數。以下是連線到非安全叢集的範例：
 
@@ -76,4 +76,4 @@ Azure Service Fabric 叢集支援兩種連線：「非安全」連線和「x509 
 [publishdialog]: ./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]: ./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

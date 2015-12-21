@@ -29,7 +29,7 @@ PolyBase 技術可讓您查詢和聯結多個來源的資料，且完全使用 T
 - 將資料從 SQL 資料倉儲匯出至 Azure blob 儲存體。
 
 
-## 先決條件
+## 必要條件
 若要逐步執行本教學課程，您需要：
 
 - Azure 儲存體帳戶
@@ -46,21 +46,19 @@ PolyBase 技術可讓您查詢和聯結多個來源的資料，且完全使用 T
 > PolyBase 「不」支援標準區域備援儲存體 (標準-ZRS) 及進階本機備援儲存體 (進階-LRS) 帳戶類型。如果您要建立新的 Azure 儲存體帳戶，請確定您從定價層選取 PolyBase 支援的儲存體帳戶類型。
 
 ## 步驟 1： 將認證儲存在您的資料庫中
-若要存取 Azure blob 儲存體，您需要建立資料庫範圍認證，其中儲存 Azure 儲存體帳戶的驗證資訊。請依照下列步驟儲存與您資料庫搭配使用的認證
+若要存取 Azure blob 儲存體，您需要建立資料庫範圍認證，其中儲存 Azure 儲存體帳戶的驗證資訊。請依照下列步驟儲存與您資料庫搭配使用的認證。
 
-1. 連線到您的「SQL 資料倉儲」資料庫。
-2. 使用 [CREATE MASTER KEY (Transact-SQL)][] 為您的資料庫建立主要金鑰。如果您的資料庫已經主要金鑰，您就不需要建立另一個主要金鑰。在下一個步驟中，會使用這個金鑰來加密您的認證「密碼」。
+1. 連線到您的 SQL 資料倉儲資料庫。
+2. 使用 [CREATE MASTER KEY (Transact-SQL)][] 為您的資料庫建立主要金鑰。如果您的資料庫已經主要金鑰，您就不需要建立另一個主要金鑰。在下一個步驟中，這個金鑰會用來為您的認證「密碼」加密。
 
     ```
     -- Create a E master key
     CREATE MASTER KEY;
     ```
 
-1. 檢查看看您是否已經有任何資料庫認證。若要這樣做，請使用 sys.database\_credentials 系統檢視，而不要使用只會顯示伺服器認證的 sys.credentials。
+1. 檢查看看您是否已經有任何資料庫認證。方法是使用 sys.database\_credentials 系統檢視，而不是使用只會顯示伺服器認證的 sys.credentials。
 
-    ```
-    -- 檢查是否有現有的資料庫範圍認證。
-    SELECT * FROM sys.database\_credentials;
+    ``` -- Check for existing database-scoped credentials.SELECT * FROM sys.database\_credentials;
 
 3. 使用 [CREATE CREDENTIAL (Transact-SQL)][] 為您想要存取的每個 Azure 儲存體帳戶建立資料庫範圍認證。在此範例中，IDENTITY 是易記的認證名稱。它不會影響對 Azure 儲存體的驗證。SECRET 是您的 Azure 儲存體帳戶金鑰。
 
@@ -131,12 +129,12 @@ DROP EXTERNAL FILE FORMAT text_file_format
 
 外部資料表定義類似於關聯式資料表定義。主要的差異在於資料的位置和格式。
 
-- 外部資料表定義會以中繼資料的形式儲存在「SQL 資料倉儲」資料庫中。 
-- 資料會儲存在資料來源所指定的位置。
+- 外部資料表定義會以中繼資料的形式儲存在 SQL 資料倉儲資料庫中。 
+- 資料會儲存在資料來源所指定的外部位置。
 
 請使用 [CREATE EXTERNAL TABLE (Transact-SQL)][] 來定義外部資料表。
 
-LOCATION 選項指定從資料來源根目錄到資料的路徑。在此範例中，資料是位於 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'。相同資料表的所有檔案都必須在 Azure Blob 儲存體中相同的邏輯資料夾底下。
+LOCATION 選項指定從資料來源根目錄到資料的路徑。在此範例中，資料是位於 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'。同一個資料表所用的所有檔案，都必須位於 Azure Blob 儲存體中相同的邏輯資料夾底下。
 
 您也可以選擇指定拒絕選項 (REJECT\_TYPE、REJECT\_VALUE、REJECT\_SAMPLE\_VALUE)，以決定 PolyBase 如何處理從外部資料來源收到的錯誤記錄。
 
@@ -205,7 +203,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]對外部資料表的查詢可能會因「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」錯誤而失敗。這表示您的外部資料包含「錯誤」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
+> [AZURE.NOTE]針對外部資料表的查詢可能會失敗，並顯示「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」錯誤訊息。這表示您的外部資料包含「錯誤」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
 
 
 ## 從 Azure blob 儲存體載入資料
@@ -236,7 +234,7 @@ FROM   [ext].[CarSensor_Data]
 
 ## 建立新載入資料的統計資料
 
-Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱＜開發＞主題群組中的[統計資料][]主題。以下是快速範例，說明如何在此範例中建立載入資料表的統計資料。
+Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱「開發」主題群組中的「[統計資料][]」主題。以下是快速範例，說明如何在此範例中建立載入資料表的統計資料。
 
 ```
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -247,7 +245,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## 將資料匯出至 Azure Blob 儲存體
-這一節說明如何將資料從 SQL 資料倉儲匯出至 Azure blob 儲存體。此範例使用 CREATE EXTERNAL TABLE AS SELECT (高效能 TRANSACT-SQL 陳述式) 將資料從所有計算節點平行匯出。
+這一節說明如何將資料從 SQL 資料倉儲匯出至 Azure Blob 儲存體。此範例使用 CREATE EXTERNAL TABLE AS SELECT (高效能 Transact-SQL 陳述式) 將資料從所有計算節點平行匯出。
 
 下列範例會使用 dbo.Weblogs 資料表中的資料行定義和資料從 dbo 建立外部資料表 Weblogs2014。外部資料表定義會儲存在 SQL 資料倉儲中，而 SELECT 陳述式的結果會匯出至資料來源所指定的 blob 容器下的 "/archive/log2014/" 目錄。以指定的文字檔案格式匯出的資料。
 
@@ -350,13 +348,13 @@ $write.Dispose()
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/zh-TW/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

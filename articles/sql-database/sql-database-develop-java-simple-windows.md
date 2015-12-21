@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="在 Windows 上搭配 JDBC 使用 Java 連接到 SQL Database" 
+<properties
+	pageTitle="在 Windows 上搭配 JDBC 使用 Java 連接到 SQL Database"
 	description="提供可用來連接到 Azure SQL Database 的 Java 程式碼範例。這個範例使用在 Windows 用戶端電腦上執行的 JDBC。"
-	services="sql-database" 
-	documentationCenter="" 
-	authors="LuisBosquez" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="LuisBosquez"
+	manager="jeffreyg"
 	editor="genemi"/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="lbosq"/>
 
 
@@ -27,19 +27,20 @@
 本主題提供可用來連接到 Azure SQL Database 的 Java 程式碼範例。Java 範例需要 Java Development Kit (JDK) 1.8 版。這個範例使用 JDBC 驅動程式連接到 Azure SQL Database。
 
 
-## 需求
+## 必要條件
 
+### 驅動程式和程式庫
 
 - [適用於 SQL Server 的 Microsoft JDBC 驅動程式 - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774)。
 - 執行 [Java Development Kit 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 的任何作業系統平台。
-- SQL Azure 上的現有資料庫。請參閱[快速入門主題](sql-database-get-started.md)，以了解如何建立範例資料庫及擷取連接字串。
 
+### SQL Database
 
-## 測試環境
+請參閱[快速入門頁面](sql-database-get-started.md)，以了解如何建立資料庫。
 
+### SQL 資料表
 
 本主題中的 Java 程式碼範例假設您的 Azure SQL Database 資料庫中已經有下列測試資料表。
-
 
 <!--
 Could this instead be a #tempPerson table, so that the Java code sample could be fully self-sufficient and be runnable (with automatic cleanup)?
@@ -55,16 +56,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## SQL Database 的連接字串
+## 步驟 1：取得連接字串
+
+[AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
+
+> [AZURE.NOTE]如果您使用 JTDS JDBC 驅動程式，則您必須在連接字串的 URL 加入 "ssl=require"，然後您需要設定 JVM 的下列選項 "-Djsse.enableCBCProtection=false"。此 JVM 選項會停用安全性漏洞修正程式，因此請確定您了解會涉及到哪些風險，才能設定此選項。
 
 
-這個程式碼範例使用連接字串建立 `Connection` 物件。您可以使用 [Azure 入口網站](http://portal.azure.com/)尋找連接字串。如需尋找連接字串的詳細資訊，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
-
-
-> [AZURE.NOTE]JTDS JDBC 驅動程式：如果您使用 JTDS JDBC 驅動程式，則您必須在連接字串的 URL 加入 "ssl=require"，然後您需要設定 JVM 的下列選項 "-Djsse.enableCBCProtection=false"。此 JVM 選項會停用安全性漏洞修正程式，因此請確定您了解會涉及到哪些風險，才能設定此選項。
-
-
-## Java 程式碼範例
+## 步驟 2：編譯 Java 程式碼範例
 
 
 本節包含大量的 Java 程式碼範例。其中的註解指出您將複製並貼上後續章節所提供之一小部分 Java 程式碼片段的位置。即使未複製並貼到註解附近，本節中的範例仍可編譯及執行，但該範例只會連接，然後就結束。您會找到下列註解：
@@ -80,36 +79,36 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 	import java.sql.*;
 	import com.microsoft.sqlserver.jdbc.*;
-	
+
 	public class SQLDatabaseTest {
-	
+
 		public static void main(String[] args) {
 			String connectionString =
-				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
+				"jdbc:sqlserver://your_server.database.windows.net:1433;"
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
 				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
-				+ "loginTimeout=30;"; 
-	
+				+ "loginTimeout=30;";
+
 			// Declare the JDBC objects.
 			Connection connection = null;
 			Statement statement = null;
 			ResultSet resultSet = null;
 			PreparedStatement prepsInsertPerson = null;
 			PreparedStatement prepsUpdateAge = null;
-	
+
 			try {
 				connection = DriverManager.getConnection(connectionString);
-	
+
 				// INSERT two rows into the table.
 				// ...
-	
+
 				// TRANSACTION and commit for an UPDATE.
 				// ...
-	
+
 				// SELECT rows from the table.
 				// ...
 			}
@@ -137,7 +136,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 - your\_password
 
 
-## 將兩個資料列插入資料表
+## 步驟 3：插入資料列
 
 
 這個 Java 程式碼片段會發出 Transact-SQL INSERT 陳述式，以將兩個資料列插入 Person 資料表。一般順序如下：
@@ -157,7 +156,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	String insertSql = "INSERT INTO Person (firstName, lastName, age) VALUES "
 		+ "('Bill', 'Gates', 59), "
 		+ "('Steve', 'Ballmer', 59);";
-	
+
 	prepsInsertPerson = connection.prepareStatement(
 		insertSql,
 		Statement.RETURN_GENERATED_KEYS);
@@ -170,8 +169,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	}
 
 
-## 交易和認可更新
-
+## 步驟 4：認可交易
 
 下列 Java 程式碼片段會發出 Transact-SQL UPDATE 陳述式，以提高 Person 資料表中每一個資料列的 `age` 值。一般順序如下：
 
@@ -186,22 +184,22 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 	// Set AutoCommit value to false to execute a single transaction at a time.
 	connection.setAutoCommit(false);
-	
+
 	// Write the SQL Update instruction and get the PreparedStatement object.
 	String transactionSql = "UPDATE Person SET Person.age = Person.age + 1;";
 	prepsUpdateAge = connection.prepareStatement(transactionSql);
-	
+
 	// Execute the statement.
 	prepsUpdateAge.executeUpdate();
-	
+
 	//Commit the transaction.
 	connection.commit();
-	
+
 	// Return the AutoCommit value to true.
 	connection.setAutoCommit(true);
 
 
-## 從資料表選取資料列
+## 步驟 4：執行查詢
 
 
 這個 Java 程式碼片段會執行 Transact-SQL SELECT 陳述式，以查看 Person 資料表中所有已更新的資料列。一般順序如下：
@@ -219,7 +217,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	String selectSql = "SELECT firstName, lastName, age FROM dbo.Person";
 	statement = connection.createStatement();
 	resultSet = statement.executeQuery(selectSql);
-	
+
 	// Iterate through the result set and print the attributes.
 	while (resultSet.next()) {
 		System.out.println(resultSet.getString(2) + " "
@@ -230,4 +228,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

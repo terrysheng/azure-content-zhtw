@@ -243,17 +243,20 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 	5. 在 **linkedServiceName** 中，指定您在「開始使用」教學課程中建立的 **HDInsightStorageLinkedService**。 
 
 			{
-		    	"name": "HDInsightLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.2",
-		    	    "linkedServiceName": "HDInsightStorageLinkedService"
-		    	}
+			    "name": "HDInsightOnDemandLinkedService",
+			    "properties": {
+			        "type": "HDInsightOnDemand",
+			        "description": "",
+			        "typeProperties": {
+			            "clusterSize": "4",
+			            "timeToLive": "00:30:00",
+			            "version": "3.2",
+			            "linkedServiceName": "StorageLinkedService"
+			        }
+			    }
 			}
 
-		請注意，連結服務的 **type** 設為 **HDInsightOnDemandLinkedService**。。
+		請注意，連結服務的 **type** 設為 **HDInsightOnDemand**。
 
 2. 按一下命令列的 [部署]，部署連結服務。
    
@@ -321,12 +324,13 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
         "isPaused": false
 
 	請注意，開始和結束時間設為 05/01/2014 和 05/05/2014，因為此逐步解說中的範例資料是從 05/01/2014 到 05/05/2014。
- 
+ 	
+	如果您使用隨選 HDInsight 連結服務，請將 **linkedServiceName** 屬性設定為 **HDInsightOnDemandLinkedService**。
 3. 按一下工具列的 [**部署**]，建立並部署管線。確認您在編輯器的標題列看到 [**已成功建立管線**] 訊息。
 4. 使用下列檔案的內容，重複步驟 1 到 3： 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. 按右上角的 [**X**] 關閉 [Data Factory] 刀鋒視窗，以顯示 Data Factory 的首頁 (**DATA FACTORY **刀鋒視窗)。
+4. 按下 **X** (右上角) 關閉 Data Factory 刀鋒視窗，以顯示 Data Factory 的首頁 (**DATA FACTORY **刀鋒視窗)。
 
 ### 圖表檢視
 
@@ -355,11 +359,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 		![監視「開始面板」][image-data-factory-monitoring-startboard]
 
-	2. 按一下 [**瀏覽**] 中樞，然後按一下 [**所有項目**]。
-	 	
-		![監視中樞所有項目][image-data-factory-monitoring-hub-everything]
-
-		在 [**瀏覽**] 刀鋒視窗中，選取 **Data Factory**，然後在 **Data Factory** 刀鋒視窗中選取 **LogProcessingFactory**。
+	2. 按一下 [瀏覽]，在 [瀏覽] 刀鋒視窗中，選取 **Data Factory**，然後在 **Data Factory** 刀鋒視窗中選取 **LogProcessingFactory**。
 
 		![監視瀏覽 Data Factory][image-data-factory-monitoring-browse-datafactories]
 2. 您可以以數種方式監視您的 Data Factory。您可以從管線或資料集開始。讓我們從管線開始，並進一步向下鑽研。 
@@ -375,7 +375,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 	[最近更新的配量] 和 [最近失敗的配量] 清單都依照 [上次更新時間] 排序。在下列情況中，配量的更新時間會變更。
 
-	-  您以手動方式更新配量的狀態，例如，使用 **Set-AzureDataFactorySliceStatus** (或) 在配量的 [配量] 刀鋒視窗上按一下 [執行]。
+	-  您以手動方式更新配量的狀態，例如，使用 **Set-AzureRmDataFactorySliceStatus** (或) 在配量的 [配量] 刀鋒視窗上按一下 [執行]。
 	-  配量因為執行而變更狀態 (例如，開始執行、執行結束但失敗、執行結束且成功等)。
  
 	按一下清單的標題或 **...** (省略符號)，查看更長的配量清單。按一下工具列上的 [篩選] 以篩選配量。
@@ -392,7 +392,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 	![RawGameEventsTable [資料配量] 刀鋒視窗][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	如果發生錯誤，您在這裡會看到 **[Failed] **狀態。您也可能會看到兩個配量的狀態都是 [**就緒**]，或都是 [**PendingValidation**]，實際狀態視處理配量的速度而定。
+	如果發生錯誤，您在這裡會看到 **[Failed] **狀態。您也可能會看到兩個配量的狀態都是 [就緒]，或都是 [PendingValidation]，根據處理配量的速度而定。
 
 	如果配量不是 [就緒] 狀態，您可以在 [未就緒的上游配量] 清單中看到未就緒且阻礙目前配量執行的上游配量。
  
@@ -524,4 +524,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

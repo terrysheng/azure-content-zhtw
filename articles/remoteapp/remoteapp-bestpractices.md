@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure RemoteApp 最佳做法"
+    pageTitle="Azure RemoteApp 最佳做法 | Microsoft Azure"
     description="設定和使用 Azure RemoteApp 的最佳做法。"
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # 設定和使用 Azure RemoteApp 的最佳做法
@@ -42,6 +42,5 @@
 	- 將共用資料儲存在服務的外部儲存體位置，例如內部部署的檔案共用或 OneDrive。
 	- 在範本映像中設定任何全系統的設定，而不是在服務的個別虛擬機器上設定。
 	- 停用發佈之應用程式的自動軟體更新 - 改為手動套用至範本映像，並從範本部署之前測試它們。
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

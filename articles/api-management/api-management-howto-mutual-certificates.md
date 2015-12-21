@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務
@@ -28,7 +28,7 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。�
 
 ## <a name="step1"> </a>上傳用戶端憑證
 
-若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [**管理**]。這會帶您前往 API 管理發行者入口網站。
+若要開始，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。這會帶您前往 API 管理發行者入口網站。
 
 ![API 發行者入口網站][api-management-management-console]
 
@@ -141,4 +141,4 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。�
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

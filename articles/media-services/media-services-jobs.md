@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #使用 Azure 媒體服務工作
@@ -45,7 +45,7 @@
 
 ##編碼
 
-使用 **Azure 傳統入口網站**、**.NET** 或 **REST API**，以 Azure 媒體編碼器進行編碼。
+使用 **Azure 傳統入口網站**、**.NET** 或 **REST API**，以 **Azure 媒體編碼器**進行編碼。
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -54,6 +54,18 @@
 使用 **Azure 傳統入口網站**、**.NET** 或 **REST API** 監視工作進度。
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
+
+##列出清單 
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#list-jobs-and-assets)
+- [REST](media-services-rest-manage-entities.md/#querying-entities)
+
+##刪除工作
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#delete-a-job)
+- [REST](media-services-rest-manage-entities.md/##deleting-entities)
 
 ##相關連結
 
@@ -68,4 +80,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

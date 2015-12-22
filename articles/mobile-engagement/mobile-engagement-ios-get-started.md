@@ -37,13 +37,13 @@
 
 > [AZURE.IMPORTANT]完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件，若要完成此課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
-##<a id="setup-azme"></a>為您的 iOS App 設定 Mobile Engagement
+##<a id="setup-azme"></a>為您的 iOS 應用程式設定 Mobile Engagement
 
 [AZURE.INCLUDE [在入口網站中建立 Mobile Engagement 應用程式](../../includes/mobile-engagement-create-app-in-portal.md)]
 
 ##<a id="connecting-app"></a>將您的應用程式連線至 Mobile Engagement 後端
 
-本教學課程將說明「基本整合」，這是收集資料及傳送推播通知時必要的最低設定。完整的整合文件位於 [Mobile Engagement iOS SDK 整合](../mobile-engagement-ios-sdk-overview/)。
+本教學課程將說明「基本整合」，這是收集資料及傳送推播通知時必要的最低設定。完整的整合文件位於 [Mobile Engagement iOS SDK 整合](../mobile-engagement-ios-sdk-overview/)
 
 我們將會使用 XCode 建立基本 app 來示範整合。
 
@@ -77,7 +77,7 @@
 
 		#import "EngagementAgent.h"
 
-9. 現在 `didFinishLaunchingWithOptions` 代理人中貼上連接字串。
+9. 現在於 `didFinishLaunchingWithOptions` 代理人中貼上連接字串。
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -102,7 +102,7 @@
 
 	`@interface ViewController : EngagementViewController`
 
-##<a id="monitor"></a>將 App 與即時監視連接
+##<a id="monitor"></a>將應用程式與即時監視連接
 
 [AZURE.INCLUDE [將 App 與即時監視連接](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
@@ -119,7 +119,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 1. 以滑鼠右鍵按一下您的專案。
 2. 選取 [新增檔案至]。
 3. 瀏覽至您解壓縮 SDK 所在的資料夾。
-4. 選取 `EngagementReach` 資料夾
+4. 選取 `EngagementReach` 資料夾。
 5. 按一下 [新增]。
 
 ### 修改您的應用程式代理人
@@ -176,8 +176,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
 <!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://go.microsoft.com/?linkid=9864553
-[Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
@@ -185,4 +184,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

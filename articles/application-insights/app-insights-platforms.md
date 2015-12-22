@@ -75,7 +75,7 @@
 
 ## 匯出和資料分析
 
-+ [Alooma](http://alooma.com/blog/application-insights-amazon-redshift)
++ [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 + [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 + [串流分析](app-insights-export-power-bi.md)
 
@@ -83,4 +83,4 @@
 
 如果您的語言或平台中還沒有 SDK，您會想要建置一個嗎？ 查看 [GitHub 上之 Application Insights SDK 專案](https://github.com/Microsoft/AppInsights-Home)中列出的現有 SDK 程式碼。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

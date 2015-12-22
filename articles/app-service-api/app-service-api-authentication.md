@@ -74,15 +74,15 @@ App Service 會在 HTTP 要求的授權標頭中傳遞 JWT 權杖，以任何語
  
 在 .NET API 中，您可以使用 `Authorize` 屬性，而且如果您需要更精細的授權，也能輕易地根據宣告來撰寫程式碼，因為它已為您在 .NET 類別中填入宣告資訊。
 
-## 服務主體驗證
+## <a id="internal"></a> 服務帳戶驗證
 
-您也可以在諸如從某個 API 應用程式呼叫另一個 API 應用程式的內部案例中，使用 App Service 驗證。在此案例中，您可以使用服務帳戶認證 (而非使用者認證) 來進行驗證。服務帳戶也稱為*服務主體*，使用這類帳戶的驗證也稱為服務對服務案例。
+您也可以在諸如從某個 API 應用程式呼叫另一個 API 應用程式的內部案例中，使用 App Service 驗證。在此案例中，您可以使用服務帳戶認證 (而非使用者認證) 來進行驗證。服務帳戶在 Azure Active Directory 中也稱為*服務主體*，使用這類帳戶的驗證也稱為服務對服務案例。
 
-在內部案例中，您可以使用 Azure Active Directory 保護所呼叫的 API 應用程式，並在呼叫 API 應用程式時提供 AAD 服務主體授權權杖。透過提供用戶端識別碼和用戶端密碼，您就可以向 AAD 應用程式要求此權杖。不需要特殊的僅 Azure 適用的程式碼，例如在處理行動服務 Zumo 權杖時為 true。[API Apps 的服務主體驗證](app-service-api-dotnet-service-principal-auth.md)教學課程中有講述這個使用 ASP.NET API 應用程式之案例的範例。
+在服務對服務案例中，您可以使用 Azure Active Directory 保護所呼叫的 API 應用程式，並在呼叫 API 應用程式時提供 AAD 服務主體授權權杖。透過提供用戶端識別碼和用戶端密碼，您就可以向 AAD 應用程式要求此權杖。不需要特殊的僅 Azure 適用的程式碼，例如在處理行動服務 Zumo 權杖時為 true。[API Apps 的服務主體驗證](app-service-api-dotnet-service-principal-auth.md)教學課程中有講述這個使用 ASP.NET API 應用程式之案例的範例。
 
-如果您想要處理服務對服務案例，但不要使用 App Service 驗證，請使用用戶端憑證或基本驗證。如需 Azure 中用戶端憑證的詳細資訊，請參閱[如何設定 Web Apps 的 TLS 相互驗證](../app-service-web/app-service-web-configure-tls-mutual-auth.md)。
+如果您想要處理服務對服務案例，但不要使用 App Service 驗證，請使用用戶端憑證或基本驗證。如需 Azure 中用戶端憑證的詳細資訊，請參閱[如何設定 Web Apps 的 TLS 相互驗證](../app-service-web/app-service-web-configure-tls-mutual-auth.md)。如需如何在 ASP.NET 中設定基本驗證資訊的詳細資訊，請參閱 [ASP.NET Web API 2 中的驗證篩選](http://www.asp.net/web-api/overview/security/authentication-filters)。
 
-App Service 邏輯應用程式至 API 應用程式的服務主體驗證屬於特殊案例，[將您裝載在 App Service 上的自訂 API 與邏輯應用程式一起使用](../app-service-logic/app-service-logic-custom-hosted-api.md)中有關於此案例的說明。
+App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特殊案例，[將您裝載在 App Service 上的自訂 API 與邏輯應用程式一起使用](../app-service-logic/app-service-logic-custom-hosted-api.md)中有關於此案例的說明。
 
 ## 詳細資訊
 
@@ -96,4 +96,4 @@ App Service 邏輯應用程式至 API 應用程式的服務主體驗證屬於特
 
 如需在 Azure App Service 中使用 Node 和 Java 的詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)和 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

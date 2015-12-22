@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="10/07/2015" 
+	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
 # 使用驗證和 SQL DB 建立 ASP.NET MVC 應用程式並部署至 Azure App Service
@@ -43,7 +43,7 @@
 
 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 Visual Studio 訂閱者權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，或是[申請免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。
 
-若要設定開發環境，您必須安裝 [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) 或更高版本，以及最新版本的 [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)。本文專為 Visual Studio Update 4 和 SDK 2.7.1 所撰寫。相同的指示也適用於已安裝最新 [Azure SDK for.NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 的 Visual Studio 2015，但是有些畫面看起來和插圖不同。
+若要設定開發環境，您必須安裝 [Visual Studio 2013 Update 5](http://go.microsoft.com/fwlink/?LinkId=390521) 或更高版本，以及最新版本的 [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)。本文專為 Visual Studio Update 4 和 SDK 2.8.1 所撰寫。相同的指示也適用於已安裝最新 [Azure SDK for.NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 的 Visual Studio 2015，但是有些畫面看起來和插圖不同。
 
 ## 建立 ASP.NET MVC 5 應用程式
 
@@ -61,7 +61,7 @@
  
 	**注意：**請確定您輸入的是 ContactManager。您稍後將要複製的程式碼區塊會假設專案名稱為 ContactManager。
 
-1. 在 [新增 ASP.NET 專案] 對話方塊中，選取 [MVC] 範本。確認已將 [驗證] 設為 [個別使用者帳戶]、已勾選 [雲端主機]，且已選取 [Web 應用程式]。
+1. 在 [新增 ASP.NET 專案] 對話方塊中，選取 [MVC] 範本。確認 [驗證] 已設為 [個別使用者帳戶]、[雲端中的主機] 已勾選，且已選取 [App Service]。
 
 	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
@@ -712,7 +712,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 如果您碰到問題，以下是一些如何著手的建議。
 
-* 佈建 SQL Database 時發生錯誤 - 請確定您已安裝最新的 SDK。2.7.1 之前的版本有個錯誤，在某些案例中，VS 嘗試建立資料庫伺服器或資料庫時會造成錯誤。
+* 佈建 SQL Database 時發生錯誤 - 請確定您已安裝最新的 SDK。2.8.1 之前的版本有個錯誤，在某些案例中，VS 嘗試建立資料庫伺服器或資料庫時會造成錯誤。
 * 建立 Azure 資源時出現錯誤訊息「您的訂用帳戶優惠類型不支援此作業」- 與上述相同。
 * 部署時發生錯誤 - 請考慮瀏覽[基本 ASP.NET 部署](web-sites-dotnet-get-started.md)一文。部署案例比較簡單，而且如果您有相同的問題，可能會比較容易隔離。例如，在某些企業環境中，公司防火牆可能會阻止 Web Deploy 對 Azure 進行它所需的連接類型。
 * 部署時，[發行 Web] 精靈中沒有可選取連接字串的選項 - 如果您使用不同的方法來建立您的 Azure 資源 (例如，您嘗試部署到在入口網站中建立的 Web 應用程式和 SQL 資料庫)，SQL 資料庫可能就無法與 Web 應用程式建立關聯。最簡單的解決方案是使用 VS 來建立新的 web 應用程式和資料庫，如教學課程中所示。您不需要從頭開始本教學課程 -- 在發佈 Web 精靈中，您可以選擇建立新的 web 應用程式，並取得與您建立專案時所取得的相同 Azure 資源建立對話方塊。
@@ -797,4 +797,4 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="12/14/2015"
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中建立 .NET WebJob
 
-本教學指導顯示如何為簡單的多層次 ASP.NET MVC 5 應用程式撰寫程式碼，以使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 來處理 [Azure 佇列](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)和 [Azure blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)。本教學課程顯示如何將應用程式部署至 [AAzure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 和 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279)。
+本教學指導示範如何為使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 的簡單多層次 ASP.NET MVC 5 應用程式撰寫程式碼。
+
+[WebJobs SDK](websites-webjobs-resources.md) 的目的是為了簡化您對 WebJob 可執行的一般工作 (例如，映像處理、佇列處理、RSS 彙總、檔案維護和傳送電子郵件) 所撰寫的程式碼。WebJobs SDK 具有內建功能，用於處理 Azure 儲存體和服務匯流排、工作排程和處理錯誤，以及許多其他常見案例。此外，它的設計具有擴充性，而且有[擴充功能的開放原始碼儲存機制](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)。
 
 此範例應用程式是廣告看板。使用者可以上傳廣告的影像，然後後端程序會將影像轉換成縮圖。廣告清單頁面會顯示縮圖，而廣告詳細資料頁面則會顯示完整大小的影像。以下為螢幕擷取畫面：
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
+
+此範例應用程式能夠與 [Azure 佇列](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 和 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) 搭配使用。本教學課程顯示如何將應用程式部署至 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 和 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279)。
 
 ## <a id="prerequisites"></a>必要條件
 
@@ -69,13 +73,11 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 1. 在 Visual Studio 中開啟 [伺服器總管] 視窗。
 
-2. 以滑鼠右鍵按一下 **Azure** 節點，然後按一下 [連線到 Microsoft Azure]。
-![連接到 Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. 以滑鼠右鍵按一下 **Azure** 節點，然後按一下 [連線到 Microsoft Azure]。![連接到 Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. 使用您的 Azure 認證登入。
 
-5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。
-![建立儲存體帳戶](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。![建立儲存體帳戶](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. 在 [建立儲存體帳戶] 對話方塊中，輸入儲存體帳戶的名稱。
 
@@ -119,12 +121,10 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	儲存體連接字串是具有儲存體帳戶名稱和存取金鑰預留位置的範例。您將會使用具有您儲存體帳戶名稱和金鑰的連接字串來進行取代。
 
-	<pre class="prettyprint">&lt;connectionStrings&gt;
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-	&lt;/connectionStrings&gt;</pre>
-
-	儲存體連接字串的名稱是 AzureWebJobsStorage，因為這是 WebJobs SDK 預設使用的名稱。這裡會使用相同的名稱，因此在 Azure 環境中您只需要設定一個連接字串值。
+	<pre class="prettyprint">&lt;connectionStrings>
+  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+&lt;/connectionStrings></pre>儲存體連接字串的名稱是 AzureWebJobsStorage，因為這是 WebJobs SDK 預設使用的名稱。這裡會使用相同的名稱，因此在 Azure 環境中您只需要設定一個連接字串值。
 
 2. 在 [伺服器總管] 中，在 [儲存體] 節點下方的儲存體帳戶上按一下滑鼠右鍵，然後按一下 [屬性]。
 
@@ -142,17 +142,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 6. 開啟 ContosoAdsWebJob 專案中的 *App.config* 檔案。
 
-	此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。在本教學課程中，您將對兩者使用相同帳戶。連接字串包含儲存體帳戶金鑰的預留位置。
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt;
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。您可以對應用程式資料和記錄使用不同的儲存體帳戶，以及您可以[對資料使用多個儲存體帳戶](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)。在本教學課程中，您將使用單一儲存體帳戶。連接字串包含儲存體帳戶金鑰的預留位置。<pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	依預設，WebJobs SDK 會尋找名為 AzureWebJobsStorage 和 AzureWebJobsDashboard 的連接字串。另一種方式是，您可以[任意儲存您要的連接字串，並將它明確傳遞至 `JobHost` 物件](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config)。
 
@@ -331,7 +321,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 ### 檢視 WebJobs SDK 儀表板
 
-1. 在 [傳統入口網站](https://manage.windowsazure.com)中，選取您的 Web 應用程式。
+1. 在[傳統入口網站](https://manage.windowsazure.com)中，選取您的 Web 應用程式。
 
 2. 按一下 [WebJobs] 索引標籤。
 
@@ -465,9 +455,9 @@ Web 和 WebJob 專案都將使用 SQL Database，因此兩者都會需要 Contos
 	- *Web.config*
 	- *Global.asax.cs*  
 	- 在 *Controllers* 資料夾中，新增檔案︰*AdController.cs*
-	- *Views\\Shared* 資料夾中的 *\_Layout.cshtml* 檔案
-	- *Views\\Home* 資料夾中的 *Index.cshtml*
-	- *Views\\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案<br/><br/>
+	- 在 *Views\\Shared* 資料夾中：*\_Layout.cshtml* 檔案
+- 在 *Views\\Home* 資料夾中：*Index.cshtml*
+	- 在 *Views\\Ad* 資料夾中 (請先建立此資料夾)：五個 *.cshtml* 檔案<br/><br/>
 
 3. 在 ContosoAdsWebJob 專案中，從所下載的專案加入下列檔案。
 
@@ -768,10 +758,10 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 
 如需如何撰寫使用 WebJobs SDK 屬性的函數詳細資訊，請參閱下列資源：
 
-* [如何透過 WebJobs SDK 使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) (英文)
-* [如何透過 WebJobs SDK 使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) (英文)
-* [如何透過 WebJobs SDK 使用 Azure 資料表儲存體](websites-dotnet-webjobs-sdk-storage-tables-how-to.md) (英文)
-* [如何搭配使用 Azure 服務匯流排與 WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md) (英文)
+* [如何透過 WebJobs SDK 使用 Azure 佇列儲存體 (英文)](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+* [如何透過 WebJobs SDK 使用 Azure Blob 儲存體 (英文)](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [如何透過 WebJobs SDK 使用 Azure 資料表儲存體 (英文)](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+* [如何搭配使用 Azure 服務匯流排與 WebJobs SDK (英文)](websites-dotnet-webjobs-sdk-service-bus.md)
 
 > [AZURE.NOTE]
 >
@@ -813,4 +803,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 如需詳細資訊，請參閱 [Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?LinkId=390226)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

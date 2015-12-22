@@ -47,7 +47,7 @@
 
 請遵循下列步驟，在 Azure App Service 中建立 Web 應用程式，並啟用 Git 發佈。
 
-[Git](http://git-scm.com/%20target="_blank) 是一個您可用來部署 Azure 網站的分散式版本控制系統。您將會在本機 Git 儲存機制中儲存您為 Web 應用程式撰寫的程式碼，並藉由發送至遠端儲存機制，將您的程式碼部署至 Azure。此部署方法是 App Service Web Apps 的功能。
+[Git](http://git-scm.com/) 是一個您可用來部署 Azure 網站的分散式版本控制系統。您將會在本機 Git 儲存機制中儲存您為 Web 應用程式撰寫的程式碼，並藉由發送至遠端儲存機制，將您的程式碼部署至 Azure。此部署方法是 App Service Web Apps 的功能。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -224,4 +224,4 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

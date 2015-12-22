@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 Data Factory 編輯器建置您的第一個 Azure Data Factory 管線。"
-	description="在本教學課程中，您將使用 Azure 傳統入口網站中的 Data Factory 編輯器，建立範例 Azure Data Factory 管線。"
+	description="在本教學課程中，您將使用 Azure 入口網站中的 Data Factory 編輯器，建立範例 Azure Data Factory 管線。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,12 +16,13 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# 使用 Data Factory 編輯器 (Azure 傳統入口網站) 建置您的第一個 Azure Data Factory 管線
+# 使用 Data Factory 編輯器 (Azure 入口網站) 建置您的第一個 Azure Data Factory 管線。
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 在本文中，您將了解如何使用 [Azure 入口網站](https://portal.azure.com/)來建立您的第一個管線。本教學課程包含下列步驟：
@@ -155,7 +156,7 @@
 ## 步驟 3：建立您的第一個管線
 在此步驟中，您將建立您的第一個管線。
 
-1. 在 [Data Factory 編輯器] 中，按一下 \[**…**] (省略符號)，然後按一下 [新增管線]。
+1. 在 [Data Factory 編輯器] 中，按一下 [**…**] (省略符號)，然後按一下 [新增管線]。
 	
 	![新增管線按鈕](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. 複製下列程式碼片段並貼到 Draft-1 視窗。
@@ -233,4 +234,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](./data-factory-get-started.md)。
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

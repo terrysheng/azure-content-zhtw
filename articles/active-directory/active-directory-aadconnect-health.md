@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/15/2015"
+	ms.date="12/16/2015"
 	ms.author="billmath"/>
 
 # 在雲端中監視內部部署身分識別基礎結構和同步處理服務。
@@ -37,7 +37,7 @@ Azure AD Connect Health 未來更新的內容包括額外監視，以及其他�
 
 ## 使用 Azure AD Connect Health 的原因
 
-將內部部署目錄與 Azure AD 整合可提供通用身分識別以存取雲端和內部部署資源，進而讓您的使用者更具生產力。然而，整合後帶來的挑戰是，必須確保此環境良好健全，才能讓使用者從任何裝置可靠地存取內部部署和雲端中的資源。Azure AD Connect Health 提供簡易的雲端方法，監視及深入了解用來存取 Office 365 或其他 Azure AD 應用程式的內部部署身分識別基本結構。使用方式相當簡單，您只需將代理程式安裝在各個內部部署身分識別伺服器中即可。
+將內部部署目錄與 Azure AD 整合可提供通用身分識別供存取雲端和內部部署資源，進而讓您的使用者更具生產力。然而，整合後帶來的挑戰是，必須確保此環境良好健全，才能讓使用者從任何裝置可靠地存取內部部署和雲端中的資源。Azure AD Connect Health 提供簡易的雲端方法，監視及深入了解用來存取 Office 365 或其他 Azure AD 應用程式的內部部署身分識別基本結構。使用方式相當簡單，您只需將代理程式安裝在各個內部部署身分識別伺服器中即可。
 
 適用於 AD FS 的 Azure AD Connect Health 支援 Windows Server 2008/2008 R2 中的 AD FS 2.0，以及 Windows Server 2012/2012 R2 中的 AD FS。其中也包括提供外部網路存取驗證支援的任何 AD FS Proxy 或 Web 應用程式 Proxy 伺服器。適用於 AD FS 的 Azure AD Connect Health 提供下列一組主要功能：
 
@@ -76,7 +76,7 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 
 ![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/portal2.png)
 
-- **開始使用** – 選取此選項將會開啟 [開始使用] 刀鋒視窗。在這裡，您將可以透過選擇 [取得工具、存取文件及提供意見反應] 來下載 Azure AD Connect Health 代理程式。
+- **開始使用** – 選取此選項將會開啟 [快速啟動] 刀鋒視窗。在這裡，您將可以透過選擇 [取得工具、存取文件及提供意見反應] 來下載 Azure AD Connect Health 代理程式。
 - **Active Directory Federation Services** – 這表示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。選取其中一個執行個體後，便會開啟一個包含該服務執行個體相關資訊的刀鋒視窗。這項資訊包括概觀、屬性、警示、監視和使用情況分析。 
 - 設定 – 這可讓您開啟或關閉下列選項：
 <ol>
@@ -93,7 +93,7 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 | ----------- | ---------- |
 |Azure AD Premium| Azure AD Connect Health 是 Azure AD Premium 的一個功能，而且需要 Azure AD Premium。</br></br>如需詳細資訊，請參閱[開始使用 Azure AD Premium](active-directory-get-started-premium.md)。</br></br>若要啟動 30 天免費試用版，請參閱[開始使用試用版。](https://azure.microsoft.com/trial/get-started-active-directory/)|。
 |您必須是 Azure AD 的全域系統管理員，才能啟用 (建立) Azure AD Connect Health|依預設，只有全域系統管理員才能啟用 (建立)、存取所有資訊，以及執行 Azure AD Connect Health 內的所有作業。如需其他資訊，請參閱[管理您的 Azure AD 目錄](active-directory-administer.md)。<br><br>使用角色型存取控制，您可以允許貴組織中的其他使用者存取 Azure AD Connect Health。如需詳細資訊，請參閱 [Azure AD Connect Health 的角色型存取控制。](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**重要：**您在安裝代理程式時使用的帳戶必須是工作或組織帳戶，且不能是 Microsoft 帳戶。如需詳細資訊，請參閱[以組織身分註冊 Azure](sign-up-organization.md)|
-|若是 AD FS，必須啟用 AD FS 稽核，才能使用使用情況分析| 如果計劃使用 AD FS 的使用情況分析，則您必須啟用 AD FS 稽核。</br></br>請參閱[啟用 AD FS 的稽核](active-directory-aadconnect-health-agent-install-adfs.md#enable-auditing-for-ad-fs)。
+|若是 AD FS，必須啟用 AD FS 稽核，才能使用使用情況分析| 如果計劃使用 AD FS 的使用情況分析，則您必須啟用 AD FS 稽核。</br></br>請參閱[安裝適用於 AD FS 的 Azure AD Connect Health 代理程式](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)。
 |了解 Azure AD Connect Health 代理程式需求|請參閱下表以取得代理程式的特定需求。
 
 下表是開始使用 Azure AD Connect Health 之前必須符合的代理程式需求清單。
@@ -102,7 +102,7 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 | ----------- | ---------- |
 |Azure AD Connect Health 代理程式安裝在每部目標伺服器上| Azure AD Connect Health 要求在目標伺服器上安裝代理程式，以提供在入口網站中檢視的資料。</br></br>例如，若要取得 AD FS 內部部署基礎結構的相關資料，代理程式必須安裝在 AD FS 伺服器上。這包括 AD FS Proxy 伺服器和 Web 應用程式 Proxy 伺服器。</br></br>如需安裝代理程式的相關資訊，請參閱 [Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install.md)。</br></br>**重要：**您在安裝代理程式時使用的帳戶必須是工作或組織帳戶，且不能是 Microsoft 帳戶。如需詳細資訊，請參閱[以組織身分註冊 Azure](sign-up-organization.md)|
 |適用於同步處理的 Azure AD Connect Health 代理程式| 此代理程式會自動隨著最新版的 Azure AD Connect 一起安裝。</br></br>如果您剛開始摸索，您不需要採取任何動作。此代理程式會在您安裝 Azure AD Connect 時進行安裝。</br></br> 如果您已經安裝 Azure AD Connect，您必須升級為最新版本 (在[這裡](http://www.microsoft.com/download/details.aspx?id=47594)下載)。
-|Azure 服務端點的輸出連線|在安裝期間和執行階段，代理程式需要連線至以下列出的 Azure AD Connect Health 服務端點。如果您封鎖輸出連線，請確定在允許清單中加入下列內容：</br></br><li>**新增**：&#42;.blob.core.windows.net </li><li>**新增**：&#42;.queue.core.windows.net</li><li>&#42;.servicebus.windows.net - Port: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|Azure 服務端點的輸出連線|在安裝期間和執行階段，代理程式需要連線至以下列出的 Azure AD Connect Health 服務端點。如果您封鎖輸出連線，請確定在允許清單中加入下列內容：</br></br><li>**new**: https://management.azure.com </li><li>**new**: &#42;.blob.core.windows.net </li><li>**new**: &#42;.queue.core.windows.net</li><li>&#42;.servicebus.windows.net - Port: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |在執行代理程式的伺服器上的防火牆連接埠。| 為了讓代理程式能與 Azure AD Health 服務端點進行通訊，代理程式要求開啟下列防火牆連接埠。</br></br><li>TCP/UDP 連接埠 80</li><li>TCP/UDP 連接埠 443</li><li>TCP/UDP 連接埠 5671</li>
 |如果啟用 IE 增強式安全性，則允許下列網站|如果要在即將安裝代理程式的伺服器上啟用 IE 增強式安全性，則必須允許下列網站。</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Azure Active Directory 所信任的組織同盟伺服器。例如：https://sts.contoso.com</li>
 
@@ -119,8 +119,8 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 
 * [Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health 操作](active-directory-aadconnect-health-operations.md)
-* [使用 Azure AD Connect Health 搭配 AD FS](active-directory-aadconnect-health-adfs.md)
+* [使用 Azure AD Connect Health 來搭配 AD FS](active-directory-aadconnect-health-adfs.md)
 * [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

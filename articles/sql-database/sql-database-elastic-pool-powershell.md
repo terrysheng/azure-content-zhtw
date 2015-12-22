@@ -189,7 +189,9 @@
 
 * 這個擷取的 API 度量，會以針對該彈性資料庫集區所設定之每個 databaseDtuMax (或是 CPU、IO 等基礎度量的相等上限) 的百分比來表示。例如，這些度量有其中一項的使用率為 50%，則表示特定資源的消耗量佔該資源在父彈性資料庫集區中，每個資料庫上限限制的 50%。 
 
-取得度量：$metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+取得度量：
+
+    $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
 視需要重複呼叫並附加資料，來取得其他日期：
 
@@ -235,4 +237,4 @@
 
 如需關於彈性資料庫和彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

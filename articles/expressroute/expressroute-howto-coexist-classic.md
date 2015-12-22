@@ -205,10 +205,10 @@
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. 此時，您必須使用沒有閘道器的 VNet。若要建立新的閘道器並完成連線，請繼續進行本文的＜[建立具有 ExpressRoute 和站對站連線能力的新虛擬網路](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity)＞一節中的**步驟 3**。
+5. 此時，您必須使用沒有閘道器的 VNet。若要建立新的閘道器並完成連線，請繼續進行本文的[建立具有 ExpressRoute 和站對站連線能力的新虛擬網路](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity)一節中的**步驟 4**。
 
 ## 後續步驟
 
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

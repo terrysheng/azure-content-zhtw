@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Microsoft Azure Preview 入口網站概觀"
-	description="了解如何使用 Microsoft Azure Preview 入口網站。"
+	pageTitle="Microsoft Azure 入口網站概觀"
+	description="了解如何使用 Microsoft Azure 入口網站。"
 	services=""
 	documentationCenter=""
 	authors="davidwrede"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="04/28/2015"
+	ms.date="12/16/2015"
 	ms.author="dwrede"/>
 
-# Microsoft Azure Preview 入口網站概觀
+# Microsoft Azure 入口網站概觀
 
-Microsoft Azure Preview 入口網站是一個可以佈建和管理 Azure 資源的中央位置。本教學課程可協助您熟悉入口網站，並告訴您如何使用某些關鍵功能：- **完整的 Marketplace** 可讓您瀏覽數千個可購買及/或佈建的 Microsoft 和其他廠商項目。- **統一且可擴充的瀏覽經驗** 可讓您輕鬆地尋找您所重視的資源，並執行各種管理作業。- **一致的管理頁面** (或刀鋒視窗) 可讓您透過一致的方式 (公開設定、動作、帳單資訊、健全狀況監視與使用量資料等等) 來管理 Azure 的各種服務。- **個人經驗** 可讓您建立自訂的開始畫面，在您每次登入時顯示您想看到的資訊。您也可以自訂任何包含磚的管理刀鋒視窗。
+Microsoft Azure 入口網站是一個可以佈建和管理 Azure 資源的中央位置。本教學課程可協助您熟悉入口網站，並告訴您如何使用某些關鍵功能：- **完整的 Marketplace** 可讓您瀏覽數千個可購買及/或佈建的 Microsoft 和其他廠商項目。- **統一且可擴充的瀏覽經驗** 可讓您輕鬆地尋找您所重視的資源，並執行各種管理作業。- **一致的管理頁面** (或刀鋒視窗) 可讓您透過一致的方式 (公開設定、動作、帳單資訊、健全狀況監視與使用量資料等等) 來管理 Azure 的各種服務。- **個人經驗** 可讓您建立自訂的開始畫面，在您每次登入時顯示您想看到的資訊。您也可以自訂任何包含磚的管理刀鋒視窗。
 
  ![Azure 入口網站 UI 定位][UIOrientation]
 
@@ -78,7 +78,7 @@ Azure 會預先設定資源的刀鋒視窗，但您可以控制這些刀鋒視�
 
 讓我們複習一下您在本教學課程中學到的內容：- 您學到如何註冊、取得訂用帳戶，並瀏覽至入口網站 - 您學會如何使用入口網站 UI，並學到如何建立和瀏覽資源 - 您學到如何建立資源並瀏覽資源 - 您學到如何結構或管理刀鋒視窗，以及如何以一致的方式管理不同類型的資源 - 您學到如何自訂入口網站，將您十分重視的資訊放在最顯眼的地方 - 您學到如何使用角色型存取 (RBAC) 來控制資源的存取 - 您學到如何取得說明及支援
 
-Microsoft Azure Preview 入口網站會徹底簡化建置及管理您在雲端中的應用程式。由於我們不斷地[聆聽意見](http://feedback.azure.com/forums/223579-azure-preview-portal)並加以改善，請查看[管理部落格](http://azure.microsoft.com/blog/topics/management/)以了解最新資訊。[ScottGu 的部落格](http://weblogs.asp.net/scottgu)是尋找所有 Azure 更新的另一個絕佳網站。
+Microsoft Azure 入口網站會徹底簡化建置及管理您在雲端中的應用程式。由於我們不斷地[聆聽意見](http://feedback.azure.com/forums/223579-azure-preview-portal)並加以改善，請查看[管理部落格](http://azure.microsoft.com/blog/topics/management/)以了解最新資訊。[ScottGu 的部落格](http://weblogs.asp.net/scottgu)是尋找所有 Azure 更新的另一個絕佳網站。
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ Microsoft Azure Preview 入口網站會徹底簡化建置及管理您在雲端�
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

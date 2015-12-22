@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/23/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Windows Phone 的通知中樞
@@ -91,7 +91,12 @@
         channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
         {
             var hub = new NotificationHub("<hub name>", "<connection string>");
-            await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+            var result = await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+
+            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                MessageBox.Show("Registration :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
+            });
         });
 
     請確定插入您的中心名稱，及您在上一節中取得、名為 **DefaultListenSharedAccessSignature** 的連接字串。此程式碼會從 MPNS 中擷取 app 的通道 URI，然後向您的通知中樞註冊該通道 URI。它也保證每次啟動應用程式時，便會在通知中樞中註冊通道 URI。
@@ -102,11 +107,14 @@
 
    	![][14]
 
+
    	這樣可確保您的 app 可接收推播通知。
 
 7. 按 F5 鍵以執行應用程式。
 
 	此時會顯示註冊訊息。
+
+8. 關閉應用程式。您必須關閉應用程式，才能接收快顯通知。
 
 ##從後端傳送通知
 
@@ -126,7 +134,7 @@
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入 Azure 通知中樞 SDK 的參考。
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入對 Azure 通知中樞 SDK 的參考。
 
 6. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
 
@@ -147,7 +155,7 @@
             await hub.SendMpnsNativeNotificationAsync(toast);
         }
 
-	請務必使用出現在入口網站 [通知中心] 索引標籤上的通知中心名稱，來取代 "hub name" 預留位置。此外，請將連接字串預留位置取代為您在「設定通知中樞」一節中取得，且名為 **DefaultFullSharedAccessSignature** 的連接字串。
+	請務必使用出現在入口網站 [通知中心] 索引標籤上的通知中心名稱，來取代 "hub name" 預留位置。此外，請將連接字串預留位置取代為您在＜設定通知中樞＞一節中取得，且名為 **DefaultFullSharedAccessSignature** 的連接字串。
 
 	>[AZURE.NOTE]請確定您使用的連接字串具有 [**完整**] 存取權，而非 [**接聽**] 存取權。接聽存取權的字串沒有傳送通知的權限。
 
@@ -197,4 +205,4 @@
 [磚目錄]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

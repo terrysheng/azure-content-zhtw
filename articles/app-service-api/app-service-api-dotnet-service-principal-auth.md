@@ -26,7 +26,7 @@
 
 ## App Service 中的驗證與授權
 
-如需本教學課程中所用驗證功能的簡介，請參閱此系列的上一個教學課程：[Azure App Service 中 API Apps 的驗證和授權](app-service-api-dotnet-get-started.md)。
+如需本教學課程中所用驗證功能的簡介，請參閱此系列的上一個教學課程：[Azure App Service 中 API Apps 的驗證和授權](app-service-api-authentication.md)。
 
 ## 如何遵循本教學課程
 
@@ -304,4 +304,4 @@ ContactsList.API 專案已有產生的用戶端程式碼，但是您要將其刪
 	* [在 Azure App Service 中設定自訂網域名稱](web-sites-custom-domain-name.md)
 	* [對 Azure 網站啟用 HTTPS](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

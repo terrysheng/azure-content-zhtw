@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 在本文中，您將了解如何使用 Azure PowerShell 來建立您的第一個管線。本教學課程包含下列步驟：
@@ -279,4 +280,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

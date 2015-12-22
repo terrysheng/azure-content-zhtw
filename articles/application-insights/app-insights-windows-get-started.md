@@ -186,7 +186,7 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
 在 [新增專案] 對話方塊中，選取 [Application Insights]。
 
-如果系統要求您登入，請使用您的 Azure 帳戶的認證 (不同於 Visual Studio Online 帳戶)。
+如果系統要求您登入，請使用您的 Azure 帳戶的認證 (不同於 Visual Studio Team Services 帳戶)。
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
@@ -231,4 +231,4 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

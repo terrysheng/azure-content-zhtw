@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/15/2015"
    ms.author="joaoma"/>
 
 
@@ -71,8 +71,8 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 您可以使用 Azure PowerShell 抓取授權 NS 記錄，如下所示 (記錄名稱 "@" 用來參考區域頂點的記錄)。
 
-	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -118,26 +118,26 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 下列 PowerShell 範例將進行示範。首先，建立上層區域與子區域，這些區域可位於相同的資源群組或不同的資源群組中。
 
-	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:\> $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:\> $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 接著，從子區域抓取權威 NS 記錄，如下一個範例所示。
 
-	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:\> $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 最後，在上層區域中建立相對應的 NS 記錄集來完成委派 (請注意，上層區域中的記錄集名稱會符合子區域名稱，在此案例中為 "partners")。
 
-	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:\> $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
+	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
 因為使用註冊機構進行委派時，可透過查閱子區域的 SOA 記錄來確認一切都已正確設定。
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-	
+
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-	
+
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com
@@ -149,14 +149,14 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 ## 後續步驟
 
-[管理 DNS 區域](../dns-operations-dnszones)
+[管理 DNS 區域](dns-operations-dnszones.md)
 
-[管理 DNS 記錄](../dns-operations-recordsets)
+[管理 DNS 記錄](dns-operations-recordsets.md)
 
-[流量管理員概觀](../traffic-manager-overview)
+[流量管理員概觀](traffic-manager-overview.md)
 
-[使用 .NET SDK 自動化 Azure 作業](../dns-sdk)
+[使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)
 
 [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

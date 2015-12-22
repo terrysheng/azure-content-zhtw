@@ -531,6 +531,7 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 - [Azure 檔案儲存體：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [如何搭配使用 Azure 檔案儲存體與 Linux](storage-how-to-use-files-linux.md)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
 ### 檔案儲存體的工具支援
 
@@ -550,4 +551,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

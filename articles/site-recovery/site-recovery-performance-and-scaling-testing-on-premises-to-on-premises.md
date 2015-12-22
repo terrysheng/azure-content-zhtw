@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Site Recovery：內部部署對內部部署 Hyper-V 複寫的效能測試和調整結果"
+	pageTitle="使用 Site Recovery 進行內部部署對內部部署 Hyper-V 複寫的效能測試和調整結果 | Microsoft Azure"
 	description="本文提供使用 Azure Site Recovery 針對內部部署對內部部署複寫進行效能測試的相關資訊。"
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-# Azure Site Recovery：內部部署對內部部署 Hyper-V 複寫的效能測試和調整結果
+# 使用 Site Recovery 進行內部部署對內部部署 Hyper-V 複寫的效能測試和調整結果
 
 您可以使用 Microsoft Azure Site Recovery 來協調和管理將虛擬機器與實體伺服器複寫至 Azure 或次要資料中心的複寫作業。本文提供我們在兩個內部部署資料中心之間複寫 Hyper-V 虛擬機器時所執行之效能測試的結果。
 
@@ -195,19 +195,13 @@ Hyper-V 複本會使用復原伺服器上的少量記憶體來最佳化儲存作
 
 |度量|計數器|
 |---|---|
-|CPU|\\Processor(\_Total)\\% 處理器時間|
-|可用的記憶體|\\記憶體\\可用的 MB|
-|IOPS|\\PhysicalDisk(\_Total)\\每秒的磁碟傳輸數|
-|每秒的 VM 讀取 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置 (<VHD>)\\每秒的讀取作業數|
-|每秒的 VM 寫入 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
-|VM 讀取輸送量|\\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
-|VM 讀取輸送量|\\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
+|CPU|\\Processor(\_Total)\\% 處理器時間| |可用的記憶體|\\記憶體\\可用的 MB| |IOPS|\\PhysicalDisk(\_Total)\\每秒的磁碟傳輸數| |每秒的 VM 讀取 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |每秒的 VM 寫入 (IOPS) 作業數|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |VM 讀取輸送量|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數| |VM 讀取輸送量|\\Hyper-V 虛擬存放裝置(<VHD>)\\每秒的讀取作業數|
 
 
 ## 後續步驟
 
-- [設定兩個內部部署 VMM 站台之間的保護](site-recovery-vmm-to-vmm.md)
+- [設定兩個內部部署 VMM 網站之間的保護](site-recovery-vmm-to-vmm.md)
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

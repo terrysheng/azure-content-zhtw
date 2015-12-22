@@ -62,7 +62,7 @@
   
          如果裝置狀態為「離線」，請等待數分鐘讓裝置上線 
       
-         如果數分鐘後裝置仍然為離線狀態，請確定有依照{1>您的 StorSimple 裝置網路需求<1}進行火牆設定。(../articles/storsimple/storsimple-system-requirements.md). 
+         如果數分鐘後裝置仍然為離線狀態，請確定有依照[您的 StorSimple 裝置網路需求](../articles/storsimple/storsimple-system-requirements.md)進行火牆設定。. 
 
 		如果您的機器不支援 HTTP 1.1，請檢查連接埠 9354 並確定此連接埠已開啟供輸出通訊使用。此連接埠供 StorSimple Manager 服務和 StorSimple 裝置間的通訊使用。 
  

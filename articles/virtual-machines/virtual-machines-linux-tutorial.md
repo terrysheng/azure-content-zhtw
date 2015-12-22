@@ -21,8 +21,12 @@
 # 建立執行 Linux 的虛擬機器
 
 > [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
+
 
 <br> 您可以從命令列或入口網站，輕鬆建立執行 Linux 的 Azure 虛擬機器 (VM)。本教學課程示範如何使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)，快速建立在 Azure 中執行的 Ubuntu Server VM、使用 **ssh** 連接到該 VM，以及建立和掛接新磁碟本主題會使用 Ubuntu Server VM，但您也可以使用[自己的映像做為範本](virtual-machines-linux-create-upload-vhd.md)來建立 Linux 虛擬機器。
 
@@ -63,7 +67,7 @@
 	data:
 	info:    group create command OK
 
-現在輸入 `azure vm quick-create` 來建立 VM，而您將會收到輸入其餘參數的提示。使用您剛在上面建立的資源群組名稱，並針對 **ImageURN** 值使用 `canonical:ubuntuserver:14.04.2-LTS:latest`，如此一來，您的體驗應該看起來如下：請注意，`azure vm quick-create` 命令會提示其建立、裝載和連接到 Linux VM 所需的基本資訊，包括：
+現在輸入 `azure vm quick-create` 來建立 VM，而您將會收到輸入其餘參數的提示。使用您剛在上面建立的資源群組名稱，並針對 **ImageURN** 值使用 `canonical:ubuntuserver:14.04.2-LTS:latest`，如此一來，您的體驗應該看起來如下。請注意，`azure vm quick-create` 命令會提示其建立、裝載和連接到 Linux VM 所需的基本資訊，包括：
 
 - 資源群組名稱和 VM 名稱
 - 部署位置
@@ -311,7 +315,7 @@
 
 ## 後續步驟
 
-請記住，如果將新磁碟重新開機，除非您將該資訊寫入 [/etc/fstab](http://en.wikipedia.org/wiki/Fstab) 檔案，否則該磁碟通常無法供 VM 使用。如果想要的話，您可以新增數個磁碟，並[設定 RAID](virtual-machines-linux-configure-raid.md)。
+請記住，如果將新磁碟重新開機，除非您將該資訊寫入 [/etc/fstab](http://en.wikipedia.org/wiki/Fstab) 檔案，否則該磁碟通常無法供 VM 使用。如果想要的話，您可以多新增幾個磁碟，並[設定 RAID](virtual-machines-linux-configure-raid.md)。
 
 若要深入了解 Azure 上的 Linux，請參閱：
 
@@ -323,4 +327,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

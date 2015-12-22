@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/16/2015"
+	ms.date="12/07/2015"
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中建立 ASP.NET Web 應用程式
@@ -109,23 +109,23 @@
 
 5. 如果您尚未登入 Azure，Visual Studio 會提示您登入。使用您用來管理 Azure 訂用帳戶之帳戶的識別碼和密碼來登入。
 
-	當您登入時，[設定 Microsoft Azure Web 應用程式設定] 對話方塊會詢問您要建立哪些資源。
+	當您登入時，[建立 App Service] 對話方塊會詢問您要建立什麼資源。
 
 	![已登入 Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. 在 [設定 Microsoft Azure Web 應用程式設定] 對話方塊方塊中，輸入 **Web 應用程式名稱**，而該名稱在 *azurewebsites.net* 網域中必須是唯一名稱。例如，您可以將它命名為 MyExample 並於右邊加上數字，使其成為唯一的名稱，例如 MyExample810。如果預設的 Web 名稱針對您所建立，則它將是唯一的，且您可以使用該名稱。
+3. 在 [建立 App Service] 對話方塊中，輸入 **Web 應用程式名稱**，而該名稱在 *azurewebsites.net* 網域中必須是唯一名稱。例如，您可以將它命名為 MyExample 並於右邊加上數字，使其成為唯一的名稱，例如 MyExample810。如果預設的 Web 名稱針對您所建立，則它將是唯一的，且您可以使用該名稱。
 
 	如果有其他人使用了您輸入的名稱，您就會在右邊看到紅色驚嘆號，而不是綠色勾號，這代表您需要輸入不同的名稱。
 
 	Azure 將使用這個名稱做為應用程式 URL 的前置詞。完整的 URL 組合是這個名稱加上 *.azurewebsites.net* (如 [Web 應用程式名稱] 文字方塊旁所示)。例如，若名稱為 `MyExample810`，URL 會是 `MyExample810.azurewebsites.net`。URL 必須是唯一的。
 
-4. 在 [App Service 方案] 下拉式清單中，選取 [建立新的 App Service 方案]。
+4. 按一下 [App Service 方案] 下拉式清單旁邊的 [新增...] 按鈕。
 
 	在＜[後續步驟](#next-steps)＞一節中，有前往 App Service 方案相關資訊的連結。
 
 5. 針對方案名稱輸入 **MyExamplePlan** 或其他您偏好使用的名稱。
 
-6. 在 [資源群組] 下拉式清單中，選取 [建立新的資源群組]。
+6. 在**資源群組**下拉式清單中，輸入您的新資源群組的名稱。
 
 	[後續步驟](#next-steps)一節含有資源群組相關資訊的連結。
 
@@ -137,7 +137,7 @@
 
 5. 保留資料庫欄位不變。
 
-	在本教學課程中，您不會使用資料庫。在＜[後續步驟](#next-steps)＞一節中，有前往示範如何使用資料庫的教學課程連結。
+	在本教學課程中，您不會使用資料庫。[後續步驟](#next-steps)小節會提供教學課程連結，以示範資料庫的使用方法。
 
 6. 按一下 [確定]。
 
@@ -167,27 +167,27 @@
 
 	![選擇發佈](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	[發行 Web] 精靈會在幾秒鐘後出現。此精靈會開啟某個「發行設定檔」，其中包含能將 Web 專案部署到新 Web 應用程式的設定。如果您想要部署到不同的 Web 應用程式，可以按一下 [設定檔] 索引標籤來建立不同的設定檔。在本教學課程中，您將會接受部署到您稍早建立的 Web 應用程式的設定。
+	[發佈 Web] 精靈會在幾秒鐘後出現。此精靈會開啟某個*發佈設定檔*，其中包含能將 Web 專案部署到新 Web 應用程式的設定。如果您想要部署到不同的 Web 應用程式，可以按一下 [設定檔] 索引標籤來建立不同的設定檔。在本教學課程中，您將會接受部署到您稍早建立的 Web 應用程式的設定。
 
-8. 在 [發行 Web] 精靈的 [連線] 索引標籤中，按 [下一步]。
+8. 在 [發佈 Web] 精靈的 [連線] 索引標籤中，按 [下一步]。
 
 	![連線驗證成功](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
-10. 在 [設定] 索引標籤中，按 [下一步]。
+10. 在 [設定] 索引標籤上，按 [下一步]。
 
 	您可以接受 [組態] 和 [檔案發行選項] 的預設值。
 
-	您可以使用 [組態] 下拉式清單，來部署用於遠端偵錯的偵錯組建。在＜[後續步驟](#next-steps)＞一節中，有前往示範如何從遠端以偵錯模式執行 Visual Studio 的教學課程連結。
+	您可以使用 [組態] 下拉式清單，來部署用於遠端偵錯的偵錯組建。在[後續步驟](#next-steps)一節中，有前往示範如何從遠端以偵錯模式執行 Visual Studio 的教學課程連結。
 
 	![[設定] 索引標籤](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-11. 在 [預覽] 索引標籤中，按一下 [發行]。
+11. 在 [預覽] 索引標籤上，按一下 [發佈]。
 
-	如果您想要查看哪些檔案會複製到 Azure，可以先按一下 [開始預覽]，然後再按 [發行]。
+	如果您想要查看哪些檔案會複製到 Azure，可以先按一下 [開始預覽]，然後再按 [發佈]。
 
 	![](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
-	當您按一下 [發行] 時，Visual Studio 就會開始將檔案複製至 Azure 伺服器。
+	當您按一下 [發佈] 時，Visual Studio 就會開始將檔案複製至 Azure 伺服器。
 
 	[輸出] 與 [Azure App Service 活動] 視窗會顯示已採取的部署動作，並回報部署作業已順利完成。
 
@@ -199,7 +199,7 @@
 
 13. 將此瀏覽器視窗保持開啟狀態，以便在下一節中使用。
 
-**提示：**您可以啟用 [Web 單鍵發行] 工具列來加快部署速度，方法是依序按一下 [檢視] > [工具列]，然後選取 [Web 單鍵發行]。您可以使用工具列來選取設定檔、按一下按鈕來發行，或按一下按鈕來開啟 [發行 Web] 精靈。
+**提示：**您可以啟用 [Web 單鍵發佈] 工具列來加快部署速度，方法是依序按一下 [檢視] > [工具列]，然後選取 [Web 單鍵發佈]。您可以使用工具列來選取設定檔、按一下按鈕來發佈，或按一下按鈕來開啟 [發佈 Web] 精靈。
 
 ![Web 單鍵發行工具列](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
@@ -225,7 +225,7 @@
 
 這項功能很適合[在 Web.config 檔案中暫時關閉 customErrors 以取得詳細的錯誤訊息](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
-在 [伺服器總管] 中，您也可以用滑鼠右鍵按一下 Web 應用程式節點並在 Visual Studio 視窗中存取 Web 應用程式設定、啟動遠端偵錯工作階段，以及在應用程式寫入應用程式記錄檔時進行即時檢視。
+在 [伺服器總管] 中，您也可以用滑鼠右鍵按一下 App Service 節點並在 Visual Studio 視窗中存取 Web 應用程式設定、啟動遠端偵錯工作階段，以及在應用程式寫入應用程式記錄檔時進行即時檢視。
 
 ![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
 
@@ -237,7 +237,7 @@
 
 1. 在瀏覽器中，移至 [https://portal.azure.com](https://portal.azure.com)，然後以您的 Azure 認證登入。
 
-2. 按一下 [Web 應用程式]，然後按一下您 Web 應用程式的名稱。
+2. 按一下 [應用程式服務]，然後按一下您 Web 應用程式的名稱。
 
 	[Web 應用程式] 刀鋒視窗會顯示您 Web 應用程式的設定和使用量統計資料概觀。
 
@@ -292,7 +292,7 @@
 
 * 如何在 App Service、Azure 雲端服務和 Web 應用程式的 Azure 虛擬機器之間進行選擇
 
-	在 Azure 中，您可以在 App Service Web Apps 中執行 Web 應用程式 (如本教學課程所示)，或在雲端服務或虛擬機器中執行。如需詳細資訊，請參閱〈[Azure Web 應用程式、雲端服務和 VM：每一項的使用時機](/manage/services/web-sites/choose-web-app-service/)〉。
+	在 Azure 中，您可以在 App Service Web Apps 中執行 Web 應用程式 (如本教學課程所示)，或在雲端服務或虛擬機器中執行。如需詳細資訊，請參閱 [Azure Web 應用程式、雲端服務和 VM：每一項的使用時機](/manage/services/web-sites/choose-web-app-service/)。
 
 * [如何選擇或建立 App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -301,4 +301,4 @@
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="12/11/2015"
 	ms.author="jodebrui"/>
 
 
@@ -28,6 +28,7 @@ In-Memory 功能大幅提升適當情況下交易和分析工作負載的效能�
 - 使用程式碼來測試變化以查看效能結果差異；或
 - 閱讀程式碼來了解案例，以及了解如何建立和利用 In-Memory 物件。
 
+> [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
 #### In-Memory OLTP
 
@@ -69,7 +70,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 公開上市 (GA)：
 
-- *磁碟上* 的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
+- *磁碟上*的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
 
 
 預覽：
@@ -92,7 +93,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 ## A.安裝 In-Memory OLTP 範例
 
-在 [Azure Preview 入口網站](http://portal.azure.com/)中按幾下滑鼠，即可建立 AdventureWorksLT [V12] 範例資料庫。本節中的步驟說明如何擴充 AdventureWorksLT 資料庫：
+在 [Azure 入口網站](http://portal.azure.com/)中按幾下滑鼠，即可建立 AdventureWorksLT [V12] 範例資料庫。本節中的步驟說明如何擴充 AdventureWorksLT 資料庫：
 
 - 記憶體內資料表。
 - 原生編譯預存程序。
@@ -100,7 +101,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 #### 安裝步驟
 
-1. 在 [Azure Preview 入口網站](http://portal.azure.com/)中，在 V12 伺服器上建立 Premium 資料庫。將 [來源] 設定為 AdventureWorksLT [V12] 範例資料庫。
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，在 V12 伺服器上建立高階資料庫。將 [來源] 設定為 AdventureWorksLT [V12] 範例資料庫。
  - 如需詳細指示，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
 
 2. 使用 SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx) 連接到資料庫。
@@ -133,8 +134,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 
 結果為 **0** 表示不支援 In-Memory，而 1 表示提供支援。若要診斷此問題：
 
-- 確保資料庫建立於 In-Memory OLTP 功能
-- 可用於預覽版本之後。
+- 確保資料庫建立於 In-Memory OLTP 功能可用於預覽版本之後。
 - 確保資料庫位於「高階」服務層。
 
 
@@ -202,7 +202,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 本節顯示 ostress.exe 命令列中內嵌的 T-SQL 指令碼。此指令碼會使用您稍早安裝的 T-SQL 指令碼所建立的項目。
 
 
-下列指令碼會在下列記憶體最佳化 *資料表* 中插入有 5 個細項的範例銷售訂單：
+下列指令碼會在下列記憶體最佳化資料表中插入有 5 個細項的範例銷售訂單：
 
 - SalesLT.SalesOrderHeader\_inmem
 - SalesLT.SalesOrderDetail\_inmem
@@ -263,7 +263,7 @@ whereas for SQL 2016+
 ### 先執行 \_inmem 壓力工作負載
 
 
-您可以使用 *RML 命令提示字元* 視窗來執行 ostress.exe 命令列。命令列參數會將 ostress 導向至：
+您可以使用 RML 命令提示字元 視窗來執行 ostress.exe 命令列。命令列參數會將 ostress 導向至：
 
 - 同時執行 100 個連線 (-n100)。
 - 每個連線會執行 T-SQL 指令碼 50 次 (-r50)。
@@ -358,9 +358,9 @@ EXECUTE Demo.usp_DemoReset;
 #### 重要資料表和資料行存放區索引
 
 
-- dbo.FactResellerSalesXL\_CCI 是具有叢集式**資料行存放區**索引的資料表，已在 *「資料」* 層級進一步壓縮。
+- dbo.FactResellerSalesXL\_CCI 是具有叢集式**資料行存放區**索引的資料表，已在*資料*層級進一步壓縮。
 
-- dbo.FactResellerSalesXL\_PageCompressed 是具有對等一般叢集式索引的資料表，只會在 *「頁面」* 層級壓縮。
+- dbo.FactResellerSalesXL\_PageCompressed 是具有對等一般叢集式索引的資料表，只會在*頁面*層級壓縮。
 
 
 #### 用來比較資料行存放區索引的重要查詢
@@ -457,7 +457,7 @@ Azure SQL Database 中的 In-Memory OLTP 功能[於 2015 年 10 月 28 日進入
 
 在公開上市 (GA) 前的預覽階段期間，只對下列資料庫支援 In-Memory OLTP：
 
-- 在 *「進階」* 服務層的資料庫。
+- 在*進階*服務層的資料庫。
 
 - 在 In-Memory OLTP 功能生效後建立的資料庫。
  - 如果從 In-Memory OLTP 功能生效前建立的資料庫還原，則新的資料庫無法支援 In-memory OLTP。
@@ -522,10 +522,10 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 #### 工具
 
-- [SQL Server Data Tools Preview (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx) (適用於最新每月版本)。
+- [SQL Server Data Tools Preview (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)，最新的每月版本。
 
 - [SQL Server 的 Replay Markup Language (RML) 公用程式說明](http://support.microsoft.com/zh-TW/kb/944837)
 
-- [監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md) (適用於 In-Memory OLTP)。
+- 適用於 In-Memory OLTP 的[監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

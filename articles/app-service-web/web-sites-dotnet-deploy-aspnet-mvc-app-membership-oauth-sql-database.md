@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="10/07/2015" 
+	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
 # 使用驗證和 SQL DB 建立 ASP.NET MVC 應用程式並部署至 Azure App Service
@@ -43,7 +43,7 @@
 
 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 Visual Studio 訂閱者權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，或是[申請免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。
 
-若要設定開發環境，您必須安裝 [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) 或更高版本，以及最新版本的 [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)。本文專為 Visual Studio Update 4 和 SDK 2.7.1 所撰寫。相同的指示也適用於已安裝最新 [Azure SDK for.NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 的 Visual Studio 2015，但是有些畫面看起來和插圖不同。
+若要設定開發環境，您必須安裝 [Visual Studio 2013 Update 5](http://go.microsoft.com/fwlink/?LinkId=390521) 或更高版本，以及最新版本的 [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)。本文專為 Visual Studio Update 4 和 SDK 2.8.1 所撰寫。相同的指示也適用於已安裝最新 [Azure SDK for.NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 的 Visual Studio 2015，但是有些畫面看起來和插圖不同。
 
 ## 建立 ASP.NET MVC 5 應用程式
 
@@ -61,7 +61,7 @@
  
 	**注意：**請確定您輸入的是 ContactManager。您稍後將要複製的程式碼區塊會假設專案名稱為 ContactManager。
 
-1. 在 [新增 ASP.NET 專案] 對話方塊中，選取 [MVC] 範本。確認已將 [驗證] 設為 [個別使用者帳戶]、已勾選 [雲端主機]，且已選取 [Web 應用程式]。
+1. 在 [新增 ASP.NET 專案] 對話方塊中，選取 [MVC] 範本。確認 [驗證] 已設為 [個別使用者帳戶]、[雲端中的主機] 已勾選，且已選取 [App Service]。
 
 	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
@@ -104,6 +104,7 @@
 	Visual Studio 會建立 ContactManager web 專案、建立資源群組和您指定的 App Service 計劃，並在您指定名稱的 Azure App Service 中建立 web 應用程式。
 
 ### 設定頁首及頁尾
+
 
 1. 在 [方案總管]，開啟 *Views\\Shared* 資料夾中的 *Layout.cshtml* 檔案。
 
@@ -268,7 +269,7 @@
 
 ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更新和刪除 (CRUD) 動作。
 
-1. 建置專案 **(Ctrl+Shift+B)**。(使用樣板機制前必須先建置專案)。
+1. 建置專案 **(Ctrl+Shift+B)**。(使用樣板機制前必須先建置專案)。 
  
 1. 在 [方案總管]，於 Controllers 資料夾上按一下滑鼠右鍵，按一下 [新增]，再按一下 [控制器]。
 
@@ -281,8 +282,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 1. 在 [模型類別] 下拉式方塊中選取 [Contact (ContactManager.Models)]。(請參閱下圖)。
 
 1. 在 [資料內容類別] 中選取 [ApplicationDbContext (ContactManager.Models)]。[ApplicationDbContext] 將用於成員資格 DB 和我們的連絡人資料。
-
-1. 在 [控制器名稱] 文字輸入方塊中，輸入 "CmController" 作為控制器名稱。
+1. 在 [控制器名稱] 文字輸入方塊中，輸入 "CmController" 作為控制器名稱。 
 
 	![新增資料內容對話方塊](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss5.PNG)
 
@@ -313,11 +313,13 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
 
-3. 開啟 *Migrations\\Configuration.cs* 檔案。
+3. 開啟 *Migrations\\Configuration.cs* 檔案。 
 
 4. 加入下列 `using` 陳述式。
 
     	 using ContactManager.Models;
+
+
 
 5. 以下列程式碼取代 *Seed* 方法：
 
@@ -374,6 +376,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	此程式碼會以連絡人資訊初始化 (植入) 該資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DB](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)。
 
+
 6. 在 [Package Manager Console] 中輸入命令：
 
 		update-database
@@ -387,6 +390,8 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 	應用程式隨即顯示種子資料並提供編輯、詳細資料和刪除連結。您可以建立、編輯、刪除及檢視資料。
 
 	![資料的 MVC 檢視][rx2]
+
+
 
 ## 新增 OAuth2 提供者
 
@@ -413,8 +418,8 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 將下列 **AddUserAndRole** 方法新增至類別：
 
-		bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-		{
+		 bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+		 {
 		    IdentityResult ir;
 		    var rm = new RoleManager<IdentityRole>
 		        (new RoleStore<IdentityRole>(context));
@@ -423,14 +428,14 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		        new UserStore<ApplicationUser>(context));
 		    var user = new ApplicationUser()
 		    {
-		        UserName = "user1@contoso.com",
+		       UserName = "user1@contoso.com",
 		    };
 		    ir = um.Create(user, "P_assw0rd1");
 		    if (ir.Succeeded == false)
-		        return ir.Succeeded;
+		       return ir.Succeeded;
 		    ir = um.AddToRole(user.Id, "canEdit");
 		    return ir.Succeeded;
-		}
+		 }
 
 1. 從 **Seed** 方法呼叫新方法：
 
@@ -509,7 +514,8 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 開啟 *App\_Start\\FilterConfig.cs* 檔案，並以下列程式碼 (其會新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：
 
-		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void
+		RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
@@ -530,9 +536,8 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		     return View();
 		  }
 
-	如果您全面搜尋 *AllowAnonymous*，您將會發現帳戶控制器的登入與註冊方法中都使用了它。
-
-1. 在 *CmController.cs* 中，將 `[Authorize(Roles = "canEdit")]` 新增至 *Cm* 控制器中用來變更資料的 HttpGet 和 HttpPost 方法 (Create、Edit、Delete，也就是 Index 和 Details 外的每個動作方法)。以下顯示完整程式碼的片段內容：
+2. 全面搜尋 *AllowAnonymous*，您會發現帳戶控制器的登入與註冊方法中都使用了它。
+1. 在 *CmController.cs* 中，將 `[Authorize(Roles = "canEdit")]` 新增至 *Cm* 控制器中用來變更資料的 HttpGet 和 HttpPost 方法 (Create、Edit、Delete，也就是 Index 和 Details 外的每個動作方法)。以下顯示完整程式碼的片段內容： 
 
 		// GET: Cm/Create
 		[Authorize(Roles = "canEdit")]
@@ -577,19 +582,14 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 1. 按 CTRL+F5 執行應用程式。
 
 1. 如果您在前個工作階段仍保持登入狀態，請點擊 [登出] 連結。
-
-1. 按一下 [關於] 或 [連絡人] 連結。因為匿名使用者無法檢視那些頁面，所以系統會將您重新導向至登入頁面。
-
+1. 按一下 [關於] 或 [連絡人] 連結。因為匿名使用者無法檢視那些頁面，所以系統會將您重新導向至登入頁面。 
 1. 按一下 [註冊為新使用者] 連結，並使用電子郵件 **joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
 
 	![登入](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. 按一下 [CM Demo] 連結並確認看到資料。
-
 1. 按一下頁面上的編輯連結，系統會將您重新導向至登入頁面 (因為未將新的本機使用者新增至 *canEdit* 角色)。
-
 1. 使用 **user1@contoso.com* 的身分和密碼 "P\_assw0rd1" ("word" 中的 "0" 是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。
-
 	如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 [AspNetUsers] 資料表的 [UserName] 欄，確認已新增 **user1@contoso.com*。
 
 1. 確認您可進行資料變更。
@@ -603,7 +603,6 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 	此時會開啟 [發行 Web] 精靈。
 
 1. 按一下 [發行 Web] 對話方塊左側的 [設定] 索引標籤。
-
 2. 按一下 **v** 圖示以選取 [ApplicationDbContext] 的 [遠端連接字串]，並且選取您建立專案時建立的資料庫。
    
 	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
@@ -651,12 +650,9 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 	![啟動 Web 應用程式](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss15.png)
 
 5. 返回 Visual Studio 並按一下 [發行]。
-
-3. 您的 Azure 應用程式隨即在預設瀏覽器中開啟。如果您已登入，請登出，以便您可以使用匿名使用者的身分檢視首頁。
-
+3. 您的 Azure 應用程式隨即在預設瀏覽器中開啟。如果您已登入，請登出，以便您可以使用匿名使用者的身分檢視首頁。  
 4. 按一下 [關於] 連結。系統會將您重新導向至 [登入] 頁面。
-
-5. 按一下 [登入] 頁面上的 [註冊] 連結並建立本機帳戶。我們將使用此本機帳戶，確認您可以存取唯讀頁面但無法存取用來變更資料的頁面 (這些頁面受 *canEdit* 角色保護)。本教學課程稍後將移除本機帳戶存取權。
+5. 按一下 [登入] 頁面上的 [註冊] 連結並建立本機帳戶。我們將使用此本機帳戶，確認您可以存取唯讀頁面但無法存取用來變更資料的頁面 (這些頁面受 *canEdit* 角色保護)。本教學課程稍後將移除本機帳戶存取權。 
 
 	![註冊](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss16.PNG)
 
@@ -678,7 +674,8 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	**注意：**您無法在從此應用程式登出 Google 後，又使用相同瀏覽器登入不同的 Google 帳戶。若是使用一個瀏覽器，則必須瀏覽到 Google 再登出。您可以使用不同瀏覽器，以自己在相同協力廠商驗證者 (例如 Google) 那邊的其他帳戶登入。
 
-	如果您並未填寫 Google 帳戶資訊中的姓名，則會發生 NullReferenceException。
+如果您並未填寫 Google 帳戶資訊中的姓名，則會發生 NullReferenceException。
+
 
 ## 檢查 SQL Azure DB ##
 
@@ -691,7 +688,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 3. 若您先前未曾連線至此資料庫，系統將提示您新增防火牆規則，以允許您從目前 IP 位址存取資料庫。IP 位址將預先填入。只需按一下 [新增防火牆規則] 即可存取。
 
 	![新增防火牆規則](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/addfirewallrule.png)
-
+        
 3. 使用您建立資料庫伺服器時指定的使用者名稱和密碼來登入資料庫。
  
 1. 以滑鼠右鍵按一下 [AspNetUsers] 資料表並選取 [檢視資料]。
@@ -712,7 +709,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 如果您碰到問題，以下是一些如何著手的建議。
 
-* 佈建 SQL Database 時發生錯誤 - 請確定您已安裝最新的 SDK。2.7.1 之前的版本有個錯誤，在某些案例中，VS 嘗試建立資料庫伺服器或資料庫時會造成錯誤。
+* 佈建 SQL Database 時發生錯誤 - 請確定您已安裝最新的 SDK。2.8.1 之前的版本有個錯誤，在某些案例中，VS 嘗試建立資料庫伺服器或資料庫時會造成錯誤。
 * 建立 Azure 資源時出現錯誤訊息「您的訂用帳戶優惠類型不支援此作業」- 與上述相同。
 * 部署時發生錯誤 - 請考慮瀏覽[基本 ASP.NET 部署](web-sites-dotnet-get-started.md)一文。部署案例比較簡單，而且如果您有相同的問題，可能會比較容易隔離。例如，在某些企業環境中，公司防火牆可能會阻止 Web Deploy 對 Azure 進行它所需的連接類型。
 * 部署時，[發行 Web] 精靈中沒有可選取連接字串的選項 - 如果您使用不同的方法來建立您的 Azure 資源 (例如，您嘗試部署到在入口網站中建立的 Web 應用程式和 SQL 資料庫)，SQL 資料庫可能就無法與 Web 應用程式建立關聯。最簡單的解決方案是使用 VS 來建立新的 web 應用程式和資料庫，如教學課程中所示。您不需要從頭開始本教學課程 -- 在發佈 Web 精靈中，您可以選擇建立新的 web 應用程式，並取得與您建立專案時所取得的相同 Azure 資源建立對話方塊。
@@ -797,4 +794,4 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

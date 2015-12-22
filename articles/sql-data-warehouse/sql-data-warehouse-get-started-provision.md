@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/15/2015"
    ms.author="lodipalm;barbkess"/>
 
 # 建立 SQL 資料倉儲
@@ -29,6 +29,10 @@
 
 - 建立將要裝載您的資料庫的伺服器。
 - 建立包含 AdventureWorksDW 範例資料庫的資料庫。
+
+如果您嘗試將現有的資料庫移轉至 SQL 資料倉儲，請參閱[移轉概觀](./sql-data-warehouse-get-started-overview-migrate.md)或使用[移轉公用程式](./sql-data-warehouse-migrate-migration-utility.md)。
+
+若要將資料載入 SQL 資料倉儲，請參閱[載入概觀](./sql-data-warehouse-overview-load.md)。
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -54,7 +58,7 @@
   > + 提供一致的方式在相同的地理位置設定多個資料庫。
   > + 不是內部部署伺服器的實體硬體。它是服務軟體的一部分。這就是為什麼我們將它稱為邏輯伺服器。
   > + 可以裝載多個資料庫，而不會影響其效能。
-  > + 在其名稱中使用小寫 *s* 。SQL **s**erver 是 Azure 邏輯伺服器，而 SQL **S**erver 則是 Microsoft 的內部部署資料庫產品。
+  > + 在其名稱中使用小寫 *s*。SQL **s**erver 是 Azure 邏輯伺服器，而 SQL **S**erver 則是 Microsoft 的內部部署資料庫產品。
 
 1. 按一下 [伺服器] > [建立新伺服器]。伺服器不會收取費用。如果您已經有想要使用的 V12 邏輯 SQL 伺服器，請選擇現有的伺服器，然後移至下一個步驟。 
 
@@ -63,7 +67,7 @@
 3. 填入**新伺服器**資訊。
     
 	- **伺服器名稱**。輸入邏輯伺服器的名稱。這對於各個地理位置而言都是唯一的。
-	- **伺服器系統管理員名稱**。輸入伺服器系統管理員帳戶的使用者名稱。
+	- **伺服器管理員名稱**。輸入伺服器系統管理員帳戶的使用者名稱。
 	- **密碼**。輸入伺服器系統管理員密碼。 
 	- **位置**。選擇您的伺服器的地理位置。若要減少資料傳輸時間，最好找出您的伺服器，其地理位置靠近此資料庫將存取的其他資料資源。
 	- **建立 V12 伺服器**。[是] 是 SQL 資料倉儲的唯一選項。 
@@ -89,7 +93,7 @@
         > 
         > 在資料庫建立後，您可以快速、輕鬆地變更效能等級。例如，如果您目前未使用資料庫，向左移動滑桿可降低成本。或是在需要更多資源時提高效能。若不要產生成本，您可以暫停資料庫。這是 SQL 資料倉儲的可擴充功能。
 
-    - **選取來源**。按一下 [選取來源] > [範例]。因為此時只有一個可用的範例資料庫，所以當您選取 [範例] 時，Azure 會以 AdventureWorksDW 自動填入 [選取範例] 設定。
+    - **選取來源**。按一下 [選取來源] > [範例]。因為此時只有一個可用的範例資料庫，所以當您選取 [範例] 時，Azure 會以 AdventureWorksDW 自動填入 [選取範例] 選項。
   
         ![選取範例](./media/sql-data-warehouse-get-started-provision/select-source.png)
 
@@ -126,8 +130,9 @@
 
 您現已設定防火牆，所以能夠從桌面連接到您剛才建立的 Azure SQL 資料倉儲資料庫。
 
+
 ## 後續步驟
 
 既然您已建立 SQL 資料倉儲的範例資料庫，表示已準備好[連接](./sql-data-warehouse-get-started-connect.md)到您的資料庫。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

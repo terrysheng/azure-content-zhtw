@@ -19,7 +19,7 @@
 
 # 在 Azure 傳統入口網站中建立 Azure 搜尋服務
 
-Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋功能內嵌到自訂用程式。此服務可為您的搜尋資料提供搜尋引擎和儲存體，您可以透過 Azure 傳統入口網站、.NET SDK 或 REST API 存取和管理這類資料。主要功能包括自動完成查詢、模糊比對、符合結果醒目提示、多面向導覽、發行設定檔和多語言支援。如需 Azure 搜尋可執行哪些作業的詳細資訊，請參閱[什麼是 Azure 搜尋服務](seach-what-is-search.md)。
+Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋功能內嵌到自訂用程式。此服務可為您的搜尋資料提供搜尋引擎和儲存體，您可以透過 Azure 傳統入口網站、.NET SDK 或 REST API 存取和管理這類資料。主要功能包括自動完成查詢、模糊比對、符合結果醒目提示、多面向導覽、發行設定檔和多語言支援。如需 Azure 搜尋可執行哪些作業的詳細資訊，請參閱[什麼是 Azure 搜尋服務](search-what-is-azure-search.md)。
 
 ## 將 Azure 搜尋服務免費加入您的訂用帳戶
 
@@ -123,4 +123,4 @@ Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

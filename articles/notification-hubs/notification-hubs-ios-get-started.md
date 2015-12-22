@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="12/15/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 iOS app 的通知中樞
@@ -87,6 +87,8 @@
    	![][9]
 
 4. 下載 [行動服務 iOS SDK 1.2.4 版]，然後將檔案解壓縮。在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾加入至 Xcode 專案。選取 [必要時複製項目]，然後按一下 [新增]。
+
+	>[AZURE.NOTE]通知中樞 SDK 目前不支援 Xcode 7 上的 Bitcode。您必須在專案的 [建置選項] 中將 [啟用 Bitcode] 設定為 [否]。
 
    	![][10]
 
@@ -253,6 +255,7 @@
 		{
 			[super viewDidLoad];
 			[self ParseConnectionString];
+			[_notificationMessage setDelegate:self];
 		}
 
 		-(NSString *)CF_URLEncodedString:(NSString *)inputString
@@ -442,7 +445,7 @@
 
 若要在 iOS 上測試推播通知，您必須將 app 部署至裝置。您無法利用 iOS 模擬器傳送 Apple 推播通知。
 
-1. 執行 App 並確認註冊成功，然後按下 [確定]。
+1. 執行應用程式並確認註冊成功，然後按下 [確定]。
 
 	![][33]
 
@@ -504,4 +507,4 @@
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

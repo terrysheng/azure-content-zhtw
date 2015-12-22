@@ -1,5 +1,5 @@
 <properties
-	pageTitle="站台復原的網路基礎結構考量" 
+	pageTitle="站台復原的網路基礎結構考量 | Microsoft Azure" 
 	description="這篇文章討論利用站台復原進行容錯移轉的實用網路設計考量" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  站台復原的網路基礎結構考量
@@ -62,7 +62,7 @@ BCDR 策略的目的是讓您的商務應用程式繼續執行，並還原失敗
 ### 叢集化的 VMM 伺服器
 
 
-[在叢集中部署 VMM](https://technet.microsoft.com/zh-TW/library/gg610675.aspx) 提供高可用性和保護，以防範硬體容錯移轉。如果您使用站台復原，部署您的 VMM 叢集，請注意：
+[在叢集中部署 VMM](https://technet.microsoft.com/library/gg610675.aspx) 提供高可用性和保護，以防範硬體容錯移轉。如果您使用站台復原，部署您的 VMM 叢集，請注意：
 
 應該在延伸的叢集中跨地理上不同位置的站台部署 VMM 伺服器。VMM 所使用的 SQL Server 資料庫應該使用複本位於次要站台的 SQL Server AlwaysOn 可用性群組保護。如果發生災害，VMM 伺服器和其對應的 SQL Server 將自動容錯移轉至復原站台。然後，您可以使用站台復原，容錯移轉工作負載。
 
@@ -190,4 +190,4 @@ Azure 做為災害復原站台的網路基礎結構設定[部落格文章](http:
 
 [了解](site-recovery-network-mapping.md)站台復原如何對應來源及目標網路。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

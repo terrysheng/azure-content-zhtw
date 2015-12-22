@@ -71,7 +71,7 @@
 | **Interxion** | 支援 | 支援 | 阿姆斯特丹 |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 支援 | 支援 | 阿姆斯特丹、芝加哥、達拉斯、倫敦、西雅圖、矽谷、華盛頓特區 |
 | **Megaport** | 支援 | 支援 | 墨爾本、雪梨 |
-| **MTN** | 支援 | 不支援 | 倫敦 |
+| **MTN** | 支援 | 支援 | 倫敦 |
 | **NEXTDC** | 支援 | 支援 | 墨爾本、雪梨 |
 | **NTT Communications** | 支援 | 不支援 | 倫敦+、東京 |
 | **[Orange](http://www.orange-business.com/)** | 支援 | 不支援 | 阿姆斯特丹、香港、倫敦、矽谷、新加坡、華盛頓特區 |
@@ -139,4 +139,4 @@
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 - 請確定符合所有必要條件。請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

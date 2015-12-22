@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="11/24/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
 
@@ -35,7 +35,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 	- **複本虛擬機器放置** — 儲存體對應用於以最佳方式將複本虛擬機器放在 Hyper-V 主機伺服器上。複本虛擬機器將會放在可以存取對應的儲存體分類的主機上。
 	- **無儲存體對應** — 如果您沒有設定儲存體對應，虛擬機器將會複寫至與複本虛擬機器相關聯之 Hyper-V 主機伺服器上指定的預設儲存體位置。
 
-- **使用 SAN 進行內部部署至內部部署複寫**—您可以透過在來源和目標 VMM 伺服器上對應儲存體陣列集區以設定儲存體對應，來指定
+- **使用 SAN 進行內部部署至內部部署複寫**—您可以透過在來源和目標 VMM 伺服器上對應儲存體陣列集區以設定儲存體對應。
 	- **指定存放集區**—指定要從主要集區接收複寫資料的次要存放集區。
 	- **識別目標存放集區**—可確保來源複寫群組中的 LUN 會複寫到您所選擇的對應目標存放集區。
 
@@ -98,4 +98,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/A | 沒有對應，因此會使用 H
 
 既然您已經更了解儲存體對應，[請準備開始部署 Azure Site Recovery](site-recovery-best-practices.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

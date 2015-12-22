@@ -64,17 +64,17 @@
 1.  在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
 
-2. 在 [快速入門] 索引標籤中，按一下 [選擇平台] 下的 [Windows]，然後展開 [建立新的 HTML 應用程式]。
+2. 在 [快速入門] 索引標籤中，按一下 [Choose platform] 下的 [Windows]，然後展開 [Create a new HTML app]。
 
    	![][6]
 
-   	這將顯示三個簡單步驟，可用來建立和主控連接到您行動服務的 HTML 應用程式。
+   	This displays the three easy steps to create and host an HTML app connected to your mobile service.
 
   	![][7]
 
-3. 按一下 [建立 TodoItem 資料表] 以建立儲存應用程式資料的資料表。
+3. 按一下 [Create TodoItems table] 以建立儲存應用程式資料的資料表。
 
-4. 在 [下載和執行您的應用程式] 下，按 [下載]。
+4. 在 [Download and run your app] 下，按 [下載]。
 
   	如此會下載連接至行動服務之範例 _To do list_ 應用程式的網站檔案。請將壓縮檔儲存至本機電腦，並記下儲存位置。
 
@@ -82,7 +82,7 @@
 
   	![][9]
 
-	> [AZURE.IMPORTANT]如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱[跨原始來源資源分享](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank) (英文)。
+	> [AZURE.IMPORTANT]如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱[跨原始來源資源分享](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx) (英文)。
 
 ## 裝載並執行 HTML 應用程式
 
@@ -154,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="11/25/2015"
+	ms.date="12/15/2015"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Android 應用程式的通知中樞
@@ -82,12 +82,21 @@
 
 ###新增程式碼
 
-1. 從 [Bintray 上之 Notification-Hubs-Android-SDK](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4) 的 [Files] 索引標籤下載 notification-hubs-0.4.jar 檔案。請亦將 [notifications-1.0.1.jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view) 下載至您專案的 **app\\libs** 目錄。在 Android Studio 的 [Project View] 視窗中，將檔案直接拖曳到 **libs** 資料夾，即可完成此作業。重新整理 **libs** 資料夾。
+1. 從 [Bintray 上之 Notification-Hubs-Android-SDK](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4) 的 [Files] 索引標籤下載 notification-hubs-0.4.jar 檔案。在 Android Studio 的 [專案檢視] 視窗中，將檔案直接拖曳到 **libs** 資料夾。然後在檔案上按一下滑鼠右鍵並按一下 [加入做為程式庫]。
+  
+2. 在**應用程式**的 Build.Gradle 檔案中，在 **dependencies** 一節加入以下這行。
 
+	    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
 
-    >[AZURE.NOTE]檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
+	加入下列儲存機制到 **dependencies** 一節之後。
 
-2. 設定應用程式以從 GCM 取得註冊 ID，然後使用此值在通知中樞註冊此 app 執行個體。
+		repositories {
+		    maven {
+		        url "http://dl.bintray.com/microsoftazuremobile/SDK"
+		    }
+		}
+
+3. 設定應用程式以從 GCM 取得註冊 ID，然後使用此值在通知中樞註冊此 app 執行個體。
 
 	在 AndroidManifest.xml 檔案中，在 `</application>` 標記下面新增下列權限。請務必以 AndroidManifest.xml 檔案頂端顯示的封裝名稱 (在此範例中為 `com.example.testnotificationhubs`) 取代 `<your package>`。
 
@@ -107,6 +116,8 @@
 		import com.google.android.gms.gcm.*;
 		import com.microsoft.windowsazure.messaging.*;
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
+		import android.widget.Toast;
+
 
 
 4. 在類別頂端新增下列 Private 成員。
@@ -155,7 +166,7 @@
     	}
 
 
-7. 將 `DialogNotify` 方法新增至活動，以在應用程式執行且可見時顯示通知。同時覆寫 `onStart`、`onPause`、`onResume` 和 `onStop`，判斷是否可看見活動以顯示對話方塊。
+7. 將 `ToastNotify` 方法新增至活動，以在應用程式執行且可見時顯示通知。同時覆寫 `onStart`、`onPause`、`onResume` 和 `onStop`，判斷是否可看見活動以顯示快顯通知。
 
 	    @Override
 	    protected void onStart() {
@@ -181,39 +192,16 @@
 	        isVisible = false;
 	    }
 
-		/**
-		  * A modal AlertDialog for displaying a message on the UI thread
-		  * when there's an exception or message to report.
-		  *
-		  * @param title   Title for the AlertDialog box.
-		  * @param message The message displayed for the AlertDialog box.
-		  */
-    	public void DialogNotify(final String title,final String message)
-    	{
-	        if (isVisible == false)
-	            return;
-
-        	final AlertDialog.Builder dlg;
-        	dlg = new AlertDialog.Builder(this);
-
-        	runOnUiThread(new Runnable() {
-            	@Override
-            	public void run() {
-                	AlertDialog dlgAlert = dlg.create();
-                	dlgAlert.setTitle(title);
-                	dlgAlert.setButton(DialogInterface.BUTTON_POSITIVE,
-						(CharSequence) "OK",
-						new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                	dlgAlert.setMessage(message);
-                	dlgAlert.setCancelable(false);
-                	dlgAlert.show();
-            	}
-        	});
-    	}
+	    public void ToastNotify(final String notificationMessage)
+	    {
+	        if (isVisible == true)
+	            runOnUiThread(new Runnable() {
+	                @Override
+	                public void run() {
+	                    Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
+	                }
+	            });
+	    }
 
 8. 由於 Android 不會顯示通知，因此您必須撰寫自己的接收器。在 **AndroidManifest.xml** 中，在 `<application>` 元素內新增下列元素。
 
@@ -253,7 +241,7 @@
 
 13. 在 `MyHandler` 類別中新增下列程式碼：
 
-	此程式碼會覆寫 `OnReceive` 方法，所以處理常式會快顯 `AlertDialog` 以顯示收到的通知。處理常式也會使用 `sendNotification()` 方法，傳送通知給 Android 通知管理員。
+	此程式碼會覆寫 `OnReceive` 方法，所以處理常式會蹦現「快顯通知」以顯示收到的通知。處理常式也會使用 `sendNotification()` 方法，傳送通知給 Android 通知管理員。
 
     	public static final int NOTIFICATION_ID = 1;
     	private NotificationManager mNotificationManager;
@@ -268,7 +256,7 @@
         	String nhMessage = bundle.getString("message");
 
         	sendNotification(nhMessage);
-        	mainActivity.DialogNotify("Received Notification",nhMessage);
+	        mainActivity.ToastNotify(nhMessage);
     	}
 
     	private void sendNotification(String msg) {
@@ -326,13 +314,17 @@
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
 
-2. 在 Android Studio 的 [專案檢視] 中展開 [應用程式] > [src] > [主要] > [res] > [值]。開啟 **strings.xml** 檔案並加入新的 `Button` 和 `EditText` 控制項所參考的字串值。在檔案底部將這些值加在 `</resources>` 之前。
+2. 加入這行到 **build.gradle** 檔案的 `android` 下
+
+		useLibrary 'org.apache.http.legacy'
+
+3. 在 Android Studio 的 [專案檢視] 中展開 [應用程式] > [src] > [主要] > [res] > [值]。開啟 **strings.xml** 檔案並加入新的 `Button` 和 `EditText` 控制項所參考的字串值。在檔案底部將這些值加在 `</resources>` 之前。
 
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
 
 
-3. 在 **MainActivity.java** 檔案中，將下列 `import` 陳述式加在 `MainActivity` 類別之上。
+4. 在 **MainActivity.java** 檔案中，將下列 `import` 陳述式加在 `MainActivity` 類別之上。
 
 		import java.net.URLEncoder;
 		import javax.crypto.Mac;
@@ -349,7 +341,7 @@
 		import org.apache.http.impl.client.DefaultHttpClient;
 
 
-3. 在 **MainActivity.java** 檔案中，將下列成員加在 `MainActivity` 類別的最上方。
+5. 在 **MainActivity.java** 檔案中，將下列成員加在 `MainActivity` 類別的最上方。
 
 	使用中樞的 **DefaultFullSharedAccessSignature** 連接字串更新 `HubFullAccess`。按一下您通知中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可從 [Azure 傳統入口網站]複製此連接字串。
 
@@ -358,7 +350,7 @@
 	    private String HubSasKeyValue = null;
 		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. 您的活動會保留中心名稱以及中心的完整共用存取連接字串。您必須建立軟體存取簽章 (SaS) 權杖來驗證 POST 要求，以將訊息傳送至您的通知中樞。剖析連接字串中的金鑰資料，然後建立[一般概念](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 參考中所提的 SaS Token，即可完成此作業。
+6. 您的活動會保留中心名稱以及中心的完整共用存取連接字串。您必須建立軟體存取簽章 (SaS) 權杖來驗證 POST 要求，以將訊息傳送至您的通知中樞。剖析連接字串中的金鑰資料，然後建立[一般概念](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 參考中所提的 SaS Token，即可完成此作業。
 
 	在 **MainActivity.java** 中，將下列方法加入至 `MainActivity` 類別，以剖析連接字串。
 
@@ -388,7 +380,7 @@
 	        }
 	    }
 
-5. 在 **MainActivity.java** 中，將下列方法加入至 `MainActivity` 類別，以建立 SaS 驗證權杖。
+7. 在 **MainActivity.java** 中，將下列方法加入至 `MainActivity` 類別，以建立 SaS 驗證權杖。
 
         /**
          * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
@@ -441,7 +433,7 @@
         }
 
 
-6. 在 **MainActivity.java** 中，將下列方法加入至 `MainActivity` 類別，以使用 REST API 處理 [傳送通知] 按鈕點選，並將通知訊息傳送至中樞。
+8. 在 **MainActivity.java** 中，將下列方法加入至 `MainActivity` 類別，以使用 REST API 處理 [傳送通知] 按鈕點選，並將通知訊息傳送至中樞。
 
         /**
          * Send Notification button click handler. This method parses the
@@ -559,6 +551,4 @@
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=AcomDC_1210_2015-->
-<!----Line 24: Add line break-->
-<!----Line 124: Update the strings to same as line 557 to fix missing hyperlink issue-->
+<!---HONumber=AcomDC_1217_2015-->

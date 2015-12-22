@@ -135,11 +135,16 @@ Azure 可讓您使用 HTTPS 呼叫從 CDN 擷取內容。這可讓您將 CDN 中
 
 如需有關對應自訂網域的詳細資訊，請參閱「[如何將內容傳遞網路 (CDN) 內容對應至自訂網域](cdn-map-content-to-custom-domain.md)」。
 
+## 以程式設計方式管理 CDN
+
+您可以使用 [CDN 資源提供者 REST API](https://msdn.microsoft.com/library/mt634456.aspx) 以程式設計方式管理 Microsoft Azure CDN。
+
+
 ## 另請參閱
 
 - [如何啟用 Azure 內容傳遞網路](cdn-create-new-endpoint.md)
 - [Azure 內容傳遞網路 (CDN) 概觀](cdn-overview.md)
 - [清除 Azure CDN 端點](cdn-purge-endpoint.md)
- 
+- [CDN 資源提供者 REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -23,7 +23,7 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。儲存體用戶端程式庫是一個 SDK，可簡化與 Blob 儲存體 REST API 的互動。本指南所涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除** Blob，完成所需時間約一小時。如果您想要觀看「開始使用影片」，請參閱[儲存體的五分鐘簡介](https://azure.microsoft.com/zh-TW/documentation/videos/azure-storage-5-minute-overview/)，或閱讀[在五分鐘內開始使用儲存體](https://azure.microsoft.com/zh-TW/documentation/articles/storage-getting-started-guide/)指南。
+本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。儲存體用戶端程式庫是一個 SDK，可簡化與 Blob 儲存體 REST API 的互動。本指南所涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除** Blob，完成所需時間約一小時。如果您想要觀看「開始使用影片」，請參閱 [Azure 儲存體的五分鐘簡介](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/)或是可以閱讀[在五分鐘內開始使用 Azure 儲存體](storage-getting-started-guide.md)。
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -350,6 +350,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 - [開始使用適用於 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)
 - [開始使用適用於 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
 - [開始使用適用於 .NET 的檔案儲存體](storage-dotnet-how-to-use-files.md)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 - [使用 SQL Database 儲存關聯式資料](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [如何透過 WebJobs SDK 使用 Azure Blob 儲存體 (英文)](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -365,4 +366,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

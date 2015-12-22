@@ -205,7 +205,7 @@
 
 21. 在 [設定 Data Factory] 頁面中，執行下列作業：
 	1. 選取 [建立新的 Data Factory] 選項。
-	2. 針對 [名稱] 輸入 **FirstPipelineUsingVS**。 
+	2. 針對 [名稱] 輸入 **FirstPipelineUsingVS**。
 	
 		> [AZURE.IMPORTANT]Azure Data Factory 的名稱在全域必須是唯一的。如果您在發佈時收到錯誤：「Data Factory 名稱 “FirstPipelineUsingVS” 無法使用」，請變更名稱 (例如 yournameFirstPipelineUsingVS)。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
 		> 

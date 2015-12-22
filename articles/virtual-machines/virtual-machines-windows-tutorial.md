@@ -28,8 +28,6 @@
 
 <br>
 
-
-
 本教學課程示範在 Azure 入口網站中建立 Azure 虛擬機器有多麼容易，只需數分鐘。我們將使用 Windows Server 2012 R2 資料中心映像做為範例來建立虛擬機器，但這只是 Azure 提供之眾多映像的其中一個。您的映像選擇取決於訂用帳戶。例如，桌面映像可能可供 MSDN 訂閱者使用。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。如需資源管理員的詳細資料，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。

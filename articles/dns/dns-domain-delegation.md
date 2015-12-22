@@ -134,10 +134,10 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 因為使用註冊機構進行委派時，可透過查閱子區域的 SOA 記錄來確認一切都已正確設定。
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-
+	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-
+	
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com

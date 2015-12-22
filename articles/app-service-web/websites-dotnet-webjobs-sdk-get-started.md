@@ -73,11 +73,13 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 1. 在 Visual Studio 中開啟 [伺服器總管] 視窗。
 
-2. 以滑鼠右鍵按一下 **Azure** 節點，然後按一下 [連線到 Microsoft Azure]。![連接到 Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. 以滑鼠右鍵按一下 **Azure** 節點，然後按一下 [連線到 Microsoft Azure]。
+![連接到 Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. 使用您的 Azure 認證登入。
 
-5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。![建立儲存體帳戶](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]，然後按一下 [建立儲存體帳戶]。
+![建立儲存體帳戶](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. 在 [建立儲存體帳戶] 對話方塊中，輸入儲存體帳戶的名稱。
 
@@ -142,7 +144,17 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 6. 開啟 ContosoAdsWebJob 專案中的 *App.config* 檔案。
 
-	此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。您可以對應用程式資料和記錄使用不同的儲存體帳戶，以及您可以[對資料使用多個儲存體帳戶](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)。在本教學課程中，您將使用單一儲存體帳戶。連接字串包含儲存體帳戶金鑰的預留位置。<pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。在本教學課程中，您將對兩者使用相同帳戶。連接字串包含儲存體帳戶金鑰的預留位置。
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt;
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+    &lt;/startup&gt;
+&lt;/configuration&gt;</pre>
 
 	依預設，WebJobs SDK 會尋找名為 AzureWebJobsStorage 和 AzureWebJobsDashboard 的連接字串。另一種方式是，您可以[任意儲存您要的連接字串，並將它明確傳遞至 `JobHost` 物件](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config)。
 
@@ -456,7 +468,7 @@ Web 和 WebJob 專案都將使用 SQL Database，因此兩者都會需要 Contos
 	- *Global.asax.cs*  
 	- 在 *Controllers* 資料夾中，新增檔案︰*AdController.cs*
 	- 在 *Views\\Shared* 資料夾中：*\_Layout.cshtml* 檔案
-- 在 *Views\\Home* 資料夾中：*Index.cshtml*
+	- 在 *Views\\Home* 資料夾中：*Index.cshtml*
 	- 在 *Views\\Ad* 資料夾中 (請先建立此資料夾)：五個 *.cshtml* 檔案<br/><br/>
 
 3. 在 ContosoAdsWebJob 專案中，從所下載的專案加入下列檔案。

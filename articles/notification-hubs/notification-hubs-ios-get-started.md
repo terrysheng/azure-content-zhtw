@@ -436,7 +436,7 @@
 11. 建置專案並確認一切正確無誤。
 
 
-> [AZURE.NOTE]如果您在 Xcode7 中遇到有關 Bitcode 支援的建置錯誤，您應該在 Xcode 中將 [建置設定] -> [啟用 Bitcode] (ENABLE\_BITCODE) 變更為 'NO'。通知中樞 SDK 目前不支援 Bitcode。
+> [AZURE.NOTE]如果您在 Xcode7 中遇到有關 Bitcode 支援的建置錯誤，您應該在 Xcode 中將 [建置設定] -> [啟用 Bitcode] \(ENABLE\_BITCODE) 變更為 'NO'。通知中樞 SDK 目前不支援 Bitcode。
 
 您可以在 Apple [本機和推播通知程式設計指南]中找到所有可能的通知承載。
 

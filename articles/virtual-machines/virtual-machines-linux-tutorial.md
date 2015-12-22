@@ -27,9 +27,8 @@
 - [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 
-<br>
 
-您可以從命令列或入口網站，輕鬆建立執行 Linux 的 Azure 虛擬機器 (VM)。本教學課程示範如何使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)，快速建立在 Azure 中執行的 Ubuntu Server VM、使用 **ssh** 連接到該 VM，以及建立和掛接新磁碟。本主題會使用 Ubuntu Server VM，但您也可以使用[自己的映像做為範本](virtual-machines-linux-create-upload-vhd.md)來建立 Linux 虛擬機器。
+<br> 您可以從命令列或入口網站，輕鬆建立執行 Linux 的 Azure 虛擬機器 (VM)。本教學課程示範如何使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)，快速建立在 Azure 中執行的 Ubuntu Server VM、使用 **ssh** 連接到該 VM，以及建立和掛接新磁碟本主題會使用 Ubuntu Server VM，但您也可以使用[自己的映像做為範本](virtual-machines-linux-create-upload-vhd.md)來建立 Linux 虛擬機器。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 

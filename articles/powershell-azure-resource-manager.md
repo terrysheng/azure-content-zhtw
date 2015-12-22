@@ -73,7 +73,7 @@ Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建�
 	Get-AzureRmADGroupMember               Get a group members.
 	...
 
-To get full help for a cmdlet, type a command with the format:
+若要取得完整的 cmdlet，請輸入以下格式的命令:
 
 	Get-Help <cmdlet-name> -Full
   

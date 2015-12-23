@@ -39,7 +39,9 @@
 
 1.	安裝 Azure PowerShell。
     - 安裝 PowerShellGet。若要這樣做，請安裝 [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729)，其中包括 PowerShellGet。
+
     >[AZURE.NOTE]如果您以最新的更新執行 Windows 10，您可以略過此步驟。
+
 
 1.	安裝和更新 AzureRM 模組。
     1.  如果您已安裝任何舊版的 Azure PowerShell，請將它移除。以滑鼠右鍵按一下 [開始] 按鈕，然後選取 [新增/移除程式]。搜尋 "Azure PowerShell" 並將它解除安裝。
@@ -193,7 +195,7 @@
 
 1.	下載 agent.zip。作法：
     1.	登入您的小組專案，例如 ****https://[your-VSO-account-name].visualstudio.com**。
-1.	選擇您的畫面右上角的「齒輪」圖示。
+    1.	選擇您的畫面右上角的「齒輪」圖示。
     1.	從控制台中選擇 [代理程式集區] 索引標籤。
     1.	選擇 [下載代理程式] 以下載 agent.zip 檔案。
     1.	將 agent.zip 複製到您稍早建立的組建電腦。
@@ -337,6 +339,9 @@
 
 ## 後續步驟
 
-若要深入了解與 Service Fabric 應用程式的連續整合，請閱讀下列文章。- [建置文件首頁](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [部署組建代理程式](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [建立和設定組建定義](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
+若要深入了解與 Service Fabric 應用程式的連續整合，請閱讀下列文章。
+- [建置文件首頁](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
+- [部署組建代理程式](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
+- [建立和設定組建定義](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
 <!-------HONumber=AcomDC_1210_2015--->

@@ -108,7 +108,7 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 	</api>
 	</rate-limit>
 
-[限制呼叫頻率] 可用在產品層級，也可以用在 API 和個別作業名稱層級。本教學課程中只會使用產品層級原則，因此請將 **rate-limit** 元素中的 **api** 和 **operation** 元素刪除，只保留外部 **rate-limit** 元素，如以下範例所示。
+限制呼叫頻率 可用在產品層級，也可以用在 API 和個別作業名稱層級。本教學課程中只會使用產品層級原則，因此請將 **rate-limit** 元素中的 **api** 和 **operation** 元素刪除，只保留外部 **rate-limit** 元素，如以下範例所示。
 
 	<rate-limit calls="number" renewal-period="seconds">
 	</rate-limit>
@@ -118,7 +118,7 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 	<rate-limit calls="10" renewal-period="60">
 	</rate-limit>
 
-若要設定 [設定使用量配額] 原則，請將游標放置在 **inbound** 元素內新加入的 **rate-limit** 元素正下方，然後按一下 [設定使用量配額] 左側的箭頭。
+若要設定 設定使用量配額 原則，請將游標放置在 **inbound** 元素內新加入的 **rate-limit** 元素正下方，然後按一下 設定使用量配額 左側的箭頭。
 
 	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 	<api name="name" calls="number" bandwidth="kilobytes">
@@ -292,4 +292,4 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 [限制呼叫費率]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [設定使用量配額]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

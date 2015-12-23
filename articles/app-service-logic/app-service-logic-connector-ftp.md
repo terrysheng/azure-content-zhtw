@@ -29,7 +29,7 @@
 您可以將 FTP 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 建立新的 FTP 連接器
-若要建新的 FTP 連接器，請遵循下面提到的步驟。- 啟動 Azure 入口網站 - 使用 [+ 新增] (位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace︰![啟動 Azure Marketplace][1]
+若要建新的 FTP 連接器，請遵循下面提到的步驟。- 啟動 Azure 入口網站 - 使用 [+ 新增] \(位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace︰![啟動 Azure Marketplace][1]
 
 - 按一下 API 應用程式
 - 搜尋 FTP，然後選取 FTP 連接器︰![選取 FTP 連接器][2]
@@ -160,4 +160,4 @@ FTP 連接器支援下列動作︰
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

@@ -139,7 +139,9 @@
     ```
 
 3.	如果 NuGet.config 不存在，則以下列內容建立。將 `<path to service fabric SDK>` 取代為組建電腦上 Service Fabric SDK 的路徑。
+
 >[AZURE.NOTE]根據預設，`<path to service fabric SDK>` 是 `%ProgramFiles%\Microsoft SDKs\Service Fabric`。
+
 
     NuGet.config：
 
@@ -163,7 +165,7 @@
 2. 以滑鼠右鍵按一下節點 `HKEY_Users\.Default\Environment`，並且選取 [新增 > 可擴充字串值]。
 3. 輸入 `PSModulePath` 做為名稱，輸入 `%PROGRAMFILES%\WindowsPowerShell\Modules` 做為值。
 
->[AZURE.NOTE]在啟動組建代理程式*之前*執行這項操作，否則它將不會挑選新的環境變數。
+>[AZURE.NOTE]在啟動組建代理程式 *之前* 執行這項操作，否則它將不會挑選新的環境變數。
 
 ### 匯入自動化憑證
 
@@ -194,7 +196,7 @@
 ### 註冊組建代理程式
 
 1.	下載 agent.zip。作法：
-    1.	登入您的小組專案，例如 ****https://[your-VSO-account-name].visualstudio.com**。
+    1.	登入您的小組專案，例如 **https://[your-VSO-account-name].visualstudio.com**。
     1.	選擇您的畫面右上角的「齒輪」圖示。
     1.	從控制台中選擇 [代理程式集區] 索引標籤。
     1.	選擇 [下載代理程式] 以下載 agent.zip 檔案。

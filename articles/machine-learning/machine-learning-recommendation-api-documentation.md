@@ -272,10 +272,10 @@ OData XML
 |:--------|:--------|
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br>範例：<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
-|	參數名稱 |	有效值 |
-|:--------			|:--------								|
-|	id | 模型的唯一識別碼 (區分大小寫) |
-|	apiVersion | 1\.0 |
+|	參數名稱	|	有效值 |
+|:--------			|:--------						|
+|	id		| 模型的唯一識別碼 (區分大小寫)  |
+|	apiVersion		| 1\.0 |
 |||
 |要求本文 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>請注意，XML 標記說明和 ActiveBuildId 是選擇性的。如果您不想設定說明或 ActiveBuildId，請移除整個標記。|
 
@@ -3075,4 +3075,4 @@ HTTP 狀態碼：200
 這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br> 此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br> 本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br> © 2015 Microsoft.著作權所有，並保留一切權利。
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!--------HONumber=AcomDC_1210_2015--->

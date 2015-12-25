@@ -58,25 +58,36 @@ $ docker-compose --version
 
 在 VM 上建立工作目錄，並使用您慣用的文字編輯器建立 `docker-compose.yml`。若要嘗試簡單的範例，請將下列文字複製到檔案。此組態會使用來自 [DockerHub 登錄](https://registry.hub.docker.com/_/wordpress/)的映像，安裝 WordPress (開放原始碼部落格和內容管理系統) 和連結的後端 MariaDB 資料庫。
 
- ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
+ ```
+ wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
 
-db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: <your password>
 
 ```
 
 ## Step 4: Start the containers with Compose
 
-In the working directory on your VM, simply run the following command.
+在您 VM 的工作目錄中，執行以下命令。
 
 ```
 $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
+如此會啟動 `docker-compose.yml` 中指定的 Docker 容器。您會看到類似以下的輸出：
 
 ```
-Creating wordpress\_db\_1...Creating wordpress\_wordpress\_1... ```
+Creating wordpress_db_1...
+Creating wordpress_wordpress_1...
+```
 
 >[AZURE.NOTE]請務必在啟動時使用 **-d** 選項，讓容器在背景持續執行。
 

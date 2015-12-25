@@ -19,7 +19,7 @@
 
 # 基本設定測試環境與 Azure 資源管理員
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-base-configuration-test-environment.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [傳統部署模型](virtual-machines-base-configuration-test-environment.md)。
 
 本文將逐步解說如何利用在資源管理員中建立的虛擬機器，在 Microsoft Azure 虛擬網路中建立「基本設定」測試環境。
 
@@ -130,7 +130,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 \[磁碟 2] ([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -263,7 +263,7 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 2.	在 [CLIENT1 的屬性] 中，按一下 [IE 增強式安全性設定] 旁的 [開啟]。
 3.	在 [Internet Explorer 增強式安全性設定] 中，按一下 [系統管理員] 和 [使用者] 的 [關閉]，然後按一下 [確定]。
 4.	從 [開始] 畫面中，按一下 [Internet Explorer]，然後按一下 [確定]。
-5.	在網址列中，鍵入 ****http://app1.corp.contoso.com/**，然後按下 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
+5.	在網址列中，鍵入 **http://app1.corp.contoso.com/**，然後按下 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
 6.	按一下桌面工作列中的 [檔案總管] 圖示。
 7.	在網址列中，輸入 **\\\app1\\Files**，然後按下 ENTER。
 8.	您應該會看到一個資料夾視窗，裡面有檔案共用資料夾的內容。

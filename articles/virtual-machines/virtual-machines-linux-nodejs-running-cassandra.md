@@ -1,4 +1,12 @@
-<properties pageTitle="使用 Azure 上的 Linux 來執行 Cassandra | Microsoft Azure" description="如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集" services="virtual-machines" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor="" azure-service-management"/>
+<properties 
+	pageTitle="使用 Azure 上的 Linux 來執行 Cassandra | Microsoft Azure"
+	description="如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集"
+	services="virtual-machines"
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""
+	azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -12,7 +20,7 @@
 
 # 在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-datastax-template.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [資源管理員模型](virtual-machines-datastax-template.md)。
 
 ## 概觀
 Microsoft Azure 是一個開放雲端平台，可執行 Microsoft 和非 Microsoft 軟體，包括作業系統、應用程式伺服器、傳訊中介軟體，以及來自商業和開放原始碼模型的 SQL 和 NoSQL 資料庫。如果要在包括 Azure 在內的公用雲端上建立具有恢復功能的服務，應用程式伺服器和儲存層都必須要有仔細的規劃和審慎的架構。Cassandra 的分散式儲存架構天生就有助於建置可針對叢集失敗容錯的高可用性系統。Cassandra 是一種雲端等級的 NoSQL 資料庫，由 Apache Software Foundation 維護 (網址 cassandra.apache.org)；Cassandra 以 Java 撰寫，因此可以在 Windows 與 Linux 平台上執行。
@@ -257,7 +265,9 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 	export PATH
 
 ####步驟 4：安裝適用於實際執行系統的 JNA
-使用下列命令序列：下列命令會將 jna-3.2.7.jar 和 jna-platform-3.2.7.jar 安裝到 /usr/share.java 目錄：sudo apt-get install libjna-java
+使用下列命令序列：
+下列命令會將 jna-3.2.7.jar 和 jna-platform-3.2.7.jar 安裝到 /usr/share.java 目錄：
+sudo apt-get install libjna-java
 
 在 $CASS\_HOME/lib 目錄中建立符號連結，以便 Cassandra 啟動指令碼可以找到這些 jar：
 
@@ -289,6 +299,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 
 #####3：擷取映像
 確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。在下一個畫面中，指定 [映像名稱] \(例如 hk-cas-2-08-ub-14-04-2014071)、適當的 [映像描述]，然後按一下「確認」記號以完成擷取程序。
+
 這需要幾秒鐘的時間，然後您應該就可以在映像庫的 [我的映像] 區段中找到映像。成功擷取映像之後，來源 VM 就會自動刪除。
 
 ##單一區域部署程序

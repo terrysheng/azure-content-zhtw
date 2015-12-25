@@ -266,7 +266,7 @@
 
    	這會執行在排程器中仍處於停用狀態的工作。在此頁面上，您可以隨時啟用工作及變更其排程。
 
-	>[AZURE.NOTE]仍可使用 POST 要求來啟動排程工作。However, the authorization defaults to user, which means that the request must include the application key in the header.
+	>[AZURE.NOTE]仍可使用 POST 要求來啟動排程工作。不過，授權預設會提供給使用者，表示要求必須在標頭中包含應用程式金鑰。
 
 4. 在 [Azure 傳統入口網站]中，針對與您行動服務的相關聯的資料庫按一下 [管理]。
 

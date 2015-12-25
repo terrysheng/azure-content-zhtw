@@ -42,9 +42,10 @@
 
 	接著，將該類別的主體取代為下列程式碼：
 
-		class SimpleEventProcessor : IEventProcessor
-	    {
-	        Stopwatch checkpointStopWatch;
+	```
+    class SimpleEventProcessor : IEventProcessor
+	{
+	    Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {
@@ -80,7 +81,8 @@
                 this.checkpointStopWatch.Restart();
             }
 	    }
-	} ````
+	}
+    ````
 
 	**EventProcessorHost** 會呼叫這個類別來處理接收自事件中樞的事件。請注意，`SimpleEventProcessor` 類別會使用馬錶定期在 **EventProcessorHost** 內容上呼叫檢查點方法。這可確保重新啟動接收者時，遺失的處理工作不超過五分鐘。
 

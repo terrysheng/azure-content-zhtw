@@ -86,7 +86,7 @@
 -	volatile-ttl
 -	noeviction
 
-如需 Maxmemory 原則的詳細資訊，請參閱[收回原則](http://redis.io/topics/lru-cache#eviction-policies)。
+如需 maxmemory 原則的詳細資訊，請參閱[收回原則](http://redis.io/topics/lru-cache#eviction-policies)。
 
 **maxmemory-reserved** 設定會設定保留給非快取作業 (例如容錯移轉期間的複寫) 的記憶體量 (MB)。當具有高片段比率時，也可使用它。設定此值可讓您在負載變動時具有更一致的 Redis 伺服器體驗。對於頻繁寫入的工作負載，此值應該設定為更高的值。當記憶體保留給這類作業時，無法用於儲存快取的資料。
 
@@ -152,7 +152,7 @@
 |設定|預設值|說明|
 |---|---|---|
 |資料庫|16|預設資料庫為 DB 0。您可以根據每個連線使用 connection.GetDataBase(dbid) 選取一個不同的資料庫，其中 dbid 是介於 0 與 15 之間的數字。|
-|maxclients|取決於定價層<sup>1</sup>|這是允許同時連線的用戶端數目上限。一旦達到限制，Redis 將關閉所有新的連接，同時傳送「達到用戶端的數目上限」錯誤。|
+|maxclients|取決於定價層 <sup>1</sup>|這是允許同時連線的用戶端數目上限。一旦達到限制，Redis 將關閉所有新的連接，同時傳送「達到用戶端的數目上限」錯誤。|
 |maxmemory-policy|volatile-lru|Maxmemory 原則可設定當達到 maxmemory (建立快取時所選取之快取提供項目的大小) 時 Redis 將如何選取要移除的具目。Azure Redis 快取的預設設定為 volatile-lru，其會移除使用 LRU 演算法設定到期日的金鑰。此設定可以在 Azure 入口網站中設定。如需詳細資訊，請參閱 [Maxmemory-policy 與 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)。|
 |maxmemory-samples|3|LRU 和最小 TTL 演算法不是精確的演算法，而是近似的演算法 (為了節省記憶體)，因此您也可以選取要檢查的範例大小。例如，預設為 Redis 將檢查三個金鑰，並挑選最近較少使用的金鑰。|
 |lua-time-limit|5,000|Lua 指令碼的最大執行時間 (以毫秒為單位)。如果已到達最大執行時間，Redis 會記錄指令碼在最大允許的時間之後仍在執行中，並開始回覆查詢發生錯誤。|

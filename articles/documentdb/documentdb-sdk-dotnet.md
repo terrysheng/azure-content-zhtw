@@ -49,7 +49,7 @@
  - **[已過時]** UriFactory.CreateCollection --> 現應使用 UriFactory.CreateDocumentCollection
  
 ### <a name="1.4.1"/>[1\.4.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.1)
- - **[已修正]** 使用非 en 文化特性資訊時 (例如 nl-NL 等) 的當地語系化問題。 
+ - **[已修正]** 使用非 en 文化特性資訊時 (例如 NL-NL 等) 的當地語系化問題。 
  
 ### <a name="1.4.0"/>[1\.4.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.0)
   - 以識別碼為基礎的路由
@@ -91,7 +91,8 @@
 ### <a name="1.0.0"/>[1\.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 - GA SDK
 
-> [AZURE.NOTE]NuGet 封裝名稱在預覽和 GA 之間已變更。我們從 **Microsoft.Azure.Documents.Client** 移至 **Microsoft.Azure.DocumentDB** <br/>
+> [AZURE.NOTE]
+NuGet 封裝名稱在預覽和 GA 之間已變更。我們從 **Microsoft.Azure.Documents.Client** 移至 **Microsoft.Azure.DocumentDB** <br/>
 
 
 ### <a name="0.9.x-preview"/>[0\.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
@@ -104,13 +105,26 @@ Microsoft 至少會在停用 SDK 的 **12 個月**之前提供通知，以供順
 
 使用已停用之 SDK 的任何 DocumentDB 要求都將被服務拒絕。
 
-> [AZURE.WARNING]所有 **1.0.0** 之前的 Azure DocumentDB SDK for .NET 版本都將於 **2016 年 2 月29 日**時淘汰。
+> [AZURE.WARNING]
+所有 **1.0.0** 之前的 Azure DocumentDB SDK for .NET 版本都將於 **2016 年 2 月 29 日**停用。
  
 <br/>
  
 | 版本 | 發行日期 | 停用日期 
 | ---	  | ---	         | ---
-| [1\.5.2](#1.5.2) | 2015 年 12 月 14 日 |--- | [1\.5.1](#1.5.1) | 2015 年 11 月 23 日 |--- | [1\.5.0](#1.5.0) | 2015 年 10 月 5 日 |--- | [1\.4.1](#1.4.1) | 2015 年 8 月 25 日 |--- | [1\.4.0](#1.4.0) | 2015 年 8 月 13 日 |--- | [1\.3.0](#1.3.0) | 2015 年 8 月 5 日 |--- | [1\.2.0](#1.2.0) | 2015 年 7 月 6 日 |--- | [1\.1.0](#1.1.0) | 2015 年 4 月 30 日 |--- | [1\.0.0](#1.0.0) | 2015 年 4 月 8 日 |--- | [0\.9.3-發行前版本](#0.9.x-preview) | 2015 年 3 月 12 日 | 2016 年 2 月 29 日 | [0\.9.2-發行前版本](#0.9.x-preview) | 2016 年 1 月 | 2016 年 2 月 29 日 | [.9.1-發行前版本](#0.9.x-preview) | 2014 年 10 月 13 日 | 2016 年 2 月 29 日 | [0\.9.0-發行前版本](#0.9.x-preview) | 2014 年 8 月 21 日 | 2016 年 2 月 29 日
+| [1\.5.2](#1.5.2) | 2015 年 12 月 14 日 |--- 
+| [1\.5.1](#1.5.1) | 2015 年 11 月 23 日 |--- 
+| [1\.5.0](#1.5.0) | 2015 年 10 月 5 日 |--- 
+| [1\.4.1](#1.4.1) | 2015 年 8 月 25 日 |--- 
+| [1\.4.0](#1.4.0) | 2015 年 8 月 13 日 |--- 
+| [1\.3.0](#1.3.0) | 2015 年 8 月 5 日 |--- 
+| [1\.2.0](#1.2.0) | 2015 年 7 月 6 日 |--- 
+| [1\.1.0](#1.1.0) | 2015 年 4 月 30 日 |--- 
+| [1\.0.0](#1.0.0) | 2015 年 4 月 8 日 |--- 
+| [0\.9.3-發行前版本](#0.9.x-preview) | 2015 年 3 月 12 日 | 2016 年 2 月 29 日 
+| [0\.9.2-發行前版本](#0.9.x-preview) | 2016 年 1 月 | 2016 年 2 月 29 日 
+| [0\.9.1-發行前版本](#0.9.x-preview) | 2014 年 10 月 13 日 | 2016 年 2 月 29 日 
+| [0\.9.0-發行前版本](#0.9.x-preview) | 2014 年 8 月 21 日 | 2016 年 2 月 29 日
 
 ## 常見問題集
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

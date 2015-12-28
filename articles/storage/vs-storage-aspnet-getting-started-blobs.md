@@ -26,7 +26,7 @@
  - 如需 ASP.NET 專案的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
 
-Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非結構化資料的服務，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。單一 Blob 可以是任何大小。Blob 可以是影像、音訊和視訊檔、原始資料及文件檔案。
+Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量非結構化資料的服務，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。單一 Blob 可以是任何大小。Blob 可以是影像、音訊和視訊檔、原始資料及文件檔案。
 
 就像檔案在資料夾中一樣，儲存體 Blob 位於容器中。在您已建立儲存體帳戶之後，您會在儲存體中建立一個或多個容器。例如，在稱為 “Scrapbook” 的儲存體中，您可以在此儲存體中建立稱為 “images” 的 blob 容器來儲存圖片，以及建立另一個稱為 “audio” 的 blob 容器來儲存音訊檔。建立容器之後，就可以將個別的 Blob 檔案上傳至這些容器。
 
@@ -237,4 +237,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

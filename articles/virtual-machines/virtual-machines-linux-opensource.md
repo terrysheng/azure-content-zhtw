@@ -191,7 +191,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 4. [影片：在瀏覽器中使用 fernapp 存取 Azure 上的 Linux GUI](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
 5. [影片：在 Linux 上使用 Azure 檔案預覽的共用儲存體 -- 第 1 部分](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1)
 6. [影片：在 Azure 上採行使用服務匯流排和網站的 Linux 裝置](http://channel9.msdn.com/Blogs/Open/Embracing-Linux-devices-on-Azure-via-Service-Bus-and-Web-Sites)
-7. [影片：將原生 Linux 記憶體快取的應用程式連接到 Windows Azure](http://channel9.msdn.com/Blogs/Open/Connecting-a-Linux-based-native-memcache-application-to-Windows-Azure)
+7. [影片：將原生 Linux 記憶體快取的應用程式連接到 Microsoft Azure](http://channel9.msdn.com/Blogs/Open/Connecting-a-Linux-based-native-memcache-application-to-Windows-Azure)
 8. [影片：在 Azure 上平衡高可用性 Linux 服務的負載：](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)
 
 
@@ -311,4 +311,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

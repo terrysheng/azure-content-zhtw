@@ -302,7 +302,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 	- **type** 設定為 **AzureBlob**。
 	- **linkedServiceName** 設定為 **StorageLinkedService** (您已在步驟 2 中建立此連結服務)。
 	- **folderPath** 設定為 **adftutorial/outfromonpremdf**，其中 outfromonpremdf 是 adftutorial 容器中的資料夾。您只需要建立 **adftutorial** 容器。
-	- **availability** 設定為**每小時**，且 (**frequency** 設定為**小時**，**interval** 設定為 **1**)。Data Factory 服務會每小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。 
+	- **availability** 設定為**每小時**，且 (**frequency** 設定為 **小時**，**interval** 設定為 **1**)。Data Factory 服務會每小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。 
 
 	如果您沒有指定**輸入資料表**的 **fileName**，則輸入資料夾 (**folderPath**) 中的所有檔案/Blob 都會視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。如需範例，請參閱 [教學課程][adf-tutorial] 中的範例檔案。
  
@@ -385,7 +385,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 	- 在 activities 區段中，只會有 **type** 設定為 **Copy** 的活動。
 	- 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
 	- 在 **transformation** 區段中，將 **SqlSource** 指定為**來源類型**，並將 **BlobSink** 指定為**接收類型**。
-- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
+	- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
 
 	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
@@ -514,10 +514,15 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 7.	在 [認證] 刀鋒視窗中，按一下 [按一下這裡設定認證]。
 8.	在 [設定認證] 對話方塊中，執行下列動作：
 
-	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1.選取您要 Data Factory 服務用來連接到資料庫的**驗證**。2.在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。3.在 [密碼] 設定中輸入使用者的密碼。4.按一下 [確定] 關閉對話方塊。 
+	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	在 [驗證] 中選取您想要 Data Factory 服務用來連接到資料庫的驗證。 
+	2.	在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。 
+	3.	在 [密碼] 設定中輸入使用者的密碼。  
+	4.	按一下 [確定] 關閉對話方塊。  
 4. 按一下 [確定] 關閉 [認證] 刀鋒視窗。 
 5. 按一下 [新增資料存放區] 刀鋒視窗中的 [確定]。 	
-6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。
+	![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。如果應用程式無法連接閘道器電腦，它將不允許您設定資料來源的認證，以及測試資料來源的連接。
 
@@ -589,7 +594,8 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 ## 使用資料管理閘道進行複製的資料流
 當您使用資料管線中的複製活動，將內部部署資料擷取至雲端以進行進一步的處理，或者匯出雲端中的結果資料回到內部部署資料存放區，複製活動都會在內部使用閘道器將資料從內部部署資料來源傳輸回雲端，反之亦然。
 
-利用資料閘道器進行複製的高層級資料流和步驟摘要如下：![使用閘道器的資料流](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+利用資料閘道器進行複製的高層級資料流和步驟摘要如下：
+![使用閘道器的資料流](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	資料開發人員會使用 [Azure 傳統入口網站](http://portal.azure.com)或 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx)，為 Azure Data Factory 建立新的閘道器。 
 2.	資料開發人員會使用「連結服務」面板，透過閘道器定義內部部署資料存放區的新連結服務。在設定連結服務資料的過程中，開發人員會使用設定認證應用程式指定驗證類型和認證，如逐步解說所示。設定認證應用程式對話方塊將會與資料存放區進行通訊以測試要儲存認證的連線與閘道器。

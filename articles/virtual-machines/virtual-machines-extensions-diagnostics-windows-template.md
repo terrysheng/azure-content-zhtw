@@ -82,7 +82,7 @@ Azure 診斷延伸模組提供以 Windows 為基礎的 Azure 虛擬機器上的�
 
 ## 將診斷儲存體帳戶指定為參數 
 
-上述的診斷延伸模組 json 片段假設兩個參數 *existingdiagnosticsStorageAccountName* 和 *existingdiagnosticsStorageAccountName*，以指定將會儲存診斷資料的診斷儲存體帳戶。將診斷儲存體帳戶指定為參數可讓您輕鬆地跨不同環境變更診斷儲存體帳戶，例如，您可能想要使用不同診斷儲存體帳戶進行測試，並且使用另外一個進行生產部署。
+上述的診斷延伸模組 json 片段假設兩個參數 *existingdiagnosticsStorageAccountName* 和 *existingdiagnosticsStorageAccountName* ，以指定將會儲存診斷資料的診斷儲存體帳戶。將診斷儲存體帳戶指定為參數可讓您輕鬆地跨不同環境變更診斷儲存體帳戶，例如，您可能想要使用不同診斷儲存體帳戶進行測試，並且使用另外一個進行生產部署。
 
         "existingdiagnosticsStorageAccountName": {
             "type": "string",

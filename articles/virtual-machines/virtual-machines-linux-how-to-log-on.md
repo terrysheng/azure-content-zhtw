@@ -18,6 +18,8 @@
 	ms.author="rasquill"/>
 
 
+
+
 #如何登入執行 Linux 的虛擬機器 #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md)。
@@ -28,7 +30,7 @@
 - 若為執行 Linux 作業系統的虛擬機器，您可使用安全殼層 (SSH) 用戶端登入；目前未依預設安裝此用戶端的配送極為少見。如需更多 Linux 的相關資訊，請參閱[如何使用 SSH](virtual-machines-linux-use-ssh-key.md)。
 
 
->[AZURE.NOTE]如需詳細的需求和疑難排解提示，請參閱[透過 RDP 或 SSH 連接到 Azure 虛擬機器](http://go.microsoft.com/fwlink/p/?LinkId=398294)。
+>[AZURE.NOTE] 如需詳細的需求和疑難排解提示，請參閱[透過 RDP 或 SSH 連接到 Azure 虛擬機器](http://go.microsoft.com/fwlink/p/?LinkId=398294)。
 
 此程序說明如何使用 PuTTY 程式來存取虛擬機器。
 

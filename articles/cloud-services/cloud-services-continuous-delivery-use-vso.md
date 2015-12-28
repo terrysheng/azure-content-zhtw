@@ -32,7 +32,11 @@
 
 ## 步驟 2：將專案簽入原始檔控制
 
-1. 在 Visual Studio 中，開啟您要部署的方案，或建立新方案。您可以依照此逐步解說的步驟部署 Web 應用程式或雲端服務 (Azure 應用程式)。如果要建立新方案，請建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 [**網際網路應用程式**]。如果要建立 Web 應用程式，請選擇 ASP.NET Web 應用程式的專案範本，然後選擇 [MVC]。請參閱「[在 Azure App Service 中建立 ASP.NET Web 應用程式](../web-sites-dotnet-get-started.md)」。
+1. 在 Visual Studio 中，開啟您要部署的方案，或建立新方案。您可以依照此逐步解說的步驟部署 Web 應用程式或雲端服務 (Azure 應用程式)。
+如果要建立新方案，請建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，
+請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 [**網際網路應用程式**]。
+如果要建立 Web 應用程式，請選擇 ASP.NET Web 應用程式的專案範本，然後選擇 [MVC]。
+請參閱「[在 Azure App Service 中建立 ASP.NET Web 應用程式](../web-sites-dotnet-get-started.md)」。
 
 	> [AZURE.NOTE]Visual Studio Team Services 目前僅支援 Visual Studio Web 應用程式的 CI 部署。Web Site 專案超出範圍。
 

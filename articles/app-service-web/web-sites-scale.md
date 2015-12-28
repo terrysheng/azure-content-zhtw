@@ -45,7 +45,7 @@
 	
 	當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
 	
-5. 將 [執行個體] 列從左滑動到右以增加執行個體的數量，然後按一下命令列中的 [儲存]。「共用」模式未提供執行個體大小選項。如需這些執行個體大小的詳細資訊，請參閱 [Windows Azure 的虛擬機器和雲端服務大小][vmsizes]。
+5. 將 [執行個體] 列從左滑動到右以增加執行個體的數量，然後按一下命令列中的 [儲存]。「共用」模式未提供執行個體大小選項。如需這些執行個體大小的詳細資訊，請參閱 [Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]。
 	
 	![基本模式的執行個體大小][ChooseBasicInstances]
 	
@@ -160,7 +160,7 @@
 	
 	[SQL Database 定價詳細資料](/pricing/details/sql-database/)
 	
-	[Windows Azure 的虛擬機器和雲端服務大小][vmsizes]
+	[Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]
 	
 	[App Service 定價詳細資料](/pricing/details/web-sites/)
 	
@@ -200,4 +200,4 @@
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

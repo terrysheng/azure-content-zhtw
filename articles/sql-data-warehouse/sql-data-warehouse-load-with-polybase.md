@@ -254,7 +254,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## 將資料匯出至 Azure Blob 儲存體
-這一節說明如何將資料從 SQL 資料倉儲匯出至 Azure Blob 儲存體。此範例使用 CREATE EXTERNAL TABLE AS SELECT (高效能 Transact-SQL 陳述式) 將資料從所有計算節點平行匯出。
+這一節說明如何將資料從 SQL 資料倉儲匯出至 Azure blob 儲存體。此範例使用 CREATE EXTERNAL TABLE AS SELECT (高效能 TRANSACT-SQL 陳述式) 將資料從所有計算節點平行匯出。
 
 下列範例會使用 dbo.Weblogs 資料表中的資料行定義和資料從 dbo 建立外部資料表 Weblogs2014。外部資料表定義會儲存在 SQL 資料倉儲中，而 SELECT 陳述式的結果會匯出至資料來源所指定的 blob 容器下的 "/archive/log2014/" 目錄。以指定的文字檔案格式匯出的資料。
 

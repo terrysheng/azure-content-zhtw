@@ -54,7 +54,7 @@
 
 Microsoft 鼓勵您將您認為可能有助於其他客戶的 Runbook 新增至 Runbook 資源庫。您可以藉由[將其上傳到指令碼中心](http://gallery.technet.microsoft.com/site/upload)來新增 Runbook，並且將下列詳細資料納入考量。
 
-- 您必須針對 [類別] 指定 [Windows Azure]，針對 [子類別] 指定[自動化]，讓 Runbook 顯示在精靈中。  
+- 您必須針對 [類別] 指定 [Microsoft Azure]，針對 [子類別] 指定[自動化]，讓 Runbook 顯示在精靈中。  
 
 - 上傳必須是單一 .ps1 或 .graphrunbook 檔案。如果 Runbook 需要任何模組、子 Runbook 或資產，則您應該在提交的說明中和 Runbook 的註解區段中列出。如果您有需要多個 Runbook 的解決方案，則分別將每個上傳並且在各自的說明中列出相關 Runbook 的名稱。請確定您使用相同的標記，這樣它們就會在相同的類別中顯示。使用者必須閱讀說明以便知道解決方案需要其他 Runbook 才能運作。
 
@@ -108,4 +108,4 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 - [在 Azure 自動化中建立或匯入 Runbook](automation-creating-importing-runbook.md)
 - [了解 PowerShell 工作流程](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

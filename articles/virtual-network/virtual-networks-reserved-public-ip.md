@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # 保留的 IP 概觀
@@ -41,7 +41,7 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 您必須將保留的 IP 新增至訂用帳戶才能使用。若要在*美國中部*位置從可用的公用 IP 位址集區來建立保留的 IP，請執行下列 PowerShell 命令：
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
 但是請注意，您無法指定正在保留的 IP。若要檢視哪些 IP 位址會保留在訂用帳戶中，執行下列 PowerShell 命令，並注意 *ReservedIPName* 和 *Address* 的值：
 
@@ -67,7 +67,7 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 ## 如何建立保留的 IP 至新雲端服務的關聯
 下面的指令碼會建立新保留的 IP，然後將其關聯至新的雲端服務，稱為 *TestService*。
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
 	New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
@@ -119,4 +119,4 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 - 請參閱[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/17/2015"
+	ms.date="12/15/2015"
 	ms.author="robb"/>
 
 
@@ -29,7 +29,7 @@
 
 如需有關放置追蹤陳述式資訊，請參閱[作法：加入 Trace 陳述式至應用程式程式碼](https://msdn.microsoft.com/library/zd83saa2.aspx)。
 
-藉由在程式碼中放置 [Trace 參數](https://msdn.microsoft.com/library/3at424ac.aspx)，您可以控制是否發生追蹤以及廣泛程度。這可讓您監視您的應用程式在生產環境中的狀態。對於在多部電腦上執行多個元件的商務應用程式來說，這特別重要。如需詳細資訊，請參閱[作法：設定 Trace 參數](https://msdn.microsoft.com/library/t06xyy08.aspx)。
+藉由在程式碼中放置 [Trace 參數](https://msdn.microsoft.com/library/3at424ac.aspx)，您可以控制是否發生追蹤以及廣泛程度。這可讓您監視您的應用程式在生產環境中的狀態。對於在多部電腦上執行多個元件的商務應用程式來說，這特別重要。如需詳細資訊，請參閱[做法：設定追蹤參數](https://msdn.microsoft.com/library/t06xyy08.aspx)。
 
 ## 在 Azure 應用程式中設定追蹤接聽程式
 
@@ -43,7 +43,7 @@ Trace、Debug 和 TraceSource，需要您設定「接聽程式」來收集和記
 ### 加入追蹤接聽程式
 
 1. 開啟您的角色的 web.config 或 app.config 檔案。
-2. 在檔案中加入下列程式碼：
+2. 將下列程式碼新增至檔案：
 
 	```
 	<system.diagnostics>
@@ -61,9 +61,11 @@ Trace、Debug 和 TraceSource，需要您設定「接聽程式」來收集和記
 		</trace>
 	</system.diagnostics>
 	```
+	>[AZURE.IMPORTANT]請確定您有參照 Microsoft.WindowsAzure.Diagnostics 組件的專案參考。更新上述 xml 中的版本號碼，以和參考的 Microsoft.WindowsAzure.Diagnostics 組件版本相符。
+	
 3. 儲存組態檔。
 
-如需追蹤接聽程式的詳細資訊，請參閱[追蹤接聽程式](https://msdn.microsoft.com/library/4y5y10s7.aspx)。
+如需接聽程式的詳細資訊，請參閱[追蹤接聽程式](https://msdn.microsoft.com/library/4y5y10s7.aspx)。
 
 完成加入接聽程式的步驟之後，您可以加入您的追蹤陳述式到程式碼中。
 
@@ -74,7 +76,7 @@ Trace、Debug 和 TraceSource，需要您設定「接聽程式」來收集和記
 2. 加入下列 using 陳述式 (如果尚未加入)：```
 	    using System.Diagnostics;
 	```
-3. 在您想要用來擷取應用程式狀態資訊的位置加入 Trace 陳述式。您可以使用各種方法來格式化 Trace 陳述式的輸出。如需詳細資訊，請參閱[作法：加入 Trace 陳述式至應用程式程式碼](https://msdn.microsoft.com/library/zd83saa2.aspx)。
+3. 在您想要用來擷取應用程式狀態資訊的位置加入 Trace 陳述式。您可以使用各種方法來格式化 Trace 陳述式的輸出。如需詳細資訊，請參閱[做法：加入 Trace 陳述式至應用程式程式碼](https://msdn.microsoft.com/library/zd83saa2.aspx)。
 4. 儲存原始程式檔。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2015" ms.author="trinadhk";"aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/15/2015"
+	ms.author="trinadhk;aashishr;jimpark"/>
 
 
 # Azure 虛擬機器備份的疑難排解
@@ -24,7 +31,7 @@
 | 備份作業 | 錯誤詳細資料 | 因應措施 |
 | -------- | -------- | -------|
 | 註冊 | 連接至虛擬機器的資料磁碟數目超過支援的限制 - 請卸離此虛擬機器上的某些資料磁碟，然後重試作業。Azure 備份最多支援 16 個資料磁碟連接至 Azure 虛擬機器進行備份。 | None |
-| 註冊 | Microsoft Azure 備份遇到內部錯誤 - 等候幾分鐘的時間，然後再次嘗試操作。如果問題持續發生，請連絡 Microsoft 支援服務。 | 您會因為下列其中一個不支援的組態而得到此錯誤：<ul><li>進階 LRS </ul>。 |
+| 註冊 | Microsoft Azure 備份遇到內部錯誤 - 等候幾分鐘的時間，然後再次嘗試操作。如果問題持續發生，請連絡 Microsoft 支援服務。 | 出現此錯誤的原因是下列其中一個不支的設定：<ul><li>進階 LRS </ul> |
 | 註冊 | 因為安裝代理程式作業逾時而註冊失敗 | 請檢查是否支援虛擬機器的作業系統版本。 |
 | 註冊 | 命令執行失敗 - 另一項作業正在此項目上進行。請等到前一項作業完成 | None |
 | 註冊 | 不支援備份在進階儲存體中儲存虛擬硬碟的虛擬機器 | None |
@@ -35,7 +42,7 @@
 | 備份作業 | 錯誤詳細資料 | 因應措施 |
 | -------- | -------- | -------|
 | 備份 | 從備份保存庫複製 VHD 已逾時 - 請在幾分鐘內重試此作業。如果問題持續發生，請連絡 Microsoft 支援服務。 | 要複製的資料太多時會發生此問題。請檢查您的資料磁碟是否少於 16 個。 |
-| 備份 | 無法與 VM 代理程式通訊來取得快照集狀態。快照集 VM 子工作已逾時。請參閱疑難排解指南中的解決之道。 | 如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。<ul><li>深入了解 [VM 代理程式問題偵錯](#vm-agent) <li>深入了解 [網路問題偵錯](#networking) </ul><br>如果 VM 代理程式沒有造成任何問題，請重新啟動 VM。有時，不正確的 VM 狀態可能會導致問題，重新啟動 VM 可清除此「錯誤狀態」 |
+| 備份 | 無法與 VM 代理程式通訊來取得快照集狀態。快照集 VM 子工作已逾時。請參閱疑難排解指南中的解決之道。 | 如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。<ul><li>深入了解[偵錯 VM 代理程式問題](#vm-agent)<li>深入了解[偵錯網路問題](#networking) </ul><br>如果 VM 代理程式沒有造成任何問題，請重新啟動 VM。有時，不正確的 VM 狀態可能會導致問題，重新啟動 VM 可清除此「錯誤狀態」 |
 | 備份 | 備份因為內部錯誤而失敗 - 請在幾分鐘內重試此作業。如果問題持續發生，請連絡 Microsoft 支援服務。 | 發生此錯誤的原因有 2 個：<ol><li> 要複製的資料太多。<li>已刪除原始的 VM，因此無法進行備份。若要保留已刪除 VM 的備份資料但阻止備份錯誤，請取消保護 VM 並選擇保留資料。這樣會停止備份排程以及週期性的錯誤訊息。 |
 | 備份 | 無法在選取的項目上安裝 Azure 復原服務延伸模組 - VM 代理程式是 Azure 復原服務延伸模組的必要條件。請安裝 Azure VM 代理程式並重新啟動註冊作業 | <ol> <li>檢查是否已正確安裝 VM 代理程式。<li>確定已正確設定 VM 組態中的旗標。</ol> [深入了解](#validating-vm-agent-installation) VM 代理程式安裝，以及如何驗證 VM 代理程式安裝。 |
 | 備份 | 命令執行失敗 - 另一項作業目前正在此項目上進行。請等到前一項作業完成，然後重試 | VM 的現有備份或還原作業正在執行中，而當現有作業正在執行時，無法啟動新的作業。 |
@@ -49,7 +56,7 @@
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | -------- | -------- | -------|
 | 取消工作 | 不支援取消這種工作類型：請等待工作完成。 | None |
-| 取消工作 | 工作不是處於可取消的狀態：請等待工作完成。<br> 或 <br> 所選取的工作不是處於可取消的狀態：請等待工作完成。| 工作極有可能幾乎要完成，請等待作業完成 |
+| 取消工作 | 工作不是處於可取消的狀態：請等待工作完成。<br> 或 <br> 所選取的工作不是處於可取消的狀態 - 請等待工作完成。| 工作極有可能幾乎要完成，請等待作業完成 |
 | 取消工作 | 無法取消工作，因為它不在進行中：只支援取消進行中的工作。請嘗試取消進行中的工作。 | 這起因於暫時性狀態。請稍候再重試取消作業 |
 | 取消工作 | 無法取消工作：請等待工作完成。 | None |
 
@@ -57,7 +64,7 @@
 ## 還原
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | -------- | -------- | -------|
-| 還原 | 還原失敗並發生雲端內部錯誤 | <ol><li>您嘗試還原的雲端服務已設定為 DNS 設定。您可以檢查 <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>如果有設定位址，這表示已設定為 DNS 設定。<br> <li>您嘗試還原的雲端服務是以 ReservedIP 設定，且雲端服務中現有的 VM 皆處於停止狀態。<br>您可以使用下列 PowerShell Cmdlet 檢查雲端服務是否有保留的 IP：<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>您正在嘗試還原於相同雲端服務中具有以下特殊網路組態的虛擬機器。<br>- 負載平衡器組態底下的虛擬機器 (內部與外部)<br>- 具有多個保留的 IP 的虛擬機器<br>- 具有多個 NIC 的虛擬機器<br>請在 UI 中選取新雲端服務，或參閱[還原考量](backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations)以取得具有特殊網路組態之 VM 的相關資訊</ol> |
+| 還原 | 還原失敗並發生雲端內部錯誤 | <ol><li>您嘗試還原的雲端服務已設定為 DNS 設定。您可以檢查 <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>如果有設定位址，這表示已設定為 DNS 設定。<br> <li>您嘗試還原的雲端服務利用 ReservedIP 設定，且雲端服務中現有的 VM 皆處於停止狀態。<br>您可以使用下列 PowerShell Cmdlet 來檢查雲端服務是否有保留的 IP：<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>您正在嘗試還原相同雲端服務中具有以下特殊網路設定的虛擬機器。<br>- 負載平衡器設定下的虛擬機器 (內部與外部)<br>- 具有多個保留 IP 的虛擬機器<br>- 具有多個 NIC 的虛擬機器<br>請在 UI 中選取新的雲端服務，或參閱[還原考量](backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations)以取得具有特殊網路設定之 VM 的相關資訊</ol> |
 | 還原 | 所選取的 DNS 名稱已被使用：請指定不同的 DNS 名稱，然後再試一次。 | 此處的 DNS 名稱是指雲端服務名稱 (結尾通常是 .cloudapp.net)。這必須是唯一的。如果您遇到這個錯誤，您需要在還原期間選擇不同的 VM 名稱。<br><br> 請注意，只有 Azure 入口網站的使用者才會看到這個錯誤。透過 PowerShell 執行還原作業將會成功，因為它只會還原磁碟，並不會建立 VM。當您在磁碟還原作業之後明確建立 VM 時，將會遇到此錯誤。 |
 | 還原 | 指定的虛擬網路組態不正確：請指定不同的虛擬網路組態，然後再試一次。 | None |
 | 還原 | 指定的雲端服務使用保留的 IP，但不符合所要還原的虛擬機器組態：請指定另一個不使用保留 IP 的雲端服務，或選擇從另一個復原點還原。 | None |
@@ -87,7 +94,7 @@
 
 如為 Linux VM：
 
-- 從 GitHub 安裝最新的 [Linux 代理程式](https://github.com/Azure/WALinuxAgent)。
+- 從 GitHub 安裝最新版 [Linux 代理程式](https://github.com/Azure/WALinuxAgent)。
 - [更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)，表示已安裝代理程式。
 
 
@@ -98,17 +105,17 @@
 
 如為 Linux VM：
 
-- 請遵循[更新 Linux VM 代理程式](../virtual-machines-linux-update-agent.md)上的指示。
+- 請遵循[更新 Linux VM 代理程式](../virtual-machines-linux-update-agent.md)上的指示進行。
 
 
 ### 驗證 VM 代理程式安裝
 如何檢查 Windows VM 上的 VM 代理程式版本：
 
 1. 登入 Azure 虛擬機器，然後瀏覽至 *C:\\WindowsAzure\\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
-2. 以滑鼠右鍵按一下該檔案，移至 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
+2. 在該檔案上按一下滑鼠右鍵，前往 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
 
 ## 網路
-如同所有的延伸模組，備份延伸模組需要存取公用網際網路才能運作。沒有公用網際網路的存取權可能會以各種方式顯現：
+如同所有的延伸模組，備份延伸模組需要存取公用網際網路才能運作。沒有公用網際網路的存取權，可能會以各種不同方式的資訊清單形式顯現：
 
 - 延伸模組安裝可能會失敗
 - 備份作業 (如磁碟快照) 可能會失敗
@@ -116,9 +123,14 @@
 
 解析網際網路的公用位址的需求已在[這裡](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx)說明。您必須檢查 VNET 的 DNS 設定，並確定可以解析 Azure URI。
 
-正確完成名稱解析後，也必須提供 Azure IP 的存取權。若要解除封鎖對 Azure 基礎結構的存取，請遵循下列步驟：
+正確完成名稱解析後，也必須提供 Azure IP 的存取權。若要解除封鎖對 Azure 基礎結構的存取，請遵循下列步驟進行：
 
-1. 取得要列入允許清單的 [Azure 資料中心 IP](https://msdn.microsoft.com/library/azure/dn175718.aspx)。
-2. 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) Cmdlet 解除封鎖 IP。在 Azure VM 中提升權限的 PowerShell 視窗中執行這個 Cmdlet (以系統管理員身分執行)。
+1. 將 Azure 資料中心的 IP 範圍列入允許清單。
+    - 取得要列入允許清單的 [Azure 資料中心 IP](https://www.microsoft.com/download/details.aspx?id=41653)。
+    - 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) Cmdlet 解除封鎖該 IP。在提升權限的 PowerShell 視窗中 (以系統管理員身分執行)，於 Azure VM 內執行這個 Cmdlet。
+    - 將規則加入 NSG (若已有規則)，以允許存取該 IP。
+2. 建立 HTTP 流量的行經路徑
+    - 如果已有一些網路限制 (例如，網路安全性群組)，請部署 HTTP Proxy 伺服器來路由傳送流量。部署 HTTP Proxy 伺服器的步驟位於[這裡](backup-azure-vms-prepare.md#2-network-connectivity)。
+    - 將規則加入 NSG (若已有規則)，以允許從 HTTP Proxy 存取網際網路。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

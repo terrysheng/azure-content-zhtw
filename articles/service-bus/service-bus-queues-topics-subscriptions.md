@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/09/2015"
    ms.author="sethm" />
 
 # 服務匯流排佇列、主題和訂用帳戶
@@ -146,7 +146,7 @@ while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 
 在許多情況下，必須以不同的方式處理具有特定特性的訊息。若要這麼做，您可以設定訂用帳戶以尋找具有所需屬性的訊息，然後對這些屬性進行一些修改。雖然服務匯流排訂用帳戶可看見所有傳送至主題的訊息，但您只可以將部分的訊息複製到虛擬訂用帳戶佇列。使用訂用帳戶篩選器即可達成。這類修改稱之為「篩選器動作」。建立訂用帳戶後，您可以提供篩選運算式，以在訊息的屬性上運作，包括系統屬性 (例如 **Label**) 和自訂應用程式屬性 (例如 **StoreName**)。 在此情況下，SQL 篩選運算式是選擇性的；若沒有 SQL 篩選運算式，將會對訂用帳戶的所有訊息執行在該訂用帳戶上定義的所有篩選動作。
 
-以上述範例為例，若只要篩選來自 Store1 的訊息，您可建立 [儀表板] 訂用帳戶，如下所示：
+以上述範例為例，若只要篩選來自 **Store1** 的訊息，您可建立 [儀表板] 訂用帳戶，如下所示：
 
 ```
 namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
@@ -167,8 +167,9 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 請參閱下列進階主題，以取得使用服務匯流排代理傳訊實體的詳細資訊和範例。
 
 - [服務匯流排訊息概觀](service-bus-messaging-overview.md)
-- [服務匯流排代理傳訊 .NET 教學課程](https://msdn.microsoft.com/library/azure/hh367512.aspx)
-- [事件中樞開發人員指南](../event-hubs-programming-guide.md)
+- [服務匯流排代理傳訊 .NET 教學課程](service-bus-brokered-tutorial-dotnet.md)
+- [服務匯流排代理傳訊 REST 教學課程](service-bus-brokered-tutorial-rest.md)
+- [事件中樞開發人員指南](../event-hubs/event-hubs-programming-guide.md)
 - [代理傳訊︰進階篩選器](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

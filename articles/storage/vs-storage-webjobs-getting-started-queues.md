@@ -1,11 +1,11 @@
-<properties 
+<properties
 	pageTitle="開始使用佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案) | Microsoft Azure"
 	description="在使用 Visual Studio 已連接服務連接至儲存體帳戶之後，如何於 WebJob 專案中開始使用 Azure 佇列儲存體。"
 	services="storage"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-queues.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
 
 ## 概觀
 
@@ -166,7 +157,7 @@ SDK 會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲�
 
 ## 正常關機
 
-連續 WebJob 中執行的函數可以接受 **CancellationToken** 參數，以啟用在 WebJob 即將終止時，讓作業系統通知函數。您可以使用此通知來確保函數不會在讓資料維持不一致狀態的情況下意外終止。
+連續 WebJob 中執行的函數可以接受 **CancellationToken** 參數，來讓作業系統能夠在 WebJob 即將終止時通知函數。您可以使用此通知來確保函數不會在讓資料維持不一致狀態的情況下意外終止。
 
 下列範例示範如何透過函數檢查即將終止的 WebJob。
 
@@ -286,7 +277,7 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 
 **Blob** 屬性建構函式採用 **blobPath** 參數來指定容器與 Blob 名稱。如需此預留位置的詳細資訊，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)。
 
-當這個屬性裝飾 **Stream** 物件，另一個建構函式參數會將 **FileAccess** 模式指定為讀取、 寫入或讀取/寫入。
+當這個屬性裝飾 **Stream** 物件，另一個建構函式參數會將 **FileAccess** 模式指定為讀取、寫入或讀取/寫入。
 
 下列範例會使用 **CloudBlockBlob** 物件刪除 Blob。佇列訊息就是 Blob 的名稱。
 
@@ -440,7 +431,7 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 
 有時候您不想要採取硬式編碼的方式，而是在程式碼中指定佇列名稱、Blob 名稱或容器或資料表名稱。例如，您可能想要在組態檔或環境變數中指定 **QueueTrigger** 的佇列名稱。
 
-您可以藉由將 **NameResolver** 物件傳入至 **JobHostConfiguration** 類型來這麼做。在 WebJobs SDK 屬性建構函式參數中包含以百分比 (%) 符號括住的特殊預留位置，然後 **NameResolver** 程式碼會指定實際要用以取代那些預留位置的值。
+您可以藉由將 **NameResolver** 物件傳入至 **JobHostConfiguration** 類型來執行此作業。在 WebJobs SDK 屬性建構函式參數中包含以百分比 (%) 符號括住的特殊預留位置，然後 **NameResolver** 程式碼會指定實際要用以取代那些預留位置的值。
 
 例如，假設您想要在測試環境中使用名為 logqueuetest 的佇列，和在生產環境中使用名為 logqueueprod 的佇列。不用將佇列名稱寫入程式碼，您要在 **appSettings** 集合 (會有實際佇列名稱) 中指定項目名稱。如果 **appSettings** 索引鍵是 logqueue，您的函數看起來可能如下所示。
 
@@ -552,4 +543,4 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 
 本文提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -19,11 +19,12 @@
 
 #跨多個儲存體帳戶管理媒體服務資產
 
-從 Microsoft Azure 媒體服務 2.2 版起，您可以將多個儲存體帳戶附加至單一媒體服務帳戶。將多個儲存體帳戶附加到媒體服務帳戶的能力提供下列優點：在多個儲存體帳戶之間平衡您資產的負載。
+從 Microsoft Azure 媒體服務 2.2 版起，您可以將多個儲存體帳戶附加至單一媒體服務帳戶。將多個儲存體帳戶附加到媒體服務帳戶的能力提供下列優點：
 
-調整媒體服務進行大量的內容處理 (因為目前單一儲存體帳戶的最大上限為 500 TB)。
+- 在多個儲存體帳戶之間平衡您資產的負載。
+- 調整媒體服務進行大量的內容處理 (因為目前單一儲存體帳戶的最大上限為 500 TB)。 
 
-本主題示範如何將多個儲存體帳戶附加到媒體服務帳戶使用 [Azure 服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)。同時也會示範如何在使用媒體服務 SDK 建立資產時，指定不同的儲存體帳戶。
+本主題示範如何將多個儲存體帳戶附加到媒體服務帳戶使用 Azure 服務管理 REST API。同時也會示範如何在使用媒體服務 SDK 建立資產時，指定不同的儲存體帳戶。
 
 ##注意事項
 
@@ -39,7 +40,7 @@
 
 ##使用 Azure 服務管理 REST API 附加儲存體帳戶
 
-目前附加多個儲存體帳戶的唯一方式，是使用 [Azure 服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)。在＜[做法：使用媒體服務管理 REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx)＞主題中的程式碼範例，定義 **AttachStorageAccountToMediaServiceAccount** 方法能將儲存體帳戶附加到指定的媒體服務帳戶。相同主題中的程式碼定義 **ListStorageAccountDetails** 方法，能列出所有附加到指定的媒體服務帳戶的儲存體帳戶。
+目前附加多個儲存體帳戶的唯一方式，是使用 [Azure 服務管理 REST API](http://msdn.microsoft.com/library/azure/dn167014.aspx)。在＜[做法：使用媒體服務管理 REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx)＞主題中的程式碼範例，定義 **AttachStorageAccountToMediaServiceAccount** 方法能將儲存體帳戶附加到指定的媒體服務帳戶。相同主題中的程式碼定義 **ListStorageAccountDetails** 方法，能列出所有附加到指定的媒體服務帳戶的儲存體帳戶。
 
 
 ##管理跨多個儲存體帳戶的媒體服務資產
@@ -258,4 +259,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

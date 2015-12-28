@@ -23,11 +23,14 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-本文將引導您完成使用「傳統」部署模型 (也稱為「服務管理」) 來建立虛擬網路並將虛擬網路連接在一起的步驟。這些步驟將會使用「Azure 傳統入口網站」(不是「Azure 入口網站」) 搭配 PowerShell Cmdlet。如果您想要連接使用「Azure 資源管理員」部署模型建立的 VNet，請參閱上表。每個模型的步驟都不相同。
 
-您也可以將在「傳統」部署模型中建立的 VNet 連接至使用「資源管理員」模型建立 VNet。請參閱[將傳統 VNet 連接到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)。
+本文將引導您完成使用傳統部署模型 (也稱為「服務管理」) 來建立虛擬網路並將虛擬網路連接在一起的步驟。這些步驟將會使用「Azure 傳統入口網站」(不是「Azure 入口網站」) 搭配 PowerShell Cmdlet。如果您要尋找此設定的其他部署模型，請使用上方索引標籤來選取您想要的文章。
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+**關於 Azure 部署模型**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+	
+如果您要將在傳統部署模型中建立的 VNet 連接到使用資源管理員模型建立的 VNet，請參閱[將傳統 VNet 連接到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)。
 
 將一個虛擬網路連接到另一個虛擬網路 (VNet 對 VNet) 非常類似於將虛擬網路連接到內部部署網站位置。這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道。您所連線的 Vnet 可位於不同的訂用帳戶和不同的區域。您甚至可以使用多網站組態將結合 VNet 對 VNet 通訊。這可讓您建立使用內部虛擬網路連線結合跨單位連線的網路拓撲，如下圖所示：
 
@@ -110,11 +113,11 @@ VNet1：位址空間 = 10.1.0.0/16；區域 = 美國西部
 
 VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
-1. 登入 **Azure 傳統入口網站** (不是 Azure 入口網站)。
+1. 登入 **Azure 傳統入口網站** (而非 Azure 入口網站)。
 
 2. 按一下螢幕左下角的 [新增]。在導覽窗格中依序按一下 [網路服務] 和 [虛擬網路]。按一下 [Custom Create] 開始組態精靈。
 
-**在 [虛擬網路詳細資料] 頁面上**，輸入下列資訊。
+**在 [虛擬網路詳細資料] 頁面上**輸入下列資訊。
 
   ![虛擬網路詳細資料](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -123,7 +126,7 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
 
 
-**在 [DNS Servers and VPN Connectivity] 頁面上**，輸入下列資訊，然後按一下右下角的下一步箭頭。
+**在 [DNS 伺服器和 VPN 連線] 頁面上**輸入下列資訊，然後按一下右下角的下一步箭頭。
 
   ![DNS 伺服器和 VPN 連線能力](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
@@ -132,17 +135,17 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
   - 請不要選取任何核取方塊。只要按一下右下角的箭頭，就可以移到下一個畫面。
 
-**在 [虛擬網路位址空間] 頁面上**，指定您想要用於虛擬網路的位址範圍。這些是將指派給 VM 的動態 IP 位址 (DIP)，以及指派給您部署至此虛擬網路之其他角色執行個體的動態 IP 位址 (DIP)。特別重要的是，選取的範圍不得與用於內部部署網路的任何範圍重疊。您將需要與網路管理員協調，他/她可能需要為您從內部部署網路位址空間規劃一個 IP 位址範圍，供您的虛擬網路使用。
+**在 [虛擬網路位址空間] 頁面上** ，指定您想要用於虛擬網路的位址範圍。這些是將指派給 VM 的動態 IP 位址 (DIP)，以及指派給您部署至此虛擬網路之其他角色執行個體的動態 IP 位址 (DIP)。特別重要的是，選取的範圍不得與用於內部部署網路的任何範圍重疊。您將需要與網路管理員協調，他/她可能需要為您從內部部署網路位址空間規劃一個 IP 位址範圍，供您的虛擬網路使用。
 
 
   ![虛擬網路位址空間頁面](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
-  **輸入下列資訊**，然後按一下右下角的核取記號以設定網路。
+  **輸入下列資訊**，然後按一下右下角的核取記號來設定您的網路。
 
   - **位址空間** - 包括起始 IP 和位址計數。請確認您指定的位址空間沒有與您在內部部署網路上所擁有的任何位址空間重疊。在此範例中，我們將為 VNet1 使用 10.1.0.0/16。
   - **新增子網路** - 包括起始 IP 和位址計數。不需要其他子網路，但是您可以為將擁有靜態 DIP 的 VM 建立個別的子網路。或者，您可以讓您的 VM 位於與其他角色執行個體不同的子網路中。
 
-**按一下頁面右下角的核取記號**，即會開始建立虛擬網路。完成時，您將在 Azure 傳統入口網站的 [網路] 頁面上看到 [狀態] 下列出 [已建立]。
+**按一下頁面右下角的核取記號**，隨即開始建立虛擬網路。完成時，您將在 Azure 傳統入口網站的 [網路] 頁面上看到 [狀態] 下列出 [已建立]。
 
 ## 建立另一個虛擬網路
 
@@ -158,7 +161,7 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
 1. 按一下螢幕左下角的 [新增]。在導覽窗格中依序按一下 [網路服務] 和 [虛擬網路]。按一下 [新增區域網路]
 
-2. 在 [**指定區域網路詳細資料**] 頁面上，針對 [**名稱**]，輸入您想要在 VNet 對 VNet 組態中使用的虛擬網路名稱。此範例中，我們將使用 VNet 1，因為我們會將 VNet2 指向此虛擬網路組態，以供我們的組態使用。
+2. 在 [指定區域網路詳細資料] 頁面上，針對 [名稱] 輸入您想要在 VNet 對 VNet 設定中使用的虛擬網路名稱。此範例中，我們將使用 VNet 1，因為我們會將 VNet2 指向此虛擬網路組態，以供我們的組態使用。
 
   對於 [VPN 裝置 IP 位址]，使用任何 IP 位址。一般而言，您會將實際的外部 IP 位址用於 VPN 裝置。若是 VNet 對 VNet 組態，您將虛使用閘道的 IP 位址。但是，假設您尚未建立閘道，我們會使用您在這裡指定的 IP 位址做為預留位置。接著，您將在 Azure 產生閘到之後，回到這些設定，使用對應的閘道 IP 位址進行設定。
 
@@ -166,7 +169,7 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
 4. 將 VNet1 設定為區域網路之後，回來使用對應於該 VNet 的值設定 VNet2。
 
-5. 現在您將每個 VNet 指向對方，以做為區域網路。在 Azure 傳統入口網站中，移至 VNet1 的 [設定] 頁面。在 [站台對站連線能力] 底下，選取 [連線到區域網路]，然後選取 **VNET2** 做為區域網路。
+5. 現在您將每個 VNet 指向對方，以做為區域網路。在 Azure 傳統入口網站中，前往 VNet1 的 [設定] 頁面。在 [站台對站連線能力] 底下，選取 [連線到區域網路]，然後選取 **VNET2** 做為區域網路。
 
   ![連線到區域網路](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736058.jpg)
 
@@ -222,20 +225,11 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
 ## 後續步驟
 
-
-如果您想要將虛擬機器新增到您的虛擬網路，請參閱[如何建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md)。
-
-如需有關組態結構描述的資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
-
-如需 REST API 資訊，請參閱[虛擬網路閘道的相關作業](https://msdn.microsoft.com/library/azure/jj154113.aspx)。
-
-如需有關 VPN 閘道的詳細資訊，請參閱 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)。
-
-如需有關虛擬網路的詳細資訊，請參閱[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)和[虛擬網路常見問題集](../virtual-network/virtual-networks-faq.md)。
+一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[如何建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md)以取得相關步驟。
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

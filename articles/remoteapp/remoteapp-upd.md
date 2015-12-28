@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Azure RemoteApp 中的使用者設定檔資料 | Microsoft Azure"
-	description="了解如何在 Azure RemoteApp 中儲存和存取使用者資料"
+    pageTitle="如何透過 Office 365 使用者帳戶使用 Azure RemoteApp | Microsoft Azure"
+	description="深入了解如何透過 Office 365 使用者帳戶使用 Azure RemoteApp"
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -15,8 +15,6 @@
     ms.topic="article" 
     ms.date="12/04/2015" 
     ms.author="elizapo" />
-
-
 
 # Azure RemoteApp 如何儲存使用者資料和設定？
 
@@ -139,4 +137,4 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 不行，Azure RemoteApp 不支援。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

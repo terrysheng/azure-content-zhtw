@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽：將登入加入 .NET MVC Web 應用程式
@@ -215,4 +215,4 @@ public ActionResult About()
 - [應用程式模型 2.0 版預覽 >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

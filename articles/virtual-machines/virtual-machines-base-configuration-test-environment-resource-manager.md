@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # 基本設定測試環境與 Azure 資源管理員
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [傳統部署模型](virtual-machines-base-configuration-test-environment.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-base-configuration-test-environment.md)。
 
 本文將逐步解說如何利用在資源管理員中建立的虛擬機器，在 Microsoft Azure 虛擬網路中建立「基本設定」測試環境。
 
@@ -56,9 +56,22 @@
 
 ## 階段 1：建立虛擬網路
 
-> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 "-AzureRM" 的所有執行個體取代為 "-Azure"，並且在您執行任何命令之前先新增 **Switch-AzureMode AzureResourceManager** 命令。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
+首先，開啟 Azure PowerShell 提示字元。
 
-開啟 Azure PowerShell 提示字元。
+> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+
+登入您的帳戶。
+
+	Login-AzureRMAccount
+
+使用下列命令取得您的訂用帳戶名稱。
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+設定您的 Azure 訂用帳戶以正確的名稱取代括號中的所有內容，包括 < and > 字元。
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 接下來，為基本設定測試實驗室建立新資源群組。若要判斷唯一的資源群組名稱，請使用此命令列出現有的資源群組。
 
@@ -72,7 +85,7 @@
 
 以資源管理員為基礎的虛擬機器需要以資源管理員為基礎的儲存體帳戶。您必須為儲存體帳戶挑選只包含小寫字母和數字的全域唯一名稱。您可以使用此命令列出現有的儲存體帳戶。
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 請使用這些命令建立新測試環境的新儲存體帳戶。
 
@@ -118,8 +131,8 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 
 接著，連接到 DC1 虛擬機器。
 
-1.	在 Azure 入口網站的左窗格中，按一下 [瀏覽全部]，再按一下 [瀏覽] 清單中的 [虛擬機器]，然後按一下 [DC1] 虛擬機器。  
-2.	在 [DC1] 窗格中按一下 [連接]。
+1.	在 Azure 入口網站中，按一下 [**虛擬機器**]，然後按一下 [**DC1**] 虛擬機器。  
+2.	在 [**DC1**] 窗格中按一下 [**連接**]。
 3.	出現提示時，開啟下載的 DC1.rdp 檔案。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用下列：
@@ -130,7 +143,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 \[磁碟 2] ([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -147,8 +160,8 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 
 DC1 重新啟動之後，重新連接到 DC1 的虛擬機器。
 
-1.	在 Azure 入口網站的左窗格中，按一下 [瀏覽全部]，再按一下 [瀏覽] 清單中的 [虛擬機器]，然後按一下 [DC1] 虛擬機器。
-2.	在 [DC1] 窗格中按一下 [連接]。
+1.	在 Azure 入口網站中，按一下 [**虛擬機器**]，然後按一下 [**DC1**] 虛擬機器。
+2.	在 [**DC1**] 窗格中按一下 [**連接**]。
 3.	提示開啟 DC1.rdp 時，按一下 [開啟]。
 4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用下列：
@@ -263,7 +276,7 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 2.	在 [CLIENT1 的屬性] 中，按一下 [IE 增強式安全性設定] 旁的 [開啟]。
 3.	在 [Internet Explorer 增強式安全性設定] 中，按一下 [系統管理員] 和 [使用者] 的 [關閉]，然後按一下 [確定]。
 4.	從 [開始] 畫面中，按一下 [Internet Explorer]，然後按一下 [確定]。
-5.	在網址列中，鍵入 **http://app1.corp.contoso.com/**，然後按下 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
+5.	在網址列中，鍵入 ****http://app1.corp.contoso.com/**，然後按 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
 6.	按一下桌面工作列中的 [檔案總管] 圖示。
 7.	在網址列中，輸入 **\\\app1\\Files**，然後按下 ENTER。
 8.	您應該會看到一個資料夾視窗，裡面有檔案共用資料夾的內容。
@@ -276,11 +289,9 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 
 您在 Azure 中的基本設定現在可用於應用程式開發與測試或其他測試環境。
 
-## 其他資源
+## 後續步驟
 
-[混合式雲端測試環境](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[基本設定測試環境](virtual-machines-base-configuration-test-environment.md)
+- 用此做為建置 [模擬混合式雲端測試環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)的基礎。
 
 
 ## <a id="costs"></a>將 Azure 的測試環境虛擬機器費用降至最低
@@ -310,4 +321,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # 開始使用資料表儲存體和 Visual Studio 已連接服務 (ASP.NET)
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-tables.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
 ## 概觀
-本文描述如何在您使用 Visual Studio 的 [加入連線的服務] 對話方塊，建立或參考 ASP.NET 專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 使用 Azure 資料表儲存體。本文說明如何在 Azure 資料表中執行常見工作，包括建立和刪除資料表，以及如何搭配使用資料表實體。這些範例均以 C# 程式碼撰寫，並使用[ Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。如需其他有關使用 Azure 資料表儲存體的一般資訊，請參閱[如何從.NET 使用資料表儲存體](storage-dotnet-how-to-use-tables.md)。
+本文描述如何在您使用 Visual Studio 的 [**加入已連接服務**] 對話方塊，建立或參考 ASP.NET 專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 使用 Azure 資料表儲存體。本文說明如何在 Azure 資料表中執行常見工作，包括建立和刪除資料表，以及如何搭配使用資料表實體。這些範例均以 C# 程式碼撰寫，並使用 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。如需其他有關使用 Azure 資料表儲存體的一般資訊，請參閱[如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)。
 
 Azure 資料表儲存體可讓您儲存大量的結構化資料。此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。Azure 資料表很適合儲存結構化、非關聯式資料。
 
@@ -46,7 +38,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。此服務是�
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    **注意：**請在下列範例的程式碼前面使用上述所有程式碼。
+    **注意** - 請在下列範例中的程式碼前面使用上述所有程式碼。
 
 3. 取得 **CloudTableClient** 物件，以參考儲存體帳戶中的資料表物件。
 
@@ -119,7 +111,7 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。此服務是�
 
 
 ## 取得單一實體
-您可以撰寫查詢來取得單一特定實體。下列程式碼使用 **TableOperation** 物件來指定名為 'Ben Smith' 的客戶。這個方法只會傳回一個實體而非集合，而且所傳回的 **TableResult.Result** 值是 **CustomerEntity** 物件。若要從表格服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
+您可以撰寫查詢來取得單一特定實體。下列程式碼使用 **TableOperation** 物件來指定名為 'Ben Smith' 的客戶。這個方法只會傳回一個實體而不是集合，而且所傳回的 **TableResult.Result** 值是 **CustomerEntity** 物件。若要從表格服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
 
         // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -167,4 +159,4 @@ Azure 資料表儲存體可讓您儲存大量的結構化資料。此服務是�
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

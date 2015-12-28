@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # 開始使用 Azure 資訊安全中心
@@ -88,7 +88,7 @@ Azure 資訊安全中心是從 [Azure 入口網站](http://azure.microsoft.com/f
 本文介紹了 Azure 資訊安全中心的安全性監視和原則管理元件。若要深入了解，請參閱下列文章：
 
 - [設定 Azure 資訊安全中心的安全性原則](security-center-policies.md) – 了解如何設定安全性原則
-- [實作 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) – 了解建議如何協助您保護您的 Azure 資源
+- [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) – 了解建議如何協助您保護您的 Azure 資源
 - [Azure 資訊安全中心的安全性健康狀態監視](security-center-monitoring.md) – 了解如何監視 Azure 資源的健康狀態
 - [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) – 了解如何管理與回應安全性警示
 - [Azure 安全性中心常見問題集](security-center-faq.md) – 尋找使用服務的常見問題
@@ -103,4 +103,4 @@ Azure 資訊安全中心是從 [Azure 入口網站](http://azure.microsoft.com/f
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

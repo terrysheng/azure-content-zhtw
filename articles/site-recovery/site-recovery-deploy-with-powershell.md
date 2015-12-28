@@ -1,6 +1,6 @@
 <properties
-	pageTitle="自動化內部部署 VMM 網站及使用 PowerShell 的 Azure 之間的保護"
-	description="使用 PowerShell 自動部署 Azure Site Recovery"
+	pageTitle="使用 Azure Site Recovery 及 PowerShell 複寫 VMM 雲端中的 HYPER-V 虛擬機器 | Microsoft Azure"
+	description="了解如何使用 Site Recovery 及 PowerShell 自動化 VMM 雲端中之 HYPER-V 虛擬機器的複寫作業。"
 	services="site-recovery"
 	documentationCenter=""
 	authors="csilauraa"
@@ -13,48 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="12/14/2015"
 	ms.author="lauraa"/>
 
-#  使用 PowerShell 部署 Azure Site Recovery
-Windows PowerShell® 是以工作為基礎的命令列殼層和指令碼語言，特別為系統管理所設計。支援在 VMM 管理的 Hyper 網站與 Azure 之間，為 Azure Site Recovery 使用 PowerShell Cmdlet。
+# 使用 Azure Site Recovery 及 PowerShell 複寫 VMM 雲端中的 HYPER-V 虛擬機器
+
 
 ## 概觀
 
 Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容錯移轉及復原，為您的商務持續性與災害復原 (BCDR) 做出貢獻。如需完整的部署案例清單，請參閱 [Azure Site Recovery 概觀](site-recovery-overview.md)。
 
-本文說明如何使用 PowerShell 來自動化部署 Azure Site Recovery 的一般工作，包括為執行於虛擬機器 (位於 VMM 私人雲端中的 Hyper-V 主機伺服器上) 的工作負載協調和自動化保護。在這個案例中，虛擬機器會使用 Hyper-V 複本，從主要 VMM 站台複寫到 Azure 中。
+本文說明如何使用 PowerShell 自動化您在設定 Azure Site Recovery 將 System Center VMM 雲端中的 HYPER-V 虛擬機器，複寫到 Azure 儲存體時常需要執行的工作。
 
 本文包含案例的必要條件，並示範如何設定 Site Recovery 保存庫、在來源 VMM 伺服器上安裝 Azure Site Recovery 提供者、在保存庫註冊伺服器、加入 Azure 儲存體帳戶、在 Hyper-V 主機伺服器上安裝 Azure Site Recovery 代理程式、設定將套用到所有受保護虛擬機器之 VMM 雲端的保護設定、然後啟用那些虛擬機器的保護。測試容錯移轉，確認一切如預期般運作以完成動作。
 
-如果您遇到設定這個案例的問題，請將問題張貼在 [Azure 復原服務論壇](http://go.microsoft.com/fwlink/?LinkId=313628)。
+您在設定此案例如有任何問題，可將問題張貼到 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)。
 
 
 ## 開始之前
 
 確認您已備妥這些必要條件：
+
 ### Azure 必要條件
 
-- 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。如果您沒有此帳戶，請先前往[免費試用](http://aka.ms/try-azure)。此外，您可以參閱 [Azure Site Recovery 管理員價格](http://go.microsoft.com/fwlink/?LinkId=378268)。
-- 您將需要 Azure 儲存體帳戶才能將複寫的資料儲存至 Azure。此帳戶必須啟用異地複寫。應該與 Azure 站台復原服務位於相同的區或，且與相同的訂閱相關聯。若要深入了解設定 Azure 儲存體，請參閱 [Microsoft Azure 儲存體簡介](http://go.microsoft.com/fwlink/?LinkId=398704)。
-- 您必須確認您想要保護的虛擬機器符合 Azure 要求。如需詳細資料，請參閱[虛擬機器支援](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A)。
+- 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
+- 您需要 Azure 儲存體帳戶來儲存複寫的資料。此帳戶必須啟用異地複寫。它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。[深入了解 Azure 儲存體](../storage/storage-introduction.md)。
+- 您必須確定您要保護的虛擬機器符合 [Azure 虛擬機器必要條件](site-recovery-best-practices.md#virtual-machines)。
 
 ### VMM 先決條件
 - 您將需要在在 System Center 2012 R2 上執行的 VMM 伺服器。
-- 任何包含您想要保護之虛擬機器的 VMM 伺服器都必須執行 Azure Site Recovery 提供者。它會在部署 Azure Site Recovery 期間安裝。
 - 在您想要保護的 VMM 伺服器上，您至少需要一個雲端。這個雲端應該包含：
 	- 一或多個 VMM 主機群組。
 	- 每個主機群組中的一或多個 Hyper-V 主機伺服器或叢集。
 	- 來源 Hyper-V 伺服器上的一或多部虛擬機器。
-- 深入了解設定 VMM 雲端：
-	- 在[使用 System Center 2012 R2 VMM 的私人雲端新功能](http://go.microsoft.com/fwlink/?LinkId=324952)和 [VMM 2012 和雲端](http://go.microsoft.com/fwlink/?LinkId=324956)中進一步了解私人 VMM 雲端。
-	- 深入了解[設定 VMM 雲端網狀架構](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-	- 在您備妥雲端網狀架構元素之後，[在 VMM 中建立私人雲端](http://go.microsoft.com/fwlink/?LinkId=324953)與[逐步解說：使用 System Center 2012 SP1 VMM 建立私人雲端](http://go.microsoft.com/fwlink/?LinkId=324954)中瞭解建立私人雲端。
 
 ### Hyper-V 的必要條件
 
 - 主機 Hyper-V 伺服器至少必須執行附帶 Hyper-V 角色的 Windows Server 2012，並且已安裝最新更新。
-- 如果您在叢集中執行 Hyper-V，請注意，如果您具有靜態 IP 位址叢集，並不會自動建立叢集代理。您必須手動設定叢集代理。如需指示，請參閱[設定 Hyper-V 複本代理人](http://go.microsoft.com/fwlink/?LinkId=403937)。
+- 如果您在叢集中執行 Hyper-V，請注意，如果您具有靜態 IP 位址叢集，並不會自動建立叢集代理。您必須手動設定叢集代理。若要執行此作業，請在 [伺服器管理員] > [容錯移轉叢集管理員] 中連接到叢集，再按一下 [設定角色]，然後在 [高可用性精靈] 畫面之 [選取角色] 中選取 [HYPER-V 複本代理人]。 
 - 您想要管理保護的任何 Hyper-V 主機伺服計或叢集都必須包含在 VMM 雲端中。
 
 ### 網路對應的必要條件
@@ -68,15 +64,12 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 - 您想要在來源 VMM 伺服器上保護的虛擬機器應該連線到 VM 網路。該網路應該連結到與雲端相關聯的邏輯網路。
 - 複寫的虛擬機器可在容錯移轉之後連線的 Azure 網路。您將在容錯移轉時選取此網路。此網路應該和您的 Azure Site Recovery 訂用帳戶在相同的區域中。
-- 深入了解網路對應：
-	- [在 VMM 中設定邏輯網路](http://go.microsoft.com/fwlink/?LinkId=386307)
-	- [在 VMM 中設定 VM 網路和閘道](http://go.microsoft.com/fwlink/?LinkId=386308)
-	- [在 Azure 中設定和監視虛擬網路](http://go.microsoft.com/fwlink/?LinkId=402555)
+- [深入了解](site-recovery-network-mapping.md)網路對應：
 
 ###PowerShell 必要條件
-確定 Azure PowerShell 已經準備就緒。如果您已經使用 PowerShell，您必須升級至 0.8.10 版或更新版本。如需設定 PowerShell 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。一旦已安裝並設定 PowerShell，您可以檢視[這裡](https://msdn.microsoft.com/library/dn850420.aspx)之服務的所有可用的 Cmdlet。
+確定 Azure PowerShell 已經準備就緒。如果您已經使用 PowerShell，您必須升級至 0.8.10 版或更新版本。如需設定 PowerShell 的詳細資訊，請參閱[如何安裝及設定 Azure PowerShell](powershell-install-configure.md)。當您安裝及設定 PowerShell 之後，可以在[這裡](https://msdn.microsoft.com/library/dn850420.aspx)檢視該服務所能使用的所有 Cmdlet。
 
-若要深入了解可協助您使用 Cmdlet 的提示，例如在 Azure PowerShell 中處理參數值、輸入和輸出的方式，請參閱 [Azure Cmdlet 使用者入門](https://msdn.microsoft.com/library/azure/jj554332.aspx)。
+如需深入了解可協助您使用這些 Cmdlet 的提示 (例如參數值、輸入及輸出在 Azure PowerShell 中的處理方式)，請參閱 [Azure Cmdlet 使用者入門](https://msdn.microsoft.com/library/azure/jj554332.aspx)。
 
 ## 步驟 1：設定訂用帳戶 
 
@@ -265,7 +258,7 @@ New-AzureStorageAccount -StorageAccountName $StorageAccountName -Label $StorageA
 				}While($isJobLeftForProcessing)
 	
 	
-若要檢查作業是否完成，請依照[監視活動](#monitor)的步驟。
+若要檢查作業是否完成，請執行[監視活動](#monitor)中的步驟。
 
 ## 步驟 8：設定網路對應
 開始網路對應之前，請確認來源 VMM 伺服器上的虛擬機器已連線到 VM 網路。此外，請建立一或多個 Azure 虛擬網路。請注意，多個 VM 網路可對應至單一 Azure 網路。
@@ -315,9 +308,9 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
 
 正確設定伺服器、雲端和網路後，您就可以對雲端中的虛擬機器啟用保護。請注意：
 
-虛擬機器必須符合 Azure 需求。請在《規劃指南》的<a href="http://go.microsoft.com/fwlink/?LinkId=402602">必要條件和支援</a>中查看這些需求。
+虛擬機器必須符合 [Azure 虛擬機器必要條件](site-recovery-best-practices.md#virtual-machines)。
 
-若要啟用保護功能，您必須為虛擬機器設定作業系統和作業系統磁碟屬性。當您使用虛擬機器範本在 VMM 中建立虛擬機器時，您可以設定屬性。您也可以在虛擬機器屬性的 [**一般**] 和 [**硬體組態**] 索引標籤上，為現有的虛擬機器設定這些屬性。若未在 VMM 中設定這些屬性，您將可在 Azure 站台復原入口網站中加以設定。
+若要啟用保護功能，您必須為虛擬機器設定作業系統和作業系統磁碟屬性。當您使用虛擬機器範本在 VMM 中建立虛擬機器時，您可以設定屬性。您也可以在虛擬機器屬性的 [一般] 及 [硬體設定] 索引標籤上，為現有的虛擬機器設定這些屬性。若未在 VMM 中設定這些屬性，您將可在 Azure 站台復原入口網站中加以設定。
 
 
 	
@@ -350,7 +343,7 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
 - 如果您在容錯移轉之後要使用遠端桌面連接到 Azure 中的虛擬機器，請先在虛擬機器上啟用遠端桌面連線，再執行測試容錯移轉。
 - 容錯移轉之後，您將透過遠端桌面使用公用 IP 位址連接到 Azure 中的虛擬機器。如果想要這樣做，請確定沒有任何網域原則禁止您使用公用位址連接到虛擬機器。
 
-若要檢查作業是否完成，請依照[監視活動](#monitor)的步驟。
+若要檢查作業是否完成，請執行[監視活動](#monitor)中的步驟。
 
 ### 建立復原計畫
 
@@ -424,7 +417,7 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
 	
 	```
 	
-## <a name=monitor></a> 監視活動
+## <a name=monitor></a>監視活動
 
 使用下列命令來監視活動。請注意，您必須在工作之間等候處理程序完成。
 
@@ -452,13 +445,8 @@ if($isJobLeftForProcessing)
 ```
 
 
-##<a id="next" name="next" href="#next"></a>接續步驟
-<UL>
+## 後續步驟
 
-<LI>如需 Azure Site Recovery PowerShell Cmdlet 的詳細資訊，請參閱<a href="https://msdn.microsoft.com/library/dn850420.aspx">這裡</a>的文章。
+[閱讀更多](https://msdn.microsoft.com/library/dn850420.aspx) Azure Site Recovery PowerShell Cmdlet 的相關資訊。</a>。
 
-<LI>若要在完整生產環境中規劃及部署 Azure Site Recovery，請參閱 <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Azure Site Recovery 的規劃指南</a>及 <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Azure Site Recovery 的部署指南</a>。</LI>
-
-<LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI></UL>
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

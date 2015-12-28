@@ -22,16 +22,12 @@
 
 在過去，想要同時支援 Microsoft 帳戶和 Azure Active Directory 的應用程式開發人員必須整合這兩個不同的系統。透過 v2.0 應用程式模型，您現在可以使用這兩種帳戶類型登入使用者。一個簡單的整合便可讓您觸達橫跨個人和工作/學校帳戶的數百萬名使用者對象。
 
-您的應用程式也可以透過任何一種帳戶類型，來使用[一組 Office 365 REST API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)。這些 API 目前包含 Outlook 的郵件、連絡人和行事曆 API。在不久的將來會新增其他服務。
-<!-- TODO: customer reference article -->
-<!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
+您的應用程式也可以透過任何一種帳戶類型，來使用[一組 Office 365 REST API](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)。這些 API 目前包含 Outlook 的郵件、連絡人和行事曆 API。在不久的將來會新增其他服務。<!-- TODO: customer reference article --><!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
-V2.0 應用程式模型為預覽狀態。在預覽期間，歡迎您提供使用新應用程式模型進行試驗的意見反應和經驗。我們可能會根據這些意見反應進行重大變更，以改善服務。在這段期間，請勿發行使用 v2.0 應用程式模型的生產環境應用程式。
-<!-- TODO: Get approval on how it looks  -->
+V2.0 應用程式模型為預覽狀態。在預覽期間，歡迎您提供使用新應用程式模型進行試驗的意見反應和經驗。我們可能會根據這些意見反應進行重大變更，以改善服務。在這段期間，請勿發行使用 v2.0 應用程式模型的生產環境應用程式。<!-- TODO: Get approval on how it looks  -->
 
 ## 開始使用
-有兩種方式可以啟動應用程式並搭配 v2.0 應用程式模型執行。您可以選擇使用 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 或 [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow) 直接傳送通訊協定訊息，也可以使用我們的程式庫為您執行工作 - 選擇下列您最愛的平台並開始使用。
-<!-- TODO: Finalize this table  -->
+有兩種方式可以啟動應用程式並搭配 v2.0 應用程式模型執行。您可以選擇使用 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 或 [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow) 直接傳送通訊協定訊息，也可以使用我們的程式庫為您執行工作 - 選擇下列您最愛的平台並開始使用。<!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -49,7 +45,7 @@ V2.0 應用程式模型為預覽狀態。在預覽期間，歡迎您提供使用
 - 使用 [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) 告訴我們您對預覽版的想法 - 我們很想知道您的想法！ 請在您的貼文標題中使用 "AppModelv2:" 字詞，以方便我們尋找。
 - [應用程式模型 v2.0 通訊協定參考](active-directory-v2-protocols.md)
 - [應用程式模型 v2.0 權杖參考](active-directory-v2-tokens.md)
-- [Office 365 REST API 參考](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Office 365 REST API 參考](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [v2 端點的範圍和同意](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
@@ -57,4 +53,4 @@ V2.0 應用程式模型為預覽狀態。在預覽期間，歡迎您提供使用
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -32,8 +32,8 @@
 
 項目 | 虛擬機器名稱 | 資源庫映像 | 最小大小 
 --- | --- | --- | --- 
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | 標準\_D1
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | 標準\_D1
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | 標準\_D2
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | 標準\_D2
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (主要資料庫伺服器，範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (次要資料庫伺服器，範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (叢集多數節點，範例 MN1) | Windows Server 2012 R2 Datacenter | 標準\_D1
@@ -42,11 +42,11 @@
 
 **資料表 M – Azure 中適用於高可用性企業營運應用程式的虛擬機器**
 
-如需虛擬機器大小的完整清單，請參閱 [Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
+如需虛擬機器大小的完整清單，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
 
-使用下列的 Azure PowerShell 命令區塊為上述兩個網域控制站建立虛擬機器。指定變數的值，並移除 < and > 字元。請注意，此 PowerShell 命令集使用下方的值：
+使用下列的 Azure PowerShell 命令區塊為上述兩個網域控制站建立虛擬機器。指定變數的值，並移除 < and > 字元。請注意，此 PowerShell 命令區塊使用下列的值：
 
-- 資料表 M，適用於您的虛擬機器
+- 資料表 M，適用於虛擬機器
 - 資料表 V，適用於虛擬網路設定
 - 資料表 S，適用於子網路
 - 資料表 ST，適用於儲存體帳戶
@@ -54,7 +54,7 @@
 
 回想您在[第 1 階段：設定 Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md) 中所定義的資料表 V、S、ST 和 A。
 
-> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 "-AzureRM" 的所有執行個體取代為 "-Azure"，並且在您執行任何命令之前先新增 **Switch-AzureMode AzureResourceManager** 命令。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
+> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 當您提供所有適當值後，在 Azure PowerShell 提示中執行結果區塊。
 
@@ -122,7 +122,7 @@
 ### <a id="datadisk"></a>初始化空磁碟
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 [磁碟 **2**] \([**磁碟分割**] 設為 [**未知**])。
+2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 [磁碟 **2**] ([**磁碟分割**] 設為 [**未知**])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 [確定]。
@@ -137,7 +137,7 @@
 ### <a id="testconn"></a>測試連線能力
 
 1.	從桌面開啟 Windows PowerShell 提示。
-2.	使用 **ping** 命令偵測您組織網路中各個資源的名稱和 IP 位址。
+2.	使用 **ping** 命令來偵測組織網路中各個資源的名稱和 IP 位址。
 
 此程序可確保 DNS 名稱解析正常運作 (即虛擬機器已使用內部部署 DNS 伺服器正確設定)，且此封包可在跨單位虛擬網路內往來傳送。如果這個基本測試失敗，請連絡您的 IT 部門以疑難排解 DNS 名稱解析和封包傳遞問題。
 
@@ -165,17 +165,16 @@
 
 接下來，您需要為您的虛擬網路更新 DNS 伺服器，讓 Azure 將兩個新網域控制站的 IP 位址指派給虛擬機器，做為他們的 DNS 伺服器。請注意，此程序會使用資料表 V (適用於虛擬網路設定) 和資料表 M (適用於虛擬機器) 的值。
 
-1.	在 Azure 入口網站的左窗格中，按一下 [全部瀏覽] > [虛擬網路]，然後按一下虛擬網路的名稱 (資料表 V – 項目 1 – 值資料行)。
-2.	在虛擬網路的窗格上，按一下 [**所有設定**]。
-3.	在 [**設定**] 窗格上，按一下 [**DNS 伺服器**]。
-4.	在 [**DNS 伺服器**] 窗格上，輸入下列內容：
+1.	在 Azure 入口網站的左窗格中按一下 [**虛擬網路**]，然後按一下您虛擬網路的名稱 (資料表 V – 項目 1 – 值資料行)。
+2.	在 [設定] 窗格上，按一下 [DNS 伺服器]。
+3.	在 [DNS 伺服器] 窗格上，輸入下列項目：
 	- 針對**主要 DNS 伺服器**：資料表 V – 項目 6 – 值資料行
 	- 針對**次要 DNS 伺服器**：資料表 V – 項目 7 – 值資料行
-5.	在 Azure 入口網站的左窗格中，按一下 [全部瀏覽] > [虛擬機器]。
-6.	在 [**虛擬機器**] 窗格中，按一下第一個網域控制站的名稱 (資料表 M – 項目 1 - 虛擬機器名稱資料行)。
-7.	在虛擬機器的窗格中，按一下 [**重新啟動**]。
-8.	重新啟動第一個網域控制站時，在 [**虛擬機器**] 窗格上，按一下第二個網域控制站的名稱 (資料表 M – 項目 2 - 虛擬機器名稱資料行)。
-9.	在虛擬機器的窗格中，按一下 [**重新啟動**]。等待第二個網域控制站啟動。
+4.	在 Azure 入口網站的左窗格中，按一下 [**虛擬機器**]。
+5.	在 [虛擬機器] 窗格中，按一下第一個網域控制站 (資料表 M – 項目 1 - 虛擬機器名稱資料行) 的名稱。
+6.	在虛擬機器的窗格中，按一下 [重新啟動]。
+7.	重新啟動第一個網域控制站時，在 [虛擬機器] 窗格上，按一下第二個網域控制站 (資料表 M – 項目 2 - 虛擬機器名稱資料行) 的名稱。
+8.	在虛擬機器的窗格中，按一下 [重新啟動]。等待第二個網域控制站啟動。
 
 請注意，重新啟動兩個網域控制站後，他們才不會由內部部署 DNS 伺服器設定做為 DNS 伺服器。由於他們本身都是 DNS 伺服器，因此當升級為網域控制站時，它們會自動由內部部署 DNS 伺服器設定做為 DNS 轉寄站。
 
@@ -196,18 +195,6 @@
 
 ## 後續步驟
 
-如要繼續設定此工作負載的組態，請移至[第 3 階段：設定 SQL Server 的基礎結構](virtual-machines-workload-high-availability-LOB-application-phase3.md)。
+- 依照[第 3 階段](virtual-machines-workload-high-availability-LOB-application-phase3.md)指示繼續此工作負載的設定。
 
-## 其他資源
-
-[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[企業營運應用程式架構藍圖](http://msdn.microsoft.com/dn630664)
-
-[在混合式雲端中設定 Web 型 LOB 應用程式進行測試](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

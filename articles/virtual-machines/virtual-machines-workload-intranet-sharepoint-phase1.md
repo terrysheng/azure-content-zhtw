@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # SharePoint 內部網路伺服器陣列工作負載第 1 階段：設定 Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員部署模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
 在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要在 Azure 服務管理中建置 Azure 網路功能與儲存體基礎結構。您必須先完成這個階段才能前往[第 2 階段](virtual-machines-workload-intranet-sharepoint-phase2.md)。如需所有階段的詳細資訊，請參閱[在 Azure 中部署包含 SQL Server AlwaysOn 可用性群組的 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)。
 
 您必須使用下列基本網路元件來佈建 Azure：
 
-- 含有一個子網路的跨單位虛擬網路。
-- 三個 Azure 雲端服務。
-- 一個 Azure 儲存體帳戶，可用來儲存 VHD 磁碟映像和額外的資料磁碟。
+- 具有一個子網路的跨單位虛擬網路，可用來裝載 Azure 虛擬機器
+- 一個 Azure 儲存體帳戶，可用來儲存 VHD 磁碟映像和額外的資料磁碟
+- 四個可用性設定組
 
 ## 開始之前
 
@@ -44,29 +44,36 @@
 5\. | VNet 位址空間 | 適用於虛擬網路的位址空間 (定義於單一私人位址首碼中)。與您的 IT 部門合作來決定這個位址空間。 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 6\. | 第一部最終的 DNS 伺服器 | 第四個適用於虛擬網路之子網路位址空間的可能 IP 位址 (請參閱表格 S)。與您的 IT 部門合作來決定這些位址。 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | 第二部最終的 DNS 伺服器 | 第五個適用於虛擬網路之子網路位址空間的可能 IP 位址 (請參閱表格 S)。與您的 IT 部門合作來決定這些位址。 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+8\. | IPsec 共用金鑰 | 32 個字元的隨機英數字元字串，將用來驗證網站間 VPN 連接的兩端。與您的 IT 或安全性部門合作來決定此金鑰值。或者，請參閱[建立適用於 IPsec 預先共用金鑰的隨機字串](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx)。| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **表格 V：跨單位虛擬網路設定**
 
-針對這個解決方案的子網路填寫表格 S。為子網路指定易記名稱，根據虛擬網路位址空間來指定單一 IP 位址空間，並提供描述性用途。位址空間格式應該是無類別網域間路由選擇 (CIDR) 格式，亦稱為網路首碼格式。例如，10.24.64.0/20。與您的 IT 部門合作，從虛擬網路位址空間來決定這個位址空間。
+針對這個解決方案的子網路填寫資料表 S。
 
-項目 | 子網路名稱 | 子網路位址空間 | 目的
---- | --- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- 為第一個子網路決定適用於 Azure 閘道器子網路的 29 位元位址空間 (首碼長度為 /29)。
+- 為第二個子網路指定易記名稱，根據虛擬網路位址空間來指定單一 IP 位址空間，並提供描述性用途。 
+
+與您的 IT 部門合作，從虛擬網路位址空間來決定這些位址空間。這些位址空間格式應該是無類別網域間路由選擇 (CIDR) 格式，亦稱為網路首碼格式。例如，10.24.64.0/20。
+
+項目 | 子網路名稱 | 子網路位址空間 | 目的 
+--- | --- | --- | --- 
+1\. | 閘道器子網路 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Azure 閘道器虛擬機器所使用的子網路。
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **表格 S：虛擬網路中的子網路**
 
-> [AZURE.NOTE]為求簡化，這個預先定義的架構會使用單一子網路。如果您想要涵蓋一組流量篩選器來模擬子網路隔離，可以使用 Azure [網路安全性群組](virtual-networks-nsg.md)。
+> [AZURE.NOTE]為求簡化，這個預先定義的架構會使用單一子網路。如果您想要涵蓋一組流量篩選器來模擬子網路隔離，可以使用 Azure [網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 
-如果這兩部內部部署的 DNS 伺服器是您最初在虛擬網路上設定網域控制站時想要使用的伺服器，請填寫表格 D。請為每部 DNS 伺服器指定易記名稱和單一 IP 位址。這個易記名稱不需要與 DNS 伺服器的主機名稱或電腦名稱相符。請注意，其中列出兩個空白項目，但您可以增加更多項目。與您的 IT 部門合作來決定這份清單。
+如果這兩部內部部署的 DNS 伺服器是您最初在虛擬網路上設定網域控制站時想要使用的伺服器，請填寫資料表 D。請注意，雖然只列出了兩個空白項目，但您可以加入更多。與您的 IT 部門合作來決定這份清單。
 
-項目 | DNS 伺服器易記名稱 | DNS 伺服器 IP 位址
---- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+項目 | DNS 伺服器 IP 位址
+--- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **表格 D：內部部署 DNS 伺服器**
 
-若要透過網站間 VPN 連線，將封包從跨單位網路路由傳送到您的組織網路，您必須設定含有區域網路的虛擬網路，其中包含適用於組織內部部署網路上所有可連線位置的位址空間清單 (CIDR 標記法)。定義區域網路的位址空間清單不得包含已用於其他虛擬網路或其他區域網路的位址空間或與之重疊。換句話說，適用於已設定虛擬網路和區域網路的位址空間必須是唯一的。
+若要透過網站間 VPN 連線，將封包從跨單位網路路由傳送到您的組織網路，您必須設定含有區域網路的虛擬網路，其中包含適用於組織內部部署網路上所有可連線位置的位址空間清單 (CIDR 標記法)。定義區域網路的位址空間清單必須為唯一，且不得與用於其他虛擬網路或其他區域網路的位址空間重疊。
 
 針對本機網路位址空間組合，請填寫表格 L。請注意，其中列出三個空白項目，但您通常需要更多項目。與您的 IT 部門合作來決定這個位址空間清單。
 
@@ -78,78 +85,127 @@
 
 **表格 L：適用於區域網路的位址首碼**
 
-若要使用來自表格 V、S、D 及 L 的設定建立虛擬網路，請利用[使用設定表格建立跨單位虛擬網路](virtual-machines-workload-deploy-vnet-config-tables.md)中的指示。
+> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版及更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
-> [AZURE.NOTE]此程序將逐步引導您使用網站間 VPN 連線來建立虛擬網路。如需針對網站間連線使用 ExpressRoute 的相關資訊，請參閱 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)。
+首先，開啟 Azure PowerShell 提示字元並登入您的帳戶。
 
-建立 Azure 虛擬網路之後，Azure 傳統入口網站將會決定下列資訊：
+	Login-AzureRMAccount
 
-- 適用於您虛擬網路之 Azure VPN 閘道的公用 IPv4 位址。
-- 適用於網站間 VPN 連線的網際網路通訊協定安全性 (IPsec) 預先共用金鑰。
+使用下列命令取得您的訂用帳戶名稱。
 
-若要在建立虛擬網路之後，於 Azure 入口網站中查看這些設定，請依序按一下 [網路]、虛擬網路的名稱，以及 [儀表板] 功能表選項。
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-其次，您要設定虛擬網路閘道來建立安全的網站間 VPN 連線。如需相關指示，請參閱[在 Azure 傳統入口網站中設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)。
+設定您的 Azure 訂用帳戶以正確的名稱取代括號中的所有內容，包括 < and > 字元。
 
-接下來，在新的虛擬網路與內部部署 VPN 裝置之間建立網站間 VPN 連線。如需詳細資訊，請參閱[在 Azure 傳統入口網站中設定虛擬網路閘道](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)來取得相關指示。
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+接下來，為您的內部網路 SharePoint 陣列建立新的資源群組。若要判斷唯一的資源群組名稱，請使用此命令列出現有的資源群組。
+
+	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
+
+使用下列命令建立新的資源群組。
+
+	$rgName="<resource group name>"
+	$locName="<an Azure location, such as West US>"
+	New-AzureRMResourceGroup -Name $rgName -Location $locName
+
+以資源管理員為基礎的虛擬機器需要以資源管理員為基礎的儲存體帳戶。
+
+項目 | 儲存體帳戶名稱 | 目的 
+--- | --- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | 工作負載中所有虛擬機器所使用的標準儲存體帳戶。 
+
+**資料表 ST：儲存體帳戶**
+
+當您在第 2、3 及 4 階段中建立虛擬機器時，需要使用此名稱。
+
+您必須為每個儲存體帳戶挑選只包含小寫字母和數字的全域唯一名稱。您可以使用此命令列出現有的儲存體帳戶。
+
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
+
+若要建立儲存體帳戶，請執行這些命令。
+
+	$rgName="<your new resource group name>"
+	$locName="<the location of your new resource group>"
+	$saName="<Table ST – Item 1 - Storage account name column>"
+	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
+
+接下來，建立將用於裝載內部網路 SharePoint 陣列的 Azure 虛擬網路。
+
+	$rgName="<name of your new resource group>"
+	$locName="<Azure location of the new resource group>"
+	$vnetName="<Table V – Item 1 – Value column>"
+	$vnetAddrPrefix="<Table V – Item 5 – Value column>"
+	$spSubnetName="<Table S – Item 2 – Subnet name column>"
+	$spSubnetPrefix="<Table S – Item 2 – Subnet address space column>"
+	$gwSubnetPrefix="<Table S – Item 1 – Subnet address space column>"
+	$dnsServers=@( "<Table D – Item 1 – DNS server IP address column>", "<Table D – Item 2 – DNS server IP address column>" )
+	$gwSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $gwSubnetPrefix
+	$spSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name $spSubnetName -AddressPrefix $spSubnetPrefix
+	New-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix $vnetAddrPrefix -Subnet $gwSubnet,$spSubnet -DNSServer $dnsServers
+
+接下來，使用這些命令來建立站對站 VPN 連接的閘道器。
+
+	$vnetName="<Table V – Item 1 – Value column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	
+	# Attach a virtual network gateway to a public IP address and the gateway subnet
+	$publicGatewayVipName="SPPublicIPAddress"
+	$vnetGatewayIpConfigName="SPPublicIPConfig"
+	New-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$publicGatewayVip=Get-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
+	$vnetGatewayIpConfig=New-AzureRMVirtualNetworkGatewayIpConfig -Name $vnetGatewayIpConfigName -PublicIpAddressId $publicGatewayVip.Id -SubnetId $vnet.Subnets[0].Id
+
+	# Create the Azure gateway
+	$vnetGatewayName="SPAzureGateway"
+	$vnetGateway=New-AzureRMVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $rgName -Location $locName -GatewayType Vpn -VpnType RouteBased -IpConfigurations $vnetGatewayIpConfig
+	
+	# Create the gateway for the local network
+	$localGatewayName="SPLocalNetGateway"
+	$localGatewayIP="<Table V – Item 4 – Value column>"
+	$localNetworkPrefix=@( <comma-separated, double-quote enclosed list of the local network address prefixes from Table L, example: "10.1.0.0/24", "10.2.0.0/24"> )
+	$localGateway=New-AzureRMLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
+	
+	# Define the Azure virtual network VPN connection
+	$vnetConnectionName="SPS2SConnection"
+	$vnetConnectionKey="<Table V – Item 8 – Value column>"
+	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
+
+接下來，設定內部部署 VPN 裝置，以連接到 Azure VPN 閘道器。如需詳細資訊，請參閱[設定 VPN 裝置](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device)。
+
+若要設定內部部署 VPN 裝置，您將需要下列項目：
+
+- 顯示自 **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 命令的虛擬網路 Azure VPN 閘道的公用 IPv4 位址。
+- 適用於站對站 VPN 連接的 IPsec 預先共用金鑰 (資料表 V- 項目 8 – 值資料行)。
 
 接著，確定可從您的內部部署網路連線到虛擬網路的位址空間。這通常是藉由將對應到虛擬網路位址空間的路由新增到您的 VPN 裝置，然後將該路由公告至組織網路中路由基礎結構的剩餘部分。與您的 IT 部門合作來決定如何執行這個動作。
 
-接下來，按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。開啟 Azure PowerShell 命令提示字元。
-
-首先，利用以下命令選取正確的 Azure 訂用帳戶。以正確的名稱取代括號中的所有內容，包括 < and > 字元。
-
-	$subscr="<Subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
-您可以從 **Get-AzureSubscription** 命令輸出的 **SubscriptionName** 屬性取得訂用帳戶名稱。
-
-然後，建立這個 SharePoint 伺服器陣列所需的三個雲端服務。填寫表格 C。
-
-項目 | 目的 | 雲端服務名稱
---- | --- | ---
-1\. | 網域控制站 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | SQL Server | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-3\. | SharePoint Server | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-**表格 C：雲端服務名稱**
-
-您必須為每一個雲端服務選擇唯一的名稱。*雲端服務名稱可以包含字母、數字和連字號。欄位中的第一個和最後一個字元，必須是字母或數字。*
-
-例如，您可以將第一個雲端服務網域控制站命名為 DCs-*UniqueSequence*，其中的 *UniqueSequence* 代表貴組織名稱的縮寫。例如，如果組織名稱為 Tailspin Toys，您可以將雲端服務命名為 DCs-Tailspin。
-
-您可以在本機電腦使用下列 Azure PowerShell 命令，測試名稱是否不重複。
-
-	Test-AzureName -Service <Proposed cloud service name>
-
-如果這個命令傳回「False」，表示您設定的名稱不重複。然後，使用以下命令來建立雲端服務。
-
-	New-AzureService -Service <Unique cloud service name> -Location "<Table V – Item 2 – Value column>"
-
-在表格 C 中記錄每一個新建立之雲端服務的實際名稱。
-
-接下來，為 SharePoint 伺服器陣列建立儲存體帳戶。*您選取的名稱不可以和其他名稱重複而且只能使用小寫字母和數字。* 您可以使用下列 Azure PowerShell 命令，來測試儲存體帳戶名稱是否重複。
-
-	Test-AzureName -Storage <Proposed storage account name>
-
-如果這個命令傳回「False」，表示您設定的名稱不重複。然後，使用以下命令來建立儲存體帳戶，以及設定訂用帳戶來使用儲存體帳戶。
-
-	$staccount="<Unique storage account name>"
-	New-AzureStorageAccount -StorageAccountName $staccount -Location "<Table V – Item 2 – Value column>"
-	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
-
 接著，定義四個可用性設定組的名稱。填寫表格 A。
 
-項目 | 目的 | 可用性設定組名稱
---- | --- | ---
+項目 | 目的 | 可用性設定組名稱 
+--- | --- | --- 
 1\. | 網域控制站 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 2\. | SQL Server | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-3\. | SharePoint 應用程式伺服器 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-4\. | SharePoint 前端 Web 伺服器 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | 應用程式伺服器 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Web 伺服器 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **表格 A：可用性設定組名稱**
 
 當您在第 2、3 及 4 階段中建立虛擬機器時，需要使用這些名稱。
+
+使用這些 Azure PowerShell 命令建立這些新的可用性集合。
+
+	$rgName="<your new resource group name>"
+	$locName="<the Azure location for your new resource group>"
+	$avName="<Table A – Item 1 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	$avName="<Table A – Item 2 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	$avName="<Table A – Item 3 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	$avName="<Table A – Item 4 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 
 此處顯示已成功完成此階段的設定。
 
@@ -157,20 +213,6 @@
 
 ## 後續步驟
 
-若要繼續設定這個工作負載，請前往[第 2 階段：設定網域控制站](virtual-machines-workload-intranet-sharepoint-phase2.md)。
+- 依照[第 2 階段](virtual-machines-workload-intranet-sharepoint-phase2.md)指示繼續此工作負載的設定。
 
-## 其他資源
-
-[在 Azure 中部署含有 SQL Server AlwaysOn 可用性群組的 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)
-
-[裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
-
-[包含 SQL Server AlwaysOn 的 SharePoint 資訊圖](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

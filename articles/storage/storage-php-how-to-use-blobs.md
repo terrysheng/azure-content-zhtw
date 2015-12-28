@@ -293,7 +293,8 @@
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)。
 - 請參閱 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php> 中的 PHP 區塊 Blob 範例。
 - 請參閱 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php> 中的 PHP 分頁 Blob 範例
-
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
+ 
 如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
 
 
@@ -305,4 +306,4 @@
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

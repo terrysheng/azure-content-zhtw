@@ -51,11 +51,11 @@ Application Insights SDK 中針對 ASP.NET 2.0.0 版 beta3 或更新版本預設
 
     當取樣百分比值變更時，多久之後我們可以增加取樣百分比，以擷取較多的資料。
 
-* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+* `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
 
     隨著取樣百分比改變，我們可以設定的最小值是多少。
 
-* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+* `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
 
     隨著取樣百分比改變，我們可以設定的最大值是多少。
 
@@ -63,7 +63,7 @@ Application Insights SDK 中針對 ASP.NET 2.0.0 版 beta3 或更新版本預設
 
     在計算移動平均時，指派給最新的值的權數。使用等於或小於 1 的值。較小的值會讓演算法不易受突然的變更影響。
 
-* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+* `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
 
     當應用程式剛開始時指派的值。不要在偵錯時減少此值。
 
@@ -297,4 +297,4 @@ SDK 會決定要卸除的遙測項目以及要保留哪些。取樣決策會根�
 
  * 使用新的 TelemetryConfiguration (非預設使用中的組態) 初始化個別的 TelemetryClient 執行個體。使用該執行個體來傳送您的罕見的事件。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

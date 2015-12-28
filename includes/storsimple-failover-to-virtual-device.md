@@ -1,19 +1,21 @@
-#### To restore your physical device to the StorSimple virtual device
+#### 將實體裝置還原至 StorSimple 虛擬裝置
 
-1. Verify that the volume container you want to fail over has associated cloud snapshots.
+1. 確認您要容錯移轉的磁碟區容器是否具有相關聯的雲端快照。
 
-2. Open the **Device** page, and then click the **Volume Containers** tab.
+2. 開啟 [裝置] 頁面，然後按一下 [磁碟區容器] 索引標籤。
 
-3. Select a volume container that you would like to fail over to the virtual device. Click the volume container to display the list of volumes within the container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
+3. 選取您要容錯移轉至虛擬裝置的磁碟區容器。按一下磁碟區容器，以顯示容器內的磁碟區清單。選取磁碟區，然後按一下 [離線]，使磁碟區離線。針對磁碟區容器中的所有磁碟區，重複執行這個程序。
 
-4. Repeat the previous step for all the volume containers you want to fail over to the virtual device.
+4. 針對您要容錯移轉至虛擬裝置的所有磁碟區容器，重複執行前一個步驟。
 
-5. On the **Device** page, select the device that you need to fail over, and then click **Failover** to open the **Device Failover** wizard.
+5. 在 [裝置] 頁面上，選取您需要容錯移轉的 裝置，然後按一下 [容錯移轉]，以開啟 [裝置容錯移轉] 精靈。
 
-6. In **Choose volume container to failover**, select the volume containers you would like to fail over. To be displayed in this list, the volume container must contain a cloud snapshot and be offline. If a volume container that you expected to see is not present, cancel the wizard and verify that it is offline.
+6. 在 [選擇要容錯移轉的磁碟區容器] 中，選取您要容錯移轉的磁碟區容器。若要顯示於此清單中，磁碟區容器必須包含雲端快照並離線。如果您預期看到的磁碟區容器並未出現，請取消精靈，並確認它是否離線。
 
-7. On the next page, in **Choose a target device for the volumes** in the selected containers, select the virtual device from the drop-down list of available devices. Only the devices that have the available capacity are displayed on the list. 
+7. 在下一頁的 [為所選取容器中的磁碟區選擇目標裝置] 中，從可用裝置的下拉式清單中選取虛擬裝置。清單中只會顯示具有可用容量的裝置。
 
-8. Review all the failover settings on the **Confirm failover** page. If they are correct, click the check icon.
+8. 檢閱 [確認容錯移轉] 頁面上的所有容錯移轉設定。如果它們都正確，請按一下核取圖示。
 
-The failover process will begin. When the failover is finished, go to the Devices page and select the virtual device that was used as the target for the failover process. Go to the Volume Containers page. All the volume containers, along with the volumes from the old device should appear.
+容錯移轉程序就會開始。在容錯移轉完成後，移至 [裝置] 頁面，然後選取在容錯移轉程序中作為目標的虛擬裝置。移至 [磁碟區容器] 頁面。此時應會顯示所有磁碟區容器以及舊裝置中的磁碟區。
+
+<!---HONumber=AcomDC_1217_2015-->

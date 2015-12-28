@@ -42,35 +42,37 @@ Microsoft Azure IoT 服務 SDK 包含有助於建置應用程式的程式碼，�
 您可從 GitHub 下載下列 IoT 服務 SDK：
 
 - [Azure IoT 服務 SDK for Node.js][]
+- [Azure IoT 服務 SDK for Java][]
 
 ## 線上 API 參考文件
 
 以下是 Azure IoT 裝置程式庫的線上 API 參考文件連結清單：
 
-- [物聯網 (IoT) .NET][] (英文)
-- [Microsoft Azure IoT 裝置 SDK for C][] (英文)
-- [Microsoft Azure IoT 裝置 SDK for Java][] (英文)
-- [Microsoft Azure IoT 裝置 SDK for Node.js][] (英文)
+- [物聯網 (IoT) .NET (英文)][]
+- [Microsoft Azure IoT 裝置 SDK for C (英文)][]
+- [Microsoft Azure IoT 裝置 SDK for Java (英文)][]
+- [Microsoft Azure IoT 裝置 SDK for Node.js (英文)][]
 
 以下是 Azure IoT 服務程式庫的線上 API 參考文件連結清單：
 
-- [物聯網 (IoT) .NET][] (英文)
-- [IoT 中心 REST][] (英文)
+- [物聯網 (IoT) .NET (英文)][]
+- [IoT 中心 REST (英文)][]
 
 
 [Microsoft Azure IoT SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [Azure IoT 裝置 SDK for C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
 [Azure IoT 裝置 SDK for .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
 [Azure IoT 裝置 SDK for Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
+[Azure IoT 服務 SDK for Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/service/readme.md
 [Azure IoT 裝置 SDK for Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [Azure IoT 服務 SDK for Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/
 [OS Platforms and hardware compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [IoT 程式的 Microsoft Azure 認證]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md#certified
 
-[物聯網 (IoT) .NET]: https://msdn.microsoft.com/library/mt488521.aspx
-[Microsoft Azure IoT 裝置 SDK for C]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
-[Microsoft Azure IoT 裝置 SDK for Java]: http://azure.github.io/azure-iot-sdks/java/api_reference/index.html
-[Microsoft Azure IoT 裝置 SDK for Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
-[IoT 中心 REST]: https://msdn.microsoft.com/library/mt548492.aspx
+[物聯網 (IoT) .NET (英文)]: https://msdn.microsoft.com/library/mt488521.aspx
+[Microsoft Azure IoT 裝置 SDK for C (英文)]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
+[Microsoft Azure IoT 裝置 SDK for Java (英文)]: http://azure.github.io/azure-iot-sdks/java/api_reference/index.html
+[Microsoft Azure IoT 裝置 SDK for Node.js (英文)]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
+[IoT 中心 REST (英文)]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

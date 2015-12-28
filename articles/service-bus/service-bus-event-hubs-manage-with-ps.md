@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="08/14/2015"
+   ms.workload="na"
+   ms.date="12/09/2015"
    ms.author="sethm"/>
 
 # 使用 PowerShell 來管理服務匯流排和事件中樞資源
@@ -24,9 +24,9 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 在開始之前，您將需要下列項目：
 
-- Azure 訂用帳戶。Azure 是訂閱型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員優惠]或[免費試用]。
+- Azure 訂用帳戶。Azure 是訂閱型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][]、[成員優惠][]或[免費試用][]。
 
-- 具備 Azure PowerShell 的電腦。如需指示，請參閱＜[安裝並設定 Azure PowerShell]＞
+- 具備 Azure PowerShell 的電腦。如需指示，請參閱[安裝並設定 Azure PowerShell][]。
 
 - 大致了解 PowerShell 指令碼、NuGet 封裝和 .NET Framework。
 
@@ -255,12 +255,14 @@ catch [System.Exception]
 
 此文章會提供您使用PowerShell 佈建服務匯流排實體的基本大綱。雖然可用來管理服務匯流排訊息實體的 PowerShell Cmdlet 數目有限，但是藉由參考 Microsoft.ServiceBus.dll assembly 組件，您也可以在 PowerShell 指令碼中，執行可使用 .NET 用戶端程式庫執行的幾乎所有作業。
 
-這些部落格張貼文章中有更多詳細的範例可用：
+這些部落格文章中有更多詳細的範例可用：
 
 - [如何使用 PowerShell 指令碼來建立服務匯流排佇列、主題及訂閱](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [如何使用 PowerShell 指令碼來建立服務匯流排命名空間與事件中樞](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-也有一些現成的指令碼可供下載：- [服務匯流排 PowerShell 指令碼](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+也有一些現成的指令碼可供下載：
+
+- [服務匯流排 PowerShell 指令碼](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 
@@ -271,7 +273,7 @@ catch [System.Exception]
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[服務匯流排的 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[服務匯流排的 .NET API]: https://msdn.microsoft.com/zh-TW/library/azure/mt419900.aspx
 [安裝並設定 Azure PowerShell]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

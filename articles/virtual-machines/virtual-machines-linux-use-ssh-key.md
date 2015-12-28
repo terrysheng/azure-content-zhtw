@@ -33,7 +33,7 @@ Azure 的基本 SSH 安裝程式包含 2048 位元的 **ssh-rsa** 公用和私�
 
 以下是部署案例，以及您在每個案例中使用的檔案類型：
 
-1. 使用[預覽入口網站](https://portal.azure.com)的任何部署都需要 **ssh-rsa** 金鑰，無論部署模型為何。
+1. 無論部署模型為何，使用[預覽入口網站](https://portal.azure.com)的任何部署都需要 **ssh-rsa** 金鑰。
 2. 需要 .pem 檔案才能使用[傳統入口網站](https://manage.windowsazure.com)來建立 VM。使用 [Azure CLI](xplat-cli-install.md) 的傳統部署也支援 .pem 檔案。 
 
 ## 建立金鑰與 SSH 搭配使用
@@ -161,7 +161,7 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 
 ## 連接到您的 VM
 
-**ssh** 命令需要登入用的使用者名稱、電腦的網路位址、要連接至該位址的連接埠、以及許多其他特殊變數。(如需 **ssh** 的詳細資訊，請按一下[這裡](https://en.wikipedia.org/wiki/Secure_Shell)。)
+**ssh** 命令需要登入用的使用者名稱、電腦的網路位址、要連接至該位址的連接埠、以及許多其他特殊變數。(如需關於 **ssh** 的詳細資訊，您可先從此篇[安全殼層說明文章](https://en.wikipedia.org/wiki/Secure_Shell)開始了解)
 
 資源管理員部署的典型用法看起來如下 (如果您只是指定子網域和部署位置)：
 
@@ -256,7 +256,7 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 
 ### 範例：使用 .pem 金鑰和傳統部署之 SSH 工作階段的輸出
 
-如果您使用從您的 `~/.ssh/id_rsa` 檔案建立之 .pem 檔案建立虛擬機器，可以直接 ssh 到該 VM。請注意，當您這樣做，憑證交握會使用您在 `~/.ssh/id_rsa` 的私密金鑰。看起來可能這樣：
+如果您使用從您的 `~/.ssh/id_rsa` 檔案建立之 .pem 檔案建立虛擬機器，可以直接 ssh 到該 VM。請注意，當您這樣做，憑證交握會使用您在 `~/.ssh/id_rsa` 的私密金鑰。如下例所示：
 
 	ssh ops@testpemasm.cloudapp.net -p 22
 	The authenticity of host 'testpemasm.cloudapp.net (40.83.178.221)' can't be established.
@@ -298,4 +298,4 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
  
 既然您已連接到您的 VM，請務必先更新您所選的散發套件，再繼續使用它。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

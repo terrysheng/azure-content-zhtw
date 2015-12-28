@@ -34,21 +34,22 @@
 - 如果您打算使用**密碼回寫**功能，網域控制站必須是 Windows Server 2008 (含最新的 SP) 或更新版本。
 - Azure AD Connect 無法安裝至 Small Business Server 或 Windows Server Essentials。伺服器必須使用 Windows Server Standard 或以上版本。
 - Azure AD Connect 必須安裝於 Windows Server 2008 或更新版本上。此伺服器可以是網域控制站或成員伺服器 (如果使用快速設定)。如果您使用自訂設定，伺服器也可以是獨立伺服器，而且不需加入網域。
-- 如果您打算使用**密碼同步處理**功能，則 Azure AD Connect 伺服器必須是 Windows Server 2008 R2 SP1 或更新版本。
-- Azure AD Connect 伺服器必須具有 [.Net 4.5.1](#component-prerequisites) 或更新版本，且已安裝 [PowerShell 3.0](#component-prerequisites) 或更新版本。
+- 如果您要在 Windows Server 2008 上安裝 Azure AD Connect，請務必套用來自 Windows Update 的最新 Hotfix。在未修補的伺服器上將無法開始進行安裝。
+- 如果您打算使用「密碼同步處理」功能，則 Azure AD Connect 伺服器必須是在 Windows Server 2008 R2 SP1 或更新的版本上。
+- Azure AD Connect 伺服器必須已安裝 [.Net 4.5.1](#component-prerequisites) 或更新的版本及 [PowerShell 3.0](#component-prerequisites) 或更新的版本。
 - 如果部署的是 Active Directory 同盟服務，則將安裝 AD FS 或 Web 應用程式 Proxy 的伺服器必須是 Windows Server 2012 R2 或更新版本。必須在這些伺服器上啟用 [Windows 遠端管理](#windows-remote-management)，才能執行遠端安裝。
-- 部署 Active Directory 同盟服務之後，您需要 [SSL 憑證](#ssl-certificate-requirements)。
+- 如果部署的是 Active Directory 同盟服務，則您需要 [SSL 憑證](#ssl-certificate-requirements)。
 - Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。預設會安裝 SQL Server 2012 Express LocalDB (輕量版的 SQL Server Express)，並且在本機電腦上建立服務的服務帳戶。SQL Server Express 有 10 GB 的大小限制，可讓您管理大約 100000 個物件。如果您需要管理更多數量的目錄物件，則必須將安裝程序指向不同版本的 SQL Server。Azure AD Connect 支援從 SQL Server 2008 (含 SP4) 至 SQL Server 2014 的各種 Microsoft SQL Server。
 
 **帳戶**
 
 - 想要與其整合之 Azure AD 目錄的 Azure AD 全域管理員帳戶
 - 如果使用快速設定或從 DirSync 升級，則為本機 Active Directory 的企業系統管理員帳戶。
-- 如果您使用自訂設定的安裝路徑，[則帳戶是 Active Directory](active-directory-aadconnect-accounts-permissions.md)。
+- 如果您使用自訂設定安裝路徑，則[帳戶是 Active Directory](active-directory-aadconnect-accounts-permissions.md)。
 
 **連線能力**
 
-- 如果您使用輸出 Proxy 連接到網際網路，則必須在 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 檔案中新增下列設定，讓安裝精靈和 Azure AD 同步，才能連接到網際網路和 Azure AD。
+- 如果您使用連出 Proxy 來連線到網際網路，則必須在 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 檔案中新增下列設定，安裝精靈和 Azure AD 同步才能夠連線到網際網路和 Azure AD。必須在檔案底部輸入此文字。在此程式碼中，&lt;PROXYADRESS&gt; 代表實際的 Proxy IP 位址或主機名稱。
 
 ```
     <system.net>
@@ -62,7 +63,25 @@
     </system.net>
 ```
 
-必須在檔案底部輸入此文字。在此程式碼中，&lt;PROXYADRESS&gt; 代表實際的 Proxy IP 位址或主機名稱。如果您的 Proxy 會限制哪些 URL 可以存取，則必須在 Proxy 中開啟 [Office 365 URL 和 IP 位址範圍](https://support.office.com/zh-TW/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中說明的 URL。
+如果您的 Proxy 伺服器需要驗證，則該區段應該改為看起來像這樣。
+
+```
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy
+            usesystemdefault="true"
+            proxyaddress="http://<PROXYADDRESS>:<PROXYPORT>"
+            bypassonlocal="true"
+            />
+        </defaultProxy>
+    </system.net>
+```
+
+在 machine.config 中進行這項變更之後，安裝精靈和同步處理引擎就會回應來自 Proxy 伺服器的驗證要求。在所有安裝精靈頁面中 ([設定] 頁面除外)，都會使用已登入之使用者的認證。在安裝精靈結尾的 [設定] 頁面上，內容會切換到已建立的[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)。
+
+如需有關[預設 Proxy 元素](https://msdn.microsoft.com/library/kd3cf2ex.aspx)的詳細資訊，請參閱 MSDN。
+
+- 如果您的 Proxy 會限制哪些 URL 可供存取，則必須在 Proxy 中開啟 [Office 365 URL 和 IP 位址範圍](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中記載的 URL。
 
 **其他**
 
@@ -76,7 +95,7 @@ Azure AD Connect 需要 PowerShell 和 .Net 4.5.1。依您的 Windows Server 版
   - 預設會安裝 PowerShell，不需採取任何動作。
   - .Net 4.5.1 和更新版本會透過 Windows Update 提供。請確定您已在控制台安裝 Windows Server 的最新更新。
 - Windows Server 2008R2 和 Windows Server 2012
-  - **Windows Management Framework 4.0** 中包含最新 PowerShell 版本，可從 [Microsoft 下載中心](http://www.microsoft.com/downloads)取得。
+  - **Windows Management Framework 4.0** 中包含最新的 PowerShell 版本，可從 [Microsoft 下載中心](http://www.microsoft.com/downloads)取得。
   - .Net 4.5.1 和更新版本可從 [Microsoft 下載中心](http://www.microsoft.com/downloads)取得。
 - Windows Server 2008
   - **Windows Management Framework 3.0** 中包含最新支援的 PowerShell 版本，可從 [Microsoft 下載中心](http://www.microsoft.com/downloads)取得。
@@ -109,7 +128,7 @@ Azure AD Connect 需要 PowerShell 和 .Net 4.5.1。依您的 Windows Server 版
 - 憑證的身分識別必須與 Federation Service 名稱相符 (例如 fs.contoso.com)。
     - 身分識別可以是 dNSName 類型的主體別名 (SAN) 副檔名；或如果沒有 SAN 項目，則會將主體名稱指定為通用名稱。  
     - 憑證中可顯示多個 SAN 項目，前提是其中一個項目與 Federation Service 名稱相符。
-    - 如果您打算使用「加入工作場所」，則您需要其他帶有 **enterpriseregistration.** 值的 SAN，後接組織的使用者主體名稱 (UPN) 尾碼 (例如 **enterpriseregistration.contoso.com**)。
+    - 如果您打算使用「加入工作場所」，則需要一個值為 **enterpriseregistration.** 的額外 SAN，後面接著組織的「使用者主體名稱」(UPN) 尾碼 (例如 **enterpriseregistration.contoso.com**)。
 - 不支援以 CryptoAPI 新一代 (CNG) 金鑰和金鑰儲存體為基礎的憑證。這表示您必須使用以 CSP (密碼編譯服務提供者) 為基礎的憑證，而不是 KSP (金鑰儲存體提供者)。
 - 支援萬用字元憑證。
 
@@ -148,4 +167,4 @@ Azure AD Connect 需要 PowerShell 和 .Net 4.5.1。依您的 Windows Server 版
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

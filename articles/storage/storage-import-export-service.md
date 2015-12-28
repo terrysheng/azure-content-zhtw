@@ -136,7 +136,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	若您有追蹤號碼，請從清單中選取您的貨運公司，並輸入追蹤號碼。
 
-	如果沒有追蹤號碼，請選擇 [寄送包裹之後，我會提供這個匯出工作的送貨資訊]，然後完成匯出程序。
+	如果沒有追蹤號碼，請選擇 [I will provide my shipping information for this export job once I have shipped my package]，然後完成匯出程序。
 
 6. 若要在寄出包裹之後輸入追蹤號碼，請在 [Azure 入口網站](portal.azure.com)中回到您儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [出貨資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
 	
@@ -218,8 +218,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 - 不會。所有磁碟機都必須針對 BitLocker 預作準備。
  
-**我需要在建立匯出作業時執行任何磁碟準備工作嗎？**
-- 不用，但建議先執行某些前置檢查。請使用 Azure 匯入/匯出工具的 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) 命令檢查所需的磁碟號碼。它可根據您要使用的磁碟機大小，協助您預覽所選取之 Blob 的磁碟機使用情況。也請檢查您可以對為了匯出工作而運送的硬碟讀取/寫入。
+**我需要在建立匯出作業時執行任何磁碟準備工作嗎？** - 不用，但建議先執行某些前置檢查。請使用 Azure 匯入/匯出工具的 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) 命令檢查所需的磁碟號碼。它可根據您要使用的磁碟機大小，協助您預覽所選取之 Blob 的磁碟機使用情況。也請檢查您可以對為了匯出工作而運送的硬碟讀取/寫入。
 
 ### 運送中
 
@@ -264,10 +263,13 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 - 僅限寄送硬碟機。請勿加入電源線或 USB 纜線等項目。
 
 
+## 另請參閱
+
+[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

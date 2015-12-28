@@ -101,6 +101,7 @@ Azure SDK 包含「快速啟動」範本，方便從 Microsoft Visual Studio 使
 * [如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
 * [如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)
 * [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
+* [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 * [Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 * [Azure 儲存體用戶端程式庫](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [Azure 儲存體 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
@@ -108,4 +109,4 @@ Azure SDK 包含「快速啟動」範本，方便從 Microsoft Visual Studio 使
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos"/>
 
 # 使用 StorSimple Manager 服務管理備份原則
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
 ## 概觀
 
@@ -53,7 +55,7 @@
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
-![提供的影片](./media/storsimple-manage-backup-policies/Video_icon.png)**提供的影片**
+![提供的影片](./media/storsimple-manage-backup-policies/Video_icon.png) **提供的影片**
 
 若要觀看影片示範如何建立本機或雲端備份原則，請按一下[這裡](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/)。
 
@@ -88,4 +90,4 @@
 
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -131,7 +131,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 13. [基本概念：RAID](virtual-machines-linux-configure-raid.md)
 14. [基本概念：擷取 Linux VM 來製作範本](virtual-machines-linux-capture-image.md)
 15. [基本概念：安裝 Azure Linux 代理程式](virtual-machines-linux-agent-user-guide.md)
-16. [基本概念：Azure VM 延伸模組與功能](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+16. [基本概念：Azure VM 延伸模組與功能](virtual-machines-extensions-features.md)
 17. [基本概念：將自訂資料插入 VM 中以搭配 Cloud-init 使用](virtual-machines-how-to-inject-custom-data.md)
 18. [基本概念部落格：以 12 個步驟在 Azure 上建置高可用性的 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [基本概念部落格：透過 Azure CLI、node.js、jhawk 在 Azure 上自動佈建 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
@@ -311,4 +311,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

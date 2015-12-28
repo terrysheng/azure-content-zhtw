@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2015"
+ ms.date="12/15/2015"
  ms.author="dobett"/>
 
 # 設定和管理 IoT 中心的存取權
@@ -42,11 +42,11 @@ IoT 中心內對其他管理端點的存取權，也是透過一組權限來控�
 這篇文章包含特定資訊，供設定開發和測試環境的 IT 專業人員和開發人員閱讀。請遵循下列連結以深入了解 Azure IoT 中心服務：
 
 - [何謂 Azure IoT 中心？][lnk-iothub]
-- [Azure IoT 中心開發人員指南中的「安全性」][lnk-devguide]一節提供 IoT 中心內權杖和權限系統的其他資訊。
+- [Azure IoT 中心開發人員指南中的「安全性」章節][lnk-devguide]提供 IoT 中心內權杖和權限系統的其他資訊。
 - [透過 Azure 入口網站管理 IoT 中樞][lnk-manage-portal]說明如何使用 Azure 入口網站來管理您 IoT 中樞。
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

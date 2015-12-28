@@ -21,7 +21,6 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
-
 在 Azure 基礎結構服務部署高可用性企業營運應用程式的最終階段中，您將建立 AlwaysOn 可用性群組並新增應用程式的資料庫。
 
 如需所有階段的相關資訊，請參閱[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)。
@@ -59,7 +58,7 @@
 3.	在左側窗格中展開 [**資料庫**] 節點。
 4.	以滑鼠右鍵按一下資料庫以進行備份，指向 [**工作**]，然後按一下 [**備份**]。
 5.	在 [**目的地**] 區段中按一下 [**移除**]，移除備份檔案的預設檔案路徑。
-6.	按一下 [新增]。在 [檔案名稱] 中鍵入 **\[machineName]\\backup[databaseName].bak**，其中的 **machineName** 是主要 SQL **Server 電腦**的名稱，而 **databaseName** 是資料庫名稱。按一下 [**確定**]，待備份完成的對話方塊出現後，再按一下 [**確定**]。
+6.	按一下 [新增]。在 [檔案名稱] 中鍵入 **\\[machineName]\\backup[databaseName].bak**，其中的 **machineName** 是主要 SQL **Server 電腦**的名稱，而 **databaseName** 是資料庫名稱。按一下 [**確定**]，待備份完成的對話方塊出現後，再按一下 [**確定**]。
 7.	在左側窗格中以滑鼠右鍵按一下 [databaseName]，指向 [工作]，然後按一下 [備份]。
 8.	在 [**備份類型**] 中選取 [**交易紀錄**]，然後按兩下 [**確定**]。
 9.	讓此遠端桌面工作階段保持開啟。
@@ -72,7 +71,7 @@
 4.	在左側窗格中，以滑鼠右鍵按一下 [**資料庫**]，然後按一下 [**還原資料庫**]。
 5.	在 [**來源**] 區段中選取 [**裝置**]，然後按一下省略符號 (…) 按鈕。
 6.	在 [**選取備份裝置**] 中按一下 [**新增**]。
-7.	在 [備份檔案位置] 中輸入 **\[機器名稱]\\backup**，按 **Enter**，選取 **[資料庫名稱].bak**，然後按兩次 [確定]。您現在可以在 [**要還原的備份組**] 區段中看到完整備份和記錄備份。
+7.	在 [備份檔案位置] 中輸入 **\\[機器名稱]\\backup**，按 **Enter**，選取 **[資料庫名稱].bak**，然後按兩次 [確定]。您現在可以在 [**要還原的備份組**] 區段中看到完整備份和記錄備份。
 8.	在 [**選取頁面**] 中按一下 [**選項**]。在 [**還原選項**] 區段的 [**復原狀態**] 中，選取 [**使用 NORECOVERY 還原**]，然後按一下 [**確定**]。 
 9.	出現提示時，按一下 [**確定**]。
 
@@ -116,16 +115,8 @@
 
 一旦接聽程式完成設定，就必須設定所有 Web 伺服器虛擬機器使用該接聽程式，而非叢集裡第一部 SQL Server 的名稱。請將 Web 伺服器虛擬機器設定為使用 SQL Alias，而非使用新的 DNS 名稱和對應至內部負載平衡執行個體的虛擬 IP 位址記錄。如需詳細資料與步驟，請參閱[在 SharePoint 中使用 SQL 別名](http://blogs.msdn.com/b/priyo/archive/2013/09/13/sql-alias-for-sharepoint.aspx)。
 
-## 其他資源
+## 後續步驟
 
-[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)
+- 如果您要在 Azure 中部署自己的 IT 工作負載，請參閱這些[指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)。
 
-[企業營運應用程式架構藍圖](http://msdn.microsoft.com/dn630664)
-
-[在混合式雲端中設定 Web 型 LOB 應用程式進行測試](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

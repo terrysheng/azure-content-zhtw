@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # 使用者定義的路由和 IP 轉送
@@ -90,4 +90,4 @@
 - 了解如何[在資源管理員部署模型中建立路由](../virtual-network-create-udr-arm-template)並將其關聯至子網路。 
 - 了解如何[在傳統部署模型中建立路由](../virtual-network-create-udr-classic-ps)並將其關聯至子網路。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

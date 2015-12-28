@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # 應用程式模型 v2.0 預覽：使用 node.js 保護 Web API
@@ -43,7 +43,7 @@
 
 - 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
 - 為您的應用程式新增**行動**平台。
-- 從入口網站複製完整的**重新導向 URI**。您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
+- 從入口網站複製完整的 **重新導向 URI**。您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
 
 
 ## 2：下載適用於您平台的 node.js
@@ -860,4 +860,4 @@ Transfer-Encoding: chunked
 - [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

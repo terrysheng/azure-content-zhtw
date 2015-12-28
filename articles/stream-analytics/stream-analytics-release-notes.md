@@ -24,8 +24,8 @@
 
 課程名稱 | 說明
 ---|---
-REST API 版本更新 | REST API 的版本已更新至 2015-10-01。您可以在 MSDN 上找到詳細資料：[串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)。
-Azure 機器學習的整合 | 此版本開始支援 Azure 機器學習的使用者定義函數。如需教學課程，請前往[這裡](stream-analytics-machine-learning-tutorial.md)；如需一般的部落格公告，請前往[這裡](http://blogs.msdn.com/b/streamanalytics/)。
+REST API 版本更新 | REST API 的版本已更新至 2015-10-01。您可在[串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)和[在串流分析中整合機器學習服務](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)的 MSDN 中取得詳細資料。
+Azure 機器學習的整合 | 此版本開始支援 Azure 機器學習的使用者定義函數。如需教學課程，請前往[這裡](stream-analytics-machine-learning-tutorial.md)；如需一般的部落格公告，請前往[這裡](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)。
 
 ## 串流分析 2015/11/12 版本的注意事項 ##
 
@@ -33,7 +33,7 @@ Azure 機器學習的整合 | 此版本開始支援 Azure 機器學習的使用�
 
 課程名稱 | 說明
 ---|---
-SELECT 的新行為 | 「串流分析」中的 SELECT 已經延伸成允許使用 * 做為巢狀記錄的屬性存取子。如需深入了解，請參閱 [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "複雜資料類型")。
+SELECT 的新行為 | 「串流分析」中的 SELECT 已經延伸成允許使用 * 做為巢狀記錄的屬性存取子。如需進一步資訊，請參閱 [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "複雜資料類型")。
 
 ## 串流分析 2015/10/22 版本的注意事項 ##
 
@@ -73,9 +73,9 @@ Azure Preview 入口網站整合 | 串流分析除了會繼續出現在 Azure �
 
 課程名稱|說明
 ---|---
-加入 LAST 函式 |現在串流分析工作中有 [LAST](http://msdn.microsoft.com/library/mt421186.aspx) 函式，讓您可擷取指定時間範圍內事件串流中的最新事件。
-新的陣列函數|陣列函式 [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx)、[GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) 及 [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) 現在已可使用。
-新的記錄函數|記錄函式 [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) 和 [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) 現在已可使用。
+加入 LAST 函式 |在串流分析工作中已可使用 [LAST](http://msdn.microsoft.com/library/mt421186.aspx) 函式，讓您擷取指定時間範圍內事件資料流中的最新事件。
+新的陣列函數|現在已可使用陣列函式 [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx)、[GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) 及 [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx)。
+新的記錄函數|現在已可使用記錄函式 [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) 和 [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx)。
 
 ## 串流分析 07/30/2015 版本的注意事項 ##
 
@@ -133,4 +133,4 @@ PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

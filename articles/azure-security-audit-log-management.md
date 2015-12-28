@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/10/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Microsoft Azure 安全性和稽核記錄管理
@@ -614,4 +614,4 @@ Azure Active Directory (Azure AD) 包含一組安全性、使用方式與稽核�
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

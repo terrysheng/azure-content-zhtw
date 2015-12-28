@@ -1,11 +1,11 @@
 <properties
-   pageTitle="在 Visual Studio 中建立和管理 Azure 虛擬機器"
+   pageTitle="在 Visual Studio 中建立和管理 Azure 虛擬機器 | Microsoft Azure"
    description="在 Visual Studio 中建立和管理 Azure 虛擬機器"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="virtual-machines"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 在 Visual Studio 中建立和管理 Azure 虛擬機器
 
@@ -177,4 +177,4 @@
 
 若要了解建立虛擬機器的詳細資訊，請參閱[建立執行 Linux 的虛擬機器](virtual-machines-linux-tutorial.md)和[在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

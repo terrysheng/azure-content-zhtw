@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="09/25/2015"
+	ms.date="12/11/2015"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - 入門指南與最佳作法
@@ -284,7 +284,7 @@ Azure Mobile Engagement 會為每個裝置產生唯一識別碼來識別使用�
 
 工作階段是由使用者執行的一個應用程式執行個體。工作階段的範圍始於使用者啟動應用程式時，終於應用程式停止。
 
-活動是應用程式工作階段期間各個項目的邏輯分組。它通常是應用程式中的特定畫面，但也可以是應用程式的邏輯所定義的任何項目。您至少應標記應用程式的每個螢幕或活動。這可讓您了解使用者路徑。
+活動是應用程式工作階段期間各個項目的邏輯群組。它通常是應用程式中的特定畫面，但也可以是應用程式的邏輯所定義的任何項目。您至少應標記應用程式的每個螢幕或活動。這可讓您了解使用者路徑。
 
 
 ###### 事件
@@ -404,4 +404,4 @@ Mobile Engagement SDK 自動收集的當機資料，會報告應用程式未處�
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

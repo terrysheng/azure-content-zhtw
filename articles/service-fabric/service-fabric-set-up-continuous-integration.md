@@ -1,6 +1,6 @@
 <properties
    pageTitle="Service Fabric 的連續整合 |Microsoft Azure"
-   description="取得如何使用 Visual Studio Online (VSO) 設定 Service Fabric 應用程式的連續整合的概觀。"
+   description="取得如何使用 Visual Studio Team Services (VSTS) 設定 Service Fabric 應用程式之持續整合的概觀。"
    services="service-fabric"
    documentationCenter="na"
    authors="cawams"
@@ -15,19 +15,19 @@
    ms.date="10/16/2015"
    ms.author="cawa" />
 
-# 使用 Visual Studio Online (VSO) 設定 Service Fabric 應用程式的連續整合
+# 使用 Visual Studio Team Services (VSTS) 為 Service Fabric 應用程式設定持續整合
 
-本文會帶領您完成使用 Visual Studio Online (VSO) 設定 Service Fabric 應用程式的連續整合 (CI)，讓您的應用程式可以用自動化方式建置、封裝和部署。請注意，本文件反映目前的經驗且預期隨著開發進度變更。此外，這些指示會每次從頭重新建立叢集。
+本文將帶領您完成使用 Visual Studio Team Services (VSTS) 為 Service Fabric 應用程式設定持續整合 (CI)，讓您可以自動化您應用程式的建置、封裝及部署。請注意，本文件反映目前的經驗且預期隨著開發進度變更。此外，這些指示會每次從頭重新建立叢集。
 
-## 必要條件
+## 先決條件
 
-若要開始著手，請在 Visual Studio Online 上設定您的專案。
+開始時，請先在 Visual Studio Team Services 上設定您的專案。
 
-1. 如果您尚未準備就緒，使用您的 [Microsoft 帳戶](http://www.microsoft.com/account)建立 VSO 帳戶。
-2. 使用 Microsoft 帳戶在 VSO 上建立新的專案。
+1. 若還未沒有帳戶，請使用您的 [Microsoft 帳戶](http://www.microsoft.com/account)建立 Visual Studio Team Services 帳戶。
+2. 使用 Microsoft 帳戶在 Team Services 上建立新的專案。
 3. 將新的或現有 Service Fabric 應用程式的原始檔推送至這個專案。
 
-如需有關使用 VSO 專案的詳細資訊，請參閱[連接到 Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)。
+如需使用 Team Services 專案的詳細資訊，請參閱[連接到 Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)。
 
 ## 設定步驟
 
@@ -39,9 +39,7 @@
 
 1.	安裝 Azure PowerShell。
     - 安裝 PowerShellGet。若要這樣做，請安裝 [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729)，其中包括 PowerShellGet。
-
     >[AZURE.NOTE]如果您以最新的更新執行 Windows 10，您可以略過此步驟。
-
 
 1.	安裝和更新 AzureRM 模組。
     1.  如果您已安裝任何舊版的 Azure PowerShell，請將它移除。以滑鼠右鍵按一下 [開始] 按鈕，然後選取 [新增/移除程式]。搜尋 "Azure PowerShell" 並將它解除安裝。
@@ -139,9 +137,7 @@
     ```
 
 3.	如果 NuGet.config 不存在，則以下列內容建立。將 `<path to service fabric SDK>` 取代為組建電腦上 Service Fabric SDK 的路徑。
-
 >[AZURE.NOTE]根據預設，`<path to service fabric SDK>` 是 `%ProgramFiles%\Microsoft SDKs\Service Fabric`。
-
 
     NuGet.config：
 
@@ -165,7 +161,7 @@
 2. 以滑鼠右鍵按一下節點 `HKEY_Users\.Default\Environment`，並且選取 [新增 > 可擴充字串值]。
 3. 輸入 `PSModulePath` 做為名稱，輸入 `%PROGRAMFILES%\WindowsPowerShell\Modules` 做為值。
 
->[AZURE.NOTE]在啟動組建代理程式 *之前* 執行這項操作，否則它將不會挑選新的環境變數。
+>[AZURE.NOTE]在啟動組建代理程式*之前*執行這項操作，否則它將不會挑選新的環境變數。
 
 ### 匯入自動化憑證
 
@@ -196,8 +192,8 @@
 ### 註冊組建代理程式
 
 1.	下載 agent.zip。作法：
-    1.	登入您的小組專案，例如 **https://[your-VSO-account-name].visualstudio.com**。
-    1.	選擇您的畫面右上角的「齒輪」圖示。
+    1.	登入您的 Team 專案，例如 ****https://[your-VSTS-account-name].visualstudio.com**。
+1.	選擇您的畫面右上角的「齒輪」圖示。
     1.	從控制台中選擇 [代理程式集區] 索引標籤。
     1.	選擇 [下載代理程式] 以下載 agent.zip 檔案。
     1.	將 agent.zip 複製到您稍早建立的組建電腦。
@@ -210,7 +206,7 @@
     |參數|值|
     |---|---|
     |代理程式名稱|接受預設值，`Agent-[machine name]`。)
-    |TFS Url|輸入您的小組專案的 URL，例如 `https://[your-VSO-account-name].visualstudio.com`。
+    |TFS Url|輸入您 Team 專案的 URL，例如 `https://[your-VSTS-account-name].visualstudio.com`。
     |代理程式集區|輸入代理程式集區的名稱。(如果您尚未建立代理程式集區，接受預設值。)|
     |工作資料夾|接受預設值。這是組建代理程式實際建置您的應用程式的資料夾。請注意：如果您計劃建置 ASP.NET 5 Web 服務，建議您為資料夾選擇可能的最短名稱，以避免在部署期間發生 PathTooLongExceptions 錯誤。|
     |安裝為 Windows 服務？|預設值為 N。將值變更為 Y。|
@@ -220,9 +216,9 @@
 1. 系統將會提示您輸入認證。輸入具有您的小組專案權限的 Microsoft 帳戶的認證。
 1. 請確認您的組建代理程式已註冊。作法：
 
-    1. 回到網頁瀏覽器 (應該是 `https://[your-VSO-account-name].visualstudio.com/_admin/_AgentPool` 頁面)，然後重新整理頁面。
+    1. 返回網頁瀏覽器 (頁面應是 `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`)，然後重新整理該頁面。
     1. 選擇您稍早執行 ConfigureAgent.ps1 時選取的代理程式集區。
-    1. 確認您的組建代理程式出現在清單中，並且具有綠色狀態反白顯示。如果反白顯示為紅色，則組建代理程式無法連接至 VSO。
+    1. 確認您的組建代理程式出現在清單中，並且具有綠色狀態反白顯示。若強調顯示是紅色，表示組建代理程式在連接到 Team Services 時發生問題。
 
 ![](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
@@ -237,7 +233,7 @@
 ### 建立組建定義
 
 1.	建立空白組建定義。作法：
-    1.	在 Visual Studio Online 中，開啟您的專案。
+    1.	在 Visual Studio Team Services 中開啟您的專案。
     1.	選擇 [組建] 索引標籤。
     1.	選擇綠色 **+** 符號以建立新的組建定義。
     1.	選擇 [空白] 然後選擇 [下一步] 按鈕。
@@ -341,9 +337,6 @@
 
 ## 後續步驟
 
-若要深入了解與 Service Fabric 應用程式的連續整合，請閱讀下列文章。
-- [建置文件首頁](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
-- [部署組建代理程式](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
-- [建立和設定組建定義](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
+若要深入了解與 Service Fabric 應用程式的連續整合，請閱讀下列文章。- [建置文件首頁](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [部署組建代理程式](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [建立和設定組建定義](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

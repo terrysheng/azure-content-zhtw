@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="發佈 Azure 應用程式精靈"
+   pageTitle="發佈 Azure 應用程式精靈 | Microsoft Azure"
    description="發佈 Azure 應用程式精靈"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 發佈 Azure 應用程式精靈
 
@@ -141,4 +141,4 @@
 
 [測試雲端服務的效能](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

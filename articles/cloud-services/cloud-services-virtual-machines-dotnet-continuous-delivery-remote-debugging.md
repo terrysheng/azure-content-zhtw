@@ -3,9 +3,9 @@
 	description="了解在使用連續傳遞來部署至 Azure 時如何啟用遠端偵錯"
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 # 使用連續傳遞來發行至 Azure 時啟用遠端偵錯
 
 當您使用[連續傳遞](cloud-services-dotnet-continuous-delivery.md)來發行至 Azure 時，您可以依照下列步驟在 Azure 中為雲端服務或虛擬機器啟用遠端偵錯。
@@ -90,4 +90,4 @@
 
 6. 將憑證 (.pfx) 匯入已安裝 Visual Studio with Azure SDK for .NET 的機器。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

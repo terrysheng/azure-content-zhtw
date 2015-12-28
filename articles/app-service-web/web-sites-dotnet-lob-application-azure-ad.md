@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="10/14/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # 在 Azure 應用程式服務中建立使用 Azure Active Directory 驗證的 .NET MVC Web 應用程式 #
@@ -46,8 +46,8 @@
 
 - Azure Active Directory 租用戶與不同的群組中的使用者
 - 在 Azure Active Directory 租用戶建立應用程式的權限
-- Visual Studio 2013
-- [Azure SDK 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) 或更新版本
+- Visual Studio 2013 或更新版本
+- [Azure SDK 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) 或更新版本
 
 <a name="bkmk_sample"></a>
 ## 使用特定業務範本的範例應用程式 ##
@@ -63,8 +63,7 @@
 
 1.	將 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 上的範例解決方案複製或下載到您的本機目錄。
 
-2.	依照[如何執行範例做為單一租用戶應用程式](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)的指示設定 Azure Active Directory 應用程式和專案。
-請務必遵循所有指示以將應用程式從多租用戶轉換為單一租用戶。
+2.	依照[如何執行範例做為單一租用戶應用程式](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)的指示設定 Azure Active Directory 應用程式和專案。請務必遵循所有指示以將應用程式從多租用戶轉換為單一租用戶。
 
 3.	在 [Azure 傳統入口網站](https://manage.windowsazure.com)檢視中針對您剛建立的 Azure Active Directory 應用程式，按一下 [**使用者**] 索引標籤。然後，將想要的使用者指派給想要的角色。
 
@@ -79,7 +78,7 @@
 <a name="bkmk_deploy"></a>
 ## 將範例應用程式部署到 App Service Web Apps
 
-在這裡，您要將應用程式發佈到 Azure 應用程式服務中的 Web 應用程式。[README.md](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims/blob/master/README.md) 已包含部署至 App Service Web Apps 的指示，不過這些步驟也會使您本機偵錯環境中的組態失效。我將告訴您如何在保留偵錯組態的情況下部署。
+在這裡，您要將應用程式發佈到 Azure 應用程式服務中的 Web 應用程式。[README.md](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims/blob/master/README.md) 已包含部署至 App Service Web Apps 的指示，不過這些步驟也會使您本機偵錯環境中的設定失效。我將告訴您如何在保留偵錯設定的情況下部署。
 
 1. 以滑鼠右鍵按一下專案，然後選取 [發佈]。
 
@@ -91,9 +90,17 @@
 
 4. 登入之後，按一下 [新增] 在 Azure 中來建立新的 Web 應用程式。
 
-5. 填寫所有必要欄位。您必須具備資料庫連線，此應用程式才能儲存角色對應、快取的權杖及任何應用程式資料。
+5. 在 [裝載] 中，填寫所有必要欄位。
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
+
+5. 您必須具備資料庫連線，此應用程式才能儲存角色對應、快取的權杖及任何應用程式資料。在 [建立應用程式服務] 對話方塊中，按一下 [服務]。在 [SQL Database] 旁按一下加號，加入新的資料庫。
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-database.png)
+
+5. 在 [設定 SQL Database] 對話方塊中，選取或建立伺服器、設定名稱，然後按一下 [確定]。
+
+	 ![](./media/web-sites-dotnet-lob-application-azure-ad/4-config-database.png)
 
 6. 按一下 [建立]。一旦建立 Web 應用程式後，會開啟 [發佈 Web] 對話方塊。
 
@@ -105,11 +112,11 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/6-enable-code-first-migrations.png)
 
-8. 展開 **RoleClaimContext** 並選取 [執行 Code First 移轉 (在應用程式開頭執行)]。在您稍後定義其他 Code First 資料模型時，[Code First 移轉](https://msdn.microsoft.com/data/jj591621.aspx)有助於更新應用程式在 Azure 中的資料庫結構描述。
+8. 展開 [RoleClaimContext] 並選取 [執行 Code First 移轉 (在應用程式開頭執行)]。在您稍後定義其他 Code First 資料模型時，[Code First 移轉](https://msdn.microsoft.com/data/jj591621.aspx)有助於更新應用程式在 Azure 中的資料庫結構描述。
 
 9. 不要按一下 [發佈] 進行 Web 發佈，請按一下 [關閉]。按一下 [是] 將變更儲存至發行設定檔。
 
-2. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)，移至 Azure Active Directory 租用戶，然後按一下 [**應用程式**] 索引標籤。
+2. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，前往 Azure Active Directory 租用戶，然後按一下 [應用程式] 索引標籤。
 
 2. 按一下頁面底部的 [新增]。
 
@@ -123,9 +130,9 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/7-app-properties.png)
 
-2.	應用程式建立之後，以您稍早根據[定義應用程式角色](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#step-2-define-your-application-roles)的指示所執行的相同方式，更新應用程式資訊清單。
+2.	建立應用程式之後，以您稍早根據[定義應用程式角色](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#step-2-define-your-application-roles)中指示所執行的相同方式，更新應用程式資訊清單。
 
-3.	在 [Azure 傳統入口網站](https://manage.windowsazure.com)檢視中針對您剛建立的 Azure Active Directory 應用程式，按一下 [**使用者**] 索引標籤。然後，將想要的使用者指派給想要的角色。
+3.	在 [Azure 傳統入口網站](https://manage.windowsazure.com)檢視中，為您剛建立的 Azure Active Directory 應用程式按一下 [使用者] 索引標籤。然後，將想要的使用者指派給想要的角色。
 
 6. 按一下 [設定] 索引標籤。
 
@@ -137,7 +144,7 @@
 
 9.  按一下 [儲存]。
 
-10.  離開已儲存的組態頁面之前，請將下列資訊複製到文字編輯器。
+10.  離開已儲存的設定頁面之前，請將下列資訊複製到文字編輯器。
 
 	-	用戶端識別碼
 	-	索引鍵 (如果離開該頁面，您將無法再看到索引鍵)
@@ -148,15 +155,13 @@
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
-
-	請確定 ida:PostLogoutRedirectUri 值的結尾有一條斜線 "/"。
+&lt;/appSettings></pre>請確定 ida:PostLogoutRedirectUri 值的結尾有一條斜線 "/"。
 
 1. 以滑鼠右鍵按一下專案，然後選取 [發佈]。
 
 2. 按一下 [發佈]，以發佈至 Azure App Service Web Apps。
 
-當您完成時，您會在 Azure 傳統入口網站中設定兩個 Azure Active Directory 應用程式：一個適用於 Visual Studio 中的偵錯環境，另一個適用於 Azure 中的已發佈 Web 應用程式。在偵錯期間，Web.config 中的應用程式設定可讓您的「偵錯」組態使用 Azure Active Directory，且在發佈後 (預設會發佈「版本」組態) 會上傳轉換的 Web.config，其中包含 Web.Release.config 的應用程式設定變更。
+當您完成時，您會在 Azure 傳統入口網站中設定兩個 Azure Active Directory 應用程式：一個適用於 Visual Studio 中的偵錯環境，另一個適用於 Azure 中的已發佈 Web 應用程式。在偵錯期間，Web.config 中的應用程式設定可讓您的**偵錯**設定使用 Azure Active Directory，且在發佈後 (預設會發佈「版本」組態) 會上傳轉換的 Web.config，其中包含 Web.Release.config 的應用程式設定變更。
 
 如果您想要將已發佈的 Web 應用程式附加到偵錯工具 (您必須上傳已發佈 Web 應用程式中的程式碼偵錯符號)，您可以建立偵錯組態的複本進行 Azure 偵錯，但使用其自訂的 Web.config 轉換 (例如 Web.AzureDebug.config)，從 Web.Release.config 使用 Azure Active Directory 設定。這可讓您跨不同的環境維護靜態組態。
 
@@ -192,14 +197,14 @@
 
 6.	開啟 DAL\\RoleClaimContext.cs 並新增反白顯示的程式碼：
 	<pre class="prettyprint">
-    public class RoleClaimContext : DbContext
-    {
-        public RoleClaimContext() : base("RoleClaimContext") { }
+public class RoleClaimContext : DbContext
+{
+    public RoleClaimContext() : base("RoleClaimContext") { }
 
-        public DbSet&lt;Task&gt; Tasks { get; set; }
-        <mark>public DbSet&lt;WorkItem&gt; WorkItems { get; set; }</mark>
-        public DbSet&lt;TokenCacheEntry&gt; TokenCacheEntries { get; set; }
-    }</pre>
+    public DbSet&lt;Task> Tasks { get; set; }
+    <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
+    public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
+}</pre>
 
 7.	建置專案，讓 Visual Studio 中的建構邏輯可存取新的模型。
 
@@ -215,46 +220,41 @@
 
 11. 將反白顯示的 [Authorize] 裝飾新增至下列的相應動作。
 	<pre class="prettyprint">
+...
+
+<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+public class WorkItemsController : Controller
+{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-    public class WorkItemsController : Controller
-    {
-		...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public ActionResult Create()
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public ActionResult Create()
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Edit(int? id)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit(int? id)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    public async Task&lt;ActionResult> Delete(int? id)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; Delete(int? id)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    public async Task&lt;ActionResult> DeleteConfirmed(int id)
+    ...
+}</pre>由於您負責 Azure 傳統入口網站 UI 中的角色對應，因此您只需要確定每個動作都授權適當的角色。
 
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
-        ...
-	}</pre>
+	> [AZURE.NOTE]您可能已經注意到某些動作上的 <code>[ValidateAntiForgeryToken]</code> 裝飾。由於 [Brock Allen](https://twitter.com/BrockLAllen) 在 [MVC 4、AntiForgeryToken 和宣告](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) 所描述的行為，HTTP POST 可能無法執行防偽語彙基元驗證，因為：+ Azure Active Directory 不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider，依預設防偽語彙基元需要此項。+ 如果 Azure Active Directory 是與 AD FS 進行同步處理的目錄，依預設 AD FS 信任不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 宣告，但是您可以手動設定 AD FS 來傳送此宣告。您會在下一步這麼做。
 
-	由於您負責 Azure 入口網站 UI 中的角色對應，因此您只需要確定每個動作都授權適當的角色。
-
-	> [AZURE.NOTE] 您可能已經注意到某些動作上的 <code>[ValidateAntiForgeryToken]</code> 裝飾。由於 [Brock Allen](https://twitter.com/BrockLAllen) 在 [MVC 4、AntiForgeryToken 和宣告](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) 所描述的行為，HTTP POST 可能無法執行防偽語彙基元驗證，因為：
-	> + Azure Active Directory 不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider，依預設防偽語彙基元需要此項。
-	> + 如果 Azure Active Directory 是與 AD FS 進行同步處理的目錄，依預設 AD FS 信任不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 宣告，但是您可以手動設定 AD FS 來傳送此宣告。
-	> 您會在下一步這麼做。
-
-12.  在 App\_Start\\Startup.Auth.cs 中，在 `ConfigureAuth` 方法中加入下行程式碼。以滑鼠右鍵按一下每個命名的解決方案錯誤來修正這個問題。
+12.  在 App\_Start\\Startup.Auth.cs 中，於 `ConfigureAuth` 方法中加入下行程式碼。以滑鼠右鍵按一下每個命名的解決方案錯誤來修正這個問題。
 
 		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 	
@@ -278,72 +278,70 @@
 		
 14.	在 Views\\WorkItems\\Create.cshtml (自動建構的項目) 中尋找 `Html.BeginForm` Helper 方法，並如下所示修改它：
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-	{
-	    @Html.AntiForgeryToken()
-	    
-	    &lt;div class="form-horizontal"&gt;
-	        &lt;h4&gt;WorkItem&lt;/h4&gt;
-	        &lt;hr /&gt;
-	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-	
-	        &lt;div class="form-group"&gt;
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type=&quot;hidden&quot;</mark> } })
-	                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model =&gt; model.Description, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = "form-control" })
-	                @Html.ValidationMessageFor(model =&gt; model.Status, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	
-	        &lt;div class="form-group"&gt;
-	            &lt;div class="col-md-offset-2 col-md-10"&gt;
-	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> /&gt;
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	    &lt;/div&gt;
-	
-	    <mark>&lt;script&gt;
-	            // People/Group Picker Code
-	            var maxResultsPerPage = 14;
-	            var input = document.getElementById("AssignedToName");
-	            var token = "@ViewData["token"]";
-	            var tenant = "@ViewData["tenant"]";
-	
-	            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
-	
-	            // Submit the selected user/group to be asssigned.
-	            $("#submit-button").click({ picker: picker }, function () {
-	                if (!picker.Selected())
-	                    return;
-	                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
-	            });
-	    &lt;/script&gt;</mark>
-	
-	}</pre>
+{
+    @Html.AntiForgeryToken()
 
-	在指令碼中，AadPicker 物件會呼叫 [Azure Active Directory 圖形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 以搜尋符合輸入的使用者和群組。  
+    &lt;div class="form-horizontal">
+        &lt;h4>WorkItem&lt;/h4>
+        &lt;hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        &lt;div class="form-group">
+            &lt;div class="col-md-10">
+                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
+                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+            &lt;div class="col-md-10">
+                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            &lt;div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            &lt;div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="form-group">
+            &lt;div class="col-md-offset-2 col-md-10">
+                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+
+    <mark>&lt;script>
+            // 人員/群組選擇器程式碼
+            var maxResultsPerPage = 14;
+            var input = document.getElementById("AssignedToName");
+            var token = "@ViewData["token"]";
+            var tenant = "@ViewData["tenant"]";
+
+            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
+
+            // 送出要指派的所選使用者/群組。
+            $("#submit-button").click({ picker: picker }, function () {
+                if (!picker.Selected())
+                    return;
+                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
+            });
+    &lt;/script></mark>
+
+}</pre>在指令碼中，AadPicker 物件會呼叫 [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 以搜尋符合輸入的使用者與群組。
 
 15. 開啟 [封裝管理員主控台][](http://docs.nuget.org/Consume/Package-Manager-Console) 並執行 **Enable-Migrations –EnableAutomaticMigrations**。與您將應用程式發佈至 Azure 時選取的選項類似，此命令可於您在 Visual Studio 中偵錯應用程式的資料庫結構描述時，協助在 [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) 中更新該結構描述。
 
@@ -382,4 +380,4 @@
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

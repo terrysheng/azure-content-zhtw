@@ -3,9 +3,9 @@
    description="使用 Visual Studio 建立 Azure 資源群組專案，並將資源部署至 Azure。"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 透過 Visual Studio 建立與部署 Azure 資源群組
 
@@ -196,4 +196,4 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
 若要了解如何將資源新增至 Visual Studio 中的 Azure 資源群組，請參閱[使用 Visual Studio 編輯資源管理員範本](vs-azure-tools-resource-group-adding-resources.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

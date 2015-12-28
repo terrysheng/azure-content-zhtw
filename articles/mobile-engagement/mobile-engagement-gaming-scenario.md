@@ -1,6 +1,6 @@
-	<properties 
-	pageTitle="Azure Mobile Engagement implementation for Gaming App"
-	description="Gaming app scenario to implement Azure Mobile Engagement" 
+<properties 
+	pageTitle="對遊戲應用程式實作 Azure Mobile Engagement"
+	description="對遊戲應用程式實作 Azure Mobile Engagement 的案例" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo"
@@ -32,7 +32,7 @@
 * 每位使用者、每個工作階段、每週和每月的營收為何？
 * 最愛的購買類型為何？
 
-[入門指南](mobile-engagement-getting-started-best-practices.md)的第一部分說明如何定義目標和 KPI。
+[入門指南](mobile-engagement-getting-started-best-practices.md)的第 1 部分說明如何定義目標和 KPI。
 
 現在已定義好業務 KPI，行動裝置產品經理接著會建立業務開發 KPI，以確定新的使用者趨勢和保留期。
 
@@ -61,7 +61,7 @@
 * 超過 20 級的使用者會開始每週花費超過 10 美元。
 * 使用者往往會在 16 級、24 級和 32 級時購買高階套件。
 
-多虧了這項分析，行動裝置專案主任決定建立特定的推播通知順序，以增加應用程式內銷售額。他建立了三個他稱為「歡迎計劃」、「銷售計劃」和「無活動計劃」的推播順序。如需詳細資訊，請參閱[腳本](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]。
+多虧了這項分析，行動裝置專案主任決定建立特定的推播通知順序，以增加應用程式內銷售額。他建立了三個他稱為「歡迎計劃」、「銷售計劃」和「無活動計劃」的推播順序。如需詳細資訊，請參閱[腳本](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1]。
 
 <!--Image references-->
 
@@ -69,4 +69,4 @@
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

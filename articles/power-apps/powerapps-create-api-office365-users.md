@@ -21,11 +21,11 @@
 
 ## 在 Azure 入口網站中建立 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 *yourUserName*@*YourCompany*.com 登入。當您這樣做時，您會自動登入您的公司訂用帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 yourUserName@*YourCompany*.com 登入。當您這樣做時，將會自動登入您的公司訂用帳戶。
  
 2. 選取工作列中的 [**瀏覽**]：![][14]
 
-3. 在清單中，您可以捲動以尋找 PowerApps 或輸入 *powerapps*：![][15]
+3. 在清單中，您可以捲動以尋找 PowerApps 或鍵入 *powerapps*: ![][15]
 
 4. 在 [**PowerApps**] 中選取 [**管理 API**]：![瀏覽至已註冊的 API][1]
 
@@ -63,13 +63,13 @@
 
 	a) 為應用程式輸入**名稱**。b) 將應用程式類型保持為 [**Web**]。c) 選取 [**下一步**]。
 
-	![新增 AAD 應用程式 - 應用程式資訊][8]
+	![加入 AAD 應用程式 - 應用程式資訊][8]
 
-6. 在 [**應用程式屬性**] 中：
+6. 在 [應用程式屬性] 中：
 
 	a) 輸入您應用程式的**登入 URL**。由於您即將使用適用於 PowerApps 的 AAD 進行驗證，所以請將登入 URL 設為 \__https://login.windows.net_b)。輸入您應用程式的有效**應用程式識別碼 URI**。c) 選取 [**確定**]。
 
-	![新增 AAD 應用程式 - 應用程式屬性][9]
+	![加入 AAD 應用程式 - 應用程式屬性][9]
 
 7. 完成後，系統會將您重新導向至新的 AAD 應用程式。選取 [**設定**]：![Contoso AAD 應用程式][10]
 
@@ -84,7 +84,7 @@
 Azure Active Directory 應用程式便建立好了。您可以在 Azure 入口網站的 Office 365 使用者 API 組態中使用此應用程式。
 
 ## 摘要和後續步驟
-在本主題中，您已將 Office 365 Outlook API 新增至 PowersApps Enterprise。接下來，請授與使用者此 API 的存取權，讓使用者能夠將此 API 新增至其應用程式：
+在本主題中，您已將 Office 365 使用者 API 新增至 PowersApps Enterprise。接下來，請授與使用者此 API 的存取權，讓使用者能夠將此 API 新增至其應用程式：
 
 [新增連接並授與使用者存取權](powerapps-manage-api-connection-user-access.md)
 
@@ -101,9 +101,5 @@ Azure Active Directory 應用程式便建立好了。您可以在 Azure 入口�
 [9]: ./media/powerapps-create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
-[12]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users.PNG
-[13]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users-permissions.PNG
-[14]: ./media/powerapps-create-api-office365-outlook/browseall.png
-[15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

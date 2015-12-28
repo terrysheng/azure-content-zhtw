@@ -20,7 +20,7 @@
 
 本文說明如何建立使用[適用於 Java 的 Microsoft Azure IoT 裝置 SDK][lnk-java-sdk] 的用戶端應用程式，以與 Azure IoT 中樞進行通訊。本教學課程示範如何使用 [Maven][apache-maven] 工具建立和建置專案。這些指示一體適用於 Windows 或 Linux 電腦。
 
-您可以在[這裡][lnk-java-api-docs]找到 Java API 文件。
+您可檢視 [Java API 文件][lnk-java-api-docs]作為參考。
 
 ## 安裝
 
@@ -214,7 +214,7 @@
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE]您可以前往[這裡](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html)尋找不同記錄層次的說明。
+> [AZURE.NOTE]您可以閱讀不同[記錄層級](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html)的說明。
 
 接著設定 JVM 屬性 `java.util.logging.config.file={Path to your config.properties file}`。
 
@@ -229,4 +229,4 @@
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Site Recovery 中的容錯移轉" 
+	pageTitle="Site Recovery 中的容錯移轉 | Microsoft Azure" 
 	description="Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及復原作業。了解如何容錯移轉到 Azure 或次要資料中心。" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/12/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # Site Recovery 中的容錯移轉
@@ -250,4 +250,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

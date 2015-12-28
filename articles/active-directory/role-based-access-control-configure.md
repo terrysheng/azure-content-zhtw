@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="12/14/2015"
 	ms.author="inhenk"/>
 
-# Azure Active Directory 角色型存取控制
+# Azure 角色型存取控制
 
 ## 角色型存取控制
 Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。您可以使用 RBAC 來區隔開發小組的職責，僅授與使用者作業所需的存取權。
 
 ### Azure 存取權管理的基礎
-每一個 Azure 訂用帳戶都以 Azure Active Directory 為依歸。只有來自該目錄的使用者、群組和應用程式可以獲得存取權，使用 Azure 傳統入口網站、Azure 命令列工具和 Azure 管理 API 來管理 Azure 訂用帳戶中的資源。
+每一個 Azure 訂用帳戶都以 Azure Active Directory 為依歸。只有來自該目錄的使用者、群組和應用程式可以獲得存取權，使用 Azure 入口網站、Azure 命令列工具和 Azure 管理 API 來管理 Azure 訂用帳戶中的資源。
 
 在正確範圍將適當的 RBAC 角色指派給使用者、群組和應用程式，即可授與存取權。若要將存取權授與整個訂用帳戶，請在訂用帳戶範圍指派角色。若要將存取權授與訂用帳戶內的特定資源群組，請在資源群組範圍指派角色。您可能也會在特定資源指派角色，例如網站、虛擬機器和子網路，只授與該資源的存取權。
 
@@ -44,9 +44,9 @@ Azure RBAC 有適用於所有資源類型的三個基本角色：擁有者、參
 更細緻的授權模型 (Azure RBAC) 僅受到 Azure 入口網站 (https://portal.azure.com) 和 Azure 資源管理員 API 支援。獲指派 RBAC 角色 (在訂用帳戶/資源群組/資源範圍) 的使用者和應用程式無法使用傳統管理入口網站 (http://manage.windowsazure.com) 和 Azure 服務管理 API。
 
 ### 管理授權與資料作業
-更細緻的授權模型 (Azure RBAC) 僅支援對 Azure 傳統入口網站的 Azure 資源與 Azure 資源管理員 API 進行管理作業。並非所有 Azure 資源的資料作業都可以透過 RBAC 授權。舉例來說，儲存體帳戶的建立/讀取/更新/刪除作業可以透過 RBAC 控制，但是儲存體帳戶內的 Blob 或資料表的建立/讀取/更新/刪除作業，卻還無法透過 RBAC 來控制。同理，SQL DB 的建立/讀取/更新/刪除作業可以透過 RBAC 來控制，但是 DB 內的 SQL 資料表之建立/讀取/更新/刪除作業卻還無法透過 RBAC 來控制。
+更細緻的授權模型 (Azure RBAC) 僅支援對 Azure 入口網站的 Azure 資源與 Azure 資源管理員 API 進行管理作業。並非所有 Azure 資源的資料作業都可以透過 RBAC 授權。舉例來說，儲存體帳戶的建立/讀取/更新/刪除作業可以透過 RBAC 控制，但是儲存體帳戶內的 Blob 或資料表的建立/讀取/更新/刪除作業，卻還無法透過 RBAC 來控制。同理，SQL DB 的建立/讀取/更新/刪除作業可以透過 RBAC 來控制，但是 DB 內的 SQL 資料表之建立/讀取/更新/刪除作業卻還無法透過 RBAC 來控制。
 
-## 使用 Azure 傳統入口網站管理存取
+## 使用 Azure 入口網站管理存取
 ### 檢視存取權
 在資源群組刀鋒視窗的基本功能區段，選取存取權設定。[使用者] 刀鋒視窗會列出已獲得資源群組存取權的所有使用者、群組和應用程式。存取權是在資源群組上指派或繼承自父訂用帳戶指派。
 
@@ -191,4 +191,4 @@ Azure RBAC 有適用於所有資源類型的三個基本角色：擁有者、參
 
 **誰可以檢視可用於在範圍中指派的自訂角色？** 可以在範圍中執行 `Microsoft.Authorization/roleDefinition/read` 作業的使用者，可以檢視可用於在該範圍中指派的 RBAC 角色。Azure RBAC 中的所有內建角色允許檢視可用於指派的角色。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

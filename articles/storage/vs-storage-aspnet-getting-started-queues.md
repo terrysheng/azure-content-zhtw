@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,23 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure 佇列儲存體和 Visual Studio 連線的服務
 
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-queues.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
-
 ## 概觀
 
-本文描述如何在您使用 Visual Studio 的 [加入連線的服務] 對話方塊，建立或參考 ASP.NET 專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 使用 Azure 佇列儲存體。
+本文描述如何在您使用 Visual Studio 的 [**加入已連接服務**] 對話方塊，建立或參考 ASP.NET 專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 使用 Azure 佇列儲存體。
 
 我們將會示範如何在儲存體帳戶中建立及存取 Azure 佇列。我們也將顯示如何執行基本的佇列作業，例如新增、修改、讀取和讀取佇列訊息。這些範例均以 C# 程式碼撰寫，並使用 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。如需 ASP.NET 的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
@@ -55,13 +46,13 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 	    // Create the queueclient.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. 取得 **CloudQueue** 物件，以參考特定的佇列。
+4. 取得 **CloudQueue** 物件以參考特定的佇列。
 
     	// Get a reference to a queue named "messageQueue"
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**注意：**請在下列範例中的程式碼前面使用上述所有程式碼。
+**注意** 請在下列範例中的程式碼前面使用上述所有程式碼。
 
 ## 在程式碼中建立佇列
 
@@ -179,4 +170,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

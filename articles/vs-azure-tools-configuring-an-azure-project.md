@@ -3,9 +3,9 @@
    description="了解如何在 Visual Studio 中根據 Azure 雲端服務專案的需求來設定專案。"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/29/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 使用 Visual Studio 設定 Azure 雲端服務專案
 
@@ -61,4 +61,4 @@
 
 若要深入了解如何在 Visual Studio 中設定 Azure 雲端服務專案，請參閱[使用多個服務組態設定 Azure 專案](vs-azure-tools-multiple-services-project-configurations.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,7 +1,9 @@
-#### To delete a virtual device
+#### 刪除虛擬裝置
 
-1. Sign in to the Management Portal.
+1. 登入管理入口網站。
 
-- Click **Virtual Machines**, and then select the virtual device.
+- 按一下 [虛擬機器]，然後選取虛擬裝置。
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+- 按一下 [**刪除**]，然後選擇刪除所有的虛擬機器磁碟。
+
+<!---HONumber=AcomDC_1217_2015-->

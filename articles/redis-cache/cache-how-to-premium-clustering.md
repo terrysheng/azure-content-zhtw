@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/11/2015" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的 Redis 叢集
@@ -36,11 +36,11 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 在 Azure 中，Redis 叢集以主要/複本模型方式提供，其中的每個分區都有一個具複寫功能的主要/複本組，而複寫是由 Azure Redis 快取服務管理。
 
 ## 叢集
-叢集是在快取建立期間於 [**新的 Redis 快取**] 刀鋒視窗中所設定。若要建立快取，請登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [新增] -> [資料 + 儲存體] -> [Redis 快取]。
+叢集是在快取建立期間於 [新的 Redis 快取] 刀鋒視窗中所啟用。若要建立快取，請登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [新增] -> [資料 + 儲存體] -> [Redis 快取]。
 
 ![建立 Redis 快取][redis-cache-new-cache-menu]
 
-若要設定叢集，請先在 [**選擇定價層**] 刀鋒視窗中選取其中一個**高階**快取。
+若要設定叢集，請先在 [選擇定價層] 刀鋒視窗中選取其中一個**高階**快取。
 
 ![選擇價格層][redis-cache-premium-pricing-tier]
 
@@ -78,6 +78,16 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 	    }
 	}
 
+## 從執行中的高階快取新增或移除分區
+
+若要從已啟用叢集的執行中高階快取新增或移除分區，可從 [設定] 刀鋒視窗中按一下 [(預覽) Redis 叢集大小]。
+
+>[AZURE.NOTE]請注意，雖然 Azure Redis 快取高階層已發行來正式運作，但是 Redis 叢集大小功能目前為預覽狀態。
+
+![Redis 叢集大小][redis-cache-redis-cluster-size]
+
+若要變更分區計數，請使用滑桿，或在 [分區計數] 文字方塊中輸入介於 1 到 10 之間的數字，然後按一下 [確定] 加以儲存。
+
 ## 叢集常見問題集
 
 下列清單包含 Azure Redis 快取叢集常見問題的解答。
@@ -103,7 +113,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 ## 我可以建立的最大快取大小為何？
 
-最大的高階快取大小為 53 GB。您最多可以建立 10 個分區，等於最大大小為 530 GB。如果您需要較大的大小，可以[要求更多](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)。如需詳細資訊，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/pricing/details/cache/)。
+最大的高階快取大小為 53 GB。您最多可以建立 10 個分區，等於最大大小為 530 GB。如果您需要較大的大小，可以[要求更多](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)。如需詳細資訊，請參閱 [Azure Redis 快取定價](https://azure.microsoft.com/pricing/details/cache/)。
 
 ## 所有 Redis 用戶端都支援叢集嗎？
 
@@ -117,7 +127,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 ## 我可以直接連接到我的快取的個別分區嗎？
 
-目前官方尚未提供支援。如前所述，每個分區都包含一個主要/複本快取組，統稱為快取執行個體。您可以使用 GitHub 中 Redis 存放庫[不穩定](http://redis.io/download)分支內的 redis-cli 公用程式，連接到這些快取執行個體。使用 `-c` 切換啟用這個版本時，會實作基本支援。如需詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) ([http://redis.io](http://redis.io))。
+目前官方尚未提供支援。如前所述，每個分區都包含一個主要/複本快取組，統稱為快取執行個體。您可以使用 GitHub 中 Redis 存放庫[不穩定](http://redis.io/download)分支內的 redis-cli 公用程式，連接到這些快取執行個體。使用 `-c` 參數啟用這個版本時，會實作基本支援。如需詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) ([http://redis.io](http://redis.io))。
 
 如為非 SSL，請使用下列命令。
 
@@ -131,7 +141,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 ## 我可以為先前建立的快取設定叢集嗎？
 
-目前您只能在建立快取時啟用和設定叢集。
+目前您只能在建立快取時啟用叢集。您可以在建立快取之後變更分區計數，但無法在建立快取之後將叢集新增至高階快取，或從高階快取中移除叢集。已啟用叢集且只有一個分區的高階快取，與相同大小且沒有叢集的高階快取不同。
 
 ## 我可以設定基本或標準快取的叢集嗎？
 
@@ -140,7 +150,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 ## 我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？
 
 -	**Redis 輸出快取提供者** - 不需要變更。
--	**Redis 工作階段狀態提供者** - 若要使用叢集，您必須使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 或更高版本，否則會擲回例外狀況。這是一項重大變更。如需詳細資訊，請參閱 [v2.0.0 重大變更詳細資料](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (英文)。
+-	**Redis 工作階段狀態提供者** - 若要使用叢集，您必須使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 或更高版本，否則會擲回例外狀況。這是一項重大變更。如需詳細資訊，請參閱 [v2.0.0 重大變更詳細資料](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)。
 
 ## 後續步驟
 了解如何使用更多高階快取功能。
@@ -166,4 +176,6 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+[redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
+
+<!---HONumber=AcomDC_1217_2015-->

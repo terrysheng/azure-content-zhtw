@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
 	ms.topic="article" 
-	ms.date="09/01/2015"
+	ms.date="12/09/2015"
 	ms.author="sethm"/>
 
 # 開始使用事件中心
@@ -86,8 +86,8 @@
 
 下列資源可供開發整合事件中心和 Storm 的應用程式。
 
-- [使用 Storm 和 HDInsight 分析感應器資料]是一個完整案例教學課程，該課程使用事件中心、Storm 和 HBase 擷取 Hadoop 叢集中的感應器資料。
-- [在 Storm 和 HDInsight 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]教學課程說明如何使用 C# 撰寫 Storm 管線。
+- [使用 Storm 和 HDInsight 分析感應器資料][]是一個完整案例教學課程，該課程使用事件中心、Storm 和 HBase 擷取 Hadoop 叢集中的感應器資料。
+- [在 Storm 和 HDInsight 上使用 SCP.NET 和 C# 開發串流資料處理應用程式][]教學課程說明如何使用 C# 撰寫 Storm 管線。
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-storm-getstarted/create-event-hub1.png
@@ -111,4 +111,4 @@
 [在 Storm 和 HDInsight 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

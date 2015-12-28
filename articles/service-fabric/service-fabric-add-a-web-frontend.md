@@ -60,7 +60,7 @@ ASP.NET 5 是輕量型、跨平台的 Web 開發架構，能夠建立新式 Web 
 
 ## 連接服務
 
-對於您與可靠服務通訊的方式，Service Fabric 會提供完整的彈性。在單一應用程式中，您可能有可透過 TCP 存取的服務、可透過 HTTP REST API 存取的服務，以及可透過 Web 通訊端存取的服務。如需可用選項和相關權衡取捨的背景，請參閱[與服務進行通訊](service-fabric-connect-and-communicate-with-services.md)。在本教學課程中，我們會遵循下列其中一種更簡單的方法並使用 SDK 中提供的 `ServiceProxy`/`ServiceCommunicationListener` 類別。
+對於您與可靠服務通訊的方式，Service Fabric 會提供完整的彈性。在單一應用程式中，您可能有可透過 TCP 存取的服務、可透過 HTTP REST API 存取的服務，以及可透過 Web 通訊端存取的服務。如需可用選項和相關權衡取捨的背景，請參閱[與服務進行通訊](service-fabric-connect-and-communicate-with-services.md)。在本教學課程中，我們會遵循下列其中一種更簡單的方法並使用 SDK 中提供的 `ServiceProxy`/`ServiceRemotingListener` 類別。
 
 在 `ServiceProxy` 方法 (模仿遠端程序呼叫或 RPC) 中，您會定義一個介面以做為服務的公用合約，然後使用該介面來產生 Proxy 類別，以便與服務進行互動。
 
@@ -130,13 +130,13 @@ ASP.NET 5 是輕量型、跨平台的 Web 開發架構，能夠建立新式 Web 
     ```
 
 
-### 使用 ServiceCommunicationListener 公開具狀態服務
+### 使用 ServiceRemotingListener 公開具狀態服務
 
 實作 `ICounter` 介面後，讓具狀態服務可從其他服務呼叫的最後一個步驟是開啟通訊通道。對於具狀態服務，Service Fabric 會提供名為 `CreateServiceReplicaListeners` 的可覆寫方法，以便您根據要對服務啟用的通訊類型，指定一或多個通訊接聽程式。
 
 >[AZURE.NOTE]用於開啟無狀態服務之通訊通道的對等方法稱為 `CreateServiceInstanceListeners`。
 
-在此情況下，我們會提供 `ServiceCommunicationListener`，其使用 `ServiceProxy` 建立可從用戶端呼叫的 RPC 端點。
+在此情況下，我們會提供 `ServiceRemotingListener`，其使用 `ServiceProxy` 建立可從用戶端呼叫的 RPC 端點。
 
 ```c#
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -145,7 +145,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     {
         new ServiceReplicaListener(
             (initParams) =>
-                new ServiceCommunicationListener<ICounter>(initParams, this))
+                new ServiceRemotingListener<ICounter>(initParams, this))
     };
 }
 ```
@@ -194,7 +194,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 本教學課程著重於新增會與具狀態服務通訊的 Web 前端，但是您可以依照非常類似的模型來與動作項目交談。事實上，這比較簡單。
 
-當您建立動作項目專案時，Visual Studio 自動替您產生介面專案。您可以使用該介面在 Web 專案中產生動作項目 Proxy 來與動作項目進行通訊。系統會自動提供通訊通道，因此您不需要如同在本教學課程中處理具狀態服務一樣，建立 `ServiceCommunicationListener`。
+當您建立動作項目專案時，Visual Studio 自動替您產生介面專案。您可以使用該介面在 Web 專案中產生動作項目 Proxy 來與動作項目進行通訊。系統會自動提供通訊通道，因此您不需要如同在本教學課程中處理具狀態服務一樣，建立 `ServiceRemotingListener`。
 
 ## 在本機叢集上執行 Web 服務
 
@@ -221,4 +221,4 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

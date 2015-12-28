@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
 # DocumentDB 中的 SQL 查詢
@@ -186,7 +186,7 @@ Microsoft Azure DocumentDB 支援使用 SQL (結構化查詢語言) 做為 JSON 
 ## DocumentDB SQL 查詢的基本概念
 根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。針對每個查詢，通常都會列舉 FROM 子句中的來源。接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 文件的子集。最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。
     
-    SELECT <select_list> 
+    SELECT [TOP <top_expression>] <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
@@ -661,6 +661,37 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	    "isRegistered": true
 	}]
 
+###TOP 運算子
+TOP 關鍵字可以用來限制來自查詢的值數目。當 TOP 與 ORDER BY 子句一起使用時，結果集會限制於前 N 個已排序的值。否則，它會以未定義的順序傳回前 N 個結果。最佳做法是在 SELECT 陳述式中，一律搭配 TOP 子句來使用 ORDER BY 子句。這是唯一能如預期般指出哪些資料列會受到 TOP 影響的方式。
+
+
+**查詢**
+
+	SELECT TOP 1 * 
+	FROM Families f 
+
+**結果**
+
+	[{
+	    "id": "AndersenFamily",
+	    "lastName": "Andersen",
+	    "parents": [
+	       { "firstName": "Thomas" },
+	       { "firstName": "Mary Kay"}
+	    ],
+	    "children": [
+	       {
+	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+	           "pets": [{ "givenName": "Fluffy" }]
+	       }
+	    ],
+	    "address": { "state": "WA", "county": "King", "city": "seattle" },
+	    "creationDate": 1431620472,
+	    "isRegistered": true
+	}]
+
+TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配使用 。如需詳細資訊，請參閱下方的參數化查詢。
+
 ## ORDER BY 子句
 像是在 ANSI SQL 中，您可以在查詢時包含選擇性的 Order By 子句。子句可以包含選擇性 ASC/DESC 引數，利用它來指定擷取結果時必須依循的順序。若要更深入了解 Order By，請參閱 [DocumentDB Order By 逐步解說](documentdb-orderby.md)。
 
@@ -789,7 +820,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 ### 聯結
 在關聯式資料庫中，跨資料表的聯結需求極為重要。就設計正規化結構描述而言，邏輯上需要它。與此相反的是，DocumentDB 會處理無結構描述文件的反正規化資料模型。這在邏輯上等同於「自我聯結」。
 
-此語言支援的語法是 <from_source1> JOIN <from_source2> JOIN ...JOIN <from_sourceN>。整體而言，這會傳回一組 **N**-Tuple (具有 **N** 值的 Tuple)。每個 Tuple 所擁有的值，都是將所有集合別名在其個別集合上反覆運算所產生。換句話說，這是參與聯結之集的完整交叉乘積。
+此語言支援的語法是 <from_source1> JOIN <from_source2> JOIN ...JOIN <from_sourceN>。整體而言，這會傳回一組 **N**-Tuple (具有 **N** 個值的 Tuple)。每個 Tuple 所擁有的值，都是將所有集合別名在其個別集合上反覆運算所產生。換句話說，這是參與聯結之集的完整交叉乘積。
 
 下列範例示範 JOIN 子句的運作方式。在下列範例中，結果是空的，因為來源中每個文件與空集合的交叉乘積是空的。
 
@@ -1076,6 +1107,15 @@ DocumentDB 支援查詢使用以類似 @ 標記法表示的參數。參數化 SQ
         ] 
     }
 
+您可以使用參數化查詢來設定 TOP 的引數，如下所示。
+
+    {      
+        "query": "SELECT TOP @n * FROM Families",     
+        "parameters": [          
+            {"name": "@n", "value": 10},         
+        ] 
+    }
+
 參數值可以是任何有效的 JSON (字串、數字、布林值、null，甚至是陣列或巢狀 JSON)。而且因為 DocumentDB 屬於無結構描述，系統不會針對任何類型驗證參數。
 
 ##內建函數
@@ -1267,7 +1307,7 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
 
 藉由使用這些函數，您現在可以執行下列查詢：
 
-**Q查詢**
+**查詢**
 
     SELECT VALUE IS_NUMBER(-4)
 
@@ -1428,7 +1468,7 @@ DocumentDB 支援下列開放地理空間協會 (OGC) 的內建函數，以用�
       "id": "WakefieldFamily"
     }]
 
-如果您將空間索引編製包含在索引編製原則中，則「距離查詢」將會透過索引獲得有效利用。如需空間索引編製的詳細資料，請參閱下面的章節。如果您沒有指定路徑的空間索引，仍然可以透過指定 `x-ms-documentdb-query-enable-scan` 要求標頭 (且值設定為 "true") 來執行空間查詢。在 .NET 中，可以將選用的 **FeedOptions** 引數傳遞至查詢 (且 [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) 設定為 true)，藉以執行此作業。
+如果您將空間索引編製包含在索引編製原則中，則「距離查詢」將會透過索引獲得有效利用。如需空間索引編製的詳細資料，請參閱下面的章節。如果您沒有指定路徑的空間索引，仍然可以透過指定 `x-ms-documentdb-query-enable-scan` 要求標頭 (且值設定為 "true") 執行空間查詢。在 .NET 中，可以傳遞選用的 **FeedOptions** 引數至查詢 (且 [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) 設定為 true)，藉此執行此作業。
 
 ST\_WITHIN 可用來檢查點是否在多邊形內。多邊形常用來表示邊界，例如郵遞區號、州省邊界或自然構成物。此外，如果您將空間索引編製包含在索引編製原則中，則「距離內」查詢將會透過索引獲得有效利用。
 
@@ -1449,7 +1489,7 @@ ST\_WITHIN 中的多邊形引數只可以包含單一環狀，也就是多邊形
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]與 DocumentDB 查詢中不相符類型的運作方式類似，如果任一引數中指定的位置值格式不正確或無效，則會評估為**未定義**，且會在查詢結果中略過已評估的文件。如果您的查詢沒有傳回任何結果，請執行 ST\_ISVALIDDETAILED 來偵錯，了解空間類型無效的原因。
+>[AZURE.NOTE]與 DocumentDB 查詢中不相符類型的運作方式類似的是，如果任一引數中指定的位置值格式不正確或無效，則會評估為**未定義**，且會在查詢結果中略過已評估的文件。如果您的查詢沒有傳回任何結果，請執行 ST\_ISVALIDDETAILED 來偵錯，了解空間類型無效的原因。
 
 ST\_ISVALID 和 ST\_ISVALIDDETAILED 可用來檢查空間物件是否有效。例如，下列查詢以超出範圍的緯度值 (-132.8)，檢查點的有效性。ST\_ISVALID 只會傳回布林值，而 ST\_ISVALIDDETAILED 會傳回布林和字串，字串中包含被視為無效的原因。
 
@@ -1602,6 +1642,22 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 		new Parent { familyName = "Smith", givenName = "Joe" };
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
+
+### 支援的 LINQ 運算子清單
+以下是隨附於 DocumentDB.NET SDK 之 LINQ 提供者中支援的 LINQ 運算子清單。
+
+-	**Select**：投影會轉譯為包括物件建構的 SQL SELECT
+-	**Where**：篩選會轉譯為 SQL WHERE，並支援 &&、|| 和 ! 到 SQL 運算子之間的轉譯
+-	**SelectMany**：可讓陣列回溯到 SQL JOIN 子句。可用來鏈結/巢串運算式來篩選陣列元素
+-	**OrderBy 和 OrderByDescending**：以遞增/遞減順序轉譯為 ORDER BY：
+-	**CompareTo**：轉譯為範圍比較。通常用於字串，因為字串在 .NET 中是無法比較的
+-	**Take**：轉譯為 SQL TOP，以限制查詢的結果
+-	**數學函數**：支援從 .NET 的 Abs、Acos、Asin、Atan、Ceiling、Cos、Exp、Floor、Log、Log10、Pow、Round、Sign、Sin、Sqrt、Tan、Truncate 轉譯為對等的 SQL 內建函式。
+-	**字串函數**：支援從 .NET 的 Concat、Contains、EndsWith、IndexOf、Count、ToLower、TrimStart、Replace、Reverse、TrimEnd、StartsWith、SubString、ToUpper 轉譯為對等的 SQL 內建函式。
+-	**陣列函數**：支援從 .NET 的 Concat、Contains 和 Count 轉譯為對等的 SQL 內建函式。
+-	**地理空間擴充函數**：支援從虛設常式方法 Distance、Within、IsValid 及 IsValidDetailed 轉譯為對等的 SQL 內建函式。
+-	**使用者定義函式的擴充函數**：支援從虛設常式方法 UserDefinedFunctionProvider.Invoke 轉譯為對應的使用者定義函式。
+-	**其他**：支援聯合和條件式運算子的轉譯。可根據內容將 Contains 轉譯為字串 CONTAINS、ARRAY\_CONTAINS 或 SQL IN。
 
 ### SQL 查詢運算子
 以下一些範例說明如何將一些標準 LINQ 查詢運算子往下轉譯為 DocumentDB 查詢。
@@ -2088,4 +2144,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
 #Azure 通知中心豐富內容推播
@@ -142,7 +142,7 @@
 
     ![][IOS3]
 
-3. 移至 **Main.storyboard**，並確定您有[通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md)教學課程中的 [檢視控制器] \(在本教學課程中稱為 [首頁檢視控制器])。
+3. 移至 **Main.storyboard**，並確定您有[通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md)教學課程中的 [檢視控制器] (在本教學課程中稱為 [首頁檢視控制器])。
 
 4. 將 [導覽控制器] 加入至您的腳本，並按住 Control 再拖曳到 [首頁檢視控制器]，使其成為導覽的**根目錄檢視**。請確定只針對 [導覽控制器] 選取 [屬性檢查程式] 中的 [是初始檢視控制器]。
 
@@ -381,4 +381,4 @@
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

@@ -23,13 +23,16 @@
 - [PowerShell](dns-operations-dnszones.md)
 
 本指南說明如何管理 DNS 區域。有助於了解管理 DNS 區域所需執行的作業序列。
- 
+
+>[AZURE.NOTE]Azure DNS 是僅能以 Azure 資源管理員運作的服務。它沒有 ASM API。因此您必須確認設定 Azure CLI 以使用資源管理員模式，並使用 azure config mode arm 命令。
+
+>如果您看到「錯誤：'dns' 不是 azure 命令」，可能是因為您正在 ASM 模式中使用 Azure CLI，而非資源管理員模式中。
  
 ## 建立新的 DNS 區域
 
 若要建立新的 DNS 區域來裝載您的網域，請使用 `azure network dns zone create`：
 
-		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 該作業會在 Azure DNS 中建立新的 DNS 區域。您可以選擇性地指定一系列的 Azure 資源管理員標記，如需詳細資訊，請參閱 [Etag 和標記](dns-getstarted-create-dnszone.md#Etags-and-tags)。
 
@@ -77,4 +80,4 @@
 
 [使用 .NET SDK 自動化作業](dns-sdk.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

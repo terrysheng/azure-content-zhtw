@@ -3,7 +3,7 @@
 	description="複製、移動和移轉 Azure SQL Database 中的資料和資料庫的簡單步驟。"
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 # 移動伺服器之間、訂用帳戶之間，以及 Azure 內外的資料庫
 ##若要將資料庫移動至相同訂用帳戶的不同伺服器
@@ -29,4 +29,4 @@
 ## 若要建立資料庫複本以供 Azure 外部使用
 - [匯出 BACPAC 檔案。](sql-database-export.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

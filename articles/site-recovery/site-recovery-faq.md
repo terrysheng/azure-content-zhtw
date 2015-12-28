@@ -80,7 +80,7 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 
 ### 我可以保護哪些 VMware VM？
 
-針對此案例，您將需要一部 VMware vCenter 伺服器、一個 vSphere Hypervisor 以及幾個執行 VMware 工具的虛擬機器。如需實際的需求，請參閱 [我需要什麼？](site-recovery-vmware-to-azure.md/#what-do-i-need)。不論是將實體伺服器複寫至 Azure 還是次要站台，都適用相同的限制。
+針對此案例，您將需要一部 VMware vCenter 伺服器、一個 vSphere Hypervisor 以及幾個執行 VMware 工具的虛擬機器。如需實際的需求，請參閱[我需要什麼？](site-recovery-vmware-to-azure.md/#what-do-i-need)。不論是將實體伺服器複寫至 Azure 還是次要站台，都適用相同的限制。
 
 ### 將虛擬機器複寫至 Azure 有任何先決條件嗎？
 
@@ -98,7 +98,7 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 
 是。當您使用 Site Recovery 來協調您分公司中的複寫與容錯移轉時，會在一個集中位置為您提供您所有分公司工作負載的整合協調與檢視。您不需要造訪分公司，就可以從總公司輕鬆執行所有分公司的容錯移轉及管理災害復原。
 
-### 有可以用來將 ASR 工作流程自動化的 SDK 嗎？
+### 有可以用來將 Site Recovery 工作流程自動化的 SDK 嗎？
 
 是。您可以使用 Rest API、PowerShell 或 Azure SDK 將 Site Recovery 的工作流程自動化。若要深入了解，請參閱[使用 PowerShell 部署 Site Recovery](site-recovery-deploy-with-powershell.md)。
 
@@ -223,4 +223,4 @@ Azure 是針對服務復原能力而設計的。Site Recovery 已經設計成可
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

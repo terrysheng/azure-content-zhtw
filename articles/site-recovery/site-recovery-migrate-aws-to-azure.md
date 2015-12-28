@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將 Windows 虛擬機器從 Amazon Web Services 移轉至 Microsoft Azure"
+	pageTitle="使用 Site Recovery 將 Windows 虛擬機器從 Amazon Web Services 移轉至 Azure | Microsoft Azure"
 	description="使用 Azure Site Recovery 將 Amazon Web Services (AWA) 中執行的 Windows 虛擬機器移轉至 Azure。"
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-#  將 Amazon Web Services (AWS) 中的 Windows 虛擬機器移轉至 Azure
+#  使用 Azure Site Recovery 將 Amazon Web Services (AWS) 中的 Windows 虛擬機器移轉至 Azure
 
 
 ## 概觀
@@ -71,4 +71,4 @@ Azure Site Recovery 可在許多部署中協調虛擬機器的複寫、容錯移
 
 在 [Site Recovery 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼任何意見或問題
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/11/2015"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> 在進階分析程序和技術中將 Hive 查詢提交至 HDInsight Hadoop 叢集 
 
-本文件說明在 Azure 中，將 Hive 查詢提交至 HDInsight 服務所管理的 Hadoop 叢集的各種方式。這項工作是 Azure Machine Learning 提供的進階分析程序和技術 (ADAPT) 的一部分。我們將討論數個資料有爭議的工作：資料探索和功能產生。泛型 Hive 查詢，示範如何探索資料，或是在 Azure HDInsight Hadoop 叢集中使用 Hive 來產生功能。這些 Hive 查詢會使用所提供的內嵌 Hive 使用者定義函式 (UDF)。
+本文件說明在 Azure 中，將 Hive 查詢提交至 HDInsight 服務所管理的 Hadoop 叢集的各種方式。此工作是 Cortana 分析程序 (CAP) 中的一部分。我們將討論數個資料有爭議的工作：資料探索和功能產生。即會顯示泛型 Hive 查詢，示範如何探索資料，或是在 Azure HDInsight Hadoop 叢集中使用 Hive 來產生功能。這些 Hive 查詢會使用所提供的內嵌 Hive 使用者定義函式 (UDF)。
 
 [Github 儲存機制](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)中也會提供 [NYC 計程車車程資料](http://chriswhong.com/open-data/foil_nyc_taxi/)案例特定的查詢範例。這些查詢已經具備指定的資料結構描述，且準備好進行提交來執行。
 
-最後一節將討論使用者可以微調的參數，如此即可改善 Hive 查詢的效能。
+最後一節將討論可用來微調並改善 Hive 查詢效能的參數。
 
 ## 必要條件
 本文假設您已經：
@@ -34,12 +34,12 @@
 
 
 ## <a name="submit"></a>如何提交 Hive 查詢
-您可以使用下列方法來提交 Hive 查詢：
+Hive 查詢可以使用下列應用程式來提交：
 
-* 叢集前端節點上的 Hadoop 命令列
-* IPython Notebook
-* Hive 編輯器
-* Azure PowerShell 指令碼
+* 叢集前端節點上的 **Hadoop 命令列主控台**
+* **IPython Notebook**
+* **Hive 編輯器**
+* **PowerShell** 指令碼
 
 Hive 查詢類似 SQL。熟悉 SQL 的使用者可能會發現 <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL-Hive 小抄</a>很有用。
 
@@ -67,7 +67,7 @@ Hive 查詢類似 SQL。熟悉 SQL 的使用者可能會發現 <a href="http://h
 
 的命令，在 Hadoop 命令列中直接提交簡單的 Hive 查詢。在下列範例中，紅色方塊框起來的是提交 Hive 查詢的命令，而綠色方塊框起來的則是 Hive 查詢的輸出。
 
-![建立工作區][10]
+![建立工作區](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
 
 #### 提交 .hql 檔案中的 Hive 查詢。
 
@@ -87,7 +87,7 @@ Hive 查詢類似 SQL。熟悉 SQL 的使用者可能會發現 <a href="http://h
 
 使用者也可以從 Hadoop 命令列執行 `hive` 命令，先進入 Hive 命令主控台，然後從 **hive>** 提示的 Hive 命令主控台提交 Hive 查詢。範例如下。
 
-![建立工作區][11]
+![建立工作區](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
 
 在此範例中，這兩個紅色方塊反白顯示的命令分別是用來進入 Hive 命令主控台，以及在 Hive 命令主控台中提交 Hive 查詢。綠色方塊反白顯示的是 Hive 查詢的輸出。
 
@@ -108,17 +108,17 @@ Hive 查詢類似 SQL。熟悉 SQL 的使用者可能會發現 <a href="http://h
 
 在下列範例中，Hive 查詢的輸出會寫入 Hadoop 叢集預設容器內的 Blob 目錄 `queryoutputdir`。在此處，您應該只提供目錄名稱，而不需提供 Blob 名稱。如果您同時提供目錄和 Blob 名稱 (例如 **wasb:///queryoutputdir/queryoutput.txt*)，則會擲回錯誤。
 
-![建立工作區][13]
+![建立工作區](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
 Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲存體總管 (或對等項目) 工具來開啟 Hadoop 叢集的預設容器。如果只要擷取名稱中具有指定字母的 Blob，您可以套用篩選條件 (以紅色方塊反白顯示)。
 
-![建立工作區][14]
+![建立工作區](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
 
 ### 透過 Hive 編輯器或 Azure PowerShell 命令
 
 使用者也可以透過下列方式來使用查詢主控台 (Hive 編輯器)：在 Web 瀏覽器中輸入
 
-*https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor*
+*https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*
 
 。請注意，系統將要求您輸入 Hadoop 叢集認證以進行登入。或者，您可以[使用 PowerShell 提交 Hive 工作](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)。
 
@@ -177,7 +177,7 @@ Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲�
 4. [從文字欄位擷取功能](#hive-textfeatures)
 5. [計算 GPS 座標間的距離](#hive-gpsdistance)
 
-###<a name="hive-frequencyfeature"></a> 以頻率為基礎的功能產生
+###<a name="hive-frequencyfeature"></a>以頻率為基礎的功能產生
 
 計算類別變數層級的頻率，或是來自多個類別變數之特定層級組合的頻率，通常很實用。使用者可以使用下列指令碼來計算這些頻率：
 
@@ -219,7 +219,7 @@ Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲�
 
 計算出風險資料表之後，使用者就可以藉由將資料表聯結至風險資料表，來將風險值指派給該資料表。Hive 聯結查詢已在上一節中提供。
 
-###<a name="hive-datefeatures"></a>從日期時間欄位擷取功能
+###<a name="hive-datefeatures"></a> 從日期時間欄位擷取功能
 
 Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。在 Hive 中，預設的日期時間格式是 'yyyy-MM-dd 00:00:00' (例如 '1970-01-01 12:21:32')。本節會顯示擷取月份日期和來自日期時間欄位的月份範例，以及其他可將預設格式以外格式的日期時間字串轉換為預設格式的日期時間字串範例。
 
@@ -241,7 +241,7 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。在 Hive �
 佈建叢集時，這個查詢中的 *hivesampletable* 預設會預先安裝於所有 Azure HDInsight Hadoop 叢集中。
 
 
-###<a name="hive-textfeatures"></a>從文字欄位擷取功能
+###<a name="hive-textfeatures"></a> 從文字欄位擷取功能
 
 當 Hive 資料表具有一個文字欄位且其中包含以空格分隔的文字字串時，下列查詢便會擷取字串長度，以及字串中的字數。
 
@@ -270,17 +270,17 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。在 Hive �
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (英文，作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。在他的 Javascript 中，函數 `toRad()` 僅為 *lat\_or\_lon*pi/180*，可將角度轉換為弧度。在此，*lat\_or\_lon* 為緯度或經度。由於 Hive 不提供函數 `atan2`，但提供函數 `atan`，因此 `atan2` 函數是由上述 Hive 查詢中的 `atan` 函數以 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
+您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。在他的 Javascript 中，函式 `toRad()` 僅為 *lat\_or\_lon*pi/180*，可將角度轉換為弧度。此處的 *lat\_or\_lon* 為緯度或經度。由於 Hive 不提供函式 `atan2`，但提供函式 `atan`，因此 `atan2` 函式是由上述 Hive 查詢中的 `atan` 函式以 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
 
-![建立工作區][1]
+![test](./media/machine-learning-data-science-process-hive-tables/atan2new.png)
 
-您可以在 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive Wiki</a> 上的**內建函數**一節中找到 Hive 內嵌 UDF 的完整清單。
+您可以在 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a> 上的**內建函式**一節中找到 Hive 內嵌 UDF 的完整清單。
 
 ## <a name="tuning"></a> 進階主題：微調 Hive 參數以提升查詢速度
 
 Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處理的資料。本節將討論一些使用者可以微調的參數，來提升 Hive 查詢的效能。使用者需要在處理資料的查詢之前新增參數微調查詢。
 
-1. **Java 堆積空間**：對於涉及聯結大型資料集或處理長記錄的查詢，常見的一項錯誤是**堆積空間不足**。這可藉由將參數 *mapreduce.map.java.opts* 和 *mapreduce.task.io.sort.mb* 設定為所需值進行微調。下列是一個範例：
+1. **Java 堆積空間**：對於涉及聯結大型資料集或處理長記錄的查詢，常見的一項錯誤是**堆積空間不足**。這可藉由將參數 *mapreduce.map.java.opts* 和 *mapreduce.task.io.sort.mb* 設定為所需的值來進行微調。下列是一個範例：
 
 		set mapreduce.map.java.opts=-Xmx4096m;
 		set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -310,13 +310,8 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-process-hive-tables/atan2new.png
-[10]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png
-[11]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png
-[12]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-1.png
-[13]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png
-[14]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png
-[15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
+
+
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="11/30/2015" 
 	ms.author="anwestg"/>
 
 # 企業的 Azure App Service Web Apps 提供項目白皮書 #
 
-在快速發展的環境中，尋求降低成本以及更快速提供 IT 解決方案的需求為開發人員、IT 專業人員和經理帶來了新的挑戰。越來越多的使用者正在尋找快速、回應靈敏且適用於任何裝置的企業營運 (LOB) Web 應用程式。同時，企業嘗試利用因與雲端和行動服務整合而不斷提升的生產力和效能，一個簡單的案例是使用 Active Directory 在不同的裝置中單一登入到 Office365 的共同作業，並使用從內部 LOB 應用程式 (依序從 Salesforce 的公司實作中提取資料) 提取的資料。[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 是一個企業級的雲端服務，可用來開發、測試，以及執行 Web 和行動應用程式、Web API 及一般網站。在資料中心 (經過延展性和可用性最佳化) 的全球網路上，Azure 網站可用來執行企業網站、業務應用程式和數位行銷活動，並針對持續整合與現代 DevOps 做法提供支援。
+在快速發展的環境中，尋求降低成本以及更快速提供 IT 解決方案的需求為開發人員、IT 專業人員和經理帶來了新的挑戰。越來越多的使用者正在尋找快速、回應靈敏且適用於任何裝置的企業營運 (LOB) Web 應用程式。同時，企業嘗試利用因與雲端和行動服務整合而不斷提升的生產力和效能，一個簡單的案例是使用 Active Directory 在不同的裝置中單一登入到 Office365 的共同作業，並使用從內部 LOB 應用程式 (依序從 Salesforce 的公司實作中提取資料) 提取的資料。[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 是一個企業級的雲端服務，可用來開發、測試，以及執行 Web 和行動應用程式、Web API 及一般網站。它可在已針對規模和可用性進行最佳化的全球資料中心網路上，用來執行企業網站、內部網站、業務應用程式及數位行銷活動，同時也支援持續整合及新式的 DevOps 做法。
 
 本白皮書中的重點會放在 [Web Apps](/services/app-service/web/) 服務的功能，尤其著重於如何執行 LOB Web 應用程式，其中包括平台上的現有 Web 應用程式移轉以及新 LOB Web 應用程式部署。
 
@@ -34,7 +34,7 @@ App Service Web Apps 是主控外部和內部 Web 應用程式和服務的理想
 
 IT 版圖正在快速變遷，逐漸捨棄裝載於需要長前置時間和高資本成本的傳統伺服器，改用可自動調整以處理負載的隨選服務。IT 部門面臨的挑戰包括降低基礎結構與維護的花費成本和使用量，重點在於降低 CAPEX，並同時提高靈活度。因為舊式基礎結構平台 (例如 Windows Server 2003) 的生命週期已經結束，IT 部門開始審查雲端移轉是否可作為避免新長期資本成本的潛在方法。在過去，CIO 會為其他部門做出採購決策；不過，越來越多的 CMO 及其他業務單位主管會在花費預算方式和投資報酬率方面扮演更積極的角色。越來越多的企業需要比以往更具行動力的員工，這包括員工可以在遠端工作、花更多的時間與客戶相處，以及必須能夠輕鬆存取系統。
 
-企業需求無時無刻不在變化。企業正在尋找由協力廠商或內部提供、新功能應有盡有，且可定期更新服務的即時全球布局。許多使用者會對企業有較高的期望，他們在私生活中享受許多服務 (例如 Office365)。因此期待在工作上同樣可以存取最新且功能豐富的類似服務。為了協助企業因應此需求，IT 必須慎選協力廠商服務並加以整合，審慎遴選適合業務需求的平台，並同時降低擁有權總成本。
+企業需求無時無刻不在變化。企業正在尋找由協力廠商或內部提供、新功能應有盡有，且可定期更新服務的即時全球布局。在某些情況下，企業也尋求既能利用「公用雲端」功能，又能將企業的應用程式及對資源的存取隔離的功能。許多使用者會對企業有較高的期望，他們在私生活中享受許多服務 (例如 Office365)。因此期待在工作上同樣可以存取最新且功能豐富的類似服務。為了協助企業因應此需求，IT 必須慎選協力廠商服務並加以整合，審慎遴選適合業務需求的平台，並同時降低擁有權總成本。
 
 開發團隊希望提供可立即感受的商業利益、經常提供新功能。他們要尋找的是符合成本效益並可整合現有工具和做法的可靠平台 – 開發、測試、發行；與 IT 部門合作以自動化部署、管理和警示作業，這些全都以零停機時間作為目標。
 
@@ -45,14 +45,17 @@ IT 版圖正在快速變遷，逐漸捨棄裝載於需要長前置時間和高�
 
 App Service Web Apps 是裝載此類應用程式的最佳選項，提供可擴充和十分可靠的基礎結構，可在幾乎零手動介入和零停機時間的情況下進行管理和修正。Microsoft Azure 平台提供許多資料儲存選項，可支援在 Web Apps 上裝載的 Web 應用程式，包括 Microsoft Azure SQL Database (一個受管理且可擴充的關聯式資料庫即服務) 和合作夥伴的熱門服務 (例如 ClearDB MySQL Database和 MongoDB)。
 
-另一個方法是運用現有的就地投資。在本範例案例中 (員工費用報銷系統)，您會維護位於內部基礎結構中的資料存放區。這可能是為了與內部系統 (報告、薪資、帳單等) 整合或是為了滿足 IT 管理需求。Web Apps 提供兩種可讓您連線到內部部署基礎結構的方法：
+另一個方法是運用現有的就地投資。在本範例案例中 (員工費用報銷系統)，您會維護位於內部基礎結構中的資料存放區。這可能是為了與內部系統 (報告、薪資、帳單等) 整合或是為了滿足 IT 管理需求。Web Apps 提供一些可讓您連線到內部部署基礎結構的方法：
 
+- [App Service 環境](../app-service-app-service-environment-intro.md) -「App Service 環境」(ASE) 是最近新增到 Microsoft Azure App Service 供應項目中的新「進階」功能。ASE 提供一個完全隔離且專用的環境，在相當高的程度上可安全地執行 Azure App Service app，同時又提供隔離且安全的網路存取。   
 - [混合式連線](../integration-hybrid-connection-overview.md) – 混合式連線是 Microsoft Azure BizTalk 服務的一個功能，可讓 Web Apps 安全連線到內部部署資源，例如 SQL Server、MySQL、Web API 和自訂 Web 服務。 
 - [虛擬網路整合](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Web Apps 與 Azure 虛擬網路整合可讓您將 Web 應用程式連線到 Azure 虛擬網路，此虛擬網路會透過站台對站台 VPN 依序連線到您的內部部署基礎結構。 
 
-下圖是內含內部部署資源連線選項的高階解決方案範例。
+下列圖表說明一個內含內部部署資源連線選項的範例概略解決方案。第一個範例示範如何使用標準 Azure App Service 功能來達成此解決方案，第二個範例則示範如何使用進階提供項目 (App Service 環境) 來達成此解決方案。
 
-![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions.png)
+使用標準 App Service 功能：![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions.png "使用標準 App Service 功能")
+
+使用 App Service 環境：![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions-ASE.png "使用 App Service 環境")
 
 ## 商業利益 ##
 
@@ -64,7 +67,7 @@ App Service Web Apps 採用平台即服務模型，能夠大幅節省成本又�
 
 強化 Web Apps 的 PaaS 模型讓執行 DevOps 方法的人員能夠實現其目標。一家企業代表了應用程式整個生命週期 (包括開發、測試、發行、監視、管理及支援) 的完整管理和整合。
 
-開發團隊可以在 Visual Studio Team Services、GitHub、TeamCity、Hudson 或 BitBucket 中設定連續整合和部署工作流程，進而提供自動化建置、測試及部署，以加快發行週期並減少有關現有基礎結構中的問題。Web Apps 還支援為您的發行工作流程建立多種測試和預備環境，您不再需要保留或配置硬體即可達成上述目的，您可以建立任意數目的環境，並在發行工作流程中定義您專屬的升級。企業可以決定從原始檔控制發行至測試位置，執行一系列的測試，並在成功完成測試時升級至預備位置，最後在沒有停機時間的情況下交換至生產環境，有了這些附加的好處，系統可以預先載入在 Web Apps 上裝載的 Web 應用程式，並提供最佳的客戶經驗。
+開發團隊可以在 Visual Studio Team Services、GitHub、TeamCity、Hudson 或 BitBucket 中設定連續整合和部署工作流程，進而提供自動化建置、測試及部署，以加快發行週期並減少有關現有基礎結構中的問題。Web Apps 還支援為您的發行工作流程建立多種測試和預備環境，您不再需要保留或配置硬體即可達成上述目的，您可以建立任意數目的環境，並在發行工作流程中定義您專屬的升級。企業可以決定從原始檔控制發行至測試位置，執行一系列的測試，並在成功完成測試時升級至預備位置，最後在沒有停機時間的情況下交換至生產環境，有了這些附加的好處，系統可以預先載入在 Web Apps 上裝載的 Web 應用程式，並提供最佳的客戶經驗。此外，企業可以利用 App Service Web Apps 的「在實際執行環境中測試」功能，先將部分流量導向到不同的位置、驗證變更，再將所有流量切換到新的部署，或是將所有流量還原到先前的部署。
 
 營運團隊有信心他們目前站在最有利的位置，可以回應任何有關在 Web Apps 上裝載內建監視和警示功能的 Web 應用程式問題。營運團隊已針對分析與監視方案進行投資，例如 Microsoft Visual Studio Application Insights、New Relic 和 AppDynamics。這些產品也完全支援 Web Apps，提供可監視 Web 應用程式的持續能力和類似環境。
 
@@ -80,13 +83,15 @@ App Service Web Apps 提供一個既穩定又可靠的平台，此平台已證�
 
 Microsoft Azure 平台允許角色型權限控管，針對 Web Apps 中的資源提供企業層級的控管。RBAC 可讓企業在 Azure 環境中實作所有資產的專屬存取管理原則，方法是將使用者指派給群組，並針對資產 (例如 Web 應用程式) 依序將必要權限指派給這些群組。如需有關 Azure 中 RBAC 的詳細資訊，請參閱 [http://aka.ms/azurerbac](../role-based-access-control-configure/)。透過使用 Web Apps，您可以確定您的 Web 應用程式會在安全的環境中進行部署，而且您會擁有部署資產所在領域的完整控制權。
 
-此外，透過提供連線回到內部資源 (例如您的資料倉儲或 SharePoint 環境) 的能力，Web Apps 還能充分運用您的內部部署投資。如 [高階解決方案] 中所述，您可以利用混合式連線和虛擬網路連線來建立內部部署基礎結構和服務之間的連線。
+「Azure App Service 環境」[http://aka.ms/aseintro] 是適用於想要利用 Azure App Service 的企業客戶的新進階服務方案選項，而這些環境可提供完全隔離且專用的環境。這可讓企業客戶部署可在非常高的程度上利用輸入和輸出網路流量，同時又能完全控制輸入和輸出網路流量的應用程式，而且 ASE 可讓應用程式透過虛擬網路，高速、安全地連線到內部部署資源。
+
+App Service Web Apps 也可透過提供連線回到內部資源 (例如您的資料倉儲或 SharePoint 環境) 的能力，充分利用您的內部部署投資。如 [高階解決方案] 中所述，您可以利用混合式連線和虛擬網路連線來建立內部部署基礎結構和服務之間的連線。
 
 ### 全球規模 ###
 
 App Service Web Apps 是一個可擴充的全域平台，可讓 Web 應用程式依照不斷成長的業務需求快速擴充與調整，並將長期規劃和成本降到最低。在傳統的內部部署基礎結構案例中，本機和各地的擴充和增加需求將會需要大量的管理、規劃和開支，才能佈建和管理額外的基礎結構。Web Apps 提供了可讓您使用 ebb 和需求流程來調整 Web 應用程式的能力。以費用報銷應用程式為例，您的使用者在每個月大部分時間並不會使用此應用程式，但每個月在接近輸入費用報銷提交的期限時，您的應用程式使用量便會增加，Web Apps 能夠為您的應用程式自動佈建更多的基礎結構，並在使用量消失時調回您所定義的基準基礎結構。
 
-您可在全球的 17 個 (且不斷增加) 資料中心內使用 Web Apps。如需最新的區域和位置清單，請參閱 [http://aka.ms/azlocations](http://aka.ms/azlocations)。有了 Web Apps，您可以擴充企業並將它輕鬆地遍及全球。隨著公司不斷擴展到新的區域，您可將所使用並在 Web Apps 上裝載的報告應用程式部署到其他的資料中心內，並透過 Web Apps 和 Azure 流量管理員的組合來提供本機使用者更快速的服務，這些全都是可調整基礎結構的附加好處，可隨著地區辦公室的需求變更而進行縮編和擴編。
+全球 24 個 (且不斷增加) 資料中心都有提供 Web Apps。如需最新的區域和位置清單，請參閱 [http://aka.ms/azlocations](http://aka.ms/azlocations)。有了 Web Apps，您可以擴充企業並將它輕鬆地遍及全球。隨著公司不斷擴展到新的區域，您可將所使用並在 Web Apps 上裝載的報告應用程式部署到其他的資料中心內，並透過 Web Apps 和 Azure 流量管理員的組合來提供本機使用者更快速的服務，這些全都是可調整基礎結構的附加好處，可隨著地區辦公室的需求變更而進行縮編和擴編。
  
 ## 解決方案詳細資料 ##
 
@@ -128,8 +133,9 @@ App Service Web Apps 是一個可擴充的全域平台，可讓 Web 應用程式
 為了將 Azure SQL Database 作為 Web 應用程式主要資料庫使用，Azure 平台提供了幾種替代方式，以啟用不同的工作負載 (例如使用 NoSQL 方案)，或提供符合業務資料需求的平台。 例如，企業可能擁有不能在異地或公用雲端環境中儲存的資料，因此將尋求維護使用內部部署資料庫。
 
 #### 內部部署資源的連線能力 ####
-App Service Web Apps 提供兩種可連線到內部部署資源 (例如資料庫) 的方式，可讓您重複使用現有的高價值基礎結構。這兩種方法是 Web Apps 虛擬網路整合和混合式連線：
+App Service Web Apps 提供多個可連線到內部部署資源 (例如資料庫) 的選項，可讓您重複使用現有的高價值基礎結構。這些選項如以下所列：
 
+- 「App Service 環境」是在虛擬網路的子網路內建立的隔離環境，因此可讓環境與位於相同虛擬網路內的私用端點進行通訊 - [http://aka.ms/appserviceasenetworking]
 - Web Apps 虛擬網路支援 Web Apps 與 Azure 虛擬網路之間的整合，可讓您存取在虛擬網路中執行的資源，如果使用站台對站台 VPN 連線到您內部部署網路，則可讓您直接連線到您的內部部署系統。
 - 混合式連線是 Azure BizTalk 服務的一項功能，可提供簡單的方法來連線到個別的內部部署資源，例如 SQL Server、MySQL、HTTP Web API 和大部分的自訂 Web 服務。
 
@@ -145,7 +151,7 @@ App Service Web Apps 可讓您透過 Azure 入口網站，將 Web 應用程式�
 App Service Web Apps 針對快速發展環境中的企業動態需求，提供彈性、符合成本效益和回應靈敏的解決方案。Web Apps 利用具備現代 DevOps 功能的受管理平台並減少實際操作管理，同時提供調整、彈性、安全性及與內部部署資產整合等方面的企業功能，協助企業提高產能和效率。
 
 ## 動作的呼叫 ##
-如需有關 Azure App Service Web Apps 服務的詳細資訊，請造訪 [http://aka.ms/enterprisewebsites](/sservices/websites/enterprise/)，您可在此找到更多資訊，現在立即註冊試用版，網址是 [http://aka.ms/azuretrial](/pricing/free-trial/)，即可評估服務並找到企業優勢。
+如需有關 Azure App Service Web Apps 服務的詳細資訊，請造訪 [http://aka.ms/enterprisewebsites](/services/websites/enterprise/)，您可在此找到更多資訊，現在立即註冊試用版，網址是 [http://aka.ms/azuretrial](/pricing/free-trial/)，即可評估服務並找到企業優勢。
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -153,4 +159,4 @@ App Service Web Apps 針對快速發展環境中的企業動態需求，提供�
  
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

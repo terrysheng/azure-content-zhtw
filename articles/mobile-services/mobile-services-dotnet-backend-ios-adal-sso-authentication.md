@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/15/2015"
 	ms.author="mahender"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
@@ -42,6 +42,7 @@
 
 * XCode 4.5 和 iOS 6.0 (或更新版本)
 * 完成[開始使用行動服務]教學課程。
+* 完成[註冊應用程式以使用 Azure Active Directory 帳戶登入]
 * Microsoft Azure 行動服務 SDK
 * [Active Directory Authentication Library for iOS]
 
@@ -120,8 +121,9 @@
 
 <!-- URLs. -->
 [開始使用行動服務]: mobile-services-dotnet-backend-ios-get-started.md
+[註冊應用程式以使用 Azure Active Directory 帳戶登入]: mobile-services-how-to-register-active-directory-authentication.md
 [如何向 Azure Active Directory 註冊]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

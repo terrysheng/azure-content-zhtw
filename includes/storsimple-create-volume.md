@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 11/18/15-->
+<!--author=SharS last changed: 11/16/15-->
 
 #### 建立磁碟區
 
@@ -6,18 +6,19 @@
 
 2. 在 [新增磁碟區精靈] 的 [基本設定] 下，執行列動作：
    1. 輸入磁碟區的 [名稱]。
-   2. 為磁碟區指定 [佈建的容量] \(GB 或 TB)。實體裝置的磁碟區容量必須介於 1 GB 到 64 TB 之間。
-   3. 在下拉式清單中，為磁碟區選取 [使用類型] 。如果您將此磁碟區用於封存資料，請選取 [將此磁碟區用於較不常存取的封存資料] 核取方塊。對於所有其他使用情況，只需選取 [階層式磁碟區]。(階層式磁碟區之前稱為主要磁碟區)。
+   2. 為磁碟區指定 [佈建的容量] (GB 或 TB)。實體裝置的磁碟區容量必須介於 1 GB 到 64 TB 之間。
+   3. 在下拉式清單中，為磁碟區選取 [使用類型] 。 
+   4. 如果您將此磁碟區用於封存資料，請選取 [**將此磁碟區用於較不常存取的封存資料**] 核取方塊。對於所有其他使用案例，只需選取 [**階層式磁碟區**]。(階層式磁碟區之前稱為主要磁碟區)。
    4. 按一下箭頭圖示 ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) 以移至下一頁。
 
         ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)
 
-3. 在 [**其他設定**] 頁面中，加入新的存取控制記錄 (ACR)：
+3. 在 [其他設定] 對話方塊中，加入新的存取控制記錄 (ACR)：
    1. 提供 ACR 的 [名稱]。
-   2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN](#get-the-iqn-of-a-windows-server-host)。
-   3. 建議選取 [啟用此磁碟區的預設備份] 核取方塊來啟用預設備份。預設備份將會建立原則，在每天的 22:30 (裝置時間) 執行，並建立此磁碟區的雲端快照。
+   2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN][](#get-the-iqn-of-a-windows-server-host)。
+   3. 建議選取 [**啟用此磁碟區的預設備份**] 核取方塊啟用預設備份。預設備份將會建立原則，在每天的 22:30 (裝置時間) 執行，並建立此磁碟區的雲端快照。
 
-        > [AZURE.NOTE] 在此處啟用備份之後，就無法加以還原。 您必須編輯磁碟區，才能修改此設定。
+        > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
 
         ![Add volume](./media/storsimple-create-volume/AddVolume2-include.png)
 
@@ -27,4 +28,4 @@
 
 若要觀看影片示範如何建立 StorSimple 磁碟區，請按一下[這裡](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/)。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

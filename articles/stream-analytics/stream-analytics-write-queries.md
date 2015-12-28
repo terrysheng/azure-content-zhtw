@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="12/11/2015" 
 	ms.author="jeffstok"/>
 
 # 如何在串流分析中撰寫查詢
@@ -34,7 +34,7 @@
 2.	新工作有可以協助您入門的查詢範本。查詢範本會執行「傳遞」查詢，其會將所有欄位從輸入事件投影至輸出中。
 
     - 如果您已經為工作定義了至少一個輸入和輸出，便可以將預留位置 "[YourOutputAlias]" 和 "[YourInputAlias]" 欄位取代為您想先用的輸入與輸出別名。此外，您仍可在 Azure 入口網站中撰寫並測試您的查詢，而不需在工作中定義輸入及輸出。
-    - 如果您想要執行比簡單的傳遞更多的處理，您可以編輯查詢定義。若要開始編寫查詢，請前往[這裡](stream-analytics-query-patterns)參考幾個一般的查詢模式。  
+    - 如果您想要執行比簡單的傳遞更多的處理，您可以編輯查詢定義。若要開始撰寫查詢，請到[這裡](stream-analytics-stream-analytics-query-patterns.md)看看一些擷取的常見查詢模式。  
   
     ![查詢資料視窗](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
 
@@ -71,4 +71,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

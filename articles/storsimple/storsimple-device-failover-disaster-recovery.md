@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # StorSimple 裝置的容錯移轉與災害復原
 
 ## 概觀
 
-本教學課程說明發生災害時容錯移轉 StorSimple 裝置所需的步驟。容錯移轉可讓您將資料中心的來源裝置資料移轉至位於相同或不同地理位置的另一個實體或甚至是虛擬裝置。裝置容錯移轉是透過災害復原 (DR) 功能協調，並從 [裝置] 頁面起始。此頁面會以表格列出與 StorSimple Manager 服務連接的所有 StorSimple 裝置。顯示每個裝置的易記名稱、狀態、佈建與最大容量、類型及模型。
+本教學課程說明發生災害時容錯移轉 StorSimple 裝置所需的步驟。容錯移轉可讓您將資料中心的來源裝置資料移轉至位於相同或不同地理位置的另一個實體或甚至是虛擬裝置。
+
+裝置容錯移轉是透過災害復原 (DR) 功能協調，並從 [裝置] 頁面起始。此頁面會以表格列出與 StorSimple Manager 服務連接的所有 StorSimple 裝置。顯示每個裝置的易記名稱、狀態、佈建與最大容量、類型及模型。
 
 ![[裝置] 頁面](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+
+本教學課程中的指導方針適用於跨所有軟體版本的 StorSimple 實體和虛擬裝置。
+
+
 
 ## 災害復原 (DR) 與裝置容錯移轉
 
@@ -40,6 +46,18 @@
 - DR 的必要條件是磁碟區容器內的所有磁碟區都必須離線，而且磁碟區容器要有相關聯的雲端快照。 
 - 適用於 DR 的可用目標裝置是空間足以容納選定磁碟區容器的裝置。 
 - 與服務連接但空間不足而不符合條件的裝置，無法當成目標裝置使用。
+
+#### 跨軟體版本的裝置容錯移轉
+
+部署中的 StorSimple Manager 服務可能會有多個實體和虛擬裝置，且全都執行不一樣的軟體版本。依軟體版本而定，裝置上的磁碟區類型也可能不同。例如，執行 Update 2 或更高版本的裝置會有固定在本機的磁碟區和分層磁碟區 (包含做為分層子集的封存)。另一方面 pre-Update 2 裝置可能會有分層磁碟區和封存磁碟區。
+
+您可以使用下表來判斷您是否可以在 DR 期間容錯移轉至另一個執行不同軟體版本的裝置，以及磁碟區類型的行為。
+
+| 容錯移轉來源 | 允許實體裝置 | 允許虛擬裝置 |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| Update 2 至 pre-Update 1 (版本 0.1、0.2、0.3) | 否 | 否 |
+| Update 2 至 Update 1 (1, 1.1, 1.2) | 是<br></br>如果使用固定在本機的磁碟區或分層磁碟區 (或兩者混合)，磁碟區一律如分層容錯移轉。 | 是<br></br>如果使用固定在本機的磁碟區，這些會容錯移轉為分層磁碟區。 |
+| Update 2 至 Update 2 (更新版本) | 是<br></br>如果使用固定在本機的磁碟區或分層磁碟區 (或兩者混合)，磁碟區一律以起始的磁碟區類型容錯移轉；分層即容錯移轉為分層，固定在本機即容錯移轉為固定在本機。 | 是<br></br>如果使用固定在本機的磁碟區，這些會容錯移轉為分層磁碟區。 |
 
 ## 容錯移轉到另一個實體裝置
 
@@ -95,10 +113,8 @@
 
 ## 容錯移轉到 StorSimple 虛擬裝置
 
-執行此程序之前，您必須已建立並設定 StorSimple 虛擬裝置。
+執行此程序之前，您必須已建立並設定 StorSimple 虛擬裝置。如果執行 Update 2，請考慮針對 DR 使用具有 64 TB，且會使用進階儲存體的 8020 虛擬裝置。
  
->[AZURE.NOTE]**在此本板中，StorSimple 虛擬裝置上支援的儲存空間數量為 30 TB。**
-
 請執行下列步驟以將裝置還原至目標 StorSimple 虛擬裝置。
 
 1. 確認您要容錯移轉的磁碟區容器是否具有相關聯的雲端快照。
@@ -119,7 +135,6 @@
 
 	b.在 [為所選取容器中的磁碟區選擇目標裝置] 下，從可用裝置的下拉式清單中選取 StorSimple 虛擬裝置。下拉式清單中只會顯示具有足夠容量的裝置。
 	
-	>[AZURE.NOTE]**如果您的實體裝置正在執行 Update 1，您只能容錯移轉到執行 Update 1 的虛擬裝置。如果目標虛擬裝置正在執行較舊的軟體版本，您會看到錯誤，表示目標裝置軟體需要更新。**
 
 1. 最後，檢閱 [確認容錯移轉] 下的所有容錯移轉設定。按一下核取圖示 ![核取圖示](./media/storsimple-device-failover-disaster-recovery/IC740895.png)。
 
@@ -147,7 +162,7 @@
 - [更新您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [刪除您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-如需如何使用 StorSimple Manager 的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+如需如何使用 StorSimple Manager 服務的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

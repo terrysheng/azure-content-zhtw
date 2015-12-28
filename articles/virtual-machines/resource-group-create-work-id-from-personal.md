@@ -14,19 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure"
-   ms.date="09/01/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # 在 Azure Active Directory 中建立工作或學校身分識別
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-如果您已建立個人的 Azure 帳戶，或有個人的 MSDN 訂用帳戶，並已建立 Azure 帳戶來運用 MSDN Azure 點數 -- 您已使用 *Microsoft 帳戶*身分識別建立。Azure 有許多很棒的功能 -- 例如[資源群組範本](../resource-group-overview.md) -- 需要工作或學校帳戶 (由 Azure Active Directory 管理的身分識別) 才能運作。
+如果您已建立個人的 Azure 帳戶，或有個人的 MSDN 訂用帳戶，並已建立 Azure 帳戶來運用 MSDN Azure 點數 -- 您已使用 *Microsoft 帳戶*身分識別建立。Azure 有許多很棒的功能 -- 例如[資源群組範本](../resource-group-overview.md) -- 需要工作或學校帳戶 (由 Azure Active Directory 管理的身分識別) 才能運作。幸運的是，預設的 Azure Active Directory 網域會提供您個人的 Azure 帳戶，讓您可以用來建立新的工作或學校帳戶，以搭配需要這類帳戶使用的 Azure 功能，因此您可以遵循下列指示來建立新的工作或學校帳戶。
 
+不過，最近的變更讓您可以使用[這裡](../xplat-cli-connect.md)`azure login`所述的互動式登入方法，進而使用任何類型的 Azure 帳戶來管理您的訂用帳戶。您可以使用同樣的機制，或者可以遵循接下來的指示。
 
-幸運的是，預設的 Azure Active Directory 網域會提供您個人的 Azure 帳戶，讓您可以用來建立新的工作或學校帳戶，以搭配需要這類帳戶使用的 Azure 功能。
-
-> [AZURE.NOTE]如果管理員已提供給您使用者名稱與密碼，很有可能您已經有工作或學校識別碼 (有時稱做「組織識別碼」)。如果是這樣，您可以立即開始使用您的 Azure 帳戶來存取需要該帳戶的 Azure資源。如果您發現無法使用這些資源，您可能需要返回本文以尋求協助。如需詳細資訊，請參閱[您可以用來登入的帳戶](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts)及 [Azure 訂用帳戶與 Azure AD 的關係](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir)。
+> [AZURE.NOTE]如果系統管理員已提供給您使用者名稱與密碼，很有可能您已經有工作或學校識別碼 (有時也稱做「組織識別碼」)。如果是這樣，您可以立即開始使用您的 Azure 帳戶來存取需要該帳戶的 Azure資源。如果您發現無法使用這些資源，您可能需要返回本文以尋求協助。如需詳細資訊，請參閱[您可以用來登入的帳戶](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts)及 [Azure 訂用帳戶與 Azure AD 的關係](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir)。
 
 步驟很簡單。您必須在 Azure 傳統入口網站中找到您已註冊的身分識別、找出您的預設 Azure Active Directory 網域，然後以 Azure 共同管理員的身分新增網域的新使用者。
 
@@ -52,17 +51,17 @@
 
 ## 在預設網域中建立新的使用者
 
-按一下 [使用者]，然後尋找您的單一個人帳戶。您應該會在 [源自] 欄中看到它是一個 **Microsoft 帳戶**。我們想要在您的預設 .onmicrosoft.com Azure Active Directory 網域中建立使用者。
+按一下 [使用者]，然後尋找您的單一個人帳戶。您應該會在 [源自] 欄中看到其為 **Microsoft 帳戶**。我們想要在您的預設 .onmicrosoft.com Azure Active Directory 網域中建立使用者。
 
 ![](./media/resource-group-create-work-id-from-personal/defaultdirectoryuserslisting.png)
 
-我們將在接下來的步驟中依照[這些指示](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1)進行，但會使用特定的範例。
+我們將在接下來的步驟中遵循[這些指示](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1)進行，但會使用特定的範例。
 
-按一下頁面底端的 [**+新增使用者**]。在出現的頁面中，輸入新的使用者名稱，並將 [使用者類型] 設為 [您組織中的新使用者]。在此範例中，使用者名稱為 `ahmet`。選取您先前找到的預設網域，以做為 ahmet 電子郵件地址的網域。完成時按一下 [下一步] 箭頭。
+按一下頁面底端的 [**+新增使用者**]。在隨即出現的頁面中，輸入新的使用者名稱，並將 [使用者類型] 設為 [您組織中的新使用者]。在此範例中，使用者名稱為 `ahmet`。選取您先前找到的預設網域，以做為 ahmet 電子郵件地址的網域。完成時按一下 [下一步] 箭頭。
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
-新增更多關於 Ahmet 的詳細資訊，但務必選取適當的 [角色] 值。您可以很輕鬆地使用**全域管理員**確定系統正在運作中，但如果您可以使用權限較低的角色，也是不錯的主意。此範例採用**使用者**角色。(如需角色的詳細資訊，請參閱[此處](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1)。) 除非您想要針對運作中的每個記錄使用多重要素驗證，否則請勿啟用多重要素驗證。當您完成時，按一下 [下一步] 箭頭。
+加入更多關於 Ahmet 的詳細資訊，但務必選取適當的 [角色] 值。您可以很輕鬆地使用**全域管理員**確定系統正在運作中，但如果您可以使用權限較低的角色，也是不錯的主意。此範例採用**使用者**角色。(在[依據角色的系統管理員權限](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1)中取得更多資訊。) 除非您想要針對運作中的每個記錄使用多重要素驗證，否則請勿啟用多重要素驗證。當您完成時，按一下 [下一步] 箭頭。
 
 ![](./media/resource-group-create-work-id-from-personal/userprofileuseradmin.png)
 
@@ -113,9 +112,9 @@
 
 ## 後續步驟
 
-您現在可以使用新的 Azure Active Directory 身分識別來使用 [Azure 資源群組範本](xplat-cli-azure-resource-manager.md)。
+您現在可以使用新的 Azure Active Directory 身分識別來使用 [Azure 資源群組範本](../xplat-cli-azure-resource-manager.md)。
 
-     azure login
+    azure login
     info:    Executing command login
     warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
     Username: ahmet@aztrainpassxxxxxoutlook.onmicrosoft.com
@@ -144,4 +143,4 @@
     data:
     info:    group create command OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

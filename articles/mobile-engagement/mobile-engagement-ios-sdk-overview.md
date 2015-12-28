@@ -32,12 +32,9 @@
 
 ##版本資訊
 
-##3\.2.0 (10/08/2015)
+###3\.2.1 (12/11/2015)
 
--   啟用 SDK 中的 Bitcode以便使用 **Xcode 7**。
--   已修正與應用程式內通知相關的錯誤。
--   讓應用程式內通知在發生電池電力不足與其他這類案例時更可靠。
--   移除第三方程式庫所產生的額外主控台記錄檔。
+-   修正當新應用程式執行個體由具有深度連結的通知觸發時造成的延遲。 
 
 如需較早版本，請參閱[完整版本資訊](mobile-engagement-ios-release-notes.md)
 
@@ -52,7 +49,7 @@
 ###從 2.0.0 到 3.0.0
 停止支援 iOS 4.X。從此版本開始，您的應用程式部署目標必須至少為 iOS 6。
 
-如果您在應用程式中使用 Reach，必須將 `remote-notification` 值新增至 Info.plist 檔案中的 `UIBackgroundModes` 陣列，以接收遠端通知。
+如果您在應用程式中使用 Reach，必須將`remote-notification` 值新增至 Info.plist 檔案中的 `UIBackgroundModes` 陣列，以接收遠端通知。
 
 在您的應用程式委派中，方法 `application:didReceiveRemoteNotification:` 需由 `application:didReceiveRemoteNotification:fetchCompletionHandler:` 取代。
 
@@ -62,4 +59,4 @@
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

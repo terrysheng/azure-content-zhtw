@@ -1,11 +1,11 @@
 <properties
-   pageTitle="如何管理服務組態和設定檔"
+   pageTitle="如何管理服務組態和設定檔 | Microsoft Azure"
    description="了解如何使用服務組態和設定檔組態檔案 | 其儲存部署環境的設定及雲端服務的發佈設定。"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 如何管理服務組態和設定檔
 
@@ -131,4 +131,4 @@
 
 若要了解如何從 Visual Studio 設定 Azure 專案的其他部分，請參閱[設定 Azure 專案](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -274,11 +274,11 @@ Hive 會和一組 UDF 一起出現，用以處理日期時間欄位。在 Hive �
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-您可以在[這裡](http://www.movable-type.co.uk/scripts/latlong.html) (作者為 Peter Lapisu) 找到計算兩個 GPS 座標間距離的數學方程式。在這個 Javascript 中，函數 toRad() 僅為 `lat_or_lon*pi/180`，可將角度轉換為弧度。在此，`lat_or_lon` 為緯度或經度。由於 Hive 不提供函數 `atan2`，但提供函數 `atan`，因此 `atan2` 函數是由上列 Hive 查詢中的 `atan` 函數根據其在[維基百科](http://en.wikipedia.org/wiki/Atan2)中的定義來實作。
+您可以在[可移動的類型指令碼](http://www.movable-type.co.uk/scripts/latlong.html) (作者為 Peter Lapisu) 找到計算兩個 GPS 座標間距離的數學方程式。在這個 Javascript 中，函數 toRad() 僅為 `lat_or_lon*pi/180`，可將角度轉換為弧度。在此，`lat_or_lon` 為緯度或經度。由於 Hive 不提供函數 `atan2`，但提供函數 `atan`，因此 `atan2` 函數是由上列 Hive 查詢中的 `atan` 函數根據其在[維基百科](http://en.wikipedia.org/wiki/Atan2)中的定義來實作。
 
 ![建立工作區][1]
 
-您可以在[這裡](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions)找到 Hive 內嵌 UDF 的完整清單。
+您可以在 [UDF 語言手冊](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions) (英文) 找到 Hive 內嵌 UDF 的完整清單。
 
 ## <a name="tuning"></a> 進階主題：微調 Hive 參數以提升查詢速度
 
@@ -325,4 +325,4 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

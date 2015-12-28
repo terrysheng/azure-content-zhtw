@@ -1,6 +1,6 @@
 <properties
 	pageTitle="分析平台：Apache Storm 與串流分析之間的比較 | Microsoft Azure"
-	description="本文將透過 Apache Storm 與串流分析之間的比較，提供您選擇雲端分析平台的指引。了解功能和差異。"
+	description="本文將使用 Apache Storm 與串流分析之間的比較，提供您選擇雲端分析平台的指引。了解功能和差異。"
 	keywords="分析平台, 分析平台, 雲端分析平台, storm 比較"
 	services="stream-analytics"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # 協助您選擇串流分析平台：Apache Storm 與 Azure 串流分析之間的比較
 
-本文將透過 Apache Storm 與 Azure 串流分析之間的比較，提供您選擇雲端分析平台的指引。您必須了解串流分析和 Apache Storm 在做為 Azure HDInsight 中的管理服務時，兩者分別的價值主張，才能為您的商務使用案例選擇合適的解決方案。
+本文將使用 Apache Storm 與 Azure 串流分析之間的比較，提供您選擇雲端分析平台的指引。您必須了解串流分析和 Apache Storm 在做為 Azure HDInsight 中的管理服務時，兩者分別的價值主張，才能為您的商務使用案例選擇合適的解決方案。
 
 雖然這兩個分析平台都提供 PaaS 解決方案的優點，但它們之間還是有幾個重要的功能差異。我們在下面列出這兩個服務的功能及限制，以協助您選擇達成目標所需的方案。
 
@@ -588,4 +588,4 @@
     </tbody>
 </table>
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

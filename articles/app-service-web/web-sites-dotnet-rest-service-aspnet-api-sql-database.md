@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="12/04/2015" 
 	ms.author="riande"/>
 
 # 在 Azure App Service 中使用 ASP.NET Web API 和 SQL Database 建立 REST 服務
 
-本教學課程示範如何使用 Visual Studio 2013 或 Visual Studio 2013 for Web Express 中的 [發行 Web] 精靈，將 ASP.NET Web 應用程式部署至 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。
+本教學課程示範如何使用 Visual Studio 2013 或 Visual Studio 2013 Community Edition 中的 [發佈 Web] 精靈，將 ASP.NET Web 應用程式部署至 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
 您可以免費申請 Azure 帳戶，而且如果您還沒有 Visual Studio 2013，SDK 會自動安裝 Visual Studio 2013 for Web Express。如此您就能開始免費進行 Azure 相關開發。
 
@@ -44,13 +44,13 @@
 
 1. 啟動 Visual Studio 2013。
 1. 從 [檔案] 功能表，按一下 [新增專案]。
-3. 在 [新增專案] 對話方塊中，展開 [Visual C#] 並選取 [Web]，再選取 [ASP.NET MVC 5 Web 應用程式]。將應用程式命名為 **ContactManager**，再按一下 [確定]。
+3. 在 [**新增專案**] 對話方塊中，展開 [**Visual C#**] 並選取 [**Web**]，再選取 [**ASP.NET Web 應用程式**]。將應用程式命名為 **ContactManager**，再按一下 [確定]。
 
-	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.png)
 
 1. 在 [New ASP.NET Project] 對話方塊中，選取 [MVC] 範本，勾選 [Web API]，再按一下 [變更驗證]。
 
-	![[新增 ASP.NET 專案] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![[新增 ASP.NET 專案] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 1. 在 [變更驗證] 對話方塊中，按一下 [不需要驗證]，然後按一下 [確定]。
 
@@ -58,9 +58,9 @@
 
 	您要建立的範例應用程式將不會有需要使用者登入的功能。如需關於如何實作驗證與授權功能的詳細資訊，請參閱本教學課程最後的[後續步驟](#nextsteps)小節。
 
-1. 在 [New ASP.NET Project] 對話方塊中，按一下 [確定]。
+1. 在 [**新增 ASP.NET 專案**] 對話方塊中，請確定已勾選 [**雲端中的主機**]，然後按一下 [**確定**]。
 
-	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 如果您先前未登入 Azure，系統將提示您登入。
 
@@ -123,7 +123,7 @@
 
 ### 在本機執行應用程式
 
-1. 按 CTRL+F5 執行應用程式。應用程式首頁隨即出現在預設瀏覽器中。![待辦事項清單首頁](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+1. 按 CTRL+F5 執行應用程式。應用程式首頁隨即出現在預設瀏覽器中。![待辦事項清單首頁](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
 
 只需執行上述作業，即可建立稍後要部署至 Azure 的應用程式。稍後您將新增資料庫功能。
 
@@ -187,7 +187,7 @@ Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。[�
     		}
 		}
 
-**Contacts** 類別定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 ContactID。您可以在本教學課程結尾處的[後續步驟](#nextsteps)一節取得資料模型的詳細資訊。
+**Contact** 類別定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 ContactID。您可以在本教學課程結尾處的[後續步驟](#nextsteps)一節取得資料模型的詳細資訊。
 
 ### 建立可讓應用程式使用者使用連絡人的網頁
 
@@ -205,11 +205,11 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 在 [Add Scaffold] 對話方塊中，選取 [MVC Controller with views, using Entity Framework]，再按一下 [新增]。
 
- ![新增控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
+ ![新增控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
 
 6. 將控制器名稱設定為 **HomeController**。選取 [Contact] 模型類別。按一下 [新資料內容] 按鈕，並接受 [新資料內容類型] 的預設值 "ContactManager.Models.ContactManagerContext"。按一下 [新增]。
 
-	![[新增控制器] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
+	![[新增控制器] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.png)
 
 	對話方塊會提示您：「名為 HomeController 的檔案已存在。您要取代該檔案嗎？」按一下 [是]。我們會覆寫隨著新專案一同建立的首頁控制器。我們會將新的首頁控制器用於連絡人清單。
 
@@ -500,14 +500,15 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 在 Package Manager Console 中，執行下列命令以安裝 Knockout。
 
-	Install-Package knockoutjs
+		Install-Package knockoutjs
+
 ## 為符合 REST 限制的 Web API 介面新增控制器
 
-1. 在 [方案總管]，於 Controllers 上按一下滑鼠右鍵，按一下 [新增]，再按一下 [控制器...]
+1. 在 [方案總管]，於 Controllers 上按一下滑鼠右鍵，按一下 [新增]，再按一下 [控制器...] 
 
 1. 在 [Add Scaffold] 對話方塊中，選取 [Web API 2 Controller with actions, using Entity Framework]，再按一下 [新增]。
 
-	![新增 API 控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
+	![新增 API 控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
 
 4. 在 [加入控制器] 對話方塊中，輸入 "ContactsController" 作為控制器名稱。選取 "Contact (ContactManager.Models)" [模型類別]。保留 [資料內容類別] 的預設值。
 
@@ -624,11 +625,13 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 1. 將以下 *using* 陳述式新增至連絡人控制器，使您得以存取 **[ValidateHttpAntiForgeryToken]** 屬性。
 
-	using ContactManager.Filters;
+		using ContactManager.Filters;
 
 1. 將 **[ValidateHttpAntiForgeryToken]** 屬性新增至 **ContactsController** 的 Post 方法，使其免於遭受 XSRF 威脅的攻擊。您需要將其新增至 PutContact"、"PostContact" 及 **DeleteContact** 動作方法。
 
-	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
+		[ValidateHttpAntiForgeryToken]
+	        public IHttpActionResult PutContact(int id, Contact contact)
+	        {
 
 1. 更新 *Views\\Home\\Index.cshtml* 檔案的 *Scripts* 區段，使其包含取得 XSRF 權杖的程式碼。
 
@@ -683,6 +686,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
                }
                ko.applyBindings(new ContactsViewModel());
             </script>
+		 }
 
 
 ## 將應用程式更新發行至 Azure 和 SQL Database
@@ -810,4 +814,4 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

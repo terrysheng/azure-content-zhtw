@@ -1,5 +1,5 @@
 <properties
-	pageTitle="了解 Azure 保護的網站" 
+	pageTitle="了解如何使用 Azure Site Recovery 進行 Hyper-V 複寫 | Microsoft Azure" 
 	description="使用本文來了解一些技術概念，協助您順利安裝、設定和管理 Azure Site Recovery。" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 
 
-# 了解 Azure 保護的 Hyper-V 或 VMM 網站
+# 了解如何使用 Azure Site Recovery 進行 Hyper-V 複寫
 
 本文說明的技術概念，可協助您透過 Azure Site Recovery，順利設定和管理 Azure 保護的 Hyper-V 網站或 VMM 網站。
 
@@ -79,4 +79,4 @@ Hyper-V 複本複寫追蹤器是 Hyper-V 複本複寫引擎的一部分，會追
 - [連絡 Microsoft 支援](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [常見的 ASR 錯誤及其解決方案](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
 # 調整 Azure 串流分析工作，以提高串流資料處理的輸送量 #
@@ -61,7 +61,7 @@
 
 要分割步驟必須符合下列條件：
 
-- 必須分割輸入來源。如需詳細資訊，請參閱 [Azure 串流分析開發人員指南](../stream-analytics-developer-guide.md)與[事件中樞程式設計指南](../azure-event-hubs-developer-guide.md)。
+- 必須分割輸入來源。如需詳細資訊，請參閱 [Azure 串流分析開發人員指南](../stream-analytics-developer-guide.md)與[事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)。
 - 查詢的 SELECT 陳述式必須讀取分割的輸入來源。
 - 步驟內的查詢必須有 **Partition By** 關鍵字
 
@@ -265,4 +265,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

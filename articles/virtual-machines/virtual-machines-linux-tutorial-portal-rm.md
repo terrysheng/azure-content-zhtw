@@ -20,14 +20,20 @@
 # 使用 Azure 入口網站建立執行 Linux 的虛擬機器
 
 > [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+<br>
 
-建立執行 Linux 的 Azure 虛擬機器 (VM) 很簡單。本教學課程示範如何使用 Azure 入口網站來快速建立一個虛擬機器，並使用`~/.ssh/id_rsa.pub`公開金鑰檔來確保您可以安全地將 **SSH** 連接至 VM。您也可以使用[自己的映像作為範本](virtual-machines-linux-create-upload-vhd.md)來建立 Linux VM。
 
-> [AZURE.NOTE]本教學課程會建立受 Azure 資源群組 API 管理的 Azure 虛擬機器。如需詳細資訊，請參閱《[Azure 資源群組概觀](resource-group-overview.md)》。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+
+建立執行 Linux 的 Azure 虛擬機器 (VM) 很簡單。本教學課程示範如何使用 Azure 入口網站來快速建立虛擬機器，以及如何使用`~/.ssh/id_rsa.pub`公開金鑰檔確保連接到 VM 之 **SSH** 的安全性。您也可以使用[自己的映像作為範本來建立 Linux VM](virtual-machines-linux-create-upload-vhd.md)。
+
+> [AZURE.NOTE]本教學課程會建立受 Azure 資源群組 API 管理的 Azure 虛擬機器。如需詳細資訊，請參閱 [Azure 資源群組概觀](resource-group-overview.md)。
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -35,17 +41,17 @@
 
 移至 Preview 入口網站中的 Azure Marketplace，以尋找您想要的 Windows Server VM 映像。
 
-1. 登入 [Preview 入口網站](https://portal.azure.com)。
+1. 登入[預覽版入口網站](https://portal.azure.com)。
 
-2. 在 [中樞] 功能表上，按一下 [**新增**] > [**計算**] > [**Ubuntu Server 14.04 LTS**]。
+2. 在 [中樞] 功能表上，按一下 [新增] > [計算] > [Ubuntu Server 14.04 LTS]。
 
 	![選擇 VM 映像](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
 
 	> [AZURE.TIP]若要尋找其他映像，請按一下 [Marketplace]，然後搜尋或篩選可用的項目。
 
-3. 在 [Ubuntu Server 14.04 LTS] 頁面底部，選取 [使用資源管理員堆疊] 在 [Azure 資源管理員] 中建立 VM。請注意，對於多數新的工作負載，我們建議使用 [資源管理員] 堆疊。如需考量事項，請參閱《[Azure 資源管理員下的 Azure 計算、網路和儲存體提供者](virtual-machines-azurerm-versus-azuresm.md)》。
+3. 在 [Ubuntu Server 14.04 LTS] 頁面底部，選取 [使用資源管理員堆疊] 在 [Azure 資源管理員] 中建立 VM。請注意，對於多數新的工作負載，我們建議使用 [資源管理員] 堆疊。如需了解注意事項，請參閱 [Azure 資源管理員下的 Azure 計算、網路及儲存體提供者](virtual-machines-azurerm-versus-azuresm.md)。
 
-4. 接下來，按一下 ![建立按鈕](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png)。
+4. 接下來按一下 ![建立按鈕](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png)。
 
 	![變更資源管理員計算堆疊](media/virtual-machines-linux-tutorial-portal-rm/changetoresourcestack.png)
 
@@ -53,21 +59,21 @@
 
 選取映像之後，您可以針對多數組態使用 Azure 的預設設定，並能快速建立 VM。
 
-1. 在 [建立虛擬機器] 刀鋒視窗中，按一下 [基本概念]。輸入您想要的 VM [名稱]，以及公開金鑰檔案 (為 **ssh rsa** 格式，在此情況下來自於 `~/.ssh/id_rsa.pub` 檔案)。如果您有一個以上的訂用帳戶，請針對新的 VM，以及新的或現有的**資源群組**和 Azure 資料中心**位置**指定一個訂用帳戶。
+1. 在 [建立虛擬機器] 刀鋒視窗中，按一下 [基本]。輸入所需的 VM **名稱**及公開金鑰檔案 (**ssh-rsa** 格式，在此案例中會來自 `~/.ssh/id_rsa.pub` 檔案)。如果您有多個訂用帳戶，請為新的 VM 及現有或新的**資源群組**及 Azure 資料中心**位置**指定訂用帳戶。
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
-	> [AZURE.NOTE]如果您不想要使用公用和私人金鑰交換來保護您的 **ssh** 工作階段，您也可在此處選擇使用者名稱/密碼驗證並輸入該資訊。
+	> [AZURE.NOTE]如果您不想使用公用和私人金鑰交換來保護您的 **ssh** 工作階段，也可在此選擇使用者名稱/密碼驗證，並輸入該資訊。
 
-2. 按一下 [大小]，然後選取適當的 VM 大小以符合您的需求。每個大小會指定計算核心、記憶體和其他功能的數目，例如支援將會影響價格的進階儲存體。Azure 會自動根據您選擇的映像來建議特定大小。完成時，按一下 ![選取按鈕](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png)。
+2. 按一下 [大小]，然後依據您的需求選取適當的 VM 大小。每個大小會指定計算核心、記憶體和其他功能的數目，例如支援將會影響價格的進階儲存體。Azure 會自動根據您選擇的映像來建議特定大小。完成時，請按一下 ![選取按鈕](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png)。
 
 	>[AZURE.NOTE]進階儲存體可供某些區域的 DS 系列虛擬機器使用。進階儲存體對於如資料庫這類資料密集的工作負載是最佳的儲存體選項。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
 
-3. 按一下 [設定] 以查看新 VM 的儲存體和網路設定。對於第一個 VM，通常您可以接受預設的設定。如果您選取支援的 VM 大小，您可以藉由選取 [磁碟類型] 下的 [進階 (SSD)] 嘗試進階儲存體。完成時，按一下 ![[確定] 按鈕](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png)。
+3. 按一下 [設定]，以查看新 VM 的儲存體和網路設定。對於第一個 VM，通常您可以接受預設的設定。如有選取支援的 VM 大小，可以選取 [磁碟類型] 下的 [進階 (SSD)] 試用進階儲存體。完成時，請按一下 ![[確定] 按鈕](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png)。
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
 
-6. 按一下 [摘要] 以檢閱您的組態選擇。當您完成檢閱或更新設定時，請按一下 ![[確定] 按鈕](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png)。
+6. 按一下 [摘要]，以檢閱您的設定選擇。當您完成檢閱或更新設定時，請按一下 ![[確定] 按鈕](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png)。
 
 	![建立摘要](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
 
@@ -77,11 +83,11 @@
 
 ## 使用 **ssh** 連線到 Azure Linux VM
 
-現在您可以透過標準方式使用 **ssh** 連線到 Ubuntu VM。不過，你需要針對 VM 及其資源開啟磚，以便探索配置給 Azure VM 的 IP 位址。您可以按一下 [瀏覽]，然後選取 [最近] 並尋找建立的 VM，或按一下「開始面板」上為您建立的磚。在任一情況下，找出並複製 [公用 IP 位址] 值，如下圖所顯示。
+您現在可以透過標準方式使用 **ssh** 連線到 Ubuntu VM。不過，你需要針對 VM 及其資源開啟磚，以便探索配置給 Azure VM 的 IP 位址。您可以按一下 [瀏覽]，然後選取 [最近] 並尋找建立的 VM，或按一下在「開始面板」上為您建立的磚。在任一情況下，找出並複製 [公用 IP 位址] 值，如下圖所示。
 
 ![成功建立的摘要](media/virtual-machines-linux-tutorial-portal-rm/successresultwithip.png)
 
-現在您可以使用 **ssh** 連線到 Azure VM，而您已準備好繼續。
+現在您可以使用** ssh** 連線到 Azure VM，然後就可以繼續執行作業。
 
 	ssh ops@23.96.106.1 -p 22
 	The authenticity of host '23.96.106.1 (23.96.106.1)' can't be established.
@@ -116,7 +122,7 @@
 	ops@ubuntuvm:~$
 
 
-> [AZURE.NOTE]您也可以在入口網站中設定虛擬機器的完整網域名稱 (FQDN)。在[這裡](virtual-machines-create-fqdn-on-portal.md)進一步了解 FQDN。
+> [AZURE.NOTE]您也可以在入口網站中設定虛擬機器的完整網域名稱 (FQDN)。深入了解如何[在入口網站中建立 FQDN](virtual-machines-create-fqdn-on-portal.md)。
 
 ## 後續步驟
 
@@ -130,4 +136,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

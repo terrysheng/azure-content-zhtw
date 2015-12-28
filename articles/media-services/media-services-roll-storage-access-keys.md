@@ -13,29 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="12/15/2015"
 	ms.author="juliako"/>
 
 #如何：更換儲存體存取金鑰之後更新媒體服務
 
-當您建立新的 Azure 媒體服務帳戶時，系統也會要求您選取一個 Azure 儲存體帳戶，用來儲存媒體內容。請注意，您可以新增多個儲存體帳戶至媒體服務帳戶中。
+當您建立新的 Azure 媒體服務帳戶時，系統也會要求您選取一個 Azure 儲存體帳戶，用來儲存媒體內容。請注意，您可以[新增多個儲存體帳戶](meda-services-managing-multiple-storage-accounts.md)至媒體服務帳戶中。
 
 建立新的儲存體帳戶時，Azure 會產生兩個 512 位元儲存體存取金鑰，用來驗證儲存體帳戶的存取權。為了讓儲存體連線更加安全，建議您定期重新產生並更換儲存體存取金鑰。您會收到兩個存取金鑰(主要和次要)，這樣當您重新產生其他存取金鑰時，您就可以使用其中一個存取金鑰保持儲存體連線不中斷。此程序也稱為 「 更換存取金鑰 」。
 
-媒體服務一定會用到其中一個儲存體金鑰 (主要或次要)。具體而言，定位器是要傳送或下載您的資產，這要看存取金鑰而定。更換存體存取金鑰時，也請您一定要更新定位器，這樣您的串流服務才不會停擺。
+媒體服務取決於所提供的儲存體金鑰。具體而言，定位器是要串流傳送或下載您的資產，這會根據指定的儲存體存取金鑰而定。建立 AMS 帳戶時，它預設會相依於主要儲存體存取金鑰，但身為使用者，您可以更新 AMS 所擁有的儲存體金鑰。您必須確定會讓媒體服務知道本主題中所述之下列步驟所使用的金鑰。此外，更換儲存體存取金鑰時，請您一定要更新定位器，這樣您的串流服務才不會停擺 (此步驟也會於本主題中加以說明)。
 
->[AZURE.NOTE]重新產生儲存體金鑰之後，請記得同步更新媒體服務。
-
-本主題會逐步教您如何更換儲存體金鑰以及更新媒體服務，讓正確的儲存體金鑰派上用場。請注意，如果您有多個儲存體帳戶，請針對每一個儲存體帳戶執行此程序。
-
->[AZURE.NOTE]在實際商用的帳戶上執行本文章描述的步驟之前，請事先在測試用帳戶上進行測試。
+>[AZURE.NOTE]如果您有多個儲存體帳戶，請針對每一個儲存體帳戶執行此程序。
+>
+>在實際商用的帳戶上執行本文章描述的步驟之前，請事先在測試用帳戶上進行測試。
 
 
 ## 步驟 1：重新產生次要儲存體存取金鑰
 
-請先重新產生次要儲存體金鑰。根據預設，媒體服務不會使用次要金鑰。如需如何更換儲存體金鑰的詳細資訊，請參閱[如何：檢視、複製及重新產生儲存體存取金鑰](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+請先重新產生次要儲存體金鑰。根據預設，媒體服務不會使用次要金鑰。如需如何更換儲存體金鑰的相關資訊，請參閱[做法：檢視、複製及重新產生儲存體存取金鑰](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
   
-##<a id="step2"></a>步驟 2：更新媒體服務，開始使用新的次要儲存體金鑰
+##<a id="step2"></a>步驟 2：更新媒體服務以使用新的次要儲存體金鑰
 
 更新媒體服務，開始使用次要儲存體存取金鑰。您可以使用下列兩種方法的其中一個，將重新產生的儲存體金鑰與媒體服務同步。
 
@@ -43,7 +41,7 @@
 
 - 使用媒體服務管理 REST API。
 
-下列程式碼範例示範如何建構 https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key 要求，以便透過媒體服務同步指定的儲存體金鑰。在本情況中，會使用次要儲存體金鑰。如需詳細資訊，請參閱[作法：使用媒體服務管理 REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx)。
+下列程式碼範例示範如何建構 https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key 要求，以便將指定的儲存體金鑰同步到媒體服務。在本情況中，會使用次要儲存體金鑰。如需詳細資訊，請參閱[做法：使用媒體服務管理 REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx)。
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -79,13 +77,15 @@
 		    }
 		}
 
-之後，請更新現有的定位器 (和舊的儲存體金鑰存在相依性)。
+在此步驟之後，請更新現有的定位器 (和舊的儲存體金鑰存在相依性)，如下列步驟所示。
 
 >[AZURE.NOTE]等待 30 分鐘，然後透過媒體服務執行任何操作 (例如，建立新定位器)，以免影響到待處理的工作。
 
 ##步驟 3：更新定位器 
 
-30 分鐘後，您可以重新建立 OnDemand 定位器，這樣定位器就會對新的次要儲存體金鑰產生相依性，並會維護現有的 URL。
+>[AZURE.NOTE]更換儲存體存取金鑰時，請您一定要更新現有的定位器，這樣您的串流服務才不會停擺。
+
+將新的儲存體金鑰同步到 AMS 之後，請至少等候 30 分鐘。接著，您可以重新建立 OnDemand 定位器，這樣定位器就會對指定的儲存體金鑰產生相依性，並維護現有的 URL。
 
 請注意，當您更新 (或重新建立) SAS 定位器時，URL 一律隨之變更。
 
@@ -130,11 +130,11 @@
 
 ##步驟 5：重新產生主要儲存體存取金鑰
 
-重新產生主要儲存體存取金鑰。如需如何更換儲存體金鑰的詳細資訊，請參閱[如何：檢視、複製及重新產生儲存體存取金鑰](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+重新產生主要儲存體存取金鑰。如需如何更換儲存體金鑰的相關資訊，請參閱[做法：檢視、複製及重新產生儲存體存取金鑰](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 
 ##步驟 6：更新媒體服務，開始使用新的主要儲存體金鑰
 	
-按照[步驟 2](media-services-roll-storage-access-keys.md#step2) 描述的相同程序，這一次只將新主要儲存體存取金鑰同步到媒體服務帳戶。
+按照[步驟 2](media-services-roll-storage-access-keys.md#step2) 描述的相同程序，這一次只將新的主要儲存體存取金鑰同步到媒體服務帳戶。
 
 >[AZURE.NOTE]等待 30 分鐘，然後透過媒體服務執行任何操作 (例如，建立新定位器)，以免影響到待處理的工作。
 
@@ -159,4 +159,4 @@
 
 我們想要向下列為建立此文件貢獻心力的人員致謝：Cenk Dingiloglu、Milan Gada、Seva Titov。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

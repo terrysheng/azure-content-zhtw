@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos" />
 
 # 從備份組還原 StorSimple 磁碟區
+
+[AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## 概觀
 
@@ -43,7 +45,7 @@
 
 ## 如何從備份還原您的 StorSimple 磁碟區
 
-您可以使用 [備份類別目錄] 頁面，從特定的備份還原 StorSimple 磁碟區。不過，請記住，還原磁碟區會將磁碟區的狀態還原為其在取得備份時的狀態。在備份作業之後新增的所有資料都將遺失。
+您可以使用 [**備份類別目錄**] 頁面，從特定的備份還原 StorSimple 磁碟區。不過，請記住，還原磁碟區會將磁碟區的狀態還原為其在取得備份時的狀態。在備份作業之後新增的所有資料都將遺失。
 
 > [AZURE.WARNING]從備份還原將從備份取代現有的磁碟區。這可能會造成在取得備份之後寫入的所有資料遺失。
 
@@ -62,7 +64,7 @@
  
     與選取的磁碟區或備份原則相關聯的備份應該會出現在備份組清單中。
 
-3. 展開備份組以檢視相關聯的磁碟區。您必須先在主機和裝置上將這些磁碟區離線，才能還原它們。存取 [磁碟區容器] 頁面上的磁碟區，然後依照 [讓磁碟區離線](storsimple-manage-volumes.md#take-a-volume-offline) 中的指示來讓它們離線。
+3. 展開備份組以檢視相關聯的磁碟區。您必須先在主機和裝置上將這些磁碟區離線，才能還原它們。存取 [磁碟區容器] 頁面上的磁碟區，然後依照 [讓磁碟區離線][](storsimple-manage-volumes.md#take-a-volume-offline) 中的指示來讓它們離線。
 
     >  [AZURE.IMPORTANT]確定您已先讓主機上的磁碟區離線，然後再讓裝置上的磁碟區離線。如果您並未讓主機上的磁碟區離線，可能會導致資料損毀。
 
@@ -78,7 +80,7 @@
 
 8. 還原完成之後，您可以確認磁碟區的內容已由備份的磁碟區所取代。
 
-![提供的影片](./media/storsimple-restore-from-backup-set/Video_icon.png)**提供的影片**
+![提供的影片](./media/storsimple-restore-from-backup-set/Video_icon.png) **提供的影片**
 
 若要觀看影片示範如何使用 StorSimple 的複製和還原功能，將已刪除的檔案復原，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)。
 
@@ -88,4 +90,4 @@
 
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

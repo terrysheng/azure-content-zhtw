@@ -1,21 +1,23 @@
-#### To create public endpoints on the virtual device
+#### 在虛擬裝置上建立公用端點
 
-1. Sign in to the Management Portal.
+1. 登入管理入口網站。
 
-- Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
+- 按一下 [虛擬機器]，然後選取想要用來做為虛擬裝置的虛擬機器。
 
-- Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
+- 按一下 [端點]。[端點] 頁面會列出虛擬機器的所有端點。
 
-- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
+- 按一下 [新增]。[新增端點] 對話方塊隨即出現。按一下箭頭以繼續。
 
-- For the **Name**, type the following name for the endpoint: **WinRMHttps**.
+- 針對 [名稱]，為端點輸入下列名稱：**WinRMHttps**。
 
-- For the **Protocol**, specify **TCP**.
+- 將 [TCP] 指定為 [通訊協定]。
 
-- For the **Public Port**, type the port numbers that you want to use for the connection.
+- 針對 [公用連接埠]，輸入要用於連線的連接埠號碼。
 
-- For the **Private Port**, type **5986**.
+- 針對 [私人連接埠]，輸入 [5986]。
 
-- Click the check mark to create the endpoint.
+- 按一下核取記號以建立端點。
 
-After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address. Record this address.
+建立端點之後，您可以檢視其詳細資料，以確認公用虛擬 IP (VIP) 位址。請記下此位址。
+
+<!---HONumber=AcomDC_1217_2015-->

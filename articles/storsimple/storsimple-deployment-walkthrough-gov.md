@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/17/2015"
+   ms.date="12/09/2015"
    ms.author="v-sharos" />
 
 # 在 Government 入口網站中部署您的內部部署 StorSimple 裝置
+
+[AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
 ## 概觀
 
@@ -68,7 +70,7 @@
 |----------------------------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
 | **將裝置接上纜線** | 序列存取 | 初始裝置組態 | 是/否 |
 | | | | |
-| **設定和註冊裝置** | Data 0 網路設定 | Data 0 IP 位址：</br>子網路遮罩：</br>閘道：</br>主要 DNS 伺服器：</br>主要 NTP 伺服器：</br>Web Proxy 伺服器 IP/FQDN (選用)：</br>Web Proxy 連接埠：| |
+| **設定和註冊裝置** | Data 0 網路設定 | Data 0 IP 位址：</br>子網路遮罩：</br>閘道器：</br>主要 DNS 伺服器：</br>主要 NTP 伺服器：</br>Web proxy 伺服器 IP/FQDN (選用)：</br>Web proxy 連接埠：| |
 | | 裝置系統管理員密碼 | 密碼必須介於 8 到 15 個字元之間，包含小寫字母、大寫字母、數字和特殊字元。 | |
 | | StorSimple Snapshot Manager 密碼 | 密碼必須是 14 或 15 個字元，包含小寫字母、大寫字母、數字和特殊字元。| |
 | | 服務註冊金鑰 | 此金鑰是從 Azure 入口網站產生。 | |
@@ -79,11 +81,11 @@
 | | 次要 DNS 伺服器 | 這是必要設定。 | |
 | | 網路介面：Data 0 控制器固定 IP | 這些 IP 應該可以路由至網際網路。</br>控制器 0 固定 IP 位址：</br>控制器 1 固定 IP 位址：|
 | | | | |
-| **其他的網路介面設定** | 網路介面：Data 1</br>如果 iSCSI 已啟用，請勿設定閘道。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道：|
-| | 網路介面：Data 2</br>如果 iSCSI 已啟用，請勿設定閘道。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道：|
-| | 網路介面：Data 3</br>如果 iSCSI 已啟用，請勿設定閘道。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道：|
-| | 網路介面：Data 4</br>如果 iSCSI 已啟用，請勿設定閘道。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道：|
-| | 網路介面：Data 5</br>如果 iSCSI 已啟用，請勿設定閘道。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道：|
+| **其他的網路介面設定** | 網路介面：Data 1</br>如果 iSCSI 已啟用，請勿設定閘道器。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道器：|
+| | 網路介面：Data 2</br>如果 iSCSI 已啟用，請勿設定閘道器。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道器：|
+| | 網路介面：Data 3</br>如果 iSCSI 已啟用，請勿設定閘道器。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道器：|
+| | 網路介面：Data 4</br>如果 iSCSI 已啟用，請勿設定閘道器。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道器：|
+| | 網路介面：Data 5</br>如果 iSCSI 已啟用，請勿設定閘道器。 | 用途：雲端/iSCSI/未使用</br>IP 位址：</br>子網路遮罩：</br>閘道器：|
 | | | | |
 | **建立磁碟區容器** | 磁碟區容器名稱： | 容器名稱 | |
 | | Azure 儲存體帳戶： | 與此磁碟區容器相關的儲存體帳戶名稱和存取金鑰 | |
@@ -150,7 +152,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 步驟 2：取得服務註冊金鑰
 
-當 StorSimple Manager 服務啟動後處於執行中時，您就必須取得服務註冊金鑰。這個金鑰是用來註冊和將 StorSimple 裝置與服務連接。
+當 StorSimple Manager 服務啟動後處於執行中時，您就必須取得服務註冊金鑰。這個金鑰是用來註冊和將 StorSimple 裝置連接至服務。
 
 請在 Government 入口網站中執行下列步驟。
 
@@ -238,13 +240,13 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 更新裝置可能需要數小時的時間。在裝置上執行下列步驟來掃描並套用更新。
 
-<!-- > [AZURE.NOTE] 如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。 請移至 [裝置] > [設定] 並停用 Data 2 和 Data 3 介面。 裝置更新之後，您應該重新啟用這些介面。-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### 若要更新裝置
 
-1.	在裝置的 [快速入門] 頁面上，按一下 [裝置]。選取實體裝置，按一下 [維護]，然後按一下 [掃描更新]。  
-2.	系統會建立掃描可用更新的工作。如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。按一下 [安裝更新]。 
-3.	更新工作將會建立。巡覽至 [工作] 監視更新的狀態。
+1.	在裝置的 [**快速入門**] 頁面上，按一下 [**裝置**]。選取實體裝置，按一下 [**維護**]，然後按一下 [**掃描更新**]。  
+2.	系統會建立掃描可用更新的工作。如果有可用的更新，[**掃描更新**] 會變更為 [**安裝更新**]。按一下 [**安裝更新**]。 
+3.	更新工作將會建立。巡覽至 [**工作**] 監視更新的狀態。
 
 	> [AZURE.NOTE]當更新工作啟動時，狀態會立即顯示為 50 %。只有在更新工作完成之後，狀態才會變更為 100%。更新程序沒有即時狀態。
 
@@ -277,4 +279,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

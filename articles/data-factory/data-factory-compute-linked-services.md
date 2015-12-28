@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="12/10/2015"
 	ms.author="spelluru"/>
 
 # 運算連結服務
@@ -49,7 +49,8 @@ Azure Data Factory 服務會自動建立隨選 HDInsight 叢集，以便處理�
 	      "timeToLive": "00:05:00",
 	      "version": "3.2",
 		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore"
+	      "linkedServiceName": "MyBlobStore",
+		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
 	        "otherLinkedServiceName2"
@@ -69,6 +70,7 @@ timetolive | <p>隨選 HDInsight 叢集允許的閒置時間。指定如果叢�
 linkedServiceName | 隨選叢集用於儲存及處理資料的 Blob 存放區。 | 是
 additionalLinkedServiceNames | 指定 HDInsight 連結服務的其他儲存體帳戶，讓 Data Factory 服務代表您註冊它們。 | 否
 osType | 作業系統的類型。允許的值為：Windows (預設值) 和 linux | 否
+hcatalogLinkedServiceName | 指向 HCatalog 資料庫的 Azure SQL 連結服務名稱。將會使用 Azure SQL 資料庫作為中繼存放區，建立隨選 HDInsight 叢集。 | 否
 
 ### 進階屬性
 
@@ -103,14 +105,15 @@ yarnConfiguration | 指定 HDInsight 叢集的 Yarn 組態參數 (yarn-site.xml)
 	        "templeton.mapper.memory.mb": "5000"
 	      },
 	      "mapReduceConfiguration": {
-	        "mapreduce.reduce.java.opts": "-Xmx8000m",
-	        "mapreduce.map.java.opts": "-Xmx8000m",
+	        "mapreduce.reduce.java.opts": "-Xmx4000m",
+	        "mapreduce.map.java.opts": "-Xmx4000m",
 	        "mapreduce.map.memory.mb": "5000",
 	        "mapreduce.reduce.memory.mb": "5000",
 	        "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
 	      },
 	      "yarnConfiguration": {
-	        "yarn.app.mapreduce.am.resource.mb": "5000"
+	        "yarn.app.mapreduce.am.resource.mb": "5000",
+	        "mapreduce.map.memory.mb": "5000"
 	      },
 	      "additionalLinkedServiceNames": [
 	        "datafeeds",
@@ -125,19 +128,19 @@ yarnConfiguration | 指定 HDInsight 叢集的 Yarn 組態參數 (yarn-site.xml)
 
 屬性 | 說明 | 必要
 :-------- | :----------- | :--------
-headNodeSize | 指定前端節點的大小。預設值為：大。如需詳細資訊，請參閱下方**指定節點大小**一節。 | 否
+headNodeSize | 指定前端節點的大小。預設值為：大。如需詳細資料，請參閱以下**指定節點大小**一節。 | 否
 dataNodeSize | 指定資料節點的大小。預設值為：大 | 否
 zookeeperNodeSize | 指定 Zoo Keeper 節點的大小。預設值為：小 | 否
  
 #### 指定節點大小
-如需了解需為上方屬性指定的字串值，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md#size-tables)文章。值必須符合本文中參照的 **CMDLET 和 API**。如您在文中所見，若資料節點的大小設定為大 (預設值)，則記憶體大小為 7 GB，其可能不適用於您的案例。
+如需了解需為上方屬性指定的字串值，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md#size-tables)一文。值必須符合本文件中所參考的 **CMDLET 與 APIS**。如您在文中所見，若資料節點的大小設定為大 (預設值)，則記憶體大小為 7 GB，其可能不適用於您的案例。
 
-若您想要建立 D4 大小的前端節點和背景工作節點，則必須指定 **Standard\_D4** 作為 headNodeSize 和 dataNodeSize 屬性的值。
+若想要建立 D4 大小的前端節點與背景工作節點，必須指定 **Standard\_D4** 作為 headNodeSize 與 dataNodeSize 屬性的值。
 
 	"headNodeSize": "Standard_D4",	
 	"dataNodeSize": "Standard_D4",
 
-若您為這些屬性指定錯誤的值，則可能會顯示下列**錯誤**：無法建立叢集。例外狀況：無法完成叢集建立作業。作業失敗 (錯誤代碼「400」)。叢集剩餘狀態：「錯誤」。訊息：「PreClusterCreationValidationFailure」。若顯示此錯誤，請確認您使用來自前述文章中資料表的 **CMDLET 和 API** 名稱。
+若您為這些屬性指定錯誤的值，可能會顯示下列**錯誤：**無法建立叢集。例外狀況：無法完成叢集建立作業。作業失敗 (錯誤代碼「400」)。叢集剩餘狀態：「錯誤」。訊息：「PreClusterCreationValidationFailure」。若顯示此錯誤，請確認您使用來自前述文章中資料表的 **CMDLET 與 APIS**名稱。
 
 
 
@@ -190,7 +193,7 @@ linkedServiceName | 此 HDInsight 叢集所使用之 Blob 儲存體的連結服�
 
 
 - [Azure Batch 基本知識](../batch/batch-technical-overview.md)，以取得 Azure Batch 服務的概觀。
-- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 傳統入口網站](../batch/batch-account-create-portal.md)，以使用 Azure 傳統入口網站建立 Azure Batch 帳戶。如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) (英文) 主題。
+- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 傳統入口網站](../batch/batch-account-create-portal.md)，以使用 Azure 傳統入口網站建立 Azure Batch 帳戶。如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)主題。
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) Cmdlet 可建立 Azure Batch 集區。
 
 ### 範例
@@ -208,14 +211,14 @@ linkedServiceName | 此 HDInsight 叢集所使用之 Blob 儲存體的連結服�
 	  }
 	}
 
-將「**.<region name**」附加至您用於 **accountName** 屬性的批次帳戶名稱。範例：
+將 "**.<地區名稱**" 附加至為 **accountName** 屬性所用的 Batch 帳戶名稱。範例：
 
 			"accountName": "mybatchaccount.eastus"
 
 另一個選項是提供 batchUri 端點，如下所示。
 
-			accountName: "adfteam",
-			batchUri: "https://eastus.batch.azure.com",
+			"accountName": "adfteam",
+			"batchUri": "https://eastus.batch.azure.com",
 
 ### 屬性
 
@@ -255,7 +258,7 @@ apiKey | 已發佈的工作區模型的 API。 | 是
 
 
 ## Azure 資料湖分析連結服務
-您應建立 **Azure 資料湖分析**連結服務將 Azure 資料湖分析計算服務連結至 Azure Data Factory，然後再使用管線中的[資料湖分析 U-SQL 活動](data-factory-usql-activity.md)。
+您應建立 **Azure 資料湖分析**連結服務，將 Azure 資料湖分析計算服務連結至 Azure Data Factory，然後再使用管線中的[資料湖分析 U-SQL 活動](data-factory-usql-activity.md)。
 
 下列範例提供 Azure 資料湖分析連結服務的 JSON 定義。
 
@@ -282,7 +285,7 @@ apiKey | 已發佈的工作區模型的 API。 | 是
 類型 | type 屬性應設為：**AzureDataLakeAnalytics**。 | 是
 accountName | Azure 資料湖分析帳戶名稱。 | 是
 dataLakeAnalyticsUri | Azure 資料湖分析 URI。 | 否
-authorization | 按一下「Data Factory 編輯器」中的 [**授權**] 按鈕並完成 OAuth 登入後，即會自動擷取授權碼。 | 是
+authorization | 按一下 Data Factory 編輯器中的 [授權] 按鈕並完成 OAuth 登入後，即會自動擷取授權碼。 | 是
 subscriptionId | Azure 訂用帳戶識別碼 | 否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。
 resourceGroupName | Azure 資源群組名稱 | 否 (若未指定，便會使用 Data Factory 的資源群組)。
 sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階段識別碼都是唯一的，只能使用一次。這是在 Data Factory 編輯器中自動產生。 | 是
@@ -290,6 +293,6 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
 
 ## Azure SQL 連結服務
 
-您可建立 Azure SQL 連結服務，以用於搭配[預存程序活動](data-factory-stored-proc-activity.md)叫用 Data Factory 管線中的預存程序。如需此連結服務的詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)一文。
+您可建立 Azure SQL 連結服務，並將其與[預存程序活動](data-factory-stored-proc-activity.md)搭配使用，以叫用 Data Factory 管線中的預存程序。如需此連結服務的詳細資料，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)一文。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

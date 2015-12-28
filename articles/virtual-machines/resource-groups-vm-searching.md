@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure"
-   ms.date="08/25/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # 使用 Windows PowerShell 和 Azure CLI 巡覽和選取 Azure 虛擬機器映像
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
 
-本文說明如何使用最近安裝的 Azure CLI 或 Azure PowerShell，來瀏覽並選取虛擬機器映像。有一個必要條件是您必須變更為資源管理員模式。搭配 Azure CLI 時，請輸入 `azure config mode arm` 來進入該模式。搭配 PowerShell 時，則請輸入 `Switch-AzureMode AzureResourceManager`。請參閱[搭配使用 Azure CLI 與資源管理員](xplat-cli-azure-resource-manager.md)和[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)，以取得更多完整的更新與組態詳細資料。
+
 
 ## 常用映像表
 
@@ -51,6 +51,8 @@
 
 
 ## Azure CLI
+
+> [AZURE.NOTE]本文說明如何使用最近安裝的 Azure CLI 或 Azure PowerShell，來瀏覽並選取虛擬機器映像。有一個必要條件是您必須變更為資源管理員模式。搭配 Azure CLI 時，請輸入 `azure config mode arm` 來進入該模式。
 
 尋找要與 `azure vm quick-create` 搭配使用之映像或建立資源群組範本檔案的最簡單且最快速方式是呼叫 `azure vm image list` 命令，並傳遞位置、發佈者名稱 (不區分大小寫！) 和提供項目 (如果您知道提供項目)。例如，如果您知道 "Canonical" 是 "UbuntuServer" 提供項目的發佈者，則下列清單只是簡短範例 (許多清單相當長)。
 
@@ -149,6 +151,11 @@
 
 ## PowerShell
 
+搭配 PowerShell 時，則請輸入 `Switch-AzureMode AzureResourceManager`。請參閱[搭配使用 Azure CLI 與資源管理員](xplat-cli-azure-resource-manager.md)和[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)，以取得更多完整的更新與設定詳細資料。
+
+> [AZURE.NOTE]由於具有 1.0 以上的 Azure PowerShell 模組，`Switch-AzureMode` Cmdlet 已移除。搭配該版本和更新版本時，請使用由 `AzureRm` 所取代的 `Azure` 部分來取代以下命令。如果您使用 1.0 以下的 Azure PowerShell 模組，則您將使用下列命令，但您必須先 `Switch-AzureMode AzureResourceManager`。
+
+
 使用 Azure 資源管理員建立新的虛擬機器時，在某些情況下，您需要使用下列映像屬性組合來指定映像：
 
 - 發佈者
@@ -224,7 +231,7 @@
 	2012-R2-Datacenter
 	Windows-Server-Technical-Preview
 
-從這份清單中，複製所選擇的 SKU 名稱，而且您擁有 **Set-AzureVMSourceImage** PowerShell Cmdlet 或資源群組範本檔案的所有資訊，而資源群組範本檔案需要您指定映像的發行者、提供項目和 SKU。
+從這份清單中複製所選擇的 SKU 名稱，而且您擁有 **Set-AzureVMSourceImage** PowerShell Cmdlet 或資源群組範本檔案的所有資訊，而資源群組範本檔案需要您指定映像的發行者、提供項目和 SKU。
 
 ### 影片逐步解說
 
@@ -244,4 +251,4 @@
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

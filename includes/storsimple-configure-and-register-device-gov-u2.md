@@ -1,57 +1,57 @@
 <!--author=SharS last changed: 12/14/15-->
 
-### To configure and register the device
+### 設定和註冊裝置
 
-1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
+1. 存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。如需相關指示，請參閱[使用 PuTTY 來連接至裝置序列主控台](#use-putty-to-connect-to-the-device-serial-console)。**請務必確實依照此程序，否則將無法存取主控台。**
 
-2. In the session that opens up, press Enter one time to get a command prompt. 
+2. 在開啟的工作階段中，按 Enter 鍵一次以取得命令提示字元。
 
-3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press Enter. 
+3. 系統將提示您選擇想要為裝置設定的語言。指定語言，然後按 Enter 鍵。
 
-    ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
+    ![StorSimple 設定和註冊裝置 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
 
-4. In the serial console menu that is presented, choose option 1 to log on with full access. 
+4. 在顯示的序列主控台功能表中，選擇選項 1 以使用完整存取權進行登入。
 
-    ![StorSimple register device 2](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
+    ![StorSimple 註冊裝置 2](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
   
-5. Perform the following steps to configure the minimum required network settings for your device.
+5. 執行下列步驟，為裝置設定最小的必要網路設定。
 
-    > [AZURE.IMPORTANT] These configuration steps need to be performed on the active controller of the device. The serial console menu indicates the controller state in the banner message. If you are not connect to the active controller, disconnect and then connect to the active controller.
+    > [AZURE.IMPORTANT]這些設定步驟必須在裝置的主動控制器上執行。序列主控台功能表會在橫幅訊息中指出控制站狀態。如果您未連接到主動控制器，請中斷連線，然後連接到主動控制器。
 
-      1. At the command prompt, type your password. The default device password is **Password1**.
+      1. 在命令提示字元中，輸入您的密碼。預設裝置密碼是 **Password1**。
 
-      2. Type the following command:
+      2. 輸入以下命令：
 
            `Invoke-HcsSetupWizard`
 
-      3. A setup wizard will appear to help you configure the network settings for the device. Supply the following information: 
+      3. 安裝精靈將協助您設定裝置的網路設定。請提供下列資訊：
 
-       - IP address for DATA 0 network interface
-       - Subnet mask
-       - Gateway
-       - IP address for Primary DNS server
-       - IP address for Primary NTP server
+       - 適用於 DATA 0 網路介面的 IP 位址
+       - 子網路遮罩
+       - 閘道器
+       - 適用於主要 DNS 伺服器的 IP 位址
+       - 適用於主要 NTP 伺服器的 IP 位址
  
-        > [AZURE.NOTE] You may have to wait for a few minutes for the subnet mask and DNS settings to be applied. 
+        > [AZURE.NOTE]您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。
 
-      4. Optionally, configure your web proxy server.
+      4. 選擇性設定 Web Proxy 伺服器。
 
-      > [AZURE.IMPORTANT] Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](storsimple-configure-web-proxy.md). 
+      >[AZURE.IMPORTANT]雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。如需詳細資訊，請參閱[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。
 
-6. Press Ctrl + C to exit the setup wizard.
+6. 按 Ctrl + C 來結束安裝精靈。
  
-7. Install the updates as follows:
-      1. Use the following cmdlet to set IPs on both the controllers:
+7. 安裝更新，如下所示：
+      1. 使用下列 Cmdlet 在兩個控制器上設定 IP：
 
          `Set-HcsNetInterface -InterfaceAlias Data0 -Controller0IPv4Address <Controller0 IP> -Controller1IPv4Address <Controller1 IP>`
 
-      2. At the command prompt, run `Get-HcsUpdateAvailability`. You should be notified that updates are available.
+      2. 在命令提示字元下，執行 `Get-HcsUpdateAvailability`。您應該會在更新可用時收到通知。
 
-      3. Run `Start-HcsUpdate`. You can run this command on any node. Updates will be applied on the first controller, the controller will fail over, and then the updates will be applied on the other controller.
+      3. 執行 `Start-HcsUpdate`。您可以在任何模式中執行此命令。更新會套用至第一個控制器，控制器會容錯移轉，然後更新會套用至其他控制器。
 
-      You can monitor the progress of the update by running `Get-HcsUpdateStatus`.    
+      您可以執行 `Get-HcsUpdateStatus` 以監視更新進度。
 
-       The following sample output shows the update in progress.
+       下列範例輸出顯示更新進行中。
   
         ````
         Controller0>Get-HcsUpdateStatus
@@ -62,7 +62,7 @@
         Controller1Events   : 
         ````
  
-     The following sample output indicates that the update is finished.
+     下列範例輸出指出更新已完成。
 
         ````
         Controller1>Get-HcsUpdateStatus
@@ -73,48 +73,46 @@
         Controller0Events   :
         Controller1Events   :
 
-      It may take up to 11 hours to apply all the updates, including the Windows Updates.
+      可能需要多達 11 個小時來套用所有更新，包括 Windows Updates。
 
-10. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure classic portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
+10. 執行下列 Cmdlet，將裝置指向 Microsoft Azure Government 入口網站 (因為預設指向公用 Azure 傳統入口網站)。這樣會重新啟動兩個控制器。建議您使用兩個 PuTTY 工作階段以同時連線至兩個控制器，這樣您就可以看見每個控制器是何時重新啟動。
 
      `Set-CloudPlatform -AzureGovt_US`
 
-    You will see a confirmation message. Accept the default (**Y**).
+    您將會看見確認訊息。接受預設值 (**Y**)。
 
-11. Run the following cmdlet to resume setup:
+11. 執行下列 Cmdlet 以繼續設定：
 
      `Invoke-HcsSetupWizard`
 
-     ![Resume setup wizard](./media/storsimple-configure-and-register-device-gov-u2/HCS_ResumeSetup-gov-include.png)
+     ![繼續設定精靈](./media/storsimple-configure-and-register-device-gov-u2/HCS_ResumeSetup-gov-include.png)
 
-    When you resume setup, the wizard will be the Update 2 version. 
+    當您繼續設定時，精靈會是 Update 2 版本。
 
-12. Accept the network settings. You will see a validation message after you accept each setting.
+12. 接受網路設定。在您接受每個設定之後，您會看到驗證訊息。
  
-13. For security reasons, the device administrator password expires after the first session, and you will need to change it now. When prompted, provide a device administrator password. A valid device administrator password must be between 8 and 15 characters. The password must contain three of the following: lowercase, uppercase, numeric, and special characters.
+13. 基於安全性理由，裝置系統管理員密碼會在第一個工作階段之後過期，您必須立即變更。出現提示時，請提供裝置系統管理員密碼。有效的裝置系統管理員密碼長度必須介於 8 到 15 個字元。密碼必須包含下列其中三項：大寫、小寫、數字和特殊字元。
 
-	<br/>![StorSimple register device 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
+	<br/>![StorSimple 註冊裝置 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
 
-14. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in [Step 2: Get the service registration key](storsimple-get-service-registration-key-gov.md). After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
+14. 安裝精靈的最後一個步驟是向 StorSimple Manager 服務註冊您的裝置。基於此因素，您需要在[步驟 2：取得服務註冊金鑰](storsimple-get-service-registration-key-gov.md)中取得的服務註冊金鑰。提供註冊金鑰之後，您可能需要等待 2-3 分鐘，才能註冊裝置。
 
-      > [AZURE.NOTE] You can press Ctrl + C at any time to exit the setup wizard. If you have entered all the network settings (IP address for Data 0, Subnet mask, and Gateway), your entries will be retained.
+      >[AZURE.NOTE]您可以隨時按 Ctrl + C 來結束安裝精靈。如果您輸入所有網路設定 (Data 0 的 IP 位址、子網路遮罩和閘道器)，則會保留您的項目。
 
-	![StorSimple registration progress](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
+	![StorSimple 註冊進度](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
 
-15. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
+15. 註冊裝置之後，隨即會出現服務資料加密金鑰。複製這個金鑰，並將它儲存在安全的位置。**這個金鑰需要與服務註冊金鑰搭配使用，來向 StorSimple Manager 服務註冊其他裝置。** 如需這個金鑰的詳細資訊，請參閱[StorSimple 安全性](../articles/storsimple/storsimple-security.md)。
 	
-	![StorSimple register device 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)    
+	![StorSimple 註冊裝置 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
 
-      > [AZURE.IMPORTANT] To copy the text from the serial console window, simply select the text. You should then be able to paste it in the clipboard or any text editor. 
-      > 
-      > DO NOT use Ctrl + C to copy the service data encryption key. Using Ctrl + C will cause you to exit the setup wizard. As a result, the device administrator password will not be changed and the device will revert to the default password.
+      >[AZURE.IMPORTANT]若要從序列主控台視窗複製文字，只需選取該文字。然後您應該能夠將它貼到剪貼簿或任何文字編輯器中。> > 請勿使用 Ctrl + C 來複製服務資料加密金鑰。使用 Ctrl + C 將導致安裝精靈結束。如此一來，裝置系統管理員密碼將不會變更，而裝置將還原為預設密碼。
 
-16. Exit the serial console.
+16. 結束序列主控台。
 
-17. Return to the Azure Government Portal, and complete the following steps:
-  1. Double-click your StorSimple Manager service to access the **Quick Start** page.
-  2. Click **View connected devices**.
-  3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+17. 返回 Azure Government 入口網站，並完成下列步驟：
+  1. 按兩下 StorSimple Manager 服務以存取 [快速入門] 頁面。
+  2. 按一下 [檢視連接的裝置]。
+  3. 在 [裝置] 頁面上，藉由查閱狀態來確認裝置已成功連接到服務。裝置狀態應該是 [線上]。
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov-u2/HCS_DeviceOnline-gov-include.png) 
   
@@ -123,3 +121,5 @@
         If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
+
+<!---HONumber=AcomDC_1217_2015-->

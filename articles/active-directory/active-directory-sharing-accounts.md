@@ -48,7 +48,7 @@ Azure AD 支援的共用帳戶適用於任何Enterprise Mobility Suite (EMS)、�
 
 啟用帳戶共用的 Azure AD 功能包括：
 
-- [密碼單一登入](active-directory-passwords-getting-started.md)
+- [密碼單一登入](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - 密碼單一登入代理程式
 - [群組指派](active-directory-accessmanagement-self-service-group-management.md)
 - 自訂密碼應用程式
@@ -72,4 +72,4 @@ Azure AD 支援的共用帳戶適用於任何Enterprise Mobility Suite (EMS)、�
 - [使用條件式存取來保護應用程式](active-directory-conditional-access.md)
 - [自助式群組管理/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

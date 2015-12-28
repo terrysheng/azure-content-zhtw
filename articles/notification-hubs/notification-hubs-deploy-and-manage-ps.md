@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="12/10/2015" 
 	ms.author="wesmc"/>
 
 # 使用 PowerShell 來部署和管理通知中樞
@@ -27,7 +27,7 @@
 
 如果您也需要為通知中樞建立新服務匯流排命名空間，請參閱[使用 PowerShell 管理服務匯流排](../service-bus/service-bus-powershell-how-to-provision.md)。
 
-Azure PowerShell 隨附的 Cmdlet 無法直接支援「管理通知中樞」。最好的 PowerShell 方法是參考 Microsoft.ServiceBus.dll 組件。該組件乃透過[服務匯流排 NuGet 封裝](http://www.nuget.org/packages/WindowsAzure.ServiceBus/)散發。
+Azure PowerShell 隨附的 Cmdlet 無法直接支援「管理通知中樞」。從 PowerShell 進行的最佳方法，是參考 Microsoft.Azure.NotificationHubs.dll 組件。組件隨附於 [Microsoft Azure 通知中樞 NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 
 
 ## 必要條件
@@ -43,13 +43,13 @@ Azure PowerShell 隨附的 Cmdlet 無法直接支援「管理通知中樞」。�
 
 ## 包括對服務匯流排之 .NET 組件的參考
 
-Azure PowerShell 中的 PowerShell Cmdlet 尚未提供「管理 Azure 通知中樞」。若要佈建通知中樞和其他不是透過現有 Cmdlet 公開的服務匯流排實體，您可以使用[服務匯流排 NuGet 封裝](http://www.nuget.org/packages/WindowsAzure.ServiceBus/)中的服務匯流排的 .NET 用戶端。
+Azure PowerShell 中的 PowerShell Cmdlet 尚未提供「管理 Azure 通知中樞」。若要佈建通知中樞，可以使用 [Microsoft Azure 通知中樞 NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)中所提供的 .NET 用戶端。
 
-首先，請確定指令碼可以找到 **Microsoft.ServiceBus.dll** 組件，它在 Visual Studio 專案中會以 NuGet 封裝的形式安裝。為了要有使用彈性，指令碼會執行這些步驟：
+首先，請確定指令碼可以找到 **Microsoft.Azure.NotificationHubs.dll** 組件，其在 Visual Studio 專案中會以 NuGet 套件的形式安裝。為了要有使用彈性，指令碼會執行這些步驟：
 
 1. 判斷叫用的路徑。
 2. 周遊路徑，直到找到名為 `packages` 的資料夾為止。當您安裝 Visual Studio 專案的 NuGet 封裝時，會建立這個資料夾。
-3. 以遞迴方式搜尋 `packages` 資料夾，以搜尋名為 **Microsoft.ServiceBus.dll** 的組件。
+3. 以遞迴方式搜尋 `packages` 資料夾中是否有名稱為 **Microsoft.Azure.NotificationHubs.dll** 的組件。
 4. 參考組件，以供稍後使用這些類型。
 
 以下是如何使用 PowerShell 指令碼實作這些步驟的方式：
@@ -58,53 +58,53 @@ Azure PowerShell 中的 PowerShell Cmdlet 尚未提供「管理 Azure 通知中�
 
 try
 {
-    # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
-    Write-Output "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
+    # WARNING: Make sure to reference the latest version of Microsoft.Azure.NotificationHubs.dll
+    Write-Output "Adding the [Microsoft.Azure.NotificationHubs.dll] assembly to the script..."
     $scriptPath = Split-Path (Get-Variable MyInvocation -Scope 0).Value.MyCommand.Path
     $packagesFolder = (Split-Path $scriptPath -Parent) + "\packages"
-    $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.ServiceBus.dll" -Recurse
+    $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.Azure.NotificationHubs.dll" -Recurse
     Add-Type -Path $assembly.FullName
 
-    Write-Output "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
+    Write-Output "The [Microsoft.Azure.NotificationHubs.dll] assembly has been successfully added to the script."
 }
 
 catch [System.Exception]
 {
-    Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
+    Write-Error("Could not add the Microsoft.Azure.NotificationHubs.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
 ```
 
 ## 建立 NamespaceManager 類別
 
-若要佈建通知中樞和其他服務匯流排實體，請從 SDK 建立 [NamespaceManager](http://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx) 類別的執行個體。
+若要佈建通知中樞，請從 SDK 建立 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) 類別的執行個體。
 
 您可以使用 Azure PowerShell 隨附的 [Get-AzureSBAuthorizationRule] Cmdlet 來擷取用來提供連接字串的授權規則。我們將會在 `$NamespaceManager` 變數中儲存對 `NamespaceManager` 執行個體的參照。我們將使用 `$NamespaceManager` 佈建通知中樞。
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
-# Create the NamespaceManager object to create the event hub
+# Create the NamespaceManager object to create the hub
 Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-$NamespaceManager=[Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+$NamespaceManager=[Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
 Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 ```
 
 
 ## 佈建新的通知中樞 
 
-若要佈建新的通知中樞，請使用[服務匯流排的 .NET API]。本文只著重於通知中樞。若要使用其他服務匯流排實體，請參閱[使用 PowerShell 管理服務匯流排](../service-bus/service-bus-powershell-how-to-provision.md)。
+若要佈建新的通知中樞，請使用[通知中樞的 .NET API]。
 
 您會在指令碼的這個部分設定四個本機變數。
 
 1. `$Namespace`：將此變數設定為要建立通知中樞之命名空間的名稱。
-2. `$Path`：將此路徑設定為新通知中樞的名稱。例如，"MyHub"。    
+2. `$Path`：將此路徑設定為新的通知中樞之名稱。例如，"MyHub"。    
 3. `$WnsPackageSid`：從 [Windows 開發人員中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)將此變數設定為 Windows 應用程式的封裝 SID。
-4. `$WnsSecretkey`：從 [Windows 開發人員中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)將此變數設定為 Windows 應用程式的密碼金鑰。
+4. `$WnsSecretkey`：從 [Windows 開發人員中心](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)將此變數設定為 Windows 應用程式的祕密金鑰。
 
-這些變數可用來連接服務匯流排命名空間，以及建立設定為使用 Windows 應用程式之 Windows Notification Services (WNS) 認證處理 WNS 通知的新通知中樞。如需取得封裝 SID 和秘密金鑰的相關資訊，請參閱[開始使用通知中樞](notification-hubs-windows-store-dotnet-get-started.md)教學課程。
+這些變數可用以連接命名空間，以及建立新的通知中樞，並將其設定為利用 WNS 認證，為 Windows 應用程式處理 Windows Notification Services (WNS) 通知。如需取得封裝 SID 與祕密金鑰的相關資訊，請參閱[開始使用通知中樞](notification-hubs-windows-store-dotnet-get-started.md)教學課程。
 
-+ 指令碼片段使用 `NamespaceManager` 物件來檢查 `$Path` 識別的通知中樞是否存在。
++ 指令碼片段使用 `NamespaceManager` 物件來查看 `$Path` 所識別的通知中樞是否存在。
 
-+ 如果不存在，指令碼會使用 WNS 認證建立 `NotificationHubDescription`，並傳遞至 `NamespaceManager` 類別 `CreateNotificationHub` 方法。
++ 如果不存在，指令碼會使用 WNS 認證建立 `NotificationHubDescription`，並將其傳遞至 `NamespaceManager` 類別 `CreateNotificationHub` 方法。
 
 ``` powershell
 
@@ -113,7 +113,7 @@ $Path  = "<Enter a name for your notification hub>"
 $WnsPackageSid = "<your package sid>"
 $WnsSecretkey = "<enter your secret key>"
 
-$WnsCredential = New-Object -TypeName Microsoft.ServiceBus.Notifications.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
+$WnsCredential = New-Object -TypeName Microsoft.Azure.NotificationHubs.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
 
 # Query the namespace
 $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
@@ -126,7 +126,7 @@ if ($CurrentNamespace)
     # Create the NamespaceManager object used to create a new notification hub
     $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
     Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-    $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+    $NamespaceManager = [Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
     Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 
     # Check to see if the Notification Hub already exists
@@ -137,7 +137,7 @@ if ($CurrentNamespace)
     else
     {
         Write-Output "Creating the [$Path] notification hub in the [$Namespace] namespace."
-        $NHDescription = New-Object -TypeName Microsoft.ServiceBus.Notifications.NotificationHubDescription -ArgumentList $Path;
+        $NHDescription = New-Object -TypeName Microsoft.Azure.NotificationHubs.NotificationHubDescription -ArgumentList $Path;
         $NHDescription.WnsCredential = $WnsCredential;
         $NamespaceManager.CreateNotificationHub($NHDescription);
         Write-Output "The [$Path] notification hub was created in the [$Namespace] namespace."
@@ -165,10 +165,10 @@ else
 [成員優惠]: http://azure.microsoft.com/pricing/member-offers/
 [免費試用]: http://azure.microsoft.com/pricing/free-trial/
 [安裝並設定 Azure PowerShell]: ../install-configure-powershell.md
-[服務匯流排的 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[通知中樞的 .NET API]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

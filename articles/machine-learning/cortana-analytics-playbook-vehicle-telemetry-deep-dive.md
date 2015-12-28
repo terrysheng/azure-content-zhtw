@@ -32,7 +32,7 @@
 - **模擬車輛訊號和診斷資料集**和 
 - **車輛類別目錄**
 
-此方案包含車輛遠程資訊服務模擬器。它會在指定時間點發出對應於車輛狀態與駕駛模式的診斷資訊和訊號。按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=717075)下載 **車輛遠程資訊服務模擬器 Visual Studio 方案**，以根據您的需求來自訂。車輛類別目錄包含一個含有 VIN 至車型對應的參考資料集。
+此方案包含車輛遠程資訊服務模擬器。它會在指定時間點發出對應於車輛狀態與駕駛模式的診斷資訊和訊號。按一下[車輛遠程資訊服務模擬器](http://go.microsoft.com/fwlink/?LinkId=717075)下載**車輛遠程資訊服務模擬器 Visual Studio 方案**，以根據您的需求來自訂。車輛類別目錄包含一個含有 VIN 至車型對應的參考資料集。
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telematics-simulator.png)
 
@@ -130,7 +130,7 @@ XUF99EW9OIQOMV7Q7 | 家庭房車
 *圖 7 - 用於擷取資料的串流分析作業查詢*
 
 ### 批次分析
-我們也會產生另一批模擬車輛訊號和診斷資料集，以進行更多樣的批次分析。這是為了確保有良好的代表性資料量可供批次處理。基於此目的，我們在 Azure Data Factory 工作流程中使用名為 'PrepareSampleDataPipeline' 的管線，以產生一年份的模擬車輛訊號和診斷資料集。按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=717077)下載 Data Factory 自訂 DotNet 活動 Visual Studio 方案，以根據您的需求來自訂。
+我們也會產生另一批模擬車輛訊號和診斷資料集，以進行更多樣的批次分析。這是為了確保有良好的代表性資料量可供批次處理。基於此目的，我們在 Azure Data Factory 工作流程中使用名為 'PrepareSampleDataPipeline' 的管線，以產生一年份的模擬車輛訊號和診斷資料集。按一下 [Data Factory 自訂活動](http://go.microsoft.com/fwlink/?LinkId=717077)下載 Data Factory 自訂 DotNet 活動 Visual Studio 方案，以根據您的需求來自訂。
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png)
 
@@ -360,7 +360,7 @@ XUF99EW9OIQOMV7Q7 | 家庭房車
 
 所有平均值都以 3 秒的 TumblingWindow 來計算。因為我們需要非重疊和連續的時間間隔，所以在此案例中使用 TubmlingWindow。
 
-若要深入了解 Azure 串流分析中的所有「時段」功能，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn835019.aspx)。
+若要深入了解 Azure 串流分析中的所有「時間範圍」功能，請按一下[時間範圍 (Azure 串流分析)](https://msdn.microsoft.com/library/azure/dn835019.aspx)。
 
 **即時預測**
 
@@ -375,7 +375,7 @@ XUF99EW9OIQOMV7Q7 | 家庭房車
 
 如果您想要整合企業營運應用程式與警示、通知、傳訊等案例的即時分析流程，此模式也適用。
 
-按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=717078)下載 RealtimeDashboardApp Visual Studio 方案來自訂。
+按一下 [RealtimeDashboardApp 下載](http://go.microsoft.com/fwlink/?LinkId=717078)下載 RealtimeDashboardApp Visual Studio 方案來自訂。
 
 ****執行即時儀表板應用程式 **
 
@@ -696,4 +696,4 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 
 本文件包含車輛遙測資料分析方案的詳細探討。這以預測和動作示範即時和批次分析的 Lambda 架構模式。此模式適用於需要最忙碌路徑 (即時) 和不忙碌路徑 (批次) 分析的各種使用案例。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

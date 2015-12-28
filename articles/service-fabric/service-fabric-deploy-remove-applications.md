@@ -3,7 +3,7 @@
    description="如何部署和移除 Service Fabric 中的應用程式"
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"
+   ms.author="seanmck"/>
 
 # 部署應用程式
 
@@ -217,7 +217,7 @@ PS D:\temp>
 
 [Service Fabric 健康狀態簡介](service-fabric-health-introduction.md)
 
-[診斷和疑難排解 Service Fabric 服務](service-fabric-diagnose-monitor-your-service-index.md)
+[診斷和疑難排解 Service Fabric 服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [在 Service Fabric 中模型化應用程式](service-fabric-application-model.md)
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

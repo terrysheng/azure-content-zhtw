@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 自動化的 Runbook 和模組資源庫"
+	pageTitle="Azure 自動化的 Runbook 和模組資源庫 | Microsoft Azure"
 	description="來自 Microsoft 和社群的 Runbook 和模組可供您在 Azure 自動化環境中安裝及使用。本文說明如何存取這些資源以及將您的 Runbook 貢獻至資源庫。"
 	services="automation"
 	documentationCenter=""
@@ -58,6 +58,8 @@ Microsoft 鼓勵您將您認為可能有助於其他客戶的 Runbook 新增至 
 
 - 上傳必須是單一 .ps1 或 .graphrunbook 檔案。如果 Runbook 需要任何模組、子 Runbook 或資產，則您應該在提交的說明中和 Runbook 的註解區段中列出。如果您有需要多個 Runbook 的解決方案，則分別將每個上傳並且在各自的說明中列出相關 Runbook 的名稱。請確定您使用相同的標記，這樣它們就會在相同的類別中顯示。使用者必須閱讀說明以便知道解決方案需要其他 Runbook 才能運作。
 
+- 使用 [**插入程式碼區段**] 圖示將 PowerShell 或 PowerShell 工作流程程式碼片段插入說明中。
+
 - 上傳的摘要會顯示在 Runbook 資源庫結果，因此您應該提供詳細資訊，幫助使用者識別 Runbook 的功能。
 
 - 您應該對上傳項目指派 1 到 3 個下列標記。Runbook 會列在精靈中符合其標記的類別底下。精靈會略過不在此清單上的任何標記。如果您未指定任何相符的標記，Runbook 會列在 [其他] 類別底下。
@@ -84,16 +86,16 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 ### 使用 Azure Preview 入口網站從 PowerShell 資源庫匯入模組
 
 1. 在 Azure Preview 入口網站中，開啟您的自動化帳戶。 
-2. 按一下 [資產] 磚以開啟資產的清單。
-3. 按一下 [模組] 磚以開啟模組的清單。
-3. 按一下 [PowerShell 資源庫] 按鈕，在另一個瀏覽器視窗中啟動 PowerShell 資源庫。<br> ![PowerShell 資源庫](media/automation-runbook-gallery/powershell-gallery-button.png)
-4. 按一下 [模組] 功能表以存取可用模組的清單。<br> ![PowerShell 資源庫按鈕](media/automation-runbook-gallery/powershell-gallery.png)
+2. 按一下 [**資產**] 磚以開啟資產的清單。
+3. 按一下 [**模組**] 磚以開啟模組的清單。
+3. 按一下 [**PowerShell 資源庫**] 按鈕，在另一個瀏覽器視窗中啟動 PowerShell 資源庫。<br> ![PowerShell 資源庫](media/automation-runbook-gallery/powershell-gallery-button.png)
+4. 按一下 [**模組**] 功能表以存取可用模組的清單。<br> ![PowerShell 資源庫按鈕](media/automation-runbook-gallery/powershell-gallery.png)
 4. 尋找您感興趣的模組，並選取以檢視其詳細資料。
-5. 若要將此模組直接安裝至 Azure 自動化，按一下 [部署至 Azure 自動化] 按鈕。<br> ![PowerShell 資源庫按鈕](media/automation-runbook-gallery/powershell-gallery-detail.png)
-6. 您會返回 Azure Preview 入口網站的 [自訂部署] 窗格。指定您要在 [新的或現有的自動化帳戶] 中安裝模組，以及指定 [自動化帳戶名稱]。如果您使用現有帳戶，則會略過 [自動化帳戶位置]。 
-7. 選取 [資源群組]，為模組指定現有資源群組或建立新群組。
-6. 您必須選取 [法律條款]，然後按一下 [購買]。請注意，雖然這個按鈕的名稱為購買，但是實際上不會因為安裝模組而向您收費。
-7. 按一下 [建立] 以匯入模組。因為必須解壓縮每個活動，此步驟可能需要幾分鐘的時間。  
+5. 若要將此模組直接安裝至 Azure 自動化，按一下 [**部署至 Azure 自動化**] 按鈕。<br> ![PowerShell 資源庫按鈕](media/automation-runbook-gallery/powershell-gallery-detail.png)
+6. 您會返回 Azure Preview 入口網站的 [**自訂部署**] 窗格。指定您要在 [**新的或現有的自動化帳戶**] 中安裝模組，以及指定 [**自動化帳戶名稱**]。如果您使用現有帳戶，則會略過 [**自動化帳戶位置**]。 
+7. 選取 [**資源群組**]，並為模組指定現有資源群組或建立新群組。
+6. 您必須選取 [**法律條款**]，然後按一下 [**購買**]。請注意，雖然這個按鈕的名稱為購買，但是實際上不會因為安裝模組而向您收費。
+7. 按一下 [**建立**] 以匯入模組。因為必須解壓縮每個活動，此步驟可能需要幾分鐘的時間。  
 8. 您會在模組已部署以及模組完成時收到通知。 
 
 
@@ -106,4 +108,4 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 - [在 Azure 自動化中建立或匯入 Runbook](automation-creating-importing-runbook.md)
 - [了解 PowerShell 工作流程](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

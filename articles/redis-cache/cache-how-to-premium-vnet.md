@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/14/2015" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的虛擬網路支援
@@ -53,7 +53,7 @@ Azure Redis 快取 VNET 整合是在 [虛擬網路] 刀鋒視窗中設定。您�
 
 ![虛擬網路][redis-cache-vnet-ip]
 
-輸入想要的 [靜態 IP 位址]，然後按一下 [確定] 以儲存 VNET 組態。如果選取的靜態 IP 已在使用中，則會顯示錯誤訊息。
+[**靜態 IP 位址**] 欄位為選用。若未指定，將從已選取的子網路中選擇。若想使用指定的靜態 IP，輸入想要的 [**靜態 IP 位址**]，然後按一下 [**確定**] 以儲存 VNET 組態。如果選取的靜態 IP 已在使用中，則會顯示錯誤訊息。
 
 一旦建立快取，它只能由相同的 VNET 中的用戶端存取。
 
@@ -117,4 +117,4 @@ VNET 僅適用於高階快取。
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

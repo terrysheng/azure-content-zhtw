@@ -12,16 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來管理磁碟區
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
 ## 概觀
 
 本教學課程說明如何使用 StorSimple Manager 服務來建立和管理 StorSimple 裝置與 StorSimple 虛擬裝置上的磁碟區。
 
-StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您透過單一 Web 介面管理 StorSimple 解決方案。除了管理磁碟區，您可以使用 StorSimple Manager 服務來建立和管理 StorSimple 服務、檢視和管理裝置、檢視警示，以及檢視和管理備份原則與備份類別目錄。
+StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您透過單一 Web 介面管理 StorSimple 解決方案。除了管理磁碟區，您可以使用 StorSimple Manager 服務來建立和管理 StorSimple 服務、檢視和管理裝置、檢視警示，以及檢視和管理備份原則與備份類別目錄。
 
 > [AZURE.NOTE]Azure StorSimple 只能建立精簡佈建的磁碟區。您無法在 Azure StorSimple 系統上建立完整佈建或部分佈建的磁碟區。
 >
@@ -70,7 +72,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 4. 在 [新增磁碟區精靈] 的 [基本設定] 下，執行列動作：
 
   1. 輸入磁碟區的 [名稱]。
-  2. 為磁碟區指定 [佈建的容量] \(GB 或 TB)。實體裝置的容量必須介於 1 GB 到 64 TB 之間。可為 StorSimple 虛擬裝置上的磁碟區佈建的最大容量為 30 TB。
+  2. 為磁碟區指定 [佈建的容量] (GB 或 TB)。實體裝置的容量必須介於 1 GB 到 64 TB 之間。可為 StorSimple 虛擬裝置上的磁碟區佈建的最大容量為 30 TB。
   3. 在下拉式清單中，為磁碟區選取 [使用類型]。如果您將此磁碟區用於封存資料，請選取 [**將此磁碟區用於較不常存取的封存資料**] 核取方塊。對於所有其他使用案例，只需選取 [**階層式磁碟區**]。(階層式磁碟區之前稱為主要磁碟區)。
   5. 按一下箭號圖示 ![箭號圖示](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)，前往 [其他設定] 頁面。
 
@@ -115,7 +117,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
  
     > [AZURE.NOTE]您無法變更此磁碟區的 [**啟用此磁碟區的預設備份**] 選項。
 
-6. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes/HCS_CheckIcon.png)，即可儲存您的變更。Azure 傳統入口網站將會顯示更新磁碟區訊息。如果磁碟區已成功更新，即會顯示成功訊息。
+6. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes/HCS_CheckIcon.png)，即可儲存您的變更。Azure 入口網站將會顯示更新磁碟區訊息。如果磁碟區已成功更新，即會顯示成功訊息。
 
 7. 如果您要延伸磁碟區，請在 Windows 主機電腦上完成下列步驟：
 
@@ -124,7 +126,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
    3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區]。[延伸磁碟區精靈] 隨即啟動。按 [下一步]。
    4. 使用預設值完成精靈。完成精靈後，磁碟區應該會顯示增加的大小。
 
-![提供的影片](./media/storsimple-manage-volumes/Video_icon.png) **提供的影片**
+![提供的影片](./media/storsimple-manage-volumes/Video_icon.png)**提供的影片**
 
 若要觀看影片示範如何擴充磁碟區，請按一下[這裡](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume)。
 
@@ -147,7 +149,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 
     磁碟區離線之後，[上線] 選項就會變成可用。
 
-> [AZURE.NOTE] [離線] 命令會將要求傳送到裝置，以使磁碟區離線。如果主機仍在使用該磁碟區，這會導致連線中斷，但是使磁碟區離線不會失敗。
+> [AZURE.NOTE][離線] 命令會將要求傳送到裝置，以使磁碟區離線。如果主機仍在使用該磁碟區，這會導致連線中斷，但是使磁碟區離線不會失敗。
 
 ## 刪除磁碟區
 
@@ -195,4 +197,4 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 
  
 
-<!----HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1217_2015-->

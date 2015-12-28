@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽版本：範圍、權限和同意
@@ -116,4 +116,4 @@ Content-Type: application/json
 
 如需有關如何取得及使用重新整理權杖的詳細資訊，請參閱[應用程式模型 v2.0 通訊協定參考](active-directory-v2-protocols.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

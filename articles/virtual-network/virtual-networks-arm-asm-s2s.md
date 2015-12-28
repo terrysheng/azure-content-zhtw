@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/18/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # 將傳統 VNet 連接到新的 VNet
@@ -312,7 +312,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
 
-3. 開啟 Azure 入口網站 (網址是 https://manage.windowsazure.com)，並在需要時輸入您的認證。
+3. 開啟 Azure 入口網站(網址是 https://manage.windowsazure.com )，並在需要時輸入您的認證。
 4. 在 [**所有項目**] 下，向下捲動並依序按一下 [**網路**]、[**vnet01**] 和 [**儀表板**]。請注意，現在已建立 **vnet01** 與 **vnet02** 之間的連線，如下所見。
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
@@ -363,4 +363,4 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 - 深入了解 [ARM 的網路資源提供者 (NRP)](../resource-groups-networking.md)。
 - 檢視有關如何[在傳統 VNet 和 ARM VNet 之間建立 S2S VPN 連線](../virtual-networks-arm-asm-s2s-howto.md)的一般指導方針。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

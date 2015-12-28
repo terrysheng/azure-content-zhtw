@@ -69,7 +69,7 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。如果您想要在 Azure 中�
 - [如何登入執行 Windows Server 的虛擬機器](virtual-machines-log-on-windows-server.md)：最多支援 2 個並行連線，除非伺服器設定為遠端桌面服務工作階段主機。  
 - [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)：根據預設，SSH 允許最多 10 個並行連線。您可以編輯組態檔以增加這個數字。
 
-如果您遇到遠端桌面或 SSH 的相關問題，請安裝並使用 [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) 擴充功能來協助修正問題。
+如果您遇到遠端桌面或 SSH 的相關問題，請安裝並使用 [VMAccess](virtual-machines-extensions-features.md) 擴充功能來協助修正問題。
 
 對於 Windows VM，其他選項包括：
 
@@ -102,7 +102,7 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。如果您想要在 Azure 中�
 
 Azure 提供的映像沒有預先設定的使用者名稱和密碼。當您使用這些映像的其中一個來建立虛擬機器時，您將需要提供用來登入虛擬機器的使用者名稱和密碼。
 
-如果您已經忘記使用者名稱或密碼，而且已經安裝 VM 代理程式，您可以安裝並使用 [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) 擴充功能來修正問題。
+如果您已經忘記使用者名稱或密碼，而且已經安裝 VM 代理程式，您可以安裝並使用 [VMAccess](virtual-machines-extensions-features.md) 擴充功能來修正問題。
 
 其他詳細資料：
 
@@ -158,4 +158,4 @@ Azure 有時會重新啟動您的 VM，這是 Azure 資料中心中定期、計�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -95,7 +95,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 	- 若要自訂功能表，請在功能表上的任意處按一下滑鼠右鍵，然後按一下 [自訂]。
 	- **設定**和**所有設定**：顯示叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
 	- **儀表板**、**叢集儀表板**和 **URL：這些是存取叢集儀表板 (也就是適用於 Linux 型叢集的 Ambari Web) 的所有方法。
-- **遠端桌面**：使用 RDP 連接到叢集。
+	- **遠端桌面**：使用 RDP 連接到叢集。
 	- **調整叢集**：可讓您變更此叢集的背景工作節點數目。
 	- **刪除**：刪除叢集。
 	- **快速入門** (![雲和雷電圖示 = 快速入門](./media/hdinsight-administer-use-portal-linux/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
@@ -267,7 +267,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 ##尋找預設的儲存體帳戶
 
-每個 HDInsight 叢集都有預設的儲存體帳戶。叢集的預設儲存體帳戶與其金鑰會顯示在 [設定] / [屬性]**** / [Azure 儲存體金鑰]**** 之下。請參閱[列出和顯示叢集](#list-and-show-clusters)。
+每個 HDInsight 叢集都有預設的儲存體帳戶。叢集的預設儲存體帳戶與其金鑰會顯示在 [設定] / [屬性] / [Azure 儲存體金鑰] 之下。請參閱[列出和顯示叢集](#list-and-show-clusters)。
 
 	
 ##尋找資源群組 
@@ -292,7 +292,7 @@ HDInsight 查詢主控台包括下列功能：
 
 	![hdinsight 入口網站工作歷程記錄](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-	按一下 [查詢名稱] 來顯示詳細資料，包括工作屬性、[工作查詢] 和 [工作輸出]**。您也可以將查詢和輸出下載至您的工作站。
+	按一下 [查詢名稱] 來顯示詳細資料，包括工作屬性、[工作查詢] 和 [工作輸出]。您也可以將查詢和輸出下載至您的工作站。
 
 - **檔案瀏覽器**：瀏覽預設的儲存體帳戶和連結的儲存體帳戶。
 
@@ -304,7 +304,7 @@ HDInsight 查詢主控台包括下列功能：
 
 	![hdinsight 入口網站 Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 	
-	從 **Hadoop UI*，您可以瀏覽檔案，並檢查記錄檔。
+	從 *Hadoop UI*，您可以瀏覽檔案，並檢查記錄檔。
 
 - **Yarn UI**。
 

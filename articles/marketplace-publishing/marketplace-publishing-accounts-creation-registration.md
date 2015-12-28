@@ -65,7 +65,7 @@ Microsoft 開發人員中心用於註冊一次公司資訊。註冊者必須是�
 
 2. 移至 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)。
 
-3. 使用您的公司註冊 Microsoft 帳戶登入 (亦即 marketplace@example.com))。
+3. 使用您的公司註冊 Microsoft 帳戶登入 (亦即 marketplace@example.com)。
 
     ![繪圖][img-signin]
 
@@ -79,7 +79,9 @@ Microsoft 開發人員中心用於註冊一次公司資訊。註冊者必須是�
 
 6. 選取您的「帳戶類型」，[個人] 或 [公司]。
 
-    <!-- Insert screenshot -->> [AZURE.IMPORTANT]若要進一步了解帳戶類型，以及何者最適合您的選擇，請檢視頁面[帳戶類型、位置和費用](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
+    <!-- Insert screenshot -->
+
+    > [AZURE.IMPORTANT]若要進一步了解帳戶類型，以及何者最適合您的選擇，請檢視頁面[帳戶類型、位置和費用](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
 
 7. 輸入 [發佈者顯示名稱]，通常是您公司的名稱。
 
@@ -143,7 +145,7 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 
 2.	移至 [http://publish.windowsazure.com](http://publish.windowsazure.com)。
 
-3.	使用您的公司註冊 Microsoft 帳戶登入 (亦即 marketplace@example.com))，您也可以視需要加入共同管理員。
+3.	使用您的公司註冊 Microsoft 帳戶登入 (亦即 marketplace@example.com)，您也可以視需要加入共同管理員。
 
   >[AZURE.TIP]如需參與原則的說明，請參閱 [Azure 網站](http://azure.microsoft.com/support/legal/marketplace/participation-policies/)。
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Azure 自動化管理 Azure 服務匯流排"
+	pageTitle="使用 Azure 自動化管理 Azure 服務匯流排 | Microsoft Azure"
 	description="了解如何使用 Azure 自動化服務管理服務匯流排。"
 	services="service-bus, automation"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/09/2015"
 	ms.author="csand"/>
 
 
@@ -42,4 +42,4 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 * 請參閱[使用 PowerShell 管理服務匯流排](service-bus-powershell-how-to-provision.md)的相關文章
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

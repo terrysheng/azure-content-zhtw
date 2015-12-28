@@ -1,14 +1,16 @@
 
-####To configure remote management on the device
+####在裝置上設定遠端管理
 
-1. On your virtual device, go to **Devices > Configure**.
+1. 在虛擬裝置上，移至 [裝置] > [設定]。
 
-2. Scroll down to the **Remote Management** section.
+2. 向下捲動至 [遠端管理] 區段。
 
-3. Set **Enable Remote Management** to **Yes**.
+3. 將 [啟用遠端管理] 設為 [是]。
 
-4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
+4. 您現在可以選擇使用 HTTP 來連接。預設是透過 HTTPS 來連接。只有受信任的網路上才接受透過 HTTP 來連接。
 
-5. Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
+5. 按一下 [下載遠端管理憑證] 來下載遠端管理憑證。您將指定儲存此檔案的位置。然後，此憑證需要安裝於您將用來連接到虛擬裝置的用戶端或主機電腦上。
 
-6. Click **Save** at the bottom of the page.
+6. 按一下頁面底部的 [儲存]。
+
+<!---HONumber=AcomDC_1217_2015-->

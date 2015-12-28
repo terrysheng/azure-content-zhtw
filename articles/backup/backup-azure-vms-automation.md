@@ -28,12 +28,39 @@
 ## 設定和註冊
 開始：
 
-1. [下載最新的 PowerShell](https://github.com/Azure/azure-powershell/releases) (所需最低版本為：1.0.0)
+1. [下載最新版 PowerShell](https://github.com/Azure/azure-powershell/releases) (所需的基本版本為：1.0.0)
 
-2. 使用 **Switch-AzureMode** Cmdlet 切換至 *AzureResourceManager* 模式，以啟用 Azure 備份 Cmdlet：
+2. 輸入下列命令，找到可用的 Azure 備份 PowerShell Cmdlet：
 
 ```
-PS C:\> Switch-AzureMode AzureResourceManager
+PS C:\> Get-Command *azurermbackup*
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Backup-AzureRmBackupItem                           1.0.1      AzureRM.Backup
+Cmdlet          Disable-AzureRmBackupProtection                    1.0.1      AzureRM.Backup
+Cmdlet          Enable-AzureRmBackupContainerReregistration        1.0.1      AzureRM.Backup
+Cmdlet          Enable-AzureRmBackupProtection                     1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupContainer                         1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupItem                              1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupJob                               1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupJobDetails                        1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupRecoveryPoint                     1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupVaultCredentials                  1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupRetentionPolicyObject             1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Register-AzureRmBackupContainer                    1.0.1      AzureRM.Backup
+Cmdlet          Remove-AzureRmBackupProtectionPolicy               1.0.1      AzureRM.Backup
+Cmdlet          Remove-AzureRmBackupVault                          1.0.1      AzureRM.Backup
+Cmdlet          Restore-AzureRmBackupItem                          1.0.1      AzureRM.Backup
+Cmdlet          Set-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          Set-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Stop-AzureRmBackupJob                              1.0.1      AzureRM.Backup
+Cmdlet          Unregister-AzureRmBackupContainer                  1.0.1      AzureRM.Backup
+Cmdlet          Wait-AzureRmBackupJob                              1.0.1      AzureRM.Backup
 ```
 
 PowerShell 可以自動化下列設定和註冊工作：
@@ -58,7 +85,7 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 
 ### 註冊 VM
-使用 Azure 備份來設定備份的第一個步驟是向 Azure 備份保存庫註冊您的電腦或 VM。**Register-AzureRMBackupContainer** Cmdlet 會取用 Azure IaaS 虛擬機器的輸入資訊，並向指定的保存庫註冊。註冊作業會將 Azure 虛擬機器與備份保存庫相關聯，並於整個備份生命週期內追蹤 VM。
+使用 Azure 備份來設定備份的第一個步驟是向 Azure 備份保存庫註冊您的電腦或 VM。**Register-AzureRMBackupContainer** Cmdlet 會取用 Azure IaaS 虛擬機器的輸入資訊，並對指定的保存庫進行註冊。註冊作業會將 Azure 虛擬機器與備份保存庫相關聯，並於整個備份生命週期內追蹤 VM。
 
 向 Azure 備份服務註冊您的 VM 會建立最上層的容器物件。一個容器通常包含多個可備份的項目，但以 VM 而言，容器只有一個備份項目。
 
@@ -81,9 +108,9 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 
 > [AZURE.NOTE]PowerShell 中 BackupTime 欄位的時區是 UTC。不過，當備份時間顯示在 Azure 入口網站中時，時區會對應您的本機系統與 UTC 時差。
 
-備份原則至少與一個保留原則相關聯。保留原則定義復原點在 Azure 備份中保留的時間長度。**New-AzureRMBackupRetentionPolicy** Cmdlet 會建立可儲存保留原則資訊的 PowerShell 物件。這些保留原則物件做為 *New-AzureRMBackupProtectionPolicy* Cmdlet 的輸入，或直接與 *Enable-AzureRMBackupProtection* Cmdlet 搭配使用。
+備份原則至少與一個保留原則相關聯。保留原則定義復原點在 Azure 備份中保留的時間長度。**New-AzureRMBackupRetentionPolicy** Cmdlet 會建立可儲存保留原則資訊的 PowerShell 物件。這些保留原則物件會用作為 *New-AzureRMBackupProtectionPolicy* Cmdlet 的輸入，或直接與 *Enable-AzureRMBackupProtection* Cmdlet 搭配使用。
 
-備份原則定義項目備份的時間和頻率。**New-AzureRMBackupProtectionPolicy** Cmdlet 會建立可儲存備份原則資訊的 PowerShell 物件。備份原則用來做為 *Enable-AzureRMBackupProtection* Cmdlet 的輸入。
+備份原則定義項目備份的時間和頻率。**New-AzureRMBackupProtectionPolicy** Cmdlet 會建立可儲存備份原則資訊的 PowerShell 物件。備份原則會用作為 *Enable-AzureRMBackupProtection* Cmdlet 的輸入。
 
 ```
 PS C:\> $Daily = New-AzureRMBackupRetentionPolicyObject -DailyRetention -Retention 30
@@ -102,7 +129,7 @@ PS C:\> Get-AzureRMBackupContainer -Type AzureVM -Status Registered -Vault $back
 ```
 
 ### 初始備份
-備份排程會負責執行項目的完整初始複製，以及後續備份的增量複製。不過，如果您想要強制初始備份在特定時間進行，甚至是立即開始，請使用 **Backup-AzureRMBackupItem** Cmdlet：
+備份排程會負責執行項目的完整初始複製，以及後續備份的增量複製。但如果您想要在特定時間進行強制初始備份，或甚至是立即開始，請使用 **Backup-AzureRMBackupItem** Cmdlet：
 
 ```
 PS C:\> $container = Get-AzureRMBackupContainer -Vault $backupvault -type AzureVM -name "testvm"
@@ -130,7 +157,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-不需要輪詢這些工作何時完成 (這是多餘、額外的程式碼)，使用 **Wait-AzureRMBackupJob** Cmdlet 更簡單。在指令碼中使用此 Cmdlet 會暫停執行，直到工作完成或達到指定的逾時值為止。
+因為需要額外的程式碼且並非必要，所以不輪詢這些工作是否完成，而是更簡單地改用 **Wait-AzureRMBackupJob** Cmdlet。在指令碼中使用此 Cmdlet 會暫停執行，直到工作完成或達到指定的逾時值為止。
 
 ```
 PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
@@ -143,7 +170,7 @@ PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
 
 ### 選取 VM
 
-若要取得可識別正確備份項目的 PowerShell 物件，您需要從保存庫中的「容器」開始，向下深入物件階層。若要選取代表 VM 的容器，請使用 **Get-AzureRMBackupContainer** Cmdlet，並將它傳給 **Get-AzureRMBackupItem** Cmdlet。
+若要取得可識別正確備份項目的 PowerShell 物件，您需要從保存庫中的「容器」開始，向下深入物件階層。若要選取代表 VM 的容器，請使用 **Get-AzureRMBackupContainer** Cmdlet，並將其輸送至 **Get-AzureRMBackupItem** Cmdlet。
 
 ```
 PS C:\> $backupitem = Get-AzureRMBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
@@ -151,7 +178,7 @@ PS C:\> $backupitem = Get-AzureRMBackupContainer -Vault $backupvault -Type Azure
 
 ### 選擇復原點
 
-您現在可以使用 **Get-AzureRMBackupRecoveryPoint** Cmdlet 列出備份項目的所有復原點，並選擇要還原的復原點。使用者通常會從清單中選擇最近的 *AppConsistent* 點。
+您現可使用 **Get-AzureRMBackupRecoveryPoint** Cmdlet，列出備份項目的所有復原點，並選擇要還原的復原點。使用者通常會從清單中選擇最近的 *AppConsistent* 點。
 
 ```
 PS C:\> $rp =  Get-AzureRMBackupRecoveryPoint -Item $backupitem
@@ -162,7 +189,7 @@ RecoveryPointId    RecoveryPointType  RecoveryPointTime      ContainerName
 15273496567119     AppConsistent      01-Sep-15 12:27:38 PM  iaasvmcontainer;testvm;testv...
 ```
 
-變數 ```$rp``` 是所選取之備份項目的復原點陣列，以時間的相反順序儲存 - 最新的復原點位於索引 0。使用標準 PowerShell 陣列索引來挑選復原點。例如：```$rp[0]``` 將會選取最新的復原點。
+變數 ```$rp``` 是所選取之備份項目的復原點陣列，以時間的回推順序排序 - 最近的復原點位於索引 0。使用標準 PowerShell 陣列索引來挑選復原點。例如：```$rp[0]``` 將會選取最新的復原點。
 
 ### 還原磁碟
 
@@ -179,7 +206,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
 ```
 
-完成還原作業之後，您可以使用 **Get-AzureRMBackupJobDetails** Cmdlet 取得還原作業的詳細資料。*ErrorDetails* 屬性會有重建 VM 所需的資訊。
+完成還原作業之後，可以使用 **Get-AzureRMBackupJobDetails** Cmdlet 取得還原作業的詳細資料。*ErrorDetails* 屬性會有重建 VM 所需的資訊。
 
 ```
 PS C:\> $restorejob = Get-AzureRMBackupJob -Job $restorejob
@@ -196,8 +223,6 @@ PS C:\> $details = Get-AzureRMBackupJobDetails -Job $restorejob
  $storageAccountName = $properties["TargetStorageAccountName"]
  $containerName = $properties["TargetContainerName"]
  $blobName = $properties["TargetBlobName"]
-
- Switch-AzureMode AzureServiceManagement
 
  $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
  $storageAccountKey = $keys.Primary
@@ -243,7 +268,7 @@ New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
 
 ### 1\.取得作業子工作的完成狀態
 
-若要追蹤個別子工作的完成狀態，您可以使用 **Get AzureRMBackupJobDetails** Cmdlet：
+若要追蹤個別子工作的完成狀態，可以使用 **Get-AzureRMBackupJobDetails** Cmdlet：
 
 ```
 PS C:\> $details = Get-AzureRMBackupJobDetails -JobId $backupjob.InstanceId -Vault $backupvault
@@ -300,6 +325,6 @@ for( $i = 1; $i -le $numberofdays; $i++ )
 $DAILYBACKUPSTATS | Out-GridView
 ```
 
-如果您想要將製作圖表功能加入至這個報表輸出，請在 TechNet 部落格上了解[使用 PowerShell 製作圖表](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
+如果想要將製作圖表的功能加入這個報表輸出，請在 TechNet 部落格上了解[使用 PowerShell 製作圖表](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

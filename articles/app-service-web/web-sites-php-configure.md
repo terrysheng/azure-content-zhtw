@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Azure App Service Web Apps 中設定 PHP"
+	pageTitle="在 Azure App Service Web Apps 中設定 PHP | Microsoft Azure"
 	description="了解如何設定預設的 PHP 安裝，或是在 Azure App Service 中新增適用於 Web Apps 的自訂 PHP 安裝。"
 	services="app-service"
 	documentationCenter="php"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #在 Azure App Service Web Apps 中設定 PHP
@@ -45,27 +45,34 @@ PHP 5.5 和 PHP 5.6 版本同樣可供使用，但預設並未啟用。若要更
 
 ### Azure PowerShell (Windows)
 
-1. 開啟 Windows PowerShell
-2. 輸入 `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>`，然後按 Enter 鍵。
-3. PHP 版本現在已設定完成。
+1. 開啟 Azure PowerShell 並登入您的帳戶。
 
-	![使用 Azure PowerShell 設定 PHP 版本][SETPHPVERPS]
-4. 您可以藉由輸入 `Get-AzureWebiste -Name <site-name>` 然後按下 Enter 鍵來確認這些設定。
+        PS C:\> Login-AzureRmAccount
 
-	![使用 Azure PowerShell 確認 PHP 版本][GETPHPVERPS]
+2. 設定 Web 應用程式的 PHP 版本。
+
+        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+
+3. PHP 版本現在已設定完成。您可確認這些設定：
+
+        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
 ### Azure 命令列介面 (Linux、Mac、Windows)
 
 若要使用 Azure 命令列介面，您必須在電腦上安裝 **Node.js**。
 
-1. 開啟 [終端機]。
-2. 輸入 `azure site set --php-version [5.4 | 5.5] [site-name]`，然後按 Enter 鍵。
-3. PHP 版本現在已設定完成。
+1. 開啟 [終端機]，然後登入您的帳戶。
 
-	![使用 Azure 命令列介面設定 PHP 版本][SETPHPVERCLI]
-4. 您可以藉由輸入 `azure site show [site-name]` 然後按下 Enter 鍵來確認這些設定。
+        azure login
 
-	![使用 Azure 命令列介面確認 PHP 版本][GETPHPVERCLI]
+2. 設定 Web 應用程式的 PHP 版本。
+
+        azure site set --php-version [5.4 | 5.5] {site-name}
+
+3. PHP 版本現在已設定完成。您可確認這些設定：
+
+        azure site show {site-name}
+
 
 ## 作法：變更內建 PHP 組態
 
@@ -181,4 +188,4 @@ Zend 擴充功能也支援使用 **PHP\_ZENDEXTENSIONS** 索引鍵。若要啟�
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

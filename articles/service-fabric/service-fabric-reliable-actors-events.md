@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Reliable Actor 事件"
+   pageTitle="Reliable Actors 事件 | Microsoft Azure"
    description="Service Fabric Reliable Actor 事件簡介。"
    services="service-fabric"
    documentationCenter=".net"
@@ -18,7 +18,7 @@
 
 
 # 動作項目事件
-動作項目事件會將最佳效果通知從動作項目傳送到用戶端。動作項目事件是為了動作項目與用戶端之間的通訊而設計，「不」應用於動作項目與動作項目之間的通訊。
+動作項目事件會將最佳效果通知從動作項目傳送到用戶端。動作項目事件是為了動作項目與用戶端之間的通訊而設計，不應用於動作項目與動作項目之間的通訊。
 
 下列程式碼片段顯示如何在應用程式中使用動作項目事件。
 
@@ -63,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-發生容錯移轉時，動作項目會容錯移轉至不同的程序或節點。動作項目 Proxy 會管理使用中的訂用帳戶，並自動重新訂閱。您可以透過 `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API 控制重新訂閱間隔。若要取消訂閱，請使用`ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API。
+發生容錯移轉時，動作項目會容錯移轉至不同的程序或節點。動作項目 Proxy 會管理使用中的訂用帳戶，並自動重新訂閱。您可以透過 `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API 控制重新訂閱間隔。若要取消訂閱，請使用 `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API。
 
 在動作項目上，當事件發生時只發佈事件。如果有訂閱者訂閱事件，動作項目執行階段會將事件傳送至通知。
 
@@ -72,4 +72,4 @@ var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

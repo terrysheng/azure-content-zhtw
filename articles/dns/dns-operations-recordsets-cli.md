@@ -24,6 +24,10 @@
 
 本指南示範如何管理 DNS 區域的記錄集和記錄。
 
+>[AZURE.NOTE]Azure DNS 是僅能以 Azure 資源管理員運作的服務。它沒有 ASM API。因此您必須確認設定 Azure CLI 以使用資源管理員模式，並使用 azure config mode arm 命令。
+
+>如果您看到「錯誤：'dns' 不是 azure 命令」，可能是因為您正在 ASM 模式中使用 Azure CLI，而非資源管理員模式中。
+
 請務必了解 DNS 記錄集和個別 DNS 記錄之間的差別。記錄集是指一個區域中有相同名稱和相同類型的記錄集合。如需詳細資訊，請參閱[了解記錄集和記錄](dns-getstarted-create-recordset.md#Understanding-record-sets-and-records)。
 
 ## 建立記錄集
@@ -34,7 +38,7 @@
 
 >針對位於區域頂點的記錄集，請使用 "@"做為記錄集名稱 (包括引號)。記錄集的完整名稱就等於區域名稱，在此案例中為 "contoso.com"。
 
-Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。請注意 [DNS 標準已棄用 SPF 記錄類型，改用 TXT 記錄類型建立 SPF 記錄](http://tools.ietf.org/html/rfc7208#section-3.1)。
+Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。請注意，[DNS 標準已棄用 SPF 記錄類型，改用 TXT 記錄類型建立 SPF 記錄](http://tools.ietf.org/html/rfc7208#section-3.1)。
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
@@ -239,4 +243,4 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 [將網域委派給 Azure DNS](dns-domain-delegation.md)<BR> [ 管理 DNS 區域](dns-operations-dnszones-cli.md)<BR> [ 使用 .NET SDK 自動化作業](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

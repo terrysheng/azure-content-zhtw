@@ -52,7 +52,7 @@ Azure 搜尋服務為我們的專案帶來重大突破。在 Azure 搜尋服務�
  
 ### 高階元件
 
-我們建置了商務，而非僅是網站。支援整個行動需完善的工具和應用程式。我們採用 Visual Studio 和 Visual Studio Online 進行開發、Team Foundation Service (TFS) 用以控制原始檔、Office 365 用來傳訊和共同作業，當然還有 Microsoft Azure，用於所有網站相關的作業和儲存。藉由 Visual Studio，此 IDE 提供對 Azure 的直接佈建，以及整合 TFS Online，可另外讓生產力強化。
+我們建置了商務，而非僅是網站。支援整個行動需完善的工具和應用程式。我們採用 Visual Studio 和 Visual Studio Team Service 進行開發、Team Foundation Service (TFS) Online 用以控制原始檔、Office 365 用來傳訊和共同作業，當然還有 Microsoft Azure，用於所有網站相關的作業和儲存。藉由 Visual Studio，此 IDE 提供對 Azure 的直接佈建，以及整合 TFS Online，可另外讓生產力強化。
 
 下列圖表說明用於 WhatToPedia 基礎結構的高階元件。
 
@@ -421,4 +421,4 @@ Azure 搜尋服務並不是唯一的驚喜。與我們先前的方式相比，�
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

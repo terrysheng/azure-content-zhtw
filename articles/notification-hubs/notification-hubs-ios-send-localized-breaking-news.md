@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
 # 使用通知中心將當地語系化的即時新聞傳送至 iOS 裝置
@@ -25,7 +25,7 @@
 
 ##概觀
 
-本主題將說明如何使用 Azure 通知中心的**範本**功能，廣播已由語言和裝置當地語系化的即時新聞通知。在本教學課程中，首先您會執行在[使用通知中心傳送即時新聞]中建立的 Windows 市集應用程式。完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
+本主題說明如何使用 Azure 通知中樞的[範本](notification-hubs-templates.md)功能，廣播已由語言及裝置當地語系化的即時新聞通知。在本教學課程中，首先會在[使用通知中樞傳送即時新聞]中建立 iOS 應用程式。完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
 
 
 此案例分成兩部分：
@@ -40,7 +40,7 @@
 
 您必須已完成[使用通知中心傳送即時新聞]教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
 
-您也需要 Visual Studio 2012。
+(選擇性) 需要 Visual Studio 2012 或更新版本。
 
 
 
@@ -66,14 +66,14 @@
 		}
 	}
 
-範本的功能非常強大，您可以在[通知中心指引]一文中了解詳情。[如何：服務匯流排通知中樞 (iOS 應用程式)] 則提供範本運算式語言的參考。
+範本的功能非常強大，您可以在[範本](notification-hubs-templates.md)一文中了解詳情。
 
 ##應用程式使用者介面
 
 現在，我們將修改您在[使用通知中心傳送即時新聞]主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
 
 
-在您的 MainStoryboard\_iPhone.storyboard 中，以我們支援的三種語言新增「分段控制」：英文、法文和中文。
+在您的 MainStoryboard\_iPhone.storyboard 中，以我們支援的三種語言加入分段控制：英文、法文與中文。
 
 ![][13]
 
@@ -83,7 +83,6 @@
 
 ##建置 iOS 應用程式
 
-若要調整用戶端應用程式使其能夠接收當地語系化的訊息，您必須以範本註冊取代您的*原生*註冊 (也就是指定範本的註冊)。
 
 1. 在您的 Notification.h 中新增 *retrieveLocale* 方法，然後修改儲存和訂閱方法，如下所示：
 
@@ -126,12 +125,12 @@
 
 		    NSString* template = [NSString stringWithFormat:@"{"aps":{"alert":"$(News_%@)"},"inAppMessage":"$(News_%@)"}", localeString, localeString];
 
-		    [hub registerTemplateWithDeviceToken:self.deviceToken name:@"newsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
+		    [hub registerTemplateWithDeviceToken:self.deviceToken name:@"localizednewsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
 		}
 
 	請注意，我們現在使用的是 *registerTemplateWithDeviceToken* 方法，而非 *registerNativeWithDeviceToken*，並請留意其使用方式。我們在註冊範本時必須提供 json 範本，以及範本的名稱 (因為應用程式可能會註冊不同的範本)。請確實將您的類別註冊為標籤，因為我們要確保能夠收到這些新聞的通知。
 
-	最後，請新增從使用者預設設定中擷取地區設定的方法：
+	加入方法，從使用者預設設定擷取地區設定：
 
 		- (int) retrieveLocale {
 		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -141,7 +140,7 @@
 		    return locale < 0?0:locale;
 		}
 
-3. 我們已修改 Notifications 類別，現在我們必須確保 ViewController 會使用新的 UISegmentControl。請在 *viewDidLoad* 方法中新增下列程式碼行，以確實顯示目前選取的地區設定：
+2. 我們已修改 Notifications 類別，現在我們必須確保 ViewController 會使用新的 UISegmentControl。請在 *viewDidLoad* 方法中新增下列程式碼行，以確實顯示目前選取的地區設定：
 
 		self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
 
@@ -158,19 +157,90 @@
 	        }
 	    }];
 
-4. 最後，您必須在 AppDelegate.m 中更新 *didRegisterForRemoteNotificationsWithDeviceToken* 方法，以便能在應用程式啟動時正確重新整理您的註冊。請使用下列程式碼變更您對通知之 *subscribe* 方法的呼叫：
+3. 最後，您必須在 AppDelegate.m 中更新 *didRegisterForRemoteNotificationsWithDeviceToken* 方法，以便能在應用程式啟動時正確重新整理您的註冊。請使用下列程式碼變更您對通知之 *subscribe* 方法的呼叫：
 
-		NSSet* categories = [notifications retrieveCategories];
-	    int locale = [notifications retrieveLocale];
-	    [notifications subscribeWithLocale: locale categories:categories completion:^(NSError* error) {
+		NSSet* categories = [self.notifications retrieveCategories];
+	    int locale = [self.notifications retrieveLocale];
+	    [self.notifications subscribeWithLocale: locale categories:categories completion:^(NSError* error) {
 	        if (error != nil) {
 	            NSLog(@"Error registering for notifications: %@", error);
 	        }
 	    }];
 
-##從後端傳送已當地語系化的通知
+##(選擇性) 從.NET 主控台應用程式傳送當地語系化的範本通知。
 
 [AZURE.INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
+
+
+
+##(選擇性) 從裝置傳送當地語系化的範本通知
+
+如果您無法存取 Visual Studio，或只想要測試直接從裝置上的應用程式，請傳送當地語系化的範本通知。您只要對先前教學課程中所定義的 `SendNotificationRESTAPI` 方法，加入當地語系化的範本參數即可。
+
+		- (void)SendNotificationRESTAPI:(NSString*)categoryTag
+		{
+		    NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
+									 defaultSessionConfiguration] delegate:nil delegateQueue:nil];
+
+		    NSString *json;
+
+		    // Construct the messages REST endpoint
+		    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
+		                                       HUBNAME, API_VERSION]];
+
+		    // Generated the token to be used in the authorization header.
+		    NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
+
+		    //Create the request to add the template notification message to the hub
+		    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+		    [request setHTTPMethod:@"POST"];
+
+		    // Add the category as a tag
+		    [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
+
+			// Template notification
+	        json = [NSString stringWithFormat:@"{"messageParam":"Breaking %@ News : %@","
+					"News_English":"Breaking %@ News in English : %@","
+					"News_French":"Breaking %@ News in French : %@","
+					"News_Mandarin":"Breaking %@ News in Mandarin : %@","
+	                categoryTag, self.notificationMessage.text,
+	                categoryTag, self.notificationMessage.text,  // insert English localized news here
+	                categoryTag, self.notificationMessage.text,  // insert French localized news here
+	                categoryTag, self.notificationMessage.text]; // insert Mandarin localized news here
+
+	        // Signify template notification format
+	        [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
+
+			// JSON Content-Type
+			[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+
+		    //Authenticate the notification message POST request with the SaS token
+		    [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+
+		    //Add the notification message body
+		    [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
+
+		    // Send the REST request
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+		               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+	           {
+	           NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+	               if (error || httpResponse.statusCode != 200)
+	               {
+	                   NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
+	               }
+	               if (data != NULL)
+	               {
+	                   //xmlParser = [[NSXMLParser alloc] initWithData:data];
+	                   //[xmlParser setDelegate:self];
+	                   //[xmlParser parse];
+	               }
+	           }];
+
+		    [dataTask resume];
+		}
+
+
 
 
 ## 後續步驟
@@ -179,9 +249,6 @@
 
 - [使用通知中樞來通知使用者：ASP.NET]
 - [使用通知中樞來通知使用者：行動服務]
-- [通知中心指引]
-
-如需範本運算式語言的參考，請參閱 [iOS 的通知中心作法]。
 
 
 
@@ -199,8 +266,9 @@
 
 
 <!-- URLs. -->
-[如何：服務匯流排通知中樞 (iOS 應用程式)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [使用通知中心傳送即時新聞]: /manage/services/notification-hubs/breaking-news-ios
+[使用通知中樞傳送即時新聞]: /manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [使用通知中樞來通知使用者：ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [使用通知中樞來通知使用者：行動服務]: /manage/services/notification-hubs/notify-users
@@ -217,7 +285,7 @@
 
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
-[iOS 的通知中心作法]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

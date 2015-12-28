@@ -37,10 +37,9 @@
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-
 ## 更新應用程式以支援離線同步
 
-利用離線同步讀取和寫入「同步資料表」(使用 *IMobileServiceSyncTable* 介面)，這是您裝置上 **SQL Light** 資料庫的一部分。
+利用離線同步讀取和寫入*同步資料表* (使用 *IMobileServiceSyncTable* 介面)，這是您裝置上 **SQLite** 資料庫的一部分。
 
 若要推送和提取裝置與 Azure 行動服務之間的變更，您可使用「同步處理內容」(*MobileServiceClient.SyncContext*)，這是您用來在本機儲存資料的本機資料庫所初始化。
 
@@ -224,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [行動服務快速啟動教學課程]: mobile-services-android-get-started.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 通知中樞透過 .NET 後端通知使用者"
+	pageTitle="Azure 通知中樞透過 .NET 後端通知 iOS 使用者"
 	description="了解如何在 Azure 中將推播通知傳送給使用者。程式碼範例是以 Objective-C 撰寫並以 .NET API 作為後端。"
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
-#Azure 通知中樞透過 .NET 後端通知使用者
+#Azure 通知中樞透過 .NET 後端通知 iOS 使用者
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ##概觀
 
-Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所示。
+Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](notification-hubs-registration-management.md#registration-management-from-a-backend)中所示。
 
 > [AZURE.NOTE]本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (iOS)](notification-hubs-ios-get-started.md) 中所述。本教學課程還是[安全推播 (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md) 教學課程的必要條件。如果您使用行動服務作為後端服務，請參閱本教學課程的[行動服務版本](../mobile-services-javascript-backend-ios-push-notifications-app-users.md)。
 
@@ -262,7 +262,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 		@end
 
-	上面的程式碼會實作指引文章[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所說明的邏輯，方法是使用 NSURLSession 來對您的應用程式後端執行 REST 呼叫，然後使用 NSUserDefaults 來本機儲存通知中心傳回的 registrationId。
+	上面的程式碼會實作指引文章[從您的應用程式後端註冊](notification-hubs-registration-management.md#registration-management-from-a-backend)中所說明的邏輯，方法是使用 NSURLSession 來對您的應用程式後端執行 REST 呼叫，然後使用 NSUserDefaults 來本機儲存通知中心傳回的 registrationId。
 
 	請注意，此類別需要設定 **authorizationHeader** 屬性，才能正常運作。您可以在登入後，透過 **ViewController** 類別設定此屬性。
 
@@ -465,4 +465,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -28,7 +28,7 @@
  
 ## App Service 中的驗證與授權
 
-如需本教學課程中所用驗證功能的簡介，請參閱此系列的上一個教學課程：[Azure App Service 中 API Apps 的驗證和授權](app-service-api-dotnet-get-started.md)。
+如需本教學課程中所用驗證功能的簡介，請參閱此系列先前的教學課程：[Azure App Service 中 API Apps 驗證與授權](app-service-api-authentication.md)。
 
 ## 如何遵循本教學課程
 
@@ -268,4 +268,4 @@ ContactsList.Angular.AAD 專案中的程式碼結構與較簡單的 ContactsList
 
 在本教學課程中，您使用 App Service 的驗證和授權功能來限制 API 應用程式存取，讓只有經過驗證的使用者才可以呼叫它。在本系列的下一個教學課程中，您將學習如何[對於服務對服務的案例限制您的 API 應用程式存取](app-service-api-dotnet-service-principal-auth.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

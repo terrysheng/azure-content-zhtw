@@ -124,24 +124,24 @@ Azure IoT 程式庫已在下列作業系統平台上測試：
 |[ARTIK](http://developer.samsung.com/artik) |Fedora | C|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | C、Javascript、Java|
 |[BeagleBone Green](http://beagleboard.org/green) |Debian | C、Javascript、Java|
-|[Colibri iMX6](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-imx6) |Linux Angstrom(Yocto) | Javascript、Java|
-|[Colibri T20](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-2) |Linux Angstrom(Yocto) | Java|
-|[Colibri T30](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-3) |Windows 10 IoT 核心版 | C#|
-|[Colibri VF61](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-vybrid-vf6xx) |Linux Angstrom(Yocto) | Javascript、Java|
+|[Toradex Colibri iMX6](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-imx6) |Linux Angstrom(Yocto) | Javascript、Java|
+|[Toradex Colibri T20](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-2) |Linux Angstrom(Yocto) | Java|
+|[Toradex Colibri T30](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-3) |Windows 10 IoT 核心版 | C#|
+|[Toradex Colibri VF61](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-vybrid-vf6xx) |Linux Angstrom(Yocto) | Javascript、Java|
 |[Freescale FRDM K64](http://www.freescale.com/products/arm-processors/kinetis-cortex-m/k-series/k6x-ethernet-mcus/freescale-freedom-development-platform-for-kinetis-k64-k63-and-k24-mcus:FRDM-K64F) |mbed 2.0 | C|
 |[Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) |Yocto | C、Javascript|
 |[LogicMachine 系列](http://openrb.com/products/) |自訂 Linux | C|
 |[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7、8、10 | C#|
-|[NISE 50C](http://www.nexcom.com/Products/industrial-computing-solutions/industrial-fanless-computer/atom-compact/fanless-computer-nise-50c) |Windows 10 IoT 核心版 | C#|
+|[NEXCOM NISE 50C](http://www.nexcom.com/Products/industrial-computing-solutions/industrial-fanless-computer/atom-compact/fanless-computer-nise-50c) |Windows 10 IoT 核心版 | C#|
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Raspbian | C、Javascript、Java |
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Windows 10 IoT 核心版| C、Javascript、C#|
 |[STM32 Nucleo](http://www.st.com/stm32nucleo) |STM32Cube | C|
 |[TI CC3200](http://www.ti.com/product/cc3200) |TI-RTOS 2.x | C|
 
-開始使用[這裡](https://azure.microsoft.com/develop/iot/get-started/)的裝置或造訪我們的 GitHub [儲存機制](https://github.com/Azure/azure-iot-sdks)並搜尋每種語言的裝置文件。
+[開始使用這些裝置](https://azure.microsoft.com/develop/iot/get-started/)或造訪我們的 GitHub [儲存機制](https://github.com/Azure/azure-iot-sdks)並搜尋每種語言的裝置文件。
 
 ## 後續步驟
 
-在[這裡](http://azure.com/iotdev)深入了解使用** IoT 裝置的認證**開發解決方案的相關資訊。
+深入了解使用 [IoT 裝置的認證](http://azure.com/iotdev)開發解決方案的相關資訊。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

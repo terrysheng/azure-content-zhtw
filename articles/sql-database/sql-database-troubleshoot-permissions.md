@@ -3,7 +3,7 @@
 	description="疑難排解常見的權限、存取、使用者和登入問題的快速步驟"
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 #疑難排解常見的 Azure SQL Database 權限和存取問題
 使用本主題以獲得授與及移除對 Azure SQL Database 的存取權的快速步驟。如需更完整資訊，請參閱：
@@ -37,4 +37,4 @@
 ## 若要在虛擬 master 資料庫中建立高權限使用者的其他登入
 -使用 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 陳述式，並參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)的「管理登入」一節以獲得詳細資訊。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

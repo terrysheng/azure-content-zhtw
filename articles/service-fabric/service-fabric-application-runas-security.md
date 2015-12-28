@@ -86,12 +86,12 @@ Service Fabric 能夠保護在叢集中以不同的使用者帳戶執行 (稱為
 
 讓我們現在將 MySetup.bat 檔案加入至 Visual Studio 專案，以便測試系統管理員權限。在 Visual Studio 中，以滑鼠右鍵按一下服務專案並加入名為 MySetup.bat 的新檔案。接下來就必須確保這個檔案包含在服務封裝內 (這並非預設)。若要確保 MySetup.bat 檔案已包含在封裝內，請選取此檔案，以滑鼠右鍵按一下以取得內容功能表，選擇 [屬性] 並在 [屬性] 對話方塊中確定 [複製到輸出目錄] 設為 [有更新時才複製]。如以下螢幕擷取畫面所示。
 
-![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][image1]
+![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][Image1]
 
 現在開啟 MySetup.bat 檔案並加入下列命令。
 
 ~~~
-REM Set a system environment variable. This requires administrator privilege
+REM Set a system environment variable.This requires administrator privilege
 setx -m TestVariable "MyValue"
 echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
@@ -103,8 +103,7 @@ REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Mana
 接下來建置解決方案並部署至本機開發叢集。一旦啟動服務，如在 Service Fabric 總管中所見，您可以看到 MySetup.bat 成功的方式有兩種。開啟 PowerShell 命令提示字元並輸入
 
 ~~~
-PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-MyValue
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
 ~~~
 
 接著，在 Service Fabric 總管中記下部署和啟動服務的節點名稱 (例如節點 1)，然後瀏覽至應用程式執行個體工作資料夾，尋找可顯示 **TestVariable** 值的 out.txt 檔案。例如，如果此服務已部署至節點 2，您可以移至 MyApplicationType 的這個路徑
@@ -129,7 +128,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ```
 
-## 將 RunAs 原則套用到服務
+## 將 RunAs 原則套用到服務 
 在上述步驟中，您會看到如何將 RunAs 原則套用到 SetupEntryPoint。讓我們深入了解如何建立可當作服務原則套用的不同主體。
 
 ### 建立本機使用者群組
@@ -169,7 +168,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
   </Users>
 </Principals>
 ~~~
-
+ 
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -184,8 +183,8 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 ~~~
 <Policies>
-  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
@@ -272,7 +271,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
       </Users>
    </Principals>
    <Policies>
-      <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
+      <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
 	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
@@ -290,4 +289,4 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

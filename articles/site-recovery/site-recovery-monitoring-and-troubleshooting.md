@@ -1,5 +1,5 @@
 <properties
-	pageTitle="VMM 與 Hyper-V 網站保護的「監視與疑難排解指南」" 
+	pageTitle="監視和疑難排解虛擬機器與實體伺服器的保護 | Microsoft Auzre" 
 	description="Azure Site Recovery 可將內部部署伺服器上的虛擬機器複寫、容錯移轉及復原協調至 Azure 或次要資料中心。使用這份文件來監控和疑難排解 VMM 或 Hyper-V 網站保護。" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 	
-# 監視和疑難排解 VMware、VMM、Hyper-V 和實體網站的保護
+# 監視和疑難排解虛擬機器與實體伺服器的保護
 
 此「監視與疑難排解指南」可讓您了解追蹤複寫健康狀態和 Azure 站台復原的疑難排解技術。
 
@@ -199,4 +199,4 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
 ### 容錯移轉之後的遠端桌面疑難排解
 -   許多客戶面臨在 Azure 中連接到容錯移轉的 VM 的問題。[使用疑難排解文件 RDP 至 VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

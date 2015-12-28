@@ -37,13 +37,13 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![[應用程式]](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700994.png "[應用程式]")
 
 4.  若要開啟 [應用程式庫]，請按一下 [新增應用程式]，然後按一下 [新增應用程式讓我的組織使用]。
 
     ![欲執行動作](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "欲執行動作")
 
-5.  在 [搜尋方塊] 中，輸入 [Salesforce 沙箱]。
+5.  在 [搜尋方塊] 中，輸入 **Salesforce 沙箱**。
 
     ![應用程式庫](./media/active-directory-saas-salesforce-sandbox-tutorial/IC710978.png "應用程式庫")
 
@@ -68,7 +68,7 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "設定應用程式 URL")
 
-4. 如果您已對目錄中的另一個 Salesforce 沙箱執行個體設定單一登入，則也須將[簽發者 URL] 設定為具有與 [登入 URL] 相同的值。您也可以在對話方塊的 [設定應用程式 URL] 頁面上核取 [顯示進階設定] 核取方塊，來尋找 [簽發者 URL] 欄位。
+4. 如果您已為目錄中的另一個 Salesforce 沙箱執行個體設定單一登入，則也須將**識別碼**設定為具有與**登入 URL** 相同的值。您也可以在對話方塊的 [**設定應用程式 URL**] 頁面上核取 [**顯示進階設定**] 核取方塊，來尋找 [**識別碼**] 欄位。
 
 4.  在 [設定在 Salesforce 沙箱單一登入] 頁面上，按一下 [下載憑證]，然後將憑證檔案儲存在您的電腦上。
 
@@ -190,4 +190,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

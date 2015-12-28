@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Transact-SQL 資訊 | Microsoft Azure"
-   description="Azure SQL Database 中的 Transact-SQL 陳述式"
+   pageTitle="Azure SQL Database T-SQL 中不支援的項目 | Microsoft Azure"
+   description="在 Azure SQL Database 中未完整支援 Transact-SQL 陳述式"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -14,12 +14,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/09/2015"
+   ms.date="12/14/2015"
    ms.author="rick.byham@microsoft.com"/>
 
-# Azure SQL Database Transact-SQL 資訊
+# Azure SQL Database Transact-SQL 差異
 
-Microsoft Azure SQL Database 中完全支援大多數的 SQL Server 2016 Transact-SQL 陳述式。這包括 SQL Server 資料類型、運算子和字串、算術、邏輯、指標函式和大部分應用程式相依的其他 Transact-SQL 元素。部分支援或不支援的函式通常與 SQL Database 如何管理資料庫的差異 (例如檔案、高可用性和安全性功能) 相關，或與 service broker 的特殊目的功能相關。因為 SQL Database 會隔離許多功能與 master 資料庫的相依性，許多伺服器層級活動是不當且不受支援的。SQL Server 中已被取代的功能在 SQL Database 中通常不受支援。
+
+Microsoft SQL Server 和 Azure SQL Database 都支援應用程式相依的大部分 Transact-SQL 功能。應用程式之支援功能的部分清單如下：
+
+- 資料類型。
+- 運算子。
+- 字串、算術，邏輯和指標函式。
+
+不過，Azure SQL Database 的設計目的是將功能與任何在 **master** 資料庫上的相依性隔離。因此，SQL Database 並不適合，也不支援許多伺服器層級的活動。本主題將詳細說明 SQL Database 未完整支援的功能。
+
+同時，SQL Database 通常也不支援 SQL Server 中已過時的功能。
 
 ## 升級至 SQL Database V12
 
@@ -65,6 +74,7 @@ SQL Database V12 支援部分而非全部的引數，這些引數存在於對應
 - KILL STATS JOB
 - 連結的伺服器、OPENQUERY、OPENROWSET、OPENDATASOURCE、BULK INSERT、3 和 4 個組件名稱
 - 主要/目標伺服器
+- .NET Framework [SQL Server CLR 整合](http://msdn.microsoft.com/library/ms254963.aspx)
 - 資源管理員
 - 語意搜尋
 - 伺服器認證
@@ -91,8 +101,10 @@ SQL Database V12 支援部分而非全部的引數，這些引數存在於對應
 
 ### 關於「適用於」標記
 
-Transact-SQL 參考包含 SQL Server 2008、SQL Server 2008 R2、SQL Server 2012、SQL Server 2014 和 Microsoft Azure SQL Database 相關的主題。每個主題頂端附近是一個區段，指出哪些產品支援主題的主旨。如果略過產品，則主題所描述的功能就無法用於該產品中。例如，可用性群組是在 SQL Server 2012 中導入。「**建立可用性群組**」主題指出它會套用至 **SQL Server (SQL Server 2012 到最新版本)**，因為它不適用於 SQL Server 2008、SQL Server 2008 R2 或 Microsoft Azure SQL Database。
+Transact-SQL 參考包括從 SQL Server 版本 2008 到目前版本的相關主題。在主題標題之下通常會有一行的「適用於」列出 SQL Server 版本，也可能有其他產品的名稱。通常相同的「適用於」標記也會列出 Azure SQL Database。如果「適用於」未列出 Azure SQL Database，則該主題內容就不適用於 Azure SQL Database。有時候您可能會看到一行的「適用於」列出多項產品並且皆隨附一個小圖示，指出該主題是否適用於每項產品。
 
-在某些情況下，主題的一般主旨可以用於產品，但並不支援所有引數。例如，自主資料庫使用者是在 SQL Server 2012 中導入。**CREATE USER** 陳述式可以用於任何 SQL Server 產品，不過 **WITH PASSWORD** 語法不能用於較舊版本。在此案例中，其他「**適用於**」區段會插入到主題的主體中適當的引數描述。
+ 例如，可用性群組是在 SQL Server 2012 中導入。＜**建立可用性群組**＞主題指出它適用於 **SQL Server (SQL Server 2012 到最新版本)**，因為它不適用於 SQL Server 2008、SQL Server 2008 R2 或 Azure SQL Database。
 
-<!---HONumber=Nov15_HO3-->
+在某些情況下，一般主題的主旨可用於產品中，但產品之間會有些微的差異。依適當情況會在主題的中間點指出差異。
+
+<!---HONumber=AcomDC_1217_2015-->

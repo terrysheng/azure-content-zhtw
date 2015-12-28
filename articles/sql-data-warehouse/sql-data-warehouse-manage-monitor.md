@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="sahajs"/>
 
 # 使用 DMV 監視工作負載
@@ -131,7 +131,7 @@ ORDER BY step_index;
 
 ### 步驟 4a：尋找 SQL 步驟的執行進度
 
-使用要求 ID 和 Step Index，將 SQL Server 查詢散發的相關資訊，擷取為查詢中的一部分 SQL 步驟。儲存節點 ID 和 SPID。
+使用要求 ID 和 Step Index，將 SQL Server 查詢散發的相關資訊，擷取為查詢中的一部分 SQL 步驟。儲存散發 ID 和 SPID。
 
 ```
 
@@ -149,7 +149,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 ```
 
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
--- Replace node_id and spid with values from previous query.
+-- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
@@ -203,4 +203,4 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

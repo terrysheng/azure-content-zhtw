@@ -35,7 +35,7 @@ Fabrikam 飛機的引擎由各種感應器進行檢測，而這些感應器會�
 
 如需了解 [Azure IoT 套件][lnk_iot_suite]如何提供這些功能，客戶必須先了解預防性維護，請參閱這張[資訊圖][lnk_infographic]。
 
-為示範這些功能如何運用透過 IoT 套件服務收集而來的裝置遙測資料，以及如何透過 Web 應用程式將這些資料呈現給使用者，此解決方案會利用現有的 Azure 機器學習範本。Microsoft 建置了一套迴歸模型，並在[這裡][lnk_regression_model]發行了完整的範本資料<sup>[1]</sup> 與逐步指引。
+為示範這些功能如何運用透過 IoT 套件服務收集而來的裝置遙測資料，以及如何透過 Web 應用程式將這些資料呈現給使用者，此解決方案會利用現有的 Azure 機器學習範本。Microsoft 建置了一套[迴歸模型][lnk_regression_model]，並發佈了完整的範本、資料<sup>[1]</sup>與逐步指引。
 
 Azure IoT 預先設定的預防性維護解決方案會利用此範本所建立的迴歸模型 (此模型會部署到您的 Azure 訂用帳戶，並透過發行的 API 加以公開)。此解決方案包含了代表 4 具 (全部共 100 具) 引擎之測試資料與 4 個 (全部共 21 個) 感應器之資料流的交集，並由定型的模型提供精確的結果。
 
@@ -55,4 +55,4 @@ Azure IoT 預先設定的預防性維護解決方案會利用此範本所建立�
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

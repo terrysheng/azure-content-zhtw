@@ -108,10 +108,10 @@ VMAccess 延伸項目會在虛擬機器上執行這兩個命令：
 
 ## 其他資源
 
-[Azure VM 延伸模組與功能](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+[Azure VM 延伸模組與功能](virtual-machines-extensions-features.md)
 
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

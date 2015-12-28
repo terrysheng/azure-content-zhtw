@@ -3,9 +3,9 @@
    description="了解如何透過變更 ServiceDefinition.csdef 和 ServiceConfiguration.cscfg 檔案來設定 Azure 雲端服務專案。"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/29/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 使用多個服務組態設定 Azure 專案
 
@@ -110,4 +110,4 @@ Web 角色預設會啟用診斷。Azure 雲端服務專案和儲存體帳戶已�
 |開發|在此頁面，您可以指定組建組態指示以及執行任何建置後事件的條件。|
 |Web|在此頁面，您可以設定 Web 伺服器的相關設定。|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

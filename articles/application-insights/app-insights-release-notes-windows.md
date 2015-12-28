@@ -32,21 +32,22 @@
 * 比較舊版和新版的 ApplicationInsights.config。將任何您在舊版中所做的自訂合併回來。
 * 重建您的方案。
 
-## 1\.2 版
+## 1\.1.1 版
 
-### Windows 應用程式 SDK
+### Windows SDK
 
-- 修正 FileNotFound 例外狀況，這種例外狀況會使持續性遙測無法在重新開啟 App 後傳送。
+- 修正在使用 Windows Phone 的 Silverlight SDK 時，於損毀期間發生停止回應。發生此變更之後，呼叫 WindowsAppInitialier.InitializeAsync(...) 2 秒之後所發生的任何損毀，皆會保存到磁碟，且會在下一次啟動應用程式時傳送。如果在呼叫後的前 2 秒內發生當機，則將會忽略。  
+- 將 NuGet 的相依性設為特定版本的核心與 Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3)。   
 
 ### 核心 SDK
 
-- 由 [GitHub](http://github.com/microsoft/ApplicationInsights-dotnet) 運送的第一版 Application Insights SDK
+- 核心管理於 github 中。您可於 [github](http://github.com/Microsoft/ApplicationInsights-dotnet/releases) 中找到核心 SDK 未來的版本資訊
 
 ## 1\.1 版
 
 ### 核心 SDK
 
-- SDK 現在引進了新的遙測類型 ```DependencyTelemetry```，其中包含從應用程式相依性呼叫的相關資訊
+- SDK 現已引進新的遙測類型 ```DependencyTelemetry```，其中包含從應用程式相依性呼叫的相關資訊
 - 新方法 ```TelemetryClient.TrackDependency``` 允許從應用程式傳送相依性呼叫的相關資訊
 
 ## 1\.0.0 版
@@ -94,4 +95,4 @@
 
 沒有可用於較舊版本的版本資訊。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

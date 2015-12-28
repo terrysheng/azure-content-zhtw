@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="11/09/2015"
+  ms.date="12/15/2015"
   ms.author="donnam"/>
 
 # Mobile Apps 和行動服務中的用戶端和伺服器版本控制
@@ -69,7 +69,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 注意：行動服務用戶端 SDK「不會」傳送 `ZUMO-API-VERSION` 的標頭值。如果服務收到此標頭或查詢字串值，將會傳回錯誤，除非您如上面所述明確選擇不要進行檢查。
 
-### <a name="MobileServicesClients"></a>行動服務用戶端 SDK
+### <a name="MobileServicesClients"></a>行動「服務」用戶端 SDK
 
 | 用戶端平台 | 版本 | 版本標頭值 |
 | -------------------               | ------------------------                                                  | -------------------  |
@@ -78,7 +78,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | Android | [2\.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) | n/a |
 | HTML | [1\.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | n/a |
 
-### 行動服務 伺服器 SDK
+### 行動「服務」伺服器 SDK
 
 | 伺服器平台 | 版本 | 接受的版本標頭 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
@@ -89,7 +89,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ### 行動服務後端的行為
 
-| ZUMO-API-VERSION | MS\_SkipVersionCheck 的值 | 回應 |
+| ZUMO-API-VERSION | MS\_SkipVersionCheck 的值 | Response |
 | ---------------- | ---------------------------- | -------- |
 | 未指定 | 任意 | 200 - 確定 |
 | 任何值 | True | 200 - 確定 |
@@ -97,31 +97,30 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## <a name="2.0.0"></a>Azure Mobile Apps 用戶端和伺服器
 
-### <a name="MobileAppsClients"></a>Mobile *Apps* 用戶端 SDK
+### <a name="MobileAppsClients"></a>Mobile「Apps」用戶端 SDK
 
 版本檢查是從 **Azure Mobile Apps** 下列版本的用戶端 SDK 開始引進：
 
 | 用戶端平台 | 版本 | 版本標頭值 |
-| -------------------               | ------------------------                                                  | -----------------    |
-| 受管理的用戶端 (Windows、Xamarin) | [2\.0.0-beta-3](https://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta-3) | 2\.0.0 |
-| iOS | [3\.0.0-beta4](http://go.microsoft.com/fwlink/?LinkID=529823) | 2\.0.0 |
-| Android | 3\.0.0-beta1 | 2\.0.0 |
-| HTML | 2\.0.0-beta2 | 2\.0.0 |
+| -------------------               | ------------------------  | -----------------    |
+| 受管理的用戶端 (Windows、Xamarin) | [2\.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2\.0.0 |
+| iOS | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2\.0.0 |
+| Android | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) | 3\.0.0 |
 
-<!-- TODO: add Android and HTML versions when released -->
+<!-- TODO: add HTML version when released -->
 
 ### Mobile *Apps* 伺服器 SDK
 
 下列伺服器 SDK 版本包含版本檢查：
 
-| 伺服器平台 | 版本 | 接受的版本標頭 |
+| 伺服器平台 | SDK | 接受的版本標頭 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [Microsoft.Azure.Mobile.Server.* 版本 0.3.x (或更新版本)](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
+| .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
 | Node.js | [azure-mobile-apps 版本 1.0-beta1 (或更新版本)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
 ### Mobile Apps 後端的行為
 
-| ZUMO-API-VERSION | MS\_SkipVersionCheck 的值 | 回應 |
+| ZUMO-API-VERSION | MS\_SkipVersionCheck 的值 | Response |
 | ---------------- | ---------------------------- | -------- |
 | x.y.z 或 Null | True | 200 - 確定 |
 | Null | False/未指定 | 400 - 不正確的要求 |
@@ -142,4 +141,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [將行動服務移轉至 Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

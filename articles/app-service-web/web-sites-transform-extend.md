@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/09/2015"
 	ms.author="cephalin"/>
 
 # Azure App Service Web 應用程式進階設定和擴充功能
@@ -26,7 +26,7 @@
 ##<a id="transform"></a>透過 ApplicationHost.config 的進階設定
 App Service 平台提供適用於 Web 應用程式設定的彈性和控制。雖然無法在 App Service 中直接編輯標準的 IIS ApplicationHost.config 設定檔，但此平台支援以 XML 文件轉換 (XDT) 為基礎的宣告式 ApplicationHost.config 轉換模型。
 
-若要利用此轉換功能，您可以建立含有 XDT 內容的 ApplicationHost.xdt 檔案並置於 Web 應用程式根目錄之下。您可能需要重新啟動 Web 應用程式，變更才會生效。
+若要利用此轉換功能，您可以建立含有 XDT 內容的 ApplicationHost.xdt 檔案並置於 [Kudu 主控台](https://github.com/projectkudu/kudu/wiki/Kudu-console)的網站根目錄 (d:\\home\\site) 之下。您可能需要重新啟動 Web 應用程式，變更才會生效。
 
 下列 applicationHost.xdt 範例示範如何將新的自訂環境變數新增至採用 PHP 5.4 的 Web 應用程式。
 
@@ -46,7 +46,7 @@ App Service 平台提供適用於 Web 應用程式設定的彈性和控制。雖
 
 從 FTP 根目錄的 LogFiles\\Transform 之下可取得含有轉換狀態和詳細資料的記錄檔案。
 
-如需其他範例，請參閱＜[https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)＞。
+如需其他範例，請參閱＜[https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)＞。
 
 **注意**<br /> 無法移除或重新排序 `system.webServer` 之下模組清單中的元素，但可以在清單中新增元素。
 
@@ -181,4 +181,4 @@ Web 應用程式擴充功能的程式碼位於 %HOME%\\SiteExtensions[your-exten
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

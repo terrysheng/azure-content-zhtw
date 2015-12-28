@@ -63,6 +63,7 @@
 - 多項規則的列出順序會影響規則的處理方式。後一項規則可能會覆寫前一項規則所指定的動作。
 
 ## 另請參閱
+* [規則引擎相符條件和功能詳細資料](cdn-rules-engine-details.md)
 * [Azure CDN 概觀](cdn-overview.md)
 * [Microsoft Azure CDN 中的即時統計資料](cdn-real-time-stats.md)
 * [進階 HTTP 報告](cdn-advanced-http-reports.md)
@@ -71,4 +72,4 @@
 
 	
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

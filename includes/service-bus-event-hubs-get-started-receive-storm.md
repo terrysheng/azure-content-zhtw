@@ -16,7 +16,7 @@
 
 4. 在 Eclipse 中，建立新的 Maven 專案 (依序按一下 [**檔案**]、[**新增**] 和 [**專案**])。
 
-   	![][12]
+   ![][12]
 
 5. 選取 [**使用預設工作區位置**]，然後按 [**下一步**]
 
@@ -230,4 +230,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

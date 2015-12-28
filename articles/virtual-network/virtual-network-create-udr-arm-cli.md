@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/30/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 #在 Azure CLI 中建立使用者定義的路由 (UDR)
@@ -191,4 +191,4 @@
 
 	- **-f (或 --enable-ip-forwarding)**。*true* 或 *false*。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

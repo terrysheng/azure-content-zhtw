@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure 佇列儲存體
@@ -22,7 +22,7 @@
 
 本指南提供了 C# 程式碼範例，示範如何透過 Azure 佇列儲存體服務使用 Azure WebJobs SDK 1.x 版。
 
-本指南假設您知道[如何使用指向您儲存體帳戶的連接字串，在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)。
+本指南假設您知道[如何使用指向您儲存體帳戶的連接字串，在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md#configure-storage)，或是使用指向[多個儲存體帳戶](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)的連接字串來建立該專案。
 
 大部分的程式碼片段只會顯示函數，不會顯示建立 `JobHost` 物件的程式碼，如此範例所示：
 
@@ -62,7 +62,8 @@
 	- 設定 QueueTrigger 設定
 	- 在程式碼中設定 WebJobs SDK 建構函式參數的值
 -   [如何手動觸發函數](#manual)
--   [如何寫入記錄檔](#logs)
+-   [如何寫入記錄檔](#logs) 
+-   [如何處理錯誤及設定逾時](#errors)
 -   [後續步驟](#nextsteps)
 
 ## <a id="trigger"></a> 如何在接收到佇列訊息時觸發函數
@@ -131,13 +132,15 @@ SDK 會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲�
 
 ### <a id="instances"></a> 多個執行個體
 
-如果您的 Web 應用程式在多個執行個體上執行，則連續 WebJob 將在每部機器上執行，而且每部機器將會等待觸發程序並嘗試執行函數。在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。
+如果您的 Web 應用程式是在多個執行個體上執行，則會有一個連續的 WebJob 在每部機器上執行，而每部機器將會等待觸發程序，才嘗試執行函式。WebJobs SDK 佇列觸發程序會自動防止函式處理佇列訊息多次；不需將函式撰寫成等冪函式。不過，如果您想要確保在即使有多個主 Web 應用程式執行個體的情況下，仍然只有一個函式執行個體會執行，則您可以使用 `Singleton` 屬性。
 
 ### <a id="parallel"></a>平行執行
 
 如果您有多個函數在不同的佇列上接聽，則同時接收到訊息時，SDK 會以平行方式呼叫它們。
 
-收到單一佇列的多個訊息時也是如此。根據預設，SDK 會一次取得一批 (16 個) 佇列訊息，並執行以平行方式處理它們的函數。[您可以設定批次大小](#config)。當要處理的訊息數目減少到批次大小 (該批訊息數目) 的一半時，SDK 就會取得另一批訊息並開始處理那些訊息。因此，每個函數並行處理之訊息的上限數目為批次大小 (該批訊息數目) 的 1.5 倍。這項限制個別套用至具有 `QueueTrigger` 屬性的每個函式。如果您不想平行執行在單一佇列中收到的訊息，請將批次大小設定為 1。
+收到單一佇列的多個訊息時也是如此。根據預設，SDK 會一次取得一批 (16 個) 佇列訊息，並執行以平行方式處理它們的函數。[您可以設定批次大小](#config)。當要處理的訊息數目減少到批次大小 (該批訊息數目) 的一半時，SDK 就會取得另一批訊息並開始處理那些訊息。因此，每個函數並行處理之訊息的上限數目為批次大小 (該批訊息數目) 的 1.5 倍。這項限制個別套用至具有 `QueueTrigger` 屬性的每個函式。
+
+如果您不想要平行執行在單一佇列上收到的訊息，您可以將批次大小設定為 1。另請參閱 [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/) 中的**更充分掌控佇列處理**。
 
 ### <a id="queuemetadata"></a> 取得佇列或佇列訊息中繼資料
 
@@ -581,9 +584,31 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 
 ![在資料表中的錯誤記錄檔](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
+如果您想要插入自己的記錄器，請參閱[這個範例](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Program.cs)。
+
+## <a id="errors"></a>如何處理錯誤及設定逾時
+
+WebJobs SDK 也包含 [Timeout](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs) 屬性，您可以使用此屬性讓函式在未於指定的時間長度內完成時取消執行。而如果您想要在於一段指定的時間內有太多錯誤發生時引發警示，則可以使用 `ErrorTrigger` 屬性。以下是一個 [ErrorTrigger 範例](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Error-Monitoring)。
+
+```
+public static void ErrorMonitor(
+[ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
+[SendGrid(
+    To = "admin@emailaddress.com",
+    Subject = "Error!")]
+ SendGridMessage message)
+{
+    // log last 5 detailed errors to the Dashboard
+   log.WriteLine(filter.GetDetailedMessage(5));
+   message.Text = filter.GetDetailedMessage(1);
+}
+```
+
+您也可以藉由使用組態參數 (可以是應用程式設定或環境變數名稱)，動態停用和啟用函式來控制是否可以觸發這些函式。如需範例程式碼，請參閱 [WebJobs SDK 範例儲存機制](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs)中的 `Disable` 屬性。
+
 ## <a id="nextsteps"></a> 後續步驟
 
 本指南提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

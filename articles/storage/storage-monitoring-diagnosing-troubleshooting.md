@@ -149,7 +149,7 @@
 
 若要監視儲存體服務效能，您可以使用下列來自每小時與每分鐘度量表的度量。
 
-- **AverageE2ELatency** 與 **AverageServerLatency** 中的值顯示儲存體服務或是 API 操作類型用來處理要求所需的平均時間。**AverageE2ELatency** 是一項端對端延遲量值，內含讀取要求及傳送回應所花的時間，以及處理要求所花的時間 (因此，內含一旦要求抵達儲存體服務時的網路延遲)；**AverageServerLatency** 指示一項處理時間量值，因此會將任何與用戶端通訊相關的網路延遲排除在外。請參閱本指南稍後出現的「[度量顯示高 AverageE2ELatency 與低 AverageServerLatency]」一節，針對這兩個值之間為何會有明顯的差異進行討論。
+- **AverageE2ELatency** 與 **AverageServerLatency** 資料行中的值顯示儲存體服務或是 API 操作類型用來處理要求所需的平均時間。**AverageE2ELatency** 是一項端對端延遲量值，內含讀取要求及傳送回應所花的時間，以及處理要求所花的時間 (因此，內含一旦要求抵達儲存體服務時的網路延遲)；**AverageServerLatency** 指示一項處理時間量值，因此會將任何與用戶端通訊相關的網路延遲排除在外。請參閱本指南稍後出現的「[度量顯示高 AverageE2ELatency 與低 AverageServerLatency]」一節，針對這兩個值之間為何會有明顯的差異進行討論。
 - **TotalIngress** 與 **TotalEgress** 資料欄內的值以位元組為單位，顯示進出儲存體服務或是透過特定 API 操作類型的資料總量。
 - **TotalRequests** 資料欄內的值顯示 API 操作所收到的儲存體服務要求總數。**TotalRequests** 代表儲存體服務所收到的要求總數。
 
@@ -240,9 +240,9 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 儲存體用戶端程式庫會自動為每一項要求產生唯一的用戶端要求 ID。
 
-- 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求 ID 會顯示在與該要求相關之每個記錄項目的 [用戶端要求 ID] 欄位。
+- 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求 ID 會顯示在與該要求相關之每個記錄項目的 [用戶端要求 ID\] 欄位。
 - 以 Fiddler 所擷取的網路追蹤為例，用戶端要求 ID 會顯示在要求訊息中，並呈現為 **x-ms-client-request-id** HTTP 標頭值。
-- 在伺服器端的儲存體記錄中，用戶端要求 ID 會顯示在 [用戶端要求 ID] 資料欄。
+- 在伺服器端的儲存體記錄中，用戶端要求 ID 會顯示在 [用戶端要求 ID\] 資料欄。
 
 > [AZURE.NOTE]多個要求可以共用同一個用戶端要求 ID，這是因為用戶端可以指派此值 (雖然儲存體用戶端程式庫會自動指派新的值)。如果重試來自用戶端，則所有嘗試都共用相同的用戶端要求 ID。如果批次是從用戶端傳送，則該批次具有單一用戶端要求 ID。
 
@@ -363,7 +363,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 #### 調查用戶端效能問題
 
-用戶端回應速度緩慢的可能原因，包括可用的連線或執行緒數量有限。您可以試著將用戶端程式碼修改得更有效率 (例如對儲存體服務使用非同步呼叫) 或是使用較大型的虛擬機器 (核心數量增加，記憶體容量加大) 來解決這個問題。
+用戶端回應速度較慢的可能原因包括可用的連線或執行緒數量有限或資源 (例如 CPU、記憶體或網路頻寬) 不足。您可以試著將用戶端程式碼修改得更有效率 (例如對儲存體服務使用非同步呼叫) 或是使用較大型的虛擬機器 (核心數量增加，記憶體容量加大) 來解決這個問題。
 
 對於資料表和佇列服務，Nagle 演算法也可能導致相較於 **AverageServerLatency** 的高 **AverageE2ELatency**。如需詳細資訊，請參閱 Microsoft Azure 儲存體小組部落格上的文章 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle 演算法不適用於小型要求</a>。您可以在 **System.Net** 命名空間中使用 **ServicePointManager** 類別，來停用程式碼中的 Nagle 演算法。由於這麼做會影響已經開啟的連線，因此在對應用程式裡的資料表或佇列服務進行任何呼叫之前，請先完成這個動作。以下範例來自背景工作角色裡的 **Application\_Start** 方法。
 
@@ -387,25 +387,31 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 在此案例中，最可能的原因就是通往儲存體服務的儲存體要求發生延遲。您應該調查來自用戶端的要求為何無法抵達 Blob 服務。
 
-用戶端延遲傳送要求的可能原因，包括可用的連線或執行緒數量有限。您應該同時檢查用戶端是否執行多次的重試，並調查是否真是如此。您可以以程式設計方式查看與該要求相關聯的 **OperationContext** 物件，並擷取 **ServerRequestId** 值來執行這項調查。如需詳細資訊，請參閱「[伺服器要求 ID]」一節裡的程式碼範例。
+用戶端延遲傳送要求的可能原因之一，是可用的連線或執行緒數量有限。
+
+您應該同時檢查用戶端是否執行多次的重試，並調查是否真是如此。若要判斷用戶端是否正在執行多次的重試，您可以：
+
+- 檢查 Storage Analytics 記錄檔。如果發生多次重試，您會看到多個作業使用相同的用戶端要求 ID，但使用不同的伺服器要求 ID。
+- 檢查用戶端記錄檔。詳細資訊記錄會指出已發生的重試。
+- 對程式碼偵錯，並檢查與要求相關聯之 **OperationContext** 物件的屬性。如果有重試此作業，**RequestResults** 屬性會包含多個唯一的伺服器要求 ID。您也可以檢查每個要求的開始和結束時間。如需詳細資訊，請參閱「[伺服器要求 ID]」一節裡的程式碼範例。 
 
 如果用戶端裡沒有任何問題，請調查封包遺失之類的潛在網路問題。您可以使用諸如 Wireshark 或 Microsoft Message Analyzer 之類的工具來調查網路問題。
 
-如需使用 Wireshark 對網路問題進行疑難排解的詳細資訊，請參閱[附錄 2：使用 Wireshark 擷取網路流量]。
+如需有關使用 Wireshark 針對網路問題進行疑難排解的詳細資訊，請參閱[附錄 2：使用 Wireshark 擷取網路流量]。
 
-如需使用 Microsoft Message Analyzer 對網路問題進行疑難排解的詳細資訊，請參閱[附錄 3：使用 Microsoft Message Analyzer 擷取網路流量]。
+如需有關使用 Microsoft Message Analyzer 針對網路問題進行疑難排解的詳細資訊，請參閱[附錄 3：使用 Microsoft Message Analyzer 擷取網路流量]。
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>度量顯示高 AverageServerLatency
 
-當 Blob 下載要求出現高 **AverageServerLatency** 的時候，請使用儲存體記錄功能來查看同一個 Blob (或是 Blob 集合) 是否重複出現要求。在 Blob 上傳要求中，您應該調查用戶端所使用的區塊大小 (例如，小於 64K 的區塊大小，可能導致額外的負荷，除非讀取的區塊流量也小於 64K)，以及是否有多個用戶端同時間上傳區塊給同一個 Blob。您也應該查看每分鐘度量的要求數量是否突然增加，而導致超出每秒延展性目標，另請參閱[度量顯示 PercentTimeoutError 增加]。
+當 Blob 下載要求出現高 **AverageServerLatency** 的時候，請使用儲存體記錄功能來查看同一個 Blob (或是 Blob 集合) 是否重複出現要求。在 Blob 上傳要求中，您應該調查用戶端所使用的區塊大小 (例如，小於 64K 的區塊大小，可能導致額外的負荷，除非讀取的區塊流量也小於 64K)，以及是否有多個用戶端同時間上傳區塊給同一個 Blob。您也應該查看每分鐘度量，確認是否有要求數量突然增加而導致超出每秒延展性目標的情況：另請參閱[度量顯示 PercentTimeoutError 增加]。
 
 當同一個 Blob 或 Blob 集合不斷收到重複的要求，而且 Blob 下載要求出現高 **AverageServerLatency** 時，您應該考慮使用 Azure 快取或是 Azure 內容傳遞網路 (CDN) 快取處理這些 Blob。關於上傳要求，您可以使用較大的區塊大小來改善輸送量。關於資料表查詢，您也可以對執行相同查詢操作，且資料不會經常變動的用戶端，實作用戶端快取處理。
 
 高 **AverageServerLatency** 值同時也是資料表或查詢設計不良的徵兆，這種情況可能導致掃描作業，或是因為資料表或查詢遵循結尾附加/開頭附加的反模式而引起。如需詳細資訊，請參閱「[度量顯示 PercentThrottlingError 增加]」。
 
-> [AZURE.NOTE]您可以在[根據應用程式檢查清單設計可擴充且高效率的儲存體](storage-performance-checklist.md)中，找到完整的檢查清單，其中包括要注意的其他問題。
+> [AZURE.NOTE]您可以在這裡找到完整的檢查清單，包括要注意的其他問題：[Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md)。
 
-### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>佇列上的訊息傳遞出現未預期的延遲
+### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>佇列上的訊息傳遞出現非預期的延遲
 
 如果從應用程式新增訊息至佇列，到開始可從佇列讀取訊息之間的這段時間出現延遲，請採取下列步驟來診斷這個問題：
 
@@ -418,7 +424,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>度量顯示 PercentThrottlingError 增加
 
-當超出儲存體服務的延展性目標時，會出現節流錯誤。儲存體服務這麼做是為了確保沒有任何用戶端或是租用戶可犧牲其他服務來使用這項服務。如需儲存體帳戶延展性目標，以及儲存體帳戶內資料分割之效能目標的詳細資訊，請參閱 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 儲存體延展性和效能目標</a>。
+當超出儲存體服務的延展性目標時，會出現節流錯誤。儲存體服務這麼做是為了確保沒有任何用戶端或是租用戶可犧牲其他服務來使用這項服務。如需儲存體帳戶之延展性目標及儲存體帳戶內資料分割之效能目標的詳細資訊，請參閱 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 儲存體延展性與效能目標</a>。
 
 如果 **PercentThrottlingError** 度量顯示失敗的要求百分比增加且出現節流錯誤時，您應該調查下列其中一個情況：
 
@@ -427,13 +433,13 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 **PercentThrottlingError** 的增加通常會伴隨著儲存體要求數量增加一起發生，或是當您第一次對應用程式進行負載測試時。當儲存體作業出現「503 伺服器忙碌」或是「500 作業逾時」狀態訊息時，用戶端也會明顯出現這個情況。
 
-#### <a name="transient-increase-in-PercentThrottlingError"></a>PercentThrottlingError 中的暫時性增加
+#### <a name="transient-increase-in-PercentThrottlingError"></a>PercentThrottlingError 的暫時性增加
 
-如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您應該在用戶端中針對重試作業實作指數型 (而非線性) 撤退策略：這會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。如需如何使用儲存體用戶端程式庫實作重試原則的詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間</a>。
+如果 **PercentThrottlingError** 值的突然增加與應用程式的高活動期間同時發生，則您應該在用戶端中針對重試作業實作指數型 (而非線性) 撤退策略：這會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。如需有關如何使用「儲存體用戶端程式庫」實作重試原則的詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間</a>。
 
-> [AZURE.NOTE]**PercentThrottlingError** 值突然增加也可能與應用程式的大量活動期間不一致：最可能的原因是儲存體服務移動資料分割以改善負載平衡。
+> [AZURE.NOTE]**PercentThrottlingError** 值的突然增加也可能與應用程式的大量活動期間非同時發生：最可能的原因是儲存體服務移動資料分割以改善負載平衡。
 
-#### <a name="permanent-increase-in-PercentThrottlingError"></a>PercentThrottlingError 錯誤中的永久性增加
+#### <a name="permanent-increase-in-PercentThrottlingError"></a>PercentThrottlingError 錯誤的永久性增加
 
 如果發現 **PercentThrottlingError** 值持續維持在高點，而且交易量也不斷地攀升，或是當您初次在應用程式上執行負載測試，您需要評估應用程式使用儲存體分割的方式，及其是否接近儲存體帳戶的延展性目標。舉例來說，當您發現某個佇列 (作為單一資料分割納入計算) 出現節流錯誤，那麼您應該考慮採用額外的佇列，將所有交易分散到多個分割。如果您發現某個資料表出現節流錯誤，您需要考慮採用不同的資料分割結構描述，並使用範圍較大的資料分割索引鍵，將所有交易分散到多個資料分割。此問題的常見原因出在結尾附加/開頭附加的反模式，在此模式下您可以選取日期作為資料分割索引鍵，然後特定日期的所有資料就會寫入單一資料分割中：在負載情況下，這項作業會導致寫入瓶頸。您應該考慮採用不同的資料分割設計，或是評估使用 Blob 儲存體是否會更好。您應該同時檢查節流錯誤是否因為大量湧入流量而引起，並調查如何緩和要求模式。
 
@@ -449,7 +455,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 > [AZURE.NOTE]由於儲存服務會將資料分割移至新的伺服器來達到負載平衡目的，因此可能會暫時出現逾時錯誤。
 
-**PercentTimeoutError** 度量是下列度量的彙總：**ClientTimeoutError**、**AnonymousClientTimeoutError**、**SASClientTimeoutError**、**ServerTimeoutError**、**AnonymousServerTimeoutError** 和 **SASServerTimeoutError**。
+**PercentTimeoutError** 度量是下列度量的彙總：**ClientTimeoutError**、**AnonymousClientTimeoutError**、**SASClientTimeoutError**、**ServerTimeoutError**、**AnonymousServerTimeoutError** 及 **SASServerTimeoutError**。
 
 伺服器逾時是因為伺服器上的錯誤引起。用戶端發生逾時的情況，原因出在於伺服器上的某項作業超出用戶端指定的逾時設定；舉例來說，使用儲存體用戶端程式庫的用戶端可以使用 **QueueRequestOptions** 類別的 **ServerTimeout** 屬性來設定作業逾時。
 
@@ -457,7 +463,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>度量顯示 PercentNetworkError 增加
 
-您的度量顯示其中一個儲存體服務的 **PercentNetworkError** 有增加情況。**PercentNetworkError** 度量是下列度量的彙總：**NetworkError**、**AnonymousNetworkError** 和 **SASNetworkError**。當儲存體服務在用戶端進行儲存體要求時偵測到網路錯誤，就會發生這類情況。
+您的度量顯示其中一個儲存體服務的 **PercentNetworkError** 有增加情況。**PercentNetworkError** 度量是下列度量的彙總：**NetworkError**、**AnonymousNetworkError** 及 **SASNetworkError**。當儲存體服務在用戶端進行儲存體要求時偵測到網路錯誤，就會發生這類情況。
 
 此錯誤最常見的原因，就是用戶端在儲存體服務逾時之前就中斷連線。您應該調查用戶端裡的程式碼，了解用戶端何時及為何與儲存體服務中斷連線。您還可以使用 Wireshark、Microsoft Message Analyzer 或是 Tcping 調查來自用戶端的網路連線問題。這些工具如[附錄]所述。
 
@@ -468,7 +474,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 來源|詳細程度|詳細程度|用戶端要求 ID|作業內容
 ---|---|---|---|---
 Microsoft.WindowsAzure.Storage|資訊|3|85d077ab-…|從主要位置開始作業 (依據位置模式 PrimaryOnly)。
-Microsoft.WindowsAzure.Storage|資訊|3|85d077ab -…|啟動同步要求至 https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14。
+Microsoft.WindowsAzure.Storage|資訊|3|85d077ab -…|對 https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14 啟動同步要求。
 Microsoft.WindowsAzure.Storage|資訊|3|85d077ab -…|等候回應。
 Microsoft.WindowsAzure.Storage|警告|2|85d077ab -…|等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止...
 Microsoft.WindowsAzure.Storage|資訊|3|85d077ab -…|收到回應。狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = .
@@ -481,10 +487,10 @@ Microsoft.WindowsAzure.Storage|錯誤|1|85d077ab -…|重試原則不允許重�
 
 - 一般來說，當您為用戶端建立要使用的 SAS，不應該立即設定開始時間。如果使用目前時間來產生 SAS 的主機，以及儲存體服務之間出現些微的時鐘誤差，則儲存體服務有可能收到尚未生效的 SAS。
 - 您不應該設定極短暫的 SAS 到期時間。再說一次，產生 SAS 的主機，以及儲存體服務之間出現些微的時鐘誤差時，會導致 SAS 明顯比預期時間早到期。
-- SAS 金鑰中的版本參數 (例如 **sv=2012-02-12**) 是否與您所使用的儲存體用戶端程式庫版本相符。您應該一律使用最新版的儲存體用戶端程式庫。如需 SAS 權杖版本設定以及用戶端程式庫版本相依性的詳細資訊，請參閱 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">Microsoft Azure 儲存體的新功能</a>。
+- SAS 金鑰中的版本參數 (例如 **sv=2015-04-05**) 是否與您所使用的儲存體用戶端程式庫版本相符。 建議您一律使用最新版的[儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)。如需有關 SAS 權杖版本設定及用戶端程式庫版本相依性的詳細資訊，請參閱 [Microsoft Azure 儲存體的新功能](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx)。
 - 如果您重新產生儲存體存取金鑰，會讓任何現有的 SAS 權杖失效。如果您產生的 SAS 權杖，內含很長的到期時間以便用戶端應用程式快取處理，則可能會出現問題。
 
-如果您是使用儲存體用戶端程式庫來產生 SAS 權杖，則您可以輕易地建立有效的權杖。然而，如果是使用儲存體 REST API 並手動建構 SAS 權杖，您應該仔細閱讀 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">以共用存取簽章委派存取</a>主題。
+如果您是使用儲存體用戶端程式庫來產生 SAS 權杖，則您可以輕易地建立有效的權杖。不過，如果是使用「儲存體 REST API」並且是手動建構 SAS 權杖，您應該仔細閱讀 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">以共用存取簽章委派存取權</a>主題。
 
 ### <a name="the-client-is-receiving-404-messages"></a>用戶端收到 HTTP 404 (找不到) 訊息
 當用戶端應用程式接收來自伺服器的 HTTP 404 (找不到) 訊息時，表示用戶端嘗試使用的物件 (例如，實體、資料表、Blob、容器或佇列) 並不存在儲存體服務中。這種情況有數種可能的原因，例如：
@@ -505,32 +511,32 @@ Microsoft.WindowsAzure.Storage|錯誤|1|85d077ab -…|重試原則不允許重�
 
 要求 ID|作業
 ---|---
-07b26a5d-...|**DeleteIfExists** 方法用於刪除 Blob 容器。請注意，此作業包括 **HEAD** 要求，以檢查容器是否存在。
-e2d06d78…|**CreateIfNotExists** 方法用於建立 Blob 容器。請注意，此作業包括 **HEAD** 要求，可檢查容器是否存在。**HEAD** 傳回 404 訊息，但持續作業。
-de8b1c3c-...|**UploadFromStream** 方法用於建立 Blob。**PUT** 要求失敗，並顯示 404 訊息。
+07b26a5d-...|**DeleteIfExists** 方法用於刪除 Blob 容器。請注意，此作業包括一個用以檢查容器是否存在的 **HEAD** 要求。
+e2d06d78…|**CreateIfNotExists** 方法用於建立 Blob 容器。請注意，此作業包括一個會檢查容器是否存在的 **HEAD** 要求。**HEAD** 傳回 404 訊息，但持續作業。
+de8b1c3c-...|**UploadFromStream** 方法用於建立 Blob。**PUT** 要求失敗，並顯示 404 訊息
 
 記錄項目：
 
 要求 ID | 作業內容
 ---|---
-07b26a5d-...|啟動同步要求至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。
+07b26a5d-...|對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer 啟動同步要求。
 07b26a5d-...|StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 07b26a5d-...|等候回應。
 07b26a5d-... | 收到回應。狀態碼 = 200，要求 ID = eeead849-...Content-MD5 =，ETag = "0x8D14D2DC63D059B"。
 07b26a5d-... | 回應標頭已成功處理完畢，並繼續剩下的作業。
 07b26a5d-... | 正在下載回應內文。
 07b26a5d-... | 作業順利完成。
-07b26a5d-... | 啟動同步要求至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。
+07b26a5d-... | 對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer 啟動同步要求。
 07b26a5d-... | StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 07b26a5d-... | 等候回應。
 07b26a5d-... | 收到回應。狀態碼 = 202，要求 ID = 6ab2a4cf-...，Content-MD5 = ，ETag = .
 07b26a5d-... | 回應標頭已成功處理完畢，並繼續剩下的作業。
 07b26a5d-... | 正在下載回應內文。
 07b26a5d-... | 作業順利完成。
-e2d06d78-... | 啟動非同步要求至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>。
+e2d06d78-... | 對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> 啟動非同步要求。
 e2d06d78-... | StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 e2d06d78-...| 等候回應。
-de8b1c3c-... | 啟動同步要求至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt。
+de8b1c3c-... | 對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt 啟動同步要求。
 de8b1c3c-... | StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.
 de8b1c3c-... | 正在準備寫入要求資料。
 e2d06d78-... | 等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(404) 找不到..
@@ -538,7 +544,7 @@ e2d06d78-... | 收到回應。狀態碼 = 404，要求 ID = 353ae3bc-...，Conte
 e2d06d78-... | 回應標頭已成功處理完畢，並繼續剩下的作業。
 e2d06d78-... | 正在下載回應內文。
 e2d06d78-... | 作業順利完成。
-e2d06d78-... | 啟動非同步要求至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。
+e2d06d78-... | 對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer 啟動非同步要求。
 e2d06d78-...|StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 e2d06d78-... | 等候回應。
 de8b1c3c-... | 正在寫入要求資料。
@@ -611,9 +617,9 @@ e2d06d78-... | 重試原則不允許重試。失敗時遠端伺服器傳回錯�
 
 > [AZURE.NOTE]當您需要為用戶端的 JavaScript 問題進行疑難排解時，可以使用 Internet Explorer 中的 F12 開發人員工具，追蹤瀏覽器與儲存體服務之間所交換的訊息。
 
-這些錯誤的原因是網頁瀏覽器實作了<a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">同源原則</a>安全性限制，這會防止網頁在與其來源網域不同的網域中呼叫 API。
+之所以發生這些錯誤，是因為網頁瀏覽器實作了<a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">同源原則</a>安全性限制，這會防止網頁呼叫與其來源網域不同之網域中的 API。
 
-若要解決這個 JavaScript 問題，您可以針對用戶端存取的儲存體服務，設定跨原始來源資源分享 (CORS)。如需詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">跨原始資源共用 (CORS) 支援 Azure 儲存體服務</a>。
+若要解決這個 JavaScript 問題，您可以針對用戶端存取的儲存體服務，設定跨原始來源資源分享 (CORS)。如需詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Azure 儲存體服務的跨來源資源共用 (CORS) 支援</a>。
 
 下例程式碼範例顯示如何設定您的 Blob 服務，以讓 JavaScript 在 Contoso 網域中執行，進而存取位於您的 Blob 儲存體服務中的 Blob：
 
@@ -635,7 +641,7 @@ e2d06d78-... | 重試原則不允許重試。失敗時遠端伺服器傳回錯�
 
 在某些情況中，遺失網路封包可能導致儲存體服務將 HTTP 404 訊息傳回給用戶端。舉例來說，當您的用戶端應用程式正在刪除資料表服務中的某個實體，您看到該用戶端正從資料表服務擲回一個回報「HTTP 404 (找不到)」狀態訊息的儲存體例外。當您調查資料表儲存體服務中的資料表時，會看到該服務已依要求刪除該實體。
 
-用戶端的例外狀況詳細資料包括表格服務為要求所指派的要求 ID (7e84f12d...)：您可以使用這項資訊，搜尋記錄檔中的 **request-id-header** 資料行，以在伺服器端儲存體記錄中尋找要求詳細資料。您也可以使用度量，判定此類失敗情況何時發生，然後依據度量記錄此錯誤的時間搜尋記錄檔。此記錄項目顯示刪除作業失敗，並顯示「HTTP (404) 用戶端其他錯誤」的狀態訊息。同一個記錄項目同時包含了用戶端在 **client-request-id** 資料欄中所產生的要求 ID (813ea74f…)。
+用戶端中的例外狀況詳細資料會包括表格服務為要求指派的要求 ID (7e84f12d...)：您可以使用這項資訊，藉由搜尋記錄檔中的 **request-id-header** 資料行，在伺服器端儲存體記錄中尋找要求詳細資料。您也可以使用度量，判定此類失敗情況何時發生，然後依據度量記錄此錯誤的時間搜尋記錄檔。此記錄項目顯示刪除作業失敗，並顯示「HTTP (404) 用戶端其他錯誤」的狀態訊息。同一個記錄項目同時包含了用戶端在 **client-request-id** 資料欄中所產生的要求 ID (813ea74f…)。
 
 伺服器端記錄還包含帶有相同 **client-request-id** 值的另一個項目 (813ea74f…)，這個值是來自同一個實體與同一個用戶端順利完成的刪除作業所產生。此順利完成的刪除作業會在刪除要求失敗之前很快地發生。
 
@@ -662,20 +668,20 @@ Timestamp|作業|結果|容器名稱|用戶端要求 ID
 
 **PercentSuccess** 度量會依據其 HTTP 狀態碼，擷取成功完成的作業百分比。帶有 2XX 狀態碼的作業會記錄為成功，而帶有 3XX、4XX 與 5XX 範圍之狀態碼的作業將記錄為不成功，並會降低 **PercentSucess** 度量值。在伺服器端的儲存體記錄檔中，這些作業會加上 **ClientOtherErrors** 的交易狀態記錄下來。
 
-請務必注意，這些作業已經成功完成，因此不會影響到例如可用性的其他度量。以下範例顯示成功執行，但出現不成功 HTTP 狀態碼的作業：- **ResourceNotFound** (找不到 404)，例如來自 GET 對不存在的 Blob 的要求。- **ResouceAlreadyExists** (衝突 409)，例如來自資源已存在的 **CreateIfNotExist** 作業。- **ConditionNotMet** (未修改 304)，例如來自條件式作業，比如說，只有在上次作業之後更新影像，用戶端才會傳送 **ETag** 值和 HTTP **If-None-Match** 標頭以要求該影像。
+請務必注意，這些作業已經成功完成，因此不會影響到例如可用性的其他度量。可成功執行但可能導致出現不成功 HTTP 狀態碼的一些作業範例包括：- **ResourceNotFound** (找不到 404)，例如來自對不存在的 Blob 發出 GET 要求。- **ResouceAlreadyExists** (衝突 409)，例如來自資源已經存在的 **CreateIfNotExist** 作業。- **ConditionNotMet** (未修改 304)，例如來自條件式作業，像是當用戶端只有在上次作業之後影像已被更新，才會傳送 **ETag** 值和 HTTP **If-None-Match** 標頭來要求該影像的情況。
 
-您可以在以下頁面找到儲存體服務傳回的常見 REST API 錯誤碼清單：<a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">常見的 REST API 錯誤碼</a>。
+您可以在<a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">常見的 REST API 錯誤碼</a>頁面找到儲存體服務傳回的常見 REST API 錯誤碼清單。
 
-### <a name="capacity-metrics-show-an-unexpected-increase"></a>容量度量顯示未預期的儲存體容量使用增加
+### <a name="capacity-metrics-show-an-unexpected-increase"></a>容量度量顯示有非預期的儲存體容量使用增加
 
 
 如果您發現儲存體帳戶裡突然出現非預期的容量改變，可以先察看可用性度量來調查其原因；舉例來說，刪除要求的失敗次數一旦增加，可能會造成您所使用的 Blob 儲存體數量增加，這是因為您認為應該可以騰出一些空間的特定應用程式清除作業沒有如預期發揮作用所致 (例如，因為用於騰出空間的 SAS 權杖已經過期)。
 
-### <a name="you-are-experiencing-unexpected-reboots"></a>附加大量 VHD 的 Azure 虛擬機器在未預期下重新啟動
+### <a name="you-are-experiencing-unexpected-reboots"></a>附加大量 VHD 的 Azure 虛擬機器出現非預期的重新開機情況
 
 當 Azure 虛擬機器 (VM) 裡有大量的附加 VHD 位於同一個儲存體帳戶內時，您可能會超出個別儲存體帳戶的延展性目標，導致 VM 作業失敗。您應該檢查儲存體帳戶的每分鐘度量 (**TotalRequests**/**TotalIngress**/**TotalEgress**)，查看是否有超出儲存體帳戶延展性目標的突然增加情況。請參閱「[度量顯示 PercentThrottlingError 增加]」一節，取得如何判斷儲存體帳戶是否發生節流作業的協助。
 
-一般來說，VHD 每次來自虛擬機器的個別流量輸入或輸出，都會在底層的分頁 Blob 上轉換為 **Get Page** 或 **Put Page** 作業。因此，您可以在環境中使用預估的 IOPS，依據應用程式的特定行為調節單一儲存體帳戶中應該具備的 VHD 數量。我們不建議單一儲存體帳戶內具備超過 40 的磁碟。請參閱 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 儲存體延展性和效能目標</a>，以取得儲存體帳戶目前延展性目標的詳細資訊，尤其是您所使用之儲存體帳戶類型的要求率總計和頻寬總計。如果您超過儲存體帳戶的延展性目標，則應該將 VHD 放在多個不同儲存體帳戶，以減少每個個別帳戶中的活動。
+一般來說，VHD 每次來自虛擬機器的個別流量輸入或輸出，都會在底層的分頁 Blob 上轉換為 **Get Page** 或 **Put Page** 作業。因此，您可以在環境中使用預估的 IOPS，依據應用程式的特定行為調節單一儲存體帳戶中應該具備的 VHD 數量。我們不建議單一儲存體帳戶內具備超過 40 的磁碟。如需儲存體帳戶目前延展性目標的詳細資訊，尤其是您所使用之儲存體帳戶類型的要求率總計和頻寬總計，請參閱 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 儲存體延展性和效能目標</a>。如果您超過儲存體帳戶的延展性目標，則應該將 VHD 放在多個不同儲存體帳戶，以減少每個個別帳戶中的活動。
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>您的問題起因於使用儲存體模擬器進行開發或測試
 
@@ -685,9 +691,9 @@ Timestamp|作業|結果|容器名稱|用戶端要求 ID
 - [使用儲存體模擬器時，發生「其中一個 HTTP 標頭的值格式不正確」錯誤]
 - [執行儲存體模擬器需要系統管理員權限]
 
-#### <a name="feature-X-is-not-working"></a>功能 "X" 在儲存體模擬器中無法運作
+#### <a name="feature-X-is-not-working"></a>儲存體模擬器裡的功能 "X" 未能發揮作用
 
-儲存體模擬器並未支援所有的 Azure 儲存體服務，例如檔案服務。如需詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">儲存體模擬器與 Azure 儲存體服務之間的差異</a>。
+儲存體模擬器並未支援所有的 Azure 儲存體服務，例如檔案服務。如需詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">儲存體模擬器和 Azure 儲存體服務之間的差異</a>。
 
 如需了解儲存體模擬器不支援哪些功能，請使用雲端裡的 Azure 儲存體服務。
 
@@ -729,11 +735,11 @@ Timestamp|作業|結果|容器名稱|用戶端要求 ID
 - 您可以使用度量資訊，協助您搜尋伺服器端記錄資料以了解所發生的任何錯誤之詳細資訊。此項資訊可協助您進行疑難排解並解決問題。
 - 如果伺服器端記錄裡的資訊不足以為問題順利進行疑難排解，您可以使用儲存體用戶端程式庫端的記錄來調查用戶端應用程式行為，並使用像是 Fiddler、Wireshark 與 Microsoft Message Analyzer 之類的工具來調查您的網路。
 
-如需使用 Fiddler 的詳細資訊，請參閱[附錄 1：使用 Fiddler 擷取 HTTP 與 HTTPS 流量]。
+如需有關使用 Fiddler 的詳細資訊，請參閱[附錄 1：使用 Fiddler 擷取 HTTP 與 HTTPS 流量]。
 
-如需使用 Wireshark 的詳細資訊，請參閱[附錄 2：使用 Wireshark 擷取網路流量]。
+如需有關使用 Wireshark 的詳細資訊，請參閱[附錄 2：使用 Wireshark 擷取網路流量]。
 
-如需使用 Microsoft Message Analyzer 的詳細資訊，請參閱[附錄 3：使用 Microsoft Message Analyzer 擷取網路流量]。
+如需有關使用 Microsoft Message Analyzer 的詳細資訊，請參閱[附錄 3：使用 Microsoft Message Analyzer 擷取網路流量]。
 
 ## <a name="appendices"></a>附錄
 
@@ -750,7 +756,7 @@ Timestamp|作業|結果|容器名稱|用戶端要求 ID
 Fiddler 一經啟動後，就會開始擷取本機電腦上的 HTTP 與 HTTPS 流量。以下提供您一些有用的命令，方便您控制 Fiddler：
 
 - 停止與開始擷取流量。在主要功能表上，前往 [檔案] 並按一下 [擷取流量] 以開啟及關閉擷取作業。
-- 儲存擷取的流量資料。在主功能表上，前往 [檔案]，按一下 [儲存]，然後按一下 [所有工作階段]：這麼做可讓您將流量儲存在工作階段封存檔中。您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
+- 儲存擷取的流量資料。在主功能表上，前往 [檔案]，按一下 [儲存]，然後按一下 [所有工作階段]：這麼做可讓您將流量儲存在「工作階段封存」檔案中。您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
 
 若要限制 Fiddler 所擷取的流量數量，請使用您在 [篩選器] 索引標籤中設定的篩選器。以下螢幕擷取畫面顯示只會擷取傳送至 **contosoemaildist.table.core.windows.net** 儲存體端點的流量之篩選器：
 
@@ -765,7 +771,7 @@ Wireshark 是一項網路通訊協定工具，能幫助您針對各式各樣的�
 1.	在本機電腦上啟動 Wireshark。
 2.	在 [開始] 區段中，選取本機網路介面或是連線至網際網路的介面。
 3.	按一下 [擷取選項]。
-4.	在 [擷取篩選器] 文字方塊中，新增一項篩選器。舉例來說，**host contosoemaildist.table.core.windows.net** 會將 Wireshark 設定為僅擷取 **contosoemaildist** 儲存體帳戶中資料表服務端點所流入與流出的封包。如需擷取篩選器的完整清單，請參閱 <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>。
+4.	在 [擷取篩選器] 文字方塊中，新增一項篩選器。舉例來說，**host contosoemaildist.table.core.windows.net** 會將 Wireshark 設定為僅擷取 **contosoemaildist** 儲存體帳戶中資料表服務端點所流入與流出的封包。如需「擷取篩選器」的完整清單，請參閱 <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>。
 
     ![][6]
 
@@ -781,7 +787,7 @@ WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。您也可
 
 ![][8]
 
-> [AZURE.NOTE]如需使用 Wireshark 的詳細資訊，請參閱 <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark 使用者指南</a>。
+> [AZURE.NOTE]如需有關使用 Wireshark 的詳細資訊，請參閱 <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark 使用者指南</a>。
 
 ### <a name="appendix-3"></a>附錄 3：使用 Microsoft Message Analyzer 擷取網路流量
 
@@ -797,7 +803,7 @@ WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。您也可
 
 當您準備好收集追蹤資料時，按一下 [Start With] 按鈕。
 
-如需 Microsoft Message Analyzer **Web Proxy** 追蹤功能的詳細資訊，請參閱 TechNet 上的 <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF-WebProxy 提供者</a>。
+如需有關 Microsoft Message Analyzer **Web Proxy** 追蹤的詳細資訊，請參閱 TechNet 上的 <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF-WebProxy 提供者</a>。
 
 Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler 來設計，可以擷取用戶端 HTTPS 流量，並顯示未加密的 HTTPS 訊息。**Web Proxy** 追蹤功能會針對所有 HTTP 與 HTTPS 流量設定本機 Proxy，以便賦予其未加密訊息的存取權限。
 
@@ -813,7 +819,7 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 
 ![][10]
 
-如需 Microsoft Message Analyzer 本機連結層追蹤功能的詳細資訊，請參閱 TechNet 上的 <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture 提供者</a>。
+如需有關「Microsoft Message Analyzer 本機連結層」追蹤的詳細資訊，請參閱 TechNet 上的 <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture 提供者</a>。
 
 ### <a name="appendix-4"></a>附錄 4：使用 Excel 檢視度量與記錄資料
 
@@ -834,7 +840,7 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 - 確保您的 Web 服務可用且迅速回應。無論您的應用程式是網站或是使用 Web 服務的裝置應用程式，此工具都可以每幾分鐘從全球各地測試您的 URL，然後讓您知道是否有問題。
 - 快速診斷 Web 服務中的任何效能問題或例外。了解 CPU 或其他資源是否過度使用，從例外中取得堆疊追蹤資料，並且輕鬆地搜尋記錄追蹤項目。當應用程式的效能低於可接受的範圍，我們可以傳送一封電子郵件給您。我們可以同時監視 .NET 與 Java Web 服務。
 
-本文撰寫期間，Application Insights 已經進入預覽階段。您可以在 <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN 上的 Application Insights for Visual Studio Online</a> 找到更多資訊。
+本文撰寫期間，Application Insights 已經進入預覽階段。您可以在 <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN 上的 Application Insights for Visual Studio Team Services</a> 找到更多資訊。
 
 
 <!--Anchors-->
@@ -909,4 +915,4 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

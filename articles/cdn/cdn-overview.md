@@ -49,8 +49,9 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - 負載平衡
 - DDoS 保護
 - [快速清除](cdn-purge-endpoint.md)
+- [透過 REST API 管理](https://msdn.microsoft.com/library/mt634456.aspx)
 
- 
+
 ## 進階功能
 
 高階 CDN 層包含所有標準層的功能，以及以下這些額外功能：
@@ -59,4 +60,4 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - [進階 HTTP 報告](cdn-advanced-http-reports.md)
 - [即時統計資料](cdn-read-time-stats.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

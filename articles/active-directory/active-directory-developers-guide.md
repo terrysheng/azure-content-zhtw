@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/06/2015"
+   ms.date="12/10/2015"
    ms.author="mbaldwin"/>
 
 
@@ -29,11 +29,9 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 1. [整合應用程式與 Azure Active Directory](active-directory-integrating-applications.md)：了解如何從 Azure Active Directory 加入、更新和移除應用程式、以及關於整合應用程式商標指導方針的資訊。
 
-1. [Azure Active Directory 圖形 API](active-directory-graph-api.md)：使用「Azure Active Directory 圖形 API」，以程式設計方式透過 REST API 端點存取 Azure Active Directory。
+1. [Azure Active Directory 圖形 API](active-directory-graph-api.md)：使用「Azure Active Directory 圖形 API」，以程式設計方式透過 REST API 端點存取 Azure Active Directory。請注意，Azure AD Graph API 也可透過 [Microsoft Graph](https://graph.microsoft.io/) 存取，其為統一的 API，可透過單一 REST API 端點以單一的存取權杖，存取多個 Microsoft 雲端服務 API。
 
-    > [AZURE.IMPORTANT]Azure AD Graph API 功能也透過 [Microsoft Graph](https://graph.microsoft.io/) 提供使用，Microsoft Graph 是一個統一的 API，包含了來自其他 Microsoft 服務 (例如 Outlook、OneDrive、OneNote、Planner 和 Office Graph) 的 API，並可透過單一端點與使用單一存取權杖進行存取。
-
-1. [Azure Active Directory 驗證程式庫](active-directory-authentication-libraries.md)：使用 Azure 驗證程式庫輕鬆地驗證使用者以取得存取權杖。
+1. [Azure Active Directory 驗證程式庫](active-directory-authentication-libraries.md)：使用 Azure 驗證程式庫輕鬆地驗證使用者，取得存取權杖。
 
 
 ## 開始使用
@@ -82,36 +80,36 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 這些文章提供 REST 和驗證程式庫 API、通訊協定、錯誤、程式碼範例和端點的基礎參考。
 
 ###  支援
-- [標記的問題](http://stackoverflow.com/questions/tagged/azure-active-directory)：在 Stack Overflow 上搜尋 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 和 [adal](http://stackoverflow.com/questions/tagged/adal) 標記，以尋找 Azure Active Directory 解決方案。
+- [標記的問題](http://stackoverflow.com/questions/tagged/azure-active-directory)：搜尋 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 與[adal](http://stackoverflow.com/questions/tagged/adal) 的標記，在堆疊溢位上尋找 Azure Active Directory 解決方案。
 
 ### 代碼
 
-- [Azure Active Directory 開放原始碼程式庫](http://github.com/AzureAD)：尋找程式庫原始碼的最簡單方式，即是使用我們的[程式庫清單](active-directory-authentication-libraries.md)。
+- [Azure Active Directory 開放原始碼程式庫](http://github.com/AzureAD)：尋找程式庫原始碼最簡單的方法，是使用我們的[程式庫清單](active-directory-authentication-libraries.md)。
 
-- [Azure Active Directory 範例](http://github.com/AzureADSamples)：瀏覽範例清單的最簡單方式是使用[程式碼範例索引](active-directory-code-samples.md)。
+- [Azure Active Directory 範例](http://github.com/AzureADSamples)：巡覽範例清單最簡單的方法，是使用[程式碼範例索引](active-directory-code-samples.md)。
 
 
 ### Graph API
 
-- [Graph API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)：Azure Active Directory 圖形 API 的 REST 參考。[檢視互動式 Graph API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
+- [Graph API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)：Azure Active Directory Graph API 的 REST 參考。[檢視互動式圖形 API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-- [Graph API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)：OAuth 2.0 權限範圍，用來控制應用程式對租用戶中的目錄資料有何存取權。
+- [圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)：用以控制應用程式對租用戶中目錄資料取權的 OAuth 2.0 權限範圍。
 
 
 ### 驗證通訊協定
 
-- [SAML 2.0 通訊協定參考](https://msdn.microsoft.com/library/azure/dn195591.aspx)：SAML 2.0 通訊協定可讓應用程式為使用者提供單一登入體驗。
+- [SAML 2.0 通訊協定參考](https://msdn.microsoft.com/library/azure/dn195591.aspx)：SAML 2.0 通訊協定可讓應用程式能為其使用者提供單一登入體驗。
 
 
-- [OAuth 2.0 通訊協定參考](https://msdn.microsoft.com/library/azure/dn645545.aspx)：您可以使用 OAuth 2.0 通訊協定，授權存取 Azure Active Directory 租用戶中的 Web 應用程式和 Web API。
+- [OAuth 2.0 通訊協定參考](https://msdn.microsoft.com/library/azure/dn645545.aspx)：您可以使用 OAuth 2.0 通訊協定，授權存取 Azure Active Directory 租用戶中的 Web 應用程式與 Web API。
 
 
-- [OpenID Connect 1.0 通訊協定參考](https://msdn.microsoft.com/library/azure/dn645541.aspx)：OpenID Connect 1.0 通訊協定會擴充 OAuth 2.0 以做為驗證通訊協定。
+- [OpenID Connect 1.0 通訊協定參考](https://msdn.microsoft.com/library/azure/dn645541.aspx)：OpenID Connect 1.0 通訊協定會擴充 OAuth 2.0 以作為驗證通訊協定。
 
 
 - [WS-同盟 1.2 通訊協定參考](https://msdn.microsoft.com/library/azure/dn903702.aspx)：Web 服務同盟 1.2 版規格中所指定的 WS-同盟 1.2 通訊協定。
 
-- [支援的權杖與宣告類型](active-directory-token-and-claims.md)：您可以使用此指南來了解及評估 SAML 2.0 和 JSON Web Token (JWT) 權杖中的宣告。
+- [支援的權杖與宣告類型](active-directory-token-and-claims.md)：您可以使用此指南來了解及評估 SAML 2.0 與 JSON Web Token (JWT) 權杖中的宣告。
 
 ## 影片
 
@@ -124,7 +122,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 - [使用 Azure Active Directory 開發新式原生應用程式](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 是每星期五的一對一影片系列，專門提供簡短的 (10 至 15 分鐘) 訪談，由專家就各種 Azure 主題發表意見。請使用頁面上的 [服務篩選] 功能，查看所有 Azure Active Directory 影片。
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) 是每星期五的一對一影片系列，專門提供簡短的 10 到 15 分鐘訪談，由專家就各種 Azure 主題發表意見。請使用頁面上的 [服務篩選] 功能，查看所有 Azure Active Directory 影片。
 
 - [Azure 身分識別 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Azure 身分識別 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -136,8 +134,8 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [Azure Active Directory Graph 團隊部落格](http://blogs.msdn.com/b/aadgraphteam)︰Graph API 專屬的 Azure Active Directory 資訊。
 
-- [雲端識別](http://www.cloudidentity.net)：一位 Azure Active Directory 重要 PM 對於「身分識別管理即服務」的見解。
+- [雲端識別](http://www.cloudidentity.net)：一位 Azure Active Directory 主要 PM 對於「身分識別管理即服務」的見解。
 
-- [Twitter 上的 Azure Active Directory](https://twitter.com/azuread)：140 個字元以內的 Azure Active Directory 公告。
+- [Twitter 上的 Azure Active Directory](https://twitter.com/azuread)：140 個字元內的 Azure Active Directory 公告。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

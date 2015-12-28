@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/15/2015"
 	ms.author="saurabh"/>
 
 # 使用 Azure 資源管理員範本建立具有監視和診斷的 Windows 虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]本文涵蓋內容包括如何使用資源管理員部署模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
 Azure 診斷延伸模組提供以 Windows 為基礎的 Azure 虛擬機器上的監視和診斷功能。您可以將延伸模組納入為 Azure 資源管理員範本的一部分，在虛擬機器上啟用這些功能。請參閱[使用 VM 延伸模組編寫 Azure 資源管理員範本](virtual-machines-extensions-authoring-templates.md)，以取得將任何延伸模組納入為虛擬機器範本一部分的詳細資訊。本文描述如何將 Azure 診斷延伸模組新增至 Windows 虛擬機器範本。
   
@@ -82,7 +82,7 @@ Azure 診斷延伸模組提供以 Windows 為基礎的 Azure 虛擬機器上的�
 
 ## 將診斷儲存體帳戶指定為參數 
 
-上述的診斷延伸模組 json 片段假設兩個參數 *existingdiagnosticsStorageAccountName* 和 *existingdiagnosticsStorageAccountName*，以指定將會儲存診斷資料的診斷儲存體帳戶。將診斷儲存體帳戶指定為參數可讓您輕鬆地跨不同環境變更診斷儲存體帳戶，例如，您可能想要使用不同診斷儲存體帳戶進行測試，並且使用另外一個進行生產部署。
+上述的診斷延伸模組 json 片段假設兩個參數 *existingdiagnosticsStorageAccountName* 和 *existingdiagnosticsStorageAccountName* ，以指定將會儲存診斷資料的診斷儲存體帳戶。將診斷儲存體帳戶指定為參數可讓您輕鬆地跨不同環境變更診斷儲存體帳戶，例如，您可能想要使用不同診斷儲存體帳戶進行測試，並且使用另外一個進行生產部署。
 
         "existingdiagnosticsStorageAccountName": {
             "type": "string",
@@ -119,7 +119,9 @@ Azure 診斷延伸模組提供以 Windows 為基礎的 Azure 虛擬機器上的�
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": ""><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-上述組態中的度量定義 xml 節點是重要的組態元素，因為它定義如何彙總和儲存稍早在 *PerformanceCounter* 節點中的 xml 定義的效能計數器。這些度量是驅動 Azure 入口網站中圖表和警示的元素，所以如果您想要查看入口網站中的監視資料，務必納入組態中。
+上述組態中的度量定義 xml 節點是重要的組態元素，因為它定義如何彙總和儲存稍早在 *PerformanceCounter* 節點中的 xml 定義的效能計數器。
+
+> [AZURE.IMPORTANT]這些計量控制了 Azure 入口網站中的監視圖表與警示 。若要在 Azure 入口網站中查看 VM 的監視資料，必須將具有 *resourceID* 和 **MetricAggregation** 的 **計量**節點包含在您的 VM 的診斷設定中。
 
 以下是度量定義的 xml 的範本：
 
@@ -128,14 +130,15 @@ Azure 診斷延伸模組提供以 Windows 為基礎的 Azure 虛擬機器上的�
 			<MetricAggregation scheduledTransferPeriod="PT1M"/>
 		</Metrics>
 
-*resourceID* 屬性會唯一識別您的訂用帳戶中的虛擬機器。請確定使用 subscription() 和 resourceGroup() 函式，這樣範本就會根據訂用帳戶和您要部署的資源群組自動更新這些值。
+*resourceID* 屬性專門用於識別您訂用帳戶中的虛擬機器。請確定使用 subscription() 和 resourceGroup() 函式，這樣範本就會根據訂用帳戶和您要部署的資源群組自動更新這些值。
 
-如果您在迴圈中建立多個虛擬機器，則您必須以 copyIndex() 函式填入 *resourceID* 值，以正確區別每個個別 VM。*xmlCfg* 值可以更新以支援此功能，如下所示：
+若您要在迴圈中建立多部虛擬機器，必須以 copyIndex() 函式填入 *resourceID* 值，以正確區分每個個別的 VM。*xmlCfg* 值可以更新為支援此功能，如下所示：
 
 	"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
+*PT1H* 及 *PT1M* 的 MetricAggregation 值表示超過一分鐘的彙總及超過一小時的彙總。
 
-MetricAggregation 值 *PT1H* 和 *PT1M* 表示超過一分鐘的彙總和超過一小時的彙總。
+## 儲存體中的 WADMetrics 資料表
 
 上述的度量組態將會在您的診斷儲存體帳戶中產生具有下列命名慣例的資料表：
 
@@ -145,24 +148,24 @@ MetricAggregation 值 *PT1H* 和 *PT1M* 表示超過一分鐘的彙總和超過�
 - **V2S**：字串常數
 - **yyyymmdd**：資料表開始收集資料的日期
 
-範例：*WADMetricsPT1HP10DV2S20151108* 將包含從 2015 年 11 月 11 日開始 10 天彙總一小時的度量資料
+範例：*WADMetricsPT1HP10DV2S20151108* 將包含從 2015 年 11 月 11 日開始 10 天內，所有超過一小時的彙總計量資料
 
 每個 WADMetrics 資料表將會包含下列資料行：
 
-- **PartitionKey**：partitionkey 是根據 *resourceID* 值建構，以唯一識別 VM 資源，例如：002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-- **RowKey**：遵循以下格式 <Descending time tick>:<Performance Counter Name>。遞減的時間刻度計算是最大時間刻度減去開始彙總期間時間。例如，如果取樣期間從 2015 年 11 月 10 日 00:00Hrs UTC 開始，則計算會是：DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)。針對記憶體可用位元組效能計數器，資料列索引鍵如下所示：2519551871999999999\_\_:005CMemory:005CAvailable:0020Bytes
-- **CounterName**：是效能計數器的名稱。這會符合 xml 組態中定義的 *counterSpecifier*。
-- **最大值**：彙總期間的效能計數器的最大值。
-- **最小值**：彙總期間的效能計數器的最小值。
-- **總計**：彙總期間報告的效能計數器的所有值加總。
+- **PartitionKey**：partitionkey 依據 "resourceID" 值所建構，專門用於識別 VM 資源，例如：002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+- **RowKey**：遵循下列格式： <Descending time tick>:<Performance Counter Name>。遞減的時間刻度計算是最大時間刻度減去開始彙總期間時間。例如，如果取樣期間從 2015 年 11 月 10 日 00:00Hrs UTC 開始，則計算會是：DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)。針對記憶體可用位元組效能計數器，資料列索引鍵如下所示：2519551871999999999\_\_:005CMemory:005CAvailable:0020Bytes
+- **CounterName**：效能計數器的名稱。這符合 xml 設定中定義的 *counterSpecifier*。
+- **最大值**：彙總期間效能計數器的最大值。
+- **最小值**：彙總期間效能計數器的最小值。
+- **總計**：彙總期間報告之效能計數器的所有值加總。
 - **計數**：針對效能計數器報告的值總數。
-- **平均**：彙總期間的效能計數器的平均 (總計/計數) 值。
+- **平均**：彙總期間效能計數器的平均 (總計/計數) 值。
 
 
 ## 後續步驟
 
-- 如需具有診斷延伸模組的 Windows 虛擬機器的完整範例範本，請參閱 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
+- 如需具有診斷擴充功能之 Windows 虛擬機器的完整範例範本，請參閱 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 - 使用 [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) 或 [Azure 命令列](virtual-machines-deploy-rmtemplates-powershell.md)部署資源管理員範本
 - 深入了解[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -18,7 +18,7 @@
 
 # Machine Learning Recommendations API 的快速入門指南
 
-本文說明如何準備您的服務或應用程式來開始使用 Microsoft Azure Machine Learning 建議。
+本文說明如何準備您的服務或應用程式來開始使用 Microsoft Azure Machine Learning 建議。您可於[資源庫](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)中找到有關建議 API 更詳細的資料。
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
@@ -34,7 +34,7 @@
 * 建置建議模型 - 這是非同步作業，建議系統會接受所有使用資料並建立建議模型。視資料大小和組建組態參數而定，這項作業可能需要數分鐘或數小時的時間。當觸發組建時，您會取得一個組建識別碼。請在開始取用建議之前，使用它來查看建置流程何時結束。
 * 取用建議 - 取得特定項目或項目清單的建議。
 
-上述所有步驟都是透過 Azure Machine Learning 建議 API 完成。
+上述所有步驟都是透過 Azure Machine Learning 建議 API 完成。您可下載也從[資源庫](http://1drv.ms/1xeO2F3)實作每一個步驟的範例應用程式。
 
 ##限制
 
@@ -47,24 +47,23 @@
 ##整合
 
 ###驗證
-Micosoft Azure Marketplace 可支援基本或 OAuth 驗證方法。
+Micosoft Azure Marketplace 可支援基本或 OAuth 驗證方法。巡覽至[帳戶設定](https://datamarket.azure.com/account/keys)下 Marketplace 中的金鑰，即可輕鬆地找到帳戶金鑰。
 ####基本驗證
 加入驗證標頭：
 
 	Authorization: Basic <creds>
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	Where <creds> = ConvertToBase64("AccountKey:" + yourAccountKey);  
 	
 轉換成 Base64 (C#)
 
-	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var bytes = Encoding.UTF8.GetBytes("AccountKey:" + yourAccountKey);
 	var creds = Convert.ToBase64String(bytes);
 	
 轉換成 Base64 (JavaScript)
 
 	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 	
-您可以在[這裡](https://datamarket.azure.com/account/keys)取得您的帳戶金鑰。
 
 
 
@@ -80,15 +79,15 @@ Azure Machine Learning 建議 API 的服務根 URI 在[這裡。](https://api.da
 任何 API 所傳回的識別碼都會區分大小寫，且在後續 API 呼叫中做為參數傳遞時，也應該如此使用。例如，模型識別碼和目錄識別碼都會區分大小寫。
 
 ###建立模型
-建立「建立模型」的要求：
+建立「製作模型」要求：
 
 | HTTP 方法 | URI |
 |:--------|:--------|
-|POST      |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	參數名稱	|	有效值						|
+|	參數名稱 |	有效值 |
 |:--------			|:--------								|
-|	modelName	|	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>最大長度：20 |
+|	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (\_)。<br>長度上限：20 | 
 |	apiVersion		| 1.0 |
 |||
 | 要求主體 | 無 |
@@ -98,7 +97,7 @@ Azure Machine Learning 建議 API 的服務根 URI 在[這裡。](https://api.da
 
 HTTP 狀態碼：200
 
-- `feed/entry/content/properties/id` - 包含模型識別碼。**注意**：模型識別碼會區分大小寫。
+- `feed/entry/content/properties/id` – 包含模型識別碼。**注意**：模型識別碼會區分大小寫。
 
 OData XML
 
@@ -480,7 +479,7 @@ OData XML
 |	參數名稱	|	有效值						|
 |:--------			|:--------								|
 | modelId | 模型的唯一識別碼 (區分大小寫) |
-| itemIds | 要建議之項目的清單 (以逗號分隔)。<br>最大長度：1024 |
+| itemIds | 要建議項目的清單 (以逗號分隔)。<br>長度上限：1024 |
 | numberOfResults | 必要結果的數目 |
 | includeMetatadata | 未來使用，永遠為 false |
 | apiVersion | 1\.0 |
@@ -493,7 +492,7 @@ HTTP 狀態碼：200
 
 - `Feed\entry\content\properties\Id` - 建議項目識別碼。
 - `Feed\entry\content\properties\Name` - 項目的名稱。
-- `Feed\entry\content\properties\Rating` - 建議的評等，數字越高表示信賴度越高。
+- `Feed\entry\content\properties\Rating` - 建議的評等，數字愈高表示信賴度愈高。
 - `Feed\entry\content\properties\Reasoning` - 建議推論 (例如建議說明)。
 
 OData XML
@@ -682,7 +681,7 @@ OData XML
 	</feed>
 
 ##法律
-這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實的人、事、物。本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。© 2014 Microsoft.著作權所有，並保留一切權利。
+這份文件依「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實的人、事、物。本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。© 2014 Microsoft.著作權所有，並保留一切權利。
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

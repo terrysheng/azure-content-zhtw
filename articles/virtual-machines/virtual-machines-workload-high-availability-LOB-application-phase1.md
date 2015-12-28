@@ -66,10 +66,10 @@
 
 如果這兩部內部部署的 DNS 伺服器是您最初在虛擬網路上設定網域控制站時想要使用的伺服器，請填寫表格 D。請為每部 DNS 伺服器指定易記名稱和單一 IP 位址。這個易記名稱不需要與 DNS 伺服器的主機名稱或電腦名稱相符。請注意，其中列出兩個空白項目，但您可以增加更多項目。與您的 IT 部門合作來決定這份清單。
 
-項目 | DNS 伺服器易記名稱 | DNS 伺服器 IP 位址 
---- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
+項目 | DNS 伺服器 IP 位址 
+--- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
 
 **表格 D：內部部署 DNS 伺服器**
 
@@ -85,13 +85,24 @@
 
 **表格 L：適用於區域網路的位址首碼**
 
-> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 "-AzureRM" 的所有執行個體取代為 "-Azure"，並且在您執行任何命令之前先新增 **Switch-AzureMode AzureResourceManager** 命令。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
+首先，開啟 Azure PowerShell 提示字元。
 
-開啟 Azure PowerShell 提示字元。
+> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
-接下來，建立企業營運應用程式的新資源群組。
+首先，開啟 Azure PowerShell 提示字元並登入您的帳戶。
 
-若要判斷唯一的資源群組名稱，請使用此命令列出現有的資源群組。
+	Login-AzureRMAccount
+
+使用下列命令取得您的訂用帳戶名稱。
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+設定您的 Azure 訂用帳戶以正確的名稱取代括號中的所有內容，包括 < and > 字元。
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+接下來，建立企業營運應用程式的新資源群組。若要判斷唯一的資源群組名稱，請使用此命令列出現有的資源群組。
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
@@ -114,7 +125,7 @@
 
 您必須為每個儲存體帳戶挑選只包含小寫字母和數字的全域唯一名稱。您可以使用此命令列出現有的儲存體帳戶。
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 若要建立第一個儲存體帳戶，請執行這些命令。
 
@@ -173,8 +184,8 @@
 
 若要設定內部部署 VPN 裝置，您將需要下列項目：
 
-- 適用於虛擬網路之 Azure VPN 閘道的公用 IPv4 位址 (從 **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 命令顯示)
-- 適用於站對站 VPN 連接的 IPsec 預先共用金鑰 (資料表 V- 項目 8 – 值資料行)
+- 適用於虛擬網路之 Azure VPN 閘道器的公用 IPv4 位址 (從 **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 命令顯示)。
+- 適用於站對站 VPN 連接的 IPsec 預先共用金鑰 (資料表 V- 項目 8 – 值資料行)。
 
 接著，確定可從您的內部部署網路連線到虛擬網路的位址空間。這通常是藉由將對應到虛擬網路位址空間的路由新增到您的 VPN 裝置，然後將該路由公告至組織網路中路由基礎結構的剩餘部分。與您的 IT 部門合作來決定如何執行這個動作。
 
@@ -207,18 +218,6 @@
 
 ## 後續步驟
 
-若要繼續設定這個工作負載，請前往[第 2 階段：設定網域控制站](virtual-machines-workload-high-availability-LOB-application-phase2.md)。
+- 依照[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)指示繼續此工作負載的設定。
 
-## 其他資源
-
-[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[企業營運應用程式架構藍圖](http://msdn.microsoft.com/dn630664)
-
-[在混合式雲端中設定 Web 型 LOB 應用程式進行測試](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

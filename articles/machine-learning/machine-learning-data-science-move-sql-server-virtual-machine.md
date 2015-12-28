@@ -131,7 +131,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 ### <a name="insert-tables-bulkquery"></a>大量插入 SQL 查詢
 
-[大量插入 SQL 查詢](https://msdn.microsoft.com/library/ms188365)可用來將資料從以資料列/資料行為基礎的檔案匯入資料庫 ([此處](https://msdn.microsoft.com/library/ms188609)說明支援的類型)。
+[大量插入 SQL 查詢](https://msdn.microsoft.com/library/ms188365)可用來將資料從以資料列/資料行為基礎的檔案匯入資料庫 ([準備資料以大量匯出或匯入 (SQL 伺服器)](https://msdn.microsoft.com/library/ms188609) 說明支援的類型) 主題。
 
 此處提供一些大量插入的命令範例，如下所示：
 
@@ -176,7 +176,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 ### <a name="export-flat-file"></a>匯出至一般檔案
 
-有各種方法可用來從內部部署的 SQL Server 大量匯出資料，如[此處](https://msdn.microsoft.com/library/ms175937.aspx)所述。本文件將提供大量複製程式 (BCP) 做為範例。一旦將資料匯出至一般檔案之後，就可以使用大量匯入功能來將它匯入另一部 SQL Server。
+有各種方法可用來從內部部署的 SQL Server 大量匯出資料，如[大量匯入與匯出資料 (SQL 伺服器)](https://msdn.microsoft.com/library/ms175937.aspx) 主題所述。本文件將提供大量複製程式 (BCP) 做為範例。一旦將資料匯出至一般檔案之後，就可以使用大量匯入功能來將它匯入另一部 SQL Server。
 
 1. 使用 BCP 公用程式，從內部部署的 SQL Server 將資料匯出至檔案，如下所示
 
@@ -184,7 +184,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 2. 針對步驟 1 中匯出的資料表結構描述使用 `create database` 和 `create table`，在 Azure 的 SQL Server VM 上建立資料庫和資料表。
 
-3. 建立格式檔案，用以說明要匯出/匯入之資料的資料表結構描述。[此處](https://msdn.microsoft.com/library/ms191516.aspx)說明格式檔案的詳細資料。
+3. 建立格式檔案，用以說明要匯出/匯入之資料的資料表結構描述。[建立格式檔案 (SQL 伺服器)](https://msdn.microsoft.com/library/ms191516.aspx) 中說明了格式檔案的詳細資料。
 
 	從 SQL Server 電腦執行 BCP 時產生格式檔案
 
@@ -223,4 +223,4 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 管理原則參考文件
@@ -26,19 +26,21 @@
 
 -	[存取限制原則][]
 	-	[檢查 HTTP 標頭][] - 強制必須存在和/或強制採用 HTTP 標頭的值。
-	-	[限制呼叫率][] - 限制呼叫數和/或頻寬耗用率以防止 API 使用量暴增。
+	-	[依訂閱限制呼叫率][] - 以訂閱為單位，限制呼叫率以避免 API 使用量暴增。
+	-	[依金鑰限制呼叫率](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) - 以金鑰為單位，限制呼叫率以避免 API 使用量暴增。
 	-	[限制呼叫端 IP][] - 篩選 (允許/拒絕) 來自特定 IP 位址和/或位址範圍的呼叫。
-	-	[設定使用量配額][] - 讓您可以強制採用可更新或有存留期的呼叫量和/或頻寬配額。
+	-	[依訂閱設定使用量配額][] - 以訂閱為單位，讓您可以強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。
+	-	[依金鑰設定使用量配額](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) - 以金鑰為單位，讓您可以強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。
 	-	[驗證 JWT][] - 強制擷取自指定 HTTP 標頭或指定查詢參數的 JWT 必須存在且有效。
 -	[進階原則][]
 	-	[控制流程][] - 根據布林值[運算式][]的評估結果，有條件地套用原則陳述式。
-	-	[轉寄要求][] - 將要求轉寄給後端服務。
-	-	[記錄至事件中樞][] - 將指定格式的訊息傳送給[記錄器](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger)實體所定義的訊息目標。
-	-	[傳回回應](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - 中止管線執行並將特定回應直接傳給呼叫者。
-	-	[傳送單向要求](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - 將要求傳送給特定的 URL，無需等待回應。
-	-	[傳送要求](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - 將要求傳送給特定 URL。
+	-	[轉寄要求][] - 將要求轉寄至後端服務。
+	-	[記錄至事件中樞][] - 將指定格式的訊息傳送至[記錄器](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger)實體所定義的訊息目標。
+	-	[傳回回應](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - 中止管線執行，並將指定的回應直接傳回呼叫者。
+	-	[傳送單向要求](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - 將要求傳送到指定的 URL，無須等待回應。
+	-	[傳送要求](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - 將要求傳送到指定的 URL。
 	-	[設定要求方法](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - 允許您變更要求的 HTTP 方法。
-	-	[設定狀態碼](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - 將 HTTP 狀態碼變更為特定值。
+	-	[設定狀態碼](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - 將 HTTP 狀態碼變更為指定的值。
 	-	[設定變數][] - 保存具名 [context][] 變數中的值，供日後存取使用。
 -	[驗證原則][]
 	-	[使用基本驗證進行驗證][] - 使用基本驗證來驗證後端服務。
@@ -46,6 +48,8 @@
 -	[快取原則][] 
 	-	[從快取中取得][] - 執行快取查閱並傳回有效的快取回應 (如果有的話)。
 	-	[儲存至快取][] - 根據指定的快取控制組態來快取回應。
+	-	[從快取取得值](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - 依金鑰擷取快取的項目。
+	-	[儲存快取中的值](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) -依金鑰儲存快取中的項目。
 -	[跨網域原則][] 
 	-	[允許跨網域呼叫][] - 將 API 設為可供 Adobe Flash 和 Microsoft Silverlight 瀏覽器型用戶端存取。
 	-	[CORS][] - 將跨原始來源資源分享 (CORS) 支援加入至操作或 API，以允許來自瀏覽器型用戶端的跨網域呼叫。
@@ -54,7 +58,7 @@
 	-	[將 JSON 轉換成 XML][] - 將要求或回應內文從 JSON 轉換成 XML。
 	-	[將 XML 轉換成 JSON][] - 將要求或回應內文從 XML 轉換成 JSON。
 	-	[在內文中尋找並取代字串][] - 尋找要求或回應子字串，並替換為其他子字串。
-	-	[遮罩內容中的 URL][] - 重寫 (遮罩) 回應內文和位置標頭中的連結，使它們經由閘道指向同等的連結。
+	-	[遮罩內容中的 URL][] - 重寫 (遮罩) 回應內文與位置標頭中的連結，使其經由閘道指向同等的連結。
 	-	[設定後端服務][] - 變更傳入要求的後端服務。
 	-	[設定本文][] - 設定傳入和傳出要求的訊息本文。
 	-	[設定 HTTP 標頭][] - 指派值給現有的回應及/或要求標頭，或加入新的回應及/或要求標頭。
@@ -69,9 +73,9 @@
 
 [存取限制原則]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [檢查 HTTP 標頭]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
-[限制呼叫率]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
+[依訂閱限制呼叫率]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
 [限制呼叫端 IP]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs
-[設定使用量配額]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
+[依訂閱設定使用量配額]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
 [驗證 JWT]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT
 
 [進階原則]: https://msdn.microsoft.com/library/azure/dn894085.aspx
@@ -114,4 +118,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

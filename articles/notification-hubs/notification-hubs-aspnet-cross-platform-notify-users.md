@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="12/11/2015" 
 	ms.author="wesmc"/>
 
 # 使用通知中心向使用者傳送跨平台通知
@@ -88,9 +88,6 @@
 
 +  **[Azure 通知中心概觀][Templates]**<br/>概觀主題包含範本的詳細資訊。
 
-+  **[Windows 市集的通知中心作法]**<br/> (英文) 包含範本運算式語言參考。
-
-
 
 <!-- Anchors. -->
 
@@ -108,6 +105,6 @@
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
 [使用通知中心來通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Windows 市集的通知中心作法]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

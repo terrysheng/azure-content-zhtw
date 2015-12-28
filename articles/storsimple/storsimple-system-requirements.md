@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple 系統需求 | Microsoft Azure" 
-   description="描述系統需求和 Azure StorSimple 解決方案的軟體、高可用性及網路最佳作法。" 
+   description="描述 Microsoft Azure StorSimple 解決方案的軟體、網路及高可用性需求和最佳作法。" 
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/30/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli"/>
 
 # StorSimple 軟體、高可用性和網路需求
 
 ## 概觀
 
-歡迎使用 Microsoft Azure StorSimple。本文描述重要的系統需求和 StorSimple 裝置以及存取裝置之儲存體用戶端的最佳做法。建議您先仔細檢閱資訊，再部署 Azure StorSimple 系統，然後在部署和後續作業期間，必要時回顧參考。
+歡迎使用 Microsoft Azure StorSimple。本文描述重要的系統需求和 StorSimple 裝置以及存取裝置之儲存體用戶端的最佳做法。建議您先仔細檢閱資訊，再部署 StorSimple 系統，然後在部署和後續作業期間，必要時回顧參考。
 
 系統需求包括：
 
@@ -60,9 +60,9 @@
 |TCP 443 (HTTPS)<sup>3</sup>| 外 | WAN | 是 |<ul><li>輸出連接埠可用於存取雲端中的資料。</li><li>輸出 web proxy 可由使用者設定。</li><li>若要允許系統更新，此連接埠也必須為控制器固定 IP 開啟。</li></ul>|
 |UDP 53 (DNS) | 外 | WAN | 在某些情況下，請參閱附註。 |只有當您使用網際網路 DNS 伺服器時，才需要此連接埠。 |
 | UDP 123 (NTP) | 外 | WAN | 在某些情況下，請參閱附註。 |只有當您使用網際網路 NTP 伺服器時，才需要此連接埠。 |
-| TCP 9354 | 外 | WAN | 在某些情況下，請參閱附註。 |StorSimple 裝置使用輸出連接埠與 StorSimple Manager 服務通訊。如果您目前的網路不支援使用 HTTP 1.1 來連線到網際網路，則需要此連接埠；例如，如果您使用以 HTTP 1.0 為基礎的 proxy 伺服器時。<br> 如果透過 proxy 伺服器連接，請參閱[服務匯流排需求](https://msdn.microsoft.com/library/azure/ee706729.aspx)以取得詳細資訊。 |
+| TCP 9354 | 外 | WAN | 是 |StorSimple 裝置使用輸出連接埠與 StorSimple Manager 服務通訊。 |
 | 3260 (iSCSI) | 在 | LAN | 否 | 此連接埠用來透過 iSCSI 存取資料。|
-| 5985 | 在 | LAN | 否 | StorSimple Snapshot Manager 會使用輸入連接埠與 StorSimple 裝置通訊。<br>當您從遠端透過 HTTP 連線到 Windows PowerShell for StorSimple 時，也會使用此連接埠。 |
+| 5985 | 在 | LAN | 否 | StorSimple Snapshot Manager 會使用輸入連接埠與 StorSimple 裝置通訊。<br>當您從遠端透過 HTTP 連線到 Windows PowerShell for StorSimple，也會使用此連接埠。 |
 | 5986 | 在 | LAN | 否 | 當您透過 HTTPS 從遠端連線到 Windows PowerShell for StorSimple，便會使用此連接埠。 |
 
 <sup>1</sup> 公用網際網路上沒有必須開啟的輸入連接埠。
@@ -73,19 +73,72 @@
 
 > [AZURE.IMPORTANT]請確定防火牆不會修改或解密 StorSimple 裝置和 Azure 之間的任何 SSL 流量。
 
-### 連接埠路由
+### 路由度量
 
-連接埠路由會根據 StorSimple 裝置上執行的軟體版本而有所不同。
+路由度量與介面和閘道器 (將資料路由到指定的網路) 相關聯。路由度量用於路由通訊協定，如果它知道到相同目的地有多個路徑存在，則會計算到指定目的地的最佳路徑。路由計量的值越低，建議採用的指數越高。
 
-- 如果裝置執行的軟體版本比更新 1 更舊，例如 GA、0.1、0.2 或 0.3 版，連接埠路由就會以下列方式決定：
+在 StorSimple 內容中，如果多個網路介面和閘道器設定為通道流量，路由度量會派上用場，判斷使用介面的相對順序。使用者無法變更路由度量。不過您可以使用 `Get-HcsRoutingTable` Cmdlet 列印您的 StorSimple 裝置上的路由資料表 (和度量)。[Get-HcsRoutingTable Cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet) 的詳細資訊
 
-     上次設定的 10 GbE 網路介面 > 其他 10 GbE 網路介面 > 上次設定的 1 GbE 網路介面 > 其他 1 GbE 網路介面
+路由度量演算法會根據 StorSimple 裝置上執行的軟體版本而有所不同。
 
-- 如果裝置正在執行更新 1，連接埠路由就會以下列方式決定：
+**Update 1 之前的版本**
 
-     DATA 0 > 上次設定的 10 GbE 網路介面 > 其他 10 GbE 網路介面 > 上次設定的 1 GbE 網路介面 > 其他 1 GbE 網路介面
+這包括 Update 1 之前的軟體版本，例如 GA、0.1、0.2 或 0.3 版。根據路由度量的順序如下所示：
 
-    在更新 1 中，DATA 0 的路由計量最低。因此，所有雲端流量都會透過 DATA 0 路由傳送。如果 StorSimple 裝置上有多個已啟用雲端功能的網路介面，請記住這一點。
+   *上次設定的 10 GbE 網路介面 > 其他 10 GbE 網路介面 > 上次設定的 1 GbE 網路介面 > 其他 1 GbE 網路介面*
+
+
+**從 Update 1 開始、Update 2 之前的版本**
+
+這包括例如 1、1.1 或 1.2 的軟體版本。根據路由度量決定的順序如下所示：
+
+   *DATA 0 > 上次設定的 10 GbE 網路介面 > 其他 10 GbE 網路介面 > 上次設定的 1 GbE 網路介面 > 其他 1 GbE 網路介面*
+
+   在更新 1 中，DATA 0 的路由計量最低。因此，所有雲端流量都會透過 DATA 0 路由傳送。如果 StorSimple 裝置上有多個已啟用雲端功能的網路介面，請記住這一點。
+
+
+**從 Update 2 開始的版本**
+
+Update 2 有幾項網路相關的改進且路由度量已變更。行為可以解釋，如下所示。
+
+- 一組預先決定的值已指派給網路介面。 	
+		
+- 當它們已啟用雲端或已停用雲端，但是具有已設定的閘道器時，請考量以下所示的範例資料表，具有指派給各種網路介面的值 (範例)。
+
+		
+	| 網路介面 | 已啟用雲端 | 已停用雲端且具有閘道器 |
+	|-----|---------------|---------------------------|
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
+
+
+- 雲端流量透過網路介面路由的順序為：
+	 
+	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+
+	這也可以由下列範例來說明。
+
+	請考慮具有兩個已啟用雲端網路介面 (Data 0 和 Data 5) 的 StorSimple 裝置。Data 1 到 Data 4 已停用雲端，但是具有已設定的閘道器。針對此裝置路由流量的順序為：
+
+	*Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+	
+	*以括號括住的數字表示個別的路由度量。*
+	
+	如果 Data 0 失敗，雲端流量將會透過 Data 5 路由。假設已在其他所有網路上設定閘道器，如果 Data 0 和 Data 5 失敗，則雲端流量會通過 Data 1。
+ 
+
+- 如果已啟用雲端網路介面失敗，則會重試 3 次 (有 30 秒的延遲) 以連線到介面。如果所有重試失敗，會將流量路由至路由資料表決定的下一個可用已啟用雲端介面。如果所有已啟用雲端網路介面失敗，則裝置將容錯移轉至另一個控制器 (在此案例中無需重新開機)。
+	
+- 如果有已啟用 iSCSI 網路介面的 VIP 失敗，則會重試 3 次 (有 2 秒的延遲)。這種行為與舊版相同。如果所有 iSCSI 網路介面都失敗，會發生控制器容錯移轉 (伴隨重新開機)。
+
+
+- 有 VIP 失敗時，您的 StorSimple 裝置上也會引發警示。如需詳細資訊，請移至 [VIP 失敗的警示](storsimple-manage-alerts.md)。
+	
+- 根據重試，iSCSI 將會優先於雲端。
+
+	請考慮下列範例：StorSimple 裝置已啟用兩個網路介面，Data 0 和 Data 1。Data 0 已啟用雲端功能，而 Data 1 已啟用雲端和 iSCSI 功能。此裝置上沒有其他網路介面啟用雲端或 iSCSI。
+		
+	如果 Data 1 失敗，假設它是最後一個 iSCSI 網路介面，這會導致控制器容錯移轉至其他控制器上的 Data 1。
+
 
 ### 網路最佳作法
 
@@ -95,14 +148,14 @@
 
 - 請確定隨時都可以使用網路連線到網際網路。裝置的零星或不可靠網際網路連線 (包含毫無網際網路連線能力) 將導致不受支援的組態。
 
-- 藉由在裝置上擁有專用的網路介面以存取 iSCSI 和雲端，可以隔離 iSCSI 和雲端流量。如需詳細資訊，請參閱如何在 StorSimple 裝置上[修改網路介面](storsimple-modify-device-config.md#modify-network-interfaces)。
+- 藉由在裝置上擁有專用的網路介面以存取 iSCSI 和雲端，可以隔離 iSCSI 和雲端流量。如需詳細資訊，請參閱如何在您的 StorSimple 裝置上[修改網路介面](storsimple-modify-device-config.md#modify-network-interfaces)。
 
 - 網路介面請勿使用連結彙總通訊協定 (LACP) 組態。這個組態不受支援。
 
 
 ## StorSimple 的高可用性需求
 
-隨附於 StorSimple 方案的硬體平台具有可用性及可靠性功能，為資料中心裡高度可用的容錯儲存體基礎結構打下基礎。不過，您應遵守需求和最佳作法，以協助確保 Azure StorSimple 解決方案的可用性。部署 Azure StorSimple 之前，請仔細檢閱下列 StorSimple 裝置和連線主機電腦的需求和最佳作法。
+隨附於 StorSimple 方案的硬體平台具有可用性及可靠性功能，為資料中心裡高度可用的容錯儲存體基礎結構打下基礎。不過，您應遵守需求和最佳作法，以協助確保 StorSimple 解決方案的可用性。部署 StorSimple 之前，請仔細檢閱下列 StorSimple 裝置和連線主機電腦的需求和最佳作法。
 
 如需有關監視和維護 StorSimple 裝置的硬體元件的詳細資訊，請移至[使用 StorSimple Manager 服務監視硬體元件和狀態](storsimple-monitor-hardware-status.md)和 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
@@ -153,7 +206,7 @@ StorSimple 裝置包括備援、可熱交換的控制器模組。控制器模組
 
 - 如果可能，請在伺服器上使用 MPIO，以確保伺服器可容許連結、網路或介面失敗。
 
-如需有關建立裝置網路以獲得高可用性和效能的詳細資訊，請移至[安裝您的 StorSimple 8100 裝置](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device)或[安裝您的 StorSimple 8600 裝置](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device)。
+如需有關建立裝置網路以提供高可用性和效能的詳細資訊，請移至[安裝您的 8100 裝置](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device)或[安裝您的 StorSimple 8600 裝置](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device)。
 
 #### SSD 與 HDD
 
@@ -191,7 +244,7 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 
 仔細檢閱這些最佳作法，以確保連接至 StorSimple 裝置之主機的高可用性。
 
-- 使用[雙節點檔案伺服器叢集組態][1]設定 StorSimple。藉由移除失敗的單點，以及在主機端上建置備援，整個解決方案會變得高度可用。
+- 使用[二節點檔案伺服器叢集組態][1]設定 StorSimple。藉由移除失敗的單點，以及在主機端上建置備援，整個解決方案會變得高度可用。
 
 - 使用 Windows Server 2012 (SMB 3.0) 持續可用的 (CA) 共用，以在儲存體控制器的容錯移轉期間獲得高可用性。如需設定檔案伺服器叢集和 Windows Server 2012 持續可用的共用之其他資訊，請參閱此[影片示範](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares)。
 
@@ -203,4 +256,4 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

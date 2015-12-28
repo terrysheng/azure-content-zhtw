@@ -1,5 +1,5 @@
 <properties
-	pageTitle="建立復原方案" 
+	pageTitle="建立復原方案 | Microsoft Azure" 
 	description="Azure Site Recovery 可將內部部署伺服器上的虛擬機器複寫、容錯移轉及復原協調至 Azure 或次要資料中心。" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# 建立復原方案
+# 建立復原計畫
 
 Site Recovery 服務提供健全的商務持續性和災害復原 (BCDR) 解決方案，可協調及自動化複寫並容錯移轉至 Azure，或是次要的內部部署資料中心，藉以保護您的內部部署實體伺服器和虛擬機器。如需 Site Recovery 部署案例的簡介，請參閱 [Site Recovery 概觀](site-recovery-overview.md)。
 
@@ -124,4 +124,4 @@ Site Recovery 服務提供健全的商務持續性和災害復原 (BCDR) 解決�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -269,6 +269,9 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 - 僅限寄送硬碟機。請勿加入電源線或 USB 纜線等項目。
 
+## 另請參閱
+
+[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
 
 [import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
@@ -276,4 +279,4 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

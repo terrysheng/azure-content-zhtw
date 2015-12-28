@@ -1,32 +1,32 @@
 <!--author=SharS last changed: 11/04/15-->
 
 
-#### To create a custom backup policy
+#### 若要建立自訂備份原則
 
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
+1. 在 [**裝置**] 頁面上，按一下 [**備份原則**]，然後按一下 [**新增**]。
 
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+2. 在 [**新增備份原則**] 對話方塊中，[**定義備份原則**] 之下：
 
-    1. Specify a backup policy name.
+    1. 指定備份原則名稱。
 
-    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting multiple check boxes.
+    2. 選取要加入至這個原則的磁碟區。您可以選取多個核取方塊以新增多個磁碟區。
 
-    3. Click the arrow icon ![check icon](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
+    3. 按一下箭頭圖示 ![核取圖示](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png)。
 
-6. Under **Define a Schedule**:
+6. 在 [**定義排程**] 下：
 
-    1. Select the **Type of backup** (**Local Snapshot** or **Cloud Snapshot**).
+    1. 選取 [**備份類型**] (**本機快照**或**雲端快照**)。
 
-    3. Specify the backup frequency in minutes, hours, days, or weeks.
+    3. 指定備份頻率 (以分鐘、小時、天或週為單位)。
 
-    4. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. For instance, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
+    4. 從下拉式清單中選取保留排程。保留選項會根據備份頻率而定。例如，針對每日原則，可以指定保留幾週，而針對每月原則，則可指定保留幾個月。
  
-    5. Select the starting time and date for the policy.
+    5. 選取原則的開始時間和日期。
 
-    6. Select the check box to enable the policy.
+    6. 選取核取方塊以啟用原則。
 
-7. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to finish.
+7. 按一下核取圖示 ![核取圖示](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) 以完成。
 
-8. You will return to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the custom policy.
+8. 您將回到 [**備份原則**] 頁面。備份原則的表格式清單將會更新以顯示自訂原則。
 
-
+<!---HONumber=AcomDC_1217_2015-->

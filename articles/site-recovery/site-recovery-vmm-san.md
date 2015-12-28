@@ -1,5 +1,5 @@
 <properties
-	pageTitle="利用 SAN 設定內部部署 VMM 站台之間的保護"
+	pageTitle="透過 Azure Site Recovery 設定使用 SAN 之內部部署 VMM 站台之間的保護 | Microsoft Azure"
 	description="Azure Site Recovery 可使用 SAN 複寫，以協調內部部署站台之間的 Hyper-V 虛擬機器複寫、容錯移轉及復原作業。"
 	services="site-recovery"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
-# 利用 SAN 設定內部部署 VMM 站台之間的保護
+# 透過 Azure Site Recovery 設定使用 SAN 之內部部署 VMM 站台之間的保護
 
 Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與災害復原做出貢獻。了解 [Azure Site Recovery 概觀](site-recovery-overview.md)中可能的部署案例。
 
@@ -383,4 +383,4 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 如需有關與工作和儀表板互動的詳細資訊，請參閱[作業和監視](http://go.microsoft.com/fwlink/?LinkId=398534)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -121,11 +121,11 @@ Cmdlet 需要有您的訂閱，才能用來管理您的服務。您可以購買 
 
 
 
-- 您也可以在 Azure 程式庫中取得 Azure PowerShell 模組中各 Cmdlet 的參考資訊。如需詳細資訊，請參閱 [Azure Cmdlet 參考](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx)。
+- 您也可以在 Azure 程式庫中取得 Azure PowerShell 模組中各 Cmdlet 的參考資訊。如需詳細資訊，請參閱 [Azure Cmdlet 參考](https://msdn.microsoft.com/library/azure/dn708514.aspx)。
 
 如需從社群獲得說明，請試試下列熱門論壇：
 
 - [MSDN 上的 Azure 論壇](http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

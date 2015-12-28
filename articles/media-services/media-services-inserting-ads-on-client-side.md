@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 本主題包含如何在用戶端上插入各種類型廣告的相關資訊。
 
-如需了解即時串流視訊的隱藏式字幕和廣告支援，請參閱[字幕支援和廣告插入標準](https://msdn.microsoft.com/library/azure/dn783466.aspx#caption_ad)。
+如需了解即時串流視訊的隱藏式字幕和廣告支援，請參閱[隱藏式字幕支援和廣告插入標準](media-services-manage-channels-overview.md#cc_and_ads)。
 
  
 ##<a id="insert_ads_into_media"></a>將廣告插入您的媒體
@@ -812,4 +812,4 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

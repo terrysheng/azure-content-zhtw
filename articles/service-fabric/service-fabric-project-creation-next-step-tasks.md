@@ -72,8 +72,8 @@ Service Fabric SDK 提供一個用於開發和測試的本機叢集。若要在 
 ### 進行服務版本設定和升級
 Service Fabric 可讓您為應用程式中的獨立服務進行獨立的版本設定和升級。若要深入了解，請參閱[進行服務版本設定和升級][app-upgrade-tutorial]。
 
-### 使用 Visual Studio Online 設定持續整合
-若要深入了解如何為 Service Fabric 應用程式設定持續整合程序，請參閱[使用 Visual Studio Online 設定持續整合][ci-with-vso]。
+### 使用 Visual Studio Team Services 設定持續整合
+若要深入了解如何為 Service Fabric 應用程式設定持續整合程序，請參閱[使用 Visual Studio Team Services 設定持續整合][ci-with-vso]。
 
 
 <!-- Links -->
@@ -85,4 +85,4 @@ Service Fabric 可讓您為應用程式中的獨立服務進行獨立的版本�
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

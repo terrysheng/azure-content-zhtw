@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將 Azure IaaS 虛擬機器從一個 Azure 區域移轉到另一個區域"
+	pageTitle="使用 Site Recovery，將 Azure IaaS 虛擬機器從一個 Azure 區域移轉到另一個區域 | Microsoft Azure"
 	description="使用 Azure Site Recovery，將 Azure IaaS 虛擬機器從一個 Azure 區域移轉到另一個區域。"
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-#  在 Azure 區域之間移轉 Azure IaaS 虛擬機器
+#  使用 Site Recovery 在 Azure 區域之間移轉 Azure IaaS 虛擬機器
 
 
 ## 概觀
@@ -69,4 +69,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 在 [Site Recovery 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼任何意見或問題
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

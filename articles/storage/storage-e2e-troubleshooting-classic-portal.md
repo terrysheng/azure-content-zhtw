@@ -359,9 +359,9 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 - [監控、診斷及疑難排解儲存體](storage-monitoring-diagnosing-troubleshooting.md)
 - [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [如何監視儲存體帳戶](storage-monitor-storage-account.md)
-- [如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 - [Microsoft Message Analyzer 操作指南](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

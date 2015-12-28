@@ -19,6 +19,17 @@
 
 # 利用資源管理員和 Azure PowerShell 建立及設定 Windows 虛擬機器
 
+> [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
+
+<br>
+
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md)。
 
 下列步驟將示範如何建構一組 Azure PowerShell 命令，以建立和設定 Azure 虛擬機器。您可以使用此建置組塊程序，對於以 Windows 為基礎的新虛擬機器快速建立命令集，並擴充現有部署。您也可以用它來建立多個命令集以快速建置自訂開發/測試或 IT 專業人員環境。
@@ -120,7 +131,7 @@
 
 ### NAT 規則
 
-使用輸入 NAT 規則可設定以資源管理員為基礎的虛擬機器，允許來自網際網路的連入流量並放在負載平衡集中。在這兩種情況下，您必須指定負載平衡器執行個體和其他設定。如需詳細資料，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+使用輸入 NAT 規則可設定以資源管理員為基礎的虛擬機器，允許來自網際網路的連入流量並放在負載平衡集中。在這兩種情況下，您必須指定負載平衡器執行個體和其他設定。如需詳細資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 以資源管理員部署模型建立的 VM，需要以資源管理員建立的虛擬網路。如果需要，請使用新虛擬機器的至少一個子網路建立以資源管理員為基礎的新虛擬網路。以下是具有 **frontendSubnet** 和 **backendSubnet** 兩個子網路的新虛擬網路 **TestNet** 的範例。
 
@@ -203,7 +214,7 @@ FrontendSubnet 的子網路索引為 0，而 backendSubnet 的子網路索引為
 - 要指派給 NIC 的負載平衡器執行個體的後端位址集區的索引編號
 - 要指派給 NIC 之輸入 NAT 規則的索引編號。
 
-如需如何使用輸入 NAT 規則建立負載平衡器執行個體的相關資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+如需關於如何使用輸入 NAT 規則建立負載平衡器執行個體的詳細資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 將這幾行複製到您的命令集，並指定所需的名稱和索引編號。
 
@@ -223,7 +234,7 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 - 先前建立的負載平衡器執行個體名稱，其具有負載平衡流量適用的規則。
 - 要指派給 NIC 的負載平衡器執行個體的後端位址集區的索引編號
 
-如需如何使用負載平衡流量適用規則建立負載平衡器執行個體的相關資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
+如需關於如何使用負載平衡流量適用規則建立負載平衡器執行個體的詳細資訊，請參閱[使用 Azure 資源管理員建立負載平衡器](../load-balancer/load-balancer-arm-powershell.md)。
 
 將這幾行複製到您的命令集，並指定所需的名稱和索引編號。
 
@@ -384,4 +395,4 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

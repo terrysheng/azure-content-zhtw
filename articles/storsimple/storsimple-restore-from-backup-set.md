@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos" />
 
 # 從備份組還原 StorSimple 磁碟區
+
+[AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## 概觀
 
@@ -43,7 +45,7 @@
 
 ## 如何從備份還原您的 StorSimple 磁碟區
 
-您可以使用 [備份類別目錄] 頁面，從特定的備份還原 StorSimple 磁碟區。不過，請記住，還原磁碟區會將磁碟區的狀態還原為其在取得備份時的狀態。在備份作業之後新增的所有資料都將遺失。
+您可以使用 [**備份類別目錄**] 頁面，從特定的備份還原 StorSimple 磁碟區。不過，請記住，還原磁碟區會將磁碟區的狀態還原為其在取得備份時的狀態。在備份作業之後新增的所有資料都將遺失。
 
 > [AZURE.WARNING]從備份還原將從備份取代現有的磁碟區。這可能會造成在取得備份之後寫入的所有資料遺失。
 
@@ -88,4 +90,4 @@
 
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

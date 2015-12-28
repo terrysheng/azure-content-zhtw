@@ -86,7 +86,7 @@ Status 代表 Microsoft 的佈建狀態。這個屬性可能是下列其中一�
 
 執行 PowerShell Cmdlet 刪除 ExpressRoute 線路後，您很快就會看到 ExpressRoute 線路處於以下所述的狀態。
 
-	ServiceProviderProvisioningState : Provisioning
+	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
 
 您必須連線連線提供者來取消佈建 ExpressRoute 線路。**重要事項：**Microsoft 會持續收取線路費用，直到您執行 PowerShell Cmdlet 來取消佈建線路為止。
@@ -121,4 +121,4 @@ BGP 佈建狀態可讓您知道 Microsoft 邊緣是否已啟用 BGP 工作階段
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

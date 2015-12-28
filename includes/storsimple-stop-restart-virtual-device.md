@@ -1,21 +1,19 @@
-#### To stop and start a virtual device
-To stop a virtual device, click its name, and then click **Shutdown**. While the virtual device is shutting down, its status is **Stopping**. After the virtual device is stopped, its status is **Stopped**.
+#### 停止和啟動虛擬裝置
+若要停止虛擬裝置，請按一下其名稱，然後按一下 [關機]。當虛擬裝置正在關閉期間，其狀態會是 [正在停止]。當虛擬裝置停止之後，其狀態會是 [已停止]。
 
-Use the following cmdlets to stop and start a virtual device.
+請使用下列 Cmdlet 來停止和啟動虛擬裝置。
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
     
-#### To restart a virtual device
+#### 重新啟動虛擬機器
 
-When a virtual device is running and you want to restart it, click its name, and then click **Restart**. While the virtual device is restarting, its status is **Restarting**. When the virtual device is ready for you to use, its status is **Running**.
+若虛擬裝置正在執行，但您想將它重新啟動，請按一下其名稱，然後按一下 [重新啟動]。當虛擬裝置正在重新啟動期間，其狀態會是 [正在重新啟動]。若虛擬裝置已可供您使用，其狀態會是 [執行中]。
 
-Use the following cmdlet to restart a virtual device.
+請使用下列 Cmdlet 來重新啟動虛擬裝置。
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
-
-
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,9 +3,9 @@
    description="使用 Visual Studio 建立 Azure 專案"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 使用 Visual Studio 建立 Azure 專案
 
@@ -62,4 +62,4 @@ Azure 雲端服務解決方案包含下列專案類型：
 
 1. 若要重新命名已加入至專案的角色，請將游標放在 [新增 Azure 專案] 對話方塊中的角色上面，然後選擇角色右側的 [重新命名]。您也可以為已加入方案的角色重新命名。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # 應用程式模型 v2.0 預覽版本：有何差異？
@@ -26,7 +26,7 @@
 ## Microsoft 帳戶和 Azure AD 帳戶
 V2.0 應用程式模型可讓開發人員撰寫可接受使用單一端點同時從 Microsoft 帳戶和 Azure AD 帳戶登入的應用程式。這可讓您撰寫您的應用程式且帳戶完全無從驗證；可以忽略使用者登入時所用的帳戶類型。當然，您*可以*讓您的應用程式知道特定工作階段中所使用的帳戶類型，但您不必這麼做。
 
-比方說，如果您的應用程式呼叫 [Office 365 REST API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)，則有一些額外的功能和資料可供企業使用者使用，例如其 SharePoint 網站或目錄資料。但在許多動作 (例如[讀取使用者的郵件](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)) 中，針對 Microsoft 帳戶和 Azure AD 帳戶撰寫的程式碼可以完全相同。
+比方說，如果您的應用程式呼叫 [Office 365 REST API](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)，則有一些額外的功能和資料可供企業使用者使用，例如其 SharePoint 網站或目錄資料。但在許多動作 (例如[讀取使用者的郵件](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)) 中，針對 Microsoft 帳戶和 Azure AD 帳戶撰寫的程式碼可以完全相同。
 
 整合應用程式與 Microsoft 帳戶和 Azure AD 帳戶現在是一個簡單的程序。您可以利用一組端點、單一資源庫和單一應用程式註冊來進入消費者和企業的世界。若要深入了解 v2.0 應用程式模型預覽，請參閱[概觀](active-directory-appmodel-v2-overview.md)。
 
@@ -121,4 +121,4 @@ V2.0 端點所簽發的權杖中的宣告與公開上市 Azure AD 端點所簽�
 ## Preview 限制
 在公開預覽期間建置具有 v2.0 應用程式模型的應用程式時，有一些限制要注意。請參閱 [v2.0 應用程式模型限制文件](active-directory-v2-limitations.md)，以了解是否有任何限制適用於您特定的案例。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -234,10 +234,14 @@
 |:--|:--|
 |_authentication (父元素)_ |使用 ActiveDirectoryOAuth 驗證的驗證物件。|
 |_type_ |必要。驗證類型。若為 ActiveDirectoryOAuth 驗證，值必須是 `ActiveDirectoryOAuth`。|
-|_tenant_ |必要。租用戶識別碼是用來識別 AD 租用戶的識別碼。|
+|_tenant_ |必要。Azure AD 租用戶的租用戶識別碼。|
 |_audience_ |必要。此值會設定為 https://management.core.windows.net/.|
 |_clientId_ |必要。提供 Azure AD 應用程式的用戶端識別碼。|
 |_secret_ |必要。要求權杖之用戶端的密碼。|
+
+### 判斷您的租用戶識別碼
+
+您也可以透過在 Azure PowerShell 中執行 `Get-AzureAccount`，找到 Azure AD 租用戶的租用戶識別碼。
 
 ## ActiveDirectoryOAuth 驗證的回應本文
 
@@ -247,8 +251,8 @@
 |:--|:--|
 |_authentication (父元素)_ |使用 ActiveDirectoryOAuth 驗證的驗證物件。|
 |_type_ |驗證類型。若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。|
-|_tenant_ |用來識別 AD 租用戶的租用戶識別碼。|
-|_audience_ |此值會設定為 https://management.core.windows.net/.|
+|_tenant_ |Azure AD 租用戶的租用戶識別碼。 |
+|_audience_ |此值設定為 https://management.core.windows.net/.|
 |_clientId_ |Azure AD 應用程式的用戶端識別碼。|
 
 ## ActiveDirectoryOAuth 驗證的範例要求和回應
@@ -272,7 +276,7 @@
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"secret": "&lt;secret-key&gt;",
@@ -310,7 +314,7 @@
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"type":"ActiveDirectoryOAuth"
@@ -356,4 +360,4 @@
  
   
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

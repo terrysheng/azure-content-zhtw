@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
   
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="12/10/2015" 
 	ms.author="tarcher"/>
 
 # 驗證偵測期間發生錯誤
@@ -26,7 +26,7 @@
 
 ###專案類型
 
-精靈會檢查您正在開發的專案類型，以便可以將正確的驗證邏輯插入專案。如果有衍生自專案中 `ApiController` 的任何控制器，則會將它視為 WebAPI 專案。如果只有衍生自專案中 `MVC.Controller` 的控制器，則會將它視為 MVC 專案。任何其他項目則會被精靈視為不支援。目前不支援 WebForms 專案。
+精靈會檢查您正在開發的專案類型，以便可以將正確的驗證邏輯插入專案。如果專案中有衍生自 `ApiController` 的任何控制器，則該專案將被視為 WebAPI 專案。如果專案中只有衍生自 `MVC.Controller` 的控制器，則該專案將被視為 MVC 專案。精靈不支援其他類型的專案。目前不支援 WebForms 專案。
 
 ###相容的驗證碼
 
@@ -95,6 +95,5 @@
 若要變更驗證類型，請移除不相容的驗證類型，然後重新執行精靈。
 
 如需詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
- 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

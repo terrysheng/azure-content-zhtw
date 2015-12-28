@@ -1,5 +1,5 @@
 <properties
-   pageTitle="使用 Application Insights 搭配 Azure 診斷疑難排解雲端服務問題 | Microsoft Azure"
+   pageTitle="使用 Application Insights 疑難排解雲端服務 | Microsoft Azure"
    description="了解如何使用 Application Insights 疑難排解雲端服務問題，以處理 Azure 診斷的資料。"
    services="cloud-services"
    documentationCenter=".net"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 
-# 使用 Application Insights 搭配 Azure 診斷疑難排解雲端服務問題
+# 使用 Application Insights 疑難排解雲端服務
 
 使用 [Azure SDK 2.8](https://azure.microsoft.com/downloads/) 和 Azure 診斷延伸模組 1.5，您現在可以將雲端服務的 Azure 診斷資料直接傳送至 Application Insights。Azure 診斷收集的各種記錄檔 (包括應用程式記錄檔、Windows 事件記錄檔、ETW 記錄檔和效能計數器) 現在可以傳送至 Application Insights，並在 Application Insights 入口網站 UI 中視覺化。搭配 Application Insights SDK 使用時，您現在可以深入了解來自您的應用程式和系統的計量和記錄檔，以及來自 Azure 診斷的基礎結構層級資料。
   
@@ -61,7 +61,7 @@ Azure 診斷遙測會顯示在為您的雲端服務設定的 Application Insight
 
 ![[計量瀏覽器] 中的自訂計量][5]
 
-- 使用[搜尋](../application-insights/app-insights-diagnostic-search.md)在各種 Azure 診斷傳送的追蹤記錄檔中搜尋。例如，如果您的角色中有未處理的例外狀況造成該角色當機和回收，該資訊會顯示在 [Windows 事件記錄檔] 的 [應用程式] 通道。您可以使用搜尋功能來查看 Windows 事件記錄檔錯誤並取得例外狀況的完整堆疊追蹤，讓您尋找問題的根本原因。 
+- 使用[搜尋](../application-insights/app-insights-diagnostic-search.md)在各種 Azure 診斷傳送的追蹤記錄檔中搜尋。例如，如果您的角色中有未處理的例外狀況造成該角色當機和回收，該資訊會顯示在 [*Windows 事件記錄檔*] 的 [*應用程式*] 通道。您可以使用搜尋功能來查看 Windows 事件記錄檔錯誤並取得例外狀況的完整堆疊追蹤，讓您尋找問題的根本原因。 
 
 ![搜尋追蹤][6]
 
@@ -78,4 +78,4 @@ Azure 診斷遙測會顯示在為您的雲端服務設定的 Application Insight
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

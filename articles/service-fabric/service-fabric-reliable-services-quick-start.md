@@ -145,7 +145,7 @@ protected override async Task RunAsync(CancellationToken cancelServicePartitionR
             await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
             // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
-            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
             // discarded, and nothing is sent to this partition's secondary replicas.
             await tx.CommitAsync();
         }
@@ -214,8 +214,10 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [深入了解可靠的集合](service-fabric-reliable-services-reliable-collections.md)
 
-[管理 Service Fabric 服務](service-fabric-manage-your-service-index.md)
+[部署應用程式](service-fabric-deploy-remove-applications.md)
+
+[應用程式升級](service-fabric-application-upgrade.md)
 
 [可靠的服務的開發人員參考資料](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

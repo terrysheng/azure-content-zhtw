@@ -77,12 +77,13 @@ Azure App Service Mobile Apps 可讓您將行動最佳化資料存取 Web API �
 
 此應用程式會建立簡單而具有單一端點 (`/tables/TodoItem`) 的行動最佳化 WebAPI，讓使用者可使用動態結構描述存取基礎 SQL 資料存放區，不需經過驗證。它適用於下列用戶端程式庫快速入門：
 
+- [Android 用戶端快速入門]
 - [iOS 用戶端快速入門]
+- [Windows 市集用戶端快速入門]
 - [Xamarin.iOS 用戶端快速入門]
 - [Xamarin.Android 用戶端快速入門]
 - [Xamarin.Forms 用戶端快速入門]
-- [Windows 市集用戶端快速入門]
-- [HTML/Javascript 用戶端快速入門]
+
 
 您可以在 [GitHub 上的 basicapp 範例]中找到此基本應用程式的程式碼。
 
@@ -322,7 +323,34 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 建議您將 _azureMobile.js_ 新增至您的 _.gitignore_ 檔案 (或其他原始程式碼控制忽略檔案)，以防止密碼儲存在雲端中。請一律在 [Azure 入口網站]內的 [應用程式設定] 中設定生產設定。
 
-### <a name="howto-use-sqlazure"></a>作法：將 SQL Database 作為您的生產資料存放區
+### <a name="howto-appsettings"><a>設定行動應用程式的應用程式設定
+
+_azureMobile.js_ 檔案中的大部分設定在 [Azure 入口網站]中都有對等的「應用程式設定」。請使用下列清單在 [應用程式設定] 中設定您的應用程式：
+
+| 應用程式設定 | _azureMobile.js_ 設定 | 說明 | 有效值 |
+| :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
+| **MS\_MobileAppName** | 名稱 | 應用程式的名稱 | 字串 |
+| **MS\_MobileLoggingLevel** | logging.level | 要記錄的訊息的最小記錄層級 | error、warning、info、verbose、debug、silly |
+| **MS\_DebugMode** | debug | 啟用或停用偵錯模式 | true、false |
+| **MS\_TableSchema** | data.schema | SQL 資料表的預設結構描述名稱 | 字串 (預設值：dbo) |
+| **MS\_DynamicSchema** | data.dynamicSchema | 啟用或停用偵錯模式 | true、false |
+| **MS\_DisableVersionHeader** | version (設定為未定義)| 停用 X-ZUMO-Server-Version 標頭 | true、false |
+| **MS\_SkipVersionCheck** | skipversioncheck | 停用用戶端 API 版本檢查 | true、false |
+
+設定「應用程式設定」：
+
+1. 登入 [Azure 入口網站]。
+2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您「行動應用程式」的名稱。
+3. 預設會開啟 [設定] 刀鋒視窗，如果沒有的話，請按一下 [設定]。
+4. 按一下 [一般] 功能表中的 [應用程式設定]。
+5. 捲動至 [應用程式設定] 區段。
+6. 如果您的應用程式設定已經存在，請按一下應用程式設定的值來編輯該值。
+7. 如果您的應用程式設定不存在，請在 [機碼] 方塊中輸入「應用程式設定」及在 [值] 方塊中輸入值。
+8. 完成後，按一下 [儲存]。
+
+變更大部分的應用程式設定都需要重新啟動服務。
+
+### <a name="howto-use-sqlazure"></a>做法：使用 SQL Database 做為您的實際執行資料存放區
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
@@ -330,39 +358,39 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 1. 登入 [Azure 入口網站]。
 
-2. 在視窗左上方，依序按一下 [+新增] 按鈕 > [Web + 行動] > [行動應用程式]，然後為您的行動應用程式後端命名。
+2. 在視窗左上方，依序按一下 [+新增] 按鈕 > [Web + 行動] > [行動應用程式]，然後為您的「行動應用程式」後端命名。
 
 3. 在 [資源群組] 方塊中，輸入與您應用程式相同的名稱。
 
-4. 系統將會選取預設應用程式服務方案。若您想要變更 App Service 方案，請按一下 [App Service 方案] > [+ 建立新方案]。為新的應用程式服務方案命名，並選取適當位置。按一下 [定價層]，並選取適當的服務定價層。選取 [檢視全部] 檢視其他價格選項，例如 [免費] 和 [共用]。選取定價層後，按一下 [選取] 按鈕。回到 [App Service 方案] 刀鋒視窗，然後按一下 [確定]。
+4. 系統將會選取預設應用程式服務方案。如果您想要變更 App Service 方案，請按一下 [App Service 方案] > [+ 建立新方案]。為新的應用程式服務方案命名，並選取適當位置。按一下 [定價層]，並選取適當的服務定價層。選取 [檢視全部] 以檢視其他價格選項，例如 [免費] 和 [共用]。選取定價層後，按一下 [選取] 按鈕。回到 [App Service 方案] 刀鋒視窗，然後按一下 [確定]。
 
-5. 按一下 [建立]。如此即會建立您稍後將部署伺服器專案的行動應用程式後端。佈建行動應用程式後端可能需要幾分鐘。行動應用程式後端佈建完畢後，入口網站會開啟行動應用程式後端的 [設定] 刀鋒視窗。
+5. 按一下 [建立]。如此即會建立您稍後將部署伺服器專案的行動應用程式後端。佈建行動應用程式後端可能需要幾分鐘。「行動應用程式」後端佈建完畢後，入口網站會開啟「行動應用程式」後端的 [設定] 刀鋒視窗。
 
 行動應用程式後端建立後，您可以選擇將現有的 SQL Database 連接到您的行動應用程式後端，或建立新的 SQL Database。在這一節中，您將建立新的 SQL Database。
 
-> [AZURE.NOTE]若您在相同位置後端已有作為新行動應用程式後端的資料庫，可以改選 [使用現有的資料庫]，然後選取該資料庫。不建議您使用位在不同位置的資料庫，因為這會需要額外的頻寬成本和產生更高的延遲。
+> [AZURE.NOTE]如果在與新行動應用程式後端相同的位置中已經有資料庫，您可以改為選取 [使用現有的資料庫]，然後選取該資料庫。不建議您使用位在不同位置的資料庫，因為這會需要額外的頻寬成本和產生更高的延遲。
 
-6. 在新的行動應用程式後端中，依序按一下 [設定] > [行動應用程式] > [資料] > [+新增]。
+6. 在新「行動應用程式」後端中，依序按一下 [設定] > [行動應用程式] > [資料] > [+加入]。
 
-7. 在 [新增資料連接] 刀鋒視窗中，依序按一下 [SQL Database - 設定必要設定] > [建立新的資料庫]。在 [名稱] 欄位中輸入新資料庫的名稱。
+7. 在 [加入資料連接] 刀鋒視窗中，依序按一下 [SQL Database - 設定必要設定] > [建立新的資料庫]。在 [名稱] 欄位中輸入新資料庫的名稱。
 
-8. 按一下 [伺服器]。在 [新增伺服器] 刀鋒視窗中，於 [伺服器名稱] 欄位中輸入唯一的伺服器名稱，然後提供合適的**伺服器系統管理員登入**和**密碼**。確定已勾選 [允許 Azure 服務存取伺服器]。按一下 [確定]。
+8. 按一下 [伺服器]。在 [新增伺服器] 刀鋒視窗中，於 [伺服器名稱] 欄位中輸入唯一的伺服器名稱，然後提供合適的 [伺服器管理登入] 和 [密碼]。確定已勾選 [允許 Azure 服務存取伺服器]。按一下 [確定]。
 
 	![建立 Azure SQL Database][6]
 
 9. 在 [新增資料庫] 刀鋒視窗中，按一下 [確定]。
 
-10. 返回 [新增資料連接] 刀鋒視窗，選取 [連接字串]，輸入您建立資料庫時提供的登入與密碼。如果您使用現有的資料庫，請提供該資料庫的登入認證。輸入完成後，按一下 [確定]。
+10. 返回 [加入資料連接] 刀鋒視窗，選取 [連接字串]，輸入您建立資料庫時提供的登入與密碼。如果您使用現有的資料庫，請提供該資料庫的登入認證。輸入完成後，按一下 [確定]。
 
-11. 再次返回 [新增資料連接] 刀鋒視窗，按一下 [確定] 以建立資料庫。
+11. 再次返回 [加入資料連接] 刀鋒視窗，按一下 [確定] 以建立資料庫。
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-建立資料庫可能需要幾分鐘的時間。透過 [通知] 區域監視部署的進度。在資料庫成功部署之前，請勿繼續進行。成功部署後，將會在您行動後端的 [應用程式設定] 中建立 SQL 資料庫執行個體的連接字串。您可以在 [設定] > [應用程式設定] > [連接字串] 中看到此應用程式設定。
+建立資料庫可能需要幾分鐘的時間。使用 [通知] 區域來監視部署的進度。在資料庫成功部署之前，請勿繼續進行。成功部署後，將會在您行動後端的 [應用程式設定] 中建立 SQL 資料庫執行個體的連接字串。您可以在 [設定] > [應用程式設定] > [連接字串] 中看到此應用程式設定。
 
-### <a name="howto-tables-auth"></a>作法：需經過驗證才可存取資料表
+### <a name="howto-tables-auth"></a>做法：需經過驗證才能存取資料表
 
-若您想要對資料表端點使用 App Service 驗證，您必須先在 [Azure 入口網站]中設定 App Service 驗證。如需關於在 Azure App Service 中設定驗證的詳細資訊，請參閱您要使用的身分識別提供者所提供的組態指南：
+如果您想要在資料表端點使用「App Service 驗證」，就必須先在 [Azure 入口網站]中設定「App Service 驗證」。如需關於在 Azure App Service 中設定驗證的詳細資訊，請參閱您要使用的身分識別提供者所提供的組態指南：
 
 - [如何設定 Azure Active Directory 驗證]
 - [如何設定 Facebook 驗證]
@@ -393,12 +421,12 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 存取屬性接受三種值
 
   - *anonymous* 表示允許用戶端應用程式未經驗證就可讀取資料
-  - *authenticated* 表示用戶端應用程式必須透過要求傳送有效的驗證權杖
+  - *authenticated* 表示用戶端應用程式必須隨要求傳送有效的驗證權杖
   - *disabled* 表示此資料表目前已停用
 
 如果未定義存取屬性，則會允許未經驗證的存取。
 
-### <a name="howto-tables-disabled"></a>作法：停用對特定資料表作業的存取權
+### <a name="howto-tables-disabled"></a>做法：停用對特定資料表作業的存取權
 
 除了會出現在資料表上以外，存取屬性也可用來控制個別作業。共有四種作業：
 
@@ -421,7 +449,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
     module.exports = table;
 
-### <a name="howto-tables-query"></a>作法：調整資料表作業所使用的查詢
+### <a name="howto-tables-query"></a>做法：調整與資料表作業搭配使用的查詢
 
 資料表作業的常見需求是提供受限制的資料檢視。例如，您可能會提供標有已驗證之使用者 ID 的資料表，而讓使用者只能讀取或更新自己的記錄。下列資料表定義將提供這項功能：
 
@@ -458,7 +486,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
     context.query.where('myfield eq ?', 'value');
 
-### <a name="howto-tables-softdelete"></a>作法：設定資料表上的虛刪除
+### <a name="howto-tables-softdelete"></a>做法：設定資料表上的虛刪除
 
 虛刪除並不會實際刪除記錄。它會將已刪除的資料行設定為 true，而將記錄標示為已在資料庫中刪除。Azure Mobile Apps SDK 會自動從結果中移除已虛刪除的記錄，除非 Mobile Client SDK 使用 IncludeDeleted()。若要為資料表設定虛刪除，請在資料表定義檔中設定 softDelete 屬性。可能的範例如下：
 
@@ -485,7 +513,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 您將必須建立清除記錄的機制 - 從用戶端應用程式、透過 WebJob 或透過自訂機制。
 
-### <a name="howto-tables-seeding"></a>作法：在您的資料庫中植入資料
+### <a name="howto-tables-seeding"></a>做法：在您的資料庫中植入資料
 
 在建立新的應用程式時，您可能會想要在資料表中植入資料。這可以在資料表定義 JavaScript 檔案中完成，如下所示：
 
@@ -519,7 +547,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 除了透過 /tables 端點的資料存取 API 以外，Azure Mobile Apps 也可提供自訂 API 涵蓋範圍。自訂 API 會以類似於資料表定義的方法定義，並且可存取所有相同功能，包括驗證。
 
-若您想要對自訂 API 使用 App Service 驗證，您必須先在 [Azure 入口網站]中設定 App Service 驗證。如需關於在 Azure App Service 中設定驗證的詳細資訊，請參閱您要使用的身分識別提供者所提供的組態指南：
+如果您想要在「自訂 API」使用「App Service 驗證」，就必須先在 [Azure 入口網站]中設定「App Service 驗證」。如需關於在 Azure App Service 中設定驗證的詳細資訊，請參閱您要使用的身分識別提供者所提供的組態指南：
 
 - [如何設定 Azure Active Directory 驗證]
 - [如何設定 Facebook 驗證]
@@ -527,13 +555,13 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 - [如何設定 Microsoft 驗證]
 - [如何設定 Twitter 驗證]
 
-### <a name="howto-customapi-basic"></a>作法：定義簡單的自訂 API
+### <a name="howto-customapi-basic"></a>做法：定義簡單的自訂 API
 
 定義自訂 API 的方法與資料表 API 很類似。
 
-1. 建立 **api** 目錄。
-2. 在 **api** 目錄中建立 API 定義 JavaScript 檔案。
-3. 使用匯入方法將 **api** 目錄匯入。
+1. 建立 [api] 目錄。
+2. 在 [api] 目錄中建立 API 定義 JavaScript 檔案。
+3. 使用匯入方法將 [api] 目錄匯入。
 
 以下是根據我們先前使用的基本應用程式範例所做的原型 API 定義。
 
@@ -552,7 +580,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 	// Start listening on HTTP
 	app.listen(process.env.PORT || 3000);
 
-現在使用一個可透過 _Date.now()_ 方法傳回伺服器日期的簡單 API。以下是 api/date.js 檔案：
+讓我們使用一個會透過 _Date.now()_ 方法傳回伺服器日期的簡單 API。以下是 api/date.js 檔案：
 
 	var api = {
 		get: function (req, res, next) {
@@ -563,11 +591,11 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 	module.exports = api;
 
-每個參數都是標準 RESTful 動詞之一 - GET、POST、PATCH 或 DELETE。此方法是會傳送必要輸出的標準 [ExpressJS Middleware] 函式。
+每個參數都是標準 RESTful 動詞之一 - GET、POST、PATCH 或 DELETE。此方法是會傳送必要輸出的標準 [ExpressJS 中介軟體]函式。
 
-### <a name="howto-customapi-auth"></a>作法：需經過驗證才能存取自訂 API
+### <a name="howto-customapi-auth"></a>做法：需經過驗證才能存取自訂 API
 
-Azure Mobile Apps SDK 對於資料表端點和自訂 API 會使用相同的方式實作驗證。若要將驗證新增至前一節中所開發的 API，請新增 **access** 屬性：
+Azure Mobile Apps SDK 對於資料表端點和自訂 API 會使用相同的方式實作驗證。若要在前一節開發的 API 中新增驗證，請新增 **access** 屬性：
 
 	var api = {
 		get: function (req, res, next) {
@@ -603,44 +631,44 @@ Azure App Service 提供數個適用於 Node.js 應用程式的偵錯和疑難�
 - [在 Azure App Service 中啟用診斷記錄]
 - [在 Visual Studio 中疑難排解 Azure App Service]
 
-### <a name="howto-diagnostic-logs"></a>作法：寫入至 Azure Mobile Apps 診斷記錄檔
+### <a name="howto-diagnostic-logs"></a>做法：寫入至 Azure Mobile Apps 診斷記錄
 
-Node.js 應用程式可存取多種不同的診斷記錄工具。在內部，Azure Mobile Apps Node.js SDK 會使用 [Winston] 進行診斷記錄。啟用偵錯模式，或是在 [Azure 入口網站]中將 **MS\_DebugMode** 應用程式設定設為 true，即會自動啟用此功能。產生的記錄檔會顯示在 [Azure 入口網站]上的診斷記錄檔中。
+Node.js 應用程式可存取多種不同的診斷記錄工具。在內部，Azure Mobile Apps Node.js SDK 會使用 [Winston] 進行診斷記錄。啟用偵錯模式，或是在 [Azure 入口網站]中將 **MS\_DebugMode** 應用程式設定設為 true，即會自動啟用此功能。產生的記錄檔會顯示在 [Azure 入口網站]上的「診斷記錄」中。
 
-## <a name="in-portal-editing"></a>入口網站中的程式碼編輯經驗
+## <a name="in-portal-editing"></a>入口網站中的程式碼編輯體驗
 
-Azure 入口網站中的特殊工具可讓您輕鬆地使用 Node.js 後端專案，而不需下載程式碼專案。入口網站中的簡單資料表和簡單 API，可讓您直接在入口網站中建立及使用資料表和自訂 API。您甚至可以直接在入口網站中使用 Visual Studio Online "Monaco" 編輯器，編輯資料表作業和 API 指令碼。
+Azure 入口網站中的特殊工具可讓您輕鬆地使用 Node.js 後端專案，而不需下載程式碼專案。入口網站中的簡單資料表和簡單 API，可讓您直接在入口網站中建立及使用資料表和自訂 API。您甚至可以直接在入口網站中使用 Visual Studio Team Services "Monaco" 編輯器，來編輯資料表作業和 API 指令碼。
 
-### <a name="work-easy-tables"></a>作法：在 Azure 入口網站中使用簡單資料表
+### <a name="work-easy-tables"></a>做法：在 Azure 入口網站中使用簡單資料表
 
-當您按一下後端網站設定中的 [簡單資料表] 時，您可以加入新的資料表或修改或刪除現有的資料表。您也可以查看資料表中的資料。
+當您按一下後端網站設定中的 [簡單資料表] 時，您可以加入新的資料表，或是修改或刪除現有的資料表。您也可以查看資料表中的資料。
 
 ![使用簡單資料表](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
 下列命令可用於資料表的命令列：
 
 + **變更權限** - 修改在資料表上讀取、插入、更新和刪除作業的權限。選項包括允許匿名存取、要求驗證，或停用作業的所有存取。這可修改 table.json 專案程式碼檔案。
-+ **編輯指令碼** - 資料表的指令碼檔案隨即在 Visual Studio Online 編輯器中開啟。
-+ **管理結構描述** - 新增或刪除資料行或變更資料表索引。
-+ **清除資料表** - 截斷現有的資料表可能會刪除所有資料列，但結構描述維持不變。
++ **編輯指令碼** - 會在 Visual Studio Team Services 編輯器中開啟資料表的指令碼檔案。
++ **管理結構描述** - 新增或刪除資料行，或變更資料表索引。
++ **清除資料表** - 截斷現有的資料表可能會刪除所有資料列，但結構描述會維持不變。
 + **刪除資料列** - 刪除個別的資料列。
-+ **檢視串流記錄檔** - 讓您連接至您的網站的串流記錄服務。
++ **檢視資料流記錄** - 將您連線到您網站的資料流記錄服務。
 
-###<a name="work-easy-apis"></a>作法：在 Azure 入口網站中使用簡單 API
+###<a name="work-easy-apis"></a>做法：在 Azure 入口網站中使用簡單 API
 
-當您按一下後端網站設定中的 [簡單 API] 時，您可以加入新的自訂 API 端點或修改或刪除現有的 API 端點。
+當您按一下後端網站設定中的 [簡單 API] 時，您可以加入新的自訂 API 端點，或是修改或刪除現有的 API 端點。
 
 ![使用簡單 API](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-在入口網站中，您可以變更指定之 HTTP 動作的存取權限、在 Visual Studio Online 編輯器中編輯 API 指令碼檔案，或檢視串流記錄檔。
+在入口網站中，您可以變更指定之 HTTP 動作的存取權限、在 Visual Studio Team Services 編輯器中編輯 API 指令碼檔案，或檢視資料流記錄。
 
-###<a name="online-editor"></a>作法：在 Visual Studio Online 中編輯程式碼
+###<a name="online-editor"></a>做法：在 Visual Studio Team Services 中編輯程式碼
 
-Azure 入口網站可讓您在 Visual Studio Online 中編輯 Node.js 後端指令碼檔案，而不需將專案下載到本機電腦。若要在線上編輯器中編輯指令碼檔案：
+Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後端指令碼檔案，而不需將專案下載到本機電腦。若要在線上編輯器中編輯指令碼檔案：
 
-1. 在您的行動應用程式後端刀鋒視窗中，按一下 [所有設定] > [簡單資料表] 或 [簡單 API]，按一下資料表或 API，然後按一下 [編輯指令碼]。指令碼檔案隨即在 Visual Studio Online 編輯器中開啟。
+1. 在您的「行動應用程式」後端刀鋒視窗中，按一下 [所有設定] > [簡單資料表] 或 [簡單 API]，按一下資料表或 API，然後按一下 [編輯指令碼]。將會在 Visual Studio Team Services 編輯器中開啟指令碼檔案。
 
-	![Visual Studio Online 程式碼編輯器](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Visual Studio Team Services 程式碼編輯器](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. 在線上編輯器中變更程式碼檔案。當您輸入資料時，會自動儲存變更。
 
@@ -657,12 +685,13 @@ Azure 入口網站可讓您在 Visual Studio Online 中編輯 Node.js 後端指�
 [6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
 
 <!-- URLs -->
+[Android 用戶端快速入門]: app-service-mobile-android-get-started.md
 [iOS 用戶端快速入門]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS 用戶端快速入門]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android 用戶端快速入門]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms 用戶端快速入門]: app-service-mobile-xamarin-forms-get-started.md
 [Windows 市集用戶端快速入門]: app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/Javascript 用戶端快速入門]: app-service-html-get-started.md
+[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [離線資料同步]: app-service-mobile-offline-data-sync.md
 [如何設定 Azure Active Directory 驗證]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [如何設定 Facebook 驗證]: app-service-mobile-how-to-configure-facebook-authentication.md
@@ -690,7 +719,7 @@ Azure 入口網站可讓您在 Visual Studio Online 中編輯 Node.js 後端指�
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js 封裝]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/zh-TW/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
+[ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

@@ -78,7 +78,9 @@
 
 	- 確定憑證有效且未到期，仍可用於 iOS 推播通知。 
 	- 確定您有在 Mobile Engagement 應用程式中正確設定 [生產] 憑證。 
+	- 請確定您要測試的是*真正的實體裝置。* iOS 模擬器無法處理推播訊息。
 	- 確定已在行動應用程式中正確設定 [Bundle Identifier]。請參閱[這裡](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)的指示
+	- 測試時，請使用行動佈建設定檔中的「臨機」發佈。若您的應用程式使用「偵錯」進行編譯，您將無法收到通知
 
 2. **Android**
 
@@ -87,18 +89,18 @@
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
 	- 確定您未在 Android 資訊清單檔案中遺漏或錯誤設定任何權限。
-	- 如果您可以收到系統通知卻未收到應用程式內通知，則請檢閱[指定通知區段的圖示](mobile-engagement-android-get-started.md)，因為您可能未在 Android 資訊清單檔案中指定正確的圖示。 
+	- 如果有收到系統通知，但未收到應用程式內通知，請檢閱[指定通知區段的圖示](mobile-engagement-android-get-started.md)，因為您可能未在 Android 資訊清單檔案中指定正確的圖示。 
 	- 如果您要傳送 BigPicture 通知，則請確定如果您有外部影像伺服器，這些伺服器需要能夠支援 HTTP "GET" 和 "HEAD"。
 
 3. **Windows**
 	
 	- 確定您已將應用程式關聯到有效的 Windows 市集應用程式。在 Visual Studio 中 - 您必須以滑鼠右鍵按一下專案並選取 [將應用程式與市集建立關聯] 選項，然後選取您在 Windows 市集中建立的應用程式。這個 Windows 市集應用程式，應該與您用來取得原生推播認證以在 Mobile Engagement 入口網站中進行設定的是同一個。
-	- 如果您可以透過 `EngagementOverlay` 整合收到應用程式外推播通知，卻未收到應用程式內通知，則請確定您的頁面中有根 Grid 元素。EngagementOverlay 會使用它在 xaml 檔案中找到的第一個 “Grid” 元素，在您的頁面上新增兩個 Web 檢視。如果您想要找出 Web 檢視的設定位置，您可以定義如下名為 "EngagementGrid" 的 Grid，不過，您必須確保高度和寬度足以容納兩個後續的 Web 檢視，這兩個檢視會將通知和下列公告顯示為應用程式內通知：
+	- 如果有透過 `EngagementOverlay` 整合收到應用程式以外的推播通知，但未收到應用程式內通知，則請確定您的頁面中有根 Grid 元素。EngagementOverlay 會使用它在 xaml 檔案中找到的第一個 “Grid” 元素，在您的頁面上新增兩個 Web 檢視。如果您想要找出 Web 檢視的設定位置，您可以定義如下名為 "EngagementGrid" 的 Grid，不過，您必須確保高度和寬度足以容納兩個後續的 Web 檢視，這兩個檢視會將通知和下列公告顯示為應用程式內通知：
 		
 			<Grid x:Name="EngagementGrid"></Grid>
 
 ### 我建立了推播通知/公告/活動，但在它們已傳送通知給我之後，仍會顯示為「使用中」。這代表什麼意思？ 
-您在 Mobile Engagement 中建立的 [活動] 之所以如此稱呼，是因為它是長時間執行的推播通知，意味著當有新裝置連線到 Mobile Engagement 平台，就會自動傳送您在這裡設定的通知給它們，只要它們符合您在活動中設定的準則。這不是一次性的單一通知設定。您必須手動按一下 [完成] 按鈕來終止活動，它才不會再繼續傳送通知。
+您在 Mobile Engagement 中建立的 [活動] 之所以如此稱呼，是因為它是長時間執行的推播通知，意味著當有新裝置連線到行動參與平台，而只要裝置符合您在活動中設定的準則，就會自動對其傳送您在此處設定的通知。這不是一次性的單一通知設定。您必須手動按一下 [完成] 按鈕來終止行銷活動，才不會再繼續傳送通知。
 
 ### 我建立了推播活動，我也有成功收到通知，不過每當我開啟應用程式，總是得到相同的通知，即使我以前就已經對該通知採取過動作？ 
 如果您在測試期間使用模擬器或某些測試架構 (像是 TestFlight)，就可能發生這個情況。其背後的原因是在每一個應用程式執行個體上，它會取得新的 DeviceID 並將它傳送給我們的後端，導致 Mobile Engagement 平台將它視為新裝置並傳送通知。
@@ -107,8 +109,8 @@
 
 如果您無法自行解決問題，您可以：
 
-1. 在 StackOverflow 論壇和 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/windows/zh-TW/home?forum=azuremobileengagement)上進行搜尋，看現有討論串是否有您的問題，如果沒有便在論壇中發問。 
-2. 如果您發現缺少什麼功能，則請到我們的 [UserVoice 論壇](http://feedback.azure.com/forums/285737-mobile-engagement)新增要求或進行投票
+1. 在 StackOverflow 論壇與 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/windows/zh-TW/home?forum=azuremobileengagement)的現有討論對話中，搜尋是否有您的問題，如果沒有，即在論壇中發問。 
+2. 如果您發現缺少什麼功能，則請到我們的 [UserVoice 論壇](http://feedback.azure.com/forums/285737-mobile-engagement)新增申請或進行投票
 3. 如果您有 Microsoft 支援，則請提供下列詳細資料來開立支援事件： 
 	- Azure 訂用帳戶識別碼
 	- 平台 (例如 iOS、Android 等)
@@ -118,4 +120,4 @@
 	- Mobile Engagement SDK 版本 (例如 Android SDK v2.1.0)
 	- 附有確切錯誤訊息與狀況的錯誤詳細資料
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

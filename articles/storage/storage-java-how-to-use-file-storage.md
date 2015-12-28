@@ -212,6 +212,7 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 - [Azure 儲存體用戶端 SDK 參考]
 - [Azure 儲存體 REST API]
 - [Azure 儲存體團隊部落格]
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
@@ -222,4 +223,4 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

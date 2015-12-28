@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev" />
 
 
@@ -41,7 +41,7 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 [執行 Python 指令碼][execute-python-script]模組接受最多三個輸入，並且產生最多兩個輸出 (在以下討論)，就像其 R 類比，[執行 R 指令碼][execute-r-script]模組。要執行的 Python 程式碼會輸入至稱為 `azureml_main` 之特殊命名進入點函數的參數方塊。以下是用來實作此模組的關鍵設計原則：
 
 1.	*必須是 Python 使用者慣用的。* 大部分 Python 使用者會將其程式碼歸因為模組內部的函數，所以在最上層模組中放置許多可執行陳述式的情形相對少見。因此，指令碼方塊也會採用特殊命名的 Python 函數，而不是採用一系列的陳述式。在函數中公開的物件是標準 Python 程式庫類型，例如 [Pandas](http://pandas.pydata.org/) 陣列。資料框架和 [NumPy](http://www.numpy.org/) 陣列。
-2.	*必須在本機和雲端執行之間具有高畫質。* 用來執行 Python 程式碼的後端是根據 [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1，在跨平台科學 Python 發佈中廣泛使用。它隨附將近 200 個最常見的 Python 封裝。因此，資料科學家可以在其本機 Azure Machine Learning 相容 Anaconda 環境中對程式碼進行偵錯或驗證是否合格，方法是使用如 [IPython](http://ipython.org/) Notebook 或 [Python Tools for Visual Studio] 的開發環境，並且以高度信賴程度做為 Azure Machine Learning 實驗的一部分執行。此外，`azureml_main` 進入點是 Vanilla Python 函數，不需要 Azure Machine Learning 特定程式碼或安裝 SDK 即可編寫。
+2.	*必須在本機和雲端執行之間具有高畫質。* 用來執行 Python 程式碼的後端是根據 [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1，在跨平台科學 Python 發佈中廣泛使用。它隨附將近 200 個最常見的 Python 封裝。因此，資料科學家可以在其本機 Azure Machine Learning 相容 Anaconda 環境中對程式碼進行偵錯或驗證是否合格，方法是使用如 [IPython](http://ipython.org/) Notebook 或 [Python Tools for Visual Studio](http://aka.ms/ptvs) 的開發環境，並且以高度信賴程度做為 Azure Machine Learning 實驗的一部分執行。此外，`azureml_main` 進入點是 Vanilla Python 函數，不需要 Azure Machine Learning 特定程式碼或安裝 SDK 即可編寫。
 3.	*必須可以順暢地與其他 Azure Machine Learning 模組組合。* [執行 Python 指令碼][execute-python-script]模組接受標準 Azure Machine Learning 資料集做為輸入和輸出。基礎框架可以透明且有效地橋接 Azure Machine Learning 和 Python 執行階段 (支援如遺漏值的功能)。因此，Python 可以用於與現有 Azure Machine Learning 工作流程接合，包括呼叫至 R 和 SQLite 的那些工作流程。所以可以將工作流程設想為：
   * 使用 Python 和 Pandas 進行前處理和清除、 
   * 將資料饋送至 SQL 轉換、連結多個資料集以形成功能、 
@@ -72,7 +72,7 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 3.	Azure Machine Learning 資料集無法具有重複的資料行名稱或非字串的資料行名稱。如果輸出資料框架包含非數值資料行，則架構會在資料行名稱上呼叫 `str`。同樣地，任何重複的資料行名稱會自動錯位，以確保名稱是唯一的。後置詞 (2) 會新增至第一個重複項目，後置詞 (3) 新增至第二個重複項目等等。
 
 ## 運作 Python 指令碼
-當發佈為 Web 服務時，會呼叫計分實驗中的任何[執行 Python 指令碼][execute-python-script]模組。例如，「圖 3」顯示計分實驗，其中包含用以評估單一 Python 運算式的程式碼。
+當發佈為 Web 服務時，會呼叫評分實驗中的任何[執行 Python 指令碼][execute-python-script]模組。例如，「圖 3」顯示計分實驗，其中包含用以評估單一 Python 運算式的程式碼。
 
 ![image4](./media/machine-learning-execute-python-scripts/figure3a.png)
 
@@ -172,6 +172,5 @@ Python 函數，用於根據以下顯示的功能計算重要性分數及排序�
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

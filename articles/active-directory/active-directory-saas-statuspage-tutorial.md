@@ -97,7 +97,7 @@
     > [AZURE.NOTE]請透過 [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io) 連絡 StatusPage 支援小組，要求設定單一登入所需的中繼資料。
 
 
-    a.從中繼資料複製簽發者值，然後貼至 [**簽發者**] 文字方塊中。
+    a.從中繼資料複製簽發者值，然後貼至 [**識別碼**] 文字方塊中。
 
     b.從中繼資料複製回覆 URL，然後貼至 [**回覆 URL**] 文字方塊中。
 
@@ -244,4 +244,4 @@
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

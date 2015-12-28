@@ -49,7 +49,7 @@ V2.0 應用程式模型為預覽狀態。在預覽期間，歡迎您提供使用
 - 使用 [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) 告訴我們您對預覽版的想法 - 我們很想知道您的想法！ 請在您的貼文標題中使用 "AppModelv2:" 字詞，以方便我們尋找。
 - [應用程式模型 v2.0 通訊協定參考](active-directory-v2-protocols.md)
 - [應用程式模型 v2.0 權杖參考](active-directory-v2-tokens.md)
-- [Office 365 REST API 參考](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Office 365 REST API 參考](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [v2 端點的範圍和同意](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
@@ -57,4 +57,4 @@ V2.0 應用程式模型為預覽狀態。在預覽期間，歡迎您提供使用
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

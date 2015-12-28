@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/11/2015"
 	ms.author="emgerner"/>
 
 # 如何使用 Python 的 Azure Blob 儲存體
@@ -106,7 +106,8 @@
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存體工作。
 
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
+- 造訪 [Azure 儲存體團隊部落格][] (英文)。
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
 如需詳細資訊，另請參閱 [Python 開發人員中心](/develop/python/)。
 
@@ -114,4 +115,4 @@
 [Python Azure 封裝]: https://pypi.python.org/pypi/azure
 [Python Azure 儲存體封裝]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

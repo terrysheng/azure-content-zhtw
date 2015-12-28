@@ -73,7 +73,7 @@
 可能在範圍內的兩個防火牆為：在組織的中央路由器執行的公司防火牆，以及在安裝閘道器的本機電腦上設定為精靈的 Windows 防火牆。以下是一些考量：
 
 - 不需要變更公司防火牆的輸入原則。
-- 公司防火牆及 Windows 防火牆應該啟用 TCP 連接埠的輸出規則：80、443，以及從 9305 到 9354。Microsoft Azure 服務匯流排可使用這些項目建立雲端服務和資料管理閘道之間的連線。
+- 公司防火牆及 Windows 防火牆應該啟用 TCP 連接埠的輸出規則：80、443，以及從 9350 到 9354。Microsoft Azure 服務匯流排可使用這些項目建立雲端服務和資料管理閘道之間的連線。
 
 MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火牆規則 (請參閱上述的連接埠和安全性考量一節)。
 
@@ -514,10 +514,15 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 7.	在 [認證] 刀鋒視窗中，按一下 [按一下這裡設定認證]。
 8.	在 [設定認證] 對話方塊中，執行下列動作：
 
-	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1.選取您要 Data Factory 服務用來連接到資料庫的**驗證**。2.在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。3.在 [密碼] 設定中輸入使用者的密碼。4.按一下 [確定] 關閉對話方塊。 
+	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	在 [驗證] 中選取您想要 Data Factory 服務用來連接到資料庫的驗證。 
+	2.	在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。 
+	3.	在 [密碼] 設定中輸入使用者的密碼。  
+	4.	按一下 [確定] 關閉對話方塊。  
 4. 按一下 [確定] 關閉 [認證] 刀鋒視窗。 
 5. 按一下 [新增資料存放區] 刀鋒視窗中的 [確定]。 	
-6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。
+	![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。如果應用程式無法連接閘道器電腦，它將不允許您設定資料來源的認證，以及測試資料來源的連接。
 
@@ -589,7 +594,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 ## 使用資料管理閘道進行複製的資料流
 當您使用資料管線中的複製活動，將內部部署資料擷取至雲端以進行進一步的處理，或者匯出雲端中的結果資料回到內部部署資料存放區，複製活動都會在內部使用閘道器將資料從內部部署資料來源傳輸回雲端，反之亦然。
 
-利用資料閘道器進行複製步驟的高層級資料流和摘要如下：
+利用資料閘道器進行複製的高層級資料流和步驟摘要如下：
 ![使用閘道器的資料流](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	資料開發人員會使用 [Azure 傳統入口網站](http://portal.azure.com)或 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx)，為 Azure Data Factory 建立新的閘道器。 
@@ -613,4 +618,4 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 	- 	進行 [Azure SQL 防火牆設定](https://msdn.microsoft.com/library/azure/jj553530.aspx)，將**閘道器電腦的 IP 位址**加入 [允許的 IP 位址] 中。
 5.	當複製資料至/從內部部署 SQL Server 至任何目的地，而且閘道器和 SQL Server 電腦不同時，請執行下列動作：在 SQL Server 電腦上[設定 Windows 防火牆](https://msdn.microsoft.com/library/ms175043.aspx)，讓閘道器可以透過 SQL Server 執行個體所接聽的連接埠存取資料庫。在預設執行個體中，這是連接埠 1433。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="12/11/2015"
    ms.author="jgao"/>
 
 # 在 HDInsight 中建立 Hadoop 叢集
@@ -65,7 +65,7 @@
 
 	![HDInsight 叢集](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
-	> [AZURE.NOTE]*Azure HDInsight 叢集*也稱為 *HDInsight 中的 Hadoop 叢集*，或是 *HDInsight 叢集*。有時其可與 *Hadoop 叢集*互換使用。它們都代表裝載於 Microsoft Azure 環境中的 Hadoop 叢集。
+	> [AZURE.NOTE]Azure HDInsight 叢集也稱為 HDInsight 中的 Hadoop 叢集，或是 HDInsight 叢集。有時候，它可與 Hadoop 叢集互換使用。它們都代表裝載於 Microsoft Azure 環境中的 Hadoop 叢集。
 
 	在特定叢集類型中，各節點有不同的角色，可讓客戶針對特定角色，根據適合其工作負載的詳細資料來調整節點的大小。舉例來說，若執行的分析作業類型會耗用大量記憶體，Hadoop 叢集將可使用大量記憶體來建立背景工作節點。
 
@@ -98,14 +98,14 @@
 	- 背景工作伺服器 (至少 1 個節點)
 	- Zookeeper 節點 (3 個節點) (為 A1 Zookeeper 免費提供)
 
-	客戶需根據叢集的生命期，就這些節點的使用量支付費用。一旦建立叢集之後便會開始計費，而刪除叢集時便會停止計費 (無法取消配置或保留叢集)。叢集大小會影響叢集價格。為了方便學習，建議使用 1 個資料節點。如需關於 HDInsight 價格的詳細資訊，請參閱 [HDInsight 價格](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
+	客戶需根據叢集的生命期，就這些節點的使用量支付費用。一旦建立叢集之後便會開始計費，而刪除叢集時便會停止計費 (無法取消配置或保留叢集)。叢集大小會影響叢集價格。為了方便學習，建議使用 1 個資料節點。如需關於 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
 
 
 	>[AZURE.NOTE]叢集大小限制會隨著 Azure 訂用帳戶而有所不同。若要提高限制，請與帳務支援人員連絡。
 
 - **HDInsight 版本**
 
-	這可用來決定要用於此叢集的 HDInsight 版本。如需詳細資訊，請參閱 [HDInsight 中的 Hadoop 叢集版本和元件](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
+	這可用來決定要用於此叢集的 HDInsight 版本。如需詳細資訊，請參閱 [HDInsight 中的 Hadoop 叢集版本和元件](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)。
 
 
 - **位置 (區域)**
@@ -114,7 +114,7 @@
 	
 	![Azure 區域](./media/hdinsight-provision-clusters/Azure.regions.png)
 
-	如需支援區域的清單，請按一下 [[HDInsight 價格](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)] 中的 [**區域**] 下拉式清單。
+	如需支援的地區清單，請按一下 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)中的 [地區] 下拉式清單。
 
 - **節點大小**
 
@@ -131,7 +131,7 @@
 
 	- HTTP 使用者。預設使用者名稱是在 Azure 入口網站上使用基本組態的 admin。
 	- RDP 使用者 (Windows 叢集)：用來連線到使用 RDP 的叢集。當您建立帳戶時，必須將到期日設為從今天算起的 90 天內。
-	- SSH 使用者 (Linux 叢集)：用來連線到使用 SSH 的叢集。當您依照[針對 Linux、Unix 或 OS X 上的 HDInsight 使用 SSH 搭配 Linux 架構的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md) 中的步驟建立叢集之後，您便可以建立其他 SSH 使用者帳戶。
+	- SSH 使用者 (Linux 叢集)：用來連線到使用 SSH 的叢集。叢集建立之後，您便可以依照[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md) 中的步驟建立其他 SSH 使用者帳戶。
 
 
 
@@ -139,7 +139,7 @@
 
 	原始的 HDFS 會使用叢集上的多個本機磁碟。HDInsight 則會使用 Azure Blob 儲存體來儲存資料。Azure Blob 儲存體是強大的一般用途儲存體解決方案，其完美整合了 HDInsight。透過 Hadoop 分散式檔案系統 (HDFS) 介面，HDInsight 中的完整元件集可直接處理 Blob 儲存體中的結構化或非結構化資料。將資料儲存在 Blob 儲存體中，您便可安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 
-	在設定期間，您必須指定 Azure 儲存體帳戶，並在該 Azure 儲存體帳戶中指定 Azure Blob 儲存體容器。某些建立程序會要求您事先建立 Azure 儲存體帳戶和 Blob 儲存體容器。叢集會以該 Blob 儲存體容器做為預設儲存位置。您也可以選擇指定叢集可存取的其他 Azure 儲存體帳戶 (連結的儲存體)。此外，叢集也可以存取任何設有完整公用讀取權限或僅限對 blob 之公用讀取權的 Blob 容器。如需關於限制存取的詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
+	在設定期間，您必須指定 Azure 儲存體帳戶，並在該 Azure 儲存體帳戶中指定 Azure Blob 儲存體容器。某些建立程序會要求您事先建立 Azure 儲存體帳戶和 Blob 儲存體容器。叢集會以該 Blob 儲存體容器做為預設儲存位置。您也可以選擇指定叢集可存取的其他 Azure 儲存體帳戶 (連結的儲存體)。此外，叢集也可以存取任何設有完整公用讀取權限或僅限對 blob 之公用讀取權的 Blob 容器。如需限制存取的詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
 
 	![HDInsight 儲存體](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
@@ -251,23 +251,23 @@
 
 ## 使用入口網站
 
-您可以參考 [[基本組態選項](#basic-configuration-options)] 和 [[進階組態選項](#advanced-configuration-options)]，以取得有關欄位的說明。
+您可以參考[基本組態選項](#basic-configuration-options)和[進階組態選項](#advanced-configuration-options)來取得有關欄位的說明。
 
 **建立 HDInsight 叢集**
 
 1. 登入 [Azure 入口網站][azure-preview-portal]。
-2. 依序按一下 [**新增**]、[**資料分析**] 及 [**HDInsight**]。
+2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
 
     ![在 Azure 入口網站中建立新的叢集](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "在 Azure 入口網站中建立新的叢集")
 
 3. 輸入或選取下列值：
 
   * **叢集名稱**：輸入叢集的名稱。如果該叢集名稱可使用，則名稱旁邊將會出現綠色的核取記號。
-  * **叢集類型**：選取 [**Hadoop**]。
-  * **叢集作業系統**：選取 [**Windows Server 2012 R2 資料中心**]。
+  * **叢集類型**：選取 [Hadoop]。
+  * **叢集作業系統**：選取 [Windows Server 2012 R2 Datacenter]。
   * **訂用帳戶**：選取將用於建立此叢集的 Azure 訂用帳戶。
   * **資源群組**：選取現有資源群組或建立新的群組。如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
-  * **認證**：設定 Hadoop 使用者 (HTTP 使用者) 的使用者名稱和密碼。如果您啟用該叢集的遠端桌面，您必須設定遠端桌面使用者的使用者名稱、密碼和帳戶到期日。在底部按一下 [**選取**]，以儲存此變更。
+  * **認證**：設定 Hadoop 使用者 (HTTP 使用者) 的使用者名稱和密碼。如果您啟用該叢集的遠端桌面，您必須設定遠端桌面使用者的使用者名稱、密碼和帳戶到期日。在底部按一下 [選取] 以儲存變更。
 
 	   	![Provide cluster credentials](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Provide cluster credentials")
 
@@ -286,7 +286,7 @@
 		![Node pricing tiers blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Specify number of cluster nodes")
 
 
-  * [**選擇性組態**] 用來選取叢集的版本，以及設定其他選擇性設定，例如聯結**虛擬網路**、設定**外部中繼存放區**來保存 Hive 和 Oozie 的資料、使用 [指令碼動作] 來自訂要安裝自訂元件的叢集，或使用具有該叢集的其他儲存體帳戶。
+  * [選擇性組態] 可用來選取叢集版本，以及設定其他選擇性設定，例如聯結**虛擬網路**、設定**外部中繼存放區**來保存 Hive 和 Oozie 的資料、使用 [指令碼動作] 來自訂要安裝自訂元件的叢集，或使用具有該叢集的其他儲存體帳戶。
 
   		* **HDInsight 版本**: 選取您想要用於該叢集的版本。如需詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
   		* **虛擬網路**: 如果您想要將叢集放置到虛擬網路，請選擇 Azure 虛擬網路和子網路。  
@@ -320,8 +320,7 @@
 
 			![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
 
-
-4. 按一下 [建立]。選取 **[釘選到「開始面板」]** 會將叢集磚新增至入口網站的「開始面板」。該圖示可表示該叢集正在建立，並將在建立完成後變更為 HDInsight 圖示。
+4. 按一下 [建立]。選取 [釘選到「開始面板」] 會將叢集磚新增至入口網站的「開始面板」。該圖示可表示該叢集正在建立，並將在建立完成後變更為 HDInsight 圖示。
 
 
 	| 建立時 | 建立完成 |
@@ -330,7 +329,7 @@
 
 
 	
-	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的磚，或頁面左邊的 [**通知**] 項目，以檢查佈建進度。
+	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用「開始面板」上的磚，或頁面左邊的 [通知] 項目，以檢查佈建進度。
 	
 
 5. 建立完成後，在「開始面板」按一下該叢集磚，以啟動叢集刀鋒視窗。此叢集刀鋒視窗提供該叢集的基本資訊，如名稱、其所屬的資源群組、位置、作業系統、叢集儀表板 URL 等。
@@ -339,21 +338,21 @@
 	![叢集刀鋒視窗](./media/hdinsight-provision-clusters/HDI.Cluster.Blade.png "叢集屬性")
 
 
-	使用下列步驟來了解在這個刀鋒視窗頂端和 [**基本功能**] 區段中的圖示：
+	使用下列步驟來了解在這個刀鋒視窗頂端和 [基本功能] 區段中的圖示：
 
 
-	* [**設定**] 和 [**所有設定**]：顯示叢集的 [**設定**] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
-	* [**儀表板**]、[**叢集儀表板**] 和 [**URL**]：這些是存取叢集儀表板 (也就是可在叢集上執行作業的 Web 入口網站) 的所有方法。
-	* [**遠端桌面**]：可讓您在叢集節點上啟用/停用遠端桌面。
-	* [**級別叢集**]：可讓您變更此叢集的背景工作角色節點數目。
-	* [**刪除**]：刪除 HDInsight 叢集。
-	* \[**快速入門**] (![雲和雷電圖示 = 快速入門](./media/hdinsight-provision-clusters/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
-	* \[**使用者**] (![使用者圖示](./media/hdinsight-provision-clusters/users.png))：可讓您設定 Azure 訂用帳戶上，其他使用者對此叢集的_入口網站管理_權限。
+	* **設定**和**所有設定**：顯示該叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
+	* **儀表板**、**叢集儀表板**和 **URL**：這些是存取叢集儀表板 (也就是可在叢集上執行工作的 Web 入口網站) 的所有方法。
+	* **遠端桌面**：可讓您在叢集節點上啟用/停用遠端桌面。
+	* **調整叢集**：可讓您變更此叢集的背景工作角色節點數目。
+	* **刪除**：刪除 HDInsight 叢集。
+	* **快速入門 (![雲和雷電圖示 = 快速入門](./media/hdinsight-provision-clusters/quickstart.png))**：顯示可協助您開始使用 HDInsight 的資訊。
+	* **使用者 (![使用者圖示](./media/hdinsight-provision-clusters/users.png))**：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 	
 
-		> [AZURE.IMPORTANT]這_只會_影響在入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將工作提交至其上的使用者並沒有作用。
+		> [AZURE.IMPORTANT]這「只會」影響在入口網站中對此叢集的存取和權限，對於連線至 HDInsight 叢集或將工作提交至其上的使用者並沒有作用。
 		
-	* \[**標記**] (![標記圖示](./media/hdinsight-provision-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可能會建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
+	* **標記 (![標記圖示](./media/hdinsight-provision-clusters/tags.png))**：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可以建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
 ## 使用 ARM 範本建立
 
@@ -464,7 +463,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 		Install-Package Microsoft.Azure.Common.Authentication -pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 
-6. 在 [方案總管] 中按兩下 **Program.cs** 將其開啟，貼上下列程式碼，並提供變數的值：
+6. 在 [方案總管] 中按兩下 **Program.cs** 將其開啟、貼上下列程式碼，然後提供變數的值：
 
 		using System;
 		using System.Security;
@@ -755,4 +754,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

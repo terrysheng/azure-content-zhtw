@@ -163,7 +163,7 @@ DocumentDB 支援下列開放地理空間協會 (OGC) 的內建函數，以用�
 </tr>
 </table>
 
-空間函數可以用來對空間資料的執行鄰近性查詢。例如，以下查詢使用 ST\_DISTANCE 內建函數傳回所有家族文件，且這些文件在 30 公里指定位置內。
+空間函數可以用來對空間資料執行鄰近性查詢。例如，以下查詢使用 ST\_DISTANCE 內建函數傳回所有家族文件，且這些文件在 30 公里指定位置內。
 
 **查詢**
 
@@ -355,4 +355,4 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 - 深入了解 [DocumentDB 查詢](documentdb-sql-query.md)
 - 深入了解 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

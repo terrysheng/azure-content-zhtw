@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="09/29/2015" 
+	ms.date="12/15/2015" 
 	ms.author="cephalin"/>
 
 # 在 Azure 應用程式服務中建立使用 AD FS 驗證的 .NET MVC Web 應用程式
@@ -36,7 +36,7 @@
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 您需要下列項目完成本教學課程：
 
@@ -48,7 +48,7 @@
 <a name="bkmk_sample"></a>
 ## 使用特定業務範本的範例應用程式 ##
 
-本教學課程中的範例應用程式 [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) 是由 Azure Active Directory 團隊所建立。由於 AD FS 支援 WS-同盟，因此您可以將其做為範本，輕鬆地建立新的特定業務應用程式。它有下列功能：
+本教學課程中的範例應用程式 [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) 是由 Azure Active Directory 團隊所建立。由於 AD FS 支援 WS-同盟，因此您可將其用作範本，輕鬆地建立新的特定業務應用程式。它有下列功能：
 
 - 使用 [WS-同盟](http://msdn.microsoft.com/library/bb498017.aspx)驗證內部部署 AD FS 部署
 - 登入和登出功能
@@ -59,13 +59,13 @@
 
 2.	將 [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) 上的範例解決方案複製或下載至您的本機目錄。
 
-	> [AZURE.NOTE][README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) 的指示說明如何使用 Azure Active Directory 設定應用程式，但在本教學課程，您將使用 AD FS 進行設定，因此請改為執行這裡的步驟。
+	> [AZURE.NOTE] [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) 的指示說明如何使用 Azure Active Directory 設定應用程式，但在本教學課程，您將使用 AD FS 進行設定，因此請改為執行這裡的步驟。
 
-3.	開啟解決方案，然後在 [方案總管] 中開啟 Controllers\AccountController.cs。
+3.	開啟解決方案，然後在 [方案總管] 中開啟 Controllers\\AccountController.cs。
 
-	您會看到程式碼只是發出驗證挑戰，以使用 WS-同盟來驗證使用者。所有驗證都是在 App_Start\Startup.Auth.cs 中設定。
+	您會看到程式碼只是發出驗證挑戰，以使用 WS-同盟來驗證使用者。所有驗證都是在 App\_Start\\Startup.Auth.cs 中設定。
 
-4.  開啟 App_Start\Startup.Auth.cs。在 `ConfigureAuth` 方法中，請注意下列重點：
+4.  開啟 App\_Start\\Startup.Auth.cs。在 `ConfigureAuth` 方法中，請注意下列重點：
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -74,7 +74,7 @@
                 MetadataAddress = metadata                                      
             });
 
-	在 OWIN 世界中，這真的是您需要設定 WS-同盟驗證的最低限度。這必須比 WIF 更簡單且更簡潔，其中 Web.config 會在各處插入 XML。您需要的唯一資訊是信賴憑證者的 (RP) 識別碼和 AD FS 服務的中繼資料檔案的 URL。以下是範例：
+	在 OWIN 世界中，這真的是您需要設定 WS-同盟驗證的最低限度。這比 WIF 簡單且簡潔得多，其中 Web.config 會在各處插入 XML。您需要的唯一資訊是信賴憑證者的 (RP) 識別碼和 AD FS 服務的中繼資料檔案的 URL。以下是範例：
 
 	-	RP 識別碼：`https://contoso.com/MyLOBApp`
 	-	中繼資料位址：`http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
@@ -120,7 +120,7 @@
 
 	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
-2. 選取 [Microsoft Azure Web Apps]。
+2. 選取 [**Microsoft Azure App Service**]。
 3. 如果您還沒有登入 Azure，請按一下 [登入] 並使用您 Azure 訂用帳戶的 Microsoft 帳戶登入。
 4. 登入之後，按一下 [新增] 來建立新的 Web 應用程式。
 5. 填寫所有必要欄位。您稍後即將連線到內部部署資料，因此您不會建立此 Web 應用程式的資料庫。
@@ -145,12 +145,12 @@
 <a name="bkmk_rptrusts"></a>
 ## 在 AD FS 管理中設定信賴憑證者信任 ##
 
-現在您需要先在 AD FS 管理中設定 RP 信任，然後您才可以使用 AD FS 實際驗證範例應用程式。您必須設定兩個不同的 RP 信任，一個用於偵錯環境，另一個用於您發行的 Web 應用程式。
+現在您需要先在 AD FS 管理中設定 RP 信任，然後您才可以使用範例應用程式並透過 AD FS 實際驗證。您必須設定兩個不同的 RP 信任，一個用於偵錯環境，另一個用於您發行的 Web 應用程式。
 
 > [AZURE.NOTE]請確定為您的兩個環境重複下列步驟。
 
 4.	在 AD FS 伺服器上，使用具有 AD FS 之管理權限的認證登入。
-5.	開啟 [AD FS 管理]。以滑鼠右鍵按一下 [AD FS] [信任的關係] [信賴憑證者信任]，然後選取 [新增信賴憑證者信任]。
+5.	開啟 [AD FS 管理]。以滑鼠右鍵按一下 [AD FS] [信任的關係] \[信賴憑證者信任]，然後選取 [新增信賴憑證者信任]。
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
@@ -276,11 +276,10 @@
     {
         ViewBag.Message = "Your contact page.";
 
-    return View();
-}
+        return View();
+    }
 	</pre>
-	
-	由於我在 AD FS 實驗室環境中將「測試使用者」新增至「測試群組」，我將在 `About` 上使用測試群組來測試授權。若為 `Contact`，我將測試「測試使用者」不屬於之 **Domain Admins** 的負面案例。
+</pre>由於我在 AD FS 實驗室環境中將「測試使用者」新增至「測試群組」，我將在 `About` 上使用測試群組來測試授權。若為 `Contact`，我將測試「測試使用者」不屬於之 **Domain Admins** 的負面案例。
 
 3. 輸入 `F5` 開始偵錯工具並登入，然後按一下 [關於]。如果該動作已授權給已驗證的使用者，您現在應可順利檢視 `~/About/Index` 頁面。
 4. 現在按一下 [連絡人]，在我的案例中應該不會將該動作授權給「測試使用者」。不過，瀏覽器會重新導向至 AD FS，最後會顯示這則訊息：
@@ -354,4 +353,4 @@ Azure App Service Web Apps 可透過兩種方式支援存取在內部部署資�
  
  
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=AcomDC_1217_2015-->

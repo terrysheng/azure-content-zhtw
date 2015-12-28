@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="12/10/2015" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning 建議 API 文件
@@ -26,37 +26,22 @@
 ##1\.一般概觀
 本文件是 API 參考。您應該從＜Azure Machine Learning 建議 – 快速入門＞文件開始。
 
-Azure Machine Learning 建議 API 可分成 10 個邏輯群組：
+Azure Machine Learning 建議 API 可分成下列邏輯群組：
 
-1.	<ins>模型基本操作</ins> – 可讓您對模型執行基本操作 (例如建立、更新及刪除模型) 的 API。
-2.	<ins>模型進階操作</ins> – 可讓您深入了解模型相關進階資料的 API。
-3.	<ins>模型商務規則</ins> – 可讓您管理模型建議結果之相關商業規則的 API。
-4.	<ins>目錄</ins> – 可讓您對模型目錄執行基本操作的 API。目錄包含使用狀況資料項目的相關中繼資料資訊。
-5.	<ins>特徵</ins> - 可讓您深入了解目錄中的項目，以及如何使用這項資訊來建立更佳建議的 API。
-6.	<ins>使用狀況資料</ins> – 可讓您對模型使用狀況資料執行基本操作的 API。基本格式的使用狀況資料由資料列組成，這些資料列包含成對的 &#60;userId&#62;,&#60;itemId&#62;。
-7.	<ins>組建</ins> – 能夠讓您觸發模型組建並執行與此組建相關之基本操作的 API。您可以在獲得有價值的使用狀況資料之後，觸發模型組建。
-8.	<ins>建議</ins> – 模型組建結束之後，可讓您取用建議的 API。
-9.	<ins>使用者資料</ins> - 可讓您擷取使用者使用資料之相關資訊的 API。
-10.	<ins>通知</ins> – 可讓您接收與 API 操作相關之問題通知的 API。(例如，您透過資料擷取回報使用量資料，而大部分的事件處理都失敗了。這將會引發錯誤通知。)
+- <ins>限制</ins> - 建議 API 限制。
+- <ins>一般資訊</ins> - 驗證、服務 URI 和版本控制的相關資訊。
+- <ins>模型基本操作</ins> – 可讓您對模型執行基本操作 (例如建立、更新及刪除模型) 的 API。
+- <ins>模型進階操作</ins> – 可讓您深入了解模型相關進階資料的 API。
+- <ins>模型商務規則</ins> – 可讓您管理模型建議結果之相關商業規則的 API。
+- <ins>目錄</ins> – 可讓您對模型目錄執行基本操作的 API。目錄包含使用狀況資料項目的相關中繼資料資訊。
+- <ins>功能</ins> - 可讓您深入了解目錄中的項目，以及如何使用這項資訊來建立更佳建議的 API。
+- <ins>使用狀況資料</ins> – 可讓您對模型使用狀況資料執行基本操作的 API。基本格式的使用狀況資料由資料列組成，這些資料列包含成對的 &#60;userId&#62;,&#60;itemId&#62;。
+- <ins>組建</ins> – 能夠讓您觸發模型組建並執行與此組建相關之基本操作的 API。您可以在獲得有價值的使用狀況資料之後，觸發模型組建。
+- <ins>建議</ins> – 模型組建結束之後，可讓您取用建議的 API。
+- <ins>使用者資料</ins> - 可讓您擷取使用者使用方式資料之相關資訊的 API。
+- <ins>通知</ins> – 可讓您接收與 API 操作相關之問題通知的 API。(例如，您透過資料擷取回報使用量資料，而大部分的事件處理都失敗了。這將會引發錯誤通知。)
 
-##2\.進階主題
-
-###2\.1.建議品質
-
-建立建議模型通常足以允許系統提供建議。不過，建議品質取決於處理的使用量以及目錄的涵蓋範圍。例如，如果您有許多冷項目 (沒有高使用量的項目)，系統很難提供建議給這類項目，或使用這類項目做為建議項目。為了克服冷項目的問題，系統允許使用項目的中繼資料增強建議。中繼資料可稱為功能。典型的功能是書籍的作者或電影的演員。功能是透過目錄，以索引鍵/值字串的格式提供。若需目錄檔案的完整格式，請參閱[匯入目錄區段](#81-import-catalog-data)。下節說明如何使用功能來加強建議模型。
-
-###2\.2.排名組建
-
-功能可增強建議模型，但若要這樣做需要使用有意義的功能。為了這個目的，引入新的組建 - 排名組建。此組建會對功能的效益進行排名。有意義的功能為排名分數 2 以上的功能。
-了解哪些是有意義的功能之後，會利用有意義功能的清單 (或子清單) 觸發建議組建。這樣就可以使用這些功能同時增強暖項目和冷項目。若要將它們用於暖項目，應設定 `UseFeatureInModel` 組建參數。若要將它們用於冷項目，應啟用 `AllowColdItemPlacement` 組建參數。
-注意：不可能啟用 `AllowColdItemPlacement` 而不啟用 `UseFeatureInModel`。
-
-###2\.3.建議推論
-
-建議推論是功能使用方式的另一個層面。的確，Azure Machine Learning 建議引擎可以使用功能來提供建議說明 (也稱為推理)，讓建議取用者對建議項目產生更多信心。
-若要啟用推論，應在要求建議組建之前設定 `AllowFeatureCorrelation` 和 `ReasoningFeatureList` 參數。
-
-##3\.限制
+##2\.限制
 
 - 每個訂用帳戶的模型數上限是 10。
 - 一個目錄可以保留的項目數上限是 100,000。
@@ -64,21 +49,36 @@ Azure Machine Learning 建議 API 可分成 10 個邏輯群組：
 - POST 中可以傳送的資料大小上限 (例如：匯入目錄資料、匯入使用資料) 是 200 MB。
 - 非作用中建議模型組建的每秒交易數目是 ~ 2TPS。作用中建議模型組建可以保留高達 20TPS。
 
-##4\.API – 一般資訊
+##3\.API – 一般資訊
 
-###4\.1.驗證
+###3\.1.驗證
 請遵循與驗證相關的 Microsoft Azure Marketplace 指導方針。Marketplace 可支援基本或 OAuth 驗證方法。
 
-###4\.2.服務 URI
+###3\.2.服務 URI
 Azure Machine Learning 建議 API 的服務根 URI 在[這裡。](https://api.datamarket.azure.com/amla/recommendations/v3/)
 
 完整服務 URI 是使用 OData 規格的元素來表示。
 
-###4\.3.API 版本
+###3\.3.API 版本
 每個 API 呼叫最後會有名為 apiVersion 的查詢參數 (應設為 1.0)。
 
-###4\.4.識別碼會區分大小寫
+###3\.4.識別碼會區分大小寫
 任何 API 所傳回的識別碼都會區分大小寫，且在後續 API 呼叫中做為參數傳遞時，也應該如此使用。例如，模型識別碼和目錄識別碼都會區分大小寫。
+
+##4\.建議品質和冷項目
+
+###4\.1.建議品質
+
+建立建議模型通常足以允許系統提供建議。不過，建議品質取決於處理的使用量以及目錄的涵蓋範圍。例如，如果您有許多冷項目 (沒有高使用量的項目)，系統很難提供建議給這類項目，或使用這類項目做為建議項目。為了克服冷項目的問題，系統允許使用項目的中繼資料增強建議。中繼資料可稱為功能。典型的功能是書籍的作者或電影的演員。功能是透過目錄，以索引鍵/值字串的格式提供。若需目錄檔案的完整格式，請參閱[匯入目錄區段](#81-import-catalog-data)。
+
+###4\.2.排名組建
+
+功能可增強建議模型，但若要這樣做需要使用有意義的功能。為了這個目的，引入新的組建 - 排名組建。此組建會對功能的效益進行排名。有意義的功能為排名分數 2 以上的功能。了解哪些是有意義的功能之後，會利用有意義功能的清單 (或子清單) 觸發建議組建。這樣就可以使用這些功能同時增強暖項目和冷項目。若要將它們用於暖項目，應設定 `UseFeatureInModel` 組建參數。若要將它們用於冷項目，應啟用 `AllowColdItemPlacement` 組建參數。注意：不可能啟用 `AllowColdItemPlacement` 而不啟用 `UseFeatureInModel`。
+
+###4\.3.建議推論
+
+建議推論是功能使用方式的另一個層面。的確，Azure Machine Learning 建議引擎可以使用功能來提供建議說明 (也稱為推理)，讓建議取用者對建議項目產生更多信心。若要啟用推論，應在要求建議組建之前設定 `AllowFeatureCorrelation` 和 `ReasoningFeatureList` 參數。
+
 
 ##5\.模型基本操作
 
@@ -272,10 +272,10 @@ OData XML
 |:--------|:--------|
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br>範例：<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
-|	參數名稱	|	有效值 |
-|:--------			|:--------						|
-|	id		| 模型的唯一識別碼 (區分大小寫)  |
-|	apiVersion		| 1\.0 |
+|	參數名稱 |	有效值 |
+|:--------			|:--------								|
+|	id | 模型的唯一識別碼 (區分大小寫) |
+|	apiVersion | 1\.0 |
 |||
 |要求本文 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>請注意，XML 標記說明和 ActiveBuildId 是選擇性的。如果您不想設定說明或 ActiveBuildId，請移除整個標記。|
 
@@ -795,6 +795,9 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
+
+
+
 ##7\.模型商務規則
 以下是支援的規則類型：
 - <strong>BlockList</strong> - BlockList 可讓您提供不想要在建議結果中傳回的項目的清單。
@@ -941,8 +944,7 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| 
-| 要求主體 | 無 |
+||| | 要求主體 | 無 |
 
 **回應**：
 
@@ -1867,7 +1869,7 @@ FBT (通常會一起購買) 組建也是另一種建議運算法，有時稱為�
 |FbtSupportThreshold | 模型的保守程度。模型化時要考量項目的共同出現次數。| Integer | 3-50 (6) |
 |FbtMaxItemSetSize | 頻繁集合中的項目數界限。| Integer | 2-3 (2) |
 |FbtMinimalScore | 頻繁集合應該具有的最低分數，以包含在傳回的結果中。愈高愈好。| 兩倍 | 0 以上 (0) |
-|FbtSimilarityFunction | 定義組建所使用的相似度函式。 | String | cooccurrence, lift, jaccard (lift) |
+|FbtSimilarityFunction | 定義組建所使用的相似度函式。Lift 有利於機緣巧合、Co-occurrence 有助於可預測性，而 Jaccard 可在兩者間取得一個很好的平衡。 | String | cooccurrence, lift, jaccard (lift) |
 
 
 ###11\.2.觸發建議組建
@@ -2817,7 +2819,7 @@ HTTP 狀態碼：200
 
 | HTTP 方法 | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>範例：<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%2C1000%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
@@ -3075,4 +3077,4 @@ HTTP 狀態碼：200
 這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br> 此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br> 本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br> © 2015 Microsoft.著作權所有，並保留一切權利。
  
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

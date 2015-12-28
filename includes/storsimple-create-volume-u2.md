@@ -1,38 +1,38 @@
 <!--author=alkohli last changed:12/14/15-->
 
-#### To create a volume
+#### 建立磁碟區
 
-1. On the device **Quick Start** page, click **Add a volume**. This starts the Add a volume wizard.
+1. 在裝置的 [快速入門] 頁面上，按一下 [新增磁碟區]。這樣會啟動 [新增磁碟區] 精靈。
 
-2. In the Add a volume wizard, under **Basic Settings**:
+2. 在 [新增磁碟區] 精靈的 [基本設定] 下方：
 
-	4. Type a **Name** for your volume.
-	5. On the drop-down list, select the **Usage Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**. 
+	4. 輸入磁碟區的 [名稱]。
+	5. 在下拉式清單中，為磁碟區選取 [使用類型] 。需要本機保證、低延遲，以及高效能的工作負載，請選取 [固定在本機] 磁碟區。針對所有其他資料，請選取 [分層] 磁碟區。如果您將此磁碟區用於封存資料，請核取 [將此磁碟區用於較不常存取的封存資料] 核取方塊。 
 	
-		A locally pinned volume is thickly provisioned and ensures that the primary data on the volume stays local to the device and does not spill to the cloud.  If you create a locally pinned volume, the device will check for available space on the local tiers to provision the volume of the requested size. The operation of creating a locally pinned volume may involve spilling existing data from the device to the cloud and the time taken to create the volume may be long. The total time depends on the size of the provisioned volume, available network bandwidth, and the data on your device. 
+		固定在本機之磁碟區會大量佈建，並確保磁碟區上的主要資料會保留在本機裝置，而不會散至雲端。如果您建立固定在本機之磁碟區，裝置便會檢查本機層上的可用空間，以佈建要求大小的磁碟區。建立固定在本機之磁碟區的作業可能牽涉從裝置溢出資料至雲端，且建立磁碟區所花費的時間可能會很長。總時間取決於已佈建的磁碟區大小、可用的網路頻寬和您裝置上的資料。
 
-		A tiered volume is thinly provisioned and can be created very quickly. If you are using the tiered volume for archival data, selecting **Use this volume for less frequently accessed archival data** changes the deduplication chunk size for your volume to 512 KB. If this field is not checked, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
+		分層磁碟區已精簡佈建，而且可以非常快速地建立。如果您針對封存資料使用分層磁碟區，選取 [使用此磁碟區存放不常存取的封存資料] 會將您磁碟區的重複資料刪除區塊大小變更為 512 KB。如果未核取此欄位，對應的分層磁碟區會使用 64 KB 的區塊大小。較大的重複資料刪除區塊大小可讓裝置加速傳送大型封存資料到雲端。
 
-	3. Specify the **Provisioned Capacity** for your volume. Make a note of the capacity that is available based on the volume type selected. The specified volume size must not exceed the available space.
+	3. 為磁碟區指定 [佈建的容量]。請記下根據選取的磁碟區類型的可用容量。指定的磁碟區大小不得超過可用的空間。
 
-		You can provision locally pinned volumes up to 9 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 24 TB or tiered volumes up to 500 TB. As local space on the device is required to host the working set of tiered volumes, creation of locally pinned volumes will impact the space available for provisioning tiered volumes. Therefore,  if you create a locally pinned volume, space available for creation of tiered volumes will be reduced. Similarly, if a tiered volume is created, the available space for creation of  locally pinned volumes will be reduced. 
+		您可以在 8100 裝置上佈建最多 9 TB 的固定到本機磁碟區或者最多 200 TB 的分層磁碟區。在較大的 8600 裝置上，您可以佈建最多 24 TB 的固定到本機磁碟區或者最多 500 TB 的分層磁碟區。因為需要本機裝置上的空間來裝載分層磁碟區的工作集，建立固定到本機磁碟區會影響佈建分層磁碟區的可用空間。因此，如果您建立固定在本機的磁碟區，建立分層磁碟區的可用空間就會縮小。同樣地，如果建立分層磁碟區，建立固定在本機的磁碟區的可用空間就會縮小。
 
-		If you provision a locally pinned volume of 9 TB (maximum allowable size) on your 8100 device, then you will have exhausted all the local space available on the device. You will not be able to create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of 100 TB, only 4.5 TB of space will be available for locally pinned volumes.
+		如果您在 8100 裝置上佈建 9 TB (允許的大小上限) 的固定在本機的磁碟區，則您會用盡裝置上所有可用的本機空間。從那時起您將無法建立任何分層磁碟區，因為裝置上已沒有任何本機空間可用來裝載分層磁碟區的工作集。現有的分層磁碟區也會影響可用的空間。例如，如果您的 8100 裝置已經具有 100 TB 的分層磁碟區，固定在本機的磁碟區僅有 4.5 TB 的可用空間。
    
-   4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) to go to the next page.
+   4. 按一下箭頭圖示 ![arrow-icon](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) 以移至下一頁。
 
   		![Add volume](./media/storsimple-create-volume-u2/AddLocalVolume1.png)
 
-3. In the **Additional Settings** dialog box, add a new access control record (ACR):
+3. 在 [其他設定] 對話方塊中，加入新的存取控制記錄 (ACR)：
 
-	1. Supply a **Name** for your ACR.
-	2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
-	3. Under **Default backup for this volume?**, select the **Enable** check box. The default backup will create a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
+	1. 提供 ACR 的 [名稱]。
+	2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN][](#get-the-iqn-of-a-windows-server-host)。
+	3. 在 [此磁碟區的預設備份嗎？] 下方，選取 [啟用] 核取方塊。預設備份將會建立原則，在每天的 22:30 (裝置時間) 執行，並建立此磁碟區的雲端快照。
 	 
-     > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
+     >[AZURE.NOTE]在此處啟用備份之後，就無法加以還原。您必須編輯磁碟區，才能修改此設定。
 
-     ![Add volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
+     ![新增磁碟區](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
-4. Click the check icon ![check icon](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). A volume will be created with the specified settings.
+4. 按一下核取圖示 ![核取圖示](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png)。使用指定的設定來建立磁碟區。
 
-
+<!---HONumber=AcomDC_1217_2015-->

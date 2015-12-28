@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="在 Visual Studio 中設定和使用儲存體模擬器"
+   pageTitle="在 Visual Studio 中設定和使用儲存體模擬器 | Microsoft Azure"
    description="在 Visual Studio 中設定和使用儲存體模擬器"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # 在 Visual Studio 中設定和使用儲存體模擬器
 
@@ -43,4 +43,4 @@ Azure SDK 開發環境包含儲存體模擬器，這是一個公用程式，可�
 
 [伺服器總管] 中的 [Azure 儲存體] 節點可讓您檢視儲存體帳戶中的資料，以及變更 blob 和資料表資料的設定，包括儲存體模擬器。如需詳細資訊，請參閱[使用伺服器總管瀏覽儲存體資源](https://msdn.microsoft.com/library/azure/ff683677.aspx)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

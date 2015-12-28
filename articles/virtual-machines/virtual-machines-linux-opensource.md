@@ -131,7 +131,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 13. [基本概念：RAID](virtual-machines-linux-configure-raid.md)
 14. [基本概念：擷取 Linux VM 來製作範本](virtual-machines-linux-capture-image.md)
 15. [基本概念：安裝 Azure Linux 代理程式](virtual-machines-linux-agent-user-guide.md)
-16. [基本概念：Azure VM 延伸模組與功能](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+16. [基本概念：Azure VM 延伸模組與功能](virtual-machines-extensions-features.md)
 17. [基本概念：將自訂資料插入 VM 中以搭配 Cloud-init 使用](virtual-machines-how-to-inject-custom-data.md)
 18. [基本概念部落格：以 12 個步驟在 Azure 上建置高可用性的 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [基本概念部落格：透過 Azure CLI、node.js、jhawk 在 Azure 上自動佈建 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
@@ -191,7 +191,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 4. [影片：在瀏覽器中使用 fernapp 存取 Azure 上的 Linux GUI](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
 5. [影片：在 Linux 上使用 Azure 檔案預覽的共用儲存體 -- 第 1 部分](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1)
 6. [影片：在 Azure 上採行使用服務匯流排和網站的 Linux 裝置](http://channel9.msdn.com/Blogs/Open/Embracing-Linux-devices-on-Azure-via-Service-Bus-and-Web-Sites)
-7. [影片：將原生 Linux 記憶體快取的應用程式連接到 Windows Azure](http://channel9.msdn.com/Blogs/Open/Connecting-a-Linux-based-native-memcache-application-to-Windows-Azure)
+7. [影片：將原生 Linux 記憶體快取的應用程式連接到 Microsoft Azure](http://channel9.msdn.com/Blogs/Open/Connecting-a-Linux-based-native-memcache-application-to-Windows-Azure)
 8. [影片：在 Azure 上平衡高可用性 Linux 服務的負載：](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)
 
 
@@ -311,4 +311,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1217_2015-->

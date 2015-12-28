@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # SharePoint 內部網路伺服器陣列工作負載第 2 階段：設定網域控制站
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員部署模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
-在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要在服務管理的 Azure 虛擬網路中設定兩個網域控制站。然後，SharePoint 伺服器陣列資源的用戶端 Web 要求可以在 Azure 虛擬網路中進行驗證，而不是透過內部部署網路的 VPN 或 Azure ExpressRoute 連線傳送該驗證流量。
+在 Azure 基礎結構服務內，使用 SQL Server AlwaysOn 可用性群組部署內部網路專用的 SharePoint 2013 伺服器陣列的這個階段中，您需要在 Azure 虛擬網路中設定兩個網域控制站。此後即可在 Azure 虛擬網路中驗證 SharePoint 伺服器陣列資源的用戶端 Web 要求，而不是透過內部部署網路的站對站 VPN 或 Azure ExpressRoute 連線傳送該驗證流量。
 
 您必須先完成這個階段才能前往[第 3 階段](virtual-machines-workload-intranet-sharepoint-phase3.md)。如需所有階段的詳細資訊，請參閱[在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)。
 
@@ -31,15 +31,15 @@
 
 項目 | 虛擬機器名稱 | 資源庫映像 | 最小大小
 --- | --- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | A2 (中型)
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | A2 (中型)
-3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
-5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (叢集多數節點，範例 MN1) | Windows Server 2012 R2 Datacenter | A1 (小型)
-6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
-9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4 (特大型)
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | Standard\_A2
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | Standard\_A2
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SQL 電腦， 範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | Standard\_A5
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SQL 電腦， 範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | Standard\_A5
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (叢集多數節點，範例 MN1) | Windows Server 2012 R2 Datacenter | Standard\_A1
+6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 應用程式伺服器，範例 APP1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | Standard\_A4
+7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 應用程式伺服器，範例 APP2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | Standard\_A4
+8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一部 SharePoint 網頁伺服器，範例 WEB1) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | Standard\_A4
+9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二部 SharePoint 網頁伺服器，範例 WEB2) | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | Standard\_A4
 
 **資料表 M – SharePoint 2013 內部網路伺服器陣列在 Azure 中的虛擬機器**
 
@@ -50,99 +50,97 @@
 - 資料表 M，適用於虛擬機器
 - 資料表 V，適用於虛擬網路設定
 - 資料表 S，適用於子網路
+- 資料表 ST，適用於儲存體帳戶
 - 資料表 A，適用於可用性設定組
-- 資料表 C ，適用於雲端服務
 
-還記得您在[第 1 階段：設定 Azure](virtual-machines-workload-intranet-sharepoint-phase1.md) 定義了資料表 V、S、A 和 C。
+回想您在[第 1 階段：設定 Azure](virtual-machines-workload-intranet-sharepoint-phase1.md) 中所定義的資料表 V、S、ST 和 A。
 
-當您提供所有適當值後，在 Azure PowerShell 命令提示字元中執行結果區塊。
+> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版及更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
+當您提供所有適當值後，在 Azure PowerShell 提示中執行結果區塊。
+
+	# Set up key variables
+	$rgName="<resource group name>"
+	$locName="<Azure location of your resource group>"
+	$saName="<Table ST – Item 1 – Storage account name column>"
+	$vnetName="<Table V – Item 1 – Value column>"
+	$avName="<Table A – Item 1 – Availability set name column>"
+	
 	# Create the first domain controller
 	$vmName="<Table M – Item 1 - Virtual machine name column>"
-	$vmSize="<Table M – Item 1 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$availSet="<Table A – Item 1 – Availability set name column>"
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for the first domain controller."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-	$diskSize=<size of the additional data disk in GB>
-	$diskLabel="<the label on the disk>"
-	$lun=<Logical Unit Number (LUN) of the disk>
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-
-	$subnetName="<Table S – Item 1 – Subnet name column>"
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	$vm1 | Set-AzureStaticVNetIP -IPAddress <Table V – Item 6 – Value column>
-
-	$serviceName="<Table C – Item 1 – Cloud service name column>"
-	$vnetName="<Table V – Item 1 – Value column>"
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-
+	$vmSize="<Table M – Item 1 - Minimum size column>"
+	$staticIP="<Table V – Item 6 - Value column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id -PrivateIpAddress $staticIP
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	
+	$diskSize=<size of the extra disk for AD DS data in GB>
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-ADDSDisk.vhd"
+	Add-AzureRMVMDataDisk -VM $vm -Name "ADDSData" -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first domain controller." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	
 	# Create the second domain controller
 	$vmName="<Table M – Item 2 - Virtual machine name column>"
-	$vmSize="<Table M – Item 2 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$vmSize="<Table M – Item 2 - Minimum size column>"
+	$staticIP="<Table V – Item 7 - Value column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id -PrivateIpAddress $staticIP
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	
+	$diskSize=<size of the extra disk for AD DS data in GB>
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-ADDSDisk.vhd"
+	Add-AzureRMVMDataDisk -VM $vm -Name "ADDSData" -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second domain controller." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for the second domain controller."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-	$diskSize=<size of the additional data disk in GB>
-	$diskLabel="<the label on the disk>"
-	$lun=<Logical Unit Number (LUN) of the disk>
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	$vm1 | Set-AzureStaticVNetIP -IPAddress <Table V – Item 7 – Value column>
-
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
+> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連接] 按鈕將無法使用。使用「遠端桌面連線」配件或其他遠端桌面工具，來使用虛擬機器的私人 IP 位址或內部網路 DNS 名稱連接該虛擬機器。
 
 ## 設定第一個網域控制站
 
-使用本機系統管理員帳戶認證登入第一個網域控制站電腦。
-
-### <a id="logon"></a>若要使用遠端桌面連線登入虛擬機器
-
-1.	在 Azure 傳統入口網站的左窗格中，按一下 [虛擬機器]。
-2.	若要連線到虛擬機器，按一下機器名稱旁 [**狀態**] 資料行中的 [**執行**]。
-3.	在頁面底部的命令列中按一下 [**連線**]。
-4.	Azure 傳統入口網站會通知您正在擷取 .rdp 檔案。按一下 [確定]。
-5.	瀏覽器對話方塊隨即出現，並詢問「您想開啟或儲存來自 manage.windowsazure.com 的 ComputerName.rdp 嗎？」。 按一下 [開啟]。
-6.	在 [**遠端桌面連線**] 對話方塊中按一下 [**連線**]。
-7.	在 [**Windows 安全性**] 對話方塊中按一下 [**使用其他帳戶**]。
-8.	在 [**使用者名稱**] 中，輸入虛擬機器名稱以及使用該虛擬機器建立的本機系統管理員帳戶名稱 (本機電腦帳戶)。使用下列格式：*ComputerName*\\*LocalAdministratorAccountName*
-9.	在 [**密碼**] 中輸入本機系統管理員帳戶的密碼。
-10.	按一下 [確定]。
-11.	在 [**遠端桌面連線**] 對話方塊中按一下 [**是**]。新機器的桌面會顯示在遠端桌面工作階段視窗中。
+使用您選擇的遠端桌面用戶端，並建立第一個網域控制站虛擬機器的遠端桌面連接。使用其內部網路 DNS 或電腦名稱，以及本機系統管理員帳戶的認證。
 
 接下来，您需要在第一個網域控制站新增額外的資料磁碟。
 
 ### <a id="datadisk"></a>初始化空磁碟
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 [磁碟 **2**] \([**磁碟分割**] 設為 [**未知**])。
+2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 \[磁碟 **2**] ([**磁碟分割**] 設為 [**未知**])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
-4.	在 [新增磁碟區精靈] 的 [開始之前] 頁面上，按 [下一步]。
-5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
+4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
+5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 [確定]。
 6.	在 [指定磁碟區大小] 頁面上，按 [下一步]。
 7.	在 [指派成磁碟機代號或資料夾] 頁面上，按 [下一步]。
 8.	在 [選取檔案系統設定] 頁面上，按 [下一步]。
 9.	在 [確認選取項目] 頁面上，按一下 [建立]。
-10.	初始化完成後，按一下 [關閉]。
+10.	完成時，按一下 [關閉]。
 
 接下來，測試第一個網域控制站對組織網路中各個位置的連線能力。
 
 ### <a id="testconn"></a>測試連線能力
 
-1.	從桌面開啟 Windows PowerShell 命令提示字元。
+1.	從桌面開啟 Windows PowerShell 提示。
 2.	使用 **ping** 命令偵測您組織網路中各個資源的名稱和 IP 位址。
 
-此程序可確保 DNS 名稱解析正常運作 (即虛擬機器已使用內部部署 DNS 伺服器正確設定)，且此封包可在跨單位虛擬網路內往來傳送。
+此程序可確保 DNS 名稱解析正常運作 (即虛擬機器已使用內部部署 DNS 伺服器正確設定)，且此封包可在跨單位虛擬網路內往來傳送。如果這個基本測試失敗，請連絡您的 IT 部門以疑難排解 DNS 名稱解析和封包傳遞問題。
 
 接下來，從第一個網域控制站的 Windows PowerShell 命令提示字元執行下列命令：
 
@@ -150,23 +148,43 @@
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -InstallDns –DomainName $domname  -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
-電腦會重新啟動。
+系統將提示您提供網域系統管理員帳戶的認證。電腦會重新啟動。
 
 ## 設定第二個網域控制站
 
-使用第二個網域控制站電腦的本機系統管理員帳戶認證登入該電腦。如需指示，請參閱[使用遠端桌面連線登入虛擬機器](#logon)。
+使用您選擇的遠端桌面用戶端，並建立第二個網域控制站虛擬機器的遠端桌面連接。使用其內部網路 DNS 或電腦名稱，以及本機系統管理員帳戶的認證。
 
 接下来，您需要在第二個網域控制站新增額外的資料磁碟。請參閱[初始化空磁碟程序](#datadisk)。
 
-接下來，測試第二個網域控制站對組織網路中各個位置的連線能力。請參閱[測試連線能力程序](#testconn)。使用此程序確保 DNS 名稱解析正常運作 (即虛擬機器已使用內部部署 DNS 伺服器正確設定)，且此封包可在跨單位虛擬網路內往來傳送。
-
-接下來，從第二個網域控制站的 Windows PowerShell 命令提示字元執行下列命令：
+接下來，從第二個網域控制站的 Windows PowerShell 提示執行下列命令：
 
 	$domname="<DNS domain name of the domain for which this computer will be a domain controller>"
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -InstallDns –DomainName $domname  -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
-電腦會重新啟動。
+系統將提示您提供網域系統管理員帳戶的認證。電腦會重新啟動。
+
+接下來，您需要為您的虛擬網路更新 DNS 伺服器，讓 Azure 將兩個新網域控制站的 IP 位址指派給虛擬機器，做為他們的 DNS 伺服器。請注意，此程序會使用資料表 V (適用於虛擬網路設定) 和資料表 M (適用於虛擬機器) 的值。
+
+1.	在 Azure 入口網站的左側窗格中按一下 [虛擬網路]，然後按一下您的虛擬網路名稱 (資料表 V – 項目 1 – 值資料行)。
+2.	在 [設定] 窗格上按一下 [DNS 伺服器]。
+3.	在 [DNS 伺服器] 窗格上輸入下列內容：
+	- 針對**主要 DNS 伺服器**：資料表 V – 項目 6 – 值資料行
+	- 針對**次要 DNS 伺服器**：資料表 V – 項目 7 – 值資料行
+4.	在 Azure 入口網站的左側窗格中按一下 [虛擬機器]。
+5.	在 [虛擬機器] 窗格中，按一下第一個網域控制站的名稱 (資料表 M – 項目 1 - 虛擬機器名稱資料行)。
+6.	在虛擬機器的窗格中，按一下 [**重新啟動**]。
+7.	重新啟動第一個網域控制站時，在 [虛擬機器] 窗格上，按一下第二個網域控制站的名稱 (資料表 M – 項目 2 - 虛擬機器名稱資料行)。
+8.	在虛擬機器的窗格中，按一下 [重新啟動]。等待第二個網域控制站啟動。
+
+請注意，重新啟動兩個網域控制站後，他們才不會由內部部署 DNS 伺服器設定做為 DNS 伺服器。由於他們本身都是 DNS 伺服器，因此當升級為網域控制站時，它們會自動由內部部署 DNS 伺服器設定做為 DNS 轉寄站。
+
+接下來，我們需要建立 Active Directory 複寫站台，以確保 Azure 虛擬網路中的伺服器使用本機網域控制站。使用網域系統管理員帳戶登入主要網域控制站，自系統管理員層級 Windows PowerShell 提示執行下列命令：
+
+	$vnet="<Table V – Item 1 – Value column>"
+	$vnetSpace="<Table V – Item 5 – Value column>"
+	New-ADReplicationSite -Name $vnet 
+	New-ADReplicationSubnet –Name $vnetSpace –Site $vnet
 
 ## 設定 SharePoint 伺服器陣列帳戶和權限
 
@@ -199,53 +217,16 @@ SharePoint 伺服器陣列需要下列使用者帳戶：
 6.	以滑鼠右鍵按一下您的網域名稱，然後按一下 [**屬性**]。
 7.	在 [**屬性**] 對話方塊中按一下 [**安全性**] 索引標籤，然後按一下 [**進階**] 按鈕。
 8.	在 [**<YourDomain> 的進階安全性設定**] 視窗中按一下 [ **新增**]。
-9.	在 [<YourDomain> 的權限項目] 視窗中按一下 [選取一個主體]。
+9.	在 [<YourDomain> 的權限項目] 視窗中按一下 [選取主體]。
 10.	在文字方塊中輸入 **<YourDomain>\\sp\_install** ，然後按一下 [**確定**]。
 11.	在 [**建立電腦物件**] 中選取 [**允取**]，然後按三次 [**確定**]。
 
-接下來，為您的虛擬網路更新 DNS 伺服器，讓 Azure 將兩個新網域控制站的 IP 位址指派給虛擬機器，做為他們的 DNS 伺服器。請注意，此程序使用資料表 V 的值 (用於您虛擬網路的設定)。
-
-1.	在 Azure 傳統入口網站的左窗格中按一下 [網路]，然後按一下您虛擬網路的名稱 (資料表 V – 項目 1 – 值資料行)。
-2.	按一下 [設定]。
-3.	在 **[DNS 伺服器**] 中，移除與位於內部部署網路中與 DNS 伺服器對應的項目。
-4.	在 **[DNS 伺服器**] 中，新增兩個具有易記名稱以及下列兩個資料表項目之 IP 位址的項目。
- - 資料表 V – 項目 6 – 值資料行
- - 資料表 V – 項目 7 – 值資料行
-5.	在底部的命令列中按一下 [**儲存**]。
-6.	在 Azure 傳統入口網站的左窗格中按一下 [虛擬機器]，然後按一下第一個網域控制站名稱旁的 [狀態] 欄。
-7.	在命令列中按一下 [**重新啟動**]。
-8.	當第一個網域控制站啟動時，按一下第二個網域控制站名稱旁邊的 [**狀態**] 資料行。
-9.	在命令列中按一下 [**重新啟動**]。等待第二個網域控制站啟動。
-
-請注意，重新啟動兩個網域控制站後，他們才不會由內部部署 DNS 伺服器設定做為 DNS 伺服器。由於他們本身都是 DNS 伺服器，因此當升級為網域控制站時，它們會自動由內部部署 DNS 伺服器設定做為 DNS 轉寄站。
-
-接下來，您需要建立 Active Directory 複寫站台，以確保 Azure 虛擬網路中的伺服器使用本機網域控制站。使用 sp\_install 帳戶登入主要網域控制站，自系統管理員層級 Windows PowerShell 命令提示字元執行下列命令：
-
-	$vnet="<Table V – Item 1 – Value column>"
-	$vnetSpace="<Table V – Item 5 – Value column>"
-	New-ADReplicationSite -Name $vnet
-	New-ADReplicationSubnet –Name $vnetSpace –Site $vnet
-
-此圖顯示已成功完成此階段設定，並以電腦名稱預留位置表示。
+此處顯示已成功完成此階段設定，並以電腦名稱預留位置表示。
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase2/workload-spsqlao_02.png)
 
 ## 後續步驟
 
-如要繼續設定此工作負載的組態，請移至[第 3 階段：設定 SQL Server 的基礎結構](virtual-machines-workload-intranet-sharepoint-phase3.md)。
+- 依照[第 3 階段](virtual-machines-workload-intranet-sharepoint-phase3.md)指示繼續此工作負載的設定。
 
-## 其他資源
-
-[在 Azure 中部署含有 SQL Server AlwaysOn 可用性群組的 SharePoint](virtual-machines-workload-intranet-sharepoint-overview.md)
-
-[裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
-
-[包含 SQL Server AlwaysOn 的 SharePoint 資訊圖](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
-
-<!--------HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -20,7 +20,7 @@
 ## 簡介
 本文將說明 [Service Fabric](http://azure.microsoft.com/documentation/services/service-fabric/) 應用程式如何使用 **ElasticSearch** 和 **Kibana** 來儲存、檢索和搜尋應用程式追蹤。[ElasticSearch](https://www.elastic.co/guide/index.html) 是開放原始碼、分散式和可調整的即時搜尋和分析引擎，很適合執行這項工作，可以安裝在 Microsoft Azure 中執行的 Windows 或 Linux 虛擬機器上。ElasticSearch 可以非常有效率地處理使用 **Windows 事件追蹤 (ETW)** 之類的技術所產生的*結構化*追蹤。
 
-Service Fabric 執行階段使用 ETW 來提供診斷資訊 (追蹤)，建議 Service Fabric 應用程式也使用此方法來提供診斷資訊。這可讓執行階段提供和應用程式提供的追蹤之間相互關聯，使疑難排解更輕鬆。Visual Studio 中的 Service Fabric 專案範本包含記錄 API (根據.NET **EventSource** 類別)，依預設會發出 ETW 追蹤。如需有關使用 ETW 追蹤 Service Fabric 應用程式的一般概觀，請參閱[這篇文章](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)。
+Service Fabric 執行階段使用 ETW 來提供診斷資訊 (追蹤)，建議 Service Fabric 應用程式也使用此方法來提供診斷資訊。這可讓執行階段提供和應用程式提供的追蹤之間相互關聯，使疑難排解更輕鬆。Visual Studio 中的 Service Fabric 專案範本包含記錄 API (根據.NET **EventSource** 類別)，依預設會發出 ETW 追蹤。如需有關使用 ETW 追蹤 Service Fabric 應用程式的一般概觀，請參閱[這篇文章](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。
 
 需要在 Service Fabric 叢集節點上即時 (當應用程式正在執行時) 擷取追蹤並傳送至 ElasticSearch 端點，ElasticSearch 中才會顯示追蹤。追蹤擷取有兩個主要選項：
 
@@ -32,7 +32,7 @@ Service Fabric 執行階段使用 ETW 來提供診斷資訊 (追蹤)，建議 Se
 
 
 ## 在 Azure 上設定 ElasticSearch
-若要在 Azure 上設定 ElasticSearch 服務，最直接的方法是透過 [**Azure ARM 範本**](https://azure.microsoft.com/documentation/articles/resource-group-overview/)。Azure 快速入門範本儲存機制提供完整的 [ElasticSearch 快速入門 ARM 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch)。此範本對縮放單位 (節點的群組) 使用個別的儲存體帳戶，而且可以佈建個別用戶端和伺服器節點，各有不同組態和連接不同的資料磁碟數。
+若要在 Azure 上設定 ElasticSearch 服務，最直接的方法是透過 [**Azure ARM 範本**](../resource-group-overview.md)。Azure 快速入門範本儲存機制提供完整的 [ElasticSearch 快速入門 ARM 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch)。此範本對縮放單位 (節點的群組) 使用個別的儲存體帳戶，而且可以佈建個別用戶端和伺服器節點，各有不同組態和連接不同的資料磁碟數。
 
 在本文中，我們將使用 [Microsoft 模式和作法 ELK 分支](https://github.com/mspnp/semantic-logging/tree/elk/)中的另一個範本，稱為 **ES-MultiNode**。此範本比較容易使用，依預設會建立由 HTTP 基本驗證所保護的 ElasticSearch 叢集。在繼續之前，請從 GitHub 將 [Microsoft P&P "elk" 儲存機制](https://github.com/mspnp/semantic-logging/tree/elk/)下載到您的電腦 (複製儲存機制或下載 ZIP 檔案)。ES-MultiNode 範本位於具有相同名稱的資料夾中。
 >[AZURE.NOTE]ES-MultiNode 範本和相關聯的指令碼目前支援 ElasticSearch 1.7 版。日後將加入 ElasticSearch 2.0 的支援。
@@ -240,10 +240,10 @@ ElasticSearch 連接資料應該放在服務組態檔 (PackageRoot\\Config\\Sett
 ![顯示 PartyCluster 應用程式事件的 Kibana][2]
 
 ## 後續步驟
-- [深入了解診斷和監視 Service Fabric 服務](service-fabric-diagnose-monitor-your-service-index.md)
+- [深入了解診斷和監視 Service Fabric 服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

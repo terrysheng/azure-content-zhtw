@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,34 +13,25 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+  ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure 資料表儲存體和 Visual Studio 已連接服務 (雲端服務專案)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-cloud-services-getting-started-tables.md)
-> - [What happened](vs-storage-cloud-services-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
-> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
-> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
-
 ##概觀
 
-本文描述如何在您使用 Visual Studio 的 [**新增連接的服務**] 對話方塊，建立或參考了雲端服務專案中的 Azure 儲存體帳戶之後開始在 Visual Studio 使用 Azure 資料表儲存體。[**新增連接的服務**] 作業會安裝適當的 NuGet 封裝，以存取專案中的 Azure 儲存體，並將儲存體帳戶的連接字串新增至您的專案組態檔。
+本文說明如何在您使用 Visual Studio 的 [新增連接的服務] 對話方塊建立或參考雲端服務專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 中使用 Azure 表格儲存體。[新增連接的服務] 作業會安裝適當的 NuGet 套件，以存取專案中的 Azure 儲存體，並將儲存體帳戶的連接字串新增至您的專案設定檔。
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。Azure 資料表很適合儲存結構化、非關聯式資料。
 
-若要開始，首先您必須在儲存體帳戶中建立資料表。我們將說明如何使用程式碼建立 Azure 資料表，以及如何執行基本的資料表和實體作業，例如新增、修改、讀取和讀取資料表實體。這些範例均以 C# 程式碼撰寫，並使用 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
+若要開始，首先您必須在儲存體帳戶中建立資料表。我們將說明如何使用程式碼建立 Azure 資料表，以及如何執行基本的資料表和實體作業，例如新增、修改、讀取和讀取資料表實體。這些範例均以 C# 程式碼撰寫，並會使用 [.NET 的 Azure 儲存體用戶端程式庫](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 
-**注意：**對外向 Azure 儲存體執行呼叫的一些 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下程式碼假設使用非同步程式設計方法。
+**注意：**有一些 API會以非同步方式對 Azure 儲存體執行呼叫。如需詳細資訊，請參閱[使用 Async 及 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下程式碼假設使用非同步程式設計方法。
 
-- 如需以程式設計方式操作資料表的詳細資訊，請參閱[如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)。
-- 若需要 Azure 儲存體的一般資訊，請參閱[儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
-- 若需要 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](http://azure.microsoft.com/documentation/services/cloud-services/)。
-- 若需要有關以程式編寫 ASP.NET 應用程式的詳細資訊，請參閱[ASP.NET](http://www.asp.net)。
+- 如需以程式設計方式操作資料表的詳細資訊，請參閱[如何使用 .NET 的表格儲存體](storage-dotnet-how-to-use-tables.md)。
+- 如需 Azure 儲存體的一般資訊，請參閱[儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
+- 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](http://azure.microsoft.com/documentation/services/cloud-services/)。
+- 若需要如何編寫 ASP.NET 應用程式的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
 ## 在程式碼中存取資料表
 
@@ -61,26 +52,26 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
          _AzureStorageConnectionString"));
 > [AZURE.NOTE]請在下列範例中的程式碼前面使用上述所有程式碼。
 
-3. 取得 **CloudTableClient** 物件，來參考儲存體帳戶中的資料表物件。
+3. 取得 **CloudTableClient** 物件，以參考您儲存體帳戶中的資料表物件。
 
          // Create the table client.
          CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-4. 取得 **CloudTable** 參考物件，來參考特定資料表和實體。
+4. 取得 **CloudTable** 參考物件，以參考特定資料表與實體。
 
     	// Get a reference to a table named "peopleTable".
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
 ## 在程式碼中建立資料表
 
-若要建立 Azure 資料表，只要如＜存取程式碼中的資料表＞一節中所述，取得 **CloudTable** 物件後加入 **CreateIfNotExistsAsync** 的呼叫。
+若要建立 Azure 資料表，只要依照＜存取程式碼中的資料表＞一節所述，在取得 **CloudTable** 物件後加入 **CreateIfNotExistsAsync** 呼叫即可。
 
 	// Create the CloudTable if it does not exist.
 	await table.CreateIfNotExistsAsync();
 
 ## 將實體加入至資料表
 
-若要將實體新增至資料表，請建立一個類別來定義實體的屬性。下列程式碼定義稱為 **CustomerEntity** 的實體類別，其使用客戶名字做為資料列索引鍵，並使用姓氏做為資料分割索引鍵。
+若要將實體新增至資料表，請建立一個類別來定義實體的屬性。下列程式碼會定義稱為 **CustomerEntity** 的實體類別，其使用客戶名字作為資料列索引鍵，並使用姓氏作為資料分割索引鍵。
 
 	public class CustomerEntity : TableEntity
 	{
@@ -97,7 +88,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 	    public string PhoneNumber { get; set; }
 	}
 
-實體的資料表作業是使用您稍早在 ＜在程式碼中存取資料表＞ 中建立的 **CloudTable** 物件來執行。 **TableOperation** 物件要執行的操作。下列程式碼範例顯示如何建立 **CloudTable** 物件及 **CustomerEntity** 物件。為了準備這項操作，其建立了 **TableOperation**，以便在資料表中插入客戶實體。最後，呼叫 **CloudTable.ExecuteAsync** 來執行作業。
+實體相關的資料表作業會使用您稍早在＜在程式碼中存取資料表＞中建立的 **CloudTable** 物件執行。 **TableOperation** 物件要執行的操作。下列程式碼範例顯示如何建立 **CloudTable** 物件及 **CustomerEntity** 物件。為了準備這項操作，其建立了 **TableOperation**，以便在資料表中插入客戶實體。最後會呼叫 **CloudTable.ExecuteAsync** 來執行此作業。
 
 	// Get a reference to the **CloudTable** object named 'peopleTable' as described in "Access a table in code".
 
@@ -114,7 +105,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ## 插入實體批次
 
-您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 Insert 方法將其加入至 **TableBatchOperation** 物件，然後透過呼叫 **CloudTable.ExecuteBatchAsync** 開始啟動作業。
+您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 Insert 方法將這兩個物件加入 **TableBatchOperation** 物件中，然後再呼叫 **CloudTable.ExecuteBatchAsync** 啟動作業。
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
 
@@ -160,7 +151,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
          public string PhoneNumber { get; set; }
     }
 
-涉及實體的資料表作業是利用您稍早在＜存取程式碼中的資料表＞中建立的 **CloudTable** 物件來執行。 **TableOperation** 物件要執行的操作。下列程式碼範例顯示如何建立 **CloudTable** 物件及 **CustomerEntity** 物件。為了準備這項操作，其建立了 **TableOperation**，以便在資料表中插入客戶實體。最後，呼叫 CloudTable.ExecuteAsync 來執行操作。
+實體相關的資料表作業會使用您稍早在＜存取程式碼中的資料表＞中所建立的 **CloudTable** 物件來執行。 **TableOperation** 物件要執行的操作。下列程式碼範例顯示如何建立 **CloudTable** 物件及 **CustomerEntity** 物件。為了準備這項操作，其建立了 **TableOperation**，以便在資料表中插入客戶實體。最後，呼叫 CloudTable.ExecuteAsync 來執行操作。
 
     // Get a reference to the CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -177,7 +168,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ## 插入實體批次
 
-您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 Insert 方法將這兩個物件加入至 **TableBatchOperation** 物件，然後透過呼叫 **CloudTable.ExecuteBatchAsync** 開始啟動作業。
+您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 Insert 方法將這兩個物件加入 **TableBatchOperation** 物件中，然後再呼叫 **CloudTable.ExecuteBatchAsync** 啟動作業。
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -230,7 +221,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ## 取得單一實體
 
-您可以撰寫查詢來取得單一特定實體。下列程式碼使用 **TableOperation** 物件來指定名為 'Ben Smith' 的客戶。這個方法只會傳回一個實體而不是集合，而且所傳回的 **TableResult.Result** 值是 **CustomerEntity** 物件。若要從「資料表」服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
+您可以撰寫查詢來取得單一特定實體。下列程式碼使用 **TableOperation** 物件來指定名為 'Ben Smith' 的客戶。此方法只會傳回一個實體而不會傳回集合，而且在 **TableResult.Result** 傳回的值為 **CustomerEntity** 物件。若要從「資料表」服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
 
@@ -278,4 +269,4 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

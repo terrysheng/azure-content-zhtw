@@ -59,7 +59,9 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 
 
 ### 案例：使用 Web 服務輸入/輸出 (參考 Azure Blob 儲存體中的資料) 的實驗
-在此案例中，Azure Machine Learning Web 服務會使用 Azure Blob 儲存體中的檔案資料執行預測，並將預測結果儲存在 Blob 儲存體中。下列 JSON 使用 AzureMLBatchExecution 活動定義 Azure Data Factory 管線。此活動以 **DecisionTreeInputBlob** 資料集做為輸入，以 **DecisionTreeResultBlob** 資料集做為輸出。**DecisionTreeInputBlob** 使用了 **webServiceInput** JSON 屬性，傳遞至 Web 服務做為輸入，而 **DecisionTreeResultBlob** 則使用了 **webServiceOutputs** JSON 屬性，傳遞至 Web 服務做為輸出。只有當資料集是活動的輸入/輸出時，才能以 Web 服務的輸入和輸出加以傳遞。
+在此案例中，Azure Machine Learning Web 服務會使用 Azure Blob 儲存體中的檔案資料執行預測，並將預測結果儲存在 Blob 儲存體中。下列 JSON 使用 AzureMLBatchExecution 活動定義 Azure Data Factory 管線。此活動以 **DecisionTreeInputBlob** 資料集做為輸入，以 **DecisionTreeResultBlob** 資料集做為輸出。**DecisionTreeInputBlob** 使用了 **webServiceInput** JSON 屬性，傳遞至 Web 服務做為輸入，而 **DecisionTreeResultBlob** 則使用了 **webServiceOutputs** JSON 屬性，傳遞至 Web 服務做為輸出。
+
+> [AZURE.NOTE]**webServiceInput** 和 **webServiceOutputs** 屬性 (位於 **typeProperties** 中) 參考的資料集也必須包含於活動**輸入**與**輸出**中。
 
 
 	{
@@ -108,7 +110,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 
 此範例使用 Azure 儲存體來存放輸入和輸出資料。
 
-在瀏覽此範例之前，建議您先瀏覽[透過 Data Factory 建立第一個管線][adf-build-1st-pipeline]教學課程，並在此範例中使用 Data Factory 編輯器建立 Data Factory 構件 (連結服務、資料集、管線)。
+瀏覽此範例之前，建議您先瀏覽[透過 Data Factory 建立第一個管線][adf-build-1st-pipeline]教學課程，並在此範例中使用 Data Factory 編輯器建立 Data Factory 構件 (連結服務、資料集、管線)。
  
 
 1. 為您的 **Azure 儲存體**建立**連結服務**。如果輸入和輸出檔案會在不同的儲存體帳戶中，您就需要兩個連結服務。以下是 JSON 範例：
@@ -123,7 +125,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 		  }
 		}
 
-2. 建立**輸入** Azure Data Factory **資料集**。請注意，與其他 Data Factory 資料集不同的是，這些資料集必須同時包含 **folderPath** 和 **fileName** 值。您可以使用資料分割，讓每個批次執行 (每一個資料配量) 處理或產生唯一的輸入和輸出檔案。您將可能需要包含某個上游活動，以將輸入轉換成 CSV 檔案格式，並將它放在每個配量的儲存體帳戶中。在該情況下，您將不需包含下面範例所示的 **external** 及 **externalData** 設定，而您的 DecisionTreeInputBlob 將會是不同活動的輸出資料集。
+2. 建立**輸入** Azure Data Factory **資料集**。請注意，與某些其他 Data Factory 資料集不同的是，這些資料集必須同時包含 **folderPath** 和 **fileName** 值。您可以使用資料分割，讓每個批次執行 (每一個資料配量) 處理或產生唯一的輸入和輸出檔案。您將可能需要包含某個上游活動，以將輸入轉換成 CSV 檔案格式，並將它放在每個配量的儲存體帳戶中。在此情況下，您不需包含下列範例所示的 **external** 及 **externalData** 設定，而您的 DecisionTreeInputBlob 會是不同活動的輸出資料集。
 
 		{
 		  "name": "DecisionTreeInputBlob",
@@ -202,7 +204,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 		  }
 		}
 
-4. 建立此類型的**連結服務**：**AzureMLLinkedService**，並提供 API 金鑰和模型批次執行 URL。
+4. 建立 **AzureMLLinkedService** 類型的**連結服務**，並提供 API 金鑰和模型批次執行 URL。
 		
 		{
 		  "name": "MyAzureMLLinkedService",
@@ -351,34 +353,123 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 
 - 已部署的 Azure Machine Learning Web 服務使用讀取器和寫入器模組，讀取 Azure SQL Database 的資料，或將資料寫入其中。此 Web 服務會公開下列 4 個參數：資料庫伺服器名稱、資料庫名稱、伺服器使用者帳戶名稱和伺服器使用者帳戶密碼。  
 - **開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**結束**時間是選用項目。如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
- 
+
+### 其他案例
+
+#### Web 服務不需要輸入
+
+Azure ML 批次執行 Web 服務可用來執行任何可能不需要任何輸入的工作流程，例如 R 或 Python 指令碼。或者，您也可以使用不會公開任何 GlobalParameters 的讀取器模組來設定實驗。在此情況下，AzureMLBatchExecution 活動的設定如下：
+
+	{
+        "name": "scoring service",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "myBlob"
+            }
+        ],
+        "typeProperties": {
+            "webServiceOutputs": {
+                "output1": "myBlob"
+            }              
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+   
+
+#### Web 服務不需要輸入/輸出
+Azure ML 批次執行 Web 服務可能未設定任何 Web 服務輸出。在此範例中，沒有任何 Web 服務輸入或輸出，也不會設定任何 GlobalParameters。請注意，仍會在活動本身設定輸出，但不會將它指定為 webServiceOutput。
+
+	{
+        "name": "retraining",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "placeholderOutputDataset"
+            }
+        ],
+        "typeProperties": {
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+
+#### Web 服務會使用讀取器和寫入器，而且只有在其他活動皆成功時，才會執行活動
+
+Azure ML Web 服務的讀取器和寫入器模組可能會設定為不一定要利用任何 GlobalParameters 來執行。但是，您可能想要在處理管線中內嵌服務呼叫來使用資料集相依性，只有在完成一些上游處理之後，才會叫用該服務，然後在完成批次執行之後觸發一些其他動作。在此情況下，您可以使用活動輸入和輸出來表達相依性，而不需將它們任一個命名為 Web 服務輸入或輸出。
+
+	{
+	    "name": "retraining",
+	    "type": "AzureMLBatchExecution",
+	    "inputs": [
+	        {
+	            "name": "upstreamData1"
+	        },
+	        {
+	            "name": "upstreamData2"
+	        }
+	    ],
+	    "outputs": [
+	        {
+	            "name": "downstreamData"
+	        }
+	    ],
+	    "typeProperties": {
+	     },
+	    "linkedServiceName": "mlEndpoint",
+	    "policy": {
+	        "concurrency": 1,
+	        "executionPriorityOrder": "NewestFirst",
+	        "retry": 1,
+	        "timeout": "02:00:00"
+	    }
+	},
+
+**隨身秘訣**如下：
+
+-   如果您的實驗端點會使用 webServiceInput，則可透過 Blob 資料集來表示它，並將它包含於活動輸入以及 webServiceInput 屬性中。否則，即會省略 webServiceInput 屬性。 
+-   如果您的實驗端點會使用 webServiceOutput，則可透過 Blob 資料集來表示它們，並將它們包含於活動輸出以及 (此實驗中每個輸出名稱所對應的) webServicepOutputs 屬性中。否則，即會省略 webServiceOutputs 屬性。
+-   如果您的實驗端點會公開 globalParameter，則會在活動 globalParameters 屬性中提供它們以做為金鑰值組。否則，即會省略 globalParameters 屬性。金鑰會區分大小寫。[Azure Data Factory 函式](data-factory-scheduling-and-execution.md#data-factory-functions-reference)可能會在值中使用。 
+- 您可以將額外的資料集包含於活動輸入和輸出屬性中，而不需在活動的 typeProperties 中加以參考。這些將會使用配量相依性來管理執行，但其他的則會被 AzureMLBatchExecution 活動所忽略。 
+
 
 ## 使用更新資源活動更新 Azure ML 模型
 經過一段時間，必須使用新的輸入資料集重新訓練 Azure ML 評分實驗中的預測模型。完成重新訓練之後，您想要使用已重新訓練的 ML 模型來更新評分 Web 服務。透過 Web 服務啟用重新訓練和更新 Azure ML 模型的一般步驟如下：
 
 1. 在 [Azure ML Studio](https://studio.azureml.net) 中建立實驗。 
-2. 當您對模型感到滿意時，使用 Azure ML Studio 對**訓練試驗**和評分/**預測實*驗*發佈 Web 服務。
+2. 當您對模型感到滿意時，請使用 Azure ML Studio 對**訓練實驗**和評分/**預測實驗**發佈 Web 服務。
 
-下表說明本範例中使用的 Web 服務。如需詳細資訊，請參閱[以程式設計方式重新訓練機器學習服務模型](../machine-learning/machine-learning-retrain-models-programmatically.md)。
+下表說明本範例中使用的 Web 服務。如需詳細資訊，請參閱[以程式設計方式重新定型機器學習服務模型](../machine-learning/machine-learning-retrain-models-programmatically.md)。
 
 | Web 服務類型 | 說明 
 | :------------------ | :---------- 
 | **訓練 Web 服務** | 接收訓練資料並產生已訓練的模型。重新訓練的輸出是 Azure Blob 儲存體中的 .ilearner 檔案。當您將訓練實驗發佈為 Web 服務時，系統會自動為您建立**預設端點**。您可以建立多個端點，但此範例僅使用預設端點 |
-| **評分 Web 服務** | 接收未標記的資料範例並進行預測。預測的輸出可能有各種形式，例如 .csv 檔案或 Azure SQL Database 中的資料列 (視實驗的組態而定)。當您將預測實驗發佈為 Web 服務時，系統會自動為您建立預設端點。您必須使用 [Azure 傳統入口網站](https://manage.windowsazure.com)，建立第二個**非預設且可更新的端點**。您可以建立多個端點，但此範例僅使用非預設且可更新的端點如需相關步驟，請參閱[建立端點](../machine-learning/machine-learning-create-endpoint.md)一文。       
+| **評分 Web 服務** | 接收未標記的資料範例並進行預測。預測的輸出可能有各種形式，例如 .csv 檔案或 Azure SQL Database 中的資料列 (視實驗的組態而定)。當您將預測實驗發佈為 Web 服務時，系統會自動為您建立預設端點。您必須使用 [Azure 傳統入口網站](https://manage.windowsazure.com)，來建立第二個**非預設且可更新的端點**。您可以建立多個端點，但此範例僅使用非預設且可更新的端點如需相關步驟，請參閱[建立端點](../machine-learning/machine-learning-create-endpoint.md)一文。       
  
 下圖描述 Azure ML 中訓練與評分端點之間的關聯性。
 
 ![Web 服務](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
 
-您可以使用 [**Azure ML 批次執行活動**] 來叫用**訓練 Web 服務**。這與叫用 Azure ML Web 服務 (評分 Web 服務) 以便進行資料評分相同。上述各節詳細說明如何從 Azure Data Factory 管線叫用 Azure ML Web 服務。
+您可以使用 [AzureML Batch 執行活動] 來叫用**訓練 Web 服務**。這與叫用 Azure ML Web 服務 (評分 Web 服務) 以便進行資料評分相同。上述各節詳細說明如何從 Azure Data Factory 管線叫用 Azure ML Web 服務。
   
-您可以使用 [**Azure ML 更新資源活動**] 叫用**評分 Web 服務**，進而以新訓練的模型更新 Web 服務。如上表所述，您必須建立並使用非預設的可更新端點。您也應該更新 Data Factory 中所有現有的連結服務才能使用非預設端點，使其一律使用最近重新訓練的模型。
+您可以使用 [Azure ML 更新資源活動] 來叫用**評分 Web 服務**，進而以新訓練的模型更新 Web 服務。如上表所述，您必須建立並使用非預設的可更新端點。您也應該更新 Data Factory 中所有現有的連結服務才能使用非預設端點，使其一律使用最近重新訓練的模型。
 
 下列案例提供更多詳細資料，其中包含從 Azure Data Factory 管線重新訓練和更新 Azure ML 模型的範例。
  
 ### 案例：重新訓練和更新 Azure ML 模型
-本節提供的範例管線使用 [Azure ML 批次執行活動] 來重新訓練模型，以及使用 [Azure ML 更新資源活動] 來更新評分 Web 服務中的模型。此外，還會提供範例中所有連結服務、資料集和管線的 JSON 程式碼片段。
+本節提供的範例管線會使用 [AzureML Batch 執行活動] 來重新將模型定型，以及使用 [Azure ML 更新資源活動] 來更新評分 Web 服務中的模型。此外，還會提供範例中所有連結服務、資料集和管線的 JSON 程式碼片段。
 
 以下是範例管線的圖表檢視。如您所見，Azure ML 批次執行活動會採用訓練輸入並產生訓練輸出 (iLearner 檔案)。Azure ML 更新資源活動會採用此訓練輸出，並更新評分 Web 服務端點中的模型。更新資源活動不會產生任何輸出。PlaceholderBlob 只是 Azure Data Factory 服務執行管線所需的虛擬輸出資料集而已。
 
@@ -471,9 +562,9 @@ Azure 儲存體會保留下列資料：
 
 在 [Azure ML Studio] 中，依下列方式取得 **mlEndpoint** 和 **apiKey** 的值：
 
-1. 按一下左功能表中的 [**Web 服務**]。
+1. 按一下左功能表中的 [Web 服務]。
 2. 按一下 Web 服務清單中的**訓練 Web 服務**。 
-3. 按一下 [**API 金鑰**] 文字方塊旁的 [複製]，將 API 金鑰複製到剪貼簿。將金鑰貼到 Data Factory JSON 編輯器中。
+3. 按一下 [API 金鑰] 文字方塊旁的 [複製]，將 API 金鑰複製到剪貼簿。將金鑰貼到 Data Factory JSON 編輯器中。
 4. 在 [Azure ML studio] 中，按一下 [批次執行] 連結，從 [要求] 區段複製 [要求 URI] 並將它貼到 Data Factory JSON 編輯器中。   
 
 
@@ -493,7 +584,7 @@ Azure 儲存體會保留下列資料：
 	}
 
 
-建立和部署 Azure ML 連結服務之前，請依照[建立端點](../machine-learning/machine-learning-create-endpoint.md)一文中的步驟建立評分 Web 服務的第二個 (非預設且可更新) 端點。
+建立和部署 Azure ML 連結服務之前，請依照[建立端點](../machine-learning/machine-learning-create-endpoint.md)一文中的步驟，來建立評分 Web 服務的第二個 (非預設且可更新) 端點。
 
 建立非預設的可更新端點之後，按一下 [批次執行] 可取得 **mlEndpoint** JSON 屬性的 URI 值，按一下 [更新資源] 連結可取得 **updateResourceEndpoint** JSON 屬性的 URI 值。API 金鑰本身位於端點頁面 (位於右下角)。
 
@@ -583,30 +674,88 @@ Azure ML 更新資源活動不會產生任何輸出，但在 Azure Data Factory 
 	                "name": "AzureML Update Resource",
 	                "linkedServiceName": "updatableScoringEndpoint2"
 	            }
-	        ]
+	        ],
+	    	"start": "2015-02-13T00:00:00Z",
+	   		"end": "2015-02-14T00:00:00Z"
 	    }
 	}
 
 
+### 讀取器和寫入器模組
+
+使用 Azure SQL 讀取器和寫入器，是常見的 Web 服務參數使用案例。讀取器模組將資料從 Azure Machine Learning Studio 外部的資料管理服務載入至實驗，而寫入器模組則是將資料從實驗儲存至 Azure Machine Learning Studio 外部的資料管理服務。
+
+如需 Azure Blob/Azure SQL 讀取器/寫入器的詳細資料，請參閱 MSDN Library 上的[讀取器](https://msdn.microsoft.com/library/azure/dn905997.aspx)和[寫入器](https://msdn.microsoft.com/library/azure/dn905984.aspx)主題。上一節中的範例已使用 Azure Blob 讀取器與 Azure Blob 寫入器。本節討論如何使用 Azure SQL 讀取器和 Azure SQL 寫入器。
 
 
 ## 常見問題集
-
-**問：**我目前是使用 AzureMLBatchScoring 活動。我應該改用 AzureMLBatchExecution 活動嗎?
-
-**答：**是。如果您使用 AzureMLBatchScoring 活動與 Azure Machine Learning 整合，建議您使用最新的 AzureMLBatchExecution 活動。我們將淘汰 AzureMLBatchScoring 活動，日後的版本會將其移除。
-
-2015 年 8 月發行的 Azure SDK 和 Azure PowerShell 中導入了 AzureMLBatchExecution 活動。
-
-AzureMLBatchExecution 活動不需要輸入 (如果不需要輸入相依性的話)。它也可讓您明確宣告是否使用 Web 服務輸入和 Web 服務輸出，或兩者都不使用。如果您選擇使用 Web 服務輸入/輸出，即可指定要使用的相關 Azure Blob 資料集。此外，您還能清楚指定 Web 服務所提供的 Web 服務參數值。
-
-如果您想繼續使用 AzureMLBatchScoring 活動，請參閱 [Azure ML 批次評分活動](data-factory-create-predictive-pipelines.md)一文，以了解詳細資料。
-
 
 **問：**我擁有巨量資料管線所產生的多個檔案。我可以使用 AzureMLBatchExecution 活動來處理所有檔案嗎？
 
 **答：**是。如需詳細資料，請參閱**使用讀取器模組讀取 Azure Blob 中多個檔案的資料**一節。
 
+## AzureML 批次計分活動
+如果您使用 **AzureMLBatchScoring** 活動來與 Azure Machine Learning 整合，建議您使用最新的 **AzureMLBatchExecution** 活動。
+
+2015 年 8 月發行的 Azure SDK 和 Azure PowerShell 中導入了 AzureMLBatchExecution 活動。
+
+如果您想要繼續使用 AzureMLBatchScoring 活動，請繼續閱讀本節。
+
+### 使用 Azure 儲存體進行輸入/輸出的 AzureML 批次計分活動 
+
+	{
+	  "name": "PredictivePipeline",
+	  "properties": {
+	    "description": "use AzureML model",
+	    "activities": [
+	      {
+	        "name": "MLActivity",
+	        "type": "AzureMLBatchScoring",
+	        "description": "prediction analysis on batch input",
+	        "inputs": [
+	          {
+	            "name": "ScoringInputBlob"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "ScoringResultBlob"
+	          }
+	        ],
+	        "linkedServiceName": "MyAzureMLLinkedService",
+	        "policy": {
+	          "concurrency": 3,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "02:00:00"
+	        }
+	      }
+	    ],
+	    "start": "2015-02-13T00:00:00Z",
+	    "end": "2015-02-14T00:00:00Z"
+	  }
+	}
+
+### Web 服務參數
+將 **typeProperties** 區段加入至管線 JSON 中的 **AzureMLBatchScoringActivty** 區段，以指定該區段中 Web 服務參數的值，如下列範例所示：
+
+	"typeProperties": {
+		"webServiceParameters": {
+			"Param 1": "Value 1",
+			"Param 2": "Value 2"
+		}
+	}
+
+
+您也可以使用 [Data Factory 函式](https://msdn.microsoft.com/library/dn835056.aspx)傳遞 Web 服務參數的值，如下列範例所示：
+
+	"typeProperties": {
+    	"webServiceParameters": {
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    	}
+  	}
+ 
+> [AZURE.NOTE]Web 服務參數區分大小寫，因此，請確定您在活動 JSON 中所指定的名稱符合 Web 服務所公開的名稱。
 
 ## 另請參閱
 
@@ -623,4 +772,4 @@ AzureMLBatchExecution 活動不需要輸入 (如果不需要輸入相依性的�
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="12/15/2015"    
 	ms.author="juliako"/>
 
 
@@ -357,7 +357,7 @@
 您必須考量下列事項：
 
 - 為 Start/Step/Range 使用明確的時間戳記會假設輸入來源至少為 1 分鐘的長度。
-- 具有 Start、Step 和 Range 字串屬性的 Jpg/Png/BmpVideo 項目 – 這些可以解譯為：
+- 具有 Start、Step 和 Range 字串屬性的 Jpg/Png/BmpImage 項目 – 這些可以解譯為：
 
 	- 畫面格數目 (如果是非負整數)，例如："Start"："120"，
 	- 相對於持續時間 (如果以 % 尾碼表示)，例如："Start"："15%" 或
@@ -383,4 +383,4 @@
 
 [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

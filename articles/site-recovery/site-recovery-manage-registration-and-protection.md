@@ -1,5 +1,5 @@
 <properties
-	pageTitle="管理註冊與保護" 
+	pageTitle="取消註冊伺服器與停用保護 | Microsoft Azure" 
 	description="Azure Site Recovery 可將內部部署伺服器上的虛擬機器複寫、容錯移轉及復原協調至 Azure 或次要資料中心。使用本文取消註冊 Site Recovery 保存庫中的伺服器，並停用虛擬機器和實體伺服器的保護。" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# 管理註冊與保護
+# 取消註冊伺服器與停用保護
 
 本文說明如何從 Site Recovery 保存庫取消註冊伺服器，以及如何停用 Site Recovery 保護的虛擬機器保護。如果您在閱讀本文後有任何問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)。
 
@@ -212,4 +212,4 @@
 	- **停用保護**—如果您啟用並儲存此選項，機器將不再受到 Site Recovery 的保護。系統將會自動清除機器的保護設定。
 	- **從保存庫移除**—如果您選擇此選項，機器將只會從 Site Recovery 保存庫中移除。機器的內部部署保護設定不受影響。若要移除機器上的設定，並從 Azure 訂用帳戶移除虛擬機器，而且您將需要解除安裝行動服務來清除設定。![移除選項](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

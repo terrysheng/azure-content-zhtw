@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務來檢視和管理 StorSimple 工作
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## 概觀
 
@@ -25,13 +27,13 @@
 
 您可以透過篩選欄位，快速找到您所感興趣的工作，例如：
 
-- **狀態** – 工作可以是執行中、已排程、失敗、完成、取消中，或已取消。
+- **狀態** – 工作可以是執行中、已排程、失敗、完成、取消中或已取消。
 
 - **類型** – 工作可以透過排程或指定備份 (**進行備份**)、複製、裝置還原或更新作業而建立。
 
 - **裝置** – 工作會在連線到服務的特定裝置上進行初始化。
 
-- **從和至** – 工作可以根據日期和時間範圍進行篩選。
+- **起訖** – 工作可以根據日期和時間範圍進行篩選。
 
 篩選的工作接著會根據下列屬性製成表格：
 
@@ -91,4 +93,4 @@
 
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

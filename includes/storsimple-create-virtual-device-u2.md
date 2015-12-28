@@ -1,36 +1,38 @@
-#### To create a virtual device
+#### 建立虛擬裝置
 
-1.  In the Azure portal, go to the **StorSimple Manager** service.
+1.  在 Azure 入口網站中，移至 **StorSimple Manager** 服務。
 
-2. Go to the **Devices** page. Click **Create virtual device** at the bottom of the **Devices** page.
+2. 移至 [裝置] 頁面。按一下 [裝置] 頁面底部的 [建立虛擬裝置]。
 
-3. In the **Create Virtual Device dialog box**, specify the following details.
+3. 在 [建立虛擬裝置] 對話方塊中，指定下列詳細資料。
 
-     ![StorSimple create virtual device](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+     ![StorSimple 建立虛擬裝置](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
 
-	1. **Name** – A unique name for your virtual device.
+	1. **名稱** - 虛擬裝置的唯一名稱。
 
 
-	2. **Model** - Choose the model of the virtual device. This field is presented only if you are running Update 2 or later. An 8010 device model offers 30 TB of Standard Storage whereas 8020 has 64 TB of Premium Storage. Specify 8010
-	3.  to deploy item level retrieval  scenarios from backups. Select 8020 to deploy high performance, low latency workloads or used as a secondary device for disaster recovery.
+	2. **型號** - 選擇虛擬裝置的型號。只有當您執行 Update 2 或更新版本時，此欄位才會出現。8010 裝置型號提供 30 TB 的標準儲存體， 而 8020 提供 64 TB 的進階儲存體。指定 8010
+	3.  以從備份部署項目層級擷取案例。選取 8020 來部署高效能、低延遲的工作負載，或做為災害復原的次要裝置。
 	 
-	4. **Version** - Choose the version of the virtual device. If an 8020 device model is selected, then the version field will not be presented to the user. This option is absent if all the physical devices registered with this service are running Update 1 (or later). This field is presented only if you have a mix of pre-Update 1 and Update 1 physical devices registered with the same service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
+	4. **版本** - 選擇虛擬裝置的版本。如果選取 8020 裝置型號，則版本欄位不會顯示給使用者。如果利用此服務註冊的所有實體裝置都執行 Update 1 (或更新版本)，則不提供此選項。只有在您利用相同的服務註冊 pre-Update 1 和 Update 1 實體裝置的組合時，此欄位才會出現。給定版本的虛擬裝置會判斷您可以容錯移轉或從其複製的實體裝置，請務必建立適當版本的虛擬裝置。選取：
 
-	   - Version Update 0.3 if you will fail over or DR from a physical device running Update 0.3 or earlier. 
-	   - Version Update 1 if you will fail over or clone from a physical device running Update 1 (or later). 
+	   - 如果您將容錯移轉或從執行 Update 0.3 或更舊版本的實體裝置進行 DR，則為 Update 0.3 版本。 
+	   - 如果您從執行 Update 1 (或更新版本) 的實體裝置容錯移轉或複製，則為 Update 1 版本。 
 	   
 	
-	5. **Virtual Network** – Specify a virtual network that you want to use with this virtual device. If using Premium Storage (Update 2 or later), you must select a virtual network that is supported with the Premium Storage account. The unsupported virtual networks will be grayed out in the dropdown list. You will be warned if you select an unsupported virtual network. 
+	5. **虛擬網路** – 指定您想要與此虛擬裝置搭配使用的虛擬網路。如果使用進階儲存體 (Update 2 或更新版本)，您必須選取進階儲存體帳戶支援的虛擬網路。不支援的虛擬網路在下拉式清單中顯示為灰色。如果您選取不支援的虛擬網路，系統會警告您。 
 
-	5. **Storage Account for Virtual Device Creation** – Select a storage account to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. If creating a premium virtual device, the dropdown list will only display Premium Storage accounts. 
+	5. **虛擬裝置建立的儲存體帳戶** – 選取儲存體帳戶於佈建期間保留虛擬裝置的映像。此儲存體帳戶應該與虛擬裝置和虛擬網路位於相同的區域中。不應讓實體或虛擬裝置用它來儲存資料。根據預設，將基於此用途建立新的儲存體帳戶。不過，如果您知道已經擁有適合此用途的儲存體帳戶，則可從清單中選取該帳戶。如果建立的是高階虛擬裝置，下拉式清單中只會顯示進階儲存體帳戶。
 
-    	>[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP, and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
+    	>[AZURE.NOTE]虛擬裝置只能使用 Azure 儲存體帳戶。StorSimple 虛擬裝置不支援其他雲端服務提供者，例如 Amazon、HP 和 OpenStack (皆受實體裝置支援)。
 	
-	1. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. 
+	1. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。若您只使用實體裝置，加密金鑰就會與裝置放在一起。因此，Microsoft 無法將它解密。
 	 
-		When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a virtual device](storsimple-security/#storsimple-virtual-device-security).
-	2. Click the check icon to create the virtual device. The device may take around 30 minutes to be provisioned.
+		當您使用虛擬裝置時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。如需詳細資訊，請參閱[使用虛擬裝置的安全性考量](storsimple-security/#storsimple-virtual-device-security)。
+	2. 按一下核取圖示，以建立虛擬裝置。裝置可能需要大約 30 分鐘的時間，才能完成佈建。
 
-	![StorSimple virtual device creating stage](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
+	![StorSimple 虛擬裝置建立中階段](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
     
+
+<!---HONumber=AcomDC_1217_2015-->

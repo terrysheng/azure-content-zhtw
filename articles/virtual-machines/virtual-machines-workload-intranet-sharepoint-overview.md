@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # 在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員部署模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
-本主題包含的逐步指示連結，可供您使用 SQL Server AlwaysOn 可用性群組，透過傳統部署模型，部署僅限內部網路的 SharePoint 2013 伺服器陣列。此伺服器陣列包含下列電腦：
+本主題包含的逐步指示連結，可用於部署包含 SQL Server AlwaysOn 可用性群組的內部網路限定 SharePoint 2013 伺服器陣列。此伺服器陣列包含下列電腦：
 
 - 兩部 SharePoint Web 伺服器
 - 兩部 SharePoint 應用程式伺服器
@@ -29,7 +29,7 @@
 - 一部叢集多數節點伺服器
 - 兩個網域控制站
 
-以下呈現的就是這個設定，其中會為每部伺服器提供預留位置名稱：
+以下呈現的就是這個設定，其中會為每部伺服器提供預留位置名稱。
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
 
@@ -37,7 +37,7 @@
 
 您可以在下列階段中部署這個設定：
 
-- [第 1 階段：設定 Azure](virtual-machines-workload-intranet-sharepoint-phase1.md)。建立儲存體帳戶、雲端服務及跨單位虛擬網路。
+- [第 1 階段：設定 Azure](virtual-machines-workload-intranet-sharepoint-phase1.md)。建立儲存體帳戶、可用性設定組及跨單位虛擬網路。
 - [第 2 階段：設定網域控制站](virtual-machines-workload-intranet-sharepoint-phase2.md)。建立和設定複本 Active Directory 網域服務 (AD DS) 網域控制站。
 - [第 3 階段：設定 SQL Server 基礎結構](virtual-machines-workload-intranet-sharepoint-phase3.md)。建立和設定 SQL Server 虛擬機器、準備將它們與 SharePoint 搭配使用，然後建立叢集。
 - [第 4 階段：設定 SharePoint 伺服器](virtual-machines-workload-intranet-sharepoint-phase4.md)。建立和設定四部 SharePoint 虛擬機器。
@@ -50,8 +50,8 @@
 請記住下列要點：
 
 - 如果您是經驗豐富的 SharePoint 實作者，請自行決定是否要調整第 3 到 5 階段中的指示，以建置最適合您需求的伺服器陣列。
-- 如果您已經具備現有的 Azure 混合式雲端實作，可自行決定是否要調整或略過第 1 和 2 階段中的指示，在適當的子網路上裝載新的 SharePoint 伺服器陣列。
-- 所有伺服器都位於 Azure 虛擬網路中的單一子網路上。如果您想要提供其他相當於隔離子網路的安全性，可以使用[網路安全性群組](virtual-networks-nsg.md)。
+- 如果您已經具備現有的 Azure 混合式雲端部署，則可自行決定要調整或略過第 1 和 2 階段中的指示，在適當的子網路上裝載新的 SharePoint 伺服器陣列。
+- 所有伺服器都位於 Azure 虛擬網路中的單一子網路上。如果您想要提供其他相當於隔離子網路的安全性，可以使用[網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 
 若要建置開發/測試環境或此設定的概念證明，請參閱[在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)。
 
@@ -61,19 +61,6 @@
 
 ## 後續步驟
 
-若要開始設定這個工作負載，請前往[第 1 階段：設定 Azure](virtual-machines-workload-intranet-sharepoint-phase1.md)。
+- 依照[第 1 階段](virtual-machines-workload-intranet-sharepoint-phase1.md)指示開始設定此工作負載。
 
-
-## 其他資源
-
-[包含 SQL Server AlwaysOn 的 SharePoint 資訊圖](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[適用於 SharePoint 2013 的 Microsoft Azure 架構](https://technet.microsoft.com/library/dn635309.aspx)
-
-[裝載於 Azure 基礎結構服務中的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 通知中樞透過 .NET 後端通知使用者"
+	pageTitle="Azure 通知中樞透過 .NET 後端通知 Android 使用者"
 	description="了解如何在 Azure 中將推播通知傳送給使用者。程式碼範例是以適用於 Android 的 Java 撰寫。"
 	documentationCenter="android"
 	services="notification-hubs"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
-#Azure 通知中樞透過 .NET 後端通知使用者
+#Azure 通知中樞透過 .NET 後端通知 Android 使用者
 
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ##概觀
 
-Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所示。本教學課程以您在[開始使用通知中樞 (Android)](notification-hubs-android-get-started.md) 教學課程中建立的通知中樞為基礎。
+Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](notification-hubs-registration-management.md#registration-management-from-a-backend)中所示。本教學課程以您在[開始使用通知中樞 (Android)](notification-hubs-android-get-started.md) 教學課程中建立的通知中樞為基礎。
 
 > [AZURE.NOTE]本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (Android)](notification-hubs-android-get-started.md) 中所述。
 
@@ -242,7 +242,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
             }
         }
 
-	為註冊推播通知，此元件會實作連絡應用程式後端所需的 REST 呼叫。它也會在本機儲存通知中心所建立的 *registrationIds*，如[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。請注意，當您按一下 [**登入**] 按鈕時，系統便會使用儲存在本機儲存體中的授權權杖。
+	為註冊推播通知，此元件會實作連絡應用程式後端所需的 REST 呼叫。它也會在本機儲存通知中心所建立的 *registrationIds*，如[從您的應用程式後端註冊](notification-hubs-registration-management.md#registration-management-from-a-backend)中的詳細說明。請注意，當您按一下 [**登入**] 按鈕時，系統便會使用儲存在本機儲存體中的授權權杖。
 
 5. 在 `MainActivity` 類別中，針對 `NotificationHub` 移除或註解排除您的私用欄位，並對 `RegisterClient` 類別新增一個欄位，以及對 ASP.NET 後端端點新增一個字串。請務必使用先前取得的實際後端端點來取代 `<Enter Your Backend Endpoint>`：例如：`http://mybackend.azurewebsites.net`。
 
@@ -432,4 +432,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

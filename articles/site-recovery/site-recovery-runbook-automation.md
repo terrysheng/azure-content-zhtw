@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="將 Azure 自動化 Runbook 加入至復原計劃" 
+   pageTitle="將 Azure 自動化 Runbook 加入至復原計劃 | Microsoft Azure" 
    description="本文說明 Azure Site Recovery 現在讓您使用 Azure 自動化擴充復原計畫，以便在復原至 Azure 期間，完成複雜的工作" 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,11 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="10/07/2015"
+   ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-  
-   
 
 # 將 Azure 自動化 Runbook 加入至復原計劃
 
@@ -158,69 +156,68 @@ CloudServiceName | 在其下建立虛擬機器的 Azure 雲端服務名稱。
 
 1.  在 Azure 自動化帳戶中，使用名稱 **OpenPort80** 建立新的 Runbook
 
-![](media/site-recovery-runbook-automation/14.png)
+	![](media/site-recovery-runbook-automation/14.png)
 
 2.  瀏覽至 Runbook 的 [撰寫] 檢視，然後進入草稿模式。
 
 3.  首先，指定要當做復原計畫內容使用的變數
-
-```
-	param (
-		[Object]$RecoveryPlanContext
-	)
-
-```
   
+	```
+		param (
+			[Object]$RecoveryPlanContext
+		)
+
+	```
 
 4.  接下來，使用認證和訂用帳戶名稱，連線到訂用帳戶
 
-```
-	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+	```
+		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
 	
-	# Connect to Azure
-	$AzureAccount = Add-AzureAccount -Credential $Cred
-	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-```
+		# Connect to Azure
+		$AzureAccount = Add-AzureAccount -Credential $Cred
+		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+	```
 
-> 請注意，您在這裡使用的是 Azure 的資產 – **AzureCredential** 和 **AzureSubscriptionName**。
+	請注意，您在這裡使用的是 Azure 的資產 – **AzureCredential** 和 **AzureSubscriptionName**。
 
-5.  現在，指定端點詳細資料以及您要公開端點所在虛擬機器的 GUID，在這個案例中為前端虛擬機器。
+5.  現在，指定端點詳細資料以及您要公開端點所在虛擬機器的 GUID。在這個案例中為前端虛擬機器。
 
-```
-	# Specify the parameters to be used by the script
-	$AEProtocol = "TCP"
-	$AELocalPort = 80
-	$AEPublicPort = 80
-	$AEName = "Port 80 for HTTP"
-	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-```
+	```
+		# Specify the parameters to be used by the script
+		$AEProtocol = "TCP"
+		$AELocalPort = 80
+		$AEPublicPort = 80
+		$AEName = "Port 80 for HTTP"
+		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+	```
 
-這會指定 Azure 端點通訊協定、VM 上的本機連接埠及其對應的公用連接埠。這些變數是將端點加入至 VM 的 Azure 命令所需的參數。VMGUID 保留您操作所需的虛擬機器的 GUID。
+	這會指定 Azure 端點通訊協定、VM 上的本機連接埠及其對應的公用連接埠。這些變數是將端點加入至 VM 的 Azure 命令所需的參數。VMGUID 保留您操作所需的虛擬機器的 GUID。
 
 6.  此指令碼現在會針對給定的 VM GUID 擷取內容，並在所參考的虛擬機器上建立端點。
 
-```
-	#Read the VM GUID from the context
-	$VM = $RecoveryPlanContext.VmMap.$VMGUID
+	```
+		#Read the VM GUID from the context
+		$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-	if ($VM -ne $null)
-	{
-		# Invoke pipeline commands within an InlineScript
+		if ($VM -ne $null)
+		{
+			# Invoke pipeline commands within an InlineScript
 
-		$EndpointStatus = InlineScript {
-			# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
-			# This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
+			$EndpointStatus = InlineScript {
+				# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
+				# Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
 
-			$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-				Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-				Update-AzureVM
-			Write-Output $Status
+				$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+					Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+					Update-AzureVM
+				Write-Output $Status
+			}
 		}
-	}
-```
+	```
 
-7. 這項操作完成之後，按 [發佈 ![](media/site-recovery-runbook-automation/20.png)] 可讓您的指令碼可供執行。 
+7. 這項操作完成之後，按 [發佈 ![](media/site-recovery-runbook-automation/20.png)] 可讓您的指令碼可供執行。
 
 以下提供完整的指令碼供您參考
 
@@ -313,4 +310,4 @@ CloudServiceName | 在其下建立虛擬機器的 Azure 雲端服務名稱。
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

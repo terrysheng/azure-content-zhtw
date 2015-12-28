@@ -53,14 +53,14 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 
 ##<a name="upload-data"></a>將資料上傳至您的內部部署 SQL Server
 
-我們會使用 [NYC 計程車資料集](http://chriswhong.com/open-data/foil_nyc_taxi/)示範移轉程序。NYC 計程車資料集可在 Azure Blob 儲存體 ([這裡](http://www.andresmh.com/nyctaxitrips/)) 中取得 (已在該文章中註明)。該資料有兩個檔案：包含路線詳細資料的 trip\_data.csv 檔案，以及包含每次車程支付車資之詳細資料的 trip\_far.csv 檔案。這些檔案的範例和說明都會在 [NYC 計程車車程資料集說明](machine-learning-data-science-process-sql-walkthrough.md#dataset)中提供。
+我們會使用 [NYC 計程車資料集](http://chriswhong.com/open-data/foil_nyc_taxi/)示範移轉程序。NYC 計程車資料集可在 Azure Blob 儲存體 [NYC 計程車資料](http://www.andresmh.com/nyctaxitrips/)中取得 (已在該文章中註明)。該資料有兩個檔案：包含路線詳細資料的 trip\_data.csv 檔案，以及包含每次車程支付車資之詳細資料的 trip\_far.csv 檔案。這些檔案的範例和說明都會在 [NYC 計程車車程資料集說明](machine-learning-data-science-process-sql-walkthrough.md#dataset)中提供。
 
 
 您可以將這裡提供的程序調整為自己的資料集，或者遵循上述步驟使用 NYC 計程車資料集。若要將 NYC 計程車資料集上傳至您的內部部署 SQL Server 資料庫，請遵循[大量匯入資料到 SQL Server 資料庫](machine-learning-data-science-process-sql-walkthrough.md#dbload)中概述的程序進行。這些指示適用於 Azure 虛擬機器上的 SQL Server，但將資料上傳至內部部署 SQL Server 的程序是相同的。
 
 ##<a name="create-adf"></a> 建立 Azure Data Factory
 
-用於建立新 Azure Data Factory 的指示及 [Azure 入口網站](https://ms.portal.azure.com/)中的資源群組，已在[這裡](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory)提供。將新的 ADF 執行個體命名為 *adfdsp*，並將建立的資源群組命名為 *adfdsprg*。
+用於建立新 Azure Data Factory 的指示及 [Azure 入口網站](https://ms.portal.azure.com/)中的資源群組，已在[建立 Azure Data Factory](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory) 提供。將新的 ADF 執行個體命名為 *adfdsp*，並將建立的資源群組命名為 *adfdsprg*。
 
 ## 安裝和設定資料管理閘道
 
@@ -301,4 +301,4 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 
 請注意，我們尚未運用 ADF 提供的功能，以遞增方式輸送資料。如需關於如何執行此功能和 ADF 提供之其他功能的詳細資料，請參閱 [ADF 文件](http://azure.microsoft.com/services/data-factory/)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

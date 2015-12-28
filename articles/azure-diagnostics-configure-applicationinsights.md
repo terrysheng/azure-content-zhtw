@@ -7,12 +7,12 @@
    manager=""
    editor="" />
 <tags
-   ms.service="multiple"
+   ms.service="application-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 # 設定 Azure 診斷以將資料傳送至 Application Insights
@@ -92,7 +92,7 @@ Azure 診斷擴充 1.5 在公用組態中推出 **<SinksConfig>** 元素。這�
 對於這項功能有一些要注意的限制
 
 - 通道只是為了配合記錄類型 (而不是效能計數器) 使用。如果您對效能計數器元素指定通道，將會忽略它。 
-- 通道的記錄層級不能超過 Azure 診斷所要收集的記錄層級。例如：您不能在「記錄」元素中收集「應用程式記錄」錯誤，並且嘗試傳送「詳細資訊」記錄至 Application Insight 同步處理。*ScheduledTransferLogLevelFilter* 屬性一律必須收集與您正嘗試傳送到接收器的記錄相等或更多個記錄。 
+- 通道的記錄層級不能超過 Azure 診斷所要收集的記錄層級。例如：您不能在「記錄」元素中收集「應用程式記錄」錯誤，並且嘗試傳送「詳細資訊」記錄至 Application Insight 接收器。*ScheduledTransferLogLevelFilter* 屬性一律必須收集與您正嘗試傳送到接收器的記錄相等或更多個記錄。 
 - 您無法將 Azure 診斷擴充收集的任何 blob 資料傳送至 Application Insights。例如，*目錄*節點下指定的任何項目。針對損毀傾印，實際損毀傾印將仍可傳送至 blob 儲存體，並只會將損毀傾印所產生的通知傳送至 Application Insights。 
 
 
@@ -101,4 +101,4 @@ Azure 診斷擴充 1.5 在公用組態中推出 **<SinksConfig>** 元素。這�
 - 使用 [PowerShell](cloud-services-diagnostics-powershell.md) 來為您的應用程式啟用 Azure 診斷擴充。 
 - 使用 [Visual Studio](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 來為您的應用程式啟用 Azure 診斷擴充 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

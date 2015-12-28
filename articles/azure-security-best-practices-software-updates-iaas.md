@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="12/10/2015"
    ms.author="yurid"/>
 
 #Microsoft Azure IaaS 上軟體更新的最佳作法
@@ -75,7 +75,7 @@
 
 ## 軟體更新考量
 
-在您執行企業中所用軟體的初始稽核之後，您應該決定設定軟體更新管理系統的需求，這取決於您使用的軟體更新管理系統。對於 WSUS，請參閱 [Windows Server Update Services 的最佳作法](https://technet.microsoft.com/zh-TW/library/Cc708536)，對於系統中心，請參閱[在 Configuration Manager 中規劃軟體更新](https://technet.microsoft.com/zh-TW/library/gg712696)。
+在您執行企業中所用軟體的初始稽核之後，您應該決定設定軟體更新管理系統的需求，這取決於您使用的軟體更新管理系統。對於 WSUS，請參閱 [Windows Server Update Services 的最佳做法](https://technet.microsoft.com/library/Cc708536)，對於系統中心，請參閱[在 Configuration Manager 中規劃軟體更新](https://technet.microsoft.com/library/gg712696)。
 
 不過，不論您正在使用的解決方案為何，您可以套用一些一般考量和最佳作法，如後續各節所示。
 
@@ -87,13 +87,13 @@
 
 -   **建立包含參考電腦的預先生產集合**︰預先生產集合應該包含作業系統版本、企業營運軟體以及您企業中執行的其他軟體的代表性組態。
 
-您也應該考慮軟體更新伺服器將位於何處︰位於雲端的 Azure IaaS 基礎結構中或在內部部署中。這是一項重要決策，因為您需要評估內部部署資源與 Azure 基礎結構之間的流量。如需有關如何將內部部署基礎結構連接至 Azure 的詳細資訊，請參閱[將內部部署網路連接到 Microsoft Azure 虛擬網路](https://technet.microsoft.com/zh-TW/library/Dn786406.aspx)。
+您也應該考慮軟體更新伺服器將位於何處︰位於雲端的 Azure IaaS 基礎結構中或在內部部署中。這是一項重要決策，因為您需要評估內部部署資源與 Azure 基礎結構之間的流量。如需有關如何將內部部署基礎結構連接至 Azure 的詳細資訊，請參閱[將內部部署網路連接到 Microsoft Azure 虛擬網路](https://technet.microsoft.com/library/Dn786406.aspx)。
 
-根據您目前的基礎結構以及您目前使用的軟體更新系統而定，用來決定更新伺服器將位於何處的設計選項也會有所不同。對於 WSUS，請參閱[在您的組織中部署 Windows Server Update Services](https://technet.microsoft.com/zh-TW/library/hh852340.aspx)，對於 System Center Configuration Manager，請參閱[在 Configuration Manager 中規劃網站和階層](https://technet.microsoft.com/zh-TW/library/Gg712681.aspx)。
+根據您目前的基礎結構以及您目前使用的軟體更新系統而定，用來決定更新伺服器將位於何處的設計選項也會有所不同。對於 WSUS，請參閱[在您的組織中部署 Windows Server Update Services](https://technet.microsoft.com/library/hh852340.aspx)，對於 System Center Configuration Manager，請參閱[在 Configuration Manager 中規劃網站和階層](https://technet.microsoft.com/library/Gg712681.aspx)。
 
 ### 備份
 
-定期備份很重要，不只是對軟體更新管理平台本身而言，對即將更新的伺服器而言也很重要。採用[變更管理程序](https://technet.microsoft.com/zh-TW/library/cc543216.aspx)的組織會要求 IT 部門合理解釋需要更新伺服器的原因、預估的停機時間以及可能的影響。為了確保在更新失敗時能採用回復組態，請務必定期備份系統。
+定期備份很重要，不只是對軟體更新管理平台本身而言，對即將更新的伺服器而言也很重要。採用[變更管理程序](https://technet.microsoft.com/library/cc543216.aspx)的組織會要求 IT 部門合理解釋需要更新伺服器的原因、預估的停機時間以及可能的影響。為了確保在更新失敗時能採用回復組態，請務必定期備份系統。
 
 Azure IaaS 的某些備份選項包括：
 
@@ -119,4 +119,4 @@ Azure IaaS 的某些備份選項包括：
 
 使用本文所述的指導方針，可協助您判斷適用於 Azure IaaS 中虛擬機器軟體更新的最佳選項。傳統資料中心與 Azure IaaS 之間的軟體更新最佳作法有許多相似之處，因此建議您評估目前的軟體更新原則，以包含 Azure VM 並將本文中的相關最佳作法章納入整體軟體更新程序中。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

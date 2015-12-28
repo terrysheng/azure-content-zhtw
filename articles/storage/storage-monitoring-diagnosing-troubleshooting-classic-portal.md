@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/10/2015"
 	ms.author="jahogg"/>
 
 # 監視、診斷與疑難排解 Microsoft Azure 儲存體
@@ -26,7 +26,7 @@
 
 若要成功管理這類應用程式，您除了需要主動監視它們之外，還需要了解如何為其各層面與相依技術進行診斷與疑難排解。身為 Azure 儲存體服務的使用者，您應持續監視應用程式所使用的儲存體服務，以預防發生非預期的行為改變 (例如，回應速度明顯比平時慢)，並使用記錄功能來收集更多的詳細資料，同時深入分析問題的成因。從監視與記錄手段中取得的診斷資訊，將在應用程式遭遇問題時，協助您判斷根本原因。接著才能為問題進行疑難排解，並決定該採取哪些合宜的步驟來加以矯正。Azure 儲存體是 Azure 的核心服務之一，更在客戶部署至 Azure 基礎結構的主要解決方案之中扮演著重要的環節。Azure 儲存體會在您的雲端架構應用程式裡加入各項功能，從而簡化儲存體問題的監視、診斷與疑難排解程序。
 
-如需在「Azure 儲存體」應用程式進行端對端疑難排解的實際操作指南，請參閱[使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解](../storage-e2e-troubleshooting/)。
+如需在 Azure 儲存體應用程式進行端對端疑難排解的實際操作指南，請參閱[使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解](../storage-e2e-troubleshooting/)。
 
 + [簡介]
 	+ [本指南架構]
@@ -59,8 +59,8 @@
 	+ [用戶端收到 HTTP 404 (找不到) 訊息]
 	+ [用戶端收到 HTTP 409 (衝突) 訊息]
 	+ [度量顯示低 PercentSuccess，或是分析記錄項目內含具有 ClientOtherErrors 交易狀態的作業項目]
-	+ [容量度量顯示有非預期的儲存體容量使用增加]
-	+ [附加大量 VHD 的虛擬機器出現非預期的重新開機情況]
+	+ [容量度量顯示非預期的儲存體容量使用增加]
+	+ [附加大量 VHD 的虛擬機器，出現非預期的重新開機情況]
 	+ [您的問題起因於使用儲存體模擬器進行開發或測試]
 	+ [安裝 Azure SDK for .NET 時發生問題]
 	+ [您的儲存體服務出現其他問題]
@@ -100,7 +100,7 @@
 
 ## <a name="monitoring-your-storage-service"></a>監視您的儲存體服務
 
-如果您熟悉 Windows 效能監視，可以將儲存體度量當成相當於 Windows 效能監視器計數的 Azure 儲存體。「儲存體度量」中包含一組全面性的度量 (「Windows 效能監視器」詞彙中的計數)，例如服務可用性、要服務的要求總數，或是要服務的成功要求百分比 (如需完整的可用度量清單，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>)。您可以指定讓儲存體服務每小時或每分鐘收集並彙總度量一次。如需有關如何啟用度量並監視您儲存體帳戶的詳細資訊，請參閱 MSDN 上的<a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">啟用儲存體度量</a>。
+如果您熟悉 Windows 效能監視，可以將儲存體度量當成相當於 Windows 效能監視器計數的 Azure 儲存體。儲存體度量中包含完整的度量集合 (Windows 效能監視器詞彙裡的計數)，例如服務可用性、服務要求總數，或是服務要求成功的百分比 (如需完整的可用度量清單，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>)。您可以指定讓儲存體服務每小時或每分鐘收集並彙總度量一次。如需有關如何啟用度量並監視您儲存體帳戶的詳細資訊，請參閱 MSDN 上的<a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">啟用儲存體度量</a>。
 
 您可以選擇「Azure 傳統入口網站」上要顯示的小時度量，並設定規則以在小時度量超出特定閾值時，以電子郵件通知系統管理員 (如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">做法：在 Azure 中接收警示通知及管理警示規則</a>)。儲存體服務會盡其所能收集各項度量，但是不一定會記錄每一次的儲存體操作。
 
@@ -133,7 +133,7 @@
 
 ### <a name="monitoring-capacity"></a>監視容量
 
-儲存體度量只會儲存 Blob 服務的容量度量，這是因為 Blob 通常佔已儲存的資料最大宗 (寫入期間無法使用儲存體度量來監視資料表與佇列的容量)。如果您為 Blob 服務啟用監視功能的話，可以在 **$MetricsCapacityBlob** 資料表中找到這項資料。儲存體度量每天會記錄這項資料一次，而您可以使用 **RowKey** 的值來判斷資料列是否包含與使用者資料 (值 **data**) 或分析資料 (值 **analytics**) 相關聯的實體。每一個儲存的實體都含有使用的儲存體容量相關資訊 (以位元組數測量的 **Capacity**)，以及儲存體帳戶中使用的目前容器編號 (**ContainerCount**) 及 Blob (**ObjectCount**)。如需有關 **$MetricsCapacityBlob** 資料表中儲存的容量度量詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>。
+儲存體度量只會儲存 Blob 服務的容量度量，這是因為 Blob 通常佔已儲存的資料最大宗 (寫入期間無法使用儲存體度量來監視資料表與佇列的容量)。如果您為 Blob 服務啟用監視功能的話，可以在 **$MetricsCapacityBlob** 資料表中找到這項資料。儲存體度量每天會記錄這項資料一次，而您可以使用 **RowKey** 的值來判斷資料列是否包含與使用者資料 (值 **data**) 或分析資料 (值 **analytics**) 相關聯的實體。每一個儲存的實體都含有使用的儲存體容量相關資訊 (以位元組數測量的 **Capacity**)，以及儲存體帳戶中使用的目前容器編號 (**ContainerCount**) 及 Blob (**ObjectCount**)。如需 **$MetricsCapacityBlob** 資料表中儲存的容量度量詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>。
 
 > [AZURE.NOTE]建議您監視這些數值，以便在儲存體帳戶接近容量限制時提早收到警告。在「Azure 傳統入口網站」中，您可以在儲存體帳戶的 [監視] 頁面上新增警示規則，以便在彙總儲存體使用量超出或低於您指定的閾值時通知您。
 
@@ -887,7 +887,9 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 
 [度量顯示低 PercentSuccess，或是分析記錄項目內含具有 ClientOtherErrors 交易狀態的作業項目]: #metrics-show-low-percent-success
 [容量度量顯示有非預期的儲存體容量使用增加]: #capacity-metrics-show-an-unexpected-increase
+[容量度量顯示非預期的儲存體容量使用增加]: #capacity-metrics-show-an-unexpected-increase
 [附加大量 VHD 的虛擬機器出現非預期的重新開機情況]: #you-are-experiencing-unexpected-reboots
+[附加大量 VHD 的虛擬機器，出現非預期的重新開機情況]: #you-are-experiencing-unexpected-reboots
 [您的問題起因於使用儲存體模擬器進行開發或測試]: #your-issue-arises-from-using-the-storage-emulator
 [儲存體模擬器裡的功能 "X" 未能發揮作用]: #feature-X-is-not-working
 [使用儲存體模擬器時，發生「其中一個 HTTP 標頭的值格式不正確」錯誤]: #error-HTTP-header-not-correct-format
@@ -914,4 +916,4 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -56,8 +56,7 @@
 
 如需有效的 Azure SQL Database 伺服器位置清單，請執行下列 Cmdlet：
 
-	$AzureSQLLocations = Get-AzureRmLocation | Where-Object Name -Like "*SQL/Servers"
-	$AzureSQLLocations.Locations
+	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
 如果您已經有資源群組，您可以跳過以建立伺服器，或可以編輯或執行以下命令來建立新的資源群組：
 
@@ -128,4 +127,4 @@
 
 - [Azure SQL Database Cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

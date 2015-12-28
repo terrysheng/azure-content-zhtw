@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/09/2015"
+ms.date="12/11/2015"
 ms.author="eugenesh" />
 
 # 使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 
-已經有好一段時間，Azure 搜尋服務的客戶可以使用 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) 和 [Azure DocumentDB](documentdb-search-indexer.md) 的索引子，「自動」對一些熱門的資料來源編制索引。
+已經有好一段時間，Azure 搜尋服務的客戶可以使用 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) 和 [Azure DocumentDB](../documentdb/documentdb-search-indexer.md) 的索引子，「自動」對一些熱門的資料來源編制索引。
 
 我們現在更新增對於儲存在 Azure Blob 儲存體中的文件編制索引的支援。許多客戶要求我們簡化對於儲存在 blob (例如 PDF、Office 文件或 HTML 網頁) 中的文件的編製索引。到目前為止，這項作業需要撰寫自訂程式碼來執行文字擷取，並且將文件新增至 Azure 搜尋服務索引。
 
@@ -104,7 +104,7 @@ Azure 搜尋服務會對每個文件 (blob) 編制索引，如下所示：
 
 您不需要在您的搜尋索引中針對上述所有屬性定義欄位 - 只擷取您的應用程式所需的屬性。
 
-> [AZURE.NOTE]通常，您現有的索引中的欄位名稱會與文件擷取期間所產生的欄位名稱不同。您可以使用 [欄位對應] 將 Azure 搜尋服務提供的屬性名稱對應至您的搜尋索引中的欄位名稱。
+> [AZURE.NOTE]通常，您現有的索引中的欄位名稱會與文件擷取期間所產生的欄位名稱不同。您可以使用 [欄位對應] 將 Azure 搜尋服務提供的屬性名稱對應至您的搜尋索引中的欄位名稱。您會在下面看到使用欄位對應的範例。
 
 ## 挑選文件索引鍵欄位，然後處理不同的欄位名稱
 
@@ -144,6 +144,8 @@ Azure 搜尋服務會對每個文件 (blob) 編制索引，如下所示：
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
+> [AZURE.NOTE]若要深入了解欄位對應，請參閱[這篇文章](search-indexers-customization.md)。
+
 ## 增量編製索引和刪除偵測
 
 當您設定 blob 索引子排程執行時，它只會重新編制索引變更的 blob，由 blob 的 `LastModified` 時間戳記決定。
@@ -152,7 +154,7 @@ Azure 搜尋服務會對每個文件 (blob) 編制索引，如下所示：
 
 若要指示必須從索引中移除特定文件，您應該使用虛刪除策略，而不是刪除對應的 blob，新增自訂中繼資料屬性以表示他們正在刪除，而且在資料來源上設定虛刪除偵測原則。
 
-> [AZURE.NOTE]如果您只刪除 blob，而非使用刪除偵測原則，對應的文件將不會從搜尋索引中移除。
+> [AZURE.WARNING]如果您只刪除 blob，而非使用刪除偵測原則，對應的文件將不會從搜尋索引中移除。
 
 例如，如果 blob 有值為 `true` 的中繼資料屬性 `IsDeleted`，則以下顯示的原則會認為 blob 已刪除：
 
@@ -177,189 +179,33 @@ Azure 搜尋服務會對每個文件 (blob) 編制索引，如下所示：
 
 下表摘要說明針對每個文件格式完成的處理，並且說明 Azure 搜尋服務擷取的中繼資料屬性。
 
-<table style="font-size:12">
-
-<tr>
-<th>文件格式/內容類型</th>
-<th>內容類型特定的中繼資料屬性</th>
-<th>處理詳細資料 </th>
-</tr>
-
-<tr>
-<td>HTML (`text/html`)</td>
-<td>
-`metadata_content_encoding`<br/>
-`metadata_content_type`<br/>
-`metadata_language`<br/>
-`metadata_description`<br/>
-`metadata_keywords`<br/>
-`metadata_title`
-</td>
-<td>移除 HTML 標記並且擷取文字</td>
-</tr>
-
-<tr>
-<td>PDF (`application/pdf`)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_language`<br/>
-`metadata_author`<br/>
-`metadata_title`
-</td>
-<td>擷取文字，包括內嵌文件 (不含影像)</td>
-</tr>
-
-<tr>
-<td>DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>擷取文字，包括內嵌文件</td>
-</tr>
-
-<tr>
-<td>DOC (application/msword)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>擷取文字，包括內嵌文件</td>
-</tr>
-
-<tr>
-<td>XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`
-</td>
-<td>擷取文字，包括內嵌文件</td>
-</tr>
-
-<tr>
-<td>XLS (application/vnd.ms-excel)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`
-</td>
-<td>擷取文字，包括內嵌文件</td>
-</tr>
-
-<tr>
-<td>PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_slide_count`<br/>
-`metadata_title`
-</td>
-<td>擷取文字，包括內嵌文件</td>
-</tr>
-
-<tr>
-<td>PPT (application/vnd.ms-powerpoint)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_slide_count`<br/>
-`metadata_title`
-</td>
-<td>擷取文字，包括內嵌文件</td>
-</tr>
-
-<tr>
-<td>MSG (application/vnd.ms-outlook)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_message_from`<br/>
-`metadata_message_to`<br/>
-`metadata_message_cc`<br/>
-`metadata_message_bcc`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_subject`
-</td>
-<td>擷取文字，包括附件</td>
-</tr>
-
-<tr>
-<td>ZIP (application/zip)</td>
-<td>
-`metadata_content_type`
-</td>
-<td>從封存中的所有文件擷取文字</td>
-</tr>
-
-<tr>
-<td>XML (application/xml)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`</br>
-</td>
-<td>移除 XML 標記並且擷取文字 </td>
-</tr>
-
-<tr>
-<td>JSON (application/json)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`
-</td>
-<td></td>
-</tr>
-
-<tr>
-<td>純文字 (text/plain)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`</br>
-</td>
-<td></td>
-</tr>
-</table>
+文件格式/內容類型 | 內容類型特定的中繼資料屬性 | 處理詳細資料
+-------------------------------|-------------------------------------------|-------------------
+HTML (`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | 移除 HTML 標記並且擷取文字
+PDF (`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| 擷取文字，包括內嵌文件 (不含影像)
+DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | 擷取文字，包括內嵌文件
+DOC (application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | 擷取文字，包括內嵌文件
+XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | 擷取文字，包括內嵌文件
+XLS (application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | 擷取文字，包括內嵌文件
+PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | 擷取文字，包括內嵌文件
+PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | 擷取文字，包括內嵌文件
+MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | 擷取文字，包括附件
+ZIP (application/zip) | `metadata_content_type` | 從封存中的所有文件擷取文字
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 移除 XML 標記並且擷取文字 </td>
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | 擷取文字<br/>請注意：如果您需要從 JSON Blob 擷取多個文件欄位，請投票支持[這個 UserVoice 建議](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs) (英文)
+純文字 (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
 ## 使用自訂中繼資料以控制文件擷取
 
 您可以將中繼資料屬性新增至 blob 來控制某些層面的 blob 編製索引和文件擷取程序。目前支援下列屬性：
 
-<table style="font-size:12">
-
-<tr>
-<th>屬性名稱</th>
-<th>屬性值</th>
-<th>說明</th>
-</tr>
-
-<tr>
-<td>AzureSearch_Skip</td>
-<td>"true"</td>
-<td>指示 blob 索引子完全略過 blob，不會嘗試中繼資料或內容擷取。當您想要略過某些內容類型，或者當特定 blob 一直失敗，並且中斷編製索引程序時，這非常有用。
-</td>
-</tr>
-
-</table>
+屬性名稱 | 屬性值 | 說明
+--------------|----------------|------------
+AzureSearch\_Skip | "true" | 指示 blob 索引子完全略過 blob，不會嘗試中繼資料或內容擷取。當您想要略過某些內容類型，或者當特定 blob 一直失敗，並且中斷編製索引程序時，這非常有用。
 
 ## 協助我們改進 Azure 搜尋服務
 
 如果您有功能要求或改進的想法，請在我們的 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search)與我們連絡。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

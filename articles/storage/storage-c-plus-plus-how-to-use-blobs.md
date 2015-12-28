@@ -236,10 +236,10 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 -	[以 C++ 列出 Azure 儲存體資源](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
-
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

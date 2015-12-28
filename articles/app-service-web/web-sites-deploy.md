@@ -40,7 +40,7 @@
 
 * [使用 MSBuild 自動化部署](#msbuild)
 * [使用 FTP 工具和指令碼複製檔案](#ftp)
-* [使用 Windows PowerShell(#powershell) 自動化部署
+* [使用 Windows PowerShell 自動化部署](#powershell)
 * [使用 .NET 管理 API 自動化部署](#api)
 * [從 Azure 命令列介面 (Azure CLI) 部署](#cli)
 * [從 Web Deploy 命令列部署](#webdeploy)
@@ -52,13 +52,13 @@
 
 另一個部署選項是使用雲端式服務，例如 [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy)。如需詳細資訊，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)。
 
-##<a name="vso"></a>使用 Visual Studio Team Services 連續傳遞
+##<a name="vsts"></a>使用 Visual Studio Team Services 連續傳遞
 
 [Visual Studio Team Services](http://www.visualstudio.com/) (前身為 Team Foundation Service) 是 Microsoft 針對原始檔控制和團隊共同作業而推出的雲端解決方案。此服務可免費供 5 個開發人員以內的團隊使用。您可以執行連續傳遞至 App Service 中的 Web 應用程式，而您的儲存機制可以使用 [Git 或 TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs)。
 
 如需詳細資訊，請參閱下列資源：
 
-* [使用 Visual Studio Team Services 和 Git 連續傳遞至 TFVC](../cloud-services-continuous-delivery-use-vso.md)。示範如何使用 TFVC，從 Visual Studio Team Services 設定連續傳遞至 Web 應用程式的逐步教學課程。TFVC 是集中式原始檔控制選項，相對於作為分散式原始檔控制選項的 Git。
+* [使用 Visual Studio Team Services 和 TFVC 連續傳遞至 Azure](../cloud-services-continuous-delivery-use-vso.md)。示範如何使用 TFVC，從 Visual Studio Team Services 設定連續傳遞至 Web 應用程式的逐步教學課程。TFVC 是集中式原始檔控制選項，相對於作為分散式原始檔控制選項的 Git。
 * [使用 Visual Studio Team Services 和 Git 連續傳遞至 Azure](../cloud-services-continuous-delivery-use-vso-git.md)。與上一個教學課程類似，但使用 Git 而不是 TFVC。
 
 ##<a name="git"></a>使用 Git 的儲存機制網站
@@ -204,4 +204,4 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

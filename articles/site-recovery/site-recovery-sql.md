@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server 與 Azure Site Recovery 的災害復原 | Microsoft Azure" 
+	pageTitle="使用 SQL Server 災害復原與 Azure Site Recovery 保護 SQL Server | Microsoft Azure" 
 	description="Azure Site Recovery 可以將 SQL Server 的複寫、容錯移轉及復原作業協調至次要內部部署站台或 Azure。" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 
-# SQL Server 與 Azure Site Recovery 的災害復原 
+# 使用 SQL Server 災害復原與 Azure Site Recovery 保護 SQL Server 
 
 Site Recovery 是一種 Azure 服務，可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與災害復原 (BCDR) 策略做出貢獻。Site Recovery 支援多種複寫機制，以持續保護、複寫和容錯移轉機器至 Azure，或次要資料中心。在 [Azure Site Recovery 概觀](site-recovery-overview.md)中概要了解所有部署案例。
 
@@ -374,4 +374,4 @@ SQL 可用性群組可以複寫至 Azure 中的一或多個虛擬機器。當加
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

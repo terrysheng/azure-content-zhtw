@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="jeffstok"
 />
 
@@ -38,7 +38,7 @@
 本文的先決條件如下：
 
 1.	有效的 Azure 訂用帳戶
-2.	內附資料的 CSV 檔。這裡有圖 2 中的 CSV 檔可供下載，或者您也可以自行建立。本教學課程在編寫時是假設您會使用可供下載的 CSV 檔。
+2.	內附資料的 CSV 檔。[GitHub 內](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv)有圖 2 中的 CSV 檔可供下載，或者您也可以自行建立。本教學課程在編寫時是假設您會使用可供下載的 CSV 檔。
 
 概括而言，我們將會執行下列步驟：
 
@@ -66,20 +66,20 @@
 ## 新增 Cortana 分析資源庫中的情緒分析模型
 
 1.	下載 Cortana 分析資源庫中的[預測情緒分析模型](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1)。  
-2.	按一下 [在 Studio 中開啟]：  
+2.	在 Studio 中按一下 [開啟]：  
 
     ![串流分析機器學習服務教學課程開啟機器學習服務 Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
 
 3.	登入以前往工作區。選擇最適合您所在地的位置。
 4.	現在按一下 Studio 底部的 [執行]  
-5.	一旦順利執行，請按一下 [部署 Web 服務]。
+5.	一旦成功執行，請按一下 [部署 Web 服務]。
 6.	現在情緒分析模型已可供使用。若要驗證，請按一下 [測試] 按鈕，並提供文字輸入 (例如 "I love Microsoft")，然後測試作業應該就會傳回類似下面的結果：
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`
 
 ![串流分析機器學習服務教學課程分析資料](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)
 
-按一下 [Excel 2010 或較舊版本] 活頁簿連結，以取得稍後要用來設定串流分析作業的 API 金鑰和 URL (如果要利用另一個 Azure 帳戶之工作區中的機器學習服務模型，才必須執行此步驟。本教學課程假設這正是我們為了解決此案例而必須執行的動作)。
+按一下 [Excel 2010 或較舊版本] 活頁簿連結，以取得稍後要用來設定串流分析作業的 API 金鑰和 URL。(如果要利用另一個 Azure 帳戶之工作區中的機器學習服務模型，才必須執行此步驟。本教學課程假設這正是我們為了解決此案例而必須執行的動作)。
 
 ![串流分析機器學習服務教學課程分析實驗](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-experiement.png)
 
@@ -90,32 +90,40 @@
 ## 建立使用機器學習服務模型的串流分析作業
 
 1.	瀏覽至 [Azure 管理入口網站](https://manage.windowsazure.com)。  
-2.	依序按一下 [新增]、[資料服務]、[串流分析] 和 [快速建立]。提供 [作業名稱] 和適當的作業 [區域]，然後選擇 [區域監視儲存體帳戶]。    
+2.	依序按一下 [新增]、[資料服務]、[串流分析] 和 [快速建立]。提供 [工作名稱] 和適當的工作 [區域]，然後選擇 [區域監視儲存體帳戶]。    
 3.	作業建立好之後，瀏覽至 [輸入] 索引標籤，然後按一下 [加入輸入]。  
 
     ![串流分析機器學習服務教學課程資料新增機器學習服務輸入](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
 
-4.	在 [加入輸入] 精靈視窗的第一頁上，選取 [資料串流] 並按 [下一步]。在第二頁上選取 [Blob 儲存體] 做為輸入，然後按 [下一步]。
-5.	在精靈的 [Blob 儲存體設定] 頁面上，提供先前上傳資料時所定義的儲存體帳戶 Blob 容器名稱。按 [下一步]。選擇 [CSV] 做為 [事件序列化格式]。接受 [序列化設定] 的其餘預設值。按一下 [確定]。  
-6.	瀏覽至 [輸出] 索引標籤，然後按一下 [新增輸出]。  
+4.	在 [加入輸入精靈] 視窗的第一頁上，選取 [資料串流] 並按一下 [下一步]。在第二頁上選取 [Blob 儲存體] 作為輸入，然後按一下 [下一步]。
+5.	在精靈的 [Blob 儲存體設定] 頁面上，提供先前上傳資料時所定義的儲存體帳戶 Blob 容器名稱。按一下 [下一步]。選擇 [CSV] 作為 [事件序列化格式]。接受其餘 [序列化設定] 的預設值。按一下 [確定]。  
+6.	瀏覽至 [輸出] 索引標籤，然後按一下 [加入輸出]。  
 
     ![串流分析機器學習服務教學課程新增輸出](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
 
 7.	選擇 [Blob 儲存體]，並提供相同的參數 (但容器除外)。我們先前已設定為要從 **CSV** 檔所上傳到的 "test" 容器中讀取**輸入**。至於**輸出**，則指定為 “testoutput”。容器名稱必須不同，並請確認此容器存在。
-8.	按 [下一步] 以設定輸出的 [序列化設定]。和在輸入時一樣，選擇 [CSV] 並按一下 [確定] 按鈕。
-9.	瀏覽至 [函式] 索引標籤，然後按一下 [新增機器學習服務函式]。  
+8.	按一下 [下一步] 以設定輸出的 [序列化設定]。和在輸入時一樣，選擇 [CSV] 並按一下 [確定] 按鈕。
+9.	瀏覽至 [函數] 索引標籤，然後按一下 [加入機器學習服務函數]。  
 
     ![串流分析機器學習服務教學課程新增機器學習服務函式](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
 
-10.	在 [機器學習服務 Web 服務設定] 頁面上，找到機器學習服務工作區、Web 服務和預設端點。在本教學課程中，如果您知道 URL 而且擁有金鑰，請手動套用設定，以便熟悉工作區 Web 服務的設定方式。提供端點的 [URL] 和 [API 金鑰]。然後按一下 [確定]。
+10.	在 [機器學習服務 Web 服務設定] 頁面上，找到機器學習服務工作區、Web 服務和預設端點。在本教學課程中，如果您知道 URL 而且擁有金鑰，請手動套用設定，以便熟悉工作區 Web 服務的設定方式。提供端點的 **URL** 和 **API 金鑰**。然後按一下 [確定]。
 
     ![串流分析機器學習服務教學課程機器學習服務 Web 服務](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)
 
 11.	瀏覽至 [查詢] 索引標籤，並如下所示修改查詢：
 
-    ![串流分析機器學習服務教學課程機器學習服務查詢](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-query.png)
+```
+	WITH subquery AS (  
+		SELECT text, sentiment(text) as result from input  
+	)  
+	  
+	Select text, result.[Score]  
+	Into output  
+	From subquery  
+```
 
-12. 按一下 [儲存] 以儲存查詢。
+12. 按一下 [儲存] 以儲存查詢。    
 
 ## 啟動串流分析作業並觀察輸出
 
@@ -142,4 +150,4 @@
 
     ![串流分析機器學習服務教學課程 ml 監視檢視](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

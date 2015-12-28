@@ -1,8 +1,8 @@
 ## 使用 EventProcessorHost 接收訊息
 
-[EventProcessorHost][] 是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞之事件的接收作業。使用 [EventProcessorHost]，您可以將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。這個範例顯示單一接收者如何使用 [EventProcessorHost]。[擴充事件處理]範例顯示如何搭配使用 [EventProcessorHost] 與多個接收者。
+[EventProcessorHost][] 是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞之事件的接收作業。使用 [EventProcessorHost][]，您可以將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。這個範例顯示單一接收者如何使用 [EventProcessorHost][]。[擴充事件處理][]範例顯示如何搭配使用 [EventProcessorHost][] 與多個接收者。
 
-若要使用 [EventProcessorHost]，您必須擁有 [Azure 儲存體帳戶]：
+若要使用 [EventProcessorHost][]，您必須擁有 [Azure 儲存體帳戶][]：
 
 1. 登入 [Azure 傳統入口網站][]，並按一下畫面底部的 [新增]。
 
@@ -42,10 +42,9 @@
 
 	接著，將該類別的主體取代為下列程式碼：
 
-	```
-    class SimpleEventProcessor : IEventProcessor
-	{
-	    Stopwatch checkpointStopWatch;
+	``` class SimpleEventProcessor : IEventProcessor 
+	    {
+	        Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {
@@ -74,19 +73,18 @@
 	                context.Lease.PartitionId, data));
 	        }
 
-	        //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts.
+	        //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
 	        if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
             {
                 await context.CheckpointAsync();
                 this.checkpointStopWatch.Restart();
             }
 	    }
-	}
-    ````
+	} ````
 
 	**EventProcessorHost** 會呼叫這個類別來處理接收自事件中樞的事件。請注意，`SimpleEventProcessor` 類別會使用馬錶定期在 **EventProcessorHost** 內容上呼叫檢查點方法。這可確保重新啟動接收者時，遺失的處理工作不超過五分鐘。
 
-9. 在 **Program** 類別中，於頂端新增下列 `using` 陳述式：
+9. 在 **Program** 類別檔案的頂端，新增下列 `using` 陳述式：
 
 	```
 	using Microsoft.ServiceBus.Messaging;
@@ -94,7 +92,7 @@
 	using System.Threading.Tasks;
 	```
 
-	然後，如下所示修改 **Program** 類別的 **Main** 方法，替代事件中樞名稱和連接字串，以及您在先前各節中複製的儲存體帳戶和金鑰：
+	然後，如下所示修改 `Program` 類別中的 `Main` 方法，並替代事件中心名稱和連接字串，以及您在先前各節中複製的儲存體帳戶和金鑰：
 
     ```
 	static void Main(string[] args)
@@ -115,8 +113,7 @@
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
 	````
-
-> [AZURE.NOTE]本教學課程使用單一 [EventProcessorHost][] 執行個體。若要增加輸送量，建議您執行多個 [EventProcessorHost][] 執行個體 (如[擴充事件處理]範例所示)。在這些情況下，各種執行個體會自動彼此協調以對已接收的事件進行負載平衡。如果您想要多個接收者都處理*所有*事件，則必須使用 **ConsumerGroup** 概念。收到來自不同電腦的事件時，根據在其中執行 [EventProcessorHost][] 執行個體的電腦 (或角色) 來指定名稱可能十分有用。如需這些主題的詳細資訊，請參閱[事件中樞概觀][]和[事件中樞程式設計指南][]主題。
+> [AZURE.NOTE]本教學課程使用單一 [EventProcessorHost][] 執行個體。若要增加輸送量，建議您執行多個 [EventProcessorHost][] 執行個體 (如[擴充事件處理][]範例所示)。在這些情況下，各種執行個體會自動彼此協調以對已接收的事件進行負載平衡。如果您想要多個接收者都處理*所有*事件，則必須使用 **ConsumerGroup** 概念。收到來自不同電腦的事件時，根據在其中執行 [EventProcessorHost][] 執行個體的電腦 (或角色) 來指定名稱可能十分有用。如需這些主題的詳細資訊，請參閱[事件中樞概觀][]和[事件中樞程式設計指南][]主題。
 
 <!-- Links -->
 [事件中樞概觀]: event-hubs-overview.md
@@ -133,4 +130,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # 什麼是網路安全性群組 (NSG)？
@@ -248,4 +248,4 @@ NSG 規則包含下列屬性。
 - [在資源管理員中部署 NSG](virtual-networks-create-nsg-arm-pportal.md)。
 - [管理 NSG 記錄檔](virtual-network-nsg-manage-log.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,9 +3,9 @@
    description="了解如何將 Web 應用程式部署到虛擬機器。此指令碼會在您的 Azure 訂用帳戶中建立所需的資源 (如果它們不存在)。"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Publish-WebApplicationVM (Windows PowerShell 指令碼)
 
@@ -189,4 +189,4 @@ JSON 組態檔會指定待部署項目的詳細資料。它包含您在建立專
 
 您可以編輯 JSON 組態檔來變更佈建項目。虛擬機器和雲端服務是必要的，但資料庫區段是選擇性的。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

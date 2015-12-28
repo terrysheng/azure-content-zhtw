@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中調整 Web 應用程式規模 #
@@ -30,7 +30,8 @@
 
 > [AZURE.NOTE]將 Web 應用程式從 [免費] 模式切換為 [基本]、[標準] 或 [高階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂訂用帳戶][azuresubscriptions]。
 
-<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
+<a name="scalingsharedorbasic"></a>
+<!-- ===================================== -->
 ## 調整為共用或基本模式
 <!-- ===================================== -->
 
@@ -44,13 +45,14 @@
 	
 	當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
 	
-5. 將 [執行個體] 列從左滑動到右以增加執行個體的數量，然後按一下命令列中的 [儲存]。「共用」模式未提供執行個體大小選項。如需這些執行個體大小的詳細資訊，請參閱 [Windows Azure 的虛擬機器和雲端服務大小][vmsizes]。
+5. 將 [執行個體] 列從左滑動到右以增加執行個體的數量，然後按一下命令列中的 [儲存]。「共用」模式未提供執行個體大小選項。如需這些執行個體大小的詳細資訊，請參閱 [Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]。
 	
 	![基本模式的執行個體大小][ChooseBasicInstances]
 	
 	當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
 	
-<a name="scalingstandard"></a> <!-- ================================= -->
+<a name="scalingstandard"></a>
+<!-- ================================= -->
 ## 調整為標準或高階模式
 <!-- ================================= -->
 
@@ -158,7 +160,7 @@
 	
 	[SQL Database 定價詳細資料](/pricing/details/sql-database/)
 	
-	[Windows Azure 的虛擬機器和雲端服務大小][vmsizes]
+	[Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]
 	
 	[App Service 定價詳細資料](/pricing/details/web-sites/)
 	
@@ -198,4 +200,4 @@
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1217_2015-->

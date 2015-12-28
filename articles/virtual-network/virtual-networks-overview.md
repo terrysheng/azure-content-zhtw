@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/29/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # 虛擬網路概觀
@@ -31,6 +31,8 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 
 請注意 Azure 基礎結構擔任路由器角色的方式，允許從 VNet 存取公用網際網路，而不需要任何組態。防火牆可以換成套用至每個個別子網路的網路安全性群組 (NSG)。而實體負載平衡器可以換成 Azure 中面向網際網路的內部負載平衡器。
 
+>[AZURE.NOTE]Azure 中有兩種部署模式：傳統 (也稱為服務管理) 和 Azure 資源管理員 (ARM)。傳統 VNet 可以加入同質群組，或建立成區域 VNet。如果您有 VNet 在同質群組中，建議[將其移轉至區域 VNet](./virtual-networks-migrate-to-regional-vnet.md)。
+
 ## 虛擬網路的優點
 
 - **隔離**。VNet 與彼此完全隔離。這樣可以讓您為使用相同 CIDR 位址區塊的開發、測試和生產環境建立不相連的網路。
@@ -43,13 +45,9 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 
 - **安全性**。您可以使用網路安全性群組來控制 VNet 中進出虛擬機器和 PaaS 角色執行個體的流量。
 
-- **連線能力**。透過站對站 VPN 連線或 ExpressRoute 連線，VNet 可以彼此連線，甚至連線至您的內部部署資料中心。若要深入了解 VPN 閘道，請造訪[關於 VPN 閘道](./vpn-gateway-about-vpngateways.md)。若要深入了解 ExpressRoute，請參閱 [ExpressRoute 技術概觀](./expressroute-introduction.md)。
+- **連線能力**。透過站對站 VPN 連線或 ExpressRoute 連線，VNet 可以彼此連線，甚至連線至您的內部部署資料中心。若要深入了解 VPN 閘道，請瀏覽[關於 VPN 閘道](./vpn-gateway-about-vpngateways.md)。若要深入了解 ExpressRoute，請瀏覽 [ExpressRoute 技術概觀](./expressroute-introduction.md)。
 
     >[AZURE.NOTE]在將任何 IaaS VM 或 PaaS 角色執行個體部署至 Azure 環境之前，請確定您已建立 VNet。ARM 架構的 VM 需要 VNet，而且如果沒有指定現有的 VNet，Azure 建立的預設 VNet 可能會與您的內部部署網路產生 CIDR 位址區塊衝突，這會使您無法將 VNet 連線至內部部署網路。
-
-## 部署模式
-
-    >[AZURE.NOTE] There are two deployment modes in Azure: classic (also known as Service Management) and Azure Resource Manager (ARM). Classic VNets could be added to an affinity group, or created as a regional VNet. If you have a VNet in an affinity group, it is recommended to [migrate it to a regional VNet](./virtual-networks-migrate-to-regional-vnet.md). 
     
 ## 子網路
 
@@ -70,11 +68,11 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 
 - **內部負載平衡器**。您可以使用內部負載平衡器，以提供從 VNet 中其他服務存取 IaaS VM 和 PaaS 角色執行個體時的高可用性。
 
-若要深入了解 Azure 中的負載平衡，請參閱[負載平衡器概觀](../load-balancer-overview.md)。
+若要深入了解 Azure 中的負載平衡，請瀏覽[負載平衡器概觀](../load-balancer-overview.md)。
 
 ## 網路安全性群組 (NSG)
 
-您可以建立 NSG 來控制對網路介面 (NIC)、VM 和子網路的輸入和輸出存取。每個 NSG 都有包含一個或多個規則，指定是否要根據來源 IP 位址、來源連接埠、目的地 IP 位址和目的地連接埠來核准或拒絕流量。若要深入了解 NSG，請參閱[什麼是網路安全性群組](../virtual-networks-nsg.md)。
+您可以建立 NSG 來控制對網路介面 (NIC)、VM 和子網路的輸入和輸出存取。每個 NSG 都有包含一個或多個規則，指定是否要根據來源 IP 位址、來源連接埠、目的地 IP 位址和目的地連接埠來核准或拒絕流量。若要深入了解 NSG，請瀏覽[什麼是網路安全性群組](../virtual-networks-nsg.md)。
 
 ## 虛擬應用裝置
 
@@ -85,7 +83,7 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 虛擬應用裝置相依於[使用者定義的路由和 IP 轉送](../virtual-networks-udr-overview.md)。
 
 ## 限制
-訂用帳戶中允許的虛擬網路數目有受到限制，如需詳細資訊，請參閱 [Azure 網路限制](azure-subscription-service-limits.md#networking-limits)。
+訂用帳戶中允許的虛擬網路數目受到限制，如需詳細資訊，請參閱 [Azure 網路限制](azure-subscription-service-limits.md#networking-limits)。
 
 ## 定價
 在 Azure 中使用虛擬網路並沒有其他費用。至於在 Vnet 中啟動的計算執行個體，則會依 [Azure VM 價格](https://azure.microsoft.com/pricing/details/virtual-machines/)中所述的標準費率進行收費。VNet 中所使用的 [VPN 閘道](https://azure.microsoft.com/pricing/details/vpn-gateway/)和[公用 IP 位址](https://azure.microsoft.com/pricing/details/ip-addresses/)也會依標準費率進行收費。
@@ -100,4 +98,4 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 - [保留公用 IP 位址](../virtual-networks-reserved-public-ip.md)。
 - 了解[使用者定義的路由和 IP 轉送](virtual-networks-udr-overview.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1217_2015-->

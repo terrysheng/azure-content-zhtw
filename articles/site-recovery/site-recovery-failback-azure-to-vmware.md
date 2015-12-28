@@ -131,7 +131,7 @@ Windows 主要目標已經隨附於 vContinuum 安裝程式中。當您安裝 vC
 
 注意：請先確定系統具有網際網路連線，然後再下載並安裝其他封裝。
 
-# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 此命令會從 CentOS 6.6 儲存機制下載這 15 個封裝，並加以安裝：
 
@@ -409,4 +409,4 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1217_2015--->

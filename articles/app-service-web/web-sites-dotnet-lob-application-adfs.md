@@ -150,7 +150,7 @@
 > [AZURE.NOTE]請確定為您的兩個環境重複下列步驟。
 
 4.	在 AD FS 伺服器上，使用具有 AD FS 之管理權限的認證登入。
-5.	開啟 [AD FS 管理]。以滑鼠右鍵按一下 [AD FS][信任的關係][信賴憑證者信任]，然後選取 [新增信賴憑證者信任]。
+5.	開啟 [AD FS 管理]。以滑鼠右鍵按一下 [AD FS] [信任的關係] \[信賴憑證者信任]，然後選取 [新增信賴憑證者信任]。
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
@@ -353,4 +353,4 @@ Azure App Service Web Apps 可透過兩種方式支援存取在內部部署資�
  
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->

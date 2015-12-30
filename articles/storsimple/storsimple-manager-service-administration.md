@@ -57,7 +57,10 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |登陸頁面|服務層級頁面|裝置層級頁面|裝置層級頁面|
 |---|---|---|---|
 |StorSimple Manager 服務|服務儀表板|裝置儀表板||
-||裝置 →|監視器| ||備份目錄|磁碟區容器→|磁碟區| ||設定 (服務)|備份原則|| ||工作|設定 (裝置)| ||警示|維護|
+||裝置 →|監視器| 
+||備份目錄|磁碟區容器→|磁碟區| 
+||設定 (服務)|備份原則|| ||工作|設定 (裝置)| 
+||警示|維護|
 
 ![提供的影片](./media/storsimple-manager-service-administration/Video_icon.png) **提供的影片**
 
@@ -112,4 +115,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 -  [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

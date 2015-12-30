@@ -38,7 +38,7 @@
  	 ![CreateRG][CreateRG]
 
 
-6. 請務必選取您要部署叢集的 [訂用帳戶] (尤其在您有多個訂用帳戶時)。
+6. 請務必選取您要部署叢集的 [訂用帳戶] \(尤其在您有多個訂用帳戶時)。
 
 7. 從下拉式清單中選取**位置** (如果您想要建立於其他位置，否則會預設為 [美國西部])
 
@@ -213,4 +213,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!------HONumber=AcomDC_1203_2015-->

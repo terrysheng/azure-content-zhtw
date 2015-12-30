@@ -46,7 +46,7 @@
 
 >[AZURE.NOTE]請務必在支援叢集的位置建立您的儲存體帳戶。
 
-從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
+從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] \(或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
 	
 ##<a name="provision"></a>佈建 HDInsight Spark 叢集
 
@@ -260,4 +260,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

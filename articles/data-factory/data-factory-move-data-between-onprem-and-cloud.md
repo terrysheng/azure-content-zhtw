@@ -333,7 +333,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 1.	在 **DATA FACTORY** 刀鋒視窗中，按一下 [**製作和部署**] 磚來啟動 Data Factory 的 [**編輯器**]。
 
 	![[製作和部署] 磚](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
-2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [...] (省略符號) 展開命令列。
+2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [...] \(省略符號) 展開命令列。
 2.	使用下列文字取代右窗格中的 JSON：   
 
 
@@ -618,4 +618,4 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 	- 	進行 [Azure SQL 防火牆設定](https://msdn.microsoft.com/library/azure/jj553530.aspx)，將**閘道器電腦的 IP 位址**加入 [允許的 IP 位址] 中。
 5.	當複製資料至/從內部部署 SQL Server 至任何目的地，而且閘道器和 SQL Server 電腦不同時，請執行下列動作：在 SQL Server 電腦上[設定 Windows 防火牆](https://msdn.microsoft.com/library/ms175043.aspx)，讓閘道器可以透過 SQL Server 執行個體所接聽的連接埠存取資料庫。在預設執行個體中，這是連接埠 1433。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

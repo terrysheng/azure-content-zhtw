@@ -34,14 +34,14 @@ PowerApps Enterprise 已啟用且可供使用，您可以新增系統管理員�
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 [PowerApps]。
 2. 選取 [Settings] (設定)。
-3. 在 [Settings] (設定) 中，選取 [Admin] (系統管理員)：![][1]  
+3. 在 [Settings] \(設定) 中，選取 [Admin] \(系統管理員)：![][1]  
 4. 在 [Users] (使用者) 中，選取 [Add] (新增)。
-5. 選取 [Owner] (擁有者) 角色：![][2]  
+5. 選取 [Owner] \(擁有者) 角色：![][2]  
 
-	> [AZURE.IMPORTANT]如果您要指派某個使用者做為「PowerApps 系統管理員」，請務必選取 [Owner] (擁有者) 角色。其他列出的使用者並無法賦予使用者可管理 PowerApps 的完整存取權。
+	> [AZURE.IMPORTANT]如果您要指派某個使用者做為「PowerApps 系統管理員」，請務必選取 [Owner] \(擁有者) 角色。其他列出的使用者並無法賦予使用者可管理 PowerApps 的完整存取權。
 
 6. 選取您的使用者或群組。
-7. 選取 [OK] (確定) 以完成步驟。
+7. 選取 [OK] \(確定) 以完成步驟。
 
 當您將「系統管理員」新增到 PowerApps Enterprise 時，您新增為系統管理員的使用者和群組可以：
 
@@ -64,7 +64,7 @@ PowerApps Enterprise 已啟用且可供使用，您可以新增系統管理員�
 ### 檢視及管理您的 PowerApps
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 [PowerApps]。
-2. 從 [All apps] (所有 app) 磚中，選取 [PowerApps]：![][3]  
+2. 從 [All apps] \(所有 app) 磚中，選取 [PowerApps]：![][3]  
 3. 選取一個 app 來檢視該 app 的詳細資料，包括：  
 	- App 使用的 API
 	- 具有 app 存取權的使用者和群組 
@@ -82,20 +82,20 @@ PowerApps Enterprise 已啟用且可供使用，您可以新增系統管理員�
 身為 PowerApps 系統管理員，您可以對 PowerApps 新增或移除使用者和群組。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 [PowerApps]。
-2. 在 [All apps] (所有 app) 磚中，選取 [PowerApps]：![][3]  
+2. 在 [All apps] \(所有 app) 磚中，選取 [PowerApps]：![][3]  
 3. 選取 app，例如 [Service Desk] (服務台)。 
-4. 在 [Settings] (設定) 中，選取 [App user access] (App 使用者存取權)：![][5]  
+4. 在 [Settings] \(設定) 中，選取 [App user access] (App 使用者存取權)：![][5]  
 5. 選取 [Add] (新增) 來新增使用者或群組。 
 6. 選取角色：  
 	- Can Edit (可編輯)
 	- Can View (可檢視)
 7. 選取使用者或群組。
-8. 選取 [OK] (確定) 以完成步驟。
+8. 選取 [OK] \(確定) 以完成步驟。
 
 ### 檢視及管理您的邏輯 app
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 [PowerApps]。
-2. 在 [All apps] (所有 app) 磚中，選取 [Logic apps] (邏輯 app)：![][8]  
+2. 在 [All apps] (所有 app) \磚中，選取 [Logic apps] (邏輯 app)：![][8]  
 3. 選取一個邏輯 app 來檢視該 app 的詳細資料。請確定您選取的是正確的 PowerApps 訂閱帳戶，如此才能列出正確的邏輯 app：![][7]  
 
 	> [AZURE.IMPORTANT]在公用預覽中，您可能會看到瀏覽刀鋒視窗中的邏輯 app 計數與主要 PowerApps 刀鋒視窗上顯示的計數不一致。這是預期行為。入口網站顯示的是所有虛擬主機方案的所有邏輯 app，並未篩選針對 PowerApps 部署的 app 服務環境下的邏輯 app。在未來的更新中將會修正這個行為。
@@ -105,14 +105,14 @@ PowerApps Enterprise 已啟用且可供使用，您可以新增系統管理員�
 ### 檢視及管理您的 Web app
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 [PowerApps]。
-2. 在 [All apps] (所有 app) 磚中，選取 [Web apps] (Web app)：![][9]  
+2. 在 [All apps] \(所有 app) 磚中，選取 [Web apps] (Web app)：![][9]  
 
 	**若要深入了解 Web app 及如何管理它們，請參閱[這些指示](https://azure.microsoft.com/documentation/services/app-service/web/)。**
 
 ### 檢視及管理您的行動 app
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 [PowerApps]。
-2. 在 [All apps] (所有 app) 磚中，選取 [Mobile apps] (行動 app)：![][10]  
+2. 在 [All apps] \(所有 app) 磚中，選取 [Mobile apps] (行動 app)：![][10]  
 
 	**若要深入了解行動 app 及如何管理它們，請參閱[這些指示](https://azure.microsoft.com/documentation/services/app-service/mobile/)。**
 
@@ -166,4 +166,4 @@ PowerApps Enterprise 已啟用且可供使用，您可以新增系統管理員�
 [9]: ./media/powerapps-manage-monitor-usage/webapps.png
 [10]: ./media/powerapps-manage-monitor-usage/mobileapps.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

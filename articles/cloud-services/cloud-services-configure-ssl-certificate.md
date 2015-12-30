@@ -127,7 +127,7 @@
 
     ![上傳](./media/cloud-services-configure-ssl-certificate/upload-button.png)
     
-6. 提供 [**檔案**]、[**密碼**]，然後按一下 [**完成**] (核取記號)。
+6. 提供 [**檔案**]、[**密碼**]，然後按一下 [**完成**] \(核取記號)。
 
 ## 步驟 4：使用 HTTPS 來連線至角色執行個體
 
@@ -160,4 +160,4 @@
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

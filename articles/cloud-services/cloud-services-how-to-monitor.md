@@ -102,7 +102,7 @@ Azure 傳統入口網站的監視顯示本身的可設定度相當高。您可�
  
 	![加入度量搜尋](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
 
-3. 完成選取度量後，按一下 [確定] (核取記號)。
+3. 完成選取度量後，按一下 [確定] \(核取記號)。
 
 	選取的度量隨即新增到度量表，如下所示。
 

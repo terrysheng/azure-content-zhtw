@@ -78,9 +78,9 @@
   - LINQ 提供者支援 OrderBy() 或 OrderByDescending()
   - IndexingPolicy 支援 Order By 
   
-		**NB: Possible breaking change** 
+		**NB: 可能中斷變更** 
   
-    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    	如果您有與自訂索引原則佈建集合的現有程式碼，您需要更新現有的程式碼才能支援新的 IndexingPolicy 類別。 如果您沒有自訂的索引原則，這個變更不會影響到您。
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - 支援使用新的 HashPartitionResolver 和 RangePartitionResolver 類別及 IPartitionResolver 來分割資料

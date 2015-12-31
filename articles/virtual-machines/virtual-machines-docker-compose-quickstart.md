@@ -21,7 +21,7 @@
 
 本文說明如何開始使用 Docker 和 [Compose](http://github.com/docker/compose)，在 Azure 中的 Linux 虛擬機器上定義並執行複雜的應用程式。藉由 Compose (*Fig* 的後續版本)，您可使用簡單的文字檔，定義多個 Docker 容器所組成的應用程式。然後您可以透過可進行所有操作以便在 VM 上執行的單一命令，啟動您的應用程式。例如，本文將說明如何藉由後端 MariaDB SQL 資料庫快速設定 WordPress 部落格，但您也可以使用 Compose 來設定更複雜的應用程式。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [資源管理員模型](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/)。
 
 
 如果您是初次使用 Docker 和容器，請參閱 [Docker 高階白板](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/)。
@@ -73,7 +73,7 @@ db:
 
 ```
 
-## Step 4: Start the containers with Compose
+## 步驟 4: 以 Compose 啟動容器
 
 在您 VM 的工作目錄中，執行以下命令。
 

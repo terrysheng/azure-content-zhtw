@@ -73,11 +73,14 @@ Azure Machine Learning 建議 API 的服務根 URI 在[這裡。](https://api.da
 
 ###4\.2.排名組建
 
-功能可增強建議模型，但若要這樣做需要使用有意義的功能。為了這個目的，引入新的組建 - 排名組建。此組建會對功能的效益進行排名。有意義的功能為排名分數 2 以上的功能。了解哪些是有意義的功能之後，會利用有意義功能的清單 (或子清單) 觸發建議組建。這樣就可以使用這些功能同時增強暖項目和冷項目。若要將它們用於暖項目，應設定 `UseFeatureInModel` 組建參數。若要將它們用於冷項目，應啟用 `AllowColdItemPlacement` 組建參數。注意：不可能啟用 `AllowColdItemPlacement` 而不啟用 `UseFeatureInModel`。
+功能可增強建議模型，但若要這樣做需要使用有意義的功能。為了這個目的，引入新的組建 - 排名組建。此組建會對功能的效益進行排名。有意義的功能為排名分數 2 以上的功能。
+了解哪些是有意義的功能之後，會利用有意義功能的清單 (或子清單) 觸發建議組建。這樣就可以使用這些功能同時增強暖項目和冷項目。若要將它們用於暖項目，應設定 `UseFeatureInModel` 組建參數。若要將它們用於冷項目，應啟用 `AllowColdItemPlacement` 組建參數。
+注意：不可能啟用 `AllowColdItemPlacement` 而不啟用 `UseFeatureInModel`。
 
 ###4\.3.建議推論
 
-建議推論是功能使用方式的另一個層面。的確，Azure Machine Learning 建議引擎可以使用功能來提供建議說明 (也稱為推理)，讓建議取用者對建議項目產生更多信心。若要啟用推論，應在要求建議組建之前設定 `AllowFeatureCorrelation` 和 `ReasoningFeatureList` 參數。
+建議推論是功能使用方式的另一個層面。的確，Azure Machine Learning 建議引擎可以使用功能來提供建議說明 (也稱為推理)，讓建議取用者對建議項目產生更多信心。
+若要啟用推論，應在要求建議組建之前設定 `AllowFeatureCorrelation` 和 `ReasoningFeatureList` 參數。
 
 
 ##5\.模型基本操作
@@ -879,7 +882,17 @@ OData XML
 ||| 
 | 要求本文 | 
 <ins>在提供商務規則的項目識別碼時，請務必使用項目的外部識別碼 (您用於目錄檔案的相同識別碼)</ins><br> 
-<ins>若要新增 BlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>若要新增 FeatureBlockList 規則：</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>若要新增 Upsale 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>若要新增 WhiteList 規則：</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>若要新增 FeatureWhiteList 值：</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>若要新增 PerSeedBlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>若要新增 BlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>若要新增 FeatureBlockList 規則：</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
+若要新增 Upsale 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
+<ins>若要新增 WhiteList 規則：</ins><br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>若要新增 FeatureWhiteList 值：</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
+若要新增 PerSeedBlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **回應**：
@@ -944,7 +957,8 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| | 要求主體 | 無 |
+|||
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -3074,7 +3088,10 @@ HTTP 狀態碼：200
 
 
 ##15\.法律
-這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br> 此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br> 本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br> © 2015 Microsoft.著作權所有，並保留一切權利。
+這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br>
+此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br>
+本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br>
+© 2015 Microsoft.著作權所有，並保留一切權利。
  
 
 <!---HONumber=AcomDC_1217_2015-->

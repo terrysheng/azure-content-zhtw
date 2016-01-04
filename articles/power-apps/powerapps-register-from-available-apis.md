@@ -107,7 +107,7 @@ API | 說明 | 步驟連結
 
 ## 註冊 Microsoft 管理的或 IT 管理的 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 [Manage APIs] \(管理 API)：  
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 \[Manage APIs] \(管理 API)：  
 ![][17]
 2. 在 [Manage APIs] \(管理 API) 中，選取 [Add] \(新增)：  
 ![][18]  
@@ -155,4 +155,4 @@ API | 說明 | 步驟連結
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---------HONumber=AcomDC_1210_2015--->

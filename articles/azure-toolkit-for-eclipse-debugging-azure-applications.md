@@ -35,6 +35,7 @@
 1. 在模擬器中建置要測試的專案：在 Eclipse 的專案總管中，以滑鼠右鍵按一下 [MyAzureProject]，依序按一下 [內容]、[Azure]，將 [建置目的]設為 [部署至雲端]。
 1. 重建您的專案：從 Eclipse 功能表按一下 [專案]，然後按一下 [全部建置]。
 1. 將應用程式部署至 Azure 中的 [預備]。
+
     >[AZURE.IMPORTANT]如前所述，在大部分情況下，強烈建議您在計算模擬器中偵錯，只有需要額外的偵錯時，才在預備環境中偵錯。建議您不要在生產環境中偵錯。
 1. 當您在 Azure 的部署準備就緒後，請從 [Azure 管理入口網站][]取得部署的 DNS 名稱。預備環境部署的 DNS 名稱的格式如下：http://*&lt;guid&gt;*.cloudapp.net，其中 *&lt;guid&gt;* 是 Azure 指派的 GUID 值。
 1. 在 Eclipse 的專案總管中，於 [WorkerRole1] 上按一下滑鼠右鍵，按一下 [Azure]，然後按一下 [偵錯]。
@@ -42,6 +43,7 @@
     1. 核取 [啟用這個角色的遠端偵錯]。
     1. 針對 [要使用的輸入端點]，使用 [偵錯 (public:8090, private:8090)]。
     1. 確定未核取 [將 JVM 啟動在暫停模式，等候偵錯工具連線]。
+
         >[AZURE.IMPORTANT] [將 JVM 啟動在暫停模式，等候偵錯工具連線] 選項僅適用於計算模擬器中的進階偵錯案例 (不適用於雲端部署)。如果使用 [將 JVM 啟動在暫停模式，等候偵錯工具連線] 選項，它會暫停伺服器的啟動程序，直到 Eclipse 偵錯工具連線到其 JVM 為止。雖然您可以在使用計算模擬器的偵錯工作階段使用此選項，但請勿將它使用在雲端部署的偵錯工作階段。伺服器的初始化是在 Azure 啟動工作中進行，而 Azure 雲端在啟動工作完成之前不會提供公用端點。因此，如果在雲端部署中啟用此選項，啟動程序將無法順利完成，因為它無法接收來自外部 Eclipse 用戶端的連線。
     1. 按一下 [建立偵錯組態]。
 1. 在 [Azure 偵錯組態] 對話方塊中：
@@ -131,4 +133,4 @@
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!--------HONumber=AcomDC_1210_2015--->

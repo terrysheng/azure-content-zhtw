@@ -184,7 +184,10 @@
 
 ##將變更發行至您的應用程式
 
-1. 在文字編輯器中開啟 **server.js** 檔案，然後將「Hello World\\n」變更為「Hello Azure\\n」。儲存檔案。
+1. 在文字編輯器中開啟 **server.js** 檔案，然後將「Hello World\\n」變更為「Hello Azure\\n」。 
+
+2. 儲存檔案。
+
 2. 從命令列將目錄位置變更至 **helloworld** 目錄，然後執行下列命令：
 
 		git add .
@@ -223,4 +226,4 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

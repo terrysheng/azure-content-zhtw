@@ -207,7 +207,7 @@
 
         using Microsoft.ServiceBus.Messaging;
 
-    然後將 **Main** 方法修改為以下所示的**程式**類別，將 IoT 中心 **iothubowner** 連接字串 (來自 [開始使用 IoT 中心] 教學課程)、儲存體連接字串和服務匯流排連接字串取代為名為 **d2ctutorial** 之佇列的**傳送**權限：
+    然後將 **Main** 方法修改為以下所示的**程式**類別，將 IoT 中心 **iothubowner** 連接字串 (來自 [開始使用事件中樞] 教學課程)、儲存體連接字串和服務匯流排連接字串取代為名為 **d2ctutorial** 之佇列的**傳送**權限：
 
         static void Main(string[] args)
         {
@@ -324,4 +324,4 @@
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

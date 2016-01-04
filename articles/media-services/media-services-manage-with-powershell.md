@@ -19,10 +19,12 @@
 
 #利用 PowerShell 管理 Azure Media Services 帳戶
 
+
 > [AZURE.SELECTOR]
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+
 
 > [AZURE.NOTE]若要建立 Azure 媒體服務帳戶，您必須擁有 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
 

@@ -109,14 +109,14 @@ API | 說明 | 步驟連結
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 [Manage APIs] \(管理 API)：  
 ![][17]
-2. 在 [Manage APIs] \(管理 API) 中，選取 [Add] \(新增)：
+2. 在 [Manage APIs] \(管理 API) 中，選取 [Add] \(新增)：  
 ![][18]  
 3. 在 [Add API]\(新增 API) 中，輸入 API 屬性：  
 
 	- 在 [Name] \(名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。請設定有意義且在組織中獨一無二的名稱。
-	- 在 [Source] \(來源) 中，選取 [From available APIs] \(從可用的 API)：
+	- 在 [Source] \(來源) 中，選取 [From available APIs] \(從可用的 API)：  
 	![][19]
-4. 選取 [API]，然後選擇您想要註冊的 API：
+4. 選取 [API]，然後選擇您想要註冊的 API：  
 ![][20]
 5. 選取特定的 API，並新增任何可設定的屬性。
 6. 選取 [ADD] \(新增) 以完成這些步驟。

@@ -333,7 +333,7 @@ MSI 安裝程式會自動設定閘道器電腦輸入連接埠的 Windows 防火�
 1.	在 **DATA FACTORY** 刀鋒視窗中，按一下 [**製作和部署**] 磚來啟動 Data Factory 的 [**編輯器**]。
 
 	![[製作和部署] 磚](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
-2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [...] \(省略符號) 展開命令列。
+2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [... (省略符號)] 展開命令列。
 2.	使用下列文字取代右窗格中的 JSON：   
 
 

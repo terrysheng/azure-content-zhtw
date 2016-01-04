@@ -133,7 +133,9 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 | **動作** ||
 | ------- | ------ |
 | * | 建立和管理所有類型的資源 |
-| ****無動作 | | | Microsoft.Authorization/*/Write | 無法建立角色和角色指派 | | Microsoft.Authorization/*/Delete | 無法刪除角色和角色指派 |
+| ****無動作 | |
+| Microsoft.Authorization/*/Write | 無法建立角色和角色指派 |
+| Microsoft.Authorization/*/Delete | 無法刪除角色和角色指派 |
 
 ### Data Factory 參與者
 可以管理資料處理站

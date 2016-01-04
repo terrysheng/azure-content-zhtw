@@ -83,7 +83,8 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 如有任何度量長時間超過 80% 使用率，則可能表示效能有問題。如需關於了解資料庫使用率的詳細資訊，請參閱[了解資源使用情形](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource)。
 
-如果度量指出您的資料庫造成高使用率，請考慮以 [scaling up the database to a higher service tier] 作為第一個因應步驟。若要立即解決問題，請考慮使用資料庫的 [調整] 索引標籤向上擴充您的資料庫。這樣會增加您的費用。![Azure 傳統入口網站 - SQL Database 調整][PortalSqlScale]
+如果度量指出您的資料庫造成高使用率，請考慮以 [scaling up the database to a higher service tier] 作為第一個因應步驟。若要立即解決問題，請考慮使用資料庫的 [調整] 索引標籤向上擴充您的資料庫。這樣會增加您的費用。
+![Azure 傳統入口網站 - SQL Database 調整][PortalSqlScale]
 
 請儘快考慮使用下列進一步的因應步驟：
 
@@ -192,7 +193,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 - **實作分頁。** 查詢資料庫有時可能會導致大量記錄傳回至用戶端。若要盡可能減少作業的大小和延遲，請考慮實作分頁。
 
     - 根據預設，您的行動服務會將任何傳入查詢的頁面大小限定為 50，而您可以手動要求提高到 1,000 筆記錄。如需詳細資訊，請參閱 [Windows 市集](mobile-services-windows-dotnet-how-to-use-client-library.md#paging)、[iOS](mobile-services-ios-how-to-use-client-library.md#paging)、[Android](mobile-services-android-how-to-use-client-library.md#paging)、[HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging) 和 [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging) 的「以分頁方式傳回資料」。
-    - 從行動服務程式碼發出的查詢並沒有預設頁面大小。如果您的應用程式未實作分頁，或將其視為防護措施，請考慮將預設限制套用至您的查詢。在 JavaScript 後端中，請在**查詢物件**上使用 [take](http://msdn.microsoft.com/library/azure/jj613353.aspx) 運算子。如果您使用 .NET 後端，請考慮以 [Take 方法]作為 LINQ 查詢的一部分。  
+    - 從行動服務程式碼發出的查詢並沒有預設頁面大小。如果您的應用程式未實作分頁，或將其視為防護措施，請考慮將預設限制套用至您的查詢。在 JavaScript 後端中，請在 [查詢物件](http://msdn.microsoft.com/library/azure/jj613353.aspx)上使用 **take** 運算子。如果您使用 .NET 後端，請考慮以 [Take 方法]作為 LINQ 查詢的一部分。  
 
 
 如需改善查詢設計的詳細資訊，請參閱本文結尾處的[進階查詢設計](#AdvancedQuery)。
@@ -255,7 +256,7 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
 <a name="AdvancedDiagnosing" />
 ### 進階診斷
 
-許多診斷工作都可直接在 [Azure 傳統入口網站] 中輕易完成，但有些進階診斷工作則只能透過 [SQL Server Management Studio] 或 [SQL Database 管理入口網站] 來執行。我們將利用動態管理檢視的功能，這是一組會以資料庫的相關診斷資訊自動填入的檢視。本節將提供一組可用來對這些檢視執行以檢查各種度量的查詢。如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]。
+許多診斷工作都可直接在 \[Azure 傳統入口網站\] 中輕易完成，但有些進階診斷工作則只能透過 [SQL Server Management Studio] 或 [SQL Database 管理入口網站] 來執行。我們將利用動態管理檢視的功能，這是一組會以資料庫的相關診斷資訊自動填入的檢視。本節將提供一組可用來對這些檢視執行以檢查各種度量的查詢。如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]。
 
 完成上一節中的步驟而連接到您在 SQL Server Management Studio 中的資料庫後，請在 [物件總管] 中選取您的資料庫。展開 [檢視]，[系統檢視] 會顯現管理檢視清單。若要執行下方的查詢，請選取 [新增查詢]，而您先前已在 [物件總管] 中選取您的資料庫，請在貼上查詢後選取 [執行]。
 
@@ -279,7 +280,8 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
     WHERE database_name = 'todoitem_db'
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]請在伺服器的 **master** 資料庫上執行此查詢，**sys.resource\_stats** 檢視只會出現在該資料庫上。
+> [AZURE.NOTE]
+> 請在伺服器的 **master** 資料庫上執行此查詢，**sys.resource\_stats** 檢視只會出現在該資料庫上。
 
 結果將會包含下列好用的度量：CPU (層限制百分比)、儲存體 (MB)、實體資料讀取 (層限制百分比)、記錄寫入 (層限制百分比)、記憶體 (層限制百分比)、背景工作計數、工作階段計數等。
 
@@ -292,7 +294,8 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]請在伺服器的 **master** 資料庫上執行此查詢，**sys.event\_log** 檢視只會出現在該資料庫上。
+> [AZURE.NOTE]
+> 請在伺服器的 **master** 資料庫上執行此查詢，**sys.event\_log** 檢視只會出現在該資料庫上。
 
 <a name="AdvancedIndexing" ></a>
 ### 進階索引
@@ -305,7 +308,8 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
 
 提供實際比喻：試想書籍或技術手冊。每一頁的內容都是一筆記錄，頁碼是叢集索引，而書後的主題索引則是非叢集索引。主題索引中的每個項目都會指向叢集索引，即頁碼。
 
-> [AZURE.NOTE]根據預設，Azure 行動服務的 JavaScript 後端會將 **\_createdAt** 設為叢集索引。如果您移除此資料行，或是想要有不同的叢集索引，請務必遵循下方的[叢集索引設計指引](#ClusteredIndexes)。在 .NET 後端中，類別 `EntityData` 會使用註解 `[Index(IsClustered = true)]` 將 `CreatedAt` 定義為叢集索引。
+> [AZURE.NOTE]
+> 根據預設，Azure 行動服務的 JavaScript 後端會將 **\_createdAt** 設為叢集索引。如果您移除此資料行，或是想要有不同的叢集索引，請務必遵循下方的[叢集索引設計指引](#ClusteredIndexes)。在 .NET 後端中，類別 `EntityData` 會使用註解 `[Index(IsClustered = true)]` 將 `CreatedAt` 定義為叢集索引。
 
 <a name="ClusteredIndexes"></a>
 #### 叢集索引設計指引

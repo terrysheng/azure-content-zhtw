@@ -155,4 +155,4 @@ API | 說明 | 步驟連結
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---------HONumber=AcomDC_1210_2015--->

@@ -39,11 +39,11 @@
 
     此時會發生下列動作：
 
-- 方案中新增了應用程式的 Azure 專案，名稱為 `<name of the web project>.Azure`。
+    - 方案中新增了應用程式的 Azure 專案，名稱為 `<name of the web project>.Azure`。
 
-- 此 Azure 專案中已新增 Web 專案的 Web 角色。
+    - 此 Azure 專案中已新增 Web 專案的 Web 角色。
 
-- MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件皆已將 [複製到本機] 屬性設定為 true。此設定會將這些組件新增到用於部署的服務封裝中。
+    - MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件皆已將 [複製到本機] 屬性設定為 true。此設定會將這些組件新增到用於部署的服務封裝中。
 
   >[AZURE.IMPORTANT]如果此 Web 應用程式有其他必要組件或檔案，您必須手動設定這些檔案的屬性。如需如何設定這些屬性的相關資訊，請參閱本文後面的＜將檔案包含在服務封裝內＞一節。
 

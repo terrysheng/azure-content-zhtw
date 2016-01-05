@@ -106,6 +106,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 5. 在 [New ASP.NET Project] 對話方塊中，選取 [Web Forms] 範本。取消核取 [**雲端中的主機**] 核取方塊 (若已選取)，然後按一下 [**確定**]。  
 	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png)  
 	Web Forms 應用程式將隨即建立。
+
 ###更新主要頁面
 在 ASP.NET Web Forms 中，主要頁面可用來建立應用程式中頁面的一致性版面配置。單一主要頁面可為應用程式中的所有頁面 (或頁面群組) 定義您想要的外觀與風格及標準行為。接著，您可以建立包含所需顯示內容的個別內容頁面。當使用者要求內容頁面時，ASP.NET 會將這些頁面與主要頁面合併，以產生結合主要頁面之配置與內容頁面之內容的輸出。新的網站需要更新的應用程式名稱與連結。此連結將指向顯示連絡人詳細資料的頁面。若要進行這些變更，您需修改主要頁面上的 HTML。
 

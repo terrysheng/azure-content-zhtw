@@ -88,12 +88,12 @@
 	> 您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
 3. 將後續的 API 呼叫張貼到新的 URL。 
 	
-		例如，如果您在嘗試進行連接之後得到下列結果：
+	例如，如果您在嘗試進行連接之後得到下列結果：
 		
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		您應該將後續的 API 呼叫張貼到 https://wamsbayclus001rest-hs.cloudapp.net/api/。
+	您應該將後續的 API 呼叫張貼到 https://wamsbayclus001rest-hs.cloudapp.net/api/。
 
 ###取得存取權杖
 

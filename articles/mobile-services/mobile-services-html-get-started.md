@@ -68,7 +68,7 @@
 
    	![][6]
 
-   	This displays the three easy steps to create and host an HTML app connected to your mobile service.
+   	這將顯示三個簡單步驟，可用來建立和主控連接到您行動服務的 HTML 應用程式。
 
   	![][7]
 
@@ -154,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

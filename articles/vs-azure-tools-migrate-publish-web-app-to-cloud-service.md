@@ -39,11 +39,11 @@
 
     此時會發生下列動作：
 
-    - 方案中新增了應用程式的 Azure 專案，名稱為 `<name of the web project>.Azure`。
+- 方案中新增了應用程式的 Azure 專案，名稱為 `<name of the web project>.Azure`。
 
-    - 此 Azure 專案中已新增 Web 專案的 Web 角色。
+- 此 Azure 專案中已新增 Web 專案的 Web 角色。
 
-    - MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件皆已將 [複製到本機] 屬性設定為 true。此設定會將這些組件新增到用於部署的服務封裝中。
+- MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件皆已將 [複製到本機] 屬性設定為 true。此設定會將這些組件新增到用於部署的服務封裝中。
 
   >[AZURE.IMPORTANT]如果此 Web 應用程式有其他必要組件或檔案，您必須手動設定這些檔案的屬性。如需如何設定這些屬性的相關資訊，請參閱本文後面的＜將檔案包含在服務封裝內＞一節。
 
@@ -117,7 +117,7 @@
 
 ### 將 Web 應用程式發佈至 Azure
 
-1. 若要在本機開發環境中使用 Azure 計算模擬器測試應用程式，請開啟 Web 角色的 Azure 專案捷徑功能表，然後選擇 [設定為啟始專案]。接下來選擇 [偵錯]、[開始偵錯] (鍵盤：**F5**)。
+1. 若要在本機開發環境中使用 Azure 計算模擬器測試應用程式，請開啟 Web 角色的 Azure 專案捷徑功能表，然後選擇 [設定為啟始專案]。接下來選擇 [偵錯]、[開始偵錯]\(鍵盤：**F5**)。
 
     [啟動 Azure 偵錯環境] 對話方塊隨即開啟，並且會在瀏覽器中啟動應用程式。如需關於如何在計算模擬器中啟動每一種 Web 應用程式的特定詳細資訊，請參閱本節資料表。
 
@@ -208,4 +208,4 @@
 ## 後續步驟
 如需有關發佈的詳細資訊，請參閱 [準備從 Visual Studio 發佈或部署 Azure 應用程式](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)。另請參閱[設定具名的驗證認證](vs-azure-tools-setting-up-named-authentication-credentials.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

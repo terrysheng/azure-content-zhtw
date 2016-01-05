@@ -35,7 +35,7 @@ Service Fabric 執行階段使用 ETW 來提供診斷資訊 (追蹤)，建議 Se
 若要在 Azure 上設定 ElasticSearch 服務，最直接的方法是透過 [**Azure ARM 範本**](../resource-group-overview.md)。Azure 快速入門範本儲存機制提供完整的 [ElasticSearch 快速入門 ARM 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch)。此範本對縮放單位 (節點的群組) 使用個別的儲存體帳戶，而且可以佈建個別用戶端和伺服器節點，各有不同組態和連接不同的資料磁碟數。
 
 在本文中，我們將使用 [Microsoft 模式和作法 ELK 分支](https://github.com/mspnp/semantic-logging/tree/elk/)中的另一個範本，稱為 **ES-MultiNode**。此範本比較容易使用，依預設會建立由 HTTP 基本驗證所保護的 ElasticSearch 叢集。在繼續之前，請從 GitHub 將 [Microsoft P&P "elk" 儲存機制](https://github.com/mspnp/semantic-logging/tree/elk/)下載到您的電腦 (複製儲存機制或下載 ZIP 檔案)。ES-MultiNode 範本位於具有相同名稱的資料夾中。
->[AZURE.NOTE]ES-MultiNode 範本和相關聯的指令碼目前支援 ElasticSearch 1.7 版。日後將加入 ElasticSearch 2.0 的支援。
+>[AZURE.NOTE] ES-MultiNode 範本和相關聯的指令碼目前支援 ElasticSearch 1.7 版。日後將加入 ElasticSearch 2.0 的支援。
 
 ### 準備電腦以執行 ElasticSearch 安裝指令碼
 若要使用 ES-MultiNode 範本，最簡單的方式是透過提供的 PowerShell 指令碼，稱為 `CreateElasticSearchCluster`。若要使用這個指令碼，您需要安裝 Azure PowerShell 模組和名為 openssl 的工具。需要後者，才能建立可用來從遠端管理 ElasticSearch 叢集的 SSH 金鑰。
@@ -246,4 +246,4 @@ ElasticSearch 連接資料應該放在服務組態檔 (PackageRoot\\Config\\Sett
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -89,7 +89,7 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
 
 **範例要求**
 
-在下面的呼叫中，我們要求 "It was a wonderful hotel to stay at, with unique decor and friendly staff" 這段文字中找到的關鍵片語：
+在下面的呼叫中，我們要求 "這是很棒的旅館，裝潢獨樹一幟，工作人員服務態度甚佳" 這段文字中找到的關鍵片語：
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
@@ -261,4 +261,4 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
        "Errors": []
     }
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

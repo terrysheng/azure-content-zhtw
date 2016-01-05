@@ -388,7 +388,9 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 	|連接埠|類型|說明|
 |---|---|---|
-|**80**|TCP|報表伺服器遠端存取 (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|SQL Server Browser。在 VM 加入網域時所需。|
+|**80**|TCP|報表伺服器遠端存取 (*).|
+|**1433**|TCP|SQL Server Management Studio (*).|
+|**1434**|UDP|SQL Server Browser。在 VM 加入網域時所需。|
 |**2382**|TCP|SQL Server Browser。|
 |**2383**|TCP|SQL Server Analysis Services 預設執行個體和叢集具名執行個體。|
 |**使用者定義**|TCP|為您選擇的連接埠編號建立靜態 Analysis Services 具名執行個體連接埠，然後在防火牆中解除封鎖連接埠號碼。|
@@ -431,4 +433,4 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [使用 PowerShell 管理 Azure SQL Database](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

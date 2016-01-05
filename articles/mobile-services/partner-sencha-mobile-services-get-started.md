@@ -63,7 +63,7 @@
 
     ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
 
-    This displays the three easy steps to create and host an HTML app connected to your mobile service.
+    這將顯示三個簡單步驟，可用來建立和主控連接到您行動服務的 HTML 應用程式。
 
     ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
 
@@ -724,4 +724,4 @@ Sencha Touch Extension for Azure 套件備有此處簡述的範例，其位於 B
 
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

@@ -101,7 +101,7 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 ## 設定 Apache
 
-1.  建立 Apache 虛擬主機組態檔 **/etc/apache2/sites-available/helloworld.conf**。設定成以下內容，並以您使用之機器的實際名稱取代 [*yourVmName*] (例如 *pyubuntu*)。
+1.  建立 Apache 虛擬主機組態檔 **/etc/apache2/sites-available/helloworld.conf**。設定成以下內容，並以您使用之機器的實際名稱取代 [*yourVmName*] \(例如 *pyubuntu*)。
 
 		<VirtualHost *:80>
 		ServerName yourVmName
@@ -126,4 +126,4 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 完成本教學課程時，請關閉並/或移除新建立的 Azure 虛擬機器釋出資源供其他教學課程使用，並避免產生 Azure 使用的費用。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

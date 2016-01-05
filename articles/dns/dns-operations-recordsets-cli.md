@@ -49,7 +49,7 @@ Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、T
 
 Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_record)。會針對具有相符名稱的任何查詢傳回 (除非有來自非萬用字元記錄集的更接近相符項目)。
 
->[AZURE.NOTE]若要建立萬用字元記錄集，請使用記錄集名稱 "*"，或其第一個標籤為 "*" 的名稱，例如 "*.foo"。
+>[AZURE.NOTE]若要建立萬用字元記錄集，請使用記錄集名稱 "\*"，或其第一個標籤為 "\*" 的名稱，例如 "\*.foo"。
 
 >針對所有記錄類型支援 NS 和 SOA 以外的所有萬用字元記錄集。
 
@@ -243,4 +243,4 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 [將網域委派給 Azure DNS](dns-domain-delegation.md)<BR> [ 管理 DNS 區域](dns-operations-dnszones-cli.md)<BR> [ 使用 .NET SDK 自動化作業](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

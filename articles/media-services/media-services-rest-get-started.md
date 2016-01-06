@@ -88,12 +88,12 @@
 	> 您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
 3. 將後續的 API 呼叫張貼到新的 URL。 
 	
-	例如，如果您在嘗試進行連接之後得到下列結果：
+		例如，如果您在嘗試進行連接之後得到下列結果：
 		
-		HTTP/1.1 301 Moved Permanently
-		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+			HTTP/1.1 301 Moved Permanently
+			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	您應該將後續的 API 呼叫張貼到 https://wamsbayclus001rest-hs.cloudapp.net/api/。
+		您應該將後續的 API 呼叫張貼到 https://wamsbayclus001rest-hs.cloudapp.net/api/。
 
 ###取得存取權杖
 
@@ -1210,4 +1210,4 @@ MPEG DASH 的串流 URL 具有下列格式：
 <!-- URLs. -->
   [Azure 傳統入口網站]: http://manage.windowsazure.com/
 
-<!-----------HONumber=AcomDC_1210_2015--->
+<!------------HONumber=AcomDC_1210_2015--->

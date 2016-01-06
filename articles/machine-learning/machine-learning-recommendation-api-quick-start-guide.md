@@ -295,7 +295,23 @@ OData XML
   		</EventData>
 		</Event>
 
-- 事件 'Purchase' 的範例：<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
+- 事件 'Purchase' 的範例：
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+		<EventData>
+			<Name>Purchase</Name> 
+			<PurchaseItems>
+			<PurchaseItems>
+				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+				<Count>3</Count>
+			</PurchaseItems>
+		</PurchaseItems>
+		</EventData>
+		</EventData>
+		</Event>
 
 - 傳送 2 個事件 ('Click' 和 'AddShopCart') 的範例：
 
@@ -428,9 +444,19 @@ HTTP 狀態碼：200
 - `feed/entry/content/properties/ExecutionTime` – 組建持續時間。
 - `feed/entry/content/properties/ProgressStep` - 正在進行建置之目前階段的相關詳細資料。
 
-有效的組建狀態：- 已建立 - 組建要求項目已建立。- 已排入佇列 - 組建要求已觸發並排入佇列。- 建置中 - 建置進行中。- 成功 - 組建已成功結束。- 錯誤 - 組建已結束但發生失敗。- 已取消 - 組建已取消。- 取消中 - 正在取消組建。
+有效的組建狀態：
+- 已建立 - 組建要求項目已建立。
+- 已排入佇列 - 組建要求已觸發並排入佇列。
+- 建置中 - 建置進行中。
+- 成功 - 組建已成功結束。
+- 錯誤 - 組建已結束但發生失敗。
+- 已取消 - 組建已取消。
+- 取消中 - 正在取消組建。
 
-組建類型的有效值：- Rank - 排名組建(如需排名組建的詳細資訊，請參閱＜Machine Learning 建議 API 文件＞一文)。- Recommendation - 建議組建。- Fbt - 通常一起購買的組建。
+組建類型的有效值：
+- Rank - 排名組建(如需排名組建的詳細資訊，請參閱＜Machine Learning 建議 API 文件＞一文)。
+- Recommendation - 建議組建。
+- Fbt - 通常一起購買的組建。
 
 OData XML
 
@@ -649,7 +675,8 @@ OData XML
 	</feed>
 
 ###更新模型
-您可以更新模型描述或作用中組建識別碼。*作用中組建識別碼* - 每個模型的每個組建都有組建識別碼。作用中組建識別碼是每個新模型的第一個成功組建。一旦您有作用中組建識別碼，而且您執行相同模型的其他組建，您必須是需要將它明確設為預設組建識別碼。當您取用建議時，如果您未指定想要使用的組建識別碼，則會自動使用預設值。
+您可以更新模型描述或作用中組建識別碼。
+*作用中組建識別碼* - 每個模型的每個組建都有組建識別碼。作用中組建識別碼是每個新模型的第一個成功組建。一旦您有作用中組建識別碼，而且您執行相同模型的其他組建，您必須是需要將它明確設為預設組建識別碼。當您取用建議時，如果您未指定想要使用的組建識別碼，則會自動使用預設值。
 
 此機制可讓您在生產環境中有建議模型時建置新模型，並先加以測試，再將其提升至生產環境。
 
@@ -681,7 +708,10 @@ OData XML
 	</feed>
 
 ##法律
-這份文件依「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實的人、事、物。本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。© 2014 Microsoft.著作權所有，並保留一切權利。
+這份文件依「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。
+此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實的人、事、物。本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。
+您可以複製並使用這份文件，供內部參考之用。
+© 2014 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

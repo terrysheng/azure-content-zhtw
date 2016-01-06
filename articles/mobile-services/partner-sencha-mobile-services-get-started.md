@@ -669,9 +669,9 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 
   2. 使用 Sencha Cmd 執行以下命令：
 
-    * *sencha app refresh*：這會指示 Sencha Cmd 找出所有的應用程式相依項目，並下載任何需要的封裝 (例如 [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure))。
+    * *sencha app refresh* ：這會指示 Sencha Cmd 找出所有的應用程式相依項目，並下載任何需要的封裝 (例如 [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure))。
 
-    * *sencha web start*：這會啟動本機 Web 伺服器以測試我們的應用程式。
+    * *sencha web start* ：這會啟動本機 Web 伺服器以測試我們的應用程式。
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 

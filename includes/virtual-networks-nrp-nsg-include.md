@@ -15,7 +15,10 @@
 |屬性|說明|範例值|
 |---|---|---|
 |**description**|規則的說明|在子網路 X 中允許所有 VM 的輸入流量|
-|**protocol**|規則要符合的通訊協定|TCP, UDP, 或 *| |**sourcePortRange**|規則要符合的來源連接埠範圍|80, 100-200, *| |**destinationPortRange**|規則要符合的目的地連接埠範圍|80, 100-200, *| |**sourceAddressPrefix**|規則要符合的來源位址首碼|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
+|**protocol**|規則要符合的通訊協定|TCP, UDP, 或 *|
+|**sourcePortRange**|規則要符合的來源連接埠範圍|80, 100-200, *|
+|**destinationPortRange**|規則要符合的目的地連接埠範圍|80, 100-200, *|
+|**sourceAddressPrefix**|規則要符合的來源位址首碼|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**destinationAddressPrefix**|規則要符合的目的地位址首碼|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**direction**|規則要符合的流量方向|inbound (輸入) 或 outbound (輸出)|
 |**優先順序**|規則的優先順序。系統會依照規則優先順序檢查規則，一旦套用規則，就不會再測試規則是否符合。|10, 100, 65000|

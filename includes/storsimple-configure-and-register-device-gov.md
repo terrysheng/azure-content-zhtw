@@ -133,10 +133,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        如果裝置狀態為「離線」，請等待數分鐘讓裝置上線。 
+        如果裝置狀態為**離線**，請稍待片刻等待裝置上線。
       
-        若裝置經數分鐘後仍舊離線，您便需要確認您的防火牆網路設置是否與[StorSimple 裝置的網路需求](https://msdn.microsoft.com/library/dn772371.aspx) 說明相同。若您沒有 HTTP 1.1 支援，請檢查及確保 9354 連接埠為開啟狀態並允許輸出通訊。此連接埠是供 StorSimple 管理員服務及 StorSimple 裝置間進行通訊之用。
+        如果數分鐘之後裝置仍然離線，請確定您的防火牆網路已依照[StorSimple 裝置網路需求](https://msdn.microsoft.com/library/dn772371.aspx) 中的說明加以設定。 如果您的裝置不支援 HTTP 1.1，請檢查連接埠 9354 以確定此連接埠可開放做為傳出通訊之用。 此連接埠用於 StorSimple Manager 服務及 StorSimple 裝置間的通訊。
      
         
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

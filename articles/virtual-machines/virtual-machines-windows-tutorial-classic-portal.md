@@ -20,10 +20,10 @@
 # 在 Azure 傳統入口網站中建立執行 Windows 的虛擬機器
 
 > [AZURE.SELECTOR]
-> - [Azure Preview 入口網站](virtual-machines-windows-tutorial.md)
-> - [Azure 入口網站](virtual-machines-windows-tutorial-classic-portal.md)
-> - [PowerShell: 資源管理員部署](virtual-machines-deploy-rmtemplates-powershell.md)
-> - [PowerShell: 傳統部署](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure Preview 入口網站](virtual-machines-windows-tutorial.md)
+- [Azure 入口網站](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: 資源管理員部署](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: 傳統部署](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 
 

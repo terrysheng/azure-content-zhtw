@@ -339,13 +339,15 @@
 
 將會產生下表
 
-	+----+--------+
-	| id | value  |
-	+----+--------+
-	|  1 | Value1 |
-	|  4 | Value2 |
-	+----+--------+
-	2 rows in set (0.00 sec)
+<pre class="prettyprint copy-to-clipboard ">+----+--------+
+| id | value  |
++----+--------+
+|  1 | Value1 |
+|  4 | Value2 |
++----+--------+
+2 rows in set (0.00 sec)
+</pre>
+)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
@@ -375,4 +377,4 @@
 [Azure CLI 工具中的問題 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [在 Linux 上叢集 MySQL 的另一種方法]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!---HONumber=Nov15_HO3-->
+<!-----HONumber=Nov15_HO3-->

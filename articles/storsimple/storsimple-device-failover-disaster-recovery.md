@@ -77,11 +77,7 @@
 
 	1. 在磁碟區容器清單中，選取您要容錯移轉的磁碟區容器。
 
-		>[AZURE.NOTE]**只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。**
-
-	1. 在 [為所選取容器中的磁碟區選擇目標裝置] 中，從可用裝置的下拉式清單中選取目標裝置。下拉式清單中只會顯示具有可用容量的裝置。
-
-	1. 最後，檢閱 [確認容錯移轉] 下的所有容錯移轉設定。按一下核取圖示 ![核取圖示](./media/storsimple-device-failover-disaster-recovery/IC740895.png)。
+		>[AZURE.NOTE]**只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。** 1. 在 [為所選取容器中的磁碟區選擇目標裝置] 中，從可用裝置的下拉式清單中選取目標裝置。下拉式清單中只會顯示具有可用容量的裝置。 1. 最後，檢閱 [確認容錯移轉] 下的所有容錯移轉設定。按一下核取圖示 ![核取圖示](./media/storsimple-device-failover-disaster-recovery/IC740895.png)。
 
 1. 完成容錯移轉後，移至 [裝置] 頁面。
 
@@ -165,4 +161,4 @@
 如需如何使用 StorSimple Manager 服務的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1217_2015--->

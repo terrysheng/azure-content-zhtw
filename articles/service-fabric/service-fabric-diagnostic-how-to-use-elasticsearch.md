@@ -37,7 +37,8 @@ Service Fabric 執行階段使用 ETW 來提供診斷資訊 (追蹤)，建議 Se
 若要在 Azure 上設定 ElasticSearch 服務，最直接的方法是透過 [**Azure ARM 範本**](../resource-group-overview.md)。Azure 快速入門範本儲存機制提供完整的 [ElasticSearch 快速入門 ARM 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch)。此範本對縮放單位 (節點的群組) 使用個別的儲存體帳戶，而且可以佈建個別用戶端和伺服器節點，各有不同組態和連接不同的資料磁碟數。
 
 在本文中，我們將使用 [Microsoft 模式和作法 ELK 分支](https://github.com/mspnp/semantic-logging/tree/elk/)中的另一個範本，稱為 **ES-MultiNode**。此範本比較容易使用，依預設會建立由 HTTP 基本驗證所保護的 ElasticSearch 叢集。在繼續之前，請從 GitHub 將 [Microsoft P&P "elk" 儲存機制](https://github.com/mspnp/semantic-logging/tree/elk/)下載到您的電腦 (複製儲存機制或下載 ZIP 檔案)。ES-MultiNode 範本位於具有相同名稱的資料夾中。  
->[AZURE.NOTE] ES-MultiNode 範本和相關聯的指令碼目前支援 ElasticSearch 1.7 版。日後將加入 ElasticSearch 2.0 的支援。
+
+>[AZURE.NOTE] ES-MultiNode 範本和相關聯的指令碼目前支援 ElasticSearch 1.7 版。日後將加入 ElasticSearch 2.0 的支援。  
 
 ### 準備電腦以執行 ElasticSearch 安裝指令碼
 若要使用 ES-MultiNode 範本，最簡單的方式是透過提供的 PowerShell 指令碼，稱為 `CreateElasticSearchCluster`。若要使用這個指令碼，您需要安裝 Azure PowerShell 模組和名為 openssl 的工具。需要後者，才能建立可用來從遠端管理 ElasticSearch 叢集的 SSH 金鑰。
@@ -45,7 +46,8 @@ Service Fabric 執行階段使用 ETW 來提供診斷資訊 (追蹤)，建議 Se
 注意：`CreateElasticSearchCluster` 指令碼主要是為了從 Windows 電腦輕鬆使用 ES-MultiNode 範本。可以在非 Windows 電腦上使用此範本，但這已超出本文的範圍。
 
 1. 如果您尚未安裝 [**Azure PowerSell 模組**](http://go.microsoft.com/fwlink/p/?linkid=320376)，請安裝。出現提示時，請按一下 [執行]，再按一下 [安裝]。  
->[AZURE.NOTE]Azure PowerShell 正在 Azure PowerShell 1.0 版中進行重大變更。CreateElasticSearchCluster 目前設計為用於 Azure PowerShell 0.9.8，不支援 Azure PowerShell 1.0 Preview。日後將提供 Azure PowerShell 1.0 相容指令碼。
+
+>[AZURE.NOTE] Azure PowerShell 正在 Azure PowerShell 1.0 版中進行重大變更。CreateElasticSearchCluster 目前設計為用於 Azure PowerShell 0.9.8，不支援 Azure PowerShell 1.0 Preview。日後將提供 Azure PowerShell 1.0 相容指令碼。  
 
 2. [**Git for Windows**](http://www.git-scm.com/downloads) 的散發中包含 **openssl** 工具。如果您尚未安裝 [Git for Windows](http://www.git-scm.com/downloads)，請立即安裝 (預設安裝選項是 [確定])。
 
@@ -80,7 +82,7 @@ Service Fabric 執行階段使用 ETW 來提供診斷資訊 (追蹤)，建議 Se
 CreateElasticSearchCluster -ResourceGroupName <es-group-name>
 ```，其中 `<es-group-name>` 是將包含所有叢集資源的 Azure 資源群組的名稱。
 
->[AZURE.NOTE]如果您從 Test-AzureResourceGroup Cmdlet 收到 NullReferenceException，表示您忘記登入 Azure (`Add-AzureAccount`)。
+>[AZURE.NOTE] 如果您從 Test-AzureResourceGroup Cmdlet 收到 NullReferenceException，表示您忘記登入 Azure (`Add-AzureAccount`)。
 
 如果執行指令碼發生錯誤，而且您判斷錯誤起因於錯誤的範本參數值，請更正參數檔案，然後以不同資源群組名稱再次執行指令碼。您也可以將 `-RemoveExistingResourceGroup` 參數加入至指令碼引動過程，以重複使用相同的資源群組名稱，並讓指令碼清除舊的資源群組。
 
@@ -248,4 +250,4 @@ ElasticSearch 連接資料應該放在服務組態檔 (PackageRoot\\Config\\Sett
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

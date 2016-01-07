@@ -26,7 +26,13 @@
 
 ##DocumentDB Java SDK
 
-<table> <tr><td>**下載**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>**參與**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**文件**</td><td>[Java SDK 參考文件](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**開始使用**</td><td>[ Java SDK](documentdb-java-application.md)</td></tr> <tr><td>**目前支援的執行階段**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
+<table>
+<tr><td>**下載**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**參與**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**文件**</td><td>[Java SDK 參考文件](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**開始使用**</td><td>[ Java SDK](documentdb-java-application.md)</td></tr>
+<tr><td>**目前支援的執行階段**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+</table></br>
 
 ## 版本資訊
 
@@ -85,4 +91,4 @@ Microsoft 將至少在 SDK 停用之前 **12 個月** 提供通知，以供順�
 
 若要深入了解 DocumentDB，請參閱 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 服務頁面。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!--------HONumber=AcomDC_1210_2015--->

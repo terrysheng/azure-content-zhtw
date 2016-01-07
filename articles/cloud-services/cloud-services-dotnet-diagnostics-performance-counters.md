@@ -21,7 +21,10 @@
 
 適用於 Windows Server、IIS 和 ASP.NET 的效能計數器也可用來收集資料，以判斷 Azure Web 角色、背景工作角色和虛擬機器的健康情況。您也可以建立和使用自訂效能計數器。
 
-您可以檢查效能計數器資料：1.直接在應用程式主機上，使用遠端桌面存取效能監視器工具。2.透過使用 Azure Management Pack 3 的 System Center Operations Manager。透過其他監視工具，存取已傳輸至 Azure 儲存體的診斷資料。如需詳細資訊，請參閱[在 Azure 儲存體中儲存和檢視診斷資料](https://msdn.microsoft.com/library/azure/hh411534.aspx)。
+您可以檢查效能計數器資料：
+1.直接在應用程式主機上，使用遠端桌面存取效能監視器工具。
+2.透過使用 Azure Management Pack。
+3. 的 System Center Operations Manager。透過其他監視工具，存取已傳輸至 Azure 儲存體的診斷資料。如需詳細資訊，請參閱[在 Azure 儲存體中儲存和檢視診斷資料](https://msdn.microsoft.com/library/azure/hh411534.aspx)。
 
 如需在 [Azure 傳統入口網站](http://manage.azure.com/)中監視應用程式效能的詳細資訊，請參閱[如何監視雲端服務](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/)。
 
@@ -53,7 +56,16 @@ Azure 為 Windows Server、IIS 和 ASP.NET 堆疊提供了一小組可用的效�
 |ASP.NET v4.0.30319 |遭拒絕的要求 |ASP.NET 的效能計數器|
 |記憶體 |可用的 MB |記憶體效能計數器|
 |記憶體 |認可的位元組 |記憶體效能計數器|
-|Processor(\_Total) |處理器時間 % |ASP.NET 的效能計數器| |TCPv4 |連線失敗 |TCP 物件| |TCPv4 |建立的連線 |TCP 物件| |TCPv4 |重設的連線 |TCP 物件| |TCPv4 |傳送的區段/秒 |TCP 物件| |網路介面(*) |接收的位元組/秒 |網路介面物件| |網路介面(*) |傳送的位元組/秒 |網路介面物件| |網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|接收的位元組/秒|網路介面物件| |網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|傳送的位元組/秒|網路介面物件| |網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|位元組總數/秒|網路介面物件|
+|Processor(\_Total) |處理器時間 % |ASP.NET 的效能計數器|
+|TCPv4 |連線失敗 |TCP 物件|
+|TCPv4 |建立的連線 |TCP 物件|
+|TCPv4 |重設的連線 |TCP 物件|
+|TCPv4 |傳送的區段/秒 |TCP 物件|
+|網路介面(*) |接收的位元組/秒 |網路介面物件|
+|網路介面(*) |傳送的位元組/秒 |網路介面物件|
+|網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|接收的位元組/秒|網路介面物件|
+|網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|傳送的位元組/秒|網路介面物件|
+|網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|位元組總數/秒|網路介面物件|
 
 ## 建立自訂效能計數器並加入您的應用程式中
 
@@ -313,4 +325,4 @@ Azure 診斷監視器現在即會收集自訂效能計數器資料。
 
 [如何監視雲端服務](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

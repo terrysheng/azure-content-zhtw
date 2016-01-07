@@ -23,19 +23,25 @@
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中使用您的工作帳戶登入。例如，使用 *yourUserName*@*YourCompany*.com 登入。當您這樣做時，會自動登入您公司的訂用帳戶。
 
-2. 選取工作列中的 [瀏覽]：![][1]
+2. 選取工作列中的 [瀏覽]：  
+![][1]
 
-3. 在清單中，您可以捲動以尋找 PowerApps 或輸入 *powerapps*：![][2]
+3. 在清單中，您可以捲動以尋找 PowerApps 或輸入 *powerapps*：  
+![][2]
 
-4. 在 **PowerApps** 中選取 [管理 API]：![瀏覽至已註冊的 API][3]
+4. 在 **PowerApps** 中選取 [管理 API]：  
+![瀏覽至已註冊的 API][3]
 
-5. 在 [管理 API] 中，選取 [新增] 以新增新的 API：![Add API][4]
+5. 在 [管理 API] 中，選取 [新增] 以新增新的 API：  
+![Add API][4]
 
 6. 為您的 API 輸入描述性**名稱**。
 
-7. 在 [來源] 中，選取 [可用 API] 以選取預先建置的 API，然後選取 [Dynamics CRM Online]：![選取 Dynamics CRM Online API][5]
+7. 在 [來源] 中，選取 [可用 API] 以選取預先建置的 API，然後選取 [Dynamics CRM Online]：  
+![選取 Dynamics CRM Online API][5]
 
-8. 選取 [設定 - 設定必要設定]：![設定 Dynamics CRM Online API 設定][6]
+8. 選取 [設定 - 設定必要設定]：  
+![設定 Dynamics CRM Online API 設定][6]
 
 9. 輸入您 Dynamics CRM Online Azure Active Directory (AAD) 應用程式的**用戶端識別碼**和**應用程式金鑰** 。如果您還沒有這些值，請參閱本主題中的＜註冊 AAD 應用程式搭配 PowerApps 使用＞一節來建立您需要的金鑰與密碼。
 
@@ -53,9 +59,11 @@
 
 	> [AZURE.NOTE]這會在 Azure 傳統入口網站中開啟 Active Directory。
 
-3. 選取您組織的租用戶名稱：![啟動 Azure Active Directory][7]
+3. 選取您組織的租用戶名稱：  
+![啟動 Azure Active Directory][7]
 
-4. 選取 [應用程式] 索引標籤，然後選取 [新增]：![AAD 租用戶應用程式][8]
+4. 選取 [應用程式] 索引標籤，然後選取 [新增]：  
+![AAD 租用戶應用程式][8]
 
 5. 在 [新增應用程式] 中：
 
@@ -69,9 +77,11 @@
 
 	![新增 AAD 應用程式 - 應用程式屬性][10]
 
-7. 成功完成時，系統會將您重新導向至新的 AAD 應用程式。選取 [設定]：![Contoso AAD 應用程式][11]
+7. 成功完成時，系統會將您重新導向至新的 AAD 應用程式。選取 [設定]：  
+![Contoso AAD 應用程式][11]
 
-8. 將 [OAuth 2] 區段下的 [回覆 URL] 設為您在 Azure 入口網站中新增 Dynamics CRM Online API 時收到的重新導向 URL (在此主題中)：![設定 Contoso AAD 應用程式][12]
+8. 將 [OAuth 2] 區段下的 [回覆 URL] 設為您在 Azure 入口網站中新增 Dynamics CRM Online API 時收到的重新導向 URL (在此主題中)：  
+![設定 Contoso AAD 應用程式][12]
 
 9. 選取 [**儲存**]。
 
@@ -97,4 +107,4 @@
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

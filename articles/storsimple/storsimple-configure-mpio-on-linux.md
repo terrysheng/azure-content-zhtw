@@ -466,7 +466,23 @@ multipath.conf 有五個區段：
 |類型|命令|說明|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|啟動 iSCSI 服務|
-||`service iscsid stop`|停止 iSCSI service| ||`service iscsid restart`|重新啟動 iSCSI 服務| ||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|在指定的位址上探索可用的目標 | ||`iscsiadm -m node --login -T <TARGET_IQN>`|登入 iSCSI 目標 | ||`iscsiadm -m node --logout -p <Target_IP>`|登出 iSCSI 目標 | ||`cat /etc/iscsi/initiatorname.iscsi`|列印 iSCSI 啟動器名稱| ||`iscsiadm –m session –s <sessionid> -P 3`|檢查在主機上探索到的 iSCSI 工作階段和磁碟區的狀態| ||`iscsi –m session`|顯示在主機與 StorSimple 裝置之間建立所有 iSCSI 工作階段的| | | | | |**多重路徑**|`service multipathd start`|啟動多重路徑精靈| ||`service multipathd stop`|停止多重路徑精靈| ||`service multipathd restart`|重新啟動多重路徑精靈| ||`chkconfig multipathd on` </br> 或 </br> `mpathconf –with_chkconfig y`|讓多重路徑精靈能在開機時啟動| ||`multipathd –k`|啟動互動式主控台以供疑難排解| ||`multipath –l`|列出多重路徑連接和裝置| ||`mpathconf --enable`|在 `/etc/mulitpath.conf` 中建立範例 mulitpath.conf 檔案| ||||
+||`service iscsid stop`|停止 iSCSI service|
+||`service iscsid restart`|重新啟動 iSCSI 服務|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|在指定的位址上探索可用的目標 |
+||`iscsiadm -m node --login -T <TARGET_IQN>`|登入 iSCSI 目標 |
+||`iscsiadm -m node --logout -p <Target_IP>`|登出 iSCSI 目標 |
+||`cat /etc/iscsi/initiatorname.iscsi`|列印 iSCSI 啟動器名稱|
+||`iscsiadm –m session –s <sessionid> -P 3`|檢查在主機上探索到的 iSCSI 工作階段和磁碟區的狀態|
+||`iscsi –m session`|顯示在主機與 StorSimple 裝置之間建立所有 iSCSI 工作階段的|
+| | | |
+|**多重路徑**|`service multipathd start`|啟動多重路徑精靈|
+||`service multipathd stop`|停止多重路徑精靈|
+||`service multipathd restart`|重新啟動多重路徑精靈|
+||`chkconfig multipathd on` </br> 或 </br> `mpathconf –with_chkconfig y`|讓多重路徑精靈能在開機時啟動|
+||`multipathd –k`|啟動互動式主控台以供疑難排解|
+||`multipath –l`|列出多重路徑連接和裝置|
+||`mpathconf --enable`|在 `/etc/mulitpath.conf` 中建立範例 mulitpath.conf 檔案|
+||||
 
 ## 後續步驟
 
@@ -475,4 +491,4 @@ multipath.conf 有五個區段：
 - [在 CentOS 上設定 MPIO](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 訓練指南](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

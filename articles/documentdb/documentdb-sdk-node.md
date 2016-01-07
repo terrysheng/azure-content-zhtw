@@ -26,7 +26,14 @@
 
 ##DocumentDB Node.js SDK
 
-<table> <tr><td>**下載**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr> <tr><td>**參與**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr> <tr><td>**文件**</td><td>[Node.js SDK 參考文件](http://azure.github.io/azure-documentdb-node/)</td></tr> <tr><td>**範例**</td><td>[Node.js 程式碼範例](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr> <tr><td>**開始使用**</td><td>[ Node.js SDK](documentdb-nodejs-get-started.md)</td></tr> <tr><td>**目前支援的平台**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr> </table></br>
+<table>
+<tr><td>**下載**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**參與**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**文件**</td><td>[Node.js SDK 參考文件](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**範例**</td><td>[Node.js 程式碼範例](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
+<tr><td>**開始使用**</td><td>[ Node.js SDK](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**目前支援的平台**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+</table></br>
 
 ## 版本資訊
 
@@ -114,4 +121,4 @@ Microsoft 將至少在 SDK 停用之前 **12 個月** 提供通知，以供順�
 
 若要深入了解 DocumentDB，請參閱 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 服務頁面。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

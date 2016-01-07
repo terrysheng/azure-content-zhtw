@@ -34,7 +34,8 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 
 	名稱 | 必要 | 說明
 --- | --- | ---
-網站 URL | 是 | 輸入 SharePoint 網站的完整 URL。例如，輸入：**https://microsoft.sharepoint.com/teams/wabstest*。文件庫 / 清單相對 URL | 是 | 輸入相對於 SharePoint 網站 URL、且可由連接器修改的文件庫/清單 URL。例如，輸入：*清單/工作、共用文件*。
+網站 URL | 是 | 輸入 SharePoint 網站的完整 URL。例如，輸入：**https://microsoft.sharepoint.com/teams/wabstest*。
+文件庫 / 清單相對 URL | 是 | 輸入相對於 SharePoint 網站 URL、且可由連接器修改的文件庫/清單 URL。例如，輸入：*清單/工作、共用文件*。
 
 5. 完成時，[封裝設定] 看起來如下：![][1]
 
@@ -51,7 +52,8 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 
 	名稱 | 必要 | 說明
 --- | --- | ---
-網站 URL | 是 | 輸入 SharePoint 網站的完整 URL。例如，輸入：*https://microsoft.sharepoint.com/teams/wabstest*。驗證模式 | 是 | 指定連線到 SharePoint 網站時的驗證模式。選項包括：<ul><li>預設</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>如果您選擇 [預設]，則會使用執行 SharePoint 連接器的認證；不需要使用者名稱/密碼。其他驗證類型需要 [使用者名稱] 和 [密碼]。<br/><br/>**注意** 不支援匿名驗證。
+網站 URL | 是 | 輸入 SharePoint 網站的完整 URL。例如，輸入：*https://microsoft.sharepoint.com/teams/wabstest*。
+驗證模式 | 是 | 指定連線到 SharePoint 網站時的驗證模式。選項包括：<ul><li>預設</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>如果您選擇 [預設]，則會使用執行 SharePoint 連接器的認證；不需要使用者名稱/密碼。其他驗證類型需要 [使用者名稱] 和 [密碼]。<br/><br/>**注意** 不支援匿名驗證。
 使用者名稱 | 否 | 如果 [驗證模式] 不是 [預設]，請輸入可連線到 SharePoint 網站的有效使用者名稱。
 密碼 | 否 | 如果 [驗證模式] 不是 [預設]，請指定可連線到 SharePoint 網站的有效密碼。
 文件庫 / 清單相對 URL | 是 | 輸入相對於 SharePoint 網站 URL、且可由連接器修改的文件庫/清單 URL。例如，輸入：*清單/工作、共用文件*。
@@ -472,4 +474,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

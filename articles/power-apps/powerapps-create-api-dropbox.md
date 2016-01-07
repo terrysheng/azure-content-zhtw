@@ -23,19 +23,25 @@
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 *yourUserName*@*YourCompany*.com 登入。當您這樣做時，您會自動登入您的公司訂用帳戶。
  
-2. 選取工作列中的 [**瀏覽**]：![][12]
+2. 選取工作列中的 [**瀏覽**]：  
+![][12]
 
-3. 在清單中，您可以捲動以尋找 PowerApps 或輸入 *powerapps*：![][13]
+3. 在清單中，您可以捲動以尋找 PowerApps 或輸入 *powerapps*：  
+![][13]
 
-4. 在 [**PowerApps**] 中選取 [**管理 API**]：![瀏覽至已註冊的 API][4]
+4. 在 [**PowerApps**] 中選取 [**管理 API**]：  
+![瀏覽至已註冊的 API][4]
 
-5. 在 [**管理 API**] 中，選取 [**新增**] 以新增 API：![Add API][5]
+5. 在 [**管理 API**] 中，選取 [**新增**] 以新增 API：  
+![Add API][5]
 
 6. 為您的 API 輸入描述性**名稱**。
 	
-7. 在 [**來源**] 中，選取 [**可用 API**]，檢視預先建置的 API，然後選取 [**Dropbox**]：![選取 dropbox api][6]
+7. 在 [**來源**] 中，選取 [**可用 API**]，檢視預先建置的 API，然後選取 [**Dropbox**]：  
+![選取 dropbox api][6]
 
-8. 選取 [**設定 - 進行必要的設定**]：![進行 dropbox API 設定][7]
+8. 選取 [**設定 - 進行必要的設定**]：  
+![進行 dropbox API 設定][7]
 
 9. 輸入您 Dropbox 應用程式的**應用程式金鑰**與**應用程式密碼**值。如果您還沒有這些值，請參閱本主題中的＜註冊 Dropbox 應用程式以搭配 PowerApps 使用＞一節，建立您需要的金鑰與密碼值。
 
@@ -53,9 +59,11 @@
 
 1. 移至 [Dropbox][1] 並使用您的帳戶登入。
 
-2. 移至 Dropbox - Developers (Dropbox 開發人員) 網站，然後選取 [**My Apps (我的應用程式)**]：![Dropbox - Developers (Dropbox 開發人員) 網站][8]
+2. 移至 Dropbox - Developers (Dropbox 開發人員) 網站，然後選取 [**My Apps (我的應用程式)**]：  
+![Dropbox - Developers (Dropbox 開發人員) 網站][8]
 
-3. 選取 [**Create app (建立應用程式)**]：![Dropbox create app (建立應用程式)][9]
+3. 選取 [**Create app (建立應用程式)**]：  
+![Dropbox create app (建立應用程式)][9]
 
 4. 在 [**Create a new app on the Dropbox platform (在 Dropbox 平台上建立新的應用程式)**] 中：
 
@@ -94,4 +102,4 @@ Dropbox 應用程式便建立好了。您可以在 Azure 入口網站的 Dropbox
 [12]: ./media/powerapps-create-api-dropbox/browseall.png
 [13]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

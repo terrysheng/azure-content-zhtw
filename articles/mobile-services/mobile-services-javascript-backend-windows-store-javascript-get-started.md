@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Windows Store JavaScript app。在本教學課程中，您將建立新的行動服務和簡單的*待辦事項清單*應用程式，後者會在前者儲存應用程式資料。您將建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。
+本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Windows Store JavaScript app。在本教學課程中，您將建立新的行動服務和簡單的_待辦事項清單_應用程式，後者會在前者儲存應用程式資料。您將建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。
 
 若要完成此教學課程，您需要下列項目：
 
@@ -88,4 +88,4 @@
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->

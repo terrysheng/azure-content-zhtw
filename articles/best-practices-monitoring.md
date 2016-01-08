@@ -604,7 +604,7 @@ _圖 6.根據分析和儲存體需求分割資料_
 ## 詳細資訊
 - Microsoft 網站上的[監視、診斷與疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)文章。
 - Microsoft 網站上的＜[Azure：遙測基本概念和疑難排解](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)＞文章。
-- Microsoft 網站上的＜[使用 Windows Azure 診斷收集記錄資料](https://msdn.microsoft.com/library/azure/gg433048.aspx)＞頁面。
+- Microsoft 網站上的＜[使用 Microsoft Azure 診斷收集記錄資料](https://msdn.microsoft.com/library/azure/gg433048.aspx)＞頁面。
 - Microsoft 網站上的＜[設定 Azure 雲端服務和虛擬機器的診斷](https://msdn.microsoft.com/library/azure/dn186185.aspx)＞頁面。
 - Microsoft 網站上的＜[Azure Redis 快取](http://azure.microsoft.com/services/cache/)＞、＜[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)＞和＜[HDInsight](http://azure.microsoft.com/services/hdinsight/)＞頁面。
 - Microsoft 網站上的＜[如何服務匯流排佇列](http://azure.microsoft.com/)＞頁面。

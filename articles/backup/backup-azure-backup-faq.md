@@ -166,8 +166,8 @@
 
 	| 登錄路徑 | 登錄金鑰 | 值 |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>新的快取資料夾位置</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>新的快取資料夾位置</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>新的快取資料夾位置</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>新的快取資料夾位置</i> |
 
 
 + 藉由在提高權限的命令提示字元中執行下列命令來啟動 OBEngine：

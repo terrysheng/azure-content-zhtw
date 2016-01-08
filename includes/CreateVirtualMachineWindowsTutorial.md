@@ -71,7 +71,7 @@
 
 	![Specify the size of the empty disk](./media/CreateVirtualMachineWindowsTutorial/emptydisksize.png)
 	
-	>[AZURE.NOTE]所有磁碟都是從 Windows Azure 儲存體中的 VHD 檔案建立。在 [檔案名稱] 下，您可以為新增至儲存體的 VHD 檔案提供名稱，但是 Azure 會自動產生磁碟的名稱。
+	>[AZURE.NOTE]所有磁碟都是從 Microsoft Azure 儲存體中的 VHD 檔案建立。在 [檔案名稱] 下，您可以為新增至儲存體的 VHD 檔案提供名稱，但是 Azure 會自動產生磁碟的名稱。
 
 6. 返回儀表板，驗證空的資料磁碟已成功連接至虛擬機器。它會與 OS 磁碟並列為 [磁碟] 清單中的第二個磁碟。
 

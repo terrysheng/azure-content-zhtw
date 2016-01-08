@@ -22,7 +22,7 @@ Azure 總是不斷增加，因此很容易便會超載。本文章先前已列�
  
 <h2><a id="components"></a>Azure 元件</h2>
 
-Azure 在管理入口網站和各種視覺輔助上 (如[什麼是 Windows Azure 資訊圖表](http://azure.microsoft.com/documentation/infographics/azure/ "什麼是 Microsoft Azure 海報資訊圖"))，將服務劃分為不同類別。您可使用管理入口網站來管理 Azure 中的大部分 (但並非全部) 服務。
+Azure 在管理入口網站和各種視覺輔助上 (如[什麼是 Microsoft Azure 資訊圖表](http://azure.microsoft.com/documentation/infographics/azure/ "什麼是 Microsoft Azure 海報資訊圖"))，將服務劃分為不同類別。您可使用管理入口網站來管理 Azure 中的大部分 (但並非全部) 服務。
 
 本文將使用**不同的組織**來討論採用類似功能的服務，並叫出屬於大型服務一部分的重要子服務。
 

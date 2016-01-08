@@ -44,7 +44,7 @@ Service Fabric 將會提供您可從 Microsoft 下載中心下載的安裝套件
 
 * Azure 入口網站：Azure 入口網站能輕鬆建立和管理叢集。
 * Azure 資源管理員：使用 ARM 可輕鬆管理叢集做為單位使用的所有資源，並簡化成本追蹤與付費作業。 
-* 診斷：在 Azure 上我們與 WAD (Windows Azure 診斷) 及 Operational Insights 整合進行診斷。
+* 診斷：在 Azure 上我們與 WAD (Microsoft Azure 診斷) 及 Operational Insights 整合進行診斷。
 * 自動調整：對於 Azure 裝載的叢集，我們將提供內建的自動調整功能。在其他使用「隨處部署」功能的環境中，您將必須建置您自己的自動調整規模功能，或使用 Service Fabric 針對調整叢集規模顯示的 API 來手動調整規模。
 
 <!---HONumber=AcomDC_1203_2015-->

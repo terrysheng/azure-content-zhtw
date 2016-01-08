@@ -101,7 +101,7 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 	
 	[SQL Database 定價詳細資料](/pricing/details/sql-database/)
 	
-	[Windows Azure 的虛擬機器和雲端服務大小][vmsizes]
+	[Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]
 	
 	[App Service 定價詳細資料](/pricing/details/app-service/)
 	

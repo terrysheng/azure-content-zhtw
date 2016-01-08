@@ -88,4 +88,4 @@
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015--->

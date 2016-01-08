@@ -483,7 +483,7 @@ EventSource|否|資料表|記錄您的程式碼使用 .NET EventSource 類別所
 ## 其他資源
 
 - [開發 Azure 應用程式的疑難排解最佳作法][]
-- [使用 Windows Azure 診斷收集記錄資料][]
+- [使用 Microsoft Azure 診斷收集記錄資料][]
 - [偵錯 Azure 應用程式][]
 - [為 Azure 雲端服務和虛擬機器設定診斷功能][]
 
@@ -501,7 +501,7 @@ EventSource|否|資料表|記錄您的程式碼使用 .NET EventSource 類別所
   
 [為 Azure 雲端服務和虛擬機器設定診斷功能]: http://msdn.microsoft.com/library/windowsazure/dn186185.aspx
 [偵錯 Azure 應用程式]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx
-[使用 Windows Azure 診斷收集記錄資料]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[使用 Microsoft Azure 診斷收集記錄資料]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [開發 Azure 應用程式的疑難排解最佳作法]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
 [免費試用版]: http://azure.microsoft.com/pricing/free-trial/
 [安裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/

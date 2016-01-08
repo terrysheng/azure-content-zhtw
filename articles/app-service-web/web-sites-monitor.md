@@ -173,7 +173,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 1. 從 [開始畫面] 或 [開始功能表] 搜尋 **Azure PowerShell**。在 [Azure PowerShell] 項目上按一下滑鼠右鍵，然後選取 [以系統管理員身份執行]。
 
-	> [AZURE.NOTE]如果您尚未安裝 **Azure PowerShell**，請參閱 [Windows Azure Cmdlet 使用者入門](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)以取得安裝和組態資訊。
+	> [AZURE.NOTE]如果您尚未安裝 **Azure PowerShell**，請參閱 [Microsoft Azure Cmdlet 使用者入門](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)以取得安裝和組態資訊。
 
 2. 在 Azure PowerShell 提示字元中使用下列命令來下載記錄檔：
 

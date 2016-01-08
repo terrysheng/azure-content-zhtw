@@ -149,15 +149,15 @@ Runbook 將在混合式 Runbook 背景工作上的本機系統帳戶內容中執
 
 ## 與 Service Management Automation 的關聯性
 
-[服務管理自動化 (SMA)](https://technet.microsoft.com/library/dn469260.aspx) 是 Windows Azure Pack (WAP) 的一項元件，可讓您在本機資料中心內執行 Azure 自動化支援的相同 Runbook。不同於 Azure 自動化，SMA 需要本機安裝，其中包含 Windows Azure Pack 管理入口網站和資料庫，用以保存 Runbook 和 SMA 組態。Azure 自動化在雲端中提供這些服務，並只要求您在本機環境中維護混合式 Runbook 背景工作。
+[服務管理自動化 (SMA)](https://technet.microsoft.com/library/dn469260.aspx) 是 Microsoft Azure Pack (WAP) 的一項元件，可讓您在本機資料中心內執行 Azure 自動化支援的相同 Runbook。不同於 Azure 自動化，SMA 需要本機安裝，其中包含 Microsoft Azure Pack 管理入口網站和資料庫，用以保存 Runbook 和 SMA 組態。Azure 自動化在雲端中提供這些服務，並只要求您在本機環境中維護混合式 Runbook 背景工作。
 
 如果您是現有 SMA 使用者，可以將您的 Runbook 移至 Azure 自動化，以搭配混合式 Runbook 背景工作使用，而不必變更，假設他們已依[為混合式 Runbook 背景工作建立 Runbook](#creating-runbooks-for-hybrid-runbook-worker) 中所述，向資源進行驗證 。SMA 中的 Runbook 會在背景工作伺服器上服務帳戶的內容中執行，其可能為 Runbook 提供該驗證。
 
 您可以使用下列準則來判斷 Azure 自動化搭配混合式 Runbook 背景工作或 Service Management Automation 更適合您的需求。
 
-- SMA 需要本機安裝 Windows Azure 套件，其較 Azure 自動化具有更多的本機資源和更高的維護成本，Azure 自動化只需要在本機 Runbook 背景工作角色上安裝代理程式。代理程式由 Operations Management Suite 管理，進一步減少維護成本。
+- SMA 需要本機安裝 Microsoft Azure 套件，其較 Azure 自動化具有更多的本機資源和更高的維護成本，Azure 自動化只需要在本機 Runbook 背景工作角色上安裝代理程式。代理程式由 Operations Management Suite 管理，進一步減少維護成本。
 - Azure 自動化會在雲端中儲存其 Runbook，並提供它們至內部部署混合式 Runbook 背景工作。如果您的安全性原則不允許這種行為，您應該使用 SMA。
-- Windows Azure Pack 可免費下載，而 Azure 自動化可能需支付訂用帳戶費用。
+- Microsoft Azure Pack 可免費下載，而 Azure 自動化可能需支付訂用帳戶費用。
 - Azure 自動化搭配混合式 Runbook 背景工作，可讓您在一個位置管理雲端資源的 Runbook 和本機資源，與個別管理 Azure 自動化和 SMA 相對。
 - Azure 自動化具備的進階功能包括 SMA 中並未提供的圖形編寫。
 

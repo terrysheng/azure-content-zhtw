@@ -220,7 +220,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 - 儲存體模擬器的可執行檔已重新命名為 *AzureStorageEmulator.exe*。
 
 ### 3\.2 版
-- 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上的 2014-02-14 版儲存體服務。請注意，儲存體模擬器目前不支援檔案服務端點。如需有關 2014-02-14 版本的詳細資訊，請參閱 [為 Windows Azure 中的 Blob、佇列和表格服務進行版本設定](https://msdn.microsoft.com/library/azure/dd894041.aspx)。
+- 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上的 2014-02-14 版儲存體服務。請注意，儲存體模擬器目前不支援檔案服務端點。如需有關 2014-02-14 版本的詳細資訊，請參閱 [為 Microsoft Azure 中的 Blob、佇列和表格服務進行版本設定](https://msdn.microsoft.com/library/azure/dd894041.aspx)。
 
 ### 3\.1 版
 - 儲存體模擬器現在支援讀取權限異地備援儲存體 (RA-GRS)。針對次要帳戶支援 Get Blob Service Stats、Get Queue Service Stats 和 Get Table Service Stats API，且這些 API 一律會根據基礎 SQL Database 傳回 LastSyncTime 回應元素的值當成目前的時間。如需以程式設計方式使用儲存體模擬器來存取次要位置，請使用 Storage Client Library for.NET 3.2 版或更新版本。如需詳細資訊，請參閱＜儲存體用戶端程式庫參考＞。

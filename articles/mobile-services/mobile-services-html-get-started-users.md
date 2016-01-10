@@ -101,7 +101,7 @@
 			$("#logged-in button").click(logOut);
 		});
 
-    這會建立一組函數來處理驗證程序。使用者會透過 Facebook 登入受到驗證。如果您使用的識別提供者不是 Facebook，請將傳給上述 **login** 方法的值變更為以下其中一個：*microsoftaccount*、*facebook*、*twitter*、*google* 或 *aad*。
+    這會建立一組函數來處理驗證程序。使用者會透過 Facebook 登入受到驗證。如果您使用的識別提供者不是 Facebook，請將傳給上述 **login** 方法的值變更為以下其中一個： *microsoftaccount* 、 *facebook* 、 *twitter* 、 *google* 或 *aad* 。
 
 	>[AZURE.IMPORTANT]在 PhoneGap 應用程式中，您必須也將以下外掛程式新增至專案：<ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
@@ -135,4 +135,4 @@
 [行動服務 HTML/JavaScript 作法概念性參考]: mobile-services-html-how-to-use-client-library.md
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!--------HONumber=AcomDC_1210_2015--->

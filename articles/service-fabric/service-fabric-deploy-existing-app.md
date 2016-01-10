@@ -63,9 +63,9 @@
 
 根目錄包含可定義應用程式的 ApplicationManifest.xml 檔案。對於應用程式包含的每個服務，都有一個子目錄用來包含服務所需的所有構件：ServiceManifest.xml 以及通常有 3 個目錄：
 
-- *code*：包含服務程式碼
-- *config*：包含服務可在執行階段存取的 settings.xml 檔案 (和其他必要檔案)，以擷取特定組態設定。
-- *data*：額外的目錄，用來儲存服務可能需要的其他本機資料。注意：資料應用來只儲存短期資料，如果在容錯移轉期間必須重新定位服務，Service Fabric 不會將變更複製/複寫到資料目錄。
+- *code*:包含服務程式碼
+- *config*:包含服務可在執行階段存取的 settings.xml 檔案 (和其他必要檔案)，以擷取特定組態設定。
+- *data*:額外的目錄，用來儲存服務可能需要的其他本機資料。注意：資料應用來只儲存短期資料，如果在容錯移轉期間必須重新定位服務，Service Fabric 不會將變更複製/複寫到資料目錄。
 
 注意：如果不需要 `config` 和 `data` 目錄，則不必建立。
 
@@ -278,4 +278,4 @@ Service Fabric 服務可以各種「組態」部署，例如它可部署為單�
 - 了解如何[部署多個自訂應用程式](service-fabric-deploy-multiple-apps.md)。
 - 如何開始[使用 Visual Studio 建立第一個 Service Fabric 應用程式](service-fabric-create-your-first-application-in-visual-studio.md)。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

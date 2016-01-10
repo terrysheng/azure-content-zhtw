@@ -213,7 +213,7 @@
 
 		php -S localhost:8000
 
-您現在可以瀏覽至 ****http://localhost:8000/** 測試應用程式。
+您現在可以瀏覽至 **http://localhost:8000/** 測試應用程式。
 
 
 ##發佈您的應用程式
@@ -302,4 +302,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

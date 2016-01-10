@@ -70,7 +70,7 @@ Azure AD Connect 可讓內部部署電腦佈建為雲端中的裝置物件。若
 
 >[AZURE.NOTE]請將 [連接器帳戶名稱] 取代為作為 AD 連接器帳戶的網域帳戶。
 
->[AZURE.NOTE]Get-Credential 快顯視窗顯示時輸入的認證使用者名稱必須採用 **user@example.com* 格式
+>[AZURE.NOTE]Get-Credential 快顯視窗顯示時輸入的認證使用者名稱必須採用 *user@example.com* 格式
 
 ### 設定 AD FS 宣告規則
 這可讓電腦使用 Kerberos/NTLM 透過 AD FS 進行驗證，進而透過 Azure DRS 讓電腦即時註冊。若未進行此步驟，電腦將會以延遲的方式進入 Azure AD (受限於 Azure AD Connect 同步處理的時間)。
@@ -137,4 +137,4 @@ Azure AD Connect 可讓內部部署電腦佈建為雲端中的裝置物件。若
 * [將已加入網域的裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

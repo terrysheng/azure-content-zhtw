@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # 開始使用 BizTalk 交易夥伴管理並將它加入您的邏輯應用程式
@@ -25,7 +25,7 @@ TPM API 應用程式是 AS2 連接器、X12 API 應用程式和 EDIFACT API 應�
 - 空白的 SQL Azure 資料庫 - 您首先必須建立空白的 SQL Azure 資料庫，接著再建立新的 TPM API 應用程式。
 
 ## 了解夥伴、合約以及設定檔
-若要深入了解交易夥伴協議，請按一下[這裡][1]
+進一步了解[如何建立交易夥伴協議][1]。
 
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
@@ -39,4 +39,4 @@ TPM API 應用程式是 AS2 連接器、X12 API 應用程式和 EDIFACT API 應�
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -22,7 +22,7 @@
 
 「Azure 資源管理員」透過資源管理鎖，提供限制在資源上執行作業的能力。鎖定是會在特定領域強制執行鎖定層級的原則。範圍可以是訂用帳戶、資源群組或資源。鎖定層級會識別原則的強制類型，目前有兩種值 – **CanNotDelete** 與 **ReadOnly**。**CanNotDelete** 表示經過授權的使用者仍然可以讀取和修改資源，但它們不能刪除任何受限制的資源。**ReadOnly** 表示經過授權的使用者只能從資源讀取，但無法修改或刪除任何受限制的資源。
 
-鎖定不同於使用以角色為基礎的存取控制來指派使用者權限以執行特定動作。若要深入了解為使用者與角色設定權限，請參閱[入口網站中的角色型存取控制](role-based-access-control-configure.md)與[管理及稽核對資源的存取](resource-group-rbac.md)。不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制，而您一般僅在有限間套用限制鎖定。
+鎖定不同於使用以角色為基礎的存取控制來指派使用者權限以執行特定動作。如要了解使用者和角色的設定權限，請參閱 [Azure 角色型存取控制](./active-directory/role-based-access-control-configure.md)。不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制，而您一般僅在有限間套用限制鎖定。
 
 ## 常見案例
 
@@ -32,21 +32,21 @@
 
 ## 誰可以建立或刪除您的組織中的鎖定
 
-若要建立或刪除管理鎖定，您必須可存取 **Microsoft.Authorization/*** 或 **Microsoft.Authorization/locks/*** 動作。內建角色中，只有**擁有者**和**使用者存取系統管理員**被授與這些動作。如需有關指派存取控制的詳細資訊，請參閱[管理資源的存取權](resource-group-rbac.md)。
+若要建立或刪除管理鎖定，您必須擁有 **Microsoft.Authorization/*** 或 **Microsoft.Authorization/locks/*** 動作的存取權。在內建角色中，只有**擁有者**和**使用者存取系統管理員**被授與這些動作的存取權。如需指派存取控制的詳細資訊，請參閱 [Azure 角色型存取控制](./active-directory/role-based-access-control-configure.md)。
 
 ## 鎖定繼承
 
 當您在父範圍套用鎖定時，所有子系資源都會都繼承相同的鎖定。
 
-如果您將多個鎖定套用至資源，最嚴格的鎖定優先順序較高。例如，如果您在父層級 (例如資源群組) 套用 **ReadOnly** 和在該群組內的資源上套用 **CanNotDelete**，將優先套用來自父層級更具限制性的鎖定 (唯讀)。
+如果您將多個鎖定套用至資源，最嚴格的鎖定優先順序較高。舉例來說，如果您在父層級 (例如資源群組) 套用 **ReadOnly**，並在該群組內的資源上套用 **CanNotDelete**，則父層級中較嚴格的鎖定 (ReadOnly) 擁有較高的優先順序。
 
 ## 在範本中建立鎖定
 
-以下範例顯示的範本會在儲存體帳戶建立鎖定。要套用鎖定的儲存體帳戶會提供做為參數，並與 concat () 函式搭配使用。結果會在資源名稱結尾附加 ‘Microsoft.Authorization’，然後是鎖定的名稱 (在此案例中是 **myLock**)。
+以下範例顯示的範本會在儲存體帳戶建立鎖定。要套用鎖定的儲存體帳戶會提供做為參數，並與 concat () 函式搭配使用。結果會是資源名稱的結尾附加了「Microsoft.Authorization」，然後是鎖定的名稱 (在此案例中為 **myLock**)。
 
 必須依資源型別提供型別。針對儲存體，此型別為 "Microsoft.Storage/storageaccounts/providers/locks"。
 
-領域層級是使用資源的 **level** 屬性所設定。由於範例著重在協助避免意外刪除，所以層級是設定為 **CannotDelete**。
+範圍層級是使用資源的 **level** 屬性所設定。由於範例著重在協助使用者避免意外刪除，因此層級設定為 **CannotDelete**。
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -70,13 +70,13 @@
 
 ## 使用 REST API 建立鎖定
 
-您可以使用[管理鎖定的 REST API](https://msdn.microsoft.com/library/azure/mt204563.aspx) 來鎖定已部署的資源。此 REST API 可讓您建立及刪除鎖定，以及抓取現有鎖定的相關資訊。
+您可以使用[管理鎖定的 REST API](https://msdn.microsoft.com/library/azure/mt204563.aspx)，來鎖定已部署的資源。此 REST API 可讓您建立及刪除鎖定，以及抓取現有鎖定的相關資訊。
 
 若要建立鎖定，請執行：
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-範圍可以是訂用帳戶、資源群組或資源。lock-name 是您想要命名鎖定的任何名稱。針對 api-version，使用 **2015-01-01**。
+範圍可以是訂用帳戶、資源群組或資源。lock-name 是您想要命名鎖定的任何名稱。對於 api-version，請使用 **2015-01-01**。
 
 在要求中，包含指定鎖定屬性的 JSON 物件。
 
@@ -95,17 +95,17 @@
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-您可以使用 **New-AzureRmResourceLock** 鎖定以 Azure PowerShell 部署的資源，如下所示。透過 PowerShell，您只能將 **LockLevel** 設定為 **CanNotDelete**。
+您可以使用 **New-AzureRmResourceLock**，來利用 Azure PowerShell 鎖定已部署的資源，如下所示。透過 PowerShell，您只能將 **LockLevel** 設定為 **CanNotDelete**。
 
     PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
 
-Azure PowerShell 針對使用中的鎖定提供其他命令，例如 **Set-AzureRmResourceLock** 可以更新鎖定，而 **Remove-AzureRmResourceLock** 可以刪除鎖定。
+Azure PowerShell 為使用中的鎖定提供其他命令，例如可更新鎖定的 **Set-AzureRmResourceLock**，以及可刪除鎖定的 **Remove-AzureRmResourceLock**。
 
 ## 後續步驟
 
-- 如需使用資源鎖定的詳細資訊，請參閱[鎖定您 Azure 資源](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
-- 若要了解如何以邏輯方式組織資源，請參閱[使用標記來組織您的資源](resource-group-using-tags.md)。
-- 若要變更資源所在的資源群組，請參閱[將資源移至新的資源群組](resource-group-move-resources.md)
+- 的如需使用資源鎖定的詳細資訊，請參閱[鎖定您的 Azure 資源](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
+- 若要了解如何邏輯地組織您的資源，請參閱[使用標記來組織您的資源](resource-group-using-tags.md)。
+- 若要變更資源所在的資源群組，請參閱[將資源移動到新的資源群組](resource-group-move-resources.md)
 - 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。如需詳細資訊，請參閱[使用原則來管理資源和控制存取](resource-manager-policy.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

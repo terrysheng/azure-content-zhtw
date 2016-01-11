@@ -8,11 +8,11 @@
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **CreateDeviceIdentity** 專案，然後按一下 [管理 NuGet 封裝]。
 
-3. 在 [NuGet 封裝管理員] 視窗中，請確認已選取 [包含發行前版本] 選項。然後搜尋 **Microsoft Azure 裝置**，按一下 [安裝] 並接受使用規定。
+3. 在 [NuGet 封裝管理員] 視窗中，請確認已選取 [包含發行前版本] 選項。然後搜尋 **Microsoft Azure 裝置**，按一下 [安裝] 以安裝 **Microsoft.Azure.Devices** 封裝，並接受使用規定。
 
 	![][11]
 
-4. 這會下載及安裝參考，並將其加入 [Microsoft Azure 裝置 SDK][lnk-nuget-device-sdk] NuGet 封裝。
+4. 這會下載及安裝參考，並將其加入 [Microsoft Azure IoT - 服務 SDK][lnk-nuget-service-sdk] NuGet 封裝。
 
 4. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
 
@@ -41,7 +41,7 @@
             Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
         }
 
-	這個方法會建立具有識別碼 **myFirstDevice** 的新裝置身分識別 (如果該裝置識別碼已經存在登錄中，程式碼只擷取現有的裝置資訊)。接著，應用程式會顯示該身分識別的主要金鑰。您將在此模擬裝置中使用此金鑰，連線到您的 IoT 中樞。
+	這個方法會建立具有識別碼 **myFirstDevice** 的新裝置身分識別 (如果該裝置識別碼已經存在登錄中，程式碼就只會擷取現有的裝置資訊)。接著，應用程式會顯示該身分識別的主要金鑰。您將在此模擬裝置中使用此金鑰，連線到您的 IoT 中樞。
 
 7. 最後，將下列幾行加入至 **Main** 方法：
 
@@ -57,17 +57,17 @@
 
 ## 接收裝置到雲端的訊息
 
-在本節中，您將建立 Windows 主控台應用程式，以讀取來自 IoT 中樞的裝置到雲端訊息。IoT 中樞會公開[事件中樞][lnk-event-hubs-overview]相容的端點以讓您讀取裝置到雲端訊息。為了簡單起見，本教學課程會建立的基本讀取器不適合用於高輸送量部署。[處理裝置對雲端訊息][lnk-processd2c-tutorial]教學課程會說明如何大規模處理裝置對雲端訊息，以及[開始使用事件中樞][lnk-eventhubs-tutorial]教學課程則提供如何處理來自事件中樞的進一步資訊。
+在本節中，您將建立 Windows 主控台應用程式，以讀取來自 IoT 中樞的裝置到雲端訊息。IoT 中樞會公開與[事件中樞][lnk-event-hubs-overview]相容的端點以讓您讀取裝置到雲端訊息。為了簡單起見，本教學課程會建立的基本讀取器不適合用於高輸送量部署。[處理裝置對雲端訊息][lnk-processd2c-tutorial]教學課程會說明如何大規模處理裝置對雲端訊息，[開始使用事件中樞][lnk-eventhubs-tutorial]教學課程則提供如何處理來自事件中樞的進一步資訊。
 
 1. 在 Visual Studio 中，使用**主控台應用程式**專案範本將新的 Visual C# Windows 傳統桌面專案加入至目前的方案。將專案命名為 **ReadDeviceToCloudMessages**。
 
     ![][10]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadDeviceToCloudMessages** 專案，然後按一下 [Manage NuGet Packages]。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadDeviceToCloudMessages** 專案，然後按一下 [管理 NuGet 封裝]。
 
 3. 在 [NuGet 封裝管理員] 視窗中，請確認已選取 [包含發行前版本] 選項。然後搜尋 **WindowsAzure.ServiceBus**，按一下 [安裝] 並接受使用規定。
 
-    這會下載及安裝參考，並將其連同所有相依性加入 [Azure 服務匯流排][lnk-servicebus-nuget]。
+    這會下載及安裝 [Azure 服務匯流排][lnk-servicebus-nuget]，並加入對它的參考和其所有相依性。
 
 4. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
 
@@ -117,7 +117,7 @@
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-event-hubs-overview]: event-hubs-overview.md
 
-[lnk-nuget-device-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 <!-- Images -->
@@ -125,4 +125,4 @@
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

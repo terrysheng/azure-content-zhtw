@@ -44,9 +44,9 @@
 ## Azure 上的 SAP DBMS
 標題：Azure 中的 SAP DBMS 部署指南
 
-摘要：本白皮書涵蓋應該與 SAP 搭配執行之 DBMS 系統的規劃和實作考量。第一個部分會列出和提出一般考量。本白皮書的後續部分與在 Azure 中部署 SAP 所支援的不同 DBMS 有關。所提出的不同 DBMS 分別是 SQL Server、SAP ASE 和 Oracle。這幾個特定部分會探討當您在 Azure 上搭配這些 DBMS 來執行 SAP 系統時，所必須納入的考量。本白皮書也會提出在搭配 SAP 應用程式使用時，Azure 上不同 DBMS 所支援的備份和高可用性方法等主題。
+摘要：本白皮書涵蓋應該與 SAP 搭配執行之 DBMS 系統的規劃和實作考量。第一個部分會列出和提出一般考量。本白皮書的後續部分與在 Azure 中部署 SAP 所支援的不同 DBMS 有關。顯示的不同 DBMS 為 SQL Server、 SAP ASE、 Oracle、SAP MaxDB 和 IBM DB2 for Linux、 Unix 和 Windows。這幾個特定部分會探討當您在 Azure 上搭配這些 DBMS 來執行 SAP 系統時，所必須納入的考量。本白皮書也會提出在搭配 SAP 應用程式使用時，Azure 上不同 DBMS 所支援的備份和高可用性方法等主題。
 
-更新時間：2015 年 8 月
+更新日期：2015 年 12 月
 
 [立即下載此指南](http://go.microsoft.com/fwlink/?LinkId=397965)
 
@@ -70,4 +70,14 @@
 
 [立即下載此指南](http://go.microsoft.com/fwlink/?LinkId=613056)
 
-<!---HONumber=AcomDC_1125_2015-->
+## Azure SUSE Linux 虛擬機器上的 SAP NetWeaver
+
+標題：在 Microsoft Azure SUSE Linux VM 上測試 SAP NetWeaver
+
+摘要：目前 Azure Linux VM 上沒有執行 SAP NetWeaver 的正式 SAP 支援。不過客戶可能想要執行一些測試，或可能考慮在 Azure Linux VM 上執行 SAP 示範或訓練系統，只要不需要連絡 SAP 支援。本文章應有助於設定執行 SAP 的 Azure SUSE Linux VM，並提供一些基本的提示，以避免常見的潛在問題。
+
+更新日期：2015 年 12 月
+
+[可在這裡找到這份文件](virtual-machines-sap-on-linux-suse-quickstart.md)
+
+<!---HONumber=AcomDC_1223_2015-->

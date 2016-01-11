@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="12/08/2015" 
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight 叢集上的 Spark 作業伺服器
+
+> [AZURE.NOTE]HDInsight 現在在 Linux 上提供 Spark 叢集，它利用 Livy 來把工作遠端提交給 Spark 叢集。如需了解如何在 Linux 上搭配 HDInsight Spark 叢集來使用 Livy，請參閱[搭配 HDInsight 上的 Spark 叢集來利用 Livy 遠端提交 Spark 工作 (Linux)](hdinsight-apache-spark-livy-rest-interface.md)。
 
 Azure HDInight 上的 Apache Spark 叢集能封裝 Spark 作業伺服器，使其成為叢集部署的一部分。Spark 作業伺服器提供用來建立 Spark 內容、提交 Spark 應用程式到內容、檢查工作狀態、終止內容等作業的 REST API。本文章提供一些如何使用 Curl 在使用作業伺服器之 Spark 叢集上執行幾個常見工作的範例。
 
@@ -64,10 +66,10 @@ Azure HDInight 上的 Apache Spark 叢集能封裝 Spark 作業伺服器，使�
 
 ##<a name="seealso"></a>另請參閱
 
-* [概觀：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
-* [在 HDInsight 叢集上佈建 Spark](hdinsight-apache-spark-provision-clusters.md)
-* [在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](hdinsight-apache-spark-use-bi-tools.md)
-* [在 HDInsight 中使用 Spark 建置機器學習應用程式](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [概觀：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview-v1.md)
+* [在 HDInsight 叢集上建立 Spark](hdinsight-apache-spark-provision-clusters.md)
+* [在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](hdinsight-apache-spark-use-bi-tools-v1.md)
+* [在 HDInsight 中使用 Spark 建置機器學習應用程式](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
 * [在 HDInsight 中使用 Spark 建置即時串流應用程式](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
@@ -82,4 +84,4 @@ Azure HDInight 上的 Apache Spark 叢集能封裝 Spark 作業伺服器，使�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

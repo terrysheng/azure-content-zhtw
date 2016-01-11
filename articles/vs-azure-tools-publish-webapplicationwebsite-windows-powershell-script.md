@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Publish-WebApplicationWebSite (Windows PowerShell 指令碼)"
+   pageTitle="Publish-WebApplicationWebSite (Windows PowerShell 指令碼) | Microsoft Azure"
    description="了解如何將 Web 專案發佈至 Azure 網站。此指令碼會在您的 Azure 訂用帳戶中建立所需的資源 (如果它們不存在)。"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Publish-WebApplicationWebSite (Windows PowerShell 指令碼)
@@ -129,4 +129,4 @@ JSON 組態檔會指定待部署項目的詳細資料。它會包含您在建立
 
 如需詳細資訊，請參閱 [Publish-WebApplicationVM (Windows PowerShell 指令碼)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

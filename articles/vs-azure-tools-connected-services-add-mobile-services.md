@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="visual-studio-online"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="08/12/2015"
+   ms.date="12/16/2015"
    ms.author="tarcher" />
 
 # 使用 Visual Studio 已連接服務加入行動服務
@@ -49,9 +49,7 @@
 
 1. 在 [Azure 行動服務] 對話方塊中，選擇現有的行動服務 (如果有的話)。如果您需要建立新的 Azure 行動服務，請遵循下面的程序。否則請跳到下一步。
 
-    若要建立新的行動服務帳戶︰
-    1. 選擇對話方塊底部的 [建立服務] 連結。
-        ![加入新的已連接行動服務](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    若要建立新的行動服務帳戶︰1. 選擇對話方塊底部的 [建立服務] 連結。![加入新的已連接行動服務](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 
@@ -91,4 +89,4 @@ Visual Studio 修改您的專案的方式視專案類型而定。若為 C# 用�
 
  - [azure.microsoft.com 上的 Azure 行動服務文件](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

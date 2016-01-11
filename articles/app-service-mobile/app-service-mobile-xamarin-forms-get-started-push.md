@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/25/2015" 
+	ms.date="12/19/2015" 
 	ms.author="wesmc"/>
 
 # 將推播通知新增至 Xamarin.Forms 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -59,10 +57,6 @@
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-##將已更新的伺服器專案部署至 Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 
 ##(選擇性) 設定和執行 Android 專案
 
@@ -77,7 +71,7 @@
 
 ####設定 GCM 的通知中樞
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。按一下 [瀏覽] > [Mobile Apps] > 您的行動應用程式 > [設定] > [推送] > [Google (GCM)]。貼入您稍早建立的伺服器 API 金鑰，然後按一下 [儲存]。您的服務現在已設定為對 Android 使用推播通知。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。按一下 [瀏覽] > [Mobile Apps] > 您的行動應用程式 > [設定] > [推送] > [Google (GCM)]。貼上您先前建立的伺服器 API 金鑰，然後按一下 [儲存]。您的服務現在已設定為對 Android 使用推播通知。
 
 	![](./media/app-service-mobile-xamarin-forms-get-started-push/mobile-app-save-gcm-api-key.png)
 
@@ -158,7 +152,7 @@
 		using System.Text;
 		using System.Linq;
 
-9. 在檔案頂端，在 `using` 陳述式和 `namespace` 宣告之間加入下列權限要求。
+9. 在檔案頂端，`using` 陳述式和 `namespace` 宣告之間，加入下列權限要求。
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -330,7 +324,7 @@
 
 ####設定 APNS 的通知中樞
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。按一下 [瀏覽] > [Mobile Apps] > 您的行動應用程式 > [設定] > [推送] > [Apple (APNS)] > [上傳憑證]。上傳您稍早匯出的 .p12 推播憑證檔案。如果您建立的開發推播憑證是為了開發和測試，請務必選取 [沙箱]。否則，請選擇 [生產環境]。您的服務現在已設定為對 iOS 使用推播通知。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。按一下 [瀏覽] > [Mobile Apps] > 您的行動應用程式 > [設定] > [推送] > [Apple (APNS)] > [上傳憑證]。上傳您稍早匯出的 .p12 推播憑證檔案。如果您建立開發推播憑證是為了開發和測試，請務必選取 [沙箱]。否則，請選擇 [生產]。您的服務現在已設定為對 iOS 使用推播通知。
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -415,9 +409,9 @@
 
 ####在 iOS 應用程式中測試推播通知
 
-1. 以滑鼠右鍵按一下 iOS 專案，然後按一下 [設定為起始專案]。
+1. 以滑鼠右鍵按一下 iOS 專案，然後按一下 [設定為啟始專案]。
 
-2. 在 Visual Studio 中按 [執行] 按鈕或 **F5** 以建置專案，並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
+2. 在 Visual Studio 中按下 [執行] 按鈕或 **F5** 以建置專案，並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
 	
 	> [AZURE.NOTE]您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
@@ -445,7 +439,7 @@
 
 ####將推播通知加入至 Windows 應用程式
 
-1. 在 Visual Studio 中，開啟 **WinApp** 專案中的 **App.xaml.cs**。新增下列 `using` 陳述式。
+1. 在 Visual Studio 中，開啟 **WinApp** 專案中的 **App.xaml.cs**，然後新增下列 `using` 陳述式。
 
 		using System.Threading.Tasks;
 		using Windows.Networking.PushNotifications;
@@ -453,7 +447,7 @@
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
 
-2. 在 App.xaml.cs 中，加入下列 `InitNotificationsAsync` 方法。這個方法會取得推播通知通道，並註冊範本以接收來自通知中樞的範本通知。支援 `messageParam` 的範本通知會傳送到此用戶端。
+2. 在 App.xaml.cs 中，加入下列 `InitNotificationsAsync` 方法。這個方法會取得推播通知通道，並註冊範本以接收來自通知中樞的範本通知。支援 `messageParam` 的範本通知，會傳送到此用戶端。
 
         private async Task InitNotificationsAsync()
         {
@@ -475,7 +469,7 @@
             await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
-3. 在 App.xaml.cs 中，以 `async` 屬性更新 `OnLaunched` 事件處理常式，並呼叫 `InitNotificationsAsync`
+3. 在 App.xaml.cs 中，利用 `async` 屬性更新 `OnLaunched` 事件處理常式，並呼叫 `InitNotificationsAsync`
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -512,7 +506,7 @@
             await InitNotificationsAsync();
         }
 
-4. 在 Visual Studio 的 [方案總管] 中，開啟 **Package.appxmanifest** 檔案，在 [通知] 下將 [支援快顯通知] 設為 [是]。
+4. 在 Visual Studio 的 [方案總管] 中，開啟 **Package.appxmanifest** 檔案，然後把 [通知] 下方的 [支援快顯通知] 設為 [是]。
 
 5. 建置應用程式並確認沒有錯誤。您用戶端應用程式現在應該註冊行動應用程式後端的範本通知。
 
@@ -541,4 +535,4 @@
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1223_2015-->

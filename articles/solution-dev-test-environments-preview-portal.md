@@ -45,7 +45,7 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 
 > [AZURE.NOTE]您可以直接按一下[佈建 Web 應用程式與 SQL Database](http://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) 一文中的 [部署至 Azure] 按鈕以將範本部署至 Azure。您可能會發現這對了解範本很有幫助，但這麼做並不能讓您使用應用程式程式碼編輯、定義版本及儲存您的範本和參數值。本文中的步驟說明如何利用應用程式程式碼儲存您的範本和參數值和定義其版本。
 
-  **步驟 1：**檢視 201-web-app-sql-database 資料夾中 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) 檔案的內容。這是 Azure 資源管理員範本檔案。在檢視模式中，按一下 [原始](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json) 按鈕。利用您的滑鼠選取此檔案的全部內容，並將它以 "TestApp1-Template.json" 的檔案名稱儲存到您的電腦。
+  **步驟 1：**檢視 201-web-app-sql-database 資料夾中 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) 檔案的內容。這是 Azure 資源管理員範本檔案。在檢視模式中，按一下 [原始][](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json) 按鈕。利用您的滑鼠選取此檔案的全部內容，並將它以 "TestApp1-Template.json" 的檔案名稱儲存到您的電腦。
 
 在此範本檔案中，您會看到 [資源] 區段，其定義此範本所建立之 Azure 資源。在其他資源類型中，此範本會建立 [Azure Web 應用程式](app-service-web/app-service-web-overview.md)和 [Azure SQL Database](sql-database/sql-database-technical-overview.md) 資源。
 
@@ -57,7 +57,7 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 
 您可能會想在每個環境中建立相同的 Azure 資源，但您可能會想要在每個環境中設定不同的資源。這是參數檔案的由來。
 
-  **步驟 2：**檢視 201-web-app-sql-database 資料夾中 [azuredeploy-parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy-parameters.json) 檔案的內容。這是您在步驟 1 中所儲存之範本檔案的參數檔案。在檢視模式中，按一下 [原始](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy-parameters.json) 按鈕。使用您的滑鼠，選取此檔案的全部內容，並將它以下列名稱儲存至電腦上的三個個別檔案：
+  **步驟 2：**檢視 201-web-app-sql-database 資料夾中 [azuredeploy-parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy-parameters.json) 檔案的內容。這是您在步驟 1 中所儲存之範本檔案的參數檔案。在檢視模式中，按一下 [原始][](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy-parameters.json) 按鈕。使用您的滑鼠，選取此檔案的全部內容，並將它以下列名稱儲存至電腦上的三個個別檔案：
 
 - TestApp1-Parameters-Development.json
 - TestApp1-Parameters-Test.json
@@ -144,7 +144,7 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## 建立環境
-所有的 Azure 資源必須建立於 [Azure 資源群組](azure-portal/resource-group-portal.md)內。資源群組可讓您將 Azure 資源分組，讓他們可以共同管理。[權限](resource-group-rbac.md)可以指派給資源群組，讓組織內的特定人員可以建立、修改、刪除或檢視它們和其中的資源。資源群組中資源的警示和計費資訊可以在 [Azure Preview 入口網站](https://portal.azure.com)中檢視。資源群組會在 Azure [位置](http://azure.microsoft.com/regions/)中建立。在本文中，所有資源都會在美國中部位置建立。當您開始建立實際環境時，您會選擇最適合您需求的位置。
+所有的 Azure 資源必須建立於 [Azure 資源群組](azure-portal/resource-group-portal.md)內。資源群組可讓您將 Azure 資源分組，讓他們可以共同管理。[權限](./active-directory/role-based-access-control-configure.md)可以指派給資源群組，讓組織內的特定人員可以建立、修改、刪除或檢視資源群組及其中的資源。資源群組中資源的警示和計費資訊可以在 [Azure Preview 入口網站](https://portal.azure.com)中檢視。資源群組會在 Azure [位置](http://azure.microsoft.com/regions/)中建立。在本文中，所有資源都會在美國中部位置建立。當您開始建立實際環境時，您會選擇最適合您需求的位置。
 
   **步驟 5：**使用下列任何一種方法建立開發和測試環境的資源群組。這兩種方法會達到完全相同的結果。
 
@@ -303,7 +303,7 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 ## 維護環境
 在整個開發過程中，不同環境中的 Azure 資源組態可能會出現有意或無意的不一致變更。這會在應用程式開發週期中造成不必要的疑難排解和問題解決。
 
-  **步驟 7：**變更環境。開啟 [Azure Preview 入口網站](https://portal.azure.com) 並以您用來完成上述步驟所使用的相同帳戶登入。如下圖所示，按一下 \[瀏覽所有-->資源群組] (您可能需要向下捲動瀏覽刀鋒視窗以查看資源群組)。您會看到您使用先前步驟中的其中一個方法所建立的所有三個資源群組。按一下 TestApp1-Development 資源群組，如下所示。
+  **步驟 7：**變更環境。開啟 [Azure Preview 入口網站](https://portal.azure.com) 並以您用來完成上述步驟所使用的相同帳戶登入。如下圖所示，按一下 [瀏覽所有-->資源群組] (您可能需要向下捲動瀏覽刀鋒視窗以查看資源群組)。您會看到您使用先前步驟中的其中一個方法所建立的所有三個資源群組。按一下 TestApp1-Development 資源群組，如下所示。
 
   ![入口網站](./media/solution-dev-test-environments-preview-portal/portal1.png)
 
@@ -384,4 +384,4 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 - 使用 [Visual Studio 發行管理](http://msdn.microsoft.com/Library/vs/alm/Release/overview)建立受管理的連續部署管線以快速、輕鬆且經常發行。
 - 要求 [Azure 研發/測試實驗室](http://azure.microsoft.com/campaigns/devtest-lab/)的預覽邀請。它可讓您使用範本管理開發和測試實驗室環境，並設定組織內的使用配額和原則。
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

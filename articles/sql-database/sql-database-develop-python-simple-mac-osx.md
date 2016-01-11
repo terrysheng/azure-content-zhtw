@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # 在 Mac OS 上使用 Python 連接到 SQL Database
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 本主題提供以 Python 撰寫的程式碼範例。這個範例會在 Mac 電腦上執行。這個範例使用 **pymssql** 驅動程式連接到 Azure SQL Database。此外，請使用[開始在 Mac 上使用 Python](https://www.youtube.com/watch?v=OMpugPTwnTI) 視訊以補充本文件。
@@ -43,7 +46,7 @@
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-**2) FreeTDS：**從您的終端機執行下列命令。這會在您的電腦上下載 FreeTDS。pymmsql 需要 FreeTDS 才能工作。
+**2) FreeTDS**：從您的終端機執行下列命令。這會在您的電腦上下載 FreeTDS。pymmsql 需要 FreeTDS 才能工作。
 
     brew install FreeTDS
 
@@ -123,4 +126,4 @@
 
 如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

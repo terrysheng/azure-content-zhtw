@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # 註冊 Microsoft 管理的 API 或 IT 管理的 API
@@ -55,8 +55,8 @@ API | 說明 | 步驟連結
 ![][33] | **Excel**<br/><br/> 您可以取得、更新、刪除項目等。 | [**開始使用**](powerapps-create-api-excel.md)
 ![][34] | **Google 雲端硬碟**<br/><br/> 您可以取得、更新、刪除項目等。 | [**開始使用**](powerapps-create-api-googledrive.md)
 ![][35] | **Microsoft Translator**<br/><br/>翻譯文字、偵測語言等。 | [**開始使用**](powerapps-create-api-microsofttranslator.md)
-![][36] | **Office365 Outlook**<br/><br/>管理您的電子郵件。 | [**開始使用**](powerapps-create-api-office365-outlook.md)
-![][37] | **Office365 使用者**<br/><br/>存取使用者設定檔、其經理、其直屬員工等。 | [**開始使用**](powerapps-create-api-office365-users.md)
+![][36] | **Office 365 Outlook**<br/><br/>管理您的電子郵件。 | [**開始使用**](powerapps-create-api-office365-outlook.md)
+![][37] | **Office 365 使用者**<br/><br/>存取使用者設定檔、其經理、其直屬員工等。 | [**開始使用**](powerapps-create-api-office365-users.md)
 ![][38] | **OneDrive**<br/><br/> 您可以取得、更新、刪除項目等。 | [**開始使用**](powerapps-create-api-onedrive.md)
 ![][39] | **Salesforce**<br/><br/> 您可以取得、更新、刪除項目等。 | [**開始使用**](powerapps-create-api-salesforce.md)
 ![][40] | **SharePoint Online**<br/><br/> 您可以取得、更新、刪除項目等。 | [**開始使用**](powerapps-create-api-sharepointonline.md)
@@ -69,8 +69,8 @@ API | 說明 | 步驟連結
 一些其他優點包括：
 
 - 資源 (包括網路、記憶體或安全性組態) 會受您監視。例如，如果您需要更多記憶體才能在您的 app 中顯示 Excel 資料，您可以控制要在您的環境中新增多少記憶體。 
-- 由您設定 app 與 API 之間的信任並控制安全性。例如，由您決定 Office365 API 是否可以受 Microsoft 管理 (自動信任)，或在您自己的環境內使用 Office365 API (建立您自己的信任)。 
-- 「所有」Microsoft 管理的 API 也都可以是 IT 管理的 API。例如，如果您想要建立您自己的 Office365 執行個體，並完全掌控這個執行個體，您就可以這麼做。然後，您可以在相同環境中使用 Office365 IT 管理的 API 與 Office365 Microsoft 管理的 API。這實際上取決於您的 app 需求。
+- 由您設定 app 與 API 之間的信任並控制安全性。例如，由您決定 Office 365 API 是否可以受 Microsoft 管理 (自動信任)，或在您自己的環境內使用 Office 365 API (建立您自己的信任)。 
+- 「所有」Microsoft 管理的 API 也都可以是 IT 管理的 API。例如，如果您想要建立您自己的 Office 365 執行個體，並完全掌控這個執行個體，您就可以這麼做。然後，您可以在相同環境中使用 Office 365 IT 管理的 API 與 Office 365 Microsoft 管理的 API。這實際上取決於您的 app 需求。
 - 當連線到內部部署系統或使用「Bing 搜尋」API 時，您可以控制安全性、驗證、授權等。
 
 
@@ -107,19 +107,15 @@ API | 說明 | 步驟連結
 
 ## 註冊 Microsoft 管理的或 IT 管理的 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 \[Manage APIs] \(管理 API)：  
-![][17]
-2. 在 [Manage APIs] \(管理 API) 中，選取 [Add] \(新增)：  
-![][18]  
-3. 在 [Add API]\(新增 API) 中，輸入 API 屬性：  
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 [Manage APIs] (管理 API)：![][17]
+2. 在 [Manage APIs] (管理 API) 中，選取 [Add] (新增)：![][18]  
+3. 在 [Add API] (新增 API) 中，輸入 API 屬性：  
 
-	- 在 [Name] \(名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。請設定有意義且在組織中獨一無二的名稱。
-	- 在 [Source] \(來源) 中，選取 [From available APIs] \(從可用的 API)：  
-	![][19]
-4. 選取 [API]，然後選擇您想要註冊的 API：  
-![][20]
+	- 在 [Name] (名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。請設定有意義且在組織中獨一無二的名稱。
+	- 在 [Source] (來源) 中，選取 [From available APIs] (從可用的 API)：![][19]
+4. 選取 [API]，然後選擇您想要註冊的 API：![][20]
 5. 選取特定的 API，並新增任何可設定的屬性。
-6. 選取 [ADD] \(新增) 以完成這些步驟。
+6. 選取 [ADD] (新增) 以完成這些步驟。
 
 > [AZURE.TIP]註冊 API 時，您是向您的 App Service 環境註冊 API。一旦其在 App Service 環境中，相同 App Service 環境內的其他應用程式便能使用它。
 
@@ -155,4 +151,4 @@ API | 說明 | 步驟連結
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

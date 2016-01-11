@@ -48,7 +48,7 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 - **連線能力**。透過站對站 VPN 連線或 ExpressRoute 連線，VNet 可以彼此連線，甚至連線至您的內部部署資料中心。若要深入了解 VPN 閘道，請瀏覽[關於 VPN 閘道](./vpn-gateway-about-vpngateways.md)。若要深入了解 ExpressRoute，請瀏覽 [ExpressRoute 技術概觀](./expressroute-introduction.md)。
 
     >[AZURE.NOTE]在將任何 IaaS VM 或 PaaS 角色執行個體部署至 Azure 環境之前，請確定您已建立 VNet。ARM 架構的 VM 需要 VNet，而且如果沒有指定現有的 VNet，Azure 建立的預設 VNet 可能會與您的內部部署網路產生 CIDR 位址區塊衝突，這會使您無法將 VNet 連線至內部部署網路。
-    
+
 ## 子網路
 
 子網路是 VNet 中某個範圍的 IP 位址，您可以將 VNet 分割成多個子網路以便進行組織和獲得安全性。部署至 VNet 內 (相同或不同) 子網路的 VM 和 PaaS 角色執行個體不需要進行額外設定就可以彼此通訊。您也可以設定子網路的路由表和 NSG。
@@ -58,7 +58,7 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 
 有兩種類型的 IP 位址可指派給 Azure 中的資源：*公用*和*私人*。Azure 資源可透過公用 IP 位址來與網際網路和 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)、[Azure 事件中樞](https://azure.microsoft.com/documentation/services/event-hubs/)等其他 Azure 公用端服務進行通訊。私人 IP 位址可讓虛擬網路中的資源以及透過 VPN 連線的資源彼此通訊，而不必使用可路由的 IP 位址。
 
-若要深入了解 Azure 中的 IP 位址，請瀏覽[虛擬網路中的 IP 位址](virtual-network-ip-addresses-arm.md)
+若要深入了解 Azure 中的 IP 位址，請瀏覽[虛擬網路中的 IP 位址](virtual-network-ip-addresses-overview-arm.md)
 
 ## Azure 負載平衡器
 
@@ -98,4 +98,4 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 - [保留公用 IP 位址](../virtual-networks-reserved-public-ip.md)。
 - 了解[使用者定義的路由和 IP 轉送](virtual-networks-udr-overview.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

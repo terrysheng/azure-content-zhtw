@@ -30,15 +30,15 @@ Microsoft Smooth Streaming Client Porting Kit (簡稱 **SSPK**) 是最佳化的 
 
 SSPK 是根據可提供絕佳商業價值的條款授權。SSPK 授權提供給業界：
 
-- 採用 C++ 的 Smooth Streaming Porting Kit 原始碼 
+- Smooth Streaming Porting Kit 的 C++ 原始碼 
   - 實作 Smooth Streaming 用戶端功能
   - 新增格式剖析、啟發學習法、緩衝處理邏輯等等
 - 播放器應用程式 API 
   -	可與媒體播放器應用程式互動的程式設計介面
 - 平台抽象層 (PAL) 介面 
-  -	可與作業系統 (執行緒、通訊端) 互動的程式設計介面
+  -	用於與作業系統 (執行緒、通訊端) 互動的程式設計介面
 - 硬體抽象層 (HAL) 介面 
-  -	可與硬體 A/V 解碼器 (解碼、轉譯) 互動的程式設計介面
+  -	用於與硬體 A/V 解碼器 (解碼、轉譯) 互動的程式設計介面
 - 數位版權管理 (DRM) 介面 
   -	可透過 DRM 抽象層 (DAL) 處理 DRM 的程式設計介面
   -	Microsoft PlayReady Porting Kit 個別出貨，但可透過這個介面整合。如需 Microsoft PlayReady Device 授權的詳細資訊，請按一下[這裡](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)。
@@ -99,6 +99,7 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
 - Inside Secure
 - Irdeto USA Inc.
@@ -125,7 +126,6 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VimpelCom (OJSC)
 - VisualOn, Inc.
-- WOOJEON & HANDAN Co., Ltd
 - ZTE Corporation
 
 ##Microsoft Smooth Streaming 用戶端最終產品合約被授權者
@@ -150,6 +150,7 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
@@ -181,7 +182,6 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 - Virgin Media Limited
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOJEON & HANDAN Co., Ltd
 - WOOX Innovations Limited
 - ZTE Corporation
 
@@ -193,4 +193,4 @@ Smooth Streaming 用戶端最終產品乃根據權利金模型提供，細節如
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

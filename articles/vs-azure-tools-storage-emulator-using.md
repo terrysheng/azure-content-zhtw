@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # 在 Visual Studio 中設定和使用儲存體模擬器
@@ -31,7 +31,7 @@ Azure SDK 開發環境包含儲存體模擬器，這是一個公用程式，可�
 
 ## 初始化及執行儲存體模擬器
 
-您可以指定當您在 Visual Studio 中執行或偵錯服務時，讓 Visual Studio 自動啟動儲存體模擬器。在 [方案總管] 中，開啟 **Azure** 專案的捷徑功能表並選擇 [屬性]。在 [開發] 索引標籤的 [啟動 Azure 儲存體模擬器] 清單中，選擇 True (如果未尚設定為此值)。
+您可以指定當您在 Visual Studio 中執行或偵錯服務時，讓 Visual Studio 自動啟動儲存體模擬器。在 [方案總管] 中，開啟 **Azure** 專案的捷徑功能表並選擇 [屬性]。在 [開發] 索引標籤的 [啟動 Azure 儲存體模擬器] 清單中，選擇 [True] (如果未尚設定為此值)。
 
 第一次從 Visual Studio 執行或偵錯服務時，儲存體模擬器會啟動初始化程序。此程序會保留本機連接埠給儲存體模擬器，並建立儲存體模擬器資料庫。完成後，除非刪除儲存體模擬器資料庫，否則此程序不必再次執行。
 
@@ -43,4 +43,4 @@ Azure SDK 開發環境包含儲存體模擬器，這是一個公用程式，可�
 
 [伺服器總管] 中的 [Azure 儲存體] 節點可讓您檢視儲存體帳戶中的資料，以及變更 blob 和資料表資料的設定，包括儲存體模擬器。如需詳細資訊，請參閱[使用伺服器總管瀏覽儲存體資源](https://msdn.microsoft.com/library/azure/ff683677.aspx)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

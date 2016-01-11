@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/17/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取範例 
@@ -35,6 +35,7 @@
 -	使用 Redis 清單和已排序的集合
 -	使用 JsonConvert 序列化程式儲存 .NET 物件
 -	使用 Redis 集合來實作標記
+-	使用 Redis 叢集
 
 如需詳細資訊，請參閱 github 上的 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 文件，如需使用案例，則請參閱 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) 單元測試。
 
@@ -75,4 +76,4 @@
 
 [頻寬監視器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor)範例可讓您監視用戶端上使用的頻寬。若要測量頻寬，請在快取用戶端電腦上執行這個範例、呼叫快取，並觀察頻寬監視器範例所報告的頻寬。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

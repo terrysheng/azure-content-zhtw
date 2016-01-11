@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="12/15/2015"
 	ms.author="ningk"/>
 
 #如何使用 Microsoft Azure 建立 LAMP 堆疊
@@ -36,7 +36,7 @@
 
 除了本主題以外，如果您已經有虛擬機器，而只是想了解在不同 Linux 散發套件上安裝 LAMP 堆疊的基本概念，請參閱[在 Azure 中的 Linux 虛擬機器上安裝 LAMP 堆疊](virtual-machines-linux-install-lamp-stack.md)。
 
-您也可以部署 Azure Marketplace 預先設定的 LAMP 映像。下列 10 分鐘的影片將介紹如何部署 Azure Marketplace 預先建立的 LAMP 映像：(Azure VM 上的 LAMP 堆疊](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)。
+您也可以部署 Azure Marketplace 預先設定的 LAMP 映像。下列 10 分鐘的影片將介紹如何部署 Azure Marketplace 預先建立的 LAMP 映像：[Azure VM 上的 LAMP 堆疊](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman)。
 
 ##第 1 階段：建立映像。
 在這個階段，您將在 Azure 中使用 Linux 映像建立虛擬機器。
@@ -46,7 +46,7 @@ SSH 對系統管理員而言是很重要的工具。因為無論如何，依賴�
 
 依照下列步驟來產生 SSH 驗證金鑰。
 
--	從下列位置下載並安裝 Puttygen：[http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	從 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 下載並安裝 puttygen
 -	執行 puttygen.exe。
 -	按一下 [產生] 來產生金鑰。在這個程序中，您可以在視窗中的空白區域移動滑鼠來提高隨機性。![][1]
 -	在產生程序之後，Puttygen.exe 會顯示產生的金鑰。例如：![][2]
@@ -58,7 +58,7 @@ SSH 對系統管理員而言是很重要的工具。因為無論如何，依賴�
 
 ![][3]
 
-對於 [主機名稱]，指定您和網際網路用戶端將用來存取此虛擬機器的 URL 名稱。定義 DNS 名稱的最後一個部分，例如 LAMPDemo，然後 Azure 會產生如 Lampdemo.cloudapp.net 的 URL。
+對於 [主機名稱]，指定您和網際網路用戶端將用來存取此虛擬機器的 URL 名稱。定義 DNS 名稱的最後一個部分，例如 LAMPDemo，然後 Azure 會產生如 *lampdemo.cloudapp.net* 的 URL。
 
 對於 [使用者名稱]，挑選您稍後將用來登入虛擬機器的名稱。
 
@@ -456,4 +456,4 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

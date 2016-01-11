@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # API 設計指引
@@ -38,7 +38,7 @@
 
 在 2000 年，Roy Fielding 在他的論文中提出建構 Web 服務所公開之作業的替代架構方法：REST。REST 是建置以超媒體為基礎之分散式系統的架構樣式。REST 模型的主要優點是基於開放標準，因此能避免模型實作或存取模型的用戶端應用程式受到任何特定實作約束。比方說，您可以使用 Microsoft ASP.NET Web API 來實作 REST Web 服務，以及使用任何能產生 HTTP 要求及剖析 HTTP 回應的語言和工具組來開發用戶端應用程式。
 
-> [AZURE.NOTE]：REST 實際上獨立於任何基礎通訊協定之外，因此不一定要與 HTTP 連結。不過在以 REST 為基礎的系統實作中，最常見的實作是將 HTTP 當做傳送及接收要求的應用程式通訊協定。本文件著重於將 REST 原則對應到為使用 HTTP 來運作而設計的系統。
+> [AZURE.NOTE]：REST 實際上獨立於任何基礎通訊協定之外，因此不一定要與 HTTP 連結。不過在以 REST 為基礎的系統實作中，最常見的實作是將 HTTP 當做傳送及接收要求的應用程式通訊協定。本文件的重點，在於將 REST 原則對應到專門使用 HTTP 來運作的系統。
 
 REST 模型使用瀏覽配置來透過網路呈現物件和服務 (稱為_資源_)。一般來說，有許多實作 REST 系統會使用 HTTP 通訊協定來傳送這些資源的存取要求。在這些系統中，用戶端應用程式會以識別資源之 URI 的形式提交要求，以及指出要在該資源上執行作業的 HTTP 方法 (最常見的方法包括 GET、POST、PUT 或 DELETE)。HTTP 要求的本文包含執行作業所需的資料。您應了解的重點是 REST 能定義無狀態的要求模型。HTTP 要求應該是獨立的，而且可能會以任何順序發生，因此嘗試保留多個要求之間的暫時性狀態資訊不是恰當的做法。唯一可儲存資訊的場所是資源本身，而且每個要求都應該是不可部分完成的作業。實際上，REST 模型會實作有限狀態機器，讓要求將資源從定義完善的非暫時性狀態轉換成其他狀態。
 
@@ -51,14 +51,14 @@ GET http://adventure-works.com/orders HTTP/1.1
 ...
 ```
 
-以下所示的回應會將訂單編碼成 XML 清單結構。這份清單包含 7 張訂單：
+以下所示的回應，會將訂單編碼成 JSON 清單結構。
 
 ```HTTP
 HTTP/1.1 200 OK
 ...
 Date: Fri, 22 Aug 2014 08:49:02 GMT
 Content-Length: ...
-<OrderList xmlns:i="..." xmlns="..."><Order><OrderID>1</OrderID><OrderValue>99.90</OrderValue><ProductID>1</ProductID><Quantity>1</Quantity></Order><Order><OrderID>2</OrderID><OrderValue>10.00</OrderValue><ProductID>4</ProductID><Quantity>2</Quantity></Order><Order><OrderID>3</OrderID><OrderValue>16.60</OrderValue><ProductID>2</ProductID><Quantity>4</Quantity></Order><Order><OrderID>4</OrderID><OrderValue>25.90</OrderValue><ProductID>3</ProductID><Quantity>1</Quantity></Order><Order><OrderID>7</OrderID><OrderValue>99.90</OrderValue><ProductID>1</ProductID><Quantity>1</Quantity></Order></OrderList>
+[{"orderId":1,"orderValue":99.90,"productId":1,"quantity":1},{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2},{"orderId":3,"orderValue":16.60,"productId":2,"quantity":4},{"orderId":4,"orderValue":25.90,"productId":3,"quantity":1},{"orderId":5,"orderValue":99.90,"productId":1,"quantity":1}]
 ```
 若要擷取個別訂單，您需要指定 _orders_ 資源中訂單的識別碼 (如 _/orders/2_)+：
 
@@ -72,11 +72,10 @@ HTTP/1.1 200 OK
 ...
 Date: Fri, 22 Aug 2014 08:49:02 GMT
 Content-Length: ...
-<Order xmlns:i="..." xmlns="...">
-<OrderID>2</OrderID><OrderValue>10.00</OrderValue><ProductID>4</ProductID><Quantity>2</Quantity></Order>
+{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2}
 ```
 
-> [AZURE.NOTE]為了簡單起見，這些範例顯示以 XML 文字資料形式傳回之回應中的資訊。然而，限制資源不能包含其他 HTTP 支援的資料類型 (如二進位或加密資訊) 並不合理；HTTP 回應中的 content-type 應該要指定類型。此外，REST 模型也可以傳回不同格式 (如 XML 或 JSON) 的相同資料。在此情況下，Web 服務應該要能夠與提出要求的用戶端交涉內容。此要求包含 _Accept_ 標頭，其指定用戶端慣用的接收格式，而 Web 服務應盡可能嘗試遵守該格式。
+> [AZURE.NOTE]為了簡單起見，這些範例顯示回應中的資訊，是以 JSON 文字資料的形式傳回。然而，限制資源不能包含其他 HTTP 支援的資料類型 (如二進位或加密資訊) 並不合理；HTTP 回應中的 content-type 應該要指定類型。此外，REST 模型也可以傳回不同格式 (如 XML 或 JSON) 的相同資料。在此情況下，Web 服務應該要能夠與提出要求的用戶端交涉內容。此要求包含 _Accept_ 標頭，其指定用戶端慣用的接收格式，而 Web 服務應盡可能嘗試遵守該格式。
 
 請注意，來自 REST 要求的回應會使用標準 HTTP 狀態碼。例如，傳回有效資料的要求應包含 HTTP 回應碼 200 (良好)，而找不到或無法刪除指定資源的要求應傳回包含 HTTP 狀態碼 404 (找不到) 的回應。
 
@@ -166,10 +165,10 @@ Content-Type: application/json; charset=utf-8
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 ```
 
-如果 Web 伺服器不支援要求的媒體類型，它可以利用不同的格式來傳送資料。在所有情況下，它必須在 Content-Type 標頭中指定媒體類型 (如 _text/xml_)。用戶端應用程式必須負責剖析回應訊息，並適當地解譯訊息本文中的結果。
+如果 Web 伺服器不支援要求的媒體類型，它可以利用不同的格式來傳送資料。在所有情況下，它必須在 Content-Type 標頭中指定媒體類型 (例如 _application/json_)。用戶端應用程式必須負責剖析回應訊息，並適當地解譯訊息本文中的結果。
 
 請注意，在此範例中 Web 伺服器成功擷取要求的資料，並藉由在回應標頭中傳回狀態碼 200 來表示成功。如果找不到相符的資料，它應改為傳回狀態碼 404 (找不到)，而回應訊息的本文可以包含其他資訊。這些資訊的格式是由 Content-Type 標頭指定，如下列範例所示：
 
@@ -189,7 +188,7 @@ Content-Type: application/json; charset=utf-8
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-{"Message":"No such order"}
+{"message":"No such order"}
 ```
 
 當應用程式傳送 HTTP PUT 要求來更新資源時，它會指定資源的 URI，並在要求訊息的本文中提供要修改的資料。它也可以使用 Content-Type 標頭來指定這些資料的格式。以文字為基礎的資訊常會使用 _application/x-www-form-urlencoded_ 格式，其中包括一組以 & 字元分隔的名稱/值對。下一個範例顯示修改訂單 1 之資訊的 HTTP PUT 要求：
@@ -229,7 +228,7 @@ Content-Type: application/x-www-form-urlencoded
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-ProductID=5&Quantity=15&OrderValue=400
+productID=5&quantity=15&orderValue=400
 ```
 
 如果要求成功，Web 伺服器應該會回應含 HTTP 狀態碼 201 (已建立) 的訊息代碼。Location 標頭應包含新建立之資源的 URI，且回應本文應包含一份新資源。Content-type 標頭能指定這些資料的格式：
@@ -242,7 +241,7 @@ Location: http://adventure-works.com/orders/99
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-{"OrderID":99,"ProductID":5,"Quantity":15,"OrderValue":400}
+{"orderID":99,"productID":5,"quantity":15,"orderValue":400}
 ```
 
 > [AZURE.TIP]如果 PUT 或 POST 要求所提供的資料無效，Web 伺服器應回應含 HTTP 狀態碼 400 (不正確的要求) 的訊息。此訊息的本文可以包含有關要求之問題的其他資訊和預期的格式，也可以包含提供更多詳細資料的 URL 連結。
@@ -289,7 +288,7 @@ Date: Fri, 22 Aug 2014 09:18:37 GMT
 單一資源可能包含大型的二進位欄位，如檔案或影像。若要克服傳輸問題造成的不可靠和間歇性連線，以及改善回應時間，請考慮提供讓用戶端應用程式以區塊形式擷取這類資源的作業。若要這樣做，Web API 應支援大型資源之 GET 要求的 Accept-Ranges 標頭，最理想的情況是針對這些資源實作 HTTP HEAD 要求。Accept-Ranges 標頭表示 GET 作業支援部分結果，而且用戶端應用程式可提交傳回以位元組範圍指定之資源子集的 GET 要求。HEAD 要求與 GET 要求相似，不過它只會傳回描述資源的標頭和空白的訊息本文。用戶端應用程式可以發出 HEAD 要求，以判斷是否要使用部分 GET 要求擷取資源。下列範例顯示取得產品影像之相關資訊的 HEAD 要求：
 
 ```HTTP
-HEAD http://adventure-works.com/products/10?fields=ProductImage HTTP/1.1
+HEAD http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 ...
 ```
 
@@ -307,7 +306,7 @@ Content-Length: 4580
 用戶端應用程式可以使用這些資訊來建構一系列的 GET 作業，以便利用較小的區塊擷取影像。第一個要求會使用 Range 標頭擷取前 2500 個位元組：
 
 ```HTTP
-GET http://adventure-works.com/products/10?fields=ProductImage HTTP/1.1
+GET http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 Range: bytes=0-2499
 ...
 ```
@@ -328,7 +327,7 @@ _{binary data not shown}_
 用戶端應用程式的後續要求可以使用適當的 Range 標頭來擷取資源的其餘部分：
 
 ```HTTP
-GET http://adventure-works.com/products/10?fields=ProductImage HTTP/1.1
+GET http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 Range: bytes=2500-
 ...
 ```
@@ -359,7 +358,7 @@ Accept: application/json
 ...
 ```
 
-回應訊息的本文包含 `Links` 陣列 (程式碼範例中反白顯示的內容)，其指定關聯性的本質 (_客戶_)、客戶的 URI (\__http://adventure-works.com/customers/3_)、如何擷取此客戶的詳細資料 (_GET_)，以及 Web 伺服器支援擷取這些資訊的 MIME 類型 (_text/xml_ 和 _application/json_)。這是用戶端應用程式要能夠擷取客戶詳細資料所需的所有資訊。此外，連結陣列也包含其他可執行之作業的連結，如 PUT (修改客戶，以及 Web 伺服器預期用戶端提供的格式) 和 DELETE。
+回應訊息的本文包含 `links` 陣列 (程式碼範例中反白顯示的部分)，指定關聯性的本質 (_Customer_)、客戶的 URI (\__http://adventure-works.com/customers/3_)、如何擷取此客戶的詳細資料 (_GET_)，以及 Web 伺服器支援來擷取這些資訊的 MIME 類型 (_text/xml_ 和 _application/json_)。這是用戶端應用程式要能夠擷取客戶詳細資料所需的所有資訊。此外，連結陣列也包含其他可執行之作業的連結，如 PUT (修改客戶，以及 Web 伺服器預期用戶端提供的格式) 和 DELETE。
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -367,8 +366,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-{"OrderID":3,"ProductID":2,"Quantity":4,"OrderValue":16.60,"Links":[(some links omitted){"Relationship":"customer","HRef":" http://adventure-works.com/customers/3", "Action":"GET","LinkedResourceMIMETypes":["text/xml","application/json"]},{"Relationship":"
-customer","HRef":" http://adventure-works.com /customers/3", "Action":"PUT","LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},{"Relationship":"customer","HRef":" http://adventure-works.com /customers/3","Action":"DELETE","LinkedResourceMIMETypes":[]}]}
+{"orderID":3,"productID":2,"quantity":4,"orderValue":16.60,"links":[(some links omitted){"rel":"customer","href":" http://adventure-works.com/customers/3", "action":"GET","types":["text/xml","application/json"]},{"rel":"
+customer","href":" http://adventure-works.com /customers/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"customer","href":" http://adventure-works.com /customers/3","action":"DELETE","types":[]}]}
 ```
 
 基於完整性考量，連結陣列也應包含有關已擷取之資源的自我參考資訊。先前的範例省略了這些連結，不過我們在下列程式碼中反白顯示。請注意，在這些連結中，我們使用關聯性 _self_ 來指出這是作業所傳回之資源的參考：
@@ -379,8 +378,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-{"OrderID":3,"ProductID":2,"Quantity":4,"OrderValue":16.60,"Links":[{"Relationship":"self","HRef":" http://adventure-works.com/orders/3", "Action":"GET","LinkedResourceMIMETypes":["text/xml","application/json"]},{"Relationship":" self","HRef":" http://adventure-works.com /orders/3", "Action":"PUT","LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},{"Relationship":"self","HRef":" http://adventure-works.com /orders/3", "Action":"DELETE","LinkedResourceMIMETypes":[]},{"Relationship":"customer",
-"HRef":" http://adventure-works.com /customers/3", "Action":"GET","LinkedResourceMIMETypes":["text/xml","application/json"]},{"Relationship":" customer" (customer links omitted)}]}
+{"orderID":3,"productID":2,"quantity":4,"orderValue":16.60,"links":[{"rel":"self","href":" http://adventure-works.com/orders/3", "action":"GET","types":["text/xml","application/json"]},{"rel":" self","href":" http://adventure-works.com /orders/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"self","href":" http://adventure-works.com /orders/3", "action":"DELETE","types":[]},{"rel":"customer",
+"href":" http://adventure-works.com /customers/3", "action":"GET","types":["text/xml","application/json"]},{"rel":" customer" (customer links omitted)}]}
 ```
 
 這個方法若要生效，您必須備妥用戶端應用程式，使其能擷取及剖析這些額外資訊。
@@ -395,7 +394,7 @@ Content-Length: ...
 
 這是最簡單的方法，而且也是某些內部 API 可接收的方法。重大變更可能會以新資源或新連結來呈現。將內容加入現有資源可能不會成為重大變更，因為未預期要查看此內容的用戶端應用程式會直接忽略。
 
-例如，URI \__http://adventure-works.com/customers/3_ 的要求應該會傳回包含 `Id`、`Name` 和 `Address` 欄位的單一客戶詳細資料，而這些欄位也是用戶端應用程式預期的欄位：
+例如，傳送給 URI \__http://adventure-works.com/customers/3_ 的要求應該會傳回單一客戶的詳細資料，其中包含用戶端應用程式所預期的 `id`、`name` 和 `address` 欄位：
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -403,7 +402,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 > [AZURE.NOTE]為了簡化及避免困擾，本節所示的範例回應不包含 HATEOAS 連結。
@@ -416,7 +415,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","DateCreated":"2014-09-04T12:11:38.0376089Z","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 如果現有用戶端應用程式能略過無法辨認的欄位，它們可能會繼續正常運作，而新的用戶端應用程式可以在經過設計後處理這個新欄位。不過，如果資源的結構描述發生更巨大的變動 (如移除或重新命名欄位)，或資源之間的關聯性改變，這些變更可能會構成阻礙現有用戶端應用程式正常運作的重大變更。在這些情況下，您應該考慮下列其中一個方法。
@@ -425,7 +424,7 @@ Content-Length: ...
 
 每次修改 Web API 或變更資源的結構描述時，您會在每個資源的 URI 加入版本號碼。早已存在的 URI 應維持先前的運作，傳回符合原始結構描述的資源。
 
-延伸上述範例，如果將 `Address` 欄位重建為包含位址之每個構成組件的子欄位 (如 `StreetAddress`、`City`、`State` 及 `ZipCode`)，您可以透過包含版本號碼的 URI (如 http://adventure-works.com/v2/customers/3) 公開這個版本的資源：
+延伸上述範例，如果將 `address` 欄位重建為包含位址之每個構成組件的子欄位 (如 `streetAddress`、`city`、`state` 及 `zipCode`)，您可以透過包含版本號碼的 URI (如 http://adventure-works.com/v2/customers/3) 公開這個版本的資源：
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -433,7 +432,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","DateCreated":"2014-09-04T12:11:38.0376089Z","Address":{"StreetAddress":"1 Microsoft Way","City":"Redmond","State":"WA","ZipCode":98053}}]
+{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
 這個版本控制機制非常簡單，但需仰賴伺服器將要求路由傳送到適當端點。不過，在經過數個反覆項目後當 Web API 成熟時，它會變得難以揮灑，因此伺服器必須支援許多不同的版本。此外，從純化論者的觀點來看，在所有情況下用戶端應用程式都在擷取相同的資料 (客戶 3)，所以 URI 不應該因版本而有所不同。此配置也會讓 HATEOAS 的實作變得更複雜，因為所有連結都需要在它們的 URI 中包含版本號碼。
@@ -465,7 +464,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 第 2 版：
@@ -483,7 +482,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","DateCreated":"2014-09-04T12:11:38.0376089Z","Address":{"StreetAddress":"1 Microsoft Way","City":"Redmond","State":"WA","ZipCode":98053}}]
+{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
 請注意，如同先前的兩個方法，實作 HATEOAS 需要將適當的自訂標頭加入任何連結中。
@@ -507,7 +506,7 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.adventure-works.v1+json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 如果 Accept 標頭未指定任何已知的媒體類型，Web 伺服器可能會產生 HTTP 406 (無法接受) 回應訊息，或以預設媒體類型傳回訊息。
@@ -523,4 +522,4 @@ Content-Length: ...
 - [RESTful Cookbook](http://restcookbook.com/) (英文) 含有建置符合 REST 限制之 Web API 的簡介。
 - Web [API 檢查清單](https://mathieu.fenniak.net/the-api-checklist/) (英文) 含有在設計及實作 Web API 時應納入考量的實用項目清單。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

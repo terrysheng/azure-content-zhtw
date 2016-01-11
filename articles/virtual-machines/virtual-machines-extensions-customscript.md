@@ -23,8 +23,7 @@
 
 Microsoft 和受信任的協力廠商發行者建置的虛擬機器 (VM) 延伸模組，可延伸 VM 的功能。如需 VM 擴充功能的概觀，請參閱 [Azure VM 擴充功能與功能](virtual-machines-extensions-features.md)。
 
-連結：
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [資源管理員模型](virtual-machines-extensions-customscript%20-with%20template.md)。
+連結：[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md)。
 
 
 ## 自訂指令碼擴充功能概觀
@@ -34,7 +33,7 @@ Windows 的自訂指令碼擴充功能可讓您在遠端 VM 上執行 PowerShell
 ### 執行自訂指令碼延伸模組的先決條件
 
 1. 從<a href="http://azure.microsoft.com/downloads" target="_blank">這裡</a>安裝 Azure PowerShell Cmdlet 0.8.0 版或更新版本。
-2. 如果指令碼在現有 VM 上執行，請確定在該 VM 上啟用 VM 代理程式，否則請遵循此<a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">文章</a>安裝一個 VM代理程式。
+2. 如果指令碼在現有 VM 上執行，請確定在該 VM 上啟用 VM 代理程式，否則請遵循此<a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">文章</a>安裝一個 VM代理程式。(如果您從 Azure 資源庫佈建 VM，則預設會啟用 VM 代理程式，您不需要將它們啟用)
 3. 將您想要在 VM 上執行的指令碼上傳到 Azure 儲存體。指令碼可以來自單一容器或多個儲存體容器。
 4. 指令碼應該以由延伸模組依序要啟動的項目指令碼啟動其他指令碼的方式來撰寫。
 
@@ -87,10 +86,9 @@ Windows 的自訂指令碼擴充功能可讓您在遠端 VM 上執行 PowerShell
 
 ### 搭配範本使用自訂指令碼擴充功能
 
-若要了解如何搭配範本使用自訂指令碼擴充功能，請參閱文件 [此處](virtual-machines-extensions-customscript-with template.md)。
+若要了解搭配 Azure 資源管理員範本使用自訂指令碼延伸模組的相關資訊，請參閱[這裡](virtual-machines-extensions-customscript%20-with%20template.md)的文件。
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!----HONumber=AcomDC_1203_2015-->
-
+<!---HONumber=AcomDC_1223_2015-->

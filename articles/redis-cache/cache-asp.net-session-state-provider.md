@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="12/03/2015"
+   ms.date="12/17/2015"
    ms.author="sdanie" />
 
 # Azure Redis 快取的 ASP.NET 工作階段狀態提供者
@@ -29,7 +29,7 @@ Azure Redis 快取提供工作階段狀態提供者，可讓您用來將工作�
 
 在 [線上搜尋] 文字方塊中輸入 **RedisSessionStateProvider**，從結果中選取後按一下 [安裝]。
 
->[AZURE.IMPORTANT]如果您使用高階層的叢集功能，則必須使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 或更高版本，否則會擲回例外狀況。這是一項重大變更。如需詳細資訊，請參閱 [v2.0.0 重大變更詳細資料](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (英文)。
+>[AZURE.IMPORTANT]如果您使用進階層的叢集功能，則必須使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 或更高版本，否則會擲回例外狀況。這是一項重大變更。如需詳細資訊，請參閱 [v2.0.0 重大變更詳細資料](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (英文)。
 
 ![Azure Redis 快取工作階段狀態提供者](./media/cache-asp.net-session-state-provider/IC751730.png)
 
@@ -106,4 +106,4 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 查看 [Azure Redis 快取的 ASP.NET 輸出快取提供者](cache-asp.net-output-cache-provider.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

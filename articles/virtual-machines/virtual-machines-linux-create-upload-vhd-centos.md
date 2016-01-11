@@ -86,7 +86,7 @@
 
 	**重要事項：此步驟僅適用於 CentOS 6.3 和較舊的版本。** 在 CentOS 6.4+ 中，Linux Integration Services *已是標準核心中的可用項目*。
 
-	- 請遵循 [LIS 下載頁面](https://www.microsoft.com/zh-TW/download/details.aspx?id=46842)上的安裝指示，並將 RPM 安裝到您的映像上。  
+	- 請遵循 [LIS 下載頁面](https://www.microsoft.com/en-us/download/details.aspx?id=46842)上的安裝指示，並將 RPM 安裝到您的映像上。  
 
 
 9. 執行下列命令以安裝 python-pyasn1 封裝：
@@ -322,11 +322,21 @@
 
 12.	確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。這通常是預設值。
 
-13. 執行以下命令來安裝 Azure Linux 代理程式：
+13.	**僅從 VMWare、VirtualBox 或 KVM 建置映像時：**新增 Hyper-V 模組至 initramfs：
+
+    編輯 `/etc/dracut.conf`，新增內容：
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    重建 initramfs：
+
+        # dracut –f -v
+
+14. 執行以下命令來安裝 Azure Linux 代理程式：
 
 		# sudo yum install WALinuxAgent
 
-14.	請不要在 OS 磁碟上建立交換空間
+15.	請不要在 OS 磁碟上建立交換空間
 
 	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
@@ -336,12 +346,12 @@
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+16.	執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-16. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
+17. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -18,9 +18,7 @@
 
 #建立 Android 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 
@@ -33,7 +31,7 @@
 若要完成此教學課程，您需要下列項目：
 
 * [Android Developer Tools](https://developer.android.com/sdk/index.html)，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。
-* Azure Mobile Android SDK 會自動參考您下載的快速入門專案之 ss 部分。
+* Azure Mobile Android SDK，會自動受到參考，包含在您下載的快速入門專案中。
 * 具有 [Visual Studio Community 2013] 或較新版本的電腦 &mdash; Node.js 後端則不需要
 * 有效的 [Azure 帳戶](http://azure.microsoft.com/pricing/free-trial/)。
 
@@ -56,4 +54,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!-------HONumber=AcomDC_1210_2015---->
+<!---HONumber=AcomDC_1223_2015-->

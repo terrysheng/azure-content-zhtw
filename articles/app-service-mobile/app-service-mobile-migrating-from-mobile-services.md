@@ -3,7 +3,7 @@
 	description="了解如何輕鬆地將您的行動服務應用程式移轉至應用程式服務行動應用程式"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,175 +13,376 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="mahender"/>
+	ms.date="12/11/2015"
+	ms.author="adrianhall"/>
 
-# 將您現有的 Azure 行動服務移轉至 App Service
+# <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
 
-本主題說明如何將現有的應用程式從 Azure 行動服務移轉至新的應用程式服務行動應用程式。任何現有的行動服務都可以輕鬆地移轉至新的行動 App 後端。移轉期間，現有的行動服務將繼續運作。
+透過 [Azure App Service 的公開上市版]，Azure 行動服務網站將可輕易地就地移轉，以使用 Azure App Service 的所有功能。本文件說明將您的網站從 Azure 行動服務移轉至 Azure App Service 時的情形。
 
-當行動服務移轉到 App Service 時，就對所有 App Service 功能具有存取權，而且會根據 [App Service 定價]而不是行動服務定價進行計費。
+## <a name="what-does-migration-do"></a>移轉對您的網站有何作用
 
-另一點要注意的是，在您自己的訂用帳戶和控制下，所有排程的工作都將從 Microsoft Managed Azure 排程器方案移至 Azure 排程器方案。類似於移轉至 App Service 的優點，這可讓您運用 Azure 排程器的完整功能。
-
-### <a name="why-host"></a>為何裝載於 App Service 中？
-
-App Service 可為您的應用程式提供功能更豐富的裝載環境。藉由在 App Service 中裝載，您的服務將可存取預備位置、自訂網域、流量管理員支援等功能。雖然您可以在移轉到 App Service 之後，將行動服務升級至行動 App 後端，但有些客戶可能尚未執行 SDK 更新，就想要立即運用這些功能。
-
-若想進一步了解 App Service 的優點，請參閱[比較行動服務與App Service]。
-
-## 移轉與升級
+移轉 Azure 行動服務，將會使您的行動服務變成 [Azure App Service] 應用程式，而不會對程式碼造成任何影響。您通知中樞、SQL 資料連接、驗證設定、排定的作業和網域名稱都將保持不變。使用您的 Azure 行動服務的行動用戶端仍可正常運作。移轉會在您的服務轉換為 Azure App Service 之後加以重新啟動。
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
-- 對於以 Node.js 為基礎的伺服器專案，新的 [Mobile Apps Node.js SDK](https://github.com/Azure/azure-mobile-apps-node) 提供許多新功能。例如，您現在可以執行本機開發和偵錯、使用 0.10 以上的任何 Node.js 版本，以及使用任何 Express.js 中介軟體自訂。
+## <a name="why-migrate"></a>為何您應移轉網站
 
-- 對於以 .NET 為基礎的伺服器專案，新的 [Mobile Apps SDK NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)在 NuGet 相依性具有更大的彈性、支援新的 App Service 驗證功能，而且是由任何 ASP.NET 專案 (包括 MVC) 所組成。若要深入了解升級，請參閱[將您現有的 .NET 行動服務升級為 App Service](app-service-mobile-net-upgrading-from-mobile-services.md)。
+Microsoft 建議您移轉 Azure 行動服務，以使用 Azure App Service 的各項功能，其中包括：
 
+  *  新的主機功能，包括 [WebJob] 和[自訂網域名稱]。
+  *  除了[混合式連接]以外，使用 [VNet] 連接到您的內部部署資源。
+  *  使用 New Relic 或 [Application Insights] 進行監視和疑難排解作業。
+  *  內建的 DevOps 工具，包括[預備位置]、回復和生產環境測試。
+  *  [自動調整]、負載平衡，以及[效能監視]。
 
-## <a name="understand"></a>了解應用程式服務行動應用程式
+若想進一步了解 Azure App Service 的優點，請參閱[比較行動服務與App Service] 主題。
 
-App Service 中的 Mobile Apps 是使用 Azure 建置行動應用程式的新方式。您可以在[什麼是 Mobile Apps？]主題中深入了解 Mobile Apps。
+## <a name="why-not-migrate"></a>為何您不應移轉網站
 
-移轉到 Mobile Apps 時，可保留所有現有的 app 功能，包括您的商務邏輯。此外，新功能可用於應用程式。在 Mobile Apps 模型中，您的程式碼實際上會在 App Service 的 Web app 上執行，此為新版的 Azure 網站。您可以完全掌控 Web 應用程式及其運作方式。此外，過去無法讓行動服務客戶使用的 Web app 功能 (例如，流量管理員和 Development Slots)，現在都可供使用。
+基於幾項原因，您不應立即移轉您的 Azure 行動服務：
 
-升級的主要限制在於行動服務排程的工作不會整合，而必須設定 Azure 排程器來叫用自訂 API，或必須啟用 Web 工作功能。
+  *  您目前處於忙碌期間，無法承受網站重新啟動。
+  *  您不想在測試移轉程序之前對生產網站造成影響。
+  *  您有多個免費或基本定價層的網站，而不想要同時移轉所有的網站。
+  *  您有排定的作業設定為您想要隨需移轉的項目。
 
-## 使用移轉至 App Service 精靈來移轉您的行動服務
+在您處於忙碌期間，請規劃在排定的維護期間進行移轉。在移轉程序中會重新啟動您的網站，您的使用者可能會注意到此暫時性的可用性中斷。
 
-將行動服務移轉至 App Service 的最簡單且建議的方式是使用 [移轉至 App Service] 精靈，這適用於 Azure 傳統入口網站。瀏覽至 [Azure 傳統入口網站]、瀏覽您的行動服務，然後選取要移轉的行動服務。在畫面底部，您將會看到 [移轉至 App Service] 按鈕，逐步引導您完成移轉行動服務的程序。
+此清單中大部分的項目都有因應措施。請參閱以下的[開始之前](#before-you-begin)一節，以取得詳細資料。
 
-### <a name="what-gets-migrated"></a>移轉哪些項目？
+## <a name="before-you-begin"></a>開始之前
 
-移轉精靈會將主控行動服務的伺服器陣列，從受行動服務管理變更為受 App Service 管理。它也會將行動服務所管理的任何排程器方案，從 Microsoft 管理的訂用帳戶移至您的訂用帳戶。將伺服器陣列傳輸到 App Service 的管理控制項時，所有與該伺服器陣列相關聯的行動服務會同時移動。
+在移轉您的網站之前，您應遵循下列步驟：
 
-行動服務會根據區域和 SKU (免費、基本、標準)，將行動服務組織到伺服器陣列。您在某個區域中的所有免費服務都位於同一個伺服器陣列且會一併移轉；某個區域中的部分基本服務會一併裝載於同一個伺服器陣列上，但是，如果您具有大量基本服務，它們將會位於個別方案中；每個標準服務都會位於它自己的伺服器陣列上。如果您想要移轉單一服務，或避免將服務移動至您的其他網站，您可以將它升級到基本，而它將會在自己的獨立方案中。
+  *  [備份您的行動服務]指令碼和 SQL Database
+  *  (選擇性) 將行動服務層提高至標準
 
-如果您正在使用任何排程的工作，也必須將 Azure 排程器方案加入至您的訂用帳戶。每個訂用帳戶允許的免費排程工作數目有限，因此，可能會產生一些與此動作相關聯的成本，而您會想要檢閱貼文訂用帳戶。
+如果您想要在移轉生產網站之前先測試移轉程序，請複製您的生產環境 Azure 行動服務 (藉由複製資料來源來完成)，然後以新的 URL 測試移轉。您也需要指向測試網站的測試用戶端實作，以適當測試移轉後的網站。
 
-###  使用移轉精靈
+### <a name="opt-raise-service-tier"></a>(選擇性) 將行動服務層提高至標準
 
-1. 瀏覽至 [Azure 傳統入口網站]，然後按一下 [行動服務]。 
+所有共用主控方案的行動服務網站將會同時移轉。免費或基本定價層的行動服務，會與相同定價層和 [Azure 區域]中的其他服務共用主控方案。如果您的行動服務在標準定價層上運作，它會位在本身的主控方案中。如果您想要個別移轉免費或基本定價層中的網站，請將行動服務定價層暫時升級為標準。您可以在 [調整] 功能表中為您的行動服務執行此動作。
 
-2. 選取要移轉的行動服務，然後按一下底部功能表列上的 [移轉至 App Service]。這將會顯示於快顯視窗上，其中包含將移轉的行動服務清單。請參閱[上一節](#what-gets-migrated)，以了解哪些服務將會顯示及其原因的詳細資訊。
+  1.  登入 [Azure 傳統入口網站]。
+  2.  選取您的行動服務。
+  3.  選取 [調整] 索引標籤。
+  4.  在 [行動服務層] 下，按一下 [標準] 層。按一下位於頁面底部的 [儲存] 按鈕。
 
-3. 輸入行動服務的名稱來確認移轉，然後按一下核取記號繼續。當移轉中包含多個行動服務時，您仍然必須輸入所選取的原始服務名稱。
+移轉之後，請記得將定價層設定為適當的設定。
 
-4. 開始移轉之後，您可以從 [Azure 傳統入口網站]的行動服務清單中檢視目前的狀態。它將針對目前正在移轉的所有服務顯示為「正在移轉」。一旦所有移轉都顯示為已完成之後，您就可以在 [Azure 入口網站]的 Mobile Apps 下方檢視它們。在移轉期間和之後，您的行動服務將繼續運作且 URL 將不會變更。
+## <a name="migrating-site"></a>移轉您的網站
 
-## 手動移轉行動服務 .NET 後端
+若要移轉您的網站：
 
->[AZURE.NOTE]請注意，移轉行動服務的建議方式是透過上一節中所述的 [移轉至 App Service] 精靈 。只有在無法使用此精靈的情況下才應使用手動移轉。
+  1.  登入 [Azure 傳統入口網站]。
+  2.  選取您的行動服務。
+  3.  按一下 [移轉至 App Service] 按鈕。
 
-本節說明如何將 .NET 行動服務專案裝載於 Azure App Service 內。以這種方式裝載的 app 可以使用所有的「行動服務」.NET 執行階段教學課程，但必須以 App Service 執行個體的網域來取代任何使用 azure-mobile.net 網域的 URL。
+    ![移轉按鈕][0]
 
-行動服務專案也可裝載於 [App Service 環境]。本主題中的所有內容仍然適用，但網站格式為 `contoso.contosoase.p.azurewebsites.net` 而不是 `contoso.azurewebsites.net`。
+  4.  閱讀 [移轉至 App Service] 對話方塊。
+  5.  在提供的方塊中輸入您的行動服務名稱。例如，如果您的網域名稱是 contoso.azure-mobile.net，請在提供的方塊中輸入 _contoso_。
+  6.  按一下刻度按鈕。
 
->[AZURE.NOTE]如果您執行手動移轉，就「無法」保留現有的 **service.azure-mobile.net** URL。當您具有連接到此 URL 的行動用戶端時，您應該使用自動移轉選項，或讓您的行動服務保持執行，直到所有的行動用戶端都升級為新的 URL 為止。
+如果您移轉免費或基本定價層的行動服務，該定價層中的所有行動服務將會同時移轉。若要避免此狀況，您可以在移轉期間[將您要移轉的行動服務提升至](#opt-raise-service-tier)標準。
 
+您可以在活動監視器中監視移轉的狀態，且您的網站在 Azure 傳統入口網站中會列示為*移轉中*。
 
-### <a name="app-settings"></a>應用程式設定
-若要使用行動服務，必須在環境中完成幾項應用程式設定，本節將說明這幾項設定。
+  ![移轉活動監視器][1]
 
-若要在您的行動 App 後端上進行應用程式設定，請先登入 [Azure 入口網站]。瀏覽至您想要做為行動 App 後端使用的 App Service app、按一下 [設定] > [應用程式設定]，然後向下捲動至 [App 設定]，您可以在此處設定下列必要的索引鍵值組：
+每個移轉的行動服務在每次移轉時可能需要 3 到 15 分鐘不等。您的網站在移轉期間仍可使用，但會移轉程序結束時重新啟動。網站在重新啟動程序期間將無法使用，此狀況可能會持續幾秒鐘。
 
-+ **MS\_MobileServiceName** 應設定為您的 app 名稱。例如，當您的後端 URL 是 `contoso.azurewebsites.net` 時，則 *contoso* 是正確的值。
+## <a name="finalizing-migration"></a>完成移轉
 
-+ **MS\_MobileServiceDomainSuffix** 應設定為您的 web app 名稱。例如，當您的後端 URL 是 `contoso.azurewebsites.net` 時，則 *azurewebsites.net* 是正確的值。
+您應規劃在移轉程序結束後從行動用戶端測試您的網站。請確定您可以執行所有的一般用戶端動作，而不會變更行動用戶端。此外，您也應確定在移轉中所進行的變更 (例如變更定價層) 可在必要時回復。
 
-+ **MS\_ApplicationKey** 可以設為任何值，但必須是用戶端 SDK 所使用的相同值。建議使用 GUID。
+### <a name="update-app-service-tier"></a>選取適當的 App Service 定價層
 
-+ **MS\_MasterKey** 可以設為任何值，但必須與任何管理 API/用戶端使用相同的值。建議使用 GUID。
+在移轉至 Azure App Service 之後，您在價格方面將會有更多彈性。
 
-移轉行動服務時，可以在 [Azure 傳統入口網站]中，從 [行動服務] 區段的 [設定] 索引標籤取得主要索引鍵和應用程式索引鍵。按一下底部的 [管理索引鍵]，並複製索引鍵。
+  1.  登入 [Azure 入口網站]。
+  2.  選取 [所有資源] 或 [應用程式服務]，然後按一下您已移轉的行動應用程式的名稱。
+  3.  依預設會開啟 [設定] 刀鋒視窗，若未開啟，請按一下 [設定]。
+  4.  按一下 [設定] 功能表中的 [App Service 方案]。
+  5.  按一下 [定價層] 磚。
+  6.  按一下適用於您的需求的磚，然後按一下 [選取]。您可能需要按一下 [檢視全部]，才能檢視可用的定價層。
 
+建議您以下列各項做為起點：
 
-### <a name="client-sdk"></a>作法：修改用戶端 SDK
+| 行動服務定價層 | App Service 定價層 |
+| :-------------------------- | :----------------------- |
+| 免費 | F1 免費 |
+| 基本 | B1 基本 |
+| 標準 | S1 標準 |
 
-在用戶端 app 專案中修改行動服務用戶端物件的建構函式，使其接受新的 app URL (例如 `https://contoso.azurewebsites.net`) 和先前設定的應用程式索引鍵。用戶端 SDK 版本應為**行動服務**版本，且**不應**升級。如果是 IOS 和 Android 用戶端，請使用 2.x 版，Windows/Xamarin 用戶端請使用 1.3.2。Javascript 用戶端應使用 1.2.7。
+請注意，您有相當大的彈性可為應用程式選擇適當的定價層。請參閱 [App Service 價格]，以充分了解新的 App Service 的價格。
 
-### <a name="data"></a>作法：啟用資料功能
+> [AZURE.TIP]App Service 標準層包含您可能想要使用之多種功能的存取權，包括[預備位置]、自動備份和自動調整。您可以在相關位置查看新功能。
 
-若要在行動服務中使用預設的 Entity Framework 類別，必須完成兩項額外的設定。
+### <a name="review-migration-scheduler-jobs"></a>檢閱已移轉的排程器作業
 
-連接字串會儲存於 [應用程式設定] 刀鋒視窗的 [連接字串] 區段中，就在 [App 設定] 區段之下。資料庫的連接字串應設定於 **MS\_TableConnectionString** 索引鍵下。將現有的行動服務移轉至 App Service 時，請瀏覽至 [Azure 傳統入口網站](https://manage.windowsazure.com/)中行動服務的 [設定] 索引標籤的 [連接字串] 區段。按一下 [顯示連接字串] 並複製值。
+排程器作業在移轉後約 30 分鐘內將不會顯示。任何排程的作業將持續在背景中執行。若要檢視已排程的作業：
 
-預設使用的結構描述是 **MS\_MobileServiceName**，但這可以使用 **MS\_TableSchema** 設定來覆寫。回到 [App 設定] 之下，將 **MS\_TableSchema** 設為要使用的結構描述名稱。如果您要移動現有的行動服務應用程式，目前已有使用 Entity Framework 建立的結構描述 - 這是行動服務的名稱，而不是現在會裝載程式碼的 App Service 執行個體。
+  1.  登入 [Azure 入口網站]。
+  2.  選取 [瀏覽 >]、在 [篩選] 方塊中輸入 **Schedule**，然後選取 [排程器集合]。
 
-### <a name="push"></a>作法：啟用推送功能
+移轉後可用的排程器作業數量將有所限制。您應檢閱您的使用情形和 [Azure 排程器方案]。
 
-若要讓推送功能運作，Web app 還必須知道通知中樞的相關資訊。
+### <a name="configure-cors"></a>視需要設定 CORS
 
-在 [連接字串] 下，為通知中樞設定具有 DefaultFullSharedAccessSignature 連接字串的 **MS\_NotificationHubConnectionString**。若要移轉現有的行動服務，請瀏覽至 [Azure 傳統入口網站](https://manage.windowsazure.com/)中行動服務 [設定] 索引標籤的 [連接字串] 區段。按一下 [顯示連接字串] 並複製值。
+跨原始資源共用是一項可讓網站存取不同網域之 Web API 的技術。如果您所使用 Azure 行動服務具有相關聯的網站，您就必須在移轉中設定 CORS。如果您從行動裝置以獨佔方式存取 Azure 行動服務，則在絕大多數的情況下都不需要設定 CORS。
 
-**MS\_NotificationHubName** app 設定應設為中樞的名稱。在移動現有的行動服務時，您可以從 [Azure 傳統入口網站](https://manage.windowsazure.com/)中行動服務的 [推送] 索引標籤取得此值。此索引標籤上的其他欄位會連結至中樞本身，不需要複製到任何位置。
+您已移轉的 CORS 設定可做為 **MS\_CrossDomainWhitelist** 應用程式設定。若要將您的網站移轉至 App Service CORS 工具：
 
-### <a name="auth"></a>作法：啟用驗證功能
+  1.  登入 [Azure 入口網站]。
+  2.  選取 [所有資源] 或 [應用程式服務]，然後按一下您已移轉的行動應用程式的名稱。
+  3.  依預設會開啟 [設定] 刀鋒視窗，若未開啟，請按一下 [設定]。
+  4.  按一下 API 功能表中的 [CORS]。
+  5.  在提供的方塊中輸入任何 [允許的原點]，每輸入一個就按一下 Enter 鍵。
+  6.  如果您的 [允許的原點] 清單正確無誤，請按一下 [儲存] 按鈕。
 
-身分識別功能也有必須為個別提供者進行應用程式設定的需求。如果要移動現有的行動服務，Azure 傳統入口網站的 [身分識別] 索引標籤中的每個欄位都會有對應的 app 設定。
+這是選擇性工作，但可為後續提供更好的管理體驗。
 
-Microsoft 帳戶
+> [AZURE.TIP]使用 Azure App Service 的優點之一，是您可以在相同網站上執行您的網站和行動服務。如需詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
-* **MS\_MicrosoftClientID**
+## <a name="working-with-your-site"></a>在移轉後使用您的網站
 
-* **MS\_MicrosoftClientSecret**
+在移轉之後，您將會在 [Azure 入口網站]中開始使用新的 App Service。以下是您過去在 [Azure 傳統入口網站]中執行之特定作業的某些注意事項，及其 App Service 的對等項目。
 
-* **MS\_MicrosoftPackageSID**
+### <a name="publishing-your-site"></a>下載和發佈您已移轉的網站
 
-Facebook
+您的網站可透過 git 或 ftp 來使用，而且可透過多種不同的機制重新發佈，包括 WebDeploy、TFS、Mercurial、GitHub 及 FTP。部署認證會隨著網站的其餘部分移轉。如果您未設定部署認證，或您不記得，您可以將其重設：
 
-* **MS\_FacebookAppID**
+  1. 登入 [Azure 入口網站]。
+  2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您已移轉的行動應用程式的名稱。
+  3. 依預設會開啟 [設定] 刀鋒視窗，若未開啟，請按一下 [設定]。
+  4. 按一下 [發佈] 功能表中的 [部署認證]。
+  5. 在提供的方塊中輸入新的部署認證，然後按一下 [儲存] 按鈕。
 
-* **MS\_FacebookAppSecret**
+您可以使用這些認證透過 git 複製網站，或從 GitHub、TFS 或 Mercurial 設定自動化部署。如需詳細資訊，請參閱 [Azure App Service 部署文件]。
 
-Twitter
+### <a name="appsettings"></a>應用程式設定
 
-* **MS\_TwitterConsumerKey**
+已移轉的行動服務大部分的設定都可透過 [應用程式設定] 來使用。您可以從 [Azure 入口網站]取得應用程式設定清單。若要檢視或變更您的應用程式設定：
 
-* **MS\_TwitterConsumerSecret**
+  1. 登入 [Azure 入口網站]。
+  2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您已移轉的行動應用程式的名稱。
+  3. 依預設會開啟 [設定] 刀鋒視窗，若未開啟，請按一下 [設定]。
+  4. 按一下 [一般] 功能表中的 [應用程式設定]。
+  5. 捲動至 [應用程式設定] 區段，並尋找您的應用程式設定。
+  6. 按一下應用程式設定的值，以編輯該值。按一下 [儲存] 以儲存該值。
 
-Google
+您可以同時更新多個應用程式設定。
 
-* **MS\_GoogleClientID**
+> [AZURE.TIP]您會發現有兩個具有相同值的 [應用程式設定]。例如，您可能會看到 _ApplicationKey_ 和 _MS\_ApplicationKey_。您只需要變更具有前置 **MS\_** 的應用程式設定。不過，同時更新這兩個應用程式設定，是不錯的做法。
 
-* **MS\_GoogleClientSecret**
+### <a name="authentication"></a>驗證
 
-AAD
+所有的驗證設定都可做為已移轉之網站中的 [應用程式設定]。若要更新您的驗證設定，您必須變更適當的應用程式設定。下表列出您的驗證提供者所適用的應用程式設定：
 
-* **MS\_AadClientID**
+| 提供者 | 用戶端識別碼 | 用戶端密碼 | 其他設定 |
+| :---------------- | :------------------------ | :--------------------------- | :------------------------- |
+| Microsoft 帳戶 | **MS\_MicrosoftClientID** | **MS\_MicrosoftClientSecret** | **MS\_MicrosoftPackageSID** |
+| Facebook | **MS\_FacebookAppID** | **MS\_FacebookAppSecret** | |
+| Twitter | **MS\_TwitterConsumerKey** | **MS\_TwitterConsumerSecret** | |
+| Google | **MS\_GoogleClientID** | **MS\_GoogleClientSecret** | |
+| Azure AD | **MS\_AadClientID** | | **MS\_AadTenants** |
 
-* **MS\_AadTenants** - 附註：**MS\_AadTenants** 會儲存為租用戶網域 (Azure 傳統入口網站中的 [允許的租用戶] 欄位) 的逗號分隔清單。
+注意：**MS\_AadTenants** 會儲存為租用戶網域 ([行動服務入口網站] 中的 [允許的租用戶] 欄位) 的逗號分隔清單。
 
-### <a name="publish"></a>作法：發佈行動服務專案
+> [AZURE.WARNING]**請不要使用 [設定] 功能表中的驗證機制**
+>
+> Azure App Service 分別在 [_驗證/授權_設定] 功能表下提供「無程式碼」驗證和授權系統，以及在 [設定] 功能表下提供已被取代的 [_行動驗證_] 選項。這些選項與已移轉的 Azure 行動服務不相容。您可以 [升級您的網站]，以利用 Azure App Service 驗證功能。
 
-1. 在 [Azure 入口網站]中，瀏覽至您的 app、按一下命令列中的 [取得發行設定檔]，然後將下載的設定檔儲存到本機電腦。
-2. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務伺服器專案，然後按一下 [發佈]。 
-3. 在 [設定檔] 索引標籤上選擇 [匯入]，然後瀏覽至下載的設定檔。
-3. 按一下 [發佈]，將程式碼部署至 App Service。
+### <a name="easytables"></a>資料
 
-記錄檔會透過標準 App Service 記錄功能來處理。若要深入了解記錄功能，請參閱[在 Azure App Service 中啟用診斷記錄]。
+行動服務中的 [資料] 索引標籤在 Azure 入口網站中已取代為 [簡單資料表]。若要存取簡單資料表：
 
+  1. 登入 [Azure 入口網站]。
+  2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您已移轉的行動應用程式的名稱。
+  3. 依預設會開啟 [設定] 刀鋒視窗，若未開啟，請按一下 [設定]。
+  4. 按一下 [行動] 功能表中的 [簡單資料表]。
 
+您可以按一下 [新增] 按鈕以新增資料表，或按一下資料表名稱以存取現有的資料表。在此刀鋒視窗中可以執行多項作業，包括：
 
-<!-- URLs. -->
+  * 變更資料表權限
+  * 編輯作業指令碼
+  * 管理資料表結構描述
+  * 刪除資料表
+  * 清除資料表內容
+  * 刪除資料表的特定資料列
 
-[Azure 入口網站]: https://portal.azure.com/
-[Azure 傳統入口網站]: https://manage.windowsazure.com/
-[什麼是 Mobile Apps？]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /zh-TW/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
-[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /zh-TW/documentation/services/scheduler/
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
-[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+### <a name="easyapis"></a>API
 
+行動服務中的 [API] 索引標籤在 Azure 入口網站中已取代為 [簡單 API]。若要存取簡單 API：
 
-[在 Azure App Service 中啟用診斷記錄]: web-sites-enable-diagnostic-log.md
-[App Service 定價]: https://azure.microsoft.com/zh-TW/pricing/details/app-service/
-[App Service 環境]: app-service-app-service-environment-intro.md
-[比較行動服務與App Service]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
-[migrate a mobile service to a mobile app on App Service]: app-service-mobile-migrating-from-mobile-services.md
+  1. 登入 [Azure 入口網站]。
+  2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您已移轉的行動應用程式的名稱。
+  3. 依預設會開啟 [設定] 刀鋒視窗，若未開啟，請按一下 [設定]。
+  4. 按一下 [行動] 功能表中的 [簡單 API]。
 
-<!-------HONumber=AcomDC_1210_2015--->
+您已移轉的 API 將會列在刀鋒視窗中。您也可以在此刀鋒視窗中新增 API。若要管理特定 API，請按一下該 API。從新的刀鋒視窗中，您可以調整權限，以及編輯 API 的指令碼。
+
+### <a name="on-demand-jobs"></a>隨選排定作業
+
+隨選排定作業可透過 Web 要求來觸發。我們建議使用 HTTP 用戶端，例如 [Postman]、[Fiddler] 或 [curl]。如果您的網站名為 'contoso'，則您將會有可用來觸發隨選作業的端點 https://contoso.azure-mobile.net/jobs/_yourjobname_。您必須連同主要金鑰提交額外的標頭 **X-ZUMO-MASTER**。
+
+主要金鑰可透過下列方式取得：
+
+  1. 登入 [Azure 入口網站]。
+  2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您已移轉的行動應用程式的名稱。
+  3. 依預設會開啟 [設定] 刀鋒視窗，若未開啟，請按一下 [設定]。
+  4. 按一下 [一般] 功能表中的 [應用程式設定]。
+  5. 尋找 **MS\_MasterKey** 應用程式設定。
+
+您可以將主要金鑰剪貼至 Postman 工作階段中。以下是在已移轉的行動服務中觸發隨需作業的範例：
+
+  ![使用 Postman 觸發隨選作業][2]
+
+記下設定：
+
+  * 方法：**POST**
+  * URL：https://_yoursite_.azure-mobile.net/jobs/_yourjobname_
+  * 標頭：X-ZUMO-MASTER: _your-master-key_
+
+或者，您可以使用 [curl] 在命令列上觸發隨需作業：
+
+    curl -H 'X-ZUMO-MASTER: yourmasterkey' --data-ascii '' https://yoursite.azure-mobile.net/jobs/yourjob
+
+您的隨需作業會位於 `App_Data/config/scripts/scheduler post-migration`。建議您將所有隨需作業轉換為 [WebJob]。
+
+### <a name="notification-hubs"></a>通知中樞
+
+行動服務會使用通知中樞進行推播通知作業。在移轉之後，會使用下列應用程式設定將通知中樞連結至您的行動服務：
+
+| 應用程式設定 | 說明 |
+| :------------------------------------- | :--------------------------------------- |
+| **MS\_PushEntityNamespace** | 通知中樞命名空間 |
+| **MS\_NotificationHubName** | 通知中樞名稱 |
+| **MS\_NotificationHubConnectionString** | 通知中樞連接字串 |
+| **MS\_NamespaceName** | MS\_PushEntityNamespace 的別名 |
+
+您的通知中樞將透過 [Azure 入口網站]受到管理。請記下通知中樞名稱 (您可以使用 [應用程式設定] 找到此項目)：
+
+  1. 登入 [Azure 入口網站]。
+  2. 選取 [瀏覽>]，然後選取 [通知中樞]
+  3. 按一下與行動服務相關聯的通知中樞名稱。
+
+> [AZURE.NOTE]您的通知中樞如果是「混合」類型，則不會顯示。「混合」類型的通知中樞會同時使用「通知中樞」和舊版的「服務匯流排」功能。您將必須[轉換混合式命名空間]。轉換完成後，您的通知中樞會出現在 [Azure 入口網站]中。
+
+如需詳細資訊，請檢閱[通知中樞]文件。
+
+> [AZURE.TIP][Azure 入口網站]中的通知中樞管理功能仍處於預覽階段。[Azure 傳統入口網站]仍可用來管理您所有的通知中樞。
+
+### <a name="app-settings"></a>其他應用程式設定
+
+以下是從您的行動服務移轉的其他應用程式設定，可從 [設定] > [應用程式設定] 來使用：
+
+| 應用程式設定 | 說明 |
+| :------------------------------- | :-------------------------------------- |
+| **MS\_MobileServiceName** | 您的應用程式名稱 |
+| **MS\_MobileServiceDomainSuffix** | 網域前置詞，即 azure-mobile.net |
+| **MS\_ApplicationKey** | 您的應用程式金鑰 |
+| **MS\_MasterKey** | 您的應用程式主要金鑰 |
+
+應用程式金鑰和主要金鑰必須與您原始行動服務中的應用程式金鑰完全相同。特別是，行動用戶端會傳送應用程式金鑰，以驗證他們對行動 API 的使用。
+
+### <a name="cliequivalents"></a>命令列對等項目
+
+您將無法再使用 _azure mobile _命令來管理您的 Azure 行動服務網站。有許多功能已取代為 _azure site_ 命令。請使用下表來尋找常用命令的對等項目：
+
+| _Azure Mobile_ 命令 | 對等的 _Azure site_ 命令 |
+| :----------------------------------------- | :----------------------------------------- |
+| mobile locations | site location list |
+| mobile list | site list |
+| mobile show _name_ | site show _name_ |
+| mobile restart _name_ | site restart _name_ |
+| mobile redeploy _name_ | site deployment redeploy _commitId_ _name_ |
+| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile config list _name_ | site appsetting list _name_ |
+| mobile config get _name_ _key_ | site appsetting show _key_ _name_ |
+| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile domain list _name_ | site domain list _name_ |
+| mobile domain add _name_ _domain_ | site domain add _domain_ _name_ |
+| mobile domain delete _name_ | site domain delete _domain_ _name_ |
+| mobile scale show _name_ | site show _name_ |
+| mobile scale change _name_ | site scale mode _mode_ _name_ <br /> site scale instances _instances_ _name_ |
+| mobile appsetting list _name_ | site appsetting list _name_ |
+| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=\_value\_ _name_ |
+| mobile appsetting delete _name_ _key_ | site appsetting delete _key_ _name_ |
+| mobile appsetting show _name_ _key_ | site appsetting delete _key_ _name_ |
+
+藉由更新適當的應用程式設定，可更新驗證或推播通知設定。請編輯檔案，並透過 ftp 或 git 發佈您的網站。
+
+### <a name="diagnostics"></a>診斷和記錄
+
+Azure App Service 通常會停用 [診斷記錄]。若要啟用診斷記錄：
+
+  1. 登入 [Azure 入口網站]。
+  2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您已移轉的行動應用程式的名稱。
+  3. 依預設會開啟 [設定] 刀鋒視窗，若未開啟，請按一下 [設定]。
+  4. 選取 [功能] 功能表下的 [診斷記錄]。
+  5. 對下列記錄檔按一下 [開啟]：[應用程式記錄 (檔案系統)]、[詳細錯誤訊息] 和 [失敗要求的追蹤]
+  6. 針對 Web 伺服器記錄，按一下 [檔案系統]
+  7. 按一下 [儲存]
+
+若要檢視記錄檔：
+
+  1. 登入 [Azure 入口網站]。
+  2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您已移轉的行動應用程式的名稱。
+  3. 按一下 [工具] 按鈕。
+  4. 選取 [觀察] 功能表下的 [記錄資料流]。
+
+記錄檔在產生時會串流至提供的視窗中。您也可以下載的記錄檔，以便後續使用您的部署認證加以分析。如需詳細資訊，請參閱[記錄]文件。
+
+## <a name="next-steps"></a>後續步驟
+
+除了您的應用程式會移轉至 App Service 以外，還有更多功能可供您使用：
+
+  * 部署[預備位置]可讓您預備網站的變更，並執行 A/B 測試。
+  * [WebJob] 可取代隨選排定作業。
+  * 您可以將網站連結至 GitHub、TFS 或 Mercurial，以[連續部署]網站。
+  * 您可以使用 [Application Insights] 監視您的網站。
+  * 以相同的程式碼為網站和行動 API 提供服務。
+
+### <a name="upgrading-your-site"></a>將您的行動服務網站升級至 Azure Mobile Apps SDK
+
+  * 對於以 Node.js 為基礎的伺服器專案，新的 [Mobile Apps Node.js SDK] 提供許多新功能。例如，您現在可以執行本機開發和偵錯、使用 0.10 以上的任何 Node.js 版本，以及使用任何 Express.js 中介軟體自訂。
+
+  * 對於以 .NET 為基礎的伺服器專案，新的 [Mobile Apps SDK NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)在 NuGet 相依性具有更大的彈性、支援新的 App Service 驗證功能，而且是由任何 ASP.NET 專案 (包括 MVC) 所組成。若要深入了解升級，請參閱[將您現有的 .NET 行動服務升級為 App Service](app-service-mobile-net-upgrading-from-mobile-services.md)。
+
+<!-- Images -->
+[0]: ./media/app-service-mobile-migrating-from-mobile-services/migrate-to-app-service-button.PNG
+[1]: ./media/app-service-mobile-migrating-from-mobile-services/migration-activity-monitor.png
+[2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
+
+<!-- Links -->
+[App Service 價格]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Application Insights]: ../application-insights/app-insights-overview.md
+[自動調整]: ../app-service-web/web-sites-scale.md
+[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
+[Azure App Service 部署文件]: ../app-service-web/web-sites-deploy.md
+[Azure 傳統入口網站]: https://manage.windowsazure.com
+[Azure 入口網站]: https://portal.azure.com
+[Azure 區域]: https://azure.microsoft.com/en-us/regions/
+[Azure 排程器方案]: ../scheduler/scheduler-plans-billing.md
+[連續部署]: ../app-service-web/web-sites-publish-source-control.md
+[轉換混合式命名空間]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[curl]: http://curl.haxx.se/
+[自訂網域名稱]: ../app-service-web/web-sites-custom-domain-name.md
+[Fiddler]: http://www.telerik.com/fiddler
+[Azure App Service 的公開上市版]: /blog/announcing-general-availability-of-app-service-mobile-apps/
+[混合式連接]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[記錄]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
+[比較行動服務與App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
+[通知中樞]: ../notification-hubs/notification-hubs-overview.md
+[效能監視]: ../app-service-web/web-sites-monitor.md
+[Postman]: http://www.getpostman.com/
+[備份您的行動服務]: ../mobile-services/mobile-services-disaster-recovery.md
+[預備位置]: ../app-service-web/web-sites-staged-publishing.md
+[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
+[WebJob]: ../app-service-web/websites-webjobs-resources.md
+
+<!---HONumber=AcomDC_1223_2015-->

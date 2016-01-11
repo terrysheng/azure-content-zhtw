@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="mandia"/>
 
 
@@ -104,21 +104,21 @@ BizTalk 服務轉換的其他新功能範例是**迴圈作業**。很難在 BizT
 
 ### 移轉 BizTalk Server 對應
 
-Microsoft Azure BizTalk 服務提供工具，可將 BizTalk Server 移轉至 BizTalk 服務轉換。**BTMMigrationTool** 可屬於 BizTalk 服務 SDK 提供的**工具**封裝，且可以從[這裡](http://go.microsoft.com/fwlink/p/?LinkId=235057)下載。如需有關此工具的詳細資訊，請參閱[將 BizTalk 對應轉換成 BizTalk 服務轉換](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx)。
+Microsoft Azure BizTalk 服務提供工具，可將 BizTalk Server 移轉至 BizTalk 服務轉換。**BTMMigrationTool** 是 [BizTalk Services SDK 下載頁面](http://go.microsoft.com/fwlink/p/?LinkId=235057)所提供的**工具**封裝的一部分。如需有關此工具的詳細資訊，請參閱[將 BizTalk 對應轉換成 BizTalk 服務轉換](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx)。
 
-您也可以查看 Sandro Pereira 提供的範例 (BizTalk MVP)，了解如何將 BizTalk Server 對應移轉至 BizTalk 服務轉換。該範例可從[這裡](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx)取得。
+您也可以查看 BizTalk MVP Sandro Pereira 所提供的範例，以了解[如何將 BizTalk Server 對應移轉至 BizTalk 服務轉換](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx)。
 
 ## 協調流程
 
 如果您需要將 BizTalk Server 協調流程移轉至 Microsoft Azure，協調流程需要重寫，因為 Microsoft Azure 不支援 BizTalk Server 協調流程的執行。您可以在 Windows Workflow Foundation 4.0 (WF4) 服務中重寫協調流程功能。這會完全重寫，因為目前沒有從 BizTalk Server 協調流程至 WF4 的移轉。以下是 Windows 工作流程的一些資源：
 
-- 由 Paolo Salvatori 撰寫的*如何整合 WCF 工作流程服務與服務匯流排佇列和主題*。請參閱[這裡](https://msdn.microsoft.com/library/azure/hh709041.aspx)。
+- 由 Paolo Salvatori 撰寫的[如何整合 WCF 工作流程服務與服務匯流排佇列和主題](https://msdn.microsoft.com/library/azure/hh709041.aspx)。 
 
-- 從 Build 2011 會議*使用 Windows Workflow Foundation 和 Azure 建置應用程式*工作階段。請參閱[這裡](http://go.microsoft.com/fwlink/p/?LinkId=237314)。
+- 來自 Build 2011 會議的[使用 Windows Workflow Foundation 和 Azure 建置應用程式講習](http://go.microsoft.com/fwlink/p/?LinkId=237314)。
 
-- *MSDN 上的 Windows Workflow Foundation 開發人員中心*。請參閱[這裡](http://go.microsoft.com/fwlink/p/?LinkId=237315)。
+- MSDN 上的 [Windows Workflow Foundation 開發人員中心](http://go.microsoft.com/fwlink/p/?LinkId=237315)。
 
-- *MSDN 上的 Windows Workflow Foundation 4 (WF4) 文件*。請參閱 [這裡](https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx)。
+- MSDN 上的 [*Windows Workflow Foundation 4 (WF4) 文件*](https://msdn.microsoft.com/library/dd489441.aspx)。
 
 ## 其他考量
 
@@ -126,7 +126,7 @@ Microsoft Azure BizTalk 服務提供工具，可將 BizTalk Server 移轉至 Biz
 
 ### 後援合約
 
-BizTalk Server EDI 處理程序有「後援合約」概念。BizTalk 服務至今為止**沒有**「後援合約」概念。如需如何在 BizTalk Server 中使用後援合約的詳細資訊，請參閱 BizTalk 文件主題 [EDI 處理程序中的合約角色](http://go.microsoft.com/fwlink/p/?LinkId=237317) (英文) 和[設定全域或後援協議屬性](https://msdn.microsoft.com/library/bb245981.aspx)。
+BizTalk Server EDI 處理程序有「後援合約」概念。到目前為止，BizTalk 服務「沒有」後援合約的概念。如需後援合約在 BizTalk Server 中使用方式的詳細資訊，請參閱 BizTalk 文件主題 [EDI 處理中協議的角色](http://go.microsoft.com/fwlink/p/?LinkId=237317)和[設定全域或後援協議屬性](https://msdn.microsoft.com/library/bb245981.aspx)。
 
 ### 路由至多個目的地
 
@@ -142,4 +142,4 @@ Microsoft Azure BizTalk 服務會定期更新以新增更多特性和功能。�
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

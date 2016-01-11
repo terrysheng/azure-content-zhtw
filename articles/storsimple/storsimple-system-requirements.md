@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/14/2015"
+   ms.date="12/18/2015"
    ms.author="alkohli"/>
 
 # StorSimple 軟體、高可用性和網路需求
@@ -103,17 +103,12 @@ Update 2 有幾項網路相關的改進且路由度量已變更。行為可以�
 
 - 一組預先決定的值已指派給網路介面。 	
 		
-- 當它們已啟用雲端或已停用雲端，但是具有已設定的閘道器時，請考量以下所示的範例資料表，具有指派給各種網路介面的值 (範例)。
+- 當網路介面已啟用雲端或已停用雲端功能，但是已設定閘道器時，請考量以下所示的範例資料表，其中包含指派給各種網路介面的值。請注意，此處指定的值僅為範例值。
 
 		
 	| 網路介面 | 已啟用雲端 | 已停用雲端且具有閘道器 |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 雲端流量透過網路介面路由的順序為：
@@ -136,12 +131,11 @@ Update 2 有幾項網路相關的改進且路由度量已變更。行為可以�
 - 如果有已啟用 iSCSI 網路介面的 VIP 失敗，則會重試 3 次 (有 2 秒的延遲)。這種行為與舊版相同。如果所有 iSCSI 網路介面都失敗，會發生控制器容錯移轉 (伴隨重新開機)。
 
 
-- 有 VIP 失敗時，您的 StorSimple 裝置上也會引發警示。如需詳細資訊，請移至 [VIP 失敗的警示](storsimple-manage-alerts.md)。
+- 有 VIP 失敗時，您的 StorSimple 裝置上也會引發警示。如需詳細資訊，請移至[警示快速參考](storsimple-manage-alerts.md)。
 	
 - 根據重試，iSCSI 將會優先於雲端。
 
-	請考慮下列範例：
-	StorSimple 裝置已啟用兩個網路介面，Data 0 和 Data 1。Data 0 已啟用雲端功能，而 Data 1 已啟用雲端和 iSCSI 功能。此裝置上沒有其他網路介面啟用雲端或 iSCSI。
+	請考慮下列範例：StorSimple 裝置已啟用兩個網路介面，Data 0 和 Data 1。Data 0 已啟用雲端功能，而 Data 1 已啟用雲端和 iSCSI 功能。此裝置上沒有其他網路介面啟用雲端或 iSCSI。
 		
 	如果 Data 1 失敗，假設它是最後一個 iSCSI 網路介面，這會導致控制器容錯移轉至其他控制器上的 Data 1。
 
@@ -224,8 +218,7 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 
 - 如果 SSD 或 HDD 失敗或需要替代品，請確定您只移除了需要替代品的 SSD 或 HDD。
 
-- 請勿於任何時間從系統移除一個以上的 SSD 或 HDD。
-特定類型 (HDD、SSD) 的 2 個以上的磁碟失敗或在短時間範圍內的連續失敗可能會導致系統故障和潛在資料遺失。如果發生這種情況，請[連絡 Microsoft 支援](storsimple-contact-microsoft-support.md)尋求協助。
+- 請勿於任何時間從系統移除一個以上的 SSD 或 HDD。特定類型 (HDD、SSD) 的 2 個以上的磁碟失敗或在短時間範圍內的連續失敗可能會導致系統故障和潛在資料遺失。如果發生這種情況，請[連絡 Microsoft 支援](storsimple-contact-microsoft-support.md)尋求協助。
 
 - 在取代期間，請在 [**維護**] 頁面中的**硬體狀態** 監視 SSD 和 HDD 中的磁碟機。綠色核取狀態表示磁碟狀況良好或確定，而紅色驚嘆號點則表示失敗的 SSD 或 HDD。
 
@@ -263,4 +256,4 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

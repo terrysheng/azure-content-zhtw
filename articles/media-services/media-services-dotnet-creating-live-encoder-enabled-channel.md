@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/08/2015"  
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -24,11 +24,13 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如需詳細資訊，請參閱 [Azure 免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。
+
 ##概觀
 
 本教學課程將逐步引導您建立**通道**，可接收單一位元速率的即時串流，並將其編碼為多位元速率串流。
 
->[AZURE.NOTE]如需為即時編碼啟用之通道相關的詳細概念資訊，請參閱[使用通道執行從單一位元速率到多位元速率串流的即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
+如需為即時編碼啟用之通道相關的詳細概念資訊，請參閱[使用通道執行從單一位元速率到多位元速率串流的即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 
 ##常見即時串流案例
@@ -39,17 +41,17 @@
 
 1. 將攝影機連接到電腦。啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 
-此步驟也可以在您建立通道之後執行。
+	此步驟也可以在您建立通道之後執行。
 
 1. 建立並啟動通道。
 
 1. 擷取通道內嵌 URL。
 
-內嵌 URL 可供即時編碼器用來傳送串流到通道。
+	內嵌 URL 可供即時編碼器用來傳送串流到通道。
 
 1. 擷取通道預覽 URL。
 
-使用此 URL 來確認您的通道會正確接收即時串流。
+	使用此 URL 來確認您的通道會正確接收即時串流。
 
 2. 建立資產。
 3. 如果您想要在播放期間動態加密資產，請執行下列動作：
@@ -59,14 +61,14 @@
 3. 建立程式，並指定使用您所建立的資產。
 1. 藉由建立 OnDemand 定位器，發行與程式相關聯的資產。
 
-請確定在您想串流內容的串流端點上至少有一個串流保留的單元。
+	請確定在您想串流內容的串流端點上至少有一個串流保留的單元。
 
 1. 當您準備好開始串流和封存時，請啟動程式。
 2. 即時編碼器會收到啟動公告的信號 (選擇性)。公告會插入輸出串流中。
 1. 每當您想要停止串流處理和封存事件時，請停止程式。
 1. 刪除程式 (並選擇性地刪除資產)。
 
-##本主題內容
+## 您將學到什麼
 
 本主題示範如何使用 Media Services.NET SDK 在通道上執行不同的作業和程式。因為許多作業會長時間執行，所以會使用管理長時間執行作業的 .NET API。
 
@@ -82,6 +84,18 @@
 1. 清除您的通道和所有相關聯的資源。
 
 
+##必要條件
+
+需要有下列項目，才能完成教學課程。
+
+- 若要完成此教學課程，您需要 Azure 帳戶。 
+	
+	如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。您將獲得能用來試用 Azure 付費服務的額度。即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務和功能，例如 Azure App Service 中的 Web Apps 功能。
+- 媒體服務帳戶。若要建立媒體服務帳號，請參閱[建立帳戶](media-services-create-account.md)。
+- Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express) 或較新版本。
+- 您必須使用媒體服務 .NET SDK 3.2.0.0 版或更新版本。
+- 網路攝影機以及可以傳送單一位元速率即時串流的編碼器。
+
 ##考量
 
 - 目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
@@ -89,16 +103,8 @@
 
 ##下載範例
 
-從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)取得和執行範例。
+從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/)取得並執行範例。
 
-##必要條件
-需要有下列項目，才能完成教學課程。
-
-- 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](azure.microsoft.com)。
-- 媒體服務帳戶。若要建立媒體服務帳號，請參閱[建立帳戶](media-services-create-account.md)。
-- Visual Studio 2010 SP1 或更新版本。
-- 您必須使用媒體服務 .NET SDK 3.2.0.0 版或更新版本。
-- 網路攝影機和可以傳送單一位元速率即時串流的編碼器。
 
 ##設定使用媒體服務 SDK for.NET 的開發
 
@@ -334,6 +340,7 @@
 	        /// <returns></returns>
 	        public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
 	        {
+             	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 	            var locator = _context.Locators.CreateLocator
 	                (
 	                    LocatorType.OnDemandOrigin,
@@ -516,4 +523,4 @@
 
 如果本主題未包含您預期的內容、缺少部分內容，或者提供了一些其他不符合您需求的方式，請在下方提供您使用 Disqus 執行緒的意見反應給我們。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

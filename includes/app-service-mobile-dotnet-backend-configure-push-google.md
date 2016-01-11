@@ -50,6 +50,8 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
+4. 發佈伺服器專案。
+
 ### <a name="nodejs"></a>Node.js 後端專案
 
 1. 如果您還沒這麼做，請下載[快速入門專案](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 入口網站中的線上編輯器](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。
@@ -103,4 +105,4 @@
 
 2. 在本機電腦中編輯檔案時，重新發布伺服器專案。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

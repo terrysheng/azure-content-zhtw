@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # 開始使用 BizTalk Edifact 連接器並將它加入您的邏輯應用程式  
@@ -32,7 +32,7 @@
 ## 設定 Edifact 連接器
 交易夥伴是指涉及 B2B (企業對企業) 通訊的實體。當兩個夥伴建立關係時，這稱為協議。定義的協議會以這兩個夥伴想要達成的通訊為基礎，且是特定的通訊協定或傳輸。
 
-建立交易夥伴協議所涉及的步驟在[這裡][2]說明。
+請參閱[建立交易夥伴協議][2]的步驟。
 
 ## 在 Logic Apps 設計工具介面中使用 Edifact 連接器
 Edifact 連接器可以當作觸發程序或動作使用。
@@ -89,4 +89,4 @@ Edifact 連接器可以當作觸發程序或動作使用。
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

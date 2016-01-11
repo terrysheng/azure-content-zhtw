@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,6 +46,7 @@
    		
 	如果您想要漸進式地下載，請取得資產中的 MP4 檔案名稱。 
    4. 建置資訊清單檔或 MP4 檔案的 URL。 
+   5. 請注意，您無法使用包含寫入或刪除權限的 AccessPolicy 建立串流訂位器。
 
 
 ###建立存取原則
@@ -186,4 +187,8 @@ URL：**Path** + 資產檔案 MP4 名稱
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+##另請參閱
+
+[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)
+
+<!---HONumber=AcomDC_1223_2015-->

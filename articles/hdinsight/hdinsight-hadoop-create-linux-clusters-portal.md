@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="使用入口網站在 HDInsight 中的 Linux 上建立 Hadoop、HBase 或 Storm 叢集 | Microsoft Azure"
-   	description="了解如何在適用於 HDInsight 的 Linux 上，使用 Web 瀏覽器和 Azure 入口網站，來建立 Hadoop、HBase 或 Storm 叢集。"
+   	pageTitle="在 Linux 上使用入口網站在 HDInsight 中建立 Hadoop、HBase、Storm 或 Spark 叢集 | Microsoft Azure"
+   	description="了解如何在 Linux 上使用網頁瀏覽器及 Azure Preview 入口網站，為 HDInsight 建立 Hadoop、HBase、Storm 或 Spark 叢集。"
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -14,29 +14,29 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="12/08/2015"
    	ms.author="nitinme"/>
 
 
-#使用 Azure 入口網站建立 HDInsight 上的 Linux 型叢集
+#使用 Azure Preview 入口網站在 HDInsight 上建立 Linux 架構的叢集
 
 [AZURE.INCLUDE [選取器](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Azure 入口網站是 Web 架構的管理工具，可用來管理裝載於 Microsoft Azure 雲端中的服務和資源。利用本文件中的資訊，使用入口網站和您的 Web 瀏覽器來建立 Linux 架構的新 HDInsight 叢集
+Azure Preview 入口網站是 Web 架構的管理工具，可用來管理裝載於 Microsoft Azure 雲端中的服務和資源。利用本文件中的資訊，使用 Preview 入口網站和您的 Web 瀏覽器來建立 Linux 架構的新 HDInsight 叢集
 
 ##必要條件
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- __現代 Web 瀏覽器__。Azure 入口網站會使用 HTML5 和 Javascript，而且可能無法在舊版 Web 瀏覽器中正確運作。
+- __現代 Web 瀏覽器__。Azure Preview 入口網站會使用 HTML5 和 Javascript，而且可能無法在舊版 Web 瀏覽器中正確運作。
 
 ##建立叢集
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
 
 2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
 
-    ![在 Azure 入口網站中建立新的叢集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "在 Azure 入口網站中建立新的叢集")
+    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
 
 3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Ubuntu]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
@@ -144,7 +144,7 @@ Azure 入口網站是 Web 架構的管理工具，可用來管理裝載於 Micro
 
 	* **使用者** (![使用者圖示](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png))：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 
-		> [AZURE.IMPORTANT]這_只_會影響在 Azure 入口網站對此叢集的存取和權限，對於連線到 HDInsight 叢集或將工作提交到 HDInsight 叢集的使用者沒有影響。
+		> [AZURE.IMPORTANT]這「只」會影響 Azure Preview 入口網站中對此叢集的存取和權限，而不會影響哪些使用者可連線至 HDInsight 叢集或將工作提交至其上。
 
 	* **標記** (![標記圖示](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
@@ -167,6 +167,14 @@ Azure 入口網站是 Web 架構的管理工具，可用來管理裝載於 Micro
 
 * [在 HDInsight 上開發適用於 Storm 的 Java 拓撲](hdinsight-storm-develop-java-topology.md)
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python.md)
-* [使用 Storm on HDInsight 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+###Spark 叢集
+
+* [使用 Scala 來建立獨立的應用程式](hdinsight-apache-spark-create-standalone-application.md)
+* [利用 Livy 在 Spark 叢集上遠端執行工作](hdinsight-apache-spark-livy-rest-interface.md)
+* [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](hdinsight-apache-spark-eventhub-streaming.md)
+
+<!---HONumber=AcomDC_1223_2015-->

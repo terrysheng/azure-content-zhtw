@@ -15,7 +15,7 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. 透過 [Azure Preview 入口網站](http://portal.azure.com/)登入，其位於http://portal.azure.com/。
+1. 登入位於 http://portal.azure.com/ 的 [Azure 入口網站](http://portal.azure.com/)。
 
 2. 在左邊的橫幅中按一下 [瀏覽全部]。即會顯示 [瀏覽] 刀鋒視窗。
 
@@ -63,4 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

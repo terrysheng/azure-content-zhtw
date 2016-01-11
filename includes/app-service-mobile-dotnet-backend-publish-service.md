@@ -1,4 +1,4 @@
-
+	
 + **.NET 後端 (C#)**：  
 
 	1. 在 Visual Studio 中，以滑鼠右鍵按一下專案，依序按一下 [發佈] > [發佈 Web] > [Microsoft Azure Web 應用程式]，然後 (如果有需要) 使用您的 Azure 認證登入。登入後，Visual Studio 會直接從 Azure 下載並儲存您的發佈設定。
@@ -11,4 +11,4 @@
  	請依照[指示將 Node.js 部署到 Web 應用程式](../articles/app-service-web/web-sites-nodejs-develop-deploy-mac.md)
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

@@ -28,7 +28,7 @@
 
 從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)取得和執行範例。
 
-##必要條件
+##先決條件
 
 - 在新的或現有的 Azure 訂用帳戶中有兩個媒體服務帳戶。請參閱主題＜[如何建立媒體服務帳戶](media-services-create-account.md)＞ (英文)。
 - 作業系統：Windows 10、Windows 7、Windows 2008 R2 或 Windows 8。
@@ -227,6 +227,7 @@
 		            Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).First();
 		
 		        // Create a 30-day readonly access policy. 
+            // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		        IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		            TimeSpan.FromDays(30),
 		            AccessPermissions.Read);
@@ -315,4 +316,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

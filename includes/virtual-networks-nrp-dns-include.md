@@ -5,9 +5,7 @@ Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構提
 
 | 屬性 | 說明 | 範例值 |
 |---|---|---|
-| DNS 區域 | 託管特定網域 DNS 記錄的網域區域資訊 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
-providers/Microsoft.Network/dnszones/contoso.com/A/www |
-| DNS 區域 | 託管特定網域 DNS 記錄的網域區域資訊 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
+| **DNSzones** | 託管特定網域 DNS 記錄的網域區域資訊 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"| 
 
 
 ### DNS 記錄集
@@ -89,4 +87,4 @@ Json 格式的 DNS 區域範例：
 
 如需詳細資訊，請參閱[適用於 DNS 記錄集的 REST API 文件](https://msdn.microsoft.com/library/azure/mt130626.aspx)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -49,7 +49,7 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 
 一旦您擁有帳戶並已安裝 Azure CLI，您必須
 
-- [設定 Azure CLI](../xplat-cli-connect.md)，以便使用公司或學校帳戶，或是 Microsoft 帳戶身分識別 
+- [設定 Azure CLI](../xplat-cli-connect.md)，以便使用公司或學校帳戶，或是 Microsoft 帳戶身分識別
 - 輸入 `azure config mode arm` 切換至資源管理員模式
 
 
@@ -1686,9 +1686,9 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 
 	vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>
 
-**列出資源群組中的虛擬機器**
+**列出帳戶內的虛擬機器**
 
-	vm list [options] <resource-group>
+	vm list [options]
 
 **取得資源群組中的一個虛擬機器**
 
@@ -1734,7 +1734,7 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 
 	vm reset-access [options] <resource-group> <name>
 
-**使用新資料更新 VM**
+**以新資料更新 VM**
 
 	vm set [options] <resource-group> <name>
 
@@ -1779,7 +1779,7 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 	 
 範例：在 Linux 叢集上建立 Storm
 
-	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 	
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
@@ -1787,7 +1787,7 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 
 範例：使用指令碼動作建立叢集
 
-	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 	
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
@@ -1879,4 +1879,4 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 
 	hdinsight cluster disable-rdp-access [options] <clusterName>
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="sameerch"/>
 
 
@@ -53,7 +53,7 @@ Twitter 連接器提供下列觸發程序和動作：
 5. 輸入有關連接器名稱、App Service 和 資源群組的其他必要設定。
 6.	按一下 [建立]。
 
-> [AZURE.NOTE]如果您想要使用重新導向 URL 進一步保護 Twitter API，您可以在[這裡](app-service-logic-oauth-security.md)查看其作法詳細資料
+> [AZURE.NOTE]如果您想要使用重新導向 URL 來進一步保護 Twitter API，可以使用 [OAUTH 安全性](app-service-logic-oauth-security.md)。
 
 
 ## 在邏輯應用程式中使用 Twitter 連接器
@@ -90,4 +90,4 @@ Twitter 連接器提供下列觸發程序和動作：
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -27,19 +27,19 @@
 下列是選擇快取供應項目的考量。
 
 -	**記憶體**：基本層和標準層提供 250 MB – 53 GB。高階層可提供多達 530 GB，[要求](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)時可提供更多。如需詳細資訊，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/pricing/details/cache/)。
--	**網路效能**：如果您的工作負載需要高輸送量，高階層提供的頻寬大於標準或基本層。此外，因為每一層內有裝載快取的基礎 VM，較大型快取還有更大頻寬。如需詳細資訊，請參閱下列表格。
--	**輸送量**：高階層提供最大的可用輸送量。如果快取伺服器或用戶端達到頻寬限制，您會在用戶端上收到逾時。如需詳細資訊，請參閱下列表格。
--	**高可用性/SLA**：Azure Redis Cache 保證標準/進階快取的可用性時間不低於 99.9%。若要深入了解我們的 SLA，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)。SLA 的範圍僅涵蓋與快取端點的連線。SLA 未涵蓋資料遺失防護。建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。
--	**Redis 資料永續性**：高階層可讓您將快取資料保存在 Azure 儲存體帳戶。在基本/標準快取中，所有資料都只儲存在記憶體中。如果基礎結構發生問題，資料可能會遺失。建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。Azure Redis 快取在 Redis 永續性中提供 RDB 和 AOF (即將推出) 選項。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的永續性](cache-how-to-premium-persistence.md)。
--	**Redis 叢集**：如果您想建立大於 53 GB 的快取或想跨多個 Redis 節點共用資料，可以使用高階層中的 Redis 叢集。每個節點均包含一個主要/複本快取組以提供高可用性。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的叢集](cache-how-to-premium-clustering.md)。
--	**增強的安全性和網路隔離**：Azure 虛擬網路 (VNET) 部署可為您的 Azure Redis 快取、子網路、存取控制原則和其他功能提供增強的安全性和隔離模式。如需詳細資訊，請參閱[如何設定高階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)。
--	**設定 Redis**：在標準層和高階層中，您可以設定 Redis 以接收 Keyspace 通知。
--	**用戶端連線的最大數目**：高階層提供可連線至 Redis 的最大用戶端數目，針對較大型的快取有更高的連線數目。如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/cache/)頁面。
--	**Redis 伺服器使用專用核心**：在高階層中，所有快取大小均有 Redis 專用核心。在基本/標準層中，C1 以上的大小有 Redis 伺服器專用核心。
--	**Redis 為單一執行緒**，因此兩個以上核心所提供的優點與只有兩個核心相同，但較大 VM 大小的頻寬通常會多於較小大小。如果快取伺服器或用戶端達到頻寬限制，則您會在用戶端上收到逾時。
--	**效能改良**：高階層中的快取是部署在處理器較快的硬體上，因此效能優於基本或標準層。高階層快取的輸送量較高，延遲性較低。
+-	**網路效能**：如果您的工作負載需要高輸送量，高階層提供的頻寬大於標準或基本層。此外，因為每一層內有裝載快取的基礎 VM，較大型快取還有更大頻寬。如需詳細資訊，請參閱[下列表格](#cache-performance)。
+-	**輸送量**：進階層提供最大的可用輸送量。如果快取伺服器或用戶端達到頻寬限制，您會在用戶端上收到逾時。如需詳細資訊，請參閱下列表格。
+-	**高可用性/SLA**：Azure Redis 快取保證標準/進階快取的可用性時間不低於 99.9%。若要深入了解我們的 SLA，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)。SLA 的範圍僅涵蓋與快取端點的連線。SLA 未涵蓋資料遺失防護。建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。
+-	**Redis 資料持續性**：進階層可讓您將快取資料保存在 Azure 儲存體帳戶。在基本/標準快取中，所有資料都只儲存在記憶體中。如果基礎結構發生問題，資料可能會遺失。建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。Azure Redis 快取在 Redis 永續性中提供 RDB 和 AOF (即將推出) 選項。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取的持續性](cache-how-to-premium-persistence.md)。
+-	**Redis 叢集**：如果您想建立大於 53 GB 的快取，或想跨多個 Redis 節點共用資料，可以使用進階層中的 Redis 叢集。每個節點均包含一個主要/複本快取組以提供高可用性。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取叢集](cache-how-to-premium-clustering.md)。
+-	**增強的安全性和網路隔離**：Azure 虛擬網路 (VNET) 部署可為您的 Azure Redis 快取、子網路、存取控制原則和其他功能提供增強的安全性和隔離，以進一步限制存取權。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取的虛擬網路支援](cache-how-to-premium-vnet.md)。
+-	**設定 Redis**：在標準層和進階層中，您可以設定 Redis 以接收 Keyspace 通知。
+-	**用戶端連線的最大數目**：進階層提供可連線至 Redis 的最大用戶端數目，針對較大型的快取有更高的連線數目。[如需詳細資訊，請參閱定價頁面](https://azure.microsoft.com/pricing/details/cache/)。
+-	**Redis 伺服器的專用核心**：在進階層中，所有的快取大小均有 Redis 專用核心。在基本/標準層中，C1 以上的大小有 Redis 伺服器專用核心。
+-	**Redis 為單一執行緒**，因此兩個以上核心所提供的優點與只有兩個核心相同，但較大的 VM 大小通常會比較小的有更多頻寬。如果快取伺服器或用戶端達到頻寬限制，則您會在用戶端上收到逾時。
+-	**效能改良**：進階層中的快取是部署在處理器較快的硬體上，因此效能優於基本或標準層。高階層快取的輸送量較高，延遲性較低。
 
-下表顯示從 Iaas VM 使用 `redis-benchmark.exe` 對 Azure Redis 快取端點測試各種標準和高階快取大小時觀察到的最大頻寬值。請注意，這些值並非保證值，亦無關於這些數字的 SLA，但應該是一般情況。您應該載入測試自己的應用程式，以判斷應用程式的正確快取大小。
+<a name="cache-performance"></a> 下表顯示從 Iaas VM 使用 `redis-benchmark.exe` 對 Azure Redis 快取端點測試各種標準和進階快取大小時觀察到的最大頻寬值。請注意，這些值並非保證值，亦無關於這些數字的 SLA，但應該是一般情況。您應該載入測試自己的應用程式，以判斷應用程式的正確快取大小。
 
 我們可以從此表格中獲得下列結論。
 
@@ -169,7 +169,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 
 您可以使用 [Redis 命令](http://redis.io/commands#)中列出的任何命令，但不包含 [Azure Redis 快取中不支援的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)中列出的命令。您有幾種方式可以執行 Redis 命令。
 
--	如果您有標準或高階快取，就可以使用 [Redis 主控台](cache-configure.md#redis-console)來執行 Redis 命令。這可提供在 Azure 入口網站中執行 Redis 命令的安全方式。
+-	如果您有標準或進階快取，就可以使用 [Redis 主控台](cache-configure.md#redis-console)來執行 Redis 命令。這可提供在 Azure 入口網站中執行 Redis 命令的安全方式。
 -	您也可以使用 Redis 命令列工具。若要使用那些工具，請執行下列步驟。
 	-	下載 [Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)。
 	-	使用 `redis-cli.exe` 連線至快取。使用-h 參數傳入快取端點，以及使用 -a 傳入索引鍵 (如下列範例所示)。
@@ -215,7 +215,7 @@ Azure 快取目前有三個提供項目：
 >如果您有任何問題，請[連絡我們](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933)。
 
 ### Azure Redis 快取
-Azure Redis 快取已正式提供，大小最多 53 GB 和可用性 SLA 99.9%。新的[進行層級](cache-premium-tier.md)處於預覽階段，提供高達 530 GB 的大小並且支援叢集、VNET 和持續性，包括 99.9% 的 SLA。
+Azure Redis 快取已正式提供，大小最多 53 GB 和可用性 SLA 99.9%。新的[進階層](cache-premium-tier.md)以 99.9% SLA 提供高達 530 GB 的大小，並且支援叢集、VNET 和持續性。
 
 Azure Redis Cache 可以讓客戶使用 Microsoft 所管理的安全、專用 Redis 快取。使用這項提供項目，您可以利用 Redis 提供的豐富功能集和生態系統，並使用 Microsoft 提供的可靠託管及監控服務。
 
@@ -226,9 +226,9 @@ Redis 成功的另一個重要層面是建置健全、有活力的開放原始�
 如需有關如何開始使用 Azure Redis 快取的詳細資訊，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)和 [Azure Redis 快取文件](https://azure.microsoft.com/documentation/services/redis-cache/)。
 
 ### 受管理的快取服務
-若您現為 Azure 受管理快取服務的客戶，可選擇繼續使用現有服務，或是移轉成 Azure Redis 快取來充分利用其豐富的功能集。Azure 受管理的快取服務已正式運作，同時提供 99.9% 的可用性 SLA。
+受管理的快取服務已設定於 2016 年 11 月 30 日淘汰。
 
 ### 角色中快取
-如果您使用 In-Role Cache 自我裝載，您可以繼續這麼做。因為 In-Role Cache 是一種自我裝載的軟體元件，而不是 Microsoft 託管服務，所以它不提供任何 SLA。In-Role Cache 使用者可以選擇移轉至 Azure Redis 快取，來運用它的豐富功能集並取得 SLA。
+In-Role Cache 已設定於 2016 年 11 月 30 日淘汰。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

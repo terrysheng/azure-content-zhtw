@@ -4,8 +4,8 @@
 
 | 屬性 | 說明 |
 |---|---|
-|**流量路由方法**| 可能的值為 *Performance*、*Weighted* 和 *Priority* | 
-| **DNS 設定** | 設定檔的 FQDN | 
+|**trafficRoutingMethod**| 可能的值為 *Performance*、*Weighted* 和 *Priority* | 
+| **dnsConfig** | 設定檔的 FQDN | 
 | **通訊協定** | 監視通訊協定，可能的值為 *HTTP* 和 *HTTPS*|
 | **連接埠** | 監視連接埠 |  
 | **路徑** | 監視路徑 |
@@ -18,7 +18,7 @@
 | 屬性 | 說明 | 
 |---|---| 
 | **類型** | 端點的類型，可能的值為 *Azure End point*、*External Endpoint* 和 *Nested Endpoint* | 
-| **目標資源識別碼** | 服務或 Web 端點的公用 IP 位址。這可以是 Azure 或外部端點。 | 
+| **targetResourceId** | 服務或 Web 端點的公用 IP 位址。這可以是 Azure 或外部端點。 | 
 | **重量** | 用於流量管理的端點加權。 | 
 | **優先順序** | 端點的優先順序，用來定義容錯移轉動作。 |
 
@@ -84,4 +84,4 @@ JSON 格式的流量管理員範例：
 
 如需詳細資訊，請閱讀[流量管理員的 REST API 文件](https://msdn.microsoft.com/library/azure/mt163664.aspx)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

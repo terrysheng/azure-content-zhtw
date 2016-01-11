@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/17/2015"
    ms.author="tomfitz"/>
 
 # 使用入口網站建立 Active Directory 應用程式和服務主體
 
 ## 概觀
-當您有需要存取或修改訂用帳戶中資源的自動化程序或應用程式時，您可以使用入口網站來建立 Active Directory 應用程式，並將它指派給擁有正確權限的角色。當您經由入口網站建立 Active Directory 應用程式時，將會同時建立應用程式和服務主體。於設定權限時使用服務主體。
+當您的自動化程序或應用程式必須存取或修改您訂用帳戶中資源時，可以使用傳統入口網站來建立 Active Directory 應用程式，並將它指派給擁有正確權限的角色。當您經由入口網站建立 Active Directory 應用程式時，入口網戰其實會建立應用程式和服務主體。於設定權限時使用服務主體。
 
-本主題顯示如何使用 Azure 入口網站建立新的應用程式和服務主體。目前，您必須使用 Microsoft Azure 入口網站來建立新的 Active Directory 應用程式。在更新的版本中，會將這項功能加入至 Azure Preview 入口網站。您可以使用 Preview 入口網站將應用程式指派給角色。您也可以透過 Azure PowerShell 或 Azure CLI 執行下列步驟。如需詳細資訊，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)。
+本主題說明如何使用 Azure 入口網站來建立新的應用程式和服務主體。目前，您必須使用傳統入口網站來建立新的 Active Directory 應用程式。Azure 入口網站會在稍後的版本中新增這項功能 。您可以使用入口網站來將應用程式指派給角色。您也可以透過 Azure PowerShell 或 Azure CLI 執行下列步驟。如需了解搭配服務主體來使用 PowerShell 或 CLI 的詳細資訊，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)。
 
 ## 概念
 1. Azure Active Directory (AAD) - 雲端的身分識別與存取管理服務組建。如需詳細資料，請參閱：[什麼是 Azure Active Directory](active-directory/active-directory-whatis.md)。
@@ -33,7 +33,7 @@
 
 ## 建立應用程式和服務主體物件
 
-1. 透過[入口網站](https://manage.windowsazure.com/)登入 Azure 帳戶。
+1. 透過[傳統入口網站](https://manage.windowsazure.com/)登入 Azure 帳戶。
 
 2. 從左窗格中，選取 [**Active Directory**]。
 
@@ -101,15 +101,31 @@
 
 ## 將應用程式指派給角色
 
-您必須將應用程式指派給某個角色，以便授與它執行動作的權限。您可以使用 [Preview 入口網站](https://portal.azure.com)指派 Active Directory 應用程式到具有正確權限的角色。
+您必須將應用程式指派給某個角色，以便授與它執行動作的權限。如要指派應用程式給角色，請從傳統入口網站切換到 [Azure 入口網站](https://portal.azure.com)。您必須決定要讓哪個角色新增應用程式，以及範圍為何。如要深入了解可用的角色，請參閱 [RBAC：內建角色](./active-directory/role-based-access-built-in-roles.md)。您可以針對訂用帳戶、資源群組或資源的層級設定範圍。較低的範圍層級會繼承較高層級的權限 (舉例來說，為資源群組的讀取者角色新增應用程式，代表該角色可以讀取資源群組及其所包含的任何資源)。
 
-若要開始使用 Preview 入口網站中的存取控制，請選取**存取**圖示。
+1. 在入口網站中，瀏覽至您想要讓應用程式指派至的範圍層級。而對於本主題，您可以瀏覽至某個資源群組，然後選取 [資源群組] 刀鋒視窗上的**存取**圖示。
 
-![選取使用者](./media/resource-group-create-service-principal-portal/select-users.png)
+     ![選取使用者](./media/resource-group-create-service-principal-portal/select-users.png)
 
-選取您想要指派給應用程式的角色，並搜尋此應用程式。
+2. 選取 [新增]。
 
-![選取使用者](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+     ![選取 [新增]](./media/resource-group-create-service-principal-portal/select-add.png)
+
+3. 選取 [讀取者] 角色 (或是任何您想要讓應用程式指派至的角色)。
+
+     ![選取角色](./media/resource-group-create-service-principal-portal/select-role.png)
+
+4. 當您第一次看到您可以新增至該角色的使用者清單時，您不會看到應用程式，只會看到群組及使用者。
+
+     ![顯示使用者](./media/resource-group-create-service-principal-portal/show-users.png)
+
+5. 如要尋找您的應用程式，您必須搜尋它。請開始輸入您應用程式的名稱，此時畫面上的可用選項清單會逐漸變更。當您在清單中看到您的應用程式時，請選取該應用程式。
+
+     ![指派至角色](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+6. 選取 [確定] 來結束角色的指派。現在您應該會在指派至該資源群組中某個角色的清單中，看到自己的應用程式。
+
+     ![顯示](./media/resource-group-create-service-principal-portal/show-app.png)
 
 如需透過入口網站將使用者和應用程式指派給角色的詳細資訊，請參閱[使用 Azure 管理入口網站管理存取權](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal)。
 
@@ -141,10 +157,10 @@
 
 ## 後續步驟
 
-- 若要深入了解指定安全性原則，請參閱[管理和稽核資源存取權](resource-group-rbac.md)。  
-- 若要取得這些步驟的示範影片，請參閱[利用 Azure Active Directory 啟用 Azure 資源的程式管理](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)。
-- 若要了解如何使用 Azure PowerShell 或 Azure CLI 搭配 Active Directory 應用程式和服務主體，包括如何使用憑證進行驗證，請參閱[使用 Azure 資源管理員驗證服務主體](./resource-group-authenticate-service-principal.md)。
-- 如需實作 Azure 資源管理員安全性的指導，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
+- 如要了解如何指定安全性原則，請參閱[Azure 角色型存取控制](./active-directory/role-based-access-control-configure.md)。  
+- 若要取得這些步驟的示範影片，請參閱[利用 Azure Active Directory 啟用 Azure 資源的程式化管理](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)。
+- 若要了解如何使用 Azure PowerShell 或 Azure CLI 來搭配 Active Directory 應用程式和服務主體，包括如何使用憑證進行驗證，請參閱[使用 Azure 資源管理員驗證服務主體](./resource-group-authenticate-service-principal.md)。
+- 如需使用 Azure 資源管理員來實作安全性的指南，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)
 
 
 <!-- Images. -->
@@ -162,4 +178,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

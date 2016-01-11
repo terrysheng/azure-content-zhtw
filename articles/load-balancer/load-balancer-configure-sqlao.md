@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="12/21/2015"
    ms.author="joaoma" />
 
 # 設定負載平衡器使用 SQL 一律開啟
@@ -53,7 +53,7 @@ SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。可用性�
 
 上述範例中，您有 2 個分別稱為 "sqlsvc1" 和 "sqlsvc2" 的 VM 正在雲端服務 "Sqlsvc" 中執行。在使用 "DirectServerReturn" 參數建立 ILB 之後，您就可以將負載平衡端點加入 ILB，讓 SQL 可以設定可用性群組的接聽程式。
 
-您可以在[教學課程：Azure 的 AlwaysOn 可用性群組](https://msdn.microsoft.com/library/dn249504.aspx)或[使用入口網站圖庫](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)，找到更多建立 SQL Alwayson 的詳細資料。
+您可以在[使用 Azure 資源管理員範本部署 SQL AlwaysOn 可用性群組](virtual-machines-workload-template-sql-alwayson.md)或[使用入口網站資源庫](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)中，找到更多建立 SQL AlwaysOn 的詳細資料。
 
 
 ## 另請參閱
@@ -67,4 +67,4 @@ SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。可用性�
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

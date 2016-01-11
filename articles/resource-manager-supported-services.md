@@ -1,6 +1,6 @@
 <properties
-   pageTitle="資源管理員支援的服務和支援的區域 |Microsoft Azure"
-   description="說明支援資源管理員的資源提供者以及可裝載資源的區域。"
+   pageTitle="資源管理員支援的服務、區域、結構描速及版本 |Microsoft Azure"
+   description="說明支援資源管理員、其結構描述及可用 API 版本的資源提供者，以及可裝載資源的區域。"
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,29 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/04/2015"
+   ms.date="12/22/2015"
    ms.author="tomfitz"/>
 
-# 資源管理員對於服務、區域和 API 版本的支援
+# 資源管理員提供者、區域、API 版本及結構描述
 
-Azure 資源管理員提供一種新方式來部署和管理組成應用程式的服務。
-大部分但並非所有的服務都支援資源管理員，有些服務僅部分支援資源管理員。Microsoft 會針對每個服務啟用資源管理員，這對於未來的解決方案而言很重要，但在支援一致化之前，您需要了解每個服務的目前狀態。本主題提供支援 Azure 資源管理員的資源提供者清單。
+Azure 資源管理員提供一種新方式來部署和管理組成應用程式的服務。大部分但並非所有的服務都支援資源管理員，有些服務僅部分支援資源管理員。Microsoft 會針對每個服務啟用資源管理員，這對於未來的解決方案而言很重要，但在支援一致化之前，您需要了解每個服務的目前狀態。本主題提供支援 Azure 資源管理員的資源提供者清單。
 
 部署資源時，您也需要知道哪些區域支援這些資源，以及哪些 API 版本適用於資源。[支援區域](#supported-regions)一節說明如何找出哪些區域適用於您的訂用帳戶和資源。[支援的 API 版本](#supported-api-versions)一節說明如何判斷您可以使用哪些 API 版本。
 
-下表列出哪些服務可透過資源管理員支援部署和管理，哪些則否。標題為**移動資源**的欄表示這種類型的資源是否可以移至新的資源群組和新的訂用帳戶。標題為**入口網站**的欄表示您是否可以透過 [Azure 入口網站](https://portal.azure.com)建立服務。
+如要 Azure 入口網站和傳統入口網站支援哪些服務，請參閱[Azure 入口網站的可用性圖表](https://azure.microsoft.com/features/azure-portal/availability/)。
+
+下表列出哪些服務可透過資源管理員支援部署和管理，哪些則否。標題為「移動資源」的資料行，代表此類型的資源是否能移動到新的資源群組和新的訂用帳戶。標題為「快速入門範本」的資料行中的連結，會為特定資源提供者傳送查詢給 Azure 快速入門範本儲存機制。快速入門範本會頻繁地新增及更新。即使特定服務有連結，也並不一定代表查詢將會從儲存機制傳回範本。
 
 
 ## 計算
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
-| 虛擬機器 | 是 | 是，許多選項 | 否 | [建立 VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| 批次 | 是 | [是 (僅限傳統)](https://portal.azure.com/#create/Microsoft.BatchAccount) | 是 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
-| Dynamics 週期服務 | 是 | 否 | | | |
-| 虛擬機器 (傳統) | 有限 | 是，許多選項 | 部分 (請參閱下文) | - | - |
-| 遠端應用程式 | 否 | 否 | - | - | - |
-| Service Fabric | 否 | 否 | - | - | - |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | ------------------------ | -------------- |-------- | ------ | ------ |
+| 虛擬機器 | 是 | 否 | [建立 VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
+| 批次 | 是 | 是 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
+| Dynamics 週期服務 | 是 | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
+| Service Fabric (Preview) | 是 | | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
+| 虛擬機器 (傳統) | 有限 | 部分 (請參閱下文) | - | - | | 遠端應用程式 | 否 | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
@@ -43,38 +43,37 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 ## 網路
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | -------- | -------------- | -------- | ------ |
-| 應用程式閘道 | 是 | | | | |
-| DNS | 是 | | | [建立 DNS 區域](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| 負載平衡器 | 是 | | | [建立負載平衡器](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| 虛擬網路 | 是 | [是](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | 否 | [建立虛擬網路](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| 流量管理員 | 是 | 否 | | [建立流量管理員設定檔](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| ExpressRoute | 是 | 否 | 否 | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | -------  | -------------- | -------- | ------ | ------ |
+| 應用程式閘道 | 是 | | | | [applicationGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FapplicationGateways%22&type=Code) |
+| DNS | 是 | | [建立 DNS 區域](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
+| 負載平衡器 | 是 | | [建立負載平衡器](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
+| 虛擬網路 | 是 | 否 | [建立虛擬網路](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
+| 流量管理員 | 是 | | [建立流量管理員設定檔](https://msdn.microsoft.com/library/azure/mt163581.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json) | [trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
+| ExpressRoute | 是 | 否 | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | | [expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
 
 ## 資料與儲存體
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | ------- | -------------- | -------- | ------ |
-| DocumentDB | 是 | [是](https://portal.azure.com/#create/Microsoft.DocumentDB) | 是 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| 儲存體 | 是 | [是](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | 否 | [建立儲存體](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [儲存體帳戶](resource-manager-template-storage.md) |
-| Redis 快取 | 是 | [是](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | 是 | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL Database | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDatabase.1.0.3) | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
-| 搜尋 | 是 | [是](https://portal.azure.com/#create/Microsoft.Search) | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL 資料倉儲 | 是 | [是](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | 否 | 否 | - | - | - |
-| 受管理快取 | 否 | 否 | - | - | - |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | ------- | -------------- | -------- | ------ | ------- | ------ |
+| DocumentDB | 是 | 是 | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | [2015-04-08](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-08/Microsoft.DocumentDB.json) | [Microsoft.DocumentDB](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DocumentDb%22&type=Code) |
+| 儲存體 | 是 | 否 | [建立儲存體](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [儲存體帳戶](resource-manager-template-storage.md) | [Microsoft.Storage](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Storage%22&type=Code) |
+| Redis 快取 | 是 | 是 | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Cache.json) | [Microsoft.Cache](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cache%22&type=Code) |
+| SQL Database | 是 | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
+| 搜尋 | 是 | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
+| SQL 資料倉儲 | 是 | | | |
+| StorSimple | 否 | - | - | - | | 受管理的快取 | 否 | - | - | - |
 
 ## Web 與行動
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | -------- | -------------- | -------- | ------ |
-| API 管理 | 是 | 否 | 是 | [建立 API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
-| API 應用程式 | 是 | [是](https://portal.azure.com/#create/Microsoft.ApiApp) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
-| Web Apps | 是 | [是](https://portal.azure.com/#create/Microsoft.WebSite) | 是，但有限制 (請參閱下文) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| 通知中樞 | 是 | [是](https://portal.azure.com/#create/Microsoft.NotificationHub) | 是 | [建立通知中樞](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
-| Logic Apps | 是 | [是](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | 是 | | |
-| Mobile Engagement | 是 | 否 | 是 | | |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | ------- | -------------- | -------- | ------ | ------ |
+| API 管理 | 是 | 是 | [建立 API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | | [Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) | 
+| API 應用程式 | 是 | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) | [API 應用程式](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
+| Web 應用程式 | 是 | 是，但有限制 (請參閱下文) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
+| 通知中樞 | 是 | 是 | [建立通知中樞](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) | [Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
+| Logic Apps | 是 | 是 | | | [Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
+| Mobile Engagement | 是 | 是 | | | [Microsoft.MobileEngagements](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
 
 使用 Web 應用程式時，您無法只移動 App Service 方案。若要移動 Web 應用程式，您的選項如下：
 
@@ -83,75 +82,73 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 
 ## Analytics
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | --------- | -------------- | -------- | ------ |
-| 事件中心 | 是 | 否 | | [建立事件中樞](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
-| 串流分析 | 是 | [是](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
-| HDInsights | 是 | [是](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | 是 | | |
-| Data Factory | 是 | [是](https://portal.azure.com/#create/Microsoft.DataFactory) | 是 | [建立 Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| 機器學習服務 | 否 | 否 | - | - | - |
-| 資料目錄 | 否 | 否 | - | - | - |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | -------  | -------------- | -------- | ------ | ------ |
+| 事件中心 | 是 | | [建立事件中樞](https://msdn.microsoft.com/library/azure/dn790676.aspx) | | [Microsoft.EventHub](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.EventHub%22&type=Code) |
+| 串流分析 | 是 | | [串流分析 REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
+| HDInsights | 是 | 是 | [建立叢集](https://msdn.microsoft.com/library/azure/mt622302.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
+| Data Factory | 是 | 是 | [建立 Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
+| 機器學習 | 否 | - | - | - | | 資料目錄 | 否 | - | - | - |
 
 ## 媒體與 CDN
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | -------- | -------------- | -------- | ------ |
-| CDN | 是 | [是](https://portal.azure.com/#create/Microsoft.CDN) | | | |
-| 媒體服務 | 否 | 否 | | | |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | ------- | -------------- | -------- | ------ | ------ |
+| CDN | 是 | | [CDN REST](https://msdn.microsoft.com/library/azure/mt634456.aspx) | | [Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
+| 媒體服務 | 否 | | | |
 
 
 ## 混合式整合
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | -------------- | -------------- | -------- | ------ |
-| BizTalk 服務 | 是 | 否 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| 服務匯流排 | 是 | 否 | | [服務匯流排 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| 備份 | 否 | 否 | - | - | - |
-| Site Recovery | 否 | 否 | - | - | - |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | ------- | -------------- | -------- | ------ | ------ |
+| BizTalk 服務 | 是 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
+| 服務匯流排 | 是 | | [服務匯流排 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
+| 備份 | 否 | - | - | - | | Site Recovery | 否 | - | - | - |
 
 ## 身分識別與存取管理 
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | 否 | 否 | - | - | - |
-| Azure Actice Directory B2C | 否 | 否 | - | - | - |
-| Multi-Factor Authentication | 否 | 否 | - | - | - |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | ------- | -------------- | -------- | ------ | ------ |
+| Azure Active Directory | 否 | - | - | - | | Azure Actice Directory B2C | 否 | - | - | - | | Multi-Factor Authentication | 否 | - | - | - |
 
 ## 開發人員服務 
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | 是 | [是](https://portal.azure.com/#create/Microsoft.AppInsights) | 否 | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
-| Bing 地圖 | 是 | [是](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
-| Visual Studio 帳戶 | 是 | | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | ------- | -------------- | -------- | ------ | ------ |
+| Application Insights | 是 | 否 | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) | [Microsoft.insights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.insights%22&type=Code) |
+| Bing 地圖 | 是 | | | | [Microsoft.BingMaps](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BingMaps%22&type=Code) |
+| DevTest Labs (Preview) | 是 | | | [2015-05-21-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-05-21-preview/Microsoft.DevTestLab.json) | [Microsoft.DevTestLab](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DevTestLab%22&type=Code) |
+| Visual Studio 帳戶 | 是 | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) | [Microsoft.VisualStudio](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.VisualStudio%22&type=Code) |
 
-## 管理 
+## 管理和安全性
 
-| 服務 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | --------- | -------------- | -------- | ------ |
-| 自動化 | 是 | [是](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.5) | 是 | | |
-| 金鑰保存庫 | 是 | 否 | 是 | [金鑰保存庫 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
-| 排程器 | 是 | 否 | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
-| Operational Insights | 是 | 否 | 是 | | |
-| IoTHubs | 是 | [是](https://portal.azure.com/#create/Microsoft.IotHub) | | | |
+| 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | ------- | -------------- | -------- | ------ | ------ |
+| 自動化 | 是 | 是 | | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
+| 金鑰保存庫 | 是 | 是 | [金鑰保存庫 REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [金鑰保存庫](resource-manager-template-keyvault.md)<br />[金鑰保存庫密碼](resource-manager-template-keyvault-secret.md) | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
+| 排程器 | 是 | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) | [Microsoft.Scheduler](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
+| Operational Insights | 是 | 是 | | | [Microsoft.OperationalInsights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.OperationalInsights%22&type=Code) |
+| IoTHubs | 是 | | [建立 IoT 中樞](https://msdn.microsoft.com/library/azure/mt589013.aspx) | | [Microsoft.Devices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Devices%22&type=Code) |
+| 安全性 (Preview) | 是 | | | | [Microsoft.Security](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code) |
 
 ## 資源管理員
 
-| 功能 | 已啟用資源管理員 | 入口網站 | 移動資源 | REST API | 結構描述 |
-| ------- | ------- | -------- | -------------- | -------- | ------ |
-| Authorization | 是 | N/A | N/A | [管理鎖定](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[角色型存取控制](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [資源鎖定](resource-manager-template-lock.md)<br />[角色指派](resource-manager-template-role.md) |
-| 資源 | 是 | N/A | N/A | [Linked resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [資源連結](resource-manager-template-links.md) |
+| 功能 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
+| ------- | ------- | -------- | -------------- | -------- | ------ | ------ |
+| Authorization | 是 | N/A | [管理鎖定](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[角色型存取控制](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [資源鎖定](resource-manager-template-lock.md)<br />[角色指派](resource-manager-template-role.md) | [Microsoft.Authorization](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Authorization%22&type=Code) |
+| 資源 | 是 | N/A | [Linked resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [資源連結](resource-manager-template-links.md) | [Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
 
 
 ## 支援的區域
 
 部署資源時，通常需要指定資源的區域。所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。這些限制可能與您所在國家/地區的稅務問題有關，或者與由您的訂用帳戶管理員所放置，只能使用特定區域的原則結果有關。
 
-若要取得所有 Azure 服務所有支援區域的完整清單，請參閱[依地區提供的服務](https://azure.microsoft.com/regions/#services)。不過，這份清單可能包含您的訂用帳戶不支援的區域。您可以藉由執行下列其中一個命令，來判斷您的訂用帳戶支援之特定資源類型的區域。
+如需所有 Azure 服務支援的所有區域之完整清單，請參閱[依地區提供的服務](https://azure.microsoft.com/regions/#services)。不過，這份清單可能包含您的訂用帳戶不支援的區域。您可以藉由執行下列其中一個命令，來判斷您的訂用帳戶支援之特定資源類型的區域。
 
 ### REST API
 
-若要探索哪些區域可供您的訂用帳戶中特定資源類型使用，請使用[列出所有資源提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。
+若要探索哪些區域可供您訂用帳戶中特定資源類型使用，請使用[列出所有資源提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。
 
 ### PowerShell
 
@@ -185,7 +182,7 @@ Azure PowerShell 0.9.8 請使用下列命令：
 
     azure location list
 
-您也可以使用 **jq** 之類的工具來篩選位置結果。若要了解 jq 等工具，請參閱[與 Azure 互動的有用工具](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure)。
+您也可以使用 **jq** 之類的工具來篩選位置結果。若要了解 jq 之類的工具，請參閱[能與 Azure 互動的有用工具](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure)。
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -234,11 +231,11 @@ Azure PowerShell 0.9.8 請使用：
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
-您可以開啟該檔案並尋找 **apiVersions** 元素
+您可以開啟該檔案，然後尋找 **apiVersions** 元素
 
 ## 後續步驟
 
-- 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
+- 若要了解如何建立資源管理員範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

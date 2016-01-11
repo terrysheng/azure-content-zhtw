@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="sameerch"/>
 
 
@@ -36,7 +36,7 @@
 - 傳送 IDoc
 
 ## 必要條件
-在已安裝並執行混合式接聽程式的用戶端電腦上，SAP 特定用戶端程式庫是必要項目。[這裡][9] (位於章節標題為 **SAP 配接器**底下) 會擷取精確的詳細資料。
+在已安裝並執行混合式接聽程式的用戶端電腦上，SAP 特定用戶端程式庫是必要項目。精確的詳細資訊位於 [BizTalk Adapter Pack 安裝指南][9]的＜**SAP 配接器**＞小節中。
 
 
 ## 建立新的 SAP 連接器
@@ -119,6 +119,6 @@
 [6]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.InProgress.PNG
 [7]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
-[9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
+[9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

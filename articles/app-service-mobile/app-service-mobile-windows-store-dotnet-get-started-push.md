@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="新增推播通知至 Windows 執行階段 8.1 通用 app | Azure Mobile Apps" 
+	pageTitle="新增推播通知至 Windows 執行階段 8.1 通用 app | Azure 行動應用程式" 
 	description="了解如何使用 Azure App Service 行動應用程式與 Azure 通知中樞傳送推播通知至 Windows 應用程式。" 
 	services="app-service\mobile,notification-hubs" 
 	documentationCenter="windows" 
@@ -18,9 +18,7 @@
 
 # 新增推播通知至 Windows 執行階段 8.1 通用 app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -103,6 +101,8 @@
 	
 	此程式碼會告訴通知中樞在插入新項目之後傳送推播通知。
 
+4. 發佈伺服器專案。
+
 ### <a name="nodejs"></a>Node.js 後端專案
 
 1. 如果您還沒這麼做，請下載[快速入門專案](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 入口網站中的線上編輯器](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。
@@ -151,11 +151,7 @@
 
 	插入新的 todo 項目時，這會傳送包含 item.text 的 WNS 快顯通知。
 
-2. 在本機電腦中編輯檔案時，重新發布伺服器專案。
-
-## <a name="publish-the-service"></a>將行動後端發佈至 Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+2. 當您在本機電腦上編輯檔案時，請重新發佈伺服器專案。
 
 ##<a id="update-service"></a>將推播通知新增至應用程式
 
@@ -178,7 +174,7 @@
     
     此程式碼會從 WNS 中擷取應用程式的 ChannelURI，然後向您的應用程式服務行動應用程式註冊該 ChannelURI。
     
-3. 在 **App.xaml.cs** 中的 **OnLaunched** 事件處理常式頂端，將 **async** 修飾詞新增到方法定義並加入對新的 **InitNotificationsAsync** 方法的下列呼叫，如下列範例所示：
+3. 在 **App.xaml.cs** 中 **OnLaunched** 事件處理常式的頂端，將 **async** 修飾詞新增到方法定義中，並將下列呼叫新增到新的 **InitNotificationsAsync** 方法中，如下列範例所示：
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -204,8 +200,8 @@
 
 ##<a id="more"></a>更多資訊
 
-* 範本可讓您彈性地傳送跨平台推播和當地語系化推播。[如何針對 Azure Mobile Apps 使用受管理的用戶端](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications)示範說明如何註冊範本。
-* 標記可讓您使用推播鎖定區隔的客戶。[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) 示範如何在安裝裝置時加入標記。
+* 範本可讓您彈性地傳送跨平台推播和當地語系化推播。[如何針對 Azure 行動應用程式使用受管理的用戶端](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications)一文，說明如何註冊範本。
+* 標記可讓您使用推播鎖定區隔的客戶。[使用適用於 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags)一文，說明如何在裝置安裝中新增標記。
 
 <!-- Anchors. -->
 
@@ -214,4 +210,4 @@
 
 <!-- Images. -->
 
-<!-------HONumber=AcomDC_1210_2015---->
+<!---HONumber=AcomDC_1223_2015-->

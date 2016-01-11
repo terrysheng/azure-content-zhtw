@@ -12,19 +12,24 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # 程式碼範例：C# 中用於連接到 SQL Database 的重試邏輯
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
-本主題提供可示範自訂重試邏輯的 C# 程式碼範例。重試邏輯的設計目的在於正常處理暫時錯誤，或如果程式等候幾秒並重試後通常會消失的暫時性錯誤。
+
+本主題提供可示範自訂重試邏輯的 C# 程式碼範例。重試邏輯的設計目的在於順暢處理暫時錯誤，或如果程式等候幾秒並重試後通常會消失的暫時性錯誤。
 
 
 您用來連接到您的本機 Microsoft SQL Server 的 ADO.NET 類別也可以連接到 Azure SQL Database。不過，ADO.NET 類別本身無法提供在生產環境使用所需的所有穩定性和可靠性。用戶端程式可能會遇到暫時性錯誤，用戶端程式應該會從失敗中無訊息且正常自行復原。
@@ -227,7 +232,7 @@ SELECT TOP 3
 
 2. 按一下綠色的開始箭號按鈕。主控台視窗隨即顯示。
 
-3. 偵錯工具停止在 **Main** 的結尾時，切換至主控台視窗。
+3. 當偵錯工具停止在 **Main** 的結尾時，切換至主控台視窗。
 
 4. 查看三個資料列，其內容可能與下列相同：
 
@@ -282,4 +287,6 @@ filetable_updates_2105058535    2105058535
 
 - [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+- [試用 SQL Database：透過 SQL Database Library for .NET 使用 C#; 建立 SQL Database](sql-database-get-started-csharp.md)
+
+<!---HONumber=AcomDC_1223_2015-->

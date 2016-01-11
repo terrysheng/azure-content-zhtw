@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員範本運算式
@@ -167,13 +167,14 @@
 - [replace](#replace)
 - [分割](#split)
 - [字串](#string)
+- [substring](#substring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [修剪](#trim)
 - [uniqueString](#uniquestring)
 - [uri](#uri)
 
-若要取得字串或陣列中的字元數，請參閱[長度](#length)。
+若要取得字串或陣列中的字元數，請參閱＜[length](#length)＞小節。
 
 <a id="base64" />
 ### base64
@@ -294,6 +295,28 @@
         "stringValue": "[string(parameters('appId'))]"
     }
 
+<a id="substring" />
+### substring
+
+**substring(stringToParse, startIndex, length)**
+
+傳回起始於指定字元位置的子字串，其中包含指定的字元數。
+
+| 參數 | 必要 | 說明
+| :--------------------------------: | :------: | :----------
+| stringToParse | 是 | 要用來擷取子字串的原始字串。
+| startIndex | 否 | 起始字元位置為零的子字串。
+| length | 否 | 子字串的字元數。
+
+下列範例擷取了參數的前三個字元。
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "prefix": "[substring(parameters('inputString'), 0, 3)]"
+    }
+
 <a id="tolower" />
 ### toLower
 
@@ -401,7 +424,7 @@
 | baseUri | 是 | 基底 uri 的字串。
 | relativeUri | 是 | 要加入至基底 uri 字串的相對 uri 字串。
 
-**baseUri** 參數的值可包含特定檔案，但在建構 URI 時，只會使用基底路徑。例如，將 ****http://contoso.com/resources/azuredeploy.json** 作為 baseUri 參數形式傳遞會產生 ****http://contoso.com/resources/** 的基底 URI。
+**baseUri** 參數的值可包含特定檔案，但在建構 URI 時只會使用基底路徑。例如，將 ****http://contoso.com/resources/azuredeploy.json** 做為 baseUri 參數傳遞時，會產生 ****http://contoso.com/resources/** 的基底 URI。
 
 下列範例顯示如何根據上層範本的值建構巢狀範本的連結。
 
@@ -426,7 +449,7 @@
 
 傳回目前部署作業的相關資訊。
 
-此運算式會傳回部署期間所傳遞的物件。視部署物件是以連結或內嵌物件形式傳遞，所傳回物件中的屬性將有所不同。部署物件以內嵌形式傳遞時 (例如使用 Azure PowerShell 中的 **TemplateFile** 參數指向本機檔案時)，所傳回的物件為下列格式：
+此運算式會傳回部署期間所傳遞的物件。視部署物件是以連結或內嵌物件形式傳遞，所傳回物件中的屬性將有所不同。部署物件以內嵌形式傳遞時 (例如使用 Azure PowerShell 中的 **-TemplateFile** 參數指向本機檔案時)，所傳回的物件為下列格式：
 
     {
         "name": "",
@@ -611,7 +634,7 @@
 		}
 	}
 
-如果您現在要直接在範本中指定 API 版本，您可以使用 **providers** 運算式並且擷取一個值，例如最新版本，如下所示。
+如果您現在真的想要直接在範本中指定 API 版本，可以使用 **providers** 運算式並擷取一個值，例如下列範例中的最新版本。
 
     "outputs": {
 		"BlobUri": {
@@ -741,9 +764,9 @@
 
 
 ## 後續步驟
-- 如需有關 Azure 資源管理員範本的各區段說明，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
+- 如需有關 Azure 資源管理員範本中各區段的說明，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - 若要合併多個範本，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
-- 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
+- 若要依指定次數重複建立資源類型，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

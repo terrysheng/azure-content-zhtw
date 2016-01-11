@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # API 實作指引
@@ -247,26 +247,26 @@
 	...
 	Content-Length: ...
 	{"CustomerID":2,"CustomerName":"Bert","Links":[
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"PUT",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"DELETE",
-	   "LinkedResourceMIMETypes":[]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"POST",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]}
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"PUT",
+	   "types":["application/x-www-form-urlencoded"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"DELETE",
+	   "types":[]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"POST",
+	   "types":["application/x-www-form-urlencoded"]}
 	]}
 	```
 
@@ -283,10 +283,10 @@
 
 	public class Link
 	{
-    	public string Relationship { get; set; }
-    	public string HRef { get; set; }
+    	public string Rel { get; set; }
+    	public string Href { get; set; }
     	public string Action { get; set; }
-    	public string [] LinkedResourceMIMETypes { get; set; }
+    	public string [] Types { get; set; }
 	}
 	```
 
@@ -294,11 +294,11 @@
 
 	- 要傳回的物件與連結所描述的物件之間的關係。在此情況下，"self" 表示連結是物件本身的參考 (類似於許多物件導向語言中的 `this` 指標)，而 "orders" 是包含相關訂單資訊的集合名稱。
 
-	- 連結所描述物件的超連結 (`HRef`) (採用 URI 形式)。
+	- 連結所描述物件的超連結 (`Href`) (採用 URI 形式)。
 
 	- 可傳送至此 URI 之 HTTP 要求的類型 (`Action`)。
 
-	- 視要求的類型而定，應在 HTTP 要求中提供或可在回應中傳回之任何資料的格式 (`LinkedResourceMIMETypes`)。
+	- 視要求的類型而定，應在 HTTP 要求中提供或可在回應中傳回之任何資料的格式 (`Types`)。
 
 	範例 HTTP 回應中所示的 HATEOAS 連結表示用戶端應用程式可以執行下列作業：
 
@@ -406,7 +406,7 @@
 	Cache-Control: max-age=600, private
 	Content-Type: text/json; charset=utf-8
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	在此範例中，Cache-Control 指定傳回的資料應在 600 秒後過期，僅適用於單一用戶端且不得儲存在其他用戶端所使用的共用快取中 (它屬於 _private_)。Cache-Control 標頭可以指定 _public_ 而非_private_，在此情況下資料可以儲存在共用快取中，也可以指定 _no-store_，在此情況下資料必須**不是**由用戶端快取。下列程式碼範例示範如何在回應訊息中建構 Cache-Control 標頭：
@@ -514,7 +514,7 @@
 	Content-Type: text/json; charset=utf-8
 	ETag: "2147483648"
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	> [AZURE.TIP]基於安全性理由，不允許快取機密資料或透過已驗證 (HTTPS) 連線傳回的資料。
@@ -646,7 +646,7 @@
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
 	Content-Length: ...
-	ProductID=3&Quantity=5&OrderValue=250
+	productID=3&quantity=5&orderValue=250
 	```
 
 	- Web API 中的 PUT 作業可取得所要求資料的目前 ETag (上述範例中的 order 1)，並將它與 If-Match 標頭中的值比較。
@@ -1027,7 +1027,7 @@ Web API 的本質帶來自己額外的需求，以便確認運作正常。您應
 	- 如果用戶端傳送可成功刪除資源的要求，狀態碼應該是 204 (沒有內容)。
 	- 如果用戶端傳送可建立新資源的要求，狀態碼應該是 201 (已建立)。
 
-請提防 5xx 範圍中的非預期回應狀態碼。主機伺服器通常會回報這些訊息，表示它無法履行有效的要求。
+請提防 5xx 範圍中的非預期回應狀態碼。這些訊息通常是主機伺服器的回報，指出表示它無法履行某個有效的要求。
 
 - 測試用戶端應用程式可以指定的不同要求標頭組合，並確保 Web API 在回應訊息中傳回預期的資訊。
 
@@ -1152,4 +1152,4 @@ Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全
 - Microsoft 網站上的[驗證使用單位測試的程式碼](https://msdn.microsoft.com/library/dd264975.aspx)頁面提供有關使用 Visual Studio 建立和管理單位測試的詳細資訊。
 - Microsoft 網站上的[在發行前執行應用程式的效能測試](https://msdn.microsoft.com/library/dn250793.aspx)頁面說明如何使用 Visual Studio Ultimate 建立 Web 效能和負載測試專案。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

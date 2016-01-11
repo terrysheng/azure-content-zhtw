@@ -55,7 +55,7 @@
 	- **資源群組**：請建立新的 Azure 資源群組，或選取現有的資源群組。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
 	- **認證**：對於以 Windows 為基礎的叢集，您可以建立叢集使用者 (也就是 HTTP 使用者、HTTP Web 服務使用者) 和遠端桌面使用者。請按一下 [啟用遠端桌面] 來新增遠端桌面使用者認證。我們在下一節將需要使用 RDP。
 	- **資料來源**：請建立新的 Azure 儲存體帳戶，或選取現有的 Azure 儲存體帳戶，來做為叢集的預設檔案系統。預設儲存體帳戶的位置，會決定叢集的位置。預設儲存體帳戶和叢集必須位於同一個資料中心。
-	- **節點定價層**：請選取 HBase 叢集的區域伺服器數目。
+	- **節點定價層** - 選取 HBase 叢集的區域伺服器數目
 
 		> [AZURE.WARNING]若要讓 HBase 服務擁有高可用性，您必須建立包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
 
@@ -299,10 +299,13 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 
 如需詳細資訊，請參閱：
 
-- [HDInsight HBase 概觀][hdinsight-hbase-overview]HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
-- [在 Azure 虛擬網路上建立 HBase 叢集][hdinsight-hbase-provision-vnet]。由於 HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。
+- [HDInsight HBase 概觀][hdinsight-hbase-overview]
+HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
+- [在 Azure 虛擬網路上建立 HBase 叢集][hdinsight-hbase-provision-vnet]。
+由於 HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。
 - [在 HDInsight 中設定 HBase 複寫](hdinsight-hbase-geo-replication.md)了解如何跨兩個 Azure 資料中心設定 HBase 複寫。
-- [使用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]了解如何在 HDInsight 中使用 Hadoop 叢集中的 HBase 針對巨量資料進行即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
+- [使用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]
+了解如何在 HDInsight 中使用 Hadoop 叢集中的 HBase 針對巨量資料進行即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -331,4 +334,4 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

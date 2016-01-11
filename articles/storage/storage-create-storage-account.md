@@ -59,13 +59,14 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 - 檔案服務：http://*mystorageaccount*.file.core.windows.net
 
+
 用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。例如，Blob 位址的格式可能如下：http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob* 。
 
 您也可以設定與儲存體帳戶搭配使用的自訂網域名稱。如需詳細資訊，請參閱[針對 Azure 儲存體帳戶中的 Blob 資料設定自訂網域名稱](storage-custom-domain-name.md)。
 
 ## 建立儲存體帳戶
 
-1. 登入 [Azure 入口網站](portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 在 [中樞] 功能表上，選取 [新增] -> [資料+儲存體] -> [儲存體帳戶]。
 
@@ -103,7 +104,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 ### 檢視並複製儲存體存取金鑰
 
-在 [Azure 入口網站](portal.azure.com)中，瀏覽至儲存體帳戶並按一下 [金鑰] 圖示來檢視、複製，和重新產生帳戶存取金鑰。[存取金鑰] 刀鋒視窗也包含使用您主要與次要金鑰的預先設定連接字串，讓您可以複製以在應用程式中使用。
+在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至儲存體帳戶並按一下 [金鑰] 圖示來檢視、複製，和重新產生帳戶存取金鑰。[存取金鑰] 刀鋒視窗也包含使用您主要與次要金鑰的預先設定連接字串，讓您可以複製以在應用程式中使用。
 
 ### 重新產生儲存體存取金鑰
 
@@ -129,7 +130,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 ## 刪除儲存體帳戶
 
-若要移除不再使用的儲存體帳戶，請在 [Azure 入口網站](portal.azure.com)中瀏覽至儲存體帳戶，然後按一下 [刪除]。刪除儲存體帳戶會刪除整個帳戶，包括帳戶中的所有資料。
+若要移除不再使用的儲存體帳戶，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至儲存體帳戶，然後按一下 [刪除]。刪除儲存體帳戶會刪除整個帳戶，包括帳戶中的所有資料。
 
 > [AZURE.WARNING]您無法還原已刪除的儲存體帳戶，也無法擷取刪除之前所包含的任何內容。請務必先備份您想要儲存的任何資料，再刪除帳戶。這也適用於帳戶中的任何資源 - 一旦刪除 Blob、資料表、佇列或檔案，就是永久刪除。
 
@@ -139,4 +140,4 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/10/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth"/>
 
 # SQL Database 選項和效能：了解每個服務層中可用的項目
@@ -96,4 +96,4 @@
 如果您認識了 SQL Database 各個層，可以[免費試用](http://azure.microsoft.com/pricing/free-trial/)親身體驗，然後了解[如何建立您的第一個 SQL Database](sql-database-get-started.md)！
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

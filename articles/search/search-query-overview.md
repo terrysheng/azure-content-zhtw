@@ -21,12 +21,11 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
 使用 Azure 搜尋服務來取得內嵌搜尋經驗的自訂解決方案必須包含可建構搜尋查詢並將其傳送至搜尋服務進行處理的程式碼。
 
-您可以使用 .NET SDK 或 REST API 來撰寫可供執行查詢的方法。初步測試或探索時，您可以使用 Fiddler 或 Chrome Postman 等工具將查詢傳送至您的服務。
+您可以使用 .NET SDK 或 REST API 來撰寫可供執行查詢的方法。初步測試或探索時，您可以使用 Fiddler 等工具將查詢傳送至您的服務。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

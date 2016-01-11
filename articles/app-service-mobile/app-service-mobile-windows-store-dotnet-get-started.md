@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/19/2015"
 	ms.author="glenga"/>
 
 #建立 Windows 應用程式
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
+&nbsp;
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
@@ -74,9 +74,11 @@
 
 ##後續步驟
 
-* [加入驗證至應用程式](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
+* [加入驗證至應用程式](app-service-mobile-windows-store-dotnet-get-started-users.md) 
+ <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
 
-* [將推播通知新增至您的應用程式](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至您的應用程式](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+ <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -85,4 +87,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

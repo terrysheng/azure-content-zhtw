@@ -162,7 +162,7 @@
 
 	![連接 Spark 叢集](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.tableau.connect.png "連接 Spark 叢集")
 
-	您必須先在電腦上安裝 [Microsoft Spark ODBC 驅動程式](http://go.microsoft.com/fwlink/?LinkId=616229)，驗證下拉式清單中才會出現「Windows Azure HDInsight 服務」。
+	您必須先在電腦上安裝 [Microsoft Spark ODBC 驅動程式](http://go.microsoft.com/fwlink/?LinkId=616229)，驗證下拉式清單中才會出現「Microsoft Azure HDInsight 服務」。
 
 3. 在下一個畫面中，按一下 [結構描述] 下拉式清單的尋找圖示，然後按一下 [預設]。
 
@@ -214,4 +214,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

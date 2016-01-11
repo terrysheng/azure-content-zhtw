@@ -49,7 +49,7 @@ See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
 ## 版本 2.0.0-beta2
 - 新增對 ITelemetryProcessor 的支援，而且可以透過程式碼或組態設定。[在 SDK 中啟用自訂篩選](app-insights-api-telemetry-processors/#telemetry-processors)
-- 已移除內容初始設定式。請改用[遙測初始設定式](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)。
+- 已移除內容初始設定式。請改用[遙測初始設定式]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)。
 - 已更新適用於 .Net framework 4.6 的 Application Insights。 
 - 自訂的事件名稱現在最多可包含 512 個字元。
 - 屬性 ```OperationContext.Name``` 已重新命名為 ```RootName```。
@@ -124,4 +124,4 @@ See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

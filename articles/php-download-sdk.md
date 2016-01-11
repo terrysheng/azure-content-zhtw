@@ -79,7 +79,7 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 		pear channel-discover pear.windowsazure.com
 3. 安裝 PEAR 封裝：
 
-		pear install pear.windowsazure.com/WindowsAzure-0.4.0
+		pear install pear.windowsazure.com/WindowsAzure-0.4.1
 
 安裝完成後，您即可從您的應用程式參考類別庫。
 
@@ -130,4 +130,4 @@ Azure CLI 是一組命令，可用於部署和管理 Azure 服務，例如 Azure
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

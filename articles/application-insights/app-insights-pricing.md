@@ -49,15 +49,24 @@
 
 ## 每月配額
 
-* 您的應用程式每月最多可以將指定的遙測資料量上傳至 Application Insights。如需實際數字，請參閱[定價機制][pricing]。 
+* 您的應用程式每月最多可以將指定的遙測資料量上傳至 Application Insights。目前免費定價層的配額是每個月 5 百萬個資料點，而其他訂價配置會提供多出許多的配額。如果您的配額用完了，可以購買更多的配額。如需實際數字，請參閱[定價機制][pricing]。 
 * 配額取決於您所選擇的定價層。
 * 配額的計算是從每個月第一天的午夜起 (UTC)。
 * 資料點圖表會顯示您這個月已使用多少配額。
-* 配額是以資料點來進行測量。 不論您的程式碼，或其中一個標準遙測模組是否有明確呼叫，單一資料點都是其中一種追蹤方法的呼叫。資料點包括：
- * [診斷搜尋](app-insights-diagnostic-search.md)中所見的每個資料列。 
- * [度量](app-insights-metrics-explorer.md)的每個原始測量 (例如效能計數器)。(您在圖表看到的點通常是多個原始資料點的彙總)。
- * [Web 測試 (可用性)](app-insights-monitor-web-app-availability.md) 圖表上的每個點。 
+* 配額是以資料點來進行測量。 不論您的程式碼，或其中一個標準遙測模組是否有明確呼叫，單一資料點都是其中一種追蹤方法的呼叫。 
+* 產生資料點的項目：
+ * 會自動收集資料的 [SDK 模組](app-insights-configuration-with-applicationinsights-config.md)，例如用來回報要求或損毀，或是測量效能。
+ * 您編寫的 [API](app-insights-api-custom-events-metrics.md) `Track...` 呼叫，例如 `TrackEvent` 或 `trackPageView`。
+ * 您已設定的[可用性 Web 測試](app-insights-monitor-web-app-availability.md)。
+* 當您偵錯時，可以在 Visual Studio 的輸出視窗中看到從您應用程式所傳送的資料點。只要開啟您瀏覽器的偵錯窗格 (通常是 F12) 中的 [網路] 索引標籤，就能看到用戶端事件。
 * 工作階段資料不會計入配額。這包括使用者、工作階段、環境和裝置資料的計數。
+* 如果您要透過檢查來計算資料點的總數，可以在各種不同位置找到資料點：
+ * 您在[診斷搜尋](app-insights-diagnostic-search.md)中看到的每個項目，包括 HTTP 要求、例外狀況、記錄追蹤、頁面檢視、相依性事件，及自訂事件。
+ * [度量](app-insights-metrics-explorer.md) (例如效能計數器) 的每個原始測量資料。(您在圖表看到的點通常是多個原始資料點的彙總)。
+ * Web 可用性圖表上的每個點，也都是幾個資料點的彙總。
+* 您也可以在偵錯時，在來源檢查個別的資料點：
+ * 如果您在 Visual Studio 的偵錯模式中執行應用程式，資料點會記錄在輸出視窗中。 
+ * 若要查看用戶端資料點，請開啟瀏覽器的偵錯窗格 (通常是 F12)，然後開啟 [網路] 索引標籤。
 
 
 ### 超額部分
@@ -80,28 +89,47 @@
 
 ## 資料速率
 
-除了每月配額，還有資料速率的節流限制。對於免費[價格層][pricing]，此限制是平均每 5 分鐘 200 個資料點/秒，對於付費層，此限制為平均每 1 分鐘 500 個資料點/秒。
+除了每月配額，還有資料速率的節流限制。對於免費[價格層][pricing]，此限制是平均每 5 分鐘 200 個資料點/秒；對於付費層，則為平均每 1 分鐘 500 個資料點/秒。
 
 有三個個別計數的貯體：
 
-* [TrackTrace 呼叫](app-insights-api-custom-events-metrics.md#track-trace)與[擷取記錄檔](app-insights-asp-net-trace-logs.md)
+* [TrackTrace 呼叫](app-insights-api-custom-events-metrics.md#track-trace)和[擷取的記錄檔](app-insights-asp-net-trace-logs.md)
 * [例外狀況](app-insights-api-custom-events-metrics.md#track-exception)，限制為 50 點/秒。
 * 所有其他遙測 (頁面檢視、工作階段、要求、相依性、度量、自訂事件、Web 測試結果)。
 
-如果您的應用程式傳送超過限制的數量達數分鐘，某些資料可能會被捨棄。您會看到通知，警告這種情況的發生。
+
+
+
+
+*如果應用程式超過每秒速率，會發生什麼事？*
+
+* 系統會每分鐘評估應用程式傳送的資料量。如果每秒速率超過每分鐘平均值，伺服器會拒絕部分要求。接著，部分版本的 SDK 會嘗試每數分鐘重新傳送突波；其他像是 JavaScript SDK 則會放棄遭到拒絕的資料。
+
+當節流發生時，您會看到警告您這種情況已發生的通知。
+
+*如何知道應用程式正在傳送多少資料點？*
+
+* 開啟 [設定/配額與定價] 查看 [資料數量] 圖表。
+* 或在 [計量瀏覽器] 中，新增新的圖表，然後選取 [資料點數量] 做為其計量。切換群組，並依 [**資料類型**] 分組。
+
+*如何減少我的應用程式傳送的資料量？*
+
+* 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。自 ASP.NET SDK 2.0.0-beta3 起，系統預設會啟用自適性取樣。
+* [關閉您不需要的遙測收集器](app-insights-configuration-with-applicationinsights-config.md)。
+
 
 ### 降低資料速率的秘訣
 
 如果您遇到節流限制，以下是您可以執行的一些事項：
 
 * 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。
-* 藉由[編輯 ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)，關閉您不需要的集合模組。例如，您可能會決定效能計數器或相依性資料是不必要的。
-* 預先彙總度量。如果您在應用程式中呼叫 TrackMetric，您可以使用接受批次測量之平均及標準差計算的多載來減少流量。或者您可以使用[預先彙總套件](https://www.myget.org/gallery/applicationinsights-sdk-labs)。 
+* 藉由[編輯 ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 來關閉您不需要的集合模組。例如，您可能會決定效能計數器或相依性資料是不必要的。
+* 預先彙總度量。如果您在應用程式中呼叫 TrackMetric，您可以使用接受批次測量之平均及標準差計算的多載來減少流量。您也可以使用[預先彙總套件](https://www.myget.org/gallery/applicationinsights-sdk-labs)。 
 
 
 ### 名稱限制
 
-1.	您的應用程式具有最多 200 個唯一度量名稱和 200 個唯一屬性名稱。計量包括透過 TrackMetric 傳送的資料，以及其他資料類型上的度量 (例如事件)。每個檢測金鑰的[計量和屬性名稱][api]是全域的，不只限於資料類型。
+1.	您的應用程式具有最多 200 個唯一計量名稱和 200 個唯一屬性名稱。度量包括透過 TrackMetric 傳送的資料，以及其他資料類型 (例如事件) 的度量資料 。每個檢測金鑰的[計量和屬性名稱][api]是全域的，不只限於資料類型。
 2.	只有在每個屬性具有少於 100 個唯一值時，[屬性][apiproperties]才能用於篩選和分組依據。唯一值超過 100 之後，屬性仍可用於搜尋與篩選，但無法用於篩選器。
 3.	標準屬性，例如要求名稱和網頁 URL 會限制為每週 1000 個唯一值。超過 1000 個唯一值之後，額外值都會標示為「其他值」。 原始值仍然可以用於全文檢索搜尋和篩選。
 
@@ -136,4 +164,4 @@ Application Insights 費用會加到您的 Azure 帳單中。您可以在 Azure 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

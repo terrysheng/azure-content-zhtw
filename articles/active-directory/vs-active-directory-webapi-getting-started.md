@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="開始使用 Azure Active Directory 和 Visual Studio 已連接服務 (WebApi 專案) |Microsoft Azure" 
+	pageTitle="開始使用 Azure Active Directory 和 Visual Studio 已連接服務 (WebApi 專案) | Microsoft Azure" 
 	description="使用 Visual Studio 已連接服務連接 Azure AD 或建立 Azure AD 後，如何在 WebApi 專案中開始使用 Azure Active Directory" 
-    services="active-directory"
+  services="active-directory"
 	documentationCenter="" 
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
   
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="12/18/2015" 
 	ms.author="tarcher"/>
 
 # 開始使用 Azure Active Directory 和 Visual Studio 已連接服務 (WebApi 專案)
@@ -29,4 +29,4 @@
 [深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

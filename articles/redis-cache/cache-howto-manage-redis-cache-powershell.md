@@ -26,11 +26,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](#classic)，如本文稍後將說明。
 
-## 必要條件
-
->[AZURE.IMPORTANT]您第一次使用 Azure 入口網站在訂用帳戶中建立 Redis 快取時，入口網站會為該訂用帳戶註冊 `Microsoft.Cache` 命名空間。如果您嘗試使用 PowerShell 在訂用帳戶中建立第一個 Redis 快取，您必須先使用下列命令註冊該命名空間；否則 Cmdlet (例如 `New-AzureRmRedisCache` 和 `Get-AzureRmRedisCache`) 將會失敗。
->
->`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
+## 先決條件
 
 如果您已安裝 Azure PowerShell，其必須是 Azure PowerShell 1.0.0 或更新的版本。您可以在 Azure PowerShell 命令提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
 
@@ -79,7 +75,7 @@
 | RedisConfiguration | 指定 maxmemory-delta、maxmemory-policy 和 notify-keyspace-events 的 Redis 組態設定。請注意，maxmemory-delta 和 notify-keyspace-events 只能用於 Standard (標準) 和 Premium (高階) 快取。 | |
 | EnableNonSslPort | 指出是否已啟用非 SSL 連接埠。 | False |
 | MaxMemoryPolicy | 這個參數已被取代，請改用 RedisConfiguration。 | |
-| StaticIP | 當快取是裝載在 VNET 中，為快取在子網路中指定唯一 IP 位址。 | |
+| StaticIP | 當快取是裝載在 VNET 中，為快取在子網路中指定唯一 IP 位址。如果未提供，則會從子網路中為您選擇一個。 | |
 | 子網路 | 當快取是裝載在 VNET 中，指定要在其中部署快取的子網路。 | |
 | VirtualNetwork | 當快取是裝載在 VNET 中，指定要在其中部署快取的 VNET 之資源識別碼。 | |
 | KeyType | 指定更新存取金鑰時要重新產生哪一個存取金鑰。有效值為：Primary、Secondary | | | |
@@ -88,6 +84,10 @@
 ## 建立 Redis 快取
 
 使用 [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) Cmdlet 建立新的 Azure Redis 快取執行個體。
+
+>[AZURE.IMPORTANT]您第一次使用 Azure 入口網站在訂用帳戶中建立 Redis 快取時，入口網站會為該訂用帳戶註冊 `Microsoft.Cache` 命名空間。如果您嘗試使用 PowerShell 在訂用帳戶中建立第一個 Redis 快取，您必須先使用下列命令註冊該命名空間；否則 Cmdlet (例如 `New-AzureRmRedisCache` 和 `Get-AzureRmRedisCache`) 將會失敗。
+>
+>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 若要查看 `New-AzureRmRedisCache` 的可用參數清單及其說明，請執行下列命令。
 
@@ -242,13 +242,14 @@
 
 	Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
-## 使用 PowerShell 調整 Redis 快取
+<a name="scale"></a>
+## 調整 Redis 快取
 
 修改 `Size`、`Sku` 或 `ShardCount` 屬性時，可用 `Set-AzureRmRedisCache` 調整 Azure Redis 快取執行個體。
 
 >[AZURE.NOTE]使用 PowerShell 調整快取，和從 Azure 入口網站調整快取有相同的限制和準則。您可以調整具有下列限制的不同定價層。
 >
->-	您無法向上調整為 **Premium** 快取，或由此向下調整。
+>-	您無法向上調整為**進階**快取，或由此向下調整。
 >-	您無法從**標準**快取調整到**基本**快取。
 >-	您可以從**基本**快取調整到**標準**快取，但您無法同時變更大小。如果您需要不同的大小，您可以進行後續調整作業，調整到您需要的大小。
 >-	您無法從較大的大小向下調整至 **C0 (250 MB)** 的大小。
@@ -371,7 +372,7 @@
 
 ## 擷取 Redis 快取的存取金鑰
 
-若要擷取您的快取的存取金鑰，您可以使用 [Get AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx) Cmdlet。
+若要擷取您快取的存取金鑰，您可以使用 [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx) Cmdlet。
 
 若要查看 `Get-AzureRmRedisCacheKey` 的可用參數清單及其說明，請執行下列命令。
 
@@ -403,7 +404,7 @@
 	        OutBuffer, PipelineVariable, and OutVariable. For more information, see
 	        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-若要擷取您的快取的索引鍵，呼叫 `Get-AzureRmRedisCacheKey` Cmdlet，並傳遞快取的名稱以及包含快取的資源群組名稱。
+若要擷取您快取的金鑰，請呼叫 `Get-AzureRmRedisCacheKey` Cmdlet，並傳入快取的名稱以及包含快取的資源群組名稱。
 
 	PS C:\> Get-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup
 	
@@ -412,7 +413,7 @@
 
 ## 重新產生 Redis 快取的存取金鑰
 
-若要重新產生您的快取的存取金鑰，可以使用 [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx) Cmdlet。
+若要重新產生您快取的存取金鑰，可以使用 [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx) Cmdlet。
 
 若要查看 `New-AzureRmRedisCacheKey` 的可用參數清單及其說明，請執行下列命令。
 
@@ -449,7 +450,7 @@
 	        OutBuffer, PipelineVariable, and OutVariable. For more information, see
 	        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 	
-若要重新產生快取的主要或次要索引鍵，請呼叫 `New-AzureRmRedisCacheKey` Cmdlet，並傳遞名稱、資源群組，且 `KeyType` 參數指定 `Primary` 或 `Secondary`。在下列範例中，會重新產生快取的次要存取金鑰。
+若要重新產生快取的主要或次要金鑰，請呼叫 `New-AzureRmRedisCacheKey` Cmdlet，並傳入名稱、資源群組，且針對 `KeyType` 參數指定 `Primary` 或 `Secondary`。在下列範例中，會重新產生快取的次要存取金鑰。
 
 	PS C:\> New-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
 	
@@ -568,4 +569,4 @@
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - ["Hey, Scripting Guy!" 部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

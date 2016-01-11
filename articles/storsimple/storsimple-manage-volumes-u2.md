@@ -15,7 +15,7 @@
    ms.date="12/15/2015"
    ms.author="v-sharos" />
 
-# 使用 StorSimple Manager 服務來管理磁碟區
+# 使用 StorSimple Manager 服務來管理磁碟區 (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
@@ -115,7 +115,7 @@ StorSimple 磁碟區可以是：
   1. 輸入磁碟區的 [名稱]。
   2. 從下拉式清單中選取 [使用類型]。對於需要資料在任何時間都可於裝置本機使用的工作負載，選取 [固定在本機]。對於所有其他資料類型，選取 [分層]。(預設值是 [分層]。)
   3. 如果您在步驟 2 中選取 [分層]，您可以選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊以設定封存磁碟區。
-  4. 為磁碟區輸入 [佈建的容量]\(GB 或 TB)。請參閱[佈建的容量](#provisioned-capacity)以取得每個裝置與磁碟區類型的最大大小。查看 [可用容量] 來判斷您的裝置實際上有多少儲存體可用。
+  4. 為磁碟區輸入 [佈建的容量] (GB 或 TB)。請參閱[佈建的容量](#provisioned-capacity)以取得每個裝置與磁碟區類型的最大大小。查看 [可用容量] 來判斷您的裝置實際上有多少儲存體可用。
 
     如果您要設定固定在本機的磁碟區，您會看到下列訊息。
 
@@ -291,4 +291,4 @@ StorSimple 磁碟區可以是：
 
  
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1223_2015----->

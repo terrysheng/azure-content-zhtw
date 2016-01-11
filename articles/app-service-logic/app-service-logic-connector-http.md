@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/25/2015"
+   ms.date="12/17/2015"
    ms.author="prkumar"/>
 
 
@@ -61,7 +61,7 @@
 9.	最後，若要傳送回應，請新增另一個 HTTP 接聽程式，並選取 [傳送 HTTP 回應] 動作。將要求識別碼設定為從 HTTP 接聽程式取得的 RequestID，並填入您想要傳回的回應本文和 HTTP 狀態：![][9]
 
 ## 使用 HTTP 動作
-Logic Apps 原生支援 HTTP 動作，而且無需建立 API 應用程式即可使用。您可以在應用程式邏輯的任何位置插入 HTTP 動作，並選擇呼叫的 URI、標頭和主體。HTTP 動作支援多個用戶端安全性選項。若要使用這些選項，請閱讀[這裡](http://aka.ms/logicapphttpauth)的文章。
+Logic Apps 原生支援 HTTP 動作，而且無需建立 API 應用程式即可使用。您可以在應用程式邏輯的任何位置插入 HTTP 動作，並選擇呼叫的 URI、標頭和主體。HTTP 動作支援多個用戶端安全性選項。請參閱[用戶端的安全性選項](../scheduler-outbound-authentication.md)。
 
 HTTP 動作的輸出會是標頭和主體，可進一步在流程的下游中使用，且與取用其他動作和連接器的輸出方式類似。
 
@@ -86,4 +86,4 @@ HTTP 動作的輸出會是標頭和主體，可進一步在流程的下游中使
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

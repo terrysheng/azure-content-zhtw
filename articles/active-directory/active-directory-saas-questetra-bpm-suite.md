@@ -3,8 +3,8 @@
 	description="了解如何設定 Azure Active Directory 與 Questetra BPM Suite 之間的單一登入。"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="msStevenPo"
+	authors="jeevansd"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
-	ms.author="markusvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 Questetra BPM Suite 整合
@@ -60,10 +60,10 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![[應用程式]][2]
-4. 按一下頁面底部的 [新增]。<br><br> ![[應用程式]][3]
-5. 在 [您要如何處理] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![[應用程式]][4]
-6. 在搜尋方塊中，輸入 **Questetra BPM Suite**。<br> ![[應用程式]][5]
+3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2]
+4. 按一下頁面底部的 [新增]。<br><br> ![應用程式][3]
+5. 在 [您要如何處理] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]
+6. 在搜尋方塊中，輸入 **Questetra BPM Suite**。<br> ![應用程式][5]
 7. 在結果窗格中，選取 [Questetra BPM Suite]，然後按一下 [完成] 加入應用程式。<br>
 
 
@@ -265,4 +265,4 @@
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

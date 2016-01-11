@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="szark"/>
+	ms.date="12/14/2015" 
+	ms.author="mingzhan"/>
 
 
 
@@ -80,6 +80,7 @@ Azure Linux 代理程式 (/usr/sbin/waagent) 可管理虛擬機器與 Azure 網�
 * openSUSE 12.3+
 * SLES 11 SP2+
 * Oracle Linux 6.4+
+* Red Hat 6.7+
 
 其他支援的系統：
 
@@ -214,7 +215,7 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
 這可讓使用者啟用或停用代理程式的佈建功能。有效值為 "y" 或 "n"。如果停用佈建，則會保留映像檔中的 SSH 主機金鑰和使用者金鑰，並忽略 Azure 佈建 API 中指定的任何組態。
 
-**注意：**針對使用 cloud-init 執行佈建工作的 Ubuntu 雲端映像，此參數的預設值為「n」。
+**注意：**針對使用 cloud-init 執行佈建工作的 Ubuntu 雲端映像，此參數的預設值為 "n"。
 
 **Provisioning.DeleteRootPassword：**
 
@@ -320,4 +321,4 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

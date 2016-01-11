@@ -57,12 +57,12 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 3. 取得 **CloudQueueClient** 物件以參考儲存體帳戶中的佇列物件。
 
 	    // Create the table client.
-    	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
+    	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 4. 取得 **CloudQueue** 物件以參考特定的佇列。
 
     	// Get a reference to a table named "messageQueue"
-	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
+	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
 **注意：**請在下列範例中的程式碼前面使用上述所有程式碼。
@@ -176,4 +176,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="12/17/2015"
 	ms.author="josephd"/>
 
 # 在 Azure 中使用 SQL Server AlwaysOn 可用性群組部署 SharePoint
@@ -34,6 +34,44 @@
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
 
 兩部適用於每個角色的機器可確保高可用性。所有的虛擬機器都位於單一區域中。適用於特定角色的每個虛擬機器群組都位於它自己的可用性集合中。
+
+## 用料表
+
+基準組態需要下列 Azure 服務和元件的設定組：
+
+- 九部虛擬機器。
+- 四個額外資料磁碟，適用於網域控制站和 SQL 伺服器。
+- 四個可用性集合。
+- 一個跨單位虛擬網路。
+- 一個儲存體帳戶。
+- 一個 Azure 訂用帳戶。
+
+以下是適用於此組態的虛擬機器及其預設大小。
+
+項目 | 虛擬機器描述 | 資源庫映像 | 預設大小
+--- | --- | --- | ---
+1\. | 第一網域控制站 | Windows Server 2012 R2 Datacenter | A2
+2\. | 第二網域控制站 | Windows Server 2012 R2 Datacenter | A2
+3\. | 第一資料庫伺服器 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4\. | 第二資料庫伺服器 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5\. | 叢集的多數節點 | Windows Server 2012 R2 Datacenter | A1
+6\. | 第一 SharePoint 應用程式伺服器 | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4
+7\. | 第二 SharePoint 應用程式伺服器 | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4
+8\. | 第一 SharePoint Web 伺服器 | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4
+9\. | 第二 SharePoint Web 伺服器 | Microsoft SharePoint Server 2013 試用版 – Windows Server 2012 R2 | A4
+
+若要計算此組態的預估成本，請參閱 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
+
+1. 在 [模組] 中，按一下 [計算]，然後按一下 [虛擬機器] 數次，直到足夠建立含有九個虛擬機器的清單為止。
+2. 針對每一個虛擬機器，選取：
+	- 您想要的區域
+	- [Windows] 類型
+	- [標準] 定價層
+	- 上表中的預設大小或您想要的大小來做為 [執行個體大小]
+
+> [AZURE.NOTE]「Azure 價格計算機」並未納入兩個執行 SQL Server 2014 Enterprise 之虛擬機器的額外 SQL Server 授權費用。如需詳細資訊，請參閱[虛擬機器價格-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
+
+## 部署的階段
 
 您可以在下列階段中部署這個設定：
 
@@ -63,4 +101,4 @@
 
 - 依照[第 1 階段](virtual-machines-workload-intranet-sharepoint-phase1.md)指示開始設定此工作負載。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

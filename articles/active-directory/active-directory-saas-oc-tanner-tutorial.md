@@ -3,7 +3,7 @@
 	description="了解如何設定 Azure Active Directory 與 O.C.Tanner - AppreciateHub 之間的單一登入。"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="markusvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 O.C.Tanner - AppreciateHub 整合
@@ -60,15 +60,15 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![[應用程式]][2] <br>
+3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2] <br>
 
-4. 按一下頁面底部的 [新增]。<br><br> ![[應用程式]][3] <br>
+4. 按一下頁面底部的 [新增]。<br><br> ![應用程式][3] <br>
 
-5. 在 [欲執行動作] 對話方塊中，按一下 [從組件庫新增應用程式]。<br><br> ![[應用程式]][4] <br>
+5. 在 [欲執行動作] 對話方塊中，按一下 [從組件庫新增應用程式]。<br><br> ![應用程式][4] <br>
 
-6. 在搜尋方塊中，輸入 **O.C.Tanner - AppreciateHub**。<br><br> ![[應用程式]][5] <br>
+6. 在搜尋方塊中，輸入 **O.C.Tanner - AppreciateHub**。<br><br> ![應用程式][5] <br>
 
-7. 在 [結果] 窗格中選取 **[O.C.Tanner - AppreciateHub]**，然後按一下 [完成] 以新增應用程式。 <br><br> ![[應用程式]][25] <br>
+7. 在 [結果] 窗格中選取 **[O.C.Tanner - AppreciateHub]**，然後按一下 [完成] 以新增應用程式。 <br><br> ![應用程式][25] <br>
 
 
 
@@ -123,7 +123,7 @@
 
 
 ### 建立 Azure AD 測試使用者
-本節的目標是在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
+本節目標是在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
 
 **若要在 Azure AD中建立測試使用者，請執行下列步驟：**
 
@@ -145,11 +145,11 @@
 
 6.  在 [使用者設定檔] 對話方塊頁面上，執行下列步驟：<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_06.png)
  
-    a.在 [名字] 文字方塊中輸入 **Britta**。
+    a.在 [名字] 文字方塊中，輸入 **Britta**。
 
     b.在 [姓氏] 文字方塊中，輸入 **Simon**。
 
-    c.在 [顯示名稱] 文字方塊中輸入 **Britta Simon**。
+    c.在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
 
     d.在 [角色] 清單中選取 [使用者]。按 [下一步]。
 
@@ -223,4 +223,4 @@
 [204]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_205.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

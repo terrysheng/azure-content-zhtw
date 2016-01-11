@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # 我的 MVC 專案 (Visual Studio Azure Active Directory 已連線服務) 發生什麼事？
@@ -171,4 +171,4 @@ Azure Active Directory 應用程式已更新為包含*讀取目錄資料*權限�
 
 [深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

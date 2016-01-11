@@ -36,13 +36,13 @@
 
 
 ## <a id="packages"></a>新增 Nuget 封裝 ##
-有三個 Web 應用程式必須已安裝的封裝。
+有二個 Web 應用程式必須已安裝的封裝。
 
 - Active Directory 驗證程式庫 - 包含與 Azure Active Directory 互動及管理使用者身分識別的方法
 - Azure 金鑰保存庫資源庫 - 包含與 Azure 金鑰保存庫互動的方法
 
 
-您可以使用 Package Manager Console 的 Install-Package 命令安裝這三個封裝。
+您可以使用 Package Manager Console 的 Install-Package 命令安裝這二個封裝。
 
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
@@ -133,7 +133,7 @@
 
 記下 .pfx 的結束日期和密碼 (在此範例中為：07/31/2016 和 test123)。您將需要在下面使用這些資訊。
 
-如需如何建立測試憑證的詳細資訊，請參閱[做法：自行建立測試憑證](https://msdn.microsoft.com/en-in/library/ff699202.aspx) (英文)
+如需如何建立測試憑證的詳細資訊，請參閱[做法：自行建立測試憑證](https://msdn.microsoft.com/library/ff699202.aspx) (英文)
 
 
 **將憑證與 Azure AD 應用程式產生關聯** 有了憑證之後，您需要將其與 Azure AD 應用程式產生關聯。但是，Azure 管理入口網站目前不支援這項作業。您必須改用 Powershell。以下是您需要執行的命令：
@@ -243,4 +243,4 @@
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

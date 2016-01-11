@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # 註冊 Microsoft 管理的 API 或 IT 管理的 API
@@ -107,19 +107,19 @@ API | 說明 | 步驟連結
 
 ## 註冊 Microsoft 管理的或 IT 管理的 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 \[Manage APIs] \(管理 API)：  
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 [Manage APIs] (管理 API)：  
 ![][17]
-2. 在 [Manage APIs] \(管理 API) 中，選取 [Add] \(新增)：  
+2. 在 [Manage APIs] (管理 API) 中，選取 [Add] (新增)：  
 ![][18]  
 3. 在 [Add API]\(新增 API) 中，輸入 API 屬性：  
 
-	- 在 [Name] \(名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。請設定有意義且在組織中獨一無二的名稱。
-	- 在 [Source] \(來源) 中，選取 [From available APIs] \(從可用的 API)：  
+	- 在 [Name] (名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。請設定有意義且在組織中獨一無二的名稱。
+	- 在 [Source] (來源) 中，選取 [From available APIs] (從可用的 API)：  
 	![][19]
 4. 選取 [API]，然後選擇您想要註冊的 API：  
 ![][20]
 5. 選取特定的 API，並新增任何可設定的屬性。
-6. 選取 [ADD] \(新增) 以完成這些步驟。
+6. 選取 [ADD] (新增) 以完成這些步驟。
 
 > [AZURE.TIP]註冊 API 時，您是向您的 App Service 環境註冊 API。一旦其在 App Service 環境中，相同 App Service 環境內的其他應用程式便能使用它。
 
@@ -155,4 +155,4 @@ API | 說明 | 步驟連結
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

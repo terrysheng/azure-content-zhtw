@@ -262,7 +262,7 @@
 
 8.	透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 9.	修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 `/boot/grub/menu.lst`，並確定預設核心包含以下參數：
 
@@ -379,7 +379,7 @@
 
 7.	透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 8.	修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 `/etc/default/grub`，並編輯 **GRUB\_CMDLINE\_LINUX** 參數，例如：
 
@@ -396,12 +396,22 @@
 9.	在您參照上述完成編輯 `/etc/default/grub` 之後，請執行下列命令以重建 grub 組態：
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
+        
+10.	將 Hyper-V 模組新增至 initramfs：
 
-10.	解除安裝 cloud-init：
+    編輯 `/etc/dracut.conf`，新增內容：
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    重建 initramfs：
+
+        # dracut –f -v
+        
+11.	解除安裝 cloud-init：
 
         # yum remove cloud-init
 
-11.	確定您已安裝 SSH 伺服器，並已設定為在開機時啟動：
+12.	確定您已安裝 SSH 伺服器，並已設定為在開機時啟動：
 
         # systemctl enable sshd
 
@@ -414,12 +424,12 @@
 
         systemctl restart sshd	
 
-12.	WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制。執行下列命令以啟用 EPEL 儲存機制：
+13.	WALinuxAgent 封裝 `WALinuxAgent-<version>` 已推送至 Fedora EPEL 6 儲存機制。執行下列命令以啟用 EPEL 儲存機制：
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
 
-13.	執行以下命令來安裝 Azure Linux 代理程式：
+14.	執行以下命令來安裝 Azure Linux 代理程式：
 
         # yum install WALinuxAgent
 
@@ -427,7 +437,7 @@
 
         # systemctl enable waagent.service
 
-14.	請勿在作業系統磁碟上建立交換空間。Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是暫存磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 `/etc/waagent.conf` 中適當修改下列參數：
+15.	請勿在作業系統磁碟上建立交換空間。Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是暫存磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 `/etc/waagent.conf` 中適當修改下列參數：
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -435,19 +445,19 @@
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	執行下列命令以取消註冊訂用帳戶 (如有必要)：
+16.	執行下列命令以取消註冊訂用帳戶 (如有必要)：
 
         # subscription-manager unregister
 
-16.	執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
+17.	執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-17.	在 KVM 中關閉虛擬機器。
+18.	在 KVM 中關閉虛擬機器。
 
-18.	將 qcow2 映像轉換成 vhd 格式：
+19.	將 qcow2 映像轉換成 vhd 格式：
 
     先將映像轉換成原始格式：
 
@@ -684,7 +694,7 @@
 ##自動從使用 kickstart 檔案的 ISO 準備
 ###RHEL 7.1/7.2
 
-1.	使用以下內容建立 kickstart 檔案，並儲存此檔案。如需有關 kickstart 安裝的詳細資訊，請參閱 [Kickstart 安裝指南](https://access.redhat.com/documentation/zh-TW/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)。
+1.	使用以下內容建立 kickstart 檔案，並儲存此檔案。如需有關 kickstart 安裝的詳細資訊，請參閱 [Kickstart 安裝指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)。
 
 
         # Kickstart for provisioning a RHEL 7 Azure VM
@@ -834,4 +844,4 @@
 ## 後續步驟
 您現在可以開始在 Azure 中使用您的 Red Hat Enterprise Linux.vhd 建立新的 Azure 虛擬機器。如需已通過認證可執行 Red Hat Enterprise Linux 之 Hypervisor 的詳細資訊，請造訪 [Red Hat 網站](https://access.redhat.com/certified-hypervisors)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

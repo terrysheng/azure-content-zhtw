@@ -48,14 +48,13 @@ Azure DocumentDB 提供下列重要功能和優點：
 
 -	**在資料庫內執行 JavaScript：**使用標準 JavaScript，以預存程序、觸發程序和使用者定義函式 (UDF) 的形式表示應用程式邏輯。這允許您的應用程式邏輯操作 JSON 資料，而不需要擔心應用程式與資料庫結構描述之間的不相符。DocumentDB 可讓您直接在資料庫引擎內以完整的交易方式執行 JavaScript 應用程式邏輯。JavaScript 的深入整合則可讓您以獨立交易的形式，從 JavaScript 程式內執行 INSERT、REPLACE、DELETE 和 SELECT 作業。在 [DocumentDB 伺服器端程式設計](documentdb-programming.md)中深入了解。
 
--	**可調整的一致性層級：**有四個定義完善的一致性層級可供選擇，以讓您在一致性與效能兩者間做出最好的取捨。針對查詢和讀取作業，DocumentDB 提供四個不同的一致性層級：「增強式」、「界限-陳舊」、「工作階段」和「最終」。這些細微且定義完善的一致性層級可讓您在一致性、可用性
--	與延遲三者間做出合理取捨。在[使用一致性層級以最大化 DocumentDB 中的可用性和效能](documentdb-consistency-levels.md)中深入了解。
+-	**可調整的一致性層級：**有四個定義完善的一致性層級可供選擇，以讓您在一致性與效能兩者間做出最好的取捨。針對查詢和讀取作業，DocumentDB 提供四個不同的一致性層級：「增強式」、「界限-陳舊」、「工作階段」和「最終」。這些細微且定義完善的一致性層級可讓您在一致性、可用性與延遲三者間做出合理取捨。深入了解[使用一致性層級以最大化 DocumentDB 中的可用性和效能](documentdb-consistency-levels.md)。
 
--	**完全受管理：**不需要管理資料庫和電腦資源。做為受到完整管理的 Microsoft Azure 服務，您不需要管理虛擬機器、部署和設定軟體，或處理複雜的資料層升級。每個資料庫都會自動進行備份，防範區域性失敗。您可以輕鬆地新增 DocumentDB 帳戶，並在需要時佈建容量，因此能夠將所有精神放在應用程式，而非操作與管理資料庫。
+-	**受到完整管理：**消除資料庫和電腦資源的管理需求。做為受到完整管理的 Microsoft Azure 服務，您不需要管理虛擬機器、部署和設定軟體，或處理複雜的資料層升級。每個資料庫都會自動進行備份，防範區域性失敗。您可以輕鬆地新增 DocumentDB 帳戶，並在需要時佈建容量，因此能夠將所有精神放在應用程式，而非操作與管理資料庫。
 
--	**可彈性調整的輸送量和儲存體：**輕鬆相應增加或相應減少 DocumentDB JSON 資料庫以符合應用程式需求。透過增減預留的 SSD 備用儲存體和輸送量的基本單位 (集合)，即可調整大小。隨著應用程式的成長，您可以建立更多單位，依據可預測的效能彈性調整 DocumentDB。
+-	**可彈性調整的輸送量和儲存體：**輕鬆相應增加或相應減少 DocumentDB JSON 資料庫，以符合您應用程式需求。透過增減預留的 SSD 備用儲存體和輸送量的基本單位 (集合)，即可調整大小。隨著應用程式的成長，您可以建立更多單位，依據可預測的效能彈性調整 DocumentDB。
 
--	**開放式設計：**使用現有技能和工具讓您快速上手。針對 DocumentDB 進行程式設計十分簡單、容易達成，而且不需要採用新工具或符合 JSON 或 JavaScript 的自訂擴充功能。您可以透過簡單的 RESTful HTTP 介面來存取所有資料庫功能，包括 CRUD、查詢和 JavaScript 處理。DocumentDB 既採用現有的格式、語言和標準，同時又能提供凌駕於它們之上的高價值資料庫功能。
+-	**開放式設計：**使用現有技能和工具就能讓您快速上手。針對 DocumentDB 進行程式設計十分簡單、容易達成，而且不需要採用新工具或符合 JSON 或 JavaScript 的自訂擴充功能。您可以透過簡單的 RESTful HTTP 介面來存取所有資料庫功能，包括 CRUD、查詢和 JavaScript 處理。DocumentDB 既採用現有的格式、語言和標準，同時又能提供凌駕於它們之上的高價值資料庫功能。
 
 您可以使用 DocumentDB 來儲存需要查詢抓取和交易式處理的彈性資料集。應用程式案例可能包括互動式 Web 和行動應用程式的使用者資料，以及儲存、抓取和處理應用程式 JSON 資料。資料庫可以儲存任意數目的 JSON 文件，因為 DocumentDB 相當適用於在網際網路上依規模執行的應用程式。
 
@@ -91,7 +90,7 @@ Azure DocumentDB 支援使用根植於 JavaScript 類型系統的 SQL 語言及�
 
 使用者定義函式 (UDF) 可以向 DocumentDB 進行註冊，然後在 SQL 查詢中供參考，進而延伸文法來支援自訂應用程式邏輯。這些 UDF 是以 JavaScript 程式的形式撰寫，並在資料庫內執行。
 
-若為 .NET 開發人員，DocumentDB 也提供 LINQ 查詢提供者做為 [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) 的一部分。
+對於 .NET 開發人員，DocumentDB 也提供 LINQ 查詢提供者，做為 [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) 的一部分。
 
 ### 交易和 JavaScript 執行
 DocumentDB 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰寫的具名程式。這些程式會針對集合進行註冊，而可對指定之集合內的文件進行資料庫操作。JavaScript 可以註冊成觸發程序、預存程序或使用者定義函式 (UDF) 來供執行。觸發程序和預存程序可以建立、讀取、更新和刪除文件，而使用者定義函式則可在查詢執行邏輯中執行，而不需要對集合進行寫入存取。
@@ -99,17 +98,17 @@ DocumentDB 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰寫的
 在 DocumentDB 內執行 JavaScript 的作法是仿造自關聯式資料庫系統所支援的概念，以 JavaScript 做為 Transact-SQL 的新式取代項目。所有 JavaScript 邏輯都是以隔離的快照在環境 ACID 交易內執行。在執行期間，如果 JavaScript 擲回例外狀況，則會中止整個交易。
 
 ## 後續步驟
-如果您已經有 Azure 帳戶，可以透過[建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)，開始使用 [Azure 入口網站](https://portal.azure.com/#gallery/Microsoft.DocumentDB)中的 DocumentDB。
+如果您已經有 Azure 帳戶，就可以透過[建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)，開始在 [Azure 入口網站](https://portal.azure.com/#gallery/Microsoft.DocumentDB)中使用 DocumentDB。
 
 若您沒有 Azure 帳戶，您可以：
 
-- 註冊 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)，得到 30 天免費試用以及美金 200 元，讓您試用所有 Azure 服務。 
-- 如果您有 MSDN 訂用帳戶，就可以享有[每月美金 150 元的免費 Azure 信用額度](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可用於所有 Azure 服務。 
+- 註冊 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)，您可獲得 30 天的免費試用資格及美金 200 元的信用額度，來讓您試用所有 Azure 服務。 
+- 如果您有 MSDN 訂用帳戶，就有資格獲得[每個月美金 150 元的免費 Azure 信用額度](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可讓您用在任何 Azure 服務上。 
 
-然後，當您準備好深入了解時，請造訪我們的[學習途徑](http://azure.microsoft.com/documentation/learning-paths/documentdb/)，以瀏覽所有您適用的學習資源。
+然後，當您準備好深入了解時，請前往我們的[學習路徑](http://azure.microsoft.com/documentation/learning-paths/documentdb/)來瀏覽所有您可用的學習資源。
 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

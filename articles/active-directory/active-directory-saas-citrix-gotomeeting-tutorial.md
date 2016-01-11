@@ -2,7 +2,7 @@
     pageTitle="教學課程：Azure Active Directory 與 Citrix GoToMeeting 整合 | Microsoft Azure" 
     description="了解如何使用 Citrix GoToMeeting 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 
@@ -11,8 +11,8 @@
     ms.devlang="na" ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/01/2015" 
-    ms.author="markvi" />
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Citrix GoToMeeting 整合  
 適用對象：Azure
@@ -46,7 +46,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![[應用程式]](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "[應用程式]")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -164,4 +164,4 @@
 
 如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

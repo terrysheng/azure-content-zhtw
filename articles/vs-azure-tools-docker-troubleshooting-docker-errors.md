@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/20/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # 疑難排解 Docker 錯誤
@@ -100,4 +100,4 @@
 
 另一個選項是下載 OpenSSL for Windows 並產生需要的憑證和金鑰，然後上傳 CA、伺服器憑證和金鑰到 Linux 機器。如需有關建立 Docker 的安全連接的詳細資訊，請參閱[使用 HTTPS 保護 Docker 精靈通訊端](https://docs.docker.com/articles/https/)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

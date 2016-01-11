@@ -5,8 +5,15 @@
    documentationCenter="na"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
-<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="tarcher" />
+   editor="" />
+<tags 
+   ms.service="visual-studio-online"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="visual-studio-online"
+   ms.date="12/16/2015"
+   ms.author="tarcher" />
 
 # 在 Visual Studio 中使用已連接服務加入 Azure Active Directory 
 
@@ -24,9 +31,9 @@
 
 ### 使用已連接服務對話方塊連接到 Azure AD
 
-1. 確定您具有 Azure 帳戶。如果您沒有 Azure 帳戶，您可以註冊[免費試用](http://go.microsoft.com/fwlink/?LinkId=518146)。
+1. 確定您具有 Azure 帳戶。如果您沒有 Azure 帳戶，可以註冊來[免費試用](http://go.microsoft.com/fwlink/?LinkId=518146)。
 
-1. 在 Visual Studio 中，開啟您專案中 [參考] 節點的快顯功能表，然後選擇 [加入已連接服務]。
+1. 在 Visual Studio 中，開啟您專案中 [參考] 節點的捷徑功能表，然後選擇 [加入已連接服務]。
 1. 選取 [Azure AD 驗證]，然後選擇 [設定]。
 
     ![選擇加入 Azure AD 驗證](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
@@ -37,12 +44,12 @@
 
     ![在精靈中設定 Azure AD](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
 
-1.  第二頁上，選取 [網域] 下拉式清單中的網域。網域清單包含 [帳戶設定] 對話方塊中所列的帳戶可存取的所有網域。或者，如果找不到您所尋找的網域 (例如 mydomain.onmicrosoft.com)，您可以輸入網域名稱。您可以選擇用以建立新 Azure AD 應用程式的選項，或使用現有 Azure AD 應用程式的設定。
+1.  在第二頁上，選取 [網域] 下拉式清單中的某個網域。網域清單包含 [帳戶設定] 對話方塊中所列的帳戶可存取的所有網域。或者，如果找不到您所尋找的網域 (例如 mydomain.onmicrosoft.com)，您可以輸入網域名稱。您可以選擇用以建立新 Azure AD 應用程式的選項，或使用現有 Azure AD 應用程式的設定。
 
     ![在精靈中設定 Azure AD](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
 
 
-1. 在精靈的第三頁上，確定已核取 [讀取目錄資料]。精靈將會填入 [用戶端密碼]。
+1. 在精靈的第三頁上，確認您已核取 [讀取目錄資料]。精靈將會填入 [用戶端密碼]。
 
     ![在精靈中設定 Azure AD](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
@@ -60,7 +67,7 @@
 
 ## 您的專案修改方式
 
-當您執行精靈時，Visual Studio 會將 Azure AD 和相關聯的參考加入至您的專案。您專案中的組態檔和程式碼也會進行修改，以加入 Azure AD 支援。Visual Studio 所做的特定修改視專案類型而定。如需如何修改 ASP.NET MVC 專案的詳細資訊，請參閱[發生什麼情形 – MVC 專案](http://go.microsoft.com/fwlink/p/?LinkID=513809)。若為 Web API 專案，請參閱[發生什麼情形 – Web API 專案](http://go.microsoft.com/fwlink/p/?LinkId=513810)。
+當您執行精靈時，Visual Studio 會將 Azure AD 和相關聯的參考加入至您的專案。您專案中的組態檔和程式碼也會進行修改，以加入 Azure AD 支援。Visual Studio 所做的特定修改視專案類型而定。如需深入了解 ASP.NET MVC 專案的修改方式，請參閱[發生什麼事：MVC 專案](http://go.microsoft.com/fwlink/p/?LinkID=513809)。而對於 Web API 專案，請參閱[發生什麼事：Web API 專案](http://go.microsoft.com/fwlink/p/?LinkId=513810)。
 
 ##後續步驟
 
@@ -72,4 +79,4 @@
 
  - [部落格文章：Azure AD 簡介](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

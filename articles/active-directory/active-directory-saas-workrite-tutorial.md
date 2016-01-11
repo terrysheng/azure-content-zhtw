@@ -3,7 +3,7 @@
 	description="了解如何設定 Azure Active Directory 與 Workrite 之間的單一登入。"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
-	ms.author="markusvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 Workrite 整合
@@ -25,7 +25,7 @@
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Workrite (單一登入)
 - 您可以在 Azure Active Directory 入口網站集中管理您的帳戶。
 
-若您想了解 SaaS 應用程式與 Azure AD 整合的更多詳細資訊，請參閱[什麼是應用程式存取和 Azure Active Directory 的單一登入](active-directory-appssoaccess-whatis.md)。
+若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
 ## 必要條件 
 
@@ -40,7 +40,7 @@
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
-- 除非必要，否則您不應使用生產環境。
+- 除非必要，否則您不應使用生產環境，。
 - 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。 
 
  
@@ -231,4 +231,4 @@
 [401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
 [402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

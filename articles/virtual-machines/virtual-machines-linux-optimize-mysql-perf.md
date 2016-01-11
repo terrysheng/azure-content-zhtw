@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="12/15/2015"
 	ms.author="ningk"/>
 
 #在 Azure Linux VM 上最佳化 MySQL 效能
@@ -348,4 +348,4 @@ MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MyS
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的 Redis 叢集
@@ -56,7 +56,9 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 建立快取後，您可以連接並使用它，就像非叢集化快取一樣，而且 Redis 將會在整個快取分區散發資料。如果[已啟用](cache-how-to-monitor.md#enable-cache-diagnostics)診斷，則會針對每個分區個別擷取度量，而且可以在 [Redis 快取] 刀鋒視窗中[檢視](cache-how-to-monitor.md)。
 
->[AZURE.IMPORTANT]使用 StackExchange.Redis 連接已啟用叢集的 Azure Redis 快取時，您可能會碰到問題並收到 `MOVE` 例外狀況。這是因為 StackExchange.Redis 快取用戶端收集快取叢集中節點資訊的間隔時間短。如果您是第一次連接快取，並在用戶端完成收集此資訊前立即呼叫快取，便會發生這些例外狀況。解決應用程式中此問題最簡單方式就是連接快取，然後等候一秒後再對快取進行任何呼叫。做法是依照下列範例程碼式所示新增 `Thread.Sleep(1000)`請注意，`Thread.Sleep(1000)` 只會發生在初次連接快取的期間。如需詳細資訊，請參閱 [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248)。此問題的修正程式正在開發中，若有任何更新，將張貼於此處。
+如需搭配 StackExchange.Redis 用戶端使用叢集的範例程式碼，請參閱 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例的 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 部分。
+
+>[AZURE.IMPORTANT]使用 StackExchange.Redis 連接已啟用叢集的 Azure Redis 快取時，您可能會碰到問題並收到 `MOVE` 例外狀況。這是因為 StackExchange.Redis 快取用戶端收集快取叢集中節點資訊的間隔時間短。如果您是第一次連接快取，並在用戶端完成收集此資訊前立即呼叫快取，便會發生這些例外狀況。解決應用程式中此問題最簡單方式就是連接快取，然後等候一秒後再對快取進行任何呼叫。做法是依照下列範例程式碼所示新增 `Thread.Sleep(1000)`。請注意，`Thread.Sleep(1000)` 只會在初次連接快取的期間發生。如需詳細資訊，請參閱 [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248)。此問題的修正程式正在開發中，若有任何更新，將張貼於此處。
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -78,15 +80,16 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 	    }
 	}
 
-## 從執行中的高階快取新增或移除分區
+<a name="cluster-size"></a>
+## 在執行中的進階快取上變更叢集大小
 
-若要從已啟用叢集的執行中高階快取新增或移除分區，可從 [設定] 刀鋒視窗中按一下 [(預覽) Redis 叢集大小]。
+若要從已啟用叢集的執行中進階快取變更叢集大小，可從 [設定] 刀鋒視窗中按一下 [(預覽) Redis 叢集大小]。
 
->[AZURE.NOTE]請注意，雖然 Azure Redis 快取高階層已發行來正式運作，但是 Redis 叢集大小功能目前為預覽狀態。
+>[AZURE.NOTE]請注意，雖然 Azure Redis 快取進階層已發行正式上市版，但 Redis 叢集大小功能目前為預覽狀態。
 
 ![Redis 叢集大小][redis-cache-redis-cluster-size]
 
-若要變更分區計數，請使用滑桿，或在 [分區計數] 文字方塊中輸入介於 1 到 10 之間的數字，然後按一下 [確定] 加以儲存。
+若要變更叢集大小，請使用滑桿，或在 [分區計數] 文字方塊中輸入 1 到 10 之間的數字，然後按一下 [確定] 加以儲存。
 
 ## 叢集常見問題集
 
@@ -97,23 +100,25 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 -	啟用叢集時，只可以使用資料庫 0。如果用戶端應用程式使用多個資料庫，並嘗試讀取或寫入至 0 以外的資料庫，就會擲回下列例外狀況。`Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
 -	如果您使用 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)，則必須使用 1.0.481 或更新版本。您可以使用與連接未啟用叢集的快取時所用的相同[端點、連接埠和金鑰](cache-configure.md#properties)來連接快取。唯一的差別在於必須在資料庫 0 上完成所有的讀取和寫入。
 	-	其他用戶端可能有不同的需求。請參閱[所有 Redis 用戶端都支援叢集嗎？](#do-all-redis-clients-support-clustering)。
--	如果您的應用程式使用分成單一命令的多個索引鍵作業，則所有索引鍵都必須位於相同的分區。若要完成此動作，請參閱[如何在叢集中散發索引鍵？](#how-are-keys-distributed-in-a-cluster)。
--	如果您使用 Redis ASP.NET 工作階段狀態提供者，則必須使用 2.0.0 或更高版本。請參閱[我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)。
+-	如果您的應用程式使用分成單一命令的多個索引鍵作業，則所有索引鍵都必須位於相同的分區。若要完成此動作，請參閱[如何在叢集中散發金鑰？](#how-are-keys-distributed-in-a-cluster)。
+-	如果您使用 Redis ASP.NET 工作階段狀態提供者，則必須使用 2.0.1 或更高版本。請參閱[我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)。
 
 ## 如何在叢集中散發索引鍵？
 
-依據 Redis [索引鍵散發模型](http://redis.io/topics/cluster-spec#keys-distribution-model)文件︰索引鍵空間會分割成 16384 個位置。每個索引鍵都會雜湊並指派給上述的其中一個位置，而這些位置散發於叢集的各個節點。您可以設定哪個部分的索引鍵會雜湊，以確保多個索引鍵位於使用雜湊標記的相同分區中。
+依據 Redis [金鑰散發模型](http://redis.io/topics/cluster-spec#keys-distribution-model)文件︰金鑰空間會分割成 16384 個位置。每個索引鍵都會雜湊並指派給上述的其中一個位置，而這些位置散發於叢集的各個節點。您可以設定哪個部分的索引鍵會雜湊，以確保多個索引鍵位於使用雜湊標記的相同分區中。
 
--	具有雜湊標記的索引鍵 - 如果索引鍵的任何部分括在 `{` 和 `}` 中，則只有該部分的索引鍵會為了判斷索引鍵的雜湊位置而進行雜湊。例如，下列 3 個索引鍵會位於相同的分區︰`{key}1`、`{key}2` 和 `{key}3`，因為只會雜湊名稱的 `key` 部分。如需索引鍵雜湊標記規格的完整清單，請參閱[索引鍵雜湊標記](http://redis.io/topics/cluster-spec#keys-hash-tags)。
+-	具有雜湊標記的金鑰 - 如果金鑰的任何部分被括在 `{` 和 `}` 中，則只有該部分的金鑰會為了判斷金鑰的雜湊位置而進行雜湊。例如，下列 3 個金鑰會位於相同的分區︰`{key}1`、`{key}2` 和 `{key}3`，因為只會雜湊名稱的 `key` 部分。如需金鑰雜湊標記規格的完整清單，請參閱[金鑰雜湊標記](http://redis.io/topics/cluster-spec#keys-hash-tags)。
 -	沒有雜湊標記的索引鍵 - 整個索引鍵名稱都用於雜湊。這會導致以統計方式平均散發於快取的各個分區。
 
 如需最佳的效能和輸送量，我們建議平均散發索引鍵。如果您使用具有雜湊標記的索引鍵，則應用程式必須負責確保平均散發索引鍵。
 
-如需詳細資訊，請參閱[索引鍵散發模型](http://redis.io/topics/cluster-spec#keys-distribution-model)、[Redis 叢集資料分區化](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding)和[索引鍵雜湊標記](http://redis.io/topics/cluster-spec#keys-hash-tags)。
+如需詳細資訊，請參閱[金鑰散發模型](http://redis.io/topics/cluster-spec#keys-distribution-model)、[Redis 叢集資料分區化](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding)和[金鑰雜湊標記](http://redis.io/topics/cluster-spec#keys-hash-tags)。
+
+如需搭配 StackExchange.Redis 用戶端使用叢集，並尋找相同分區中之金鑰的範例程式碼，請參閱 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例的 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 部分。
 
 ## 我可以建立的最大快取大小為何？
 
-最大的高階快取大小為 53 GB。您最多可以建立 10 個分區，等於最大大小為 530 GB。如果您需要較大的大小，可以[要求更多](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)。如需詳細資訊，請參閱 [Azure Redis 快取定價](https://azure.microsoft.com/pricing/details/cache/)。
+最大的高階快取大小為 53 GB。您最多可以建立 10 個分區，等於最大大小為 530 GB。如果您需要較大的大小，可以[要求更多](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)。如需詳細資訊，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/pricing/details/cache/)。
 
 ## 所有 Redis 用戶端都支援叢集嗎？
 
@@ -127,7 +132,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 ## 我可以直接連接到我的快取的個別分區嗎？
 
-目前官方尚未提供支援。如前所述，每個分區都包含一個主要/複本快取組，統稱為快取執行個體。您可以使用 GitHub 中 Redis 存放庫[不穩定](http://redis.io/download)分支內的 redis-cli 公用程式，連接到這些快取執行個體。使用 `-c` 參數啟用這個版本時，會實作基本支援。如需詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) ([http://redis.io](http://redis.io))。
+目前官方尚未提供支援。如前所述，每個分區都包含一個主要/複本快取組，統稱為快取執行個體。您可以使用 GitHub 中 Redis 存放庫[不穩定](http://redis.io/download)分支內的 redis-cli 公用程式，連接到這些快取執行個體。使用 `-c` 參數啟用這個版本時，會實作基本支援。如需詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中 [http://redis.io](http://redis.io) 上的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)。
 
 如為非 SSL，請使用下列命令。
 
@@ -141,7 +146,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 ## 我可以為先前建立的快取設定叢集嗎？
 
-目前您只能在建立快取時啟用叢集。您可以在建立快取之後變更分區計數，但無法在建立快取之後將叢集新增至高階快取，或從高階快取中移除叢集。已啟用叢集且只有一個分區的高階快取，與相同大小且沒有叢集的高階快取不同。
+目前您只能在建立快取時啟用叢集。您可以在建立快取之後變更叢集大小，但無法在建立快取之後將叢集新增至進階快取，或從進階快取中移除叢集。已啟用叢集且只有一個分區的高階快取，與相同大小且沒有叢集的高階快取不同。
 
 ## 我可以設定基本或標準快取的叢集嗎？
 
@@ -150,7 +155,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 ## 我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？
 
 -	**Redis 輸出快取提供者** - 不需要變更。
--	**Redis 工作階段狀態提供者** - 若要使用叢集，您必須使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 或更高版本，否則會擲回例外狀況。這是一項重大變更。如需詳細資訊，請參閱 [v2.0.0 重大變更詳細資料](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)。
+-	**Redis 工作階段狀態提供者** - 若要使用叢集，您必須使用 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 或更高版本，否則會擲回例外狀況。這是一項重大變更。如需詳細資訊，請參閱 [v2.0.0 重大變更詳細資料](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)。
 
 ## 後續步驟
 了解如何使用更多高階快取功能。
@@ -178,4 +183,4 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

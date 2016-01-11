@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/26/2015" 
+	ms.date="12/17/2015" 
 	ms.author="bradsev" />
 
 
@@ -91,19 +91,33 @@ Microsoft 資料科學虛擬機器可快速啟動分析專案。它能讓您處�
 
 一旦建立並佈建您的 VM，您已準備好開始使用在上面安裝及設定的工具。為許多工具提供了桌面圖示和開始功能表磚。
 
+## 如何在資料科學虛擬機器上建立強式密碼
+
+在資料科學虛擬機器上的命令提示字元中輸入下列命令，來建立您在該虛擬機器的專屬強式密碼。
+
+	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
+
+在系統提示時輸入您的密碼。
+
+您會在輸出中看到格式為 "sha1:xxxxxx" 的密碼雜湊。複製此密碼雜湊並取代您的 Notebook 設定檔中含參數名稱 ***c.NotebookApp.password*** 的現有密碼雜湊，設定檔位於：**C:\\Aaqs.ipython\\profile\_nbserver\\ipython\_notebook\_config.py**。
+
+您只應取代引號內現有的雜湊值。必須保留參數值的引號與 ***sha1:*** 前置詞。
+
+最後，您必須停止並重新啟動 IPython 伺服器，即 VM 上名為「Start\_IPython\_Notebook」的 Windows 排程工作。如果重新啟動此工作後不接受您的新密碼，請嘗試重新啟動虛擬機器。
+
 ## Microsoft 資料科學虛擬機器上所安裝的工具
 
 ### R
 如果您想要對您的分析使用 R，VM 會安裝 Revolution R Open (RRO)。這是 R 的 Open 來源散佈，與 CRAN-R 完全相容。它包含最新的開放原始碼 R 引擎以及 Intel Math Kernel Library。稱為 "RRO RGui" 的整合式開發環境 (IDE) 也會封裝在 VM 中。您也可以自由下載並使用其他整合式開發環境 (IDE)，例如 [RStudio](http://www.rstudio.com)。
 
 ### Python
-若要使用 Python 進行開發，則會安裝 Anaconda Python 散佈 2.7。這個散佈包含基本的 Python 以及大約 300 個最受歡迎的數學運算、工程設計和資料分析封裝。您可以使用安裝在 Visual Studio 2015 Community 版本內的 Python Tools for Visual Studio (PTVS)，或隨附於 Anaconda 的其中一個整合式開發環境 (IDE)，像是 IDLE 或 Spyder。您可以藉由在搜尋列上搜尋 (**Win** + **S** 鍵) 以啟動其中一個。
+若要使用 Python 進行開發，則會安裝 Anaconda Python 散佈 2.7。這個散佈包含基本的 Python 以及大約 300 個最受歡迎的數學運算、工程設計和資料分析封裝。您可以使用安裝在 Visual Studio 2015 Community 版本內的 Python Tools for Visual Studio (PTVS)，或隨附於 Anaconda 的其中一個整合式開發環境 (IDE)，像是 IDLE 或 Spyder。您可以藉由在搜尋列 (**Win** + **S** 鍵) 上搜尋以啟動其中一個。
 
 ### IPython Notebook
 Anaconda 散佈也提供 IPython Notebook，這是共用程式碼和分析的環境。Ipython Notebook 伺服器已預先設定。有一個桌面圖示可以啟動瀏覽器來存取 Notebook 伺服器。如果您是透過遠端桌面登入 VM，您也可以造訪 [https://localhost:9999/](https://localhost:9999/) 以存取 IPython Notebook 伺服器 (附註：如果您收到任何憑證警告，只要繼續作業即可。)
 
 ### Visual Studio 2015 Community 版本
-VM 上安裝的 Visual Studio Community 版本。它是 Microsoft 提供的熱門整合式開發環境 (IDE)E 的免費版本，您可以用於評估用途，適合非常小型的團隊。您可以在[這裡](https://www.visualstudio.com/support/legal/mt171547)確認授權條款。按兩下桌面圖示或 [開始] 功能表以開啟 Visual Studio。您也可以使用 **Win** + **S** 並輸入 "Visual Studio" 來搜尋程式。
+VM 上安裝的 Visual Studio Community 版本。它是 Microsoft 提供的熱門整合式開發環境 (IDE)E 的免費版本，您可以用於評估用途，適合非常小型的團隊。您可以在[這裡](https://www.visualstudio.com/support/legal/mt171547)查看授權條款。按兩下桌面圖示或 [開始] 功能表以開啟 Visual Studio。您也可以使用 **Win** + **S** 並輸入「Visual Studio」來搜尋程式。
 
 附註：您可能會收到訊息，表示您的評估期間已過期。您可以輸入 Microsoft 帳戶認證或建立認證並輸入，以取得 Visual Studio Community 版本的存取權。具備認證之後，您就可以使用像是 C#、Python 的語言來建立專案
 
@@ -111,15 +125,15 @@ VM 上安裝的 Visual Studio Community 版本。它是 Microsoft 提供的熱�
 受限的 SQL Server 版本也會與 Visual Studio Community 版本 一起封裝。您可以藉由啟動 [SQL Server Management Studio] 來存取 SQL Server。您的 VM 名稱會填入做為伺服器名稱。在 Windows 上以系統管理員身分登入時，使用 Windows 驗證。當您在 SQL Server Management Studio 中，可以建立其他使用者、建立資料庫、匯入資料以及執行 SQL 查詢。
 
 ### Azure 
-在 VM 上安裝數個 Azure 工具：- 有一個桌面捷徑可以存取 Azure SDK 文件。- **AzCopy** 是用來將資料移入和移出您的 Microsoft Azure 儲存體帳戶。- **Azure 儲存體總管**是用來瀏覽您儲存在 Azure 儲存體帳戶內的物件。- **Microsoft Azure Powershell** - 指令碼語言，使用同樣安裝在您 VM 上的指令碼語言管理您的 Azure 資源。
+VM 上已安裝數個 Azure 工具：- 有一個桌面捷徑可以存取 Azure SDK 文件。- **AzCopy** 是用來將資料移入和移出您的 Microsoft Azure 儲存體帳戶。- **Azure 儲存體總管**是用來瀏覽您儲存在 Azure 儲存體帳戶內的物件。- **Microsoft Azure Powershell** - 指令碼語言，使用同樣安裝在您 VM 上的指令碼語言管理您的 Azure 資源。
 
 ###Power BI
 
-為了協助您建立儀表板和絕佳的視覺效果，已安裝 **Power BI 桌面**。使用此工具以從不同來源提取資料，來撰寫您的儀表板和報告並發佈至雲端。如需詳細資訊，請參閱 [Power BI](http://powerbi.microsoft.com) 網站。
+為了協助您建立儀表板和絕佳的視覺效果，已安裝 **Power BI Desktop**。使用此工具以從不同來源提取資料，來撰寫您的儀表板和報告並發佈至雲端。如需詳細資訊，請參閱 [Power BI](http://powerbi.microsoft.com) 網站。
 
 附註：您需要 Office 365 帳戶才能存取 Power BI。
 
 ## 其他 Microsoft 開發工具
 [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) 可以用來探索並下載其他 Microsoft 開發工具。另外在 Microsoft 資料科學虛擬機器桌面上也有提供工具的捷徑。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

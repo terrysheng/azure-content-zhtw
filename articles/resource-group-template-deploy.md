@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
@@ -38,7 +38,7 @@
 - **加入**在範本中指定但未存在於資源群組中的資源 
 - **不重新佈建**現存於資源群組，並在範本中以相同條件定義的資源
  
-您可以透過 **Mode** 屬性指定部署類型。
+您可以透過 **Mode** 屬性，來為 PowerShell 和 REST API 指定部署類型，如下列範例所示。
 
 ## 使用 PowerShell 部署
 
@@ -100,9 +100,9 @@
           Mode              : Incremental
           ...
 
-     若要執行完整部署，將 **Mode** 設為 **Complete**。
+     若要執行完整部署，將 **Mode** 設為 **Complete**。請注意，系統會要求您確認，您的確想要使用可能會刪除資源的 Complete 模式。
 
-          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
           Confirm
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
@@ -203,7 +203,7 @@
              }
            }
    
-3. 建立新的資源群組部署。提供您的訂用帳戶識別碼、要部署之資源群組的名稱、部署的名稱，以及範本的位置。如需範本檔案的相關資訊，請參閱[參數檔案](./#parameter-file)。如需以 REST API 建立資源群組的相關詳細資訊，請參閱 [建立範本部署](https://msdn.microsoft.com/library/azure/dn790564.aspx)。若要執行完整部署，將 **mode** 設為 **Complete**。
+3. 建立新的資源群組部署。提供您的訂用帳戶識別碼、要部署之資源群組的名稱、部署的名稱，以及範本的位置。如需範本檔案的相關資訊，請參閱[參數檔案](./#parameter-file)。如需以 REST API 建立資源群組的相關詳細資訊，請參閱 [建立範本部署](https://msdn.microsoft.com/library/azure/dn790564.aspx)。請注意，**mode** 是設為 **Incremental**。若要執行完整部署，請將 **mode** 設為 **Complete**。
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -230,11 +230,11 @@
 
 有了 Visual Studio，您可以透過其使用者介面建立資源群組專案，並將其部署至 Azure。選取要包含在您專案中的資源類型後，這些資源會自動新增至資源管理員範本中。該專案也提供 PowerShell 指令碼來部署範本。
 
-如需透過資源群組使用 Visual Studio 的簡介，請參閱[透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+如需搭配資源群組使用 Visual Studio 的簡介，請參閱[透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 ## 使用入口網站部署
 
-您知道嗎？ Azure 資源管理員範本支援所有經由[入口網站](https://portal.azure.com/)建立的應用程式！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。只要選取**新增**圖示，您即可進入透過 Azure 資源管理員部署應用程式的程序。
+您知道嗎？ 您透過[入口網站](https://portal.azure.com/)所建立的每個應用程式，都受到一個 Azure 資源管理員範本的支援！ 只要透過入口網站建立虛擬機器、虛擬網路、儲存體帳戶、App Service 或資料庫，您就已經充分利用 Azure 資源管理員的優點，不多費心力。只要選取**新增**圖示，即可進入透過 Azure 資源管理員部署應用程式的程序。
 
 ![新增](./media/resource-group-template-deploy/new.png)
 
@@ -266,10 +266,10 @@
 ## 後續步驟
 - 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](arm-template-deployment.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
-- 如需將您的方案部署到不同的環境的指導，請參閱[在 Microsoft Azure 中開發和測試環境](solution-dev-test-environments-preview-portal.md)。
-- 若要了解 Azure 資源管理員範本的區段，請參閱[撰寫範本](resource-group-authoring-templates.md)
+- 如需如何將解決方案部署到不同環境的指南，請參閱[Microsoft Azure 中開發和測試環境](solution-dev-test-environments-preview-portal.md)。
+- 如要了解 Azure 資源管理員範本的區段，請參閱[編寫範本](resource-group-authoring-templates.md)
 - 如需可以在 Azure 資源管理員範本中使用的函式清單，請參閱[範本函式](resource-group-template-functions.md)
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

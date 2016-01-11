@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="12/17/2015" 
 	ms.author="josephd"/>
 
 # Azure 基礎結構服務工作負載：高可用性企業營運應用程式
@@ -58,41 +58,6 @@
 
 如需企業營運應用程式的概觀，請參閱[企業營運應用程式架構藍圖](http://msdn.microsoft.com/dn630664)。
 
-### 用料表
-
-基準組態需要下列 Azure 服務和元件的設定組：
-
-- 七部虛擬機器
-- 四個額外資料磁碟，適用於網域控制站和執行 SQL Server 的虛擬機器。
-- 三個可用性集合
-- 一個跨單位虛擬網路
-- 兩個儲存體帳戶
-
-以下是適用於此組態的虛擬機器及其預設大小。
-
-項目 | 虛擬機器描述 | 資源庫映像 | 預設大小 
---- | --- | --- | --- 
-1\. | 第一網域控制站 | Windows Server 2012 R2 Datacenter | D1
-2\. | 第二網域控制站 | Windows Server 2012 R2 Datacenter | D1
-3\. | 主要資料庫伺服器 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
-4\. | 次要資料庫伺服器 | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
-5\. | 叢集的多數節點 | Windows Server 2012 R2 Datacenter | D1
-6\. | 第一 Web 伺服器 | Windows Server 2012 R2 Datacenter | D3
-7\. | 第二 Web 伺服器 | Windows Server 2012 R2 Datacenter | D3
-
-若要計算此組態的預估成本，請參閱 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
-
-1. 在 [模組] 中，按一下 [計算]，然後按一下 [虛擬機器] 數次，直到足夠建立含有七個虛擬機器的清單為止。
-2. 針對每一個虛擬機器，選取：
-	- 您想要的區域
-	- [Windows] 類型
-	- [標準] 定價層
-	- 上表中的預設大小或您想要的大小來做為 [執行個體大小]
-
-> [AZURE.NOTE]「Azure 價格計算機」並未納入兩個執行 SQL Server 2014 Enterprise 之虛擬機器的額外 SQL Server 授權費用。如需詳細資訊，請參閱[虛擬機器定價-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
-
-### 部署階段
-
 若要部署此組態，請使用下列程序：
 
 - 第 1 階段：設定 Azure。 
@@ -117,16 +82,8 @@
 
 一旦設定之後，您可以透過新增更多的 Web 伺服器或執行 SQL Server 至叢集的虛擬機器，輕鬆擴充此企業營運應用程式。
 
-## 其他資源
+## 後續步驟
 
-[在 Azure 中部署高可用性的企業營運應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)
+- 在設定組態前先取得生產工作負載[概觀](virtual-machines-workload-high-availability-lob-application-overview.md)。
 
-[企業營運應用程式架構藍圖](http://msdn.microsoft.com/dn630664)
-
-[在混合式雲端中設定 Web 型 LOB 應用程式進行測試](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure 基礎結構服務工作負載：SharePoint Server 2013 陣列](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/11/2015"
+	ms.date="12/16/2015"
 	ms.author="sdanie" />
 
 # 如何設定 Azure Redis 快取
@@ -118,15 +118,16 @@
 
 >[AZURE.IMPORTANT]Redis 資料持續性僅適用於高階快取。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取的永續性](cache-how-to-premium-persistence.md)。
 
+<a name="cluster-size"></a>
 ## Redis 叢集大小
 
-按一下 [Redis 叢集大小 (預覽)]，針對已啟用叢集且目前執行中的進階快取，新增或移除分區。
+按一下 [Redis 叢集大小 (預覽)]，針對已啟用叢集且目前執行中的進階快取，變更叢集大小。
 
 >[AZURE.NOTE]請注意，雖然 Azure Redis 快取進階層已發行正式上市版，但 Redis 叢集大小功能目前為預覽狀態。
 
 ![Redis 叢集大小](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-若要變更分區計數，請使用滑桿，或在 [分區計數] 文字方塊中輸入 1 到 10 之間的數字，然後按一下 [確定] 加以儲存。
+若要變更叢集大小，請使用滑桿，或在 [分區計數] 文字方塊中輸入 1 到 10 之間的數字，然後按一下 [確定] 加以儲存。
 
 >[AZURE.IMPORTANT]Redis 叢集只適用於進階快取。如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取叢集](cache-how-to-premium-clustering.md)。
 
@@ -135,7 +136,7 @@
 
 ![Redis 快取使用者和標記](./media/cache-configure/IC808320.png)
 
-[使用者] 區段會在 Azure 入口網站中提供以角色區分的存取控制 (RBAC) 支援，協助組織輕鬆且準確地滿足其存取管理需求。如需詳細資訊，請參閱 [Azure 入口網站中以角色區分的存取控制](http://go.microsoft.com/fwlink/?LinkId=512803)。
+[使用者] 區段會在 Azure 入口網站中提供角色型存取控制 (RBAC) 支援，協助組織輕鬆且準確地滿足其存取管理需求。如需詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](http://go.microsoft.com/fwlink/?LinkId=512803)。
 
 [標記] 區段有助於您組織資源。如需詳細資訊，請參閱[使用標記組織您的 Azure 資源](../resource-group-using-tags.md)。
 
@@ -147,7 +148,7 @@
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->任何可設定的值 (例如 **max-memory-policy**) 都可以透過 Azure 入口網站加以設定。
+>任何可設定的值 (例如 **max-memory-policy**) 都可以透過 Azure 入口網站或命令列管理工具 (例如 Azure CLI 或 PowerShell) 加以設定。
 
 |設定|預設值|說明|
 |---|---|---|
@@ -177,7 +178,7 @@
 
 ## Azure Redis 快取中不支援的 Redis 命令
 
->[AZURE.IMPORTANT]因為 Azure Redis 快取執行個體的設定與管理是使用 Azure 入口網站來進行，所以會停用下列命令。如果嘗試叫用它們，會收到類似 `"(error) ERR unknown command"` 的錯誤訊息。
+>[AZURE.IMPORTANT]因為 Azure Redis 快取執行個體的設定與管理是由 Microsoft 管理，所以會停用下列命令。如果嘗試叫用它們，會收到類似 `"(error) ERR unknown command"` 的錯誤訊息。
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -192,12 +193,12 @@
 
 ## Redis 主控台
 
-您可以使用 [Redis 主控台]\(可供標準與進階快取使用) 安全地發出命令給您的 Azure Redis Cache 執行個體。
+您可以使用 [Redis 主控台] (可供標準與進階快取使用) 安全地發出命令給您的 Azure Redis 快取執行個體。
 
 >[AZURE.IMPORTANT]Redis 主控台無法使用 VNET 或叢集。
 >
 >-	[VNET](cache-how-to-premium-vnet.md) - 如果您的快取是 VNET 的一部分，只有在 VNET 中的用戶端可以存取快取。Redis 主控台使用的 redis cli.exe 用戶端裝載於不屬於您 VNET 的 VM 上，因此主控台無法連接到您的快取。
->-	[叢集](cache-how-to-premium-clustering.md) - Redis 主控台使用目前不支援叢集的 redis-cli.exe 用戶端。在 GitHub 的 Redis 存放庫[不穩定](http://redis.io/download)的分支內之 redis-cli 公用程式，於使用 `-c` 參數啟動時，會具備基本支援。如需詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中 [http://redis.io](http://redis.io) 上的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)。
+>-	[叢集](cache-how-to-premium-clustering.md) - Redis 主控台使用目前不支援叢集的 redis-cli.exe 用戶端。在 GitHub 的 Redis 存放庫[不穩定](http://redis.io/download)分支中的 redis-cli 公用程式，於使用 `-c` 參數啟動時，會實作基本支援。如需詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中 [http://redis.io](http://redis.io) 上的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)。
 
 若要存取 Redis 主控台，請從 [Redis 快取] 刀鋒視窗按一下 [主控台]。
 
@@ -210,6 +211,6 @@
 如需對 Azure Redis 快取所停用之 Redis 命令的清單，請參閱先前的 [Azure Redis 快取中不支援的 Redis 命令](#redis-commands-not-supported-in-azure-redis-cache)一節。如需 Redis 命令的詳細資訊，請參閱 [http://redis.io/commands](http://redis.io/commands)。
 
 ## 後續步驟
--	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)一節。
+-	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)。
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

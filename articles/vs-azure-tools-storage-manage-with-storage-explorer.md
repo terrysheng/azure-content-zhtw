@@ -3,7 +3,7 @@
 	description="描述如何使用 Microsoft Azure 儲存體總管 (預覽) 來建立和管理 Azure 儲存體資源。"
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/17/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # 使用儲存體總管管理 Azure 儲存體資源 (預覽)
 
@@ -182,4 +182,4 @@ Microsoft Azure 儲存體總管 (預覽) 是獨立的工具，可協助您輕鬆
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

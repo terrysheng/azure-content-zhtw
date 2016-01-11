@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # 使用原則來管理資源和控制存取
@@ -22,7 +22,7 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。您可�
 
 建立描述您想要明確拒絕之動作或資源的原則定義。在所需範圍內指派那些原則定義，例如訂用帳戶、資源群組或是個別的資源。
 
-在本文中，我們將說明您可用來建立原則的原則定義語言的基本結構。然後我們將說明如何可以在不同範圍套用這些原則，並在最後示範如何透過 REST API 達成此目的的一些範例。
+在本文中，我們將說明您可用來建立原則的原則定義語言的基本結構。然後我們將說明如何在不同範圍套用這些原則，並在最後提供幾個範例，示範如何透過 REST API 達成這個目標。
 
 原則目前以預覽版提供。
 
@@ -32,7 +32,7 @@ Azure 資源管理員現在可讓您透過自訂原則來控制存取。您可�
 
 RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若特定使用者被加入所需範圍內之資源群組的參與者角色中，該使用者便能對該資源群組做出變更。
 
-原則著重於各種範圍內的**資源**動作。例如，您能夠透過原則控制可以佈建的資源類型，或限制資源可以佈建的位置。
+原則著重於各種範圍的**資源**動作。例如，您能夠透過原則控制可以佈建的資源類型，或限制資源可以佈建的位置。
 
 ## 常見案例
 
@@ -50,9 +50,9 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 
 基本上，原則包含下列：
 
-**條件/邏輯運算子：**它包含一組可透過一組邏輯運算子操作的條件。
+**條件/邏輯運算子：**包含一組條件，可讓您透過一組邏輯運算子來操作。
 
-**效果：**這說明當滿足條件時會發生的效果 – 拒絕或稽核。稽核效果會發出警告事件服務記錄檔。例如，系統管理員可以建立原則，如果有任何人建立大型 VM，然後稍後檢閱記錄檔，則此原則會引發稽核。
+**效果：**說明當滿足條件時 (無論是拒絕或稽核) 會發生的效果。稽核效果會發出警告事件服務記錄檔。例如，系統管理員可以建立原則，如果有任何人建立大型 VM，然後稍後檢閱記錄檔，則此原則會引發稽核。
 
     {
       "if" : {
@@ -70,15 +70,15 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 
 | 運算子名稱 | 語法 |
 | :------------- | :------------- |
-| Not | "not" : {&lt;條件或運算子 &gt;} |
-| 和 | "allOf" : [ {&lt;條件 1&gt;},{&lt;條件 2&gt;}] |
-| 或 | "anyOf" : [ {&lt;條件 1&gt;},{&lt;條件 2&gt;}] |
+| 否 | "not" : {&lt;條件或運算子 &gt;} |
+| 和 | "allOf" : [ {&lt;條件或運算子 &gt;},{&lt;條件或運算子 &gt;}] |
+| 或 | "anyOf" : [ {&lt;條件或運算子 &gt;},{&lt;條件或運算子 &gt;}] |
 
-不支援巢狀條件。
+資源管理員可讓您透過巢狀運算子，在您的原則中指定複雜邏輯。例如，您可以拒絕在特定位置為指定資源類型建立資源。下面有巢狀運算子的範例。
 
 ## 條件
 
-條件將評估**欄位**或**來源**是否符合特定準則。以下列出支援的條件名稱以及語法：
+條件會評估某個**欄位**或**來源**是否符合特定準則。以下列出支援的條件名稱及語法：
 
 | 條件名稱 | 語法 |
 | :------------- | :------------- |
@@ -88,10 +88,9 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 | 在 | "in" : [ "&lt;值 1&gt;","&lt;值 2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;機碼名稱&gt;" |
 
-
 ## 欄位和來源
 
-透過使用欄位和來源形成條件。欄位代表資源要求裝載中的屬性來源代表要求本身的特性。
+條件是透過欄位和來源的使用所形成。欄位代表資源要求裝載中的屬性來源代表要求本身的特性。
 
 支援下列欄位和來源：
 
@@ -99,7 +98,7 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 
 來源：**action**。
 
-如需有關動作的詳細資訊，請參閱 [RBAC - 內建角色](active-directory/role-based-access-built-in-roles.md)。
+如需有關動作的詳細資訊，請參閱 [RBAC - 內建角色](active-directory/role-based-access-built-in-roles.md)。目前，原則只能適用於 PUT 要求。
 
 ## 原則定義範例
 
@@ -185,6 +184,30 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
         "effect" : "deny"
       }
     }
+    
+### 只適用於儲存體資源的標記需求
+
+下列範例說明，如何建立巢狀邏輯運算子來只為儲存體資源要求應用程式標記。
+
+    {
+        "if": {
+            "allOf": [
+              {
+                "not": {
+                  "field": "tags",
+                  "containsKey": "application"
+                }
+              },
+              {
+                "source": "action",
+                "like": "Microsoft.Storage/*"
+              }
+            ]
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
 
 ## 原則指派
 
@@ -226,7 +249,7 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
     }
 
 
-原則定義可以定義為如上所示的其中一個範例。針對 api-version，請使用 *2015-10-01-preview*。如需範例與詳細資料，請參閱[適用於原則定義的 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)。
+原則定義可以定義為如上所示的其中一個範例。對於 api-version，請使用 *2015-10-01-preview*。如需範例與更多詳細資料，請參閱[適用於原則定義的 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)。
 
 ### 使用 PowerShell 建立原則定義
 
@@ -258,7 +281,7 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} 是原則指派的名稱。針對 api-version，請使用 *2015-10-01-preview*。
+{policy-assignment} 是原則指派的名稱。對於 api-version，請使用 *2015-10-01-preview*。
 
 使用如下的要求內文：
 
@@ -273,7 +296,7 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
       "name":"VMPolicyAssignment"
     }
 
-如需範例與詳細資料，請參閱[適用於原則指派的 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)。
+如需範例與其他詳細資料，請參閱[適用於原則指派的 REST API](https://msdn.microsoft.com/library/azure/mt588466.aspx)。
 
 ### 使用 PowerShell 指派原則
 
@@ -291,4 +314,17 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 
 同樣地，您可以分別透過 Get-AzureRmPolicyAssignment、Set-AzureRmPolicyAssignment 和 Remove-AzureRmPolicyAssignment 取得、變更或移除原則指派。
 
-<!---HONumber=Nov15_HO3-->
+##原則稽核事件
+
+在您套用原則之後，您會開始看到原則相關的事件。您可以前往入口網站，或使用 PowerShell 來取得這項資料。
+
+如要檢視所有與拒絕效果相關的事件，可以使用下列命令。
+
+    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+
+如要檢視所有與稽核效果相關的事件，可以使用下列命令。
+
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
+    
+
+<!---HONumber=AcomDC_1223_2015-->

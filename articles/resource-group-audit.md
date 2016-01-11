@@ -158,8 +158,8 @@
 
 ## 後續步驟
 
-- 若要了解如何設定安全性原則，請參閱[管理資源的存取權](resource-group-rbac.md)。
+- 如要了解如何設定安全性原則，請參閱[Azure 角色型存取控制](./active-directory/role-based-access-control-configure.md)。
 - 若要了解授與存取權給服務主體的相關資訊，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)。
 - 若要了解如何對所有使用者的資源採取動作，請參閱[使用 Azure 資源管理員鎖定資源](resource-group-lock-resources.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

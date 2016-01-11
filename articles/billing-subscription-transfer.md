@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="12/01/2015"
+   ms.date="12/21/2015"
    ms.author="curtand;kareni;ruchic"/>
 
 # 移轉 Azure 訂用帳戶
@@ -71,7 +71,7 @@
 
     這不是完整的清單。如果接受者需要限制對其資源的存取權，則應該考慮更新與服務相關聯的任何密碼。大部分資源可以更新如下：
 
-    1.   移至 Azure 入口網站：[**https://portal.azure.com*](https://portal.azure.com)
+    1.   移至 Azure 入口網站：[*https://portal.azure.com*](https://portal.azure.com)
 
     2.    按一下 [全部瀏覽] -&gt; [所有資源]
 
@@ -98,7 +98,7 @@
 
 -   **接受者可以使用不同的付款機制嗎？**
 
-    是，事實上您可以使用這項機制，將訂用帳戶的付款方法從發票變更為信用卡。請移轉至您擁有的另一個帳戶，然後在收到訂用帳戶時輸入您的信用卡。有以下限制：現在訂用帳戶帳單記錄拆成兩個帳戶。但好處是您不必[連絡支援服務](http://go.microsoft.com/fwlink/?LinkID=619338)也可這樣做。
+    是。有以下限制：現在訂用帳戶帳單記錄拆成兩個帳戶。但好處是您不必[連絡支援服務](http://go.microsoft.com/fwlink/?LinkID=619338)也可這樣做。
 
 ## 接受訂閱擁有權後的後續步驟
 
@@ -111,4 +111,4 @@
 4. 請至 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)[深入了解](http://go.microsoft.com/fwlink/?LinkID=533292) 更新此訂用帳戶的計費警示。
 5. 	如果您正與合作夥伴協力作業，請考慮更新此訂用帳戶的合作夥伴 ID。您可以在 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)中執行這個動作。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

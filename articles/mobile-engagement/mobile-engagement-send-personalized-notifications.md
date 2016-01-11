@@ -59,7 +59,7 @@
 
 ![][4]
 
-> [AZURE.NOTE]未設定 user\_name 應用程式資訊的任何使用者，不會收到任何通知。
+> [AZURE.NOTE]未設定 user\_name 應用程式資訊的任何使用者，不會收到任何通知。如果您在測試模式中執行通知活動，且如果您沒有設定應用程式資訊，則我們將傳送 '?' 字元來取代預留位置。
 
 2) 當 Mobile Engagement 選取裝置來傳送此通知時，則它會查看此應用程式資訊，並取代預留位置的值。例如，如果我們為使用者設定 `str = "Scott"`，則裝置註冊會針對此使用者與 **user\_name = SCOTT** 產生關聯，而且此使用者會看到下列格式的應用程式推播通知。
 
@@ -72,4 +72,4 @@
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

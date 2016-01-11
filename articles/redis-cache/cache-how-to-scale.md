@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # 如何調整 Azure Redis 快取
 
->[AZURE.NOTE]Azure Redis 快取調整功能目前只能預覽。在預覽期間，您無法向上調整為高階層次快取，或無法由此向下調整，但是您可以變更高階快取內的定價層。
+>[AZURE.NOTE]Azure Redis 快取調整功能目前只能預覽。在預覽期間，您無法向上調整為進階層快取或由此向下調整，但是您可以變更進階快取內的定價層，且您可以在啟用叢集的進階快取中[變更叢集大小](cache-how-to-premium-clustering.md#cluster-size)。
 
 Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大小和功能的彈性。如果應用程式需求在建立快取之後變更，您可以使用 [Azure 入口網站](https://portal.azure.com)中的 [變更定價層] 刀鋒視窗來調整快取大小。
 
@@ -48,7 +48,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 >[AZURE.NOTE]您可以調整具有下列限制的不同定價層。
 >
->-	您無法向上調整為 **Premium** 快取，或由此向下調整。
+>-	您無法向上調整為**進階**快取，或由此向下調整。
 >-	您無法從**標準**快取調整到**基本**快取。
 >-	您可以從**基本**快取調整到**標準**快取，但您無法同時變更大小。如果您需要不同的大小，您可以進行後續調整作業，調整到您需要的大小。
 >-	您無法從較大的大小向下調整至 **C0 (250 MB)** 的大小。
@@ -61,7 +61,25 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 ## 如何自動化調整作業
 
-除了調整 Azure 入口網站中的 Azure Redis 快取執行個體之外，您還可以使用 [Microsoft Azure 管理庫 (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/) 進行調整。若要調整您的快取，請呼叫 `IRedisOperations.CreateOrUpdate` 方法，並傳入 `RedisProperties.SKU.Capacity` 的新大小。
+除了調整 Azure 入口網站中的 Azure Redis 快取執行個體之外，您還可以使用 Azure Redis 快取 PowerShell Cmdlet、Azure CLI，和使用 Microsoft Azure 管理庫 (MAML) 來進行調整。
+
+### 使用 PowerShell 進行調整
+
+修改 `Size`、`Sku`，或 `ShardCount` 屬性時，您可以使用 [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) Cmdlet 搭配 PowerShell 來調整您的 Azure Redis 快取執行個體。下列範例示範如何將名為 `myCache` 的快取調整為 2.5 GB 快取。
+
+	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+
+如需有關如何使用 PowerShell 進行調整的詳細資訊，請參閱[使用 Powershell 調整 Redis 快取](cache-howto-manage-redis-cache-powershell.md#scale)。
+
+### 使用 Azure CLI 進行調整
+
+若要使用 Azure CLI 調整您的 Azure Redis 快取執行個體，請呼叫 `azure rediscache set` 命令並傳入所需的設定變更，其中包括新的大小、SKU 或叢集大小，視所需的調整作業而定。
+
+如需有關如何使用 Azure CLI 進行調整的詳細資訊，請參閱[變更現有 Redis 快取的設定](cache-manage-cli.md#scale)。
+
+### 使用 MAML 進行調整
+
+若要使用 [Microsoft Azure 管理庫 (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/) 來調整您的 Azure Redis 快取執行個體，請呼叫 `IRedisOperations.CreateOrUpdate` 方法並傳入 `RedisProperties.SKU.Capacity` 的新大小。
 
     static void Main(string[] args)
     {
@@ -89,10 +107,10 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 ## 可以向上調整為 Premium 快取，或在其中調整、向下調整嗎？
 
--	您無法從**基本**或**標準**定價層，擴充至**進階**快取定價層。
--	您無法從**進階**快取擴充至**基本**或**標準**定價層。
--	您可以將一個**進階**快取定價層擴充成另一個定價層。
--	如果在建立**進階**快取時已啟用叢集，可以向上或向下調整分區計數。
+-	您無法從**基本**或**標準**定價層，調整到**進階**快取定價層。
+-	您無法從**進階**快取調整至**基本**或**標準**定價層。
+-	您可以將一個**進階**快取定價層調整為另一個定價層。
+-	如果在建立**進階**快取時已啟用叢集，您可以[變更叢集大小](cache-how-to-premium-clustering.md#cluster-size)。
 
 如需詳細資訊，請參閱[如何設定進階 Azure Redis 快取叢集](cache-how-to-premium-clustering.md)。
 
@@ -126,11 +144,11 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 ## 不支援的作業
 
-您無法調整為**進階**快取或從進階快取進行調整。
+您無法向上調整為**進階**快取，或由此向下調整。
 
 您無法從**標準**快取變更為**基本**快取。
 
-您可以從**基本**快取調整為**標準**快取，但無法同時變更大小。如果您需要不同的大小，您可以進行後續調整作業，調整到您需要的大小。
+您可以從**基本**快取調整到**標準**快取，但您無法同時變更大小。如果您需要不同的大小，您可以進行後續調整作業，調整到您需要的大小。
 
 您可以從 **C0** (250 MB) 快取放大為較大小，但無法將較大大小縮小為 **C0** 快取。
 
@@ -160,4 +178,4 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

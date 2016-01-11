@@ -14,19 +14,19 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/11/2015" 
+	ms.date="12/17/2015" 
 	ms.author="betorres"
 />
 
 
-# 啟用和使用搜尋流量分析 #
+# 啟用和使用搜尋流量分析
 
 搜尋流量分析是一項 Azure 搜尋服務功能，可讓您掌握您的搜尋服務，並深入分析您的使用者及其行為。當您啟用此功能時，您的搜尋服務資料會複製到您選擇的儲存體帳戶。此資料包括您的搜尋服務記錄檔和彙總的作業度量。之後，您就能利用任何方式來處理和管理使用方式資料。
 
 
-## 如何啟用搜尋流量分析 ##
+## 如何啟用搜尋流量分析
 
-### 1\.使用入口網站 ###
+### 1\.使用入口網站
 在 [Azure 入口網站](http://portal.azure.com)中開啟 Azure 搜尋服務。您可以在 [設定] 下方找到 [搜尋流量分析] 選項。
 
 ![][1]
@@ -40,7 +40,7 @@
 > 
 > 標準收費適用此儲存體帳戶
 
-### 2\.使用 PowerShell ###
+### 2\.使用 PowerShell
 
 您也可以執行下列 PowerShell Cmdlet 來啟用此功能。
 
@@ -68,7 +68,7 @@ Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/prov
     insights-metrics-pt1m: aggregated metrics
 
 
-## 了解資料 ##
+## 了解資料
 
 資料會以 JSON 格式儲存於 Azure 儲存體 Blob 中。
 
@@ -76,13 +76,13 @@ Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/prov
   
 範例路徑：`resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
-### 記錄檔 ###
+### 記錄檔
 
 記錄檔 Blob 包含您的搜尋服務流量記錄檔。
 
 每個 Blob 會一個名為**記錄**的根物件，其中包含記錄檔物件的陣列
 
-####記錄檔結構描述####
+####記錄檔結構描述
 
 名稱 |類型 |範例 |注意事項 
 ------|-----|----|-----
@@ -96,7 +96,7 @@ resultSignature |int |200 |HTTP 結果碼
 durationMS |int |50 |作業的持續時間 (以毫秒為單位) 
 properties |物件 |請參閱下方 |包含作業特定資料的物件
 
-####屬性結構描述####
+####屬性結構描述
 
 |名稱 |類型 |範例 |注意事項|
 |------|-----|----|-----|
@@ -105,7 +105,7 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 |文件 |int |42 |處理的文件數目|
 |IndexName |字串 |"testindex"|與作業相關聯的索引名稱 |
 
-### 度量 ###
+### 度量
 
 度量 Blob 包含您搜尋服務的彙總值。每個檔案會一個名為**記錄**的根物件，其中包含度量物件的陣列
 
@@ -113,7 +113,7 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 
 - 延遲
 
-####度量結構描述####
+####度量結構描述
 
 |名稱 |類型 |範例 |注意事項|
 |------|-----|----|-----|
@@ -127,15 +127,15 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 |計數 |int |4 |用來產生度量的原始樣本數 |
 |timegrain |字串 |"PT1M" |採用 ISO 8601 的度量時間粒紋|
 
-## 分析您的資料 ##
+## 分析您的資料
 
 資料會在您的儲存體帳戶中，而我們鼓勵您以最適合您狀況的方式來探索此資料。
 
-我們建議您一開始使用 [Power BI Desktop](https://powerbi.microsoft.com/zh-TW/desktop) 來探索和視覺化資料。您可以輕鬆地連線到您的 Azure 儲存體帳戶，並快速開始分析您的資料。
+我們建議您一開始使用 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop) 來探索和視覺化資料。您可以輕鬆地連線到您的 Azure 儲存體帳戶，並快速開始分析您的資料。
 
 請查看下列範例查詢，讓您在 Power BI Desktop 中建立自己的報表。
 
-### 範例的指示 ###
+### 範例的指示
 
 1. 開啟新的 PowerBI Desktop 報表
 2. 選取 [取得資料] -> [更多...]
@@ -147,8 +147,8 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 	![][4]
 
 4. 輸入您儲存體帳戶的名稱和帳戶金鑰
-5. 使用滑鼠右鍵按一下 insight-logs-operationlogs，然後選取 [載入]
-6. 隨即會開啟 [查詢編輯器]。現在依序選取 [檢視]-> [進階編輯器] 來開啟 [進階編輯器]
+5. 選取 [insight-logs-operationlogs] 和 [insights-metrics-pt1m]，接著按一下 [編輯]
+6. 隨即會開啟 [查詢編輯器]，請確定已選取左方的 [insight-logs-operationlogs]。現在依序選取 [檢視]-> [進階編輯器] 來開啟 [進階編輯器]
 
 	![][5]
 
@@ -156,7 +156,7 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 
 	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
-	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",288),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
 	>     #"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
 	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
 	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
@@ -181,15 +181,37 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 	>     in
 	>     #"Changed Type2"
 
-8. 按一下 [完成]，然後選取 [常用] 索引標籤中的 [關閉並套用]。
+8. 按一下 [完成]
 
-9. 現在準備好取用您的資料。請繼續進行，並建立一些[視覺效果](https://powerbi.microsoft.com/zh-TW/documentation/powerbi-desktop-report-view/)。
+9. 現在從左方最後的查詢選取 [insights-metrics-pt1m]，然後再次開啟 [進階編輯器]。保留前 2 行，並使用下列查詢來取代其餘部分：
 
-## 後續步驟 ##
+	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
+	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
+    	#"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
+	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
+	>     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
+	>     #"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
+	>     #"Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
+	>     #"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
+	>     #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
+	>     #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
+	>         Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
+	>     #"Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
+	>     #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
+	>     in
+    	#"Inserted Date"
+
+10. 按一下 [完成]，然後選取 [常用] 索引標籤中的 [關閉並套用]。
+
+11. 您過去 30 天的資料現在已準備好提供取用。請繼續進行，並建立一些[視覺效果](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/)。
+
+## 後續步驟
 
 深入了解搜尋語法和查詢參數。如需詳細資訊，請參閱[搜尋文件 (Azure 搜尋服務 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)。
 
-深入了解如何建立令人讚嘆的報告。如需詳細資訊，請參閱[開始使用 Power BI Desktop](https://powerbi.microsoft.com/zh-TW/documentation/powerbi-desktop-getting-started/)
+深入了解如何建立令人讚嘆的報告。如需詳細資訊，請參閱[開始使用 Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
 
 <!--Image references-->
 
@@ -199,4 +221,4 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

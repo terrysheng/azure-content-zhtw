@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="12/23/2015" 
 	ms.author="mimig"/>
 
 # 使用一致性層級以最大化 DocumentDB 中的可用性和效能
@@ -88,4 +88,4 @@
 -	Werner Vogels。再論最終一致。[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

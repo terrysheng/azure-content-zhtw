@@ -14,13 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="andrela"/>
 
 
 # 在 Ubuntu Linux 上使用 Python 連接到 SQL Database
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
+- [Node.js](sql-database-develop-nodejs-simple-linux.md)
+- [Ruby](sql-database-develop-ruby-simple-linux.md)
+
 
 本主題提供可在 Ubuntu Linux 用戶端電腦上執行，以連接到 Azure SQL Database 資料庫的 Ruby 程式碼範例。
 
@@ -66,7 +71,7 @@
 
 ## 步驟 2：連接
 
-[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 函數可用來連接到 SQL Database。
+[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 函式可用來連接到 SQL Database。
 
     require 'tiny_tds'
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
@@ -116,4 +121,4 @@
     puts row
     end
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

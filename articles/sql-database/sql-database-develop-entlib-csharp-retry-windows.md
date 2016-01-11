@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # 程式碼範例：C&#x23 中用於連接到 SQL Database 的 Enterprise Library 6 重試邏輯
+
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 本主題呈現完整的程式碼範例，示範 Enterprise Library (EntLib)。EntLib 簡化用戶端程式與雲端服務 (例如 Azure SQL Database) 互動的許多工作。我們的範例著重在包括暫時性錯誤的重試邏輯這類重要工作。
@@ -29,10 +35,14 @@ EntLib 類別是設計用來區分兩種類別的執行階段錯誤：
 - 永遠不會自行修正的錯誤，例如拼錯的伺服器名稱。
 - 暫時性錯誤，例如在 Azure 系統負載平衡時，伺服器因為接受新的連線而暫停幾秒鐘。
 
+
 Enterprise Library 6 (EntLib60) 是最新版本，已經在 2013 年 4 月發行。
 
+- Microsoft 已將原始程式碼向大眾公開。
+- Microsoft 沒有計畫繼續維護原始程式碼。
 
-## 必要條件
+
+## 先決條件
 
 
 #### .NET Framework 4.0 或更高版本
@@ -70,7 +80,7 @@ Enterprise Library 6 (EntLib60) 是最新版本，已經在 2013 年 4 月發行
 - 在 [EntLib60 的主要文件集主題](http://msdn.microsoft.com/library/dn169621.aspx)，找到標示為 **Downloads** 的列，然後按一下 [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) 下載二進位檔 .DLL 組件檔案。
 
 
-EntLib60 有數個 .DLL 組件檔案，名稱以相同的前置詞 **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll** 為開頭，但此程式碼範例只需要下列兩個組件：
+EntLib60 有數個 .DLL 組件檔案，名稱是以相同的前置詞 **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll** 為開頭，但此程式碼範例只需要下列兩個組件：
 
 - Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling**.dll
 - Microsoft.Practices.EnterpriseLibrary.**TransientFaultHandling.Data**.dll
@@ -89,7 +99,7 @@ EntLib 類別是用來建構其他 EntLib 類別。在此程式碼範例中，�
  - **SqlDatabaseTransientErrorDetectionStrategy** 物件。
 4. 建構 **ReliableSqlConnection** 物件。輸入的參數有：
  - 一個 **String** 物件 - 使用伺服器名稱和其他連接資訊。
- - **RetryPolicy** 類別。
+ - **RetryPolicy** 物件。
 5. 透過 **RetryPolicy .ExecuteAction** 方法呼叫進行連接。
 6. 呼叫 **ReliableSqlConnection .CreateCommand** 方法。
  - 傳回 **System.SqlClient.Data.DbCommand** 物件，這是 ADO.NET 的一部分。
@@ -320,4 +330,4 @@ SELECT TOP 3
 
 - [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

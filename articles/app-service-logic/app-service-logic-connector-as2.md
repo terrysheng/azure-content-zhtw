@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # 開始使用 AS2 連接器並將它加入您的邏輯應用程式
@@ -59,7 +59,7 @@ TPM 執行個體名稱 | 輸入您先前建立的 **BizTalk 交易夥伴管理**
 
 交易夥伴是指涉及 B2B (企業對企業) 通訊的實體。當兩個夥伴建立關係時，這稱為協議。定義的協議會以這兩個夥伴想要達成的通訊為基礎，且是特定的通訊協定或傳輸。
 
-[這裡][2]說明建立交易夥伴協議的步驟。
+請參閱[建立交易夥伴協議][2]的步驟。
 
 ## 使用連接器做為觸發程序
 
@@ -125,4 +125,4 @@ AS2 目標 | 字串 | AS2 訊息接收者的 AS2 識別。這個參數是用來�
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

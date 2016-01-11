@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="使用 Visual Studio 存取 Azure 私人雲端"
+   pageTitle="使用 Visual Studio 存取 Azure 私人雲端 | Microsoft Azure"
    description="了解如何使用 Visual Studio 存取私人雲端資源。"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # 使用 Visual Studio 存取 Azure 私人雲端
@@ -43,4 +43,4 @@
 
 [如何：下載和匯入發佈設定和訂用帳戶資訊](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

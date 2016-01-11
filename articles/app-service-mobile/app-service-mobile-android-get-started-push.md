@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 Azure Mobile Apps 將推播通知新增至 Android 應用程式"
-	description="了解如何使用 Azure Mobile Apps 將推播通知傳送至 Android 應用程式。"
+	pageTitle="使用 Azure 行動應用程式將推播通知新增至 Android 應用程式"
+	description="了解如何使用 Azure 行動應用程式將推播通知傳送至 Android 應用程式。"
 	services="app-service\mobile"
 	documentationCenter="android"
 	manager="dwrede"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="12/18/2015"
 	ms.author="yuaxu"/>
 
 # 將推播通知新增至 Android 應用程式
@@ -49,11 +49,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="publish-the-service"></a>將行動後端發佈至 Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ## 將推播通知新增至應用程式
+
+您必須確認自己的 Android 應用程式專案能夠處理推播通知。
 
 ###驗證 Android SDK 版本
 
@@ -77,9 +75,9 @@
 
 ##<a id="more"></a>更多資訊
 
-* 標記可讓您使用推播鎖定區隔的客戶。[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 示範如何在安裝裝置時加入標記。
+* 標記可讓您使用推播鎖定區隔的客戶。[使用適用於 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)一文，說明如何在裝置安裝中新增標記。
 
 <!-- URLs -->
 [Android 快速入門]: app-service-mobile-android-get-started.md
 
-<!-------HONumber=AcomDC_1210_2015---->
+<!----HONumber=AcomDC_1223_2015-->

@@ -3,7 +3,7 @@
 	description="了解如何搭配 Azure Active Directory 使用 Amazon Web Service (AWS) 來啟用單一登入、自動化佈建和更多功能！"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2015"
-	ms.author="markvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 Amazon Web 服務 (AWS) 整合
@@ -320,4 +320,4 @@
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,54 +14,56 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="12/22/2015" 
 	ms.author="nitinme"/>
 
 
-# 在 Azure HDInsight 上使用 Apache Spark 建置機器學習服務應用程式
+# 在 Azure HDInsight 上使用 Apache Spark 建置機器學習服務應用程式 (Linux)
 
 了解如何在 HDInsight 中使用 Apache Spark 叢集建置機器學習應用程式。本文說明如何使用叢集隨附的 Jupyter Notebook 來建置及測試應用程式。應用程式使用所有叢集預設提供的範例 HVAC.csv 資料。
+
+> [AZURE.TIP]本教學課程也適用於您在 HDInsight 中所建立 Spark (Linux) 叢集上的 Jupyter Notebook。Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。如要從 Notebook 中執行本教學課程，請建立 Spark 叢集、啟動 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)，然後執行 **Python** 資料夾中的 Notebook [Spark 機器學習 - 利用 HVAC data.ipynb 來預測建築物溫度]。
 
 **必要條件：**
 
 您必須滿足以下條件：
 
 - Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-- Apache Spark 叢集。如需相關指示，請參閱[在 Azure HDInsight 中佈建 Apache Spark 叢集](hdinsight-apache-spark-provision-clusters.md)。 
+- 在 HDInsight Linux 上的 Apache Spark 叢集如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-jupyter-spark-sql.md)。 
 
-##<a name="data"></a>展示資料
+##<a name="data"></a>顯示資料
 
 在開始建置應用程式之前，我們先來了解資料的結構，以及要針對資料執行哪種分析。
 
-在本文中，我們使用所有 HDInsight 叢集預設提供的範例 **HVAC.csv** 資料檔案，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。下載及開啟 CSV 檔案，以取得資料的快照。
+在本文中，我們會使用所有 HDInsight 叢集預設提供的範例 **HVAC.csv** 資料檔案 (位於 **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**)。下載及開啟 CSV 檔案，以取得資料的快照。
 
-![HVAC 資料快照](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.png "HVAC 資料的快照")
+![HVAC 資料快照](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "HVAC 資料的快照")
 
-這項資料會顯示安裝 HVAC 系統之建築物的目標溫度和實際溫度。我們假設 [**System**] 資料行代表系統識別碼，[**SystemAge**] 資料行代表建築物安裝 HVAC 系統的年數。
+這項資料會顯示安裝 HVAC 系統之建築物的目標溫度和實際溫度。我們假設 [System] 資料行代表系統識別碼，而 [SystemAge] 資料行代表 HVAC 系統安裝在建築物中的年數。
 
 在指定系統識別碼和系統年期的情況下，我們可以使用這些資料來預測建築物的溫度會比目標溫度高或低。
 
-##<a name="app"></a>使用 Spark MLlib 撰寫機器學習應用程式
+##<a name="app"></a>使用 Spark MLlib 編寫機器學習應用程式
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以在 [瀏覽全部] > [HDInsight 叢集] 下巡覽至您的叢集。   
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您 Spark 叢集的磚 (如果您已把它釘選到開始面板)。您也可以瀏覽到自己的叢集，方法是按一下 [瀏覽全部] > [HDInsight 叢集]。   
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
-	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。將 __CLUSTERNAME__ 取代為您叢集的名稱：
+	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。請用您叢集的名稱取代 __CLUSTERNAME__：
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 2. 建立新的 Notebook。按一下 [新增]，然後按一下 [Python 2]。
 
-	![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.CreateNotebook.png "建立新的 Jupyter Notebook")
+	![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "建立新的 Jupyter Notebook")
 
 3. 系統隨即會建立新 Notebook，並以 Untitled.pynb 的名稱開啟。在頂端按一下 Notebook 名稱，然後輸入好記的名稱。
 
-	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.Notebook.Name.png "提供 Notebook 的名稱")
+	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "提供 Notebook 的名稱")
 
 3. 開始建置機器學習服務應用程式。在此應用程式中，我們會使用 Spark ML 管線來執行文件分類。在管線中，我們將文件分割成單字、將單字轉換成數值特性向量，最後再使用特性向量和標籤建立預測模型。
 
-	若要開始建置應用程式，您需要先匯入所需的模組，並將資源指派給應用程式。將以下程式碼片段貼入新筆記本中的空白儲存格，然後按下 **SHIFT + ENTER**。
+	若要開始建置應用程式，您需要先匯入所需的模組，並將資源指派給應用程式。將下列程式碼片段貼到新 Notebook 的空白儲存格中，然後按下 **SHIFT + ENTER**。
 
 
 		from pyspark.ml import Pipeline
@@ -82,7 +84,7 @@
 		
 		# Assign resources to the application
 		conf = SparkConf()
-		conf.setMaster('spark://headnodehost:7077')
+		conf.setMaster('yarn-client')
 		conf.setAppName('pysparkregression')
 		conf.set("spark.cores.max", "4")
 		conf.set("spark.executor.memory", "4g")
@@ -90,13 +92,13 @@
 		sc = SparkContext(conf=conf)
 		sqlContext = SQLContext(sc)
 
-	每當您在 Jupyter 中執行工作時，網頁瀏覽器視窗標題會顯示 Notebook 標題和 **(忙碌)** 狀態。您也會在右上角的 **Python 2** 文字旁看到實心圓。工作完成後，實心圓將會變成空心圓。
+	每當您在 Jupyter 中執行工作時，網頁瀏覽器視窗標題會顯示 Notebook 的標題和 **(忙碌)** 狀態。您也會在右上角的 **Python 2** 文字旁看到實心圓。工作完成後，實心圓將會變成空心圓。
 
-	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Job.Status.png "Jupyter Notebook 工作的狀態")
+	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.jupyter.job.status.png "Jupyter Notebook 工作的狀態")
  
-4. 您現在必須載入資料 (hvac.csv)、剖析資料，以及利用它來為模型定型。為此，您需要定義檢查建築物之實際溫度是否高於目標溫度的函示。如果實際溫度較高，代表建築物處於高溫狀態，我們以 **1.0** 值表示。如果實際溫度較低，代表建築物處於低溫狀態，我們以 **0.0** 值表示。
+4. 您現在必須載入資料 (hvac.csv)、剖析資料，以及利用它來為模型定型。為此，您需要定義檢查建築物之實際溫度是否高於目標溫度的函示。如果實際溫度較高，代表建築物是熱的，我們以 **1.0** 值來表示這個狀態。如果實際溫度較低，代表建築物是冷的，我們以 **0.0** 值來表示這個狀態。
 
-	將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
+	將下列程式碼片段貼到空白儲存格中，然後按下 **SHIFT + ENTER**。
 
 		
 		# List the structure of data for better understanding. Becuase the data will be
@@ -127,62 +129,66 @@
     		return LabeledDocument((values[6]), textValue, hot)
 
 		# Load the raw HVAC.csv file, parse it using the function
-		data = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 		documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 		training = documents.toDF()
 
 
-5. 設定包含三個階段的 Spark 機器學習管線：tokenizer、hashingTF 及 lr。如需有關管線為何及其如何運作的詳細資訊，請參閱 <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark 機器學習管線</a>。
+5. 設定包含三個階段的 Spark 機器學習管線：tokenizer、hashingTF 及 lr。如需了解什麼是管線，以及管線的運作方式，請參閱 <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark 機器學習管線</a>。
 
-	將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
+	將下列程式碼片段貼到空白儲存格中，然後按下 **SHIFT + ENTER**。
 
 		tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
 		hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
 		lr = LogisticRegression(maxIter=10, regParam=0.01)
 		pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 
-6. 讓管線符合訓練文件。將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
+6. 讓管線符合訓練文件。將下列程式碼片段貼到空白儲存格中，然後按下 **SHIFT + ENTER**。
 
 		model = pipeline.fit(training)
 
-7. 驗證訓練文件以根據應用程式的進度設立檢查點。將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
+7. 驗證訓練文件以根據應用程式的進度設立檢查點。將下列程式碼片段貼到空白儲存格中，然後按下 **SHIFT + ENTER**。
 
 		training.show()
 
 	如此應該會產生如下所示的輸出：
 
-		BuildingID SystemInfo label
-		4          13 20      0.0  
-		17         3 20       0.0  
-		18         17 20      1.0  
-		15         2 23       0.0  
-		3          16 9       1.0  
-		4          13 28      0.0  
-		2          12 24      0.0  
-		16         20 26      1.0  
-		9          16 9       1.0  
-		12         6 5        0.0  
-		15         10 17      1.0  
-		7          2 11       0.0  
-		15         14 2       1.0  
-		6          3 2        0.0  
-		20         19 22      0.0  
-		8          19 11      0.0  
-		6          15 7       0.0  
-		13         12 5       0.0  
-		4          8 22       0.0  
-		7          17 5       0.0
+		+----------+----------+-----+
+		|BuildingID|SystemInfo|label|
+		+----------+----------+-----+
+		|         4|     13 20|  0.0|
+		|        17|      3 20|  0.0|
+		|        18|     17 20|  1.0|
+		|        15|      2 23|  0.0|
+		|         3|      16 9|  1.0|
+		|         4|     13 28|  0.0|
+		|         2|     12 24|  0.0|
+		|        16|     20 26|  1.0|
+		|         9|      16 9|  1.0|
+		|        12|       6 5|  0.0|
+		|        15|     10 17|  1.0|
+		|         7|      2 11|  0.0|
+		|        15|      14 2|  1.0|
+		|         6|       3 2|  0.0|
+		|        20|     19 22|  0.0|
+		|         8|     19 11|  0.0|
+		|         6|      15 7|  0.0|
+		|        13|      12 5|  0.0|
+		|         4|      8 22|  0.0|
+		|         7|      17 5|  0.0|
+		+----------+----------+-----+
+
 
 	返回並根據原始 CSV 檔案驗證輸出。例如，CSV 檔案中第一個資料列的資料為：
 
-	![HVAC 資料快照](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.First.Row.png "HVAC 資料的快照")
+	![HVAC 資料快照](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.first.row.png "HVAC 資料的快照")
 
-	請注意，實際溫度比目標溫度低的情況代表建築物處於低溫狀態。因此在訓練輸出中，第一個資料列之 [label] 的值為 [0.0]，表示建築物並非處於高溫狀態。
+	請注意，實際溫度比目標溫度低的情況代表建築物處於低溫狀態。因此在訓練輸出中，第一個資料列的 [label] 值為 [0.0]，這代表建築物不是熱的。
 
-8.  準備要做為定型模型之執行依據的資料集。若要這樣做，我們會傳送系統識別碼和系統年期 (以訓練輸出中的 **SystemInfo** 表示)，而模型則會預測該系統識別碼和系統年期所代表之建築物的溫度會比較高 (以 1.0 表示) 或比較低 (以 0.0 表示)。
+8.  準備要做為定型模型之執行依據的資料集。方法是傳遞系統識別碼和系統年期 (在訓練輸出中以 **SystemInfo** 來代表)，然後模型會預測該系統識別碼和系統年期所屬的建築物溫度是較熱 (以 1.0 表示) 或較冷 (以 0.0 表示)。
 
-	將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
+	將下列程式碼片段貼到空白儲存格中，然後按下 **SHIFT + ENTER**。
 		
 		# SystemInfo here is a combination of system ID followed by system age
 		Document = Row("id", "SystemInfo")
@@ -194,7 +200,7 @@
                       (6L, "7 22")]) \
     		.map(lambda x: Document(*x)).toDF() 
 
-9. 最後，根據測試資料進行預測。將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
+9. 最後，根據測試資料進行預測。將下列程式碼片段貼到空白儲存格中，然後按下 **SHIFT + ENTER**。
 
 		# Make predictions on test documents and print columns of interest
 		prediction = model.transform(test)
@@ -211,11 +217,9 @@
 		Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
 		Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
 
-	從預測中的第一個資料列，您可以看到對於識別碼為 20 且年期為 25 年的 HVAC 系統，建築物將處於高溫狀態 (**prediction=1.0**)。DenseVector (0.49999) 的第一個值對應到預測 0.0，而第二個值 (0.5001) 對應到預測 1.0。在輸出中，即使第二個值僅稍高一點，模型仍舊顯示 **prediction=1.0**。
+	從預測的第一個資料列可看出，對於識別碼為 20 且年期為 25 年的 HVAC 系統而言，建築物將會是熱的 (**prediction=1.0**)。DenseVector (0.49999) 的第一個值對應到預測 0.0，而第二個值 (0.5001) 對應到預測 1.0。在輸出中，即使第二個值只是稍微高一點，模型仍舊顯示 **prediction=1.0**。
 
-11. 您現在可以重新啟動核心以結束 Notebook。在頂端功能表列中依序按一下 [核心] 和 [重新啟動]，然後再按一下提示字元中的 [重新啟動]。
-
-	![重新啟動 Jupyter 核心](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "重新啟動 Jupyter 核心")
+11. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。方法是從 Notebook 的 [檔案] 功能表上，按一下 [關閉並停止]。這樣就能夠結束並關閉 Notebook。
 	  	   
 
 ##<a name="anaconda"></a>使用適用於機器學習的 Anaconda scikit-learn 程式庫
@@ -225,9 +229,31 @@ HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含�
 ##<a name="seealso"></a>另請參閱
 
 * [概觀：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
-* [在 HDInsight 叢集上佈建 Spark](hdinsight-apache-spark-provision-clusters.md)
-* [在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](hdinsight-apache-spark-use-bi-tools.md)
-* [在 HDInsight 中使用 Spark 建置即時串流應用程式](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+
+### 案例
+
+* [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](hdinsight-apache-spark-use-bi-tools.md)
+
+* [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+
+* [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](hdinsight-apache-spark-eventhub-streaming.md)
+
+* [使用 HDInsight 中的 Spark 進行網站記錄分析](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+
+### 建立及執行應用程式
+
+* [使用 Scala 來建立獨立的應用程式](hdinsight-apache-spark-create-standalone-application.md)
+
+* [利用 Livy 在 Spark 叢集上遠端執行工作](hdinsight-apache-spark-livy-rest-interface.md)
+
+### 擴充功能
+
+* [利用 HDInsight 上的 Spark 叢集來使用 Zeppelin Notebook](hdinsight-apache-spark-use-zeppelin-notebook.md)
+
+* [HDInsight 的 Spark 叢集中之 Jupyter Notebook 可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+### 管理資源
+
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
 
@@ -247,4 +273,4 @@ HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

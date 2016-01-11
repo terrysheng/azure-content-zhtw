@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # 在 Mac OS X 上搭配 Tedious 使用 Node.js 連接到 SQL Database
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 本主題提供可在 Mac OS X 上執行的 Node.js 程式碼範例。這個範例使用 Tedious 驅動程式連接到 Azure SQL Database。
@@ -30,12 +33,12 @@
 ## 先決條件
 
 
-安裝 **node**，除非它已在電腦上安裝。
+安裝 **node**，除非您的電腦已安裝。
 
 
 若要在 OSX 10.10 Yosemite 上安裝 node.js，您可以下載預先編譯的二進位封裝，如此可讓您順利並輕鬆安裝。[前往 nodejs.org](http://nodejs.org/)，按一下 [安裝] 按鈕，以下載最新的封裝。
 
-遵循將會安裝 **node** 和 **npm** 的安裝精靈透過 .dmg 安裝套件，npm 是「節點封裝管理員」，有助於安裝 node.js 的其他封裝。
+依照將會安裝 **node** 和 **npm** 之安裝精靈的安裝步驟從 .dmg 安裝套件，npm 是「節點封裝管理員」，有助於安裝 node.js 的其他封裝。
 
 
 將您的電腦設定為使用**節點** 和 **npm** 之後，請巡覽至您打算建立 Node.js 專案的目錄，並輸入下列命令。
@@ -172,4 +175,4 @@
 
 如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

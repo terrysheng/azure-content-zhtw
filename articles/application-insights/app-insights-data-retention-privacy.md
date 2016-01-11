@@ -12,69 +12,85 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/17/2015" 
 	ms.author="awills"/>
 
 # Application Insights 中的資料收集、保留和儲存 
 
 *Application Insights 目前僅供預覽。*
 
-## 概觀
-
-這篇文章回答有關 [Visual Studio Application Insights][start] 所收集資料的問題，和其處理與儲存方式。
-
-Application Insights 是目前僅供預覽的 Azure 服務。僅供預覽時，我們致力於根據 [Azure 安全性、隱私權和法務遵循白皮書](http://go.microsoft.com/fwlink/?linkid=392408)中所述的原則來保護資料。
+當您在應用程式中安裝 [Visual Studio Application Insights][start] SDK 時，它會將關於應用程式的遙測傳送至雲端。當然，負責任的開發人員會想要確切得知所傳送的資料為何、資料的後續情況，以及如何控制資料。特別是，是否可能傳送敏感資料？資料儲存於何處？其安全性為何？
 
 
-## 集合
+首先提供簡短的答案：
 
-#### Application Insights 如何收集資料？
+* 「現成可用」的標準遙測模組不太可能將敏感資料傳送至服務。遙測會考量負載、效能和使用度量、例外狀況報告和其他診斷資料。診斷報告中顯示的主要使用者資料的 URL；但是，您的應用程式在任何情況下都應該不會將敏感資料以純文字形式放在 URL 中。
+* 您可以撰寫會傳送其他自訂遙測的程式碼，以利診斷與監視使用情形。(此擴充性是 Application Insights 的絕佳功能之一)。 在撰寫使程式碼時有可能會不慎包含個人資料和其他敏感資料。如果您的應用程式會使用這類資料，您應對您撰寫的程式碼採用嚴密的檢閱程序。
+* 在開發及測試您的應用程式時，可以輕易地檢查由 SDK 傳送的內容。資料會出現在 IDE 和瀏覽器的偵錯輸出視窗中。 
+* 資料會保存在美國的 [Microsoft Azure](http://azure.com) 伺服器中。Azure 有[嚴密的安全性程序，並符合各種法規標準](https://azure.microsoft.com/support/trust-center/)。只有您和您指定的小組可以存取您的資料。Microsoft 工作人員只有在您知情的特定有限情況下，才具有其限定存取權。它在傳輸時會加密，但在伺服器中不會加密。
 
-Application Insights SDK 以及與應用程式合併的代理程式會將資料傳送至 Application Insights 服務。服務會處理資料來提供報告、警示和其他功能。這可能包括您選擇使用 API 所擷取的資料 (例如在屬性和自訂事件中)。
-
-#### 可以擷取多少資料？ 
-
-**每秒**：每個檢測金鑰 (也就是每個應用程式) 每秒最多 500 個資料點。針對免費[定價層][pricing]，上限為 100 dp/s。
-
-有三個個別計數的貯體：
-
-* [TrackTrace 呼叫](app-insights-api-custom-events-metrics.md#track-trace)和[擷取記錄檔](app-insights-asp-net-trace-logs.md)
-* [例外狀況](app-insights-api-custom-events-metrics.md#track-exception)，取決於較低限制 50/s。
-* 所有其他遙測 (頁面檢視、要求、相依性、度量、自訂事件以及 Web 測試結果)。
-
-**每月**：根據您的[定價方案](http://azure.microsoft.com/pricing/details/application-insights/)，每個日曆月份中從 500 萬至 1500 萬資料點。除了免費[定價層][pricing]，如果達到最大限制，您可以購買額外的容量。
+本文的其餘部分將詳細說明上述問題的答案。本文設計為自助式，以便您可以將其顯示給不屬於您直屬小組的同事。
 
 
-*資料點*是傳送至 Azure 入口網站，有關您應用程式的遙測項目。它可透過下列方式傳送：
+## 什麼是 Application Insights？
 
-* 可自動收集資料的 [SDK 模組](app-insights-configuration-with-applicationinsights-config.md)，例如回報要求或損毀，或測量效能。
-* 您所撰寫的 [API](app-insights-api-custom-events-metrics.md) `Track...` 呼叫，例如 `TrackEvent` 或 `trackPageView`。
-* 您已設定的[可用性 Web 測試](app-insights-monitor-web-app-availability.md)。
+[Visual Studio Application Insights][start] 是 Microsoft 所提供的一項服務，可協助您改進即時應用程式的效能和可用性。它會在您的應用程式執行時全程加以監視，包括測試期間，以及您加以發佈或部署之後。Application Insights 會建立圖表和資料表為您顯示多種資訊，例如，您在一天中的哪些時間有最多使用者、應用程式的回應性如何，以及它所依存的任何外部服務是否順暢地為其提供服務。如果有當機、失敗或效能問題，您可以搜尋詳細的遙測資料，以診斷原因。此外，如果應用程式的可用性和效能有任何變更，服務將會傳送電子郵件給您。
 
-遙測資料包括：
+若要取得這項功能，您必須在應用程式中安裝 Application Insights SDK，這會成為其程式碼的一部分。當您的應用程式執行時，SDK 會監視其作業，並將遙測傳送至 Application Insights 服務。這是由 [Microsoft Azure](http://azure.com) 裝載的雲端服務。(但 Application Insights 適用於任何應用程式，而不只是 Azure 中裝載的應用程式)。
 
-* [診斷搜尋](app-insights-diagnostic-search.md)中的每個資料列
-* 彙總[度量瀏覽器](app-insights-metrics-explorer.md)中圖表的原始資料。度量資料 (例如效能計數器資料) 通常不會顯示為度量瀏覽器中的個別點。
-* [可用性](app-insights-monitor-web-app-availability.md)報告中的每個 Web 測試結果。
+![應用程式中的 SDK 會將遙測傳送至 Application Insights 服務。](./media/app-insights-data-retention-privacy/01-scheme.png)
 
-使用者與工作階段計數不會併入定價用途的配額。
+Application Insights 服務會儲存並分析遙測。若要查看分析或搜尋已儲存的遙測，您可以登入您的 Azure 帳戶，並開啟您的 Application Insights 資源。您也可以與小組的其他成員或指定的 Azure 訂閱者共用資料的存取權。
 
-*如果應用程式超過每秒速率，會發生什麼事？*
+您可以從 Application Insights 服務匯出資料，例如，匯出至資料庫或外部工具。您必須為每項工具提供您從服務取得的特殊金鑰。如有必要，可以撤銷此金鑰。
 
-* 系統會每分鐘評估應用程式傳送的資料量。如果每秒速率超過每分鐘平均值，伺服器會拒絕部分要求。接著，部分版本的 SDK 會嘗試每數分鐘重新傳送突波；其他像是 JavaScript SDK 則會放棄遭到拒絕的資料。
+Application Insights SDK 可用於多種應用程式類型：裝載於您自己的 J2EE 或 ASP.NET 伺服器或是 Azure 中的 Web 服務；Web 用戶端 - 也就是在網頁上執行的程式碼；桌面應用程式和服務；裝置應用程式，例如 Windows Phone、iOS 和 Android。它們都會將遙測傳送至相同的服務。
 
-*如何知道應用程式正在傳送多少資料點？*
+## 它會收集哪些資料？
 
-* 開啟 [設定/配額與定價] 查看 [資料數量] 圖表。
-* 或在 [計量瀏覽器] 中，新增新的圖表，然後選取 [資料點數量] 做為其計量。切換群組，並依 [**資料類型**] 分組。
+### 收集的資料的方式為何？
 
-*如何減少我的應用程式傳送的資料量？*
+來源資料共有三種：
 
-* 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。自 ASP.NET SDK 2.0.0-beta3 起，系統預設會啟用自適性取樣。
-* [關閉不需要的遙測收集器](app-insights-configuration-with-applicationinsights-config.md)。
+* SDK，可與您的應用程式在[開發](app-insights-asp-net.md)或[在執行階段](app-insights-monitor-performance-live-website-now.md)中整合。不同的應用程式類型有不同的 SDK。此外還有[網頁 SDK](app-insights-javascript.md)，會連同頁面載入至使用者的瀏覽器中。
+
+ * 每個 SDK 各有多種[模組](app-insights-configuration-with-applicationinsights-config.md)，可使用不同的技術來收集不同類型的遙測。
+ * 如果您在開發環境中安裝 SDK，則您可以使用其 API，在標準模組以外傳送您自己的遙測。此自訂遙測可包含您想要傳送的任何資料。
+* 在某些網頁伺服器中，也有與應用程式一起執行，並傳送關於 CPU、記憶體和網路佔用量之遙測的代理程式。例如，Azure VM、Docker 主機和 [J2EE 伺服器](app-insights-java-agent.md)都可能有這類代理程式。
+* [可用性測試](app-insights-monitor-web-app-availability.md) 是 Microsoft 所執行程序，會定期將要求傳送至您的 Web 應用程式。結果會傳送至 Application Insights 服務。
+
+### 會收集哪些類型的資料？
+
+主要類別如下：
+
+* [Web 伺服器遙測](app-insights-asp-net.md) - HTTP 要求。URI、處理要求所花費的時間、回應碼、用戶端 IP 位址。工作階段識別碼。
+* [網頁](articles/app-insights-javascript.md) - 頁面、使用者和工作階段計數。頁面載入時間。例外狀況。
+* 效能計數器 - 記憶體、CPU、IO、網路佔用量。
+* 用戶端和伺服器內容 - OS、地區設定、裝置類型、瀏覽器和螢幕解析度。
+* [例外狀況](app-insights-asp-net-exceptions.md)和當機 - **堆疊傾印**、組建識別碼、CPU 類型。 
+* [相依性](app-insights-asp-net-dependencies.md) - 對外部服務的呼叫，例如 REST、SQL、AJAX。URI 或連接字串、持續時間、成功、命令。
+* [可用性測試](app-insights-monitor-web-app-availability.md) - 測試的持續時間、步驟、回應。
+* [追蹤記錄檔](app-insights-search-diagnostic-logs.md)和[自訂遙測](app-insights-api-custom-events-metrics.md) - **任何以程式碼撰寫到記錄檔或遙測中的項目**。
+
+[詳細資訊](#data-sent-by-application-insights)。
+
+## 如何確認收集到什麼？
+
+如果您使用 Visual Studio 開發應用程式，請在偵錯模式 (F5) 中執行應用程式。遙測會出現在 [輸出] 視窗中。在這裡，您可以將其複製並格式化為 JSON，以便進行檢查。
+
+![](./media/app-insights-data-retention-privacy/06-vs.png)
+
+針對網頁，請開啟瀏覽器的偵錯視窗。
+
+![按 F12 鍵，然後開啟 [網路] 索引標籤。](./media/app-insights-data-retention-privacy/08-browser.png)
+
+### 是否可以撰寫程式碼來篩選遙測，然後才傳送出去?
+
+這可以藉由撰寫[遙測處理器外掛程式](app-insights-api-filtering-sampling.md)來達成。
 
 
-#### 資料保留多久？ 
+
+## 資料保留多久？ 
 
 這取決於您的[定價方案](http://azure.microsoft.com/pricing/details/application-insights/)。
 
@@ -82,16 +98,8 @@ Application Insights SDK 以及與應用程式合併的代理程式會將資料�
 
 彙總的資料 (即您在計量瀏覽器中看到的計數、平均和其他統計資料) 在 1 分鐘的資料粒度中保存 30 天，而 1 小時或 1 天 (視類型而定) 則保存至少 13 個月。
 
-#### 不同類型的資料有哪些限制？
 
-1.	您的應用程式具有最多 200 個唯一計量名稱和 200 個唯一屬性名稱。計量包括透過 TrackMetric 傳送的資料，以及其他資料類型上的度量 (例如事件)。每個檢測金鑰的[計量和屬性名稱][api]是全域的，不只限於資料類型。
-2.	只有在每個屬性具有少於 100 個唯一值時，[屬性][apiproperties]才能用於篩選和分組依據。唯一值超過 100 之後，屬性仍可用於搜尋與篩選，但無法用於篩選器。
-3.	標準屬性，例如要求名稱和網頁 URL 會限制為每週 1000 個唯一值。超過 1000 個唯一值之後，額外值都會標示為「其他值」。原始值仍然可以用於全文檢索搜尋和篩選。
-
-
-## Access
-
-#### 誰可以查看資料？
+## 誰可以存取資料？
 
 您和您的小組成員 (如果您有組織帳戶) 可以看到資料。
 
@@ -102,9 +110,7 @@ Application Insights SDK 以及與應用程式合併的代理程式會將資料�
 Microsoft 只會使用這項資料，以將服務提供給您。
 
 
-## 位置
-
-#### 資料存放在哪裡？ 
+## 資料存放在哪裡？ 
 
 * 在美國。 
 
@@ -112,9 +118,10 @@ Microsoft 只會使用這項資料，以將服務提供給您。
 
 * 尚未提供。 
 
-## 安全性 
+## 我的資料有多安全？  
 
-#### 我的資料有多安全？ 
+Application Insights 是目前僅供預覽的 Azure 服務。僅供預覽時，我們致力於根據 [Azure 安全性、隱私權和法務遵循白皮書](http://go.microsoft.com/fwlink/?linkid=392408)中所述的原則來保護資料。
+
 
 資料會儲存在 Microsoft Azure 伺服器中。如果是 Azure 入口網站中的帳戶，帳戶限制如 [Azure 安全性、隱私權和法規遵循文件](http://go.microsoft.com/fwlink/?linkid=392408)中所述。如果是 Visual Studio Team Services 入口網站中的帳戶，則適用 [Visual Studio Team Services 資料保護](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf)文件。
 
@@ -128,9 +135,7 @@ Microsoft 人員對您的資料存取會受到限制。我們只有在獲得您�
 
 如果您與其他專案共用程式碼，請務必移除您的檢測金鑰。
 
-## 加密
-
-#### 資料在 Application Insights 伺服器中會加密嗎？ 
+## 資料是否會加密？ 
 
 目前不在伺服器內。
 
@@ -144,7 +149,7 @@ Microsoft 人員對您的資料存取會受到限制。我們只有在獲得您�
 
 #### 個人識別資訊 (PII) 會傳送到 Application Insights 嗎？ 
 
-是。
+是，可以的。
 
 一般指引為：
 
@@ -259,4 +264,4 @@ SDK 診斷 | 追蹤訊息或例外狀況
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

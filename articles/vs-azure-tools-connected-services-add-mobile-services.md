@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="visual-studio-online"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="08/12/2015"
+   ms.date="12/16/2015"
    ms.author="tarcher" />
 
 # 使用 Visual Studio 已連接服務加入行動服務
@@ -91,4 +91,4 @@ Visual Studio 修改您的專案的方式視專案類型而定。若為 C# 用�
 
  - [azure.microsoft.com 上的 Azure 行動服務文件](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

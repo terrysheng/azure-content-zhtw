@@ -42,19 +42,19 @@ API Apps 提供下列功能：
 
 >[AZURE.NOTE]您可以使用 [Azure API 管理](../api-management/api-management-key-concepts.md)來控制戶端存取 App Service API Apps 裝載的 API。雖然 API Apps 提供驗證服務，但有一些其他存取管理功能是它不提供而「API 管理」有提供的，例如端點合併和節流。
 
-## API 應用程式概念 ##
+## <a id="concepts"></a> API 應用程式概念
 
-- **Swagger** - 預設用於 API Apps 的架構，可說明和探索 RESTful API。如需詳細資訊，請參閱 [http://swagger.io/](http://swagger.io/)。
-- **跨原始資源共用 (CORS)** -此機制可讓在瀏覽器中執行的 JavaScript 呼叫裝載於非網頁載入來源網域上的 API。如需詳細資訊，請參閱[使用 CORS 從 JavaScript 取用 API 應用程式](app-service-api-cors-consume-javascript.md)。 
+- **Swagger** - 可文件化及探索 RESTful API的架構，預設在 API 應用程式中使用。如需詳細資訊，請參閱 [http://swagger.io/](http://swagger.io/)。
+- **跨原始資源共用 (CORS)** -此機制可讓在瀏覽器中執行的 JavaScript，呼叫裝載在與網頁所在網域不同之網域上的 API。如需詳細資訊，請參閱[使用 CORS 從 JavaScript 取用 API 應用程式](app-service-api-cors-consume-javascript.md)。 
 - **觸發程序** - 一種 REST API，[邏輯應用程式](../app-service-logic/app-service-logic-what-are-logic-apps.md)可在符合特定條件時，呼叫它以初始化工作流程。例如，API 應用程式可以提供邏輯應用程式定期呼叫的方法，以在 Twitter 摘要中尋找特定詞組。如需詳細資訊，請參閱 [API 應用程式觸發程序](app-service-api-dotnet-triggers.md)。
 - **動作** - 一種 REST API，[邏輯應用程式](../app-service-logic/app-service-logic-what-are-logic-apps.md)可在工作流程已由觸發程序啟動之後，呼叫它以處理資料.例如，API 應用程式可以提供一種方法，供邏輯應用程式呼叫，以回應 Twitter 觸發程序找到的推文。動作是由 Swagger API 定義公開的 API 方法。
 
 ## 開始使用
 
-若要開始使用 API 應用程式，請遵循[開始使用 API Apps](app-service-api-dotnet-get-started.md) 教學課程。
+若要開始使用 API 應用程式，請依照[開始使用 API 應用程式](app-service-api-dotnet-get-started.md)中的教學課程來進行。
 
-若要查看 API Apps 已知問題的清單，請參閱 [API Apps 已知問題論壇文章](https://social.msdn.microsoft.com/Forums/zh-TW/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)。
+若要查看 API 應用程式的已知問題清單，請參閱 [API Apps 已知問題論壇文章](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)。
 
 如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

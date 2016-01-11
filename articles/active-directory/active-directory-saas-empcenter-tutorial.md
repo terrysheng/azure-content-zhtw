@@ -1,8 +1,8 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 EmpCenter 整合 | Microsoft Azure" 
-    description="了解如何使用 EmpCenter 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    description="了解如何搭配 Azure Active Directory 來使用 EmpCenter，來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/01/2015" 
-    ms.author="markvi" />
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 EmpCenter 整合
   
@@ -21,7 +21,7 @@
 -   有效的 Azure 訂閱
 -   啟用 EmpCenter 單一登入的訂用帳戶
   
-完成本教學課程之後，您指派給 EmpCenter 的 Azure AD 使用者就能夠單一登入您 EmpCenter 公司網站 (服務提供者起始登入) 的應用程式，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)進行單一登入。
+完成本教學課程之後，您指派給 EmpCenter 的 Azure AD 使用者，就能夠單一登入您 EmpCenter 公司網站的應用程式 (服務提供者已起始登入程序)，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -51,7 +51,7 @@
 
     ![新增應用程式](./media/active-directory-saas-empcenter-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [欲執行動作] 對話方塊中，按一下 [從組件庫中新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。
 
     ![從組件庫新增應用程式](./media/active-directory-saas-empcenter-tutorial/IC749322.png "從組件庫新增應用程式")
 
@@ -80,10 +80,10 @@
 
     ![設定 App 設定](./media/active-directory-saas-empcenter-tutorial/IC802921.png "設定 App 設定")
 
-    1.  在 [登入 URL] 文字方塊中，輸入您的使用者用來登入 EmpCenter 應用程式的 URL (例如：**https://partner-authenticati.empcenter.com/workforce/SSO.do*))。
+    1.  在 [登入 URL] 文字方塊中，輸入使用者用來登入您 EmpCenter 應用程式的 URL (例如：**https://partner-authenticati.empcenter.com/workforce/SSO.do*)。
     2.  按 [**下一步**]
 
-4.  於 [在 EmpCenter 設定單一登入] 頁面上，按一下 [下載中繼資料] 以下載您的中繼資料，然後將中繼資料檔儲存在您的電腦中。
+4.  於 [設定在 EmpCenter 單一登入] 頁面上，按一下 [下載中繼資料] 來下載您的中繼資料，然後將中繼資料檔儲存在您的電腦中。
 
     ![設定單一登入](./media/active-directory-saas-empcenter-tutorial/IC802922.png "設定單一登入")
 
@@ -118,4 +118,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -1,5 +1,20 @@
-<properties pageTitle="教學課程：Azure Active Directory 與 Salesforce 沙箱整合 | Microsoft Azure" description="了解如何使用 Salesforce 沙箱搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="10/07/2015" ms.author="markvi" />
+<properties 
+    pageTitle="教學課程：Azure Active Directory 與 Salesforce 沙箱整合 | Microsoft Azure" description="了解如何使用 Salesforce 沙箱搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    services="active-directory" 
+    authors="jeevansd"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
+
+
 #教學課程：Azure Active Directory 與 Salesforce 沙箱整合
 >[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=521878)。
   
@@ -190,4 +205,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

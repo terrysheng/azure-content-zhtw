@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/12/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 #使用 .NET SDK 設定資產傳遞原則
 [AZURE.INCLUDE [媒體-服務-選取器-資產-傳遞-原則](../../includes/media-services-selector-asset-delivery-policy.md)]
+
+##概觀
 
 如果您打算傳遞加密的資產，媒體服務內容傳遞工作流程的其中一個步驟，是設定資產的傳遞原則。資產傳遞原則會告訴媒體服務您想要如何傳遞資產：您的資產應該動態封裝成哪個串流通訊協定 (如 MPEG DASH、HLS、Smooth Streaming 或所有)，您是否想要動態加密您的資產及其方式 (信封或一般加密)。
 
@@ -52,6 +54,14 @@ HDS
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
 如需有關如何發行資產，並建置串流 URL 的指示，請參閱[建置串流 URL](media-services-deliver-streaming-content.md)。
+
+##考量
+
+- 當資產的 OnDemand (串流) 定位器仍存在時，您無法刪除與該資產關聯的 AssetDeliveryPolicy。建議刪除原則之前，先將該原則從資產移除。
+- 未設定資產傳遞原則時，將無法於儲存空間已加密的資產建立串流定位器。如果資產的儲存空間未加密，系統會讓您建立定位器，並直接串流資產而不使用資產傳遞原則。
+- 您可以有多個資產傳遞原則與一個資產關聯，但只能指定一種方法處理特定的 AssetDeliveryProtocol。這表示如果您嘗試連結二個指定 AssetDeliveryProtocol.SmoothStreaming 通訊協定的傳遞原則時將會導致錯誤，因為當用戶端發出 Smooth Streaming 要求時，系統會不知道要套用哪一個原則。  
+- 如果您有包含現有串流定位器的資產，則您無法將新原則連接到該資產 (您可以解除現有原則與資產的連結，或更新與資產關聯的傳遞原則)。您必須先移除串流定位器，調整原則，然後重新建立串流定位器。重新建立串流定位器時，您可以使用同一個 locatorId，但必須確定不會對用戶端造成問題，因為原始或下游 CDN 可能會快取內容。  
+
 
 ##清除資產傳遞原則 
 
@@ -338,4 +348,4 @@ Azure 媒體服務也可讓您加入 Widevine 加密。下列範例會示範 Pla
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

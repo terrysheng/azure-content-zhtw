@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="12/17/2015"
 	ms.author="mmercuri"/>
 
 # 實作範本最佳做法的內容範例
@@ -254,4 +254,4 @@ Azure 金鑰保存庫可與 ARM 搭配使用，來協調和儲存 VM 密碼和�
 - 如需如何在 Azure 資源管理員中處理安全性的建議，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
 - 若要了解進出範本的共用狀態，請參閱 [Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

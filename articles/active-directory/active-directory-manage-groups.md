@@ -52,6 +52,8 @@ Azure Active Directory 的其中一項主要功能是管理資源的存取權。
 
 您可以在此觀賞說明與此相關的短片：
 
+[Azure AD：群組的動態成員資格簡介](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups)
+
 > [AZURE.VIDEO azure-ad--introduction-to-dynamic-memberships-for-groups]
 
 ## 存取管理在 Azure Active Directory 中如何運作？
@@ -96,4 +98,4 @@ Azure Active Directory 的存取管理解決方案的重點是安全性群組。
 
 * [群組的圖形 API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

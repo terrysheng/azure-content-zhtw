@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="12/18/2015" 
 	ms.author="wesmc"/>
 
 # 將推播通知新增至 Xamarin.iOS 應用程式
@@ -55,17 +55,15 @@
 
 2. 在 [建立通知中樞] 刀鋒視窗中，按一下 [**建立**]。
 
-3. 按一下 [**推播**] > [**Apple (APNS)**] > [**上傳憑證**]。上傳您稍早匯出的 .p12 推播憑證檔案。如果您建立開發推播憑證是為了開發和測試，請務必選取 [**沙箱**]。否則，請選擇 [**生產**]。您的服務現在已設定成在 iOS 上使用推播通知！
+3. 按一下 [**推播**] > [**Apple (APNS)**] > [**上傳憑證**]。上傳您稍早匯出的 .p12 推播憑證檔案。如果您建立開發推播憑證是為了開發和測試，請務必選取 [**沙箱**]。否則，請選擇 [**生產**]。
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+
+您的服務現在已設定成在 iOS 上使用推播通知。
 
 ##更新伺服器專案以傳送推播通知
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
-
-##將伺服器專案部署至 Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##設定您的 Xamarin.iOS 專案
 
@@ -73,7 +71,7 @@
 
 ##將推播通知新增至應用程式
 
-1. 在 **QSTodoService** 中新增下列屬性，以讓 **AppDelegate** 得以取得行動用戶端：
+1. 在 **QSTodoService** 中新增下列屬性，以便讓 **AppDelegate** 能夠取得行動用戶端：
         
             public MobileServiceClient GetClient {
             get
@@ -86,7 +84,7 @@
             }
         }
 
-1. 將下列 `using` 陳述式加入至 **AppDelegate.cs** 檔案最上方。
+1. 將下列 `using` 陳述式加入至 **AppDelegate.cs** 檔案頂端。
 
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
@@ -176,4 +174,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

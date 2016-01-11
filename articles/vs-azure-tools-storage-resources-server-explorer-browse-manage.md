@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # 使用伺服器總管瀏覽和管理儲存體資源
@@ -194,8 +194,8 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
     ![新增或編輯資料表實體](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
     單一資料表中的實體不一定要有同一組屬性 (資料行)。請記住下列檢視和編輯資料表資料的限制。
-    
-    
+
+
     - 您無法檢視或編輯二進位資料 (位元組類型)，但您可以將其儲存在資料表中。
 
     - 您無法編輯 **PartitionKey** 或 **RowKey** 值，因為 Azure 中的資料表儲存體不支援這項操作。
@@ -316,4 +316,4 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
 
 若要了解如何使用 Azure 儲存體服務的詳細資訊，請參閱[存取 Azure 儲存體服務](https://msdn.microsoft.com/library/azure/ee405490.aspx)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

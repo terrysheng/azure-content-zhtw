@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/18/2015"
    ms.author="cherylmc"/>
 
 # 使用 Azure 資源管理員和 PowerShell 為相同訂用帳戶中的虛擬網路設定 VNet 對 VNet 連接
@@ -35,13 +35,13 @@
 	
 - 如果您想要將在傳統部署模型中建立的虛擬網路連接到使用 Azure 資源管理員模型建立的虛擬網路，請參閱[將傳統 VNet 連接到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)。
 
-## 連接圖表
+## 關於 VNet 對 VNet 連線
 
 將虛擬網路連接至另一個虛擬網路 (VNet 對 VNet)，非常類似於將 VNet 連接至內部部署網站位置。這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道。您所連接的 VNet 可位於不同的區域。您甚至可以將多網站組態與 VNet 對 VNet 通訊結合。如下圖所示，這可讓您建立能將跨單位連線與內部虛擬網路連線結合的網路拓撲。
 
 ![VNet 對 VNet 連線能力圖表](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
  
-## 為什麼要連接虛擬網路？
+### 為什麼要連接虛擬網路？
 
 針對下列原因，您可能希望連接虛擬網路：
 
@@ -52,13 +52,8 @@
 - **具有嚴密隔離界限的區域性多層式應用程式**
 	- 在相同區域中，您可以使用嚴密的隔離和安全的層次間通訊，設定多層式應用程式與多個虛擬網路連線在一起。
 
-### 注意事項
 
-本文將引導您連接兩個虛擬網路：VNet1 和 VNet2。您必須熟悉網路連線，才能替換與您的網路設計需求相容的 IP 位址範圍。
-
-
-![連線 VNet 對 VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
-
+### VNet 對 VNet 常見問題集
 
 - 虛擬網路可位於相同或不同的 Azure 區域 (位置)。
 
@@ -80,20 +75,21 @@
 
 - VNet 對 VNet 流量會經過 Azure 的骨幹。
 
-## 開始之前
+## 設定 VNet 對 VNet 連線
 
-開始之前，請確認您具備下列條件：
+本文將引導您連接兩個虛擬網路：VNet1 和 VNet2。您必須熟悉網路連線，才能替換與您的網路設計需求相容的 IP 位址範圍。
 
-- Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+![連線 VNet 對 VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
 
-## 安裝 PowerShell 模組
-
-您將需要最新版的 Azure 資源管理員 PowerShell Cmdlet，才能設定您的連接。
-
-[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+### 開始之前
 
 
-## 1\.規劃 IP 位址範圍
+- 請確認您有 Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+
+- 安裝 PowerShell 模組。您將需要最新版的 Azure 資源管理員 PowerShell Cmdlet，才能設定您的連接。[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+
+
+## 步驟 1 - 規劃 IP 位址範圍
 
 
 請務必決定用來設定網路組態的範圍。從 VNet1 的角度來說，VNet2 只是 Azure 平台中定義的另一個 VPN 連線。而對 VNet2 來說，VNet1 只是另一個 VPN 連線。請記住，您必須先確定您的 VNet 範圍或區域網路範圍沒有以任何方式重疊。
@@ -121,39 +117,40 @@ VNet2 的值：
 - GatewaySubnet = 10.2.0.0/28
 - Subnet1 = 10.2.1.0/28
 
-## 2\.連線至您的訂用帳戶 
+## 步驟 2 - 連線至您的訂用帳戶 
 
 請確定您切換為 PowerShell 模式以使用資源管理員 Cmdlet。如需詳細資訊，請參閱[搭配使用 Windows PowerShell 與資源管理員](../powershell-azure-resource-manager.md)。
 
 開啟 PowerShell 主控台並連接到您的帳戶。使用下列範例來協助您連接：
 
-		    Login-AzureRmAccount
+	Login-AzureRmAccount
 
 檢查帳戶的訂用帳戶。
 
-		    Get-AzureRmSubscription 
+	Get-AzureRmSubscription 
 
 指定您要使用的訂用帳戶。
 
-		    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-## 3\.建立虛擬網路
+## 步驟 3 - 建立虛擬網路。
 
 
 使用下列範例來建立虛擬網路和閘道器子網路。取代為您自己的值。在此範例中，我們將建立 VNet1。稍後請重複步驟，建立 VNet2。
 
 首先，建立資源群組。
 
-			New-AzureRmResourceGroup -Name testrg1 -Location 'West US'
+	New-AzureRmResourceGroup -Name testrg1 -Location 'West US'
 
 接著，建立您的虛擬網路。下列範例會建立一個名為 *VNet1* 的虛擬網路，和兩個子網路：*GatewaySubnet* 和 *Subnet1*。請務必建立一個特別命名為 *GatewaySubnet* 的子網路。如果您將它命名為其他名稱，您的連線設定將會失敗。在下列範例中，閘道子網路為 /28。您可以選擇使用最小的 /29 閘道子網路。請注意某些功能 (例如 ExpressRoute /站對站並存連接) 需要較大的 /27 閘道子網路，因此您可能需建立自己的閘道子網路，以處理未來可能使用的其他功能的流量。
 
- 		$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
-		$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
-		New-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
+ 	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
+	$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
+	New-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16
+	-Subnet $subnet, $subnet1
 
-## 4\.要求公用 IP 位址
+## 步驟 4 - 要求公用 IP 位址
 
 
 接下來，需要求一個公用 IP 位址，以配置給您將建立給 VNet 使用的閘道。您無法指定想要的 IP 位址；該 IP 位址會以動態方式配置給您的閘道。下一個組態章節將使用此 IP 位址。
@@ -161,31 +158,31 @@ VNet2 的值：
 使用下面的範例。此位址的配置方法必須為「動態」。
 
 
-		$gwpip= New-AzureRmPublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
+	$gwpip= New-AzureRmPublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
 
-## 5\.建立閘道組態
+## 步驟 5 - 建立閘道組態
 
 
 閘道器組態定義要使用的子網路和公用 IP 位址。使用以下的範例來建立閘道器組態。
 
 
-		$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
-		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+	$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
+	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+	$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
-## 6\.建立閘道器
+## 步驟 6 - 建立閘道
 
 
 此步驟將帶您建立 VNet 的虛擬網路閘道。VNet 對 VNet 組態需要 RouteBased VpnType。建立閘道可能需要一些時間，請耐心等候。
 
-		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## 7\.建立 VNet2
+## 步驟 7 - 建立 VNet2
 
 
 設定好 VNet1 之後，請重複上述步驟，以設定 VNet2 和其閘道組態。完成設定這兩個 VNet 及其各自的閘道後，請前往**步驟 8。連接閘道**。
 
-## 8\.連接閘道
+## 步驟 8 - 連接閘道
 
 此步驟將帶您建立兩個虛擬網路閘道之間的 VPN 閘道連接。　您會看到範例使用共用金鑰。您可以使用自己的值，作為共用金鑰。但請務必確認該共用金鑰必須適用於這兩個組態。
 
@@ -209,13 +206,13 @@ VNet2 的值：
 
 請稍候幾分鐘，應該就會建立連線。請注意，此時 Preview 入口網站還不會顯示透過 Azure 資源管理員建立的閘道和連接。　
 
-## 確認連線
+## 確認您的連線
 
 此時，Preview 入口網站中不會顯示使用資源管理員建立的 VPN 連線。不過，您可以使用 *Get-AzureRmVirtualNetworkGatewayConnection –Debug* 確認您的連接是否成功。在未來，我們將具備其 cmdlet，以及在 Preview 入口網站中檢視連線的能力。
 
 您可以使用下列 Cmdlet 範例。請務必變更其中的值，以符合您要確認的每個連線。出現提示時，請選取 [A] 以執行全部。
 
-		Get-AzureRmVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
+	Get-AzureRmVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
 
  完成此 cmdlet 之後，請捲動以檢視值。在下列範例中，連接狀態會顯示為 [已連接]，且您可以看見輸入和輸出位元組。
 
@@ -254,9 +251,9 @@ VNet2 的值：
 若您需要將閘道子網路加入 VNet，請利用下列範例以您自己的值取代提供的值。請務必將閘道器子網路命名為 'GatewaySubnet'。如果您將它命名其他名稱，則 VPN 設定將不會如預期般運作。
 
 	
-		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
-		Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
-		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 確認閘道子網路的設定正確無誤後，請前往**步驟 4。要求公用 IP 位址**，並依照步驟執行。
 
@@ -265,4 +262,4 @@ VNet2 的值：
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -284,7 +284,9 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
     讓我們帶您逐步了解。 程式碼將查詢字串參數 `lastname` 的第一個字母讀取為字元。 並從姓氏第一個字母的十六進位值中擷取 `A` 的十六進位值，判斷此字母的分割區索引鍵。
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
     ```
 
     請記得，在此範例中，我們使用 26 個資料分割，每個資料分割有一個資料分割索引鍵。接下來，我們使用 `servicePartitionResolver` 物件的 `ResolveAsync` 方法，取得此索引鍵的服務資料分割 `partition`。`servicePartitionResolver` 定義為
@@ -322,8 +324,10 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
   </Parameters>
   ```
 
-16. 部署之後，您可以在 Service Fabric 總管中檢查服務及其所有資料分割。![服務](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. 您可以在瀏覽器中輸入 `http://localhost:8090/?lastname=somename` 來測試分割邏輯。您會看到以相同字母開頭的每個姓氏儲存在相同的資料分割中。![[瀏覽器]](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. 部署之後，您可以在 Service Fabric 總管中檢查服務及其所有資料分割。
+![服務](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+17. 您可以在瀏覽器中輸入 `http://localhost:8090/?lastname=somename` 來測試分割邏輯。您會看到以相同字母開頭的每個姓氏儲存在相同的資料分割中。
+![[瀏覽器]](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 範例的完整原始程式碼位於 [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)
 

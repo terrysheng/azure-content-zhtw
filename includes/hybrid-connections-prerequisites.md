@@ -6,7 +6,7 @@
 - **內部部署電腦** <br/>您可以在與您的 SQL Server 執行個體相同的內部部署電腦上執行混合式連線管理員，或者您也可以在個別電腦上執行。混合式連線管理員執行所在的電腦必須符合下列準則：
 
 	- 可透過連接埠 5671 連接到 Azure。
-	- 能夠存取執行 SQL Server 執行個體的電腦的 *hostname*\:*portnumber*。  
+	- 能夠存取執行 SQL Server 執行個體的電腦的 *hostname*:*portnumber* 。  
 
 	如需詳細資料，請參閱 [混合式連線概觀](../articles/integration-hybrid-connection-overview.md)。
 

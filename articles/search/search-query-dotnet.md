@@ -21,7 +21,6 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -61,6 +60,6 @@
 
 在第一個呼叫中，我們要尋找含有 "fancy" 或 "wifi" 查詢字詞的所有文件。在第二個呼叫中，搜尋字詞設為 "*"，這表示「全部尋找」。如需搜尋查詢運算式語法的詳細資訊，請參閱 [Azure 搜尋服務中的簡單查詢語法](https://msdn.microsoft.com/library/azure/dn798920.aspx)。
 
-第二個呼叫使用 OData $filter 運算式 category eq 'Luxury'。這會將搜尋限制為只傳回 category 欄位完全符合 "Luxury" 字串的文件。您可以在 [Azure 搜尋服務的 OData 運算式語法](https://msdn.microsoft.com/library/azure/dn798921.aspx)找到 OData 語法的詳細資訊。
+第二個呼叫使用 OData $filter 運算式，類別為 eq 'Luxury'。這會將搜尋限制為只傳回類別欄位完全符合 "Luxury" 字串的文件。您可以在 [Azure 搜尋服務的 OData 運算式語法](https://msdn.microsoft.com/library/azure/dn798921.aspx)找到 OData 語法的詳細資訊。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

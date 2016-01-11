@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/08/2015"
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -22,29 +22,18 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如需詳細資訊，請參閱 [Azure 免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。
+ 
+##概觀 
 
 本教學課程會逐步完成使用 Azure Media Services (AMS) SDK for .NET 實作點播視訊 (VoD) 內容傳遞應用程式。
 
 
 教學課程中介紹基本的媒體服務工作流程，以及媒體服務開發最常用的程式設計物件和必要工作。完成本教學課程時，您將能夠串流或漸進式下載您已上傳、編碼和下載的範例媒體檔案。
 
+## 您將學到什麼
 
-##下載範例
-
-從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)取得和執行範例。
-
-
-## 必要條件
-需要有下列必要條件，才能開始使用 Media Services SDK for .NET 進行開發。
-
-- 作業系統：Windows 8 或更新版本、Windows 2008 R2、Windows 7。
-- .NET Framework 4.5 或 .NET Framework 4.0
-- Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express) 或更新版本。
-
-
-本快速入門會顯示下列工作。
+本教學課程說明如何完成下列工作：
 
 1.  建立媒體服務帳戶 (使用 Azure 傳統入口網站)。
 2.  設定串流端點 (使用入口網站)。
@@ -53,8 +42,23 @@
 6.  建立新資產並上傳視訊檔案。
 7.  將來源檔案編碼為一組調適性位元速率 MP4 檔案。
 8.  發佈資產並取得串流和漸進式下載 URL。
-9.  播放您的內容。
+9.  播放您的內容以進行測試。
 
+## 先決條件
+
+需要有下列項目，才能完成教學課程。
+
+- 若要完成此教學課程，您需要 Azure 帳戶。 
+	
+	如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。您將獲得能用來試用 Azure 付費服務的額度。即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務和功能，例如 Azure App Service 中的 Web Apps 功能。
+- 作業系統：Windows 8 或更新版本、Windows 2008 R2、Windows 7。
+- .NET Framework 4.0 或更新版本
+- Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express) 或更新版本。
+
+
+##下載範例
+
+從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)取得和執行範例。
 
 ##使用入口網站建立媒體服務帳戶
 
@@ -91,7 +95,7 @@
 若要利用動態封裝，您需要執行下列動作：
 
 - 將夾層 (來源) 檔案編碼或轉碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (本教學課程稍後會示範編碼步驟)、
-- 為您計畫從該處傳遞內容的**串流端點**至少取得一個串流單元。
+- 為您計畫從該處傳遞內容的串流端點至少取得一個串流單元。
 
 使用動態封裝，您只需要以單一儲存格式儲存及播放檔案，媒體服務會根據來自用戶端的要求建置及傳遞適當的回應。
 
@@ -111,7 +115,7 @@
 
 >[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
 >
-> 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
+> 計算成本時會使用 24 小時內指定的最大單元數。如需價格詳細資料的相關資訊，請參閱[媒體服務價格詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
 
 
 
@@ -125,14 +129,9 @@
 
 4. 開啟 App.config 檔案 (如果尚未新增，則預設會將檔案新增至您的專案)，並將 *appSettings* 區段新增至此檔案。設定 Azure 媒體服務帳戶名稱和帳戶金鑰的值 (如下列範例所示)。若要取得帳戶名稱和金鑰資訊，請開啟 Azure 傳統入口網站，並選取媒體服務帳戶，然後按一下 [管理金鑰] 按鈕。
 
-	 <pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+		  
+		</configuration>
 
 5. 在 Program.cs 檔案的開頭，使用下列程式碼來覆寫現有的 **using** 陳述式。
 
@@ -153,7 +152,7 @@
 
 搭配使用媒體服務與 .NET 時，您必須將 **CloudMediaContext** 類別用於大部分的媒體服務程式設計工作：連線到媒體服務帳戶；建立、更新、存取和刪除下列物件：資產、資產檔案、工作、存取原則、定位器等。
 
-將預設 Program 類別覆寫為下列程式碼。此程式碼示範如何讀取 App.config 檔案中的連線值，以及如何建立 **CloudMediaContext** 物件來連線到媒體服務。如需連線到媒體服務的詳細資訊，請參閱 [使用 Media Services SDK for .NET 連線到媒體服務](http://msdn.microsoft.com/library/azure/jj129571.aspx)。
+將預設 Program 類別覆寫為下列程式碼。此程式碼示範如何讀取 App.config 檔案中的連線值，以及如何建立 **CloudMediaContext** 物件來連線到媒體服務。如需連線到媒體服務的詳細資訊，請參閱[使用 Media Services SDK for .NET 連線到媒體服務](http://msdn.microsoft.com/library/azure/jj129571.aspx)。
 
 **Main** 函式會呼叫未來將在此區段中定義的方法。
 
@@ -206,16 +205,16 @@
 
 ##建立新資產並上傳視訊檔案
 
-在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。**資產**實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌，及隱藏式字幕檔案 (以及這些檔案的相關中繼資料)。 上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。資產中的檔案稱為**資產檔案**。
+在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。**資產**實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式字幕檔案 (以及這些檔案的相關中繼資料)。 上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。資產中的檔案稱為**資產檔案**。
 
-下面所定義的 **UploadFile** 方法會呼叫 **CreateFromFile** (定義於 .NET SDK 延伸模組中)。**CreateFromFile** 會建立要在其中上傳所指定來源檔案的新資產。
+下面所定義的 **UploadFile** 方法會呼叫 **CreateFromFile** (定義於 .NET SDK 延伸模組中)。**CreateFromFile** 會建立要在其中上傳指定來源檔案的新資產。
 
 **CreateFromFile** 方法會採用 **AssetCreationOptions**，以讓您指定下列其中一個資產建立選項：
 
 - **None** - 不使用加密。這是預設值。請注意，使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。
-- **StorageEncrypted**：請使用此選項來利用進階加密標準 (AES) 256 位元加密，對您的純文字內容進行本機加密，然後會將它上傳到已靜止加密儲存的 Azure 儲存體。以儲存體加密保護的資產會自動解除加密並在編碼前放置在加密的檔案系統中，並且會在上傳為新輸出資產之前選擇性地重新編碼。儲存體加密的主要使用案例是讓您可以使用強式加密來保護磁碟中靜止的高品質輸入媒體檔。
-- **CommonEncryptionProtected**：如果您要上傳已經使用一般加密或 PlayReady DRM (例如使用 PlayReady DRM 保護的 Smooth Streaming) 加密及保護的內容，請使用這個選項。
-- **EnvelopeEncryptionProtected**：如果您要上傳使用 AES 加密的 HLS，請使用這個選項。請注意，檔案必須已由 Transform Manager 編碼和加密。
+- **StorageEncrypted** - 請使用此選項來利用進階加密標準 (AES) 256 位元加密，對您的純文字內容進行本機加密，然後會將它上傳到已靜止加密儲存的 Azure 儲存體。以儲存體加密保護的資產會自動解除加密並在編碼前放置在加密的檔案系統中，並且會在上傳為新輸出資產之前選擇性地重新編碼。儲存體加密的主要使用案例是讓您可以使用強式加密來保護磁碟中靜止的高品質輸入媒體檔。
+- **CommonEncryptionProtected** - 如果您要上傳已經使用一般加密或 PlayReady DRM (例如使用 PlayReady DRM 保護的 Smooth Streaming) 加密及保護的內容，請使用這個選項。
+- **EnvelopeEncryptionProtected** – 如果您要上傳使用 AES 加密的 HLS，請使用這個選項。請注意，檔案必須已由 Transform Manager 編碼和加密。
 
 **CreateFromFile** 方法也可讓您指定回呼，以報告檔案的上傳進度。
 
@@ -250,7 +249,7 @@
 - 將您的夾層 (來源) 檔編碼或轉換為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案。  
 - 為您計畫從該處傳遞內容的串流端點至少取得一個串流單元。
 
-下列程式碼顯示如何提交編碼工作。此工作 (Job) 包含一項工作 (Task)，指定使用 **Azure 媒體編碼器**將夾層檔轉碼為一組調適性位元速率 MP4。此程式碼會提交工作，並等到工作完成。
+下列程式碼顯示如何提交編碼工作。此工作包含一項作業，指定使用 **Azure 媒體編碼器**將夾層檔轉碼為一組調適性位元速率 MP4。此程式碼會提交工作，並等到工作完成。
 
 工作完成之後，就可以串流處理資產，或漸進式下載轉碼後所建立的 MP4 檔案。請注意，您不需要擁有任何串流單元，即可漸進式下載 MP4 檔案。
 
@@ -384,7 +383,7 @@ Media Services .NET SDK 延伸模組提供便利的協助程式方法，來傳�
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-##播放您的內容  
+##播放您的內容以進行測試  
 
 執行上一節中所定義的程式之後，主控台視窗中會顯示與下面類似的 URL。
 
@@ -447,4 +446,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

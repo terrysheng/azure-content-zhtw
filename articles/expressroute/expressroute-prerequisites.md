@@ -58,7 +58,7 @@
 請檢閱下列資源，以取得 Office 365 需求的詳細資訊。
 
 - [適用於 Office 365 的網路規劃和效能調整](http://aka.ms/tune)
-- [Office 365 網路流量管理](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx)
+- [Office 365 網路流量管理](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
 - 如需關於 QoS 需求和組態的詳細指引，請參閱 [ExpressRoute 品質 (QoS) 服務需求](expressroute-qos.md)一文。請洽詢您的連線服務提供者，以查看他們是否為您的 VPN 提供了多個類別的服務。 
 
 ## 後續步驟
@@ -71,4 +71,4 @@
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 循環](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

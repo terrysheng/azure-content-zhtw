@@ -25,7 +25,7 @@ Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋�
 
 身為管理員，如果選擇使用共用的服務，您可以免費將 Azure 搜尋服務加入現有的 Azure 訂用帳戶中，如果選擇使用專用資源，則可按照標準費率來加入。
 
-1. 登入 [Azure 傳統入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 在動態工具列中，按一下 [新增] > [資料 + 儲存體] > [搜尋]。
 
@@ -92,10 +92,7 @@ Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項�
 <a id="sub-4"></a>
 ## 測試服務作業
 
-設定 Azure 搜尋的最後一個步驟是，確認您的服務是否可從用戶端應用程式進行操作和存取。您可以利用下列任一連結，以無程式碼方式驗證服務的可用性。
-
-- [如何搭配 Azure 搜尋服務使用 Chrome Postman](search-chrome-postman.md)
-- [如何搭配 Azure 搜尋服務使用 Telerik Fiddler](search-fiddler.md)
+設定 Azure 搜尋的最後一個步驟是，確認您的服務是否可從用戶端應用程式進行操作和存取。您可以使用 [Azure 搜尋服務 Fiddler](search-fiddler.md) 來驗證服務可用性。
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
@@ -123,4 +120,4 @@ Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

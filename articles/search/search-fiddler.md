@@ -13,18 +13,17 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="heidist"/>
 
-# 使用 Fiddler 評估及測試 Azure 搜尋服務 REST API
+# 使用 Fiddler 評估及測試 Azure 搜尋 REST API
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-本文說明如何使用 Fiddler ([可從 Telerik 免費下載](http://www.telerik.com/fiddler))，以在不必撰寫任何程式碼的情況下，透過 Azure 搜尋服務 REST API 發送 HTTP 要求以及檢視回應。Azure 搜尋服務是 Microsoft Azure 上完整管理的雲端託管搜尋服務，可輕鬆地透過 .NET 和 REST API 程式化。[MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) 中記載了 Azure 搜尋服務 REST API。
+本文說明如何使用 Fiddler (可從[ Telerik 免費下載](http://www.telerik.com/fiddler))，以在不必撰寫任何程式碼的情況下，透過 Azure 搜尋服務 REST API 發送 HTTP 要求以及檢視回應。Azure 搜尋服務是 Microsoft Azure 上完整管理的雲端託管搜尋服務，可輕鬆地透過 .NET 和 REST API 程式化。[MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) 中記載了 Azure 搜尋服務 REST API。
 
 在下列步驟中，您將建立索引、上傳文件、查詢索引，然後查詢系統以取得服務資訊。
 
@@ -32,7 +31,7 @@
 
 ## 建立索引
 
-1. 啟動 Fiddler。在 [檔案] 功能表上，關閉 [擷取流量] 以隱藏與目前工作無關的 HTTP 活動。
+1. 啟動 Fiddler。在 [檔案] 功能表上，關閉 [擷取流量] 以隱藏與目前作業無關的 HTTP 活動。
 
 3. 在 [編寫器] 索引標籤上，您可以制訂如下列螢幕擷取畫面所示的要求。
 
@@ -43,7 +42,7 @@
 3. 輸入可指定服務 URL、要求屬性和 API 版本的 URL。請留意以下幾點：
    + 使用 HTTPS 做為首碼。
    + 要求屬性為 "/indexes/hotels"。這可告知「搜尋」建立名為 'hotels' 的索引。
-   + API 版本為小寫，並指定為 "?api-version=2015-02-28"。API 版本十分重要，因為 Azure 搜尋服務會定期部署更新。在極少數情況下，更新服務可能會對 API 造成中斷變更。使用 API 版本時，您可以先繼續使用現有版本，方便時再升級到較新的版本。
+   + API 版本為小寫，並指定為 "?api-version=2015-02-28"。API 版本十分重要，因為 Azure 搜尋服務會定期部署更新。在極少數情況下，更新服務可能會對 API 造成中斷變更。基於這個理由，Azure 搜尋服務在每個要求中都需要 API 版本，才能讓您完全控制使用的版本。
 
     完整 URL 應該會類似下列範例。
 
@@ -63,7 +62,7 @@
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String"},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -83,7 +82,7 @@
 
 ## 載入文件
 
-在 [編寫器] 索引標籤上，張貼文件的要求會類似如下。要求本文包含 4 間飯店的搜尋資料。
+在 [編寫器] 索引標籤上，張貼文件的要求會類似下列內容。要求本文包含 4 間飯店的搜尋資料。
 
    ![][2]
 
@@ -204,7 +203,7 @@
 
 ## 查詢系統
 
-您也可以查詢系統以取得文件計數和儲存體用量。在 [編寫器] 索引標籤上，您的要求會類似如下，且回應會傳回文件計數和空間使用量。
+您也可以查詢系統以取得文件計數和儲存體用量。在 [編寫器] 索引標籤上，您的要求會類似下列內容，且回應會傳回文件計數和空間使用量。
 
  ![][5]
 
@@ -229,10 +228,8 @@
 
 ## 後續步驟
 
-以下連結提供一些額外資訊，說明如何以無程式碼的方式管理及使用 Azure 搜尋服務。
+請參閱[管理 Azure 上的搜尋服務](search-manage.md)，了解以不使用程式碼的方式管理和使用 Azure 搜尋服務。
 
--  [在 Azure 上管理搜尋服務](search-manage.md)
--  [如何搭配 Azure 搜尋服務使用 Chrome Postman](search-chrome-postman.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
@@ -241,4 +238,4 @@
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

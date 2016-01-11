@@ -61,7 +61,7 @@
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 支援 | 支援 | 阿姆斯特丹、香港、倫敦、矽谷、新加坡、東京、華盛頓特區 |
 |**China Telecom Global** | 支援 | 不支援 | 香港 |
 |**Cologix** | 敬請期待 | 不支援 | 蒙特婁+、多倫多+ |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 支援 | 支援 | 阿姆斯特丹、倫敦 |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 支援 | 支援 | 阿姆斯特丹、都柏林+、倫敦 |
 | **Comcast** | 支援 | 不支援 | 矽谷、華盛頓特區 |
 | **CoreSite** | 支援 | 支援 | 洛杉磯 | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 支援 | 支援 | 阿姆斯特丹、亞特蘭大、芝加哥、達拉斯、香港、倫敦、洛杉磯、墨爾本、紐約、大阪、聖保羅、西雅圖、矽谷、新加坡、雪梨、東京、多倫多+、華盛頓特區 |
@@ -74,7 +74,7 @@
 | **MTN** | 支援 | 支援 | 倫敦 |
 | **NEXTDC** | 支援 | 支援 | 墨爾本、雪梨 |
 | **NTT Communications** | 支援 | 不支援 | 倫敦+、東京 |
-| **[Orange](http://www.orange-business.com/)** | 支援 | 不支援 | 阿姆斯特丹、香港、倫敦、矽谷、新加坡、華盛頓特區 |
+| **[Orange](http://www.orange-business.com/)** | 支援 | 支援 | 阿姆斯特丹、香港、倫敦、矽谷、新加坡、華盛頓特區 |
 | **PCCW Global Limited** | 支援 | 不支援 | 香港 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | 支援 | 不支援 | 新加坡 |
 | **Softbank** | 敬請期待 | 不支援 | 大阪、東京 | 
@@ -139,4 +139,4 @@
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 - 請確定符合所有必要條件。請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

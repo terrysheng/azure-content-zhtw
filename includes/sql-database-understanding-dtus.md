@@ -4,6 +4,8 @@
 
 ![SQL Database 簡介：不同層級和等級的單一資料庫 DTU。](./media/sql-database-understanding-dtus/single_db_dtus.png)
 
+>[AZURE.NOTE]如果您正在移轉現有的 SQL Server 資料庫，您可以使用第三方工具 [Azure SQL Database DTU 計算器](http://dtucalculator.azurewebsites.net/)了解預估的效能層級以及您的資料庫在 Azure SQL Database 所需的服務層級。
+
 ### DTU 與 eDTU
 
 單一資料庫的 DTU 就相當於彈性資料庫的 eDTU。舉例來說，基本彈性資料庫集區中的資料庫最多可提供 5 個 eDTU。這與單一基本資料庫的效能相同。差別在於彈性資料庫不會取用集區中的任何 eDTU，除非有必要。
@@ -12,4 +14,4 @@
 
 舉個簡單的範例對您會有所幫助。取得有 1000 DTU 的基本彈性資料庫集區，並卸除其中 800 個資料庫。在任何時間點，只要 800 個資料庫中僅有 200 個正在使用 (5 DTU X 200 = 1000)，您就不會達到集區容量的限制，而且資料庫效能也不會降低。這個範例是為了清楚起見而簡化。實際計算時會稍微複雜一點。入口網站會替您做好這項工作，並根據資料庫使用量歷程記錄提供建議。若要了解此建議的運作方式，或自行進行計算，請參閱[彈性資料庫集區的價格和效能考量](../articles/sql-database/sql-database-elastic-pool-guidance.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

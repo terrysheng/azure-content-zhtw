@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/09/2015"
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 #使用 AES-128 動態加密和金鑰傳遞服務
@@ -563,6 +563,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 		                                        FirstOrDefault();
 		
 		            // Create a 30-day readonly access policy. 
+                	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		            IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		                TimeSpan.FromDays(30),
 		                AccessPermissions.Read);
@@ -620,4 +621,4 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

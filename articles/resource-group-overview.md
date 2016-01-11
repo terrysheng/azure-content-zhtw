@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/22/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員概觀
@@ -49,13 +49,19 @@
 
 定義資源群組時，必須考慮一些重要因素：
 
-1. 群組中的所有資源必須共用相同的生命週期。您將一起部署、更新和刪除它們。如果類似資料庫伺服器這樣的資源必須存在於不同的部署週期，它應該位於另一個資源群組中。
+1. 群組中的所有資源應該共用相同的生命週期。您將一起部署、更新和刪除它們。如果類似資料庫伺服器這樣的資源必須存在於不同的部署週期，它應該位於另一個資源群組中。
 2. 每個資源只能存在於一個資源群組中。
 3. 您可以隨時在資源群組中新增或移除資源。
 4. 您可以將資源從一個資源群組移動到另一個群組。如需詳細資訊，請參閱[將資源移動到新的資源群組或訂用帳戶](resource-group-move-resources.md)。
 4. 資源群組可以包含位於不同區域中的資源。
 5. 資源群組可以用來設定系統管理動作的存取控制範圍。
 6. 資源可以連結至另一個資源群組中的資源，前提是兩個資源必須與彼此互動，但它們沒有共用相同的生命週期 (例如，多個應用程式連接至一個資料庫)。如需詳細資訊，請參閱[連結 Azure 資源管理員中的資源](resource-group-link-resources.md)。
+
+## 資源提供者
+
+資源提供者是一項服務，提供資源讓您可透過資源管理員進行部署及管理。每個資源提供者都會提供 REST API 作業，以便能運用資源。例如，如果想要部署 Azure 金鑰保存庫來儲存金鑰和密碼，您會使用 **Microsoft.KeyVault** 資源提供者。此資源提供者提供名為 **vaults** 的資源類型來建立金鑰保存庫、名為 **vaults/secrets** 的資源類型來建立金鑰保存庫中的密碼，以及一組 [REST API 作業](https://msdn.microsoft.com/library/azure/dn903609.aspx)。
+
+若要部署和管理基礎結構，您需要了解資源提供者的詳細資料；例如提供的資源類型為何、REST API 作業的版本號碼、支援的作業以及設定要建立的資源類型值時要使用的結構描述。如需了解支援的資源提供者，請參閱[資訊管理員提供者、區域、API 版本及結構描述](resource-manager-supported-services.md)。
 
 ## 範本部署
 
@@ -77,13 +83,11 @@
 
 如需關於定義範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
 
-如需範本結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。
-
 如需使用範本進行部署的相關資訊，請參閱[利用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-如需如何建構您的範本的相關指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)。
+如需如何建構範本的相關指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)。
 
-如需將您的方案部署到不同的環境的指導，請參閱[在 Microsoft Azure 中開發和測試環境](solution-dev-test-environments-preview-portal.md)。
+如需將方案部署到不同環境的指南，請參閱[在 Microsoft Azure 中開發和測試環境](solution-dev-test-environments-preview-portal.md)。
 
 ## 標記
 
@@ -97,11 +101,9 @@
 
 資源管理員可讓您控制哪些人能存取組織的特定動作。以原生方式將 OAuth 和角色型存取控制 (RBAC) 整合至管理平台，並將存取控制套用至資源群組中的所有服務。您可以將使用者新增至預先定義的平台和資源專用的角色，並將這些角色套用至訂用帳戶、資源群組或資源以限制存取。例如，您可以利用稱為 SQL DB 參與者的預先定義角色 (可讓使用者管理資料庫，但無法管理資料庫伺服器或安全性原則)。您在組織中新增的使用者需要 SQL DB 參與者的這類存取，並將該角色套用至訂用帳戶、資源群組或資源。
 
-資源管理員會自動記錄使用者的動作以進行稽核。如需使用稽核記錄檔的詳細資訊，請參閱[稽核作業與資源管理員](resource-group-audit.md)。
+資源管理員會自動記錄使用者的動作以進行稽核。如需使用稽核記錄檔的詳細資訊，請參閱[使用資源管理員來稽核作業](resource-group-audit.md)。
 
-如需角色型存取控制的詳細資訊，請參閱 [Microsoft Azure Preview 入口網站中的角色型存取控制](role-based-access-control-configure.md)。本主題包含內建角色與允許動作的清單。內建角色包含擁有者、讀取者和參與者等一般角色，以及虛擬機器參與者、虛擬網路參與者和 SQL 安全性管理員等服務專屬角色 (僅列舉幾個可用的角色)。
-
-如需指派角色的範例，請參閱[管理資源的存取權](resource-group-rbac.md)。
+如需角色型存取控制的詳細資訊，請參閱 [Azure 角色型存取控制](./active-directory/role-based-access-control-configure.md)。[RBAC：內建角色](./active-directory/role-based-access-built-in-roles.md)主題包含內建角色與允許動作的清單。內建角色包含擁有者、讀取者和參與者等一般角色，以及虛擬機器參與者、虛擬網路參與者和 SQL 安全性管理員等服務專屬角色 (僅列舉幾個可用的角色)。
 
 您也可以明確地鎖定重要的資源，以防止使用者刪除或修改它們。如需詳細資訊，請參閱[使用 Azure 資源管理員來鎖定資源](resource-group-lock-resources.md)。
 
@@ -113,7 +115,7 @@
 
 ## 一致的管理層
 
-資源管理員透過 Azure PowerShell、Azure CLI for Mac、Linux 和 Windows、Azure Preview 入口網站或 REST API 提供完全相容的作業。您可以使用最適合您的介面，而且可以在介面之間快速移動，而不會造成混淆。入口網站甚至會顯示在網站外部採取動作的通知。
+資源管理員透過 Azure PowerShell、Azure CLI for Mac、Linux 和 Windows、Azure 入口網站或 REST API 提供完全相容的作業。您可以使用最適合您的介面，而且可以在介面之間快速移動，而不會造成混淆。入口網站甚至會顯示在網站外部採取動作的通知。
 
 如需 PowerShell 的相關資訊，請參閱 [Azure PowerShell 搭配資源管理員使用](./powershell-azure-resource-manager.md)和 [Azure 資源管理員 Cmdlet](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
@@ -121,19 +123,19 @@
 
 如需 REST API 的相關資訊，請參閱 [Azure 資源管理員 REST API 參考](https://msdn.microsoft.com/library/azure/dn790568.aspx)。
 
-如需使用 Preview 入口網站的相關資訊，請參閱[使用 Azure Preview 入口網站來管理您的 Azure 資源](azure-portal/resource-group-portal.md)。
+如需使用入口網站的相關資訊，請參閱[使用 Azure 入口網站來管理您的 Azure 資源](azure-portal/resource-group-portal.md)。
 
 Azure 資源管理員支援跨原始資源共用 (CORS)。利用 CORS，您可以從位於不同網域的 Web 應用程式呼叫資源管理員 REST API 或 Azure 服務 REST API。若沒有 CORS 支援，網頁瀏覽器將會阻止某個網域中的應用程式存取另一個網域中的資源。資源管理員會對所有具備有效驗證認證的要求啟用 CORS。
 
 ## 後續步驟
 
-- 若要了解如何建立範本，請參閱[撰寫範本](./resource-group-authoring-templates.md)。
+- 若要了解如何建立範本，請參閱[撰寫範本](./resource-group-authoring-templates.md)
 - 若要部署您所建立的範本，請參閱[部署範本](resource-group-template-deploy.md)
-- 若要了解您可以在範本中使用的函式，請參閱[範本函式](./resource-group-template-functions.md)
+- 若要了解您可以在範本中使用的功能，請參閱[範本功能](./resource-group-template-functions.md)
 - 如需設計範本的指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)
 
 以下是此概觀的示範影片。
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

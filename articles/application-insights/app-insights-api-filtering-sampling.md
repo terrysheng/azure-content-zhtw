@@ -296,7 +296,7 @@ public void Process(ITelemetry item)
       </TelemetryInitializers>
     </ApplicationInsights>
 
-*或者*，您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
+*或者，* 您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
 
 
 ```C#

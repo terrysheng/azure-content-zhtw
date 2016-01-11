@@ -221,7 +221,7 @@
 
  	![localhost IIS Express 憑證警告](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss27.PNG)
 
-1. IE 顯示*首頁*，沒有出現 SSL 警告。
+1. IE 顯示 *首頁* ，沒有出現 SSL 警告。
 
 	 ![IE 出現 localhost SSL，沒有出現警告](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss28.PNG)
 
@@ -263,7 +263,7 @@
                 public string Email { get; set; }
             }
         }
-**Contact** 類別定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 *ContactID*。
+**Contact** 類別定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 *ContactID* 。
 
 ### 建立可讓應用程式使用者使用連絡人的網頁
 
@@ -409,7 +409,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 ## 使用成員資格 API
 
-在本節中，您會將本機使用者和 *canEdit* 角色新增至成員資格資料庫。只有 *canEdit* 角色中的使用者才能編輯資料。最佳做法是依角色可執行的動作來命名角色，因此將角色命名為 *canEdit* 會較命名為 *admin* 更好。隨著應用程式發展，您可以新增如 *canDeleteMembers* 等新角色，而非新增較欠缺描述性的 *superAdmin*。
+在本節中，您會將本機使用者和 *canEdit* 角色新增至成員資格資料庫。只有 *canEdit* 角色中的使用者才能編輯資料。最佳做法是依角色可執行的動作來命名角色，因此將角色命名為 *canEdit* 會較命名為 *admin* 更好。隨著應用程式發展，您可以新增如 *canDeleteMembers* 等新角色，而非新增較欠缺描述性的 *superAdmin* 。
 
 1. 開啟 *migrations\\configuration.cs* 檔案並新增下列 `using` 陳述式：
 
@@ -450,7 +450,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	![程式碼影像](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	此程式碼會建立名為 *canEdit* 的新角色、建立新本機使用者 *user1@contoso.com*，並將 *user1@contoso.com* 新增至 *canEdit* 角色。如需詳細資訊，請參閱 ASP.NET 網站上的 [ASP.NET 身分識別教學課程](http://www.asp.net/identity/overview/features-api)。
+	此程式碼會建立名為 *canEdit* 的新角色、建立新本機使用者 *user1@contoso.com* ，並將 *user1@contoso.com* 新增至 *canEdit* 角色。如需詳細資訊，請參閱 ASP.NET 網站上的 [ASP.NET 身分識別教學課程](http://www.asp.net/identity/overview/features-api)。
 
 ## 使用暫時程式碼，將新的社交登入使用者新增至 canEdit 角色  ##
 
@@ -506,7 +506,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 		Update-Database
 
-**Update-database** 命令會執行**植入**方法，並藉此執行您先前新增的 **AddUserAndRole** 方法。**AddUserAndRole** 方法會建立使用者 *user1@contoso.com*，並將她新增至 *canEdit* 角色。
+**Update-database** 命令會執行**植入**方法，並藉此執行您先前新增的 **AddUserAndRole** 方法。**AddUserAndRole** 方法會建立使用者 *user1@contoso.com* ，並將她新增至 *canEdit* 角色。
 
 ## 使用 SSL 和 Authorize 屬性保護應用程式 ##
 
@@ -536,7 +536,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		     return View();
 		  }
 
-2. 全面搜尋 *AllowAnonymous*，您會發現帳戶控制器的登入與註冊方法中都使用了它。
+2. 全面搜尋 *AllowAnonymous* ，您會發現帳戶控制器的登入與註冊方法中都使用了它。
 1. 在 *CmController.cs* 中，將 `[Authorize(Roles = "canEdit")]` 新增至 *Cm* 控制器中用來變更資料的 HttpGet 和 HttpPost 方法 (Create、Edit、Delete，也就是 Index 和 Details 外的每個動作方法)。以下顯示完整程式碼的片段內容： 
 
 		// GET: Cm/Create
@@ -583,14 +583,15 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 如果您在前個工作階段仍保持登入狀態，請點擊 [登出] 連結。
 1. 按一下 [關於] 或 [連絡人] 連結。因為匿名使用者無法檢視那些頁面，所以系統會將您重新導向至登入頁面。 
-1. 按一下 [註冊為新使用者] 連結，並使用電子郵件 **joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
+1. 按一下 [註冊為新使用者] 連結，並使用電子郵件 *joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
 
 	![登入](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. 按一下 [CM Demo] 連結並確認看到資料。
 1. 按一下頁面上的編輯連結，系統會將您重新導向至登入頁面 (因為未將新的本機使用者新增至 *canEdit* 角色)。
-1. 使用 *user1@contoso.com* 的身分和密碼 "P\_assw0rd1" ("word" 中的 "0" 是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。
-	如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 [AspNetUsers] 資料表的 [UserName] 欄，確認已新增 *user1@contoso.com*。
+1. 使用 *user1@contoso.com* 的身分和密碼 "P\_assw0rd1" ("word" 中的 "0" 是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。 
+
+	如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 [AspNetUsers] 資料表的 [UserName] 欄，確認已新增 *user1@contoso.com* 。
 
 1. 確認您可進行資料變更。
 
@@ -619,7 +620,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 請移至 [[Google Developers Console](https://console.developers.google.com/)]，並在 [**認證**] 索引標籤上更新 [重新導向 URI] 和 [JavaScript Orgins] 以使用 Azure URL。
 
-1. 使用 Google 或 Facebook 登入。如此將使 Google 或 Facebook 帳戶新增至 **canEdit** 角色。如果您收到 HTTP 400 錯誤訊息：*要求中的重新導向 URI：https://contactmanager{my https://contactmanager{my version}.azurewebsites.net/signin-google 與已註冊的重新導向 URI 不符。*，您必須等到您所做的變更都已傳播為止。如果您是在超過數分鐘之後收到此錯誤，請確認 URI 是正確的。
+1. 使用 Google 或 Facebook 登入。如此將使 Google 或 Facebook 帳戶新增至 **canEdit** 角色。如果您收到 HTTP 400 錯誤訊息： *要求中的重新導向 URI：https://contactmanager{my https://contactmanager{my version}.azurewebsites.net/signin-google 與已註冊的重新導向 URI 不符。* ，您必須等到您所做的變更都已傳播為止。如果您是在超過數分鐘之後收到此錯誤，請確認 URI 是正確的。
 
 ### 停止 Web 應用程式以防止其他人註冊  
 
@@ -660,7 +661,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	![登出](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss17.PNG)
 
-1. 按一下 [CM Demo] 連結並瀏覽到 **Cm** 控制器。或者，您也可以在 URL 後加上 *Cm*。
+1. 按一下 [CM Demo] 連結並瀏覽到 **Cm** 控制器。或者，您也可以在 URL 後加上 *Cm* 。
 
 	![CM 頁面](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr4.png)
  

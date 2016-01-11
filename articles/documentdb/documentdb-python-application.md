@@ -56,11 +56,12 @@
 
 ## 步驟 1：建立 DocumentDB 資料庫帳戶
 
-讓我們從建立 DocumentDB 帳戶開始。如果您已經擁有帳戶，可以跳到[步驟 2：建立新的 Python Flask Web 應用程式](#step-2:-create-a-new-python-flask-web-application)。
+讓我們從建立 DocumentDB 帳戶開始。如果您已經擁有帳戶，可以跳到[步驟 2：建立新的 Python Flask Web 應用程式](#Step-2:-Create-a-new-Python-Flask-Web-Application)。
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/>我們現在將從頭開始逐步解說如何建立新的 Python Flask Web 應用程式。
+<br/>
+我們現在將從頭開始逐步解說如何建立新的 Python Flask Web 應用程式。
 
 ## 步驟 2：建立新的 Python Flask Web 應用程式
 
@@ -115,6 +116,7 @@
         Successfully installed Babel-2.1.1 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.0 blinker-1.4 decorator-4.0.6 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.4.2 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
 
     > [AZURE.NOTE]在罕見情況下，輸出視窗中可能會出現失敗。如果發生此情形，請檢查錯誤是否與清除有關。有時是清理失敗，但安裝卻成功 (在輸出視窗中向上捲動來驗證這一點)。您可以[驗證虛擬環境](#verify-the-virtual-environment)來檢查安裝。 如果安裝失敗，但驗證成功，則可以繼續。
+
 
 ### 驗證虛擬環境
 

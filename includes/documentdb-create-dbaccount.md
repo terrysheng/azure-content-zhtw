@@ -17,11 +17,12 @@
 
 	- 在 [資源群組] 中，選取或建立 DocumentDB 帳戶的資源群組。依預設會建立新的資源群組。不過，您可以選擇現有的資源群組，以便在其中加入您的 DocumentDB 帳戶。如需詳細資訊，請參閱[使用 Azure 入口網站管理 Azure 資源](resource-group-portal.md)。
  
-	- 使用 [位置] 指定將代管您的 DocumentDB 帳戶的地理位置。
+	- 使用 [位置] 指定將代管您的 DocumentDB 帳戶的地理位置。   
 
-4.	設定新的 DocumentDB 帳戶選項之後，按一下 [建立]。建立 DocumentDB 帳戶可能需要數分鐘。若要檢查狀態，您可以監視「開始面板」上的進度。 ![「開始面板」上 [建立] 磚的螢幕擷取畫面 - 線上資料庫建立者](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	設定新的 DocumentDB 帳戶選項之後，按一下 [建立]。  建立 DocumentDB 帳戶可能需要數分鐘。若要檢查狀態，您可以監視「開始面板」上的進度。  
+	![「開始面板」上 [建立] 磚的螢幕擷取畫面 - 線上資料庫建立者](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
   
-	或者，您也可以從 [通知] 中樞監視進度。
+	或者，您也可以從 [通知] 中樞監視進度。  
 
 	![快速建立資料庫 - 通知中樞的螢幕擷取畫面，顯示正在建立 DocumentDB 帳戶](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)
 
@@ -33,6 +34,6 @@
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]: ../articles/documentdb/documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 <!---HONumber=AcomDC_1223_2015-->

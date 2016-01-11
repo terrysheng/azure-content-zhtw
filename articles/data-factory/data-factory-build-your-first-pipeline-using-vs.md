@@ -282,7 +282,8 @@
 ## 步驟 4：監視管線
 
 6. 登入 [Azure 入口網站](http://portal.azure.com/)，執行下列動作。
-	1. 按一下 [瀏覽]，選取 [資料處理站]。![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. 按一下 [瀏覽]，選取 [資料處理站]。
+		![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 從 Data Factory 清單中選取 **FirstDataFactoryUsingVS**。 
 7. 在您 Data Factory 的首頁中，按一下 [圖表]。
   
@@ -308,7 +309,7 @@
 9. 處理完成時，您會看到配量處於 [就緒] 狀態。
 	>[AZURE.IMPORTANT]建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。  
 
-	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)	
 	
 10. 當配量處於**就緒**狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。
  

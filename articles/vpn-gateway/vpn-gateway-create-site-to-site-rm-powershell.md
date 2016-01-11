@@ -28,7 +28,7 @@
 
 **關於 Azure 部署模型**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## 開始之前
 
@@ -44,7 +44,7 @@
 
 您將需要最新版的 Azure 資源管理員 PowerShell Cmdlet，才能設定您的連接。
 	
-[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
 
 ## 1\.連線至您的訂用帳戶 
 

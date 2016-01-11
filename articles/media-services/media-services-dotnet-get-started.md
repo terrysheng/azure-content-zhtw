@@ -22,8 +22,8 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如需詳細資訊，請參閱 [Azure 免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。
- 
+>[AZURE.NOTE]
+> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
 ##概觀 
 
 本教學課程會逐步完成使用 Azure Media Services (AMS) SDK for .NET 實作點播視訊 (VoD) 內容傳遞應用程式。
@@ -41,7 +41,7 @@
 5.  連線到媒體服務帳戶。
 6.  建立新資產並上傳視訊檔案。
 7.  將來源檔案編碼為一組調適性位元速率 MP4 檔案。
-8.  發佈資產並取得串流和漸進式下載 URL。
+8.  發佈資產並取得串流和漸進式下載 URL。  
 9.  播放您的內容以進行測試。
 
 ## 先決條件
@@ -129,7 +129,12 @@
 
 4. 開啟 App.config 檔案 (如果尚未新增，則預設會將檔案新增至您的專案)，並將 *appSettings* 區段新增至此檔案。設定 Azure 媒體服務帳戶名稱和帳戶金鑰的值 (如下列範例所示)。若要取得帳戶名稱和金鑰資訊，請開啟 Azure 傳統入口網站，並選取媒體服務帳戶，然後按一下 [管理金鑰] 按鈕。
 
-<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+<configuration>
+		...
+		  <appSettings>
+		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		  </appSettings>
 		  
 		</configuration>
 

@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/>
+	editor=""/> 
 
 <tags
 	ms.service="app-service-mobile"
@@ -18,7 +18,9 @@
 
 #建立 Windows 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+&nbsp;
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -58,7 +60,7 @@
 
 4. 以 Windows 市集應用程式做為啟始專案，按下 F5 鍵以重建專案並啟動 Windows 市集應用程式。
 
-5. 在應用程式的 [插入 TodoItem] 文字方塊中輸入有意義的文字 (例如「完成教學課程」(Complete the tutorial)」)，然後按一下 [儲存]。
+5. 在應用程式的 [插入 TodoItem] 文字方塊中輸入有意義的文字 (例如 *「完成教學課程* 」(Complete the tutorial)」)，然後按一下 [儲存]。
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
@@ -72,9 +74,11 @@
 
 ##後續步驟
 
-* [加入驗證至應用程式](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
+* [加入驗證至應用程式](app-service-mobile-windows-store-dotnet-get-started-users.md) 
+ <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
 
-* [將推播通知新增至您的應用程式](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至您的應用程式](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+ <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 <!-- Anchors. -->
 <!-- Images. -->

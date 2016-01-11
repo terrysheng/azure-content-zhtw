@@ -141,12 +141,12 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
 
 | Windows 用戶端 | SMB 版本支援 |
 |------------------------|----------------------|
-| Windows 7 | SMB 2.1 |
-| Windows Server 2008 R2 | SMB 2.1 |
-| Windows 8 | SMB 3.0 |
-| Windows Server 2012 | SMB 3.0 |
-| Windows Server 2012 R2 | SMB 3.0 |
-| Windows 10 | SMB 3.0 |
+| Windows 7              | SMB 2.1              |
+| Windows Server 2008 R2 | SMB 2.1              |
+| Windows 8              | SMB 3.0              |
+| Windows Server 2012    | SMB 3.0              |
+| Windows Server 2012 R2 | SMB 3.0              |
+| Windows 10             | SMB 3.0              |
 
 ### 從執行 Windows 的 Azure 虛擬機器掛接檔案共用
 

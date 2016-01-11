@@ -23,7 +23,8 @@
 
 Microsoft 和受信任的協力廠商發行者建置的虛擬機器 (VM) 延伸模組，可延伸 VM 的功能。如需 VM 擴充功能的概觀，請參閱 [Azure VM 擴充功能與功能](virtual-machines-extensions-features.md)。
 
-連結：[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md)。
+連結：
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [資源管理員模型](virtual-machines-extensions-customscript%20-with%20template.md)。
 
 
 ## 自訂指令碼擴充功能概觀

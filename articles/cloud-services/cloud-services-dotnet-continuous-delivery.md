@@ -46,11 +46,12 @@
 
     如果組建伺服器上未安裝 Visual Studio，請開啟命令提示字元，並確定可在路徑上存取 MSBuild.exe。MSBuild 會與 .NET Framework 一起安裝在路徑 %WINDIR%\\Microsoft.NET\\Framework\*Version* 中。例如，若要在已安裝 .NET Framework 4 時，將 MSBuild.exe 新增至 PATH 環境變數，請在命令提示字元中輸入下列命令：
 
+
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
 2.  在命令提示字元中，瀏覽至包含您要建置之 Azure 專案檔案的資料夾。
 
-3.  搭配 /target:Publish 選項執行 MSBuild，如下列範例所示：
+3.  搭配 /target:Publish 選項執行 msbuild，如下列範例所示：
 
         MSBuild /target:Publish
 

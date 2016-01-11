@@ -32,15 +32,15 @@
 
 ##<a id="configuration"></a>有哪些相異的組態選項？
 
-### 其他儲存體
+###其他儲存體
 
 在設定期間，您必須指定 Azure Blob 儲存體帳戶和預設容器。叢集以此做為預設儲存位置。您可以選擇性地指定將與叢集相關聯的其他 Azure 儲存體帳戶。
 
->[AZURE.NOTE]請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
+>[AZURE.NOTE] 請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
 
 如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-use-blob-storage.md)。
 
-### Metastore
+###Metastore
 
 Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可以將這些結構描述和資料表中繼資料儲存在外部 metastore。使用中繼存放區有助於保留 Hive 中繼資料，因此在建立新叢集時，您便無需重建 Hive 資料表。依預設，Hive 會使用內嵌資料庫來儲存此資訊。刪除叢集時，嵌入的資料庫將無法保留中繼資料。
 
@@ -51,7 +51,7 @@ Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可�
 您可以在建立期間使用指令碼來安裝其他元件或自訂組態。這類指令碼可透過**指令碼動作**叫用，指令碼動作是一個組態選項，其可從 Azure 入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-customize-cluster]。
 
 
-### 虛擬網路
+###虛擬網路
 
 [Azure 虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)可讓您建立安全、持續的網路，其包含解決方案所需的資源。虛擬網路可讓您：
 

@@ -126,23 +126,23 @@
 
 		// Create an RDD using the default Spark context, sc
 		val hvacText = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
+		
 		// Define a schema
 		case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
-
+		
 		// Map the values in the .csv file to the schema
 		val hvac = hvacText.map(s => s.split(",")).filter(s => s(0) != "Date").map(
-    		s => Hvac(s(0),
+    		s => Hvac(s(0), 
             		s(1),
             		s(2).toInt,
             		s(3).toInt,
             		s(6)
         	)
 		).toDF()
-
+		
 		// Register as a temporary table called "hvac"
 		hvac.registerTempTable("hvac")
-
+		
 	針對該段落，按下鍵盤上的 **SHIFT + ENTER**，或按一下 [播放] 按鈕，來執行程式碼。段落右上角的狀態應該會從「準備就緒」逐一轉變成「擱置」、「執行中」及「已完成」。輸出會出現在同一個段落的底部。螢幕擷取畫面如下所示：
 
 	![從原始資料建立暫存資料表](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.loaddataintotable.png "從原始資料建立暫存資料表")
@@ -152,9 +152,9 @@
 5. 您現在可以針對 **hvac** 資料表執行 Spark SQL 陳述式。將以下查詢貼入新段落。此查詢會擷取建築物識別碼，以及在指定日期當天每棟建築物之目標溫度與實際溫度間的差異。按下 **SHIFT + ENTER**。
 
 		%sql
-		select buildingID, (targettemp - actualtemp) as temp_diff, date
+		select buildingID, (targettemp - actualtemp) as temp_diff, date 
 		from hvac
-		where date = "6/1/13"
+		where date = "6/1/13" 
 
 	開頭的 **%Sql** 陳述式會告訴 Notebook 使用 Spark SQL 解譯器。您可以在 Notebook 標頭中的 [解譯器] 索引標籤查看已定義的解譯器。
 
@@ -223,19 +223,19 @@
 
 		# Load the data
 		hvacText = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
+		
 		# Create the schema
 		hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-
+		
 		# Parse the data in hvacText
 		hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-
+		
 		# Create a data frame
 		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-
+		
 		# Register the data fram as a table to run queries against
 		hvacdf.registerAsTable("hvac")
-
+		
 		# Run queries against the table and display the data
 		data = sqlContext.sql("select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13"")
 		data.show()

@@ -81,7 +81,7 @@
     ![設定 App 設定](./media/active-directory-saas-empcenter-tutorial/IC802921.png "設定 App 設定")
 
     1.  在 [登入 URL] 文字方塊中，輸入使用者用來登入您 EmpCenter 應用程式的 URL (例如：**https://partner-authenticati.empcenter.com/workforce/SSO.do*)。
-2.  按 [**下一步**]
+    2.  按 [**下一步**]
 
 4.  於 [設定在 EmpCenter 單一登入] 頁面上，按一下 [下載中繼資料] 來下載您的中繼資料，然後將中繼資料檔儲存在您的電腦中。
 

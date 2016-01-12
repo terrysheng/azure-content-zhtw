@@ -90,7 +90,7 @@ Azure App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，
 
 接下來，您將在雲端執行 AngularJS 前端並呼叫在雲端執行的 API 後端。將前端部署至 Azure 之前，您必須在 AngularJS 專案中變更 API 端點，以便程式碼呼叫您稍早建立的 Azure API 應用程式。
 
-1. 在 ContactsList.Angular 專案中，開啟 *index.html*。
+1. 在 ContactsList.Angular 專案中，開啟 *index.html* 。
 
 2. 註解化可將 `baseUrl` 設定為 localhost URL 的這一行程式碼，取消註解將 `baseUrl` 設定為 azurewebsites.net URL 的這一行程式碼，並以您稍早建立的 API 應用程式的實際名稱取代預留位置。如果您將 API 應用程式命名為 ContactsListAPI，則程式碼現在看起來如下列範例所示。
 
@@ -208,4 +208,4 @@ Azure App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，
 
 在本教學課程中，您已看到如何啟用 App Service CORS 支援，以便用戶端 JavaScript 程式碼可以呼叫不同網域中的 API。在下一篇 API Apps 入門系列文章中，您將了解 [App Service API 應用程式的驗證](app-service-api-authentication.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

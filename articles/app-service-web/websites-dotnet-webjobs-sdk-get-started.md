@@ -395,7 +395,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 11. 在 [新增專案] 對話方塊中，依序選擇 [Visual C#] > [Windows Desktop] > [類別庫] 範本。
 
-10. 將專案命名為 *ContosoAdsCommon*，然後按一下 [確定]。
+10. 將專案命名為 *ContosoAdsCommon* ，然後按一下 [確定]。
 
 	此專案將包含由前端與後端使用的 Entity Framework 內容和資料模型。作為替代方式，您可以在 Web 專案中定義 EF 相關的類別，並從 WebJob 專案參考該專案。但之後您的 WebJob 專案會有不需要的 Web 組件參考。
 
@@ -815,4 +815,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 如需詳細資訊，請參閱 [Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?LinkId=390226)。
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->

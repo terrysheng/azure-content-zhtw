@@ -6,7 +6,7 @@
 
 	![](./media/app-service-api-define-api-app/03-add-new-class-v3.png)
 
-2. 將新檔案命名為 *Contact.cs*。
+2. 將新檔案命名為 *Contact.cs* 。
 
 	![](./media/app-service-api-define-api-app/0301-add-new-class-dialog-v3.png)
 
@@ -103,4 +103,4 @@
 
 3. 在 Visual Studio 中，按一下 [偵錯] > [停止偵錯]。
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

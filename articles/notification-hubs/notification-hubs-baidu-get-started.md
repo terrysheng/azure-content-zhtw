@@ -437,7 +437,7 @@
 
         using Microsoft.Azure.NotificationHubs;
 
-4. 在 `Program` 類別中新增下列方法，並使用您的值取代 *DefaultFullSharedAccessSignatureSASConnectionString* 與 *NotificationHubName*。
+4. 在 `Program` 類別中新增下列方法，並使用您的值取代 *DefaultFullSharedAccessSignatureSASConnectionString* 與 *NotificationHubName* 。
 
 		private static async void SendNotificationAsync()
 		{

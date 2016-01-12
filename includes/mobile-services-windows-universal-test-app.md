@@ -1,7 +1,7 @@
 
 1. 按 F5 鍵以重建專案並啟動 Windows 市集應用程式。
 
-2. 在應用程式的 [插入 TodoItem] 中輸入有意義的文字，例如*完成教學課程*，然後按一下 [儲存]。
+2. 在應用程式的 [插入 TodoItem] 中輸入有意義的文字，例如 *完成教學課程* ，然後按一下 [儲存]。
 
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
 
@@ -13,4 +13,4 @@
 	
 	請注意，從先前步驟中儲存的資料，會在應用程式啟動後從行動服務載入。
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

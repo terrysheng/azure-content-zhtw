@@ -275,7 +275,7 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 
 ### 項目名稱變更
 
-所有名為 *capptain* 的項目已命名為 *engagement*。同樣地，*Capptain* 也已命名為 *Engagement*。
+所有名為 *capptain* 的項目已命名為 *engagement* 。同樣地， *Capptain* 也已命名為 *Engagement* 。
 
 常用 Capptain 項目的範例：
 
@@ -289,4 +289,4 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

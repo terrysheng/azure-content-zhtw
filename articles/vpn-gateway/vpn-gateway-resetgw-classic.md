@@ -36,7 +36,7 @@
 
 ## 使用 PowerShell 重設 VPN 閘道
 
-用來重設 Azure VPN 閘道的 PowerShell cmdlet 是 *Reset-AzureVNetGateway*。每個 Azure VPN 閘道都是由在作用中待命組態中執行的兩個 VM 執行個體組成。一旦發出此命令，會立即重新啟動 Azure VPN 閘道的目前作用中執行個體。從作用中執行個體 (正在重新啟動) 容錯移轉到待命執行個體期間，會有短暫的間隔。此間隔應該不超過一分鐘。
+用來重設 Azure VPN 閘道的 PowerShell cmdlet 是 *Reset-AzureVNetGateway* 。每個 Azure VPN 閘道都是由在作用中待命組態中執行的兩個 VM 執行個體組成。一旦發出此命令，會立即重新啟動 Azure VPN 閘道的目前作用中執行個體。從作用中執行個體 (正在重新啟動) 容錯移轉到待命執行個體期間，會有短暫的間隔。此間隔應該不超過一分鐘。
 
 下列範例會重設稱為 "ContosoVNet" 的虛擬網路的 Azure VPN 閘道。
  

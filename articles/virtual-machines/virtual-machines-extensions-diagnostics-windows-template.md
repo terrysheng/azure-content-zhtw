@@ -154,7 +154,7 @@ Azure 診斷延伸模組提供以 Windows 為基礎的 Azure 虛擬機器上的�
 
 - **PartitionKey**：partitionkey 依據 "resourceID" 值所建構，專門用於識別 VM 資源，例如：002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
 - **RowKey**：遵循下列格式： <Descending time tick>:<Performance Counter Name>。遞減的時間刻度計算是最大時間刻度減去開始彙總期間時間。例如，如果取樣期間從 2015 年 11 月 10 日 00:00Hrs UTC 開始，則計算會是：DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)。針對記憶體可用位元組效能計數器，資料列索引鍵如下所示：2519551871999999999\_\_:005CMemory:005CAvailable:0020Bytes
-- **CounterName**：效能計數器的名稱。這符合 xml 設定中定義的 *counterSpecifier*。
+- **CounterName**：效能計數器的名稱。這符合 xml 設定中定義的 *counterSpecifier* 。
 - **最大值**：彙總期間效能計數器的最大值。
 - **最小值**：彙總期間效能計數器的最小值。
 - **總計**：彙總期間報告之效能計數器的所有值加總。
@@ -168,4 +168,4 @@ Azure 診斷延伸模組提供以 Windows 為基礎的 Azure 虛擬機器上的�
 - 使用 [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) 或 [Azure 命令列](virtual-machines-deploy-rmtemplates-powershell.md)部署資源管理員範本
 - 深入了解[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

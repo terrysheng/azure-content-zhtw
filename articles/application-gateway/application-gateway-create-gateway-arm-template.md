@@ -33,11 +33,6 @@
 如果您只需直接從 GitHub 部署 ARM 範本而不做任何變更，請跳至＜從 GitHub 部署範本＞。
 
 
->[AZURE.IMPORTANT]使用 Azure 資源之前，請務必了解 Azure 目前有「資源管理員」和「傳統」兩種部署模型。使用任何 Azure 資源之前，請先確認您了解[部署模型和工具](azure-classic-rm.md)。您可以按一下本文頂端的索引標籤，檢視不同工具的文件。本文件將說明使用 Azure 資源管理員建立應用程式閘道的方式。若要使用傳統的版本，請移至[使用 PowerShell 建立應用程式閘道傳統部署](application-gateway-create-gateway.md)。
-
-
-
-
 ## 案例
 
 在此案例中，您將建立下列項目：
@@ -122,19 +117,35 @@
 ## 使用 PowerShell 部署 ARM 範本
 
 1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
-2. 在 Azure PowerShell 提示字元中執行 **Switch-AzureMode** Cmdlet，以切換至資源管理員模式，如下所示。
 
-		Switch-AzureMode AzureResourceManager
+### 步驟 1
+
+		Login-AzureRmAccount
+
+
+
+### 步驟 2
+
+檢查帳戶的訂用帳戶
+
+		get-AzureRmSubscription 
+
+系統會提示使用您的認證進行驗證。<BR>
+
+### 步驟 3 
+
+選擇其中一個要使用的 Azure 訂用帳戶。<BR>
+
+
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
+
+### 步驟 4
+
 	
-預期的輸出：
+如有需要，請使用 `New-AzureResourceGroup` Cmdlet，來建立新的資源群組。在下列範例中，您將在 East US 位置中建立名為 AppgatewayRG 的新資源群組：
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
->[AZURE.WARNING]Switch-AzureMode Cmdlet 即將被汰除。屆時將重新命名所有的資源管理員 Cmdlet。
-	
-3. 如有需要，請使用 `New-AzureResourceGroup` Cmdlet，來建立新的資源群組。在下列範例中，您將在 East US 位置中建立名為 AppgatewayRG 的新資源群組：
-
-		PS C:\> New-AzureResourceGroup -Name AppgatewayRG -Location "East US"
+	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -149,9 +160,9 @@
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-4. 執行 New-AzureResourceGroupDeployment Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的 VNet。
+4. 執行 New-AzureRmResourceGroupDeployment Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的 VNet。
 
-		New-AzureResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 命令列將產生下列輸出項目：
@@ -193,9 +204,9 @@
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n (或 --name)**。新資源群組的名稱。在本文案例中為 *appgatewayRG* 。
+**-n (或 --name)**。新資源群組的名稱。在本文案例中為 *appgatewayRG*。
 
-**-l (或 --location)**。將會在當中建立新資源群組的 Azure 區域。在本文案例中為 *Eastus* 。
+**-l (或 --location)**。將會在當中建立新資源群組的 Azure 區域。在本文案例中為 *Eastus*。
 
 4. 執行 **azure group deployment create** Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的 VNet。輸出後顯示的清單可說明所使用的參數。
 
@@ -273,4 +284,4 @@
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

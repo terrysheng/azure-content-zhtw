@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="09/16/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # 透過 Memcache 通訊協定，將 Azure App Service 中的 Web 應用程式連線到 Redis Cache
@@ -30,8 +30,8 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 請遵循這些文章中所述的步驟：
 
-* [佈建 Azure Redis 快取服務的執行個體][1]
-* [在 Azure 中部署可調整的 WordPress 網站][0]
+* [佈建 Azure Redis 快取服務的執行個體][0]
+* [在 Azure 中部署可調整的 WordPress 網站][1]
 
 部署 Scalable WordPress 網站與佈建 Redis Cache 執行個體之後，就可以準備在 Azure App Service Web 應用程式中啟用 Memcache 填充碼。
 
@@ -124,7 +124,7 @@ $memcached_servers = array(
 
 貼上此程式碼之後，monaco 將會自動儲存文件。
 
-下一個步驟是啟用 object-cache 外掛程式。將 **object-cache.php** 從 **wp-content/memcached** 資料夾拖放到 **wp-content** 資料夾即可啟用 Memcache Object Cache 功能。
+下一個步驟是啟用 object-cache 外掛程式。將 **object-cache.php** 從 **wp-content/plugins/memcached** 資料夾拖放到 **wp-content** 資料夾即可啟用 Memcache Object Cache 功能。
 
 ![尋找 memcache object-cache.php 外掛程式](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 
@@ -166,7 +166,7 @@ $memcached_servers = array(
 redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –p 6379
 ```
 
-以實際的 xxxxx.redis.cache.windows.net 主機名稱取代 **<hostname-for-redis-cache>**，並以快取的存取索引鍵取代 **<primary-key-for-redis-cache>**，然後按 **Enter**。CLI 連線至 Redis Cache 執行個體後，發出任何 redis 命令。在下列螢幕擷取畫面中，我選擇列示索引鍵。
+以實際的 xxxxx.redis.cache.windows.net 主機名稱取代 **&lt;hostname-for-redis-cache&gt;**，並以快取的存取金鑰取代 **&lt;primary-key-for-redis-cache&gt;**，然後按 **Enter**。CLI 連線至 Redis Cache 執行個體後，發出任何 redis 命令。在下列螢幕擷取畫面中，我選擇列示索引鍵。
 
 ![從終端機中的 Redis CLI 連接至 Azure Redis 快取](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
@@ -182,7 +182,7 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
-[0]: http://bit.ly/1F0m3tw
+[0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
@@ -197,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

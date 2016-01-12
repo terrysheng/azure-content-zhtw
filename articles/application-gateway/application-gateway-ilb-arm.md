@@ -36,15 +36,14 @@
 - **後端伺服器集區：**後端伺服器的 IP 位址清單。列出的 IP 位址應屬於虛擬網路子網路或是公用 IP/VIP。 
 - **後端伺服器集區設定：**每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。這些設定會繫結至集區，並套用至集區內所有伺服器。
 - **前端連接埠：**此連接埠是在應用程式閘道上開啟的公用連接埠。流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
-- **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 
-- **規則：**規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。目前只支援「基本」規則。「基本」規則是循環配置資源的負載分配。
+- **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，皆區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 
+- **規則：**規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。目前只支援*基本*規則。*基本*規則是循環配置資源的負載分配。
 
 
  
 ## 建立新的應用程式閘道
 
-使用「Azure 傳統」和「Azure 資源管理員」的差別，在於您建立應用程式閘道和需設定項目的順序。
-使用資源管理員，組成應用程式閘道的所有項目都將個別設定，然後放在一起建立應用程式閘道資源。
+使用「Azure 傳統」和「Azure 資源管理員」的差別，在於您建立應用程式閘道和需設定項目的順序。使用資源管理員，組成應用程式閘道的所有項目都將個別設定，然後放在一起建立應用程式閘道資源。
 
 
 以下是建立應用程式閘道所需的步驟：
@@ -103,7 +102,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 	
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
-使用前置詞 10.0.0.0/16 搭配子網路 10.0.0.0/24，在美國西部 ("West US") 區域的 "appw-rg" 資源群組中建立名為 "appgwvnet" 的虛擬網路
+使用前置詞 10.0.0.0/16 搭配子網路 10.0.0.0/24，在美國西部 ("West US") 區域的 "appgw-rg" 資源群組中建立名為 "appgwvnet" 的虛擬網路
 	
 ### 步驟 3
 
@@ -162,49 +161,13 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 設定應用程式閘道的執行個體大小
 
->[AZURE.NOTE]*InstanceCount* 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。您可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之間選擇。
+>[AZURE.NOTE]*InstanceCount* 的預設值是 2，最大值是 10。GatewaySize 的預設值是 Medium。您可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之間選擇。
 
 ## 使用 New-AzureApplicationGateway 建立應用程式閘道
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 從上述步驟的所有組態項目建立應用程式閘道。範例中的應用程式閘道名為 "appgwtest"。
-
-
-
-## 啟動閘道
-
-設定閘道之後，請使用 `Start-AzureRmApplicationGateway` Cmdlet 來啟動閘道。成功啟動閘道之後，會開始應用程式閘道計費。
-
-
-**注意：**`Start-AzureRmApplicationGateway`Cmdlet 可能需要 15-20 分鐘的時間才能完成。
-
-在以下範例中，應用程式閘道名為 "appgwtest"，資源群組為 "appgw-rg"：
-
-
-### 步驟 1
-
-取得應用程式閘道物件，並關聯至變數 "$getgw"：
- 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-### 步驟 2
-	 
-使用 `Start-AzureRmApplicationGateway` 啟動應用程式閘道：
-
-	PS C:\> Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
-
-	PS C:\> Start-AzureRmApplicationGateway AppGwTest 
-
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
-	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
-	----       ----------------     ------------                             ----
-	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
-## 確認應用程式閘道狀態
-
-使用 `Get-AzureRmApplicationGateway` Cmdlet 來檢查閘道狀態。如果上一個步驟中的 *Start-AzureApplicationGateway* 成功，則狀態應該是 *Running* 。
 
 
 ## 刪除應用程式閘道
@@ -247,7 +210,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 >[AZURE.NOTE]選擇性的 "-force" 參數可用來隱藏移除確認訊息
->
+
 
 若要確認已移除服務，您可以使用 `Get-AzureRmApplicationGateway` Cmdlet。這不是必要步驟。
 
@@ -265,9 +228,9 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 如果您想要將應用程式閘道設為與 ILB 搭配使用，請參閱[建立具有內部負載平衡器 (ILB) 的應用程式閘道](application-gateway-ilb.md)。
 
-如果您想進一步了解一般負載平衡選項，請參閱：
+如果您想取得一般負載平衡選項的詳細資訊，請參閱：
 
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

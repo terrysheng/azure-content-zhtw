@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
-# 使用 Azure PowerShell 建置您的第一個 Azure Data Factory 管線
+# 使用 Azure 資源管理員範本建置您的第一個 Azure Data Factory 管線
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -47,7 +47,7 @@
 
 1. 名為 **TutorialDataFactoryARM** 的 **ata Factory**。資料處理站可以有一或多個管線。其中的管線可以有一或多個活動。例如，「複製活動」會從來源複製資料到目的地資料存放區，HDInsight Hive 活動則是執行 Hive 指令碼轉換輸入資料以產生輸出資料。 
 2. 兩個**連結的服務**：**StorageLinkedService** 和 **HDInsightOnDemandLinkedService**。這些連結的服務會將您的 Azure 儲存體帳戶和 Azure HDInsight 叢集連結到您的 Data Factory。Azure 儲存體帳戶會保留此範例中管線的輸入和輸出資料。HDInsight 連結服務會用來執行此範例中管線活動指定的 Hive 指令碼。您必須識別案例中使用的資料存放區/計算服務，並建立連結的服務將這些服務連結到 Data Factory。 
-3. 兩個 (輸入/輸出) **資料集**：**AzureBlobInput** 和 **AzureBlobOutput**。這些資料集表示 Hive 處理的輸入和輸出資料。這些資料集是您稍早在本教學課程中建立的 **StorageLinkedService**。連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。   
+3. 兩個 (輸入/輸出) **資料集**：**AzureBlobInput** 和 **AzureBlobOutput**。這些資料集代表 Hive 處理的輸入和輸出資料。這些資料集是您稍早在本教學課程中建立的 **StorageLinkedService**。連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。   
 
 按一下 [使用 Data Factory 編輯器] 索引標籤，切換到詳細說明此範本中使用的 JSON 屬性的文章。
 
@@ -226,15 +226,13 @@
 
 ## 監視管線
  
-1.	登入 [Azure 入口網站](http://portal.azure.com/)後，按一下 [瀏覽]，然後選取 [Data Factory]。
-		![瀏覽 -> Data Factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	登入 [Azure 入口網站](http://portal.azure.com/)後，按一下 [瀏覽]，然後選取 [Data Factory]。![瀏覽 -> Data Factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	在 [Data Factory] 刀鋒視窗中，按一下您建立的 Data Factory (**TutorialFactoryARM**)。	
-2.	在您 Data Factory 的 [Data Factory] 刀鋒視窗中，按一下 [圖表]。
-		![圖表磚](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	在您 Data Factory 的 [Data Factory] 刀鋒視窗中，按一下 [圖表]。![圖表磚](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	在 [圖表檢視] 中，您會看到管線的概觀，以及在本教學課程中使用的資料集。
 	
 	![圖表檢視](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-8. 在 [圖表檢視] 中，按兩下 AzureBlobOutput 資料集。您會看到目前正在處理的配量。
+8. 在 [圖表檢視] 中，按兩下 **AzureBlobOutput** 資料集。您會看到目前正在處理的配量。
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 9. 處理完成時，您會看到配量處於 [就緒] 狀態。請注意，建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。 
@@ -243,4 +241,4 @@
 10. 當配量處於**就緒**狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。  
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

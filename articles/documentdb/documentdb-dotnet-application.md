@@ -38,7 +38,7 @@
 
 在依照本文中的指示進行之前，您應先確定備妥下列項目：
 
-- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
+- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - [Visual Studio 2013](http://www.visualstudio.com/) Update 4 或更新版本。
 - Azure SDK for .NET 2.5.1 版或更高版本，可透過 [Microsoft Web Platform Installer][] (英文) 取得。
 
@@ -60,7 +60,7 @@
 
 1. 在 Visual Studio 的 [檔案] 功能表中，指向 [新增]，然後按一下 [專案]。
 
-   	[新增專案] 對話方塊隨即出現。
+   	[**新增專案** ] 對話方塊隨即出現。
 2. 在 [專案類型] 窗格中，依序展開 [範本]、[Visual C#]、[Web]，然後選取 [ASP.NET Web 應用程式]。
 
   	![[新增專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 ASP.NET Web 應用程式專案類型](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
@@ -83,7 +83,7 @@
 
   	我在這裡沒有選擇 [資料庫伺服器]，因為我們並未使用 Azure SQL Database Server，稍後我們會在 Azure 入口網站中建立新的 Azure DocumentDB 帳戶。
 
-	如需選擇 **App Service 方案**和**資源群組**的詳細資訊，請參閱 [Azure App Service 方案深入概觀](azure-web-sites-web-hosting-plans-in-depth-overview.md)。
+	如需選擇 **App Service 方案**和**資源群組**的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
   	![[設定 Microsoft Azure 網站] 對話方塊的螢幕擷取畫面](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -173,7 +173,7 @@
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，按一下 [新增]，然後按一下 [控制器]。
 
-    [新增 Scaffold] 對話方塊隨即出現。
+    [**新增 Scaffold**] 對話方塊隨即出現。
 
 2. 選取 [Web API 5 控制器 - 空]，然後按一下 [新增]。
 
@@ -236,7 +236,7 @@
 1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
-    - 在 [檢視名稱] 方塊中，輸入「***編輯***」。
+    - 在 [**檢視名稱**] 方塊中，輸入「***編輯***」。
     - 在 [範本] 方塊中，選取 [編輯]。
     - 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
     - 將 [資料內容類別] 方塊保留空白。 
@@ -406,7 +406,7 @@
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. 現在，使用Azure Preview 入口網站的 [金鑰] 刀鋒視窗來更新 [端點] 和 [authKey] 的值。使用 [金鑰] 刀鋒視窗的 [URI] 做為端點設定的值，並使用 [金鑰] 刀鋒視窗的 [主索引鍵] 或 [次要金鑰] 做為 authKey 設定的值。
+4. 現在，使用 Azure 入口網站的 [金鑰] 刀鋒視窗來更新 [*端點*] 和 [*authKey*] 的值。使用 [金鑰] 刀鋒視窗的 [URI] 做為端點設定的值，並使用 [金鑰] 刀鋒視窗的 [主索引鍵] 或 [次要金鑰] 做為 authKey 設定的值。
 
 
     負責裝設 DocumentDB 儲存機制，現在讓我們加入我們的應用程式邏輯。
@@ -446,7 +446,7 @@
 	
 此時，應該已經可以建置方案，而不會發生任何錯誤。
 
-如果您現在執行應用程式，您可以前往 **HomeController** 及該控制器的 [索引] 檢視。這是我們在一開始時所選擇的 MVC 範本專案預設行為，但是我們不想要這樣的行為！ 讓我們變更此 MVC 應用程式上的路由以改變此行為。
+如果您現在執行應用程式，您可以前往 **HomeController** 及該控制器的 [**索引**] 檢視。這是我們在一開始時所選擇的 MVC 範本專案預設行為，但是我們不想要這樣的行為！ 讓我們變更此 MVC 應用程式上的路由以改變此行為。
 
 開啟 ***App\_Start\\RouteConfig.cs***，並尋找以 "defaults:" 開頭的程式碼行，然後將它變更為如下所示。
 
@@ -454,7 +454,7 @@
 
 如果您未在 URL 中指定控制路由行為的值，這會讓 ASP.NET MVC 知道改用 **Item** (**Home**) 作為控制器，並使用使用者**索引**作為檢視。
 
-如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\\**Item**\\**Index** 檢視。
+如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\**Item**\**Index** 檢視。
 
 如果建置並立即執行此專案，您現在應該會看到如下的內容。
 
@@ -633,4 +633,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

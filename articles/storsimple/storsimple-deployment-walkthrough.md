@@ -17,7 +17,10 @@
 
 # 部署內部部署 StorSimple 裝置
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## 概觀
 
@@ -164,8 +167,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 > [AZURE.IMPORTANT]如果您並未啟用服務自動建立儲存體帳戶，您將必須在成功建立服務後，至少建立一個儲存體帳戶。當您建立磁碟區容器時，將會使用此儲存體帳戶。
 >
-> 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#configure-a-new-storage-account-for-the-service)以取得詳細指示。
-> 如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
+> 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#configure-a-new-storage-account-for-the-service)以取得詳細指示。如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
 
 ## 步驟 2：取得服務註冊金鑰
 
@@ -261,9 +263,9 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 > [AZURE.NOTE]如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。請移至 **[裝置] > [設定]** 並停用 Data 2 和 Data 3 介面。裝置更新之後，您應該重新啟用這些介面。
 
 #### 若要更新裝置
-1.	在裝置的 [**快速入門**] 頁面上，按一下 [**裝置**]。選取 [實體裝置]，按一下 [**維護**]，然後按一下 [**掃描更新**]。  
-2.	系統會建立掃描可用更新的工作。如果有可用的更新，[**掃描更新**] 會變更為 [**安裝更新**]。按一下 [**安裝更新**]。系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。您必須停用這些網路介面，否則更新會失敗。
-3.	更新工作將會建立。瀏覽至 [**工作**] 監視更新的狀態。
+1.	在裝置的 [快速入門] 頁面上，按一下 [裝置]。選取實體裝置，按一下 [維護]，然後按一下 [掃描更新]。  
+2.	系統會建立掃描可用更新的工作。如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。按一下 [**安裝更新**]。系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。您必須停用這些網路介面，否則更新會失敗。
+3.	更新工作將會建立。巡覽至 [工作] 以監視更新的狀態。
 
 	> [AZURE.NOTE]當更新工作啟動時，狀態會立即顯示為 50 %。只有在更新工作完成之後，狀態才會變更為 100 %。更新程序沒有即時狀態。
 
@@ -291,4 +293,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 - 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

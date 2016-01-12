@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # 將您自己的網域名稱新增至 Azure Active Directory
@@ -212,4 +212,4 @@ Office 365 具有 [[常見網域註冊機構的特定指示](https://support.off
 - [以組織身分註冊 Azure](sign-up-organization.md)
 - [在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

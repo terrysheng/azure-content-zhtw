@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="01/04/2016"
    ms.author="twounder"/>
 
 # 使用 SQLCMD 連接及查詢
@@ -83,4 +83,4 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

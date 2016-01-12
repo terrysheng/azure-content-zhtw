@@ -1,6 +1,6 @@
 <properties
-	pageTitle="我在 Azure 自動化中的第一個圖形化 Runbook"
-	description="教學課程將逐步引導您建立、測試和發佈簡單的圖形化 Runbook。涵蓋數個概念，例如向 Azure 資源進行驗證、輸入參數和條件式連結。"
+	pageTitle="我在 Azure 自動化中的第一個圖形化 Runbook | Microsoft Azure"
+	description="教學課程將逐步引導您建立、測試和發佈簡單的圖形化 Runbook。"
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
 - [PowerShell Workflow](automation-first-runbook-textual.md)
+- [PowerShell](automation-first-runbook-textual-PowerShell.md)
 
 本教學課程將逐步引導您在 Azure 自動化中建立[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)。讓我們先從將測試和發佈的簡單 Runbook 開始，同時說明如何追蹤 Runbook 工作的狀態。然後我們要修改 Runbook 以實際上管理 Azure 資源，在此情況下是啟動 Azure 虛擬機器。接著我們要藉由加入 Runbook 參數和條件式連結，讓 Runbook 更穩固。
 
@@ -82,9 +83,9 @@
 6.  [**工作摘要**] 中會顯示工作狀態，且符合當我們測試 Runbook 時看到的狀態。<br> ![工作摘要](media/automation-first-runbook-graphical/job-pane-summary.png)
 7.  一旦 Runbook 狀態顯示*已完成*，請按一下 [**輸出**]。[**輸出**] 窗格會開啟，而且我們可以看到我們的 *Hello World*。<br> ![工作摘要](media/automation-first-runbook-graphical/job-pane-output.png)  
 8.  關閉 [輸出] 窗格。
-9.  按一下 [**資料流**] 以開啟 Runbook 工作的 [資料流] 窗格。我們應該只會在輸出資料流中看到 *Hello World*，但是這可能顯示 Runbook 工作的其他資料流，例如 Runbook 寫入它們時發生的詳細資訊和錯誤。<br> ![工作摘要](media/automation-first-runbook-graphical/job-pane-streams.png) 
+9.  按一下 [資料流] 以開啟 Runbook 工作的 [資料流] 窗格。我們應該只會在輸出串流中看到 *Hello World*，但可能也會顯示 Runbook 工作的其他資料流，例如 Runbook 寫入時發生的詳細資訊和錯誤。<br> ![工作摘要](media/automation-first-runbook-graphical/job-pane-streams.png) 
 9. 關閉 [資料流] 窗格和 [工作] 窗格，以返回 MyFirstRunbook 窗格。
-9.  按一下 [**作業**] 以開啟此 Runbook 的 [工作] 窗格。這樣會列出此 Runbook 所建立的所有工作。因為我們一次只執行一項工作，應該只會看到列出一項工作。<br> ![作業](media/automation-first-runbook-graphical/runbook-control-jobs.png) 
+9.  按一下 [作業] 以開啟此 Runbook 的 [工作] 窗格。這樣會列出此 Runbook 所建立的所有工作。由於我們只執行一次工作，因此應該只會看到列出一項工作。<br> ![作業](media/automation-first-runbook-graphical/runbook-control-jobs.png) 
 9. 您可以按一下此工作以開啟我們啟動 Runbook 時所檢視的相同 [工作] 窗格。這可讓您回到過去的時間並檢視針對特定 Runbook 所建立的任何工作的詳細資料。
 
 ## 步驟 5 - 加入驗證來管理 Azure 資源
@@ -130,9 +131,9 @@
 8. 將 [**服務名稱**] 的 [**資料來源**] 變更為 [**Runbook 輸入**]，然後選取 [**VMServiceName**]。<br> ![Start-AzureVM 參數](media/automation-first-runbook-graphical/start-azurevm-params-inputs.png) 
 9. 儲存 Runbook 並開啟 [測試] 窗格。請注意，您現在可以提供測試中將使用的兩個輸入變數的值。 
 11.  關閉 [測試] 窗格。
-12.  按一下 [**發佈**] 來發行新版本的 Runbook。
+12.  按一下 [發佈] 來發行新版本的 Runbook。
 13.  停止您在上一個步驟中啟動的虛擬機器。
-13.  按一下 [**開始**] 以啟動 Runbook。輸入您要啟動的虛擬機器的 **VMName** 和 **VMServiceName**。<br> ![啟動 Runbook](media/automation-first-runbook-graphical/start-runbook-input-params.png) 
+13.  按一下 [**開始**] 以啟動 Runbook。輸入您要啟動之虛擬機器的 **VMName** 和 **VMServiceName**。<br> ![啟動 Runbook](media/automation-first-runbook-graphical/start-runbook-input-params.png) 
 14.  Runbook 完成時，請檢查虛擬機器已啟動。
 
 ## 步驟 8 - 建立條件式連結
@@ -166,7 +167,7 @@
 
 - [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 - [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
-
+- [我的第一個 PowerShell Runbook](automation-first-runbook-textual-PowerShell.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

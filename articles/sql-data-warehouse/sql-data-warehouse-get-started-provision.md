@@ -1,19 +1,20 @@
 <properties
-	pageTitle="在 Azure 入口網站中建立 SQL 資料倉儲資料庫 | Microsoft Azure"
-	description="了解如何在 Azure 入口網站中建立 Azure SQL 資料倉儲"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="在 Azure 入口網站中建立 SQL 資料倉儲資料庫 | Microsoft Azure"
+   description="了解如何在 Azure 入口網站中建立 Azure SQL 資料倉儲"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # 建立 SQL 資料倉儲
@@ -53,12 +54,7 @@
 
 在 SQL Database 和 SQL 資料倉儲中，每個資料庫都會指派給一部伺服器，而每部伺服器會指派給一個地理位置。此伺服器稱為邏輯 SQL Server。
 
-> [AZURE.NOTE]<a name="note"></a>邏輯 SQL Server︰
-  >
-  > + 提供一致的方式在相同的地理位置設定多個資料庫。
-  > + 不是內部部署伺服器的實體硬體。它是服務軟體的一部分。這就是為什麼我們將它稱為邏輯伺服器。
-  > + 可以裝載多個資料庫，而不會影響其效能。
-  > + 在其名稱中使用小寫 *s*。SQL **s**erver 是 Azure 邏輯伺服器，而 SQL **S**erver 則是 Microsoft 的內部部署資料庫產品。
+> [AZURE.NOTE]<a name="note"></a>邏輯 SQL Server︰ > > + 提供一致的方式在相同的地理位置設定多個資料庫。> + 不是內部部署伺服器的實體硬體。它是服務軟體的一部分。這就是為什麼我們將它稱為邏輯伺服器。> + 可以裝載多個資料庫，而不會影響其效能。> + 在其名稱中使用小寫 *s*。SQL **s**erver 是 Azure 邏輯伺服器，而 SQL **S**erver 則是 Microsoft 的內部部署資料庫產品。
 
 1. 按一下 [伺服器] > [建立新伺服器]。伺服器不會收取費用。如果您已經有想要使用的 V12 邏輯 SQL 伺服器，請選擇現有的伺服器，然後移至下一個步驟。 
 
@@ -130,9 +126,8 @@
 
 您現已設定防火牆，所以能夠從桌面連接到您剛才建立的 Azure SQL 資料倉儲資料庫。
 
-
 ## 後續步驟
 
 既然您已建立 SQL 資料倉儲的範例資料庫，表示已準備好[連接](./sql-data-warehouse-get-started-connect.md)到您的資料庫。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

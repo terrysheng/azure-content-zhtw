@@ -89,7 +89,7 @@ SQL Database 預設提供每個資料庫的內建基本保護功能。其作法�
 
 ###REST API 
 
-使用 [Create Database](https://msdn.microsoft.com/library/mt163685.aspx) API 並將 *createMode* 設定為 *NonReadableSecondary* 或 *Secondary*，即可以程式設計方式建立異地複寫的次要資料庫。
+使用 [Create Database](https://msdn.microsoft.com/library/mt163685.aspx) API 並將 *createMode* 設定為 *NonReadableSecondary* 或 *Secondary* ，即可以程式設計方式建立異地複寫的次要資料庫。
 
 這個 API 是非同步的。傳回後，請使用 [Get Database Copy](https://msdn.microsoft.com/library/mt600778.aspx) API 來檢查這項作業的狀態。當作業完成時，回應主體的 *replicationState* 欄位會有 CATCHUP 值。
 

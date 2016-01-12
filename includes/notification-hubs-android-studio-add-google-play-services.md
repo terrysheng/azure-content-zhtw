@@ -11,7 +11,7 @@
 
 	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
-4. 新增此行至 *相依項目*下方：
+4. 新增此行至 *相依項目* 下方：
 
    		compile 'com.google.android.gms:play-services-base:6.5.87'
 

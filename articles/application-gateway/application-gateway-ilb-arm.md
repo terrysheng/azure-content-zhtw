@@ -43,7 +43,8 @@
  
 ## 建立新的應用程式閘道
 
-使用「Azure 傳統」和「Azure 資源管理員」的差別，在於您建立應用程式閘道和需設定項目的順序。使用資源管理員，組成應用程式閘道的所有項目都將個別設定，然後放在一起建立應用程式閘道資源。
+使用「Azure 傳統」和「Azure 資源管理員」的差別，在於您建立應用程式閘道和需設定項目的順序。
+使用資源管理員，組成應用程式閘道的所有項目都將個別設定，然後放在一起建立應用程式閘道資源。
 
 
 以下是建立應用程式閘道所需的步驟：
@@ -203,7 +204,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 ## 確認應用程式閘道狀態
 
-使用 `Get-AzureRmApplicationGateway` Cmdlet 來檢查閘道狀態。如果上一個步驟中的 *Start-AzureApplicationGateway* 成功，則狀態應該是 *Running*。
+使用 `Get-AzureRmApplicationGateway` Cmdlet 來檢查閘道狀態。如果上一個步驟中的 *Start-AzureApplicationGateway* 成功，則狀態應該是 *Running* 。
 
 
 ## 刪除應用程式閘道

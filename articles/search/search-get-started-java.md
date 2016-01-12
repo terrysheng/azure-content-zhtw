@@ -145,7 +145,7 @@
 
 	![][7]
 
-6. 在下一頁指定 Tomcat 的安裝目錄。在 Windows 電腦中，這通常為 C:\\Program Files\\Apache Software Foundation\\Tomcat *版本*。
+6. 在下一頁指定 Tomcat 的安裝目錄。在 Windows 電腦中，這通常為 C:\\Program Files\\Apache Software Foundation\\Tomcat *版本* 。
 
 6. 按一下 [完成]。
 
@@ -231,4 +231,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

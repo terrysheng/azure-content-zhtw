@@ -49,7 +49,8 @@ Office 365 使用者可能對以下相關主題有興趣：
 
 如果您想要搭配使用單一登入與雲端服務，則建議執行 Microsoft Deployment Readiness Tool 來協助準備 Active Directory 環境。此工具會檢查 Active Directory 環境，並提供一份內含您是否準備好設定單一登入相關資訊的報告。如果沒有，它會列出您需要進行以準備單一登入的變更。例如，它會檢查使用者是否擁有 UPN，以及這些 UPN 的格式是否正確。若要下載此工具，請參閱 [Microsoft Deployment Readiness Tool](http://go.microsoft.com/fwlink/?linkid=235650)。
 
-> [AZURE.NOTE]是否使用 Office 365？ 設定網域之後，就可以開始建立電子郵件地址、Lync Online 帳戶，以及使用自訂網域名稱的通訊群組清單。您也可以將網域名稱用於裝載於 SharePoint Online 的公開網站。
+> [AZURE.NOTE]
+> 是否使用 Office 365？ 設定網域之後，就可以開始建立電子郵件地址、Lync Online 帳戶，以及使用自訂網域名稱的通訊群組清單。您也可以將網域名稱用於裝載於 SharePoint Online 的公開網站。
 
 - [使用 Azure 傳統入口網站新增和驗證網域](#add-and-verify-a-domain-using-the-azure-management-portal)
 - [編輯雲端服務的 DNS 記錄](#edit-dns-records-for-your-cloud-services)
@@ -69,11 +70,13 @@ Office 365 使用者可能對以下相關主題有興趣：
         1. 一定要選取 [**我計劃將這個網域設定為可使用我的本機 Active Directory 進行單一登入**] 核取方塊，然後按一下 [**新增**] 按鈕。
         2. 看到網域已順利新增至 Azure AD 的訊息之後，請按一下箭頭移至下一頁，然後遵循該頁面上的指示來設定您針對進行單一登入所新增的網域。
 
-> [AZURE.NOTE]將網域名稱新增至 Azure AD 之後，就可以變更新電子郵件地址的預設網域名稱。如需詳細資訊，請參閱[如何變更使用者的主要網域名稱？](#how-can-i-change-the-primary-domain-name-for-users?) 您也可以編輯現有使用者帳戶的設定檔，將電子郵件地址 (這也是您的使用者識別碼) 更新成使用自訂網域名稱，而非 onmicrosoft.com 網域。
+> [AZURE.NOTE]
+> 將網域名稱新增至 Azure AD 之後，就可以變更新電子郵件地址的預設網域名稱。如需詳細資訊，請參閱[如何變更使用者的主要網域名稱？](#how-can-i-change-the-primary-domain-name-for-users?) 您也可以編輯現有使用者帳戶的設定檔，將電子郵件地址 (這也是您的使用者識別碼) 更新成使用自訂網域名稱，而非 onmicrosoft.com 網域。
 
 ### 編輯雲端服務的 DNS 記錄
 
-> [AZURE.NOTE]是否使用 Microsoft Intune？ 您不需要編輯 Microsoft Intune 雲端服務的 DNS 記錄。
+> [AZURE.NOTE]
+> 是否使用 Microsoft Intune？ 您不需要編輯 Microsoft Intune 雲端服務的 DNS 記錄。
 
 新增並驗證自訂網域名稱之後，下一步是編輯網域註冊機構或 DNS 主機服務提供者上將流量指向雲端服務的 DNS 記錄。Azure AD 提供您需要的 DNS 資訊。
 

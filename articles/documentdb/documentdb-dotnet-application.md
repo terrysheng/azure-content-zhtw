@@ -206,8 +206,8 @@
 
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
 	- 在 [檢視名稱] 方塊中，輸入「***索引***」。
-	- 在 [範本] 方塊中，選取 [清單]。
-	- 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
+	- 在 [範本] 方塊中，選取 [***清單***]。
+	- 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
 	- 將 [資料內容類別] 方塊保留空白。 
 	- 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
 	
@@ -224,7 +224,7 @@
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
     - 在 [檢視名稱] 方塊中，輸入「***建立***」。
     - 在 [**範本**] 方塊中，選取 [***建立***]。
-    - 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
+    - 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
     - 將 [資料內容類別] 方塊保留空白。
     - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
     - 按一下 [新增]。
@@ -236,9 +236,9 @@
 1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
-    - 在 [**檢視名稱**] 方塊中，輸入「***編輯***」。
-    - 在 [範本] 方塊中，選取 [編輯]。
-    - 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
+    - 在 [檢視名稱] 方塊中，輸入「***編輯***」。
+    - 在 [範本] 方塊中，選取 [***編輯***]。
+    - 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
     - 將 [資料內容類別] 方塊保留空白。 
     - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
     - 按一下 [新增]。
@@ -454,7 +454,7 @@
 
 如果您未在 URL 中指定控制路由行為的值，這會讓 ASP.NET MVC 知道改用 **Item** (**Home**) 作為控制器，並使用使用者**索引**作為檢視。
 
-如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\**Item**\**Index** 檢視。
+如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\\**Item**\\**Index** 檢視。
 
 如果建置並立即執行此專案，您現在應該會看到如下的內容。
 
@@ -626,7 +626,7 @@
 若要將其他功能加入至您的應用程式，請檢閱[文件 DB .NET 程式庫](https://msdn.microsoft.com/library/azure/dn948556.aspx)中提供的 API，並歡迎您貢獻到 [GitHub][] 上的 DocumentDB .NET 程式庫。
 
 
-[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [防止跨網站偽造要求]: http://go.microsoft.com/fwlink/?LinkID=517254

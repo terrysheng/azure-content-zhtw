@@ -38,7 +38,7 @@
 
         sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
 
-當執行上述 TSQL 陳述式時，請注意 MAXSIZE 和 SERVICE\_OBJECTIVE 參數將會要求初始的儲存體大小，而且計算到資料倉儲執行個體的分配。MAXSIZE 接受下列大小，建議選擇較大的空間大小以保留成長空間：
+當執行上述 TSQL 陳述式時，請注意 MAXSIZE 和 SERVICE_OBJECTIVE 參數將會要求初始的儲存體大小，而且計算到資料倉儲執行個體的分配。MAXSIZE 接受下列大小，建議選擇較大的空間大小以保留成長空間：
 
 + 250 GB
 + 500 GB
@@ -51,7 +51,7 @@
 + 40960 GB
 + 51200 GB
 
-SERVICE\_OBJECTIVE 會指出您的執行個體起始的 DWU 數量，並接受下列值：
+SERVICE_OBJECTIVE 會指出您的執行個體起始的 DWU 數量，並接受下列值：
 
 + DW100
 + DW200

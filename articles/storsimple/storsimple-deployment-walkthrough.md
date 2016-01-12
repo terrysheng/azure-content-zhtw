@@ -17,7 +17,10 @@
 
 # 部署內部部署 StorSimple 裝置
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## 概觀
 
@@ -143,7 +146,7 @@
 | | | |
 | **NTP** | 我們會在 NTP 伺服器輸入時觸發時間同步處理。請在您輸入 `time.windows.com` 或公用時間伺服器時檢查 UDP 連接埠 123 是否開啟)。 | [下載並使用此指令碼](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca)。 |
 | | | |
-| **Proxy (選用)** | 這是有效的 Proxy URI 和連接埠嗎？ </br> 驗證模式是否正確？ | <code>wget http://bing.com | % {$\_.StatusCode}</code></br> 此命令應該在設定 Web Proxy 後立即執行。如果傳回狀態碼 200，則表示連接成功。 |
+| **Proxy (選用)** | 這是有效的 Proxy URI 和連接埠嗎？ </br> 驗證模式是否正確？ | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br> 此命令應該在設定 Web Proxy 後立即執行。如果傳回狀態碼 200，則表示連接成功。 |
 | | 流量是否可透過 Proxy 路由？ | 在裝置上設定 Proxy 之後，請執行 DNS 驗證、NTP 檢查 或 HTTP 檢查。這會清楚的反映流量是否在 Proxy 或其他地方遭到封鎖。 |
 | | | |
 | **註冊** | 檢查輸出 TCP 連接埠 443、80、9354 是否開啟。 | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection Cmdlet 的詳細資訊](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -261,9 +264,9 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 > [AZURE.NOTE]如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。請移至 **[裝置] > [設定]** 並停用 Data 2 和 Data 3 介面。裝置更新之後，您應該重新啟用這些介面。
 
 #### 若要更新裝置
-1.	在裝置的 [**快速入門**] 頁面上，按一下 [**裝置**]。選取 [實體裝置]，按一下 [**維護**]，然後按一下 [**掃描更新**]。  
-2.	系統會建立掃描可用更新的工作。如果有可用的更新，[**掃描更新**] 會變更為 [**安裝更新**]。按一下 [**安裝更新**]。系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。您必須停用這些網路介面，否則更新會失敗。
-3.	更新工作將會建立。瀏覽至 [**工作**] 監視更新的狀態。
+1.	在裝置的 [快速入門] 頁面上，按一下 [裝置]。選取實體裝置，按一下 [維護]，然後按一下 [掃描更新]。  
+2.	系統會建立掃描可用更新的工作。如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。按一下 [**安裝更新**]。系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。您必須停用這些網路介面，否則更新會失敗。
+3.	更新工作將會建立。巡覽至 [工作] 以監視更新的狀態。
 
 	> [AZURE.NOTE]當更新工作啟動時，狀態會立即顯示為 50 %。只有在更新工作完成之後，狀態才會變更為 100 %。更新程序沒有即時狀態。
 
@@ -291,4 +294,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 - 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

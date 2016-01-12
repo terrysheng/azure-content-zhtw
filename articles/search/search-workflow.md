@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/29/2015"
 	ms.author="heidist"/>
 
 # Azure 搜尋開發的一般工作流程
@@ -42,15 +42,15 @@ Azure 搜尋是可透過 Azure 訂用帳戶取得的完全管理線上服務。[
 
 建立服務之後，就可以從其結構描述定義開始來建立索引。
 
-建立索引的最快速且最簡單方式是透過 Azure 傳統入口網站。每份文件最少必須具有唯一索引鍵，以及至少一個包含可搜尋資料的欄位。若要開始使用，請參閱[在入口網站中建立索引](search-create-index-portal.md)。
+建立索引的最快速且最簡單方式是透過 Azure 入口網站。每份文件最少必須具有唯一索引鍵，以及至少一個包含可搜尋資料的欄位。若要開始使用，請參閱[在入口網站中建立索引](search-create-index-portal.md)。
 
 > [AZURE.NOTE]在 Azure 搜尋索引內
 >
-> *「索引」*是組織化的持續性資料，做為所有後續搜尋作業的*「搜尋主體」*。搜尋主體儲存在雲端做為搜尋服務訂用帳戶的一部分，以快速且一致地執行搜尋作業。在搜尋術語中，搜尋主體中的項目稱為*「文件」*，而所有文件的總和是*「文件集」*。
+> 「索引」是組織化的持續性資料，做為所有後續搜尋作業的「搜尋主體」。搜尋主體儲存在雲端做為搜尋服務訂用帳戶的一部分，以快速且一致地執行搜尋作業。在搜尋術語中，搜尋主體中的項目稱為「文件」，而所有文件的總和是「文件集」。
 >
->*「索引結構描述」*會依名稱、資料類型以及指定欄位是可搜尋、可篩選、可多面向等的屬性，來定義文件內的所有欄位。
+>「索引結構描述」會依名稱、資料類型以及指定欄位是可搜尋、可篩選、可多面向等的屬性，來定義文件內的所有欄位。
 >
-> 除了文件結構之外，索引結構描述也會指定評分設定檔，以提供提升搜尋分數的準則，以及啟用自動完成查詢 (建議工具) 和跨網域查詢要求之 CORS 的組態設定。*對於原型，建議您只在文件中指定欄位*，然後以累加方式新增其他功能 (如需要在稍後新增的其他功能清單，請參閱步驟 5)。
+> 除了文件結構之外，索引結構描述也會指定評分設定檔，以提供提升搜尋分數的準則，以及啟用自動完成查詢 (建議工具) 和跨網域查詢要求之 CORS 的組態設定。對於原型，建議您只在文件中指定欄位，然後以累加方式新增其他功能 (如需要在稍後新增的其他功能清單，請參閱步驟 5)。
 >
 > 套用至真實世界範例之後，請考慮使用電子商務應用程式。搜尋索引將包含可在應用程式中搜尋的所有產品或服務 (搜尋結果中出現的任何項目)。一個 SKU 會有一份文件。每份文件都會包括產品名稱、品牌、大小、價格、色彩，甚至是影像或其他您想要在搜尋結果內傳回之資源檔的參考。
 
@@ -73,7 +73,7 @@ Azure 搜尋是可透過 Azure 訂用帳戶取得的完全管理線上服務。[
 - [新增、更新或刪除文件 (REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions 類別](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-適用於極小資料庫的第三個選項是使用 [Fiddler](search-fiddler.md) 或 [Chrome Postman](search-chrome-postman.md) 上傳文件。
+適用於極小資料庫的第三個選項是使用 [Fiddler](search-fiddler.md) 上傳文件。
 
 第四個選項 (可能是最簡單的選項) 是借用下列範例中的程式碼：[Adventure Works C# REST API 範例](https://azuresearchadventureworksdemo.codeplex.com/) (從解決方案的內嵌資料庫 (.mdf) 中載入文件) 或[評分設定檔 C# REST API 範例](https://azuresearchscoringprofiles.codeplex.com/) (從解決方案所包括的 JSON 資料檔中載入資料)。
 
@@ -83,7 +83,7 @@ Azure 搜尋是可透過 Azure 訂用帳戶取得的完全管理線上服務。[
 
 將文件載入索引之後，即可撰寫第一個查詢。
 
-從搜尋服務取回初始搜尋結果的最快速方式是使用 [Fiddler](search-fiddler.md) 或 [Chrome Postman](search-chrome-postman.md) 檢視回應，但實際上，您會想要撰寫一些簡單的 UI 程式碼，以可讀取的格式檢視結果。
+從搜尋服務取回初始搜尋結果的最快速方式是使用 [Fiddler](search-fiddler.md) 檢視回應，但實際上，您會想要撰寫一些簡單的 UI 程式碼，以可讀取的格式檢視結果。
 
 搜尋作業的 API 包括：
 
@@ -128,7 +128,7 @@ Azure 搜尋中的查詢可以十分簡單。在 URI 上包括 `search=*` 將會
 
 建置可建立概念證明的原型之後，即可將所學的知識用到下一個層級，方法是設計可支援生產工作負載的開發專案。
 
-## XBOX Video Application Development
+## Application development
 
 進到下一個階段現在需要決定使用哪些 API、如何管理文件和上傳頻率，以及是否要在搜尋結果中包括外部資源。
 
@@ -140,7 +140,8 @@ Azure 搜尋提供兩種程式設計模型：Managed 程式碼的 .NET 程式庫
 
 目前，.NET 程式庫中還未提供一小部分的功能，因此，即使您偏好撰寫 Managed 程式碼，還是可能需要使用 REST API 來取得您要的功能。REST API 中才有的功能包括：
 
-- [Microsoft 自然語言處理器 - 僅限預覽](../search-api-2015-02-28-preview/)
+- [自訂分析器 - 僅限預覽](https://msdn.microsoft.com/library/azure/mt605304.aspx)
+- [Lucene 查詢分析器 - 僅限預覽](https://msdn.microsoft.com/library/azure/mt589323.aspx)
 - [moreLikeThis 功能 - 僅限預覽](../search-api-2015-02-28-preview/)
 - [管理 API](https://msdn.microsoft.com/library/dn832684.aspx)
 
@@ -190,4 +191,4 @@ Azure 搜尋中其中一個較吸引人的功能是可以輕鬆地放大或縮�
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

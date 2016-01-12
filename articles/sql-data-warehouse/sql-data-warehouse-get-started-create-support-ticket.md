@@ -1,20 +1,20 @@
 <properties
-    pageTitle="為 SQL 資料倉儲建立支援票證 | Microsoft Azure"
-    description="如何在 Azure SQL 資料倉儲中建立支援票證。"
-    services="sql-data-warehouse"
-    documentationCenter="NA"
-    authors="sahaj08"
-    manager="barbkess"
-    editor=""/>
+   pageTitle="為 SQL 資料倉儲建立支援票證 | Microsoft Azure"
+   description="如何在 Azure SQL 資料倉儲中建立支援票證。"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/20/2015"
-    ms.author="sahaj08"/>
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="01/04/2016"
+   ms.author="sahaj08"/>
 
 # 為 SQL 資料倉儲建立支援票證
  本文說明如何為 SQL 資料倉儲建立支援票證。
@@ -84,4 +84,4 @@
 [堆疊溢位]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 資料倉儲 MSDN 論壇上]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

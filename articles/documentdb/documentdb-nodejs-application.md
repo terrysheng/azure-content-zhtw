@@ -48,7 +48,7 @@
 
 在依照本文中的指示進行之前，您應先確定備妥下列項目：
 
-- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
+- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - [Node.js][] v0.10.29 版或更高版本。
 - [Express 產生器](http://www.expressjs.com/starter/generator.html) (您可以透過 `npm install express-generator -g` 進行安裝)
 - [Git][]。
@@ -183,7 +183,8 @@
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection 會採用選擇性的 requestOptions 參數，可以用來指定集合的優惠類型。如果未提供 requestOptions.offerType 值，則將會使用預設的優惠類型來建立集合。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)
+> [AZURE.TIP]createCollection 會採用選擇性的 requestOptions 參數，可以用來指定集合的優惠類型。如果未提供 requestOptions.offerType 值，則將會使用預設的優惠類型來建立集合。
+> 如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)
 		
 3. 儲存並關閉 **docdbUtils.js** 檔案。
 
@@ -544,7 +545,7 @@
 
 ## <a name="_Toc395783182"></a>步驟 7：將應用程式開發專案部署至 Azure 網站
 
-1. 如果您還沒有這麼做，請為您的 Azure 網站提供一個 Git 儲存機制。您可以在[這裡](../web-sites-publish-source-control-git.md#step4)找到如何執行這項作業的相關指示。
+1. 如果您還沒有這麼做，請為您的 Azure 網站提供一個 Git 儲存機制。您可以於[在 Azure App Service 中使用 GIT 連續部署](../app-service-web/web-sites-publish-source-control.md)主題，找到有關如何執行這項操作的指示。
 
 2. 新增您的 Azure 網站做為 Git 遠端。
 
@@ -562,11 +563,11 @@
 
 您可以從 [GitHub][] 下載完整參考應用程式的原始程式碼。
 
-如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
+如需詳細資訊，請參閱 [Node.js 開發人員中心](https://azure.microsoft.com/develop/nodejs/)。
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

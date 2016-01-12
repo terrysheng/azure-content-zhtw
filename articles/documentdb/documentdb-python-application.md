@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="12/23/2015"
+    ms.date="01/05/2016"
     ms.author="ryancraw"/>
 
 # 使用 DocumentDB 進行 Python Flask Web 應用程式開發
@@ -43,6 +43,7 @@
 
 在依照本文中的指示進行之前，您應確定已安裝下列項目：
 
+- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - [Visual Studio 2013](http://www.visualstudio.com/) 或更高版本，或免費版本的 [Visual Studio Express]()。本教學課程中的指示專為 Visual Studio 2015 所編寫。 
 - [GitHub](http://microsoft.github.io/PTVS/) 的 Python Tools for Visual Studio。本教學課程使用 Python Tools for VS 2015。 
 - [azure.com](https://azure.microsoft.com/downloads/) 提供 Azure Python SDK for Visual Studio 2.4 版或更高版本。我們使用 Microsoft Azure SDK for Python 2.7。
@@ -56,7 +57,7 @@
 
 ## 步驟 1：建立 DocumentDB 資料庫帳戶
 
-讓我們從建立 DocumentDB 帳戶開始。如果您已經擁有帳戶，可以跳到[步驟 2：建立新的 Python Flask Web 應用程式](#Step-2:-Create-a-new-Python-Flask-Web-Application)。
+讓我們從建立 DocumentDB 帳戶開始。如果您已經擁有帳戶，可以跳到[步驟 2：建立新的 Python Flask Web 應用程式](#step-2:-create-a-new-python-flask-web-application)。
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,7 +117,6 @@
         Successfully installed Babel-2.1.1 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.0 blinker-1.4 decorator-4.0.6 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.4.2 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
 
     > [AZURE.NOTE]在罕見情況下，輸出視窗中可能會出現失敗。如果發生此情形，請檢查錯誤是否與清除有關。有時是清理失敗，但安裝卻成功 (在輸出視窗中向上捲動來驗證這一點)。您可以[驗證虛擬環境](#verify-the-virtual-environment)來檢查安裝。 如果安裝失敗，但驗證成功，則可以繼續。
-
 
 ### 驗證虛擬環境
 
@@ -283,7 +283,8 @@ def vote():
 		<div class="col-sm-5">{{choice}}</div>
 	        <div class="col-sm-5">
 	        	<div class="progress">
-	        		<div class="progress-bar" role="progressbar" aria-valuenow="{{vote_object.choices[choice]}}" aria-valuemin="0" aria-valuemax="{{vote_object.total_votes}}" style="width: {{(vote_object.choices[choice]/vote_object.total_votes)*100}}%;">
+                	<div class="progress-bar" role="progressbar" aria-valuenow="{{vote_object.choices[choice]}}" aria-valuemin="0"
+                     aria-valuemax="{{vote_object.total_votes}}" style="width: {{(vote_object.choices[choice]/vote_object.total_votes)*100}}%;">
 	                    		{{vote_object.choices[choice]}}
 				</div>
 			</div>
@@ -423,7 +424,7 @@ def vote():
 
 要在 Web 應用程式中加入其他功能，請參閱 [DocumentDB Python SDK](documentdb-sdk-python.md) 中可用的 API。
 
-如需 Azure、Visual Studio 及 Python 的詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
+如需 Azure、Visual Studio 及 Python 的詳細資訊，請參閱 [Python 開發人員中心](https://azure.microsoft.com/develop/python/)。
 
 如需其他的 Python Flask 教學課程，請參閱 [Flask 教學課程庫，第一部分：Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)。
 
@@ -433,4 +434,4 @@ def vote():
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

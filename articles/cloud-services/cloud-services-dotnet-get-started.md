@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="12/28/2015"
 	ms.author="tdykstra"/>
 
 # 開始使用 Azure 雲端服務和 ASP.NET
@@ -58,9 +58,9 @@
 本教學課程指示同時適用以下兩個產品：
 
 * Visual Studio 2013
-* Visual Studio 2013 Express for Web
+* Visual Studio 2015
 
-如果您尚未安裝任一個產品，安裝 Azure SDK 時，將為您自動安裝 Visual Studio 2013 Express for Web。
+如果您尚未安裝任一個產品，安裝 Azure SDK 時，將為您自動安裝 Visual Studio 2015。
 
 ## 應用程式架構
 
@@ -72,7 +72,7 @@
 
 ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [安裝 SDK](../../includes/install-sdk-2015-2013.md)]
 
 ## 下載並執行已完成的方案
 
@@ -87,6 +87,8 @@
 	根據預設，Visual Studio 會自動還原未包含在 *.zip* 檔案中的 NuGet 封裝內容。如果封裝未還原，請移至 [**管理方案的 NuGet 封裝**] 對話方塊，然後按一下右上方的 [**還原**] 按鈕來手動安裝。
 
 3. 在 [**方案總管**] 中，確定已選取 **ContosoAdsCloudService** 作為啟動專案。
+
+2. 如果您使用 Visual Studio 2015，變更 ContosoAdsWeb 專案中的 *Web.config* 檔案和ContosoAdsCloudService 專案中的 *ServiceConfiguration.Local.cscfg* 檔案的應用程式中的 SQL Server 連接字串。在每個案例中，將 "(localdb)\\v11.0" 變更為 "(localdb)\\MSSQLLocalDB"。
 
 1. 按 CTRL+F5 執行應用程式。
 
@@ -252,7 +254,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 7. 將 [**服務組態**] 變更為 [**雲端**]。
 
-7. 選取 `ContosoAdsDbConnectionString` 設定中的文字，然後將您從教學課程前一節複製的連接字串貼上。
+7. 針對 `ContosoAdsDbConnectionString` 設定選取 [值] 欄位，然後將您從教學課程前一節複製的連接字串貼上。
 
 	![Database connection string for worker role](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 
@@ -341,7 +343,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 	![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)
 
-1. 當部署狀態為完成時，按一下 [**網站 URL**] 來啟動應用程式。
+1. 當部署狀態為完成時，按一下 [Web 應用程式 URL] 來啟動應用程式。
 
 9. 您可以透過建立、檢視和編輯一些廣告來測試應用程式，正如同您在本機執行應用程式一般。
 
@@ -387,7 +389,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 9. 在 [方案總管] 中，於方案 (不是其中一個專案) 上按一下滑鼠右鍵，並選擇 [加入 - 新專案]。
 
-11. 在 [**加入新的專案**] 對話方塊中，於左窗格的 [**Visual C#**] 下選擇 [**Windows 桌面**]，然後按一下 [**類別庫**] 範本。
+11. 在 [加入新的專案] 對話方塊中，於左窗格的 [Visual C#] 下選擇 [Windows]，然後按一下 [類別庫] 範本。
 
 10. 將專案命名為 *ContosoAdsCommon*，然後按一下 [確定]。
 
@@ -397,15 +399,13 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 11. 開啟方案的 [**管理 NuGet 封裝**] 對話方塊。
 
-12. 在左側窗格中，選取 [更新]。
+12. 在視窗頂端，選取 [更新]。
 
-13. 尋找 *WindowsAzure.Storage* 封裝，而如果它不在清單中，請按一下 [更新] 來取得最新版本的儲存體用戶端程式庫。
-
-	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)
+13. 尋找 *WindowsAzure.Storage* 封裝，如果它不在清單中，選取它並且選取要在其中更新它的 Web 和背景工作角色專案，然後按一下 [更新]。
 
 	儲存體用戶端程式庫的更新頻率高於 Visual Studio 專案範本的更新頻率，因此，系統會經常要求您更新新建立專案的版本。
 
-14. 在左側窗格中，選取 [線上]。
+14. 在視窗頂端，選取 [瀏覽]。
 
 16. 尋找 *EntityFramework* NuGet 封裝，並將它安裝在這三個專案中。
 
@@ -433,6 +433,8 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
 		</connectionStrings>
 
+	如果您使用 Visual Studio 2015，將 "v11.0" 取代為 "MSSQLLocalDB"。
+
 3. 儲存您的變更。
 
 2. 在 ContosoAdsCloudService 專案中，於 [**角色**] 下的 ContosoAdsWeb 上按一下滑鼠右鍵，然後按一下 [**屬性**]。
@@ -455,7 +457,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 	* 名稱：ContosoAdsDbConnectionString
 	* 類型：字串
-	* 值：貼上用於 Web 角色專案的相同連接字串：
+	* 值：貼上用於 Web 角色專案的相同連接字串。(下列範例適用於 Visual Studio 2013，如果您複製此範例且您是使用 Visual Studio 2015，請記得變更資料來源。)
 
 			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
 
@@ -593,13 +595,13 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 之後，程式碼可取得 *images* Blob 容器的參考，如您稍早在 *Global.asax.cs* 中所見。在執行該動作時，它會設定適用 Web 應用程式的預設[重試原則](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)。預設指數輪詢重試原則，可能會因為對暫時性的錯誤進行反覆重試，使得 Web 應用程式停止回應超過一分鐘。此處指定的重試原則會在每次嘗試後等候 3 秒，最多嘗試 3 次。
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
-		blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesBlobContainer = blobClient.GetContainerReference("images");
 
 類似的程式碼可取得 *images* 佇列的參考。
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("images");
 
 多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體。模型繫結器可為方法提供 [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 物件。
@@ -800,7 +802,7 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 以下是可示範更多真實世界程式碼編寫作法的一些雲端服務範例應用程式，依較不複雜到較複雜的順序列出：
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。概念類似 Contoso Ads，但實作更多功能和更多真實世界程式碼編寫實務。
-* [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。介紹 Azure 儲存體資料表以及 Blob 和佇列，並隨附[逐步教學課程系列](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md)。
+* [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。介紹 Azure 儲存體資料表以及 Blob 和佇列。根據舊版的 Azure SDK for .NET，將需要一些修改，以使用目前的版本。
 * [Microsoft Azure 中的雲端服務基礎](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)。完整範例示範由 Microsoft 模式和作法小組提供的許多最佳作法。
 
 如需針對雲端進行開發的一般資訊，請參閱「[使用 Azure 建置實際的雲端應用程式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)」。
@@ -813,4 +815,4 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [如何管理雲端服務](cloud-services-how-to-manage.md)
 * [Azure 儲存體](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -17,7 +17,10 @@
 
 # 部署和管理 Azure 中的 StorSimple 虛擬裝置
 
-[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ## 概觀
 
@@ -131,7 +134,8 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 	4. **虛擬裝置建立的儲存體帳戶** - 在佈建期間用來存放虛擬裝置映像的儲存體帳戶。此儲存體帳戶應該與虛擬裝置和虛擬網路位於相同的區域中。不應讓實體裝置或虛擬裝置用它來儲存資料。根據預設，將基於此用途建立新的儲存體帳戶。不過，如果您知道已經擁有適合此用途的儲存體帳戶，則可從清單中選取該帳戶。
 
-4. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。系統隨即會建立虛擬裝置。建立虛擬機器最多可能需要 45 分鐘至 1 小時。![StorSimple 虛擬裝置建立中階段](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+4. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。系統隨即會建立虛擬裝置。建立虛擬機器最多可能需要 45 分鐘至 1 小時。
+	![StorSimple 虛擬裝置建立中階段](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 若您只使用實體裝置，加密金鑰就會與裝置放在一起。因此，Microsoft 無法將它解密。當您使用虛擬裝置時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。如需詳細資訊，請參閱[使用虛擬裝置的安全性考量](#security-considerations-for-using-a-virtual-device)。
 
@@ -253,8 +257,8 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 - **軟體更新** - 您可以檢視上次更新軟體的日期，以及任何更新狀態訊息。如果想要檢查是否有新的更新，可以使用頁面底部的 [掃描更新] 按鈕來執行手動掃描。
 - **支援封裝** - 您可以建立並上傳支援封裝，以協助 Microsoft 支援服務為您的虛擬裝置問題進行疑難排解。  
 
-
 ### 虛擬裝置的儲存體帳戶
+
 
 儲存體帳戶是建立來供 StorSimple Manager 服務、虛擬裝置和實體裝置使用。當您建立儲存體帳戶時，建議您在易記名稱中使用區域識別碼，有助於確保所有系統元件的區域都是一致的。在虛擬裝置中，所有元件都必須位於相同區域中，以防止發生效能問題。
 
@@ -389,4 +393,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 若要管理您的虛擬裝置，請參閱[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)中的工作流程詳細清單。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

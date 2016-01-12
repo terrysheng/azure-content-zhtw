@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="12/21/2015"
 	ms.author="awills"/>
 
 # Application Insights：語言、平台和整合
@@ -49,6 +49,7 @@
 + [J2EE - 適用於即時應用程式](app-insights-java-live.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
++ [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 + [Windows 市集 C#|VB](app-insights-windows-get-started.md)
 + [Windows 市集 C++](app-insights-windows-cpp.md)
 + [Windows 桌面應用程式、服務和背景工作角色](app-insights-windows-desktop.md)
@@ -83,4 +84,4 @@
 
 如果您的語言或平台中還沒有 SDK，您會想要建置一個嗎？ 查看 [GitHub 上之 Application Insights SDK 專案](https://github.com/Microsoft/AppInsights-Home)中列出的現有 SDK 程式碼。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

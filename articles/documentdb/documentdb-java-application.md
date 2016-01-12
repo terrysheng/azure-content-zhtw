@@ -39,10 +39,10 @@
 ##<a id="Prerequisites"></a>針對此 Java Web 應用程式教學課程的必要條件
 開始進行本應用程式開發教學課程之前，您必須具備下列條件：
 
-- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
+- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 - [Eclipse IDE for Java EE Developers。](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [已啟用某個 Java Runtime Environment (例如 Tomcat 或 Jetty) 的 Azure 網站。](../web-sites-java-get-started.md)
+- [已啟用某個 Java Runtime Environment (例如 Tomcat 或 Jetty) 的 Azure 網站。](../app-service-web/web-sites-java-get-started.md)
 
 如果您是第一次安裝這些工具，coreservlets.com 提供了安裝程序的的逐步解說，請參閱其[教學課程：安裝 TomCat7 並與 Eclipse 搭配使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文中的 [快速入門] 區段。
 
@@ -751,7 +751,7 @@
  - 在 [目的地] 方塊中，選擇用來儲存 WAR 檔案的目的地。
  - 按一下 [完成]。
 
-3. 現在您手上已經有了 WAR 檔案，您只需將它上傳至您 Azure 網站的 **webapps** 目錄即可。如需上傳檔案的相關指示，請參閱[在 Azure 上將應用程式新增至 Java 網站](../web-sites-java-add-app.md)。
+3. 現在您手上已經有了 WAR 檔案，您只需將它上傳至您 Azure 網站的 **webapps** 目錄即可。如需上傳檔案的相關指示，請參閱[在 Azure 上將應用程式新增至 Java 網站](../app-service-web/web-sites-java-add-app.md)。
 
 	將 WAR 檔案上傳至 webapps 目錄之後，執行階段環境便會偵測到您已新增它，並自動將其載入。
 4. 若要檢視您已完成的產品，請瀏覽至 http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ 和開始新增工作！
@@ -786,4 +786,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

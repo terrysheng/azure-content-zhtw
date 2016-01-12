@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
-	ms.date="09/15/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # 在 Azure App Service 中將 Web 應用程式連接至 API 應用程式
 
-本教學課程示範如何透過 [App Service](../app-service.md) 中裝載的 ASP.NET Web 應用程式使用 API 應用程式。
+本教學課程示範如何透過 [App Service](https://azure.microsoft.com/services/app-service/) 中裝載的 ASP.NET Web 應用程式使用 API 應用程式。
 
 ## 必要條件
 
@@ -28,11 +28,6 @@
 3. [部署 Azure API 應用程式](../app-service-dotnet-deploy-api-app)
 4. [偵錯 Azure API 應用程式](../app-service-dotnet-remotely-debug-api-app)
 
-## 將 API 應用程式設為可公開存取
-
-在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中，選取 [API 應用程式]。按一下命令列中的 [**設定**] 按鈕。在 [**應用程式設定**] 刀鋒視窗中，將 [**存取層級**] 變更為 [**公用 (匿名)**]。
-
-![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
 ## 在 Visual Studio 中建立 ASP.NET MVC 應用程式
 
@@ -44,11 +39,11 @@
 
 	![新增 ASP.NET 應用程式](./media/app-service-web-connect-web-app-to-saas-api/2-Change-Auth-To-No-Auth.png)
 
-1. 在 [方案總管] 中，於新建立的 Web 應用程式專案上按一下滑鼠右鍵，然後選取 [**加入 Azure 應用程式參考**]。
+1. 在 [方案總管] 中，於新建立的 Web 應用程式專案上按一下滑鼠右鍵，然後選取 [新增] > [REST API 用戶端...]。
 
 	![新增 Azure API 應用程式參考...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
 
-1. 在 [**現有 API 應用程式**] 下拉式清單中，選取您想要連接的 API 應用程式。
+1. 在 [加入 REST API 用戶端] 中，選取從 Microsoft Azure API 應用程式下載，然後按一下瀏覽。選取您要連結的 API 應用程式。
 
 	![選取現有的 API 應用程式](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
@@ -57,33 +52,31 @@
 1. 若要利用產生的 API 程式碼，請開啟 HomeController.cs 檔案，並以下列程式碼取代 `Contact` 動作：
 
 	    public async Task<ActionResult> Contact()
-	    {
-	        ViewBag.Message = "Your contact page.";
-	
-	        var contacts = new ContactsList();
-	        var response = await contacts.Contacts.GetAsync();
-	        var contactList = response.Body;
-	
-	        return View(contactList);
-	    }
+        {
+            ViewBag.Message = "Your contact page.";
+
+            var contacts = new ContactsList12242015();
+            var contactList = await contacts.Contacts.GetAsync();
+            
+            return View(contactList);
+        }
 
 	![HomeController.cs 程式碼更新](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
 1. 使用下面的程式碼來更新 `Contact` 檢視，以反映連絡人動態清單：
 	<pre>// Add to the very top of the view file
 	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
-	
-	// Replace the default email addresses with the following
+
+// Replace the default email addresses with the following
     &lt;h3&gt;Public Contacts&lt;/h3&gt;
     &lt;ul&gt;
-        @foreach (var contact in Model)
-        {
+    @foreach (var contact in Model)
+    {
             &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-        }
+    }
     &lt;/ul&gt; 
-	</pre>
-
-	![Contact.cshtml Code Updates](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+</pre>
+![Contact.cshtml 程式碼更新](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## 將 Web 應用程式部署到應用程式服務中的 Web 應用程式
 
@@ -95,4 +88,4 @@
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

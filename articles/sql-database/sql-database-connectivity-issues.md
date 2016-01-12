@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/10/2015"
+	ms.date="01/06/2016"
 	ms.author="daleche"/>
 
 
@@ -85,7 +85,7 @@
 
 我們建議您在您第一次重試前延遲 5 秒鐘。在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
 
-在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找使用 ADO.NET 之用戶端的 *封鎖期間* 討論。
+在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找使用 ADO.NET 之用戶端的封鎖期間討論。
 
 您也可能想要設定程式在自行終止之前的重試次數上限。
 
@@ -110,7 +110,7 @@
 
 
 您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。錯誤將是：
-- **SqlException.Number** = 11001
+- **SqlException.Number** = 11001 
 - 訊息：「沒有這類已知的主機」
 
 
@@ -118,12 +118,12 @@
 
 
 若要使這個動作可行，請從網路拔除電腦，再啟動您的程式。然後，您的程式會辨識執行階段參數，其會導致程式：
-1.暫時將 11001 加入至其錯誤清單，視為暫時性。
-2.如往常般嘗試其第一個連接。
-3.在攔截到錯誤之後，請從清單中移除 11001。
-4.顯示一則訊息，告訴使用者將電腦插入網路中。
-- 使用 **Console.ReadLine** 方法或含 [確定] 按鈕的對話方塊，暫停進一步執行。將電腦插入網路中之後。使用者按下 Enter 鍵。
-5.重新嘗試連接，預期成功。
+1. 暫時將 11001 加入至其錯誤清單，視為暫時性。
+2. 如往常般嘗試其第一個連接。
+3. 在攔截到錯誤之後，請從清單中移除 11001。
+4. 顯示一則訊息，告訴使用者將電腦插入網路中。
+ - 使用 **Console.ReadLine** 方法或含 [確定] 按鈕的對話方塊，暫停進一步執行。將電腦插入網路中之後。使用者按下 Enter 鍵。
+5. 重新嘗試連接，預期成功。
 
 
 ### 連接時拼錯資料庫名稱以進行測試
@@ -131,18 +131,18 @@
 
 在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。錯誤將為：
 - **SqlException.Number** = 18456
-- 訊息：「使用者 'WRONG\_MyUserName' 登入失敗。」
+- 訊息：「使用者 'WRONG_MyUserName' 登入失敗。」
 
 
 第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連接。
 
 
 若要使這個動作可行，您的程式會辨識執行階段參數，其會導致程式：
-1.暫時將 18456 加入至其錯誤清單，視為暫時性。
-2.故意將 'WRONG\_' 加入至使用者名稱。
-3.在攔截到錯誤之後，請從清單中移除 18456。
-4.從使用者名稱中移除 'WRONG\_'。
-5.重新嘗試連接，預期成功。
+1. 暫時將 18456 加入至其錯誤清單，視為暫時性。
+2. 故意將 'WRONG_' 加入至使用者名稱。
+3. 在攔截到錯誤之後，請從清單中移除 18456。
+4. 從使用者名稱中移除 'WRONG_'。
+5. 重新嘗試連接，預期成功。
 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
@@ -160,7 +160,7 @@
 ### 進行連線重試的.NET SqlConnection 參數
 
 
-如果您的用戶端程式利用 .NET Framework 類別 **System.Data.SqlClient.SqlConnection** 連接到 Azure SQL Database，您應該使用 .NET 4.5.1 或更新版本，如此一來就可以利用它的連線重試功能。此功能的詳細資料在[這裡](http://go.microsoft.com/fwlink/?linkid=393996)。
+如果您的用戶端程式利用 .NET Framework 類別 **System.Data.SqlClient.SqlConnection** 連接到 Azure SQL Database，您應該使用 .NET 4.6.1 或更新版本，如此一來就可以利用它的連線重試功能。此功能的詳細資料在[這裡](http://go.microsoft.com/fwlink/?linkid=393996)。
 
 
 <!--
@@ -246,13 +246,13 @@
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## 連接：ADO.NET 4.5
+## 連接：ADO.NET 4.6.1
 
 
-如果您的程式使用類似 **System.Data.SqlClient.SqlConnection** 的 ADO.NET 類別來連接到 Azure SQL Database，建議您使用.NET Framework 4.5 版或更新的版本。
+如果您的程式使用類似 **System.Data.SqlClient.SqlConnection** 的 ADO.NET 類別來連接到 Azure SQL Database，建議您使用 .NET Framework 4.6.1 版或更新的版本。
 
 
-ADO.NET 4.5：
+ADO.NET 4.6.1：
 - 新增 TDS 7.4 通訊協定的支援。這包括不在 4.0 內的連接增強功能。
 - 支援連接集區。這包括提供給您的程式的連接物件是否運作的有效驗證。
 
@@ -261,7 +261,7 @@ ADO.NET 4.5：
 
 
 如果您是使用 ADO.NET 4.0 或更舊版本，建議您升級到最新的 ADO.NET。
-- 從 2015年 7 月開始，您可以[下載 ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)。
+- 從 2015年 11 月開始，您可以[下載 ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)。
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -289,8 +289,8 @@ ADO.NET 4.5：
 
 
 在 Linux 上，下列公用程式可能很有用：
-- `netstat -nap`
-- `nmap -sS -O 127.0.0.1`
+- `netstat -nap` 
+- `nmap -sS -O 127.0.0.1` 
 - (將範例值變更為您的 IP 位址)。
 
 
@@ -298,7 +298,7 @@ ADO.NET 4.5：
 
 
 ```
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >> portqry.exe -n johndoesvr9.database.windows.net -p tcp -e 1433
 
 Querying target system called:
@@ -310,7 +310,7 @@ Name resolved to 23.100.117.95
 querying...
 TCP port 1433 (ms-sql-s service): LISTENING
 
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >>
 ```
 
@@ -376,7 +376,7 @@ ORDER BY
 ```
 
 
-#### 數個從 sys.fn\_xe\_telemetry\_blob\_target\_read\_file 傳回的資料列
+#### 數個從 sys.fn_xe_telemetry_blob_target_read_file 傳回的資料列
 
 
 接下來是傳回的資料列可能的樣子。顯示的 null 值通常在其他資料列不是 null。
@@ -467,7 +467,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 接下來，**IsTransient** 方法的 C# 原始程式碼來自 **SqlDatabaseTransientErrorDetectionStrategy** 類別。原始程式碼將釐清哪些錯誤會被視為暫時性並值得重試 (從 2013 年 4 月起)。
 
-為了強調可讀性，已從此複本移除許多 **//comment** 行。
+為了強調可讀性，已從此副本移除許多 **//comment** 行。
 
 
 ```
@@ -543,6 +543,6 @@ public bool IsTransient(Exception ex)
 - [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
-- [*Retrying* 是 Apache 2.0 授權的一般用途重試程式庫，以 **Python** 撰寫，可將加入重試行為的工作簡化為幾乎一切事物。](https://pypi.python.org/pypi/retrying)
+- [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，幾乎可對任何案例加入重試作業。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

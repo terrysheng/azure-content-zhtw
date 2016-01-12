@@ -1,19 +1,20 @@
 <properties
-	pageTitle="在 Azure 入口網站中建立 SQL 資料倉儲資料庫 | Microsoft Azure"
-	description="了解如何在 Azure 入口網站中建立 Azure SQL 資料倉儲"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="在 Azure 入口網站中建立 SQL 資料倉儲資料庫 | Microsoft Azure"
+   description="了解如何在 Azure 入口網站中建立 Azure SQL 資料倉儲"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # 建立 SQL 資料倉儲
@@ -130,9 +131,8 @@
 
 您現已設定防火牆，所以能夠從桌面連接到您剛才建立的 Azure SQL 資料倉儲資料庫。
 
-
 ## 後續步驟
 
 既然您已建立 SQL 資料倉儲的範例資料庫，表示已準備好[連接](./sql-data-warehouse-get-started-connect.md)到您的資料庫。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

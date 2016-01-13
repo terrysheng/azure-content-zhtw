@@ -46,7 +46,7 @@
 
 系統定義的變數和使用者定義的變數可以在公式中使用。
 
-*取得*和*設定*這些**系統定義的變數**值，以管理集區中的運算節點。
+*取得* 和*設定* 這些**系統定義的變數**值，以管理集區中的運算節點。
 
 <table>
   <tr>
@@ -70,7 +70,7 @@
    </tr>
 </table>
 
-*取得*這些**系統定義的變數**值，以根據範例中運算節點的度量，進行調整。這些變數是唯讀的。
+*取得* 這些**系統定義的變數**值，以根據範例中運算節點的度量，進行調整。這些變數是唯讀的。
 
 <table>
   <tr>
@@ -338,7 +338,7 @@
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-評估之前，*doubleVecList* 值會轉換成單一的 *doubleVec*。例如，如果 `v = [1,2,3]`，則呼叫 `avg(v)` 相當於呼叫 `avg(1,2,3)`，而呼叫 `avg(v, 7)` 相當於呼叫 `avg(1,2,3,7)`。
+評估之前，*doubleVecList* 值會轉換成單一的 *doubleVec* 。例如，如果 `v = [1,2,3]`，則呼叫 `avg(v)` 相當於呼叫 `avg(1,2,3)`，而呼叫 `avg(v, 7)` 相當於呼叫 `avg(1,2,3,7)`。
 
 ### 取得範例資料
 
@@ -437,11 +437,11 @@
 2. 當 CPU 使用率偏低時，減少集區中運算節點的目標數目
 3. 一律以 400 為節點的數目上限
 
-針對在高 CPU 使用率期間*增加*節點，我們將陳述式定義為如果在過去 10 分鐘期間 CPU 使用率的平均最小值大於 70%，則在使用者定義的變數 ($TotalNodes) 中填入節點目前目標數目的 110%：
+針對在高 CPU 使用率期間*增加* 節點，我們將陳述式定義為如果在過去 10 分鐘期間 CPU 使用率的平均最小值大於 70%，則在使用者定義的變數 ($TotalNodes) 中填入節點目前目標數目的 110%：
 
 	$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
 
-下一個陳述式定義如果過去 60 分鐘的平均 CPU 使用率*低於* 20%，則將相同的變數設定為節點目前目標數目的 90%，將低 CPU 使用率期間的目標數目降低。請注意，此陳述式也會參考上述陳述式中使用者定義的變數 *$TotalNodes*。
+下一個陳述式定義如果過去 60 分鐘的平均 CPU 使用率*低於* 20%，則將相同的變數設定為節點目前目標數目的 90%，將低 CPU 使用率期間的目標數目降低。請注意，此陳述式也會參考上述陳述式中使用者定義的變數 *$TotalNodes* 。
 
 	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
 
@@ -481,7 +481,7 @@
 
 > [AZURE.NOTE]如果建立集區時指定 *targetDedicated* 參數的值，則評估自動調整公式時會忽略此值。
 
-此程式碼片段示範使用 [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 程式庫在現有的集區啟用自動調整。請注意，在現有的集區上啟用和更新公式都使用相同的方法。因此，如果自動調整已啟用，則這項技術會在指定的集區*更新*公式。此程式碼片段假設 "myBatchClient" 是適當初始化的 [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx) 執行個體，"mypool" 是現有 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) 的識別碼。
+此程式碼片段示範使用 [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 程式庫在現有的集區啟用自動調整。請注意，在現有的集區上啟用和更新公式都使用相同的方法。因此，如果自動調整已啟用，則這項技術會在指定的集區*更新* 公式。此程式碼片段假設 "myBatchClient" 是適當初始化的 [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx) 執行個體，"mypool" 是現有 [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) 的識別碼。
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week

@@ -51,7 +51,7 @@
 
 ## 必要條件
 
-本教學課程假設您了解 [Azure 雲端服務的基本概念](fundamentals-application-models.md#CloudServices)，例如「*Web 角色*」和「*背景工作角色*」術語。同時也假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
+本教學課程假設您了解 [Azure 雲端服務的基本概念](fundamentals-application-models.md#CloudServices)，例如「 *Web 角色* 」和「 *背景工作角色* 」術語。同時也假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
 
 您不需 Azure 訂閱即可在本機執行應用程式，但需要訂閱才能將應用程式部署至雲端。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)或是[申請免費試用](/pricing/free-trial/?WT.mc_id=A55E3C668)。
 
@@ -157,7 +157,7 @@ Azure 雲端服務是應用程式將執行所在的環境。
 
 1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，依序按一下 [新增] > [資料服務] > [SQL Database] > [快速建立]。
 
-1. 在 [**資料庫名稱**] 方塊中，輸入 *contosoads*。
+1. 在 [**資料庫名稱**] 方塊中，輸入 *contosoads* 。
 
 1. 從 [伺服器] 下拉式清單，選取 [新增 SQL Database 伺服器]。
 
@@ -391,7 +391,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 11. 在 [加入新的專案] 對話方塊中，於左窗格的 [Visual C#] 下選擇 [Windows]，然後按一下 [類別庫] 範本。
 
-10. 將專案命名為 *ContosoAdsCommon*，然後按一下 [確定]。
+10. 將專案命名為 *ContosoAdsCommon* ，然後按一下 [確定]。
 
 	您需要自 Web 和背景工作角色專案參考 Entity Framework 內容和資料模型。作為替代方式，您可以在 Web 角色專案中定義 EF 相關的類別，並從背景工作角色專案參考該專案。但在替代方法中，您的背景工作角色專案會有 Web 組件的參考，而這是專案所不需要的內容。
 
@@ -445,7 +445,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 	將 [服務組態] 保持設為 [所有組態]。
 
-4. 加入名為 *StorageConnectionString* 的新設定。將 [**類型**] 設為 *ConnectionString*，並將 [**值**] 設為 *UseDevelopmentStorage=true*。
+4. 加入名為 *StorageConnectionString* 的新設定。將 [**類型**] 設為 *ConnectionString* ，並將 [**值**] 設為 *UseDevelopmentStorage=true* 。
 
 	![New connection string](./media/cloud-services-dotnet-get-started/scall.png)
 
@@ -470,13 +470,13 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 3. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並在其位置加入來自所下載專案的 *Ad.cs* 和 *ContosoAdscontext.cs* 檔案。
 
 3. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。
-	- *Global.asax.cs*。  
+	- *Global.asax.cs* 。  
 	- *Views\\Shared* 資料夾中的 <em>\_Layout.cshtml</em> 檔案。
-	- *Views\\Home* 資料夾中的 *Index.cshtml*。
-	- *Controllers* 資料夾中的 *AdController.cs*。
+	- *Views\\Home* 資料夾中的 *Index.cshtml* 。
+	- *Controllers* 資料夾中的 *AdController.cs* 。
 	- *Views\\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案。
 
-3. 在 ContosoAdsWorker 專案中，從所下載的專案加入 *WorkerRole.cs*。
+3. 在 ContosoAdsWorker 專案中，從所下載的專案加入 *WorkerRole.cs* 。
 
 您現在可以如本教學課程中稍早所指示般建置並執行應用程式，而應用程式將使用本機資料庫和儲存體模擬器資源。
 
@@ -736,7 +736,7 @@ Azure 背景工作角色環境會在背景工作角色開始時呼叫 `WorkerRol
 
 在每次迴圈的反覆運算之後，如果沒有找到佇列訊息，程式會休息一秒。如此可避免背景工作角色產生過度的 CPU 時間和儲存體交易成本。Microsoft 客戶諮詢小組曾經遇過一個案例是，開發人員忘記納入這一點便部署到生產環境，之後便離開去度假。當他回到工作崗位時，因為他疏忽所造成的代價比度假費用還高。
 
-有時佇列訊息的內容會造成處理錯誤。這稱為*有害訊息*，而如果您只是記錄錯誤並重新啟動迴圈，可能會不斷的嘗試處理該訊息。因此，Catch 區塊包含 If 陳述式，檢查以查看應用程式已嘗試處理目前訊息的次數，而如果已超過 5 次，即會從佇列中刪除訊息。
+有時佇列訊息的內容會造成處理錯誤。這稱為 *有害訊息* ，而如果您只是記錄錯誤並重新啟動迴圈，可能會不斷的嘗試處理該訊息。因此，Catch 區塊包含 If 陳述式，檢查以查看應用程式已嘗試處理目前訊息的次數，而如果已超過 5 次，即會從佇列中刪除訊息。
 
 找到佇列訊息時，系統會呼叫 `ProcessQueueMessage`。
 

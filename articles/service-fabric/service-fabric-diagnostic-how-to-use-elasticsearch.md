@@ -18,7 +18,7 @@
 
 # 使用 ElasticSearch 做為 Service Fabric 應用程式追蹤存放區
 ## 簡介
-本文將說明 [Service Fabric](http://azure.microsoft.com/documentation/services/service-fabric/) 應用程式如何使用 **ElasticSearch** 和 **Kibana** 來儲存、檢索和搜尋應用程式追蹤。[ElasticSearch](https://www.elastic.co/guide/index.html) 是開放原始碼、分散式和可調整的即時搜尋和分析引擎，很適合執行這項工作，可以安裝在 Microsoft Azure 中執行的 Windows 或 Linux 虛擬機器上。ElasticSearch 可以非常有效率地處理使用 **Windows 事件追蹤 (ETW)** 之類的技術所產生的*結構化*追蹤。
+本文將說明 [Service Fabric](http://azure.microsoft.com/documentation/services/service-fabric/) 應用程式如何使用 **ElasticSearch** 和 **Kibana** 來儲存、檢索和搜尋應用程式追蹤。[ElasticSearch](https://www.elastic.co/guide/index.html) 是開放原始碼、分散式和可調整的即時搜尋和分析引擎，很適合執行這項工作，可以安裝在 Microsoft Azure 中執行的 Windows 或 Linux 虛擬機器上。ElasticSearch 可以非常有效率地處理使用 **Windows 事件追蹤 (ETW)** 之類的技術所產生的 *結構化* 追蹤。
 
 Service Fabric 執行階段使用 ETW 來提供診斷資訊 (追蹤)，建議 Service Fabric 應用程式也使用此方法來提供診斷資訊。這可讓執行階段提供和應用程式提供的追蹤之間相互關聯，使疑難排解更輕鬆。Visual Studio 中的 Service Fabric 專案範本包含記錄 API (根據.NET **EventSource** 類別)，依預設會發出 ETW 追蹤。如需有關使用 ETW 追蹤 Service Fabric 應用程式的一般概觀，請參閱[這篇文章](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。
 
@@ -58,7 +58,7 @@ Service Fabric 執行階段使用 ETW 來提供診斷資訊 (追蹤)，建議 Se
     $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
     ```
 
-    以您電腦上的 Git 位置取代 `<Git installation folder>`，預設值為 *"C:\\Program Files\\Git"*。請注意第一個路徑開頭的分號字元。
+    以您電腦上的 Git 位置取代 `<Git installation folder>`，預設值為 *"C:\\Program Files\\Git"* 。請注意第一個路徑開頭的分號字元。
 
 4. 確定您已登入 Azure (透過 [*Add-AzureAccount*](https://msdn.microsoft.com/library/azure/dn790372.aspx) Cmdlet)，且已選取應該用來建立 ElasticSearch 叢集的訂用帳戶 ([*Select-AzureSubscription*](https://msdn.microsoft.com/library/azure/dn790367.aspx))。
 

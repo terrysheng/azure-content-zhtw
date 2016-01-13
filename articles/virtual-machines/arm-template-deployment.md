@@ -317,9 +317,9 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 1.	在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後按一下 [**管理 NuGet 封裝**]。
 
-2.	在搜尋方塊中輸入 *Active Directory*，對 Active Directory Authentication Library 封裝按一下 [**安裝**]，然後依照指示，安裝封裝。
+2.	在搜尋方塊中輸入 *Active Directory* ，對 Active Directory Authentication Library 封裝按一下 [**安裝**]，然後依照指示，安裝封裝。
 
-3.	在頁面的頂端，選取 [**包含發行前版本**]。在搜尋方塊中輸入 *Azure Resource Management*，對 Microsoft Azure Resource Management Libraries 按一下 [**安裝**]，然後依照指示，安裝封裝。
+3.	在頁面的頂端，選取 [**包含發行前版本**]。在搜尋方塊中輸入 *Azure Resource Management* ，對 Microsoft Azure Resource Management Libraries 按一下 [**安裝**]，然後依照指示，安裝封裝。
 
 您現在已經準備就緒，可以開始使用程式庫建立您的應用程式。
 

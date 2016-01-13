@@ -52,7 +52,7 @@
 
     1. 若要從**儲存機制**同步處理 Runbook，則 Runbook 資料夾路徑為 */*
     2. 若要從 **RootFolder** 同步處理 Runbook，則 Runbook 資料夾路徑為 */RootFolder*
-    3. 若要從 **SubFolder** 同步處理 Runbook，則 Runbook 資料夾路徑為 */RootFolder/SubFolder*。
+    3. 若要從 **SubFolder** 同步處理 Runbook，則 Runbook 資料夾路徑為 */RootFolder/SubFolder* 。
   
 
 4. 設定參數之後，它們會顯示在 [設定原始檔控制] 刀鋒視窗上。
@@ -120,7 +120,7 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
     ![簽入輸入](media/automation-source-control-integration/automation_09_CheckinInput.png)
 
-6. 在工作完成時重新整理您的 GitHub 儲存機制，即可檢視變更。您的儲存機制中應有一項認可，其認可訊息為：**已在 Azure 自動化中更新 *Runbook 名稱*。**
+6. 在工作完成時重新整理您的 GitHub 儲存機制，即可檢視變更。您的儲存機制中應有一項認可，其認可訊息為：**已在 Azure 自動化中更新 *Runbook 名稱* 。**
 
 
 

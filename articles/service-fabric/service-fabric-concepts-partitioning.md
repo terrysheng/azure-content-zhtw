@@ -220,7 +220,7 @@ Service Fabric 有三個資料分割配置可選擇：
       }
     ```
 
-    `ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `m_name`.    
+    `ProcessInternalRequest` 讀取用來呼叫資料分割的查詢字串參數的值，並呼叫 `AddUserAsync` 將 lastname 加入可靠的字典 `m_name`。
 
 10. 讓我們將無狀態服務加入至專案，瞭解如何呼叫特定的資料分割。這項服務做為簡單的 Web 介面，將接受 lastname 做為查詢字串參數、決定資料分割索引鍵，然後將它傳送給 Alphabet.Processing 服務來處理。
 11. 在 [建立服務] 對話方塊中，選擇 [無狀態] 服務，命名為 "Alphabet.WebApi"，如下圖所示。![無狀態服務螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png)。
@@ -290,10 +290,13 @@ Service Fabric 有三個資料分割配置可選擇：
       }
       ```
 
-    Let's walk through it step by step. The code reads the first letter of the query string parameter `lastname` into a char. Then, it determines the partition key for this letter by subtracting the hexadecimal value of `A` from the hexadecimal value of the last names' first letter.
+    讓我們帶您逐步了解。 程式碼將查詢字串參數 `lastname` 的第一個字母讀取為字元。 並從姓氏第一個字母的十六進位值中擷取 `A` 的十六進位值，判斷此字母的分割區索引鍵。
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A'; ```
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    ```
 
     請記得，在此範例中，我們使用 26 個資料分割，每個資料分割有一個資料分割索引鍵。接下來，我們使用 `servicePartitionResolver` 物件的 `ResolveAsync` 方法，取得此索引鍵的服務資料分割 `partition`。`servicePartitionResolver` 定義為
 
@@ -347,4 +350,4 @@ Service Fabric 有三個資料分割配置可選擇：
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

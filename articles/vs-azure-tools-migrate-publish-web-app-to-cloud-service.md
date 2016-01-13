@@ -27,7 +27,8 @@
 
 ![將 Web 應用程式發佈至 Microsft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
->[AZURE.NOTE]方案中的 Web 專案才會顯示 [轉換]、[轉換成 Azure 雲端服務專案] 命令。例如，方案中的 Silverlight 專案就不會顯示此命令。當您建立服務封裝或將應用程式發佈至 Azure 時，可能會出現警告或錯誤。這些警告和錯誤可以幫助您在部署至 Azure 之前先修正問題。例如，您可能會收到遺失組件的警告。如需如何將警告視為錯誤的詳細資訊，請參閱[使用 Visual Studio 設定 Azure 雲端服務專案](vs-azure-tools-configuring-an-azure-project.md)。在建置應用程式、使用計算模擬器在本機執行應用程式，或將應用程式發佈至 Azure 時，您可能會在 [錯誤清單] 視窗中看到下列錯誤：「指定的路徑和 (或) 檔案名稱太長」。如果完整的 Azure 專案名稱長度太長，就會發生此錯誤。包括完整路徑在內的專案名稱長度不能超過 146 個字元。例如，以下是包括針對 Silverlight 應用程式所建立之 Azure 專案的檔案路徑在內的完整專案名稱：`c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`。您可能必須將方案移到其他具有較短路徑的目錄，以縮減完整專案名稱的長度。
+>[AZURE.NOTE] 方案中的 Web 專案才會顯示 [轉換]、[轉換成 Azure 雲端服務專案] 命令。例如，方案中的 Silverlight 專案就不會顯示此命令。
+當您建立服務封裝或將應用程式發佈至 Azure 時，可能會出現警告或錯誤。這些警告和錯誤可以幫助您在部署至 Azure 之前先修正問題。例如，您可能會收到遺失組件的警告。如需如何將警告視為錯誤的詳細資訊，請參閱[使用 Visual Studio 設定 Azure 雲端服務專案](vs-azure-tools-configuring-an-azure-project.md)。在建置應用程式、使用計算模擬器在本機執行應用程式，或將應用程式發佈至 Azure 時，您可能會在 [錯誤清單] 視窗中看到下列錯誤：「指定的路徑和 (或) 檔案名稱太長」。如果完整的 Azure 專案名稱長度太長，就會發生此錯誤。包括完整路徑在內的專案名稱長度不能超過 146 個字元。例如，以下是包括針對 Silverlight 應用程式所建立之 Azure 專案的檔案路徑在內的完整專案名稱：`c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`。您可能必須將方案移到其他具有較短路徑的目錄，以縮減完整專案名稱的長度。
 
 若要從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure，請遵循下列步驟。
 
@@ -39,15 +40,15 @@
 
     此時會發生下列動作：
 
-- 方案中新增了應用程式的 Azure 專案，名稱為 `<name of the web project>.Azure`。
+    - 方案中新增了應用程式的 Azure 專案，名稱為 `<name of the web project>.Azure`。
 
-- 此 Azure 專案中已新增 Web 專案的 Web 角色。
+    - 此 Azure 專案中已新增 Web 專案的 Web 角色。
 
-- MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件皆已將 [複製到本機] 屬性設定為 true。此設定會將這些組件新增到用於部署的服務封裝中。
+    - MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件皆已將 [複製到本機] 屬性設定為 true。此設定會將這些組件新增到用於部署的服務封裝中。
 
-  >[AZURE.IMPORTANT]如果此 Web 應用程式有其他必要組件或檔案，您必須手動設定這些檔案的屬性。如需如何設定這些屬性的相關資訊，請參閱本文後面的＜將檔案包含在服務封裝內＞一節。
+  >[AZURE.IMPORTANT] 如果此 Web 應用程式有其他必要組件或檔案，您必須手動設定這些檔案的屬性。如需如何設定這些屬性的相關資訊，請參閱本文後面的＜將檔案包含在服務封裝內＞一節。
 
-  >[AZURE.NOTE]如果方案中的 Azure 專案已有特定 Web 專案的 Web 角色，此 Web 專案的捷徑功能表上就不會顯示 [轉換]、[轉換成 Azure 雲端服務專案]。
+  >[AZURE.NOTE] 如果方案中的 Azure 專案已有特定 Web 專案的 Web 角色，此 Web 專案的捷徑功能表上就不會顯示 [轉換]、[轉換成 Azure 雲端服務專案]。
 
 如果您的 Web 應用程式中有多個 Web 專案，而您想要為每個 Web 專案建立 Web 角色，則必須為每個 Web 專案執行此程序中的步驟。這麼做會為每個 Web 角色建立個別的 Azure 專案。您就可以個別發佈每一個 Web 專案。或者，您可以手動對 Web 應用程式中的現有 Azure 專案新增其他 Web 角色。若要這麼做，請開啟 Azure 專案中 [角色] 資料夾的捷徑功能表，然後依序選擇 [新增]、[方案中的 Web 角色專案] 和要新增做為 Web 角色的專案，然後選擇 [確定] 按鈕。
 
@@ -208,4 +209,4 @@
 ## 後續步驟
 如需有關發佈的詳細資訊，請參閱 [準備從 Visual Studio 發佈或部署 Azure 應用程式](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)。另請參閱[設定具名的驗證認證](vs-azure-tools-setting-up-named-authentication-credentials.md)。
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->

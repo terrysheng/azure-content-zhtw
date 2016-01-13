@@ -54,4 +54,4 @@ SQL Server Management Studio 中的「將資料庫部署至 Microsoft Azure Data
 
 [修正資料庫相容性問題](sql-database-cloud-migrate-fix-compatibility-issues.md) (如果有)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

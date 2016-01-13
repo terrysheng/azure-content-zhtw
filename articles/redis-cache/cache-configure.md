@@ -193,7 +193,7 @@
 
 ## Redis 主控台
 
-您可以使用 [Redis 主控台] (可供標準與進階快取使用) 安全地發出命令給您的 Azure Redis 快取執行個體。
+您可以使用 [Redis 主控台] \(可供標準與進階快取使用) 安全地發出命令給您的 Azure Redis 快取執行個體。
 
 >[AZURE.IMPORTANT]Redis 主控台無法使用 VNET 或叢集。
 >
@@ -213,4 +213,4 @@
 ## 後續步驟
 -	如需使用 Redis 命令的詳細資訊，請參閱[如何執行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

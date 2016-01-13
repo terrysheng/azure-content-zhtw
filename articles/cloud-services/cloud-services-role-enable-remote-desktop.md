@@ -55,7 +55,7 @@ ms.author="saurabh"/>
     
     - 變更遠端桌面組態的到期日。
 
-5. 完成組態更新時，按一下 [確定] (勾選記號)。
+5. 完成組態更新時，按一下 [確定] \(勾選記號)。
 
 
 ## 角色執行個體的遠端存取
@@ -147,4 +147,4 @@ ms.author="saurabh"/>
 
 [如何設定雲端服務](cloud-services-how-to-configure.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->

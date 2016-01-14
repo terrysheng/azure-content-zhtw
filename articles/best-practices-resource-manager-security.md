@@ -23,7 +23,7 @@
 
 本主題假設您熟悉 Azure 資源管理員中的角色型存取控制 (RBAC)。如需詳細資訊，請參閱 [Azure 角色型存取控制](./active-directory/role-based-access-control-configure.md)。
 
-本主題是較大份白皮書的一部分。若要閱讀完整的文件，請下載「世界級 ARM 範本注意事項和證明可行的作法」(http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/WorldClass ARM Templates - Considerations and Proven Practices.pdf)。
+本主題是較大份白皮書的一部分。若要閱讀完整的文件，請下載[世界級 ARM 範本注意事項和證明可行的作法](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/WorldClass ARM Templates - Considerations and Proven Practices.pdf)。
 
 ## 密碼和憑證
 
@@ -337,4 +337,4 @@ Azure 使用路由表決定如何根據每個封包的目的地轉送 IP 流量�
 - 若要設定路由及 IP 轉送，請參閱[如何在 Azure 中建立路由與啟用 IP 轉送](virtual-network/virtual-networks-udr-how-to.md) 
 - 如需角色型存取控制的概觀，請參閱 Microsoft Azure 入口網站中的[角色型存取控制](role-based-access-control-configure.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

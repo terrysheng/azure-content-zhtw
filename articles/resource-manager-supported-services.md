@@ -36,7 +36,8 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 批次 | 是 | 是 | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Dynamics 週期服務 | 是 | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (Preview) | 是 | | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| 虛擬機器 (傳統) | 有限 | 部分 (請參閱下文) | - | - | | 遠端應用程式 | 否 | - | - | - |
+| 虛擬機器 (傳統) | 有限 | 部分 (請參閱下文) | - | - |
+| 遠端應用程式 | 否 | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
@@ -63,7 +64,8 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | SQL Database | 是 | 是 | [建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | 搜尋 | 是 | 是 | [搜尋 REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | SQL 資料倉儲 | 是 | | | |
-| StorSimple | 否 | - | - | - | | 受管理的快取 | 否 | - | - | - |
+| StorSimple | 否 | - | - | - |
+| 受管理的快取 | 否 | - | - | - |
 
 ## Web 與行動
 
@@ -89,7 +91,8 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 串流分析 | 是 | | [串流分析 REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | 是 | 是 | [建立叢集](https://msdn.microsoft.com/library/azure/mt622302.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Data Factory | 是 | 是 | [建立 Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| 機器學習 | 否 | - | - | - | | 資料目錄 | 否 | - | - | - |
+| 機器學習 | 否 | - | - | - |
+| 資料目錄 | 否 | - | - | - |
 
 ## 媒體與 CDN
 
@@ -105,13 +108,16 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | BizTalk 服務 | 是 | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | 服務匯流排 | 是 | | [服務匯流排 REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| 備份 | 否 | - | - | - | | Site Recovery | 否 | - | - | - |
+| 備份 | 否 | - | - | - |
+| Site Recovery | 否 | - | - | - |
 
 ## 身分識別與存取管理 
 
 | 服務 | 已啟用資源管理員 | 移動資源 | REST API | 結構描述 | 快速入門範本 |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
-| Azure Active Directory | 否 | - | - | - | | Azure Actice Directory B2C | 否 | - | - | - | | Multi-Factor Authentication | 否 | - | - | - |
+| Azure Active Directory | 否 | - | - | - |
+| Azure Actice Directory B2C | 否 | - | - | - |
+| Multi-Factor Authentication | 否 | - | - | - |
 
 ## 開發人員服務 
 
@@ -239,4 +245,4 @@ Azure PowerShell 0.9.8 請使用：
 - 若要了解如何建立資源管理員範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

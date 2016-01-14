@@ -307,6 +307,7 @@
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. 處理完成時，您會看到配量處於 [就緒] 狀態。
+
 	>[AZURE.IMPORTANT]建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)	
@@ -340,4 +341,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 將資料複製到 Azure SQL，請參閱[教學課程：從 Azure Blob 將資料複製到 Azure SQL](data-factory-get-started.md)。
   
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

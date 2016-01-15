@@ -290,7 +290,8 @@
 12. 在 [圖表檢視] 中，按兩下 [AzureBlobOutput] 資料集。您會看到目前正在處理的配量。
 
 	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. 處理完成時，您會看到配量處於 [就緒] 狀態。
+9. 處理完成時，您會看到配量處於 [就緒] 狀態。  
+
 	>[AZURE.IMPORTANT]建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。  
 
 	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)

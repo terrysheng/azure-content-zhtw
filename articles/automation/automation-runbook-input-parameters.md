@@ -126,30 +126,32 @@ Runbook 有多種啟動方式：透過 Azure 入口網站 UI、透過 Webhook、
 
 * **使用 PowerShell Cmdlet 啟動已發佈的 Runbook，並指派參數**
 
-    * **Azure 服務管理 Cmdlet：**您可以使用 [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx) 啟動在預設資源群組中建立的自動化 Runbook
+    - **Azure 服務管理 Cmdlet：**您可以使用 [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx) 啟動在預設資源群組中建立的自動化 Runbook
 
     **範例：**
 
-      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ``` 
+		$params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
 
+    - **Azure 資源管理員 Cmdlet：**您可以使用 [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) 啟動在資源群組中建立的自動化 Runbook
 
-    * **Azure 資源管理員 Cmdlet：**您可以使用 [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) 啟動在資源群組中建立的自動化 Runbook
-
+	
     **範例：**
 
-      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ``` 
+		$params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
 >[AZURE.NOTE]當您使用 PowerShell Cmdlet 啟動 Runbook 時，將會隨著您所傳遞的輸入參數，建立值為 **PowerShell** 的預設參數 **MicrosoftApplicationManagementStartedBy**。您可以在 [作業詳細資料] 刀鋒視窗中檢視此參數。
 
-* **使用 SDK 啟動 Runbook，並指派參數**
+- **使用 SDK 啟動 Runbook，並指派參數**
 
-    * **Azure 服務管理方法：**您可以使用程式設計語言的 SDK 來啟動 Runbook。以下說明如何以 C# 程式碼片段在您的自動化帳戶中啟動 Runbook，您可以在我們的 [GitHub 儲存機制](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中檢視完整的程式碼。  
+    - **Azure 服務管理方法：**您可以使用程式設計語言的 SDK 來啟動 Runbook。以下說明如何以 C# 程式碼片段在您的自動化帳戶中啟動 Runbook，您可以在我們的 [GitHub 儲存機制](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中檢視完整的程式碼。  
 
     ```      
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)

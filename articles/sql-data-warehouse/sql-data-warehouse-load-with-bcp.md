@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="01/04/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -136,7 +136,7 @@ DateId |CalendarQuarter |FiscalQuarter
 
 ### 步驟 4：建立新載入資料的統計資料 
 
-Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱主題群組＜開發＞之中的[統計資料][]主題。以下是快速範例，說明如何在此範例中建立載入資料表的統計資料
+Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱「開發」主題群組中的「[統計資料][]」主題。以下是快速範例，說明如何在此範例中建立載入資料表的統計資料
 
 在 sqlcmd 提示字元中執行下列 CREATE STATISTICS 陳述式：
 
@@ -196,4 +196,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 下載中心]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

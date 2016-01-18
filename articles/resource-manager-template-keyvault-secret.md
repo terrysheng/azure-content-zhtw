@@ -1,6 +1,6 @@
 <properties
    pageTitle="適用於金鑰保存庫中密碼的資源管理員範本 | Microsoft Azure"
-   description="顯示金鑰保存庫密碼的資源管理員結構描述。"
+   description="說明可透過範本部署金鑰保存庫密碼的資源管理員結構描述。"
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # 金鑰保存庫密碼範本結構描述
@@ -227,4 +227,4 @@
 - 如需金鑰保存庫的一般資訊，請參閱[開始使用 Azure 金鑰保存庫](./key-vault/key-vault-get-started.md)。
 - 如需部署範本時參考金鑰保存庫密碼的範例，請參閱[在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

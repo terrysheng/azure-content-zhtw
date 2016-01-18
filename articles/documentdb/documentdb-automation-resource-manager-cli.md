@@ -59,7 +59,7 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]如果您沒有 Azure 帳戶，就會看到錯誤訊息，指出您需要不同類型的帳戶。若要從目前的 Azure 帳戶建立一個帳戶，請參閱[在 Azure Active Directory 中建立工作或學校身分識別](../resource-group-create-work-id-from-personal.md)。
+> [AZURE.NOTE]如果您沒有 Azure 帳戶，就會看到錯誤訊息，指出您需要不同類型的帳戶。若要從目前的 Azure 帳戶建立一個帳戶，請參閱[在 Azure Active Directory 中建立工作或學校身分識別](../virtual-machines/resource-group-create-work-id-from-personal.md)。
 
 在瀏覽器中開啟 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)，然後輸入命令輸出中提供的代碼。
 
@@ -326,7 +326,7 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
     	azure group log show new_res_group --last-deployment
 
-    如需詳細資訊，則請參閱[在 Azure 中疑難排解資源群組部署](../resource-group-deploy-debug.md)。
+    如需詳細資訊，則請參閱[在 Azure 中疑難排解資源群組部署](../virtual-machines/resource-group-deploy-debug.md)。
 
 - Azure 入口網站中也會提供錯誤資訊，如下列螢幕擷取畫面所示。若要瀏覽至錯誤資訊：按一下動態工具列中的 [資源群組]、選取發生錯誤的資源群組，接著在 [資源群組] 刀鋒視窗的 [基本功能] 區域中按一下 [上次部署] 的日期，然後在 [部署記錄] 刀鋒視窗中選取失敗的部署，之後在 [部署] 刀鋒視窗中按一下有紅色驚嘆號的 [作業詳細資料]。失敗部署的狀態訊息會顯示在 [作業詳細資料] 刀鋒視窗中。
 
@@ -351,4 +351,4 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

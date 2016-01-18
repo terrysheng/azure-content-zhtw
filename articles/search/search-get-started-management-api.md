@@ -34,7 +34,7 @@ Azure Search REST 管理 API 是在入口網站中執行管理工作的程式設
 
 本教學課程是以 C# 撰寫的 Windows 主控台應用程式為基礎，您可以在 Visual Studio 2012 或 2013年中進行編輯和執行
 
-您可以在 Codeplex 的 [Azure 搜尋服務管理 API 示範](https://azuresearchmgmtapi.codeplex.com/)上尋找此用戶端應用程式。
+您可以在 Codeplex 的 [Azure 搜尋服務管理 API 示範](https://github.com/Azure-Samples/search-dotnet-management-api/)上尋找此用戶端應用程式。
 
 
 ##設定應用程式
@@ -58,7 +58,7 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
 ###建立 Active Directory 服務
 
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+1. 登入 [Azure 入口網站](https://manage.windowsazure.com)。
 
 2. 向下捲動左側導覽窗格，然後按一下 [**Active Directory**]。
 
@@ -119,7 +119,7 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-如果您尚未[從 Codeplex 下載範例應用程式](https://azuresearchmgmtapi.codeplex.com/)，您在此步驟中會需要它。
+如果您尚未[從 Github 下載範例應用程式](https://github.com/Azure-Samples/search-dotnet-management-api/)，您在此步驟中會需要它。
 
 1. 在 Visual Studio 中開啟 **ManagementAPI.sln**。
 
@@ -204,4 +204,4 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

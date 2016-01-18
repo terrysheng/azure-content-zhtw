@@ -1,5 +1,5 @@
 <properties
-   pageTitle="準備從 Visual Studio 發佈或部署 Azure 應用程式"
+   pageTitle="準備從 Visual Studio 發佈或部署 Azure 應用程式 | Microsoft Azure"
    description="了解設定雲端和儲存體帳戶服務以及 Azure 應用程式的程序。"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/28/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # 準備從 Visual Studio 發佈或部署 Azure 應用程式
@@ -153,4 +153,4 @@
 
 若要深入了解如何將應用程式從 Visual Studio 發佈至 Azure，請參閱[使用 Azure Tools 發佈雲端服務](vs-azure-tools-publishing-a-cloud-service.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

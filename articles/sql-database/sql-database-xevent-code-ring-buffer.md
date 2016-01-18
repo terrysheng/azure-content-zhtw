@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="12/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -61,7 +61,7 @@
 - SQL Server Management Studio (ssms.exe) 在 2015 年 8 月的預覽版或更新版本。您可以從下列位置下載最新的 ssms.exe：
  - [主題中的連結。](http://msdn.microsoft.com/library/mt238290.aspx)
  - [下載的直接連結。](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft 建議您定期更新 ssms.exe。
+ - Microsoft 建議您定期 (或每月) 更新 ssms.exe。
 
 
 ## 程式碼範例
@@ -163,32 +163,40 @@ GO
 
 
 SELECT
-		se.name  AS [session-name],
-		ev.event_name,
-		ac.action_name,
-		st.target_name,
-		se.session_source,
-		st.target_data,
-		CAST(st.target_data AS XML)  AS [target_data_XML]
-	FROM
-				   sys.dm_xe_database_session_event_actions  AS ac
-		INNER JOIN sys.dm_xe_database_session_events         AS ev  ON ev.event_name            = ac.event_name
-		                                                           AND ev.event_session_address = ac.event_session_address
-		INNER JOIN sys.dm_xe_database_session_object_columns AS oc  ON oc.event_session_address = ac.event_session_address
-		INNER JOIN sys.dm_xe_database_session_targets        AS st  ON st.event_session_address = ac.event_session_address
-		INNER JOIN sys.dm_xe_database_sessions               AS se  ON ac.event_session_address = se.address
-	WHERE
-		oc.column_name = 'occurrence_number'
-		AND
-		se.name        = 'eventsession_gm_azuresqldb51'
-		AND
-		ac.action_name = 'sql_text'
-	ORDER BY
-		se.name,
-		ev.event_name,
-		ac.action_name,
-		st.target_name,
-		se.session_source;
+    se.name                      AS [session-name],
+    ev.event_name,
+    ac.action_name,
+    st.target_name,
+    se.session_source,
+    st.target_data,
+    CAST(st.target_data AS XML)  AS [target_data_XML]
+FROM
+               sys.dm_xe_database_session_event_actions  AS ac
+
+    INNER JOIN sys.dm_xe_database_session_events         AS ev  ON ev.event_name = ac.event_name
+        AND CAST(ev.event_session_address AS BINARY(8)) = CAST(ac.event_session_address AS BINARY(8))
+
+    INNER JOIN sys.dm_xe_database_session_object_columns AS oc
+         ON CAST(oc.event_session_address AS BINARY(8)) = CAST(ac.event_session_address AS BINARY(8))
+
+    INNER JOIN sys.dm_xe_database_session_targets        AS st
+         ON CAST(st.event_session_address AS BINARY(8)) = CAST(ac.event_session_address AS BINARY(8))
+
+    INNER JOIN sys.dm_xe_database_sessions               AS se
+         ON CAST(ac.event_session_address AS BINARY(8)) = CAST(se.address AS BINARY(8))
+WHERE
+        oc.column_name = 'occurrence_number'
+    AND
+        se.name        = 'eventsession_gm_azuresqldb51'
+    AND
+        ac.action_name = 'sql_text'
+ORDER BY
+    se.name,
+    ev.event_name,
+    ac.action_name,
+    st.target_name,
+    se.session_source
+;
 GO
 
 ---- Step set 6.
@@ -377,4 +385,4 @@ Azure SQL Database 上擴充事件的主要主題是：
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

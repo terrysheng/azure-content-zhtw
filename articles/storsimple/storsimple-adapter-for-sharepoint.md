@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # 安裝和設定 StorSimple Adapter for SharePoint
@@ -197,7 +197,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
 從 SharePoint 網站刪除物件時，不會自動從 RBS 存放磁碟區刪除這些物件。而是由一個非同步的背景維護程式，從檔案存放區刪除被遺棄的 BLOB。系統管理員可以排程定期執行此程序，或需要時才啟動此程序。
 
-當您啟用 RBS 時，此維護程式 (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) 會自動安裝在所有 SharePoint WFE 伺服器和應用程式伺服器上。此程式安裝在下列位置：<boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+當您啟用 RBS 時，此維護程式 (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) 會自動安裝在所有 SharePoint WFE 伺服器和應用程式伺服器上。此程式安裝在以下位置：*開機磁碟機*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
 如需設定和使用維護程式的相關資訊，請參閱[在 SharePoint Server 2013 中維護 RBS][8]。
 
@@ -276,7 +276,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
     ![安裝精靈](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
-3. 按 [下一步]。下列頁面隨即出現。
+3. 按一下 [下一步]。下列頁面隨即出現。
 
     ![安裝精靈移除頁面](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
@@ -308,4 +308,4 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/zh-TW/library/ff943565.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/06/2016"
     ms.author="sidneyh;torsteng" />
 
 # 分區化的彈性資料庫查詢 (水平資料分割)
 
 本文件說明如何設定水平資料分割案例的彈性資料庫查詢，以及如何執行您的查詢。如需水平資料分割案例的定義，請參閱[彈性資料庫查詢概觀 (預覽)](sql-database-elastic-query-overview.md)。
+
+![跨分區查詢][1]
 
 此功能屬於 Azure SQL Database [彈性資料庫功能集](sql-database-elastic-scale.md)的一部分。
  
@@ -236,6 +238,7 @@ sp\_execute\_fanout 會使用叫用參數中提供的分區對應資訊，在所
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

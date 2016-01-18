@@ -1,5 +1,7 @@
-This setting allows you to specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
+此設定可讓您指定要用於此虛擬網路之名稱解析的 DNS 服務。它不會建立 DNS 伺服器。
 
-1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to expand.
-2. On the **DNS Servers** page, under **DNS servers**, select **Custom DNS**.
-3. In the **Primary DNS server** field, enter the IP address of the DNS server that you want to use for name resolution.
+1. 在您虛擬網路的 [設定] 頁面上，瀏覽到 [DNS 伺服器] 並按一下來展開。
+2. 在 [DNS 伺服器] 頁面中的 [DNS 伺服器] 之下，選取 [自訂 DNS]。
+3. 在 [主要 DNS 伺服器] 欄位中，輸入要用於名稱解析之 DNS 伺服器的 IP 位址。
+
+<!---HONumber=AcomDC_0107_2016-->

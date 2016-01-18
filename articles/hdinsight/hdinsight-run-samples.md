@@ -48,7 +48,7 @@
 - **HDInsight 叢集**。如需可建立此類叢集之各種方式的指示，請參閱[在 HDInsight 中使用 Hadoop 叢集](hdinsight-provision-clusters.md)。
 - **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)。
 
-## 字數統計 - Java 
+## <a name="hdinsight-sample-wordcount"></a>字數統計 - Java 
 
 如果要提交 MapReduce 專案，您可以先建立 MapReduce 工作定義。在工作定義中，您指定 MapReduce 程式 jar 檔案和該 jar 檔案的位置，這會是 ****wasb:///example/jars/hadoop-mapreduce-examples.jar**、類別名稱和引數。字數統計 MapReduce 程式會採用兩個引數：原始程式檔會用來統計字數，與輸出的位置。
 
@@ -114,7 +114,7 @@
 
 3. 設定前 3 個變數，並執行指令碼。
 
-## 字數統計 - C# 串流
+## <a name="hdinsight-sample-csharp-streaming"></a>字數統計 - C# 串流
 
 Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。
 
@@ -148,7 +148,7 @@ Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰�
 	
 		example/data/StreamingOutput/wc.txt/part-00000		
 								
-## Pi 估算器
+## <a name="hdinsight-sample-pi-estimator"></a>PI 估算器
 
 Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。單位正方形內隨機散佈的點，也會落在該正方形的內切圓之內，且機率等於圓面積 Pi/4。Pi 的值可從 4R 的值來估計，其中 R 是圓內點數佔正方形內總點數的比例。使用的樣本點越多，估計越準確。
 
@@ -163,7 +163,7 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。單
 									-ClassName "pi" `
 									-Arguments "16", "10000000"
 
-## 10-GB Graysort
+## <a name="hdinsight-sample-10gb-graysort"></a>10-GB Graysort
 
 本範例使用不太大的 10GB 資料，所以執行起來相對較快。本範例使用 Owen O'Malley 和 Arun Murthy 所開發的 MapReduce 應用程式，此應用程式於 2009 年的年度一般目的 (「耐力賽」) TB 排序效能評定中，以 0.578TB/分鐘 (173 分鐘內達到 100TB) 的速率獲勝。如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark](http://sortbenchmark.org/) 網站。
 
@@ -987,10 +987,10 @@ wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][streamreader] 物�
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
 [hdinsight-samples]: hdinsight-run-samples.md
-[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
-[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md
-[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
-[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md
+[hdinsight-sample-10gb-graysort]: #hdinsight-sample-10gb-graysort
+[hdinsight-sample-csharp-streaming]: #hdinsight-sample-csharp-streaming
+[hdinsight-sample-pi-estimator]: #hdinsight-sample-pi-estimator
+[hdinsight-sample-wordcount]: #hdinsight-sample-wordcount
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
@@ -998,4 +998,4 @@ wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][streamreader] 物�
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

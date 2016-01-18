@@ -15,7 +15,7 @@
    ms.date="09/18/2015"
    ms.author="sethm" />
 
-# 將應用程式與服務匯流排中斷和災難隔絕的最佳作法
+# 將應用程式與服務匯流排中斷和災難隔絕的最佳做法
 
 關鍵任務應用程式必須持續作業，即使發生非預期的中斷或災害亦然。本主題說明您可用來保護服務匯流排應用程式，避免潛在的服務中斷或災害的技巧。
 
@@ -109,4 +109,4 @@
   [Azure SQL Database 商務持續性]: https://msdn.microsoft.com/library/azure/hh852669.aspx
   [Azure 業務持續性技術指引]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

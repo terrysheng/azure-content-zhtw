@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/05/2015" 
 	ms.author="bradsev" />
 
 
@@ -106,7 +106,12 @@ XUF99EW9OIQOMV7Q7 | 家庭房車
 3.	執行應用程式 **CarEventGenerator.exe**。
 
 ### 參考
-[車輛遠程資訊服務模擬器 Visual Studio 方案](http://go.microsoft.com/fwlink/?LinkId=717075) [Azure 事件中樞](http://azure.microsoft.com/services/event-hubs/) [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+[Vehicle Telematics Simulator Visual Studio 方案](http://go.microsoft.com/fwlink/?LinkId=717075)
+
+[Azure 事件中樞](http://azure.microsoft.com/services/event-hubs/)
+
+[Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 
 ## 擷取
@@ -149,7 +154,12 @@ XUF99EW9OIQOMV7Q7 | 家庭房車
 *圖 10 - PrepareSampleDataPipeline 輸出*
 
 ### 參考
-[用於擷取串流的 Azure 事件中樞 SDK](event-hubs-csharp-ephcs-getstarted.md) [Azure Data Factory 資料移動功能](data-factory-data-movement-activities.md) [Azure Data Factory DotNet 活動](data-factory-use-custom-activities.md) [用於準備範例資料的 Azure Data Factory DotNet 活動 Visual Studio 方案](http://go.microsoft.com/fwlink/?LinkId=717077)
+
+[適用於串流擷取的 Azure 事件中樞 SDK](event-hubs-csharp-ephcs-getstarted.md)
+
+[Azure Data Factory 資料移動功能](data-factory-data-movement-activities.md) [Azure Data Factory DotNet 活動](data-factory-use-custom-activities.md)
+
+[適用於準備範例資料的 Azure Data Factory DotNet 活動 Visual Studio 方案](http://go.microsoft.com/fwlink/?LinkId=717077)
 
 
 ## 準備
@@ -696,4 +706,4 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 
 本文件包含車輛遙測資料分析方案的詳細探討。這以預測和動作示範即時和批次分析的 Lambda 架構模式。此模式適用於需要最忙碌路徑 (即時) 和不忙碌路徑 (批次) 分析的各種使用案例。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

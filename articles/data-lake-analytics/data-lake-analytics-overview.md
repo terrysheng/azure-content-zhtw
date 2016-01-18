@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # Microsoft Azure 資料湖分析概觀
@@ -61,7 +61,7 @@ Azure 資料湖分析是一個全新的服務，其目的是為了讓巨量資�
 - U-SQL 和開發
     - [開始使用 Azure 資料湖分析 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)
     - [針對 Azure 資料湖分析工作使用 U-SQL 視窗函式](data-lake-analytics-use-window-functions.md)
-    - [針對資料湖分析工作開發 U-SQL 使用者定義運算子](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
+    - [針對資料湖分析工作開發 U-SQL 使用者定義運算子](data-lake-analytics-u-sql-develop-user-defined-operators.md)
     
 - 管理
     - [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)
@@ -77,4 +77,4 @@ Azure 資料湖分析是一個全新的服務，其目的是為了讓巨量資�
     - [提交要求功能](http://aka.ms/adlafeedback)
     - [在論壇上取得協助](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

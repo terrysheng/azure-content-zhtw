@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/17/2015" 
 	ms.author="naziml"/>
 
 # 如何設定 Web 應用程式的 TLS 相互驗證
@@ -179,4 +179,4 @@ Azure Web 應用程式平台不會對傳送給應用程式的用戶端憑證進�
         }
     }
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

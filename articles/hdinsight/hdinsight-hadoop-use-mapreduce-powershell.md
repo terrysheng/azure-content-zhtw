@@ -51,17 +51,17 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Map
 
 1. 使用編輯器，將下列程式碼儲存為 **mapreducejob.ps1**。您必須將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
 
-		#Specify the values
-		$clusterName = "CLUSTERNAME"
-        		
-		# Login to your Azure subscription
-		# Is there an active Azure subscription?
-		$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-		if(-not($sub))
-		{
-		    Login-AzureRmAccount
-		}
-        
+        #Specify the values
+        $clusterName = "CLUSTERNAME"
+                
+        # Login to your Azure subscription
+        # Is there an active Azure subscription?
+        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+        if(-not($sub))
+        {
+            Login-AzureRmAccount
+        }
+
         #Get HTTPS/Admin credentials for submitting the job later
         $creds = Get-Credential
         #Get the cluster info so we can get the resource group, storage, etc.
@@ -79,28 +79,28 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Map
             -StorageAccountName $storageAccountName `
             -StorageAccountKey $storageAccountKey
             
-		#Define the MapReduce job
-		#NOTE: If using an HDInsight 2.0 cluster, use hadoop-examples.jar instead.
-		# -JarFile = the JAR containing the MapReduce application
-		# -ClassName = the class of the application
-		# -Arguments = The input file, and the output directory
-		$wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+        #Define the MapReduce job
+        #NOTE: If using an HDInsight 2.0 cluster, use hadoop-examples.jar instead.
+        # -JarFile = the JAR containing the MapReduce application
+        # -ClassName = the class of the application
+        # -Arguments = The input file, and the output directory
+        $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
             -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
             -ClassName "wordcount" `
             -Arguments `
                 "wasb:///example/data/gutenberg/davinci.txt", `
                 "wasb:///example/data/WordCountOutput"
 
-		#Submit the job to the cluster
-		Write-Host "Start the MapReduce job..." -ForegroundColor Green
-		$wordCountJob = Start-AzureRmHDInsightJob `
+        #Submit the job to the cluster
+        Write-Host "Start the MapReduce job..." -ForegroundColor Green
+        $wordCountJob = Start-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobDefinition $wordCountJobDefinition `
             -HttpCredential $creds
 
-		#Wait for the job to complete
-		Write-Host "Wait for the job to complete..." -ForegroundColor Green
-		Wait-AzureRmHDInsightJob `
+        #Wait for the job to complete
+        Write-Host "Wait for the job to complete..." -ForegroundColor Green
+        Wait-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobId $wordCountJob.JobId `
             -HttpCredential $creds
@@ -110,8 +110,8 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Map
             -Container $container `
             -Destination output.txt `
             -Context $context
-		# Print the output
-		Get-AzureRmHDInsightJobOutput `
+        # Print the output
+        Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $wordCountJob.JobId `
             -DefaultContainer $container `
@@ -161,7 +161,7 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
-            -HttpCredential $creds
+            -HttpCredential $creds `
             -DisplayOutputType StandardError
 
 這會傳回執行工作時寫入至伺服器上之 STDERR 的資訊，而且可能有助於判斷工作的失敗原因。
@@ -182,4 +182,4 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

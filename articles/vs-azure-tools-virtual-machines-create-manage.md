@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/30/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # 在 Visual Studio 中建立和管理 Azure 虛擬機器
@@ -177,4 +177,4 @@
 
 若要了解建立虛擬機器的詳細資訊，請參閱[建立執行 Linux 的虛擬機器](virtual-machines-linux-tutorial.md)和[在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

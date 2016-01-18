@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="使用入口網站佈建 HDInsight Hadoop 叢集與 Azure 資料湖存放區 |Azure" 
-   description="使用 Azure 入口網站設定和使用 HDInsight Hadoop 叢集與 Azure 資料湖存放區" 
+   pageTitle="使用入口網站建立 HDInsight Hadoop 叢集與 Azure 資料湖存放區 |Azure" 
+   description="使用 Azure 入口網站建立和使用 HDInsight Hadoop 叢集與 Azure 資料湖存放區" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# 使用 Azure 入口網站佈建 HDInsight 叢集與資料湖存放區
+# 使用 Azure 入口網站建立 HDInsight 叢集與資料湖存放區
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-了解如何使用 Azure 入口網站設定 HDInsight 叢集 (Hadoop、HBase 或 Storm) 以使用 Azure 資料湖存放區。此版本的一些重要考量：
+了解如何使用 Azure 入口網站建立可存取 Azure 資料湖存放區的 HDInsight 叢集 (Hadoop、HBase 或 Storm)。此版本的一些重要考量：
 
 * * **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
 
@@ -92,7 +92,7 @@
 	在您的資料湖存放區帳戶底下執行下列工作。
 
 	* [在資料湖存放區中建立資料夾](data-lake-store-get-started-portal.md#createfolder)。
-	* [將檔案上傳至資料湖存放區](data-lake-store-get-started-portal.md#uploaddata)。如果您正在尋找一些可上傳的範例資料，可以從 [Azure 資料湖 Git 存放庫](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
+	* [將檔案上傳至資料湖存放區](data-lake-store-get-started-portal.md#uploaddata)。如果您正在尋找一些可上傳的範例資料，可以從 [Azure 資料湖 Git 存放庫](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)取得 **Ambulance Data** 資料夾。
 
 	您稍後在測試資料湖存放區帳戶與 HDInsight 叢集時，將使用上傳的檔案。
 
@@ -100,7 +100,7 @@
 
 	![資料總管](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.start.data.explorer.png "資料總管")
 
-4. 在 [資料總管] 刀鋒視窗中，按一下帳戶的根，然後在 [帳戶] 刀鋒視窗中，按一下 [存取] 圖示。
+4. 在 [資料總管] 刀鋒視窗中，按一下帳戶的根目錄，然後在 [帳戶] 刀鋒視窗中，按一下 [存取] 圖示。
 
 	![設定資料湖檔案系統上的 ACL](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.1.png "設定資料湖檔案系統上的 ACL")
 
@@ -116,7 +116,7 @@
 
 	![將權限指派至群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.4.png "將權限指派至群組")
 
-8. 在 [新增自訂存取] 刀鋒視窗中，按一下 [確定]。具有相關權限的新增群組現在將列在 [存取] 刀鋒視窗中。
+8. 在 [新增自訂存取] 刀鋒視窗中，按一下 [確定]。具有相關權限的新增群組現在會列在 [存取] 刀鋒視窗中。
 
 	![將權限指派至群組](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.5.png "將權限指派至群組")
 
@@ -207,4 +207,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

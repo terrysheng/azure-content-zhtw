@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
  
 # 程式碼範例：剖析從 Application Insights 匯出的資料
@@ -543,4 +543,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

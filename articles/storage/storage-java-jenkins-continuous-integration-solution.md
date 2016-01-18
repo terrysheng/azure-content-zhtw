@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/05/2016" 
 	ms.author="robmcm"/>
 
 # 使用 Azure 儲存體搭配 Jenkins 連續整合解決方案
@@ -111,7 +111,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
     在您為 [Execute Windows batch command] 輸入指令碼的 [Command] 區段底下有一個 Jenkins 所辨識環境變數的連結。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD\_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 
 8. 在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章](http://go.microsoft.com/fwlink/?LinkId=279889)。)
-9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading]\(若不想清除容器的內容，請維持不核取)。
+9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] (若不想清除容器的內容，請維持不核取)。
 10. 在 [List of Artifacts to upload]，輸入 **text/*.txt**。
 11. 在 [Common virtual path for uploaded artifacts] 中，基於本教學課程的目的，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
 12. 按一下 [Save] 儲存您的設定。
@@ -162,4 +162,4 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
   [認識 Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

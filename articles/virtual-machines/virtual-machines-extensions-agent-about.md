@@ -14,12 +14,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/22/2015"
+ ms.date="01/04/2016"
  ms.author="rasquill"/>
 
 #有關虛擬機器代理程式和擴充功能
 
-Azure 虛擬機器代理程式 (VM 代理程式) 用來安裝、設定、管理和執行 Azure 虛擬機器擴充功能 (VM 擴充功能)。VM 擴充功能提供 Microsoft 和其他協力廠商提供的動態功能。代理程式和擴充功能主要是透過管理入口網站來加入，但您也可以在建立 VM 或使用現有的 VM 時使用 [Powershell](../install-configure-powershell.md) Cmdlet 或 [Azure CLI](xplat-install.md) 來加以加入及設定。
+Azure 虛擬機器代理程式 (VM 代理程式) 用來安裝、設定、管理和執行 Azure 虛擬機器擴充功能 (VM 擴充功能)。VM 擴充功能提供 Microsoft 和其他協力廠商提供的動態功能。代理程式和擴充功能主要是透過管理入口網站來加入，但您也可以在建立 VM 或使用現有的 VM 時使用 [Powershell](../powershell-install-configure.md) Cmdlet 或 [Azure CLI](../xplat-cli-install.md) 來加以加入及設定。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
@@ -46,7 +46,7 @@ Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全、輕量級程�
 
 -   當您在管理入口網站中使用 [快速建立] 方法，或在管理入口網站中使用 [自訂建立] 方法，並確認已選取 [安裝 VM 代理程式] 核取方塊 (如下圖所示)，來建立虛擬機器的執行個體時。如需詳細資訊，請參閱[如何建立自訂虛擬機器](virtual-machines-create-custom.md)。
 
-    ![VM 代理程式核取方塊](./media/virtual-machines-extensions-agent-about/IC719409.png "VM 代理程式核取方塊")
+    ![VM 代理程式核取方塊](media/virtual-machines-extensions-agent-about/IC719409.png)
 
 -   當您使用 [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) 或 [New-AzureQuickVM](https://msdn.microsoft.com/library/azure/dn495183.aspx) Cmdlet 來建立虛擬機器的執行個體時。您可以藉由將 **–DisableGuestAgent** 參數加入 [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) Cmdlet，來建立 VM 而不需安裝 VM 代理程式。
 
@@ -66,4 +66,4 @@ Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全、輕量級程�
 
 如需這些工作的詳細資訊，請參閱[加入、尋找、更新及移除 Azure VM 延伸模組](virtual-machines-extensions-install.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

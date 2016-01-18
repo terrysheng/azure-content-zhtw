@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015"  
+	ms.date="12/22/2015"  
 	ms.author="juliako"/>
 
 #使用啟用的通道來以 Azure 媒體服務執行即時編碼
@@ -130,7 +130,8 @@
 
 考量：
 
-- 強烈建議使用單一程式傳輸串流 (SPTS) 輸入。不過也支援使用多種語言的曲目
+- 強烈建議使用單一程式傳輸串流 (SPTS) 輸入。 
+- 您可以透過 RTP 使用 MPEG-2 TS 輸入最多 8 個音訊串流。 
 - 視訊串流的平均位元速率應低於 15 Mbps
 - 視訊串流的彙總平均位元速率應低於 1 Mbps
 - 以下是支援的轉碼器：
@@ -242,9 +243,9 @@
 
 當您建立通道時，您可以取得預覽 URL。若要取得此 URL，通道不一定要在**執行**狀態。
 
-一旦通道開始內嵌資料，您就可以預覽您的串流。
+通道開始內嵌資料後，您就可以預覽您的資料流。
 
-**注意**不論指定的輸入類型為何，目前預覽串流都只能以分散 MP4 (Smooth Streaming) 的格式傳遞。您可以使用 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 播放器測試 Smooth Stream。您也可以使用裝載於 Azure 傳統入口網站中的播放器來檢視您的串流。
+>[AZURE.NOTE]無論指定的輸入類型為何，目前預覽串流都只能以分散式 MP4 (Smooth Streaming) 格式傳遞。您可以使用 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) 播放器測試 Smooth Stream。您也可以使用裝載於 Azure 傳統入口網站中的播放器來檢視您的串流。
 
 ###允許的 IP 位址
 
@@ -253,6 +254,8 @@
 ##即時編碼設定
 
 本節說明通道的**編碼類型**設為**標準**時，如何調整通道中即時編碼器的設定。
+
+>[AZURE.NOTE]使用 Azure 輸入多個語言資料軌及執行即時編碼時，多語言輸入僅支援 RTP。您可以透過 RTP 使用 MPEG-2 TS 定義最多 8 個音訊串流。目前不支援使用 RTMP 或 Smooth Streaming 內嵌多個音軌。使用[內部部署即時編碼](media-services-manage-channels-overview.md)執行即時編碼時沒有這類限制，因為傳送至 AMS 的任何項目都是透過不需要進一步處理的通道傳遞。
 
 ###Ad 標記來源
 
@@ -335,7 +338,7 @@
 
 ###顯示 slate
 
-選用。在廣告插播期間發送信號給即時編碼器以切換至[預設靜態圖像](media-services-manage-live-encoder-enabled-channels.md#default_slate)映像，並隱藏連入的視訊摘要。在 slate 期間也要使音訊靜音。預設值為 **false**。
+選用。在廣告插播期間發送信號給即時編碼器以切換至[預設 slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) 映像，並隱藏連入的視訊摘要。在 slate 期間也要使音訊靜音。預設值為 **false**。
  
 在建立通道時會透過預設 slate 資產識別碼屬性指定要使用的映像。slate 將會延伸到符合顯示映像大小。
 
@@ -427,6 +430,7 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 - 只有當您的通道處於**執行中**狀態時，才會向您計費。若需詳細資訊，請參閱[這個](media-services-manage-live-encoder-enabled-channels.md#states)章節。
 - 目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
 - 請確定在您想串流內容的串流端點上至少有一個串流保留單元。
+- 使用 Azure 輸入多個語言資料軌及執行即時編碼時，多語言輸入僅支援 RTP。您可以透過 RTP 使用 MPEG-2 TS 定義最多 8 個音訊串流。目前不支援使用 RTMP 或 Smooth Streaming 內嵌多個音軌。使用[內部部署即時編碼](media-services-manage-channels-overview.md)執行即時編碼時沒有這類限制，因為傳送至 AMS 的任何項目都是透過不需要進一步處理的通道傳遞。
 - 切記在完成時停止您的通道。如果您忘記，計費會繼續。 
 
 ##已知問題
@@ -466,4 +470,4 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

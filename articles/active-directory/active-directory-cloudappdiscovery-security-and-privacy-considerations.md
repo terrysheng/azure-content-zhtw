@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2015"
 	ms.author="markusvi"/>
 
 # Cloud App Discovery 的安全性和隱私權考量
@@ -52,7 +52,7 @@ Azure Active Directory 租用戶 (或其委派) 的系統管理員可以從 Azur
 
 **資訊類別**：處理序資訊 <br> **說明**：<br> 向目標 Web 應用程式提出要求的處理序名稱 (例如：“iexplore.exe”)
 
-**資訊類別**：電腦資訊 <br> **說明**：<br> 安裝代理程式的電腦 NetBIOS 名稱。
+**資訊類別**：電腦資訊<br>**說明**：<br>安裝代理程式的電腦 NetBIOS 名稱。
 
 **資訊類別**：應用程式流量資訊 <br> **說明**：<br>
 
@@ -90,6 +90,8 @@ Azure Active Directory 租用戶 (或其委派) 的系統管理員可以從 Azur
 
 > [AZURE.NOTE]所有非加密的連線都會收集上述 HTTP 資訊。如果是 TLS 連線，只有在入口網站中開啟 [深度檢查] 設定時，才會擷取這項資訊。設定預設為 [開啟]。如需詳細資料，請參閱下方內容以及[開始使用 Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
+
+除了代理程式所收集有關網路活動的資料外，它也會收集關於軟體和硬體組態的匿名資訊、錯誤報告和代理程式使用情形的相關資訊。
 
 <br><br>
 ### 代理程式的運作方式
@@ -177,4 +179,4 @@ Cloud App Discovery Endpoint Agent 只會收集上列**代理程式收集的資�
 
 * [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

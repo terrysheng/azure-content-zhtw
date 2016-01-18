@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：應用程式類型
@@ -23,9 +23,9 @@ Azure AD B2C 支援各種現代化應用程式架構的驗證，這些架構全�
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 基本概念
-每個使用 Azure AD B2C 的應用程式都必須透過 [Azure Preview 入口網站](https://portal.azure.com)，註冊在 [B2C 目錄](active-directory-b2c-get-started.md)中。應用程式註冊處理序會收集與指派一些值給您的應用程式：
+每個使用 Azure AD B2C 的應用程式都必須透過 [Azure 入口網站](https://portal.azure.com)，註冊在 [B2C 目錄](active-directory-b2c-get-started.md)中。應用程式註冊處理序會收集與指派一些值給您的應用程式：
 
-- 可唯一識別應用程式的**應用程式識別碼**
+- 可唯一識別應用程式的**應用程式 ID**
 - 可用來將回應導回至應用程式的**重新導向 URI**
 - 其他幾個狀況特定的值。如需詳細資訊，請了解如何[註冊應用程式](active-directory-b2c-app-registration.md)。
 
@@ -128,4 +128,4 @@ Azure AD B2C 目前不支援此流程，也就是說，只有在進行互動式�
 
 使用 OAuth 2.0 Jwt 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為「代理者流程」。不過，Azure AD B2C 預覽目前未實作代理者流程。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

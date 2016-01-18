@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tarcher"/>
 
 # 使用 Visual Studio 連接服務加入 Azure 行動服務之後，我的 Azure Cordova 專案發生什麼狀況？
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
-> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ##加入參考
 
@@ -39,4 +35,4 @@
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

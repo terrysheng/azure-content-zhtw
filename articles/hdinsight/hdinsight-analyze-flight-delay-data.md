@@ -103,7 +103,7 @@ Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的
 		
 		$HDInsightClusterName = $namePrefix + "hdi"
 		$httpUserName = "admin"
-		$httpPassword = "Pass@word111"
+		$httpPassword = "<Enter the Password>"
 		
 		$defaultStorageAccountName = $namePrefix + "store"
 		$defaultBlobContainerName = $HDInsightClusterName # use the cluster name
@@ -742,4 +742,4 @@ HiveQL 指令碼將執行下列作業：
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/08/2015"
+   	ms.date="01/05/2016"
    	ms.author="jgao"/>
 
 #在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
@@ -27,13 +27,13 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
-##必要條件
+###必要條件
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 - __Visual Studio 2013 或 2015__
 
-##建立主控台應用程式
+## 建立叢集
 
 1. 開啟 Visual Studio 2013 或 2015。
 
@@ -57,123 +57,100 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
         using System;
         using System.Security;
-        
         using Microsoft.Azure;
         using Microsoft.Azure.Common.Authentication;
         using Microsoft.Azure.Common.Authentication.Factories;
         using Microsoft.Azure.Common.Authentication.Models;
         using Microsoft.Azure.Management.HDInsight;
         using Microsoft.Azure.Management.HDInsight.Models;
-        
-        namespace CreateHDICluster
+
+        namespace CreateHDInsightCluster
         {
             class Program
             {
                 private static HDInsightManagementClient _hdiManagementClient;
-                
-                //Replace SUBSCRIPTIONID with your Azure subscription ID
-                private static Guid SubscriptionId = new Guid(SUBSCRIPTIONID);
-                
-                //Replace GROUPNAME with the name of the resource group to create the cluster in
-                private const string ResourceGroupName = "GROUPNAME";
-                
-                //Replace CLUSTERNAME with the name of the HDInsight cluster you wish to create
-                private const string NewClusterName = "CLUSTERNAME";
+
+                private static Guid SubscriptionId = new Guid("<Enter Your Subscription ID>");
+                private const string ExistingResourceGroupName = "<Enter Resource Group Name>";
+                private const string ExistingStorageName = "<Enter Default Storage Account Name>.blob.core.windows.net";
+                private const string ExistingStorageKey = "<Enter Default Storage Account Key>";
+                private const string ExistingBlobContainer = "<Enter Default Bob Container Name>";
+                private const string NewClusterName = "<Enter HDInsight Cluster Name>";
                 private const int NewClusterNumNodes = 1;
-                
-                //Replace LOCATION with the geographic region that the resource group, storage account, and HDInsight cluster are in
-                private const string NewClusterLocation = "LOCATION";
-                private const string NewClusterVersion = "3.2";
-                
-                //Replace STORAGENAME with the name of the storage account to use
-                private const string ExistingStorageName = "STORAGENAME.blob.core.windows.net";
-                
-                //Replace STORAGEKEY with the key for the storage account
-                private const string ExistingStorageKey = "STORAGEKEY";
-                
-                //Replace CONTAINERNAME with the container to use for HDInsight's default storage
-                private const string ExistingContainer = "CONTAINTERNAME";
+                private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
+                private const OSType NewClusterOSType = OSType.Linux;
                 private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-            private const OSType NewClusterOSType = OSType.Linux;
+                private const string NewClusterVersion = "3.2";
                 private const string NewClusterUsername = "admin";
-                
-                //Replace ADMINPASSWORD with the password for the admin account
-                private const string NewClusterPassword = "ADMINPASSWORD";
-                
-                //Replace SSHUSER with the user name you want to use with logging in to the cluster through SSH
-                private const string NewClusterSshUserName = "SSHUSER";
-                
-                //Replace SSHPUBLICKEY with the public key certificate to use when authenticating the SSH user. For more information on generating and using SSH keys with HDInsight, see https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/ and https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/
-                private const string NewClusterSshPublicKey = @"SSHPUBLICKEY";
-        
-                private static void Main(string[] args)
+                private const string NewClusterPassword = "<Enter HTTP User Password>";
+                private const string NewClusterSshUserName = "sshuser";
+                private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
+                    Comment: ""rsa-key-20150731""
+                    AAAAB3NzaC1yc2EAAAABJQAAAQEA4QiCRLqT7fnmUA5OhYWZNlZo6lLaY1c+IRsp
+                    gmPCsJVGQLu6O1wqcxRqiKk7keYq8bP5s30v6bIljsLZYTnyReNUa5LtFw7eauGr
+                    yVt3Pve6ejfWELhbVpi0iq8uJNFA9VvRkz8IP1JmjC5jsdnJhzQZtgkIrdn3w0e6
+                    WVfu15kKyY8YAiynVbdV51EB0SZaSLdMZkZQ81xi4DDtCZD7qvdtWEFwLa+EHdkd
+                    pzO36Mtev5XvseLQqzXzZ6aVBdlXoppGHXkoGHAMNOtEWRXpAUtEccjpATsaZhQR
+                    zZdZlzHduhM10ofS4YOYBADt9JohporbQVHM5w6qUhIgyiPo7w==
+                    ---- END SSH2 PUBLIC KEY ----"; //replace the public key with your own
+
+                static void Main(string[] args)
                 {
-                    System.Console.WriteLine("Running");
-                    
-                    //Authenticate to your subscription
+                    System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
+
                     var tokenCreds = GetTokenCloudCredentials();
                     var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-        
-                    //Get an HDIManagement client
+
                     _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
-        
-                    //Create a new cluster
-                    CreateCluster();
-                }
-        
-                public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
-                {
-                    var authFactory = new AuthenticationFactory();
-        
-                    var account = new AzureAccount { Type = AzureAccount.AccountType.User };
-        
-                    if (username != null && password != null)
-                        account.Id = username;
-        
-                    var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
-        
-                    var accessToken =
-                        authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-                            .AccessToken;
-        
-                    return new TokenCloudCredentials(accessToken);
-                }
-        
-                public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
-                {
-                    return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
-                }
-        
-        
-                private static void CreateCluster()
-                {
+
                     var parameters = new ClusterCreateParameters
                     {
                         ClusterSizeInNodes = NewClusterNumNodes,
-                        Location = NewClusterLocation,
+                        UserName = NewClusterUsername,
                         ClusterType = NewClusterType,
                         OSType = NewClusterOSType,
                         Version = NewClusterVersion,
-        
+
                         DefaultStorageAccountName = ExistingStorageName,
                         DefaultStorageAccountKey = ExistingStorageKey,
-                        DefaultStorageContainer = ExistingContainer,
-        
-                        UserName = NewClusterUsername,
+                        DefaultStorageContainer = ExistingBlobContainer,
+
                         Password = NewClusterPassword,
+                        Location = NewClusterLocation,
+
                         SshUserName = NewClusterSshUserName,
                         SshPublicKey = NewClusterSshPublicKey
                     };
-        
-                    ScriptAction rScriptAction = new ScriptAction("Install R",
-                        new Uri("https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), "");
-        
-                    parameters.ScriptActions.Add(ClusterNodeType.HeadNode,new System.Collections.Generic.List<ScriptAction> { rScriptAction});
-                parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { rScriptAction });
-                    
-                    _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+
+                    _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+
+                    System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+                    System.Console.ReadLine();
                 }
-        
+
+                public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+                {
+                    var authFactory = new AuthenticationFactory();
+
+                    var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+
+                    if (username != null && password != null)
+                        account.Id = username;
+
+                    var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+
+                    var accessToken =
+                        authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+                            .AccessToken;
+
+                    return new TokenCloudCredentials(accessToken);
+                }
+
+                public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
+                {
+                    return new TokenCloudCredentials(subId.ToString(), creds.Token);
+
+                }
             }
         }
 
@@ -181,6 +158,176 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 10. 取代類別成員值。
 
 7. 按 **F5** 鍵執行應用程式。主控台視窗會開啟並顯示應用程式的狀態。系統也會提示您輸入 Azure 帳戶認證。建立 HDInsight 叢集可能需要幾分鐘的時間，通常約 15 分鐘。
+
+## 使用 Bootstrap
+
+如需詳細資訊，請參閱[使用 Bootstrap 自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-bootstrap)。
+
+修改[建立叢集](#create-clusters)中的範例，以設定 Hive 設定：
+
+    static void Main(string[] args)
+    {
+        System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
+
+        var tokenCreds = GetTokenCloudCredentials();
+        var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+
+        _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+
+        var extendedParameters = new ClusterCreateParametersExtended
+        {
+            Location = NewClusterLocation,
+            Properties = new ClusterCreateProperties
+            {
+                ClusterDefinition = new ClusterDefinition
+                {
+                    ClusterType = NewClusterType.ToString()
+                },
+                ClusterVersion = NewClusterVersion,
+                OperatingSystemType = NewClusterOSType
+            }
+        };
+
+        var coreConfigs = new Dictionary<string, string>
+        {
+            {"fs.defaultFS", string.Format("wasb://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
+            {
+                string.Format("fs.azure.account.key.{0}", ExistingStorageName),
+                ExistingStorageKey
+            }
+        };
+
+        // bootstrap
+        var hiveConfigs = new Dictionary<string, string>
+        {
+            { "hive.metastore.client.socket.timeout", "90"}
+        };
+
+        var gatewayConfigs = new Dictionary<string, string>
+        {
+            {"restAuthCredential.isEnabled", "true"},
+            {"restAuthCredential.username", NewClusterUsername},
+            {"restAuthCredential.password", NewClusterPassword}
+        };
+
+        var configurations = new Dictionary<string, Dictionary<string, string>>
+        {
+            {"core-site", coreConfigs},
+            {"gateway", gatewayConfigs},
+            {"hive-site", hiveConfigs}
+        };
+
+        var serializedConfig = JsonConvert.SerializeObject(configurations);
+        extendedParameters.Properties.ClusterDefinition.Configurations = serializedConfig;
+
+        var sshPublicKeys = new List<SshPublicKey>();
+        var sshPublicKey = new SshPublicKey
+        {
+            CertificateData =
+                string.Format("ssh-rsa {0}", NewClusterSshPublicKey)
+        };
+        sshPublicKeys.Add(sshPublicKey);
+
+        var headNode = new Role
+        {
+            Name = "headnode",
+            TargetInstanceCount = 2,
+            HardwareProfile = new HardwareProfile
+            {
+                VmSize = "Large"
+            },
+            OsProfile = new OsProfile
+            {
+                LinuxOperatingSystemProfile = new LinuxOperatingSystemProfile
+                {
+                    UserName = NewClusterSshUserName,
+                    Password = NewClusterSshPassword //,
+                    // When use a SSH pulbic key, make sure to remove comments, headers and trailers, and concatenate the key into one line 
+                    //SshProfile = new SshProfile
+                    //{
+                    //    SshPublicKeys = sshPublicKeys
+                    //}
+                }
+            }
+        };
+
+        var workerNode = new Role
+        {
+            Name = "workernode",
+            TargetInstanceCount = NewClusterNumNodes,
+            HardwareProfile = new HardwareProfile
+            {
+                VmSize = "Large"
+            },
+            OsProfile = new OsProfile
+            {
+                LinuxOperatingSystemProfile = new LinuxOperatingSystemProfile
+                {
+                    UserName = NewClusterSshUserName,
+                    Password = NewClusterSshPassword //,
+                    //SshProfile = new SshProfile
+                    //{
+                    //    SshPublicKeys = sshPublicKeys
+                    //}
+                }
+            }
+        };
+
+        extendedParameters.Properties.ComputeProfile = new ComputeProfile();
+        extendedParameters.Properties.ComputeProfile.Roles.Add(headNode);
+        extendedParameters.Properties.ComputeProfile.Roles.Add(workerNode);
+
+        _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, extendedParameters);
+
+        System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+        System.Console.ReadLine();
+    }
+
+
+## 使用指令碼動作
+
+如需詳細資訊，請參閱[使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+
+修改[建立叢集](#create-clusters)中的範例，以呼叫用來安裝 R 的指令碼動作：
+
+    static void Main(string[] args)
+    {
+        System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
+
+        var tokenCreds = GetTokenCloudCredentials();
+        var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+
+        _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+        
+        var parameters = new ClusterCreateParameters
+        {
+            ClusterSizeInNodes = NewClusterNumNodes,
+            Location = NewClusterLocation,
+            ClusterType = NewClusterType,
+            OSType = NewClusterOSType,
+            Version = NewClusterVersion,
+
+            DefaultStorageAccountName = ExistingStorageName,
+            DefaultStorageAccountKey = ExistingStorageKey,
+            DefaultStorageContainer = ExistingContainer,
+
+            UserName = NewClusterUsername,
+            Password = NewClusterPassword,
+            SshUserName = NewClusterSshUserName,
+            SshPublicKey = NewClusterSshPublicKey
+        };
+
+        ScriptAction rScriptAction = new ScriptAction("Install R",
+            new Uri("https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), "");
+
+        parameters.ScriptActions.Add(ClusterNodeType.HeadNode,new System.Collections.Generic.List<ScriptAction> { rScriptAction});
+        parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { rScriptAction });
+        
+        _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+
+        System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+        System.Console.ReadLine();
+    }
 
 ##後續步驟
 
@@ -211,4 +358,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 * [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

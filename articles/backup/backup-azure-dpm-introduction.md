@@ -19,8 +19,8 @@
 # 準備使用 DPM 將工作負載備份到 Azure
 
 > [AZURE.SELECTOR]
-- [Azure Backup](backup-azure-microsoft-azure-backup.md)
-- [SCDPM](backup-azure-dpm-introduction.md)
+- [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [System Center DPM](backup-azure-dpm-introduction.md)
 
 本文簡介如何使用 Microsoft Azure 備份來保護 System Center Data Protection Manager (DPM) 伺服器和工作負載。閱讀本文您將可了解：
 
@@ -92,4 +92,4 @@ System Center DPM 會備份檔案和應用程式資料。備份到 DPM 的資料
 
 >[AZURE.NOTE]從 System Center 2012 DPM SP1 開始，您可以使用 Microsoft Azure 備份將受到 DPM 保護的工作負載備份至 Azure。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

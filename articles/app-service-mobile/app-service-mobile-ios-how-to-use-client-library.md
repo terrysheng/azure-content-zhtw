@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/30/2015"
 	ms.author="krisragh"/>
 
 # 如何使用適用於 Azure Mobile Apps 的 iOS 用戶端程式庫
@@ -30,27 +30,47 @@ iOS 用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps iOS 用戶端
 
 ##<a name="Setup"></a>設定和必要條件
 
-本指南假設您已建立包含資料表的後端。本指南假設資料表的結構描述與這些教學課程中的資料表相同。本指南也假設您在程式碼中，參考了 `WindowsAzureMobileServices.framework` 並匯入了 `WindowsAzureMobileServices/WindowsAzureMobileServices.h`。
+本指南假設您已建立包含資料表的後端。本指南假設資料表的結構描述與這些教學課程中的資料表相同。本指南也假設您在程式碼中，參考了 `MicrosoftAzureMobile.framework` 並匯入了 `MicrosoftAzureMobile/MicrosoftAzureMobile.h`。
 
 ##<a name="create-client"></a>作法：建立用戶端
 
 若要在專案中存取 Azure Mobile Apps 後端，請建立 `MSClient`。以應用程式 URL 取代 `AppUrl`。您可以將 `gatewayURLString` 和 `applicationKey` 留白。如果您設定驗證的閘道器，請將 `gatewayURLString` 填入閘道器 URL。
 
+**Objective-C**：
+
 ```
-MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
+MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
+
+**Swift**：
+
+```
+let client = MSClient(applicationURLString: "AppUrl")
+```
+
 
 ##<a name="table-reference"></a>作法：建立資料表參考
 
-若要存取或更新資料，請建立後端資料表的參考。將 `TodoItem` 取代為您的資料表名稱。
+若要存取或更新資料，請建立後端資料表的參考。將 `TodoItem` 取代為您的資料表名稱
+
+**Objective-C**：
 
 ```
-	MSTable *table = [client tableWithName:@"TodoItem"];
+MSTable *table = [client tableWithName:@"TodoItem"];
 ```
+
+**Swift**：
+
+```
+let table = client.tableWithName("TodoItem")
+```
+
 
 ##<a name="querying"></a>作法：查詢資料
 
 若要建立資料庫查詢，請查詢 `MSTable` 物件。下列查詢會取得 `TodoItem` 中的所有項目並記錄每個項目的文字。
+
+**Objective-C**：
 
 ```
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
@@ -64,16 +84,32 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURL
 }];
 ```
 
+**Swift**：
+
+```
+table.readWithCompletion({(result, error) -> Void in
+    if error != nil { // error is nil if no error occured
+        NSLog("ERROR %@", error!)
+    } else {
+        for item in (result?.items)! {
+            NSLog("Todo Item: %@", item["text"] as! String)
+        }
+    }
+})
+```
+
 ##<a name="filtering"></a>作法：篩選傳回的資料
 
 若要篩選結果，有許多可用的選項。
 
 若要使用述詞篩選，請使用 `NSPredicate` 和 `readWithPredicate`。下列篩選器傳回的資料只尋找未完成的待辦事項。
 
+**Objective-C**：
+
 ```
 // Create a predicate that finds items where complete is false
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-// Query the TodoItem table and update the items property with the results from the service
+// Query the TodoItem table 
 [table readWithPredicate:predicate completion:^(MSQueryResult *result, NSError *error) {
 		if(error) {
 				NSLog(@"ERROR %@", error);
@@ -85,13 +121,39 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
+**Swift**：
+
+```
+// Create a predicate that finds items where complete is false
+let predicate =  NSPredicate(format:"complete == NO")
+// Query the TodoItem table 
+table.readWithPredicate(predicate, completion: { (result, error) -> Void in
+    if error != nil {
+        NSLog("ERROR %@", error!)
+    } else {
+        for item in (result?.items)! {
+            NSLog("Todo Item: %@", item["text"] as! String)
+        }
+    }
+})
+```
+
 ##<a name="query-object"></a>作法：使用 MSQuery
 
 若要執行複雜的查詢 (包括排序和分頁)，請使用述詞直接建立 `MSQuery` 物件：
 
+**Objective-C**：
+
 ```
-    MSQuery *query = [table query];
-    MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
+MSQuery *query = [table query];
+MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
+```
+
+**Swift**：
+
+```
+let query = table.query()
+let query = table.queryWithPredicate(NSPredicate(format:"complete == NO"))
 ```
 
 `MSQuery` 可讓您控制下列幾種查詢行為。在其上呼叫 `readWithCompletion` 執行 `MSQuery` 查詢，如下一個範例所示。* 指定結果的順序 * 限制要傳回的欄位 * 限制要傳回的記錄數 * 指定回應中的總計數 * 指定要求中的自訂查詢字串參數 * 套用額外函數
@@ -100,6 +162,8 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 ## <a name="sorting"></a>做法：使用 MSQuery 排序資料
 
 我們來看一下範例如何排序結果。若要先按照 `text` 欄位遞增排序，然後按照 `completion` 欄位遞減排序，請如下叫用 `MSQuery`：
+
+**Objective-C**：
 
 ```
 [query orderByAscending:@"text"];
@@ -115,22 +179,54 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
+**Swift**：
+
+```        
+query.orderByAscending("text")
+query.orderByDescending("complete")
+query.readWithCompletion { (result, error) -> Void in
+    if error != nil {
+        NSLog("ERROR %@", error!)
+    } else {
+        for item in (result?.items)! {
+            NSLog("Todo Item: %@", item["text"] as! String)
+        }
+    }
+}
+```
+
 
 ## <a name="selecting"></a><a name="parameters"></a>作法：使用 MSQuery 限制欄位和展開查詢字串參數
 
 若要限制在查詢中傳回的欄位，請在 **selectFields** 屬性中指定欄位的名稱。這僅會傳回文字和已完成欄位：
 
+**Objective-C**：
+
 ```
-	query.selectFields = @[@"text", @"completed"];
+query.selectFields = @[@"text", @"complete"];
+```
+
+**Swift**：
+
+```
+query.selectFields = ["text", "complete"]
 ```
 
 若要在伺服器要求中包含額外的查詢字串參數 (例如有某個自訂的伺服器端指令碼使用這些參數)，請如下填入 `query.parameters`：
 
+**Objective-C**：
+
 ```
-	query.parameters = @{
-		@"myKey1" : @"value1",
-		@"myKey2" : @"value2",
-	};
+query.parameters = @{
+	@"myKey1" : @"value1",
+	@"myKey2" : @"value2",
+};
+```
+
+**Swift**：
+
+```
+query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
 ##<a name="inserting"></a>作法：插入資料
@@ -139,38 +235,91 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 如果未提供 `id`，則後端會自動產生新的唯一識別碼。提供您自己的 `id`，以使用電子郵件地址、使用者名稱或您自己自訂的值作為識別碼。提供您自己的識別碼可以讓聯結和商務導向的資料庫邏輯變得更容易。
 
+`result` 包含所插入的新項目，視您的伺服器邏輯而定，相較於所傳遞到伺服器的項目，其可能有其他或已修改的資料。
+
+**Objective-C**：
+
 ```
-	NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
-	[self.table insert:newItem completion:^(NSDictionary *result, NSError *error) {
-		// The result contains the new item that was inserted,
-		// depending on your server scripts it may have additional or modified
-		// data compared to what was passed to the server.
-		if(error) {
-				NSLog(@"ERROR %@", error);
-		} else {
-						NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
-		}
-	}];
+NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
+[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	} else {
+		NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+	}
+}];
+```
+
+**Swift**：
+
+```
+let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
+table.insert(newItem) { (result, error) -> Void in
+    if error != nil {
+        NSLog("ERROR %@", error!)
+    } else {
+        NSLog("Todo Item: %@", result!["text"] as! String)
+    }
+}
 ```
 
 ##<a name="modifying"></a>作法：修改資料
 
 若要更新現有的資料列，請修改項目並呼叫 `update`：
 
+**Objective-C**：
+
 ```
-	NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
-	[newItem setValue:@"Updated text" forKey:@"text"];
-	[self.table update:newItem completion:^(NSDictionary *item, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
+[newItem setValue:@"Updated text" forKey:@"text"];
+[table update:newItem completion:^(NSDictionary *result, NSError *error) {
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	} else {
+		NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+	}
+}];
+```
+
+**Swift**：
+
+```
+let newItem = oldItem.mutableCopy() as! NSMutableDictionary // oldItem is NSDictionary
+newerItem["text"] = "Updated text"
+table.update(newerItem  as [NSObject : AnyObject]) { (result, error) -> Void in
+    if error != nil {
+        NSLog("ERROR %@", error!)
+    } else {
+        NSLog("Todo Item: %@", result!["text"] as! String)
+    }
+}
 ```
 
 或者，提供資料列識別碼和更新的欄位：
 
+**Objective-C**：
+
 ```
-	[self.table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+[table update:@{@"id":@"custom-id", @"text":"my EDITED item"} completion:^(NSDictionary *result, NSError *error) {
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	} else {
+		NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+	}
+}];
+```
+
+**Swift**：
+
+```
+table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) -> Void in
+    if error != nil {
+        NSLog("ERROR %@", error!)
+    } else {
+        NSLog("Todo Item: %@", result!["text"] as! String)
+    }
+    
+}
 ```
 
 進行更新時，至少必須設定 `id` 屬性。
@@ -179,18 +328,54 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 若要刪除項目，請叫用 `delete` 搭配項目：
 
+**Objective-C**：
+
 ```
-	[self.table delete:item completion:^(id itemId, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+[table delete:item completion:^(id itemId, NSError *error) {
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	} else {
+		NSLog(@"Todo Item ID: %@", itemId);
+	}
+}];
+```
+
+**Swift**：
+
+```
+table.delete(item as [NSObject : AnyObject]) { (itemId, error) -> Void in
+	if error != nil {
+		NSLog("ERROR %@", error!)
+	} else {
+		NSLog("Todo Item ID: %@", itemId! as! String)
+	}
+}
 ```
 
 或者，提供資料列識別碼來進行刪除：
 
+**Objective-C**：
+
 ```
-	[self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];   
+[table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	} else {
+		NSLog(@"Todo Item ID: %@", itemId);
+	}
+}];   
+```
+
+**Swift**：
+
+```
+table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) -> Void in
+        if error != nil {
+        	NSLog("ERROR %@", error!)
+        } else {
+        	NSLog("Todo Item ID: %@", itemId! as! String)
+        }
+}
 ```
 
 進行刪除時，至少必須設定 `id` 屬性。
@@ -199,13 +384,39 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 若要註冊範本，只要在用戶端應用程式中透過 **client.push registerDeviceToken** 方法傳遞範本即可。
 
-        [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
-        	...
-        }];
+**Objective-C**：
+
+```
+[client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	}
+}];
+```
+
+**Swift**：
+
+```
+client.push!.registerDeviceToken(deviceToken, template: iOSTemplate, completion: { (error) -> Void in
+            if error != nil {
+                NSLog("ERROR %@", error!)
+            }
+        })
+```
 
 您的範本類型將為 NSDictionary，並且可能包含多個下列格式的範本：
 
-        NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
+**Objective-C**：
+
+```
+NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
+```
+
+**Swift**：
+
+```
+let iOSTemplate: [NSObject : AnyObject] = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
+```
 
 請注意，所有的標記都將因安全性而移除。若要在安裝中將標記新增至安裝或範本，請參閱[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)。
 
@@ -213,9 +424,37 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ##<a name="errors"></a>作法：處理錯誤
 
-呼叫行動服務時，completion 區塊會包含 `NSError *error` 參數。發生錯誤時，此參數便會傳回非 Nil。您應檢查程式碼中的此參數，並視需要處理錯誤。
+呼叫行動服務時，completion 區塊會包含 `NSError` 參數。發生錯誤時，此參數便會傳回非 Nil。您應檢查程式碼中的此參數，並視需要處理錯誤，如上述的程式碼片段所示。
 
-[`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) 檔案定義 `MSErrorResponseKey`、`MSErrorRequestKey` 和 `MSErrorServerItemKey` 常數以取得有關錯誤的更多資料。此外，檔案也定義每個錯誤代碼的常數。如需如何使用這些常數的範例，請參閱[衝突處理常式]了解 `MSErrorServerItemKey` 和 `MSErrorPreconditionFailed` 的用法。
+[`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) 檔案定義 `MSErrorResponseKey`、`MSErrorRequestKey` 和 `MSErrorServerItemKey` 常數以取得更多有關錯誤的資料，其可透過如下方式取得：
+
+**Objective-C**：
+
+```
+NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
+```
+
+**Swift**：
+
+```
+let serverItem = error?.userInfo[MSErrorServerItemKey]
+```
+
+此外，檔案也定義每個錯誤代碼的常數，您可以透過如下所示方式來使用：
+
+**Objective-C**：
+
+```
+if (error.code == MSErrorPreconditionFailed) {
+```
+
+**Swift**：
+
+```
+if (error?.code == MSErrorPreconditionFailed) {
+```
+
+
 
 <!-- Anchors. -->
 
@@ -266,6 +505,6 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
-[衝突處理常式]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
+[Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

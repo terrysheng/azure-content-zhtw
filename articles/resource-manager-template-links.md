@@ -1,6 +1,6 @@
 <properties
    pageTitle="連結資源的資源管理員範本 | Microsoft Azure"
-   description="顯示在相關資源之間建立連結的資源管理員範本結構描述。"
+   description="顯示可透過範本在相關資源之間部署連結的資源管理員結構描述。"
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# 資源連結 - 範本結構描述
+# 資源連結範本結構描述
 
 這會在兩個資源之間建立連結。該連結會套用至稱為「來源資源」的資源。連結中的第二個資源則稱為「目標資源」。
 
@@ -124,9 +124,20 @@
         "outputs": {}
     }
 
+## 快速入門範本
+
+下列快速入門範本會利用連結部署資源。
+
+- [利用邏輯應用程式警示加入佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+- [利用邏輯應用程式警示放入 Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+- [以現有閘道佈建 API 應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
+- [以新的閘道佈建 API 應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
+- [使用範本建立邏輯應用程式與 API 應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
+- [會在引發警示時傳送文字訊息的邏輯應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+
 
 ## 後續步驟
 
 - 如需範本結構的相關資訊，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

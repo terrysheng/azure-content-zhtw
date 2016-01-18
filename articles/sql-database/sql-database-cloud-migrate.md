@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="01/05/2016"
    ms.author="carlrab"/>
 
 # 將 SQL Server Database 移轉到 Azure SQL Database
@@ -55,7 +55,7 @@
 
 若要在停機時間最短的情況下移轉，如果您的資料庫符合交易複寫的需求，請使用 [SQL Server 交易複寫](sql-database-cloud-migrate-compatible-using-transactional-replication.md)。如果您可以經得起一些停機時間，或者您在執行生產資料庫的測試移轉，以便稍後進行移轉，請考慮下列三種方法之一：
 
-- [SSMS 移轉精靈](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)：針對小型到中型資料庫，移轉相容的 SQL Server 2005 或更新版本資料庫的步驟跟在 SQL Server Management Studio 中執行[將資料庫部署到 Microsoft Azure Database 精靈](sql-database-cloud-migrate-compatible-using-migration-wizard.md)一樣簡單。 
+- [SSMS 移轉精靈](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)：針對小型到中型資料庫，移轉相容的 SQL Server 2005 或更新版本資料庫的步驟跟在 SQL Server Management Studio 中執行[將資料庫部署到 Microsoft Azure Database 精靈](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)一樣簡單。 
 - [匯出到 BACPAC 檔案](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)，然後 [從 BACPAC 檔案匯入](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)：如果您有連線挑戰 (沒有連線能力、低頻寬或逾時問題)，對於中大型資料庫，請使用 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 檔案。使用此方法，將 SQL Server 結構描述和資料匯出至 BACPAC 檔案，然後使用 SQL Server Management Studio 中的 [匯出資料層應用程式精靈] 或 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 命令提示字元公用程式，將 BACPAC 檔案匯入 SQL 資料庫中。
 - 同時使用 BACPAC 和 BCP：對更大型的資料庫使用 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 檔案和 [BCP](https://msdn.microsoft.com/library/ms162802.aspx)，以達到規模更大的平行處理來增加效能 (儘管複雜性更高)。使用此方法，分開移轉結構描述和資料。 
  - [將結構描述只匯出至 BACPAC 檔案](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)。
@@ -64,4 +64,4 @@
 
 	 ![SSMS 移轉圖表](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

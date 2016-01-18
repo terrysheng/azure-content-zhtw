@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：可延伸的原則架構
@@ -62,11 +62,13 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
+如果您想要深入了解原則架構，請務必閱讀這篇[部落格文章](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx)。
+
 ## 如何建立註冊原則
 
 若要在您的應用程式中啟用註冊功能，您必須建立註冊原則。此原則描述取用者在註冊期間將會經歷的體驗，以及成功註冊時，應用程式將收到的權杖內容。
 
-1. [瀏覽至 Azure Preview 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
+1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
 2. 按一下 [註冊原則]。
 3. 按一下刀鋒視窗頂端的 [+新增]。
 4. [名稱] 決定您的應用程式所使用的註冊原則名稱。例如，輸入 "SiUp"。
@@ -86,7 +88,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 若要在您的應用程式中啟用登入功能，您必須建立登入原則。此原則描述取用者在登入期間將會經歷的體驗，以及成功登入時，應用程式將收到的權杖內容。
 
-1. [瀏覽至 Azure Preview 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
+1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
 2. 按一下 [登入原則]。
 3. 按一下刀鋒視窗頂端的 [+新增]。
 4. [名稱] 決定您的應用程式所使用的登入原則名稱。例如，輸入 "SiIn"。
@@ -102,7 +104,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 若要在您的應用程式中啟用設定檔編輯功能，您必須建立設定檔編輯原則。此原則描述取用者在設定檔編輯期間將會經歷的體驗，以及成功完成時，應用程式將收到的權杖內容。
 
-1. [瀏覽至 Azure Preview 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
+1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
 2. 按一下 [設定檔編輯原則]。
 3. 按一下刀鋒視窗頂端的 [+新增]。
 4. [名稱] 決定您的應用程式所使用的設定檔編輯原則名稱。例如，輸入 "SiPe"。
@@ -115,4 +117,4 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
     > [AZURE.NOTE]建立和更新原則後，需要經過一分鐘才會生效。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

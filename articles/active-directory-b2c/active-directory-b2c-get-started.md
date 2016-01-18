@@ -26,13 +26,13 @@
 
 若您已有 Azure 訂用帳戶，請繼續進行下一個步驟。若沒有，請註冊 [Azure 訂用帳戶](sign-up-organization.md)並存取 Azure AD B2C。
 
-> [AZURE.NOTE]Azure AD B2C 預覽目前提供免費使用但有限制 (每個租用戶最多允許 50,000 位使用者)。必須有 Azure 訂用帳戶才能存取 [Azure 入口網站](http://manage.windowsazure.com/)。
+> [AZURE.NOTE]Azure AD B2C 預覽目前提供免費使用但有限制 (每個租用戶最多允許 50,000 位使用者)。必須有 Azure 訂用帳戶才能存取 [Azure 傳統入口網站](http://manage.windowsazure.com/)。
 
 ## 步驟 2：建立 Azure AD B2C 租用戶
 
 請使用下列步驟，建立新的 Azure AD B2C 租用戶。目前您無法在現有目錄 (若有的話) 中開啟 B2C 功能。
 
-1. 以「訂用帳戶管理員」身分登入 [Azure 入口網站](https://manage.windowsazure.com/)。此為與您註冊 Azure 時所用的相同工作或學校帳戶，或是相同的「Microsoft 帳戶」。
+1. 以「訂用帳戶管理員」身分登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。此為與您註冊 Azure 時所用的相同工作或學校帳戶，或是相同的「Microsoft 帳戶」。
 2. 依序按一下 [新增] > [應用程式服務] > [Active Directory] > [目錄] > [自訂建立]。
 
     ![建立租用戶](./media/active-directory-b2c-get-started/new-directory.png)
@@ -47,7 +47,7 @@
 
     > [AZURE.IMPORTANT]建立租用戶的所需時間最長為兩分鐘。若在租用戶建立過程中發生問題，請參閱[本文](active-directory-b2c-support-create-directory.md)中提供的指引。
 
-## 步驟 3：瀏覽至 Azure Preview 入口網站上的 B2C 功能刀鋒視窗
+## 步驟 3：瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗
 
 1. 瀏覽至位於左側導覽列的 Active Directory 延伸模組。
 2. 在 [目錄] 索引標籤下方，尋找並按一下租用戶。
@@ -56,7 +56,7 @@
 
     ![建立 B2C 租用戶](./media/active-directory-b2c-get-started/b2c-directory-configure-tab.png)
 
-4. 系統會在新的瀏覽器索引標籤或視窗中，開啟具有 B2C 功能刀鋒視窗的 Azure Preview 入口網站。
+4. 系統會在新的瀏覽器索引標籤或視窗中，開啟具有 B2C 功能刀鋒視窗的 Azure 入口網站。
 
     > [AZURE.IMPORTANT]有一個已知的問題，此頁面不會正確載入 (適用於少數的租用戶)。重新整理瀏覽器應該可修正它。否則請連絡支援人員。
 
@@ -64,10 +64,10 @@
 
     ![B2C 功能刀鋒視窗](./media/active-directory-b2c-get-started/b2c-features-blade.png)
 
-    > [AZURE.NOTE]您可在 [Azure 入口網站](https://manage.windowsazure.com/)上，管理租用戶的使用者和群組、自助式密碼重設組態，以及公司商標功能。
+    > [AZURE.NOTE]您可在 [Azure 傳統入口網站](https://manage.windowsazure.com/)上，管理租用戶的使用者和群組、自助式密碼重設組態，以及公司商標功能。
 
 ## 後續步驟
 
 移至[使用 Azure AD B2C 註冊應用程式並建置快速啟動應用程式](active-directory-b2c-app-registration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

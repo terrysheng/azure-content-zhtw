@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
-	ms.author="huguesv"/>
+	ms.date="12/16/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -40,7 +40,7 @@ Azure Marketplace 包含 Bottle、Django 和 Flask 架構的範本。如果您�
 
 本教學課程假設定有現有的 Azure 訂用帳戶，而且能夠存取 Azure 入口網站。
 
-如果您還沒有 Web 應用程式，則可以從 [Azure 入口網站](https://portal.azure.com)建立。按一下左下角的 [新增] 按鈕，然後按一下 [Web + 行動] > [Web 應用程式]。
+如果您還沒有 Web 應用程式，則可以從 [Azure 入口網站](https://portal.azure.com)建立。按一下左上角的 [新增] 按鈕，然後按一下 [Web + 行動] > [Web 應用程式]。
 
 ## Git 發行
 
@@ -385,4 +385,4 @@ Python 3.4 的 `web.config` 範例：
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

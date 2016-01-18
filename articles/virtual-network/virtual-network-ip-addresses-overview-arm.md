@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/23/2015"
    ms.author="telmos" />
 
-# Azure 資源管理員中的 IP 位址
+# Azure 中的 IP 位址
 您可以將 IP 位址指派給 Azure 資源，來與其他 Azure 資源、內部部署網路和網際網路進行通訊。您可以在 Azure 中使用兩種類型的 IP 位址：公用和私人。
 
 公用 IP 位址用於與網際網路通訊，包括 Azure 公眾對應服務。
@@ -24,6 +24,8 @@
 私人 IP 位址用於 Azure 虛擬網路 (VNet) 內的通訊，而當您使用 VPN 閘道或 ExpressRoute 電路將網路擴充至 Azure 時，則使用於內部部署網路內的通訊。
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+
+如果您熟悉傳統部署模型，請參閱[傳統與資源管理員之間的 IP 定址差異](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments)。
 
 ## 公用 IP 位址
 Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服務 (例如 [Azure Redis Cache](https://azure.microsoft.com/services/cache)、[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs)、[SQL Database](sql-database-technical-overview.md) 和 [Azure 儲存體](storage-introduction.md)) 進行通訊。
@@ -42,11 +44,11 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 
 >[AZURE.NOTE]即使將配置方法設定為「靜態」，您也無法指定已指派給「公用 IP 資源」的實際 IP 位址。相反地，它是從建立資源的 Azure 位置中可用的 IP 位址集區進行配置。
 
-靜態公用 IP 位址常使用於下列案例：
+靜態公用 IP 位址通常用於下列案例：
 
-- 使用者必須更新防火牆規則才能與 Azure 資源通訊。
-- 您的 DNS 名稱解析，其中的 IP 位址變更會需要更新 A 記錄。
-- Azure 資源與其他使用以 IP 為基礎的安全性模型的 Web 服務通訊。
+- 使用者必須更新防火牆規則才能與您的 Azure 資源進行通訊。
+- DNS 名稱解析，其中當 IP 位址發生變更時將需要更新 A 記錄。
+- 您的 Azure 資源與其他使用 IP 位址型安全性模型的應用程式或服務進行通訊。
 - 您使用已連結到 IP 位址的 SSL 憑證。
 
 >[AZURE.NOTE]將公用 IP 位址 (動態/靜態) 配置給 Azure 資源的 IP 範圍清單已發佈於 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
@@ -122,19 +124,27 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 |內部負載平衡器前端|是|是|是|
 |應用程式閘道前端|是|是|是|
 
-## 資源管理員與傳統部署之間的比較
-以下是資源管理員與傳統部署模型中的 IP 位址比較。
+## 限制
 
-||資源|傳統|資源管理員|
-|---|---|---|---|
-|**公用 IP 位址**|VM|稱為 ILPIP (僅限動態)|稱為公用 IP (動態或靜態)|
-|||指派給 IaaS VM 或 PaaS 角色執行個體|與 VM 的 NIC 相關聯|
-||網際網路對應負載平衡器|稱為 VIP (動態) 或保留的 IP (靜態)|稱為公用 IP (動態或靜態)|
-|||指派給雲端服務|與負載平衡器的前端組態相關聯|
-||||
-|**私人 IP 位址**|VM|稱為 DIP|稱為私人 IP 位址|
-|||指派給 IaaS VM 或 PaaS 角色執行個體|指派給 VM 的 NIC|
-||內部負載平衡器 (ILB)|指派給 ILB (動態或靜態)|指派給 ILB 的前端組態 (動態或靜態)|
+下表顯示在 Azure 中，針對每一區域、每一訂用帳戶在 IP 定址上所加諸的限制。您可以[連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，以根據您的業務需求將預設上限調升到最高上限。
+
+||預設上限|最高上限| |---|---|---| |公用 IP 位址 (動態)|60|連絡支援人員| |公用 IP 位址 (靜態)|20|連絡支援人員| |每一負載平衡器的公用前端 IP|5|連絡支援人員| |每一負載平衡器的私人前端 IP|1|連絡支援人員|
+
+請務必閱讀 Azure 中的整套[網路限制](azure-subscription-service-limits.md#networking-limits)。
+
+## 定價
+
+在大多數情況下，公用 IP 位址是免費的。使用額外和 (或) 靜態公用 IP 位址則會有少許費用。請務必了解[公用 IP 的定價結構](https://azure.microsoft.com/pricing/details/ip-addresses/)。
+
+總結來說，以下是適用於公用 IP 資源的定價結構：
+
+- VPN 閘道和應用程式閘道只使用一個動態公用 IP，此 IP 是免費的。
+- VM 只使用一個公用 IP，此 IP 只要是動態 IP 位址，就是免費的。如果 VM 使用靜態公用 IP，則是根據「靜態 (保留) 公用 IP」的使用量計費。
+- 每個負載平衡器可以使用多個公用 IP。第一個公用 IP 免費。額外的動態 IP 則是以每小時 0.004 美金計費。靜態公用 IP 是根據「靜態 (保留) 公用 IP」的使用量計費。
+- 「靜態 (保留) 公用 IP」使用量： 
+	- 前 5 個 (使用中) 免費。額外的靜態公用 IP 則是以每小時 0.004 美金計費。 
+	- 未指派給任何資源的靜態公用 IP 以每小時 0.004 美金計費。
+	- 使用量是根據訂用帳戶中的靜態公用 IP 總數計算。
 
 ## 後續步驟
 - [使用靜態公用 IP 部署 VM](virtual-network-deploy-static-pip-arm-template.md)
@@ -145,4 +155,4 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 - [使用 PowerShell 建立內部負載平衡器的前端靜態私人 IP 位址](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
 - [使用 PowerShell 建立具有應用程式閘道之靜態私人 IP 位址的後端集區](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

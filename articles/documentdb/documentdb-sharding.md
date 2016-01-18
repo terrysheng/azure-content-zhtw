@@ -98,13 +98,13 @@ foreach (UserProfile activeUser in query)
 ## 雜湊分割解析程式
 有了雜湊分割，分割是根據雜湊函式的值來指派，讓您在一些分割上平均分配要求和資料。這個方法通常用於分割從大量不同用戶端產生或取用的資料，適合用來儲存使用者設定檔、類別目錄項目，以及 IoT ("Internet of Things") 遙測資料。
 
-**雜湊分割：**![說明雜湊分割如何在資料分割中平均分配要求的圖表](media/documentdb-sharding/partition-hash.png "雜湊分割")
+**雜湊分割：**![說明雜湊分割如何在資料分割中平均分配要求的圖表](media/documentdb-sharding/partition-hash.png)
 
 跨 *N* 集合的簡易雜湊資料分割配置就是對任何文件計算 *hash(d) mod N* 來判斷它會放置在哪一個集合內。但這個簡單的技術有一個問題，那就是在新增集合或移除集合時無法正常運作，因為這會需要將幾乎所有的資料重新編組。[一致的雜湊](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.3738)是一種已知的演算法，可透過實作雜湊配置，在新增或移除集合期間將所需的資料移動降至最低加以解說。
 
 [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) 類別會實作邏輯，在 [IHashGenerator](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.ihashgenerator.aspx) 介面中指定的雜湊函式上建立一致的雜湊環。根據預設，HashPartitionResolver 會使用 MD5 雜湊函式，但是您可以在自己的雜湊實作中更換函式。為達到在不同集合中平均分配文件的目的，HashPartitionResolver 會在內部的雜湊環中為每個集合建立 16 個雜湊或「虛擬節點」，但是您可以變更這個數字，以與用戶端計算數量的資料偏態加以權衡。
 
-**一致的雜湊與 HashPartitionResolver：**![說明 HashPartitionResolver 如何建立雜湊環的圖表](media/documentdb-sharding/HashPartitionResolver.JPG "一致的雜湊")
+**一致的雜湊與 HashPartitionResolver：**![說明 HashPartitionResolver 如何建立雜湊環的圖表](media/documentdb-sharding/HashPartitionResolver.JPG)
 
 ## 範圍分割解析程式
 
@@ -114,7 +114,7 @@ foreach (UserProfile activeUser in query)
 
 **定界分割：**
 
-![說明定界分割如何在資料分割中平均分配要求的圖表](media/documentdb-sharding/partition-range.png "定界分割")
+![說明定界分割如何在資料分割中平均分配要求的圖表](media/documentdb-sharding/partition-range.png)
 
 一個有關定界分割的特殊案例是，當範圍只是單一離散值時，有時也稱為「查閱分割」。這常用於依區域分割 (例如：斯堪地那維亞的分割包含挪威、丹麥和瑞典)，或用於在多租用戶應用程式中分割租用戶。
 
@@ -167,4 +167,4 @@ DocumentDB 支援用戶端資料分割的幾個原因如下：
 * [有關效能秘訣的 DocumentDB 部落格](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

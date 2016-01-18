@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 資料倉儲中的動態 SQL
@@ -31,6 +31,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 如果字串簡短，您可以像平常一樣使用 [sp\_executesql][]。
 
+> [AZURE.NOTE]以動態 SQL 執行的陳述式仍會受限於所有的 TSQL 驗證規則。
 
 ## 後續步驟
 如需更多開發祕訣，請參閱[開發概觀][]。
@@ -45,4 +46,4 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 <!--Other Web references-->
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

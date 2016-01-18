@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/02/2015"
+ms.date="01/05/2015"
 ms.author="larryfr"/>
 
 #使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI
@@ -40,7 +40,7 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 [安全殼層 (SSH) 通道](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling)將流量路由傳送到本機工作站上的連接埠的方式為，透過與 HDInsight 叢集前端節點的 SSH 連線，接著在前端節點上解析要求，使要求如同在前端節點上產生。接著，透過工作站的通道，將回應路由傳送回去。
 
-##先決條件
+##必要條件
 
 針對 Web 流量使用 SSH 通道時，您必須擁有下列項目：
 
@@ -56,7 +56,7 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 ##<a name="usessh"></a>使用 SSH 命令建立通道
 
-使用下列命令，利用 `ssh` 命令建立 SSH 通道。用您 HDInsight 叢集的 SSH 使用者取代 __USERNAME__，並用您 HDInsight 叢集的名稱取代 __CLUSTERNAME__。
+使用下列命令，利用 `ssh` 命令建立 SSH 通道。以您 HDInsight 叢集的 SSH 使用者取代 __USERNAME__，並以您 HDInsight 叢集的名稱取代 __CLUSTERNAME__。
 
 	ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
@@ -149,6 +149,11 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 	* **URL 模式** - ***internal.cloudapp.net*** - 這會定義符合叢集節點之內部完整網域名稱的模式。
 
 	![foxyproxy 模式](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
+    
+    如果您要在 HDInsight 叢集上使用 Storm，您還應加入包含下列值的模式：
+    
+    * **模式名稱** - **背景工作角色節點**
+    * **URL 模式** - ***10.0.0*** - 允許 Storm UI 依 IP 位址存取背景工作角色節點上的資料。
 
 4. 選取 [**確定**] 以加入 Proxy 並關閉 [**Proxy 設定**]。
 
@@ -183,7 +188,7 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 	![YARN ResourceManager UI 的影像](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP]請注意這個頁面的 URL，它應該類似於 \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__。這使用了節點的內部完整網域名稱 (FQDN)，而且必須使用 SSH 通道才能存取。
+	> [AZURE.TIP]請注意此頁的 URL，它應該類似於 __http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__。這使用了節點的內部完整網域名稱 (FQDN)，而且必須使用 SSH 通道才能存取。
 
 ##後續步驟
 
@@ -197,4 +202,4 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 * [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

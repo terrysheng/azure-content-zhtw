@@ -13,12 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/30/2015"
+   ms.date="01/04/2016"
    ms.author="jgao"/>
 
 # 教學課程：開始使用 Azure 資料湖分析 U-SQL 語言
-
-了解如何開發 U-SQL 指令碼。
 
 U-SQL 語言結合了 SQL 的所有優點，可運用您自有程式碼的運算式能力來處理任何規模的資料。U-SQL 的可調整分散式查詢功能可讓您有效率地分析存放區中的資料，以及跨 Azure SQL Database 等關聯式存放區分析資料。它可讓您藉由套用「讀取時的結構描述」(Schema-on-Read) 處理非結構化資料、插入自訂邏輯和 UDF，並可經由擴充功能來對如何大規模執行資料分析進行更細緻的掌控。若要深入了解 U-SQL 背後的設計原理，請參閱此 [Visual Studio 部落格文章](http://blogs.msdn.com/b/visualstudio/archive/2015/09/28/introducing-u-sql.aspx)。
 
@@ -28,105 +26,26 @@ select 子句內部是型別系統和運算式語言，在這裡面述詞等項�
 
 如需詳細資訊，請參閱 [U-SQL 參考](http://go.microsoft.com/fwlink/p/?LinkId=691348)。
 
-**必要條件**
+###必要條件
 
-- **已安裝 Visual Studio 2015、Visual Studio 2013 更新 4，或具有 Visual C++ 的 Visual Studio 2012** 
-- **Microsoft Azure SDK for .NET 2.7 版或更新版本**。使用 [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 進行安裝。
-- **[適用於 Visual Studio 的資料湖工具](http://aka.ms/adltoolsvs)**。 
-	
-	安裝適用於 Visual Studio 的資料湖工具之後，您會在 Visual Studio 中看到 [資料湖]功能表：
-	
-	![U-SQL Visual Studio 功能表](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+您必須完成[教學課程：使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 
-- **對於資料湖分析和適用於 Visual Studio 的資料湖工具有基本的認識**。若要開始使用，請參閱：
- 
-	- [使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)。
-	- [使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
+在此教學課程中，您使用下列 U-SQL 指令碼執行了資料湖分析作業：
 
-- **資料湖分析帳戶**。請參閱[建立 Azure 資料湖 (ADL) 分析帳戶](data-lake-analytics-get-started-portal.md#create_adl_analytics_account)。
-- **將範例資料上傳到資料湖分析帳戶**。請參閱[將 SearchLog.tsv 上傳到預設資料湖儲存體帳戶](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account)。
-
-	資料湖工具不支援建立資料湖分析帳戶。因此您必須使用 Azure 入口網站、Azure PowerShell、.NET SDK 或 Azure CLI 建立帳戶。若要執行資料湖分析工作，您需要一些資料。即使資料湖工具支援上傳資料，您將使用入口網站來上傳範例資料，以方便遵循本教學課程。
-
-## 從 Visual Studio 連接至 Azure
-
-您必須先連接至 Azure，然後才能建置及測試任何 U-SQL 指令碼。
-
-**連接到資料湖分析**
-
-1. 開啟 Visual Studio。
-2. 從 [資料湖] 功能表，按一下 [選項和設定]。
-4. 按一下 [登入]，或者如果已有其他人登入則按一下 [變更使用者]，並遵循指示進行登入。
-5. 按一下 [確定] 關閉 [選項和設定] 對話方塊。
-
-**瀏覽您的資料湖分析帳戶**
-
-1. 從 Visual Studio 中，按 **CTRL+ALT+S**，開啟 [伺服器總管]。
-2. 從 [伺服器總管] 中，展開 [Azure]，然後展開 [資料湖分析]。如果有資料湖分析帳戶，您就會看到其清單。您無法從 Visual Studio 建立資料湖分析帳戶。若要建立帳戶，請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)或[使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-get-started-powershell.md)。
-
-
-## 開發您的第一個 U-SQL 指令碼 
-
-本節的主要目的是要了解使用適用於 Visual Studio 的資料湖工具來撰寫和測試 U-SQL 應用程式的程序。其他資料湖分析教學課程也會使用 U-SQL 陳述式。它會直接讀取定位點分隔檔 (tsv) 檔案並將該檔案輸出為逗號分隔檔 (csv) 檔案。
- 
-**建立並提交資料湖分析工作**
-
-1. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
-2. 選取 [U-SQL 專案] 類型。
-
-	![新的 U-SQL Visual Studio 專案](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-	
-3. 按一下 [確定]。Visual Studio 會建立具有 Script.usql 檔案的方案。
-4. 在 Script.usql 檔案中輸入下列指令碼：
-
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-        
-        OUTPUT @searchlog   
-            TO "/output/SearchLog-first-u-sql.csv"
-        USING Outputters.Csv();
-
-		The next section in this article will explain the script in details.  You just need to focus on understanding the development and testing process in this section.
-5. 在 [提交] 按鈕旁邊，指定分析帳戶。
-5. 從 [方案總管] 中，在 [Script.usql] 上按一下滑鼠右鍵，然後按一下 [建置指令碼]。確認 [輸出] 窗格中的結果。如果您的指令碼有錯誤，您會在此看到錯誤輸出。 
-6. 從 [方案總管] 中，在 [Script.usql] 上按一下滑鼠右鍵，然後按一下 [提交指令碼]。
-7. 確認 [分析帳戶]，然後按一下 [提交]。提交作業完成時，[適用於 Visual Studio 的資料湖工具結果] 視窗中便會出現提交結果和工作連結。
-8. 您可以按一下 [重新整理] 按鈕，查看最新的工作狀態並重新整理畫面。請等待工作成功完成。如果工作失敗，很可能是因為遺漏了原始檔。您可以使用工具中的 [錯誤] 索引標籤來查看服務所傳回的錯誤。請參閱本教學課程的＜必要條件＞一節。如需其他疑難排解資訊，請參閱[監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)。
-
-	
-**查看工作輸出**
-
-1. 從 [伺服器總管] 依序展開 [Azure]、[資料湖分析]、您的資料湖分析帳戶和 [儲存體帳戶]，以滑鼠右鍵按一下預設的 [資料湖儲存體帳戶]，然後按一下 [總管]。 
-2.  按兩下 [輸出] 以開啟資料夾
-3.  按兩下 **SearchLog-frist-u-sql.csv**。
-4.  您也可以按兩下工作圖形檢視中的輸出檔，直接瀏覽至輸出檔。
-
-## 了解第一個 U-SQL 指令碼
-
-讓我們仔細看看您在上一節撰寫的指令碼：
-
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-        
-        OUTPUT @searchlog   
-            TO "/output/SearchLog-first-usql.csv"
-        USING Outputters.Csv();
+    @searchlog =
+        EXTRACT UserId          int,
+                Start           DateTime,
+                Region          string,
+                Query           string,
+                Duration        int?,
+                Urls            string,
+                ClickedUrls     string
+        FROM "/Samples/Data/SearchLog.tsv"
+        USING Extractors.Tsv();
+    
+    OUTPUT @searchlog   
+        TO "/output/SearchLog-first-u-sql.csv"
+    USING Outputters.Csv();
 
 此指令碼沒有任何轉換步驟。它會從原始程式檔 **SearchLog.tsv** 讀取資料，為其建立結構描述，並將資料列集輸出回 **SearchLog-from-adltools.csv** 檔案。
 
@@ -149,7 +68,7 @@ select 子句內部是型別系統和運算式語言，在這裡面述詞等項�
 
 ## 使用純量變數
 
-您也可以使用純量變數以方便維護指令碼。您的第一個 U-SQL 指令碼也可以撰寫成下面這樣：
+您也可以使用純量變數以方便維護指令碼。前述 U-SQL 指令碼也可以撰寫成下面這樣：
 
     DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
     DECLARE @out string = "/output/SearchLog-scalar-variables.csv";
@@ -169,7 +88,7 @@ select 子句內部是型別系統和運算式語言，在這裡面述詞等項�
         TO @out
         USING Outputters.Csv();
       
-##轉換資料列集
+## 轉換資料列集
 
 使用 **SELECT** 來轉換資料列集：
 
@@ -224,7 +143,7 @@ WHERE 子句使用 [C# 布林運算式](https://msdn.microsoft.com/library/6a71f
         
 請注意，第二個查詢會對第一個資料列集的結果起作用，因此最終結果是兩個篩選條件的組合。您也可以重複使用變數名稱，因為它們是語彙範圍型名稱。
 
-##彙總資料列集
+## 彙總資料列集
 
 U-SQL 提供您已熟悉使用的 **ORDER BY**、**GROUP BY** 和各種彙總語法。
 
@@ -296,7 +215,6 @@ U-SQL 的 HAVING 子句可以用來將輸出限制為符合 HAVING 條件的群�
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
-
 
 ## 聯結資料
 
@@ -501,4 +419,4 @@ U-SQL 與關聯式資料庫資料表類似，可讓您使用預先定義的結�
 - [在論壇上取得協助](http://aka.ms/adlaforums)
 - [提供關於 U-SQL 的意見反應](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

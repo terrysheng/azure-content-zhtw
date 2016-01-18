@@ -1,8 +1,10 @@
-To create a gateway subnet in the Azure portal, do the following:
+若要在 Azure 入口網站中建立閘道子網路，請執行下列步驟：
 
-1. In the portal, navigate to the virtual network to which you want to connect a gateway. Click the name of the virtual network to expand the **Virtual network settings** blade.
-2. On the **Settings** blade, click **Subnets** to expand the settings.
-3. On the **Subnets** blade, click Add to expand the **Add subnet** blade.
-4. On the **Add subnet** blade, name your subnet **GatewaySubnet**. You should not name it anything else, or the gateway will not work.
-5. Add the IP **address range** for your gateway. Please verify the gateway subnet setting is correct for your configuration.
-6. Click **OK** to create the subnet.
+1. 在入口網站中，瀏覽至要連線閘道的虛擬網路。按一下虛擬網路的名稱來展開 [虛擬網路設定] 刀鋒視窗。
+2. 在 [設定] 刀鋒視窗上，按一下 [子網路] 來展開設定。
+3. 在 [子網路] 刀鋒視窗中，按一下 [新增] 來展開 [新增子網路] 刀鋒視窗。
+4. 在 [新增子網路] 刀鋒視窗中，將子網路命名為 **GatewaySubnet**。您不應將它命名為其他名稱，否則閘道將無法運作。
+5. 新增閘道的 IP [位址範圍]。請確認組態的閘道子網路設定是否正確。
+6. 按一下 [確定] 以建立子網路。
+
+<!---HONumber=AcomDC_0107_2016-->

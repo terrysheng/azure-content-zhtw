@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # 使用 .NET SDK 開始使用 Azure 資料湖存放區
@@ -31,7 +31,7 @@
 
 * Visual Studio 2013 或 2015。以下指示使用 Visual Studio 2015。
 * **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* 針對資料湖存放區公開預覽**啟用您的 Azure 訂用帳戶**。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
+* **啟用您的 Azure 訂用帳戶**以使用資料湖存放區公開預覽版。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 
 ## 建立 .NET 應用程式
 
@@ -53,20 +53,23 @@
 
 	1. 在方案總管中以滑鼠右鍵按一下專案名稱，然後按一下 [**管理 NuGet 封裝**]。
 	2. 在 [Nuget 封裝管理員] 索引標籤中，請確定 [封裝來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
-	3. 搜尋並安裝下列封裝：
+	3. 搜尋並安裝下列資料湖存放區封裝：
 	
-		* Microsoft.Azure.Common.Authentication
 		* Microsoft.Azure.Management.DataLake.Store
 		* Microsoft.Azure.Management.DataLake.StoreFileSystem
 		* Microsoft.Azure.Management.DataLake.StoreUploader
 
 		![新增 Nuget 來源](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "建立新的 Azure 資料湖帳戶")
 
+	4. 您也應安裝 **Microsoft.Azure.Common.Authentication** 封裝。這也是發行前版本封裝，是對 Azure 資料湖存放區進行驗證時的必要項目。
+
+		![新增 Nuget 來源](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "建立新的 Azure 資料湖帳戶")
+
 	4. 關閉 [**Nuget 封裝管理員**]。
 
 7. 開啟 [**Program.cs**]，並以下列程式碼取代現有的程式碼區塊。此外，在程式碼片段中提供參數的值。
 
-	這個程式碼會進行建立資料湖存放區的程序，在存放區中建立資料夾、上傳檔案、下載檔案，以及最後刪除帳戶。如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
+	這個程式碼會進行建立資料湖存放區的程序，在存放區中建立資料夾、上傳檔案、下載檔案，以及最後刪除帳戶。如果您要尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)取得 **Ambulance Data** 資料夾。
 	
 		using System;
 		using System.Collections.Generic;
@@ -224,4 +227,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

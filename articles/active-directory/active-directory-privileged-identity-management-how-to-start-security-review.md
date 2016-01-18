@@ -51,7 +51,7 @@
   - 要檢閱多少位使用者？
   - 使用者能夠新增此擴充功能並完成檢閱的速度有多快速？
 4. 按一下 [變更預設值] 刀鋒視窗中的 [確定] 按鈕。它將會關閉。
-5. 按一下 [啟動角色的檢閱] 刀鋒視窗中的 [確定] 按鈕。它將會關閉。隨即會在入口網站的主功能表中出現一則通知、按一下 [重新整理] 按鈕來重新整理儀表板，而安全性檢閱將會出現在 [安全性檢閱] 區段中。
+5. 按一下 [啟動角色的檢閱] 刀鋒視窗中的 [確定] 按鈕。它將會關閉。隨即會在 Azure 入口網站的主功能表中出現一則通知、按一下 [重新整理] 按鈕來重新整理儀表板，而安全性檢閱將會出現在 [安全性檢閱] 區段中。
 6. 通知角色中的每個人，他們將需要新增該擴充功能，然後檢閱他們自己的系統管理存取權。請參閱下一個步驟。
 6. [檢閱系統管理存取權](active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
@@ -63,4 +63,4 @@
 ## PIM 目錄
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 #使用 Ambari REST API 管理 HDInsight 叢集
@@ -111,6 +111,10 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
     
     這會傳回帳戶的資源群組名稱。
     
+    > [AZURE.NOTE]如果此命令未傳回任何項目，您需要將 Azure CLI 變更為 Azure 資源管理員模式，然後再重新執行命令。若要切換至 Azure 資源管理員模式，請使用下列命令。
+    >
+    > `azure config mode arm`
+    
 2. 取得儲存體帳戶的金鑰。將 __GROUPNAME__ 取代為上一個步驟的資源群組。將 __ACCOUNTNAME__ 取代為儲存體帳戶名稱：
 
         azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
@@ -131,4 +135,4 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 > [AZURE.NOTE]某些 Ambari 功能已停用，因為這些功能是由 HDInsight 雲端服務所管理；例如，在叢集中新增或移除主機，或新增服務。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

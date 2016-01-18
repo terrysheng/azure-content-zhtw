@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Cordova 行動服務專案 (Visual Studio 連接服務)"
+	pageTitle="開始使用 Cordova 行動服務專案 (Visual Studio 連接服務) | Microsoft Azure"
 	description="說明在使用 Visual Studio 連接服務將 Cordova 專案連接至 Azure 行動服務後，您可以採用的第一個步驟。"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # 開始使用行動服務 (Cordova 專案)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
-> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ##第一個步驟
 依照這些範例中之程式碼執行的第一個步驟取決於您要連線的行動服務類型。
@@ -33,8 +26,6 @@
 - 對於 JavaScript 後端行動服務，請建立名為 TodoItem 的資料表。若要建立資料表，請在 [伺服器總管] 的 [Azure] 節點下尋找行動服務，在行動服務的節點上按一下滑鼠右鍵以開啟內容功能表，然後選擇 [建立資料表]。輸入 "TodoItem" 做為資料表名稱。
 
 - 若要使用 .NET 後端行動服務，在 Visual Studio 為您建立的預設專案範本中已有 TodoItem 資料表，但您必須將它發行到 Azure。若要發行它，請開啟行動服務專案的內容功能表，然後選擇 [發行 Web]。接受預設值，然後選擇 [發行] 按鈕。
-
-
 
 ##建立資料表的參考
 
@@ -99,4 +90,4 @@
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

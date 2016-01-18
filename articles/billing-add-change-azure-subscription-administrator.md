@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="01/05/2015"
 	ms.author="genli"/>
 
 # 如何新增或變更 Azure 管理員角色
@@ -42,13 +42,13 @@ Microsoft Azure 中的管理員角色有三種：
 
 **注意**
 
- * 每個 Azure 訂用帳戶都與一個 Azure Active Directory (也就是預設目錄) 相關聯。若要尋找與訂用帳戶相關聯的預設目錄，請前往 [Azure 傳統入口網站](https://manage.windowsazure.com/)，然後選取 [設定] > [訂用帳戶]，再查看訂用帳戶識別碼來尋找與訂用帳戶相關聯的預設目錄。
+ * 每個 Azure 訂用帳戶都與一個 Azure Active Directory (也就是預設目錄) 相關聯。若要尋找與訂用帳戶相關聯的預設目錄，請前往 [Azure 傳統入口網站](https://manage.windowsazure.com/)，然後選取 [設定] > [訂用帳戶]。請查看訂用帳戶識別碼來尋找預設目錄。
 
  * 如果您以 Microsoft 帳戶登入，就只能將其他 Microsoft 帳戶或預設目錄中的使用者新增為共同管理員。
  * 如果您以組織帳戶登入，就可以將組織中的其他組織帳戶新增為共同管理員。舉例來說，abby@contoso.com 可以將 bob@contoso.com 新增為服務管理員或共同管理員，但無法新增 john@notcontoso.com，除非 john@noncontoso.com 在預設目錄中。以組織帳戶登入的使用者，可以繼續將 Microsoft 帳戶使用者新增為服務管理員或共同管理員。
  * 現在可以使用組織帳戶登入至 Azure，以下是服務管理員和共同管理員帳戶需求的變更：
 
-| 登入方法| 是否能將 Microsoft 帳戶或預設目錄中的使用者新增為共同管理員或服務管理員？ |是否能在同一組織中將組織帳戶新增為共同管理員或服務管理員？ |是否能在不同組織中將組織帳戶新增為共同管理員或服務管理員？
+| 登入方法| 將 Microsoft 帳戶或預設目錄中的使用者新增為 CA 或 SA？ |將相同組織中的組織帳戶新增為 CA 或 SA？ |將不同組織中的組織帳戶新增為 CA 或 SA？
 | ------------- | ------------- |---------------|---------------|
 |Microsoft 帳戶 |是|否|否|
 |組織帳戶|是|是|否|
@@ -66,4 +66,4 @@ Microsoft Azure 中的管理員角色有三種：
 
 若要將 Azure 帳戶的擁有權移轉到另一個帳戶，請參閱[移轉 Azure 訂用帳戶](../billing-subscription-transfer.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

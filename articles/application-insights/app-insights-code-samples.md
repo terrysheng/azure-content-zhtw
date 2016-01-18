@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 #  Application Insights：程式碼範例和逐步解說
@@ -42,7 +42,9 @@
 
 ## 自動化工作
 
+* [使用 PowerShell 將 Azure 診斷傳送至 Application Insights](app-insights-powershell.md)
 * [建立新 Application Insights 資源的指令碼](app-insights-powershell-script-create-resource.md)
+* [使用 PowerShell 將 Azure 診斷傳送至 Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -53,4 +55,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

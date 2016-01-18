@@ -1,12 +1,14 @@
-When adding a site-to-site connection to your virtual network gateway, you first need to create a local network gateway in order to refer to it from your configuration. Verify that you have a local network gateway configured. You can look for local network gateways by using **Browse** and filtering for **Local network gateways**.
+新增站對站連線到虛擬網路時，您需要先建立區域網路閘道，以便從您的設定參考它。確認您已設定區域網路閘道。您可以使用 [瀏覽] 和 [區域網路閘道] 的篩選條件來查看區域網路閘道。
 
-1. From the **Virtual networks** blade, locate your virtual network and click to open the blade. On the blade, you will see your gateway listed as a *Connected device*.
-2. Click on the ***name of your virtual network gateway*** -> **Virtual network gateway** -> **Settings** -> **Connections** and then click **Add**.
-3. **Name** your Connection. For the purposes of this example, we'll use *GW1S2S*
-4. For **Connection type**, select **Site-to-site(IPSec)**
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
-6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. For this example, we'll use *GW1LocalNet*
-7. For **Shared Key**, the values here must match what you have for your local VPN device. If your VPN device on your local network doesn't provide a shared key, you can make one up and input it here and on your local device. The important thing is that they both match.
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+1. 在 [虛擬網路] 刀鋒視窗中，找到您的虛擬網路並按一下以開啟刀鋒視窗。在刀鋒視窗中，您將會看到您的閘道列示為 [連線的裝置]。
+2. 依序按一下***您的虛擬網路閘道名稱*** -> [虛擬網路閘道] -> [設定] -> [連線]，然後按一下 [新增]。
+3. 輸入連線的 [名稱]。針對此範例的目的，我們將使用 *GW1S2S*
+4. 對於 [連線類型]，選取 [站對站 (IPSec)]
+5. 對於 [虛擬網路閘道]，因為您正從此閘道連線，所以值是固定的。
+6. 對於 [區域網路閘道]，按一下 [選擇區域網路閘道] 並選取要使用的區域網路閘道。針對此案例，我們將使用 *GW1LocalNet*
+7. 對於 [共用金鑰]，這裡的值必須和您的 VPN 裝置擁有的值相符。如果您區域網路上的 VPN 裝置未提供共用金鑰，您可以製作並在這裡和本機裝置上輸入。重點是它們必須相符。
+8. [訂用帳戶]、[資源群組] 和 [位置] 其餘的值是固定的。
+9. 按一下 [確定] 來建立連線。您會看到畫面上閃爍「正在建立連線」。
+10. 連線完成時，您將會看到它出現在您閘道中的 [連線] 刀鋒視窗中。
+
+<!---HONumber=AcomDC_0107_2016-->

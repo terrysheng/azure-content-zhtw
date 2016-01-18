@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="01/05/2016" 
 	ms.author="erikre"/>
 # 如何使用 SendGrid 透過 Node.js 傳送電子郵件
 
@@ -180,12 +180,6 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
 
 -   SendGrid Node.js 模組存放庫：[sendgrid-nodejs][]
 -   SendGrid API 文件：<https://sendgrid.com/docs>
--   Azure 客戶的 SendGrid 特別優惠：[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
-  [特別優惠]：https://sendgrid.com/windowsazure.html
-  [sendgrid nodejs]：https://github.com/sendgrid/sendgrid-nodejs  
-  [篩選器設定]：https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [SendGrid API 文件]：https://sendgrid.com/docs
-  [雲端架構電子郵件服務]：https://sendgrid.com/email-solutions
-  [交易式電子郵件傳遞]：https://sendgrid.com/transactional-email
+-   Azure 客戶的 SendGrid 特別優惠：[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) [特別優惠]：https://sendgrid.com/windowsazure.html [sendgrid nodejs]：https://github.com/sendgrid/sendgrid-nodejs [篩選器設定]：https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html [SendGrid API 文件]：https://sendgrid.com/docs [雲端架構電子郵件服務]：https://sendgrid.com/email-solutions [交易式電子郵件傳遞]：https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

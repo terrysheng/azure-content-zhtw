@@ -1,23 +1,23 @@
-### Determine the DNS name of the virtual machine
+### 決定虛擬機器的 DNS 名稱
 
-To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
+若要從另一部電腦連接 SQL Server Database Engine，您必須知道虛擬機器的網域名稱系統 (DNS) 名稱。(這是網際網路用來識別虛擬機器的名稱。您可以使用 IP 位址，不過當 Azure 因備援或維護而移動資源時，IP 位址可能會改變。DNS 名稱是穩定的，因為它可以重新導向新的 IP 位址。)
 
-1. In the Azure Management Portal (or from the previous step), select **VIRTUAL MACHINES**. 
+1. 在 Azure 管理入口網站 (或前一個步驟) 中選取 [虛擬機器]。 
 
-2. On the **VIRTUAL MACHINE INSTANCES** page, under the **Quick Glance** column, find and copy the DNS name for the virtual machine.
+2. 在 [虛擬機器執行個體] 頁面的 [快速概覽] 欄下方，尋找並複製虛擬機器的 DNS 名稱。
 
-	![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
+	![DNS 名稱](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 	
 
-### Connect to the Database Engine from another computer
+### 從另一部電腦連接 Database Engine
  
-1. On a computer connected to the internet, open SQL Server Management Studio.
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the**Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **tutorialtestVM.cloudapp.net,57500**.
-To get the port number, log in to the Azure Management Portal and find the Virtual Machine. On the Dashboard, click **ENDPOINTS** and use the **PUBLIC PORT** assigned to **MSSQL**.
-	![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. In the **Authentication** box, select **SQL Server Authentication**.
-5. In the **Login** box, type the name of a login that you created in an earlier task.
-6. In the **Password** box, type the password of the login that you create in an earlier task.
-7. Click **Connect**.
+1. 在連接網際網路的電腦上開啟 SQL Server Management Studio。
+2. 在 [連接到伺服器] 或 [連接到 Database Engine] 對話方塊的 [伺服器名稱]**** 方塊中，輸入虛擬機器的 DNS 名稱 (於上一個工作中決定) 和 *DNSName,portnumber* 格式的公用端點連接埠名稱 (例如 **tutorialtestVM.cloudapp.net,57500**)。若要取得連接埠號碼，請登入 Azure 管理入口網站並尋找虛擬機器。在儀表板上，按一下 [端點]，然後使用指派給 [MSSQL] 的 [公用連接埠]。![公用連接埠](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+3. 在 [驗證] 方塊中，選取 [SQL Server 驗證]。
+5. 在 [登入] 方塊中，輸入於先前工作中建立之登入的名稱。
+6. 在 [密碼] 方塊中，輸入於先前工作中建立之登入的密碼。
+7. 按一下 [連接]。
 
-	![Connect using SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+	![使用 SSMS 進行連線](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+
+<!---HONumber=AcomDC_0107_2016-->

@@ -25,7 +25,7 @@ SAS 驗證支援包含在 Azure SDK 2.0 版或更新版本中。如需有關服�
 
 服務匯流排中的 SAS 驗證牽涉到在服務匯流排資源上設定具有相關權限的密碼編譯金鑰。用戶端會藉由出示 SAS 權杖來宣告服務匯流排資源的存取權。此權杖包含所存取的資源 URI 以及使用設定的金鑰所簽署的有效期限。
 
-您可以在服務匯流排[轉送](service-bus-fundamentals-hybrid-solutions.md/#relays)、[佇列](service-bus-fundamentals-hybrid-solutions.md/#queues)、[主題](service-bus-fundamentals-hybrid-solutions.md/#topics)和[事件中樞](https://azure.microsoft.com/documentation/services/event-hubs/)上設定共用存取簽章授權規則。
+您可以在服務匯流排[轉送](service-bus-fundamentals-hybrid-solutions.md#relays)、[佇列](service-bus-fundamentals-hybrid-solutions.md#queues)、[主題](service-bus-fundamentals-hybrid-solutions.md#topics)和[事件中樞](https://azure.microsoft.com/documentation/services/event-hubs/)上設定共用存取簽章授權規則。
 
 SAS 驗證會使用下列元素︰
 
@@ -258,4 +258,4 @@ sendClient.Send(helloMessage);
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

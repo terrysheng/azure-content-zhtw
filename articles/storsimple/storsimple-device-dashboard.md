@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 裝置儀表板
@@ -21,7 +21,7 @@
 
 StorSimple Manager 裝置儀表板可提供特定 StorSimple 裝置的資訊概觀；相對於服務儀表板，其提供 Microsoft Azure StorSimple 解決方案中所有裝置的相關資訊。
 
-![裝置儀表板頁面](./media/storsimple-device-dashboard/HCS_DeviceDashboardPage.png)
+![裝置儀表板頁面](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
 儀表板包含下列資訊：
 
@@ -100,4 +100,4 @@ StorSimple Manager 裝置儀表板可提供特定 StorSimple 裝置的資訊概�
 - [深入了解 StorSimple Manager 服務儀表板](storsimple-service-dashboard.md)。
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

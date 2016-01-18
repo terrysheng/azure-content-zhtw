@@ -270,10 +270,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
 按一下清單的標題或 **...** (省略符號)，查看更長的配量清單。按一下工具列上的 [篩選] 以篩選配量。
  
-您仍然可以按一下 [資料配量 (依配量時間)] 磚，檢視依配量時間排序的配量。這些集合中的配量會依配量時間排序。例如，如果是以小時排程，則配量為：
-- 4/4/2015 5pm 進行中
-- 4/4/2015 4pm 失敗
-- 4/4/2015 3pm 失敗
+您仍然可以按一下 [資料配量 (依配量時間)] 磚，檢視依配量時間排序的配量。這些集合中的配量會依配量時間排序。例如，如果是以小時排程，則配量為：- 4/4/2015 5pm 進行中 - 4/4/2015 4pm 失敗 - 4/4/2015 3pm 失敗
 
 但是，如果重新執行較舊的配量，即使這可能是使用者最感興趣的配量，也不會顯示在此清單頂端。
 
@@ -341,7 +338,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
     
   		如需如何建立自訂活動，並在 Azure Data Factory 管線中使用此活動的逐步解說，請參閱[在 Azure Data Factory 管線中使用自訂活動][adf-custom-activities]。
 
-[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-editor]: data-factory-editor.md
 
@@ -357,4 +354,4 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

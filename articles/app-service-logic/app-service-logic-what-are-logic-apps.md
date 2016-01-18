@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/04/2016"
 	ms.author="klam"/>
 
 #什麼是 Logic Apps？
@@ -26,15 +26,15 @@
 
 Azure App Service 是專為專業開發人員提供的完全受管理的 PaaS (平台即服務)，能夠輕鬆地建置 Web、行動和整合應用程式。Logic Apps 是此套件的一部分，可讓任何技術使用者或開發人員透過容易使用的視覺化設計工具，將商務程序執行和工作流程自動化。
 
-最棒的是，Logic Apps 可以從 Marketplace 與[連接器][connectors]結合，協助您輕鬆地解決棘手的整合案例。
+最棒的是，Logic Apps 可以從 Marketplace 與[連接器][connectors]結合，協助您輕鬆地解決棘手的整合案例：
 
 ![流程應用程式設計工具](./media/app-service-logic-what-are-logic-apps/Designer.png)
 
-如果您要自動複寫 SQL DB 中的新記錄並寄送郵件至前臺，或自動尋找負評推文並將其傳送至 Slack 通道
+您可以自動複寫 SQL DB 中的新記錄並郵寄前臺。或自動尋找負評推文，並將它們傳送至 Slack 通道。
 
 ##為什麼要使用 Logic Apps？
 
-Logic Apps 可讓開發人員設計從觸發程序啟動的工作流程，然後執行一系列的步驟，每個步驟都會叫用 App Service API 應用程式，同時安全地處理驗證和最佳作法，如檢查點和長期執行的工作流程。
+Logic Apps 可讓開發人員設計從觸發程序啟動，然後再執行一系列步驟的工作流程。每個步驟會叫用 App Service API 應用程式，同時安全地處理驗證和最佳作法，如檢查點和長期執行。
 
 如果您要自動執行任何商業程序 (例如尋找負評推文並張貼至內部 Slack 通道或從 SQL 將送達的新客戶記錄複寫道 CRM 系統中)，Logic Apps 可讓您輕鬆整合完全不同的資料來源 (從雲端至內部部署)。查看我們的[連接器][connectors]以獲得更多靈感並立即[開始][create]看看您可以做些什麼。
 
@@ -75,4 +75,4 @@ Logic Apps 可讓開發人員設計從觸發程序啟動的工作流程，然後
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

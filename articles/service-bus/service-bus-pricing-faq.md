@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
-# 服務匯流排價格常見問題集
+# 服務匯流排定價常見問題集
 
 本節提供服務匯流排價格結構的一些常見問題解答。您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般 Microsoft Azure 價格資訊。如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格詳細資料](http://azure.microsoft.com/pricing/details/service-bus/)。
 
@@ -111,9 +111,9 @@
 - [Azure 服務匯流排進階傳訊簡介 (部落格文章)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Azure 服務匯流排進階傳訊簡介 (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [服務匯流排訊息概觀](service-bus-messaging-overview.md)
-- [Azure 服務匯流排架構概觀](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 服務匯流排架構概觀](service-bus-fundamentals-hybrid-solutions.md)
 - [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

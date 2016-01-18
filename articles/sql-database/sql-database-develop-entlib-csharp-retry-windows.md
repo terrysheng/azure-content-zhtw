@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="EntLib 重試連接到 SQL Database | Microsoft Azure"
 	description="Enterprise Library 是設計來簡化雲端服務的用戶端程式工作，包括整合暫時性錯誤的重試邏輯。"
 	services="sql-database"
@@ -8,23 +8,19 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
 # 程式碼範例：C&#x23 中用於連接到 SQL Database 的 Enterprise Library 6 重試邏輯
 
-
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 本主題呈現完整的程式碼範例，示範 Enterprise Library (EntLib)。EntLib 簡化用戶端程式與雲端服務 (例如 Azure SQL Database) 互動的許多工作。我們的範例著重在包括暫時性錯誤的重試邏輯這類重要工作。
@@ -330,4 +326,4 @@ SELECT TOP 3
 
 - [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

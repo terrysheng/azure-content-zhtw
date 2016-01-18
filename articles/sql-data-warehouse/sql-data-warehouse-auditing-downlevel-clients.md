@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="SQL 資料倉儲下層用戶端對資料稽核的支援 | Microsoft Azure" 
-	description="了解 SQL 資料倉儲下層用戶端對資料稽核的支援" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="SQL 資料倉儲下層用戶端對資料稽核的支援 | Microsoft Azure" 
+   description="了解 SQL 資料倉儲下層用戶端對資料稽核的支援" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-database" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # SQL 資料倉儲 - 下層用戶端對稽核和動態資料遮罩的支援 
 
@@ -40,4 +40,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

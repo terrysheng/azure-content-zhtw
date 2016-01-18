@@ -16,12 +16,12 @@
    ms.date="09/21/2015"
    ms.author="inhenk"/>
 
-# Azure 特殊權限身分識別管理：如何啟用或停用角色
+# Azure Privileged Identity Management：如何啟用或停用角色
 
 ## 啟用或停用角色
 
-1. 登入 [http://portal.azure.com](http://portal.azure.com)。
-2. 請依照[開始使用 Azure 特殊權限身分識別管理](active-directory-privileged-identity-management-getting-started.md)所述的步驟，將 Azure PIM 放置於入口網站的儀表板上。
+1. 登入 [Azure 入口網站](http://portal.azure.com)。
+2. 請依照[開始使用 Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) 所述的步驟，將 Azure PIM 放置於 Azure 入口網站的儀表板上。
 3. 完成「安全性精靈」中的步驟之後，畫面便會顯示 Azure PIM 的主功能表。
 4. 按一下 [啟用我的角色]。
 5. 畫面會隨即顯示已指派給您的角色清單。
@@ -38,4 +38,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

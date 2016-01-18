@@ -25,7 +25,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 > [AZURE.NOTE]Azure PowerShell 僅適用於 Windows 用戶端。如果您使用 Linux、Unix 或 Mac OS X 用戶端，請參閱 [使用 Azure CLI 建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-cluster-azure-cli.md)，以取得使用 Azure CLI 建立叢集的資訊。
 
-##必要條件
+###必要條件
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
@@ -106,6 +106,11 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 完成佈建最多需要花費 15 分鐘。
 
+##自訂叢集
+
+- 請參閱[使用 Bootstrap 自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell)。
+- 請參閱[使用指令碼動作自訂 Windows 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。
+
 ##後續步驟
 
 既然您已成功建立 HDInsight 叢集，請使用下列內容來了解如何使用您的叢集：
@@ -135,4 +140,4 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 * [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

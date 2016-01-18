@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/21/2015"
+   ms.date="01/07/2015"
    ms.author="jgao"/>
 
 # 教學課程：使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼
@@ -26,7 +26,7 @@
 U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和分析在資料湖的所有資料。如需詳細資訊，請參閱 [U-SQL 參考](http://go.microsoft.com/fwlink/p/?LinkId=691348)。
 
 
-###先決條件
+###必要條件
 
 - **已安裝 Visual Studio 2015、Visual Studio 2013 更新 4，或具有 Visual C++ 的 Visual Studio 2012** 
 - **Microsoft Azure SDK for .NET 2.7.1 版或更新版本**。請使用 [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 來安裝。
@@ -79,7 +79,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 ## 開發 U-SQL 指令碼 
 
-資料湖分析工作是以 U-SQL 語言撰寫。若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和 [U-SQL 語言參考](http://go.microsoft.com/fwlink/?LinkId=691348)。
+資料湖分析工作是以 U-SQL 語言撰寫。若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和[U-SQL 語言參考](http://go.microsoft.com/fwlink/?LinkId=691348)。
 
 **建立並提交資料湖分析工作**
 
@@ -88,6 +88,8 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 	![新的 U-SQL Visual Studio 專案](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
+	>[AZURE.NOTE]目前，資料湖工具在本機執行中不支援 UNC 專案路徑。
+	
 3. 按一下 [確定]。Visual studio 會建立擁有 **Script.usql** 檔案的解決方案。
 4. 將下列指令碼輸入 **Script.usql** 檔案：
 
@@ -148,7 +150,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 	- **移至定義並尋找所有參考**
 	
-		以滑鼠右鍵按一下資料列集/參數/資料行/UDO 等的名稱，然後按一下 [移至定義] \(F12) 可讓您瀏覽至其定義。按一下 [尋找所有參考] \(Shift + F12) 會顯示所有參考。
+		以滑鼠右鍵按一下資料列集/參數/資料行/UDO 等的名稱，然後按一下 [移至定義] (F12) 可讓您瀏覽至其定義。按一下 [尋找所有參考] (Shift + F12) 會顯示所有參考。
 
 	- **插入 Azure 路徑**
 		
@@ -219,6 +221,10 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 - 針對特定指令碼：如果會在輸入/輸出路徑中參考相對路徑，則我們將查閱 DataRoot (以及指令碼的路徑 (如果它是輸入))
 - 如果您嘗試註冊組件並使用相對路徑，就不會參考 DataRoot 資料夾 (如需詳細資訊，請參閱＜進行本機執行時使用組件＞的內容)
 
+下列視訊示範 U-SQL 本機執行功能：
+
+>[AZURE.VIDEO usql-localrun]
+
 ### 已知問題與限制
 
 - U-SQL 本機執行不支援在本機查詢檔案組。請參閱 [U-SQL 檔案組](https://msdn.microsoft.com/library/azure/mt621294.aspx)。未來將會解決此問題。
@@ -263,8 +269,6 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	在 C# 程式碼中設定中斷點。
 4.	按下 **F5** 以便在本機為參考 C# dll 的指令碼偵錯。  
- 
-
 
 ##另請參閱
 
@@ -353,4 +357,4 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

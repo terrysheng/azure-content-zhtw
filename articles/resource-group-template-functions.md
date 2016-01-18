@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="12/31/2015"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員範本運算式
@@ -408,7 +408,7 @@
 下列範例顯示如何根據您的資源群組建立儲存體帳戶的唯一名稱。
 
     "resources": [{ 
-        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
@@ -766,7 +766,7 @@
 ## 後續步驟
 - 如需有關 Azure 資源管理員範本中各區段的說明，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - 若要合併多個範本，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
-- 若要依指定次數重複建立資源類型，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
+- 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 - 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

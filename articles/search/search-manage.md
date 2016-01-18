@@ -21,7 +21,7 @@
 
 Azure 搜尋服務是包含 HTTP 架構 API 的雲端型服務，可用於自訂搜尋應用程式中。搜尋服務提供的引擎具備全文檢索文字分析、進階搜尋功能、搜尋資料儲存體及查詢命令語法。
 
-本文說明如何在 [Azure 傳統入口網站](https://portal.azure.com)中管理搜尋服務。
+本文說明如何在 [Azure 入口網站](https://portal.azure.com)中管理搜尋服務。
 
 或者，您可以使用管理 REST API。如需詳細資訊，請參閱[開始使用 Azure 搜尋服務管理 REST API](search-get-started-management-api.md) 和 [Azure 搜尋服務管理 REST API 參考](http://msdn.microsoft.com/library/azure/dn832684.aspx)。
 
@@ -193,4 +193,4 @@ Azure 特別為透過入口網站管理的所有服務，或在 Azure 資源管�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # 開始使用 Azure 資料倉儲 Cmdlet 和 REST API
@@ -111,4 +111,4 @@ RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE �
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

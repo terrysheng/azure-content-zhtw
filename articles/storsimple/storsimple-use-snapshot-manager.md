@@ -12,22 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # StorSimple Snapshot Manager 使用者介面
 
 ## 概觀
 
-StorSimple Snapshot Manager 有直覺式的圖形化使用者介面 (GUI) 可讓您管理磁碟區群組的備份複本，包括儲存在本機和雲端的備份複本。本教學課程提供介面的簡介，並接著說明如何使用每個元件。(如需 StorSimple Snapshot Manager 的詳細說明，請參閱《[何謂 StorSimple Snapshot Manager？](storsimple-what-is-snapshot-manager.md)》)
+StorSimple Snapshot Manager 有直覺式的圖形化使用者介面 (GUI) 可讓您管理磁碟區群組的備份複本，包括儲存在本機和雲端的備份複本。本教學課程提供介面的簡介，並接著說明如何使用每個元件。如需 StorSimple Snapshot Manager 的詳細說明，請參閱[何謂 StorSimple Snapshot Manager？](storsimple-what-is-snapshot-manager.md)
 
 ### 主控台說明
 
 若要檢視使用者介面，請按一下桌面上的 StorSimple Snapshot Manager 圖示。主控台視窗隨即出現，如下圖所示。
 
 ![StorSimple Snapshot Manager 密碼](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
-
-**圖 1：StorSimple Snapshot Manager UI**
 
 主控台視窗有五個主要元素。按一下適當的連結，以取得每個元素的完整說明。
 
@@ -57,8 +55,6 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 ![已選取 [檢視] 功能表](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-**圖 2：已選取 [檢視] 的 StorSimple Snapshot Manager 功能表列**
-
 ### [檔案] 功能表
 
 [**檔案**] 功能表包含標準 Microsoft Management Console (MMC) 命令。
@@ -68,8 +64,6 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 若要檢視 [**檔案**] 功能表，請按一下功能表列上的 [**檔案**]。下列功能表隨即出現。
 
 ![StorSimple Snapshot Manager 檔案功能表](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png)
-
-**圖 3：StorSimple Snapshot Manager 檔案功能表**
 
 #### 功能表說明
 
@@ -102,13 +96,9 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
  
 ![StorSimple Snapshot Manager 動作功能表](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-**圖 4：StorSimple Snapshot Manager 動作功能表**
-
 [**動作**] 窗格 (在主控台的右側) 包含與 [**動作**] 功能表相同的動作清單。此外，[**動作**] 窗格也包含 [**檢視**] 功能表選項，可讓您建立 [**結果**] 窗格的自訂檢視。
 
 ![已開啟 [檢視] 功能表的 [動作] 窗格](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
-
-**圖 5：含 [檢視] 功能表的 StorSimple Snapshot Manager 動作窗格**
 
 #### 功能表說明
 
@@ -120,14 +110,14 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 - [**說明**] 欄說明如何使用 [**動作**] 功能表或 [動作] 窗格上的每個動作，並解釋其用途。
 
->[AZURE.NOTE] [**動作**] 窗格和 [**動作**] 功能表包含其他選項，例如 [**檢視**]、[**從這裡開啟新視窗**]、[**重新整理**]、[**匯出清單**]，以及 [**說明**]。這些選項可當做 MMC 一部分來使用，並不是 StorSimple Snapshot Manager 專用的。下表包含這些選項的說明。
+>[AZURE.NOTE] [**動作**] 窗格和 [**動作**] 功能表包含其他選項，例如 [**檢視**]、[**從這裡開啟新視窗**]、[**重新整理**]、[**匯出清單**]，以及 [**說明**]。這些選項可當做 MMC 一部分來使用，並不是 StorSimple Snapshot Manager 專用的。下表包含這些選項的說明。
  
 | 動作 | 瀏覽 | 說明 |
 |:--------|:------------|:-------------|
 | 驗證 | 按一下 [**裝置**] 節點，並以滑鼠右鍵按一下 [**結果**] 窗格中的裝置。 | 按一下 [**驗證**]，以輸入您為裝置設定的密碼。 |
 | 複製 | 依序展開 [**備份目錄**]、[**雲端快照**]，再按一下帶有日期的備份，然後選取 [**結果**] 窗格中的磁碟區。 | 按一下 [**複製**]，以建立雲端快照的複本，並將其儲存在您指定的位置。 |
 | 設定裝置 | 以滑鼠右鍵按一下 [**裝置**] 節點。 | 按一下 [**設定裝置**]，以設定單一裝置或多個裝置來連接至 Windows 主機。 |
-| 建立備份原則 | 請執行下列其中一項：<ul><li>以滑鼠右鍵按一下 [**備份原則**]。</li><li>按一下或展開 [**磁碟區群組**]，然後以滑鼠右鍵按一下磁碟區群組。</li><li>按一下或展開 [**備份目錄**]，然後以滑鼠右鍵按一下磁碟區群組。</li></ul> | 按一下 [**建立備份原則**] 以設定磁碟區群組的排程備份。 |
+| 建立備份原則 | 請執行下列其中一項：<ul><li>以滑鼠右鍵按一下 [備份原則]。</li><li>按一下或展開 [磁碟區群組]，然後以滑鼠右鍵按一下磁碟區群組。</li><li>按一下或展開 [備份目錄]，然後以滑鼠右鍵按一下磁碟區群組。</li></ul> | 按一下 [**建立備份原則**] 以設定磁碟區群組的排程備份。 |
 | 建立磁碟區群組 | 請執行下列其中一項：<ul><li>按一下 [**磁碟區**] 節點，然後以滑鼠右鍵按一下 [**結果**] 窗格中的磁碟區。</li><li>以滑鼠右鍵按一下 [**磁碟區群組**] 節點。</li></ul> | 按一下 [**建立磁碟區群組**]，將磁碟區指派給磁碟區群組。 |
 | 刪除 | 按一下節點或結果 (此項目出現在許多 [**動作**] 功能表和 [**動作**] 窗格上。) | 按一下 [**刪除**]，以刪除或您所選取的節點和結果。確認對話方塊出現時，請確認或取消刪除。 |
 | 詳細資料 | 按一下 [**裝置**] 節點，然後以滑鼠右鍵按一下 [**結果**] 窗格中的裝置。 | 按一下 [**詳細資料**]，以查看裝置的組態詳細資料。 |
@@ -153,8 +143,6 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 ![StorSimple Snapshot Manager 檢視功能表](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-**圖 6：StorSimple Snapshot Manager 檢視功能表**
-
 #### 功能表說明
 
 下表描述 [**檢視**] 功能表上出現的項目。
@@ -174,8 +162,6 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 ![StorSimple Snapshot Manager 我的最愛功能表](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
-**圖 7： StorSimple Snapshot Manager 我的最愛功能表**
-
 #### 功能表說明
 
 下表描述 [**我的最愛**] 功能表上出現的項目。
@@ -194,8 +180,6 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 您可以存取功能表列上的 [**視窗**] 功能表。
 
 ![StorSimple Snapshot Manager 視窗功能表](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
-
-**圖 8：StorSimple Snapshot Manager 視窗功能表**
 
 功能表底部的編號清單會顯示目前開啟的視窗。按一下該清單中的任何視窗，即可將視窗帶至前景。
 
@@ -218,8 +202,6 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 ![StorSimple Snapshot Manager 說明功能表](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
 
-**圖 9：StorSimple Snapshot Manager 說明功能表**
-
 #### 功能表說明
 
 下表說明描述功能表上出現的項目。
@@ -230,7 +212,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 | 說明主題 |按一下 [**說明主題**]，可在個別視窗中開啟 MMC 線上說明。 |
 | TechCenter 網站 | 按一下 [**TechCenter 網站**]，可在個別視窗中開啟 Microsoft TechNet 技術中心首頁。 |
 | 關於 Microsoft Management Console | 按一下 [**關於 Microsoft Management Console**]，可查看系統上安裝的 Microsoft Management console 版本。 |
-| 關於 StorSimple Snapshot Manager | 按一下 [**關於 StorSimple Snapshot Manager**]，可查看系統上安裝的嵌入式管理單元版本。 |
+| 關於 StorSimple Snapshot Manager | 按一下 [關於 StorSimple Snapshot Manager]，可查看系統上安裝的嵌入式管理單元版本。 |
 
 ## 工具列
 
@@ -259,8 +241,6 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 [**範圍**] 窗格包含一系列組織成樹狀結構的可點按物件 (節點)。
 
 ![範圍窗格](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png)
-
-**圖 10：StorSimple Snapshot Manager 範圍窗格**
 
 - 若要展開或摺疊節點，請按一下節點名稱旁的箭號圖示。
 
@@ -291,7 +271,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 [**裝置**] 節點代表已連接至 StorSimple Snapshot Manager 的 StorSimple 裝置和 StorSimple 虛擬裝置。選取此節點來連接並設定裝置，然後匯入其相關聯的磁碟區、磁碟區群組，以及現有的備份複本。多個裝置可以連接至單一主機。
 
-- 若要展開節點，請按一下 [**裝置**] 旁的箭號圖示。
+- 若要展開節點，請按一下 [裝置] 旁的箭號圖示。
 
 - 若要查看可用動作的功能表，請以滑鼠右鍵按一下 [**裝置**] 節點，或以滑鼠右鍵按一下展開之檢視中出現的任一個節點。
 
@@ -362,7 +342,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 ### 作業節點
 
-[**作業**] 節點包含已排程、執行中和最近完成之備份作業的相關資訊。
+[作業] 節點包含已排程、執行中和最近完成之備份作業的相關資訊。
 
 - 若要展開節點，請按一下 [**作業**] 旁的箭號圖示。
 
@@ -384,8 +364,6 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 ![結果窗格](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png)
 
-**圖 11：StorSimple Snapshot Manager 結果窗格**
-
 您可以設定 [**結果**] 窗格中顯示的詳細資料：以滑鼠右鍵按一下 [**範圍**] 窗格中的節點，按一下 [**檢視**]，然後按一下 [**新增/移除資料行**]。
 
 ## 動作窗格
@@ -398,13 +376,9 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 ![動作窗格的已排程作業範例](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png)
 
-**圖 12：StorSimple Snapshot Manager 動作窗格 (已排程作業)**
-
 若要查看其他選項，請在 [**範圍**] 窗格中，展開 [**作業**] 節點，按一下 [**已排程**]，然後按一下 [**結果**] 窗格中的已排程作業。[**動作**] 窗格會顯示已排程作業的可用動作，如下列範例所示。
 
 ![動作窗格的作業動作範例](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
-
-**圖 13：StorSimple Snapshot Manager 動作窗格 (適用於特定作業)**
 
 ## 鍵盤導覽和快速鍵
 
@@ -443,7 +417,7 @@ StorSimple Snapshot Manager 可啟用 Windows 作業系統和 Microsoft Manageme
 | | | S | 儲存 StorSimple Snapshot Manager 主控台。|
 | | | A | 開啟 [**另存新檔**] 頁面。 |
 | | | M | 開啟 [**新增/移除嵌入式管理單元**] 頁面。|
-| | | P | 開啟 [**選項**] 頁面。 |
+| | | P | 開啟 [選項] 頁面。 |
 | | | H | 開啟線上說明。|
 | ALT+A | 開啟 [**動作**] 功能表。| I | 開啟和關閉 [匯入顯示] 選項。|
 | | | W | 開啟新的 StorSimple Snapshot Manager 主控台。|
@@ -541,4 +515,4 @@ StorSimple Snapshot Manager 可啟用 Windows 作業系統和 Microsoft Manageme
 - 了解如何[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 - 了解如何[使用 StorSimple Snapshot Manager 來連接和管理裝置](storsimple-snapshot-manager-manage-devices.md)。
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

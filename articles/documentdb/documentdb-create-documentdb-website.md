@@ -32,8 +32,8 @@
 在依照本教學課程中的指示進行之前，請先確定您已備妥下列項目：
 
 - Azure 訂用帳戶。Azure 是訂閱型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項](http://azure.microsoft.com/pricing/purchase-options/)、[成員優惠](http://azure.microsoft.com/pricing/member-offers/)或[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
-- 一個 Azure 儲存體帳戶。如需相關指示，請參閱[關於 Azure 儲存體帳戶](../storage-whatis-account.md)。
-- 具有 Azure PowerShell 0.9.8 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。本教學課程尚未針對 Azure PowerShell 1.0 預覽更新。 
+- 一個 Azure 儲存體帳戶。如需相關指示，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。
+- 具有 Azure PowerShell 0.9.8 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。本教學課程尚未針對 Azure PowerShell 1.0 預覽更新。 
 
 ##<a id="CreateDB"></a>步驟 1：下載並解壓縮範例檔案 ##
 讓我們從下載範例檔案開始，我們將在本教學課程中使用。
@@ -210,4 +210,4 @@
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -7,15 +7,18 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
-<tags ms.service="app-service-logic" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na"
-	
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # 將您裝載在 App Service 上的自訂 API 與邏輯應用程式一起使用
 
-雖然邏輯應用程式有一系列 40 餘個各式各樣的連接器，但您可能會想要呼叫自訂的 API 以執行自己的程式碼。是裝載您自己的自訂 Web API，最簡單且最具擴充性的方法之一是使用 App Service。本文說明如何呼叫裝載在 App Service Web 應用程式中的任何 Web API。
+雖然 Logic Apps 有一系列 40 餘個各式各樣的連接器，但您可能會想要呼叫自訂的 API 以執行自己的程式碼。是裝載您自己的自訂 Web API，最簡單且最具擴充性的方法之一是使用 App Service。本文說明如何呼叫裝載在 App Service API 應用程式、Web 應用程式或行動應用程式中的任何 Web API。
 
 ## 部署 Web 應用程式
 
@@ -29,7 +32,7 @@
 
 首先，您可能會想要使用週期觸發程序，或按一下 [手動執行此邏輯]。接下來，您會實際呼叫您的 API。若要這樣做，請在右手邊按一下綠色的 [HTTP] 動作。
 
-1. 選擇 [方法] - 這將會定義在您的 API 程式碼中
+1. 選擇 [方法] - 這會定義在您的 API 程式碼中
 2. 在 [URL] 區段中，貼入您已部署的 Web 應用程式的 [URL]
 3. 如果您需要任何 [標頭]，請將它們包含在 JSON 格式中，如下所示：`{"Content-type" : "application/json", "Accept" : "application/json" }`
 4. 如果您的 API 是公用的，您可以將 [驗證] 保留為空白。如果要保護您 API 的呼叫，請參閱下列各節。
@@ -37,7 +40,7 @@
 
 按一下命令列中的 [儲存]。如果您按一下 [立即執行]，您應該會在執行清單中看到 API 的呼叫和回應。
 
-如果您有公用 API，此方式將可順利運作，但如果您想要保護 API，則有幾種不同的方式可供執行：
+如果您有公用 API，這是很適合的方法。但如果您想要保護 API，則有幾種不同的方式可供執行：
 
 1. *無需變更程式碼* - Azure Active Directory 可用來保護您的 API，而不需要任何程式碼變更或重新部署。
 2. 在 API 的程式碼中強制執行基本驗證、AAD 驗證或憑證驗證。 
@@ -48,7 +51,7 @@
 
 ### 第 1 部分：設定邏輯應用程式的應用程式身分識別碼
 
-這將是邏輯應用程式用來對 Active Directory 進行驗證的項目。您只*需要*為您的目錄執行此動作一次；例如，您可以選擇讓您所有的邏輯應用程式使用相同的身分識別碼，儘管只要您願意，您也可以為每個邏輯應用程式建立唯一的身分識別碼。您可以在 UI 中執行這項操作，或使用 PowerShell。
+這是邏輯應用程式用來對 Active Directory 進行驗證的項目。您只*需要*為您的目錄執行此動作一次。例如，您可以選擇讓您所有的邏輯應用程式使用相同的身分識別碼，儘管只要您願意，您也可以為每個邏輯應用程式建立唯一的身分識別碼。您可以在 UI 中執行這項操作，或使用 PowerShell。
 
 #### 使用 Azure 傳統入口網站建立應用程式身分識別碼
 
@@ -79,7 +82,7 @@
 2. 按一下 [授權/驗證]。 
 3. 加以 [開啟]。
 
-此時，應用程式將會自動為您建立。在第 3 部分將需要此應用程式的用戶端識別碼，因此您將需要：
+此時，系統會自動為您建立應用程式。在第 3 部分需要此應用程式的用戶端識別碼，因此您需要：
 
 1. 移至 [Azure 傳統入口網站中的 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)，然後選取您的目錄。 
 2. 在搜尋方塊中搜尋應用程式
@@ -170,4 +173,4 @@
 
 您仍然必須遵循前述步驟建立邏輯應用程式的應用程式身分識別碼，並用它來呼叫 API。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

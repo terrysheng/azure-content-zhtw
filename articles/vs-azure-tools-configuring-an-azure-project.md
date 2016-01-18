@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/29/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # 使用 Visual Studio 設定 Azure 雲端服務專案
@@ -61,4 +61,4 @@
 
 若要深入了解如何在 Visual Studio 中設定 Azure 雲端服務專案，請參閱[使用多個服務組態設定 Azure 專案](vs-azure-tools-multiple-services-project-configurations.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # 使用 Azure 命令列介面 (Azure CLI) 管理角色型存取控制 #
@@ -144,11 +144,11 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 若要深入了解使用 Azure CLI 管理角色型存取控制的詳細資訊，請參閱下列相關主題：
 
 - [Azure 中的角色型存取控制](../role-based-access-control-configure.md)
-- [安裝和設定 Azure CLI](../xplat-cli-install.md)。
+- [安裝和設定 Azure CLI。](../xplat-cli-install.md)
 - [將 Azure CLI 和資源管理員搭配使用](../xplat-cli-azure-resource-manager.md)
 - [使用資源群組以管理您的 Azure 資源](../azure-preview-portal-using-resource-groups.md)：深入了解在 Azure 管理入口網站中建立和管理資源群組。
 - [Azure 部落格](http://blogs.msdn.com/windowsazure)：深入了解 Azure 的新功能。
 - [使用 Windows PowerShell 來設定角色型存取控制](role-based-access-control-powershell.md)
 - [為角色型存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

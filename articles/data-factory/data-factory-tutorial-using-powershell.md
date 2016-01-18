@@ -31,7 +31,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 
 	這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考](https://msdn.microsoft.com/library/dn820234.aspx)。
     
-	若您使用**版本 < 1.0** 的 Azure PowerShell，您必須使用[這裡][old-cmdlet-reference]所記載的 Cmdlet。您也必須在使用 Data Factory Cmdlet 之前，先執行下列命令：
+	若您使用 **1.0 版本之前**的 Azure PowerShell，您必須使用[這裡][old-cmdlet-reference]所記載的 Cmdlet。您也必須在使用 Data Factory Cmdlet 之前，先執行下列命令：
 
 	1. 執行 **Add-AzureAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。
 	2. 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
@@ -131,7 +131,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 	
 	或者，您可以使用資料夾 C:\\ADFWalkthrough\\Scripts 中的檔案，將 pig/hive 指令碼與範例檔案上傳至 Blob 儲存體中的 adfwalkthrough 容器，並在 MarketingCamapaigns Azure SQL 資料庫中建立 MarketingCampaignEffectiveness 資料表。
    
-2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，請使用 [Azure 傳統入口網站](http://manage.windowsazure.com)，或 master 資料庫上的 **sp\_set\_firewall\_rule**，為您電腦的 IP 位址建立防火牆規則。可能需要五分鐘的時間，這項變更才會生效。請參閱[設定 Azure SQL 的防火牆規則][azure-sql-firewall]。
+2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，請使用 [Azure 傳統入口網站](http://manage.windowsazure.com)，或master 資料庫上的 **sp\_set\_firewall\_rule**，為您電腦的 IP 位址建立防火牆規則。可能需要五分鐘的時間，這項變更才會生效。請參閱[設定 Azure SQL 的防火牆規則][azure-sql-firewall]。
 4. 在 Azure PowerShell 中，瀏覽至您解壓縮範例的位置 (例如：**C:\\ADFWalkthrough**)
 5. 執行 **uploadSampleDataAndScripts.ps1** 
 6. 一旦指令碼執行成功，您會看到下列項目：
@@ -454,16 +454,6 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 [image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial-using-powershell/AnalyzeMarketingCampaignPipeline.png
 
 
-[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial-using-powershell/EgreeDataToOnPremPipeline.png
-
-[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial-using-powershell/SetFirewallRuleForAzureDatabase.png
-
-[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial-using-powershell/PortalNewEverything.png
-
-[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial-using-powershell/DataStorageCacheBackup.png
-
-[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial-using-powershell/DataServicesBlade.png
-
 [image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryBlade.png
 
 [image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial-using-powershell/ResourceGroupBlade.png
@@ -514,10 +504,6 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 
 [image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial-using-powershell/MonitoringActivityRunDetails.png
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-using-powershell/DataManagementGatewayConfigurationManager.png
-
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
-
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

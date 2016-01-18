@@ -100,8 +100,7 @@
 
 	建立專案，並設定在針對位於相同解決方案中的 Web 專案進行部署時，會自動以 WebJob 的方式部署此專案。當您要在與執行相關 Web 應用程式相同的 Web 應用程式中執行 WebJob 時，請使用此選項。
 
-在 SDK 2.4 版本中，WebJobs 新專案範本並不會比建立主控台應用程式專案並啟用 WebJobs 部署來得容易。日後，WebJobs 新專案範本將更有助於 [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs) 開發，因為它會自動安裝適當的 WebJobs SDK NuGet 封裝。在那之前，您可以手動安裝此封裝來設定專案使用 WebJobs SDK，如 [WebJobs SDK 教學課程](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs)中所示。
-
+> [AZURE.NOTE]WebJobs 新專案範本自動安裝 NuGet 套件，並包括適用於 [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs) 的 *Program.cs* 程式碼。如果您不想要使用 WebJobs SDK，或想要使用已排程而非連續的 WebJob，請移除或變更 *Program.cs* 中的 `host.RunAndBlock` 陳述式。
 
 ### <a id="createnolink"></a> 在獨立的 WebJob 中使用 WebJobs 新專案範本
   
@@ -198,4 +197,4 @@
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

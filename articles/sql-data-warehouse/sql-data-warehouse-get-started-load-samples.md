@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # 將範例資料載入 SQL 資料倉儲
@@ -41,7 +41,7 @@
 
 2. 現在，如果您想要建立銷售橫條圖，只要按一下 [SalesAmount] 資料行，Power BI 將會為您自動建立。您可藉由將 [CustomerIncome] 圖表拖曳到 [AggregateSales] 左邊的 [軸] 欄位來增加額外的深度，以便依客戶營收等級顯示銷售業績。
 
-3. 最後，如果您想要建立銷售時間軸，只需按一下 [SalesAmount]、[OrderDate] 和 \[折線圖] ([視覺效果] 下第二行中的第一個圖示) 即可。
+3. 最後，如果您想要建立銷售時間軸，只需按一下 [SalesAmount]、[OrderDate] 和 [折線圖] ([視覺效果] 下第二行中的第一個圖示) 即可。
 
 您隨時都可以按一下左下角的 [儲存] 按鈕並將您的視覺效果儲存為報告，藉以儲存您的進度。
 
@@ -94,4 +94,4 @@
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

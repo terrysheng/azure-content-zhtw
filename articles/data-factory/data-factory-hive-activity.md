@@ -18,7 +18,7 @@
 
 # Hive 活動
 
-Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活動會在[您自己的](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 的 HDInsight 叢集上執行 Hive 查詢。這篇文章是根據〈[資料轉換活動](data-factory-data-transformation-activities.md)〉文章，它呈現資料轉換和支援的轉換活動的一般概觀。
+Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活動會在[您自己的](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 的 HDInsight 叢集上執行 Hive 查詢。本文是根據[資料轉換活動](data-factory-data-transformation-activities.md)一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 ## 語法
 
@@ -104,7 +104,7 @@ script | 指定 Hive 指令碼內嵌 | 否
 若要在 Data Factory 管線中執行此 Hive 指令碼，您需要執行下列動作：
 
 1. 建立連結服務以註冊[您自己的 HDInsight 運算叢集](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或設定[隨選 HDInsight 運算叢集](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。讓我們將此連結服務命名為 "HDInsightLinkedService"。
-2. 建立[連結服務](data-factory-azure-storage-connector.md)以設定裝載資料之 Azure Blob 儲存體的連接。讓我們來呼叫此連結服務 "StorageLinkedService"
+2. 建立[連結服務](data-factory-azure-blob-connector.md)以設定裝載資料之 Azure Blob 儲存體的連接。讓我們來呼叫此連結服務 "StorageLinkedService"
 3. 建立指向輸入和輸出資料的[資料集](data-factory-create-datasets.md)。讓我們來呼叫輸入資料集 "HiveSampleIn" 和輸出資料集 "HiveSampleOut"
 4. 將 Hive 查詢作為檔案複製到上述步驟 #2 中設定的 Azure Blob 儲存體。如果裝載資料的連結服務和裝載此查詢檔案的服務不同，請建立個別的 Azure 儲存體連結服務並在活動組態中參考它。使用 **scriptPath** 指定 hive 查詢檔案的路徑並使用 **scriptLinkedService** 指定包含指令碼檔案的 Azure 儲存體。
 
@@ -214,4 +214,4 @@ script | 指定 Hive 指令碼內嵌 | 否
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

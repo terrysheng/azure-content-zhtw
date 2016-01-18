@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # 從伺服器總管存取 Azure 虛擬機器
@@ -53,4 +53,4 @@
 
 若要深入了解 Visual Studio 中的 Azure 角色使用方式，請參閱[搭配使用遠端桌面與 Azure 角色](vs-azure-tools-remote-desktop-roles.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

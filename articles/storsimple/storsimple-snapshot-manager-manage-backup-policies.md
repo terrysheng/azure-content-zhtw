@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來建立和管理備份原則
 
 ## 概觀
 
-備份原則會建立一個在本機或雲端中備份磁碟區資料的排程。建立備份原則時，您也可以指定保留原則。(您最多可以保留 64 個快照)。 如需備份原則的詳細資訊，請參閱[備份類型和備份原則](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies)。
+備份原則會建立一個在本機或雲端中備份磁碟區資料的排程。建立備份原則時，您也可以指定保留原則。(您最多可以保留 64 個快照)。 如需備份原則的詳細資訊，請參閱 [StorSimple 8000 系列：混合式雲端解決方案](storsimple-overview.md)中的[備份類型](storsimple-what-is-snapshot-manager.md#backup-type)。
 
 本教學課程說明如何：
 
@@ -33,7 +33,7 @@
 
 #### 若要建立備份原則
 
-1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
+1. 按一下桌面圖示以啟動 StorSimple Snapshot Manager。
 
 2. 在 [**範圍**] 窗格中，以滑鼠右鍵按一下 [**備份原則**]，然後按一下 [**建立備份原則**]。
 
@@ -47,7 +47,7 @@
 
    1. 在 [**名稱**] 文字方塊中，輸入原則的名稱。
 
-   2. 在** [磁碟區群組] **文字方塊中，輸入與原則相關聯的磁碟區群組名稱。
+   2. 在 [磁碟機群組] 文字方塊中，輸入與原則相關聯之磁碟區群組的名稱。
 
    3. 選取 [**本機快照**] 或 [**雲端快照**]。
 
@@ -89,7 +89,7 @@
 
 #### 若要編輯備份原則
 
-1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。 
+1. 按一下桌面圖示以啟動 StorSimple Snapshot Manager。 
 
 2. 在 [**範圍**] 窗格中，按一下 [**備份原則**] 節點。所有備份原則都會出現在 [**結果**] 窗格中。
 
@@ -105,11 +105,12 @@
 
 #### 若要刪除備份原則
 
-1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。 
+1. 按一下桌面圖示以啟動 StorSimple Snapshot Manager。 
 
 2. 在 [**範圍**] 窗格中，按一下 [**備份原則**] 節點。所有備份原則都會出現在 [**結果**] 窗格中。
 
-3. 以滑鼠右鍵按一下您要刪除的備份原則，然後按一下 [**刪除**]。
+3. 以滑鼠右鍵按一下您要刪除的備份原則，然後按一下 [刪除]。
+
 4. 確認訊息出現時，按一下 [**是**]。
 
     ![確認刪除備份原則](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
@@ -119,4 +120,4 @@
 - 了解如何[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 - 了解如何[使用 StorSimple Snapshot Manager 來檢視和管理備份工作](storsimple-snapshot-manager-manage-backup-jobs.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

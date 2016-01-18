@@ -8,14 +8,14 @@
     manager="stevenpo"
     editor=""/>
 
-   <tags
-      ms.service="active-directory"
-      ms.devlang="na"
-      ms.topic="article"
-      ms.tgt_pltfrm="na"
-      ms.workload="identity"
-      ms.date="12/01/2015"
-      ms.author="curtand"/>
+<tags
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="01/05/2016"
+    ms.author="curtand"/>
 
 # 整合 Azure Active Directory 單一登入與 SaaS 應用程式  
 
@@ -68,4 +68,4 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 
 Azure.com 文件庫中還有更多關於這些議題的詳細資訊，請先閱讀[什麼是應用程式存取與單一登入搭配 Azure Active Directory](active-directory-appssoaccess-whatis.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

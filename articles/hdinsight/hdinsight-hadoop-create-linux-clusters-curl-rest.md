@@ -27,7 +27,7 @@ Azure REST API 可讓您對裝載於 Azure 平台的服務執行管理作業，�
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
-##必要條件
+###必要條件
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
@@ -259,7 +259,7 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 ##登入您的 Azure 訂用帳戶
 
-依照[從 Azure 命令列介面 (Azure CLI) 連線到 Azure 訂用帳戶](../xplat-cli-connect.md)中記載的步驟，使用 __login__ 方法連線到您的訂用帳戶。
+依照[從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶](../xplat-cli-connect.md)中記載的步驟，使用 __login__ 方法連線到您的訂用帳戶。
 
 ##建立服務主體
 
@@ -355,4 +355,4 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python-topology.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

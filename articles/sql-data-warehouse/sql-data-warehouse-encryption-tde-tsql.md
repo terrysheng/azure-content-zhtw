@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="開始使用 SQL 資料倉儲透明資料加密 (TDE) TSQL| Microsoft Azure" 
-	description="開始使用 SQL 資料倉儲透明資料加密 (TDE) TSQL" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="開始使用 SQL 資料倉儲透明資料加密 (TDE) TSQL| Microsoft Azure" 
+   description="開始使用 SQL 資料倉儲透明資料加密 (TDE) TSQL" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # 開始使用透明資料加密 (TDE)
 > [AZURE.SELECTOR]
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

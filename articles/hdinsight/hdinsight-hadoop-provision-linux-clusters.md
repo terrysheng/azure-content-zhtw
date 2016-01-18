@@ -18,7 +18,7 @@
    	ms.author="nitinme"/>
 
 
-#在 HDInsight 中建立以 Linux 為基礎的叢集
+#在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集
 
 [AZURE.INCLUDE [選取器](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -282,4 +282,4 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

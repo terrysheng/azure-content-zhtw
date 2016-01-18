@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # 10 GbE 網路介面在 StorSimple 裝置上支援的硬體
@@ -112,4 +112,4 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 
 [深入了解 StorSimple 硬體元件與狀態](storsimple-monitor-hardware-status.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

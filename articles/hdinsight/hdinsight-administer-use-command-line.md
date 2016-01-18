@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/04/2016"
 	ms.author="jgao"/>
 
 # 使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集
@@ -47,74 +47,7 @@
 	
 ##建立叢集
 
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
-
-您必須擁有 Azure 資源管理 (ARM) 與 Azure Blob 儲存體帳戶才能建立 HDInsight 叢集。若要建立 HDInsight 叢集，您必須指定下列項目:
-
-- **Azure 資源群組**：資料湖分析帳戶必須建立在 Azure 資源群組內。Azure 資源管理員可讓您將應用程式中的資源做為群組使用。您可以透過單一、協調的作業來部署、更新或刪除應用程式的所有資源。 
-
-	若要列出訂用帳戶中的資源群組：
-	
-		azure group list 
-	
-	若要建立新的資源群組：
-	
-		azure group create -n "<Resource Group Name>" -l "<Azure Location>"
-
-- **HDInsight 叢集名稱**
-
-- **位置**：其中一個支援 HDInsight 叢集的 Azure 資料中心。如需支援的位置，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
-
-- **預設儲存體帳戶**：HDInsight 使用 Azure Blob 儲存體容器做為預設檔案系統。必須要有 Azure 儲存體帳戶，才能夠建立 HDInsight 叢集。
-
-	建立新的 Azure 儲存體帳戶：
-	
-		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
-
-	> [AZURE.NOTE]儲存體帳戶必須與 HDInsight 並存於資料中心內。儲存體帳戶類型不能是 ZRS，因為 ZRS 不支援資料表。
-
-	如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]。
-	
-	如果您已經有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，則可使用下列命令來擷取資訊：
-	
-		-- Lists Storage accounts
-		azure storage account list
-		-- Shows a Storage account
-		azure storage account show "<Storage Account Name>"
-		-- Lists the keys for a Storage account
-		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
-
-	如需使用 Azure 入口網站取得資訊的詳細資訊，請參閱[建立、管理或刪除儲存體帳戶][azure-create-storageaccount]的「檢視、複製及重新產生儲存體存取金鑰」一節。
-
-- **(選擇性) 預設 Blob 容器**：如果容器不存在，**azure hdinsight cluster create** 命令會建立容器。如果您選擇預先建立容器，您可以使用下列命令：
-
-	azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> [ContainerName]
-
-在儲存體帳戶就緒後，您即可建立叢集：
-
-	azure hdinsight cluster create --resource-group <Resource Group Name> --clusterName <Cluster Name> --location <Location> --osType <Windows | Linux> --version <Cluster Version> --clusterType <Hadoop | HBase | Spark | Storm> --storageAccountName <Default Storage Account Name> --storageAccountKey <Storage Account Key> --storageContainer <Default Storage Container> --username <HDInsight Cluster Username> --password <HDInsight Cluster Password> --sshUserName <SSH Username> --sshPassword <SSH User Password> --workerNodeCount <Number of Worker Nodes>
-
-
-##使用組態檔建立叢集
-一般而言，您會建立 HDInsight 叢集、在叢集上執行工作，然後就刪除叢集，以降低成本。此命令列介面可讓您選擇將組態儲存至檔案，以便您在每次建立叢集時皆可加以重複使用。
-
-	azure hdinsight config create [options ] <Config File Path> <overwirte>
-	azure hdinsight config add-config-values [options] <Config File Path>
-	azure hdinsight config add-script-action [options] <Config File Path>
-
-範例：建立一個組態檔，其中包含會在建立叢集時執行的指令碼動作。
-
-	azure hdinsight config create "C:\myFiles\configFile.config"
-	azure hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <Script Action URI> --name myScriptAction --parameters "-param value"
-	azure hdinsight cluster create --configurationPath "C:\myFiles\configFile.config"
-
-##使用指令碼動作來建立叢集
-
-下列是一個範例：
-
-	azure hdinsight cluster create -g myarmgroup01 -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-	
-如需一般使用指令碼動作的資訊，請參閱[使用指令碼動作來自訂 HDInsight 叢集 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)。
+請參閱[使用 Azure CLI 在 HDInsight 中建立 Windows 型 Hadoop 叢集](hdinsight-hadoop-create-windows-clusters-cli.md)。
 
 ##列出和顯示叢集詳細資料
 使用下列命令，以列出並顯示叢集詳細資料：
@@ -173,4 +106,4 @@
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "列出和顯示叢集"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

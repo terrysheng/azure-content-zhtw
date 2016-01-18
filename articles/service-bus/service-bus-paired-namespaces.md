@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # 配對命名空間實作詳細資料和成本影響
@@ -117,9 +117,6 @@ Ping 訊息是空的 [BrokeredMessage][]，其 [ContentType][] 屬性設定為 a
   [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
   [TimeoutException]: https://msdn.microsoft.com/library/azure/system.timeoutexception.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-  [0]: ./media/service-bus-paired-namespaces/IC673405.png
-  [1]: ./media/service-bus-paired-namespaces/IC673406.png
-  [2]: ./media/service-bus-paired-namespaces/IC673407.png
   [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
   [TimeSpan]: https://msdn.microsoft.com/library/azure/system.timespan.aspx
   [PingPrimaryInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.pingprimaryinterval.aspx
@@ -128,5 +125,8 @@ Ping 訊息是空的 [BrokeredMessage][]，其 [ContentType][] 屬性設定為 a
   [ContentType]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx
   [TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
   [非同步傳訊模式和高可用性]: service-bus-async-messaging.md
+  [0]: ./media/service-bus-paired-namespaces/IC673405.png
+  [1]: ./media/service-bus-paired-namespaces/IC673406.png
+  [2]: ./media/service-bus-paired-namespaces/IC673407.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -8,7 +8,7 @@
 
 3. 在 [**修改磁碟區容器**] 對話方塊中，執行下列動作：
 
-    1. 變更磁碟區容器的名稱、修改相關聯的頻寬，並指定位於雲端的資料是否需要加密。
+    1. 變更磁碟區容器的名稱並修改相關頻寬設定。 
 
         ![使用頻寬範本 1 修改磁碟區容器](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
@@ -26,4 +26,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

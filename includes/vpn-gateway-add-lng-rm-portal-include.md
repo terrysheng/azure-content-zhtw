@@ -1,11 +1,13 @@
-To create a local network gateway, follow the steps below:
+若要建立區域網路閘道，請依照下列步驟執行：
 
-1. Use **Browse** and fildter to locate the **Local network gateways** blade, then click **Add**.
-2. On the **Create local network gateways blade**, **Name** your local network gateway object. For this example, we'll name the local network gateway *GW1LocalNet*.
-3. Configure an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure. This is the device IP address that your Azure gateway will connect to.
-4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces. 
-5. For **Subscription**, verify that the correct subscription is showing.
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
-7. For **Location**, verify that the location is the same as the virtual network gateway that you will associate this with.
-8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
-9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard. This shouldn't take very long to create.
+1. 使用 [瀏覽] 和篩選器來找出 [區域網路閘道] 刀鋒視窗，然後按一下 [新增]。
+2. 在 [建立區域網路閘道] 刀鋒視窗中，輸入區域網路閘道物件的 [名稱]。對於此範例，我們將區域網路閘道命名為 *GW1LocalNet*。
+3. 設定閘道的 [IP 位址]。這是您要連線之外部 VPN 裝置的 IP 位址。它不能在 NAT 後方且必須可讓 Azure 連線。這是 Azure 閘道要連線的裝置 IP 位址。
+4. [位址空間] 是區域 (通常為內部部署) 網路的位址範圍。您可以加入多個位址空間範圍。這裡輸入的範圍不能和用於任何將透過閘道通訊之虛擬網路的位址空間範圍重複。您需要協調內部部署設定與 Azure 虛擬網路位址空間。 
+5. 對於 [訂用帳戶]，請確認顯示的是正確的訂用帳戶。
+6. 對於 [資源群組]，請選取要使用的資源群組。您可以建立新的資源群組或選取已建立的資源群組。若要建立新的資源群組，請在方塊中輸入名稱。若要選取已建立的資源群組，請按一下 [資源群組] 以開啟 [資源群組] 刀鋒視窗，然後選取要使用的資源群組。
+7. 對於 [位置]，請確認位置與要關聯的虛擬網路閘道相同。
+8. 如果想要很容易地從儀表板找到這個區域網路閘道，請保留選取 [釘選到儀表板]。
+9. 按一下 [建立] 來建立區域網路閘道。您將會在儀表板上看到「正在部署區域網路閘道」。應該不會花費太多時間即可建立完成。
+
+<!---HONumber=AcomDC_0107_2016-->

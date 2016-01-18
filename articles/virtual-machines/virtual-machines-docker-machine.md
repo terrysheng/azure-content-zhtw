@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="rasquill"/>
 
 # 如何搭配 Azure 使用 docker-machine
@@ -62,7 +62,7 @@
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-2. 將憑證的 .cer 檔案上傳至 Azure。在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，按一下服務區域左下方的 \[設定] (如下所示)
+2. 將憑證的 .cer 檔案上傳至 Azure。在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，按一下服務區域左下方的 [設定] (如下所示)
 
 	![][portalsettingsitem]
 
@@ -70,7 +70,7 @@
 
 	![][managementcertificatesitem]
 
-	接著按一下 \[上傳] (位於頁面下方) ![][uploaditem]，以上傳您在上一個步驟中建立的 **mycert.cer** 檔案。
+	接著按一下 [上傳] (位於頁面下方) ![][uploaditem]，以上傳您在上一個步驟中建立的 **mycert.cer** 檔案。
 
 3. 在入口網站的同一個 [設定] 窗格中，按一下 [訂戶帳戶]，以擷取要在您建立 VM 時使用的訂用帳戶識別碼，因為您將在下一個步驟中用到它 (您也可以在命令列上，使用 Azure CLI 命令 `azure account list` 來尋找訂用帳戶識別碼，其會顯示該帳戶中您所擁有之每個訂用帳戶的訂用帳戶識別碼)。
 
@@ -201,7 +201,7 @@
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-前往 [Docker 使用者指南](https://docs.docker.com/userguide/)，並在 Microsoft Azure 上建立一些應用程式。或者，在 Azure 上使用 [**docker** 和 swarm](https://github.com/docker/swarm) (virtual-machines-docker-swarm)，看看 swarm 如何與 docker 及 Azure 搭配使用。
+前往 [Docker 使用者指南](https://docs.docker.com/userguide/)，並在 Microsoft Azure 上建立一些應用程式。或者，在 Azure 上使用 [**docker** 和 swarm](https://github.com/docker/swarm) (virtual-machines-docker-swarm.md)，看看 swarm 如何與 docker 及 Azure 搭配使用。
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -214,4 +214,4 @@
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

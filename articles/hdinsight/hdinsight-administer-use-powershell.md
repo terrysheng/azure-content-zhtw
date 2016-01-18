@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/04/2016"
 	ms.author="jgao"/>
 
 # 使用 Azure PowerShell 管理 HDInsight 上的 Hadoop 叢集
@@ -33,7 +33,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 ##安裝 Azure PowerShell 1.0 或更新版本
 
-首先，您必須解除安裝 0.9x 版本。
+首先，您必須先解除安裝 0.9x 版本。
 
 檢查已安裝的 PowerShell 版本：
 
@@ -41,9 +41,9 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 	
 若要解除安裝較舊的版本，請在控制台中執行 [程式和功能]。
 
-安裝 Azure PowerShell 有兩個主要選項。
+共有兩個安裝 Azure PowerShell 的主要選項。
 
-- [PowerShell 資源庫](https://www.powershellgallery.com/)。從提高權限的 PowerShell ISE 或提高權限的 Windows PowerShell 主控台中，執行下列命令：
+- [PowerShell 資源庫](https://www.powershellgallery.com/)。從提高權限的 PowerShell ISE 或提高權限的 Windows PowerShell 主控台執行下列命令：
 
 		# Install the Azure Resource Manager modules from PowerShell Gallery
 		Install-Module AzureRM
@@ -60,9 +60,9 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 	如需詳細資訊，請參閱 [PowerShell 資源庫](https://www.powershellgallery.com/)。
 
-- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps)。若您已安裝 Azure PowerShell 0.9.x，系統將提示您解除安裝 0.9.x。若您從 PowerShell 資源庫安裝 Azure PowerShell 模組，安裝程式會要求在執行安裝前先移除模組，以確保提供一致的 Azure PowerShell 環境。如需指示，請參閱[透過 WebPI 安裝 Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps)。如果您已安裝 Azure PowerShell 0.9.x，系統將提示您解除安裝 0.9.x。如果您是從 PowerShell 資源庫安裝 Azure PowerShell 模組，必須在安裝安裝程式之前先移除模組，以確保 Azure PowerShell 環境保持一致。如需指示，請參閱[透過 WebPI 安裝 Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
-WebPI 每個月都會更新。PowerShell 資源庫會持續更新。若您想要透過 PowerShell 資源庫安裝，則此為取得最新最優異 Azure PowerShell 的首要管道。
+WebPI 每個月都會更新。PowerShell 資源庫將持續更新。若您想要透過 PowerShell 資源庫安裝，則此為取得最新最優異 Azure PowerShell 的首要管道。
 
 ##建立叢集
 
@@ -79,7 +79,7 @@ HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob �
 	Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
 	Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
 
-若您有多個 Azure 訂用帳戶，則會呼叫 **Select-AzureRMSubscription**。
+如果您多個 Azure 訂用帳戶時會呼叫 **Select-AzureRMSubscription**。
 	
 **建立新的資源群組**
 
@@ -232,7 +232,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 	# Credential option 1
 	$hadoopUserName = "admin"
-	$hadoopUserPassword = "Pass@word123"
+	$hadoopUserPassword = "<Enter the Password>"
 	$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
 	$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
@@ -332,4 +332,4 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

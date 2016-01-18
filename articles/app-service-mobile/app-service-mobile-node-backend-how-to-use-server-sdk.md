@@ -24,7 +24,7 @@
 
 本文提供詳細的資訊及範例，說明如何在 Azure App Service Mobile Apps 中使用 Node.js 後端。
 
-> [AZURE.NOTE]此 SDK 目前為預覽狀態。因此，不建議您在生產環境中使用此 SDK。本文件中的範例使用 v2.0.0-beta1 的 [azure-mobile-apps]。
+> [AZURE.NOTE]此 SDK 目前為預覽狀態。因此，不建議您在生產環境中使用此 SDK。本文件中的範例使用 v2.0.0-beta2 的 [azure-mobile-apps]。
 
 ## <a name="Introduction"></a>簡介
 
@@ -372,7 +372,7 @@ _azureMobile.js_ 檔案中的大部分設定在 [Azure 入口網站]中都有對
 
 6. 在新「行動應用程式」後端中，依序按一下 [設定] > [行動應用程式] > [資料] > [+加入]。
 
-7. 在 [加入資料連接] 刀鋒視窗中，依序按一下 [SQL Database - 設定必要設定] > [建立新的資料庫]。在 [名稱] 欄位中輸入新資料庫的名稱。
+7. 在 [新增資料連接] 刀鋒視窗中，依序按一下 [SQL Database - 設定必要設定] > [建立新的資料庫]。在 [名稱] 欄位中輸入新資料庫的名稱。
 
 8. 按一下 [伺服器]。在 [新增伺服器] 刀鋒視窗中，於 [伺服器名稱] 欄位中輸入唯一的伺服器名稱，然後提供合適的 [伺服器管理登入] 和 [密碼]。確定已勾選 [允許 Azure 服務存取伺服器]。按一下 [確定]。
 
@@ -382,7 +382,7 @@ _azureMobile.js_ 檔案中的大部分設定在 [Azure 入口網站]中都有對
 
 10. 返回 [加入資料連接] 刀鋒視窗，選取 [連接字串]，輸入您建立資料庫時提供的登入與密碼。如果您使用現有的資料庫，請提供該資料庫的登入認證。輸入完成後，按一下 [確定]。
 
-11. 再次返回 [加入資料連接] 刀鋒視窗，按一下 [確定] 以建立資料庫。
+11. 再次返回 [**新增資料連接**] 刀鋒視窗，按一下 [**確定**] 以建立資料庫。
 
 <!--- END OF ALTERNATE INCLUDE -->
 
@@ -561,7 +561,7 @@ _azureMobile.js_ 檔案中的大部分設定在 [Azure 入口網站]中都有對
 
 1. 建立 [api] 目錄。
 2. 在 [api] 目錄中建立 API 定義 JavaScript 檔案。
-3. 使用匯入方法將 [api] 目錄匯入。
+3. 使用匯入方法將 **api** 目錄匯入。
 
 以下是根據我們先前使用的基本應用程式範例所做的原型 API 定義。
 
@@ -635,7 +635,7 @@ Azure App Service 提供數個適用於 Node.js 應用程式的偵錯和疑難�
 
 Node.js 應用程式可存取多種不同的診斷記錄工具。在內部，Azure Mobile Apps Node.js SDK 會使用 [Winston] 進行診斷記錄。啟用偵錯模式，或是在 [Azure 入口網站]中將 **MS\_DebugMode** 應用程式設定設為 true，即會自動啟用此功能。產生的記錄檔會顯示在 [Azure 入口網站]上的「診斷記錄」中。
 
-## <a name="in-portal-editing"></a>入口網站中的程式碼編輯體驗
+## <a name="in-portal-editing"></a>入口網站中的程式碼編輯經驗
 
 Azure 入口網站中的特殊工具可讓您輕鬆地使用 Node.js 後端專案，而不需下載程式碼專案。入口網站中的簡單資料表和簡單 API，可讓您直接在入口網站中建立及使用資料表和自訂 API。您甚至可以直接在入口網站中使用 Visual Studio Team Services "Monaco" 編輯器，來編輯資料表作業和 API 指令碼。
 
@@ -698,7 +698,7 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [如何設定 Google 驗證]: app-service-mobile-how-to-configure-google-authentication.md
 [如何設定 Microsoft 驗證]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [如何設定 Twitter 驗證]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service 部署指南]: ../app-service-web/web-site-deploy.md
+[Azure App Service 部署指南]: ../app-service-web/web-sites-deploy.md
 [監視 Azure App Service]: ../app-service-web/web-sites-monitor.md
 [在 Azure App Service 中啟用診斷記錄]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [在 Visual Studio 中疑難排解 Azure App Service]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
@@ -722,4 +722,4 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

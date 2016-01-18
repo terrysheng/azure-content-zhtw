@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽︰用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具
@@ -36,7 +36,7 @@
 
 - 建置[這裡](active-directory-b2c-overview.md#getting-started)所列的其中一個 Azure AD B2C 快速入門應用程式。
 - 使用預先建置的 [Azure AD B2C 遊樂場](https://aadb2cplayground.azurewebsites.net)應用程式。如果您選擇使用遊樂場，您必須在 B2C 租用戶中使用**重新導向 URI** `https://aadb2cplayground.azurewebsites.net/` 註冊應用程式
-- 在 [Azure Preview 入口網站](https://portal.azure.com)中，使用原則的 [立即執行] 按鈕。
+- 在 [Azure 入口網站](https://portal.azure.com)中，使用原則的 [立即執行] 按鈕。
 
 ## 自訂您的原則
 
@@ -44,7 +44,7 @@
 
 基於本教學課程的目的，我們已經建立一些範例內容並裝載於 Azure Blob 儲存體。範例內容以虛構的公司 "Contoso B2C" 為例，示範如何以非常基本的方式自訂佈景主題。若要在您自己的原則中試用一下，請遵循下列步驟：
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com)上登入您的租用戶並瀏覽至 B2C 功能刀鋒視窗。
+1. 在 [Azure 入口網站](https://portal.azure.com)上登入您的租用戶並瀏覽至 B2C 功能刀鋒視窗。
 2. 按一下 [註冊原則]，然後按一下您的註冊原則 (例如 "b2c\_1\_sign\_up")。
 3. 按一下 [頁面 UI 自訂]，然後按一下 [身分識別提供者選取頁面]。
 4. 將 [使用自訂範本] 開關切換到 [是]。在 [自訂頁面 URI] 欄位中輸入 `https://contosob2c.blob.core.windows.net/static/Index.html`。按一下 [確定]。
@@ -59,17 +59,16 @@
 
 #### 建立儲存體帳戶
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下 [+新增] -> [資料 + 儲存體] -> [儲存體帳戶]。您需要有 Azure 訂用帳戶才能建立 Azure Blob 儲存體帳戶。您可以[在這裡](https://azure.microsoft.com/pricing/free-trial/)註冊免費試用。
-3. 提供儲存體帳戶的 [名稱] \(例如 "contoso")，並且為 [定價層]、[資源群組] 和 [訂用帳戶] 挑選適當的選項。確定您已核取 [釘選到「開始面板」] 選項。按一下 [建立]。
+3. 提供儲存體帳戶的 [名稱] (例如 "contoso")，並且為 [定價層]、[資源群組] 和 [訂用帳戶] 挑選適當的選項。確定您已核取 [釘選到「開始面板」] 選項。按一下 [建立]。
 4. 回到「開始面板」，按一下您剛建立的儲存體帳戶。
 5. 在 [摘要] 區段之下，按一下 [容器]，然後按一下 [+新增]。
-6. 提供容器的 [名稱] \(例如 "b2c")，並選取 [Blob] 作為 [存取類型]。按一下 [確定]。
+6. 提供容器的 [名稱] (例如 "b2c")，並選取 [Blob] 作為 [存取類型]。按一下 [確定]。
 7. 您建立的容器將會出現在 [Blob] 刀鋒視窗的清單中。請記下容器的 URL；例如，看起來應該像 `https://contoso.blob.core.windows.net/b2c`。關閉 [Blob] 刀鋒視窗。
 8. 在儲存體帳戶刀鋒視窗中，按一下 [金鑰]，並記下 [儲存體帳戶名稱] 和 [主要存取金鑰] 欄位的值。
 
-> [AZURE.NOTE]
-	[主要存取金鑰] 是重要的安全性認證。
+> [AZURE.NOTE][主要存取金鑰] 是重要的安全性認證。
 
 #### 下載協助程式工具和範例檔案
 
@@ -91,4 +90,4 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
         
 現在，您可以使用 [立即執行] 按鈕或您自己的應用程式，再次執行您的原則。結果看起來應該幾乎完全相同 - 您在兩個案例中都使用相同的範例 HTML 和 CSS。不過，您的原則現在會參考您自己的 Azure Blob 儲存體執行個體，您可以自由編輯和重新上傳檔案。如需有關自訂 HTML 和 CSS 的詳細資訊，請參閱[主要 UI 自訂](active-directory-b2c-reference-ui-customization.md)文章。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

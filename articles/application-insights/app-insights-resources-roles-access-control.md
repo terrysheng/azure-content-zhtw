@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
  
 # Application Insights 中的資源、角色及存取控制
@@ -110,4 +110,4 @@ Application Insights 元件參與者 | 可以編輯 Application Insights 資源�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

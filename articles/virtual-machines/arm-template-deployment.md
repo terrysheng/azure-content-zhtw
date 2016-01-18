@@ -44,25 +44,25 @@
 
 1. 開啟 Azure PowerShell 命令提示字元，然後執行此命令，並在出現提示時，輸入您的訂用帳戶的認證：
 
-			Login-AzureRmAccount
+	    Login-AzureRmAccount
 
 2. 將下列命令中的 {password} 取代成您想要使用的密碼，然後執行該命令以建立應用程式：
 
-			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
 	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以在 Azure 入口網站「Active Directory」區段中應用程式的 [用戶端識別碼] 欄位內尋找應用程式識別碼。
 
 3. 將 {application-id} 取代成您剛才記錄的識別碼，然後建立應用程式的服務主體：
 
-			New-AzureRmADServicePrincipal -ApplicationId {application-id}
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
 4. 設定使用應用程式的權限：
 
-			New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## 步驟 2：建立 Visual Studio 專案、範本檔案，以及參數檔案
 
-### 建立範本檔案
+###建立範本檔案
 
 有了 Azure Resource Manager 範本之後，您就可以使用 JSON 來敘述資源、相關設定和部署參數，一起部署和管理 Azure 資源。您在本教學課程中建立的範本，類似於資源庫中提供的範本。如需深入了解範本，請參閱[在美國西部部署簡單的 Windows VM](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/)。
 
@@ -74,9 +74,9 @@
 
 3. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [**加入**] > [**新增項目**]。
 
-4. 在 [加入新項目] 視窗中，選取 [**文字檔**]，輸入 *VirtualMachineTemplate.json* 做為名稱，然後按一下 [**新增**]。
+4.	在 [加入新項目] 視窗中，選取 [**文字檔**]，輸入 *VirtualMachineTemplate.json* 做為名稱，然後按一下 [**新增**]。
 
-5. 開啟 VirtualMachineTemplate.json 檔案，然後加入開頭和結尾括號、必要的結構描述元素和必要的 contentVersion 元素：
+5.	開啟 VirtualMachineTemplate.json 檔案，然後加入開頭和結尾括號、必要的結構描述元素和必要的 contentVersion 元素：
 
 	```
 	{
@@ -148,7 +148,7 @@
 	}
 	```
 
-8. [資源](../resource-group-authoring-templates.md#resources)，例如虛擬機器、虛擬網路，以及儲存體帳戶接下來會在範本中定義。
+8.	[資源](../resource-group-authoring-templates.md#resources)，例如虛擬機器、虛擬網路，以及儲存體帳戶接下來會在範本中定義。
 
     在變數區段之後加入資源區段：
 
@@ -293,17 +293,17 @@
 		}
 		```
 
-9. 儲存您所建立的範本檔案。
+9.	儲存您所建立的範本檔案。
 
-### 建立參數檔案
+###建立參數檔案
 
 若要為範本中所定義的資源參數指定值，您可以建立參數檔案，其中包含值並且將其提交至具有範本的資源管理員。在 Visual Studio 中，執行下列操作：
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後依序按一下 [**加入**]、[**新增項目**]。
+1.	在 [方案總管] 中，以滑鼠右鍵按一下專案，然後依序按一下 [**加入**]、[**新增項目**]。
 
-2. 在 [加入新項目] 視窗中，選取 [**文字檔**]，輸入 *Parameters.json* 做為名稱，然後按一下 [**新增**]。
+2.	在 [加入新項目] 視窗中，選取 [**文字檔**]，輸入 *Parameters.json* 做為名稱，然後按一下 [**新增**]。
 
-3. 開啟 parameters.json 檔案，然後加入下列 JSON 內容：
+3.	開啟 parameters.json 檔案，然後加入下列 JSON 內容：
 
 	```
 	{
@@ -321,27 +321,27 @@
     >[AZURE.NOTE]本教學課程中會建立執行 Windows Server 作業系統版本的虛擬機器。若要深入了解如何選取其他映像，請參閱[使用 Windows PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](resource-groups-vm-searching.md)。
 
 
-4. 儲存您所建立的參數檔案。
+4.	儲存您所建立的參數檔案。
 
 ### 上傳檔案
 
 範本檔案和參數檔案可由 Azure 資源管理員從 Azure 儲存體帳戶存取。若要在您建立的第一個儲存體中置入檔案，請執行以下作業：
 
-1. 開啟 [伺服器總管]，並且瀏覽至您要將檔案放在其中之儲存體帳戶的容器。對於此教學課程，範本所在的容器會命名為範本。
+1.	開啟 [伺服器總管]，並且瀏覽至您要將檔案放在其中之儲存體帳戶的容器。對於此教學課程，範本所在的容器會命名為範本。
 
-2. 在 [範本] 容器窗格右上角，按一下 [上傳 Blob] 圖示，瀏覽至您建立的 VirtualMachineTemplate.json 檔案，然後按一下 [**開啟**]。
+2.	在 [範本] 容器窗格右上角，按一下 [上傳 Blob] 圖示，瀏覽至您建立的 VirtualMachineTemplate.json 檔案，然後按一下 [**開啟**]。
 
 3. 再按一下 [上傳 Blob] 圖示，瀏覽至您建立的 Parameters.json 檔案，然後按一下 [**開啟**]。
 
-## 步驟 3：安裝程式庫
+##步驟 3：安裝程式庫
 
 NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。您必須安裝 Azure Resource Management Library 和Azure Active Directory Authentication Library。若要在 Visual Studio 中取得這些程式庫，請執行下列操作：
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後按一下 [**管理 NuGet 封裝**]。
+1.	在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後按一下 [**管理 NuGet 封裝**]。
 
-2. 在搜尋方塊中輸入 *Active Directory*，對 Active Directory Authentication Library 封裝按一下 [**安裝**]，然後依照指示，安裝封裝。
+2.	在搜尋方塊中輸入 *Active Directory* ，對 Active Directory Authentication Library 封裝按一下 [**安裝**]，然後依照指示，安裝封裝。
 
-3. 在頁面的頂端，選取 [包含發行前版本]。在搜尋方塊中輸入 *Microsoft.Azure.Management.Resources*，對 Microsoft Azure Resource Management Libraries 按一下 [安裝]，然後依照指示安裝封裝。
+3.      在頁面的頂端，選取 [包含發行前版本]。在搜尋方塊中輸入 *Microsoft.Azure.Management.Resources*，對 Microsoft Azure Resource Management Libraries 按一下 [安裝]，然後依照指示安裝封裝。
 
 您現在已經準備就緒，可以開始使用程式庫建立您的應用程式。
 
@@ -349,7 +349,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 既然已經建立 Azure Active Directory 應用程式並安裝驗證程式庫，您要將應用程式資訊格式化成用來驗證對 Azure 資源管理員的要求的認證。執行下列動作：
 
-1. 開啟您建立之專案的 Program.cs 檔案，然後將下列 using 陳述式加入至檔案的頂端：
+1.	開啟您建立之專案的 Program.cs 檔案，然後將下列 using 陳述式加入至檔案的頂端：
 
 	```
 	using Microsoft.Azure;

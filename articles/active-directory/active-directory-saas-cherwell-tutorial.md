@@ -79,7 +79,7 @@
     ![設定應用程式 URL](./media/active-directory-saas-cherwell-tutorial/IC798992.png "設定應用程式 URL")
 
     1.  在 [登入 URL] 文字方塊中，輸入您的使用者用來登入 **Cherwell** 的 URL (例如：**https://pictdev.cherwellondemand.com/cherwellclient*))。
-2.  按 [**下一步**]
+    2.  按 [**下一步**]
 
 4.  於 [在 Cherwell 設定單一登入] 頁面上，執行下列步驟：
 

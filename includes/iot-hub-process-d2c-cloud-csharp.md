@@ -41,9 +41,11 @@
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ProcessDeviceToCloudMessages** 專案，然後按一下 [管理 NuGet 封裝]。就會顯示 [NuGet 封裝管理員] 對話方塊。
 
-3. 搜尋 **WindowsAzure.ServiceBus**，按一下 [安裝] 並接受使用規定。這會下載、安裝並加入 [Azure 服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)的參考與其所有相依性。
+3. 搜尋 **WindowsAzure.ServiceBus**，按一下 [安裝] 並接受使用規定。
+    這會下載、安裝並加入 [Azure 服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)的參考與其所有相依性。
 
-4. 搜尋 **Microsoft Azure 服務匯流排事件中樞 - EventProcessorHost**，並按一下 [安裝]，然後接受使用規定。這會下載、安裝並加入 [Azure 服務匯流排事件中樞 - EventProcessorHost NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)的參考與其所有相依性。
+4. 搜尋 **Microsoft Azure 服務匯流排事件中樞 - EventProcessorHost**，並按一下 [安裝]，然後接受使用規定。
+    這會下載、安裝並加入 [Azure 服務匯流排事件中樞 - EventProcessorHost NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)的參考與其所有相依性。
 
 5. 以滑鼠右鍵按一下 **ProcessDeviceToCloudMessages** 專案、按一下 [新增]，然後按一下 [類別]。將新類別命名為 **StoreEventProcessor**，然後按一下 [確定] 以建立該類別。
 

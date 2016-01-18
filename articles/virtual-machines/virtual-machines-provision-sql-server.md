@@ -28,6 +28,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
+
 Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。您可以從組件庫選取任一個虛擬機器映像，只要點擊幾下便可以將虛擬機器佈建至 Azure 環境。
 
 在本教學課程中，您將：
@@ -60,9 +61,9 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	- **版本發行日期**。如果有多個映像，請選取最新映像。
 	- 唯一的 [虛擬機器名稱]。
 	- 在 [新的使用者名稱] 方塊中，輸入此機器之本機系統管理員帳戶的唯一使用者名稱。
-	- 在 [新增密碼] 方塊中，輸入增強式密碼。
+	- 在 [新增密碼] 方塊中，輸入增強式密碼。 
 	- 在 [確認密碼] 方塊中，重新輸入密碼。
-	- 從 [**大小**] 下拉式清單中選取適當的大小。
+	- 從 [**大小**] 下拉式清單中選取適當的大小。 
 
 	![VM 組態](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
@@ -75,13 +76,13 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 5. 在第二個 [虛擬機器組態] 頁面上，請設定網路、儲存體和可用性的資源：
 	- 在 [雲端服務] 方塊中，選擇 [Create a new cloud service]。
-	- 在 [Cloud Service DNS Name] 方塊中，提供選擇之 DNS 名稱的第一個部分，使其形成 **TESTNAME.cloudapp.net** 格式的名稱
+	- 在 [Cloud Service DNS Name] 方塊中，提供選擇之 DNS 名稱的第一個部分，使其形成 **TESTNAME.cloudapp.net** 格式的名稱 
 	- 如果您有多個訂用帳戶可供選擇，請選取 [訂用帳戶]。此選擇會決定可使用哪些 **儲存體帳戶**。
-- 在 [REGION/AFFINITY GROUP/VIRTUAL NETWORK] 方塊中，選取代管這個虛擬映像的所在區域。
-	- 在 [儲存體帳戶] 中，可以自動產生帳戶，或從清單中選取一個帳戶。變更 [訂用帳戶] 以查看更多帳戶。
+	- 在 [REGION/AFFINITY GROUP/VIRTUAL NETWORK] 方塊中，選取代管這個虛擬映像的所在區域。
+	- 在 [儲存體帳戶] 中，可以自動產生帳戶，或從清單中選取一個帳戶。變更 [訂用帳戶] 以查看更多帳戶。 
 	- 在 [可用性設定組] 方塊中，選取 [(無)]。
 	- 閱讀及接受法律條款。
-
+	
 
 6. 按一下 [下一步] 箭頭以繼續。
 
@@ -95,7 +96,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	- **啟動中 (佈建中)**
 	- **執行中 (佈建中)**
 	- **執行中**
-
+	
 
 ##<a id="RemoteDesktop">使用遠端桌面開啟 VM 以完成安裝</a>
 

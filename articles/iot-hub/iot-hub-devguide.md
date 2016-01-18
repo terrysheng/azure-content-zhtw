@@ -254,7 +254,7 @@ HTTP 會透過在 **Authorization** 要求標頭中包含有效的權杖來實�
 
 在這兩種情況下，密碼欄位都包含[權杖格式](#tokenformat)一節所述的權杖。
 
-> [AZURE.NOTE][Azure IoT 中樞 SDK][lnk-apis-sdks] 會在連接至服務時自動產生權杖。在某些情況下，SDK 不支援所有的通訊協定或所有驗證方法。
+> [AZURE.NOTE] [Azure IoT 中樞 SDK][lnk-apis-sdks] 會在連接至服務時自動產生權杖。在某些情況下，SDK 不支援所有的通訊協定或所有驗證方法。
 
 #### 相較於 CBS 的 SASL PLAIN
 
@@ -441,19 +441,19 @@ IoT 中樞會公開下列屬性，讓您控制裝置到雲端傳訊。
 **範例**。以下是意見反應訊息的主體範例。
 
 ```
-[
-  {
-    "OriginalMessageId": "0987654321",
-    "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
-    "Description": "Success",
-    "DeviceId": "123",
-    "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
-  },
-  {
-    ...
-  },
-  ...
-]
+    [
+        {
+            "OriginalMessageId": "0987654321",
+            "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+            "Description": "Success",
+            "DeviceId": "123",
+            "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
+        },
+        {
+            ...
+        },
+        ...
+    ]
 ```
 
 #### 雲端到裝置的設定選項 <a id="c2dconfiguration"></a>
@@ -542,4 +542,4 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->

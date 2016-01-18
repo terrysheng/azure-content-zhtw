@@ -466,7 +466,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 		outputBlob.UploadText(output);
 
 
-## 建立 Data Factory
+### 建立 Data Factory
 
 在 [建立自訂活動][](#create-the-custom-activity) 區段中，您建立自訂活動，並將包含二進位檔和 PDB 檔案的 zip 檔案上傳到 Azure blob 容器。在本節中，您將透過使用**自訂活動**的**管線**建立 Azure **Data Factory**。
 

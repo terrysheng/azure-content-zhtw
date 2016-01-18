@@ -88,12 +88,12 @@ Azure Service Fabric 能夠保護叢集中以不同使用者帳戶 (稱為 **Run
 
 接下來，確定 MySetup.bat 檔案已包含於服務封裝中。預設不會包含該檔案。選取該檔案、以滑鼠右鍵按一下操作功能表，然後選擇 [屬性]。在 [屬性] 對話方塊中，確定已將 [複製到輸出目錄] 設為 [有更新時才複製]。如以下螢幕擷取畫面所示。
 
-![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][image1]
+![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][Image1]
 
 現在開啟 MySetup.bat 檔案並加入下列命令：
 
 ~~~
-REM Set a system environment variable. This requires administrator privilege
+REM Set a system environment variable.This requires administrator privilege
 setx -m TestVariable "MyValue"
 echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
@@ -131,7 +131,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ```
 
-## 將 RunAs 原則套用到服務
+## 將 RunAs 原則套用到服務 
 在上述步驟中，您看到了如何將 RunAs 原則套用到 SetupEntryPoint。讓我們深入了解如何建立可當作服務原則套用的不同主體。
 
 ### 建立本機使用者群組
@@ -171,7 +171,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
   </Users>
 </Principals>
 ~~~
-
+ 
 <!-- If an application requires that the user account and password be same on all machines (for example, to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true. The cluster manifest must also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -202,7 +202,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 </Policies>
 ~~~
 
-## 為 HTTP 和 HTTPS 端點指派 SecurityAccessPolicy
+## 為 http 和 https 端點指派 SecurityAccessPolicy
 如果您將 RunAs 原則套用到服務，而服務資訊清單宣告具有 HTTP 通訊協定的端點資源，您必須指定 **SecurityAccessPolicy**，以確保配置給這些端點的連接埠，都已針對用以執行服務的 RunAs 使用者帳戶正確列入存取控制清單中。否則，**http.sys** 無法存取服務，而您從用戶端呼叫時將會失敗。下列範例會將 Customer3 帳戶套用到名為 **ServiceEndpointName** 的端點，並給予完整的存取權限。
 
 ~~~

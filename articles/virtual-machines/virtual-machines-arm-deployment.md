@@ -41,11 +41,11 @@
 
 1. 開啟 Azure PowerShell 提示、執行此命令，然後在出現提示時，輸入您的訂用帳戶認證：
 
-			Login-AzureRmAccount
+	    Login-AzureRmAccount
 
 2. 將下列命令中的 {password} 取代成您想要使用的密碼，然後執行該命令以建立應用程式：
 
-			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
 	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以在 Azure 入口網站「Active Directory」區段中應用程式的 [用戶端識別碼] 欄位內尋找應用程式識別碼。
 
@@ -536,11 +536,11 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 	Console.ReadLine();
 	```
 
-## 步驟 6：執行主控台應用程式
+##步驟 6：執行主控台應用程式
 
-1. 若要執行主控台應用程式，按一下 Visual Studio 中的 [啟動]，然後使用搭配您的訂用帳戶使用的相同使用者名稱和密碼，登入 Azure AD。
+1.	若要執行主控台應用程式，按一下 Visual Studio 中的 [啟動]，然後使用搭配您的訂用帳戶使用的相同使用者名稱和密碼，登入 Azure AD。
 
-2. 傳回每個狀態碼之後，按下 **Enter** 以建立每個資源。建立虛擬機器之後，請執行下一個步驟，再按 Enter 以刪除所有資源。
+2.	傳回每個狀態碼之後，按下 **Enter** 以建立每個資源。建立虛擬機器之後，請執行下一個步驟，再按 Enter 以刪除所有資源。
 
 	此主控台應用程式從開始到完成的完整執行應該需要 5 分鐘左右。在您按下 Enter 以開始刪除資源之前，可能需要幾分鐘時間，先確認 Azure 入口網站中建立的資源，然後再刪除。
 

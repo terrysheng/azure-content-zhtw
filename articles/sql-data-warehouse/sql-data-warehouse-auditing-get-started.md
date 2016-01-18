@@ -120,7 +120,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 ##<a id="subheading-6"></a>自動化
 有數個 PowerShell 指令程式可用來設定 Azure SQL Database 中的稽核。若要存取稽核 Cmdlet，您必須在 [Azure 資源管理員] 模式中執行 PowerShell。
 
-> [AZURE.NOTE][Azure 資源管理員](https://msdn.microsoft.com/library/dn654592.aspx)模組目前為預覽版。它可能沒有如 Azure 模組所提供的相同管理功能。
+> [AZURE.NOTE] [Azure 資源管理員](https://msdn.microsoft.com/library/dn654592.aspx)模組目前為預覽版。它可能沒有如 Azure 模組所提供的相同管理功能。
 
 在 [Azure 資源管理員] 模式中，您可以執行 `Get-Command *AzureSql*` 來列出可用的 Cmdlet。
 
@@ -141,4 +141,4 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->

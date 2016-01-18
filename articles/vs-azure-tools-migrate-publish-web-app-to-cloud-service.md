@@ -19,7 +19,7 @@
 
 若要利用 Azure 的主機服務和延展性，您可以將 Web 應用程式移轉並發佈至 Azure 雲端服務。只要對現有應用程式做少許變更，即可在 Azure 中執行 Web 應用程式。
 
->[AZURE.NOTE]本主題是關於部署到雲端服務，而不是網站。如需部署至網站的相關資訊，請參閱[在 Azure App Service 中部署 Web 應用程式](web-sites-deploy.md)。
+>[AZURE.NOTE] 本主題是關於部署到雲端服務，而不是網站。如需部署至網站的相關資訊，請參閱[在 Azure App Service 中部署 Web 應用程式](web-sites-deploy.md)。
 
 如需 Visual C# 和 Visual Basic 所支援的特定範本清單，請參閱本主題後面的＜支援的專案範本＞一節。
 
@@ -27,7 +27,7 @@
 
 ![將 Web 應用程式發佈至 Microsft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
->[AZURE.NOTE]方案中的 Web 專案才會顯示 [轉換]、[轉換成 Azure 雲端服務專案] 命令。例如，方案中的 Silverlight 專案就不會顯示此命令。當您建立服務封裝或將應用程式發佈至 Azure 時，可能會出現警告或錯誤。這些警告和錯誤可以幫助您在部署至 Azure 之前先修正問題。例如，您可能會收到遺失組件的警告。如需如何將警告視為錯誤的詳細資訊，請參閱[使用 Visual Studio 設定 Azure 雲端服務專案](vs-azure-tools-configuring-an-azure-project.md)。在建置應用程式、使用計算模擬器在本機執行應用程式，或將應用程式發佈至 Azure 時，您可能會在 [錯誤清單] 視窗中看到下列錯誤：「指定的路徑和 (或) 檔案名稱太長」。如果完整的 Azure 專案名稱長度太長，就會發生此錯誤。包括完整路徑在內的專案名稱長度不能超過 146 個字元。例如，以下是包括針對 Silverlight 應用程式所建立之 Azure 專案的檔案路徑在內的完整專案名稱：`c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`。您可能必須將方案移到其他具有較短路徑的目錄，以縮減完整專案名稱的長度。
+>[AZURE.NOTE] 方案中的 Web 專案才會顯示 [轉換]、[轉換成 Azure 雲端服務專案] 命令。例如，方案中的 Silverlight 專案就不會顯示此命令。當您建立服務封裝或將應用程式發佈至 Azure 時，可能會出現警告或錯誤。這些警告和錯誤可以幫助您在部署至 Azure 之前先修正問題。例如，您可能會收到遺失組件的警告。如需如何將警告視為錯誤的詳細資訊，請參閱[使用 Visual Studio 設定 Azure 雲端服務專案](vs-azure-tools-configuring-an-azure-project.md)。在建置應用程式、使用計算模擬器在本機執行應用程式，或將應用程式發佈至 Azure 時，您可能會在 [錯誤清單] 視窗中看到下列錯誤：「指定的路徑和 (或) 檔案名稱太長」。如果完整的 Azure 專案名稱長度太長，就會發生此錯誤。包括完整路徑在內的專案名稱長度不能超過 146 個字元。例如，以下是包括針對 Silverlight 應用程式所建立之 Azure 專案的檔案路徑在內的完整專案名稱：`c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`。您可能必須將方案移到其他具有較短路徑的目錄，以縮減完整專案名稱的長度。
 
 若要從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure，請遵循下列步驟。
 
@@ -45,23 +45,23 @@
 
     - MVC 2、MVC 3、MVC 4 和 Silverlight 商務應用程式所需的組件皆已將 [複製到本機] 屬性設定為 true。此設定會將這些組件新增到用於部署的服務封裝中。
 
-  >[AZURE.IMPORTANT]如果此 Web 應用程式有其他必要組件或檔案，您必須手動設定這些檔案的屬性。如需如何設定這些屬性的相關資訊，請參閱本文後面的＜將檔案包含在服務封裝內＞一節。
+  >[AZURE.IMPORTANT] 如果此 Web 應用程式有其他必要組件或檔案，您必須手動設定這些檔案的屬性。如需如何設定這些屬性的相關資訊，請參閱本文後面的＜將檔案包含在服務封裝內＞一節。
 
-  >[AZURE.NOTE]如果方案中的 Azure 專案已有特定 Web 專案的 Web 角色，此 Web 專案的捷徑功能表上就不會顯示 [轉換]、[轉換成 Azure 雲端服務專案]。
+  >[AZURE.NOTE] 如果方案中的 Azure 專案已有特定 Web 專案的 Web 角色，此 Web 專案的捷徑功能表上就不會顯示 [轉換]、[轉換成 Azure 雲端服務專案]。
 
-  如果您的 Web 應用程式中有多個 Web 專案，而您想要為每個 Web 專案建立 Web 角色，則必須為每個 Web 專案執行此程序中的步驟。這麼做會為每個 Web 角色建立個別的 Azure 專案。您就可以個別發佈每一個 Web 專案。或者，您可以手動對 Web 應用程式中的現有 Azure 專案新增其他 Web 角色。若要這麼做，請開啟 Azure 專案中 [角色] 資料夾的捷徑功能表，然後依序選擇 [新增]、[方案中的 Web 角色專案] 和要新增做為 Web 角色的專案，然後選擇 [確定] 按鈕。
+如果您的 Web 應用程式中有多個 Web 專案，而您想要為每個 Web 專案建立 Web 角色，則必須為每個 Web 專案執行此程序中的步驟。這麼做會為每個 Web 角色建立個別的 Azure 專案。您就可以個別發佈每一個 Web 專案。或者，您可以手動對 Web 應用程式中的現有 Azure 專案新增其他 Web 角色。若要這麼做，請開啟 Azure 專案中 [角色] 資料夾的捷徑功能表，然後依序選擇 [新增]、[方案中的 Web 角色專案] 和要新增做為 Web 角色的專案，然後選擇 [確定] 按鈕。
 
 ## 將 Azure SQL Database 用於應用程式
 
 如果 Web 應用程式的連接字串使用內部部署的 SQL Server Database ，您必須變更此連接字串，使其改用 Azure 裝載之 SQL Database 的執行個體。
 
->[AZURE.IMPORTANT]您的訂用帳戶必須能讓您使用 SQL Database。如果您從 Azure 管理入口網站存取訂用帳戶，您可以確定訂用帳戶所提供的服務。下列指示適用於已發行的管理入口網站。如果您是使用預覽管理入口網站，請跳至下一個程序。
+>[AZURE.IMPORTANT] 您的訂用帳戶必須能讓您使用 SQL Database。如果您從 Azure 管理入口網站存取訂用帳戶，您可以確定訂用帳戶所提供的服務。下列指示適用於已發行的管理入口網站。如果您是使用預覽管理入口網站，請跳至下一個程序。
 
 ### 對連接字串使用 Web 角色中的 SQL Database 執行個體
 
 1. 若要在 Azure 管理入口網站中建立 SQL Database 的執行個體，請遵循下列文章中的步驟：[建立 SQL Database 伺服器](http://go.microsoft.com/fwlink/?LinkId=225109)。
 
-    >[AZURE.NOTE]在設定 SQL Database 執行個體的防火牆規則時，您必須選取 [允許其他 Azure 服務存取此伺服器] 核取方塊。
+    >[AZURE.NOTE] 在設定 SQL Database 執行個體的防火牆規則時，您必須選取 [允許其他 Azure 服務存取此伺服器] 核取方塊。
 
 1. 若要建立用於連接字串的 SQL Database 執行個體，請遵循下列文章中下一節的步驟：[建立 SQL Database](http://go.microsoft.com/fwlink/?LinkId=225110)。
 
@@ -73,11 +73,11 @@
 
   1. 若要顯示資料庫的屬性，請選擇資料庫。[屬性] 檢視隨即出現。
 
-      >[AZURE.NOTE]如果 [屬性] 檢視未出現，您可能需要使用分隔線來加以開啟。
+      >[AZURE.NOTE] 如果 [屬性] 檢視未出現，您可能需要使用分隔線來加以開啟。
 
   1. 若要顯示連接字串，請選擇 [檢視] 旁的省略符號 (...) 按鈕。
 
-    [連接字串] 對話方塊隨即會出現。
+      [連接字串] 對話方塊隨即會出現。
 
   1. 若要複製 ADO.NET 連接字串，請醒目提示文字，然後選擇 Ctrl + C 鍵。
 
@@ -127,7 +127,7 @@
 
     [發佈 Azure 應用程式] 對話方塊隨即開啟，且 Visual Studio 會開始部署程序。如需如何發佈應用程式的詳細資訊，請參閱[使用 Azure Tools 發佈雲端服務](vs-azure-tools-publishing-a-cloud-service.md)中的＜從 Visual Studio 發佈 Azure 應用程式＞。
 
-    >[AZURE.NOTE]您也可以從 Azure 專案發佈 Web 應用程式。若要這麼做，請開啟 Azure 專案的捷徑功能表，然後選擇 [發佈]。
+    >[AZURE.NOTE] 您也可以從 Azure 專案發佈 Web 應用程式。若要這麼做，請開啟 Azure 專案的捷徑功能表，然後選擇 [發佈]。
 
 1. 若要查看部署進度，您可以檢視 [Azure 活動記錄檔] 視窗。部署程序開始時會自動顯示這個記錄檔。您可以展開活動記錄檔中的細目以顯示詳細資訊，如下圖所示：
 
@@ -135,7 +135,7 @@
 
 1. (選用) 若要取消部署程序，請開啟活動記錄檔中該細目的捷徑功能表，然後選擇 [取消並移除]。這會停止部署程序，並從 Azure 中刪除部署環境。
 
-    >[AZURE.NOTE]若要在部署此部署環境後將其移除，您必須使用 Azure 管理入口網站。
+    >[AZURE.NOTE] 若要在部署此部署環境後將其移除，您必須使用 Azure 管理入口網站。
 
 1. (選用) 角色執行個體啟動後，Visual Studio 會自動在 [雲端總管] 或 [伺服器總管] 的 [Azure 計算] 節點中顯示部署環境。您可以從這裡檢視個別角色執行個體的狀態。
 

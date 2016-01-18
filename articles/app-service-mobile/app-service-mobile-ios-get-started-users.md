@@ -18,7 +18,9 @@
 
 # 將驗證新增至您的 iOS 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入 [iOS 快速入門]專案。本教學課程以 [iOS 快速入門]教學課程為基礎，您必須先完成該教學課程。
 
@@ -44,4 +46,4 @@
 [Azure portal]: https://portal.azure.com
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->

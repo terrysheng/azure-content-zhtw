@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # 管理對容器與 Blob 的匿名讀取權限。
@@ -155,4 +155,4 @@
 - [共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)
 - [使用共用存取簽章來委派存取權](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

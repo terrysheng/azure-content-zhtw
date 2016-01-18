@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="rasquill"/>
 
 # 如何搭配 Azure 使用 docker-machine
@@ -201,7 +201,7 @@
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-前往 [Docker 使用者指南](https://docs.docker.com/userguide/)，並在 Microsoft Azure 上建立一些應用程式。或者，在 Azure 上使用 [**docker** 和 swarm](https://github.com/docker/swarm) (virtual-machines-docker-swarm)，看看 swarm 如何與 docker 及 Azure 搭配使用。
+前往 [Docker 使用者指南](https://docs.docker.com/userguide/)，並在 Microsoft Azure 上建立一些應用程式。或者，在 Azure 上使用 [**docker** 和 swarm](https://github.com/docker/swarm) (virtual-machines-docker-swarm.md)，看看 swarm 如何與 docker 及 Azure 搭配使用。
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -214,4 +214,4 @@
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

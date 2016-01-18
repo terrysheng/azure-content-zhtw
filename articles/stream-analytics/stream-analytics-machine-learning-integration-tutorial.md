@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/14/2015" 
+	ms.date="12/30/2015" 
 	ms.author="jeffstok"
 />
 
@@ -33,7 +33,7 @@
 
 ![串流分析機器學習服務教學課程圖 2](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)
 
-## 先決條件
+## 必要條件
 
 本文的先決條件如下：
 
@@ -142,7 +142,7 @@
 
 本教學課程建立了串流分析作業，此作業會讀取串流文字資料，並對其套用即時情緒分析。您不必擔心麻煩的情緒分析模型建立工作，就能完成全部的工作。這是 Cortana 分析套件的其中一項優點。
 
-您也能觀察 Azure 機器語言函式的相關度量。按一下 [監視] 索引標籤。此時會出現三個函式的相關度量。
+您也能觀察 Azure Machine Learning 函式的相關度量。按一下 [監視] 索引標籤。此時會出現三個函式的相關度量。
   
 - 「函式要求」指出機器學習服務 Web 服務的要求數目。  
 - 「函式事件」指出要求中的事件數目：依預設，每個 ML Web 服務的要求可包含多達 1000 個事件。  
@@ -150,4 +150,4 @@
 
     ![串流分析機器學習服務教學課程 ml 監視檢視](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

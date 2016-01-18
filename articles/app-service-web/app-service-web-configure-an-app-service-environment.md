@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/04/2016" 
 	ms.author="ccompy"/>
 
 
@@ -33,7 +33,7 @@ App Service 環境是由數個主要元件所組成：
 - 傳統 "v1" 虛擬網路具有至少一個子網路
 - 在其中執行 Azure App 環境託管服務的子網路
 
-計算資源會用於您的 4 個資源集區。每個 App Service 環境都有一組前端和 3 個背景工作集區。您不需要 3 個背景工作集區都使用，如果您想要，可以只使用其中一個。前端是您放置在 ASE 中的應用程式的 HTTP 端點。背景工作是您的應用程式實際執行之處。何時需要新增更多前端或更多背景工作，牽涉到您放在 ASE 中的應用程式以何種方式執行。例如，假設您在 ASE 上只有一個應用程式，而且是會有大量要求的 hello world 應用程式。在此情況下，您將需要相應增加前端來處理 HTTP 負載，但相對地並不需要相應增加背景工作。以手動方式處理這一切是相當令人怯步的，特別是在考量到每個 ASE 很可能有效能準則互異的不同應用程式執行於其中時。幸而，我們已在 App Service 環境中新增了自動調整功能，這會讓我們的工作輕鬆許多。如需 App Service 環境的調整和自動調整的詳細資訊，請使用以下連結：[如何在 App Service 環境中設定自動調整][ASEAutoscale]
+計算資源會用於您的 4 個資源集區。每個 App Service 環境都有一組前端和 3 個背景工作集區。您不需要 3 個背景工作角色集區都使用，如果您想要，可以只使用其中一個。前端是您放置在 ASE 中的應用程式的 HTTP 端點。背景工作是您的應用程式實際執行之處。何時需要新增更多前端或更多背景工作，牽涉到您放在 ASE 中的應用程式以何種方式執行。例如，假設您在 ASE 上只有一個應用程式，而且是會有大量要求的 hello world 應用程式。在此情況下，您將需要相應增加前端來處理 HTTP 負載，但相對地並不需要相應增加背景工作。以手動方式處理這一切是相當令人怯步的，特別是在考量到每個 ASE 很可能有效能準則互異的不同應用程式執行於其中時。幸而，我們已在 App Service 環境中新增了自動調整功能，這會讓我們的工作輕鬆許多。如需 App Service 環境的調整和自動調整的詳細資訊，請使用以下連結：[如何在 App Service 環境中設定自動調整][ASEAutoscale]
 
 每個 ASE 各設有 500 GB 的儲存體。此空間會用於 ASE 中的所有應用程式。此儲存空間屬於 ASE 的一部分，且目前無法切換為使用客戶的儲存空間。
 
@@ -200,4 +200,4 @@ App Service 環境可設定為最多總計使用 55 個計算資源。在這 55 
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

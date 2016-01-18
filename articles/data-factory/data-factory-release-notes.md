@@ -341,7 +341,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
     
   		如需如何建立自訂活動，並在 Azure Data Factory 管線中使用此活動的逐步解說，請參閱[在 Azure Data Factory 管線中使用自訂活動][adf-custom-activities]。
 
-[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-editor]: data-factory-editor.md
 
@@ -357,4 +357,4 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

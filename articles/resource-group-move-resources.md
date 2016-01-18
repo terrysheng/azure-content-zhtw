@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="01/04/2016" 
 	ms.author="tomfitz"/>
 
 # 將資源移動到新的資源群組或訂用帳戶
@@ -51,24 +51,27 @@
 - Operational Insights
 - Redis 快取
 - 搜尋
-- SQL Database
+- SQL Database 伺服器 (移動伺服器也會移動其所有資料庫。無法將資料庫與伺服器分開移動。)
 - Web 應用程式 (套用部分[限制](app-service-web/app-service-move-resources.md))
 
 支援移動到新資源群組，但不支援移動到新訂用帳戶的服務有：
 
 - 虛擬機器 (傳統)
 - 儲存體 (傳統)
+- 虛擬網路
+- 雲端服務
 
 目前不支援移動資源的服務有：
 
 - 虛擬機器
-- 虛擬網路
 - 儲存體
 
 使用 Web 應用程式時，您無法只移動 App Service 方案。若要移動 Web 應用程式，您的選項如下：
 
 - 如果目的地資源群組還沒有 Microsoft.Web 資源，將所有的資源從某個資源群組移動到不同的資源群組。
 - 將 Web 應用程式移動到不同的資源群組，但在原始的資源群組中保留 App Service 方案。
+
+您無法將 SQL Database 與其伺服器分開移動。資料庫和伺服器必須位於相同的資源群組。當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。
 
 ## 使用 PowerShell 移動資源
 
@@ -113,4 +116,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

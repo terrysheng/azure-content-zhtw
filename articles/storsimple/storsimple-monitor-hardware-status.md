@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務監視硬體元件和狀態
@@ -21,7 +21,9 @@
 
 本文描述內部部署 StorSimple 裝置中的各種實體和邏輯元件。它也會說明如何使用 StorSimple Manager 服務中的 [維護] 頁面監視裝置元件狀態。
 
-[**維護**] 頁面會顯示所有 StorSimple 裝置元件的硬體狀態。在 8100 的元件清單下，有三個區段描述：
+[**維護**] 頁面會顯示所有 StorSimple 裝置元件的硬體狀態。
+
+在 8100 的元件清單下，有三個區段描述：
 
 - **共用元件** – 這些元件不是像磁碟機、機箱、PCM 元件和 PCM 溫度、穩電壓，和電源線電流感應器等屬於控制器的一部分。
 
@@ -44,15 +46,16 @@
 
 執行下列步驟來檢視裝置元件的硬體狀態：
 
-1. 瀏覽至**裝置**，選取特定的 StorSimple 裝置。按一下以進入裝置層級功能表，然後按一下 [**維護**] 索引標籤。 
+1. 瀏覽至**裝置**，選取特定的 StorSimple 裝置。按一下以進入裝置層級功能表，然後按一下 [維護]。 
 2. 找出 [**硬體狀態**] 區段並選擇可用的元件 (如上所述)。只要按一下元件標籤之前的箭號即可展開清單並檢視各種裝置元件的狀態。請參閱[主要機箱的詳細元件清單](#component-list-for-primary-enclosure-of-storsimple-device)和 [EBOD 機箱的詳細元件清單](#component-list-for-ebod-enclosure-of-storsimple-device)。
+
 2. 您可以使用下列色彩編碼配置來解譯元件狀態：
 	-  **綠色核取符號** – 代表**狀況良好**或**確定**元件。
 	-  **黃色** – 代表**警告**狀態中的元件。
 	-  **紅色驚嘆號** – 代表狀態為**失敗**或**需要注意**的元件。
 	-  **白底黑字** – 代表不存在的元件。
 
-3. 如果您遇到狀態不是**狀況良好**的元件，請連絡 Microsoft 支援服務。如果您的裝置上啟用警示，您會收到電子郵件警示。如果您必須更換失敗的硬體元件，請參閱 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
+3. 如果您遇到狀態不是「狀況良好」的元件，請連絡 Microsoft 支援服務。如果您的裝置上啟用警示，您會收到電子郵件警示。如果您必須更換失敗的硬體元件，請參閱 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
 
 ## StorSimple 裝置之主要機箱的元件清單
@@ -125,7 +128,7 @@
 |裝置控制器的連接|I/O|實體|Controller|否|指出 EBOD I/O 模組和裝置控制器之間的連接狀態。|
 
 ## 後續步驟
-- 若要深入了解如何使用 StorSimple Manager，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+- 若要使用 StorSimple Manager 服務來管理裝置，請參閱[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 - 如果您需要疑難排解降級或失敗狀態的裝置元件，請參閱 [StorSimple 監視指示器](storsimple-monitoring-indicators.md)。
 
@@ -133,4 +136,4 @@
 
 - 如果持續發生裝置問題，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,11 +1,13 @@
-When adding a VNet-to-VNet connection, verify that both of your virtual networks have a virtual network gateway and that your virtual networks do not have any overlapping address ranges.
+新增 VNet 對 VNet 連線時，確認二個虛擬網路都有虛擬網路閘道，且您的虛擬網路沒有任何重複的 IP 位址範圍。
 
-1. From the **Virtual networks** blade, locate your virtual network and click to open the blade. On the blade, you will see your gateway listed as a *Connected device*. You can also configure settings directly from your virtual network gateway without first expanding the VNet.
-2. From the virtual network gateway settings, click **Connections**, and then **Add**.
-3. **Name** your Connection. 
-4. For **Connection type**, select **VNet-to-VNet**
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
-6. For **Second virtual network gateway**, select the gateway you want to create a connection to from this gateway.
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+1. 在 [虛擬網路] 刀鋒視窗中，找到您的虛擬網路並按一下以開啟刀鋒視窗。在刀鋒視窗中，您將會看到您的閘道列示為 [連線的裝置]。您也可以直接從虛擬網路閘道設定，不需要先展開 VNet。
+2. 在虛擬網路閘道設定中，依序按一下 [連線]、[新增]。
+3. 輸入連線的 [名稱]。 
+4. 對於 [連線類型]，請選取 [VNet 對 VNet]
+5. 對於 [虛擬網路閘道]，因為您正從此閘道連線，所以值是固定的。
+6. 對於 [第二虛擬網路閘道]，請選取要從此閘道對其建立連線的閘道。
+8. [訂用帳戶]、[資源群組] 和 [位置] 其餘的值是固定的。
+9. 按一下 [確定] 來建立連線。您會看到畫面上閃爍「正在建立連線」。
+10. 連線完成時，您將會看到它出現在您閘道中的 [連線] 刀鋒視窗中。
+
+<!---HONumber=AcomDC_0107_2016-->

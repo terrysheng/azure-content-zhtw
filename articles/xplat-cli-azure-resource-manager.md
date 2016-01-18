@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Azure CLI 搭配資源管理員 | Microsoft Azure"
 	description="使用 Mac、Linux 和 Windows 適用的 Azure CLI 將多個資源做為資源群組部署。"
@@ -68,7 +69,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 	azure group create -n "testRG" -l "West US"
 
-在此之後，您可以開始將資源新增到此群組中，並用它來設定資源 (例如新的虛擬機器)。
+當使用範本來啟動 Ubuntu VM 時，您稍後將會部署到此「testRG」資源群組。一旦建立資源群組後，您便可以加入資源，例如虛擬機器和網路或儲存體。
 
 
 ## 使用資源群組範本
@@ -79,48 +80,50 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 建立新範本已超出本文的範圍，所以我們就從使用可在 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) 取得的 _101-simple-vm-from-image_ 範本著手。根據預設，這會在美國西部區域具有單一子網路的新虛擬網路中，建立單一 Ubuntu 14.04.2-LTS 虛擬機器。您只需要指定下列幾個參數即可使用此範本：
 
-* 唯一的儲存體帳戶名稱
-* VM 的系統管理員使用者名稱
-* 密碼
-* VM 的網域名稱
+* VM 的系統管理員使用者名稱 = `adminUsername`
+* 密碼 = `adminPassword`
+* VM 的網域名稱 = `dnsLabelPrefix`
 
 >[AZURE.TIP]下列步驟將示範搭配 Azure CLI 使用 VM 範本的一種方法。如需其他範例，請參閱[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)。
 
-1. 從 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) 將 azuredeploy.json 和 azuredeploy.parameters.json 檔案下載到本機電腦上的工作資料夾。
+1. 從 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) 將 azuredeploy.json 和 azuredeploy.parameters.json 檔案下載到本機電腦上的工作資料夾。
 
 2. 在文字編輯器中開啟 azuredeploy.parameters.json 檔案，然後輸入您的環境適用的參數值 (**ubuntuOSVersion** 值保持不變)。
 
-		{
-	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  	"contentVersion": "1.0.0.0",
-	  	"parameters": {
-		    "newStorageAccountName": {
-		      "value": "MyStorageAccount"
-		    },
-		    "adminUsername": {
-		      "value": "MyUserName"
-		    },
-		    "adminPassword": {
-		      "value": "MyPassword"
-		    },
-		    "dnsNameForPublicIP": {
-		      "value": "MyDomainName"
-		    },
-		    "ubuntuOSVersion": {
-		      "value": "14.04.2-LTS"
-		    }
-		  }
-		}
-	```
-3. 儲存 azuredeploy.parameters.json 檔案後，請使用下列命令以根據範本建立新資源群組。`-e` 選項會指定您在上一個步驟中修改的 azuredeploy.parameters.json 檔案。將 *testRG* 取代為您要使用的群組名稱，*testDeploy* 取代為您選擇的部署名稱。位置應與您在範本參數檔案中指定的位置相同。
 
-		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
+```
+			{
+			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+			  "contentVersion": "1.0.0.0",
+			  "parameters": {
+			    "adminUsername": {
+			      "value": "azureUser"
+			    },
+			    "adminPassword": {
+			      "value": "GEN-PASSWORD"
+			    },
+			    "dnsLabelPrefix": {
+			      "value": "GEN-UNIQUE"
+			    },
+			    "ubuntuOSVersion": {
+			      "value": "14.04.2-LTS"
+			    }
+			  }
+			}
+
+```
+
+3.  由於部署參數已經過修改，您將部署 Ubuntu VM 到稍早建立的資源群組。選擇部署的名稱，然後使用下列命令來啟動它。
+
+		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+
+	這個範例會建立名為 _testRGDeploy_ 的部署，而該部署會部署到資源群組 _testRG_ 中。`-e` 選項會指定您在上一個步驟中修改的 azuredeploy.parameters.json 檔案。`-f` 選項會指定 azuredeploy.json 範本檔案。
 
 	上傳部署之後及將部署套用至群組中的資源之前，此命令會傳回 [確定]。
 
 4. 若要檢查部署的狀態，請使用下列命令。
 
-		azure group deployment show "testRG" "testDeploy"
+		azure group deployment show "testRG" "testRGDeploy"
 
 	**ProvisioningState** 會顯示部署的狀態。
 
@@ -210,4 +213,4 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

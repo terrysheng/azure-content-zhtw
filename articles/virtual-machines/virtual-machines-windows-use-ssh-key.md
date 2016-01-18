@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="在 Windows 上使用 SSH 來連線至 Linux 虛擬機器 | Microsoft Azure" 
-description="了解如何在 Windows 電腦上產生並使用 SSH 金鑰以連接至 Azure 上的 Linux 虛擬機器。" 
+	pageTitle="在 Windows 上使用 SSH 來連線到 Linux 虛擬機器 | Microsoft Azure" 
+description="了解如何在 Windows 電腦上產生並使用 SSH 金鑰來連線到 Azure 上的 Linux 虛擬機器。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="squillace" 
@@ -14,7 +14,7 @@ description="了解如何在 Windows 電腦上產生並使用 SSH 金鑰以連�
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="01/04/2016" 
 	ms.author="rasquill"/>
 
 #如何在 Azure 上搭配 Windows 使用 SSH
@@ -47,14 +47,14 @@ Azure 的基本 SSH 安裝程式包含 2048 位元的 **ssh-rsa** 公用和私�
 
 以下是部署案例，以及您在每個案例中使用的檔案類型：
 
-1. 使用[預覽入口網站](https://portal.azure.com)的任何部署都需要 **ssh-rsa** 金鑰，無論部署模型為何。
-2. 需要 .pem 檔案才能使用[傳統入口網站](https://manage.windowsazure.com)建立 VM。使用 [Azure CLI](xplat-cli-install.md) 的傳統部署也支援 .pem 檔案。
+1. 無論部署模型為何，使用[預覽入口網站](https://portal.azure.com)的任何部署都需要 **ssh-rsa** 金鑰。
+2. 需要 .pem 檔案才能使用[傳統入口網站](https://manage.windowsazure.com)建立 VM。使用 [Azure CLI](../xplat-cli-install.md) 的傳統部署也支援 .pem 檔案。
 
 > [AZURE.NOTE]如果您打算管理使用傳統部署模型部署的服務，您可能也想要建立 **.cer** 格式檔案以上傳至入口網站 - 雖然這不牽涉到 **ssh** 或連接到 Linux VM，這是本文的主題。若要在 Linux 或 Mac 上建立這些檔案，請輸入
 
-## 在 Windows 上取得 ssh-keygen 和 openssl ##
+## 取得 Windows 相關的 ssh-keygen 和 openssl ##
 
-[本節](#What-SSH-and-key-creation-programs-do-you-need)上方列出數個公用程式，它們包含適用於 Windows 的 `ssh-keygen` 和 `openssl`。以下列出數個範例：
+[本節](#What-SSH-and-key-creation-programs-do-you-need)上方列出數個公用程式，它們包含適用於 Windows 的 `ssh-keygen` 和 `openssl`。以下列出一些範例：
 
 ### 使用 Msysgit ###
 
@@ -70,21 +70,21 @@ Azure 的基本 SSH 安裝程式包含 2048 位元的 **ssh-rsa** 公用和私�
 
 > [AZURE.NOTE]當您執行上述的 `openssl` 命令時，可能會遇到下列錯誤：
 
-			Unable to load config info from /usr/local/ssl/openssl.cnf
-	<!-- -->
-		The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
-	<!-- -->
-		**Powershell:**
-	<!-- -->
-			$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-	<!-- -->
-		**CMD:**
-	<!-- -->
-			set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-	<!-- -->
-		**Git Bash:**
-	<!-- -->
-			export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
+        Unable to load config info from /usr/local/ssl/openssl.cnf
+
+解決此問題最簡單的方法是設定 `OPENSSL_CONF` 環境變數。設定這個變數的程序會因您已在 Github 中設定的殼層而有所不同：
+
+**Powershell：**
+
+        $Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
+
+**CMD：**
+
+        set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
+
+**Git Bash：**
+
+        export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
 	
 
 ###使用 Cygwin###
@@ -155,4 +155,4 @@ Azure 的基本 SSH 安裝程式包含 2048 位元的 **ssh-rsa** 公用和私�
 5.	按一下 [開啟] 以連線到虛擬機器。
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/04/2016"
 	ms.author="nitinme"/>
 
 
@@ -39,7 +39,7 @@
 	-  從 Windows 電腦 - [從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-windows.md)。
 
 
-##在 HDInsight Linux 上建立 Spark 叢集
+## 在 HDInsight Linux 上建立 Spark 叢集
 
 在本節中，您將建立採用 Spark 1.5.1 版的 HDInsight 3.3 版叢集。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。
 
@@ -100,7 +100,7 @@
 
 	![節點定價層刀鋒視窗](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.5.png "指定叢集節點的數目")
 
-	按一下 [選取] 以儲存節點價格組態。
+	按一下 [選取] 以儲存此節點定價組態。
 
 9. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到「開始面板」]，然後按一下 [建立]。這會建立叢集，並將該叢集磚加入到您 Azure 入口網站的開始面板。該圖示可表示該叢集正在建立，並將在建立完成後變更為 HDInsight 圖示。
 
@@ -120,7 +120,7 @@
 
 1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
-2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
 	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
 	>
@@ -246,4 +246,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

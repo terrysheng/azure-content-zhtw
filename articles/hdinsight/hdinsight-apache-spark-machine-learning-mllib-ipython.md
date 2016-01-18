@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/04/2016" 
 	ms.author="nitinme"/>
 
 
@@ -108,7 +108,7 @@
 		    sio.close()
 		    return value
 		
-		inspections = sc.textFile('wasb:///example/data/Food_Inspections1.csv')\
+		inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
 		                .map(csvParse)
 
 
@@ -278,7 +278,7 @@ MLLib 可提供簡單的方法來執行此作業。首先，我們將「語彙�
 下列程式碼片段會建立新的資料框架 **predictionsDf**，其中包含模型所產生的預測。
 
 
-	testData = sc.textFile('wasb:///example/data/Food_Inspections2.csv')\
+	testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
 	testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -385,4 +385,4 @@ MLLib 可提供簡單的方法來執行此作業。首先，我們將「語彙�
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

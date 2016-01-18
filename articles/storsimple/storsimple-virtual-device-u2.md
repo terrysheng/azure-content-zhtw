@@ -32,7 +32,7 @@ StorSimple 虛擬裝置是 Microsoft Azure StorSimple 解決方案提供的另�
 StorSimple 虛擬裝置可以在兩種模型中使用，標準 8010 和進階 8020 (於 Update 2 引進)。下表顯示兩個模型的比較。
 
 
-| 裝置型號 | 8010<sup>1, 2</sup> | 8020<sup>3</sup> |
+| 裝置型號 | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **最大容量** | 30 TB | 64 TB |
 | **Azure VM** | Standard\_A3 (4 核心、7 GB 記憶體) | Standard\_DS3 (4 核心、14 GB 記憶體) |
@@ -41,7 +41,7 @@ StorSimple 虛擬裝置可以在兩種模型中使用，標準 8010 和進階 80
 | **儲存體類型** | 使用 Azure 標準儲存體<br></br>了解如何[建立標準儲存體帳戶]() | 使用 Azure 進階儲存體<br></br>了解如何[建立進階儲存體帳戶](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **工作負載指引** | 從備份的檔案的項目層級擷取 | 雲端開發和測試案例、低延遲、較高效能工作負載<br></br>災害復原的次要裝置 |
  
-<sup>1</sup> *先前稱為 1100*，<sup>2</sup> *代表 Azure 規格*，<sup>3</sup> *AP 代表 Azure 高階規格。*
+<sup>1</sup> *前身為 1100*。
 
 
 本文說明在 Azure 中部署 StorSimple 虛擬裝置的逐步程序。閱讀本文之後，您將能夠：
@@ -260,4 +260,4 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
  
 - 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

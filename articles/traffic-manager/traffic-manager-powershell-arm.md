@@ -65,7 +65,7 @@ Azure 流量管理員使用名為「流量管理員設定檔」的設定集合�
 ### 步驟 2
 登入您的 Azure 帳戶。
 
-	PS C:\> Login-AzureRmAccopunt
+	PS C:\> Login-AzureRmAccount
 
 系統會提示使用您的認證進行驗證。
 
@@ -141,12 +141,13 @@ Cmdlet 在 Azure 流量管理員中建立流量管理員設定檔，並傳回對
 	PS C:\> $profile.Ttl = 300
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-## 新增流量管理員端點 [](#adding-traffic-manager-endpoints)
+## 新增流量管理員端點
 流量管理員端點有三種類型：1.Azure 端點：這些端點代表在 Azure 中託管的服務。2.外部端點：這些端點代表在 Azure 之外託管的服務。3.巢狀端點：這些端點可用來建構巢狀的流量管理員設定檔階層，以針對更複雜的應用程式進行進階流量路由設定。目前還不支援透過 ARM API 使用這些端點。
 
 不論是這三種端點中的哪一種，您都可以透過兩種方式來新增端點：1.使用類似[更新流量管理員設定檔](#update-traffic-manager-profile)中所述方式的 3 步驟程序：使用 Get-AzureRmTrafficManagerProfile 取得設定檔物件、使用 Add-AzureRmTrafficManagerEndpointConfig 將物件離線更新以新增端點，以及使用 Set-AzureRmTrafficManagerProfile 將變更上傳至 Azure 流量管理員。這個方法的優點是單一更新就可以變更許多端點。2.使用 New-AzureRmTrafficManagerEndpoint Cmdlet。這會在單一作業中將端點新增至現有流量管理員設定檔。
 
 ### 新增 Azure 端點
+
 Azure 端點會參考在 Azure 中託管的其他服務。目前支援的 Azure 端點有 3 種類型：1.Azure Web Apps 2.「傳統」雲端服務 (可包含 PaaS 服務或 IaaS 虛擬機器) 3.ARM Microsoft.Network/publicIpAddress 資源 (可附加至負載平衡器或虛擬機器 NIC)。要注意的是，publicIpAddress 必須已獲指派 DNS 名稱，才能在流量管理員中使用。
 
 不論是上述哪一種，都必須注意以下事項：- 要使用 Add-AzureRmTrafficManagerEndpointConfig 或 New-AzureRmTrafficManagerEndpoint 的 'targetResourceId' 參數來指定服務。- 不要指定 'Target' 和 'EndpointLocation'，因為上面指定的 TargetResourceId 已經隱含這兩項。- 您可以選擇是否指定 'Weight'。只有在設定檔已設定為使用「加權」流量路由方法時才會使用 Weight，否則會予以忽略。如果有指定，其值必須介於 1 到 1000 的範圍內。預設值是 '1'。- 您可以選擇是否指定 'Priority'。只有在設定檔已設定為使用「優先順序」流量路由方法時才會使用 Priority，否則會予以忽略。有效值為 1 到 1000 (越低的值優先順序越高)。如果對某個端點指定值，則所有端點也都必須進行指定。如果省略，則會以端點的提供順序套用預設值 (從 1、2、3 開始，依此類推)。
@@ -228,7 +229,7 @@ Disable-AzureRmTrafficManagerProfile Cmdlet 會顯示確認提示，但使用 '-
 
 	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
 
-同樣地，若要停用流量管理員設定檔：
+同樣地，若要停用流量管理員端點：
 
  	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
 
@@ -264,4 +265,4 @@ Disable-AzureRmTrafficManagerProfile Cmdlet 會顯示確認提示，但使用 '-
 [流量管理員的效能考量](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

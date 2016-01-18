@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -45,4 +45,4 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -74,7 +74,7 @@ DocumentDB 可供進行許多的資料庫作業，包括使用 UDF、預存程�
 ## 後續步驟
 如需在 Azure 入口網站上監視效能層級的指示，請參閱[監視 DocumentDB 帳戶](documentdb-monitor-accounts.md)。
 
-如需為集合選擇效能層級的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels)。
+如需為集合選擇效能層級的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

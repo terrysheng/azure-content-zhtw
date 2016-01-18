@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：如何提出 Azure Active Directory B2C 的支援要求
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-您可使用下列步驟，在 Azure Preview 入口網站上提出 Azure Active Directory (AD) B2C 的支援要求：
+您可使用下列步驟，在 Azure 入口網站上提出 Azure Active Directory (AD) B2C 的支援要求：
 
-1. [瀏覽至 Azure Preview 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
+1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
 2. 從 B2C 租用戶切換至另一個擁有相關聯 Azure 訂用帳戶的租用戶。後者通常為員工租用戶，或是您註冊 Azure 訂用帳戶時所建立的預設租用戶。若要深入瞭解 Azure 訂用帳戶與 Azure AD 目錄之間的關係，請詳閱[本文](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad)。
 
     > [AZURE.IMPORTANT]
@@ -52,4 +52,4 @@
 
 ![支援 - 無訂用帳戶](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

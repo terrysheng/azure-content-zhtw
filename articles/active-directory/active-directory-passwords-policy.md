@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 
@@ -60,4 +60,4 @@
 * [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
 * [深入了解](active-directory-passwords-learn-more.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

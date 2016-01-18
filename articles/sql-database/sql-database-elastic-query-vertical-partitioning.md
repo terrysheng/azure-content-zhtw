@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/09/2015"
+    ms.date="01/06/2016"
     ms.author="torsteng;sidneyh" />
 
 # 跨資料庫查詢 (垂直資料分割) 的彈性資料庫查詢
 
 本文件說明如何設定跨資料庫查詢案例 (垂直資料分割) 的彈性查詢以及如何執行您的查詢。如需垂直資料分割案例的定義，請參閱 [Azure SQL Database 彈性資料庫查詢概觀 (預覽)](sql-database-elastic-query-overview.md)。
+
+![在不同資料庫中跨資料表查詢][1]
 
 ## 建立資料庫物件
 
@@ -182,6 +184,9 @@ SCHEMA\_NAME 和 OBJECT\_NAME 子句提供的功能可將外部資料表定義�
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
+
+
 <!--anchors-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

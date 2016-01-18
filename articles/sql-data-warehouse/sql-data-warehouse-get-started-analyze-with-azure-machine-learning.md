@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # 使用 Azure Machine Learning 分析資料
 本教學課程將說明如何透過使用 Azure SQL 資料倉儲資料的 Azure Machine Learning 建置預測性機器學習模型。在本教學課程中，我們將為 Adventure Work 建置鎖定目標的行銷活動，預測客戶是否可能購買自行車。
 
 
-## 先決條件
+## 必要條件
 若要逐步執行本教學課程，您需要
 
 - 具備 AdventureWorksDW 範例資料庫的 SQL 資料倉儲。
@@ -84,9 +84,9 @@
 1. 將 [分割] 模組拖曳至畫布。
 2. 在 [屬性] 窗格中第一個輸出資料集的 [比例] 資料列輸入 0.8。![將資料分成訓練集和測試集][6]
 3. 將 [二元促進式決策樹] 模組拖曳至畫布。
-4. 將 [定型模型] 模組拖曳至畫布並指定輸入。然後按一下 [屬性] 窗格中的 [啟動資料行選取器]。
+4. 將 [培訓模型] 模組拖曳至畫布並指定輸入。然後按一下 [屬性] 窗格中的 [啟動資料行選取器]。
       - 第一個輸入：ML 演算法。
-      - 第二個輸入：用來將演算法定型的資料。![連接定型模型模組][7]
+      - 第二個輸入：用來將演算法定型的資料。![連接培訓模型模組][7]
 5. 選取 **BikeBuyer** 資料行做為要預測的資料行。![選取要預測的資料行][8]
 
 
@@ -139,4 +139,4 @@
 [手動載入範例資料]: sql-data-warehouse-get-started-manually-load-samples.md
 [建立 SQL 資料倉儲]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

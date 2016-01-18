@@ -23,7 +23,7 @@
 - [Windows](../articles/virtual-machines/virtual-machines-windows-use-ssh-key.md)
 - [Linux/Mac](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)
 
-本主題描述如何在 Linux 和 Mac 上使用 **ssh-keygen** 和 **openssl**，以建立和使用 **ssh-rsa** 格式和 **.pem** 格式檔案來保護與 Linux 型 Azure VM 的安全通訊。建議您建立新的部署時，使用資源管理員部署模型建立以 Linux 為基礎的 Azure 虛擬機器，並採用 *ssh-rsa* 類型的公用金鑰檔案或字串 (取決於部署用戶端)。[預覽入口網站](https://portal.azure.com) 目前僅接受 **ssh-rsa** 格式的字串，不論是傳統或資源管理員的部署。
+本主題描述如何在 Linux 和 Mac 上使用 **ssh-keygen** 和 **openssl**，以建立和使用 **ssh-rsa** 格式和 **.pem** 格式檔案來保護與 Linux 型 Azure VM 的安全通訊。建議您建立新的部署時，使用資源管理員部署模型建立以 Linux 為基礎的 Azure 虛擬機器，並採用 *ssh-rsa* 類型的公開金鑰檔案或字串 (取決於部署用戶端)。[預覽入口網站](https://portal.azure.com) 目前僅接受 **ssh-rsa** 格式的字串，不論是傳統或資源管理員的部署。
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]若要建立這些類型的檔案，用於Windows 電腦與 Azure 中的 Linux VM 進行安全通訊 ，請參閱[在 Windows 上使用 SSH 金鑰](virtual-machines-windows-use-ssh-key.md)。
 
@@ -80,7 +80,7 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 
 您可以在所有新工作使用 ssh rsa (`.pub`) 金鑰，尤其是資源管理員部署模型和預覽入口網站；如果您需要使用傳統入口網站，您可能需要從您的金鑰建立 `.pem` 檔案。
 
-## 建立 VM 與您的公用金鑰檔案
+## 建立 VM 與您的公開金鑰檔案
 
 建立所需的檔案之後，有許多方法可以建立能使用公開-私密金鑰交換進行安全連線的 VM。在幾乎所有的情況下，尤其是使用資源管理員部署，請在系統提示您提供 ssh 金鑰檔案路徑或檔案內容字串時，傳遞.pub 檔案。
 
@@ -145,11 +145,11 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 	-l "West US" -n testpemasm \
 	-P -t myCert.pem -e 22 \
 	testpemasm \
-	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB \
 	ops
 	info:    Executing command vm create
 	warn:    --vm-size has not been specified. Defaulting to "Small".
-	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB
 	+ Looking up cloud service
 	info:    cloud service testpemasm not found.
 	+ Creating cloud service
@@ -186,11 +186,11 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 	data:    IPAddress "100.116.160.154"
 	data:    InstanceStatus "ReadyRole"
 	data:    InstanceSize "Small"
-	data:    Image "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB"
+	data:    Image "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB"
 	data:    OSDisk hostCaching "ReadWrite"
 	data:    OSDisk name "testpemasm-testpemasm-0-201510102050230517"
 	data:    OSDisk mediaLink "https://portalvhds4blttsxgjj1rf.blob.core.windows.net/vhd-store/testpemasm-2747c9c432b043ff.vhd"
-	data:    OSDisk sourceImageName "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB"
+	data:    OSDisk sourceImageName "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB"
 	data:    OSDisk operatingSystem "Linux"
 	data:    OSDisk iOType "Standard"
 	data:    ReservedIPName ""
@@ -256,15 +256,13 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 
 ### 範例：使用 .pem 金鑰和傳統部署之 SSH 工作階段的輸出
 
-如果您使用從您的 `~/.ssh/id_rsa` 檔案建立之 .pem 檔案建立虛擬機器，可以直接 ssh 到該 VM。請注意，當您這樣做，憑證交握會使用您在 `~/.ssh/id_rsa` 的私密金鑰。如下例所示：
+如果您使用從您的 `~/.ssh/id_rsa` 檔案建立之 .pem 檔案建立虛擬機器，可以直接 ssh 到該 VM。請注意，當您這樣做，憑證交握會使用您在 `~/.ssh/id_rsa` 的私密金鑰。(VM 建立程序會從 .pem 計算公開金鑰，並將 ssh-rsa 形式的公開金鑰放在 `~/.ssh/authorized_users` 中。) 連線可能看起來像以下範例：
 
 	ssh ops@testpemasm.cloudapp.net -p 22
 	The authenticity of host 'testpemasm.cloudapp.net (40.83.178.221)' can't be established.
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Saving password to keychain failed
-	Identity added: /Users/user/.ssh/id_rsa.pub (/Users/user/.ssh/id_rsa.pub)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
 
 	* Documentation:  https://help.ubuntu.com/
@@ -298,4 +296,4 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
  
 既然您已連接到您的 VM，請務必先更新您所選的散發套件，再繼續使用它。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

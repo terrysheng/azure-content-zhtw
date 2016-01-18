@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="09/23/2015" 
+    ms.date="01/05/2016" 
     ms.author="tamram"/>
 
 # 如何使用 C++ 的 Blob 儲存體  
@@ -242,4 +242,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

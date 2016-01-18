@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/10/2015"
+   ms.date="01/06/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 1. [Azure Active Directory 圖形 API](active-directory-graph-api.md)：使用「Azure Active Directory 圖形 API」，以程式設計方式透過 REST API 端點存取 Azure Active Directory。請注意，Azure AD Graph API 也可透過 [Microsoft Graph](https://graph.microsoft.io/) 存取，其為統一的 API，可透過單一 REST API 端點以單一的存取權杖，存取多個 Microsoft 雲端服務 API。
 
-1. [Azure Active Directory 驗證程式庫](active-directory-authentication-libraries.md)：利用適用於 [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx)、[JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js)、[Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc)、[Android](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/o) 及[其他項目](active-directory-authentication-libraries.md)的 Azure 驗證程式庫，輕鬆地驗證使用者的身分來取得存取權杖。
+1. [Azure Active Directory 驗證程式庫](active-directory-authentication-libraries.md)：利用適用於 .NET、JavaScript、Objective-C、Android 及其他項目的 Azure AD 驗證程式庫，輕鬆地驗證使用者的身分來取得存取權杖。
 
 
 ## 開始使用
@@ -93,7 +93,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [Graph API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)：Azure Active Directory 圖形 API 的 REST 參考。[請檢視互動式的圖形 API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-- [圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)：用以控制應用程式對租用戶中目錄資料存取權的 OAuth 2.0 權限範圍。
+- [圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)：用以控制應用程式對租用戶中目錄資料存取權的 OAuth 2.0 權限範圍。
 
 ### 驗證程式庫
 
@@ -112,7 +112,7 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [WS-同盟 1.2 通訊協定參考](https://msdn.microsoft.com/library/azure/dn903702.aspx)：WS-同盟 1.2 通訊協定已在 Web 服務同盟 1.2 版規格中指定。
 
-- [支援的權杖與宣告類型](active-directory-token-and-claims.md)：您可以使用此指南，來了解及評估 SAML 2.0 與 JSON Web Token (JWT) 權杖中的宣告。
+- [支援的權杖與宣告類型](active-directory-token-and-claims.md)：您可以使用此指南來了解及評估 SAML 2.0 與 JSON Web Token (JWT) 權杖中的宣告。
 
 ## 影片
 
@@ -141,4 +141,4 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [Twitter 上的 Azure Active Directory](https://twitter.com/azuread)：140 個字元以內的 Azure Active Directory 公告。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

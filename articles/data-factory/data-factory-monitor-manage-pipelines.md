@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
 # 監視和管理 Azure Data Factory 管線
@@ -206,9 +206,6 @@ Azure Data Factory 透過 Azure 傳統入口網站和 Azure PowerShell 提供許
 
 #### 使用 PowerShell 偵錯錯誤
 1.	啟動 **Azure PowerShell**。
-2.	切換至 **AzureResourceManager** 模式，因為 Data Factory Cmdlet 只可在此模式中使用。
-
-		switch-azuremode AzureResourceManager
 3.	執行 **Get-AzureRmDataFactorySlice** 命令來查看配量及其狀態。您應該會看到有以下狀態的配量：[**失敗**]。
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -354,9 +351,9 @@ OnDemandClusterDeleted | Succeeded
 如需上述範例中所使用之 JSON 元素的詳細資料，請參閱[建立警示規則](https://msdn.microsoft.com/library/azure/dn510366.aspx)。
 
 #### 部署警示 
-若要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureResourceGroupDeployment**，如下列範例所示：
+若要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**，如下列範例所示：
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 成功完成資源群組部署之後，您會看到下列訊息：
 
@@ -376,9 +373,9 @@ OnDemandClusterDeleted | Succeeded
 	Outputs           :
 
 #### 擷取 Azure 資源群組部署的清單
-若要擷取已部署的 Azure 資源群組部署的清單，請使用 Cmdlet：**Get-AzureResourceGroupDeployment**，如下所範例所示：
+若要擷取已部署的 Azure 資源群組部署的清單，請使用 Cmdlet：**Get-AzureRmResourceGroupDeployment**，如下所範例所示：
 
-	Get-AzureResourceGroupDeployment -ResourceGroupName adf
+	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
 	DeploymentName    : ADFAlertFailedSlice
 	ResourceGroupName : adf
@@ -479,7 +476,7 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 
 ### 設定度量警示：
 
-若要設定度量警示，請從 Data Factory 刀鋒視窗按一下下列選項：[**監視**] -> [**度量**] -> [**新增警示**] -> [**新增警示規則**]。
+若要設定度量警示，請從 Data Factory 刀鋒視窗按一下下列選項：[監視] -> [度量] -> [新增警示] -> [新增警示規則]。
 
 填入警示規則的詳細資料、指定電子郵件並按一下 [**確定**]。
 
@@ -548,9 +545,9 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 
 **部署警示：**
 
-若要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureResourceGroupDeployment**，如下列範例所示：
+若要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**，如下列範例所示：
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
 您應該會在部署成功後看到下列訊息：
 
@@ -568,4 +565,7 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1217_2015-->
+
+您也可以使用 **Add-AlertRule** Cmdlet 來部署警示規則。請參閱 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 主題，以取得詳細資料和範例。
+
+<!---HONumber=AcomDC_0107_2016-->

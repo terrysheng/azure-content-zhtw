@@ -384,7 +384,7 @@
 
 正如同沒有單一方法可表示螢幕上的資料片段，沒有單一方法可為您的資料建立模型。您需要了解您的應用程式，以及它將如何產生、取用及處理資料。然後，藉由套用一些此處所提供的指導方針，您可以設定相關的建立模型，來處理您的應用程式的立即需求。當您的應用程式需要進行變更時，您可以利用無結構描述之資料庫的彈性來納入變更，並輕鬆進化您的資料模型。
 
-若要深入了解 Azure DocumentDB，請參閱服務的[文件](../../services/documentdb/)頁面。
+若要深入了解 Azure DocumentDB，請參閱服務的[文件](https://azure.microsoft.com/documentation/services/documentdb/)頁面。
 
 若要了解在 Azure DocumentDB 中微調索引，請參閱[索引編製原則](documentdb-indexing-policies.md)上的文章。
 
@@ -393,5 +393,4 @@
 最後，如需資料模型化和多租用戶應用程式分區化的指引，請參閱[使用 Azure DocumentDB 調整多租用戶應用程式](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)。
  
 
-<!---HONumber=Nov15_HO4-->
-
+<!---HONumber=AcomDC_0107_2016-->

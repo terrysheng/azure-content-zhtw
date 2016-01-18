@@ -18,7 +18,7 @@
 
 # 安全存取 DocumentDB 資料 #
 
-本文提供儲存於 [Microsoft Azure DocumentDB](../../services/documentdb/) 中資料的安全存取概觀。
+本文提供儲存於 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 中資料的安全存取概觀。
 
 閱讀本概觀後，您將能夠回答下列問題：
 
@@ -163,4 +163,4 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
 - 若要了解如何建構 DocumentDB 授權權杖，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

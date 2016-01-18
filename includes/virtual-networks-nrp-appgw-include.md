@@ -1,14 +1,6 @@
 ## 應用程式閘道
 
-應用程式閘道會根據第 7 層負載平衡，提供 Azure 管理的 HTTP 負載平衡解決方案。應用程式負載平衡可讓以 HTTP 為基礎的網路流量使用路由規則。
-
-| 屬性 | 說明 | 
-|---|---|
-| **backendAddressPools** | 後端伺服器集區的伺服器 IP 位址清單。列出的 IP 位址應屬於虛擬網路子網路或公用 IP/VIP 或是私人 IP。 |
-| **backendHttpSettingsCollection** | 每個集區都有一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質。這些設定會繫結至集區，並套用至集區內所有伺服器。 |
-| **frontendPorts** | 此連接埠是在應用程式閘道上開啟的公用連接埠。流量會達到此連接埠，然後重新導向至其中一個後端伺服器。 |
-| **httpListeners** | 接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。 |
-| **requestRoutingRules** | 此規則會繫結接聽程式和後端伺服器集區，並定義流量應該重新導向至哪個後端伺服器集區。目前只有以循環配置資源的方式運作 |
+應用程式閘道會根據第 7 層負載平衡，提供 Azure 管理的 HTTP 負載平衡解決方案。應用程式負載平衡可讓網路流量的路由規則根據 HTTP 來使用。<BR> | 屬性 | 說明 | |---|---| | **backendAddressPools** | 後端伺服器的 IP 位址清單。列出的 IP 位址應屬於虛擬網路子網路，或為公用 IP/VIP 或私人 IP | | **backendHttpSettingsCollection** | 每個集區都有連接埠、通訊協定和 Cookie 為基礎的同質等設定。這些設定會繫結到集區並套用至集區中的所有伺服器 | | **frontendPorts** | 此連接埠是應用程式閘道上開啟的公用連接埠。流量到達此連接埠，然後便重新導向至其中一個後端伺服器 | | **httpListeners** | 接聽程式有前端連接埠、通訊協定 (Http 或 Https，有區分大小寫)，以及 SSL 憑證名稱 (若要設定 SSL 卸載) | | **requestRoutingRules** | 該規則繫結接聽程式與後端伺服器集區，並定義要將流量導向哪個後端伺服器集區。目前只有以循環配置資源的方式運作 |
 
 
 範例應用程式閘道 Json 範本：
@@ -221,4 +213,4 @@
 
 如需詳細資訊，請閱讀[應用程式閘道 REST API](https://msdn.microsoft.com/library/azure/mt299388.aspx)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

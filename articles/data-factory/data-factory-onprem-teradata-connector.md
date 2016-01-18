@@ -235,7 +235,7 @@ gatewayName | Data Factory 服務應該用來連接到內部部署 Teradata 資�
 
 ## Teradata 資料集類型屬性
 
-如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
+如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
 
 每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。**RelationalTable** 資料集類型的 **typeProperties** 區段 (包含 Teradata 資料集) 具有下列屬性。
 
@@ -312,4 +312,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

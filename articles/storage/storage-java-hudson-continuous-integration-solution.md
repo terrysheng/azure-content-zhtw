@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/12/2015" 
+	ms.date="01/05/2016" 
 	ms.author="robmcm"/>
 
 # 使用 Azure 儲存體與 Hudson 連續整合解決方案
@@ -149,7 +149,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 2. 在 [儲存體帳戶名稱] 中，選取要使用的儲存體帳戶。
 3. 在 [容器名稱] 中，指定您要下載的 Blob 所在之容器的名稱。您可以使用環境變數。
 4. 在 [Blob 名稱] 中，指定 Blob 名稱。您可以使用環境變數。另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。例如，**project*** 指定名稱開頭為 **project** 的所有 Blob。
-5. [選擇性] 針對 [下載路徑]，指定在 Hudson 機器上，要從 Azure Blob 儲存體下載檔案的目標路徑。也可以使用環境變數(如果未提供 [下載路徑] 的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區)。
+5. [選擇性] 針對**下載路徑**，請於 Hudson 機器上指定要從 Azure Blob 儲存體下載檔案的目標路徑。也可以使用環境變數(如果未提供 [下載路徑] 的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區)。
 
 如果要從 Azure Blob 儲存體下載其他項目，您可以建立其他組建步驟。
 
@@ -177,4 +177,4 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
   [如何建立儲存體帳戶]: http://go.microsoft.com/fwlink/?LinkId=279823
   [認識 Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

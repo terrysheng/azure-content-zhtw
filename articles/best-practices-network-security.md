@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/06/2016"
    ms.author="jonor;sivae"/>
 
 # Microsoft 雲端服務和網路安全性
@@ -36,8 +36,8 @@ Microsoft 有完整的方法來保護執行超大規模全域服務所需的雲�
 
 上述方法提供安全的基礎，讓客戶將服務部署在 Microsoft 的雲端。接著就由客戶設計和建立安全性架構來保護這些服務。
 
-## 傳統的安全性架構及周邊網路 (DMZ)
-雖然 Microsoft 大量投資在保護雲端基礎結構，客戶也必須保護其雲端服務和資源群組。安全性的多層式方法提供最佳的防禦措施。網路安全性周邊網路 (DMZ) 可防止不受信任的網路存取內部網路資源。DMZ 是企業 IT 網路安全性架構中知名的概念，是指位於網際網路與受保護的企業 IT 基礎結構之間的網路邊緣或部分。
+## 傳統的安全性架構及非軍事區 (DMZ)
+雖然 Microsoft 大量投資在保護雲端基礎結構，客戶也必須保護其雲端服務和資源群組。安全性的多層式方法提供最佳的防禦措施。網路安全性非軍事區 (DMZ) 可防止不受信任的網路存取內部網路資源。DMZ 是企業 IT 網路安全性架構中知名的概念，是指位於網際網路與受保護的企業 IT 基礎結構之間的網路邊緣或部分。
 
 在典型的企業網路中，核心基礎結構的周邊有多層的安全性裝置，嚴加防禦。每一層的界限由裝置和原則強制執行點組成。裝置可能包括防火牆、DDoS (分散式阻斷服務) 預防 IDS/IPS (入侵偵測或保護系統)、VPN (虛擬私人網路) 裝置等。原則可能以防火牆原則、ACL 或特定路由等形式強制執行。網路的第一防線 (直接接受來自網際網路的連入流量) 由這些機制聯合起來阻擋攻擊和有害的流量，但允許合法的要求進入網路。此流量會直接路由傳送至 DMZ 中的資源。該資源可能與網路中更深處的資源「交談」，在更深入路由傳送至網路之前，需通過下一個界限的驗證。最外層稱為 DMZ，因為網路的這個部分對網際網路公開，而 DMZ 的兩側通常會有某種形式的保護。下圖顯示公司網路中的單一子網路 DMZ 範例，其中有兩個安全性界限 (DMZ 網際網路及 DMZ 後端 VLAN)。
 
@@ -307,7 +307,13 @@ VNETLocal 一律是該特定網路之 VNet 的定義位址前置詞 (也就是�
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE]UDR 和混合式網路目前有所限制。這會在未來版本中解決，關於如何使用 ExpressRoute DMZ 或站對站網路功能來啟用 DMZ 的範例，將在下面的範例 3 和 4 中討論。
+>[AZURE.NOTE]由於 Azure 虛擬閘道中使用的動態路由相當複雜，因此使用者定義的路由 (UDR) 和 ExpressRoute 在使用上有特定限制。以下列出這些限制：
+>
+> 1. UDR 不應套用至已連接 ExpressRoute 連結 Azure 虛擬閘道的閘道子網路。
+> 2. ExpressRoute 連結 Azure 虛擬閘道不可以是用於其他 UDR 繫結子網路的 NextHop 裝置。
+>
+>UDR 與 ExpressRoute 的完整整合功能將在未來的 Azure 版本中啟用，關於如何使用 ExpressRoute 或站對站網路功能來啟用 DMZ 的範例，將在下面的範例 3 和 4 中討論。
+
 
 #### IP 轉送描述
 UDR 隨附 IP 轉送功能。這是虛擬應用裝置的一項設定，以允許它接收不是要特別傳送到應用裝置的流量，再將流量轉送到其最終目的地。
@@ -436,9 +442,15 @@ UDR 隨附 IP 轉送功能。這是虛擬應用裝置的一項設定，以允許
 
 如上圖所示，ExpressRoute 私用對等提供內部部署網路與 Azure 虛擬網路之間的直接連線。流量只會在服務提供者網路和 Microsoft/Azure 網路上流動，永遠不會到達網際網路。
 
->[AZURE.NOTE]由於 Azure 虛擬閘道上使用的動態路由相當複雜，所以使用者定義的路由 (UDR) 和 ExpressRoute 有使用上的限制。子網路若與提供 ExpressRoute 連線的 Azure 閘道通訊，則不應該套用 UDR。此外，Azure 閘道不能是用於其他 UDR 繫結子網路的 NextHop 裝置。未來的 Azure 版本將會啟用完全整合 UDR 和 ExpressRoute 的能力。
+>[AZURE.NOTE]由於 Azure 虛擬閘道中使用的動態路由相當複雜，因此使用者定義的路由 (UDR) 和 ExpressRoute 在使用上有特定限制。以下列出這些限制：
+>
+> 1. UDR 不應套用至已連接 ExpressRoute 連結 Azure 虛擬閘道的閘道子網路。
+> 2. ExpressRoute 連結 Azure 虛擬閘道不可以是用於其他 UDR 繫結子網路的 NextHop 裝置。
+>
+>未來的 Azure 版本將會啟用完全整合 UDR 和 ExpressRoute 的能力。
 
-</br>
+<br />
+
 >[AZURE.TIP]使用 ExpressRoute 可保持公司網路流量遠離網際網路，安全性較高，大幅提高效能，也能符合 ExpressRoute 提供者的 SLA。在 ExpressRoute 效能方面，Azure 閘道在 ExpressRoute 上的傳遞速度高達 2Gbps，而使用站對站 VPN 時，Azure 閘道的最大輸送量為 200Mbps。
 
 如下圖所示，由於使用此選項，環境現在有兩個網路邊緣，NVA 和 NSG 控制 Azure 網路內部及 Azure 與網際網路之間的流量流程，而閘道器是內部部署與 Azure 之間的一個完全獨立且隔離的網路邊緣。
@@ -499,4 +511,4 @@ UDR 隨附 IP 轉送功能。這是虛擬應用裝置的一項設定，以允許
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

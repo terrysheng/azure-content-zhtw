@@ -22,7 +22,7 @@
 ## 簡介 
 Azure Data Factory 中的「管線」會使用連結的計算服務，來處理連結的儲存體服務中的資料。它包含一系列活動，其中每個活動都會執行特定的處理作業。本文說明如何使用「HDInsight MapReduce 活動」。
  
-若要了解如何使用 HDInsight 的 Pig 和 Hive 活動，在 Windows/Linux 的 HDInsight 叢集上從 Azure Data Factory 管線執行 Pig/Hive 指令碼，請參閱 [Pig](data-factory-pig-activity) 和 [Hive](data-factory-hive-activity.md) 文章。
+若要了解如何使用 HDInsight 的 Pig 和 Hive 活動，在 Windows/Linux 的 HDInsight 叢集上從 Azure Data Factory 管線執行 Pig/Hive 指令碼，請參閱 [Pig](data-factory-pig-activity.md) 和 [Hive](data-factory-hive-activity.md) 文章。
 
 ## 「HDInsight MapReduce 活動」的 JSON 
 
@@ -221,4 +221,4 @@ linkedServiceName | 表示您先前建立的 HDInsight 連結服務。
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

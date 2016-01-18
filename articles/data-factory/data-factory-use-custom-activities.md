@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
 # 在 Azure 資料處理站管線中使用自訂活動
@@ -64,7 +64,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 - 此方法會採用四個參數：
 	- **linkedServices**。這是將輸入/輸出資料來源 (例如：Azure Blob 儲存體) 連結到 Data Factory 的連結服務列舉清單。在此範例中，只有一個用於輸入和輸出的 Azure 儲存體類型連結服務。 
-	- **datasets**。這是資料集的可列舉清單。您可以使用這個參數取得輸入和輸出資料集定義的位置和結構描述。
+	- **資料集**。這是資料集的可列舉清單。您可以使用這個參數取得輸入和輸出資料集定義的位置和結構描述。
 	- **activity**。這個參數代表目前的計算實體 - 在此情況下為 Azure HDInsight。
 	- **logger**。記錄器可讓您撰寫會呈現為管線的「使用者」記錄檔的偵錯註解。 
 
@@ -126,6 +126,18 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
             Activity activity,
             IActivityLogger logger)
         {
+			// to get extended properties (for example: SliceStart)
+			DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+            string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+			// to log all extended properties			
+			IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+			logger.Write("Logging extended properties if any...");
+			foreach (KeyValuePair<string, string> entry in extendedProperties)
+			{
+				logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+			}
+		
 
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
@@ -360,7 +372,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 ## 建立 Data Factory
 
-在 [建立自訂活動] 區段中，您建立自訂活動，並上傳包含二進位檔和 PDB 檔案的 zip 檔案到 Azure blob 容器。在本節中，您將透過使用**自訂活動**的**管線**建立 Azure **Data Factory**。
+在 [建立自訂活動] 區段中，您建立自訂活動，並將包含二進位檔和 PDB 檔案的 zip 檔案上傳到 Azure blob 容器。在本節中，您將透過使用**自訂活動**的**管線**建立 Azure **Data Factory**。
  
 自訂活動的輸入資料集代表 blob 儲存體中輸入資料夾 (mycontainer\\inputfolder) 的 blob (檔案)。活動的輸出資料集代表 blob 儲存體中輸出資料夾 (mycontainer\\outputfolder) 的輸出 blob。
 
@@ -388,7 +400,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 	1.	按一下左側功能表上的 [新增]。
 	2.	按一下 [新增] 刀鋒視窗中的 [資料 + 分析]。
 	3.	按一下 [資料分析] 刀鋒視窗上的 [Data Factory]。
-2.	在 [新增 Data Factory] 刀鋒視窗中，輸入 **LogProcessingFactory** 做為 [名稱]。Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：**Data Factory 名稱 “CustomActivityFactory” 無法使用**，請變更 Data Factory 名稱 (例如 **yournameCustomActivityFactory**)，然後試著重新建立。
+2.	在 [新增 Data Factory] 刀鋒視窗中，輸入 **CustomActivityFactory** 做為 [名稱]。Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：**Data Factory 名稱 “CustomActivityFactory” 無法使用**，請變更 Data Factory 名稱 (例如 **yournameCustomActivityFactory**)，然後試著重新建立。
 3.	按一下 [資源群組名稱]，並選取現有的資源群組，或建立一個新群組。 
 4.	請確認您使用的是要在其中建立 Data Factory 的正確**訂用帳戶**和**區域**。 
 5.	按一下 [新增 Data Factory] 刀鋒視窗上的 [建立]。
@@ -403,7 +415,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 1.	按一下 **CustomActivityFactory** 的 **DATA FACTORY** 刀鋒視窗上的 [作者和部署] 磚。這會啟動 Data Factory 編輯器。
 2.	在命令列上按一下 [新增資料儲存區]，然後選擇 [Azure 儲存體]。在編輯器中，您應該會看到用來建立 Azure 儲存體連結服務的 JSON 指令碼。
-3.	使用您的 Azure 儲存體帳戶名稱取代**帳戶名稱**，並使用 Azure 儲存體帳戶的存取金鑰取代**帳戶金鑰**。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+3.	使用您的 Azure 儲存體帳戶名稱取代**帳戶名稱**，並使用 Azure 儲存體帳戶的存取金鑰取代**帳戶金鑰**。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
 4.	按一下命令列上的 [部署]，部署連結服務。
 
 
@@ -657,6 +669,37 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 ## 更新自訂活動
 如果您更新自訂活動的程式碼，請建置它，並將包含新二進位檔案的 zip 檔案上傳至 Blob 儲存體。
 
+## 存取延伸屬性
+您可以在活動 JSON 中宣告延伸屬性，如下所示：
+
+	"typeProperties": {
+	  "AssemblyName": "MyDotNetActivity.dll",
+	  "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+	  "PackageLinkedService": "StorageLinkedService",
+	  "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+	  "extendedProperties": {
+	    "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))",
+		"DataFactoryName": "CustomActivityFactory"
+	  }
+	},
+
+上述範例中有兩個延伸屬性：**SliceStart** 和 **DataFactoryName**。SliceStart 的值以 SliceStart 系統變數為基礎。如需支援的系統變數清單，請參閱[系統變數](data-factory-scheduling-and-execution.md#data-factory-system-variables)。DataFactoryName 值為硬式編碼為 "CustomActivityFactory"。
+
+若要以 **Execute** 方法存取這些延伸屬性，請使用如下的程式碼：
+
+	// to get extended properties (for example: SliceStart)
+	DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+	string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+	// to log all extended properties                               
+    IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+    logger.Write("Logging extended properties if any...");
+    foreach (KeyValuePair<string, string> entry in extendedProperties)
+    {
+    	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+	}
+
+
 ## <a name="AzureBatch"></a> 使用 Azure Batch 連結服務
 > [AZURE.NOTE]請參閱 [Azure Batch 基本知識][batch-technical-overview]，以取得 Azure Batch 服務的概觀，另請參閱[開始使用適用於 .NET 的 Azure Batch 程式庫][batch-get-started]，以快速開始使用 Azure Batch 服務。
 
@@ -760,4 +803,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016--->

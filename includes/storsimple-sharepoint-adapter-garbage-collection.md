@@ -14,13 +14,13 @@
 
 1. 在 Web 前端伺服器上，以系統管理員身分開啟 SharePoint 2013 管理命令介面。
 
-2. 瀏覽至資料夾 <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer。
+2. 瀏覽至資料夾*開機磁碟機*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer。
 
 3. 將 **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** 重新命名為 **web.config**。
 
 4. 使用 `aspnet_regiis -pdf connectionStrings` 解密 web.config 檔案。
 
-5. 在解密的 web.config 檔案中的 **<connectionStrings>** 節點下，為您的 SQL Server 執行個體和內容資料庫名稱新增連接字串。請參閱下列範例。
+5. 在解密的 web.config 檔案中的 `connectionStrings` 節點下，為您的 SQL Server 執行個體和內容資料庫名稱新增連接字串。請參閱下列範例。
 
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
 
@@ -64,4 +64,4 @@
 
 2. 在 Web 前端伺服器上的**管理中心**中，為所需的內容資料庫編輯 **Web 應用程式一般設定**以重新啟用資源回收筒。若要這樣做，請按一下 [管理中心] -> [應用程式管理] -> [Web 應用程式 (管理 Web 應用程式)] -> [SharePoint - 80] -> [一般應用程式設定]。將資源回收筒狀態設為 **開啟**。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -218,10 +218,10 @@
 以下是幾個支援的資料存放區所適用的一些效能監視及調整參考：
 
 - Azure 儲存體 (包括 Azure Blob 和 Azure 資料表)：[Azure 儲存體的擴充性目標](../storage/storage-scalability-targets.md)和 [Azure 儲存體效能和擴充性檢查清單](../storage//storage-performance-checklist.md)
-- Azure SQL Database：您可以[監視效能](../sql-database/sql-database-service-tiers.md?rnd=1#monitoring-performance)，並檢查資料庫輸送量單位 (DTU) 百分比。
-- Azure SQL 資料倉儲：其能力會以資料倉儲單位 (DWU) 來測量。請參閱 [SQL 資料倉儲的彈性效能和調整功能](../sql-data-warehouse/sql-data-warehouse-performance-scale/)。
-- Azure DocumentDB：[DocumentDB 中的效能層級](../documentdb/documentdb-performance-levels/)。
+- Azure SQL Database：您可以[監視效能](../sql-database/sql-database-service-tiers.md#monitoring-performance)，並檢查資料庫輸送量單位 (DTU) 百分比。
+- Azure SQL 資料倉儲：其能力會以資料倉儲單位 (DWU) 來測量。請參閱 [SQL 資料倉儲的彈性效能和調整功能](../sql-data-warehouse/sql-data-warehouse-performance-scale.md)。
+- Azure DocumentDB：[DocumentDB 中的效能層級](../documentdb/documentdb-performance-levels.md)。
 - 內部部署 SQL Server：[效能的監視與微調](https://msdn.microsoft.com/library/ms189081.aspx)。
 - 內部部署檔案伺服器：[檔案伺服器的效能微調](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

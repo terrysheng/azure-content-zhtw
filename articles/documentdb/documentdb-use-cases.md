@@ -48,7 +48,7 @@ DocumentDB 的常見使用案例是針對 Web 和行動應用程式儲存和查�
    
 與事件記錄資料相關的主要典型使用案例有兩個。第一個使用案例是在資料子集上執行臨機操作查詢，以進行疑難排解。在疑難排解的過程中，資料子集會是第一個擷取的記錄檔，通常會按照時間序列進行排序。然後，透過篩選資料集的錯誤層級或錯誤訊息來執行向下鑽研。這是為什麼將事件記錄檔儲存在 DocumentDB 是一項優點的原因。根據預設，系統會自動為儲存在 DocumentDB 的記錄資料編製索引，因此它可以隨時提供查詢。此外，您可以按時間序列，保存跨資料分割的記錄資料。根據您的保留原則，較舊的記錄檔可以整合到冷儲存體。
 
-第二個使用案例涉及在大量的記錄資料上，離線執行長時間執行的資料分析工作。這個使用案例的範例包括伺服器可用性分析、應用程式錯誤分析，和點選流資料分析。通常，您可以使用 Hadoop 來執行這些類型的分析。有了適用於 DocumentDB 的 Hadoop Connector，DocumentDB 資料庫可以當做 Pig、Hive 和 Map/Reduce 工作的資料來源與接收器。如需適用於 DocumentDB 的 Hadoop Connector 詳細資訊，請參閱[使用 DocumentDB 與 HDInsight 執行 Hadoop 工作](documentdb-run-hadoop-with-hdinsight/)。
+第二個使用案例涉及在大量的記錄資料上，離線執行長時間執行的資料分析工作。這個使用案例的範例包括伺服器可用性分析、應用程式錯誤分析，和點選流資料分析。通常，您可以使用 Hadoop 來執行這些類型的分析。有了適用於 DocumentDB 的 Hadoop Connector，DocumentDB 資料庫可以當做 Pig、Hive 和 Map/Reduce 工作的資料來源與接收器。如需適用於 DocumentDB 的 Hadoop Connector 詳細資訊，請參閱[使用 DocumentDB 與 HDInsight 執行 Hadoop 工作](documentdb-run-hadoop-with-hdinsight.md)。
 
 ## 使用者喜好設定資料
 現今，大部分的現代 Web 和行動應用程式具備複雜的檢視和體驗。這些檢視和體驗通常是動態的，根據使用者的喜好設定或情緒和品牌需求量身訂做。因此，應用程式必須要能夠有效地擷取個人化設定，以便快速呈現 UI 項目和體驗。
@@ -79,4 +79,4 @@ Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量�
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)。未來存放區的運作基礎會是快速搜尋和簡單資料流程。
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

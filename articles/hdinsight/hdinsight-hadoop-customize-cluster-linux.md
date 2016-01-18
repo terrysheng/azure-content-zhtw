@@ -17,7 +17,9 @@
 	ms.date="11/20/2015"
 	ms.author="larryfr"/>
 
-# 使用指令碼動作來自訂 HDInsight 叢集| Azure (Linux)
+# 使用指令碼動作自訂 Linux 型 HDInsight 叢集
+
+[AZURE.INCLUDE [選取器](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 HDInsight 提供一個稱為「**指令碼動作**」的組態選項，此指令碼動作可叫用自訂指令碼，以定義建立程序期間要在叢集上執行的自訂。這些指令碼可用來在叢集上安裝額外的軟體或變更叢集上的應用程式組態。
 
@@ -357,131 +359,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 ## 從 HDInsight .NET SDK 使用指令碼動作
 
-HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程式使用 HDInsight。下列步驟示範如何使用指令碼從 HDInsight .NET SDK 自訂叢集。
-
-> [AZURE.IMPORTANT]您必須先建立自我簽署憑證，將它安裝到工作站，然後上傳至 Azure 訂用帳戶。如需指示，請參閱[建立自我簽署憑證](http://go.microsoft.com/fwlink/?LinkId=511138)。
-
-
-### 建立 Visual Studio 專案
-
-
-1. 在 Visual Studio 建立 C# 主控台應用程式。
-2. 從 NuGet **Package Manager Console** 執行下列命令：
-
-		Install-Package Microsoft.Azure.Common.Authentication -pre
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
-
-	這些命令會將 .NET 程式庫及其參考新增至目前的 Visual Studio 專案。
-
-3. 開啟 **Program.cs**，並新增下列 using 陳述式：
-
-		using System;
-		using System.Security;
-		using Microsoft.Azure;
-		using Microsoft.Azure.Common.Authentication;
-		using Microsoft.Azure.Common.Authentication.Factories;
-		using Microsoft.Azure.Common.Authentication.Models;
-		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Models;
-
-4. 使用下列程式碼取代類別中的程式碼：
-
-        private static HDInsightManagementClient _hdiManagementClient;
-
-        private static Guid SubscriptionId = new Guid("<AZURE SUBSCRIPTION ID>");
-        private const string ResourceGroupName = "<AZURE RESOURCEGROUP NAME>";
-
-        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
-        private const int NewClusterNumNodes = <NUMBER OF NODES>;
-        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-        private const string NewClusterVersion = "3.2";
-        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-        private const OSType NewClusterOSType = OSType.Linux;
-
-        private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
-        private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
-        private const string ExistingContainer = "<DEFAULT CONTAINER NAME>"; 
-
-        private const string NewClusterUsername = "admin";
-        private const string NewClusterPassword = "<HTTP USER PASSWORD>";
-
-        private const string NewClusterSshUserName = "sshuser";
-        private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
-			Comment: ""rsa-key-20150731""
-			AAAAB3NzaC1yc2EAAAABJQAAAQEA4QiCRLqT7fnmUA5OhYWZNlZo6lLaY1c+IRsp
-			gmPCsJVGQLu6O1wqcxRqiKk7keYq8bP5s30v6bIljsLZYTnyReNUa5LtFw7eauGr
-			yVt3Pve6ejfWELhbVpi0iq8uJNFA9VvRkz8IP1JmjC5jsdnJhzQZtgkIrdn3w0e6
-			WVfu15kKyY8YAiynVbdV51EB0SZaSLdMZkZQ81xi4DDtCZD7qvdtWEFwLa+EHdkd
-			pzO36Mtev5XvseLQqzXzZ6aVBdlXoppGHXkoGHAMNOtEWRXpAUtEccjpATsaZhQR
-			zZdZlzHduhM10ofS4YOYBADt9JohporbQVHM5w6qUhIgyiPo7w==
-			---- END SSH2 PUBLIC KEY ----"; //replace the public key with your own
-
-        private static void Main(string[] args)
-        {
-            var tokenCreds = GetTokenCloudCredentials();
-            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-
-            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
-
-            CreateCluster();
-        }
-
-        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
-        {
-            var authFactory = new AuthenticationFactory();
-
-            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-            if (username != null && password != null)
-                account.Id = username;
-
-            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
-
-            var accessToken =
-                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-                    .AccessToken;
-
-            return new TokenCloudCredentials(accessToken);
-        }
-
-        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
-        {
-            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
-        }
-
-
-        private static void CreateCluster()
-        {
-            var parameters = new ClusterCreateParameters
-            {
-                ClusterSizeInNodes = NewClusterNumNodes,
-                Location = NewClusterLocation,
-                ClusterType = NewClusterType,
-                OSType = NewClusterOSType,
-                Version = NewClusterVersion,
-
-                DefaultStorageAccountName = ExistingStorageName,
-                DefaultStorageAccountKey = ExistingStorageKey,
-                DefaultStorageContainer = ExistingContainer,
-
-                UserName = NewClusterUsername,
-                Password = NewClusterPassword,
-                SshUserName = NewClusterSshUserName,
-        		SshPublicKey = NewClusterSshPublicKey
-            };
-
-            ScriptAction rScriptAction = new ScriptAction("Install R",
-                new Uri("https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), "");
-
-            parameters.ScriptActions.Add(ClusterNodeType.HeadNode,new System.Collections.Generic.List<ScriptAction> { rScriptAction});
-            parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { rScriptAction });
-
-            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
-        }
-		
-6. 取代類別成員值。
-
-7. 按 **F5** 鍵執行應用程式。主控台視窗會開啟並顯示應用程式的狀態。系統也會提示您輸入 Azure 帳戶認證。建立 HDInsight 叢集可能需要幾分鐘的時間。
+HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程式使用 HDInsight。如需指令碼範例，請參閱[使用 .NET SDK 在 HDInsight 中建立 Linux 型叢集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action)。
 
 
 ## 疑難排解
@@ -568,4 +446,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

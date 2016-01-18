@@ -1,6 +1,6 @@
 <properties
    pageTitle="資源鎖定的資源管理員範本 | Microsoft Azure"
-   description="說明資源鎖定的資源管理員結構描述。"
+   description="說明可透過範本部署資源鎖定的資源管理員結構描述。"
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# 資源鎖定 - 範本結構描述
+# 資源鎖定範本結構描述
 
 在資源及其子資源上建立新的鎖定。
 
@@ -135,4 +135,4 @@
 - 如需範本結構的相關資訊，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 如需鎖定的詳細資訊，請參閱[使用 Azure 資源管理員鎖定資源](resource-group-lock-resources.md)。
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

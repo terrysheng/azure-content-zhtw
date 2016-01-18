@@ -45,8 +45,8 @@
 
 既然您已了解如何建立 DocumentDB 資料庫，下一步是[建立集合](documentdb-create-collection.md)。
 
-建立集合之後，您可以使用入口網站中的文件總管來[新增 JSON 文件](../documentdb-view-json-document-explorer.md)、使用 DocumentDB 資料移轉工具來[匯入文件](documentdb-import-data.md)至集合，或使用其中一個 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來執行 CRUD 作業。DocumentDB 有.NET、Java、Python、Node.js 和 JavaScript API SDK。如需示範如何建立、移除、更新及刪除文件的 .NET 程式碼範例，請參閱 GitHub.com 上 azure-documentdb-net 儲存機制中 DocumentManagement 專案的 [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs)。
+建立集合之後，您可以使用入口網站中的文件總管來[新增 JSON 文件](documentdb-view-json-document-explorer.md)、使用 DocumentDB 資料移轉工具來[匯入文件](documentdb-import-data.md)至集合，或使用其中一個 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來執行 CRUD 作業。DocumentDB 有.NET、Java、Python、Node.js 和 JavaScript API SDK。如需示範如何建立、移除、更新及刪除文件的 .NET 程式碼範例，請參閱 GitHub.com 上 azure-documentdb-net 儲存機制中 DocumentManagement 專案的 [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs)。
 
 在集合中有了文件之後，您可以使用入口網站中的[查詢總管](documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或其中一個 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，針對文件使用 [DocumentDB SQL](documentdb-sql-query.md) 來[執行查詢](documentdb-sql-query.md#executing-queries)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

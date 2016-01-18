@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # 使用自動轉寄鏈結服務匯流排實體
 
 「自動轉寄」功能可讓您將佇列或訂用帳戶鏈結至另一個屬於相同服務命名空間的佇列或主題。啟用自動轉寄後，服務匯流排會自動移除放在第一個佇列或訂用帳戶 (來源) 中的訊息，然後將它們放入第二個佇列或主題 (目的地) 中。請注意，仍有可能將訊息直接傳送至目的地實體。也請注意，不可能將子佇列 (例如寄不出的信件) 鏈結至另一個佇列或主題。
 
-## 訊息自動轉寄
+## 使用自動轉寄
 
 在來源的 [QueueDescription][] 或 [SubscriptionDescription][] 物件上設定 [QueueDescription.ForwardTo][] 或 [SubscriptionDescription.ForwardTo][] 屬性，即可啟用自動轉寄，如下列範例所示。
 
@@ -59,7 +59,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-若要深入了解服務匯流排效能改進，請參閱[分割傳訊實體][]。
+若要深入了解服務匯流排效能改進，請參閱[分割訊息實體][]。
 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -67,6 +67,6 @@ namespaceManager.CreateSubscription(srcSubscription));
   [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
   [0]: ./media/service-bus-auto-forwarding/IC628631.gif
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [分割傳訊實體]: service-bus-partitioning.md
+  [分割訊息實體]: service-bus-partitioning.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

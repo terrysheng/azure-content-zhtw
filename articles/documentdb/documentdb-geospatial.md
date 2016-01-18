@@ -24,7 +24,7 @@
 - 如何以 SQL 和 LINQ 查詢 Azure DocumentDB 中的地理空間資料？
 - 如何在 DocumentDB 中啟用或停用空間索引編制？
 
-請參閱此 [Github 專案](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)中的程式碼範例。
+請參閱此 [Github 專案](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)中的程式碼範例。
 
 ## 空間資料簡介
 
@@ -350,9 +350,9 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 ## 後續步驟
 既然您已經學會如何開始使用 DocumentDB 中的地理空間支援，您可以：
 
-- 使用 [Github 的地理空間 .NET 程式碼範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)開始撰寫程式碼
+- 使用 [Github 的地理空間 .NET 程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)開始撰寫程式碼
 - 在 [DocumentDB 查詢遊樂場](http://www.documentdb.com/sql/demo#geospatial)中實際操作地理空間查詢
 - 深入了解 [DocumentDB 查詢](documentdb-sql-query.md)
 - 深入了解 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

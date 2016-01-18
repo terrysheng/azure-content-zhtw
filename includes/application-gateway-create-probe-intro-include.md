@@ -1,3 +1,5 @@
-Custom probes allows you to have more granular control about health monitoring status for your back end pool of servers. You can change the interval checks, failed request threshold and timeout settings.
+自訂探查可讓您更準確地控制後端伺服器集區的狀況監控狀態。您可以變更間隔檢查、失敗要求臨界值及逾時設定。
 
-This article will guide you to create an application gateway with a custom probe or adding a custom probe to an existing application gateway. 
+此文章將引導您建立包含自訂探查的應用程式閘道，或新增自訂探查至現有的應用程式閘道。
+
+<!---HONumber=AcomDC_0107_2016-->

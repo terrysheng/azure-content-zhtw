@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # 透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組
@@ -24,14 +24,9 @@
 
 本主題說明如何透過 Azure CLI 中的服務管理 (asm) 模式，在任何平台上建立包含 Docker VM 延伸模組的 VM。[Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。您可以將 Docker VM 擴充程式應用在 [Azure Linux 代理程式](virtual-machines-linux-agent-user-guide.md)上，如此可在 Azure 上建立 Docker VM 來託管任何數量的應用程式容器。若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard) (英文)。
 
-+ [如何搭配使用 Docker VM 延伸模組與 Azure]
-+ [Linux 及 Windows 的虛擬機器延伸模組]
-+ [Azure 容器及容器管理資源]
-+ [後續步驟]
 
 ##如何搭配使用 Docker VM 擴充程式與 Azure
 若要將 Docker VM 延伸模組與 Azure 搭配使用，您必須安裝 0.8.6 版本以上的 [Azure 命令列介面](https://github.com/Azure/azure-sdk-tools-xplat) (Azure CLI) (本文截稿當時的最新版本為 0.8.10)。您可以在 Mac、Linux 及 Windows 上安裝 Azure CLI。
-
 
 
 在 Azure 上使用 Docker 的完整程序相當簡單：
@@ -160,16 +155,12 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [Subheading 1]: #subheading-1
 [Subheading 2]: #subheading-2
 [Subheading 3]: #subheading-3
-[後續步驟]: #next-steps
+[Next steps]: #next-steps
 
-[如何搭配使用 Docker VM 延伸模組與 Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Linux 及 Windows 的虛擬機器延伸模組]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-[Azure 容器及容器管理資源]: #Container-and-Container-Management-Resources-for-Azure
+[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
@@ -181,4 +172,4 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [Docker 使用者指南]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

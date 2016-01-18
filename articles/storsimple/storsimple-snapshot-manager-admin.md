@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案
 
 ## 概觀
 
-StorSimple Snapshot Manager 是 Microsoft Management Console (MMC) 嵌入式管理單元，可簡化資料保護和備份管理 Microsoft Azure StorSimple 環境中。使用 StorSimple Snapshot Manager 中，您可以管理資料中心和雲端的 Microsoft Azure StorSimple 資料做為單一整合式儲存體解決方案，因而簡化備份程序，並降低成本。
+StorSimple Snapshot Manager 是 Microsoft Management Console (MMC) 嵌入式管理單元，可簡化資料保護和備份管理 Microsoft Azure StorSimple 環境中。使用 StorSimple Snapshot Manager 時，您可以將資料中心和雲端中的 Microsoft Azure StorSimple 資料當作單一整合式儲存體解決方案來管理，因而簡化備份程序並降低成本。
 
 StorSimple Snapshot Manager 中央管理主控台可讓您建立一致、 時間點備份複本的本機和雲端資料。例如，您可以使用主控台：
 
@@ -38,6 +38,8 @@ StorSimple Snapshot Manager 中央管理主控台可讓您建立一致、 時間
 - 若要下載 StorSimple Snapshot Manager，請移至 [StorSimple Snapshot Manager 下載頁面](https://www.microsoft.com/download/details.aspx?id=44220)。
 
 - 如需 StorSimple Snapshot Manager 部署程序，請移至[部署 StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)。
+
+>[AZURE.NOTE]您無法使用 StorSimple Snapshot Manager 來管理 Microsoft Azure StorSimple Virtual Arrays (也稱為 StorSimple 內部部署虛擬裝置)。
 
 ## StorSimple Snapshot Manager 工作和工作流程
 
@@ -60,4 +62,4 @@ StorSimple Snapshot Manager 中央管理主控台可讓您建立一致、 時間
 
 [下載 StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

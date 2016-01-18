@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SQL Server 高可用性和災害復原 | Microsoft Azure"
-	description="本教學課程使用隨傳統部署模型建立的資源，並討論在 Azure 虛擬機器中執行的 SQL Server 適用的各種 HADR 策略。"
+	description="討論適用於在「Azure 虛擬機器」中執行之 SQL Server 的各種 HADR 策略。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="01/07/2015"
 	ms.author="jroth" />
 
 # Azure 虛擬機器中的 SQL Server 高可用性和災害復原
@@ -39,6 +39,7 @@
 - [資料庫鏡像](https://technet.microsoft.com/library/ms189852.aspx)
 - [記錄傳送](https://technet.microsoft.com/library/ms187103.aspx)
 - [備份及還原與 Azure Blob 儲存體服務](https://msdn.microsoft.com/library/jj919148.aspx)
+- [AlwaysOn 容錯移轉叢集執行個體](https://technet.microsoft.com/library/ms189134.aspx) 
 
 您可以將這些技術合併在一起，以實作同時具有高可用性及嚴重損壞修復功能的 SQL Server 解決方案。根據您使用的技術而定，混合式部署可能會需要使用 Azure 虛擬網路的 VPN 通道。下列各節會說明部分範例部署架構。
 
@@ -48,8 +49,9 @@
 
 |Technology|範例架構|
 |---|---|
-|**AlwaysOn 可用性群組**|為了相同區域內的高可用性，所有可用性複本都會在 Azure VM 中執行。由於 Windows Server 容錯移轉叢集 (WSFC) 需使用 Active Directory 網域，因此除了 SQL Server 虛擬機器以外，您還需要設定網域控制站。<br/> ![AlwaysOn 可用性群組](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>如需詳細資訊，請參閱[在 Azure (GUI) 中設定 AlwaysOn 可用性群組](virtual-machines-sql-server-alwayson-availability-groups-gui.md)。|
+|**AlwaysOn 可用性群組**|為了相同區域內的高可用性，所有可用性複本都會在 Azure VM 中執行。由於「Windows Server 容錯移轉叢集」(WSFC) 需要使用 Active Directory 網域，因此您需要設定網域控制站 VM。<br/> ![AlwaysOn 可用性群組](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>如需詳細資訊，請參閱[在 Azure (GUI) 中設定 AlwaysOn 可用性群組](virtual-machines-sql-server-alwayson-availability-groups-gui.md)。|
 |**資料庫鏡像**|為了高可用性，所有主體、鏡像和見證伺服器都會在相同的 Azure 資料中心執行。您可以使用網域控制站進行部署。<br/>![資料庫鏡像](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring1.gif)<br/>您也可以改用伺服器憑證，不需網域控制站即可部署相同的資料庫鏡像組態。<br/>![資料庫鏡像](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring2.gif)|
+|**AlwaysOn 容錯移轉叢集執行個體**|有兩種不同的方式可以建立需要使用共用儲存體的「容錯移轉叢集執行個體」(FCI)。<br/><br/>1.在於 Azure VM 中執行的雙節點 WSFC 上建立 FCI，搭配受協力廠商叢集解決方案支援的儲存體。如需使用 SIOS DataKeeper 的特定範例，請參閱[使用 WSFC 和協力廠商軟體 SIOS Datakeeper 之檔案共用的高可用性](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)。<br/><br/>2.在於 Azure VM 中執行的雙節點 WSFC 上建立 FCI，搭配透過 ExpressRoute 的遠端「iSCSI 目標」共用區塊儲存體例如，「NetApp 私有儲存體」(NPS) 會使用 Equinix 透過 ExpressRoute 對 Azuer VM 公開 iSCSI 目標。<br/><br/>針對協力廠商的共用儲存體和資料複寫解決方案，如有任何關於在容錯移轉時存取資料的問題，請連絡廠商。<br/><br/>請注意，目前還不支援在 [Azure 檔案儲存體](https://azure.microsoft.com/services/storage/files/)之外使用 FCI，因為這個解決方案不會使用「進階儲存體」。我們正在努力，很快就會推出這項支援。|
 
 ## 僅限 Azure：嚴重損壞修復解決方案
 
@@ -145,11 +147,11 @@ Azure 磁碟中的異地複寫不支援將相同資料庫的資料檔與記錄�
 
 若要獲得在 Azure VM 上執行的 SQL Server 的最佳效能，請參閱 [Azure 虛擬機器中 SQL Server 的效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)中的指引。
 
-如需有關在 Azure VM 中執行 SQL Server 的其他主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
+如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
 ### 其他資源：
 
 - [在 Azure 中安裝新的 Active Directory 樹系](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [在 Azure VM 中建立 AlwaysOn 可用性群組的 WSFC 叢集](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

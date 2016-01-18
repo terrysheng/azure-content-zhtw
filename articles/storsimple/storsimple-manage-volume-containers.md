@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="12/31/2015"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務管理 StorSimple 磁碟區容器
@@ -25,7 +25,7 @@ Microsoft Azure StorSimple 裝置中的磁碟區容器包含一個或多個可�
 
 磁碟區容器具有下列屬性：
 
-- **磁碟區** – 磁碟區容器內所包含的精簡佈建型 StorSimple 磁碟區。一個磁碟區容器可以包含最多 256 個精簡佈建型 StorSimple 磁碟區。
+- **磁碟區** – 磁碟區容器內所包含的分層 StorSimple 磁碟區或固定在本機的 StorSimple 磁碟區。一個磁碟區容器可以包含最多 256 個 StorSimple 磁碟區。
 
 - **加密** – 可以為每個磁碟區容器定義的加密金鑰。此金鑰用於加密自 StorSimple 裝置傳送至雲端的資料。軍事級的 AES-256 位元金鑰是搭配使用者輸入的金鑰使用。為保護您的資料，建議您務必啟用雲端儲存體加密。
 
@@ -66,4 +66,4 @@ Microsoft Azure StorSimple 裝置中的磁碟區容器包含一個或多個可�
 - 深入了解[管理 StorSimple 磁碟區](storsimple-manage-volumes.md)。 
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

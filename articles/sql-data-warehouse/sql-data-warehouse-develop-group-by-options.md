@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 根據 SQL 資料倉儲中的選項分組
@@ -185,4 +185,4 @@ ORDER BY 1,2,3
 
 <!--Other Web references-->
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

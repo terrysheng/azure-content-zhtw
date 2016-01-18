@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用邏輯應用程式功能" 
+	pageTitle="使用邏輯應用程式功能 |Microsoft Azure" 
 	description="了解如何使用邏輯應用程式的進階功能。" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # 使用 Logic Apps 功能
@@ -49,7 +49,7 @@
 
 3. 按一下齒輪圖示，然後選取 [**對清單重複執行**]。
  
-2. 在 [**重複**] 方塊旁邊，按一下 `...`，然後選取 [**主體**]。這會輸入：
+2. 在 [重複] 方塊旁邊，按一下 `...`，然後選取 [主體]。這會輸入：
 
     	@body('twitterconnector')
 
@@ -57,7 +57,7 @@
 
 3. 選取 [**內容**] 文字方塊中的所有文字，然後加以刪除。然後，按一下 `...`，並選取 [**推文文字**]。這會插入 **repeatItem()** 函數，傳回清單中的每個元素。
 
-最後，請注意重複動作的輸出有其特殊性。如果您想要參考 Dropbox 作業的結果，例如，您可能*不*執行一般 `@actions('dropboxconnector').outputs.body`，而是執行：`@actions('dropboxconnector').outputs.repeatItems`。這會傳回每次執行作業的所有清單，以及每一次的輸出。例如，`@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` 將傳回第一個上傳之檔案的路徑。
+最後，請注意重複動作的輸出有其特殊性。如果您想要參考 Dropbox 作業的結果，例如，您可能*不*執行一般 `@actions('dropboxconnector').outputs.body`。而是執行：`@actions('dropboxconnector').outputs.repeatItems`。這會傳回每次執行作業的所有清單，以及每一次的輸出。例如，`@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` 會傳回第一個上傳之檔案的路徑。
 
 ### 條件式
 此邏輯應用程式仍會產生很多上傳至 Dropbox 的檔案。下列步驟中會新增其他邏輯，以確定您只有在推文有特定數量的回推時，才會收到檔案。
@@ -106,7 +106,7 @@ Logic Apps 的某些功能只能在程式碼檢視中使用。例如，參數就
 
 參數很適合用來提取您很可能經常變更的值。當您需要在不同環境中覆寫參數時，參數特別有用。如需有關如何根據環境覆寫參數的詳細資訊，請參閱我們的 [REST API 文件](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409)。
 
-現在，當您按一下 [**儲存**] 時，每小時都將有回推數超過 5 個的新推文傳遞到您 Dropbox 中名為 [**推文**] 的資料夾。
+現在，當您按一下 [**儲存**] 時，每小時都會有回推數超過 5 個的新推文傳遞到您 Dropbox 中名為 [**推文**] 的資料夾。
 
 若要深入了解邏輯應用程式定義，請參閱[撰寫邏輯應用程式定義](app-service-logic-author-definitions.md)。
 
@@ -143,4 +143,4 @@ Logic Apps 的某些功能只能在程式碼檢視中使用。例如，參數就
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

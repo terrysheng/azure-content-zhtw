@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory (AD) B2C 預覽：針對具有 LinkedIn 帳戶的取用者提供註冊和登入
@@ -34,22 +34,22 @@
 
     ![LinkedIn - 註冊應用程式](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-5. 複製 [用戶端識別碼] 與 \[用戶端密碼] (可在 [驗證金鑰] 區段下方找到) 的值。您必須使用這兩個值，將 LinkedIn 設為目錄中的身分識別提供者。
+5. 複製 [用戶端識別碼] 與 \[用戶端密碼] (可在 [驗證金鑰] 區段下方找到) 的值。您必須使用這兩個值，將 LinkedIn 設為租用戶中的身分識別提供者。
 
     > [AZURE.NOTE]**用戶端密碼**是重要的安全性認證。
 
-6. 在 [授權的重新導向 URL] 欄位 (位於 [OAuth 2.0] 區段下方) 中，輸入 [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp)，其中 **{directory}** 會取代為您目錄的名稱 (例如 contoso.onmicrosoft.com)，然後按一下 [新增]。然後按一下 [更新]。
+6. 在 [授權的重新導向 URL] 欄位 (位於 [OAuth 2.0] 區段下方) 中，輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`，其中 **{tenant}** 要取代為您租用戶的名稱 (例如 contoso.onmicrosoft.com)，然後按一下 [新增]。然後按一下 [更新]。
 
     ![LinkedIn - 設定應用程式](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
-## 將 LinkedIn 設為您目錄中的身分識別提供者
+## 將 LinkedIn 設為您租用戶中的身分識別提供者
 
-1. [瀏覽至 Azure Preview 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
+1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
 2. 在 B2C 功能刀鋒視窗中，按一下 [**身分識別提供者**]。
-3. 按一下刀鋒視窗頂端的 [新增]。
+3. 按一下刀鋒視窗頂端的 [+新增]。
 4. 針對身分識別提供者組態，提供容易辨識的**名稱**。例如，輸入「LI」。
 5. 按一下 [身分識別提供者類型]、選取 [LinkedIn]，然後按一下 [確定]。
 6. 按一下 [設定此身分識別提供者]，然後輸入您先前建立之 LinkedIn 應用程式的 [用戶端識別碼] 與 [用戶端密碼]。
 7. 依序按一下 [確定] 與 [建立]，以儲存您的 LinkedIn 組態。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

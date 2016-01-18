@@ -19,8 +19,6 @@
 
 # 使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體
 
-[AZURE.INCLUDE [storage-selector-portal-import-export-service](../../includes/storage-selector-portal-import-export-service.md)]
-
 ## 概觀
 
 透過網路進行上傳所費不貲或不可行時，您可以使用 Microsoft Azure 匯入/匯出服務將大量檔案資料移轉至 Azure Blob 儲存體。您也可以使用匯入/匯出服務，以具成本效益的方式適時將位於 Blob 儲存體的大量資料移轉至內部部署安裝。
@@ -78,7 +76,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 ### 建立匯入工作
 
-1.	備妥磁碟機後，請在「傳統入口網站」中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 [快速概覽] 之下，按一下 [建立匯入工作]。 
+1.	備妥磁碟機後，請在「傳統入口網站」中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 [Quick Glance] 之下，按一下 [Create an Import Job]。 
  
 2.	在精靈的步驟 1，指出您已備妥磁碟機並有可用的磁碟機日誌。
  
@@ -279,4 +277,4 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

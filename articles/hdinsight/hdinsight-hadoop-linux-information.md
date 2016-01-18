@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 # 在 Linux 上使用 HDInsight 的相關資訊
@@ -23,7 +23,7 @@
 
 ## 網域名稱
 
-從網際網路連線到叢集時所要使用的完整網域名稱 (FQDN) 是 **&lt;clustername>.azurehdinsight.net** 或 (僅適用於 SSH) **&lt;clustername-ssh>.azurehdinsight.net**。
+從網際網路連接到叢集時所要使用的完整網域名稱 (FQDN) 是 **&lt;clustername>.azurehdinsight.net** 或 (僅適用於 SSH) **&lt;clustername-ssh>.azurehdinsight.net**。
 
 就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。若要尋找叢集名稱，您可以造訪 Ambari Web UI 的 [主機] 頁面，或使用下列命令以傳回來自 Ambari REST API (使用 [cURL](http://curl.haxx.se/) 和 [jq](https://stedolan.github.io/jq/)) 的主機清單：
 
@@ -61,7 +61,7 @@
 	>
 	> 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
-* **SSH** - 連接埠 22 或 23 上的 &lt;clustername>-ssh.azurehdinsight.net。連接埠 22 用來連線至前端節點 0、而 23 用來連線至前端節點 1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
+* **SSH** - 連接埠 22 或 23 上的 &lt;clustername>-ssh.azurehdinsight.net。連接埠 22 用來連接至前端節點 0、而 23 用來連接至前端節點 1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
 	> [AZURE.NOTE]您只能從用戶端電腦透過 SSH 存取叢集前端節點。然後在連線後，再從前端節點使用 SSH 存取背景工作角色節點。
 
@@ -98,27 +98,31 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 叢集建立期間，您會選取使用現有 Azure 儲存體帳戶和容器，或是建立新的。之後您可能就忘得一乾二淨。您可以使用 Ambari REST API 尋找預設的儲存體帳戶和容器。
 
-1. 請使用以下命令來擷取 HDFS 組態資訊：
+1. 請使用下列命令和 curl 來擷取 HDFS 組態資訊，並使用 [jq](https://stedolan.github.io/jq/) 加以篩選：
 
-        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
+    
+    > [AZURE.NOTE]這個方法會傳回套用至伺服器的第一個組態 (`service_config_version=1`) 其中會包含這項資訊。如果是擷取在叢集建立後修改的值，您可能需要列出組態版本並擷取最新的版本。
 
-2. 在傳回的 JSON 資料中，找到 `fs.defaultFS` 項目。這樣會以如下的格式包含預設容器和儲存體帳戶名稱：
+    這會傳回值類似下列的值，其中 __CONTAINER__ 為預設容器和 __ACCOUNTNAME__ 是 Azure 儲存體帳戶名稱：
 
-        wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
+        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-	> [AZURE.TIP]如果您已安裝 [jq](http://stedolan.github.io/jq/)，您可以使用下列程式碼以只傳回 `fs.defaultFS` 項目：
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+1. 使用 [Azure CLI](../xplat-cli-install.md) 取得儲存體帳戶的資源群組。在下列命令中，將 __ACCOUNTNAME__ 取代為從 Ambari 擷取的儲存體帳戶名稱：
 
-3. 若要尋找用來驗證儲存體帳戶的金鑰，或尋找與叢集相關聯的任何次要儲存體帳戶，使用下列方法：
+        azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
+    
+    這會傳回帳戶的資源群組名稱。
+    
+    > [AZURE.NOTE]如果此命令未傳回任何項目，您需要將 Azure CLI 變更為 Azure 資源管理員模式，然後再重新執行命令。若要切換至 Azure 資源管理員模式，請使用下列命令。
+    >
+    > `azure config mode arm`
+    
+2. 取得儲存體帳戶的金鑰。將 __GROUPNAME__ 取代為上一個步驟的資源群組。將 __ACCOUNTNAME__ 取代為儲存體帳戶名稱：
 
-		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
 
-4. 在傳回的 JSON 資料中，找到以 `fs.azure.account.key` 開頭的項目。項目名稱的其餘部分是儲存體帳戶名稱。例如，`fs.azure.account.key.mystorage.blob.core.windows.net`。此項目中儲存的值是用來驗證儲存體帳戶的金鑰。
-
-	> [AZURE.TIP]如果您已安裝 [jq](http://stedolan.github.io/jq/)，可以使用下列程式碼來傳回金鑰和值清單：
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+    這會傳回帳戶的主要金鑰。
 
 您也可以使用 Azure 入口網站尋找儲存體資訊︰
 
@@ -184,7 +188,7 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 * __Storm__︰執行調整作業之後，您應該重新平衡任何執行中的 Storm 拓撲。這可讓拓撲根據叢集中的新節點數目，重新調整平行處理原則設定。若要重新平衡執行中的拓撲，請使用下列其中一個選項：
 
-	* __SSH__︰連線到伺服器並使用下列命令來重新平衡拓撲：
+	* __SSH__︰連接到伺服器並使用下列命令來重新平衡拓撲：
 
 			storm rebalance TOPOLOGYNAME
 
@@ -252,4 +256,4 @@ HDInsight 是受管理的服務，這表示如果偵測到問題，叢集中的�
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

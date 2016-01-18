@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # 角色存取控制疑難排解
@@ -82,4 +82,4 @@ Web 應用程式因為幾個互有關聯的資源而顯得複雜。以下是具�
 
 如果您無法存取上述任何一個磚，請洽詢您的系統管理員，取得資源群組的參與者存取權限。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

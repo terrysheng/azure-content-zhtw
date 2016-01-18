@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tarcher"/>
 
 # 在使用 Visual Studio 連接服務加入 Azure 行動服務之後，開始使用 Javascript Mobile App
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
-> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 依照這些範例中之程式碼執行的第一個步驟取決於您要連線的行動服務類型。
 
@@ -80,7 +76,7 @@
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-#####刪除實體
+##刪除實體
 
 刪除資料表中的資料列。在傳回的 [Promise]() 物件上呼叫 [done](https://msdn.microsoft.com/library/dn802826.aspx) 方法，以取得所插入物件的複本，並處理任何錯誤。
 
@@ -92,4 +88,4 @@
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

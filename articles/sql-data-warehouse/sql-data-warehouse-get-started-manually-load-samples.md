@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/02/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 #將範例資料載入 SQL 資料倉儲
@@ -45,18 +45,18 @@
 
 一旦已經將某些範例資料載入您的 SQL 資料倉儲中，就可以快速地執行幾個查詢。若要執行查詢，請使用 Visual Studio 和 SSDT 連接 Azure SQL DW 中新建立的 Adventure Works 資料庫，如[連接][]文件中所描述。
 
-取得員工之所有資訊，簡單的 select 陳述式範例：
+可取得員工之所有資訊的簡單 select 陳述式範例：
 
 	SELECT * FROM DimEmployee;
 
-使用建構 (例如 GROUP BY) 來查看每一天所有銷售之總金額，更複雜的查詢範例：
+使用建構 (例如 GROUP BY) 來查看每一天所有銷售之總金額的較複雜查詢範例：
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-SELECT 搭配 WHERE 子句，來篩選出特定日期之前訂單的範例：
+可篩選掉特定日期前之訂單的 SELECT 搭配 WHERE 子句的範例：
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
@@ -84,4 +84,4 @@ SQL 資料倉儲幾乎支援所有 SQL Server 支援的 T-SQL 建構。所有的
 <!--Other Web references-->
 [適用於 SQL 資料倉儲的 Adventure Works 範例指令碼]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

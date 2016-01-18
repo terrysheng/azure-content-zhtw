@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # 建立使用服務匯流排主題和訂用帳戶的應用程式
@@ -148,6 +148,6 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 ## 後續步驟
 
-請參閱[建立使用服務匯流排主題和訂用帳戶的應用程式](service-bus-create-topics-subscriptions.md)，了解如何在 POS 零售案例中使用佇列。
+請參閱[建立使用服務匯流排佇列的應用程式](service-bus-create-queues.md)，了解如何在 POS 零售案例中使用佇列的相關資訊。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

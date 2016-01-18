@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -37,7 +37,17 @@
 
 ## 在建立叢集時安裝 Zeppelin
 
->[AZURE.NOTE]如果您使用入口網站建立 Spark 叢集，請略過此步驟。只有在使用 HDInsight .NET SDK 或 Azure PowerShell 建立時，才需要此步驟。
+您可以使用指令碼動作在 Spark 叢集上安裝 Zeppelin。指令碼動作會使用自訂指令碼在叢集上安裝不是預設可用的元件。用以在 Spark 叢集上安裝 Zeppelin 的自訂指令碼可從 ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh** 取得。
+
+### 使用 Azure 入口網站
+
+如需有關如何使用 HDInsight .NET SDK 來執行指令碼動作以安裝 Zeppelin 的指示，請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal)。您必須對該文中的指示進行一些變更。
+
+* 您必須使用指令碼來安裝 Zeppelin。要使用的指令碼是 ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**。
+
+* 您只須在前端節點上執行此指令碼動作。
+
+* 此指令碼不需要任何參數。
 
 ### 使用 HDInsight .NET SDK
 
@@ -203,17 +213,17 @@
 	* **myspar** 是 Spark 叢集的前五個字母。
 	* **9995** 是 Zeppelin Notebook 可存取的連接埠。
 
-2. 建立新的 Notebook。在標頭窗格中按一下 [Notebook]，然後按一下 [建立新 Note]。
+2. 建立新的 Notebook。按一下標頭窗格中的 [Notebook]，然後按一下 [建立新 Note]。
 
 	![建立新的 Zeppelin Notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.createnewnote.png "建立新的 Zeppelin Notebook")
 
-	在同一個頁面的 [Notebook] 標題下方，您應該會看到名稱開頭為 **Note XXXXXXXXX** 的新 Notebook。按一下新的 Notebook。
+	在同一個頁面的 [Notebook] 標頭下方，您應該會看到名稱開頭為「Note XXXXXXXXX」的新 Notebook。按一下新的 Notebook。
 
-3. 在新 Notebook 的網頁上按一下標題，需要的話可以變更 Notebook 的名稱。按下 ENTER 以儲存名稱變更。此外，請確定 Notebook 標頭在右上角顯示 [已連接] 狀態。
+3. 在新 Notebook 的網頁上按一下標題，需要的話可以變更 Notebook 的名稱。按下 ENTER 以儲存名稱變更。此外，請確定 Notebook 標頭的右上角顯示 [已連線] 狀態。
 
 	![Zeppelin Notebook 狀態](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.newnote.connected.png "Zeppelin Notebook 狀態")
 
-4. 將範例資料載入暫存資料表。當您在 HDInsight 中建立 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶，其路徑為 **\\HdiSamples\\SensorSampleData\\hvac**。
+4. 將範例資料載入暫存資料表。當您在 HDInsight 中建立 Spark 叢集時，系統會將範例資料檔案 **hvac.csv** 複製到相關聯的儲存體帳戶中 (位於 **\\HdiSamples\\SensorSampleData\\hvac**)。
 
 	將以下程式碼片段貼入新 Notebook 中預設建立的空白段落。
 
@@ -236,36 +246,36 @@
 		// Register as a temporary table called "hvac"
 		hvac.registerTempTable("hvac")
 		
-	按下 **SHIFT + ENTER**，或按一下 [開始] 按鈕讓段落執行程式碼片段。段落右上角的狀態應該會從「準備就緒」逐一轉變成「擱置」、「執行中」及「已完成」。輸出會顯示在同一個段落的底部。螢幕擷取畫面如下所示：
+	按下 **SHIFT + ENTER**，或是按一下 [播放] 按鈕來讓段落執行程式碼片段。段落右上角的狀態應該會從「準備就緒」逐一轉變成「擱置」、「執行中」及「已完成」。輸出會顯示在同一個段落的底部。螢幕擷取畫面如下所示：
 
 	![從原始資料建立暫存資料表](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.loaddataintotable.png "從原始資料建立暫存資料表")
 
-	您也可以為每個段落提供標題。在右下角按一下 [設定] 圖示，然後按一下 [顯示標題]。
+	您也可以為每個段落提供標題。按一下右下角的設定圖示，然後按一下 [顯示標題]。
 
-5. 您現在可以針對 **hvac** 資料表執行 Spark SQL 陳述式。將以下查詢貼入新段落。此查詢會擷取建築物識別碼，以及在指定日期當天每棟建築物之目標溫度與實際溫度間的差異。按下 **SHIFT + ENTER**。
+5. 現在，您可以針對 **hvac** 資料表執行 Spark SQL 陳述式。將以下查詢貼入新段落。此查詢會擷取建築物識別碼，以及在指定日期當天每棟建築物之目標溫度與實際溫度間的差異。按下 **SHIFT + ENTER**。
 
 		%sql
 		select buildingID, (targettemp - actualtemp) as temp_diff, date 
 		from hvac
 		where date = "6/1/13" 
 
-	開頭的 **%Sql** 陳述式會告訴 Notebook 使用 Spark SQL 解譯器。您可以在 Notebook 標頭中的 [解譯器] 索引標籤查看已定義的解譯器。
+	開頭的 **%Sql** 陳述式會告訴 Notebook 使用 Spark SQL 解譯器。您可以在 Notebook 標頭的 [解譯器] 索引標籤中，查看已定義的解譯器。
 
 	以下螢幕擷取畫面顯示輸出。
 
 	![使用 Notebook 執行 Spark SQL 陳述式](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery1.png "使用 Notebook 執行 Spark SQL 陳述式")
 
-	 按一下顯示選項 (以矩形反白顯示) 以針對相同輸出切換不同的表示法。按一下 [設定] 以選擇構成輸出中索引鍵和值的項目。上述螢幕擷取畫面使用 **buildingID** 做為索引鍵、平均 **temp\_diff** 做為值。
+	 按一下顯示選項 (以矩形反白顯示) 以針對相同輸出切換不同的表示法。按一下 [設定] 以選擇構成輸出中索引鍵和值的項目。在上方的螢幕擷取畫面中，索引鍵為 **buildingID**，而值為 **temp\_diff** 的平均值。
 
 	
-6. 您也可以在查詢中使用變數來執行 Spark SQL 陳述式。下一個程式碼片段示範如何在查詢中利用您可能會用來查詢的值定義 **Temp** 變數。當您第一次執行查詢時，下拉式清單會自動填入您指定的變數值。
+6. 您也可以在查詢中使用變數來執行 Spark SQL 陳述式。下一個程式碼片段示範如何利用您想要查詢的可能值，來定義查詢中的變數 **Temp**。當您第一次執行查詢時，下拉式清單會自動填入您指定的變數值。
 
 		%sql
 		select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff
 		from hvac
 		where targettemp > "${Temp = 65,65|75|85}" 
 
-	將此程式碼片段貼入新段落，然後按下 **SHIFT + ENTER**。以下螢幕擷取畫面顯示輸出。
+	將此程式碼片段貼到新的段落中，然後按下 **SHIFT + ENTER**。以下螢幕擷取畫面顯示輸出。
 
 	![使用 Notebook 執行 Spark SQL 陳述式](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "使用 Notebook 執行 Spark SQL 陳述式")
 
@@ -318,4 +328,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

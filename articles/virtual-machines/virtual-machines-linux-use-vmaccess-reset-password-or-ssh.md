@@ -69,7 +69,7 @@
 	{
 	"username":"currentusername",
 	"password":"newpassword",
-	"expiration":"2016-01-01",
+	"expiration":"2016-01-01"
 	}
 
 步驟 2：執行這個命令，以您的虛擬機器名稱來取代 "vmname"。
@@ -82,7 +82,7 @@
 
 	{
 	"username":"currentusername",
-	"ssh_key":"contentofsshkey",
+	"ssh_key":"contentofsshkey"
 	}
 
 步驟 2：執行這個命令，以您的虛擬機器名稱來取代 "vmname"。
@@ -96,7 +96,7 @@
 	{
 	"username":"currentusername",
 	"ssh_key":"contentofsshkey",
-	"password":"newpassword",
+	"password":"newpassword"
 	}
 
 步驟 2：執行這個命令，以您的虛擬機器名稱來取代 "vmname"。
@@ -122,7 +122,7 @@
 步驟 1：使用此內容建立名為 PrivateConf.json 的檔案。
 
 	{
-	"reset_ssh":"True",
+	"reset_ssh":"True"
 	}
 
 步驟 2：執行這個命令，以您的虛擬機器名稱來取代 "vmname"。
@@ -136,7 +136,7 @@
 步驟 1：使用這個內容來建立名為 PrivateConf.json 的檔案，以取代預留位置值。
 
 	{
-	"remove_user":"usernametoremove",
+	"remove_user":"usernametoremove"
 	}
 
 步驟 2：執行這個命令，以您的虛擬機器名稱來取代 "vmname"。
@@ -266,4 +266,4 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 [Azure VM 延伸模組與功能]: virtual-machines-extensions-features.md
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="09/23/2015" 
+    ms.date="01/05/2016" 
     ms.author="tamram"/>
 
 # 如何使用 C++ 的佇列儲存體  
@@ -238,4 +238,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

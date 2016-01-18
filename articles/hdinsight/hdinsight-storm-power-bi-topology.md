@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="01/06/2015"
  ms.author="larryfr"/>
 
 # 使用 Power BI (預覽) 視覺化 Apache Storm 拓撲的資料
@@ -67,7 +67,7 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 ## 設定範例
 
-1. 在 Visual Studio 中開啟範例。從 [**方案總管**]，開啟 **SCPHost.exe.config** 檔案，並尋找 **<OAuth .../>** 項目。輸入這個項目下列屬性的值。
+1. 在 Visual Studio 中開啟範例。從 [方案總管] 開啟 **App.config** 檔案，然後尋找 **<OAuth .../>** 元素。輸入這個項目下列屬性的值。
 
     * **用戶端**：您稍早建立的應用程式註冊之用戶端識別碼。
 
@@ -139,4 +139,4 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!-------HONumber=AcomDC_1210_2015---->
+<!---HONumber=AcomDC_0107_2016--->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 	
 # Azure AD B2C 預覽：建置 .NET Web API
@@ -26,7 +26,7 @@
 
 ## 1\.取得 Azure AD B2C 目錄
 
-您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄為所有使用者、應用程式、群組等項目的容器。如果您尚未擁有目錄，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續下一個步驟。
+您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄為所有使用者、應用程式、群組等項目的容器。如果您尚未建立目錄，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續下一個步驟。
 
 ## 2\.建立應用程式
 
@@ -44,8 +44,8 @@
 
 - 在身分識別提供者刀鋒視窗中，選擇 [使用者識別碼註冊] 或 [電子郵件註冊]。
 - 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
-- 在每個原則中選擇 [顯示名稱] 和 [物件識別碼] 宣告做為應用程式宣告。您也可以選擇其他宣告。
-- 建立每個原則後，請抄下原則的 [名稱]。稍後您將需要這些原則名稱。 
+- 在每個原則中選擇 [顯示名稱] 和 [物件識別碼]宣告做為應用程式宣告。您也可以選擇其他宣告。
+- 建立每個原則後，複製原則的 [名稱]。稍後您將需要這些原則名稱。 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -74,7 +74,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
     <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
+    <add key="ida:ClientId" value="{Enter the Application Id assigned to your app by the Azure Portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
     <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
     <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
@@ -219,11 +219,10 @@ public IEnumerable<Models.Task> Get()
 
 ## 8\.編輯您的原則
 
-既然您已經使用 Azure AD B2C 保護 API，您可以測試一下應用程式的原則，檢視對 API 產生的效果 (或沒有效果)。您可以
+既然您已經使用 Azure AD B2C 保護 API，您可以測試一下應用程式的原則，檢視對 API 產生的效果 (或沒有效果)。您可以 操作原則中的**應用程式宣告**，然後變更 Web API 中可用的使用者資訊。如上所述，您加入的其他任何宣告都可在 `ClaimsPrincipal` 物件中供您的 .NET MVC Web API 使用。
 <!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
 -->
-操作原則中的**應用程式宣告**，然後變更 Web API 中可用的使用者資訊。如上所述，您加入的其他任何宣告都可在 `ClaimsPrincipal` 物件中供您的 .NET MVC Web API 使用。
 
 <!--
 
@@ -237,4 +236,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

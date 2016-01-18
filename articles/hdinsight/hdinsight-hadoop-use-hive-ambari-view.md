@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="01/04/2015"
    ms.author="larryfr"/>
 
 #在 HDInsight 中搭配 Hadoop 使用 Hive 檢視
@@ -123,7 +123,7 @@ Ambari 是隨著以 Linux 為基礎的 HDInsight 叢集提供的管理和監視�
 
 ###Tez
 
-選取編輯器右側的 [視覺解說] 圖示。
+選取編輯器右側的 [Tez] 圖示。
 
 ![圖示](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
@@ -131,7 +131,7 @@ Ambari 是隨著以 Linux 為基礎的 HDInsight 叢集提供的管理和監視�
 
 ###通知
 
-選取編輯器右側的 [視覺解說] 圖示。
+選取編輯器右側的 [通知] 圖示。
 
 ![圖示](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
 
@@ -187,7 +187,7 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 
 * [如何將自訂 Hive UDF 新增至 HDInsight (英文)](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-##<a id="nextsteps"></a>接續步驟
+##<a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 Hive 的一般資訊：
 
@@ -199,4 +199,4 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

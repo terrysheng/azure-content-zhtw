@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/24/2015" 
 	ms.author="naziml"/>
 
 # 設定 App Service 環境的 Web 應用程式防火牆 (WAF)
@@ -99,4 +99,4 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

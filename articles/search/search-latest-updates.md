@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/23/2015" 
 	ms.author="heidist"/>
 
 #Azure 搜尋服務的最新更新事項#
@@ -125,4 +125,4 @@ Azure 搜尋服務是 Microsoft Azure 上的雲端託管搜尋服務。此服務
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi"/>
 
 
@@ -449,7 +449,7 @@
 
 **語法：**<br> `num InstrRev(str stringcheck, str stringmatch)` <br> `num InstrRev(str stringcheck, str stringmatch, num start)` <br> `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
-- stringcheck：要搜尋的字串 <br>
+- stringcheck：要搜尋的字串<br>
 - stringmatch：要尋找的字串 <br>
 - start：開始尋找子字串的位置 <br>
 - compare：vbTextCompare 或 vbBinaryCompare
@@ -570,7 +570,7 @@
 
 **說明：**<br> 如果運算式評估為非 Null 且不是空字串，IsPresent 函式即會傳回 True。
 
-**語法：**<br> `bool IsPresent(var expression)`
+**語法：** <br> `bool IsPresent(var expression)`
 
 **備註：**<br> 這個函式的相反函式名稱為 IsNullOrEmpty。
 
@@ -778,7 +778,7 @@
 ----------
 ### PadRight
 
-**說明：**<br> PadRight 函式會使用提供的填補字元，將字串右側填補到指定的長度。
+**說明：**<br>PadRight 函式會使用提供的填補字元，將字串右側填補到指定的長度。
 
 **語法：**<br> `str PadRight(str string, num length, str padCharacter)`
 
@@ -804,7 +804,7 @@
 ----------
 ### PCase
 
-**說明：**<br> PCase 函式會將字串中每個以空格分隔之單字的第一個字元轉換為大寫，並將其他所有字元轉換為小寫。
+**說明：**<br>PCase 函式會將字串中每個空格分隔之單字的第一個字元轉換為大寫，並將其他所有字元轉換為小寫。
 
 **語法：**<br> `String PCase(string)`
 
@@ -969,7 +969,7 @@
 
 **說明：**<br> StringFromSid 函式會將位元組陣列或包含安全性識別碼的多重值位元組陣列，轉換為字串或多重值的字串。
 
-**語法：**<br> `str StringFromSid(bin ObjectSID)` <br> `mvstr StringFromSid(mvbin ObjectSID)`
+**語法：** <br> `str StringFromSid(bin ObjectSID)` <br> `mvstr StringFromSid(mvbin ObjectSID)`
 
 
 
@@ -1058,4 +1058,4 @@ Value 也可以是會傳回自訂字串的 Error 函式。
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

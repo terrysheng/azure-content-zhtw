@@ -21,10 +21,7 @@
 # 在 Mac OS X 上搭配 Tedious 使用 Node.js 連接到 SQL Database
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 本主題提供可在 Mac OS X 上執行的 Node.js 程式碼範例。這個範例使用 Tedious 驅動程式連接到 Azure SQL Database。
@@ -175,4 +172,4 @@
 
 如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

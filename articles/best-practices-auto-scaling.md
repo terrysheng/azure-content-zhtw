@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="01/04/2016"
    ms.author="masashin"/>
 
 # 自動調整指引
@@ -57,13 +57,13 @@
 ## Azure 解決方案中的自動調整
 為 Azure 解決方案設定自動調整有數個選項：
 
-- **Azure 自動調整**。此功能支援根據排程的最常見調整案例，並可選擇根據執行階段度量 (例如處理器使用率、佇列長度，或內建和自訂計數器) 觸發調整作業。您可以使用 Azure 管理入口網站，快速、輕鬆地設定解決方案的簡單自動調整原則，您也可以使用 Azure 監視服務管理資源庫，以更細微的控制程度設定自動調整規則。如需詳細資訊，請參閱 [Azure 監視服務管理資源庫](#the-azure-monitoring-services-management-library)一節。
-- 根據診斷、監視和 Azure 服務管理功能的**自訂解決方案**。例如，您可以使用 Azure 診斷、自訂程式碼或[System Center Management Pack for Azure](http://www.microsoft.com/download/details.aspx?id=38414) 來持續監視應用程式的效能，以及使用 [Azure 服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)、[Microsoft Azure 管理庫](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Libraries)或[自動調整應用程式區塊](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx)來相應放大和縮小。觸發調整作業的度量資訊可以是任何內建或自訂計數器，或是您在應用程式內實作的其他檢測工具。不過，自訂解決方案並不容易實作，只應在前述方法都無法滿足您的需求時才加以考慮。請注意，自動調整應用程式區塊是開放原始碼的架構，且 Microsoft 未直接支援。
+- **Azure 自動調整**。此功能支援根據排程的最常見調整案例，並可選擇根據執行階段度量 (例如處理器使用率、佇列長度，或內建和自訂計數器) 觸發調整作業。您可以使用 Azure 管理入口網站，快速而輕鬆地為解決方案設定簡單的自動調整原則。如需更精細的控制，您可以使用 [Azure 服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 或 [Azure 資源管理員 REST API](https://msdn.microsoft.com//library/azure/dn790568.aspx)。[Azure 監視服務管理資源庫](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring)和 [Microsoft Insights 資源庫](https://www.nuget.org/packages/Microsoft.Azure.Insights/) (預覽版) 是可讓您從不同的資源收集度量以及利用 REST API 執行自動調整的 SDK。對於不支援 Azure 資源管理員的資源，或是當您使用雲端服務時，都可以使用服務管理 REST API 來進行自動調整。在其他各種情況下，均建議使用 Azure 資源管理員 (ARM) 進行自動調整。
+- 根據應用程式和 Azure 的管理功能進行檢測的**自訂解決方案**。例如，您可以使用 Azure 診斷或應用程式中的其他檢測方法，再搭配自訂程式碼，以持續監視及匯出應用程式的度量。您可以讓處理這些度量的自訂規則使用服務管理或資源管理員 REST API 來觸發自動調整。觸發調整作業的度量資訊可以是任何內建或自訂計數器，或是您在應用程式內實作的其他檢測工具。不過，自訂解決方案並不容易實作，只應在前述方法都無法滿足您的需求時才加以考慮。[自動調整應用程式區塊](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx)即運用此方法。
 - **協力廠商服務** (例如 [Paraleap AzureWatch](http://www.paraleap.com/AzureWatch)) 可讓您根據排程、服務負載和系統效能指標、自訂規則以及不同規則類型的組合，來調整解決方案。
 
 選擇要採用哪種自動調整解決方案時，請考慮下列幾點：
 
-- 如果平台的內建自動調整功能可以符合您的需求，就使用此內建功能。 如果沒有，請仔細考量您是否真的需要更複雜的縮放功能。內建自動調整功能無法提供的額外需求例子包括更細微的控制程度、偵測調整觸發事件的其他方式、跨訂用帳戶調整、調整其他資源類型等。
+- 如果平台的內建自動調整功能可以符合您的需求，就使用此內建功能。If not, carefully consider whether you really do need more complex scaling features.內建自動調整功能無法提供的額外需求例子包括更細微的控制程度、偵測調整觸發事件的其他方式、跨訂用帳戶調整、調整其他資源類型等。
 - 請考慮您是否可以用足夠的精確度預測應用程式負載，以便只依賴排程自動調整 (新增和移除執行個體以滿足要求的預期尖峰期)。如果不可行，則根據在執行階段收集的度量使用被動式自動調整，以允許應用程式處理無法預期的需求變更。不過，它通常適用於綜合使用這些方法。例如，如果您知道應用程式何時最忙碌，便可建立根據排程新增計算、儲存和佇列等資源的策略。這有助於確保容量在需要時可供使用，且不會在啟動新執行個體時遇到延遲。此外，針對每個排程的規則，定義在該期間內允許被動式自動調整的度量，以確保應用程式能夠處理持續但無法預期的要求尖峰期。
 - 通常很難了解度量和容量需求之間的關聯性，尤其是在最初部署應用程式的時候。建議在一開始多佈建一些額外的容量，然後加以監視並調整自動調整規則，使容量更接近實際負載。
 
@@ -78,8 +78,8 @@ Azure 自動調整可讓您設定解決方案的相應放大和相應縮小選�
 - 您的自動調整策略同時結合了排程和度量型調整。您可以為服務指定兩種規則，讓應用程式同時根據排程和回應負載變化做出調整。
 - 您應該設定 Azure 自動調整規則，然後監視經過一段時間的應用程式效能。如有必要，使用此監視結果來調整系統的調整方式。不過，請記住，自動調整不是即時生效的程序 — 它需要時間來回應度量資訊 (例如平均 CPU 使用率超過或低於指定的臨界值)。
 - 使用根據測量觸發程序屬性 (例如 CPU 使用量或佇列長度) 的偵測機制的自動調整規則，是使用經過一段時間的彙總值 (而不是瞬間值) 來觸發自動調整動作。根據預設，彙總是值的平均。這可防止系統反應太快，或造成快速震盪。這也可以讓自動啟動的新執行個體順利進入執行模式，避免新執行個體正在啟動時，又發生其他自動調整動作。若是雲端服務和虛擬機器，彙總的預設期間為 45 分鐘，度量就需要經過這段時間後再回應尖峰需求量而觸發自動調整。您可以使用 SDK 變更彙總期間，但請注意低於 25 分鐘可能會造成無法預期的結果 (如需詳細資訊，請參閱 [使用 Azure 監視服務管理資源庫，根據 CPU 百分比自動調整雲端服務](http://rickrainey.com/2013/12/15/auto-scaling-cloud-services-on-cpu-percentage-with-the-windows-azure-monitoring-services-management-library/))。若是 Azure 網站，平均期間較短，允許在平均觸發量值變更約五分鐘後提供新執行個體。
-- 如果您使用 SDK 設定自動調整，而不是使用網路入口網站，您可以指定更詳細的作用中規則排程期間。您也可以建立您自己的度量，並在自動調整規則中與現有度量一起使用。例如，您可能想要使用替代計數器，例如每秒要求數或平均記憶體可用性，或使用自訂計數器來計算特定商務程序。如需詳細資訊，請參閱 [Azure 監視服務管理資源庫](#the-azure-monitoring-services-management-library)一節。
-- 自動調整 Azure 虛擬機器時，您必須部署相當於您允許自動調整啟動之最大數目的虛擬機器執行個體數。這些執行個體必須屬於相同的可用性設定組。虛擬機器自動調整機制不會建立或刪除虛擬機器的執行個體；相反地，您設定的自動調整規則將會啟動和停止適當數目的執行個體。如需詳細資訊，請參閱[自動調整執行 Web 角色、 背景工作角色或虛擬機器的應用程式](cloud-services-how-to-scale.md#autoscale)。
+- 如果您使用 SDK 設定自動調整，而不是使用網路入口網站，您可以指定更詳細的作用中規則排程期間。您也可以建立您自己的度量，並在自動調整規則中與現有度量一起使用。例如，您可能想要使用替代計數器，例如每秒要求數或平均記憶體可用性，或使用自訂計數器來計算特定商務程序。
+- 自動調整 Azure 虛擬機器時，您必須部署相當於您允許自動調整啟動之最大數目的虛擬機器執行個體數。這些執行個體必須屬於相同的可用性設定組。虛擬機器自動調整機制不會建立或刪除虛擬機器的執行個體；相反地，您設定的自動調整規則將會啟動和停止適當數目的執行個體。如需詳細資訊，請參閱[自動調整執行 Web 角色、 背景工作角色或虛擬機器的應用程式](cloud-services-how-to-scale.md)。
 - 如果無法啟動新的執行個體，可能是因為已達到訂用帳戶的最大值 (例如，使用虛擬機器服務時的核心數目上限)，或在啟動期間發生錯誤，入口網站可能會顯示自動調整作業成功。不過，後續入口網站中顯示的 **ChangeDeploymentConfiguration** 事件只會顯示已要求服務啟動，不會有任何事件指出是否已順利完成。
 - 在 Azure 自動調整中，您可以使用網路入口網站 UI，將 SQL Database 執行個體和佇列之類的資源連結至計算服務執行個體。這可讓您更輕鬆地存取每個連結資源的個別手動和自動調整設定選項。如需詳細資訊，請參閱「如何管理雲端服務」頁面中的[作法：將資源連結到雲端服務](cloud-services-how-to-manage.md#linkresources)以及[如何調整應用程式](cloud-services-how-to-scale.md)頁面。
 - 當您設定多個原則和規則時，它們有可能互相衝突。Azure 自動調整使用下列衝突解決規則來確保一定有足量的執行中執行個體：
@@ -89,31 +89,6 @@ Azure 自動調整可讓您設定解決方案的相應放大和相應縮小選�
 
 <a name="the-azure-monitoring-services-management-library"></a>
 
-### Azure 監視服務管理資源庫
-您可以使用服務管理 API，以更細微的控制程度來設定 Azure 自動調整，以及存取網站入口網站未提供的功能。此 API 以 REST Web API 的形式直接存取，或可透過 Azure 監視服務管理資源庫存取。
-
-可透過指定雲端服務角色、虛擬機器可用性設定組、Azure 網站 (做為網路空間中的伺服器陣列)，或 Azure 行動服務的自動調整設定檔來設定 Azure 自動調整。每個設定檔的目標可以多達 20 個，分別指出：
-
-- 套用時機 (使用循環或固定的日期間隔)，
-- 允許的執行個體數目 (最小值、最大值，與預設數目)
-- 生效的自動調整規則
-
-網站入口網站允許一組固定的設定檔，基本上區別日/夜以及工作日/週末設定檔，搭配根據 CPU 使用率或佇列長度的單一調整規則組。若改為使用服務管理 API，您可以設定更精細的設定檔適用日期，並指定高達十個規則，可根據 Azure 監視服務可使用的任何度量來觸發程序。
-
-自動調整規則包含指出何時套用規則的觸發程序，以及指出要在目標的組態上執行之變更的調整動作。在撰寫本文時，唯一支援的動作是增加或減少執行個體計數。
-
-自動調整規則的觸發程序是根據可用的度量。系統會依自動調整設定的定義，從適當來源定期取樣所設定度量的值。評估每個作用中設定檔的規則時，觸發程序上指定的度量值會跨執行個體 (如果適用) 並及時彙總，並將此彙總值與臨界值相比較，指出是否要套用規則。有效的隨時間彙總值為平均值 (預設值)、最小值、最大值、最後、加總以及計數。有效的隨執行個體彙總值為平均值 (預設值)、最小值及最大值。
-
-觸發程序可用的度量為 Azure 儲存體和服務匯流排佇列長度、Azure 診斷所發行的標準效能計數器以及每個角色或虛擬機器所發行的任何自訂效能計數器。在雲端服務解決方案中，處理預設效能計數器以外的效能計數器時，您必須將 UI 中的監視層級設定從 [最小值] 變更為 [詳細]。
-
-如需詳細資訊，請參閱：
-
-- 監視 SDK [類別庫](http://msdn.microsoft.com/library/azure/dn510414.aspx)
-- [如何設定效能計數器](http://msdn.microsoft.com/library/azure/dn535595.aspx)
-- [自動調整的相關作業](http://msdn.microsoft.com/library/azure/dn510374.aspx)
-- [加入自動調整設定](http://msdn.microsoft.com/library/azure/dn510372.aspx)
-- [使用 Azure 監視服務管理資源庫，根據 CPU 百分比自動調整雲端服務](http://rickrainey.com/2013/12/15/auto-scaling-cloud-services-on-cpu-percentage-with-the-windows-azure-monitoring-services-management-library/)
-- [如何使用 Azure 監視服務管理資源庫來建立自動調整規則](http://blogs.msdn.com/b/cie/archive/2014/02/20/how-to-use-windows-azure-monitoring-services-management-library-to-create-an-autoscale-rule.aspx)
 
 ## 相關的模式和指導方針
 實作自動調整時，下列模式和指引也可能與您的案例相關：
@@ -129,8 +104,9 @@ Azure 自動調整可讓您設定解決方案的相應放大和相應縮小選�
 - [調整連結的資源](cloud-services-how-to-scale.md#scalelink)
 - [Azure 監視服務管理資源庫](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring)
 - [Azure 服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)
+- [Azure 資源管理員 REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)
+- [Microsoft Insights 資源庫](https://www.nuget.org/packages/Microsoft.Azure.Insights/)
 - [自動調整的相關作業](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 - [Microsoft.WindowsAzure.Management.Monitoring.Autoscale 命名空間](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
-- MSDN 上的[自動調整應用程式區塊](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx)文件和重要案例。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

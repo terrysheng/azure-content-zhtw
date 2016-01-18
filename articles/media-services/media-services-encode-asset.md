@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015"  
+	ms.date="01/05/2015"  
 	ms.author="juliako"/>
 
 #Azure 隨選媒體編碼器的概觀和比較
@@ -72,13 +72,17 @@ Media Encoder Standard 使用[這裡](http://go.microsoft.com/fwlink/?linkid=618
 
 [這裡](http://msdn.microsoft.com/library/azure/dn783217.aspx)說明編碼器輸出中繼資料。
 
-###縮圖
+###產生縮圖
 
-如需如何產生縮圖的相關資訊，請參閱[如何使用媒體編碼器標準產生縮圖](media-services-dotnet-generate-thumbnail-with-mes.md)。
+如需相關資訊，請參閱[如何使用 Media Encoder Standard 產生縮圖](media-services-custom-mes-presets-with-dotnet.md#thumbnails)。
 
-###音訊和/或視訊重疊
+###修剪視訊 (裁剪)
 
-目前不支援。
+如需相關資訊，請參閱[如何使用 Media Encoder Standard 修剪視訊](media-services-custom-mes-presets-with-dotnet.md#trim_video)。
+
+###建立疊加層
+
+如需相關資訊，請參閱[如何使用 Media Encoder Standard 建立疊加層](media-services-custom-mes-presets-with-dotnet.md#overlay)。
 
 ###另請參閱
 
@@ -147,7 +151,7 @@ Media Encoder Premium Workflow 使用複雜的工作流程設定。您可以使�
 **Media Encoder Premium 工作流程** |PREMIUM ENCODER|在 PREMIUM ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
 
 
-本節比較 **媒體編碼器標準**、**Azure 媒體編碼器**以及**媒體編碼器高階工作流程**的編碼功能。
+本節比較 **Media Encoder Standard**、**Azure 媒體編碼器**以及**媒體編碼器高階工作流程**的編碼功能。
 
 
 ###輸入容器/檔案格式
@@ -265,4 +269,4 @@ Windows Media 音訊|否|是|是
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

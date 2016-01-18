@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # 使用 Visual Studio 建立 Web 應用程式的虛擬機器
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 資源管理員模型。
 
 建立 Azure 的 Web 應用程式專案時，您可以在 Azure 中佈建虛擬機器。您可以接著使用其他軟體來設定虛擬機器，或將虛擬機器用於診斷或偵測用途。
 
@@ -71,4 +71,4 @@
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

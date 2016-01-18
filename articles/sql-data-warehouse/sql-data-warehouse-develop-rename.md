@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/05/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # 在 SQL 資料倉儲中重新命名
-SQL Server 是透過預存程序 ```sp_renamedb``` 支援資料庫重新命名，而「SQL 資料倉儲」則是使用 DDL 語法來達到相同的目的。該 DDL 命令是 ```RENAME OBJECT```。
+SQL Server 是透過預存程序 ```sp_renamedb``` 支援資料庫重新命名，而「SQL 資料倉儲」則是使用 DDL 語法來達到相同的目的。DDL 命令是 ```RENAME OBJECT```。
 
 ## 重新命名資料表
 
@@ -34,7 +34,7 @@ RENAME OBJECT Customer TO NewCustomer;
 重新命名外部資料表會變更 SQL Server PDW 內的資料表名稱。它不會影響該資料表的外部資料位置。
 
 ## 變更資料表結構描述
-如果目的是要變更物件所屬的結構描述，則可透過 ALTER SCHEMA 達成此目的：
+如果目的是要變更物件所屬的結構描述，可以透過 ALTER SCHEMA 達成：
 
 ```
 ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
@@ -53,4 +53,4 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 <!--Article references-->
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

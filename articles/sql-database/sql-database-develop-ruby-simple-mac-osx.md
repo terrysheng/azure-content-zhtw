@@ -21,10 +21,7 @@
 # 在 Mac OS X (Yosemite) 上使用 Ruby 連接到 SQL Database
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 本主題提供可在執行 Yosemite 的 Mac 電腦上執行，以連接到 Azure SQL Database 資料庫的 Ruby 程式碼範例。
@@ -109,4 +106,4 @@
     puts row
     end
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來管理磁碟區 (Update 2)
@@ -108,31 +108,28 @@ StorSimple 磁碟區可以是：
 
 3. 按一下頁面底部的 [新增]。[新增磁碟區精靈] 隨即啟動。
 
-     ![加入磁碟區精靈基本設定](./media/storsimple-manage-volumes-u2/AddVolume1.png)
+     ![加入磁碟區精靈基本設定](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
 4. 在 [新增磁碟區精靈] 的 [基本設定] 下，執行列動作：
 
   1. 輸入磁碟區的 [名稱]。
-  2. 從下拉式清單中選取 [使用類型]。對於需要資料在任何時間都可於裝置本機使用的工作負載，選取 [固定在本機]。對於所有其他資料類型，選取 [分層]。\(預設值是 [分層]。)
+  2. 從下拉式清單中選取 [使用類型]。對於需要資料在任何時間都可於裝置本機使用的工作負載，選取 [固定在本機]。對於所有其他資料類型，選取 [分層]。(預設值是 [分層]。)
   3. 如果您在步驟 2 中選取 [分層]，您可以選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊以設定封存磁碟區。
-  4. 為磁碟區輸入 [佈建的容量] \(GB 或 TB)。請參閱[佈建的容量]\(#provisioned-capacity)以取得每個裝置與磁碟區類型的最大大小。查看 [可用容量] 來判斷您的裝置實際上有多少儲存體可用。
+  4. 為磁碟區輸入 [佈建的容量]\(GB 或 TB)。請參閱[佈建的容量](#provisioned-capacity)以取得每個裝置與磁碟區類型的最大大小。查看 [可用容量] 來判斷您的裝置實際上有多少儲存體可用。
 
-    如果您要設定固定在本機的磁碟區，您會看到下列訊息。
+5. 按一下箭頭圖示 ![箭號圖示](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)。如果您要設定固定在本機的磁碟區，您會看到下列訊息。
 
-    ![變更磁碟區類型訊息](./media/storsimple-manage-volumes-u2/LocalVolMessage.png)
+    ![變更磁碟區類型訊息](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
 
-    下列頁面隨即出現。
+5. 再按一下箭頭圖示 ![箭號圖示](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)，前往 [其他設定] 頁面。
 
     ![加入磁碟區精靈其他設定](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
-   
-5. 按一下箭號圖示 ![箭號圖示](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)，前往 [其他設定] 頁面。
 
 6. 在 [其他設定] 下，加入新的存取控制記錄 (ACR)：
   
   1. 在下拉式清單中選取存取控制記錄 (ACR)。或者，您可以加入新的 ACR。ACR 會藉由比對主機與記錄中列出的 IQN 來決定哪些主機可以存取磁碟區。如果您尚未指定 ACR，您會看到下列訊息。
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
-
 
   2. 建議選取 [啟用此磁碟區的預設備份] 核取方塊。
   3. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)，以利用指定的設定來建立磁碟區。
@@ -174,7 +171,7 @@ StorSimple 磁碟區可以是：
 
    1. 移至 [電腦管理] -> [磁碟管理]。
    2. 以滑鼠右鍵按一下 [磁碟管理]，並選取 [重新掃描磁碟]。
-   3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區]。[延伸磁碟區精靈] 隨即啟動。按 [下一步]。
+   3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區]。[延伸磁碟區精靈] 隨即啟動。按一下 [下一步]。
    4. 使用預設值完成精靈。完成精靈後，磁碟區應該會顯示增加的大小。
 
     >[AZURE.NOTE]如果您擴充固定在本機的磁碟區，然後立即擴充另一個固定在本機的磁碟區，磁碟區擴充作業會依序執行。必須先完成第一個磁碟區擴充作業，才能開始下一個磁碟區擴充作業。
@@ -206,18 +203,16 @@ StorSimple 磁碟區可以是：
 
 3. 選取磁碟區，然後按一下頁面底部的 [修改]。[修改磁碟區精靈] 隨即啟動。
 
-4. 在 [基本設定] 頁面上，藉由從 [使用類型] 下拉式清單選取新的類型，以變更使用類型。
+4. 在 [基本設定] 頁面上，從 [使用類型] 下拉式清單選取新的類型，以變更使用類型。
 
     - 如果您將類型變更為 [固定在本機]，StorSimple 會檢查是否有足夠的容量。
     - 如果您將類型變更為 [分層]，且此磁碟區將會用於封存資料，請選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊。
 
-    ![封存核取方塊](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+        ![封存核取方塊](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. 按一下箭號圖示 ![箭號圖示](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)，前往 [其他設定] 頁面。
+5. 按一下箭號圖示 ![箭號圖示](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)，前往 [其他設定] 頁面。如果您要設定固定在本機的磁碟區，將會顯示下列訊息。
 
-    下列訊息隨即出現。
-
-    ![變更磁碟區類型訊息](./media/storsimple-manage-volumes-u2/TypeChangeMessage.png)
+    ![變更磁碟區類型訊息](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
 6. 再次按一下箭號圖示 ![箭號圖示](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) 以繼續。
 
@@ -282,8 +277,6 @@ StorSimple 磁碟區可以是：
 
 5. 在 [修改磁碟區精靈] 的 [基本設定] 下，從 [監視] 下拉式清單中選取 [啟用] 或 [停用]。
 
-    ![封存核取方塊](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
-
 ## 後續步驟
 
 - 了解如何[複製 StorSimple 磁碟區](storsimple-clone-volume.md)。
@@ -291,4 +284,4 @@ StorSimple 磁碟區可以是：
 
  
 
-<!------HONumber=AcomDC_1223_2015----->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,12 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # 部署您的內部部署 StorSimple 裝置 (Update 1)
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## 概觀
 
@@ -30,7 +33,7 @@
 
 您必須需要有系統管理員權限，才能完成安裝和設定程序。建議您在開始之前，檢閱設定檢查清單。部署與設定程序可能需要一些時間才能完成。
 
-> [AZURE.NOTE]發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 7000 系列裝置的完整資訊，請移至： [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 7000 系列部署資訊，請參閱 [StorSimple 系統快速入門指南](http://onlinehelp.storsimple.com/111_Appliance/)。
+> [AZURE.NOTE] 發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 7000 系列裝置的完整資訊，請移至： [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 7000 系列部署資訊，請參閱 [StorSimple 系統快速入門指南](http://onlinehelp.storsimple.com/111_Appliance/)。
 
 ## 部署步驟
 
@@ -248,7 +251,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 2.	系統會建立掃描可用更新的工作。如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。按一下 [安裝更新]。
 
-3.	更新工作將會建立。巡覽至 [工作] 監視更新的狀態。
+3.	更新工作將會建立。巡覽至 [工作] 以監視更新的狀態。
 
 	> [AZURE.NOTE]當更新工作啟動時，狀態會立即顯示為 50 %。只有在更新工作完成之後，狀態才會變更為 100%。更新程序沒有即時狀態。
 
@@ -286,4 +289,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

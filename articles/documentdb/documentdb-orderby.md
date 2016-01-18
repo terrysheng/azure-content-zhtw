@@ -125,7 +125,7 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
         });
 
 ## 範例
-請參閱示範如何使用 Order By 的 [Github 範例專案](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)，其內容包括使用 Order By 建立索引編製原則和分頁。這些範例是開放原始碼，我們鼓勵您提交提取要求，並附上可幫助其他 DocumentDB 開發人員的貢獻。請參閱[貢獻指導方針](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)，以取得有關如何貢獻的指引。
+請參閱示範如何使用 Order By 的 [Github 範例專案](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)，其內容包括使用 Order By 建立索引編製原則和分頁。這些範例是開放原始碼，我們鼓勵您提交提取要求，並附上可幫助其他 DocumentDB 開發人員的貢獻。請參閱[貢獻指導方針](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)，以取得有關如何貢獻的指引。
 
 ## 未來將推出哪些新功能？
 
@@ -168,13 +168,13 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 
 ## 後續步驟
 
-取用 [Github 範例專案](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)並開始排序您的資料 ！
+取用 [Github 範例專案](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)並開始排序您的資料 ！
 
 ## 參考
 * [DocumentDB 查詢參考](documentdb-sql-query.md)
 * [DocumentDB 索引編製原則參考](documentdb-indexing-policies.md)
 * [DocumentDB SQL 參考](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
+* [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="12/29/2015" 
 	ms.author="nitinme"/>
 
 
@@ -110,7 +110,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 	![專案檢視](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
-2. 開啟 pom.xml，並確定 Spark 版本是正確的。在 <properties> 節點下尋找下列程式碼片段，並確認 Spark 版本。
+4. 開啟 pom.xml，並確定 Spark 版本是正確的。在 <properties> 節點下尋找下列程式碼片段，並確認 Spark 版本。
 
 		<scala.version>2.10.4</scala.version>
     	<scala.compat.version>2.10.4</scala.compat.version>
@@ -119,7 +119,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 	請確定 **spark.version** 的值設為 **1.5.1**。
 
-3. 應用程式需要兩個相依性 jar：
+5. 應用程式需要兩個相依性 jar：
 
 	* **EventHub 接收者 jar**。必須要有此項目，Spark 才能從事件中樞接收訊息。此 jar 位於您的 Spark Linux 叢集上：`/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`。您可以使用 pscp 將 jar 複製到您的本機電腦。
 
@@ -127,23 +127,24 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 		這會將 jar 檔案從 Spark 叢集複製到您的本機電腦上。
 
-	* **JDBC 驅動程式 jar**。必須要有此項目，才能將接收自事件中樞的訊息寫入至 Azure SQL 資料庫。您可以從[這裡](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx)下載此 jar 檔案的 4.1 版或更新版本。
-
-	在專案程式庫中新增這些 jar 的參考。執行下列步驟：
-
-	1. 在已開啟應用程式的 [IntelliJ IDEA] 視窗中，依序按一下 [檔案]、[專案結構] 和 [程式庫]。 
-
-		![新增遺失的相依性](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "新增遺失的相依性 jar")
-
-		按一下 [新增] 圖示 (![新增圖示](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png))，再按一下 [Java]，然後導覽至您下載 EventHub 接收者 jar 的位置。依照提示，將 jar 檔案新增至專案程式庫。
-
-	2. 重複前述步驟，也將 JDBC jar 新增至專案程式庫。
+	* **JDBC 驅動程式 jar**。必須要有此項目，才能將接收自事件中樞的訊息寫入至 Azure SQL 資料庫。您可以從[這裡](https://msdn.microsoft.com/zh-TW/sqlserver/aa937724.aspx)下載此 jar 檔案的 4.1 版或更新版本。
 	
-		![新增遺失的相依性](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "新增遺失的相依性 jar")
 
-	3. 按一下 [Apply (套用)]。
+		在專案程式庫中新增這些 jar 的參考。執行下列步驟：
 
-4. 建立輸出 jar 檔案。請執行下列步驟：
+		1. 在已開啟應用程式的 [IntelliJ IDEA] 視窗中，依序按一下 [檔案]、[專案結構] 和 [程式庫]。 
+
+			![新增遺失的相依性](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "新增遺失的相依性 jar")
+
+			按一下 [新增] 圖示 (![新增圖示](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png))，再按一下 [Java]，然後導覽至您下載 EventHub 接收者 jar 的位置。依照提示，將 jar 檔案新增至專案程式庫。
+
+		1. 重複前述步驟，也將 JDBC jar 新增至專案程式庫。
+	
+			![新增遺失的相依性](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "新增遺失的相依性 jar")
+
+		1. 按一下 [Apply (套用)]。
+
+6. 建立輸出 jar 檔案。請執行下列步驟：
 	1. 在 [專案結構] 對話方塊中，按一下 [構件]，然後按一下加號。在快顯對話方塊中按一下 [JAR]，然後按一下 [從具有相依性的模組]。
 
 		![建立 JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-1.png)
@@ -369,4 +370,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

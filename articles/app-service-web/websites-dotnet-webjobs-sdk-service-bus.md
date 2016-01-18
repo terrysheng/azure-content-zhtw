@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure 服務匯流排
@@ -26,12 +26,21 @@
 
 程式碼片段只會顯示函數，不會顯示建立 `JobHost` 物件的程式碼，如此範例所示：
 
-		static void Main(string[] args)
-		{
-		    JobHost host = new JobHost();
-		    host.RunAndBlock();
-		}
-		
+```
+public class Program
+{
+   public static void Main()
+   {
+      JobHostConfiguration config = new JobHostConfiguration();
+      config.UseServiceBus();
+      JobHost host = new JobHost(config);
+      host.RunAndBlock();
+   }
+}
+```
+
+[完整的服務匯流排程式碼範例](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs)可在 GitHub.com 的 azure-webjobs-sdk-samples 存放庫中找到。
+
 ## <a id="prerequisites"></a> 必要條件
 
 若要使用服務匯流排，除了其他的 WebJobs SDK 封裝之外，您還必須安裝 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet 封裝。
@@ -146,6 +155,17 @@ SDK 會針對 POCO ([純舊 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_C
 
 若要在主題上建立訊息，請使用 `ServiceBus` 屬性搭配主題名稱，方法和您將它與佇列名稱搭配使用的方式相同。
 
+## 在 1.1 版中新增的功能
+
+以下是在 1.1 版中新增的功能：
+
+* 允許透過 `ServiceBusConfiguration.MessagingProvider` 深層自訂訊息處理。
+* `MessagingProvider` 支援自訂服務匯流排 `MessagingFactory` 和 `NamespaceManager`。
+* `MessageProcessor` 策略模式可讓您為每個佇列/主題指定處理器。
+* 訊息處理並行依預設支援。 
+* 透過 `ServiceBusConfiguration.MessageOptions` 輕鬆自訂 `OnMessageOptions`。
+* 允許在 `ServiceBusTriggerAttribute`/`ServiceBusAttribute` 上指定 [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) (針對您可能沒有管理權限的情況)。 
+
 ## <a id="queues"></a>儲存體佇列做法文章所涵蓋的相關主題
 
 如需與特定服務匯流排無關的 WebJobs SDK 案例的相關資訊，請參閱[如何透過 WebJobs SDK 使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。
@@ -166,4 +186,4 @@ SDK 會針對 POCO ([純舊 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_C
 本指南提供了程式碼範例，示範如何處理使用 Azure Service Bus 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

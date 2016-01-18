@@ -33,7 +33,7 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 	![命令提示字元][1]
 
 2.  在命令視窗中，輸入 "1"，然後按 **Enter**。這會建立分區對應管理員，並加入兩個分區到伺服器。然後輸入 "3"，然後按 **Enter**；重複此動作四次。這會在您的分區中插入範例資料列。
-3.  [Azure 入口網站](https://portal.azure.com)應該在 v12 伺服器中顯示三個新的資料庫：
+3.  [Azure 入口網站](https://portal.azure.com)應該會在您的 v12 伺服器中顯示三個新的資料庫：
 
 	![Visual Studio 確認][2]
 
@@ -44,11 +44,11 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 ## 建立彈性的查詢資料庫
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)並登入。
-2. 在與分區安裝程式相同的伺服器中建立新的 Azure SQL Database。將資料庫命名為 "ElasticDBQuery"。 針對定價層，您必須選取其中一個 Premium 提供項目。彈性資料庫查詢目前僅適用於 Premium 層。
+2. 在與分區安裝程式相同的伺服器中建立新的 Azure SQL Database。將資料庫命名為 "ElasticDBQuery"。 
 
 	![Azure 入口網站和定價層][3]
 
-	附註：您可以使用現有的 Premium 資料庫。如果您可以這樣做，它不得是您想要對其執行查詢的其中一個分區。此資料庫將用於為彈性資料庫查詢建立中繼資料物件。
+	附註：您可以使用現有的資料庫。如果您可以這樣做，它不得是您想要對其執行查詢的其中一個分區。此資料庫將用於為彈性資料庫查詢建立中繼資料物件。
 
 
 ## 建立資料庫物件
@@ -121,15 +121,15 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 6. 	在清單檢視中選取 [**客戶**] 資料表，然後按 [**下一步**]。然後按一下 [**完成**]。
 7. 	在 [**匯入資料**] 表單中，於 [**選取您要在活頁簿中檢視此資料的方式**] 下，選取 [**資料表**]，然後按一下 [**確定**]。
 
-儲存在不同分區中、來自 [**客戶**] 資料表的所有資料列會填入 Excel 工作表。
+儲存在不同分區中、來自 [客戶] 資料表的所有資料列會填入 Excel 工作表。
 
 ## 後續步驟
 您現在可以使用 Excel 強大的資料視覺化功能。您可以使用具備您的伺服器名稱、資料庫名稱和認證的連接字串來連接您的 BI 和資料整合工具至彈性查詢資料庫。請確定 SQL Server 可支援做為您的工具的資料來源。您可以參考彈性查詢資料庫和外部資料表，就如同您會使用您的工具連接的任何其他 SQL Server 資料庫和 SQL Server 資料表。
 
 ### 成本
-使用彈性資料庫查詢功能不另行收費。不過，目前這項功能僅適用於 Premium 資料庫做為端點，但分區可以是任何服務層。
+使用彈性資料庫查詢功能不另行收費。
 
-如需定價資訊，請參閱 [SQL Database 定價詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)。
+如需價格資訊，請參閱 [SQL Database 價格詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)。
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -142,4 +142,4 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

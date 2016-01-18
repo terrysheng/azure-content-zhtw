@@ -39,13 +39,13 @@
 開始進行本教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater)。
-
+- **具有 Azure PowerShell 的工作站**。請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](powershell-azure-resource-manager.md#prerequisites)的「必要條件」一節。
+	
 ##建立資料湖分析帳戶
 
 您必須擁有資料湖分析帳戶，才能執行工作。若要建立資料湖分析帳戶，您必須指定下列項目：
 
-- **Azure 資源群組**：資料湖分析帳戶必須建立在 Azure 資源群組內。[Azure 資源管理員](resource-group-overview.md)可讓您將應用程式中的資源作為群組使用。您可以透過單一、協調的作業來部署、更新或刪除應用程式的所有資源。  
+- **Azure 資源群組**：資料湖分析帳戶必須建立在 Azure 資源群組內。[Azure 資源管理員](resource-group-overview.md)可讓您將應用程式中的資源做為群組使用。您可以透過單一、協調的作業來部署、更新或刪除應用程式的所有資源。  
 
 	若要列舉您訂用帳戶中的資源群組：
     
@@ -162,7 +162,7 @@
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
-	此 U-SQL 指令碼會使用 **Extractors.Tsv()** 讀取來源資料檔案，然後使用 **Outputters.Csv()** 建立 csv 檔案。
+	此 U-SQL 指令碼會使用 **Extractors.Tsv()** 讀取來源資料檔案，然後使用 **Outputters.Csv()** 建立 CSV 檔案。
     
     除非您將來源檔案複製到其他位置，否則請勿修改這兩個路徑。資料湖分析將建立輸出資料夾 (若尚未建立)。
 	
@@ -217,4 +217,4 @@
 - 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

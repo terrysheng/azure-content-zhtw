@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # 分割訊息實體
 
 Azure 服務匯流排會採用多個訊息代理人來處理訊息，並採用多個訊息存放區來儲存訊息。傳統的佇列或主題由單一訊息代理人處理並儲存在一個訊息存放區中。服務匯流排也可讓佇列或主題分割到多個訊息代理人以及訊息存放區。這表示分割佇列或主題的整體輸送量不會再受到單一訊息代理人或訊息存放區的效能所限制。此外，即使訊息存放區暫時中斷也不會讓分割的佇列或主題無法使用。分割的佇列和主題可以包含所有進階的服務匯流排功能，例如支援交易和工作階段。
 
-如需有關服務匯流排內部的詳細資料，請參閱[服務匯流排架構][]主題。
+如需更多有關服務匯流排內部的詳細資料，請參閱[服務匯流排架構][]主題。
 
 ## 分割的佇列和主題
 
@@ -31,7 +31,7 @@ Azure 服務匯流排會採用多個訊息代理人來處理訊息，並採用�
 
 ## 啟用分割
 
-若要搭配 Microsoft Azure 服務匯流排使用分割的佇列和主題，請使用 Azure SDK 2.2 版或更新版本，或在您的 HTTP 要求中指定 `api-version=2013-10`。
+若要搭配 Azure 服務匯流排使用分割的佇列和主題，請使用 Azure SDK 2.2 版或更新版本，或在您的 HTTP 要求中指定 `api-version=2013-10`。
 
 您可以建立 1、2、3、4 或 5 GB 大小的服務匯流排佇列及主題 (預設值為 1 GB)。啟用分割時，服務匯流排會為您指定的每 GB 建立 16 個資料分割。因此，如果您建立 5 GB 大小的佇列，每 GB 有 16 個資料分割，則佇列大小上限會變成 (5 * 16) = 80 GB。您可以在 [Azure 傳統入口網站][]上檢視分割的佇列或主題項目，藉此查看其大小上限。
 
@@ -125,7 +125,7 @@ Azure 服務匯流排支援從分割實體自動轉送訊息、自動轉送訊�
 
 ## 後續步驟
 
-請參閱 AMQP 1.0 對服務匯流排分割佇列和主題的支援的討論 (即將推出！) 以深入了解分割的訊息實體。
+請參閱[適用於服務匯流排分割的佇列和主題的 AMQP 1.0 支援][]，深入了解分割訊息實體。
 
   [服務匯流排架構]: service-bus-architecture.md
   [Azure 傳統入口網站]: http://manage.windowsazure.com
@@ -142,6 +142,6 @@ Azure 服務匯流排支援從分割實體自動轉送訊息、自動轉送訊�
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
+  [適用於服務匯流排分割的佇列和主題的 AMQP 1.0 支援]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

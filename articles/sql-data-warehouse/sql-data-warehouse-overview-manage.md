@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
 
 # SQL 資料倉儲的管理工具
@@ -48,4 +48,4 @@ SSDT 包含的 SQL Server 總管可讓您針對 SQL 資料倉儲資料庫視覺�
 <!--Other web references-->
 [Azure 傳統入口網站]: http://portal.azure.com/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

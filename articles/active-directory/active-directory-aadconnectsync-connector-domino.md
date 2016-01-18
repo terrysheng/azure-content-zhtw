@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="12/28/2015"
    ms.author="andkjell"/>
 
 # Lotus Domino 連接器技術參考
@@ -34,7 +34,7 @@ Lotus Domino 連接器可讓您整合同步處理服務與 IBM 的 Lotus Domino 
 
 | 功能 | 支援 |
 | --- | --- |
-| 連接的資料來源 | 伺服器：<li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>用戶端：<li>Lotus Notes 8.5.x</li><li>Lotus Notes 9.x</li> |
+| 連接的資料來源 | 伺服器：<li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>用戶端：<li>Lotus Notes 9.x</li> |
 | 案例 | <li>物件生命週期管理</li><li>群組管理</li><li>密碼管理</li> |
 | 作業 | <li>完整和差異匯入</li><li>匯出</li><li>設定和變更 HTTP 密碼</li> |
 | 結構描述 | <li>人員 (漫遊使用者、連絡人 (沒有憑證的人員))</li><li>群組</li><li>資源 (資源、會議室、線上會議)</li><li>郵寄資料庫</li><li>動態探索支援物件的屬性</li> |
@@ -96,7 +96,7 @@ IBM Lotus Notes 用戶端和 Domino 伺服器使用 Notes Remote Procedure Call 
 
 目前的 Lotus Domino 連接器版本不支援下列作業：
 
-- 
+- 在伺服器之間移動信箱。
 
 ## 建立新的連接器
 
@@ -246,7 +246,7 @@ Lotus Domino 中有許多屬性具有多重值。相對應的 Metaverse 屬性�
 
 **Import**
 
-匯出作業選項支援兩種模式：
+匯入作業選項支援兩種模式：
 
 - 預設值
 - 多重值轉單一值
@@ -539,4 +539,4 @@ Domino 中有數種方式可延伸結構描述，使其顯示為連接器可使�
 
 -	如需如何啟用記錄來疑難排解連接器的資訊，請參閱[如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

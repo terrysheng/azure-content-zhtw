@@ -14,14 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
+	ms.date="01/03/2016"
 	ms.author="rasquill"/>
 
 
 
 # Azure 上的 Linux 和開放原始碼運算
 
-本文件嘗試在一個地方列出 Microsoft 及其合作夥伴針對在 Microsoft Azure 上執行 Linux 虛擬機器及其他開放原始碼運算環境和應用程式而撰寫的所有相關主題。由於 Azure 和開放原始碼運算的世界變動非常迅速，「儘管」在事實上我們應該盡全力持續加入較新的主題並移除過期的主題，但是幾乎可以肯定本文件已過時。如果我們遺漏了什麼，請在註解中讓我們知道，或將提取要求提交至我們的 [Github 儲存機制](https://github.com/Azure/azure-content/)。
+本文件嘗試在一個地方列出 Microsoft 及其合作夥伴針對在 Microsoft Azure 上執行 Linux 虛擬機器及其他開放原始碼運算環境和應用程式而撰寫的所有相關主題。只描述傳統部署模型的文章會有加註，使用「資源管理員」部署模型的文章也會有加註。沒有部署模型附註的文章則同時說明這兩種部署模型。
+
+由於 Azure 和開放原始碼運算的世界變動非常迅速，「儘管」在事實上我們應該盡全力持續加入較新的主題並移除過期的主題，但是幾乎可以肯定本文件已過時。如果我們遺漏了什麼，請在註解中讓我們知道，或將提取要求提交至我們的 [Github 儲存機制](https://github.com/Azure/azure-content/)。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -32,9 +34,9 @@
 - [Azure Marketplace](http://azure.microsoft.com/marketplace/virtual-machines/)
 - [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
 - [事件和示範：Microsoft Openness CEE](http://www.opennessatcee.com/)
-- [做法：上傳您自己的 Distro 映像](virtual-machines-linux-create-upload-vhd.md) (以及使用 [Azure 背書散發版本](virtual-machines-linux-endorsed-distributions.md)的指示)
+- [傳統部署]：[做法：上傳您自己的散發套件映像](virtual-machines-linux-create-upload-vhd.md) (以及有關使用[經 Azure 背書的散發套件](virtual-machines-linux-endorsed-distributions.md)的指示)
 - [注意：在 Azure 中執行的一般 Linux 需求](virtual-machines-linux-create-upload-vhd-generic.md)
-- [注意：Azure 上的 Linux 一般簡介](virtual-machines-linux-introduction.md)
+- [傳統部署]：[附註：Azure 上的 Linux 一般簡介](virtual-machines-linux-introduction.md)
 
 <!--
 - [Distros](#distros) &mdash; Topics to do with a specific distro.
@@ -57,14 +59,12 @@ Ubuntu 是以 dpkg 和 apt-get 封裝管理為基礎的 Linux 散發套件，其
 
 1. [做法：上傳您自己的 Ubuntu 映像](virtual-machines-linux-create-upload-vhd-ubuntu.md)
 2. [做法：Ubuntu LAMP 堆疊](virtual-machines-linux-install-lamp-stack.md)
-2. [映像：LAPP 堆疊](http://azure.microsoft.com/marketplace/partners/bitnami/lappstack54310ubuntu1404/)
-3. [做法：MySQL 叢集](virtual-machines-linux-mysql-cluster.md)
-4. [做法：Node.js 和 Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
-5. [做法：IPython Notebook](virtual-machines-python-ipython-notebook.md)
-6. [精通：在 Linux 上使用 Docker 容器執行 ASP.NET 5](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
+3. [傳統部署]：[做法：MySQL 叢集](virtual-machines-linux-mysql-cluster.md)
+4. [傳統部署]：[做法：Node.js 和 Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
+5. [資源管理員部署]：[做法：IPython Notebook](virtual-machines-python-ipython-notebook.md)
+6. [傳統部署]：[精通：在 Linux 上使用 Docker 容器執行 ASP.NET 5](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 7. [映像：Redis 伺服器](http://azure.microsoft.com/marketplace/partners/cognosys/redisserver269ubuntu1204lts/)
 8. [映像：Minecraft 伺服器](http://azure.microsoft.com/marketplace/partners/bitnami/craftbukkitminecraft179r030ubuntu1210/)
-9. [映像：Moodle](http://azure.microsoft.com/marketplace/partners/bitnami/moodle270ubuntu1404/)
 11. [映像：Mono 即服務](http://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
 
@@ -79,15 +79,15 @@ CentOS Linux 散發版本是一個穩定、可預測、容易管理且可重製�
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
 2. [映像庫](http://azure.microsoft.com/marketplace/partners/OpenLogic/)
 3. [做法：針對 Azure 準備自訂 CentOS 型 VM](virtual-machines-linux-create-upload-vhd-centos.md)
-4. [部落格：如何部署 OpenLogic 提供的 CentOS VM 映像](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
-6. [做法：安裝 Apache Qpid Proton-C for AMQP 和服務匯流排](http://msdn.microsoft.com/library/azure/dn235560.aspx)
+4. [傳統部署]：[部落格：如何部署 OpenLogic 提供的 CentOS VM 映像](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
+6. [傳統部署]：[做法：安裝適用於 AMQP 和服務匯流排的 Apache Qpid Proton-C](../service-bus/service-bus-amqp-apache.md/)
 7. [映像：OpenLogic CentOS 6.3 上的 Apache 2.2.15](http://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
 8. [映像：Drupal 7.2，OpenLogic CentOS 6.3 上的 LAMP 伺服器](http://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
 ### SUSE Linux Enterprise Server 與 openSUSE
 
 9. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
-11. [做法：安裝和執行 MySQL](virtual-machines-linux-mysql-use-opensuse.md)
+11. [傳統部署]：[做法：安裝和執行 MySQL](virtual-machines-linux-mysql-use-opensuse.md)
 12. [做法：準備自訂 SLES 或 openSUSE VM](virtual-machines-linux-create-upload-vhd-suse.md)  
 13. [[SUSE 論壇] 做法：移至新的修補程式伺服器](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
 14. [映像：SUSE Linux Enterprise Server for SAP 雲端應用裝置程式庫](http://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
@@ -97,12 +97,9 @@ CentOS Linux 散發版本是一個穩定、可預測、容易管理且可重製�
 CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂的純計算。
 
 10. [映像庫](http://azure.microsoft.com/marketplace/partners/coreos/)  
-11. [做法：在 Azure 上使用 CoreOS](virtual-machines-linux-coreos-how-to.md)
-12. [做法：開始在 Azure 上的 CoreOS 使用 Fleet 和 Docker](virtual-machines-linux-coreos-fleet-get-started.md)
-13. [部落格：TechEd Europe -- Windows Docker 用戶端和 Linux 容器](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
-14. [部落格：Azure 日益壯大、快速且更加開放](http://azure.microsoft.com/blog/2014/10/20/azures-getting-bigger-faster-and-more-open/)
-15. [GitHub：在 Azure 上部署 CoreOS 的快速入門](https://github.com/timfpark/coreos-azure)
-16. [GitHub：使用 Spring Boot、MongoDB 和 CoreOS 部署 Java 應用程式](https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init)
+11. [傳統部署]：[做法：在 Azure 上使用 CoreOS](virtual-machines-linux-coreos-how-to.md)
+12. [傳統部署]：[做法：開始在 Azure 上的 CoreOS 使用 Fleet 和 Docker](virtual-machines-linux-coreos-fleet-get-started.md)
+
 
 #### [Oracle Linux](http://azure.microsoft.com/marketplace/?term=Oracle+Linux)
   2. [準備執行 Azure 的 Oracle Linux 虛擬機器](virtual-machines-linux-create-upload-vhd-oracle.md)
@@ -110,8 +107,8 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 ### FreeBSD
 
 12. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Date&search=FreeBSD)
-13. [部落格：在 Azure 中執行 FreeBSD](http://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
-14. [部落格：輕鬆部署 FreeBSD](http://msopentech.com/blog/2014/10/24/easy-deploy-freebsd-microsoft-azure-vm-depot/)
+13. [傳統部署]：[部落格：在 Azure 中執行 FreeBSD](http://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
+14. [傳統部署]：[部落格：輕鬆部署 FreeBSD](http://msopentech.com/blog/2014/10/24/easy-deploy-freebsd-microsoft-azure-vm-depot/)
 15. [部落格：部署自訂的 FreeBSD 映像](http://msopentech.com/blog/2014/05/14/deploy-customize-freebsd-virtual-machine-image-microsoft-azure/)
 17. [做法：安裝 Azure Linux 代理程式](virtual-machines-linux-agent-user-guide.md)
 18. [Marketplace︰適用於 Linux 檔案伺服器的 Kaspersky AV](http://azure.microsoft.com/marketplace/partners/kaspersky-lab/kav-for-lfs-kav-for-lfs/)
@@ -119,26 +116,25 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 ## 基本概念
 
 1. [基本概念：Azure 命令列介面 (Azure CLI)](../xplat-cli-install.md)
-4. [基本概念：憑證的使用和管理](http://msdn.microsoft.com/library/azure/gg981929.aspx)
+<!-- 4. [The basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)-->
 5. [基本概念：選取 Linux 使用者名稱](virtual-machines-linux-usernames.md)
-6. [基本概念：使用 Azure 傳統入口網站登入 Linux VM](virtual-machines-linux-how-to-log-on.md)
+6. [傳統部署]：[基本概念：使用 Azure 傳統入口網站登入 Linux VM](virtual-machines-linux-how-to-log-on.md)
 7. [基本概念：SSH](virtual-machines-linux-use-ssh-key.md)
-8. [基本概念：如何重設 Linux 的密碼或 SSH 屬性](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+8. [傳統部署]：[基本概念：如何重設 Linux 的密碼或 SSH 屬性](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [基本概念：使用 Root](virtual-machines-linux-use-root-privileges.md)
-10. [基本概念：將資料磁碟連接至 Linux VM](virtual-machines-linux-how-to-attach-disk.md)
-11. [基本概念：從 Linux VM 卸離資料磁碟](virtual-machines-linux-how-to-detach-disk.md)
+10. [傳統部署]：[基本概念：將資料磁碟連接至 Linux VM](virtual-machines-linux-how-to-attach-disk.md)
+11. [傳統部署]：[基本概念：從 Linux VM 卸離資料磁碟](virtual-machines-linux-how-to-detach-disk.md)
 12. [基本概念部落格：使用 Linux 與 Azure 最佳化儲存體、磁碟和效能](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 13. [基本概念：RAID](virtual-machines-linux-configure-raid.md)
-14. [基本概念：擷取 Linux VM 來製作範本](virtual-machines-linux-capture-image.md)
+14. [傳統部署]：[基本概念：擷取 Linux VM 來製作範本](virtual-machines-linux-capture-image.md)
 15. [基本概念：安裝 Azure Linux 代理程式](virtual-machines-linux-agent-user-guide.md)
 16. [基本概念：Azure VM 延伸模組與功能](virtual-machines-extensions-features.md)
-17. [基本概念：將自訂資料插入 VM 中以搭配 Cloud-init 使用](virtual-machines-how-to-inject-custom-data.md)
-18. [基本概念部落格：以 12 個步驟在 Azure 上建置高可用性的 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. [基本概念部落格：透過 Azure CLI、node.js、jhawk 在 Azure 上自動佈建 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
+17. [傳統部署]：[基本概念：將自訂資料插入 VM 中以搭配 Cloud-init 使用](virtual-machines-how-to-inject-custom-data.md)
+18. [傳統部署]：[基本概念部落格：以 12 個步驟在 Azure 上建置高可用性 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
+19. [傳統部署]：[基本概念部落格：透過 Azure CLI、node.js、jhawk 在 Azure 上自動佈建 Linux](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 20. [基本概念：Azure Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)
-23. [Azure 服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 參考
-24. [Azure 上的 GlusterFS](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
+23. [傳統部署]：[Azure 服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 參考
+24. [傳統部署]：[Azure 上的 GlusterFS](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
 ## 社群映像和儲存機制
 3. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index) &mdash; 適用於社群提供的虛擬機器映像。
@@ -159,9 +155,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 7. [部落格：MSOpenTech 對 OpenJDK 的貢獻](http://msopentech.com/blog/2014/10/21/ms-open-techs-first-contribution-openjdk/)
 8. [映像：WebSphere](http://azure.microsoft.com/marketplace/partners/msopentech/was-8-5-was-8-5-5-3/)
 9. [映像：WebLogic](http://azure.microsoft.com/marketplace/?term=weblogic)
-10. [映像：Windows 上的 JDK6](http://azure.microsoft.com/marketplace/partners/msopentech/jdk6onwindowsserver2012/)
-11. [映像：Windows 上的 JDK7](http://azure.microsoft.com/marketplace/partners/msopentech/jdk7onwindowsserver2012/)
-12. [映像：Windows 上的 JDK8](http://azure.microsoft.com/marketplace/partners/msopentech/jdk8onwindowsserver2012r2/)
+
 
 ### JVM 語言
 
@@ -185,7 +179,6 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 
 瀏覽本節，即能快速了解。如果您有任何建議，請傳送 PR 給我們，或在註解中留下建議，如下。
 
-1. [使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 2. [Patrick Chanezon 的 Azure Linux Github 儲存機制](https://github.com/chanezon/azure-linux)
 3. [影片：如何使用 **usbip** 將 Linux 上的內部部署 USB 資料移到 Azure](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [影片：在瀏覽器中使用 fernapp 存取 Azure 上的 Linux GUI](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -206,7 +199,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
     - [Slideshare (MSOpenTech)︰Azure 上的 CouchDb 經驗](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
     - [部落格：透過 node.js、CORS 和 Grunt 執行 CouchDB 即服務](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
 3. MongoDB
-    - [做法：以使用 MongoLab 附加元件的 MongoDB 在 Azure 上建立 Node.js 應用程式](store-mongolab-web-sites-nodejs-store-data-mongodb.md)
+    - [做法：以使用 MongoLab 附加元件的 MongoDB 在 Azure 上建立 Node.js 應用程式](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md)
 4. Cassandra
     - [做法：在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取](virtual-machines-linux-nodejs-running-cassandra.md)
 5. Redis
@@ -218,8 +211,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 ### 巨量資料
 2. Hadoop/Cloudera  
 	- [部落格：在 Azure Linux VM 上安裝 Hadoop](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
-	- [做法：透過 HDInsight 開始使用 Hadoop 與 Hive](hdinsight-get-started.md)  
-3. [Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) -- Azure 上完全受管理的 Hadoop 服務。
+3. [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) -- Azure 上完全受管理的 Hadoop 服務。
 
 ### 關聯式資料庫
 2. MySQL
@@ -227,8 +219,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
     - [做法：在 Azure 上最佳化 MySQL 的效能](virtual-machines-linux-optimize-mysql-perf.md)
     - [做法：MySQL 叢集](virtual-machines-linux-mysql-cluster.md)
     - [做法：透過 Marketplace 建立 MySQL 資料庫](store-php-create-mysql-database.md)
-    - [做法：Azure 網站上採用 Python 和 Visual Studio 的 Django 和 MySQL](web-sites-python-ptvs-django-mysql.md)
-    - [做法：Azure 網站上採用 WebMatrix 的 PHP 和 MySQL](web-sites-php-mysql-use-webmatrix.md)
+    - [做法：Azure 網站上採用 Python 和 Visual Studio 的 Django 和 MySQL](../app-service-web/web-sites-python-ptvs-django-mysql.md)
     - [Microsoft Azure 中的 MySQL 高可用性架構](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [做法：建立 MariaDb 的多重主機叢集](virtual-machines-mariadb-cluster.md)
@@ -262,7 +253,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 
 1. Docker
 	- [Azure 上 Linux 的 Docker VM 延伸模組](virtual-machines-docker-vm-extension.md)
-	- [透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組](virtual-machines-docker-with-../xplat-cli-install.md)
+	- [透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組](virtual-machines-docker-with-xplat-cli.md)
 	- [使用 Azure 入口網站中的Docker VM 擴充程式](virtual-machines-docker-with-portal.md)
 	- [在 Azure Marketplace 中快速開始使用 Docker](virtual-machines-docker-ubuntu-quickstart.md)
 	- [如何在 Azure 上使用 docker-machine](virtual-machines-docker-machine.md)
@@ -281,7 +272,7 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 	- [協力廠商︰適用於 Azure 的 Hudson 從屬外掛程式](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
 	- [協力廠商︰適用於 Azure 的 Hudson 儲存體外掛程式](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 10. Chef
-	- [Chef 和虛擬機器](virtual-machines-windows-install-chef-client.md)
+	- [Chef 和虛擬機器](virtual-machines-automation-with-chef.md)
 	- [影片：Chef 是什麼，以及如何運作？](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
 12. Azure 自動化
@@ -311,4 +302,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

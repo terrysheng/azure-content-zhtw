@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 
@@ -234,4 +234,4 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 ## 後續步驟  
 下載 [適用於 Java Maven 的 Azure 儲存體用戶端程式庫封裝](<fix URL>)從 GitHub 下載[適用於 Java 原始程式碼的 Azure 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-java)下載 Azure 金鑰保存庫 Maven [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[用戶端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/)和[擴充功能](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)封裝 造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

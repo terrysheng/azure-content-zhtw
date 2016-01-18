@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：在取用者導向應用程式中啟用 Multi-Factor Authentication
@@ -31,7 +31,7 @@ Azure Active Directory (AD) B2C 直接整合 [Azure Multi-Factor Authentication]
 
 ## 修改註冊原則以啟用 Multi-Factor Authentication
 
-1. [瀏覽至 Azure Preview 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)...
+1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
 2. 按一下 [註冊原則]。
 3. 按一下以開啟註冊原則 (例如「B2C\_1\_SiUp」)。
 4. 按一下 [Multi-Factor Authentication]，並將 [狀態] 設為 [開啟]。按一下 [確定]。
@@ -43,7 +43,7 @@ Azure Active Directory (AD) B2C 直接整合 [Azure Multi-Factor Authentication]
 
 ## 修改登入原則以啟用 Multi-Factor Authentication
 
-1. 瀏覽至 [Azure Preview 入口網站](htts://portal.azure.com/)上的 B2C 功能刀鋒視窗。有關如何執行此操作的說明，請參閱[這裡](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
+1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
 2. 按一下 [登入原則]。
 3. 按一下以開啟登入原則 (例如「B2C\_1\_SiIn」)。按一下刀鋒視窗頂端的 [編輯]。
 4. 按一下 [Multi-Factor Authentication]，並將 [狀態] 設為 [開啟]。按一下 [確定]。
@@ -53,4 +53,4 @@ Azure Active Directory (AD) B2C 直接整合 [Azure Multi-Factor Authentication]
 
 取用者登入 (使用社交或本機帳戶) 時，若已將通過驗證的電話號碼附加至取用者帳戶，系統會要求其進行驗證。若未附加電話號碼，系統會要求取用者提供一個電話號碼並加以驗證；驗證成功後，即會將此電話號碼附加至取用者帳戶以供之後使用。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

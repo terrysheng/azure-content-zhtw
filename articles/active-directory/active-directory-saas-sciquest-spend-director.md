@@ -3,7 +3,7 @@
 	description="了解如何設定 Azure Active Directory 與 SciQuest Spend Director 之間的單一登入。"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/05/2016"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 SciQuest Spend Director 整合
@@ -113,12 +113,12 @@
 
 **若要在 Azure AD中建立測試使用者，請執行下列步驟：**
 
-1. 在「Azure 管理入口網站」的左方瀏覽窗格中，按一下 [Active Directory]。<br><br>![何謂 Azure AD Connect][100] 
+1. 在 [Azure 管理入口網站] 的左側瀏覽窗格中，按一下 [Active Directory]。<br><br>![何謂 Azure AD Connect][100] 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 3. 若要顯示使用者清單，請按一下功能表頂端的 [使用者]。<br><br>![何謂 Azure AD Connect][101] 
-4. 若要開啟 [新增使用者] 對話方塊，請按一下底部工具列上的 [新增使用者]。<br><br>![何謂 Azure AD Connect][102] 
+4. 若要開啟 [加入使用者] 對話方塊，請按一下底部工具列上的 [加入使用者]。<br><br>![何謂 Azure AD Connect][102] 
 5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行以下步驟：<br><br>![何謂 Azure AD Connect][103] 
-  1. 針對 [使用者類型]，選取 [貴組織的新使用者]。
+  1. 在 [使用者類型] 中，選取 [貴組織的新使用者]。
   2. 在 [使用者名稱] 文字方塊中輸入 **Britta Simon**。
   3. 按 [下一步]。
 6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![何謂 Azure AD Connect][104] 
@@ -129,7 +129,7 @@
   5. 按 [下一步]。
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。<br><br>![何謂 Azure AD Connect][105]  
 8. 在 [取得暫時密碼] 對話方塊頁面上，執行下列步驟：<br><br>![何謂 Azure AD Connect][106]   
-  1. 請記下 [新密碼] 的值。
+  1. 記下 [新密碼] 的值。
   2. 按一下 [完成]。   
   
  
@@ -195,4 +195,4 @@
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/26/2015" 
+  ms.date="01/05/2016" 
   ms.author="tamram"/>
 
 
@@ -78,7 +78,7 @@
         container.SetMetadata();
     }
 
-若要擷取 Blob 或容器的中繼資料，請呼叫 **FetchAttributes** 方法以填入**中繼資料**集合，然後讀取這些值，如以下範例所示。
+若要擷取 Blob 或容器的中繼資料，請呼叫 **FetchAttributes** 方法以填入 **Metadata** 集合，然後讀取這些值，如以下範例所示。
 
     public static void ListContainerMetadata(CloudBlobContainer container)
     {
@@ -96,7 +96,7 @@
 
 ## 另請參閱  
 
-- [Azure Storage Client Library for .NET 參考資料](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [Azure Storage Client Library for .NET 封裝](https://www.nuget.org/packages/WindowsAzure.Storage/) 
+- [適用於 .NET 的 Azure 儲存體用戶端程式庫參考資料](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
+- [適用於 .NET 的 Azure 儲存體用戶端程式庫封裝](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

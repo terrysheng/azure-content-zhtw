@@ -13,14 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # 使用 Azure 命令列介面 (CLI) 管理角色型存取控制 (RBAC)
-<!-- Azure Selector -->
+
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+- [REST API](role-based-access-control-manage-access-rest.md)
 
 ## 列出 RBAC 角色
 ###	列出所有可用的角色
@@ -153,4 +154,4 @@
 ## RBAC 主題
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/19/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 資料倉儲中的暫存資料表
@@ -147,4 +147,4 @@ SQL 資料倉儲在實作暫存資料表時的確有一些限制。
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

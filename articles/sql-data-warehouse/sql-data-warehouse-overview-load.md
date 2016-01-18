@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/17/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # 將資料載入 SQL 資料倉儲
@@ -196,10 +196,10 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!--Other Web references-->
-[AZCopy 安裝指示]: https://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/
-[適用於 SQL Server 的 Microsoft 命令列公用程式]: http://www.microsoft.com/en-us/download/details.aspx?id=36433
-[匯入/匯出]: https://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
-[Azure 儲存體文件]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+[AZCopy 安裝指示]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-use-azcopy/
+[適用於 SQL Server 的 Microsoft 命令列公用程式]: http://www.microsoft.com/zh-TW/download/details.aspx?id=36433
+[匯入/匯出]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-import-export-service/
+[Azure 儲存體文件]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-create-storage-account/
 [ExpressRoute 文件]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

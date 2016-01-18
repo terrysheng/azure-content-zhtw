@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="01/05/2016"
 	ms.author="stefsch"/>
 
 # App Service 環境簡介
@@ -104,4 +104,4 @@ App Service 環境是由前端計算資源集區，以及一到三個背景工�
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

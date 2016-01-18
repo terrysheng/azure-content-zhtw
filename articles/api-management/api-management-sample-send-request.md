@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="01/04/2016"
    ms.author="v-darmi"/>
 
 
@@ -264,4 +264,9 @@ API 管理的主要功能是保護後端資源。如果您的 API 所使用的�
 ## 摘要
 Azure API 管理服務提供彈性的原則，可以選擇性地套用到 HTTP 流量，並且能夠組合後端服務。不論您是否想要使用警示功能、確認、驗證功能或根據多個後端服務建立新的複合資源來增強您的 API 閘道器，`send-request` 及相關原則都會開啟各種可能性。
 
-<!-------HONumber=AcomDC_1210_2015--->
+## 觀看這些原則的影片概觀
+如需本文所介紹之 [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest)、[send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 和 [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) 原則的詳細資訊，請觀看以下影片。
+
+> [AZURE.VIDEO send-request-and-return-response-policies]
+
+<!---HONumber=AcomDC_0107_2016-->

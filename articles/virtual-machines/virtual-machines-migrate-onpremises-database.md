@@ -1,5 +1,5 @@
 <properties
-	pageTitle="將資料庫移轉至 VM 上的 SQL Server | Mirosoft Azure"
+	pageTitle="將 SQL Server 資料庫移轉至 VM 上的 SQL Server | Microsoft Azure"
 	description="深入了解如何將內部部署使用者資料庫移轉到 Azure 虛擬機器中的 SQL Server。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="01/05/2016"
 	ms.author="carlrab"/>
 
 
-# 將資料庫移轉至 Azure VM 上的 SQL Server
+# 將 SQL Server 資料庫移轉至 Azure VM 中的 SQL Server
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
@@ -34,14 +34,18 @@
 - 中斷連結並將資料和記錄檔複製到 Azure blob 儲存體，然後從 URL 連結至 Azure VM 中的 SQL Server
 - 將內部部署實體機器轉換為 Hyper-V VHD，接著上傳至 Azure Blob 儲存體，然後使用上傳的 VHD 部署為新的 VM
 - 使用 Windows 匯入/匯出服務寄送硬碟機
+- 如果您有內部部署的 AlwaysOn 部署，請使用[加入 Azure 複本精靈](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)在 Azure 中建立複本，然後進行容錯移轉，將使用者指向 Azure 資料庫執行個體
+- 使用 SQL Server [異動複寫](https://msdn.microsoft.com/library/ms151176.aspx)將 Azure SQL Server 執行個體設定為訂閱者，然後停用複寫，將使用者指向 Azure 資料庫執行個體
 
-> [AZURE.NOTE]如果您有內部部署的 AlwaysOn，您也可以考慮使用[加入 Azure 複本精靈](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)在 Azure 中建立複本，然後進行容錯移轉作為移轉的方法。
+
 
 ## 選擇您的移轉方法
 
 為了達到最佳的資料傳輸效能，將資料庫檔案移轉至 Azure VM 時使用壓縮的備份檔案通常是最好的方法。這就是[將 SQL Server Database 部署到 Microsoft Azure VM 精靈](#azure-vm-deployment-wizard-tutorial)所使用的方法。當壓縮的資料庫備份檔時小於 1 TB 時，建議的方法是使用此精靈將執行 SQL Server 2005 或更新版本的內部部署使用者資料庫移轉到 SQL Server 2014 或更新版本。
 
-如果因為資料庫備份檔案太大，或您的目的地 SQL Server 執行個體不是 SQL Server 2014 或更新版本而無法使用精靈，則移轉程序會成為手動程序，通常會從資料庫備份開始，接著將資料庫備份複製到 Azure，然後完成資料庫還原。您也可以將資料庫檔案本身複製到 Azure。若要將資料庫移轉到 Azure VM，有數種方法可以完成此手動程序。
+若要將進行資料庫移轉程序時的停機時間縮到最短，請使用 AlwaysOn 選項或異動複寫選項。
+
+如果無法使用上述方法，則請以手動方式移轉資料庫。使用此方法時，您通常會從進行資料庫備份開始，後面接著將一份資料庫備份複製到 Azure，然後再執行資料庫還原。您也可以將資料庫檔案本身複製到 Azure，然後再連接它們。若要將資料庫移轉到 Azure VM，有數種方法可以完成此手動程序。
 
 > [AZURE.NOTE]當您從舊版 SQL Server 升級至 SQL Server 2014 或 SQL Server 2016 時，您應該考慮是否需要變更。我們建議您先解決所有新版本 SQL Server 不支援的功能相依性作為移轉專案的一部分。如需有關支援版本和案例的詳細資訊，請參閱[升級至 SQL Server](https://msdn.microsoft.com/library/bb677622.aspx)。
 
@@ -49,7 +53,9 @@
 
 | 方法 | 來源資料庫版本 | 目的地資料庫版本 | 來源資料庫備份的大小條件約束 | 注意事項 |
 |---|---|---|---|---|
-| [使用「將 SQL Server 資料庫部署到 Microsoft Azure VM」精靈](#azure-vm-deployment-wizard-tutorial) | SQL Server 2005 或更新版本 | SQL Server 2014 或更新版本 | > 1 TB | 盡可能使用最快速且最簡單的方法來移轉到 Azure 虛擬機器中新的或現有 SQL Server 執行個體 |
+| [使用「將 SQL Server 資料庫部署到 Microsoft Azure VM」精靈](#azure-vm-deployment-wizard-tutorial) | SQL Server 2005 或更新版本 | SQL Server 2014 或更新版本 | > 1 TB | 盡可能使用最快速且最簡單的方法來移轉到 Azure 虛擬機器中新的或現有 SQL Server 執行個體 | 
+| [使用加入 Azure 複本精靈](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md) | SQL Server 2012 或更新版本 | SQL Server 2012 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 可將停機時間縮到最短，請在您有內部部署的 AlwaysOn 部署時使用 |
+| [使用 SQL Server 異動複寫](https://msdn.microsoft.com/library/ms151176.aspx) | SQL Server 2005 或更新版本 | SQL Server 2005 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 請在您需要將停機時間縮到最短且沒有內部部署的 AlwaysOn 部署時使用 |
 | [使用壓縮執行在內部部署備份，並手動將備份檔案複製到 Azure 虛擬機器](#backup-to-file-and-copy-to-vm-and-restore) | SQL Server 2005 或更新版本 | SQL Server 2005 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 使用時機僅限於當您無法使用此精靈時，例如當目的地資料庫版本早於 SQL Server 2012 SP1 CU2，或資料庫備份大小大於 1 TB (使用 SQL Server 2016 時則為 12.8 TB) |
 | [執行備份至 URL 並從 URL 還原到 Azure 虛擬機器](#backup-to-url-and-restore) | SQL Server 2012 SP1 CU2 或更新版本 | SQL Server 2012 SP1 CU2 或更新版本 | > 1 TB (對於 SQL Server 2016，則為 < 12.8 TB) | 通常使用[備份至 URL](https://msdn.microsoft.com/library/dn435916.aspx)在效能上相當於使用精靈，但較不容易 |
 | [中斷連結並將資料和記錄檔複製到 Azure blob 儲存體，然後從 URL 連結至 Azure 虛擬機器中的 SQL Server](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 或更新版本 | SQL Server 2014 或更新版本 | [Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 當您打算[使用 Azure Blob 儲存體服務儲存這些檔案](https://msdn.microsoft.com/library/dn385720.aspx)，並將其連接至在 Azure VM 中執行的 SQL Server，尤其是針對極大資料庫時，請使用這個方法。 |
@@ -86,7 +92,7 @@
 
 	![來源設定](./media/virtual-machines-migrate-onpremises-database/source-settings.png)
 
-6. 按 [下一步]。
+6. 按一下 [下一步]。
 7. 在 [Microsoft Azure 登入]頁面上，按一下 [登入] 並登入至您的 Azure 帳戶。
 8. 選取您要使用的訂用帳戶，然後按一下 [下一步]。
 
@@ -168,4 +174,4 @@
 
 如需在 Azure 虛擬機器上執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

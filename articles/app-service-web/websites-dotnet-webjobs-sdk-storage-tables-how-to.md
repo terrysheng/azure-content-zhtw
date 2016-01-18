@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure 資料表儲存體
@@ -22,7 +22,7 @@
 
 本指南提供 C# 程式碼範例，示範如何使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 1.x 版讀取和寫入 Azure 儲存體資料表。
 
-本指南假設您知道[如何使用指向您儲存體帳戶的連接字串，在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)。
+本指南假設您知道[如何使用指向您儲存體帳戶的連接字串，在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)，或是使用指向[多個儲存體帳戶](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)的連接字串來建立該專案。
 		
 有一些程式碼片段顯示 `Table` 屬性用於以[手動方式呼叫](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual)的函式中，也就是說使用的並非觸發屬性。
 
@@ -163,4 +163,4 @@
 本指南提供的程式碼範例示範如何處理使用 Azure 資料表的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

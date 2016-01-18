@@ -18,7 +18,7 @@
 
 # DocumentDB 中的資料分割與級別資料
 
-[Microsoft Azure DocumentDB](../../services/documentdb/) 的設計可協助您達成快速、可預測的效能，並順暢地隨著您的應用程式成長向外延展。在 Microsoft，DocumentDB 用來賦與高延展性生產服務，像是可賦與 MSN Web 和行動應用程式套件的使用者資料存放區。
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 的設計可協助您達成快速、可預測的效能，並順暢地隨著您的應用程式成長向外延展。在 Microsoft，DocumentDB 用來賦與高延展性生產服務，像是可賦與 MSN Web 和行動應用程式套件的使用者資料存放區。
 
 您也可以利用水平分割資料的方式 (通常稱為**分區化**的概念)，讓 DocumentDB 應用程式在儲存體和輸送量方面達到近乎無限延展。DocumentDB 帳戶可以利用線性方式，並透過可堆疊的單位成本 (簡稱**集合**) 調整。跨集合分割資料的最佳方式將取決於您的資料格式和存取模式。
 
@@ -112,4 +112,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

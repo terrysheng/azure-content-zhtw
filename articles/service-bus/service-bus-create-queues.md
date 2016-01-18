@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # 建立使用服務匯流排佇列的應用程式
@@ -160,4 +160,4 @@ catch (Exception e)
 
 既然您了解佇列的基本概念，請參閱[建立使用服務匯流排主題和訂用帳戶的應用程式](service-bus-create-topics-subscriptions.md)，透過服務匯流排代理傳訊的發佈/訂閱功能，繼續進行本文的討論。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

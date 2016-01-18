@@ -107,6 +107,10 @@ ASP.NET 5 是輕量型、跨平台的 Web 開發架構，能夠建立新式 Web 
 2. 找出繼承自 `StatefulService` 的類別 (例如 `MyStatefulService`)，然後加以擴充以實作 `ICounter` 介面。
 
     ```c#
+    using MyStatefulService.Interfaces;
+
+    ...
+
     public class MyStatefulService : StatefulService, ICounter
     {        
           // ...
@@ -136,9 +140,13 @@ ASP.NET 5 是輕量型、跨平台的 Web 開發架構，能夠建立新式 Web 
 
 >[AZURE.NOTE]用於開啟無狀態服務之通訊通道的對等方法稱為 `CreateServiceInstanceListeners`。
 
-在此情況下，我們會提供 `ServiceRemotingListener`，其使用 `ServiceProxy` 建立可從用戶端呼叫的 RPC 端點。
+在此情況下，我們將取代現有的 `CreateServiceReplicaListeners` 方法，並提供 `ServiceRemotingListener`，其會使用 `ServiceProxy` 來建立可從用戶端呼叫的 RPC 端點。
 
 ```c#
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+
+...
+
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
     return new List<ServiceReplicaListener>()
@@ -162,6 +170,11 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 3. 在 controllers 資料夾中，開啟 `ValuesController` 類別。請注意，`Get` 方法目前只會傳回 "value1" 和 "value2" 的硬式編碼字串陣列，這符合我們稍早在瀏覽器中所見的內容。使用下列程式碼來取代此實作：
 
     ```c#
+    using MyStatefulService.Interfaces;
+    using Microsoft.ServiceFabric.Services.Remoting.Client;
+
+    ...
+
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
@@ -221,4 +234,4 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

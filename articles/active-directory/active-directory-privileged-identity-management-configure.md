@@ -16,20 +16,20 @@
 	ms.date="09/21/2015"
 	ms.author="inhenk"/>
 
-# Azure AD 特殊權限身分識別管理
+# Azure AD Privileged Identity Management
 
 Azure AD 特殊權限身分識別管理可讓您管理、控制和監視特殊權限身分識別，以及其在 Azure AD 和其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 中的資源存取權。
 
 若要讓使用者能夠執行特殊權限作業，組織通常需要賦予許多使用者在 Azure AD 中或對 Azure 或 Office 365 資源或其他 SaaS 應用程式的永久特殊權限存取權。對大多數客戶而言，這會使其雲端資源的安全性風險提高，因為他們無法充分監視這些使用者利用其管理員權限的所作所為。此外，擁有特殊權限存取權的使用者帳戶若遭到入侵，可能會影響其整體的雲端安全性。Azure AD 特殊權限身分識別管理有助於解決此風險。
 
-本預覽版本中的 Azure AD 特殊權限身分識別管理可讓您：
+Azure AD Privileged Identity Management 可讓您：
 
 - 探索哪些使用者是 Azure AD 管理員
 - 啟用目錄資源的隨選、「即時」管理存取權
 - 取得有關管理員存取歷程記錄以及有關管理員指派變更的報告
 - 取得有關特殊權限角色存取的警示
 
-在本預覽版本中，Azure AD 特殊權限身分識別管理可以管理內建的 Azure Active Directory 組織角色：
+Azure AD Privileged Identity Management 可以管理內建的 Azure Active Directory 組織角色：
 
 - 全域管理員
 - 計費管理員
@@ -43,11 +43,13 @@ Azure AD 特殊權限身分識別管理可讓您管理、控制和監視特殊�
 
 ## 針對目錄啟用特殊權限身分識別管理
 
-存取 [Microsoft Azure 入口網站](https://portal.azure.com/)，即可開始使用 Azure AD 特殊權限身分識別管理。目前，Azure AD 特殊權限身分識別管理只會出現在 Microsoft Azure 入口網站中。您必須是全域的管理員才能針對目錄啟用 Azure AD 特殊權限身分識別管理。
+存取 [Azure 入口網站](https://portal.azure.com/)，即可開始使用 Azure AD Privileged Identity Management。目前，Azure AD Privileged Identity Management 只會出現在 Azure 入口網站中。它不會出現在傳統入口網站中。您必須是全域的管理員才能針對目錄啟用 Azure AD 特殊權限身分識別管理。
 
 ![][1]
 
-初始化此延伸模組之後，您就會自動成為目錄的第一個**安全性管理員**。只有安全性管理員可以存取此延伸模組來管理其他管理員的存取權。在初始化期間，Azure AD 特殊權限身分識別管理的動態磚會加入至 Azure 預覽入口網站的儀表板。
+初始化此延伸模組之後，您就會自動成為目錄的第一個**安全性管理員**。只有安全性管理員可以存取此延伸模組來管理其他管理員的存取權。
+
+在初始化期間，Azure AD Privileged Identity Management 的動態磚會加入至 Azure 入口網站的開始面板。
 
 ## 特殊權限身分識別管理儀表板
 
@@ -79,7 +81,7 @@ Azure AD 特殊權限身分識別管理員有一個儀表板可提供重要資�
 
 若要啟用角色，暫時管理員必須要求對角色進行有時效性的「啟用」。使用 Azure AD 特殊權限身分識別管理中的 [**啟用我的角色**] 選項，即可要求啟用。
 
-想要啟用角色的管理員必須在 Azure 預覽入口網站中初始化 Azure AD 特殊權限身分識別管理。
+想要啟用角色的管理員必須在 Azure 入口網站中初始化 Azure AD Privileged Identity Management。
 
 任何類型的管理員均可使用 Azure AD 特殊權限身分識別管理來啟用自己的角色。
 
@@ -104,4 +106,4 @@ Azure AD 特殊權限身分識別管理員有一個儀表板可提供重要資�
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Publish-WebApplicationVM (Windows PowerShell 指令碼)
@@ -189,4 +189,4 @@ JSON 組態檔會指定待部署項目的詳細資料。它包含您在建立專
 
 您可以編輯 JSON 組態檔來變更佈建項目。虛擬機器和雲端服務是必要的，但資料庫區段是選擇性的。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

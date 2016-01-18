@@ -14,7 +14,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="12/11/2015"
+ ms.date="01/05/2016"
  ms.author="cynthn"/>
 
 # 虛擬機器的大小
@@ -33,10 +33,7 @@ ms.service="virtual-machines"
 
 *   Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。Dv2 系列 CPU 比 D 系列 CPU 快約 35%。它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.2 GHz。Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 
-    Dv2 系列的區域可用性將以此排程為基礎：2015 年 10 月：美國東部 2、美國中部、美國中北部、美國西部 2015 年 11 月：美國東部、歐洲北部、歐洲西部 2016 年 1 月：美國中南部、亞太地區東部、亞太地區東南部、日本東部、日本西部、澳洲東部、澳洲東南部、巴西南部
-
-
-*   G 系列 VM 提供最大的大小和最佳效能，並且可在具有 Intel Xeon E5 V3 系列處理器的主機上執行。
+*   G 系列 VM 提供最大的記憶體，並且是在具有 Intel Xeon E5 V3 系列處理器的主機上執行。
 
 *   DS 系列和 GS 系列 VM 可以使用進階儲存體，針對使用大量 I/O 的工作負載提供高效能、低延遲的儲存體。這些 VM 會使用固態硬碟 (SSD) 來裝載虛擬機器的磁碟，還可提供本機 SSD 磁碟快取。僅特定地區可用進階儲存體。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage-premium-storage-preview-portal.md)。
 
@@ -45,13 +42,31 @@ ms.service="virtual-machines"
 下列考量可協助您決定大小：
 
 
-*   Azure 資料中心的某些實體主機可能不支援較大的虛擬機器大小，例如 A5-A11。因此，您可能會在將現有的虛擬機器調整為新的大小、在 2013 年 4 月 16 日之前建立的虛擬網路中建立新的虛擬機器，或將新的虛擬機器加入現有雲端服務時，看到錯誤訊息：「無法設定虛擬機器 <machine name>」或「無法建立虛擬機器 <machine name>」 。請參閱支援論壇上[錯誤：「無法設定虛擬機器」](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows)，以查看每個部署案例的因應措施。  
+* A8-A11 大小也稱為「計算密集型執行個體」。執行這些大小的硬體是針對計算密集型和網路密集型應用程式 (包括高效能運算 (HPC) 叢集應用程式)、模型化及模擬而設計及最佳化的。如需有關使用這些大小的詳細資訊和考量，請參閱[關於 A8、A9、A10 及 A11 計算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)。
 
-*   A8/A10 和 A9/A11 虛擬機器大小具有相同實體性能。A8 和 A9 虛擬機器執行個體包含額外的網路介面卡，其會連線到遠端直接記憶體存取 (RDMA) 網路，以利在虛擬機器之間進行快速通訊。A8 和 A9 執行個體是專為執行期間，節點之間需要常數和低延遲通訊的高效能計算應用程式所設計，例如，使用訊息傳遞介面 (MPI) 的應用程式。A10 和 A11 虛擬機器執行個體不包含額外的網路介面卡。A10 和 A11 執行個體專為不需要常數和低度延遲節點的高效能計算應用程式設計，也就是所謂的參數式或窘迫平行應用程式。
 
 *	Dv2、D、G以及對應的 DS/GS 是要求更快速的 CPU、更好的本機磁碟效能，或有更高記憶體需求之應用程式的最佳選擇。它們為許多企業級應用程式提供了強大的組合。
 
+*   Azure 資料中心的某些實體主機可能不支援較大的虛擬機器大小，例如 A5-A11。因此，您可能會在將現有的虛擬機器調整為新的大小、在 2013 年 4 月 16 日之前建立的虛擬網路中建立新的虛擬機器，或將新的虛擬機器加入現有雲端服務時，看到錯誤訊息：「無法設定虛擬機器 <machine name>」或「無法建立虛擬機器 <machine name>」 。請參閱支援論壇上[錯誤：「無法設定虛擬機器」](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows)，以查看每個部署案例的因應措施。
 
+
+## 效能考量
+
+我們已經建立「Azure 運算單位」(ACU) 概念來提供一種比較各個 Azure SKU 之運算 (CPU) 效能的方法。這將可協助您輕鬆識別哪個 SKU 最可能符合您的效能需求。ACU 目前是以「小型 (Standard\_A1)」VM 為標準 (數值為 100)，而所有其他 SKU 則大致上代表該 SKU 在執行標準基準測試上可以快多少。
+
+>[AZURE.IMPORTANT]ACU 只是一個指導方針。您工作負載的結果可能會有所不同。
+
+<br>
+
+|SKU 系列 |ACU/核心 |
+|---|---|
+|[Standard\_A0 (超小型)](#standard-tier-a-series) |50 |
+|[Standard\_A1-4 (小型 – 大型)](#standard-tier-a-series) |100 |
+|[Standard\_A5-7](#standard-tier-a-series) |100 |
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+
+
+以 * 標示的 ACU 使用了「Intel® 渦輪」技術來增加 CPU 頻率及提升效能。提升的程度會依 VM 大小、工作負載及在相同主機上執行的其他工作負載而有所不同。
 
 
 
@@ -60,6 +75,8 @@ ms.service="virtual-machines"
 下表顯示其所提供的大小和容量。
 
 >[AZURE.NOTE]儲存體容量是使用 1024^3 位元組當作 GB 的度量單位來表示。這有時稱為 gibibyte 或基底 2 定義。比較使用不同基底系統的大小時，請記住，基底 2 的大小可能會顯示為小於基底 10，但是對於任何特定的大小 (例如 1 GB)，基底 2 的系統可提供比基底 10 系統更大的容量，因為 1024^3 大於 1000^3。
+
+<br>
 
 
 
@@ -85,10 +102,18 @@ ms.service="virtual-machines"
 |Standard\_A5|2|14 GB|1|暫存 = 135 GB |4|4X500|
 |Standard\_A6|4|28 GB|2|暫存 = 285 GB |8|8x500|
 |Standard\_A7|8|56 GB|4|暫存 = 605 GB |16|16x500|
-|Standard\_A8|8|56 GB|2| 暫存 = 382 GB注意：如需使用此大小的資訊與考量，請參閱[關於 A8、A9、A10 與 A11 運算密集型執行個體](http://go.microsoft.com/fwlink/p/?linkid=328042)。 |16|16x500|
-|Standard\_A9|16|112 GB|4| 暫存 = 382 GB注意：如需使用此大小的資訊與考量，請參閱[關於 A8、A9、A10 與 A11 運算密集型執行個體](http://go.microsoft.com/fwlink/p/?linkid=328042)。 |16|16x500|
-|Standard\_A10|8|56 GB|2| 暫存 = 382 GB注意：如需使用此大小的資訊與考量，請參閱[關於 A8、A9、A10 與 A11 運算密集型執行個體](http://go.microsoft.com/fwlink/p/?linkid=328042)。 |16|16x500|
-|Standard\_A11|16|112 GB|4| 暫存 = 382 GB注意：如需使用此大小的資訊與考量，請參閱[關於 A8、A9、A10 與 A11 運算密集型執行個體](http://go.microsoft.com/fwlink/p/?linkid=328042)。 |16|16x500|
+
+
+## 標準層級：A 系列 - 計算密集型執行個體
+
+注意：如需有關使用這些大小的資訊和考量，請參閱[關於 A8、A9、A10 及 A11 計算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)。
+
+|大小 |CPU 核心|記憶體|NIC (最大)|最大磁碟大小|最大的資料磁碟 (每個 1023 GB)|最大IOPS (每個磁碟 500)|
+|---|---|---|---|---|---|---|
+|Standard\_A8|8|56 GB|2| 暫存 = 382 GB |16|16x500|
+|Standard\_A9|16|112 GB|4| 暫存 = 382 GB |16|16x500|
+|Standard\_A10|8|56 GB|2| 暫存 = 382 GB |16|16x500|
+|Standard\_A11|16|112 GB|4| 暫存 = 382 GB |16|16x500|
 
 ## 標準層級：D 系列
 
@@ -157,6 +182,6 @@ ms.service="virtual-machines"
 
 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)
 
-[關於 A8、A9、A10 和 A11 運算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
+[關於 A8、A9、A10 及 A11 計算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # 非同步傳訊模式和高可用性
@@ -35,7 +35,7 @@
 
 ## 服務匯流排的可靠性
 
-有各種方法可以處理訊息和實體問題，而且有用來控管適當使用這些緩和措施的指導方針。若要了解這些指導方針，您必須先了解服務匯流排中可能發生何種失敗。由於 Azure 系統的設計，所有這些問題通常都很短暫。概括而言，無法使用的各種原因如下︰
+有數種方法可以處理訊息和實體問題，而且有用來控管適當使用這些緩和措施的指導方針。若要了解這些指導方針，您必須先了解服務匯流排中可能發生何種失敗。由於 Azure 系統的設計，所有這些問題通常都很短暫。概括而言，無法使用的各種原因如下︰
 
 -   從服務匯流排所依賴的外部系統節流。從與儲存體和運算資源的互動進行節流。
 
@@ -47,36 +47,36 @@
 
 > [AZURE.NOTE]「儲存體」一詞可表示 Azure 儲存體和 SQL Azure。
 
-對於上述問題，服務匯流排有數種緩和措施。下列各節會討論每個問題及其各自的緩和措施。
+對於這些問題，服務匯流排有數種緩和措施。下列各節會討論每個問題及其各自的緩和措施。
 
 ### 節流
 
 使用服務匯流排，節流可達到協同合作的訊息速率管理。每個個別的服務匯流排節點都容納許多實體。每個實體都是從 CPU、記憶體、儲存體和其他面向提出系統需求。當上述任何面向偵測到超出所定義臨界值的使用量時，服務匯流排可以拒絕指定的要求。呼叫端會收到 [ServerBusyException][] 並在 10 秒後重試。
 
-在緩和措施中，程式碼必須讀取錯誤並停止任何訊息重試至少 10 秒。因為此錯誤可能發生於客戶應用程式的各個部份，因此預計每個部份都能獨立執行重試邏輯。此程式碼可藉由在佇列或主題上啟用資料分割，以降低進行節流的機率。
+在緩和措施中，程式碼必須讀取錯誤並停止任何訊息重試至少 10 秒。因為此錯誤會發生於客戶應用程式的各個部分，因此預計每個部分都能獨立執行重試邏輯。此程式碼可藉由在佇列或主題上啟用資料分割，以降低進行節流的機率。
 
 ### Azure 相依性問題
 
-Azure 中的其他元件可能會不時出現服務問題。例如，當服務匯流排使用的系統正在升級時，該系統可能會暫時降低功能。若要解決這幾類問題，服務匯流排會定期調查並實作緩和措施。這些緩和措施的確會出現副作用。例如，若要處理儲存體的暫時性問題，服務匯流排會實作可讓訊息傳送作業以一致的方式運作的系統。基於緩和措施的本質，傳送的訊息可能需要 15 分鐘的時間才會出現在受影響的佇列或訂用帳戶中，並準備進行接收作業。一般而言，大部分實體不會發生這個問題。不過，基於 Azure 內服務匯流排中的實體數目，有一小部分的服務匯流排客戶有時會需要此緩和措施。
+Azure 中的其他元件可能會不時出現服務問題。例如，當服務匯流排使用的系統正在升級時，該系統可能會暫時經歷降低的功能。若要解決這幾類問題，服務匯流排會定期調查並實作緩和措施。這些緩和措施的確會出現副作用。例如，若要處理儲存體的暫時性問題，服務匯流排會實作可讓訊息傳送作業以一致的方式運作的系統。基於緩和措施的本質，傳送的訊息可能需要 15 分鐘的時間才會出現在受影響的佇列或訂用帳戶中，並準備進行接收作業。一般而言，大部分實體不會發生這個問題。不過，基於 Azure 內服務匯流排中的實體數目，有一小部分的服務匯流排客戶有時會需要此緩和措施。
 
 ### 單一子系統上的服務匯流排失敗
 
 在任何應用程式中，有些情況可能會導致服務匯流排的內部元件變得不一致。當服務匯流排偵測到這種情況時，它會從應用程式收集資料以協助診斷發生什麼狀況。收集資料後，應用程式會在嘗試回到一致狀態時重新啟動。這個程序非常迅速地發生，而且會導致實體呈現無法使用長達數分鐘，然而一般的停機時間短很多。
 
-在這些情況下，用戶端應用程式會產生 [System.TimeoutException][] 或 [MessagingException][] 例外狀況。服務匯流排 .NET SDK 包含此問題的緩和措施 (採用自動用戶端重試邏輯形式)。一旦重試期間用完且未傳遞訊息，您可以使用配對的命名空間等其他功能進行探索。配對的命名空間有本文件稍後會討論的其他警告。
+在這些情況下，用戶端應用程式會產生 [System.TimeoutException][] 或 [MessagingException][] 例外狀況。服務匯流排 .NET SDK 包含此問題的緩和措施 (採用自動用戶端重試邏輯形式)。一旦重試期間用完且未傳遞訊息，您可以使用[配對的命名空間][]等其他功能進行探索。配對的命名空間有本文件稍後會討論的其他警告。
 
 ### Azure 資料中心內的服務匯流排失敗
 
 Azure 資料中心失敗的最可能原因是服務匯流排或相依系統的升級部署失敗。隨著平台日趨成熟，這種失敗的可能性已大幅降低。發生資料中心失敗的原因也可能包含下列因素︰
 
 -   電力中斷 (電源和供電失效)。
--   連線 (用戶端與 Azure 之間的網路中斷)。
+-   連線 (用戶端與 Azure 之間的網際網路中斷)。
 
-在這兩種情況下，自然或人為災難都會造成此問題。若要解決這個問題並確保您仍可傳送訊息，您可使用配對的命名空間，允許訊息傳送至次要地點並同時讓主要地點再次恢復良好狀況。如需詳細資訊，請參閱[將服務匯流排應用程式與服務匯流排中斷和災難隔絕的最佳作法][]。
+在這兩種情況下，自然或人為災難都會造成此問題。若要解決這個問題並確保您仍可傳送訊息，您可以使用[配對的命名空間][]，允許訊息傳送至次要位置，同時讓主要位置再次恢復良好狀況。如需詳細資訊，請參閱[將應用程式與服務匯流排中斷和災難隔絕的最佳做法][]。
 
 ## 配對的命名空間
 
-配對的命名空間功能支援下列案例︰資料中心內的服務匯流排實體或部署變得無法使用。雖然此事件不常發生，但分散式系統仍然必須準備好處理情況最糟的案例。通常，會因為服務匯流排所依賴的某個元素遇到短暫問題而發生此事件。為了維護中斷期間的應用程式可用性，服務匯流排使用者可以使用兩個不同的命名空間 (最好位於不同的資料中心) 來裝載其傳訊實體。本節的其餘部分使用下列術語：
+[配對的命名空間][]功能支援下列案例︰資料中心內的服務匯流排實體或部署變得無法使用。雖然此事件不常發生，但分散式系統仍然必須準備好處理情況最糟的案例。通常會因為服務匯流排所依賴的某個元素遇到短期問題而發生此事件。為了維護中斷期間的應用程式可用性，服務匯流排使用者可以使用兩個不同的命名空間 (最好位於不同的資料中心) 來裝載其傳訊實體。本節的其餘部分使用下列術語：
 
 -   主要命名空間︰與您的應用程式互動進行傳送和接收作業的命名空間。
 
@@ -84,13 +84,13 @@ Azure 資料中心失敗的最可能原因是服務匯流排或相依系統的�
 
 -   容錯移轉間隔︰在應用程式從主要命名空間切換至次要命名空間之前接受正常失敗的時間量。
 
-配對的命名空間支援傳送可用性。傳送可用性著重於保留傳送訊息的能力。若要使用傳送可用性，您的應用程式必須符合下列需求：
+配對的命名空間支援「傳送可用性」。傳送可用性保留了傳送訊息的能力。若要使用傳送可用性，您的應用程式必須符合下列需求：
 
 1.  只會從主要命名空間接收訊息。
 
-2.  傳送到指定佇列/主題的訊息可能不會按順序抵達。
+2.  傳送到指定佇列或主題的訊息可能不會按順序抵達。
 
-3.  如果您的應用程式使用工作階段：工作階段內的訊息可能不會按順序抵達。這是工作階段的正常功能毀損。這表示您的應用程式會使用工作階段以邏輯方式群組訊息。只會在主要命名空間上維護工作階段狀態。
+3.  如果您的應用程式使用工作階段，工作階段內的訊息可能不會按順序抵達。這是工作階段的正常功能毀損。這表示您的應用程式會使用工作階段以邏輯方式群組訊息。只會在主要命名空間上維護工作階段狀態。
 
 4.  工作階段內的訊息可能不會按順序抵達。這是工作階段的正常功能毀損。這表示您的應用程式會使用工作階段以邏輯方式群組訊息。
 
@@ -102,13 +102,13 @@ Azure 資料中心失敗的最可能原因是服務匯流排或相依系統的�
 
 ### MessagingFactory.PairNamespaceAsync API
 
-配對的命名空間功能在 [Microsoft.ServiceBus.Messaging.MessagingFactory][] 類別上引進下列新方法︰
+配對的命名空間功能在 [Microsoft.ServiceBus.Messaging.MessagingFactory][] 類別上引進 [PairNamespaceAsync][] 方法︰
 
 ```
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
 ```
 
-當工作完成時，命名空間配對也會完成並準備對任何使用 [MessagingFactory][] 建立的 [MessageReceiver][]、[QueueClient][] 或 [TopicClient][] 採取動作。[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][] 是 [MessagingFactory][] 所提供的不同配對類型的基底類別。目前，唯一的衍生類別是名為 [SendAvailabilityPairedNamespaceOptions][] 的類別，其實作傳送可用性需求。[SendAvailabilityPairedNamespaceOptions][] 有一組建立在彼此之上的建構函式。查看具有大部份參數的建構函式，以便了解其他建構函式的行為。
+當工作完成時，命名空間配對也會完成並準備對任何使用 [MessagingFactory][] 執行個體建立的 [MessageReceiver][]、[QueueClient][] 或 [TopicClient][] 採取動作。[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][] 是 [MessagingFactory][] 物件所提供的不同配對類型的基底類別。目前，唯一的衍生類別是名為 [SendAvailabilityPairedNamespaceOptions][] 的類別，其實作傳送可用性需求。[SendAvailabilityPairedNamespaceOptions][] 有一組建立在彼此之上的建構函式。查看具有大部份參數的建構函式，以便了解其他建構函式的行為。
 
 ```
 public SendAvailabilityPairedNamespaceOptions(
@@ -121,9 +121,9 @@ public SendAvailabilityPairedNamespaceOptions(
 
 這些參數具有下列意義：
 
--   *secondaryNamespaceManager*︰[PairNamespaceAsync][] 方法可用來設定次要命名空間之次要命名空間的初始化 [NamespaceManager][] 執行個體。管理員會用來取得命名空間中的佇列清單，並確定必要的待處理項目佇列存在。如果這些佇列不存在，則會加以建立。[NamespaceManager][] 必須能夠使用 [管理] 宣告建立權杖。
+-   *secondaryNamespaceManager*︰[PairNamespaceAsync][] 方法可用來設定次要命名空間之次要命名空間的初始化 [NamespaceManager][] 執行個體。命名空間管理員會用來取得命名空間中的佇列清單，並確定必要的待處理項目佇列存在。如果這些佇列不存在，則會加以建立。[NamespaceManager][] 必須能夠使用 [管理] 宣告建立權杖。
 
--   *messagingFactory*︰次要命名空間的 [MessagingFactory][] 執行個體。[MessagingFactory][] 用來傳送，而如果 [EnableSyphon][] 屬性設定為 **true**，則會從待處理項目佇列接收訊息。
+-   *messagingFactory*︰次要命名空間的 [MessagingFactory][] 執行個體。[MessagingFactory][] 物件會用來傳送，而且，如果 [EnableSyphon][] 屬性設定為 **true**，則會從待處理項目佇列接收訊息。
 
 -   *backlogQueueCount*︰要建立的待處理項目佇列數目。此值必須至少為 1。將訊息傳送至待處理項目時，會隨機選擇其中一個佇列。如果您將此值設定為 1，則只能使用一個佇列。發生此情況且這一個待處理項目佇列產生錯誤時，用戶端便無法嘗試不同的待處理項目佇列且無法傳送您的訊息。我們建議將此值設定為較大的值並將此值預設為 10。視您的應用程式每天傳送的資料量而定，您可以將此值變更為較大或較小的值。每個待處理項目佇列最多可以保留 5 GB 的訊息。
 
@@ -134,8 +134,7 @@ public SendAvailabilityPairedNamespaceOptions(
 若要使用程式碼，請建立主要 [MessagingFactory][] 執行個體、次要 [MessagingFactory][] 執行個體、次要 [NamespaceManager][] 執行個體和 [SendAvailabilityPairedNamespaceOptions][] 執行個體。呼叫很簡單，如下所示：
 
 ```
-SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions =
-    new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
+SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
 primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
 ```
 
@@ -150,12 +149,12 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
 ## 後續步驟
 
-您現已了解服務匯流排中非同步傳訊的基本概念，請閱讀更多有關[配對命名空間和成本暗示]的詳細資料。
+您現已了解服務匯流排中非同步傳訊的基本概念，請閱讀更多有關[配對命名空間和成本暗示][]的詳細資料。
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
   [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
-  [將服務匯流排應用程式與服務匯流排中斷和災難隔絕的最佳作法]: service-bus-outages-disasters.md
+  [將應用程式與服務匯流排中斷和災難隔絕的最佳做法]: service-bus-outages-disasters.md
   [Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
   [MessageReceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
@@ -171,5 +170,6 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
   [UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [配對命名空間和成本暗示]: service-bus-paired-namespaces.md
+  [配對的命名空間]: service-bus-paired-namespaces.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

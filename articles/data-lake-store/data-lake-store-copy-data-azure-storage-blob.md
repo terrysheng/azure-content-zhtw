@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="01/05/2016"
    ms.author="nitinme"/>
 
 # 將資料從 Azure 儲存體 Blob 複製到資料湖存放區
 
-Azure 資料湖存放區提供命令列工具 [AdlCopy](http://aka.ms/downloadadlcopy)，可將資料從 Azure 儲存體 Blob 複製到資料湖存放區。使用此工具的方式有兩種：
+Azure 資料湖存放區提供命令列工具 [AdlCopy](http://aka.ms/downloadadlcopy)，可將資料**從 Azure 儲存體 Blob 複製到資料湖存放區**。您無法使用 AdlCopy 將資料從資料湖存放區複製到 Azure 儲存體 Blob。
+
+AdlCopy 工具有兩種使用方式：
 
 * **單獨使用**，此工具會使用資料湖存放區資源來執行工作。
 * **使用資料湖分析帳戶**，指派給資料湖分析帳戶的單位可用來執行複製作業。當您想要以可預測的方式執行複製工作時，可能會想使用此選項。
@@ -68,9 +70,12 @@ Azure 資料湖存放區提供命令列工具 [AdlCopy](http://aka.ms/downloadad
 		Initializing Copy.
 		Copy Started.
 		...............
-		The total progress of copy operation is 0.00%.
+		0.00% data copied.
 		. . .
-		The total progress of copy operation is 100.00%.
+		. . .
+		100% data copied.
+		Finishing copy.
+		....
 		Copy Completed.
 
 1. 您也可以使用下列命令，將所有的 Blob 從某一個容器複製到資料湖存放區帳戶：
@@ -103,10 +108,14 @@ Azure 資料湖存放區提供命令列工具 [AdlCopy](http://aka.ms/downloadad
 
 * 如果您將 AdlCopy 工具與資料湖分析帳戶搭配使用，即會套用標準的[資料湖分析計費費率](https://azure.microsoft.com/pricing/details/data-lake-analytics/)。
 
+## 使用 AdlCopy 的考量
+
+* AdlCopy 不支援從總計有 1000 個以上的檔案和資料夾的來源複製資料。替代方法是將檔案/資料夾分散到不同的子資料夾，並改用這些子資料夾的路徑做為來源。
+
 ## 後續步驟
 
 - [保護資料湖存放區中的資料](data-lake-store-secure-data.md)
 - [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

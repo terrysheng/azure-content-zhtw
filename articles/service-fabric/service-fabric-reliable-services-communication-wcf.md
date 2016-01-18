@@ -1,6 +1,6 @@
 <properties
    pageTitle="Reliable Services WCF 通訊堆疊 | Microsoft Azure"
-   description="Services Fabric 內建的 WCF 通訊堆疊提供 Reliable Services 專用的用戶端服務 WCF 通訊。"
+   description="Service Fabric 內建的 WCF 通訊堆疊提供 Reliable Services 專用的用戶端服務 WCF 通訊。"
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
@@ -16,11 +16,11 @@
    ms.date="11/17/2015"
    ms.author="bharatn@microsoft.com"/>
 
-# 可靠服務的 WCF 式通訊堆疊
-可靠服務架構允許服務作者決定其想要使用服務的通訊堆疊。他們可以透過從 [CreateServiceReplicaListeners 或 CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md) 方法傳回的 `ICommunicationListener` 外掛所選擇的通訊堆疊。服務作者如果想要使用 WCF 式通訊，架構提供以 WCF 式實作的通訊堆疊。
+# 適用於 Reliable Services 的 WCF 式通訊堆疊
+Reliable Services 架構允許服務作者選擇其想要針對服務使用的通訊堆疊。他們可以透過從 [CreateServiceReplicaListeners 或 CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md) 方法傳回的 **ICommunicationListener**，來外掛所選擇的通訊堆疊。服務作者如果想要使用 Windows Communication Foundation (WCF) 式通訊，架構可提供以 WCF 式實作的通訊堆疊。
 
 ## WCF 通訊接聽程式
-WCF 的 `ICommunicationListener` 特定實作是由 `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener` 類別所提供。
+**ICommunicationListener** 的 ECF 特定實作係由 **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** 類別所提供。
 
 ```csharp
 
@@ -32,7 +32,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
         {
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section
-            // which identifies the endpoint that the wcf servicehost should listen on.
+            // that identifies the endpoint that the WCF ServiceHost should listen on.
             //
             EndpointResourceName = "ServiceEndpoint",
 
@@ -46,8 +46,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## 撰寫 WCF 通訊堆疊的用戶端
-如需撰寫使用 WCF 讓用戶端與服務進行通訊，架構提供 `WcfClientCommunicationFactory`，也就是 WCF 的 [`ClientCommunicationFactoryBase`](service-fabric-reliable-service-communication.md) 特定實作。
+## 撰寫適用於 WCF 通訊堆疊的用戶端
+為了撰寫使用 WCF 讓用戶端能與服務進行通訊，架構提供了 **WcfClientCommunicationFactory**，也就是 [ClientCommunicationFactoryBase](service-fabric-reliable-service-communication.md) 的 WCF 特定實作。
 
 ```csharp
 
@@ -60,7 +60,7 @@ public WcfCommunicationClientFactory(
 
 ```
 
-可以從 `WcfCommunicationClientFactory` 建立的 `WcfCommunicationClient` 存取 WCF 通訊通道
+WCF 通訊通道可以從 **WcfCommunicationClientFactory** 建立的 **WcfCommunicationClient** 來存取。
 
 ```csharp
 
@@ -72,7 +72,7 @@ public class WcfCommunicationClient<TChannel> : ICommunicationClient where TChan
 
 ```
 
-用戶端程式碼可以使用 `WcfCommunicationClientFactory` 連同 `ServicePartitionClient` 以判斷服務端點，並與服務進行通訊。
+用戶端程式碼可以使用 **WcfCommunicationClientFactory** 連同 **ServicePartitionClient** 來決定服務端點，並與服務通訊。
 
 ```csharp
 
@@ -90,11 +90,11 @@ var clientFactory = new WcfCommunicationClientFactory<ICalculator>(
     serviceResolver,// ServicePartitionResolver
     binding,        // Client binding
     null,           // Callback object
-    null);          // donot retry Exception types
+    null);          // do not retry Exception types
 
 
 //
-// Create a client for communicating with the calc service which has been created with
+// Create a client for communicating with the calc service that has been created with the
 // Singleton partition scheme.
 //
 var calculatorServicePartitionClient = new ServicePartitionClient<WcfCommunicationClient<ICalculator>>(
@@ -108,10 +108,10 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
     client => client.Channel.AddAsync(2, 3)).Result;
 
 ```
- 
+
 ## 後續步驟
 * [使用 Reliable Services 遠端服務進行遠端程序呼叫](service-fabric-reliable-services-communication-remoting.md)
 
 * [在 Reliable Services 中搭配 OWIN 使用 Web API](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,20 +13,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="01/05/2016"
    ms.author="tomfitz"/>
 
 # 編寫 Azure 資源管理員範本
 
-Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網站等) 結合在一起，以達到所需的目標。您不是分開部署與管理每個資源，而是建立一個 Azure 資源管理員範本，藉此經由單一、協調的作業署與佈建應用程式有的資源。在範本中，您會定義應用程式所需的資源，並指定部署參數以針對不同的環境輸入值。範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
+Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網站等) 結合在一起，以達到所需的目標。您不是分開部署與管理每個資源，而是建立一個 Azure 資源管理員範本，藉此經由單一、協調的作業署與佈建應用程式有的資源。在範本中，您會定義應用程式所需的資源，並指定部署參數以針對不同的環境輸入值。範本由 JSON 與運算式所組成，可讓您用來為部署建構值。此主題說明範本的各區段。
 
-此主題說明範本的各區段。對於實際結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)。Visual Studio 提供工具來協助您建立範本。如需有關如何以您的範本使用 Visual Studio 的詳細資訊，請參閱[透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)和[使用 Visual Studio 編輯資源管理員範本](vs-azure-tools-resource-group-adding-resources.md)。
+Visual Studio 提供工具來協助您建立範本。如需有關如何以您的範本使用 Visual Studio 的詳細資訊，請參閱[透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)和[使用 Visual Studio 編輯資源管理員範本](vs-azure-tools-resource-group-adding-resources.md)。
 
 您必須將範本大小限制為 1 MB，並將每個參數檔案限制為 64 KB。1 MB 的限制適用於已增加反覆資源定義和變數和參數值之範本的最終狀態。
 
+## 規劃您的範本
+
+開始使用範本之前，您應該花一些時間來找出您想要部署的資源以及使用範本的方式。具體來說，您應該考慮：
+
+1. 您需要部署哪些資源類型
+2. 這些資源所在的位置
+3. 部署資源時您將使用的資源提供者 API 版本
+4. 是否有任何資源必須部署在其他資源之後
+5. 您想要在部署期間傳入的值，以及您想要在範本中直接定義的值
+6. 您是否需要從部署傳回值
+
+若找出哪些資源類型可供部署、各類型支援的區域，以及每個類型可用的 API 版本，請參閱[資源管理員提供者、區域、API 版本及結構描述](resource-manager-supported-services.md)。本主題提供的範例和連結可協助您判斷您需要在您的範本中提供的值。
+
+如果有資源必須在另一個資源之後部署，您可以將它標示為依存於其他資源。您將在下面的[資源](#resources)一節中，了解如何執行此動作。
+
+您可以在執行期間提供參數值，以改變範本部署的結果。您將在下面的[參數](#parameters)一節中，了解如何執行該動作。
+
+您可以在[輸出](#outputs)一節中從您的部署傳回值。
+
 ## 範本格式
 
-下列範例顯示組成範本基本結構的區段。
+在最簡單的結構中，範本包含下列元素。
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -39,11 +58,11 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 | 元素名稱 | 必要 | 說明
 | :------------: | :------: | :----------
-| $schema | 是 | JSON 結構描述檔案的位置，說明範本語言的版本。
-| contentVersion | 是 | 範本版本 (例如 1.0.0.0)。使用範本部署資源時，這個值可用來確定使用的是正確的範本。
+| $schema | 是 | JSON 結構描述檔案的位置，說明範本語言的版本。您應該使用上述的 URL。
+| contentVersion | 是 | 範本版本 (例如 1.0.0.0)。您可以為此元素提供任何值。使用範本部署資源時，這個值可用來確定使用的是正確的範本。
 | 參數 | 否 | 執行部署以自訂資源部署時所提供的值。
 | 變數 | 否 | 範本中做為 JSON 片段以簡化範本語言運算式的值。
-| 資源 | 是 | 在資源群組中部署或更新的服務類型。
+| 資源 | 是 | 在資源群組中部署或更新的資源類型。
 | 輸出 | 否 | 部署後傳回的值。
 
 本主題稍後處將會檢視範本的區段。現在，我們將檢視組成範本的一些語法。
@@ -67,9 +86,11 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 ## 參數
 
-在範本的參數區段中，您會指定使用者可在部署資源時輸入的值。您可以在整個範本中使用這些參數值，為所部署的資源設定值。只有在參數區段中宣告的參數可以用於範本的其他區段中。
+在範本的 parameters 區段中，您會指定可在部署資源時輸入的值。提供針對特定環境 (例如開發、測試和生產環境) 量身訂做的參數值，可讓您自訂部署。您不必在範本中提供參數，但若沒有參數，您的範本一律會部署具有相同名稱、位置和屬性的相同資源。
 
-在參數區段內，您無法使用參數值來建構另一個參數值。該類型的作業通常在變數區段中發生。
+您可以在整個範本中使用這些參數值，為所部署的資源設定值。只有在參數區段中宣告的參數可以用於範本的其他區段中。
+
+在參數區段內，您無法使用參數值來建構另一個參數值。您可以在 variables 區段中建構新值。
 
 您會定義結構如下的參數：
 
@@ -150,7 +171,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 ## 變數
 
-在變數區段中，您會建構可用來簡化範本語言運算式的值。一般而言，這些變數將會以參數所提供的值為根據。
+在 variables 區段中，您會建構可用於整個範本中的值。一般而言，這些變數將會以參數所提供的值為根據。您不需要定義變數，但它們通常會經由減少複雜運算式來簡化您的範本。
 
 您可使用以下結構定義變數：
 
@@ -204,7 +225,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 ## 資源
 
-在資源區段中，您會定義要部署或更新資源。
+在資源區段中，您會定義要部署或更新資源。這是您的範本可以變得更複雜的地方，因為您必須了解您要部署的類型才能提供正確的值。若要進一步了解資源提供者，請參閱[資訊管理員提供者、區域、API 版本及結構描述](resource-manager-supported-services.md)。
 
 您會定義結構如下的資源：
 
@@ -221,7 +242,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
          ],
          "properties": "<settings-for-the-resource>",
          "resources": [
-           "<array-of-dependent-resources>"
+           "<array-of-child-resources>"
          ]
        }
     ]
@@ -231,18 +252,46 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 | apiVersion | 是 | 要用來建立資源的 REST API 版本。如要為特定資源類型判斷可用的版本號碼，請參閱[支援的 API 版本](../resource-manager-supported-services/#supported-api-versions)。
 | 類型 | 是 | 資源類型。這個值是資源提供者的命名空間與資源提供者所支援資源類型的組合。
 | 名稱 | 是 | 資源名稱。此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。
-| location | 否 | 所提供資源的支援地理位置。
+| location | 否 | 所提供資源的支援地理位置。若要判斷可用的位置，請參閱[支援的區域](../resource-manager-supported-services/#supported-regions)。
 | tags | 否 | 與資源相關聯的標記。
 | 註解 | 否 | 您在範本中記錄資源的註解
 | dependsOn | 否 | 正在定義的資源所相依的資源。評估資源與依相依順序部署資源之間的相依性。資源若不互相依賴，則會嘗試平行部署資源。值可以是以逗號分隔的資源名稱或資源唯一識別碼清單。
-| 屬性 | 否 | 資源特定的組態設定。
-| 資源 | 否 | 與正在定義的資源相依的下層資源。您只能提供父資源的結構描述所允許的資源類型。子資源類型的完整名稱包含父資源的名稱，例如 **Microsoft.Web/sites/extensions**。
+| 屬性 | 否 | 資源特定的組態設定。properties 的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是完全一樣的。如需資源結構描述文件或 REST API 的連結，請參閱[資訊管理員提供者、區域、API 版本及結構描述](resource-manager-supported-services.md)。
+| 資源 | 否 | 與正在定義的資源相依的下層資源。您只能提供父資源的結構描述所允許的資源類型。子資源類型的完整名稱包含父資源的名稱，例如 **Microsoft.Web/sites/extensions**。父資源的相依性不是隱含的；您必須明確定義該相依性。 
+
 
 如果資源名稱不是唯一，您可以使用 **resourceId** Helper 函式 (如下所述) 來取得任何資源的唯一識別碼。
 
-**properties** 元素的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是完全一樣的。如需您想要部署之資源的 REST API 作業，請參閱 [Azure 參考](https://msdn.microsoft.com/library/azure/mt420159.aspx)。
+resources 區段包含要部署的資源陣列。在每個資源內，您也可以定義該資源的子資源陣列。因此，您的 resources 區段可能會有類似以下的結構：
 
-下列範例顯示 **Microsoft.Web/serverfarms** 資源，以及含巢狀 **Extensions** 資源的 **Microsoft.Web/sites** 資源：
+    "resources": [
+       {
+           "name": "resourceA",
+           ...
+       },
+       {
+           "name": "resourceB",
+           ...
+           "resources": [
+               {
+                   "name": "firstChildResourceB",
+                   ...
+               },
+               {   
+                   "name": "secondChildResourceB",
+                   ...
+               }
+           ]
+       },
+       {
+           "name": "resourceC",
+           ...
+       }
+    ]
+
+
+
+下列範例顯示 **Microsoft.Web/serverfarms** 資源，以及含子系 **Extensions** 資源的 **Microsoft.Web/sites** 資源。請注意，網站會標示為依存於伺服器陣列，因為伺服器陣列必須存在，才能部署網站。也請注意，**Extensions** 資源是網站的子系。
 
     "resources": [
         {
@@ -421,4 +470,4 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

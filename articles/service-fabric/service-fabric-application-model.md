@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"   
+   ms.date="12/30/2015"   
    ms.author="seanmck"/>
 
 # 在 Service Fabric 中模型化應用程式
@@ -24,14 +24,16 @@
 
 應用程式是組成服務的集合，這些服務會執行特定函數。服務會執行完整且獨立的函數 (其可獨立於其他服務啟動和執行)，並且是由程式碼、組態和資料組成。針對每個服務，程式碼由可執行檔二進位檔組成、組態由可在執行階段載入的服務設定組成，而資料由讓服務使用的任意靜態資料組成。此階層應用程式模型中的每個元件都可以獨立建立版本和升級。
 
-![][1]
+![Service Fabric 應用程式模型][appmodel-diagram]
 
 
 應用程式類型是應用程式的分類，由服務類型的組合所組成。服務類型是一項服務分類。分類可以有不同的設定和組態，但是核心功能保持不變。服務的執行個體是相同服務類型的不同服務組態變形。
 
-應用程式和服務的類別 (或「類型」) 是透過 XML 檔案 (應用程式資訊清單和服務資訊清單) 來加以說明，該檔案是應用程式可以針對它具現化的範本。不同應用程式執行個體的程式碼會執行為個別的程序，即使是由相同的 Service Fabric 節點所裝載。此外，每個應用程式執行個體的生命週期可以獨立進行管理 (也就是升級)。下圖顯示應用程式類型如何由服務類型組成，依序分別為程式碼、組態和封裝的組成。
+應用程式和服務的類別 (或「類型」) 是透過 XML 檔案 (應用程式資訊清單和服務資訊清單) 來說明，這類檔案是應用程式可針對它從叢集的映像存放區具現化的範本。
 
-![Service Fabric 應用程式類型和服務類型][Image1]
+不同應用程式執行個體的程式碼會執行為個別的程序，即使是由相同的 Service Fabric 節點所裝載。此外，每個應用程式執行個體的生命週期可以獨立進行管理 (也就是升級)。下圖顯示應用程式類型如何由服務類型組成，依序分別為程式碼、組態和封裝的組成。為了簡化此圖，只會顯示 `ServiceType4` 的程式碼/組態/資料封裝，但每個服務類型都包含這其中部分或所有的封裝類型。
+
+![Service Fabric 應用程式類型和服務類型][cluster-imagestore-apptypes]
 
 兩個用來說明應用程式和服務的不同資訊清單檔案：服務資訊清單和應用程式資訊清單。後續章節將詳細說明這些先決條件。
 
@@ -39,8 +41,10 @@
 
 下圖顯示應用程式和服務執行個體、分割和複本之間的關聯性。
 
-![服務內的分割和複本][Image2]
+![服務內的分割和複本][cluster-application-instances]
 
+
+>[AZURE.TIP]您可以使用 Service Fabric 總管工具，在叢集中檢視應用程式的配置，該工具可以在 http://&lt;yourclusteraddress&gt;:19080/Explorer 上取得。如需詳細資訊，請參閱[使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)。
 
 ## 描述服務
 
@@ -105,6 +109,7 @@ For more information about other features supported by service manifests, refer 
 
 
 應用程式資訊清單以宣告方式描述應用程式類型和版本。它指定服務組成中繼資料，例如穩定的名稱、分割配置、執行個體計數/複寫因數、安全性/隔離原則、安置限制、組態覆寫和組成服務類型。也說明要放置應用程式的負載平衡網域。
+
 因此，應用程式資訊清單描述應用程式層級的元素，並參考用來組成應用程式類型的一個或多個服務資訊清單。以下是簡單的範例應用程式資訊清單：
 
 ~~~
@@ -187,7 +192,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 若要建立封裝，請以滑鼠右鍵按一下方案總管中的應用程式專案，然後選擇 [封裝] 命令，如下所示：
 
-![][2]
+![使用 Visual Studio 封裝應用程式][vs-package-command]
 
 封裝完成時，您會在 [輸出] 視窗中發現封裝的位置。請注意，當您在 Visual Studio 中部署或偵錯應用程式時，封裝步驟會自動進行。
 
@@ -239,14 +244,14 @@ PS D:\temp>
 [RunAs：使用不同的安全性權限執行 Service Fabric 應用程式][12]
 
 <!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
+[cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
+[cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
+[vs-package-command]: ./media/service-fabric-application-model/vs-package-command.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/28/2015"
    ms.author="masashin"/>
 
 # 重試服務的特定指引
@@ -489,7 +489,7 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync(retryPolicy))
 
 * [將暫時性錯誤處理應用程式區塊搭配 SQL Azure 使用](http://msdn.microsoft.com/library/hh680899.aspx)
 * [堅持，是所有成功的秘方：使用暫時性錯誤處理應用程式區塊](http://msdn.microsoft.com/library/dn440719.aspx)
-* [雲端服務基礎資料存取層 – 暫時性錯誤處理](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)。
+* [雲端服務基礎資料存取層 – 暫時性錯誤處理。](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)
 
 有關充分使用 SQL Database 的一般指引，請參閱：
 
@@ -1121,4 +1121,4 @@ var result = await policy.ExecuteAsync(() => authContext.AcquireTokenAsync(resou
 | **線性 (固定間隔)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 秒<br />true | 重試次數。<br />重試之間的延遲。<br />是否立即進行第一次重試嘗試。 |
 如需使用暫時性錯誤處理應用程式區塊的範例，請參閱本指引中稍早＜範例＞各節中有關使用 ADO.NET 和 Azure Active Directory 的 Azure SQL Database 說明。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

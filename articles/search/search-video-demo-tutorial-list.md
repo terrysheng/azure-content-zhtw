@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/23/2015"
 	ms.author="heidist"/>
 
 #Azure 搜尋：教學課程、影片示範和範例
@@ -25,7 +25,7 @@
 
 [**Azure 搜尋示範用紐約市 (NYC) 徵才入口網站**](http://aka.ms/azjobsdemo)是一個活躍的 ASP.NET 網站，使用 NYC 開放資料計劃中的資料來示範 Azure 搜尋的功能。
 
-[**在 ASP.NET MVC 組合應用程式中 Try App Service + Azure 搜尋服務**](search-tryappservice.md)具有免費一小時工作階段與 Azure 搜尋，其中包含資料、實用的 Web 應用程式，以及讓您可以線上修改以便試用多種搜尋功能的原始碼。
+[**在 ASP.NET MVC 組合應用程式中試用 App Service + Azure 搜尋服務**](search-tryappservice.md)具有免費一小時工作階段與 Azure 搜尋，其中包含資料、實用的 Web 應用程式，以及讓您可以線上修改以便試用多種搜尋功能的原始碼。
 
 [**Azure 搜尋服務示範網站**](https://searchsamples.azurewebsites.net/#/)是一系列 Azure 搜尋服務的示範應用程式。使用 Azure 搜尋服務測試媒體搜尋、地理搜尋和產品庫存應用程式。
 
@@ -67,32 +67,35 @@
 [評分設定檔教學課程](search-get-started-scoring-profiles.md)|使用主控台應用程式來試用評分設定檔。
 [Azure 搜尋管理 REST API 教學課程](search-get-started-management-api.md)|如何使用管理 REST API 來佈建服務和管理系統管理員或查詢 API 金鑰。
 
-##程式碼範例
+##程式碼範例網站
 
-[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) 是由 Liam Cavanagh 所建立包含程式碼範例的 GitHub 儲存機制。下列範例可以在此儲存機制中找到：
+瀏覽這些已知有 Azure 搜尋服務程式碼範例的網站：
 
-- [AdventureWorksWP8]() 是 Windows Phone App。
-- [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
-- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) 是在教學課程中提供資料的 index.html 檔案。
-- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) 是適用於 Azure 搜尋服務的 ASP.NET MVC 應用程式。
-- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) 提供 NYCJobs 實際線上示範網站的原始程式碼。
-- [建議](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations)使用 Active Data Factory、SQL Database、Blob 儲存體，和 HDInsight 以根據產品被一起購買的頻率實作產品建議。
+- [https://github.com/Azure-Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=+only%3Asources+search)
+- [https://github.com/AzureSearch](https://github.com/AzureSearch) 
+- [https://github.com/liamca/AzureSearchDemos](https://github.com/liamca/AzureSearchDemos)
+- [https://github.com/MicrosoftLearning/AzureSearch-MVA](https://github.com/MicrosoftLearning/AzureSearch-MVA)
 
-[****https://github.com/AzureSearch**](https://github.com/AzureSearch) 是 Azure 搜尋的另一個 GitHub 儲存機制，包含 Azure 搜尋開發小組所建立的程式碼範例。您可以瀏覽儲存機制來查看其內容，或按一下下方連結直接移至特定的範例。
+##程式碼範例清單
 
-- [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
-- [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
-- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) 是使用 .NET 用戶端程式庫進行搜尋作業的 ASP.NET MVC 5 應用程式。
+- [**適用於 .NET-2015-02-28 用戶端程式庫的程式碼範例**](https://github.com/AzureSearch/.NET-2015-02-28-Sample)是使用 .NET 用戶端程式庫進行搜尋作業的 ASP.NET MVC 5 應用程式。
+- [**在 Java 逐步解說中開始使用 Azure 搜尋服務的程式碼範例**](https://github.com/Azure-Samples/search-java-getting-started)
+- [**開始使用 Azure 搜尋服務教學課程的程式碼範例**](https://github.com/Azure-Samples/search-dotnet-getting-started)
+- [**Java 索引子示範的程式碼範例**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
+- [**NodeJS 索引子示範的程式碼範例**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
+- [**使用 ASP.NET MVC 的 NYC 工作網站範例**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)透過 NYC 工作資料建置即時示範 Azure 搜尋服務網站。
+- [**search-dotnet-management-api**](https://github.com/Azure-Samples/search-dotnet-management-api/) 是使用管理 REST API 的 Windows 主控台應用程式。
+- [**使用 Cortana for Windows Phone 的語音辨識範例**](https://github.com/Azure-Samples/search-dotnet-windows-phone-cortana-speech)會示範如何從 Windows Phone 使用語音辨識來使用 Azure 搜尋服務進行搜尋。
+- [**「人氣組合」建議範例**](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations)使用 Active Data Factory、SQL Database、Blob 儲存體，和 HDInsight 以根據產品被一起購買的頻率實作產品建議。
+- [**AzSearchAutoScaleWeb**](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 是顯示如何自動調整 Azure 搜尋服務的範例程式碼。
+- [**BabyNameJS**](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) 是在教學課程中提供資料的 index.html 檔案。
 
-針對 [**AzureSearch Microsoft Virtual Academy 訓練教材**](https://github.com/MicrosoftLearning/AzureSearch-MVA)會使用不同的 GitHub 儲存機制。其中包含 7 部分課程中所使用的數個範例。
+您可以在 CodePlex 上找到數個在公開預覽期間發佈且仍然與目前版本相關的舊版範例。
 
-您可以在 CodePlex 上找到數個在公開預覽期間發佈且仍然與目前版本相關的範例。
-
-- [**管理 REST API 示範**](https://azuresearchmgmtapi.codeplex.com/)是使用管理 REST API 的 Windows 主控台應用程式。
 - [**AdventureWorks 示範**](https://azuresearchadventureworksdemo.codeplex.com/)是 ASP.NET MVC 4 應用程式。
 - [**建議示範**](https://azsearchsuggestions.codeplex.com/SourceControl/latest)是 ASP.NET MVC 4 應用程式。
 - [**GeoSearch 範例**](https://azuresearchgeospatial.codeplex.com/)是 ASP.NET MVC 4 應用程式。
 - [**SQL Server 與 Azure 搜尋的同步處理範例**](http://sqlserver2azuresearch.codeplex.com/)是從內嵌的本機資料庫載入 SQL Server 資料列集的 Windows 主控台應用程式。
 - [**評分設定檔示範**](https://azuresearchscoringprofiles.codeplex.com/)是定義、執行和更新評分設定檔，以微調搜尋結果的 Windows 主控台應用程式。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="增強 Logic Apps 的 API 應用程式"
-	description="本文示範如何裝飾 API 應用程式，以與 Logic Apps 運作良好。"
+	pageTitle="增強 Logic Apps 的 API 應用程式 | Microsoft Azure"
+	description="如何裝飾 API 應用程式，使其與 Logic Apps 良好互動。"
 	services="app-service\logic"
 	documentationCenter=".net"
 	authors="sameerch"
@@ -235,4 +235,4 @@ Logic Apps 設計工具具有有限的螢幕畫面來顯示作業、參數和屬
 在本文中，您已了解在 Logic Apps 設計工具中使用 API 應用程式時，如何改善 API 應用程式的使用者體驗。最佳做法是建議您提供所有作業 (動作和觸發程序)、參數和屬性的易記名稱。也建議您提供的基本作業不超過 5 個。對於輸入參數，建議將基本屬性數目限制為不超過 4 個，對於屬性，則建議 5 個以下。您作業和屬性的其餘部分應該標示為進階。
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

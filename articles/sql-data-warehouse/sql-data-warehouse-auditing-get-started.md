@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="開始使用 SQL 資料倉儲資料庫稽核 | Microsoft Azure" 
-	description="開始使用 SQL 資料倉儲資料庫稽核" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="開始使用 SQL 資料倉儲資料庫稽核 | Microsoft Azure" 
+   description="開始使用 SQL 資料倉儲資料庫稽核" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # 開始使用 SQL 資料倉儲資料庫稽核 
-<p> Azure SQL 資料倉儲稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。
+Azure SQL 資料倉儲稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。
 
 稽核可協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 
@@ -141,4 +141,4 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0107_2016--->

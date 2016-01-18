@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/31/2015"
+    ms.date="01/05/2016"
     ms.author="v-sharos" />
 
 # 使用 StorSimple 監視指示器來管理您的裝置   
@@ -31,7 +31,7 @@ StorSimple 裝置包括發光二極體 (LED) 與警示，您可以用來監控�
 
 ## 前端面板 LED 指示燈
 
-前端面板，也稱為「操作面板」或「操作面板」，其顯示系統中所有模組的彙總狀態。StorSimple 裝置與 EBOD 機箱上的前端面板完全相同，如下圖所示。
+前端面板，也稱為「操作面板」或「操作面板」，其顯示系統中所有模組的彙總狀態。StorSimple 主要機箱與 EBOD 機箱上的前端面板完全相同，如下圖所示。
 
    ![裝置正面面板][1]
  
@@ -256,4 +256,4 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

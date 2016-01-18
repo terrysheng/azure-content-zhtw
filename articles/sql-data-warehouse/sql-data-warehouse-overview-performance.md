@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/23/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
 
 # 效能和調整概觀
@@ -77,4 +77,4 @@ SQL 資料倉儲引進了資料倉儲單位 (DWU)，做為許多節點的彙總�
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

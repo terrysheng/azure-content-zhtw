@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/01/2015"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # 使用 Azure PowerShell 管理 Azure 資料湖分析
@@ -33,48 +33,9 @@
 <!-- ################################ -->
 
 
-##請安裝 Azure PowerShell 1.0 以上版本。
+##安裝 Azure PowerShell 1.0 或更新版本
 
-首先，您必須先解除安裝 0.9x 版本。
-
-若要檢視已安裝的 PowerShell 版本：
-
-	Get-Module *azure*
-	
-若要解除安裝較舊的版本，請在控制台中執行 [程式和功能]。
-
-共有兩個安裝 Azure PowerShell 的主要選項。
-
-- [PowerShell 資源庫](https://www.powershellgallery.com/)。從提高權限的 PowerShell ISE 或提高權限的 Windows PowerShell 主控台執行下列命令：
-
-		# Install the Azure Resource Manager modules from PowerShell Gallery
-		Install-Module AzureRM
-		Install-AzureRM
-		
-		# Install the Azure Service Management module from PowerShell Gallery
-		Install-Module Azure
-		
-		# Import AzureRM modules for the given version manifest in the AzureRM module
-		Import-AzureRM
-		
-		# Import Azure Service Management module
-		Import-Module Azure
-
-	如需詳細資訊，請參閱 [PowerShell 資源庫](https://www.powershellgallery.com/)。
-
-- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps)。如果您已安裝 Azure PowerShell 0.9.x，系統將提示您解除安裝 0.9.x。如果您是從 PowerShell 資源庫安裝 Azure PowerShell 模組，必須在安裝安裝程式之前先移除模組，以確保 Azure PowerShell 環境保持一致。如需指示，請參閱[透過 WebPI 安裝 Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
-
-WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想要從 PowerShell 資源庫進行安裝，這會是取得最新和最優異的 Azure PowerShell 功能之首要管道。
-
-**若要列出 Cmdlet**：
-
-	Get-Command *Azure*DataLakeAnalytics*
-
-**若要連接到 Azure，請使用下列 Cmdlet**：
-
-	Login-AzureRmAccount
-	Get-AzureRmSubscription  # for finding the Azure Subscription ID
-	Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](powershell-azure-resource-manager.md#prerequisites)的「必要條件」一節。
 	
 ## 管理帳戶
 
@@ -205,7 +166,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 	$AzureStorageAccountName = "<AzureStorageAccountName>"
 	$AzureStorageAccountKey = "<AzureStorageAccountKey>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -AccountName $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
 ### 新增其他的資料湖存放區帳戶
 
@@ -213,7 +174,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	$AzureDataLakeName = "<DataLakeStoreName>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -AccountName $dataLakeAnalyticName -DataLake $AzureDataLakeName 
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -DataLake $AzureDataLakeName 
 
 ### 列出資料來源：
 
@@ -235,49 +196,49 @@ Cmdlet 將傳回 **True** 或 **False**。
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -State Running, Queued
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -State Running, Queued
 	#States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Result Cancelled
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Result Cancelled
 	#Results: Cancelled, Failed, None, Successed 
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Name <Job Name>
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Submitter <Job submitter>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Name <Job Name>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Submitter <Job submitter>
 
 	# List all jobs submitted on January 1 (local time)
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-SubmittedAfter "2015/01/01"
 		-SubmittedBefore "2015/01/02"	
 
 	# List all jobs that succeeded on January 1 after 2 pm (UTC time)
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-State Ended
 		-Result Succeeded
 		-SubmittedAfter "2015/01/01 2:00 PM -0"
 		-SubmittedBefore "2015/01/02 -0"
 
 	# List all jobs submitted in the past hour
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-SubmittedAfter (Get-Date).AddHours(-1)
 
 ### 取得工作詳細資料
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -JobID <Job ID>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -JobID <Job ID>
 	
 ### 提交工作
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
 	#Pass script via path
-	Submit-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-Name $jobName `
 		-ScriptPath $scriptPath
 
 	#Pass script contents
-	Submit-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-Name $jobName `
 		-Script $scriptContents
 
@@ -286,7 +247,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 
 ### 取消工作
 
-	Stop-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-JobID $jobID
 
 
@@ -298,14 +259,14 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 
 	#List databases
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Database
 	
 	
 	
 	#List tables
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Table `
 		-Path "master.dbo"
 
@@ -313,32 +274,32 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 
 	#Get a database
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Database `
 		-Path "master"
 	
 	#Get a table
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Table `
 		-Path "master.dbo.mytable"
 
 ###測試目錄項目的存在
 
 	Test-AzureRmDataLakeAnalyticsCatalogItem  `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Database `
 		-Path "master"
 
 ###建立目錄密碼
 	New-AzureRmDataLakeAnalyticsCatalogSecret  `
-			-AccountName $adlAnalyticsAccountName `
+			-Account $adlAnalyticsAccountName `
 			-DatabaseName "master" `
 			-Secret (Get-Credential -UserName "username" -Message "Enter the password")
 
 ### 修改目錄密碼
 	Set-AzureRmDataLakeAnalyticsCatalogSecret  `
-			-AccountName $adlAnalyticsAccountName `
+			-Account $adlAnalyticsAccountName `
 			-DatabaseName "master" `
 			-Secret (Get-Credential -UserName "username" -Message "Enter the password")
 
@@ -346,7 +307,7 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 
 ###刪除目錄密碼
 	Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
-			-AccountName $adlAnalyticsAccountName `
+			-Account $adlAnalyticsAccountName `
 			-DatabaseName "master"
 
 
@@ -431,4 +392,4 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 		}
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/06/2015"
 	ms.author="jeedes"/>
 
 
@@ -77,7 +77,7 @@
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[建立 QuickHelp 測試使用者](#creating-a-quickhelp-test-user)** - 使 QuickHelp 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
 5. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#testing-single-sign-on)** - 驗證設定是否能運作。
+5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### 設定 Azure AD 單一登入
 
@@ -117,13 +117,13 @@
 
     b.若要上傳您下載的 Azure 中繼資料檔案，請按一下 [瀏覽]、瀏覽至該檔案，然後按一下 [上傳中繼資料]。
 
-    d.在 [電子郵件] 文字方塊中，輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
+    c.在 [電子郵件] 文字方塊中，輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
 
-    e.在 [名字] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**。
+    d.在 [名字] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**。
 
-    f.在 [姓氏] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**。
+    e.在 [姓氏] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**。
 
-    g.在 [動作列] 中，按一下 [儲存]。
+    f.在 [動作列] 中，按一下 [儲存]。
 
 
 
@@ -139,7 +139,7 @@
 
 
 ### 建立 Azure AD 測試使用者
-本節目標是在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
+本節的目標是要在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
@@ -155,19 +155,19 @@
 
     a.針對 [使用者類型]，選取 [您組織中的新使用者]。
 
-    b.在 [使用者名稱] 文字方塊中輸入 **BrittaSimon**。
+    b.在 [使用者名稱] 文字方塊中，輸入 **BrittaSimon**。
 
     c.按 [下一步]。
 
 6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png) <br>
  
-    a.在 [名字] 文字方塊中輸入 **Britta**。
+    a.在 [名字] 文字方塊中，輸入 **Britta**。
 
-    b.在 [姓氏] 文字方塊中輸入 **Simon**。
+    b.在 [姓氏] 文字方塊中，輸入 **Simon**。
 
-    c.在 [顯示名稱] 文字方塊中輸入 **Britta Simon**。
+    c.在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
 
-    d.在 [角色] 清單中選取 [使用者]。e.按 [下一步]。
+    d.在 [角色] 清單中，選取 [使用者]。按 [下一步]。
 
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) <br>
  
@@ -202,7 +202,7 @@ QuickHelp 支援 Just-in-Time 佈建。這表示如果需要，會在 QuickHelp 
 
 1. 在 [使用者] 清單中，選取 [Britta Simon]。
 
-2. 在底部工具列中，按一下 [指派]。<br><br>![指派使用者][205]
+2. 在底部的工具列中，按一下 [指派]。<br><br>![指派使用者][205]
 
 
 
@@ -255,4 +255,4 @@ QuickHelp 支援 Just-in-Time 佈建。這表示如果需要，會在 QuickHelp 
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

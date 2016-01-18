@@ -74,12 +74,12 @@
 - [整合 SaaS 應用程式教學課程清單](active-directory-saas-tutorial-list.md)
 
 ## 管理應用程式的存取
-下列文章描述在 Azure 入口網站中使用 Azure AD 連接器和 Azure AD 將應用程式與 Azure AD 整合之後，您可以管理對應用程式的存取的方式。
+下列文章描述使用 Azure AD 連接器和 Azure AD 將應用程式與 Azure AD 整合之後，您可以管理對應用程式的存取的方式。
 
 - [使用 Azure AD 管理應用程式的存取](active-directory-managing-access-to-apps.md)
 - [使用 Azure AD 連接器自動化](active-directory-saas-app-provisioning.md)
-- 使用 Azure 入口網站[將使用者指派給應用程式](active-directory-applications-guiding-developers-assigning-users.md)。
-- 使用 Azure 入口網站[將群組指派給應用程式](active-directory-applications-guiding-developers-assigning-groups.md)。
+- [ 將使用者指派給應用程式](active-directory-applications-guiding-developers-assigning-users.md)
+- [將群組指派給應用程式](active-directory-applications-guiding-developers-assigning-groups.md)
 - [共用帳戶](active-directory-sharing-accounts.md)
 
 ## 整合自訂應用程式
@@ -87,4 +87,4 @@
 
 如果您想要加入您的自訂應用程式至 Azure 應用程式資源庫，請參閱[使用 Azure AD 自助 SAML 組態「自備應用程式」](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

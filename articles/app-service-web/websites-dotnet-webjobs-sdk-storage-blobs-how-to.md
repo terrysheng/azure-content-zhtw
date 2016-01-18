@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure Blob 儲存體
@@ -24,7 +24,7 @@
 
 如需示範如何建立 Blob 的程式碼範例，請參閱[如何使用 WebJobs SDK 來使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。
 		
-本指南假設您知道[如何使用指向您儲存體帳戶的連接字串，在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)。
+本指南假設您知道[如何使用指向您儲存體帳戶的連接字串，在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)，或是使用指向[多個儲存體帳戶](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)的連接字串來建立該專案。
 
 ## <a id="trigger"></a> 如何在建立或更新 Blob 時觸發函數
 
@@ -89,9 +89,15 @@
 * `ICloudBlob`
 * `CloudBlockBlob`
 * `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
+* `IEnumerable<CloudPageBlob>`
 * 透過 [ICloudBlobStreamBinder](#icbsb) 還原序列化的其他型別 
 
 如果您想要直接使用 Azure 儲存體帳戶，也可以將 `CloudStorageAccount` 參數新增至方法簽章。
+
+如需範例，請參閱 [GitHub.com 中 azure-webjobs-sdk-samples 存放庫中的繫結程式碼](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs)。
 
 ## <a id="string"></a> 繫結至字串來取得文字 Blob 內容
 
@@ -203,7 +209,7 @@ WebJobs SDK 可確保不會有任何 `BlobTrigger` 函數會針對相同的新�
 
 Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存體帳戶中名為 *azure-webjobs-hosts* 的容器中。Blob 回條具有下列資訊：
 
-* Blob 已呼叫的函數 ("*{WebJob name}*.Functions.*{Function name}*"，例如："WebJob1.Functions.CopyBlob")
+* 已為 Blob 呼叫的函數 ("*{WebJob name}*.Functions.*{Function name}*"，例如："WebJob1.Functions.CopyBlob")
 * 容器名稱
 * Blob 類型 ("BlockBlob" 或 "PageBlob")
 * Blob 名稱
@@ -232,4 +238,4 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 本指南提供了程式碼範例，示範如何處理使用 Azure Blob 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

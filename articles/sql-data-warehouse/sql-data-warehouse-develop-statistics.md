@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/11/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 管理 SQL 資料倉儲中的統計資料
@@ -459,4 +459,4 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [更新統計資料]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

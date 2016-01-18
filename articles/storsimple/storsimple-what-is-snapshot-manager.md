@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # 什麼是 StorSimple Snapshot Manager？
@@ -21,10 +21,12 @@
 
 StorSimple Snapshot Manager 是 Microsoft Management Console (MMC) 嵌入式管理單元，可簡化資料保護和備份管理 Microsoft Azure StorSimple 環境中。使用 StorSimple Snapshot Manager 時，您可以將資料中心和雲端中的 Microsoft Azure StorSimple 資料當作單一整合式儲存體解決方案來管理，因而簡化備份程序並降低成本。
 
-本概觀簡介 StorSimple Snapshot Manager、描述其功能，並說明其在 Microsoft Azure StorSimple 的角色。
+本概觀簡介 StorSimple Snapshot Manager、描述其功能，並說明其在 Microsoft Azure StorSimple 中的角色。
 
 如需整個 Microsoft Azure StorSimple 系統的概觀，包括 StorSimple 裝置、StorSimple Manager 服務、StorSimple Snapshot Manager、StorSimple Adapter for SharePoint，請參閱 [StorSimple 8000 系列：混合式雲端儲存解決方案](storsimple-overview.md)。
  
+>[AZURE.NOTE]您無法使用 StorSimple Snapshot Manager 來管理 Microsoft Azure StorSimple Virtual Arrays (也稱為 StorSimple 內部部署虛擬裝置)。
+
 ## StorSimple Snapshot Manager 用途和架構
 
 StorSimple Snapshot Manager 提供中央管理主控台，可用來建立本機和雲端資料的一致時間點備份複本。例如，您可以使用主控台：
@@ -139,7 +141,7 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 ### 監視和管理備份工作
 
-您可以使用 StorSimple Snapshot Manager，監視和管理即將開始、已排程和已完成的備份作業。此外，StorSimple Snapshot Manager 也會提供一個目錄，最多可有 64 個已完成的備份。您可以使用目錄，尋找並還原磁碟區或個別檔案。
+您可以使用 StorSimple Snapshot Manager，監視和管理即將開始、已排程和已完成的備份作業。此外，StorSimple Snapshot Manager 提供最多 64 個已完成備份的目錄。您可以使用目錄來尋找及還原磁碟區或個別檔案。
 
 如需監視備份作業的相關資訊，請移至[使用 StorSimple Snapshot Manager 來檢視和管理備份作業](storsimple-snapshot-manager-manage-backup-jobs.md)。
 
@@ -150,4 +152,4 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 - 下載 [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # Microsoft Azure 儲存體簡介
@@ -64,7 +64,7 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體服務的安全帳戶。�
 標準儲存體帳戶可供您存取 Blob 儲存體、資料表儲存體、佇列儲存體和檔案儲存體：
 
 - 「Blob 儲存體」可儲存檔案資料。Blob 可以是任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。「Blob 儲存體」有時稱為物件儲存體。 
-- 「資料表儲存體」可儲存結構化資料集。資料表儲存體屬於 NoSQL 索引鍵屬性資料儲存，可允許快速開發和迅速存取大量資料。
+- 「表格儲存體」可儲存結構化資料集。資料表儲存體屬於 NoSQL 索引鍵屬性資料儲存，可允許快速開發和迅速存取大量資料。
 - 「佇列儲存體」可為工作流程處理及雲端服務元件間的通訊，提供可靠的訊息服務。
 - 「檔案儲存體」可為使用標準 SMB 通訊協定的舊版應用程式提供共用儲存體。Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案服務 REST API，存取共用中的檔案資料。 
 
@@ -236,4 +236,4 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 - [如何使用 Python 的佇列儲存體](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

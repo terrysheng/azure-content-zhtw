@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="10/07/2015"
+    ms.date="01/05/2016"
     ms.author="micurd"/>
 
 # 如何使用 iOS 的 Blob 儲存體
@@ -359,4 +359,4 @@
 [Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # 新增和管理多個 Azure Active Directory 目錄
@@ -40,4 +40,4 @@
 
 如需 Azure AD 授權問題和最佳作法的一般概觀，請參閱[什麼是 Azure Active Directory 授權？](active-directory-licensing-what-is.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="連接至 SQL Server 虛擬機器 | Microsoft Azure"
+	pageTitle="連線到 SQL Server 虛擬機器 (傳統) | Microsoft Azure"
 	description="本主題會使用以傳統部署模型建立的資源，並說明如何連接到在 Azure 中的虛擬機器上執行的 SQL Server。案例會視網路組態和用戶端的位置而有所不同。"
 	services="virtual-machines"
 	documentationCenter="na"
@@ -13,10 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="12/18/2015"
 	ms.author="jroth" />
 
-# 連接 Azure 上的 SQL Server 虛擬機器
+# 連線到 Azure 上的 SQL Server 虛擬機器 (傳統部署)
+
+> [AZURE.SELECTOR]
+- [Resource Manager](virtual-machines-sql-server-connectivity-resource-manager.md)
+- [Classic](virtual-machines-sql-server-connectivity.md)
 
 ## 概觀
 
@@ -74,7 +78,27 @@
 
 ## Azure VM 中設定 SQL Server 連線的步驟
 
+下列步驟示範如何使用 SQL Server Management Studio (SSMS) 透過網際網路連線到 SQL Server 執行個體。不過，相同的步驟適用於讓您在內部部署或 Azure 中執行的應用程式可存取 SQL Server 虛擬機器。
+
+您必須先完成後續各小節描述的下列工作，才能從其他 VM 或網際網路連接 SQL Server 的執行個體：
+
+- [為虛擬機器建立 TCP 端點](#create-a-tcp-endpoint-for-the-virtual-machine)
+- [在 Windows 防火牆中開啟 TCP 連接埠](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [設定 SQL Server 以接聽 TCP 通訊協定](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [設定 SQL Server 以進行混合模式驗證](#configure-sql-server-for-mixed-mode-authentication)
+- [建立 SQL Server 驗證登入](#create-sql-server-authentication-logins)
+- [決定虛擬機器的 DNS 名稱](#determine-the-dns-name-of-the-virtual-machine)
+- [從另一部電腦連接到 Database Engine](#connect-to-the-database-engine-from-another-computer)
+
+連線路徑如以下圖表總結：
+
+![連接 SQL Server 虛擬機器](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+
+[AZURE.INCLUDE [連線到 VM 傳統 TCP 端點中的 SQL Server](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
+
 [AZURE.INCLUDE [連接至 VM 中的 SQL Server](../../includes/virtual-machines-sql-server-connection-steps.md)]
+
+[AZURE.INCLUDE [以 VM 傳統步驟連線到 SQL Server](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## 後續步驟
 
@@ -84,6 +108,6 @@
 
 請務必檢閱在 Azure 虛擬機器上執行之 SQL Server 的所有安全性最佳做法。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 安全性考量](virtual-machines-sql-server-security-considerations.md)。
 
-如需有關在 Azure VM 中執行 SQL Server 的其他主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
+如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="lvargas;twounder;barbkess"/>
 
 # SQL 資料倉儲預覽版期望
@@ -72,4 +72,4 @@ SQL 資料倉儲會將資料儲存於一或多個計算節點，而每個節點�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

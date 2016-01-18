@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess"/>
 
 # 系統檢視
@@ -270,4 +270,4 @@ SQL 資料倉儲公開許多 SQL Server 動態管理檢視 (DMV)。在 SQL 資�
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

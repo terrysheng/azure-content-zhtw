@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="使用 PowerShell 設定 HDInsight 叢集與 Azure 資料湖存放區 |Azure" 
-   description="使用 Azure PowerShell 設定和使用 HDInsight Hadoop 叢集與 Azure 資料湖" 
+   pageTitle="使用 PowerShell 建立 HDInsight 叢集與 Azure 資料湖存放區 |Azure" 
+   description="使用 Azure PowerShell 建立和使用 HDInsight Hadoop 叢集與 Azure 資料湖" 
    services="data-lake" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/04/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# 使用 Azure PowerShell 佈建 HDInsight 叢集與資料湖存放區
+# 使用 Azure PowerShell 建立 HDInsight 叢集與資料湖存放區
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-了解如何使用 Azure PowerShell 設定 HDInsight 叢集 (Hadoop、HBase 或 Storm) 以使用 Azure 資料湖存放區。此版本的一些重要考量：
+了解如何使用 Azure PowerShell 設定可存取 Azure 資料湖存放區的 HDInsight 叢集 (Hadoop、HBase 或 Storm)。此版本的一些重要考量：
 
 * **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
 
@@ -44,7 +44,7 @@
 開始進行本教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-- **啟用您的 Azure 訂用帳戶**以便公開預覽資料湖存放區。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
+- **啟用您的 Azure 訂用帳戶**以使用資料湖存放區公開預覽版。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 - **Windows SDK**。您可以從[這裡](https://dev.windows.com/zh-TW/downloads)安裝。您使用它來建立安全性憑證。
 
 
@@ -116,9 +116,9 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 
 		Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-	輸出應為 **True**。
+	此輸出應為 **True**。
 
-4. 將一些範例資料上傳至 Azure 資料湖。我們將在本文稍後使用這個項目來確認資料可以從 HDInsight 叢集存取。如果您正在尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData)取得 **Ambulance Data** 資料夾。
+4. 將一些範例資料上傳至 Azure 資料湖。我們將在本文稍後使用這個項目來確認資料可以從 HDInsight 叢集存取。如果您正在尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)取得 **Ambulance Data** 資料夾。
 
 		
 		$myrootdir = "/"
@@ -325,4 +325,4 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0107_2016-->

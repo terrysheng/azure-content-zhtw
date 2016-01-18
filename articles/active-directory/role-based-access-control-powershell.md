@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # 使用 Windows PowerShell 管理角色存取控制 #
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](role-based-access-control-xplat-cli-install.md)
-
+- [PowerShell](role-based-access-control-manage-access-powershell.md)
+- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+- [REST API](role-based-access-control-manage-access-rest.md)
 
 在 Azure 入口網站和 Azure 資源管理員 API 中，以角色為基礎的存取控制 (RBAC) 可讓您以精細的層級管理訂用帳戶存取。透過這項功能，您可以為 Active Directory 使用者、群組或是服務主體指派特定範圍的一些角色，藉此賦予其存取權限。
 
@@ -164,4 +164,4 @@
 - [使用 Azure CLI 設定角色存取控制](role-based-access-control-xplat-cli-install.md)
 - [為角色存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

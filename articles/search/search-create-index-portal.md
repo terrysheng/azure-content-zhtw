@@ -28,7 +28,7 @@
 
 若要完成此工作，請先確定您已擁有可供使用的 Azure 搜尋服務。如果您需要設定 Azure 搜尋服務的協助，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
-1. 登入 [Azure 傳統入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 開啟 Azure 搜尋服務的服務儀表板。以下提供一些尋找儀表板的方法。
 	- 在 Jumpbar 中，按一下 [首頁]。首頁上有您訂用帳戶中每個服務的磚。按一下圖格即可開啟服務儀表板。
@@ -87,9 +87,9 @@
 	- **Key** 是每一份文件的唯一識別碼，用於查閱文件。每個索引必須有一個索引鍵。只有一個欄位可以是索引鍵，而且它必須設定為 Edm.String。
 	- **Searchable** 將欄位標記為 full-text searchable。
 
-3. 若要移除任何您不需要的欄位，請以滑鼠右鍵按一下該欄位，然後選取 [刪除]。
+3. 若要移除任何您不需要的欄位，請以滑鼠右鍵按一下該欄位，然後選取 [**刪除**]。
 
-4. 按一下 [確定] 以儲存您剛定義的索引，然後按一下 [新增索引] 頁面上的 [確定] 來建立索引。
+4. 按一下 [**確定**] 以儲存您剛定義的索引，然後按一下 [新增索引] 頁面上的 [**確定**] 來建立索引。
 
 
 ## 後續步驟
@@ -105,4 +105,4 @@
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,17 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/16/2015"
+   ms.date="01/11/2016"
    ms.author="cherylmc"/>
 
 # 設定 VNet 的點對站 VPN 連線
 
+> [AZURE.SELECTOR]
+- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
 
-本文章適用於使用傳統部署模型 (服務管理) 所建立之虛擬網路的點對站 VPN 閘道連線。使用 Azure 資源管理員部署模型所建立的虛擬網路點對站連線現在可以使用 REST API 和 PowerShell。我們正在撰寫文章，逐步帶您了解如何使用 PowerShell。我會更新此頁面，並在文章完成時納入此連結。目前計劃於一月初完成。
+點對站設定可讓您從用戶端電腦個別地建立與虛擬網路的安全連線。VPN 連線的建立方式是從用戶端電腦啟動連線。當您想要從遠端位置 (例如從住家或會議) 連接到您的 VNet 時，或您只有幾個需要連線至虛擬網路的用戶端時，這是絕佳的解決方案。點對站連線不需要 VPN 裝置或公眾對應 IP 位址即可運作。如需點對站連線的詳細資訊，請參閱 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md#point-to-site-connections)和[關於跨單位連線](vpn-gateway-cross-premises-options.md)。
 
-**關於 Azure 部署模型**
+本文章適用於使用**傳統部署模型** (服務管理) 所建立之虛擬網路的點對站 VPN 閘道連線。如果您想為使用資源管理員建立的 VNet 設定點對站連線，請參閱 [這篇文章](vpn-gateway-howto-point-to-site-rm-ps.md)。
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
 
 ## 有關建立點對站連線
  
@@ -88,7 +92,8 @@
 
 如果您未使用企業憑證解決方案，您必須產生自我簽署的根憑證。以下是適用於 Windows 8 的步驟。我們正在以 Windows 10 的新步驟進行更新。
 
-1. 建立 X.509 憑證的一個方式是使用憑證建立工具 (makecert.exe)。若要使用 Makecert，請下載並安裝免費的 [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)。
+建立 X.509 憑證的一個方式是使用憑證建立工具 (makecert.exe)。若要使用 Makecert，請下載並安裝免費的 [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)。
+
 2. 瀏覽至 Visual Studio Tools 資料夾，然後以系統管理員身分啟動命令提示字元。
 3. 以下範例中的命令會建立根憑證並安裝在電腦的個人憑證存放區，也會建立對應的 .cer 檔案，稍後您會將該檔案上傳至 Azure 傳統入口網站。
 4. 將目錄切換至要放置 .cer 檔案的目錄，然後執行以下命令，其中「RootCertificateName」是您要用的憑證名稱。如果執行以下範例不做任何變更，結果將是根憑證和對應檔案「RootCertificateName.cer」。
@@ -113,7 +118,7 @@
 2. 將目錄切換至您要儲存用戶端憑證檔案的位置。*RootCertificateName* 是指您產生的自我簽署根憑證。如果您執行以下範例 (但將 RootCertificateName 變更為您的根憑證名稱)，就會在個人憑證存放區中產生一個名為 "ClientCertificateName" 的用戶端憑證。
 3. 輸入以下命令：
 
-    makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
+    	makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
 
 4. 所有憑證都會儲存在電腦上的個人憑證存放區中。檢查 *certmgr* 來驗證。您可以視需要根據這個程序來產生許多用戶端憑證。建議您最好針對要連接到虛擬網路的每部電腦建立唯一的用戶端憑證。
 
@@ -191,4 +196,4 @@
 
 如需關於虛擬網路的詳細資訊，請參閱[虛擬網路文件](https://azure.microsoft.com/documentation/services/virtual-network/)頁面。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

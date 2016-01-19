@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/05/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 
@@ -148,25 +148,13 @@ HDInsight 叢集已包含 [storm-starter](https://github.com/apache/storm/tree/m
 
 Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsight 叢集中。
 
-> [AZURE.IMPORTANT]Storm UI 無法透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。如需詳細資訊，請參閱[使用 SSH 通道來存取 ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
+使用下列步驟以 Storm UI 監視拓撲。
 
-使用下列步驟來檢視 Storm UI：
+1. 開啟網頁瀏覽器至 https://CLUSTERNAME.azurehdinsight.net/stormui，其中 __CLUSTERNAME__ 是叢集的名稱。這會開啟 Storm UI。
 
-1. 在您建立通往叢集的 SSH 通道之後，請開啟網頁瀏覽器前往 https://CLUSTERNAME.azurehdinsight.net，其中 __CLUSTERNAME__ 是您叢集的名稱。這會開啟 Ambari Web UI。
+	> [AZURE.NOTE]如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
 
-	> [AZURE.NOTE]如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。系統可能會要求驗證兩次，一次是來自瀏覽器，第二次是來自 Ambari Web UI。兩次都使用相同的認證。
-
-2. 從頁面左邊的服務清單中選取 [Storm]，然後從 [快速連結] 選取 [Storm UI]。
-
-    ![快速連結中的 Storm UI 項目](./media/hdinsight-apache-storm-tutorial-get-started-linux/ambari-storm.png)
-
-    這會顯示 Storm UI︰
-
-    ![Storm UI](./media/hdinsight-apache-storm-tutorial-get-started-linux/stormui.png)
-	
-	> [AZURE.NOTE]如果您收到找不到伺服器的錯誤，您可能尚未建立叢集的 SSH 通道。如需詳細資訊，請參閱[使用 SSH 通道來存取 ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
-
-4. 在 [拓撲摘要] 下，選取 [名稱] 欄中的 [wordcount] 項目。這麼做會顯示拓撲的詳細資訊。
+2. 在 [拓撲摘要] 下，選取 [名稱] 欄中的 [wordcount] 項目。這麼做會顯示拓撲的詳細資訊。
 
 	![包含 Storm Starter WordCount 拓樸資訊的 Storm 儀表板。](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
@@ -192,7 +180,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 	* **終止 (Kill)**：在指定的逾時之後終止 Storm 拓撲。
 
-5. 在此頁面中，選取 [Spouts] 或 [Bolts] 區段中的一個項目。如此會顯示所選元件的相關資訊。
+3. 在此頁面中，選取 [Spouts] 或 [Bolts] 區段中的一個項目。如此會顯示所選元件的相關資訊。
 
 	![包含所選元件相關資訊的 Storm 儀表板。](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
@@ -210,7 +198,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 	* **錯誤**：此元件產生的錯誤。
 
-5. 檢視 spout 或 bolt 的詳細資料時，請在 [執行程式] 區段的 [連接埠] 欄中選取一個項目，以檢視特定元件執行個體的詳細資料。
+4. 檢視 spout 或 bolt 的詳細資料時，請在 [執行程式] 區段的 [連接埠] 欄中選取一個項目，以檢視特定元件執行個體的詳細資料。
 
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
@@ -245,4 +233,4 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

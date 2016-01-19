@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="Azure Classic Portal"/>
+    tags="Azure Portal"/>
 
 <tags
 	ms.service="search"
@@ -25,7 +25,7 @@
 - [REST API](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-Azure 傳統入口網站的 Azure 搜尋服務儀表板上包含 [匯入資料] 命令，可引導您在 Azure 搜尋服務中進行資料擷取。此命令依賴內建索引子功能來搜耙現有的資料來源，並根據在資料來源中找到的資料列集建立並上傳文件。
+Azure 入口網站的 Azure 搜尋服務儀表板上包含 [匯入資料] 命令，可引導您在 Azure 搜尋服務中進行資料擷取。此命令依賴內建索引子功能來搜耙現有的資料來源，並根據在資料來源中找到的資料列集建立並上傳文件。
 
 使用精靈時，資料匯入為包含 3 部分的建構：
 
@@ -39,7 +39,7 @@ Azure 傳統入口網站的 Azure 搜尋服務儀表板上包含 [匯入資料] 
 
 ##設定資料匯入
 
-1. 登入 [Azure 傳統入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 開啟 Azure 搜尋服務的服務儀表板。以下提供一些尋找儀表板的方法。
 	- 在 Jumpbar 中，按一下 [首頁]。首頁上有您訂用帳戶中每個服務的磚。按一下圖格即可開啟服務儀表板。
@@ -74,4 +74,4 @@ Azure 傳統入口網站的 Azure 搜尋服務儀表板上包含 [匯入資料] 
 
 在服務儀表板中，按兩下 [索引子] 磚即可顯示為您的訂用帳戶建立的所有索引子清單。按兩下其中一個索引子，加以執行、編輯或刪除。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

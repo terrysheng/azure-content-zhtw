@@ -2,7 +2,7 @@
 	pageTitle="開始使用適用於 iOS (Swift) 的 Azure Mobile Engagement"
 	description="了解如何使用 iOS 應用程式的 Azure Mobile Engagement 與分析和推播通知。"
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -40,7 +40,7 @@
 
 > [AZURE.IMPORTANT]完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件，若要完成此課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
-##<a id="setup-azme"></a>為您的 iOS App 設定 Mobile Engagement
+##<a id="setup-azme"></a>為您的 iOS 應用程式設定 Mobile Engagement
 
 [AZURE.INCLUDE [在入口網站中建立 Mobile Engagement 應用程式](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -112,7 +112,7 @@
 
 	`class ViewController : EngagementViewController {`
 
-##<a id="monitor"></a> App 與即時監視
+##<a id="monitor"></a>將應用程式與即時監視連接
 
 [AZURE.INCLUDE [將應用程式與即時監視連接](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
@@ -209,4 +209,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="使用 Azure Data Factory 載入資料 | Microsoft Azure"
-	description="了解如何使用 Azure Data Factory 載入資料"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="使用 Azure Data Factory 載入資料 | Microsoft Azure"
+   description="了解如何使用 Azure Data Factory 載入資料"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # 使用 Azure Data Factory 載入資料
 
@@ -206,4 +206,4 @@
 	}
 	
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="開始使用 Azure Mobile Engagement"
 	description="了解如何使用 Android 應用程式的 Azure Mobile Engagement 與分析和推播通知。"
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="android"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -222,7 +222,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 對於真正的應用程式，您可以根據 [Android 設計指導方針](http://developer.android.com/design/patterns/notifications.html)使用適合通知功能的圖示。
 
->[AZURE.TIP]若要確保您使用了正確的圖示解析度，您可以查看[這些範例](https://www.google.com/design/icons)。請向下捲動至 **Notification** (通知) 區段、按一下某個圖示，然後按一下 `PNGS` 來下載可繪製圖示集。您可看到對於每個版本的圖示要使用哪種解析度的可繪製資料夾。
+>[AZURE.TIP]若要確保您使用了正確的圖示解析度，您可以查看[這些範例](https://www.google.com/design/icons)。請向下捲動至 [Notification] (通知) 區段、按一下某個圖示，然後按一下 `PNGS` 來下載可繪製圖示集。您可看到對於每個版本的圖示要使用哪種解析度的可繪製資料夾。
 
 ##利用 API 金鑰建立 Google 雲端通訊專案
 
@@ -299,7 +299,7 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 
 	c.將 [傳遞時間] 選取為 *[任何時候]* ，讓應用程式無論是否啟動，都會接收通知。
 
-	d.在通知文字欄位中輸入**標題**，這在推播中會以粗體顯示。
+	d.在通知文字中，輸入**標題**，這在推播中會以粗體顯示。
 
 	e.然後輸入您的**訊息**。
 
@@ -339,4 +339,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

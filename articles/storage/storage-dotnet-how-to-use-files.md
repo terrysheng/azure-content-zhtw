@@ -5,7 +5,7 @@
             documentationCenter=".net"
             authors="robinsh"
             manager="carmonm"
-            editor="" />
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,7 +13,7 @@
       ms.devlang="dotnet"
       ms.topic="hero-article"
       ms.date="12/17/2015"
-      ms.author="robinsh" />
+      ms.author="jutang" />
 
 # 如何搭配使用 Azure 檔案儲存體與 Windows
 
@@ -64,7 +64,7 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
 - 上傳檔案至檔案共用和從檔案共用下載檔案
 - 監視每個檔案共用的實際使用狀況
 - 調整共用大小配額
-- 取得用來從 Windows 用戶端掛接檔案共用的 `net use` 命令 
+- 取得用來從檔案共用掛接 Windows 用戶端的 `net use` 命令
 
 ## 使用 PowerShell 管理檔案共用
 
@@ -129,30 +129,30 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## 掛接檔案共用 
+## 掛接檔案共用
 
 利用對 SMB 3.0 的支援，檔案儲存體現在支援來自 SMB 3.0 用戶端的加密和永續性處理常式。支援加密表示 SMB 3.0 用戶端可以從任何位置掛接檔案共用，包括來自：
 
 - 在相同區域的 Azure 虛擬機器 (SMB 2.1 也支援)
 - 在不同區域的 Azure 虛擬機器 (僅限 SMB 3.0)
-- 內部部署用戶端應用程式 (僅限 SMB 3.0) 
+- 內部部署用戶端應用程式 (僅限 SMB 3.0)
 
-當用戶端存取檔案儲存體，使用的 SMB 版本取決於作業系統所支援的 SMB 版本。下表提供 Windows 用戶端支援的摘要。如需詳細資訊，請參閱 << Which version of the SMB protocol blog post>>。
+當用戶端存取檔案儲存體，使用的 SMB 版本取決於作業系統所支援的 SMB 版本。下表提供 Windows 用戶端支援的摘要。如需詳細資訊，請參閱< Which version of the SMB protocol blog post>。
 
 | Windows 用戶端 | SMB 版本支援 |
 |------------------------|----------------------|
-| Windows 7              | SMB 2.1              |
-| Windows Server 2008 R2 | SMB 2.1              |
-| Windows 8              | SMB 3.0              |
-| Windows Server 2012    | SMB 3.0              |
-| Windows Server 2012 R2 | SMB 3.0              |
-| Windows 10             | SMB 3.0              |
+| Windows 7 | SMB 2.1 |
+| Windows Server 2008 R2 | SMB 2.1 |
+| Windows 8 | SMB 3.0 |
+| Windows Server 2012 | SMB 3.0 |
+| Windows Server 2012 R2 | SMB 3.0 |
+| Windows 10 | SMB 3.0 |
 
 ### 從執行 Windows 的 Azure 虛擬機器掛接檔案共用
 
 為說明如何掛接 Azure 檔案共用，我們現在將建立執行 Windows 的 Azure 虛擬機器，並遠端進入該虛擬機器以掛接共用。
 
-1. 首先，依照[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)中的指示，建立新的 Azure 虛擬機器。
+1. 首先，依照[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)中的指示建立新的 Azure 虛擬機器。
 2. 接著，依照[如何登入執行 Windows Server 的虛擬機器](../virtual-machines-log-on-windows-server.md)中的指示，遠端進入此虛擬機器。
 3. 在虛擬機器上開啟 PowerShell 視窗。
 
@@ -186,12 +186,12 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 您也可以從在 Azure 雲端服務上執行的角色來掛接檔案共用，方法是透過遠端進入此角色。
 
-### 從執行 Windows 的內部部署用戶端掛接檔案共用 
+### 從執行 Windows 的內部部署用戶端掛接檔案共用
 
 若要從內部部署用戶端掛接檔案共用，您必須先進行下列步驟：
 
-- 安裝支援 SMB 3.0 的 Windows 版本。Windows 將利用 SMB 3.0 加密來安全地在內部部署用戶端與雲端中的 Azure 檔案共用之間傳輸資料。 
-- 如 SMB 通訊協定所要求，在區域網路上開啟通訊埠 445 的網際網路存取 (TCP 輸出)。 
+- 安裝支援 SMB 3.0 的 Windows 版本。Windows 將利用 SMB 3.0 加密來安全地在內部部署用戶端與雲端中的 Azure 檔案共用之間傳輸資料。
+- 如 SMB 通訊協定所要求，在區域網路上開啟通訊埠 445 的網際網路存取 (TCP 輸出)。
 
 > [AZURE.NOTE]有些網際網路服務提供者可能會封鎖連接埠 445，因此您可能需要連絡您的服務提供者。
 
@@ -239,7 +239,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 此處的範例說明如何使用 `CloudConfigurationManager` 類別來擷取認證，並將他們包含在 `CloudStorageAccount` 類別中。在 program.cs 的 `Main()` 方法中加入下列程式碼。
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 ### 以程式設計方式存取檔案共用
 
@@ -472,20 +472,20 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 ## 檔案儲存體常見問題集
 
-1. **檔案儲存體是否支援 Active Directory 式的驗證？** 
+1. **檔案儲存體是否支援 Active Directory 式的驗證？**
 
 	我們目前不支援 AD 式驗證或 ACL，但在我們的功能要求清單中卻有它。目前，Azure 儲存體帳戶金鑰可用來提供檔案共用的驗證。我們的確提供透過 REST API 或用戶端程式庫使用共用存取簽章 (SAS) 的因應措施。使用 SAS 時，您可以產生在一段時間內都是有效的具有特定權限的權杖。例如，您可以產生具有指定檔案的唯讀存取的權杖。擁有此權杖的任何人，在其有效時具有該檔案的唯讀存取。
 
 	僅透過 REST API 或用戶端程式庫才支援 SAS。當您透過 SMB 通訊協定掛接檔案共用時，您無法使用 SAS 來委派其內容的存取。
 
 2. **Azure 檔案共用可公開在網際網路顯示，或只可從 Azure 取得？**
- 
+
 	只要已開啟連接埠 445 (TCP 輸出) 且您的用戶端支援 SMB 3.0 通訊協定 (例如：Windows 8 或 Windows Server 2012)，即可透過網際網路使用檔案共用。
 
 3. **Azure 虛擬機器和檔案共用之間的網路流量，會計算為向訂用帳戶收費的外部頻寬嗎？**
 
 	如果檔案共用和虛擬機器位於不同的區域，兩者之間的流量會以外部頻寬收費。
- 
+
 4. **如果網路流量是在虛擬機器和相同區域的檔案共用之間，是否免費？**
 
 	是。如果流量位於相同區域則是免費的。
@@ -497,7 +497,7 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 6. **容錯移轉叢集的「檔案共用見證」是Azure 檔案儲存體的其中一個使用案例？**
 
 	這目前不受支援。
- 
+
 7. **檔案儲存體目前只能透過 LRS 或 GRS 複寫，正確嗎？**
 
 	我們打算支援 RA-GRS，但時程尚未決定。
@@ -546,8 +546,8 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 ### 部落格文章
 
 - [Azure 檔案儲存體現已公開推出](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Azure 檔案儲存體的深入探討](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Azure 檔案儲存體的深入探討](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

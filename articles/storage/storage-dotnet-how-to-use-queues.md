@@ -1,20 +1,20 @@
 <properties
 	pageTitle="如何使用 .NET 的佇列儲存體 | Microsoft Azure"
-	description="了解如何使用 Microsoft Azure 佇列儲存體來建立和刪除佇列，以及插入、查看、取得和刪除佇列訊息。"
+	description="了解如何使用佇列儲存體來建立和刪除佇列，以及插入、查看、取得和刪除佇列訊息。"
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/04/2015"
-	ms.author="robinsh"/>
+	ms.author="gusapost"/>
 
 # 如何使用 .NET 的佇列儲存體
 
@@ -246,7 +246,7 @@
     - [REST API 參考資料](http://msdn.microsoft.com/library/azure/dd179355)
 - 了解如何使用 [Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/)，來簡化您撰寫以使用 Azure 儲存體的程式碼。
 - 如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-    - 使用[資料表儲存體](storage-dotnet-how-to-use-tables.md)儲存結構化資料。 
+    - 使用[資料表儲存體](storage-dotnet-how-to-use-tables.md)儲存結構化資料。
     - 使用 [Blog 儲存體](storage-dotnet-how-to-use-blobs.md)儲存非結構化資料。
     - 使用 [SQL Database](sql-database-dotnet-how-to-use.md) 儲存關聯式資料。
 
@@ -259,6 +259,5 @@
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

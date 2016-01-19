@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/04/2015"
+	ms.date="01/07/2016"
 	ms.author="tdykstra"/>
 
 # Azure App Service 中的 API Apps 驗證與授權
@@ -22,26 +22,40 @@
 
 ## 概觀 
 
-本文說明 Azure App Service 中 API Apps 的驗證和授權處理選項。
+Azure App Service 提供內建的驗證與授權服務，可實作 [OAuth 2.0](#oauth) 和 [OpenID Connect](#oauth)。本文描述 Azure App Service 中的 API Apps 可用的服務和選項。
 
 下圖說明 App Service 驗證的幾個重要特性：
 
-* 它會前置處理傳入的 API 要求，提供您幾個選項讓您決定要在自有程式碼中進行多少驗證工作。 
-* 它支援五個驗證提供者：Azure Active Directory、Facebook、Google、Twitter 和 Microsoft 帳戶。
-* 它適用於使用者與服務主體的驗證。 
+* 它會前置處理傳入的 API 要求，這表示它能使用 App Service 所支援的任何語言或架構。
+* 它會提供您幾個選項讓您決定要在自有程式碼中進行多少驗證工作。
+* 它適用於使用者與服務帳戶驗證。 
+* 它支援五個識別提供者：Azure Active Directory、Facebook、Google、Twitter 和 Microsoft 帳戶。
 * 它在 API Apps、Web Apps 和 Mobile Apps 的作用都相同。
 
 ![](./media/app-service-api-authentication/api-apps-overview.png)
 
-## 前置處理傳入的要求
+## 不限語言
 
-App Service 可以防止匿名 HTTP 要求進入 API 應用程式，或在具有權杖的要求進入 API 應用程式前先對它們進行驗證。您可以對 API 應用程式設定下列三個選項的其中一個：
+App Service 驗證處理程序是在要求進入 API 應用程式之前進行，這表示不管 API 應用程式是以任何語言或架構所撰寫，都能適用驗證功能。您可以根據 ASP.NET、Java、Node.js 或任何 App Service 所支援的架構建立 API。
+
+App Service 會在 HTTP 要求的授權標頭中傳遞 JSON Web 權杖 (JWT)，以任何語言或架構撰寫的程式碼都可以從權杖中取得所需的資訊。此外，App Service 會透過設定某些特殊標頭 (如下所示)，讓您更容易地存取最常使用的宣告：
+
+* X-MS-CLIENT-PRINCIPAL-NAME
+* X-MS-CLIENT-PRINCIPAL-ID
+* X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN
+* X-MS-TOKEN-FACEBOOK-EXPIRES-ON
+ 
+在 .NET API 中，您可以使用 `Authorize` 屬性，而且如果您需要更精細的授權，也能輕易地根據宣告來撰寫程式碼，因為它已為您在 .NET 類別中填入宣告資訊。
+
+## 多個保護選項
+
+App Service 可以防止匿名 HTTP 要求進入您的 API 應用程式、傳遞所有要求並驗證要求中所包含的權杖，或是不採取任何動作就放行所有要求：
 
 1. 只允許通過驗證的要求進入 API 應用程式。
 
 	如果 App Service 收到來自瀏覽器的匿名要求，便會將其重新導向至登入頁面。
 
-	如果您事先知道所要使用的驗證提供者 (Google、Twitter 等) 便適用此動作，您可以設定 App Service 來為您處理登入程序。或者，您也可以指定 App Service 將匿名要求重新導向至自有 URL。然後您就可以讓使用者選擇驗證提供者。
+	如果您事先知道所要使用的驗證提供者 (Google、Twitter 等)，您可以設定 App Service 來為您處理登入程序。或者，您也可以指定 App Service 將匿名要求重新導向至自有 URL。然後您就可以讓使用者選擇驗證提供者。
 
 	使用此選項時，您不需要在應用程式中撰寫任何驗證程式碼，並且因為 HTTP 標頭中已提供最重要的宣告，所以授權程序會變得相當簡單。
 
@@ -61,39 +75,42 @@ App Service 可以防止匿名 HTTP 要求進入 API 應用程式，或在具有
 
 ![](./media/app-service-api-authentication/actiontotake.png)
  
-## 不限語言
-
-App Service 驗證處理程序是在要求進入 API 應用程式之前進行，這表示不管 API 應用程式是以任何語言或架構所撰寫，都能適用驗證功能。您可以根據 ASP.NET、Java、Node.js 或任何 App Service 所支援的架構建立 API。
-
-App Service 會在 HTTP 要求的授權標頭中傳遞 JWT 權杖，以任何語言或架構撰寫的程式碼都可以從權杖中取得所需的資訊。此外，App Service 會透過設定某些特殊標頭 (如下所示)，讓您更容易地存取最常使用的宣告：
-
-* X-MS-CLIENT-PRINCIPAL-NAME
-* X-MS-CLIENT-PRINCIPAL-ID
-* X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN
-* X-MS-TOKEN-FACEBOOK-EXPIRES-ON
- 
-在 .NET API 中，您可以使用 `Authorize` 屬性，而且如果您需要更精細的授權，也能輕易地根據宣告來撰寫程式碼，因為它已為您在 .NET 類別中填入宣告資訊。
-
 ## <a id="internal"></a> 服務帳戶驗證
 
-您也可以在諸如從某個 API 應用程式呼叫另一個 API 應用程式的內部案例中，使用 App Service 驗證。在此案例中，您可以使用服務帳戶認證 (而非使用者認證) 來進行驗證。服務帳戶在 Azure Active Directory 中也稱為*服務主體*，使用這類帳戶的驗證也稱為服務對服務案例。
+App Service 驗證適用於從某個 API 應用程式呼叫另一個 API 應用程式之類的內部案例。在此案例中，您可以使用服務帳戶認證 (而非使用者認證) 來取得權杖。服務帳戶在 Azure Active Directory 中也稱為*服務主體*，使用這類帳戶的驗證也稱為服務對服務案例。
 
-在服務對服務案例中，您可以使用 Azure Active Directory 保護所呼叫的 API 應用程式，並在呼叫 API 應用程式時提供 AAD 服務主體授權權杖。透過提供用戶端識別碼和用戶端密碼，您就可以向 AAD 應用程式要求此權杖。不需要特殊的僅 Azure 適用的程式碼，例如在處理行動服務 Zumo 權杖時為 true。[API Apps 的服務主體驗證](app-service-api-dotnet-service-principal-auth.md)教學課程中有講述這個使用 ASP.NET API 應用程式之案例的範例。
+若為服務對服務案例，則請使用 Azure Active Directory 保護所呼叫的 API 應用程式，並在呼叫 API 應用程式時提供 AAD 服務主體授權權杖。透過提供用戶端識別碼和用戶端密碼，您就可以從 AAD 應用程式取得此權杖。不需要特殊的僅 Azure 適用的程式碼，例如在處理行動服務 Zumo 權杖時為 true。[API Apps 的服務主體驗證](app-service-api-dotnet-service-principal-auth.md)教學課程中有講述這個使用 ASP.NET API 應用程式之案例的範例。
 
-如果您想要處理服務對服務案例，但不要使用 App Service 驗證，請使用用戶端憑證或基本驗證。如需 Azure 中用戶端憑證的詳細資訊，請參閱[如何設定 Web Apps 的 TLS 相互驗證](../app-service-web/app-service-web-configure-tls-mutual-auth.md)。如需如何在 ASP.NET 中設定基本驗證資訊的詳細資訊，請參閱 [ASP.NET Web API 2 中的驗證篩選](http://www.asp.net/web-api/overview/security/authentication-filters)。
+如果您想要處理服務對服務案例，但不要使用 App Service 驗證，請使用用戶端憑證或基本驗證。如需 Azure 中用戶端憑證的詳細資訊，請參閱[如何設定 Web Apps 的 TLS 相互驗證](../app-service-web/app-service-web-configure-tls-mutual-auth.md)。如需 ASP.NET 中的基本驗證相關資訊，請參閱 [ASP.NET Web API 2 中的驗證篩選](http://www.asp.net/web-api/overview/security/authentication-filters)。
 
 App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特殊案例，[將您裝載在 App Service 上的自訂 API 與邏輯應用程式一起使用](../app-service-logic/app-service-logic-custom-hosted-api.md)中有關於此案例的說明。
 
+## 用戶端驗證
+
+如需如何處理來自行動用戶端之驗證的相關資訊，請參閱[關於行動應用程式驗證的說明文件](../app-service-mobile/app-service-mobile-ios-get-started-users.md)。行動應用程式和 API 應用程式的 App Service 驗證具有相同的運作方式。
+  
 ## 詳細資訊
 
 如需 Azure App Service 中驗證和授權的詳細資訊，請參閱[展開 App Service 驗證/授權](/blog/announcing-app-service-authentication-authorization/)。
 
+如需 OAuth 2.0、OpenID Connect 和 JSON Web 權杖 (JWT) 的詳細資訊，請參閱下列資源。
+
+* [開始使用 OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "開始使用 OAuth 2.0") 
+* [OAuth2、OpenID Connect 和 JSON Web 權杖 (JWT) 簡介 - PluralSight 課程](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
+* [在 ASP.NET 中建置和保護多個用戶端的 RESTful API - PluralSight 課程](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
+
+如需使用 Azure Active Directory 之驗證的詳細資訊，請參閱下列資源。
+
+* [Azure AD 案例](http://aka.ms/aadscenarios)
+* [Azure AD 開發人員指南](http://aka.ms/aaddev)
+* [Azure AD 範例](http://aka.ms/aadsamples)
+
 ## 後續步驟
 
-本文說明了 App Service API 應用程式的驗證和授權功能。
+本文說明了可用於 API 應用程式之 App Service 的驗證和授權功能。
 
 如果您正按照適用於 ASP.NET 和 API Apps 的入門教學課程順序進行，請在下一個教學課程中試用這些功能：[App Service API Apps 中的使用者驗證](app-service-api-dotnet-user-principal-auth.md)。
 
 如需在 Azure App Service 中使用 Node 和 Java 的詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)和 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -163,7 +163,7 @@
 		    }
 		} 
 
-	在上述範例中，您建立了名為 **AzureBlobOutput** 的資料集，並指定 JSON 程式碼片段；也建立了名為 **AzureBlobInput** 的資料集，表示管線中活動的輸入資料。此外，您指定將輸入資料放在名為 **adfgetstarted** 的 Blob 容器及名為 **inputdata** 的資料夾中。
+	上述 JSON 會定義名為 **AzureBlobInput** 的資料集，以表示管線中活動的輸入資料。此外，它也會指定將輸入資料放在名為 **adfgetstarted** 的 Blob 容器及名為 **inputdata** 的資料夾中。
 
 	下表提供程式碼片段中所使用之 JSON 屬性的描述：
 
@@ -205,7 +205,7 @@
 		  }
 		}
 
-	在 JSON 程式碼片段中，建立名為 **AzureBlobOutput** 的資料集，並指定將由 Hive 指令碼產生的資料結構。此外，指定將結果儲存在名為 **adfgetstarted** 的 Blob 容器及名為 **partitioneddata** 的資料夾中。**availability** 區段指定每個月產生一次輸出資料集。
+	上述 JSON 會定義名為 **AzureBlobOutput** 的資料集，以表示管線中活動的輸出資料。此外，它也會指定將結果儲存在名為 **adfgetstarted** 的 Blob 容器及名為 **partitioneddata** 的資料夾中。**availability** 區段指定每個月產生一次輸出資料集。
 
 2. 在 Azure PowerShell 中執行以下命令來建立 Data Factory 資料集。
 
@@ -342,4 +342,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

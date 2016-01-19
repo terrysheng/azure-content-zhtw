@@ -1,7 +1,7 @@
 <properties
-	pageTitle="建立執行 Linux 的虛擬機器 | Microsoft Azure"
-	description="了解如何使用 Azure 和 Azure 命令列介面的映像來建立 Azure Linux 虛擬機器或 Azure Ubuntu 虛擬機器。"
-	keywords="linux 虛擬機器,虛擬機器 linux,Azure Linux,azure ubuntu" 
+	pageTitle="建立 Linux 虛擬機器 | Microsoft Azure"
+	description="了解如何使用 Azure 和 Azure 命令列介面的映像來建立 Linux 虛擬機器或 Ubuntu 虛擬機器。"
+	keywords="linux 虛擬機器,虛擬機器 linux,ubuntu 虛擬機器" 
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -18,17 +18,16 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# 建立執行 Linux 的虛擬機器
+# 建立 Linux 虛擬機器
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
-
-<br> 您可以從命令列或入口網站，輕鬆建立執行 Linux 的 Azure 虛擬機器 (VM)。本教學課程示範如何使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)，快速建立在 Azure 中執行的 Ubuntu Server VM、使用 **ssh** 連接到該 VM，以及建立和掛接新磁碟本主題會使用 Ubuntu Server VM，但您也可以使用[自己的映像做為範本](virtual-machines-linux-create-upload-vhd.md)來建立 Linux 虛擬機器。
+您可以從命令列或入口網站，輕鬆建立 Linux 虛擬機器 (VM)。本教學課程示範如何使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)，快速建立在 Azure 中執行的 Ubuntu Server VM、使用 **ssh** 連接到該 VM，以及建立和掛接新磁碟。本主題會使用 Ubuntu Server VM，但您也可以使用[自己的映像做為範本](virtual-machines-linux-create-upload-vhd.md)來建立 Linux 虛擬機器。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
@@ -50,7 +49,7 @@
 
 > [AZURE.NOTE]如果您有工作或學校識別碼，而且知道未啟用雙因素驗證，則可以使用 `azure login -u` 以及工作或學校識別碼，在沒有互動式工作階段的情況下進行登入。如果沒有工作或學校識別碼，您可以[從個人 Microsoft 帳戶建立工作或學校識別碼](resource-group-create-work-id-from-personal.md)。
 
-## 建立 Azure 虛擬機器
+## 建立 Linux 虛擬機器
 
 輸入 `azure group create <my-group-name> westus`，並使用對您而言是唯一的群組名稱來取代 _&lt;my-group-name&gt;_ (您可以視需要使用不同的區域)。您應該會看到如下的內容：
 
@@ -327,4 +326,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

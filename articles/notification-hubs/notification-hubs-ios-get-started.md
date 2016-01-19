@@ -33,7 +33,7 @@
 
 您可以在[此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted)的 GitHub 上找到本教學課程的完整程式碼。
 
-##必要條件
+##先決條件
 
 本教學課程需要下列各項：
 
@@ -324,7 +324,7 @@
 		}
 
 
-8. Ctrl+從 [傳送通知] 按鈕拖曳至 ViewController.m，為 **Touch Down** 新增名為 **SendNotificationMessage** 的動作。以下列程式碼更新方法，來使用 REST API 通知傳送。
+8. Ctrl+從 [傳送通知] 按鈕拖曳至 ViewController.m，為 **Touch Down** 事件新增名為 **SendNotificationMessage** 的動作。以下列程式碼更新方法，來使用 REST API 通知傳送。
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -507,4 +507,4 @@
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

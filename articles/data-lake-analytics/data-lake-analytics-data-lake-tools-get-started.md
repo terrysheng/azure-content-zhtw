@@ -79,7 +79,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 ## 開發 U-SQL 指令碼 
 
-資料湖分析工作是以 U-SQL 語言撰寫。若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和[U-SQL 語言參考](http://go.microsoft.com/fwlink/?LinkId=691348)。
+資料湖分析工作是以 U-SQL 語言撰寫。若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和 [U-SQL 語言參考](http://go.microsoft.com/fwlink/?LinkId=691348)。
 
 **建立並提交資料湖分析工作**
 
@@ -148,7 +148,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 	- **移至定義並尋找所有參考**
 	
-		以滑鼠右鍵按一下資料列集/參數/資料行/UDO 等的名稱，然後按一下 [移至定義] (F12) 可讓您瀏覽至其定義。按一下 [尋找所有參考] (Shift + F12) 會顯示所有參考。
+		以滑鼠右鍵按一下資料列集/參數/資料行/UDO 等的名稱，然後按一下 [移至定義] \(F12) 可讓您瀏覽至其定義。按一下 [尋找所有參考] \(Shift + F12) 會顯示所有參考。
 
 	- **插入 Azure 路徑**
 		

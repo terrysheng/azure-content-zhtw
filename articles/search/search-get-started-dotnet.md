@@ -79,7 +79,7 @@
 
 4. 接著安裝 Azure 搜尋服務 .NET 用戶端程式庫。請務必指定正確的搜尋，否則無法輕鬆找到封裝。再以滑鼠右鍵按一下 [管理 NuGet 封裝]。
 
-5. 指定 [線上] > [nuget.org] > [包含發行前版本]，接著搜尋 *azure.search*。按一下 [安裝] 以安裝本程式庫。
+5. 指定 [線上] > [nuget.org] > [包含發行前版本]，接著搜尋 *azure.search* 。按一下 [安裝] 以安裝本程式庫。
 
    ![][12]
 
@@ -98,7 +98,7 @@
 
 每個專案都包含指定服務名稱和 API 金鑰的組態檔案。
 
-1. 在 **DataIndexer** 中，將 App.config 替換為以下範例，然後以適用您服務的有效值更新 [SERVICE NAME] 和 [SERVICE KEY]。請注意，服務名稱不是完整的 URL。例如，如果搜尋服務端點為 **https://mysearchsrv.search.microsoft.net*，則您要於 App.config 中輸入的服務名稱為 *mysearchsrv*。
+1. 在 **DataIndexer** 中，將 App.config 替換為以下範例，然後以適用您服務的有效值更新 [SERVICE NAME] 和 [SERVICE KEY]。請注意，服務名稱不是完整的 URL。例如，如果搜尋服務端點為 *https://mysearchsrv.search.microsoft.net* ，則您要於 App.config 中輸入的服務名稱為 *mysearchsrv* 。
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>

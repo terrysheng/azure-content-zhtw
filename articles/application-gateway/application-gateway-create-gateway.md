@@ -79,7 +79,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*、*InstanceCount* 和 *GatewaySize* 為選用參數。
+ *Description* 、 *InstanceCount* 和 *GatewaySize* 為選用參數。
 
 
 若要驗證已建立閘道，您可以使用 **Get-AzureApplicationGateway** Cmdlet。
@@ -98,10 +98,10 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]InstanceCount 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
+>[AZURE.NOTE] *InstanceCount* 的預設值是 2，最大值是 10。 *GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
 
 
- 因為尚未啟動閘道，所以 *VirtualIPs* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，將會建立這些項目。
+ 因為尚未啟動閘道，所以 *Vip* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，將會建立這些項目。
 
 ## 設定應用程式閘道
 

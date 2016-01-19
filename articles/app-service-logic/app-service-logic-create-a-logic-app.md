@@ -22,7 +22,7 @@
 | --------------- |
 | [Logic Apps 定義語言](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
 | [Logic Apps 連接器文件](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
-| [Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
+| [Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurelogicapps) |
 
 本主題只花幾分鐘就能示範如何開始使用 [App Services Logic Apps](app-service-logic-what-are-logic-apps.md)。我們將逐步解說可將一組您感興趣的推文傳送到 Dropbox 資料夾的工作流程。
 
@@ -106,7 +106,7 @@
 
 	![週期性](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-4.  選擇週期性 [頻率] 和 [間隔] (例如每小時一次)，然後按一下綠色核取符號。
+4.  選擇週期性 [頻率] 和 [間隔] \(例如每小時一次)，然後按一下綠色核取符號。
 
 現在，您將把動作加入流程。
 
@@ -122,7 +122,7 @@
 
 	![動作](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE][授權] 按鈕會使用 OAUTH 安全性來連接到 Twitter 之類的 SaaS 服務。關於 OAUTH 的詳細資訊，請參閱 [OAUTH 安全性](app-service-logic-oauth-security.md)。
+	> [AZURE.NOTE] [授權] 按鈕會使用 OAUTH 安全性來連接到 Twitter 之類的 SaaS 服務。關於 OAUTH 的詳細資訊，請參閱 [OAUTH 安全性](app-service-logic-oauth-security.md)。
 
 3. 按一下 [搜尋推文]，接著在 [**指定查詢**] 中輸入類似 `#MicrosoftAzure` 的內容，然後按一下綠色核取符號。
 
@@ -188,4 +188,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->

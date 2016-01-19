@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/25/2015"
+	ms.date="01/05/2016"
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中開始使用 API Apps 和 ASP.NET
@@ -36,7 +36,7 @@ Azure App Service 有三個功能特別適合用來開發和裝載 API：
 * CORS 支援
 * 驗證和授權支援
  
-這是一系列教學課程中的第一個，專門負責介紹這些功能。本教學課程聚焦在 API 中繼資料，第二個聚焦在 CORS，第三和第四個則聚焦在驗證和授權。
+這是一系列教學課程中的第一個，專門負責介紹這些功能。本教學課程聚焦在 API 中繼資料，第二個教學課程聚焦在 CORS，其餘教學課程則聚焦在驗證和授權。
 
 在這些教學課程中，您將學會：
 
@@ -46,43 +46,31 @@ Azure App Service 有三個功能特別適合用來開發和裝載 API：
 * 如何使用自動產生的用戶端程式碼，從 .NET 用戶端取用 API 應用程式。
 * 如何使用 Azure 入口網站設定 API 應用程式中繼資料的端點。
 * 當 JavaScript 用戶端來自與 API 不同的網域時，如何使用 CORS 從該用戶端呼叫 API 應用程式。
-* 如何使用 Azure Active Directory 防止未經驗證存取 API。
-* 如何為已登入 Azure Active Directory 的使用者取用受保護的 API。
-* 如何透過服務主體取用受保護的 API。
+* 如何使用 Azure Active Directory (Azure AD) 防止未經驗證存取 API。
+* 如何為已登入 Azure AD 的使用者取用受保護的 API。
+* 如何透過 Azure AD 服務主體取用受保護的 API。
 
-## 必要條件
+## 先決條件
 
-### ASP.NET Web API
+[AZURE.INCLUDE [必要條件](../../includes/app-service-api-dotnet-get-started-prereqs.md)]
 
-本教學課程假設您已熟悉 ASP.NET Web API。如果您需要相關簡介，請參閱[開始使用 ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)。
-
-## Visual Studio 2015
-
-這些指示和螢幕擷取畫面均假設您是使用 Visual Studio 2015，但同樣的指引也適用於 Visual Studio 2013。
-
-## Azure 帳戶
-
-您需要有 Azure 帳戶，才能完成本教學課程。您可以：
-
-* [免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F)。您將獲得能用來試用 Azure 付費服務的額度。即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務和功能，例如 Azure App Service 中的 Web Apps 功能。
-* [啟用 Visual Studio 訂閱者權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)。您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
-
-如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)。您可以於該處，在 App Service 中立即建立短期的入門應用程式 — 不需信用卡，不需任何承諾。
-
-[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
+[AZURE.INCLUDE [set-up-dev-environment](../../includes/install-sdk-2015-2013.md)]
 
 本教學課程需要 2.8.1 版或更新版本的 Azure SDK for.NET。
 
 ## 範例應用程式概觀
 
-您將在本教學課程中部署至 API 應用程式和 Web 應用程式的程式碼位於 [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list) GitHub 儲存機制中。ContactsList Visual Studio 解決方案包含下列專案：
+您將在本教學課程中部署至 API 應用程式和 Web 應用程式的程式碼位於 [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list) GitHub 儲存機制中。ContactsList Visual Studio 解決方案包含本教學課程中使用的下列專案：
 
 * **ContactsList.API** - 可傳回名稱和電子郵件地址清單的 ASP.NET Web API 專案。初始呼叫 Get 方法會傳回 3 個硬式編碼的連絡人，而後續呼叫 Put、Post 和 Delete 方法則會在本機 JSON 檔案中儲存變更。
 * **ContactsList.MVC** -ContactsList API 的 ASP.NET MVC 用戶端。
-* **ContactsList.Angular** -ContactsList API 的簡單 AngularJS UI 用戶端。示範如何呼叫未受保護 (不需驗證) 的 API 應用程式。
-* **ContactsList.Angular.AAD** - AngularJS 用戶端，可顯示如何使用 Azure Active Directory 驗證使用者。
-* **CompanyContacts.API** - ASP.NET Web API 專案，可傳回硬式編碼的連絡人清單以回應 Get 要求。由 **ContactsList.API** Get 方法呼叫，以示範如何使用服務對服務 (服務主體) 驗證呼叫 API。
- 
+
+稍後的教學課程則會使用相同解決方案中的其他專案：
+
+* **ContactsList.Angular** - AngularJS 用戶端，用於示範 CORS 支援。
+* **ContactsList.Angular.AAD** - AngularJS 用戶端，用於示範使用者驗證。
+* **CompanyContacts.API** - ASP.NET Web API 專案，用於示範服務帳戶驗證。  
+
 ## 下載範例應用程式 
 
 1. 下載 [Azure-Samples/app-service-api-dotnet-contact-list](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list) 儲存機制。
@@ -95,15 +83,13 @@ Azure App Service 有三個功能特別適合用來開發和裝載 API：
 
 ## 使用 Swagger 中繼資料和 UI
 
-Azure App Service 內建支援 [Swagger 2.0](http://swagger.io/) API 中繼資料。每個 API 應用程式都可以定義會以 Swagger JSON 格式傳回 API 中繼資料的 URL 端點。從該端點傳回的中繼資料可以用來產生用戶端程式碼，讓您更輕鬆地使用 API。
+Azure App Service 內建支援 [Swagger 2.0](http://swagger.io/) API 中繼資料。每個 API 應用程式都可以定義會以 Swagger JSON 格式傳回 API 中繼資料的 URL 端點。從該端點傳回的中繼資料可以用來產生用戶端程式碼。
 
-本節教學課程將讓您了解如何自動產生 ASP.NET Web API 專案的中繼資料，並且您將會執行 API 測試工具。這些工作還不會用到 Azure App Service，稍後您將會了解 API Apps 如何利用中繼資料。
-
-若要提供 ASP.NET Web API 專案的 Swagger 2.0 中繼資料，您可以安裝 [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet 封裝。Swashbuckle 使用「反射」來動態產生中繼資料。Swashbuckle NuGet 封裝已安裝在您所下載的 ContactsList.API 專案中，而當您使用 [Azure API 應用程式] 專案範本來建立新專案時便已安裝 (在 Visual Studio 中：[檔案] > [新增] > [專案] > [ASP.NET Web 應用程式] > [Azure API 應用程式])。
+若要提供 ASP.NET Web API 專案的 Swagger 2.0 中繼資料，請安裝 [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet 封裝。Swashbuckle 使用「反射」來動態產生中繼資料。Swashbuckle NuGet 封裝已安裝在您所下載的 ContactsList.API 專案中，而當您使用 [Azure API 應用程式] 專案範本來建立新專案時便已安裝 (在 Visual Studio 中：[檔案] > [新增] > [專案] > [ASP.NET Web 應用程式] > [Azure API 應用程式])。
 
 在教學課程的這一節中，請看一下所產生的 Swagger 2.0 中繼資料，然後試用以 Swagger 中繼資料為基礎的測試 UI。
 
-2. 將 ContactsList.API 專案設定為起始專案 (而非 CompanyContacts.API 專案，此專案會用於稍後的其中一個教學課程)。
+2. 將 ContactsList.API 專案設定為起始專案 (而非 CompanyContacts.API 專案，此專案會用於稍後的其中一個教學課程)。 
  
 4. 按 F5 以在偵錯模式中執行專案。
 
@@ -203,7 +189,7 @@ Azure App Service 內建支援 [Swagger 2.0](http://swagger.io/) API 中繼資�
 
 12. 也請試用 Put、Delete 和 Get by ID方法，然後關閉瀏覽器。
 
-Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagger 中繼資料產生新增至現有的專案，只需安裝 Swashbuckle 封裝。如果您要建立將部署為 App Service API 應用程式的新專案，請使用 ASP.NET **Azure API 應用程式**專案範本，如下圖所示。
+Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagger 中繼資料產生新增至現有的專案，只需安裝 Swashbuckle 封裝。若要建立新專案，請使用 ASP.NET **Azure API 應用程式**專案範本，如下圖所示。
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
@@ -230,6 +216,12 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 3. 在 [建立 App Service] 對話方塊的 [主控] 索引標籤中，按一下 [變更類型]，然後按一下 [API 應用程式]。
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
+
+	將類型變更為 [API 應用程式] 並不會決定可供新應用程式使用的功能。API 定義 URL (您將會在本教學課程稍後看到)、CORS 支援 (您將會在下一個教學課程中看到) 和驗證 (您將會在這一系列的最後 3 個教學課程中看到) 適用於 Web 應用程式、行動應用程式以及 API 應用程式。將應用程式建立為 API 應用程式只會有下列效果：
+
+	a.在 Azure 入口網站中，應用程式類型圖示或文字會出現在刀鋒視窗標題和應用程式清單中，而在 [設定] 刀鋒視窗中，相較於其他應用程式類型，API 應用程式的 API 區段會出現在清單中較前面的位置。
+
+	b.在使用 Azure SDK for .NET 2.8.1 的 Visual Studio 中，Visual Studio 會在建立新的 ASP.NET API 應用程式期間設定 API 定義 URL，但對於其他應用程式類型則不會這麼做。
 
 4. 輸入在 *azurewebsites.net* 網域中唯一的 [API 應用程式名稱]。
 
@@ -303,13 +295,13 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 您也可以使用 Azure PowerShell、CLI 或[資源總管](https://resources.azure.com/)等 Azure 資源管理員工具，來設定 API 應用程式的 API 定義 URL。
 
-在您的 <site name>/web 資源的 Microsoft.Web/sites/config 資源類型上設定 `apiDefinition` 屬性。例如，在 [資源總管] 中移至 [訂用帳戶] > {您的訂用帳戶} > [resourceGroups] > {您的資源群組} > [提供者] > [Microsoft.Web] > [網站] > {您的網站} > [組態] > [web]，您就會看到 cors 屬性：
+在 `<site name>/web` 資源的 `Microsoft.Web/sites/config` 資源類型上設定 `apiDefinition` 屬性。例如，在 [資源總管] 中移至 [訂用帳戶] > {您的訂用帳戶} > [resourceGroups] > {您的資源群組} > [提供者] > [Microsoft.Web] > [網站] > {您的網站} > [組態] > [web]，您就會看到 `apiDefinition` 屬性：
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
 		}
 
-## <a id="codegen"></a> 使用所產生的用戶端程式碼從 .NET 用戶端取用 
+## <a id="codegen"></a> 使用所產生的用戶端程式碼從 .NET 用戶端取用
 
 將 Swagger 整合到 Azure API 應用程式的優點之一，就是自動產生程式碼。產生的用戶端類別讓您能更容易地撰寫會呼叫 API 應用程式的程式碼。
 
@@ -319,7 +311,7 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 您可以利用 Visual Studio，或從命令列來為 API 應用程式產生用戶端程式碼。在本教學課程中，您將使用 Visual Studio。如需了解如何從命令列進行這項作業，請參閱 GitHub.com 上 [Azure/autorest](https://github.com/azure/autorest) 儲存機制的讀我檔案。
 
-ContactsList.MVC 專案已有產生的用戶端程式碼，但是您要將其刪除並重新產生，以讓自己的 API 應用程式 URL 成為預設目標 URL。
+ContactsList.MVC 專案已有產生的用戶端程式碼，但是您要將其刪除並重新產生，以將預設目標 URL 重設為自己的 API 應用程式。
 
 1. 在 Visual Studio [方案總管] 中，在 ContactsList.MVC 專案中刪除 ContactsList.API 資料夾。
 
@@ -347,9 +339,9 @@ ContactsList.MVC 專案已有產生的用戶端程式碼，但是您要將其刪
 
 	![](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
 
-	或者，您可以直接輸入 URL，而不需透過瀏覽對話方塊。例如，如果您將 API 部署至 Web 應用程式，但它未顯示在瀏覽對話方塊中，您可以在此手動輸入可傳回 Swagger 中繼資料的 URL。
+	取得用於產生程式碼之中繼資料的令一個方法是直接輸入 URL，而不需透過瀏覽對話方塊。例如，如果您將 API 部署至 Web 應用程式，但它未顯示在瀏覽對話方塊中，您可以在此手動輸入可傳回 Swagger 中繼資料的 URL。
 
-	另外，也請注意 [選取現有的 Swagger 中繼資料檔案] 選項。如果您要在部署至 Azure 之前產生程式碼，您可以在本機執行、下載 Swagger JSON 檔案，並在此處予以選取。
+	取得中繼資料的另一個替代方法是使用 [選取現有的 Swagger 中繼資料檔案] 選項。例如，如果您要在部署至 Azure 之前產生用戶端程式碼，您可以在本機執行、下載 Swagger JSON 檔案，並在此處予以選取。
 
 9. 在 [加入 REST API 用戶端] 對話方塊中，按一下 [確定]。
 
@@ -407,7 +399,7 @@ MVC 專案的控制器和檢視看起來類似針對 Entity Framework 所建構�
 
 1. 在 ContactsList.MVC 專案中，開啟 *Controllers\\ContactsController.cs*。
 
-2. 註解化可將 API 基底 URL 設定為 localhost URL 的那一行，並取消註解沒有任何建構函式參數的那一行。除了這兩行中反映您用來產生程式碼之 API 應用程式名稱的類別名稱以外，程式碼現在如下列範例所示。
+2. 註解化可將 API 基底 URL 設定為 localhost URL 的那一行，並取消註解沒有任何建構函式參數的那一行。除了這兩行中反映您的 API 應用程式名稱的類別名稱以外，程式碼現在如下列範例所示。
 
 		private ContactsListAPI db = new ContactsListAPI();
 		//private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
@@ -448,6 +440,6 @@ MVC 專案的控制器和檢視看起來類似針對 Entity Framework 所建構�
 
 ## 後續步驟
 
-在本教學課程中，您已了解如何建立 API 應用程式、將程式碼部署到它們，以及從 .NET 用戶端加以取用。API Apps 入門系列中的下一個教學課程示範如何[使用 CORS 從 JavaScript 用戶端取用 API 應用程式](app-service-api-cors-consume-javascript.md)。
+在本教學課程中，您已了解如何建立 API 應用程式、對其部署程式碼、為其產生用戶端程式碼，以及從 .NET 用戶端取用應用程式。API Apps 入門系列中的下一個教學課程示範如何[使用 CORS 從 JavaScript 用戶端取用 API 應用程式](app-service-api-cors-consume-javascript.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

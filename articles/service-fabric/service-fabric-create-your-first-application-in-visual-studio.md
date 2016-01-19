@@ -13,10 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="01/11/2016"
    ms.author="seanmck"/>
 
-# 在 Visual Studio 中建立第一個 Service Fabric 應用程式
+# 在 Visual Studio 中建立第一個 Azure Service Fabric 應用程式
 
 Service Fabric SDK 包含的 Visual Studio 增益集提供用來建立、部署和偵錯 Service Fabric 應用程式的範本和工具。本主題逐步解說在 Visual Studio 中建立第一個應用程式的程序。
 
@@ -24,9 +24,15 @@ Service Fabric SDK 包含的 Visual Studio 增益集提供用來建立、部署�
 
 開始之前，請確定您已[設定開發環境](service-fabric-get-started.md)。
 
+## 影片逐步解說
+
+下列影片逐步解說本教學課程中的步驟：
+
+>[AZURE.VIDEO creating-your-first-service-fabric-application-in-visual-studio]
+
 ## 建立應用程式
 
-Service Fabric 應用程式可以包含一或多個服務，而每個服務在提供應用程式的功能時都有特定角色。[新增專案] 精靈可讓您隨著第一個服務專案一起建立應用程式專案。您稍後可以新增更多服務。
+Service Fabric 應用程式可以包含一或多個服務，而每個服務在提供應用程式的功能時都有特定角色。使用 [新增專案] 精靈，您可以隨著第一個服務專案一起建立應用程式專案。您稍後可以新增更多服務。
 
 1. 以系統管理員身分啟動 Visual Studio。
 
@@ -36,7 +42,7 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
 	![Visual Studio 中的新增專案對話方塊][1]
 
-4. 在下一個對話方塊中，系統會要求您選擇要包含在您的應用程式中的第一個服務類型。基於本教學課程的用途，我們將選擇 [具狀態服務]。予以命名，然後按一下 [確定]。
+4. 在下一頁上，系統會要求您選擇要包含在您的應用程式中的第一個服務類型。基於本教學課程的用途，我們將選擇 [具狀態]。予以命名，然後按一下 [確定]。
 
 	![Visual Studio 中的新增服務對話方塊][2]
 
@@ -46,13 +52,13 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
 	![使用具狀態服務建立應用程式後的方案總管][3]
 
-	應用程式專案未直接包含任何程式碼，它反而會參考一組服務專案。此外，它包含三種其他類型的內容：
+	應用程式專案未直接包含任何程式碼。它反而會參考一組服務專案。此外，它包含三種其他類型的內容：
 
 	- **發佈設定檔**：用來管理不同環境的工具喜好設定。
 
-	- **指令碼**：用來部署/升級應用程式的 PowerShell 指令碼。此指令碼是由 Visual Studio 在幕後使用，可以直接在命令列叫用。
+	- **指令碼**：包含用來部署/升級應用程式的 PowerShell 指令碼。此指令碼是由 Visual Studio 在幕後使用，可以直接在命令列叫用。
 
-	- **應用程式定義**：應用程式資訊清單和相關聯的應用程式參數檔案可定義應用程式，並可讓您特別為指定的環境設定應用程式。
+	- **應用程式定義**：包含應用程式資訊清單和相關聯的應用程式參數檔案，而這些參數檔案可定義應用程式並可讓您特別為指定的環境設定應用程式。
 
     如需服務專案的內容概觀，請參閱[開始使用 Reliable Services](service-fabric-reliable-services-quick-start.md)。
 
@@ -74,13 +80,13 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
 	在具狀態服務範本的情況下，訊息只會顯示在 MyStatefulService.cs 的 `RunAsync` 方法中遞增的計數器值。
 
-3. 展開其中一個事件以查看更多詳細資料，包括程式碼執行所在的節點 - 在此情況下是節點 2，雖然這在您的電腦上可能有所不同。
+3. 展開其中一個事件以查看更多詳細資料，包括程式碼執行所在的節點。在此情況下是節點 2，雖然這在您的電腦上可能有所不同。
 
 	![診斷事件檢視器詳細資訊][6]
 
-	本機叢集是由單一電腦上裝載的五個節點所組成，以模擬五個節點的叢集，而各節點位於不同的電腦上。讓我們取下本機叢集上的其中一個節點來模擬遺失機器，以及在相同的時間運用 Visual Studio 偵錯工具。
+	本機叢集包含五個裝載於單一電腦上的節點。它是模仿有五個節點的叢集，其節點位於不同的電腦上。讓我們取下本機叢集上的其中一個節點來模擬遺失機器，以及在相同的時間運用 Visual Studio 偵錯工具。
 
-    >[AZURE.NOTE]專案範本所發出的應用程式診斷事件會使用內含的 `ServiceEventSource` 類別。如需詳細資訊，請參閱[如何在本機監視和診斷服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally)
+    >[AZURE.NOTE]專案範本所發出的應用程式診斷事件會使用內含的 `ServiceEventSource` 類別。如需詳細資訊，請參閱[如何在本機監視和診斷服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally)。
 
 4. 在您的服務專案中尋找衍生自 StatefulService 的類別 (例如 MyStatefulService)，以及在 `RunAsync` 方法的第一行上設定中斷點。
 
@@ -90,7 +96,7 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
     ![從本機叢集管理員啟動 Service Fabric 總管][systray-launch-sfx]
 
-    Service Fabric 總管提供了叢集的視覺表示法，包括部署至叢集合的應用程式集以及構成叢集的實體節點集合。若要了解 Service Fabric 總管，請參閱[視覺化叢集](service-fabric-visualizing-your-cluster)。
+    Service Fabric 總管提供了叢集的視覺表示法，包括部署至叢集合的應用程式集以及構成叢集的實體節點集合。若要了解 Service Fabric 總管，請參閱[視覺化叢集](service-fabric-visualizing-your-cluster.md)。
 
 6. 在左窗格中展開 [叢集] > [節點]，並尋找您的程式碼執行所在的節點。
 
@@ -106,22 +112,22 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
 ### 清除
 
-  在我們做結論之前，請務必記得本機叢集非常真實。即使停止偵錯工具並關閉 Visual Studio，您的應用程式將會繼續在背景執行。視您的應用程式的本質而言，此背景活動可能會佔用您電腦上的大量資源。您有數個選項可管理此項目：
+  在我們做結論之前，請務必記得本機叢集非常真實。即使在停止偵錯工具並關閉 Visual Studio 之後，您的應用程式將會繼續在背景執行。視您的應用程式的本質而言，此背景活動可能會佔用您電腦上的大量資源。您有數個選項可管理此項目：
 
   1. 若要移除個別的應用程式及其所有資料，請使用 Service Fabric 總管中的 [移除應用程式] 動作。
 
   2. 若要關閉叢集，但保留應用程式資料及追蹤，請按一下系統匣應用程式中的 [停止叢集]。
 
-  3. 若要完全刪除叢集，請按一下系統匣應用程式中的 [移除叢集]。請注意，此選項會導致下次您在 Visual Studio 中按 F5 鍵時發生其他緩慢部署，只能使用於您有時候不打算使用本機叢集時您迫切需要回收資源時。
+  3. 若要完全刪除叢集，請按一下系統匣應用程式中的 [移除叢集]。請注意，此選項會導致下次您在 Visual Studio 中按 F5 鍵時發生其他緩慢部署。只有在您有時候不打算使用本機叢集或您需要回收資源時，才能使用此選項。
 
 
 
 ## 後續步驟
 
-- [請參閱如何透過 WebAPI 在網際網路服務公開](service-fabric-add-a-web-frontend.md)
+- [請參閱如何透過 Web 服務前端在網際網路公開服務](service-fabric-add-a-web-frontend.md)
 - [了解如何在 Azure 中建立叢集](service-fabric-cluster-creation-via-portal.md)
-- [深入了解如何建立 Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [嘗試使用 Reliable Actor 程式設計模型建立服務](service-fabric-reliable-actors-get-started.md)
+- [深入了解 Reliable Services](service-fabric-reliable-services-quick-start.md)
+- [嘗試使用 Reliable Actors 程式設計模型建立服務](service-fabric-reliable-actors-get-started.md)
 
 <!-- Image References -->
 
@@ -136,4 +142,4 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

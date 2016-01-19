@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # 開始使用 Azure Multi-Factor Authentication Server
@@ -23,15 +23,14 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-既然我們已經決定是否要使用內部部署 Multi-Factor Authentication，那麼我們就開始著手進行吧。本頁面探討新伺服器安裝，以及透過內部部署 Active Directory 予以設定。如果您已安裝 Phonefactor Server，並且正在尋找達成目標的方法，請參閱＜升級為 Azure Mult-Factor Authentication Server＞；如果您正在尋找只安裝 Web 服務的相關資訊，請參閱＜部署 Azure Multi-Factor Authentication Server Mobile App Web 服務＞。
-
+既然我們已經決定是否要使用內部部署 Multi-Factor Authentication，那麼我們就開始著手進行吧。本頁面探討新伺服器安裝，以及透過內部部署 Active Directory 予以設定。如果您已安裝 Phonefactor Server 並且正在尋求升級，請參閱[升級為 Azure Mult-Factor Authentication Server](multi-factor-authentication-get-started-server-upgrade.md)；如果您正在尋找只安裝 Web 服務的相關資訊，請參閱[部署 Azure Multi-Factor Authentication Server Mobile App Web 服務](multi-factor-authentication-get-started-server-webservice.md)。
 
 
 ## 下載 Azure Multi-Factor Authentication Server
 
 
 
-下載 Azure Multi-Factor Authentication Server 的方法有兩種。兩者都是透過 Azure 入口網站來完成。第一個是藉由直接管理 Multi-Factor Auth Provider。第二個是透過服務設定。第二個選項需要 Multi-Factor Auth Provider或 Azure AD Premium 授權。
+下載 Azure Multi-Factor Authentication Server 的方法有兩種。兩者都是透過 Azure 入口網站來完成。第一個是藉由直接管理 Multi-Factor Auth Provider。第二個是透過服務設定。第二個選項需要 Multi-Factor Auth Provider 或 Azure MFA、Azure AD Premium 或 Enterprise Mobility Suite 授權。
 
 
 ### 從 Azure 入口網站下載 Azure Multi-Factor Authentication Server
@@ -55,7 +54,7 @@
 3. 按兩下您的 Azure AD 的執行個體。
 4. 在頂端按一下 [**設定**] ![下載](./media/multi-factor-authentication-sdk/download2.png)
 5. 在多因素驗證底下選取 [**管理服務設定**]
-6. 在 [服務設定] 頁面上，於畫面底部按一下 [**移至入口網站**]。![下載](./media/multi-factor-authentication-sdk/download3.png)
+6. 在 [服務設定] 頁面上，於畫面底部按一下 [**移至入口網站**]。![下載](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. 這會開啟新的頁面。按一下 [**下載**]。
 8. 在 [**產生啟用認證**] 上方，按一下 [**下載**]。
 9. 儲存下載內容。
@@ -104,10 +103,9 @@ IP 子網路|網路遮罩|IP 範圍
 
 
 1. 按兩下可執行檔。安裝作業隨即會開始。
-2. 在 [選取安裝資料夾] 畫面中，請確認資料夾正確，然後按 [下一步]。
+2. 在 [選取安裝資料夾] 畫面中，請確認資料夾正確，然後按一下 [下一步]。
 3. 當安裝完成時，請按一下 [完成]。這會啟動組態精靈。
-4. 在組態精靈歡迎畫面上，勾選 [**略過使用驗證組態精靈**]，然後按 [**下一步**]。  這會關閉精靈並啟動伺服器。
-![雲端](./media/multi-factor-authentication-get-started-server/skip2.png)
+4. 在組態精靈歡迎畫面上，勾選 [**略過使用驗證組態精靈**]，然後按 [**下一步**]。這會關閉精靈並啟動伺服器。![雲端](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. 回到下載伺服器的頁面，按一下 [**產生啟用認證**] 按鈕。將此資訊複製到 Azure MFA Server 提供的方塊中，然後按一下 [**啟用**]。
 
@@ -184,6 +182,6 @@ Azure Multi-Factor Authentication Server 提供各種方式來設定您的使用
 [LDAP 驗證](multi-factor-authentication-get-started-server-ldap.md)|有關搭配 LDAP 驗證設定 Azure MFA Server 的資訊。
 [使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)| 有關使用 RADIUS 搭配遠端桌面閘道器設定 Azure MFA Server 的資訊。
 [與 Windows Server Active Directory 同步處理](multi-factor-authentication-get-started-server-dirint.md)|有關設定 Active Directory 與 Azure MFA Server 之間同步處理的資訊。
-[部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
+[部署 Azure Multi-Factor Authentication Server Mobile App Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

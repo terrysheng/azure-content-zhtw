@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/28/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中 API Apps 的服務主體驗證
@@ -304,4 +304,4 @@ ContactsList.API 專案已有產生的用戶端程式碼，但是您要將其刪
 	* [在 Azure App Service 中設定自訂網域名稱](web-sites-custom-domain-name.md)
 	* [對 Azure 網站啟用 HTTPS](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

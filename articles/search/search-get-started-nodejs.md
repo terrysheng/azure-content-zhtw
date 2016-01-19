@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="01/11/2016"
 	ms.author="heidist"/>
 
 # 開始在 NodeJS 中使用 Azure 搜尋服務
@@ -22,9 +22,7 @@
 
 我們使用 [NodeJS](https://nodejs.org)、NPM、[Sublime Text 3](http://www.sublimetext.com/3) 及 Windows 8.1 上的 Windows PowerShell 來開發和測試此代碼。
 
-若要執行此範例，必須要有 Azure 搜尋服務，而您可以在 [Azure 傳統入口網站](https://portal.azure.com)註冊該服務。
-
-> [AZURE.TIP]請在 [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198) 下載本教學課程所需的原始程式碼。
+若要執行此範例，必須要有 Azure 搜尋服務，您才可以在 [Azure 入口網站](https://portal.azure.com) 註冊此服務。如需逐步指示，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 ## 關於資料
 
@@ -34,47 +32,20 @@
 
 > [AZURE.NOTE]我們在此資料集套用了一個篩選，以維持不超過免費版定價層的 10,000 個文件的數量上限。如果使用標準版定價層，就不會套用此限制。如需各個定價層的容量詳細資料，請參閱[限制和條件約束](search-limits-quotas-capacity.md)。
 
-## 建立服務
-
-1. 登入 [Azure 傳統入口網站](https://portal.azure.com)。
-
-2. 在動態工具列中，按一下 [新增] > [資料 + 儲存體] > [搜尋]。
-
-     ![][1]
-
-3. 設定服務名稱、定價層、資源群組、訂用帳戶及位置。這些設定都是必須設定的項目，且在佈建服務後就不能變更。
-
-     ![][2]
-
-	- **服務名稱**必須是唯一的、小寫、少於 15 個字元，且不得包含空格。此名稱會成為您 Azure 搜尋服務端點的一部分。如需命名慣例的詳細資訊，請參閱[命名規則](https://msdn.microsoft.com/library/azure/dn857353.aspx)。
-
-	- **定價層**決定可用容量和計費方式。以下兩個定價層提供相同的功能，但所處的資源層級不同。
-
-		- **免費版**是在與其他訂戶共用的叢集上執行。此版本所提供的容量，已足夠用來試驗教學課程以及撰寫用於證明概念的程式碼，但並不適用於生產應用程式。部署免費版服務通常只需要幾分鐘時間。
-		- **標準版**是在專用的資源上執行作業，且具備高度可擴充性。標準版服務一開始是以一個複本和一個資料分割進行佈建，不過您可以在建立服務後調整容量。部署標準版服務需要較長的時間，通常需要大約 15 分鐘時間。
-
-	- **資源群組**是適用於一般用途之服務和資源的容器。例如，如果您以 Azure 搜尋服務、Azure 網站和 Azure BLOB 儲存體為基礎建立自訂搜尋應用程式，那麼您可以建立資源群組，來將這些服務一起放在入口網站的管理頁面中。
-
-	- **訂用帳戶**可讓您在多個訂用帳戶間選擇 (如果您有多個訂用帳戶)。
-
-	- **位置**是資料中心區域。目前，所有資源都必須在同一個資料中心內執行。不支援將資源分配到多個資料中心內。
-
-4. 按一下 [建立] 即可佈建服務。
-
-注意 Jumpbar 中的通知。服務一旦準備就緒可供使用時就會顯示通知。
 
 <a id="sub-2"></a>
 ## 尋找 Azure 搜尋服務的服務名稱和 API 金鑰
 
 建立服務之後，請返回入口網站取得 URL 或 `api-key`。如果想要連接至搜尋服務，您必須同時擁有 URL 和 `api-key` 才能驗證呼叫。
 
-1. 在 Jumpbar 中按一下 [首頁]，然後按一下搜尋服務以開啟服務儀表板。
-
-2. 您會在服務儀表板上看到基本資訊磚，以及存取系統管理金鑰的鑰匙圖示。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在導向列中，按一下 [搜尋服務] 列出為您的訂用帳戶佈建的所有 Azure 搜尋服務。
+3. 選取您要使用的服務。
+4. 您會在服務儀表板上看到基本資訊磚，以及存取系統管理金鑰的鑰匙圖示。
 
   	![][3]
 
-3. 複製服務 URL、系統管理金鑰和查詢金鑰。稍後您會需要將這三個項目加到 config.js 檔案中。
+5. 複製服務 URL、系統管理金鑰和查詢金鑰。稍後您會需要將這三個項目加到 config.js 檔案中。
 
 ## 下載範例檔案
 
@@ -147,4 +118,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

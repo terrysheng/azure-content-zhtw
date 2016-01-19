@@ -1,19 +1,19 @@
 <properties
 	pageTitle="開始使用 Azure IoT 中樞 | Microsoft Azure"
-	description="請遵循此教學課程以開始搭配 C# 使用 Azure IoT 中心。"
+	description="請遵循此教學課程以開始搭配 Java 使用 Azure IoT 中樞。"
 	services="iot-hub"
-	documentationCenter=".net"
+	documentationCenter="java"
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="dotnet"
+     ms.devlang="java"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/14/2015"
+     ms.date="12/21/2015"
      ms.author="dobett"/>
 
 # 教學課程：開始使用 Azure IoT 中樞
@@ -32,19 +32,21 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 
 - 使用 Azure 入口網站來建立 IoT 中樞。
 - 在您的 IoT 中樞中建立裝置身分識別。
-- 建立模擬裝置，該裝置會傳送遙測到您的雲端後端，並從您的雲端後端接收命令。
+- 建立將遙測傳送到雲端後端的模擬裝置。
 
-在本教學課程結尾處，您將會有三個 Windows 主控台應用程式：
+在本教學課程結尾處，您將會有三個 Java 主控台應用程式：
 
-* **CreateDeviceIdentity**，這會建立裝置身分識別和相關聯的安全性金鑰，來連線您的模擬裝置。
-* **ReadDeviceToCloudMessages**，其中顯示模擬的裝置所傳送的遙測。
-* **SimulatedDevice**，這會使用先前建立的裝置身分識別連接到您的 IoT 中樞，並每秒傳送遙測訊息。
+* **create-device-identity**，這會建立裝置身分識別和相關聯的安全性金鑰，來連線您的模擬裝置。
+* **read-d2c-messages**，其中顯示模擬的裝置所傳送的遙測。
+* **simulated-device**，這會使用先前建立的裝置身分識別連接到您的 IoT 中樞，並每秒傳送遙測訊息。
 
 > [AZURE.NOTE]文章 [IoT 中樞 SDK][lnk-hub-sdks] 提供可讓您可以用來建置兩個應用程式，以在裝置和您的方案後端上執行的各種 SDK 的相關資訊。
 
 若要完成此教學課程，您需要下列項目：
 
-+ Microsoft Visual Studio 2015。
++ Java SE 8。<br/> [準備您的開發環境][lnk-dev-setup]說明如何在 Windows 或 Linux 上安裝本教學課程的 Java。
+
++ Maven 3。<br/> [準備您的開發環境][lnk-dev-setup]說明如何在 Windows 或 Linux 上安裝本教學課程的 Maven。
 
 + 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][lnk-free-trial]。
 
@@ -79,24 +81,36 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 
     ![][5]
 
-您現在已經建立 IoT 中樞，因此您已具有完成本教學課程的其餘部分所需的主機名稱和連接字串。
+7. 按一下 [IoT 中樞] 刀鋒視窗上的 [設定]，然後按一下 [設定] 刀鋒視窗上的 [傳訊]。記下 [傳訊] 刀鋒視窗上的**事件中樞相容名稱**和**事件中樞相容端點**。在建立 **read-d2c-messages** 應用程式時需要用到這些值。
 
-[AZURE.INCLUDE [iot-hub-get-started-cloud-csharp](../../includes/iot-hub-get-started-cloud-csharp.md)]
+    ![][6]
+
+您現在已經建立 IoT 中樞，並擁有完成本教學課程其餘部分所需的 IoT 中樞主機名稱、IoT 中樞連接字串、事件中樞相容名稱和事件中樞相容端點。
+
+[AZURE.INCLUDE [iot-hub-get-started-cloud-java](../../includes/iot-hub-get-started-cloud-java.md)]
 
 
-[AZURE.INCLUDE [iot-hub-get-started-device-csharp](../../includes/iot-hub-get-started-device-csharp.md)]
+[AZURE.INCLUDE [iot-hub-get-started-device-java](../../includes/iot-hub-get-started-device-java.md)]
 
 ## 執行應用程式
 
 現在您已經準備好執行應用程式。
 
-1.	在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案]。選取 [多個啟始專案]，然後同時針對 **ReadDeviceToCloudMessages** 和 **SimulatedDevice** 專案選取 [啟動] 做為 [動作]。
+1. 在 read-d2c 資料夾的命令提示字元中，執行下列命令以開始監視 IoT 中樞：
 
-   	![][41]
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    ```
 
-2.	按下 **F5** 來啟動這兩個執行的應用程式。來自 **SimulatedDevice** 應用程式的主控台輸出會顯示模擬的裝置傳送給您的 IoT 中樞的訊息，而來自 **ReadDeviceToCloudMessages** 應用程式的主控台輸出則會顯示您的 IoT 中樞接收的訊息。
+    ![][7]
 
-   	![][42]
+2. 在 simulated-device 資料夾的命令提示字元中，執行下列命令以開始將遙測資料傳送至 IoT 中樞：
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    ```
+
+    ![][8]
 
 ## 後續步驟
 
@@ -115,15 +129,17 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 * [Azure IoT 開發人員中心][lnk-dev-center]
 
 <!-- Images. -->
-[1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
-[2]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub2.png
-[3]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub3.png
-[4]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub4.png
-[5]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub5.png
-[41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
-[42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
+[1]: ./media/iot-hub-java-java-getstarted/create-iot-hub1.png
+[2]: ./media/iot-hub-java-java-getstarted/create-iot-hub2.png
+[3]: ./media/iot-hub-java-java-getstarted/create-iot-hub3.png
+[4]: ./media/iot-hub-java-java-getstarted/create-iot-hub4.png
+[5]: ./media/iot-hub-java-java-getstarted/create-iot-hub5.png
+[6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
+[7]: ./media/iot-hub-java-java-getstarted/runapp1.png
+[8]: ./media/iot-hub-java-java-getstarted/runapp2.png
 
 <!-- Links -->
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md

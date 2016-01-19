@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/07/2015"
@@ -69,27 +69,25 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 	![U-SQL Visual Studio 專案 U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**將檔案上傳至 Azure Blob 儲存體帳戶**
+**上傳檔案至連結的 Azure Blob 儲存體帳戶**
 
 1. 在 [伺服器總管] 中依序展開 [Azure]、[資料湖分析]、您的資料湖分析帳戶，以及 [儲存體帳戶]。您應該會看到預設資料湖儲存體帳戶，和連結的資料湖儲存體帳戶，和連結的 Azure 儲存體帳戶。 
 2. 展開 Azure 儲存體帳戶。
-3. 以滑鼠右鍵按一下您想要用來上傳檔案的容器，然後按一下 [總管]。
+3. 以滑鼠右鍵按一下您想要用來上傳檔案的容器，然後按一下 [總管]。如果您沒有容器，您必須先使用 Azure 入口網站、Azure PowerShell 或其他工具建立一個容器。
 4. 瀏覽至您要上傳檔案的資料夾， 
 5. 以滑鼠右鍵按一下任何空白區域，然後按一下 [上傳]。 
 
 ## 開發 U-SQL 指令碼 
 
-資料湖分析工作是以 U-SQL 語言撰寫。若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和 [U-SQL 語言參考](http://go.microsoft.com/fwlink/?LinkId=691348)。
+資料湖分析工作是以 U-SQL 語言撰寫。若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和[U-SQL 語言參考](http://go.microsoft.com/fwlink/?LinkId=691348)。
 
 **建立並提交資料湖分析工作**
 
-1. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
+1. 從 [檔案] 功能表中，按一下 [新增]，再按一下 [專案]。
 2. 選取 [U-SQL 專案] 類型。
 
 	![新的 U-SQL Visual Studio 專案](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-	>[AZURE.NOTE]目前，資料湖工具在本機執行中不支援 UNC 專案路徑。
-	
 3. 按一下 [確定]。Visual studio 會建立擁有 **Script.usql** 檔案的解決方案。
 4. 將下列指令碼輸入 **Script.usql** 檔案：
 
@@ -150,7 +148,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 	- **移至定義並尋找所有參考**
 	
-		以滑鼠右鍵按一下資料列集/參數/資料行/UDO 等的名稱，然後按一下 [移至定義] \(F12) 可讓您瀏覽至其定義。按一下 [尋找所有參考] \(Shift + F12) 會顯示所有參考。
+		以滑鼠右鍵按一下資料列集/參數/資料行/UDO 等的名稱，然後按一下 [移至定義] (F12) 可讓您瀏覽至其定義。按一下 [尋找所有參考] (Shift + F12) 會顯示所有參考。
 
 	- **插入 Azure 路徑**
 		
@@ -357,4 +355,4 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

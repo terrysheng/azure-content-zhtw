@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="01/05/2016"
 	ms.author="tdykstra"/>
 
 # 使用 CORS 從 JavaScript 取用 API 應用程式
@@ -36,7 +36,9 @@ Azure App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，
 
 ## 如何遵循本教學課程
 
-本教學課程會使用您在[此系列的 ASP.NET 版本的第一個教學課程](app-service-api-dotnet-get-started.md)中所下載並為其建立 API 應用程式的範例應用程式。如果您想要使用 Java 或 Node.js，請參閱下方的 [CORS 組態區段](#corsconfig)，其內容中有提供適用於所有 API 應用程式的一般指示。
+本教學課程會使用您在[此系列的 ASP.NET 版本的第一個教學課程](app-service-api-dotnet-get-started.md)中所下載並為其建立 API 應用程式的範例應用程式。
+
+如果您要遵循 Java 或 Node.JS 入門教學課程，請直接移至 [CORS 組態區段](#corsconfig)，以取得適用於所有 API 應用程式的一般指示。
 
 ## ContactsList.Angular 範例專案
 
@@ -76,6 +78,8 @@ Azure App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，
 
 在本節中，您會確認您可以在本機執行用戶端，並可於 API 在本機執行時予以呼叫。
 
+**附註：**因為 Internet Explorer 和 Edge 瀏覽器允許 `http://localhost` URL 所發出或收到的跨原始來源 JavaScript 呼叫，因此這些指示也適用於這些瀏覽器。如果您使用 Chrome，請使用 `--disable-web-security` 參數啟動瀏覽器。如果您使用 Firefox，則請略過本節。
+
 1. 將 ContactsList.API 和 ContactsList.Angular 專案設定為起始專案，而 ContactsList.API 開始於 ContactsList.Angular 之前。 
 
 2. 按 F5 啟動專案。
@@ -90,7 +94,7 @@ Azure App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，
 
 接下來，您將在雲端執行 AngularJS 前端並呼叫在雲端執行的 API 後端。將前端部署至 Azure 之前，您必須在 AngularJS 專案中變更 API 端點，以便程式碼呼叫您稍早建立的 Azure API 應用程式。
 
-1. 在 ContactsList.Angular 專案中，開啟 *index.html* 。
+1. 在 ContactsList.Angular 專案中，開啟 *index.html*。
 
 2. 註解化可將 `baseUrl` 設定為 localhost URL 的這一行程式碼，取消註解將 `baseUrl` 設定為 azurewebsites.net URL 的這一行程式碼，並以您稍早建立的 API 應用程式的實際名稱取代預留位置。如果您將 API 應用程式命名為 ContactsListAPI，則程式碼現在看起來如下列範例所示。
 
@@ -163,14 +167,19 @@ Azure App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，
 		    ]
 		}
 
-### App Service CORS 與 Web API CORS
+## Web API 程式碼中的 CORS 支援
 
-針對 ASP.NET Web API 專案，也可以很容易地在程式碼中設定 CORS，詳情請見下一節。不過，如果您同時使用 App Service CORS 和 Web API CORS，則會優先使用 App Service CORS，至於 Web API CORS 則不會有任何作用。例如，如果您在 App Service 中啟用一個原始網域，並在您的 Web API 程式碼中啟用所有的原始網域，則 Azure API 應用程式僅接受來自您在 Azure 中指定之網域的呼叫。
+在 Web API 專案中，您可以安裝 [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet 封裝，以便在程式碼中指定您的 API 將會接受來自哪些網域的 JavaScript 呼叫。
+ 
+Web API CORS 支援比 App Service CORS 支援更有彈性。例如，在程式碼中您可以為不同動作方法指定不同的可接受原始來源，但對於 App Service CORS，您只能為所有 API 應用程式的方法指定一組可接受的原始來源。
 
+### App Service CORS 的優先順序高於 Web API CORS
 
-## 如何在 Web API 程式碼中設定 CORS
+請勿嘗試在一個 API 應用程式中同時使用 Web API CORS 和 App Service CORS。App Service CORS 會優先獲得採用，而 Web API CORS 不會有任何作用。例如，如果您在 App Service 中啟用一個原始網域，並在您的 Web API 程式碼中啟用所有的原始網域，則 Azure API 應用程式僅接受來自您在 Azure 中指定之網域的呼叫。
 
-在 Web API 專案中，您可以安裝 [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet 封裝，以便在程式碼中指定您的 API 將會接受來自哪些網域的 JavaScript 呼叫。此程序已詳載於[在 ASP.NET Web API 2 中啟用跨原始來源要求](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)。若為使用 ASP.NET Web API 建置的 API 應用程式，此程序完全一樣，但會在以下摘要說明。
+### 如何在 Web API 程式碼中啟用 CORS
+
+下列步驟概述啟用 Web API CORS 支援的程序。如需詳細資訊，請參閱[在 ASP.NET Web API 2 中啟用跨原始來源要求](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)。
 
 1. 在 Web API 專案中，於 **WebApiConfig** 的 **Register** 方法中加入 `config.EnableCors()` 這行程式碼，如下列範例所示。 
 
@@ -208,4 +217,4 @@ Azure App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，
 
 在本教學課程中，您已看到如何啟用 App Service CORS 支援，以便用戶端 JavaScript 程式碼可以呼叫不同網域中的 API。在下一篇 API Apps 入門系列文章中，您將了解 [App Service API 應用程式的驗證](app-service-api-authentication.md)。
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -60,21 +60,21 @@
 2. 找出您想儲存 Node.js 應用程式的資料夾或目錄位置。
 3. 使用下列命令，建立兩個空白的 JavaScript 檔案：
 	- Windows:    
-	    * **fsutil file createnew app.js 0**
-        * **fsutil file createnew config.js 0**
+	    * ```fsutil file createnew app.js 0```
+        * ```fsutil file createnew config.js 0```
 	- Linux/OS X： 
-	    * **touch app.js**
-        * **touch config.js**
+	    * ```touch app.js```
+        * ```touch config.js```
 4. 透過 npm 安裝 documentdb 模組。使用下列命令：
-    * **npm install documentdb --save**
+    * ```npm install documentdb --save```
 
 太棒了！ 現在已完成安裝程式，讓我們開始撰寫一些程式碼。
 
 ##<a id="Config"></a> 步驟 3：設定您的應用程式組態
 
-在您慣用的文字編輯器中開啟 *config.js* 。
+在您慣用的文字編輯器中開啟 ```config.js```。
 
-接著，建立一個名為 *config* 的空白物件，將屬性 *config.endpoint* 和 *config.authKey* 設定為您的 DocumentDB 端點和授權金鑰。您可以在 [Azure 入口網站](https://portal.azure.com)找到這兩個設定。
+接著，建立一個名為 ```config``` 的空白物件，將屬性 ```config.endpoint``` 和 ```config.authKey``` 設定為您的 DocumentDB 端點和授權金鑰。您可以在 [Azure 入口網站](https://portal.azure.com)找到這兩個設定。
 
 ![顯示 DocumentDB 帳戶的 Azure 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
 
@@ -83,7 +83,7 @@
     config.endpoint = "https://YOUR_ENDPOINT_URI.documents.azure.com:443/";
     config.authKey = "oqTveZeWlbtnJQ2yMj23HOAViIr0ya****YOUR_AUTHORIZATION_KEY****ysadfbUV+wUdxwDAZlCfcVzWp0PQg==";
 
-現在將 *資料庫識別碼* 、 *集合識別碼* ，和 *JSON 文件* 加入至您的 *config* 物件中。在您設定 *config.endpoint* 和 *config.authKey* 屬性的位置之下，加入下列程式碼。如果您已經有想要儲存於資料庫中的資料，就可以使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)，而不用加入文件定義。
+現在讓我們將 ```database id```、```collection id``` 和 ```JSON documents``` 新增到 ```config``` 物件。在您設定 ```config.endpoint``` 和 ```config.authKey``` 屬性的位置下面，新增下列程式碼。如果您已經有想要儲存於資料庫中的資料，就可以使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)，而不用新增文件定義。
 
     config.dbDefinition = {"id": "FamilyRegistry"};
     config.collDefinition = {"id": "FamilyCollection"};
@@ -163,27 +163,27 @@
 
     config.docsDefinitions = documents;
 
-資料庫、集合和文件定義會作為您 DocumentDB 的 *資料庫識別碼* 、 *集合識別碼* 和文件資料。
+資料庫、集合和文件定義會作為您 DocumentDB 的```database id```、```collection id```和文件資料。
 
-最後，匯出您的 *config* 物件，如此就可以在 *app.js* 檔案中參考它。
+最後，匯出您的 ```config``` 物件，如此就可以在 ```app.js``` 檔案中參考它。
 
     module.exports = config;
 
 ##<a id="Connect"></a> 步驟 4：連接到 DocumentDB 帳戶
 
-在文字編輯器中開啟您的空白 *app.js* 檔案。匯入 *documentdb* 模組和您新建立的 *config* 模組。
+在文字編輯器中開啟您的空白 ```app.js``` 檔案。匯入 ```documentdb``` 模組和新建的 ```config``` 模組。
 
     var documentClient = require("documentdb").DocumentClient;
     var config = require("./config");
 
-接下來，我們將使用先前儲存的 *config.endpoint* 和 *config.authKey* 來建立新的 DocumentClient。
+接下來，我們將使用先前儲存的 ```config.endpoint``` 和 ```config.authKey``` 來建立新的 DocumentClient。
 
     var client = new documentClient(config.endpoint, {"masterKey": config.authKey});
 
 現在既然您已連接到 DocumentDB 帳戶，讓我們看看如何使用 DocumentDB 資源。
 
 ## 步驟 5：建立節點資料庫
-可以使用 **DocumentClient** 類別的 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式來建立[資料庫](documentdb-resources.md#databases)。資料庫是分割給多個集合之文件儲存體的邏輯容器。以 *config* 物件中指定的 *id* ，在 app.js 檔案中加入建立新資料庫的函式。我們會先檢查確定具有相同 *FamilyRegistry* 識別碼的資料庫不存在。如果存在，我們會傳回該資料庫，而不會建立新資料庫。
+可以使用 **DocumentClient** 類別的 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式來建立[資料庫](documentdb-resources.md#databases)。資料庫是分割給多個集合之文件儲存體的邏輯容器。以 ```config``` 物件中指定的 ```id```，在 app.js 檔案中加入建立新資料庫的函式。我們會先檢查確定具有相同 ```FamilyRegistry``` 識別碼的資料庫不存在。如果存在，我們會傳回該資料庫，而不會建立新資料庫。
 
     var getOrCreateDatabase = function(callback) {
         var querySpec = {
@@ -214,7 +214,7 @@
 
 > [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
 
-可以使用 **DocumentClient** 類別的 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。以 *config* 物件中指定的 *id* ，在 app.js 檔案中加入建立新集合的函式。同樣地，我們會檢查確定具有相同 *FamilyCollection* 識別碼的集合不存在。如果存在，我們會傳回該集合，而不會建立新集合。
+可以使用 **DocumentClient** 類別的 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。以 ```config``` 物件中指定的 ```id```，在 app.js 檔案中加入建立新集合的函式。同樣地，我們會檢查確定具有相同 ```FamilyCollection``` 識別碼的集合不存在。如果存在，我們會傳回該集合，而不會建立新集合。
 
     var getOrCreateCollection = function(callback) {
 
@@ -246,7 +246,7 @@
 ##<a id="CreateDoc"></a>步驟 7：建立文件
 可以使用 **DocumentClient** 類別的 [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式來建立[文件](documentdb-resources.md#documents)。文件會是使用者定義的 (任意) JSON 內容。您現在可以將文件插入至 DocumentDB。
 
-接下來，將建立文件 (包含儲存在 *config* 物件中的 JSON 資料) 的函式加入至 app.js。同樣地，我們會檢查以確定具有相同識別碼的文件不存在。
+接下來，將建立文件 (包含儲存在 ```config``` 物件中的 JSON 資料) 的函式加入至 app.js。同樣地，我們會檢查以確定具有相同識別碼的文件不存在。
 
     var getOrCreateDocument = function(document, callback) {
         var querySpec = {
@@ -280,7 +280,7 @@
 
 ##<a id="Query"></a>步驟 8：查詢 DocumentDB 資源
 
-DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](documentdb-sql-query.md)。下列範例程式碼示範您可以針對集合中之文件執行的查詢。將下列函式加入至 *app.js* 檔案中。DocumentDB 支援類 SQL 查詢，如下所示。如需建立複雜查詢的詳細資訊，請參閱[查詢遊樂場](https://www.documentdb.com/sql/demo)和[查詢文件](documentdb-sql-query.md)。
+DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](documentdb-sql-query.md)。下列範例程式碼示範您可以針對集合中之文件執行的查詢。在 ```app.js``` 檔案中新增下列函數。DocumentDB 支援類 SQL 查詢，如下所示。如需建立複雜查詢的詳細資訊，請參閱[查詢遊樂場](https://www.documentdb.com/sql/demo)和[查詢文件](documentdb-sql-query.md)。
 
     var queryCollection = function(documentId, callback) {
       var querySpec = {
@@ -325,7 +325,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 函式呼叫的順序會是 * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *cleanup*
 
-將下列程式碼片段加入至您在 *app.js* 中的程式碼底部。
+將下列程式碼片段加入至您在 ```app.js``` 中的程式碼底部。
 
     getOrCreateDatabase(function(err, db) {
         if(err) return console.log(err);
@@ -361,7 +361,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 您現在可以開始執行您的 Node.js 應用程式！
 
-在終端機中，找到您的 *app.js* 檔案並執行命令：**node app.js**
+在終端機中，找到您的 ```app.js``` 檔案並執行命令：```node app.js```
 
 您應該可以看到入門應用程式的輸出。輸出應該會與下列範例文字相符。
 
@@ -425,9 +425,9 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 -   [DocumentDB 帳戶][documentdb-create-account]。
 -   您可以在 GitHub 上找到 [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) 方案。
 
-透過 npm 安裝 **documentdb** 模組。使用下列命令：* **npm install documentdb --save**
+透過 npm 安裝 **documentdb** 模組。使用下列命令：* ```npm install documentdb --save```
 
-接下來，將 *config.js* 檔案中的 config.endpoint 和 config.authKey 的值更新為如[步驟 3：設定您的應用程式組態](#Config)中所述。
+接下來，將 ```config.js``` 檔案中的 config.endpoint 和 config.authKey 的值更新為如[步驟 3：設定您的應用程式組態](#Config)中所述。
 
 ## 後續步驟
 
@@ -442,4 +442,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

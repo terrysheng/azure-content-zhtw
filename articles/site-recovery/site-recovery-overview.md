@@ -34,8 +34,8 @@ Site Recovery 是一項 Azure 服務，可藉由協調次要內部部署資料�
 
 **REPLICATE** | **複寫來源** | **複寫目標** | **文章**
 ---|---|---|---
-VMware 虛擬機器 | 內部部署 VMware 伺服器 | Azure 儲存體 | [部署](site-recovery-vmware-to-azure.md)
-實體 Windows/Linux 伺服器 | 內部部署實體伺服器 | Azure 儲存體 | [部署](site-recovery-vmware-to-azure.md)
+VMware 虛擬機器 | 內部部署 VMware 伺服器 | Azure 儲存體 | [部署](site-recovery-vmware-to-azure-classic.md)
+實體 Windows/Linux 伺服器 | 內部部署實體伺服器 | Azure 儲存體 | [部署](site-recovery-vmware-to-azure-classic.md)
 Hyper-V 虛擬機器 | VMM 雲端中的內部部署 Hyper-V 主機伺服器 | Azure 儲存體 | [部署](site-recovery-vmm-to-azure.md)
 Hyper-V 虛擬機器 | 內部部署 Hyper-V 網站 (一或多個 Hyper-V 主機伺服器) | Azure 儲存體 | [部署](site-recovery-hyper-v-site-to-azure.md)
 內部部署 Hyper-V 虛擬機器| VMM 雲端中的內部部署 Hyper-V 主機伺服器 | 在次要資料中心之 VMM 雲端中的內部部署 Hyper-V 主機伺服器 | [部署](site-recovery-vmm-to-vmm.md)
@@ -68,4 +68,4 @@ Site Recovery 可協助您的應用裝置感知業務持續性。您可以使用
 了解此概觀之後，請[深入了解](site-recovery-components.md) Site Recovery 架構的相關資訊。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

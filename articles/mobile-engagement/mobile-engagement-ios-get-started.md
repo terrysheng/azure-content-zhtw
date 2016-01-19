@@ -2,7 +2,7 @@
 	pageTitle="開始使用適用於 iOS (Objective C) 的 Azure Mobile Engagement"
 	description="了解如何使用 iOS app 的 Azure Mobile Engagement 與分析和推播通知。"
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -184,4 +184,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

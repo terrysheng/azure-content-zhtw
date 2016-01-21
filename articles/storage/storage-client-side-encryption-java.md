@@ -232,6 +232,8 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 請注意，加密您的儲存體資料會造成額外的效能負擔。必須產生內容金鑰和 IV，內容本身必須經過加密，而且其他中繼資料必須格式化並上傳。這個額外負荷會因所加密的資料數量而有所不同。我們建議客戶一定要在開發期間測試其應用程式的效能。
 
 ## 後續步驟  
-下載 [適用於 Java Maven 的 Azure 儲存體用戶端程式庫封裝](<fix URL>)從 GitHub 下載[適用於 Java 原始程式碼的 Azure 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-java)下載 Azure 金鑰保存庫 Maven [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[用戶端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/)和[擴充功能](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)封裝 造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)
+下載 [適用於 Java Maven 的 Azure 儲存體用戶端程式庫封裝](<fix URL>)從 GitHub
+下載[適用於 Java 原始程式碼的 Azure 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-java)下載
+Azure 金鑰保存庫 Maven [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[用戶端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/)和[擴充功能](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)封裝 造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->

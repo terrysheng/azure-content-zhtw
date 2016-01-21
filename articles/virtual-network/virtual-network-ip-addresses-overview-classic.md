@@ -132,7 +132,11 @@ Azure [應用程式閘道](application-gateway-introduction.md)可用於 Layer7 
 
 下表顯示在 Azure 中，針對每一訂用帳戶在 IP 定址上所加諸的限制。您可以[連絡支援人員](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，以根據您的業務需求將預設上限調升到最高上限。
 
-||預設上限|最高上限| |---|---|---| |公用 IP 位址 (動態)|5|聯絡支援人員| |保留的公用 IP 位址|20|聯絡支援人員| |每一部署 (雲端服務) 的公用 VIP|5|聯絡支援人員| |每一部署 (雲端服務) 的私人 VIP (ILB)|1|1|
+||預設上限|最高上限|
+|---|---|---| |公用 IP 位址 (動態)|5|聯絡支援人員|
+|保留的公用 IP 位址|20|聯絡支援人員|
+|每一部署 (雲端服務) 的公用 VIP|5|聯絡支援人員|
+|每一部署 (雲端服務) 的私人 VIP (ILB)|1|1|
 
 請務必閱讀 Azure 中的整套[網路限制](azure-subscription-service-limits.md#networking-limits)。
 
@@ -143,7 +147,16 @@ Azure [應用程式閘道](application-gateway-introduction.md)可用於 Layer7 
 ## 資源管理員與傳統部署之間的差異
 以下是「資源管理員」與傳統部署模型中 IP 定址功能的比較。
 
-||資源|傳統|資源管理員| |---|---|---|---| |**公用 IP 位址**|VM|稱為 ILPIP (僅限動態)|稱為公用 IP (動態或靜態)| |||指派給 IaaS VM 或 PaaS 角色執行個體|與 VM 的 NIC 相關聯| ||網際網路對應負載平衡器|稱為 VIP (動態) 或保留的 IP (靜態)|稱為公用 IP (動態或靜態)| |||指派給雲端服務|與負載平衡器的前端組態相關聯| ||||**私人 IP 位址**|VM|稱為 DIP|稱為私人 IP 位址| |||指派給 IaaS VM 或 PaaS 角色執行個體|指派給 VM 的 NIC| ||內部負載平衡器 (ILB)|指派給 ILB (動態或靜態)|指派給 ILB 的前端組態 (動態或靜態)|
+||資源|傳統|資源管理員|
+|---|---|---|---|
+|**公用 IP 位址**|VM|稱為 ILPIP (僅限動態)|稱為公用 IP (動態或靜態)|
+|||指派給 IaaS VM 或 PaaS 角色執行個體|與 VM 的 NIC 相關聯|
+||網際網路對應負載平衡器|稱為 VIP (動態) 或保留的 IP (靜態)|稱為公用 IP (動態或靜態)|
+|||指派給雲端服務|與負載平衡器的前端組態相關聯|
+|||
+|**私人 IP 位址**|VM|稱為 DIP|稱為私人 IP 位址|
+|||指派給 IaaS VM 或 PaaS 角色執行個體|指派給 VM 的 NIC|
+||內部負載平衡器 (ILB)|指派給 ILB (動態或靜態)|指派給 ILB 的前端組態 (動態或靜態)|
 
 ## 後續步驟
 - [使用靜態公用 IP 部署 VM](virtual-network-deploy-static-pip-classic-ps.md)
@@ -153,4 +166,4 @@ Azure [應用程式閘道](application-gateway-introduction.md)可用於 Layer7 
 - [使用 PowerShell 建立應用程式閘道](application-gateway-create-gateway.md)
 - [使用 PowerShell 建立內部應用程式閘道](application-gateway-ilb.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->

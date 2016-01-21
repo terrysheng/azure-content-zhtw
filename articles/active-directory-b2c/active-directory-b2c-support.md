@@ -30,6 +30,7 @@
 
     ![支援 - 切換目錄](./media/active-directory-b2c-support/support-switch-dir.png)
 
+    
 3. 切換目錄後，按一下 [說明 + 支援]。
 
     ![支援 - 支援](./media/active-directory-b2c-support/support-support.png)

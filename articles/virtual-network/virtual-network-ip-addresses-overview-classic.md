@@ -168,4 +168,3 @@ Azure [應用程式閘道](application-gateway-introduction.md)可用於 Layer7 
 - [使用 PowerShell 建立內部應用程式閘道](application-gateway-ilb.md)
 
 <!----HONumber=AcomDC_0107_2016-->
-

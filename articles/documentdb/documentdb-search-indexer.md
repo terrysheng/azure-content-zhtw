@@ -267,7 +267,7 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 
  - 若要深入了解 Azure DocumentDB，請參閱 [DocumentDB 服務頁面](https://azure.microsoft.com/services/documentdb/)。
 
- - 若要深入了解 Azure 搜尋服務，請參閱[搜尋服務頁面](https://azure.microsoft.com/zh-TW/services/search/)。
+ - 若要深入了解 Azure 搜尋服務，請參閱[搜尋服務頁面](https://azure.microsoft.com/services/search/)。
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!-----HONumber=AcomDC_0107_2016-->

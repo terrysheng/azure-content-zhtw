@@ -57,7 +57,8 @@
 
 在加密期間，用戶端程式庫會產生 16 位元組的隨機初始化向量 (IV)，以及 32 位元組的隨機內容加密金鑰 (CEK)，並使用這項資訊執行 blob 資料的信封加密。然後，已包裝的 CEK 和一些其他加密中繼資料會儲存為 blob 中繼資料，並連同加密的 blob 一起儲存在服務上。
 
->**警告：**如果您要為 blob 編輯或上傳您自己的中繼資料，則必須確定保留此中繼資料。如果您上傳新的中繼資料，但缺少此中繼資料，包裝的 CEK、IV 和其他中繼資料將會遺失，而且永遠無法再擷取 blob 內容。
+>**警告：**  
+>如果您要為 blob 編輯或上傳您自己的中繼資料，則必須確定保留此中繼資料。如果您上傳新的中繼資料，但缺少此中繼資料，包裝的 CEK、IV 和其他中繼資料將會遺失，而且永遠無法再擷取 blob 內容。
 
 下載已加密的 blob 牽涉到使用 **download*/openInputStream** 便利方法擷取整個 blob 的內容。包裝的 CEK 會解除包裝，並與 IV (在此情況下儲存為 blob 中繼資料) 一起用來傳回解密的資料給使用者。
 
@@ -77,7 +78,8 @@
 ### 資料表  
 用戶端程式庫支援在插入和取代作業時進行實體屬性的加密。
 
->**注意：**目前不支援合併。因為屬性子集先前可能是使用不同的金鑰加密，直接合併新的屬性並更新中繼資料會導致資料遺失。合併可能需要額外的服務呼叫來從服務讀取預先存在的實體，或在每個屬性上都使用新的金鑰，兩者都不利用於效能。
+>**注意：**  
+>目前不支援合併。因為屬性子集先前可能是使用不同的金鑰加密，直接合併新的屬性並更新中繼資料會導致資料遺失。合併可能需要額外的服務呼叫來從服務讀取預先存在的實體，或在每個屬性上都使用新的金鑰，兩者都不利用於效能。
 
 資料表資料加密的運作方式如下：
 
@@ -105,7 +107,8 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 儲存體用戶端程式庫會使用金鑰保存庫核心程式庫，以提供整個 Azure 的通用架構來管理金鑰。使用者也享有使用金鑰保存庫延伸模組程式庫的額外好處。延伸模組程式庫提供實用的功能，包括簡單又完善的對稱/RSA 本機和雲端金鑰提供者，以及彙總和快取。
 
 ### 介面和相依性  
-金鑰保存庫封裝有三個：- azure-keyvault-core 包含 IKey 和 IKeyResolver。這是不具有相依性的小型封裝。Java 的儲存體用戶端程式庫會將其定義為相依。
+金鑰保存庫封裝有三個：  
+- azure-keyvault-core 包含 IKey 和 IKeyResolver。這是不具有相依性的小型封裝。Java 的儲存體用戶端程式庫會將其定義為相依。  
 
 - azure-keyvault 包含金鑰保存庫 REST 用戶端。  
 
@@ -133,7 +136,11 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 >- 在預設的要求選項中啟用 **requireEncryption** 旗標，使用者就應該只能使用加密的資料。如需詳細資訊請參閱下方內容。
 
 ## 用戶端 API / 介面  
-使用者在建立 EncryptionPolicy 物件時，可以只提供金鑰 (實作 IKey)、只提供者解析程式 (實作 IKeyResolver)，或兩者都提供。IKey 是以金鑰識別碼來識別的基本金鑰類型，且提供包裝/解除包裝的邏輯。IKeyResolver 在解密程序期間用來解析金鑰。它定義 ResolveKey 方法，可根據金鑰識別碼傳回 IKey。這能讓使用者在於多處管理的多個金鑰當中選擇。若為加密，一律要使用金鑰，如果缺少金鑰將會產生錯誤。若為解密，如果指定要取得金鑰，則會叫用金鑰解析程式。如果已指定解析程式，金鑰識別碼卻沒有對應項，則會擲回錯誤。若未指定解析程式卻指定金鑰，而其識別碼符合所需的金鑰識別碼，則會使用該金鑰。如果識別項不符合，則會擲回錯誤。
+使用者在建立 EncryptionPolicy 物件時，可以只提供金鑰 (實作 IKey)、只提供者解析程式 (實作 IKeyResolver)，或兩者都提供。IKey 是以金鑰識別碼來識別的基本金鑰類型，且提供包裝/解除包裝的邏輯。IKeyResolver 在解密程序期間用來解析金鑰。它定義 ResolveKey 方法，可根據金鑰識別碼傳回 IKey。這能讓使用者在於多處管理的多個金鑰當中選擇。  
+- 若為加密，一律要使用金鑰，如果缺少金鑰將會產生錯誤。  
+- 若為解密，  
+	- 如果指定要取得金鑰，則會叫用金鑰解析程式。如果已指定解析程式，金鑰識別碼卻沒有對應項，則會擲回錯誤。  
+	- 若未指定解析程式卻指定金鑰，而其識別碼符合所需的金鑰識別碼，則會使用該金鑰。如果識別項不符合，則會擲回錯誤。  
 
 	  The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
@@ -232,8 +239,8 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 請注意，加密您的儲存體資料會造成額外的效能負擔。必須產生內容金鑰和 IV，內容本身必須經過加密，而且其他中繼資料必須格式化並上傳。這個額外負荷會因所加密的資料數量而有所不同。我們建議客戶一定要在開發期間測試其應用程式的效能。
 
 ## 後續步驟  
-下載 [適用於 Java Maven 的 Azure 儲存體用戶端程式庫封裝](<fix URL>)從 GitHub
-下載[適用於 Java 原始程式碼的 Azure 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-java)下載
-Azure 金鑰保存庫 Maven [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[用戶端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/)和[擴充功能](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)封裝 造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)
+下載 [適用於 Java Maven 的 Azure 儲存體用戶端程式庫封裝](<fix URL>)  
+從 GitHub 下載[適用於 Java 原始程式碼的 Azure 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-java)   
+下載 Azure 金鑰保存庫 Maven [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[用戶端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/)和[擴充功能](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)封裝 造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)  
 
 <!----HONumber=AcomDC_0107_2016-->

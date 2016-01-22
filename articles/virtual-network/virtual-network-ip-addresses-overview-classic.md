@@ -23,7 +23,7 @@
 
 當您使用 VPN 閘道或 ExpressRoute 電路將網路擴充至 Azure 時，私人 IP 位址用於 Azure 虛擬網路 (VNet)、雲端服務和內部部署網路內的通訊。
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [資源管理員部署模型](virtual-network-ip-addresses-overview-arm.md)。
 
 ## 公用 IP 位址
 Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服務 (例如 [Azure Redis Cache](https://azure.microsoft.com/services/cache)、[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs)、[SQL Database](sql-database-technical-overview.md) 和 [Azure 儲存體](storage-introduction.md)) 進行通訊。
@@ -133,7 +133,8 @@ Azure [應用程式閘道](application-gateway-introduction.md)可用於 Layer7 
 下表顯示在 Azure 中，針對每一訂用帳戶在 IP 定址上所加諸的限制。您可以[連絡支援人員](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，以根據您的業務需求將預設上限調升到最高上限。
 
 ||預設上限|最高上限|
-|---|---|---| |公用 IP 位址 (動態)|5|聯絡支援人員|
+|---|---|---|
+|公用 IP 位址 (動態)|5|聯絡支援人員|
 |保留的公用 IP 位址|20|聯絡支援人員|
 |每一部署 (雲端服務) 的公用 VIP|5|聯絡支援人員|
 |每一部署 (雲端服務) 的私人 VIP (ILB)|1|1|

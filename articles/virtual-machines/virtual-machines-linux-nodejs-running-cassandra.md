@@ -117,7 +117,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/zh-tw/) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
 由於下載 JRE 時需要手動接受 Oracle 授權，為了簡化部署，請將所有必要的軟體下載到桌面，稍後上傳到我們要建立來做為叢集部署初期使用的 Ubuntu 範本映像。
@@ -709,4 +709,4 @@ Microsoft Azure 是一個富彈性的平台，可以執行 Microsoft 與開放�
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->

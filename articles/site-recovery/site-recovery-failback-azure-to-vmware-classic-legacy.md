@@ -136,7 +136,7 @@ Windows 主要目標已經隨附於 vContinuum 安裝程式中。當您安裝 vC
 
 注意：請先確定系統具有網際網路連線，然後再下載並安裝其他封裝。
 
-# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 此命令會從 CentOS 6.6 儲存機制下載這 15 個封裝，並加以安裝：
 
@@ -172,17 +172,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 注意：如果來源機器會針對根目錄或開機裝置使用 Reiser 或 XFS 檔案系統，則下列封裝應該下載並安裝於 Linux 主要目標上，才能提供保護。
 
-# cd /usr/local
+\# cd /usr/local
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### 套用自訂組態變更
 
@@ -410,4 +410,4 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->

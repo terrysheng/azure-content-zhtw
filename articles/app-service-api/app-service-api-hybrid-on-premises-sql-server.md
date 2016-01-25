@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 使用混合式連線從 Azure App Service 內的 API 應用程式連線至內部部署 SQL Server
@@ -158,7 +158,7 @@
 
 本節將引導您逐步建立示範 API 應用程式。
 
-1. 開啟 Visual Studio 2013，然後選取 **[檔案] > [新增] > [專案]**。 
+1. 開啟 Visual Studio 2013，然後選取 [檔案] > [新增] > [專案]。 
 
 2. 選取 **[Visual C#] > [Web] > [ASP.NET Web 應用程式]** 範本，取消選取 [**將 Application Insights 加入專案**] 選項，再將專案命名為 *SpeakersList*，然後按一下 [**確定**]。
 
@@ -172,11 +172,11 @@
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-menu.png)
 
-5. 將新檔案命名為 *Speaker.cs*，然後按一下 [**新增**]。
+5. 將新檔案命名為 *Speaker.cs*，然後按一下 [新增]。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-class.png)
 
-6. 以下列程式碼取代 `Speaker.cs` 檔案的所有內容。
+6. 將 `Speaker.cs` 檔案的整個內容取代為下列程式碼。
 
 		namespace SpeakersList.Models
 		{
@@ -196,7 +196,7 @@
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/add-scaffold.png)
 
-9. 將控制器命名為 **SpeakersController** 並按一下 [**新增**]。
+9. 將控制器命名為 **SpeakersController** 並按一下 [新增]。
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/add-controller-name.png)
 
@@ -432,4 +432,4 @@
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

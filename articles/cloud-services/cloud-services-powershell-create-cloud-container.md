@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/13/2015"
    ms.author="cawa"/>
 
 # 如何使用 Azure PowerShell 命令來建立空白的雲端服務容器
-1. [下載 Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)，以安裝 Microsoft Azure PowerShell Cmdlet。如需安裝 Azure PowerShell Cmdlet 及連接至您的 Azure 訂用帳戶的進一步指示，請參閱「[如何安裝及設定 Azure PowerShell](../powershell-install-configure.md)」。
+1. [下載 Azure PowerShell](http://aka.ms/webpi-azps)，以安裝 Microsoft Azure PowerShell Cmdlet。開啟 PowerShell 命令提示字元。使用 [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) 登入
+
+> [AZURE.NOTE]如需安裝 Azure PowerShell Cmdlet 及連接至您的 Azure 訂用帳戶的進一步指示，請參閱「[如何安裝及設定 Azure PowerShell](../powershell-install-configure.md)」。
 
 2. **New-AzureService** 是用來建立空白雲端服務容器的 Cmdlet。
 
@@ -41,4 +43,4 @@ Get-help New-AzureService
     - 若要將雲端服務專案發佈至 Azure，請參閱「[在Azure 中持續提供雲端服務](cloud-services-dotnet-continuous-delivery.md)」中的 **PublishCloudService.ps1** 程式碼範例
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

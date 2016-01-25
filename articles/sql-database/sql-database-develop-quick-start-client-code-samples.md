@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/10/2016" 
 	ms.author="genemi"/>
 
 
@@ -51,7 +51,7 @@
 | 語言 | 簡短的範例 | 重試範例 | 關聯式到物件 |
 | :-- | :-- | :-- | :-- |
 | Node.js | [Tedious](sql-database-develop-nodejs-simple-linux.md) | 。 | 。 |
-| Python | [FreeTDS、pymssql](sql-database-develop-python-simple-unbutu-linux.md) | 。 | 。 |
+| Python | [FreeTDS、pymssql](sql-database-develop-python-simple-ubuntu-linux.md) | 。 | 。 |
 | Ruby | [FreeTDS、TinyTDS](sql-database-develop-ruby-simple-linux.md) | 。 | 。 |
 
 
@@ -77,7 +77,7 @@
 | :-- | :-- | :-- | :-- |
 | C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET 自訂](sql-database-develop-csharp-retry-windows.md)<br/><br/>[企業程式庫](sql-database-develop-entlib-csharp-retry-windows.md) | Entity Framework |
 | C++ | [ODBC 驅動程式](http://msdn.microsoft.com/library/azure/hh974312.aspx) | 。 | 。 |
-| Java | [Java。JDBC、JDK。Insert, Transaction, Select。](sql-database-develop-java-simple-windows.md) | 。 | 。 |
+| Java | [Java。JDBC、JDK。Insert、Transaction、Select。](sql-database-develop-java-simple-windows.md) | 。 | 。 |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | 。 | 。 |
 | PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC 自訂](sql-database-develop-php-retry-windows.md) | 。 |
 | Python | [pymssql](sql-database-develop-python-simple-windows.md) | 。 | 。 |
@@ -94,4 +94,4 @@
 - [建立您的第一個 Azure SQL Database](sql-database-get-started.md)
 - [Entity Framework 6 在此處，EF 7 在 GitHub 上](http://entityframework.codeplex.com/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

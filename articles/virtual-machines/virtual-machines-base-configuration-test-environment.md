@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # 基本設定測試環境
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [資源管理員模型](virtual-machines-base-configuration-test-environment-resource-manager.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-base-configuration-test-environment-resource-manager.md)。
 
 本文將逐步解說如何在 Azure 虛擬網路中建立基本設定測試環境。
 
@@ -51,9 +51,9 @@
 3.	設定 APP1。
 4.	設定 CLIENT1。
 
-如果您還沒有 Azure 帳戶，請到[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)來申請免費試用。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您還沒有 Azure 帳戶，請到[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)來申請免費試用。如果您有 MSDN 平台訂用帳戶，請參閱 [MSDN 平台訂戶的 Azure 權益](https://azure.microsoft.com/offers/ms-azr-0062p/)。
 
-> [AZURE.NOTE]Azure 中的虛擬機器執行時，需要支付相關費用。這項成本是按照您的免費試用版、MSDN 訂用帳戶或付費訂用帳戶進行計算。如需詳細了解 Azure 虛擬機器的執行成本，請參閱[虛擬機器定價詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 定價計算機](http://azure.microsoft.com/pricing/calculator/)。為了降低成本，請參閱[將 Azure 的測試環境虛擬機器費用降至最低](#costs)。
+> [AZURE.NOTE]Azure 中的虛擬機器執行時，需要支付相關費用。這項成本是按照您的免費試用版、MSDN 平台訂用帳戶或付費訂用帳戶進行計算。如需詳細了解 Azure 虛擬機器的執行成本，請參閱[虛擬機器價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 價格計算機](http://azure.microsoft.com/pricing/calculator/)。為了降低成本，請參閱[將 Azure 的測試環境虛擬機器費用降至最低](#costs)。
 
 ## 階段 1：建立虛擬網路
 
@@ -138,7 +138,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 \[磁碟 2] ([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -239,7 +239,7 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 2.	在 [CLIENT1 的屬性] 中，按一下 [IE 增強式安全性設定] 旁的 [開啟]。
 3.	在 [Internet Explorer 增強式安全性設定] 中，按一下 [系統管理員] 和 [使用者] 的 [關閉]，然後按一下 [確定]。
 4.	從 [開始] 畫面中，按一下 [Internet Explorer]，然後按一下 [確定]。
-5.	在網址列中，鍵入 **http://app1.corp.contoso.com/**，然後按 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
+5.	在網址列中，鍵入 ****http://app1.corp.contoso.com/**，然後按 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
 6.	按一下桌面工作列中的 [檔案總管] 圖示。
 7.	在網址列中，輸入 **\\\app1\\Files**，然後按下 ENTER。
 8.	您應該會看到一個資料夾視窗，裡面有檔案共用資料夾的內容。
@@ -250,15 +250,11 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
-您在 Azure 中的基本設定現在可用於應用程式開發與測試或其他測試環境，例如[模擬混合式雲端環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
+您在 Azure 中的基本設定現在可用於應用程式開發與測試或其他測試環境。
 
-## 其他資源
+## 下一步
 
-[Azure 測試實驗室](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
-
-[混合式雲端測試環境](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[基本設定測試環境與 Azure 資源管理員](virtual-machines-base-configuration-test-environment-resource-manager.md)
+- 設定[模擬混合式雲端環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)以測試混合式組態。
 
 ## <a id="costs"></a>將 Azure 的測試環境虛擬機器費用降至最低
 
@@ -288,6 +284,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!----HONumber=AcomDC_1203_2015-->
-
-
+<!---HONumber=AcomDC_0114_2016-->

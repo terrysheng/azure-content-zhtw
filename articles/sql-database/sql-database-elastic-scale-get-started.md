@@ -18,7 +18,7 @@
 
 # 開始使用彈性資料庫工具
 
-本文將執行範例應用程式介紹開發人員使用經驗。範例會建立簡易的分區化應用程式，並探討彈性資料庫工具的主要功能。此範例會示範[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)的功能
+本文件將執行範例應用程式介紹開發人員使用經驗。範例會建立簡易的分區化應用程式，並探討彈性資料庫工具的主要功能。此範例會示範[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)的功能
 
 ## 先決條件
 
@@ -61,7 +61,7 @@
 ### 其他 Elastic Scale 作業
 
 1. **分割現有的分區**：分割分區的功能是透過 [分割合併工具] 來提供。您可以在這裡找到有關此工具的詳細資訊：[分割合併工具概觀](sql-database-elastic-scale-overview-split-and-merge.md)。
-2. **合併現有的分區**：分區合併也可使用 [分割合併工具] 來執行。如需詳細資訊，請參閱：[分割合併工具概觀](sql-database-elastic-scale-overview-split-and-merge)。   
+2. **合併現有的分區**：分區合併也可使用 [分割合併工具] 來執行。如需詳細資訊，請參閱：[分割合併工具概觀](sql-database-elastic-scale-overview-split-and-merge.md)。   
 
 
 ## 成本
@@ -70,7 +70,7 @@
 
 例如，範例應用程式會建立新資料庫。其費用將取決於您所選擇的 Azure SQL DB 資料庫版本，以及您的應用程式的 Azure 使用量。
 
-如需定價資訊，請參閱 [SQL Database 定價詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)。
+如需價格資訊，請參閱 [SQL Database 價格詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)。
 
 ## 後續步驟
 如需有關彈性資料庫工具的詳細資訊，請參閱：
@@ -98,4 +98,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

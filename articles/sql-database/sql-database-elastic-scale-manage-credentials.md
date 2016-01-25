@@ -70,11 +70,11 @@
 ## 另請參閱
 [管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)
 
-[如何將使用者加入彈性資料庫集區](sql-database-elastic-jobs-add-logins-to-dbs.md)
+[保護您的 SQL Database](sql-database-security.md)
 
 [開始使用彈性資料庫工作](sql-database-elastic-jobs-getting-started.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

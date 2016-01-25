@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="adhurwit"
    manager=""
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="storage"
@@ -13,29 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/17/2015"
-   ms.author="adhurwit"/>
+   ms.date="01/06/2016"
+   ms.author="lakasa"/>
 
 # 在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 blob
 
 ## 簡介
- 
+
 本教學課程涵蓋如何搭配使用用戶端儲存體加密和 Azure 金鑰保存庫。其中告訴您如何在主控台應用程式中使用這些技術加密和解密 blob。
 
 **預估完成時間：**20 分鐘
 
-如需 Azure 金鑰保存庫的概觀資訊，請參閱[什麼是 Azure 金鑰保存庫？](key-vault/key-vault-whatis.md)
+如需 Azure 金鑰保存庫的概觀資訊，請參閱[什麼是 Azure 金鑰保存庫？](key-vault/key-vault-whatis.md)。
 
-如需 Azure 儲存體用戶端加密的概觀資訊，請參閱 [Microsoft Azure 儲存體用戶端加密入門](storage-client-side-encryption.md)
+如需 Azure 儲存體用戶端加密的概觀資訊，請參閱 [Microsoft Azure 儲存體用戶端加密入門](storage-client-side-encryption.md)。
 
 
-## 必要條件
+## 先決條件
 
 若要完成本教學課程，您必須具備下列項目：
 
 - Azure 儲存體帳戶
 - Visual Studio 2013 或更新版本
-- Azure PowerShell 
+- Azure PowerShell
 
 
 ## 用戶端加密概觀
@@ -69,13 +69,13 @@
 
 在封裝管理員主控台中加入必要的 nuget 封裝。
 
-	Install-Package WindowsAzure.Storage 
+	Install-Package WindowsAzure.Storage
 
 	// This is the latest stable release for ADAL.
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	Install-Package Microsoft.Azure.KeyVault 
-	Install-Package Microsoft.Azure.KeyVault.Extensions 
+	Install-Package Microsoft.Azure.KeyVault
+	Install-Package Microsoft.Azure.KeyVault.Extensions
 
 
 將 AppSettings 加入至 App.Config。
@@ -108,13 +108,13 @@
 	{
 	    var authContext = new AuthenticationContext(authority);
 	    ClientCredential clientCred = new ClientCredential(
-	        ConfigurationManager.AppSettings["clientId"], 
+	        ConfigurationManager.AppSettings["clientId"],
 	        ConfigurationManager.AppSettings["clientSecret"]);
 		AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
-	
+
 	    if (result == null)
 	        throw new InvalidOperationException("Failed to obtain the JWT token");
-	
+
 	    return result.AccessToken;
 	}
 
@@ -148,14 +148,14 @@
 ## 加密 blob 和上傳
 加入下列程式碼來加密 Blob 並上傳至 Azure 儲存體帳戶。使用的 **ResolveKeyAsync** 方法會傳回 IKey。
 
-	
+
 	// Retrieve the key that you created previously.
 	// The IKey that is returned here is an RsaKey.
 	// Remember that we used the names contosokeyvault and testrsakey1.
     var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
 
-	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy. 
+	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
 	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
@@ -202,9 +202,9 @@ RSA 金鑰的私密金鑰保留在保存庫金鑰中，為了進行解密，從�
 - SymmetricKey 中的金鑰應該為 Base64 編碼。
 - 用來做為 SymmetricKey 的金鑰保存庫密碼，在金鑰保存庫中必須具有 "application/octet-stream" 內容類型。
 
-以下是在 PowerShell 中，在保存庫中建立密碼做為 SymmetricKey 的範例：
+以下是在 PowerShell 中，在保存庫中建立密碼做為 SymmetricKey 的範例：注意：硬式編碼值 $key 僅用於示範目的。在自己的程式碼中，您會想要產生此金鑰。
 
-	// Here we are making a 128-bit key so we have 16 characters. 
+	// Here we are making a 128-bit key so we have 16 characters.
 	// 	The characters are in the ASCII range of UTF8 so they are
 	//	each 1 byte. 16 x 8 = 128.
 	$key = "qwertyuiopasdfgh"
@@ -218,7 +218,7 @@ RSA 金鑰的私密金鑰保留在保存庫金鑰中，為了進行解密，從�
 在主控台應用程式中，您可以使用像以前一樣的呼叫來擷取這個密碼做為 SymmetricKey。
 
 	SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/", 
+    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
         CancellationToken.None).GetAwaiter().GetResult();
 
 就這麼簡單。盡情享受！
@@ -235,4 +235,4 @@ RSA 金鑰的私密金鑰保留在保存庫金鑰中，為了進行解密，從�
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

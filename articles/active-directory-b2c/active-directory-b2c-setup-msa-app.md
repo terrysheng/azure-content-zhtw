@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：針對具有 Microsoft 帳戶的取用者提供註冊和登入
@@ -41,11 +41,9 @@
 
     ![MSA - 重新導向 URL](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
 
-6. 在左側導覽中按一下 [應用程式設定]。複製 [**用戶端識別碼**] 和 [**用戶端密碼**] 的值。您必須使用這兩個值，將 Microsoft 帳戶設為租用戶中的身分識別提供者。
+6. 在左側導覽中按一下 [應用程式設定]。複製 [**用戶端識別碼**] 和 [**用戶端密碼**] 的值。您必須使用這兩個值，將 Microsoft 帳戶設為租用戶中的身分識別提供者。注意：[用戶端密碼] 是重要的安全性認證。
 
-> [AZURE.NOTE]**用戶端密碼**是重要的安全性認證。
-
-    ![MSA - Client secret](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
+    ![MSA - 用戶端密碼](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
 
 ## 將 Microsoft 帳戶設為您租用戶中的身分識別提供者
 
@@ -57,4 +55,4 @@
 6. 按一下 [設定此身分識別提供者]，然後輸入您先前建立之 Microsoft 帳戶應用程式的 [用戶端識別碼] 與 [用戶端密碼]。
 7. 依序按一下 [確定] 與 [建立]，以儲存您的 Microsoft 帳戶組態。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

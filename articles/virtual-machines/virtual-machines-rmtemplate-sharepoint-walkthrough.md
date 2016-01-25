@@ -3,7 +3,7 @@
 	description="逐步講解三部伺服器之 SharePoint 伺服器陣列的 Azure 資源管理員範本。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
 
 # 三部伺服器的 SharePoint 伺服器陣列資源管理員範本
 
@@ -366,14 +366,8 @@
 1.	建立部署所需的 Azure 基礎結構的一般 (儲存體帳戶、虛擬網路)、層相關 (可用性集合)，以及虛擬機器相關 (公用 IP 位址、可用性集合、網路介面、負載平衡器執行個體) 元素。
 2.	至於應用程式中的每一層 (例如驗證、資料庫、Web)，使用一般 (儲存體帳戶、 虛擬網路)、 特定層 (可用性集合) 和虛擬機器特定公用 IP 位址、 網路介面 (負載平衡器執行個體) 元素，在該層中建立以及設定伺服器。
 
-如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](../resource-group-authoring-templates.md)。
+## 後續步驟
 
-## 其他資源
+- 深入了解 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)和建置您自己的範本。
 
-[Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md) [Azure 資源管理員概觀](../resource-group-overview.md)
-
-[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)
-
-[虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # 搭配 Blob 儲存體的內部部署應用程式
 
@@ -358,7 +358,7 @@
 - [Azure 儲存體 REST API][]
 - [Azure 儲存體團隊部落格][]
 
-  [下載 Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [如何建立儲存體帳戶]: storage-create-storage-account.md#create-a-storage-account
   [如何管理儲存體帳戶]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [如何使用 Java 的 Blob 儲存體服務]: storage-java-how-to-use-blob-storage.md
@@ -366,4 +366,4 @@
   [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

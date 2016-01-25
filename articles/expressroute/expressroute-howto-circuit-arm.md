@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="cherylmc"/>
 
 # 使用 Azure 資源管理員及 PowerShell 建立和修改 ExpressRoute 線路
@@ -63,7 +63,7 @@
 
 	建立 ExpressRoute 線路之前，您需要有連線提供者、支援的位置和頻寬選項等清單。PowerShell Cmdlet *Get-AzureRmExpressRouteServiceProvider* 會傳回此資訊，在稍後的步驟中將會用到。
 
-		PS C:\> Get-AzureRmExpressRouteServiceProvider
+		Get-AzureRmExpressRouteServiceProvider
 
 	請檢查是否列出您的連線服務提供者。請記住下列事項，在您建立線路時會需要。
 	
@@ -93,13 +93,13 @@
 
 	回應會包含服務金鑰。您可以執行下列命令來取得所有參數的詳細描述：
 
-		get-help New-AzureRmExpressRouteCircuit -detailed 
+		Get-Help New-AzureRmExpressRouteCircuit -detailed 
 
 4. **列出所有 ExpressRoute 線路。**
 
 	您可以執行 *Get-AzureRmExpressRouteCircuit* 命令，取得您已建立之所有 ExpressRoute 線路的清單。
 
-		#Getting service key
+		
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 	回應如下列範例所示：
@@ -159,7 +159,7 @@
 
 	您可以執行下列命令來取得所有參數的詳細描述：
 
-		get-help Get-AzureRmExpressRouteCircuit -detailed 
+		Get-Help Get-AzureRmExpressRouteCircuit -detailed 
 
 5. **將金鑰傳送給連線提供者來佈建。**
 
@@ -215,17 +215,22 @@
 
 6. **建立路由設定。**
 	
-	請參閱 [ExpressRoute 線路路由設定 (建立和修改線路對等)](expressroute-howto-routing-arm.md) 頁面，取得逐步指示。
+	如需逐步指示，請參閱[建立和修改 ExpressRoute 電路的路由](expressroute-howto-routing-arm.md)。
 
-7. **將 VNet 連結到 ExpressRoute 線路。**
+>[AZURE.IMPORTANT]這些指示只適用於由提供第 2 層連線服務的服務提供者所建立的線路。如果您使用的服務提供者是提供受管理的第 3 層服務 (通常是 IPVPN，如 MPLS)，您的連線提供者會為您設定和管理路由。在此情況下，您無法建立或管理對等。
 
-	接下來，將 VNet 連結到 ExpressRoute 線路。當使用 Azure 資源管理員部署模式時，您可以使用[此範本](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)。我們目前正在進行 PowerShell 步驟。
+
+7. **將 VNet 連結到 ExpressRoute 線路。** 
+
+	接下來，將 VNet 連結到 ExpressRoute 線路。如需逐步指示，請參閱[將虛擬網路連結至 ExpressRoute 電路](expressroute-howto-linkvnet-arm.md)。
 
 ##  取得 ExpressRoute 線路的狀態
 
 您可以使用 *Get-AzureRmExpressRouteCircuit* Cmdlet，隨時擷取這項資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。
 
 		Get-AzureRmExpressRouteCircuit
+
+回應將類似以下範例：
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -253,7 +258,8 @@
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	The response will be something similar to the example below:
+
+回應如下列範例所示：
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -279,7 +285,7 @@
 
 您可以執行下列命令來取得所有參數的詳細描述：
 
-		get-help get-azurededicatedcircuit -detailed 
+		Get-Help Get-azurededicatedcircuit -detailed 
 
 ## 修改 ExpressRoute 線路
 
@@ -349,7 +355,7 @@
 
 請注意，您必須取消連結 ExpressRoute 的所有虛擬網路，此作業才會成功。如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 
-若已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成 [正在停用]。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
+如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成*正在停用*。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
 
 若服務提供者在您執行上述 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，我們將會取消佈建線路並停止向您收費。
 
@@ -357,4 +363,4 @@
 
 - [設定路由](expressroute-howto-routing-arm.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

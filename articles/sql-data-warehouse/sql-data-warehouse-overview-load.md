@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # 將資料載入 SQL 資料倉儲
 SQL 資料倉儲提供許多選項，供載入資料，包括：
@@ -31,7 +31,7 @@ SQL 資料倉儲提供許多選項，供載入資料，包括：
 從內部部署 SQL Server 執行個體載入至 SQL 資料倉儲時，建議採用下列步驟：
 
 1. **BCP** SQL Server 資料轉為一般檔案 
-2. 使用 **AZCopy** 或 \[匯入/匯出] (若為大型資料集)，將檔案移至 Azure
+2. 使用 **AZCopy** 或 [匯入/匯出] (若為大型資料集)，將檔案移至 Azure
 3. 將 PolyBase 設定為從您的儲存體帳戶讀取您的檔案
 4. 利用 **PolyBase** 建立新的資料表並載入資料
 
@@ -202,4 +202,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [Azure 儲存體文件]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-create-storage-account/
 [ExpressRoute 文件]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

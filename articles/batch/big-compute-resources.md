@@ -94,13 +94,11 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 
 ## 架構藍圖
 
-* [大規模運算 - 金融服務](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF) 會示範風險管理、報告和模擬如何在雲端有可操作性，並協調大規模運算和資料分析。
+* Microsoft Azure Batch 和 Azure Data Factory：大規模資料處理 ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)) 的架構說明 Data Factory 如何協調資料移動和處理以及 Azure Batch 如何以平行方式處理資料。
 
 ## 範例和示範
 
 * [Azure 的批次程式碼範例](https://github.com/Azure/azure-batch-samples)
-
-* [批次應用程式 Blender 範例](https://github.com/Azure/azure-batch-apps-blender)和[部落格文章](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 
 ## 相關的 Azure 服務
 
@@ -123,4 +121,4 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](http://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](http://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](http://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

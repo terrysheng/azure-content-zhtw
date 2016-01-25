@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 Work.com 整合
@@ -21,7 +21,7 @@
 -   有效的 Azure 訂閱
 -   啟用 Work.com 單一登入的訂用帳戶
   
-完成本教學課程之後，或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)，已獲指派 Work.com 存取權的 AAD 使用者就能夠在 Work.com 公司網站 (服務提供者起始登入) 的應用程式單一登入。
+完成本教學課程之後，或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)，指派了 Work.com 存取的 AAD 使用者就能夠在 Work.com 公司網站 (服務提供者起始登入) 的應用程式單一登入。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -46,7 +46,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-work-com-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-work-com-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -60,7 +60,7 @@
 
     ![應用程式庫](./media/active-directory-saas-work-com-tutorial/IC794106.png "應用程式庫")
 
-7.  在結果窗格中，選取 [Work.com]，然後按一下 [完成] 以新增應用程式。
+7.  在結果窗格中，選取 [Work.com]，然後按一下 [完成] 加入應用程式。
 
     ![Work.com](./media/active-directory-saas-work-com-tutorial/IC794107.png "Work.com")
 
@@ -74,11 +74,11 @@
 
 1.  以系統管理員身分登入 Work.com 租用戶。
 
-2.  移至 [設定]。
+2.  移到 [設定]。
 
     ![設定](./media/active-directory-saas-work-com-tutorial/IC794108.png "設定")
 
-3.  在左方導覽窗格的 [系統管理員] 區段中，按一下 [網域管理] 展開相關的區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。
+3.  在 [系統管理員] 區段的左方導覽窗格中，按一下 [定義域管理] 展開相關的區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。
 
     ![我的網域](./media/active-directory-saas-work-com-tutorial/IC767825.png "我的網域")
 
@@ -96,17 +96,17 @@
 
     ![設定單一登入](./media/active-directory-saas-work-com-tutorial/IC794110.png "設定單一登入")
 
-8.  在 [設定應用程式 URL] 頁面的 [Work.com 登入 URL] 文字方塊中，輸入使用者用來登入 Work.com 應用程式的 URL (例如：” **http://company.my.salesforce.com*”))，然後按 [下一步]：
+8.  在 [設定應用程式 URL] 頁面的 [Work.com 登入 URL] 文字方塊中，輸入使用者用來登入 Work.com 應用程式的 URL (例如：” **http://company.my.salesforce.com*”)，然後按 [下一步]：
 
     ![設定應用程式 URL](./media/active-directory-saas-work-com-tutorial/IC794111.png "設定應用程式 URL")
 
-9.  在 [設定在 Work.com 單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後將憑證檔案儲存在您的本機電腦中。
+9.  在 [在 Work.com 設定單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後在本機將憑證檔案儲存在您的電腦中。
 
     ![設定單一登入](./media/active-directory-saas-work-com-tutorial/IC794112.png "設定單一登入")
 
 10. 登入 Work.com 租用戶。
 
-11. 移至 [設定]。
+11. 移到 [設定]。
 
     ![設定](./media/active-directory-saas-work-com-tutorial/IC794108.png "設定")
 
@@ -114,7 +114,7 @@
 
     ![單一登入設定](./media/active-directory-saas-work-com-tutorial/IC794113.png "單一登入設定")
 
-13. 在 [單一登入設定] 對話頁面中執行下列步驟：
+13. 在 [單一登入設定] 對話方塊頁面執行下列步驟：
 
     ![啟用 SAML](./media/active-directory-saas-work-com-tutorial/IC781026.png "啟用 SAML")
 
@@ -127,16 +127,16 @@
 
     1.  在 [名稱] 文字方塊中，輸入您的組態名稱。  
 
-        >[AZURE.NOTE]提供 [名稱] 的值，系統會自動在 [API 名稱] 文字方塊填入內容。
+        >[AZURE.NOTE]提供 [名稱] 的值，[API 名稱] 文字方塊就會自動填入內容。
 
-    2.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上，複製 [簽發者 URL] 值，然後將它貼至 [簽發者] 文字方塊中。
+    2.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上， 複製 [簽發者 URL] 值，然後將它貼至 [簽發者] 文字方塊中。
     3.  若要上傳已下載的憑證，請按一下 [瀏覽]。
-    4.  在 [實體識別碼] 文字方塊中輸入 ****https://salesforce-work.com**。
-5.  在 [SAML 身分識別類型] 選取 [判斷提示包含來自使用者物件的同盟識別碼]。
-    6.  在 [SAML 身分識別位置] 選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]。
-    7.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上，複製 [遠端登入 URL] 值，然後將它貼至 [識別提供者登入 URL] 文字方塊中。
-    8.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將它貼至 [識別提供者登出 URL] 文字方塊中。
-    9.  在 [服務提供者起始的要求繫結] 選取 [HTTP POST]。
+    4.  在 [實體 ID] 文字方塊中，輸入 ****https://salesforce-work.com**。
+5.  在 [SAML 識別類型] 中選取 [判斷提示包含來自使用者物件的同盟識別碼]。
+    6.  在 [SAML 識別位置]，請選取 [識別位於 Subject 陳述式的 NameIdentifier 元素中]。
+    7.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上， 複製 [遠端登入 URL] 值，然後將它貼至 [識別提供者登入 URL] 文字方塊中。
+    8.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上， 複製 [遠端登出 URL] 值，然後將它貼至 [識別提供者登出 URL] 文字方塊中。
+    9.  在 [服務提供者起始的要求繫結]，請選取 [HTTP Post]。
     10. 按一下 [儲存]。
 
 15. 在 Work.com 入口網站的左側導覽窗格中，按一下 [網域管理] 展開相關區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。
@@ -151,7 +151,7 @@
 
     ![登入頁面商標](./media/active-directory-saas-work-com-tutorial/IC784366.png "登入頁面商標")
 
-18. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+18. 在 Azure AD 入口網站上，選取 [單一登入組態確認]，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-work-com-tutorial/IC794116.png "設定單一登入")
 
@@ -163,7 +163,7 @@ Azure Active Directory 使用者必須先佈建到 Work.com，才可以登入。
 
 1.  以系統管理員身分登入您的 Work.com 公司網站。
 
-2.  移至 [設定]。
+2.  移到 [設定]。
 
     ![設定](./media/active-directory-saas-work-com-tutorial/IC794108.png "設定")
 
@@ -171,7 +171,7 @@ Azure Active Directory 使用者必須先佈建到 Work.com，才可以登入。
 
     ![管理使用者](./media/active-directory-saas-work-com-tutorial/IC784369.png "管理使用者")
 
-4.  按一下 [新增使用者]。
+4.  按一下 [新使用者]。
 
     ![所有使用者](./media/active-directory-saas-work-com-tutorial/IC794117.png "所有使用者")
 
@@ -207,4 +207,4 @@ Azure Active Directory 使用者必須先佈建到 Work.com，才可以登入。
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

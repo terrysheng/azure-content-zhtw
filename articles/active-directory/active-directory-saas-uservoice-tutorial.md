@@ -1,6 +1,6 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 UserVoice 整合 | Microsoft Azure" 
-    description="了解如何使用 UserVoice 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    description="了解如何使用 UserVoice 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 UserVoice 整合
@@ -21,7 +21,7 @@
 -   有效的 Azure 訂閱
 -   UserVoice 租用戶
   
-完成本教學課程或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)之後，您指派給 UserVoice 的 Azure AD 使用者就能夠單一登入您 UserVoice 公司網站 (服務提供者起始登入) 的應用程式。
+完成本教學課程之後，您指派給 UserVoice 的 Azure AD 使用者就能夠從您的 UserVoice 公司網站 (服務提供者起始登入)，或使用[存取面板](active-directory-saas-access-panel-introduction.md)來單一登入應用程式。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -46,7 +46,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-uservoice-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-uservoice-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -56,7 +56,7 @@
 
     ![從組件庫新增應用程式](./media/active-directory-saas-uservoice-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在**搜尋方塊**中，輸入 **UserVoice**。
+6.  在 [搜尋方塊] 中，輸入 **UserVoice**。
 
     ![應用程式庫](./media/active-directory-saas-uservoice-tutorial/IC777513.png "應用程式庫")
 
@@ -70,19 +70,19 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 **UserVoice** 應用程式整合頁面中，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 [UserVoice] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-uservoice-tutorial/IC777515.png "設定單一登入")
 
-2.  在 [要如何讓使用者登入 UserVoice] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
+2.  在 [您希望使用者如何登入 UserVoice] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-uservoice-tutorial/IC777516.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面上，於 [UserVoice 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://\<tenant-name>.UserVoice.com*"，然後按 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [UserVoice 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://\<租用戶名稱>.UserVoice.com*"，然後按 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-uservoice-tutorial/IC777517.png "設定應用程式 URL")
 
-4.  在 [設定在 UserVoice 單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後在本機電腦上將憑證檔案儲存為 **c:\\UserVoice.cer**。
+4.  於 [在 UserVoice 設定單一登入] 頁面上，按 [下載憑證] 以下載您的憑證，然後在本機電腦上將憑證檔案儲存為 **c:\\UserVoice.cer**。
 
     ![設定單一登入](./media/active-directory-saas-uservoice-tutorial/IC777518.png "設定單一登入")
 
@@ -92,17 +92,17 @@
 
     ![設定](./media/active-directory-saas-uservoice-tutorial/IC777519.png "設定")
 
-7.  在 [Web 入口網站] 索引標籤的 [使用者驗證] 區段中，按一下 [編輯]，以開啟 [編輯使用者驗證] 對話方塊頁面。
+7.  在 [Web 入口網站] 索引標籤的 [使用者驗證] 區段中，按一下 [編輯]，以開啟 [編輯使用者驗證] 對話頁面。
 
     ![Web 入口網站](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Web 入口網站")
 
-8.  在 [編輯使用者驗證] 對話方塊頁面上執行下列步驟：
+8.  在 [編輯使用者驗證] 對話頁面上執行下列步驟：
 
     ![編輯使用者驗證](./media/active-directory-saas-uservoice-tutorial/IC777521.png "編輯使用者驗證")
 
     1.  按一下 [單一登入 (SSO)]。
-    2.  在 Azure 入口網站的 [設定在 UserVoice 單一登入] 對話方塊頁面中，複製**遠端登入 URL** 值，然後將它貼至 [SSO 遠端登入] 文字方塊中。
-    3.  在 Azure 入口網站的 [設定在 UserVoice 單一登入] 對話方塊頁面中，複製**遠端登出 URL** 值，然後將它貼至 [SSO 遠端登出] 文字方塊中。
+    2.  在 Azure 入口網站中的 [在 UserVoice 設定單一登入] 對話頁面上， 複製**遠端登入 URL** 值，然後將它貼至 [SSO 遠端登入] 文字方塊中。
+    3.  在 Azure 入口網站中的 [在 UserVoice 設定單一登入] 對話頁面上， 複製**遠端登出 URL** 值，然後將它貼至 [SSO 遠端登出] 文字方塊中。
     4.  從匯出的憑證複製**指紋** 值，然後將它貼入 [目前憑證 SHA1 指紋] 文字方塊。  
 
         >[AZURE.TIP]如需詳細資訊，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)
@@ -131,7 +131,7 @@
 
     ![代理程式和權限](./media/active-directory-saas-uservoice-tutorial/IC777812.png "代理程式和權限")
 
-5.  按一下 [新增管理員]。
+5.  按一下 [加入管理員]。
 
     ![加入管理員](./media/active-directory-saas-uservoice-tutorial/IC777813.png "加入管理員")
 
@@ -139,7 +139,7 @@
 
     ![邀請管理員](./media/active-directory-saas-uservoice-tutorial/IC777814.png "邀請管理員")
 
-    1.  在 [電子郵件] 文字方塊中，輸入您要佈建之帳戶的電子郵件地址，然後按一下 [新增]。
+    1.  在 [電子郵件] 文字方塊中，輸入您要佈建之帳戶的電子郵件地址，然後按一下 [加入]。
     2.  按一下 [邀請]。
 
 >[AZURE.NOTE]您可以使用任何其他的 UserVoice 使用者帳戶建立工具或 UserVoice 提供的 API 來佈建 AAD 使用者帳戶。
@@ -152,7 +152,7 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 **UserVoice** 應用程式整合頁面中，按一下 [指派使用者]。
+2.  在 [UserVoice 應用程式整合] 頁面中，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-uservoice-tutorial/IC777523.png "指派使用者")
 
@@ -162,4 +162,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

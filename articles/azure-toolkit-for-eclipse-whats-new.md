@@ -1,20 +1,20 @@
 <properties
-    pageTitle="適用於 Eclipse 的 Azure 工具組的新功能"
-    description="了解適用於 Eclipse 的 Azure 工具組中的最新功能。"
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="適用於 Eclipse 的 Azure 工具組的新功能"
+	description="了解適用於 Eclipse 的 Azure 工具組中的最新功能。"
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -23,6 +23,14 @@
 ## 適用於 Eclipse 的 Azure 工具組版本 ##
 
 本文包含適用於 Eclipse 的 Azure 工具組的各種版本和最新更新的相關資訊。
+
+### 2015 年 1 月 4 日 ###
+
+適用於 Eclipse 的 Azure 工具組 - 2016 年 1 月版本包含下列增強功能：
+
+* **支援 Zulu OpenJDK 更新**。如需詳細資訊，請參閱 [Zulu OpenJDK 的 Azul Systems 網頁][]。
+* **已更新 Tomcat 和 Jetty 散發套件**。已更新 Microsoft Azure 上所提供、可搭配適用於 Eclipse 的 Azure 工具組使用的 Jetty 和 Tomcat 散發套件
+* **Eclipse 和適用於 Azure 的 IntelliJ 工具組之間的功能同位**。適用於 Eclipse 的 Azure 工具組和[適用於 IntelliJ 的 Azure 工具組][]現在支援相同的功能集合。
 
 ### 2015 年 9 月 1 日 ###
 
@@ -96,8 +104,8 @@
 
 適用於 Eclipse 的 Azure 工具組 - 2014 年 8 月版本包含下列增強功能：
 
-* **支援 Azure SDK 2.4**。 舊版 Eclipse 工具組無法使用這個新發佈的 SDK。
-* **已更新 Zulu OpenJDK v1.6、v1.7 和 v1.8 封裝的版本**。 如需詳細資訊，請參閱 [Zulu OpenJDK 的 Azul Systems 網頁][]。
+* **支援 Azure SDK 2.4。** 舊版 Eclipse 工具組無法使用這個新發佈的 SDK。
+* **已更新 Zulu OpenJDK v1.6、v1.7 和 v1.8 封裝的版本。** 如需詳細資訊，請參閱 [Zulu OpenJDK 的 Azul Systems 網頁][]。
 * **已更新 Azure Libraries for Java 用戶端 API 程式庫的封裝版本。** 如需詳細資訊，請參閱 [Microsoft Azure 用戶端 API][]。
 * **支援最新的發佈設定檔案格式。** 已加入 2.0 版發佈設定檔案格式的支援。
 * **發佈到雲端功能背後的架構變更。** 此工具組現在會使用新發佈之適用於 Java 的 Microsoft Azure 用戶端 API 來支援其發佈到雲端功能。
@@ -107,8 +115,8 @@
 
 適用於 Eclipse 的 Azure 工具組 - 2014 年 6 月版本是次要服務更新，可提供下列增強功能：
 
-* **支援 Zulu OpenJDK 封裝 v1.8**。 如需詳細資訊，請參閱 [Zulu OpenJDK 的 Azul Systems 網頁][]。
-* **已更新 Zulu OpenJDK v1.6 和 1.7 封裝的版本**。 如需詳細資訊，請參閱 [Zulu OpenJDK 的 Azul Systems 網頁][]。
+* **支援 Zulu OpenJDK 封裝 v1.8。** 如需詳細資訊，請參閱 [Zulu OpenJDK 的 Azul Systems 網頁][]。
+* **已更新 Zulu OpenJDK v1.6 和 1.7 封裝的版本。** 如需詳細資訊，請參閱 [Zulu OpenJDK 的 Azul Systems 網頁][]。
 * **已更新 Azure Libraries for Java 用戶端 API 程式庫的封裝版本。** 如需詳細資訊，請參閱 [Microsoft Azure 用戶端 API][]。
 * **錯誤修正。** 此版本包含許多使用者要求的錯誤修正。
 
@@ -275,9 +283,9 @@
 
 [適用於 Eclipse 的 Azure 工具組][]
 
-[安裝適用於 Eclipse 的 Azure 工具組][]
+[安裝 Azure Toolkit for Eclipse][]
 
-[在 Eclipse 中建立適用於 Azreu 的 Hello World 應用程式][]
+[在 Eclipse 中為 Azure 建立 Hello World 應用程式][]
 
 如需如何搭配使用 Azure 與 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心][]。
 
@@ -288,15 +296,17 @@
 [Azure 服務端點]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 儲存體帳戶清單]: http://go.microsoft.com/fwlink/?LinkID=699528
 [適用於 Eclipse 的 Azure 工具組]: http://go.microsoft.com/fwlink/?LinkID=699529
+[適用於 IntelliJ 的 Azure 工具組]: https://plugins.jetbrains.com/plugin/8053
 [元件屬性]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
-[在 Eclipse 中建立適用於 Azreu 的 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
 [在 Eclipse 中建立適用於 Azure 的 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
+[在 Eclipse 中為 Azure 建立 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
 [在 Eclipse 中偵錯 Azure 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699535
 [部署大型部署]: http://go.microsoft.com/fwlink/?LinkID=699536
 [端點屬性]: http://go.microsoft.com/fwlink/?LinkID=699525#endpoints_properties
 [環境變數屬性]: http://go.microsoft.com/fwlink/?LinkID=699525#environment_variables_properties
 [如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者]: http://go.microsoft.com/fwlink/?LinkID=264703
 [如何使用 SSL 卸載]: http://go.microsoft.com/fwlink/?LinkID=699545
+[安裝 Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [安裝適用於 Eclipse 的 Azure 工具組]: http://go.microsoft.com/fwlink/?LinkId=699546
 [本機儲存體屬性]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 [Microsoft Azure 用戶端 API]: http://go.microsoft.com/fwlink/?LinkId=280397
@@ -317,4 +327,4 @@
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

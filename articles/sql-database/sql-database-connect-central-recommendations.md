@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="01/07/2016" 
 	ms.author="genemi"/>
 
 
@@ -125,10 +125,12 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 我們建議您在您第一次重試前延遲 5 秒鐘。在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
 
-在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找到使用 ADO.NET 之用戶端的*封鎖期間*討論。
+在 [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找使用 ADO.NET 之用戶端的封鎖期間討論。
 
 
-如需說明重試邏輯的程式碼範例，請參閱：[SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
+如需說明重試邏輯的程式碼範例，請參閱：
+
+- [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
 
 ### 暫時性錯誤的錯誤號碼
@@ -142,7 +144,13 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
  - 例如，如果出現錯誤號碼 40613，表示發生類似如下的狀況，則重試：<br/>*伺服器 'theserver' 上的資料庫 'mydatabase' 目前無法使用。*
 
 
-如需進一步資訊，請參閱：[Azure SQL Database 開發：作法主題](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [疑難排解 Azure SQL Database 的連接問題](http://support.microsoft.com/kb/2980233/)
+如需進一步資訊，請參閱：
+
+- [Azure SQL Database 開發：使用說明主題](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+<!--  (per Penny Lee, 2016/01/07.  MightyPen==GeneMi)
+- [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
+-->
 
 
 <a id="e-technologies" name="e-technologies"></a>
@@ -169,4 +177,4 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 - [SQL Database 和 SQL Server 的連接庫](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

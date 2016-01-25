@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # 將做為運算資源的隨選「高載」節點 (背景工作角色執行個體) 新增至 Azure 中的 HPC Pack 叢集
@@ -21,11 +21,11 @@ ms.service="virtual-machines"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
 
-本文將說明如何將隨選做為運算資源的 Azure「高載」節點 (在雲端服務中執行的背景工作角色執行個體) 新增至 Azure 中現有的 HPC Pack 前端節點。這可讓您相應增加 Azure 中的 HPC 叢集的運算能力，且無需維護一組預先設定的運算節點 VM。
+本文將說明如何將隨選做為運算資源的 Azure「高載」節點 (在雲端服務中執行的背景工作角色執行個體) 新增至 Azure 中現有的 HPC Pack 前端節點。這可讓您依需求相應增加 Azure 中的 HPC 叢集的計算能力，且無需維護一組預先設定的計算節點 VM。
 
 ![高載節點][burst]
 
->[AZURE.TIP]如果您使用 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)在 Azure 中建立叢集，則可以在自動化部署中包含 Azure 高載節點。
+>[AZURE.TIP]如果您使用 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)在 Azure 中建立叢集，則可以在自動化部署中包含 Azure 高載節點。請參閱該文件中的範例。
 
 本文中的步驟可協助您將 Azure 節點快速新增至雲端架構 HPC Pack 前端節點 VM，以測試或證明部署概念。此程序基本上相當於將雲端運算能力新增至內部部署 HPC Pack 叢集的「將量擴大到 Azure」程序。如需教學課程，請參閱[使用 Microsoft HPC Pack 設定混合式計算叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)。如需生產部署的詳細指引和考量，請參閱[使用 Microsoft HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)。
 
@@ -69,7 +69,7 @@ ms.service="virtual-machines"
 
 
 
-在此案例中新增及啟動 Azure 節點的步驟，通常與用於內部部署前端節點的步驟相同。如需詳細資訊，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點的步驟](https://technet.microsoft.com/library/gg481758(v=ws.10).aspx) 中的下列小節：
+在此案例中新增及啟動 Azure 節點的步驟，通常與用於內部部署前端節點的步驟相同。如需詳細資訊，請參閱[使用 Microsoft HPC Pack 部署 Azure 節點的步驟](https://technet.microsoft.com/library/gg481758.aspx)中的下列小節：
 
 * 建立 Azure 節點範本
 
@@ -83,9 +83,9 @@ ms.service="virtual-machines"
 
 ## 後續步驟
 
-* 如果您需要能根據叢集上目前的工作和任務的工作負載自動增加和縮減 Azure 運算資源的方法，請參閱[在 HPC Pack 叢集中增加和縮減 Azure 運算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)。
+* 如果您需要能根據叢集上目前的工作和任務的工作負載自動增加和縮減 Azure 計算資源的方法，請參閱[自動在 HPC Pack 叢集中增加和縮減 Azure 計算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)。
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

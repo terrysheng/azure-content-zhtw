@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/08/2016"
 	ms.author="billmath;andkjell"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -43,11 +43,11 @@
 ![必要的元件](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
 
-選用組態 | 說明
-------------- | ------------- |
-SQL Server 名稱 | 可讓您指定 SQL Server 名稱和執行個體名稱。如果您已經有想要使用的 ad 資料庫伺服器，請選擇這個選項。
-服務帳戶 | Azure AD Connect 預設會建立本機服務帳戶，以供同步處理服務使用。密碼是自動產生的，但安裝 Azure AD Connect 的人員並不知道。如果您使用遠端 SQL Server，您需要在網域中有一個服務帳戶並知道密碼。在這類情況下，請輸入要使用的服務帳戶。請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
-權限 | Azure AD Connect 預設會在安裝同步處理服務時，建立四個伺服器的本機群組。這些群組如下：[系統管理員] 群組、[操作員] 群組、[瀏覽] 群組和 [密碼重設群組]。如果您想要指定自己的群組，則可以在這裡這麼做。群組必須位於伺服器本機上，不能位於網域中。 |
+| 選用組態 | 說明 |
+| ------------- | ------------- |
+| 使用現有的 SQL Server | 可讓您指定 SQL Server 名稱和執行個體名稱。如果您已經有想要使用的 ad 資料庫伺服器，請選擇這個選項。如果您的 SQL Server 未啟用瀏覽，您必須接著在 [執行個體名稱] 方塊中輸入執行個體名稱，後面加上逗號及連接埠號碼來指定連接埠號碼。 |
+| 使用現有的服務帳戶 | Azure AD Connect 預設會建立本機服務帳戶，以供同步處理服務使用。密碼是自動產生的，但安裝 Azure AD Connect 的人員並不知道。如果您使用遠端 SQL Server，您需要在網域中有一個服務帳戶並知道密碼。在這類情況下，請輸入要使用的服務帳戶。請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| 指定自訂同步群組 | Azure AD Connect 預設會在安裝同步處理服務時，建立四個伺服器的本機群組。這些群組如下：[系統管理員] 群組、[操作員] 群組、[瀏覽] 群組和 [密碼重設群組]。如果您想要指定自己的群組，則可以在這裡這麼做。群組必須位於伺服器本機上，不能位於網域中。 |
 
 
 ## 使用者登入
@@ -103,11 +103,13 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 
 
 ### 根據群組進行同步處理篩選
-篩選群組功能可讓您執行小型的試驗，試驗中應該只會在 Azure AD 和 Office 365 內建立一小群物件子集。若要使用這項功能，請在您的 Active Directory 中建立一個群組，並新增應該以直接成員的身分與 Azure AD 進行同步處理的使用者和群組。您稍後可以在此群組中新增和移除使用者，藉此維護應該要顯示在 Azure AD 中的物件清單。若要使用這項功能，您會在自訂路徑中看見此頁面：
+篩選群組功能可讓您執行小型的試驗，試驗中應該只會在 Azure AD 和 Office 365 內建立一小群物件子集。若要使用這項功能，請在您的 Active Directory 中建立一個群組，並新增應該以直接成員的身分與 Azure AD 進行同步處理的使用者和群組。您稍後可以在此群組中新增和移除使用者，藉此維護應該要顯示在 Azure AD 中的物件清單。所有您想要同步處理的物件，都必須是直接隸屬於群組的成員。這包括使用者、群組、連絡人，以及電腦/裝置。將無法解析巢狀群組成員資格；群組成員只會包括群組本身，而非其成員。
 
-![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/filter2.png)
+若要使用這項功能，您會在自訂路徑中看見此頁面：![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
 >[AZURE.WARNING]這項功能只用來支援試驗部署，不應用於成熟的生產部署。
+
+在成熟的生產部署中，維護含有所有要同步處理之物件的單一群組將非常困難。您應該改用[設定篩選](active-directory-aadconnectsync-configure-filtering.md)中的其中一種方法。
 
 ### 選用功能
 
@@ -248,4 +250,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

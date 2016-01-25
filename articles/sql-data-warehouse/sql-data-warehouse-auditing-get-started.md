@@ -4,7 +4,7 @@
    services="sql-data-warehouse" 
    documentationCenter="" 
    authors="twounder" 
-   manager="" 
+   manager="barbkess" 
    editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="01/04/2016" 
-   ms.author="twounder"/>
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # 開始使用 SQL 資料倉儲資料庫稽核 
 Azure SQL 資料倉儲稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。
@@ -120,7 +120,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 ##<a id="subheading-6"></a>自動化
 有數個 PowerShell 指令程式可用來設定 Azure SQL Database 中的稽核。若要存取稽核 Cmdlet，您必須在 [Azure 資源管理員] 模式中執行 PowerShell。
 
-> [AZURE.NOTE] [Azure 資源管理員](https://msdn.microsoft.com/library/dn654592.aspx)模組目前為預覽版。它可能沒有如 Azure 模組所提供的相同管理功能。
+> [AZURE.NOTE][Azure 資源管理員](https://msdn.microsoft.com/library/dn654592.aspx)模組目前為預覽版。它可能沒有如 Azure 模組所提供的相同管理功能。
 
 在 [Azure 資源管理員] 模式中，您可以執行 `Get-Command *AzureSql*` 來列出可用的 Cmdlet。
 
@@ -141,4 +141,4 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -64,7 +64,7 @@
 
 * 是否啟用共置快取。
 * 快取大小佔記憶體的百分比。
-* 當應用程式以雲端服務的形式執行時，用來儲存快取狀態的儲存體帳戶名稱，若不想儲存快取狀態，則為無 (在計算模擬器中執行應用程式時，不會使用儲存體帳戶名稱)。 如果您將儲存體帳戶名稱設定為 [(自動)] \(此為預設值)，您的快取設定會自動使用您在 [發佈至 Azure] 對話方塊中所選取的同一個儲存體帳戶。
+* 當應用程式以雲端服務的形式執行時，用來儲存快取狀態的儲存體帳戶名稱，若不想儲存快取狀態，則為無 (在計算模擬器中執行應用程式時，不會使用儲存體帳戶名稱)。 如果您將儲存體帳戶名稱設定為 [(自動)] (此為預設值)，您的快取設定會自動使用您在 [發佈至 Azure] 對話方塊中所選取的同一個儲存體帳戶。
 
 >[AZURE.NOTE]只有在使用 Eclipse 工具組的發佈精靈發佈部署時，[(自動)] 設定才會有所要的效果。如果您改為使用外部機制 (例如 [Azure 管理入口網站][]) 手動發佈 .cspkg 檔案，部署作業將無法正確運作。
 
@@ -386,7 +386,7 @@
 
 [適用於 Eclipse 的 Azure 工具組][]
 
-[安裝適用於 Eclipse 的 Azure 工具組][]
+[安裝 Azure Toolkit for Eclipse][]
 
 [在 Eclipse 中建立適用於 Azreu 的 Hello World 應用程式][]
 
@@ -394,7 +394,7 @@
 
 [Azure 儲存體帳戶清單][]
 
-如需如何搭配使用 Azure 與 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心][]。
+如需有關在 Azure 中使用 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心][]。
 
 <!-- URL List -->
 
@@ -410,7 +410,7 @@
 [部署大型部署]: http://go.microsoft.com/fwlink/?LinkID=699536
 [如何使用共置快取]: http://go.microsoft.com/fwlink/?LinkID=699542
 [如何使用 SSL 卸載]: http://go.microsoft.com/fwlink/?LinkID=699545
-[安裝適用於 Eclipse 的 Azure 工具組]: http://go.microsoft.com/fwlink/?LinkId=699546
+[安裝 Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [工作階段親和性]: http://go.microsoft.com/fwlink/?LinkID=699548
 [SSL 卸載]: http://go.microsoft.com/fwlink/?LinkID=699549
 
@@ -439,4 +439,4 @@
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

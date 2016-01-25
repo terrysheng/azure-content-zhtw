@@ -1,12 +1,4 @@
-<properties 
-	pageTitle="使用 Azure 上的 Linux 來執行 Cassandra | Microsoft Azure"
-	description="如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集"
-	services="virtual-machines"
-	documentationCenter="nodejs"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""
-	azure-service-management"/>
+<properties pageTitle="使用 Azure 上的 Linux 來執行 Cassandra | Microsoft Azure" description="如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集" services="virtual-machines" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor="" azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -14,13 +6,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
-
 
 # 在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [資源管理員模型](virtual-machines-datastax-template.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-datastax-template.md)。
 
 ## 概觀
 Microsoft Azure 是一個開放雲端平台，可執行 Microsoft 和非 Microsoft 軟體，包括作業系統、應用程式伺服器、傳訊中介軟體，以及來自商業和開放原始碼模型的 SQL 和 NoSQL 資料庫。如果要在包括 Azure 在內的公用雲端上建立具有恢復功能的服務，應用程式伺服器和儲存層都必須要有仔細的規劃和審慎的架構。Cassandra 的分散式儲存架構天生就有助於建置可針對叢集失敗容錯的高可用性系統。Cassandra 是一種雲端等級的 NoSQL 資料庫，由 Apache Software Foundation 維護 (網址 cassandra.apache.org)；Cassandra 以 Java 撰寫，因此可以在 Windows 與 Linux 平台上執行。
@@ -40,7 +31,6 @@ Microsoft Azure 網路功能可供部署獨立的私人叢集，透過限制其�
 - 每個 Cassandra 節點需要固定的內部 IP 位址
 
 Cassandra 可以部署到單一 Azure 區域或多個區域，視工作負載的分散特性而定。多重區域部署模型透過相同的 Cassandra 基礎結構，可用來服務接近特定地理位置的使用者。Cassandra 的內建節點複寫負責同步處理來自多個資料中心的多重主機寫入，並且對應用程式提供一致的資料檢視。多重區域部署也可以協助降低更多 Azure 服務中斷的風險。Cassandra 的可微調一致性和複寫拓撲有助於滿足應用程式不同的 RPO 需求。
-
 
 ### 單一區域部署
 我們將從單一區域部署開始，並學習建立多重區域模型。我們將使用 Azure 虛擬網路功能建立獨立的子網路，以滿足先前所描述的網路安全性需求。建立單一區域部署的程序使用 Ubuntu 14.04 LTS 和 Cassandra 2.08；不過，程序要改採用其他 Linux 版本也非常容易。下列是單一區域部署的一些系統特性。
@@ -119,7 +109,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure](https://azure.microsoft.com/zh-tw/) </td><td>14.04 LTS</td></tr>
 </table>
 
 由於下載 JRE 時需要手動接受 Oracle 授權，為了簡化部署，請將所有必要的軟體下載到桌面，稍後上傳到我們要建立來做為叢集部署初期使用的 Ubuntu 範本映像。
@@ -265,9 +255,7 @@ Cassandra 的資料中心感知複寫和上述的一致性模型有助於立即�
 	export PATH
 
 ####步驟 4：安裝適用於實際執行系統的 JNA
-使用下列命令序列：
-下列命令會將 jna-3.2.7.jar 和 jna-platform-3.2.7.jar 安裝到 /usr/share.java 目錄：
-sudo apt-get install libjna-java
+使用下列命令序列：下列命令會將 jna-3.2.7.jar 和 jna-platform-3.2.7.jar 安裝到 /usr/share.java 目錄：sudo apt-get install libjna-java
 
 在 $CASS\_HOME/lib 目錄中建立符號連結，以便 Cassandra 啟動指令碼可以找到這些 jar：
 
@@ -298,13 +286,12 @@ sudo apt-get install libjna-java
 確定已反白顯示虛擬機器，然後按一下底部命令列中的 [關機] 連結。
 
 #####3：擷取映像
-確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。在下一個畫面中，指定 [映像名稱] \(例如 hk-cas-2-08-ub-14-04-2014071)、適當的 [映像描述]，然後按一下「確認」記號以完成擷取程序。
+確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。在下一個畫面中，指定 [映像名稱] (例如 hk-cas-2-08-ub-14-04-2014071)、適當的 [映像描述]，然後按一下「確認」記號以完成擷取程序。
 
 這需要幾秒鐘的時間，然後您應該就可以在映像庫的 [我的映像] 區段中找到映像。成功擷取映像之後，來源 VM 就會自動刪除。
 
 ##單一區域部署程序
-**步驟 1：建立虛擬網路**
-登入 Azure 傳統入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在 Azure 傳統入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
+**步驟 1：建立虛擬網路**登入 Azure 傳統入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在 Azure 傳統入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
 
 <table>
 <tr><th>VM 屬性名稱</th><th>值</th><th>備註</th></tr>
@@ -328,8 +315,7 @@ sudo apt-get install libjna-java
 
 透過網路安全性群組可保護「資料」與 Web 子網路，但這已超出本文的討論範圍。
 
-**步驟 2：佈建虛擬網路**
-使用先前建立的映像，我們將在雲端伺服器 “hk-c-svc-west” 中建立下列虛擬機器，並將它們繫結到個別的子網路，如下所示：
+**步驟 2：佈建虛擬網路**使用先前建立的映像，我們將在雲端伺服器 “hk-c-svc-west” 中建立下列虛擬機器，並將它們繫結到個別的子網路，如下所示：
 
 <table>
 <tr><th>機器名稱    </th><th>子網路	</th><th>IP 位址	</th><th>可用性集合</th><th>DC/機架</th><th>是否為種子？</th></tr>
@@ -511,6 +497,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 
 ###步驟 4：在 VNET1 和 VNET2 上建立閘道
 從兩個虛擬網路的儀表板，按一下 [建立閘道] 可觸發 VPN 閘道的佈建程序。請稍候幾分鐘，每個虛擬網路的儀表板應該會顯示實際的閘道位址。
+
 ###步驟 5：更新「區域」網路的個別「閘道」位址###
 編輯兩個區域網路，使用剛才佈建的閘道實際 IP 位址取代預留位置閘道 IP 位址。使用下列對應：
 
@@ -521,14 +508,12 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 </table>
 
 ###步驟 6：更新共用金鑰
-使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]： 
-Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK 
-Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
+使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]：Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
-###步驟 6：建立 VNET 對 VNET 連線
+###步驟 7：建立 VNET 對 VNET 連線
 從 Azure 傳統入口網站中，使用兩個虛擬網路的 [儀表板] 功能表建立閘道對閘道的連接。使用底部工具列的 [連線] 功能表項目。請稍候幾分鐘，儀表板應該會以圖形方式顯示連線詳細資料。
 
-###步驟 7：在第 2 個區域中建立虛擬機器 
+###步驟 8：在第 2 個區域中建立虛擬機器 
 依照在第 1 個區域中部署所述的下列相同步驟，建立 Ubuntu 映像，或者將映像 VHD 檔案複製到位於第 2 個區域的 Azure 儲存體帳戶，然後建立映像。使用此映像，並在新的雲端服務 hk-c-svc-east-us 建立下列虛擬機器清單：
 
 
@@ -546,19 +531,19 @@ Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-
 
 
 依照與第 1 個區域相同的指示，但是使用 10.2.xxx.xxx 位址空間。
-###步驟 8：在每個 VM 上設定 Cassandra
+
+###步驟 9：在每個 VM 上設定 Cassandra
 登入 VM 並執行下列項目：
 
-1. 編輯 $CASS\_HOME/conf/cassandra-rackdc.properties，以下列格式指定資料中心和機架內容：
-    dc =EASTUS
-    rack =rack1
-2. 編輯 cassandra.yaml 設定種子節點： 
-    種子："10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
-###步驟 9：啟動 Cassandra
+1. 編輯 $CASS\_HOME/conf/cassandra-rackdc.properties，以下列格式指定資料中心和機架內容：dc =EASTUS rack =rack1
+2. 編輯 cassandra.yaml 設定種子節點：種子："10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
+
+###步驟 10：啟動 Cassandra
 登入每個 VM，執行下列命令在背景啟動 Cassandra：$CASS\_HOME/bin/cassandra
 
 ## 測試多重區域叢集
 現在 Cassandra 已部署 16 個節點，每個 Azure 區域中有 8 個節點。這些節點如果有共通的叢集名稱和種子節點設定，就是位於相同的叢集中。使用下列程序測試叢集：
+
 ###步驟 1：使用 PowerShell 取得這兩個區域的內部負載平衡器 IP
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
@@ -707,6 +692,4 @@ Microsoft Azure 是一個富彈性的平台，可以執行 Microsoft 與開放�
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
- 
-
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

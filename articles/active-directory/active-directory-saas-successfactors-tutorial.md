@@ -1,6 +1,6 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 SuccessFactors 整合 | Microsoft Azure"
-    description="了解如何使用 SuccessFactors 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    description="了解如何使用 SuccessFactors 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -11,17 +11,17 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 SuccessFactors 整合
   
-本教學課程的目的是要示範在**服務提供者起始單一登入模式**之 Azure 與 SuccessFactors 的整合。本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程的目的是要示範在 [服務提供者起始單一登入模式] 之 Azure 與 SuccessFactors 的整合。本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   在 [服務提供者起始模式] 中啟用 SuccessFactors 單一登入的訂用帳戶
   
-完成本教學課程之後，您指派給 SuccessFactors 的 Azure AD 使用者就能夠單一登入您 SuccessFactors 公司網站 (服務提供者起始登入) 的應用程式，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)進行單一登入。
+完成本教學課程之後，您指派給 SuccessFactors 的 Azure AD 使用者就能夠從您的 SuccessFactors 公司網站 (服務提供者起始登入)，或使用[存取面板](active-directory-saas-access-panel-introduction.md)來單一登入應用程式。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -46,21 +46,21 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-successfactors-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-successfactors-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
     ![新增應用程式](./media/active-directory-saas-successfactors-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [欲執行動作] 對話方塊中，按一下 [從組件庫中新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。
 
     ![從組件庫新增應用程式](./media/active-directory-saas-successfactors-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在**搜尋方塊**中，輸入 **SuccessFactors**。
+6.  在 [搜尋方塊] 中，輸入 **SuccessFactors**。
 
     ![應用程式庫](./media/active-directory-saas-successfactors-tutorial/IC791136.png "應用程式庫")
 
-7.  在結果窗格中，選取 [SuccessFactors]，然後按一下 [完成] 以加入應用程式。
+7.  在結果窗格中，選取 [SuccessFactors]，然後按一下 [完成] 加入應用程式。
 
     ![SuccessFactors](./media/active-directory-saas-successfactors-tutorial/IC791137.png "SuccessFactors")
 
@@ -72,7 +72,7 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 [SuccessFactors] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 **SuccessFactors** 應用程式整合頁面上，按一下 [設定單一登入] 開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-successfactors-tutorial/IC791138.png "設定單一登入")
 
@@ -84,12 +84,12 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-successfactors-tutorial/IC791140.png "設定應用程式 URL")
 
-    1.  在 [SuccessFactors 登入 URL] 文字方塊中，輸入使用者用來登入 SuccessFactors 應用程式的 URL (例如："**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*")。
+    1.  在 [SuccessFactors 登入 URL] 文字方塊中，輸入使用者用來登入 SuccessFactors 應用程式的 URL (例如："**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*"))。
 2.  在 [SuccessFactors 回覆 URL] 文字方塊中，輸入 ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**。
 
         >[AZURE.NOTE]這個值只是暫時的預留位置。您會從 SuccessFactors 支援小組取得實際的值。稍後在本教學課程中，您會找到連絡 SuccessFactors 支援小組的指示。在此交談內容中，您會收到實際 SuccessFactors 回覆 URL。
 
-4.  於 [在 SuccessFactors 設定單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後將憑證檔案儲存在您的電腦中。
+4.  在 [設定在 SuccessFactors 單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後將憑證檔案儲存在您的電腦中。
 
     ![設定單一登入](./media/active-directory-saas-successfactors-tutorial/IC791141.png "設定單一登入")
 
@@ -101,9 +101,9 @@
 
     >[AZURE.IMPORTANT]請要求您的 SuccessFactors 支援小組將 NameId 格式參數設定為「未指定」。
 
-    您的 Successfactors 支援小組會將 [設定應用程式 URL] 對話方塊所需的正確 **Successfactors 回覆 URL** 傳送給您。
+    您的 Successfactors 支援小組會將 [設定應用程式 URL] 對話方塊所需的正確 **Successfactors 回覆 URL** 傳送給您]。
 
-6.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
+6.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-successfactors-tutorial/IC791142.png "設定單一登入")
 
@@ -121,7 +121,7 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 [SuccessFactors] 應用程式整合頁面上，按一下 [指派使用者]。
+2.  在 [SuccessFactors 應用程式整合] 頁面中，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-successfactors-tutorial/IC791143.png "指派使用者")
 
@@ -129,6 +129,6 @@
 
     ![是](./media/active-directory-saas-successfactors-tutorial/IC767830.png "是")
   
-如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
+如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資料，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

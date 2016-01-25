@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 偵錯 Azure App Service 中的 API 應用程式
@@ -138,4 +138,4 @@
 
 如需有關疑難排解的詳細資訊，請參閱[使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)。因為 API 應用程式是具有額外功能 (用於裝載 Web 服務) 的 Web 應用程式，所以您可對 API 應用程式使用您對 Web 應用程式使用的相同偵錯和疑難排解工具。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

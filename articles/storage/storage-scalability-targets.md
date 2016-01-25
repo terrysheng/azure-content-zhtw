@@ -1,12 +1,12 @@
-<properties 
+<properties
    pageTitle="Azure 儲存體延展性和效能目標 | Microsoft Azure"
    description="了解 Azure 儲存體的延展性和效能目標，包括標準和進階儲存體帳戶的容量、要求率以及輸入和輸出頻寬。了解每一項 Azure 儲存體服務內分割的效能目標。"
    services="storage"
    documentationCenter="na"
    authors="robinsh"
    manager="carmonm"
-   editor="na" />
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
@@ -36,7 +36,7 @@
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## 虛擬機器磁碟的延展性目標 
+## 虛擬機器磁碟的延展性目標
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
@@ -85,4 +85,4 @@
 - [Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md)
 - [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務。](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

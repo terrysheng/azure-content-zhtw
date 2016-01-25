@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/19/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
@@ -38,7 +38,7 @@
 
 [適用於 Eclipse 的 Azure 工具組][]
 
-[安裝適用於 Eclipse 的 Azure 工具組][]。
+[安裝 Azure Toolkit for Eclipse][]
 
 [在 Eclipse 中建立適用於 Azure 的 Hello World 應用程式][]
 
@@ -55,10 +55,10 @@
 [Azure 角色屬性]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure 儲存體帳戶清單]: http://go.microsoft.com/fwlink/?LinkID=699528
 [在 Eclipse 中建立適用於 Azure 的 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
-[安裝適用於 Eclipse 的 Azure 工具組]: http://go.microsoft.com/fwlink/?LinkId=699546
+[安裝 Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # 使用 Azure 資源管理員範本在 Ubuntu 上部署 WordPress 伺服器
@@ -92,18 +92,4 @@
 
 範本執行完成時，您在新的資源群組中的 Ubuntu 上就會有 WordPress 伺服器。
 
-## 其他資源
-
-[使用 Azure 資源管理員範本和 Azure PowerShell 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure 資源管理員概觀](../resource-group-overview.md)
-
-[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

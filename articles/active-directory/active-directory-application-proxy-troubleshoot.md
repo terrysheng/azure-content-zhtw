@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/06/2016"
 	ms.author="kgremban"/>
 
 
@@ -21,13 +21,13 @@
 # 疑難排解應用程式 Proxy
 
 
-> [AZURE.IMPORTANT]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 如果在存取已發佈的應用程式或發佈應用程式時發生錯誤，請檢查下列選項以查看 Microsoft Azure AD 應用程式 Proxy 是否運作正常︰
 
 - 開啟 [Windows 服務] 主控台並確認 [Microsoft AAD 應用程式 Proxy 連接器] 服務已啟用並在執行中。您也可以查看應用程式 Proxy 服務屬性頁面，如下圖所示：
 
-![](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
+  ![[Microsoft AAD 應用程式 Proxy 連接器屬性] 視窗螢幕擷取畫面](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 
 - 開啟 [事件檢視器] 並尋找與應用程式 Proxy 連接器相關的事件 (位於 [應用程式及服務記錄檔] > [Microsoft] > [AadApplicationProxy] > [Connector] > [Admin] 之下)。
 - 如有需要，開啟分析和偵錯記錄檔及開啟應用程式 Proxy 連接器工作階段記錄檔，即可取得更詳細的記錄檔。
@@ -49,7 +49,7 @@
 | 錯誤 | 說明 | 解決方案 |
 | --- | --- | --- |
 | 連接器註冊失敗︰確定您已在 Azure 管理入口網站中啟用應用程式 Proxy，並已正確地輸入您的 Active Directory 使用者名稱和密碼。錯誤︰「發生一或多個錯誤。」 | 您可以關閉註冊視窗，而不需執行登入 Azure AD。 | 再次執行連接器精靈並註冊連接器。 |
-| 連接器註冊失敗︰確定您已在 Azure 管理入口網站中啟用應用程式 Proxy，並已正確地輸入您的 Active Directory 使用者名稱和密碼。錯誤︰「AADSTS50001: 資源 `https://proxy.cloudwebappproxy.net/registerapp` 已停用。」 | 應用程式 Proxy 已停用。 | 先確定您已在 Azure AD 入口網站中啟用應用程式 Proxy，再嘗試註冊連接器。如需啟用應用程式 Proxy 的詳細資訊，請參閱[啟用應用程式 Proxy 服務](active-directory-application-proxy-enable.md)。 |
+| 連接器註冊失敗︰確定您已在 Azure 管理入口網站中啟用應用程式 Proxy，並已正確地輸入您的 Active Directory 使用者名稱和密碼。錯誤︰「AADSTS50001: 資源 `https://proxy.cloudwebappproxy.net/registerapp` 已停用。」 | 應用程式 Proxy 已停用。 | 先確定您已在 Azure 傳統入口網站中啟用應用程式 Proxy，再嘗試註冊連接器。如需啟用應用程式 Proxy 的詳細資訊，請參閱[啟用應用程式 Proxy 服務](active-directory-application-proxy-enable.md)。 |
 | 連接器註冊失敗︰確定您已在 Azure 管理入口網站中啟用應用程式 Proxy，並已正確地輸入您的 Active Directory 使用者名稱和密碼。錯誤︰「發生一或多個錯誤。」 | 如果註冊視窗隨即開啟，然後立即關閉，而不讓您登入，您可能會發生此錯誤。您的系統上發生某種形式的網路錯誤時，就會發生此錯誤。 | 確定可以從瀏覽器連線至公用網站，並如[應用程式 Proxy 先決條件](active-directory-application-proxy-enable.md)所指定開啟連接埠。 |
 | 連接器註冊失敗︰確定您的電腦已連線到網際網路。錯誤︰「沒有任何在 `https://connector.msappproxy.net:9090/register/RegisterConnector` 上進行接聽的端點可以接受該訊息。這通常是由不正確的位址或 SOAP 動作所造成。如需詳細資訊，請參閱 InnerException (如果有的話)。」 | 如果您使用 Azure AD 使用者名稱和密碼進行登入，但之後收到這個錯誤，可能是所有超過 8081 的連接埠遭到封鎖。 | 確定必要的連接埠已開啟。如需詳細資訊，請參閱[應用程式 Proxy 先決條件](active-directory-application-proxy-enable.md)。 |
 | 清除錯誤會顯示在註冊視窗中。無法繼續 - 只能關閉視窗。 | 您輸入的使用者名稱或密碼錯誤。 | 請再試一次。 |
@@ -63,17 +63,14 @@
 
 | 錯誤 | 說明 | 解決方案 |
 | --- | --- | --- |
-| 無法擷取目前的執行原則以供執行 PowerShell 指令碼 | 如果連接器安裝失敗，請檢查以確定未停用 PowerShell 執行原則。 | 開啟 [群組原則編輯器]。移至 [電腦設定] > [系統管理範本] > [Windows 元件] > [Windows PowerShell]，連按兩下 [開啟指令碼執行]。這可設為 [未設定] 或 [已啟用]。如果設為 [已啟用]，請確定 [選項] 之下的 [執行原則] 設定為 [允許本機指令碼和遠端已簽署的指令碼] 或 [允許所有指令碼]。 |
+| 無法擷取目前的執行原則以供執行 PowerShell 指令碼。 | 如果連接器安裝失敗，請檢查以確定未停用 PowerShell 執行原則。 | 開啟 [群組原則編輯器]。移至 [電腦設定] > [系統管理範本] > [Windows 元件] > [Windows PowerShell]，連按兩下 [開啟指令碼執行]。這可設為 [未設定] 或 [已啟用]。如果設為 [已啟用]，請確定 [選項] 之下的 [執行原則] 設定為 [允許本機指令碼和遠端已簽署的指令碼] 或 [允許所有指令碼]。 |
 | 12008 - Azure AD 已超出後端伺服器允許的 Kerberos 驗證嘗試次數上限。 | 此事件可能表示 Azure AD 與後端應用程式伺服器之間的設定不正確，或兩台電腦上的日期和時間設定有問題。 | 後端伺服器拒絕了 Azure AD 所建立的 Kerberos 票證。確認 Azure AD 和後端應用程式伺服器的組態設定正確。確定 Azure AD 與後端應用程式伺服器的日期和時間設定已同步。 |
 | 13016 - 因為邊緣權杖或存取 cookie 中沒有 UPN，Azure AD 無法代表使用者擷取 Kerberos 票證。 | STS 組態有問題。 | 在 STS 中修正 UPN 宣告設定。 |
 | 13019 - 因為下列一般 API 錯誤，Azure AD 無法代表使用者擷取 Kerberos 票證。 | 此事件可能表示 Azure AD 與網域控制站伺服器之間的設定不正確，或兩台電腦上的日期和時間設定有問題。 | 網域控制站拒絕了 Azure AD 所建立的 Kerberos 票證。確認 Azure AD 和後端應用程式伺服器的組態設定正確，尤其是 SPN 組態。確定 Azure AD 的網域已加入至與網域控制站相同的網域，確保網域控制站建立 Azure AD 的信任。確定 Azure AD 與網域控制站的日期和時間設定已同步。 |
 | 13020 - 因為未定義後端伺服器 SPN，Azure AD 無法代表使用者擷取 Kerberos 票證。 | 此事件可能表示 Azure AD 與網域控制站伺服器之間的設定不正確，或兩台電腦上的日期和時間設定有問題。 | 網域控制站拒絕了 Azure AD 所建立的 Kerberos 票證。確認 Azure AD 和後端應用程式伺服器的組態設定正確，尤其是 SPN 組態。確定 Azure AD 的網域已加入至與網域控制站相同的網域，確保網域控制站建立 Azure AD 的信任。確定 Azure AD 與網域控制站的日期和時間設定已同步。 |
 | 13022 - 因為後端伺服器以 HTTP 401 錯誤回應 Kerberos 驗證嘗試，Azure AD 便無法驗證使用者。 | 此事件可能表示 Azure AD 與後端應用程式伺服器之間的設定不正確，或兩台電腦上的日期和時間設定有問題。 | 後端伺服器拒絕了 Azure AD 所建立的 Kerberos 票證。確認 Azure AD 和後端應用程式伺服器的組態設定正確。確定 Azure AD 與後端應用程式伺服器的日期和時間設定已同步。 |
 | 網站無法顯示頁面。 | 如果應用程式是 IWA 應用程式，則使用者在嘗試存取此應用程式時可能會發生此錯誤，為此應用程式定義的 SPN 可能不正確。 | 對於 IWA 應用程式︰確定為此應用程式設定的 SPN 正確無誤。 |
-| 網站無法顯示頁面。 | 如果應用程式是 OWA 應用程式，則使用者在嘗試存取此應用程式時可能會發生此錯誤，這可能是由下列下列其中一項所造成︰ | 相應減輕的步驟︰ |
-| | 為此應用程式定義的 SPN 不正確。 | 確定為此應用程式設定的 SPN 正確無誤。 |
-| | 嘗試存取應用程式的使用者使用 Microsoft 帳戶，而不是使用適當的公司帳戶進行登入，或使用者是來賓使用者。 | 確定使用者是使用符合已發佈應用程式之網域的公司帳戶進行登入。Microsoft 帳戶使用者和來賓無法存取 IWA 應用程式。 |
-| | 未在內部部署端針對此應用程式正確地定義嘗試存取應用程式的使用者。 | 確定此使用者具有適當的權限，如在內部部署電腦上針對此後端應用程式所定義的權限。 |
+| 網站無法顯示頁面。 | 如果應用程式是 OWA 應用程式，使用者在嘗試存取此應用程式時可能會發生此錯誤，這可能是由下列下列其中一項所造成︰<br>- 為此應用程式定義的 SPN 不正確。<br>- 嘗試存取應用程式的使用者使用 Microsoft 帳戶，而不是使用適當的公司帳戶進行登入，或使用者是來賓使用者。<br>- 未在內部部署端針對此應用程式正確地定義嘗試存取應用程式的使用者。 | 相應的解決步驟︰<br>- 確定為此應用程式設定的 SPN 正確無誤。<br>- 確定使用者是使用符合已發佈應用程式之網域的公司帳戶進行登入。Microsoft 帳戶使用者和來賓無法存取 IWA 應用程式。<br>- 確定此使用者具有適當的權限，如在內部部署電腦上針對此後端應用程式所定義的權限。 |
 | 無法存取此公司應用程式。您未獲得授權存取此應用程式。授權失敗。務必將此應用程式的存取權指派給使用者。 | 如果嘗試存取應用程式的使用者使用 Microsoft 帳戶，而不是使用適當的公司帳戶進行登入，或使用者是來賓使用者，則使用者在嘗試存取此應用程式時會發生此錯誤。 | Microsoft 帳戶使用者和來賓無法存取 IWA 應用程式。確定使用者是使用符合已發佈應用程式之網域的公司帳戶進行登入。 |
 | 無法立即存取此公司應用程式。請稍後再試...連接器已逾時。 | 如果未在內部部署端針對此應用程式正確地定義嘗試存取應用程式的使用者，則使用者在嘗試存取此應用程式時可能會發生此錯誤。 | 確定此使用者具有適當的權限，如在內部部署電腦上針對此後端應用程式所定義的權限。 |
 
@@ -89,7 +86,7 @@
 - [使用宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)
 
 ## 深入了解應用程式 Proxy
-- [看看我們在這裡的線上說明](active-directory-application-proxy-enable.md)
+- [看看我們的線上說明](active-directory-application-proxy-enable.md)
 - [查閱應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
@@ -97,4 +94,4 @@
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

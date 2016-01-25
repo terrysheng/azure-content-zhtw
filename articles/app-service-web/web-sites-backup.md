@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/07/2015" 
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中備份 Web 應用程式
@@ -126,8 +126,7 @@ Web Apps 可以備份下列資訊：
 
 假設您有一個 Web 應用程式，其中包含過去幾年的記錄檔和靜態影像，且以後不再變更。您已完整備份 Web 應用程式，包括舊的影像。現在您想要每天備份 Web 應用程式，但不想付費儲存從未變更的記錄檔或靜態影像檔案。
 
-![Logs 資料夾][LogsFolder]
-![Images 資料夾][ImagesFolder]
+![Logs 資料夾][LogsFolder] ![Images 資料夾][ImagesFolder]
 	
 下列步驟顯示如何從備份中排除這些檔案。
 
@@ -167,7 +166,7 @@ Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若�
 
 <a name="nextsteps"></a>
 ## 後續步驟
-如需有關從備份還原 Web 應用程式的資訊，請參閱[在 Azure App Service 中還原 Web 應用程式](web-sites-restore.md)。
+如需有關從備份還原 Web 應用程式的資訊，請參閱[在 Azure App Service 中還原 Web 應用程式](web-sites-restore.md)。您也可以使用 REST API 來備份及還原 App Service 應用程式 (請參閱[使用 REST 來備份及還原 App Service 應用程式](websites-csm-backup.md))。
 
 若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用](/pricing/free-trial/)。
 
@@ -190,4 +189,4 @@ Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若�
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # 什麼是 StorSimple Snapshot Manager？
@@ -25,7 +25,11 @@ StorSimple Snapshot Manager 是 Microsoft Management Console (MMC) 嵌入式管�
 
 如需整個 Microsoft Azure StorSimple 系統的概觀，包括 StorSimple 裝置、StorSimple Manager 服務、StorSimple Snapshot Manager、StorSimple Adapter for SharePoint，請參閱 [StorSimple 8000 系列：混合式雲端儲存解決方案](storsimple-overview.md)。
  
->[AZURE.NOTE]您無法使用 StorSimple Snapshot Manager 來管理 Microsoft Azure StorSimple Virtual Arrays (也稱為 StorSimple 內部部署虛擬裝置)。
+>[AZURE.NOTE]
+>
+>- 您無法使用 StorSimple Snapshot Manager 來管理 Microsoft Azure StorSimple Virtual Arrays (也稱為 StorSimple 內部部署虛擬裝置)。
+>
+>- 如果您打算在 StorSimple 裝置上安裝 StorSimple Update 2，在**安裝 StorSimple Update 2 之前**，請務必下載最新版的 StorSimple Snapshot Manager 並安裝它。最新版的 StorSimple Snapshot Manager 具回溯相容性，可搭配 Microsoft Azure StorSimple 的所有發行版本使用。如果您使用的是舊版的 StorSimple Snapshot Manager，您必須更新它 (安裝新版本前不需解除安裝舊版)。
 
 ## StorSimple Snapshot Manager 用途和架構
 
@@ -42,7 +46,7 @@ StorSimple Snapshot Manager 備份採用增量快照的形式，即僅擷取自�
 
 ![StorSimple Snapshot Manager 架構](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**圖 1：StorSimple Snapshot Manager 架構**
+**StorSimple Snapshot Manager 架構**
 
 ## 支援多個磁碟區類型
 
@@ -103,7 +107,7 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 ![VSS 程序](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
-**圖 2：Windows 磁碟區陰影複製服務程序**
+**Windows 磁碟區陰影複製服務程序**
 
 ## 備份類型和備份原則
 
@@ -152,4 +156,4 @@ VSS 的 StorSimple Snapshot Manager 實作會使用 SQL Server 和一般 NTFS �
 
 - 下載 [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

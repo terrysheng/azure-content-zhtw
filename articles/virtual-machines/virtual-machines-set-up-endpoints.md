@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Azure 中的虛擬機器上設定端點"
+	pageTitle="如何在傳統的虛擬機器上設定端點 | Microsoft Azure"
 	description="了解如何設定 Azure 傳統入口網站中的端點，以允許與 Azure 中的虛擬機器進行通訊。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,27 +11,19 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-#如何設定虛擬機器的端點
+# 如何在傳統的 Azure 虛擬機器上設定端點
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。針對資源管理員部署，請參閱[開始使用 Azure 資源管理員設定網際網路面向的負載平衡器](../load-balancer/load-balancer-arm-powershell.md)和[關於網路安全性群組](virtual-networks-nsg.md)。
 
-您在 Azure 中建立的所有虛擬機器都可以自動使用私人網路通道，與相同雲端服務或虛擬網路中的其他虛擬機器進行通訊。不過，網際網路或其他虛擬網路上的電腦需要端點，才能將傳入網路流量導向至虛擬機器。
+您在 Azure 中使用傳統部署模型建立的所有虛擬機器，都可以自動透過私人網路通道與同一雲端服務或虛擬網路中的其他虛擬機器通訊。不過，網際網路或其他虛擬網路上的電腦需要端點，才能將傳入網路流量導向至虛擬機器。
 
-當您在 Azure 傳統入口網站建立虛擬機器時，也會自動建立遠端桌面、Windows PowerShell 遠端處理和安全殼層 (SSH) 的端點。建立虛擬機器或日後有需要時，您可以設定其他端點。
-
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [關於網路安全性群組](virtual-networks-nsg.md)
-
-請注意，網路安全性群組會控制虛擬機器的存取權，但是不提供連接埠轉送功能。若要執行連接埠轉送，請參閱下列文章：
-
-- [開始使用 Azure 資源管理員設定網際網路面向的負載平衡器](../load-balancer/load-balancer-arm-powershell.md)
+視您選擇的作業系統而定，當您在 Azure 傳統入口網站建立虛擬機器時，通常也會自動為您建立像是遠端桌面、Windows PowerShell 遠端和安全殼層 (SSH) 等的通用端點。建立虛擬機器或日後有需要時，您可以設定其他端點。
 
 每個端點都有一個公用連接埠和一個私人連接埠：
 
@@ -44,7 +36,7 @@
 
 > [AZURE.NOTE]對於與遠端桌面和安全殼層 (SSH) 相關聯的連接埠，以及對於大部分情況下的 Windows PowerShell 遠端執行功能，Azure 虛擬機器的防火牆設定會自動完成。至於其他所有端點的指定連接埠，不會自動設定虛擬機器的防火牆。您建立虛擬機器的端點時，需要確定虛擬機器的防火牆也允許端點組態相對應通訊協定和私人連接埠的流量。
 
-##建立端點
+## 建立端點
 
 1.	如果您未曾執行過這項操作，請登入 Azure 傳統入口網站。
 2.	按一下 [虛擬機器]，然後按一下要設定的虛擬機器名稱。
@@ -68,9 +60,9 @@
 
 ![端點建立成功](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
 
-若要使用 Azure PowerShell Cmdlet 來設定此項目，請參閱 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)。
+若要使用 Azure PowerShell Cmdlet 來設定此項目，請參閱 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)。如果您是在服務管理模式中使用 Azure CLI，請使用 **azure vm endpoint create** 命令。
 
-##在端點上管理 ACL
+## 在端點上管理 ACL
 
 為了定義可以傳送流量的電腦集合，端點上的 ACL 能夠根據來源 IP 位址限制流量。請依照這些步驟，在端點上新增、修改或移除 ACL。
 
@@ -100,4 +92,4 @@
 
 [Azure 基礎結構服務的負載平衡](virtual-machines-load-balance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

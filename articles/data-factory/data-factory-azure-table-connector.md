@@ -369,7 +369,19 @@
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | 使用自訂查詢來讀取資料。 | <p>Azure 資料表查詢字串。</p>**範例：****<br/> "azureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | No azureTableSourceIgnoreTableNotFound | 指出是否忍受資料表不存在的例外狀況。 | TRUE<br/>FALSE | No |
+azureTableSourceQuery | 使用自訂查詢來讀取資料。 | <p>Azure 資料表查詢字串。請參閱以下範例。 | 否
+azureTableSourceIgnoreTableNotFound | 指出是否忍受資料表不存在的例外狀況。 | TRUE<br/>FALSE | 否 |
+
+### azureTableSourceQuery 範例
+
+如果 Azure 資料表資料行是字串類型：
+
+	azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', SliceStart)"
+
+如果 Azure 資料表資料行是日期時間類型：
+
+	"azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', SliceStart, SliceEnd)"
+
 
 **AzureTableSink** 在 typeProperties 區段中支援下列屬性：
 
@@ -503,4 +515,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="01/08/2016"
 	ms.author="tomfitz"/>
 
 #如何建立 PHP Web 和背景工作角色
@@ -196,7 +196,7 @@ Azure 模擬器所提供的本機環境，可讓您在 Azure 應用程式部署�
 
 ## 發行您的應用程式
 
-若要發行應用程式，您必須先使用 **Import-PublishSettingsFile** Cmdlet 匯入您的發佈設定。使用 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) Cmdlet 發佈應用程式，如下所示。如需登入的相關資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
+若要發佈應用程式，您必須先使用 [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) Cmdlet 匯入您的發佈設定。使用 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) Cmdlet 發佈應用程式，如下所示。如需登入的相關資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
 ## 後續步驟
 
@@ -211,4 +211,4 @@ Azure 模擬器所提供的本機環境，可讓您在 Azure 應用程式部署�
 [sqlsrv drivers]: http://php.net/sqlsrv
 []: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

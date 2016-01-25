@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="設定 Azure 儲存體的連接字串 | Microsoft Azure" 
-	description="了解如何設定 Azure 儲存體帳戶的連接字串。連接字串包含以程式設計方式驗證儲存體帳戶中資源存取所需的資訊。連接字串可能會封裝您擁有的帳戶存取金鑰，或者可能包含共用的存取簽章，用於存取帳戶的資源，而不需要存取金鑰。" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor="cgronlun"/>
+	pageTitle="設定 Azure 儲存體的連接字串 | Microsoft Azure"
+	description="了解如何設定 Azure 儲存體帳戶的連接字串。連接字串包含以程式設計方式驗證儲存體帳戶中資源存取所需的資訊。連接字串可能會封裝您擁有的帳戶存取金鑰，或者可能包含共用的存取簽章，用於存取帳戶的資源，而不需要存取金鑰。"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/05/2016"
 	ms.author="tamram"/>
 
 # 設定 Azure 儲存體連接字串
@@ -52,13 +52,13 @@
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 例如，您的連接字串看起來會類似下列連接字串範例：
- 
+
 	DefaultEndpointsProtocol=https;
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
 > [AZURE.NOTE]Azure 儲存體服務可同時支援連接字串中的 HTTP 和 HTTPS；不過，強烈建議您使用 HTTPS。
-    
+
 ## 建立明確儲存體端點的連接字串
 
 如果出現下列情況，您可以在連接字串中明確指定服務端點：
@@ -79,10 +79,10 @@
 
 當您在連接字串中明確指定服務端點時，您有兩個選項可以指定上述字串中的 `credentials`：
 
-- 您可以指定帳戶名稱和金鑰：`AccountName=myAccountName;AccountKey=myAccountKey` 
+- 您可以指定帳戶名稱和金鑰：`AccountName=myAccountName;AccountKey=myAccountKey`
 - 您可以指定共用存取簽章：`SharedAccessSignature=base64Signature`
 
-### 使用自訂網域名稱指定 Blob 端點 
+### 使用自訂網域名稱指定 Blob 端點
 
 如果您已向 Blob 服務註冊要使用的自訂網域名稱，則可能想要明確地在連接字串中設定 Blob 端點。連接字串中列出的端點值可用來建構連接到 Blob 服務的要求 URI，而它會要求任何傳回到您程式碼的 URI 形式。
 
@@ -91,10 +91,10 @@
 	DefaultEndpointsProtocol=https;
 	BlobEndpoint=www.mydomain.com;
 	AccountName=storagesample;
-	AccountKey=<account-key> 
+	AccountKey=<account-key>
 
 
-### 指定具有共用存取簽章的 Blob 端點 
+### 指定具有共用存取簽章的 Blob 端點
 
 您可以建立具有明確端點的連接字串，透過共用存取簽章存取儲存體資源。在此情況下，您可以指定共用存取簽章做為連接字串的一部分，而不是帳戶名稱和金鑰認證。共用存取簽章權杖會封裝可存取的資源、該資源可供使用的時段，以及所授與權限的相關資訊。如需共用存取簽章的詳細資訊，請參閱 [使用共用存取簽章委派存取](https://msdn.microsoft.com/library/ee395415.aspx)。
 
@@ -119,7 +119,4 @@
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

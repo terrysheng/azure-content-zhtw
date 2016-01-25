@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="使用 Microsoft Azure Storage Client Library for C++ 列出 Azure 儲存體資源 |Microsoft Azure" 
-    description="了解如何使用 Microsoft Azure Storage Client Library for C++ 中的列表 API 來列舉容器、Blob、佇列、資料表和實體。" 
-    documentationCenter=".net" 
+<properties
+    pageTitle="使用 Microsoft Azure Storage Client Library for C++ 列出 Azure 儲存體資源 |Microsoft Azure"
+    description="了解如何使用 Microsoft Azure Storage Client Library for C++ 中的列表 API 來列舉容器、Blob、佇列、資料表和實體。"
+    documentationCenter=".net"
     services="storage"
-    authors="tamram" 
-    manager="carolz" 
-    editor=""/>
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="zhimingyuan;tamram"/>
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # 使用 C++ 列出 Azure 儲存體資源
 
@@ -54,7 +54,7 @@ Storage Client Library 提供各種方法來列出或查詢 Azure 儲存體中�
 
 分段列表作業的回應包含：
 
--	<i>\_segment</i>，其中包含針對列表 API 的單一呼叫所傳回的結果集。 
+-	<i>\_segment</i>，其中包含針對列表 API 的單一呼叫所傳回的結果集。
 -	*continuation\_token*，其會傳遞給下一個呼叫，以便取得下一頁的結果。沒有可傳回的結果時，接續 Token 為 null。
 
 例如，列出容器中所有 Blob 的典型呼叫可能如下列程式碼片段所示。此程式碼可在我們的[範例](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp)中取得：
@@ -75,15 +75,15 @@ Storage Client Library 提供各種方法來列出或查詢 Azure 儲存體中�
 	        process_diretory(it->as_directory());
 	    }
 	}
-	
+
 	    token = segment.continuation_token();
 	}
 	while (!token.empty());
 
 請注意，一個頁面傳回的結果數目可由每個 API 的多載中的參數 *max\_results* 所控制，例如：
-	
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
-		blob_listing_details::values includes, int max_results, const continuation_token& token, 
+
+	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
+		blob_listing_details::values includes, int max_results, const continuation_token& token,
 		const blob_request_options& options, operation_context context)
 
 如果您未指定 *max\_results* 參數，則會在單一頁面中傳回多達 5000 筆結果的預設最大值。
@@ -124,7 +124,7 @@ SDK 中的這些窮盡列表 API 不存在於 C#、Java 或 JavaScript Node.js �
 	    {
 	        process_entity(*it);
 	    }
-	
+
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
@@ -184,4 +184,4 @@ SDK 中的這些窮盡列表 API 不存在於 C#、Java 或 JavaScript Node.js �
 -	[Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

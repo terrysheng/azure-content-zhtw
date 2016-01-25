@@ -1,6 +1,6 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 Thoughtworks Mingle 整合 | Microsoft Azure" 
-    description="了解如何使用 Thoughtworks Mingle 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    description="了解如何使用 Thoughtworks Mingle 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" manager="stevenpo"/>
@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 Thoughtworks Mingle 整合
@@ -43,21 +43,21 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
     ![新增應用程式](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [欲執行動作] 對話方塊中，按一下 [從組件庫中新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。
 
     ![從組件庫新增應用程式](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在**搜尋方塊**中，輸入 **thoughtworks mingle**。
+6.  在 [搜尋方塊] 中，輸入 **thoughtworks mingle**。
 
     ![應用程式庫](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785151.png "應用程式庫")
 
-7.  在結果窗格中，選取 [Thoughtworks Mingle]，然後按一下 [完成] 以加入應用程式。
+7.  在結果窗格中，選取 [Thoughtworks Mingle]，然後按一下 [完成] 以新增應用程式。
 
     ![Thoughtworks Mingle](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785152.png "Thoughtworks Mingle")
 
@@ -71,7 +71,7 @@
 
     ![設定單一登入](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "設定單一登入")
 
-2.  在 [要如何讓使用者登入 Thoughtworks Mingle] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
+2.  在 [您希望使用者如何登入 Thoughtworks Mingle] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "設定單一登入")
 
@@ -79,7 +79,7 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "設定應用程式 URL")
 
-4.  於 [在 Thoughtworks Mingle 設定單一登入] 頁面上，按一下 [下載中繼資料]，然後將其儲存在您的電腦中。
+4.  於 [在 Thoughtworks Mingle 設定單一登入] 頁面上，按 [下載中繼資料]，然後將中繼資料儲存在您的電腦中。
 
     ![設定單一登入](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785156.png "設定單一登入")
 
@@ -96,7 +96,7 @@
     1.  若要上傳中繼資料檔案，請按一下 [選擇檔案]。
     2.  按一下 [儲存變更]。
 
-8.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+8.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785159.png "設定單一登入")
 
@@ -116,7 +116,7 @@
 
     ![使用者](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785161.png "使用者")
 
-4.  按一下 [新增使用者]。
+4.  按一下 [新使用者]。
 
     ![新使用者](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "新增使用者")
 
@@ -138,14 +138,14 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 [Thoughtworks Mingle] 應用程式整合頁面上，按一下 [指派使用者]。
+2.  在 [Thoughtworks Mingle] 應用程式整合頁面中，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785164.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
 
     ![是](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC767830.png "是")
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # 在 Linux 上使用 HDInsight 的相關資訊
@@ -196,16 +196,7 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 	* __Storm UI__︰使用下列步驟來重新平衡使用 Storm UI 的拓撲。
 
-		1. [建立叢集的 SSH 通道並開啟 Ambari Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
-
-		2. 從頁面左邊的服務清單中選取 [Storm]。然後從 [快速連結] 選取 [Storm UI]。
-
-
-			![快速連結中的 Storm UI 項目](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
-
-			這會顯示 Storm UI︰
-
-			![Storm UI](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+		1. 在網頁瀏覽器中開啟 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__，其中 CLUSTERNAME 是 Storm 叢集的名稱。出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
 
 		3. 選取您要重新平衡的拓撲，然後選取 [重新平衡] 按鈕。在執行重新平衡作業之前輸入延遲。
 
@@ -256,4 +247,4 @@ HDInsight 是受管理的服務，這表示如果偵測到問題，叢集中的�
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

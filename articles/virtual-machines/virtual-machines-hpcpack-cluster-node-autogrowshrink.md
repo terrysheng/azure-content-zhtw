@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/07/2016"
  ms.author="danlep"/>
 
 # 在 HPC Pack 叢集中根據叢集工作負載自動向上和向下調整 Azure 運算資源
@@ -27,12 +27,14 @@ ms.service="virtual-machines"
 
 ## 必要條件
 
-* **HPC Pack 2012 R2 更新 1 或更新版本叢集** - **AzureAutoGrowShrink.ps1** 指令碼會安裝在 %CCP\_HOME%bin 資料夾中。叢集前端節點可以部署在內部部署或在 Azure VM 中。請參閱[使用 HPC Pack 設定混合式叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)，以開始使用內部部署前端節點與 Azure「高載」節點。請參閱 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md))，以在 Azure VM 中快速部署 HPC Pack 叢集。
+* **HPC Pack 2012 R2 更新 1 或更新版本叢集** - **AzureAutoGrowShrink.ps1** 指令碼會安裝在 %CCP\_HOME%bin 資料夾中。叢集前端節點可以部署在內部部署或在 Azure VM 中。請參閱[使用 HPC Pack 設定混合式叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)，以開始使用內部部署前端節點與 Azure「高載」節點。請參閱 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)，以在 Azure VM 中快速部署 HPC Pack 叢集，或使用 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)。
+
+* **PowerShell 0.8.12** - 指令碼目前取決於此特定版本的 Azure PowerShell。如果您在前端節點上執行更新的版本，您可能要將 Azure PowerShell 降級至 [0\.8.12 版](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi)才能執行指令碼。
 
 * **針對具備 Azure 高載節點的叢集** - 在已安裝 HPC Pack 的用戶端電腦上或在前端節點上執行指令碼。如果是在用戶端電腦上執行，請確定您正確設定變數 $env:CCP\_SCHEDULER 以指向前端節點。Azure「高載」節點必須已經加入到叢集，但它們可能處於「未部署」狀態。
 
 
-* **針對部署在 Azure VM 中的叢集** - 在前端節點 VM 執行指令碼，因為它相依於所安裝的 **Start-HpcIaaSNode.ps1** 和 **Stop-HpcIaaSNode.ps1** 指令碼。這些指令碼額外需要 Azure 管理憑證或發佈設定檔 (請參閱[在 Azure 中的 HPC Pack 叢集管理運算節點](virtual-machines-hpcpack-cluster-node-manage.md))。請確定您所需的所有運算節點 VM 已加入叢集，但是它們可能處於「已停止」狀態。
+* **針對部署在 Azure VM 中的叢集** - 在前端節點 VM 執行指令碼，因為它相依於所安裝的 **Start-HpcIaaSNode.ps1** 和 **Stop-HpcIaaSNode.ps1** 指令碼。這些指令碼額外需要 Azure 管理憑證或發佈設定檔 (請參閱[在 Azure 中的 HPC Pack 叢集管理運算節點](virtual-machines-hpcpack-cluster-node-manage.md))。請確定您所需的所有計算節點 VM 已加入叢集。它們可能處於「已停止」狀態。
 
 ## 語法
 
@@ -102,4 +104,4 @@ AzureAutoGrowShrink.ps1
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

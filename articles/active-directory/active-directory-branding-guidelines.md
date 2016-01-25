@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin"/>
 
 
@@ -94,4 +94,4 @@ Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，
 
 如果您的應用程式同時支援 Azure AD 與 Microsoft 帳戶，則您的應用程式中需要包含兩個不同的登入按鈕。我們正在積極進行更新，將可讓您只需要整合一次，就能同時支援 Microsoft 提供的個人和工作帳戶。此更新推出時，您將能夠在應用程式中只顯示一個 [使用 Microsoft 登入] 按鈕。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

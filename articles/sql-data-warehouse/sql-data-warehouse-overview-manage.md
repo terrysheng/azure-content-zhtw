@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # SQL 資料倉儲的管理工具
 本主題將探索和比較用來管理 SQL 資料倉儲的工具和選項，協助您挑選適合您需求的正確工具。要選擇正確的工具就必須考量到您管理多少資料庫、工作本身以及執行工作的頻率。
@@ -48,4 +48,4 @@ SSDT 包含的 SQL Server 總管可讓您針對 SQL 資料倉儲資料庫視覺�
 <!--Other web references-->
 [Azure 傳統入口網站]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

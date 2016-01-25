@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/12/2016"
 	ms.author="cephalin"/>
 
 # 針對 Azure App Service 中的 Web 應用程式設定預備環境
@@ -45,7 +45,7 @@
 Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟用多個部署位置。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 Web 應用程式的刀鋒視窗。
-2. 按一下 [部署位置]。然後，在 [部署位置] 刀鋒視窗中，按一下 [加入位置]。
+2. 按一下 [設定]，然後按一下 [部署位置]。然後，在 [部署位置] 刀鋒視窗中，按一下 [加入位置]。
 
 	![新增部署位置][QGAddNewDeploymentSlot]
 
@@ -130,7 +130,7 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 <a name="Multi-Phase"></a>
 ## 針對 Web 應用程式使用多階段交換 ##
 
-多階段交換可簡化組態項目內容的驗證，其中組態項目設計為可插入某位置，例如連接字串。在這些情況下，從交換目標將這類組態項目套用至交換來源，以及在交換實際生效之前驗證，都是很實用的做法。一旦交換目標組態項目套用至交換來源，可用的動作就會是完成交換，或還原成交換來源原始的組態，而還原也有取消交換的作用。Azure PowerShell Cmdlet 可供多階段交換的範例，包含在部署位置區段的 Azure PowerShell Cmdlet 內。
+多階段交換可簡化組態項目內容的驗證，其中組態項目設計為可插入某位置，例如連接字串。在這些情況下，從交換目標將這類組態項目套用至交換來源，並在交換實際生效之前驗證，會是很實用的做法。一旦交換目標組態項目套用至交換來源，可用的動作就會是完成交換，或還原成交換來源原始的組態，而還原也有取消交換的作用。Azure PowerShell Cmdlet 可供多階段交換的範例，包含在部署位置區段的 Azure PowerShell Cmdlet 內。
 
 <a name="Rollback"></a>
 ## 交換之後回復生產應用程式 ##
@@ -259,4 +259,4 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

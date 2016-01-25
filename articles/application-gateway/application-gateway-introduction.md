@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="應用程式閘道簡介 | Microsoft Azure"
    description="此頁面提供第 7 層負載平衡的應用程式閘道服務的概觀，包括閘道大小、HTTP 負載平衡、以 Cookie 為基礎的工作階段同質，以及 SSL 卸載。"
    documentationCenter="na"
@@ -6,12 +6,12 @@
    authors="joaoma"
    manager="carmonm"
    editor="tysonn"/>
-<tags 
+<tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="11/09/2015"
    ms.author="joaoma"/>
 
@@ -25,8 +25,8 @@ Microsoft Azure 應用程式閘道會根據第 7 層負載平衡，提供 Azure 
 應用程式閘道目前支援下列的第 7 層應用程式傳遞：
 
 - HTTP 負載平衡
-- 以 Cookie 為基礎的工作階段同質
-- SSL 卸載
+- 以 Cookie 為基礎的工作階段同質性
+- 安全通訊端層 (SSL) 卸載
 
 ![應用程式閘道](./media/application-gateway-introduction/appgateway1.png)
 
@@ -34,12 +34,12 @@ HTTP 第 7 層負載平衡可用於：
 
 - 需要要求來自相同使用者/用戶端工作階段，才能到達相同後端 VM 的應用程式。此情況的範例為：購物車應用程式和網頁郵件伺服器。
 - 要從 SSL 終止負荷釋出 Web 伺服器陣列的應用程式。
-- CDN 之類的應用程式，需要將在相同的長時間執行 TCP 連接上的多個 HTTP 要求遞送/負載平衡到不同的後端伺服器。
+- 內容傳遞網路之類的應用程式，需要將在相同的長時間執行 TCP 連接上的多個 HTTP 要求路由/負載平衡到不同的後端伺服器。
 
 
 ## 閘道大小和執行個體
 
-應用程式閘道目前提供 3 大小：小型、中型和大型。小型執行個體大小是針對開發和測試案例。
+應用程式閘道目前提供三種大小：小型、中型和大型。小型執行個體大小是針對開發和測試案例。
 
 每一訂用帳戶您可以建立最多 50 個應用程式閘道，而且每一應用程式閘道最多可以有 10 個執行個體。應用程式閘道負載平衡為 Azure 管理服務，可允許將第 7 層負載平衡器佈建在 Azure 軟體負載平衡器之後。
 
@@ -48,16 +48,16 @@ HTTP 第 7 層負載平衡可用於：
 
 | 後端頁面回應 | 小型 | 中型 | 大型|
 |---|---|---|---|
-| 6K | 7\.5 mbps | 13 mbps | 50 mbps |
-|100k | 35 mbps | 100 mbps| 200 mbps |
+| 6K | 7\.5 Mbps | 13 Mbps | 50 Mbps |
+|100K | 35 Mbps | 100 Mbps| 200 Mbps |
 
 
->[AZURE.NOTE]這是應用程式閘道輸送量的大概指引。實際的輸送量會依據平均頁面大小、後端執行個體的位置、到伺服器的處理時間等等的各種環境詳細資料。
+>[AZURE.NOTE]這是應用程式閘道輸送量的大概指引。實際的輸送量會依據不同的環境詳細資訊而有所不同，例如平均頁面大小、後端執行個體位置，以及伺服器處理頁面的時間。
 
 ## 健康狀況監視
- 
 
-Azure 應用程式閘道會自動監視後端執行個體的健康狀況。請移至[探查和應用程式閘道健康狀況監視](application-gateway-probe-overview.md)以取得詳細資訊。
+
+Azure 應用程式閘道會自動監視後端執行個體的健康狀況。如需詳細資訊，請查看[應用程式閘道健全狀況監視概觀](application-gateway-probe-overview.md)。
 
 ## 設定和管理
 
@@ -71,4 +71,4 @@ Azure 應用程式閘道會自動監視後端執行個體的健康狀況。請�
 
 設定 SSL 卸載。請參閱[使用應用程式閘道設定 SSL 卸載](application-gateway-ssl.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

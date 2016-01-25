@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/08/2016"
    ms.author="danlep"/>
 
 # 使用 HPC Pack IaaS 部署指令碼在 Azure VM 中建立高效能運算 (HPC) 叢集
@@ -36,10 +36,10 @@
 * **Azure 訂用帳戶** - 您可以在 Azure 全域或 Azure China 服務中使用訂用帳戶。您的訂用帳戶限制將會影響到您可以部署的叢集節點類型與數量。如需相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../azure-subscription-service-limits.md)。
 
 
-* **已安裝並設定 Azure PowerShell 0.8.7 或更新版本的 Windows 用戶端電腦** - 請參閱[如何安裝及設定 Azure PowerShell](../powershell-install-configure.md)。指令碼會在 Azure 服務管理中執行。
+* **已安裝並設定 Azure PowerShell 0.8.7 或更新版本的 Windows 用戶端電腦** - 請參閱[安裝及設定 Azure PowerShell](../powershell-install-configure.md)。指令碼會在 Azure 服務管理中執行。
 
 
-* **HPC Pack IaaS 部署指令碼** - 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=44949)下載並解壓縮最新版的指令碼。執行 `New-HPCIaaSCluster.ps1 –Version` 即可檢查指令碼的版本。這篇文章是根據 4.4.0 版的指令碼撰寫的。
+* **HPC Pack IaaS 部署指令碼** - 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=44949)下載並解壓縮最新版的指令碼。執行 `New-HPCIaaSCluster.ps1 –Version` 以檢查指令碼的版本。這篇文章是根據 4.4.0 版的指令碼撰寫的。
 
 * **指令碼組態檔** - 您必須建立讓指令碼用來設定 HPC 叢集的 XML 檔案。如需相關資訊和範例，請參閱本文稍後的章節。
 
@@ -75,7 +75,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 ### 範例
 
-下列範例會使用組態檔 MyConfigFile.xml 建立新的 HPC Pack 叢集，並指定用來安裝叢集的系統管理認證。
+下列範例會使用組態檔 *MyConfigFile.xml* 建立新的 HPC Pack 叢集，並指定用來安裝叢集的系統管理認證。
 
 ```
 New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
@@ -83,10 +83,9 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 其他考量
 
-* 指令碼會使用 Azure Marketplace 中的 HPC Pack VM 映像來建立叢集前端節點。目前的映像是基於已安裝 HPC Pack 2012 R2 Update 3 的 Windows Server 2012 R2 Datacenter。
+* 指令碼會使用 Azure Marketplace 中的 HPC Pack VM 映像來建立叢集前端節點。最新的映像是基於已安裝 HPC Pack 2012 R2 Update 3 的 Windows Server 2012 R2 Datacenter。
 
 * 指令碼可選擇性地讓工作透過 HPC Pack Web 入口網站或 HPC Pack REST API 來提交。
-
 
 * 如果您想要安裝其他軟體或進行其他設定，指令碼可以選擇性地在前端節點上執行自訂的前置和後置組態指令碼。
 
@@ -99,7 +98,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 範例 1
 
-下列組態檔會在現有的網域樹系中部署 HPC Pack 叢集。叢集中有 1 個具有本機資料庫的前端節點，和 12 個套用了 BGInfo VM 延伸模組的運算節點。對於網域樹系中的所有 VM，都會停用 Windows 更新的自動安裝。所有雲端服務都直接建立在「東亞」位置中。運算節點建立在 3 個雲端服務和 3 個儲存體帳戶中 (即 MyHPCCNService01 和 mycnstorage01 中的 MyHPCCN-0001 至 MyHPCCN-0005；MyHPCCNService02 和 mycnstorage02 中的 MyHPCCN-0006 至 MyHPCCN0010；以及 MyHPCCNService03 和 mycnstorage03 中的 MyHPCCN-0011 至 MyHPCCN-0012)。運算節點會從擷取自雲端節點的現有私人映像建立。自動增加和縮減服務會根據預設的增加和縮減間隔來啟用。
+下列組態檔會在現有的網域樹系中部署 HPC Pack 叢集。叢集中有 1 個具有本機資料庫的前端節點，和 12 個套用了 BGInfo VM 延伸模組的運算節點。對於網域樹系中的所有 VM，都會停用 Windows 更新的自動安裝。所有雲端服務都直接建立在「東亞」位置中。計算節點建立在 3 個雲端服務和 3 個儲存體帳戶中 (即 _MyHPCCNService01_ 和 _mycnstorage01_ 中的 _MyHPCCN-0001_ 至 _MyHPCCN-0005_；_MyHPCCNService02_ 和 _mycnstorage02_ 中的 _MyHPCCN-0006_ 至 _MyHPCCN0010_；以及 _MyHPCCNService03_ 和 _mycnstorage03_ 中的 _MyHPCCN-0011_ 至 _MyHPCCN-0012_)。運算節點會從擷取自雲端節點的現有私人映像建立。自動增加和縮減服務會根據預設的增加和縮減間隔來啟用。
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -163,7 +162,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 範例 2
 
-下列組態檔會在現有的網域樹系中部署 HPC Pack 叢集。叢集中包含 1 個前端節點、1 個具有 500 GB 資料磁碟的資料庫伺服器、2 個執行 Windows Server 2012 R2 作業系統的訊息代理程式節點，和 5 個執行 Windows Server 2012 R2 作業系統的運算節點。雲端服務 MyHPCCNService 會建立在同質群組 MyIBAffinityGroup 中，其他所有的雲端服務則建立在同質群組 MyAffinityGroup 中。前端節點上會啟用 HPC 工作排程器 REST API 和 HPC Web 入口網站。
+下列組態檔會在現有的網域樹系中部署 HPC Pack 叢集。叢集中包含 1 個前端節點、1 個具有 500 GB 資料磁碟的資料庫伺服器、2 個執行 Windows Server 2012 R2 作業系統的訊息代理程式節點，和 5 個執行 Windows Server 2012 R2 作業系統的運算節點。雲端服務 MyHPCCNService 會建立在同質群組 *MyIBAffinityGroup* 中，其他所有的雲端服務則建立在同質群組 *MyAffinityGroup* 中。前端節點上會啟用 HPC 工作排程器 REST API 和 HPC Web 入口網站。
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -217,7 +216,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 範例 3
 
-下列組態檔會建立新的網域樹系並部署 HPC Pack 叢集，其中包含 1 個具有本機資料庫的前端節點和 20 個 Linux 運算節點。所有雲端服務都直接建立在「東亞」位置中。Linux 運算節點會建立在 4 個雲端服務和 4 個儲存體帳戶中 (即 MyLnxCNService01 和 mylnxstorage01 中的 MyLnxCN-0001 至 MyHPCCN-0005、MyLnxCNService02 和 mylnxstorage02 中的MyLnxCN-0006 至 MyLnxCN-0010、MyLnxCNService03 和 mylnxstorage03 中的 MyLnxCN-0011 至 MyLnxCN-0015，以及 MyLnxCNService04 和 mylnxstorage04 中的 MyLnxCN-0016 至 MyLnxCN-0020)。運算節點會從 OpenLogic CentOS 7.0 版 Linux 映像建立。
+下列組態檔會建立新的網域樹系並部署 HPC Pack 叢集，其中包含 1 個具有本機資料庫的前端節點和 20 個 Linux 運算節點。所有雲端服務都直接建立在「東亞」位置中。Linux 計算節點會建立在 4 個雲端服務和 4 個儲存體帳戶中 (即 _MyLnxCNService01_ 和 _mylnxstorage01_ 中的 _MyLnxCN-0001_ 至 _MyLnxCN-0005_、_MyLnxCNService02_ 和 _mylnxstorage02_ 中的_MyLnxCN-0006_ 至 _MyLnxCN-0010_、_MyLnxCNService03_ 和 _mylnxstorage03_ 中的 _MyLnxCN-0011_ 至 _MyLnxCN-0015_，以及 _MyLnxCNService04_ 和 _mylnxstorage04_ 中的 _MyLnxCN-0016_ 至 _MyLnxCN-0020_)。運算節點會從 OpenLogic CentOS 7.0 版 Linux 映像建立。
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -305,7 +304,7 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### 範例 5
 
-下列組態檔會在現有的網域樹系中部署 HPC Pack 叢集。叢集中包含 1 個具有本機資料庫的前端節點，並建立了兩個 Azure 節點範本，且針對 Azure 節點範本 AzureTemplate1 建立了 3 個中型大小的 Azure 節點。指令碼檔案會在前端節點設定後執行於前端節點上。
+下列組態檔會在現有的網域樹系中部署 HPC Pack 叢集。叢集中包含 1 個具有本機資料庫的前端節點，並建立了兩個 Azure 節點範本，且針對 Azure 節點範本 _AzureTemplate1_ 建立了 3 個中型大小的 Azure 節點。指令碼檔案會在前端節點設定後執行於前端節點上。
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -392,4 +391,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 * 嘗試以 HPC Pack 的工具啟動、停止、新增和移除您所建立之叢集中的運算節點。請參閱[在 Azure 中管理 HPC Pack 叢集的運算節點](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

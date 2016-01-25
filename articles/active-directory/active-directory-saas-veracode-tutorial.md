@@ -1,6 +1,6 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 Veracode 整合 | Microsoft Azure" 
-    description="了解如何使用 Veracode 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    description="了解如何使用 Veracode 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 Veracode 整合
@@ -21,7 +21,7 @@
 -   有效的 Azure 訂閱
 -   啟用 Veracode 單一登入的訂用帳戶
   
-完成本教學課程之後，您指派給 Veracode 的 Azure AD 使用者就能夠使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)單一登入至應用程式。
+完成本教學課程之後，您指派給 Veracode 的 Azure AD 使用者就能夠從您的 Veracode 公司網站 (服務提供者起始登入)，或使用[存取面板](active-directory-saas-access-panel-introduction.md)來單一登入應用程式。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -46,7 +46,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-veracode-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-veracode-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -56,23 +56,23 @@
 
     ![從組件庫新增應用程式](./media/active-directory-saas-veracode-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在**搜尋方塊**中，輸入 **Veracode**。
+6.  在 [搜尋方塊] 中，輸入 **Veracode**。
 
     ![應用程式庫](./media/active-directory-saas-veracode-tutorial/IC802904.png "應用程式庫")
 
-7.  在結果窗格中，選取 [Veracode]，然後按一下 [完成] 以新增應用程式。
+7.  在結果窗格中，選取 [Veracode]，然後按一下 [完成] 以加入應用程式。
 
     ![Veracode](./media/active-directory-saas-veracode-tutorial/IC802905.png "Veracode")
 
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證到 Veracode。Veracode 應用程式需要特定格式的 SAML 判斷提示，要求您新增自訂屬性對應到您的 **SAML Token 屬性**組態。以下螢幕擷取畫面顯示上述的範例。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證到 Veracode。Veracode 應用程式需要特定格式的 SAML 判斷提示，要求您加入自訂屬性對應到您的 **SAML 權杖屬性**組態。以下螢幕擷取畫面顯示上述的範例。
 
 ![屬性](./media/active-directory-saas-veracode-tutorial/IC802906.png "屬性")
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 **Veracode** 應用程式整合頁面中，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 [Veracode] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-veracode-tutorial/IC802907.png "設定單一登入")
 
@@ -84,13 +84,13 @@
 
     ![設定 App 設定](./media/active-directory-saas-veracode-tutorial/IC802909.png "設定 App 設定")
 
-4.  在 [設定在 Veracode 單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後在本機電腦上儲存憑證檔案。
+4.  在 [設定在 Veracode 單一登入] 頁面上，按 [下載憑證] 以下載您的憑證，然後在本機電腦上儲存憑證檔案。
 
     ![設定單一登入](./media/active-directory-saas-veracode-tutorial/IC802910.png "設定單一登入")
 
 5.  在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Veracode 公司網站。
 
-6.  在頂端的功能表中，按一下 [設定]，然後按一下 [管理員]。
+6.  在頂端功能表中，按一下 [設定]，然後按一下 [管理員]。
 
     ![系統管理](./media/active-directory-saas-veracode-tutorial/IC802911.png "系統管理")
 
@@ -100,27 +100,27 @@
 
     ![系統管理](./media/active-directory-saas-veracode-tutorial/IC802912.png "系統管理")
 
-    1.  在 Azure 入口網站的 [設定在 Veracode 單一登入] 對話方塊頁面中，複製**簽發者 URL** 值，然後將它貼至 [簽發者] 文字方塊中。
+    1.  在 Azure 入口網站中的 [設定在 Veracode 單一登入] 對話頁面上，複製 [簽發者 URL] 值，然後將它貼至 [簽發者] 文字方塊中。
     2.  若要上傳您下載的憑證，請按一下 [選擇檔案]。
     3.  選取 [啟用自動註冊]。
 
-9.  在 [自動註冊設定] 區段中，執行下列步驟，然後按一下 [儲存]：
+9.  在 [自動註冊設定] 區段上，執行下列步驟，然後按一下 [儲存]：
 
     ![系統管理](./media/active-directory-saas-veracode-tutorial/IC802913.png "系統管理")
 
-    1.  針對 [啟用新的使用者]，選取 [不需要啟用]。
-    2.  針對 [使用者資料更新]，選取 [Veracode 使用者資料喜好設定]。
+    1.  在 [啟用新的使用者] 選取 [不需要啟用]。
+    2.  在 [使用者資料更新] 選取 [Veracode 使用者資料喜好設定]。
     3.  針對 [SAML 屬性詳細資料]，請選取下列選項：
-        -   [使用者角色]
-        -   [原則系統管理員]
-        -   [檢閱者]
-        -   [安全性負責人]
-        -   [行政人員]
-        -   [傳送者]
-        -   [建立者]
-        -   [所有掃描類型]
-        -   [小組成員資格]
-        -   [預設小組]
+        -   **[使用者角色]**
+        -   **[原則系統管理員]**
+        -   **[檢閱者]**
+        -   **[安全性負責人]**
+        -   **[行政人員]**
+        -   **[傳送者]**
+        -   **[建立者]**
+        -   **[所有掃描類型]**
+        -   **[小組成員資格]**
+        -   **[預設小組]**
 
 10. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
@@ -166,7 +166,7 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 **Veracode** 應用程式整合頁面上，按一下 [指派使用者]。
+2.  在 [Veracode] 應用程式整合頁面上，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-veracode-tutorial/IC802915.png "指派使用者")
 
@@ -176,4 +176,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

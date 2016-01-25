@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # 在自訂應用程式中建置 Multi-Factor Authentication (SDK)
@@ -33,7 +33,7 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 
 ## 下載 Azure Multi-Factor Authentication SDK 
 
-下載 Azure Multi-Factor Authentication SDK 的方法有兩種。兩者都是透過 Azure 入口網站來完成。第一個是藉由直接管理 Multi-Factor Auth Provider。第二個是透過服務設定。第二個選項需要 Multi-Factor Auth Provider或 Azure AD Premium 授權。
+下載 Azure Multi-Factor Authentication SDK 的方法有兩種。兩者都是透過 Azure 入口網站來完成。第一個是藉由直接管理 Multi-Factor Auth Provider。第二個是透過服務設定。第二個選項需要多因素驗證提供者或 Azure MFA、Azure AD Premium 或 Enterprise Mobility Suite 授權。
 
 
 ### 從 Azure 入口網站下載 Azure Multi-Factor Authentication SDK
@@ -41,7 +41,7 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 
 1. 以系統管理員身分登入 Azure 入口網站。
 2. 在左側選取 [Active Directory]。
-3. 在 [Active Directory] 頁面頂端，按一下 [**Multi-Factor Auth Provider**]
+3. 在 [Active Directory] 頁面頂端，按一下 [**多因素驗證提供者**]
 4. 在底部按一下 [**管理**]
 5. 這會開啟新的頁面。在左下方按一下 [SDK]。
 <center>![下載](./media/multi-factor-authentication-sdk/download.png)</center>
@@ -58,7 +58,7 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 3. 按兩下您的 Azure AD 的執行個體。
 4. 在頂端按一下 [**設定**]
 5. 在 Multi-Factor Authentication 底下選取 [**管理服務設定**] ![下載](./media/multi-factor-authentication-sdk/download2.png)
-6. 在 [服務設定] 頁面上，於畫面底部按一下 [**移至入口網站**]。![下載](./media/multi-factor-authentication-sdk/download3.png)
+6. 在 [服務設定] 頁面上，於畫面底部按一下 [**移至入口網站**]。![下載](./media/multi-factor-authentication-sdk/download3a.png)
 7. 這會開啟新的頁面。在左下方按一下 [SDK]。
 8. 選取您想要的語言，然後按一下其中一個相關聯的下載連結。
 9. 儲存下載內容。
@@ -191,4 +191,4 @@ Multi-Factor Authentication SDK 中的 API 結構相當簡單。您可以使用�
 	    }
 	}
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

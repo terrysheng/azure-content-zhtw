@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="01/08/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -417,7 +417,7 @@ Windows 10 已加入網域的電腦 (裝置) 會將某些屬性同步處理至 A
 
 | 屬性名稱| 使用者| 連絡人| 群組| 註解 |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X| | | 衍生自 Azure AD 中的 cloudAnchor。|
+| msDS-ExternalDirectoryObjectID| X| | | 衍生自 Azure AD 中的 cloudAnchor。這是 Exchange 2016 中的新功能。|
 | msExchArchiveStatus| X| | | 線上封存：可讓客戶封存郵件。|
 | msExchBlockedSendersHash| X| | | 篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。|
 | msExchSafeRecipientsHash| X| | | 篩選：從用戶端回寫內部部署篩選及線上安全和已封鎖的寄件者資料。|
@@ -431,8 +431,8 @@ Windows 10 已加入網域的電腦 (裝置) 會將某些屬性同步處理至 A
 
 
 ## 後續步驟
-深入了解 [Azure AD Connect 同步處理](active-directory-aadconnectsync-whatis.md)組態。
+深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)組態。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

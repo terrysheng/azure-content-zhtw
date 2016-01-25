@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" 
-	description="了解如何在「Azure 傳統入口網站」中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。" 
-	authors="robinsh" 
-	manager="carmonm" 
-	editor="" 
-	services="storage" 
+<properties
+	pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure"
+	description="了解如何在「Azure 傳統入口網站」中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。"
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn"
+	services="storage"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/22/2015" 
-	ms.author="robinsh"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/22/2015"
+	ms.author="renash"/>
 
 
 # 使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體
@@ -52,7 +52,7 @@
 1.	**訂用帳戶和儲存體帳戶：**您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。每項工作都只能從僅只一個儲存體帳戶收送資料。換句話說，一項工作不能跨越多個儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](storage-create-storage-account.md) (英文)。
 2.	**硬碟：**只有 3.5 英吋的 SATA II/III 內部硬碟能夠用於匯入/匯出服務。可支援高達 6 TB 的硬碟。若為匯入工作，將只會處理磁碟機上的第一個資料磁碟區。此資料磁碟區必須以 NTFS 格式化。您可以將 SATA II/III 磁碟連接至大多數使用外部 SATA II/III USB 介面卡的外部電腦。
 3.	**BitLocker 加密**：須使用 BitLocker 和以數值密碼保護的加密金鑰來加密硬碟上儲存的所有資料。
-4.	**Blob 儲存體目標：**從區塊 Blob 和頁面 Blob 可以上傳或下載資料。 
+4.	**Blob 儲存體目標：**從區塊 Blob 和頁面 Blob 可以上傳或下載資料。
 5.	**工作數目：**一個客戶對於每一儲存體帳戶可以有多達 20 項作用中工作。
 6.	**工作的大小上限：**工作的大小是由使用的硬碟容量以及儲存體帳戶可儲存的資料數量上限所決定。每項工作可包含的硬碟不超過 10 個。
 
@@ -65,22 +65,22 @@
 ### 準備磁碟機
 
 建立匯入工作之前，請透過 Microsoft Azure 匯入/匯出工具備妥磁碟機。如需有關使用 Microsoft Azure 匯入/匯出工具的詳細資訊，請參閱 [Microsoft Azure 匯入/匯出工具參考](http://go.microsoft.com/fwlink/?LinkId=329032)。您可以下載作為獨立封裝的 [Microsoft Azure 匯入/匯出工具](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)。
-  
+
 若要準備磁碟機，請遵循以下三個步驟：
 
 1.	決定要匯入的資料，以及您需要的磁碟機數目。
-2.	在 Azure Blob 服務中識別資料的目的地 Blob。
+2.	在 Blob 儲存體中識別資料的目的地 Blob。
 3.	使用 Microsoft Azure 匯入/匯出工具將資料複製到一或多個硬碟。
 
 Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個「磁碟機日誌」檔案。磁碟機日誌檔案會儲存在本機電腦上，而非磁碟機本身。您會在建立匯入工作時上傳該日誌檔案。磁碟機日誌檔案包含磁碟機 ID 和 BitLocker 金鑰，以及有關磁碟機的其他資訊。
 
 ### 建立匯入工作
 
-1.	備妥磁碟機後，請在「傳統入口網站」中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 [Quick Glance] 之下，按一下 [Create an Import Job]。 
- 
+1.	備妥磁碟機後，請在「傳統入口網站」中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 [Quick Glance] 之下，按一下 [Create an Import Job]。
+
 2.	在精靈的步驟 1，指出您已備妥磁碟機並有可用的磁碟機日誌。
- 
-3.	在步驟 2，提供負責處理此匯入工作的人員連絡資訊。若想要儲存匯入工作的詳細資訊記錄資料，請核取 [將詳細資訊記錄儲存於我的 'waimportexport' Blob 容器中] 選項。
+
+3.	在步驟 2，提供負責處理此匯入工作的人員連絡資訊。若想要儲存匯入工作的詳細資訊記錄資料，請核取 [Save the verbose log in my 'waimportexport' blob container] 選項。
 
 4.	在步驟 3，上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。您需要針對已備妥的每個磁碟機上傳一個檔案。
 
@@ -97,7 +97,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 	如果沒有追蹤號碼，請選擇 [一旦傳送套件，就會提供此匯入工作的傳送資訊]，然後完成匯入程序。
 
 7. 若要在寄出包裹之後輸入追蹤號碼，請在「傳統入口網站」中回到您儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [出貨資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
-	
+
 	如果在建立作業的 2 個星期內沒有更新追蹤號碼，該工作會過期。
 
 	若工作處於「建立中」、「傳送中」或「傳輸中」狀態，則您也可以在精靈的步驟 2 中更新貨運公司客戶編號。一旦工作進入「包裝中」狀態，您就無法更新該工作的貨運公司客戶編號。
@@ -108,7 +108,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 1. 	若要建立匯出工作，請在「傳統入口網站」中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 [快速概覽] 之下，按一下 [建立匯出工作]，然後繼續執行精靈。
 
-2. 	在步驟 2，提供負責處理此匯出工作的人員連絡資訊。若想要儲存匯出工作的詳細資訊記錄資料，請核取 [將詳細資訊記錄儲存於我的 'waimportexport' Blob 容器中] 選項。
+2. 	在步驟 2，提供負責處理此匯出工作的人員連絡資訊。若想要儲存匯出工作的詳細資訊記錄資料，請核取 [Save the verbose log in my 'waimportexport' blob container] 選項。
 
 3.	在步驟 3，指定您要從儲存體帳戶匯出至空白磁碟機的 Blob您可以選擇匯出儲存體帳戶中所有的 Blob 資料，也可以指定要匯出哪幾個或哪幾組 Blob。
 
@@ -138,10 +138,10 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	若您有追蹤號碼，請從清單中選取您的貨運公司，並輸入追蹤號碼。
 
-	如果沒有追蹤號碼，請選擇 [寄送包裹之後，我會提供這個匯出工作的送貨資訊]，然後完成匯出程序。
+	如果沒有追蹤號碼，請選擇 [I will provide my shipping information for this export job once I have shipped my package]，然後完成匯出程序。
 
 6. 若要在寄出包裹之後輸入追蹤號碼，請在「傳統入口網站」中回到您儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [出貨資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
-	
+
 	如果在建立作業的 2 個星期內沒有更新追蹤號碼，該工作會過期。
 
 	若工作處於「建立中」、「傳送中」或「傳輸中」狀態，則您也可以在精靈的步驟 2 中更新貨運公司客戶編號。一旦工作進入「包裝中」狀態，您就無法更新該工作的貨運公司客戶編號。
@@ -180,13 +180,13 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 **匯入或匯出資料需要多久時間？**
 
 - 這需要時間運送磁碟，加上每 TB 的資料需要數小時的時間複製資料。
- 
+
 **支援的介面類型有哪些？**
 
 - 匯入/匯出服務支援 3.5 英吋的 SATA II/III 內部硬碟機 (HDD)。您可以在運送之前，使用下列轉換器將 USB 裝置中的資料移轉至 SATA：
 	- Anker 68UPSATAA-02BU
 	- Anker 68UPSHHDS-BU
-	- Startech SATADOCK22UE 
+	- Startech SATADOCK22UE
 
 > [AZURE.NOTE]若您有以上未列出的轉換器，您可以嘗試使用您的轉換器執行 [Microsoft Azure 匯入/匯出工具] 來準備磁碟機，看看是否有用，再決定購買支援的轉換器。
 
@@ -221,9 +221,8 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 **你們會在退回磁碟機前進行格式化嗎？**
 
 - 不會。所有磁碟機都必須針對 BitLocker 預作準備。
- 
-**我需要在建立匯出作業時執行任何磁碟準備工作嗎？**
-- 不用，但建議先執行某些前置檢查。請使用 Azure 匯入/匯出工具的 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) 命令檢查所需的磁碟號碼。它可根據您要使用的磁碟機大小，協助您預覽所選取之 Blob 的磁碟機使用情況。也請檢查您可以對為了匯出工作而運送的硬碟讀取/寫入。
+
+**我需要在建立匯出作業時執行任何磁碟準備工作嗎？** - 不用，但建議先執行某些前置檢查。請使用 Azure 匯入/匯出工具的 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) 命令檢查所需的磁碟號碼。它可根據您要使用的磁碟機大小，協助您預覽所選取之 Blob 的磁碟機使用情況。也請檢查您可以對為了匯出工作而運送的硬碟讀取/寫入。
 
 ### 運送中
 
@@ -244,10 +243,10 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 **我可以從哪裡收送資料？**
 
 - 在下列區域，匯入/匯出服務支援從儲存體帳戶中匯入資料和匯出資料：
-	- 美國東部 
-	- 美國西部 
-	- 美國中北部 
-	- 美國中南部 
+	- 美國東部
+	- 美國西部
+	- 美國中北部
+	- 美國中南部
 	- 北歐
 	- 西歐
 	- 東亞
@@ -275,6 +274,5 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 [import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
- 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/13/2016" 
 	ms.author="jgao"/>
 
 # Azure HDInsight 中的 Apache Spark (Linux) 的已知問題
 
-這份文件會追蹤 Spark 公開預覽版本的所有已知問題。
+這份文件記錄 HDInsight Spark 公開預覽版本的所有已知問題。
 
 ##Livy 會流失互動式工作階段
  
@@ -139,4 +139,4 @@ Livy 在有互動式工作階段仍作用中的情況下重新啟動時 (從 Amb
 - [概觀：Azure HDInsight 上的 Apache Spark (Linux)](hdinsight-apache-spark-overview.md)
 - [開始使用：在 Azure HDInsight (Linux) 上佈建 Apache Spark 並使用 Spark SQL 執行互動式查詢](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

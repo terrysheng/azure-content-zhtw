@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # API Apps 概觀
@@ -53,8 +53,8 @@ API Apps 提供下列功能：
 
 若要開始使用 API 應用程式，請依照[開始使用 API 應用程式](app-service-api-dotnet-get-started.md)中的教學課程來進行。
 
-若要查看 API 應用程式的已知問題清單，請參閱 [API Apps 已知問題論壇文章](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)。
+若要查看 API 應用程式的已知問題清單，請參閱 [API Apps 已知問題論壇文章](https://social.msdn.microsoft.com/Forums/zh-TW/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)。
 
 如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

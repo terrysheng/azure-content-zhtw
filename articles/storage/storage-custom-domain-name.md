@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="針對 Azure 儲存體帳戶中的 Blob 資料設定網域名稱 | Microsoft Azure" 
-	description="了解如何設定自訂網域名稱，用以存取 Azure 儲存體帳戶中的 Blob 資料。" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+<properties
+	pageTitle="針對 Blob 儲存體端點設定網域名稱 | Microsoft Azure"
+	description="了解如何將自訂使用者網域對應至 Azure 儲存體帳戶的 Blob 儲存體端點。"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/07/2015"
 	ms.author="tamram"/>
 
 
-# 針對 Azure 儲存體帳戶中的 Blob 資料設定自訂網域名稱
+# 針對 Blob 儲存體端點設定自訂網域名稱
 
 ## 概觀
 
-您可以設定自訂網域名稱，以供存取 Azure 儲存體帳戶中的 Blob 資料。Blob 服務的預設端點是 https://<*mystorageaccount*>.blob.core.windows.net。如果您將自訂網域和子網域 (如 **www.contoso.com**) 對應至儲存體帳戶的 Blob 端點，使用者也能使用該網域存取儲存體帳戶中的 Blob 資料。
+您可以設定自訂網域名稱，以供存取 Azure 儲存體帳戶中的 Blob 資料。Blob 儲存體的預設端點是 https://<*mystorageaccount*>.blob.core.windows.net。如果您將自訂網域和子網域 (如 **www.contoso.com**) 對應至儲存體帳戶的 Blob 端點，使用者也能使用該網域存取儲存體帳戶中的 Blob 資料。
 
 
 > [AZURE.NOTE]此工作的程序適用於 Azure 儲存體帳戶。若是雲端服務，請參閱<a href = "/develop/net/common-tasks/custom-dns/">設定 Azure 雲端服務的自訂網域名稱</a>；若是網站，請參閱<a href="/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a>。
@@ -44,7 +44,7 @@ Blob|**預設 URL：** http://mystorageaccount.blob.core.windows.net/mycontainer
 
 若自訂網域目前支援不允許發生任何停機狀況的應用程式，請執行 <a href="#register-asverify">使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域</a> 列出的程序。
 
-若要設定自訂網域名稱，您必須向網域註冊機構建立新的 CNAME 記錄。CNAME 記錄能指定網域名稱的別名。在這種情況下，它能將自訂網域的位址對應至儲存體帳戶的 Blob 服務端點。
+若要設定自訂網域名稱，您必須向網域註冊機構建立新的 CNAME 記錄。CNAME 記錄能指定網域名稱的別名。在這種情況下，它能將自訂網域的位址對應至儲存體帳戶的 Blob 儲存體端點。
 
 各註冊機構指定 CNAME 記錄的方法都很類似，只是稍微不同，但概念都一樣。請注意，許多基本網域註冊套件並未提供 DNS 組態，因此您可能需要先升級網域註冊套件，然後再建立 CNAME 記錄。
 
@@ -115,6 +115,5 @@ asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前�
 ## 其他資源
 
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">如何將 CDN 內容對應至自訂網域</a>
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

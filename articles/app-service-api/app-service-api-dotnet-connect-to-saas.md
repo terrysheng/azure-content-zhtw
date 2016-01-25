@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 從 Azure App Service 中的 ASP.NET API 應用程式連接至 SaaS 平台
@@ -24,7 +24,7 @@
 
 本教學課程示範如何撰寫及設定 [API 應用程式](app-service-api-apps-why-best-platform.md)的程式碼，其使用 [App Service API App SDK for .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/) 連接至[軟體即服務 (SaaS) 平台](../app-service/app-service-authentication-overview.md#obotosaas)。本教學課程也會示範如何使用 [App Service SDK for .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService) 從 .NET 用戶端呼叫 API 應用程式。在本教學課程結尾，您將擁有 .NET 主控台應用程式用戶端，可呼叫在 Azure App Service 執行的 .NET API 應用程式。API 應用程式會呼叫 Dropbox API，並傳回使用者 Dropbox 帳戶中的檔案和資料夾清單。
 
-撰寫可直接從自訂 API 應用程式呼叫 SaaS API 之程式碼的替代方式為，呼叫預先封裝的[連接器 API 應用程式](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md)。如需有關如何執行這項作業的資訊，請參閱[部署及設定 SaaS 連接器 API 應用程式](app-service-api-connnect-your-app-to-saas-connector.md)。
+撰寫可直接從自訂 API 應用程式呼叫 SaaS API 之程式碼的替代方式為，呼叫預先封裝的[連接器 API 應用程式](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md)。如需如何執行這項作業的相關資訊，請參閱[部署及設定 SaaS 連接器 API 應用程式](app-service-api-connnect-your-app-to-saas-connector.md)。
 
 本教學課程將逐步引導您完成下列步驟：
 
@@ -221,7 +221,7 @@
 
 2. 設定對 System.Windows.Forms 的參考。
  
-	* 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**參考**]，然後按一下 [**加入參考**]。
+	* 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [加入參考]。
 
 	* 選取 [**System.Windows.Forms**] 左側的核取方塊，然後按一下 [**確定**]。
 	 
@@ -378,12 +378,7 @@
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	以下是用於其他提供者的值：
-	* "microsoftaccount"
-	* "facebook"
-	* "twitter"
-	* "google"
-<br/><br/>
+	以下是用於其他提供者的值：* "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
 
 * `GetConsentLinkAsync()` 方法的第二個參數是回呼 URL，而同意伺服器會在使用者登入 Dropbox 並同意存取其帳戶之後，重新導向至該回呼 URL。
 
@@ -454,4 +449,4 @@ Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

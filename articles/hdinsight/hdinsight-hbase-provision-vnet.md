@@ -36,7 +36,7 @@
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。若要執行 Azure PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned* 。請參閱[使用 Set-executionpolicy cmdlet][2]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。若要執行 Azure PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[使用 Set-executionpolicy cmdlet][2]。
 
 	執行 Azure PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
@@ -94,6 +94,8 @@ Azure 資源管理員可讓您將應用程式中的資源做為群組使用。�
 	- **位置** - 此位置必須與您將建立的 HBase 叢集相同。
     
         > [AZURE.NOTE]Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
+        
+    如需搭配虛擬網路 (包含虛擬網路特定設定需求) 使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
 5. 按一下 [建立]。
 
@@ -122,7 +124,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 3. 輸入或選取下列值：
 
-  - **叢集名稱**：輸入叢集的名稱。如果該叢集名稱可使用，則名稱旁邊將會出現綠色的核取記號。
+  - **叢集名稱**：請輸入叢集的名稱。如果該叢集名稱可使用，則名稱旁邊將會出現綠色的核取記號。
   - **叢集類型**：選取 [HBase]。
   - **叢集作業系統**：選取 [Windows Server 2012 R2 資料中心]。
   - **訂用帳戶**：選取將用於佈建此叢集的 Azure 訂用帳戶。
@@ -132,7 +134,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
   - **節點定價層**：若為用於學習或評估用途，請選取 1 個區域節點，將成本降至最低。
 
   	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
-  	- **選取儲存體帳戶/建立新的帳戶**：按一下 [選取儲存體帳戶]，瀏覽並選取您要與叢集產生關聯的現有儲存體帳戶。或按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+  	- **選取儲存體帳戶 / 建立新的帳戶**：按一下 [選取儲存體帳戶]，瀏覽並選取您要與叢集產生關聯的現有儲存體帳戶。或者按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
     - **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
   	- **位置**：儲存體帳戶所在或預計建立所在的地理區域。這個位置將會決定叢集位置。該叢集與預設儲存體帳戶必須並存於相同的 Azure 資料中心。
 
@@ -389,4 +391,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

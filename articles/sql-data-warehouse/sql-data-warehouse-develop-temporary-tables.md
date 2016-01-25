@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的暫存資料表
 暫存資料表存在於 SQL 資料倉儲中的工作階段層級。這類資料表會定義為本機暫存資料表，而與 SQL Server 資料表不同的是，它們可以從工作階段內的任何位置存取。
@@ -147,4 +147,4 @@ SQL 資料倉儲在實作暫存資料表時的確有一些限制。
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

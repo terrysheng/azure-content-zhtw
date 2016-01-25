@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/31/2015"
+   ms.date="01/08/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務管理 StorSimple 磁碟區容器
@@ -43,7 +43,7 @@ Microsoft Azure StorSimple 裝置中的磁碟區容器包含一個或多個可�
 
 ## 新增磁碟區容器
 
-執行下列步驟來建立磁碟區容器。
+執行下列步驟來新增磁碟區容器。
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
@@ -66,4 +66,4 @@ Microsoft Azure StorSimple 裝置中的磁碟區容器包含一個或多個可�
 - 深入了解[管理 StorSimple 磁碟區](storsimple-manage-volumes.md)。 
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

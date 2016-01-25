@@ -1,18 +1,19 @@
 <properties
 	pageTitle="在 Windows 市集應用程式中使用 Azure 儲存體 | Microsoft Azure"
-	description="了解如何使用 Azure Blob、佇列和資料表來儲存 Windows 市集應用程式的資料。"
+	description="了解如何建立使用 Azure Blob、佇列、資料表或檔案儲存體的 Windows 市集應用程式。"
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah" />
+	manager="carmonm" />
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
+	
 # 如何在 Windows 市集應用程式中使用 Azure 儲存體
 
 ## 概觀
@@ -86,4 +87,4 @@
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

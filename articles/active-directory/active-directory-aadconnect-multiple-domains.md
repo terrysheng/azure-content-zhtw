@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath"/>
 
 #多網域支援
@@ -26,7 +26,7 @@
 ## 多個最上層網域
 我將引導您完成範例組織 contoso.com 的設定，該組織想要名為 fabrikam.com 的額外網域。
 
-假設在我的內部部署系統中，我已經將 AD FS 的同盟服務名稱設定為 fs.jenfield.com。
+假設在我的內部部署系統中，我已經將 AD FS 的同盟服務名稱設定為 fs.contoso100.com。
 
 當我第一次註冊 Office 365 或 Azure AD 時，我選擇將 contoso.com 設定為我的第一個登入網域。我可以透過使用 New-msolfederateddomain 的 Azure AD Connect 或 Azure AD Powershell 來完成此目的。
 
@@ -34,8 +34,8 @@
 
 | 屬性名稱 | 值 | 說明|
 | ----- | ----- | -----|
-|IssuerURI | http://fs.jenfield.com/adfs/services/trust| 雖然它看起來像是個 URL，但這個屬性其實只是內部部署驗證系統的名稱，因此路徑不需要解析為任何項目。根據預設，Azure AD 會在我的內部部署 AD FS 組態中將其設定為同盟服務識別碼的值。
-|PassiveClientSignInUrl|https://fs.jenfield.com/adfs/ls/|This 是將傳送被動登入要求的目標位置，且它會解析成我的實際 AD FS 系統。實際上有幾個「*Url」屬性，但我們只需要看一下說明此屬性與 URI 之間差異 (例如 IssuerURI) 的範例。
+|IssuerURI | http://fs.contoso100.com/adfs/services/trust| 雖然它看起來像是個 URL，但這個屬性其實只是內部部署驗證系統的名稱，因此路徑不需要解析為任何項目。根據預設，Azure AD 會在我的內部部署 AD FS 組態中將其設定為同盟服務識別碼的值。
+|PassiveClientSignInUrl|https://fs.contoso100.com/adfs/ls/|This 是將傳送被動登入要求的目標位置，且它會解析成我的實際 AD FS 系統。實際上有幾個「*Url」屬性，但我們只需要看一下說明此屬性與 URI 之間差異 (例如 IssuerURI) 的範例。
 
 現在，假設我加入第二個網域 fabrikam.com。同樣的，我可以再次執行 Azure AD Connect 精靈或透過 PowerShell 完成此動作。
 
@@ -51,9 +51,9 @@
 
 - DomainName：fabrikam.com
 - IssuerURI：http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl：https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/ 
 
-請注意，當已根據我的網域為 IssuerURI 設定一個值時，唯一的端點 url 值仍然設定為指向我在 fs.jenfield.com 上的同盟服務，就像對原始 contoso.com 網域一樣。因此，所有網域仍會指向相同的 AD FS 系統。
+請注意，當已根據我的網域為 IssuerURI 設定一個值時，唯一的端點 url 值仍然設定為指向我在 fs.contoso100.com 上的同盟服務，就像對原始 contoso.com 網域一樣。因此，所有網域仍會指向相同的 AD FS 系統。
 
 SupportMultipleDomain 所做的另外一件事是確保 AD FS 系統將在針對 Azure AD 簽發的權杖中包含正確的簽發者值。它會透過取用使用者 upn 的網域部分並將其設定為 issuerURI 中的網域，即 https://{upn suffix}/adfs/services/trust，以完成此動作。因此在 Azure AD 或 Office 365 驗證期間，將會以使用者權杖的簽發者項目來尋找 Azure AD 中的網域。如果找不到相符項目，驗證將會失敗。
 
@@ -75,10 +75,10 @@ SupportMultipleDomain 所做的另外一件事是確保 AD FS 系統將在針對
 
 - DomainName：contoso.com
 - IssuerURI：http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl：https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/ 
 - DomainName：fabrikam.com
 - IssuerURI：http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl：https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/ 
 
 使用者從 contoso.com 同盟登入後，fabrikam.com 網域現在將可正常運作。現在只剩下一個問題：使用者在子網域中登入。
 
@@ -91,4 +91,4 @@ Azure AD 實作的標準規則，會將含簽發者的權杖產生為 http://sub
 
 總而言之，您可以有多個具有不同名稱的網域，以及子網域，且全都同盟至相同 AD FS 伺服器，現在只需要幾個額外的步驟，便可確保為所有使用者正確設定簽發者值。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

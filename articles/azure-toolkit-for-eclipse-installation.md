@@ -1,20 +1,20 @@
 <properties
-    pageTitle="安裝 Azure Toolkit for Eclipse"
-    description="了解如何安裝 Azure Toolkit for Eclipse。"
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="安裝 Azure Toolkit for Eclipse"
+	description="了解如何安裝 Azure Toolkit for Eclipse。"
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
@@ -26,33 +26,15 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 
 下列步驟示範如何安裝 Azure Toolkit for Eclipse。
 
-## 必要條件 ##
-
-* Eclipse IDE for Java EE Developers (Indigo 或更新版本)。這可透過 <http://www.eclipse.org/downloads/> 下載。
-* Java Developer Kit (JDK) 1.7 版或更新版本。 
-* 作業系統 - Azure Toolkit for Eclipse 已在下列作業系統上測試：
-    * Windows 10
-    * Windows 8 和 Windows 8.1
-    * Windows 7
-    * Windows Server 2012
-    * Windows Server 2008
-
-> [AZURE.IMPORTANT]如果您在 Windows 上使用 Azure Toolkit for Eclipse，此工具組需要安裝 Azure SDK 2.7 或更新版本。您有兩個選項可安裝 Azure SDK：
-> 
-> * 您可以使用 [Web Platform Installer (WebPI)][] 下載並安裝 Azure SDK。
-> * 如果您在建立第一個 Azure 部署專案時尚未安裝 Azure SDK，系統將提示您自動下載並安裝必要的 Azure SDK 版本。
-> 
-> 請注意，只有 Windows 才需要 Azure SDK。
+[AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 ## 安裝 Azure Toolkit for Eclipse ##
 
 1. 啟動 Eclipse。
-2. 在 Eclipse 內，於功能表中按一下 [說明]<strong></strong>，然後按一下 [安裝新軟體]<strong></strong>，如下圖所示。
-    ![][ic590123]
-3. 在 [可用軟體] 對話方塊的 [使用]<strong></strong> 文字方塊中，輸入 <strong>http://dl.msopentech.com/eclipse</strong>，然後按 <strong>Enter</strong> 鍵。
-4. 在 [名稱] 窗格中，核取 [Azure Toolkit for Eclipse]<strong></strong>，然後取消核取 [在安裝期間連絡所有更新網站來尋找必要軟體]。您的畫面看起來應該類似如下：
-    ![][ic719482]
-5. 如果您展開 [Azure Toolkit for Eclipse]，則會看到下列項目：
+2. 在 Eclipse 內，於功能表中按一下 [說明]<strong></strong>，然後按一下 [安裝新軟體]<strong></strong>，如下圖所示。![][ic590123]
+3. 在 [可用軟體]<strong></strong> 對話方塊的 [使用]<strong></strong> 文字方塊中，輸入 <strong>http://dl.msopentech.com/eclipse</strong>，然後按 <strong>Enter</strong> 鍵。
+4. 在 [名稱]<strong></strong> 窗格中，核取 [Azure Toolkit for Eclipse]<strong></strong>，然後取消核取 [在安裝期間連絡所有更新網站來尋找必要軟體]<strong></strong>。您的畫面看起來應該類似如下：![][ic719482]
+5. 如果您展開 [Azure Toolkit for Eclipse]<strong></strong>，則會看到下列項目：
     * **Azure Access Control Services Filter**：這個元件支援使用 Azure ACS 來驗證應用程式使用者。
     * **Azure Common Plugin**：這個元件包含其他元件所依賴的共用功能。
     * **Azure Toolkit for Eclipse**：這個元件包含專案設定邏輯、發行至雲端精靈及使用者介面。
@@ -89,4 +71,4 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

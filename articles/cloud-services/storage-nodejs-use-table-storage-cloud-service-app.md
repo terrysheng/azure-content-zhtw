@@ -3,7 +3,7 @@
 	description="本教學課程以「使用 Express 的 Web 應用程式」教學課程為基礎，再加上 Azure 儲存體服務和 Azure 模組建置而成。" 
 	services="cloud-services, storage" 
 	documentationCenter="nodejs" 
-	authors="TomArcher" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,13 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="tarcher"/>
-
-
-
-
-
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 # 使用儲存體的 Node.js Web 應用程式
 
@@ -408,4 +403,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

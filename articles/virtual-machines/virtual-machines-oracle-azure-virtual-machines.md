@@ -3,7 +3,7 @@
 	description="找到說明如何在 Windows 或 Linux 的 Azure 虛擬機器設定 Oracle 軟體的文章。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="bbenz"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/05/2015"
-	ms.author="josephd"/>
+	ms.date="01/12/2016"
+	ms.author="bbenz"/>
 
 # 在 Azure 虛擬機器上託管的 Oracle 軟體
 
@@ -50,10 +50,10 @@
 
 ## Oracle 資料保護
 
-[設定適用於 Azure 的 Oracle 資料保護](virtual-machines-configuring-oracle-data-guard.md)將帶領您逐步完成待命環境與接聽程式的設定。
+[設定 Azure 的 Oracle 資料保護](virtual-machines-configuring-oracle-data-guard.md)帶您逐步完成待命環境與接聽程式的設定。
 
 ## Oracle GoldenGate
 
 [設定適用於 Azure 的 Oracle GoldenGate](virtual-machines-configuring-oracle-goldengate.md) 將帶領您逐步完成資料庫與複寫設定。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

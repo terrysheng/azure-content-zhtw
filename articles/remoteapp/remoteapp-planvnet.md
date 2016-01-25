@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/11/2015"
+    ms.date="01/07/2016"
     ms.author="elizapo" />
 
 # 如何針對 Azure RemoteApp 規劃您的虛擬網路
@@ -55,4 +55,4 @@
 
 現在所有新的 Azure RemoteApp 集合都支援[強制通道](vpn-gateway-about-forced-tunneling.md)。我們目前不支援現有集合的移轉，而支援強制通道。您必須使用您要連結至 Azure RemoteApp 的 VNET 來刪除所有現有的集合，並建立新的集合以在集合上啟用強制通道。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

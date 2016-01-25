@@ -43,7 +43,7 @@
             return blob.Uri + sasBlobToken;
         }
 
-    此方法會建立新的 Blob 參考，並產生[透過 Blob 服務建立和使用 SAS](https://azure.microsoft.com/zh-TW/documentation/articles/storage-dotnet-shared-access-signature-part-2/) 中所述的共用存取簽章 URI。請注意，上述方法產生的簽章 URI 的有效時間為 24 小時。如果目標裝置需要更多時間來上傳檔案 (例如裝置不常連接，或上傳大型檔案的連線品質不可靠)，建議您考慮使用到期時間更長的簽章。
+    此方法會建立新的 Blob 參考，並產生[透過 Blob 儲存體建立和使用 SAS](https://azure.microsoft.com/zh-TW/documentation/articles/storage-dotnet-shared-access-signature-part-2/) 中所述的共用存取簽章 URI。請注意，上述方法產生的簽章 URI 的有效時間為 24 小時。如果目標裝置需要更多時間來上傳檔案 (例如裝置不常連接，或上傳大型檔案的連線品質不可靠)，建議您考慮使用到期時間更長的簽章。
 
 5. 依照下列方法修改 **SendCloudToDeviceMessageAsync**：
 
@@ -70,4 +70,4 @@
 
 <!-- Images -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

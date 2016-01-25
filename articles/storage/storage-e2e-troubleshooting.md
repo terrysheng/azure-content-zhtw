@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解 | Microsoft Azure" 
-	description="示範使用 Azure Storage Analytics、AzCopy 和 Microsoft Message Analyzer 進行端對端疑難排解的教學課程" 
-	services="storage" 
-	documentationCenter="dotnet" 
-	authors="tamram" 
-	manager="adinah"/>
+<properties
+	pageTitle="使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解 | Microsoft Azure"
+	description="示範使用 Azure Storage Analytics、AzCopy 和 Microsoft Message Analyzer 進行端對端疑難排解的教學課程"
+	services="storage"
+	documentationCenter="dotnet"
+	authors="tamram"
+	manager="carmonm"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
-# 使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解 
+# 使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解
 
 [AZURE.INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
@@ -32,12 +32,12 @@
 若要使用 Microsoft Azure 儲存體進行用戶端應用程式的疑難排解，您可以使用一些工具組合來判斷何時發生問題和問題的可能原因。這些工具包括：
 
 - **Azure Storage Analytics**。[Azure Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) 提供 Azure 儲存體的度量和記錄。
-	- **儲存體度量**可追蹤儲存體帳戶的交易度量和容量度量。您可以使用度量，判斷如何根據各種不同的量值來執行您的應用程式。如需 Storage Analytics 追蹤的度量類型詳細資訊，請參閱 [Storage Analytics 度量資料表結構描述](http://msdn.microsoft.com/library/azure/hh343264.aspx)。 
+	- **儲存體度量**可追蹤儲存體帳戶的交易度量和容量度量。您可以使用度量，判斷如何根據各種不同的量值來執行您的應用程式。如需 Storage Analytics 追蹤的度量類型詳細資訊，請參閱 [Storage Analytics 度量資料表結構描述](http://msdn.microsoft.com/library/azure/hh343264.aspx)。
 
 	- **儲存體記錄**可將對 Azure 儲存體服務的每項要求記錄至伺服器端記錄檔。記錄檔可追蹤每項要求的詳細資料，包括執行的作業、作業的狀態及延遲資訊。如需 Storage Analytics 寫入記錄檔的要求和回應資料詳細資訊，請參閱 [Storage Analytics 記錄檔格式](http://msdn.microsoft.com/library/azure/hh343259.aspx)。
 
 - **Azure 入口網站**。您可以在 [Azure 入口網站](portal.azure.com)中設定儲存體帳戶的度量和記錄。您也可以檢視圖表和圖形 (其中顯示應用程式在一段時間內的執行狀況)，並設定警示，通知應用程式是否對指定的度量以超乎預期的方式執行。
-	
+
 	如需在 Azure 入口網站中進行設定和監控的相關資訊，請參閱[如何監控儲存體帳戶](storage-monitor-storage-account.md)。
 
 - **AzCopy**：Azure 儲存體的伺服器記錄檔會儲存為 Blob，因此您可以使用 AzCopy，將記錄檔 Blob 複製到本機目錄，以便使用 Microsoft Message Analyzer 分析。如需 AzCopy 詳細資訊，請參閱[如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md)。
@@ -64,15 +64,15 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 發生於因為找不到 Blob 或容器而使對容器或 Blob 的讀取作業失敗時。
 
-- 如果在其他用戶端此要求前刪除了容器或 Blob，就會發生。 
+- 如果在其他用戶端此要求前刪除了容器或 Blob，就會發生。
 - 如果您在檢查容器或 Blob 是否存在之後，使用可建立容器或 Blob 的 API 呼叫，就會發生。CreateIfNotExists API 會先進行 HEAD 呼叫，以檢查容器或 Blob 是否存在；如果不存在，寔會傳回 404 錯誤，然後進行第二次 PUT 呼叫，以寫入容器或 Blob。
 
 **狀態碼 409 (衝突) 範例**
 
-- 如果您使用建立 API 來建立新的容器或 Blob，但未先檢查其存在與否，而且已存在具有該名稱的容器或 Blob，就會發生。 
+- 如果您使用建立 API 來建立新的容器或 Blob，但未先檢查其存在與否，而且已存在具有該名稱的容器或 Blob，就會發生。
 - 如果正在刪除容器，而您嘗試在刪除作業完成之前，使用相同名稱建立新的容器，就會發生。
 - 如果您在容器或 Blob 上指定租用，而且已經有租用存在，就會發生。
- 
+
 **狀態碼 412 (先決條件失敗) 範例**
 
 - 發生於不符合條件式標頭指定的條件時。
@@ -83,7 +83,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 在本教學課程中，我們將使用 Message Analyzer 來處理三種不同類型的記錄檔，雖然您可以選擇使用任何其中一種：
 
 - 當您啟用 Azure 儲存體記錄時建立的**伺服器記錄檔**。伺服器記錄檔包含對其中一項 Azure 儲存體服務 (Blob、佇列、資料表和檔案) 呼叫的每項作業的相關資料。伺服器記錄檔指出已呼叫的作業和傳回的狀態碼，以及有關要求和回應的其他詳細資料。
-- 當您在 .NET 應用程式中啟用用戶端記錄時建立的 **.NET 用戶端記錄檔**。用戶端記錄檔包含用戶端如何準備要求及如何接收和處理回應的詳細資訊。 
+- 當您在 .NET 應用程式中啟用用戶端記錄時建立的 **.NET 用戶端記錄檔**。用戶端記錄檔包含用戶端如何準備要求及如何接收和處理回應的詳細資訊。
 - **HTTP 網路追蹤記錄檔**，用以收集 HTTP/HTTPS 要求和回應資料，包括對 Azure 儲存體的作業。在本教學課程中，我們將透過 Message Analyzer 產生網路追蹤。
 
 ### 設定伺服器端記錄和度量
@@ -113,19 +113,19 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 	```
 	$SubscriptionName = 'Your subscription name'
-	$StorageAccountName = 'yourstorageaccount' 
-	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
+	$StorageAccountName = 'yourstorageaccount'
+	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
 	```
 
 4. 啟用 Blob 服務的儲存體記錄：
- 
+
 	```
-	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
+	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
 	```
 5. 啟用 Blob 服務的儲存體度量，並確定將 -**-MetricsType** 設定為 `Minute`：
 
 	```
-	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0 
+	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
 	```
 
 ### 設定 .NET 用戶端記錄
@@ -157,9 +157,9 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 4. 選取 [Microsoft-Pef-WebProxy] ETW 提供者右邊的 [設定] 連結。
 5. 在 [進階設定] 對話方塊中，按一下 [提供者] 索引標籤。
 6. 在 [主機名稱篩選條件] 欄位中，指定您的儲存體端點 (以空格分隔)。例如，您可以如下指定您的端點；將 `storagesample` 變更為儲存體帳戶的名稱：
-	
-	```	
-	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
+
+	```
+	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
 	```
 
 7. 結束對話方塊，然後按一下 [重新啟動] 以開始使用主機名稱篩選條件來收集追蹤，以便追蹤中只包含 Azure 儲存體網路流量。
@@ -201,7 +201,7 @@ Message Analyzer 包含 Azure 儲存體資產，可協助您分析伺服器、�
 1. 從 Microsoft 下載中心下載 [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226)，並執行安裝程式。
 2. 啟動 Message Analyzer。
 3. 在 [開始] 頁面上，瀏覽至 [下載]，接著篩選 [Azure 儲存體]。您會看到 Azure 儲存體資產，如下圖所示。
-4. 按一下 [同步處理所有顯示的項目] 以安裝 Azure 儲存體資產。可用的資產包括： 
+4. 按一下 [同步處理所有顯示的項目] 以安裝 Azure 儲存體資產。可用的資產包括：
 	- **Azure 儲存體色彩規則**：Azure 儲存體色彩規則可讓您定義特殊篩選條件，以使用色彩、文字和字型樣式來反白顯示在追蹤中包含特定資訊的訊息。
 	- **Azure 儲存體圖表**：Azure 儲存體圖表是圖形伺服器記錄資料的預先定義的圖表。請注意，若要在此時使用 Azure 儲存體圖表，您可能只要將伺服器記錄檔載入到 [分析方格]。
 	- **Azure 儲存體剖析器**：Azure 儲存體剖析器可剖析 Azure 儲存體用戶端、伺服器和 HTTP 記錄檔，以便顯示在 [分析方格] 中。
@@ -217,8 +217,8 @@ Message Analyzer 包含 Azure 儲存體資產，可協助您分析伺服器、�
 
 您可以將所有已儲存的記錄檔 (伺服器端、用戶端和網路) 匯入 Microsoft Message Analyzer 的單一工作階段中進行分析。
 
-1. 在 Microsoft Message Analyzer 的 [檔案] 功能表中，按一下 [新增工作階段]，然後按一下 [空白工作階段]。在 [新增工作階段] 對話方塊中，輸入您的分析工作階段名稱。在 [工作階段詳細資料] 面板中，按一下 [檔案] 按鈕。 
-1. 若要載入 Message Analyzer 所產生的網路追蹤資料，請按一下 [新增檔案]，瀏覽至您從 Web 追蹤工作階段儲存的 .matp 檔案所在位置，選取 .matp 檔案，然後按一下 [開啟]。 
+1. 在 Microsoft Message Analyzer 的 [檔案] 功能表中，按一下 [新增工作階段]，然後按一下 [空白工作階段]。在 [新增工作階段] 對話方塊中，輸入您的分析工作階段名稱。在 [工作階段詳細資料] 面板中，按一下 [檔案] 按鈕。
+1. 若要載入 Message Analyzer 所產生的網路追蹤資料，請按一下 [新增檔案]，瀏覽至您從 Web 追蹤工作階段儲存的 .matp 檔案所在位置，選取 .matp 檔案，然後按一下 [開啟]。
 1. 若要載入伺服器端記錄檔資料，請按一下 [新增檔案]，瀏覽至您下載伺服器端記錄檔的位置，選取您要分析的時間範圍內的記錄檔，然後按一下 [開啟]。然後，在 [工作階段詳細資料] 面板中，將每個伺服器端記錄檔的 [文字記錄檔設定] 下拉式清單設定為 [AzureStorageLog]，以確保 Microsoft Message Analyzer 可以正確剖析記錄檔。
 1. 若要載入用戶端記錄檔資料，請按一下 [新增檔案]，瀏覽至您儲存用戶端記錄檔的位置，選取您要分析的記錄檔，然後按一下 [開啟]。然後，在 [工作階段詳細資料] 面板中，將每個用戶端記錄檔的 [文字記錄檔設定] 下拉式清單設定為 [AzureStorageClientDotNetV4]，以確保 Microsoft Message Analyzer 可以正確剖析記錄檔。
 1. 按一下 [新增工作階段] 對話方塊中的 [開始]，以載入和剖析記錄檔資料。記錄檔資料會顯示在 Message Analyzer 分析方格中。
@@ -302,7 +302,7 @@ Azure 儲存體用戶端程式庫會自動為每一項要求產生唯一的用�
 4. 將篩選條件中顯示的時間戳記編輯成您想要檢視的範圍。這有助於縮小要分析的資料範圍。
 5. 您的篩選條件看起來應類似下列範例。按一下 [套用] 將篩選條件套用到 [分析方格]。
 
-		((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
+		((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
 		(#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
 
 ![Azure 儲存體檢視版面配置](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
@@ -317,8 +317,8 @@ Azure 儲存體用戶端程式庫會自動為每一項要求產生唯一的用�
 
 接下來，我們會讓此用戶端要求識別碼與用戶端記錄檔資料相互關聯，以查看用戶端在錯誤發生時所採取的動作。您可以顯示此工作階段的新分析方格檢視，以檢視在第二個索引標籤中開啟的用戶端記錄檔資料：
 
-1. 首先，將 **ClientRequestId** 欄位的值複製到剪貼簿。您可以選取任一個資料列、找出 **ClientRequestId** 欄位，以滑鼠右鍵按一下資料值，然後選擇 [複製 'ClientRequestId']。 
-1. 在工具列功能區中，選取 [新增檢視器]，然後選取 [分析方格] 以開啟新的索引標籤。新索引標籤會顯示您記錄檔中的所有資料，而不分組、篩選或套用色彩規則。 
+1. 首先，將 **ClientRequestId** 欄位的值複製到剪貼簿。您可以選取任一個資料列、找出 **ClientRequestId** 欄位，以滑鼠右鍵按一下資料值，然後選擇 [複製 'ClientRequestId']。
+1. 在工具列功能區中，選取 [新增檢視器]，然後選取 [分析方格] 以開啟新的索引標籤。新索引標籤會顯示您記錄檔中的所有資料，而不分組、篩選或套用色彩規則。
 2. 在工具列功能區中，選取 [檢視版面配置]，然後選取 [Azure 儲存體] 區段下的 [所有 .NET 用戶端資料行]。此檢視版面配置會顯示用戶端記錄檔中的資料，以及伺服器和網路追蹤記錄檔中的資料。預設會依 **MessageNumber** 資料行排序。
 3. 接下來，搜尋用戶端記錄檔中的用戶端要求識別碼。在工具列功能區中，選取 [尋找訊息]，然後在 [尋找] 欄位中指定用戶端要求識別碼的自訂篩選條件。將此語法用於篩選，並指定自己的用戶端要求識別碼：
 
@@ -339,20 +339,9 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 | 若要調查... | 使用篩選運算式… | 運算式套用到記錄檔 (用戶端、伺服器、網路、全部) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | 佇列上未預期的訊息傳遞延遲 | AzureStorageClientDotNetV4.Description 包含「正在重試失敗的作業」。 | 用戶端 |
-| PercentThrottlingError 的 HTTP 增加 | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | 網路 |
+| PercentThrottlingError 的 HTTP 增加 | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | 網路 |
 | PercentTimeoutError 增加 | HTTP.Response.StatusCode == 500 | 網路 |
-| PercentTimeoutError 增加 (全部) |    *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
-| 404 (all) | *StatusCode == 404 | All |
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
-| 409 (all) | *StatusCode == 409 | All |
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| PercentTimeoutError 增加 (全部) |    **StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## 後續步驟
@@ -364,7 +353,5 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 - [如何監視儲存體帳戶](storage-monitor-storage-account.md)
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 - [Microsoft Message Analyzer 操作指南](http://technet.microsoft.com/library/jj649776.aspx)
- 
- 
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

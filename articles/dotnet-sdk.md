@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 什麼是 Azure SDK for .NET？
@@ -31,7 +31,7 @@ Azure SDK for .NET 將安裝下列產品：
 - [Visual Studio Express for Web](#vwd)
 - [Microsoft ASP.NET 和 Web Tools for Visual Studio](#wte)
 - [Microsoft Azure Tools for Microsoft Visual Studio](#tools)
-- [Microsoft Azure 製作工具](#auth)
+- [Microsoft Azure 製作工具 ](#auth)
 - [Microsoft Azure 模擬器](#emulator)
 - [Microsoft Azure 儲存體模擬器](#stgemulator)
 - [Microsoft Azure 儲存體工具](#stgtools)
@@ -186,4 +186,4 @@ Azure PowerShell 可讓您[將 Azure 環境的建立及部署自動化](http://w
 
 如需 Azure 用戶端程式庫的參考文件，請參閱 [Azure .NET 參考](/documentation/api/) (英文)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

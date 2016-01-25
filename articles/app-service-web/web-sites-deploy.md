@@ -31,11 +31,11 @@
     - 每次從已設定 Git 儲存機制執行 **git push** 時、
 	- 每次從已設定 Mercurial 儲存機制執行 **hg push** 時或 
     - 每次已連結的雲端儲存空間 (例如 Dropbox 或 OneDrive) 與 App Service 同步處理時。 
-- [Web 部署](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy)：相同的工具，會自動部署至 IIS 伺服器。直接從您最愛的 Microsoft 工具，例如 Visuall Studio、WebMatrix 和 Visual Studio Team Services，部署程式碼至 App Service。這項工具支援僅限差異比對的部署、資料庫建立、連接字串等的轉換等等。Web 部署不同於 Kudu 的地方，在於將應用程式二進位檔部署至 Azure 之前，會先進行建置。類似於 FTP，App Service 不會提供其他服務。
+- [Web 部署](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy)：相同的工具，會自動部署至 IIS 伺服器。直接從您最愛的 Microsoft 工具，例如 Visual Studio、WebMatrix 和 Visual Studio Team Services，部署程式碼至 App Service。這項工具支援僅限差異比對的部署、資料庫建立、連接字串等的轉換等等。Web 部署不同於 Kudu 的地方，在於將應用程式二進位檔部署至 Azure 之前，會先進行建置。類似於 FTP，App Service 不會提供其他服務。
 
 熱門的 Web 開發工具支援一或多個這些部署程序。雖然您選擇的工具會決定可以利用的部署程序，但可供您使用的實際 DevOps 功能取決於部署程序的組合以及且您選擇的特定工具。例如，如果您從 [Visual Studio with Azure SDK](#vspros) 執行 Web 部署，即使您未從 Kudu 獲得自動化，您仍然可在 Visual Studio 中獲得套件還原和 MSBuild 自動化。Azure SDK 也提供簡單使用的精靈，可幫助您直接在 Visual Studio 介面中建立所需的 Azure 資源。
 
->[AZURE.NOTE]這些部署程序實際上不會[佈建 Azure 資源](resource-group-portal)，而這些資源可能是您的應用程式需要的，例如 App Service 方案、App Service 應用程式和 SQL Database。然而，大部分連結的作法文章會說明如何佈建應用程式並將程式碼部署到應用程式端對端。您也可以在[使用命令列工具自動化部署](#automate)一節中找到佈建 Azure 資源的其他選項。
+>[AZURE.NOTE]這些部署程序實際上不會[佈建 Azure 資源](resource-group-portal)，而這些資源可能是您的應用程式需要的，例如 App Service 方案、App Service 應用程式和 SQL Database。然而，大部分連結的作法文章會說明如何以端對端的方式佈建應用程式及將程式碼部署到應用程式。您也可以在[使用命令列工具自動化部署](#automate)一節中找到佈建 Azure 資源的其他選項。
 
 ## <a name="ftp"></a>手動將檔案部署到 Azure
 如果您習慣以手動方式將您的網站內容複製到 Web 主機服務提供者，這也是 PHP 開發人員常見的工作流程，您可以使用 [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 公用程式來複製檔案，例如 Windows 檔案總管或 [FileZilla](https://filezilla-project.org/)。
@@ -284,4 +284,4 @@ Visual Studio Team Services 會使用 Web 部署以部署至 App Service，而�
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

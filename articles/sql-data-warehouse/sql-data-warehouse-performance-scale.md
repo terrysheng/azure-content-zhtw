@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+   ms.date="01/07/2016"
+   ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # SQL 資料倉儲的彈性效能與延展性
 如要彈性地增加或減少您的計算能力，您只需調整配置給 SQL 資料倉儲的資料倉儲單位 (DWU) 數量。資料倉儲單位是 SQL 資料倉儲帶來的新概念，可讓您輕鬆又有效地進行管理。本主題是資料倉儲單位的簡介，說明如何使用資料倉儲單位彈性調整計算能力。本文也提供有關針對環境設定合理 DWU 值的一些初始指導。
@@ -93,4 +93,4 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 [Azure 傳統入口網站]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

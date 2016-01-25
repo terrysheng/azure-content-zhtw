@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="09/18/2015"
+	ms.topic="article"
+	ms.date="01/08/2016"
 	ms.author="cabailey"/>
 #如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰
 
@@ -194,7 +194,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 
 	>[AZURE.TIP]Thales 軟體包含 %NFAST\_HOME%\\python\\bin 中的 python
-	
+
 2.	確認您看到下列訊息，表示驗證成功：**Result: SUCCESS**。
 
 此指令碼會驗證簽章者鏈結到 Thales 根金鑰。此根金鑰的雜湊內嵌於指令碼中，而且其值應為 **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**。您也可以造訪 [Thales 網站](http://www.thalesesec.com/)以另行確認此值。
@@ -211,7 +211,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 當您執行此命令時，請使用下列指示：
 
-- 以任意字串值取代 **ident** 和 **plainname** 的 *contosokey* 值。若要將系統管理負擔降至最低並減少錯誤的風險，建議您同時對兩者使用相同的值。**ident** 值只能包含數字、連字號和小寫字母。
+- 以任意字串值取代 **ident** 和 **plainname** 的 *contosokey* 值。若要將系統管理負擔降至最低並減少錯誤的風險，建議您同時對兩者使用相同的值。**Ident** 值只能包含數字、連字號和小寫字母。
 
 - 在這個範例中，Pubexp 保留空白 (預設值)，但是您可以指定特定值。如需詳細資訊，請參閱 Thales 文件。
 
@@ -301,7 +301,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 當此動作成功完成時，會顯示 **Result: SUCCESS**，而且目前的資料夾中會有新的檔案，其名稱如下：TransferPackage-*ContosoFirstHSMkey*.byok
 
-###步驟 4.4：將金鑰傳輸封裝複製到網際網路連線的工作站 
+###步驟 4.4：將金鑰傳輸封裝複製到網際網路連線的工作站
 
 使用 USB 磁碟機或其他可攜式儲存裝置，將上一個步驟的輸出檔案 (KeyTransferPackage-ContosoFirstHSMkey.byok) 複製到網際網路連線的工作站。
 
@@ -317,4 +317,4 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 您現在可以在您的金鑰保存庫中使用這個受 HSM 保護的金鑰。如需詳細資訊，請參閱[開始使用 Azure 金鑰保存庫](key-vault-get-started.md)教學課程中的**如果您想要使用硬體安全模組 (HSM)** 一節。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

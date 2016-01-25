@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/16/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Azure 混合式雲端測試環境
@@ -49,14 +49,8 @@
 組織和個人的直接網際網路連線和公用 IP 位址尚未就緒時，[模擬的混合式雲端測試環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)就會在不同的 Azure 虛擬網路中建立簡化的內部部署網路，然後利用 VNet 對 VNet VPN 連線來連接兩個虛擬網路。
 
 
-## 其他資源
+## 後續步驟
 
-[在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
+- 深入了解在 Azure 基礎架構服務中設計自訂的開發/測試或生產環境部署的[實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)。
 
-[Azure 基礎結構服務工作負載：高可用性企業營運應用程式](virtual-machines-workload-high-availability-LOB-application.md)
-
-[在 Microsoft Azure 中部署 Office 365 目錄同步作業 (DirSync)](https://technet.microsoft.com/library/dn635310.aspx)
-
-[Azure 基礎結構服務實作指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

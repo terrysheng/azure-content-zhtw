@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/12/2016" 
 	ms.author="cephalin;riande"/>
 
 
@@ -62,37 +62,45 @@
 
 1.	下載會議清單應用程式[入門專案][StarterProject] (英文)。
 
-2. 	接著在 Windows 檔案總管中，以滑鼠右鍵按一下 Mvc5Mobile.zip 檔案並選擇 [內容]。
+2. 	接著在 Windows 檔案總管中，以滑鼠右鍵按一下以下載的 ZIP 檔案並選擇 [內容]。
 
-3. 	在 [**Mvc5Mobile.zip 屬性**] 對話方塊中，選擇 [**解除封鎖**] 按鈕。(取消封鎖後，當您嘗試使用從網路下載的 *.zip* 檔案時，就不會出現安全性警告。)
+3. 	在 [內容] 對話方塊中，選擇 [解除封鎖] 按鈕。(取消封鎖後，當您嘗試使用從網路下載的 *.zip* 檔案時，就不會出現安全性警告。)
 
-4.	以滑鼠右鍵按一下 *Mvc5Mobile.zip* 檔案，然後選取 [**解壓縮全部**]，以解壓縮檔案。
+4.	以滑鼠右鍵按一下 ZIP 檔案並選取 [全部解壓縮] 來解壓縮檔案。
 
-5. 	在 Visual Studio 中，開啟 *Mvc5Mobile.sln* 檔案。
+5. 	在 Visual Studio 中，開啟 *C#\\Mvc5Mobile.sln* 檔案。
 
 6.  在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
 
 	![][DeployClickPublish]
 
-7.	在 [發行 Web] 中，按一下 [**Microsoft Azure Web Apps**]。
+7.	在 [發佈 Web] 中，按一下 [Microsoft Azure App Service]。
 
 	![][DeployClickWebSites]
 
-8.	按一下 [登入]。
+8.	如果您尚未登入 Azure，請按一下 [新增帳戶]。
 
 	![][DeploySignIn]
 
 9.	依照提示來登入您的 Azure 帳戶。
 
-11. [選取現有的 Web 應用程式] 對話方塊此時應顯示為已登入。按一下 [新增]。
+11. [App Service] 對話方塊現在應該會顯示您已登入。按一下 [新增]。
 
 	![][DeployNewWebsite]
 
-12. 在 [**Web App 名稱**] 欄位中，指定唯一的 App 名稱前置詞。您的完整 Web 應用程式名稱將是 *&lt;prefix>*.azurewebsites.net。同時設定 Web 應用程式的 **App Service 方案**、**資源群組**，以及 [**區域**] 欄位。然後按一下 [建立]。
+12. 在 [Web 應用程式名稱] 欄位中，指定唯一的應用程式名稱前置詞。您的完整 Web 應用程式名稱將是 *&lt;prefix>*.azurewebsites.net。另外，請在 [資源群組] 中選取或指定新的資源群組名稱。然後，按一下 [新增] 來建立新的 App Service 方案。
 
 	![][DeploySiteSettings]
 
-13.	隨即會將新 Web 應用程式的設定填入 [發行 Web] 對話方塊中。按一下 [發行]。
+13. 設定新的 App Service 方案並按一下 [確定]。
+
+    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7a.png)
+
+13. 返回 [建立 App Service] 對話方塊中，按一下 [建立]。
+
+    ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7b.png)
+
+13.	Azure 資源建立之後，隨即會將新應用程式的設定填入 [發佈 Web] 對話方塊中。按一下 [發行]。
 
 	![][DeployPublishSite]
 
@@ -102,7 +110,7 @@
 
 	![][AllTags]
 
->[AZURE.NOTE]當您在 Visual Studio 中偵錯 MVC 5 應用程式時，可以再次將 Web 應用程式發行至 Azure，直接從行動瀏覽器或瀏覽器模擬器確認作用中的 Web 應用程式。
+>[AZURE.TIP]當您在 Visual Studio 中偵錯 MVC 5 應用程式時，可以再次將 Web 應用程式發行至 Azure，直接從行動瀏覽器或瀏覽器模擬器確認作用中的 Web 應用程式。
 
 該顯示內容在行動裝置上非常清楚易讀。您也可以看到一些 Bootstrap CSS 架構所套用的視覺效果。按一下 [**ASP.NET**] 連結。
 
@@ -616,4 +624,4 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

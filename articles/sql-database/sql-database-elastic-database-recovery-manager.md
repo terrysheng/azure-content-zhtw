@@ -21,7 +21,7 @@
 
 GSM 和 LSM 會追蹤分區化環境中每個資料庫的對應。有時候，GSM 和 LSM 之間會發生中斷。在此情況下，請使用 RecoveryManager 類別來偵測及修復中斷。
 
-RecoveryManager 類別是[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library)的一部分。
+RecoveryManager 類別是[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)的一部分。
 
 
 ![分區對應][1]
@@ -157,4 +157,4 @@ RecoveryManager 類別是[彈性資料庫用戶端程式庫](sql-database-elasti
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/31/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # 為 StorSimple 裝置設定多重路徑 I/O
@@ -111,7 +111,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 
 13. 初始化磁碟，並建立新的磁碟區。在格式化程序期間，選取 64 KB 的區塊大小。 ![磁碟管理](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. 在 [磁碟管理] 下，於 [磁碟] 按一下滑鼠右鍵，然後選取 [內容]。
-15. 在 [StorSimple 模型 #### 多重路徑磁碟裝置內容] 對話方塊中，按一下 [MPIO] 索引標籤。 ![StorSimple 8100 多重路徑磁碟 DeviceProp。](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. 在 [StorSimple 模型 #### 多重路徑磁碟裝置內容] 對話方塊中，按一下 [MPIO] 索引標籤。![StorSimple 8100 多重路徑磁碟 DeviceProp。](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 
 16. 在 [DSM 名稱] 區段中，按一下 [詳細資料] 並確認參數已設定為預設參數。預設參數如下：
 
@@ -173,4 +173,4 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 深入了解[使用 StorSimple Manager 服務修改 StorSimple 裝置設定](storsimple-modify-device-config.md)。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -101,7 +101,7 @@ StorSimple 裝置包括 SSD 和硬碟 HDD，並支援叢集和自動容錯移轉
 
 利用 Update 2 和更新版本，StorSimple 虛擬裝置可在兩個模型中使用：8010 裝置 (先前稱為 1100 模型) 和 8020 裝置。8010 裝置的最大容量為 30 TB。利用 Azure 進階儲存體帳戶的 8020 裝置的最大容量為 64 TB。(Azure 進階儲存體會將資料儲存在 SSD 上，而標準儲存體會將資料儲存在 HDD 上。) 請注意，您必須具有 Azure 進階儲存體帳戶才能使用進階儲存體。如需進階儲存體的詳細資訊，請移至[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
 
-如需 StorSimple 虛擬裝置的詳細資訊，請移至[部署和管理 Azure 中的 StorSimple 虛擬裝置](storsimple-virtual-device-u1)。
+如需 StorSimple 虛擬裝置的詳細資訊，請移至[部署和管理 Azure 中的 StorSimple 虛擬裝置](storsimple-virtual-device-u1.md)。
 
 ## StorSimple Manager 服務
 
@@ -278,4 +278,4 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

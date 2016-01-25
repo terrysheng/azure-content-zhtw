@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/06/2016"
 	ms.author="kgremban"/>
 
 # 如何以無訊息方式安裝 Azure AD 應用程式 Proxy 連接器
 
-您想要能傳送安裝指令碼至多部 Windows 伺服器，或傳送至未啟用使用者介面的 Windows Server。本主題說明如何建立 Windows PowerShell 指令碼以啟用自動安裝，同時安裝並註冊您的 Azure AD 應用程式 Proxy 連接器。
+> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+
+您想要能傳送安裝指令碼至多部 Windows 伺服器，或傳送至未啟用使用者介面的 Windows Server。本主題說明如何建立 Windows PowerShell 指令碼來啟用自動安裝，以安裝並註冊您的 Azure AD 應用程式 Proxy 連接器。
 
 ## 啟用存取
 應用程式 Proxy 的運作方式是透過在網路內部安裝一個稱為連接器的精簡型 Windows Server 服務。應用程式 Proxy 連接器必須使用全域系統管理員和密碼向 Azure AD 目錄註冊後才能運作。通常，這是在連接器安裝期間於一個快顯對話方塊中輸入的。但是，您可以使用 Windows PowerShell 來建立認證物件以輸入您的註冊資訊，或者您可以建立自己的語彙基元並使用它來輸入註冊資訊。
@@ -44,14 +46,14 @@
 ### 使用 Windows PowerShell 認證物件註冊連接器
 
 
-1. 執行下列命令以建立 Windows PowerShell 認證物件，其中的 "username" 和 "password" 應該取代為您目錄的使用者名稱和密碼：
+1. 執行下列命令以建立 Windows PowerShell 認證物件，其中的 "<username>" 和 "<password>" 應取代為您的目錄的使用者名稱和密碼：
 
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 
-2. 移至 **C:\\Program Files\\Microsoft AAD App Proxy Connector**，並使用您建立的 PowerShell 認證物件執行指令碼：其中 $cred 是您所建立之 PowerShell 認證物件的名稱：
+2. 移至 **C:\\Program Files\\Microsoft AAD App Proxy Connector**，並使用您建立的 PowerShell 認證物件執行指令碼，其中 $cred 是您所建立之 PowerShell 認證物件的名稱：
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
@@ -134,7 +136,7 @@
 
 
 ### 深入了解應用程式 Proxy
-- [看看我們在這裡的線上說明](active-directory-application-proxy-enable.md)
+- [看看我們的線上說明](active-directory-application-proxy-enable.md)
 - [查閱應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
@@ -142,4 +144,4 @@
 * [以組織身分註冊 Azure](sign-up-organization.md)
 * [Azure 身分識別](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

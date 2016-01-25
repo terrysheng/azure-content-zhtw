@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/22/2015"
+   ms.date="01/12/2016"
    ms.author="sameerch"/>
 
 
@@ -66,11 +66,11 @@ HDInsight 連接器在邏輯應用程式中只能當動作使用。讓我們以�
 
 
 1. 在 [啟動邏輯] 卡中，按一下 [手動執行此邏輯]。
-2. 選取您稍早在資源庫中建立的 HDInsight 連接器 API 應用程式 (您會在螢幕右邊的 API Apps 中找到建立的 HDInsight 連接器)。選取黑色的向右箭號。可用的動作會列出：![][12]
+2. 選取您稍早在資源庫中建立的 HDInsight 連接器 API 應用程式 (您會在螢幕右邊的 API Apps 中找到建立的 HDInsight 連接器)。選取黑色的向右箭號。就會顯示可用的動作：![][12]
 
 3. 選取 [建立叢集]，輸入所有必要的叢集參數，然後選取 ✓︰![][6]
 
-4. 現在，動作在邏輯應用程式中顯示為已設定。會顯示動作的輸出，並可用作後續動作的輸入︰![][7]
+4. 現在，動作在邏輯應用程式中顯示為已設定。會顯示動作的輸出，並可做為後續動作的輸入︰![][7]
 
 5. 從資源庫選取相同的 HDInsight 連接器做為動作。選取 [等候建立叢集] 動作，輸入所有必要的參數，然後選取 ✓︰![][8]
 
@@ -95,16 +95,16 @@ HDInsight 連接器在邏輯應用程式中只能當動作使用。讓我們以�
 
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-hdinsight/Create.jpg
-[2]: ./media/app-service-logic-connector-hdinsight/CertNotConfigured.jpg
-[3]: ./media/app-service-logic-connector-hdinsight/CertConfigured.jpg
-[5]: ./media/app-service-logic-connector-hdinsight/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-hdinsight/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-hdinsight/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-hdinsight/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
+[1]: ./media/app-service-logic-connector-hdinsight/Create.png
+[2]: ./media/app-service-logic-connector-hdinsight/CertNotConfigured.png
+[3]: ./media/app-service-logic-connector-hdinsight/CertConfigured.png
+[5]: ./media/app-service-logic-connector-hdinsight/LogicApp1.png
+[6]: ./media/app-service-logic-connector-hdinsight/LogicApp2.png
+[7]: ./media/app-service-logic-connector-hdinsight/LogicApp3.png
+[8]: ./media/app-service-logic-connector-hdinsight/LogicApp4.png
+[9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.png
+[10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.png
+[11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.png
 [12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

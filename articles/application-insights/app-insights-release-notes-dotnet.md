@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="01/12/2016" 
 	ms.author="abaranch"/>
  
 # .NET 適用的 Application Insights SDK 的版本資訊
@@ -32,6 +32,18 @@ See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 * 與舊的複本比較 ApplicationInsights.config。您看到的變更大部分是因為我們移除了部分模組，並讓其他的模組可參數化。恢復您對舊檔案做的任何自訂。
 * 重建您的方案。
 
+## 版本 2.0.0-beta4
+
+- UseSampling and UseAdaptiveSampling 擴充方法已經移至 Microsoft.ApplicationInsights.Extensibility
+- 已經移除通用 Windows Phone 和市集應用程式的支援
+- 已更新 ```DependencyTelemetry``` 以提供新屬性 ```ResultCode``` 和 ```Id```。```ResultCode``` 將用於提供 HTTP 相依性的 HTTP 回應碼，和 SQL 相依性的錯誤碼。```Id``` 將用於跨元件相互關聯。 
+- 如果 ```ServerTelemetryChannel``` 以程式設計方法初始化，現在它必須呼叫 ```ServerTelemetryChannel.Initialize()``` 方法。否則永續性儲存體將不會初始化 (這表示若無法在暫時性連線問題的事件中傳送遙測，它將會被卸除)。
+- ```ServerTelemetryChannel``` 具有新屬性 ```StorageFolder```，可透過程式碼或設定來進行設定。如果設定此屬性，ApplicationInsights 會使用提供的位置儲存未在暫時性連線問題事件中傳送的遙測。如果未設定屬性，或提供的資料夾無法存取，ApplicationInsights 將會嘗試使用 [LocalAppData] 或 [Temp] 資料夾，如先前所完成的。
+- 已經移除 ```TelemetryConfiguration.GetTelemetryProcessorChainBuilder``` 擴充方法。使用 ```TelemetryConfiguration.TelemetryProcessorChainBuilder``` 執行個體方法取代此方法。
+- ```TelemetryConfiguration``` 類別具有新的屬性 ```TelemetryProcessors```，提供 ```TelemetryProcessors``` 集合的唯讀存取權限。
+- ```Use```、```UseSampling``` 和 ```UseAdaptiveSampling``` 保留從設定載入的 ```TelemetryProcessors```。
+- 設定檔中提供兩個現成的遙測處理器 - 使用者代理程式篩選遙測處理器和要求處理常式遙測處理器。您可以自訂它們的行為。您可以附加想要在 AI.config 檔案中篩選掉的使用者代理程式字串。預設我們會篩選掉 ```AllwaysOn``` 使用者代理程式字串。目前的行為會使用不區分大小寫的完整比對方式，針對使用者代理程式字串比較設定檔中的字串。您也可以針對想要篩選掉的要求，自訂處理常式清單。 
+- 相依 Microsoft.ApplicationInsights.Agent.Intercept Nuget 版本已更新至 1.2.1。它具有 SQL 相依性集合錯誤修正。
 
 ## 2\.0.0-beta3 版
 
@@ -49,7 +61,7 @@ See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
 ## 版本 2.0.0-beta2
 - 新增對 ITelemetryProcessor 的支援，而且可以透過程式碼或組態設定。[在 SDK 中啟用自訂篩選](app-insights-api-telemetry-processors/#telemetry-processors)
-- 已移除內容初始設定式。請改用[遙測初始設定式]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)。
+- 已移除內容初始設定式。請改用[遙測初始設定式](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers)。
 - 已更新適用於 .Net framework 4.6 的 Application Insights。 
 - 自訂的事件名稱現在最多可包含 512 個字元。
 - 屬性 ```OperationContext.Name``` 已重新命名為 ```RootName```。
@@ -124,4 +136,4 @@ See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
  
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0114_2016-->

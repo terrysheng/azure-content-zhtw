@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
+   ms.date="01/08/2016"
+   ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # 效能和調整概觀
 將您的資料倉儲放在雲端，就不再需要處理低階的硬體問題。您再也不需要為了獲得優異的資料倉儲效能，而研究處理器類型、需要的記憶體容量或儲存空間類型。相反地，SQL 資料倉儲要問您：您想要多快的資料分析速度？
@@ -69,7 +69,7 @@ SQL 資料倉儲引進了資料倉儲單位 (DWU)，做為許多節點的彙總�
 [效能和延展性]: sql-data-warehouse-performance-scale.md
 [並行模型]: sql-data-warehouse-develop-concurrency.md
 [設計資料表]: sql-data-warehouse-develop-table-design.md
-[為資料表選擇雜湊散發索引鍵]: sql-data-warehouse-develop-hash-distribution-key
+[為資料表選擇雜湊散發索引鍵]: sql-data-warehouse-develop-hash-distribution-key.md
 [用來改善效能的統計資料]: sql-data-warehouse-develop-statistics.md
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
@@ -77,4 +77,4 @@ SQL 資料倉儲引進了資料倉儲單位 (DWU)，做為許多節點的彙總�
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

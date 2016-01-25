@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # 部署 StorSimple Snapshot Manager MMC 嵌入式管理單元
@@ -23,11 +23,15 @@ StorSimple Snapshot Manager 是 Microsoft Management Console (MMC) 嵌入式管�
 
 本教學課程描述組態需求，以及安裝、移除及升級 StorSimple Snapshot Manager 的程序。
 
+>[AZURE.NOTE]
+>
+>- 您無法使用 StorSimple Snapshot Manager 來管理 Microsoft Azure StorSimple Virtual Arrays (也稱為 StorSimple 內部部署虛擬裝置)。
+>
+>- 如果您打算在 StorSimple 裝置上安裝 StorSimple Update 2，在**安裝 StorSimple Update 2 之前**，請務必下載最新版的 StorSimple Snapshot Manager 並安裝它。最新版的 StorSimple Snapshot Manager 具回溯相容性，可搭配 Microsoft Azure StorSimple 的所有發行版本使用。如果您使用的是舊版的 StorSimple Snapshot Manager，您必須更新它 (安裝新版本前不需解除安裝舊版)。
+
 ## StorSimple Snapshot Manager 安裝
 
-StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1、Windows Server 2012 或 Windows Server 2012 R2 作業系統的電腦上。
-
->[AZURE.NOTE]在執行 Windows 2008 R2 的伺服器上，您也必須安裝 Windows Server 2008 SP1 和 Windows Management Framework 3.0。
+StorSimple Snapshot Manager 可以安裝在執行 Windows Server 2008 R2 SP1、Windows Server 2012 或 Windows Server 2012 R2 作業系統的電腦上。在執行 Windows 2008 R2 的伺服器上，您也必須安裝 Windows Server 2008 SP1 和 Windows Management Framework 3.0。
 
 在您安裝或升級 Microsoft Management Console (MMC) 的 StorSimple Snapshot Manager 嵌入式管理單元之前，請確定已正確設定 Microsoft Azure StorSimple 裝置及主機伺服器。
 
@@ -47,7 +51,7 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    >[AZURE.NOTE]對於 StorSimple 虛擬裝置，主機必須是 Microsoft Azure 虛擬機器。
+    對於 StorSimple 虛擬裝置，主機必須是 Microsoft Azure 虛擬機器。
 
 3. 請確定您符合所有的 Microsoft Azure StorSimple 組態需求。如需詳細資料，請移至[部署必要條件](storsimple-deployment-walkthrough.md#deployment-prerequisites)。
 
@@ -255,4 +259,4 @@ StorSimple Snapshot Manager 可以安裝在執行 Windows Server® 2008 R2 SP1�
 
 - 若要深入了解如何使用 StorSimple Snapshot Manager，請移至[使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

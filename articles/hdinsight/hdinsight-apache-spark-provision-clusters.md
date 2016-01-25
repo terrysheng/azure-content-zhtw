@@ -32,15 +32,15 @@
 
 ##<a id="configuration"></a>有哪些相異的組態選項？
 
-###其他儲存體
+### 其他儲存體
 
 在設定期間，您必須指定 Azure Blob 儲存體帳戶和預設容器。叢集以此做為預設儲存位置。您可以選擇性地指定將與叢集相關聯的其他 Azure 儲存體帳戶。
 
->[AZURE.NOTE] 請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
+>[AZURE.NOTE]請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
 
 如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-use-blob-storage.md)。
 
-###Metastore
+### Metastore
 
 Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可以將這些結構描述和資料表中繼資料儲存在外部 metastore。使用中繼存放區有助於保留 Hive 中繼資料，因此在建立新叢集時，您便無需重建 Hive 資料表。依預設，Hive 會使用內嵌資料庫來儲存此資訊。刪除叢集時，嵌入的資料庫將無法保留中繼資料。
 
@@ -51,7 +51,7 @@ Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可�
 您可以在建立期間使用指令碼來安裝其他元件或自訂組態。這類指令碼可透過**指令碼動作**叫用，指令碼動作是一個組態選項，其可從 Azure 入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-customize-cluster]。
 
 
-###虛擬網路
+### 虛擬網路
 
 [Azure 虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)可讓您建立安全、持續的網路，其包含解決方案所需的資源。虛擬網路可讓您：
 
@@ -69,17 +69,11 @@ Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可�
 
 	![diagram of point-to-site configuration](./media/hdinsight-apache-spark-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)＞。
-
-> [AZURE.NOTE]建立叢集之前，必須先建立 Azure 虛擬網路。如需詳細資訊，請參閱[如何建立虛擬網路](virtual-networks-create-vnet.md)。
->
-> Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
->
-> 強烈建議您一個叢集只指定一個子網路。
+如需搭配虛擬網路 (包含虛擬網路特定設定需求) 使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
 ##<a id="portal"></a>使用 Azure Preview 入口網站
 
-HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心上必須要有 Azure 儲存體帳戶，才能夠建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-hadoop-use-blob-storage.md)。如需建立 Azure 儲存帳號的詳細資訊，請參閱[如何建立儲存帳號][azure-create-storageaccount]。
+HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心上必須要有 Azure 儲存體帳戶，才能夠建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-hadoop-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶][azure-create-storageaccount]。
 
 **使用自訂建立選項建立 HDInsight 叢集**
 
@@ -94,7 +88,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 4. 如果您有多個訂用帳戶，可按一下 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
 
-5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
+5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
 	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
@@ -102,7 +96,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 	![提供叢集認證](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.3.png "提供叢集認證")
 
-7. 按一下 [資料來源] 來選擇該叢集的現有資料來源，或建立一個新的資料來源。
+7. 按一下 [資料來源] 為該叢集選擇現有資料來源，或是建立新的資料來源。
 
 	![資料來源刀鋒視窗](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.4.png "提供資料來源組態")
 
@@ -174,17 +168,17 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 	* **遠端桌面**：可讓您在叢集節點上啟用/停用遠端桌面。
 
-	* **調整叢集**：可讓您變更此叢集的背景工作角色節點數目。
+	* **調整叢集**：可讓您變更此叢集的背景工作節點數目。
 
 	* **刪除**：刪除 HDInsight 叢集。
 
-	* **快速入門 (![雲和雷電圖示 = 快速入門](./media/hdinsight-apache-spark-provision-clusters/quickstart.png))**：顯示可協助您開始使用 HDInsight 的資訊。
+	* **快速入門** (![雲和雷電圖示 = 快速入門](./media/hdinsight-apache-spark-provision-clusters/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
 
-	* **使用者 (![使用者圖示](./media/hdinsight-apache-spark-provision-clusters/users.png))**：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
+	* **使用者** (![使用者圖示](./media/hdinsight-apache-spark-provision-clusters/users.png))：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 
 		> [AZURE.IMPORTANT]這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將作業提交至其上的使用者則沒有作用。
 
-	* **標記 (![標記圖示](./media/hdinsight-apache-spark-provision-clusters/tags.png))**：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可以建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
+	* **標記** (![標記圖示](./media/hdinsight-apache-spark-provision-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可以建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
 	* **叢集儀表板**：啟動叢集儀表板刀鋒視窗，以從中啟動叢集儀表板本身，或啟動 Zeppelin 和 Jupyter Notebook。
 
@@ -248,4 +242,4 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

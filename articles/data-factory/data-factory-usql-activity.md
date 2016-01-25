@@ -48,12 +48,12 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 
 屬性 | 說明 | 必要
 -------- | ----------- | --------
-型別 | type 屬性應設為：**AzureDataLakeAnalytics**。 | 是
+類型 | type 屬性應設為：**AzureDataLakeAnalytics**。 | 是
 accountName | Azure 資料湖分析帳戶名稱。 | 是
 dataLakeAnalyticsUri | Azure 資料湖分析 URI。 | 否 
-授權 | 按一下 Data Factory 編輯器中的 [授權] 按鈕並且完成 OAuth 登入之後，會自動擷取授權碼。 | 是 
+authorization | 按一下 Data Factory 編輯器中的 [授權] 按鈕並完成 OAuth 登入後，即會自動擷取授權碼。 | 是 
 subscriptionId | Azure 訂用帳戶識別碼 | 否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。 
-resourceGroupName | Azure 資源群組名稱 | 否 (如果未指定，便會使用 Data Factory 的群組)。
+resourceGroupName | Azure 資源群組名稱 | 否 (若未指定，便會使用 Data Factory 的資源群組)。
 sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階段識別碼都是唯一的，只能使用一次。這是在 Data Factory 編輯器中自動產生。 | 是
 
    
@@ -117,7 +117,7 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
 
 屬性 | 說明 | 必要
 :-------- | :----------- | :--------
-類型 | type 屬性必須設為：**DataLakeAnalyticsU-SQL**。 | 是
+類型 | type 屬性必須設為 **DataLakeAnalyticsU-SQL**。 | 是
 scriptPath | 包含 U-SQL 指令碼的資料夾的路徑。 | 否 (如果您使用指令碼)
 scriptLinkedService | 連結服務會連結包含 Data Factory 的指令碼的儲存體 | 否 (如果您使用指令碼)
 script | 指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。例如："script" : "CREATE DATABASE test"。 | 否 (如果您使用 scriptPath 和 scriptLinkedService)
@@ -125,6 +125,7 @@ degreeOfParallelism | 同時用來執行工作的節點數目上限。 | 否
 優先順序 | 判斷應該選取排入佇列的哪些工作首先執行。編號愈低，優先順序愈高。 | 否 
 參數 | U-SQL 指令碼的參數 | 否 
 
+如需指令碼定義，請參閱 [SearchLogProcessing.txt 指令碼定義](#script-definition)。
 
 ### 建立輸入和輸出資料集
 
@@ -187,4 +188,35 @@ degreeOfParallelism | 同時用來執行工作的節點數目上限。 | 否
 
 請參閱[移動 Azure 資料湖存放區的資料](data-factory-azure-datalake-connector.md)以取得上述的 Azure 資料湖存放區連結服務中的 JSON 屬性和資料集 JSON 片段的說明。
 
-<!---HONumber=Nov15_HO2-->
+### 指令碼定義
+
+	@searchlog =
+	    EXTRACT UserId          int,
+	            Start           DateTime,
+	            Region          string,
+	            Query           string,
+	            Duration        int?,
+	            Urls            string,
+	            ClickedUrls     string
+	    FROM @in
+	    USING Extractors.Tsv(nullEscape:"#NULL#");
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @searchlog
+	WHERE Region == "en-gb";
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @rs1
+	    WHERE Start <= DateTime.Parse("2012/02/19");
+	
+	OUTPUT @rs1   
+	    TO @out
+	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
+
+上述 U-SQL 指令碼中 **@in** 和 **@out** 參數的值會由 ADF 使用 ‘parameters’ 區段動態傳遞。請參閱上述管線定義中的 ‘parameters’ 一節。
+
+您可以指定其他屬性 (即 degreeOfParallelism、priority 等)，以及 Azure 資料湖分析服務上執行之作業的管線定義中的屬性。
+
+<!---HONumber=AcomDC_0114_2016-->

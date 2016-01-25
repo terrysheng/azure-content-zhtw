@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/19/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
@@ -79,7 +79,7 @@
     1. 針對 [儲存體帳戶]，選取您想要使用的儲存體帳戶，或按一下 [新增] 來建立新的儲存體帳戶。
     1. 針對 [服務名稱]，選取您想要使用的雲端服務，或按一下 [新增] 來建立新的雲端服務。
     1. 針對 [目標作業系統]，選取您想要用於部署的作業系統版本。
-    1. 針對 \[目標環境]，基於本教學課程的目的，請選取 \[預備] \(當您準備好部署至生產網站時，您會將此選項變更為 \[生產])。
+    1. 針對 [目標環境]，基於本教學課程的目的，請選取 [預備] \(當您準備好部署至生產網站時，您會將此選項變更為 [生產])。
     1. 選用：若要讓新部署自動覆寫先前的部署，請確實核取 [覆寫先前部署]。當您啟用此選項時，發佈至相同的位置時不會出現「409 衝突」問題。請注意，[發佈至 Azure] 對話方塊包含 [遠端存取] 的區段。
         根據預設，不會啟用遠端存取，而且我們不會針對此範例啟用它。若要啟用遠端存取，您需要在遠端登入時輸入要使用的使用者名稱和密碼。如需有關遠端存取的詳細資訊，請參閱[在 Eclipse 中啟用 Azure 部署的遠端存取][]。
         將會出現類似下面的 [發佈至 Azure] 對話方塊：
@@ -198,4 +198,4 @@
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!----------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

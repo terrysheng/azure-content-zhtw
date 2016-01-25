@@ -21,7 +21,7 @@
 
 ![跨分區查詢][1]
 
-此功能屬於 Azure SQL Database [彈性資料庫功能集](sql-database-elastic-scale.md)的一部分。
+此功能屬於 Azure SQL Database [彈性資料庫功能集](sql-database-elastic-scale-introduction.md)的一部分。
  
 ## 建立資料庫物件
 
@@ -241,4 +241,4 @@ sp\_execute\_fanout 會使用叫用參數中提供的分區對應資訊，在所
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

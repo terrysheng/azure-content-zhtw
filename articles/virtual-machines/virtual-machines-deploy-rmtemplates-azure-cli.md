@@ -20,12 +20,8 @@
 # 使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-<br>
-
-
+- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 本文會為您示範如何使用 Azure 資源管理員範本和 Azure CLI，執行下列部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
 
@@ -1309,4 +1305,4 @@
 
 如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

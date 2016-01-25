@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="barbkess;sonyama"/>
 
 # 移轉資料
 移轉資料時的主要目標是填入 SQLDW 資料庫。此程序可以透過數種方式來達成。ADF 複製、SSIS 和 bcp 都可用來達成此目標。不過，隨著資料量增加，您應該考慮將資料移轉程序細分成步驟。這樣讓您有機會來最佳化每個步驟的效能和彈性，以確保順暢移轉資料。
@@ -194,4 +194,4 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。您可以�
 [ADO.NET 目的地配接器]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS 文件]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

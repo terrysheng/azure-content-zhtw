@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/14/2015"
    ms.author="andkjell"/>
 
 # 一般 LDAP 連接器技術參考
@@ -49,13 +49,13 @@ IETF RFC 中未指定某些作業和結構描述項目，例如需要執行差�
 
 - Microsoft Active Directory Lightweight Directory Services (AD LDS)
     - 支援所有作業進行差異匯入
-    - 支援設定密碼和變更密碼
+    - 支援設定密碼
 - Microsoft Active Directory Global Catalog (AD GC)
     - 支援所有作業進行差異匯入
-    - 支援設定密碼和變更密碼
+    - 支援設定密碼
 - 389 Directory Server
     - 支援所有作業進行差異匯入
-    - 支援設定密碼
+    - 支援設定密碼和變更密碼
 - Apache Directory Server
     - 不支援差異匯入，因為此目錄沒有持續性的變更記錄檔
     - 支援設定密碼
@@ -71,10 +71,10 @@ IETF RFC 中未指定某些作業和結構描述項目，例如需要執行差�
     - 支援設定密碼和變更密碼
 - Open DJ
     - 支援所有作業進行差異匯入
-    - 支援設定密碼
+    - 支援設定密碼和變更密碼
 - Open DS
     - 支援所有作業進行差異匯入
-    - 支援設定密碼
+    - 支援設定密碼和變更密碼
 - Open LDAP (openldap.org)
     - 支援所有作業進行差異匯入
     - 支援設定密碼
@@ -211,13 +211,13 @@ True/False 篩選器通常因為由 LDAP 目錄所支援而不回報，而且可
 | Apache Directory Server | 無法使用。 |
 | Directory 389 | 變更記錄檔。要使用的預設值：**cn=changelog** |
 | IBM Tivoli DS | 變更記錄檔。要使用的預設值：**cn=changelog** |
-| Isode Directory | 變更記錄檔。要使用的預設值：**cn=ChangeLog**
+| Isode Directory | 變更記錄檔。要使用的預設值：**cn=changelog**
 | Novell/NetIQ eDirectory | 無法使用。TimeStamp。連接器會使用上次更新日期/時間來取得已新增和更新的記錄。 |
-| Open DJ/DS | 變更記錄檔。要使用的預設值：**cn=Changelog** |
+| Open DJ/DS | 變更記錄檔。要使用的預設值：**cn=changelog** |
 | Open LDAP | 存取記錄檔。要使用的預設值：**cn=accesslog** |
 | Oracle DSEE | 變更記錄檔。要使用的預設值：**cn=changelog** |
 | RadiantOne VDS | 虛擬目錄。取決於 VDS 連接的目錄。 |
-| Sun One Directory Server | 變更記錄檔。要使用的預設值：**cn=Changelog** |
+| Sun One Directory Server | 變更記錄檔。要使用的預設值：**cn=changelog** |
 
 密碼屬性是連接器在密碼變更和密碼設定作業中應用來設定密碼的屬性名稱。這會預設為 **userPassword**，但特定 LDAP 系統可以視需要進行變更。
 
@@ -279,4 +279,4 @@ Open LDAP 中的差異浮水印是 UTC 日期/時間。基於這個理由，FIM 
 
 -	如需如何啟用記錄來疑難排解連接器的資訊，請參閱[如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

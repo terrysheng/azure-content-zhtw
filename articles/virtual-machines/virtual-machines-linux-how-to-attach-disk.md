@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/07/2016"
 	ms.author="dkshir"/>
 
 # 如何將資料磁碟連接至 Linux 虛擬機器
@@ -22,13 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
 
-您可以附加空的磁碟和含有資料的磁碟。在這兩種情況下，磁碟實際上是位於 Azure 儲存體帳戶中的 .vhd 檔案。另外，在這兩種情況下，當您附加磁碟之後，磁碟必須完成初始化才能使用。請注意，本文指的是使用傳統的部署模型所建立的虛擬機器。
+您可以附加空的磁碟和含有資料的磁碟。在這兩種情況下，磁碟實際上是位於 Azure 儲存體帳戶中的 .vhd 檔案。另外，在這兩種情況下，當您附加磁碟之後，磁碟必須完成初始化才能使用。
 
 > [AZURE.NOTE]最好使用一或多個不同的磁碟來儲存虛擬機器的資料。當您建立 Azure 虛擬機器時，它會有作業系統磁碟和暫存磁碟。**請勿使用暫存磁碟來儲存資料。** 顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。暫存磁碟通常是由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的**/mnt**)。換句話說，Linux 核心可能會將資料磁碟命名為 `/dev/sdc`，且您必須分割、格式化及掛接此資源。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南][Agent]。
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## 做法：在 Linux 中初始化新的資料磁碟
+
+您可以使用正確的裝置識別碼，利用相同的指示來初始化多個資料磁碟，如下所示。
 
 1. 連接至虛擬機器。如需指示，請參閱[如何登入執行 Linux 的虛擬機器][Logon]。
 
@@ -86,7 +88,7 @@
 
 	![建立新的裝置](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. 出現提示時，輸入 **p** 將磁碟分割設為主要磁碟分割，輸入 **1** 設為第一個磁碟分割，然後按 Enter 鍵接受預設的磁柱值。
+5. 出現提示時，輸入 **p** 將磁碟分割設為主要磁碟分割，輸入 **1** 設為第一個磁碟分割，然後按 Enter 鍵接受預設的磁柱值。在某些系統上，它可能會顯示第一個和最後一個磁區的預設值，而不是圓柱圖。您可以選擇接受這些預設值。
 
 
 	![建立磁碟分割](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -105,7 +107,7 @@
 
 	![寫入磁碟變更](./media/virtual-machines-linux-how-to-attach-disk/DiskWrite.png)
 
-8. 在新的磁碟分割上建立檔案系統。例如，輸入下列命令，然後輸入帳戶密碼：
+8. 在新的磁碟分割上建立檔案系統。將磁碟分割編號 (1) 附加至裝置識別碼。例如，輸入下列命令，然後輸入帳戶密碼：
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -160,7 +162,9 @@
 
 	如果 `mount` 命令發生錯誤，請檢查 /etc/fstab 檔案的語法是否正確。如果還有建立其他資料磁碟機或磁碟分割，同樣也需要分別在 /etc/fstab 中輸入。
 
-	您將需要使用下列命令將磁碟機設定成可寫入： # cd /datadrive # sudo chmod go+w /datadrive
+	您必須使用此命令將磁碟機設為可寫入：
+
+		# sudo chmod go+w /datadrive
 
 >[AZURE.NOTE]後續移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。如果這是常見情況，那麼多數散發套件會提供 `nofail` 和/或 `nobootwait` fstab 選項，即使磁碟在開機時無法掛接，也能讓系統開機。請查閱散發套件的文件，以取得這些參數的相關資訊。
 
@@ -175,4 +179,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"    
+	ms.date="01/10/2015"    
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@
 - [修剪視訊 (裁剪)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
 - [建立疊加層](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [在輸入不含音訊時插入靜音曲目](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
-
+- [停用自動去交錯](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 
 ##<a id="encoding_with_dotnet"></a>使用媒體服務 .NET SDK 編碼
 
@@ -216,7 +216,7 @@
 
 ##<a id="thumbnails"></a>產生縮圖
 
-本節說明如何自訂產生縮圖的預設值。下面定義的預設值包含有關如何將檔案編碼的資訊，以及產生縮圖時所需的資訊。您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)以文件說明的任何 MES 預設值，以及新增產生縮圖的程式碼。
+本節說明如何自訂產生縮圖的預設值。下面定義的預設值包含有關如何將檔案編碼的資訊，以及產生縮圖時所需的資訊。您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)記載的任何 MES 預設值，以及新增產生縮圖的程式碼。
 
 如需結構描述的資訊，請參閱[這個主題](https://msdn.microsoft.com/library/mt269962.aspx)。
 
@@ -324,7 +324,7 @@
 	}
 
 
-###<a id="xml"></a>XML 預設值：
+###<a id="xml"></a>XML 預設值
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -418,16 +418,22 @@
 	- 預設值：Start:{Best}
 - 必須明確地提供每個影像格式的輸出格式：Jpg/Png/BmpFormat。顯示時，AMS 會讓 JpgVideo 與 JpgFormat 相符，依此類推。OutputFormat 引進了新的影像轉碼器特定巨集 (即 {Index})，必須針對影像輸出格式提供一次 (只需一次)。
 
-##<a id="trim_video"></a>修剪視訊 (裁剪)
+##<a id="trim_video"></a>修剪影片 (裁剪)
 
-本節說明修改編碼器預設值，以裁剪或修剪其輸入為所謂的夾層檔或隨選檔的輸入視訊。編碼器也可以用來裁剪或修剪從即時串流擷取或封存的資產 – [此部落格](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)有提供詳細資料。
+本節說明修改編碼器預設值，以裁剪或修剪其輸入為所謂的夾層檔或隨選檔的輸入視訊。編碼器也可以用來裁剪或修剪從即時串流擷取或封存的資產 – [此部落格](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)提供詳細資料。
 
-若要修剪您的視訊，您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)以文件說明的任何 MES 預設值，並修改 [來源] 項目 (如下所示)。
+若要修剪您的影片，您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)記載的任何 MES 預設值，並修改 **Sources** 元素 (如下所示)。請注意，**Sources** 應位於結構描述頂端。
 
 ###<a id="json"></a>JSON 預設值
 	
 	{
 	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "StartTime": "00:00:04",
+	      "Duration": "00:00:16"
+	    }
+	  ],
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
@@ -535,20 +541,132 @@
 	        "Type": "MP4Format"
 	      }
 	    }
-	  ],
-	  "Sources": [
-	    {
-	      "StartTime": "00:00:04",
-	      "Duration": "00:00:16"
-	    }
 	  ]
 	} 
 
+###XML 預設值
+	
+若要修剪您的影片，您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)記載的任何 MES 預設值，並修改 **Sources** 元素 (如下所示)。
 
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Sources>
+	    <Source StartTime="PT4S" Duration="PT14S"/>
+	  </Sources>
+	  <Encoding>
+	    <H264Video>
+	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	      <H264Layers>
+	        <H264Layer>
+	          <Bitrate>3400</Bitrate>
+	          <Width>1280</Width>
+	          <Height>720</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>3400</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>2250</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>2250</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1500</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1500</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1000</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1000</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>650</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>650</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>400</Bitrate>
+	          <Width>320</Width>
+	          <Height>180</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>400</MaxBitrate>
+	        </H264Layer>
+	      </H264Layers>
+	      <Chapters />
+	    </H264Video>
+	    <AACAudio>
+	      <Profile>AACLC</Profile>
+	      <Channels>2</Channels>
+	      <SamplingRate>48000</SamplingRate>
+	      <Bitrate>128</Bitrate>
+	    </AACAudio>
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}_{Width}x{Height}_{VideoBitrate}.mp4">
+	      <MP4Format />
+	    </Output>
+	  </Outputs>
+	</Preset>
 
 ##<a id="overlay"></a>建立疊加層
 
-Media Encoder Standard 可讓您在現有視訊上疊加影像 (例如 jpg 或 gif)。下面定義的預設值為視訊疊加層的基本範例。
+Media Encoder Standard 可讓您在現有影片上疊加影像。目前支援下列格式：png、jpg、gif 及 bmp。下面定義的預設值為視訊疊加層的基本範例。
 
 >[AZURE.NOTE]目前不支援疊加層不透明度設定。
 
@@ -703,7 +821,7 @@ Media Encoder Standard 可讓您在現有視訊上疊加影像 (例如 jpg 或 g
 
 若要強制編碼器在輸入不含音訊時產生包含靜音曲目的資產，請指定 "InsertSilenceIfNoAudio" 值。
 
-您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)以文件說明的任何 MES 預設值，並執行以下修改：
+您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)記載的任何 MES 預設值，並執行以下修改：
 
 ###JSON 預設值
 
@@ -723,6 +841,39 @@ Media Encoder Standard 可讓您在現有視訊上疊加影像 (例如 jpg 或 g
       <Bitrate>96</Bitrate>
     </AACAudio>
 
+##<a id="deinterlacing"></a>停用自動去交錯
+
+如果客戶想要將交錯內容自動去交錯，就不需要採取任何動作。當自動去交錯開啟 (預設) 時，MES 會自動偵測交錯式畫面，並且只會將標示為交錯式的畫面去交錯。
+
+您可以關閉自動去交錯。但不建議您這樣做。
+
+###JSON 預設值
+	
+	"Sources": [
+	{
+	 "Filters": {
+	    "Deinterlace": {
+	      "Mode": "Off"
+	    }
+	  },
+	}
+	]
+
+###XML 預設值
+	
+	<Sources>
+	<Source>
+	  <Filters>
+	    <Deinterlace>
+	      <Mode>Off</Mode>
+	    </Deinterlace>
+	  </Filters>
+	</Source>
+	</Sources>
+
+
+
+
 ##媒體服務學習路徑
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -735,4 +886,4 @@ Media Encoder Standard 可讓您在現有視訊上疊加影像 (例如 jpg 或 g
 
 [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Azure 資源管理員架構
@@ -73,14 +73,6 @@
 
 ## 後續步驟
 
-[使用 Azure Resource Manager 範本和 Azure CLI 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-azure-cli.md)
+請參閱 [Azure 資源管理員提供的 Azure 計算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)，了解可利用資源管理員部署模型部署的資源。
 
-[使用資源管理員範本和 PowerShell 部署以及管理 Azure 虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## 其他資源
-
-[Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure 資源管理員概觀](resource-group-overview.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

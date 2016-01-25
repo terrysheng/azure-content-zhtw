@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="01/08/2016"
    ms.author="seanmck"/>
 
 # 疑難排解本機開發叢集設定
 
-如果您在與本機開發叢集互動時遇到問題，請檢閱下列建議，以尋求可能的解決方法。
+如果您在與本機 Azure Service Fabric 開發叢集互動時遇到問題，請檢閱下列建議，以尋求可能的解決方法。
 
 ## 叢集設定失敗
 
@@ -35,19 +35,29 @@
     + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
 
 
-#### 解決方法
+#### 方案
 
-關閉目前的 Powershell 視窗，並以系統管理員身分啟動新的 Powershell 視窗。您現在應該能夠成功執行指令碼。
+關閉目前的 Powershell 視窗，並以系統管理員身分開啟新的 Powershell 視窗。您現在應該能夠成功執行指令碼。
 
 ## 叢集連接失敗
+
+### 在 Azure PowerShell 中無法辨識 Service Fabric PowerShell Cmdlet
+
+#### 問題
+
+如果您嘗試執行任何 Service Fabric PowerShell Cmdlet (例如，在 Azure PowerShell 視窗中執行 `Connect-ServiceFabricCluster`)，它將會失敗，並指出無法辨識此 Cmdlet。這是因為 Azure PowerShell 使用 32 位元版本的 Windows PowerShell (即使是在 64 位元作業系統版本上)，而 Service Fabric Cmdlet 只能在 64 位元環境中運作。
+
+#### 方案
+
+一律直接從 Windows PowerShell 執行 Service Fabric Cmdlet。
 
 ### 類型初始化例外狀況
 
 #### 問題
 
-在 PowerShell 或 Service Fabric 總管中連接到叢集時，看到 System.Fabric.Common.AppTrace 的 TypeInitializationException。
+在 PowerShell 中連線到叢集時，看到 System.Fabric.Common.AppTrace 的 TypeInitializationException 錯誤。
 
-#### 解決方法
+#### 方案
 
 在安裝期間未正確設定路徑變數。請登出 Windows，再重新登入。這樣會完全重新整理您的路徑。
 
@@ -64,17 +74,17 @@
     + CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
-#### 解決方法
+#### 方案
 
-關閉目前的 Powershell 視窗，並以系統管理員身分啟動新的 Powershell 視窗。您現在應該能夠成功連接。
+關閉目前的 Powershell 視窗，並以系統管理員身分開啟新的 Powershell 視窗。您現在應該能夠成功連接。
 
-### FabricConnectionDeniedException
+### 拒絕網狀架構連線例外狀況
 
 #### 問題
 
-從 Visual Studio 偵錯時，看見 FabricConnectionDeniedException。
+從 Visual Studio 進行偵錯時，看見 FabricConnectionDeniedException 錯誤。
 
-#### 解決方法
+#### 方案
 
 當您嘗試以手動方式啟動服務主機處理序，而非讓 Service Fabric 執行階段啟動時，通常會發生這個錯誤。
 
@@ -86,4 +96,4 @@
 - [透過系統健康情況報告了解及疑難排解您的叢集](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

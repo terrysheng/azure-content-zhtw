@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="01/12/2016"
    ms.author="kyliel"/>
 
 # 建立並上傳 FreeBSD VHD 到 Azure
@@ -72,7 +72,7 @@
 
     5\.1 **安裝 python**
 
-		# pkg install python27 py27-asn1
+		# pkg install python27
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
     5\.2 **安裝 wget**
@@ -81,7 +81,7 @@
 
 6. **安裝 Azure 代理程式**
 
-    最新版的 Azure 代理程式一律可以在 [github](https://github.com/Azure/WALinuxAgent/releases) 上找到。2.0.10 版和更新版本正式支援 FreeBSD 10 和更新的版本。
+    最新版的 Azure 代理程式一律可以在 [github](https://github.com/Azure/WALinuxAgent/releases) 上找到。2.0.10 版和更新版本正式支援 FreeBSD 10 和更新的版本。FreeBSD 最新的 Azure 代理程式版本是 2.0.16。
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
@@ -106,7 +106,7 @@
 
 必須要有 Azure 中的儲存體帳戶才能上傳 .vhd 檔案，以在 Azure 中用來建立虛擬機器。您可以使用 Azure 傳統入口網站來建立儲存體帳戶。
 
-1. 登入 Azure 傳統入口網站。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 
 2. 按一下命令列上的 [新增]。
 
@@ -186,7 +186,7 @@
 
 1. 從您在上一個步驟使用的 Azure PowerShell 視窗中，輸入：
 
-		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>		
+		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
 ## 步驟 5：使用上傳的 VHD 建立 VM ##
 上傳 .vhd 之後，您可以將其新增為與訂閱相關之自訂映像清單中的映像，並使用此自訂映像建立虛擬機器。
@@ -209,4 +209,4 @@
 
 	![azure 中的 freebsd 映像](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

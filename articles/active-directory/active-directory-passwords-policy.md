@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/07/2016"
 	ms.author="curtand"/>
 
 
@@ -45,7 +45,7 @@
 | 密碼到期 | <ul><li>預設值：**false** 天 (表示已啟用該密碼到期) </li><li>可以針對個別使用者帳戶使用 Set-msoluser Cmdlet 設定值。 </li></ul> |
 | 密碼歷程記錄 | 無法再次使用上次密碼。 |
 | 密碼歷程記錄期間 | 不限次數 |
-| 帳戶鎖定 | <ul><li>經過 10 次失敗的登入嘗試 (錯誤密碼) 之後，使用者登入時必須解決 CAPTCHA 對話方塊。</li><li>之後再經過 10 次失敗的登入嘗試 (錯誤密碼) 並正確解決 CAPTCHA 對話方塊之後，使用者就會被鎖定一段時間。再輸入不正確的密碼將會導致鎖定期間急遽增加。</li></ul> |
+| 帳戶鎖定 | 10 次嘗試登入失敗 (錯誤密碼) 之後，使用者會被封鎖一分鐘。後續嘗試登入的錯誤會增加使用者被封鎖的時間。 |
 
 
 ## 後續步驟
@@ -60,4 +60,4 @@
 * [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
 * [深入了解](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="storage" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # 使用 Azure 儲存體搭配 Jenkins 連續整合解決方案
 
 ## 概觀
 
-下列資訊說明如何使用 Azure Blob 服務，作為 Jenkins 連續整合 (CI) 解決方案所建立的組建成品儲存機制，或作為在組建程序中要使用之可下載檔案的來源。您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
+下列資訊說明如何使用 Blob 儲存體，做為 Jenkins 連續整合 (CI) 解決方案所建立的組建構件儲存機制，或做為在組建程序中要使用之可下載檔案的來源。您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
 
 在本教學課程中，您將使用由 Microsoft 所提供適用於 Jenkins CI 的 Azure 儲存體外掛程式。
 
@@ -162,4 +162,4 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
   [認識 Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

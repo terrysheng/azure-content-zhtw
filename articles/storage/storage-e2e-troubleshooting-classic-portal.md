@@ -4,7 +4,7 @@
 	services="storage" 
 	documentationCenter="dotnet" 
 	authors="tamram" 
-	manager="adinah"/>
+	manager="carmonm"/>
 
 <tags 
 	ms.service="storage" 
@@ -375,4 +375,4 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
  
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

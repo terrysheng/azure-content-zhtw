@@ -4,8 +4,8 @@
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+	manager="carmonm" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -63,7 +63,7 @@
 
 ## 如何以程式設計方式啟用儲存體度量
 
-下列 C# 程式碼片段示範如何利用 .NET 的儲存體用戶端程式庫，為 Blob 服務啟用度量和記錄：
+下列 C# 程式碼片段示範如何使用 .NET 的儲存體用戶端程式庫，為 Blob 服務啟用計量和記錄功能：
 
 	// Parse connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -211,4 +211,4 @@
 [啟用儲存體分析記錄和存取記錄檔資料](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/08/2016" 
 	ms.author="sameerch"/>
 
 # 增強 Logic Apps 的 API 應用程式 #
@@ -235,4 +235,4 @@ Logic Apps 設計工具具有有限的螢幕畫面來顯示作業、參數和屬
 在本文中，您已了解在 Logic Apps 設計工具中使用 API 應用程式時，如何改善 API 應用程式的使用者體驗。最佳做法是建議您提供所有作業 (動作和觸發程序)、參數和屬性的易記名稱。也建議您提供的基本作業不超過 5 個。對於輸入參數，建議將基本屬性數目限制為不超過 4 個，對於屬性，則建議 5 個以下。您作業和屬性的其餘部分應該標示為進階。
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # 在 SQL 資料倉儲中使用標籤來檢測查詢
 SQL 資料倉儲支援稱為查詢標籤的概念。繼續進行之前，讓我們看看一個範例：
@@ -54,4 +54,4 @@ SQL 資料倉儲支援稱為查詢標籤的概念。繼續進行之前，讓我�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # 部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲
@@ -34,7 +34,7 @@
 
 ## 啟動 Storm 拓撲
 
-1. 使用 SSH 連接到 HDInsight 叢集。將 **USERNAME** 取代為您的 SSH 登入名稱。將 **CLUSTERNAME** 取代為 HDInsight 叢集名稱：
+1. 使用 SSH 連接到 HDInsight 叢集。將 **USERNAME** 替換為您的 SSH 登入名稱。將 **CLUSTERNAME** 取代為 HDInsight 叢集名稱：
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
@@ -50,7 +50,7 @@
 
     這會在叢集上啟動範例 WordCount 拓撲。它會隨機產生句子並計算句子中每個字詞的出現次數。
 
-    > [AZURE.NOTE]將拓撲提交至叢集時，您必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。可以從檔案所在的用戶端使用 `scp` 命令來完成這個動作。例如，`scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > [AZURE.NOTE]將拓撲提交至叢集時，您必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。而您可以從檔案所在的用戶端使用 `scp` 命令來完成這個動作。例如，`scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > WordCount 範例和其他 Storm 入門範例已經包含在叢集上，位置是 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
 
@@ -94,23 +94,10 @@ Storm 拓撲一旦啟動之後，將會繼續執行直到停止。若要停止�
 
 ##使用 Storm UI 監視和管理
 
-Storm UI 提供 Web 介面以使用執行中拓撲，而且包含在您的 HDInsight 叢集。
+Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsight 叢集中。若要檢視 Storm UI，請使用網頁瀏覽器開啟 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ ，其中 __CLUSTERNAME__ 是叢集的名稱。
 
-> [AZURE.IMPORTANT]Storm UI 不是透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
+> [AZURE.NOTE]如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
 
-使用下列步驟來檢視 Storm UI：
-
-1. 對您的 HDInsight 叢集的 Ambari Web 開啟網頁瀏覽器。Ambari Web 的 URL 是 https://CLUSTERNAME.azurehdinsight.net，其中 __CLUSTERNAME__ 是您的叢集的名稱。
-
-2. 從頁面左邊的服務清單中選取 [Storm]。然後從 [快速連結] 選取 [Storm UI]。
-
-    ![快速連結中的 Storm UI 項目](./media/hdinsight-storm-deploy-monitor-topology-linux/ambari-storm.png)
-
-    這會顯示 Storm UI︰
-
-    ![Storm UI](./media/hdinsight-storm-deploy-monitor-topology-linux/storm-ui.png)
-
-> [AZURE.NOTE]使用 Storm UI 時，您可能會發現某些版本的 Internet Explorer 在您第一次造訪之後無法正確重新整理 UI。例如，可能不會顯示您提交的新拓撲，或是可能將先前已停用的拓撲顯示為使用中。Microsoft 知道這個問題，並正在找出解決方案。
 
 ### 主頁面
 
@@ -168,4 +155,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 
 若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

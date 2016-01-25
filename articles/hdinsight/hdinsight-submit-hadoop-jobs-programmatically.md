@@ -25,7 +25,7 @@
 >
 > - [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 > - [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
-> - 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
+> - [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
 
 ##必要條件
 
@@ -212,7 +212,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 						return null;
 					}
 		
-					return string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
+					return "&define=" + string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
 				}
 				private static string ConvertArgsToString(List<string> args)
 				{
@@ -266,4 +266,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

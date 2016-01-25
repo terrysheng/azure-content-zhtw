@@ -5,8 +5,8 @@
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
-  manager="adinah" 
-  editor=""/>
+  manager="carmonm" 
+  editor="tysonn"/>
 
 <tags 
   ms.service="storage" 
@@ -106,4 +106,4 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 - [使用 RA-GRS 的 Microsoft Azure 儲存體模擬器 3.1](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Azure 儲存體 SOSP 文件](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

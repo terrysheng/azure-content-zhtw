@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="01/04/2016" 
-   ms.author="twounder"/>
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # 開始使用 SQL 資料倉儲中的透明資料加密 (TDE)
 > [AZURE.SELECTOR]
@@ -61,4 +61,4 @@ TDE 會使用稱為資料庫加密金鑰的對稱金鑰來加密整個資料庫�
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

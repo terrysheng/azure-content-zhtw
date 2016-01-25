@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
@@ -380,7 +380,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 3. 按 CTRL+F5 執行應用程式。
 
-4. 在瀏覽器視窗的網址列中，將 *trace.axd* 新增至 URL，然後按 Enter (此 URL 會類似於 http://localhost:53370/trace.axd)。
+4. 在瀏覽器視窗的網址列中，將 *trace.axd* 新增至 URL，然後按 Enter (此 URL 會類似於 http://localhost:53370/trace.axd))。
 
 5. 在 [應用程式追蹤] 頁面上，按一下第一行 (不是 BrowserLink 行) 上的 [檢視詳細資料]。
 
@@ -742,7 +742,7 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 
 * [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   如何使用命令列來執行本教學課程所示範的 Visual Studio 步驟。[Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) (英文) 工具可供您偵錯 ASP.NET 應用程式。
-* [使用 Web 應用程式記錄與診斷功能 - 與 David Ebbo 一起](/documentation/videos/azure-web-site-logging-and-diagnostics/) (英文) 與 [從 Web 應用程式串流記錄 - 與 David Ebbo 一起](/documentation/videos/log-streaming-with-azure-web-sites/) (英文)<br> 
+* [使用 Web 應用程式記錄與診斷功能 - 與 David Ebbo 一起](/documentation/videos/azure-web-site-logging-and-diagnostics/) (英文) 與[從 Web 應用程式串流記錄 - 與 David Ebbo 一起](/documentation/videos/log-streaming-with-azure-web-sites/)<br> (英文) 
   影片，由 Scott Hanselman 與 David Ebbo 共同錄製。
 
 針對錯誤記錄，做為撰寫自己的追蹤程式碼的替代方法，便是使用開放原始碼的記錄架構，例如 [ELMAH](http://nuget.org/packages/elmah/)。如需詳細資訊，請參閱 [Scott Hanselman 關於 ELMAH 的部落格文章](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) (英文)。
@@ -774,4 +774,4 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤](http://www.iis.net/lear
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

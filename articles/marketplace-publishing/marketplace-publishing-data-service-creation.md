@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/03/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # 適用於 Azure Marketplace 的資料服務發佈指南
@@ -146,4 +146,4 @@ Azure Marketplace 服務層必須負責監視每個查詢所取用的交易量 (
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

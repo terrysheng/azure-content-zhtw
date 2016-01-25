@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="如何使用 Blob 儲存體 (C++) | Microsoft Azure" 
-    description="了解如何在 Azure 中使用 Blob 儲存體服務。範例是以 C++ 撰寫的。" 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="adinah" 
-    editor=""/>
+<properties
+    pageTitle="如何使用 Blob 儲存體 (C++) | Microsoft Azure"
+    description="了解如何在 Azure 中使用 Blob 儲存體服務。範例是以 C++ 撰寫的。"
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # 如何使用 C++ 的 Blob 儲存體  
 
@@ -78,7 +78,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 此範例說明如何建立尚不存在的容器：
 
-	try 
+	try
 	{
 		// Retrieve storage account from connection string.
 		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -189,7 +189,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 	std::ofstream outfile("DownloadBlobFile.txt", std::ofstream::binary);
 	std::vector<unsigned char>& data = buffer.collection();
-		
+
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
@@ -238,8 +238,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
-
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

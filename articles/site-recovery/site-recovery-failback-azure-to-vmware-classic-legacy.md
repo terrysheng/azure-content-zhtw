@@ -16,7 +16,12 @@
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# 利用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器從 Azure 容錯回復到 VMware
+# 利用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器從 Azure 容錯回復到 VMware (舊版)
+
+> [AZURE.SELECTOR]
+- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
+- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 ## 概觀
 
@@ -36,14 +41,12 @@
 
 1.  [下載 vContinuum](http://go.microsoft.com/fwlink/?linkid=526305)。 
 2.  下載之後，請下載更新的 [vContinuum 更新](http://go.microsoft.com/fwlink/?LinkID=533813)版本。
-3.  執行最新版本的安裝程式以安裝 vContinuum。在 [歡迎] 頁面中，按 [下一步]。
-	![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+3.  執行最新版本的安裝程式以安裝 vContinuum。在 [歡迎] 頁面中，按 [下一步]。![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  在精靈的第一個頁面上，指定 CX 伺服器 IP 位址和 CX 伺服器連接埠。選取 [使用 HTTPS]。
 
 	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
 
-5.  在 Azure 中組態伺服器 VM 的 [儀表板] 索引標籤上尋找組態伺服器 IP 位址。
-	![](./media/site-recovery-failback-azure-to-vmware/image4.png)
+5.  在 Azure 中組態伺服器 VM 的 [儀表板] 索引標籤上尋找組態伺服器 IP 位址。![](./media/site-recovery-failback-azure-to-vmware/image4.png)
 
 6.  在 Azure 中組態伺服器 VM 的 [端點] 索引標籤上尋找組態伺服器 HTTPS 公用連接埠。
 
@@ -57,8 +60,7 @@
 
 	![](./media/site-recovery-failback-azure-to-vmware/image7.png)
 
-9. 安裝完成後，您可以啟動 vContinuum。
-	![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+9. 安裝完成後，您可以啟動 vContinuum。![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
 
 ## 步驟 2：在 Azure 中安裝處理序伺服器 
@@ -155,7 +157,7 @@ perl-5.10.1-136.el6\_6.1.x86\_64.rpm
 perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
 
 perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
-
+	
 perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
 
 perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
@@ -172,17 +174,13 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 \# cd /usr/local
 
-\# wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
-reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget
-<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
 \# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
@@ -408,8 +406,8 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
  
 ## 後續步驟
 
-[深入了解](site-recovery-vmware-to-azure.md)將 VMWare 虛擬機器複寫至 Azure
+[深入了解](site-recovery-vmware-to-azure-classic-legacy.md)將 VMWare 虛擬機器複寫至 Azure
 
  
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0114_2016--->

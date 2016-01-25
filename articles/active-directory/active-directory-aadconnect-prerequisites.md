@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="01/08/2016"
    ms.author="andkjell;billmath"/>
 
 # Azure AD Connect 的必要條件
@@ -37,10 +37,10 @@
 - Azure AD Connect 伺服器必須已安裝 [.NET Framework 4.5.1](#component-prerequisites) 或更新的版本及 [Microsoft PowerShell 3.0](#component-prerequisites) 或更新的版本。
 - 如果部署的是 Active Directory 同盟服務，則將安裝 AD FS 或 Web 應用程式 Proxy 的伺服器必須是 Windows Server 2012 R2 或更新版本。必須在這些伺服器上啟用 [Windows 遠端管理](#windows-remote-management)，才能執行遠端安裝。
 - 如果部署的是 Active Directory 同盟服務，則您需要 [SSL 憑證](#ssl-certificate-requirements)。
-- Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。預設會安裝 SQL Server 2012 Express LocalDB (輕量版的 SQL Server Express)，並且在本機電腦上建立服務的服務帳戶。SQL Server Express 有 10 GB 的大小限制，可讓您管理大約 100,000 個物件。如果您需要管理更多數量的目錄物件，則必須將安裝精靈指向不同的 SQL Server 安裝。Azure AD Connect 支援從 SQL Server 2008 (含 SP4) 至 SQL Server 2014 的各種 Microsoft SQL Server。
+- Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。預設會安裝 SQL Server 2012 Express LocalDB (輕量版的 SQL Server Express)，並且在本機電腦上建立服務的服務帳戶。SQL Server Express 有 10 GB 的大小限制，可讓您管理大約 100,000 個物件。如果您需要管理更多數量的目錄物件，則必須將安裝精靈指向不同的 SQL Server 安裝。Azure AD Connect 支援從 SQL Server 2008 (含 SP4) 至 SQL Server 2014 的各種 Microsoft SQL Server。Microsoft Azure SQL Database **不支援**做為資料庫。
 
 ### 帳戶
-- 想要與其整合之 Azure AD 目錄的 Azure AD 全域管理員帳戶
+- 想要與其整合之 Azure AD 目錄的 Azure AD 全域管理員帳戶這必須是**學校或組織帳戶**，不能是 **Microsoft 帳戶**。
 - 如果使用快速設定或從 DirSync 升級，則為本機 Active Directory 的企業系統管理員帳戶。
 - 如果您使用自訂設定的安裝路徑，[則帳戶是 Active Directory](active-directory-aadconnect-accounts-permissions.md)。
 
@@ -157,4 +157,4 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。依您�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

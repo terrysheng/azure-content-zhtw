@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/08/2016"
 	ms.author="larryfr"/>
 
 #HDInsight 上 Hadoop 叢集的可用性和可靠性
@@ -136,7 +136,7 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 
 ## 如何設定前端節點的大小 ##
 
-只能在叢集建立期間選取前端節點的大小。前端節點的預設大小是 **A3**，提供 4 個核心、7 GB 記憶體和 285 GB 的本機儲存體。您可以在 [HDInsight 定價頁面](http://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單，包括個別的核心、記憶體和本機儲存體。
+只能在叢集建立期間選取前端節點的大小。您可以在 [HDInsight 定價頁面](http://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單，包括個別的核心、記憶體和本機儲存體。
 
 建立新的叢集時，您可以指定該節點的大小。下列提供如何使用 [Azure 入口網站][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小的相關資訊：
 
@@ -166,4 +166,4 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

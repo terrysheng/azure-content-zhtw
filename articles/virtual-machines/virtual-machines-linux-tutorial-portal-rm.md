@@ -20,11 +20,11 @@
 # 使用 Azure 入口網站建立執行 Linux 的虛擬機器
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -33,8 +33,7 @@
 
 建立執行 Linux 的 Azure 虛擬機器 (VM) 很簡單。本教學課程示範如何使用 Azure 入口網站來快速建立虛擬機器，以及如何使用`~/.ssh/id_rsa.pub`公開金鑰檔確保連接到 VM 之 **SSH** 的安全性。您也可以使用[自己的映像作為範本來建立 Linux VM](virtual-machines-linux-create-upload-vhd.md)。
 
-> [AZURE.NOTE]本教學課程會建立受 Azure 資源群組 API 管理的 Azure 虛擬機器。如需詳細資訊，請參閱 [Azure 資源群組概觀](resource-group-overview.md)。
-
+> [AZURE.NOTE]本教學課程會建立受 Azure 資源群組 API 管理的 Azure 虛擬機器。如需詳細資訊，請參閱《[Azure 資源群組概觀](resource-group-overview.md)》。
 </br>
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -71,7 +70,7 @@
 
 	>[AZURE.NOTE]進階儲存體可供某些區域的 DS 系列虛擬機器使用。進階儲存體對於如資料庫這類資料密集的工作負載是最佳的儲存體選項。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
 
-3. 按一下 [設定]，以查看新 VM 的儲存體和網路設定。對於第一個 VM，通常您可以接受預設的設定。如有選取支援的 VM 大小，可以選取 [磁碟類型] 下的 [進階 (SSD)] 試用進階儲存體。完成時，請按一下 ![[確定] 按鈕](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png)。
+3. 按一下 [設定]，以查看新 VM 的儲存體和網路設定。對於第一個 VM，通常您可以接受預設的設定。如有選取支援的 VM 大小，可以選取 [磁碟類型] 下的 [進階 (SSD)] 試用進階儲存體。完成時，按一下 ![[確定] 按鈕](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png)。
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
 
@@ -138,4 +137,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

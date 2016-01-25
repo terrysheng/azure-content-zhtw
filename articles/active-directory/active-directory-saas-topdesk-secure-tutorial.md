@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="教學課程：Azure Active Directory 與 TOPdesk - Secure 整合 | Microsoft Azure" description="了解如何使用 TOPdesk - Secure 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    pageTitle="教學課程：Azure Active Directory 與 TOPdesk - Secure 整合 | Microsoft Azure" description="了解如何使用 TOPdesk - Secure 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 TOPdesk - Secure 整合
@@ -20,7 +20,7 @@
 -   有效的 Azure 訂閱
 -   啟用 TOPdesk - Secure 單一登入的訂用帳戶
   
-完成本教學課程或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)之後，您指派給 TOPdesk - Secure 的 Azure AD 使用者就能夠單一登入您 TOPdesk - Secure 公司網站 (服務提供者起始登入) 的應用程式。
+完成本教學課程之後，您指派給 TOPdesk - Secure 的 Azure AD 使用者就能夠從您的 TOPdesk - Secure 公司網站 (服務提供者起始登入)，或使用[存取面板](active-directory-saas-access-panel-introduction.md)來單一登入應用程式。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -45,7 +45,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -55,7 +55,7 @@
 
     ![從組件庫新增應用程式](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在**搜尋方塊**中，輸入 **TOPdesk - Secure**。
+6.  在**搜尋方塊** 中，輸入 **TOPdesk - Secure**。
 
     ![應用程式庫](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "應用程式庫")
 
@@ -71,7 +71,7 @@
 
 1.  以系統管理員身分登入您的 **TOPdesk - Secure** 公司網站。
 
-2.  在 [TOPdesk] 功能表中，按一下 [設定]。
+2.  在 [TOPdesk] 功能表中按一下 [設定]。
 
     ![設定](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "設定")
 
@@ -91,11 +91,11 @@
     2.  開啟此中繼資料檔案，然後找到 **AssertionConsumerService** 節點。![判斷提示取用者服務](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "判斷提示取用者服務")
     3.  複製 **AssertionConsumerService** 值。  
 
-        >[AZURE.NOTE]在本教學課程稍後的**設定應用程式 URL**一節中，您將需要這個值。
+        >[AZURE.NOTE]在本教學課程稍後的＜**設定應用程式 URL**＞一節中，您將需要這個值。
 
 6.  在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **Azure Active Directory** 入口網站。
 
-7.  在 **TOPdesk - Secure** 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+7.  在 [TOPdesk - Secure] 應用程式整合頁面上，按一下 [設定單一登入] 以開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "設定單一登入")
 
@@ -108,10 +108,10 @@
     ![設定應用程式 URL](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "設定應用程式 URL")
 
     1.  在 [TOPdesk - Secure 登入 URL] 文字方塊中，輸入您的使用者用來登入 TOPdesk - Secure 應用程式的 URL (例如："**https://qssolutions.topdesk.net*"))。
-2.  在 [TOPdesk – Public 回覆 URL] 文字方塊中，貼上 **TOPdesk - Secure AssertionConsumerService URL** (例如："**https://qssolutions.topdesk.net/tas/public/login/saml*")
+2.  在 [TOPdesk – Public 回覆 URL] 文字方塊中，貼上 **TOPdesk - Secure AssertionConsumerService URL** (例如："**https://qssolutions.topdesk.net/tas/public/login/saml*")。
 3.  按 [下一步]。
 
-10. 在 [設定在 TOPdesk - Secure 單一登入] 頁面上，請按 [下載中繼資料] 下載您的中繼資料，然後將檔案儲存在您的本機電腦中。
+10. 於 [在 TOPdesk - Secure 設定單一登入] 頁面上，請按 [下載中繼資料] 下載您的中繼資料，然後將檔案儲存在您的本機電腦中。
 
     ![設定單一登入](./media/active-directory-saas-topdesk-secure-tutorial/IC790605.png "設定單一登入")
 
@@ -124,7 +124,7 @@
     3.  複製 **X509Certificate** 節點的值。
     4.  儲存複製的 **X509Certificate** 值到本機電腦的檔案中。
 
-12. 在您 TOPdesk - Secure 公司網站的 **TOPdesk** 功能表上，按一下 [設定]。
+12. 在您 TOPdesk - Secure 公司網站的 [TOPdesk] 功能表上，按一下 [設定]。
 
     ![設定](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "設定")
 
@@ -136,7 +136,7 @@
 
     ![一般](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "一般")
 
-15. 在 **Public** 區段中，按一下 [新增]。
+15. 在 **Public** 區段中，按一下 [加入]。
 
     ![新增](./media/active-directory-saas-topdesk-secure-tutorial/IC790607.png "新增")
 
@@ -147,7 +147,7 @@
     1.  若要上傳您下載的中繼資料檔，請在 [同盟中繼資料] 下按一下 [瀏覽]。
     2.  若要上傳您的憑證檔案，請在 [憑證 (RSA)] 下按一下 [瀏覽]。
     3.  若要上傳您從 TOPdesk 支援小組取得的標誌檔案，請在 [標誌圖示] 下按一下 [瀏覽]。
-    4.  在 [使用者名稱屬性] 文字方塊中，輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
+    4.  在 [使用者名稱屬性] 文字方塊中輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**。
 5.  在 [顯示名稱] 文字方塊中，輸入您的組態名稱。
     6.  按一下 [儲存]。
 
@@ -163,7 +163,7 @@
 
 1.  以系統管理員身分登入您的 **TOPdesk - Secure** 公司網站。
 
-2.  在頂端的功能表中，按一下 [TOPdesk] > [新增] > [支援檔案] > [操作員]。
+2.  在上方功能表中按一下 [TOPdesk] > [新增] > [支援檔案] > [操作員]。
 
     ![運算子](./media/active-directory-saas-topdesk-secure-tutorial/IC790610.png "運算子")
 
@@ -187,7 +187,7 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 **TOPdesk - Secure** 應用程式整合頁面中，按一下 [指派使用者]。
+2.  在 [TOPdesk - Secure] 應用程式整合頁面中，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "指派使用者")
 
@@ -197,4 +197,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

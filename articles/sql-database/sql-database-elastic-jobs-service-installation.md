@@ -17,6 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # 安裝彈性資料庫工作概觀
+
 [**彈性資料庫工作**](sql-database-elastic-jobs-overview.md)可以透過 PowerShell 或是透過 Azure 傳統入口網站安裝。只在安裝 PowerShell 封裝時，才會取得存取權，使用 PowerShell API 來建立和管理工作。此外，PowerShell API 目前比入口網站提供更多的功能。
 
 如果您已從現有的**彈性資料庫集區**透過入口網站安裝**彈性資料庫工作**，最新的 Powershell 預覽包括升級現有安裝的指令碼。強烈建議將安裝升級至最新的**彈性資料庫工作**元件，以利用透過 PowerShell API 公開的新功能。
@@ -178,13 +179,13 @@
 
 ## 後續步驟
 
-確保已在群組的每個資料庫上建立對指令碼具有適當權限的認證。如需詳細資訊，請參閱[如何將使用者新增至我的資料庫群組中的所有資料庫](sql-database-elastic-jobs-add-logins-to-dbs.md)。請參閱[建立及管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)以開始進行。
+確保已在群組的每個資料庫上建立對指令碼執行具有適當權限的認證。如需詳細資訊，請參閱[保護您的 SQL Database](sql-database-security.md)。請參閱[建立及管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)以開始進行。
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
-[4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+[4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # 在 Azure 的 HPC Pack 叢集中管理運算節點的數目和可用性
@@ -34,11 +34,11 @@ ms.service="virtual-machines"
     * **匯入 Azure 發佈設定檔**。若要這麼做，請在前端節點上執行下列 Azure PowerShell Cmdlet：
 
     ```
-    Get-AzurePublishSettingsFile 
-         
+    Get-AzurePublishSettingsFile
+
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
-    
+
     * **前端節點上設定 Azure 管理憑證**。如果您有 .cer 檔案，請在 CurrentUser\\My certificate store 中將其匯入，並為您的 Azure 環境 (AzureCloud 或 AzureChinaCloud) 執行下列 Azure PowerShell Cmdlet：
 
     ```
@@ -74,13 +74,13 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **DomainUserName** - 網域使用者名稱，會用來將新的 VM 加入網域中。
 
-* **DomainUserPassword*** 網域使用者的密碼
+* **DomainUserPassword** - 網域使用者的密碼。
 
-* **NodeNameSeries** (選擇性) - 運算節點的命名模式 0，格式必須是 &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%。例如，MyCN%10% 表示從 MyCN11 開始的一系列運算節點名稱。如果未指定，指令碼會使用 HPC 叢集中已設定的節點命名序列。
+* **NodeNameSeries** (選用) - 計算節點的命名模式。格式必須是 &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%。例如，MyCN%10% 表示從 MyCN11 開始的一系列運算節點名稱。如果未指定，指令碼會使用 HPC 叢集中已設定的節點命名序列。
 
 ### 範例
 
-下列範例會根據 VM 映像 hpccnimage1，在雲端服務 hpcservice1 中新增 20 個大型運算節點 VM。
+下列範例會根據 VM 映像 *hpccnimage1*，在雲端服務 *hpcservice1* 中新增 20 個大型計算節點 VM。
 
 ```
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -103,9 +103,9 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 
 ### 參數
 
- * **Name** - 要移除之叢集節點的名稱。支援萬用字元。參數集名稱是 Name。您無法同時指定 **Name** 和 **Node** 參數。
+* **Name** - 要移除之叢集節點的名稱。支援萬用字元。參數集名稱是 Name。您無法同時指定 **Name** 和 **Node** 參數。
 
-* **Node** * 要移除之節點的 HpcNode 物件，可透過 HPC PowerShell Cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) 取得。參數集名稱是 Node。您無法同時指定 **Name** 和 **Node** 參數。
+* **Node** - 要移除之節點的 HpcNode 物件，可透過 HPC PowerShell Cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) 取得。參數集名稱是 Node。您無法同時指定 **Name** 和 **Node** 參數。
 
 * **DeleteVHD** (選擇性) - 針對已移除的 VM 進行相關磁碟的刪除時所使用的設定。
 
@@ -150,7 +150,7 @@ Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 
 ## 停止運算節點 VM
 
-使用 **Stop-HpcIaaSNode.ps1** 指令碼停止運算節點
+使用 **Stop-HpcIaaSNode.ps1** 指令碼停止計算節點。
 
 ### 語法
 
@@ -165,7 +165,7 @@ Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 
 * **Name** - 要停止之叢集節點的名稱。支援萬用字元。參數集名稱是 Name。您無法同時指定 **Name** 和 **Node** 參數。
 
-* **Node** - 要停止之節點的 HpcNode 物件，可透過 HPC PowerShell cmdlet Get-HpcNode 取得。參數集名稱是 Node。您無法同時指定 **Name** 和 **Node** 參數。
+* **Node** - 要停止之節點的 HpcNode 物件，可透過 HPC PowerShell Cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) 取得。參數集名稱是 Node。您無法同時指定 **Name** 和 **Node** 參數。
 
 * **Force** (選擇性) - 在停止 HPC 節點前強制使其離線的設定。
 
@@ -177,6 +177,6 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 ## 後續步驟
 
-* 如果您需要能根據叢集上目前的工作和任務的工作負載自動增加和縮減 Azure 運算資源的方法，請參閱[在 HPC Pack 叢集中增加和縮減 Azure 運算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)。
+* 如果您需要能根據叢集上目前的工作和任務的工作負載自動增加和縮減叢集節點的方法，請參閱[在 HPC Pack 叢集中自動增加和縮減 Azure 計算資源](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

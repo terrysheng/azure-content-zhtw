@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 自動化 Webhook"
+   pageTitle="Azure 自動化 Webhook | Microsoft Azure"
    description="可讓用戶端透過 HTTP 呼叫在 Azure 自動化中啟動 Runbook 的 Webhook。本文說明如何建立 Webhook，以及如何進行呼叫以啟動 Runbook。"
    services="automation"
    documentationCenter=""
@@ -107,7 +107,7 @@ Webhook 的安全性仰賴其 URL 的隱私權，其中包含可允許其接受�
 |:---|:----|:---|
 | 202 | 已接受 | 已接受要求，且 Runbook 已經成功排入佇列。 |
 | 400 | 不正確的要求 | 基於下列原因之一不接受此要求。<ul> <li>Webhook 已過期。</li> <li>Webhook 已停用。</li> <li>在 URL 中的權杖無效。</li> </ul>|
-| 404 | 找不到 | 基於下列原因之一不接受此要求。<ul><li>找不到該 Webhook。</li> <li>找不到該 Runbook。</li> <li>找不到該帳戶。</li> </ul> |
+| 404 | 找不到 | 基於下列原因之一不接受此要求。<ul><li>找不到該 Webhook。</li> <li>找不到該 Runbook。</li> <li>找不到帳戶。</li> </ul> |
 | 500 | 內部伺服器錯誤 | URL 有效，但發生錯誤。請重新提交要求。 |
 
 假設要求成功，Webhook 會回應包含 JSON 格式的工作識別碼，如下所示。它會包含單一的工作識別碼，但是 JSON 格式允許未來可能的增強功能。
@@ -125,8 +125,10 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
 	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
     
-    $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
-    $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
+    $vms  = @(
+    			@{ Name="vm01";ServiceName="vm01"},
+    			@{ Name="vm02";ServiceName="vm02"}
+    		)
 	$body = ConvertTo-Json -InputObject $vms 
 
 	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
@@ -196,7 +198,7 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 
 考量如虛擬機器的 Azure 資源，這台電腦的 CPU 使用率是其中一個關鍵效能計量。如果 CPU 使用率是 100% 或者在一段長時間超過某個量，您可能會想要重新啟動虛擬機器以修正問題。這可以藉由設定虛擬機器的警示規則來解決，而此規則可以使用 CPU 百分比做為計量。這裡的 CPU 百分比只是一個範例，但是還有許多您可以對 Azure 資源設定的其他計量，重新啟動虛擬機器是修正此問題所採取的一個動作，您可以設定 Runbook 採取其他動作。
 
-當此警示規則變成作用中並且觸發啟用 Webhook 的 Runbook 時，會傳送警示內容到 Runbook。[警示內容](Azure-portal/insights-receive-alert-notifications.md)包含的詳細資料包括 **SubscriptionID**、**ResourceGroupName**、**ResourceName**、**ResourceType**、**ResourceId** 和 **Timestamp**，這些都是 Runbook 識別會在其上採取動作的資源所需的項目。警示內容內嵌在傳送至 Runbook 的 **WebhookData** 物件之內文部分，可以使用 **Webhook.RequestBody** 屬性加以存取
+當此警示規則變成作用中並且觸發啟用 Webhook 的 Runbook 時，會傳送警示內容到 Runbook。[警示內容](Azure-portal/insights-receive-alert-notifications.md)包含的詳細資料包括 **SubscriptionID**、**ResourceGroupName**、**ResourceName**、**ResourceType**、**ResourceId** 和 **Timestamp**，這些都是 Runbook 識別會在其上採取動作的資源所需的項目。警示內容內嵌在傳送至 Runbook 的 **WebhookData** 物件的內文部分，可以使用 **Webhook.RequestBody** 屬性存取
 
 
 ### 範例
@@ -266,10 +268,10 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 
  
 
-## 相關文章
+## 後續步驟
 
-- [啟動 Runbook](automation-starting-a-runbook.md)
-- [檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job.md)
+- 如需以不同方式啟動 Runbook 的詳細資訊，請參閱[啟動 Runbook](automation-starting-a-runbook.md)
+- 如需檢視 Runbook 作業狀態的詳細資訊，請參閱 [Azure 自動化中的 Runbook 執行](automation-runbook-execution.md)
 - [使用 Azure 自動化對 Azure 警示採取動作](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

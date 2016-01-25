@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/08/2016"
 	ms.author="bruceper"/>
 
 # 使用 CLI 管理金鑰保存庫 #
@@ -256,4 +256,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

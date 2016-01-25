@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm;barbkess;twounder;JRJ@BigBangData.co.uk;"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # 什麼是 Azure SQL 資料倉儲？
@@ -138,4 +138,4 @@ Polybase 易於使用，且可讓您透過使用相同的熟悉 T-SQL 命令運�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/05/2015"
+ms.date="01/12/2016"
 ms.author="larryfr"/>
 
 #使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI
@@ -32,7 +32,6 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 * 執行緒堆疊、
 * Oozie Web UI
 * HBase Master 和記錄 UI
-* Storm UI
 
 如果您使用指令碼動作來自訂叢集，則您安裝的任何服務或公用程式，都會需要 SSH 通道才能公開 Web UI。例如，如果您使用指令碼動作安裝 Hue，就必須使用 SSH 通道來存取 Hue Web UI。
 
@@ -98,7 +97,7 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 	* **動態** - 啟用動態 SOCKS Proxy 路由。
 
-	![通道選項的映像](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
+	![通道處理選項的影像](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
 4. 按一下 [**新增**] 以新增設定，然後按一下 [**開啟**] 開啟 SSH 連線。
 
@@ -110,7 +109,7 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 1. 將瀏覽器設定為使用 **localhost:9876** 做為 **SOCKS v5** Proxy。Firefox 的設定如下所示。如果您使用與 9876 不同的連接埠，請將連接埠變更為您所用的連接埠：
 
-	![Firefox 設定的映像](./media/hdinsight-linux-ambari-ssh-tunnel/socks.png)
+	![Firefox 設定的影像](./media/hdinsight-linux-ambari-ssh-tunnel/socks.png)
 
 	> [AZURE.NOTE]選取 [**遠端 DNS**] 會使用 HDInsight 叢集解析網域名稱系統 (DNS) 要求。若未選取，則會在本機解析 DNS。
 
@@ -144,16 +143,11 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 4. 選取 [**URL 模式**] 索引標籤，然後選取 [**加入新的模式**]。使用下列欄位定義模式，然後按一下 [**確定**]：
 
-	* **模式名稱** - **clusternodes** - 這是易記的模式名稱。
+	* **模式名稱** - **clusternodes** - 這是模式的易記名稱。
 
 	* **URL 模式** - ***internal.cloudapp.net*** - 這會定義符合叢集節點之內部完整網域名稱的模式。
 
 	![foxyproxy 模式](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-    
-    如果您要在 HDInsight 叢集上使用 Storm，您還應加入包含下列值的模式：
-    
-    * **模式名稱** - **背景工作角色節點**
-    * **URL 模式** - ***10.0.0*** - 允許 Storm UI 依 IP 位址存取背景工作角色節點上的資料。
 
 4. 選取 [**確定**] 以加入 Proxy 並關閉 [**Proxy 設定**]。
 
@@ -202,4 +196,4 @@ Ambari 中有數個功能表在沒有 SSH 通道的情況下，會不完整填�
 
 * [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

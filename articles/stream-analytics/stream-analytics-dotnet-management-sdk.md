@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="01/11/2016"
 	ms.author="jeffstok"/>
 
 
@@ -150,6 +150,8 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
 **resourceGroupName** 變數的值應該會與您在先決條件步驟中建立或選取的資源群組名稱相同。
+
+若要自動化工作建立的認證提供層面，請參閱[使用 Azure 資源管理員驗證服務主體](./articles/resource-group-authenticate-service-principal.md)。
 
 本文的其餘章節會假設 **Main** 方法的開頭已有這段程式碼。
 
@@ -364,4 +366,4 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

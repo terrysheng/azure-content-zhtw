@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # 將資料載入 SQL 資料倉儲
 SQL 資料倉儲提供許多選項，供載入資料，包括：
@@ -202,4 +202,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [Azure 儲存體文件]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-create-storage-account/
 [ExpressRoute 文件]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

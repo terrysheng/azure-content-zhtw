@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/06/2015"
+ ms.date="01/08/2016"
  ms.author="larryfr"/>
 
 # 使用 Power BI (預覽) 視覺化 Apache Storm 拓撲的資料
@@ -139,4 +139,4 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0114_2016--->

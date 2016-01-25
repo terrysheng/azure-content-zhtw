@@ -1,11 +1,11 @@
 <properties
 	pageTitle="如何使用拼音的 Blob 儲存體 | Microsoft Azure"
-	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Ruby 撰寫。"
+	description="了解如何使用 Blob 儲存體上傳、下載、列出及刪除 Blob 內容。範例以 Ruby 撰寫。"
 	services="storage"
 	documentationCenter="ruby"
 	authors="tfitzmac"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -23,7 +23,7 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括**上傳、列出、下載**及**刪除** Blob。
+本指南將示範如何使用 Blob 儲存體執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括**上傳、列出、下載**及**刪除** Blob。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -146,4 +146,4 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 - GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 存放庫
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

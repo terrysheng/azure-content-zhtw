@@ -455,7 +455,7 @@ Azure 資料表儲存體服務是 NoSQL 資料存放區，您可以用來儲存�
     Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
     Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
     Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
-    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Steven -Id 4
+    Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 4
 
 #### 如何查詢資料表實體
 若要查詢資料表，請使用 [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) 類別。下列範例假設您已執行本指南的「如何新增實體」一節中提供的指令碼。此範例會先使用儲存體內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其存取金鑰 。接著，再使用 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) Cmdlet 嘗試擷取先前建立的「員工」資料表。在 Microsoft.WindowsAzure.Storage.Table.TableQuery 類別上呼叫 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) Cmdlet，可建立新的查詢物件。此範例會尋找 'ID' 資料行的值為 1 (如字串篩選條件中指定) 的實體。如需詳細資訊，請參閱[查詢資料表和實體](http://msdn.microsoft.com/library/azure/dd894031.aspx)。當您執行此查詢時，它會傳回所有符合篩選準則的所有實體。
@@ -549,7 +549,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 #### 如何將訊息插入佇列中
 若要將訊息插入現有佇列中，請先建立 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 類別的新執行個體。接著，呼叫 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 方法。您可以從字串 (採用 UTF-8 格式) 或位元組陣列建立 CloudQueueMessage。
 
-下列範例示範如何將訊息加入佇列中。此範例會先使用儲存體帳戶內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其存取金鑰 。接著，再使用 [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx) Cmdlet 擷取指定的佇列。如果佇列存在，可使用 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) Cmdlet 建立 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 類別的執行個體。之後，此範例會在此訊息物件上呼叫 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 方法，以將其加入佇列中。以下是可擷取佇列及插入訊息「MessageInfo」的程式碼：
+下列範例示範如何將訊息加入佇列中。此範例會先使用儲存體帳戶內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其存取金鑰 。接著，再使用 [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx) Cmdlet 擷取指定的佇列。如果佇列存在，可使用 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) Cmdlet 建立 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 類別的執行個體。之後，此範例會在此訊息物件上呼叫 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 方法，以將其加入佇列。以下是可擷取佇列及插入訊息「MessageInfo」的程式碼：
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -730,4 +730,4 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 [Next Steps]: #next
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

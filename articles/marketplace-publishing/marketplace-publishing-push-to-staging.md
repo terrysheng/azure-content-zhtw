@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/08/2015"
    ms.author="hascipio"/>
 
 # 使用行銷內容完成供應項目建立程序
@@ -146,7 +146,7 @@
 
 ||虛擬機器映像 |開發人員服務 |資料服務 | 解決方案範本 |
 |---|---|---|---|---|
-| **步驟 3.將您的優惠推送至預備環境** | [在預備環境中測試您的 VM 優惠](marketplace-publishing-vm-image-test-in-staging.md) | [在預備環境中測試您的開發人員服務優惠](marketplace-publishing-data-service-test-in-staging.md) | 在預備環境中測試您的資料服務優惠 | [在預備環境中測試您的解決方案範本](marketplace-publishing-solution-template-test-in-staging.md) |
+| **步驟 3.將您的優惠推送至預備環境** | [在預備環境中測試您的 VM 優惠](marketplace-publishing-vm-image-test-in-staging.md) | [在預備環境中測試您的開發人員服務優惠](marketplace-publishing-dev-service-test-in-staging.md) | [在預備環境中測試您的資料服務優惠](marketplace-publishing-data-service-test-in-staging.md) | [在預備環境中測試您的解決方案範本](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## 另請參閱
 - [使用者入門：如何將優惠發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +160,4 @@
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

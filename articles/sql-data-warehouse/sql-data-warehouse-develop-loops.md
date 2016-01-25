@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的迴圈
 SQL 資料倉儲支援 [WHILE][] 迴圈重複執行陳述式區塊。只要指定的條件都成立，或者在程式碼使用 `BREAK` 關鍵字特別終止迴圈之前，這個情況都會繼續下去。迴圈特別適用於取代 SQL 程式碼中定義的資料指標。幸運的是，幾乎所有以 SQL 程式碼撰寫的資料指標都是向前快轉，並且只讀取多樣性。因此，如果您發現自己必須將其取代，[WHILE] 迴圈是絕佳的替代方案。
@@ -82,4 +82,4 @@ DROP TABLE #tbl;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 保護 API 應用程式：新增 Azure Active Directory 或社交提供者驗證
@@ -274,4 +274,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure 預覽入口網站]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

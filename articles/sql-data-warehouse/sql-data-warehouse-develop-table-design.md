@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的資料表設計 #
 SQL 資料倉儲是大量平行處理 (MPP) 分散式資料庫系統。它會將資料儲存在許多不同的位置 (也稱為**散發**)。每個**散發**都像是一個貯體；可在資料倉儲中儲存唯一的資料子集。將資料和處理能力散佈於多個節點，SQL 資料倉儲就能夠提供極大的延展性 — 遠超過任何單一系統。
@@ -306,4 +306,4 @@ SQL 資料倉儲不使用或支援下列功能：
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

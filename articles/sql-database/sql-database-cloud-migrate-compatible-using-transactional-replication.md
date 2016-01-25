@@ -18,7 +18,7 @@
 
 # 使用異動複寫將 SQL Server 資料庫移轉到 SQL Database
 
-當您在移轉發生時無法負擔從實際執行中移除 SQL Server 資料庫，可以使用 SQL Server 交易複寫做為移轉解決方案。使用交易複寫，開始移轉和完成移轉之間發生的資料或結構描述的所有變更都會出現在您的 Azure SQL Database。移轉完成之後，您只需要變更您的應用程式的連接字串，將其指向您的 Azure SQL Database，而不是指向您的內部部署資料庫。一旦交易複寫清空留在內部部署資料庫的任何變更，且所有應用程式指向 Azure DB，您現在可以安全地解除安裝複寫，讓您的 Azure SQL Database 做為實際執行系統。
+當您在移轉發生時無法負擔從實際執行中移除 SQL Server 資料庫時，可以使用 SQL Server 交易複寫做為移轉解決方案。使用交易複寫，開始移轉和完成移轉之間發生的資料或結構描述的所有變更都會出現在您的 Azure SQL Database。移轉完成之後，您只需要變更您的應用程式的連接字串，將其指向您的 Azure SQL Database，而不是指向您的內部部署資料庫。一旦交易複寫清空留在內部部署資料庫的任何變更，且所有應用程式指向 Azure DB，您現在可以安全地解除安裝複寫，讓您的 Azure SQL Database 做為實際執行系統。
 
  ![SeedCloudTR 圖表](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
@@ -33,4 +33,4 @@
 
 您也可以使用交易複寫以移轉內部部署資料庫的子集。您複寫至 Azure SQL Database 的發佈可以限制為複寫的資料庫中資料表的子集。此外，對於複寫的每一個資料表，您可以將資料限制為資料列的子集和 (或) 資料行的子集。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

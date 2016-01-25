@@ -1,6 +1,6 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 ShiftPlanning 整合 | Microsoft Azure" 
-    description="了解如何使用 ShiftPlanning 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    description="了解如何使用 ShiftPlanning 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 ShiftPlanning 整合
@@ -21,7 +21,7 @@
 -   有效的 Azure 訂閱
 -   已啟用 ShiftPlanning 單一登入的訂用帳戶
   
-完成本教學課程或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)之後，您指派給 ShiftPlanning 的 Azure AD 使用者就能夠單一登入您 ShiftPlanning 公司網站 (服務提供者起始登入) 的應用程式。
+完成本教學課程之後，您指派給 ShiftPlanning 的 Azure AD 使用者就能夠從您的 ShiftPlanning 公司網站 (服務提供者起始登入)，或使用[存取面板](active-directory-saas-access-panel-introduction.md)來單一登入應用程式。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -45,7 +45,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -55,11 +55,11 @@
 
     ![從組件庫新增應用程式](./media/active-directory-saas-shiftplanning-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在**搜尋方塊**中，輸入 **ShiftPlanning**。
+6.  在 [搜尋方塊]中，輸入 **ShiftPlanning**。
 
     ![應用程式庫](./media/active-directory-saas-shiftplanning-tutorial/IC786613.png "應用程式庫")
 
-7.  在結果窗格中，選取 [ShiftPlanning]，然後按一下 [完成] 以新增應用程式。
+7.  在結果窗格中，選取 [ShiftPlanning]，然後按一下 [完成] 來新增應用程式。
 
     ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
 ##設定單一登入
@@ -68,7 +68,7 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 **ShiftPlanning** 應用程式整合頁面中，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 [ShiftPlanning] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "設定單一登入")
 
@@ -76,7 +76,7 @@
 
     ![設定單一登入](./media/active-directory-saas-shiftplanning-tutorial/IC786616.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面上，於 [ShiftPlanning 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："**https://company.shiftplanning.com/includes/saml/*"，然後按 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [ShiftPlanning 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："**https://company.shiftplanning.com/includes/saml/*"，然後按一下 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-shiftplanning-tutorial/IC786617.png "設定應用程式 URL")
 
@@ -86,7 +86,7 @@
 
 5.  在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 **ShiftPlanning** 公司網站。
 
-6.  在頂端的功能表中，按一下 [管理員]。
+6.  在頂端的功能表中，按一下 [系統管理員]。
 
     ![Admin](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
 
@@ -100,16 +100,16 @@
 
     1.  選取 [已啟用 SAML]。
     2.  選取 [允許密碼登入]
-    3.  在 Azure 入口網站的 [設定在 ShiftPlanning 單一登入] 對話方塊頁面中，複製**遠端登入 URL** 值，然後將其貼至 [SAML 簽發者 URL] 文字方塊中。
-    4.  在 Azure 入口網站的 [設定在 ShiftPlanning 單一登入] 對話方塊頁面中，複製**遠端登出 URL** 值，然後將其貼至 [遠端登出 URL] 文字方塊中。
+    3.  在 Azure 入口網站中的 [設定在 ShiftPlanning 單一登入] 對話頁面上，複製 [遠端登入 URL] 值，然後將其貼至 [SAML 簽發者 URL] 文字方塊中。
+    4.  在 Azure 入口網站中的 [設定在 ShiftPlanning 單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將其貼至 [遠端登出 URL] 文字方塊中。
     5.  從您下載的憑證建立 **base-64 編碼**檔案。  
 
         >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  在記事本中開啟您的 Base-64 編碼的憑證，將其內容複製到剪貼簿，然後貼到 [X.509 憑證] 文字方塊
+    6.  在記事本中開啟您的 base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [X.509 憑證] 文字方塊中
     7.  按一下 [儲存設定]。
 
-9.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+9.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "設定單一登入")
 ##設定使用者佈建
@@ -136,7 +136,7 @@
 
     ![儲存員工](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "儲存員工")
 
-    1.  在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶的**名字**、**姓氏**和**電子郵件**。
+    1.  在相關的文字方塊中，輸入您想要佈建之有效 ADD 帳戶的 [名字]、[姓氏] 和 [電子郵件]。
     2.  按一下 [儲存員工]。
 
 >[AZURE.NOTE]您可以使用 ShiftPlanning 提供的任何其他 ShiftPlanning 使用者帳戶建立工具或 API 來佈建 AAD 使用者帳戶。
@@ -149,7 +149,7 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 **ShiftPlanning** 應用程式整合頁面上，按一下 [指派使用者]。
+2.  在 [ShiftPlanning] 應用程式整合頁面上，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-shiftplanning-tutorial/IC786626.png "指派使用者")
 
@@ -159,4 +159,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

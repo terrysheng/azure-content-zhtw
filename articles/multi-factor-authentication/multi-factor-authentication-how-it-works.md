@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 #Azure Multi-Factor Authentication 的作用
@@ -54,8 +54,7 @@ Azure Multi-Factor Authentication 備有三個不同的版本。下表是每種�
 ------------- | ------------- |
 Multi-Factor Authentication for Office 365 | 這個版本專門搭配 Office 365 應用程式運作，並且可從 Office 365 入口網站管理。系統管理員現在可以使用 Multi-Factor Authentication 來保護其 Office 365 資源的安全。此版本隨附於 Office 365 訂用帳戶。
 適用於 Azure 系統管理員的 Multi-Factor Authentication | 適用於 Office 365 的 Multi-Factor Authentication 功能的相同子集將免費提供給所有 Azure 系統管理員。Azure 訂用帳戶的每個管理帳戶現可透過啟用此 Multi-Factor Authentication 核心功能來取得額外防護。因此想要存取 Azure 入口網站以建立 VM、網站、管理儲存體、行動服務或任何其他 Azure 服務的系統管理員，可在其系統管理員帳戶中新增多因素驗證。
-Azure Multi-Factor Authentication | Azure Multi-Factor Authentication 提供最豐富的功能。它能透過 Azure 管理入口網站、進階報告及支援一系列內部部署和雲端應用程式來提供其他組態選項。Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 中。
-
+Azure Multi-Factor Authentication | Azure Multi-Factor Authentication 提供最豐富的功能。<br><br>它能透過 Azure 管理入口網站、進階報告及一系列內部部署和雲端應用程式支援來提供其他設定選項。Azure Multi-Factor Authentication 可以當做獨立授權購買，也能搭配 Azure Active Directory Premium 和 Enterprise Mobility Suite 銷售。<br><br>它也可以透過在 Azure 訂用帳戶中建立 Azure Multi-Factor Authentication 提供者，根據耗用量購買。
 ##版本的功能比較
 下表提供 Azure Multi-Factor Authentication 各版本中可用的功能清單。
 
@@ -83,23 +82,24 @@ MFA SDK| | | *
 
 ##如何取得 Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 和 Enterprise Mobility Suite 中。如果您已經擁有上述產品，代表您也擁有 Azure Multi-Factor Authentication。
+如果您想要 Azure Multi-Factor Authentication 所提供的完整功能，而不是只針對 Office 365 使用者和 Azure 系統管理員所提供的功能，有數個可取得 Azure Multi-Factor Authentication 的選項：
 
-如果您是 Office 365 使用者或 Azure 訂閱者，並且想要充分利用 Azure Multi-Factor Authentication 提供的其他功能，請繼續閱讀。
+1.	購買 Azure Multi-Factor Authentication 授權，並將其指派給您的使用者。
+2.	購買其中隨附 Azure Multi-Factor Authentication 的授權 (例如 Azure Active Directory Premium 或 Enterprise Mobility Suite)，並將其指派給您的使用者。
+3.	在 Azure 訂用帳戶中建立 Azure Multi-Factor Authentication 提供者。如果您還沒有 Azure 訂用帳戶，可以註冊一個 Azure 試用訂用帳戶。在試用到期之前，必須將試用訂用帳戶轉換為一般訂用帳戶。
 
-如果您沒有任何上述任何產品，若要開始使用 Azure Multi-Factor Authentication，首先您需要 Azure 訂用帳戶或 [Azure 試用版訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+使用 Azure Multi-Factor Authentication 提供者時，有兩種使用量模型可透過您的 Azure 訂用帳戶計費：
 
-使用 Azure Multi-Factor Authentication 時有兩個可用的計費選項：
 
 - **每位使用者**。通常適用於想要為一群定期需要驗證之固定數量員工啟用 Multi-Factor Authentication 的企業。
 - **每次驗證**。通常適用於想要為大量不定期需要驗證之外部使用者啟用 Multi-Factor Authentication 的企業。
 
 如需定價詳細資料，請參閱 [Azure MFA 定價](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)。
 
-選擇最適合組織的模式。接下來，若要開始使用，請參閱[開始使用](multi-factor-authentication-get-started.md)
+選擇最適合您組織的每一基座或消費型模型。接下來，若要開始使用，請參閱[開始使用](multi-factor-authentication-get-started.md)
 
 
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

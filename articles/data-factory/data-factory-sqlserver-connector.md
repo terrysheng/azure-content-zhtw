@@ -482,6 +482,25 @@
 | storedProcedureParameters | 預存程序的參數。 | 名稱/值組。參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 | 
 | sqlWriterTableType | 使用者指定了要用於上述預存程序中的資料表類型名稱。複製活動可讓正在移動的資料可用於此資料表類型的暫存資料表。然後，預存程序程式碼可以合併正在複製的資料與現有的資料。 | 資料表類型名稱。 | 否 |
 
+## 疑難排解連線問題
+
+1. 將 SQL Server 設定成接受遠端連線。啟動 **SQL Server Management Studio**，以滑鼠右鍵按一下 [伺服器]，然後按一下 [屬性]。從清單中選取 [連接] 並核取 [允許此伺服器的遠端連接]。
+	
+	![啟用遠端連線](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
+
+	如需詳細步驟，請參閱[設定遠端存取伺服器組態選項](https://msdn.microsoft.com/library/ms191464.aspx)。 
+2. 啟動 **SQL Server 組態管理員**。展開您想要之執行個體的 **SQL Server 網路組態**，並選取 [MSSQLSERVER 的通訊協定]。您應該會在右窗格中看到通訊協定。以滑鼠右鍵按一下 [TCP/IP]，然後按一下 [啟用] 以啟用 TCP/TP。
+
+	![啟用 TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
+
+	如需啟用 TCP/IP 通訊協定的詳細資料與替代方式，請參閱[啟用或停用伺服器網路通訊協定](https://msdn.microsoft.com/library/ms191294.aspx)。 
+3. 在相同的視窗中，按兩下 [TCP/IP] 以啟動 [TCP/IP 屬性] 視窗。
+4. 切換至 [IP 位址] 索引標籤。向下捲動以檢視 [IPAll] 區段。記下 **TCP 連接埠** (預設值是 **1433**)。
+5. 在電腦上建立 **Windows 防火牆規則**，以允許透過此連接埠的連入流量。  
+6. **確認連線**：使用 SQL Server Management Studio 從另一部電腦使用完整名稱連接到 SQL Server。例如：<machine>.<domain>.corp.<company>.com,1433。
+
+	> [AZURE.IMPORTANT]如需詳細資訊，請參閱[連接埠和安全性考量](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations)。
+
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 
@@ -543,4 +562,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

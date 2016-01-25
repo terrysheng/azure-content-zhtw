@@ -4,7 +4,7 @@
    services="sql-data-warehouse" 
    documentationCenter="" 
    authors="twounder" 
-   manager="" 
+   manager="barbkess" 
    editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="01/04/2016" 
-   ms.author="twounder"/>
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # SQL 資料倉儲 - 下層用戶端對稽核和動態資料遮罩的支援 
 
@@ -40,4 +40,4 @@
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

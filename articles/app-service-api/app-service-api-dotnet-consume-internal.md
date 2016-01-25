@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="bradyg"/>
 
 # 從 .NET 用戶端使用 Azure App Service 中的內部 API 應用程式 
@@ -267,4 +267,4 @@ App Service SDK 取決於 Swagger API 定義來產生用戶端類別。如果您
 如需 App Service 中驗證的相關資訊，請參閱 [API 應用程式和行動應用程式的驗證](../app-service/app-service-authentication-overview.md)。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

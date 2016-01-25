@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="01/13/2016"
 	ms.author="nitinme"/>
 
 
@@ -23,8 +23,6 @@
 了解在 HDInsight 中建立 Apache Spark 叢集，然後使用 [Jupyter](https://jupyter.org) Notebook 對 Spark 叢集執行 Spark SQL 互動式查詢。
 
    ![開始使用 HDInsight 中的 Apache Spark](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "開始使用 HDInsight 教學課程中的 Apache Spark說明的步驟：建立儲存體帳戶、建立叢集、執行 Spark SQL 陳述式")
-
->[AZURE.NOTE]如需目前版本的已知問題及限制清單，請參閱 [Azure HDInsight 中 Apache Spark 的已知問題及限制](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 **必要條件：**
 
@@ -235,6 +233,10 @@
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
+### 已知問題
+
+* [Azure HDInsight 中的 Apache Spark (Linux) 的已知問題](hdinsight-apache-spark-known-issues.md)
+
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
@@ -246,4 +248,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

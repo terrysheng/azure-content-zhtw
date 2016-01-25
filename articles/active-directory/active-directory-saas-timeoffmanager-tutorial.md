@@ -1,6 +1,6 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 TimeOffManager 整合 | Microsoft Azure" 
-    description="了解如何使用 TimeOffManager 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    description="了解如何使用 TimeOffManager 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -11,18 +11,18 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 TimeOffManager 整合
   
-本教學課程的目的是要示範 Azure 與 TimeOffManager 的整合。  
+本教學課程的目的是要示範 Azure 與 TimeOffManager 的整合。
 本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   啟用 TimeOffManager 單一登入的訂用帳戶
   
-完成本教學課程之後，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)，您指派給 TimeOffManager 的 Azure AD 使用者就能夠單一登入您 TimeOffManager 公司網站 (服務提供者起始登入) 的應用程式。
+完成本教學課程之後，您指派給 TimeOffManager 的 Azure AD 使用者就能夠從您的 TimeOffManager 公司網站 (服務提供者起始登入)，或使用[存取面板](active-directory-saas-access-panel-introduction.md)來單一登入應用程式。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -47,7 +47,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-timeoffmanager-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-timeoffmanager-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -61,14 +61,14 @@
 
     ![應用程式庫](./media/active-directory-saas-timeoffmanager-tutorial/IC795910.png "應用程式庫")
 
-7.  在結果窗格中，選取 [TimeOffManager]，然後按一下 [完成] 以新增應用程式。
+7.  在結果窗格中，選取 [TimeOffManager]，然後按一下 [完成] 以加入應用程式。
 
     ![TimeOffManager](./media/active-directory-saas-timeoffmanager-tutorial/IC795911.png "TimeOffManager")
 
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶驗證至 TimeOffManager。  
-在此程序中，您需要上傳 base-64 編碼憑證到您的 TimeOffManager 租用戶。  
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶驗證至 TimeOffManager。
+在此程序中，您需要上傳 base-64 編碼憑證到您的 TimeOffManager 租用戶。
 如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
 ###若要設定單一登入，請執行下列步驟：
@@ -107,7 +107,7 @@
 
         >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
-    2.  在記事本中開啟您的 base-64 編碼的憑證，將它的內容複製到您的剪貼簿，然後將整個憑證貼至 [X.509 憑證] 文字方塊。
+    2.  在記事本中開啟您的 base-64 編碼的憑證，將它的內容複製到您的剪貼簿，然後將整個憑證貼到 [X.509 憑證] 文字方塊中。
     3.  在 Azure 入口網站中的 [在 TimeOffManager 設定單一登入] 對話頁面上，複製**簽發者 URL** 值，然後將它貼至 [IdP 簽發者] 文字方塊中。
     4.  在 Azure 入口網站的 [在 TimeOffManager 設定單一登入] 對話頁面上，複製**遠端登入 URL** 值，然後將它貼至 [IdP 端點 URL] 文字方塊中。
     5.  在 [強制 SAML] 選取 [否]。
@@ -132,7 +132,7 @@
     |Firstname|User.givenname|
 	|lastname|User.surname|
 
-    1.  針對上表中的每個資料列，按一下 [新增使用者屬性]。
+    1.  針對上表中的每個資料列，按一下 [加入使用者屬性]。
     2.  在 [屬性名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
     3.  在 [屬性值] 文字方塊中，選取該資料列所顯示的屬性值。
     4.  按一下 [完成]。
@@ -143,7 +143,7 @@
   
 若要讓 Azure AD 使用者可以登入 TimeOffManager，則必須將他們佈建到 TimeOffManager。  
 TimeOffManager 支援即時使用者佈建。沒有您適用的動作項目。  
-在第一次登入時使用單一登入，便會自動新增使用者。
+在第一次登入時使用單一登入，便會自動加入使用者。
 
 >[AZURE.NOTE]您可以使用任何其他的 TimeOffManager 使用者帳戶建立工具或 TimeOffManager 提供的 API 來佈建 AAD 使用者帳戶。
 
@@ -165,4 +165,4 @@ TimeOffManager 支援即時使用者佈建。沒有您適用的動作項目。
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -48,7 +48,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 - **升級所有 Web 和商務資料庫**：請參閱下面的[升級所有 Web 和商務資料庫](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases)一節，或使用 [PowerShell 來升級資料庫和伺服器](sql-database-upgrade-server-powershell.md)。
 - **檢閱和暫停異地複寫**：如果您的 Azure SQL Database 已針對異地複寫做設定，您應該記錄其目前的設定並[停止異地複寫](sql-database-geo-replication-portal.md#remove-secondary-database)。在升級完成之後，請重新設定資料庫的異地複寫。
-- **如果您的用戶端位於 Azure VM 上，請開啟這些連接埠**：如果您的用戶端在 Azure 虛擬機器 (VM) 上執行，而用戶端程式連線到 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請參閱 [SQL Database V12 的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
+- **如果您的用戶端位於 Azure VM 上，請開啟這些連接埠**：如果在您的用戶端於 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請參閱 [SQL Database V12 的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
 
@@ -111,13 +111,14 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 ## 在升級至 SQL Database V12 後監視資料庫
 
-
+>[AZURE.IMPORTANT]升級至最新版本的 SQL Server Management Studio (SSMS) 來使用新的 v12 功能。[下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
+	
 升級之後，建議您主動監視資料庫，以確保應用程式達到所需的執行效能，並視需要將使用情況調整到最佳狀態。
 
 除了監視個別的資料庫之外，您也可以[使用入口網站](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)或藉由 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools) 監視彈性資料庫集區。
 
 
-**資源耗用量資料：**「基本」、「標準」及「高階」資料庫的資源耗用量資料會透過使用者資料庫中的 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 提供。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會以 CPU、IO 及記錄檔方面的最大百分比耗用量來計算。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
+**資源耗用量資料：**Basic、Standard 及 Premium 資料庫的資源耗用量資料會透過使用者資料庫中的 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 提供。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會以 CPU、IO 及記錄檔方面的最大百分比耗用量來計算。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -137,7 +138,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 
 
-**警示：**在 Azure 入口網站中設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。您可以在 Azure 入口網站中為各種效能計量 (例如 DTU、CPU、IO 及記錄檔) 設定資料庫警示。請瀏覽至您的資料庫，然後在 [**設定**] 刀鋒視窗中，選取 [**警示規則**]。
+**警示：**在 Azure 入口網站中設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。您可以在 Azure 入口網站中為各種效能計量 (例如 DTU、CPU、IO 及記錄檔) 設定資料庫警示。請瀏覽至您的資料庫，然後在 [設定] 刀鋒視窗中，選取 [警示規則]。
 
 例如，您可以設定若過去 5 分鐘的平均 DTU 百分比值超出 75% 則發出「 DTU 百分比 」電子郵件警示。若要深入了解如何設定警示通知，請參閱[接收警示通知](insights-receive-alert-notifications.md)。
 
@@ -168,4 +169,4 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

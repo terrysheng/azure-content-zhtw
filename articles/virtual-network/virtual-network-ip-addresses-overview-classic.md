@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # Azure 中的 IP 位址 (傳統)
@@ -160,11 +160,6 @@ Azure [應用程式閘道](application-gateway-introduction.md)可用於 Layer7 
 ||內部負載平衡器 (ILB)|指派給 ILB (動態或靜態)|指派給 ILB 的前端組態 (動態或靜態)|
 
 ## 後續步驟
-- [使用靜態公用 IP 部署 VM](virtual-network-deploy-static-pip-classic-ps.md)
-- [使用靜態私人 IP 位址部署 VM](virtual-networks-static-private-ip-classic-pportal.md)
-- [使用 PowerShell 建立負載平衡器](load-balancer-get-started-internet-classic-cli.md)
-- [使用 PowerShell 建立內部負載平衡器](load-balancer-get-started-ilb-classic-ps.md)
-- [使用 PowerShell 建立應用程式閘道](application-gateway-create-gateway.md)
-- [使用 PowerShell 建立內部應用程式閘道](application-gateway-ilb.md)
+- 使用傳統入口網站[部署使用靜態私人 IP 位址的 VM](virtual-networks-static-private-ip-classic-pportal.md)。
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

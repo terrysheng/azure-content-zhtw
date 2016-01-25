@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="01/08/2016" 
 	ms.author="erikre"/>
 
 # 在 Visual Studio 程式碼中建立 ASP.NET 5 API 應用程式
@@ -441,18 +441,18 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 ## 在 Azure Preview 入口網站中檢視 API 定義
 現已將 API 部署到您的 API 應用程式，您可在 Azure Preview 入口網站中查看 API 定義。一開始要先重新啟動閘道器，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
 
-1. 在 Azure Preview 入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
+1. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
 2. 在 [**閘道器**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
 3. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**重新啟動**]。 
 4. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。<br>
 	[API 定義] 刀鋒視窗會顯示兩種方法。如果您未立即看到 GET 和 POST 方法，請等候幾秒的時間，讓 Azure 重新整理應用程式。然後，在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。
 
 ## 在 Azure 中執行應用程式
-在 Azure Preview 入口網站中，移至 API 應用程式的 [**API 應用程式主機**] 刀鋒視窗，然後按一下 [**瀏覽**]。然後，在 URL 結尾加入 **api/Contacts**，以檢視連絡人詳細資料。
+在 Azure 預覽入口網站中，移至 API 應用程式的 [**API 應用程式主機**] 刀鋒視窗，然後按一下 [**瀏覽**]。然後，在 URL 結尾加入 **api/Contacts**，以檢視連絡人詳細資料。
 
 
 ## 結論
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

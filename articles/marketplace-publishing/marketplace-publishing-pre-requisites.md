@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/06/2015"
+  ms.date="12/08/2015"
   ms.author="hascipio; v-divte"/>
 
 # 建立 Azure Marketplace 供應項目的一般必要條件
@@ -31,7 +31,7 @@
 
 > 您必須先完成公司註冊才能開始使用。不過，您的公司在開發人員中心帳戶中處理稅務和銀行資訊時，開發人員就可以開始著手在[發佈入口網站](https://publish.windowsazure.com)中建立虛擬機器映像、取得認證以及在 Azure 預備環境中加以測試。只有在將供應項目發佈到 Azure Marketplace 的最後一個步驟時，才必須完成賣方帳戶的核准程序。
 
-> 如果有完成賣方註冊的相關問題，請依照下列步驟記錄支援票證：1.請聯絡[支援](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=zh-TW&pesid=15635&ccsid=635847950577064286)。2.選擇**開發人員中心**。3.選擇**發行者設定檔**。4.選擇連絡方法。
+> 如果有完成賣方註冊的相關問題，請依照下列步驟記錄支援票證：1.請聯絡[支援](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=zh-TW&pesid=15635&ccsid=635847950577064286)。2.選擇 [開發人員中心]。3.選擇**發行者設定檔**。4.選擇連絡方法。
 
 
 ## 取得 Azure「隨用隨付」訂用帳戶
@@ -45,9 +45,9 @@
 
 | 虛擬機器映像 | 開發人員服務 | 資料服務 | 方案範本 |
 |-----|-----|-----|-----|
-| [VM 技術性必要條件](marketplace-publishing-vm-image-creation-prerequisites.md) | 開發人員服務技術性必要條件 | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [VM 技術性必要條件](marketplace-publishing-vm-image-creation-prerequisites.md) | [開發人員服務技術性必要條件](marketplace-publishing-dev-service-creation-prerequisites.md) | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## 另請參閱
 - [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

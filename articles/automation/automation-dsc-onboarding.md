@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="11/23/2015"
+   ms.date="01/11/2016"
    ms.author="coreyp"/>
 
 # 上架由 Azure 自動化 DSC 管理的機器
@@ -28,6 +28,8 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
 *    Azure 虛擬機器
 *    實體/虛擬 Windows 電腦內部部署，或在 Azure 以外的雲端中
 *    內部部署在 Azure 中或 Azure 以外的雲端中的實體/虛擬 Linux 機器
+
+此外，可以產生 **DSC 中繼設定**，將上述電腦的任意組合上架到 Azure 自動化 DSC。
 
 下列各節概述如何將每個類型的機器上架到 Azure 自動化 DSC。
 
@@ -114,7 +116,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
 ### Azure 入口網站
 
-在 [Azure Preview 入口網站](http://portal.azure.com/)中，瀏覽至您想要上架之虛擬機器的 Azure 自動化帳戶。在 [自動化帳戶] 儀表板上，按一下 [DSC 節點] -> [新增 Azure VM]。
+在 [Azure Preview 入口網站](http://portal.azure.com/)中，瀏覽至您想要上架虛擬機器的 Azure 自動化帳戶。在 [自動化帳戶] 儀表板上，按一下 [DSC 節點] -> [新增 Azure VM]。
 
 在 [選取要上架的虛擬機器] 下，選取一或多個要上架的 Azure 虛擬機器。
 
@@ -139,24 +141,13 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 內部部署 Windows 電腦和非 Azure 雲端中的 Windows 電腦 (例如 Amazon Web Services) 也可以上架到 Azure 自動化 DSC，只要它們對外可存取網際網路，透過一些簡單的步驟：
 
 1. 確定在您想要上架到 Azure Automation DSC 的電腦上已安裝最新版的 [WMF 5](http://www.microsoft.com/zh-TW/download/details.aspx?id=48729)。
-
-2. 在您的本機環境的機器中，以系統管理員身分開啟 PowerShell 主控台或 PowerShell ISE。這台電腦也必須安裝最新版本的 WMF 5。
-
-3. 使用 Azure PowerShell 模組連接至 Azure 資源管理員：`Login-AzureRmAccount`
-
-4. 從您要上架節點的目標自動化帳戶下載您想要上架的電腦的 PowerShell DSC 中繼組態：
-
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName      		MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop`
-
-5. 如果預設值不符合您的使用情況，請選擇性地檢視並視需要更新輸出資料夾，以符合您想要的 [PowerShell DSC 本機設定管理員欄位和值](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396)。
-
-6. 從遠端將 PowerShell DSC metaconfiguration 套用至您想要上架的電腦：
+2. 請依照下列[**產生 DSC 中繼設定**](#generating-dsc-metaconfigurations)一節中的指示，來產生包含所需 DSC 中繼設定的資料夾。
+3. 從遠端將 PowerShell DSC 中繼設定套用至您想要上架的電腦。**執行此命令的電腦必須安裝最新版的 [WMF 5](http://www.microsoft.com/zh-TW/download/details.aspx?id=48729)**：
 
 	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
-7. 如果您無法從遠端套用 PowerShell DSC 中繼組態，請複製步驟 4 的輸出資料夾到每一部要上架的電腦。然後在要上架的每台機器本機上呼叫 Set-DscLocalConfigurationManager。
-
-8. 使用 Azure 入口網站或 Cmdlet，檢查要上架的電腦現在在您的 Azure 自動化帳戶中顯示為已註冊的 DSC 節點。
+4. 如果您無法從遠端套用 PowerShell DSC 中繼設定，請將步驟 2 中繼設定的資料夾複製到每一部要上架的電腦。然後在要上架的每台電腦本機上呼叫 **Set-DscLocalConfigurationManager**。
+5. 使用 Azure 入口網站或 Cmdlet，檢查要上架的電腦現在在您的 Azure 自動化帳戶中顯示為已註冊的 DSC 節點。
 
 ## 內部部署在 Azure 中或 Azure 以外的雲端中的實體/虛擬 Linux 機器
 
@@ -164,7 +155,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
 1. 確定在您想要上架到 Azure Automation DSC 的電腦上已安裝最新版的 [DSC Linux 代理程式](http://www.microsoft.com/zh-TW/download/details.aspx?id=49150)。
 
-2. 如果 [PowerShell DSC 本機設定管理員預設值](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396)符合您的使用情況：
+2. 如果 [PowerShell DSC 本機設定管理員的預設值](hhttps://msdn.microsoft.com/powershell/dsc/metaconfig4)符合您的使用案例，且您想要將電腦上架**同時**從 Azure 自動化 DSC 提取並報告：
 
 	*    在要上架到 Azure 自動化 DSC 的每部 Linux 電腦上，使用 Register.py 來使用 PowerShell DSC 本機組態管理員預設值上架：
 
@@ -172,21 +163,10 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
 	*    若要尋找您的自動化帳戶的註冊金鑰和註冊 URL，請參閱以下的[**安全註冊**](#secure-registration)一節。
 
-	如果 PowerShell DSC 本機設定管理員預設值**不**符合您的使用情況，請遵循步驟 3 到 9。否則直接跳到步驟 9。
+	如果 PowerShell DSC 本機設定管理員的預設值**不**符合您的使用案例，或者您希望將電腦上架以便只向 Azure 自動化 DSC 報告，但不提取設定或 PowerShell 模組，請依照步驟 3 - 6 執行。否則，請直接跳到步驟 6。
 
-3. 在您的本機環境的 Windows 機器上，以系統管理員身分開啟 PowerShell 主控台或 PowerShell ISE。這台電腦必須安裝最新版本的 [WMF 5](http://www.microsoft.com/zh-TW/download/details.aspx?id=48729)。
-
-4. 使用 Azure PowerShell 模組連接至 Azure 資源管理員：
-
-	`Login-AzureRmAccount`
-
-5.  從您要上架節點的目標自動化帳戶下載您想要上架的電腦的 PowerShell DSC 中繼組態：
-	
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop_`
-
-6.  如果預設值不符合您的使用情況，請選擇性地檢視並視需要更新輸出資料夾，以符合您想要的 [PowerShell DSC 本機設定管理員欄位和值](http://https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396)。
-
-7.  從遠端將 PowerShell DSC metaconfiguration 套用至您想要上架的電腦：
+3.	請依照下列[**產生 DSC 中繼設定**](#generating-dsc-metaconfigurations)一節中的指示，來產生包含所需 DSC 中繼設定的資料夾。
+4.  從遠端將 PowerShell DSC metaconfiguration 套用至您想要上架的電腦：
     	
     	$SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
         $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurPass
@@ -197,12 +177,146 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
         $Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
+	
+執行此命令的電腦必須安裝最新版的 [WMF 5](http://www.microsoft.com/zh-TW/download/details.aspx?id=48729)。
 
-8.  如果您無法從遠端套用 PowerShell DSC 中繼組態，針對要上架的每部 Linux 電腦，請從步驟 5 的資料夾複製對應於該電腦的中繼組態到 Linux 電腦。然後在您要上架到 Azure Automation DSC 的每個 Linux 電腦本機上呼叫 `SetDscLocalConfigurationManager.py`：
+5.  如果您無法從遠端套用 PowerShell DSC 中繼設定，針對要上架的每部 Linux 電腦，請從步驟 5 的資料夾複製對應於該電腦的中繼組態到 Linux 電腦。然後在您要上架到 Azure Automation DSC 的每個 Linux 電腦本機上呼叫 `SetDscLocalConfigurationManager.py`：
 
 	`/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py –configurationmof <path to metaconfiguration file>`
 
-9.  使用 Azure 入口網站或 Cmdlet，檢查要上架的電腦現在在您的 Azure 自動化帳戶中顯示為已註冊的 DSC 節點。
+6.  使用 Azure 入口網站或 Cmdlet，檢查要上架的電腦現在在您的 Azure 自動化帳戶中顯示為已註冊的 DSC 節點。
+
+##產生 DSC 中繼設定
+若要以一般方式將任何電腦上架至 Azure 自動化 DSC，可產生套用時會告知電腦上的 DSC 代理程式從 Azure 自動化 DSC 提取且/或報告的 DSC 中繼設定。Azure 自動化 DSC 的 DSC 中繼設定可以使用 PowerShell DSC 設定或 Azure 自動化 PowerShell Cmdlet 產生。
+
+**注意：**DSC 中繼設定包含將電腦上架至進行管理之自動化帳戶的機密資料。請務必適當地保護您所建立的任何 DSC 中繼設定，或在使用後將它們刪除。
+
+###使用 DSC 設定
+1.	在您的本機環境中，以電腦的系統管理員身分開啟 PowerShell ISE。電腦必須安裝最新版本的 [WMF 5](http://www.microsoft.com/zh-TW/download/details.aspx?id=48729)。
+
+2.	在本機複製下列指令碼。此指令碼包含用來建立中繼設定的 PowerShell DSC 設定，以及開始執行中繼設定建立作業的命令。
+    
+        # The DSC configuration that will generate metaconfigurations
+        [DscLocalConfigurationManager()]
+        Configuration DscMetaConfigs 
+        { 
+            param 
+            ( 
+                [Parameter(Mandatory=$True)] 
+                $RegistrationUrl,
+         
+                [Parameter(Mandatory=$True)] 
+                [String]$RegistrationKey,
+
+                [Parameter(Mandatory=$True)] 
+                [String[]]$ComputerName,
+
+                [Int]$RefreshFrequencyMins = 30, 
+            
+                [Int]$ConfigurationModeFrequencyMins = 15, 
+            
+                [String]$ConfigurationMode = "ApplyAndMonitor", 
+            
+                [String]$NodeConfigurationName,
+
+                [Boolean]$RebootNodeIfNeeded= $False,
+
+                [String]$ActionAfterReboot = "ContinueConfiguration",
+
+                [Boolean]$AllowModuleOverwrite = $False,
+
+                [Boolean]$ReportOnly
+            )
+
+    
+            if(!$NodeConfigurationName -or $NodeConfigurationName -eq "") 
+            { 
+                $ConfigurationNames = $null 
+            } 
+            else 
+            { 
+                $ConfigurationNames = @($NodeConfigurationName) 
+            }
+
+            if($ReportOnly)
+            {
+               $RefreshMode = "PUSH"
+            }
+            else
+            {
+               $RefreshMode = "PULL"
+            }
+
+            Node $ComputerName
+            {
+
+                Settings 
+                { 
+                    RefreshFrequencyMins = $RefreshFrequencyMins 
+                    RefreshMode = $RefreshMode 
+                    ConfigurationMode = $ConfigurationMode 
+                    AllowModuleOverwrite  = $AllowModuleOverwrite 
+                    RebootNodeIfNeeded = $RebootNodeIfNeeded 
+                    ActionAfterReboot = $ActionAfterReboot 
+                    ConfigurationModeFrequencyMins = $ConfigurationModeFrequencyMins 
+                }
+
+                if(!$ReportOnly)
+                {
+                   ConfigurationRepositoryWeb AzureAutomationDSC 
+                    { 
+                        ServerUrl = $RegistrationUrl 
+                        RegistrationKey = $RegistrationKey 
+                        ConfigurationNames = $ConfigurationNames 
+                    }
+
+                    ResourceRepositoryWeb AzureAutomationDSC 
+                    { 
+                       ServerUrl = $RegistrationUrl 
+                       RegistrationKey = $RegistrationKey 
+                    }
+                }
+
+                ReportServerWeb AzureAutomationDSC 
+                { 
+                ServerUrl = $RegistrationUrl 
+                RegistrationKey = $RegistrationKey 
+                }
+            } 
+        }
+        # Create the metaconfigurations
+        # TODO: edit the below as needed for your use case
+        DscMetaConfigs `
+            -RegistrationUrl "<fill me in>" `
+            -RegistrationKey "<fill me in>" `
+            -ComputerName "<some VM to onboard>", "<some other VM to onboard>" `
+            -NodeConfigurationName "SimpleConfig.webserver" `
+            -RefreshFrequencyMins 30 `
+            -ConfigurationModeFrequencyMins 15 `
+            -RebootNodeIfNeeded $False `
+            -AllowModuleOverwrite $False `
+            -ConfigurationMode "ApplyAndMonitor" `
+            -ActionAfterReboot "ContinueConfiguration" `
+            -ReportOnly $False # Set to $True to have machines only report to AA DSC but not pull from it
+
+3.	填寫您自動化帳戶的註冊金鑰和 URL，以及要上架的電腦名稱。所有其他參數都是選擇性的。若要尋找您的自動化帳戶的註冊金鑰和註冊 URL，請參閱以下的[**安全註冊**](#secure-registration)一節。
+
+4.	如果您希望電腦向 Azure 自動化 DSC 報告 DSC 狀態資訊，但不提取設定或 PowerShell 模組，請將 **ReportOnly** 參數設定為 true。
+
+5.	執行指令碼。您現在工作目錄中應該有一個名為 **DscMetaConfigs** 的資料夾，其中包含要上架之電腦的 PowerShell DSC 中繼設定。
+
+###使用 Azure 自動化 Cmdlet
+如果 PowerShell DSC 本機設定管理員的預設值符合您的使用案例，且您想要將電腦上架同時從 Azure 自動化 DSC 提取並報告，Azure 自動化 Cmdlet 會提供簡單的方法，來產生所需的 DSC 中繼設定：
+
+1.	在您的本機環境的機器中，以系統管理員身分開啟 PowerShell 主控台或 PowerShell ISE。
+
+2.	使用 **Add-AzureRmAccount** 連接至 Azure 資源管理員
+
+3.	從您要上架節點的目標自動化帳戶下載您想要上架之電腦的 PowerShell DSC 中繼設定：
+
+        Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop
+
+您現在應該有一個名為 ***DscMetaConfigs*** 的資料夾，其中包含要上架之電腦的 PowerShell DSC 中繼設定。
 
 ##安全註冊
 
@@ -236,4 +350,4 @@ Azure Automation DSC 可讓您輕鬆地將 Azure Windows VM 上架以進行組�
 * [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 自動化 DSC 價格](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

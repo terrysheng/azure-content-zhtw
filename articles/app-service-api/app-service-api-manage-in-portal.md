@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 管理 Azure App Service 中的 API 應用程式
@@ -136,4 +136,4 @@
 
 如需如何使用命令列管理 API 應用程式的相關資訊，請參閱文章左側 (在寬瀏覽器視窗上) 或文章頂端 (在窄瀏覽器視窗上) 出現之功能表的 [**自動化**] 區段中的文章。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

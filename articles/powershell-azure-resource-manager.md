@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
 # 搭配使用 Azure PowerShell 與 Azure 資源管理員
@@ -95,7 +95,7 @@ cmdlet 會提示您 Azure 帳戶的登入認證。登入之後，它會下載您
 
 部署資源時您必須指定想要託管資源的位置。並非每個區域都支援每種資源類型。在部署您的 Web 應用程式和 SQL Database 之前，您必須了解哪些區域支援這些類型。資源群組可以包含位於不同區域的資源；不過，您應該盡可能在相同的位置建立資源以最佳化效能。尤其，您會想要確定您的資料庫與存取資料庫的應用程式位於相同的位置。
 
-若要取得支援所有資源類型的位置，您將需要使用 **Get-AzureRmResourceProvider** Cmdlet。首先，讓我們看看此命令傳回的項目：
+若要取得支援各種資源類型的位置，您必須使用 **Get-AzureRmResourceProvider** Cmdlet。首先，讓我們看看此命令傳回的項目：
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -302,6 +302,9 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
+                "tags": {
+                    "team": "webdev"
+                },
                 "dependsOn": [
                     "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
                 ],
@@ -382,9 +385,9 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 
 - 若要取得您訂用帳戶中的所有資源群組，請使用 **Get-AzureRmResourceGroup** Cmdlet：
 
-		PS C:\>Get-AzureRmResourceGroup
+		PS C:\> Get-AzureRmResourceGroup
 
-		ResourceGroupName : TestRG
+		ResourceGroupName : TestRG1
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -392,21 +395,38 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 		
 		...
 
+      如果您只想取得特定資源群組，請提供 **Name** 參數。
+      
+          PS C:\> Get-AzureRmResourceGroup -Name TestRG1
+
 - 若要取得您資源群組中的資源，請使用 **Find-AzureRmResource** Cmdlet 及其 **ResourceGroupNameContains** 參數。在沒有使用參數的情況下，Find-AzureRmResource 可取得您 Azure 訂用帳戶中的所有資源。
 
-		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
-		Name              : exampleserver
-                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
-                ResourceName      : exampleserver
-                ResourceType      : Microsoft.Sql/servers
-                Kind              : v12.0
-                ResourceGroupName : TestRG1
-                Location          : westus
-                SubscriptionId    : {guid}
+        Name              : exampleserver
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
+        ResourceName      : exampleserver
+        ResourceType      : Microsoft.Sql/servers
+        Kind              : v12.0
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
                 
-                ...
+        ...
 	        
+- 上述範本包含一項資源上的標記。您可以使用標記，以邏輯方式組織訂用帳戶中的資源。使用 **Find-AzureRmResource** 和 **Find-AzureRmResourceGroup** 命令以標記查詢您的資源。
+
+        PS C:\> Find-AzureRmResource -TagName team
+
+        Name              : ExampleSiteuxq53xiz5etmq
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
+        ResourceName      : ExampleSiteuxq53xiz5etmq
+        ResourceType      : Microsoft.Web/sites
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
+                
+      還有更多功能可搭配標記使用。如需詳細資訊，請參閱[使用標記組織您的 Azure 資源](resource-group-using-tags.md)。
 
 ## 新增至資源群組
 
@@ -441,4 +461,4 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 - 如需部署專案的詳細範例，請參閱[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)。
 - 若要了解如何疑難排解失敗的部署，請參閱[在 Azure 中疑難排解資源群組部署](./virtual-machines/resource-group-deploy-debug.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

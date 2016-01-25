@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -94,4 +94,4 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 [Azure Toolkit for Eclipse 的新功能]: http://go.microsoft.com/fwlink/?LinkID=699552
 [適用於 Eclipse 的 Azure 工具組的新功能]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

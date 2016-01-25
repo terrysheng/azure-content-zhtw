@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="共用存取簽章：了解 SAS 模型 | Microsoft Azure" 
-	description="深入了解使用共用的存取簽章 (SAS) 委派存取至 Azure 儲存體資源，包括 Blob、佇列、資料表及檔案。利用共用的存取簽章，您可以保護您的儲存體帳戶金鑰，同時將帳戶中資源的存取權授與其他使用者。您可以控制您授與的權限和 SAS 的有效時間間隔。如果您也可以建立預存的存取原則，您就可以在擔心帳戶安全性遭到入侵時撤銷 SAS。" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+<properties
+	pageTitle="共用存取簽章：了解 SAS 模型 | Microsoft Azure"
+	description="深入了解使用共用的存取簽章 (SAS) 委派存取至 Azure 儲存體資源，包括 Blob、佇列、資料表及檔案。共用存取簽章可以保護您的儲存體帳戶金鑰，同時將帳戶中資源的存取權授與其他使用者。您可以控制您授與的權限和 SAS 的有效時間間隔。如果您也可以建立預存的存取原則，您就可以在擔心帳戶安全性遭到入侵時撤銷 SAS。"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/16/2015"
 	ms.author="tamram"/>
 
 
@@ -51,8 +51,6 @@
 - 當您將檔案複製到另一個位於不同儲存體帳戶的檔案時，您必須使用 SAS 來驗證來源檔案。有了 2015-04-05 版，您也可以選擇性地使用 SAS 來驗證目的地檔案。
 - 當您將 Blob 複製到檔案，或將檔案複製到 Blob 時，您必須使用 SAS 來驗證來源物件，即使來源和目的地位於相同的儲存體帳戶內也一樣。
 
->[AZURE.NOTE]目前帳戶 SAS 僅支援Blob 和檔案服務。在不久的未來它將會支援資料表和佇列服務。
-
 ## 共用存取簽章的類型
 
 2015-04-05 版的 Azure 儲存體推出新類型的共用存取簽章，即帳戶 SAS。您現在可以建立兩個類型的共用存取簽章：
@@ -69,8 +67,8 @@
 
 ### 帳戶 SAS 和服務 SAS 權杖的通用參數
 
-- **API 版本**選擇性參數，指定要用來執行要求的儲存體服務版本。 
-- **服務版本**必要參數，指定要用於驗證要求的儲存體服務版本。
+- **API 版本** 選擇性參數，指定要用來執行要求的儲存體服務版本。 
+- **服務版本** 必要參數，指定要用於驗證要求的儲存體服務版本。
 - **開始時間。** 這是指 SAS 生效的時間。共用存取簽章的開始時間是選擇性選項，如果略過，則 SAS 會立即生效。 
 - **到期時間。** 這是指 SAS 何時失效的時間。最佳做法建議您為 SAS 指定過期時間，或將它與預存存取原則建立關聯 (請參閱以下詳細資訊)。
 - **權限。** 在 SAS 上指定的權限表示用戶端可以使用 SAS 來對儲存體資源執行哪些作業。帳戶 SAS 和服務 SAS 的可用權限不同。
@@ -151,7 +149,7 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 若要執行這些範例，您將需要下載和參考這些套件：
 
 - [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage)，版本 6.x 或更高版本 (以使用 帳戶 SAS)。
-- [Azure 資源管理員](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+- [Azure 資源管理員](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 ### 範例：帳戶 SAS
 
@@ -230,23 +228,23 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    
+
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-       
+
     // Create the blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    
+
     // Get a reference to the container for which shared access signature will be created.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
     container.CreateIfNotExists();
-    
+
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
 
     // Clear the container's shared access policies to avoid naming conflicts.
     blobPermissions.SharedAccessPolicies.Clear();
-    
+
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
     {
@@ -255,14 +253,14 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
        Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
-    
-    // The public access setting explicitly specifies that 
+
+    // The public access setting explicitly specifies that
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
-    
+
     // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
-    
+
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
@@ -270,15 +268,15 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 擁有服務 SAS 的用戶端可以在其程式碼中用它來驗證對容器中 Blob 的讀取或寫入要求。例如，下列程式碼會使用 SAS 權杖在容器中建立新的區塊 Blob。變更程式碼以使用您自己的帳戶名稱：
 
     Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
-    
+
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
-    
+
     // Create a new blob.
     CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
-    
-    // Upload the blob. 
-    // If the blob does not yet exist, it will be created. 
+
+    // Upload the blob.
+    // If the blob does not yet exist, it will be created.
     // If the blob does exist, its existing content will be overwritten.
     using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
@@ -312,7 +310,7 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 
 ## 後續步驟 ##
 
-- [共用存取簽章，第 2 部分：透過 Blob 服務來建立與使用 SAS](storage-dotnet-shared-access-signature-part-2.md)
+- [共用存取簽章，第 2 部分：透過 Blob 儲存體來建立與使用 SAS](storage-dotnet-shared-access-signature-part-2.md)
 - [如何搭配 Azure 檔案儲存體使用 Windows](storage-dotnet-how-to-use-files.md)
 - [管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)
 - [使用共用存取簽章來委派存取權](http://msdn.microsoft.com/library/azure/ee395415.aspx)
@@ -320,7 +318,4 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

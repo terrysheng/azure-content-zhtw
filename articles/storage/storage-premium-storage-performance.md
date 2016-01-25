@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor=""/>
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/04/2015"
-    ms.author="robinsh"/>
+    ms.author="prkhad"/>
 
 # Azure 進階儲存體：專為高效能而設計
 
@@ -422,7 +422,7 @@ directory=/mnt/nocache
 請注意以下與先前幾節所述的設計指導方針一致的重要事項。這些規格對於達到最大 IOPS 很重要 - 較高佇列深度 256。- 較小區塊大小 8KB。- 執行隨機寫入的多個執行緒。
 
 執行下列命令，開始執行 FIO 測試 30 秒，
-				
+
 	sudo fio --runtime 30 fiowrite.ini
 
 當測試執行時，您將能夠看到 VM 和高階磁碟產生的寫入 IOPS 數目。如下列範例所示，DS14 VM 產生最大寫入 IOPS 限制 50,000 IOPS。![](media/storage-premium-storage-performance/image11.png)
@@ -526,8 +526,8 @@ rate_iops=12500
 
 若為 SQL Server 使用者，請參閱「SQL Server 的效能最佳作法」文章：
 
-- [Azure 虛擬機器中的 SQL Server 效能最佳作法 
-- ](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
+- [Azure 虛擬機器中的 SQL Server 效能最佳作法
+- ](https://msdn.microsoft.com/library/azure/dn133149.aspx)
 - [Azure 進階儲存體為 Azure VM 中的 SQL Server 提供最高效能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

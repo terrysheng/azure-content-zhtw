@@ -1,6 +1,6 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 Panorama9 整合 | Microsoft Azure" 
-    description="了解如何使用 Panorama9 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    description="了解如何使用 Panorama9 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 Panorama9 整合
@@ -21,7 +21,7 @@
 -   有效的 Azure 訂閱
 -   啟用 Panorama9 單一登入的訂用帳戶
   
-完成本教學課程或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)之後，您指派給 Panorama9 的 Azure AD 使用者就能夠單一登入您 Panorama9 公司網站 (服務提供者起始登入) 的應用程式。
+完成本教學課程之後，您指派給 Panorama9 的 Azure AD 使用者就能夠從您的 Panorama9 公司網站 (服務提供者起始登入)，或使用[存取面板](active-directory-saas-access-panel-introduction.md)來單一登入應用程式。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -45,7 +45,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-panorama9-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-panorama9-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -55,7 +55,7 @@
 
     ![從組件庫新增應用程式](./media/active-directory-saas-panorama9-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在**搜尋方塊**中，輸入 **Panorama9**。
+6.  在**搜尋方塊**中輸入 **Panorama9**。
 
     ![應用程式庫](./media/active-directory-saas-panorama9-tutorial/IC790017.png "應用程式庫")
 
@@ -64,19 +64,19 @@
     ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶在 Panorama9 中進行驗證。設定 Panorama9 的單一登入需要您從憑證抓取憑證指紋值。如果您不熟悉這個程序，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶在 Panorama9 中進行驗證。設定 Panorama9 的單一登入需要您從憑證抓取憑證指紋值。如果您不熟悉這個程序，請參閱[如何抓取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 **Panorama9** 應用程式整合頁面中，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 [Panorama9] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-panorama9-tutorial/IC790019.png "設定單一登入")
 
-2.  在 [要如何讓使用者登入 Panorama9] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
+2.  在 [您希望使用者如何登入 Panorama9] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按一下 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-panorama9-tutorial/IC790020.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面上，於 [Panorama9 登入 URL] 文字方塊中，輸入使用者登入您的 Panorama9 時所使用的 URL (例如："*https://dashboard.panorama9.com/saml/access/3262*"))，然後按 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [Panorama9 登入 URL] 文字方塊中，輸入使用者登入您的 Panorama9 時所使用的 URL (如："*https://dashboard.panorama9.com/saml/access/3262*"))，然後按一下 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-panorama9-tutorial/IC790021.png "設定應用程式 URL")
 
@@ -86,7 +86,7 @@
 
 5.  在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Panorama9 公司網站。
 
-6.  在頂端的工具列中，按一下 [管理]，然後按一下 [擴充功能]。
+6.  在最上面的工具列中，按一下 [管理]，然後按一下 [擴充功能]。
 
     ![擴充功能](./media/active-directory-saas-panorama9-tutorial/IC790023.png "擴充功能")
 
@@ -98,10 +98,10 @@
 
     ![設定](./media/active-directory-saas-panorama9-tutorial/IC790025.png "設定")
 
-    1.  在 Azure 入口網站的 [設定在 Panorama9 單一登入] 對話方塊頁面中，複製**單一登入服務 URL** 值，然後將它貼至 [識別提供者 URL] 文字方塊中。
+    1.  在 Azure 入口網站的 [設定在 Panorama9 單一登入] 對話頁面上，複製 [單一登入服務 URL] 值，然後將它貼至 [識別提供者 URL] 文字方塊中。
     2.  從匯出的憑證複製 [指紋] 值，然後將它貼入 [憑證指紋] 文字方塊。  
 
-        >[AZURE.TIP]如需詳細資訊，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]如需詳細資訊，請參閱[如何抓取憑證的指紋值](http://youtu.be/YKQF266SAxI)
 
     3.  按一下 [儲存]。
 
@@ -126,7 +126,7 @@
 
     ![使用者](./media/active-directory-saas-panorama9-tutorial/IC790028.png "使用者")
 
-    1.  在 [電子郵件] 文字方塊中，輸入您想要佈建的有效 Azure Active Directory 使用者電子郵件地址。
+    1.  在 [電子郵件] 文字方塊中輸入您想要佈建的有效 Azure Active Directory 使用者電子郵件地址。
     2.  按一下 [儲存]。
 
 >[AZURE.NOTE]您可以使用任何其他的 Panorama9 使用者帳戶建立工具或 Panorama9 提供的 API，佈建 AAD 使用者帳戶。
@@ -139,7 +139,7 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 **Panorama9** 應用程式整合頁面中，按一下 [指派使用者]。
+2.  在 [Panorama9] 應用程式整合頁面中，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-panorama9-tutorial/IC790029.png "指派使用者")
 
@@ -147,6 +147,6 @@
 
     ![是](./media/active-directory-saas-panorama9-tutorial/IC767830.png "是")
   
-如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
+如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

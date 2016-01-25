@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/11/2016"
 	ms.author="v-shysun"/>
 
 #疑難排解常見的 Azure SQL Database 權限和存取問題
 使用本主題以獲得授與及移除對 Azure SQL Database 的存取權的快速步驟。如需更完整資訊，請參閱：
 
 - [管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)
-- [保護您的 SQL Database](sql-database-security)
+- [保護您的 SQL Database](sql-database-security.md)
 - [SQL Server Database Engine 和 Azure SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)
 
 ##若要變更邏輯伺服器的系統管理密碼
@@ -37,4 +37,4 @@
 ## 若要在虛擬 master 資料庫中建立高權限使用者的其他登入
 -使用 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 陳述式，並參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)的「管理登入」一節以獲得詳細資訊。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

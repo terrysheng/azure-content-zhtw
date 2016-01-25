@@ -1,64 +1,64 @@
 <!--author=alkohli last changed: 01/11/16-->
 
-#### To install Update 2 from the Azure portal
+#### 從 Azure 入口網站安裝 Update 2
 
-1. On the StorSimple service page, select your device. Navigate to **Devices** > **Maintenance**.
+1. 在 [StorSimple 服務] 頁面上，選取您的裝置。瀏覽至 [**裝置**] > [**維護**]。
 
-2. At the bottom of the page, click **Scan Updates**. A job will be created to scan for available updates. You will be notified when the job has completed successfully.
+2. 按一下頁面底部的 [**掃描更新**]。將建立掃描可用更新的工作。工作成功完成時，系統將會通知您。
 
-3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 2 on your device.
+3. 在相同頁面的 [**軟體更新**] 區段中，您會看到新的軟體更新可供使用。我們建議您先檢閱版本資訊，然後再於裝置上套用 Update 2。
 
-    ![Install software updates](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
+    ![安裝軟體更新](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
 
-4. At the bottom of the page, click **Install Updates**.
+4. 按一下頁面底部的 [**安裝更新**]。
 
-5. You will be prompted for confirmation. Click **OK**.
+5. 系統將提示您進行確認。按一下 [確定]。
 
-6. An **Install Updates** dialog box will be presented. Your device should satisfy the checks listed in this dialog box. These steps were completed prior to the update. Select **I understand the above requirement and am ready to update my device**. Click the check icon.
+6. 將顯示 [**安裝更新**] 對話方塊。您的裝置應該要符合此對話方塊中所列出的檢查項目。在更新之前請先完成這些步驟。選取 [**我了解上述需求而且已準備好更新我的裝置**]。按一下核取圖示。
 
-    ![Confirmation message](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
+    ![確認訊息](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
 
-7. A set of automatic pre-checks will now start. These include:
+7. 現在將開始一組自動預先檢查。其中包含：
 
-	- **Controller health checks** to verify that both the device controllers are healthy and online.
+	- **控制器健康狀況檢查**：確認這兩個裝置控制器的狀況良好且在線上。
 	
-	- **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
+	- **硬體元件健康狀況檢查**：確認您的 StorSimple 裝置上的所有硬體元件的狀況良好。
 	
-	- **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you will need to enable it and then retry.
+	- **DATA 0 檢查**：確認您的裝置已啟用 DATA 0。如果未啟用此介面，您必須啟用它，然後重試。
 	
-	- **DATA 2 and DATA 3 checks** to verify that DATA 2 and DATA 3 network interfaces are not enabled. If these interfaces are enabled, then you will need to disable them and then try to update your device. This check is performed only if you are updating from a device running GA software. Devices running versions 0.1, 0.2, or 0.3 will not need this check.
+	- **DATA 2 和 DATA 3 檢查**：確認未啟用 DATA 2 和 DATA 3 網路介面。如果已啟用這些介面，將需要停用它們，然後嘗試更新您的裝置。只有在您要從執行 GA 軟體的裝置更新時，才需要執行這項檢查。執行 0.1、0.2 或 0.3 版的裝置將不需要這項檢查。
 	
-	- **Gateway check** on any device running a version prior to Update 1. This check is performed on all the device running pre-update 1 software but fails on the devices that have a gateway configured for a network interface other than DATA 0.
+	- **閘道器檢查**：在任何執行 Update 1 之前版本的裝置上進行。這項檢查只能在執行 Update 1 之前版本軟體的所有裝置上執行，但是會在已為 DATA 0 以外的網路介面設定閘道器的裝置上無法執行。
  
-	Update 2 will only be applied if all the above pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
+	只有在上述所有的更新前檢查都順利完成之後，才會套用 Update 2。將會通知您更新前檢查正在進行中。
   
-    ![Pre-check notification](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
+    ![前置檢查通知](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
 
-    The following is an example in which the pre-upgrade check failed. You will need to verify that both the device controllers are healthy and online. You will also need to check the health of the hardware components. In this example, Controller 0 and Controller 1 components need attention. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+    下列是升級前檢查失敗的範例。您必須確認這兩個裝置控制器狀況良好且在線上。您也必須檢查硬體元件的健全狀態。在此範例中，需要注意控制器 0 及控制器 1 元件。如果您不能自行解決這些問題，您可能需要連絡 Microsoft 支援服務。
 
-   	 ![Pre-check failed](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
+   	 ![前置檢查失敗](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	
-	> [AZURE.NOTE] If you are updating from a pre-Update 1 software, after you have applied Update 2 on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA 2, DATA 3, and gateway pre-checks are not performed.
+	> [AZURE.NOTE]如果您是從 Update 1 之前的版本更新，在 StorSimple 裝置上套用 Update 2 之後，未來的更新將不再需要 DATA 2 和 DATA 3 檢查，以及閘道檢查。但仍需要其他前置檢查。如果您是從 Update 1 或更新版本更新，就不會執行 DATA 2、DATA 3 和閘道前置檢查。
 
 
-8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
+8. 升級前檢查都成功完成後，將會建立更新工作。成功建立更新工作時，系統將會通知您。
  
-    ![Update job creation](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
+    ![建立更新工作](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
 
-    The update will then be applied on your device.
+    接著，更新將套用到您的裝置上。
  
-9. To monitor the progress of the update job, click **View Job**. On the **Jobs** page, you can see the update progress. 
+9. 若要監視更新工作的進度，請按一下 [**檢視工作**]。在 [工作] 頁面中，您可以看到更新進度。
     
-10. The update will take a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+10. 更新將需要幾個小時來完成。隨時可選取更新工作並按一下 [詳細資料] 來檢視工作的詳細資料。
   
-11. After the job is complete, navigate to the **Maintenance** page and scroll down to **Software Updates**.
+11. 工作完成後，瀏覽至 [**維護**] 頁面，並向下捲動至 [**軟體更新**]。
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. The **Last updated date** should also be modified.
-
-
-13. You will now see that Maintenance mode updates are available. These updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the steps listed in [install and verify maintenance mode hotfix](#to-install-and-verify-maintenance-mode-hotfix) to install these Maintenance mode updates.
-
-> [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
+12. 驗證您的裝置正在執行 **StorSimple 8000 系列 Update 2 (6.3.9600.17673)**。[**上次更新日期**] 應該也已修改。
 
 
+13. 您現在會看到已有維護模式更新可供使用。這些更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。請依照[安裝及驗證維護模式 Hotfix](#to-install-and-verify-maintenance-mode-hotfix) 中列出的步驟安裝這些維護模式更新。
+
+> [AZURE.NOTE]在某些情況下，在裝置上成功套用維護模式更新之後，指出維護模式更新可供使用的訊息可能會持續顯示長達 24 小時。
+
+<!---HONumber=AcomDC_0114_2016-->

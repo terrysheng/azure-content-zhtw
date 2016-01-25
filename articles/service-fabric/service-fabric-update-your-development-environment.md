@@ -18,7 +18,7 @@
 
 # 更新 Service Fabric 開發環境
 
- Service Fabric 定期提供新版本的執行階段、SDK 和工具，以在本機開發中使用。使用這些版本保持您的本機開發環境更新，可確保您在本機建置和測試您的應用程式時，永遠可以存取最新功能、錯誤修正和效能改進。
+ Azure Service Fabric 定期提供新版本的執行階段、SDK 和工具，以在本機開發中使用。您可以使用這些版本將您的本機開發環境維持在最新狀態，確保您在本機建置和測試應用程式時，永遠可以存取最新功能、錯誤修正和效能改進。
 
 ## 清除您的本機叢集
 
@@ -29,11 +29,11 @@
  您可以清理您的本機叢集，如下所示：
 
 
- 1. 關閉所有其他的 PowerShell 視窗，並以系統管理員身分啟動一個新視窗。
+ 1. 關閉所有 PowerShell 視窗，並以系統管理員身分開啟一個新視窗。
 
- 2. 瀏覽至包含 `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"` 的叢集安裝目錄
+ 2. 使用 `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"` 瀏覽至叢集安裝目錄。
 
- 3. 執行 `.\CleanCluster.ps1`
+ 3. 執行 `.\CleanCluster.ps1`。
 
 
 ## 更新執行階段、SDK 和工具
@@ -43,14 +43,14 @@
 
  1. 啟動 Web Platform Installer 以[更新為新版本][1]。
 
- 2. 完成時，以系統管理員身分啟動新的 PowerShell 視窗，並瀏覽至 `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"` 叢集安裝目錄。
+ 2. 完成時，以系統管理員身分開啟新的 PowerShell 視窗，並使用 `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"` 瀏覽至叢集安裝目錄。
 
  3. 執行 `.\DevClusterSetup.ps1` 以設定您的本機叢集。
 
 就這麼簡單！ 您現在可以啟動 Visual Studio 並繼續建置Service Fabric 應用程式。
 
->[AZURE.NOTE]預設專案結構已經在這個版本中變更。您應該能夠在 Visual Studio 中開啟並執行現有的專案。不過，如果對於建置、部署或偵錯您的應用程式遇到任何問題，請考慮建立新的專案，並將您的程式碼移轉過來。
+>[AZURE.NOTE]預設專案結構已經在這個版本中變更。您應該能夠在 Visual Studio 中開啟並執行現有的專案。不過，如果對於建置、部署或偵錯應用程式有任何問題，請考慮建立新的專案，並移轉您的程式碼來蓋過現有的專案。
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

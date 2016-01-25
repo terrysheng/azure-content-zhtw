@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="01/05/2016"
    ms.author="terrylan"/>
 
 # 管理 Azure 資訊安全中心的安全性建議
@@ -48,7 +48,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 
 查看每個建議的詳細資料：
 
-1. 按一下 [資訊安全中心] 刀鋒視窗上的 [建議] 磚。即會開啟 [建議] 刀鋒視窗。
+1. 按一下 [資訊安全中心] 刀鋒視窗上的 [建議] 磚。將會開啟 [建議] 刀鋒視窗。
 2. 您可以依狀態和嚴重性篩選呈現給您的建議。按一下 [建議] 刀鋒視窗上的 [篩選]。即會開啟 [篩選] 刀鋒視窗，您可以選取想要查看的嚴重性和狀態值。![][3]
 
 3. 如果您判斷建議不適用，您可解除該建議，然後將它從您的檢視中篩除。解除建議的方式有兩種。在項目上按一下滑鼠右鍵，然後選取 [解除]，或將滑鼠游標暫留在項目上，然後按一下出現在右邊的三個點，再選取 [解除]。您可以按一下 [篩選]，然後選取 [已解除]，來檢視已解除的建議。![][4]
@@ -70,7 +70,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 
 | 建議 | 說明 |
 |----- |-----|
-| 啟用訂用帳戶/虛擬機器的資料收集 | 建議您在所選 VM 的「安全性原則」中開啟「資料收集」。 |
+| 啟用訂用帳戶/虛擬機器的資料收集 | 建議您為每個訂用帳戶或特定 VM 開啟安全性原則中的 [資料收集]。 |
 | 解決不相符基準規則 | 建議您讓作業系統組態符合建議的基準，例如不允許儲存密碼。 |
 | 套用系統更新 | 建議您將遺漏的系統更新部署到 VM (僅適用於 Windows VM)。 |
 | 設定端點的 ACL | 建議您設定存取控制清單來限制對 VM 的輸入存取 (僅適用於「傳統 VM」)。 |
@@ -121,7 +121,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 - [設定 Azure 資訊安全中心的安全性原則](security-center-policies.md) – 了解如何設定安全性原則
 - [Azure 資訊安全中心的安全性健康情況監視](security-center-monitoring.md) – 了解如何監視 Azure 資源的健康情況
 - [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) – 了解如何管理與回應安全性警示
-- [Azure 安全性中心常見問題集](security-center-faq.md) – 尋找使用服務的常見問題
+- [Azure 安全性中心常見問題集](security-center-faq.md) - 尋找使用服務的常見問題
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) – 尋找有關 Azure 安全性與法規遵循的部落格文章
 
 <!--Image references-->
@@ -135,4 +135,4 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

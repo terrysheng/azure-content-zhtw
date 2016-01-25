@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # 從經過 Azure Active Directory 驗證的 Web 應用程式用戶端呼叫 Azure API 應用程式
@@ -228,4 +228,4 @@
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Azure Preview 入口網站]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

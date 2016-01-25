@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
-    ms.author="v-dedomi"/>
+	ms.date="01/09/2016"
+    ms.author="robmcm"/>
 
 # 如何搭配使用 Azure 從屬外掛程式與 Jenkins 連續整合
 
@@ -204,4 +204,4 @@
 
 Jenkins 會隨即使用上一節建立的範本來建立從屬節點，並執行您在建置步驟中為這項工作指定的指令碼。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

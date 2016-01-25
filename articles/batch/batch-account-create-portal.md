@@ -72,7 +72,7 @@ Batch 帳戶 URL 會出現在 [**Essentials**] 中。此為格式 `https://<acco
 
 * 您可以在單一 Batch 帳戶中執行多個 Batch 工作負載，或在不同 Azure 區域的 Batch 帳戶之間散佈工作負載。
 
-* 如果您執行數個大型的 Batch 工作負載，請注意適用於您的 Azure 訂用帳戶和每個 Batch 帳戶的特定 [Batch 服務配額和限制](batch-quota-limit.md)。目前 Batch 帳戶的配額會出現在預覽入口網站的帳戶內容。
+* 如果您執行數個大型的 Batch 工作負載，請注意適用於您的 Azure 訂用帳戶和每個 Batch 帳戶的特定 [Batch 服務配額和限制](batch-quota-limit.md)。目前 Batch 帳戶的配額會出現在入口網站的帳戶內容。
 
 ## 後續步驟
 
@@ -84,4 +84,4 @@ Batch 帳戶 URL 會出現在 [**Essentials**] 中。此為格式 `https://<acco
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

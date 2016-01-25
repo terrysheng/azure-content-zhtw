@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # 了解透過 CSDL 將現有的 Web 服務對應至 OData 的節點結構描述
@@ -162,9 +162,8 @@ FunctionImport 節點內的其他子節點 (未被 CSDL 文件涵蓋) 如下：
 |----|----|
 | **d:Regex** *(選用)* | 用來驗證輸入參數值的 regex 陳述式。如果輸入值不符合陳述式，則會拒絕此值。這允許也可指定一組可能值，例如 ^[0-9]+?$，以僅允許數字。**範例：**`<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
 | **d:Enum** *(選用)* | 以直立線區隔的有效參數值清單。這些值的類型必須符合已定義的參數類型。範例：`english|metric|raw`.列舉將在 UI (服務總管) 中顯示為可選取的下拉式參數清單。**範例：**`<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
-| **d:Nullable** *(選用)* | 允許定義參數是否可為 null。預設值為：true。不過，公開為 URI 範本中路徑一部分的參數不可為 null。當這些參數的屬性設為 false 時，使用者輸入會被覆寫。允許定義參數是否可為 null。預設值為：true。不過，公開為 URI 範本中路徑一部分的參數不可為 null。當這些參數的屬性設為 false 時，使用者輸入會被覆寫。**範例：**`<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(選用)* | 要在 UI 中顯示為用戶端之附註的範例值。可以加入多個值，以直立線分隔，|。**範例：**`<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
-| **d:UriTemplate** | |
+| **d:Nullable** *(選用)* | 允許定義參數是否可為 null。預設值為：true。不過，公開為 URI 範本中路徑一部分的參數不可為 null。當這些參數的屬性設為 false 時，使用者輸入會被覆寫。**範例：**`<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:SampleValue** *(選用)* | 要在 UI 中顯示為用戶端之附註的範例值。例如，可以使用管線分隔清單來新增數個值。`a|b|c` **範例：** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 
 ## EntityType 節點
 
@@ -273,4 +272,4 @@ XPath 運算式將是 /foo/bar，因為每一個列節點就是輸出中的重�
 - 如果您有興趣檢閱範例，請閱讀[資料服務 OData 對應範例](marketplace-publishing-data-service-creation-odata-mapping-examples.md)一文，來查看範例程式碼，並了解程式碼語法與內容。
 - 若要返回用於將資料服務發佈至 Azure Marketplace 的指定路徑，請閱讀[資料服務發佈指南](marketplace-publishing-data-service-creation.md)一文。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

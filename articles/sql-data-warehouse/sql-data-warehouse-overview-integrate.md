@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 #以 SQL 資料倉儲來搭配運用其他服務
 除了其核心功能，SQL 資料倉儲可讓使用者搭配運用許多其他 Azure 中的服務。具體而言，我們目前已經採取步驟來深入整合下列項目：
@@ -71,4 +71,4 @@ Azure 串流分析是複雜、完全受管理的基礎結構，可處理和取�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="如何使用 Java 的資料表儲存體 | Microsoft Azure" 
-	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Java 程式碼撰寫。" 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="如何使用 Java 的資料表儲存體 | Microsoft Azure"
+	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Java 程式碼撰寫。"
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 
 # 如何使用 Java 的資料表儲存體
@@ -51,15 +51,15 @@
 Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 AccountName 和 AccountKey 值要使用您儲存體帳戶的名稱，以及在 [Azure 入口網站](portal.azure.com)中針對該儲存體帳戶而列出的主要存取金鑰)。本範例將示範如何宣告靜態欄位來存放連接字串：
 
     // Define the connection-string with your values.
-    public static final String storageConnectionString = 
-        "DefaultEndpointsProtocol=http;" + 
-        "AccountName=your_storage_account;" + 
+    public static final String storageConnectionString =
+        "DefaultEndpointsProtocol=http;" +
+        "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
 在 Microsoft Azure 的角色內執行的應用程式中，此字串可以儲存在服務組態檔 *ServiceConfiguration.cscfg* 裡，且可以藉由呼叫 **RoleEnvironment.getConfigurationSettings** 方法來存取。以下是從服務組態檔中名為 **StorageConnectionString** 的 *Setting* 元素取得連接字串的範例：
 
     // Retrieve storage account from connection-string.
-    String storageConnectionString = 
+    String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。
@@ -128,19 +128,19 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
         String email;
         String phoneNumber;
-        
+
         public String getEmail() {
             return this.email;
         }
-        
+
         public void setEmail(String email) {
             this.email = email;
         }
-        
+
         public String getPhoneNumber() {
             return this.phoneNumber;
         }
-        
+
         public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
@@ -156,15 +156,15 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
     	// Create a cloud table object for the table.
     	CloudTable cloudTable = tableClient.getTableReference("people");
-			
+
     	// Create a new customer entity.
     	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
     	customer1.setEmail("Walter@contoso.com");
     	customer1.setPhoneNumber("425-555-0101");
-			
+
     	// Create an operation to add the new customer to the people table.
     	TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
@@ -247,13 +247,13 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
 	   // Create a cloud table object for the table.
 	   CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
@@ -265,7 +265,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         // Loop through the results, displaying information about the entity.
         for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
             System.out.println(entity.getPartitionKey() +
-                " " + entity.getRowKey() + 
+                " " + entity.getRowKey() +
                 "\t" + entity.getEmail() +
                 "\t" + entity.getPhoneNumber());
 	   }
@@ -286,7 +286,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
     	final String PARTITION_KEY = "PartitionKey";
     	final String ROW_KEY = "RowKey";
     	final String TIMESTAMP = "Timestamp";
-			
+
     	// Retrieve storage account from connection-string.
     	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
@@ -299,18 +299,18 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
     	// Create a filter condition where the row key is less than the letter "E".
     	String rowFilter = TableQuery.generateFilterCondition(
-	       ROW_KEY, 
+	       ROW_KEY,
 	       QueryComparisons.LESS_THAN,
 	       "E");
 
     	// Combine the two conditions into a filter expression.
-    	String combinedFilter = TableQuery.combineFilters(partitionFilter, 
+    	String combinedFilter = TableQuery.combineFilters(partitionFilter,
 	        Operators.AND, rowFilter);
 
     	// Specify a range query, using "Smith" as the partition key,
@@ -350,13 +350,13 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff"
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
 	   // Submit the operation to the table service and get the specific entity.
 	   CustomerEntity specificEntity =
     		cloudTable.execute(retrieveSmithJeff).getResultAsType();
-			
+
     	// Output the entity.
     	if (specificEntity != null)
     	{
@@ -389,7 +389,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
     	// Submit the operation to the table service and get the specific entity.
@@ -428,7 +428,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Define a projection query that retrieves only the Email property
-    	TableQuery<CustomerEntity> projectionQuery = 
+    	TableQuery<CustomerEntity> projectionQuery =
 	       TableQuery.from(CustomerEntity.class)
 	       .select(new String[] {"Email"});
 
@@ -441,7 +441,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         };
 
         // Loop through the results, displaying the Email values.
-        for (String projectedString : 
+        for (String projectedString :
             cloudTable.execute(projectionQuery, emailResolver)) {
                 System.out.println(projectedString);
         }
@@ -562,6 +562,5 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [部落格文章]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

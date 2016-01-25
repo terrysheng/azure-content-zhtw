@@ -24,7 +24,7 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
 開始使用媒體服務時，請務必了解轉碼器和檔案格式之間的差異。轉碼器是實作壓縮/解壓縮演算法的軟體，而檔案格式是保存已壓縮視訊的容器。
 
-媒體服務提供動態封裝，這讓您以媒體服務支援的串流格式 (MPEG DASH, 、HLS、Smooth Streaming、HDS) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。
+媒體服務提供動態封裝，這讓您以媒體服務支援的串流格式 (MPEG DASH、HLS、Smooth Streaming、HDS) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。
 
 若要利用[動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
 
@@ -250,6 +250,26 @@ MP3 (MPEG-1 音訊層 3)|否|否|是
 Windows Media 音訊|否|是|是
 
 
+##錯誤碼  
+
+下表列出在編碼工作執行期間發生錯誤的情況下可能傳回的錯誤碼。若要取得您 .NET 程式碼中的錯誤詳細資料，請使用 [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) 類別。若要取得您 REST 程式碼中的錯誤詳細資料，請使用 [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API。
+
+ErrorDetail.Code|導致發生錯誤的可能原因
+-----|-----------------------
+不明| 執行工作時發生不明錯誤
+ErrorDownloadingInputAssetMalformedContent|涵蓋下載輸入資產中之錯誤 (例如無效的檔案名稱、長度為零檔案、錯誤格式等等) 的錯誤類別。
+ErrorDownloadingInputAssetServiceFailure|涵蓋服務端問題 (例如下載時發生網路或儲存體錯誤) 的錯誤類別。
+ErrorParsingConfiguration|工作 <see cref="MediaTask.PrivateData"/> (組態) 無效時的錯誤類別，例如組態不是有效的系統預設或包含無效的 XML。
+ErrorExecutingTaskMalformedContent|在工作執行期間因輸入媒體檔案內部問題導致失敗的錯誤類別。
+ErrorExecutingTaskUnsupportedFormat|媒體處理器無法處理提供之檔案 (不支援的媒體格式或與組態不符) 的錯誤類別。例如，嘗試從只有影片的資產產生只含音訊的輸出
+ErrorProcessingTask|媒體處理器在處理和內容不相關的工作時發生的其他錯誤類別。
+ErrorUploadingOutputAsset|上傳輸出資產時的錯誤類別
+ErrorCancelingTask|涵蓋嘗試取消工作時失敗的錯誤類別
+TransientError|涵蓋暫時性問題 (例如 Azure 儲存體暫時性網路問題) 的錯誤類別
+
+
+若要從**媒體服務**小組取得協助，請開啟[支援票證](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+
 
 
 ##媒體服務學習路徑
@@ -263,10 +283,11 @@ Windows Media 音訊|否|是|是
 
 ##相關文章
 
+- [透過自訂 Media Encoder Standard 預設值來執行進階編碼工作](media-services-custom-mes-presets-with-dotnet.md)
 - [配額和限制](media-services-quotas-and-limitations.md)
 
  
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

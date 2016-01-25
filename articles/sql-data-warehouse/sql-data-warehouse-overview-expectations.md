@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lvargas"
-   manager="tonypet"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lvargas;twounder;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lvargas;mausher;barbkess"/>
 
 # SQL 資料倉儲預覽版期望
 
@@ -72,4 +72,4 @@ SQL 資料倉儲會將資料儲存於一或多個計算節點，而每個節點�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

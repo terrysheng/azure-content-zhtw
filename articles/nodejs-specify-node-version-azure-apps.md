@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # 在 Azure 應用程式中指定 Node.js 版本
@@ -102,4 +102,4 @@ Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否�
 [使用模組]: nodejs-use-node-modules-azure-apps.md
 [建置並部署 Node.js 網站]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

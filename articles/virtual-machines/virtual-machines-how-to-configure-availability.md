@@ -1,5 +1,5 @@
 <properties
-	pageTitle="設定 VM 的可用性設定組 | Microsoft Azure"
+	pageTitle="設定傳統 VM 的可用性設定組 | Microsoft Azure"
 	description="使用 Azure 傳統入口網站和 Azure PowerShell，以傳統部署模型設定新的或現有虛擬機器的可用性設定組。"
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,24 +14,24 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
 # 如何以傳統部署模型設定虛擬機器的可用性設定組
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。您也可以在資源管理員部署中設定可用性設定組。
 
 
 可用性設定組可協助您的虛擬機器在停機期間 (例如維護期間) 仍然保持可用狀態。在可用性設定組中置入二或多個類似設定的虛擬機器，將可針對虛擬機器所執行的應用程式或服務，建立維護其可用性所需的備援。如需其運作方式的詳細資訊，請參閱[管理虛擬機器的可用性][]。
 
 同時使用可用性設定組和負載平衡端點，是協助確保您的應用程式一直可用並有效率執行的最佳做法。如需負載平衡端點的詳細資訊，請參閱 [Azure 基礎結構服務的負載平衡][]。
 
-您可以使用下列兩個選項的其中之一，將虛擬機器放入可用性集合：
+在傳統的部署模型中，您可以使用下列兩個選項的其中之一，將虛擬機器放入可用性設定組：
 
 - [選項 1：同時建立虛擬機器和可用性設定組][]。然後，將新的虛擬機器加入您在建立這些虛擬機器時的設定組。
 - [選項 2：將現有虛擬機器加入至可用性設定組][]。
 
->[AZURE.NOTE]您要放入相同可用性設定組的虛擬機器必須隸屬於相同的雲端服務。
+>[AZURE.NOTE]在傳統模型中，您要放入相同可用性設定組的虛擬機器必須隸屬於相同的雲端服務。
 
 ## <a id="createset"> </a>選項 1：同時建立虛擬機器和可用性設定組##
 
@@ -112,4 +112,4 @@
 [虛擬網路概觀]: virtual-networks-overview.md
 [服務管理中針對虛擬機器的文章]: virtual-machines-service-management-articles.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # 管理 SQL 資料倉儲中的統計資料
  SQL 資料倉儲使用統計資料來評估以不同方式執行分散式查詢的成本。如果統計資料很精確，查詢最佳化工具即可產生高品質查詢計劃，以改善查詢效能。
@@ -459,4 +459,4 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [更新統計資料]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

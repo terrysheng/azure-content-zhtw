@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor=""/>
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/04/2015"
-    ms.author="robinsh"/>
+    ms.author="prkhad"/>
 
 
 # 移轉到 Azure 進階儲存體
@@ -164,7 +164,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 
 如果您將 VHD 從非 Azure 雲端儲存體移轉至 Azure，您必須先將 VHD 匯出至本機目錄。複製儲存 VHD 所在本機目錄的完整來源路徑。
 
-1. 如果您使用的是 AWS，請將 EC2 執行個體匯出至 Amazon S3 貯體中的 VHD。請依照 Amazon 的文件中[匯出 Amazon EC2 執行個體](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html)的步驟，來安裝 Amazon EC2 命令列介面 (CLI) 工具，並執行命令來把 EC2 執行個體匯出成 VHD 檔案。
+1. 如果您使用的是 AWS，請將 EC2 執行個體匯出至 Amazon S3 貯體中的 VHD。請依照 Amazon 文件中所述的[匯出 Amazon EC2 執行個體](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html)步驟，安裝 Amazon EC2 命令列介面 (CLI) 工具並執行命令，以將 EC2 執行個體匯出到 VHD 檔案。
 
 	執行命令時，請務必讓 DISK&#95;IMAGE&#95;FORMAT 變數使用 **VHD**。已匯出的 VHD 檔案會儲存在您在該程序期間所指定的 Amazon S3 貯體中。
 
@@ -230,7 +230,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 
 	Add-AzureVMImage -ImageName "OSImageName" -MediaLocation "https://storageaccount.blob.core.windows.net/vhdcontainer/osimage.vhd" -OS Windows
 
-複製並儲存這個新 Azure VM 映像的名稱。在上述範例中，該名稱是「OSImageName」。
+複製並儲存這個新 Azure VM 映像的名稱。在上述範例中，該名稱是 *OSImageName*。
 
 #### 建立單一 Azure VM 執行個體的唯一作業系統 VHD
 
@@ -679,4 +679,4 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # 設定 Azure Multi-Factor Authentication
 
 既然您已啟動並執行 Azure Multi-Factor Authentication，下文將協助您進行管理。本文章涵蓋各種主題，可讓您充分發揮 Azure Multi-Factor Authentication 的功效。請注意，並非所有版本的 Azure Multi-Factor Authentication 均提供這些功能。
+
+以下部分功能的設定會在 Azure Multi-Factor Authentication 管理入口網站中找到。有兩種不同的方式可以讓您存取此入口網站，這兩種方式都是透過 Azure 入口網站完成。第一種方式是透過管理多因素驗證提供者 (如果使用消費性 MFA)。第二種方式是透過 MFA 服務設定。第二個選項需要多因素驗證提供者或 Azure MFA、Azure AD Premium 或 Enterprise Mobility Suite 授權。
+
+若要透過 Azure 多因素驗證提供者存取 MFA 管理入口網站，請以系統管理員身分登入 Azure 入口網站，並選取 [Active Directory] 選項。按一下 [多因素驗證提供者] 索引標籤，然後按一下底部的 [管理] 按鈕。
+
+若要透過 [MFA 服務設定] 頁面存取 MFA 管理入口網站，請以系統管理員身分登入 Azure 入口網站，並選取 [Active Directory] 選項。按一下您的目錄，然後按一下 [設定] 索引標籤。在 [Multi-Factor Authentication] 區段底下，選取 [管理服務設定]。在 [MFA 服務設定] 頁面底部，按一下 [移至入口網站] 連結。
+
 
 功能| 說明| 涵蓋的項目
 :------------- | :------------- | :------------- | 
@@ -38,16 +45,16 @@
 
 ### 設定及配置詐騙警示
 
+1.	登入 http://azure.microsoft.com
+2.	依照此頁面最上方的指示，瀏覽至 MFA 管理入口網站。
+3.	在 Azure Multi-Factor Authentication 管理入口網站中，按一下 [設定] 區段底下的 [設定]。
+4.	在 [設定] 頁面的 [詐騙警示] 區段底下，核取 [允許使用者提交詐騙警示] 核取方塊。
+5.	如果您想要在使用者提報詐騙活動時封鎖使用者，請核取 [提報詐騙時封鎖使用者]。
+6.	在 [初始問候語期間以代碼報告詐騙] 文字方塊中，輸入可在通話驗證期間使用的數字代碼。如果使用者輸入此代碼加上 #，而不只是 # 符號，系統將會提報詐騙警示。 
+7.	在底部按一下 [儲存]。
 
-1. 登入 [http://azure.microsoft.com](http://azure.microsoft.com)
-2. 在左側選取 [Active Directory]。
-3. 在頂端選取 [Multi-Factor Auth Provider]。這會顯示您的 Multi-Factor Auth Provider 清單。
-4. 如果您有一個以上的 Multi-Factor Auth Provider，請選取要啟用詐騙警示的提供者，然後按一下頁面底部的 [管理]。如果您只有一個，只要按一下 [管理] 即可。這會開啟 Azure Multi-factor Authentication 管理入口網站。
-5. 在 Azure Multi-factor Authentication 管理入口網站的左側，按一下 [設定]。
-6. 在 [詐騙警示] 區段下，核取 [允許使用者提交詐騙警示]。
-7. 如果您想要在使用者提報詐騙活動時封鎖使用者，請核取 [提報詐騙時封鎖使用者]。
-8. 於 [在開始問候期間提報詐騙的代碼] 下方，輸入可在通話驗證期間使用的數字代碼。如果使用者輸入此代碼而不是 # 符號，系統將會提報詐騙警示。
-9. 在底部按一下 [儲存]。
+>[AZURE.NOTE]Microsoft 的預設語音問候語會指示使用者按 0# 以提交詐騙警示。如果您使用 0 以外的代碼，您必須記錄下來，並上傳您自己的自訂語音問候語與適當的指示。
+
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
 
@@ -55,18 +62,21 @@
 提報詐騙活動的方法有兩種。使用者可以透過或行動應用程式或電話來提報。
 
 ### 利用行動應用程式提報詐騙警示
-<ol>
-<li>當系統將驗證傳送到電話時，請按一下，Multi-Factor Authentication 應用程式隨即會啟動。</li>
-<li>若要提報詐騙活動，請按一下 [取消及提報詐騙]。指出系統將會通知組織 IT 支援員工的方塊</li> 隨即會出現。按一下 [提報詐騙]。
-<li>在應用程式中，按一下 [關閉]。</li></ol>
+
+
+
+1. 當系統將驗證傳送到電話時，請按一下，Multi-Factor Authentication 應用程式隨即會啟動。
+2. 若要提報詐騙活動，請按一下 [取消及提報詐騙]。指出系統將會通知組織 IT 支援員工的方塊隨即會出現。 
+3. 按一下 [提報詐騙]。
+4. 在應用程式中，按一下 [關閉]。
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/report1.png)</center>
 
 ### 利用電話提報詐騙警示
-<ol>
-<li>當電話響起驗證來電時，請逕行接聽。</li>
-<li>若要提報詐騙活動，請透過電話輸入設定為提報詐騙的對應代碼，然後輸入 # 符號。系統會通知您詐騙警示已提交。</li>
-<li>結束通話。</li></ol>
+
+1. 當電話響起驗證來電時，請逕行接聽。</li>
+2. 若要提報詐騙活動，請透過電話輸入設定為提報詐騙的對應代碼，然後輸入 # 符號。系統會通知您詐騙警示已提交。
+3. 結束通話。
 
 ### 檢視詐騙報告
 
@@ -84,21 +94,15 @@
 
 ### 建立一次性略過
 
-<ol>
-<li>登入 [http://azure.microsoft.com](http://azure.microsoft.com)</li>
-<li>在左側選取 [Active Directory]。</li>
-<li>在頂端選取 [Multi-Factor Auth Provider]。這會顯示您的 Multi-Factor Auth Provider 清單。</li>
-<li>如果您有一個以上的 Multi-Factor Auth Provider，請針對要建立一次性略過的使用者選取與目錄相關的提供者，然後按一下頁面底部的 [管理]。如果您只有一個，只要按一下 [管理] 即可。這會開啟 Azure Multi-factor Authentication 管理入口網站。</li>
-<li>在 Azure Multi-factor Authentication 管理入口網站的左側，按一下 [使用者管理] 下方的 [設定]。</li>
+1.	登入 http://azure.microsoft.com
+2.	依照此頁面最上方的指示，瀏覽至 MFA 管理入口網站。
+3.	在 Azure Multi-Factor Authentication 管理入口網站中，如果在左側看到您的租用戶或 Azure MFA 提供者的名稱旁邊有一個 +，按一下 + 可查看不同的 MFA 伺服器複寫群組以及 Azure 預設群組。按一下適當的群組。
+4.	在 [使用者管理] 底下，按一下 [單次許可]。![雲端](./media/multi-factor-authentication-whats-next/create1.png)
+5.	在 [單次許可] 頁面中，按一下 [新增單次許可]。
+6.	輸入使用者的使用者名稱、略過的持續秒數、略過的原因，然後按一下 [略過]。![雲端](./media/multi-factor-authentication-whats-next/create2.png)
+7.	此時，使用者必須在一次性略過到期之前登入。
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/create1.png)</center>
 
-<li>在 [一次性略過] 頁面中，按一下 [新增一次性略過]。</li>
-<li>輸入使用者的使用者名稱、略過的持續秒數、略過的原因，然後按一下 [略過]。</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/create2.png)</center>
-
-<li>此時，使用者必須在一次性略過到期之前登入。</li>
 
 ### 檢視一次性略過報告
 
@@ -125,59 +129,38 @@
 
 
 ### 在 Azure Multi-factor Authentication 中設定自訂語音訊息
-<ol>
-<li>使用其中一種支援的檔案格式建立自訂語音訊息。請參閱下列自訂語音訊息建議。</li>
-<li>登入 [http://azure.microsoft.com](http://azure.microsoft.com)</li>
-<li>在左側選取 [Active Directory]。</li>
-<li>在頂端選取 [Multi-Factor Auth Provider]。這會顯示您的 Multi-Factor Auth Provider 清單。</li>
-<li>如果您有一個以上的 Multi-Factor Auth Provider，請選取要設定自訂語音訊息的提供者，然後按一下頁面底部的 [管理]。如果您只有一個，只要按一下 [管理] 即可。這會開啟 Azure Multi-factor Authentication 管理入口網站。</li>
-<li>在 Azure Multi-factor Authentication 管理入口網站的左側，按一下 [語音訊息]。</li>
+1.	使用其中一種支援的檔案格式建立自訂語音訊息。
+2.	登入 http://azure.microsoft.com
+3.	依照此頁面最上方的指示，瀏覽至 MFA 管理入口網站。
+4.	在 Azure Multi-Factor Authentication 管理入口網站中，按一下 [設定] 區段底下的 [語音訊息]。
+5.	在 [語音訊息] 區段下方，按一下 [新增語音訊息]。![雲端](./media/multi-factor-authentication-whats-next/custom1.png)
+6.	在 [設定：新增語音訊息] 頁面上，按一下 [管理聲音檔]。![雲端](./media/multi-factor-authentication-whats-next/custom2.png)
+7.	在 [設定：聲音檔] 頁面上，按一下 [上傳聲音檔]。![雲端](./media/multi-factor-authentication-whats-next/custom3.png)
+8.	在 [設定：上傳聲音檔] 上，按一下 [瀏覽] 以瀏覽至您的語音訊息，然後按一下 [開啟]。![雲端](./media/multi-factor-authentication-whats-next/custom4.png)
+9.	新增描述，然後按一下 [上傳]。
+10.	完成之後，您會看到一則訊息，指出檔案已成功上傳。
+11.	在左側按一下 [語音訊息]。
+12.	在 [語音訊息] 區段下方，按一下 [新增語音訊息]。
+13.	從 [語言] 下拉式清單選取語言。
+14.	如果此訊息僅適用於特定應用程式，請在 [應用程式] 方塊中指定。
+15.	從 [訊息類型] 選取新自訂訊息要覆寫的訊息類型。
+16.	從 [聲音檔] 下拉式清單選取聲音檔。
+17.	按一下 [建立]。您會看到一則訊息，指出語音訊息已成功建立。![雲端](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)</center>
-
-<li>在 [語音訊息] 區段下方，按一下 [新增語音訊息]。</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)</center>
-
-<li>在 [設定：新增語音訊息] 頁面上，按一下 [管理聲音檔]。</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)</center>
-
-<li>在 [設定：聲音檔] 頁面上，按一下 [上傳聲音檔]。</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom4.png)</center>
-
-<li>在 [設定：上傳聲音檔] 上，按一下 [瀏覽] 以瀏覽至您的語音訊息，然後按一下 [開啟]。</li>
-<li>新增描述，然後按一下 [上傳]。</li>
-<li>完成之後，您會看到一則訊息，指出檔案已成功上傳。</li>
-<li>在左側按一下 [語音訊息]。</li>
-<li>在 [語音訊息] 區段下方，按一下 [新增語音訊息]。</li>
-<li>從 [語言] 下拉式清單選取語言。</li>
-<li>如果此訊息僅適用於特定應用程式，請在 [應用程式] 方塊中指定。</li>
-<li>從 [訊息類型] 選取新自訂訊息要覆寫的訊息類型。</li>
-<li>從 [聲音檔] 下拉式清單選取聲音檔。</li>
-<li>按一下 [建立]。您會看到一則訊息，指出語音訊息已成功建立。</li>
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 
 ## Azure Multi-Factor Authentication 中的快取
 
-您可以利用快取來設定一段特定的時間，讓後續的驗證嘗試自動成功。如果使用者在這段時間內進行驗證，便不需要等候電話或簡訊。
-
+您可以利用快取來設定一段特定的時間，讓後續的驗證嘗試自動成功。這主要是在內部部署系統 (例如 VPN) 於第一個要求仍在進行中的同時傳送多個驗證要求時使用。這可讓後續要求在使用者成功進行驗證後自動成功完成。請注意，快取並非用於登入
 
 
 ### 在 Azure Multi-Factor Authentication 中設定快取
-<ol>
 
-1. 登入 [http://azure.microsoft.com](http://azure.microsoft.com)
-2. 在左側選取 [Active Directory]。
-3. 在頂端選取 [Multi-Factor Auth Provider]。這會顯示您的 Multi-Factor Auth Provider 清單。
-4. 如果您有一個以上的 Multi-Factor Auth Provider，請選取要啟用詐騙警示的提供者，然後按一下頁面底部的 [管理]。如果您只有一個，只要按一下 [管理] 即可。這會開啟 Azure Multi-factor Authentication 管理入口網站。
-5. 在 Azure Multi-factor Authentication 管理入口網站的左側，按一下 [快取]。
-6. 在 [設定快取] 頁面上，按一下 [新增快取]。
-7. 選取快取類型和快取秒數。按一下 [建立]。
-
+1.	登入 http://azure.microsoft.com
+2.	依照此頁面最上方的指示，瀏覽至 MFA 管理入口網站。
+3.	在 Azure Multi-Factor Authentication 管理入口網站中，按一下 [設定] 區段底下的 [快取]。
+4.	在 [設定快取] 頁面上，按一下 [新增快取]。
+5.	選取快取類型和快取秒數。按一下 [建立]。
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
@@ -203,23 +186,26 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 
 ### 啟用信任的 IP
 
+1. 登入 Azure 管理入口網站。
+2. 在左側按一下 [Active Directory]。
+3. 在 [目錄] 下方，按一下要設定信任 IP 登入的目錄。
+4. 在您選取的目錄上，按一下 [設定]。
+5. 在 Multi-Factor Authentication 區段中，按一下 [管理服務設定]。
+6. 在 [服務設定] 頁面之 [信任的 IP] 下方，選取以下任一項：
+
+	- 對於來自內部網路之同盟使用者所發出的要求 – 所有從公司網路登入同盟使用者，都能使用 AD FS 發行的宣告略過 Multi-Factor Authentication。 
+	- 對於來自特定公開 IP 範圍的要求 – 使用 CIDR 表示法在提供的方塊中輸入 IP 位址。例如：xxx.xxx.xxx.0/24 代表介於 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 之範圍內的 IP 位址；xxx.xxx.xxx.xxx/32 代表一個 IP 位址。您最多可以輸入 12 個 IP 位址範圍。
+
+7. 按一下 [儲存]。
+8. 套用更新之後，請按一下 [關閉]。
+
+
+
+![雲端](./media/multi-factor-authentication-whats-next/trustedips2.png)
+
+
+
  
-<ol>
-<li>登入 Azure 管理入口網站。</li>
-<li>在左側按一下 [Active Directory]。</li>
-<li>在 [目錄] 下方，按一下要設定信任 IP 登入的目錄。</li>
-<li>在您選取的目錄上，按一下 [設定]。</li>
-<li>在 Multi-Factor Authentication 區段中，按一下 [管理服務設定]。</li>
-<li>在 [服務設定] 頁面之 [信任的 IP] 下方，選取以下任一項：<ul> <li>對於來自內部網路之同盟使用者所發出的要求 – 所有從公司網路登入同盟使用者，都能使用 AD FS 發行的宣告略過 Multi-Factor Authentication。
-
-<li>對於來自特定公開 IP 範圍的要求 – 使用 CIDR 表示法在提供的方塊中輸入 IP 位址。例如：xxx.xxx.xxx.0/24 代表介於 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 之範圍內的 IP 位址；xxx.xxx.xxx.xxx/32 代表一個 IP 位址。您最多可以輸入 12 個 IP 位址範圍。</li></ul>
-
-
-<center>![Cloud](./media/multi-factor-authentication-whats-next/trustedips.png)</center>
-
-
-<li>按一下 [儲存]。</li>
-<li>套用更新之後，請按一下 [關閉]。</li>
 ## 應用程式密碼
 
 在 Office 2010 或更舊版本和 Apple Mail 等某些應用程式中，您無法使用 Multi-Factor Authentication。若要使用這些應用程式，您需要使用「應用程式密碼」來取代傳統的密碼。應用程式密碼可讓應用程式略過 Multi-Factor Authentication 並繼續運作。
@@ -365,4 +351,4 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 <li>在 [服務設定] 頁面上，於管理使用者裝置設定下方選取/取消選取 [藉由讓系統記住裝置來允許使用者暫停 Multi-Factor Authentication]。</li>
 ![暫停裝置](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>設定要允許暫停的天數。預設值為 14 天。</li> <li>按一下 [儲存]。</li> <li>按一下 [關閉]。</li>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="管理 Microsoft Azure 儲存體中的並行存取" 
-	description="如何管理 Blob、佇列、資料表和檔案服務的並行存取" 
-	services="storage" 
-	documentationCenter="" 
-	authors="jasonnewyork" 
-	manager="tadb" 
-	editor=""/>
+	pageTitle="管理 Microsoft Azure 儲存體中的並行存取"
+	description="如何管理 Blob、佇列、資料表和檔案服務的並行存取"
+	services="storage"
+	documentationCenter=""
+	authors="jasonnewyork"
+	manager="tadb"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/03/2015"
 	ms.author="jahogg"/>
 
 # 管理 Microsoft Azure 儲存體中的並行存取
 
-## 概觀 
+## 概觀
 
 現代以網際網路為基礎的應用程式通常會有多個使用者同時檢視及更新資料。這使得應用程式開發人員不得不認真思考如何為其使用者提供可預測的使用經驗，尤其是有多個使用者可更新相同資料的案例。開發人員通常會考量三個主要的資料並行存取策略：
 
@@ -34,7 +34,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 
 除了選取適當的並行存取策略以外，開發人員也應注意儲存體平台隔離變更的方式，尤其是在不同交易間對相同物件的變更。Azure 儲存體服務會使用快照隔離，讓讀取作業與寫入作業在單一資料分割內同時執行。不同於其他隔離層級，快照隔離可確保所有讀取皆可看見資料的一致快照，即使在更新執行時亦然 – 基本上是藉由在更新交易進行處理時傳回最新的認可值。
 
-## 管理 Blob 服務中的並行存取
+## 管理 Blob 儲存體中的並行存取
 您可以選擇使用開放式或封閉式並行存取模型，來管理對 Blob 服務中的 Blob 和容器的存取。如果您未明確指定策略，依預設會採用「最後寫入為準」。
 
 ### Blob 和容器的開放式並行存取  
@@ -52,18 +52,18 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 下列 C# 程式碼片段 (使用用戶端儲存體程式庫 4.2.0) 所顯示的簡易範例，說明如何根據從先前擷取或插入之 Blob 的屬性中存取的 ETag 值，來建構 **If-Match AccessCondition**。接著它會在更新 blob 時使用 **AccessCondition** 物件： **AccessCondition** 物件會將 **If-Match** 標頭新增至要求。如果有其他程序更新了 Blob，Blob 服務將會傳回 HTTP 412 (預先指定的條件失敗) 狀態訊息。完整範例可從[這裡](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)下載。
 
 	// Retrieve the ETag from the newly created blob
-	// Etag is already populated as UploadText should cause a PUT Blob call 
+	// Etag is already populated as UploadText should cause a PUT Blob call
 	// to storage blob service which returns the etag in response.
 	string orignalETag = blockBlob.Properties.ETag;
-	 
+
 	// This code simulates an update by a third party.
 	string helloText = "Blob updated by a third party.";
-	 
+
 	// No etag, provided so orignal blob is overwritten (thus generating a new etag)
 	blockBlob.UploadText(helloText);
-	Console.WriteLine("Blob updated. Updated ETag = {0}", 
+	Console.WriteLine("Blob updated. Updated ETag = {0}",
 	blockBlob.Properties.ETag);
-	 
+
 	// Now try to update the blob using the orignal ETag provided when the blob was created
 	try
 	{
@@ -121,13 +121,13 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 	// Acquire lease for 15 seconds
 	string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
 	Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
-	 
+
 	// Update blob using lease. This operation will succeed
 	const string helloText = "Blob updated";
 	var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
 	blockBlob.UploadText(helloText, accessCondition: accessCondition);
 	Console.WriteLine("Blob updated using an exclusive lease");
-	 
+
 	//Simulate third party update to blob without lease
 	try
 	{
@@ -182,7 +182,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 
 - [指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 - [租用容器](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-- [租用 Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
+- [租用 Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## 管理資料表服務中的並行存取
 當您使用實體時，資料表服務會使用開放式並行存取檢查作為預設行為，這一點不同於必須明確選擇執行開放式並行存取檢查的 Blob 服務。資料表服務與 Blob 服務的另一個差異是您只能管理實體的並行存取行為，而在使用 Blob 服務時，您可以同時管理容器和 Blob 的並行存取。
@@ -211,7 +211,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 	    if (ex.RequestInformation.HttpStatusCode == 412)
 	        Console.WriteLine("Optimistic concurrency violation – entity has changed since it was retrieved.");
 	    else
-	        throw; 
+	        throw;
 	}  
 
 若要明確停用並行存取檢查，您應在執行取代作業之前，將 **employee** 物件的 **ETag** 屬性設為 “*”。
@@ -228,7 +228,7 @@ customer.ETag = "*";
 合併實體|	是|	是|
 刪除實體|	否|	是|
 插入或取代實體|	是|	否|
-插入或合併實體|	是|	否 
+插入或合併實體|	是|	否
 
 請注意，**插入或取代實體**和**插入或合併實體**作業並*不會*執行任何並行存取檢查，因為這些作業不會將 ETag 值傳送至資料表服務。
 
@@ -271,6 +271,4 @@ Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式�
 - 開始為 [Blob](storage-dotnet-how-to-use-blobs.md)、[資料表](storage-dotnet-how-to-use-tables.md)和[佇列](storage-dotnet-how-to-use-queues.md)使用儲存體
 - 儲存體架構 – [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

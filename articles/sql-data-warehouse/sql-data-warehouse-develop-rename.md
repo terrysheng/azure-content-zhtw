@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # 在 SQL 資料倉儲中重新命名
 SQL Server 是透過預存程序 ```sp_renamedb``` 支援資料庫重新命名，而「SQL 資料倉儲」則是使用 DDL 語法來達到相同的目的。DDL 命令是 ```RENAME OBJECT```。
@@ -53,4 +53,4 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 <!--Article references-->
 [開發概觀]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

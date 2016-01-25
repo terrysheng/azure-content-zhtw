@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
 # Azure 串流分析及 Power BI：適用於串流資料即時可見度的即時分析儀表板
@@ -27,15 +27,15 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 > [AZURE.NOTE]Power BI 輸出是 Azure 串流分析的預覽功能。在此階段，Azure Preview 入口網站不支援 Power BI 輸出的建立及設定。
 
-## 必要條件 ##
+## 必要條件
 
 * Microsoft Azure 帳戶
 * 串流分析工作從中使用串流資料的輸入。串流分析可接收來自 Azure 事件中樞或 Azure Blob 儲存體的輸入。  
 * Power BI 的公司帳戶或學校帳戶
 
-## 建立 Azure 串流分析工作 ##
+## 建立 Azure 串流分析工作
 
-在 [Azure 入口網站](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[Stream Analytics]、[快速建立]。
+在 [Azure 入口網站](https://manage.windowsazure.com) 中，依序按一下 [新增]、[資料服務]、[串流分析]、[快速建立]。
 
 指定下列值，然後按一下 [建立 Stream Analytics 工作]：
 
@@ -43,13 +43,13 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 * **區域** - 選取要執行此工作的區域。請考慮將工作和事件中樞放在相同的區域以確保更好的效能，以及在區域之間傳輸資料時無須付費。
 * **儲存體帳戶** - 選擇您為在此區域內執行的所有 Stream Analytics 工作儲存監視資料時所要使用的儲存體帳戶。您可以選擇現有的儲存體帳戶，或建立新帳戶。
 
-按一下左窗格中的 [串流分析]，以列出串流分析工作。
+按一下左窗格中的 [Stream Analytics]，以列出 Stream Analytics 工作。
 
 ![graphic1][graphic1]
 
 > [AZURE.TIP]新工作會以 [未啟動] 的狀態列出。請注意，頁面底部的 [啟動] 按鈕會停用。這是正常行為，因為您必須先設定工作輸入、輸出、查詢等項目，才能啟動工作。
 
-## 指定工作輸入 ##
+## 指定工作輸入
 
 在本教學課程中，我們假設您搭配 JSON 序列化與 UTF-8 編碼使用事件中樞做為輸入。
 
@@ -74,7 +74,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
   *	**編碼** - UTF8
 *	按一下核取按鈕以新增此來源，並確認資料流分析可成功連接到事件中心。
 
-## 新增 Power BI 輸出 ##
+## 新增 Power BI 輸出
 
 1.  按一下頁面頂端的 [輸出]，然後按一下 [新增輸出]。您會看到 Power BI 被列為輸出選項。
 
@@ -99,14 +99,14 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 * **資料集名稱** - 提供一個 Power BI 輸出應該要有的資料集名稱。例如，"pbidemo"。
 *	**資料表名稱** - 提供 Power BI 輸出資料集的資料表名稱。暫時稱之為 "pbidemo"。目前，串流分析工作的 Power BI 輸出中，一個資料集只能有一個資料表。
 
->	[AZURE.NOTE] 您不應該在 Power BI 帳戶中明確地建立資料集和資料表，這些資料集和資料表會在您啟動串流分析工作時自動建立，且串流分析工作會將輸出提取至 Power BI。如果您的工作佇列並未傳回任何結果，則不會建立資料集和資料表。
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	依序按一下 [確定]、[測試連線]，輸出組態就已經完成。
 
->	[AZURE.WARNING] 也請注意 Power BI 是否已經具有與您在串流分析工作中提供的名稱相同皂資料集和資料表名稱；若是如此，可能會覆寫現有的資料。
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
-## 撰寫查詢 ##
+## 撰寫查詢
 
 移至工作的 [查詢] 索引標籤。撰寫查詢，就是 Power BI 中要有的輸出。例如，可能是類似下列 SQL 查詢的內容：
 
@@ -127,7 +127,7 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
     
 開始您的工作。驗證事件中樞是否正在接收事件，而且您的查詢會產生預期的結果。如果您的查詢輸出 0 個資料列，系統就不會自動建立 Power BI 資料集和資料表。
 
-## 在 Power BI 中建立儀表板 ##
+## 在 Power BI 中建立儀表板
 
 移至 [Powerbi.com](https://powerbi.com)，然後使用公司帳戶或學校帳戶登入。如果串流分析工作查詢輸出任何結果，就會看到您的資料集已經建立完成：
 
@@ -163,15 +163,18 @@ Azure 串流分析可讓您使用其中一種業界頂尖智慧型工具 Microso
 
 如需有關設定 Power BI 輸出及利用 Power BI 群組的進一步資訊，請檢閱[了解串流分析輸出](stream-analytics-define-outputs.md "了解串流分析輸出")的 [Power BI 小節](stream-analytics-define-outputs.md#power-bi)。另一個深入了解如何利用 Power BI 建立儀表板的實用資源，可參考 [Power BI 預覽中的儀表板](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview)。
 
-## 限制和最佳作法 ##
+## 限制和最佳作法
+
 Power BI 同時採用了並行處理和輸送量條件約束，如下所述：[https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 價格")
 
-由於這些 Power BI 本身以最自然的方式符合案例需求，其中 Azure 串流分析會大量降低資料載入的作業。
-我們建議使用 TumblingWindow 或 HoppingWindow 來確保資料推送最多為每秒推送 1 次，並且您的查詢會符合輸送量的要求範圍 – 您可以使用下列方程式，以秒為單位計算要提供給視窗的值：![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)。
-
-在此範例中 – 如果您有 1,000 個每秒傳送資料的裝置，且位於支援每小時 1,000,000 個資料列的 Power BI Pro SKU 上，而您想要在 Power BI 上取得每個裝置的平均資料，則每個裝置最多可以每 4 秒執行一次推送 (如下所示)：
+由於這些 Power BI 本身以最自然的方式符合案例需求，其中 Azure 串流分析會大量降低資料載入的作業。我們建議使用 TumblingWindow 或 HoppingWindow 來確保資料推送最多為每秒推送 1 次，並且您的查詢會符合輸送量的要求範圍 – 您可以使用下列方程式，以秒為單位計算要提供給視窗的值：
+  
+![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)
+  
+舉例來說，如果您有 1,000 個每秒傳送資料的裝置，並且在支援每小時 1,000,000 個資料列的 Power BI Pro SKU 上，而您想要取得 Power BI 上每個裝置的平均資料，則您可以讓每一裝置最多每 4 秒推送一次 (如下所示)：
+  
 ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
-
+  
 這表示我們會將原始查詢變更為：
 
     SELECT
@@ -187,7 +190,13 @@ Power BI 同時採用了並行處理和輸送量條件約束，如下所述：[h
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
-## 更新授權
+### PowerBI 檢視重新整理
+
+常見的問題是「為什麼 PowerBI 中的儀表板不會自動更新？」。
+
+為達此目的，在 PowerBI 中利用問與答提出像「時間戳記是今天的溫度最大值」的問題，並將該磚釘選至儀表板。
+
+### 更新授權
 
 有一個暫時性的限制，即每隔 90 天必須針對 Power BI 輸出的所有工作，以手動方式重新整理驗證 Token。如果您在建立工作之後或上次驗證過後變更了密碼，您也必須重新驗證您的 Power BI 帳戶。此問題發生時的徵兆就是沒有工作輸出，且作業記錄檔中出現「驗證使用者錯誤」：
 
@@ -197,10 +206,10 @@ Power BI 同時採用了並行處理和輸送量條件約束，如下所述：[h
 
 ![graphic13][graphic13]
 
-## 取得說明 ##
+## 取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
-## 後續步驟 ##
+## 後續步驟
 
 - [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 - [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
@@ -223,4 +232,4 @@ Power BI 同時採用了並行處理和輸送量條件約束，如下所述：[h
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

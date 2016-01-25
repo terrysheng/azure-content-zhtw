@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="01/11/2015"
 	ms.author="wesmc"/>
 
 # Azure 行動應用程式中的離線資料同步處理
@@ -36,10 +36,11 @@
 
 下列教學課程說明如何使用 Azure 行動應用程式將離線同步處理新增至您的行動用戶端：
 
+* [Android：啟用離線同步處理]
 * [iOS：啟用離線同步處理]			
 * [Xamarin iOS：啟用離線同步處理]	
 * [Xamarin Android：啟用離線同步處理]
-* [Windows 8.1：啟用離線同步處理]	
+* [Windows 8.1：啟用離線同步處理]
 
 ## 什麼是同步處理資料表？
 
@@ -121,9 +122,10 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
 <!-- Links -->
 
+[Android：啟用離線同步處理]: ../app-service-mobile-android-get-started-offline-data.md
 [iOS：啟用離線同步處理]: ../app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS：啟用離線同步處理]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android：啟用離線同步處理]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1：啟用離線同步處理]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

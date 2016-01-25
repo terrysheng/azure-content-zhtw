@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # Azure 中的 IP 位址
@@ -152,13 +152,8 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 	- 使用量是根據訂用帳戶中的靜態公用 IP 總數計算。
 
 ## 後續步驟
-- [使用靜態公用 IP 部署 VM](virtual-network-deploy-static-pip-arm-template.md)
-- [使用 Azure CLI 建立網際網路對應負載平衡器的公用 IP 位址](load-balancer-get-started-internet-arm-cli.md#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
-- [使用 PowerShell 建立應用程式閘道的公用 IP 位址](application-gateway-create-gateway-arm.md#create-public-ip-address-for-front-end-configuration)
-- [使用 PowerShell 建立 VPN 閘道的公用 IP 位址](vpn-gateway-create-site-to-site-rm-powershell.md#4-request-a-public-ip-address-for-the-gateway)
-- [使用靜態私人 IP 位址部署 VM](virtual-networks-static-private-ip-arm-pportal.md)
-- [使用 PowerShell 建立內部負載平衡器的前端靜態私人 IP 位址](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
-- [使用 PowerShell 建立具有應用程式閘道之靜態私人 IP 位址的後端集區](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
+- 使用 Azure 入口網站[部署使用靜態公用 IP 的 VM](virtual-network-deploy-static-pip-arm-portal.md)。
+- 了解如何[使用範本部署使用靜態公用 IP 的 VM](virtual-network-deploy-static-pip-arm-template.md)。
+- 使用 Azure 入口網站[部署使用靜態私人 IP 位址的 VM](virtual-networks-static-private-ip-arm-pportal.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
-<!---Line 130 to 136 add "under break"--->
+<!---HONumber=AcomDC_0114_2016-->

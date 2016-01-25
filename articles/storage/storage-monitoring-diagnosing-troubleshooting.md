@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/12/2016"
 	ms.author="jahogg"/>
 
 # 監視、診斷與疑難排解 Microsoft Azure 儲存體
@@ -435,7 +435,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>PercentThrottlingError 的暫時性增加
 
-如果 **PercentThrottlingError** 值的突然增加與應用程式的高活動期間同時發生，則您應該在用戶端中針對重試作業實作指數型 (而非線性) 撤退策略：這會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。如需有關如何使用「儲存體用戶端程式庫」實作重試原則的詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間</a>。
+如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您應該在用戶端中針對重試作業實作指數型 (而非線性) 撤退策略：這會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。如需有關如何使用「儲存體用戶端程式庫」實作重試原則的詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間</a>。
 
 > [AZURE.NOTE]**PercentThrottlingError** 值的突然增加也可能與應用程式的大量活動期間非同時發生：最可能的原因是儲存體服務移動資料分割以改善負載平衡。
 
@@ -668,7 +668,7 @@ Timestamp|作業|結果|容器名稱|用戶端要求 ID
 
 **PercentSuccess** 度量會依據其 HTTP 狀態碼，擷取成功完成的作業百分比。帶有 2XX 狀態碼的作業會記錄為成功，而帶有 3XX、4XX 與 5XX 範圍之狀態碼的作業將記錄為不成功，並會降低 **PercentSucess** 度量值。在伺服器端的儲存體記錄檔中，這些作業會加上 **ClientOtherErrors** 的交易狀態記錄下來。
 
-請務必注意，這些作業已經成功完成，因此不會影響到例如可用性的其他度量。可成功執行但可能導致出現不成功 HTTP 狀態碼的一些作業範例包括：- **ResourceNotFound** (找不到 404)，例如來自對不存在的 Blob 發出 GET 要求。- **ResouceAlreadyExists** (衝突 409)，例如來自資源已經存在的 **CreateIfNotExist** 作業。- **ConditionNotMet** (未修改 304)，例如來自條件式作業，像是當用戶端只有在上次作業之後影像已被更新，才會傳送 **ETag** 值和 HTTP **If-None-Match** 標頭來要求該影像的情況。
+請務必注意，這些作業已經成功完成，因此不會影響到例如可用性的其他度量。以下範例顯示成功執行，但出現不成功 HTTP 狀態碼的作業：- **ResourceNotFound** (找不到 404)，例如來自 GET 對不存在的 Blob 的要求。- **ResouceAlreadyExists** (衝突 409)，例如來自資源已存在的 **CreateIfNotExist** 作業。- **ConditionNotMet** (未修改 304)，例如來自條件式作業，比如說，只有在上次作業之後更新影像，用戶端才會傳送 **ETag** 值和 HTTP **If-None-Match** 標頭以要求該影像。
 
 您可以在<a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">常見的 REST API 錯誤碼</a>頁面找到儲存體服務傳回的常見 REST API 錯誤碼清單。
 
@@ -915,4 +915,4 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

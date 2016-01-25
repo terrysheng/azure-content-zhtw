@@ -83,7 +83,7 @@
 
 	- __選取方法__：將此設為 [來自所有訂用帳戶]，即可瀏覽您訂用帳戶的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
 
-	- __建立新項目__：這可用來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+	- __建立新項目__：可用來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
 
 	- __選擇預設容器__：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
 
@@ -109,15 +109,9 @@
 
 	* __外部中繼存放區__：這可讓您選取用來儲存 Oozie 和 Hive 組態資訊的 SQL 資料庫。這可讓您在刪除並重新建立叢集時重複使用組態，而不必每次都重新建立 Hive 和 Oozie 的組態。
 
-	* __虛擬網路__：這可讓您將 HDInsight 叢集放在與其他資源相同的虛擬網路上，例如 SQL Database 或 Azure 虛擬機器。將資源放在虛擬網路上可讓彼此直接通訊，並略過可處理來自網際網路之連入流量的公用閘道器。如需 HDInsight 如何受惠於 Azure 虛擬網路的詳細資訊，請參閱[使用 Azure 虛擬網路擴充 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
-
-		> [AZURE.IMPORTANT]您必須在建立 HDInsight 叢集前建立 Azure 虛擬網路，因為您無法從 HDInsight 組態建立新的網路。
-		>
-		> 目前 (8/25/2015) 有一項限制，只有一個以 Linux 為基礎的 HDInsight 叢集可存在於 Azure 虛擬網路。
-        >
-        > 您不能在 Linux 的 HDInsight 使用 v1 (傳統) Azure 虛擬網路。虛擬網路必須是 v2 (Azure 資源管理員)，才能在 Azure 入口網站中的 HDInsight 叢集建立程序期間列出來做為選項，或者在以 Azure CLI 或 Azure PowerShell 建立叢集時使用。
-        >
-        > 如果您在 v1 網路上有資源，而想要讓這些資源可透過虛擬網路直接存取 HDInsight，請參閱[將傳統 VNet 連接到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)，以取得如何將 v2 虛擬網路連接到 v1 虛擬網路的相關資訊。一旦建立此連線之後，您便可以在 v2 虛擬網路中建立 HDInsight 叢集。
+	* __虛擬網路__：這可讓您將 HDInsight 叢集放在與其他資源相同的虛擬網路上，例如 SQL Database 或 Azure 虛擬機器。將資源放在虛擬網路上可讓彼此直接通訊，並略過可處理來自網際網路之連入流量的公用閘道器。
+    
+        如需搭配虛擬網路 (包含虛擬網路特定設定需求) 使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
 	* __指令碼動作__︰這可讓您指定 Bash 指令碼，以便在佈建期間自訂 HDInsight 叢集。例如，有一個[可安裝 Hue 的指令碼](hdinsight-hadoop-hue-linux.md) (Hue 為可處理 Hadoop 的圖形化用戶端)。 如需指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
@@ -167,7 +161,7 @@
 
 ### <a name="scaling"></a>調整
 
-若要使用入口網站調整叢集，請選取您的 HDInsight 叢集，然後選取 [調整叢集]。輸入您要為此叢集設定的__背景工作角色節點數目__，然後按一下 [儲存]。
+若要使用入口網站調整叢集，請選取您的 HDInsight 叢集，然後選取 [調整叢集]。輸入您要為此叢集設定的__背景工作節點數目__，然後按一下 [儲存]。
 
 ![調整 ui 的影像](./media/hdinsight-administer-use-portal-linux/scaling.png)
 
@@ -193,4 +187,4 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 [preview-portal]: https://portal.azure.com
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

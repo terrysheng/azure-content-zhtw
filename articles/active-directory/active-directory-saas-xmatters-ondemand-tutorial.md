@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="教學課程：Azure Active Directory 與 xMatters OnDemand 整合 | Microsoft Azure " description="了解如何使用 xMatters OnDemand 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    pageTitle="教學課程：Azure Active Directory 與 xMatters OnDemand 整合 | Microsoft Azure " description="了解如何使用 xMatters OnDemand 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 xMatters OnDemand 整合
@@ -20,7 +20,7 @@
 -   有效的 Azure 訂閱
 -   XMatters OnDemand 租用戶
   
-完成本教學課程或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)之後，您指派給 xMatters OnDemand 的 Azure AD 使用者就能夠單一登入您 xMatters OnDemand 公司網站 (服務提供者起始登入) 的應用程式。
+完成本教學課程之後，您指派給 xMatters OnDemand 的 Azure AD 使用者就能夠從您的 xMatters OnDemand 公司網站 (服務提供者起始登入)，或使用[存取面板](active-directory-saas-access-panel-introduction.md)來單一登入應用程式。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -45,7 +45,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-xmatters-ondemand-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-xmatters-ondemand-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -69,15 +69,15 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 **xMatters OnDemand** 應用程式整合頁面中，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 [xMatters OnDemand] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "設定單一登入")
 
-2.  在 [要如何讓使用者登入 xMatters OnDemand] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
+2.  在 [您希望使用者如何登入 xMatters OnDemand] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按一下 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面上，於 [xMatters OnDemand 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://\<tenant-name>.XMattersOnDemandapp.com*"，然後按 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [xMatters OnDemand 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://\<tenant-name>.XMattersOnDemandapp.com*"，然後按一下 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776793.png "設定應用程式 URL")
 
@@ -89,7 +89,7 @@
 
 5.  在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 xMatters OnDemand 公司網站。
 
-6.  在頂端的工具列中，按一下 [管理員]，然後按一下左側導覽列中的 [公司詳細資料]。
+6.  在頂端工具列中按一下 [管理]，然後按一下左側導覽列中的 [公司詳細資料]。
 
     ![Admin](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "Admin")
 
@@ -98,12 +98,12 @@
     ![SAM 組態](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAM 組態")
 
     1.  選取 [啟用 SAML]。
-    2.  在 Azure 入口網站的 [設定在 xMatters OnDemand 單一登入] 對話方塊頁面中，複製**識別提供者 ID** 值，然後將它貼至 [識別提供者 ID] 文字方塊中。
-    3.  在 Azure 入口網站的 [設定在 xMatters OnDemand 單一登入] 對話方塊頁面中，複製**單一登入服務 URL** 值，然後將它貼至 [單一登入 URL] 文字方塊中。
-    4.  在 Azure 入口網站的 [設定在 xMatters OnDemand 單一登入] 對話方塊頁面中，複製 [單一登出服務 URL] 值，然後將它貼至 [單一登出 URL] 文字方塊中。
+    2.  在 Azure 入口網站中的 [設定在 xMatters OnDemand 單一登入] 對話頁面上，複製 [識別提供者 ID] 值，然後將它貼至 [識別提供者 ID] 文字方塊中。
+    3.  在 Azure 入口網站中的 [設定在 xMatters OnDemand 單一登入] 對話頁面上，複製 [單一登入服務 URL] 值，然後將它貼至 [單一登入 URL] 文字方塊中。
+    4.  在 Azure 入口網站中的 [設定在 xMatters OnDemand 單一登入] 對話頁面上，複製 [單一登出服務 URL] 值，然後將它貼至 [單一登出 URL] 文字方塊中。
     5.  在 [公司詳細資料] 頁面頂端，按一下 [儲存變更]。![公司詳細資料](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "公司詳細資料")
 
-8.  在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+8.  在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "設定單一登入")
 
@@ -123,11 +123,11 @@
 
 4.  選取 [使用中]。
 
-5.  在 [新增使用者] 區段中，執行下列步驟：
+5.  在 [加入使用者] 區段中，執行下列步驟：
 
-    ![新增使用者](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "新增使用者")
+    ![加入使用者](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "新增使用者")
 
-    1.  輸入您想要佈建之有效 AAD 帳戶的**使用者識別碼**、**名字**、**姓氏**、**網站**。
+    1.  輸入您想要佈建之有效 AAD 帳戶的 [使用者識別碼]、[名字]、[姓氏]、[網站]。
     2.  按一下 [儲存]。
 
 >[AZURE.NOTE]您可以使用任何其他的 xMatters OnDemand 使用者帳戶建立工具或 xMatters OnDemand 所提供的 API，佈建 AAD 使用者帳戶。
@@ -140,14 +140,14 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 **xMatters OnDemand** 應用程式整合頁面中，按一下 [指派使用者]。
+2.  在 [xMatters OnDemand] 應用程式整合頁面中，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "指派使用者")
 
-3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 確認指派。
+3.  選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
 
     ![是](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.png "是")
   
-如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
+如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

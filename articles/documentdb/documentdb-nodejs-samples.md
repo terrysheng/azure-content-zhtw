@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2016" 
+	ms.date="01/08/2016" 
 	ms.author="mimig"/>
 
 
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [.NET Samples](documentdb-dotnet-samples.md)
 - [Node.js Samples](documentdb-nodejs-samples.md)
+- [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub 儲存機制中包含可對 DocumentDB 資源執行 CRUD 作業和其他常見作業的範例解決方案。本文提供：
 
@@ -105,4 +106,4 @@
 
 如需伺服器端程式設計的詳細資訊，請參閱 [DocumentDB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF](documentdb-programming.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

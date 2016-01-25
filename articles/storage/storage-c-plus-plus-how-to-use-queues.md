@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="如何使用佇列儲存體 (C++) | Microsoft Azure" 
-    description="了解如何在 Azure 中使用佇列儲存體服務。範例是以 C++ 撰寫的。" 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="adinah" 
-    editor=""/>
+<properties
+    pageTitle="如何使用佇列儲存體 (C++) | Microsoft Azure"
+    description="了解如何在 Azure 中使用佇列儲存體服務。範例是以 C++ 撰寫的。"
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # 如何使用 C++ 的佇列儲存體  
 
@@ -38,8 +38,8 @@
 -	**Linux：**遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)頁面中提供的指示進行。  
 -	**Windows：**在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。在 [NuGet 套件管理員主控台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中輸入下列命令，然後按下 **ENTER**。  
 
-		Install-Package wastorage 
- 
+		Install-Package wastorage
+
 ## 設定您的應用程式以存取佇列儲存體
 在您要使用 Azure 儲存體 API 來存取佇列的 C++ 檔案頂端，加入下列 include 陳述式：
 
@@ -133,10 +133,10 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 	// Retrieve a reference to a queue.
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
-		
+
 	// Get the message from the queue and update the message contents.
 	// The visibility timeout "0" means make it visible immediately.
-	// The visibility timeout "60" means the client can get another minute to continue 
+	// The visibility timeout "60" means the client can get another minute to continue
 	// working on the message.
 	azure::storage::cloud_queue_message changed_message = queue.get_message();
 
@@ -163,7 +163,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() << std::endl;
 
 	// Delete the message.
-	queue.delete_message(dequeued_message); 
+	queue.delete_message(dequeued_message);
 
 ## 作法：運用清除佇列訊息的其他選項
 自訂從佇列中擷取訊息的方法有兩種。首先，您可以取得一批訊息 (最多 32 個)。其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。下列程式碼範例將使用 **get\_messages** 方法，在一次呼叫中取得 20 個訊息。接著它會使用 **for** 迴圈處理每個訊息。它也會將可見度逾時設定為每個訊息五分鐘。請注意，系統會針對所有訊息同時開始計時 5 分鐘，所以從呼叫 **get\_messages** 開始的 5 分鐘後，任何尚未刪除的訊息都會重新出現。
@@ -177,14 +177,14 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 	// Retrieve a reference to a queue.
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-	// Dequeue some queue messages (maximum 32 at a time) and set their visibility timeout to 
+	// Dequeue some queue messages (maximum 32 at a time) and set their visibility timeout to
 	// 5 minutes (300 seconds).
 	azure::storage::queue_request_options options;
 	azure::storage::operation_context context;
 
 	// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
 	std::vector<azure::storage::cloud_queue_message> messages = queue.get_messages(20, std::chrono::seconds(300), options, context);
-		
+
 	for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 	{
 		// Display the contents of the message.
@@ -236,6 +236,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 -	[Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
 -	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
 
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # 基本設定測試環境
@@ -51,9 +51,9 @@
 3.	設定 APP1。
 4.	設定 CLIENT1。
 
-如果您還沒有 Azure 帳戶，請到[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)來申請免費試用。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您還沒有 Azure 帳戶，請到[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)來申請免費試用。如果您有 MSDN 平台訂用帳戶，請參閱 [MSDN 平台訂戶的 Azure 權益](https://azure.microsoft.com/offers/ms-azr-0062p/)。
 
-> [AZURE.NOTE]Azure 中的虛擬機器執行時，需要支付相關費用。這項成本是按照您的免費試用版、MSDN 訂用帳戶或付費訂用帳戶進行計算。如需詳細了解 Azure 虛擬機器的執行成本，請參閱[虛擬機器定價詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 定價計算機](http://azure.microsoft.com/pricing/calculator/)。為了降低成本，請參閱[將 Azure 的測試環境虛擬機器費用降至最低](#costs)。
+> [AZURE.NOTE]Azure 中的虛擬機器執行時，需要支付相關費用。這項成本是按照您的免費試用版、MSDN 平台訂用帳戶或付費訂用帳戶進行計算。如需詳細了解 Azure 虛擬機器的執行成本，請參閱[虛擬機器價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 價格計算機](http://azure.microsoft.com/pricing/calculator/)。為了降低成本，請參閱[將 Azure 的測試環境虛擬機器費用降至最低](#costs)。
 
 ## 階段 1：建立虛擬網路
 
@@ -250,15 +250,11 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
-您在 Azure 中的基本設定現在可用於應用程式開發與測試或其他測試環境，例如[模擬混合式雲端環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
+您在 Azure 中的基本設定現在可用於應用程式開發與測試或其他測試環境。
 
-## 其他資源
+## 下一步
 
-[Azure 測試實驗室](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
-
-[混合式雲端測試環境](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[基本設定測試環境與 Azure 資源管理員](virtual-machines-base-configuration-test-environment-resource-manager.md)
+- 設定[模擬混合式雲端環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)以測試混合式組態。
 
 ## <a id="costs"></a>將 Azure 的測試環境虛擬機器費用降至最低
 
@@ -288,6 +284,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!----HONumber=AcomDC_1203_2015-->
-
-
+<!---HONumber=AcomDC_0114_2016-->

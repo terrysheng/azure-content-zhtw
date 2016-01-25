@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/05/2016"
 	ms.author="davidmu"/>
 
 # 以資源管理員和 PowerShell 建立 Windows VM
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
 這個主題描述如何使用 Azure 資源管理員和 PowerShell 快速建立 Microsoft Azure 虛擬機器。
 
@@ -123,18 +123,8 @@
 	RequestId           : 98c7b4fb-b26e-4a58-b17a-b0983d896aae
 	StatusCode          : OK
 
-## 其他資源
+## 後續步驟
 
-[Azure Resource Manager 提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
+請參閱[使用 Azure 資源管理員和 PowerShell 管理虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)，了解如何管理您剛才建立的虛擬機器。
 
-[Azure Resource Manager 概觀](resource-group-overview.md)
-
-[利用 Resource Manager 範本和 PowerShell 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
-
-[以 Powershell 和傳統部署模型建立 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
-[虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
-
-<!---HONumber=Nov15_HO3--->
+<!---HONumber=AcomDC_0114_2016-->

@@ -44,6 +44,7 @@ Azure Machine Learning 建議 API 可分成下列邏輯群組：
 ##2\.限制
 
 - 每個訂用帳戶的模型數上限是 10。
+- 每個模型的組建數上限是 20。
 - 一個目錄可以保留的項目數上限是 100,000。
 - 保留的使用點數上限是 ~5,000,000。如果將上傳或回報新的點，就會將最舊的點刪除。
 - POST 中可以傳送的資料大小上限 (例如：匯入目錄資料、匯入使用資料) 是 200 MB。
@@ -799,16 +800,23 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 
-
-
 ##7\.模型商務規則
-以下是支援的規則類型：
-- <strong>BlockList</strong> - BlockList 可讓您提供不想要在建議結果中傳回的項目的清單。
-- <strong>FeatureBlockList</strong> - Feature BlockList 可讓您根據其功能的值封鎖項目。
-- <strong>Upsale</strong> - Upsale 可讓您強制項目在建議的結果中傳回。
-- <strong>WhiteList</strong> - White List 可讓您從項目清單建議。
-- <strong>FeatureWhiteList</strong> - Feature White List 可讓您僅建議具有特定功能值的項目。
-- <strong>PerSeedBlockList</strong> - Per Seed Block List 可讓您為無法傳回做為建議結果的每個項目提供項目清單。
+支援幾種規則類型：
+ - <strong>BlockList</strong> - 封鎖清單可讓您提供您不想在建議結果中傳回的項目清單。
+
+- <strong>FeatureBlockList</strong> - 功能封鎖清單可讓您依據項目之功能的值封鎖項目。
+
+*請勿在單一封鎖清單規則中傳送超過 1000 個項目，否則您的呼叫可能會逾時。如果您需要封鎖超過 1000 個項目，可以呼叫幾個封鎖清單。*
+
+- <strong>Upsale</strong> - Upsale 可讓您強制在建議結果中傳回項目。
+
+- <strong>WhiteList</strong> - 允許清單可讓您只從項目的清單中建議建議項目。
+
+- <strong>FeatureWhiteList</strong> - 功能允許清單可讓您只建議具有特定功能值的項目。
+
+- <strong>PerSeedBlockList</strong> - PerSeedBlockList 可讓您提供無法做為建議結果傳回的項目清單給每個項目。
+
+
 
 
 ###7\.1.取得模型規則
@@ -2078,13 +2086,13 @@ HTTP 狀態碼：200
 - `feed/entry/content/properties/ProgressStep` – 正在進行中組建的目前階段相關詳細資料。
 
 有效的組建狀態：
-- 已建立 – 已建立組建要求項目。
-- 已排入佇列 – 組建要求已觸發並已排入佇列。
-- 建置中 – 組建進行中。
+- 已建立 
+– 已建立組建要求項目。已排入佇列 
+– 組建要求已觸發並已排入佇列。建置中 
+– 組建進行中。
 - 成功 – 建置成功結束。
 - 錯誤 – 組建已結束但發生失敗。
 - 已取消 – 組建已取消。
-- 取消中 – 正在取消組建。
 
 組建類型的有效值：
 - Rank - 排名組建。
@@ -2828,7 +2836,7 @@ HTTP 狀態碼：200
 
 注意：
 1.FBT 組建沒有使用者建議。
-2.如果作用中組建是 FBT，這個方法會傳回錯誤。
+注意：1.FBT 組建沒有使用者建議。2.如果作用中組建是 FBT，這個方法會傳回錯誤。
 
 
 | HTTP 方法 | URI |
@@ -3094,4 +3102,4 @@ HTTP 狀態碼：200
 © 2015 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

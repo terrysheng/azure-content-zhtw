@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;sidneyh;barbkess"/>
+   ms.date="01/11/2016"
+   ms.author="mausher;sidneyh;barbkess;sonyama"/>
 
 # 開始使用 Azure 資料倉儲 Cmdlet 和 REST API
 
 您可使用 Azure PowerShell Cmdlet 或 REST API 管理 SQL 資料倉儲。
 
-針對 **Azure SQL Database** 定義的命令也可用於 **SQL 資料倉儲**。如需最新清單，請參閱 [Azure SQL Cmdlet](https://msdn.microsoft.com/library/mt574084.aspx)。**Suspend-AzureSqlDatabase** 和 **Resume-AzureSqlDatabase** 這兩個 Cmdlet (如下) 是針對 SQL 資料倉儲設計的新增命令。
+針對 **Azure SQL Database** 定義的命令也可用於 **SQL 資料倉儲**。如需最新清單，請參閱 [Azure SQL Cmdlet](https://msdn.microsoft.com/library/mt574084.aspx)。**Suspend-AzureRmSqlDatabase** 和 **Resume-AzureRmSqlDatabase** 這兩個 Cmdlet (如下) 是針對 SQL 資料倉儲設計的新增命令。
 
 同樣地，**SQL Azure Database** 的 REST API 也可用於 **SQL 資料倉儲**執行個體。如需最新清單，請參閱 [Azure SQL Databases 的作業](https://msdn.microsoft.com/library/azure/dn505719.aspx)。
 
@@ -30,65 +30,87 @@
 2. 如要執行模組，請在開始視窗中鍵入 **Microsoft Azure PowerShell**。
 3. 如果您尚未將帳戶加入電腦，請執行下列 Cmdlet。(如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell]()：
 
-		Add-AzureAccount
-3. 使用此 Cmdlet 切換模式：
+```
+Add-AzureAccount
+```
 
-		Switch-AzureMode AzureResourceManager
+3. 針對您想要暫停或繼續的資料庫選取您的訂用帳戶。這將會選取名稱為 "MySubscription" 的訂用帳戶。
 
-## Suspend-AzureSqlDatabase
+```
+Select-AzureRmSubscription -SubscriptionName "MySubscription"
+```
+
+## Suspend-AzureRmSqlDatabase
+
+如需命令參考，請參閱 [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx)。
+
 ### 範例 1：依名稱在伺服器上暫停資料庫
 
 此範例會暫停「Server01」伺服器上託管的「Database02」資料庫。 此伺服器位於「ResourceGroup1」這個 Azure 資源群組。
 
-    Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
-    "Server01" –DatabaseName "Database02"
+```
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
 
 ### 範例 2：暫停資料庫物件
 
-此範例從「ResourceGroup1」資源群組包含的「Server01」伺服器中，擷取「Database02」資料庫。 它將擷取的物件輸送到 **Suspend-AzureSqlDatabase**。結果就是暫停資料庫。
+此範例從「ResourceGroup1」資源群組包含的「Server01」伺服器中，擷取「Database02」資料庫。 它將擷取的物件輸送到 **Suspend-AzureRmSqlDatabase**。結果就是暫停資料庫。最終的命令會顯示結果。
 
-	$database = Get-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
-	$resultDatabase = $database | Suspend-AzureSqlDatabase
+```
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$resultDatabase = $database | Suspend-AzureRmSqlDatabase
+$resultDatabase
+```
 
 ## Resume-AzureSqlDatabase
+
+如需命令參考，請參閱 [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
 
 ### 範例 1：依名稱在伺服器上繼續資料庫
 
 此範例會繼續「Server01」伺服器上託管的「Database02」資料庫的作業。 此伺服器包含在「ResourceGroup1」這個資源群組中。
 
-	Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" -DatabaseName "Database02"
+```
 
 ### 範例 2：繼續資料庫物件
 
-此範例會從「ResourceGroup1」資源群組包含的 「Server01」伺服器中，擷取「Database02」資料庫。 物件會被輸送到 **Resume-AzureSqlDatabase**。
+此範例會從「ResourceGroup1」資源群組包含的 「Server01」伺服器中，擷取「Database02」資料庫。 物件會被輸送到 **Resume-AzureRmSqlDatabase**。
 
-	$database = Get-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
-	$resultDatabase = $database | Resume-AzureSqlDatabase
+```
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$resultDatabase = $database | Resume-AzureRmSqlDatabase
+```
 
-## Get-AzureSqlDatabaseRestorePoints
+## Get-AzureRmSqlDatabaseRestorePoints
 
-此 Cmdlet 會列出 Azure SQL Databases 的備份還原點。還原點可用來還原資料庫。所傳回之物件的屬性如下所示。
+此 Cmdlet 會列出 Azure SQL 資料倉儲資料庫的備份還原點。還原點可用來還原資料庫。所傳回之物件的屬性如下所示。
 
 屬性|說明
 ---|---
-RestorePointType|DISCRETE/CONTINUOUS。離散還原點說明可還原 Azure SQL Databases 的可能時間點。連續還原點說明可還原 Azure SQL Databases 的最早可能時間點。資料庫可還原至最早時間點之後的任一時間點。
+RestorePointType|DISCRETE/CONTINUOUS。離散還原點說明可還原到 Azure SQL 資料倉儲資料庫的可能時間點。連續還原點說明可還原 Azure SQL Databases 的最早可能時間點。資料庫可還原至最早時間點之後的任一時間點。
 EarliestRestoreDate|最早還原時間 (在 restorePointType = CONTINUOUS 時填入)
 RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE 時填入)
 
 ### 範例 1：依名稱在伺服器上擷取資料庫的還原點
 此範例會從「ResourceGroup1」資源群組包含的「Server01」伺服器中，擷取「Database02」資料庫的還原點。
 
-	$restorePoints = Get-AzureSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
-
+```	
+$restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$restorePoints
+```
 
 
 ### 範例 2：繼續資料庫物件
 
-此範例會從「ResourceGroup1」資源群組包含的「Server01」伺服器中，擷取「Database02」資料庫。 資料庫物件會被輸送到 **Get-AzureSqlDatabase**，結果就是資料庫的還原點。
+此範例會從「ResourceGroup1」資源群組包含的「Server01」伺服器中，擷取「Database02」資料庫。 資料庫物件會被輸送到 **Get-AzureRmSqlDatabase**，且結果就是資料庫的還原點。最終的命令會列印結果。
 
-	$database = Get-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
-	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
-
+```
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$restorePoints = $database | Get-AzureRmSqlDatabaseRestorePoints
+$retorePoints
+```
 
 
 > [AZURE.NOTE]請注意，如果您的伺服器是 foo.database.windows.net，請使用 "foo" 作為 Powershell Cmdlet 中的 -ServerName。
@@ -111,4 +133,4 @@ RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE �
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

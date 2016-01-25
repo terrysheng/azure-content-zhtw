@@ -1,47 +1,47 @@
 <!--author=alkohli last changed: 01/12/15-->
 
-#### To download hotfixes
+#### 下載 Hofix
 
-Perform the following steps to download the software update from the Microsoft Update Catalog.
+請執行下列步驟來從 Microsoft Update Catalog 下載軟體更新。
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
+1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx)。
 
-2. If you are a first-time user, you will be prompted to install a Microsoft Update Catalog. Click **Install**.
+2. 如果您是第一次使用者，系統會提示您安裝 Microsoft Update Catalog。按一下 [Install]。
     
-   	![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+   	![安裝目錄](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. You will see a catalog search screen. Enter **3121901** in the search box, and click **Search**.
+3. 您會看到目錄搜尋畫面。在搜尋方塊中輸入 **3121901**，然後按一下 [搜尋]。
 
-    ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
+    ![搜尋目錄](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. You will see the **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**. Click **Add**. The update will be added to the basket. 
+4. 您將會看到**適用於 StorSimple 8000 系列的累積軟體套件組合更新 2.0**。按一下 [新增]。更新將會加入到購物籃中。
 
-5. Click **View Basket**.
+5. 按一下 [**檢視購物籃**]。
  
-6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a folder (same name as the update) to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
+6. 按一下 [下載]。指定或**瀏覽**至您想要儲存下載項目的本機位置。更新將會下載到所選位置的資料夾 (名稱與更新相同) 中。資料夾也可以複製到裝置可連線的網路共用位置。
        
-	> [AZURE.NOTE] 
+	> [AZURE.NOTE]
 	> 
-	> - You will also need to download **LSI driver update** (SAS Controller Update 2.0 for StorSimple 8000 Series - KB3121900),  **Storport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3080728), **Spaceport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3090322), and **Disk firmware update** (Cumulative Disk Firmware Update 2.0 for StorSimple 8000 Series - KB3121899) and copy to the same shared folder.
-	> - The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller.
+	> - 您也需要下載 **LSI 驅動程式更新** (適用於 StorSimple 8000 系列的 SAS 控制器更新 2.0 - KB3121900)、**Storport 更新** (適用於 Windows Server 2012 R2 x64 版本的 Hotfix - KB3080728)、**Spaceport 更新** (適用於 Windows Server 2012 R2 x64 版本的 Hotfix - KB3090322)，以及**磁碟韌體更新** (適用於 StorSimple 8000 系列的累積磁碟韌體更新 2.0 - KB3121899)，並複製到相同的共用資料夾。
+	> - Hotfix 必須可同時從兩個控制器偵測任何來自對等控制器的潛在錯誤訊息。
 
-#### To install and  verify regular mode hotfixes
+#### 安裝及驗證一般模式 Hotfix
 
-Perform the following steps to install and verify the regular hotfixes.
+執行下列步驟來安裝及驗證一般 Hotfix。
 
-1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
+1. 若要安裝 Hotfix，請存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。請依照[使用 PuTTy 連接到序列主控台](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console)中的詳細指示執行作業。在命令提示字元中，按 **Enter** 鍵。
 
-4. Select **Option 1** to log on to the device with full access.
+4. 選取 [**選項 1**] 以使用完整的存取權限登入裝置。
 
-5. To install the hotfix, at the command prompt, type:
+5. 若要安裝 Hotfix，請在命令提示字元中輸入：
 
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share. 
+    在上述命令的共用路徑中使用 IP 而不是 DNS。只有當您要存取已驗證的共用位置時，才會用到認證參數。
 
-	We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
+	我們建議您使用認證參數來存取共用項目。即使是開放給「所有人」的共用項目，通常也不會開放給未經驗證的使用者。
 
-    A sample output is shown below.
+    下方顯示一項範例輸出。
 
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -56,11 +56,11 @@ Perform the following steps to install and verify the regular hotfixes.
 
         ````
  
-6. Type **Y** when prompted to confirm the hotfix installation.
+6. 當系統提示您確認 Hotfix 安裝時，請輸入 **Y**。
 
-7. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet.
+7. 使用 `Get-HcsUpdateStatus` Cmdlet 來監視更新。
 
-    The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
+    下列範例輸出顯示更新進行中。更新正在進行中時，`RunInprogress` 會是 `True`。
 
         ````
         Controller0>Get-HcsUpdateStatus
@@ -71,7 +71,7 @@ Perform the following steps to install and verify the regular hotfixes.
         Controller1Events   : 
         ````
  
-     The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
+     下列範例輸出指出更新已完成。更新完成時，`RunInProgress` 將會是 `False`。
 
         ````
         Controller1>Get-HcsUpdateStatus
@@ -85,37 +85,37 @@ Perform the following steps to install and verify the regular hotfixes.
         ````
 		
 
-	> [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed. 
+	> [AZURE.NOTE]有時在更新進行期間，Cmdlet 會回報 `False`。若要確保此 Hotfix 已完成，請等待幾分鐘的時間、重新執行此命令並確認 `RunInProgress` 為 `False`。如果的確為 False 的話，則 Hotfix 已完成。
 	
-8. After the software update is complete, repeat steps 3-5 to install and monitor the SaaS agent and MDS agent using the `CisMdsAgentUpdateBundle.exe`. Ensure that `HcsMdsSoftwareUpdate.exe` is installed before `CisMdsAgentUpdateBundle.exe`. 
+8. 軟體更新完成之後，請重複步驟 3-5 來使用 `CisMdsAgentUpdateBundle.exe` 安裝及監視 SaaS 代理程式和 MDS 代理程式。確定您是先安裝 `HcsMdsSoftwareUpdate.exe`，然後再安裝 `CisMdsAgentUpdateBundle.exe`。
 
-9. Verify the system software versions. Type:
+9. 驗證系統軟體版本。輸入：
 
     `Get-HcsSystem`
 
-    You should see the following versions:
+    您應該會看見下列版本：
 
-    - HcsSoftwareVersion: 6.3.9600.17673
-    - CisAgentVersion: 1.0.9150.0
-    - MdsAgentVersion: 30.0.4698.13 
+    - HcsSoftwareVersion：6.3.9600.17673
+    - CisAgentVersion：1.0.9150.0
+    - MdsAgentVersion：30.0.4698.13 
     
-	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
+	如果在套用更新後版本號碼並未變更，則表示此 Hotfix 未成功套用。若您看到這種情況，請連絡 [Microsoft 支援](storsimple-contact-microsoft-support.md)以取得進一步的協助。
     
-9. Repeat steps 3-5 to install and monitor the remaining regular hotfixes.
+9. 重複步驟 3-5 來安裝及監視剩餘的一般 Hotfix。
 
-	- The LSI driver using the `HcsLsiUpdate.exe` package (KB3121900).
-	- The Storport fix using the `Storport-KB3080728-x64.msu` package (KB3080728).
-	- The Spaceport fix using the `spaceport-KB3090322-x64.msu` package (KB3090322).
+	- 使用 `HcsLsiUpdate.exe` 封裝 (KB3121900) 的 LSI 驅動程式。
+	- 使用 `Storport-KB3080728-x64.msu` 封裝 (KB3080728) 的 Storport 修正程式。
+	- 使用 `spaceport-KB3090322-x64.msu` 封裝 (KB3090322) 的 Spaceport 修正程式。
 
-#### To install and verify maintenance mode hotfix
+#### 安裝及驗證維護模式 Hotfix
 
-Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. To install disk firmware updates, follow the instructions below.
+使用 `DiskFirmwarePackage.exe` 封裝 (KB3121899) 來安裝磁碟韌體更新。這些是干擾性更新，且需要約 30 分鐘來完成。您可以藉由連接至裝置序列主控台，以選擇在預計的維護視窗中安裝這些更新。若要安裝磁碟韌體更新，請依照下面的指示執行。
 
-1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. You will need to run this cmdlet on the device controller when connected through the device serial console. Type:
+1. 使裝置處於維護模式。請注意，連線至處於維護模式的裝置時，您不應該使用 Windows PowerShell 遠端執行功能。透過裝置序列主控台連線時，您需要在裝置控制器上執行此 Cmdlet。輸入：
 		
 	`Enter-HcsMaintenanceMode`
 
-	A sample output is shown below.
+	下方顯示一項範例輸出。
 
 		Controller0>Enter-HcsMaintenanceMode
 		Checking device state...
@@ -138,13 +138,13 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 		[4] Change language
 		Please enter your choice>
 
-	Both the controllers will be rebooted. After the reboot is complete, both controllers will be in the Maintenance mode. 
+	兩個控制器都會重新開機。重新開機完成之後，兩個控制器都會處於維護模式。
 
-3. To install the disk firmware update, type:
+3. 若要安裝磁碟韌體更新，請輸入：
 
 	`Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-	A sample output is shown below.
+	下方顯示一項範例輸出。
 
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
 		Enter Password:
@@ -155,17 +155,17 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 	
 
-1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
+1.  使用 `Get-HcsUpdateStatus` 命令監視安裝進度。當 `RunInProgress` 變成 `False` 時，代表更新完成。
  
-2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed will be rebooted. Log in as option 1 with full access and verify the disk firmware version. Type:
+2.  安裝完成之後，維護模式 Hotfix 安裝所在的控制器將會重新開機。以具有完整存取權的選項 1 登入，並驗證磁碟韌體版本。輸入：
 	
 	`Get-HcsFirmwareVersion`
   
-	The expected disk firmware versions are: 
+	預期的磁碟韌體版本為：
 
 	`XMGG, XGEG, KZ50, F6C2, VR08`
 
-	A sample output is shown below.
+	下方顯示一項範例輸出。
 
 
         -----------------------MAINTENANCE MODE------------------------
@@ -221,11 +221,11 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
     	  SEAGATE:ST4000NM0023:XMGG
     	  SEAGATE:ST4000NM0023:XMGG
 
-	 Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller: 
+	 在第二個控制器上執行 `Get-HcsFirmwareVersion` 命令來驗證軟體版本已經更新。然後您就可以結束維護模式。針對每個裝置控制器輸入以下命令：
 
     `Exit-HcsMaintenanceMode`
      
-1. The controllers will be rebooted when you exit the Maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Maintenance mode updates are not updated on the portal until 24 hours have elapsed. 
+1. 控制器將會在您結束維護模式時重新開機。在磁碟韌體更新已成功套用且裝置已結束維護模式後，返回 Azure 傳統入口網站。維護模式更新在 24 小時內不會更新至入口網站。
 
 
 
@@ -235,3 +235,4 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
  
  
 
+<!---HONumber=AcomDC_0114_2016-->

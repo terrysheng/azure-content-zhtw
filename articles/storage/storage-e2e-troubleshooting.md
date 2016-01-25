@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解 | Microsoft Azure" 
-	description="示範使用 Azure Storage Analytics、AzCopy 和 Microsoft Message Analyzer 進行端對端疑難排解的教學課程" 
-	services="storage" 
-	documentationCenter="dotnet" 
-	authors="tamram" 
-	manager="adinah"/>
+<properties
+	pageTitle="使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解 | Microsoft Azure"
+	description="示範使用 Azure Storage Analytics、AzCopy 和 Microsoft Message Analyzer 進行端對端疑難排解的教學課程"
+	services="storage"
+	documentationCenter="dotnet"
+	authors="tamram"
+	manager="carmonm"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 # 使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解 
@@ -364,7 +364,5 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 - [如何監視儲存體帳戶](storage-monitor-storage-account.md)
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 - [Microsoft Message Analyzer 操作指南](http://technet.microsoft.com/library/jj649776.aspx)
- 
- 
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

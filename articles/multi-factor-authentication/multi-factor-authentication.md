@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # 什麼是 Azure Multi-Factor Authentication？
@@ -124,20 +124,21 @@ MFA SDK| | | *
 
 ## 如何取得 Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication 隨附於 Azure Active Directory Premium 和 Enterprise Mobility Suite 中。如果您已經擁有上述產品，代表您也擁有 Azure Multi-Factor Authentication。
+如果您想要 Azure Multi-Factor Authentication 所提供的完整功能，而不是只針對 Office 365 使用者和 Azure 系統管理員所提供的功能，有數個可取得 Azure Multi-Factor Authentication 的選項：
 
-如果您是 Office 365 使用者或 Azure 訂閱者，並且想要充分利用 Azure Multi-Factor Authentication 提供的其他功能，請繼續閱讀。
+1.	購買 Azure Multi-Factor Authentication 授權，並將其指派給您的使用者。
+2.	購買其中隨附 Azure Multi-Factor Authentication 的授權 (例如 Azure Active Directory Premium、Enterprise Mobility Suite 或 Enterprise Cloud Suite)，並將其指派給您的使用者。
+3.	在 Azure 訂用帳戶中建立 Azure Multi-Factor Authentication 提供者。如果您還沒有 Azure 訂用帳戶，可以註冊一個 Azure 試用訂用帳戶。在試用到期之前，必須將試用訂用帳戶轉換為一般訂用帳戶。
 
-如果您沒有任何上述任何產品，若要開始使用 Azure Multi-Factor Authentication，首先您需要 Azure 訂用帳戶或 [Azure 試用版訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+使用 Azure Multi-Factor Authentication 提供者時，有兩種使用量模型可透過您的 Azure 訂用帳戶計費：
 
-使用 Azure Multi-Factor Authentication 時有兩個可用的計費選項：
 
 - **每位使用者**。通常適用於想要為一群定期需要驗證之固定數量員工啟用 Multi-Factor Authentication 的企業。
 - **每次驗證**。通常適用於想要為大量不定期需要驗證之外部使用者啟用 Multi-Factor Authentication 的企業。
 
 如需定價詳細資料，請參閱 [Azure MFA 定價](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)。
 
-選擇最適合組織的模式。接下來，若要開始使用，請參閱[開始使用](multi-factor-authentication-get-started.md)
+選擇最適合您組織的每一基座或消費型模型。接下來，若要開始使用，請參閱[開始使用](multi-factor-authentication-get-started.md)。
 
 ## 選擇合適的多重因素安全性解決方案
 
@@ -205,4 +206,4 @@ MFA 報告 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

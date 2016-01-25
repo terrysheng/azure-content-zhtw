@@ -1,11 +1,11 @@
 <properties
-	pageTitle="如何使用 Hudson 與 Azure Blob 服務 | Microsoft Azure"
+	pageTitle="如何使用 Hudson 與 Blob 儲存體 | Microsoft Azure"
 	description="說明如何使用 Hudson 與 Azure Blob 儲存體作為組建成品的存放庫。"
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/05/2016" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # 使用 Azure 儲存體與 Hudson 連續整合解決方案
 
 ## 概觀
 
-下列資訊說明如何使用 Azure Blob 服務，作為 Hudson 連續整合 (CI) 解決方案所建立的組建成品儲存機制，或作為在組建程序中要使用之可下載檔案的來源。您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
+下列資訊說明如何使用 Blob 儲存體，做為 Hudson 連續整合 (CI) 解決方案所建立的組建構件儲存機制，或做為在組建程序中要使用之可下載檔案的來源。您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
 
 在本教學課程中，您將使用由 Microsoft 所提供適用於 Hudson CI 的 Azure 儲存體外掛程式。
 
@@ -177,4 +177,4 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
   [如何建立儲存體帳戶]: http://go.microsoft.com/fwlink/?LinkId=279823
   [認識 Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

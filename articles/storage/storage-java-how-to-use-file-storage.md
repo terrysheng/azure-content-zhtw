@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="如何使用 Java 的檔案儲存體 | Microsoft Azure" 
-	description="了解如何使用 Azure 檔案服務來上傳、下載、列出及刪除檔案。範例以 Java 撰寫。" 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="如何使用 Java 的檔案儲存體 | Microsoft Azure"
+	description="了解如何使用 Azure 檔案服務來上傳、下載、列出及刪除檔案。範例以 Java 撰寫。"
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe" />
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
-	ms.author="v-dedomi"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/11/2016"
+	ms.author="jutang"/>
 
 # 如何使用 Java 的檔案儲存體
 
@@ -45,9 +45,9 @@
 若要使用檔案儲存體，您必須連接到您的 Azure 儲存體帳戶。第一個步驟是設定連接字串，我們會用來連接到您的儲存體帳戶。讓我們定義靜態變數以便進行。
 
 	// Configure the connection-string with your values
-	public static final String storageConnectionString = 
-	    "DefaultEndpointsProtocol=http;" + 
-	    "AccountName=your_storage_account_name;" + 
+	public static final String storageConnectionString =
+	    "DefaultEndpointsProtocol=http;" +
+	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
 > [AZURE.NOTE]將 your\_storage\_account\_name 和 your\_storage\_account\_key 取代為您的儲存體帳戶的實際值。
@@ -75,7 +75,7 @@
 使用檔案儲存體用戶端，您可以取得共用的參考。
 
 	// Get a reference to the file share
-	CloudFileShare share = fileClient.getShareReference("sampleshare"); 
+	CloudFileShare share = fileClient.getShareReference("sampleshare");
 
 若要實際建立共用，請使用 CloudFileShare 物件的 **createIfNotExists** 方法。
 
@@ -109,9 +109,9 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
 
-	//Get a reference to the sampledir directory 
+	//Get a reference to the sampledir directory
 	CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-			    
+
 	if (sampleDir.createIfNotExists()) {
 		System.out.println("sampledir created");
 	} else {
@@ -124,7 +124,7 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
-		   
+
 	for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 		System.out.println(fileItem.getUri());
 	}
@@ -136,10 +136,10 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
-	
+
 	//Get a reference to the directory that contains the file
 	CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-			    
+
 	//Get a reference to the file you want to download
 	CloudFile file = sampleDir.getFileReference("SampleFile.txt");
 
@@ -156,7 +156,7 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 
 	// Get a reference to the directory where the file to be deleted is in
 	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
-	
+
 	String filename = "SampleFile.txt"
 	CloudFile file;
 
@@ -174,7 +174,7 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
 
 	// Get a reference to the directory you want to delete
-	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");	
+	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
 
 	// Delete the directory
 	if ( containerDir.deleteIfExists() ) {
@@ -196,10 +196,10 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 
 	   // Get a reference to the file share
 	   CloudFileShare share = fileClient.getShareReference("sampleshare");
-	   
+
 	   if (share.deleteIfExists()) {
 		   System.out.println("sampleshare deleted");
-	   } 
+	   }
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
@@ -221,6 +221,5 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
 [Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
- 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

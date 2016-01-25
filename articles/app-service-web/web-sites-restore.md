@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="01/07/2015" 
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中還原應用程式
@@ -81,7 +81,11 @@ App Service「還原」功能可讓您依需求，將應用程式及其連結的
 [詳細資料] 刀鋒視窗將會顯示與該作業有關的可用資訊。
 	
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
-	
+
+## 後續步驟
+
+您也可以使用 REST API 來備份及還原 App Service 應用程式 (請參閱[使用 REST 來備份及還原 App Service 應用程式](websites-csm-backup.md))。
+
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
@@ -102,4 +106,4 @@ App Service「還原」功能可讓您依需求，將應用程式及其連結的
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

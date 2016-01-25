@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/02/2015"
+    ms.date="01/07/2016"
     ms.author="elizapo" />
 
 # 使用 Office 與 Azure RemoteApp 搭配
@@ -49,4 +49,4 @@ RemoteApp 支援 Office 365 共用電腦啟用。當您啟用「共用電腦啟�
 
 如果您在試用期過後還未轉換成實際執行模式，將會停用您的 RemoteApp 收藏。別擔心，您的設定和使用者資料會持續儲存 90 天，因此，您仍可以啟用您的服務和切換到實際執行模式，不會遺失任何資料。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs 文件資源
@@ -139,4 +139,4 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [Twitter](http://twitter.com/)。使用雜湊標記 #AzureWebJobs。
 * [報告 WebJobs 錯誤或問題](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

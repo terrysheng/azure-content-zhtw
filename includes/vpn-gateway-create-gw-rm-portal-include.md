@@ -1,10 +1,12 @@
-1. In the portal, go to **New**, then **Browse**. Select **Virtual network gateways** from the list.
-2. Click **Add**.
-3. Name your gateway. This is not the same as naming a gateway subnet. This is the name of the gateway object. 
-4. In **Virtual network**, select the VNet that you want to connect to this gateway.
-5. In the settings for the VNet, for the **Public IP address** value, create a name your public IP address. Note that this is not asking for an IP address. The IP address will be assigned dynamically. Rather, this is the name of the IP address object that the address will be assigned to. 
-6. For **VPN type**, the choices are policy-based and route-based. Be sure to select the VPN gateway type that is both supported by the configuration scenario, and, if required for your configuration, supported by the VPN gateway device you plan to use.
-7. For **Resource Group**, choose **select existing** and choose the resource group that your VNet resides in, unless your configuration requires a different choice.
-8. For **Location**, make sure it's showing the location that both your Resource Group and VNet exist in.
-9. Click **Create**. You'll see the *Deploying Virtual network gateway* tile on the dashboard. Creating a gateway takes some time. There is a lot going on in the background. Plan for 15 minutes or more. You may need to refresh your portal page in order to see the completed status.
-10. After the gateway is created, you can view the IP address that has been assigned to it by looking at the Virtual Network in the portal. The gateway will appear as a connected device. You can view the name and the IP address assigned to the gateway.
+1. 在入口網站中，移至 [新增]，然後移至 [瀏覽]。從清單中選取 [虛擬網路閘道]。
+2. 按一下 [新增]。
+3. 為您的閘道命名。這與為閘道子網路命名不同。這是閘道物件的名稱。 
+4. 在 [虛擬網路] 中，選取您要連線到此閘道的 VNet。
+5. 在 VNet 的設定中，針對 [公用 IP 位址] 值，為您的公用 IP 位址建立一個名稱。請注意，這並不是要求提供 IP 位址。IP 位址將會以動態方式指派。這是將對其指派位址之 IP 位址物件的名稱。 
+6. 對於 [VPN 類型]，可以選擇原則式或路由式。請務必選取組態案例支援，且 (如果您的組態需要) 您計畫使用的 VPN 閘道裝置也支援的 VPN 閘道器類型。
+7. 對於 [資源類型]，請選擇 [選取現有的]，並選擇您的 VNet 所在的資源群組，除非您的組態需要不同的選擇。
+8. 對於 [位置]，請確定顯示的是您的資源群組和 VNet 存在的位置。
+9. 按一下 [建立]。您將會在儀表板上看到 [部署虛擬網路閘道] 磚。建立閘道需要一些時間。有許多工作在背景執行。預計需要 15 分鐘以上。您可能需要重新整理入口網站頁面，才能看到完成的狀態。
+10. 建立閘道之後，您可以查看入口網站中的虛擬網路，來檢視已指派給閘道的 IP 位址。閘道將會顯示為已連線的裝置。您可以檢視指派給閘道的名稱和 IP 位址。
+
+<!---HONumber=AcomDC_0114_2016-->

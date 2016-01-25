@@ -1,6 +1,6 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 SAP HANA 雲端平台整合 | Microsoft Azure" 
-    description="了解如何使用 SAP HANA 雲端平台搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    description="了解如何使用 SAP HANA 雲端平台搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #教學課程：Azure Active Directory 與 SAP HANA 雲端平台整合
@@ -47,13 +47,13 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
     ![新增應用程式](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749321.png "新增應用程式")
 
-5.  在 [欲執行動作] 對話方塊中，按一下 [從組件庫新增應用程式]。
+5.  在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。
 
     ![從組件庫新增應用程式](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749322.png "從組件庫新增應用程式")
 
@@ -74,11 +74,11 @@
 
     ![設定單一登入](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "設定單一登入")
 
-2.  在 [要如何讓使用者登入 SAP HANA 雲端平台] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按一下 [下一步]。
+2.  在 [要如何讓使用者登入 Sugar CRM] 頁面上，選取 [SAP HANA 雲端平台單一登入]，然後按一下 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "設定單一登入")
 
-3.  在另一個網頁瀏覽器視窗中，使用 https://account.\<橫向主機>.ondemand.com/cockpit 登入 SAP HANA 雲端平台駕駛座 (例如：**https://account.hanatrial.ondemand.com/cockpit*))。
+3.  在不同的網頁瀏覽器視窗中，在 https://account.\<橫向主機>.ondemand.com/cockpit 登入 SAP HANA 雲端平台駕駛座 (例如：**https://account.hanatrial.ondemand.com/cockpit*)。
 
 4.  按一下 [信任] 索引標籤。
 
@@ -91,16 +91,16 @@
     1.  按一下 [本機服務提供者] 索引標籤。
     2.  若要下載 SAP HANA 雲端平台中繼資料檔案，請按一下 [取得中繼資料]。
 
-6.  在 Azure Active Directory 入口網站的 [設定應用程式 URL] 頁面中，執行下列步驟，然後按 [下一步]。
+6.  在 Azure Active Directory 入口網站中的 [設定應用程式 URL] 頁面上，執行下列步驟，然後按 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "設定應用程式 URL")
 
-    1.  在 [登入 URL] 文字方塊中，輸入使用者用來登入 **SAP HANA 雲端平台**應用程式的 URL。這是您的 SAP HANA 雲端平台應用程式中受保護資源的帳戶特定 URL。該 URL 是為下列格式：*https://\<applicationName><accountName>.<landscape host>.ondemand.com/<path\_to\_protected\_resource>* (例如：**https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
+    1.  在 [登入 URL] 文字方塊中，輸入使用者用來登入 **SAP HANA 雲端平台**應用程式的 URL。這是您的 SAP HANA 雲端平台應用程式中受保護資源的帳戶特定 URL。該 URL 是以下列模式為基礎：*https://\<applicationName><accountName>.<landscape host>.ondemand.com/<path\_to\_protected\_resource>* (例如：**https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
 
 		>[AZURE.NOTE]這是您 SAP HANA 雲端平台應用程式中需要使用者以進行驗證的 URL。
 
     2.  開啟已下載的 SAP HANA 雲端平台中繼資料檔案，然後再找到**ns3:AssertionConsumerService**標記。
-    3.  複製 **Location** 屬性的值，然後將其貼至 [SAP HANA 雲端平台回覆 URL] 文字方塊中。
+    3.  複製 [位置] 屬性的值，然後再將其貼至 [SAP HANA 雲端平台回覆 URL] 文字方塊中。
 
 7.  在 [設定在 SAP HANA 雲端平台單一登入] 頁面上，按一下 [下載中繼資料] 來下載您的中繼資料，然後將檔案儲存在您的電腦上。
 
@@ -111,11 +111,11 @@
     ![信任管理](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793931.png "信任管理")
 
     1.  按一下 [**編輯**]。
-    2.  在 [組態類型] 選取 [自訂]。
-    3.  在 [本機提供者名稱] 保留預設值。
+    2.  針對 [組態類型]，選取 [自訂]。
+    3.  針對 [本機提供者名稱]，保留預設值。
     4.  若要產生**簽署金鑰**和**簽署憑證**金鑰組，請按一下 [產生金鑰組]。
-    5.  在 [主體傳播] 選取 [已停用]。
-    6.  在 [強制驗證] 選取 [已停用]。
+    5.  針對 [主體傳播]，選取 [已停用]。
+    6.  針對 [強制驗證]，選取 [已停用]。
     7.  按一下 [儲存]。
 
 9.  按一下 [信任的識別提供者]索引標籤，然後再按一下 [新增信任的識別提供者]。
@@ -124,11 +124,11 @@
 
     >[AZURE.NOTE]若要管理信任的識別提供者清單，您必須已經在 [本機服務提供者] 區段中選擇了 [自訂組態類型]。針對 [預設組態類型]，您對 SAP ID 服務有不可編輯且隱含的信任。針對 [無]，您不具任何信任設定。
 
-10. 按一下 [一般] 索引標籤，然後按一下 [瀏覽] 來上傳已下載的中繼資料檔案。
+10. 按一下 [一般] 索引標籤，然後再按一下 [瀏覽] 來上傳下載的中繼資料檔案。
 
     ![信任管理](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "信任管理")
 
-    >[AZURE.NOTE]上傳中繼資料檔之後，[單一登入 URL]、[單一登出 URL] 和[簽署憑證] 的值會自動填入。
+    >[AZURE.NOTE]上傳中繼資料檔之後，**單一登入 URL**、**單一登出 URL** 和**簽署憑證**的值會自動填入。
 
 11. 按一下 [屬性] 索引標籤。
 
@@ -136,7 +136,7 @@
 
     ![屬性](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790804.png "屬性")
 
-    1.  按一下 [新增判斷提示式的屬性]，新增下列判斷提示式的屬性：
+    1.  透過按一下 [新增判斷提示式的屬性]，新增下列判斷提示式的屬性：
 
         |判斷提示屬性| 主體屬性|
 		|-------------------|--------------------|
@@ -146,7 +146,7 @@
     >  
     >a.螢幕擷取畫面中的 [預設屬性] 僅供說明之用。其並不是案例進行所必須的要素。
     >
-    >b.螢幕擷取畫面所顯示的 [主體屬性] 名稱與值取決於應用程式是如何開發的。您的應用程式很可能需要不同的對應。
+    >b.螢幕擷取畫面所顯示的**主體屬性**名稱與值取決於應用程式是如何開發的。您的應用程式很可能需要不同的對應。
 
 13. 在 Azure 入口網站的 [設定在 SAP HANA 雲端平台單一登入] 對話方塊上，選取 [單一登入設定確認]，然後按一下 [完成]。
 
@@ -154,7 +154,7 @@
   
 在選擇性的步驟中，您可以為 Azure Active Directory 識別提供者設定判斷提示式群組
 
->[AZURE.NOTE]使用 SAP HANA 雲端平台上的群組可讓您在 SAP HANA 雲端平台應用程式中以動態方式將一或多個使用者指派給一或多個角色，這是由 SAML 2.0 判斷提示中的屬性值所決定。例如，如果判斷提示包含屬性「*合約＝暫存*」，您可能會希望將所有受影響的使用者新增「*暫存*」群組。「*暫存*」群組可能包含來自一或多個部署在 SAP HANA 雲端平台帳戶中之應用程式的一或多個角色。
+>[AZURE.NOTE]使用 SAP HANA 雲端平台上的群組可讓您在 SAP HANA 雲端平台應用程式中以動態方式將一或多個使用者指派給一或多個角色，這是由 SAML 2.0 判斷提示中的屬性值所決定。例如，如果判斷提示包含屬性「*合約＝暫存*」，您可能會希望將所有受影響的使用者加入「*暫存*」群組。「*暫存*」群組可能包含來自一或多個部署在 SAP HANA 雲端平台帳戶中之應用程式的一或多個角色。
 >  
 >如果您想要大量指派許多使用者給 SAP HANA 雲端平台帳戶中之應用程式的一個或多個角色，請使用判斷提示式的群組。如果您只想要指派單一或少數使用者給特定角色，我們建議直接在 SAP HANA 雲端平台駕駛座的 [授權] 索引標籤中加以指派。
 
@@ -164,7 +164,7 @@
 
 ###若要指派角色給使用者，請執行下列步驟：
 
-1.  登入您的 [SAP HANA 雲端平台] 駕駛艙。
+1.  登入您的**SAP HANA 雲端平台**駕駛艙。
 
 2.  執行下列步驟：
 
@@ -194,4 +194,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

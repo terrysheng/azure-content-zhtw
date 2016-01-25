@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 # 如何使用 Node.js 的 Azure 資料表儲存體
@@ -110,7 +110,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 若要新增實體，請先建立一個定義實體屬性的物件。所有實體必須包含 **PartitionKey** 和 **RowKey**，這些是實體的唯一識別碼。
 
-* **PartitionKey** - 決定儲存實體的資料分割
+* **PartitionKey** - 決定儲存實體的資料分割。
 
 * **RowKey** - 在資料分割內唯一地識別實體
 
@@ -448,4 +448,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [使用儲存體的 Node.js Web 應用程式]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

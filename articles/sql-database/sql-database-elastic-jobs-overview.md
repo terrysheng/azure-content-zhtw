@@ -25,7 +25,7 @@
  
 如需安裝的指示，請移至[安裝彈性資料庫工作元件](sql-database-elastic-jobs-service-installation.md)。
 
-**彈性資料庫工作**是目前的客戶裝載 Azure 雲端服務，可以執行臨機操作和排程的管理工作，稱為「工作」。利用工作，您可以執行 Transact-SQL 指令碼來執行管理作業，進而輕鬆又可靠地管理大量 Azure SQL Database 群組。
+**彈性資料庫工作**目前是客戶裝載的 Azure 雲端服務，可以執行臨機操作和排程的管理工作，稱為「工作」。利用工作，您可以執行 Transact-SQL 指令碼來執行管理作業，進而輕鬆又可靠地管理大量 Azure SQL Database 群組。
 
 ![彈性資料庫工作服務][1]
 
@@ -52,8 +52,8 @@
 
 ## 彈性資料庫工作：端對端 
 1.	安裝**彈性資料庫工作**元件。如需詳細資訊，請參閱[安裝彈性資料庫工作](sql-database-elastic-jobs-service-installation.md)。如果安裝失敗，請參閱[如何解除安裝](sql-database-elastic-jobs-uninstall.md)。
-2.	使用 PowerShell API 來存取更多功能，例如建立自訂定義資料庫集合、新增排程及/或收集結果集。使用入口網站以進行簡單安裝和建立/監視限制為針對**彈性資料庫集區**執行的工作。 
-3.	針對工作執行建立加密認證及[將使用者 (或角色) 新增至群組中的每個資料庫](sql-database-elastic-jobs-add-logins-to-dbs.md)。
+2.	使用 PowerShell API 來存取更多功能，例如建立自訂定義資料庫集合、新增排程及/或收集結果集。使用入口網站以進行簡單安裝並建立/監視限制為針對**彈性資料庫集區**執行的工作。 
+3.	針對工作執行建立加密認證及[將使用者 (或角色) 新增至群組中的每個資料庫](sql-database-security.md)。
 4.	建立能夠針對群組中的每個資料庫執行的等冪 T-SQL 指令碼。 
 5.	遵循下列步驟，使用 Azure 入口網站建立工作：[建立和管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)。 
 6.	或使用 PowerShell 指令碼：[使用 PowerShell 建立和管理 SQL Database 彈性資料庫工作 (預覽)](sql-database-elastic-jobs-powershell.md)。
@@ -80,7 +80,7 @@
 1. 分區集
 2. 自訂群組
 
-分區集群組是使用[彈性資料庫工具](sql-database-elastic-scale-introduction.md)建立的。當您建立分區集群組時，會在群組中自動加入或移除資料庫。例如，新的分區將會自動加入群組中。對此群組執行工作，而不做任何調整。
+分區集群組是使用[彈性資料庫工具](sql-database-elastic-scale-introduction.md)所建立。當您建立分區集群組時，會在群組中自動加入或移除資料庫。例如，新的分區將會自動加入群組中。對此群組執行工作，而不做任何調整。
 
 另一方面，自訂群組的定義方式很嚴格。您必須在自訂群組中明確地加入或移除資料庫。如果群組中的資料庫已遭刪除，工作會嘗試對最終導致失敗的資料庫執行指令碼。使用 Azure 入口網站建立的群組目前是自訂群組。
 
@@ -116,7 +116,7 @@
 4.	完成所有工作作業之後，控制站會將工作更新為已完成狀態。在工作執行期間，可以隨時使用 PowerShell API 以檢視工作執行的目前狀態。PowerShell API 所傳回的所有時間都是以 UTC 表示。如有需要，可以初始化取消要求以停止工作。 
 
 ## 後續步驟
-[安裝元件](sql-database-elastic-jobs-service-installation.md)，然後[建立記錄檔並加入資料庫群組中的每個資料庫](sql-database-elastic-jobs-add-logins-to-dbs.md)。若要進一步了解工作的建立和管理，請參閱[建立及管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)。
+[安裝元件](sql-database-elastic-jobs-service-installation.md)，然後[建立記錄檔並加入資料庫群組中的每個資料庫](sql-database-security.md)。若要進一步了解工作的建立和管理，請參閱[建立及管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)。
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -124,4 +124,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

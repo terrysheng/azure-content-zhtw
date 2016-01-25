@@ -65,7 +65,7 @@
 
 	![HDInsight 叢集](./media/hdinsight-provision-clusters-v1/hdinsight.clusters.png)
  
-	> [AZURE.NOTE]*Azure HDInsight 叢集*也稱為 *HDInsight 中的 Hadoop 叢集*，或是 *HDInsight 叢集*。有時候，它可與 Hadoop 叢集互換使用。它們都代表裝載於 Microsoft Azure 環境中的 Hadoop 叢集。
+	> [AZURE.NOTE]Azure HDInsight 叢集也稱為 HDInsight 中的 Hadoop 叢集，或是 HDInsight 叢集。有時候，它可與 Hadoop 叢集互換使用。它們都代表裝載於 Microsoft Azure 環境中的 Hadoop 叢集。
 
 	在特定叢集類型中，各節點有不同的角色，可讓客戶針對特定角色，根據適合其工作負載的詳細資料來調整節點的大小。舉例來說，若執行的分析作業類型會耗用大量記憶體，Hadoop 叢集將可使用大量記憶體來佈建背景工作節點。
 
@@ -89,7 +89,7 @@
 
 	HDInsight 適用的 Spark 叢集會以三種角色來部署：- 前端伺服器 (2 個節點) - 背景工作伺服器 (至少 1 個節點) - Zookeeper 節點 (3 個節點) (為 A1 Zookeeper 免費提供)
 
-	客戶需根據叢集的生命期，就這些節點的使用量支付費用。一旦建立叢集之後便會開始計費，而刪除叢集時便會停止計費 (無法取消配置或保留叢集)。叢集大小會影響叢集價格。為了方便學習，建議使用 1 個資料節點。如需 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
+	客戶需根據叢集的生命期，就這些節點的使用量支付費用。一旦建立叢集之後便會開始計費，而刪除叢集時便會停止計費 (無法取消配置或保留叢集)。叢集大小會影響叢集價格。為了方便學習，建議使用 1 個資料節點。如需關於 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
 
 
 	>[AZURE.NOTE]叢集大小限制會隨著 Azure 訂用帳戶而有所不同。若要提高限制，請與帳務支援人員連絡。
@@ -98,13 +98,13 @@
 
 	![Azure 區域](./media/hdinsight-provision-clusters-v1/Azure.regions.png)
 
-	如需支援地區的清單，請按一下 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)中的 [地區] 下拉式清單。
+	如需支援的地區清單，請按一下 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)中的 [地區] 下拉式清單。
 
 - **節點大小**
 
 	![hdinsight vm 節點大小](./media/hdinsight-provision-clusters-v1/hdinsight.node.sizes.png)
 
-	選取 VM 的節點大小。如需詳細資訊，請參閱[雲端服務的大小](cloud-services-sizes-specs.md)。
+	選取 VM 的節點大小。如需詳細資訊，請參閱[雲端服務的大小](cloud-services-sizes-specs.md)
 
 	根據選擇的 VM，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
@@ -220,16 +220,7 @@
 
 	![diagram of point-to-site configuration](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)＞。
-
-> [AZURE.NOTE]您必須先建立 Azure 虛擬網路，才能佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](../services/virtual-machines/)＞。
->
-> Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。使用 Azure PowerShell Cmdlet Get-AzureVNetConfig 來檢查現有的 Azure 虛擬網路是否以位置為基礎。如果您的虛擬網路並非以位置為基礎，您會有下列選項：
->
-> - 將現有的虛擬網路組態匯出，然後建立新的虛擬網路。根據預設，所有新的虛擬網路都是以位置為基礎。
-> - 移轉到以位置為基礎的虛擬網路。請參閱[將現有服務移轉到區域範圍](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) (英文)。
->
-> 強烈建議您一個叢集只指定一個子網路。
+如需搭配虛擬網路 (包含虛擬網路特定設定需求) 使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
 ## 佈建工具
 
@@ -312,7 +303,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 	Add-AzureAccount
 
-系統會提示您輸入 Azure 帳號認證。
+系統會提示您輸入 Azure 帳戶認證。
 
 **建立 Azure 儲存體帳戶**
 
@@ -504,7 +495,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 執行下列程序來設定您的 Windows 電腦使用 Azure CLI：
 
 - 安裝 Azure CLI (使用 NPM 或 Windows Installer)
-- 下載及匯入 Azure 帳號發佈設定
+- 下載及匯入 Azure 帳戶發佈設定
 
 
 Azure CLI 可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您僅使用下列兩個選項之一來進行安裝。
@@ -513,7 +504,7 @@ Azure CLI 可使用 NPM 或 Windows Installer 進行安裝。Microsoft 建議您
 
 1.	瀏覽至 **www.nodejs.org**。
 2.	按一下 [安裝]，並依照指示使用預設設定。
-3.	從您的工作站開啟 [命令提示字元] \(或是 *Azure 命令提示字元*或 *VS2012 開發人員命令提示字元*)。
+3.	從您的工作站開啟 [命令提示字元] (或是 *Azure 命令提示字元*或 *VS2012 開發人員命令提示字元*)。
 4.	在命令提示字元視窗中執行下列命令：
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
@@ -810,4 +801,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

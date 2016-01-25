@@ -14,9 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
-
 
 # 在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取 
 
@@ -40,7 +39,6 @@ Microsoft Azure 網路功能可供部署獨立的私人叢集，透過限制其�
 - 每個 Cassandra 節點需要固定的內部 IP 位址
 
 Cassandra 可以部署到單一 Azure 區域或多個區域，視工作負載的分散特性而定。多重區域部署模型透過相同的 Cassandra 基礎結構，可用來服務接近特定地理位置的使用者。Cassandra 的內建節點複寫負責同步處理來自多個資料中心的多重主機寫入，並且對應用程式提供一致的資料檢視。多重區域部署也可以協助降低更多 Azure 服務中斷的風險。Cassandra 的可微調一致性和複寫拓撲有助於滿足應用程式不同的 RPO 需求。
-
 
 ### 單一區域部署
 我們將從單一區域部署開始，並學習建立多重區域模型。我們將使用 Azure 虛擬網路功能建立獨立的子網路，以滿足先前所描述的網路安全性需求。建立單一區域部署的程序使用 Ubuntu 14.04 LTS 和 Cassandra 2.08；不過，程序要改採用其他 Linux 版本也非常容易。下列是單一區域部署的一些系統特性。
@@ -511,6 +509,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 
 ###步驟 4：在 VNET1 和 VNET2 上建立閘道
 從兩個虛擬網路的儀表板，按一下 [建立閘道] 可觸發 VPN 閘道的佈建程序。請稍候幾分鐘，每個虛擬網路的儀表板應該會顯示實際的閘道位址。
+
 ###步驟 5：更新「區域」網路的個別「閘道」位址###
 編輯兩個區域網路，使用剛才佈建的閘道實際 IP 位址取代預留位置閘道 IP 位址。使用下列對應：
 
@@ -521,14 +520,14 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 </table>
 
 ###步驟 6：更新共用金鑰
-使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]： 
+使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]：
 Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK 
 Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
-###步驟 6：建立 VNET 對 VNET 連線
+###步驟 7：建立 VNET 對 VNET 連線
 從 Azure 傳統入口網站中，使用兩個虛擬網路的 [儀表板] 功能表建立閘道對閘道的連接。使用底部工具列的 [連線] 功能表項目。請稍候幾分鐘，儀表板應該會以圖形方式顯示連線詳細資料。
 
-###步驟 7：在第 2 個區域中建立虛擬機器 
+###步驟 8：在第 2 個區域中建立虛擬機器 
 依照在第 1 個區域中部署所述的下列相同步驟，建立 Ubuntu 映像，或者將映像 VHD 檔案複製到位於第 2 個區域的 Azure 儲存體帳戶，然後建立映像。使用此映像，並在新的雲端服務 hk-c-svc-east-us 建立下列虛擬機器清單：
 
 
@@ -546,7 +545,8 @@ Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-
 
 
 依照與第 1 個區域相同的指示，但是使用 10.2.xxx.xxx 位址空間。
-###步驟 8：在每個 VM 上設定 Cassandra
+
+###步驟 9：在每個 VM 上設定 Cassandra
 登入 VM 並執行下列項目：
 
 1. 編輯 $CASS\_HOME/conf/cassandra-rackdc.properties，以下列格式指定資料中心和機架內容：
@@ -554,11 +554,13 @@ Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-
     rack =rack1
 2. 編輯 cassandra.yaml 設定種子節點： 
     種子："10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
-###步驟 9：啟動 Cassandra
+
+###步驟 10：啟動 Cassandra
 登入每個 VM，執行下列命令在背景啟動 Cassandra：$CASS\_HOME/bin/cassandra
 
 ## 測試多重區域叢集
 現在 Cassandra 已部署 16 個節點，每個 Azure 區域中有 8 個節點。這些節點如果有共通的叢集名稱和種子節點設定，就是位於相同的叢集中。使用下列程序測試叢集：
+
 ###步驟 1：使用 PowerShell 取得這兩個區域的內部負載平衡器 IP
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
@@ -707,6 +709,4 @@ Microsoft Azure 是一個富彈性的平台，可以執行 Microsoft 與開放�
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
- 
-
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016--->

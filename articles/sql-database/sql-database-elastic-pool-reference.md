@@ -67,7 +67,7 @@
 | [使用 Azure SQL Database Library for .NET 建立和管理 SQL Database](sql-database-elastic-pool-powershell.md) | 如何使用 C# 建立和管理彈性資料庫集區 |
 | [彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md) | 彈性工作服務的概觀，此服務可在集區中的所有彈性資料庫內執行 T-SQL 指令碼 |
 | [安裝彈性資料庫工作元件](sql-database-elastic-jobs-service-installation.md) | 如何安裝彈性資料庫工作服務 |
-| [建立彈性工作服務所需的使用者](sql-database-elastic-jobs-add-logins-to-dbs.md) | 若要執行彈性資料庫工作指令碼，必須將具有適當權限的使用者加入至集區中的每個資料庫。 |
+| [保護您的 SQL Database](sql-database-security.md) | 若要執行彈性資料庫工作指令碼，必須將具有適當權限的使用者加入至集區中的每個資料庫。 |
 | [如何解除安裝彈性資料庫工作元件](sql-database-elastic-jobs-uninstall.md) | 嘗試安裝彈性資料庫工作服務失敗時加以復原 |
 
 
@@ -150,7 +150,6 @@ Azure SQL Database V12 伺服器位於資源群組中。
 有幾個 PowerShell Cmdlet 和 REST API 命令可用來建立及管理彈性集區。如需詳細資訊和程式碼範例，請參閱[使用 PowerShell 建立和管理 SQL Database 彈性資料庫集區](sql-database-elastic-pool-powershell.md)和[使用 C# 建立和管理 SQL Database](sql-database-client-library.md)。
 
 
-
 | [PowerShell Cmdlet](https://msdn.microsoft.com/library/mt163521.aspx) | [REST API 命令](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
 | [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [建立彈性資料庫集區](https://msdn.microsoft.com/library/mt163596.aspx) |
@@ -211,4 +210,4 @@ Azure SQL Database V12 伺服器位於資源群組中。
 | 40891 | EX\_USER | 每個資料庫最小 DTU (%d) 不能超過每個資料庫最大 DTU (%d)。| 每個資料庫最小 DTU；每個資料庫最大 DTU。| 嘗試設定高於每個資料庫最大 DTU 的每個資料庫最小 DTU。| 請確定每個資料庫最小 DTU 不會超過每個資料庫最大 DTU。|
 | TBD | EX\_USER | 彈性集區中個別資料庫的儲存空間大小不能超過 '%.*ls' 服務層彈性集區允許的最大大小。| 彈性集區服務層 | 資料庫的最大大小超過彈性集區服務層允許的最大大小。| 請設定彈性集區服務層允許之最大大小限制內的資料庫最大大小。|
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

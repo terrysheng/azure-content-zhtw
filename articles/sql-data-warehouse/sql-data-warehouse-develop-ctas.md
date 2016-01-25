@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # 在 SQL 資料倉儲中的 Create Table As Select (CTAS)
 Create table as select 或 CTAS 是最重要的可用 T-SQL 功能之一。該作業與根據 SELECT 陳述式的輸出來建立新資料表的作業完全平行。CTAS 是建立資料表複本最簡單快速的方法。您可以根據意願將它視為 SELECT..INTO 的增強版本。本文件提供 CTAS 的範例和最佳做法。
@@ -429,4 +429,4 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

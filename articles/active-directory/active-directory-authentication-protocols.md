@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory 驗證通訊協定
@@ -55,4 +55,4 @@ Azure Active Directory (Azure AD) 支援數個最常用的驗證和授權通訊�
 
 [Active Directory 程式碼範例](active-directory-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

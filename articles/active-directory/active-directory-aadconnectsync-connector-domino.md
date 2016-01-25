@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="01/14/2016"
    ms.author="andkjell"/>
 
 # Lotus Domino 連接器技術參考
@@ -344,7 +344,7 @@ Person 物件代表組織和組織單位中的使用者。除了預設屬性，D
 - 資源
 - 保留
 
-如需設定資源保留資料庫的詳細資訊，請參閱[設定資源保留資料庫](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html)。
+如需設定資源保留資料庫的詳細資訊，請參閱[設定資源保留資料庫](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html)。
 
 **建立、更新和刪除資源**
 
@@ -477,15 +477,15 @@ Domino 中有數種方式可延伸結構描述，使其顯示為連接器可使�
 
 **方法 1：延伸 Lotus Domino 結構描述**
 
-1. <PUBNAMES.NTF>依照[這些步驟](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html)建立一份 Domino 目錄範本 (請勿自訂預設的 IBM Lotus Domino 目錄範本)：
-2. 在 Domino Designer 中開啟剛才建立的 Domino 目錄範本<CONTOSO.NTF>，然後遵循下列步驟：
+1. 依照[這些步驟](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html)建立一份 Domino 目錄範本複本 {PUBNAMES.NTF} (請勿自訂預設的 IBM Lotus Domino 目錄範本)：
+2. 在 Domino Designer 中開啟剛才建立的 Domino 目錄範本複本 {CONTOSO.NTF}，然後遵循下列步驟：
     - 按一下 [共用項目]，然後展開子表單
-    - 按兩下 [$[ObjectName]InheritableSchema] 子表單 (其中 [ObjectName] 是預設結構化物件類別的名稱，例如 Person)。
-    - 為想要新增到 [MyPersonAtrribute] 結構描述的屬性命名，然後對應地透過選取 [建立] 功能表並從功能表中選取 [欄位] 來建立欄位。
+    - 按兩下 [${ObjectName}InheritableSchema] 子表單 (其中 {ObjectName} 是預設結構化物件類別的名稱，例如 Person)。
+    - 為想要新增到 {MyPersonAtrribute} 結構描述的屬性命名，然後對應地透過選取 [建立] 功能表並從功能表中選取 [欄位] 來建立欄位。
     - 在新增的欄位中，於欄位 [屬性] 視窗上選取其類型、樣式、大小、字型和其他相關參數，以設定其屬性。
     - 讓屬性預設值和提供給該屬性的名稱保持相同 (例如，如果屬性名稱是 MyPersonAttribute，請讓預設值保有相同名稱)。
-    - 以更新後的值儲存 $[ObjectName]InheritableSchema 子表單
-3. 遵循[這些步驟](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)，將 Domino 目錄範本<PUBNAMES.NTF>取代為新的自訂範本 [CONTOSO.NTF]。
+    - 以更新後的值儲存 ${ObjectName}InheritableSchema 子表單
+3. 遵循[這些步驟](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)，將 Domino 目錄範本 {PUBNAMES.NTF} 取代為新的自訂範本 {CONTOSO.NTF}。
 4. 關閉 Domino Admin，然後開啟 Domino 主控台以重新啟動 LDAP 服務，並重新載入 LDAP 結構描述：
     - 在 Domino 主控台中，於 [Domino 命令] 文字欄位下插入命令以重新啟動 LDAP 服務 - [重新啟動工作 LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html)。
     - 若要重新載入 LDAP 結構描述，請使用 Tell LDAP 命令 - Tell LDAP ReloadSchema
@@ -494,8 +494,8 @@ Domino 中有數種方式可延伸結構描述，使其顯示為連接器可使�
 
 **方法 2：以自訂屬性建立 auxClass 並與物件類別關聯**
 
-1. 依照[這些步驟]()http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html建立一份 Domino 目錄範本 [PUBNAMES.NTF] (請勿自訂預設的 IBM Lotus Domino 目錄範本)：
-2. 在 Domino Designer 中開啟剛才建立的 Domino 目錄範本 [CONTOSO.NTF]。
+1. 依照[這些步驟](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html)建立一份 Domino 目錄範本複本 {PUBNAMES.NTF} (請勿自訂預設的 IBM Lotus Domino 目錄範本)：
+2. 在 Domino Designer 中開啟剛才建立的 Domino 目錄範本複本 {CONTOSO.NTF}。
 3. 在左窗格中，依序選取 [共用程式碼] 和 [子表單]。
 4. 按一下 [新增子表單]
 5. 執行下列動作來指定新子表單的屬性：
@@ -508,16 +508,16 @@ Domino 中有數種方式可延伸結構描述，使其顯示為連接器可使�
 6. 執行下列動作來新增欄位，以定義輔助物件類別：
     - 開啟剛才建立的子表單。
     - 選擇 [建立] > [欄位]。
-    - 在 [欄位] 對話方塊的 [基本] 索引標籤上的 [名稱] 旁，指定任何名稱，例如 [MyPersonTestAttribute]。
+    - 在 [欄位] 對話方塊的 [基本] 索引標籤上的 [名稱] 旁，指定任何名稱，例如：{MyPersonTestAttribute}。
     - 在新增的欄位中，選取其類型、樣式、大小、字型和相關屬性，以設定其屬性。
     - 讓屬性預設值和提供給該屬性的名稱保持相同 (例如，如果屬性名稱是 MyPersonTestAttribute，請讓預設值保有相同名稱)。
     - 以更新後的值儲存子表單，然後執行下列動作：
         - 在左窗格中，依序選取 [共用程式碼] 和 [子表單]。
         - 選取新的子表單，然後選擇 [設計] > [設計屬性]。
         - 按一下左邊的第三個索引標籤，然後選取 [傳播此設計變更禁止]。
-7. 開啟 [$[ObjectName]ExtensibleSchema] 子表單 (其中 [ObjectName] 是預設結構化物件類別的名稱，例如 Person)。
-8. 插入 [資源] 並選取子表單 (您剛才建立的，例如 TestSubform)，然後儲存 [$[ObjectName]ExtensibleSchema] 子表單。
-9. 遵循[這些步驟](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)，將 Domino 目錄範本 [PUBNAMES.NTF] 取代為新的自訂範本 [CONTOSO.NTF]。
+7. 開啟 [${ObjectName}ExtensibleSchema] 子表單 (其中 {ObjectName} 是預設結構化物件類別的名稱，例如 Person)。
+8. 插入 [資源] 並選取子表單 (您剛才建立的，例如 TestSubform)，然後儲存 [${ObjectName}ExtensibleSchema] 子表單。
+9. 遵循[這些步驟](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html)，將 Domino 目錄範本 {PUBNAMES.NTF} 取代為新的自訂範本 {CONTOSO.NTF}。
 10. 關閉 Domino Admin，然後開啟 Domino 主控台以重新啟動 LDAP 服務，並重新載入 LDAP 結構描述：
     - 在 Domino 主控台中，於 [Domino 命令] 文字欄位下插入命令以重新啟動 LDAP 服務 - [重新啟動工作 LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html)。
     - 若要重新載入 LDAP 結構描述，請使用 Tell LDAP 命令 - Tell LDAP ReloadSchema
@@ -526,10 +526,10 @@ Domino 中有數種方式可延伸結構描述，使其顯示為連接器可使�
 
 **方法 3：將自訂屬性新增至 ExtensibleObject 類別**
 
-1. 開啟放在根目錄的 [Schema.nsf] 檔案
+1. 開啟放在根目錄的 {Schema.nsf} 檔案
 2. 從左方功能表的 [所有結構描述文件] 底下選取 [LDAP 物件類別]，然後按一下 [新增物件類別] 按鈕：
-3. 以 [###ExtensibleSchema] 形式提供有關想要為其延伸結構描述之物件的 LDAP 名稱 (其中 ### 是預設結構化物件類別的名稱，例如 Person)。例如，若要延伸 Person 物件類別的結構描述，請提供 LDAP 名稱 [PersonExtensibleSchema]。
-4. 提供想要為其延伸結構描述的上層物件類別名稱。例如，若要延伸 Person 物件類別的結構描述，請提供上層物件類別名稱 [dominoPerson]：
+3. 以 {zzzExtensibleSchema} 形式提供有關想要為其延伸結構描述之物件的 LDAP 名稱 (其中 zzz 是預設結構化物件類別的名稱，例如 Person)。例如，若要延伸 Person 物件類別的結構描述，請提供 LDAP 名稱 {PersonExtensibleSchema}。
+4. 提供想要為其延伸結構描述的上層物件類別名稱。例如，若要延伸 Person 物件類別的結構描述，請提供上層物件類別名稱 {dominoPerson}：
 5. 指出對應到物件類別的有效 OID。
 6. 根據需求選取 [必要屬性類型] 或 [選擇性屬性類型] 欄位之下的延伸/自訂屬性：
 7. 將必要屬性新增至 ExtensibleObjectClass 之後，按一下 [儲存並關閉] 按鈕。
@@ -539,4 +539,4 @@ Domino 中有數種方式可延伸結構描述，使其顯示為連接器可使�
 
 -	如需如何啟用記錄來疑難排解連接器的資訊，請參閱[如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

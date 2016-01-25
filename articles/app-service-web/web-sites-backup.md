@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/07/2015" 
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中備份 Web 應用程式
@@ -167,7 +167,7 @@ Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若�
 
 <a name="nextsteps"></a>
 ## 後續步驟
-如需有關從備份還原 Web 應用程式的資訊，請參閱[在 Azure App Service 中還原 Web 應用程式](web-sites-restore.md)。
+如需有關從備份還原 Web 應用程式的資訊，請參閱[在 Azure App Service 中還原 Web 應用程式](web-sites-restore.md)。您也可以使用 REST API 來備份及還原 App Service 應用程式 (請參閱[使用 REST 來備份及還原 App Service 應用程式](websites-csm-backup.md))。
 
 若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用](/pricing/free-trial/)。
 
@@ -190,4 +190,4 @@ Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若�
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

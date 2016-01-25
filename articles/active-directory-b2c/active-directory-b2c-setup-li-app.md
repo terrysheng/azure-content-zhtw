@@ -34,7 +34,7 @@
 
     ![LinkedIn - 註冊應用程式](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-5. 複製 [用戶端識別碼] 與 [用戶端密碼] (可在 [驗證金鑰] 區段下方找到) 的值。您必須使用這兩個值，將 LinkedIn 設為租用戶中的身分識別提供者。注意：[用戶端密碼] 是重要的安全性認證。
+5. 複製 [用戶端識別碼] 與 \[用戶端密碼] (可在 [驗證金鑰] 區段下方找到) 的值。您必須使用這兩個值，將 LinkedIn 設為租用戶中的身分識別提供者。注意：[用戶端密碼] 是重要的安全性認證。
 
 6. 在 [授權的重新導向 URL] 欄位 (位於 [OAuth 2.0] 區段下方) 中，輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`，其中 **{tenant}** 要取代為您租用戶的名稱 (例如 contoso.onmicrosoft.com)，然後按一下 [新增]。然後按一下 [更新]。
 

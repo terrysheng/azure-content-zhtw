@@ -69,7 +69,7 @@ ms.service="virtual-machines"
 
 
 
-在此案例中新增及啟動 Azure 節點的步驟，通常與用於內部部署前端節點的步驟相同。如需詳細資訊，請參閱[使用 Microsoft HPC Pack 部署 Azure 節點的步驟](https://technet.microsoft.com/library/gg481758.aspx)中的下列小節：
+在此案例中新增及啟動 Azure 節點的步驟，通常與用於內部部署前端節點的步驟相同。如需詳細資訊，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點的步驟](https://technet.microsoft.com/library/gg481758(v=ws.10).aspx) 中的下列小節：
 
 * 建立 Azure 節點範本
 

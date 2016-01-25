@@ -38,7 +38,7 @@
 
 ### 對 API 應用程式閘道啟用 CORS
 
-API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS。藉由新增 **MS\_CrossDomainOrigins** *appSetting*，您可以指定允許呼叫 API 應用程式的 URL。本章將說明如何使用此 *appSetting* 在 API 閘道層級啟用 CORS。
+API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS。藉由新增 **MS_CrossDomainOrigins** *appSetting*，您可以指定允許呼叫 API 應用程式的 URL。本章將說明如何使用此 *appSetting* 在 API 閘道層級啟用 CORS。
 
 1. 瀏覽至您要啟用 CORS 的 API 應用程式的 Azure 預覽入口網站刀鋒視窗。一旦抵達，請按一下 API 應用程式的*閘道* 圖示。 
 
@@ -56,7 +56,7 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 	![閘道應用程式設定](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. 新增 **MS\_CrossDomainOrigins** 應用程式設定。讓此設定的值成為您要提供 API 應用程式存取權的 HTTP 主機清單 (以逗號分隔)。如果您要提供多部主機的存取權，則可將 *appSetting* 的值設定為類似下列的程式碼。
+1. 新增 **MS_CrossDomainOrigins** 應用程式設定。讓此設定的值成為您要提供 API 應用程式存取權的 HTTP 主機清單 (以逗號分隔)。如果您要提供多部主機的存取權，則可將 *appSetting* 的值設定為類似下列的程式碼。
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -68,7 +68,7 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-部落格文章 [Azure 行動服務 .NET 更新](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/)中有 **MS\_CrossDomainOrigins** 應用程式設定的詳細討論，如需此設定的詳細資訊，請查看這篇文章。
+部落格文章 [Azure 行動服務 .NET 更新](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/)中有 **MS_CrossDomainOrigins** 應用程式設定的詳細討論，如需此設定的詳細資訊，請查看這篇文章。
 
 ### 在 Web API 程式碼中啟用 CORS
 
@@ -82,7 +82,7 @@ API 應用程式閘道可設定為使用 Azure Preview 入口網站啟用 CORS�
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. 開啟 *App\_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。
+1. 開啟 *App_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。
 
 		config.EnableCors();
 

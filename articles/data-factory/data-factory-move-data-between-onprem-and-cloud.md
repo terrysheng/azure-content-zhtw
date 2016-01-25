@@ -553,10 +553,15 @@
 7.	在 [認證] 刀鋒視窗中，按一下 [按一下這裡設定認證]。
 8.	在 [設定認證] 對話方塊中，執行下列動作：
 
-	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1.選取您要 Data Factory 服務用來連接到資料庫的**驗證**。2.在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。3.在 [密碼] 設定中輸入使用者的密碼。4.按一下 [確定] 關閉對話方塊。 
+	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 
+	1.選取您要 Data Factory 服務用來連接到資料庫的**驗證**。
+	2.在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。
+	3.在 [密碼] 設定中輸入使用者的密碼。
+	4.按一下 [確定] 關閉對話方塊。 
 4. 按一下 [確定] 關閉 [認證] 刀鋒視窗。 
 5. 按一下 [新增資料存放區] 刀鋒視窗中的 [確定]。 	
-6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。
+![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。如果應用程式無法連接閘道器電腦，它將不允許您設定資料來源的認證，以及測試資料來源的連接。
 
@@ -628,7 +633,8 @@
 ## 使用資料管理閘道進行複製的資料流
 當您使用資料管線中的複製活動，將內部部署資料擷取至雲端以進行進一步的處理，或者匯出雲端中的結果資料回到內部部署資料存放區，複製活動都會在內部使用閘道器將資料從內部部署資料來源傳輸回雲端，反之亦然。
 
-利用資料閘道器進行複製步驟的高層級資料流和摘要如下：![使用閘道器的資料流](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+利用資料閘道器進行複製步驟的高層級資料流和摘要如下：
+![使用閘道器的資料流](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	資料開發人員會使用 [Azure 入口網站](http://portal.azure.com)或 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx)，為 Azure Data Factory 建立新的閘道器。 
 2.	資料開發人員會使用「連結服務」面板，透過閘道器定義內部部署資料存放區的新連結服務。在設定連結服務資料的過程中，開發人員會使用設定認證應用程式指定驗證類型和認證，如逐步解說所示。設定認證應用程式對話方塊將會與資料存放區進行通訊以測試要儲存認證的連線與閘道器。

@@ -61,8 +61,8 @@ Azure 備份是一個混合式備份解決方案，所以是由多個一起運�
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)、</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)、</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)、</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
-| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) | | Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
-
+| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
 ## 功能
 下列表格概述 Azure 備份功能如何處理每個元件：
 

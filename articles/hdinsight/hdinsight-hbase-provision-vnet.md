@@ -36,7 +36,7 @@
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。若要執行 Azure PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[使用 Set-executionpolicy cmdlet][2]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。若要執行 Azure PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned* 。請參閱[使用 Set-executionpolicy cmdlet][2]。
 
 	執行 Azure PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 

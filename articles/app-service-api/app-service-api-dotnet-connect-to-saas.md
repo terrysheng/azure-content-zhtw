@@ -378,7 +378,12 @@
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	以下是用於其他提供者的值：* "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
+	以下是用於其他提供者的值：
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+<br/><br/>
 
 * `GetConsentLinkAsync()` 方法的第二個參數是回呼 URL，而同意伺服器會在使用者登入 Dropbox 並同意存取其帳戶之後，重新導向至該回呼 URL。
 
@@ -446,7 +451,7 @@ Dropbox 登入之後的重新導向 URL 可能與此範例類似：
 
 您已了解如何為連接至 SaaS 平台的 API 應用程式編寫程式碼及進行設定。如需如何處理 API 應用程式中的驗證作業之其他教學課程的連結，請參閱 [API 應用程式和行動應用程式的驗證 - 後續步驟](../app-service/app-service-authentication-overview.md#next-steps)。
 
-[Azure preview portal]: https://portal.azure.com/
-[Azure portal]: https://manage.windowsazure.com/
+[Azure 預覽入口網站]: https://portal.azure.com/
+[Azure 入口網站]: https://manage.windowsazure.com/
 
 <!---HONumber=AcomDC_0114_2016-->

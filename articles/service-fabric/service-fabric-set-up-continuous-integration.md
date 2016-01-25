@@ -160,15 +160,15 @@
 
 ### 以本機服務帳戶註冊 Azure PowerShell 模組
 
-1. 按下 Win + R，然後輸入 **regedit** 並且按 Enter 鍵。
+1. 按下 Win + R，然後輸入 **regedit** 並且按 enter 鍵。
 2. 以滑鼠右鍵按一下節點 `HKEY_Users\.Default\Environment`，並且選取 [新增 > 可擴充字串值]。
 3. 輸入 `PSModulePath` 做為名稱，輸入 `%PROGRAMFILES%\WindowsPowerShell\Modules` 做為值。
 
->[AZURE.NOTE]在啟動組建代理程式*之前*執行這項操作，否則它將不會挑選新的環境變數。
+>[AZURE.NOTE]在啟動組建代理程式 *之前* 執行這項操作，否則它將不會挑選新的環境變數。
 
 ### 匯入自動化憑證
 
-1. 將憑證匯入您的組建電腦。作法：
+1.	將憑證匯入您的組建電腦。作法：
     1. 將指令碼 CreateAndUpload-Certificate.ps1 建立的 PFX 檔案複製到您的組建電腦。
     2. 使用您稍早傳遞至 GenerateCertificate.ps1 的密碼，開啟系統管理 PowerShell 帳戶，並且發出下列命令：
 

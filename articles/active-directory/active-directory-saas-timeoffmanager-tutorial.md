@@ -16,7 +16,8 @@
 
 #教學課程：Azure Active Directory 與 TimeOffManager 整合
   
-本教學課程的目的是要示範 Azure 與 TimeOffManager 的整合。本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程的目的是要示範 Azure 與 TimeOffManager 的整合。
+本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   啟用 TimeOffManager 單一登入的訂用帳戶
@@ -66,7 +67,9 @@
 
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶驗證至 TimeOffManager。在此程序中，您需要上傳 base-64 編碼憑證到您的 TimeOffManager 租用戶。如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶驗證至 TimeOffManager。
+在此程序中，您需要上傳 base-64 編碼憑證到您的 TimeOffManager 租用戶。
+如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
 ###若要設定單一登入，請執行下列步驟：
 
@@ -138,7 +141,9 @@
 
 ##設定使用者佈建
   
-若要讓 Azure AD 使用者可以登入 TimeOffManager，則必須將他們佈建到 TimeOffManager。TimeOffManager 支援即時使用者佈建。沒有您適用的動作項目。在第一次登入時使用單一登入，便會自動加入使用者。
+若要讓 Azure AD 使用者可以登入 TimeOffManager，則必須將他們佈建到 TimeOffManager。  
+TimeOffManager 支援即時使用者佈建。沒有您適用的動作項目。  
+在第一次登入時使用單一登入，便會自動加入使用者。
 
 >[AZURE.NOTE]您可以使用任何其他的 TimeOffManager 使用者帳戶建立工具或 TimeOffManager 提供的 API 來佈建 AAD 使用者帳戶。
 

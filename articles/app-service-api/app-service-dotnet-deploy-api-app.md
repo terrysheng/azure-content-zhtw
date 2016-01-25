@@ -26,7 +26,7 @@
 
 ### 其他部署選項
 
-有許多部署 API 應用程式的其他方法。API 應用程式是一種 [Web 應用程式](../app-service-web/app-service-web-overview.md)，具有額外的功能來裝載 Web 服務，而且[可供 Web 應用程式使用的部署方法](../app-service-web/web-sites-deploy.md)也可與 API 應用程式搭配使用。裝載 API 應用程式的 Web 應用程式稱為 Azure Preview 入口網站中的 API 應用程式主機，而且您可以使用 API 應用程式主機入口網站刀鋒視窗來設定部署。如需 API 應用程式主機刀鋒視窗的相關資訊，請參閱[管理 API 應用程式](app-service-api-manage-in-portal.md)。
+有許多部署 API 應用程式的其他方法。API 應用程式是一種 [Web 應用程式](../app-service-web/app-service-web-overview.md)，具有額外的功能來裝載 Web 服務，而且[可供 Web 應用程式使用的部署方法](../app-service-web/web-sites-deploy.md)也可與 API 應用程式搭配使用。裝載 API 應用程式的 Web 應用程式稱為 Azure 預覽入口網站中的 API 應用程式主機，而且您可以使用 API 應用程式主機入口網站刀鋒視窗來設定部署。如需 API 應用程式主機刀鋒視窗的相關資訊，請參閱[管理 API 應用程式](app-service-api-manage-in-portal.md)。
 
 API 應用程式是以 Web 應用程式為基礎的事實，也表示您可以將針對 ASP.NET 以外平台撰寫的程式碼部署到 API 應用程式。如需使用 Git 將 Node.js 程式碼部署到 API 應用程式的範例。請參閱[在 Azure App Service 中建立 Node.js API 應用程式](app-service-api-nodejs-api-app.md)。
  

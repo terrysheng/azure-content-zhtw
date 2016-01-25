@@ -276,7 +276,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-如果作業成功，`result.entries` 將包含符合查詢的實體陣列。若查詢無法傳回所有實體，則 `result.continuationToken` 將為非 *Null*，並且可作為 **queryEntities** 的第三個參數來擷取更多結果。在初始查詢中，第三個參數請使用 *null*。
+如果作業成功，`result.entries` 將包含符合查詢的實體陣列。若查詢無法傳回所有實體，則 `result.continuationToken` 將為非 *Null* ，並且可作為 **queryEntities** 的第三個參數來擷取更多結果。在初始查詢中，第三個參數請使用 *null* 。
 
 ### 查詢實體屬性的子集
 

@@ -22,7 +22,7 @@
 
 本主題說明如何新增推播通知給[快速入門專案](mobile-services-ios-get-started.md)，以讓行動服務在每次插入一筆記錄時傳送推播通知。您必須先完成[開始使用行動服務]。
 
-> [AZURE.NOTE][IOS 模擬器不支援推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，所以您必須使用實體 iOS 裝置。您也必須註冊付費 [Apple Developer Program 成員資格](https://developer.apple.com/programs/ios/)。
+> [AZURE.NOTE] [IOS 模擬器不支援推播通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)，所以您必須使用實體 iOS 裝置。您也必須註冊付費 [Apple Developer Program 成員資格](https://developer.apple.com/programs/ios/)。
 
 [AZURE.INCLUDE [啟用 Apple 推播通知](../../includes/enable-apple-push-notifications.md)]
 
@@ -117,4 +117,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->

@@ -428,9 +428,9 @@ Mahout 安裝於 HDInsight 3.1 叢集上，且可使用下列步驟來手動安�
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	建置完成之後，JAR 檔案會建立在 __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__ 中。
 
-    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
+    	> [AZURE.NOTE] 當 Mahout 1.0 發行時，您應能搭配 HDInsight 3.0 使用預先建置的封裝。
 
 2. 將 jar 檔案上傳至叢集預設儲存庫中的 __example/jars__。使用您 HDInsight 叢集的名稱來取代下列程式碼中的 CLUSTERNAME，並且使用指向 __mahout-coure-0.9-job.jar__ 檔案的路徑來取代 FILENAME。
 

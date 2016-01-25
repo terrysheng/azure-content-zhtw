@@ -352,7 +352,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-評估之前，*doubleVecList* 值會轉換成單一的 *doubleVec*。例如，如果 `v = [1,2,3]`，則呼叫 `avg(v)` 相當於呼叫 `avg(1,2,3)`，而呼叫 `avg(v, 7)` 相當於呼叫 `avg(1,2,3,7)`。
+評估之前，*doubleVecList* 值會轉換成單一的 *doubleVec* 。例如，如果 `v = [1,2,3]`，則呼叫 `avg(v)` 相當於呼叫 `avg(1,2,3)`，而呼叫 `avg(v, 7)` 相當於呼叫 `avg(1,2,3,7)`。
 
 ## <a name="getsampledata"></a>取得樣本資料
 
@@ -486,11 +486,11 @@ Batch 評估上述程式碼後，它會以值的向量形式傳回樣本範圍�
 2. 當 CPU 使用率偏低時，減少集區中運算節點的目標數目
 3. 一律以 400 為節點的數目上限
 
-針對在高 CPU 使用率期間*增加*節點，我們將陳述式定義為如果在過去 10 分鐘期間 CPU 使用率的平均最小值大於 70%，則在使用者定義的變數 ($TotalNodes) 中填入節點目前目標數目的 110%：
+針對在高 CPU 使用率期間*增加* 節點，我們將陳述式定義為如果在過去 10 分鐘期間 CPU 使用率的平均最小值大於 70%，則在使用者定義的變數 ($TotalNodes) 中填入節點目前目標數目的 110%：
 
 `$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
-下一個陳述式定義如果過去 60 分鐘的平均 CPU 使用率*低於* 20%，則將相同的變數設定為節點目前目標數目的 90%，將低 CPU 使用率期間的目標數目降低。請注意，此陳述式也會參考上述陳述式中使用者定義的變數 *$TotalNodes*。
+下一個陳述式定義如果過去 60 分鐘的平均 CPU 使用率*低於* 20%，則將相同的變數設定為節點目前目標數目的 90%，將低 CPU 使用率期間的目標數目降低。請注意，此陳述式也會參考上述陳述式中使用者定義的變數 *$TotalNodes* 。
 
 `$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 

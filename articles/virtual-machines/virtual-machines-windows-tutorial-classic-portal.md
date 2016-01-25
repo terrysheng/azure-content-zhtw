@@ -27,7 +27,7 @@
 
 <!-- HHTML comment in to break between the selector and the note in the include below-->
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-tutorial.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [資源管理員部署模型](virtual-machines-windows-tutorial.md)。
 
 本教學課程示範在 Azure 傳統入口網站中建立執行 Windows 的 Azure 虛擬機器 (VM) 有多麼容易。我們將使用 Windows Server 映像做為範例，這只是 Azure 提供眾多映像中的一種。請注意，您可以選擇何種映像取決於您的訂用帳戶。例如，Windows 桌面映像可能可供 MSDN 訂閱者使用。
 

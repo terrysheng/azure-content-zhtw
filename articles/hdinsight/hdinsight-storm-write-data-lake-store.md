@@ -207,7 +207,7 @@ __若為 Linux 型 HDInsight__：
 
 __若為 Windows 型 HDInsight__：
 
-1. 在 [Storm 儀表板] (https://CLUSTERNAME.azurehdinsight.net,) 中，選取頁面頂端的 [Storm UI] 連結。
+1. 在 [Storm 儀表板] \(https://CLUSTERNAME.azurehdinsight.net,) 中，選取頁面頂端的 [Storm UI] 連結。
 
 2. Storm UI 載入後，選取 [datalakewriter] 連結。
 
@@ -221,4 +221,4 @@ __若為 Windows 型 HDInsight__：
 
 現在，您已學到如何使用 Storm 來寫入至 Azure 資料湖存放區，接下來請探索其他 [HDInsight 的 Storm 範例](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->

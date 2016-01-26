@@ -24,7 +24,7 @@
  
    ![服務建立](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-![提供的影片](./media/storsimple-create-new-service/Video_icon.png) **提供的影片**
+![提供的影片](./media/storsimple-create-new-service/Video_icon.png)**提供的影片**
 
 若要觀看影片示範如何建立新的 StorSimple Manager 服務，請按一下[這裡](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/)。
 

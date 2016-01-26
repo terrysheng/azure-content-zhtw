@@ -82,7 +82,8 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 
 2. 展開
-3. [*資料服務*] 和 [*復原服務*]，然後按一下 [*Site Recovery 保存庫*]。*
+3. [*資料服務*] 和 [*復原服務*]，然後按一下 [*Site Recovery 保存庫*]。
+*
 3. 按一下 [建立新項目]，然後按一下 [快速建立]。
 
 
@@ -120,18 +121,29 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 4. 在 [Microsoft Update] 中，您可以選擇加入以取得更新。啟用這項設定時，會根據您的 Microsoft Update 原則來安裝提供者更新。
 
-	![Microsoft Update](./media/site-recovery-vmm-to-azure/VMMASRInstallMUScreen.png)
+	![Microsoft Updates](./media/site-recovery-vmm-to-azure/VMMASRInstallMUScreen.png)
 
 
-1.  安裝位置已設為 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**。按一下 [安裝] 按鈕，開始安裝提供者。![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
+1.  安裝位置已設為 **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**。按一下 [安裝] 按鈕，開始安裝提供者。
+	![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
 
 
 
-1. 安裝提供者之後，請按一下 [註冊] 按鈕，在保存庫中註冊伺服器。![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
+1. 安裝提供者之後，請按一下 [註冊] 按鈕，在保存庫中註冊伺服器。
+	![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
 
-5. 在 [網際網路連線] 中，指定 VMM 伺服器上執行的提供者連接到網際網路的方式。選取 [Use default system proxy settings]，以使用在伺服器上設定的預設網際網路連線設定。
+5. 在 [網際網路連線] 中，指定 VMM 伺服器上執行的提供者連接到網際網路的方式。選取 [使用預設的系統 Proxy 設定]，以使用在伺服器上設定的預設網際網路連線設定。
 
-	![網際網路設定](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - 如果您想要使用自訂的 Proxy，就應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您將必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取 - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+	![網際網路設定](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png)
+	- 如果您想要使用自訂的 Proxy，就應該在安裝提供者之前進行設定。設定自訂的 Proxy 設定時，將執行測試來檢查 Proxy 連線。
+	- 如果您使用自訂 Proxy，或您的預設 Proxy 需要驗證，您將必須輸入 Proxy 的詳細資料，包括 Proxy 位址和連接埠。
+	- 下列 URL 應該能夠從 VMM 伺服器與 Hyper-V 主機存取 
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- 允許 [Azure 資料中心 IP 範圍](http://go.microsoft.com/fwlink/?LinkId=511094)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 	- 如果您使用的是自訂 proxy，則會使用指定的 proxy 認證自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。設定 proxy 伺服器，讓此帳戶可以成功進行驗證。在 VMM 主控台中，可以修改 VMM RunAs 帳戶設定。若要這樣做，請開啟 [設定] 工作區、展開 [安全性]、按一下 [執行身分帳戶]，然後修改 DRAProxyAccount 的密碼。您必須重新啟動 VMM 服務，這項設定才會生效。
 
@@ -147,14 +159,15 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 8. 在 [伺服器名稱] 中，指定保存庫中 VMM 伺服器的易記識別名稱。在叢集設定中，指定 VMM 叢集角色名稱。
 
-8. 在 [初始雲端中繼資料同步] 中，選取您是否要將 VMM 伺服器上所有雲端的中繼資料與保存庫同步。這個動作只需要在每個伺服器上進行一次。如果不要同步所有雲端，您可以取消勾選此設定，然後在 VMM 主控台的雲端屬性中個別同步每個雲端。![伺服器註冊](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
+8. 在 [初始雲端中繼資料同步] 中，選取您是否要將 VMM 伺服器上所有雲端的中繼資料與保存庫同步。這個動作只需要在每個伺服器上進行一次。如果不要同步所有雲端，您可以取消勾選此設定，然後在 VMM 主控台的雲端屬性中個別同步每個雲端。
+	![伺服器註冊](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
 
 
 8. 按 [下一步]，完成此程序。註冊後，Azure Site Recovery 即可從 VMM 伺服器擷取中繼資料。此伺服器會顯示於保存庫中 [伺服器] 頁面的 [VMM 伺服器] 索引標籤上。
 
->[AZURE.NOTE]您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來在適用於 Windows Server 2012 R2 的伺服器核心上安裝提供者
+>[AZURE.NOTE] 您也可以使用下列命令列來安裝 Azure Site Recovery 提供者。這個方法可以用來在適用於 Windows Server 2012 R2 的伺服器核心上安裝提供者
 
-1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\\ASR
+1. 將提供者安裝檔案和註冊金鑰下載至資料夾，例如 C:\ASR
 1. 停止 System Center Virtual Machine Manager 服務
 1. 從命令提示字元，使用**系統管理員**權限執行下列命令，來解壓縮提供者安裝程式
 
@@ -166,7 +179,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 1. 執行下列命令來登錄提供者
 
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
 
   
 #### 命令列安裝參數清單
@@ -295,7 +308,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 		![修改網路屬性](./media/site-recovery-vmm-to-azure/MultiNic.png)
 
->[AZURE.NOTE]不支援使用靜態 IP 的 Linux 虛擬機器。
+>[AZURE.NOTE] 不支援使用靜態 IP 的 Linux 虛擬機器。
 
 ## 測試您的部署
 若要測試部署，您可以對單一虛擬機器執行測試容錯移轉，或者建立包含多部虛擬機器的復原方案，再對這個方案執行測試容錯移轉。測試容錯移轉會在隔離的網路中模擬您的容錯移轉與復原機制。請注意：
@@ -365,6 +378,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 <LI>若要在完整生產環境中規劃及部署 Azure Site Recovery，請參閱 <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Azure Site Recovery 的規劃指南</a>及 <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Azure Site Recovery 的部署指南</a>。</LI>
 
 
-<LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI> </UL>
+<LI>若有任何問題，請造訪 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 復原服務論壇</a> (英文)。</LI>
+</UL>
 
 <!---HONumber=AcomDC_0121_2016-->

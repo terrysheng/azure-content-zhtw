@@ -47,7 +47,8 @@ OneDrive 共有兩種版本：OneDive 和商務用 OneDrive。Azure RemoteApp �
 
 ### 將磁碟機對應至商務用 OneDrive URL
 
-依照支援文章中的指示進行：[https://support.microsoft.com/kb/2616712](https://support.microsoft.com/kb/2616712)
+依照支援文章中的指示進行：
+[https://support.microsoft.com/kb/2616712](https://support.microsoft.com/kb/2616712)
  
 設定中的重要步驟是確保您選取了 [讓我保持登入]。
 

@@ -209,7 +209,7 @@
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. 重覆前兩個步驟，將 partitionweblogs.hql 檔案上傳到 adfgetstarted 容器的指令碼資料夾中。命令如下： 
+	1. 執行下列命令，將 **partitionweblogs.hql** 檔案上傳到 **adfgetstarted** 容器的**指令碼**資料夾中。命令如下： 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@
 - Visual Studio
 - Azure 資源管理員範本 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

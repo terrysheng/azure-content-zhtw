@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 
@@ -35,7 +35,7 @@ Azure 內容傳遞網路 (CDN) 是在 Azure 中調整任何 HTTP 應用程式的
 
 	CDN 設定檔就是 CDN 端點的集合。每個設定檔都有至少一個 CDN 端點。當您建立 CDN 設定檔之後，就能建立使用您所選原始來源的新 CDN 端點。
 	
-	>[AZURE.NOTE]一個 Azure 訂用帳戶只能擁有四個 CDN 設定檔，而每個 CDN 設定檔則只能擁有四個 CDN 端點。
+	>[AZURE.NOTE]依預設，一個 Azure 訂用帳戶只能擁有四個 CDN 設定檔，而每個 CDN 設定檔則只能擁有十個 CDN 端點。
 	>
 	> CDN 定價是根據 CDN 設定檔層級來套用的。如果您想要混合使用標準和進階的 CDN 功能，就需要擁有多個 CDN 設定檔。
 	
@@ -147,4 +147,4 @@ Azure 可讓您使用 HTTPS 呼叫從 CDN 擷取內容。這可讓您將 CDN 中
 - [清除 Azure CDN 端點](cdn-purge-endpoint.md)
 - [CDN 資源提供者 REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

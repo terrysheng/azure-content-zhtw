@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # 備份 Azure 虛擬機器
@@ -40,7 +40,7 @@
 
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 按一下頁面底部的 [探索]。
+3. 按一下頁面底部的 [**探索**]。
     ![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
 
     在列表顯示虛擬機器時，探索程序可能需花費幾分鐘的時間。畫面底部會有通知讓您知道程序正在執行中。
@@ -145,7 +145,7 @@
 
 >[AZURE.NOTE]在備份工作進行時，Azure 備份服務會發出命令給每個虛擬機器中的備份擴充功能，以排清所有寫入並取得一致的快照。
 
-初始備份完成後，[受保護的項目] 索引標籤中的虛擬機器狀態會顯示為 [受保護]。
+初始備份完成後，[受保護的項目] 索引標籤中的虛擬機器狀態會顯示為 *[受保護]*。
 
 ![搭配復原點備份虛擬機器](./media/backup-azure-vms/protect-backedupvm.png)
 
@@ -164,4 +164,4 @@
 - [管理和監視虛擬機器](backup-azure-manage-vms.md)
 - [還原虛擬機器](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -71,8 +71,8 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 您可以使用 Azure PowerShell 抓取授權 NS 記錄，如下所示 (記錄名稱 "@" 用來參考區域頂點的記錄)。
 
-	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -87,6 +87,8 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 在此範例引，區域 ‘contoso.com’ 已被指派名稱伺服器 ‘ns1-04.azure-dns.com’、‘ns2-04.azure-dns.net’、‘ns3-04.azure-dns.org’ 和 ‘ns4-04.azure-dns.info’。
 
 每個註冊機構都有自己的 DNS 管理工具，可變更網域的名稱伺服器記錄。在註冊機構的 DNS 管理頁面中，請編輯 NS 記錄，並將 NS 記錄取代為 Azure DNS 建立的記錄。
+
+>[AZURE.NOTE]委派網域給 Azure DNS 時，您必須使用 Azure DNS 提供的名稱伺服器名稱。您不應該使用「黏附記錄」指向 Azure DNS 名稱伺服器 IP 位址，因為這些 IP 位址日後可能變更。Azure DNS 目前不支援使用您區域中名稱伺服器名稱的委派 (也稱為「虛名名稱伺服器」)。
 
 完成委派之後，您可以使用 'nslookup' 之類的工具來查詢您區域的 SOA 記錄 (這也是在建立區域時自動建立)，以確認名稱解析正常運作。
 
@@ -134,10 +136,10 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 因為使用註冊機構進行委派時，可透過查閱子區域的 SOA 記錄來確認一切都已正確設定。
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-	
+
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-	
+
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com
@@ -153,10 +155,8 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 [管理 DNS 記錄](dns-operations-recordsets.md)
 
-[流量管理員概觀](traffic-manager-overview.md)
-
 [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)
 
 [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

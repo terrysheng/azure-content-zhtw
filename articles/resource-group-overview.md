@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員概觀
@@ -85,17 +85,17 @@
 
 如需使用範本進行部署的相關資訊，請參閱[利用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-如需如何建構範本的相關指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)。
+如需如何建構您的範本的相關指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)。
 
-如需將方案部署到不同環境的指南，請參閱[在 Microsoft Azure 中開發和測試環境](solution-dev-test-environments-preview-portal.md)。
+如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](solution-dev-test-environments-preview-portal.md)。
 
 ## 標記
 
-資源管理員提供標記的功能，可讓您根據管理或計費需求將資源分類。當您有複雜的資源群組和資源集合，而且必須以最有利的方式視覺化資產，您可能會想要使用標記。例如，您可以標記在組織中具有類似角色，或屬於相同部門的資源。
+資源管理員提供標記的功能，可讓您根據管理或計費需求將資源分類。當您有複雜的資源群組和資源集合，而且必須以最有利的方式視覺化資產，您可能會想要使用標記。例如，您可以標記在組織中具有類似角色，或屬於相同部門的資源。如果不使用標記，貴組織中的使用者可建立多個資源，如此對於日後的身分識別及管理來說可能十分困難。例如，您會希望刪除特定專案的所有資源，但如果這些資源並未標記為該專案所有，您就需要手動加以尋找。標記是降低訂用帳戶不必要成本的重要方法。
 
 資源不需要位於相同的資源群組即可共用標記。您可以建立自己的標記分類，以確保組織中的所有使用者都使用常見的標記，而不是使用者意外套用稍有不同的標記 (例如 "dept" 而不是 "department")。
 
-如需標記的詳細資訊，請參閱[使用標記來組織您的 Azure 資源](./resource-group-using-tags.md)。
+如需標記的詳細資訊，請參閱[使用標記來組織您的 Azure 資源](./resource-group-using-tags.md)。您可以建立[自訂原則](#manage-resources-with-customized-policies)，表示必須在部署時在資源中加入標記。
 
 ## 存取控制
 
@@ -111,7 +111,7 @@
 
 ## 使用自訂的原則來管理資源
 
-資源管理員可讓您建立自訂的原則，以便管理您的資源。您建立的原則類型可以包含下列各種案例：在資源上強制執行命名慣例、限制哪些區域可以裝載某一種類型的資源，或要求資源上有標記值以便依部門進行計費。如需詳細資訊，請參閱[使用原則來管理資源和控制存取](resource-manager-policy.md)。
+資源管理員可讓您建立自訂的原則，以便管理您的資源。您建立的原則類型可以包含下列各種案例：在資源上強制執行命名慣例、限制可部署哪些資源的類型和執行個體、限制哪個區域可以託管資源類型，或要求資源上有標記值以便依部門進行計費。您可建立原則來協助降低成本，並維護訂用帳戶中的一致性。如需詳細資訊，請參閱[使用原則來管理資源和控制存取](resource-manager-policy.md)。
 
 ## 一致的管理層
 
@@ -129,13 +129,13 @@ Azure 資源管理員支援跨原始資源共用 (CORS)。利用 CORS，您可�
 
 ## 後續步驟
 
-- 若要了解如何建立範本，請參閱[撰寫範本](./resource-group-authoring-templates.md)
+- 若要了解如何建立範本，請參閱[撰寫範本](./resource-group-authoring-templates.md)。
 - 若要部署您所建立的範本，請參閱[部署範本](resource-group-template-deploy.md)
-- 若要了解您可以在範本中使用的功能，請參閱[範本功能](./resource-group-template-functions.md)
+- 若要了解您可以在範本中使用的函式，請參閱[範本函式](./resource-group-template-functions.md)
 - 如需設計範本的指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)
 
 以下是此概觀的示範影片。
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

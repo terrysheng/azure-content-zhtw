@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute NAT 需求
@@ -66,4 +66,4 @@ Microsoft 對等路徑可讓您連接到不支援透過 Azure 公用對等路徑
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

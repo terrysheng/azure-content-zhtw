@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="sdanie"/>
 
 # 使用 Azure API 管理以頻率限制保護 API
 
 本指南說明藉由使用 Azure API 管理設定頻率限制和配額原則，來為後端 API 增加保護是多麼簡單容易的工作。
 
-在本教學課程中，您會建立「免費試用」的 API 產品，讓開發人員對您的 API 每分鐘最多可以呼叫 10 次，而每週最多呼叫 200 次。您接著會發佈此 API，並測試頻率限制原則。
+在本教學課程中，您會建立「免費試用」的 API 產品，讓開發人員可使用[依訂用帳戶限制呼叫](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate)和[依訂用帳戶設定配額](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)等方式，每分鐘最多呼叫您的 API 10 次，每週最多呼叫 200 次。您接著會發佈此 API，並測試頻率限制原則。
 
->[AZURE.NOTE]如果您已經有設定好的產品，且想要在本教學課程中使用該產品，可以直接跳到[設定呼叫頻率限制和配額原則][]，並從該處使用您的產品 (而非「免費試用」產品) 來進行本教學課程。
+如需使用[rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) 和 [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) 原則，請參閱[以 Azure API 管理進行進階要求節流](api-management-sample-flexible-throttling.md)。
 
 ## <a name="create-product"> </a>建立產品
 
 在本步驟中，您將建立不需核准訂閱的免費試用產品。
+
+>[AZURE.NOTE]如果您已經有設定好的產品，且想要在本教學課程中使用該產品，可以直接跳到[設定呼叫頻率限制和配額原則][]，並從該處使用您的產品 (而非「免費試用」產品) 來進行本教學課程。
 
 若要開始，請在 Azure 傳統入口網站中，按一下您的 API 管理服務中的 [管理]。這會帶您前往 API 管理發行者入口網站。
 
@@ -44,7 +46,8 @@
 
 在 [標題] 文字方塊中輸入「免費試用」。
 
-在 [描述] 文字方塊中輸入下列文字：**存取遭到拒絕後，訂戶每分鐘可以執行 10 次呼叫，每週最多 200 次呼叫**。
+在 [描述] 文字方塊中輸入下列文字：
+ **存取遭到拒絕後，訂戶每分鐘可以執行 10 次呼叫，每週最多 200 次呼叫**。
 
 API 管理中的產品可以是受保護或開放的。受保護的產品必須先訂閱才能使用。開放產品不需要訂用帳戶即可使用。若要建立需要訂用帳戶的受保護產品，請務必選取 [需要訂用帳戶]。這是預設設定。
 
@@ -211,7 +214,7 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 
 ![開發人員入口網站][api-management-developer-portal-api-menu]
 
-按一下 [GET 資源]，然後按 [開啟主控台]。
+按一下 [GET 資源]，然後按一下 [嘗試]。
 
 ![Open console][api-management-open-console]
 
@@ -221,17 +224,17 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 
 >[AZURE.NOTE]如果您有多個訂用帳戶，請務必選取「免費試用」的金鑰，否則在先前步驟中設定的原則將不會生效。
 
-按一下 [HTTP Get]，然後檢視回應。記下 [**200 OK**] 的 [**回應狀態**]。
+按一下 [傳送]，然後檢視回應。記下 [**200 OK**] 的 [**回應狀態**]。
 
 ![Operation results][api-management-http-get-results]
 
-按一下 [**HTTP Get**]，將費率設為大於每分鐘 10 個呼叫的費率限制原則。超出頻費限制原則之後，會傳回 [429 太多要求] 回應狀態。
+在速率超過每分鐘 10 個呼叫的速率限制原則時，按一下 [傳送]。超出頻費限制原則之後，會傳回 [429 太多要求] 回應狀態。
 
 ![Operation results][api-management-http-get-429]
 
-[回應標頭] 和 [回應內容] 區域指出重試成功之前的剩餘間隔時間。
+[回應內容] 指出重試成功的剩餘間隔時間。
 
-每分鐘 10 次呼叫的頻率限制原則生效時，在超出頻率限制之前，從最初成功呼叫產品 10 次後需要經過 60 秒，否則後續的呼叫會失敗。在此範例中，剩餘的間隔時間為 43 秒。
+每分鐘 10 次呼叫的頻率限制原則生效時，在超出頻率限制之前，從最初成功呼叫產品 10 次後需要經過 60 秒，否則後續的呼叫會失敗。在本範例中，剩餘間隔為 54 秒。
 
 ## <a name="next-steps"> </a>後續步驟
 
@@ -292,4 +295,4 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 [限制呼叫費率]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [設定使用量配額]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

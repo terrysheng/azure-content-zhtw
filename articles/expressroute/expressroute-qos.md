@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute QoS 需求
@@ -50,4 +50,4 @@
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 循環](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

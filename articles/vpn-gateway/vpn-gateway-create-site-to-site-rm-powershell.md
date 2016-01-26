@@ -25,10 +25,9 @@
 
 本文將逐步引導您使用 Azure 資源管理員部署模型建立虛擬網路以及內部部署網路的站對站 VPN 連線。如果您要尋找此組態的不同部署模型，請使用以上的索引標籤來選取您想要的文章。如果您想要將 VNet 連接在一起，但不要建立對內部部署位置的連線，請參閱[設定 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md)。
 
-
 **關於 Azure 部署模型**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## 開始之前
 
@@ -44,10 +43,9 @@
 
 您將需要最新版的 Azure 資源管理員 PowerShell Cmdlet，才能設定您的連接。
 	
-[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
-## 1\.連線至您的訂用帳戶 
-
+## 1.連線至您的訂用帳戶 
 
 請確定您切換為 PowerShell 模式以使用資源管理員 Cmdlet。如需詳細資訊，請參閱[搭配使用 Windows PowerShell 與資源管理員](../powershell-azure-resource-manager.md)。
 
@@ -63,8 +61,7 @@
 
 	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
-## 2\.建立虛擬網路和閘道器子網路
+## 2.建立虛擬網路和閘道器子網路
 
 - 如果已有具備閘道器子網路的虛擬網路，您可以往前跳至**步驟 3 - 新增您的本機網站**。 
 - 如果您已有虛擬網路且想要將閘道器子網路新增至您的 VNet，請參閱[將閘道器子網路新增至 VNet](#gatewaysubnet)。
@@ -74,7 +71,6 @@
 使用下列範例來建立虛擬網路和閘道器子網路。取代為您自己的值。
 
 首先，建立資源群組：
-
 	
 	New-AzureRmResourceGroup -Name testrg -Location 'West US'
 
@@ -99,7 +95,7 @@
 
 	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-## 3\.新增您的本機站台
+## 3.新增您的本機站台
 
 在虛擬網路中，*本機網站*通常是指您的內部部署位置。您將會賦予該網站 Azure 可以參考它的名稱。
 
@@ -123,7 +119,7 @@
 有時候會變更您的本機站台首碼。若要修改您的 IP 位址首碼，採取的步驟取決於您是否已建立 VPN 閘道連接。請參閱[修改本機站台的 IP 位址首碼](#to-modify-ip-address-prefixes-for-a-local-site)。
 
 
-## 4\.要求閘道器的公用 IP 位址
+## 4.要求閘道器的公用 IP 位址
 
 接下來，您將要求要配置給 Azure VNet VPN 閘道的公用 IP 位址。這不是指派給 VPN 裝置的相同 IP 位址，而是指派給 Azure VPN 閘道本身的 IP 位址。您無法指定您要使用的 IP 位址；它會以動態方式配置給您的閘道器。設定內部部署 VPN 裝置以連接到閘道器時，您將使用此 IP 位址。
 
@@ -131,7 +127,9 @@
 
 	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
-## 5\.建立閘道器 IP 位址組態
+>[AZURE.NOTE]資源管理員部署模型的 Azure VPN 閘道目前使用動態配置方法，僅支援公用 IP 位址。但是，這不代表 IP 位址會變更。Azure VPN 閘道 IP 位址只會在刪除或重新建立閘道時變更。閘道公用 public IP 位址不會因為重新調整、重設或其他 Azure VPN 閘道內部維護/升級而變更。
+
+## 5.建立閘道器 IP 位址組態
 
 閘道器組態定義要使用的子網路和公用 IP 位址。使用以下的範例來建立閘道器組態。
 
@@ -139,7 +137,7 @@
 	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 	$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
-## 6\.建立閘道器
+## 6.建立閘道器
 
 在此步驟中，您將建立虛擬網路閘道。請注意，建立閘道器需要一些時間才能完成。通常 20 分鐘以上。
 
@@ -150,7 +148,7 @@
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## 7\.設定 VPN 裝置
+## 7.設定 VPN 裝置
 
 此時，您需要虛擬網路閘道的公用 IP 位址，以便設定內部部署 VPN 裝置。向您的裝置製造商取得特定的組態資訊。或者，請參閱 [VPN 裝置](http://go.microsoft.com/fwlink/p/?linkid=615099)以取得詳細資訊。
 
@@ -158,7 +156,7 @@
 
 	Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
-## 8\.建立 VPN 連線
+## 8.建立 VPN 連線
 
 接下來，在虛擬網路閘道與 VPN 裝置之間建立站對站 VPN 連線。請務必取代為您自己的值。共用的金鑰必須符合您用於 VPN 裝置設定的值。
 
@@ -169,7 +167,7 @@
 
 過一會兒，連接將會建立。
 
-## 9\.驗證 VPN 連線
+## 9.驗證 VPN 連線
 
 此時，Preview 入口網站中不會顯示使用資源管理員建立的站對站 VPN 連線。不過，您可以使用 *Get-AzureRmVirtualNetworkGatewayConnection –Debug* 確認您的連接是否成功。在未來，我們將具備其 cmdlet，以及在 Preview 入口網站中檢視連線的能力。
 
@@ -213,7 +211,6 @@
 
 ### 新增或移除沒有 VPN 閘道連線的首碼
 
-
 - 若要**新增**其他位址首碼到您建立的本機站台，但還沒有 VPN 閘道連線，請使用下列範例。
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -228,7 +225,6 @@
 ### 新增或移除有 VPN 閘道連線的首碼
 
 如果您已建立 VPN 連線並想要新增或移除包含在本機站台中的 IP 位址首碼，您必須依序執行下列步驟。這會導致 VPN 連線的一些停機時間，因為您需要移除並重新建立閘道器。不過，因為您已要求連線的 IP 位址，所以您不需要重新設定您的內部部署 VPN 路由器，除非您決定要變更您先前使用的值。
-
  
 1. 移除閘道器連線。 
 2. 修改本機站台的首碼。 
@@ -236,20 +232,18 @@
 
 您可以使用下列範例當做指導方針。
 
-
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-	Remove-AzureRmVirtualNetworkGatewayConnection -Name vnetgw1 -ResourceGroupName testrg
+	Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 	Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-
 ## 後續步驟
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

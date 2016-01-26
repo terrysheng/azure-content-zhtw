@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -67,8 +67,8 @@
 - 尋找服務提供者。請參閱 [ExpressRoute 合作夥伴和對等位置](expressroute-locations.md)。
 - 請參閱適用於[路由](expressroute-routing.md)、[NAT](expressroute-nat.md) 和 [QoS](expressroute-qos.md) 的需求。
 - 設定 ExpressRoute 連線。
-	- [建立 ExpressRoute 循環](expressroute-howto-circuit-classic.md)
+	- [建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 循環](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

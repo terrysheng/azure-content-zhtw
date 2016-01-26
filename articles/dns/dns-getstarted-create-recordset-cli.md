@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="01/20/2016"
    ms.author="joaoma"/>
 
 
@@ -122,4 +122,4 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

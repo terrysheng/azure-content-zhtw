@@ -26,7 +26,7 @@
 
 [在 Azure 傳統入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial-classic-portal.md)
 
-[在 Azure 中建立一個執行 Windows 的自訂虛擬機器](virtual-machines-windows-create-custom.md)
+[在 Azure 中建立一個執行 Windows 的自訂虛擬機器](virtual-machines-create-custom.md)
 
 [在 Azure 中建立執行 Linux 的自訂虛擬機器](virtual-machines-linux-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [服務管理 REST API 參考](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

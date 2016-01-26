@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -48,8 +48,8 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 
 請考慮您選取 192.168.100.128/29 來設定私人互連的情況。192.168.100.128/29 包含從 192.168.100.128 至 192.168.100.135 的位址，其中︰
 
-- 192\.168.100.128/30 將會指派給 link1 (提供者使用 192.168.100.129，而 Microsoft 使用 192.168.100.130)。
-- 192\.168.100.132/30 將會指派給 link2 (提供者使用 192.168.100.133，而 Microsoft 使用 192.168.100.134)。
+- 192.168.100.128/30 將會指派給 link1 (提供者使用 192.168.100.129，而 Microsoft 使用 192.168.100.130)。
+- 192.168.100.132/30 將會指派給 link2 (提供者使用 192.168.100.133，而 Microsoft 使用 192.168.100.134)。
 
 ### Azure 公用與 Microsoft 對等互連的 IP 位址
 
@@ -70,7 +70,6 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## 動態路由交換
@@ -174,4 +173,4 @@ Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對�
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

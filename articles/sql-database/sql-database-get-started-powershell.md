@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # 建立新的 SQL Database 並使用 PowerShell Cmdlet 執行一般資料庫設定工作 
@@ -135,11 +135,11 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRm
 ## 後續步驟
 建立新的 SQL Database 並執行基本的資料庫設定工作之後，您就可以執行下列作業：
 
-- [連接 SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [使用 SQL Server Management Studio 連接到 SQL Database 並執行範例 T-SQL 查詢](sql-database-connect-query-ssms.md)
 
 
 ## 其他資源
 
 - [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

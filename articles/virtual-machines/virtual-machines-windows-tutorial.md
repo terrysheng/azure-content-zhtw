@@ -30,6 +30,10 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
+<br>
+
+>[AZURE.TIP]使用入口網站時，如果您希望 VM 成為可用性設定組的一部分，則需要在集合中建立第一個 VM 之前或當下，建立可用性設定組。如需建立和使用可用性設定組的詳細資訊，請參閱[管理虛擬機器可用性](virtual-machines-manage-availability.md)。
+
 您也可以使用自己的映像，搭配資源管理員範本或自動化工具來建立虛擬機器。若要深入瞭解不同的方法，請參閱[建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)。
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -62,7 +66,7 @@
 
 2. 輸入您要用於虛擬機器的 [名稱]。名稱不能包含特殊字元。
 
-3. 輸入系統管理 [使用者名稱]，以及強式 [密碼]。密碼長度必須介於 8-123 個字元，並且具有至少 3 個下列項目：1 個小寫字元、1 個大寫字元、1 個數字和 1 個特殊字元。**您將需要使用者名稱和密碼才能登入虛擬機器**
+3. 輸入系統管理 [使用者名稱]，以及強式 [密碼]。密碼長度必須介於 8-123 個字元，並且具有至少 3 個下列項目：1 個小寫字元、1 個大寫字元、1 個數字和 1 個特殊字元。**您將需要使用者名稱和密碼才能登入虛擬機器**。
 
 4. 如果您有一個以上的訂用帳戶，請針對新的虛擬機器，以及新的或現有的**資源群組**和 Azure 資料中心**位置**，指定一個訂用帳戶。
 
@@ -83,7 +87,7 @@
 
 	![顯示針對 Azure VM 所做之設定選擇的摘要的螢幕擷取畫面](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. 當 Azure 建立虛擬機器時，您可以在 [中樞] 功能表的 [虛擬機器] 中持續追蹤進度。
+8. 當 Azure 建立虛擬機器時，您可以在 [中樞] 功能表的 [虛擬機器] 下追蹤進度。
 
 ## 登入虛擬機器
 
@@ -114,4 +118,4 @@
 * 使用 Azure PowerShell 和 Azure CLI [尋找並選取虛擬機器映像](resource-groups-vm-searching.md)。
 * 使用 [Azure 資源管理員範本](http://azure.microsoft.com/documentation/templates/)，自動部署和管理虛擬機器和工作負載。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -159,7 +159,7 @@
 		FROM WebLogsRaw
 
 ### 建立範例輸入檔案
-使用記事本，在 **c:\adfgetstarted** 中建立名為 **input.log** 的檔案，內容如下：
+使用記事本，在 **c:\\adfgetstarted** 中建立名為 **input.log** 的檔案，內容如下：
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -193,7 +193,7 @@
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. 瀏覽至 c:\adfgetstarted 資料夾，然後執行下列命令將 **input.log** 檔案上傳到儲存體帳戶 (**adfgetstarted** 容器和 **inputdata** 資料夾)。使用您的儲存體帳戶名稱取代 StorageAccountName，並使用儲存體帳戶金鑰取代儲存體金鑰。
+	3. 瀏覽至 c:\\adfgetstarted 資料夾，然後執行下列命令將 **input.log** 檔案上傳到儲存體帳戶 (**adfgetstarted** 容器和 **inputdata** 資料夾)。使用您的儲存體帳戶名稱取代 StorageAccountName，並使用儲存體帳戶金鑰取代儲存體金鑰。
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
@@ -209,7 +209,7 @@
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. 重覆前兩個步驟，將 partitionweblogs.hql 檔案上傳到 adfgetstarted 容器的指令碼資料夾中。命令如下： 
+	1. 執行下列命令，將 **partitionweblogs.hql** 檔案上傳到 **adfgetstarted** 容器的**指令碼**資料夾中。命令如下： 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@
 - Visual Studio
 - Azure 資源管理員範本 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

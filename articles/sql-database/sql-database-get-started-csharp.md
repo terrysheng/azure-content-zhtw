@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/20/2016"
    ms.author="sstein"/>
 
 # 試用 SQL Database：透過 SQL Database Library for .NET 使用 C&#x23; 建立 SQL Database 
@@ -45,7 +45,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 若要完成這篇文章中的步驟，您需要下列項目︰
 
 - Azure 訂用帳戶。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
-- 如需免費的 Visual Studio，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
+- 。如需免費的 Visual Studio，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
 
 
 ## 安裝必要的程式庫
@@ -71,7 +71,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
     ![試用 SQL Database：設定 Azure Active Directory (AAD)。][1]
 
-2. 選取要驗證您的應用程式的目錄並按一下該目錄的 [名稱]。
+2. 選取要驗證您的應用程式的目錄並按一下該目錄的**名稱**。
 
     ![選取要驗證您的 SQL C# 的目錄。][4]
 
@@ -89,11 +89,11 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
     ![提供 SQL C# 應用程式的相關資訊。][7]
 
-6. 提供 [重新導向 URI]。它不需要是實際的端點，只要是有效的 URI 即可。
+6. 提供**重新導向 URI**。它不需要是實際的端點，只要是有效的 URI 即可。
 
     ![新增 SQL C# 應用程式的重新導向 URL。][8]
 
-7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] \(您在程式碼中需要用戶端識別碼)。
+7. 完成建立應用程式，按一下 [設定]，然後複製 [用戶端識別碼] (您在程式碼中需要用戶端識別碼)。
 
     ![取得 SQL C# 應用程式的用戶端識別碼。][9]
 
@@ -101,7 +101,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 1. 在頁面底部按一下 [新增應用程式]。
 1. 選取 [Microsoft 應用程式]。
 1. 選取 [Azure 服務管理 API]，然後完成精靈。
-2. 選取 API 之後，您現在必須授與必要的存取權以存取此 API，方法是選取 [存取 Azure 服務管理 (預覽)]。
+2. 選取 API 之後，您現在必須授與必要的存取權以存取此 API，方法是選取 [**存取 Azure 服務管理 (預覽)**]。
 
     ![設定權限。][2]
 
@@ -414,8 +414,7 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 ## 後續步驟
 既然您已試用 SQL Database 並以 C# 設定資料庫，您就可以進行下列文章：
 
-- [使用 C# 連接及查詢您的 SQL Database](sql-database-connect-query.md)
-- [連接 SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [使用 SQL Server Management Studio 連接到 SQL Database 並執行範例 T-SQL 查詢](sql-database-connect-query-ssms.md)
 
 ## 其他資源
 
@@ -436,4 +435,4 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

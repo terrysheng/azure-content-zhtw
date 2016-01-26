@@ -27,7 +27,7 @@
 
 ### 建立服務命名空間並取得 SAS 金鑰
 
-1. 若要在 [Azure 傳統入口網站][]中建立命名空間，請依照[如何：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/hh690931.aspx)中的步驟。
+1. 要建立服務命名空間，請造訪 [Azure 傳統入口網站][]。按一下左側的 [服務匯流排]，再按一下 [建立]。輸入命名空間的名稱，再按一下核取記號。
 
 2. 在入口網站的主視窗中，按一下您在上一個步驟中建立的服務命名空間的名稱。
 
@@ -55,7 +55,7 @@
 
 	b.按一下 [加入參考] 對話方塊的 **.NET** 索引標籤，並向下捲動直到您看到 **System.ServiceModel**。選取它，然後按一下 [確定]。
 
-5. 重複上述步驟，將參考加入 **System.ServiceModel.Web.dll** 組件。
+5. 重複上述步驟，將參考加入至 **System.ServiceModel.Web.dll** 組件。
 
 6. 為 **System.ServiceModel**、**System.ServiceModel.Channels**、**System.ServiceModel.Web** 和 **System.IO** 命名空間加入 `using` 陳述式。
 
@@ -584,4 +584,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

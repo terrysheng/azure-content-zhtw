@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -70,7 +70,6 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## 動態路由交換
@@ -174,4 +173,4 @@ Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對�
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

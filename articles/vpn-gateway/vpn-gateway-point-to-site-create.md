@@ -21,11 +21,11 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
+- [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
 點對站設定可讓您從用戶端電腦個別地建立與虛擬網路的安全連線。VPN 連線的建立方式是從用戶端電腦啟動連線。當您想要從遠端位置 (例如從住家或會議) 連接到您的 VNet 時，或您只有幾個需要連線至虛擬網路的用戶端時，這是絕佳的解決方案。點對站連線不需要 VPN 裝置或公眾對應 IP 位址即可運作。如需點對站連線的詳細資訊，請參閱 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md#point-to-site-connections)和[關於跨單位連線](vpn-gateway-cross-premises-options.md)。
 
-本文章適用於使用**傳統部署模型** (服務管理) 所建立之虛擬網路的點對站 VPN 閘道連線。如果您想為使用資源管理員建立的 VNet 設定點對站連線，請參閱 [這篇文章](vpn-gateway-howto-point-to-site-rm-ps.md)。
+本文章適用於使用**傳統部署模型** (服務管理) 所建立之虛擬網路的點對站 VPN 閘道連線。如果您想為使用資源管理員建立的 VNet 設定點對站連線，請參閱[使用 PowerShell 設定虛擬網路點對站連線](vpn-gateway-howto-point-to-site-rm-ps.md)。
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -57,7 +57,7 @@
 1. 在 [點對站連線能力] 頁面中，指定 VPN 用戶端在連線時將接收 IP 位址的 IP 位址範圍。關於可指定的位址範圍，您必須遵守幾項規則。請務必確認您指定的範圍未與內部部署網路中的任何範圍重疊。
 1. 輸入下列資訊，然後按 [下一步] 箭頭。
  - **位址空間**：包含起始 IP 和 CIDR (位址計數)。
- - **加入位址空間**：唯有當您的網路設計需要時才需加入。
+ - **加入位址空間**：唯有網路設計需要時才需加入位址空間。
 1. 在 [虛擬網路位址空間] 頁面上，指定您想要用於虛擬網路的位址範圍。這些是將指派給 VM 的動態 IP 位址 (DIP)，以及指派給您部署至此虛擬網路之其他角色執行個體的動態 IP 位址 (DIP)。特別重要的是，您選取的範圍不得與用於內部部署網路的任何範圍重疊。您將需要與網路管理員協調，商討如何從內部部署網路位址空間中切割出一段 IP 位址範圍，以供虛擬網路之用。
 1. 輸入下列資訊，然後按一下勾號，開始建立您的虛擬網路。
  - **位址空間**：加入要用於此虛擬網路的內部 IP 位址範圍，包括起始 IP 和計數。重要的是，選取的範圍不得與用於內部部署網路的任何範圍重疊。您將需要與網路管理員協調，商討如何從內部部署網路位址空間中切割出一段 IP 位址範圍，以供虛擬網路之用。
@@ -74,7 +74,7 @@
 
 ## 第 2 部分 - 產生並上傳憑證
 
-憑證是用於點對站 VPN 的 VPN 用戶端驗證。過去，您必須產生您自己的自我簽署的憑證。現在，您現在可以使用您以企業解決方案產生的憑證。您最多可將 20 個根憑證上傳至 Azure。
+憑證是用於點對站 VPN 的 VPN 用戶端驗證。您可以使用由企業憑證解決方案及自我簽署憑證產生的憑證。您最多可將 20 個根憑證上傳至 Azure。
 
 如果您想要使用自我簽署的憑證，下列步驟將可逐步引導您完成此程序。如果您想要使用企業憑證解決方案，每個區段中的步驟將會不同，但您仍須執行下列步驟：
 
@@ -90,7 +90,7 @@
 
 ### 識別或產生的根憑證
 
-如果您未使用企業憑證解決方案，您必須產生自我簽署的根憑證。以下是適用於 Windows 8 的步驟。我們正在以 Windows 10 的新步驟進行更新。
+如果您未使用企業憑證解決方案，您必須產生自我簽署的根憑證。本章節中的步驟是針對 Windows 8 所撰寫。如需 Windows 10 的步驟，請參閱[使用點對站設定的自我簽署根憑證](vpn-gateway-certificates-point-to-site.md)。
 
 建立 X.509 憑證的一個方式是使用憑證建立工具 (makecert.exe)。若要使用 Makecert，請下載並安裝免費的 [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)。
 
@@ -112,7 +112,7 @@
 
 ### 產生用戶端憑證
 
-以下步驟可用來從自我簽署的根憑證產生用戶端憑證。如果您使用企業憑證解決方案，請依照您所使用之解決方案的指導方針操作。
+以下步驟可用來從自我簽署的根憑證產生用戶端憑證。本章節中的步驟是針對 Windows 8 所撰寫。如需 Windows 10 的步驟，請參閱[使用點對站設定的自我簽署根憑證](vpn-gateway-certificates-point-to-site.md)。如果您使用企業憑證解決方案，請依照您所使用之解決方案的指導方針操作。
 
 1. 在用來建立自我簽署根憑證的相同電腦上，以系統管理員身分開啟 [Visual Studio 命令提示字元] 視窗。
 2. 將目錄切換至您要儲存用戶端憑證檔案的位置。*RootCertificateName* 是指您產生的自我簽署根憑證。如果您執行以下範例 (但將 RootCertificateName 變更為您的根憑證名稱)，就會在個人憑證存放區中產生一個名為 "ClientCertificateName" 的用戶端憑證。
@@ -196,4 +196,4 @@
 
 如需關於虛擬網路的詳細資訊，請參閱[虛擬網路文件](https://azure.microsoft.com/documentation/services/virtual-network/)頁面。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

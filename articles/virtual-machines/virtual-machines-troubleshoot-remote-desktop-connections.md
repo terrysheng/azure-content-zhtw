@@ -20,7 +20,7 @@
 
 # 疑難排解執行 Windows 之 Azure 虛擬機器的遠端桌面連線
 
-與 Windows Azure 虛擬機器的遠端桌面 (RDP) 連線可能會因為各種原因失敗。問題可能與 VM 上的遠端桌面服務、網路連線或主機電腦上的遠端桌面用戶端有關。本文將協助您找出原因並加以更正。
+以 Windows 為基礎的 Azure 虛擬機器，可能因各種原因而導致其遠端桌面 (RDP) 連線失敗。問題可能與 VM 上的遠端桌面服務、網路連線或主機電腦上的遠端桌面用戶端有關。本文將協助您找出原因並加以更正。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -171,4 +171,4 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0114_2016---->

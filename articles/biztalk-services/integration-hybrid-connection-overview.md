@@ -74,7 +74,7 @@
 
 請參閱[建立和管理混合式連線](integration-hybrid-connection-create-manage.md) (英文)。
 
-*應用程式授權與混合式連線分開*。任何適當的授權方法都可使用。授權方法視 Azure 雲端和內部部署元件之間支援的端對端授權方法而定。例如，您的 Azure 應用程式存取內部部署 SQL Server。在此情況下，SQL 授權可能是端對端支援的授權方法。
+應用程式授權與混合式連線分開。任何適當的授權方法都可使用。授權方法視 Azure 雲端和內部部署元件之間支援的端對端授權方法而定。例如，您的 Azure 應用程式存取內部部署 SQL Server。在此情況下，SQL 授權可能是端對端支援的授權方法。
 
 #### TCP 連接埠
 混合式連線只需要您私人網路的輸出 TCP 或 HTTP 連線。您不需要開啟任何防火牆連接埠，或變更您的網路周邊組態，即可允許任何輸入連線進入您的網路。
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

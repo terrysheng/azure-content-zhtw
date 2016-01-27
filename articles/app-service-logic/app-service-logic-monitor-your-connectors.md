@@ -115,7 +115,9 @@ API 應用程式使用以角色為基礎的安全性。這些角色會套用至�
 > 這些屬性專屬於裝載您 API 應用程式的網站。使用內建 API 應用程式或連接器時，這些屬性大部分並未實際套用，因此建議您不要更新這些屬性。如果您已在 Visual Studio 中建立專屬 API 應用程式，並將其部署至 Azure 訂用帳戶，則可以使用 [主機] 和 [閘道] 刀鋒視窗。[管理 API 應用程式](../app-service-api/app-service-api-manage-in-portal.md)提供的詳細資訊，讓您了解可利用自訂建立之 API 應用程式，進而在這些刀鋒視窗中進行何種作業。 
 
 
+
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+
 
 ## 閱讀更多資訊
 

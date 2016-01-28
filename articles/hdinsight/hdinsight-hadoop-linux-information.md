@@ -88,9 +88,9 @@ HDInsight 則是使用 Azure Blob 儲存體當做預設存放區，這麼做有�
 
 	hadoop fs -ls /example/data
 
-有些命令可能需要您指定您使用的是 Blob 儲存體。對於這些命令，您可以為其加上前置詞 ****WASB://**。
+有些命令可能需要您指定您使用的是 Blob 儲存體。對於這些命令，您可以為其加上前置詞 **WASB://**。
 
-HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要存取非預設 Blob 儲存體帳戶上的資料，您可以使用下列格式：**WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**。例如，以下命令會列出指定容器和 Blob 儲存體帳戶之 **/example/data** 目錄的內容：
+HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要存取非預設 Blob 儲存體帳戶上的資料，您可以使用下列格式：**WASB://&lt;容器名稱>@&lt;帳戶名稱>.blob.core.windows.net/**。例如，以下命令會列出指定容器和 Blob 儲存體帳戶之 **/example/data** 目錄的內容：
 
 	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
 
@@ -196,7 +196,7 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 	* __Storm UI__︰使用下列步驟來重新平衡使用 Storm UI 的拓撲。
 
-		1. 在網頁瀏覽器中開啟 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__，其中 CLUSTERNAME 是 Storm 叢集的名稱。出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
+		1. 在網頁瀏覽器中開啟 __https://CLUSTERNAME.azurehdinsight.net/stormui__，其中 CLUSTERNAME 是 Storm 叢集的名稱。出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
 
 		3. 選取您要重新平衡的拓撲，然後選取 [重新平衡] 按鈕。在執行重新平衡作業之前輸入延遲。
 
@@ -248,3 +248,5 @@ HDInsight 是受管理的服務，這表示如果偵測到問題，叢集中的�
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
 <!---HONumber=AcomDC_0114_2016-->
+
+

@@ -84,8 +84,8 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-successfactors-tutorial/IC791140.png "設定應用程式 URL")
 
-    1.  在 [SuccessFactors 登入 URL] 文字方塊中，輸入使用者用來登入 SuccessFactors 應用程式的 URL (例如："**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*"))。
-2.  在 [SuccessFactors 回覆 URL] 文字方塊中，輸入 ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**。
+    1.  在 [SuccessFactors 登入 URL] 文字方塊中，輸入使用者用來登入 SuccessFactors 應用程式的 URL (例如："*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*"))。
+    2.  在 [SuccessFactors 回覆 URL] 文字方塊中，輸入 **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**。
 
         >[AZURE.NOTE]這個值只是暫時的預留位置。您會從 SuccessFactors 支援小組取得實際的值。稍後在本教學課程中，您會找到連絡 SuccessFactors 支援小組的指示。在此交談內容中，您會收到實際 SuccessFactors 回覆 URL。
 
@@ -131,4 +131,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資料，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

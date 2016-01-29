@@ -12,6 +12,8 @@ Azure Toolkit for Eclipse 需要下列軟體元件：
 
 >[AZURE.NOTE]您可在 Eclipse Marketplace 的 [Azure Toolkit for Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) 頁面上找到更多詳細資訊。
 
+<br>
+
 > [AZURE.IMPORTANT]如果您在 Windows 上使用 Azure Toolkit for Eclipse，此工具組需要安裝 Azure SDK 2.7 或更新版本。您有兩個選項可安裝 Azure SDK：
 > 
 > * 您可以使用 Web Platform Installer (WebPI) 下載並安裝 Azure SDK。
@@ -19,4 +21,4 @@ Azure Toolkit for Eclipse 需要下列軟體元件：
 > 
 > 請注意，只有 Windows 才需要 Azure SDK。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

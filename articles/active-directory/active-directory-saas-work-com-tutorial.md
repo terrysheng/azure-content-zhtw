@@ -132,7 +132,7 @@
     2.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上， 複製 [簽發者 URL] 值，然後將它貼至 [簽發者] 文字方塊中。
     3.  若要上傳已下載的憑證，請按一下 [瀏覽]。
     4.  在 [實體 ID] 文字方塊中，輸入 ****https://salesforce-work.com**。
-5.  在 [SAML 識別類型] 中選取 [判斷提示包含來自使用者物件的同盟識別碼]。
+    5.  在 [SAML 識別類型] 中選取 [判斷提示包含來自使用者物件的同盟識別碼]。
     6.  在 [SAML 識別位置]，請選取 [識別位於 Subject 陳述式的 NameIdentifier 元素中]。
     7.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上， 複製 [遠端登入 URL] 值，然後將它貼至 [識別提供者登入 URL] 文字方塊中。
     8.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上， 複製 [遠端登出 URL] 值，然後將它貼至 [識別提供者登出 URL] 文字方塊中。
@@ -207,4 +207,4 @@ Azure Active Directory 使用者必須先佈建到 Work.com，才可以登入。
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

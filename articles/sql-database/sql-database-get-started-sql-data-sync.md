@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="01/19/2016"
 	ms.author="jhubbard"/>
 
 
@@ -22,7 +22,7 @@
 
 本教學課程假設學員只有最少的 SQL Server 和 Azure SQL Database 使用經驗。在本教學課程中，您將建立已完全設定的混合 (SQL Server 和 SQL Database 案例) 同步群組，並依照您設定的排程進行同步。
 
-> [AZURE.NOTE]Azure SQL 資料同步的完整技術文件集先前位於 MSDN 上，現在則是可從[這裡](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)下載的單一的 PDF 檔。
+> [AZURE.NOTE] Azure SQL 資料同步的完整技術文件集 (先前位於 MSDN 上) 現已透過 .pdf 檔案格式提供使用。在[這裡](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)下載。
 
 ## 步驟 1：連接到 Azure SQL Database
 
@@ -103,7 +103,7 @@
 
 
 1.	為同步群組輸入有意義的名稱。
-2.	從下拉式清單中選取 [區域] (資料中心) 以裝載此同步群組。
+2.	從下拉式清單中選取 [區域] \(資料中心) 以裝載此同步群組。
 3. 按一下向右箭頭。
 
 	![Image3](./media/sql-database-get-started-sql-data-sync/NewSyncGroupName-Figure3.PNG)
@@ -202,4 +202,4 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

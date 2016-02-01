@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 # Azure 內容傳遞網路 (CDN) 概觀
@@ -49,6 +49,7 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - 負載平衡
 - DDoS 保護
 - [快速清除](cdn-purge-endpoint.md)
+- [資產預先載入](cdn-preload-endpoint.md)
 - [透過 REST API 管理](https://msdn.microsoft.com/library/mt634456.aspx)
 
 
@@ -58,6 +59,6 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 
 - [可自訂的、規則式內容傳遞引擎](cdn-rules-engine.md)
 - [進階 HTTP 報告](cdn-advanced-http-reports.md)
-- [即時統計資料](cdn-read-time-stats.md)
+- [即時統計資料](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

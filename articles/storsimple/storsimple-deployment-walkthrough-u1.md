@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/05/2016"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # 部署您的內部部署 StorSimple 裝置 (Update 1)
@@ -33,7 +33,7 @@
 
 您必須需要有系統管理員權限，才能完成安裝和設定程序。建議您在開始之前，檢閱設定檢查清單。部署與設定程序可能需要一些時間才能完成。
 
-> [AZURE.NOTE] 發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 7000 系列裝置的完整資訊，請移至： [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 7000 系列部署資訊，請參閱 [StorSimple 系統快速入門指南](http://onlinehelp.storsimple.com/111_Appliance/)。
+> [AZURE.NOTE]發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 7000 系列裝置的完整資訊，請移至： [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 7000 系列部署資訊，請參閱 [StorSimple 系統快速入門指南](http://onlinehelp.storsimple.com/111_Appliance/)。
 
 ## 部署步驟
 
@@ -284,9 +284,9 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 後續步驟
 
-設定[虛擬裝置](storsimple-virtual-device.md)。
+- 設定[虛擬裝置](storsimple-virtual-device.md)。
 
-使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
+- 使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="01/15/2016"
  ms.author="larryfr"/>
 
 # HDInsight 上 Apache Storm 的範例 Storm 拓撲及元件
@@ -23,6 +23,7 @@
 
 | 說明 | 示範 | 語言/架構 |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
+| [從 Apache Storm 寫入 Azure 資料湖存放區](hdinsight-storm-write-data-lake-store.md) | 寫入 Azure 資料湖存放區 | Java |
 | [事件中樞 Spout 和 Bolt 來源](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | 事件中樞 Spout 和 Bolt 的來源 | Java |
 | [開發 Apache Storm on HDInsight 的 Java 型拓撲][5797064f] | Maven | Java |
 | [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲][16fce2d1] | HDInsight Tools for Visual Studio | C#，Java |
@@ -60,4 +61,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "此專案包含 spout、bolt 和拓撲的範本，藉此和各種 Azure 服務進行互動，例如事件中心、DocumentDB 和 SQL Database。"
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

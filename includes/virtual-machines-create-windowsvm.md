@@ -1,4 +1,4 @@
-1. 登入 [Azure 傳統入口網站](http://manage.windowsazure.com)。如果您還沒有訂用帳戶，請參考[免費試用](http://azure.microsoft.com/pricing/free-trial/)優惠。
+1. 登入[傳統入口網站](http://manage.windowsazure.com)。如果您還沒有訂用帳戶，請參考[免費試用](http://azure.microsoft.com/pricing/free-trial/)優惠。
 
 2. 在視窗底部的命令列上，按一下 [新增]。
 
@@ -11,9 +11,7 @@
 5. 第二個畫面可讓您挑選電腦名稱、大小，及系統管理使用者名稱和密碼。使用執行應用程式或工作負載所需的層次和大小。以下是一些祕訣：
 
 	- [虛擬機器名稱] 只能包含字母、數字及連字號。名稱必須以字母開頭，並以字母或數字結尾。
-
 	- [新使用者名稱] 是指用來管理伺服器的系統管理帳戶。密碼長度必須介於 8-123 個字元，並且具有至少 3 個下列項目：1 個小寫字元、1 個大寫字元、1 個數字和 1 個特殊字元。**您將需要使用者名稱和密碼才能登入虛擬機器**。
-	
 	- 虛擬機器的大小會影響其使用成本以及組態選項 (例如您可連接的資料磁碟數目)。如需詳細資訊，請參閱[虛擬機器的大小](../articles/virtual-machines-size-specs.md)。
 
 6. 第三個畫面可讓您設定網路、儲存體和可用性的資源。以下是一些祕訣：
@@ -34,4 +32,4 @@
 
 	![設定 VM 代理程式和需擬機器端點](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

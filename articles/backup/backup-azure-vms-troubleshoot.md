@@ -111,21 +111,21 @@
 ### 驗證 VM 代理程式安裝
 如何檢查 Windows VM 上的 VM 代理程式版本：
 
-1. 登入 Azure 虛擬機器，然後瀏覽至 *C:\\WindowsAzure\\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
+1. 登入 Azure 虛擬機器，然後瀏覽至 C:\\WindowsAzure\\Packages 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
 2. 在該檔案上按一下滑鼠右鍵，前往 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
 
 ## 疑難排解 VM 快照問題
 VM 備份仰賴發給底層儲存體的快照命令。無法存取儲存體或者快照工作執行延遲，會造成備份失敗。下列可能導致快照工作失敗。
 
-1. 使用 NSG 封鎖儲存體網路存取<br> 深入了解如何使用 IP允許清單或透過 Proxy 伺服器[啟用儲存體網路存取](backup-azure-vms-prepare.md#2-network-connectivity)。 
-2.  已設定 SQL Server 備份的 VM 會造成快照工作延遲 <br> 根據預設，VM 備份會核發 Windows VM 上的 VSS 完整備份。在執行 SQL Server 且已設定 SQL Server 備份的 VM 上，這可能造成快照執行延遲。如果您因為快照的問題而遇到備份失敗，請設定下列登錄機碼。 
+1. 使用 NSG 封鎖儲存體網路存取<br> 深入了解如何使用 IP允許清單或透過 Proxy 伺服器[啟用儲存體網路存取](backup-azure-vms-prepare.md#2-network-connectivity)。
+2.  已設定 SQL Server 備份的 VM 會造成快照工作延遲 <br> 根據預設，VM 備份會核發 Windows VM 上的 VSS 完整備份。在執行 SQL Server 且已設定 SQL Server 備份的 VM 上，這可能造成快照執行延遲。如果您因為快照的問題而遇到備份失敗，請設定下列登錄機碼。
 
 	```
 	[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
 	"USEVSSCOPYBACKUP"="TRUE"
 	```
-3.  VM 狀態報告不正確，因為 RDP 中的 VM 關機。<br> 如果您已將 RDP 中的虛擬機器關機，請回到入口網站中檢查 VM 的狀態是否已正確反映。如果沒有，請在入口網站中使用 VM 儀表板中的 [關機] 選項將 VM 關機。 
-4.  相同的雲端服務中的許多 VM 都設定為同時備份。<br> 最佳做法是分配相同雲端服務中的 VM，使其有不同的備份排程。 
+3.  VM 狀態報告不正確，因為 RDP 中的 VM 關機。<br> 如果您已將 RDP 中的虛擬機器關機，請回到入口網站中檢查 VM 的狀態是否已正確反映。如果沒有，請在入口網站中使用 VM 儀表板中的 [關機] 選項將 VM 關機。
+4.  相同的雲端服務中的許多 VM 都設定為同時備份。<br> 最佳做法是分配相同雲端服務中的 VM，使其有不同的備份排程。
 5.  VM 正在以高 CPU/記憶體執行。<br> 若虛擬機器正在以高 CPU 使用量 (>90%) 或記憶體執行，快照工作會排入佇列、延遲且最終會逾時。在此情況下，請嘗試隨選備份。
 
 <br>
@@ -149,4 +149,6 @@ VM 備份仰賴發給底層儲存體的快照命令。無法存取儲存體或�
     - 如果已有一些網路限制 (例如，網路安全性群組)，請部署 HTTP Proxy 伺服器來路由傳送流量。部署 HTTP Proxy 伺服器的步驟位於[這裡](backup-azure-vms-prepare.md#2-network-connectivity)。
     - 將規則加入 NSG (若已有規則)，以允許從 HTTP Proxy 存取網際網路。
 
-<!---HONumber=AcomDC_0114_2016-->
+>[AZURE.NOTE]必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。如果您需要靜態私人 IP 位址，您應該透過平台來進行設定。VM 內的 DHCP 選項應保持啟用。您可以在[這裡](virtual-networks-reserved-private-ip.md)取得有關設定靜態內部私人 IP 位址的詳細資訊。
+
+<!---HONumber=AcomDC_0121_2016-->

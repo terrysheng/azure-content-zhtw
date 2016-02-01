@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # 在 Azure 資源管理員中建立資源的多個執行個體
@@ -157,17 +157,25 @@
 
 例如，假設您通常將資料集定義為 Data Factory 中的巢狀資源。
 
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "string"
+         }
+    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[variables('dataFactoryName')]",
+        "name": "[parameters('dataFactoryName')]",
         ...
         "resources": [
         {
             "type": "datasets",
-            "name": "[variables('dataSetName')]",
+            "name": "[parameters('dataSetName')]",
             "dependsOn": [
-                "[variables('dataFactoryName')]"
+                "[parameters('dataFactoryName')]"
             ],
             ...
         }
@@ -175,21 +183,29 @@
     
 若要建立資料集的多個執行個體，您必須變更您的範本，如下所示。請注意到，完整類型和名稱都包含了該 Data Factory 的名稱。
 
+    "parameters": {
+        "dataFactoryName": {
+            "type": "string"
+         },
+         "dataSetName": {
+            "type": "array"
+         }
+    },
     "resources": [
     {
         "type": "Microsoft.DataFactory/datafactories",
-        "name": "[variables('dataFactoryName')]",
+        "name": "[parameters('dataFactoryName')]",
         ...
     },
     {
         "type": "Microsoft.DataFactory/datafactories/datasets",
-        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "name": "[concat(parameters('dataFactoryName'), '/', parameters('dataSetName')[copyIndex()])]",
         "dependsOn": [
-            "[variables('dataFactoryName')]"
+            "[parameters('dataFactoryName')]"
         ],
         "copy": { 
             "name": "datasetcopy", 
-            "count": "[parameters('count')]" 
+            "count": "[length(parameters('dataSetName'))]" 
         } 
         ...
     }]
@@ -199,4 +215,4 @@
 - 如需可以在範本中使用的函式清單，請參閱 [Azure 資源管理員範本函式](./resource-group-template-functions.md)。
 - 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

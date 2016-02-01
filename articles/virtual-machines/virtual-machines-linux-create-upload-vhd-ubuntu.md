@@ -112,6 +112,9 @@
 
 11. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
+## 後續步驟
+您現在可以開始在 Azure 中使用您的 Ubuntu Linux .vhd 建立新的 Azure 虛擬機器。如果這是您第一次使用 Azure 並將 .vhd 檔案上傳至 Azure，您可以依照[本指引](virtual-machines-linux-create-upload-vhd.md)中的步驟 2 和 3 執行。
+
 ## 參考 ##
 
 Ubuntu 硬體啟用 (HWE) 核心
@@ -119,4 +122,4 @@ Ubuntu 硬體啟用 (HWE) 核心
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

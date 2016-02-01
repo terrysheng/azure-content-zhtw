@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # 部署您的內部部署 StorSimple 裝置 (Update 2)
@@ -47,7 +47,7 @@
 | [部署必要條件](#deployment-prerequisites) | 這些會驗證環境是否準備就緒以供部署。 |
 | | |
 | **逐步部署** | 需要執行這些步驟，才能在生產環境中部署您的 StorSimple 裝置。 |
-| [步驟 1：建立新的服務](#step-1-create-a-new-service) | 設定雲端管理和 StorSimple 裝置的儲存體。*如果您現在已經有針對其他 StorSimple 裝置的服務，請略過此步驟*。 |
+| [步驟 1：建立新的服務](#step-1-create-a-new-service) | 設定雲端管理和 StorSimple 裝置的儲存體。如果您現在已經有針對其他 StorSimple 裝置的服務，請略過此步驟。 |
 | [步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key) | 使用此金鑰註冊並將 StorSimple 裝置與管理服務連接。 |
 | [步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) | 使用管理服務將裝置連線到您的網路並使用 Azure 註冊以完成設定。 |
 | [步驟 4：完成最小量裝置設定](#step-4-complete-minimum-device-setupd)</br>[選用：更新您的 StorSimple 裝置](#scan-for-and-apply-updates) | 使用管理服務來完成裝置設定並啟用裝置以提供儲存體。 |
@@ -239,9 +239,9 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 後續步驟
 
-設定[虛擬裝置](storsimple-virtual-device.md)。
+- 設定[虛擬裝置](storsimple-virtual-device.md)。
 
-使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
+- 使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

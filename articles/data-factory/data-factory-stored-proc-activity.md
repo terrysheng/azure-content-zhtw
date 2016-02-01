@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # SQL Server 預存程序活動
 
-您可以在 Data Factory [管線](data-factory-create-pipelines.md)中使用 SQL Server 預存程序活動，以叫用 **Azure SQL Database** 或 **Azure SQL 資料倉儲**中的預存程序。本文是根據[資料轉換活動](data-factory-data-transformation-activities.md)一文，它呈現資料轉換和支援的轉換活動的一般概觀。
+您可以在 Data Factory [管線](data-factory-create-pipelines.md)中使用 SQL Server 預存程序活動，以叫用下列其中一個資料存放區中的預存程序。
+
+
+- Azure SQL Database 
+- Azure SQL 資料倉儲  
+- 您的企業或 Azure VM 中的 SQL Server 資料庫。您必須在位於裝載資料庫的同一部電腦上或個別電腦上安裝資料管理閘道，以避免與資料庫競用資源。資料管理閘道器是一套透過安全且可管理的方式，將內部部署資料來源/Azure VM 中裝載的資料來源連結至雲端服務的軟體。如需資料管理閘道的詳細資訊，請參閱[在內部部署和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文。 
+
+本文是根據[資料轉換活動](data-factory-data-transformation-activities.md)一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 ## 語法
 	{
@@ -65,7 +72,8 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
 		GO
 
-	Id 是可唯一識別的，而 datetimestamp 資料行是產生對應識別碼的日期和時間。![範例資料](./media/data-factory-stored-proc-activity/sample-data.png)
+	Id 是可唯一識別的，而 datetimestamp 資料行是產生對應識別碼的日期和時間。
+	![範例資料](./media/data-factory-stored-proc-activity/sample-data.png)
 
 2. 建立下列**預存程序**，將資料插入 **sampletable**。
 
@@ -81,7 +89,7 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 	
 ### 建立 Data Factory  
 4. 登入 [Azure 入口網站](http://portal.azure.com/)之後，執行下列動作：
-	1.	按一下左側功能表的 [新增]。 
+	1.	按一下左側功能表上的 [新增]。 
 	2.	按一下 [建立] 刀鋒視窗中的 [資料分析]。
 	3.	按一下 [資料分析] 刀鋒視窗上的 [Data Factory]。
 4.	在 [新增 Data Factory] 刀鋒視窗中，輸入 **LogProcessingFactory** 做為 [名稱]。Azure Data Factory 名稱必須是全域唯一的。您必須在 Data Factory 的名稱前面加上您的名稱，才能成功建立 Factory。 
@@ -99,7 +107,7 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 
 7.	在適用於 **SProcDF** 的 [DATA FACTORY] 刀鋒視窗中，按一下 [製作和部署]。這會啟動 Data Factory 編輯器。 
 2.	在命令列上按一下 [新增資料儲存區]，然後選擇 [Azure SQL]。您應該會在編輯器中看到用來建立 Azure SQL 連結服務的 JSON 指令碼。 
-4. 使用您的 Azure SQL Database 伺服器名稱來取代 **servername**、使用您在其中建立資料表和預存程序的資料庫來取代 **databasename**、使用有權存取資料庫的使用者帳戶來取代 ****username@servername**，以及使用該使用者帳戶的密碼來取代 **password**。
+4. 使用您的 Azure SQL Database 伺服器名稱來取代 **servername**、使用您在其中建立資料表和預存程序的資料庫來取代 **databasename**、使用有權存取資料庫的使用者帳戶來取代 **username@servername**，以及使用該使用者帳戶的密碼來取代 **password**。
 5. 按一下命令列的 [部署]，部署連結服務。
 
 ### 建立輸出資料表
@@ -198,4 +206,4 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 		}
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

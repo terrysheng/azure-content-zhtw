@@ -12,19 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # 修改 StorSimple 裝置上的 DATA 0 網路介面設定
 
 ## 概觀
 
-Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5。DATA 0 介面一律透過 Windows PowerShell 介面或序列主控台設定，且自動以雲端啟用。DATA 0 介面會在初始部署 StorSimple 裝置期間透過安裝精靈第一次設定。當裝置處於操作模式時，您可能需要重新進行 DATA 0 設定。本教學課程提供兩種修改 DATA 0 網路設定的方法，皆需透過 Windows PowerShell for StorSimple 進行。
+Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5。DATA 0 介面一律透過 Windows PowerShell 介面或序列主控台設定，且已自動啟用雲端功能。DATA 0 介面會在初始部署 StorSimple 裝置期間，透過安裝精靈進行第一次設定。當裝置處於操作模式時，您可能需要重新進行 DATA 0 設定。本教學課程提供兩種修改 DATA 0 網路設定的方法，皆需透過 Windows PowerShell for StorSimple 進行。
 
 閱讀本教學課程之後，您將能夠：
 
 - 透過安裝精靈修改 DATA 0 網路設定
-- 透過 `Set-HcsNetInterface` cmdlet 修改 DATA 0 網路設定
+- 透過 `Set-HcsNetInterface` Cmdlet 修改 DATA 0 網路設定
 
 
 ## 透過安裝精靈修改 DATA 0 網路設定
@@ -35,7 +35,6 @@ Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5�
 1. 在序列主控台功能表中，選擇選項 1 [使用完整存取權登入]。出現提示時，提供**裝置系統管理員密碼**。預設密碼為 `Password1`。
 
 2. 在命令提示字元中，輸入：
-
 
 	`Invoke-HcsSetupWizard`
 
@@ -70,6 +69,7 @@ Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5�
 ## 後續步驟
 
 - 若要設定 DATA 0 以外的網路介面，您可以使用 [Azure 傳統入口網站中的設定頁面](storsimple-modify-device-config.md)。 
+
 - 如果您在設定您的網路介面時遇到任何問題，請參閱[疑難排解部署問題](storsimple-troubleshoot-deployment.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

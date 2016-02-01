@@ -20,6 +20,20 @@
 
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。推出這些更新的特定[系列][family-explain]皆會包含這些更新。
 
+## 1 月客體 OS
+
+| 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-001 | [3124903] | Internet Explorer 的累積安全性更新 | 4\.28, 3.35, 2.47 | 2015 年 1 月 12 日 |
+| MS16-003 | [3125540] | JScript 與 VBScript 的累積安全性更新 | 2\.47 | 2015 年 1 月 12 日 |
+| MS16-005 | [3124584] | Windows 核心模式驅動程式的安全性更新，可解決遠端程式碼執行問題 | 4\.28, 3.35, 2.47 | 2015 年 1 月 12 日 |
+| MS16-007 | [3124901] | Microsoft Windows 的安全性更新，可解決遠端程式碼執行問題 | 4\.28, 3.35, 2.47 | 2015 年 1 月 12 日 |
+| MS16-008 | [3124605] | 核心的安全性更新，可解決提高權限問題 | 4\.28, 3.35, 2.47 | 2015 年 1 月 12 日 |
+| Microsoft Security Advisory 修訂 | [2755801] | Internet Explorer 中 Adobe Flash Player 的弱點更新 (封裝 KB：TBD) - 諮詢預留位置 | 4\.28, 3.35 | 2015 年 1 月 12 日 |
+| Microsoft Security Advisory | [3109853] | 改善 TLS 互通性的更新 | 4\.28, 3.35 | 2015 年 1 月 12 日 |
+| Microsoft Security Advisory | [3123479] | 取代 Microsoft 根憑證計劃適用的 SHA-1 雜湊演算法 | 4\.28, 3.35, 2.47 | 2015 年 1 月 12 日 |
+| Microsoft Security Advisory | [2736233] | ActiveX Kill Bits 的更新 | 4\.28, 3.35, 2.47 | 2015 年 1 月 12 日 |
+
 ## 十二月客體作業系統
 
 | 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
@@ -211,6 +225,15 @@
 | N/A | [2999802][2999802] | 在 Windows 中列印虛線時會變成實線 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 | N/A | [2896881][2896881] | 在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 
+[3124903]: http://support.microsoft.com/kb/3124903
+[3125540]: http://support.microsoft.com/kb/3125540
+[3124584]: http://support.microsoft.com/kb/3124584
+[3124901]: http://support.microsoft.com/kb/3124901
+[3124605]: http://support.microsoft.com/kb/3124605
+[2755801]: http://support.microsoft.com/kb/2755399
+[3109853]: http://support.microsoft.com/kb/3109853
+[3123479]: http://support.microsoft.com/kb/3123479
+[2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
 [3116178]: http://support.microsoft.com/kb/3116178
@@ -354,4 +377,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

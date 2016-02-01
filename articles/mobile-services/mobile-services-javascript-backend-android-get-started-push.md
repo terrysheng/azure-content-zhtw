@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 
@@ -86,7 +86,7 @@
 
 1. 從 [**執行**] 功能表項目，按一下 [**執行應用程式**] 來啟動應用程式。
 
-2. 在應用程式中，輸入有意義的文字，如 _A new Mobile Services task_，然後按一下 [加入] 按鈕。
+2. 在應用程式中，輸入有意義的文字，如 A new Mobile Services task，然後按一下 [加入] 按鈕。
 
   	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 
@@ -156,4 +156,4 @@
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

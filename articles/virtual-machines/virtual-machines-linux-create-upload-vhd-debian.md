@@ -78,6 +78,6 @@ Credativ 網站具有協助您自動建立 Debian VHD 的指令碼。您可以�
 
 ## 後續步驟
 
-現在您可以開始使用 Debian.vhd 來建立新的 Azure 虛擬機器。
+現在您可以開始使用 Debian.vhd 來建立新的 Azure 虛擬機器。如果這是您第一次使用 Azure 並將 .vhd 檔案上傳至 Azure，您可以依照[本指引](virtual-machines-linux-create-upload-vhd.md)中的步驟 2 和 3 執行。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

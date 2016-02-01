@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何將資料輸入新增至串流分析工作中 | Microsoft Azure" 
+	pageTitle="將資料輸入新增至串流分析工作中 | Microsoft Azure" 
 	description="將輸入新增至串流分析工作中 | 學習路徑區段。"
 	keywords="資料輸入, 串流資料"
 	documentationCenter=""
@@ -20,7 +20,7 @@
 />
 
 
-# 如何將串流資料輸入新增至串流分析工作中
+# 將串流資料輸入新增至串流分析工作中
 
 Azure 串流分析工作可以連線至一或多個輸入，且每個輸入都定義了一個與現有資料來源之間的連線。當資料傳送到該資料來源時，串流分析工作會即時取用該資料，並把它當做串流資料來處理。在工作訂用帳戶內外，串流分析具有與 [Azure 事件中樞](http://azure.microsoft.com/services/event-hubs/)和 [Azure Blob 儲存體](./storage/storage-dotnet-how-to-use-blobs.md)的第一級整合。串流分析有兩種不同的輸入類型：資料流和參考資料。
 
@@ -80,4 +80,4 @@ Azure 串流分析工作可以連線至一或多個輸入，且每個輸入都�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

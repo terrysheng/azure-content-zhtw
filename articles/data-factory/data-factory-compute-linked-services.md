@@ -1,6 +1,6 @@
 <properties
-	pageTitle="運算連結服務 | Microsoft Azure"
-	description="了解您可以在 Azure Data Factory 管線中用來轉換/處理資料的運算環境。"
+	pageTitle="計算連結服務 | Microsoft Azure"
+	description="了解您可以在 Azure Data Factory 管線中用來轉換/處理資料的計算環境。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="01/19/2016"
 	ms.author="spelluru"/>
 
-# 運算連結服務
+# 計算連結服務
 
-本文說明您可用來處理或轉換資料的各種運算環境。其中還提供在設定將這些運算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
+本文說明您可用來處理或轉換資料的各種計算環境。其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
 
-## 隨選運算環境
+## 隨選計算環境
 
-在這種組態中，運算環境完全是由 Azure Data Factory 服務管理。Data Factory 服務會在工作提交前自動建立運算環境以處理資料，而在工作完成時予以移除。您可以建立隨選運算環境的連結服務、加以設定，以及控制工作執行、叢集管理和啟動動作的細微設定。
+在這種組態中，運算環境完全是由 Azure Data Factory 服務管理。Data Factory 服務會在工作提交前自動建立運算環境以處理資料，而在工作完成時予以移除。您可以建立隨選計算環境的連結服務、加以設定，以及控制工作執行、叢集管理和啟動動作的細微設定。
 
 > [AZURE.NOTE]目前僅支援 Azure HDInsight 叢集的隨選組態。
 
@@ -144,11 +144,11 @@ zookeeperNodeSize | 指定 Zoo Keeper 節點的大小。預設值為：小 | 否
 
 
 
-## 自備運算環境
+## 自備計算環境
 
 在這種組態中，使用者可以將現有的運算環境註冊為 Data Factory 中的連結服務。此運算環境是由使用者管理並由 Data Factory 服務用來執行活動。
 
-下列運算環境可支援這類型的組態：
+下列計算環境可支援這類型的組態：
 
 - Azure HDInsight
 - Azure Batch
@@ -193,7 +193,7 @@ linkedServiceName | 此 HDInsight 叢集所使用之 Blob 儲存體的連結服�
 
 
 - [Azure Batch 基本知識](../batch/batch-technical-overview.md)，以取得 Azure Batch 服務的概觀。
-- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 傳統入口網站](../batch/batch-account-create-portal.md)，以使用 Azure 傳統入口網站建立 Azure Batch 帳戶。如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)主題。
+- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) Cmdlet 可建立 Azure Batch 帳戶 (或) [Azure 傳統入口網站](../batch/batch-account-create-portal.md)，以使用 Azure 傳統入口網站建立 Azure Batch 帳戶。如需使用此 Cmdlet 的詳細指示，請參閱[使用 PowerShell 管理 Azure Batch 帳戶](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) (英文) 主題。
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) Cmdlet 可建立 Azure Batch 集區。
 
 ### 範例
@@ -290,9 +290,48 @@ subscriptionId | Azure 訂用帳戶識別碼 | 否 (如果未指定，便會使�
 resourceGroupName | Azure 資源群組名稱 | 否 (若未指定，便會使用 Data Factory 的資源群組)。
 sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階段識別碼都是唯一的，只能使用一次。這是在 Data Factory 編輯器中自動產生。 | 是
 
+您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。請參閱下表以了解不同類型的使用者帳戶的到期時間。當驗證**權杖到期**時，您可能會看到下列錯誤訊息：認證作業發生錯誤：invalid\_grant - AADSTS70002：驗證認證時發生錯誤。AADSTS70008：提供的存取授權已過期或撤銷。追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
+
+ 
+| 使用者類型 | 到期時間 |
+| :-------- | :----------- | 
+| 非 AAD 使用者 (@hotmail.com、@live.com 等等) | 12 小時 |
+| AAD 使用者和 OAuth 型來源是以不同[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)做為使用者的 Data Factory 的租用戶。 | 12 小時 |
+| AAD 使用者和 OAuth 型來源是以相同租用戶做為使用者的 Data Factory 的租用戶。 | <p>如果使用者根據其 OAuth 型連結服務來源，至少每 14 天執行一次配量，最大值是 90 天。</p><p>在預期的 90 天內，一旦使用者未根據該來源在 14 內執行任何配量，認證會在最後一個配量的 14 天後立即過期。</p> | 
+
+若要避免/解決此錯誤，您必須在**權杖到期**和重新部署連結的服務時使用 [授權] 按鈕重新授權。您也可以使用下一節中的程式碼以程式設計方式產生 sessionId 和 authorization 屬性的值。
+
+### 若要以程式設計方式產生 sessionId 與 authorization 的值 
+若要以程式設計方式產生 **sessionId** 與 **authorization** 的值
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+請參閱 [AzureDataLakeStoreLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)、[AzureDataLakeAnalyticsLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)和 [AuthorizationSessionGetResponse 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)主題，以取得在程式碼中使用的 Data Factory 類別的詳細資訊。您必須針對 WindowsFormsWebAuthenticationDialog 類別將參考新增至：Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll。
+ 
 
 ## Azure SQL 連結服務
 
 您可建立 Azure SQL 連結服務，並將其與[預存程序活動](data-factory-stored-proc-activity.md)搭配使用，以叫用 Data Factory 管線中的預存程序。如需此連結服務的詳細資料，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)一文。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

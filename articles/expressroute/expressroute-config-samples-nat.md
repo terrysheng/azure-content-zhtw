@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # 設定和管理 NAT 的路由器組態範例
@@ -217,7 +217,7 @@ NAT 命令：
 
 ### 5\.設定 BGP 以通告每個方向的選擇性前置詞
 
-請參閱[路由組態範例](expressroute-config-samples-routing.md)頁面中的範例。
+請參考[路由組態範例](expressroute-config-samples-routing.md)頁面中的範例。
 
 ### 6\.建立原則
 
@@ -319,4 +319,4 @@ NAT 命令：
 
 如需詳細資訊，請參閱〈[ExpressRoute 常見問題集](expressroute-faqs.md)〉。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

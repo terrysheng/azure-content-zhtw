@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 
@@ -28,7 +28,7 @@
 
 > [AZURE.IMPORTANT]
 >
->- 此更新無法透過 Windows Update 取得，安裝方式也和其他更新不一樣。即使您已使用 Azure 傳統入口網站套用更新，您的裝置也不會收到此更新。此更新只會適用於 2015 年 1 月 20 日之後建立的虛擬裝置。 
+>- 此更新無法透過 Windows Update 取得，安裝方式也和其他更新不一樣。即使您透過 Azure 傳統入口網站套用此更新，您的裝置也不會收到更新。此更新只會適用於 2015 年 1 月 20 日之後建立的虛擬裝置。 
 > 
 >- 1 月發行的 StorSimple 不包含任何 StorSimple 實體裝置的更新。您仍然可以將任何可用的 Windows 更新套用至虛擬裝置，包括近來的安全性修正程式，但不會改變 StorSimple 實體裝置的版本。
 
@@ -78,4 +78,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

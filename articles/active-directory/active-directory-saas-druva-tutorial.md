@@ -2,7 +2,7 @@
     pageTitle="教學課程：Azure Active Directory 與 Druva 整合 | Microsoft Azure" 
     description="了解如何使用 Druva 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Druva 整合
 
@@ -21,7 +21,7 @@
 -   有效的 Azure 訂閱
 -   已啟用 Druva 單一登入的訂用帳戶
 
-完成本教學課程之後，您指派給 Druva 的 Azure AD 使用者就能夠單一登入您 Druva 公司網站 (服務提供者起始登入) 的應用程式，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)進行單一登入。
+完成本教學課程之後，您指派給 Druva 的 Azure AD 使用者就能夠單一登入您 Druva 公司網站 (服務提供者起始登入) 的應用程式，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -45,7 +45,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-druva-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-druva-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -59,14 +59,14 @@
 
     ![應用程式庫](./media/active-directory-saas-druva-tutorial/IC795085.png "應用程式庫")
 
-7.  在結果窗格中，選取 [Druva]，然後按一下 [完成] 來新增應用程式。
+7.  在結果窗格中，選取 [Druva]，然後按一下 [完成] 來加入應用程式。
 
     ![Druva](./media/active-directory-saas-druva-tutorial/IC795086.png "Druva")
 ##設定單一登入
 
 本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證到 Druva。在此程序中，您必須建立 base-64 編碼的憑證檔案。如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
-Druva 應用程式需要特定格式的 SAML 判斷提示，您需要將自訂屬性對應新增您的 **SAML Token 屬性**組態。以下螢幕擷取畫面顯示上述的範例。
+Druva 應用程式需要特定格式的 SAML 判斷提示，您需要將自訂屬性對應加入您的 **SAML Token 屬性**組態。以下螢幕擷取畫面顯示上述的範例。
 
 ![SAML Token 屬性](./media/active-directory-saas-druva-tutorial/IC795087.png "SAML Token 屬性")
 
@@ -130,9 +130,9 @@ Druva 應用程式需要特定格式的 SAML 判斷提示，您需要將自訂�
 
 	|屬性名稱|屬性值|
     |---|---|
-    |insync\_auth\_token|<*剪貼簿值*>|
+    |insync\_auth\_token|<剪貼簿值>|
 
-    1.  針對上表中的每個資料列，按一下 [新增使用者屬性]。
+    1.  針對上表中的每個資料列，按一下 [加入使用者屬性]。
     2.  在 [屬性名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
     3.  在 [屬性值] 文字方塊中，輸入該資料列所顯示的屬性值。
     4.  按一下 [完成]。
@@ -181,4 +181,4 @@ Druva 應用程式需要特定格式的 SAML 判斷提示，您需要將自訂�
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

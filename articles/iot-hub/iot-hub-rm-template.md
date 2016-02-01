@@ -24,6 +24,8 @@
 
 您可以使用 Azure 資源管理員，以程式設計方式建立和管理 Azure IoT 中樞。本教學課程示範如何使用資源管理員範本從 C# 程式建立 IoT 中樞。
 
+> [AZURE.NOTE]Azure 建立和處理資源的部署模型有二種：[資源管理員和傳統](../resource-manager-deployment-model.md)。本文涵蓋內容包括如何使用資源管理員部署模型。
+
 若要完成本教學課程，您需要下列項目：
 
 - Microsoft Visual Studio 2015。
@@ -169,7 +171,7 @@
     Console.ReadLine();
     ```
     
-2. 按一下 [建置]，然後按一下 [建置解決方案]。更正所有錯誤。
+2. 按一下 [**建置**]，然後再按一下 [**建置解決方案**]。更正所有錯誤。
 
 3. 按一下 [偵錯]，然後再按一下 [開始偵錯]，以執行應用程式。可能需要數分鐘的時間，部署才會開始執行。
 
@@ -189,4 +191,4 @@
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

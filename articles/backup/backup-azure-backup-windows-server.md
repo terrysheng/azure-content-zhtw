@@ -3,12 +3,19 @@
    description="使用簡單程序將 Windows Server 或 Windows 用戶端備份至 Azure。您可以透過幾個簡單步驟，將 Windows 檔案和資料夾備份至雲端。"
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""
    keywords="Windows 伺服器備份；備份 Windows 伺服器"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/19/2016"
+	 ms.author="jimpark;"/>
 
 # 將 Windows Server 或 Windows 用戶端檔案和資料夾備份至 Azure
 使用這個簡單程序即可將 Windows 檔案與資料夾備份至 Azure。如果您尚未這樣做，請先完成[必要條件](backup-configure-vault.md#before-you-start)為您的環境進行 Windows 電腦備份工作，再繼續執行。
@@ -45,4 +52,4 @@
 - [從 Azure 還原 Windows Server 或 Windows 用戶端](backup-azure-restore-windows-server.md)
 - [Azure 備份常見問題集](backup-azure-backup-faq.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

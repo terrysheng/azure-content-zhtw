@@ -1,39 +1,33 @@
-<properties 
-    pageTitle="使用 Azure Data Factory 和 Azure Batch 的大規模資料處理" 
-    description="說明如何使用 Azure Batch 的平行處理功能處理 Azure Data Factory 管線中的大量資料。" 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
+<properties
+    pageTitle="使用 Azure Batch 和 Data Factory 的 HPC 和資料協調"
+    description="說明如何使用 Azure Batch 的平行處理功能處理 Azure Data Factory 管線中的大量資料。"
+    services="data-factory"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
     editor="monicar"/>
 
-<tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="12/16/2015" 
+<tags
+    ms.service="data-factory"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/20/2016"
     ms.author="spelluru"/>
-# 使用 Azure Data Factory 和 Azure Batch 的大規模資料處理
+# 使用 Azure Batch 和 Data Factory 的 HPC 和資料協調
 
-這個簡單的架構解決方案說明如何使用 **Microsoft** **Azure Data Factory** 和 **Azure** **Batch** 在雲端中有效率地移動及處理大規模的資料集。此架構牽涉到許多需要大規模資料處理的案例。其中包括依金融服務組織、映像處理和轉譯以及基因分析進行的報告和風險模型建立。
+高效能運算 (HPC) 已經在內部部署資料中心的網域：處理資料的超級電腦，但是受到可用實體機器數目的限制。Azure Batch 服務藉由提供 HPC 做為服務徹底改變了這個情形。您可以設定所需的電腦。Batch 也會處理排程和協調工作，讓您專注於要執行的演算法。Azure Data Factory 是 Batch 的完美輔助工具；它可簡化資料移動的協調。使用 Data Factory，您可以針對 ETL 指定資料的規則移動、處理資料，然後再將結果移至永久儲存體。例如，從感應器收集的資料會 (由 Data Factory) 移至暫時的位置，其中 Batch (在 Data Factory 的控制項底下) 會處理資料，並且產生一組新的結果。然後 Data Factory 會將結果移至最後一個儲存機制。搭配使用這兩項服務，您可以有效率地使用 HPC 以定期排程處理大量資料。
 
-架構設計人員和 IT 決策者會從圖表和基本步驟取得概觀。開發人員可以使用程式碼做為其本身實作的起點。本文包含完整的解決方案。
+我們提供端對端解決方案範例，自動移動及處理大型資料集。架構與許多案例相關，例如依金融服務、映像處理和轉譯以及基因分析進行的風險模型建立。架構設計人員和 IT 決策者會從圖表和基本步驟取得概觀。開發人員可以使用程式碼做為其本身實作的起點。本文包含完整的解決方案。
 
-## Data Factory 和 Batch
-
-**Azure Data Factory** 是一項雲端架構資料整合服務。它可協調和自動化原始資料的移動，並將其轉換為可供使用的資訊。請閱讀 [Azure Data Factory 簡介](data-factory-introduction.md)和[建置您的第一個管線](data-factory-build-your-first-pipeline.md)，以利使用此服務。
-
-管線是活動的邏輯群組，用以移動和處理資料。Data Factory 支援內建活動，例如**複製活動**和 **HDInsight Hive 活動**。如需完整清單，請參閱[資料移動活動](data-factory-data-movement-activities.md)和[資料轉換活動](data-factory-data-transformation-activities.md)。您也可以根據自己的處理邏輯建立**自訂活動**，我們將在解決方案中示範其做法。
-
-**Azure Batch** 可協助您在雲端中，有效執行大規模的平行和高效能運算 (HPC) 應用程式。它是一項平台服務，可排程要在受管理的虛擬機器 (計算節點) 集合上執行的計算密集型工作，而且可以調整計算資源以符合作業的需求。如需詳細資訊，請參閱 [Azure Batch 的基本概念](../batch/batch-technical-overview.md)和 [Azure Batch 功能概觀](../batch/batch-api-basics.md)。
+如果您在遵循範例解決方案之前不熟悉這些服務，請參閱 [Azure Batch](../batch/batch-api-basics.md) 和 [Data Factory](data-factory-introduction.md) 文件。
 
 ## 架構圖表
 
-此圖表將說明 1) Data Factory 如何協調資料移動和處理，以及 2) Azure Batch 如何以平行方式處理資料。請下載並列印圖表以便參考 (11 x 17 英吋或 A3 大小)：[Microsoft Azure Batch 和 Azure Data Factory：大規模資料處理的架構](http://go.microsoft.com/fwlink/?LinkId=717686)。
+此圖表將說明 1) Data Factory 如何協調資料移動和處理，以及 2) Azure Batch 如何以平行方式處理資料。請下載並列印圖表以便參考 (11 x 17 英吋或 A3 大小)：[使用 Azure Batch 和 Data Factory 的 HPC 和資料協調](http://go.microsoft.com/fwlink/?LinkId=717686)。
 
-![](./media/data-factory-data-processing-using-batch/image1.png)
+![HPC 為服務圖表](./media/data-factory-data-processing-using-batch/image1.png)
 
 這些是程序中的基本步驟。此解決方案包含用來建置端對端解決方案的程式碼和說明。
 
@@ -70,17 +64,17 @@
 4.  建立至少有 2 個計算節點的 **Azure Batch 集區**。
 
 	 您可以下載 [Azure Batch 總管工具](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer)的原始碼、加以編譯，然後用來建立集區 (**強烈建議用於此範例解決方案**)，或使用[適用於 .NET 的 Azure Batch 程式庫](../batch/batch-dotnet-get-started.md)來建立集區。如需有關使用 Azure Batch 總管的逐步指示，請參閱 [Azure Batch 總管範例逐步解說](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx)。您也可以使用 [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) Cmdlet 建立 Azure Batch 集區。
-	
+
 	 使用 Batch 總管，以下列設定建立集區：
 
 	-   輸入集區的識別碼 (**集區識別碼**)。請注意**集區的識別碼**；您將在建立 Data Factory 解決方案時需要它。
-	
+
 	-   針對 [作業系統系列] 設定，指定 [Windows Server 2012 R2]。
-	
+
 	-   指定 **2** 做為 [每個計算節點之最大工作] 設定的值。
-	
+
 	-   指定 **2** 做為 [目標專用數字] 設定的值。
-	
+
 	 ![](./media/data-factory-data-processing-using-batch/image2.png)
 
 5.  [Azure 儲存體總管 6 (工具)](https://azurestorageexplorer.codeplex.com/) 或 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (來自 ClumsyLeaf 軟體)。這些 GUI 工具可用來檢查及更改 Azure 儲存體專案中的資料，包括雲端架構應用程式的記錄檔。
@@ -92,7 +86,7 @@
  		![](./media/data-factory-data-processing-using-batch/image3.png)
 
 		 **Inputfolder** 和 **outputfolder** 是 **mycontainer** 中的最上層資料夾，且 **inputfolder** 包含具有日期時間戳記 (YYYY-MM-DD-HH) 的子資料夾。
-		
+
 		 如果您使用 **Azure 儲存體總管**，在下一個步驟中，您必須上傳具有下列名稱的檔案：inputfolder/2015-11-16-00/file.txt、inputfolder/2015-11-16-01/file.txt、依此類推。這會自動建立資料夾。
 
 	3.  在您的電腦上建立內容中含有關鍵字 **Microsoft** 的文字檔 **file.txt** 。例如：“test custom activity Microsoft test custom activity Microsoft”。
@@ -150,10 +144,10 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 若要建立您可以在 Azure Data Factory 管線中使用的 .NET 自訂活動，您必須利用實作 **IDotNetActivity** 介面的類別建立 **.NET 類別庫**專案。這個介面只有一個方法：**執行**。以下是該方法的簽章：
 
 	public IDictionary<string, string> Execute(
-	            IEnumerable<LinkedService> linkedServices, 
-	            IEnumerable<Dataset> datasets, 
-	            Activity activity, 
-	            IActivityLogger logger)        
+	            IEnumerable<LinkedService> linkedServices,
+	            IEnumerable<Dataset> datasets,
+	            Activity activity,
+	            IActivityLogger logger)
 
 此方法有幾個您必須了解的關鍵元件。
 
@@ -169,7 +163,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 -   此方法會傳回可用來將自訂活動鏈結在一起的字典。我們不會在此範例解決方案中使用這項功能。
 
-### 程序：建立自訂活動 
+### 程序：建立自訂活動
 
 1.  在 Visual Studio 中建立 .NET 類別庫專案。
 
@@ -203,10 +197,10 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 		using System.Globalization;
 		using System.Diagnostics;
 		using System.Linq;
-		
+
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.Azure.Management.DataFactories.Runtime;
-		
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -221,7 +215,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 8.  對 **MyDotNetActivity** 類別實作 (加入) **IDotNetActivity** 介面的 **Execute** 方法，並將下列範例程式碼複製到方法。請參閱 [Execute 方法](#execute-method)一節，以了解此方法中使用的邏輯。
 
 		/// <summary>
-        /// Execute method is the only method of IDotNetActivity interface you must implement. 
+        /// Execute method is the only method of IDotNetActivity interface you must implement.
         /// In this sample, the method invokes the Calculate method to perform the core logic.  
 		/// </summary>
         public IDictionary<string, string> Execute(
@@ -244,8 +238,8 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
-            // using First method instead of Single since we are using the same 
-            // Azure Storage linked service for input and output. 
+            // using First method instead of Single since we are using the same
+            // Azure Storage linked service for input and output.
             inputLinkedService = linkedServices.First(
                 linkedService =>
                 linkedService.Name ==
@@ -271,12 +265,12 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
                                          continuationToken,
                                          null,
                                          null);
-                
-                // Calculate method returns the number of occurrences of 
+
+                // Calculate method returns the number of occurrences of
                 // the search term (“Microsoft”) in each blob associated
-        		// with the data slice. 
-        		// 
-        	    // definition of the method is shown in the next step. 
+        		// with the data slice.
+        		//
+        	    // definition of the method is shown in the next step.
                 output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
             } while (continuationToken != null);
@@ -292,7 +286,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
             // create a storage object for the output blob.
             CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-            // write the name of the file. 
+            // write the name of the file.
             Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
             logger.Write("output blob URI: {0}", outputBlobUri.ToString());
@@ -309,7 +303,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 9.  將下列協助程式方法加入至類別。這些方法可用 **Execute** 方法來叫用。最重要的是，**Calculate** 方法會隔離逐一查看每個 blob 的程式碼。
 
         /// <summary>
-        /// Gets the folderPath value from the input/output dataset.   
+        /// Gets the folderPath value from the input/output dataset.
 		/// </summary>
 		private static string GetFolderPath(Dataset dataArtifact)
 		{
@@ -317,41 +311,41 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FolderPath;
 		}
-		
+
 		/// <summary>
-		/// Gets the fileName value from the input/output dataset.   
+		/// Gets the fileName value from the input/output dataset.
 		/// </summary>
-		
+
 		private static string GetFileName(Dataset dataArtifact)
 		{
 		    if (dataArtifact == null || dataArtifact.Properties == null)
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FileName;
 		}
-		
+
 		/// <summary>
-		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file, 
-		/// and prepares the output text that will be written to the output blob. 
+		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
+		/// and prepares the output text that will be written to the output blob.
 		/// </summary>
-		
+
 		public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
 		{
 		    string output = string.Empty;
@@ -407,7 +401,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 		// Initialize the continuation token.
 		BlobContinuationToken continuationToken = null;
 		do
-		{   
+		{
 		// Get the list of input blobs from the input storage client object.
 		BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
 		    					true,
@@ -418,7 +412,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 		                                  null);
 		// Return a string derived from parsing each blob.
 		    output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-		
+
 		} while (continuationToken != null);
 
 	請參閱 [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) 方法的文件以了解詳細資料。
@@ -433,29 +427,29 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-		
+
 		// Convert to blob location object.
 		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
 4.	程式碼也會呼叫 helper 方法：**GetFolderPath** 來擷取資料夾路徑 (儲存體容器名稱)。
 
 		folderPath = GetFolderPath(outputDataset);
-		
+
 	**GetFolderPath** 會將 DataSet 物件轉換成 AzureBlobDataSet，其具有一個名為 FolderPath 的屬性。
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FolderPath;
 
 5.	程式碼會呼叫 **GetFileName** 方法來擷取檔案名稱 (blob 名稱)。程式碼取得資料夾路徑的方式類似上述程式碼。
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FileName;
 
 6.	藉由建立新的 URI 物件寫入檔案的名稱。URI 建構函式使用 **BlobEndpoint** 屬性傳回容器名稱。新增資料夾路徑和檔案名稱以建構輸出 blob URI。
 
-		// Write the name of the file. 
+		// Write the name of the file.
 		Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
 7.	已寫入檔案名稱，現在您可以從 **Calculate** 方法將輸出字串寫入新的 blob：
@@ -468,7 +462,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 ### 建立 Data Factory
 
-在 [建立自訂活動](#create-the-custom-activity) 區段中，您建立自訂活動，並將包含二進位檔和 PDB 檔案的 zip 檔案上傳到 Azure blob 容器。在本節中，您將透過使用**自訂活動**的**管線**建立 Azure **Data Factory**。
+在 [建立自訂活動][](#create-the-custom-activity) 區段中，您建立自訂活動，並將包含二進位檔和 PDB 檔案的 zip 檔案上傳到 Azure blob 容器。在本節中，您將透過使用**自訂活動**的**管線**建立 Azure **Data Factory**。
 
 自訂活動的輸入資料集代表 blob 儲存體中輸入資料夾 (mycontainer\\inputfolder) 的 blob (檔案)。活動的輸出資料集代表 blob 儲存體中輸出資料夾 (mycontainer\\outputfolder) 的輸出 blob。
 
@@ -630,15 +624,15 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 		        "external": true,
 		        "policy": {}
 		    }
-		} 
+		}
 
-	
+
 	 您稍後將在本逐步解說建立管線，開始時間為：2015-11-16T00:00:00Z，而結束時間為：2015-11-16T05:00:00Z。排程為**每小時**產生，將會有 5 個輸入/輸出配量 (在 **00**:00:00 -> **05**:00:00 之間)。
-	
+
 	 輸入資料集的**頻率**和**間隔**設定為**小時**和 **1**，這表示輸入配量會每小時提供一次。
-	
+
 	 以下是每個配量的開始時間，由上述 JSON 程式碼片段中的 **SliceStart** 系統變數代表。
-	
+
 	| **配量** | **開始時間** |
 	|-----------|-------------------------|
 	| 1 | 2015-11-16T**00**:00:00 |
@@ -646,9 +640,9 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 	| 3 | 2015-11-16T**02**:00:00 |
 	| 4 | 2015-11-16T**03**:00:00 |
 	| 5 | 2015-11-16T**04**:00:00 |
-	
+
 	 **FolderPath** 是使用配量開始時間 (**SliceStart**) 的年、月、日和小時部分來計算的。因此，輸入資料夾對應至配量的方式如下。
-	
+
 	| **配量** | **開始時間** | **輸入資料夾** |
 	|-----------|-------------------------|-------------------|
 	| 1 | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
@@ -704,7 +698,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 	| 3 | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
 	| 4 | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
 	| 5 | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
-	
+
 	 請記得，輸入資料夾 (例如：2015-11-16-00) 中的所有檔案，都是開始時間為 2015-11-16-00 之配量的一部分。處理此配量時，自訂活動會掃描每個檔案，並利用搜尋詞彙 (“Microsoft”) 的出現次數在輸出檔案中產生資料行。如果資料夾 2015-11-16-00 中有三個檔案，則輸出檔案中將會有三行：2015-11-16-00.txt。
 
 3.  按一下工具列上的 [部署]，以建立並部署 **OutputDataset**。
@@ -715,7 +709,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 > [AZURE.IMPORTANT]如果尚未將 **file.txt** 上傳至 blob 容器中的輸入資料夾，請先執行此動作，再建立管線。在管線 JSON 中，**IsPaused** 屬性會設定為 false，使管線會在**開始**日期到達後立即執行。
 
-1.  在 Data Factory 編輯器中，按一下工具列上的 [**新增管線**]。如果看不到此命令，請按一下 [...] (省略符號) 就可看到。
+1.  在 Data Factory 編輯器中，按一下工具列上的 [**新增管線**]。如果看不到此命令，請按一下 [...] \(省略符號) 就可看到。
 
 2.  使用下列 JSON 指令碼取代右窗格中的 JSON。
 
@@ -899,7 +893,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 3.  建立 [每個 VM 的工作數上限] 較低/較高的集區。更新 Data Factory 解決方案中的 Azure Batch 連結服務，以使用您所建立的新集區。(請參閱「步驟 4：建立並執行管線」，以進一步了解 [每個 VM 的工作數上限] 設定。)
 
-4.  建立具有**自動調整**功能的 Azure Batch 集區。自動調整 Azure Batch 集區中的運算節點就是動態調整應用程式所使用的處理能力。請參閱[自動調整 Azure Batch 集區中的計算節點](../batch/batch-automatic-scaling.md)。
+4.  建立具有**自動調整**功能的 Azure Batch 集區。自動調整 Azure Batch 集區中的計算節點就是動態調整應用程式所使用的處理能力。請參閱[自動調整 Azure Batch 集區中的計算節點](../batch/batch-automatic-scaling.md)。
 
     在範例解決方案中，**Execute** 方法會叫用可處理輸入資料配量以產生輸出資料配量的 **Calculate** 方法。您可以自行撰寫方法來處理輸入資料，然後呼叫您自己的方法，而取代 Execute 方法中的 Calculate 方法呼叫。
 
@@ -935,4 +929,4 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
     -   [開始使用 Azure Batch 程式庫 .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

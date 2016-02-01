@@ -2,7 +2,7 @@
     pageTitle="教學課程：Azure Active Directory 與 Freshdesk 整合 | Microsoft Azure" 
     description="了解如何使用 Freshdesk 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Freshdesk 整合
   
@@ -21,7 +21,7 @@
 -   有效的 Azure 訂閱
 -   Freshdesk 租用戶
   
-完成本教學課程或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)之後，您指派給 Freshdesk 的 Azure AD 使用者就能夠單一登入您 Freshdesk 公司網站 (服務提供者起始登入) 的應用程式。
+完成本教學課程之後，您指派給 Freshdesk 的 Azure AD 使用者就能夠單一登入您 Freshdesk 公司網站 (服務提供者起始登入) 的應用程式，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -45,7 +45,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-freshdesk-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-freshdesk-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -59,7 +59,7 @@
 
     ![應用程式庫](./media/active-directory-saas-freshdesk-tutorial/IC776762.png "應用程式庫")
 
-7.  在結果窗格中，選取 [Freshdesk]，然後按一下 [完成] 以新增應用程式。
+7.  在結果窗格中，選取 [Freshdesk]，然後按一下 [完成] 以加入應用程式。
 
     ![Freshdesk](./media/active-directory-saas-freshdesk-tutorial/IC776763.png "Freshdesk")
 ##設定單一登入
@@ -68,25 +68,25 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 **Freshdesk** 應用程式整合頁面中，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 [Freshdesk] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-freshdesk-tutorial/IC776764.png "設定單一登入")
 
-2.  在 [要如何讓使用者登入 Freshdesk] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
+2.  在 [您希望使用者如何登入 Freshdesk] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-freshdesk-tutorial/IC776765.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面上，於 [Freshdesk 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://\<tenant-name>.Freshdesk.com*"，然後按 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [Freshdesk 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："https://\<租用戶名稱>.Freshdesk.com"，然後按 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-freshdesk-tutorial/IC776766.png "設定應用程式 URL")
 
-4.  在 [設定在 Freshdesk 單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後在本機電腦上將憑證檔案儲存為 **c:\\Freshdesk.cer**。
+4.  於 [在 Freshdesk 設定單一登入] 頁面上，按 [下載憑證] 以下載您的憑證，然後在本機電腦上將憑證檔案儲存為 **c:\\Freshdesk.cer**。
 
     ![設定單一登入](./media/active-directory-saas-freshdesk-tutorial/IC776767.png "設定單一登入")
 
 5.  在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Freshdesk 公司網站。
 
-6.  在頂端的功能表中，按一下 [管理員]。
+6.  在頂端的功能表中，按一下 [系統管理員]。
 
     ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
 
@@ -100,15 +100,15 @@
 
     1.  針對 [單一登入 (SSO)] 選取 [啟用]。
     2.  選取 [SAML SSO]。
-    3.  在 Azure 入口網站的 [設定在 Freshdesk 單一登入] 對話方塊頁面中，複製**遠端登入 URL** 值，然後將它貼至 [SAML 登入 URL] 文字方塊中。
-    4.  在 Azure 入口網站的 [設定在 Freshdesk 單一登入] 對話方塊頁面中，複製**遠端登出 URL** 值，然後將它貼至 [登出 URL] 文字方塊中。
+    3.  在 Azure 入口網站中的 [在 Freshdesk 設定單一登入] 對話頁面上，複製**遠端登入 URL** 值，然後將它貼至 [SAML 登入 URL] 文字方塊中。
+    4.  在 Azure 入口網站中的 [設定在 Freshdesk 單一登入] 對話頁面上，複製**遠端登出 URL** 值，然後將它貼至 [登出 URL] 文字方塊中。
     5.  從匯出的憑證複製**指紋**值，然後將它貼入 [安全性憑證指紋] 文字方塊。  
 
-        >[AZURE.TIP]如需詳細資訊，請參閱[如何抓取憑證的指紋值](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]如需詳細資訊，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)
 
     6.  按一下 [儲存]。
 
-9.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+9.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "設定單一登入")
 ##設定使用者佈建
@@ -119,7 +119,7 @@
 
 1.  登入您的 **Freshdesk** 租用戶。
 
-2.  在頂端的功能表中，按一下 [管理員]。
+2.  在頂端的功能表中，按一下 [系統管理員]。
 
     ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
 
@@ -153,7 +153,7 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 **Freshdesk** 應用程式整合頁面上，按一下 [指派使用者]。
+2.  在 [Freshdesk] 應用程式整合頁面上，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-freshdesk-tutorial/IC776776.png "指派使用者")
 
@@ -163,4 +163,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

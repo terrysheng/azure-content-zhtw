@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # 如何設定雲端服務
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-configure.md)
 - [Azure portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
 
 您可以在 Azure 入口網站中設定雲端服務的最常用設定。或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
 
@@ -94,4 +94,4 @@
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

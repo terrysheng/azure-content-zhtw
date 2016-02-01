@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來管理磁碟區 (Update 2)
@@ -23,7 +23,7 @@
 
 本教學課程說明如何使用 StorSimple Manager 服務來建立和管理已安裝 Update 2 的 StorSimple 裝置與 StorSimple 虛擬裝置上的磁碟區。
 
-StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您透過單一 Web 介面管理 StorSimple 解決方案。除了管理磁碟區，您可以使用 StorSimple Manager 服務來建立和管理 StorSimple 服務、檢視和管理裝置、檢視警示，以及檢視和管理備份原則與備份類別目錄。
+StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您透過單一 Web 介面管理 StorSimple 解決方案。除了管理磁碟區，您可以使用 StorSimple Manager 服務來建立和管理 StorSimple 服務、檢視和管理裝置、檢視警示，以及檢視和管理備份原則與備份類別目錄。
 
 ## 磁碟區類型
 
@@ -113,14 +113,14 @@ StorSimple 磁碟區可以是：
 4. 在 [新增磁碟區精靈] 的 [基本設定] 下，執行列動作：
 
   1. 輸入磁碟區的 [名稱]。
-  2. 從下拉式清單中選取 [使用類型]。對於需要資料在任何時間都可於裝置本機使用的工作負載，選取 [固定在本機]。對於所有其他資料類型，選取 [分層]。(預設值是 [分層]。)
+  2. 從下拉式清單中選取 [使用類型]。對於需要資料在任何時間都可於裝置本機使用的工作負載，選取 [固定在本機]。對於所有其他資料類型，選取 [分層]。\(預設值是 [分層]。)
   3. 如果您在步驟 2 中選取 [分層]，您可以選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊以設定封存磁碟區。
-  4. 為磁碟區輸入 [佈建的容量]\(GB 或 TB)。請參閱[佈建的容量](#provisioned-capacity)以取得每個裝置與磁碟區類型的最大大小。查看 [可用容量] 來判斷您的裝置實際上有多少儲存體可用。
+  4. 為磁碟區輸入 [佈建的容量] \(GB 或 TB)。請參閱[佈建的容量]\(#provisioned-capacity)以取得每個裝置與磁碟區類型的最大大小。查看 [可用容量] 來判斷您的裝置實際上有多少儲存體可用。
 
 5. 按一下箭頭圖示 ![箭號圖示](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)。如果您要設定固定在本機的磁碟區，您會看到下列訊息。
 
     ![變更磁碟區類型訊息](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
-
+   
 5. 再按一下箭頭圖示 ![箭號圖示](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)，前往 [其他設定] 頁面。
 
     ![加入磁碟區精靈其他設定](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
@@ -165,7 +165,7 @@ StorSimple 磁碟區可以是：
 
     > [AZURE.NOTE]您無法變更磁碟區的 [啟用預設備份] 選項。
 
-6. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)，即可儲存您的變更。Azure 入口網站將會顯示更新磁碟區訊息。如果磁碟區已成功更新，即會顯示成功訊息。
+6. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)，即可儲存您的變更。Azure 傳統入口網站將會顯示更新磁碟區訊息。如果磁碟區已成功更新，即會顯示成功訊息。
 
 7. 如果您要延伸磁碟區，請在 Windows 主機電腦上完成下列步驟：
 
@@ -280,8 +280,9 @@ StorSimple 磁碟區可以是：
 ## 後續步驟
 
 - 了解如何[複製 StorSimple 磁碟區](storsimple-clone-volume.md)。
+
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

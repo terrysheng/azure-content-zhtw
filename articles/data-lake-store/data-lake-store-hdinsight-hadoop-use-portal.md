@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/20/2016"
    ms.author="nitinme"/>
 
 # 使用 Azure 入口網站建立 HDInsight 叢集與資料湖存放區
@@ -25,7 +25,9 @@
 
 了解如何使用 Azure 入口網站建立可存取 Azure 資料湖存放區的 HDInsight 叢集 (Hadoop、HBase 或 Storm)。此版本的一些重要考量：
 
-* **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
+* **對於 Hadoop 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
+
+* **對於 Storm 叢集 (Windows 和 Linux)**，資料湖存放區可以用來從 Storm 拓撲寫入資料。資料湖存放區也可以用來儲存參考資料，該資料稍後可以由 Storm 拓撲讀取。
 
 * **對於 HBase 叢集 (Windows 和 Linux)**，您可以使用資料湖存放區做為預設儲存體或額外的儲存體。
 
@@ -128,6 +130,47 @@
 
 設定 HDInsight 叢集之後，您可以在叢集上執行測試工作，以測試 HDInsight 叢集是否可以存取 Azure 資料湖存放區中的資料。若要這樣做，我們將會執行目標為資料湖存放區的一些 hive 查詢。
 
+### 對於 Linux 叢集
+
+1. 開啟您剛剛佈建的叢集的 [叢集] 刀鋒視窗，然後按一下 [儀表板]。這會為 Linux 叢集開啟 Ambari。存取 Ambari 時，系統會提示您對網站進行驗證。輸入您在建立叢集時所使用的 admin (預設 admin)、帳戶名稱和密碼。
+
+	![啟動叢集儀表板](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "啟動叢集儀表板")
+
+	您也可以在網頁瀏覽器中移至 https://CLUSTERNAME.azurehdinsight.net 以直接瀏覽至 Ambari (其中 **CLUSTERNAME** 是您的 HDInsight 叢集名稱)。
+
+2. 開啟 Hive 檢視。從頁面功能表選取方塊集 (**Admin** 連結和頁面右側的按鈕旁邊) 以列出可用的檢視。選取 [Hive] 檢視。
+
+	![選取 ambari 檢視](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
+
+3. 您應該會看到如下所示的頁面：
+
+	![Hive 檢視頁面的影像，包含查詢編輯器區段](./media/data-lake-store-hdinsight-hadoop-use-portal/hiveview.png)
+
+4. 在頁面的 [查詢編輯器] 區段中，將下列 HiveQL 陳述式貼到工作表中：
+
+		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
+
+5. 按一下 [查詢編輯器] 底部的 [執行] 按鈕開始查詢。[查詢程序結果] 區段應該會出現在 [查詢編輯器] 下方並顯示作業相關資訊。
+
+6. 查詢完成後，[查詢程序結果] 區段會顯示作業的結果。[結果] 索引標籤應包含下列資訊：
+
+7. 執行下列查詢來確認已建立資料表。
+
+		SHOW TABLES;
+
+	[結果] 索引標籤應顯示下列資訊：
+
+		hivesampletable
+		vehicles
+
+	**vehicles** 是您稍早建立的資料表。**hivesampletable** 是所有 HDInsight 叢集中預設可用的範例資料表。
+
+8. 您也可以執行查詢，從 **vehicles** 資料表擷取資料。
+
+		SELECT * FROM vehicles LIMIT 5;
+
+### 對於 Windows 叢集
+
 1. 開啟您剛剛佈建的叢集的 [叢集] 刀鋒視窗，然後按一下 [儀表板]。
 
 	![啟動叢集儀表板](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "啟動叢集儀表板")
@@ -159,13 +202,35 @@
 
 	**vehicles** 是您稍早建立的資料表。**hivesampletable** 是所有 HDInsight 叢集中預設可用的範例資料表。
 
-5. 您也可以執行查詢，從 **vehicles** 擷取資料。
+5. 您也可以執行查詢，從 **vehicles** 資料表擷取資料。
 
 		SELECT * FROM vehicles LIMIT 5;
+
 
 ## 使用 HDFS 命令存取資料湖存放區
 
 一旦您已設定 HDInsight 叢集使用資料湖存放區，您可以使用 HDFS 殼層命令來存取存放區。
+
+### 對於 Linux 叢集
+
+在這一節中，您將 SSH 進入叢集並執行 HDFS 命令。Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下列位置下載：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
+
+如需使用 PuTTY 的詳細資訊，請參閱[從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)。
+
+連接之後，使用下列 HDFS 檔案系統命令列出資料湖存放區中的檔案。
+
+	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+
+這樣應該會列出您稍早上傳至資料湖存放區的檔案。
+
+	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+	Found 1 items
+	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+
+您也可以使用 `hdfs dfs -put` 命令來將一些檔案上傳至資料湖存放區，然後使用 `hdfs dfs -ls` 以確認是否成功上傳檔案。
+
+
+### 對於 Windows 叢集
 
 1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
 
@@ -198,7 +263,9 @@
 
 如需如何將服務主體新增至資料湖存放區檔案系統的相關指示，請參閱[設定服務主體以存取資料湖存放區檔案系統](#acl)。
 
+## 在 Storm 拓撲中使用資料湖存放區
 
+您可以使用資料湖存放區從 Storm 拓撲寫入資料。如需如何達成這個情況的指示，請參閱[搭配使用 Azure 資料湖存放區與 HDInsight 上的 Apache Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md)。
 
 ## 另請參閱
 
@@ -207,4 +274,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -24,6 +24,8 @@
 
 您可透過程式設計方式，使用「[IoT 中樞資源提供者 REST API][lnk-rest-api]」建立和管理 Azure IoT 中樞。本教學課程說明如何使用「資源提供者 REST API」從 C# 程式中建立 IoT 中樞。
 
+> [AZURE.NOTE]Azure 建立和處理資源的部署模型有二種：[資源管理員和傳統](../resource-manager-deployment-model.md)。本文涵蓋內容包括如何使用資源管理員部署模型。
+
 若要完成本教學課程，您需要下列項目：
 
 - Microsoft Visual Studio 2015。
@@ -38,13 +40,13 @@
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [**管理 NuGet 套件**]。
 
-3. 在 [NuGet 套件管理員] 中，勾選 [**包含發行前版本**] 然後搜尋 **Microsoft.Azure.Management.Resources**。選取 [**2.18.11-preview**] 版本。按一下 [**安裝**]，在 [**檢閱變更**] 中按一下 [**確定**]，然後按一下 [**我接受**] 以接受授權數。
+3. 在 NuGet 套件管理員中，核取 [包含發行前版本]，然後搜尋 **Microsoft.Azure.Management.Resources**。選取 [2.18.11-preview] 版本。按一下 [安裝]，接著在 [檢閱變更] 中按一下 [確定]，然後按一下 [我接受]，以接受授權。
 
-4. 在 [NuGet 封裝管理員] 中，搜尋 **Microsoft.IdentityModel.Clients.ActiveDirectory**。選取 [**2.19.208020213**] 版本。按一下 [**安裝**]，在 [**檢閱變更**] 中按一下 [**確定**]，然後按一下 [**我接受**] 以接受授權。
+4. 在 NuGet 套件管理員中，搜尋 **Microsoft.IdentityModel.Clients.ActiveDirectory**。選取版本 [2.19.208020213]。按一下 [安裝]，接著在 [檢閱變更] 中按一下 [確定]，然後按一下 [我接受]，以接受授權。
 
-5. 在 [NuGet 封裝管理員] 中，搜尋 **Microsoft.Azure.Common**。選取 [**2.1.0**] 版本。按一下 [**安裝**]，在 [**檢閱變更**] 中按一下 [**確定**]，然後按一下 [**我接受**] 以接受授權數。
+5. 在 NuGet 套件管理員中，搜尋 **Microsoft.Azure.Common**。選取版本 [2.1.0]。按一下 [安裝]，接著在 [檢閱變更] 中按一下 [確定]，然後按一下 [我接受]，以接受授權。
 
-6. 在 Program.cs 中，使用下列內容取代現**用**的陳述式：
+6. 在 Program.cs 中，以下列項目取代現有的 **using** 陳述式：
 
     ```
     using System;
@@ -60,7 +62,7 @@
     using Newtonsoft.Json;
     ```
     
-7. 在 Program.cs 中，加入下列靜態變數取代預留位置值。您先前已在本教學課程中，記下 **ApplicationId**、**SubscriptionId**、**TenantId** 和 **Password**。**資源群組名稱**是您建立 IoT 中樞時將會使用的資源群組名稱，其可為既存的資源群組或新資源群組。**IoT 中樞名稱**是您將建立的「IoT 中樞」名稱，例如 **MyIoTHub**。**部署名稱**是部署的名稱，例如 **Deployment\_01**。
+7. 在 Program.cs 中，以下列靜態變數取代預留位置值。您先前已在本教學課程中，記下 **ApplicationId**、**SubscriptionId**、**TenantId** 和 **Password**。**資源群組名稱**是您建立 IoT 中樞時將會使用的資源群組名稱，其可為既存的資源群組或新資源群組。**IoT 中樞名稱**是您將建立的「IoT 中樞」名稱，例如 **MyIoTHub**。**部署名稱**是部署的名稱，例如 **Deployment\_01**。
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -162,9 +164,9 @@
 
 ## 完成並執行應用程式
 
-您現可呼叫 **CreateIoTHub** 和 **ShowIoTHubKeys** 來完成應用程式，以開始建置和執行該應用程式。
+您現在已可呼叫 **CreateIoTHub** 及 **ShowIoTHubKeys** 來完成應用程式，以開始建置和執行該應用程式。
 
-1. 新增下列程式碼至 **Main** 方法的結尾：
+1. 在 **Main** 方法的結尾加入下列程式碼：
 
     ```
     if (CreateIoTHub(client, token.AccessToken))
@@ -174,16 +176,16 @@
     
 2. 按一下 [**建置**]，然後再按一下 [**建置解決方案**]。更正所有錯誤。
 
-3. 按一下 [**偵錯**]，然後再按一下 [**開始偵錯**] 以執行應用程式。執行部署可能需要數分鐘的時間。
+3. 按一下 [偵錯]，然後再按一下 [開始偵錯]，以執行應用程式。可能需要數分鐘的時間，部署才會開始執行。
 
-4. 若要確認應用程式是否已新增 IoT 中樞，您可造訪[入口網站][lnk-azure-portal]並檢視資源清單，或是使用 **Get-AzureRmResource** PowerShell Cmdlet。
+4. 若要確認應用程式是否新增了 IoT 中樞，可前往[入口網站][lnk-azure-portal]檢視您的資源清單，或是使用 **Get-AzureRmResource** PowerShell Cmdlet。
 
-> [AZURE.NOTE]此範例應用程式會新增用於計費的「S1 標準 IoT 中樞」。您可透過[入口網站][lnk-azure-portal]刪除 IoT 中樞，或是在完成時使用 **Remove-AzureRmResource** PowerShell Cmdlet。
+> [AZURE.NOTE]此範例應用程式會加入您的付費標的「S1 標準 IoT 中樞」。您可透過[入口網站][lnk-azure-portal]刪除此 IoT 中樞，或在完成時，使用 **Remove-AzureRmResource** PowerShell Cmdlet。
 
 ## 後續步驟
 
-- 探索「[IoT 中樞資源提供者 REST API][lnk-rest-api]」的功能。
-- 如需關於「Azure 資源管理員」功能的詳細資訊，請參閱「[Azure 資源管理員概觀][lnk-azure-rm-overview]」。
+- 探索[IoT 中樞資源提供者 REST API][lnk-rest-api] 的功能。
+- 如需 Azure 資源管理員功能的詳細資訊，請參閱 [Azure 資源管理員概觀][lnk-azure-rm-overview]。
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -192,4 +194,4 @@
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

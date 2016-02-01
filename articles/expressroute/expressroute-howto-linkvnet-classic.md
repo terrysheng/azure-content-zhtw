@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc" />
 
 # 將虛擬網路連結到 ExpressRoute 線路
@@ -150,4 +150,4 @@
 
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

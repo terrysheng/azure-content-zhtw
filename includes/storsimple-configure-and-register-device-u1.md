@@ -31,7 +31,7 @@
    
       >[AZURE.NOTE]您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。如果您收到「檢查 Data 0 的網路連線」錯誤訊息，請檢查主動控制器之 DATA 0 網路介面上的實體網路連線。
 
-8. (選用) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但**請注意，如果您使用 Web Proxy，就只能在此處設定它**。如需詳細資訊，請參閱[設定裝置的 Web Proxy](../articles/storsimple/storsimple-configure-web-proxy.md)。
+8. (選用) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但**請注意，如果您使用 Web Proxy，就只能在此處設定它**。如需詳細資訊，請參閱[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。
 
 9. 為裝置設定主要 NTP 伺服器。NTP 伺服器是必要項目，因為您的裝置必須同步處理時間，才能使用您的雲端服務提供者進行驗證。請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。如果不可行，請指定內部 NTP 伺服器。
  
@@ -45,7 +45,7 @@
 
 	![StorSimple 註冊裝置 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
 
-12. 註冊裝置之後，隨即會出現服務資料加密金鑰。複製這個金鑰，並將它儲存在安全的位置。**這個金鑰需要與服務註冊金鑰搭配使用，來向 StorSimple Manager 服務註冊其他裝置。** 如需這個金鑰的詳細資訊，請參閱[StorSimple 安全性](../articles/storsimple/storsimple-security.md)。
+12. 註冊裝置之後，隨即會出現服務資料加密金鑰。複製這個金鑰，並將它儲存在安全的位置。**這個金鑰需要與服務註冊金鑰搭配使用，來向 StorSimple Manager 服務註冊其他裝置。** 如需這個金鑰的詳細資訊，請參閱[StorSimple 安全性](storsimple-security.md)。
 	
 	![StorSimple 註冊裝置 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)
 
@@ -62,11 +62,11 @@
   
          如果裝置狀態為「離線」，請等待數分鐘讓裝置上線 
       
-         如果數分鐘後裝置仍然為離線狀態，請確定有依照[您的 StorSimple 裝置網路需求](../articles/storsimple/storsimple-system-requirements.md)進行火牆設定。. 
+         如果數分鐘後裝置仍然為離線狀態，請確定有依照[您的 StorSimple 裝置網路需求](../articles/storsimple/storsimple-system-requirements.md)進行火牆設定。 
 
 		如果您的機器不支援 HTTP 1.1，請檢查連接埠 9354 並確定此連接埠已開啟供輸出通訊使用。此連接埠供 StorSimple Manager 服務和 StorSimple 裝置間的通訊使用。 
  
      
        
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

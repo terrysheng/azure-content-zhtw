@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/19/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 將您的結構描述移轉至 SQL 資料倉儲#
@@ -115,7 +115,7 @@ OR  y.[is_user_defined] = 1
 - **table**，轉換成暫時資料表
 - **timestamp**，修改程式碼來使用 datetime2 和 `CURRENT_TIMESTAMP` 函式。請注意，您不能以 current\_timestamp 做為預設條件約束，因為值不會自動更新。如果您需要從 timestamp 類型資料行移轉 rowversion 值，請對 NOT NULL 或 NULL 資料列版本值使用 binary(8) 或 varbinary(8)。
 - **varchar(max)**，使用 varchar(8000) 或更小，效能更好
-- **uniqueidentifier**，使用 varbinary(8)
+- **uniqueidentifier**，使用 varbinary(16) 或 varchar(36)，依您的值的輸入格式 (二進位或字元) 而定。如果輸入格式是以字元為基礎，則有可能最佳化。從字元轉換成二進位格式，可以減少超過 50% 的資料行儲存體。在非常大型的資料表中，此最佳化可能有所助益。
 - **使用者定義型別**，可能的話，轉換回原生型別
 - **xml**，使用 varchar(8000) 或更小，效能更好必要的話，分割資料行
 
@@ -145,4 +145,4 @@ OR  y.[is_user_defined] = 1
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

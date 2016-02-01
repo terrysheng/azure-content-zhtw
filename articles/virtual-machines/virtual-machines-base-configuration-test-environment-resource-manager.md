@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/14/2016"
 	ms.author="josephd"/>
 
 # 基本設定測試環境與 Azure 資源管理員
@@ -58,7 +58,7 @@
 
 首先，開啟 Azure PowerShell 提示字元。
 
-> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+> [AZURE.NOTE] 下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 登入您的帳戶。
 
@@ -143,7 +143,7 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] \([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 \[磁碟 2] ([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -158,6 +158,8 @@ DC1 是 corp.contoso.com Active Directory 網域服務 (AD DS) 網域的網域�
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSForest -DomainName corp.contoso.com -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
+請注意，這些命令可能需要幾分鐘才能完成。
+
 DC1 重新啟動之後，重新連接到 DC1 的虛擬機器。
 
 1.	在 Azure 入口網站中，按一下 [**虛擬機器**]，然後按一下 [**DC1**] 虛擬機器。
@@ -169,12 +171,15 @@ DC1 重新啟動之後，重新連接到 DC1 的虛擬機器。
 - 密碼：[本機系統管理員帳戶密碼]
 6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
-接下來，在 Active Directory 中建立一個當使用者登入 CORP 網域成員電腦時，就會用到的使用者帳戶。在系統管理員層級 Windows PowerShell 命令提示字元執行下列命令，一次執行一個。
+接下來，在 Active Directory 中建立一個當使用者登入 CORP 網域成員電腦時，就會用到的使用者帳戶。於系統管理員層級 Windows PowerShell 命令提示字元下執行下列命令。
 
 	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
-	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
-請注意，第一個命令會提示使用者輸入 User1 帳戶密碼。因為這個帳戶會用於所有 CORP 網域成員電腦的遠端桌面連線，所以請選取強式密碼。要檢查密碼強度，請參閱[密碼檢查程式：使用強式密碼](https://www.microsoft.com/security/pc-security/password-checker.aspx)。記錄 User1 帳戶的密碼，然後儲存在安全的位置。
+請注意，此命令會提示您提供 User1 帳戶密碼。因為這個帳戶會用於所有 CORP 網域成員電腦的遠端桌面連線，所以請選取強式密碼。要檢查密碼強度，請參閱[密碼檢查程式：使用強式密碼](https://www.microsoft.com/security/pc-security/password-checker.aspx)。記錄 User1 帳戶的密碼，然後儲存在安全的位置。
+
+接著，將新的 User1 帳戶設為企業系統管理員。於系統管理員層級 Windows PowerShell 命令提示字元下執行下列命令。
+
+	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
 關閉具有 DC1 的遠端桌面工作階段，然後使用 CORP\\User1 帳戶重新連接。
 
@@ -276,7 +281,7 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 2.	在 [CLIENT1 的屬性] 中，按一下 [IE 增強式安全性設定] 旁的 [開啟]。
 3.	在 [Internet Explorer 增強式安全性設定] 中，按一下 [系統管理員] 和 [使用者] 的 [關閉]，然後按一下 [確定]。
 4.	從 [開始] 畫面中，按一下 [Internet Explorer]，然後按一下 [確定]。
-5.	在網址列中，鍵入 ****http://app1.corp.contoso.com/**，然後按 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
+5.	在網址列中，鍵入 **http://app1.corp.contoso.com/**，然後按 ENTER。您應該會看到 APP1 的預設網際網路資訊服務網頁。
 6.	按一下桌面工作列中的 [檔案總管] 圖示。
 7.	在網址列中，輸入 **\\\app1\\Files**，然後按下 ENTER。
 8.	您應該會看到一個資料夾視窗，裡面有檔案共用資料夾的內容。
@@ -291,7 +296,7 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 
 ## 後續步驟
 
-- 用此做為建置 [模擬混合式雲端測試環境](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)的基礎。
+- [新增新的虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)到公司網路子網路，例如執行 Microsoft SQL Server 的虛擬機器。
 
 
 ## <a id="costs"></a>將 Azure 的測試環境虛擬機器費用降至最低
@@ -321,4 +326,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

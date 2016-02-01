@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="01/14/2016"
 	ms.author="markvi"/>
 
 
@@ -35,4 +35,4 @@
 * [什麼是 Azure AD？](active-directory-whatis.md)
 * [在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

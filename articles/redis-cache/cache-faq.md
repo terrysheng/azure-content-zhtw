@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="01/20/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -134,6 +134,46 @@ ConnectTimeout|連線作業的逾時 (毫秒)。|
 		-	在每個多工器上設定 `ClientName` 屬性，以協助診斷。 
 		-	這會導致每個 `ConnectionMultiplexer` 的更簡化延遲。
 
+<a name="threadpool"></a>
+## 執行緒集區成長的重要詳細資料
+
+CLR 執行緒集區有兩種類型的執行緒：「背景工作」和「I/O 完成連接埠」(也稱為 IOCP) 執行緒。
+
+-	背景工作執行緒用於處理 `Task.Run(…)` 或 `ThreadPool.QueueUserWorkItem(…)` 方法之類的作業。需要在背景執行緒上開啟工作時，CLR 中的各種元件也會使用這些執行緒。
+-	發生非同步 IO (例如從網路讀取) 時，會使用 IOCP 執行緒。  
+
+執行緒集區可視需要提供新背景工作執行緒或 I/O 完成執行緒 (而不需要任何節流)，直到它到達每個類型執行緒的「最低」設定。根據預設，執行緒的數目下限設為系統上的處理器數目。
+
+一旦現有 (忙碌) 執行緒的數量達到執行緒集區的「最低」執行緒數目，執行緒集區會以每 500 毫秒將一個新執行緒插入執行緒的速率節流。這表示，如果您的系統需要 IOCP 執行緒的工作暴增，系統將可快速處理該工作。不過，如果暴增的工作超過設定的「最低」設定，部份工作的處理會發生一些延遲，因為執行緒集區會等待一或兩個狀況發生。
+
+1. 現有的執行緒變得可用來處理工作。
+1. 有 500 毫秒沒有現有的執行緒變得可用，因此會建立一個新的執行緒。
+
+基本上，這表示，當忙碌執行緒數目超過「最低」執行緒數量時，在應用程式處理網路流量之前，您可能要支付 500 毫秒延遲。此外，務必注意，當現有的執行緒處於閒置的時間超過 15 秒 (根據我的記憶)，它將會被清除，而且這個循環的擴大和縮減可以重複。
+
+如果我們查看來自 StackExchange.Redis (建置 1.0.450 或更新版本) 的範例錯誤訊息，您會看到它現在會列印執行緒集區統計資料 (請參閱以下的 IOCP 和背景工作詳細資料)。
+
+	System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive, 
+	queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, 
+	IOCP: (Busy=6,Free=994,Min=4,Max=1000), 
+	WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+
+在上述範例中，您可以看到 IOCP 執行緒有 6 個忙碌執行緒，而系統設定成允許最低 4 個執行緒。在此情況下，用戶端就可能會看到兩個 500 毫秒延遲，因為 6 > 4。
+
+請注意，如果 IOCP 或背景工作執行緒的成長發生節流，StackExchange.Redis 可能達到逾時。
+
+### 建議
+
+經由這項資訊，我們強烈建議客戶將 IOCP 和背景工作執行緒的「最低」組態值設定成大於預設值的數值。對於這個值應該為何，我們無法提供一體適用的指引，因為某個應用程式的適用值對另一個應用程式來說將會太高/低。這項設定也會影響複雜應用程式其他部分的效能，因此每位客戶需要微調此設定來滿足其特定需求。200 或 300 是好的起點，那麼請測試並視需要調整。
+
+如何設定這項設定：
+
+-	在 ASP.NET 中，請使用 web.config 中 `<processModel>` 組態元素下的 ["minIoThreads" 組態設定][]。如果您在 Azure 網站內執行，此設定不會透過組態選項公開。不過，您應該仍然能夠透過 global.asax.cs 的 Application\_Start 方法以程式設計方式設定 (如下所示)。
+
+> **重要事項：**這個組態元素中指定的值是每一核心設定。例如，如果您有 4 核心機器，並且想要在在執行階段將您的 minIOThreads 設定為 200，您會使用 `<processModel minIoThreads="50"/>`。
+
+-	在 ASP.NET 之外，使用 [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API。
+
 <a name="cache-redis-commands"></a>
 ## 使用常見 Redis 命令時的一些考量為何？
 
@@ -215,7 +255,7 @@ Azure 快取目前有三個提供項目：
 >如果您有任何問題，請[連絡我們](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933)。
 
 ### Azure Redis 快取
-Azure Redis 快取已正式提供，大小最多 53 GB 和可用性 SLA 99.9%。新的[進階層](cache-premium-tier.md)以 99.9% SLA 提供高達 530 GB 的大小，並且支援叢集、VNET 和持續性。
+Azure Redis 快取已正式提供，大小最多 53 GB 和可用性 SLA 99.9%。新的[進階層](cache-premium-tier-intro.md)以 99.9% SLA 提供高達 530 GB 的大小，並且支援叢集、VNET 和持續性。
 
 Azure Redis Cache 可以讓客戶使用 Microsoft 所管理的安全、專用 Redis 快取。使用這項提供項目，您可以利用 Redis 提供的豐富功能集和生態系統，並使用 Microsoft 提供的可靠託管及監控服務。
 
@@ -231,4 +271,6 @@ Redis 成功的另一個重要層面是建置健全、有活力的開放原始�
 ### 角色中快取
 In-Role Cache 已設定於 2016 年 11 月 30 日淘汰。
 
-<!---HONumber=AcomDC_1223_2015-->
+["minIoThreads" 組態設定]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="01/19/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -35,6 +35,9 @@
 </table></br>
 
 ## 版本資訊
+
+### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
+- 修正 HashPartitionResolver 中的錯誤以產生與其他 SDK 一致的 little-endian 雜湊值。
 
 ### <a name="1.5.0"/>[1\.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
 - 新增「雜湊和範圍」分割區解析程式來協助將應用程式跨多個分割區分區。
@@ -58,7 +61,7 @@
 - GA SDK
 
 ## 發行和停用日期
-Microsoft 將至少在 SDK 停用之前 **12 個月** 提供通知，以供順利轉換至較新/支援的版本。
+Microsoft 至少會在停用 SDK 的 **12 個月**之前提供通知，以供順利轉換至較新/支援的版本。
 
 新的功能與最佳化項目只會新增至目前的 SDK，因此建議您一律盡早升級至最新的 SDK 版本。
 
@@ -70,11 +73,12 @@ Microsoft 將至少在 SDK 停用之前 **12 個月** 提供通知，以供順�
 
 | 版本 | 發行日期 | 停用日期 
 | ---	  | ---	         | ---
+| [1\.5.1](#1.5.1) | 2015 年 12 月 31 日 |---
 | [1\.5.0](#1.5.0) | 2015 年 12 月 4 日 |---
 | [1\.4.0](#1.4.0) | 2015 年 10 月 5 日 |---
 | [1\.3.0](#1.3.0) | 2015 年 10 月 5 日 |---
 | [1\.2.0](#1.2.0) | 2015 年 8 月 5 日 |---
-| [1\.1.0](#1.1.0) | 2015 年 7 月 9 日|---
+| [1\.1.0](#1.1.0) | 2015 年 7 月 9 日 |---
 | [1\.0.1](#1.0.1) | 2015 年 5 月 12 日 |---
 | [1\.0.0](#1.0.0) | 2015 年 4 月 7 日 |---
 | 0.9.5-prelease | 2015 年 3 月 9 日 | 2016 年 2 月 29 日
@@ -91,4 +95,4 @@ Microsoft 將至少在 SDK 停用之前 **12 個月** 提供通知，以供順�
 
 若要深入了解 DocumentDB，請參閱 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 服務頁面。
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

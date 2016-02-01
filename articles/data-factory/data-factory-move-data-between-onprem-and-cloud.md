@@ -165,7 +165,7 @@
 	> 
 	> 如果您使用 Chrome，請移至 [Chrome 線上應用程式商店](https://chrome.google.com/webstore/)，利用關鍵字 "ClickOnce" 搜尋，選擇其中一個 ClickOnce 延伸模組並安裝。
 	>  
-	> 您需要針對 Firefox 進行相同動作 (安裝附加元件)。例如，您可以從[這裡](https://addons.mozilla.org/firefox/addon/fxclickonce/)安裝。
+	> 您需要針對 Firefox 進行相同動作 (安裝附加元件)。按一下工具列上的 [開啟功能表] 按鈕 (右上角的**三條水平線**)，按一下 [附加元件]，以「ClickOnce」關鍵字進行搜尋，選擇其中一個 ClickOnce 延伸模組並安裝。
 
 	![閘道器 - [設定] 刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
@@ -372,7 +372,7 @@
 1.	在 **DATA FACTORY** 刀鋒視窗中，按一下 [**製作和部署**] 磚來啟動 Data Factory 的 [**編輯器**]。
 
 	![[製作和部署] 磚](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
-2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [...] \(省略符號) 展開命令列。
+2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [... (省略符號)] 展開命令列。
 2.	使用下列文字取代右窗格中的 JSON：   
 
 
@@ -560,8 +560,7 @@
 	4.按一下 [確定] 關閉對話方塊。 
 4. 按一下 [確定] 關閉 [認證] 刀鋒視窗。 
 5. 按一下 [新增資料存放區] 刀鋒視窗中的 [確定]。 	
-6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。
-![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。如果應用程式無法連接閘道器電腦，它將不允許您設定資料來源的認證，以及測試資料來源的連接。
 
@@ -643,4 +642,4 @@
 5.	閘道器會利用相同的憑證解密認證，然後利用適當的驗證類行連接到內部部署資料存放區。
 6.	閘道器會根據複製活動在資料管線中的設定方式，將資料從內部部署存放區複製到雲端儲存體，或從雲端儲存體複製到內部部署資料存放區。請注意：在這個步驟中，閘道器會透過安全 (HTTPS) 通道直接與以雲端為基礎的儲存體服務 (例如 Azure Blob、Azure SQL 等) 通訊。
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

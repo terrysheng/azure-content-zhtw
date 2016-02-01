@@ -67,16 +67,16 @@ Hadoop 支援預設檔案系統的概念。預設檔案系統意指預設配置�
 
 多個 WebHCat 工作 (包括 Hive、MapReduce、Hadoop 資料流和 Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料。(目前適用於含儲存體帳戶的 Pig，但不適用於中繼資料)。 在本文的[使用 Azure PowerShell 存取 Blob](#powershell) 一節中，提供了此功能的範例。如需詳細資訊，請參閱[在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
-Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以機碼/值組來儲存資料，沒有目錄階層。但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。例如，Blob 的機碼可能是 *input/log1.txt*。實際上，*input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
+Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以機碼/值組來儲存資料，沒有目錄階層。但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。例如，Blob 的機碼可能是 input/log1.txt。實際上，input 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
 
 ###<a id="benefits"></a>Blob 儲存體的優點
-運算叢集和儲存體叢集未並存於同處所隱含的效能損失，可經由將運算叢集建立到靠近 Azure 資料中心內的儲存體帳戶資源來彌補，其中的高速網路可讓運算節點非常有效率地存取 Azure Blob 儲存體內的資料。
+計算叢集和儲存體叢集未並存於同處所隱含的效能損失，可經由將計算叢集建立到靠近 Azure 資料中心內的儲存體帳戶資源來彌補，其中的高速網路可讓計算節點非常有效率地存取 Azure Blob 儲存體內的資料。
 
 將資料儲存在 Azure Blob 儲存體而非 HDFS 有許多優點：
 
-* **資料重複使用和共用：** HDFS 中的資料位於運算叢集內。只有可存取運算叢集的應用程式，才能利用 HDFS API 來使用資料。可透過 HDFS API 或 [Blob 儲存體 REST API][blob-storage-restAPI] 來存取 Azure Blob 儲存體中的資料。因此，許多應用程式 (包括其他 HDInsight 叢集) 和工具都可用來產生和取用資料。
+* **資料重複使用和共用：** HDFS 中的資料位於計算叢集內。只有可存取計算叢集的應用程式，才能利用 HDFS API 來使用資料。可透過 HDFS API 或 [Blob 儲存體 REST API][blob-storage-restAPI] 來存取 Azure Blob 儲存體中的資料。因此，許多應用程式 (包括其他 HDInsight 叢集) 和工具都可用來產生和取用資料。
 * **資料封存：**將資料儲存在 Azure Blob 儲存體中，可安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
-* **資料儲存成本：**長期將資料儲存在 DFS 中的成本高於將資料儲存在 Azure Blob 儲存體中，因為運算叢集的成本高於 Azure Blob 儲存容器的成本。此外，因為不需要每次產生運算叢集時都重新載入資料，也能節省資料載入成本。
+* **資料儲存成本：**長期將資料儲存在 DFS 中的成本高於將資料儲存在 Azure Blob 儲存體中，因為計算叢集的成本高於 Azure Blob 儲存容器的成本。此外，因為不需要每次產生計算叢集時都重新載入資料，也能節省資料載入成本。
 * **彈性向外延展：**雖然HDFS 提供向外延展的檔案系統，但延展程度取決於您建立給叢集的節點數目。變更延展程度較為複雜，可改用 Azure Blob 儲存體自動提供的彈性延展功能。
 * **異地複寫：**Azure Blob 儲存體可以進行異地複寫。雖然這樣可支援地理位置復原和資料備援，但容錯移轉至異地複寫的位置會嚴重影響效能，且可能產生額外的成本。因此，只有在資料的價值大於額外成本時，才建議您明智地選擇地理區域複寫。
 
@@ -106,7 +106,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE]`--type` 參數表示儲存體帳戶的複寫方式。如需詳細資訊，請參閱 [Azure 儲存體複寫](../storage-redundancy.md)。請勿使用 ZRS，因為 ZRS 不支援分頁 Blob、檔案、資料表或佇列。
+> [AZURE.NOTE]`--type` 參數表示儲存體帳戶的複寫方式。如需詳細資訊，請參閱 [Azure 儲存體複寫](../storage/storage-redundancy.md)。請勿使用 ZRS，因為 ZRS 不支援分頁 Blob、檔案、資料表或佇列。
 
 系統會提示您指定將放置儲存體帳戶的地理區域。您應該在您計劃建立 HDInsight 叢集的相同區域中建立儲存體帳戶。
 
@@ -154,11 +154,11 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 
 
 
-URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使用 *wasbs*)。建議盡可能使用 *wasbs*，即使存取相同 Azure 資料中心內的資料也一樣。
+URI 配置提供未加密存取 (使用wasb: 首碼) 和 SSL 加密存取 (使用 wasbs)。建議盡可能使用 wasbs，即使存取相同 Azure 資料中心內的資料也一樣。
 
 &lt;BlobStorageContainerName&gt; 是指 Azure Blob 儲存體中的容器名稱。&lt;StorageAccountName&gt; 是指 Azure 儲存體帳戶名稱。需要使用完整網域名稱 (FQDN)。
 
-如果 &lt;BlobStorageContainerName&gt; 和 &lt;StorageAccountName&gt; 都未指定，則會使用預設檔案系統。對於預設檔案系統上的檔案，您可以使用相對路徑或絕對路徑。例如，可使用下列語法來參考 HDInsight 叢集隨附的 *hadoop-mapreduce-examples.jar* 檔案：
+如果 &lt;BlobStorageContainerName&gt; 和 &lt;StorageAccountName&gt; 都未指定，則會使用預設檔案系統。對於預設檔案系統上的檔案，您可以使用相對路徑或絕對路徑。例如，可使用下列語法來參考 HDInsight 叢集隨附的 hadoop-mapreduce-examples.jar 檔案：
 
 	wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
 	wasb:///example/jars/hadoop-mapreduce-examples.jar
@@ -167,7 +167,7 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 > [AZURE.NOTE]在 HDInsight 2.1 和 1.6 版叢集中的檔案名稱是 <i>hadoop-examples.jar</i>。
 
 
-&lt;path&gt; 是檔案或目錄 HDFS 路徑名稱。因為 Azure Blob 儲存體中的容器僅是機碼值存放區，所以並沒有真正的階層式檔案系統。Blob 機碼內的斜線字元 ( / ) 會被解釋為目錄分隔符號。例如，*hadoop-mapreduce-examples.jar* 的 Blob 名稱為：
+&lt;path&gt; 是檔案或目錄 HDFS 路徑名稱。因為 Azure Blob 儲存體中的容器僅是機碼值存放區，所以並沒有真正的階層式檔案系統。Blob 機碼內的斜線字元 ( / ) 會被解釋為目錄分隔符號。例如，hadoop-mapreduce-examples.jar 的 Blob 名稱為：
 
 	example/jars/hadoop-mapreduce-examples.jar
 
@@ -282,7 +282,9 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
 * [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
 * [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
+* [使用 Azure 儲存體共用存取簽章來限制使用 HDInsight 對資料的存取][hdinsight-use-sas]
 
+[hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: ../install-configure-powershell.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
@@ -297,4 +299,4 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

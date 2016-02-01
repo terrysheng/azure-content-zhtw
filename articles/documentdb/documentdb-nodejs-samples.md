@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="01/20/2016" 
 	ms.author="mimig"/>
 
 
@@ -106,4 +106,4 @@
 
 如需伺服器端程式設計的詳細資訊，請參閱 [DocumentDB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF](documentdb-programming.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

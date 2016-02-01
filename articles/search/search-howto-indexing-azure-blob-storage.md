@@ -17,9 +17,7 @@ ms.author="eugenesh" />
 
 # 使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 
-已經有好一段時間，Azure 搜尋服務的客戶可以使用 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) 和 [Azure DocumentDB](../documentdb/documentdb-search-indexer.md) 的索引子，「自動」對一些熱門的資料來源編制索引。
-
-我們現在更新增對於儲存在 Azure Blob 儲存體中的文件編制索引的支援。許多客戶要求我們簡化對於儲存在 blob (例如 PDF、Office 文件或 HTML 網頁) 中的文件的編製索引。到目前為止，這項作業需要撰寫自訂程式碼來執行文字擷取，並且將文件新增至 Azure 搜尋服務索引。
+本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編制索引 (例如 PDF 或 Office 檔案)。新的 Azure 搜尋服務 Blob 索引子可以讓此程序快速且順暢。
 
 > [AZURE.IMPORTANT]這項功能目前為預覽狀態。僅適用於使用 **2015-02-28-Preview** 版本的 REST API。請記住，預覽 API 是針對測試與評估，不應該用於生產環境。
 
@@ -203,9 +201,10 @@ JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding
 屬性名稱 | 屬性值 | 說明
 --------------|----------------|------------
 AzureSearch\_Skip | "true" | 指示 blob 索引子完全略過 blob，不會嘗試中繼資料或內容擷取。當您想要略過某些內容類型，或者當特定 blob 一直失敗，並且中斷編製索引程序時，這非常有用。
+AzureSearch\_SkipContent | "true" | 指示 blob 索引子僅編制索引中繼資料，並略過 blob 的解壓縮內容。如果 blob 內容不有趣，但是您仍然要對附加至 blob 的中繼資料編制索引，這非常有用。
 
 ## 協助我們改進 Azure 搜尋服務
 
 如果您有功能要求或改進的想法，請在我們的 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search)與我們連絡。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

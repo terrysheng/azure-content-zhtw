@@ -38,6 +38,8 @@
  * Azure DocumentDb、資料表、Blob 儲存體和佇列
 * Java
  * 透過 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 驅動程式，例如 MySQL、SQL Server、PostgreSQL 或 SQLite 呼叫資料庫。
+* 網頁
+ * AJAX 呼叫
 
 同樣地，您可以撰寫自己的 SDK 呼叫來監視其他相依性。
 
@@ -129,4 +131,4 @@ IIS 伺服器的狀態監視器不需要您使用 Application Insights SDK 重�
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

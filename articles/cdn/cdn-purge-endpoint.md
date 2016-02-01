@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 	
 # 清除 Azure CDN 端點
@@ -44,7 +44,7 @@ Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期
 	
 	> [AZURE.NOTE]您也可以按一下 [CDN 端點] 刀鋒視窗中的 [清除] 按鈕來開啟 [清除] 刀鋒視窗。在此情況下，[URL] 欄位會預先填入該特定端點的服務位址。
 	
-4. 選取您希望從邊緣節點清除的資產。如果您希望清除所有資產，請按一下 [清除] 核取方塊。或者，在 [路徑] 文字方塊中輸入每個您希望清除之資產的完整路徑以清除 (例如，*/pictures/kitten.png*)。
+4. 選取您希望從邊緣節點清除的資產。如果您希望清除所有資產，請按一下 [清除] 核取方塊。或者，在 [路徑] 文字方塊中輸入每個您希望清除之資產的完整路徑以清除 (例如，/pictures/kitten.png)。
 
 	> [AZURE.TIP]輸入之後會出現更多 [路徑] 文字方塊，讓您建立多個資產的清單。按一下刪節號 (...) 按鈕可以將資產從清單刪除。
 	>
@@ -56,6 +56,7 @@ Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期
 	
 
 ## 另請參閱
-[Azure CDN REST API 參考資料 - 清除或預先載入端點](https://msdn.microsoft.com/library/mt634451.aspx)
+- [在 Azure CDN 端點上預先載入資產](cdn-preload-endpoint.md)
+- [Azure CDN REST API 參考資料 - 清除或預先載入端點](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

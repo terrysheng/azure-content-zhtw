@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # 連絡 Microsoft 支援服務
@@ -30,7 +30,7 @@
 
 #### 建立支援要求
 
-1. 您可以透過 [Azure 傳統入口網站](http://manage.windowsazure.com/)建立支援要求。在[入口網站](http://manage.windowsazure.com/)中，依序按一下您的 [帳戶名稱] 和 [連絡 Microsoft 支援服務]。
+1. 您可以透過 [Azure 傳統入口網站](https://manage.windowsazure.com/)建立支援要求。在[傳統入口網站](https://manage.windowsazure.com/)中，依序按一下您的 [帳戶名稱] 和 [連絡 Microsoft 支援服務]。
 
 	![透過 ManagementPortal 連絡 MS 支援服務](./media/storsimple-contact-microsoft-support/IC777286.png)
 
@@ -56,7 +56,7 @@
 
 #### 啟動支援工作階段
 
-1. 從遠端電腦使用序列主控台或透過 telnet 工作階段，直接存取裝置。如果要這樣做，請依照[使用 PuTTY 連接到裝置序列主控台](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console)中的步驟進行。
+1. 從遠端電腦使用序列主控台或透過 telnet 工作階段，直接存取裝置。如果要這樣做，請依照[使用 PuTTY 來連接至裝置序列主控台](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console)中的步驟進行。
 
 2. 在開啟的工作階段中，按 **Enter** 鍵來取得命令提示字元。
 
@@ -76,4 +76,4 @@
 
 > [AZURE.IMPORTANT]您可以執行 `Disable-HcsSupportAccess` 來停用支援存取。在起始工作階段之後 8 小時，StorSimple 裝置也會嘗試停用支援存取。最好在起始支援工作階段之後變更 StorSimple 裝置認證。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

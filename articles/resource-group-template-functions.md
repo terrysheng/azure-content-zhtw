@@ -1,5 +1,5 @@
 <properties
-   pageTitle="資源管理員範本運算式 | Microsoft Azure"
+   pageTitle="資源管理員範本函數 | Microsoft Azure"
    description="描述要在 Azure 資源管理員範本中用來擷取值、搭配字串和數字使用，並擷取部署資訊的函數。"
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/31/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
-# Azure 資源管理員範本運算式
+# Azure 資源管理員範本函數
 
-本主題描述您可以在 Azure 資源管理員範本中使用的所有運算式。
+本主題描述您可以在 Azure 資源管理員範本中使用的所有函數。
 
-範本運算式和其參數不區分大小寫。例如，資源管理員在解析 **variables('var1')** 和 **VARIABLES('VAR1')** 時，會將它們視為相同。當評估時，除非運算式明確修改大小寫 (例如 toUpper 或 toLower)，否則運算式將會保留大小寫。特定資源類型可能有與評估運算式方式無關的大小寫需求。
+範本函數和其參數不區分大小寫。例如，資源管理員在解析 **variables('var1')** 和 **VARIABLES('VAR1')** 時，會將它們視為相同。當評估時，除非函式明確修改大小寫 (例如 toUpper 或 toLower)，否則函式將會保留大小寫。特定資源類型可能有與評估函式方式無關的大小寫需求。
 
-## 數值運算式
+## 數值函式
 
-資源管理員提供下列運算式以使用整數：
+資源管理員提供下列函式以使用整數：
 
 - [新增](#add)
 - [copyIndex](#copyindex)
@@ -56,7 +56,7 @@
 
 傳回反覆項目迴圈目前的索引。
 
-這個運算式一律搭配 **copy** 物件使用。如需使用 **copyIndex** 的範例，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
+這個函式一律搭配 **copy** 物件使用。如需使用 **copyIndex** 的範例，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 
 
 <a id="div" />
@@ -157,9 +157,9 @@
 | operand2 | 是 | 被減數
 
 
-## 字串運算式
+## 字串函數
 
-資源管理員提供下列運算式以使用字串：
+資源管理員提供下列函式以使用字串：
 
 - [base64](#base64)
 - [concat](#concat)
@@ -199,16 +199,31 @@
 
 **concat (arg1, arg2, arg3, ...)**
 
-結合多個字串值，並傳回產生的字串值。此函數可以接受任意數目的引數。
+結合多個值，並傳回串連的結果。此函式可以接受任意數目的引數，並且可針對參數接受字串或陣列。
 
-下列範例顯示如何結合多個值來傳回值。
+下列範例顯示如何結合多個字串值來傳回串連的字串。
 
     "outputs": {
         "siteUri": {
           "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+下一個範例顯示如何結合兩個陣列。
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
 
 <a id="padleft" />
 ### padLeft
@@ -430,17 +445,25 @@
 
     "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
+## 陣列函數
 
+資源管理員提供下列函式以使用陣列值。
 
-## 部署值運算式
+若要將多個陣列合併為單一陣列，請使用 [concat](#concat)。
 
-資源管理員提供下列運算式，以從與部署相關的範本和值的區段中取得值：
+若要取得陣列中的元素數目，請使用 [length](#length)。
+
+若要將字串值分割成字串值的陣列，請使用 [split](#split)。
+
+## 部署值函式
+
+資源管理員提供下列函式，以從與部署相關的範本和值的區段中取得值：
 
 - [部署](#deployment)
 - [參數](#parameters)
 - [變數](#variables)
 
-若要從資源、資源群組或訂用帳戶中取得值，請參閱[資源運算式](#resource-expressions)。
+若要從資源、資源群組或訂用帳戶中取得值，請參閱[資源函式](#resource-functions)。
 
 <a id="deployment" />
 ### 部署
@@ -449,7 +472,7 @@
 
 傳回目前部署作業的相關資訊。
 
-此運算式會傳回部署期間所傳遞的物件。視部署物件是以連結或內嵌物件形式傳遞，所傳回物件中的屬性將有所不同。部署物件以內嵌形式傳遞時 (例如使用 Azure PowerShell 中的 **-TemplateFile** 參數指向本機檔案時)，所傳回的物件為下列格式：
+此函式會傳回部署期間所傳遞的物件。視部署物件是以連結或內嵌物件形式傳遞，所傳回物件中的屬性將有所不同。部署物件以內嵌形式傳遞時 (例如使用 Azure PowerShell 中的 **-TemplateFile** 參數指向本機檔案時)，所傳回的物件為下列格式：
 
     {
         "name": "",
@@ -528,9 +551,9 @@
 
 
 
-## 資源運算式
+## 資源函式
 
-資源管理員提供下列運算式以取得資源值：
+資源管理員提供下列函式以取得資源值：
 
 - [listkeys](#listkeys)
 - [提供者](#providers)
@@ -539,7 +562,7 @@
 - [resourceId](#resourceid)
 - [訂用帳戶)](#subscription)
 
-若要從參數、變數或目前的部署中取得值，請參閱[部署值運算式](#deployment-value-expressions)。
+若要從參數、變數或目前的部署中取得值，請參閱[部署值函式](#deployment-value-functions)。
 
 <a id="listkeys" />
 ### listKeys
@@ -605,7 +628,7 @@
 
 **reference** 函數會從執行階段狀態衍生其值，因此不能用在 variables 區段中。它可以用於範本的 outputs 區段中。
 
-如果在相同的範本內佈建所參考的資源，則可使用 reference 運算式來隱含宣告一個資源相依於另一個資源。您不需要同時使用 **dependsOn** 屬性。所參考的資源完成部署之前不會評估運算式。
+如果在相同的範本內佈建所參考的資源，則可使用 reference 函式來隱含宣告一個資源相依於另一個資源。您不需要同時使用 **dependsOn** 屬性。所參考的資源完成部署之前不會評估函式。
 
 下列範例會參考相同的範本中部署的儲存體帳戶。
 
@@ -634,7 +657,7 @@
 		}
 	}
 
-如果您現在真的想要直接在範本中指定 API 版本，可以使用 **providers** 運算式並擷取一個值，例如下列範例中的最新版本。
+如果您現在真的想要直接在範本中指定 API 版本，可以使用 [providers](#providers) 函式並擷取一個值，例如下列範例中的最新版本。
 
     "outputs": {
 		"BlobUri": {
@@ -767,6 +790,6 @@
 - 如需有關 Azure 資源管理員範本中各區段的說明，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - 若要合併多個範本，請參閱[透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
 - 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
-- 若要了解如何部署您建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
+- 若要了解如何部署已建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

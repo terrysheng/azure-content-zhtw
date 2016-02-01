@@ -40,7 +40,9 @@
 
     #sudo yum install waagent
 
-對於 Oracle Linux，請確定已在檔案 `/etc/yum.repo.d/public-yum-ol6.repo` 或 `/etc/yum.repo.d/public-yum-ol7.repo` 中啟用附加元件儲存機制，然後輸入：
+如為 Oracle Linux，請確定已啟用 `Addons`repository。編輯檔案 `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) 或 `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux)，將此檔案中 **[ol6\_addons]** 或 **[ol7\_addons]** 底下的 `enabled=0` 一行變更為 `enabled=1`。
+
+然後安裝最新版的 Azure Linux 代理程式，輸入：
 
     #sudo yum install WALinuxAgent
 
@@ -130,4 +132,4 @@
 
 如需有關 Azure Linux 代理程式的詳細資訊，請參閱 [Azure Linux 代理程式讀我檔案](https://github.com/Azure/WALinuxAgent)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

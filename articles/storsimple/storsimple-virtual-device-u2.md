@@ -25,7 +25,6 @@
 ##概觀
 StorSimple 虛擬裝置是 Microsoft Azure StorSimple 解決方案提供的另一項功能。StorSimple 虛擬裝置會在 Microsoft Azure 虛擬網路中的虛擬機器上執行，而您可以使用它來備份和複製主機上的資料。
 
- 
 
 #### 虛擬裝置模型比較
 
@@ -41,7 +40,7 @@ StorSimple 虛擬裝置可以在兩種模型中使用，標準 8010 和進階 80
 | **儲存體類型** | 使用 Azure 標準儲存體<br></br>了解如何[建立標準儲存體帳戶]() | 使用 Azure 進階儲存體<br></br>了解如何[建立進階儲存體帳戶](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **工作負載指引** | 從備份的檔案的項目層級擷取 | 雲端開發和測試案例、低延遲、較高效能工作負載<br></br>災害復原的次要裝置 |
  
-<sup>1</sup> *前身為 1100*。
+<sup>1</sup> 前身為 1100。
 
 
 本文說明在 Azure 中部署 StorSimple 虛擬裝置的逐步程序。閱讀本文之後，您將能夠：
@@ -80,9 +79,9 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 佈建虛擬裝置之前，您需要在 Azure 環境中做好下列準備：
 
-- 針對虛擬裝置，[在 Azure 中設定虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。如果使用進階儲存體，您必須在支援進階儲存體的 Azure 區域中建立虛擬網路。如需詳細資訊，請參閱[目前支援進階儲存體的區域](https://azure.microsoft.com/regions/#services)。
+- 針對虛擬裝置，[在 Azure 中設定虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。如果使用進階儲存體，您必須在支援進階儲存體的 Azure 區域中建立虛擬網路。如需詳細資訊，請參閱[目前支援進階儲存體的區域](https://azure.microsoft.com/regions/#services)。
 - 建議您使用 Azure 提供的預設 DNS 伺服器，而非指定您自己的 DNS 伺服器名稱。如果您的 DNS 伺服器名稱無效，或者如果 DNS 伺服器無法正確解析 IP 位址，則建立虛擬裝置將會失敗。
-- 點對站台及站台對站台都是選用的，但並非必要。如有需要，您可以針對更進階的案例設定這些選項。 
+- 點對站及站對站都是選用的，但並非必要。如有需要，您可以針對更進階的案例設定這些選項。 
 - 您可以將 [Azure 虛擬機器](../virtual-machines/virtual-machines-about.md) (主機伺服器) 建立在可使用由虛擬裝置公開之磁碟區的虛擬網路中。這些伺服器必須符合下列需求： 							
 	- 是已安裝 iSCSI 啟動器軟體的 Windows 或 Linux VM。
 	- 正在虛擬裝置所在的相同虛擬網路中執行。
@@ -104,7 +103,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 開始之前，請確定您擁有下列資訊：
 
-- 您的 Azure 入口網站帳戶具有存取認證。
+- 您的 Azure 傳統入口網站帳戶具有存取認證。
 
 - 實體裝置中服務資料加密金鑰的複本。
 
@@ -192,7 +191,7 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 
 由於它是純軟體裝置，相較於實體裝置的維護，虛擬裝置的維護可說是最基本的。您有下列選擇：
 
-- **軟體更新** - 您可以檢視上次更新軟體的日期，以及任何更新狀態訊息。如果想要檢查是否有新的更新，可以使用頁面底部的 [**掃描更新**] 按鈕來執行手動掃描。如果有可用更新，請按一下 [**安裝更新**] 加以安裝。因為虛擬裝置上只有單一介面，這表示在套用更新時將造成服務些微中斷。虛擬裝置將關閉並重新啟動 (如有必要)，以套用任何已發行的更新。如需逐步程序，請移至[更新您的裝置](storsimple-update-device.md#install-regular-updates-via-the-management-portal)。
+- **軟體更新** - 您可以檢視上次更新軟體的日期，以及任何更新狀態訊息。如果想要檢查是否有新的更新，可以使用頁面底部的 [**掃描更新**] 按鈕來執行手動掃描。如果有可用更新，請按一下 [**安裝更新**] 加以安裝。因為虛擬裝置上只有單一介面，這表示在套用更新時將造成服務些微中斷。虛擬裝置將關閉並重新啟動 (如有必要)，以套用任何已發行的更新。如需逐步程序，請移至[更新您的裝置](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal)。
 - **支援封裝** - 您可以建立並上傳支援封裝，以協助 Microsoft 支援服務為您的虛擬裝置問題進行疑難排解。  
 如需逐步程序，請移至[建立和管理支援封裝](storsimple-create-manage-support-package.md)。
 
@@ -216,7 +215,7 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 
 - 保留為虛擬裝置建立的雲端快照。
 
-如需逐步程序，請移至[停用您的裝置](storsimple-deactivate-and-delete-device.md#deactivate-a-device)。
+如需逐步程序，請移至[停用及刪除 StorSimple 裝置](storsimple-deactivate-and-delete-device.md)。
 
 只要虛擬裝置在 StorSimple Manager 服務頁面上顯示為已停用，您就能從 [裝置] 頁面的裝置清單中刪除該虛擬裝置。
 
@@ -249,7 +248,7 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 
 如果您先前已設定並使用 StorSimple 虛擬裝置，但現在不想再因為使用而產生計算費用，您可以關閉虛擬裝置。關閉虛擬裝置，並不會刪除其作業系統或儲存體中的資料磁碟。這只會停止您的訂用帳戶所產生的費用，但作業系統和資料磁碟的儲存體費用仍會繼續計算。
 
-如果您刪除或關閉虛擬裝置，StorSimple Manager 服務的 [裝置] 頁面上會將其顯示為 [離線]。如果您也想要刪除虛擬裝置所建立的備份，可以選擇停用或刪除裝置。如需詳細資訊，請參閱[停用裝置](storsimple-deactivate-and-delete-device.md#deactivate-a-device)。
+如果您刪除或關閉虛擬裝置，StorSimple Manager 服務的 [裝置] 頁面上會將其顯示為 [離線]。如果您也想要刪除虛擬裝置所建立的備份，可以選擇停用或刪除裝置。如需詳細資訊，請參閱[停用及刪除 StorSimple 裝置](storsimple-deactivate-and-delete-device.md)。
 
 [AZURE.INCLUDE [關閉虛擬裝置](../../includes/storsimple-shutdown-virtual-device.md)]
 
@@ -261,4 +260,4 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
  
 - 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="01/19/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -29,6 +29,9 @@
 <table> <tr><td>**下載**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr> <tr><td>**參與**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr> <tr><td>**文件**</td><td>[Python SDK 參考文件](http://azure.github.io/azure-documentdb-python/)</td></tr> <tr><td>**開始使用**</td><td>[ Python SDK](documentdb-python-application.md)</td></tr> <tr><td>**目前支援的平台**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr> </table></br>
 
 ## 版本資訊
+
+### <a name="1.5.0"/>[1.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
+- 新增「雜湊和範圍」分割區解析程式來協助將應用程式跨多個分割區分區。
 
 ### <a name="1.4.2"/>[1\.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
 - 實作 Upsert。已新增新的 UpsertXXX 方法以支援 Upsert 功能。
@@ -49,7 +52,7 @@
 - GA SDK
 
 ## 發行和停用日期
-Microsoft 將至少在 SDK 停用之前 **12 個月** 提供通知，以供順利轉換至較新/支援的版本。
+Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供順利轉換至較新/支援的版本。
 
 新的功能與最佳化項目只會新增至目前的 SDK，因此建議您一律盡早升級至最新的 SDK 版本。
 
@@ -61,6 +64,7 @@ Microsoft 將至少在 SDK 停用之前 **12 個月** 提供通知，以供順�
 
 | 版本 | 發行日期 | 停用日期 
 | ---	  | ---	         | ---
+| [1.5.0](#1.5.0) | 2016 年 1 月 3 日 |---
 | [1\.4.2](#1.4.2) | 2015 年 10 月 6 日 |---
 | [1\.4.1](#1.4.1) | 2015 年 10 月 6 日 |---
 | [1\.2.0](#1.2.0) | 2015 年 8 月 6 日 |---
@@ -80,4 +84,4 @@ Microsoft 將至少在 SDK 停用之前 **12 個月** 提供通知，以供順�
 
 若要深入了解 DocumentDB，請參閱 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 服務頁面。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

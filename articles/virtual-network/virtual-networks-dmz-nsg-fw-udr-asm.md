@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor;sivae"/>
 
 # 範例 3 – 建置 DMZ 以透過防火牆、UDR 和 NSG 保護網路
@@ -941,4 +941,4 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

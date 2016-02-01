@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/19/2016"
 	ms.author="cabailey"/>
 #如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰
 
 ##簡介
 
-為了加強保證，當您使用 Azure 金鑰保存庫時，您可以在硬體安全模組 (HSM) 中匯入或產生無需離開 HSM 界限的金鑰。此案例通常稱為*自備金鑰*或 BYOK。HSM 已通過 FIPS 140-2 Level 2 驗證。Azure 金鑰保存庫使用 Thales nShield 系列 HSM 來保護您的金鑰。
+為了加強保證，當您使用 Azure 金鑰保存庫時，您可以在硬體安全模組 (HSM) 中匯入或產生無需離開 HSM 界限的金鑰。此案例通常稱為自備金鑰或 BYOK。HSM 已通過 FIPS 140-2 Level 2 驗證。Azure 金鑰保存庫使用 Thales nShield 系列 HSM 來保護您的金鑰。
 
 使用本主題中的資訊，協助您規劃、產生然後傳送自己受 HSM 保護的金鑰，以搭配使用 Azure 金鑰保存庫。
+
+此功能不適用於 Azure China。
 
 >[AZURE.NOTE]如需 Azure 金鑰保存庫的詳細資訊，請參閱[什麼是 Azure 金鑰保存庫？](key-vault-whatis.md)
 >
@@ -58,8 +60,8 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 |需求|詳細資訊|
 |---|---|
-|Azure 訂用帳戶|若要建立 Azure 金鑰保存庫，您需要 Azure 訂用帳戶：[註冊免費試用](http://azure.microsoft.com/pricing/free-trial/)|
-|支援 HSM 的 Azure 金鑰保存庫|如需 Azure 金鑰保存庫的服務層和功能的詳細資訊，請參閱 [Azure 金鑰保存庫價格](http://azure.microsoft.com/pricing/details/key-vault/)網站。|
+|Azure 訂用帳戶|若要建立 Azure 金鑰保存庫，您需要 Azure 訂用帳戶：[註冊免費試用](../../../../pricing/free-trial)|
+|支援 HSM 的 Azure 金鑰保存庫|如需 Azure 金鑰保存庫的服務層和功能的詳細資訊，請參閱 [Azure 金鑰保存庫價格](../../../../pricing/details/key-vault/)網站。|
 |Thales HSM、智慧卡和支援軟體|您必須存取 Thales 硬體安全模組和 Thales HSM 的基本操作知識。請參閱 [Thales 硬體安全模組](https://www.thales-esecurity.com/msrms/buy)以取得相容模型的清單，或者如果您沒有 HSM，請購買 HSM。|
 |下列硬體和軟體：<ol><li>離線 x64 工作站，最低 Windows 作業系統為 Windows 7，Thales nShield 軟體至少為 11.50 版。<br/><br/>若此工作站執行 Windows 7，您必須[安裝 Microsoft.NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)。</li><li>連線到網際網路且具有最低 Windows 作業系統 Windows 7 的工作站。</li><li>擁有至少 16 MB 可用空間的 USB 磁碟機或其他可攜式儲存裝置。</li></ol>|基於安全性理由，建議第一個工作站不要連線到網路。不過，這不會以程式設計的方式強制執行。<br/><br/>請注意，在接下來的指示中，此工作站稱為中斷連線的工作站。</p></blockquote><br/>此外，如果您的租用戶金鑰適用於生產網路，建議您使用第二個個別的工作站下載工具組並上傳租用戶金鑰。但是為了測試目的，您可以使用和第一個工作站相同的工作站。<br/><br/>請注意，在接下來的指示中，此第二個工作站稱為網際網路連線的工作站。</p></blockquote><br/>|
 
@@ -97,9 +99,9 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 ###步驟 1.3：下載 Azure 金鑰保存庫的 BYOK 工具組
 
-移至 Microsoft 下載中心並為您的區域[下載 Azure 金鑰保存庫 BYOK 工具組](http://www.microsoft.com/download/details.aspx?id=45345)：
+移至 Microsoft 下載中心並為您的地理區域或 Azure 執行個體[下載 Azure 金鑰保存庫 BYOK 工具組](http://www.microsoft.com/download/details.aspx?id=45345)：
 
-|區域|封裝名稱|SHA-256 封裝雜湊|
+|地理區域或 Azure 執行個體|封裝名稱|SHA-256 封裝雜湊|
 |---|---|---|
 |北美洲|KeyVault-BYOK-Tools-UnitedStates.zip|D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36|
 |歐洲|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
@@ -107,6 +109,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 |拉丁美洲|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
 |日本|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 |澳大利亞|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
+|[Azure Government](../../../../features/gov/)|KeyVault-BYOK-Tools-USGovCloud.zip|4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8|
 
 若要驗證您已下載之 BYOK 工具組的完整性，請從您的 Azure PowerShell 工作階段，使用 [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) Cmdlet。
 
@@ -173,7 +176,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 驗證下載的封裝：
 
-1.	根據您的區域嘗試下列其中一個區域，以執行 verifykeypackage.py 指令碼：
+1.	根據您的地理區域或 Azure 執行個體嘗試下列其中一個區域，以執行 verifykeypackage.py 指令碼：
 	- 北美洲：
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
@@ -192,6 +195,9 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 	- 澳大利亞：
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
+	- 對於 [Azure Government](../../../../features/gov/)，它會使用美國政府的 Azure 執行個體：
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
 
 	>[AZURE.TIP]Thales 軟體包含 %NFAST\_HOME%\\python\\bin 中的 python
 
@@ -211,7 +217,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 當您執行此命令時，請使用下列指示：
 
-- 以任意字串值取代 **ident** 和 **plainname** 的 *contosokey* 值。若要將系統管理負擔降至最低並減少錯誤的風險，建議您同時對兩者使用相同的值。**Ident** 值只能包含數字、連字號和小寫字母。
+- 以任意字串值取代 **ident** 和 **plainname** 的 contosokey 值。若要將系統管理負擔降至最低並減少錯誤的風險，建議您同時對兩者使用相同的值。**Ident** 值只能包含數字、連字號和小寫字母。
 
 - 在這個範例中，Pubexp 保留空白 (預設值)，但是您可以指定特定值。如需詳細資訊，請參閱 Thales 文件。
 
@@ -229,7 +235,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 ###步驟 4.1：使用降低權限建立金鑰的複本
 
-若要減少金鑰的權限，請從命令提示字元，根據您的區域執行下列其中一個區域：
+若要減少金鑰的權限，請從命令提示字元，根據您的地理區域或 Azure 執行個體，執行下列其中一個區域：
 
 - 北美洲：
 
@@ -249,8 +255,11 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 - 澳大利亞：
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
+- 對於 [Azure Government](../../../../features/gov/)，它會使用美國政府的 Azure 執行個體：
 
-當您執行此命令時，請以您從[產生您的金鑰](#step-3-generate-your-key)步驟的**步驟 3.3：建立新的金鑰**中指定的相同值取代 *contosokey*。
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
+
+當您執行此命令時，請以您從[產生您的金鑰](#step-3-generate-your-key)步驟的**步驟 3.3：建立新的金鑰**中指定的相同值取代 contosokey。
 
 系統會要求您插入您的安全世界系統管理員卡。
 
@@ -270,7 +279,7 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 ###步驟 4.3：使用 Microsoft 的金鑰交換金鑰來加密您的金鑰
 
-根據您的區域執行下列其中一個命令：
+根據您的地理區域或 Azure 執行個體，執行下列其中一個命令：
 
 - 北美洲：
 
@@ -290,16 +299,19 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 - 澳大利亞：
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- 對於 [Azure Government](../../../../features/gov/)，它會使用美國政府的 Azure 執行個體：
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 當您執行此命令時，請使用下列指示：
 
-- 請以您在[產生您的金鑰](#step-3-generate-your-key)步驟的**步驟 3.3：建立新的金鑰**中用來產生金鑰的識別碼取代 *contosokey*。
+- 請以您在[產生您的金鑰](#step-3-generate-your-key)步驟的**步驟 3.3：建立新的金鑰**中用來產生金鑰的識別碼取代 contosokey。
 
-- 以包含金鑰保存庫的 Azure 訂用帳戶識別碼取代 *SubscriptionID*。您先前已在**步驟 1.2：取得 Azure 訂用帳戶識別碼**中從[準備網際網路連線的工作站](#step-1-prepare-your-internet-connected-workstation)步驟擷取過這個值。
+- 以包含金鑰保存庫的 Azure 訂用帳戶識別碼取代 SubscriptionID。您先前已在**步驟 1.2：取得 Azure 訂用帳戶識別碼**中從[準備網際網路連線的工作站](#step-1-prepare-your-internet-connected-workstation)步驟擷取過這個值。
 
-- 以用於輸出檔案名稱的標籤取代 *ContosoFirstHSMKey*。
+- 以用於輸出檔案名稱的標籤取代 ContosoFirstHSMKey。
 
-當此動作成功完成時，會顯示 **Result: SUCCESS**，而且目前的資料夾中會有新的檔案，其名稱如下：TransferPackage-*ContosoFirstHSMkey*.byok
+當此動作成功完成時，會顯示 **Result: SUCCESS**，而且目前的資料夾中會有新的檔案，其名稱如下：TransferPackage-ContosoFirstHSMkey.byok
 
 ###步驟 4.4：將金鑰傳輸封裝複製到網際網路連線的工作站
 
@@ -313,8 +325,9 @@ Microsoft 已與 thales 合作增強 HSM 的開發狀態。這些增強內容可
 
 如果上傳成功，就會顯示您剛才加入之金鑰的屬性。
 
+
 ##後續步驟
 
 您現在可以在您的金鑰保存庫中使用這個受 HSM 保護的金鑰。如需詳細資訊，請參閱[開始使用 Azure 金鑰保存庫](key-vault-get-started.md)教學課程中的**如果您想要使用硬體安全模組 (HSM)** 一節。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

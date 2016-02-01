@@ -25,7 +25,7 @@
 
 ### 建立服務命名空間並取得共用秘密金鑰
 
-1. 如需如何建立服務命名空間的完整資訊，請參閱[管理服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh690928.aspx)一節中的[作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh690931.aspx)主題。
+1. 若要建立服務命名空間，請造訪 [Azure 傳統入口網站][]。按一下左側的 [服務匯流排]，再按一下 [建立]。輸入命名空間的名稱，再按一下核取記號。
 
 1. 在 [Azure 傳統入口網站][]的主視窗中，按一下您在上一個步驟中建立的命名空間名稱。
 
@@ -628,9 +628,9 @@ namespace Microsoft.ServiceBus.Samples
 若要深入了解，請參閱下列文章：
 
 - [服務匯流排訊息概觀](service-bus-messaging-overview.md)
-- [Azure 服務匯流排基本概念](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 - [服務匯流排轉送 REST 教學課程](service-bus-relay-rest-tutorial.md)
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

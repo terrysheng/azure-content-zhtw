@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # 更換 StorSimple 裝置上的控制器模組
@@ -75,7 +75,7 @@
 
 #### 若要取下單一故障的控制器模組
 
-1. 在 StorSimple Manager 服務的 Azure 傳統入口網站中，按一下 [**裝置**] 索引標籤，然後按一下您想要監視的裝置名稱。
+1. 在 Azure 傳統入口網站中，移至 StorSimple Manager 服務，按一下 [裝置] 索引標籤，然後按一下您想要監視的裝置名稱。
 
 2. 按一下 [維護] 索引標籤，然後瀏覽至 [硬體狀態]。控制器 0 或控制器 1 的狀態應該是紅色，表示故障。
 
@@ -230,9 +230,9 @@
 
 ### 使用 Azure 傳統入口網站來識別作用中控制器
 
-在管理入口網站中，導覽至 [裝置] > [維護]，然後捲動至 [控制器] 區段。在這裡您可以確認哪一個控制站作用中。
+在 Azure 傳統入口網站中，導覽至 [裝置] > [維護]，然後捲動至 [控制器] 區段。在這裡您可以確認哪一個控制站作用中。
 
-![識別管理入口網站中的作用中控制器](./media/storsimple-controller-replacement/IC752072.png)
+![識別 Azure 傳統入口網站中的作用中控制器](./media/storsimple-controller-replacement/IC752072.png)
 
 **圖 6** 顯示作用中控制器 Azure 傳統入口網站
 
@@ -266,4 +266,4 @@
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

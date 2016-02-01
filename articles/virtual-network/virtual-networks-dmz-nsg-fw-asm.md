@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor;sivae"/>
 
 # 範例 2 – 建置 DMZ 以透過防火牆和 NSG 保護應用程式
@@ -566,4 +566,4 @@ Web 伺服器、IIS01 和防火牆都在相同的雲端服務中，因此共用�
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

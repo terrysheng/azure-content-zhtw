@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor;sivae"/>
 
 # 範例 1 – 使用 NSG 建置簡單的 DMZ
@@ -140,7 +140,7 @@
     		-Protocol * 
 
 ## 流量案例
-#### (*允許*) Web 到 Web 伺服器
+#### (允許) Web 到 Web 伺服器
 1.	網際網路使用者從 FrontEnd001.CloudApp.Net (網際網路面向雲端服務) 要求 HTTP 頁面
 2.	雲端服務透過連接埠 80 上的開放端點將流量傳遞至 IIS01 (Web 伺服器)
 3.	Frontend 子網路開始處理輸入規則：
@@ -164,7 +164,7 @@
 12.	IIS 伺服器接收 SQL 回應、完成 HTTP 回應並傳送給要求者
 13.	Frontend 子網路上沒有輸出規則，所以允許回應，網際網路使用者會收到要求的網頁。
 
-#### (*允許*) RDP 到 Backend
+#### (允許) RDP 到 Backend
 1.	網際網路上的伺服器管理員在 BackEnd001.CloudApp.Net:xxxxx 上要求 AppVM01 的 RDP 工作階段，其中 xxxxx 是 RDP 到 AppVM01 的隨機指派連接埠號碼 (在 Azure 入口網站上或透過 PowerShell，即可找到指派的連接埠)
 2.	Backend 子網路開始處理輸入規則：
   1.	NSG 規則 1 (DNS) 不適用，移至下一個規則
@@ -173,7 +173,7 @@
 4.	已啟用 RDP 工作階段
 5.	AppVM01 會提示輸入使用者名稱和密碼
 
-#### (*允許*) DNS 伺服器上的 Web 伺服器 DNS 查閱
+#### (允許) DNS 伺服器上的 Web 伺服器 DNS 查閱
 1.	Web 伺服器 IIS01 需要 www.data.gov 的資料摘要，但需要解析位址。
 2.	VNet 的網路組態將 DNS01 (Backend 子網路上的 10.0.2.4) 列為主要 DNS 伺服器，IIS01 將 DNS 要求傳送至 DNS01
 3.	Frontend 子網路上沒有輸出規則，允許流量
@@ -190,7 +190,7 @@
   2.	允許子網路間流量的預設系統規則會允許此流量，因此允許流量
 12.	IIS01 從 DNS01 接收回應
 
-#### (*允許*) Web 伺服器存取 AppVM01 上的檔案
+#### (允許) Web 伺服器存取 AppVM01 上的檔案
 1.	IIS01 要求 AppVM01 上的檔案
 2.	Frontend 子網路上沒有輸出規則，允許流量
 3.	Backend 子網路開始處理輸入規則：
@@ -205,17 +205,17 @@
   2.	允許子網路間流量的預設系統規則會允許此流量，因此允許流量。
 7.	IIS 伺服器接收檔案
 
-#### (*拒絕*) Web 到 Backend 伺服器
+#### (拒絕) Web 到 Backend 伺服器
 1.	網際網路使用者嘗試透過 BackEnd001.CloudApp.Net 服務存取 AppVM01 上的檔案
 2.	因為沒有用於檔案共用的開放端點，此流量不會通過雲端服務到達伺服器
 3.	如果基於某些原因而開放端點，NSG 規則 5 (網際網路到 VNet) 會封鎖此流量
 
-#### (*拒絕*) DNS 伺服器上的 Web DNS 查閱
+#### (拒絕) DNS 伺服器上的 Web DNS 查閱
 1.	網際網路使用者嘗試透過 BackEnd001.CloudApp.Net 服務查閱 DNS01 上的內部 DNS 記錄
 2.	因為沒有用於 DNS 的開放端點，此流量不會通過雲端服務到達伺服器
 3.	如果基於某些原因而開放端點，NSG 規則 5 (網際網路到 VNet) 會封鎖此流量 (注意：有兩個原因導致規則 1 (DNS) 不適用，首先，來源位址是網際網路，此規則只適用於以本機 VNet 做為來源，再者，這是允許規則，所以它永遠不會拒絕流量)
 
-#### (*拒絕*) Web 透過防火牆對 SQL 進行存取
+#### (拒絕) Web 透過防火牆對 SQL 進行存取
 1.	網際網路使用者從 FrontEnd001.CloudApp.Net (網際網路面向雲端服務) 要求 SQL 資料
 2.	因為沒有用於 SQL 的開放端點，此流量不會通過雲端服務到達防火牆
 3.	如果基於某些原因而開放端點，Frontend 子網路會開始處理輸入規則：
@@ -550,4 +550,4 @@
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

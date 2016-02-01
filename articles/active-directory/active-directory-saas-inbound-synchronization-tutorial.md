@@ -2,7 +2,7 @@
     pageTitle="教學課程：針對輸入同步設定 Workday| Microsoft Azure" 
     description="了解如何使用輸入同步搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #教學課程：針對輸入同步設定 Workday
 >[AZURE.NOTE]Azure Active Directory (AD) Premium 適用於使用 Azure AD 全球執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure AD Premium。
@@ -46,9 +46,9 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-	![應用程式](./media/active-directory-saas-inbound-synchronization-tutorial/IC700994.png "[應用程式]")
+	![應用程式](./media/active-directory-saas-inbound-synchronization-tutorial/IC700994.png "應用程式")
 
-4.  若要開啟 [應用程式庫]，請按一下 [新增應用程式]，然後按一下 [加入應用程式讓我的組織使用]。
+4.  若要開啟 [應用程式庫]，請按一下 [新增應用程式]，然後按一下 [新增應用程式讓我的組織使用]。
 
 	![欲執行動作](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "您要如何處理？")
 
@@ -62,7 +62,7 @@
 
 ##建立整合系統使用者
 
-1.  在 **Workday Workbench** 的搜尋方塊中輸入 **create user**，然後按一下 [Create Integration System User] 連結。     
+1.  在 [工作日工作台] 中的搜尋方塊輸入 **create user**，然後按一下 [建立整合系統使用者] 連結。     
 
 	![建立使用者](./media/active-directory-saas-inbound-synchronization-tutorial/IC750979.png "建立使用者")
 
@@ -159,19 +159,19 @@
 
 1.  在 [Workday] 應用程式整合頁面上，按一下 [設定使用者匯入] 以開啟 [設定佈建] 對話方塊。    
 
-2.  在 [設定及管理員認證]頁面上，執行以下步驟，然後按 [下一步]：
+2.  在 [設定及管理員認證] 頁面上，執行以下步驟，然後按一下 [下一步]：
 
 	![設定及管理員認證](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "設定及管理員認證")
 
 	1.  在 [Workday 管理員使用者名稱] 文字方塊中，輸入您在[建立整合系統使用者](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser)一節中建立的使用者名稱。    
-    2.  在 [Workday 管理員密碼] 文字方塊中，輸入您在[建立整合系統使用者](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser)一節中建立的使用者密碼。    
+    2.  在 [Workday 管理員使用者密碼] 文字方塊中，輸入您在[建立整合系統使用者](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser)一節中建立的使用者密碼。    
     3.  在 [Workday 租用戶 URL] 文字方塊中，輸入您 Workday 租用戶的 URL。    
 
-3.  在 [測試連接] 頁面上，按一下 [開始測試] 來確認連接，然後按 [下一步]。
+3.  在 [測試連接] 頁面上，按一下 [開始測試] 來確認連接，然後按一下 [下一步]。
 
 	![測試連接](./media/active-directory-saas-inbound-synchronization-tutorial/IC750996.png "測試連接")
 
-4.  在 [佈建] 選項頁面上，按 [下一步]。
+4.  在 [佈建選項] 頁面上，按一下 [下一步]。
 
 	![佈建選項](./media/active-directory-saas-inbound-synchronization-tutorial/IC750997.png "佈建選項")
 
@@ -181,4 +181,4 @@
 
 您現在可以移至 [使用者] 區段，並檢查是否已匯入您的 Workday 使用者。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

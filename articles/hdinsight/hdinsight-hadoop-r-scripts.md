@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="01/14/2016"
 	ms.author="jgao"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 R
@@ -113,4 +113,4 @@ R 與 Azure Blob 儲存體 (WASB) 相容，因此便可在 HDInsight 上使用 R
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

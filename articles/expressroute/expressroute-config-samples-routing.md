@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/07/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # 設定和管理路由的路由器組態範例
@@ -210,4 +210,4 @@
 
 如需詳細資訊，請參閱〈[ExpressRoute 常見問題集](expressroute-faqs.md)〉。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

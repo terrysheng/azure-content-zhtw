@@ -189,6 +189,7 @@ CHAP 可以是單向 (單向) 或相互 (雙向)。單向 CHAP 是指目標驗�
 ## 後續步驟
 
 - 深入了解 [StorSimple 安全性](storsimple-security.md)。
+
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

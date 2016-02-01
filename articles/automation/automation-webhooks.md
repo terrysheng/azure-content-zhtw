@@ -17,9 +17,7 @@
 
 # Azure 自動化 Webhook
 
-*Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。這可讓外部服務，例如 Visual Studio Team Services、GitHub 或自訂應用程式啟動 Runbook，而不需使用 Azure 自動化 API 實作完整的解決方案。
-
-![Webhook](media/automation-webhooks/webhooks-overview.png)
+Webhook 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。這可讓外部服務，例如 Visual Studio Team Services、GitHub 或自訂應用程式啟動 Runbook，而不需使用 Azure 自動化 API 實作完整的解決方案。![Webhook](media/automation-webhooks/webhooks-overview.png)
 
 您可以透過[在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md) 中比較 Webhook 與其他啟動 Runbook 的方法
 
@@ -36,7 +34,7 @@
 
 
 ### 參數
-Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數值。Webhook 必須包含任何 Runbook 的強制參數值，且可能包含選擇性的參數值。多個 Webhook 連結至單一 Runbook 時，可以個別使用不同的參數值。
+Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數值。Webhook 必須包含任何 Runbook 的強制參數值，且可能包含選擇性的參數值。甚至在建立 Webhoook 之後，可以對為 Webhook 設定的參數值進行修改。多個 Webhook 連結至單一 Runbook 時，可以個別使用不同的參數值。
 
 當用戶端使用 Webhook 啟動 Runbook 時，其無法覆寫 Webhook 中定義的參數值。若要從用戶端接收資料，Runbook 可以接受單一參數，稱之為 **$WebhookData** 的 [物件] 類型，其中包含用戶端在 POST 要求中所包含的資料。
 
@@ -61,9 +59,9 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 
 針對上述 Runbook，如果您對 WebhookData 參數具有下列屬性：
 
-1. WebhookName: *MyWebhook*
-2. RequestHeader: *From=Test User*
-3. RequestBody: *[“VM1”, “VM2”]*
+1. WebhookName: MyWebhook
+2. RequestHeader: From=Test User
+3. RequestBody: [“VM1”, “VM2”]
 
 則應對 WebhookData 參數傳遞下列 UI 中的 JSON 值：
 
@@ -188,7 +186,7 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 
 ## 啟動 Runbook 以回應 Azure 警示
 
-啟用 Webhook 的 Runbook 可用以回應 [Azure 警示](Azure-portal/insights-receive-alert-notifications.md)。Azure 中的資源可以透過 Azure 警示的協助，藉由收集如效能、可用性和使用方式的統計資料進行監視。您可以收到根據監視您 Azure 資源的計量或事件的警示，目前自動化帳戶僅支援度量。當指定的計量值超過指派的閾值，或者如果觸發了設定的事件，就會傳送通知給服務管理員或共同管理員以解決該警示，如需計量與事件的詳細資訊，請參閱 [Azure 警示](Azure-portal/insights-receive-alert-notifications.md)。
+啟用 Webhook 的 Runbook 可用以回應 [Azure 警示](../azure-portal/insights-receive-alert-notifications.md)。Azure 中的資源可以透過 Azure 警示的協助，藉由收集如效能、可用性和使用方式的統計資料進行監視。您可以收到根據監視您 Azure 資源的計量或事件的警示，目前自動化帳戶僅支援度量。當指定的計量值超過指派的閾值，或者如果觸發了設定的事件，就會傳送通知給服務管理員或共同管理員以解決該警示，如需計量與事件的詳細資訊，請參閱 [Azure 警示](../azure-portal/insights-receive-alert-notifications.md)。
 
 除了使用 Azure 的警示做為通知系統，也可以使用 Runbook 回應警示。Azure 自動化可讓您使用 Azure 警示執行啟用 Webhook 的 Runbook。當計量超過設定的閾值時，警示規則就會變成作用中，並且觸發自動化 Webhook，連帶執行 Runbook。
 
@@ -198,12 +196,12 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 
 考量如虛擬機器的 Azure 資源，這台電腦的 CPU 使用率是其中一個關鍵效能計量。如果 CPU 使用率是 100% 或者在一段長時間超過某個量，您可能會想要重新啟動虛擬機器以修正問題。這可以藉由設定虛擬機器的警示規則來解決，而此規則可以使用 CPU 百分比做為計量。這裡的 CPU 百分比只是一個範例，但是還有許多您可以對 Azure 資源設定的其他計量，重新啟動虛擬機器是修正此問題所採取的一個動作，您可以設定 Runbook 採取其他動作。
 
-當此警示規則變成作用中並且觸發啟用 Webhook 的 Runbook 時，會傳送警示內容到 Runbook。[警示內容](Azure-portal/insights-receive-alert-notifications.md)包含的詳細資料包括 **SubscriptionID**、**ResourceGroupName**、**ResourceName**、**ResourceType**、**ResourceId** 和 **Timestamp**，這些都是 Runbook 識別會在其上採取動作的資源所需的項目。警示內容內嵌在傳送至 Runbook 的 **WebhookData** 物件的內文部分，可以使用 **Webhook.RequestBody** 屬性存取
+當此警示規則變成作用中並且觸發啟用 Webhook 的 Runbook 時，會傳送警示內容到 Runbook。[警示內容](../azure-portal/insights-receive-alert-notifications.md)包含的詳細資料包括 **SubscriptionID**、**ResourceGroupName**、**ResourceName**、**ResourceType**、**ResourceId** 和 **Timestamp**，這些都是 Runbook 識別會在其上採取動作的資源所需的項目。警示內容內嵌在傳送至 Runbook 的 **WebhookData** 物件的內文部分，可以使用 **Webhook.RequestBody** 屬性存取
 
 
 ### 範例
 
-在訂用帳戶中建立 Azure 虛擬機器，並且關聯[警示以監視 CPU 百分比計量](Azure-portal/insights-receive-alert-notifications.md)。建立警示時，請確定以建立 Webhook 時所產生的 Webhook URL 填入 Webhook 欄位。
+在訂用帳戶中建立 Azure 虛擬機器，並且關聯[警示以監視 CPU 百分比計量](../azure-portal/insights-receive-alert-notifications.md)。建立警示時，請確定以建立 Webhook 時所產生的 Webhook URL 填入 Webhook 欄位。
 
 下列範例 Runbook 會在警示規則變成作用中時觸發，而且會收集 Runbook 識別在上面採取動作的資源所需的警示內容參數。
 
@@ -274,4 +272,4 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 - 如需檢視 Runbook 作業狀態的詳細資訊，請參閱 [Azure 自動化中的 Runbook 執行](automation-runbook-execution.md)
 - [使用 Azure 自動化對 Azure 警示採取動作](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

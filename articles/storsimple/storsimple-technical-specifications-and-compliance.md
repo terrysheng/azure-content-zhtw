@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/27/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # 適用於 StorSimple 裝置的技術規格和相容性
@@ -170,6 +170,6 @@ EBOD 機箱使用 580 W PCM，而主要機箱會使用 764 W PCM。下表列出�
 
 ## 後續步驟
 
-如需 StorSimple 裝置規格的詳細資訊，請下載 [StorSimple 8000 系列規格](http://storsimple.seagate.com/Specifications-8000)。
+您現在已可在您的資料中心內部署 StorSimple 裝置。如需詳細資訊，請參閱[部署您的內部部署裝置](storsimple-deployment-walkthrough-u2.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

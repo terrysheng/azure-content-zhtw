@@ -262,9 +262,9 @@ H,I | 主機 (例如，檔案伺服器)
 
 - 可能的話，請在各個控制器上設定一組用於雲端存取 (1 GbE)，和另一組用於 iSCSI (建議 10 GbE) 的網路介面。 
 
-- 可能的話，請將各個控制器的網路介面連接到兩個不同的交換器，以確保交換器發生錯誤時的可用性。下圖說明兩個從各個控制器連接到兩個不同交換器的 10 GbE 網路介面 (DATA 2 和 DATA 3)。如需詳細資訊，請參閱 [StorSimple 裝置的高可用性要求](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md)底下的**網路介面**。
+- 可能的話，請將各個控制器的網路介面連接到兩個不同的交換器，以確保交換器發生錯誤時的可用性。下圖說明兩個從各個控制器連接到兩個不同交換器的 10 GbE 網路介面 (DATA 2 和 DATA 3)。如需詳細資訊，請參閱 [StorSimple 裝置的高可用性需求](storsimple-system-requirements.md#high-availability-requirements-for-storsimple) 下的**網路介面**。
 
->[AZURE.NOTE]如果搭配使用 SFP + 收發器和您的 10 GbE 網路介面，請使用提供的 QSFP-SFP + 配接器。如需更多詳細資訊，請參閱 [StorSimple 裝置上 10 GbE 網路介面支援的硬體](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+>[AZURE.NOTE] 如果搭配使用 SFP + 收發器和您的 10 GbE 網路介面，請使用提供的 QSFP-SFP + 配接器。如需詳細資訊，請移至 [10 GbE 網路介面在 StorSimple 裝置上支援的硬體](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)。
 
 ### 序列連接埠佈線
 
@@ -295,7 +295,7 @@ H,I | 主機 (例如，檔案伺服器)
 
 ## 後續步驟
 
-您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)
+您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
  
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

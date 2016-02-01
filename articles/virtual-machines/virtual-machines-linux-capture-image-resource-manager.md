@@ -31,7 +31,7 @@
 
 - [使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-例如，您可能會在美國中部區域建立名為 *MyResourceGroup* 的資源群組。然後使用如下所示的 **azure vm quick-create** 命令在資源群組中部署 Ubuntu 14.04 LTS VM。
+例如，您可能會在美國中部區域建立名為 MyResourceGroup 的資源群組。然後使用如下所示的 **azure vm quick-create** 命令在資源群組中部署 Ubuntu 14.04 LTS VM。
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:14.04.201507060 -u <your-user-name> -p <your-password>
 
@@ -193,11 +193,11 @@
 然後執行類似下列的命令。
 
 	azure vm create -g <your-resource-group-name> -n <your-new-vm-name> -l eastus -y Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
-	
+
 如需其他命令選項，請執行 `azure help vm create`。
 
 ## 後續步驟
 
 若要使用 CIL 管理 VM，請參閱[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-azure-cli.md)中的工作。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

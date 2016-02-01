@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/08/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # 使用 PowerShell 建立和修改 ExpressRoute 線路
@@ -43,7 +43,7 @@
 
 2. **取得支援的提供者、位置和頻寬清單。**
 
-	建立 ExpressRoute 線路之前，您需要有連線提供者、支援的位置和頻寬選項等清單。PowerShell Cmdlet *Get-AzureDedicatedCircuitServiceProvider* 會傳回此資訊，在稍後的步驟中將會用到。
+	建立 ExpressRoute 線路之前，您需要有連線提供者、支援的位置和頻寬選項等清單。PowerShell Cmdlet Get-AzureDedicatedCircuitServiceProvider 會傳回此資訊，在稍後的步驟中將會用到。
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -121,7 +121,7 @@
 
 4. **列出所有 ExpressRoute 線路。**
 
-	您可以執行 *Get-AzureDedicatedCircuit* 命令，取得您已建立之所有 ExpressRoute 線路的清單。
+	您可以執行 Get-AzureDedicatedCircuit 命令，取得您已建立之所有 ExpressRoute 線路的清單。
 
 		#Getting service key
 		Get-AzureDedicatedCircuit
@@ -137,7 +137,7 @@
 		Sku                              : Standard
 		Status                           : Enabled
 
-	您隨時可以使用 *Get-AzureDedicatedCircuit* Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。*ServiceKey* 欄位會列出您的服務金鑰。
+	您隨時可以使用 Get-AzureDedicatedCircuit Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。ServiceKey 欄位會列出您的服務金鑰。
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -162,7 +162,7 @@
 		
 		Status                           : Enabled
 
-	*ServiceProviderProvisioningState* 提供目前在服務提供者端的佈建狀態，Status 提供 Microsoft 端的狀態。ExpressRoute 線路必須處於下列狀態，才可供您使用。
+	ServiceProviderProvisioningState 提供目前在服務提供者端的佈建狀態，Status 提供 Microsoft 端的狀態。ExpressRoute 線路必須處於下列狀態，才可供您使用。
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -178,7 +178,7 @@
 
 5. **定期檢查線路金鑰的情況和狀態。**
 
-	這樣可讓您知道提供者何時已啟用您的線路。設定線路之後，*ServiceProviderProvisioningState* 會顯示為 *Provisioned*，如下列範例所示。
+	這樣可讓您知道提供者何時已啟用您的線路。設定線路之後，ServiceProviderProvisioningState 會顯示為 Provisioned，如下列範例所示。
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -201,7 +201,7 @@
 
 ##  取得 ExpressRoute 線路的狀態
 
-您隨時可以使用 *Get-AzureCircuit* Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。
+您隨時可以使用 Get-AzureCircuit Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -320,7 +320,7 @@
 
 請注意，您必須取消連結 ExpressRoute 的所有虛擬網路，此作業才會成功。如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 
-若已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成 [正在停用]。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
+如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成正在停用。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
 
 若服務提供者在您執行上述 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，我們將會取消佈建線路並停止向您收費。
 
@@ -328,4 +328,4 @@
 
 - [設定路由](expressroute-howto-routing-classic.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

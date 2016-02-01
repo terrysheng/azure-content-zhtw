@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,18 +22,18 @@
 # 在 Azure 設定應用程式的 SSL
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 - [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
-> [AZURE.NOTE]這項工作中的程序適用於 Azure 雲端服務；對於「網站」，請參閱[設定 Azure 網站的 SSL 憑證](../web-sites-configure-ssl-certificate.md)。
+> [AZURE.NOTE]此工作的程序適用於 Azure 雲端服務；若為 應用程式服務，請參閱[此處](../app-service-web/web-sites-configure-ssl-certificate.md)。
 
 此工作將使用生產部署；本主題最後將提供關於如何使用預備部署的資訊。
 
 如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy-portal.md)。
 
-[AZURE.INCLUDE 〈[websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)〉]
+[AZURE.INCLUDE [〈websites-cloud-services-css-guided-walkthrough〉](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## 步驟 1：取得 SSL 憑證
 
@@ -67,7 +67,7 @@
         ...
         </WebRole>
 
-    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。我們已選擇將憑證儲存在 CA (憑證授權單位) 存放區中，但是您也可以選擇其他選項。如需詳細資訊，請參閱 [如何使憑證與服務產生關聯][]。
+    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。
 
 2.  在服務定義檔中，於 **Endpoints** 區段內新增 **InputEndpoint** 元素，以啟用 HTTPS：
 
@@ -160,4 +160,4 @@
 * 設定[自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

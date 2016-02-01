@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    您應該會看到下列版本：
-    - HcsSoftwareVersion：6.3.9600.17491
-    - CisAgentVersion：1.0.9037.0
-    - MdsAgentVersion：26.0.4696.1433
+    您應該會看到下列版本：- HcsSoftwareVersion：6.3.9600.17491 - CisAgentVersion：1.0.9037.0 - MdsAgentVersion：26.0.4696.1433
  
 9. 執行下列 Cmdlet 以確認已正確套用韌體更新：
 
@@ -110,19 +107,17 @@
 
 	<br/>![StorSimple 註冊裝置 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
-14. 安裝精靈的最後一個步驟是向 StorSimple Manager 服務註冊您的裝置。基於此因素，您需要在[步驟 2：取得服務註冊金鑰](storsimple-get-service-registration-key-gov.md)中取得的服務註冊金鑰。提供註冊金鑰之後，您可能需要等待 2-3 分鐘，才能註冊裝置。
+14. 安裝精靈的最後一個步驟是向 StorSimple Manager 服務註冊您的裝置。基於此因素，您需要在[步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key)中取得的服務註冊金鑰。提供註冊金鑰之後，您可能需要等待 2-3 分鐘，才能註冊裝置。
 
       >[AZURE.NOTE]您可以隨時按 Ctrl + C 來結束安裝精靈。如果您輸入所有網路設定 (Data 0 的 IP 位址、子網路遮罩和閘道器)，則會保留您的項目。
 
 	![StorSimple 註冊進度](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
 
-15. 註冊裝置之後，隨即會出現服務資料加密金鑰。複製這個金鑰，並將它儲存在安全的位置。**這個金鑰需要與服務註冊金鑰搭配使用，來向 StorSimple Manager 服務註冊其他裝置。** 如需這個金鑰的詳細資訊，請參閱[StorSimple 安全性](../articles/storsimple/storsimple-security.md)。
+15. 註冊裝置之後，隨即會出現服務資料加密金鑰。複製這個金鑰，並將它儲存在安全的位置。**這個金鑰需要與服務註冊金鑰搭配使用，來向 StorSimple Manager 服務註冊其他裝置。** 如需這個金鑰的詳細資訊，請參閱[StorSimple 安全性](storsimple-security.md)。
 	
 	![StorSimple 註冊裝置 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]若要從序列主控台視窗複製文字，只需選取該文字。然後您應該能夠將它貼到剪貼簿或任何文字編輯器中。
-      >
-      > 請勿使用 Ctrl + C 來複製服務資料加密金鑰。使用 Ctrl + C 將導致安裝精靈結束。如此一來，裝置系統管理員密碼將不會變更，而裝置將還原為預設密碼。
+      >[AZURE.IMPORTANT]若要從序列主控台視窗複製文字，只需選取該文字。然後您應該能夠將它貼到剪貼簿或任何文字編輯器中。> > 請勿使用 Ctrl + C 來複製服務資料加密金鑰。使用 Ctrl + C 將導致安裝精靈結束。如此一來，裝置系統管理員密碼將不會變更，而裝置將還原為預設密碼。
 
 16. 結束序列主控台。
 
@@ -139,4 +134,4 @@
      
         
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

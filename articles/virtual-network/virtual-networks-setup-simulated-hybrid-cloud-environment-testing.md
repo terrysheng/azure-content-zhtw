@@ -14,15 +14,14 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/14/2016" 
 	ms.author="josephd"/>
 
 # 設定用於測試的模擬混合式雲端環境
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 資源管理員模型。
 
-
-本主題會引導您使用兩個不同的 Azure 虛擬網路逐步建立 Microsoft Azure 的模擬混合式雲端環境進行測試。當您沒有直接的網際網路連線和可用的公用 IP 位址時，使用此組態做為[設定用於測試的混合式雲端環境](virtual-networks-setup-hybrid-cloud-environment-testing.md)的替代方案。以下是產生的組態。
+本文會引導您使用兩個不同的 Azure 虛擬網路逐步建立 Microsoft Azure 的模擬混合式雲端環境進行測試。當您沒有直接的網際網路連線和可用的公用 IP 位址時，使用此組態做為[設定用於測試的混合式雲端環境](virtual-networks-setup-hybrid-cloud-environment-testing.md)的替代方案。以下是產生的組態。
 
 ![](./media/virtual-networks-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
 
@@ -47,7 +46,7 @@
 
 如果您仍沒有 Azure 訂用帳戶，可以在[試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
->[AZURE.NOTE]Azure 中的虛擬機器和虛擬網路閘道會在執行時持續耗用成本。這項成本是按照您的免費試用版、MSDN 訂閱或付費訂閱進行計算。若要在您不使用時降低執行這個測試環境的成本，請參閱此主題中的[將這個環境的持續成本降至最低](#costs)，以取得更多資訊。
+>[AZURE.NOTE] Azure 中的虛擬機器和虛擬網路閘道會在執行時持續耗用成本。這項成本是按照您的免費試用版、MSDN 訂用帳戶或付費訂用帳戶進行計算。若要在您不使用時降低執行這個測試環境的成本，請參閱本文中的[將這個環境的持續成本降至最低](#costs)，以取得更多資訊。
 
 
 ## 第 1 階段：設定 TestLab 虛擬網路
@@ -58,8 +57,8 @@
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
-	New-ADReplicationSubnet â€“Name "10.0.0.0/8" â€“Site "TestLab"
-	New-ADReplicationSubnet â€“Name "192.168.0.0/16" â€“Site "TestVNET"
+	New-ADReplicationSubnet -Name "10.0.0.0/8" -Site "TestLab"
+	New-ADReplicationSubnet -Name "192.168.0.0/16" -Site "TestVNET"
 
 這是您目前的組態。
 
@@ -82,7 +81,7 @@
 
 接下來，按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。
 
-接著，建立 TestVNET 虛擬網路的新雲端服務。您必須選擇唯一的名稱。例如，您可以將它命名為 **TestVNET-***UniqueSequence*，其中的 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 **TestVNET-Tailspin**。
+接著，建立 TestVNET 虛擬網路的新雲端服務。您必須選擇唯一的名稱。例如，您可以將它命名為 **TestVNET-**UniqueSequence，其中的 UniqueSequence 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 **TestVNET-Tailspin**。
 
 您可以在本機電腦使用這個 Azure PowerShell 命令，測試名稱是否不重複。
 
@@ -105,7 +104,7 @@
 3.	在 [指定位址空間] 頁面的 [啟動 IP] 中，鍵入 **10.0.0.0**。
 4.	在 [CIDR (位址計數)] 中，選取 [/24 (256)]，然後按一下核取記號。
 5.	按一下 [新增] > [網路服務] > [虛擬網路] >[新增區域網路]。
-6.	在 [指定區域網路的詳細資料] 頁面中，於 [名稱] 中輸入 **TestVNETLNet**，並且於 [VPN 裝置 IP 位址] 中輸入 **131.107.0.2**，然後按一下向右箭號。
+6.	在 [指定區域網路的詳細資料] 頁面中，於 [**名稱**] 中輸入 **TestVNETLNet**，並且於 [**VPN 裝置 IP 位址**] 中輸入 **131.107.0.2**，然後按一下向右箭號。
 7.	在 [指定位址空間] 頁面的 [啟動 IP] 中，鍵入 **192.168.0.0**。
 8.	在 [CIDR (位址計數)] 中，選取 [/24 (256)]，然後按一下核取記號。
 
@@ -138,14 +137,14 @@
 2.	按一下 [TestLabLNet]，然後按一下工作列中的 [編輯]。
 3.	在 [指定區域網路的詳細資料] 頁面的 [VPN 裝置 IP 位址 (選擇性)] 中，鍵入 TestLab 虛擬網路 (位於上一個程序的步驟 3) 的虛擬網路閘道 IP 位址，然後按一下向右箭號。
 4.	在 [指定位址空間] 頁面中，按一下核取記號。
-5.	在 [區域網路] 頁面中，按一下 [TestVNETLNet]，然後按一下工作列中的 [編輯]。
+5.	在 [區域網路] 頁面中，按一下 [**TestVNETLNet**]，然後按一下工作列中的 [**編輯**]。
 6.	在 [指定區域網路的詳細資料] 頁面的 [VPN 裝置 IP 位址 (選擇性)] 中，鍵入 TestVNET 虛擬網路 (位於上一個程序的步驟 7) 的虛擬網路閘道 IP 位址，然後按一下向右箭號。
 7.	在 [指定位址空間] 頁面中，按一下核取記號。
 
 接著，您將設定兩個閘道的預先共用金鑰使用相同的值，也就是 Azure 管理入口網站對於 TestLab 虛擬網路決定的金鑰值。在本機電腦上，從 Azure PowerShell 命令提示字元執行這些命令，填入 TestLab 預先共用金鑰的值。
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
-	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet â€“SharedKey $preSharedKey
+	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 接著，在本機電腦上，於 Azure 管理入口網站的 [網路] 頁面中按一下 [TestLab] 虛擬網路，再按一下 [儀表板]，然後再按一下工作列中的 [連接]。等候 TestLab 虛擬網路顯示連線狀態。
 
@@ -158,14 +157,14 @@
 首先，建立 DC2 的 Azure 虛擬機器。在本機電腦的 Azure PowerShell 命令提示字元下執行下列命令：
 
 	$ServiceName="<Your cloud service name from Phase 2>"
-	$cred=Get-Credential â€“Message "Type the name and password of the local administrator account for DC2."
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC2."
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles â€“LUN 0 -HostCaching None
-	New-AzureVM â€“ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 接著，登入新的 DC2 虛擬機器。
 
@@ -219,23 +218,14 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.4 的 4 次成功回覆。這�
  
 模擬混合式雲端環境到此準備就緒，可以進行測試。
 
-您也可以在此測試環境中建置下列組態：
+## 後續步驟
+
+在 TestVNET 虛擬網路中設定下列工作負載：
 
 - [SharePoint 內部網路伺服器陣列](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-- [Web 型 LOB 應用程式](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+- [Web 型企業營運應用程式](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 - [Office 365 Directory 同步處理 (DirSync) 伺服器](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-## 其他資源
-
-[設定用於測試的混合式雲端環境](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[設定 VNet 對 VNet 連線](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-
-[基本組態測試環境](../virtual-machines/virtual-machines-base-configuration-test-environment.md)
-
-[Azure 混合式雲端測試環境](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 ## <a id="costs"></a>將此環境的持續成本降至最低
 
@@ -264,16 +254,16 @@ Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機
 2.	按一下 [TestLabLNet]，然後按一下工作列中的 [編輯]。
 3.	在 [指定區域網路的詳細資料] 頁面的 [VPN 裝置 IP 位址 (選擇性)] 中，鍵入 TestLab 虛擬網路 (位於上一個程序的步驟 3) 的虛擬網路閘道 IP 位址，然後按一下向右箭號。
 4.	在 [指定位址空間] 頁面中，按一下核取記號。
-5.	在 [區域網路] 頁面中，按一下 [TestVNETLNet]，然後按一下工作列中的 [編輯]。
+5.	在 [區域網路] 頁面中，按一下 [**TestVNETLNet**]，然後按一下工作列中的 [**編輯**]。
 6.	在 [指定區域網路的詳細資料] 頁面的 [VPN 裝置 IP 位址 (選擇性)] 中，鍵入 TestVNET 虛擬網路 (位於上一個程序的步驟 7) 的虛擬網路閘道 IP 位址，然後按一下向右箭號。
 7.	在 [指定位址空間] 頁面中，按一下核取記號。
 
 接著，您將設定兩個閘道的預先共用金鑰使用相同的值，也就是 Azure 管理入口網站對於 TestLab 虛擬網路決定的金鑰值。在本機電腦上，從 Azure PowerShell 命令提示字元執行這些命令，填入 TestLab 預先共用金鑰的值。
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
-	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet â€“SharedKey $preSharedKey
+	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 接著，在 Azure 管理入口網站的 [網路] 頁面上，按一下 [TestLab] 虛擬網路，然後按一下工作列中的 [連接]。等候 TestLab 虛擬網路顯示 TestVNET 區域網路的連線狀態。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

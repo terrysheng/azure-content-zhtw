@@ -3,7 +3,7 @@
 	description="了解什麼是 Azure 計劃性維護，以及它會如何影響在 Azure 中執行的虛擬機器。"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="kenazk"
+	authors="drewm"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="01/05/2016"
+	ms.author="drewm"/>
 
 
 # Azure 虛擬機器的計劃性維護
@@ -72,6 +72,11 @@
 <!--Image reference-->
 ![][image2]
 
+使用檢視器判斷哪些虛擬機器是使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 設定於多執行個體設定中。比方說，若要判斷多執行個體設定中的虛擬機器，您可以將可用性設定組資料行加入虛擬機器瀏覽對話方塊來瀏覽虛擬機器清單。在下列範例中，Example-VM1 和 Example-VM2 虛擬機器的組態為多重執行個體組態：
+
+<!--Image reference-->
+![][image4]
+
 ## 單一執行個體組態更新
 
 多重執行個體組態更新完成之後，Azure 將會執行單一執行個體組態更新。未在可用性集合中執行的虛擬機器也會因為此更新而重新開機。
@@ -114,10 +119,11 @@ Azure 將會組織一組區域配對。在虛擬機器使用單一執行個體�
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
+[image4]: ./media/virtual-machines-planned-maintenance/AvailabilitySetExample.png
 
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

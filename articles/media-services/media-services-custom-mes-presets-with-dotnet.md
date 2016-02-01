@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/10/2015"    
+	ms.date="01/14/2016"    
 	ms.author="juliako"/>
 
 
@@ -218,6 +218,9 @@
 
 本節說明如何自訂產生縮圖的預設值。下面定義的預設值包含有關如何將檔案編碼的資訊，以及產生縮圖時所需的資訊。您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)記載的任何 MES 預設值，以及新增產生縮圖的程式碼。
 
+>[AZURE.NOTE]如果您編碼為單一位元速率視訊，下列預設設定中的 **SceneChangeDetection** 設定只能設定為 true。如果您編碼為多位元速率視訊，並將 **SceneChangeDetection** 設為 true，編碼器會傳回錯誤。
+
+
 如需結構描述的資訊，請參閱[這個主題](https://msdn.microsoft.com/library/mt269962.aspx)。
 
 請務必閱讀[考量](media-services-custom-mes-presets-with-dotnet.md#considerations)一節。
@@ -230,7 +233,7 @@
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		  "SceneChangeDetection": "true",
+	      "SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
@@ -418,7 +421,7 @@
 	- 預設值：Start:{Best}
 - 必須明確地提供每個影像格式的輸出格式：Jpg/Png/BmpFormat。顯示時，AMS 會讓 JpgVideo 與 JpgFormat 相符，依此類推。OutputFormat 引進了新的影像轉碼器特定巨集 (即 {Index})，必須針對影像輸出格式提供一次 (只需一次)。
 
-##<a id="trim_video"></a>修剪影片 (裁剪)
+##<a id="trim_video"></a>修剪視訊 (裁剪)
 
 本節說明修改編碼器預設值，以裁剪或修剪其輸入為所謂的夾層檔或隨選檔的輸入視訊。編碼器也可以用來裁剪或修剪從即時串流擷取或封存的資產 – [此部落格](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)提供詳細資料。
 
@@ -886,4 +889,4 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。目前支援下
 
 [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

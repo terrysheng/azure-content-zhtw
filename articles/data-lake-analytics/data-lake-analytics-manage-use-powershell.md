@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/15/2016"
    ms.author="jgao"/>
 
 # 使用 Azure PowerShell 管理 Azure 資料湖分析
@@ -136,9 +136,9 @@ Cmdlet 將傳回 **True** 或 **False**。
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
-	Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName 
+	Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName 
 	Remove-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName
 
 <!-- ################################ -->
@@ -156,7 +156,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
 
 ### 新增其他的 Azure Blob 儲存體帳戶
@@ -166,7 +166,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 	$AzureStorageAccountName = "<AzureStorageAccountName>"
 	$AzureStorageAccountKey = "<AzureStorageAccountKey>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
 ### 新增其他的資料湖存放區帳戶
 
@@ -174,15 +174,15 @@ Cmdlet 將傳回 **True** 或 **False**。
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	$AzureDataLakeName = "<DataLakeStoreName>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -DataLake $AzureDataLakeName 
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName 
 
 ### 列出資料來源：
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
-	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DataLakeStoreAccounts
-	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.StorageAccounts
+	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DataLakeStoreAccounts
+	(Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.StorageAccounts
 	
 
 
@@ -196,49 +196,49 @@ Cmdlet 將傳回 **True** 或 **False**。
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -State Running, Queued
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -State Running, Queued
 	#States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Result Cancelled
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Result Cancelled
 	#Results: Cancelled, Failed, None, Successed 
 	
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Name <Job Name>
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Submitter <Job submitter>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Name <Job Name>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Submitter <Job submitter>
 
 	# List all jobs submitted on January 1 (local time)
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-SubmittedAfter "2015/01/01"
 		-SubmittedBefore "2015/01/02"	
 
 	# List all jobs that succeeded on January 1 after 2 pm (UTC time)
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-State Ended
 		-Result Succeeded
 		-SubmittedAfter "2015/01/01 2:00 PM -0"
 		-SubmittedBefore "2015/01/02 -0"
 
 	# List all jobs submitted in the past hour
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-SubmittedAfter (Get-Date).AddHours(-1)
 
 ### 取得工作詳細資料
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -JobID <Job ID>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -JobID <Job ID>
 	
 ### 提交工作
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
 	#Pass script via path
-	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-Name $jobName `
 		-ScriptPath $scriptPath
 
 	#Pass script contents
-	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-Name $jobName `
 		-Script $scriptContents
 
@@ -247,7 +247,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 
 ### 取消工作
 
-	Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
+	Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
 		-JobID $jobID
 
 
@@ -313,7 +313,7 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 
 ## 使用 Azure 資源管理員群組
 
-應用程式通常由許多元件組成，例如，Web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+應用程式通常由許多元件組成，例如，Web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。如需詳細資訊，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
 
 資料湖分析服務可包含下列元件：
 
@@ -332,64 +332,64 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 
 - [Microsoft Azure 資料湖分析概觀](data-lake-analytics-overview.md)
 - [使用 Azure 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
-- [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
+- [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)
 - [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##附錄 A - 資料湖分析 ARM 範本
 
-下列 ARM 範本可用於部署資料湖分析帳戶及其相依資料湖存放區帳戶。另存成 json 檔案，然後使用 PowerShell 指令碼呼叫該範本。如需詳細資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md#deploy-with-powershell)和[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
+下列 ARM 範本可用於部署資料湖分析帳戶及其相依資料湖存放區帳戶。另存成 json 檔案，然後使用 PowerShell 指令碼呼叫該範本。如需詳細資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](../resource-group-template-deploy.md#deploy-with-powershell)和[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
 	{
-		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-		"contentVersion": "1.0.0.0",
-		"parameters": {
-			"adlAnalyticsName": {
-				"type": "string",
-				"metadata": {
-					"description": "The name of the Data Lake Analytics account to create."
-				}
-			},
-			"adlStoreName": {
-				"type": "string",
-				"metadata": {
-					"description": "The name of the Data Lake Store account to create."
-				}
-			}
-		},
-		"resources": [{
-			"name": "[parameters('adlAnalyticsName')]",
-			"type": "Microsoft.DataLakeAnalytics/accounts",
-			"location": "East US 2",
-			"apiVersion": "2015-10-01-preview",
-			"dependsOn": ["[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]"],
-			"tags": {
-				
-			},
-			"properties": {
-				"defaultDataLakeAccount": "[parameters('adlStoreName')]"
-				}
-			}
-		},
-		{
-			"name": "[parameters('adlName')]",
-			"type": "Microsoft.DataLakeStore/accounts",
-			"location": "East US 2",
-			"apiVersion": "2015-10-01-preview",
-			"dependsOn": [],
-			"tags": {
-				
-			}
-		}],
-		"outputs": {
-			"adlAnalyticsAccount": {
-				"type": "object",
-				"value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
-			},
-			"adlStoreAccount": {
-				"type": "object",
-				"value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
-			}
-		}
+	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {
+	    "adlAnalyticsName": {
+	      "type": "string",
+	      "metadata": {
+	        "description": "The name of the Data Lake Analytics account to create."
+	      }
+	    },
+	    "adlStoreName": {
+	      "type": "string",
+	      "metadata": {
+	        "description": "The name of the Data Lake Store account to create."
+	      }
+	    }
+	  },
+	  "resources": [
+	    {
+	      "name": "[parameters('adlStoreName')]",
+	      "type": "Microsoft.DataLakeStore/accounts",
+	      "location": "East US 2",
+	      "apiVersion": "2015-10-01-preview",
+	      "dependsOn": [ ],
+	      "tags": { }
+	    },
+	    {
+	      "name": "[parameters('adlAnalyticsName')]",
+	      "type": "Microsoft.DataLakeAnalytics/accounts",
+	      "location": "East US 2",
+	      "apiVersion": "2015-10-01-preview",
+	      "dependsOn": [ "[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]" ],
+	      "tags": { },
+	      "properties": {
+	        "defaultDataLakeStoreAccount": "[parameters('adlStoreName')]",
+	        "dataLakeStoreAccounts": [
+	          { "name": "[parameters('adlStoreName')]" }
+	        ]
+	      }
+	    }
+	  ],
+	  "outputs": {
+	    "adlAnalyticsAccount": {
+	      "type": "object",
+	      "value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
+	    },
+	    "adlStoreAccount": {
+	      "type": "object",
+	      "value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
+	    }
+	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

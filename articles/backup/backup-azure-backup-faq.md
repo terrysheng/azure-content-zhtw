@@ -71,7 +71,7 @@
 - 已壓縮資料流：不支援並略過
 - 疏鬆資料流：不支援並略過
 
-**Q13.什麼是快取資料夾的最低大小需求？** <br/> A13.快取資料夾的大小取決於您正在備份的資料量。一般而言，您應該預期系統會將資料儲存空間所需的 10-15% 空間配置給快取資料夾。
+**Q13.什麼是快取資料夾的最低大小需求？** <br/> A13.快取資料夾的大小取決於您正在備份的資料量。一般而言，您應該預期系統會將資料儲存空間所需的 5% 空間配置給快取資料夾。
 
 **Q14.我該如何隔離特定伺服器資料，使組織中的其他伺服器不將其復原？**<br/> A14.使用相同保存庫註冊的任何伺服器，可以復原由使用相同複雜密碼之其他伺服器所備份的資料。針對伺服器，若您想要確保復原只會在組織中的特定伺服器進行，您應該使用不同的複雜密碼來指派給這些伺服器。例如，人力資源伺服器可能使用一組加密複雜密碼，而會計伺服器使用另一組，並且儲存體伺服器使用第三組。
 
@@ -166,8 +166,8 @@
 
 	| 登錄路徑 | 登錄金鑰 | 值 |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>新的快取資料夾位置</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>新的快取資料夾位置</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>新的快取資料夾位置</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>新的快取資料夾位置</i> |
 
 
 + 藉由在提高權限的命令提示字元中執行下列命令來啟動 OBEngine：
@@ -176,4 +176,4 @@
 
 一旦利用新快取位置成功備份，您就可以移除原始的快取資料夾。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

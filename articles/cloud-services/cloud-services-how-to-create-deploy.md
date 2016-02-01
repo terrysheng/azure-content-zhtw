@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # 如何建立和部署雲端服務
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 - [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 Azure 傳統入口網站提供兩種方法讓您建立和部署雲端服務：「快速建立」和「自訂建立」。
 
@@ -46,7 +46,7 @@ Azure 傳統入口網站提供兩種方法讓您建立和部署雲端服務：�
 您可以在[這裡](cloud-services-model-and-package.md)深入了解這些內容，以及如何建立封裝。
 
 ## 準備您的應用程式
-您部署雲端服務之前，必須先從應用程式程式碼和雲端服務組態檔 (.cscfg) 建立雲端服務封裝 (.cspkg)。Azure SDK 提供準備這些必要部署檔案的工具。您可以從 [Azure 下載](http://azure.microsoft.com/downloads/) (英文) 頁面安裝 SDK，使用您偏好的語言開發應用程式程式碼。
+您部署雲端服務之前，必須先從應用程式程式碼和雲端服務組態檔 (.cscfg) 建立雲端服務封裝 (.cspkg)。Azure SDK 提供準備這些必要部署檔案的工具。您可以從 [Azure 下載](http://azure.microsoft.com/downloads/)頁面安裝 SDK，使用您偏好的語言開發應用程式程式碼。
 
 三個雲端服務功能需要特別組態，您才能匯出服務封裝：
 
@@ -54,7 +54,7 @@ Azure 傳統入口網站提供兩種方法讓您建立和部署雲端服務：�
 
 - 如果您要設定角色執行個體的遠端桌面連線，請[設定遠端桌面的角色](cloud-services-role-enable-remote-desktop.md)。
 
-- 如果您要設定雲端服務的詳細資訊監視，請啟用雲端服務的 Azure 診斷。*最小監視* (預設監視層級) 使用從角色執行個體 (虛擬機器) 的主機作業系統收集的效能計數器。「詳細資訊監視」會按照角色執行個體內的效能資料收集其他度量，以便進一步分析應用程式處理期間發生的問題。若要了解如何啟用 Azure 診斷，請參閱[啟用 Azure 診斷](cloud-services-dotnet-diagnostics.md) (英文)。
+- 如果您要設定雲端服務的詳細資訊監視，請啟用雲端服務的 Azure 診斷。最小監視 (預設監視層級) 使用從角色執行個體 (虛擬機器) 的主機作業系統收集的效能計數器。「詳細資訊監視」會按照角色執行個體內的效能資料收集其他度量，以便進一步分析應用程式處理期間發生的問題。若要了解如何啟用 Azure 診斷，請參閱[啟用 Azure 診斷](cloud-services-dotnet-diagnostics.md) (英文)。
 
 若要使用 Web 角色或背景工作角色的部署來建立雲端服務，您必須[建立服務封裝](cloud-services-model-and-package.md#servicepackagecspkg)。
 
@@ -113,7 +113,7 @@ Azure 傳統入口網站提供兩種方法讓您建立和部署雲端服務：�
 
 1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com/)中，依序按一下 [雲端服務]、雲端服務的名稱及 [儀表板]。
 
-2. 按一下 [Upload a new production deployment] 或 [上傳]。
+2. 按一下 [上傳新的生產部署] 或 [上傳]。
 
 3. 在 [部署標籤] 中，輸入新部署的名稱，例如，MyCloudServicev4。
 
@@ -144,7 +144,7 @@ Azure 傳統入口網站提供兩種方法讓您建立和部署雲端服務：�
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
  
 ## 後續步驟
 
@@ -153,4 +153,4 @@ Azure 傳統入口網站提供兩種方法讓您建立和部署雲端服務：�
 * [管理您的雲端服務](cloud-services-how-to-manage.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

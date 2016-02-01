@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來管理磁碟區
@@ -23,7 +23,7 @@
 
 本教學課程說明如何使用 StorSimple Manager 服務來建立和管理 StorSimple 裝置與 StorSimple 虛擬裝置上的磁碟區。
 
-StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您透過單一 Web 介面管理 StorSimple 解決方案。除了管理磁碟區，您可以使用 StorSimple Manager 服務來建立和管理 StorSimple 服務、檢視和管理裝置、檢視警示，以及檢視和管理備份原則與備份類別目錄。
+StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您透過單一 Web 介面管理 StorSimple 解決方案。除了管理磁碟區，您可以使用 StorSimple Manager 服務來建立和管理 StorSimple 服務、檢視和管理裝置、檢視警示，以及檢視和管理備份原則與備份類別目錄。
 
 > [AZURE.NOTE]Azure StorSimple 只能建立精簡佈建的磁碟區。您無法在 Azure StorSimple 系統上建立完整佈建或部分佈建的磁碟區。
 >
@@ -117,7 +117,7 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您透過
  
     > [AZURE.NOTE]您無法變更此磁碟區的 [**啟用此磁碟區的預設備份**] 選項。
 
-6. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes/HCS_CheckIcon.png)，即可儲存您的變更。Azure 入口網站將會顯示更新磁碟區訊息。如果磁碟區已成功更新，即會顯示成功訊息。
+6. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes/HCS_CheckIcon.png)，即可儲存您的變更。Azure 傳統入口網站將會顯示更新磁碟區訊息。如果磁碟區已成功更新，即會顯示成功訊息。
 
 7. 如果您要延伸磁碟區，請在 Windows 主機電腦上完成下列步驟：
 
@@ -126,7 +126,7 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您透過
    3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區]。[延伸磁碟區精靈] 隨即啟動。按 [下一步]。
    4. 使用預設值完成精靈。完成精靈後，磁碟區應該會顯示增加的大小。
 
-![提供的影片](./media/storsimple-manage-volumes/Video_icon.png)**提供的影片**
+![提供的影片](./media/storsimple-manage-volumes/Video_icon.png) **提供的影片**
 
 若要觀看影片示範如何擴充磁碟區，請按一下[這裡](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume)。
 
@@ -193,8 +193,9 @@ StorSimple Manager 服務是 Azure 入口網站的延伸模組，可讓您透過
 ## 後續步驟
 
 - 了解如何[複製 StorSimple 磁碟區](storsimple-clone-volume.md)。
+
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
  
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

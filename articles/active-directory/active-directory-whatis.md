@@ -1,20 +1,20 @@
 <properties
-                pageTitle="什麼是 Azure Active Directory？"
-                description="使用 Azure Active Directory 將現有的內部部署身分識別延伸至雲端，或開發 Azure AD 整合式應用程式。"
-                services="active-directory"
-                documentationCenter=""
-                authors="markusvi"
-                manager="stevenpo"
-                editor=""/>
+    pageTitle="什麼是 Azure Active Directory？"
+    description="使用 Azure Active Directory 將現有的內部部署身分識別延伸至雲端，或開發 Azure AD 整合式應用程式。"
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-                ms.service="active-directory"
-                ms.workload="identity"
-                ms.tgt_pltfrm="na"
-                ms.devlang="na"
-                ms.topic="article"
-                ms.date="10/30/2015"
-                ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/14/2016"
+    ms.author="markusvi"/>
 
 
 # 什麼是 Azure Active Directory？
@@ -104,4 +104,4 @@ Azure AD 經悉心設計，不但支援多租用戶、地理分布周全，更�
 
 - [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

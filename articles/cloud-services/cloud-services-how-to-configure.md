@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # 如何設定雲端服務
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-configure.md)
 - [Azure portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
 
 您可以在 Azure 傳統入口網站中設定雲端服務的最常用設定。或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
 
@@ -44,7 +44,7 @@ Azure 傳統入口網站也可讓您[啟用 Azure 雲端服務中角色的遠端
 3. 針對服務角色 (依角色分組)，您可以更新下列設定：
     
     >**設定**  
-    >修改服務組態檔 (.cscfg) 之 *ConfigurationSettings* 元素中所指定的其他組態設定值。
+    >修改服務組態檔 (.cscfg) 之 ConfigurationSettings 元素中所指定的其他組態設定值。
     >
     >**憑證**  
     >變更要在角色之 SSL 加密中使用的憑證指紋。若要變更憑證，您必須先上傳新的憑證 (在 [憑證] 頁面上)。然後，更新角色設定中所顯示憑證字串中的指紋。
@@ -88,4 +88,4 @@ Azure 傳統入口網站也可讓您[啟用 Azure 雲端服務中角色的遠端
 * [啟用 Azure 雲端服務中角色的遠端桌面連線](cloud-services-role-enable-remote-desktop.md)
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

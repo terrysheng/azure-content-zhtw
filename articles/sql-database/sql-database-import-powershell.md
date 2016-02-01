@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="使用 PowerShell 匯入 BACPAC 檔案以建立新的 Azure SQL Database" 
+    pageTitle="使用 PowerShell 匯入 BACPAC 檔案以建立新的 Azure SQL Database | Microsoft Azure" 
     description="使用 PowerShell 匯入 BACPAC 檔案以建立新的 Azure SQL Database" 
     services="sql-database" 
     documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/17/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # 使用 PowerShell 匯入 BACPAC 檔案以建立新的 Azure SQL Database
@@ -41,7 +41,7 @@ BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需�
 - 您要還原之資料庫的 .bacpac 檔案 (BACPAC)。BACPAC 必須位於 [Azure 儲存體帳戶 (傳統)](storage-create-storage-account.md) Blob 容器內。
 
 
-> [AZURE.IMPORTANT]本文包含適用於 Azure PowerShell 版本的命令，適用版本最新至*但不包括*版本 1.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。
+> [AZURE.IMPORTANT]本文包含適用於 Azure PowerShell 版本的命令，適用版本最新至但不包括版本 1.0 和更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查 Azure PowerShell 的版本。
 
 
 
@@ -142,7 +142,7 @@ Blob 名稱是您想要用來建立資料庫之現有的 .bacpac 檔案名稱。
 
 ## 後續步驟
 
-- [連接 SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [使用 SQL Server Management Studio 連接到 SQL Database 並執行範例 T-SQL 查詢](sql-database-connect-query-ssms.md)
 
 
 
@@ -153,4 +153,4 @@ Blob 名稱是您想要用來建立資料庫之現有的 .bacpac 檔案名稱。
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/12/2016"
 	ms.author="krisragh"/>
 
 # 如何使用適用於 Azure 行動服務的 iOS 用戶端程式庫
@@ -253,7 +253,7 @@ Azure 行動服務支援兩個驗證工作流程：
 
 - **伺服器管理的登入**：Azure 行動服務會代表您的應用程式管理登入程序。它會顯示提供者專屬的登入頁面，並且使用選擇的提供者進行驗證。
 
-- **用戶端管理的登入**：_應用程式_向識別提供者要求權杖，然後向 Azure 行動服務出示此權杖以進行驗證。
+- **用戶端管理的登入**：應用程式向識別提供者要求權杖，然後向 Azure 行動服務出示此權杖以進行驗證。
 
 當驗證成功時，您會取回具使用者識別碼值和驗證權杖的使用者物件。若要使用此使用者識別碼來授權使用者，請參閱[伺服器端授權]。若要將資料表存取權限制為僅通過驗證的使用者，請參閱[權限]。
 
@@ -333,4 +333,4 @@ Azure 行動服務支援兩個驗證工作流程：
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [衝突處理常式]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

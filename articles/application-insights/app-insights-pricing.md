@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # 管理 Application Insights 的定價和配額
 
-*Application Insights 目前僅供預覽。*
+Application Insights 目前僅供預覽。
 
 [Visual Studio Application Insights][start] 的[定價][pricing]是根據每個應用程式的資料量而定。我們提供實質的免費層，讓您在該層次中使用大部分的功能，但會有一些限制。
 
@@ -67,7 +67,7 @@
 * 您也可以在偵錯時，在來源檢查個別的資料點：
  * 如果您在 Visual Studio 的偵錯模式中執行應用程式，資料點會記錄在輸出視窗中。 
  * 若要查看用戶端資料點，請開啟瀏覽器的偵錯窗格 (通常是 F12)，然後開啟 [網路] 索引標籤。
-
+* 資料速率 (預設) 會依[調適性取樣](app-insights-sampling)降低。這表示，隨著應用程式使用頻率的增加，遙測速率不會如像您預期一般增加。
 
 ### 超額部分
 
@@ -86,6 +86,8 @@
 
 按一下圖表可取得詳細資料，或在圖表上拖曳並按 (+) ，以取得某個時間範圍內的詳細資料。
 
+圖表顯示[取樣](app-insights-sampling)之後抵達 Application Insights 服務的資料量。
+
 
 ## 資料速率
 
@@ -101,20 +103,20 @@
 
 
 
-*如果應用程式超過每秒速率，會發生什麼事？*
+如果應用程式超過每秒速率，會發生什麼事？
 
 * 系統會每分鐘評估應用程式傳送的資料量。如果每秒速率超過每分鐘平均值，伺服器會拒絕部分要求。接著，部分版本的 SDK 會嘗試每數分鐘重新傳送突波；其他像是 JavaScript SDK 則會放棄遭到拒絕的資料。
 
 當節流發生時，您會看到警告您這種情況已發生的通知。
 
-*如何知道應用程式正在傳送多少資料點？*
+如何知道應用程式正在傳送多少資料點？
 
 * 開啟 [設定/配額與定價] 查看 [資料數量] 圖表。
 * 或在 [計量瀏覽器] 中，新增新的圖表，然後選取 [資料點數量] 做為其計量。切換群組，並依 [**資料類型**] 分組。
 
-*如何減少我的應用程式傳送的資料量？*
+如何減少我的應用程式傳送的資料量？
 
-* 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。自 ASP.NET SDK 2.0.0-beta3 起，系統預設會啟用自適性取樣。
+* 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。從 Application Insights SDK for ASP.NET 的 2.0.0 版 beta3 起，預設會啟用調適性取樣。
 * [關閉您不需要的遙測收集器](app-insights-configuration-with-applicationinsights-config.md)。
 
 
@@ -164,4 +166,4 @@ Application Insights 費用會加到您的 Azure 帳單中。您可以在 Azure 
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

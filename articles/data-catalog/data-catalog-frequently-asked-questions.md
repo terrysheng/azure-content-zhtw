@@ -54,32 +54,7 @@
 
 ## 問：支援什麼資料來源和資產類型？
 
-在預覽期間，**Azure 資料目錄**目前支援 SQL Server 關聯式 (包括 Azure SQL DB) 和 SQL Server Analysis Services (多維度和表格式) 資料庫，以及 SQL Server Reporting Services (僅限原生模式) 和 Oracle 資料庫。
-
-在預覽期間，**Azure 資料目錄**支援下列資產類型的註冊和探索：
-
-- SQL Server 資料表
-- SQL Server 檢視
-- SQL Server Analysis Services 維度
-- SQL Server Analysis Services 量值
-- SQL Server Analysis Services KPI
-- SQL Server Analysis Services 資料表
-- SQL Server Reporting Services 報表  
-- Oracle 資料庫資料表
-- Oracle 資料庫檢視
-- Azure 儲存體 Blob
-- Azure 儲存體目錄
-- HDFS 檔案
-- HDFS 目錄
-- Teradata 資料表
-- Teradata 檢視
-
-除了以上列出的資產外，**Azure 資料目錄**還支援下列資料資產容器的探索：
-
-- SQL Server Database
-- Oracle 資料庫
-- HDFS 叢集
-- Teradata 資料庫
+請參閱[資料目錄 DSR](data-catalog-dsr.md)以取得目前支援的資料來源清單。
 
 
 ## 問：如何要求另一個資料來源的支援？
@@ -138,7 +113,7 @@
 請使用 **Azure 資料目錄**論壇來報告問題、分享資訊及發問。此論壇位於 http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
 ##問：Azure 資料目錄可以處理我想要使用的其他資料來源嗎？
-我們正積極將更多資料來源加入 **Azure 資料目錄**。若您有希望我們支援的資料來源，請在 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)提出建議 (如果已有人建議，請表達支持)。
+我們正積極將更多資料來源加入 **Azure 資料目錄**。如果有您希望我們支援的資料來源，請在 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)提出建議 (如果已建議，請表達支持)。
 
 ## 問：Azure 資料目錄與 Power BI for Office 365 中的資料目錄有何關係？
 
@@ -172,4 +147,4 @@
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

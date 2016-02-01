@@ -1,4 +1,4 @@
-|<properties
+<properties
    pageTitle="StorSimple Virtual Array 的災害復原和裝置容錯移轉"
    description="深入了解如何容錯移轉 StorSimple Virtual Array。"
    services="storsimple"
@@ -174,4 +174,4 @@ DR 順利完成之後，來源裝置上雲端資料的擁有權會移轉給目�
 
 深入了解如何 [使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!-----HONumber=AcomDC_0121_2016----->
+<!-----HONumber=AcomDC_0121_2016------>

@@ -22,7 +22,7 @@
 ## 1\.建立 Microsoft 帳戶
 > [AZURE.WARNING]若要開始發佈程序，您必須建立一個 Microsoft 帳戶。此帳戶將用來註冊和登入 **Microsoft 開發人員中心**和 **Azure 發佈入口網站**。您所有的 Azure Marketplace 供應項目應該只會共有一個 Microsoft 帳戶。其不應該特別屬於服務或優惠。
 
-構成使用者名稱的電子郵件地址應該位於您的網域中，並由您的 IT 小組所控制 (例如 publishing@example.com))。付款方式、稅務資訊和報告都將透過這個帳戶路由傳送。
+構成使用者名稱的電子郵件地址應該位於您的網域中，並由您的 IT 小組所控制 (例如 publishing@example.com)。付款方式、稅務資訊和報告都將透過這個帳戶路由傳送。
 
   >[AZURE.WARNING]Microsoft 帳戶註冊不支援使用 "Azure" 和 "Microsoft" 之類的單字。請避免使用這些字，以完成帳戶建立及註冊程序。
 
@@ -161,11 +161,11 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 ## 後續步驟
 現在已建立並註冊您的帳戶，請按一下您想要發佈至 Azure Marketplace 的構件類型 (虛擬機器、開發人員服務、資料服務或解決方案範本)。請參閱下列其中一份文件，了解如何發佈您自己的供應項目：
 
-|| 虛擬機器映像 | 開發人員服務 | 資料服務 | 解決方案範本 | 
-|----|-----|-----|-----|-----| 
-|**步驟 2：建立您的優惠** |[一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| 
-|| [VM 映像技術性必要條件][link-single-vm-prereq] | [開發人員服務技術性必要條件](marketplace-publishing-dev-service-creation-prerequisites.md) | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [解決方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) | 
-|| [VM 映像發佈指南][link-single-vm] | [開發人員服務發佈指南](marketplace-publishing-dev-creation.md) | [資料服務發佈指南](marketplace-publishing-data-service-creation.md) | [解決方案範本發佈指南](marketplace-publishing-solution-template-creation.md) | 
+|| 虛擬機器映像 | 開發人員服務 | 資料服務 | 解決方案範本 |
+|----|-----|-----|-----|-----|
+|**步驟 2：建立您的優惠** |[一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)|
+|| [VM 映像技術性必要條件][link-single-vm-prereq] | [開發人員服務技術性必要條件](marketplace-publishing-dev-service-creation-prerequisites.md) | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [解決方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [VM 映像發佈指南][link-single-vm] | [開發人員服務發佈指南](marketplace-publishing-dev-creation.md) | [資料服務發佈指南](marketplace-publishing-data-service-creation.md) | [解決方案範本發佈指南](marketplace-publishing-solution-template-creation.md) |
 || [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] |
 
 ## 另請參閱

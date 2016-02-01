@@ -80,10 +80,11 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-replicon-tutorial/IC777803.png "設定應用程式 URL")
 
-    1.  在 [Replicon 登入 URL] 文字方塊中，輸入您的 Replicon 租用戶 URL (例如：**https://na2.replicon.com/company/saml2/sp-sso/post*)。
-    2.  在 [Replicon 回覆 URL] 文字方塊中，輸入您的 Replicon **AssertionConsumerService** URL (例如：**https://global.replicon.com/!/saml2/company/sso/post*)。
+    1.  在 [Replicon 登入 URL] 文字方塊中，輸入您的 Replicon 租用戶 URL (例如：*https://na2.replicon.com/company/saml2/sp-sso/post*)。
+    2.  在 [Replicon 回覆 URL] 文字方塊中，輸入您的 Replicon **AssertionConsumerService** URL (例如：*https://global.replicon.com/!/saml2/company/sso/post*)。
 
-        >[AZURE.NOTE]您可以從以下位置的 Replicon 中繼資料取得 URL：**https://global.replicon.com/!/saml2/\<您公司的金鑰>**。
+        >[AZURE.NOTE]您可以從以下位置的 Replicon 中繼資料取得 URL：
+        **https://global.replicon.com/!/saml2/\<您公司的金鑰>**。
 
     3.  按 [**下一步**]
 

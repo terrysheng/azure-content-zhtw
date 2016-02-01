@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/11/2016"
 	ms.author="billmath;andkjell"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -70,6 +70,7 @@
 
 ![使用者登入](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
+如果您收到錯誤訊息，而且有連線問題，請參閱[疑難排解連線問題](active-directory-aadconnect-troubleshoot-connectivity.md)。
 
 ## [同步] 一節的頁面
 
@@ -121,7 +122,7 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 
 選用功能 | 說明
 -------------------    | ------------- |
-Exchange 混合部署 |[Exchange 混合部署] 功能透過將一組特定[屬性](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback)從 Azure AD 同步處理回內部部署目錄，以允許 Exchange 信箱同時存在於內部部署和 Azure 中。
+Exchange 混合部署 |[Exchange 混合部署] 功能透過將一組特定[屬性](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)從 Azure AD 同步處理回內部部署目錄，以允許 Exchange 信箱同時存在於內部部署和 Azure 中。
 Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性篩選，可將這組同步處理的屬性調整為精靈後續頁面上的特定一組屬性。這會在精靈中開啟兩個額外的組態頁面。  
 密碼同步處理 | 如果您選取同盟做為登入解決方案，您可以啟用此選項。密碼同步處理可做為備份選項。如需其他資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。
 密碼回寫|透過啟用密碼回寫，使用 Azure AD 所產生的密碼變更會回寫至內部部署目錄。如需其他資訊，請參閱[密碼管理入門](active-directory-passwords-getting-started.md)。
@@ -250,4 +251,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

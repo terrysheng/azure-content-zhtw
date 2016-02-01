@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # 如何建立和部署雲端服務
 
 > [AZURE.SELECTOR]
-- [Azure 入口網站](cloud-services-how-to-create-deploy.md)
-- [Azure Preview 入口網站](cloud-services-how-to-create-deploy-portal.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快速建立」和「自訂建立」。
 
@@ -34,14 +34,11 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 ## 概念
 需要三個元件才能部署應用程式成為 Azure 中的雲端服務：
 
-- **服務定義**  
-  雲端服務定義檔 (.csdef) 定義服務模型，包括角色數目。
+- **服務定義** 雲端服務定義檔 (.csdef) 定義服務模型，包括角色數目。
 
-- **服務組態**  
-  雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
+- **服務組態** 雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
 
-- **服務封裝**  
-  服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
+- **服務封裝** 服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
 
 您可以在[這裡](cloud-services-model-and-package.md)深入了解這些內容，以及如何建立封裝。
 
@@ -54,13 +51,13 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 
 - 如果您要設定角色執行個體的遠端桌面連線，請[設定遠端桌面的角色](cloud-services-role-enable-remote-desktop.md)。這只能在傳統入口網站中完成。
 
-- 如果您要設定雲端服務的詳細資訊監視，請啟用雲端服務的 Azure 診斷。*最小監視* (預設監視層級) 使用從角色執行個體 (虛擬機器) 的主機作業系統收集的效能計數器。*詳細資訊監視* 會按照角色執行個體內的效能資料來收集其他度量，以便進一步分析應用程式處理期間發生的問題。若要了解如何啟用 Azure 診斷，請參閱[在 Azure 中啟用診斷](cloud-services-dotnet-diagnostics.md)。
+- 如果您要設定雲端服務的詳細資訊監視，請啟用雲端服務的 Azure 診斷。最小監視 (預設監視層級) 使用從角色執行個體 (虛擬機器) 的主機作業系統收集的效能計數器。詳細資訊監視會按照角色執行個體內的效能資料來收集其他度量，以便進一步分析應用程式處理期間發生的問題。若要了解如何啟用 Azure 診斷，請參閱[在 Azure 中啟用診斷](cloud-services-dotnet-diagnostics.md)。
 
 若要使用 Web 角色或背景工作角色的部署來建立雲端服務，您必須[建立服務封裝](cloud-services-model-and-package.md#servicepackagecspkg)。
 
 ## 開始之前
 
-- 如果您尚未安裝 Azure SDK，請按一下 [安装 Azure SDK] 開啟 [Azure 下載頁面](http://azure.microsoft.com/downloads/)，然後對於開發程式碼所偏好使用的語言下載 SDK。(您稍後將有機會這麼做。)
+- 如果您尚未安裝 Azure SDK，請按一下 [Install Azure SDK] 開啟 [Azure 下載頁面](http://azure.microsoft.com/downloads/) (英文)，然後對於開發程式碼所偏好使用的語言下載 SDK。(您稍後將有機會這麼做。)
 
 - 如果任何角色執行個體需要憑證，請建立憑證。雲端服務需要含有私密金鑰的 .pfx 檔。[您建立並部署雲端服務時，可以將憑證上傳至 Azure]()。
 
@@ -118,4 +115,4 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

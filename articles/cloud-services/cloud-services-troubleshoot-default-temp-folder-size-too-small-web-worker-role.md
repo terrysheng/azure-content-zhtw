@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="預設 TEMP 資料夾對角色而言太小 | Microsoft Azure"
    description="雲端服務角色的 TEMP 資料夾空間量有限。本文提供關於如何避免用盡空間的一些建議。"
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # 雲端服務 Web/背景工作角色的預設 TEMP 資料夾太小
@@ -56,18 +56,18 @@ namespace WorkerRole1
             // service definition file for the role named WorkerRole1:
             //
             // <LocalResources>
-            //    <LocalStorage name="CustomTempLocalStore" 
-            //                  cleanOnRoleRecycle="false" 
+            //    <LocalStorage name="CustomTempLocalStore"
+            //                  cleanOnRoleRecycle="false"
             //                  sizeInMB="1024" />
             // </LocalResources>
-            
-            string customTempLocalResourcePath = 
+
+            string customTempLocalResourcePath =
             RoleEnvironment.GetLocalResource("CustomTempLocalStore").RootPath;
             Environment.SetEnvironmentVariable("TMP", customTempLocalResourcePath);
             Environment.SetEnvironmentVariable("TEMP", customTempLocalResourcePath);
-            
+
             // The rest of your startup code goes here…
-            
+
             return base.OnStart();
         }
     }
@@ -76,6 +76,10 @@ namespace WorkerRole1
 
 ## 後續步驟
 
+請參閱說明[如何增加 Azure Web 角色 ASP.NET 暫存資料夾大小](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx)的其他部落格。
+
 檢視更多雲端服務的[疑難排解文章](..\?tag=top-support-issue&service=cloud-services)。
 
-<!---HONumber=Oct15_HO4-->
+若要了解如何利用 Azure PaaS 電腦的診斷資料來疑難排解雲端服務角色的問題，請檢視 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
+
+<!---HONumber=AcomDC_0121_2016-->

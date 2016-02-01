@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="對無法啟動的角色進行疑難排解 |Microsoft Azure"
    description="以下是雲端服務角色無法啟動的一些常見原因。此外也提供這些問題的解決方案。"
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # 對無法啟動的雲端服務角色進行疑難排解的一般步驟
@@ -165,4 +165,6 @@
 
 檢視更多雲端服務的[疑難排解文章](..\?tag=top-support-issue&service=cloud-services)。
 
-<!---HONumber=AcomDC_1203_2015-->
+若要了解如何利用 Azure PaaS 電腦的診斷資料來疑難排解雲端服務角色的問題，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
+
+<!---HONumber=AcomDC_0121_2016-->

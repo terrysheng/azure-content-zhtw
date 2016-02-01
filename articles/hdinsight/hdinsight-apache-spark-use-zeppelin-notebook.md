@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="01/15/2016" 
 	ms.author="nitinme"/>
 
 
 # 在 HDInsight 上搭配使用 Zeppelin Notebook 和 Spark 叢集
 
 了解如何在 Spark 叢集上安裝 Zeppelin Notebook 以及如何使用 Zeppelin Notebook。
+
+> [AZURE.IMPORTANT]Zeppelin Notebook for HDInsight Spark 叢集是一個供應項目，僅是為了展示如何在 Azure HDInsight Spark 環境中使用 Zeppelin。如果您想要使用 Notebook 來使用 HDInsight Spark，我們建議您改為使用 Jupyter Notebook。Jupyter Notebook 也會提供不同的核心選項，例如 Scala，並將繼續改良功能。如需有關如何使用 Jupyter Notebook 和 HDInsight Spark 的指示，請參閱[使用 Jupyter Notebook 執行 Spark SQL 查詢](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter)。
 
 **必要條件：**
 
@@ -153,7 +155,7 @@
 
 1. 將瀏覽器設定為使用 **localhost:9876** 做為 **SOCKS v5** Proxy。Firefox 的設定如下所示。如果您使用與 9876 不同的連接埠，請將連接埠變更為您所用的連接埠：
 
-	![Firefox 設定的映像](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
+	![Firefox 設定的影像](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
 
 	> [AZURE.NOTE]選取 [**遠端 DNS**] 會使用 HDInsight 叢集解析網域名稱系統 (DNS) 要求。若未選取，則會在本機解析 DNS。
 
@@ -328,4 +330,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

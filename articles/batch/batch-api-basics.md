@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="11/19/2015"
+	ms.date="01/21/2016"
 	ms.author="yidingz;v-marsma"/>
 
 # Azure Batch 功能概觀
@@ -26,9 +26,9 @@
 
 下列高階工作流程是幾乎所有在 Batch 服務內開發的分散式計算案例都會使用的典型：
 
-1. 將您要在分散式計算案例中使用的*資料檔*，上傳至 [Azure 儲存體][azure_storage]帳戶。這些檔案必須在儲存體帳戶中，Batch 服務才能夠存取它們。工作會將這些檔案下載至執行中的[計算節點](#computenode)。
+1. 將您要在分散式計算案例中使用的資料檔，上傳至 [Azure 儲存體][azure_storage]帳戶。這些檔案必須在儲存體帳戶中，Batch 服務才能夠存取它們。工作會將這些檔案下載至執行中的[計算節點](#computenode)。
 
-2. 將相依的*二進位檔案*上傳至儲存體帳戶。這些二進位檔案包含工作所要執行的程式，及其任何相依組件。這些檔案也必須從您的儲存體帳戶中存取，讓工作可以將它們下載至計算節點。
+2. 將相依的二進位檔案上傳至儲存體帳戶。這些二進位檔案包含工作所要執行的程式，及其任何相依組件。這些檔案也必須從您的儲存體帳戶中存取，讓工作可以將它們下載至計算節點。
 
 3. 建立計算節點的[集區](#pool)。您可以在建立集區時指定[所要使用的計算節點大小][cloud_service_sizes]，當工作執行時，它會被指派此集區中的節點。
 
@@ -62,6 +62,8 @@
 
 	- [作業準備和作業釋放工作](#jobpreprelease)
 
+	- [多重執行個體工作](#multiinstance)
+
 - [JobSchedule](#jobschedule)
 
 ### <a name="account"></a>帳戶
@@ -77,7 +79,7 @@
 - 標準**資料夾結構**和相關聯的**環境變數** (詳細說明其路徑) 會建立在各個計算節點上。如需詳細資訊，請參閱下方的[檔案和目錄](#files)。
 - 工作可參考**環境變數**。
 - 設定用以控制存取的**防火牆**設定。
-- 如果需要對計算節點進行**遠端存取** (例如為了偵錯)，您可以取得 RDP 檔案並使用它透過*遠端桌面*存取該節點。
+- 如果需要對計算節點進行**遠端存取** (例如為了偵錯)，您可以取得 RDP 檔案並使用它透過遠端桌面存取該節點。
 
 ### <a name="pool"></a>集區
 
@@ -97,7 +99,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台；Batch 集區提�
 	- 除了 A0 以外，可為集區設定所有的[雲端服務節點大小][cloud_service_sizes]。
 
 - 在節點上執行的**作業系統系列**和**版本**。
-	- 如同雲端服務內的背景工作角色，*OS 系列*和 *OS 版本*也是可以指定的 (如需背景工作角色的詳細資訊，請參閱 *Azure 所提供的計算裝載選項*中的[我想了解雲端服務][about_cloud_services]一節)。
+	- 如同雲端服務內的背景工作角色，OS 系列和 OS 版本也是可以指定的 (如需背景工作角色的詳細資訊，請參閱 Azure 所提供的計算裝載選項中的[我想了解雲端服務][about_cloud_services]一節)。
 	- 作業系統系列也會決定哪些版本的.NET 會與作業系統一起安裝。
 	- 如同背景工作角色，建議為 OS 版本指定 `*`，以便自動升級節點，而且不須為了因應新發行的版本而執行工作。挑選特定作業系統版本的主要使用案例是為了確保維護應用程式相容性，以允許在更新版本之前執行回溯相容性測試。一旦通過驗證，即可更新集區的 OS 版本並安裝新的 OS 映像 – 將會中斷任何執行中的工作並重新排入佇列。
 
@@ -116,7 +118,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台；Batch 集區提�
 	- 在大多數的情況下，工作會獨立運作而不需要互相通訊，但在某些應用程式中，工作必須進行通訊。
 
 - 集區中節點的**開始工作**
-	- 您可以指定*啟動工作*，以在每次計算節點加入集區時和節點重新啟動時執行。這通常用來安裝在節點上執行的工作所要使用的應用程式。
+	- 您可以指定啟動工作，以在每次計算節點加入集區時和節點重新啟動時執行。這通常用來安裝在節點上執行的工作所要使用的應用程式。
 
 ### <a name="job"></a>作業
 
@@ -145,10 +147,9 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台；Batch 集區提�
 除了您定義在節點上執行計算的工作以外，Batch 服務還提供下列特殊工作：
 
 - [啟動工作](#starttask)
-
 - [作業管理員工作](#jobmanagertask)
-
 - [作業準備和作業釋放工作](#jobmanagertask)
+- [多重執行個體工作](#multiinstance)
 
 #### <a name="starttask"></a>啟動工作
 
@@ -189,6 +190,18 @@ Batch 提供作業前執行設定的作業準備工作，和作業後維護或�
 
 如需關於作業準備和釋放工作的詳細資訊，請參閱[在 Azure Batch 計算節點上執行準備和完成的工作](batch-job-prep-release.md)。
 
+#### <a name="multiinstance"></a>多重執行個體工作
+
+[多重執行個體工作][rest_multiinstance]是設定為同時在多個計算節點上執行的工作。利用多重執行個體工作，您可以啟用高效能運算案例，例如需要一組配置在一起以處理單一的工作負載的計算節點的訊息傳遞介面 (MPI)。
+
+在 Batch 中，您必須藉由指定一般[工作](#task)的多重執行個體設定來建立多重執行個體工作。這些設定包括要執行工作的計算節點數目、主要工作的命令列 (「應用程式命令」)、協調命令和每個工作的一般資源檔案清單。
+
+將具有多重執行個體設定的工作提交至作業時，Batch 服務會執行：
+
+1. 自動建立一項主要工作業和足夠的子工作，同時也會對您指定的節點總數執行。然後 Batch 會排程這些工作以在您指定的節點上執行，而其會先下載您指定的一般資源檔。
+2. 下載一般資源檔之後，主要和子工作會執行協調指令。此協調命令通常會啟動背景服務 (例如 [MS-MPI][msmpi] 的 `smpd.exe`)，並確認節點已準備好處理節點間的訊息。
+3. 主要及所有子工作順利完成協調命令時，工作的命令列 (「應用程式命令」) 只能由主要工作執行，而它通常會起始自訂啟用 MPI 功能的應用程式 (可在節點上處理您的工作負載)。例如，在 Windows MPI 案例中，您通常會使用應用程式命令利用 [MS-MPI][msmpi] 的 `mpiexec.exe` 來執行啟用 MPI 功能的應用程式。
+
 ### <a name="jobschedule"></a>排程的工作
 
 作業排程可讓您在 Batch 服務內建立週期性作業。作業排程會指定何時要執行作業，並且包含要執行之作業的規格。作業排程允許指定排程的持續時間 (排程的有效時間和生效時間)，以及在那段期間內建立作業的頻率。
@@ -207,7 +220,7 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 
 - **啟動** – 工作使用這個位置作為它的工作目錄。由批次服務下載來執行啟動工作的所有檔案，也儲存在此目錄下。在節點上，啟動目錄可透過 `%AZ_BATCH_NODE_START_DIR%` 環境變數來存取。開始工作可以建立、讀取、更新和刪除此目錄下的檔案，開始工作可以使用此目錄來設定作業系統。
 
-- **工作** -為每個在節點上執行的工作建立一個目錄，透過 `%AZ_BATCH_TASK_DIR%` 來存取。在每個工作目錄中，Batch 服務會建立由 `%AZ_BATCH_TASK_WORKING_DIR%` 環境變數指定唯一路徑的工作目錄 (`wd`)。這個目錄可供讀取/寫入工作。工作可以建立、讀取、更新和刪除此目錄下的檔案，此目錄會根據工作指定的 *RetentionTime* 條件約束而保留。
+- **工作** -為每個在節點上執行的工作建立一個目錄，透過 `%AZ_BATCH_TASK_DIR%` 來存取。在每個工作目錄中，Batch 服務會建立由 `%AZ_BATCH_TASK_WORKING_DIR%` 環境變數指定唯一路徑的工作目錄 (`wd`)。這個目錄可供讀取/寫入工作。工作可以建立、讀取、更新和刪除此目錄下的檔案，此目錄會根據工作指定的 RetentionTime 條件約束而保留。
   - `stdout.txt` 和 `stderr.txt` -這些檔案會在工作執行期間寫入至工作資料夾。
 
 當節點從集區移除時，也會移除所有儲存在節點上的檔案。
@@ -216,11 +229,11 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 
 在設計 Azure Batch 解決方案時，必須制定關於如何及何時建立集區，以及這些集區中的計算節點可用性要保持多久的設計決策。
 
-在極端情況下，您可以在提交每項作業後對此作業建立一個集區，而其節點會在工作執行完成時立即移除。這樣只有在絕對必要時才會配置節點，而且節點會在變成閒置時立即關閉，因此可達到最高使用率。雖然這表示工作必須等候節點進行配置，但請務必注意，工作將會在節點個別可用、配置且開始工作完成時立即排程至節點。Batch *不會*等到集區中的所有節點都可用才指派工作，藉以確保所有可用節點的最大使用率。
+在極端情況下，您可以在提交每項作業後對此作業建立一個集區，而其節點會在工作執行完成時立即移除。這樣只有在絕對必要時才會配置節點，而且節點會在變成閒置時立即關閉，因此可達到最高使用率。雖然這表示工作必須等候節點進行配置，但請務必注意，工作將會在節點個別可用、配置且開始工作完成時立即排程至節點。Batch 不會等到集區中的所有節點都可用才指派工作，藉以確保所有可用節點的最大使用率。
 
 就另一個極端而言，如果讓作業立即啟動是最高的優先順序，則可以預先建立集區，並使其節點在作業提交之前成為可用。在此情況下，作業工作可以立即啟動，但節點可能會閒置以等候指派的工作。
 
-有一個通常用來處理可變但持續負載的組合方法，是設定有多個作業提交至該處，但根據工作負載向上或向下調整節點數目的集區 (請參閱下方的*調整應用程式*)。這可以根據目前的負載被動完成，或在負載可預測時主動完成。
+有一個通常用來處理可變但持續負載的組合方法，是設定有多個作業提交至該處，但根據工作負載向上或向下調整節點數目的集區 (請參閱下方的調整應用程式)。這可以根據目前的負載被動完成，或在負載可預測時主動完成。
 
 ## <a name="scaling"></a>調整應用程式
 
@@ -297,14 +310,14 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 	- 工作的命令列所指定的程序也可能會失敗。工作所執行的程序傳回非零的結束碼時，此程序會被視為失敗。
 	- 針對應用程式失敗，可以將 Batch 設定成自動重試工作直到指定的次數為止。
 - **條件約束失敗**
-	- 設定條件約束可以指定作業或工作的最大執行持續期間 *maxWallClockTime*。這可用來終止「擱置」工作。
-	- 超過時間量上限時，則會將工作標示為*已完成*，但結束代碼會設為 `0xC000013A`，*schedulingError* 欄位將會標示為 `{ category:"ServerError", code="TaskEnded"}`。
+	- 設定條件約束可以指定作業或工作的最大執行持續期間 maxWallClockTime。這可用來終止「擱置」工作。
+	- 超過時間量上限時，則會將工作標示為已完成，但結束代碼會設為 `0xC000013A`，schedulingError 欄位將會標示為 `{ category:"ServerError", code="TaskEnded"}`。
 
 ### 應用程式失敗偵錯
 
 在執行期間，應用程式可能會產生診斷輸出，以便用來排解疑難問題。如先前的[檔案和目錄](#files)所述，Batch 服務會將 stdout 和 stderr 輸出傳送至計算節點之工作目錄中的 `stdout.txt` 和 `stderr.txt` 檔案。在 Batch .NET API 中使用 [ComputeNode.GetNodeFile][net_getfile_node] 和 [CloudTask.GetNodeFile][net_getfile_task] ，您可以擷取這些和其他檔案來進行疑難排解。
 
-使用*遠端桌面*登入計算節點，可以執行更廣泛的偵錯。您可以[從節點取得遠端桌面通訊協定檔案][rest_rdp] (Batch REST API) 或使用 [ComputeNode.GetRDPFile][net_rdp] 方法 (Batch .NET API) 來進行遠端登入。
+使用遠端桌面登入計算節點，可以執行更廣泛的偵錯。您可以[從節點取得遠端桌面通訊協定檔案][rest_rdp] (Batch REST API) 或使用 [ComputeNode.GetRDPFile][net_rdp] 方法 (Batch .NET API) 來進行遠端登入。
 
 >[AZURE.NOTE]若要透過 RDP 連接到節點，您必須先在節點上建立使用者。在 Batch REST API 中[將使用者帳戶新增至節點][rest_create_user]，或使用 Batch .NET 中的 [ComputeNode.CreateComputeNodeUser][net_create_user] 方法。
 
@@ -332,6 +345,7 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -342,6 +356,7 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -351,7 +366,9 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/zh-TW/library/azure/mt637905.aspx
+[rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

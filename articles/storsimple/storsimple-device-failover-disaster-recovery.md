@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/14/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # StorSimple 裝置的容錯移轉與災害復原
@@ -77,9 +77,13 @@
 
 	1. 在磁碟區容器清單中，選取您要容錯移轉的磁碟區容器。
 
-		>[AZURE.NOTE]**只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。** 1. 在 [為所選取容器中的磁碟區選擇目標裝置] 中，從可用裝置的下拉式清單中選取目標裝置。下拉式清單中只會顯示具有可用容量的裝置。 1. 最後，檢閱 [確認容錯移轉] 下的所有容錯移轉設定。按一下核取圖示 ![核取圖示](./media/storsimple-device-failover-disaster-recovery/IC740895.png)。
+		>[AZURE.NOTE]**只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。**
 
-1. 完成容錯移轉後，移至 [裝置] 頁面。
+	1. 在 [為所選取容器中的磁碟區選擇目標裝置] 中，從可用裝置的下拉式清單中選取目標裝置。下拉式清單中只會顯示具有可用容量的裝置。
+
+	1. 最後，檢閱 [確認容錯移轉] 下的所有容錯移轉設定。按一下核取圖示 ![核取圖示](./media/storsimple-device-failover-disaster-recovery/IC740895.png)。
+
+1. 可透過 [作業] 頁面監視容錯移轉作業。如果要容錯移轉的磁碟區容器包含本機磁碟區，則您會看到容器中每個本機磁碟區 (除分層磁碟區外) 的還原作業。這些還原作業可能需要一段時間才能完成。容錯移轉作業可能會較早完成。請注意，還原作業完成之後這些磁碟區才有本機保證。完成容錯移轉後，移至 [裝置] 頁面。
 
 	1. 為容錯移轉程序選取要用來做為目標裝置的裝置。
 
@@ -153,12 +157,9 @@
 
 ## 後續步驟
 
-在執行容錯移轉之後，您可能需要：
+- 執行容錯移轉之後，您可能需要[停用及刪除 StorSimple 裝置](storsimple-deactivate-and-delete-device.md)。
 
-- [更新您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
-- [刪除您的 StorSimple 裝置](storsimple-deactivate-and-delete-device.md#delete-a-device)
-
-如需如何使用 StorSimple Manager 服務的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+- 如需如何使用 StorSimple Manager 服務的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0121_2016-->

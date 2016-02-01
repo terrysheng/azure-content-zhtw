@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="01/21/2016" 
 	ms.author="billmath"/>
 
 # 設定 Azure Multi-Factor Authentication
@@ -151,7 +151,7 @@
 
 ## Azure Multi-Factor Authentication 中的快取
 
-您可以利用快取來設定一段特定的時間，讓後續的驗證嘗試自動成功。這主要是在內部部署系統 (例如 VPN) 於第一個要求仍在進行中的同時傳送多個驗證要求時使用。這可讓後續要求在使用者成功進行驗證後自動成功完成。請注意，快取並非用於登入
+您可以利用快取來設定一段特定的時間，讓後續的驗證嘗試自動成功。這主要是在內部部署系統 (例如 VPN) 於第一個要求仍在進行中的同時傳送多個驗證要求時使用。這可讓後續要求在使用者成功進行驗證後自動成功完成。請注意，快取並非用於登入 Azure AD。
 
 
 ### 在 Azure Multi-Factor Authentication 中設定快取
@@ -351,4 +351,4 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 <li>在 [服務設定] 頁面上，於管理使用者裝置設定下方選取/取消選取 [藉由讓系統記住裝置來允許使用者暫停 Multi-Factor Authentication]。</li>
 ![暫停裝置](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>設定要允許暫停的天數。預設值為 14 天。</li> <li>按一下 [儲存]。</li> <li>按一下 [關閉]。</li>
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

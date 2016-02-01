@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="雲端服務角色回收的常見原因 |Microsoft Azure"
    description="突然回收的雲端服務角色可能會造成顯著的停機時間。以下是導致角色回收的一些常見問題，或許有助於縮短停機時間。"
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # 導致角色回收的常見問題
@@ -36,7 +36,7 @@
 - 如果使用 Visual studio，請確定您不屬於 Azure SDK 或 .NET Framework 的專案中每個參考的組件，[複製到本機] 屬性都設定為 **True**。
 
 - 確定 **web.config** 檔案未參考 **compilation** 元素中任何未使用的組件。
- 
+
 - 每個 .cshtml 檔案的 [建置動作] 都設為 [內容]。這可確保檔案會正確出現在封裝中，並且讓其他參考的檔案出現在封裝中。
 
 
@@ -66,8 +66,8 @@ Azure 是 64 位元環境。因此，針對 32 位元目標編譯的 .NET 組件
 為了在您將應用程式封裝部署至 Azure 之前確保 `DiagnosticsConnectionString` 設定正確無誤，請確認下列事項：
 
 - `DiagnosticsConnectionString` 設定指向 Azure 中的有效儲存體帳戶。根據預設，此設定會指向模擬儲存體帳戶，因此您必須在部署應用程式封裝之前明確變更這項設定。若未變更此設定，當角色執行個體嘗試啟動診斷監視器時，將會擲回例外狀況。這可能會導致角色執行個體無限期地回收。
-  
-- 連接字串會以下列[格式](storage-configure-connection-string.md)指定 (通訊協定必須指定為 HTTPS)。以您的儲存體帳戶名稱取代 *MyAccountName*，並以您的存取金鑰取代 *MyAccountKey*：
+
+- 連接字串會以下列[格式](../storage/storage-configure-connection-string.md)指定 (通訊協定必須指定為 HTTPS)。以您的儲存體帳戶名稱取代 MyAccountName，並以您的存取金鑰取代 MyAccountKey：
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
@@ -77,13 +77,15 @@ Azure 是 64 位元環境。因此，針對 32 位元目標編譯的 .NET 組件
 
 ## 匯出的憑證未包含私密金鑰
 
-若要在 SSL 下執行 Web 角色，您必須確保匯出的管理憑證包含私密金鑰。如果您使用 *Windows 憑證管理員*匯出憑證，請務必選取 [是，匯出私密金鑰] 選項。憑證必須匯出為 PFX 格式，這是目前唯一支援的格式。
+若要在 SSL 下執行 Web 角色，您必須確保匯出的管理憑證包含私密金鑰。如果您使用 Windows 憑證管理員匯出憑證，請務必選取 [是，匯出私密金鑰] 選項。憑證必須匯出為 PFX 格式，這是目前唯一支援的格式。
 
 
 
 ## 後續步驟
 
 檢視更多雲端服務的[疑難排解文章](..\?tag=top-support-issue&service=cloud-services)。
+
+檢視多個角色回收案例，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
 
 
 
@@ -93,4 +95,4 @@ Azure 是 64 位元環境。因此，針對 32 位元目標編譯的 .NET 組件
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

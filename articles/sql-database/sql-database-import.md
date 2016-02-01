@@ -1,5 +1,5 @@
 <properties
-	pageTitle="匯入 BACPAC 檔案以建立新的 Azure SQL Database"
+	pageTitle="匯入 BACPAC 檔案以建立新的 Azure SQL Database | Microsoft Azure"
 	description="匯入現有的 BACPAC 檔案以建立新的 Azure SQL Database。"
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/17/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -95,7 +95,7 @@ BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需�
 
 ## 後續步驟
 
-- [連接 SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [使用 SQL Server Management Studio 連接到 SQL Database 並執行範例 T-SQL 查詢](sql-database-connect-query-ssms.md)
 
 
 
@@ -112,4 +112,4 @@ BACPAC 是一種包含資料庫結構描述和資料的 .bacpac 檔案。如需�
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

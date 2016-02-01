@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/07/2016"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # 如何疑難排解您可能會碰到的雲端服務部署問題
@@ -41,7 +41,7 @@
 
 1. 在 Azure 入口網站中，按一下您的雲端服務部署。
 2. 在 Azure 入口網站的 [屬性] 窗格中，查看角色執行個體的連接埠 (在 [輸入端點] 下方)。
-3. 如果連接埠不是 *80*，請在存取應用程式時將正確的連接埠值新增至 URL。若要指定非預設連接埠，請輸入 URL，後面依序加上冒號 (:) 和不含空格的連接埠號碼。
+3. 如果連接埠不是 80，請在存取應用程式時將正確的連接埠值新增至 URL。若要指定非預設連接埠，請輸入 URL，後面依序加上冒號 (:) 和不含空格的連接埠號碼。
 
 ## 問題：我的角色執行個體無故自行重新啟動
 
@@ -70,7 +70,7 @@
 
 這種情況可能表示應用程式的程式碼、封裝或組態檔發生問題。若是如此，您應該會看見 [狀態] 每隔幾分鐘就變更，且 Azure 入口網站可能會顯示 [回收中]、[忙碌] 或 [初始化中] 之類的訊息。這表示應用程式發生了某些錯誤，導致角色執行個體無法執行。
 
-如需關於如何排解此問題的詳細資訊，請參閱部落格文章 [Azure PaaS 計算診斷資料]和[導致角色回收的常見問題](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
+如需關於如何排解此問題的詳細資訊，請參閱部落格文章 [Azure PaaS 計算診斷資料] 和[導致角色回收的常見問題](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 
 ## 問題：我的應用程式停止運作
 
@@ -78,7 +78,7 @@
 2. 在 Azure 入口網站的 [屬性] 窗格中，考量下列狀況以解決您的問題：
    * 如果角色執行個體在最近停止 (您可以檢查 [中止計數] 的值)，部署可能正在更新。請等候並觀察角色執行個體是否會自行恢復運作。
    * 如果角色執行個體處於 [忙碌] 狀態，請檢查應用程式的程式碼，查看 [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) 事件是否已處理。您可能需要新增或修正處理此事件的程式碼。
-   * 請瀏覽部落格文章 [Azure PaaS 計算診斷資料]中的診斷資料及疑難排解案例。
+   * 請瀏覽部落格文章 [Azure PaaS 計算診斷資料] 中的診斷資料及疑難排解案例。
 
 >[AZURE.WARNING]如果您重新啟動雲端服務，您會重設部署的屬性，而有效清除原始問題的資訊。
 
@@ -86,7 +86,6 @@
 
 檢視更多雲端服務的[疑難排解文章](..\?tag=top-support-issue&service=cloud-services)。
 
+若要了解如何利用 Azure PaaS 電腦的診斷資料來疑難排解雲端服務角色的問題，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
 
-[Azure PaaS 計算診斷資料]: http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

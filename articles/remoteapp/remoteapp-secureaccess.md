@@ -61,7 +61,9 @@ Azure RemoteApp 的系統管理員可以使用 Azure AD Premium 所提供的功�
 	1. 選擇 [不工作時封鎖存取] 以完全防止使用者從您指定的網路環境外部存取 Azure RemoteApp。
 	2. 按一下下面的選項可定義構成「受信任網路」的 IP 位址範圍。此範圍以外的所有位址將會遭到拒絕。
 
-5.	從您指定的範圍之外的 IP 位址啟動 Azure RemoteApp 用戶端，來測試您的組態。在使用 Azure AD 認證登入之後，您應該會看到如下的訊息：![拒絕 Azure RemoteApp 的存取](./media/remoteapp-secureaccess/ra-accessdenied.png)
+5.	從您指定的範圍之外的 IP 位址啟動 Azure RemoteApp 用戶端，來測試您的組態。在使用 Azure AD 認證登入之後，您應該會看到如下的訊息：
+
+![拒絕 Azure RemoteApp 的存取](./media/remoteapp-secureaccess/ra-accessdenied.png)
  
 
 ### 未來的條件式存取功能 
@@ -92,7 +94,7 @@ Azure AD Premium 也提供相關報告和監視功能，可進一步延伸系統
 
 Azure RemoteApp 部署的常見案例是遠端應用程式需要與後端資源 (例如 SQL 資料庫) 進行通訊。此資源裝載在內部部署環境中 (例如公司網路) 或雲端中 (例如 Azure IaaS)。系統管理員通常會想要確定，只有透過 Azure RemoteApp 部署的應用程式能夠存取後端資源，但 (舉例來說) 直接在使用者電腦上執行並透過公用網際網路存取的應用程式則不行。我們經常會將 Azure RemoteApp 視為受到集中管理的安全環境，且使用者只應該透過此途徑來與後端資源互動。
 
-解決方法是將 Azure RemoteApp 環境和安全資源放在相同的 Azure 虛擬網路 (VNET) 中。如果資源位於不同網站，您可以建立站台對站台 VPN 連線，以便 (舉例來說) 建立一個橫跨 Azure 資料中心與客戶內部部署環境的 VNET。
+解決方法是將 Azure RemoteApp 環境和安全資源放在相同的 Azure 虛擬網路 (VNET) 中。如果資源位於不同網站，您可以建立站對站 VPN 連線，以便 (舉例來說) 建立一個橫跨 Azure 資料中心與客戶內部部署環境的 VNET。
 
 Azure RemoteApp 支援兩種集合部署類型，您可以在其中提供您自己的 VNET：
 
@@ -108,4 +110,4 @@ Azure RemoteApp 支援兩種集合部署類型，您可以在其中提供您自�
 ## 完整解決方案
 下圖顯示完整的解決方案，我們在其中建置了起自使用者、經過 Azure RemoteApp (ARA)，並於最後進入後端資源的安全存取通道。![保護 Azure RemoteApp](./media/remoteapp-secureaccess/ra-secureoverview.png)在階段 1 中，我們已選取使用者，並建立了控制 ARA 存取方式的存取規則。在下面的範例中，我們只允許從公司網路進行工作的使用者進行存取。不符合此規定的使用者將完全無法存取 ARA 環境。在「階段 2」中，我們公開了後端資源，但只能透過我們所控制的 VNet/VPN 組態來存取。Azure RemoteApp 已放置於相同的 VNet。最終結果是只能透過 ARA 環境存取資源。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

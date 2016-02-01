@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="10/14/2015"
+   ms.date="01/13/2016"
    ms.author="cawa"/>
 
 # 如何使用 Visual Studio 來建立雲端服務容器
@@ -33,4 +33,4 @@
 現在雲端服務容器已建立成功，您可以開始[建立和部署](cloud-services-how-to-create-deploy.md)雲端服務了。
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

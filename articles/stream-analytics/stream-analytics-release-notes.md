@@ -16,7 +16,7 @@
 	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
-#Microsoft 串流分析版本資訊
+#串流分析版本資訊
 
 ## 串流分析 2015 年 12 月 10 日版本的注意事項 ##
 
@@ -133,4 +133,4 @@ PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

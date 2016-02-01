@@ -114,7 +114,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站 UI、透過 Webhook、
 
 - **使用 Azure 入口網站啟動已發佈的 Runbook，並指派參數**
 
-當您[啟動 Runbook](automation-starting-a-runbook#starting-a-runbook-with-the-azure-portal.md) 時，[啟動 Runbook] 刀鋒視窗隨即開啟，而您可以為剛建立的參數設定值。
+當您[啟動 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) 時，[啟動 Runbook] 刀鋒視窗隨即開啟，而您可以為剛建立的參數設定值。
 
 ![使用入口網站啟動](media/automation-runbook-input-parameters/automation_04_StartRunbookUsingPortal.png)
 
@@ -269,4 +269,4 @@ Runbook 作業可透過 Azure 自動化 REST API，使用 **PUT** 方法和下�
 - 若要編輯文字 Runbook，請參閱[編輯文字 Runbook](automation-edit-textual-runbook.md)。
 - 若要編輯圖形化 Runbook，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

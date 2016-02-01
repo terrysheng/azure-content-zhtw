@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
 
 # 在 Azure RemoteApp 中使用 SQL Server Management Studio 來連接到 SQL Database
@@ -137,7 +137,7 @@ Sysprep 完成時，它會關閉 VM。
 
 完成上述的所有步驟之後，您將可以執行 Azure RemoteApp 用戶端，並使用已指派的使用者登入。您將會看到 SSMS 是您其中的一個應用程式，並且執行時就如同它是安裝在您的電腦上存取 Azure SQL Server 一樣。
 
-如需如何建立 SQL Database 連線的詳細資訊，請參閱[使用 SQL Server Management Studio (SSMS) 連線](sql-database-connect-to-database.md)
+如需有關如何連接到 SQL Database 的詳細資訊，請參閱[使用 SQL Server Management Studio 連接到 SQL Database 並執行範例 T-SQL 查詢](sql-database-connect-query-ssms.md)。
 
 
 以上為目前的所有內容。盡情享受！
@@ -152,4 +152,4 @@ Sysprep 完成時，它會關閉 VM。
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

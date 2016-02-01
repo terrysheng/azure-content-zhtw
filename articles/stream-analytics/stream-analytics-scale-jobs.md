@@ -17,7 +17,7 @@
 	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
-# 調整 Azure 串流分析工作，以提高串流資料處理的輸送量 #
+# 調整串流分析工作，以提高資料處理的輸送量 #
 
 了解如何微調分析工作及計算串流分析的「串流處理單元」，以及如何藉由設定輸入資料分割、微調查詢定義，及設定工作串流處理單元來調整串流分析工作。
 
@@ -265,4 +265,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/16/2015"
+   ms.date="01/15/2016"
    ms.author="jroth" />
 
 # Azure SQL Database 一般限制與方針
@@ -32,12 +32,6 @@
 ## SQL Server Agent/工作
 
 Microsoft Azure SQL Database 不支援 SQL Server Agent 或工作。然而，您可以執行內部部署 SQL Server 上的 SQL Server Agent，並連線至 Microsoft Azure SQL Database。
-
-## 交易
-
-Azure SQL Database 不支援分散式交易，這些交易會影響數個資源。如需詳細資訊，請參閱[分散式交易 (ADO.NET)](https://msdn.microsoft.com/library/ms254973.aspx)。SQL Database 不會在容錯移轉之間保留目前資料庫未認可的時間戳記值 (DBTS)。
-
-> [AZURE.NOTE]在某些情況下，交易會自動升級為分散式交易。如需詳細資訊，請參閱＜[與 SQL Server 的系統交易整合](https://msdn.microsoft.com/library/ms172070.aspx)＞。
 
 ## SQL Server 定序支援
 
@@ -69,4 +63,4 @@ Microsoft Azure SQL Database 使用的預設資料庫定序是 **SQL\_LATIN1\_GE
 
 - 如需驅動程式的可用性和 SQL Database 支援的相關資訊，請參閱＜[SQL Database 與 SQL Server 的連線庫](sql-database-libraries.md)＞。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

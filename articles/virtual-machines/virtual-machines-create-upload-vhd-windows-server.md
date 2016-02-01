@@ -188,7 +188,7 @@
 
 	![自訂映像](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	這個新的映像現在會在您建立虛擬機器時出現於 [我的映像] 下。如需指示，請參閱[如何建立執行 Windows 的自訂虛擬機器](virtual-machines-windows-create-custom.md)。
+	這個新的映像現在會在您建立虛擬機器時出現於 [我的映像] 下。如需指示，請參閱[建立自訂虛擬機器](virtual-machines-create-custom.md)。
 
 	![從自訂映像建立 VM](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
@@ -203,4 +203,4 @@
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

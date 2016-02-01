@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos"/>
 
 # 使用 StorSimple Manager 服務來修改 StorSimple 裝置組態。
@@ -94,7 +94,7 @@ DATA 0 依預設已啟用雲端功能。設定 DATA 0 時，您也需要設定�
 
     我們建議您隔離 iSCSI 流量與雲端儲存空間流量。也請注意如果您的主機位於裝置所在的相同子網路內，您不需要指派閘道器；不過，如果您的主機位於與裝置不同的子網路，您將必須指派一個閘道器。
 
-- **IP 位址** – 這可以是 IPv4 或 IPv6 或同時使用。IPv4 和 IPv6 位址系列皆支援裝置網路介面。當您使用 IPv4 時，請以小數點十進位表示法指定 32 位元的 IP 位址 (*xxx.xxx.xxx.xxx*)。當您使用 IPv6 時，僅需提供 4 位數前置詞，而裝置網路介面的 128 位元位址將會根據該前置詞自動產生。
+- **IP 位址** – 這可以是 IPv4 或 IPv6 或同時使用。IPv4 和 IPv6 位址系列皆支援裝置網路介面。當您使用 IPv4 時，請以小數點十進位表示法指定 32 位元的 IP 位址 (xxx.xxx.xxx.xxx)。當您使用 IPv6 時，僅需提供 4 位數前置詞，而裝置網路介面的 128 位元位址將會根據該前置詞自動產生。
 
 - **子網路** – 這是指子網路遮罩，且透過 Windows PowerShell 介面設定。
 
@@ -129,4 +129,4 @@ DATA 0 依預設已啟用雲端功能。設定 DATA 0 時，您也需要設定�
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
      
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

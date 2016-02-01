@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/09/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # 在 Government 入口網站中部署您的內部部署 StorSimple 裝置 (Update 2)
@@ -44,7 +44,7 @@
 | [部署必要條件](#deployment-prerequsites) | 這些項目會驗證環境是否準備就緒以供部署。 |
 | | |
 | **逐步部署** | 需要執行這些步驟，才能在生產環境中部署您的 StorSimple 裝置。 |
-| [步驟 1：建立新的服務](#step-1-create-a-new-service) | 設定雲端管理和 StorSimple 裝置的儲存體。*如果您現在已經有針對其他 StorSimple 裝置的服務，請略過此步驟*。 |
+| [步驟 1：建立新的服務](#step-1-create-a-new-service) | 設定雲端管理和 StorSimple 裝置的儲存體。如果您現在已經有針對其他 StorSimple 裝置的服務，請略過此步驟。 |
 | [步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key) | 使用此金鑰註冊並將 StorSimple 裝置與管理服務連接。 |
 | [步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置] (step 3-configure-and-register-the-device-through-windows-powershell-for-storsimple) | 使用管理服務將裝置連線到您的網路並使用 Azure 註冊以完成設定。 |
 | [步驟 4：完成最小量的裝置設定](#step-4-complete-the-minimum-device-setup)</br>選用：更新您的 StorSimple 裝置。 | 使用管理服務來完成裝置設定並啟用裝置以提供儲存體。 |
@@ -232,15 +232,15 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 多重路徑 I/O (MPIO) 是 Windows Server 預設不會安裝的選擇性功能。您應該透過伺服器管理員將它安裝為功能。如需 MPIO 安裝指示，請移至[為 StorSimple 裝置設定 MPIO](storsimple-configure-mpio-windows-server.md)。
 
-如需替連接到 Linux 主機的 StorSimple 裝置安裝 MPIO 的指示，請移至[為 Linux 主機設定 MPIO](storsimple-configure-mpio-linux.md)。
+如需為連接到 Linux 主機之 StorSimple 裝置安裝 MPIO 的指示，請移至[為 Linux 主機設定 MPIO](storsimple-configure-mpio-on-linux.md)。
 
 > [AZURE.NOTE]StorSimple 虛擬裝置不支援 MPIO。
 
 ## 後續步驟
 
-設定[虛擬裝置](storsimple-virtual-device.md)。
+- 設定[虛擬裝置](storsimple-virtual-device.md)。
 
-使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
+- 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

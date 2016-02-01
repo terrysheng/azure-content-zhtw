@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # 管理 StorSimple 裝置控制器
@@ -221,4 +221,4 @@
 
 - 若要深入了解使用 StorSimple Manager 的方式，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

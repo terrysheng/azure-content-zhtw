@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="01/13/2016"
     ms.author="elizapo" />
 
 
@@ -29,12 +29,7 @@
 ## 您的映像無效 ##
 如果您在等候 Azure 佈建集合時，看到如「GoldImageInvalid」的訊息，表示範本映像不符合[已定義的映像需求](remoteapp-imagereqs.md)。因此，請閱讀[需求](remoteapp-imagereqs.md)並修正映像，然後再嘗試重新建立集合。
 
-## VNET 是否使用強制通道？ ##
-RemoteApp 目前不支援使用已啟用強制通道的 VNET。如果您需要這個功能，請連絡 [RemoteApp 小組](mailto:remoteappforum@microsoft.com)來請求支援。
 
-核准您的要求之後，請確定在您為 Azure RemoteApp 選擇的子網路以及該子網路的 VM 上開啟下列連接埠。子網路中的 VM 也應該可以存取有關網路安全性群組之小節中提及的 URL。
-
-輸出：TCP：443、TCP：10101-10175
 
 ## VNET 是否已定義網路安全性群組？ ##
 如果您已在正用於您集合的子網路上定義網路安全性群組，請確定可以在子網路內存取下列 URL：
@@ -84,4 +79,4 @@ RemoteApp 目前不支援使用已啟用強制通道的 VNET。如果您需要�
 
 建立或新增的網域名稱必須是內部網域名稱 (非 Azure AD 網域名稱)，而且必須是可解析的 DNS 格式 (contoso.local)。例如，您有 Active Directory 內部名稱 (contoso.local) 和 Active Directory UPN (contoso.com) - 您必須在建立集合時使用內部名稱。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

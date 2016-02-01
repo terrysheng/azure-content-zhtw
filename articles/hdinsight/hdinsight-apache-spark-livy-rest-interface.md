@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="01/16/2016" 
 	ms.author="nitinme"/>
 
 
 # 搭配 HDInsight (Linux) 上的 Spark 叢集利用 Livy 遠端提交 Spark 作業
 
-Azure HDInight 上的 Apache Spark 叢集包含 Livy，這是一個 REST 介面，可讓您從任何地方將作業遠端提交到 Spark 叢集。如需詳細文件，請參閱 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)。
+Azure HDInsight 上的 Apache Spark 叢集包含 Livy，這是一個 REST 介面，可讓您從任何地方將作業遠端提交到 Spark 叢集。如需詳細文件，請參閱 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)。
 
 您可以使用 Livy 執行互動式 Spark 殼層，或提交要在 Spark 上執行的批次作業。本文將討論如何使用 Livy 提交批次作業。下列語法會使用 Curl 對 Livy 端點發出 REST 呼叫。
 
@@ -41,7 +41,7 @@ Azure HDInight 上的 Apache Spark 叢集包含 Livy，這是一個 REST 介面�
 
 * 如果 jar 檔案位於叢集儲存體 (WASB) 上
 
-		curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mystorageaccount@mycontainer.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
+		curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
 * 如果您想要在輸入檔案 (在此範例中為 input.txt) 中傳遞 jar 檔案名稱和類別名稱
 		
@@ -187,4 +187,4 @@ Azure HDInight 上的 Apache Spark 叢集包含 Livy，這是一個 REST 介面�
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

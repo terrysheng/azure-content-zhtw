@@ -17,7 +17,7 @@
 
 # 在 Application Insights SDK 中取樣、篩選及前置處理遙測
 
-*Application Insights 目前僅供預覽。*
+Application Insights 目前僅供預覽。
 
 您可以針對 Application Insights SDK 撰寫與設定外掛程式，以自訂在遙測傳送至 Application Insights 服務之前，擷取與處理它的方式。
 
@@ -32,13 +32,13 @@
 
 開始之前：
 
-* 在應用程式中安裝 [Application Insights SDK](app-insights-asp-net.md)。手動安裝 NuGet 封裝並選取最新的*發行前版本*。
+* 在應用程式中安裝 [Application Insights SDK](app-insights-asp-net.md)。手動安裝 NuGet 封裝並選取最新的發行前版本。
 * 試用 [Application Insights API](app-insights-api-custom-events-metrics.md)。 
 
 
 ## 取樣
 
-*這項功能處於 Beta 版。*
+這項功能處於 Beta 版。
 
 [取樣](app-insights-sampling.md)是減少流量同時保留準確的統計資料所建議的方式。篩選器會選取相關的項目，使得您可以瀏覽診斷中的項目。事件計數會在計量瀏覽器中調整，以補償所篩選的項目。
 
@@ -57,7 +57,7 @@
 
 若要取得源自網頁固定取樣率的資料，請在您插入 (通常是如 \_Layout.cshtml 的主要頁面) 的 [Application Insights 程式碼片段](app-insights-javascript.md)中放置額外的程式碼行：
 
-*JavaScript*
+JavaScript
 
 ```JavaScript
 
@@ -157,11 +157,11 @@
 > [AZURE.WARNING]仔細地將 .config 檔案中的類型名稱和任何屬性名稱與程式碼中的類別和屬性名稱做比對。如果 .config 檔案參考不存在的類型或屬性，SDK 可能無法傳送任何遙測，而且不會產生任何訊息。
 
  
-**或者**，您也可以在程式碼中初始化篩選。在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
+或者，您也可以在程式碼中初始化篩選。在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
 
 ```C#
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
@@ -245,7 +245,7 @@ public void Process(ITelemetry item)
 
 **定義您的初始設定式**
 
-*C#*
+C#
 
 ```C#
 
@@ -296,7 +296,7 @@ public void Process(ITelemetry item)
       </TelemetryInitializers>
     </ApplicationInsights>
 
-*或者，* 您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
+或者，您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
 
 
 ```C#
@@ -314,7 +314,7 @@ public void Process(ITelemetry item)
 <a name="js-initializer"></a>
 ### JavaScript 遙測初始設定式
 
-*JavaScript*
+JavaScript
 
 在您從入口網站取得的初始化程式碼之後立即插入遙測初始設定式：
 
@@ -404,4 +404,4 @@ public void Process(ITelemetry item)
 
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

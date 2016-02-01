@@ -137,7 +137,7 @@
  
 	`Import-module <Path to the folder that contains the Windows PowerShell script>`
 
-4. 開啟支援封裝資料夾。請注意，所有檔案都是已壓縮和加密的 *.aes* 檔案。開啟檔案。若要開啟檔案，請輸入：
+4. 開啟支援封裝資料夾。請注意，所有檔案都是已壓縮和加密的 .aes 檔案。開啟檔案。若要開啟檔案，請輸入：
 
 	`Open-HcsSupportPackage <Path to the folder that contains support package files>`
 
@@ -196,7 +196,8 @@
 
 ## 後續步驟
 
-- 了解如何[使用支援封裝和裝置記錄對裝置部署進行疑難排解](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)。 
+- 了解如何[使用支援封裝和裝置記錄對裝置部署進行疑難排解](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)。
+
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

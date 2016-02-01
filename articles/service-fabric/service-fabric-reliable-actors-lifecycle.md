@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="01/20/2016"
    ms.author="amanbha"/>
 
 
@@ -46,8 +46,8 @@
 
 在進入記憶體回收的細節前，最重要的是定義下列詞彙：
 
-- *掃描間隔*。這是動作項目執行階段掃描其使用中動作項目資料表中，是否有動作項目可作為記憶體回收的間隔。預設值為 1 分鐘。
-- *閒置逾時*。這是動作項目維持未使用 (閒置) 所需的時間長度，過此時間後即作為記憶體回收。預設值為 60 分鐘。
+- 掃描間隔。這是動作項目執行階段掃描其使用中動作項目資料表中，是否有動作項目可作為記憶體回收的間隔。預設值為 1 分鐘。
+- 閒置逾時。這是動作項目維持未使用 (閒置) 所需的時間長度，過此時間後即作為記憶體回收。預設值為 60 分鐘。
 
 通常不需要變更這些預設值。但若有需要，這些間隔可以使用 `ActorGarbageCollection` 屬性，在組件層級中為所有位於該組件中的動作項目類型，或是在動作項目類型層級中進行變更。以下範例顯示 HelloActor 的廢棄項目收集間隔變更。
 
@@ -90,4 +90,4 @@ class HelloActor : Actor, IHello
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

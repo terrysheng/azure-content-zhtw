@@ -1,6 +1,6 @@
 <properties
 	pageTitle="從 Azure 資料湖存放區來回移動資料 | Azure Data Factory"
-	description="了解如何透過 Azure Data Factory 從 Azure 資料湖存放區來回移動資料"
+	description="了解如何使用 Azure Data Factory 從 Azure 資料湖存放區來回移動資料"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/19/2016"
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure 資料湖存放區來回移動資料
@@ -21,7 +21,7 @@
 
 > [AZURE.NOTE]您必須先建立 Azure 資料湖存放區帳戶，才能透過複製活動建立管線，以在 Azure 資料湖存放區中移入/移出資料。若要了解 Azure 資料湖存放區，請參閱[開始使用 Azure 資料湖存放區](../data-lake-store/data-lake-store-get-started-portal.md)。
 >  
-> 請檢閱[建置您的第一個管線教學課程](data-factory-build-your-first-pipeline.md)，以了解建立 Data Factory、連結服務、資料集和管線的詳細步驟。將 JSON 程式碼片段與 Data Factory 編輯器或者 Visual Studio 或 Azure PowerShell 搭配使用，以建立 Data Factory 實體。
+> 請檢閱[建置您的第一個管線教學課程](data-factory-build-your-first-pipeline.md)，以了解建立 Data Factory、連結服務、資料集和管線的詳細步驟。搭配使用 JSON 片段和 Data Factory 編輯器或 Visual Studio 或 Azure PowerShell 來建立 Data Factory 實體。
 
 ## 範例：從 Azure Blob 複製資料到 Azure 資料湖存放區
 下列範例顯示：
@@ -64,14 +64,18 @@
 ### 使用 Data Factory 編輯器建立 Azure 資料湖連結服務
 下列程序提供使用 Data Factory 編輯器建立 Azure 資料湖存放區連結服務的步驟。
 
-1. 按一下命令列上的 [**新增資料存放區**]，然後選取 [**Azure 資料湖存放區**]。
+1. 按一下命令列上的 [新增資料存放區]，然後選取 [Azure 資料湖存放區]。
 2. 在 JSON 編輯器中，為 **datalakeUri** 屬性輸入資料湖的 URI。
-3. 按一下命令列上的 [**授權**] 按鈕。應該會出現一個快顯視窗。
+3. 按一下命令列上的 [授權] 按鈕。應該會出現一個快顯視窗。
 
 	![授權按鈕](./media/data-factory-azure-data-lake-connector/authorize-button.png)
+
 4. 使用您的認證登入，您應該會看到 JSON 中的**授權**屬性現在已指派給值。
 5. (選擇性步驟) 指定 JSON 中選用參數的值，例如 **accountName**、**subscriptionID** 與 **resourceGroupName**，或將這些屬性從 JSON 中刪除。
 6. 按一下命令列的 [部署]，部署連結服務。
+
+> [AZURE.IMPORTANT]您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。您必須在**權杖到期**和重新部署連結的服務時使用 [授權] 按鈕**重新授權**。如需詳細資訊，請參閱 [Azure 資料湖存放區連結服務](#azure-data-lake-store-linked-service-properties)章節。
+
 
 
 **Azure Blob 輸入資料集：**
@@ -250,7 +254,7 @@
 
 **Azure 資料湖輸入資料集：**
 
-設定 **"external": true** 和指定 **externalData** 原則即可通知 Azure Data Factory 服務：這是 Data Factory 外部的資料表，而且不是由 Data Factory 中的活動所產生的。
+設定 **"external": true** 和指定 **externalData** 原則即可通知 Azure Data Factory 服務：這是 Data Factory 外部的資料表而且不是由 Data Factory 中的活動所產生。
 
 	{
 		"name": "AzureDataLakeStoreInput",
@@ -396,33 +400,71 @@
 
 | 屬性 | 說明 | 必要 |
 | :-------- | :----------- | :-------- |
-| type | type 屬性必須設為：**AzureDataLakeStore** | 是 |
+| 類型 | type 屬性必須設為：**AzureDataLakeStore** | 是 |
 | dataLakeUri | 指定有關 Azure 資料湖存放區帳戶的資訊。格式如下：https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | 是 |
 | authorization | 按一下 [**Data Factory 編輯器**] 中的 [**授權**] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
 | sessionId | OAuth 工作階段的 OAuth 工作階段識別碼。每個工作階段識別碼都是獨一無二的，只能使用一次。當您使用 Data Factory 編輯器時便會自動產生。 | 是 |  
 | accountName | 資料湖帳戶名稱 | 否 |
-| subscriptionId | Azure 訂用帳戶識別碼。 | 否 (若未指定，便會使用 Data Factory 的訂用帳戶)。 |
+| subscriptionId | Azure 訂用帳戶識別碼。 | 否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。 |
 | resourceGroupName | Azure 資源群組名稱 | 否 (若未指定，便會使用 Data Factory 的資源群組)。 |
 
+您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。請參閱下表以了解不同類型的使用者帳戶的到期時間。當驗證**權杖到期**時，您可能會看到下列錯誤訊息：「認證作業發生錯誤：invalid\_grant-AADSTS70002：驗證認證時發生錯誤。AADSTS70008：提供的存取授權已過期或撤銷。追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21-09-31Z"。
+
+
+| 使用者類型 | 到期時間 |
+| :-------- | :----------- | 
+| 非 AAD 使用者 (@hotmail.com、@live.com 等等) | 12 小時 |
+| AAD 使用者和 OAuth 型來源是以不同[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)做為使用者的 Data Factory 的租用戶。 | 12 小時 |
+| AAD 使用者和 OAuth 型來源是以相同租用戶做為使用者的 Data Factory 的租用戶。 | <p>如果使用者根據其 OAuth 型連結服務來源，至少每 14 天執行一次配量，最大值是 90 天。</p><p>在預期的 90 天內，一旦使用者未根據該來源在 14 內執行任何配量，認證會在最後一個配量的 14 天後立即過期。</p> |
+
+若要避免/解決此錯誤，您必須在**權杖到期**和重新部署連結的服務時使用 [授權] 按鈕重新授權。您也可以使用下一節中的程式碼以程式設計方式產生 **sessionId** 和 **authorization** 屬性的值。
+
+### 若要以程式設計方式產生 sessionId 與 authorization 的值 
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+請參閱 [AzureDataLakeStoreLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)、[AzureDataLakeAnalyticsLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)和 [AuthorizationSessionGetResponse 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)主題，以取得在程式碼中使用的 Data Factory 類別的詳細資訊。您必須針對 WindowsFormsWebAuthenticationDialog 類別將參考新增至：Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll。
+ 
 
 ## Azure 資料湖資料集類型屬性
 
 如需可供定義資料集使用的 JSON 區段和屬性的完整清單，請參閱[建立資料集](data-factory-create-datasets.md)文章。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
 
-每個資料集類型的 **typeProperties** 區段都不同，但都會提供資料存放區中資料的位置、格式等相關資訊。**AzureDataLakeStore** 類型資料集的 typeProperties 區段具有下列屬性。
+每個資料集類型的 **typeProperties** 區段都不同，可提供資料存放區中資料的位置和格式等相關資訊。**AzureDataLakeStore** 類型資料集的 typeProperties 區段具有下列屬性。
 
 | 屬性 | 說明 | 必要 |
 | :-------- | :----------- | :-------- |
 | folderPath | Azure 資料湖存放區中容器與資料夾的路徑。 | 是 |
 | fileName | <p>Azure 資料湖存放區中的檔案名稱。fileName 可選用。</p><p>若您指定 filename，活動 (包括複製活動) 將只會在特定檔案上運作。</p><p>若未指定 fileName，則複製活動則會包含輸入資料集 folderPath 中的所有檔案。</p><p>若未指定輸出資料集的 fileName，則所產生檔案的名稱會使用下列格式：Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 否 |
 | partitionedBy | partitionedBy 是選擇性的屬性。您可以用來指定時間序列資料的動態 folderPath 和 filename。例如，folderPath 可針對每小時的資料進行參數化。如需詳細資訊和範例，請參閱下面的＜運用 partitionedBy 屬性＞一節。 | 否 |
-| format | 支援兩種格式類型: **TextFormat**、**AvroFormat**。您需要將格式底下的 type 屬性設定為這些值。如果格式為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資訊，請參閱以下[指定 TextFormat](#specifying-textformat) 一節。 | 否 |
+| format | 支援兩種格式類型：**TextFormat**、**AvroFormat**。您需要將格式底下的 type 屬性設定為這些值。如果格式為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資訊，請參閱以下[指定 TextFormat](#specifying-textformat) 一節。 | 否 |
 | compression | 指定此資料的壓縮類型和層級。支援的類型為：GZip、Deflate 和 BZip2，而支援的層級為：最佳和最快。如需詳細資訊，請參閱[壓縮支援](#compression-support)一節。 | 否 |
 
 ### 運用 partitionedBy 屬性
 如上所述，您可以使用 **partitionedBy** 區段、Data Factory 巨集和系統變數 (SliceStart 和 SliceEnd，表示指定資料配量的開始和結束時間)，指定時間序列資料的動態 folderPath 和 filename。
 
-請參閱[建立資料集](data-factory-create-datasets.md)和[排程和執行](data-factory-scheduling-and-execution.md)文章，以了解時間序列資料集、排程和配量的詳細資訊。
+請參閱[建立資料集](data-factory-create-datasets.md)和[排程和執行](data-factory-scheduling-and-execution.md)等文章，以了解時間序列資料集、排程和配量的詳細資訊。
 
 #### 範例 1
 
@@ -454,11 +496,11 @@
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| columnDelimiter | 在檔案中做為資料行分隔符號的字元。此標記是選擇性的。預設值是逗號 (,)。 | 否 |
-| rowDelimiter | 在檔案中做為資料列分隔符號的字元。此標記是選擇性的。預設值是下列任一項：[“\\r\\n”, “\\r”,” \\n”]。 | 否 |
+| columnDelimiter | 在檔案中做為資料行分隔符號的字元。目前只允許一個字元。此標記是選擇性的。預設值是逗號 (,)。 | 否 |
+| rowDelimiter | 在檔案中做為資料列分隔符號的字元。目前只允許一個字元。此標記是選擇性的。預設值是下列任一項：[“\\r\\n”, “\\r”,” \\n”]。 | 否 |
 | escapeChar | <p>用來逸出內容中顯示之資料行分隔符號的特殊字元。此標記是選擇性的。沒有預設值。您為此屬性指定的字元不得超過一個。</p><p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：“Hello, world”)，您可以定義 ‘$’ 做為逸出字元，並在來源中使用字串 “Hello$, world”。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否 | 
-| quoteChar | <p>用來引用字串值的特殊字元。引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。此標記是選擇性的。沒有預設值。您為此屬性指定的字元不得超過一個。</p><p>例如，如果您以逗號 (,) 做為資料行分隔符號，但想要在文字中使用逗號字元 (例如：<Hello  world>)，您可以定義 ‘"’ 做為引用字元並在來源中使用字串 <"Hello, world">。這個屬性同時適用於輸入和輸出資料表。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否 |
-| nullValue | <p>用來代表 Blob 檔案內容中 null 值的字元。此標記是選擇性的。預設值為 "\\N"。</p><p>例如，根據上述範例，Blob 中的 "NaN" 會在複製到 SQL Server 時轉換成 null 值。</p> | 否 |
+| quoteChar | <p>用來引用字串值的特殊字元。引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。此標記是選擇性的。沒有預設值。您為此屬性指定的字元不得超過一個。</p><p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello  world>)，您可以定義 ‘"’ 做為引用字元，並在來源中使用字串 <"Hello, world">。這個屬性同時適用於輸入和輸出資料表。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否 |
+| nullValue | <p>用來代表 Blob 檔案內容中 null 值的字元。此標記是選擇性的。預設值為 “\\N”。</p><p>例如，根據上述範例，Blob 中的 “NaN” 會在複製到 SQL Server 時轉換成 null 值。</p> | 否 |
 | encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參閱：[Encoding.EncodingName 屬性](https://msdn.microsoft.com/library/system.text.encoding.aspx)。例如：windows-1250 或 shift\_jis。預設值為 UTF-8。 | 否 | 
 
 #### 範例
@@ -537,7 +579,7 @@
 
 
 ## Azure 資料湖複製活動類型屬性  
-如需可用來定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
+如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
@@ -545,7 +587,7 @@
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
-| recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 | True (預設值)、False | 否 |
+| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 | True (預設值)、False | 否 |
 
 
 
@@ -553,7 +595,7 @@
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | 指定複製行為。 | <p>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</p><p>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案都會有自動產生的名稱。</p><p>**MergeFiles：** (此功能近期會加入) 將來源資料夾的所有檔案合併為一個檔案。若已指定檔案/Blob 名稱，合併的檔案名稱將會是指定的名稱；否則，就會是自動產生的檔案名稱。</p> | 否 |
+| copyBehavior | 指定複製行為。 | <p>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</p><p>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案都會有自動產生的名稱。</p><p>**MergeFiles：**會把來源資料夾的所有檔案合併成一個檔案。如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。</p> | 否 |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -562,4 +604,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

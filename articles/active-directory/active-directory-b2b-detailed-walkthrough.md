@@ -45,7 +45,7 @@
 
 2. 建立 .csv 檔案，並填入 Bob 的 Email、DisplayName、**InviteAppID**、**InviteAppResources** 和 InviteContactUsUrl。**InviteAppResources** 會填入從 PowerShell 找到之 Moodle 和 Salesforce 的 AppPrincipalId (以空格分隔)。這是以綠框和藍框醒目提示的 ID，其對應於上面的 PowerShell 螢幕擷取畫面。**InviteAppId** 會由 Moodle 的相同 AppPrincipalId 填入，用來標記電子郵件和登入頁面。![Bob 的範例 CSV 檔案](./media/active-directory-b2b-detailed-walkthrough/BobCSV.png)
 
-3. 如同對待 Alice 一樣，透過 Azure 入口網站上傳 .csv 檔案。Bob 現在是 Contoso 的 Azure AD 目錄中的外部使用者。
+3. 如同 Alice 所進行的步驟，透過 Azure 入口網站上傳 .csv 檔案。Bob 現在是 Contoso 的 Azure AD 目錄中的外部使用者。
 
 4. Bob 將會收到下列電子郵件。![Bob 的邀請電子郵件](./media/active-directory-b2b-detailed-walkthrough/BobEmail.png)
 
@@ -53,7 +53,7 @@
 
 我們接下來會新增 Carol，她需要應用程式的存取權以及 Contoso 目錄中的群組成員資格。
 
-## 將 Carol 新增至 Contoso 的目錄，授與應用程式的存取權，並提供群組成員資格
+## 將 Carol 加入至 Contoso 的目錄，授與應用程式的存取權，並提供群組成員資格
 
 1. 使用已安裝 Azure AD 模組的 Windows PowerShell 來尋找 Contoso 內的應用程式識別碼和群組識別碼。
  - 如同對待 Bob 一樣，使用 `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` Cmdlet 擷取 AppPrincipalId。
@@ -79,4 +79,4 @@
 - [外部使用者物件屬性變更](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [目前的預覽版本限制](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

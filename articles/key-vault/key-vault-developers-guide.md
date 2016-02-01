@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/06/2015"
+   ms.date="1/19/2016"
    ms.author="bruceper" />
 
 # Azure 金鑰保存庫開發人員指南
@@ -25,7 +25,7 @@
 
 - 使用 [[建立]](https://msdn.microsoft.com/library/azure/dn903634.aspx)、[[匯入]](https://msdn.microsoft.com/library/azure/dn903626.aspx)、[[更新]](https://msdn.microsoft.com/library/azure/dn903616.aspx)、[[刪除]](https://msdn.microsoft.com/library/azure/dn903611.aspx) 和其他作業管理密碼編譯金鑰。
 
-- 使用 [[取得]](https://msdn.microsoft.com/library/azure/dn903633.aspx)、[更新] (https://msdn.microsoft.com/library/azure/dn986818.aspx)、[[刪除]](https://msdn.microsoft.com/library/azure/dn903613.aspx) 和其他作業管理密碼。
+- 使用 [Get](https://msdn.microsoft.com/library/azure/dn903633.aspx)、[Update](https://msdn.microsoft.com/library/azure/dn986818.aspx)、[Delete](https://msdn.microsoft.com/library/azure/dn903613.aspx) 和其他作業管理密碼。
 
 - 以 [[簽章]](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[[驗證]](https://msdn.microsoft.com/library/azure/dn878082.aspx)、[[包裝金鑰]](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[[解除包裝金鑰]](https://msdn.microsoft.com/library/azure/dn878079.aspx) 和 [[加密]](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[[解密]](https://msdn.microsoft.com/library/azure/dn878097.aspx) 作業使用密碼編譯金鑰。
 
@@ -37,7 +37,8 @@
 
 |[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[.NET SDK 文件](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js SDK 文件](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[.NET SDK 封裝](https://azure.microsoft.com/zh-TW/documentation/api/)|[Node.js SDK 封裝](https://www.npmjs.com/package/azure-keyvault)|
 
 ## 管理金鑰保存庫
 
@@ -65,4 +66,4 @@ Azure 金鑰保存庫容器 (保存庫) 可以使用 REST、PowerShell 或 CLI �
 
 - [Microsoft Azure 金鑰保存庫延伸模組](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0)提供 Azure 金鑰保存庫的擴充功能。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

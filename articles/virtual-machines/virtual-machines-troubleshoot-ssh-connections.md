@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="01/08/2016"
 	ms.author="dkshir"/>
 
 # 疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線
@@ -37,11 +37,11 @@
 
 若要解決使用傳統部署模型所建立之虛擬機器中較常見的 SSH 連線失敗，請嘗試下列步驟：
 
-1. 從 [Azure 入口網站](https://portal.azure.com)**重設遠端存取**。依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重設遠端存取]。
+1. 從 [Azure 入口網站](https://portal.azure.com)**重設遠端存取**。按一下 [瀏覽全部] > [虛擬機器 (傳統)]，選取您要重設的虛擬機器，再按一下 [重設遠端存取]。
 
 	![顯示重設 SSH 設定的螢幕擷取畫面](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. 「重新啟動」虛擬機器。從 [Azure 入口網站](https://portal.azure.com)，依序按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [重新啟動]。從 [Azure 傳統入口網站](https://manage.windowsazure.com)，開啟 [虛擬機器] > [執行個體]，然後按一下 [重新啟動]。
+2. 「重新啟動」虛擬機器。從 [Azure 入口網站](https://portal.azure.com)按一下 [瀏覽全部] > [虛擬機器 (傳統)]，選取您要重新啟動的虛擬機器，再按一下 [重新啟動]。從 [Azure 傳統入口網站](https://manage.windowsazure.com)，開啟 [虛擬機器] > [執行個體]，然後按一下 [重新啟動]。
 
 3. [「調整」虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
 
@@ -104,7 +104,7 @@
 	Switch-AzureMode -Name AzureResourceManager
 	```
 
-	c.執行 `VMAccessForLinux` 擴充以重設 SSH 連線，如下列範例所示。
+	c.執行 `VMAccessForLinux` 擴充以重設 SSH 連線，如下列範例所示。(如果您使用 Azure PowerShell 1.0 或更新版本，下列 Commandlet 為 `Set-AzureRMVMExtension`。)
 
 	```
 	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
@@ -186,7 +186,7 @@
 在 [Azure 入口網站](https://portal.azure.com)：
 
 1. 如果是在傳統部署模型中建立的虛擬機器，請按一下 [瀏覽] > [虛擬機器 (傳統)] > VM 名稱。如果是使用資源管理員建立的虛擬機器，請按一下 [瀏覽] > [虛擬機器] > VM 名稱。虛擬機器的狀態窗格應該會顯示為**執行中**。向下捲動以顯示計算、儲存體和網路資源的近期活動。
-2. 按一下 [**設定**] 以檢查端點、IP 位址和其他設定。若要識別虛擬機器中使用資源管理員建立的端點，請檢查是否已定義[網路安全性群組](../traffic-manager/virtual-networks-nsg.md)、它所套用的規則，以及是否在子網路中予以參考。
+2. 按一下 [**設定**] 以檢查端點、IP 位址和其他設定。若要識別虛擬機器中使用資源管理員建立的端點，請檢查是否已定義[網路安全性群組](../virtual-network/virtual-networks-nsg.md)、它所套用的規則，以及是否在子網路中予以參考。
 
 若要確認網路連線，請檢查設定的端點，並判斷您是否可以透過另一個通訊協定 (例如 HTTP 或另一個服務) 連接到 VM。
 
@@ -261,7 +261,7 @@
 <a id="nsg"></a>
 #### 來源 4：網路安全性群組
 
-網路安全性群組讓您更精確地控制受允許的輸入和輸出流量。您可以在 Azure 虛擬網路中建立跨越子網路和雲端服務的規則。請檢查您的網路安全性群組規則，以確保允許往來網際網路的 SSH 流量。如需詳細資訊，請參閱[關於網路安全性群組](../traffic-manager/virtual-networks-nsg.md)。
+網路安全性群組讓您更精確地控制受允許的輸入和輸出流量。您可以在 Azure 虛擬網路中建立跨越子網路和雲端服務的規則。請檢查您的網路安全性群組規則，以確保允許往來網際網路的 SSH 流量。如需詳細資訊，請參閱[關於網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 
 #### 來源 5：以 Linux 為基礎的 Azure 虛擬機器
 
@@ -274,7 +274,7 @@
 再次嘗試從您的電腦連線。如果仍然失敗，下列為某些可能的原因：
 
 - SSH 服務未在目標虛擬機器上執行。
-- SSH 服務未在 TCP 連接埠 22 上接聽。若要測試這種情況，請在本機電腦上安裝 telnet 用戶端，並執行 "telnet *cloudServiceName*.cloudapp.net 22"。這樣可以判斷虛擬機器是否允許和 SSH 端點的輸入和輸出通訊。
+- SSH 服務未在 TCP 連接埠 22 上接聽。若要測試這種情況，請在本機電腦上安裝 telnet 用戶端，並執行 "telnet cloudServiceName.cloudapp.net 22"。這樣可以判斷虛擬機器是否允許和 SSH 端點的輸入和輸出通訊。
 - 目標虛擬機器上的本機防火牆具有防止輸入或輸出 SSH 流量的規則。
 - 在 Azure 虛擬機器上執行的入侵偵測或網路監視軟體正在阻止 SSH 連線。
 
@@ -287,4 +287,4 @@
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

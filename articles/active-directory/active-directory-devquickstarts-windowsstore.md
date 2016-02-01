@@ -39,7 +39,7 @@
 
 若要開始使用，請[下載基本架構專案](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/skeleton.zip)或[下載完整的範例](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip)。每一個都是 Visual Studio 2013 解決方案。您還需要一個可以建立使用者並註冊應用程式的 Azure AD 租用戶。如果您還沒有租用戶，[了解如何取得租用戶](active-directory-howto-tenant.md)。
 
-## *1.註冊目錄搜尋應用程式*
+## 1.註冊目錄搜尋應用程式
 若要啟用您的應用程式以取得權杖，您必須先在 Azure AD 租用戶中進行註冊，並對其授與存取 Azure AD Graph API 的權限：
 
 -	登入 [Azure 管理入口網站](https://manage.windowsazure.com)
@@ -50,9 +50,9 @@
     -	應用程式的 [**名稱**] 將對使用者說明您的應用程式
     -	「**重新導向 Uri**」是配置和字串的組合，Azure AD 可用它來傳回權杖回應。現在請先輸入預留位置值，例如 `http://DirectorySearcher`。我們稍後將會取代此值。
 -	完成註冊後，AAD 會為您的應用程式指派一個唯一用戶端識別碼。您在後續章節中將會用到這個值，所以請從 [**設定**] 索引標籤中複製此值。
-- 此外，在 [**設定**] 索引標籤上找到 [其他應用程式的權限] 區段。在 [**委派權限**] 下，為 [Azure Active Directory] 應用程式新增 [**存取您的組織目錄**] 權限。這樣做可讓您的應用程式查詢 Graph API 的使用者。
+- 此外，在 [**設定**] 索引標籤上找到 [其他應用程式的權限] 區段。對於 "Azure Active Directory" 應用程式，在 [委派權限] 下，加入 [以登入使用者的身分存取目錄] 權限。這樣做可讓您的應用程式查詢 Graph API 的使用者。
 
-## *2.安裝及設定 ADAL*
+## 2.安裝及設定 ADAL
 既然您在 Azure AD 中已經擁有應用程式，您可以安裝 ADAL，並撰寫身分識別相關程式碼。為了讓 ADAL 能夠與 Azure AD 進行通訊，您必須提供一些應用程式註冊相關資訊。從使用封裝管理員主控台將 ADAL 加入 DirectorySearcher 專案開始。
 
 ```
@@ -67,6 +67,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
 ```
+- 建置方案，並確認還原了封裝的所有參考。如果遺失封裝，請開啟 Nuget 封裝管理員，並還原套件。
 - 執行應用程式，並在觸及中斷點時複製 `redirectUri` 的值並將其擱置在一旁。您應該會看到類似下面的畫面
 
 ```
@@ -75,7 +76,7 @@ ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-
 
 - 回到 Azure 管理入口網站中應用程式的 [**設定**] 索引標籤上，使用這個值取代 **RedirectUri** 的值。  
 
-## *3.使用 ADAL 來取得 AAD 的權杖*
+## 3.使用 ADAL 來取得 AAD 的權杖
 ADAL 的基本原則是每當您的應用程式需要存取權杖時，它只需呼叫 `authContext.AcquireToken(…)`，ADAL 就會進行其餘工作。
 
 -	第一步是初始化應用程式的 `AuthenticationContext` - ADAL 的主要類別。您在這裡將 ADAL 與 Azure AD 通訊所需的座標傳給 ADAL，並告訴它如何快取權杖。
@@ -85,8 +86,7 @@ public MainPage()
 {
     ...
 
-    // ADAL for Windows Phone 8.1 builds AuthenticationContext instances through a factory
-    authContext = AuthenticationContext.CreateAsync(authority).GetResults();
+    authContext = new AuthenticationContext(authority);
 }
 ```
 
@@ -147,4 +147,4 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

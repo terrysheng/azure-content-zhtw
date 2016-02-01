@@ -1,7 +1,8 @@
 <properties 
     pageTitle="教學課程：Azure Active Directory 與 Adobe EchoSign 整合 | Microsoft Azure" 
     description="了解如何使用 Adobe EchoSign 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
-    services="active-directory" authors="markusvi"  
+    services="active-directory" 
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -10,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Adobe EchoSign 整合
 
@@ -44,7 +45,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-adobe-echosign-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-adobe-echosign-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -58,7 +59,7 @@
 
     ![應用程式庫](./media/active-directory-saas-adobe-echosign-tutorial/IC789514.png "應用程式庫")
 
-7.  在結果窗格中，選取 [Adobe EchoSign]，然後按一下 [完成] 新增應用程式。
+7.  在結果窗格中，選取 [Adobe EchoSign]，然後按一下 [完成] 加入應用程式。
 
     ![Adobe EchoSign](./media/active-directory-saas-adobe-echosign-tutorial/IC789515.png "Adobe EchoSign")
 ##設定單一登入
@@ -106,7 +107,7 @@
     3.  在 Azure 入口網站的 [設定在 Adobe EchoSign 單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將它貼至 [IdP 登出 URL] 文字方塊中。
     4.  從您下載的憑證建立 **base-64 編碼**檔案。  
 
-		>[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
+		>[AZURE.TIP]如需詳細資料，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
     5.  在記事本中開啟您的 base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼至 [IdP 憑證] 文字方塊中。
     6.  按一下 [儲存變更]。
 
@@ -129,7 +130,7 @@
 
     ![建立使用者](./media/active-directory-saas-adobe-echosign-tutorial/IC789525.png "建立使用者")
 
-    1.  在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶的 [電子郵件地址]、[名字] 和 [姓氏]。
+    1.  在相關的文字方塊中，輸入您想要佈建之有效 ADD 帳戶的 [電子郵件地址]、[名字] 和 [姓氏]。
     2.  按一下 [建立使用者]。
 
 		>[AZURE.NOTE]Azure Active Directory 帳戶的持有者會收到一封包含連結的電子郵件，以便在帳戶啟用前加以確認。
@@ -154,4 +155,4 @@
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="01/07/2016"
    ms.author="hascipio"/>
 
 # 使用行銷內容完成供應項目建立程序
@@ -32,7 +32,7 @@
 
   ![繪圖](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
-  *優惠標題、描述和標誌*
+  優惠標題、描述和標誌
 
 ### 連結
 在左側工具列的 [連結] 索引標籤上，輸入任何可能對客戶有幫助的資訊連結。輸入每個連結的名稱和 URL。
@@ -122,31 +122,31 @@
 
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
 
-*Azure.com Marketplace 網站上的優惠清單*
+Azure.com Marketplace 網站上的優惠清單
 
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
 
-*Azure.com Marketplace 網站上的優惠描述詳細資料*
+Azure.com Marketplace 網站上的優惠描述詳細資料
 
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
 
-*Azure.com Marketplace 網站上的優惠定價詳細資料*
+Azure.com Marketplace 網站上的優惠定價詳細資料
 
 ### Azure Preview 入口網站
 ![繪圖](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
 
-*Azure Preview 入口網站中的優惠清單*
+Azure Preview 入口網站中的優惠清單
 
 ![繪圖](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
 
-*Azure Preview 入口網站中的優惠描述詳細資料*
+Azure Preview 入口網站中的優惠描述詳細資料
 
 ## 後續步驟
 既然已載入您的 Marketplace 內容，讓我們繼續在預備環境中測試您的優惠。不過，您必須從下列清單選取適當的優惠類型，因為步驟會隨著優惠類型而有所不同。
 
-||虛擬機器映像 |開發人員服務 |資料服務 | 解決方案範本 |
-|---|---|---|---|---|
-| **步驟 3.將您的優惠推送至預備環境** | [在預備環境中測試您的 VM 優惠](marketplace-publishing-vm-image-test-in-staging.md) | [在預備環境中測試您的開發人員服務優惠](marketplace-publishing-dev-service-test-in-staging.md) | [在預備環境中測試您的資料服務優惠](marketplace-publishing-data-service-test-in-staging.md) | [在預備環境中測試您的解決方案範本](marketplace-publishing-solution-template-test-in-staging.md) |
+||虛擬機器映像 |開發人員服務 | 資料服務 | 解決方案範本 |
+|----|----|----|----|----|
+| **步驟 3：推送優惠至預備環境** | [在預備環境中測試您的 VM 優惠](marketplace-publishing-vm-image-test-in-staging.md) | 在預備環境中測試您的開發人員服務優惠 | [在預備環境中測試您的資料服務優惠](marketplace-publishing-data-service-test-in-staging.md) | [在預備環境中測試您的解決方案範本](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## 另請參閱
 - [使用者入門：如何將優惠發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +160,4 @@
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

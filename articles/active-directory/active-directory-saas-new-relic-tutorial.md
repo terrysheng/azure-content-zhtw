@@ -2,7 +2,7 @@
     pageTitle="教學課程：Azure Active Directory 與 New Relic 整合 | Microsoft Azure" 
     description="了解如何使用 New Relic 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 New Relic 整合
   
@@ -45,7 +45,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-new-relic-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-new-relic-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -55,7 +55,7 @@
 
     ![從組件庫新增應用程式](./media/active-directory-saas-new-relic-tutorial/IC749322.png "從組件庫新增應用程式")
 
-6.  在**搜尋方塊**中，輸入 **New Relic**。
+6.  在**搜尋方塊**中輸入 **New Relic**。
 
     ![應用程式庫](./media/active-directory-saas-new-relic-tutorial/IC797031.png "應用程式庫")
 
@@ -68,17 +68,17 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 **New Relic** 應用程式整合頁面中，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 [New Relic] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-new-relic-tutorial/IC769534.png "設定單一登入")
 
-2.  在 [要如何讓使用者登入 New Relic] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按按 [下一步]。
+2.  在 [要如何讓使用者登入 New Relic] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按按一下 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-new-relic-tutorial/IC797033.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面上，於 [New Relic 登入 URL] 文字方塊中，輸入使用者登入您 New Relic 應用程式所使用的 URL，然後按 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [New Relic 登入 URL] 文字方塊中，輸入使用者登入您 New Relic 應用程式所使用的 URL，然後按一下 [下一步]。
 
-    應用程式 URL 是您的 New Relic 租用戶 URL (例如：**https://rpm.newrelic.com*)：
+    應用程式 URL 是您的 New Relic 租用戶 URL (例如：**https://rpm.newrelic.com*):
 
     ![設定應用程式 URL](./media/active-directory-saas-new-relic-tutorial/IC797034.png "設定應用程式 URL")
 
@@ -92,20 +92,20 @@
 
     ![帳戶設定](./media/active-directory-saas-new-relic-tutorial/IC797036.png "帳戶設定")
 
-7.  按一下 [安全性及驗證] 索引標籤，然後按一下 [單一登入] 索引標籤。
+7.  按一下 [安全性及驗證] 索引標籤，然後再按一下 [單一登入] 索引標籤。
 
     ![單一登入](./media/active-directory-saas-new-relic-tutorial/IC797037.png "單一登入")
 
-8.  在 SAML 對話頁面上，執行下列步驟：
+8.  在 SAML 對話方塊頁面上，執行下列步驟：
 
     ![SAML](./media/active-directory-saas-new-relic-tutorial/IC797038.png "SAML")
 
     1.  按一下 [選擇檔案] 上傳已下載的 Azure Active Directory 憑證。
-    2.  在 Microsoft Azure 入口網站的 [設定在 New Relic 單一登入] 頁面中，複製**遠端登入 URL** 值，然後將它貼至 [遠端登入 URL] 文字方塊中。
-    3.  在 Microsoft Azure 入口網站的 [設定在 New Relic 單一登入] 頁面中，複製**遠端登出 URL** 值，然後將它貼至 [登出登陸 URL] 文字方塊中。
+    2.  在 Microsoft Azure 入口網站的 [設定在 New Relic 單一登入] 頁面上，複製 [遠端登入 URL] 值，然後將它貼至 [遠端登入 URL] 文字方塊中。
+    3.  在 Microsoft Azure 入口網站的 [設定在 New Relic 單一登入] 頁面上，複製 [遠端登出 URL] 值，然後將它貼至 [登出登陸 URL] 文字方塊中。
     4.  按一下 [儲存我的變更]。
 
-9.  在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+9.  在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-new-relic-tutorial/IC797039.png "設定單一登入")
 ##設定使用者佈建
@@ -120,7 +120,7 @@
 
     ![帳戶設定](./media/active-directory-saas-new-relic-tutorial/IC797040.png "帳戶設定")
 
-3.  在左邊的 [帳戶] 窗格中按一下 [摘要]，然後按一下 [新增使用者]。
+3.  在左邊的**帳戶**窗格中按一下 [摘要]，然後按一下 [新增使用者]。
 
     ![帳戶設定](./media/active-directory-saas-new-relic-tutorial/IC797041.png "帳戶設定")
 
@@ -128,8 +128,8 @@
 
     ![作用中使用者](./media/active-directory-saas-new-relic-tutorial/IC797042.png "作用中使用者")
 
-    1.  在 [電子郵件] 文字方塊中，輸入您想要佈建的有效 Azure Active Directory 使用者電子郵件地址。
-    2.  針對 [角色]，選取 [使用者]。
+    1.  在 [電子郵件] 文字方塊中輸入您想要佈建的有效 Azure Active Directory 使用者電子郵件地址。
+    2.  **角色**請選取 [使用者]。
     3.  按一下 [新增此使用者]。
 
 >[AZURE.NOTE]您可以使用任何其他的 New Relic 使用者帳戶建立工具或 New Relic 提供的 API 來佈建 AAD 使用者帳戶。
@@ -152,4 +152,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

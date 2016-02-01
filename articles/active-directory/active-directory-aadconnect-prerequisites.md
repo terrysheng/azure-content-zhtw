@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/08/2016"
+   ms.date="01/12/2016"
    ms.author="andkjell;billmath"/>
 
 # Azure AD Connect 的必要條件
@@ -29,7 +29,7 @@
 
 ### 內部部署的伺服器和環境
 - AD 結構描述版本與樹系功能等級必須是 Windows Server 2003 或更新版本。只要符合結構描述和樹系層級需求，網域控制站就能執行任何版本。
-- 如果您打算使用**密碼回寫**功能，網域控制站必須是 Windows Server 2008 (含最新的 SP) 或更新版本。
+- 如果您打算使用**密碼回寫**功能，網域控制站必須是 Windows Server 2008 (含最新的 SP) 或更新版本。如果您的 DC 位於 2008 (R2 之前)，則您也必須套用 [Hotfix KB2386717](http://support.microsoft.com/kb/2386717)。
 - Azure AD Connect 無法安裝至 Small Business Server 或 Windows Server Essentials。伺服器必須使用 Windows Server Standard 或以上版本。
 - Azure AD Connect 必須安裝於 Windows Server 2008 或更新版本上。此伺服器可以是網域控制站或成員伺服器 (如果使用快速設定)。如果您使用自訂設定，伺服器也可以是獨立伺服器，而且不需加入網域。
 - 如果您要在 Windows Server 2008 上安裝 Azure AD Connect，請務必套用來自 Windows Update 的最新 Hotfix。在未修補的伺服器上將無法開始進行安裝。
@@ -37,16 +37,17 @@
 - Azure AD Connect 伺服器必須已安裝 [.NET Framework 4.5.1](#component-prerequisites) 或更新的版本及 [Microsoft PowerShell 3.0](#component-prerequisites) 或更新的版本。
 - 如果部署的是 Active Directory 同盟服務，則將安裝 AD FS 或 Web 應用程式 Proxy 的伺服器必須是 Windows Server 2012 R2 或更新版本。必須在這些伺服器上啟用 [Windows 遠端管理](#windows-remote-management)，才能執行遠端安裝。
 - 如果部署的是 Active Directory 同盟服務，則您需要 [SSL 憑證](#ssl-certificate-requirements)。
-- Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。預設會安裝 SQL Server 2012 Express LocalDB (輕量版的 SQL Server Express)，並且在本機電腦上建立服務的服務帳戶。SQL Server Express 有 10 GB 的大小限制，可讓您管理大約 100,000 個物件。如果您需要管理更多數量的目錄物件，則必須將安裝精靈指向不同的 SQL Server 安裝。Azure AD Connect 支援從 SQL Server 2008 (含 SP4) 至 SQL Server 2014 的各種 Microsoft SQL Server。Microsoft Azure SQL Database **不支援**做為資料庫。
+- Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。預設會安裝 SQL Server 2012 Express LocalDB (輕量版的 SQL Server Express)，並且在本機電腦上建立服務的服務帳戶。SQL Server Express 有 10 GB 的大小限制，可讓您管理大約 100,000 個物件。如果您需要管理更多數量的目錄物件，則必須將安裝精靈指向不同的 SQL Server 安裝。Azure AD Connect 支援從 SQL Server 2008 (含 SP4) 至 SQL Server 2014 的各種 Microsoft SQL Server。Microsoft Azure SQL Database **不支援**做為資料庫使用。
 
 ### 帳戶
-- 想要與其整合之 Azure AD 目錄的 Azure AD 全域管理員帳戶這必須是**學校或組織帳戶**，不能是 **Microsoft 帳戶**。
+- 想要與其整合之 Azure AD 目錄的 Azure AD 全域管理員帳戶必須是**學校或組織帳戶**，不能是 **Microsoft 帳戶**。
 - 如果使用快速設定或從 DirSync 升級，則為本機 Active Directory 的企業系統管理員帳戶。
 - 如果您使用自訂設定的安裝路徑，[則帳戶是 Active Directory](active-directory-aadconnect-accounts-permissions.md)。
 
 ### 連線能力
+- 如果您的內部網路有防火牆，您需要開放 Azure AD Connect 伺服器與網域控制站之間的連接埠，如需詳細資訊，請參閱 [Azure AD Connect 連接埠](active-directory-aadconnect-ports.md)。
 - 如果您的 Proxy 會限制哪些 URL 可供存取，則必須在 Proxy 中開啟 [Office 365 URL 和 IP 位址範圍](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中記載的 URL。
-- 如果您使用連出 Proxy 來連線到網際網路，則必須在 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 檔案中新增下列設定，安裝精靈和 Azure AD Connect 同步才能夠連線到網際網路和 Azure AD。必須在檔案底部輸入此文字。在此程式碼中，&lt;PROXYADRESS&gt; 代表實際的 Proxy IP 位址或主機名稱。
+- 如果您使用連出 Proxy 來連線到網際網路，則必須在 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 檔案中加入下列設定，安裝精靈和 Azure AD Connect 同步才能夠連線到網際網路和 Azure AD。必須在檔案底部輸入此文字。在此程式碼中，&lt;PROXYADRESS&gt; 代表實際的 Proxy IP 位址或主機名稱。
 
 ```
     <system.net>
@@ -74,9 +75,17 @@
     </system.net>
 ```
 
-在 machine.config 中進行這項變更之後，安裝精靈和同步處理引擎就會回應來自 Proxy 伺服器的驗證要求。在所有安裝精靈頁面中 ([設定] 頁面除外)，都會使用已登入之使用者的認證。在安裝精靈結尾的 [設定] 頁面上，內容會切換到已建立的[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)。
+在 machine.config 中進行這項變更之後，安裝精靈和同步處理引擎就會回應來自 Proxy 伺服器的驗證要求。在所有安裝精靈頁面中 ([設定] 頁面除外)，都會使用已登入之使用者的認證。在安裝精靈結尾的 [設定] 頁面上，內容會切換到已建立的[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)。如需有關[預設 Proxy 元素](https://msdn.microsoft.com/library/kd3cf2ex.aspx)的詳細資訊，請參閱 MSDN。
 
-如需有關[預設 Proxy 元素](https://msdn.microsoft.com/library/kd3cf2ex.aspx)的詳細資訊，請參閱 MSDN。
+- 您也需要設定 winhttp。啟動命令提示字元並輸入：
+
+```
+C:\>netsh
+netsh>winhttp
+netsh winhttp>set proxy <PROXYADDRESS>:<PROXYPORT>
+```
+
+如果您遇到連線問題，請參閱[疑難排解連線問題](active-directory-aadconnect-troubleshoot-connectivity.md)。
 
 ### 其他
 - 選用：測試使用者帳戶來驗證同步處理。
@@ -157,4 +166,4 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。依您�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -31,7 +31,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 > [AZURE.NOTE]目前，Azure Site Recovery PowerShell cmdlet 可讓您設定 VMM 站台至 VMM 站台、VMM 站台至 Azure 和 Azure 案例的 Hyper-V 站台。即將加入對其他 ASR 案例的支援。
 
-您不需要是 PowerShell 專家就能使用本文，但本文假設您了解模組、Cmdlet 和工作階段等基本概念。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx)。深入了解[搭配使用 Azure PowerShell 與 Azure 資源管理員](powershell-azure-resource-manager.md)。
+您不需要是 PowerShell 專家就能使用本文，但本文假設您了解模組、Cmdlet 和工作階段等基本概念。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx)。深入了解[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
 
 
 ## 主要功能
@@ -43,7 +43,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 確認您已備妥這些必要條件：
 
-- 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。此外，您可以參閱 [Azure Site Recovery 管理員價格](http://azure.microsoft.com/pricing/details/site-recovery/)。
+- 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。此外，您可以參閱 [Azure Site Recovery 管理員價格](http://azure.microsoft.com/pricing/details/site-recovery/)。
 - 您將需要 Azure PowerShell 1.0。如需有關此版本以及如何安裝的資訊，請參閱 [Azure PowerShell 1.0](http://azure.microsoft.com/)。
 - 您必須安裝 [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 和 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 模組。您可以從 [PowerShell](https://www.powershellgallery.com/) 資源庫取得這些模組的最新版本
 
@@ -261,4 +261,4 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

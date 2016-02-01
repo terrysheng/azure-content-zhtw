@@ -74,14 +74,22 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
 
 * 明確限制網際網路存取的 Azure 虛擬網路不支援 HDInsight。例如，使用「網路安全性群組」或 ExpressRoute 封鎖虛擬網路中資源的網際網路流量。HDInsight 服務是受管理的服務，並要求在佈建期間與執行時存取網際網路，以便 Azure 可以監視叢集的健全狀況、起始叢集資源容錯移轉，以及其他自動化管理工作。
 
-    如果您想要在封鎖網際網路流量的虛擬網路上使用 HDInsight，您可以執行下列動作：
+    如果您想要在封鎖網際網路流量的虛擬網路上使用 HDInsight，您可以使用下列步驟：
 
-    1.	在虛擬網路內建立新的子網路。HDInsight 會使用此子網路。
-
-    2.	定義路由表，並建立同時允許連入和連出網際網路連線之子網路的「使用者定義路由」(UDR)。您可以使用 * 路由完成此動作。這將只會針對子網路上的資源啟用網際網路連線。如需使用 UDR 的詳細資訊，請參閱 https://azure.microsoft.com/zh-TW/documentation/articles/virtual-networks-udr-overview/ 和 https://azure.microsoft.com/zh-TW/documentation/articles/virtual-networks-udr-how-to/。
+    1. 在虛擬網路內建立新的子網路。根據預設，新的子網路能夠與網際網路通訊。這可讓 HDInsight 安裝在這個子網路上。因為新的子網路是在與安全的子網路相同的虛擬網路中，它也可以與那裡安裝的資源通訊。
     
-    3.	當您建立 HDInsight 叢集時，請選取在步驟 1 中建立的子網路。這會將叢集部署到具有網際網路存取的子網路。
+    2. 您可以使用下列 PowerShell 陳述式，確認沒有特定網路安全性群組或路由資料表會附加至子網路中。將 __VIRTUALNETWORKNAME__ 取代為您的虛擬網路名稱，將 __GROUPNAME__ 取代為包含虛擬網路的資源群組的名稱，以即將 __SUBNET__ 取代為子網路的名稱。
+        
+            $vnet = Get-AzureRmVirtualNetwork -Name VIRTUALNETWORKNAME -ResourceGroupName GROUPNAME
+            $vnet.Subnets | Where-Object Name -eq "SUBNET"
+            
+        在結果中，請注意 __NetworkSecurityGroup__ 和 __RouteTable__ 都是 `null`。
+    
+    2. 建立 HDInsight 叢集。為叢集設定虛擬網路設定時，在步驟 1 中選取建立的子網路。
 
+    > [AZURE.NOTE]上述步驟假設您未將通訊限制為虛擬網路 IP 位址範圍中的 IP 位址。如果您已限制，您可能需要修改這些限制，以允許與新的子網路進行通訊。
+
+    如需網路安全性群組的詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/virtual-networks-nsg.md)。如需在 Azure 虛擬網路中控制路由的詳細資訊，請參閱[使用者定義的路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)。
 
 如需如何在虛擬網路佈建 HDInsight 叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](hdinsight-provision-clusters.md)。
 
@@ -191,4 +199,4 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

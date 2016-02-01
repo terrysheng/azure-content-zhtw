@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 Azure 表格服務的 Node.js Web 應用程式"
-	description="本教學課程說明如何使用 Azure 表格服務，儲存 Azure App Service Web 應用程式代管的 Node.js 應用程式資料。"
+	description="本教學課程說明如何使用 Azure 表格服務，儲存 Azure App Service Web Apps 代管的 Node.js 應用程式資料。"
 	tags="azure-portal"
 	services="app-service\web, storage"
 	documentationCenter="nodejs"
@@ -14,16 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/20/2016"
 	ms.author="robmcm"/>
-
-
 
 # 使用 Azure 表格服務的 Node.js Web 應用程式
 
 ## 概觀
 
-本教學課程說明如何使用 Azure 資料管理所提供的表格服務，儲存及存取 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web 應用程式代管的 [node] 應用程式資料。本教學課程假設您先前有過一些使用節點及 [Git] 的經驗。
+本教學課程說明如何使用 Azure 資料管理所提供的表格服務，儲存及存取 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps 代管的 [node] 應用程式資料。本教學課程假設您先前有過一些使用節點及 [Git] 的經驗。
 
 您將了解：
 
@@ -41,7 +39,6 @@
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
-
 ## 必要條件
 
 在依照本文中的指示進行之前，請確定已安裝下列項目：
@@ -49,7 +46,6 @@
 * [node] 版本 0.10.24 或更高版本
 
 * [Git]
-
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -293,7 +289,7 @@
 		  },
 
 		  addTask: function(req,res) {
-		    var self = this
+		    var self = this;
 		    var item = req.body.item;
 		    self.task.addItem(item, function itemAdded(error) {
 		      if(error) {
@@ -445,7 +441,7 @@
 	    "TABLE_NAME": "tasks"
 	}
 
-將此檔案儲存在比 **tasklist** 目錄*高一個目錄層級*的位置，像這樣：
+將此檔案儲存在比 **tasklist** 目錄高一個目錄層級的位置，像這樣：
 
 	parent/
 	  |-- config.json
@@ -500,8 +496,7 @@
 
 	此命令會啟動瀏覽器並瀏覽至下載頁面。若出現提示，請使用與您的 Azure 訂用帳戶相關聯的帳戶登入。
 
-	<!-- ![The download page][download-publishing-settings] -->
-	檔案下載會自動開始；如果沒有，您可以按一下頁面頂端的連結，以手動下載檔案。儲存檔案，並記下檔案路徑。
+	<!-- ![The download page][download-publishing-settings] -->檔案下載會自動開始；如果沒有，您可以按一下頁面頂端的連結，以手動下載檔案。儲存檔案，並記下檔案路徑。
 
 2. 輸入下列命令以匯入設定：
 
@@ -552,7 +547,7 @@
 
 或者，您可以在 [Azure 入口網站](https://portal.azure.com)中設定環境變數：
 
-1.  依序按一下 [瀏覽] > [Web 應用程式] > Web 應用程式名稱，開啟 Web 應用程式的刀鋒視窗。
+1.  依序按一下 [瀏覽] > [Web Apps] > Web 應用程式名稱，開啟 Web 應用程式的刀鋒視窗。
 
 1.  在您的 Web 應用程式刀鋒視窗中，按一下 [所有設定] > [應用程式設定]。
 
@@ -601,10 +596,11 @@
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
+<!-- URLs -->
+
 [在 Azure App Service 中建置和部署 Node.js Web 應用程式]: web-sites-nodejs-develop-deploy-mac.md
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
-
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
@@ -623,6 +619,9 @@
 
 [Azure Portal]: https://portal.azure.com
 
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+ 
+<!-- Image References -->
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
 [node-table-list-items]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
@@ -631,13 +630,9 @@
 [portal-storage-account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
 [portal-quick-create-storage]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
 [portal-storage-access-keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
-
 [go-to-dashboard]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
- 
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

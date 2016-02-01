@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="教學課程：Azure 串流分析和 Azure Machine Learning 整合 | Microsoft Azure" 
+	pageTitle="教學課程：使用 Azure 串流分析和 Azure 機器學習服務的情緒分析 | Microsoft Azure" 
 	description="如何在串流分析作業中利用 UDF 和機器學習服務"
 	keywords=""
 	documentationCenter=""
@@ -19,7 +19,7 @@
 	ms.author="jeffstok"
 />
 
-# 教學課程：串流分析和機器學習服務整合簡介 #
+# 教學課程：使用串流分析和機器學習服務執行情緒分析 #
 
 本教學課程旨在協助您透過機器學習服務整合，快速設定簡單的串流分析作業。我們將利用 Cortana 分析資源庫的情緒分析機器學習服務模型，來分析串流文字資料並即時判斷情緒分數。本教學課程很適合用來了解下列各種案例，例如對串流 twitter 資料進行即時情緒分析、由支援人員分析客戶聊天記錄、論壇/部落格/影片上的評論，以及其他許多即時預測評分案例。
   
@@ -150,4 +150,4 @@
 
     ![串流分析機器學習服務教學課程 ml 監視檢視](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

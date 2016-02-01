@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016"
+	ms.date="01/14/2016"
 	ms.author="juliako"/>
 
 #Azure 媒體服務概觀和常見案例
@@ -29,7 +29,10 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 若要建置媒體服務解決方案，您可以使用：
 
 - [媒體服務 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- 其中一個可用的用戶端 SDK：[Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services)、[Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)、[Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js)、[Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- 其中一個可用的用戶端 SDK： 
+	- [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services)、 
+	- [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)、[Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)、 
+	- [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (這是非 Microsoft 版本的 Node.js SDK。它是由社群維護，且目前並沒有 AMS API 的 100% 涵蓋範圍)。 
 - 現有工具：[Azure 傳統入口網站](http://manage.windowsazure.com/)或 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)。
 
 
@@ -231,4 +234,4 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

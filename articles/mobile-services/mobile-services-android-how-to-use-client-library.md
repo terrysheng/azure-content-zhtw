@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 
@@ -35,7 +35,7 @@
 
 ##<a name="setup"></a>設定和必要條件
 
-我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表](http://go.microsoft.com/fwlink/p/?LinkId=298592)。在本主題所使用的程式碼中，我們假設資料表的名稱為 *ToDoItem*，且其中包含下列資料行：
+我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表](http://go.microsoft.com/fwlink/p/?LinkId=298592)。在本主題所使用的程式碼中，我們假設資料表的名稱為 ToDoItem，且其中包含下列資料行：
 
 - id
 - text
@@ -52,7 +52,7 @@
 啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://go.microsoft.com/fwlink/p/?LinkId=296271)。
 
 ##<a name="create-client"></a>作法：建立行動服務用戶端
-下列程式碼將建立用來存取行動服務的 [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 物件。程式碼會進入在 *AndroidManifest.xml* 中指定為 **MAIN** 動作和 **LAUNCHER** 類別目錄之 Activity 類別的 `onCreate` 方法。
+下列程式碼將建立用來存取行動服務的 [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 物件。程式碼會進入在 AndroidManifest.xml 中指定為 **MAIN** 動作和 **LAUNCHER** 類別目錄之 Activity 類別的 `onCreate` 方法。
 
 		MobileServiceClient mClient = new MobileServiceClient(
 				"MobileServiceUrl", // Replace with the above Site URL
@@ -63,7 +63,7 @@
 
 ##<a name="instantiating"></a>作法：建立資料表參考
 
-要查詢或修改行動服務中的資料，最簡單的方式就是使用*型別程式設計模型*，因為 Java 屬於強型別語言 (後續我們將討論*不具型別的*模型)。這個模型會在用戶端與行動服務之間傳送資料時，使用 [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) 程式庫提供順暢的 JSON 序列化和還原序列化：開發人員不需要執行任何動作，架構會處理一切。
+要查詢或修改行動服務中的資料，最簡單的方式就是使用型別程式設計模型，因為 Java 屬於強型別語言 (後續我們將討論不具型別的模型)。這個模型會在用戶端與行動服務之間傳送資料時，使用 [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) 程式庫提供順暢的 JSON 序列化和還原序列化：開發人員不需要執行任何動作，架構會處理一切。
 
 查詢或修改資料的第一步，是要在 [**MobileServiceClient**](http://go.microsoft.com/fwlink/p/?LinkId=296835) 上呼叫 [getTable](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 方法，以建立 **MobileServiceTable** 物件。我們將考量此方法的兩個多載：
 
@@ -72,7 +72,7 @@
 	    public <E> MobileServiceTable<E> getTable(String name, Class<E> clazz);
 	}
 
-在下列程式碼中，*mClient* 是對您的行動服務用戶端的參考。
+在下列程式碼中，mClient 是對您的行動服務用戶端的參考。
 
 [第一個多載](http://go.microsoft.com/fwlink/p/?LinkId=296839)會在類別名稱與資料表名稱相同的情況下使用：
 
@@ -94,7 +94,7 @@
 
 ### <a name="showAll"></a>作法：從資料表傳回所有項目
 
-下列程式碼會傳回 *ToDoItem* 資料表中的所有項目。新增項目到配接器，即會在 UI 中顯示。此程式碼類似於[開始使用行動服務]快速入門教學課程中的程式碼。
+下列程式碼會傳回 ToDoItem 資料表中的所有項目。新增項目到配接器，即會在 UI 中顯示。此程式碼類似於[開始使用行動服務]快速入門教學課程中的程式碼。
 
 		new AsyncTask<Void, Void, Void>() {
 
@@ -123,12 +123,12 @@
 
 與此類似的查詢會使用 [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) 物件。
 
-*result* 變數會傳回查詢的結果，而 `mToDoTable.execute().get()` 陳述式後面的程式碼會示範如何顯示個別的資料列。
+result 變數會傳回查詢的結果，而 `mToDoTable.execute().get()` 陳述式後面的程式碼會示範如何顯示個別的資料列。
 
 
 ### <a name="filtering"></a>作法：篩選傳回的資料
 
-下列程式碼會從 *ToDoItem* 資料表傳回 *complete* 欄位等於 *false* 的所有項目。*mToDoTable* 是我們先前建立的行動服務資料表的參考。
+下列程式碼會從 ToDoItem 資料表傳回 complete 欄位等於 false 的所有項目。mToDoTable 是我們先前建立的行動服務資料表的參考。
 
         new AsyncTask<Void, Void, Void>() {
             @Override
@@ -152,15 +152,15 @@
 
 這已足以用來比較數字/字串欄位與特定值。但您能做的絕對不僅止於此。
 
-例如，您可以依日期進行篩選。您可以比較整個日期欄位，也可以使用下列方法比較日期的某些部分：[**year**](http://go.microsoft.com/fwlink/p/?LinkId=298467)、[**month**](http://go.microsoft.com/fwlink/p/?LinkId=298468)、[**day**](http://go.microsoft.com/fwlink/p/?LinkId=298469)、[**hour**](http://go.microsoft.com/fwlink/p/?LinkId=298470)、[**minute**](http://go.microsoft.com/fwlink/p/?LinkId=298471) 和 [**second**](http://go.microsoft.com/fwlink/p/?LinkId=298472)。下列節錄的程式碼會為*到期日*為 2013 年的項目新增篩選器。
+例如，您可以依日期進行篩選。您可以比較整個日期欄位，也可以使用下列方法比較日期的某些部分：[**year**](http://go.microsoft.com/fwlink/p/?LinkId=298467)、[**month**](http://go.microsoft.com/fwlink/p/?LinkId=298468)、[**day**](http://go.microsoft.com/fwlink/p/?LinkId=298469)、[**hour**](http://go.microsoft.com/fwlink/p/?LinkId=298470)、[**minute**](http://go.microsoft.com/fwlink/p/?LinkId=298471) 和 [**second**](http://go.microsoft.com/fwlink/p/?LinkId=298472)。下列節錄的程式碼會為到期日為 2013 年的項目新增篩選器。
 
 		mToDoTable.where().year("due").eq(2013).execute().get();
 
-您可以使用 [**startsWith**](http://go.microsoft.com/fwlink/p/?LinkId=298473)、[**endsWith**](http://go.microsoft.com/fwlink/p/?LinkId=298474)、[**concat**](http://go.microsoft.com/fwlink/p/?LinkId=298475)、[**subString**](http://go.microsoft.com/fwlink/p/?LinkId=298477)、[**indexOf**](http://go.microsoft.com/fwlink/p/?LinkId=298488)、[**replace**](http://go.microsoft.com/fwlink/p/?LinkId=298491)、[**toLower**](http://go.microsoft.com/fwlink/p/?LinkId=298492)、[**toUpper**](http://go.microsoft.com/fwlink/p/?LinkId=298493)、[**trim**](http://go.microsoft.com/fwlink/p/?LinkId=298495) 和 [**length**](http://go.microsoft.com/fwlink/p/?LinkId=298496) 等方法，對字串欄位執行多種複雜的篩選。下列節錄的程式碼會對 *text* 資料行的開頭為 "PRI0" 的資料表資料列進行篩選。
+您可以使用 [**startsWith**](http://go.microsoft.com/fwlink/p/?LinkId=298473)、[**endsWith**](http://go.microsoft.com/fwlink/p/?LinkId=298474)、[**concat**](http://go.microsoft.com/fwlink/p/?LinkId=298475)、[**subString**](http://go.microsoft.com/fwlink/p/?LinkId=298477)、[**indexOf**](http://go.microsoft.com/fwlink/p/?LinkId=298488)、[**replace**](http://go.microsoft.com/fwlink/p/?LinkId=298491)、[**toLower**](http://go.microsoft.com/fwlink/p/?LinkId=298492)、[**toUpper**](http://go.microsoft.com/fwlink/p/?LinkId=298493)、[**trim**](http://go.microsoft.com/fwlink/p/?LinkId=298495) 和 [**length**](http://go.microsoft.com/fwlink/p/?LinkId=298496) 等方法，對字串欄位執行多種複雜的篩選。下列節錄的程式碼會對 text 資料行的開頭為 "PRI0" 的資料表資料列進行篩選。
 
 		mToDoTable.where().startsWith("text", "PRI0").execute().get();
 
-數字欄位也可透過 [**add**](http://go.microsoft.com/fwlink/p/?LinkId=298497)、[**sub**](http://go.microsoft.com/fwlink/p/?LinkId=298499)、[**mul**](http://go.microsoft.com/fwlink/p/?LinkId=298500)、[**div**](http://go.microsoft.com/fwlink/p/?LinkId=298502)、[**mod**](http://go.microsoft.com/fwlink/p/?LinkId=298503)、[**floor**](http://go.microsoft.com/fwlink/p/?LinkId=298505)、[**ceiling**](http://go.microsoft.com/fwlink/p/?LinkId=298506) 和 [**round**](http://go.microsoft.com/fwlink/p/?LinkId=298507) 等方法，進行多種更複雜的篩選。下列節錄的程式碼會對 *duration* 為偶數的資料表資料列進行篩選。
+數字欄位也可透過 [**add**](http://go.microsoft.com/fwlink/p/?LinkId=298497)、[**sub**](http://go.microsoft.com/fwlink/p/?LinkId=298499)、[**mul**](http://go.microsoft.com/fwlink/p/?LinkId=298500)、[**div**](http://go.microsoft.com/fwlink/p/?LinkId=298502)、[**mod**](http://go.microsoft.com/fwlink/p/?LinkId=298503)、[**floor**](http://go.microsoft.com/fwlink/p/?LinkId=298505)、[**ceiling**](http://go.microsoft.com/fwlink/p/?LinkId=298506) 和 [**round**](http://go.microsoft.com/fwlink/p/?LinkId=298507) 等方法，進行多種更複雜的篩選。下列節錄的程式碼會對 duration 為偶數的資料表資料列進行篩選。
 
 		mToDoTable.where().field("duration").mod(2).eq(0).execute().get();
 
@@ -182,7 +182,7 @@
 
 ### <a name="sorting"></a>作法：排序傳回的資料
 
-下列程式碼會從 *ToDoItems* 資料表傳回依 *text* 欄位遞增排序的所有項目。*mToDoTable* 是您先前建立的行動服務資料表的參考。
+下列程式碼會從 ToDoItems 資料表傳回依 text 欄位遞增排序的所有項目。mToDoTable 是您先前建立的行動服務資料表的參考。
 
 		mToDoTable.orderBy("text", QueryOrder.Ascending).execute().get();
 
@@ -190,11 +190,11 @@
 
 第二個參數會使用 [**QueryOrder**](http://go.microsoft.com/fwlink/p/?LinkId=298521) 列舉，指定要進行遞增還是遞減排序。
 
-請注意，如果您使用 ***where*** 方法進行篩選，***where*** 方法必須要在 ***orderBy*** 方法之前叫用。
+請注意，如果您使用 **where** 方法進行篩選，**where** 方法必須要在 **orderBy** 方法之前叫用。
 
 ### <a name="paging"></a>作法：以分頁方式傳回資料
 
-第一個範例將說明如何從資料表中選取前 5 個項目。查詢會傳回 *ToDoItems* 資料表中的項目。*mToDoTable* 是您先前建立的行動服務資料表的參考。
+第一個範例將說明如何從資料表中選取前 5 個項目。查詢會傳回 ToDoItems 資料表中的項目。mToDoTable 是您先前建立的行動服務資料表的參考。
 
        final MobileServiceList<ToDoItem> result = mToDoTable.top(5).execute().get();
 
@@ -206,7 +206,7 @@
 
 ### <a name="selecting"></a>作法：選取特定資料行
 
-下列程式碼說明如何傳回 *ToDoItems* 資料表中的所有項目，但僅顯示 *complete* 和 *text* 欄位。*mToDoTable* 是我們先前建立的行動服務資料表的參考。
+下列程式碼說明如何傳回 ToDoItems 資料表中的所有項目，但僅顯示 complete 和 text 欄位。mToDoTable 是我們先前建立的行動服務資料表的參考。
 
 		mToDoTable.select("complete", "text").execute().get();
 
@@ -221,7 +221,7 @@
 
 之所以能有此效用，是因為您所使用的查詢方法會傳回 [**MobileServiceQuery&lt;T&gt;**](http://go.microsoft.com/fwlink/p/?LinkId=298551) 物件，而這些物件後續又可供其他方法加以叫用。若要結束這一系列的方法，而實際執行查詢，您可以呼叫 [**execute**](http://go.microsoft.com/fwlink/p/?LinkId=298554) 方法。
 
-在下列程式碼範例中，*mToDoTable* 是行動服務 *ToDoItem* 資料表的參考。
+在下列程式碼範例中，mToDoTable 是行動服務 ToDoItem 資料表的參考。
 
 		mToDoTable.where().year("due").eq(2013)
 						.and().startsWith("text", "PRI0")
@@ -230,14 +230,14 @@
 					.orderBy(duration, QueryOrder.Ascending).top(20)
 					.execute().get();
 
-要將方法鏈結在一起，最主要的要求是必須先使用 *where* 方法和述詞。其後，您可以依據應用程式的需求，以最適當的順序呼叫後續方法。
+要將方法鏈結在一起，最主要的要求是必須先使用 where 方法和述詞。其後，您可以依據應用程式的需求，以最適當的順序呼叫後續方法。
 
 
 ##<a name="inserting"></a>作法：將資料插入行動服務
 
 下列程式碼說明如何在資料表中插入新的資料列。
 
-首先，您將 *ToDoItem* 類別的執行個體具現化，並設定其屬性。
+首先，您將 ToDoItem 類別的執行個體具現化，並設定其屬性。
 
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.text = "Test Program";
@@ -311,7 +311,7 @@
 
 ##<a name="updating"></a>作法︰更新行動服務中的資料
 
-下列程式碼說明如何更新資料表中的資料。在此範例中，*item* 是 *ToDoItem* 資料表中某個資料列的參考，其中已有一些變更。下列方法會更新資料表和 UI 配接器。
+下列程式碼說明如何更新資料表中的資料。在此範例中，item 是 ToDoItem 資料表中某個資料列的參考，其中已有一些變更。下列方法會更新資料表和 UI 配接器。
 
 	private void updateItem(final ToDoItem item) {
 	    if (mClient == null) {
@@ -400,7 +400,7 @@
     }
 
 ##<a name="lookup"></a>作法：查閱特定項目
-有時候，您會想要依據 *id* 來查閱特定項目；此方式不像查詢通常會產生符合某個條件的項目集合。下列程式碼說明如何執行此作業，假設 *id* 值為 `0380BAFB-BCFF-443C-B7D5-30199F730335`。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至 Azure 傳統入口網站，按一下 [資料] 索引標籤並複製您想要測試的識別碼。
+有時候，您會想要依據 id 來查閱特定項目；此方式不像查詢通常會產生符合某個條件的項目集合。下列程式碼說明如何執行此作業，假設 id 值為 `0380BAFB-BCFF-443C-B7D5-30199F730335`。在實際的應用程式中，您會以某種方式取得識別碼，並將它傳入做為變數。在這裡，為簡化測試，您可以移至 Azure 傳統入口網站，按一下 [資料] 索引標籤並複製您想要測試的識別碼。
 
     /**
      * Lookup specific item from table and UI
@@ -448,7 +448,7 @@
 
 
 
-在您於 **onCreate** 方法中建立行動服務用戶端的執行個體後 (此範例中為 *mClient* 變數)，接下來就可以使用下列程式碼建立 **MobileServiceJsonTable** 的執行個體。
+在您於 **onCreate** 方法中建立行動服務用戶端的執行個體後 (此範例中為 mClient 變數)，接下來就可以使用下列程式碼建立 **MobileServiceJsonTable** 的執行個體。
 
 
             // Get the Mobile Service Json Table to use
@@ -464,7 +464,7 @@
 		item.addProperty("text", "Wake up");
 		item.addProperty("complete", false);
 
-下一個步驟是插入物件。傳至 [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=298535) 方法的回呼函數是 [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298532) 類別的執行個體。請留意 *insert* 方法的參數為何是 JsonObject。
+下一個步驟是插入物件。傳至 [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=298535) 方法的回呼函數是 [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298532) 類別的執行個體。請留意 insert 方法的參數為何是 JsonObject。
 
         // Insert the new item
         new AsyncTask<Void, Void, Void>() {
@@ -489,7 +489,7 @@
 
 ### <a name="json_delete"></a>作法：在不具型別的資料表中進行刪除
 
-下列程式碼將說明如何刪除執行個體 (在此案例中，即為在前述**插入**範例中建立的同一個 *JsonObject* 執行個體)。請注意程式碼與典型案例相同，但方法具有不同的簽章，因為它會參考 **JsonObject**。
+下列程式碼將說明如何刪除執行個體 (在此案例中，即為在前述**插入**範例中建立的同一個 JsonObject 執行個體)。請注意程式碼與典型案例相同，但方法具有不同的簽章，因為它會參考 **JsonObject**。
 
 
          mToDoTable.delete(item);
@@ -548,11 +548,11 @@
 - 畫面配置
 - 將這兩個項目連結在一起的配接器。
 
-在範例程式碼中，我們會將行動服務資料表 *ToDoItem* 中的資料傳回陣列中。這是一個非常常見的資料應用程式模式：資料庫查詢通常會傳回資料列集合，讓用戶端在清單或陣列中取得。在此範例中，陣列是資料來源。
+在範例程式碼中，我們會將行動服務資料表 ToDoItem 中的資料傳回陣列中。這是一個非常常見的資料應用程式模式：資料庫查詢通常會傳回資料列集合，讓用戶端在清單或陣列中取得。在此範例中，陣列是資料來源。
 
 程式碼會指定一個畫面配置，以定義裝置上將會出現的資料檢視。
 
-此外，這兩個項目會透過配接器繫結在一起；在此程式碼中，配接器會是 *ArrayAdapter&lt;ToDoItem&gt;* 類別的擴充功能。
+此外，這兩個項目會透過配接器繫結在一起；在此程式碼中，配接器會是 ArrayAdapter&lt;ToDoItem&gt; 類別的擴充功能。
 
 ### <a name="layout"></a>作法：定義配置
 
@@ -566,7 +566,7 @@
     </ListView>
 
 
-在上述程式碼中，*listitem* 屬性會指定清單中個別資料列的配置 ID。以下提供會指定核取方塊及其相關文字的程式碼。清單中的每個項目會分別使其具現化一次。更複雜的配置將會指定顯示畫面中的其他欄位。此程式碼位於 *row\_list\_to\_do.xml* 檔案中。
+在上述程式碼中，listitem 屬性會指定清單中個別資料列的配置 ID。以下提供會指定核取方塊及其相關文字的程式碼。清單中的每個項目會分別使其具現化一次。更複雜的配置將會指定顯示畫面中的其他欄位。此程式碼位於 row\_list\_to\_do.xml 檔案中。
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -583,14 +583,14 @@
 
 ### <a name="adapter"></a>作法：定義配接器
 
-由於我們的檢視資料來源是 *ToDoItem* 的陣列，因此我們將配接器設為 *ArrayAdapter&lt;ToDoItem&gt;* 類別的子類別。這個子類別會為每個使用 *row\_list\_to\_do* 配置的 *ToDoItem* 產生一個檢視。
+由於我們的檢視資料來源是 ToDoItem 的陣列，因此我們將配接器設為 ArrayAdapter&lt;ToDoItem&gt; 類別的子類別。這個子類別會為每個使用 row\_list\_to\_do 配置的 ToDoItem 產生一個檢視。
 
-我們在程式碼中定義了下列類別，這是 *ArrayAdapter&lt;E&gt;* 類別的擴充功能：
+我們在程式碼中定義了下列類別，這是 ArrayAdapter&lt;E&gt; 類別的擴充功能：
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 
-您必須覆寫配接器的 *getView* 方法。此範例程式碼是如何執行此動作的其中一個範例：詳細資料會隨著您的應用程式而有所不同。
+您必須覆寫配接器的 getView 方法。此範例程式碼是如何執行此動作的其中一個範例：詳細資料會隨著您的應用程式而有所不同。
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
@@ -617,7 +617,7 @@
 	ToDoItemAdapter mAdapter;
 	mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
-請留意到，ToDoItemAdapter 建構函式的第二個參數是配置的參考。對建構函式的呼叫會在下列程式碼之後執行，而此程式碼會先取得 **ListView** 的參考，然後呼叫 *setAdapter*，以將本身設定成使用我們剛建立的配接器：
+請留意到，ToDoItemAdapter 建構函式的第二個參數是配置的參考。對建構函式的呼叫會在下列程式碼之後執行，而此程式碼會先取得 **ListView** 的參考，然後呼叫 setAdapter，以將本身設定成使用我們剛建立的配接器：
 
 	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
 	listViewToDo.setAdapter(mAdapter);
@@ -625,7 +625,7 @@
 
 ### <a name="use-adapter"></a>作法：使用配接器
 
-您現在已可使用資料繫結。下列程式碼將說明如何取得行動服務資料表中的項目、清除配接器，然後呼叫配接器的 *add* 方法以填入傳回的項目。
+您現在已可使用資料繫結。下列程式碼將說明如何取得行動服務資料表中的項目、清除配接器，然後呼叫配接器的 add 方法以填入傳回的項目。
 
     public void showAll(View view) {
         new AsyncTask<Void, Void, Void>() {
@@ -651,7 +651,7 @@
         }.execute();
     }
 
-您也必須在每次修改過 *ToDoItem* 資料表後呼叫配接器 (如果您要顯示其執行結果)。修改是對個別記錄逐一執行的，因此您將會處理單一資料列，而不是集合。在插入項目時，您會對配接器呼叫 *add* 方法，刪除時則呼叫 *remove* 方法。
+您也必須在每次修改過 ToDoItem 資料表後呼叫配接器 (如果您要顯示其執行結果)。修改是對個別記錄逐一執行的，因此您將會處理單一資料列，而不是集合。在插入項目時，您會對配接器呼叫 add 方法，刪除時則呼叫 remove 方法。
 
 ##<a name="custom-api"></a>作法：呼叫自訂 API
 
@@ -699,7 +699,7 @@
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-2. 在活動類別的 **onCreate** 方法中，將下列一行程式碼加至可建立 `MobileServiceClient` 物件的程式碼之後︰我們假設 `MobileServiceClient` 物件的參考是 *mClient*。
+2. 在活動類別的 **onCreate** 方法中，將下列一行程式碼加至可建立 `MobileServiceClient` 物件的程式碼之後︰我們假設 `MobileServiceClient` 物件的參考是 mClient。
 
 	    // Login using the Google provider.
 
@@ -721,7 +721,7 @@
 
     此程式碼會使用 Google 登入來驗證使用者。此時會出現對話方塊，顯示已驗證的使用者 ID。必須通過驗證才能繼續。
 
-    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Google，請將傳給上述 **login** 方法的值變更為下列其中一個：_MicrosoftAccount_、_Facebook_、_Twitter_ 或 _WindowsAzureActiveDirectory_。
+    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Google，請將傳給上述 **login** 方法的值變更為下列其中一個：MicrosoftAccount、Facebook、Twitter 或 WindowsAzureActiveDirectory。
 
 
 3. 當您執行應用程式時，請以您選擇的身分識別提供者登入。
@@ -788,7 +788,7 @@
 	}
 
 
-權杖過期將有何影響？ 在此情況下，當您嘗試使用權杖進行連接時，將會出現 *401 未授權*的回應。使用者將必須登入，以取得新權杖。您可以使用篩選器攔截對行動服務的呼叫和行動服務的回應，如此，您即無須在呼叫行動服務的應用程式中逐一撰寫處理此狀況的程式碼。篩選器程式碼將會測試 401 的回應，並視需要觸發登入程序，然後繼續執行產生 401 的要求。
+權杖過期將有何影響？ 在此情況下，當您嘗試使用權杖進行連接時，將會出現 401 未授權的回應。使用者將必須登入，以取得新權杖。您可以使用篩選器攔截對行動服務的呼叫和行動服務的回應，如此，您即無須在呼叫行動服務的應用程式中逐一撰寫處理此狀況的程式碼。篩選器程式碼將會測試 401 的回應，並視需要觸發登入程序，然後繼續執行產生 401 的要求。
 
 
 ##<a name="customizing"></a>作法：自訂用戶端
@@ -835,7 +835,7 @@
 
 ### <a name="columns"></a>作法：對應不同的用戶端和伺服器名稱
 
-假設您的 Java 用戶端程式碼對 *ToDoItem* 物件屬性使用標準 Java 樣式名稱，如下所示。
+假設您的 Java 用戶端程式碼對 ToDoItem 物件屬性使用標準 Java 樣式名稱，如下所示。
 
 - mId
 - mText
@@ -843,7 +843,7 @@
 - mDuration
 
 
-您必須將用戶端名稱序列化為 JSON 名稱，且這些名稱必須與伺服器上的 *ToDoItem* 資料表的資料行名稱相符。下列使用 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 程式庫的程式碼會執行此動作。
+您必須將用戶端名稱序列化為 JSON 名稱，且這些名稱必須與伺服器上的 ToDoItem 資料表的資料行名稱相符。下列使用 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 程式庫的程式碼會執行此動作。
 
 	@com.google.gson.annotations.SerializedName("text")
 	private String mText;
@@ -870,7 +870,7 @@
 
 若要這麼做，我們可以使用 Android 用戶端程式庫在背景用來將 Java 物件序列化為 JSON 資料 (會傳送至 Azure 行動服務) 的 <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> 程式庫。
 
-下列程式碼會使用 *setFieldNamingStrategy()* 方法 (在此方法中可定義 *FieldNamingStrategy()* 方法)。此方法會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。此程式碼也會啟用輸出 JSON 的美化顯示功能。
+下列程式碼會使用 setFieldNamingStrategy() 方法 (在此方法中可定義 FieldNamingStrategy() 方法)。此方法會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。此程式碼也會啟用輸出 JSON 的美化顯示功能。
 
 	client.setGsonBuilder(
 	    MobileServiceClient
@@ -937,4 +937,4 @@
 [開始使用行動服務]: mobile-services-android-get-started.md
 [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

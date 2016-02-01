@@ -1,6 +1,6 @@
-<!--author=SharS last changed: 11/16/15-->
+<!--author=SharS last changed: 01/15/2016-->
 
-#### 從 Azure 入口網站安裝 Update 1.2
+#### 從 Azure 傳統入口網站安裝 Update 1.2
 
 1. 在 [StorSimple 服務] 頁面上，選取您的裝置。瀏覽至 [**裝置**] > [**維護**]。
 
@@ -65,4 +65,4 @@
 
 > [AZURE.NOTE]在某些情況下，在裝置上成功套用維護模式更新之後，指出維護模式更新可供使用的訊息可能會持續顯示長達 24 小時。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

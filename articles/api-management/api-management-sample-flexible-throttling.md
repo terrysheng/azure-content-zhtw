@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/16/2015"
+	ms.date="01/15/2016"
 	ms.author="v-darmi"/>
 
 
@@ -68,4 +68,9 @@ Azure API 管理提供速率和配額節流，不但能保護您的 API 服務�
 ## 後續步驟
 敬請不吝賜教在 Disqus 的本主題系列中提供意見。我們很想知道其他在您的案例中是合理選擇的可能索引鍵值。
 
-<!---HONumber=AcomDC_1217_2015-->
+## 觀看這些原則的影片概觀
+如需本文中所涵蓋的 [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) 和 [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) 原則的詳細資訊，請觀看以下影片。
+
+> [AZURE.VIDEO advanced-request-throttling-with-azure-api-management]
+
+<!---HONumber=AcomDC_0121_2016-->

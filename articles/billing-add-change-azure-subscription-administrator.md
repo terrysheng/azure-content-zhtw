@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="01/05/2016"
 	ms.author="genli"/>
 
 # 如何新增或變更 Azure 管理員角色
@@ -64,6 +64,6 @@ Microsoft Azure 中的管理員角色有三種：
 
 ## 如何變更帳戶管理員
 
-若要將 Azure 帳戶的擁有權移轉到另一個帳戶，請參閱[移轉 Azure 訂用帳戶](../billing-subscription-transfer.md)。
+若要將 Azure 帳戶的擁有權移轉到另一個帳戶，請參閱[移轉 Azure 訂用帳戶](billing-subscription-transfer.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

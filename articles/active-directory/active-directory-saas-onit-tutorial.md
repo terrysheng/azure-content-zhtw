@@ -2,7 +2,7 @@
     pageTitle="教學課程：Azure Active Directory 與 Onit 整合 | Microsoft Azure" 
     description="了解如何使用 Onit 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Onit 整合
   
@@ -21,7 +21,7 @@
 -   有效的 Azure 訂閱
 -   啟用 Onit 單一登入的訂用帳戶
   
-完成本教學課程之後，您指派給 Onit 的 Azure AD 使用者就能夠單一登入 Onit 公司網站 (服務提供者起始登入) 的應用程式，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)進行單一登入。
+完成本教學課程之後，您指派給 Onit 的 Azure AD 使用者就能夠單一登入 Onit 公司網站 (服務提供者起始登入) 的應用程式，或是使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
   
 本教學課程中說明的案例由下列建置組塊組成：
 
@@ -45,7 +45,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![應用程式](./media/active-directory-saas-onit-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-onit-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -59,14 +59,14 @@
 
     ![應用程式庫](./media/active-directory-saas-onit-tutorial/IC791167.png "應用程式庫")
 
-7.  在結果窗格中，選取 [Onit]，然後按一下 [完成] 以新增應用程式。
+7.  在結果窗格中，選取 [Onit]，然後按一下 [完成] 以加入應用程式。
 
     ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.png "Onit")
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 Onit 中進行驗證。設定 Onit 的單一登入需要您從憑證抓取指紋值。如果您不熟悉這個程序，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 Onit 中進行驗證。設定 Onit 的單一登入需要您從憑證抓取指紋值。如果您不熟悉這個程序，請參閱[如何抓取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
   
-Onit 應用程式需要特定格式的 SAML 判斷提示，所以您需要新增自訂屬性對應到您的 **saml token 屬性**設定。以下螢幕擷取畫面顯示上述的範例。
+Onit 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 **saml token 屬性**設定。以下螢幕擷取畫面顯示上述的範例。
 
 ![單一登入](./media/active-directory-saas-onit-tutorial/IC791168.png "單一登入")
 
@@ -101,7 +101,7 @@ Onit 應用程式需要特定格式的 SAML 判斷提示，所以您需要新增
 
     ![設定單一登入](./media/active-directory-saas-onit-tutorial/IC791171.png "設定單一登入")
 
-7.  在 [設定應用程式 URL] 頁面的 [Onit 單一登入 URL] 文字方塊中，輸入使用者登入 Onit 應用程式所使用的 URL (如："**https://ms-sso-test.onit.com*”))，然後按一下 [下一步]。
+7.  在 [設定應用程式 URL] 頁面的 [Onit 單一登入 URL] 文字方塊中，輸入使用者登入您 Onit 應用程式所使用的 URL (如："**https://ms-sso-test.onit.com*”)，然後按一下 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-onit-tutorial/IC791172.png "設定應用程式 URL")
 
@@ -123,22 +123,22 @@ Onit 應用程式需要特定格式的 SAML 判斷提示，所以您需要新增
 
     ![編輯公司資訊](./media/active-directory-saas-onit-tutorial/IC791176.png "編輯公司資訊")
 
-13. 在 [安全性] 索引標籤底下執行下列步驟：。
+13. 在 [安全性] 索引標籤上執行下列步驟：。
 
     ![單一登入](./media/active-directory-saas-onit-tutorial/IC791177.png "單一登入")
 
-    1.  在 [驗證策略] 選取 [單一登入和密碼]。
-    2.  在 Azure 入口網站中的 [設定在 Onit 單一登入] 對話頁面上，複製 [遠端登入 URL] 值，然後將它貼至 [IDP 目標 URL] 文字方塊中。
-    3.  在 Azure 入口網站中的 [設定在 Onit 單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將它貼至 [IDP 登出 URL] 文字方塊中。
-    4.  從匯出的憑證複製**指紋**值，然後將它貼至 [IDP 憑證指紋 (SHA1)] 文字方塊中。  
+    1.  對於**驗證策略**，請選取 [單一登入和密碼]。
+    2.  在 Azure 入口網站中的 [設定在 Onit 單一登入] 對話頁面上， 複製 [遠端登入 URL] 值，然後將它貼至 [IDP 目標 URL] 文字方塊中。
+    3.  在 Azure 入口網站中的 [設定在 Onit 單一登入] 對話頁面上， 複製 [遠端登出 URL] 值，然後將它貼至 [IDP 登出 URL] 文字方塊中。
+    4.  從匯出的憑證複製**憑證指紋**值，然後將它貼至 [IDP 憑證指紋 (SHA1)] 文字方塊中。  
 
-        >[AZURE.TIP]如需詳細資訊，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]如需詳細資訊，請參閱[如何抓取憑證的指紋值](http://youtu.be/YKQF266SAxI)
 
-    5.  在 [SSO 類型] 選取 [SAML]。
+    5.  **SSO 類型**請選取 **SAML**。
     6.  在 [SSO 登入按鈕文字] 文字方塊中輸入您想要的按鈕文字。
-    7.  選取 [使用 SSO 登入: 對下列網域/使用者為必要]，將測試使用者的電子郵件地址輸入相關的文字方塊，然後按一下 [更新]。![編輯公司](./media/active-directory-saas-onit-tutorial/IC791178.png "編輯公司")
+    7.  選取 [使用 SSO 登入：針對下列網域/使用者為必要]，將測試使用者的電子郵件地址輸入相關的文字方塊，然後按一下 [更新]。![編輯公司](./media/active-directory-saas-onit-tutorial/IC791178.png "編輯公司")
 
-14. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+14. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-onit-tutorial/IC791179.png "設定單一登入")
 ##設定使用者佈建
@@ -153,7 +153,7 @@ Onit 應用程式需要特定格式的 SAML 判斷提示，所以您需要新增
 
     ![系統管理](./media/active-directory-saas-onit-tutorial/IC791180.png "系統管理")
 
-3.  在 [新增使用者] 對話頁面中，執行下列步驟：
+3.  在 [新增使用者] 對話頁面上，執行下列步驟：
 
     ![新增使用者](./media/active-directory-saas-onit-tutorial/IC791181.png "新增使用者")
 
@@ -182,4 +182,4 @@ Onit 應用程式需要特定格式的 SAML 判斷提示，所以您需要新增
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

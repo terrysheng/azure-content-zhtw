@@ -1,5 +1,5 @@
 <properties
-	pageTitle="複製 Azure SQL Database"
+	pageTitle="複製 Azure SQL Database | Microsoft Azure"
 	description="建立 Azure SQL Database 的複本"
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/16/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -84,7 +84,7 @@
 
 ## 後續步驟
 
-- [連接 SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [使用 SQL Server Management Studio 連接到 SQL Database 並執行範例 T-SQL 查詢](sql-database-connect-query-ssms.md)
 - [將資料庫匯出至 BACPAC](sql-database-export.md)
 
 
@@ -101,4 +101,4 @@
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

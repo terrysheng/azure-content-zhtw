@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="利用資料流分析中的作業和服務記錄檔 | Microsoft Azure" 
+	pageTitle="使用串流分析中的作業和服務記錄檔偵錯 | Microsoft Azure" 
 	description="如何使用串流分析作業記錄檔" 
 	keywords="服務記錄檔"
 	services="stream-analytics" 
@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# 了解串流分析服務及作業記錄檔
+# 使用服務和作業記錄檔的偵錯串流分析工作
 
 所有 Azure 服務都會將作業記錄訊息提供給使用者，以記錄與管理作業有關的詳細資料。在 Azure 串流分析中，這項資訊可用於偵錯用途，例如檢視工作狀態、工作進度與失敗訊息，以從一開始處理到輸出都可隨著時間追蹤作業進度。
 
@@ -96,4 +96,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

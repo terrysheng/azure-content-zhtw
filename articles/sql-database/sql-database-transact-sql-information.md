@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL 差異
@@ -58,7 +58,6 @@ SQL Database V12 支援部分而非全部的引數，這些引數存在於對應
 - 資料庫圖表
 - Database Mail
 - DATABASEPROPERTY (改用 DATABASEPROPERTYEX)
-- 分散式交易
 - EXECUTE AS 登入
 - 加密：可延伸金鑰管理
 - 事件服務：事件、事件通知、查詢通知
@@ -107,4 +106,4 @@ Transact-SQL 參考包括從 SQL Server 版本 2008 到目前版本的相關主�
 
 在某些情況下，一般主題的主旨可用於產品中，但產品之間會有些微的差異。依適當情況會在主題的中間點指出差異。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

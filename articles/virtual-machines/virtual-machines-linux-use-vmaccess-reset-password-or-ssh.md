@@ -1,6 +1,6 @@
 <properties
-	pageTitle="從 Azure CLI 重設 Linux VM 密碼 | Microsoft Azure"
-	description="如何使用VMAccess 延伸模組從 Azure 傳統入口網站或 CLI 來重設 Linux VM 密碼和 SSH 金鑰、SSH 組態並刪除使用者帳戶。"
+	pageTitle="從 Azure CLI 重設 Linux VM 密碼和新增使用者 |Microsoft Azure"
+	description="如何從 Azure 入口網站或 CLI 使用VMAccess 延伸模組來重設 Linux VM 密碼和 SSH 金鑰、SSH 設定、新增或刪除使用者帳戶及檢查磁碟一致性。"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/15/2015"
 	ms.author="cynthn"/>
 
-# 如何為 Linux 虛擬機器重設密碼或 SSH #
+# 如何使用適用於 Linux 的 Azure VMAccess 延伸模組重設存取、管理使用者及檢查磁碟#
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
 
-如果您因為忘記密碼、安全殼層 (SSH) 金鑰不正確或 SSH 設定有問題而無法連線到 Linux 虛擬機器，請使用 Azure 入口網站或 VMAccessForLinux 延伸模組，來重設密碼或 SSH 金鑰或修正 SSH 組態。請注意，本文適用於使用**傳統**部署模型建立的虛擬機器。
+如果您因為忘記密碼、安全殼層 (SSH) 金鑰不正確或 SSH 設定有問題而無法連線到 Linux 虛擬機器，請使用 Azure 入口網站或 VMAccessForLinux 延伸模組搭配 Azure CLI 來重設密碼或 SSH 金鑰、修正 SSH 組態和檢查磁碟一致性。
 
 ## Azure 入口網站
 
@@ -30,7 +30,7 @@
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-若要在 [Azure 入口網站](https://portal.azure.com)中使用 sudo 權限或 SSH 公開金鑰來重設使用者帳戶的名稱和密碼，可依序按一下 [瀏覽] > [虛擬機器] > *您的 Linux 虛擬機器* > [所有設定] > [密碼重設]。範例如下。
+若要在 [Azure 入口網站](https://portal.azure.com)中使用 sudo 權限或 SSH 公開金鑰來重設使用者帳戶的名稱和密碼，可依序按一下 [瀏覽] > [虛擬機器] > 您的 Linux 虛擬機器 > [所有設定] > [密碼重設]。範例如下。
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -61,6 +61,8 @@
 + [重設 SSH 組態](#sshconfigresetcli)
 + [刪除使用者](#deletecli)
 + [顯示 VMAccess 延伸模組的狀態](#statuscli)
++ [檢查新增的磁碟的一致性](#checkdisk)
++ [修復 Linux VM 上新增的磁碟](#repairdisk)
 
 ### <a name="pwresetcli"></a>重設密碼
 
@@ -149,6 +151,34 @@
 
 	azure vm extension get
 
+### < name = 'checkdisk' <</a>檢查新增的磁碟的一致性
+
+若要在 Linux 虛擬機器中的所有磁碟上執行 fsck，您必須執行下列操作：
+
+步驟 1：使用此內容建立名為 PublicConf.json 的檔案。檢查磁碟以布林值決定是否要檢查附加至您的虛擬機器的磁碟。
+
+    {   
+    "check_disk": "true"
+    }
+
+步驟 2：執行這個命令來執行，以取代預留位置值。
+
+   azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
+
+### <a name='repairdisk'></a>修復 Linux 虛擬機器上新增的磁碟
+
+若要修復未掛接或發生掛接設定錯誤的磁碟，請使用 VMAccess 延伸模組來重設 Linux 虛擬機器上的掛接設定。
+
+步驟 1：使用此內容建立名為 PublicConf.json 的檔案。
+
+    {
+    "repair_disk":"true",
+    "disk_name":"yourdisk"
+    }
+
+步驟 2：執行這個命令來執行，以取代預留位置值。
+
+    azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
 
 ## 使用 Azure PowerShell
 
@@ -179,6 +209,8 @@
 + [重設 SSH 組態](#config)
 + [刪除使用者](#delete)
 + [顯示 VMAccess 延伸模組的狀態](#status)
++ [檢查新增的磁碟的一致性](#checkdisk)
++ [修復 Linux VM 上新增的磁碟](#repairdisk)
 
 ### <a name="password"></a>重設密碼
 
@@ -252,6 +284,25 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 
 	$vm.GuestAgentStatus
 
+### <a name="checkdisk"<</a>檢查新增的磁碟的一致性
+
+若要使用 fsck 公用程式檢查磁碟的一致性，請執行下列命令。
+
+	$PublicConfig = "{"check_disk": "true"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
+
+### <a name="checkdisk"<</a>修復 Linux VM 上新增的磁碟
+
+若要使用 fsck 公用程式修復磁碟，請執行下列命令。
+
+	$PublicConfig = "{"repair_disk": "true", "disk_name": "my_disk"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
 
 ## 其他資源
 
@@ -266,4 +317,4 @@ SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH �
 [Azure VM 延伸模組與功能]: virtual-machines-extensions-features.md
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

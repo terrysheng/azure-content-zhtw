@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # 使用 Azure 資源管理員及 PowerShell 建立和修改 ExpressRoute 線路的路由
@@ -395,4 +395,4 @@
 
 -  如需使用虛擬網路的詳細資訊，請參閱[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

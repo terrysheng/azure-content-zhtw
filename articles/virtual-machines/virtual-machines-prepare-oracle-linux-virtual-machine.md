@@ -26,7 +26,7 @@ ms.author="bbenz" />
 -   [準備用於 Azure 的 Oracle Linux 7.0+ 虛擬機器](virtual-machines-linux-create-upload-vhd-oracle.md)
 
 ##必要條件
-本文假設您已將 Oracle Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需相關指示，請參閱[安裝 Hyper-V 和建立虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
+本文假設您已將 Oracle Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需相關指示，請參閱[安裝 HYPER-V 和建立虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 **Oracle Linux 安裝注意事項**
 
@@ -43,6 +43,9 @@ ms.author="bbenz" />
 - 請勿在作業系統磁碟上設定交換磁碟分割。您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。您可以在以下步驟中找到與此有關的詳細資訊。
 
 - 所有 VHD 的大小都必須是 1 MB 的倍數。
+
+- 確定已啟用 `Addons`repository。編輯檔案 `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) 或 `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux)，將此檔案中 **[ol6\_addons]** 或 **[ol7\_addons]** 底下的 `enabled=0` 一行變更為 `enabled=1`。
+
 
 ##Oracle Linux 6.4+
 您必須在作業系統中完成特定組態步驟，虛擬機器才能在 Azure 中執行。
@@ -153,7 +156,7 @@ ms.author="bbenz" />
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-4.  在 /etc/sysconfig/network-scripts/ 目錄中，建立名為 **ifcfg-eth0**、且包含下列文字的檔案：
+4.  在 /etc/sysconfig/network-scripts/ 目錄中，建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -222,4 +225,4 @@ ms.author="bbenz" />
 
 15.  在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

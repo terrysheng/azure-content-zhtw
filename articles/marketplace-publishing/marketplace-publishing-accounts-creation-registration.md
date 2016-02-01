@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="01/07/2016"
    ms.author="hascipio"/>
 
 # 建立 Microsoft 開發人員帳戶
@@ -22,7 +22,7 @@
 ## 1\.建立 Microsoft 帳戶
 > [AZURE.WARNING]若要開始發佈程序，您必須建立一個 Microsoft 帳戶。此帳戶將用來註冊和登入 **Microsoft 開發人員中心**和 **Azure 發佈入口網站**。您所有的 Azure Marketplace 供應項目應該只會共有一個 Microsoft 帳戶。其不應該特別屬於服務或優惠。
 
-構成使用者名稱的電子郵件地址應該位於您的網域中，並由您的 IT 小組所控制 (例如 publishing@example.com)。付款方式、稅務資訊和報告都將透過這個帳戶路由傳送。
+構成使用者名稱的電子郵件地址應該位於您的網域中，並由您的 IT 小組所控制 (例如 publishing@example.com))。付款方式、稅務資訊和報告都將透過這個帳戶路由傳送。
 
   >[AZURE.WARNING]Microsoft 帳戶註冊不支援使用 "Azure" 和 "Microsoft" 之類的單字。請避免使用這些字，以完成帳戶建立及註冊程序。
 
@@ -65,7 +65,7 @@ Microsoft 開發人員中心用於註冊一次公司資訊。註冊者必須是�
 
 2. 移至 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)。
 
-3. 使用您的公司註冊 Microsoft 帳戶登入 (亦即 marketplace@example.com)。
+3. 使用您的公司註冊 Microsoft 帳戶登入 (亦即 marketplace@example.com))。
 
     ![繪圖][img-signin]
 
@@ -143,15 +143,11 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 
 2.	移至 [http://publish.windowsazure.com](http://publish.windowsazure.com)。
 
-3.	使用您的公司註冊 Microsoft 帳戶登入 (亦即 marketplace@example.com)，您也可以視需要加入共同管理員。
+3.	使用您的公司註冊 Microsoft 帳戶登入 (亦即 marketplace@example.com))，您也可以視需要加入共同管理員。
 
   >[AZURE.TIP]如需參與原則的說明，請參閱 [Azure 網站](http://azure.microsoft.com/support/legal/marketplace/participation-policies/)。
 
-  > 如果在開發人員中心註冊時發生問題，請記錄支援票證，如下所示：
-  1.連絡[支援人員](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=zh-TW&pesid=15635&ccsid=635847950577064286)。
-  2.選擇 [開發人員中心]。
-  3.選擇 [設定檔]。
-  4.選擇連絡方法。
+  > 如果在開發人員中心註冊時發生問題，請記錄支援票證，如下所示：1.連絡[支援人員](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=zh-TW&pesid=15635&ccsid=635847950577064286)。2.選擇 [開發人員中心]。3.選擇 [設定檔]。4.選擇連絡方法。
 
 
 
@@ -164,8 +160,8 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 || 虛擬機器映像 | 開發人員服務 | 資料服務 | 解決方案範本 |
 |----|-----|-----|-----|-----|
 |**步驟 2：建立您的優惠** |[一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)|
-|| [VM 映像技術性必要條件][link-single-vm-prereq] | [開發人員服務技術性必要條件](marketplace-publishing-dev-service-creation-prerequisites.md) | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [解決方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [VM 映像發佈指南][link-single-vm] | [開發人員服務發佈指南](marketplace-publishing-dev-creation.md) | [資料服務發佈指南](marketplace-publishing-data-service-creation.md) | [解決方案範本發佈指南](marketplace-publishing-solution-template-creation.md) |
+|| [VM 映像技術性必要條件][link-single-vm-prereq] | 開發人員服務技術性必要條件 | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [VM 映像發佈指南][link-single-vm] | 開發人員服務發佈指南 | [資料服務發佈指南](marketplace-publishing-data-service-creation.md) | [解決方案範本發佈指南](marketplace-publishing-solution-template-creation.md) |
 || [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] |
 
 ## 另請參閱
@@ -198,4 +194,4 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

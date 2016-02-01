@@ -1,15 +1,17 @@
-* [What is Azure App Service?](app-service-value-prop-what-is.md)
-  * [Web App](../app-service-web/app-service-web-overview.md)
-  * [Mobile App](../app-service-mobile/app-service-mobile-value-prop.md)
-  * [API App](../app-service-api/app-service-api-apps-why-best-platform.md)
-  * [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-* [Azure App Service Architecture (presentation)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
-* [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md)
-* [Understanding App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md)
-* [Introduction to App Service Environment](../app-service-web/app-service-app-service-environment-intro.md)
-  * [Exercise: Create an App Service Environement](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
-* [Azure App Service Development Stacks Support](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)
+* [什麼是 Azure 應用程式服務？](app-service-value-prop-what-is.md)
+  * [Web 應用程式](../app-service-web/app-service-web-overview.md)
+  * [行動應用程式](../app-service-mobile/app-service-mobile-value-prop.md)
+  * [API 應用程式](../app-service-api/app-service-api-apps-why-best-platform.md)
+  * [邏輯應用程式](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+* [Azure App Service 架構 (展示)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
+* [Azure App Service、雲端服務與虛擬機器之比較](../app-service-web/choose-web-site-cloud-service-vm.md)
+* [了解 App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+* [App Service 環境簡介](../app-service-web/app-service-app-service-environment-intro.md)
+  * [演練：建立 App Service 環境](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Azure App Service 開發堆疊支援](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)
 
-## Videos
+## 影片
 
-* [Azure App Service Architecture](/documentation/videos/why-azure-web-sites-plus-architecture/)
+* [Azure App Service 架構](/documentation/videos/why-azure-web-sites-plus-architecture/)
+
+<!---HONumber=AcomDC_0121_2016-->

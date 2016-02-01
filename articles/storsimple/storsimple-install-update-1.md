@@ -47,7 +47,6 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
 ## 準備更新
 您必須在掃描和套用更新之前執行下列步驟：
 
-
 1. 擷取裝置資料的雲端快照。
 
 2. 請確認您的控制器固定 IP 能夠路由，且可以連線到網際網路。這些固定 IP 將用於裝置的服務更新。您可以從裝置的 Windows PowerShell 介面，在每個控制站上執行下列 Cmdlet 以進行測試：
@@ -152,4 +151,4 @@ Update 1.2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更�
 
 深入了解 [Update 1.2 版](storsimple-update1-release-notes.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

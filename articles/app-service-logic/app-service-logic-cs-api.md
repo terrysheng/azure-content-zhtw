@@ -1,6 +1,6 @@
 <properties
-   pageTitle="C# API 應用程式"
-   description="C# API 應用程式"
+   pageTitle="在邏輯應用程式的 C# API 應用程式中執行 C# 運算式 | Microsoft Azure"
+   description="C# API 應用程式或連接器"
    services="app-service\logic"
    documentationCenter=".net"
    authors="jeffhollan"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="jehollan"/>
 
 #C# API 應用程式
-C# API 應用程式可讓您*在邏輯應用程式執行時*，輕鬆執行簡單的 C# 運算式。
+C# API 應用程式可讓您在邏輯應用程式執行時，輕鬆執行簡單的 C# 運算式。
 
 ##何時應該使用此 API 應用程式？
 使用此 API 應用程式的主要情況是，當您希望您撰寫的程式碼生命週期與邏輯應用程式相同，而且您「不」想要在其他情況下呼叫程式碼。
@@ -33,9 +33,9 @@ C# API 應用程式可讓您*在邏輯應用程式執行時*，輕鬆執行簡�
 
 ##在 Logic Apps 設計工具介面中使用 C# API 應用程式
 ###觸發程序
-您可以建立邏輯應用程式服務將 (以您定義的間隔) 輪詢的觸發程序，而且如果它傳回除了 `false` 以外的任何內容，邏輯應用程式將會執行，否則會等到下一個輪詢間隔再檢查一次。
+您可以建立邏輯應用程式服務將 (以您定義的間隔) 輪詢的觸發程序，而且如果它傳回除了 `false` 以外的任何內容，邏輯應用程式就會執行，否則會等到下一個輪詢間隔再檢查一次。
 
-觸發程序的輸入包括：- **C# 運算式** - 要評估的運算式。運算式將會在函式內部叫用，而且在您不想要讓邏輯應用程式執行時必須傳回 `false`，並可傳回您想要讓邏輯應用程式執行的任何其他項目。您就能夠在邏輯應用程式的動作中使用回應的內容。
+觸發程序的輸入包括：- **C# 運算式** - 要評估的運算式。運算式會在函式內部叫用，而且在您不想要讓邏輯應用程式執行時必須傳回 `false`，並可傳回您想要讓邏輯應用程式執行的任何其他項目。您可以在邏輯應用程式的動作中使用回應的內容。
 
 例如，您有一個簡單的觸發程序，只會在每小時的 :15 和 :30 之間執行您的邏輯應用程式：
 
@@ -105,4 +105,4 @@ return YammerAttachments;
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

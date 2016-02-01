@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/20/2016"
 	ms.author="ricksal"/>
 
 # 將驗證加入至行動服務 Android 應用程式 (JavaScript 後端)
@@ -49,7 +49,7 @@
 
 2. 在 [執行] 功能表中，按一下 [執行應用程式]。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
-	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
+	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 TodoItem 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
@@ -106,4 +106,4 @@
 [開始使用行動服務]: mobile-services-android-get-started.md
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

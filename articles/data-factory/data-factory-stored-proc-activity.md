@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # SQL Server 預存程序活動
 
-您可以在 Data Factory [管線](data-factory-create-pipelines.md)中使用 SQL Server 預存程序活動，以叫用 **Azure SQL Database** 或 **Azure SQL 資料倉儲**中的預存程序。本文是根據[資料轉換活動](data-factory-data-transformation-activities.md)一文，它呈現資料轉換和支援的轉換活動的一般概觀。
+您可以在 Data Factory [管線](data-factory-create-pipelines.md)中使用 SQL Server 預存程序活動，以叫用下列其中一個資料存放區中的預存程序。
+
+
+- Azure SQL Database 
+- Azure SQL 資料倉儲  
+- 您的企業或 Azure VM 中的 SQL Server 資料庫。您必須在位於裝載資料庫的同一部電腦上或個別電腦上安裝資料管理閘道，以避免與資料庫競用資源。資料管理閘道器是一套透過安全且可管理的方式，將內部部署資料來源/Azure VM 中裝載的資料來源連結至雲端服務的軟體。如需資料管理閘道的詳細資訊，請參閱[在內部部署和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文。 
+
+本文是根據[資料轉換活動](data-factory-data-transformation-activities.md)一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 ## 語法
 	{
@@ -81,7 +88,7 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 	
 ### 建立 Data Factory  
 4. 登入 [Azure 入口網站](http://portal.azure.com/)之後，執行下列動作：
-	1.	按一下左側功能表的 [新增]。 
+	1.	按一下左側功能表上的 [新增]。 
 	2.	按一下 [建立] 刀鋒視窗中的 [資料分析]。
 	3.	按一下 [資料分析] 刀鋒視窗上的 [Data Factory]。
 4.	在 [新增 Data Factory] 刀鋒視窗中，輸入 **LogProcessingFactory** 做為 [名稱]。Azure Data Factory 名稱必須是全域唯一的。您必須在 Data Factory 的名稱前面加上您的名稱，才能成功建立 Factory。 
@@ -198,4 +205,4 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 		}
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

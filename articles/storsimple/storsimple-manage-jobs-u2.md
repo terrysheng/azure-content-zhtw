@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務來檢視和管理 StorSimple 工作 (Update 2)
@@ -91,6 +91,6 @@
 
 - 了解如何[管理您的 StorSimple 備份原則](storsimple-manage-backup-policies.md)。
 
-- 了解如何[使用 StorSimple Manager 服務來管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
+- 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

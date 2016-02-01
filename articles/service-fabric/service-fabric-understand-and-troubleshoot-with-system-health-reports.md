@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="01/20/2015"
    ms.author="oanapl"/>
 
 # 使用系統健康狀態報告進行疑難排解
@@ -97,7 +97,7 @@ HealthEvents          :
 
 - **SourceId**：System.CM
 - **屬性**：狀態
-- **後續步驟**：如果已建立應用程式，它就應該包含叢集管理員健康狀態報告。否則，請發出查詢以檢查應用程式狀態 (例如 Powershell Cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName***)。
+- **後續步驟**：如果已建立應用程式，它就應該包含叢集管理員健康狀態報告。否則，請發出查詢以檢查應用程式狀態 (例如 Powershell Cmdlet **Get-ServiceFabricApplication -ApplicationName applicationName**)。
 
 以下說明 **fabric:/WordCount** 應用程式上的狀態事件：
 
@@ -443,7 +443,7 @@ HealthEvents                       :
 如果應用程式封裝下載失敗，**System.Hosting** 會回報錯誤。
 
 - **SourceId**：System.Hosting
-- **屬性**：**Download:*RolloutVersion***
+- **屬性**：**Download:RolloutVersion**
 - **後續步驟**：調查節點上下載失敗的原因。
 
 ## DeployedServicePackage 系統健康狀態報告
@@ -460,7 +460,7 @@ HealthEvents                       :
 如果成功啟用，**System.Hosting** 會針對每個程式碼封裝回報為 OK。如果啟用失敗，它會依設定回報警告。如果 **CodePackage** 無法啟用，或者因為錯誤數超過 **CodePackageHealthErrorThreshold** 的設定而結束，則 Hosting 會回報錯誤。如果服務封裝包含多個程式碼封裝，就會針對每個封裝產生啟用報告。
 
 - **SourceId**：System.Hosting
-- **屬性**：使用前置詞 **CodePackageActivation**，並以 **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** 形式包含程式碼封裝的名稱和進入點 (例如，**CodePackageActivation:Code:SetupEntryPoint**)
+- **屬性**：使用前置詞 **CodePackageActivation**，並以 **CodePackageActivation:CodePackageName:SetupEntryPoint/EntryPoint** 形式包含程式碼封裝的名稱和進入點 (例如，**CodePackageActivation:Code:SetupEntryPoint**)
 
 ### 服務類型註冊
 如果服務類型已成功註冊，**System.Hosting** 會回報為 OK。如果註冊未及時完成 (使用 **ServiceTypeRegistrationTimeout** 來設定)，則會回報錯誤。如果服務類型是從節點取消註冊，這是因為執行階段已關閉。Hosting 會回報警告。
@@ -520,7 +520,7 @@ HealthEvents          :
 如果服務封裝下載失敗，**System.Hosting** 會回報錯誤。
 
 - **SourceId**：System.Hosting
-- **屬性**：**Download:*RolloutVersion***
+- **屬性**：**Download:RolloutVersion**
 - **後續步驟**：調查節點上下載失敗的原因。
 
 ### 升級驗證
@@ -537,4 +537,4 @@ HealthEvents          :
 
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

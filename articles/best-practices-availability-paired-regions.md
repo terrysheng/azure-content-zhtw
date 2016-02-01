@@ -1,11 +1,11 @@
 <properties
-	pageTitle="使用 Azure 區域配對提升業務續航力"
-	description="使用區域配對可確保應用程式在資料中心故障時擁有恢復力。"
-	services="multiple"
+	pageTitle="業務持續性和災害復原 (BCDR)：Azure 配對的區域 | Microsoft Azure"
+	description="Azure 區域配對可確保當資料中心發生故障時應用程式可復原。"
+	services="site-recovery"
 	documentationCenter=""
-	authors="rboucher"
+	authors="rayne-wiselman"
 	manager="jwhit"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
     ms.service="backup"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/16/2015"
-    ms.author="robb"/>
+    ms.date="01/12/2016"
+    ms.author="raynew"/>
 
-# 使用 Azure 區域配對提升可用性
+# 業務持續性和災害復原 (BCDR)：Azure 配對的區域
 
-## 說明 Azure 配對的區域
+## 什麼是配對的區域？
 
 Azure 能在世界各地多個地理位置運作。Azure 地理位置是包含至少一個 Azure 區域的已定義世界區域。Azure 區域是包含一或多個資料中心之地理位置內的區域。
 
@@ -43,6 +43,7 @@ Azure 能在世界各地多個地理位置運作。Azure 地理位置是包含�
 | 巴西 | 巴西南部 (1) | 美國中南部 |
 | 澳大利亞 | 澳洲東部 | 澳洲東南部|
 | 美國政府 | 美國政府愛荷華州 | 美國政府維吉尼亞州 |
+| 印度 | 印度中部 | 印度南部 |
 
 表 1 - Azure 區域配對對應表
 
@@ -50,7 +51,7 @@ Azure 能在世界各地多個地理位置運作。Azure 地理位置是包含�
 
 我們建議您複寫跨區域配對的工作負載，以善用 Azure 的隔離與可用性原則。例如，預定的 Azure 系統更新會跨配對區域循序部署 (並非同時)。這表示即使面臨罕見的更新錯誤事件，兩個區域也不會同時受到影響。此外，若遭遇少見的廣泛中斷事件，就能至少優先復原所有配對中的其中一個區域。
 
-## 區域配對範例
+## 配對的區域範例
 以下的圖 2 顯示使用地區配對以進行災害復原的假設應用程式。綠色的數字強調了三項 Azure 服務 (Azure 計算、儲存體和資料庫) 的跨區域活動，以及這些服務設定為跨區域複寫的方式。橘色數字則強調跨配對區域部署的獨特優點。
 
 
@@ -61,7 +62,7 @@ Azure 能在世界各地多個地理位置運作。Azure 地理位置是包含�
 ## 跨區域活動
 如圖 2 所示。
 
-![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Azure 運算 (PaaS)** – 您必須佈建額外的運算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。如需詳細資訊，請參閱 [Azure 業務持續性技術指引](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Azure 計算 (PaaS)** – 您必須佈建額外的計算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。如需詳細資訊，請參閱 [Azure 業務持續性技術指引](https://msdn.microsoft.com/library/azure/hh873027.aspx)
 
 ![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體** - 建立 Azure 儲存體帳戶時，系統預設會設定異地備援儲存體 (GRS)。使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。如需詳細資訊，請參閱 [Azure 儲存體備援選項](../storage/storage-redundancy.md)。
 
@@ -84,4 +85,4 @@ Azure 能在世界各地多個地理位置運作。Azure 地理位置是包含�
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **資料常駐地** - 區域會駐留在相同的地理位置之內形成配對 (巴西南部除外)，以符合資料常駐地之稅務和執法管轄區的要求。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

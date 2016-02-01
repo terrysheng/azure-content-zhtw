@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="使用 PowerShell 建立 Azure SQL Database 的複本" 
+    pageTitle="使用 PowerShell 建立 Azure SQL Database 複本 | Microsoft Azure" 
     description="使用 PowerShell 建立 Azure SQL Database 的複本" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -136,7 +136,7 @@
 
 ## 後續步驟
 
-- [連接 SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [使用 SQL Server Management Studio 連接到 SQL Database 並執行範例 T-SQL 查詢](sql-database-connect-query-ssms.md)
 - [將資料庫匯出至 BACPAC](sql-database-export-powershell.md)
 
 
@@ -146,4 +146,4 @@
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

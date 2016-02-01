@@ -1,7 +1,7 @@
 <properties 
    pageTitle="使用 PowerShell 建立 HDInsight 叢集與 Azure 資料湖存放區 |Azure" 
    description="使用 Azure PowerShell 建立和使用 HDInsight Hadoop 叢集與 Azure 資料湖" 
-   services="data-lake" 
+   services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
    manager="paulettm" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
+   ms.date="01/20/2016"
    ms.author="nitinme"/>
 
 # 使用 Azure PowerShell 建立 HDInsight 叢集與資料湖存放區
@@ -25,7 +25,7 @@
 
 了解如何使用 Azure PowerShell 設定可存取 Azure 資料湖存放區的 HDInsight 叢集 (Hadoop、HBase 或 Storm)。此版本的一些重要考量：
 
-* **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
+* * **對於 Hadoop 和 Storm 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
 
 * **對於 HBase 叢集 (Windows 和 Linux)**，您可以使用資料湖存放區做為預設儲存體或額外的儲存體。
 
@@ -249,6 +249,38 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 
 設定 HDInsight 叢集之後，您可以在叢集上執行測試工作，以測試 HDInsight 叢集是否可以存取資料湖存放區。為了完成這個操作，我們將會執行範例 Hive 工作，該工作會使用您稍早上傳至資料湖存放區的範例資料建立資料表。
 
+### 對於 Linux 叢集
+
+在這一節中，您將 SSH 進入叢集並執行範例 Hive 查詢。Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下列位置下載：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
+
+如需使用 PuTTY 的詳細資訊，請參閱[從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)。
+
+1. 連線之後，使用下列命令來啟動 Hive CLI：
+
+    	hive
+
+2. 使用 CLI，輸入下列陳述式，以使用資料湖存放區中的範例資料來建立名為 **vehicles** 的新資料表：
+
+		DROP TABLE vehicles;
+		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
+		SELECT * FROM vehicles LIMIT 10;
+
+	您應該會看到如下所示的輸出：
+
+		1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
+		1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
+		1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
+		1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
+		1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
+		1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
+		1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
+		1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
+		1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
+		1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+
+
+### 對於 Windows 叢集
+
 使用下列 Cmdlet 以執行 Hive 查詢。在這個查詢中，我們將會從資料湖存放區中的資料建立資料表，然後在建立的資料表上執行 select 查詢。
 
 	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
@@ -290,11 +322,30 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 	1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 
 
-	
-
 ## 使用 HDFS 命令存取資料湖存放區
 
 一旦您已設定 HDInsight 叢集使用資料湖存放區，您可以使用 HDFS 殼層命令來存取存放區。
+
+### 對於 Linux 叢集
+
+在這一節中，您將 SSH 進入叢集並執行 HDFS 命令。Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下列位置下載：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
+
+如需使用 PuTTY 的詳細資訊，請參閱[從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)。
+
+連接之後，使用下列 HDFS 檔案系統命令列出資料湖存放區中的檔案。
+
+	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+
+這樣應該會列出您稍早上傳至資料湖存放區的檔案。
+
+	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+	Found 1 items
+	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+
+您也可以使用 `hdfs dfs -put` 命令來將一些檔案上傳至資料湖存放區，然後使用 `hdfs dfs -ls` 以確認是否成功上傳檔案。
+
+
+### 對於 Windows 叢集
 
 1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
 
@@ -306,7 +357,7 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 
 	出現提示時，請輸入為遠端桌面使用者提供的認證。
 
-4. 在遠端工作階段中，啟動 Windows PowerShell，並使用 HDFS 檔案系統命令來列出 Azure 資料湖中的檔案。
+4. 在遠端工作階段中，啟動 Windows PowerShell，並使用 HDFS 檔案系統命令來列出 Azure 資料湖存放區中的檔案。
 
 	 	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
@@ -316,7 +367,7 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-	您也可以使用 `hdfs dfs -put` 命令將一些檔案上傳至 Azure 資料湖，然後使用 `hdfs dfs -ls` 以確認是否成功上傳檔案。
+	您也可以使用 `hdfs dfs -put` 命令來將一些檔案上傳至資料湖存放區，然後使用 `hdfs dfs -ls` 以確認是否成功上傳檔案。
 
 ## 另請參閱
 
@@ -325,4 +376,4 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

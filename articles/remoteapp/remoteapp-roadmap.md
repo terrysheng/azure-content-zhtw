@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="12/16/2015"
+    ms.date="01/14/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp 中的新內容
@@ -23,7 +23,7 @@
 |-----------|-------|-------|
 |Azure Remote App 可在 [Azure 傳統入口網站](http://manage.windowsazure.com)和[Azure 入口網站](http://portal.azure.com)中取得。 |X | |
 |Windows 10 Universal Application for Azure RemoteApp 預覽|X| |
-|可以將個別應用程式發佈至特定使用者 - **公開預覽** ([意見反應](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))|X | |
+|可以將個別應用程式發佈至特定使用者 - **私人預覽** ([意見反應](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))|X | |
 |Windows 用戶端可轉散發 MSI 封裝 ([意見反應](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| X| |
 |Azure RemoteApp 適用且以 HTML5 為基礎的用戶端|X ||
 |Azure 資源管理員 (ARM) 支援||X|
@@ -46,4 +46,4 @@
 - 澳大利亞資料中心的可用性
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

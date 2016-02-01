@@ -17,7 +17,7 @@
 
 # 自訂事件和度量的 Application Insights API 
 
-*Application Insights 目前僅供預覽。*
+Application Insights 目前僅供預覽。
 
 在您的應用程式中插入幾行程式碼，以了解使用者對它進行的動作或協助診斷問題。您可以從裝置和桌面應用程式、Web 用戶端以及 Web 伺服器傳送遙測。
 
@@ -52,25 +52,25 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 * 在裝置或 Web 伺服器程式碼中，加入：
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    C#: `using Microsoft.ApplicationInsights;`
 
-    *VB:* `Imports Microsoft.ApplicationInsights`
+    VB: `Imports Microsoft.ApplicationInsights`
 
-    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
+    Java: `import com.microsoft.applicationinsights.TelemetryClient;`
 
 ## 建構 TelemetryClient
 
 建構 TelemetryClient 的執行個體 (除了在網頁中的 JavaScript)：
 
-*C#:*
+C#:
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-*VB:*
+VB:
 
     Private Dim telemetry As New TelemetryClient
 
-*Java*
+Java
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -87,20 +87,20 @@ TelemetryClient 具備執行緒安全。
 
 例如，在遊戲應用程式中，每當使用者贏得遊戲時傳送事件：
 
-*JavaScript*
+JavaScript
 
     appInsights.trackEvent("WinGame");
 
-*C#*
+C#
     
     telemetry.TrackEvent("WinGame");
 
-*VB*
+VB
 
 
     telemetry.TrackEvent("WinGame")
 
-*Java*
+Java
 
     telemetry.trackEvent("WinGame");
 
@@ -134,25 +134,25 @@ TelemetryClient 具備執行緒安全。
 度量值應該 > = 0，才能正確顯示。
 
 
-*JavaScript*
+JavaScript
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C#*
+C#
 
     telemetry.TrackMetric("Queue", queue.Length);
 
-*VB*
+VB
 
     telemetry.TrackMetric("Queue", queue.Length)
 
-*Java*
+Java
 
     telemetry.trackMetric("Queue", queue.Length);
 
 事實上，您可能會在背景執行緒中執行這個動作：
 
-*C#*
+C#
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -179,15 +179,15 @@ TelemetryClient 具備執行緒安全。
 
 #### 自訂頁面檢視
 
-*JavaScript*
+JavaScript
 
     appInsights.trackPageView("tab1");
 
-*C#*
+C#
 
     telemetry.TrackPageView("GameReviewPage");
 
-*VB*
+VB
 
     telemetry.TrackPageView("GameReviewPage")
 
@@ -204,7 +204,7 @@ TelemetryClient 具備執行緒安全。
 
 如果您想要在沒有 Web 服務模組執行的內容中模擬要求，您也可以自行呼叫。
 
-*C#*
+C#
 
     // At start of processing this request:
 
@@ -228,7 +228,7 @@ TelemetryClient 具備執行緒安全。
 
 傳送例外狀況至 Application Insights：以[計算它們][metrics]，做為問題頻率的指示，以及[檢查個別發生次數][diagnostic]。報告包含堆疊追蹤。
 
-*C#*
+C#
 
     try
     {
@@ -239,7 +239,7 @@ TelemetryClient 具備執行緒安全。
        telemetry.TrackException(ex);
     }
 
-*JavaScript*
+JavaScript
 
     try
     {
@@ -274,7 +274,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 [記錄配接器][trace]使用此 API 將第三方記錄傳送至入口網站。
 
 
-*C#*
+C#
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
@@ -310,7 +310,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
 
-*C#*
+C#
 
     telemetry.Flush();
 
@@ -326,7 +326,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 但是，如果使用者登入您的 app，您可以藉由在瀏覽器程式碼中設定經過驗證的使用者識別碼，來取得更正確的計數。
 
-*JavaScript*
+JavaScript
 
 ```JS
     // Called when my app has identified the user.
@@ -339,7 +339,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 在 ASP.NET Web MVC 應用程式，例如：
 
-*Razor*
+Razor
 
         @if (Request.IsAuthenticated)
         {
@@ -377,7 +377,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 有一些[屬性、屬性值和度量的數目限制](#limits)可供您使用。
 
 
-*JavaScript*
+JavaScript
 
     appInsights.trackEvent
       ("WinGame",
@@ -396,7 +396,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
          );
           
 
-*C#*
+C#
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -408,7 +408,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     telemetry.TrackEvent("WinGame", properties, metrics);
 
 
-*VB*
+VB
 
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
@@ -423,7 +423,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     telemetry.TrackEvent("WinGame", properties, metrics)
 
 
-*Java*
+Java
     
     Map<String, String> properties = new HashMap<String, String>();
     properties.put("game", currentGame.getName());
@@ -442,7 +442,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 ![開啟計量瀏覽器，選取圖表，並選取度量](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*若未顯示您的計量或 [自訂] 標題不存在，請關閉選取的刀鋒視窗並於稍後重試。*有時候度量經由管線彙總時可能需要一個小時。
+若未顯示您的計量或 [自訂] 標題不存在，請關閉選取的刀鋒視窗並於稍後重試。有時候度量經由管線彙總時可能需要一個小時。
 
 **如果您使用屬性和度量**，依據屬性分割度量：
 
@@ -479,14 +479,14 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
     telemetry.TrackEvent(event);
 
-
+> [AZURE.WARNING]不要重複使用相同的遙測項目執行個體 (此範例中的 `event`) 來呼叫 Track*() 多次。這可能會讓遙測隨著不正確的組態傳送。
 
 #### <a name="timed"></a>計時事件
 
 有時候您想要繪製執行某些動作耗費多少時間的圖表。例如，您可能想要知道使用者在遊戲中思考選項時花費多少時間。這是使用測量參數的實用範例。
 
 
-*C#*
+C#
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -510,7 +510,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 如果您想為您撰寫的一些自訂事件設定預設屬性值，您可以在 TelemetryClient 中設定它們。它們會附加至從該用戶端傳送的每個遙測項目。
 
-*C#*
+C#
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -519,14 +519,14 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
     // Now all telemetry will automatically be sent with the context property:
     gameTelemetry.TrackEvent("WinGame");
     
-*VB*
+VB
 
     Dim gameTelemetry = New TelemetryClient()
     gameTelemetry.Context.Properties("Game") = currentGame.Name
     ' Now all telemetry will automatically be sent with the context property:
     gameTelemetry.TrackEvent("WinGame")
 
-*Java*
+Java
 
     import com.microsoft.applicationinsights.TelemetryClient;
     import com.microsoft.applicationinsights.TelemetryContext;
@@ -563,7 +563,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 **動態停止和開始**收集及傳輸遙測資料：
 
-*C#*
+C#
 
 ```C#
 
@@ -579,18 +579,18 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 偵錯期間，讓您的遙測透過管線加速很有用，如此您就可以立即看到結果。您也會取得額外的訊息，協助您追蹤任何遙測的問題。在生產環境中將它關閉，因為它可能會拖慢您的應用程式。
 
 
-*C#*
+C#
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
-*VB*
+VB
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 
 ## <a name="ikey"></a>設定已選取自訂遙測的檢測金鑰
 
-*C#*
+C#
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
@@ -603,7 +603,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 而不是從組態檔取得檢測金鑰，您可以在程式碼中設定。在初始化方法中設定金鑰，例如 ASP.NET 服務中的 global.aspx.cs：
 
-*C#*
+C#
 
     protected void Application_Start()
     {
@@ -613,7 +613,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
           WebConfigurationManager.Settings["ikey"];
       ...
 
-*JavaScript*
+JavaScript
 
     appInsights.config.instrumentationKey = myKey; 
 
@@ -621,7 +621,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 在網頁中，您可能想要從 Web 伺服器的狀態設定，而不是按其原義編碼至指令碼。例如，在 ASP.NET 應用程式中產生的網頁：
 
-*Razor 中的 JavaScript*
+Razor 中的 JavaScript
 
     <script type="text/javascript">
     // Standard Application Insights web page script:
@@ -669,11 +669,11 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 2.	只有在每個屬性具有少於 100 個唯一值時，屬性才能用於篩選和分組依據。唯一值超過 100 之後，屬性仍可用於搜尋，但無法再用於篩選。
 3.	標準屬性，例如要求名稱和網頁 URL 會限制為每週 1000 個唯一值。超過 1000 個唯一值之後，額外值都會標示為「其他值」。原始值仍然可以用於全文檢索搜尋和篩選。
 
-*如何避免達到資料速率限制？*
+如何避免達到資料速率限制？
 
 * 安裝最新的 SDK 以使用[取樣](app-insights-sampling.md)。
 
-*資料保留多久？*
+資料保留多久？
 
 * 請參閱[資料保留和隱私權][data]。
 
@@ -699,17 +699,17 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
 ## 問題
 
-* *Track\_() 呼叫會擲回什麼例外狀況？*
+* Track\_() 呼叫會擲回什麼例外狀況？
     
     無。您不需要將它們包裝在 try-catch 子句中。如果 SDK 發生問題，它會記錄訊息，您可以在偵錯主控台輸出中查看。若訊息得以留存，也可在診斷搜尋中查看。
 
 
 
-* *是否有 REST API 可供從入口網站中取得資料？*
+* 是否有 REST API 可供從入口網站中取得資料？
 
     有的，很快就會推出。在此同時，請使用[連續匯出](app-insights-export-telemetry.md)。
 
-## <a name="next"></a>後續步驟
+## <a name="next"></a>接續步驟
 
 
 [搜尋事件和記錄檔][diagnostic]
@@ -736,4 +736,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

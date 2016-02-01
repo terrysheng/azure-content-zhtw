@@ -29,28 +29,7 @@
 資料來源一經註冊之後，[目錄] 會追蹤它的位置並為其中繼資料建立索引，使用者就能夠搜尋、瀏覽及探索資料來源，然後利用他們選擇的應用程式或工具，使用資料來源的位置來連接到資料來源。
 
 ## 支援的來源
-在目前的預覽版中，[Azure 資料目錄] 支援註冊這些資料來源與物件類型：
-
-* SQL Server Database Engine 資料表和檢視
-* Oracle 資料庫資料表和檢視
-* SQL Server Analysis Services 多維度的維度、量值，和 KPI
-* SQL Server Analysis Services 表格式資料表
-* SQL Server Reporting Services 報表
-* Azure 儲存體 Blob 和目錄
-* Azure 資料湖存放區
-* HDFS 檔案和目錄
-* Apache Hive 資料表
-* Teradata 資料表和檢視
-* Azure 資料湖存放區檔案和目錄
-* MySQL 資料表和檢視
-
-> [AZURE.NOTE]SQL Server 支援也包括 Microsoft Azure SQL Database 和 Microsoft Azure SQL 資料倉儲
-
-<br/>
-
-> [AZURE.NOTE]SQL Server Reporting Services 支援僅限原生模式伺服器 – 尚未支援 SharePoint 模式
-
-<br/>
+請參閱[資料目錄 DSR](data-catalog-dsr.md)以取得目前支援的資料來源清單。<br/>
 
 
 ## 結構化中繼資料
@@ -97,4 +76,4 @@
 ## 摘要
 利用 **Azure 資料目錄**註冊資料來源，會將結構化和描述性中繼資料從資料來源複製到目錄服務中，讓您能更輕鬆地探索及了解資料來源。資料來源經過註冊之後，便能利用 **Azure 資料目錄**入口網站來加以註解、管理及探索。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

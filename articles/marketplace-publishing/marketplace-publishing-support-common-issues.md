@@ -14,7 +14,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="12/06/2015"
-      ms.author="v-jeana; hascipio"/>
+      ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # 如何疑難排解常見的 Azure Marketplace 發行者問題
 本文說明如何解決或獲得一些常見 Marketplace 案例的支援。
@@ -63,9 +63,9 @@
 
 ## 如何更新我的發行者設定檔？
 
-如果您想要更新發行者設定檔，可以透過 Microsoft 開發人員中心完成。
+如果您想要更新發行者設定檔，可以透過 Microsoft 開發人員中心完成：
 
-**1.登入 Microsoft 開發人員中心**。
+**1.登入 Windows 開發人員中心**。
 
 - 開啟新的 Chrome Incognito 或 Internet Explorer InPrivate 瀏覽工作階段，確定您未登入個人帳戶。
 - 移至 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
@@ -82,7 +82,7 @@
 
 ![protectacct][6]
 
-**4.瀏覽至帳戶詳細資料和公司詳細資料**。
+**4.瀏覽至帳戶詳細資料和連絡資訊**。
 
 ![acctdetails][7]
 
@@ -120,4 +120,4 @@
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0121_2016-->

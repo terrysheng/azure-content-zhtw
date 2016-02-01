@@ -17,7 +17,7 @@
 
 # 服務匯流排轉送傳訊教學課程
 
-本教學課程說明如何使用服務匯流排「轉送」功能，建置簡單的服務匯流排用戶端應用程式和服務。如需說明如何建置使用服務匯流排「代理」或非同步傳訊功能之應用程式的對應教學課程，請參閱[服務匯流排代理傳訊 .NET 教學課程](https://msdn.microsoft.com/library/hh367512.aspx)。如需使用服務匯流排[代理傳訊](service-bus-messaging-overview.md/#Brokered-messaging)的類似教學課程，請參閱[服務匯流排代理傳訊 .NET 教學課程](https://msdn.microsoft.com/library/hh367512.aspx)。
+本教學課程說明如何使用服務匯流排「轉送」功能，建置簡單的服務匯流排用戶端應用程式和服務。如需使用服務匯流排[代理傳訊](service-bus-messaging-overview.md#Brokered-messaging)的對應教學課程，請參閱[服務匯流排代理傳訊 .NET 教學課程](service-bus-brokered-tutorial-dotnet.md)。
 
 循序完成本教學課程可讓您了解建立服務匯流排用戶端和服務應用程式所需的步驟。如同其對應的 WCF 項目，服務是可公開一或多個端點的結構，而每個端點都會公開一或多個服務作業。服務的端點指定可找到服務的位址、內含用戶端與服務通訊所需資訊的繫結，以及可定義服務提供給其用戶端之功能的合約。WCF 與服務匯流排服務的主要差異在於端點是在雲端公開，而不是在您的電腦本機上公開。
 
@@ -31,9 +31,9 @@
 
 第一步是建立服務匯流排的服務命名空間，並取得共用存取簽章 (SAS) 金鑰。服務命名空間會為每個透過服務匯流排公開的應用程式提供應用程式界限。服務命名空間與 SAS 金鑰的結合提供了一個認證，供服務匯流排驗證對應用程式的存取權。
 
-若要建立命名空間，請依照[作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/hh690931.aspx)中簡述的步驟。
+1. 若要建立服務命名空間，請造訪 [Azure 傳統入口網站][]。按一下左側的 [服務匯流排]，再按一下 [建立]。輸入命名空間的名稱，再按一下核取記號。
 
->[AZURE.NOTE]您不需要對用戶端和服務應用程式使用相同的命名空間。
+	>[AZURE.NOTE]您不需要對用戶端和服務應用程式使用相同的命名空間。
 
 1. 在 [Azure 傳統入口網站][]的主視窗中，按一下您在上一個步驟中建立的服務命名空間名稱。
 
@@ -218,7 +218,7 @@ namespace Microsoft.ServiceBus.Samples
 	端點會定義用戶端將在何處尋找主應用程式。稍後，本教學課程會使用此步驟來建立 URI，以透過服務匯流排完全公開主機。繫結會宣告我們使用 TCP 作為與服務匯流排通訊的通訊協定。
 
 
-1. 緊接在 `<services>` 元素之後，加入下列繫結擴充功能︰
+1. 緊接在 `<services>` 元素之後，加入下列繫結延伸模組︰
  
 	```
 	<extensions>
@@ -833,7 +833,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## 後續步驟
 
-本教學課程示範了如何使用服務匯流排「轉送」功能，建置服務匯流排用戶端應用程式和服務。如需使用服務匯流排[代理傳訊](service-bus-messaging-overview.md/#Brokered-messaging)的類似教學課程，請參閱[服務匯流排代理傳訊 .NET 教學課程](https://msdn.microsoft.com/library/hh367512.aspx)。
+本教學課程示範了如何使用服務匯流排「轉送」功能，建置服務匯流排用戶端應用程式和服務。如需使用服務匯流排[代理傳訊](service-bus-messaging-overview.md#Brokered-messaging)的類似教學課程，請參閱[服務匯流排代理傳訊 .NET 教學課程](service-bus-brokered-tutorial-dotnet.md)。
 
 若要深入了解服務匯流排，請參閱下列主題。
 
@@ -843,4 +843,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/08/2015"
+  ms.date="01/07/2016"
   ms.author="hascipio; v-divte"/>
 
 # 建立 Azure Marketplace 供應項目的一般必要條件
@@ -45,9 +45,9 @@
 
 | 虛擬機器映像 | 開發人員服務 | 資料服務 | 方案範本 |
 |-----|-----|-----|-----|
-| [VM 技術性必要條件](marketplace-publishing-vm-image-creation-prerequisites.md) | [開發人員服務技術性必要條件](marketplace-publishing-dev-service-creation-prerequisites.md) | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [VM 技術性必要條件](marketplace-publishing-vm-image-creation-prerequisites.md) | 開發人員服務技術性必要條件 | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## 另請參閱
 - [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

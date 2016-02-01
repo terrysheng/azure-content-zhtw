@@ -2,7 +2,7 @@
     pageTitle="教學課程：Azure Active Directory 與 Bonus.ly 整合 | Microsoft Azure" 
     description="了解如何使用 Bonus.ly 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Bonus.ly 整合
 
@@ -43,7 +43,7 @@
 
 3.  若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。
 
-    ![[應用程式]](./media/active-directory-saas-bonus-tutorial/IC700994.png "[應用程式]")
+    ![應用程式](./media/active-directory-saas-bonus-tutorial/IC700994.png "應用程式")
 
 4.  按一下頁面底部的 [新增]。
 
@@ -57,7 +57,7 @@
 
     ![應用程式庫](./media/active-directory-saas-bonus-tutorial/IC773681.png "應用程式庫")
 
-7.  在結果窗格中，選取 [Bonus.ly]，然後按一下 [完成] 以新增應用程式。
+7.  在結果窗格中，選取 [Bonus.ly]，然後按一下 [完成] 以加入應用程式。
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773682.png "Bonusly")
 ##設定單一登入
@@ -66,7 +66,7 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 **Bonus.ly** 應用程式整合頁面中，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 入口網站的 [Bonus.ly] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-bonus-tutorial/IC749323.png "設定單一登入")
 
@@ -74,32 +74,32 @@
 
     ![設定單一登入](./media/active-directory-saas-bonus-tutorial/IC773683.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面上，於 [Bonus.ly 租用戶 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://\<tenant-name>.Bonus.ly*"，然後按 [下一步]：
+3.  在 [設定應用程式 URL] 頁面的 [Bonus.ly 租用戶 URL] 文字方塊中，使用下列模式輸入您的 URL："https://\<租用戶名稱>.Bonus.ly"，然後按 [下一步]：
 
     ![設定應用程式 URL](./media/active-directory-saas-bonus-tutorial/IC773684.png "設定應用程式 URL")
 
-4.  在 [設定在 Bonus.ly 單一登入] 頁面上，按一下 [下載憑證]，然後在本機將憑證檔案另存為 **c:\\Bonusly.cer**。
+4.  在 [設定在 Bonus.ly 單一登入] 頁面上，按 [下載憑證]，然後在本機將憑證檔案另存為 **c:\\Bonusly.cer**。
 
     ![設定單一登入](./media/active-directory-saas-bonus-tutorial/IC773685.png "設定單一登入")
 
 5.  在不同的瀏覽器視窗中，登入您的 **Bonus.ly** 租用戶。
 
-6.  在頂端的工具列中，按一下 [設定]，然後選取 [整合與應用程式]。
+6.  在頂端工具列中，按一下 [設定]，然後選取 [整合與應用程式]。
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773686.png "Bonusly")
 
 7.  在 [單一登入] 下方，選取 [SAML]。
 
-8.  在 **SAML** 對話頁面上，執行下列步驟：
+8.  在 [SAML] 對話頁面上，執行下列步驟：
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773687.png "Bonusly")
 
-    1.  在 Azure 入口網站的 [設定在 Bonus.ly 單一登入] 對話方塊頁面中，複製**遠端登入 URL** 值，然後將它貼至 [IdP SSO 目標 URL] 文字方塊中。
-    2.  在 Azure 入口網站的 [設定在 Bonus.ly 單一登入] 對話方塊頁面中，複製**簽發者識別碼**值，然後將它貼至 [IdP 簽發者] 文字方塊中。
-    3.  在 Azure 入口網站的 [設定在 Bonus.ly 單一登入] 對話方塊頁面中，複製**遠端登入 URL** 值，然後將它貼至 [IdP 登入 URL] 文字方塊中。
+    1.  在 Azure 入口網站的 [在 Bonus.ly 設定單一登入] 對話頁面上，複製**遠端登入 URL** 值，然後將它貼至 [IdP SSO 目標 URL] 文字方塊中。
+    2.  在 Azure 入口網站的 [在 Bonus.ly 設定單一登入] 對話頁面上，複製**簽發者識別碼**值，然後將它貼至 [IdP 簽發者] 文字方塊中。
+    3.  在 Azure 入口網站的 [設定在 Bonus.ly 單一登入] 對話頁面上，複製**遠端登入 URL** 值，然後將它貼至 [IdP 登入 URL] 文字方塊中。
     4.  從匯出的憑證複製**指紋**值，然後將它貼入 [憑證指紋] 文字方塊。
 
-        >[AZURE.TIP]如需詳細資訊，請參閱[如何抓取憑證的指紋值](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]如需詳細資訊，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)
 
 9.  按一下 [儲存]。
 
@@ -114,7 +114,7 @@
 
 1.  在網頁瀏覽器視窗中，登入您的 Bonus.ly 租用戶。
 
-2.  按一下 [設定]
+2.  按一下 [設定]。
 
     ![設定](./media/active-directory-saas-bonus-tutorial/IC781041.png "設定")
 
@@ -130,11 +130,11 @@
 
     ![新增使用者](./media/active-directory-saas-bonus-tutorial/IC781044.png "新增使用者")
 
-6.  在 [新增使用者] 對話方塊上，執行下列步驟：
+6.  在 [加入使用者] 對話方塊上，執行下列步驟：
 
     ![新增使用者](./media/active-directory-saas-bonus-tutorial/IC781045.png "新增使用者")
 
-    1.  在相關的文字方塊中，輸入您想要佈建之有效 AAD 帳戶的**電子郵件**、**名字**、**姓氏**。
+    1.  在相關的文字方塊中，輸入您想要佈建之有效 ADD 帳戶的 [電子郵件]、[名字]、[姓氏]。
     2.  按一下 [儲存]。
 
     >[AZURE.NOTE]AAD 帳戶的持有者會收到一封包含連結的電子郵件，以在啟用帳戶前進行確認。
@@ -149,7 +149,7 @@
 
 1.  在 Azure AD 入口網站中建立測試帳戶。
 
-2.  在 Bonus.ly 應用程式整合頁面上，按一下 [指派使用者]。
+2.  在 [Bonus.ly] 應用程式整合頁面上，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-bonus-tutorial/IC773690.png "指派使用者")
 
@@ -159,4 +159,4 @@
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

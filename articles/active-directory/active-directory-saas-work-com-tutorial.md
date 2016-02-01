@@ -16,7 +16,8 @@
 
 #教學課程：Azure Active Directory 與 Work.com 整合
   
-本教學課程的目的是要示範 Azure 與 Work.com 的整合。本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程的目的是要示範 Azure 與 Work.com 的整合。  
+本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   啟用 Work.com 單一登入的訂用帳戶
@@ -66,7 +67,8 @@
 
 ##設定單一登入
   
-本節的目的是概述如何依據 SAML 通訊協定來使用同盟，讓使用者能夠以自己的 Azure AD 帳戶在 Work.com 中進行驗證。您必須將憑證上傳至 Work.com.com，這是程序的一部分。
+本節的目的是概述如何依據 SAML 通訊協定來使用同盟，讓使用者能夠以自己的 Azure AD 帳戶在 Work.com 中進行驗證。  
+您必須將憑證上傳至 Work.com.com，這是程序的一部分。
 
 >[AZURE.NOTE]若要設定單一登入，您還需要設定自訂的 Work.com 網域名稱。您至少需要定義一個網域名稱、測試網域名稱，並將它部署到整個組織。
 
@@ -96,7 +98,7 @@
 
     ![設定單一登入](./media/active-directory-saas-work-com-tutorial/IC794110.png "設定單一登入")
 
-8.  在 [設定應用程式 URL] 頁面的 [Work.com 登入 URL] 文字方塊中，輸入使用者用來登入 Work.com 應用程式的 URL (例如：” **http://company.my.salesforce.com*”)，然後按 [下一步]：
+8.  在 [設定應用程式 URL] 頁面的 [Work.com 登入 URL] 文字方塊中，輸入使用者用來登入 Work.com 應用程式的 URL (例如：” *http://company.my.salesforce.com*”)，然後按 [下一步]：
 
     ![設定應用程式 URL](./media/active-directory-saas-work-com-tutorial/IC794111.png "設定應用程式 URL")
 
@@ -131,7 +133,7 @@
 
     2.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上， 複製 [簽發者 URL] 值，然後將它貼至 [簽發者] 文字方塊中。
     3.  若要上傳已下載的憑證，請按一下 [瀏覽]。
-    4.  在 [實體 ID] 文字方塊中，輸入 ****https://salesforce-work.com**。
+    4.  在 [實體 ID] 文字方塊中，輸入 **https://salesforce-work.com**。
     5.  在 [SAML 識別類型] 中選取 [判斷提示包含來自使用者物件的同盟識別碼]。
     6.  在 [SAML 識別位置]，請選取 [識別位於 Subject 陳述式的 NameIdentifier 元素中]。
     7.  在 Azure 入口網站中的 [設定在 Work.com 單一登入] 對話頁面上， 複製 [遠端登入 URL] 值，然後將它貼至 [識別提供者登入 URL] 文字方塊中。
@@ -157,7 +159,8 @@
 
 ##設定使用者佈建
   
-Azure Active Directory 使用者必須先佈建到 Work.com，才可以登入。Work.com 需以手動方式佈建。
+Azure Active Directory 使用者必須先佈建到 Work.com，才可以登入。  
+Work.com 需以手動方式佈建。
 
 ###若要設定使用者佈建，請執行下列步驟：
 
@@ -207,4 +210,4 @@ Azure Active Directory 使用者必須先佈建到 Work.com，才可以登入。
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016-->

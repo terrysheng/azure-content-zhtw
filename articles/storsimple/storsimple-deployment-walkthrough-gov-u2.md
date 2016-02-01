@@ -15,7 +15,7 @@
    ms.date="01/15/2016"
    ms.author="v-sharos" />
 
-# 在 Government 入口網站中部署您的內部部署 StorSimple 裝置 (Update 2)
+# 在 Government 入口網站中部署您的內部部署 StorSimple 裝置 (更新 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 

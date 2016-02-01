@@ -76,7 +76,7 @@
 
     ![設定單一登入](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面的 [BlueJeans 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："**https://company.BlueJeans.com*"，然後按 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [BlueJeans 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://company.BlueJeans.com*"，然後按 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "設定應用程式 URL")
 
@@ -110,8 +110,8 @@
 
     ![儲存變更](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "儲存變更")
 
-    1.  在 [使用者識別碼] 文字方塊中，輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**。
-2.  在 [電子郵件] 文字方塊中，輸入 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**。
+    1.  在 [使用者識別碼] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**。
+2.  在 [電子郵件] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**。
 3.  按一下 [儲存變更]。
 
 10. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。

@@ -125,7 +125,8 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 開始此程序之前，請確定您擁有服務資料加密金鑰的複本。服務資料加密金鑰已在您設定第一個 StorSimple 裝置時建立，且系統已指示您將它儲存在安全的位置。如果您沒有服務資料加密金鑰的複本，就必須連絡 Microsoft 支援服務以尋求協助。
 
-執行下列步驟來設定和註冊 StorSimple 虛擬裝置。[AZURE.INCLUDE [設定和註冊虛擬裝置](../../includes/storsimple-configure-register-virtual-device.md)]
+執行下列步驟來設定和註冊 StorSimple 虛擬裝置。
+[AZURE.INCLUDE [設定和註冊虛擬裝置](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 步驟 3：(選擇性) 修改裝置組態設定
 
@@ -143,7 +144,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓系統管理員以本機和雲端快照的形式管理 StorSimple 裝置的備份。
 
->[AZURE.NOTE]對虛擬裝置而言，您的 Windows 主機就是 Azure 虛擬機器。
+>[AZURE.NOTE] 對虛擬裝置而言，您的 Windows 主機就是 Azure 虛擬機器。
 
 當您在 StorSimple Snapshot Manager 中設定裝置時，系統將提示您提供 StorSimple 裝置 IP 位址和密碼來驗證您的儲存裝置。如需詳細步驟，請移至[設定 StorSimple Snapshot Manager 密碼](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)。
 
@@ -166,7 +167,7 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 
 當您在 StorSimple 裝置設定頁面上啟用遠端管理之後，就可以使用 Windows PowerShell 遠端處理功能，從相同虛擬網路內部的另一部虛擬機器連接到虛擬裝置；例如，您可以從已設定且用來連接 iSCSI 的主機 VM 進行連接。在大部分的部署中，您應該都已開啟公用端點來存取您可用來存取虛擬裝置的主機 VM。
 
->[AZURE.WARNING]**為了加強安全性，強烈建議您在連接到端點時應使用 HTTPS，並且在完成 PowerShell 遠端工作階段之後刪除端點。**
+>[AZURE.WARNING] **為了加強安全性，強烈建議您在連接到端點時應使用 HTTPS，並且在完成 PowerShell 遠端工作階段之後刪除端點。**
 
 您應遵循[遠端連接至 StorSimple 裝置](storsimple-remote-connect.md)中的程序，來設定虛擬裝置的遠端處理功能。
 

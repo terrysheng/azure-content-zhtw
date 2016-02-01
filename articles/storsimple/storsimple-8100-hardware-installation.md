@@ -108,7 +108,7 @@
 
 #### 在滑軌上安裝裝置
 
-2. 只有在內部滑軌未安裝在您的裝置上時才執行此步驟。通常，內部滑軌會在工廠安裝。如果滑軌沒有安裝的話，則在機箱底座側邊安裝左邊和右邊滑軌。他們是在每一邊使用六個公制螺絲來連接。為了協助辨識方向，滑軌標示為 [**LH – Front**] (左邊 – 前) 和 [**RH – Front**] (右邊 – 前)，接至機箱後端的尾端有錐型結尾。<br/>
+2. 只有在內部滑軌未安裝在您的裝置上時才執行此步驟。通常，內部滑軌會在工廠安裝。如果滑軌沒有安裝的話，則在機箱底座側邊安裝左邊和右邊滑軌。他們是在每一邊使用六個公制螺絲來連接。為了協助辨識方向，滑軌標示為 [**LH – Front**] \(左邊 – 前) 和 [**RH – Front**] \(右邊 – 前)，接至機箱後端的尾端有錐型結尾。<br/>
 
     ![將滑軌連接至機箱底座](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
@@ -120,7 +120,7 @@
    		2     | Chassis slides
 
 
-3. 將外部的左滑軌和外部的右滑軌組件連接至機櫃垂直面。托架會標示 [**LH**] (左邊)，[**RH**] (右邊) 和 [**This side up**] (此面向上)，引導您正確的方向。 
+3. 將外部的左滑軌和外部的右滑軌組件連接至機櫃垂直面。托架會標示 [**LH**] \(左邊)，[**RH**] \(右邊) 和 [**This side up**] \(此面向上)，引導您正確的方向。 
 
 4. 找出滑軌組件前後方的滑軌插梢。延伸滑軌以適合機架柱，並且將插梢插入前後端機架柱垂直面的孔洞。請確定滑軌組件是水平的。
 
@@ -261,7 +261,7 @@
 
 如需詳細資訊，請參閱 [StorSimple 裝置的高可用性需求](storsimple-system-requirements.md#high-availability-requirements-for-storsimple) 下的**網路介面**。
 
->[AZURE.NOTE]如果搭配使用 SFP+ 收發器和 10 GbE 網路介面，請使用提供的 QSFP-SFP+ 配接器。如需詳細資訊，請移至 [10 GbE 網路介面在 StorSimple 裝置上支援的硬體](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)。
+>[AZURE.NOTE] 如果搭配使用 SFP+ 收發器和 10 GbE 網路介面，請使用提供的 QSFP-SFP+ 配接器。如需詳細資訊，請移至 [10 GbE 網路介面在 StorSimple 裝置上支援的硬體](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)。
     
 
    

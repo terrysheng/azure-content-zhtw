@@ -191,7 +191,7 @@
 
 	* **模式名稱** - **zeppelinnotebook** - 這是易記的模式名稱。
 
-	* **URL 模式** - ***hn0*** - 這會定義符合 Zeppelin Notebook 裝載所在端點之內部完整網域名稱的模式。因為 Zeppelin Notebook 僅適用於叢集的 headnode0，而且端點通常是 `http://hn0-<string>.internal.cloudapp.net`，所以使用模式 **hn0** 可確保要求會重新導向至 Zeppelin 端點。
+	* **URL 模式** - **hn0** - 這會定義符合 Zeppelin Notebook 裝載所在端點之內部完整網域名稱的模式。因為 Zeppelin Notebook 僅適用於叢集的 headnode0，而且端點通常是 `http://hn0-<string>.internal.cloudapp.net`，所以使用模式 **hn0** 可確保要求會重新導向至 Zeppelin 端點。
 
 		![foxyproxy 模式](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 

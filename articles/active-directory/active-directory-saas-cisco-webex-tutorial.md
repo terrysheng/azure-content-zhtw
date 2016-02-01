@@ -64,7 +64,9 @@
     ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
 ##設定單一登入
 
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 Cisco Webex 中進行驗證。在這個程序中，您必須建立 base-64 編碼的憑證。如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 Cisco Webex 中進行驗證。
+在這個程序中，您必須建立 base-64 編碼的憑證。
+如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
 ###若要設定單一登入，請執行下列步驟：
 
@@ -104,7 +106,7 @@
     1.  從 [同盟通訊協定] 清單中選取 [SAML 2.0]。
     2.  從您下載的憑證建立 **Base-64 編碼**檔案。  
 
-        >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+        >[AZURE.TIP] 如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
     3.  在記事本中開啟 base-64 編碼的憑證，然後複製其內容。
     4.  按一下 [匯入 SAML 中繼資料]，然後貼上 base-64 編碼的憑證。

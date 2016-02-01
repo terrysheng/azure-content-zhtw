@@ -22,7 +22,7 @@
 # 如何建立和部署雲端服務
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure 入口網站](cloud-services-how-to-create-deploy-portal.md)
 - [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快速建立」和「自訂建立」。
@@ -34,11 +34,14 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 ## 概念
 需要三個元件才能部署應用程式成為 Azure 中的雲端服務：
 
-- **服務定義** 雲端服務定義檔 (.csdef) 定義服務模型，包括角色數目。
+- **服務定義**  
+  雲端服務定義檔 (.csdef) 定義服務模型，包括角色數目。
 
-- **服務組態** 雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
+- **服務組態**  
+  雲端服務組態檔 (.cscfg) 提供雲端服務和個別角色的組態設定，包括角色執行個體數。
 
-- **服務封裝** 服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
+- **服務封裝**  
+  服務封裝 (.cspkg) 包含應用程式程式碼和組態以及服務定義檔。
 
 您可以在[這裡](cloud-services-model-and-package.md)深入了解這些內容，以及如何建立封裝。
 
@@ -57,7 +60,7 @@ Azure 入口網站提供兩種方法讓您建立和部署雲端服務：「快�
 
 ## 開始之前
 
-- 如果您尚未安裝 Azure SDK，請按一下 [Install Azure SDK] 開啟 [Azure 下載頁面](http://azure.microsoft.com/downloads/) (英文)，然後對於開發程式碼所偏好使用的語言下載 SDK。(您稍後將有機會這麼做。)
+- 如果您尚未安裝 Azure SDK，請按一下 [安装 Azure SDK] 開啟 [Azure 下載頁面](http://azure.microsoft.com/downloads/) (英文)，然後對於開發程式碼所偏好使用的語言下載 SDK。(您稍後將有機會這麼做。)
 
 - 如果任何角色執行個體需要憑證，請建立憑證。雲端服務需要含有私密金鑰的 .pfx 檔。[您建立並部署雲端服務時，可以將憑證上傳至 Azure]()。
 

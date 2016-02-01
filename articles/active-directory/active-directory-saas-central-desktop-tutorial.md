@@ -62,7 +62,9 @@
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##設定單一登入
 
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證至 Central Desktop。在這個程序中，您需要上傳 base-64 編碼憑證到您的 Central Desktop 租用戶。如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證至 Central Desktop。
+在這個程序中，您需要上傳 base-64 編碼憑證到您的 Central Desktop 租用戶。
+如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
 
 
@@ -81,7 +83,7 @@
     -   在 [Central Desktop 登入 URL] 文字方塊中，輸入您的 Central Desktop 租用戶的 URL (例如：**http://contoso.centraldesktop.com*))。
 -   在 [Central Desktop 回覆 URL] 文字方塊中，輸入您的 Central Desktop AssertionConsumerService URL (例如：https://contoso.centraldesktop.com/saml2-assertion.php))。
 
-    >[AZURE.NOTE]您可以從 Central Desktop 中繼資料取得這個值 (例如：**http://contoso.centraldesktop.com*))。
+    >[AZURE.NOTE] 您可以從 Central Desktop 中繼資料取得這個值 (例如：**http://contoso.centraldesktop.com*))。
 
     ![設定應用程式 URL](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "設定應用程式 URL")
 

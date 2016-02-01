@@ -169,8 +169,8 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 
 ### 解除安裝 DirSync (舊伺服器)
 
-- 從 [程式和功能] 中，尋找 [Windows Azure Active Directory 同步作業工具]
-- 解除安裝 [Windows Azure Active Directory 同步作業工具]
+- 從 [程式和功能] 中，尋找 [Microsoft Azure Active Directory 同步作業工具]
+- 解除安裝 [Microsoft Azure Active Directory 同步作業工具]
 - 請注意，可能需要 15 分鐘的時間才能完成解除安裝。
 
 解除安裝 DirSync 之後，沒有任何作用中的伺服器會匯出至 Azure AD。您在內部部署 Active Directory 中的任何變更繼續同步至 Azure AD 之前，必須完成下一個步驟。
@@ -197,4 +197,4 @@ Azure AD Connect 現在是您的作用中伺服器。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016--->

@@ -128,9 +128,9 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        如果裝置狀態為**離線**，請稍待片刻等待裝置上線。
       
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+        如果數分鐘之後裝置仍然離線，請確定您的防火牆網路已依照[StorSimple 裝置網路需求](https://msdn.microsoft.com/library/dn772371.aspx) 中的說明加以設定。 如果您的裝置不支援 HTTP 1.1，請檢查連接埠 9354 以確定此連接埠可開放做為傳出通訊之用。 此連接埠用於 StorSimple Manager 服務及 StorSimple 裝置間的通訊。
      
         
 

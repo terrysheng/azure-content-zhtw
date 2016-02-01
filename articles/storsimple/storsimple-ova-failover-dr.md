@@ -172,6 +172,6 @@ DR 順利完成之後，來源裝置上雲端資料的擁有權會移轉給目�
 
 ## 後續步驟
 
-深入了解如何 [administer your StorSimple Virtual Array using the local web UI (使用本機 Web UI 管理 StorSimple Virtual Array)](storsimple-ova-web-ui-admin.md)。
+深入了解如何 [使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!-----HONumber=AcomDC_0121_2016-->

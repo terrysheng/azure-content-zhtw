@@ -32,7 +32,7 @@
 
 在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單_待辦事項_應用程式。您將建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。若要以 .NET 中伺服器端的商務邏輯來建立行動服務，請參閱本主題的 [.NET 後端版本]。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](http://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20)。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](https://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20)。
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
@@ -54,16 +54,20 @@
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"><li><p>回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。如此可讓您瀏覽由應用程式插入資料表中的資料。<p></li></ol></p>
+<ol start="4">
+<li><p>回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。如此可讓您瀏覽由應用程式插入資料表中的資料。<p></li></ol></p>
 
 ## <a name="next-steps"> </a>後續步驟
 了解如何在行動服務中執行其他重要工作：
 
-* [開始使用離線資料同步] <br/>了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
+* [開始使用離線資料同步] 
+  <br/>了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
 
-* [在限有的應用程式中新增驗證功能] <br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
+* [在限有的應用程式中新增驗證功能] 
+  <br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
-* [將推播通知新增至現有的應用程式中] <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至現有的應用程式中] 
+  <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -95,4 +99,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 後端版本]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

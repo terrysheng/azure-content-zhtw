@@ -89,7 +89,7 @@
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署計算資源的相同國家/區域)。
 
-    > [AZURE.IMPORTANT]請挑選您想要選擇來部署應用程式的*相同區域*。這樣可以獲得最佳效能。
+    > [AZURE.IMPORTANT] 請挑選您想要選擇來部署應用程式的*相同區域*。這樣可以獲得最佳效能。
 
 6.	讓對話方塊中的其他欄位保留其預設值 ([傳訊] 和 [標準層])，然後按一下核取記號。此時系統會建立並啟用命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
@@ -123,7 +123,7 @@
 
 ### 建立專案
 
-1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或 Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，請在 \[Microsoft Visual Studio 2013] (或 [Microsoft Visual Studio Express]) 上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。
+1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或 Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，請在 [Microsoft Visual Studio 2013] (或 [Microsoft Visual Studio Express]) 上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。
 
 2.  在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
 
@@ -337,11 +337,11 @@
             }
         }
 
-3.  在 [方案總管] 中，展開 Views\\Shared 資料夾。
+3.  在 [方案總管] 中，展開 Views\Shared 資料夾。
 
     ![][18]
 
-4.  按兩下 **\_Layout.cshtml**，在 Visual Studio 編輯器中開啟它。
+4.  按兩下 **_Layout.cshtml**，在 Visual Studio 編輯器中開啟它。
 
 5.  將所有出現的 **My ASP.NET Application** 變更為 **LITWARE's Products**。
 
@@ -349,7 +349,7 @@
 
 	![][41]
 
-7.  在 [方案總管] 中，展開 Views\\Home 資料夾。
+7.  在 [方案總管] 中，展開 Views\Home 資料夾。
 
     ![][20]
 
@@ -402,7 +402,7 @@
 
 ## 將應用程式準備好部署到 Azure
 
-您可以將您的應用程式部署到 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][executionmodels] (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://azure.microsoft.com/develop/net/tutorials/get-started/)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
+您可以將您的應用程式部署到 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][executionmodels] (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](https://azure.microsoft.com/develop/net/tutorials/get-started/)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
 
 若要將應用程式部署至雲端服務，您需要新增雲端服務專案部署專案至方案。部署專案包含在雲端適當地執行應用程式所需的組態資訊。
 
@@ -517,7 +517,8 @@
 
 10. 在最後一個頁面上，按一下 [發佈] 以啟動部署程序。
 
-    ![][34]這將需要大約 5-7 分鐘的時間。因為這是您第一次發佈，所以 Azure 會佈建虛擬機器 (VM)、執行安全性強化、在 VM 上建立 Web 角色來主控應用程式、將程式碼部署至該 Web 角色，最後並設定負載平衡器及網路，以便應用程式可供大眾使用。
+    ![][34]
+這將需要大約 5-7 分鐘的時間。因為這是您第一次發佈，所以 Azure 會佈建虛擬機器 (VM)、執行安全性強化、在 VM 上建立 Web 角色來主控應用程式、將程式碼部署至該 Web 角色，最後並設定負載平衡器及網路，以便應用程式可供大眾使用。
 
 11. 發佈期間，您將能夠在 [Azure 活動記錄檔] 視窗中監視活動，此視窗通常會固定在 Visual Studio 或 Visual Web Developer 底部。
 
@@ -610,4 +611,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

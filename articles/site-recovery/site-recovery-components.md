@@ -155,4 +155,4 @@ Azure | **Site Recovery 保存庫**：至少一個 Azure Site Recovery 保存庫
 
 [準備部署](site-recovery-best-practices.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

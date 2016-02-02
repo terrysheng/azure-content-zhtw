@@ -25,7 +25,7 @@
 
 每個自動化帳戶的自動化資源都會與單一 Azure 區域相關聯，但自動化帳戶可管理任何區域中的 Azure 服務。在不同區域建立自動化帳戶的主要原因會是，若您擁有需要區隔資料和資源到特定區域的原則時。
 
->[AZURE.NOTE]使用 Azure Preview 入口網站所建立的自動化帳戶，以及其所包含的資源，無法在 Azure 入口網站中存取。如果您想使用 Windows PowerShell 來管理這些帳戶或它們的資源，您必須使用 「Azure 資源管理員」模組。
+>[AZURE.NOTE] 使用 Azure Preview 入口網站所建立的自動化帳戶，以及其所包含的資源，無法在 Azure 入口網站中存取。如果您想使用 Windows PowerShell 來管理這些帳戶或它們的資源，您必須使用 「Azure 資源管理員」模組。
 >
 >使用 Azure 入口網站建立的自動化帳戶可以透過入口網站或 Cmdlet 集來管理。帳戶一旦建立，您在帳戶中建立和管理資源的方式就沒有差別。如果您打算繼續使用 Azure 入口網站，您應該使用它代替 Azure Preview 入口網站來建立任何的自動化帳戶。
 
@@ -37,7 +37,7 @@
 
 使用 [Azure Cmdlet](http://msdn.microsoft.com/library/azure/jj554330.aspx) 存取 Azure 資源時，您必須提供 Azure 訂用帳戶的驗證。在 Azure 自動化中，這是由您設定為訂用帳戶的管理員的 Azure Active Directory 中組織帳戶來完成。然後您可以為此使用者帳戶建立[認證](http://msdn.microsoft.com/library/dn940015.aspx)，並在您的 Runbook 中將它搭配使用 [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx)。
 
->[AZURE.NOTE]前身為 LiveID 的 Microsoft 帳戶，無法搭配 Azure 自動化使用。
+>[AZURE.NOTE] 前身為 LiveID 的 Microsoft 帳戶，無法搭配 Azure 自動化使用。
 
 ## 建立新 Azure Active Directory 使用者來管理 Azure 訂用帳戶
 
@@ -62,7 +62,7 @@
 
 3. 在 [加入自動化帳戶] 刀鋒視窗中，設定您的自動化帳戶詳細資料。
 
->[AZURE.NOTE]使用 Azure Preview 入口網站來建立自動化帳戶時，帳戶和與其相關聯的所有資源，不會回到傳統管理入口網站。
+>[AZURE.NOTE] 使用 Azure Preview 入口網站來建立自動化帳戶時，帳戶和與其相關聯的所有資源，不會回到傳統管理入口網站。
 
 以下是要設定的參數清單：
 
@@ -76,7 +76,7 @@
 
 ![Create Account](media/automation-configuration/automation-01-create-automation-account.png)
 
->[AZURE.NOTE]當使用傳統管理入口網站建立的自動化帳戶使用 Azure Preview 入口網站[移至不同的資源群組](../resource-group-move-resources.md)時，自動化帳戶將不再可於 Azure 傳統入口網站中使用，因為傳統管理入口網站不支援 Azure 資源管理員帳戶。
+>[AZURE.NOTE] 當使用傳統管理入口網站建立的自動化帳戶使用 Azure Preview 入口網站[移至不同的資源群組](../resource-group-move-resources.md)時，自動化帳戶將不再可於 Azure 傳統入口網站中使用，因為傳統管理入口網站不支援 Azure 資源管理員帳戶。
 
 
 
@@ -91,7 +91,7 @@
 您應該在您的 Runbook 中的任何[檢查點](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints)後重複這幾行。如果 Runbook 暫止然後在另一個背景工作上繼續執行，則它必須重新執行驗證。
 
 ## 相關文章
-- [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+- [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@
 
 使用 Chrome 應用程式通知的主要優點之一，是通知會顯示在 Google Chrome 瀏覽器的內容中。您不需要執行 Chrome 應用程式，也不需要在瀏覽器中開啟 (但 Chrome 瀏覽器本身必須為執行狀態)。您也可以在 [Chrome 通知] 視窗中整合檢視您所有的通知。
 
->[AZURE.NOTE]這不是一般瀏覽器中的推播通知，而是 Chrome 應用程式專用的通知；如需詳細資料，請參閱 [Chrome 應用程式概觀] (英文)。Chrome 應用程式以前稱為「封裝應用程式」，不同於較簡單的「代管應用程式」。若想了解相關差異，請參閱[可安裝的 Web Apps]。Chrome 應用程式也可以透過 Apache Cordova 在行動裝置 (Android 和 iOS) 上執行。若要深入了解，請參閱[行動裝置上的 Chrome 應用程式]。
+>[AZURE.NOTE] 這不是一般瀏覽器中的推播通知，而是 Chrome 應用程式專用的通知；如需詳細資料，請參閱 [Chrome 應用程式概觀] (英文)。Chrome 應用程式以前稱為「封裝應用程式」，不同於較簡單的「代管應用程式」。若想了解相關差異，請參閱[可安裝的 Web Apps]。Chrome 應用程式也可以透過 Apache Cordova 在行動裝置 (Android 和 iOS) 上執行。若要深入了解，請參閱[行動裝置上的 Chrome 應用程式]。
 
 在本教學課程中，我們將建立可使用 Google Cloud Messaging (GCM) 接收推播通知的 Chrome 應用程式。完成本教學課程後，您便能夠將推播通知廣播給已安裝此 Chrome 應用程式的所有 Chrome 使用者。
 
@@ -40,7 +40,7 @@
 
 請確實依照教學課程的「後續步驟」一節操作，以了解如何使用通知中樞來處理特定使用者和裝置群組。
 
->[AZURE.NOTE]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)。
+>[AZURE.NOTE] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F)。
 
 ##<a id="register"></a>啟用 Google Cloud Messaging
 
@@ -323,10 +323,10 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 		function sendNHRegistrationRequest()
 		{
 		  var registrationPayload =
-		  "<?xml version="1.0" encoding="utf-8"?>" +
-		  "<entry xmlns="http://www.w3.org/2005/Atom">" +
-		      "<content type="application/xml">" +
-		          "<GcmRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">" +
+		  "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+		  "<entry xmlns=\"http://www.w3.org/2005/Atom\">" +
+		      "<content type=\"application/xml\">" +
+		          "<GcmRegistrationDescription xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/netservices/2010/10/servicebus/connect\">" +
 		              "<GcmRegistrationId>{GCMRegistrationId}</GcmRegistrationId>" +
 		          "</GcmRegistrationDescription>" +
 		      "</content>" +
@@ -381,7 +381,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 
 
 您應該會在結尾處看見下列資料夾檢視：
-   	![][21]
+	![][21]
 
 ###設定和測試 Chrome 應用程式
 
@@ -436,7 +436,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 
    	請務必使用出現在入口網站 [通知中樞] 索引標籤上的通知中樞名稱，來取代 *hub name* 預留位置。此外，請將連接字串預留位置替換為您在「設定通知中樞」一節中取得的 **DefaultFullSharedAccessSignature** 連接字串。
 
-	>[AZURE.NOTE]請確定您使用的連接字串具有 [**完整**] 存取權，而非 [**接聽**] 存取權。**接聽**存取權的字串沒有傳送通知的權限。
+	>[AZURE.NOTE] 請確定您使用的連接字串具有 [**完整**] 存取權，而非 [**接聽**] 存取權。**接聽**存取權的字串沒有傳送通知的權限。
 
 5. 在 **[主要]** 方法中新增下列命令列。
 
@@ -494,4 +494,4 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 [Azure 通知中樞通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 通知中樞即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

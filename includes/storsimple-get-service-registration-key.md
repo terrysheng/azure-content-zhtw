@@ -16,10 +16,10 @@
 
 5. 按一下核取圖示 ![StorSimple 核取圖示](./media/storsimple-get-service-registration-key/HCS_CheckIcon-include.png)，關閉此對話方塊並返回 [快速入門] 頁面。
 
-> [AZURE.NOTE]服務註冊金鑰可用來註冊必須向 StorSimple Manager 服務註冊的所有裝置。
+> [AZURE.NOTE] 服務註冊金鑰可用來註冊必須向 StorSimple Manager 服務註冊的所有裝置。
 
 ![提供的影片](./media/storsimple-get-service-registration-key/Video_icon.png)**提供的影片**
 
-若要觀看影片示範如何取得服務註冊金鑰，請按一下[這裡](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/)。
+若要觀看影片示範如何取得服務註冊金鑰，請按一下[這裡](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

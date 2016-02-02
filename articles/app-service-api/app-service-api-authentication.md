@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
 # Azure App Service 中的 API Apps 驗證與授權
@@ -74,6 +74,8 @@ App Service 可以防止匿名 HTTP 要求進入您的 API 應用程式、傳遞
 如果使用選項 1 和 2，請開啟 [App Service 驗證]，然後在 [要求未通過驗證時所要採取的動作] 下拉式清單中，選擇 [登入] 或 [允許要求 (無動作)]。如果您選擇 [登入]，就必須選擇驗證提供者，並設定該提供者。
 
 ![](./media/app-service-api-authentication/actiontotake.png)
+
+如需如何設定驗證的詳細資訊，請參閱[如何設定 App Service 應用程式使用 Azure Active Directory 登入](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。本文適用於 API 應用程式和行動應用程式，而且會連結到關於其他驗證提供者的其他文章。
  
 ## <a id="internal"></a> 服務帳戶驗證
 
@@ -91,7 +93,10 @@ App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特
   
 ## 詳細資訊
 
-如需 Azure App Service 中驗證和授權的詳細資訊，請參閱[展開 App Service 驗證/授權](/blog/announcing-app-service-authentication-authorization/)。
+如需 Azure App Service 中的驗證與授權的詳細資訊，請參閱下列資源：
+
+* [擴充 App Service 驗證/授權](/blog/announcing-app-service-authentication-authorization/)
+* [如何設定 App Service 應用程式使用 Azure Active Directory 登入](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (頁面頂端有其他驗證提供者的連結)。 
 
 如需 OAuth 2.0、OpenID Connect 和 JSON Web 權杖 (JWT) 的詳細資訊，請參閱下列資源。
 
@@ -113,4 +118,4 @@ App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特
 
 如需在 Azure App Service 中使用 Node 和 Java 的詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)和 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

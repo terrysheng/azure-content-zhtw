@@ -39,7 +39,7 @@ Visual Studio Application Insights 可讓您監視已發佈的應用程式在以
 * [Microsoft Azure][azure] 訂用帳戶。
 * Visual Studio 2013 或更新版本。
 
-## 1\.建立 Application Insights 資源 
+## 1.建立 Application Insights 資源 
 
 在 [Azure 入口網站][portal] 中，建立新的 Application Insights 資源。
 
@@ -54,7 +54,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 ![開啟 Essentials 下拉式抽屜，選取檢測金鑰](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\.將 Application Insights SDK 加入至應用程式
+## 2.將 Application Insights SDK 加入至應用程式
 
 在 Visual Studio 中，將適當的 SDK 加入至專案。
 
@@ -200,7 +200,9 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 
 ## 升級到新版的 SDK
 
-當[新的 SDK 版本發行時](app-insights-release-notes-windows.md)：* 在您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。* 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
+當[新的 SDK 版本發行時](app-insights-release-notes-windows.md)：
+* 在您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。
+* 選取已安裝的 Application Insights 封裝，然後選擇 [動作：升級]。
 
 
 ## <a name="usage"></a>後續步驟
@@ -231,4 +233,4 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

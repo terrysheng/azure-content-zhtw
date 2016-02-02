@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="開始使用 Azure Multi-Factor Authentication Server" 
 	description="這是說明如何開始使用 Azure MFA Server 的 Azure Multi-Factor Authentication 頁面。" 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="驗證伺服器, azure multi factor authentication 應用程式啟動頁面, 驗證伺服器下載" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/11/2016" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # 開始使用 Azure Multi-Factor Authentication Server
@@ -40,8 +41,10 @@
 2. 在左側選取 [Active Directory]。
 3. 在 [Active Directory] 頁面頂端，按一下 [**多因素驗證提供者**]
 4. 在底部按一下 [**管理**]
-5. 這會開啟新的頁面。按一下 [**下載**] ![下載](./media/multi-factor-authentication-sdk/download.png)
-6. 在 [**產生啟用認證**] 上方，按一下 [**下載**] ![下載](./media/multi-factor-authentication-get-started-server/download4.png)
+5. 這會開啟新的頁面。按一下 [**下載**]
+ 	![下載](./media/multi-factor-authentication-sdk/download.png)
+6. 在 [**產生啟用認證**] 上方，按一下 [**下載**]
+ 	![下載](./media/multi-factor-authentication-get-started-server/download4.png)
 7. 儲存下載內容。
 
 
@@ -52,9 +55,11 @@
 1. 以系統管理員身分登入 Azure 入口網站。
 2. 在左側選取 [Active Directory]。
 3. 按兩下您的 Azure AD 的執行個體。
-4. 在頂端按一下 [**設定**] ![下載](./media/multi-factor-authentication-sdk/download2.png)
+4. 在頂端按一下 [**設定**]
+ 	![下載](./media/multi-factor-authentication-sdk/download2.png)
 5. 在多因素驗證底下選取 [**管理服務設定**]
-6. 在 [服務設定] 頁面上，於畫面底部按一下 [**移至入口網站**]。![下載](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+6. 在 [服務設定] 頁面上，於畫面底部按一下 [**移至入口網站**]。
+	![下載](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. 這會開啟新的頁面。按一下 [**下載**]。
 8. 在 [**產生啟用認證**] 上方，按一下 [**下載**]。
 9. 儲存下載內容。
@@ -84,18 +89,18 @@ Azure Multi-Factor Authentication Server 需求|說明|
 
 IP 子網路|網路遮罩|IP 範圍
 :------------- | :------------- | :------------- |
-134\.170.116.0/25|255\.255.255.128|134\.170.116.1 – 134.170.116.126
-134\.170.165.0/25|255\.255.255.128|134\.170.165.1 – 134.170.165.126
-70\.37.154.128/25|255\.255.255.128|70\.37.154.129 – 70.37.154.254
+134.170.116.0/25|255.255.255.128|134.170.116.1 – 134.170.116.126
+134.170.165.0/25|255.255.255.128|134.170.165.1 – 134.170.165.126
+70.37.154.128/25|255.255.255.128|70.37.154.129 – 70.37.154.254
 
 如果您不使用 Azure Multi-Factor Authentication 事件確認功能，而且使用者不會在公司網路中利用裝置上的 Multi-Factor Auth 行動應用程式進行驗證，可以將 IP 範圍縮小為如下所示：
 
 
 IP 子網路|網路遮罩|IP 範圍
 :------------- | :------------- | :------------- |
-134\.170.116.72/29|255\.255.255.248|134\.170.116.72 – 134.170.116.79
-134\.170.165.72/29|255\.255.255.248|134\.170.165.72 – 134.170.165.79
-70\.37.154.200/29|255\.255.255.248|70\.37.154.201 – 70.37.154.206
+134.170.116.72/29|255.255.255.248|134.170.116.72 – 134.170.116.79
+134.170.165.72/29|255.255.255.248|134.170.165.72 – 134.170.165.79
+70.37.154.200/29|255.255.255.248|70.37.154.201 – 70.37.154.206
 
 
 ### 安裝及設定 Azure Multi-Factor Authentication Server
@@ -105,7 +110,7 @@ IP 子網路|網路遮罩|IP 範圍
 1. 按兩下可執行檔。安裝作業隨即會開始。
 2. 在 [選取安裝資料夾] 畫面中，請確認資料夾正確，然後按一下 [下一步]。
 3. 當安裝完成時，請按一下 [完成]。這會啟動組態精靈。
-4. 在組態精靈歡迎畫面上，勾選 [**略過使用驗證組態精靈**]，然後按 [**下一步**]。  這會關閉精靈並啟動伺服器。
+4. 在組態精靈歡迎畫面上，勾選 [**略過使用驗證組態精靈**]，然後按 [**下一步**]。這會關閉精靈並啟動伺服器。
 ![雲端](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. 回到下載伺服器的頁面，按一下 [**產生啟用認證**] 按鈕。將此資訊複製到 Azure MFA Server 提供的方塊中，然後按一下 [**啟用**]。
@@ -183,6 +188,6 @@ Azure Multi-Factor Authentication Server 提供各種方式來設定您的使用
 [LDAP 驗證](multi-factor-authentication-get-started-server-ldap.md)|有關搭配 LDAP 驗證設定 Azure MFA Server 的資訊。
 [使用 RADIUS 的遠端桌面閘道器和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)| 有關使用 RADIUS 搭配遠端桌面閘道器設定 Azure MFA Server 的資訊。
 [與 Windows Server Active Directory 同步處理](multi-factor-authentication-get-started-server-dirint.md)|有關設定 Active Directory 與 Azure MFA Server 之間同步處理的資訊。
-[部署 Azure Multi-Factor Authentication Server Mobile App Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
+[部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](multi-factor-authentication-get-started-server-webservice.md)|有關設定 Azure MFA 伺服器 Web 服務的資訊。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

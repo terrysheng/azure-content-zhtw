@@ -1,6 +1,7 @@
 <properties
-	pageTitle="修正暫時性連接中斷的動作 |Microsoft Azure"
-	description="與 Azure SQL Database 互動時排解、診斷和防止連接錯誤和其他暫時性錯誤的動作。"
+	pageTitle="修正 SQL 連接錯誤、暫時性錯誤 |Microsoft Azure"
+	description="了解如何在 Azure SQL Database 中排解、診斷和防止 SQL 連接錯誤或暫時性錯誤。"
+	keywords="sql 連接, 連接字串, 連接問題, 暫時性錯誤, 連接錯誤"
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
@@ -17,31 +18,24 @@
 	ms.author="daleche"/>
 
 
-# 排解 SQL database 的暫時性錯誤和連接錯誤
+# 排解、診斷和防止 SQL Database 的 SQL 連接錯誤和暫時性錯誤
 
-
-本主題描述如何防止、排解、診斷和減少您的用戶端程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。
-
+本文描述如何防止、排解、診斷和減少您的用戶端應用程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。了解如何設定重試邏輯、建置連接字串和調整其他連接設定。
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
-## 暫時性錯誤
+## 暫時性錯誤 (暫時性故障)
 
-
-暫時性錯誤是根本原因很快就自行解決的錯誤。當 Azure 系統快速地將硬體資源轉移到負載平衡更好的各種工作負載時，偶爾會發生暫時性錯誤。在此重新設定時間範圍期間，與 Azure SQL Database的連接可能會失去。
-
+暫時性錯誤 (又稱暫時性故障) 具有很快就會自行解決的根本原因。當 Azure 系統快速地將硬體資源轉移到負載平衡更好的各種工作負載時，偶爾會發生暫時性錯誤。在此重新設定時間範圍期間，與 Azure SQL Database 的連接可能會有問題。
 
 如果用戶端程式使用 ADO.NET，系統會擲回 **SqlException**，告知您的程式發生暫時性錯誤。**數目**屬性可以與主題頂端附近的暫時性錯誤清單進行比較：
-[SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)。
-
+[SQL Database 用戶端應用程式的 SQL 錯誤碼](sql-database-develop-error-messages.md)。
 
 ### 連接與命令
 
-
-嘗試連接期間發生暫時性錯誤時，應該延遲數秒重試連接。
-
-
-執行 SQL 查詢命令期間發生暫時性錯誤時，不應該立即重試命令。而是在延遲之後，應該建立全新的連接。然後，可以重試命令。
+視下列情況而定，您將會重試 SQL 連接或再次建立連接：
+* **連接嘗試期間發生暫時性錯誤**：應該在延遲數秒後重試連接。
+* **SQL 查詢命令期間發生暫時性錯誤**：不應立即重試命令。而是在延遲之後，應該建立全新的連接。然後，可以重試命令。
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -49,7 +43,7 @@
 ## 暫時性錯誤的重試邏輯
 
 
-偶爾遇到暫時性錯誤的用戶端程式，當它們包含重試邏輯時更穩健。
+用戶端程式若包含重試邏輯，在偶爾遇到暫時性錯誤時就會更可靠。
 
 
 當您的程式透過協力廠商中介軟體與 Azure SQL Database 進行通訊時，請洽詢廠商中介軟體是否包含暫時性錯誤的重試邏輯。
@@ -58,10 +52,10 @@
 ### 重試原則
 
 
-- 如果錯誤是暫時性錯誤，則應該重新嘗試開啟連接。
+- 如果是暫時性錯誤，則應該重新嘗試開啟連接。
 
 
-- 不應直接重試由於暫時性錯誤而失敗的 SQL SELECT 陳述式。
+- 不應該直接重試由於暫時性錯誤而失敗的 SQL SELECT 陳述式。
  - 而是建立全新的連線，然後重試 SELECT。
 
 
@@ -110,7 +104,7 @@
 
 
 您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。錯誤將是：
-- **SqlException.Number** = 11001 
+- **SqlException.Number** = 11001
 - 訊息：「沒有這類已知的主機」
 
 
@@ -118,19 +112,19 @@
 
 
 若要使這個動作可行，請從網路拔除電腦，再啟動您的程式。然後，您的程式會辨識執行階段參數，其會導致程式：
-1. 暫時將 11001 加入至其錯誤清單，視為暫時性。
-2. 如往常般嘗試其第一個連接。
-3. 在攔截到錯誤之後，請從清單中移除 11001。
-4. 顯示一則訊息，告訴使用者將電腦插入網路中。
- - 使用 **Console.ReadLine** 方法或含 [確定] 按鈕的對話方塊，暫停進一步執行。將電腦插入網路中之後。使用者按下 Enter 鍵。
-5. 重新嘗試連接，預期成功。
+1.暫時將 11001 加入至其錯誤清單，視為暫時性。
+2.如往常般嘗試其第一個連接。
+3.在攔截到錯誤之後，請從清單中移除 11001。
+4.顯示一則訊息，告訴使用者將電腦插入網路中。
+- 使用 **Console.ReadLine** 方法或含 [確定] 按鈕的對話方塊，暫停進一步執行。將電腦插入網路中之後。使用者按下 Enter 鍵。
+5.重新嘗試連接，預期成功。
 
 
 ### 連接時拼錯資料庫名稱以進行測試
 
 
 在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。錯誤將為：
-- **SqlException.Number** = 18456
+- **SqlException.Number** = 18456 
 - 訊息：「使用者 'WRONG_MyUserName' 登入失敗。」
 
 
@@ -138,11 +132,11 @@
 
 
 若要使這個動作可行，您的程式會辨識執行階段參數，其會導致程式：
-1. 暫時將 18456 加入至其錯誤清單，視為暫時性。
-2. 故意將 'WRONG_' 加入至使用者名稱。
-3. 在攔截到錯誤之後，請從清單中移除 18456。
-4. 從使用者名稱中移除 'WRONG_'。
-5. 重新嘗試連接，預期成功。
+1.暫時將 18456 加入至其錯誤清單，視為暫時性。
+2.故意將 'WRONG_' 加入至使用者名稱。
+3.在攔截到錯誤之後，請從清單中移除 18456。
+4.從使用者名稱中移除 'WRONG_'。
+5.重新嘗試連接，預期成功。
 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
@@ -150,7 +144,7 @@
 ## 連接：連接字串
 
 
-連接到 Azure SQL Database 所需的連接字串和連接到 Microsoft SQL Server 的字串稍有不同。您可以從 [Azure 入口網站](http://portal.azure.com/)複製資料庫的連接字串。
+連接到 Azure SQL Database 所需的連接字串和連接到 Microsoft SQL Server 的字串稍有不同。您可以從 [Azure 入口網站](https://portal.azure.com/)複製資料庫的連接字串。
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
@@ -204,7 +198,7 @@
 ## 連接：IP 位址
 
 
-您必須設定 SQL Database 伺服器，以接受來自裝載您的用戶端程式之電腦的通訊。您可以透過 [Azure 入口網站](http://portal.azure.com/)編輯防火牆設定來執行此動作。
+您必須設定 SQL Database 伺服器，以接受來自裝載您的用戶端程式之電腦的通訊。您可以透過 [Azure 入口網站](https://portal.azure.com/)編輯防火牆設定來執行此動作。
 
 
 如果您忘了設定 IP 位址，您的程式將會失敗並出現一個好用的錯誤訊息，陳述必要的 IP 位址。
@@ -406,7 +400,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 - [程式碼範例：來自 Enterprise Library 6 的重試邏輯，在 C# 中用於連接到 SQL Database](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
-> [AZURE.NOTE]EntLib60 的原始程式碼已可公開[下載](http://go.microsoft.com/fwlink/p/?LinkID=290898)。Microsoft 不打算對 EntLib 做進一步的功能或維護更新。
+> [AZURE.NOTE] EntLib60 的原始程式碼已可公開[下載](http://go.microsoft.com/fwlink/p/?LinkID=290898)。Microsoft 不打算對 EntLib 做進一步的功能或維護更新。
 
 
 ### 用於暫時性錯誤和重試的 EntLib60 類別
@@ -545,4 +539,4 @@ public bool IsTransient(Exception ex)
 
 - [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，幾乎可對任何案例加入重試作業。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

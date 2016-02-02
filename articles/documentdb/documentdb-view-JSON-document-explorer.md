@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/28/2015"
 	ms.author="anhoh"/>
 
 # 使用 DocumentDB Document Explorer 檢視、編輯、建立和上傳 JSON 文件 #
 
-本篇文章提供 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Document Explorer 的概觀，它是一種 Azure 入口網站的工具，可讓您檢視、編輯、建立和上傳使用 DocumentDB 的 JSON 文件。
+本篇文章提供 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Document Explorer 的概觀，它是一種 Azure 入口網站的工具，可讓您檢視、編輯、建立和上傳使用 DocumentDB 的 JSON 文件。
 
 完成本教學課程後，您將能夠回答下列問題：
 
@@ -56,7 +56,7 @@ Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
 
 	![[Document Explorer] 儲存命令的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
-	> [AZURE.NOTE]如果您未提供 "id" 屬性，則 Document Explorer 會自動新增 id 屬性，並產生一個 GUID 做為識別碼值。
+	> [AZURE.NOTE] 如果您未提供 "id" 屬性，則 Document Explorer 會自動新增 id 屬性，並產生一個 GUID 做為識別碼值。
 
 - 如果您已經有來自 JSON 檔案、MongoDB、SQL Server、CSV 檔案、Azure 資料表儲存體、Amazon DynamoDB、HBase，或其他 DocumentDB 集合的資料，即可使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)快速匯入資料。
 
@@ -84,7 +84,7 @@ Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
 
 	![[Document Explorer] 文件屬性檢視的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]時間戳記 (\_ts) 屬性在內部會以 Epoch 時間表示，但是 Document Explorer 會以一般人可判讀的 GMT 格式顯示此值。
+	> [AZURE.NOTE] 時間戳記 (_ts) 屬性在內部會以 Epoch 時間表示，但是 Document Explorer 會以一般人可判讀的 GMT 格式顯示此值。
 
 ##<a id="Navigate"></a>文件總管導覽選項以及進階設定##
 
@@ -99,7 +99,7 @@ Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
 
 	![[Document Explorer 設定] 刀鋒視窗的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
 
-	> [AZURE.NOTE]修改 Document Explorer 設定後，您必須按一下 [重新整理] 命令才能套用新設定。設定只會維持在目前的瀏覽器工作階段。
+	> [AZURE.NOTE] 修改 Document Explorer 設定後，您必須按一下 [重新整理] 命令才能套用新設定。設定只會維持在目前的瀏覽器工作階段。
 	
 3. [資料庫] 和 [集合] 下拉式清單方塊可用來輕鬆地變更目前檢視文件的集合，而無需關閉並重新啟動 Document Explorer。
 
@@ -112,7 +112,7 @@ Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
 	![含篩選結果的 [Document Explorer] 螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT]Document Explorer 篩選功能只會從**目前**載入的文件集進行篩選，而且不會針對目前選取的集合執行查詢。
+	> [AZURE.IMPORTANT] Document Explorer 篩選功能只會從**目前**載入的文件集進行篩選，而且不會針對目前選取的集合執行查詢。
 
 5. 若要重新整理 Document Explorer 所載入的文件清單，您只需要按一下刀鋒視窗頂端的 [重新整理] 命令即可。
 
@@ -130,7 +130,7 @@ Document Explorer 支援大量擷取一或多個現有 JSON 文件。
 
 	![[Document Explorer] 大量擷取程序的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/adddocument2.png)
 
-	> [AZURE.NOTE]Document Explorer 的每個個別上傳作業目前支援多達 100 個 JSON 文件。
+	> [AZURE.NOTE] Document Explorer 的每個個別上傳作業目前支援多達 100 個 JSON 文件。
 
 3. 對您的選取項目感到滿意後，請按一下 [上傳] 按鈕。文件會自動新增至 Document Explorer 方格，且上傳結果會顯示為作業進度。系統會針對個別檔案回報匯入失敗。
 
@@ -145,4 +145,4 @@ Document Explorer 支援大量擷取一或多個現有 JSON 文件。
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

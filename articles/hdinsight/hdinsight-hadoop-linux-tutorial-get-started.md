@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/13/2016"
+   	ms.date="01/21/2016"
    	ms.author="nitinme"/>
 
 # Hadoop 教學課程：在 Linux 上開始在 HDInsight 中搭配使用 Hadoop 與 Hive
@@ -25,19 +25,19 @@
 
 本文件為您示範如何建立以 Linux 為基礎的 Hadoop 叢集、開啟 Ambari Web UI，然後使用 Ambari Hive 檢視執行 Hive 查詢，以便在 Linux 上快速地開始使用 Azure HDInsight。
 
-> [AZURE.NOTE]如果您是 Hadoop 和巨量資料的新使用者，您可以進一步了解這些術語：[Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084)、[MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086)、[Hadoop 分散式檔案系統 (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) 及 [Hive](http://go.microsoft.com/fwlink/?LinkId=510085)。若要了解 HDInsight 如何在 Azure 中啟用 Hadoop，請參閱 [HDInsight 中 Hadoop 的簡介](hdinsight-hadoop-introduction.md)。
+> [AZURE.NOTE] 如果您是 Hadoop 和巨量資料的新使用者，您可以進一步了解這些術語：[Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084)、[MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086)、[Hadoop 分散式檔案系統 (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) 及 [Hive](http://go.microsoft.com/fwlink/?LinkId=510085)。若要了解 HDInsight 如何在 Azure 中啟用 Hadoop，請參閱 [HDInsight 中 Hadoop 的簡介](hdinsight-hadoop-introduction.md)。
 
 ## 必要條件
 
 開始進行 Hadoop 的本 Linux 教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**：請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**：請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 ## <a name="provision"></a>在 Linux 上佈建 HDInsight 叢集
 
 佈建叢集時，可以建立包含 Hadoop 服務和資源的 Azure 計算資源。在本節中，您將佈建包含 Hadoop 2.2 版的 HDInsight 3.2 版叢集。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。如需建立 HDInsight 叢集的詳細資訊，請參閱[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]。
 
->[AZURE.NOTE]您也可以建立執行 Windows Server 作業系統的 Hadoop 叢集。如需相關指示，請參閱[在 Windows 上開始使用 HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)。
+>[AZURE.NOTE]  您也可以建立執行 Windows Server 作業系統的 Hadoop 叢集。如需相關指示，請參閱[在 Windows 上開始使用 HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)。
 
 請使用下列步驟建立新的叢集：
 
@@ -54,13 +54,13 @@
 
 5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
-	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
+	> [AZURE.NOTE] 如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
 6. 按一下 [認證]，然後輸入系統管理員使用者的密碼。您也必須輸入 [SSH 使用者名稱]。針對 [SSH 驗證類型], ，按一下 [密碼] 並指定 SSH 使用者的密碼。按一下底部的 [選取] 以儲存認證組態。
 
 	![提供叢集認證](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "提供叢集認證")
 
-    > [AZURE.NOTE]SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼會在透過 SSH 連接到叢集時使用。
+    > [AZURE.NOTE] SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼會在透過 SSH 連接到叢集時使用。
 
 	如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列其中一份文件：
 
@@ -82,7 +82,7 @@
 
 	- **位置**：儲存體帳戶所在或將建立的地理區域。
 
-		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
+		> [AZURE.IMPORTANT] 選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
 
 	按一下 [選取] 以儲存資料來源組態。
 
@@ -90,7 +90,7 @@
 
 	![節點定價層刀鋒視窗](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "指定叢集節點的數目")
     
-    > [AZURE.IMPORTANT]如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
+    > [AZURE.IMPORTANT] 如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
     >
     > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
@@ -102,7 +102,7 @@
 ------------------|---------------------
 	![「開始面板」上的佈建指示器](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![佈建的叢集磚](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來檢查佈建進度。
+> [AZURE.NOTE] 建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來檢查佈建進度。
 
 佈建完成後，在「開始面板」按一下該叢集的圖格，以啟動叢集刀鋒視窗。
 
@@ -110,7 +110,7 @@
 
 Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您將使用 Hive 檢視對您的 HDInsight 叢集執行 Hive 查詢。
 
-> [AZURE.NOTE]Ambari 是隨著以 Linux 為基礎的 HDInsight 叢集提供的管理和監視公用程式。Ambari 有很多不會在本文中討論的功能。如需詳細資訊，請參閱[使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
+> [AZURE.NOTE] Ambari 是隨著以 Linux 為基礎的 HDInsight 叢集提供的管理和監視公用程式。Ambari 有很多不會在本文中討論的功能。如需詳細資訊，請參閱[使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
 若要從 Azure 入口網站顯示 Ambari 檢視，請選取您的 HDInsight 叢集，然後從 [快速連結] 區段選取 [Ambari 檢視]
 
@@ -120,7 +120,7 @@ Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您�
 
 ![選取 ambari 檢視](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png)。
 
-> [AZURE.NOTE]存取 Ambari 時，系統會提示您對網站進行驗證。輸入您在建立叢集時所使用的 admin (預設為 `admin`)、帳戶名稱和密碼。
+> [AZURE.NOTE] 存取 Ambari 時，系統會提示您對網站進行驗證。輸入您在建立叢集時所使用的 admin (預設為 `admin`)、帳戶名稱和密碼。
 
 您應該會看到如下所示的頁面：
 
@@ -146,11 +146,11 @@ Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您�
 	- **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
 	- **SELECT** - 選擇其資料欄 t4 包含值 [ERROR] 的所有資料列計數。
 
-	>[AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。捨棄外部資料表並*不*會刪除資料，只會刪除資料表定義。
+	>[AZURE.NOTE] 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。捨棄外部資料表並*不*會刪除資料，只會刪除資料表定義。
 
 2. 使用 [查詢編輯器] 底部的 [執行] 按鈕開始查詢。它應該變成橘色，而文字會變成 [停止執行]。[查詢程序結果] 區段應該會出現在 [查詢編輯器] 下方並顯示作業相關資訊。
 
-    > [AZURE.IMPORTANT]有些瀏覽器可能無法正確地重新整理記錄檔或結果資訊。如果您執行一項作業，而該作業似乎會一直執行，但未更新記錄檔或傳回結果，請嘗試改用 Mozilla FireFox 或 Google Chrome。
+    > [AZURE.IMPORTANT] 有些瀏覽器可能無法正確地重新整理記錄檔或結果資訊。如果您執行一項作業，而該作業似乎會一直執行，但未更新記錄檔或傳回結果，請嘗試改用 Mozilla FireFox 或 Google Chrome。
     
 3. 查詢完成後，[查詢程序結果] 區段會顯示作業的結果。[停止執行] 按鈕也會變回綠色 [執行] 按鈕。[結果] 索引標籤應包含下列資訊：
 
@@ -159,7 +159,7 @@ Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您�
 
     [記錄檔] 索引標籤可用來檢視作業所建立的記錄資訊。您可以將此資訊用來排解查詢問題。
     
-    > [AZURE.TIP]請注意，[查詢程序結果] 區段右上方的 [儲存結果] 下拉式清單；您可以使用此下拉式清單來下載結果，或以 CSV 檔案形式將它們儲存到 HDInsight 儲存體。
+    > [AZURE.TIP] 請注意，[查詢程序結果] 區段右上方的 [儲存結果] 下拉式清單；您可以使用此下拉式清單來下載結果，或以 CSV 檔案形式將它們儲存到 HDInsight 儲存體。
 
 3. 選取此查詢的前四行，然後選取 [執行]。請注意，作業完成時沒有任何結果。這是因為在選取部分查詢的情況下使用 [執行] 按鈕，只會執行所選的陳述式。在此情況下，選取項目不包含從資料表擷取資料列的最後一個陳述式。如果您只選取那一行並使用 [執行]，您應該會看到預期的結果。
 
@@ -186,9 +186,9 @@ Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您�
     
     其他圖示如下所示：
     
-	* 設定：齒輪圖示可讓您變更 Hive 設定，例如設定 `hive.execution.engine` 或 Tez 參數。
-	* Tez：顯示 Tez 用來執行查詢的有向非循環圖 (DAG)。如果您想要檢視您已執行過的查詢的 DAG，請改為使用 [Tez 檢視]。
-	* 通知：顯示通知，例如「查詢已提交」；或是執行查詢時發生的錯誤。
+    * **設定**：齒輪圖示可讓您變更 Hive 設定，例如設定 `hive.execution.engine` 或 Tez 參數。
+    * **Tez**：顯示 Tez 用來執行查詢的有向非循環圖 (DAG)。如果您想要檢視您已執行過的查詢的 DAG，請改為使用 [Tez 檢視]。
+    * **通知**：顯示通知，例如「查詢已提交」；或是執行查詢時發生的錯誤。
 
 5. 選取 [SQL] 圖示可切換回 [查詢編輯器]，然後建立新的工作表並輸入下列查詢：
 
@@ -260,4 +260,4 @@ Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您�
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

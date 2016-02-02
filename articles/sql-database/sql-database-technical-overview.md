@@ -52,13 +52,13 @@ Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](http://azure.mi
 如需可用於不同服務層之其他商務持續性功能的詳細資料，請參閱[商務持續性](sql-database-business-continuity.md)。
 
 ## 保護您的資料
-SQL Server 的資料安全性向來是一項可靠的傳統，而 SQL Database 支援與其相同的多項功能，可限制存取權、保護資料，以及協助您監視活動。如需可在 SQL Database 中使用之安全性選項的快速概要，請參閱[保護您的 SQL Database](sql-database-security.md)。如需更完整的安全性功能檢視，請參閱 [SQL Server Database Engine 和 SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)。如需 Azure 平台安全性的相關資訊，也請造訪 [Azure 信任中心](http://azure.microsoft.com/support/trust-center/security/)。
+SQL Server 的資料安全性向來是一項可靠的傳統，而 SQL Database 支援與其相同的多項功能，可限制存取權、保護資料，以及協助您監視活動。如需可在 SQL Database 中使用之安全性選項的快速概要，請參閱[保護您的 SQL Database](sql-database-security.md)。如需更完整的安全性功能檢視，請參閱 [SQL Server Database Engine 和 SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)。如需 Azure 平台安全性的相關資訊，也請造訪 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/security/)。
 
 ## 後續步驟
 您現已閱讀 SQL Database 簡介並回答了「什麼是 SQL Database？」，您就可以執行下列作業：
 
-- 如需單一資料庫及彈性資料庫的價格和計算機，請參閱[價格頁面](http://azure.microsoft.com/pricing/details/sql-database/)。
+- 如需單一資料庫及彈性資料庫的價格和計算機，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。
 
 - 從[建立您的第一個資料庫](sql-database-get-started.md)開始。然後以 [C#](sql-database-connect-query.md)、[Java](sql-database-develop-java-simple-windows.md)、[Node.js](sql-database-develop-nodejs-simple-windows.md)、[PHP](sql-database-develop-php-retry-windows.md)、[Python](sql-database-develop-python-simple-windows.md) 或 [Ruby](sql-database-develop-ruby-simple-linux) 建置您的第一個 App。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

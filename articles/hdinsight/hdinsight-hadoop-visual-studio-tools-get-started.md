@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/30/2015"
+	ms.date="01/27/2016"
 	ms.author="jgao"/>
 
 # 開始使用適用於 HDInsight 的 Visual Studio Hadoop 工具來執行 Hive 查詢
@@ -38,7 +38,7 @@
 		- Visual Studio 2013 Community/Professional/Premium/Ultimate，含 [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 (Community/Enterprise)
 
-	>[AZURE.NOTE]HDInsight Tools for Visual Studio 目前只有英文版。
+	>[AZURE.NOTE] HDInsight Tools for Visual Studio 目前只有英文版。
 
 
 ## Install HDInsight tools for Visual Studio
@@ -55,9 +55,7 @@ HDInsight Tools for Visual Studio 和 Microsoft Hive ODBC Driver 已封裝在 Mi
 ## 連線到 Azure 訂用帳戶
 「適用於 Visual Studio 的 HDInsight 工具」可讓您連線到您的 HDInsight 叢集、執行一些基本管理作業，以及執行 Hive 查詢。
 
->[AZURE.NOTE]如需連線到 HDInsight Emulator 的相關資訊，請參閱[開始使用 HDInsight Emulator](../hdinsight-get-started-emulator.md/#vstools)。
-
->[AZURE.NOTE]如需連線到一般 Hadoop 叢集 (預覽) 的相關資訊，請參閱[使用 Visual Studio 撰寫和提交 Hive 查詢](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx)。
+>[AZURE.NOTE] 如需連線到一般 Hadoop 叢集 (預覽) 的相關資訊，請參閱[使用 Visual Studio 撰寫和提交 Hive 查詢](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx)。
 
 
 **連線到您的 Azure 訂用帳戶**
@@ -140,7 +138,7 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 	![Hadoop 工具：HDInsight Visual Studio 工具 IntelliSense][14]
 
-	> [AZURE.NOTE]只會建議 HDInsight [工具列] 中已選取的叢集中繼資料。
+	> [AZURE.NOTE] 只會建議 HDInsight [工具列] 中已選取的叢集中繼資料。
 4. (選擇性)：按一下 [**驗證指令碼**] 檢查指令碼語法錯誤。
 
 	![Hadoop 工具：HDInsight Tools for Visual Studio 本機驗證][10]
@@ -182,7 +180,7 @@ HDInsight Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 
 ### 透過 HiveServer2 的更快速路徑 Hive 執行
 
->[AZURE.NOTE]此功能僅適用於 HDInsight 叢集 3.2 版及更新版本。
+>[AZURE.NOTE] 此功能僅適用於 HDInsight 叢集 3.2 版及更新版本。
 
 HDInsight 工具用來透過 WebHCat (也稱為 Templeton) 提交 Hive 工作。傳回工作詳細資料和錯誤資訊所需的時間很長。為了解決此效能問題，HDInsight 工具會透過 HiveServer2 直接在叢集中執行 Hive 工作，以便略過 RDP/SSH。除了提升效能，使用者也可以檢視 Tez 圖形上的 Hive 和工作詳細資料。
 
@@ -210,7 +208,7 @@ HDInsight 工具用來透過 WebHCat (也稱為 Templeton) 提交 Hive 工作。
 
 HDInsight Visual Studio 工具支援顯示由 Tez 執行引擎執行之 Hive 工作的效能圖形。如需啟用 Tez 的資訊，請參閱[在 HDInsight 中使用 Hive][hdinsight.hive]。您提交 Visual Studio 中的 Hive 工作之後，Visual Studio 會在工作完成時顯示圖形。您可能會需要按一下 [重新整理] 按鈕來取得最新的工作狀態。
 
-> [AZURE.NOTE]此功能只適用於高於 3.2.4.593 版的 HDInsight 叢集，且只能用於已完成的工作。這適用於以 Windows 和 Linux 為基礎的叢集。
+> [AZURE.NOTE] 此功能只適用於高於 3.2.4.593 版的 HDInsight 叢集，且只能用於已完成的工作。這適用於以 Windows 和 Linux 為基礎的叢集。
 
 ![hadoop hive tez 效能圖表](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
@@ -269,4 +267,4 @@ HDInsight Tools for Visual Studio 支援建立 Pig 指令碼並提交至 HDInsig
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

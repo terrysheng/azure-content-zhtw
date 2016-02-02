@@ -124,7 +124,10 @@ BCDR 策略的目的是讓您的商務應用程式繼續執行，並還原失敗
 3. 如果相同的 IP 位址無法使用，則站台復原將從集區配置不同的位址。
 4. 在啟用虛擬機器進行保護之後，您可以使用下列範例指令碼，驗證已配置給虛擬機器的 IP 位址。相同的 IP 位址會設定為容錯移轉 IP 位址，並在容錯移轉時指派給 VM。
 
-    $vm = Get-SCVirtualMachine -Name $na = $vm[0].VirtualNetworkAdapters $ip = Get-SCIPAddress -GrantToObjectID $na[0].id $ip.address
+    $vm = Get-SCVirtualMachine -Name 
+    $na = $vm[0].VirtualNetworkAdapters
+    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id 
+    $ip.address
 
 請注意，如果虛擬機器使用 DHCP，則 IP 位址管理不是由站台復原處理。您必須確保復原站台上配置 IP 位址的 DHCP 伺服器，可以從與主要站台相同的範圍中配置位址。
 
@@ -137,8 +140,10 @@ BCDR 策略的目的是讓您的商務應用程式繼續執行，並還原失敗
 - Woodgrove 想要使用站台復原，將其內部部署工作負載複寫到 Azure。 
 - Woodgrove 必須處理相依於硬式編碼的 IP 位址的應用程式和組態，因此在容錯移轉至 Azure 之後，它們需要保留其應用程式的 IP 位址。
 - Woodgrove 的內部部署基礎結構是由 VMM 2012 R2 伺服器管理。
-- 有 VLAN 架構邏輯網路 (應用程式網路) 已建立在 VMM 伺服器上。![邏輯網路](./media/site-recovery-network-design/ASR_NetworkDesign5.png)
-- VM 網路 (應用程式 VM 網路) 是使用邏輯網路建立的。![VM 網路](./media/site-recovery-network-design/ASR_NetworkDesign6.png)
+- 有 VLAN 架構邏輯網路 (應用程式網路) 已建立在 VMM 伺服器上。
+	![邏輯網路](./media/site-recovery-network-design/ASR_NetworkDesign5.png)
+- VM 網路 (應用程式 VM 網路) 是使用邏輯網路建立的。
+	![VM 網路](./media/site-recovery-network-design/ASR_NetworkDesign6.png)
 - 應用程式中的所有虛擬機器都會使用靜態 IP 位址，因此也會針對邏輯網路定義靜態 IP 集區。 
 - Woodgrove 會將來自 IP 位址範圍 (172.16.1.0/24、172.16.2.0/24) 的 IP 位址指派給其在 Azure 中執行的資源。
 
@@ -151,14 +156,16 @@ Woodgrove 若要能夠部署複寫和維護 IP 位址，需要以下項目：
 
 	![Azure 網路](./media/site-recovery-network-design/ASR_NetworkDesign7.png)
 
-- 若要確保 VM 的 IP 位址保留下來，我們將在站台復原中的 VM 屬性指定應該使用相同的 IP 位址。然後，在容錯移轉之後，站台復原就會將指定的 IP 位址指派給 VM。![Azure 網路](./media/site-recovery-network-design/ASR_NetworkDesign8.png)
+- 若要確保 VM 的 IP 位址保留下來，我們將在站台復原中的 VM 屬性指定應該使用相同的 IP 位址。然後，在容錯移轉之後，站台復原就會將指定的 IP 位址指派給 VM。
+	![Azure 網路](./media/site-recovery-network-design/ASR_NetworkDesign8.png)
 
 
-- 當觸發容錯移轉，並在復原網路中以必要的 IP 位址建立 VM 時，可以使用下列項目建立 VM 的連線能力：這個動作可以編寫指令碼。如同我們在關於子網路容錯移轉的前一節所討論，如果容錯移轉至 Azure，路由也須適當地修改，以反映該 192.168.1.0/24 現在已移至 Azure。![Azure 網路](./media/site-recovery-network-design/ASR_NetworkDesign9.png)
+- 當觸發容錯移轉，並在復原網路中以必要的 IP 位址建立 VM 時，可以使用下列項目建立 VM 的連線能力：這個動作可以編寫指令碼。如同我們在關於子網路容錯移轉的前一節所討論，如果容錯移轉至 Azure，路由也須適當地修改，以反映該 192.168.1.0/24 現在已移至 Azure。
+	![Azure 網路](./media/site-recovery-network-design/ASR_NetworkDesign9.png)
 
 ### 選項 2：修改的 IP 位址
 
-這種方法似乎是最常見，而且表示將容錯移轉的每個 VM 的 IP 位址會變更。這個方法的主要缺點是，您的網路基礎結構需要知道 IP 位址已變更，而且在整個網路中，DNS 項目通常必須變更或排清，如同網路資料表中的快取項目一般。這會造成停機時間，取決於 DNS 基礎結構的設定方式而定。在內部網路應用程式的情況下使用低 TTL 值，以及對網際網路架構應用程式使用 [Azure 流量管理員與站台復原](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)，即可緩和這些問題。
+這種方法似乎是最常見，而且表示將容錯移轉的每個 VM 的 IP 位址會變更。這個方法的主要缺點是，您的網路基礎結構需要知道 IP 位址已變更，而且在整個網路中，DNS 項目通常必須變更或排清，如同網路資料表中的快取項目一般。這會造成停機時間，取決於 DNS 基礎結構的設定方式而定。在內部網路應用程式的情況下使用低 TTL 值，以及對網際網路架構應用程式使用 [Azure 流量管理員與站台復原](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)，即可緩和這些問題。
 
 #### 範例：修改的 IP 位址
 
@@ -177,17 +184,22 @@ Woodgrove 若要能夠部署複寫和維護 IP 位址，需要以下項目：
 - 虛擬機器在啟動後將更新他們正在使用的 DNS 伺服器。在整個網路中，DNS 項目通常需要變更或排清，而且網路資料表中的快取項目必須更新或排清，因此這些狀態變更發生時面臨停機時間，不是罕見的情況。緩和方式如下：
 
 	- 對內部網路應用程式使用低 TTL 值。
-	- 使用 [Azure 流量管理員與站台復原] (http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/，適用於網際網路架構應用程式)。
+	- 使用 [Azure 流量管理員與站台復原] (https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/，適用於網際網路架構應用程式/)。
 	- 在您的復原計劃內使用下列指令碼來更新 DNS 伺服器，以確保及時更新 (如果已設定動態 DNS 登錄，不需要指令碼)
 
-    [string]$Zone, [string]$name, [string]$IP ) $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name $newrecord = $record.clone() $newrecord.RecordData[0].IPv4Address = $IP Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+    [string]$Zone,
+    [string]$name,
+    [string]$IP
+    )
+    $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+    $newrecord = $record.clone()
+    $newrecord.RecordData[0].IPv4Address  =  $IP
+    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-#### 範例 - 容錯移轉至 Azure
-
-Azure 做為災害復原站台的網路基礎結構設定[部落格文章](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)說明如何在保留 IP 位址不是必要時，設定必要的 Azure 網路基礎結構。一開始描述應用程式，接著探討如何在內部部署及 Azure 設定網路。最後指示如何執行測試容錯移轉和計劃的容錯移轉。
+Azure 做為災害復原站台的網路基礎結構設定[部落格文章](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)說明如何在保留 IP 位址不是必要時，設定必要的 Azure 網路基礎結構。一開始描述應用程式，接著探討如何在內部部署及 Azure 設定網路。最後指示如何執行測試容錯移轉和計劃的容錯移轉。
 
 ## 後續步驟
 
 [了解](site-recovery-network-mapping.md)站台復原如何對應來源及目標網路。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

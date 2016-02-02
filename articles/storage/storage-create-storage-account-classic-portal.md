@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何建立、管理或刪除儲存體帳戶 | Microsoft Azure"
-	description="了解如何在 Azure 傳統入口網站中建立、管理或刪除儲存體帳戶。"
+	pageTitle="如何在 Azure 傳統入口網站中建立、管理或刪除儲存體帳戶 | Microsoft Azure"
+	description="在 Azure 入口網站中建立新的儲存體帳戶、管理帳戶存取金鑰，或刪除儲存體帳戶。了解標準和進階儲存體帳戶。"
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="01/20/2016"
 	ms.author="robinsh"/>
 
 
@@ -39,11 +39,11 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 - 交易是指對 Azure 儲存體進行的所有讀取和寫入作業。
 - 出口流量是指傳出 Azure 地區的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔出口流量的費用。(若為 Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除出口流量費用。)  
 
-[Azure 價格](http://azure.microsoft.com/pricing/details/#storage)頁面提供了儲存體容量、複寫和交易的詳細價格資料。[資料傳輸價格詳細資料](http://azure.microsoft.com/pricing/details/data-transfers/)頁面則提供資料輸出的詳細價格資訊。
+[Azure 價格](https://azure.microsoft.com/pricing/details/#storage)頁面提供了儲存體容量、複寫和交易的詳細價格資料。[資料傳輸價格詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)頁面則提供資料輸出的詳細價格資訊。
 
 如需儲存體帳戶容量和效能目標的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)。
 
-> [AZURE.NOTE]當您建立 Azure 虛擬機器時，如果您在部署位置中沒有儲存體帳戶，則會在該位置自動建立儲存體帳戶。因此，您無須依照下方的步驟為虛擬機器磁碟建立儲存體帳戶。儲存體帳戶名稱將以虛擬機器名稱為基礎。如需詳細資訊，請參閱 [Azure 虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)。
+> [AZURE.NOTE] 當您建立 Azure 虛擬機器時，如果您在部署位置中沒有儲存體帳戶，則會在該位置自動建立儲存體帳戶。因此，您無須依照下方的步驟為虛擬機器磁碟建立儲存體帳戶。儲存體帳戶名稱將以虛擬機器名稱為基礎。如需詳細資訊，請參閱 [Azure 虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
 
 ## 建立儲存體帳戶
 
@@ -55,7 +55,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 3. 在 [URL] 中，輸入儲存體帳戶的名稱。
 
-	> [AZURE.NOTE]儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。
+	> [AZURE.NOTE] 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。
 	>  
 	> 儲存體帳戶名稱必須在 Azure 中是獨一無二的。Azure 傳統入口網站會指出您選取的儲存體帳戶名稱是否已使用。
 
@@ -65,7 +65,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 	請注意，您必須在儲存體帳戶建立時選取同質群組。您無法將現有的帳戶移至同質群組。如需同質群組的詳細資訊，請參閱下方的[使用同質群組讓服務位於相同位置](#service-co-location-with-an-affinity-group)。
 
-	>[AZURE.IMPORTANT]若要判斷訂用帳戶可使用的位置，您可以呼叫[清單提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。若要從 PowerShell 列出提供者，請呼叫 [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx)。若要從 .NET，使用 ProviderOperationsExtensions 類別的 [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) 方法。
+	>[AZURE.IMPORTANT] 若要判斷訂用帳戶可使用的位置，您可以呼叫[清單提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。若要從 PowerShell 列出提供者，請呼叫 [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx)。若要從 .NET，使用 ProviderOperationsExtensions 類別的 [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) 方法。
 	>
 	>此外，如需各區域可用服務的詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
 
@@ -95,7 +95,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 - 檔案服務：http://*mystorageaccount*.file.core.windows.net
 
-帳戶建立後，您可以使用 [Azure 傳統入口網站](manage.windowsazure.com)中的儲存體儀表板來檢視儲存體帳戶的端點。
+帳戶建立後，您可以使用 [Azure 傳統入口網站](https://manage.windowsazure.com)中的儲存體儀表板來檢視儲存體帳戶的端點。
 
 用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。例如，Blob 位址的格式可能如下：http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*。
 
@@ -105,21 +105,21 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 「同質群組」是將您的 Azure 服務和 VM 與 Azure 儲存體帳戶依地理位置而形成的群組。同質群組會將電腦工作負載置於相同的資料中心內或目標使用者對象附近，因而能改善服務效能。此外，當您儲存體帳戶中的資料是由同一同質群組中的服務存取時，出口流量並不會產生任何費用。
 
-> [AZURE.NOTE]若要建立同質群組，請開啟 [Azure 傳統入口網站](manage.windowsazure.com)的 [設定]<b></b> 區域，按一下 [同質群組]<b></b>，再按一下 [加入同質群組]<b></b> 或 [加入]<b></b> 按鈕。您也可以使用 Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">同質群組的相關作業</a>。
+> [AZURE.NOTE]  若要建立同質群組，請開啟 [Azure 傳統入口網站](https://manage.windowsazure.com)的 [設定]<b></b> 區域，按一下 [同質群組]<b></b>，再按一下 [加入同質群組]<b></b> 或 [加入]<b></b> 按鈕。您也可以使用 Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">同質群組的相關作業</a>。
 
 ## 檢視、複製和重新產生儲存體存取金鑰
 
 當您建立儲存體帳戶時，Azure 會產生兩個 512 位元的儲存體存取金鑰，作為存取儲存體帳戶時的驗證憑藉。透過提供這兩個儲存體存取金鑰，Azure 讓您可重新產生金鑰，同時又不需中斷儲存體服務或對該服務的存取。
 
-> [AZURE.NOTE]建議您避免將儲存體存取金鑰透露給其他任何人。若要允許存取儲存體資源但不要公開您的存取金鑰，您可以使用「共用存取簽章」。共用存取簽章可在您定義的間隔期間內，使用您所指定的權限，來存取帳戶中的資源。如需詳細資訊，請參閱[共用存取簽章教學課程](storage-dotnet-shared-access-signature-part-1.md)。
+> [AZURE.NOTE] 建議您避免將儲存體存取金鑰透露給其他任何人。若要允許存取儲存體資源但不要公開您的存取金鑰，您可以使用「共用存取簽章」。共用存取簽章可在您定義的間隔期間內，使用您所指定的權限，來存取帳戶中的資源。如需詳細資訊，請參閱[共用存取簽章教學課程](storage-dotnet-shared-access-signature-part-1.md)。
 
-在 [Azure 傳統入口網站](manage.windowsazure.com)中，於儀表板或 [儲存體] 頁面上使用 [管理金鑰]，來檢視、複製和重新產生用於存取 Blob、資料表與佇列服務的儲存體存取金鑰。
+在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，於儀表板或 [儲存體] 頁面上使用 [管理金鑰]，來檢視、複製和重新產生用於存取 Blob、資料表與佇列服務的儲存體存取金鑰。
 
 ### 複製儲存體存取金鑰  
 
 您可以使用 [管理金鑰] 來複製要在連接字串使用中的儲存體存取金鑰。連接字串需有要在驗證中使用的儲存體帳戶名稱和金鑰。如需有關設定連接字串以存取 Azure 儲存體服務的詳細資訊，請參閱[設定 Azure 連接字串](http://msdn.microsoft.com/library/azure/ee758697.aspx)。
 
-1. 在 [Azure 傳統入口網站](manage.windowsazure.com)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2. 按一下 [管理金鑰]。
 
@@ -133,7 +133,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 ### 重新產生儲存體存取金鑰
 您應定期變更儲存體帳戶的存取金鑰，保護儲存體連線的安全。指派了兩個存取金鑰，因此您可以在重新產生一個存取金鑰的同時，使用另一個存取金鑰維持儲存體帳戶連線。
 
-> [AZURE.WARNING]重新產生存取金鑰會影響虛擬機器、媒體服務，以及任何相依於儲存體帳戶的應用程式。所有使用存取金鑰來存取儲存體帳戶的用戶端，都必須更新為使用新的金鑰。
+> [AZURE.WARNING] 重新產生存取金鑰會影響虛擬機器、媒體服務，以及任何相依於儲存體帳戶的應用程式。所有使用存取金鑰來存取儲存體帳戶的用戶端，都必須更新為使用新的金鑰。
 
 **虛擬機器** - 如果您的儲存體帳戶中有任何虛擬機器在執行中，您必須在重新產生存取金鑰之後，重新部署所有的虛擬機器。若要避免重新部署，請在重新產生存取金鑰之前關閉虛擬機器。
 
@@ -143,7 +143,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 1. 更新應用程式程式碼中的連接字串，以參考儲存體帳戶的次要存取金鑰。
 
-2. 重新產生儲存體帳戶的主要存取金鑰。在 [Azure 傳統入口網站](manage.windowsazure.com)中，從儀表板或 [設定] 頁面按一下 [管理金鑰]。按一下主要存取金鑰下的 [重新產生]，然後按一下 [是] 確認要產生新的金鑰。
+2. 重新產生儲存體帳戶的主要存取金鑰。在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，從儀表板或 [設定] 頁面按一下 [管理金鑰]。按一下主要存取金鑰下的 [重新產生]，然後按一下 [是] 確認要產生新的金鑰。
 
 3. 更新程式碼中的連接字串，以參考新的主要存取金鑰。
 
@@ -153,11 +153,11 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 若要移除不再使用的儲存體帳戶，請在儀表板或 [設定] 頁面上使用 [刪除]。[刪除] 會刪除整個儲存體帳戶，包括帳戶中的所有 Blob、資料表和佇列。
 
-> [AZURE.WARNING]您無法還原已刪除的儲存體帳戶，也無法擷取刪除之前所包含的任何內容。請務必先備份您想要儲存的任何資料，再刪除帳戶。這也適用於帳戶中的任何資源 - 一旦刪除 Blob、資料表、佇列或檔案，就是永久刪除。
+> [AZURE.WARNING] 您無法還原已刪除的儲存體帳戶，也無法擷取刪除之前所包含的任何內容。請務必先備份您想要儲存的任何資料，再刪除帳戶。這也適用於帳戶中的任何資源 - 一旦刪除 Blob、資料表、佇列或檔案，就是永久刪除。
 >
 > 如果儲存體帳戶包含 Azure 虛擬機器的 VHD 檔案，則必須先刪除使用這些 VHD 檔案的映像和磁碟，才能刪除儲存體帳戶。首先，停止執行中的虛擬機器，然後予以刪除。若要刪除磁碟，請瀏覽至 [磁碟] 索引標籤，然後刪除該處的所有磁碟。若要刪除映像，請瀏覽至 [映像] 索引標籤，然後刪除帳戶中儲存的所有映像。
 
-1. 在 [Azure 傳統入口網站](manage.windowsazure.com)中，按一下 [儲存體]。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，按一下 [儲存體]。
 
 2. 在儲存體帳戶項目中名稱以外的任何位置，然後按一下 [刪除]。
 
@@ -169,8 +169,8 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 ## 後續步驟
 
-- 若要深入了解 Azure 儲存體，請參閱 [Azure.com](http://azure.microsoft.com/documentation/services/storage/) 的 Azure 儲存體文件。
+- 若要深入了解 Azure 儲存體，請參閱 [Azure.com](https://azure.microsoft.com/documentation/services/storage/) 的 Azure 儲存體文件。
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
-- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

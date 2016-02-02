@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure IoT 中樞 | Microsoft Azure"
+	pageTitle="開始使用適用於 C# 的 Azure IoT 中樞 | Microsoft Azure"
 	description="請遵循此教學課程以開始搭配 C# 使用 Azure IoT 中心。"
 	services="iot-hub"
 	documentationCenter=".net"
@@ -16,7 +16,7 @@
      ms.date="12/14/2015"
      ms.author="dobett"/>
 
-# 教學課程：開始使用 Azure IoT 中樞
+# 開始使用適用於 .NET 的 Azure IoT 中樞
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -40,7 +40,7 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 * **ReadDeviceToCloudMessages**，其中顯示模擬的裝置所傳送的遙測。
 * **SimulatedDevice**，這會使用先前建立的裝置身分識別連接到您的 IoT 中樞，並每秒傳送遙測訊息。
 
-> [AZURE.NOTE]文章 [IoT 中樞 SDK][lnk-hub-sdks] 提供可讓您可以用來建置兩個應用程式，以在裝置和您的方案後端上執行的各種 SDK 的相關資訊。
+> [AZURE.NOTE] 文章 [IoT 中樞 SDK][lnk-hub-sdks] 提供可讓您可以用來建置兩個應用程式，以在裝置和您的方案後端上執行的各種 SDK 的相關資訊。
 
 若要完成此教學課程，您需要下列項目：
 
@@ -106,14 +106,6 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 - [處理裝置到雲端訊息][lnk-process-d2c-tutorial]，示範如何可靠地處理來自裝置的遙測和互動式訊息。
 - [從裝置上傳檔案][lnk-upload-tutorial]說明使用雲端到裝置訊息來幫助從裝置上傳檔案的模式。
 
-您可以在下列文章中進一步了解 IoT 中樞：
-
-* [IoT 中樞概觀][lnk-hub-overview]
-* [IoT 中樞開發人員指南][lnk-hub-dev-guide]
-* [設計您的 IoT 中樞解決方案][lnk-hub-guidance]
-* [支援的裝置平台和語言][lnk-supported-devices]
-* [Azure IoT 開發人員中心][lnk-dev-center]
-
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
 [2]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub2.png
@@ -128,14 +120,9 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
-[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,7 +34,7 @@
 
 您必須需要有系統管理員權限，才能完成安裝和設定程序。建議您在開始之前，檢閱設定檢查清單。部署與設定程序可能需要一些時間才能完成。
 
-> [AZURE.NOTE]發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 7000 系列裝置的完整資訊，請移至： [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 7000 系列部署資訊，請參閱 [StorSimple 系統快速入門指南](http://onlinehelp.storsimple.com/111_Appliance/)。
+> [AZURE.NOTE] 發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 7000 系列裝置的完整資訊，請移至： [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 7000 系列部署資訊，請參閱 [StorSimple 系統快速入門指南](http://onlinehelp.storsimple.com/111_Appliance/)。
 
 ## 部署步驟
 
@@ -116,7 +116,7 @@
 
 - 您擁有的 Microsoft Azure 儲存體帳戶具有存取認證。
 
-- StorSimple Manager 服務已啟用您的 Microsoft Azure 訂用帳戶。您應該透過[企業合約](http://azure.microsoft.com/pricing/enterprise-agreement/)購買訂用帳戶。
+- StorSimple Manager 服務已啟用您的 Microsoft Azure 訂用帳戶。您應該透過[企業合約](https://azure.microsoft.com/pricing/enterprise-agreement/)購買訂用帳戶。
 
 - 您有權限可存取終端機模擬軟體，例如 PuTTY。
 
@@ -159,13 +159,13 @@
 
 StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次的 StorSimple 裝置部署，您會需要建立新的 StorSimple Manager 服務。
 
-> [AZURE.IMPORTANT]如果您現在已經有 StorSimple Manager 服務，而您想搭配該服務來部署 StorSimple 裝置，請略過此步驟。
+> [AZURE.IMPORTANT] 如果您現在已經有 StorSimple Manager 服務，而您想搭配該服務來部署 StorSimple 裝置，請略過此步驟。
 
 請執行下列步驟以建立 StorSimple Manager 服務的新執行個體。
 
 [AZURE.INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
-> [AZURE.IMPORTANT]如果您並未啟用服務自動建立儲存體帳戶，您將必須在成功建立服務後，至少建立一個儲存體帳戶。當您建立磁碟區容器時，將會使用此儲存體帳戶。
+> [AZURE.IMPORTANT] 如果您並未啟用服務自動建立儲存體帳戶，您將必須在成功建立服務後，至少建立一個儲存體帳戶。當您建立磁碟區容器時，將會使用此儲存體帳戶。
 >
 > 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#configure-a-new-storage-account-for-the-service)以取得詳細指示。
 > 如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
@@ -181,7 +181,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 ## 步驟 3：透過 Windows PowerShell for StorSimple 設定和註冊裝置
 
-> [AZURE.IMPORTANT]在執行此設定之前，請拔除兩個 (主動和被動) 控制器上之 DATA 0 以外的所有網路介面。
+> [AZURE.IMPORTANT] 在執行此設定之前，請拔除兩個 (主動和被動) 控制器上之 DATA 0 以外的所有網路介面。
 
 您可以使用 Windows PowerShell for StorSimple 來完成 StorSimple 裝置的初始安裝，如下列程序所述。您必須使用終端機模擬軟體來完成這個步驟。如需詳細資訊，請參閱[使用 PuTTY 連接到裝置序列主控台](#use-putty-to-connect-to-the-device-serial-console)。
 
@@ -214,7 +214,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 建立磁碟區容器之後，您就可以為伺服器在 StorSimple 裝置上佈建存放磁碟區。請在 Azure 傳統入口網站中執行下列步驟以建立磁碟區。
 
-> [AZURE.IMPORTANT]StorSimple Manager 只能建立精簡佈建的磁碟區。您無法建立完整或部分佈建的磁碟機。
+> [AZURE.IMPORTANT] StorSimple Manager 只能建立精簡佈建的磁碟區。您無法建立完整或部分佈建的磁碟機。
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume.md)]
 
@@ -261,14 +261,14 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 更新裝置可能會花費 1 到 4 小時。在裝置上執行下列步驟來掃描並套用更新。
 
-> [AZURE.NOTE]如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。請移至 **[裝置] > [設定]** 並停用 Data 2 和 Data 3 介面。裝置更新之後，您應該重新啟用這些介面。
+> [AZURE.NOTE] 如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。請移至 **[裝置] > [設定]** 並停用 Data 2 和 Data 3 介面。裝置更新之後，您應該重新啟用這些介面。
 
 #### 若要更新裝置
 1.	在裝置的 [快速入門] 頁面上，按一下 [裝置]。選取實體裝置，按一下 [維護]，然後按一下 [掃描更新]。  
 2.	系統會建立掃描可用更新的工作。如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。按一下 [**安裝更新**]。系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。您必須停用這些網路介面，否則更新會失敗。
 3.	更新工作將會建立。巡覽至 [工作] 以監視更新的狀態。
 
-	> [AZURE.NOTE]當更新工作啟動時，狀態會立即顯示為 50 %。只有在更新工作完成之後，狀態才會變更為 100 %。更新程序沒有即時狀態。
+	> [AZURE.NOTE] 當更新工作啟動時，狀態會立即顯示為 50 %。只有在更新工作完成之後，狀態才會變更為 100 %。更新程序沒有即時狀態。
 
 4.	裝置成功更新之後，請啟用 Data 2 和 Data 3 網路介面 (如果已停用)。
 
@@ -294,4 +294,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 - 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

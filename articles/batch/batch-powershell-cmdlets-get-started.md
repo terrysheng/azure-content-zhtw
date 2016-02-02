@@ -13,19 +13,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="10/13/2015"
+   ms.date="01/21/2015"
    ms.author="danlep"/>
 
 # 開始使用 Azure Batch PowerShell Cmdlet
-本文是 Azure PowerShell Cmdlet 的簡介，可用來管理 Batch 帳戶並取得 Batch 作業、工作及其他詳細資訊的相關資訊。
+本文會快速介紹可用來管理 Batch 帳戶和使用批次資源 (例如集區、作業和和工作) 的 Azure PowerShell Cmdlet。您可以使用批次 Cmdlet 來執行許多以批次 API 和 Azure 入口網站進行的相同工作。這篇文章是根據 Azure PowerShell 1.0 版或更新版本中的 Cmdlet 所撰寫。
 
-如需詳細的 Cmdlet 語法，請輸入 `get-help <Cmdlet_name>`，或請參閱 [Azure Batch Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)。
+如需批次 Cmdlet 和詳細 Cmdlet 語法的完整清單，請參閱 [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)。
 
-[AZURE.INCLUDE [powershell 預覽包含](../../includes/powershell-preview-include.md)]
 
 ## 先決條件
 
-* **Azure PowerShell** - Azure 資源管理員模組中隨附的 Batch Cmdlet。如需先決條件、安裝指示和基本用法，請參閱 [Azure 資源管理員 Cmdlet](https://msdn.microsoft.com/library/azure/mt125356.aspx)。
+* **Azure PowerShell** - 請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 以取得下載和安裝 Azure PowerShell 的指示。因為 Azure 批次 Cmdlet 隨附在 Azure 資源管理員模組中，您必須執行 **Login-AzureRmAccount** Cmdlet 才能連線到訂用帳戶。如需詳細資料，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 
 
@@ -36,7 +35,6 @@
     ```
 
 ## 管理 Batch 帳戶和金鑰
-
 
 ### 建立批次帳戶：
 
@@ -52,13 +50,13 @@ New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
 ```
 
-> [AZURE.NOTE]Batch 帳戶名稱對 Azure 必須是唯一的，介於 3 到 24 個字元，並只能使用小寫字母和數字。
+> [AZURE.NOTE] Batch 帳戶名稱對 Azure 必須是唯一的，介於 3 到 24 個字元，並只能使用小寫字母和數字。
 
 ### 取得帳戶存取金鑰
 **Get-AzureRmBatchAccountKeys** 將顯示與 Azure Batch 帳戶相關聯的存取金鑰。例如，執行下列命令以取得您所建立帳戶的主要和次要金鑰。
 
 ```
-$Account = Get-AzureBatchAccountKeys –AccountName <accountname>
+$Account = Get-AzureRmBatchAccountKeys –AccountName <accountname>
 
 $Account.PrimaryAccountKey
 
@@ -72,7 +70,7 @@ $Account.SecondaryAccountKey
 New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
 ```
 
-> [AZURE.NOTE]若要產生新的次要金鑰，請將 **KeyType** 參數指定為「次要」。您必須個別重新產生主要和次要金鑰。
+> [AZURE.NOTE] 若要產生新的次要金鑰，請將 **KeyType** 參數指定為「次要」。您必須個別重新產生主要和次要金鑰。
 
 ### 刪除 Batch 帳戶
 **Remove-AzureRmBatchAccount** 將刪除 Batch 帳戶。例如：
@@ -83,11 +81,9 @@ Remove-AzureRmBatchAccount -AccountName <account_name>
 
 出現提示時，請確認您想要移除的帳戶。帳戶移除可能需要一些時間來完成。
 
-## 查詢作業、工作及其他詳細資料
+## 建立 BatchAccountContext 物件
 
-使用 Cmdelt (例如 **Get-AzureBatchJob**、**Get-AzureBatchTask** 和 **Get-AzureBatchPool**) 查詢在 Batch 帳戶下建立的實體。
-
-若要使用這些指令程式，您必須先建立一個 AzureBatchContext 物件以儲存您的帳戶名稱和金鑰：
+若要建立和管理 Batch 帳戶中的集區、作業、工作和其他資源，您必須先建立 BatchAccountContext 物件以儲存帳戶名稱和金鑰：
 
 ```
 $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
@@ -95,7 +91,23 @@ $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
 
 使用 **BatchContext** 參數將此內容傳入與批次服務互動的 Cmdlet。
 
-> [AZURE.NOTE]依預設，帳戶的主要金鑰用於驗證，但是您可以透過變更 BatchAccountContext 物件的 **KeyInUse** 屬性，明確地選取要使用的金鑰：`$context.KeyInUse = "Secondary"`。
+> [AZURE.NOTE] 依預設，帳戶的主要金鑰用於驗證，但是您可以透過變更 BatchAccountContext 物件的 **KeyInUse** 屬性，明確地選取要使用的金鑰：`$context.KeyInUse = "Secondary"`。
+
+
+
+## 建立和修改批次資源
+請使用 **New-AzureBatchPool**、**New-AzureBatchJob** 和 **New-AzureBatchTask** 之類的 Cmdlet 在 Batch 帳戶下建立資源。要更新現有資源的屬性，有對應的 **Get-** 和 **Set-** Cmdlet ，要移除 Batch 帳戶下的資源，則有 **Remove-** Cmdlet。
+
+例如，下列 Cmdlet 會建立新的批次集區並設定為使用小型虛擬機器，其中這些虛擬機器是以最新的系列 3 (Windows Server 2012) 作業系統版本製作映像，而其計算節點的目標數字則是由自動調整公式來決定。在此案例中，此公式僅僅是 $TargetDedicated = 3，表示集區中的計算節點數最多為 3 個。**BatchContext** 參數會將先前定義的變數 *$context* 指定為 BatchAccountContext 物件。
+
+```
+New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+```
+
+
+## 查詢集區、作業、工作及其他詳細資料
+
+使用 Cmdelt (例如 **Get-AzureBatchPool**、**Get-AzureBatchJob** 和 **Get-AzureBatchTask**) 查詢在 Batch 帳戶下建立的實體。
 
 
 ### 查詢資料
@@ -127,13 +139,7 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 ```
 **Id** 參數僅支援完整識別碼的搜尋，不能使用萬用字元或 OData 樣式的篩選器。
 
-### 使用管線
 
-Batch Cmdlet 可以利用 PowerShell 管線在 Cmdlet 之間傳送資料。這和指定參數有相同效果，但讓列出多個實體更容易。例如，下列可找出您帳戶下的所有工作：
-
-```
-Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
-```
 
 ### 使用 MaxCount 參數
 
@@ -146,10 +152,18 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 若要移除上限，將 **MaxCount** 設定為 0 或更少。
 
+### 使用管線
+
+Batch Cmdlet 可以利用 PowerShell 管線在 Cmdlet 之間傳送資料。這和指定參數有相同效果，但讓列出多個實體更容易。例如，下列可找出您帳戶下的所有工作：
+
+```
+Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
+```
+
 ## 相關主題
 * [下載 Azure PowerShell](http://go.microsoft.com/?linkid=9811175)
 * [如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)
 * [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [有效率地查詢 Batch 服務](batch-efficient-list-queries.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

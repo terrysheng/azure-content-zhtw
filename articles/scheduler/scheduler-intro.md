@@ -40,7 +40,7 @@ Azure 排程器可讓您以宣告方式描述在雲端中執行的動作。然�
 
  [如何使用 Azure 排程器建立複雜的排程和進階週期](scheduler-advanced-complexity.md)
 
- [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
+ [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)
 
@@ -50,4 +50,4 @@ Azure 排程器可讓您以宣告方式描述在雲端中執行的動作。然�
 
  [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

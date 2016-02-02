@@ -16,13 +16,13 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.0-preview.8</version>
+      <version>1.0.0-preview.9</version>
     </dependency>
     ```
     
 4. 儲存並關閉 pom.xml 檔案。
 
-5. 使用文字編輯器開啟 create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java 檔案。
+5. 使用文字編輯器開啟 create-device-identity\src\main\java\com\mycompany\app\App.java 檔案。
 
 6. 在此檔案中新增下列 **import** 陳述式：
 
@@ -84,7 +84,7 @@
 
 13. 記下**裝置識別碼**和**裝置金鑰**。稍後在建立連線至做為裝置之 IoT 中樞的應用程式時，會需要這些資料。
 
-> [AZURE.NOTE]IoT 中樞身分識別登錄只會儲存裝置身分識別，以啟用對中樞的安全存取。它會儲存裝置識別碼和金鑰，來做為安全性認證，以及啟用或停用旗標，讓您停用個別裝置的存取。如果您的應用程式需要儲存其他裝置特定的中繼資料，它應該使用應用程式專用的存放區。如需詳細資訊，請參閱 [IoT 中樞開發人員指南][lnk-devguide-identity]。
+> [AZURE.NOTE] IoT 中樞身分識別登錄只會儲存裝置身分識別，以啟用對中樞的安全存取。它會儲存裝置識別碼和金鑰，來做為安全性認證，以及啟用或停用旗標，讓您停用個別裝置的存取。如果您的應用程式需要儲存其他裝置特定的中繼資料，它應該使用應用程式專用的存放區。如需詳細資訊，請參閱 [IoT 中樞開發人員指南][lnk-devguide-identity]。
 
 ## 接收裝置到雲端的訊息
 
@@ -110,7 +110,7 @@
 
 4. 儲存並關閉 pom.xml 檔案。
 
-5. 使用文字編輯器開啟 read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java 檔案。
+5. 使用文字編輯器開啟 read-d2c-messages\src\main\java\com\mycompany\app\App.java 檔案。
 
 6. 在此檔案中新增下列 **import** 陳述式：
 
@@ -173,7 +173,7 @@
     }
     ```
 
-    > [AZURE.NOTE]在建立開始執行後只會讀取傳送到 IoT 中樞之訊息的收件者時，這個方法會使用篩選器。這很適合測試環境，因為如此一來您就可以看到目前的訊息集，但在生產環境中，您的程式碼應該要確定它能處理所有訊息，如需詳細資訊，請參閱[如何處理 IoT 中樞裝置到雲端訊息][lnk-processd2c-tutorial]教學課程。
+    > [AZURE.NOTE] 在建立開始執行後只會讀取傳送到 IoT 中樞之訊息的收件者時，這個方法會使用篩選器。這很適合測試環境，因為如此一來您就可以看到目前的訊息集，但在生產環境中，您的程式碼應該要確定它能處理所有訊息，如需詳細資訊，請參閱[如何處理 IoT 中樞裝置到雲端訊息][lnk-processd2c-tutorial]教學課程。
 
 11. 修改 **main** 方法的簽章以加入如下所示的例外狀況：
 
@@ -181,7 +181,7 @@
     public static void main( String[] args ) throws IOException
     ```
 
-12. 在 **App** 類別中對 **main** 方法新增下列程式碼。此程式碼會建立 **EventHubClient** 執行個體以連線到 IoT 中樞上的事件中樞相容端點。然後，它會建立兩個執行緒以從兩個資料分割進行讀取。以先前記下的值取代 **{youriothubkey}**、**{youreventhubcompatiblenamespace}** 和 **{youreventhubcompatiblename}**：
+12. 在 **App** 類別中對 **main** 方法新增下列程式碼。此程式碼會建立 **EventHubClient** 執行個體以連線到 IoT 中樞上的事件中樞相容端點。然後，它會建立兩個執行緒以從兩個資料分割進行讀取。以先前記下的值取代 **{youriothubkey}**、**{youreventhubcompatiblenamespace}** 和 **{youreventhubcompatiblename}**。**{youreventhubcompatiblenamespace}** 預留位置的值來自 **事件中樞相容端點**，其形式為 **xxxxnamespace.servicebus.windows.net**。
 
     ```
     String policyName = "iothubowner";
@@ -209,7 +209,7 @@
     client.close();
     ```
 
-    > [AZURE.NOTE]此程式碼假設您建立的是免費 IoT 中樞。免費 IoT 中樞有 "0" 和 "1" 這兩個資料分割。如果您使用另一種定價層建立 IoT 中樞，則應調整程式碼來為每個資料分割建立 **MessageReceiver**。
+    > [AZURE.NOTE] 此程式碼假設您已在 F1 (免費) 層建立 IoT 中樞。免費 IoT 中樞有 "0" 和 "1" 這兩個資料分割。如果您使用另一種定價層建立 IoT 中樞，則應調整程式碼來為每個資料分割建立 **MessageReceiver**。
 
 13. 儲存並關閉 App.java 檔案。
 
@@ -228,4 +228,4 @@
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -42,7 +42,6 @@
 
 [使用 Azure 命令列介面 (Azure CLI) 建立執行 Linux 的自訂 VM](virtual-machines-linux-create-custom.md)
 
-[使用 Azure CLI 建立多個 VM 的部署](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## 規劃
 
@@ -152,4 +151,4 @@
 
 [服務管理 REST API 參考](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

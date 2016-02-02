@@ -111,9 +111,10 @@
 ```
 
 
-## 相關主題
+## 另請參閱
 
 * [使用 Application Insights 監視 Azure 雲端服務應用程式](app-insights-cloudservices.md)
 * [將 Azure 診斷傳送至 Application Insights](app-insights-azure-diagnostics.md)
+* [自動化設定警示](app-insights-powershell-alerts.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

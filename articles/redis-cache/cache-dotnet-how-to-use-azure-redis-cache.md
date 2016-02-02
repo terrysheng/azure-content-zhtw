@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="12/03/2015" 
+	ms.date="01/21/2016" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Redis 快取
@@ -30,7 +30,7 @@ Microsoft Azure Redis 快取有下列階層：
 
 -	**基本** - 單一節點。多種大小，最高為 53 GB。
 -	**標準** – 兩個節點 (主要/從屬)。多種大小，最高為 53 GB。99.9% SLA。
--	**進階** – 兩個節點的主要/從屬，最多具有 10 個分區。從 6 GB 到 530 GB 的多種大小 (如需詳細資訊，請與我們連絡)。所有標準層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。99.9% SLA。
+-	**進階** – 兩個節點的主要/從屬，最多具有 10 個分區。從 6 GB 到 530 GB 的多種大小 (如需詳細資訊，請與我們連絡)。所有「標準」層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。99.9% SLA。
 
 每一個階層都有不同的功能和定價。如需價格的相關資訊，請參閱[快取價格詳細資料][]。
 
@@ -49,15 +49,21 @@ Microsoft Azure Redis 快取有下列階層：
 
 若要建立快取，請先登入 [Azure 入口網站][]，然後依序按一下 [新增]、[資料 + 儲存體] 和 [Redis 快取]。
 
+>[AZURE.NOTE] 除了在 Azure 入口網站中建立快取，您也可以使用 ARM 範本、PowerShell 或 Azure CLI 來建立。
+>
+>-	若要使用 ARM 範本建立快取，請參閱[使用範本建立 Redis 快取](cache-redis-cache-arm-provision.md)。
+>-	若要使用 Azure PowerShell 建立快取，請參閱[使用 Azure PowerShell 管理 Azure Redis 快取](cache-howto-manage-redis-cache-powershell.md)。
+>-	若要使用 Azure CLI 建立快取，請參閱[如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取](cache-manage-cli.md)。
+
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE]如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+>[AZURE.NOTE] 如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
 
 在 [新增 Redis 快取] 分頁中，指定所需的快取組態。
 
 ![Create cache][CacheCreate]
 
--	在 [DNS 名稱] 中，輸入要用於快取端點的子網域名稱。端點必須是介於 6 到 20 個字元之間的字串、僅包含小寫數字和字母，而且必須以字母開頭。
+-	在 [DNS 名稱] 中，輸入要用於快取端點的快取名稱。快取名稱必須是介於 1 到 63 個字元的字串，並只能包含數字、字母和 `-` 字元。快取名稱的開頭或結尾不能是 `-` 字元，且連續的 `-` 字元無效。
 -	針對 [訂閱]，選取您要用於快取的 Azure 訂閱。如果您的帳戶僅有一個訂閱，則會自動加以選取，而且不會顯示 [訂閱] 下拉式清單。
 -	在 [資源群組] 中，選取或建立快取的資源群組。如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][]。 
 -	使用 [位置] 來指定管理快取所在的地理位置。為獲得最佳效能，Microsoft 強烈建議您在與快取用戶端應用程式相同的區域中建立快取。
@@ -84,7 +90,7 @@ Microsoft Azure Redis 快取有下列階層：
 
 您可以從任何 Azure 應用程式存取使用 Azure Redis 快取所建立的快取。Visual Studio 中開發的 .NET 應用程式可以使用 **StackExchange.Redis** 快取用戶端，該用戶端可使用能簡化快取用戶端應用程式組態的 NuGet 套件來加以設定。
 
->[AZURE.NOTE]如需詳細資訊，請參閱 [StackExchange.Redis][] github 頁面和 [StackExchange.Redis 快取用戶端文件][]。
+>[AZURE.NOTE] 如需詳細資訊，請參閱 [StackExchange.Redis][] github 頁面和 [StackExchange.Redis 快取用戶端文件][]。
 
 若要在 Visual Studio 中使用 StackExchange.Redis NuGet 封裝來設定用戶端應用程式，請在 [方案總管] 中的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。
 
@@ -92,7 +98,7 @@ Microsoft Azure Redis 快取有下列階層：
 
 在 [線上搜尋] 文字方塊中輸入 **StackExchange.Redis** 或 **StackExchange.Redis.StrongName**，從結果選取需要的版本，然後按一下 [安裝]。
 
->[AZURE.NOTE]如果您偏好使用強式名稱版本的 **StackExchange.Redis** 用戶端程式庫，請選取 **StackExchange.Redis.StrongName**；否則選取 **StackExchange.Redis**。
+>[AZURE.NOTE] 如果您偏好使用強式名稱版本的 **StackExchange.Redis** 用戶端程式庫，請選取 **StackExchange.Redis.StrongName**；否則選取 **StackExchange.Redis**。
 
 ![StackExchange.Redis NuGet package][StackExchangeNuget]
 
@@ -116,7 +122,7 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
     using StackExchange.Redis;
 
->[AZURE.NOTE]StackExchange.Redis 用戶端需要 .NET Framework 4 或更高版本。
+>[AZURE.NOTE] StackExchange.Redis 用戶端需要 .NET Framework 4 或更高版本。
 
 與 Azure Redis 快取的連線是由 `ConnectionMultiplexer` 類別所管理。此類別的設計是要在用戶端應用程式中共用和重複使用，而不需要依據每個作業加以建立。
 
@@ -124,11 +130,11 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
->[AZURE.IMPORTANT]警告：請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，我會以原始程式碼來呈現認證內容。如需如何儲存認證的相關資訊，請參閱[應用程式字串與連接字串的運作方式][]。
+>[AZURE.IMPORTANT] 警告：請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，我會以原始程式碼來呈現認證內容。如需如何儲存認證的相關資訊，請參閱[應用程式字串與連接字串的運作方式][]。
 
 如果您不想使用 SSL，請設定 `ssl=false` 或省略 `ssl` 參數。
 
->[AZURE.NOTE]預設會為新快取停用非 SSL 連接埠。如需啟用非 SSL 連接埠的指示，請參閱[存取連接埠](cache-configure.md#access-ports)。
+>[AZURE.NOTE] 預設會為新快取停用非 SSL 連接埠。如需啟用非 SSL 連接埠的指示，請參閱[存取連接埠](cache-configure.md#access-ports)。
 
 在您的應用程式中共用 `ConnectionMultiplexer` 執行個體的其中一種方法，就是擁有可傳回已連接執行個體的靜態屬性，類似下列範例。這會提供安全執行緒方式，只初始化單一已連接的 `ConnectionMultiplexer` 執行個體。在這些範例中，`abortConnect` 已設為 false，這表示即使無法建立與 Azure Redis 快取的連線，呼叫也會成功。`ConnectionMultiplexer` 的主要功能之一就是一旦解決網路問題或其他原因，它就會自動還原快取的連線能力。
 
@@ -329,4 +335,4 @@ Azure Redis 快取可以快取 .NET 物件及基本資料類型，但必須先�
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,9 +30,9 @@
 
 ![提供的影片](./media/storsimple-mount-initialize-format-volume/Video_icon.png)**提供的影片**
 
-若要觀看影片示範如何掛接、初始化和格式化 StorSimple 磁碟區，請按一下[這裡](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/)。
+若要觀看影片示範如何掛接、初始化和格式化 StorSimple 磁碟區，請按一下[這裡](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/)。
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -22,7 +22,7 @@
 | --------------- |
 | [Logic Apps 定義語言](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
 | [Logic Apps 連接器文件](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
-| [Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurelogicapps) |
+| [Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
 
 本主題只花幾分鐘就能示範如何開始使用 [App Services Logic Apps](app-service-logic-what-are-logic-apps.md)。我們將逐步解說可將一組您感興趣的推文傳送到 Dropbox 資料夾的工作流程。
 
@@ -40,7 +40,7 @@
 
 1. 登入 Azure 入口網站。
 
-2. 按一下主畫面上的 [Marketplace ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) 並搜尋 Twitter (或 [按一下這裡](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2))。
+2. 按一下主畫面上的 [Marketplace ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/) 並搜尋 Twitter (或 [按一下這裡](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/))。
 
 3. 選取 [Twitter 連接器]，然後按一下 [建立]。您會看到一個包含所有設定的檢視。您可以保留 **Twitter 連接器**名稱。
 4. 選取 [封裝設定]--在此您需要輸入 Twitter 應用程式的資訊。您可以使用下列步驟設定免費的應用程式：
@@ -70,7 +70,7 @@
 
 10. 按一下 [建立]。佈建步驟可能需要一兩分鐘的時間。
 
-11. 現在對 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2) 重複執行此程序。
+11. 現在對 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/) 重複執行此程序。
 
 ## 啟動邏輯應用程式
 
@@ -163,7 +163,7 @@ Twitter 連接器現在便是工作流程的一部分。
 
 5. 按一下綠色核取符號來儲存連接器設定。
 
-5. 現在設計已完成，請按一下設計工具左上角的 [程式碼檢視]，並注意這是 JSON 程式碼，可用來定義剛剛在設計工具中建立的工作流程。我們將在[下一個主題][Use logic app features]中詳加討論這段程式碼。
+5. 現在設計已完成，請按一下設計工具左上角的 [程式碼檢視]，並注意這是 JSON 程式碼，可用來定義剛剛在設計工具中建立的工作流程。我們將在[下一個主題](Use logic app features)中詳加討論這段程式碼。
 
 6. 按一下畫面底部的 [確定] 按鈕，然後按一下 [建立] 按鈕。
 
@@ -188,4 +188,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0114_2016--->
+<!----HONumber=AcomDC_0128_2016-->

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="設定 Azure 備份服務以準備備份 Windows Server | Microsoft Azure"
-	description="本教學課程讓您了解如何使用 Microsoft Azure 雲端產品中的備份服務，將 Windows Server 備份至雲端。"
+	pageTitle="準備環境以備份 Windows Server 或 Windows 用戶端 | Microsoft Azure"
+	description="請建立備份保存庫、下載認證並安裝備份代理程式，讓環境做好備份 Windows 的準備。"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="備份保存庫; 備份代理程式; 備份 Windows;"/>
 
 <tags
 	ms.service="backup"
@@ -13,14 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
-	ms.author="jimpark"; "aashishr"/>
+	ms.date="01/22/2016"
+	ms.author="trinadhk; jimpark; markgal"/>
+
 
 # 準備環境以備份 Windows 電腦
+本文將協助您進行準備，以將 Windows Server 或 Windows 用戶端備份到 Azure。若要這樣做，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-本文將引導您進行使用 Azure Backup 來備份 Windows 伺服器的準備步驟。若要將 Windows Server 或 Windows 用戶端備份至 Azure，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+如果您已經這麼做，您就可以開始[備份您的 Windows 電腦](backup-azure-backup-windows-server.md)。否則，請繼續進行下列所有步驟，以確保您的環境準備就緒。
 
->[AZURE.NOTE]您之前需要建立或取得 X.509 第 3 版憑證，才能註冊備份伺服器。這些憑證仍受到支援，但現在為了簡化向伺服器註冊 Azure 保存庫的作業，您可以直接從 [快速啟動] 頁面產生保存庫認證。
+>[AZURE.NOTE] 您之前需要建立或取得 X.509 第 3 版憑證，才能註冊備份伺服器。這些憑證仍受到支援，但現在為了簡化向伺服器註冊 Azure 保存庫的作業，您可以直接從 [快速啟動] 頁面產生保存庫認證。
 
 ## 開始之前
 若要將檔案和資料從 Windows Server 備份至 Azure，您必須先：
@@ -42,4 +45,4 @@
 - [Azure 備份常見問題集](backup-azure-backup-faq.md)
 - [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

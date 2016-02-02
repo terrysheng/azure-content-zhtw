@@ -201,7 +201,7 @@ Azure BizTalk 服務提供數個版本。使用本文決定最適合您的案例
 </tr>
 </table>
 
-> [AZURE.NOTE]針對硬體故障時的備援能力，高可用性即代表在單一 BizTalk 單位內具有多個 VM。
+> [AZURE.NOTE] 針對硬體故障時的備援能力，高可用性即代表在單一 BizTalk 單位內具有多個 VM。
 
 
 ## 常見問題集
@@ -225,7 +225,7 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 
 #### 「每單位混合式連線資料傳輸 (GB)」代表什麼意思？ 是指每分鐘/小時/日/週/月嗎？ 達到限制時會發生什麼事？
 
-混合式連線每單位的成本要視 BizTalk 服務版本而定。簡言之，成本取決於您傳輸的資料量。例如，每天傳輸 10 GB 資料的成本低於每天傳輸 100 GB 的成本。使用 BizTalk 服務的[定價計算機](http://azure.microsoft.com/pricing/calculator/?scenario=full)來決定特定的成本。一般而言，系統會每日強制執行該限制。如果超過這個限制，每 GB 會收取 $1 的超額費。
+混合式連線每單位的成本要視 BizTalk 服務版本而定。簡言之，成本取決於您傳輸的資料量。例如，每天傳輸 10 GB 資料的成本低於每天傳輸 100 GB 的成本。使用 BizTalk 服務的[定價計算機](https://azure.microsoft.com/pricing/calculator/?scenario=full)來決定特定的成本。一般而言，系統會每日強制執行該限制。如果超過這個限制，每 GB 會收取 $1 的超額費。
 
 #### 當我在 BizTalk 服務上建立協定時，為什麼橋接器的數目增加二，而不是只增加一？
 
@@ -259,4 +259,4 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 - [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

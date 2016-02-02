@@ -30,7 +30,7 @@
 
 若要完成本教學課程，您需要下列項目。
 
-- 。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或<a href="/pricing/free-trial/" target="_blank">[申請免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- 。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或<a href="/pricing/free-trial/" target="_blank">[申請免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - 要保存 Runbook 的[自動化帳戶](automation-configuring.md)。
 - Azure 虛擬機器。我們將會停止並啟動這台電腦，因此它不應該是生產環境。
 - [Azure Active Directory 使用者和自動化認證資產](automation-configuring.md)來向 Azure 資源驗證。此使用者必須擁有權限來啟動和停止虛擬機器。
@@ -40,10 +40,12 @@
 我們將藉由建立一個輸出文字 *Hello World* 的簡單 Runbook 開始。
  
 1. 在 Azure Preview 入口網站中，開啟您的自動化帳戶。[自動化帳戶] 頁面提供這個帳戶中資源的快速檢視。您應該已經有一些資產。其中大部分是會自動包含在新自動化帳戶的模組。您應該也擁有[必要條件](#prerequisites)中所述的認證資產。
-2. 按一下 [Runbook] 磚以開啟 Runbook 的清單。![RunbooksControl](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
+2. 按一下 [Runbook] 磚以開啟 Runbook 的清單。
+	![RunbooksControl](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
 3. 按一下 [**加入 Runbook**] 按鈕，然後按一下 [**建立新的 Runbook**] 來建立新的 Runbook。
 4. 將 Runbook 命名為 *MyFirstRunbook-PowerShell*。
-5. 在此案例中，我們要建立的是 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)，因此選取 **Runbook 類型**的 **Powershell**。![Runbook 類型](media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
+5. 在此案例中，我們要建立的是 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)，因此選取 **Runbook 類型**的 **Powershell**。
+![Runbook 類型](media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
 6. 按一下 [**建立**] 來建立 Runbook 並開啟文字式編輯器。
 
 ## 步驟 2 - 將程式碼加入至 runbook
@@ -63,8 +65,8 @@
 	![測試窗格](media/automation-first-runbook-textual-powershell/automation-testpane.png)  
 2. 按一下 [開始] 以開始測試。這應該是唯一啟用的選項。
 3. 隨即會建立 [Runbook 工作](automation-runbook-execution)，並顯示其狀態。工作狀態會從*已排入佇列*開始，表示等候雲端中的 Runbook 背景工作可供使用。然後當背景工作宣告該工作時，狀態將變更為*正在開始*，然後 Runbook 實際開始執行時再變更為*執行中*。  
-4. Runbook 工作完成時，會顯示其輸出。在我們的情況中，應該會看到 *Hello World* 
-	![測試窗格輸出](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
+4. Runbook 工作完成時，會顯示其輸出。在我們的情況中，應該會看到 *Hello World*
+ 	![測試窗格輸出](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
 5. 關閉 [測試] 窗格以返回畫布。
 
 ## 步驟 4 - 發佈和啟動 Runbook
@@ -145,4 +147,4 @@ PowerShell Runbook 的生命週期、功能和管理與 PowerShell 工作流程 
 - 若要深入了解 Runbook 類型、其優點和限制，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
 - 如需有關 PowerShell 指令碼支援功能的詳細資訊，請參閱 [Azure 自動化中的原生 PowerShell 指令碼支援](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

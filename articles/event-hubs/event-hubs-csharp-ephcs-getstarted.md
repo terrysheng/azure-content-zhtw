@@ -30,17 +30,17 @@
 
 + Microsoft Visual Studio 2013，或 Microsoft Visual Studio Express 2013 for Windows。
 
-+ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank")。
++ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank")。
 
 ## 建立事件中心
 
 1. 登入 [Azure 傳統入口網站][]，並按一下畫面底部的 [新增]。
 
-2. 請依序按一下 [應用程式服務]、[服務匯流排]、[事件中樞]、[快速建立]。
+2. 按一下 [**應用程式服務**]、[**服務匯流排**]、[**事件中樞**]、[**快速建立**]。
 
    	![][1]
 
-3. 為您的事件中樞輸入名稱、選取所需的區域，然後按一下 [建立新的事件中樞]。
+3. 為您的事件中樞輸入名稱、選取所需的區域，然後按一下 [**建立新的事件中樞**]。
 
    	![][2]
 
@@ -108,4 +108,4 @@
 [佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

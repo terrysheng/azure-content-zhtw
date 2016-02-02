@@ -141,11 +141,11 @@
 
     ![][12]
 
-7.  如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。否則，請造訪 [NuGet][] (英文)，然後按一下 [[安裝 NuGet]](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) (英文)。按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
+7.  如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。否則，請造訪 [NuGet][] (英文)，然後按一下 [安裝 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) (英文)。按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
 
 7.  在 [方案總管] 中，以滑鼠右鍵按一下 [喜好設定]，然後按一下 [Manage NuGet Packages]。
 
-8.  在 [NuGet] 對話方塊的左欄中，按一下 [線上]。
+8.  在 \[NuGet] 對話方塊的左欄中，按一下 [線上]。
 
 9. 	在右欄中，按一下 [搜尋] 方塊、鍵入「**服務匯流排**」，然後選取 [Microsoft Azure 服務匯流排] 項目。按一下 [安裝] 完成安裝作業，然後關閉此對話方塊。
 
@@ -337,11 +337,11 @@
             }
         }
 
-3.  在 [方案總管] 中，展開 Views\\Shared 資料夾。
+3.  在 [方案總管] 中，展開 Views\Shared 資料夾。
 
     ![][18]
 
-4.  按兩下 **\_Layout.cshtml**，在 Visual Studio 編輯器中開啟它。
+4.  按兩下 **_Layout.cshtml**，在 Visual Studio 編輯器中開啟它。
 
 5.  將所有出現的 **My ASP.NET Application** 變更為 **LITWARE's Products**。
 
@@ -349,7 +349,7 @@
 
 	![][41]
 
-7.  在 [方案總管] 中，展開 Views\\Home 資料夾。
+7.  在 [方案總管] 中，展開 Views\Home 資料夾。
 
     ![][20]
 
@@ -517,7 +517,8 @@
 
 10. 在最後一個頁面上，按一下 [發佈] 以啟動部署程序。
 
-    ![][34]這將需要大約 5-7 分鐘的時間。因為這是您第一次發佈，所以 Azure 會佈建虛擬機器 (VM)、執行安全性強化、在 VM 上建立 Web 角色來主控應用程式、將程式碼部署至該 Web 角色，最後並設定負載平衡器及網路，以便應用程式可供大眾使用。
+    ![][34]
+這將需要大約 5-7 分鐘的時間。因為這是您第一次發佈，所以 Azure 會佈建虛擬機器 (VM)、執行安全性強化、在 VM 上建立 Web 角色來主控應用程式、將程式碼部署至該 Web 角色，最後並設定負載平衡器及網路，以便應用程式可供大眾使用。
 
 11. 發佈期間，您將能夠在 [Azure 活動記錄檔] 視窗中監視活動，此視窗通常會固定在 Visual Studio 或 Visual Web Developer 底部。
 

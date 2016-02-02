@@ -183,7 +183,8 @@
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection 會採用選擇性的 requestOptions 參數，可以用來指定集合的優惠類型。如果未提供 requestOptions.offerType 值，則將會使用預設的優惠類型來建立集合。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)
+> [AZURE.TIP] createCollection 會採用選擇性的 requestOptions 參數，可以用來指定集合的優惠類型。如果未提供 requestOptions.offerType 值，則將會使用預設的優惠類型來建立集合。
+> 如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)
 		
 3. 儲存並關閉 **docdbUtils.js** 檔案。
 
@@ -505,7 +506,7 @@
 	
 	這應該就是要讓應用程式開始運作所需的所有程式碼。
 
-5. 開啟 **public\\stylesheets** 目錄中的 **style.css** 檔案，然後使用下列內容取代程式碼：
+5. 開啟 **public\stylesheets** 目錄中的 **style.css** 檔案，然後使用下列內容取代程式碼：
 
 		body {
 		  padding: 50px;

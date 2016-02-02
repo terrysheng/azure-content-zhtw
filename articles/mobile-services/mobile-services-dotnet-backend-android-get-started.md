@@ -24,7 +24,8 @@
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -90,11 +91,14 @@
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [將推播通知新增至您的應用程式] <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至您的應用程式] 
+ <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
-* [在您的應用程式中新增驗證功能] <br/>了解如何只讓特定的已註冊應用程式使用者存取您的後端資料。
+* [在您的應用程式中新增驗證功能]
+ <br/>了解如何只讓特定的已註冊應用程式使用者存取您的後端資料。
 
-* [行動服務 .NET 後端疑難排解]<br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
+* [行動服務 .NET 後端疑難排解]
+  <br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started

@@ -22,9 +22,11 @@
 
 2.  在入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 
-3.  在入口網站的下方窗格中，按一下 [建立]。![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  在入口網站的下方窗格中，按一下 [建立]。
+	![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。
+	![](./media/howto-service-bus-queues/sb-queues-04.png)
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署計算資源的相同國家/區域)。
 
@@ -42,11 +44,14 @@
 
 ###從入口網站取得管理認證
 
-1.  在左方瀏覽窗格中，按一下 [**服務匯流排**] 節點，以顯示可用的命名空間清單：![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  在左方瀏覽窗格中，按一下 [**服務匯流排**] 節點，以顯示可用的命名空間清單：
+	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  從顯示的清單中，選取您剛建立的命名空間：![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  從顯示的清單中，選取您剛建立的命名空間：
+	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  按一下 [**連線資訊**]。![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  按一下 [**連線資訊**]。
+	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  在 [**存取連線資訊**] 窗格中，尋找包含 SAS 金鑰和金鑰名稱的連接字串。
 

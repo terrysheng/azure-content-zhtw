@@ -134,7 +134,8 @@ StorSimple 虛擬裝置是在 Microsoft Azure 虛擬機器中單一節點上執�
 
 	4. **虛擬裝置建立的儲存體帳戶** - 在佈建期間用來存放虛擬裝置映像的儲存體帳戶。此儲存體帳戶應該與虛擬裝置和虛擬網路位於相同的區域中。不應讓實體裝置或虛擬裝置用它來儲存資料。根據預設，將基於此用途建立新的儲存體帳戶。不過，如果您知道已經擁有適合此用途的儲存體帳戶，則可從清單中選取該帳戶。
 
-4. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。系統隨即會建立虛擬裝置。建立虛擬機器最多可能需要 45 分鐘至 1 小時。![StorSimple 虛擬裝置建立中階段](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+4. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。系統隨即會建立虛擬裝置。建立虛擬機器最多可能需要 45 分鐘至 1 小時。
+	![StorSimple 虛擬裝置建立中階段](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 若您只使用實體裝置，加密金鑰就會與裝置放在一起。因此，Microsoft 無法將它解密。當您使用虛擬裝置時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。如需詳細資訊，請參閱[使用虛擬裝置的安全性考量](#security-considerations-for-using-a-virtual-device)。
 

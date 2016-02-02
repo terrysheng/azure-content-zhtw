@@ -39,7 +39,7 @@
 
 ## 步驟 1：建立 ARM 範本
 
-在 **C:\\ADFGetStarted** 資料夾中，使用下列內容建立名為 **ADFTutorialARM.json** 的 JSON 檔案：
+在 **C:\ADFGetStarted** 資料夾中，使用下列內容建立名為 **ADFTutorialARM.json** 的 JSON 檔案：
 
 > [AZURE.IMPORTANT] 變更 **storageAccountName** 和 **storageAccountKey** 變數的值。也變更 **dataFactoryName**，因為名稱必須是唯一的。
 
@@ -235,9 +235,11 @@
 
 ## 監視管線
  
-1.	登入 [Azure 入口網站](https://portal.azure.com/)後，按一下 [瀏覽]，然後選取 [Data Factory]。![瀏覽 -> Data Factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	登入 [Azure 入口網站](https://portal.azure.com/)後，按一下 [瀏覽]，然後選取 [Data Factory]。
+	![瀏覽 -> Data Factory](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	在 [Data Factory] 刀鋒視窗中，按一下您建立的 Data Factory (**TutorialFactoryARM**)。	
-2.	在您 Data Factory 的 [Data Factory] 刀鋒視窗中，按一下 [圖表]。![圖表磚](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	在您 Data Factory 的 [Data Factory] 刀鋒視窗中，按一下 [圖表]。
+	![圖表磚](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	在 [圖表檢視] 中，您會看到管線的概觀，以及在本教學課程中使用的資料集。
 	
 	![圖表檢視](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 

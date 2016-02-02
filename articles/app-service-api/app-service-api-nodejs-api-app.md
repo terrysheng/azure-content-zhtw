@@ -130,11 +130,11 @@
 
     執行此命令將會啟動 Node.js HTTP 伺服器並開始為您的 API 提供服務。
 
-1. 當您瀏覽至 ****http://localhost:8000/contacts** 時，您會看見連絡人清單的 JSON 輸出 (或者系統會提示您下載它，視您的瀏覽器而定)。
+1. 當您瀏覽至 **http://localhost:8000/contacts** 時，您會看見連絡人清單的 JSON 輸出 (或者系統會提示您下載它，視您的瀏覽器而定)。
 
     ![所有連絡人 Api 呼叫](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. 當您瀏覽至 ****http://localhost:8000/contacts/2** 時，您會看見該識別碼值所表示的連絡人。
+1. 當您瀏覽至 **http://localhost:8000/contacts/2** 時，您會看見該識別碼值所表示的連絡人。
 
     ![特定連絡人 Api 呼叫](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
@@ -202,7 +202,7 @@
 
         git remote add azure YOUR_GIT_CLONE_URL_HERE
 
-    **注意**：您會想要以稍早複製的 Git 複製 URL 取代上述 "YOUR\_GIT\_CLONE\_URL\_HERE" 字串。
+    **注意**：您會想要以稍早複製的 Git 複製 URL 取代上述 "YOUR_GIT_CLONE_URL_HERE" 字串。
 
 1. 接著，從 Node.js 命令列體驗執行以下兩個命令。
 

@@ -52,6 +52,7 @@
 現在已建立並設定您的中樞，以傳送未經驗證的 Windows Phone 通知。
 
 > [AZURE.NOTE] 本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中樞可讓您上傳憑證，以支援 [MPNS 驗證模式](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)。
+<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
 ##將您的應用程式連接到通知中樞
 
@@ -198,7 +199,7 @@
 <!-- URLs. -->
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
-[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[MPNS 驗證模式]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [使用通知中心來推播通知給使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-windows-phone-send-breaking-news.md
 [快顯目錄]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx

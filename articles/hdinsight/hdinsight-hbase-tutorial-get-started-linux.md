@@ -86,7 +86,9 @@
 
 **使用 HBase Shell**
 
->[AZURE.NOTE] 以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 1.開啟 PuTTY。請參閱文章開頭所列的必要條件。2.如果您在建立期間，於建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
+>[AZURE.NOTE] 以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 
+1.開啟 PuTTY。請參閱文章開頭所列的必要條件。
+2.如果您在建立期間，於建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -201,8 +203,8 @@ HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請�
 
   此命令中使用的參數如下：
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this is a GET request.
+    * **-u** - 用來驗證要求的使用者名稱和密碼。
+    * **-G** - 指出這是 GET 要求。
 
 2. 使用下列命令列出現有的 HBase 資料表：
 
@@ -238,7 +240,7 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 3. 在 [**類別**] 中，按一下 [**工作階段**]。
 4. 從您 PuTTY 工作階段螢幕的基本選項，輸入下列值：
 
-	- **主機名稱**：請在 [主機名稱] (或 [IP 位址]) 欄位中，輸入您 HDInsight 伺服器的 SSH 位址。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，*mycluster-ssh.azurehdinsight.net*。
+	- **主機名稱**：請在 \[主機名稱] (或 [IP 位址]) 欄位中，輸入您 HDInsight 伺服器的 SSH 位址。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，*mycluster-ssh.azurehdinsight.net*。
 	- **連接埠**：22。前端節點 0 上的 ssh 連接埠為 22。  
 5. 在對話方塊左側的 [類別] 區段中，依序展開 [連線] 和 [SSH]，最後按一下 [通道]。
 6. 在 [控制 SSH 連接埠轉送的選項] 表單中提供下列資訊：
@@ -282,7 +284,8 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 若要深入了解，請參閱：
 
-- [HDInsight HBase 概觀][hdinsight-hbase-overview]：HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
+- [HDInsight HBase 概觀][hdinsight-hbase-overview]：
+HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
 
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md

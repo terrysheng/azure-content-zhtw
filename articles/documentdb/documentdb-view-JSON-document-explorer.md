@@ -84,7 +84,7 @@ Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
 
 	![[Document Explorer] 文件屬性檢視的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE] 時間戳記 (\_ts) 屬性在內部會以 Epoch 時間表示，但是 Document Explorer 會以一般人可判讀的 GMT 格式顯示此值。
+	> [AZURE.NOTE] 時間戳記 (_ts) 屬性在內部會以 Epoch 時間表示，但是 Document Explorer 會以一般人可判讀的 GMT 格式顯示此值。
 
 ##<a id="Navigate"></a>文件總管導覽選項以及進階設定##
 

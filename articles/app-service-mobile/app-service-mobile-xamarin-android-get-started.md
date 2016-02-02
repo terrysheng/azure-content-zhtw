@@ -18,7 +18,9 @@
 
 #建立 Xamarin.Android 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
  
 ##概觀
 
@@ -70,7 +72,8 @@
 
 ##後續步驟
 
-* [加入驗證至應用程式](app-service-mobile-xamarin-android-get-started-users.md) <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
+* [加入驗證至應用程式](app-service-mobile-xamarin-android-get-started-users.md) 
+  <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
 
 
 <!-- Images. -->

@@ -80,7 +80,8 @@
 
 	![[部署] 按鈕](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   成功部署連結的服務之後，應該會出現 **Draft-1** 視窗，而且您會在左側的樹狀檢視中看到 **StorageLinkedService**。![功能表中的儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   成功部署連結的服務之後，應該會出現 **Draft-1** 視窗，而且您會在左側的樹狀檢視中看到 **StorageLinkedService**。
+   	![功能表中的儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### 建立 Azure HDInsight 連結服務
@@ -209,7 +210,7 @@
 ## 步驟 4：建立您的第一個管線
 在此步驟中，您將建立第一個具有 **HDInsightHive** 活動的管線。請注意，您每個月都可取得輸入配量資訊 (頻率：每月，間隔：1)，輸出配量則是每用產生，而活動的排程器屬性也設為每用 (如下所示)。輸出資料集設定及活動排程器必須相符。這時，輸出資料集會影響排程，因此即使活動並未產生任何輸出，您都必須建立輸出資料集。如果活動沒有任何輸入，您可以略過建立輸入資料集。本節結尾會說明下列 JSON 中使用的屬性。
 
-1. 在 [Data Factory 編輯器] 中，按一下 [省略符號…]，然後按一下 [新增管線]。
+1. 在 [Data Factory 編輯器] 中，按一下 \[省略符號…]，然後按一下 [新增管線]。
 	
 	![新增管線按鈕](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. 複製下列程式碼片段並貼到 Draft-1 視窗。
@@ -298,11 +299,11 @@
 11. 按一下 **X** 關閉 **AzureBlobInput** 刀鋒視窗。 
 12. 在 [圖表檢視] 中，按兩下 [AzureBlobOutput] 資料集。您會看到目前正在處理的配量。
 
-	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
+	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. 處理完成時，您會看到配量處於 [就緒] 狀態。
 	>[AZURE.IMPORTANT] 建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。  
 
-	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
+	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
 10. 當配量處於**就緒**狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。
  

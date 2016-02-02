@@ -129,7 +129,7 @@ Web 測試可分為兩種：
 
 請注意，您無法在測試中使用編碼的函式：做為 .webtest 檔案中的指令碼必須包含案例步驟。
 
-#### 1\.記錄案例
+#### 1.記錄案例
 
 使用 Visual Studio Enterprise 或 Ultimate 來記錄 Web 工作階段。
 
@@ -160,7 +160,7 @@ Web 測試可分為兩種：
     ![在 Visual Studio 中，開啟 .webtest 檔案，並按一下 [執行]。](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2\.將 Web 測試上傳至 Application Insights
+#### 2.將 Web 測試上傳至 Application Insights
 
 1. 在 Application Insights 入口網站中，建立新的 Web 測試。
 

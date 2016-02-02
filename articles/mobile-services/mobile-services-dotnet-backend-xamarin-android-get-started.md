@@ -23,7 +23,8 @@
 &nbsp;
 
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
 
 >[AZURE.TIP] 如果您是使用 Microsoft Azure 進行行動開發的新手，[請從 Azure Mobile Apps 開始](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md)，而非 Azure 行動服務，因為 Mobile Apps 能讓您擁有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
 
@@ -99,13 +100,17 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [開始使用離線資料同步] <br/>了解快速入門如何使用離線資料同步，讓應用程式更穩健及具備回應力。
+* [開始使用離線資料同步] 
+  <br/>了解快速入門如何使用離線資料同步，讓應用程式更穩健及具備回應力。
 
-* [開始使用驗證] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [開始使用驗證] 
+  <br/>了解如何向身分識別提供者驗證應用程式的使用者。
 
-* [開始使用推播通知] <br/>了解如何將非常基本的推播通知傳送到應用程式。
+* [開始使用推播通知] 
+  <br/>了解如何將非常基本的推播通知傳送到應用程式。
 
-* [行動服務 .NET 後端疑難排解]<br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
+* [行動服務 .NET 後端疑難排解]
+  <br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 

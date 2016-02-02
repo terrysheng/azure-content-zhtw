@@ -22,7 +22,7 @@
 | --------------- |
 | [Logic Apps 定義語言](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
 | [Logic Apps 連接器文件](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
-| [Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurelogicapps) |
+| [Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
 
 本主題只花幾分鐘就能示範如何開始使用 [App Services Logic Apps](app-service-logic-what-are-logic-apps.md)。我們將逐步解說可將一組您感興趣的推文傳送到 Dropbox 資料夾的工作流程。
 
@@ -106,7 +106,7 @@
 
 	![週期性](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-4.  選擇週期性 [頻率] 和 [間隔] (例如每小時一次)，然後按一下綠色核取符號。
+4.  選擇週期性 [頻率] 和 [間隔] \(例如每小時一次)，然後按一下綠色核取符號。
 
 現在，您將把動作加入流程。
 
@@ -163,7 +163,7 @@ Twitter 連接器現在便是工作流程的一部分。
 
 5. 按一下綠色核取符號來儲存連接器設定。
 
-5. 現在設計已完成，請按一下設計工具左上角的 [程式碼檢視]，並注意這是 JSON 程式碼，可用來定義剛剛在設計工具中建立的工作流程。我們將在[下一個主題][Use logic app features]中詳加討論這段程式碼。
+5. 現在設計已完成，請按一下設計工具左上角的 [程式碼檢視]，並注意這是 JSON 程式碼，可用來定義剛剛在設計工具中建立的工作流程。我們將在[下一個主題](Use logic app features)中詳加討論這段程式碼。
 
 6. 按一下畫面底部的 [確定] 按鈕，然後按一下 [建立] 按鈕。
 
@@ -188,4 +188,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

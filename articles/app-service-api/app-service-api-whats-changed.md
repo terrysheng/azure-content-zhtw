@@ -44,7 +44,7 @@ API Apps 更新的主要設計原則是讓您可以使用您選擇的語言，�
 如需新驗證功能的詳細資訊，請參閱 [Azure App Service 中 API Apps 的驗證和授權](app-service-api-authentication.md)。如需如何將現有 API 應用程式從先前的 API 應用程式模型的轉到新模型的詳細資訊，請參閱本文章稍後的[移轉現有的 API 應用程式](#migrating-existing-api-apps)。
  
 ### CORS
-不是以逗號分隔的 **MS\_CrossDomainOrigins** 應用程式設定，現在在 Azure 管理入口網站會有一個刀鋒視窗可供設定 CORS。或者，可以使用資源管理員工具，例如 Azure PowerShell、CLI 或[資源總管](https://resources.azure.com/)來進行設定。在您的 **&lt;site name&gt;/web** 資源的 **Microsoft.Web/sites/config** 資源類型上設定 **cors** 屬性。例如：
+不是以逗號分隔的 **MS_CrossDomainOrigins** 應用程式設定，現在在 Azure 管理入口網站會有一個刀鋒視窗可供設定 CORS。或者，可以使用資源管理員工具，例如 Azure PowerShell、CLI 或[資源總管](https://resources.azure.com/)來進行設定。在您的 **&lt;site name&gt;/web** 資源的 **Microsoft.Web/sites/config** 資源類型上設定 **cors** 屬性。例如：
 
     {
         "cors": {

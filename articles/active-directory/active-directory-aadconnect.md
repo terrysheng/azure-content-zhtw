@@ -36,7 +36,8 @@ Azure AD Connect 是一種工具，用來整合您的內部部署身分識別系
 
 Azure Active Directory Connect 由三個主要部分組成。它們是同步處理服務、選用性 Active Directory Federation Services 部分，以及使用 [Azure AD Connect Health](active-directory-aadconnect-health.md) 所執行的監控部分。
 
-<center>![Azure AD Connect 堆疊](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) </center>
+<center>![Azure AD Connect 堆疊](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) 
+</center>
 
 - 同步處理 - 此組件是由先前發行為 [Dirsync 和 Azure AAD Sync](active-directory-aadconnect-get-started-tools-comparison.md) 的元件和功能所組成。這是負責建立使用者和群組的組件。它也會負責確保您內部部署環境中的使用者和群組資訊和雲端的符合。
 - AD FS - 這是 Azure AD Connect 的選用性組件，而且可以用來使用內部部署 AD FS 基礎結構來設定混合環境。組織可以使用此組件來處理複雜部署，而複雜部署包括網域加入 SSO、AD 登入原則的強制執行以及智慧卡或協力廠商 MFA 這類項目。

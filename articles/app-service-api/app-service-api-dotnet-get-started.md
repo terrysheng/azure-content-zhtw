@@ -388,7 +388,7 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 	![](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-5. 在 ToDoListAPI 專案中，開啟 *Controllers\\ToDoListController.cs*，查看可使用所產生的用戶端呼叫 API 的程式碼。
+5. 在 ToDoListAPI 專案中，開啟 *Controllers\ToDoListController.cs*，查看可使用所產生的用戶端呼叫 API 的程式碼。
 
 	下列程式碼片段示範此程式碼如何具現化用戶端物件和呼叫 Get 方法。
 

@@ -98,7 +98,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]  InstanceCount 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
+>[AZURE.NOTE] *InstanceCount* 的預設值是 2，最大值是 10。 *GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
 
 
  因為尚未啟動閘道，所以 *VirtualIPs* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，將會建立這些項目。

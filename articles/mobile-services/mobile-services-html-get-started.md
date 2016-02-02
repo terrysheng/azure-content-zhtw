@@ -19,7 +19,8 @@
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -68,7 +69,7 @@
 
    	![][6]
 
-   	This displays the three easy steps to create and host an HTML app connected to your mobile service.
+   	這將顯示三個簡單步驟，可用來建立和主控連接到您行動服務的 HTML 應用程式。
 
   	![][7]
 
@@ -119,9 +120,11 @@
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* **[在您的應用程式中新增驗證功能]** 了解如何利用身分識別提供者來驗證您應用程式的使用者。
+* **[在您的應用程式中新增驗證功能]** 
+   了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
-* **[行動服務 HTML/JavaScript 作法概念參考]**深入了解如何搭配使用行動服務與 HTML/JavaScript
+* **[行動服務 HTML/JavaScript 作法概念參考]**
+   深入了解如何搭配使用行動服務與 HTML/JavaScript
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]

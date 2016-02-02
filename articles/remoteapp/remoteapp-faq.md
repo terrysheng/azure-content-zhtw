@@ -64,7 +64,8 @@
 ## 用戶端 - 我可以使用哪個裝置來存取 Azure RemoteApp？
 您可於[在 Azure RemoteApp 中存取您的 App](remoteapp-clients.md) 中找到有用的用戶端資訊，包括安裝不同用戶端的步驟。
 
-- **用戶端應用程式支援哪些裝置和作業系統？** 首先，電腦和平板電腦： 
+- **用戶端應用程式支援哪些裝置和作業系統？** 
+首先，電腦和平板電腦： 
 	- Windows 10 (用戶端預覽版)
 	- Windows 8.1 和 Windows 8
 	- Windows 7 Service Pack 1

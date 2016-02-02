@@ -289,7 +289,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
     var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
         "SELECT * " +
         "FROM Families f " +
-        "WHERE f.id = "AndersenFamily"");
+        "WHERE f.id = \"AndersenFamily\"");
 
     foreach (var family in families)
     {
@@ -376,7 +376,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
+	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
 	  "_attachments": "attachments/"
 	} from SQL
 	Read {
@@ -414,7 +414,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
+	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
 	  "_attachments": "attachments/"
 	} from LINQ
 	Read {
@@ -452,7 +452,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
+	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
 	  "_attachments": "attachments/"
 	} from LINQ query
 

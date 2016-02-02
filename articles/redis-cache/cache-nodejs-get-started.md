@@ -31,11 +31,11 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 
 ## 必要條件
 
-安裝 [node\_redis](https://github.com/mranney/node_redis)：
+安裝 [node_redis](https://github.com/mranney/node_redis)：
 
     npm install redis
 
-本教學課程使用 [node\_redis](https://github.com/mranney/node_redis)，但是您可以使用列在 [http://redis.io/clients](http://redis.io/clients) 的任何 Node.js 用戶端。
+本教學課程使用 [node_redis](https://github.com/mranney/node_redis)，但是您可以使用列在 [http://redis.io/clients](http://redis.io/clients) 的任何 Node.js 用戶端。
 
 ## 在 Azure 上建立 Redis 快取
 

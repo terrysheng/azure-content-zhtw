@@ -55,7 +55,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。例如：
 
-* 在 ASP.NET MVC 專案中，可放在 View\\Shared\\_Layout.cshtml 中
+* 在 ASP.NET MVC 專案中，可放在 View\Shared\\_Layout.cshtml 中
 * 在 SharePoint 網站中，在控制台中開啟[站台設定/主要頁面](app-insights-sharepoint.md)。
 
 指令碼包含檢測金鑰，會將資料導向您的 Application Insights 資源。

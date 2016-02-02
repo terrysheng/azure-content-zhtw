@@ -73,7 +73,7 @@
 ### 建立 Azure 儲存體連結服務
 在此步驟中，您將您的 Azure 儲存體帳戶連結到您的 Data Factory。在本教學課程中，您會使用相同的 Azure 儲存體帳戶來存放輸入/輸出資料及 HQL 指令碼檔案。
 
-1. 在 C:\\ADFGetStarted 資料夾中，使用以下內容建立名為 StorageLinkedService.json 的 JSON 檔案。如果不存在，請建立 ADFGetStarted 資料夾。
+1. 在 C:\ADFGetStarted 資料夾中，使用以下內容建立名為 StorageLinkedService.json 的 JSON 檔案。如果不存在，請建立 ADFGetStarted 資料夾。
 
 		{
 	    	"name": "StorageLinkedService",
@@ -106,7 +106,7 @@
 ### 建立 Azure HDInsight 連結服務
 在此步驟中，您會將隨選 HDInsight 叢集與您的 Data Factory 連結。HDInsight 叢集會在執行階段自動建立，並在處理完成之後刪除，且會閒置一段時間。您可以使用自己的 HDInsight 叢集，不必使用隨選的 HDInsight 叢集。請參閱[計算連結服務](data-factory-compute-linked-services.md)以取得詳細資料。
 
-1. 在 **C:\\ADFGetStarted** 資料夾中，使用以下內容建立名為 **HDInsightOnDemandLinkedService**.json 的 JSON 檔案。
+1. 在 **C:\ADFGetStarted** 資料夾中，使用以下內容建立名為 **HDInsightOnDemandLinkedService**.json 的 JSON 檔案。
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -148,7 +148,7 @@
 在此步驟中，您將建立資料集來代表 Hive 處理的輸入和輸出資料。這些資料集是您稍早在本教學課程中建立的 **StorageLinkedService**。連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。
 
 ### 建立輸入資料集
-1. 在 **C:\\ADFGetStarted** 資料夾中，使用下列內容建立名為 **InputTable.json** 的 JSON 檔案：
+1. 在 **C:\ADFGetStarted** 資料夾中，使用下列內容建立名為 **InputTable.json** 的 JSON 檔案：
 
 		{
 			"name": "AzureBlobInput",
@@ -193,7 +193,7 @@
 ### 建立輸出資料集
 現在，您將建立輸出資料集來代表 Azure Blob 儲存體中儲存的輸出資料。
 
-1. 在 **C:\\ADFGetStarted** 資料夾中，使用下列內容建立名為 **OutputTable.json** 的 JSON 檔案：
+1. 在 **C:\ADFGetStarted** 資料夾中，使用下列內容建立名為 **OutputTable.json** 的 JSON 檔案：
 
 		{
 		  "name": "AzureBlobOutput",
@@ -224,7 +224,7 @@
 在此步驟中，您將建立第一個具有 **HDInsightHive** 活動的管線。請注意，您每個月都可取得輸入配量資訊 (頻率：每月，間隔：1)，輸出配量則是每用產生，而活動的排程器屬性也設為每用 (如下所示)。輸出資料集設定及活動排程器必須相符。這時，輸出資料集會影響排程，因此即使活動並未產生任何輸出，您都必須建立輸出資料集。如果活動沒有任何輸入，您可以略過建立輸入資料集。本節結尾會說明下列 JSON 中使用的屬性。
 
 
-1. 在 C:\\ADFGetStarted 資料夾中，使用下列內容建立名為 MyFirstPipelinePSH.json 的 JSON 檔案：
+1. 在 C:\ADFGetStarted 資料夾中，使用下列內容建立名為 MyFirstPipelinePSH.json 的 JSON 檔案：
 
 	> [AZURE.IMPORTANT] 在 JSON 中使用您的儲存體帳戶名稱取代 **storageaccountname**。
 		

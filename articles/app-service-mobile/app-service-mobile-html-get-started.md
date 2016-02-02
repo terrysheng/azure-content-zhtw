@@ -19,7 +19,9 @@
 
 #建立 HTML 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
+&nbsp;  
+<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
 >[AZURE.IMPORTANT] Mobile Apps 目前不支援本主題，因為 HTML/JavaScript 應用程式的快速入門已暫時從 Azure 入口網站移除。我們計劃在不久的將來將它加回來。感謝您耐心配合。
 
@@ -71,7 +73,7 @@
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
 
-2. 開啟 App\_Start/Startup.MobileApp.cs 專案檔案，然後新增下列 using 陳述式：
+2. 開啟 App_Start/Startup.MobileApp.cs 專案檔案，然後新增下列 using 陳述式：
 
 		using System.Web.Http.Cors;
 

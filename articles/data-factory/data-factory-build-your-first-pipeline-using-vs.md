@@ -261,7 +261,7 @@
 ### 將 partitionweblogs.hql 新增為相依性 
 
 1. 以滑鼠右鍵按一下 [方案總管] 視窗中的 [相依性]，指向 [加入]，按一下 [現有項目]。  
-2. 瀏覽至 **C:\\ADFGettingStarted**、選取 [partitionweblogs.hql] 及 [input.log] 檔案，然後按一下 [加入]。您已建立兩個檔案，做為一部分的[教學課程概觀](data-factory-build-your-first-pipeline.md)必要條件。
+2. 瀏覽至 **C:\ADFGettingStarted**、選取 [partitionweblogs.hql] 及 [input.log] 檔案，然後按一下 [加入]。您已建立兩個檔案，做為一部分的[教學課程概觀](data-factory-build-your-first-pipeline.md)必要條件。
 
 當您在下一個步驟中發佈方案時，已將 **partitionweblogs.hql** 檔案上傳到 Blob 儲存體 **adfgetstarted** 中的指令碼資料夾。
 
@@ -291,7 +291,8 @@
 ## 步驟 4：監視管線
 
 6. 登入 [Azure 入口網站](https://portal.azure.com/)，執行下列動作。
-	1. 按一下 [瀏覽]，選取 [資料處理站]。![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. 按一下 [瀏覽]，選取 [資料處理站]。
+		![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 從 Data Factory 清單中選取 **FirstDataFactoryUsingVS**。 
 7. 在您 Data Factory 的首頁中，按一下 [圖表]。
   
